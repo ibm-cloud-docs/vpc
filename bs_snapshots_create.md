@@ -2,7 +2,7 @@
 
 copyright:
   years: 2021, 2025
-lastupdated: "2025-01-22"
+lastupdated: "2025-02-18"
 
 keywords: snapshots, Block Storage, snapshot clone, remote copy, fast restore, Block Storage snapshot, cross-regional snapshot
 
@@ -253,42 +253,41 @@ If the source snapshot is not encrypted with a customer key, the encryption of t
 The following example creates a snapshot in the target region (`us-south`) by using the CRN of a snapshot from the source region (`us-east`).
 
 ```sh
-ibmcloud is snapshot-create --name my-cli-snapshot-crc --source-snapshot-crn crn:v1:bluemix:public:is:us-south:a/a1234567::snapshot:r006-b9590a48-63a3-445e-b819-3f2c0b82daf8
-
+$ ibmcloud is snapshot-create --name my-cli-snapshot-crc --source-snapshot-crn crn:v1:bluemix:public:is:us-east:a/a1234567::snapshot:r014-14aae86e-f03d-4978-a4da-ab02e69bb2f9
 Creating snapshot my-cli-snapshot-crc under account Test Account as user test.user@ibm.com...
-
-ID                     r142-bd4532c0-e73c-44f9-a017-89e5368c521a
-Name                   my-cli-snapshot-crc
-CRN                    crn:v1:bluemix:public:is:us-east:a/a1234567::snapshot:r142-bd4532c0-e73c-44f9-a017-89e5368c521a
-Status                 pending
-Clones                 Zone   Available   Created
-
-Source volume          ID                                          Name                   Remote Region
-                       r006-be21061a-4dc6-4c9f-b17d-421838fde399   -remote-421838fde399   us-south
-
-Snapshot Copies        ID   Name   Remote Region   CRN   Resource type
-
-Bootable               true
-Encryption             provider_managed
-Encryption key         -
-Source Snapshot        ID                                          Name                   Remote Region   CRN                                                                                                                        Resource type
-                       r006-b9590a48-63a3-445e-b819-3f2c0b82daf8   cli-snap-crc-test-sn   us-south        crn:v1:bluemix:public:is:us-south:a/a1234567::snapshot:r006-b9590a48-63a3-445e-b819-3f2c0b82daf8   snapshot
-
-Minimum capacity(GB)   100
-Size(GB)               1
-Source Image           ID                                          Name                   Remote Region
-                       r006-24d856e2-6aec-41c2-8f36-5a8a3766f0d6   -remote-5a8a3766f0d6   us-south
-
-Operating system       Name             Vendor   Version                 Family   Architecture   Display name
-                       centos-7-amd64   CentOS   7.x - Minimal Install   CentOS   amd64          CentOS 7.x - Minimal Install (amd64)
-
-Resource group         ID                                 Name
-                       cdc21b72d4e647b195de988b175e3d82   Default
-
-Created                2023-04-24T18:54:29+05:30
-Captured at            2023-04-24T09:48:03+05:30
-Tags                   -
-Service Tags           -
+                          
+ID                     r006-daefc524-2643-4444-a22d-7c38144cc529   
+Name                   my-cli-snapshot-crc   
+CRN                    crn:v1:bluemix:public:is:us-south:a/a1234567::snapshot:r006-daefc524-2643-4444-a22d-7c38144cc529   
+Status                 stable   
+Clones                 Zone   Available   Created      
+                          
+Source volume          ID                                          Name                   Remote Region   CRN                                                                                                                       Resource type      
+                       r014-26fce2ff-8177-47ce-8182-49d8aed33063   -remote-49d8aed33063   us-east         crn:v1:bluemix:public:is:us-east-1:a/a1234567::volume:r014-26fce2ff-8177-47ce-8182-49d8aed33063   volume      
+                          
+Backup policy plan     -   
+Snapshot Copies        -   
+Bootable               true   
+Encryption             provider_managed   
+Encryption key         -   
+Source Snapshot        ID                                          Name                   Remote Region   CRN                                                                                                                       Resource type      
+                       r014-14aae86e-f03d-4978-a4da-ab02e69bb2f9   my-bootable-snapshot   us-east         crn:v1:bluemix:public:is:us-east:a/a1234567::snapshot:r014-14aae86e-f03d-4978-a4da-ab02e69bb2f9   snapshot      
+                          
+Minimum capacity(GB)   100   
+Size(GB)               3   
+Source Image           ID                                          Name                   Remote Region   CRN                                                                                                                    Resource type      
+                       r014-da69503f-30d4-4f1d-b03f-1f4a7cd29214   -remote-1f4a7cd29214   us-east         crn:v1:bluemix:public:is:us-east:a/811f8abfbd32425597dc7ba40da98fa6::image:r014-da69503f-30d4-4f1d-b03f-1f4a7cd29214   image      
+                          
+Operating system       Name                    Vendor   Version   Family          Architecture   Display name      
+                       centos-stream-9-amd64   CentOS   9         CentOS Stream   amd64          CentOS Stream 9 - Minimal Install (amd64)      
+                          
+Resource group         ID                                 Name      
+                       6edefe513d934fdd872e78ee6a8e73ef   defaults      
+                          
+Created                2025-01-21T21:27:30+00:00   
+Captured at            2025-01-21T21:17:14+00:00   
+Tags                   -   
+Service Tags           -   
 ```
 {: codeblock}
 
@@ -317,12 +316,12 @@ To create a snapshot of a boot or data volume, make a `POST /snapshots`. The fol
 
 ```sh
 curl -X POST \
-"$vpc_api_endpoint/v1/snapshots?version=2022-12-12&generation=2" \
+"$vpc_api_endpoint/v1/snapshots?version=2025-02-18&generation=2" \
 -H "Authorization: $iam_token" \
 -d '{
-      "name": "boot-snapshot-1",
-      "source_volume": {"id": "8948ad59-bc0f-7510-812f-5dc64f59fab8"},
-      "resource_group": {"id": "a342dbfb-3ea7-48d1-96e8-2825ec5feab4"},
+      "name": "my-bootable-snapshot",
+      "source_volume": {"id": "r014-26fce2ff-8177-47ce-8182-49d8aed33063"},
+      "resource_group": {"id": "6edefe513d934fdd872e78ee6a8e73ef"},
       "user_tags": ["env:test","env:prod"]
     }'
 ```
@@ -333,59 +332,54 @@ A successful response looks like the following example. The snapshot lifecycle s
 
 ```json
 {
-  "bootable": true,
-  "clones": [],
-  "created_at": "2022-12-12T20:18:18Z",
-  "crn": "crn:[...]",
-  "deletable": false,
-  "encryption": "user_managed",
-  "encryption_key": {
-    "crn": "crn:[...]"
-  },
-  "href": "https://us-south.iaas.cloud.ibm.com/v1/snapshots/12917904-3771-424d-8391-53ec9e305d52",
-  "id": "12917904-3771-424d-8391-53ec9e305d52",
-  "lifecycle_state": "pending",
-  "minimum_capacity": 100,
-  "name": "boot-snapshot1",
-  "operating_system": {
-    "architecture": "amd64",
-    "dedicated_host_only": false,
-    "display_name": "Ubuntu Linux&reg; 20.04 LTS Focal Fossa Minimal Install (amd64)",
-    "family": "Ubuntu Linux",
-    "gpu_supported": [],
-    "href": "https://us-south.iaas.cloud.ibm.com/v1/operating_systems/ubuntu-20-04-amd64",
-    "name": "ubuntu-20-04-amd64",
-    "resource_type": "operating_system",
-    "vendor": "Canonical",
-    "version": "20.04 LTS Focal Fossa Minimal Install"
-  },
-  "resource_group": {
-    "crn": "crn:[...]",
-    "href": "https://resource-controller.cloud.ibm.com/v2/resource_groups/a342dbfb-3ea7-48d1-96e8-2825ec5feab4",
-    "id": "a342dbfb-3ea7-48d1-96e8-2825ec5feab4",
-    "name": "Default"
-  },
-  "resource_type": "snapshot",
-  "service_tags": [],
-  "size": 1,
-  "source_image": {
-    "crn": "crn:[...]",
-    "href": "https://us-south.iaas.cloud.ibm.com/v1/images/5e9c6b3c-c8e4-4c14-a6d7-08c1395d9905",
-    "id": "5e9c6b3c-c8e4-4c14-a6d7-08c1395d9905",
-    "name": "ibm-ubuntu-20-04-minimal-amd64-1",
-    "resource_type": "image"
-  },
-  "source_volume": {
-    "crn": "crn:[...]",
-    "href": "https://us-south.iaas.cloud.ibm.com/v1/volumes/8948ad59-bc0f-7510-812f-5dc64f59fab8",
-    "id": "8948ad59-bc0f-7510-812f-5dc64f59fab8",
-    "name": "my-instance-data",
-    "resource_type": "volume"
-  },
-  "user_tags": [
-    "env:test",
-    "env:prod"
-  ]
+    "bootable": true,
+    "captured_at": "2025-01-21T21:17:14.000Z",
+    "clones": [],
+    "copies": [],
+    "created_at": "2025-01-21T21:17:13.000Z",
+    "crn": "crn:v1:bluemix:public:is:us-east:a/a1234567::snapshot:r014-14aae86e-f03d-4978-a4da-ab02e69bb2f9",
+    "deletable": true,
+    "encryption": "provider_managed",
+    "href": "https://us-east.iaas.cloud.ibm.com/v1/snapshots/r014-14aae86e-f03d-4978-a4da-ab02e69bb2f9",
+    "id": "r014-14aae86e-f03d-4978-a4da-ab02e69bb2f9",
+    "lifecycle_state": "stable",
+    "minimum_capacity": 100,
+    "name": "my-bootable-snapshot",
+    "operating_system": {
+        "allow_user_image_creation": true,
+        "architecture": "amd64",
+        "dedicated_host_only": false,
+        "display_name": "CentOS Stream 9 - Minimal Install (amd64)",
+        "family": "CentOS Stream",
+        "href": "https://us-east.iaas.cloud.ibm.com/v1/operating_systems/centos-stream-9-amd64",
+        "name": "centos-stream-9-amd64",
+        "user_data_format": "cloud_init",
+        "vendor": "CentOS",
+        "version": "9"
+    },
+    "resource_group": {
+        "href": "https://resource-controller.cloud.ibm.com/v2/resource_groups/6edefe513d934fdd872e78ee6a8e73ef",
+        "id": "6edefe513d934fdd872e78ee6a8e73ef",
+        "name": "defaults"
+    },
+    "resource_type": "snapshot",
+    "service_tags": [],
+    "size": 2,
+    "source_image": {
+        "crn": "crn:v1:bluemix:public:is:us-east:a/a1234567:image:r014-da69503f-30d4-4f1d-b03f-1f4a7cd29214",
+        "href": "https://us-east.iaas.cloud.ibm.com/v1/images/r014-da69503f-30d4-4f1d-b03f-1f4a7cd29214",
+        "id": "r014-da69503f-30d4-4f1d-b03f-1f4a7cd29214",
+        "name": "ibm-centos-stream-9-amd64-9",
+        "resource_type": "image"
+    },
+    "source_volume": {
+        "crn": "crn:v1:bluemix:public:is:us-east-1:a/a1234567::volume:r014-26fce2ff-8177-47ce-8182-49d8aed33063",
+        "href": "https://us-east.iaas.cloud.ibm.com/v1/volumes/r014-26fce2ff-8177-47ce-8182-49d8aed33063",
+        "id": "r014-26fce2ff-8177-47ce-8182-49d8aed33063",
+        "name": "my-test-vm-boot-1",
+        "resource_type": "volume"
+    },
+    "user_tags": ["env:test","env:prod"]
 }
 ```
 {: codeblock}
@@ -463,12 +457,12 @@ curl -X POST \
 "$vpc_api_endpoint/v1/snapshots?version=2023-05-10&generation=2" \
 -H "Authorization: $iam_token" \
 -d '{
-     "name": "my-snapshot",    // required
+     "name": "my-api-snapshot-crc",    // required
      "source_snapshot": {      // required
-      	"crn": "crn:[...]"
+      	"crn": "crn:[crn:v1:bluemix:public:is:us-south:a/a1234567::snapshot:r006-daefc524-2643-4444-a22d-7c38144cc529]"
      },
      "resource_group": {       // optional
-       "id": "2d1bb5a8-40a8-447a-acf7-0eadc8aeb054"
+       "id": "6edefe513d934fdd872e78ee6a8e73ef"
      },
      "encryption_key"; "crn:[...]"     // required when source has customer-managed encryption
 }
@@ -479,73 +473,79 @@ A successful response indicates that the snapshot copy was created in the target
 
 ```json
 {
-   "created_at": "2023-05-10T20:18:18Z",
-   "deletable": false,
-   "encryption": "user_managed",
-   "encryption_key": {
-     "crn": "crn:[...]"
-   },
-   "href": "https://us-east.iaas.cloud.ibm.com/v1/snapshots/r139-f6bfa329-0e36-433f-a3bb-0df632e79263",
-   "id": "r139-f6bfa329-0e36-433f-a3bb-0df632e79263",
-   "lifecycle_state": "pending",
-   "minimum_capacity": 100,
-   "name": "my-snapshot",
-   "operating_system": {
-     "architecture": "amd64",
-     "dedicated_host_only": false,
-     "display_name": "Ubuntu Linux 20.04 LTS Focal Fossa Minimal Install (amd64)",
-     "family": "Ubuntu Linux",
-     "gpu_supported": [],
-     "href": "https://us-south.iaas.cloud.ibm.com/v1/operating_systems/ubuntu-20-04-amd64",
-     "name": "ubuntu-20-04-amd64",
-     "vendor": "Canonical",
-     "version": "20.04 LTS Focal Fossa Minimal Install"
-   },
-   "resource_group": {
-     "href": "https://resource-controller.cloud.ibm.com/v2/resource_groups/678523bcbe2b4eada913d32640909956",
-     "id": "678523bcbe2b4eada913d32640909956",
-     "name": "Default"
-   },
-   "resource_type": "snapshot",
-   "service_tags": [],
-   "size": 1,
-   "source_image": {
-     "crn": "crn:[...]",
-     "remote": {
-     	"region": {
-     	   "name": "us-south",
-     	   "hfef": "https://us-east.iaas.cloud.ibm.com/v1/regions/us-south"
-     	}
-    }
-    "href": "https://us-south.iaas.cloud.ibm.com/v1/images/r006-32045dc2-b463-4cda-b424-bc3dcf51dfbb",
-    "id": "r006-32045dc2-b463-4cda-b424-bc3dcf51dfbb",
-    "name": "ibm-ubuntu-20-04-minimal-amd64-1"
-   },
-   "source_snapshot": {
-     "crn": "crn:[...]",
-     "remote": {
-     	"region": {
-     	   "name": "us-south",
-     	   "hfef": "https://us-east.iaas.cloud.ibm.com/v1/regions/us-south"
-     	}
-    }
-     "href": "https://us-south.iaas.cloud.ibm.com/v1/snapshots/r006-511a798c-5816-4082-8ecb-554a440f83de",
-     "id": "r006-511a798c-5816-4082-8ecb-554a440f83de",
-     "name": "my-snapshot-data"
-   },
-   "source_volume": {
-     "crn": "crn:[...]",
-     "remote": {
-     	"region": {
-     	   "name": "us-south",
-     	   "hfef": "https://us-east.iaas.cloud.ibm.com/v1/regions/us-south"
-     	}
-     },
-     "href": "https://us-south.iaas.cloud.ibm.com/v1/volumes/r006-411a798c-5816-4082-8ecb-554a440f83de",
-     "id": "r006-411a798c-5816-4082-8ecb-554a440f83de",
-     "name": "my-instance-data"
-   },
-   "user_tags": []
+    "bootable": true,
+    "captured_at": "2025-01-21T21:17:14.000Z",
+    "clones": [],
+    "copies": [],
+    "created_at": "2025-01-21T21:27:30.000Z",
+    "crn": "crn:v1:bluemix:public:is:us-south:a/a1234567::snapshot:r006-daefc524-2643-4444-a22d-7c38144cc529",
+    "deletable": true,
+    "encryption": "provider_managed",
+    "href": "https://us-south.iaas.cloud.ibm.com/v1/snapshots/r006-daefc524-2643-4444-a22d-7c38144cc529",
+    "id": "r006-daefc524-2643-4444-a22d-7c38144cc529",
+    "lifecycle_state": "stable",
+    "minimum_capacity": 100,
+    "name": "my-api-snapshot-crc",
+    "operating_system": {
+        "allow_user_image_creation": true,
+        "architecture": "amd64",
+        "dedicated_host_only": false,
+        "display_name": "CentOS Stream 9 - Minimal Install (amd64)",
+        "family": "CentOS Stream",
+        "href": "https://us-east.iaas.cloud.ibm.com/v1/operating_systems/centos-stream-9-amd64",
+        "name": "centos-stream-9-amd64",
+        "user_data_format": "cloud_init",
+        "vendor": "CentOS",
+        "version": "9"
+    },
+    "resource_group": {
+        "href": "https://resource-controller.cloud.ibm.com/v2/resource_groups/6edefe513d934fdd872e78ee6a8e73ef",
+        "id": "6edefe513d934fdd872e78ee6a8e73ef",
+        "name": "defaults"
+    },
+    "resource_type": "snapshot",
+    "service_tags": [],
+    "size": 3,
+    "source_image": {
+        "crn": "crn:v1:bluemix:public:is:us-east:a/811f8abfbd32425597dc7ba40da98fa6::image:r014-da69503f-30d4-4f1d-b03f-1f4a7cd29214",
+        "href": "https://us-east.iaas.cloud.ibm.com/v1/images/r014-da69503f-30d4-4f1d-b03f-1f4a7cd29214",
+        "id": "r014-da69503f-30d4-4f1d-b03f-1f4a7cd29214",
+        "name": "-remote-1f4a7cd29214",
+        "remote": {
+            "region": {
+                "href": "https://us-south.iaas.cloud.ibm.com/v1/regions/us-east",
+                "name": "us-east"
+            }
+        },
+        "resource_type": "image"
+    },
+    "source_snapshot": {
+        "crn": "crn:v1:bluemix:public:is:us-east:a/a1234567::snapshot:r014-14aae86e-f03d-4978-a4da-ab02e69bb2f9",
+        "href": "https://us-east.iaas.cloud.ibm.com/v1/snapshots/r014-14aae86e-f03d-4978-a4da-ab02e69bb2f9",
+        "id": "r014-14aae86e-f03d-4978-a4da-ab02e69bb2f9",
+        "name": "my-bootable-snapshot",
+        "remote": {
+            "region": {
+                "href": "https://us-south.iaas.cloud.ibm.com/v1/regions/us-east",
+                "name": "us-east"
+            }
+        },
+        "resource_type": "snapshot"
+    },
+    "source_volume": {
+        "crn": "crn:v1:bluemix:public:is:us-east-1:a/a1234567::volume:r014-26fce2ff-8177-47ce-8182-49d8aed33063",
+        "href": "https://us-east.iaas.cloud.ibm.com/v1/volumes/r014-26fce2ff-8177-47ce-8182-49d8aed33063",
+        "id": "r014-26fce2ff-8177-47ce-8182-49d8aed33063",
+        "name": "-remote-49d8aed33063",
+        "remote": {
+            "region": {
+                "href": "https://us-south.iaas.cloud.ibm.com/v1/regions/us-east",
+                "name": "us-east"
+            }
+        },
+        "resource_type": "volume"
+    },
+    "user_tags": []
 }
 ```
 {: screen}
