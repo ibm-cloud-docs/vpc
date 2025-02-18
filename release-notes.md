@@ -31,8 +31,6 @@ For more information about changes to the {{site.data.keyword.vpc_short}} comman
 {: #vpc-feb1825}
 {: release-note}
 
-
-
 Mount Helper utility - new region values
 :   After you install the Mount Helper on your virtual server instance, you must specify the region where you want to use the utility to mount file shares. The accepted values for the region are changed to match the VPC region names. The old values are still accepted on existing instances. For more information, see the [IBM Cloud File Share Mount Helper utility](/docs/vpc?topic=vpc-fs-mount-helper-utility).
 
