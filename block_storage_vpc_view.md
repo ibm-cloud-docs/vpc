@@ -2,7 +2,7 @@
 
 copyright:
   years: 2019, 2025
-lastupdated: "2025-02-14"
+lastupdated: "2025-02-18"
 
 keywords:
 
@@ -226,8 +226,9 @@ Volume Attachment Instance Reference   Attachment type   Instance ID            
 Active                                 true
 Adjustable Capacity States             attached
 Adjustable IOPS States                     
-Busy                                   false
-Tags                                   -
+Busy                                   false   
+Tags                                   -  
+Storage Generation                     1
 ```
 {: screen}
 
@@ -292,6 +293,7 @@ A successful response looks like the following example. This example shows three
     },
     "status": "available",
     "status_reasons": [],
+    "storage_generation": 1,
     "adjustable_capacity_states": [
         "attached"
     ],
@@ -351,6 +353,7 @@ A successful response looks like the following example. This example shows three
     },
     "status": "available",
     "status_reasons": [],
+    "storage_generation": 1,
     "adjustable_capacity_states": [
         "attached"
     ],
@@ -408,6 +411,7 @@ A successful response looks like the following example. This example shows three
     },
     "status": "available",
     "status_reasons": [],
+    "storage_generation": 1,
     "adjustable_capacity_states": [
         "attached"
     ],
@@ -461,6 +465,7 @@ A successful response provides details of the volume, including capacity and IOP
   },
   "status": "available",
   "status_reasons": [],
+  "storage_generation": 1,
   "user_tags": [],
   "volume_attachments": [
     {

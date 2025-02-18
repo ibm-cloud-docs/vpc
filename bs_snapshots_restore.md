@@ -2,7 +2,7 @@
 
 copyright:
   years: 2021, 2025
-lastupdated: "2025-01-29"
+lastupdated: "2025-02-18"
 
 keywords:
 
@@ -25,7 +25,7 @@ Restoring a volume from a snapshot creates a boot or data volume, depending on w
 
    * Restoring from a **bootable** snapshot creates a boot volume that you can use to start a virtual server instance. The boot volume uses a general-purpose profile and is limited to 250 GB.
 
-   * A new data volume that was created from **nonbootable** snapshot inherits its properties from the original volume, such as [profile](/docs/vpc?topic=vpc-block-storage-profiles), capacity, data, and metadata. If the source volume used [customer-managed encryption](/docs/vpc?topic=vpc-vpc-encryption-about#vpc-customer-managed-encryption), the volume inherits that encryption with the original customer root key (CRK). However, you can specify a larger volume size, a different profile, and a different CRK if you prefer.
+   * A new data volume that was created from **nonbootable** snapshot inherits its properties from the original volume, such as [profile](/docs/vpc?topic=vpc-block-storage-profiles), capacity, storage generation, data, and metadata. If the source volume used [customer-managed encryption](/docs/vpc?topic=vpc-vpc-encryption-about#vpc-customer-managed-encryption), the volume inherits that encryption with the original customer root key (CRK). However, you can specify a larger volume size, a different profile of the same storage generation, and a different CRK if you prefer.
 
 You can restore volumes from a manually created snapshot or from a snapshot that was created by a backup policy. This type of snapshot is called a backup. For more information, see [Restoring a volume from a backup snapshot](/docs/vpc?topic=vpc-baas-vpc-restore).
 
@@ -350,6 +350,8 @@ You can programmatically restore a volume during instance provisioning by callin
 Before you begin, gather information about the snapshot or snapshots that you want to use to restore a volume or volumes.
    - If you want to restore a volume from a single snapshot, locate the snapshot first and view its details. You can use the API to [list all the snapshots of an account in a region](/apidocs/vpc/latest#list-snapshots){: external} and select from the list. Then, [retrieve the snapshot](/apidocs/vpc/latest#get-snapshot){: external} details. If you want to restore a volume from a snapshot of another account, contact the snapshot's owner for the CRN of the snapshot.
    - If you want to restore an instance by restoring multiple volumes from a consistency group, you need to gather information about the snapshots in the consistency group. [List all the consistency groups in the region](/apidocs/vpc/latest#list-snapshot-consistency-groups){: external}. Then, take the ID of the consistency group that you want to restore and use it to [retrieve the snapshot consistency group](/apidocs/vpc/latest#get-snapshot-consistency-group){: external} details.
+
+A snapshot whose `storage_generation` property value is 1 can be used only to create a block storage volume with the same `storage_generation` value. When you create a volume from a snapshot, the `storage_generation` values of the snapshot and the selected volume profile must match.
 
 ### Creating a boot volume when you provision an instance with the API
 {: #snapshots-vpc-restore-boot-api}

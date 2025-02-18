@@ -31,6 +31,9 @@ For more information about changes to the {{site.data.keyword.vpc_short}} comman
 {: #vpc-feb1825}
 {: release-note}
 
+Storage_generation API property
+:   An informational API property is introduced for Block Storage volume profiles, volumes, and snapshots to help identify which storage generation the volumes and snapshots belong to. When you [create a volume](/apidocs/vpc/latest#create-volume), it inherits the generation value from the volume profile that is selected. When you [create a snapshot](/apidocs/vpc/latest#create-snapshot) of a block volume, the snapshot inherits the `storage_generation` from the `source_volume`. Similarly, when a volume is created from a snapshot, it inherits the `storage_generation` value from the snapshot. For more information, see [Viewing available volume profiles](/docs/vpc?topic=vpc-block-storage-profiles&interface=api#using-api-iops-profiles).
+
 Mount Helper utility - new region values
 :   After you install the Mount Helper on your virtual server instance, you must specify the region where you want to use the utility to mount file shares. The accepted values for the region are changed to match the VPC region names. The old values are still accepted on existing instances. For more information, see the [IBM Cloud File Share Mount Helper utility](/docs/vpc?topic=vpc-fs-mount-helper-utility).
 

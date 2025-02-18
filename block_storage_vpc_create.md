@@ -2,7 +2,7 @@
 
 copyright:
   years: 2019, 2025
-lastupdated: "2025-01-29"
+lastupdated: "2025-02-18"
 
 keywords: vpc Block Storage, provision Block Storage for vpc, bootable snapshots, create volume from snapshot, fast restore
 
@@ -188,6 +188,7 @@ Volume Attachment Instance Reference   -
 Active                                 false   
 Busy                                   false   
 Tags                                   env:test,env:prod 
+Storage Generation                     1
 ```
 {: screen}
 
@@ -237,6 +238,7 @@ Volume Attachment Instance Reference   -
 Active                                 false
 Busy                                   false   
 Tags                                   - 
+Storage Generation                     1
 ```
 {: screen}
 
@@ -270,6 +272,7 @@ Volume Attachment Instance Reference   -
 Active                                 false
 Busy                                   false
 Tags                                   -
+Storage Generation                     1
 ```
 {: screen}
 
@@ -429,6 +432,7 @@ curl -X POST "$vpc_api_endpoint/v1/instances?version=2022-06-14&generation=2" -H
       "encryption_key": {"crn": "crn:[...]"},
       "name": "my-boot-volume",
       "profile": {"name": "general-purpose"},
+      "storage_generation": 1,
       "user_tags": {"env:test","env:prod"}}},
   "image": {"id": "9aaf3bcb-dcd7-4de7-bb60-24e39ff9d366"},
   "keys": [{"id": "363f6d70-0000-0001-0000-00000013b96c"}],
@@ -444,6 +448,7 @@ curl -X POST "$vpc_api_endpoint/v1/instances?version=2022-06-14&generation=2" -H
         "encryption_key": {"crn": "crn:[...]"},
         "name": "my-data-volume",
         "profile": {"name": "5iops-tier"},
+        "storage_generation": 1,
         "user_tags": {"env:test","env:prod"}}
     }],
   "vpc": {"id": "f0aae929-7047-46d1-92e1-9102b07a7f6f"},
@@ -649,7 +654,7 @@ For more information about volume creation with the API, see [Creating Block Sto
 ### Creating a data volume from a snapshot with the API
 {: #block-storage-create-vol-snapshot-api}
 
-You can specify a snapshot ID, name, or CRN in a `POST /volumes` call to create a stand-alone data volume. 
+You can specify a snapshot ID, name, or CRN in a `POST /volumes` call to create a stand-alone data volume. When you specify a snapshot whose `storage_generation` property value is 1, the new block storage volume is created with the same `storage_generation` value and only volume profiles of the same generation can be applied to it.
 
 Data is fully restored when you attach the data volume to a virtual server instance. For more information, see [About restoring a volume from a snapshot](/docs/vpc?topic=vpc-snapshots-vpc-restore&interface=api#snapshots-vpc-restore-concepts). For an example API call, see [Restoring a data volume from a snapshot of an unattached volume](/docs/vpc?topic=vpc-snapshots-vpc-restore&interface=api#snapshots-vpc-restore-unattached-api).
 

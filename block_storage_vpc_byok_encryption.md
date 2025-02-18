@@ -2,7 +2,7 @@
 
 copyright:
   years: 2019, 2025
-lastupdated: "2025-01-29"
+lastupdated: "2025-02-18"
 
 keywords: Block Storage, IBM Cloud, VPC, virtual private cloud, Key Protect, encryption, key management, Hyper Protect Crypto Services, HPCS, volume, data storage, virtual server instance, instance, customer-managed encryption, Block Storage for vpc, customer-managed encryption,
 
@@ -47,7 +47,7 @@ This procedure explains how to specify customer-managed encryption when you crea
     1. Specify [user tags](/docs/vpc?topic=vpc-block-storage-about&interface=ui#storage-about-user-tags) to organize your resources and for use by [backup policies](/docs/vpc?topic=vpc-backup-service-about).
     1. Specify [access management tags](/docs/vpc?topic=vpc-block-storage-about&interface=ui#storage-about-mgt-tags) that were created in IAM to help you manage access to your volumes.
 1. In the **Optional configurations** section, you can specify whether you want to create the volume with data from a snapshot. Also, you can choose to apply a backup policy.
-    - Import from snapshot: select **Import existing snapshot** to see the list of available snapshots, or **Import snapshot by CRN** and provide the CRN of the snapshot that you want to use. You can create data volumes with Nonbootable snapshots, and boot volumes with Bootable snapshots. 
+    - Import from snapshot: select **Import existing snapshot** to see the list of available snapshots, or **Import snapshot by CRN** and provide the CRN of the snapshot that you want to use. You can create data volumes with Nonbootable snapshots, and boot volumes with Bootable snapshots. The new block storage volume inherits its storage generation value from the snapshot and only volume profiles of the same generation can be applied to it.
     - Apply backup policy: click **Apply** to see available policies and plans.
 1. In the **Profile** section, you can specify the performance profile of your volume, its IOPS, and capacity.
     - For [IOPS tiers](/docs/vpc?topic=vpc-block-storage-profiles#tiers), select the tile with the performance level that you require and specify the volume size in GBs. Volume sizes can be 10 - 16,000 GB. 
@@ -129,11 +129,11 @@ To create a data volume with customer-managed encryption from the CLI, first gat
 The following example shows a volume that is created with customer-managed encryption.
 
 ```sh
-$ ibmcloud is volume-create demo-cli-volume custom us-east-1 --capacity 300 --iops 1500 --encryption-key crn:v1:bluemix:public:kms:us-east:a/a1234567:3b05b403-8f51-4dac-9114-c777d0a760d4:key:7a8a2761-08e3-455f-a348-144ed604bba9
-Creating volume demo-cli-volume under account Test Account as user test.user@ibm.com...
+$ ibmcloud is volume-create my-customer-key-volume custom us-east-1 --capacity 300 --iops 1500 --encryption-key crn:v1:bluemix:public:kms:us-east:a/a1234567:3b05b403-8f51-4dac-9114-c777d0a760d4:key:7a8a2761-08e3-455f-a348-144ed604bba9
+Creating volume my-customer-key-volume under account Test Account as user test.user@ibm.com...
                                           
 ID                                     r014-3984600c-6f4d-4940-82de-519a867fa3c0   
-Name                                   demo-cli-volume   
+Name                                   my-customer-key-volume   
 CRN                                    crn:v1:bluemix:public:is:us-east-1:a/a1234567::volume:r014-3984600c-6f4d-4940-82de-519a867fa3c0   
 Status                                 pending   
 Attachment state                       unattached   
@@ -153,6 +153,7 @@ Adjustable Capacity States             attached
 Adjustable IOPS State                  attached  
 Busy                                   false   
 Tags                                   - 
+Storage Generation                     1
 ```
 {: screen}
 
@@ -171,7 +172,7 @@ The following example creates a general-purpose data volume with customer-manage
 
 ```sh
 curl -X POST \
-"$vpc_api_endpoint/v1/volumes?version=2022-06-22&generation=2" \
+"$vpc_api_endpoint/v1/volumes?version=2025-02-18&generation=2" \
 -H "Authorization: $iam_token" \
 -d '{
       "name": "my-volume-1",
@@ -213,8 +214,9 @@ A successful response looks like the following example.
          a342dbfb-3ea7-48d1-96e8-2825ec5feab4",
         "name": "Default"
     },
+    "storage_generation": 1,
     "volume_attachments": [],
-    "created_at": "2022-06-26T16:03:22.000Z"
+    "created_at": "2025-02-18T16:03:22.000Z"
 }
 ```
 {: screen}

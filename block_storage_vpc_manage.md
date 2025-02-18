@@ -2,7 +2,7 @@
 
 copyright:
   years: 2019, 2025
-lastupdated: "2025-01-27"
+lastupdated: "2025-02-18"
 
 keywords:
 
@@ -189,7 +189,8 @@ Source snapshot                        ID                                       
 Active                                 false   
 Adjustable IOPS                        false   
 Busy                                   false   
-Tags                                      
+Tags                                   -
+Storage Generation                     1
 ```
 {: screen}
 
@@ -229,7 +230,8 @@ Source snapshot                        ID                                       
 Active                                 false   
 Adjustable IOPS                        false   
 Busy                                   false   
-Tags                                   dev:test   
+Tags                                   dev:test  
+Storage Generation                     1 
 ```
 {: screen}
 
@@ -452,6 +454,7 @@ To apply tags to a {{site.data.keyword.block_storage_is_short}} volume, follow t
     "adjustable_capacity_states": [
         "attached"
     ],
+    "storage_generation": 1,
     "user_tags": [
         "env:test",
         "env:prod"

@@ -1,8 +1,8 @@
 ---
 
 copyright:
-  years: 2021, 2024
-lastupdated: "2024-10-10"
+  years: 2021, 2025
+lastupdated: "2025-02-18"
 
 keywords: view snapshots, view snapshot, viewing snapshots, see snapshots, Block Storage snapshots
 
@@ -552,6 +552,7 @@ A successful response looks like the following example.
           "id": "8948ad59-bc0f-7510-812f-5dc64f59fab8",
           "name": "instance-vol1"
         },
+        "storage_generation": 1,
         "user_tags": []
       },
       {
@@ -599,6 +600,7 @@ A successful response looks like the following example.
           "id": "8948ad59-bc0f-7510-812f-5dc64f59fab8",
           "name": "instance-vol1"
         },
+        "storage_generation": 1,
         "user_tags": []
       }
     ],
@@ -668,6 +670,7 @@ A successful response looks like the following example.
     "id": "c90453a6-7b5e-47ce-95fc-f6fff9e5b79c",
     "name": "my-instance-data"
   },
+  "storage_generation": 1,
   "user_tags": []
 }
 ```
@@ -826,6 +829,7 @@ A successful response shows information that is similar to the following example
     "id": "r006-411a798c-5816-4082-8ecb-554a440f83de",
     "name": "my-instance-data"
   },
+  "storage_generation": 1,
   "user_tags": []
 }
 ```

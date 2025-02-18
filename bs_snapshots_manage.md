@@ -2,7 +2,7 @@
 
 copyright:
   years: 2021, 2025
-lastupdated: "2025-01-27"
+lastupdated: "2025-02-18"
 
 keywords: snapshots, Block Storage snapshots, manage snapshots, fast restore clone, backup snapshot, remote copy, cross-regional copy
 
@@ -372,7 +372,7 @@ In the API, you create a clone for an existing snapshot by making a `PUT /snapsh
 
 ```sh
 curl -X PUT \
-"$vpc_api_endpoint/v1/snapshots/5e160469-0837-48a7-8973-e44c8d5fd85a/clones/us-south-1&version=2022-12-22&generation=2" \
+"$vpc_api_endpoint/v1/snapshots/5e160469-0837-48a7-8973-e44c8d5fd85a/clones/us-south-1&version=2025-02-18&generation=2" \
      -H "Authorization: Bearer ${API_TOKEN}"
 ```
 {: codeblock}
@@ -382,11 +382,12 @@ A successful response looks like the following example.
 ```json
 {
   "available": true,
-  "created_at": "2022-12-22T20:35:38.600Z",
+  "created_at": "2025-02-18T20:35:38.600Z",
   "zone": {
     "href": "https://us-south.iaas.cloud.ibm.com/v1/regions/us-south/zones/us-south-1",
     "name": "us-south-1"
-  }
+  },
+  "storage_generation": 1,
 }
 ```
 {: codeblock}
@@ -395,7 +396,7 @@ You can also specify the `clone` property when you create a snapshot of a volume
 
 ```sh
 curl -X POST \
-"$vpc_api_endpoint/v1/snapshots?version=2022-12-12&generation=2" \
+"$vpc_api_endpoint/v1/snapshots?version=2025-02-18&generation=2" \
 -H "Authorization: $iam_token" \
 -d '{
     "clones": [{"zone": {"name": "us-south-1"}}],
@@ -414,19 +415,20 @@ A successful response looks like the following example.
   "bootable": false,
   "clones": [
       "available": true,
-      "created_at": "2022-12-12T20:18:38.600Z",
+      "created_at": "2025-02-18T20:18:38.600Z",
       "zone": {
         "href": "https://us-south.iaas.cloud.ibm.com/v1/regions/us-south/zones/us-south-1",
         "name": "us-south-1"
      }
   ],
-  "created_at": "2021-12-12T20:18:18Z",
+  "created_at": "2025-02-18T20:18:18Z",
   "crn": "crn:[...]",
   "deletable": false,
   "encryption": "user_managed",
   "encryption_key": {
     "crn": "crn:[...]"
-  }
+  },
+  "storage_generation": 1
 }
 ```
 {: codeblock}
@@ -441,7 +443,7 @@ See the following example.
 
 ```sh
 curl -X DELETE \
-"$vpc_api_endpoint/v1/snapshots/fde0b8d5-2d75-4c28-af7d-12ffc3ae2a55/clones/us-south-1&version=2022-12-22&generation=2" \
+"$vpc_api_endpoint/v1/snapshots/fde0b8d5-2d75-4c28-af7d-12ffc3ae2a55/clones/us-south-1&version=2025-02-18&generation=2" \
      -H "Authorization: Bearer ${API_TOKEN}"
 ```
 {: codeblock}
