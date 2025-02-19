@@ -2,7 +2,7 @@
 
 copyright:
   years: 2023, 2025
-lastupdated: "2025-02-18"
+lastupdated: "2025-02-19"
 
 keywords: file share, file storage, encryption in transit, Mount Helper, IPsec, secure connection, mount share
 
@@ -87,7 +87,7 @@ For more information, see the [readme file](https://github.com/IBM/vpc-file-stor
 
     The `region` argument is used to copy region-specific root CA cert to the strongSwan certificate location. If no region is specified, then the utility copies all the root CA certs. The following table shows the values that you can use to specify the region.
 
-   | Location            | [New](: tag-new) value | Previous Value |
+   | Location            | [New]{: tag-new} value | Previous Value |
    |---------------------|-------------|-------|
    | Australia - Sydney  | `au-syd`    | `syd` |
    | Brazil - Sao Paulo  | `br-sao`    | `sao` |
