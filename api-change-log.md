@@ -2,7 +2,7 @@
 
 copyright:
   years: 2019, 2025
-lastupdated: "2024-12-17"
+lastupdated: "2025-02-18"
 
 keywords: api, change log, new features, restrictions, migration
 
@@ -55,6 +55,16 @@ To prepare for this change, verify that your client checks that the `volume` pro
 
 The new response code will be rolled out gradually. Each phase of the rollout will be tied to a dated API version. These changes will be announced in future change log updates.
 {: note}
+
+## 18 February 2025
+{: #18-february-2025}
+
+### For all version dates
+{: #18-february-2025-all-version-dates}
+
+**Storage generation for block storage and block storage snapshots.** When [listing volume profiles](/apidocs/vpc/latest#list-volume-profiles) or [retrieving a volume profile](/apidocs/vpc/latest#get-volume-profile), the response now includes a `storage_generation` property to denote which [generation](/docs/vpc?topic=vpc-block-storage-profiles&interface=api#using-api-iops-profiles) of block storage will be created when that profile is selected to [create a volume](/apidocs/vpc/latest#create-volume). Likewise, when [listing volumes](/apidocs/vpc/latest#list-volumes) or [retrieving a volume](/apidocs/vpc/latest#get-volume) the `storage_generation` property is included in the response. For more information, see [Viewing available volume profiles](/docs/vpc?topic=vpc-block-storage-profiles&interface=api#using-api-iops-profiles).
+
+When you [create a snapshot](/apidocs/vpc/latest#create-snapshot), the snapshot inherits the `storage_generation` from the `source_volume` that the snapshot was created from. Similarly, when a volume is created from a snapshot, the volume inherits the `storage_generation` value from the snapshot. When you [list snapshots](/apidocs/vpc/latest#list-snapshots) or [retrieve a snapshot](/apidocs/vpc/latest#get-snapshot), the `storage_generation` property is included in the response.
 
 ## 17 December 2024
 {: #17-december-2024}
