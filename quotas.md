@@ -2,7 +2,7 @@
 
 copyright:
   years: 2018, 2025
-lastupdated: "2025-02-03"
+lastupdated: "2025-02-19"
 
 keywords:
 
@@ -145,7 +145,6 @@ Bare metal servers use physical cores and don't count toward your vCPU quota.
 | Pools | 10 per load balancer |
 | Members | 50 per pool |
 {: caption="Quotas for Private Path load balancers" caption-side="bottom"}
-
 
 ### Cluster networks
 {: #cluster-networks-quotas}
