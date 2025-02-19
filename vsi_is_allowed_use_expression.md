@@ -1,3 +1,4 @@
+<staging>
 ---
 
 copyright:
@@ -185,3 +186,4 @@ To update an existing custom image with an allow use expression, use the `PATCH 
 {: pre}
 
 For more details on the API allowed-use expression property, sub-properties, and expressions, see the [Virtual Private Cloud API: Create image](/apidocs/vpc-scoped#create-image) and [Virtual Private Cloud API: Update image](/apidocs/vpc-scoped#update-image).
+</staging>
