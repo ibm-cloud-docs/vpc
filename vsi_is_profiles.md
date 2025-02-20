@@ -2,7 +2,7 @@
 
 copyright:
   years: 2019, 2025
-lastupdated: "2025-02-14"
+lastupdated: "2025-02-19"
 
 keywords: vsi, virtual server instances, profile, profiles, balanced, compute, memory, very high memory, ultra high memory, gpu storage optimized, confidential compute
 
@@ -311,7 +311,10 @@ The GPU profile family includes `-v100`, `-a100`, `-l4`, and `-l40S` and `-h100`
 - GPU `-l40S` profiles include NVIDIA L40S 48 GB GPUs.
 - GPU `-h100` and `-h200` profiles include [NVIDIA](https://www.nvidia.com/en-us/data-center/hgx/){: external} GPUs. The system is an HGX design. The H100 offering is available in the following regions and zones: London (eu-gb-2), Sydney (au-syd-2), Toronto (ca-tor-3), Madrid (eu-es-3), Washington DC (us-east-3), Tokyo (jp-tok-3), Sao Paulo (br-sao-1), Dallas (us-south-1), and Frankfurt (eu-de-2). [Select availability]{: tag-green} The H200 offering is available in Washington DC (us-east-3) and Frankfurt (eu-de-2). 
 
+
 See [Download drivers](https://www.nvidia.com/en-us/drivers/) to review the most current versions that are supported. NVIDIA GPU drivers must be installed separately.
+
+
 
 | Instance profile | vCPU / Cores | GiB RAM | Type / Number of GPUs | Bandwidth Cap (Gbps) | Instance storage (GB) |
 |---------|---------|---------|---------|---------|---------|
