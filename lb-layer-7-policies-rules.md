@@ -1,8 +1,8 @@
 ---
 
 copyright:
-  years: 2018, 2024
-lastupdated: "2024-10-10"
+  years: 2018, 2025
+lastupdated: "2025-02-20"
 
 keywords: application load balancer, alb, polices, rules
 
@@ -51,7 +51,7 @@ URI | The relative URI to which the request is redirected, if the action is `htt
 ## Rules
 {: #layer-7-rules}
 
-A layer 7 rule defines how a request is to be matched. Both URI-based routing and parameter-based routing are supported. Five types of rules are supported, described in Table 2.
+A layer 7 rule defines how a request is to be matched. Both URI-based routing and parameter-based routing are supported. Five types of rules are supported, described as follows.
 
 Type      |  Description
 ----------| -----------------------
@@ -62,7 +62,7 @@ Type      |  Description
 `body`     | If the request `body` of the `POST` request is form encoding. The request matches the body, for example `key=value`. It is case-sensitive.
 {: caption="Layer 7 rules" caption-side="bottom"}
 
-To match a request, a `condition` statement must be defined in a rule. Three conditions are supported, described in Table 3.
+To match a request, a `condition` statement must be defined in a rule. Three conditions are supported, described as follows.
 
 Condition |  Type of evaluation
 ----------------|---------------------
@@ -74,7 +74,7 @@ Condition |  Type of evaluation
 ## Rule properties
 {: #layer-7-rule-properties}
 
-Table 4 describes layer 7 policy rule properties.
+This table describes layer 7 policy rule properties.
 
 Property  | Description
 ------------- | -------------

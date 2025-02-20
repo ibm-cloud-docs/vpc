@@ -1,8 +1,8 @@
 ---
 
 copyright:
-  years:  2020, 2024
-lastupdated: "2024-11-06"
+  years:  2020, 2025
+lastupdated: "2025-02-20"
 
 keywords:
 
@@ -70,7 +70,7 @@ Bytes per minute received for a VPN gateway
 | `Metric type` | `gauge` |
 | `Value type`  | `byte` |
 | `Segment by` | `Service instance, Service instance name, VPN name, IBM IS` |
-{: caption="Table 1: VPN gateway total bytes input" caption-side="bottom"}
+{: caption="VPN gateway total bytes input" caption-side="bottom"}
 
 ### VPN gateway total bytes output
 {: #ibm_is_vpn_gateway_bytes_out}
@@ -83,7 +83,7 @@ Bytes sent per minute for a VPN gateway
 | `Metric type` | `gauge` |
 | `Value type`  | `byte` |
 | `Segment by` | `Service instance, Service instance name, VPN name, IBM IS` |
-{: caption="Table 2: VPN gateway total bytes output" caption-side="bottom"}
+{: caption="VPN gateway total bytes output" caption-side="bottom"}
 
 ### VPN gateway total packets input
 {: #ibm_is_vpn_gateway_packets_in}
@@ -96,7 +96,7 @@ Packets received per minute for a VPN gateway
 | `Metric type` | `gauge` |
 | `Value type`  | `none` |
 | `Segment by` | `Service instance, Service instance name, VPN name, IBM IS` |
-{: caption="Table 3: VPN gateway total packets input" caption-side="bottom"}
+{: caption="VPN gateway total packets input" caption-side="bottom"}
 
 ### VPN gateway total packets output
 {: #ibm_is_vpn_gateway_packets_out}
@@ -109,7 +109,7 @@ Packets sent per minute for a VPN gateway
 | `Metric type` | `gauge` |
 | `Value type`  | `none` |
 | `Segment by` | `Service instance, Service instance name, VPN name, IBM IS` |
-{: caption="Table 4: VPN gateway total packets output" caption-side="bottom"}
+{: caption="VPN gateway total packets output" caption-side="bottom"}
 
 ### VPN gateway status
 {: #ibm_is_vpn_gateway_status}
@@ -122,7 +122,7 @@ Status for a VPN gateway (for example, `1`=available, `0`=unavailable)
 | `Metric type` | `gauge` |
 | `Value type`  | `none` |
 | `Segment by` | `Service instance, Service instance name, VPN name, IBM IS` |
-{: caption="Table 5: VPN gateway status" caption-side="bottom"}
+{: caption="VPN gateway status" caption-side="bottom"}
 
 ### VPN connection bytes input
 {: #ibm_is_vpn_connection_bytes_in}
@@ -135,7 +135,7 @@ Bytes received per minute for a VPN gateway's connection
 | `Metric type` | `gauge` |
 | `Value type`  | `byte` |
 | `Segment by` | `Service instance, VPN name, Connection name, Connection ID, IBM IS` |
-{: caption="Table 6: VPN connection bytes input" caption-side="bottom"}
+{: caption="VPN connection bytes input" caption-side="bottom"}
 
 ### VPN connection bytes output
 {: #ibm_is_vpn_connection_bytes_out}
@@ -148,7 +148,7 @@ Bytes sent per minute for a VPN gateway connection
 | `Metric type` | `gauge` |
 | `Value type`  | `byte` |
 | `Segment by` | `Service instance, VPN name, Connection name, Connection ID, IBM IS` |
-{: caption="Table 7: VPN connection bytes output" caption-side="bottom"}
+{: caption="VPN connection bytes output" caption-side="bottom"}
 
 ### VPN connection packets input
 {: #ibm_is_vpn_connection_packets_in}
@@ -161,7 +161,7 @@ Packets received per minute for a VPN gateway connection
 | `Metric type` | `gauge` |
 | `Value type`  | `none` |
 | `Segment by` | `Service instance, VPN Name, Connection Name, Connection ID, IBM IS` |
-{: caption="Table 8: VPN connection packets input" caption-side="bottom"}
+{: caption="VPN connection packets input" caption-side="bottom"}
 
 ### VPN connection packets output
 {: #ibm_is_vpn_connection_packets_out}
@@ -174,7 +174,7 @@ Packets sent per minute for a VPN gateway connection
 | `Metric type` | `gauge` |
 | `Value type`  | `none` |
 | `Segment by` | `Service instance, VPN name, Connection name, Connection ID, IBM IS` |
-{: caption="Table 9: VPN connection packets output" caption-side="bottom"}
+{: caption="VPN connection packets output" caption-side="bottom"}
 
 ### VPN connection status
 {: #ibm_is_vpn_connection_status}
@@ -187,7 +187,7 @@ Status of a VPN gateway connection (for example, `1`=up, `0`=down)
 | `Metric type` | `gauge` |
 | `Value type`  | `none` |
 | `Segment by` | `Service instance, VPN name, Connection name, Connection ID, IBM IS` |
-{: caption="Table 10: VPN connection status" caption-side="bottom"}
+{: caption="VPN connection status" caption-side="bottom"}
 
 ## Metric segmentation
 {: #vpn-metric-segmentation}
@@ -210,7 +210,7 @@ The following attributes are available for segmenting all of the VPN metrics:
 | `Resource group` | `ibm_resource_group_name` | The resource group where the service instance was created |
 | `Scope` | `ibm_scope` | The scope of the account, organization, or space GUID that is associated with this metric |
 | `Service name` | `ibm_service_name` | Name of the service that generated this metric |
-{: caption="Table 11: VPN metric attributes" caption-side="bottom"}
+{: caption="VPN metric attributes" caption-side="bottom"}
 
 ### Additional attributes
 {: #additional-attributes-vpn}
@@ -225,7 +225,7 @@ The following attributes are available for segmenting one or more attributes as 
 | `Service instance` | `ibm_service_instance` | Identifies the instance that the metric is associated with |
 | `Service instance name` | `ibm_service_instance_name` | Provides the user-provided name of the service instance. This name isn't necessarily a unique value that depends on the name that is provided. |
 | `VPN gateway name` | `ibm_is_vpn_gateway_name` | IBM {{site.data.keyword.vpn_vpc_short}} gateway name |
-{: caption="Table 12: VPN segmentation metric attributes" caption-side="bottom"}
+{: caption="VPN segmentation metric attributes" caption-side="bottom"}
 
 The displayed metrics contain a timestamp in UNIX epoch time and the metric value for the time intervals that end at that timestamp. You can specify different scopes, and the time interval over which to report the metrics.
 

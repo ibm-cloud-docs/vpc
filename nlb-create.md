@@ -1,8 +1,8 @@
 ---
 
 copyright:
-  years: 2020, 2024
-lastupdated: "2024-11-08"
+  years: 2020, 2025
+lastupdated: "2025-02-20"
 
 keywords: network load balancer, public, listener, pool, round-robin
 
@@ -35,7 +35,7 @@ For Private NLB, depending on the location of the clients, you must ensure that 
 | On-prem | Ingress | Direct Link |
 | Another VPC or classic infrastructure | Ingress | Transit Gateway |
 | Another availability zone of the same VPC | Ingress | VPC zone |
-{: caption="Table 1: Traffic sources that require ingress custom routing tables." caption-side="bottom"}
+{: caption="Traffic sources that require ingress custom routing tables." caption-side="bottom"}
 
 For more information, see [About routing tables and routes](/docs/vpc?topic=vpc-about-custom-routes).
 {: note}

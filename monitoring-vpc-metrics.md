@@ -2,7 +2,7 @@
 
 copyright:
   years:  2020, 2023
-lastupdated: "2024-02-16"
+lastupdated: "2025-02-20"
 
 keywords: monitoring metrics, platform metrics, metrics, vpc metrics, vpc monitoring metrics
 
@@ -31,7 +31,7 @@ The average percentage of time that elapsed running instructions across all CPUs
 | `Metric type` | `gauge` |
 | `Value type`  | `percent` |
 | `Segment by` | `IBM IS Generation 2, resource name` |
-{: caption="Table 1: Average CPU usage percentage metric metadata" caption-side="bottom"}
+{: caption="Average CPU usage percentage metric metadata" caption-side="bottom"}
 
 ### CPU usage
 {: #cpu-usage-cumulative-gen2}
@@ -44,7 +44,7 @@ The cumulative total of elapsed time that a CPU is running instructions since vi
 | `Metric type` | `gauge` |
 | `Value type`  | `second` |
 | `Segment by` | `IBM IS Generation 2, resource name, Virtual CPU index` |
-{: caption="Table 2: Cumulative CPU usage metric metadata" caption-side="bottom"}
+{: caption="Cumulative CPU usage metric metadata" caption-side="bottom"}
 
 ### CPU usage percentage
 {: #cpu-usage-percentage-gen2}
@@ -57,7 +57,7 @@ The average percentage of time that a CPU is running instructions.
 | `Metric type` | `gauge` |
 | `Value type`  | `percent` |
 | `Segment by` | `IBM IS Generation 2, resource name, Virtual CPU index` |
-{: caption="Table 3: Average CPU usage metric metadata" caption-side="bottom"}
+{: caption="Average CPU usage metric metadata" caption-side="bottom"}
 
 ### Total CPU usage
 {: #total-cpu-usage-nanoseconds-gen2}
@@ -70,7 +70,7 @@ The cumulative time that is elapsed running instructions across all CPUs since v
 | `Metric type` | `gauge` |
 | `Value type`  | `second` |
 | `Segment by` | `IBM IS Generation 2, resource name` |
-{: caption="Table 4: Total CPU usage metric metadata" caption-side="bottom"}
+{: caption="Total CPU usage metric metadata" caption-side="bottom"}
 
 ### Total number of CPUs
 {: #total-cpus-gen2}
@@ -83,7 +83,7 @@ The total number of CPUs.
 | `Metric type` | `gauge` |
 | `Value type`  | `none` |
 | `Segment by` | `IBM IS Generation 2, resource name` |
-{: caption="Table 5: Total number of CPUs metric metadata" caption-side="bottom"}
+{: caption="Total number of CPUs metric metadata" caption-side="bottom"}
 
 ## Network monitoring metrics
 {: #network-metrics}
@@ -99,7 +99,7 @@ The cumulative number of bytes received for a network interface since virtual se
 | `Metric type` | `gauge` |
 | `Value type`  | `byte` |
 | `Segment by` | `IBM IS Generation 2, resource name, MAC address of the network interface` |
-{: caption="Table 6: Average CPU usage percentage metric metadata" caption-side="bottom"}
+{: caption="Average CPU usage percentage metric metadata" caption-side="bottom"}
 
 ### Bytes sent for a network interface
 {: #network-bytes-sent}
@@ -112,7 +112,7 @@ The cumulative number of bytes sent for a network interface since virtual server
 | `Metric type` | `gauge` |
 | `Value type`  | `byte` |
 | `Segment by` | `IBM IS Generation 2, resource name, MAC address of the network interface` |
-{: caption="Table 7: Bytes sent for a network interface metric metadata" caption-side="bottom"}
+{: caption="Bytes sent for a network interface metric metadata" caption-side="bottom"}
 
 ### Number of packets received for a network interface
 {: #network-packets-received-gen2}
@@ -125,7 +125,7 @@ The cumulative number of packets that were received for a network interface sinc
 | `Metric type` | `gauge` |
 | `Value type`  | `none` |
 | `Segment by` | `IBM IS Generation 2, resource name, MAC address of the network interface` |
-{: caption="Table 8: Number of packets received for a network interface metric metadata" caption-side="bottom"}
+{: caption="Number of packets received for a network interface metric metadata" caption-side="bottom"}
 
 ### Number of packets sent for a network interface
 {: #network-packets-sent-gen2}
@@ -138,7 +138,7 @@ The cumulative number of packets that are sent for a network interface since vir
 | `Metric type` | `gauge` |
 | `Value type`  | `none` |
 | `Segment by` | `IBM IS Generation 2, resource name, MAC address of the network interface` |
-{: caption="Table 9: Number of packets sent for a network interface metric metadata" caption}
+{: caption="Number of packets sent for a network interface metric metadata" caption}
 
 ### Number of receiving errors for a network interface
 {: #network-errors-receiving-gen2}
@@ -151,7 +151,7 @@ The cumulative number of receiving errors for a network interface since virtual 
 | `Metric type` | `gauge` |
 | `Value type`  | `none` |
 | `Segment by` | `IBM IS Generation 2, resource name, MAC address of the network interface` |
-{: caption="Table 10: Number of receiving errors for a network interface metric metadata" caption-side="bottom"}
+{: caption="Number of receiving errors for a network interface metric metadata" caption-side="bottom"}
 
 ### Number of sending errors for a network interface
 {: #network-errors-sending-gen2}
@@ -164,7 +164,7 @@ The cumulative number of sending errors for a network interface since virtual se
 | `Metric type` | `gauge` |
 | `Value type`  | `none` |
 | `Segment by` | `IBM IS Generation 2, resource name, MAC address of the network interface` |
-{: caption="Table 11: Number of sending errors for a network interface metric metadata" caption-side="bottom"}
+{: caption="Number of sending errors for a network interface metric metadata" caption-side="bottom"}
 
 ### Number of dropped incoming packets for a network interface
 {: #dropped-incoming-packets-gen2}
@@ -177,7 +177,7 @@ The cumulative number of dropped incoming packets for a network interface since 
 | `Metric type` | `gauge` |
 | `Value type`  | `none` |
 | `Segment by` | `IBM IS Generation 2, resource name, MAC address of the network interface` |
-{: caption="Table 12: Number of dropped incoming packets for a network interface metric metadata" caption-side="bottom"}
+{: caption="Number of dropped incoming packets for a network interface metric metadata" caption-side="bottom"}
 
 ### Number of dropped outgoing packets for a network interface
 {: #dropped-outgoing-packets-gen2}
@@ -190,7 +190,7 @@ The cumulative number of dropped outgoing packets for a network interface since 
 | `Metric type` | `gauge` |
 | `Value type`  | `none` |
 | `Segment by` | `IBM IS Generation 2, resource name, MAC address of the network interface` |
-{: caption="Table 13: Number of dropped outgoing packets for a network interface metric metadata" caption-side="bottom"}
+{: caption="Number of dropped outgoing packets for a network interface metric metadata" caption-side="bottom"}
 
 ## Memory monitoring metrics
 {: #memory-metrics}
@@ -209,7 +209,7 @@ The free memory of the virtual server instance in kibibytes (1024 bytes).
 | `Metric type` | `gauge` |
 | `Value type`  | `byte` |
 | `Segment by` | `IBM IS Generation 2, resource name` |
-{: caption="Table 14: Free memory metric metadata" caption-side="bottom"}
+{: caption="Free memory metric metadata" caption-side="bottom"}
 
 ### Memory usage percentage
 {: #memory-usage-percentage-gen2}
@@ -222,7 +222,7 @@ The percent of used memory of the virtual server instance.
 | `Metric type` | `gauge` |
 | `Value type`  | `percent` |
 | `Segment by` | `IBM IS Generation 2, resource name` |
-{: caption="Table 15: Memory usage percentage metric metadata" caption-side="bottom"}
+{: caption="Memory usage percentage metric metadata" caption-side="bottom"}
 
 ## Volume monitoring metrics
 {: #volume-metrics}
@@ -238,7 +238,7 @@ The cumulative number of bytes read for a volume since virtual server instance s
 | `Metric type` | `gauge` |
 | `Value type`  | `byte` |
 | `Segment by` | `IBM IS Generation 2, resource name, disk name of the volume, ID of the volume` |
-{: caption="Table 16: Number of bytes read for a volume metric metadata" caption-side="bottom"}
+{: caption="Number of bytes read for a volume metric metadata" caption-side="bottom"}
 
 ### Number of bytes written for a volume
 {: #bytes-written-for-volume-gen2}
@@ -251,7 +251,7 @@ The cumulative number of bytes written for a volume since virtual server instanc
 | `Metric type` | `gauge` |
 | `Value type`  | `byte` |
 | `Segment by` | `IBM IS Generation 2, resource name, disk name of the volume, ID of the volume` |
-{: caption="Table 17: Number of bytes written for a volume metric metadata" caption-side="bottom"}
+{: caption="Number of bytes written for a volume metric metadata" caption-side="bottom"}
 
 ### Number of read requests for a volume
 {: #volume-read-requests-gen2}
@@ -264,7 +264,7 @@ The cumulative number of read requests for a volume since virtual server instanc
 | `Metric type` | `gauge` |
 | `Value type`  | `none` |
 | `Segment by` | `IBM IS Generation 2, resource name, disk name of the volume, ID of the volume` |
-{: caption="Table 18: Number of read requests for a volume metric metadata" caption}
+{: caption="Number of read requests for a volume metric metadata" caption}
 
 ### Number of write requests for a volume
 {: #volume-write-requests-gen2}
@@ -277,7 +277,7 @@ The cumulative number of write requests for a volume since virtual server instan
 | `Metric type` | `gauge` |
 | `Value type`  | `none` |
 | `Segment by` | `IBM IS Generation 2, resource name, disk name of the volume, ID of the volume` |
-{: caption="Table 19: Number of write requests for a volume metric metadata" caption-side="bottom"}
+{: caption="Number of write requests for a volume metric metadata" caption-side="bottom"}
 
 ## Virtual server instance monitoring metrics
 {: #virtual-server-metrics}
@@ -293,7 +293,7 @@ The state of the virtual server instance. A value of 1 indicates that the virtua
 | `Metric type` | `gauge` |
 | `Value type`  | `none` |
 | `Segment by` | `IBM IS Generation 2, resource name` |
-{: caption="Table 20: The state of the virtual server" caption-side="bottom"}
+{: caption="The state of the virtual server" caption-side="bottom"}
 
 ## Attributes for segmentation
 {: #segmentation-attributes}
@@ -311,7 +311,7 @@ These attributes are available for segmenting all of the previously listed metri
 | `Resource type` | `ibm_resource_type` | Type of resource measured by the service |
 | `Scope` | `ibm_scope` | Scope of the account, organization, or space GUID that is associated with this metric |
 | `Service name` | `ibm_service_name` | Name of the service generating this metric |
-{: caption="Table 21: Available attributes for segmenting" caption-side="bottom"}
+{: caption="Available attributes for segmenting" caption-side="bottom"}
 
 ### Additional attributes
 {: #additional-segmentation-attributes}
@@ -327,4 +327,4 @@ These attributes are available to segment one or more attributes as described in
 | `Resource name` | `ibm_is_resource_name` | Resource name - for example, the virtual server instance name |
 | `ID of the volume` | `ibm_is_volume_id` | UUID of storage volume that is attached to the virtual server instance |
 | `Virtual CPU index` | `ibm_is_vcpu_index` | Index of the virtual CPU within the virtual server instance, starting from 0 |
-{: caption="Table 22: Available attributes for segmenting one or more attributes" caption-side="bottom"}
+{: caption="Available attributes for segmenting one or more attributes" caption-side="bottom"}

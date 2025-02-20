@@ -1,8 +1,8 @@
 ---
 
 copyright:
-  years: 2023
-lastupdated: "2023-12-05"
+  years: 2023, 2025
+lastupdated: "2025-02-20"
 
 keywords:
 
@@ -41,7 +41,7 @@ The following table maps the old property values for `status` and `members[].sta
 | `failed`                     | `stable`                                       | `faulted`                                |
 | `deleted`                    | `deleting`                                     | `inapplicable`                           |
 | `pending`                    | `pending`                                      | `inapplicable`                           |
-{: caption="Table 1: VPN property migration path" caption-side="bottom"}
+{: caption="VPN property migration path" caption-side="bottom"}
 
 ## Examples
 {: #example-api-migration-vpn}

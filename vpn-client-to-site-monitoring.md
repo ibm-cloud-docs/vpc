@@ -1,8 +1,8 @@
 ---
 
 copyright:
-  years: 2021, 2024
-lastupdated: "2024-09-23"
+  years: 2021, 2025
+lastupdated: "2025-02-20"
 
 keywords:
 
@@ -66,7 +66,7 @@ Bytes received per minute for a VPN server
 | `Metric type` | `gauge` |
 | `Value type`  | `byte` |
 | `Segment by` | `Service instance, Service instance name, VPN server name` |
-{: caption="Table 1: VPN server data bytes input" caption-side="bottom"}
+{: caption="VPN server data bytes input" caption-side="bottom"}
 
 ### VPN server data bytes output
 {: #ibm_is_vpn_server_data_sent_bytes}
@@ -79,7 +79,7 @@ Bytes sent per minute for a VPN server
 | `Metric type` | `gauge` |
 | `Value type`  | `byte` |
 | `Segment by` | `Service instance, Service instance name, VPN server name` |
-{: caption="Table 2: VPN server data bytes output" caption-side="bottom"}
+{: caption="VPN server data bytes output" caption-side="bottom"}
 
 ### VPN server CRL days until expiration
 {: #ibm_is_vpn_server_crl_days_expiry}
@@ -92,7 +92,7 @@ Days until the expiration of the Certificate Revocation List (CRL) for a VPN ser
 | `Metric type` | `gauge` |
 | `Value type`  | `none` |
 | `Segment by` | `Service instance, Service instance name, VPN server name` |
-{: caption="Table 3: VPN server CRL days until expiration" caption-side="bottom"}
+{: caption="VPN server CRL days until expiration" caption-side="bottom"}
 
 ### VPN server authentication failure count
 {: #ibm_is_vpn_server_authentication_failure_count}
@@ -105,7 +105,7 @@ Number of authentication failures for a VPN server
 | `Metric type` | `gauge` |
 | `Value type`  | `none` |
 | `Segment by` | `Service instance, Service instance name, VPN server name` |
-{: caption="Table 4: VPN server authentication failure count" caption-side="bottom"}
+{: caption="VPN server authentication failure count" caption-side="bottom"}
 
 ### VPN server active client count
 {: #ibm_is_vpn_server_active_client_count}
@@ -118,7 +118,7 @@ Number of active clients for a VPN server
 | `Metric type` | `gauge` |
 | `Value type`  | `none` |
 | `Segment by` | `Service instance, Service instance name, VPN server name` |
-{: caption="Table 5: VPN server active client count" caption-side="bottom"}
+{: caption="VPN server active client count" caption-side="bottom"}
 
 ### VPN server health status
 {: #ibm_is_vpn_server_health_status}
@@ -131,7 +131,7 @@ Health status for a VPN server (for example, `2`=ok, `1`=degraded, `0`=faulted/i
 | `Metric type` | `gauge` |
 | `Value type`  | `none` |
 | `Segment by` | `Service instance, Service instance name, VPN server name` |
-{: caption="Table 6: VPN server health status" caption-side="bottom"}
+{: caption="VPN server health status" caption-side="bottom"}
 
 ## Metric segmentation
 {: #vpn-client-to-site-metric-segmentation}
@@ -154,7 +154,7 @@ The following attributes are available for segmenting all of the VPN server metr
 | `Resource group` | `ibm_resource_group_name` | The resource group where the service instance was created. |
 | `Scope` | `ibm_scope` | The scope of the account, organization, or space GUID that is associated with this metric. |
 | `Service name` | `ibm_service_name` | The name of the service that generated this metric. |
-{: caption="Table 7: VPN server metric attributes" caption-side="bottom"}
+{: caption="VPN server metric attributes" caption-side="bottom"}
 
 ### Additional attributes
 {: #s2s-additional-attributes-vpn}
@@ -166,7 +166,7 @@ The following attributes are available for segmenting one or more attributes as 
 | `Service instance` | `ibm_service_instance` | Identifies the instance that the metric is associated with. |
 | `Service instance name` | `ibm_service_instance_name` | Provides the user provided name of the service instance. This name isn't necessarily a unique value that depends on the name that is provided. |
 | `VPN server name` | `ibm_is_vpn_server_name` | The IBM {{site.data.keyword.vpn_vpc_short}} server name. |
-{: caption="Table 8: VPN server segmentation metric attributes" caption-side="bottom"}
+{: caption="VPN server segmentation metric attributes" caption-side="bottom"}
 
 The displayed metrics contain a timestamp in UNIX epoch time and the metric value for the time intervals that end at that timestamp. You can specify different scopes, and the time interval over which to report the metrics.
 

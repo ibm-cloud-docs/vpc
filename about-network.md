@@ -1,8 +1,8 @@
 ---
 
 copyright:
-  years: 2017, 2024
-lastupdated: "2024-10-10"
+  years: 2017, 2025
+lastupdated: "2025-02-20"
 
 keywords: secure, region, zone, subnet, public gateway, floating IP, NAT
 subcollection: vpc
@@ -65,7 +65,7 @@ Certain IP addresses are reserved for use by IBM for operating the VPC. The foll
 
 External connectivity can be achieved by using a public gateway that is attached to a subnet, or a floating IP address that is attached to a virtual server instance. Use a public gateway for source network address translation (SNAT) and a floating IP for destination network address translation (DNAT).
 
-Table 1 summarizes the differences between the options:
+This table summarizes the differences between the options:
 
 | Public gateway | Floating IP |
 | ---- | ---- |

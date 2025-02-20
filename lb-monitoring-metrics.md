@@ -1,8 +1,8 @@
 ---
 
 copyright:
-  years: 2017, 2024
-lastupdated: "2024-08-22"
+  years: 2017, 2025
+lastupdated: "2025-02-20"
 
 keywords: l7, layer 7, monitor, metrics, connection
 
@@ -60,7 +60,7 @@ The active connection metric contains the following metadata:
 | Metric type | `gauge` |
 | Value type | `none`  |
 | Segment by | `Application load balancer appliance metrics`, `Application load balancer resource name` and `Application load balancer listener metrics` |
-{: caption="Table 1: Application load balancer active connections metrics metadata" caption-side="bottom"}
+{: caption="Application load balancer active connections metrics metadata" caption-side="bottom"}
 
 
 ### Connection rate
@@ -74,7 +74,7 @@ Connection rate is the number of new incoming active connections per second to y
 | Metric type | `gauge` |
 | Value type  | `none` |
 | Segment by | `Application load balancer appliance metrics`, `Application load balancer resource name` and `Application load balancer listener metrics` |
-{: caption="Table 2: Application load balancer connection rate metric metadata" caption-side="bottom"}
+{: caption="Application load balancer connection rate metric metadata" caption-side="bottom"}
 
 
 ### Throughput
@@ -88,7 +88,7 @@ Throughput is the amount of data that passes in and out of a load balancer over 
 | Metric type | `gauge` |
 | Value type  | `byte` |
 | Segment by | `Application load balancer appliance metrics`, `Application load balancer resource name` and `Application load balancer listener metrics` |
-{: caption="Table 3: Application load balancer throughput metric metadata" caption-side="bottom"}
+{: caption="Application load balancer throughput metric metadata" caption-side="bottom"}
 
 ### Request Count
 {: #ibm_is_load_balancer_request_count}
@@ -102,7 +102,7 @@ This metric is only available for HTTP and HTTPS listeners.
 | Metric type | `gauge` |
 | Value type  | `none` |
 | Segment by | `Application load balancer appliance metrics`, `Application load balancer resource name` and `Application load balancer listener metrics` |
-{: caption="Table 4: Application load balancer request count metric metadata" caption-side="bottom"}
+{: caption="Application load balancer request count metric metadata" caption-side="bottom"}
 
 ### Request Latency
 {: #ibm_is_load_balancer_request_latency}
@@ -117,7 +117,7 @@ given listener for an accurate value to be reported. This metric is only availab
 | Metric type | `gauge` |
 | Value type  | `milliseconds` |
 | Segment by | `Application load balancer appliance metrics`, `Application load balancer resource name` and `Application load balancer listener metrics` |
-{: caption="Table 5: Application load balancer request latency metric metadata" caption-side="bottom"}
+{: caption="Application load balancer request latency metric metadata" caption-side="bottom"}
 
 ### HTTP 2xx response code count
 {: #ibm_is_load_balancer_backend_http_2xx}
@@ -131,7 +131,7 @@ from the back-end per minute. This metric is only available for HTTP and HTTPS l
 | Metric type | `gauge` |
 | Value type  | `none` |
 | Segment by | `Application load balancer appliance metrics`, `Application load balancer resource name` and `Application load balancer listener metrics` |
-{: caption="Table 6: Application load balancer HTTP 2xx response count metric metadata" caption-side="bottom"}
+{: caption="Application load balancer HTTP 2xx response count metric metadata" caption-side="bottom"}
 
 ### HTTP 3xx response code count
 {: #ibm_is_load_balancer_backend_http_3xx}
@@ -145,7 +145,7 @@ from the back-end per minute. This metric is only available for HTTP and HTTPS l
 | Metric type | `gauge` |
 | Value type  | `none` |
 | Segment by | `Application load balancer appliance metrics`, `Application load balancer resource name` and `Application load balancer listener metrics` |
-{: caption="Table 7: Application load balancer HTTP 3xx response count metric metadata" caption-side="bottom"}
+{: caption="Application load balancer HTTP 3xx response count metric metadata" caption-side="bottom"}
 
 ### HTTP 4xx response code count
 {: #ibm_is_load_balancer_backend_http_4xx}
@@ -159,7 +159,7 @@ from the back-end per minute. This metric is only available for HTTP and HTTPS l
 | Metric type | `gauge` |
 | Value type  | `none` |
 | Segment by | `Application load balancer appliance metrics`, `Application load balancer resource name` and `Application load balancer listener metrics` |
-{: caption="Table 8: Application load balancer HTTP 4xx response count metric metadata" caption-side="bottom"}
+{: caption="Application load balancer HTTP 4xx response count metric metadata" caption-side="bottom"}
 
 ### HTTP 5xx response code count
 {: #ibm_is_load_balancer_backend_http_5xx}
@@ -173,7 +173,7 @@ from the back-end per minute. This metric is only available for HTTP and HTTPS l
 | Metric type | `gauge` |
 | Value type  | `none` |
 | Segment by | `Application load balancer appliance metrics`, `Application load balancer resource name` and `Application load balancer listener metrics` |
-{: caption="Table 9: Application load balancer HTTP 5xx response count metric metadata" caption-side="bottom"}
+{: caption="Application load balancer HTTP 5xx response count metric metadata" caption-side="bottom"}
 
 ### Total Members
 {: #ibm_is_load_balancer_backend_total_members}
@@ -186,7 +186,7 @@ The total members count is the number of members created in a pool. This metric 
 | Metric type | `gauge` |
 | Value type  | `none` |
 | Segment by | `Application load balancer appliance metrics`, `Application load balancer resource name`, `Application load balancer listener metrics` and `Application load balancer pool metrics`|
-{: caption="Table 10: Application load balancer total members count metric metadata" caption-side="bottom"}
+{: caption="Application load balancer total members count metric metadata" caption-side="bottom"}
 
 ### Active Members
 {: #ibm_is_load_balancer_backend_active_members}
@@ -199,7 +199,7 @@ The active members count is the number of healthy members in a pool. This metric
 | Metric type | `gauge` |
 | Value type  | `none` |
 | Segment by | `Application load balancer appliance metrics`, `Application load balancer resource name`, `Application load balancer listener metrics` and `Application load balancer pool metrics`|
-{: caption="Table 11: Application load balancer active members count metric metadata" caption-side="bottom"}
+{: caption="Application load balancer active members count metric metadata" caption-side="bottom"}
 
 ## Metric segmentation
 {: #attributes-lb}
@@ -218,7 +218,7 @@ The following attributes are available for segmenting the three metrics.
 | `Resource` | `ibm_resource` | A load balancer's unique ID |
 | `Scope` | `ibm_scope` | The account that is associated with a given load balancer |
 | `Service name` | `ibm_service_name` | ibm-is-load-balancer |
-{: caption="Table 12: Global attributes" caption-side="bottom"}
+{: caption="Global attributes" caption-side="bottom"}
 
 ### Additional attributes
 {: #lb-additional-attributes}
@@ -231,7 +231,7 @@ The following attributes are available to segment one or more of the global attr
 | Application load balancer listener metrics | `ibm_is_load_balancer_listener_port` | The metrics that are gathered from individual listeners and their ports. Configure the listeners in your load balancer settings. The monitoring metrics reflect the metrics coming from those listeners. |
 | Application load balancer pool metrics | `ibm_is_load_balancer_pool_name` | The metrics that are gathered from individual listener ports and the health check port (if a health check port is configured) or the back-end member ports (if a health check port is not configured). You must configure the listeners, back-end pool with members and, if needed, the health check port in your load balancer settings. The monitoring metrics reflect the metrics coming from those listeners and health check port, or the back-end member ports. |
 | Application load balancer resource name | `ibm_is_load_balancer_resource_name` | The load balancer's unique name |
-{: caption="Table 13: Additional attributes" caption-side="bottom"}
+{: caption="Additional attributes" caption-side="bottom"}
 
 The following sample values are for the `ibm_is_load_balancer_pool_name` attribute in its different configurations. If the pool has no members, then this value will be in the format `Pool_ListenerPort`. If the pool has members and the health check port is configured, then this value will be in the format `Pool_ListenerPort:HealthCheckPort`. Otherwise, if the pool has members but no health check port configured, then the value will be `Pool_ListenerPort:Member1Port/Member2Port/...`.
 
@@ -242,7 +242,7 @@ The following sample values are for the `ibm_is_load_balancer_pool_name` attribu
 | 8099 | 443 | 9080 | 7080 | 8888 | Pool_8099:443 |
 | 8081 | - | 80| 8090| 9090 | Pool_8081:9090/8090/80 |
 | 8088 | - | 9080 | 7080 | - | Pool_8088:9080/7080 |
-{: caption="Table 14: Pool name attribute" caption-side="bottom"}
+{: caption="Pool name attribute" caption-side="bottom"}
 
 The displayed metrics contain a timestamp in UNIX epoch time and the metric value for the time interval ending at that timestamp. You can specify different scopes, as well as the time interval over which to report the metrics.
 

@@ -1,8 +1,8 @@
 ---
 
 copyright:
-  years: 2023, 2024
-lastupdated: "2024-10-10"
+  years: 2023, 2025
+lastupdated: "2025-02-20"
 
 keywords:
 
@@ -140,7 +140,7 @@ For compatibility with old clients, the API response provides a read-only repres
 | `status`                   | See the "Instance network interface status values" table                                  |
 | `subnet`                   | `virtual_network_interface.subnet`                                                        |
 | `type`                     | `network_attachment.type`                                                                 |
-{: caption="Table 1: Instance network interface properties mapping" caption-side="bottom"}
+{: caption="Instance network interface properties mapping" caption-side="bottom"}
 
 The `status` value is determined according to the following table:
 
@@ -153,7 +153,7 @@ The `status` value is determined according to the following table:
 | `pending`, `suspended`, `updating`, `waiting` |     _any except_ `deleting` _or_ `failed`     | `pending`   |
 |       _any except_ `deleting` _or_ `failed`   | `pending`, `suspended`, `updating`, `waiting` | `pending`   |
 |                   `stable`                    |                   `stable`                    | `available` |
-{: caption="Table 2: Instance network interface status values" caption-side="bottom"}
+{: caption="Instance network interface status values" caption-side="bottom"}
 
 * The same properties are derived when retrieving a [bare metal server network interface](/apidocs/vpc#get-bare-metal-server-network-interface), in addition to the following properties that are specific to bare metal server network interfaces:
 
@@ -165,7 +165,7 @@ The `status` value is determined according to the following table:
 | `allowed_vlans`             | `network_attachment.allowed_vlans`                    |
 | `vlan`                      | `network_attachment.vlan`                             |
 | `allow_interface_to_float`  | `network_attachment.allow_interface_to_float`         |
-{: caption="Table 3: Bare metal server network interface properties mapping" caption-side="bottom"}
+{: caption="Bare metal server network interface properties mapping" caption-side="bottom"}
 
 ## Related links
 {: #vni-related-links}

@@ -1,8 +1,8 @@
 ---
 
 copyright:
-  years:  2021, 2024
-lastupdated: "2024-11-12"
+  years:  2021, 2025
+lastupdated: "2025-02-20"
 
 keywords: IBM Cloud monitoring, platform metrics, metrics, vpc metrics, vpc monitoring metrics, Quota metrics, quota dashboard
 
@@ -41,7 +41,7 @@ Resources that offer quota metrics, detailed in Table 1.
 | [Select availability]{: tag-green} `cluster-network` | `cluster_networks` | {region} | {account ID} |
 | [Select availability]{: tag-green} `cluster-network` | `cluster_network_subnets` | {region} | {Cluster Network ID} |
 | [Select availability]{: tag-green} `cluster-network` | `cluster_network_subnet_reserved_ips` | {region} | {account ID} |
-{: caption="Table 1: Services offering quota metrics" caption-side="top"}
+{: caption="Services offering quota metrics" caption-side="top"}
 
 ### Resource quota consumption
 {: #ibm_is_resource_quota_consumption}
@@ -54,7 +54,7 @@ The amount of a resource that is consumed for a specific resource type, detailed
 | `Metric Type` | `gauge` |
 | `Value Type`  | `none` |
 | `Segment By` | `IBM IS Generation, Name of resource type for quota, Associated Resource` |
-{: caption="Table 2: Resource quota consumption metric metadata" caption-side="top"}
+{: caption="Resource quota consumption metric metadata" caption-side="top"}
 
 ### Resource quota limit
 {: #ibm_is_resource_quota_limit}
@@ -67,7 +67,7 @@ The resource quota limit for a specific resource type, detailed in Table 3.
 | `Metric Type` | `gauge` |
 | `Value Type`  | `none` |
 | `Segment By` | `IBM IS Generation, Name of resource type for quota, Associated Resource` |
-{: caption="Table 3: Resource quota limit metric metadata" caption-side="top"}
+{: caption="Resource quota limit metric metadata" caption-side="top"}
 
 ## Attributes for segmentation
 {: #attributes-quota}
@@ -86,7 +86,7 @@ The following attributes are available for segmenting all VPC metrics.
 | `Resource group` | `ibm_resource_group_name` | The resource group where the service instance was created |
 | `Scope` | `ibm_scope` | The scope is the account, organization, or space GUID associated with this metric |
 | `Service name` | `ibm_service_name` | Name of the service that is generating this metric |
-{: caption="Table 4: Global attributes" caption-side="top"}
+{: caption="Global attributes" caption-side="top"}
 
 ### Other attributes
 {: #additional-attributes}
@@ -98,7 +98,7 @@ The following attributes are available for segmenting one or more attributes as 
 | `Associated Resource` | `ibm_is_secondary_resource_id` | The ID of a linked or associated resource |
 | `IBM IS Generation` | `ibm_is_generation` | IBM IS Generation |
 | `Name of resource type for quota` | `ibm_is_resource_quota_name` | The name of the resource type that is monitored for quota usage/limit
-{: caption="Table 5: Additional attributes" caption-side="top"}
+{: caption="Additional attributes" caption-side="top"}
 
 ## Next steps
 {: #vpc-quota-next-steps}
