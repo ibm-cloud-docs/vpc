@@ -2,7 +2,7 @@
 
 copyright:
   years: 2021, 2023
-lastupdated: "2025-01-29"
+lastupdated: "2025-02-20"
 
 keywords: compute, virtual private cloud, virtual server instance, instance, bandwidth
 
@@ -64,7 +64,7 @@ The following table illustrates this allocation for three different profile exam
 | vNIC speed with 1 vNIC attached | 24 Gbps | 25 Gbps | 25 Gbps |
 | vNIC speed with 2 vNICs attached | 2x12 Gbps | 2x24 Gbps | 2x25 Gbps |
 | vNIC speed with 3 vNICs attached | 3x8 Gbps | 3x16 Gbps | 3x20 Gbps |
-{: caption="Table 11 Example profile bandwidth" caption-side="bottom"}
+{: caption="Example profile bandwidth" caption-side="bottom"}
 
 The network bandwidth cap applies separately to egress (transmitted) and ingress (received) traffic. That is, even if an instance that is capped at 4 Gbps reaches its transmit cap of 4 Gbps it can still receive up to its ingress cap of 4 Gbps.
 

@@ -2,7 +2,7 @@
 
 copyright:
   years:  2021, 2023
-lastupdated: "2024-09-26"
+lastupdated: "2025-02-20"
 
 keywords: IBM Cloud monitoring, vpc monitoring, dashboards, dashboard
 
@@ -30,7 +30,7 @@ Each monitoring dashboard has the relevant metrics for its associated service as
 | Flow Logs for VPC Overview | [Monitoring flow logs for VPC metrics](/docs/vpc?topic=vpc-fl-monitoring-metrics) |
 | VPC Infrastructure Service Resource Quota Overview | [VPC quota metrics definitions](/docs/vpc?topic=vpc-vpc-quota-metrics) |
 | {{site.data.keyword.filestorage_vpc_short}} | [Monitoring metrics for {{site.data.keyword.filestorage_vpc_short}}](/docs/vpc?topic=vpc-fs-vpc-monitoring-sysdig) |
-{: caption="Table 1: VPC metric definitions" caption-side="bottom"}
+{: caption="VPC metric definitions" caption-side="bottom"}
 
 To see a list of Cloud services outside of VPC that offer monitoring, see [Cloud services](/docs/monitoring?topic=monitoring-cloud_services).
 
