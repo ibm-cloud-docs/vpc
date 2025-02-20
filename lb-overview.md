@@ -2,7 +2,7 @@
 
 copyright:
   years: 2018, 2025
-lastupdated: "2025-01-29"
+lastupdated: "2025-02-20"
 
 keywords: listener, pool, round-robin, weighted, layer 7, datapath logging, http2, websocket
 
@@ -23,7 +23,9 @@ If you have public and private workloads and layer 7 traffic, use an application
 ## Types of application load balancers
 {: #types-load-balancer}
 
-As discussed in the [Load balancers for VPC overview](/docs/vpc?topic=vpc-nlb-vs-elb&interface=ui), you can create a public or private ALB. Table 1 shows a comparison of public versus private features.
+As discussed in the [Load balancers for VPC overview](/docs/vpc?topic=vpc-nlb-vs-elb&interface=ui), you can create a public or private ALB. 
+
+This table shows a comparison of public versus private features.
 
 | Feature | Public load balancer | Private load balancer |
 |--------|-------|-------|

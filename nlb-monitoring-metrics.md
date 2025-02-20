@@ -1,8 +1,8 @@
 ---
 
 copyright:
-  years: 2020, 2024
-lastupdated: "2024-08-22"
+  years: 2020, 2025
+lastupdated: "2025-02-20"
 
 keywords: l7, layer 7, monitor, metrics, connection
 
@@ -52,7 +52,7 @@ The active connection metric contains the following metadata:
 | Metric type | `gauge` |
 | Value type | `none`  |
 | Segment by | `IBM Load Balancer for VPC appliance metrics` and `IBM Load Balancer for VPC listener metrics` |
-{: caption="Table 1: IBM Load Balancer for VPC active connections metrics metadata" caption-side="bottom"}
+{: caption="IBM Load Balancer for VPC active connections metrics metadata" caption-side="bottom"}
 
 
 ### Connection rate
@@ -66,7 +66,7 @@ Connection rate is the number of new, incoming active connections per second to 
 | Metric type | `gauge` |
 | Value type  | `none` |
 | Segment by | `IBM Load Balancer for VPC appliance metrics` and `IBM Load Balancer for VPC listener metrics` |
-{: caption="Table 2: IBM Load Balancer for VPC connection rate metric metadata" caption-side="bottom"}
+{: caption="IBM Load Balancer for VPC connection rate metric metadata" caption-side="bottom"}
 
 ## Metric segmentation
 {: #nlb-metric-segmentation}
@@ -85,7 +85,7 @@ The following attributes are available for segmenting the three metrics.
 | `Resource` | `ibm_resource` | A load balancer's unique ID |
 | `Scope` | `ibm_scope` | The account associated with a given load balancer |
 | `Service name` | `ibm_service_name` | ibm-is-load-balancer |
-{: caption="Table 3: Global attributes" caption-side="bottom"}
+{: caption="Global attributes" caption-side="bottom"}
 
 ### Additional attributes
 {: #nlb-additional-attributes}
@@ -96,7 +96,7 @@ The following attributes are available to segment one or more of the global attr
 |-----------|----------------|-----------------------|
 | IBM Load Balancer for VPC appliance metrics | `ibm_is_load_balancer_appliance_ip` | The metrics coming from the load balancer back-end. Because the load balancer is highly available, multiple appliances support each load balancer for redundancy.  |
 | IBM Load Balancer for VPC listener metrics | `ibm_is_load_balancer_listener_port` | The metrics that are gathered from individual listeners and their ports. Configure the listeners in your load balancer settings. The monitoring metrics reflect the metrics coming from those listeners. |
-{: caption="Table 4: Additional attributes" caption-side="bottom"}
+{: caption="Additional attributes" caption-side="bottom"}
 
 The displayed metrics contain a timestamp in UNIX Epoch Time and the metric value for the time interval ending at that timestamp. You can specify different scopes, as well as the time interval over which to report the metrics.
 

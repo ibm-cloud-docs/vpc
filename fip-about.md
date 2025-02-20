@@ -1,8 +1,8 @@
 ---
 
 copyright:
-  years: 2022, 2024
-lastupdated: "2024-10-10"
+  years: 2022, 2025
+lastupdated: "2025-02-20"
 
 keywords: floating ip, about, public gateway
 
@@ -30,7 +30,7 @@ External connectivity can be achieved by using either a public gateway that is a
 Associating a floating IP address with an instance removes the instance from the public gateway's Many-to-1 NAT.
 {: tip}
 
-Table 1 summarizes the differences between the options:
+This table summarizes the differences between the options:
 
 | Public gateway | Floating IP |
 | ---- | ---- |

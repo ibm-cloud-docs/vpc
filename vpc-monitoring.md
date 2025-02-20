@@ -2,7 +2,7 @@
 
 copyright:
   years:  2024
-lastupdated: "2024-06-20"
+lastupdated: "2025-02-20"
 
 keywords: status, health status
 
@@ -39,7 +39,7 @@ The following table shows the possible VPC resource statuses and a description o
 | Suspended       | The resource has been suspended. Contact IBM Support for further clarification.|
 | Updating        | The resource is currently being updated.|
 | Waiting         | The resource is currently paused while waiting for a response.|
-{: caption="Table 1: VPC status descriptions" caption-side="bottom"}
+{: caption="VPC status descriptions" caption-side="bottom"}
 
 ## Health status
 {: #vpc-health-status}
@@ -52,4 +52,4 @@ The following table shows the possible VPC health statuses and a description of 
 | Faulted         | The resource is unreachable, inoperative, or otherwise incapacitated.|
 | Healthy         | No abnormal behavior detected.|
 | Inapplicable    | The health state doesn't apply because of the current lifecycle status of the resource. For example, a lifecycle status of `deleting` will have a health state of `inapplicable`.|
-{: caption="Table 2: Health status descriptions" caption-side="bottom"}
+{: caption="Health status descriptions" caption-side="bottom"}

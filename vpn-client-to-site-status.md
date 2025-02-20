@@ -1,8 +1,8 @@
 ---
 
 copyright:
-  years:  2023
-lastupdated: "2023-10-15"
+  years:  2023, 2025
+lastupdated: "2025-02-20"
 
 keywords:
 
@@ -32,7 +32,7 @@ The following table shows the possible VPN server lifecycle statuses and a descr
 |Suspended       | The resource has been suspended. Contact IBM Support for further clarification.|
 |Updating        | The resource is currently being updated.|
 |Waiting         | The resource is currently paused while waiting for a response.|
-{: caption="Table 1: Lifecycle status descriptions" caption-side="bottom"}
+{: caption="Lifecycle status descriptions" caption-side="bottom"}
 
 ## Health status
 {: #health-status-vpn-server}
@@ -45,7 +45,7 @@ The following table shows the possible VPN server health statuses and a descript
 |Faulted         |The resource is unreachable, inoperative, or otherwise incapacitated.|
 |Healthy         |No abnormal behavior detected.|
 |Inapplicable    |The health state doesn't apply because of the current lifecycle status of the resource. For example, a lifecycle status of `deleting` will have a health state of `inapplicable`.|
-{: caption="Table 2: Health status descriptions" caption-side="bottom"}
+{: caption="Health status descriptions" caption-side="bottom"}
 
 For error codes, reasons for failure, and suggested solutions for recovery, see [Diagnosing VPN server health](/docs/vpc?topic=vpc-vpn-server-health).
 {: note}

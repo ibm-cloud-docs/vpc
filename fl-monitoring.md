@@ -2,7 +2,7 @@
 
 copyright:
   years: 2020, 2025
-lastupdated: "2025-01-10"
+lastupdated: "2025-02-20"
 
 keywords:
 
@@ -40,7 +40,7 @@ The number of bytes sent to Cloud Object Storage from a flow log collector.
 | `Metric type` | `gauge` |
 | `Value type`  | `byte` |
 | `Segment by` | `IBM IS Generation 2, flow log collector virtual server attachment` |
-{: caption="Table 1: Flow log bytes sent" caption-side="bottom"}
+{: caption="Flow log bytes sent" caption-side="bottom"}
 
 ## Attributes for segmentation
 {: #segmentation-attributes-fl}
@@ -58,7 +58,7 @@ The following attributes are available for segmenting the previously listed metr
 | `Resource type` | `ibm_resource_type` | Type of resource measured by the service. |
 | `Scope` | `ibm_scope` | Scope of the account, organization, or space GUID that is associated with this metric. |
 | `Service name` | `ibm_service_name` | Name of the service generating this metric. |
-{: caption="Table 2: Global attributes" caption-side="bottom"}
+{: caption="Global attributes" caption-side="bottom"}
 
 ### Additional attributes
 {: #additional-attributes-fl}
@@ -69,7 +69,7 @@ The following attributes are available for segmenting one or more attributes as 
 |-----------|----------------|-----------------------|
 | `IBM IS Generation 2` | `ibm_is_generation` | IBM IS Generation ( `2` for Gen. 2) |
 | `Flow log collector VPS attachment` | `ibm_is_flow_log_collector_instance` | The virtual server instance ID where the flow log collector is attached. |
-{: caption="Table 3: Additional attributes" caption-side="bottom"}
+{: caption="Additional attributes" caption-side="bottom"}
 
 ## Enabling metrics monitoring
 {: #-fl}

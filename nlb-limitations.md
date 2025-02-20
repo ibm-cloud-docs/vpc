@@ -1,8 +1,8 @@
 ---
 
 copyright:
-  years: 2018, 2024
-lastupdated: "2024-11-14"
+  years: 2018, 2025
+lastupdated: "2025-02-20"
 
 keywords:
 
@@ -34,14 +34,14 @@ The following lists contain known limitations for {{site.data.keyword.cloud}} {{
 * The default load balancer quota is 50 per region. To increase the number, you must [create a support case](/docs/account?topic=account-open-case).
 * When you create a listener for a network load balancer, you can specify a `protocol` of `tcp` or `udp`. However, each listener in the network load balancer must have a unique `port`.
 * [Private NLB]{: tag-blue} The NLB service might add rules to custom routing tables to ensure service availability for some failure conditions. As a result, if the client is outside the zone and/or VPC of the NLB, you must add an ingress custom routing table to the VPC where the NLB resides with the proper traffic source selected.
-* [Private NLB]{: tag-blue} Depending on the location of the clients, you must ensure that ingress routing tables exist (as described in Table 1).
+* [Private NLB]{: tag-blue} Depending on the location of the clients, you must ensure that ingress routing tables exist.
 
    | Client location | Routing table type | Traffic source |
    |----|----|----|
    | On-prem | Ingress | Direct link |
    | Another VPC or classic infrastructure | Ingress | Transit gateway |
    | Another availability zone of the same VPC | Ingress | VPC zone |
-   {: caption="Table 1: Traffic sources that require ingress custom routing tables." caption-side="bottom"}
+   {: caption="Traffic sources that require ingress custom routing tables." caption-side="bottom"}
 
    For more information, see [About routing tables and routes](/docs/vpc?topic=vpc-about-custom-routes).
    {: note}
