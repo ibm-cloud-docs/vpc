@@ -125,7 +125,7 @@ The following Compute profiles are available for dedicated hosts.
 
 | Dedicated host profile | vCPU | Cores | GiB RAM | Instance storage |
 |---------|---------|---------|---------| ---------|
-| cx3d-host-176x880 | 176 | 88 | 440 | 2x3.2 Tb |
+| cx3d-host-176x440 | 176 | 88 | 440 | 2x3.2 Tb |
 {: caption="Intel x86-64 Compute cx3d profile for dedicated hosts" caption-side="bottom"}
 {: #dh-compute-intel-x86-64-cx3d}
 {: tab-title="cx3d"}
