@@ -2,7 +2,7 @@
 
 copyright:
   years: 2023, 2025
-lastupdated: "2025-02-03"
+lastupdated: "2025-02-21"
 
 keywords:
 
@@ -35,7 +35,7 @@ A reservation cannot be used for a container service discount such as IBM Kubern
 ## Supported virtual server profiles
 {: #reserved-virtual-servers-vpc-supported-profiles}
 
-The following x86 profiles for virtual servers are available when you provision a reservation in all [available MZRs](/docs/overview?topic=overview-locations).
+The following x86 profiles for virtual servers are available when you provision a reservation in all [available MZRs](/docs/overview?topic=overview-locations) .
 
 * bx2 profiles
 * bx2d profiles
@@ -49,9 +49,9 @@ The following x86 profiles for virtual servers are available when you provision 
 The following virtual server profiles are available in specific MZRs.
 
 * bx2a profiles are available in Toronto only.
-* bx3d, cx3d, and mx3d profiles are available in Dallas, Frankfurt, London, Madrid, Osaka, Sydney, Toronto, and Washington DC.
+* bx3d, cx3d, and mx3d profiles are available in Dallas, Frankfurt, London, Madrid, Osaka, Sydney, Toronto,  and Washington DC.
 * gx2 profiles are available in all regions except Madrid.
-* gx3d profiles are available in Frankfurt, London, Madrid, Sao Paulo, Sydney, Tokyo, Toronto, and Washington DC.
+* gx3d profiles are available in Frankfurt, London, Madrid, Sao Paulo, Sydney, Tokyo, Toronto,  and Washington DC.
 * ox2 profiles are available in Dallas, Frankfurt, London, Osaka, Tokyo, and Washington DC.
 
 For more information about profiles, see [x86-64 instance profiles](/docs/vpc?topic=vpc-profiles).
