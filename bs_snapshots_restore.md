@@ -2,7 +2,7 @@
 
 copyright:
   years: 2021, 2025
-lastupdated: "2025-02-18"
+lastupdated: "2025-02-21"
 
 keywords:
 
@@ -108,7 +108,7 @@ From the list of {{site.data.keyword.block_storage_is_short}} snapshots, you can
     | Resource group | Use the defaults or select from the list. |
     | Zone | Inherited from the snapshot. Change it to another zone in your region if you want to. |
     | Size | Enter a volume size allowed by the profile. The default is the minimum provisioning size based on the snapshot. |
-    | **Profile** | This value defaults to the snapshot's IOPS tier or custom profile. You can change the profile. |
+    | **Profile** | This value defaults to the snapshot's volume profile. You can change the profile to another one in the same storage generation.|
     | IOPS | For IOPS tiers, specify an IOPS tier profile. For custom IOPS, select a range. |
     | Size | Enter a volume size that is allowed by the profile. |
     | **Encryption** | Inherited from the snapshot.|
