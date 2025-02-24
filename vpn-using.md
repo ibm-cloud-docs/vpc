@@ -1,8 +1,8 @@
 ---
 
 copyright:
-  years: 2019, 2024
-lastupdated: "2024-10-15"
+  years: 2019, 2025
+lastupdated: "2025-02-24"
 
 keywords: VPN, VPN gateways, encryption, IKE, IPsec, gateway, auto-negotiation, Diffie-Hellman, dead peer detection, PFS
 
@@ -143,7 +143,7 @@ Both policy-based and route-based VPNs allow users to connect to multiple remote
 
 ![Multiple peers VPN use case](images/vpn-multiple-peers.png){: caption="Multiple Peers VPN use case" caption-side="bottom"}
 
-### Use case 3: VPN advanced configuration using a FQDN
+### Use case 3: VPN advanced configuration using an FQDN
 {: #use-case-3-vpn}
 
 The following use case illustrates a customer that has one VPC in IBM Cloud and wants to connect their on-prem site with a single VPN gateway. The on-prem site VPN gateway is behind a NAT device and has no public IP address. The local IKE identity of the on-prem VPN gateway is the private IP address it owns. One FQDN is associated with the public IP address of the NAT device.

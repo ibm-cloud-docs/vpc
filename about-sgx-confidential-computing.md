@@ -2,7 +2,7 @@
 
 copyright:
   years: 2023, 2025
-lastupdated: "2025-01-23"
+lastupdated: "2025-02-24"
 
 keywords: sgx, intel sgx, software guard extension, confidential computing, trusted execution environment, TEE, data protection
 
@@ -27,7 +27,7 @@ Confidential computing with Intel SGX for VPC is available only in the Dallas (u
 ## Confidential computing with Intel Trusted Domain Extension (TDX)
 {: #confidential-computing-vpc-tdx}
 
- Confidential computing with Intel Trust Domain Extensions(TDX) offers confidentiality to virtual machines by providing CPU enhancements that are leveraged by the firmware and hardware to provide confidentiality and integrity. Everything within these virtual machine is confidential and can't be eavesdropped. Also, everything within these virtual machine is integrity protected and can't be tampered. For more information about TDX, see [Intel Trust Domain Extensions](https://www.intel.com/content/www/us/en/developer/tools/trust-domain-extensions/overview.html){: external}.
+ Confidential computing with Intel Trust Domain Extensions(TDX) offers confidentiality to virtual machines by providing CPU enhancements that are leveraged by the firmware and hardware to provide confidentiality and integrity. Everything within the virtual machine is confidential and can't be eavesdropped. Also, everything within the virtual machine is integrity protected and can't be tampered. For more information about TDX, see [Intel Trust Domain Extensions](https://www.intel.com/content/www/us/en/developer/tools/trust-domain-extensions/overview.html){: external}.
 
 ## Confidential computing with Intel Software Guard Extensions (SGX)
 {: #confidential-computing-vpc-sgx}

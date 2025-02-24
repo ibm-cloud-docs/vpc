@@ -2,7 +2,7 @@
 
 copyright:
   years: 2024, 2025
-lastupdated: "2025-01-11"
+lastupdated: "2025-02-24"
 
 keywords:
 
@@ -21,7 +21,7 @@ After you verify a successful [connection to your Private Path service](/docs/vp
 If a Private Path service is not published, it cannot be accessed outside of the account.
 {: important}
 
-Publishing allows any account to request access to to the Private Path service. If need be, you can also unpublish where access is restricted to the account that created the Private Path service.
+Publishing allows any account to request access to the Private Path service. If need be, you can also unpublish where access is restricted to the account that created the Private Path service.
 
 You can publish and unpublish an {{site.data.keyword.cloud}} Private Path service using the UI, CLI, API, or Terraform.
 

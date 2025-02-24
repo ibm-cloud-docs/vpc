@@ -1,8 +1,8 @@
 ---
 
 copyright:
-  years: 2023, 2024
-lastupdated: "2024-12-10"
+  years: 2023, 2025
+lastupdated: "2025-02-24"
 
 keywords:
 
@@ -87,7 +87,7 @@ To enable a VPC as a DNS hub with the API, follow these steps:
 1. To create a hub VPC with default DNS servers, enter the following command:
 
    ```curl
-   curl -X POST -sH "Authorization:${iam_token}" "${vpc_api_endpoint}/v1/vpcs?version=$api_version&generation=2" -d '{"name": "test-hub", "dns": {"enable_hub": true} ,"resource_group": {"id": "'$ResourceGroupId'"}}'
+   curl -X POST -sH "Authorization:${iam_token}" "${vpc_api_endpoint}/v1/vpcs?version=$api_version&generation=2" -d '{"name": "test-hub", "dns": {"enable_hub": true}, "resource_group": {"id": "'$ResourceGroupId'"}}'
    ```
    {: codeblock}
 

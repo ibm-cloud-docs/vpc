@@ -2,7 +2,7 @@
 
 copyright:
   years: 2023, 2025
-lastupdated: "2025-01-14"
+lastupdated: "2025-02-24"
 
 keywords: sgx, intel sgx, software guard extension, confidential computing, attestation, DCAP, data center attestation primitives
 
@@ -53,19 +53,10 @@ service as shown in the following example.
 Non-root user must copy the `/root/.dcap-qcnl/*` directory to their `$HOME` directory to use DCAP.
 {: note}
 
-## Enabling attestation in TDX VSI
+## Enabling attestation in TDX virtual server instance
 {: #configuring-tdx-dcap-for-attestation}
 
-TDX supports vSOCK-based attestation which is based on DCAP SDK version 1.21 or greater.
-
-Install DCAP package; as specified by Intel.
-
-Configure the `qgsd` vSOCK port in the TDX virtual server instance. In the TDX virtual server instance, create a file named `/etc/tdx-attest.conf` and add the following line.
-
-```sh
- port=4050
-```
-{: codeblock}
+To enable attestation for TDX, follow the Intel instructions [Trust Domain at Runtime](https://cc-enabling.trustedservices.intel.com/intel-tdx-enabling-guide/07/trust_domain_at_runtime/){: external}
 
 ## SGX and TDX documentation from Intel
 {: #sgx-tdx-documentation-intel}
@@ -73,11 +64,11 @@ Configure the `qgsd` vSOCK port in the TDX virtual server instance. In the TDX v
 For more information about SGX, see the following links.
 
 * For DCAP, see [Intel® SGX Data Center AttestationPrimitives Intel® SGX DCAP](https://www.intel.com/content/dam/develop/public/us/en/documents/intel-sgx-dcap-ecdsa-orientation.pdf){: external}.
-
 * For attestation by using DCAP, see [Quote Generation, Verification, and Attestation with Intel® Software Guard Extensions Data Center Attestation Primitives (Intel® SGX DCAP)](https://www.intel.com/content/www/us/en/developer/articles/technical/quote-verification-attestation-with-intel-sgx-dcap.html){: external}.
-
 * For DCAP installation, see [Intel® Software Guard Extensions Data Center Attestation Primitives (Intel® SGX DCAP) - A Quick Install Guide](https://www.intel.com/content/www/us/en/developer/articles/guide/intel-software-guard-extensions-data-center-attestation-primitives-quick-install-guide.html){: external}.
-
 * For the Attestation verification service, see [Intel® Trust Authority](https://docs.trustauthority.intel.com/main/articles/introduction.html){: external}.
 
-For more information about TDX, see [Intel TDX Remote Attestation](https://cc-enabling.trustedservices.intel.com/intel-tdx-enabling-guide/02/infrastructure_setup/){: external}
+For more information about TDX, see the following links.
+
+* For TDX, see [Intel TDX Enabling Guide](https://cc-enabling.trustedservices.intel.com/intel-tdx-enabling-guide/01/introduction/){: external}
+* For TDX remote attestation, see [Intel TDX Remote Attestation](https://cc-enabling.trustedservices.intel.com/intel-tdx-enabling-guide/02/infrastructure_setup/){: external}
