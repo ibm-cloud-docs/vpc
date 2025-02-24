@@ -1,8 +1,8 @@
 ---
 
 copyright:
-  years: 2021, 2024
-lastupdated: "2024-10-10"
+  years: 2021, 2025
+lastupdated: "2025-02-24"
 
 keywords: bare metal servers, managing, operation, manage bare metal server, manage bare metal, manage server, restart bare metal, stop bare metal, delete bare metal, reboot bare metal, restart server, stop server, delete server
 
@@ -257,7 +257,7 @@ Specify a `GET /bare_metal_servers` request to list all the bare metal servers.
 
 To retrieve a bare metal server by using the API, use [Retrieve a bare metal server](/apidocs/vpc/latest#get-bare-metal-server).
 
-Specify a `GET /bare_metal_servers/{id}` request retrieve a specific bare metal server where `id` is the identifer of the bare metal server you are retrieving.
+Specify a `GET /bare_metal_servers/{id}` request retrieve a specific bare metal server where `id` is the identifier of the bare metal server you are retrieving.
 
    ```sh
    curl -X GET "$vpc_api_endpoint/v1/bare_metal_servers/$bare_metal_server_id?version=2021-03-09&generation=2" \
@@ -272,7 +272,7 @@ For more information of the API requests, see [List all bare metal servers](/api
 
 To reboot a bare metal server by using the API, use [Restart a bare metal server](/apidocs/vpc/latest#restart-bare-metal-server).
 
-Specify a `POST /bare_metal_servers/{id}/restart` request to restart a specific bare metal server where `id` is the identifer of the bare metal server you are restarting.
+Specify a `POST /bare_metal_servers/{id}/restart` request to restart a specific bare metal server where `id` is the identifier of the bare metal server you are restarting.
 
 ```sh
 curl -X POST "$vpc_api_endpoint/v1/bare_metal_servers/$bare_metal_server_id/restart?version=2021-03-09&generation=2" \
@@ -292,7 +292,7 @@ Use the following API requests to stop or start a bare metal server.
 #### Stopping the bare metal server by using the API
 {: #stop-bm-api}
 
-Specify a `POST /bare_metal_servers/{id}/stop` request to stop a specific bare metal server where `id` is the identifer of the bare metal server you are stopping.
+Specify a `POST /bare_metal_servers/{id}/stop` request to stop a specific bare metal server where `id` is the identifier of the bare metal server you are stopping.
 
 You must specify the `type` for the stop action in the data payload. `soft` tells the running operating system to stop and shut down cleanly. `hard` immediately stops the bare metal server.
 {: important}
@@ -314,7 +314,7 @@ For more information about the API request, see [Stop a bare metal server](/apid
 #### Starting the bare metal server by using the API
 {: #start-bm-api}
 
-Specify a `POST /bare_metal_servers/{id}/start` request to start a specific bare metal server where `id` is the identifer of the bare metal server you are starting.
+Specify a `POST /bare_metal_servers/{id}/start` request to start a specific bare metal server where `id` is the identifier of the bare metal server you are starting.
 
 ```sh
 curl -X POST "$vpc_api_endpoint/v1/bare_metal_servers/$bare_metal_server_id/start?version=2021-03-09&generation=2" \
@@ -351,7 +351,7 @@ Specify the following properties values to use when you reinitialize the bare me
 
 You can update the firmware on only a bare metal server that is stopped and has firmware updates available. It is recommended that you back up your server before you update the firmware. To update the firmware by using the API, use [Update firmware for a bare metal server](/apidocs/vpc-beta/initial#update-firmware-for-bare-metal-server).
 
-Specify a `POST /bare_metal_servers/{id}/firmware/update` request to update the firmware for a specific bare metal server where `id` is the identifer of the bare metal server that you are updating.
+Specify a `POST /bare_metal_servers/{id}/firmware/update` request to update the firmware for a specific bare metal server where `id` is the identifier of the bare metal server that you are updating.
 
 The default value for `auto_start` is `true`. If you don't want the bare metal server to start after the firmware update, you must change this value to `false`.
 
@@ -367,7 +367,7 @@ curl -X POST "$vpc_api_endpoint/v1/bare_metal_servers/$bare_metal_server_id/firm
 
 To delete a bare metal server by using the API, use [Delete a bare metal server](/apidocs/vpc/latest#delete-bare-metal-server).
 
-Specify a `DELETE /bare_metal_servers/{id}` request delete a specific bare metal server where `id` is the identifer of the bare metal server you are deleting.
+Specify a `DELETE /bare_metal_servers/{id}` request delete a specific bare metal server where `id` is the identifier of the bare metal server you are deleting.
 
 ```sh
 curl -X DELETE "$vpc_api_endpoint/v1/bare_metal_servers/$bare_metal_server_id?version=2021-03-09&generation=2" \

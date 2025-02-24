@@ -2,7 +2,7 @@
 
 copyright:
   years: 2019, 2025
-lastupdated: "2025-02-18"
+lastupdated: "2025-02-24"
 
 keywords:
 
@@ -254,7 +254,7 @@ Zone Maps and Universal Names for Zones
 {: release-note}
 
 Red Hat Enterprise Linux AI BYOL custom images (GA)
-:   The Red Hat Enterprise AI (RHEL AI) operating system can be imported as a bring your own license (BYOL). A RHEL AI qcow2 file is available directly from Red Hat. For more information, see [Red Hat Enteprise Linux AI BYOL custom images](/docs/vpc?topic=vpc-planning-custom-images#rhel-ai-byol-custom-images).
+:   The Red Hat Enterprise AI (RHEL AI) operating system can be imported as a bring your own license (BYOL). An RHEL AI qcow2 file is available directly from Red Hat. For more information, see [Red Hat Enteprise Linux AI BYOL custom images](/docs/vpc?topic=vpc-planning-custom-images#rhel-ai-byol-custom-images).
 
 ### 03 September 2024
 {: #vpc-sep0324}
@@ -1505,7 +1505,7 @@ Additional VPN for VPC ciphers
 
    * IKE policy now supports the `sha384` value for authentication, `aes192` for encryption, and `15`, `16`, `17`, `18`, `20`, `21`, `22`, `23`, `24`, and `31` values for Diffie–Hellman groups.
 
-   * IPsec policy now supports `sha384` and `disabled` values for authentication, `aes192`, `aes128gcm16`, `aes192gcm16`, and `aes256gcm16` values for encryption, and `group_15`, `group_16`, `group_17`, `group_18`, `group_20`, `group_21`, `group_22`, `group_23` , `group_24`, and `group_31` Diffie–Hellman groups.
+   * IPsec policy now supports `sha384` and `disabled` values for authentication, `aes192`, `aes128gcm16`, `aes192gcm16`, and `aes256gcm16` values for encryption, and `group_15`, `group_16`, `group_17`, `group_18`, `group_20`, `group_21`, `group_22`, `group_23`, `group_24`, and `group_31` Diffie–Hellman groups.
 
    Specifying IKE and IPsec policies when configuring a VPN connection is optional. If a policy is not selected, one is chosen through *auto-negotiation*. For more information, see [About policy negotiation](/docs/vpc?topic=vpc-using-vpn#policy-negotiation).
    {: note}

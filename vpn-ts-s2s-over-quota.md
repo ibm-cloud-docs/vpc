@@ -1,8 +1,8 @@
 ---
 
 copyright:
-  years: 2024
-lastupdated: "2024-05-03"
+  years: 2024, 2025
+lastupdated: "2025-02-24"
 
 keywords: virtual private network, VPN, VPN server, troubleshooting
 
@@ -33,5 +33,5 @@ You can resolve the failure with the following steps.
     * In the **Accepts routes from** option of the routing table, switch **VPN server** to **Off**
     * Aggregate the subnets in the VPC
 
-1. [Open an IBM support case](/unifiedsupport/cases/form) to increase the quota {: external}.
+1. [Open an IBM support case](/unifiedsupport/cases/form){: external} to increase the quota.
 1. Continue to use a VPC address prefix.

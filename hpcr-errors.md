@@ -1,8 +1,8 @@
 ---
 
 copyright:
-  years: 2023, 2024
-lastupdated: "2024-07-19"
+  years: 2023, 2025
+lastupdated: "2025-02-24"
 
 keywords: hyper protect container runtime, error messages, troubleshooting
 
@@ -134,7 +134,7 @@ The following list shows the error messages from Hyper Protect Container Runtime
    - User Action: Consult console logs for root cause.
 - **HPL18002E**:
    - Name: REWRAP_FAILED_ERROR
-   - Message: {datavolume} : Error occurred while rewrapping the key after rotation.
+   - Message: {datavolume}: Error occurred while rewrapping the key after rotation.
    - Explanation: Rewrapping the key after rotation failed.
    - System Action: Continues to Validate CRK.
    - User Action: Consult console logs for root cause.
@@ -158,50 +158,50 @@ The following list shows the error messages from Hyper Protect Container Runtime
    - User Action: Consult console logs for root cause.
 - **HPL18007E**:
    - Name: SAVE_KEY_FAILED_ERROR
-   - Message: {datavolume} : Error occurred while saving the rotated key to metadata partition.
+   - Message: {datavolume}: Error occurred while saving the rotated key to metadata partition.
    - Explanation: Rewrapping the key after rotation failed.
    - System Action: Continues to Validate CRK.
    - User Action: Consult console logs for root cause.
 - **HPL18001I**:
    - Name: KEY_ROTATED_NOTIFY
-   - Message: {datavolume} : Key rotation detected and wrapped key is updated.
+   - Message: {datavolume}: Key rotation detected and wrapped key is updated.
    - Explanation: HPCS key rotation is detected and action performed
    - System Action: Detected Key rotation and updated the keyfile
    - User Action: check logs for more information
 - **HPL18002I**:
    - Name: KEY_REACHABLE_NOTIFY
-   - Message: {datavolume} : Key state becomes valid before timeout finishes. Resuming the daemon.
+   - Message: {datavolume}: Key state becomes valid before timeout finishes. Resuming the daemon.
    - Explanation: HPCS key instance is reachable and daemon resumed
    - System Action: KeyDaemon continues to poll for key state
    - User Action: check logs for more information
 - **HPL18003I**:
    - Name: KEY_DAEMON_STARTED_NOTIFY
-   - Message: {datavolume} : Started the KeyDaemon successfully.
+   - Message: {datavolume}: Started the KeyDaemon successfully.
    - Explanation: Keydaemon started successsfully
    - System Action: KeyDaemon continues to poll for key state
    - User Action: check logs for more information
 - **HPL18001W**:
    - Name: UNEXPECTED_FAILURE
-   - Message: {datavolume} : Unexpected failure in the keydaemon.
+   - Message: {datavolume}: Unexpected failure in the keydaemon.
    - Explanation: some unexpected error occurred in keydaemon
    - System Action: Reboots the VSI.
    - User Action: Consult console logs for root cause.
 - **HPL18002W**:
    - Name: KEY_NOT_VALID_WARNING
-   - Message: {datavolume} : Key is in invalid state - {keystate}
+   - Message: {datavolume}: Key is in invalid state - {keystate}
    - Explanation: HPCS key poll detected key in invalid state
    - System Action: waits for timeout before recheck and reboots on failure
    - User Action: check logs for more information
 - **HPL18003W**:
    - Name: REBOOT_WARNING
-   - Message: {datavolume} : Triggering VSI Reboot
+   - Message: {datavolume}: Triggering VSI Reboot
    - Explanation: Reboot triggered by Keydaemon Failure
    - System Action: Reboots VSi in few seconds
    - User Action: check logs for more information
 - **HPL10000E**:
    - Name: SERVICE_FAILED
-   - Message: One or more service failed
-   - Explanation: One or more service failed.
+   - Message: One or more services failed
+   - Explanation: One or more services failed.
    - System Action: System will be shut down.
    - User Action: Consult logs for root cause.
 - **HPL10001I**:
@@ -231,13 +231,13 @@ The following list shows the error messages from Hyper Protect Container Runtime
 - **HPL08003E**:
    - Name: EXTRACT_ENV
    - Message: Unable to extract the env.
-   - Explanation: The env data cannot be extracted .
+   - Explanation: The env data cannot be extracted.
    - System Action: Logging fails to setup.
    - User Action: Check logs for details and take necessary actions.
 - **HPL08004E**:
    - Name: DOCKER_COMMAND
    - Message: Unable to run docker command.
-   - Explanation: The docker command failed to execute .
+   - Explanation: The docker command failed to execute.
    - System Action: Logging fails to setup.
    - User Action: Check logs for details and take necessary actions.
 - **HPL08005E**:
@@ -363,13 +363,13 @@ The following list shows the error messages from Hyper Protect Container Runtime
 - **HPL06003E**:
    - Name: EXTRACT_ENV
    - Message: Unable to extract the env.
-   - Explanation: The env data cannot be extracted .
+   - Explanation: The env data cannot be extracted.
    - System Action: Image service fails
    - User Action: Check logs for details and take necessary actions.
 - **HPL06004E**:
    - Name: DOCKER_COMMAND
    - Message: Unable to run docker command.
-   - Explanation: The docker command failed to execute .
+   - Explanation: The docker command failed to execute.
    - System Action: Image service fails
    - User Action: Check logs for details and take necessary actions.
 - **HPL06005E**:

@@ -2,7 +2,7 @@
 
 copyright:
   years: 2022, 2025
-lastupdated: "2025-02-05"
+lastupdated: "2025-02-24"
 
 keywords: Backup, backup snapshot, create backups, backup service, backup plan, backup policy, restore, restore volume, restore data, restore share
 
@@ -1082,7 +1082,7 @@ A successful response shows that the clone policy is created.
   "name": "my-hourly-plan-2",
   "remote_region_policies": {
     "delete_over_count": 5,
-    "encryption_key": "crn:v1:bluemix:public:kms:us-south:a/a1234567:e4a29d1a-2ef0-42a6-8fd2-350deb1c647e:key:5437653b-c4b1-447f-9646-b2a2a4cd617" ,
+    "encryption_key": "crn:v1:bluemix:public:kms:us-south:a/a1234567:e4a29d1a-2ef0-42a6-8fd2-350deb1c647e:key:5437653b-c4b1-447f-9646-b2a2a4cd617",
     "region": [
       {"name": "us-east"},
       {"href": "https://us-east.iaas.cloud.ibm.com/v1/regions/us-east/zones/us-east-2"}

@@ -1,8 +1,8 @@
 ---
 
 copyright:
-  years: 2022, 2024
-lastupdated: "2024-12-13"
+  years: 2022, 2025
+lastupdated: "2025-02-24"
 
 keywords: confidential computing, enclave, secure execution, hpcr, contract, customization, schema, contract schema, env, workload, encryption
 
@@ -23,9 +23,8 @@ When you create an {{site.data.keyword.cloud_notm}} {{site.data.keyword.hpvs}} f
 
 The contract is a definition file in the YAML format that is specific to the {{site.data.keyword.hpvs}} for VPC instance. This file must be created by the cloud user as a prerequisite for creating an instance. After this file is created, it must be passed as an input as part of the **User Data** field when an instance is created. You cannot create an instance without a valid contract. If you create an instance without a contract, the deployment starts and then fails, and the instance goes into a shutdown state. The contract is specific to creating a {{site.data.keyword.hpvs}} for VPC instance and is an extension of the IBM Secure Execution technology by Hyper Protect.
 
-If the workload discloses the decrypted tokens (either through SSH or REST APIs), then the decrypted data contains both the workload and the environment secrets (however it does not contain the seeds that were used for volume encryption).
+If the workload discloses the decrypted tokens either through SSH or REST APIs, then the decrypted data contains both the workload and the environment secrets. However, it does not contain the seeds that were used for volume encryption.
 {: note}
-
 
 ## Contract sections
 {: #hpcr_contract_sections}
@@ -48,8 +47,8 @@ The deployer persona works closely with IBM Cloud. This persona receives the wor
 ## The workload section
 {: #hpcr_contract_workload}
 
-This is one of the most important sections of the contract. The `workload` section can have multiple subsections and the purpose of the subsections is to provide information that is required for bringing up the workload. The `workload` section is the parent section that can have the following subsections:
-* type: workload. This subsection is mandatory.
+This section is one of the most important sections of the contract. The `workload` section can have multiple subsections and the purpose of the subsections is to provide information that is required for bringing up the workload. The `workload` section is the parent section that can have the following subsections:
+* `type`: workload. This subsection is mandatory.
 * [`auths`](#hpcr_contract_auths). This subsection is optional.
 * [`compose`](#hpcr_contract_compose) (for single container) or [`play`](#hpcr_contract_play) (for single container or multiple containers). They are mutually exclusive; one of the sections must exist.
 * [`images`](#hpcr_contract_images). This subsection is optional.
@@ -110,14 +109,14 @@ auths:
 ### The `compose` subsection
 {: #hpcr_contract_compose}
 
-It consists of an archive subsection. The archive subsection contains the Base64 encoded TGZ file archive of the `docker-compose.yaml` file. As the Hyper Protect Container Runtime image uses Docker Engine and Docker Compose to start the container, the information about the container must first be created by using a standard docker-compose file. This file is then archived and Base64 encoded and the output of this is provided as the value to the archive subsection, within the compose section. For more information, see [Overview of Docker Compose](https://docs.docker.com/compose/).
+It consists of an archive subsection. The archive subsection contains the Base64 encoded TGZ file archive of the `docker-compose.yaml` file. As the Hyper Protect Container Runtime image uses Docker Engine and Docker Compose to start the container, the information about the container must first be created by using a standard docker-compose file. This file is then archived and Base64 encoded, and the output of this process is provided as the value to the archive subsection, within the compose section. For more information, see [Overview of Docker Compose](https://docs.docker.com/compose/).
 
 The mount points specified under the volumes information of the docker-compose file might be aligned with the volume mount point that is specified in the workload section of the contract.
 
 Executing a build as part of a docker compose file is not supported. Make sure your docker compose file doesn't have a `build` section.
 {: note}
 
-Both "yaml" and "yml" formats are supported for docker-compose file. This is an example of a docker-compose file.
+Both "yaml" and "yml" formats are supported for docker-compose file. See the following example of a docker-compose file.
 
 ```yaml
 version: '3'
@@ -132,7 +131,7 @@ services:
 ```
 {: codeblock}
 
-There exist use cases in which the registry is **not known** when the workload section is pre-encrypted, for example, when the workload provider wants to allow the deployer to use a registry mirror or a private Container Registry. In such a case, it's possible to dynamically override the registry as well as the pull credentials. This is a coordinated effort between the workload provider and the deployer. For more information, see [Using a dynamic registry reference](/docs/vpc?topic=vpc-hyper-protect-virtual-server-use-dynamic-registry-reference).
+Use cases exist where the registry is **not known** when the workload section is pre-encrypted. For example, when the workload provider wants to allow the deployer to use a registry mirror or a private Container Registry, it's possible to dynamically override the registry and the pull credentials. This effort has to be coordinated between the workload provider and the deployer. For more information, see [Using a dynamic registry reference](/docs/vpc?topic=vpc-hyper-protect-virtual-server-use-dynamic-registry-reference).
 {: tip}
 
 Complete the following steps to get the Base64 encoded archive file. The Base64 output is available in the compose.b64 file.
@@ -195,7 +194,7 @@ In the `play` subsection, you can define the workload through [Pod descriptors](
    ```
    {: codeblock}
 
-- In the `archive` subsection of `play`, the archive is a Base64 encoded, gzipped tar file. The Pods or ConfigMaps are represented as YAML files, at the top level in this tar file. The file might also contain extra files and all the files are extracted to the host file system before starting the Pods. The *current working directory* is the directory in which the files were extracted, so it's possible to use a volume mount with a relative path to mount the files or directories from the YAML file.
+- In the `archive` subsection of `play`, the archive is a Base64 encoded, gzipped tar file. The Pods or ConfigMaps are represented as YAML files, at the top level in this tar file. The file might also contain extra files and all the files are extracted to the host file system before the Pods are started. The *current working directory* is the directory in which the files were extracted, so it's possible to use a volume mount with a relative path to mount the files or directories from the YAML file.
 
    Example:
 
@@ -216,7 +215,7 @@ In the `play` subsection, you can define the workload through [Pod descriptors](
    ```
 
 
-- In a template format in the `templates` subsection of `play`. This section is an array of descriptors in the YAML format. [Pods](https://kubernetes.io/docs/concepts/workloads/pods/){: external} or [ConfigMaps](https://kubernetes.io/docs/concepts/configuration/configmap/){: external} may have points of variability (POV) that are not known at the time of writing the descriptors. These POVs may be represented as [templates](https://pkg.go.dev/text/template){: external} and the values will be filled in at deployment time from information in the contract. We use [go templates](https://pkg.go.dev/text/template){: external} as the templating syntax, which is the same as used for [helm charts](https://helm.sh/docs/chart_template_guide/getting_started/){: external}, so templates can easily be exchanged with k8s. We support the following `Built-In` objects:
+- In a template format in the `templates` subsection of `play`. This section is an array of descriptors in the YAML format. [Pods](https://kubernetes.io/docs/concepts/workloads/pods/){: external} or [ConfigMaps](https://kubernetes.io/docs/concepts/configuration/configmap/){: external} can have points of variability (POV) that are not known at the time of writing the descriptors. These POVs can be represented as [templates](https://pkg.go.dev/text/template){: external} and the values are completed at deployment time from information in the contract. We use [go templates](https://pkg.go.dev/text/template){: external} as the templating syntax, which is the same as used for [helm charts](https://helm.sh/docs/chart_template_guide/getting_started/){: external}, so templates can easily be exchanged with k8s. We support the following `Built-In` objects:
    - *Environment:* this object contains the environment variables as merged between the workload and the environment section. The object is available as `{{ .Env }}`.
 
    Example:
@@ -259,7 +258,7 @@ In the `play` subsection, you can define the workload through [Pod descriptors](
 
    The `{{ .Env REGISTRY }}` expression references the `REGISTRY` environment variable that in this example is defined in the `env` section of the contract.
 
-   The templates need to be valid [YAML](https://yaml.org/spec/1.2.2/){: external}, so a replacement expression must be escaped if it appears as the first part of a string. Otherwise, it collides with the [block mapping](https://yaml.org/spec/1.2.2/#822-block-mappings){: external} syntax. This is different to [helm templates](https://helm.sh/docs/helm/helm_template/){: external} where expressions are applied to the textual representation of the document instead of the model representation.
+   The templates need to be valid [YAML](https://yaml.org/spec/1.2.2/){: external}, so a replacement expression must be escaped if it appears as the first part of a string. Otherwise, it collides with the [block mapping](https://yaml.org/spec/1.2.2/#822-block-mappings){: external} syntax. This is different from [helm templates](https://helm.sh/docs/helm/helm_template/){: external} where expressions are applied to the textual representation of the document instead of the model representation.
    {: note}
 
 #### Environment Variables
@@ -291,11 +290,11 @@ spec:
 
 - Container to container
 
-   Containers inside one Pod communicate to each other through `localhost`. Each container needs to listen on a different port, because - per design - they share the IP address.
+   Containers inside one Pod communicate to each other through `localhost`. Each container needs to listen on a different port because they share the IP address by design.
 
 - Pod to host
 
-   Usually a Pod needs to expose at least one of its containers to the host, so that container is accessible through the IP address on the host through a mapped port. For this use case, use the `hostPort` feature on a container. Note that this is **not** [best practice](https://kubernetes.io/docs/concepts/configuration/overview/#services){: external} in the Kubernetes world, in which a service would be used instead.
+   Usually a Pod needs to expose at least one of its containers to the host so that the container is accessible through the IP address on the host through a mapped port. For this use case, use the `hostPort` feature on a container. Note that this is **not** [best practice](https://kubernetes.io/docs/concepts/configuration/overview/#services){: external} in the Kubernetes world, in which a service would be used instead.
 
    Specify both `hostPort` and `containerPort` explicitly. If you specify only `containerPort`, ports are not bound.
    {: important}
@@ -429,7 +428,7 @@ For an image that is not signed, no entry is required in the images subsection. 
 2. Open the image.
 3. Click **Tag**, and then click **Digest**.
 
-After you get the digest, add this digest in the `docker-compose.yaml` file. The following is an example:
+After you get the digest, add this digest in the `docker-compose.yaml` file. See the following example:
 ```yaml
 services:
   <imagename>:
@@ -440,11 +439,11 @@ services:
 #### Images described by Pod descriptors
 {: #container-image-by-pod-descriptors}
 
-Container images described by Pod descriptors can be validated by RedHat Simple Signing.
+Container images that are described by Pod descriptors can be validated by Red Hat Simple Signing.
 
 If the image is referenced by a digest, the service allows its usage without additional checks.
 
-Images without a digest need a GPG key to be validated. The key is transferred in Base64 encoded binary format that can be created. For example:
+Images without a digest need a GPG key to be validated. The key is transferred in a Base64 encoded binary format that can be created. See the following example:
 
 ```bash
 gpg -a --export ${KEY_ID}|base64 -w0
@@ -466,7 +465,7 @@ images:
 ### The `workload` - `volumes` subsection
 {: #hpcr_contract_volumes}
 
-The `volumes` section needs to be provided in the contract only if a data volume is attached to the instance at the time of creation. The information provided in this section is used to mount the attached data volume (provided by the user) and is later encrypted using the "seeds" provided in the `workload` and `env` sections. You can provide any path of your choice for the "mount" field. The path provided by the user is used internally to mount the data volume. The mount path provided in the contract must match the path provided under the volumes section of the `docker-compose.yaml` file, so that all the data associated with the container workload is stored in this data volume.
+The `volumes` section needs to be provided in the contract only if a data volume is attached to the instance at the time of creation. The information that is provided in this section is used to mount the attached data volume (provided by the user) and is later encrypted using the "seeds" provided in the `workload` and `env` sections. You can provide any path of your choice for the "mount" field. The path that is provided by the user is used internally to mount the data volume. The mount path that is provided in the contract must match the path that is provided under the volumes section of the `docker-compose.yaml` file so that all the data that is associated with the container workload is stored in this data volume.
 
 The `volumes` subsection has support for auto encryption of the data volume with user-provided seeds. If a data volume is attached to the {{site.data.keyword.hpvs}} instance, it is encrypted automatically with the seeds that are provided through the "seed" field in the `volumes` subsections of the contract. Thus two seeds must be provided, one through the `workload` section (by the workload persona) and the other through the `env` section (by the deployer persona). These two seeds are internally converted to UTF8 sequences and then concatenated. Later, the hash (SHA256) of the concatenated sequence is computed as a hexdigest, which is used as the LUKS passphrase to encrypt the data volume.
 
@@ -495,8 +494,7 @@ volumes:
 Starting with the HPCR image version `ibm-hyper-protect-container-runtime-1-0-s390x-9`, for new {{site.data.keyword.hpvs}} for VPC instances, the data volume is partitioned into two parts. The first partition (100Mib) is reserved for internal metadata; the second partition remains as the data volume for workload. Only new volumes are partitioned, and you can't use the partitioned volume with an older version of the HPCR image. Provisioning with an existing encrypted volume also works. The difference is that the existing volume does not get partitioned, and you can also go back to an older image with this volume.
 {: note}
 
-
-Starting from `ibm-hyper-protect-container-runtime-1-0-s390x-12`, the deployer and provider can use the "rolling of seeds" feature. An option is provided to roll or rotate the seeds to increase the security posture, or if the seed is compromised. When the deployer or the provider or both of them want to roll the seeds, the current seed information must be specified in the `previousSeed` parameter, and the new seed information must be specified in the `seed` parameter. See the snippet shown below for an example.
+Starting from `ibm-hyper-protect-container-runtime-1-0-s390x-12`, the deployer and provider can use the "rolling of seeds" feature. An option is provided to roll or rotate the seeds to increase the security posture, or if the seed is compromised. When the deployer or the provider or both of them want to roll the seeds, the current seed information must be specified in the `previousSeed` parameter, and the new seed information must be specified in the `seed` parameter.
 
 The following snippet is an example for the volumes section:
 ```yaml
@@ -509,7 +507,7 @@ volumes:
 ```
 {: codeblock}
 
-Starting from `ibm-hyper-protect-container-runtime-1-0-s390x-13`, you can attach multiple volumes when you bring up the virtual server instance. Volumes attached when the instance is running are ignored.
+Starting from `ibm-hyper-protect-container-runtime-1-0-s390x-13`, you can attach multiple volumes when you bring up the virtual server instance. Volumes that are attached when the instance is running are ignored.
 
 The following snippet is an example for the volumes section:
 ```yaml
@@ -535,7 +533,7 @@ volumes:
 The `env` section is also one of the most important sections in a contract. The `env` section of a contract deals with information that is specific to the cloud environment and is not known to the workload persona. This section is created by the deployer persona.
 
 The subsections for the `env` section are:
-* type: env. This subsection is mandatory.
+* `type`: env. This subsection is mandatory.
 * [`logging`](#hpcr_contract_env_log). This subsection is mandatory.
 * [`volumes`](#hpcr_contract_env_vol). This subsection must be used only when a data volume is attached.
 * [`signingKey`](#hpcr_contract_env_signkey). This subsection must be used only when you want to use a contract signature.
@@ -548,7 +546,7 @@ The subsections for the `env` section are:
 #### LogDNA
 {: #hpcr_contract_logdna}
 
-The LogDNA is deprecated and will no longer be supported as of 30 March 2025. It will remain supported till March 2025 along with [IBM Cloud Logs](https://cloud.ibm.com/docs/cloud-logs?topic=cloud-logs-getting-started).
+The LogDNA is deprecated and will no longer be supported as of 30 March 2025. It remains supported until March 2025 along with [IBM Cloud Logs](https://cloud.ibm.com/docs/cloud-logs?topic=cloud-logs-getting-started).
 {: deprecated}
 
 The minimum subsection that is required for this section is the logDNA subsection. For more information, see [Logging for {{site.data.keyword.hpvs}} for VPC](/docs/vpc?topic=vpc-logging-for-hyper-protect-virtual-servers-for-vpc#log-analysis).
@@ -569,9 +567,7 @@ logging:
 #### ICL
 {: #hpcr_contract_icl}
 
-
 The minimum subsection that is required for this section is logRouter. For more information, see [Logging for {{site.data.keyword.hpvs}} for VPC](/docs/vpc?topic=vpc-logging-for-hyper-protect-virtual-servers-for-vpc#cloud-logs).
-
 
 The following snippet is an example of the `ICL` subsection:
 
@@ -590,7 +586,7 @@ The following snippet is an example of the `ICL` subsection:
 
 Read the [workload - volumes](#hpcr_contract_volumes) subsection of the workload section before you continue with this section. As already mentioned, for auto disk encryption of the attached data volume, you must provide two customer seeds, one in the `workload` - `volumes` subsection, and the other in the `env`- `volumes` subsection. The seeds can be any random text of your choice.
 
-This is an example of the `env` - `volumes` subsection:
+See the following example of the `env` - `volumes` subsection:
 ```yaml
 volumes:
   test:
@@ -608,8 +604,7 @@ volumes:
 ```
 {: codeblock}
 
-When you use multiple volumes, the deployer must ensure that the volumes are created in advance, and also specify the volume ID in the contract file. Otherwise, the volume name must be specified and the volume must be created with the same name. If both are not specified, then the volume key is considered as the volume name and the volume has to be created with the same name while or before creating the virtual server instance.
-The following snippet is an example:
+When you use multiple volumes, the deployer must ensure that the volumes are created in advance, and also specify the volume ID in the contract file. Otherwise, the volume name must be specified and the volume must be created with the same name. If both are not specified, then the volume key is considered as the volume name and the volume must be created with the same name while or before the virtual server instance is created. The following snippet is an example:
 
 ```yaml
  env: |
@@ -634,12 +629,12 @@ The following snippet is an example:
 {: codeblock}
 
 Where:
-- Volume Name: is the name you specified when you created the volume on the VPC.
+- Volume Name: is the name that you specified when you created the volume on the VPC.
 - Volume ID: is the system-generated volume ID of the created volume.
 - Volume Key: is the unique volume name for each volume.
 
 
-The volume key must be the same as that in the [workload - volumes](#hpcr_contract_volumes) subsection.
+The volume key must be the same as the key in the [workload - volumes](#hpcr_contract_volumes) subsection.
 {: note}
 
 As mentioned, you can integrate with Hyper Protect Crypto Services to generate a third seed and wrap it with your root key. See the following example. For more information, See [Securing your data](/docs/vpc?topic=vpc-hyper-protect-virtual-server-mng-data).
@@ -682,7 +677,7 @@ For more information about how to use the `signingKey`, see [Contract signature]
    ```
    {: codeblock}
 
-   When the docker compose file has an environment section, as shown in the example above, you can pass the values in the  `env` section of the deployer. The following example shows how to specify the values for the `env` variables:
+   When the docker compose file has an environment section, as shown in the previous example, you can pass the values in the `env` section of the deployer. The following example shows how to specify the values for the `env` variables:
    ```buildoutcfg
    env:
     value1: "abc"
@@ -699,7 +694,7 @@ You can decide which sections of the contract need encryption. For example, you 
 
 When the {{site.data.keyword.hpvs}} for VPC instance boots, the bootloader decrypts the contract. It takes the value of each of the sections in the contract and decrypts it if it is encrypted. If it finds that a section is not encrypted, it considers it as it is without any decryption. You must use the public key to encrypt the contract before you pass it as an input through the **User Data** section.
 
-The encryption and attestation certificates are signed by the IBM intermediate certificate and this is signed by the IBM Digicert intermediate cert (which in turn is signed by DigiCert Trusted Root G4). For more information about the certificates, see [DigiCert Trusted Root Authority Certificates](https://www.digicert.com/kb/digicert-root-certificates.htm).
+The encryption and attestation certificates are signed by the IBM intermediate certificate. The IBM intermediate certificate is signed by the IBM Digicert intermediate cert, which in turn is signed by DigiCert Trusted Root G4. For more information about the certificates, see [DigiCert Trusted Root Authority Certificates](https://www.digicert.com/kb/digicert-root-certificates.htm).
 
 
 ### Downloading the encryption certificate and extracting the public key
@@ -709,34 +704,32 @@ The encryption and attestation certificates are signed by the IBM intermediate c
 
    | Image version| Certificate link | Encryption cert expiry date | Deprecation date | Obsolete Date |
    | -------- | ----------- | ----------- | ----------- | ----------- |
-   | `ibm-hyper-protect-container-runtime-1-0-s390x-20` | [certificate](https://cloud.ibm.com/media/docs/downloads/hyper-protect-container-runtime/ibm-hyper-protect-container-runtime-1-0-s390x-20-encrypt.crt){: external} | 02 September 2025 |   |   |
-   | `ibm-hyper-protect-container-runtime-1-0-s390x-19` | [certificate](https://cloud.ibm.com/media/docs/downloads/hyper-protect-container-runtime/ibm-hyper-protect-container-runtime-1-0-s390x-19-encrypt.crt){: external} | 02 September 2025 |   |   |
-   | `ibm-hyper-protect-container-runtime-1-0-s390x-18` | [certificate](https://cloud.ibm.com/media/docs/downloads/hyper-protect-container-runtime/ibm-hyper-protect-container-runtime-1-0-s390x-18-encrypt.crt){: external} | 04 July 2025 |   |   |
-   | `ibm-hyper-protect-container-runtime-1-0-s390x-17` | [certificate](https://cloud.ibm.com/media/docs/downloads/hyper-protect-container-runtime/ibm-hyper-protect-container-runtime-1-0-s390x-17-encrypt.crt){: external} | 04 July 2025 |   |   |
-   | `ibm-hyper-protect-container-runtime-1-0-s390x-16` | [certificate](https://cloud.ibm.com/media/docs/downloads/hyper-protect-container-runtime/ibm-hyper-protect-container-runtime-1-0-s390x-16-encrypt.crt){: external} | 06 June 2025 | 03 July 2024  |   |
-   | `ibm-hyper-protect-container-runtime-1-0-s390x-15` | [certificate](https://cloud.ibm.com/media/docs/downloads/hyper-protect-container-runtime/ibm-hyper-protect-container-runtime-1-0-s390x-15-encrypt.crt){: external} | 08 March 2025 | 03 July 2024  |   |
-   | `ibm-hyper-protect-container-runtime-1-0-s390x-14` | [certificate](https://cloud.ibm.com/media/docs/downloads/hyper-protect-container-runtime/ibm-hyper-protect-container-runtime-1-0-s390x-14-encrypt.crt){: external} | 05 October 2024 | 15 April 2024 |   |
-   | `ibm-hyper-protect-container-runtime-1-0-s390x-13` | [certificate](https://cloud.ibm.com/media/docs/downloads/hyper-protect-container-runtime/ibm-hyper-protect-container-runtime-1-0-s390x-13-encrypt.crt){: external} | 05 October 2024 | 15 April 2024 |   |
+   | `ibm-hyper-protect-container-runtime-1-0-s390x-20` | [Certificate](https://cloud.ibm.com/media/docs/downloads/hyper-protect-container-runtime/ibm-hyper-protect-container-runtime-1-0-s390x-20-encrypt.crt){: external} | 02 September 2025 |   |   |
+   | `ibm-hyper-protect-container-runtime-1-0-s390x-19` | [Certificate](https://cloud.ibm.com/media/docs/downloads/hyper-protect-container-runtime/ibm-hyper-protect-container-runtime-1-0-s390x-19-encrypt.crt){: external} | 02 September 2025 |   |   |
+   | `ibm-hyper-protect-container-runtime-1-0-s390x-18` | [Certificate](https://cloud.ibm.com/media/docs/downloads/hyper-protect-container-runtime/ibm-hyper-protect-container-runtime-1-0-s390x-18-encrypt.crt){: external} | 04 July 2025 |   |   |
+   | `ibm-hyper-protect-container-runtime-1-0-s390x-17` | [Certificate](https://cloud.ibm.com/media/docs/downloads/hyper-protect-container-runtime/ibm-hyper-protect-container-runtime-1-0-s390x-17-encrypt.crt){: external} | 04 July 2025 |   |   |
+   | `ibm-hyper-protect-container-runtime-1-0-s390x-16` | [Certificate](https://cloud.ibm.com/media/docs/downloads/hyper-protect-container-runtime/ibm-hyper-protect-container-runtime-1-0-s390x-16-encrypt.crt){: external} | 06 June 2025 | 03 July 2024  |   |
+   | `ibm-hyper-protect-container-runtime-1-0-s390x-15` | [Certificate](https://cloud.ibm.com/media/docs/downloads/hyper-protect-container-runtime/ibm-hyper-protect-container-runtime-1-0-s390x-15-encrypt.crt){: external} | 08 March 2025 | 03 July 2024  |   |
+   | `ibm-hyper-protect-container-runtime-1-0-s390x-14` | [Certificate](https://cloud.ibm.com/media/docs/downloads/hyper-protect-container-runtime/ibm-hyper-protect-container-runtime-1-0-s390x-14-encrypt.crt){: external} | 05 October 2024 | 15 April 2024 |   |
+   | `ibm-hyper-protect-container-runtime-1-0-s390x-13` | [Certificate](https://cloud.ibm.com/media/docs/downloads/hyper-protect-container-runtime/ibm-hyper-protect-container-runtime-1-0-s390x-13-encrypt.crt){: external} | 05 October 2024 | 15 April 2024 |   |
    {: caption="Encryption certificate expiry dates and image deprecation/ obsolete dates" caption-side="bottom"}
 
    **Note:** 
-   * Deprecated: You can use the image to create an instance using IBM Cloud CLI. Using the deprecated status can discourage the use of the image before changing the status to obsolete.
-   * Obsolete: You can not use the image to create an instance. If you try to use an obsolete image to create an instance, you receive a message that states that you can not use the image to create an instance. 
+   * Deprecated: You can use the image to create an instance from the IBM Cloud CLI. Using the deprecated status can discourage the use of the image before its status is changed to obsolete.
+   * Obsolete: You cannot use the image to create an instance. If you try to use an obsolete image to create an instance, you receive a message that states that you cannot use the image to create an instance. 
    * Always download the encryption certs corresponding to the image and encrypt the contracts.
-
 
    To check the image deprecation or obsolete status, you can also use the IBM Cloud image list command.
 
    You can refer to the [documentation](/docs/vpc?topic=vpc-vpc-reference&interface=ui#images-list) for the image list command to get the status of the image.
 
-
-2. Validate the encryption certificate by following the instructions [here](/docs/vpc?topic=vpc-cert_validate#validate_encrypt_cert).
+2. Validate the encryption certificate by following the instructions in the [Validating the contract encryption certificate](/docs/vpc?topic=vpc-cert_validate#validate_encrypt_cert) topic.
 
 ### Creating the encrypted `workload` section of a contract
 {: #hpcr_contract_encrypt_workload}
 
 The value of any section in a contract can be plain text or encrypted.
-Complete the following steps on an Ubuntu system, to encrypt the workload section used in a contract:
+Complete the following steps on an Ubuntu system to encrypt the workload section used in a contract:
 
 1. Create the `docker-compose.yaml` file based on your workload requirements. For example,
    ```yaml
@@ -759,7 +752,7 @@ Complete the following steps on an Ubuntu system, to encrypt the workload sectio
    ```
    {: pre}
 
-4. Use the following command to create a random password (the contract is encrypted through symmetric AES  with a random PASSWORD):
+4. Use the following command to create a random password (the contract is encrypted through symmetric AES with a random PASSWORD):
    ```yaml
    PASSWORD="$(openssl rand 32 | base64 -w0)"
    ```
@@ -792,10 +785,10 @@ Complete the following steps on an Ubuntu system, to encrypt the workload sectio
    The prefix `hyper-protect-basic` is mandatory.
    {: note}
 
-### Creating encrypted `env` section of a contract
+### Creating the encrypted `env` section of a contract
 {: #hpcr_contract_encrypt_env}
 
-Complete the following steps on an Ubuntu system, to encrypt the `env` section used in a contract:
+Complete the following steps on an Ubuntu system to encrypt the `env` section used in a contract:
 
 1. Create the [`env` section](#hpcr_contract_env) of the contract and add the contents in the `env.yaml` file.
 
@@ -843,13 +836,13 @@ Complete the following steps on an Ubuntu system, to encrypt the `env` section u
 {: #hpcr_contract_sign}
 
 
-Contract signature is an optional feature that can be used with the contract. You can choose to sign a contract before it is passed as input. You can also set expiry of contract during signature. Contracts that are in plain text or encrypted can be signed. Validation of the contract signature is done by the {{site.data.keyword.hpvs}} for VPC image.
-The purpose of this signature feature is to ensure that the `workload` and `env` sections are always used together and are not tampered with by a third party. This feature also supports setting expiry for contract. That is, If the instance is booted after the signature expired, the boot process fails. The signature of the `workload` and the `env` sections are added as the value to the `envWorkloadSignature` section.
+Contract signature is an optional feature that can be used with the contract. You can choose to sign a contract before it is passed as input. You can also set the expiry of the contract during signature. Contracts that are in plain text or encrypted can be signed. Validation of the contract signature is done by the {{site.data.keyword.hpvs}} for VPC image.
+The purpose of this signature feature is to ensure that the `workload` and `env` sections are always used together and are not tampered with by a third party. This feature also supports setting expiry for contract. That is, if the instance is booted after the signature expired, the boot process fails. The signature of the `workload` and the `env` sections are added as the value to the `envWorkloadSignature` section.
 The following are two sections in a contract that are relevant while creating and adding a contract signature:
-* `envWorkloadSignature`: This is section where the signature of the other sections of the contract is added. This section is not required for a contract that is not signed.
-* `signingKey`: This is a subsection that must be added to the `env` section of the contract. This holds the value to the user-generated public key, whose corresponding private key was used to create the contract signature. Public key or certificate can also be parsed as Base64 string.
+* `envWorkloadSignature`: This section is where the signature of the other sections of the contract is added. This section is not required for a contract that is not signed.
+* `signingKey`: This subsection must be added to the `env` section of the contract. This subsection holds the value to the user-generated public key, whose corresponding private key was used to create the contract signature. A public key or certificate can also be parsed as a Base64 string.
 
-Complete the following steps on an Ubuntu system, to create the contract signature:
+Complete the following steps on an Ubuntu system to create the contract signature:
 1. Use the following command to generate key pair to sign the contract (note that "test1234" is the passphrase to generate keys, you can use your own):
    ```sh
    openssl genrsa -aes128 -passout pass:test1234 -out private.pem 4096
@@ -869,36 +862,46 @@ Complete the following steps on an Ubuntu system, to create the contract signatu
     echo $key
     ```
 
-4. Optionally, if you want to enable contract expiry, follow the steps mentioned below:
+4. Optionally, if you want to enable contract expiry, follow these steps:
    1. Use the following command to generate a certificate request:
       ```sh
       openssl req -new -key private.pem -passin pass:test1234 -out csr.pem
       ```
+      {: pre}
+
    2. The command generates the certificate.
-       - Use the following command to generate private key for CA:
+       - Use the following command to generate a private key for CA:
         ```sh
         openssl genrsa -out personal_ca.key 2048
         ```
-       - Generate a self-signed CA certificate using the following command:
+        {: pre}
+
+       - Generate a self-signed CA certificate by using the following command:
         ```sh
         openssl req -new -x509 -key personal_ca.key -out personal_ca.crt
         ```
-       - The following command signs CSR with self signed CA certificate along with number of days for the certificate to be valid. The end date of the generated certificate is the contract expiry date:
+        {: pre}
+
+       - The following command signs CSR with self-signed CA certificate along with number of days for the certificate to be valid. The end date of the generated certificate is the contract expiry date:
         ```sh
         openssl x509 -req -in csr.pem -CA personal_ca.crt -CAkey personal_ca.key -CAcreateserial -out certificate.pem -days 365
         ```
+        {: pre}
+
    3. The following command is an example to get the certificate:
         ```sh
         certificate=$(awk -vRS="\n" -vORS="\\\n" '1' certificate.pem)
         echo ${certificate%\\n}
         ```
+        {: pre}
+
    4. Optionally, use the following command as an example to get the certificate in Base64 format:
       ```sh
       certificate=$(cat certificate.pem | base64 -w 0)
       echo $certificate
       ```
 
-5. Create the `env.yaml` file. The following is an example:
+5. Create the `env.yaml` file. See the following example:
    1. If `signingkey` is a public key:
       ```yaml
       env: |
@@ -941,7 +944,7 @@ Complete the following steps on an Ubuntu system, to create the contract signatu
             seed: hogwarts
         signingKey: LS0tLS1CRUdJTiBDRVJUSUZJQ0FURS0tLS0tXG5NSUlGRVRDQ0F2a0NGQkFNeHlPNkNsN0JOS0JHeHRsQXpIcEkyb2lOTUEwR0NTcUdTSWIzRFFFQkN3VUFNRVV4XG5DekFKQmdOVkJBWVRBa0ZWTVJNd0VRWURWUVFJREFwVGIyMWxMVk4wWVhSbE1TRXdId1lEVlFRS0RCaEpiblJsXG5jbTVsZENCWGFXUm5hWFJ6SUZCMGVTQk1kR1F3SGhjTk1qUXdNVE13TURNMU9ETXpXaGNOTWpRd05UQTVNRE0xXG5PRE16V2pCRk1Rc3dDUVlEVlFRR0V3SkJWVEVUTUJFR0ExVUVDQXdLVTI5dFpTMVRkR0YwWlRFaE1COEdBMVVFXG5DZ3dZU1c1MFpYSnVaWFFnVjJsa1oybDBjeUJRZEhrZ1RIUmtNSUlDSWpBTkJna3Foa2lHOXcwQkFRRUZBQU9DXG5BZzhBTUlJQ0NnS0NBZ0VBdjVoNmk3Rm4xRE1VTSszQW5QUFpVTk1lMXNzM0tML0FtVW1wdHdsQVBFclZvSDFrXG5haXFUVXNTTmpYY3RqK25rOTVJK2UybnVndy9IbGFWVDFlUmdFdHZqc3NoZVhLYm9Gbit6Vy9pMzFOcTlVU2dRXG5aQTMyNVZ0Y2hZbGdKTFhNUGFIL3VrQlVyMFVJNExuakMvZE5kQVF6S3dXUE5GMkpsdjV3S1g4T0JWT1FPOURmXG5FeFZtY0VrS0RvaDBuWms1ZU9BOHZ6SkdoZnI4VHZReDlGUUZzUDRPWFR3UWdjZFpWMjZtTG0wYk1rcUV0M281XG44T1NwaXNxTkdZMVhuTUhqT1dOcVNiRXJrcGJJS0VGQVFTbldtekV2SmRIc1FYKzdlVEY3Q2lzSEpSRXNlVDRzXG5VU3VJRkJaS1hiUzNxcTZFTC9FWXZpdTBFR25ZL3JrSkpjSVJiOGh5Y3FIUmdvSVRUMmJXVDdQU01VeVhvWDNHXG5WS2ZwL3hLRmhrWXpvUkRTYjVTMGxoOHN1Z21vUmtpb0FrdzZHNTZDUDJoYWJsUFpSVU1tVUtjZUZmT0cvazRMXG5laThxSnRiZlFKOUJsQ05SUHBqcVkzc0dTZGVYSTR6ZWZ5UTh4eGN1czlTbDV3WFpWODZsejJsTy9mejNDdnBkXG4wZUt2ZnY1dVh5dkYzTzM2bHJsRUVSbVN1a2FaWWFFSkVDanhPVWVhZmM3RTFEVnlJYU1wYzJTT3VtMWNyd01HXG5SS2huVTFKU2hET04weUNsbktPbEFDZmpGSXBkcEVNcEU0bExwczF4K1BYVit4MjF6R0JNVXZYWWE0eHBieVdSXG5LMWdmTVdtdXZHT2l2bDl5MG1QU0lleUo5Ui83YlNSQWJjWUpSNE45OVRydFd4WlUxeVFpN0hTUlY1Y0NBd0VBXG5BVEFOQmdrcWhraUc5dzBCQVFzRkFBT0NBZ0VBZzAwNnpKNFpLd1Q4bW9PT2wzUGRUaEZVY2Y4cnJJbGVjOUl5XG5xUGNXU3F0NVVUZVlMSWU1OG9HaGhRbWNhSVJVT1FhaWI1SnFIMnVrenFwbytnc0ozelpiM2VJbjRGQjdjS2VmXG5McWFpZW1PdmVFZTEvcVN3QUdxTVp5WkVMc3NpT2ZsaG5KZHp1WVNSV084RE82UTZKTXFRdGhEY3cyMGJ1ZGpPXG56UDRuaFhRcVQrczhsanpxU0pXNzdoRGJyTkFlelR6LzBTSkZEdGFNQnM1VXdlWC8vNy80c1h0SjhrQklCU3hkXG43eTR3OHR1dXhVYVhPdFlNak5ySkFZTHdGVmVlTzhDRlVScGJFdXY3QUJUMGs4VTRFOEM2ajRVNEp5c3g0WFZQXG5aajM2cklBdHZjdGNoaDB5QWhIejh3aFhlMXR2YUZ3OXd6UkRBVG5UaEZBdUpHNFowN0syL3JsRFA5a085d21uXG5nOGhIeEtlcVFNSkRwMjllMHNHa3o4b0RpNk16MjRrOUNxRkpKMENVejFudHo3cnJEa0EzUXdRYkZSems5Mzh5XG4zclNmZVBPNXFYbFVROW1tMDVoWXIxRUtLY2VUTEVvd2M0WE9vdU5MbFVXR2lSc2hSUjFzek13NUMyOXByRkoyXG55WXVWOXRCYUZZa3E3ZG5oOEpubXJyZUV2QW5zS3l5RUN4TW10Vi9XNzAxT1NVWUJjVGh3Z0FvK2hrRWVPSisvXG53ck9TN3lvSnFERjF5KzVMTFFKbVVsckxDUFhlbTNaVGE0VU1lMXAyZzdnZTdEZzZadWQ5TkRCY01pZ2RIQnl0XG5KUC9pOVBjSlNFV3JjY1dKMWFqVG9VQ1owd3FmSjNaNEtxb0VkMGZhZFFoYjMyQXVEVWJ1N0UxMkVVRk5QR0lIXG44clFLYkRVPVxuLS0tLS1FTkQgQ0VSVElGSUNBVEUtLS0tLVxu
       ```
-6. Create the `env.yaml` file. The following is an example:
+6. Create the `env.yaml` file. See the following example:
    ```yaml
     env: |
       type: env
@@ -996,13 +999,13 @@ Timelines for the notification are as follows:
 - On the first of every month
 - Everyday for 30 days before the expiry
 - Once in every 4 hours if the contract is about to expire in 7 days
-- Each and every hour if the contract has already expired or is about to expire in a day
+- Every hour if the contract has already expired or is about to expire in a day
 
 
 ## Preparing the Attestation section
 {: #hpcr_attestation_prepare}
 
-Attestation is the optional feature that can be used with contract. The `attestationPublicKey` is the user provided public key used to encrypt the attestation document. This can be provided as a public RSA key or Base64 encoded of the public RSA key as a part of the contract.
+Attestation is the optional feature that can be used with contract. The `attestationPublicKey` is the user provided public key that is used to encrypt the attestation document. This can be provided as a public RSA key or Base64 encoded of the public RSA key as a part of the contract.
 
 *  If you use the plain text public RSA key for the `attestationPublicKey` in the yaml file, use the following example:
    ```text
@@ -1021,17 +1024,16 @@ Attestation is the optional feature that can be used with contract. The `attesta
    attestationPublicKey: LS0tLS1CRUdJTiBDRVJUSUZJQ0FURS0tLS0tCk1JSUJpRENDQVM2Z0F3SUJBZ0lSQUxCMXBPYlpEQlRRc09GSFlxazMzaWd3Q2dZSUtvWkl6ajBFQXdJd0tqRW8KTUNZR0ExVUVBeE1mZFhNdWFXTnlMbWx2TDNCeVlXSm9ZWFF4TWpNdmJYa3RhR0Z3Y205NGVUQWVGdzB5TWpBMApNVE14TURFd01ETmFGdzB6TWpBME1UQXhNREV3TUROYU1Db3hLREFtQmdOVkJBTVRIM1Z6TG1samNpNXBieTl3CmNtRmlhR0YwTVRJekwyMTVMV2hoY0hKdmVIa3dXVEFUQmdjcWhrak9QUUlCQmdncWhrak9QUU1CQndOQ0FBU1AKWGsrelE2MlFZNjI3MWQ1cTBMZHY3SGc3QzZkMGZOUlRsQmJXekhOWWFDZzlpU0piYnVNdjVBY0JmMjlqQi83eApqYzhzVitxMksyemtkTHV4QWxGWm96VXdNekFPQmdOVkhROEJBZjhFQkFNQ0JhQXdFd1lEVlIwbEJBd3dDZ1lJCkt3WUJCUVVIQXdNd0RBWURWUjBUQVFIL0JBSXdBREFLQmdncWhrak9QUVFEQWdOSUFEQkZBaUIzd0JTa0IxaXAKZHZZYlBMbFBmS3RZT0hsYnZzUllKa0FZM2hnY0xuNWhwQUloQUt6cmhsU3p4K1I5bmdtMTBlZVkyaFNCRmgrawpMWHp6SFkwaktTVzhyM1FhCi0tLS0tRU5EIENFUlRJRklDQVRFLS0tLS0K
    ```
 
-* If you encrypty the `attestationPublicKey` in the yaml file, you must follow the same steps as mentioned in the [Contract encryption](#hpcr_contract_encrypt).
+* If you encrypted the `attestationPublicKey` in the yaml file, you must follow the same steps as mentioned in the [Contract encryption](#hpcr_contract_encrypt).
 
    To decrypt the attestation document, follow the instructions in the [Decrypting the attestation document](/docs/vpc?topic=vpc-about-attestation#decrypt_attest_record).
-
 
 ## Preparing the signature
 {: #hpcr_signature_prepare}
 
-Complete the following steps on an Ubuntu system, to prepare the signature:
+Complete the following steps on an Ubuntu system to prepare the signature:
 
-If you have got the encrypted `user-data.yaml` from the [Creating the encrypted `workload` section of a contract](#hpcr_contract_encrypt_workload) and [Creating encrypted `env` section of a contract](#hpcr_contract_encrypt_env) sections, skip to step 3.
+If you have the encrypted `user-data.yaml` from the [Creating the encrypted `workload` section of a contract](#hpcr_contract_encrypt_workload) and [Creating the encrypted `env` section of a contract](#hpcr_contract_encrypt_env) sections, skip to step 3.
 
 1. Get the encrypted `workload.yaml` and encrypted `env.yaml` files.
 
@@ -1042,7 +1044,7 @@ If you have got the encrypted `user-data.yaml` from the [Creating the encrypted 
    ```
    {: pre}
 
-3. Create the `contract.txt` file. Add the value of `workload` first then add the value of `env` from the `user-data.yaml` file. Ensure that there is no space or new line after `workload` and before `env`. Also, ensure that there is no new line or space at the end of the file. It is recommended to cross-check the binary content of the `contract.txt` file with tools such as `hexdump`. In the binary file dump, make sure that you do not see the `0a` ASCII value as the last entry.
+3. Create the `contract.txt` file. Add the value of `workload` first, then add the value of `env` from the `user-data.yaml` file. Make sure that no space or new line is present after `workload` and before `env`. Also, make sure that no new line or space is added at the end of the file. It is recommended to cross-check the binary content of the `contract.txt` file with tools such as `hexdump`. In the binary file dump, make sure that you do not see the `0a` ASCII value as the last entry.
    ```yaml
    hyper-protect-basic.js7TGt77EQ5bgTIKk5C0pViFTRHqWtn..............hyper-protect-basic.VWg/5/SWE+9jLfhr8q4i.........
    ```
@@ -1071,12 +1073,12 @@ The following command examples are run on an Ubuntu system.
 ### 1. Get the details of your logging instance
 {: #step1}
 
-You can configure logging with IBM Log Analysis or a generic syslog backend. This example uses IBM Log Analysis. There are different plans that you can choose from. To understand how you get the required details including the hostname and the ingestion key, see [Logging for {{site.data.keyword.hpvs}} for VPC](/docs/vpc?topic=vpc-logging-for-hyper-protect-virtual-servers-for-vpc).
+You can configure logging with IBM Log Analysis or a generic syslog backend. This example uses IBM Log Analysis. You can choose from different plans. To understand how you get the required details such as the hostname and the ingestion key, see [Logging for {{site.data.keyword.hpvs}} for VPC](/docs/vpc?topic=vpc-logging-for-hyper-protect-virtual-servers-for-vpc).
 
 ### 2. Create the `env` section
 {: #step2}
 
-Ensure that you do not miss the pipe symbol '|' if you are using a plain text contract. It is not required if you are planning to encrypt the section.
+Make sure that you do not miss the pipe symbol '|' if you are using a plain text contract. It is not required if you are planning to encrypt the section.
 
 ```yaml
 env: |
@@ -1129,7 +1131,7 @@ base64 -i compose.tgz > compose.b64
 ### 6. Populate the workload section
 {: #step6}
 
-Ensure that you do not miss the pipe symbol (|) if you are using a plain text contract.
+Make sure that you do not miss the pipe symbol (|) if you are using a plain text contract.
 
 ```yaml
 workload: |

@@ -1,8 +1,8 @@
 ---
 
 copyright:
-  years: 2024
-lastupdated: "2024-10-10"
+  years: 2024, 2025
+lastupdated: "2025-02-24"
 
 keywords: VPN migration, api migration, versioned change
 
@@ -56,7 +56,7 @@ When making the following requests for policy-based VPN gateways, the properties
 | `peer_address`  | `peer.address` or `peer.fqdn` (described below) |
 {: caption="Old and new properties for policy-based VPN gateways." caption-side="bottom"}
 
-Property `peer_address` is replaced by `peer.address` or `peer.fqdn`, depending on whether an IPv4 address or a FQDN was used to specify the peer when the connection was created. Update your code to check `peer.type` in the response. If `peer.type` is `address`, then the response has `peer.address`. If `peer.type` is `fqdn`, then the response has `peer.fqdn`.
+Property `peer_address` is replaced by `peer.address` or `peer.fqdn`, depending on whether an IPv4 address or an FQDN was used to specify the peer when the connection was created. Update your code to check `peer.type` in the response. If `peer.type` is `address`, then the response has `peer.address`. If `peer.type` is `fqdn`, then the response has `peer.fqdn`.
 
 If `peer.fqdn` was specified when the connection was created, and a `version` query parameter of `2024-04-29` or earlier is specified, `peer_address` will have the IP address associated with `peer.fqdn`.
 
