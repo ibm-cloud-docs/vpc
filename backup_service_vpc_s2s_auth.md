@@ -2,7 +2,7 @@
 
 copyright:
   years: 2022, 2025
-lastupdated: "2025-01-17"
+lastupdated: "2025-02-25"
 
 keywords: Backup for VPC, backup service, backup plan, backup policy, restore, restore volume, restore data
 
@@ -125,7 +125,7 @@ To allow an Enterprise administrator to manage backups centrally, the subaccount
    | IBM Cloud Backup for VPC       | Multi Volume Snapshots for VPC  | Editor    |
    | IBM Cloud Backup for VPC       | Virtual Server for VPC          | Operator  | 
    | IBM Cloud Backup for VPC       | IBM Cloud Backup for VPC        | Editor    |
-   | IBM Cloud Backup for VPC       |  File Storage for VPC | Editor, Operator, Share Snapshot Operator|
+   | IBM Cloud Backup for VPC       | File Storage for VPC | Editor, Share Snapshot Operator|
    {: caption="Service-to-service authorizations for the Enterprise" caption-side="bottom"}
 
 1. Click **Next**.
@@ -167,7 +167,7 @@ Next, complete the following steps to build the authorization rules:
    | IBM Cloud Backup for VPC       | Multi Volume Snapshots for VPC  | Editor    |
    | IBM Cloud Backup for VPC       | Virtual Server for VPC          | Operator  | 
    | IBM Cloud Backup for VPC       | IBM Cloud Backup for VPC        | Editor    |
-   | IBM Cloud Backup for VPC       |  File Storage for VPC | Editor, Operator, Share Snapshot Operator|
+   | IBM Cloud Backup for VPC       | File Storage for VPC | Editor, Share Snapshot Operator|
    {: caption="Service-to-service authorizations for the Enterprise" caption-side="bottom"}
 
 1. Click **Next**.
@@ -306,8 +306,6 @@ For more information about all of the parameters that are available for this com
 ### Creating authorization for file share backups at the account level
 {: #backup-s2s-auth-procedure-fs-cli}
 {: cli}
-
-
 
 To create a service-to-service authorization policy for {{site.data.keyword.filestorage_vpc_short}} share backups, use the `authorization-policy-create` command.
 
@@ -455,11 +453,11 @@ ibmcloud enterprise show
           "account_id": "ENTERPRISE_ROOT_ACCOUNT_ID",
           "policy": {
             "type": "authorization",
-            "description": "Grant Editor, Operator, and Share Snapshot Operator roles on File shares",
+            "description": "Grant Editor, and Share Snapshot Operator roles on File shares",
             "control": {
                 "grant": {
                   "roles": [
-                    {"role_id": "crn:v1:bluemix:public:iam::::role:Editor"},{"role_id": "crn:v1:bluemix:public:iam::::role:ShareSnapshotOperator"},{"role_id": "crn:v1:bluemix:public:iam::::role:Operator"}]}
+                    {"role_id": "crn:v1:bluemix:public:iam::::role:Editor"},{"role_id": "crn:v1:bluemix:public:iam::::role:ShareSnapshotOperator"}]
             },
             "subject": {
               "attributes": [
@@ -784,8 +782,6 @@ For more information, see the api spec for [IAM Policy Management](/apidocs/iam-
 {: #backup-s2s-auth-procedure-fs-api}
 {: api}
 
-
-
 To use Backup for VPC in your account to create policies, plans and run backup jobs for file shares, make the following request to create the required service-to-service authorization.
 
 ```json
@@ -802,7 +798,7 @@ curl -X POST 'https://iam.cloud.ibm.com/v1/policies'
         {"name": "resourceType", "value": "backup-policy"}]
        }],
      "roles":[
-      {"role_id": "crn:v1:bluemix:public:iam::::role:ShareSnapshotOperator,Editor,Operator"}
+      {"role_id": "crn:v1:bluemix:public:iam::::role:ShareSnapshotOperator,Editor"}
      ],
      "resource":[
       {"attributes": [
@@ -991,7 +987,7 @@ Enterprise account admins can programmatically [create and assign authorization 
    ```
    {: pre}
 
-   * Authorize `is.backup-policy` (source) to interact with `is.share` (target) with the _editor_, _operator_, and _share snapshot operator_ roles.
+   * Authorize `is.backup-policy` (source) to interact with `is.share` (target) with the _editor_ and _share snapshot operator_ roles.
   
    ```json
    curl -X POST 'https://iam.cloud.ibm.com/v1/policy_templates' 
@@ -1003,13 +999,12 @@ Enterprise account admins can programmatically [create and assign authorization 
           "account_id": "ENTERPRISE_ROOT_ACCOUNT_ID",
           "policy": {
             "type": "authorization",
-            "description": "Grant Editor, Operator, and Share Snapshot Operator roles on File shares",
+            "description": "Grant Editor, and Share Snapshot Operator roles on File shares",
             "control": {
                 "grant": {
                   "roles": [
                     {"role_id": "crn:v1:bluemix:public:iam::::role:Editor"},
-                    {"role_id": "crn:v1:bluemix:public:iam::::role:ShareSnapshotOperator"},
-                    {"role_id": "crn:v1:bluemix:public:iam::::role:Operator"}]}
+                    {"role_id": "crn:v1:bluemix:public:iam::::role:ShareSnapshotOperator"}]}
             },
             "subject": {
               "attributes": [
@@ -1203,8 +1198,6 @@ For more information about the arguments and attributes, see the [Terraform docu
 ### Creating authorization for file share backups
 {: #backup-s2s-auth-procedure-fs-terraform}
 
-
-
 Create an authorization policy between services by using the `ibm_iam_authorization_policy` resource argument in your `main.tf` file.
 
 ```terraform 
@@ -1213,7 +1206,7 @@ resource "ibm_iam_authorization_policy" "policy1" {
    source_resource_type = "backup-policy"
    target_service_name  = "is"
    target_resource_type = "share"
-   roles                = ["ShareSnapshotOperator,Editor,Operator"]
+   roles                = ["ShareSnapshotOperator,Editor"]
 }
 ```
 {: codeblock}
