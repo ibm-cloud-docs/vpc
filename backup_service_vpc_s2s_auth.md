@@ -94,7 +94,7 @@ To create a service-to-service authorization policy, follow this procedure:
    1. Click **Select an attribute**.
    1. Click **Resource type**. Select **File Storage for VPC**.
 1. Click **Next**.
-1. Select the roles: _Editor_, _Operator_, _Share Snapshot Operator_.
+1. Select the roles: _Editor_, _Share Snapshot Operator_.
 1. Click **Review** and inspect your choices.
 1. Click **Authorize**.
 
@@ -310,7 +310,7 @@ For more information about all of the parameters that are available for this com
 To create a service-to-service authorization policy for {{site.data.keyword.filestorage_vpc_short}} share backups, use the `authorization-policy-create` command.
 
 ```sh
-ibmcloud iam authorization-policy-create is is ShareSnapshotOperator,Editor,Operator --source-resource-type backup-policy --target-resource-type share
+ibmcloud iam authorization-policy-create is is ShareSnapshotOperator,Editor --source-resource-type backup-policy --target-resource-type share
 ```
 {: pre}
 
