@@ -2,7 +2,7 @@
 
 copyright:
   years: 2021, 2025
-lastupdated: "2025-02-18"
+lastupdated: "2025-02-25"
 
 keywords: snapshots, Block Storage, snapshot clone, remote copy, fast restore, Block Storage snapshot, cross-regional snapshot
 
@@ -87,7 +87,7 @@ The fast restore feature is billed at an extra hourly rate for each zone that it
 In the previous section, you saw how to create a cross-regional snapshot copy when you take a new snapshot in the UI. You can also create cross-regional copies of existing snapshots.
 
 1. In the console, click the **Navigation menu** icon ![menu icon](../icons/icon_hamburger.svg) **> Infrastructure** ![VPC icon](../icons/vpc.svg) **> Storage > Block Storage snapshots**.
-1. In the list of snapshots, locate that snapshot that you want to copy. Make sure the snapshot is in Stable status.
+1. In the list of snapshots, locate that snapshot that you want to copy. Make sure that the snapshot is in Stable status.
 1. Click the Actions menu (![Actions menu](images/overflow.png)) and select **Copy snapshot**.
 1. Select the region where you want to create the copy.
 

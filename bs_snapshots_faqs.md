@@ -2,7 +2,7 @@
 
 copyright:
   years: 2022, 2025
-lastupdated: "2025-02-11"
+lastupdated: "2025-02-25"
 
 keywords: Block Storage, snapshots, cross-regional copy, fast restore, backup, restore volume
 
@@ -52,7 +52,7 @@ You can copy a snapshot from one region to another region, and later use that sn
 {: faq}
 {: #faq-snapshot-crc-retention}
 
-How long the copy is kept in another regions depends on how often your backup plan generates backup snapshots and the number of copies that you chose to keep. When you create your backup policy plan with the option to create remote clones, you have to specify where you want to create those copies and the maximum number of snapshot copies to keep.
+How long the copy is kept in another regions depends on how often your backup plan generates backup snapshots and the number of copies that you chose to keep. When you create your backup policy plan with the option to create remote clones, you must specify where you want to create those copies. You must also specify the maximum number of snapshot copies that you want to keep.
 
 For example, if your backup plan takes snapshots daily and you specified 5 remote copies to keep, then at any time the oldest remote copy is less than 5 days old. If you already have 5 remote copies in a region, then the system deletes the oldest one to make room for the new snapshot copy. 
 

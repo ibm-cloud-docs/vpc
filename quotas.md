@@ -153,7 +153,7 @@ Bare metal servers use physical cores and don't count toward your vCPU quota.
 |--------|-----|
 | Maximum number of cluster networks per account per region | 5 |
 | Maximum number of cluster network subnets per cluster network | 32 |
-| Maximum number of cluster network subnet reserved IPs per account | 5000 |
+| Maximum number of cluster network subnet reserved IP addresses per account | 5000 |
 {: caption="Quotas for cluster networks" caption-side="bottom"}
 
 ### Routing tables and routes
@@ -201,7 +201,7 @@ Each route has a destination property, which includes a prefix length (`/24` in 
 |----------|-------|
 | File shares | 300 file shares per account, across all VPCs |
 | Mount targets | 256 per file share per account per zone. |
-| Accessor share bindings | A file share can have maximum of 100 accessor bindings.|
+| Accessor share bindings | A file share can have a maximum of 100 accessor bindings.|
 | Snapshots and backup snapshots | Up to 750 per share in a region.|
 | Snapshots and backup snapshots | The total snapshot size that is allocated to a file can't exceed 8 times the size of the share.|
 {: caption="Quotas for file shares" caption-side="bottom"}

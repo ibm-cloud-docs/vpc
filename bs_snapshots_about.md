@@ -1,8 +1,8 @@
 ---
 
 copyright:
-  years: 2022, 2024
-lastupdated: "2024-10-22"
+  years: 2022, 2025
+lastupdated: "2025-02-25"
 
 keywords: snapshots, Block Storage, volumes, cross-regional snapshot, restore volume, copy snapshot
 
@@ -15,7 +15,7 @@ subcollection: vpc
 # About {{site.data.keyword.block_storage_is_short}} snapshots
 {: #snapshots-vpc-about}
 
-{{site.data.keyword.block_storage_is_short}} snapshots are a regional offering that is used to create a point-in-time copy of your boot or data volume. The initial snapshot that you take is a full backup of the volume. Subsequent snapshots of the same volume are incremental, so they capture only the changes that occurred after the last snapshot was taken. You can restore data to a new volume during instance provisioning, from an existing instance, and when you create an unattached volume.
+{{site.data.keyword.block_storage_is_short}} snapshot is a regional offering that is used to create a point-in-time copy of your boot or data volume. The initial snapshot that you take is a full backup of the volume. Subsequent snapshots of the same volume are incremental, so they capture only the changes that occurred after the last snapshot was taken. You can restore data to a new volume during instance provisioning, from an existing instance, and when you create an unattached volume.
 {: shortdesc}
 
 ## Snapshots concepts
@@ -33,7 +33,7 @@ The first time that you take a snapshot of a volume, all the volume's contents a
 
 When you take a second snapshot, it captures only the changes that occurred since the last snapshot was taken. As such, the size of the snapshots can grow or shrink, depending on what is being uploaded to {{site.data.keyword.cos_full}}. The number of snapshots increases with each successive snapshot that you take. You can take up to 750 snapshots per volume in your region. Within this limit, you can take and keep an hourly snapshot for 30 days, plus some extra snapshots. Deleting snapshots from this quota frees up space for more snapshots. A snapshot of a volume can't be greater than 10 TB.
 
-You can create a virtual server instance with a boot volume that was initialized from a snapshot. The instance profile of the new instance is not required to match the instance that was used to create the snapshot. You can also import a snapshot of a data volume when you create and attach a new data volume to the instance. You can specify user tags for these snapshots.
+You can create a virtual server instance with a boot volume that is initialized from a snapshot. The instance profile of the new instance is not required to match the instance that was used to create the snapshot. You can also import a snapshot of a data volume when you create and attach a new data volume to the instance. You can specify user tags for these snapshots.
 
 You can create a volume from a snapshot at any time. This process is called restoring a volume, and it can be performed when you create an instance, modify an instance, or when you create a stand-alone volume. For more information, see [Restoring a volume from a snapshot](#bs-snapshots-restore-overview). You can also restore a fully provisioned volume by using the fast restore feature after initial provisioning.
 
@@ -114,7 +114,7 @@ When you restore volumes from snapshots in a consistency group, you can select s
 ## IAM roles for creating, managing, and restoring from single and consistency group snapshots
 {: #snapshots-vpc-iam}
 
-Snapshots require IAM permissions for role-based access control. You need the right platform role to create and manager with snapshots in your own account, and the correct service roles to use a snapshot for restore data from another account. 
+Snapshots require IAM permissions for role-based access control. You need the right platform role to create and manager with snapshots in your own account, and the correct service roles to use a snapshot for restoring data from another account. 
 
 When you share a snapshot with another account, you must assign the *Snapshot Remote Account Restorer* role to the other account's user to allow them access to the snapshot. They must also have the *Restore Volume From Remote Account Snapshot* role in their account to create a volume with the CRN of the remote snapshot in the console.{: ui}
 
@@ -124,7 +124,7 @@ When you share a snapshot with another account, you must assign the `SnapshotRem
 
 When you share a snapshot with another account, you must assign the `SnapshotRemoteAccountRestorer` role to the other account's user to allow them access to the snapshot. They must also have the `VolumeRemoteAccountSnapshotRestorer` role in their account to create a volume with the CRN of the remote snapshot with Terraform.{: terraform}
 
-For more information, see [IAM roles and actions for Block Storage Snapshots for VPC](/docs/account?topic=account-iam-service-roles-actions#is.snapshot-roles), [IAM roles and actions for Multi Volume Snapshots for VPC](/docs/account?topic=account-iam-service-roles-actions#is.snapshot-consistency-group-roles) and [IAM roles and actions for Block Storage for VPC](/docs/account?topic=account-iam-service-roles-actions#is.volume-roles).
+For more information, see [IAM roles and actions for Block Storage Snapshots for VPC](/docs/account?topic=account-iam-service-roles-actions#is.snapshot-roles), [IAM roles, and actions for Multi Volume Snapshots for VPC](/docs/account?topic=account-iam-service-roles-actions#is.snapshot-consistency-group-roles) and [IAM roles and actions for Block Storage for VPC](/docs/account?topic=account-iam-service-roles-actions#is.volume-roles).
 
 For more information, see the [best practices for assigning access](/docs/account?topic=account-account_setup#account_setup). For the complete IAM process, which includes inviting users to your account and assigning Cloud IAM access, see the [IAM getting started tutorial](/docs/account?topic=account-iamoverview).
 {: tip}
