@@ -356,61 +356,6 @@ toc:
                 - topic: vni-api-introduction.md
                   navtitle: Preparing for changes to virtual network interfaces, instances, bare metal servers, and file shares
         - topicgroup:
-            label: Floating IP addresses
-            topics:
-            - fip-about.md
-            - fip-create.md
-        - topicgroup:
-            label: Public gateways
-            topics:
-            - pg-about.md
-            - pg-create.md
-        - topicgroup:
-            label: Private Path services
-            topics:
-            - pps-about.md
-            - pps-create.md
-            - pps-verify.md
-            - pps-publish.md
-            - pps-communicate.md
-            - pps-review.md
-            - pps-revoke.md
-            - pps-account-id-responsibilities.md
-            - topicgroup:
-                label: Managing access policies
-                topics:
-                - pps-about-account-policies.md
-                - pps-create-policy.md
-                - pps-update-policy.md
-            - pps-delete.md
-            - pps-limitations.md
-        - topicgroup:
-            label: Virtual private endpoint gateways
-            topics:
-            - vpe-intro.md
-            - vpe-planning.md
-            - vpe-configure-acls.md
-            - vpe-create.md
-            - vpe-supported-services.md
-            - topicgroup:
-                label: Configuring DNS sharing
-                topics:
-                - hub-spoke-model.md
-                - hub-spoke-planning.md
-                - hub-spoke-configure-hub.md
-                - hub-spoke-resolution-binding.md
-                - hub-spoke-s2s-auth.md
-                - hub-spoke-configure-dns-resolver.md
-                - hub-spoke-withdrawing-dns-sharing.md
-                - hub-spoke-limitations.md
-            - vpe-bind-unbind-reserved-ip.md
-            - vpe-accessing-after-setup.md
-            - vpe-view-details.md
-            - vpe-list.md
-            - vpe-delete.md
-            - vpe-iam.md
-            - vpe-limitations.md
-        - topicgroup:
             label: Access control lists
             topics:
             - using-acls.md
@@ -445,6 +390,108 @@ toc:
                 - cr-update-route.md
                 - cr-list-route.md
                 - cr-delete-route.md
+        - topicgroup:
+            label: Public gateways
+            topics:
+            - pg-about.md
+            - pg-create.md
+        - topicgroup:
+            label: Floating IP addresses
+            topics:
+            - fip-about.md
+            - fip-create.md
+        - topicgroup:
+            label: Load balancers
+            topics:
+            - load-balancers.md
+            - topicgroup:
+                label: Application Load Balancer for VPC
+                topics:
+                - lb-overview.md
+                - lb-create.md
+                - lb-update.md
+                - lb-delete.md
+                - lb-health-checks.md
+                - lb-adv-traffic-mgmt.md
+                - lb-layer-7-policies-rules.md
+                - lb-updating-subnets.md
+                - lb-monitoring-metrics.md
+                - lb-ig-integration.md
+                - lb-sg-integration.md
+                - lb-private-dns-integration.md
+                - lb-api.md
+                - lb-datapath-logging.md
+                - lb-limitations.md
+            - topicgroup:
+                label: Network Load Balancer for VPC
+                topics:
+                - nlb-about.md
+                - nlb-create.md
+                - nlb-vnf-create.md
+                - ppnlb-create.md
+                - nlb-update.md
+                - nlb-delete.md
+                - nlb-health-checks.md
+                - nlb-listeners.md
+                - nlb-port-range.md
+                - nlb-pools.md
+                - nlb-private-dns-integration.md
+                - nlb-ig-integration.md
+                - nlb-sg-integration.md
+                - nlb-udp.md
+                - nlb-monitoring-metrics.md
+                - nlb-privatelb.md
+                - nlb-limitations.md
+            - topicgroup:
+                label: Network load balancer hazardous change remediation
+                topics:
+                - topic: nlb-revised-nlb-capabilities.md
+                  navtitle: Prepare your automation for revised network load balancer capabilities
+        - topicgroup:
+            label: Virtual private endpoint gateways
+            topics:
+            - vpe-intro.md
+            - vpe-planning.md
+            - vpe-configure-acls.md
+            - vpe-create.md
+            - vpe-supported-services.md
+            - topicgroup:
+                label: Configuring DNS sharing
+                topics:
+                - hub-spoke-model.md
+                - hub-spoke-planning.md
+                - hub-spoke-configure-hub.md
+                - hub-spoke-resolution-binding.md
+                - hub-spoke-s2s-auth.md
+                - hub-spoke-configure-dns-resolver.md
+                - hub-spoke-withdrawing-dns-sharing.md
+                - hub-spoke-limitations.md
+            - vpe-bind-unbind-reserved-ip.md
+            - vpe-accessing-after-setup.md
+            - vpe-view-details.md
+            - vpe-list.md
+            - vpe-delete.md
+            - vpe-iam.md
+            - vpe-limitations.md          
+        - topicgroup:
+            label: Private Path services
+            topics:
+            - pps-about.md
+            - pps-create.md
+            - pps-verify.md
+            - pps-publish.md
+            - pps-communicate.md
+            - pps-review.md
+            - pps-revoke.md
+            - pps-account-id-responsibilities.md
+            - topicgroup:
+                label: Managing access policies
+                topics:
+                - pps-about-account-policies.md
+                - pps-create-policy.md
+                - pps-update-policy.md
+            - pps-delete.md
+            - pps-limitations.md
         - topicgroup:
             label: VPNs
             topics:
@@ -499,53 +546,6 @@ toc:
                 - vpn-client-to-site-limitations.md
                 - vpn-client-to-site-loganalysis.md
                 - vpn-client-to-site-monitoring.md
-        - topicgroup:
-            label: Load balancers
-            topics:
-            - load-balancers.md
-            - topicgroup:
-                label: Application Load Balancer for VPC
-                topics:
-                - lb-overview.md
-                - lb-create.md
-                - lb-update.md
-                - lb-delete.md
-                - lb-health-checks.md
-                - lb-adv-traffic-mgmt.md
-                - lb-layer-7-policies-rules.md
-                - lb-updating-subnets.md
-                - lb-monitoring-metrics.md
-                - lb-ig-integration.md
-                - lb-sg-integration.md
-                - lb-private-dns-integration.md
-                - lb-api.md
-                - lb-datapath-logging.md
-                - lb-limitations.md
-            - topicgroup:
-                label: Network Load Balancer for VPC
-                topics:
-                - nlb-about.md
-                - nlb-create.md
-                - nlb-vnf-create.md
-                - ppnlb-create.md
-                - nlb-update.md
-                - nlb-delete.md
-                - nlb-health-checks.md
-                - nlb-listeners.md
-                - nlb-port-range.md
-                - nlb-pools.md
-                - nlb-private-dns-integration.md
-                - nlb-ig-integration.md
-                - nlb-sg-integration.md
-                - nlb-udp.md
-                - nlb-monitoring-metrics.md
-                - nlb-privatelb.md
-                - nlb-limitations.md
-            - topicgroup:
-                label: Network load balancer hazardous change remediation
-                topics:
-                - topic: nlb-revised-nlb-capabilities.md
-                  navtitle: Prepare your automation for revised network load balancer capabilities
         - topicgroup:
             label: Flow logs
             topics:
