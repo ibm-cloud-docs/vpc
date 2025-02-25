@@ -2,7 +2,7 @@
 
 copyright:
   years: 2018, 2025
-lastupdated: "2025-02-19"
+lastupdated: "2025-02-25"
 
 keywords:
 
@@ -191,7 +191,7 @@ Each route has a destination property, which includes a prefix length (`/24` in 
 | Resource | Quota |
 |----------|-------|
 | Boot and secondary volumes | 300 total VPC volumes per region. |
-| Snapshots and backup snapshots | Up to 750 per volume in a region.|
+| Snapshots and backup snapshots | Up to 750 snapshots per volume in a region.|
 {: caption="Quotas for Block Storage volumes and snapshots" caption-side="bottom"}
 
 ### File shares and snapshots
@@ -200,16 +200,11 @@ Each route has a destination property, which includes a prefix length (`/24` in 
 | Resource | Quota |
 |----------|-------|
 | File shares | 300 file shares per account, across all VPCs |
-| Mount targets | 256 per file share per account per zone |
+| Mount targets | 256 per file share per account per zone. |
 | Accessor share bindings | A file share can have maximum of 100 accessor bindings.|
 | Snapshots and backup snapshots | Up to 750 per share in a region.|
 | Snapshots and backup snapshots | The total snapshot size that is allocated to a file can't exceed 8 times the size of the share.|
 {: caption="Quotas for file shares" caption-side="bottom"}
-
-#### Share mount targets
-{: #smt}
-
-10 per file share
 
 ### Backup policies and plans
 {: #backup-quotas}

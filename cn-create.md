@@ -1,8 +1,8 @@
 ---
 
 copyright:
-  years: 2024
-lastupdated: "2024-12-10"
+  years: 2024, 2025
+lastupdated: "2025-02-25"
 
 keywords:
 
@@ -109,7 +109,7 @@ To create a cluster network from the CLI, follow these steps:
    :    Suppress verbose output.
 
 ### Command examples
-{: #command-examples-cluster-network-create}
+{: #cli-command-examples-cluster-network-create}
 
 * `ibmcloud is cluster-network-create --vpc my-vpc --zone us-south-1 --profile profile-name`
 * `ibmcloud is cluster-network-create --vpc my-vpc --zone us-south-1 --profile profile-name --name my-cl-net`
