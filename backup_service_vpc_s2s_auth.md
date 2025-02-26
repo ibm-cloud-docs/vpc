@@ -798,7 +798,8 @@ curl -X POST 'https://iam.cloud.ibm.com/v1/policies'
         {"name": "resourceType", "value": "backup-policy"}]
        }],
      "roles":[
-      {"role_id": "crn:v1:bluemix:public:iam::::role:ShareSnapshotOperator,Editor"}
+      {"role_id": "crn:v1:bluemix:public:iam::::role:ShareSnapshotOperator"},
+      {"role_id": "crn:v1:bluemix:public:iam::::role:Editor"}
      ],
      "resource":[
       {"attributes": [
