@@ -2,7 +2,7 @@
 
 copyright:
   years: 2019, 2025
-lastupdated: "2025-02-24"
+lastupdated: "2025-02-26"
 
 keywords:
 
@@ -26,6 +26,12 @@ For more information about changes to the {{site.data.keyword.vpc_short}} comman
 
 ## February 2025
 {: #vpc-feb25}
+
+### 26 February 2025
+{: #vpc-feb2625}
+
+Workload update for Hyper Protect Secure Build
+:   The `workload` section of the Hyper Protect Secure Build is updated based on the IBM Hyper Protect Container Runtime image `ibm-hyper-protect-container-runtime-1-0-s390x-20`. For more information, see [Configuring and using Hyper Protect Secure Build in {{site.data.keyword.hpvs}} for VPC](/docs/vpc?topic=vpc-about-hpsb#hpvs_hpsb). Clone the latest Secure-Build-Cli to create a Hyper Protect Secure Build server.
 
 ### 18 February 2025
 {: #vpc-feb1825}
