@@ -1,21 +1,20 @@
 ---
 
 copyright:
-  years: 2019, 2024
-lastupdated: "2024-10-29"
+  years: 2019, 2025
+lastupdated: "2025-02-26"
 
 keywords: responsibilities, ha, high availability, disaster recovery
 
 subcollection: vpc
 
 ---
-
 {{site.data.keyword.attribute-definition-list}}
 
 
 # Understanding your responsibilities when using Virtual Private Cloud
-{: #responsibilities-vpc}
-{: help}
+{: #responsibilities-vpc} 
+{: help} 
 {: support}
 
 Learn about the management responsibilities that you have when you use {{site.data.keyword.vpc_full}} (VPC). {{site.data.keyword.vpc_short}} customer responsibilities apply across all VPC infrastructure services, unless otherwise noted. For overall terms of use, see [Cloud Services terms](/docs/overview?topic=overview-terms).
@@ -95,16 +94,16 @@ Security and regulation compliance includes tasks such as security control imple
 | Vulnerabilities | {{site.data.keyword.IBM_notm}} continuously monitors stock images to detect vulnerability and security compliance issues. | The Customer is responsible for their education on possible vulnerabilities and security issues through security bulletins that describe actions to remediate any vulnerabilities. A Customer can use the [IBM Cloud status](/docs/account?topic=account-viewing-cloud-status) website to find announcements and security bulletin notifications about key events that affect the IBM Cloud platform, infrastructure, and major services. |
 | Audit records | {{site.data.keyword.IBM_notm}} provides audit records of the VPC resource lifecycle through {{site.data.keyword.at_full_notm}}. | The Customer uses {{site.data.keyword.at_full_notm}} tooling to monitor audit records. |
 | Security groups and ACLs | {{site.data.keyword.IBM_notm}} provides the ability to restrict access to virtual server instances by using security groups and networks ACLs. | The Customer uses security groups and network ACLs to secure their virtual server instances, such as restricting what IP addresses can SSH into the instance. |
-| Public Network Access | {{site.data.keyword.IBM_notm}} provides options to use a public gateway or floating IP addresses. | The Customer chooses how to connect their workload to the public internet, if applicable, either through a public gateway or floating IP. |
-| Access restriction | {{site.data.keyword.IBM_notm}} provides security measures for customers to restrict access to resources and resource groups. | The Customer restricts user access to the appropriate resources and resource groups.
+| Public Network Access | {{site.data.keyword.IBM_notm}} provides options to use a public gateway, or floating IP addresses. | The Customer chooses how to connect their workload to the public internet, if applicable, either through a public gateway, or floating IP. |
+| Access restriction | {{site.data.keyword.IBM_notm}} provides security measures for customers to restrict access to resources and resource groups. | The Customer restricts user access to the appropriate resources and resource groups.|
 | Activity tracker | {{site.data.keyword.IBM_notm}} provides logging and monitoring tools. | The Customer integrates {{site.data.keyword.at_full_notm}} and {{site.data.keyword.monitoringlong_notm}} data into their auditing and monitoring processes. |
-| Encryption |  IBM Cloud {{site.data.keyword.vpn_vpc_short}} supports encrypted traffic by using IKE/IPsec policies. \n \n {{site.data.keyword.filestorage_vpc_short}} is considered to be a Financial Services Validated service only when encryption-in-transit is enabled. | The Customer ensures that their connection is encrypted end-to-end, if required. |
+| Encryption | IBM Cloud {{site.data.keyword.vpn_vpc_short}} supports encrypted traffic by using IKE/IPsec policies. \n \n {{site.data.keyword.filestorage_vpc_short}} is considered to be a Financial Services Validated service only when encryption-in-transit is enabled. | The Customer ensures that their connection is encrypted end-to-end, if required. |
 {: caption="Responsibilities for security and regulation compliance" caption-side="bottom"}
 
 ### Disaster recovery
 {: #disaster-recovery}
 
-Disaster recovery includes tasks such as providing dependencies on disaster recovery sites, provision disaster recovery environments, data and configuration backup, replicating data and configuration to the disaster recovery environment, and failover on disaster events.
+Disaster recovery includes tasks such as providing dependencies on disaster recovery sites, provisioning disaster recovery environments, data and configuration backup, replicating data and configuration to the disaster recovery environment, and failover on disaster events.
 
 | Task | {{site.data.keyword.IBM_notm}} Responsibilities | Your Responsibilities |
 |----------|-----------------------|-----------------------|

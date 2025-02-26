@@ -2,7 +2,7 @@
 
 copyright:
   years: 2022, 2025
-lastupdated: "2025-02-25"
+lastupdated: "2025-02-26"
 
 keywords: Backup for VPC, backup service, backup plan, backup policy, restore, restore volume, restore data
 
@@ -310,7 +310,7 @@ For more information about all of the parameters that are available for this com
 To create a service-to-service authorization policy for {{site.data.keyword.filestorage_vpc_short}} share backups, use the `authorization-policy-create` command.
 
 ```sh
-ibmcloud iam authorization-policy-create is is ShareSnapshotOperator,Editor --source-resource-type backup-policy --target-resource-type share
+ibmcloud iam authorization-policy-create is is "Share Snapshot Operator",Editor --source-resource-type backup-policy --target-resource-type share
 ```
 {: pre}
 

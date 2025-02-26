@@ -1,8 +1,8 @@
 ---
 
 copyright:
-  years: 2024
-lastupdated: "2024-12-10"
+  years: 2024, 2025
+lastupdated: "2025-02-25"
 
 keywords: cluster profiles, cluster network, cluster-network, cluster network profile, cluster network profiles, gpu, nvidia, h100, rdma, roce, accelerated, rocev2, accelerated network
 
@@ -32,16 +32,16 @@ Currently, use of the H100 cluster network profile is available to select custom
 
 | Region                    | Zone          | Cluster network |
 | ------------------------  | ------------- | --------------- |
-| Dallas (`us-south`)       | Not Available | No              |
+| Dallas (`us-south`)       | Not available | No              |
 | Washington DC (`us-east`) | us-east-3     | Yes             |
-| Toronto (`ca-tor`)        | Not Available | No              |
-| Sao Paulo (`br-sao`)      | Not Available | No              |
+| Toronto (`ca-tor`)        | Not available | No              |
+| Sao Paulo (`br-sao`)      | Not available | No              |
 | Frankfurt (`eu-de`)       | eu-de-2       | Yes             |
-| London (`eu-gb`)          | Not Available | No              |
-| Madrid (`eu-es`)          | Not Available | No              |
-| Sydney (`au-syd`)         | Not Available | No              |
-| Tokyo (`jp-tok`)          | Not Available | No              |
-| Osaka (`jp-osa`)          | Not Available | No              |
+| London (`eu-gb`)          | Not available | No              |
+| Madrid (`eu-es`)          | Not available | No              |
+| Sydney (`au-syd`)         | Not available | No              |
+| Tokyo (`jp-tok`)          | Not available | No              |
+| Osaka (`jp-osa`)          | Not available | No              |
 {: caption="Supported regions and zones" caption-side="bottom"}
 
 ## Capabilities and restrictions:
