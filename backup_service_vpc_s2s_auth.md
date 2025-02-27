@@ -525,7 +525,7 @@ To use Backup for VPC in your account to create policies, plans and run backup j
 Make the request to the [IAM Policy Management API](/apidocs/iam-policy-management#create-v2-policy), similar to the following examples.
 
 ```json
-curl -X POST 'https://iam.cloud.ibm.com/v2/policies' 
+curl -X POST 'https://iam.cloud.ibm.com/v1/policies' 
 -H 'Authorization: Bearer $TOKEN' 
 -H 'Content-Type: application/json' 
 -d '{
@@ -541,7 +541,7 @@ curl -X POST 'https://iam.cloud.ibm.com/v2/policies'
   "roles":[
     {"role_id": "crn:v1:bluemix:public:iam::::role:Operator"}
    ],
-   "resource":[
+   "resources":[
     {"attributes":[
       {"name": "accountId", "value": "$ACCOUNT_ID"},
       {"name": "serviceName", "operator": "stringEquals", "value": "is"},
@@ -553,7 +553,7 @@ curl -X POST 'https://iam.cloud.ibm.com/v2/policies'
 {: pre}
 
 ```json
-curl -X POST 'https://iam.cloud.ibm.com/v2/policies' \
+curl -X POST 'https://iam.cloud.ibm.com/v1/policies' \
 -H 'Authorization: Bearer $TOKEN' \
 -H 'Content-Type: application/json' \
 -d '{
@@ -568,7 +568,7 @@ curl -X POST 'https://iam.cloud.ibm.com/v2/policies' \
    "roles":[
     {"role_id": "crn:v1:bluemix:public:iam::::role:Operator"}
     ],
-   "resource":[
+   "resources":[
     {"attributes": [
       {"name": "accountId", "value": "$ACCOUNT_ID"},
       {"name": "serviceName", "operator": "stringEquals", "value": "is.volume"},
@@ -581,7 +581,7 @@ curl -X POST 'https://iam.cloud.ibm.com/v2/policies' \
 {: pre}
 
 ```json
-curl -X POST 'https://iam.cloud.ibm.com/v2/policies' \
+curl -X POST 'https://iam.cloud.ibm.com/v1/policies' \
 -H 'Authorization: Bearer $TOKEN' \
 -H 'Content-Type: application/json' \
 -d '{
@@ -597,7 +597,7 @@ curl -X POST 'https://iam.cloud.ibm.com/v2/policies' \
    "roles":[
     {"role_id": "crn:v1:bluemix:public:iam::::role:Editor"}
    ],
-   "resource":[
+   "resources":[
     {"attributes": [
       {"name": "accountId", "value": "$ACCOUNT_ID"},
       {"name": "serviceName", "operator": "stringEquals", "value": "is"},
@@ -609,7 +609,7 @@ curl -X POST 'https://iam.cloud.ibm.com/v2/policies' \
 {: pre}
 
 ```json
-curl -X POST 'https://iam.cloud.ibm.com/v2/policies' \
+curl -X POST 'https://iam.cloud.ibm.com/v1/policies' \
 -H 'Authorization: Bearer $TOKEN' \
 -H 'Content-Type: application/json' \
 -d '{
@@ -625,7 +625,7 @@ curl -X POST 'https://iam.cloud.ibm.com/v2/policies' \
   "roles":[
     {"role_id": "crn:v1:bluemix:public:iam::::role:Editor"}
    ],
-   "resource":[
+   "resources":[
     {"attributes":[
       {"name": "accountId", "value": "$ACCOUNT_ID"},
       {"name": "serviceName", "operator": "stringEquals", "value": "is"},
@@ -657,7 +657,7 @@ To allow an Enterprise administrator to manage backups centrally, the subaccount
    * Authorize `is.backup-policy` (source) to interact with `is.backup-policy` (target) with the _editor_ role.
 
    ```json
-   curl -X POST 'https://iam.cloud.ibm.com/v2/policies' -H 
+   curl -X POST 'https://iam.cloud.ibm.com/v1/policies' -H 
    'Authorization: Bearer $TOKEN' -H 
    'Content-Type: application/json' -d 
    '{
@@ -673,7 +673,7 @@ To allow an Enterprise administrator to manage backups centrally, the subaccount
      "roles":[
        {"role_id": "crn:v1:bluemix:public:iam::::role:Editor"}
      ],
-     "resource":[
+     "resources":[
        {"attributes":[
           {"name": "accountId", "value": "$SUB_ACCOUNT_ID", "operator": "stringEquals"},
           {"name": "serviceName", "operator": "stringEquals", "value": "is"},
@@ -687,7 +687,7 @@ To allow an Enterprise administrator to manage backups centrally, the subaccount
    * Authorize `is.backup-policy` (source) to interact with `is.volume` (target) with the _operator_ role.
 
    ```json
-   curl -X POST 'https://iam.cloud.ibm.com/v2/policies' -H 
+   curl -X POST 'https://iam.cloud.ibm.com/v1/policies' -H 
    'Authorization: Bearer $TOKEN' -H 
    'Content-Type: application/json' -d 
    '{
@@ -704,7 +704,7 @@ To allow an Enterprise administrator to manage backups centrally, the subaccount
      "roles":[
        {"role_id" "crn:v1:bluemix:public:iam::::role:Operator"}
       ],
-     "resource":[
+     "resources":[
        {"attributes": [
           {"name": "accountId", "value": "$SUB_ACCOUNT_ID"},
           {"name": "serviceName", "operator": "stringEquals", "value": "is.volume"},
@@ -718,7 +718,7 @@ To allow an Enterprise administrator to manage backups centrally, the subaccount
    * Authorize `is.backup-policy` (source) to interact with `is.snapshot` (target) with the _editor_ role.
 
    ```json
-   curl -X POST 'https://iam.test.cloud.ibm.com/v2/policies' -H 
+   curl -X POST 'https://iam.test.cloud.ibm.com/v1/policies' -H 
    'Authorization: Bearer $TOKEN' -H 
    'Content-Type: application/json' -d 
     '{
@@ -735,7 +735,7 @@ To allow an Enterprise administrator to manage backups centrally, the subaccount
       "roles":[
          {"role_id": "crn:v1:bluemix:public:iam::::role:Editor"}
        ],
-      "resource":[
+      "resources":[
          {"attributes": [
           {"name": "accountId", "value": "$SUB_ACCOUNT_ID"},
           {"name": "serviceName", "operator": "stringEquals", "value": "is"},
@@ -749,7 +749,7 @@ To allow an Enterprise administrator to manage backups centrally, the subaccount
    * Authorize `is.backup-policy` (source) to interact with `is.instance` (target) with the _operator_ role.
   
    ```json
-   curl -X POST 'https://iam.cloud.ibm.com/v2/policies' -H 
+   curl -X POST 'https://iam.cloud.ibm.com/v1/policies' -H 
    'Authorization: Bearer $TOKEN' -H 
    'Content-Type: application/json' -d 
    '{
@@ -765,7 +765,7 @@ To allow an Enterprise administrator to manage backups centrally, the subaccount
      "roles":[
        {"role_id" "crn:v1:bluemix:public:iam::::role:Operator"}
       ],
-     "resource":[
+     "resources":[
        {"attributes": [
           {"name": "accountId", "value": "$SUB_ACCOUNT_ID"},
           {"name": "serviceName", "operator": "stringEquals", "value": "is.volume"},
@@ -791,23 +791,24 @@ curl -X POST 'https://iam.cloud.ibm.com/v2/policies'
 -d '{
      "type": "authorization",
      "description": "IAM roles for the Backup service to Cloud File Storage",
-     "subjects":[
-      {"attributes":[
-        {"name": "serviceName", "value": "is"},
-        {"name": "accountId", "value": "$ACCOUNT_ID"},
-        {"name": "resourceType", "value": "backup-policy"}]
-       }],
-     "roles":[
-      {"role_id": "crn:v1:bluemix:public:iam::::role:ShareSnapshotOperator"},
-      {"role_id": "crn:v1:bluemix:public:iam::::role:Editor"}
-     ],
-     "resource":[
-      {"attributes": [
-        {"name": "accountId", "value": "$ACCOUNT_ID"},
-        {"name": "serviceName", "operator": "stringEquals", "value": "is.share"},
-        {"name": "shareId", "operator": "stringEquals", "value": "*"}]
-      }
-     ]
+     "subject": {
+        "attributes": [
+            {"key": "serviceName","operator": "stringEquals","value": "is"},
+            {"key": "accountId","operator": "stringEquals","value": "a1234567"},
+            {"key": "resourceType","operator": "stringEquals","value": "backup-policy"}]
+     },
+     "control": {
+        "grant": {
+            "roles": [
+                {"role_id":"crn:v1:bluemix:public:is::::serviceRole:ShareSnapshotOperator"},
+                {"role_id": "crn:v1:bluemix:public:iam::::role:Editor"}]}
+     },
+     "resource": {
+        "attributes": [
+            {"key": "accountId","operator": "stringEquals","value": "a1234567"},
+            {"key": "serviceName","operator": "stringEquals","value": "is"},
+            {"key": "shareId","operator": "stringExists","value": true}]
+     }
     }'
 ```
 {: pre}
