@@ -2,7 +2,7 @@
 
 copyright:
   years: 2022, 2025
-lastupdated: "2025-02-26"
+lastupdated: "2025-02-27"
 
 keywords: Backup for VPC, backup service, backup plan, backup policy, restore, restore volume, restore data
 
@@ -522,10 +522,10 @@ To use Backup for VPC in your account to create policies, plans and run backup j
 * `is.backup-policy` (source) to `is.snapshot` (target) with _editor_ role.
 * `is.backup-policy` (source) to `is.snapshot-consistency-group` with _editor_ role
 
-Make the request to the [IAM Policy Management API](/apidocs/iam-policy-management#create-policy), similar to the following examples.
+Make the request to the [IAM Policy Management API](/apidocs/iam-policy-management#create-v2-policy), similar to the following examples.
 
 ```json
-curl -X POST 'https://iam.cloud.ibm.com/v1/policies' 
+curl -X POST 'https://iam.cloud.ibm.com/v2/policies' 
 -H 'Authorization: Bearer $TOKEN' 
 -H 'Content-Type: application/json' 
 -d '{
@@ -553,7 +553,7 @@ curl -X POST 'https://iam.cloud.ibm.com/v1/policies'
 {: pre}
 
 ```json
-curl -X POST 'https://iam.cloud.ibm.com/v1/policies' \
+curl -X POST 'https://iam.cloud.ibm.com/v2/policies' \
 -H 'Authorization: Bearer $TOKEN' \
 -H 'Content-Type: application/json' \
 -d '{
@@ -581,7 +581,7 @@ curl -X POST 'https://iam.cloud.ibm.com/v1/policies' \
 {: pre}
 
 ```json
-curl -X POST 'https://iam.cloud.ibm.com/v1/policies' \
+curl -X POST 'https://iam.cloud.ibm.com/v2/policies' \
 -H 'Authorization: Bearer $TOKEN' \
 -H 'Content-Type: application/json' \
 -d '{
@@ -609,7 +609,7 @@ curl -X POST 'https://iam.cloud.ibm.com/v1/policies' \
 {: pre}
 
 ```json
-curl -X POST 'https://iam.cloud.ibm.com/v1/policies' \
+curl -X POST 'https://iam.cloud.ibm.com/v2/policies' \
 -H 'Authorization: Bearer $TOKEN' \
 -H 'Content-Type: application/json' \
 -d '{
@@ -636,7 +636,7 @@ curl -X POST 'https://iam.cloud.ibm.com/v1/policies' \
 ```
 {: pre}
 
-For more information, see the api spec for [IAM Policy Management](/apidocs/iam-policy-management#create-policy).
+For more information, see the api spec for [IAM Policy Management](/apidocs/iam-policy-management#create-v2-policy).
 
 ### Creating cross-account authorization for volume backups managed by the Enterprise from the child account
 {: #backup-s2s-auth-procedure-api-enterprise}
@@ -652,12 +652,12 @@ To allow an Enterprise administrator to manage backups centrally, the subaccount
    ```
    {: pre}
 
-1. Then, make the requests to the [IAM Policy Management API](/apidocs/iam-policy-management#create-policy) to create the service-to-service authorizations for the `is.backup-policy` of enterprise account to interact with the child account's `is.backup`, `is.snapshot`, `is.volume`, `is.snapshot-consistency-group`, and `is.instance` services.
+1. Then, make the requests to the [IAM Policy Management API](/apidocs/iam-policy-management#create-v2-policy) to create the service-to-service authorizations for the `is.backup-policy` of enterprise account to interact with the child account's `is.backup`, `is.snapshot`, `is.volume`, `is.snapshot-consistency-group`, and `is.instance` services.
 
    * Authorize `is.backup-policy` (source) to interact with `is.backup-policy` (target) with the _editor_ role.
 
    ```json
-   curl -X POST 'https://iam.cloud.ibm.com/v1/policies' -H 
+   curl -X POST 'https://iam.cloud.ibm.com/v2/policies' -H 
    'Authorization: Bearer $TOKEN' -H 
    'Content-Type: application/json' -d 
    '{
@@ -687,7 +687,7 @@ To allow an Enterprise administrator to manage backups centrally, the subaccount
    * Authorize `is.backup-policy` (source) to interact with `is.volume` (target) with the _operator_ role.
 
    ```json
-   curl -X POST 'https://iam.cloud.ibm.com/v1/policies' -H 
+   curl -X POST 'https://iam.cloud.ibm.com/v2/policies' -H 
    'Authorization: Bearer $TOKEN' -H 
    'Content-Type: application/json' -d 
    '{
@@ -718,7 +718,7 @@ To allow an Enterprise administrator to manage backups centrally, the subaccount
    * Authorize `is.backup-policy` (source) to interact with `is.snapshot` (target) with the _editor_ role.
 
    ```json
-   curl -X POST 'https://iam.test.cloud.ibm.com/v1/policies' -H 
+   curl -X POST 'https://iam.test.cloud.ibm.com/v2/policies' -H 
    'Authorization: Bearer $TOKEN' -H 
    'Content-Type: application/json' -d 
     '{
@@ -749,7 +749,7 @@ To allow an Enterprise administrator to manage backups centrally, the subaccount
    * Authorize `is.backup-policy` (source) to interact with `is.instance` (target) with the _operator_ role.
   
    ```json
-   curl -X POST 'https://iam.cloud.ibm.com/v1/policies' -H 
+   curl -X POST 'https://iam.cloud.ibm.com/v2/policies' -H 
    'Authorization: Bearer $TOKEN' -H 
    'Content-Type: application/json' -d 
    '{
@@ -776,7 +776,7 @@ To allow an Enterprise administrator to manage backups centrally, the subaccount
    ```
    {: pre}
       
-For more information, see the api spec for [IAM Policy Management](/apidocs/iam-policy-management#create-policy).
+For more information, see the api spec for [IAM Policy Management](/apidocs/iam-policy-management#create-v2-policy).
 
 ### Creating authorization for file share backups
 {: #backup-s2s-auth-procedure-fs-api}
@@ -785,11 +785,11 @@ For more information, see the api spec for [IAM Policy Management](/apidocs/iam-
 To use Backup for VPC in your account to create policies, plans and run backup jobs for file shares, make the following request to create the required service-to-service authorization.
 
 ```json
-curl -X POST 'https://iam.cloud.ibm.com/v1/policies' 
+curl -X POST 'https://iam.cloud.ibm.com/v2/policies' 
 -H 'Authorization: Bearer $TOKEN' 
 -H 'Content-Type: application/json'
 -d '{
-     "type": "access",
+     "type": "authorization",
      "description": "IAM roles for the Backup service to Cloud File Storage",
      "subjects":[
       {"attributes":[
@@ -1032,8 +1032,8 @@ For more information, see the api spec for [IAM Policy Management](/apidocs/iam-
 
 To create a service-to-service authorization policy for {{site.data.keyword.en_short}}, make an API request to grant`is.backup-policy` (source) access to `event-notification` (target) with the `EventSourceManager` role.
 
-```sh
-curl -X POST 'https://iam.cloud.ibm.com/v1/policies' -H 
+```json
+curl -X POST 'https://iam.cloud.ibm.com/v2/policies' -H 
 'Authorization: Bearer $TOKEN' -H 
 'Content-Type: application/json' -d 
 '{
