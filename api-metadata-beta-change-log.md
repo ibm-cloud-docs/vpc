@@ -32,7 +32,7 @@ To review the change log of generally available metadata API features, see the [
 ### For all version dates
 {: #17-december-2024-all-version-dates-metadata-beta}
 
-**Enhanced confidential computing capabilities.** If [Intel&reg; Trust Domain Extensions](/docs/vpc?topic=vpc-about-tdx-vpc) are enabled on an instance or instance template, you can view the `confidential_compute_mode` property new value `tdx`, which indicates that confidential compute mode is enabled for this virtual server instance. For more information, see the [Beta VPC API change log](/docs/vpc?topic=vpc-api-change-log#17-december-2024-beta).
+**Enhanced confidential computing capabilities.** If [Intel&reg; Trust Domain Extensions](/docs/vpc?topic=vpc-about-tdx-vpc) are enabled on an instance or instance template, you can view the `confidential_compute_mode` property new value `tdx`, which indicates that confidential compute mode is enabled for this virtual server instance. For more information, see the [Beta VPC API change log](/docs/vpc?topic=vpc-api-change-log-beta#17-december-2024-beta).
 
 ## 11 July 2023
 {: #11-july-2023-metadata-beta}

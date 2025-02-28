@@ -1,8 +1,8 @@
 ---
 
 copyright:
-  years: 2019, 2024
-lastupdated: "2024-10-23"
+  years: 2019, 2025
+lastupdated: "2025-02-28"
 
 keywords:
 
@@ -30,12 +30,10 @@ Choosing the optimal Block Storage volume size and performance level for your wo
 
 When you provision {{site.data.keyword.block_storage_is_short}} volumes, you specify a [volume profile](/docs/vpc?topic=vpc-block-storage-profiles) that best meets your storage requirements. Three predefined tiered profiles are available, or you can choose a custom profile. [Profiles in the tiered family](/docs/vpc?topic=vpc-block-storage-profiles#tiers) provide pre-defined IOPS/GB performance for volumes up to 16,000 GB capacity. A [Custom](/docs/vpc?topic=vpc-block-storage-profiles#custom) profile defines ranges of volume capacity and IOPS that you can select. These profiles are backed by solid-state drives (SSDs).
 
-
-
 ## How volume bandwidth is allocated
 {: #cp-storage-bandwidth-allocate}
 
-Bandwidth that is available to the VSI is split between attached Block Storage volumes and networking. The initial volume and network bandwidth allocation depends on the [instance profile](/docs/vpc?topic=vpc-profiles). The allocation of the instance's total bandwidth can be adjusted, balancing between network bandwidth and volume bandwidth. If you do not specify the initial volume and network bandwidth allocation, then 25% of total instance bandwidth is allocated to volume bandwidth and 75% is allocated to network bandwidth. For more information, see [Bandwidth allocation for instance profiles](/docs/vpc?topic=vpc-bandwidth-allocation-profiles).
+The bandwidth that is available to the VSI is split between attached storage volumes and networking. The initial volume and network bandwidth allocation depends on the [instance profile](/docs/vpc?topic=vpc-profiles). The allocation of the instance's total bandwidth can be adjusted, balancing between network bandwidth and volume bandwidth. If you do not specify the initial volume and network bandwidth allocation, then 25% of total instance bandwidth is allocated to volume bandwidth and 75% is allocated to network bandwidth. For more information, see [Bandwidth allocation for instance profiles](/docs/vpc?topic=vpc-bandwidth-allocation-profiles).
 
 The provisioned volume bandwidth is the highest potential bandwidth that can be allocated to the volume when it is attached to an instance. In cases where the total maximum bandwidth of attached volumes exceeds the amount that is available on the instance, the bandwidth for each volume attachment is set proportionally. The bandwidth is allocated based on the corresponding volume's maximum bandwidth. For more information, see [Bandwidth allocation for Block Storage volumes](/docs/vpc?topic=vpc-block-storage-bandwidth).
 
@@ -44,11 +42,13 @@ The provisioned volume bandwidth is the highest potential bandwidth that can be 
 
 The IOPS metric shows how many read and/or write operations a storage device can perform per second. The IOPS value of a volume is based on a 16 KB block size with a 50-50 read/write random workload for all the volume profiles. Each 16 KB of data read/written counts as one read/write operation; a single write of less than 16 KB counts as a single write operation.
 
-The provisioned volume bandwidth is determined by the number of IOPS multiplied by the throughput multiplier. The throughput multiplier is 16 KB for 3 IOPS/GB or 5 IOPS/GB tiered profiles, or 256 KB for 10 IOPS/GB tiered or custom volume profiles. The higher the IOPS that you specify, the higher the throughput. Maximum throughput is 1024 MBps (8192 Mbps). For more information about the maximum throughput values, see [Block storage profile families](/docs/vpc?topic=vpc-block-storage-profiles&interface=ui#block-storage-profile-overview).
+The provisioned volume throughput limit is determined by the number of IOPS multiplied by the preset throughput multiplier. The preset value is 16 KB for 3 IOPS/GB or 5 IOPS/GB tiered profiles, or 256 KB for 10 IOPS/GB tiered or custom volume profiles. The higher the IOPS that you specify, the higher the throughput. Maximum throughput is 1024 MBps (8192 Mbps). For more information about the maximum throughput values, see [Block storage profile families](/docs/vpc?topic=vpc-block-storage-profiles&interface=ui#block-storage-profile-overview).
 
-Your application's I/O size can be different than the throughput multiplier of the storage volume profile and it directly impacts how well your workload performs. If the application I/O size is smaller than the throughput multiplier, the IOPS limit is reached before the throughput limit. Conversely, if the application I/O size is larger, the throughput limit is reached before the IOPS limit.
+Your application's I/O size can be different than the throughput multiplier of the storage volume profile and it directly impacts how well your workload performs. If the application I/O size is smaller than 16 KB, the IOPS limit is reached before the throughput limit. Conversely, if the application I/O size is larger than the preset throughput multiplier, the throughput limit can be reached before the IOPS limit.
 
-The following table provides some examples of how application I/O size and provisioned IOPS affect the throughput, which is calculated as average application I/O size x IOPS = Throughput in MBps.
+The following table provides some examples of how application I/O size and provisioned IOPS affect the throughput, which is calculated as shown.
+
+* The average application I/O size x IOPS = Throughput
 
 | Average I/O Size (KB) | IOPS | Throughput (MBps) |
 |-----------------|------|-------------------|
@@ -60,7 +60,9 @@ The following table provides some examples of how application I/O size and provi
 | 128 | 128 | 16 |
 {: caption="Examples of how application I/O size and IOPS affect the throughput" caption-side="top"}
 
-In these examples, your performance caps are 1000 IOPS or 16 MBps throughput. You can achieve maximum IOPS when you use smaller I/O sizes, but throughput is less than what the volume can handle. The following example shows how throughput decreases for smaller average I/O sizes, when max IOPS is maintained.
+In these examples, your performance caps are 1000 IOPS or 16 MBps throughput. You can achieve maximum IOPS when you use smaller I/O sizes, but throughput is less than what the volume can handle. 
+
+The following example shows how throughput decreases for smaller average I/O sizes, when the IOPS values are the same.
 
 * 16 KB * 6000 IOPS == ~94 MBps
 * 8 KB * 6000 IOPS == ~47 MBps

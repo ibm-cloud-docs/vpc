@@ -2,9 +2,9 @@
 
 copyright:
   years: 2024, 2025
-lastupdated: "2025-02-12"
+lastupdated: "2025-02-27"
 
-keywords: vsi, virtual server, virtual server instances, profile, profiles, gpu, accelerated, h100, l4, l40s
+keywords: vsi, virtual server, virtual server instances, profile, profiles, gpu, accelerated, h100, h200, l4, l40s
 
 subcollection: vpc
 
@@ -15,14 +15,14 @@ subcollection: vpc
 # Accelerated profile family - Gen 3
 {: #accelerated-profile-family}
 
-The accelerated family of profiles provides on-demand, cost-effective access to NVIDIA GPUs. GPUs help to accelerate the processing time that is required for compute intensive workloads such as AI, machine learning, inferencing, and more. 
+The accelerated family of profiles provides on-demand, cost-effective access to  NVIDIA GPUs. GPUs help to accelerate the processing time that is required for compute intensive workloads such as AI, machine learning, inferencing, and more.
 {: shortdesc}
 
 
 ## NVIDIA Hopper HGX instance profiles
 {: #hopper-hgx-profiles}
 
-The Hopper-based Accelerated virtual server profiles are built atop NVIDIA H100  accelerators. These
+The Hopper-based Accelerated virtual server profiles are built atop NVIDIA H100 and H200 accelerators. These
 accelerators are tuned for AI workloads, including inferencing, fine-tuning, and large-scale
 training. The solution is paired with the 4th Generation Intel® Xeon® Scalable processors.
 
@@ -68,17 +68,17 @@ Status: Select Availability
 | Osaka (`jp-osa`)          | Not Available     | No              |
 {: caption="Table 1. Supported regions and zones" caption-side="bottom"}
 
-For more information about regions and universal zones, see [Regions](/docs/overview?topic=overview-locations#regions). 
+For more information about regions and universal zones, see [Regions](/docs/overview?topic=overview-locations#regions).
 
 #### NVIDIA H200 SXM5 (141 GB)
 {: #hopper-hgx-availability-H200}
 
 Status: Select Availability
 
-| Region                    | Universal zone    | 
-| ------------------------  | -------------     | 
-| Washington DC (`us-east`) | `us-east-wdc07-a` | 
-| Frankfurt (`eu-de`)       | `eu-de-fra04-a`   | 
+| Region                    | Universal zone    |
+| ------------------------  | -------------     |
+| Washington DC (`us-east`) | `us-east-wdc07-a` |
+| Frankfurt (`eu-de`)       | `eu-de-fra04-a`   |
 {: caption="Table 1. Supported regions and zones" caption-side="bottom"}
 
 ### Capabilities
@@ -122,7 +122,7 @@ The large profiles likely require that you open a support ticket to request a
 [quota increase](/docs/vpc?topic=vpc-quotas). Please review your quota levels,
 and determine if the account provisioning the resource requires a change to the quotas. Note that
 this server utilizes vCPU, RAM, instance storage and GPU quotas.
-{: important} 
+{: important}
 
 ### Limits
 {: #hopper-hgx-vsi-limits}
@@ -140,9 +140,9 @@ attached. This limit is based on the size of the instance.
 If you configure an RDMA-enabled cluster network, you must have either 8, 16 or 32 cluster
 network interfaces available. Having the correct number of cluster network interfaces available helps ensure proper distribution of the network interfaces across the underlying
 physical infrastructure. Most users typically use only 8. The cluster network interfaces can be configured only when the instance is powered off.
-{: note} 
+{: note}
 
-## NVIDIA L4 instance profiles 
+## NVIDIA L4 instance profiles
 {: #l4-profiles}
 
 The virtual server profiles are built atop NVIDIA L4 accelerators. These accelerators are tuned for graphics

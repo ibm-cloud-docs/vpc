@@ -2,7 +2,7 @@
 
 copyright:
   years: 2018, 2025
-lastupdated: "2025-02-24"
+lastupdated: "2025-02-28"
 
 subcollection: vpc
 
@@ -205,7 +205,7 @@ To troubleshoot and resolve the issue by using the SysRq key from the serial con
    ```
    {: pre}
 
-   To trigger a crash dump, make sure that the `crashkernel` is configured on the Linux virtual server instance. For instructions, see the [Kernel crash dump mechanism](https://ubuntu.com/server/docs/kernel-crash-dump).
+   To trigger a crash dump, make sure that the `crashkernel` is configured on the Linux virtual server instance. For instructions, see the [Kernel crash dump mechanism](https://documentation.ubuntu.com/server/kernel-crash-dump/).
 
 1. Analyze diagnostic output. For example, the previous SysRq kernel crash dump generates crucial diagnostic data that you can analyze. By sending relevant SysRq commands, you can collect valuable diagnostic data for troubleshooting and regaining control of the system.
 

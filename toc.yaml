@@ -71,7 +71,8 @@ toc:
            - topicgroup:
                label: Profile details
                topics:
-               - vsi-profile-details-accelerated.md
+               - topic: vsi-profile-details-accelerated.md
+                 navtitle: Accelerated - Gen 3
            - vsi_is_provisioning_scripts.md
            - instance-profiles-vpc-bandwidth.md
            - topicgroup:
@@ -472,7 +473,7 @@ toc:
             - vpe-list.md
             - vpe-delete.md
             - vpe-iam.md
-            - vpe-limitations.md          
+            - vpe-limitations.md
         - topicgroup:
             label: Private Path services
             topics:
