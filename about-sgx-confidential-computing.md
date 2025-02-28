@@ -107,3 +107,5 @@ Keep the following limitations in mind if you want to use SGX or TDX.
       
 * TDX limitations
    - When you reboot a TDX-enabled virtual server, the virtual server shuts down. The virtual server must be restarted by using the UI or CLI.
+   - When you connect to a VNC-console of a TDX-enabled virtual server, the connection will fail and an appropriate error message will be displayed.
+   - When you connect to a serial-console of a TDX-enabled virtual server, the connection will fail and an appropriate error message will be displayed.
