@@ -1,8 +1,8 @@
 ---
 
 copyright:
-  years: 2024
-lastupdated: "2024-11-12"
+  years: 2024, 2025
+lastupdated: "2025-02-28"
 
 keywords: private path
 
@@ -63,16 +63,16 @@ ibmcloud is private-path-service-gateway-account-policy-create PRIVATE_PATH_SERV
 Where:
 
 `PRIVATE_PATH_SERVICE_GATEWAY`
-:   Inicates ID or name of the Private Path service.
+:   Indicates the ID or name of the Private Path service.
 
 `--account-id`
-:   Indicates ID of the account for this access policy.
+:   Indicates the ID of the account for this access policy.
 
 `--access-policy`
-:   Indicates the access policy for the account. One of: deny, permit, review.
+:   Indicates the access policy for the account. One of: `deny`, `permit`, `review`.
 
 `--output`
-:   Specifies output format, only JSON is supported. One of: `JSON`.
+:   Specifies the output format, only JSON is supported. One of: `JSON`.
 
 `-q, --quiet`
 :   Suppresses verbose output.
