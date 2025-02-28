@@ -1,8 +1,8 @@
 ---
 
 copyright:
-  years: 2024
-lastupdated: "2024-11-12"
+  years: 2024, 2025
+lastupdated: "2025-02-28"
 
 keywords: private path
 
@@ -71,10 +71,10 @@ Where:
 :   Indicates the access policy for the account. One of: deny, permit, review.
 
 `--output`
-:   Specify the output format, only JSON is supported. One of: JSON.
+:   Specifies the output format, only JSON is supported. One of: JSON.
 
 `-q, --quiet`
-:   Suppress verbose output.
+:   Suppresses verbose output.
 
 ### Deleting an account policy from the CLI
 {: #pps-cli-delete-account-policy}
@@ -93,16 +93,16 @@ ibmcloud is private-path-service-gateway-account-policy-delete PRIVATE_PATH_SERV
 Where:
 
 `PRIVATE_PATH_SERVICE_GATEWAY`
-:   Identifies ID or name of the Private Path service.
+:   Identifies the ID or name of the Private Path service.
 
 `ACCOUNT_POLICY1`
-:   Identifies ID of the account policy for the Private Path service.
+:   Identifies the ID of the account policy for the Private Path service.
 
 `ACCOUNT_POLICY2`
-:   Identifies ID of the account policy for the Private Path service.
+:   Identifies the ID of the account policy for the Private Path service.
 
 `--output`
-:   Specifies output format, only JSON is supported. One of: `JSON`.
+:   Specifies the output format, only JSON is supported. One of: `JSON`.
 
 `--force, -f`
 :   Forces the operation without confirmation.
