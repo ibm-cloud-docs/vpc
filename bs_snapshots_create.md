@@ -2,7 +2,7 @@
 
 copyright:
   years: 2021, 2025
-lastupdated: "2025-02-25"
+lastupdated: "2025-03-03"
 
 keywords: snapshots, Block Storage, snapshot clone, remote copy, fast restore, Block Storage snapshot, cross-regional snapshot
 
@@ -114,13 +114,6 @@ Before you can use the CLI, you must install the IBM Cloud CLI and the VPC CLI p
    {: pre}
 
    This command returns a URL and prompts for a passcode. Go to that URL in your browser and log in. If successful, you get a one-time passcode. Copy this passcode and paste it as a response on the prompt. After successful authentication, you are prompted to choose your account. If you have access to multiple accounts, select the account that you want to log in as. Respond to any remaining prompts to finish logging in.
-
-1. Set the `IBMCLOUD_IS_FEATURE_SNAPSHOT` environment variable to `true`.
-
-   ```sh
-   export IBMCLOUD_IS_FEATURE_SNAPSHOT=true
-   ```
-   {: pre}
 
 Before you start, gather the following information:
 
