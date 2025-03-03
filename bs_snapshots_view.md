@@ -2,7 +2,7 @@
 
 copyright:
   years: 2021, 2025
-lastupdated: "2025-02-18"
+lastupdated: "2025-03-03"
 
 keywords: view snapshots, view snapshot, viewing snapshots, see snapshots, Block Storage snapshots
 
@@ -17,6 +17,7 @@ subcollection: vpc
 
 You can view a list of all snapshots and consistency groups, and drill down to see information about a particular snapshot. Choose the UI, CLI, API, or Terraform to retrieve this information.
 {: shortdesc}
+
 
 ## Listing snapshots in the UI
 {: #snapshots-vpc-view-ui}

@@ -2,7 +2,7 @@
 
 copyright:
   years: 2019, 2025
-lastupdated: "2025-02-18"
+lastupdated: "2025-03-03"
 
 keywords:
 
@@ -46,7 +46,7 @@ By default, {{site.data.keyword.block_storage_is_short}} volumes are displayed i
 {: caption="Details about all volumes" caption-side="bottom"}
 
 Actions menu selections change depending on whether the volume is a boot volume, an attached data volume, or an unattached data volume.
-- When the volume that you're viewing is a boot volume, the available actions are **Create image**, **Create snapshot**, and **Detach from instance**. 
+- When the volume that you're viewing is a boot volume, the available actions are **Create image**, **Create snapshot**, and **Detach from instance**.
 - When the volume that you're viewing is an attached data volume, the available actions are **Create snapshot**, **Detach from instance**, and **Delete**.
 - When the volume that you're viewing is an unattached data volume, the available actions are **Attach to instance**, and **Delete**.
 
@@ -67,7 +67,7 @@ Next to the name of the volume is the [volume status](/docs/vpc?topic=vpc-block-
 #### Volume-specific information.
 {: #view-vol-details-overview}
 
-The page has 3 tabs. By default, the Overview tab is selected for volume details. 
+The page has 3 tabs. By default, the Overview tab is selected for volume details.
 
 | Field | Description |
 |-------|-------------|
@@ -95,7 +95,7 @@ The page has 3 tabs. By default, the Overview tab is selected for volume details
 | **Backup policies** | Shows backup policies that are associated with this volume. To associate backup policies, you can add a backup policy's tags for target resources to this volume. Click **Apply** to select a backup policy, then apply its tags for the target resource to the volume. |
 {: caption="Volume details" caption-side="bottom"}
 
-The Actions menu selections change depending on whether the volume is a boot volume, an attached data volume, or an unattached data volume. 
+The Actions menu selections change depending on whether the volume is a boot volume, an attached data volume, or an unattached data volume.
 - **Create snapshot** - you can create a snapshot from an attached data volume or a boot volume. For more information, see [Create a snapshot in the console](/docs/vpc?topic=vpc-snapshots-vpc-create&interface=ui#snapshots-vpc-create-ui).
 - **Create image** - you can create an image from a boot volume. For more information, see [Creating an image from a volume in the console](/docs/vpc?topic=vpc-create-ifv&interface=ui#create-image-from-volume-vpc-ui).
 - **Expand volume** - you can [Increase the size](/docs/vpc?topic=vpc-about-increasing-volume-capacity) of an attached volume in increments of 1 GB. For more information see [Increasing capacity of a data volume](/docs/vpc?topic=vpc-expanding-block-storage-volumes&interface=ui) and [Increasing capacity of a boot volume](/docs/vpc?topic=vpc-resize-boot-volumes&interface=ui).
@@ -172,18 +172,18 @@ The following example shows all volumes for all resource groups in your availabi
 ```sh
 $ ibmcloud is volumes
 Listing volumes in all resource groups and region us-east under account Test Account as user test.user@ibm.com...
-ID                                          Name                                      Status      Capacity   IOPS   Profile           Attachment state   Attachment type   Zone        Resource group   
-r014-0a7c28f3-3612-46e6-b874-51136c7f1def   concurrent-vol-09afy4vz700                unusable    20         3000   general-purpose   unattached         -                 us-east-1   defaults   
-r014-faefcc1d-f899-4688-ae97-67e5079da702   concurrent-vol-1s26tgtqg70                unusable    20         3000   general-purpose   unattached         -                 us-east-1   defaults   
-r014-f0e809bf-9afb-4006-b2a8-274f81f0f34e   concurrent-vol-8xif5f1tid0                unusable    20         3000   general-purpose   unattached         -                 us-east-1   defaults   
-r014-b8e23307-e93e-4f7b-918f-7b2c2b14b132   concurrent-vol-gpwucqfpni0                available   20         3000   general-purpose   attached           data              us-east-1   defaults   
-r014-a64beeee-be50-4c03-8cee-639106cea1e2   concurrent-vol-mh16478vln0                available   20         3000   general-purpose   attached           data              us-east-1   defaults   
-r014-f14f8d39-2cf3-4f5d-b366-1d234f1c74aa   concurrent-vol-n7fcoxmb860                available   20         3000   general-purpose   attached           data              us-east-1   defaults   
-r014-84ff8138-4f4f-434b-bdc3-45d1aaaa4329   csi-boot-vol-pgb1-oqpm7een                available   100        3000   general-purpose   attached           boot              us-east-1   Default   
-r014-a1f6b311-6e4b-4e27-a216-a0b602471268   csi-boot-vol-qgbi-h76dy77d                available   100        3000   general-purpose   attached           boot              us-east-1   Default   
-r014-158e904d-0d48-4090-b6c1-57617c1fcc20   csi-boot-vol-txmz-54wzen5m                available   100        3000   general-purpose   attached           boot              us-east-1   Default   
-r014-dee9736d-08ee-4992-ba8d-3b64a4f0baac   demo-volume-update                        available   100        3000   general-purpose   attached           data              us-east-1   defaults   
-r014-eef16365-17e3-4627-bc8b-c7c3dd1d6a81   kj-test-ro-boot-1629867631000             available   100        3000   general-purpose   attached           boot              us-east-1   defaults 
+ID                                          Name                                      Status      Capacity   IOPS   Profile           Attachment state   Attachment type   Zone        Resource group
+r014-0a7c28f3-3612-46e6-b874-51136c7f1def   concurrent-vol-09afy4vz700                unusable    20         3000   general-purpose   unattached         -                 us-east-1   defaults
+r014-faefcc1d-f899-4688-ae97-67e5079da702   concurrent-vol-1s26tgtqg70                unusable    20         3000   general-purpose   unattached         -                 us-east-1   defaults
+r014-f0e809bf-9afb-4006-b2a8-274f81f0f34e   concurrent-vol-8xif5f1tid0                unusable    20         3000   general-purpose   unattached         -                 us-east-1   defaults
+r014-b8e23307-e93e-4f7b-918f-7b2c2b14b132   concurrent-vol-gpwucqfpni0                available   20         3000   general-purpose   attached           data              us-east-1   defaults
+r014-a64beeee-be50-4c03-8cee-639106cea1e2   concurrent-vol-mh16478vln0                available   20         3000   general-purpose   attached           data              us-east-1   defaults
+r014-f14f8d39-2cf3-4f5d-b366-1d234f1c74aa   concurrent-vol-n7fcoxmb860                available   20         3000   general-purpose   attached           data              us-east-1   defaults
+r014-84ff8138-4f4f-434b-bdc3-45d1aaaa4329   csi-boot-vol-pgb1-oqpm7een                available   100        3000   general-purpose   attached           boot              us-east-1   Default
+r014-a1f6b311-6e4b-4e27-a216-a0b602471268   csi-boot-vol-qgbi-h76dy77d                available   100        3000   general-purpose   attached           boot              us-east-1   Default
+r014-158e904d-0d48-4090-b6c1-57617c1fcc20   csi-boot-vol-txmz-54wzen5m                available   100        3000   general-purpose   attached           boot              us-east-1   Default
+r014-dee9736d-08ee-4992-ba8d-3b64a4f0baac   demo-volume-update                        available   100        3000   general-purpose   attached           data              us-east-1   defaults
+r014-eef16365-17e3-4627-bc8b-c7c3dd1d6a81   kj-test-ro-boot-1629867631000             available   100        3000   general-purpose   attached           boot              us-east-1   defaults
 ```
 {: screen}
 
@@ -226,8 +226,8 @@ Volume Attachment Instance Reference   Attachment type   Instance ID            
 Active                                 true
 Adjustable Capacity States             attached
 Adjustable IOPS States                     
-Busy                                   false   
-Tags                                   -  
+Busy                                   false
+Tags                                   -
 Storage Generation                     1
 ```
 {: screen}
@@ -258,7 +258,7 @@ curl -X GET "$vpc_api_endpoint/v1/volumes?version=2025-01-212&generation=2" \
 A successful response looks like the following example. This example shows three data volumes. The first in the list is attached to an instance.
 
 ```json
-[   
+[
   {
     "active": false,
     "adjustable_iops_supported": false,
@@ -421,7 +421,7 @@ A successful response looks like the following example. This example shows three
         "href": "https://us-south.iaas.cloud.ibm.com/v1/regions/us-south/zones/us-south-3",
         "name": "us-south-3"
     }
-  } 
+  }
 ]
 ```
 {: codeblock}
