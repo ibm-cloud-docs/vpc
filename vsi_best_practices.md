@@ -12,7 +12,7 @@ subcollection: vpc
 
 {{site.data.keyword.attribute-definition-list}}
 
-# Planning for virtual server instances - tech review
+# Planning for virtual server instances
 {: #vsi_best_practices}
 
 When you're planning to provision virtual server instances for {{site.data.keyword.vpc_short}}, use the following table to help you get the most out of your deployment.
