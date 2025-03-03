@@ -2,7 +2,7 @@
 
 copyright:
   years: 2020, 2025
-lastupdated: "2025-02-20"
+lastupdated: "2025-03-03"
 
 keywords: network load balancer, public, listener, pool, round-robin
 
@@ -92,6 +92,19 @@ To create and configure a network load balancer in the {{site.data.keyword.cloud
 
       You can attach server instances after you create your back-end pool.
       {: note}
+
+1. Optionally, you can create a backup for any of your existing pools. This allows the backup pool to manage traffic in the case of a member failure. To do so, you will need to create a failsafe policy:
+
+    Your load balancer must have at least one pool in order to assign a backup pool.
+    {: note}
+
+   * Once the status of your load balancer changes to **Active**, select the **Back-end pools** tab.
+   * In the pools list page, click **Edit**, then specify the following information:
+      * **Action**: Select **forward** in order to create a backup pool. This makes the **Target** section active.
+      * **Target**: Select a pool from the list of compatible pools to create your backup pool.
+
+   For network load balancers, you cannot assign a pool to be a backup pool if it is already connected to a listener. In addition, listeners cannot be attached to a backup pool.
+   {: important}
 
      Although the load balancer stops sending connections to unhealthy instances, the load balancer continues monitoring the health of these instances and resumes their use if they're found healthy again (that is, if they successfully pass two consecutive health check attempts).
 
@@ -204,7 +217,37 @@ To create a network load balancer with the CLI, follow these steps:
    ```
    {: screen}
 
+1. Create a pool.
 
+   ```sh
+   ibmcloud is load-balancer-pool-create nlb-pool r006-99b5ab45-6357-42db-8b32-5d2c8aa62776  weighted_round_robin tcp 10  --failsafe-policy-action forward --failsafe-policy-target pool2
+   ```
+   {: pre}
+
+   Sample output:
+
+   ```sh
+   Creating pool nlb-pool of load balancer r006-99b5ab45-6357-42db-8b32-5d2c8aa62776  under account IBM Cloud Network Services as user test@ibm.com...
+
+   ID                         r006-3b66d605-6aa5-4166-9f66-b16054da3cb0
+   Name                       nlb-pool
+   Protocol                   tcp
+   Algorithm                  weighted_round_robin
+   Instance group             ID   Name
+                              -    -
+
+   Health monitor             Type   Port   Health monitor URL   Delay   Retries   Timeout
+                              http   8080   /                    10      2         5
+
+   Failsafe policy            Action    Target ID                                   Target name   Healthy Member Threshold Count
+                               forward   r006-815e16e7-8729-4d9e-9203-936a6b615ee1   pool2         0
+
+   Session persistence type   source_ip
+   Members
+   Provision status           active
+   Created                    2020-08-27T14:45:42.038-05:00
+   ```
+   {: screen}
 
 1. Create a member.
 

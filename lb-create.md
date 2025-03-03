@@ -1,8 +1,8 @@
 ---
 
 copyright:
-  years: 2021, 2024
-lastupdated: "2024-09-25"
+  years: 2021, 2025
+lastupdated: "2025-03-03"
 
 keywords:
 
@@ -119,7 +119,15 @@ To create an ALB:
 
 1. After you finish creating pools and listeners, click **Create load balancer**.
 1. To view details of an existing load balancer, click the name of your load balancer on the **Load balancers** page.
-
+1. Optionally, you can create a backup for any of your existing pools. This allows the backup pool to manage traffic in the case of a member failure. To do so, you will need to create a failsafe policy:
+   
+   There should be at least one pool already existing in the load balancer.
+   {: note}
+   
+   * Once the status of your load balancer changes to **Active**, select the **Back-end pools** tab.
+   * In the pools list page, click **Edit**, then specify the following information:
+      * **Action**: Select **forward** in order to create a backup pool. This makes the **Target** section active.
+      * **Target**: Select a pool from the list of compatible pools to create your backup pool.
 1. If you want to redirect the traffic from an HTTP listener to an HTTPS listener, you can create an HTTP listener with HTTPS redirect settings.
 
     Layer 7 load-balancing policies overwrite settings that you define here.
@@ -213,7 +221,37 @@ To create an application load balancer from the CLI, follow these steps:
     ```
     {: screen}
 
+1. Create a pool:
 
+    ```sh
+    ibmcloud is load-balancer-pool-create alb-pool r006-99b5ab45-6357-42db-8b32-5d2c8aa62776  weighted_round_robin tcp 10  --failsafe-policy-action forward --failsafe-policy-target pool2
+    ```
+    {: pre}
+
+    Sample output:
+
+    ```sh
+    Creating pool nlb-pool of load balancer r006-99b5ab45-6357-42db-8b32-5d2c8aa62776  under account IBM Cloud Network Services as user test@ibm.com...
+
+    ID                         r006-3b66d605-6aa5-4166-9f66-b16054da3cb0
+    Name                       alb-pool
+    Protocol                   tcp
+    Algorithm                  weighted_round_robin
+    Instance group             ID   Name
+                               -    -
+
+    Health monitor             Type   Port   Health monitor URL   Delay   Retries   Timeout
+                               http   8080   /                    10      2         5
+
+    Failsafe policy            Action    Target ID                                   Target name   Healthy Member Threshold Count
+                               forward   r006-815e16e7-8729-4d9e-9203-936a6b615ee1   pool2         0
+
+    Session persistence type   source_ip
+    Members
+    Provision status           active
+    Created                    2020-08-27T14:45:42.038-05:00
+    ```
+    {: screen}
 
 1. Create a member:
 

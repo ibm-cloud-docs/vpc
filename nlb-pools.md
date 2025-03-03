@@ -1,8 +1,8 @@
 ---
 
 copyright:
-  years: 2020, 2024
-lastupdated: "2024-10-25"
+  years: 2020, 2025
+lastupdated: "2025-03-03"
 
 keywords: network load balancer, public, listener, back-end, front-end, pool, round-robin, weighted, connections, methods, policies, APIs, access, ports, vpc network
 
@@ -31,3 +31,7 @@ You can configure pools when [creating a network load balancer](/docs/vpc?topic=
    * **Method**: The load-balancing algorithm for the pool.
    * **Session stickiness**: Whether all requests during a user's session are sent to the same instance.
    * **Health check**: For information about configuring health checks, see [Working with health checks](/docs/vpc?topic=vpc-nlb-health-checks#nlb-health-checks).
+
+1.  You can add a backup pool to any existing pool by selecting `failsafe policy` with following menu options:
+   * **Action**: The action to perform if primary pool is unhealthy. One of: `forward` or `fail`
+   * **Target**: The selection of the backup pool is done here.
