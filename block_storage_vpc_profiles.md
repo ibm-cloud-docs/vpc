@@ -2,7 +2,7 @@
 
 copyright:
   years: 2019, 2025
-lastupdated: "2025-02-18"
+lastupdated: "2025-03-03"
 
 keywords: Block Storage profiles, Block Storage for VPC, IOPS tiers, custom IOPS, storage performance
 
@@ -29,15 +29,15 @@ The following table shows the available storage profiles with their different pr
 
 | Family name  | Profile name      | Capacity range \n (GB) | IOPS rate \n (IOPS/GB)  | IOPS range [^ttext1] \n (IOPS)| Max throughput[^ttext2] \n (MBps)|
 |--------------|-------------------|---------------:|----------------------:|------------------:|-----------------------:|
-| tiered       | `general-purpose` |    10 - 16,000 |  3        | 3,000 - 48,000 |  670 | 
-| tiered       | `5iops-tier`      |    10 -  9,600 |  5        | 3,000 - 48,000 |  768 |
+| tiered       | `general-purpose` |    10 - 16,000 |  3        | 3,000 - 48,000 |  786 | 
+| tiered       | `5iops-tier`      |    10 -  9,600 |  5        | 3,000 - 48,000 |  786 |
 | tiered       | `10iops-tier`     |    10 -  4,800 | 10        | 3,000 - 48,000 | 1024 | 
 | custom       | `custom`          |    10 - 16,000 | 10 - 100  | 100 - 48,000[^ttext3] | 1024 |
 {: caption="Block Storage profiles and performance levels." caption-side="bottom"}
 
-[^ttext1]: Nominal IOPS values are based on 16k I/O size.
-[^ttext2]: Max throughput is determined by the number of IOPS multiplied by the throughput multiplier. The throughput multiplier is 16 KB for 3 IOPS/GB or 5 IOPS/GB tiers. The throughput multiplier for the 10 IOPS/GB  tier and the custom profile is 256 KB. The higher the IOPS that you specify, the higher the throughput limit becomes.
-[^ttext3]: The IOPS range that is available is dependent on the volume capacity. For more information, see [Table 3](#custom).
+[^ttext1]: The provisioned IOPS values are based on a preset 16k I/O size.
+[^ttext2]: Max throughput is determined by the number of IOPS multiplied by the preset throughput multiplier. The throughput multiplier is 16 KB for 3 IOPS/GB or 5 IOPS/GB tiers. The throughput multiplier for the 10 IOPS/GB tier and the custom profile is 256 KB. The higher the IOPS that you specify, the higher the throughput limit becomes.
+[^ttext3]: The available IOPS range is dependent on the volume capacity. For more information, see [Table 3](#custom).
 
 Nominal IOPS values are based on 16k I/O size. The maximum throughput value is determined by the number of IOPS multiplied by the throughput multiplier. The throughput multiplier is 16 KB for 3 IOPS/GB or 5 IOPS/GB tiers, or 256 KB for 10 IOPS/GB or custom IOPS tiers. The higher the IOPS that you specify, the higher the throughput the volume can handle.
 
