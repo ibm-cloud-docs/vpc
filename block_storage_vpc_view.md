@@ -12,7 +12,7 @@ subcollection: vpc
 
 {{site.data.keyword.attribute-definition-list}}
 
-# Viewing {{site.data.keyword.block_storage_is_short}} volumes - tech review
+# Viewing {{site.data.keyword.block_storage_is_short}} volumes
 {: #viewing-block-storage}
 
 View details about a {{site.data.keyword.block_storage_is_short}} volume or summary information about all volumes.
