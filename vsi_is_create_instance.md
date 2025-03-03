@@ -2,7 +2,7 @@
 
 copyright:
   years: 2018, 2025
-lastupdated: "2025-01-16"
+lastupdated: "2025-03-03"
 
 keywords:
 
@@ -12,7 +12,7 @@ subcollection: vpc
 
 {{site.data.keyword.attribute-definition-list}}
 
-# Creating virtual server instances
+# Creating virtual server instances - tech review
 {: #creating-virtual-servers}
 
 You can create one or more virtual server instances in your {{site.data.keyword.vpc_short}} by using the {{site.data.keyword.cloud_notm}} console, CLI, API, or Terraform.
@@ -40,6 +40,9 @@ Use the following steps to create a virtual server instance.
    {: caption="Selections to begin instance provisioning" caption-side="bottom"}
 
 3. Select an image and profile for the instance. To select from all available images, click **Change image**. You can select an image, a snapshot of a boot volume, or an existing boot volume. If the geographic location where you are provisioning an instance supports it, you can select either *x86* or *s390x* architecture. Table 2 describes image, snapshot, and existing volume options. Then, select a profile. To select from all available vCPU and RAM combinations, click **Change profile**. Table 3 describes profile selection. {: #select-image-and-profile}
+
+Allowed-use expressions: The image that you select determines the profiles that are available to create the virtual server instance. During the creation of a virtual server instance with images that have an allowed-use expression, the information that is provided in the allowed-use properties is then evaluated against a potential virtual server instance to determine whether that image can be used to create the virtual server instance. Stock images have allowed-use expressions defined. You must define any allowed-use expressions for custom images. For more information, see [Adding allowed-use expressions to custom images](/docs/vpc?topic=vpc-custom-image-allowed-use-expressions&interface=ui).
+{: note}
 
    | Field | Value |
    |-------|-------|
@@ -79,7 +82,7 @@ Use the following steps to create a virtual server instance.
    | | Specify a unique, meaningful name. The same specifications apply as for the boot volume.|
    | | You can toggle the auto-delete option on for the data volume. If it is enabled, then the volume is deleted when the instance is deleted. If it is disabled, then the volume persists after the instance is deleted. |
    | | You can specify optional user tags and access management tags to associate with this volume. For more information about organizing resources with user tags, see [Working with tags](/docs/account?topic=account-tag&interface=ui).|
-   | | You can select the encryption type. Provider-managed encryption is enabled by default on all volumes. You can also choose to create an envelop encryption with your own root keys that are created and maintained in Key Management Services. |
+   | | You can select the encryption type. Provider-managed encryption is enabled by default on all volumes. You can also choose to create an envelope encryption with your own root keys that are created and maintained in Key Management Services. |
    | |You can select the [Storage profile](/docs/vpc?topic=vpc-block-storage-profiles&interface=ui) that best suits your needs for capacity and IOPS. For more information, see [Create and attach a Block Storage volume when you create an instance](/docs/vpc?topic=vpc-creating-block-storage#create-from-vsi).|
    | Virtual private cloud | Specify the IBM Cloud VPC where you want to create your instance. You can use the default VPC, another existing VPC, or you can create a VPC. To create a VPC, click **New VPC**. |
    | Add to cluster network | If you select the H100 GPU profile, `gx3d-160x1792x8h100`, you see the option to **Add to cluster network**. You can set **Add to cluster network** to on to enable the virtual server to access the power of a high-performance network that supports Remote Direct Memory Access (RDMA). When **Add to cluster network** is set to on and a cluster network is available, the {{site.data.keyword.cloud_notm}} console includes default selections for configuring the virtual server for the cluster network. If no cluster network is available, you can click **Create cluster network**. When a cluster network is selected, only the VPC where the cluster network is provisioned displays in the **Virtual private cloud** drop-down menu. For more information, see [About cluster networks](/docs/vpc?topic=vpc-about-cluster-network&interface=ui). |
@@ -96,7 +99,7 @@ Use the following steps to create a virtual server instance.
    | Add to dedicated host | This selection is disabled by default. To create the virtual server instance in a single-tenant space, click the toggle to enable the dedicated host. To provision a dedicated instance, you must have a dedicated host available or [create one](/docs/vpc?topic=vpc-creating-dedicated-hosts-instances). |
    | Add to placement group | Placement groups are disabled by default. Click the toggle to enable placement groups. Then, select or create a placement group for the instance. If you add a placement group, the instance is placed according to the placement group policy. For more information, see [About placement groups](/docs/vpc?topic=vpc-about-placement-groups-for-vpc). |
    | Add to reservation | If you have an active reservation, click the toggle to add the virtual server instance to that reservation. For more information, see [About Reservations for VPC](/docs/vpc?topic=vpc-about-reserved-virtual-servers-vpc). |
-   | Host failure auto restart | This setting is enabled by default. To disable host failure auto restart, click the toggle. For more information, see [Host failure recovery policies](/docs/vpc?topic=vpc-host-failure-recovery-policies&interface=ui). |
+   | Host failure auto restart | This setting is enabled by default. To disable host failure auto restart, click the toggle. For more information, see [Host failure recovery policies](/docs/vpc?topic=vpc-host-failure-recovery-policies&interface=ui) |
    {: caption="Instance provisioning advanced options selections" caption-side="bottom"}
 
 6. Click **Create virtual server instance** when you are ready to provision.
@@ -136,19 +139,19 @@ You can create instances by using the command-line interface (CLI). If you would
 {: #gather-info-to-create-virtual-servers-cli}
 {: cli}
 
-Ready to create an instance? Before you can run the `ibmcloud is instances` command, you need to know the details about the instance, such as what profile or image that you want to use.
+Ready to create an instance? Before you can run the `ibmcloud is instance-create` command, you need to know the details about the instance, such as what profile or image that you want to use.
 
 Gather the following information by using the associated commands.
 
 |    Instance details   |  Listing options                | VPC CLI reference documentation |
 | --------------------- | --------------------------------|----------------------------|
-| Image | `ibmcloud is image` | [List all images](/docs/vpc?topic=vpc-vpc-reference#images-list)|
+| Image | `ibmcloud is images` | [List all images](/docs/vpc?topic=vpc-vpc-reference#images-list)|
 | Boot volume | `ibmcloud is volumes` | [List all volumes](/docs/vpc?topic=vpc-vpc-reference#volumes-list) |
-| Profile | `ibmcloud is instances` | [List all virtual server instances](/docs/vpc?topic=vpc-vpc-reference#instances-list) |
+| Profile | `ibmcloud is instance-profiles` | [List all virtual server instance profiles](/docs/vpc?topic=vpc-vpc-reference#instances-list) |
 | Keys | `ibmcloud is keys` | [List all keys](/docs/vpc?topic=vpc-vpc-reference#keys) \n \n If you don't have any available SSH keys, use [Create a key](/docs/vpc?topic=vpc-vpc-reference#key-create) to create one. \n \n **Note:** RSA and ED25519 are the two types of SSH keys that you can use. However, you can't use the ED25519 SSH key type with Windows or VMware images. You can use only RSA SSH keys for these images. \n For more information, see [Getting started with SSH keys](/docs/vpc?topic=vpc-ssh-keys). |
 | VPC | `ibmcloud is vpcs` | [List all VPCs](/docs/vpc?topic=vpc-vpc-reference#vpcs-list) |
 | Subnet | `ibmcloud is subnets` | [List all subnets](/docs/vpc?topic=vpc-vpc-reference#subnets-list) |
-| Zone | `ibmcloud is zones` | [List all regions](/docs/vpc?topic=vpc-vpc-reference#zones-list) |
+| Zone | `ibmcloud is zones` | [List all regions in the target region](/docs/vpc?topic=vpc-vpc-reference#zones-list) |
 | Placement groups | `ibmcloud is placement-groups` | [List all placement groups](/docs/vpc?topic=vpc-vpc-reference#placement-groups-list) |
 {: caption="Required instance details" caption-side="bottom"}
 
@@ -163,7 +166,7 @@ Use the following commands to determine the required information for creating a 
 
    See the following example.
 
-   ```sh
+   ```text
    $ ibmcloud is regions
    Listing regions under account Test Account as user test.user@ibm.com...
    Name       Endpoint                              Status
@@ -196,7 +199,7 @@ Use the following commands to determine the required information for creating a 
 
    In the following example, the command is run in the `us-south` region and the output shows the available zones in the region.
 
-   ```sh
+   ```text
    $ ibmcloud is zones
    Listing zones in target region us-south under account Test Account as user test.user@ibm.com...
    Name         Region     Status
@@ -989,7 +992,7 @@ Reusing an existing, bootable volume is faster than creating a new volume from a
 
 You can provision an instance with an existing volume by specifying the existing volume's `id` or `crn` subproperty as the value of the `boot_volume_attachment` property.
 
-The existing, bootable volume must be an unattached bootable volume that has the same operating system and architecture as the instance profile. Use the [list volumes](/apidocs/vpc/latest#list-volumes) filter and reference the `attachment_state` property and `operating_system` property to view a volume's eligibility.
+The existing, bootable volume must be an unattached bootable volume that has the same architecture as the instance profile. Use the [list volumes](/apidocs/vpc/latest#list-volumes) filter and reference the `attachment_state` property and `operating_system` property to view a volume's eligibility.
 
 For example, to see unattached volumes in `us-south-1` with an x86 operating system.
 

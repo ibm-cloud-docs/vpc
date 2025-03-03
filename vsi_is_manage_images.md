@@ -12,7 +12,7 @@ subcollection: vpc
 
 {{site.data.keyword.attribute-definition-list}}
 
-# Managing custom images
+# Managing custom images - tech review
 {: #managing-custom-images}
 
 After you import a custom image to {{site.data.keyword.vpc_short}}, you can view details about the image, manage the lifecycle of the image, use the image to create a virtual server instance, export the image, and even share it with a private catalog.

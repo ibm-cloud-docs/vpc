@@ -13,7 +13,7 @@ subcollection: vpc
 
 {{site.data.keyword.attribute-definition-list}}
 
-# Importing and validating custom images into VPC
+# Importing and validating custom images into VPC - tech review
 {: #importing-custom-images-vpc}
 
 You can create your own custom image on premises and then import it to {{site.data.keyword.vpc_full}} infrastructure from {{site.data.keyword.cos_full}}. Then, you can use your custom image to create a new virtual server instance that runs on the KVM hypervisor. If you plan to use your custom image in a private catalog, you must first import the custom image into {{site.data.keyword.vpc_short}} and validate it.
@@ -31,6 +31,8 @@ To complete this task, you must have an instance of {{site.data.keyword.cos_full
 
 Keep the following considerations in mind when you import a custom image:
 
+* When using a custom image, you are responsible for any updates to the image.
+* Support for any custom image software must be obtained directly from the vendor who provided the image.
 * When you import a custom image, it's private to the account where you import it.
 * The region where you choose to import the image is the region where you can create virtual servers from that image.
 * For custom images with Red Hat Enterprise Linux&reg; or Windows&reg; operating systems, you must select the appropriate version of the operating system. Depending on how you configured the image, select either bring your own license `byol`, or if you plan to license the OS through {{site.data.keyword.cloud_notm}}, select the version without `byol` appended.

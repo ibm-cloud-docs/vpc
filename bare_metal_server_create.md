@@ -2,7 +2,7 @@
 
 copyright:
   years: 2021, 2025
-lastupdated: "2025-02-14"
+lastupdated: "2025-03-03"
 
 keywords: creating bare metal servers
 
@@ -12,7 +12,7 @@ subcollection: vpc
 
 {{site.data.keyword.attribute-definition-list}}
 
-# Creating Bare Metal Servers on VPC
+# Creating Bare Metal Servers on VPC - tech review
 {: #creating-bare-metal-servers}
 
 Use the following information to create a bare metal server on your {{site.data.keyword.vpc_full}} (VPC) with the configuration of your choice.

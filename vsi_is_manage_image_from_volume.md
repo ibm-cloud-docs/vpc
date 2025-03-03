@@ -12,7 +12,7 @@ subcollection: vpc
 
 {{site.data.keyword.attribute-definition-list}}
 
-# Managing image from a volume
+# Managing image from a volume - tech review
 {: #image-from-volume-vpc-manage}
 
 Custom images that are created from a volume are independent from the original volume. You can update the image and delete it as needed. You can delete the original volume and the custom image persists. You can schedule the deprecation and making the image obsolete in the console, from the CLI, or the API.
