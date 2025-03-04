@@ -2,7 +2,7 @@
 
 copyright:
   years: 2021, 2025
-lastupdated: "2025-03-03"
+lastupdated: "2025-03-04"
 
 keywords:
 
@@ -124,7 +124,7 @@ To create an ALB:
    There should be at least one pool already existing in the load balancer.
    {: note}
    
-   * Once the status of your load balancer changes to **Active**, select the **Back-end pools** tab.
+   * After the status of your load balancer changes to **Active**, select the **Back-end pools** tab.
    * In the pools list page, click **Edit**, then specify the following information:
       * **Action**: Select **forward** in order to create a backup pool. This makes the **Target** section active.
       * **Target**: Select a pool from the list of compatible pools to create your backup pool.

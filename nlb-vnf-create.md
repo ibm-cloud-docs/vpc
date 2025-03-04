@@ -2,7 +2,7 @@
 
 copyright:
   years: 2020, 2025
-lastupdated: "2025-01-29"
+lastupdated: "2025-03-04"
 
 keywords: network load balancer, public, listener, pool, round-robin
 
@@ -43,8 +43,7 @@ The following list details some important considerations about network load bala
 
 * NLB route mode has two IP addresses (Active/Standby).
 * NLB route mode is designed to be transparent. When a failover occurs, route mode updates all routing rules created under the same VPC with the `next_hop` of the Standby appliance IP. As a result, both IPs may be used during the lifetime of your NLB with route mode.
-* In the case of a Transit VPC configuration, you may want to deploy the NLB in `vpc-hub` and configure the egress route in `vpc-spoke`. This will force data back to the NLB with route mode in `vpc-hub`. Ensure that you also add the equivalent ingress rules of the `vpc-spoke` egress rules to `vpc-hub` so that the egress rules do not need to be changed. Once the traffic reaches `vpc-hub`, the ingress routing rule will overwrite the `next_hop` and send it to the primary appliance.
-
+* In the case of a Transit VPC configuration, you may want to deploy the NLB in `vpc-hub` and configure the egress route in `vpc-spoke`. This will force data back to the NLB with route mode in `vpc-hub`. Ensure that you also add the equivalent ingress rules of the `vpc-spoke` egress rules to `vpc-hub` so that the egress rules don't need to be changed. After the traffic reaches `vpc-hub`, the ingress routing rule overwrites the `next_hop` and sends it to the primary appliance.
 
 ## Creating a network load balancer with routing mode using the UI
 {: #nlb-vnf-ui}

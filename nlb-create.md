@@ -2,7 +2,7 @@
 
 copyright:
   years: 2020, 2025
-lastupdated: "2025-03-03"
+lastupdated: "2025-03-04"
 
 keywords: network load balancer, public, listener, pool, round-robin
 
@@ -98,7 +98,7 @@ To create and configure a network load balancer in the {{site.data.keyword.cloud
     Your load balancer must have at least one pool in order to assign a backup pool.
     {: note}
 
-   * Once the status of your load balancer changes to **Active**, select the **Back-end pools** tab.
+   * After the status of your load balancer changes to **Active**, select the **Back-end pools** tab.
    * In the pools list page, click **Edit**, then specify the following information:
       * **Action**: Select **forward** in order to create a backup pool. This makes the **Target** section active.
       * **Target**: Select a pool from the list of compatible pools to create your backup pool.
