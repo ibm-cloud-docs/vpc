@@ -2,7 +2,7 @@
 
 copyright:
   years: 2018, 2025
-lastupdated: "2025-02-20"
+lastupdated: "2025-03-04"
 
 keywords:
 
@@ -52,6 +52,9 @@ The following lists contain known limitations for {{site.data.keyword.cloud}} {{
 ## Known limitations for {{site.data.keyword.cloud}} Private Path network load balancers
 {: #limitations-private-path-network-load-balancers}
 
+* When you create a pool for a Private Path network load balancer and set the `failsafe_policy.action` value to `drop`, the request incorrectly fails with `400` (Bad Request).
+   * A workaround is to not specify the drop value, as drop is the default behavior.
+* The `failsafe_policy.action` value included in any response from a Private Path load balancer pool shows `fail` instead of `drop`. Likewise, the `failsafe_policy.actions` value included in any response from a Private Path load balancer profile show `fail` instead of `drop`.
 * Access to a Virtual Private Endpoint gateway associated with Private Path Network load balancer from Direct Link or Transit Gateway is not supported.
    * A workaround is to access an ALB that has the VPE as a member. Contact IBM Support for assistance with the details.
 * Private Path network load balancer pool members on Bare Metal are not supported (similar to Public and Private NLB)

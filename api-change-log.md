@@ -2,7 +2,7 @@
 
 copyright:
   years: 2019, 2025
-lastupdated: "2025-02-18"
+lastupdated: "2025-03-04"
 
 keywords: api, change log, new features, restrictions, migration
 
@@ -54,6 +54,19 @@ To prepare for this change, verify that your client checks that the `volume` pro
 **Asynchronous `DELETE` response code change.** In an upcoming release, the response code output for asynchronous `DELETE` operations will change from `204` to `202`. A response code of `204` implies the action is completed, which could be misleading for operations that are still processing. A response code of `202` is more appropriate. This behavior change will occur only for an API version date after its release. A response code of `204` will continue to be returned for API versions up to this version date.
 
 The new response code will be rolled out gradually. Each phase of the rollout will be tied to a dated API version. These changes will be announced in future change log updates.
+{: note}
+
+## 4 March 2025
+{: #4-march-2025}
+
+### For all version dates
+{: #4-march-2025-all-version-dates}
+
+**Failsafe policies for load balancer pools.** When [creating](/apidocs/vpc/latest#create-load-balancer-pool) or [updating](/apidocs/vpc/latest#update-load-balancer-pool) a load balancer pool, you can now specify the `failsafe_policy` property to manage potential failures in your environment. A failsafe policy includes an `action`, and depending on the action, may also require a `target` (such as a pool to forward requests to).
+
+When [retrieving](https://cloud.ibm.com/apidocs/vpc/latest#get-load-balancer-profile) or [listing](https://cloud.ibm.com/apidocs/vpc/latest#list-load-balancer-profiles) load balancer profiles, the response now includes a `failsafe_policy_actions` property, which indicates the default and supported actions for each load balancer profile (when known).  Similarly, when [retrieving](https://cloud.ibm.com/apidocs/vpc/latest#get-load-balancer) or [listing](https://cloud.ibm.com/apidocs/vpc/latest#list-load-balancers) load balancers, the `failsafe_policy_actions` property indicates the supported actions. For more information, see [Creating an application load balancer](/docs/vpc?topic=vpc-load-balancers&interface=api) and [Creating a public or private network load balancer](/docs/vpc?topic=vpc-nlb-ui-creating-network-load-balancer&interface=api).
+
+Before you create a pool for a Private Path network load balancer, review [Known limitations for Private Path network load balancers](/docs/vpc?topic=vpc-nlb-limitations#limitations-private-path-network-load-balancers) for information about `failsafe_policy.action` value behavior.
 {: note}
 
 ## 18 February 2025
