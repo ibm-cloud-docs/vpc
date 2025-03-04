@@ -2,7 +2,7 @@
 copyright:
   years: 2020, 2025
 
-lastupdated: "2025-02-21"
+lastupdated: "2025-03-04"
 
 keywords: dedicated host profiles, balanced, compute, memory, ultra high memory, generation 2, gen 2
 
@@ -193,7 +193,7 @@ The Very High Memory with instance storage profile with a high memory ratio of 1
 
 If you provision a dedicated host with a Very High Memory profile, any virtual server instances that are provisioned on the dedicated host must also be provisioned with a Very High Memory profile. All Very High Memory profiles include instance storage that is designated by the *d* in the profile name, for example *vx2d*.
 
-The 3rd generation profile with the vx3d prefix is a beta feature that is available for evaluation and testing purposes. This profile is available only in the Toronto (`ca-tor`)  region to provision virtual server instances on 4th Generation Intel&reg; Xeon&reg; Scalable processors, the Intel 8474C processor (previously code named Sapphire Rapids). For more information about the capabilities of the new profiles, see [Next generation instance profiles](#next-gen-profiles).
+The 3rd generation profile with the vx3d prefix is available in the Toronto (`ca-tor`) and Washington DC (`us-east`) regions to provision virtual server instances on 4th Generation Intel&reg; Xeon&reg; Scalable processors, the Intel 8474C processor (previously code named Sapphire Rapids). For more information about the capabilities of the new profiles, see [Next generation instance profiles](#next-gen-profiles).
 {: preview}
 
 The following Very High Memory profile is available for dedicated hosts.
