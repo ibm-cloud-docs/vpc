@@ -2,7 +2,7 @@
 
 copyright:
   years: 2019, 2025
-lastupdated: "2025-02-28"
+lastupdated: "2025-03-04"
 
 keywords:
 
@@ -23,6 +23,16 @@ Use the release notes to learn the latest updates to {{site.data.keyword.vpc_ful
 For more information about changes to the {{site.data.keyword.vpc_short}} API, see [{{site.data.keyword.vpc_short}} API change log](/docs/vpc?topic=vpc-api-change-log).
 
 For more information about changes to the {{site.data.keyword.vpc_short}} command-line interface (CLI), see [{{site.data.keyword.vpc_short}} CLI release notes](/docs/vpc?topic=vpc-vpc-cli-rn).
+
+## March 2025
+{: #vpc-mar25}
+
+### 4 March 2025
+{: #vpc-mar0425}
+{: release-note}
+
+Very High Memory (vx3d) profiles for SAP-HANA now available in Washington DC (select availabilty)
+:  The Very High Memory (vx3d) profiles for SAP-HANA are now available in Washington DC (`us-east`) for both x86-64 profiles and x86-64 dedicated host profiles. This region is in addition to the Toronto (`ca-tor`) region. For more information, see [x86-64 Very High Memory profiles](/docs/vpc?topic=vpc-profiles&interface=ui#vhmemory) and [x86-64 dedicated host Very High Memory with instance storage](/docs/vpc?topic=vpc-dh-profiles&interface=ui#dh-vhmemory-intel-x86-64-vx3d). For more information about the Multizone regions, see [Region and data center locations for resource deployment](/docs/overview?topic=overview-locations).
 
 ## February 2025
 {: #vpc-feb25}
