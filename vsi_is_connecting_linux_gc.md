@@ -2,7 +2,7 @@
 
 copyright:
   years: 2018, 2025
-lastupdated: "2024-02-20"
+lastupdated: "2025-03-05"
 
 keywords: connecting, linux
 
@@ -77,7 +77,7 @@ If you need to locate your floating IP address for the instance to which you wan
 Optionally, you can locate the floating IP address that is associated to the instance to which you want to connect through the {{site.data.keyword.cloud_notm}} console.
 {: tip}
 
-## Determing the default user account
+## Determining the default user account
 {: #determining-default-user-account}
 
 The system-generated default user account is typically associated with managing access and operations. The default user can be used to log into the virtual server instance using SSH. The SSH keys are configured for the default user in the image.
