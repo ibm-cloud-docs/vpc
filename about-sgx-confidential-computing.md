@@ -2,7 +2,7 @@
 
 copyright:
   years: 2023, 2025
-lastupdated: "2025-02-28"
+lastupdated: "2025-03-06"
 
 keywords: sgx, intel sgx, software guard extension, confidential computing, trusted execution environment, TEE, data protection
 
@@ -106,6 +106,6 @@ Keep the following limitations in mind if you want to use SGX or TDX.
       - SLES 15.6
       
 * TDX limitations
-   - When you reboot a TDX-enabled virtual server, the virtual server shuts down. The virtual server must be restarted by using the UI or CLI.
+   - When you force a reboot of a TDX-enabled virtual server, the virtual server shuts down. You must then restart this virtual server.
    - VNC-console is not supported.
    - Serial-console is not supported.
