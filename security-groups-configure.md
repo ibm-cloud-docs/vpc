@@ -1,8 +1,8 @@
 ---
 
 copyright:
-  years: 2018, 2024
-lastupdated: "2024-10-25"
+  years: 2018, 2025
+lastupdated: "2025-03-06"
 
 keywords:
 
@@ -34,7 +34,7 @@ To configure your security group by using the UI, follow these steps:
    * **Name** - Enter a unique identifier for the security group, such as `my-security-group`.
    * **Resource group** - Select a resource group for the security group.
 
-   After provisioning is complete, you cannot change the resoure group.
+   After provisioning is complete, you cannot change the resource group.
    {: important}
 
    * **Tags** - Add user tags. User tags are visible account-wide. For more information, see [Working with tags](/docs/account?topic=account-tag).
