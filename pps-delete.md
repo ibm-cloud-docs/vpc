@@ -29,11 +29,14 @@ To update a Private Path provider service the {{site.data.keyword.cloud_notm}} c
 1. In the Private Path services for VPC table, locate and click the name of the Private Path service that you want to update.
 1. On the Private Path details page, click the Edit icon ![Edit icon](images/edit.png) beside the details that you want to update.
 
+You can also update the members attached to a Private Path NLB in your Private Path service. For more information, see [Updating a network load balancer in the UI](/docs/vpc?topic=vpc-nlb-updating&interface=ui).
+{: note}
+
 ### Update the target service of a Private Path service in the UI
 {: #pps-ui-update-target-private-path-service}
 {: ui}
 
-If you’re updating the actual target service without changing the load balancer, you don’t need to take any actions in Private Path service. Instead, you need to update the Private Path network load balancer.
+If you’re updating the actual target service without changing the load balancer, you don’t need to take any actions in Private Path service. Instead, you need to update the Private Path network load balancer. For more information, see [Reviewing connection requests](/docs/private-path?topic=private-path-pps-ui-reviewing&interface=ui).
 
 To update the target service of a Private Path provider service the {{site.data.keyword.cloud_notm}} console, follow these steps:
 

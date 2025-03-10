@@ -2,7 +2,7 @@
 
 copyright:
   years: 2022, 2025
-lastupdated: "2025-01-14"
+lastupdated: "2025-03-10"
 
 keywords: load balancer, public, listener, back-end, front-end, pool, round-robin, weighted, connections, methods, policies, APIs, access, ports
 
@@ -41,8 +41,8 @@ You can create a Private Path network load balancer using the UI, CLI, API, or T
 To create and configure {{site.data.keyword.nlb_full}} in the {{site.data.keyword.cloud_notm}} console, follow these steps:
 
 1. From your browser, open the [{{site.data.keyword.cloud_notm}} console](/login) and log in to your account.
-1. Select the **Navigation Menu** ![Menu icon](images/menu_icon.png), then click **Infrastructure > Network > Load balancers**.
-1. Click **Create** in the upper right of the page.
+1. Select the **Navigation Menu** ![Menu icon](images/menu_icon.png), then select **Infrastructure > Network > Load balancers**.
+1. Select **Create** in the upper right of the page.
 1. For Load balancer type, select the **Network Load Balancer (NLB)** tile.
 1. In the Location section, edit the following fields, if necessary.
    * **Geography**: The geography where you want to create the load balancer.
@@ -55,7 +55,7 @@ To create and configure {{site.data.keyword.nlb_full}} in the {{site.data.keywor
    * **Virtual private cloud**: Select the VPC where you want to deploy the load balancer.
    * **Subnet**: Select a subnet.
    * **Type**: Select **Private Path**.
-1. In the Back-end pools section, click **Create pool**, specify the following information, then click **Create**. You can create one or more pools.
+1. In the Back-end pools section, select **Create pool**, specify the following information, then select **Create**. You can create one or more pools.
    * Type a unique name for the pool, such as `private-path-pool`.
    * Select a protocol for your instances in this pool. The protocol of the pool must match the protocol of its associated listener. For example, if the listener is TCP, the protocol of the pool must be TCP.
    * Select the method, which is the load-balancing algorithm, from the following options.
@@ -75,7 +75,7 @@ To create and configure {{site.data.keyword.nlb_full}} in the {{site.data.keywor
      If instances in the pool are unhealthy and you believe that your application is working correctly, double check the health protocol and health path values. Also, check any security groups that are attached to the instances to ensure that the rules allow traffic between the load balancer and the instances.
      {: tip}
 
-1. You can attach virtual server instances to your back-end pool now, or after you create your Private Path NLB. Click **Attach server** on the table row of your back-end pool, specify the following information, then click **Attach**.
+1. You can attach members to your back-end pool now, or after you create your Private Path NLB. Select **Attach** in the Members column for the back-end pool to which you want to add members. Specify the following information, then select **Attach**.
 
    * **Subnet**: Choose a subnet.
    * From the list of servers, select the servers that you want to attach to the back-end pool. Ensure that you specify valid values for each server port.
@@ -85,13 +85,14 @@ To create and configure {{site.data.keyword.nlb_full}} in the {{site.data.keywor
 
     You do not need to create multiple Private Path load balancers or specify more than a single subnet to ensure resiliency to zone failure. Your subnet selection only impacts the IP-addresses associated with the load balancer.
 
-1. In the Front-end listeners section, click **Create listener +**, specify the following information, then click **Create**. You can create one or more listeners.
-   * **Default back-end pool** - The default back-end pool to which this listener forwards traffic.
-   * **Protocol** - The protocol to use for receiving incoming requests (**TCP**).
-   * **Listener port** - The listening port on which requests are received.
-   * **Back-end pool** - The default back-end pool to which this listener forwards traffic.
+1. To edit attached members, select the Edit icon ![Edit icon](images/edit.png) in the row of the member you want to edit in the Back-end pools table. To delete attached members, selct the minus icon in the row of the member you want to delete in the Back-end pools table. 
 
-1. Review the order summary, then click **Create** to complete your order.
+1. In the Front-end listeners section, select **Create**, specify the following information, then select **Create**. You can create one or more listeners.
+   * **Default back-end pool** - The default back-end pool to which this listener forwards traffic.
+   * **Listener protocol** - The protocol to use for receiving incoming requests (**TCP**).
+   * **Listener port** - The listening port on which requests are received.
+
+1. Review the order summary, then select **Create** to complete your order.
 
 ## Creating a Private Path network load balancer from the CLI
 {: #ppnlb-cli-creating-network-load-balancer}
