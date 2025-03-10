@@ -2,7 +2,7 @@
 
 copyright:
   years: 2018, 2025
-lastupdated: "2025-02-20"
+lastupdated: "2025-03-10"
 
 keywords: application load balancer, alb, polices, rules
 
@@ -12,12 +12,12 @@ subcollection: vpc
 
 {{site.data.keyword.attribute-definition-list}}
 
-# Layer 7 load balancing
+# Policy-based load balancing
 {: #layer-7-load-balancing}
 
-Both public and private application load balancers support layer 7 load balancing. Data traffic is distributed based on configured policies and rules. A policy defines the action to take, which means how the traffic is distributed, when the incoming request matches the rules that are associated with the policy.
+Both public and private application load balancers support  layer 7 load balancing, where data traffic is distributed based on configured policies and rules. A policy defines the action to take, which means how the traffic is distributed, when the incoming request matches the rules that are associated with the policy.
 
-## Policies
+## Layer 7 policies
 {: #layer-7-policy}
 
 You can define policies for HTTP and HTTPS listeners. For each policy, you must define one or more rules. The policy is applied only when all its rules are matched.
@@ -31,7 +31,7 @@ The following actions are supported for a layer 7 policy:
 * **Reject** - The request is denied with a 403 response.
 * **Redirect** - The request is redirected to a configured URL and response code.
 * **Forward** - The request is sent to a specific back-end pool.
-* **HTTPS Redirect** - The HTTP request redirects to an HTTPS listener.
+* **HTTPS redirect** - The HTTP request redirects to an HTTPS listener.
 
 ## Policy properties
 {: #layer-7-policy-properties}
@@ -41,25 +41,26 @@ Property  | Description
 Name | The name of the policy. The name must be unique within the listener.
 Action | The action to take when all policy rules match. The acceptable values are `reject`, `redirect`, `forward`, and `https_redirect`.
 Priority | Policies are evaluated based on ascending order of priority.
-URL | The URL to which the request is redirected, if the action is set to `redirect`. You must provide either a full URL or the parameters of a URI. When using a URL, all incoming traffic redirects to this URL. When using URI parameters, values from incoming traffic requests can be retained by using the incoming values of the parameters. The default values of the URI parameters are equal to their original incoming values. To retain the incoming values, provide them as `{protocol}`, `{port}`, `{host}`, `{path}`, and `{query}`. For example, if the host of the incoming request is `ibm.com`, then the default value will be `{host}` equal to the incoming `ibm.com` value.
+Priority | Policies are evaluated based on ascending order of priority.
+URL | The URL to which the request is redirected, if the action is set to `redirect`. You must provide either a full URL or the parameters of a URI. When using a URL, all incoming traffic redirects to this URL. When using URI parameters, values from incoming traffic requests can be retained by using the incoming values of the parameters. The default values of the URI parameters are equal to their original incoming values. To retain the incoming values, provide them as `{protocol}`, `{port}`, `{host}`, `{path}`, and `{query}`. For example, if the host of the incoming request is `ibm.com`, then the default value is `{host}` equal to the incoming `ibm.com` value.
 HTTP status code | Status code of the response returned by the application load balancer when the action is set to `redirect` or `https_redirect`. The acceptable values are: `301`, `302`, `303`, `307`, or `308`.
 Target | The back-end pool of virtual server instances to which the request is forwarded, if the action is set to `forward`.
 Listener | The HTTPS listener to which the request is redirected, if the action is set to `https_redirect`.
 URI | The relative URI to which the request is redirected, if the action is `https_redirect`. This property is optional.
 {: caption="Description of policy properties" caption-side="bottom"}
 
-## Rules
+## Layer 7 rules
 {: #layer-7-rules}
 
-A layer 7 rule defines how a request is to be matched. Both URI-based routing and parameter-based routing are supported. Five types of rules are supported, described as follows.
+A rule defines how a request is to be matched. Both URI-based routing and parameter-based routing are supported. Five types of rules are supported, described as follows.
 
 Type      |  Description
 ----------| -----------------------
 `hostname` | The request matches the specified `hostname`, such as `api.my_company.com`.
-`header`    | The request matches an HTTP `header` field and value, such as `Cookie: xxxx`.
+`header`   | The request matches an HTTP `header` field and value, such as `Cookie: xxxx`.
 `path`     | The request matches the `path` in the URL after the `hostname`, such as `/index.html`.
 `query`    | The request matches the `query` in the URL, for example `x=y`. The `query` string must be percent-encoded, and it is case-sensitive.
-`body`     | If the request `body` of the `POST` request is form encoding. The request matches the body, for example `key=value`. It is case-sensitive.
+`body`     | The `body` request of the `POST` request is form-encoded. The request matches the body, for example `key=value`. It is case-sensitive.
 {: caption="Layer 7 rules" caption-side="bottom"}
 
 To match a request, a `condition` statement must be defined in a rule. Three conditions are supported, described as follows.
@@ -80,7 +81,7 @@ Property  | Description
 ------------- | -------------
 `type` | Specifies the type of rule. The acceptable values are `hostname`, `header`, `path`, `query`, or `body`.
 `condition` | Specifies the condition with which a rule is evaluated. Condition can be: `contains`, `equals`, or `matches_regex`.
-`field` | Specifies the field name. This field is applicable only to the `header` `query` and `body` rule type and does not support regular expression and wildcard characters. For example, to match a cookie in the HTTP header, the field can be set to `cookie`. When the rule type is `query` and `body`, this field is optional.
+`field` | Specifies the field name. This field is applicable only to the `header` `query` and `body` rule type and does not support regular expression and wildcard characters. For example, to match a cookie in the HTTP header, the field can be set to `cookie`. When the rule type is `query` and `body`, this field is optional. 
 `value` | The string to be matched. Does not support wildcard characters. Supports regular expression if the `condition` is set to `matches_regex`.
 {: caption="Descriptions of rule properties" caption-side="bottom"}
 
