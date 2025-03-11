@@ -2,7 +2,7 @@
 
 copyright:
   years: 2022, 2025
-lastupdated: "2025-01-14"
+lastupdated: "2025-03-11"
 
 keywords: load balancer, public, listener, back-end, front-end, pool, round-robin, weighted, connections, methods, policies, APIs, access, ports
 
@@ -75,7 +75,7 @@ To create and configure {{site.data.keyword.nlb_full}} in the {{site.data.keywor
      If instances in the pool are unhealthy and you believe that your application is working correctly, double check the health protocol and health path values. Also, check any security groups that are attached to the instances to ensure that the rules allow traffic between the load balancer and the instances.
      {: tip}
 
-1. You can attach virtual server instances to your back-end pool now, or after you create your Private Path NLB. Click **Attach server** on the table row of your back-end pool, specify the following information, then click **Attach**.
+1. You can attach virtual server instances to your back-end pool now, or after you create your Private Path NLB. Click **Attach server** on the table row of your back-end pool. Specify the following information, then click **Attach**.
 
    * **Subnet**: Choose a subnet.
    * From the list of servers, select the servers that you want to attach to the back-end pool. Ensure that you specify valid values for each server port.
@@ -85,11 +85,12 @@ To create and configure {{site.data.keyword.nlb_full}} in the {{site.data.keywor
 
     You do not need to create multiple Private Path load balancers or specify more than a single subnet to ensure resiliency to zone failure. Your subnet selection only impacts the IP-addresses associated with the load balancer.
 
-1. In the Front-end listeners section, click **Create listener +**, specify the following information, then click **Create**. You can create one or more listeners.
+1. To edit attached members, click the Edit icon ![Edit icon](images/edit.png) in the row of the member you want to edit in the Back-end pools table. To delete attached members, selct the minus icon in the row of the member you want to delete in the Back-end pools table. 
+
+1. In the Front-end listeners section, click **Create**, specify the following information, then click **Create**. You can create one or more listeners.
    * **Default back-end pool** - The default back-end pool to which this listener forwards traffic.
-   * **Protocol** - The protocol to use for receiving incoming requests (**TCP**).
+   * **Listener protocol** - The protocol to use for receiving incoming requests (**TCP**).
    * **Listener port** - The listening port on which requests are received.
-   * **Back-end pool** - The default back-end pool to which this listener forwards traffic.
 
 1. Review the order summary, then click **Create** to complete your order.
 

@@ -2,7 +2,7 @@
 
 copyright:
   years: 2023, 2025
-lastupdated: "2025-01-28"
+lastupdated: "2025-03-11"
 
 keywords:
 
@@ -70,7 +70,7 @@ To create a Private Path service with the {{site.data.keyword.cloud_notm}} conso
        * **Tags**: Optionally, add any relevant tags to help group your Private Path NLBs.
        * **Access management tags**: Optionally, add access management tags to resources to help organize access control relationships. The only supported format for access management tags is `key:value`. For more information, see [Controlling access to resources by using tags](/docs/account?topic=account-access-tags-tutorial). {: #private-path-nlb-steps}
        * **Subnet**: Select the subnet where you want the Private Path NLB created.
-   1. In the Create back-end pool section:
+   1. Optionally, in the Create back-end pool section:
        * **Name**: Enter a unique identifier for the Private Path NLB, such as `my-ppnlb`.
        * Select the method, which is the load-balancing algorithm. The follow options are shown.
          * **Round robin** - Forwards requests to each instance in turn. All instances receive approximately an equal number of client connections.
@@ -90,10 +90,11 @@ To create a Private Path service with the {{site.data.keyword.cloud_notm}} conso
      {: tip}
 
        * Click **Save**. Repeat this step if you want to create another back-end pool.
-   1. In the Attach servers section:
+   1. Optionally, in the Attach members section, specify the following information, then click **Attach**:
        * **Back-end pool**: Select the back-end pool where you want to attach servers.
        * **Subnet**: Select the subnets that you want to attach. Search for specific subnets in the table, and check the box beside the subnets that you want to attach. In the Port column, enter a port number for each subnet you select.
-   1. In the Front-end listener section, select the back-end pool where you want to attach your front-end listener. Then, select the listener port value and click **Save**. Repeat this step if you want to create another front-end listener.
+
+   1. Optionally, in the Add front-end listeners section, select the back-end pool where you want to attach your front-end listener. Then, select the listener port value and click **Save**. Repeat this step if you want to create another front-end listener.
    1. In the Review section, confirm that the information you submitted is correct. Review the order summary, then click **Create**.
 
       It takes several minutes for your Private Path NLB to be created. When the load balancer is created, its status changes from **Creating** to **Active** in the table.

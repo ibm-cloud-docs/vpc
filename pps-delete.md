@@ -29,11 +29,14 @@ To update a Private Path provider service the {{site.data.keyword.cloud_notm}} c
 1. In the Private Path services for VPC table, locate and click the name of the Private Path service that you want to update.
 1. On the Private Path details page, click the Edit icon ![Edit icon](images/edit.png) beside the details that you want to update.
 
+You can also update the members attached to a Private Path NLB in your Private Path service. For more information, see [Updating a network load balancer in the UI](/docs/vpc?topic=vpc-nlb-updating&interface=ui).
+{: note}
+
 ### Update the target service of a Private Path service in the UI
 {: #pps-ui-update-target-private-path-service}
 {: ui}
 
-If you’re updating the actual target service without changing the load balancer, you don’t need to take any actions in Private Path service. Instead, you need to update the Private Path network load balancer.
+If you’re updating the actual target service without changing the load balancer, you don’t need to take any actions in Private Path service. Instead, you need to update the Private Path network load balancer. For more information, see [Reviewing connection requests](/docs/private-path?topic=private-path-pps-ui-reviewing&interface=ui).
 
 To update the target service of a Private Path provider service the {{site.data.keyword.cloud_notm}} console, follow these steps:
 
@@ -50,8 +53,8 @@ To update the target service of a Private Path provider service the {{site.data.
    * **Session stickiness**: Whether all requests during a user's session are sent to the same instance.
    * **Health check**: For more information about configuring health checks, see [Working with health checks](/docs/vpc?topic=vpc-nlb-health-checks#nlb-health-checks).
 1. Make sure to configure these servers for your new provider service by setting the **Method** to Weighted round robin for your old pool and your new pool. Set the **Weight** of the new pool to a non-zero value, and the **Weight** of the old pool to a zero value. This will redirect traffic from your old server pool to your new server pool.
-1. Update your existing front-end listener to finish attaching your load balancer to this new pool. On your load balancer details page, Click the **Front-end listeners** tab. In the table, Select the **Navigation Menu** ![navigation menu](../icons/icon_hamburger.svg) at the end of the row of your existing listener, then select **Edit**.
-1. In the menu that appears, select **Edit**. Under Default Back-end pool, type in the ID of your new pool. Select **Save**.
+1. Update your existing front-end listener to finish attaching your load balancer to this new pool. On your load balancer details page, Click the **Front-end listeners** tab. In the table, click the **Navigation Menu** ![navigation menu](../icons/icon_hamburger.svg) at the end of the row of your existing listener, then click **Edit**.
+1. In the menu that appears, click **Edit**. Under Default Back-end pool, type in the ID of your new pool. Click **Save**.
 
 ### Deleting a Private Path service in the UI
 {: #pps-ui-deleing-private-path-service}

@@ -1,8 +1,8 @@
 ---
 
 copyright:
-  years: 2020, 2024
-lastupdated: "2024-09-23"
+  years: 2020, 2025
+lastupdated: "2025-03-11"
 
 keywords: network load balancer, public, listener, back-end, front-end, pool, round-robin, weighted, connections, methods, policies, APIs, access, ports, vpc network, update
 
@@ -21,17 +21,16 @@ You can update an {{site.data.keyword.cloud}} {{site.data.keyword.nlb_full}} (NL
 {: #nlb-updating-ui}
 {: ui}
 
-To update an NLB in the {{site.data.keyword.cloud_notm}} console, perform the following procedure:
+To update a network load balancer in the {{site.data.keyword.cloud_notm}} console, follow these steps:
 
-1. From your browser, open the [{{site.data.keyword.cloud_notm}} console](/login){: external} and log in to your account.
-1. Select the **Navigation Menu** ![Navigation Menu icon](../../icons/icon_hamburger.svg), then click  **Infrastructure** ![VPC icon](../../icons/vpc.svg)  > **Load balancers**.
-1. Select the region of your load balancer.
-1. Select the load balancer that you want to update.
-1. Select **Back-end pools** if you need to edit a pool or virtual server instance parameters.
-1. Select **Front-end listeners** if you need to edit listener parameters.
-1. After you're done editing, select **Save** to save your changes.
+1. From your browser, open the [{{site.data.keyword.cloud_notm}} console](/login) and log in to your account.
+1. Select the **Navigation Menu** ![Menu icon](images/menu_icon.png), then click **Infrastructure > Network > Load balancers**.
+1. In the Load balancers for VPC table, locate and select the name of the network load balancer that you want to update.
+1. On the network load balancer details page, select the **Front-end listeners** tab if you need to edit listener parameters. In the Front-end listeners table, click the Edit icon ![Edit icon](images/edit.png) beside the details that you want to update.
+1. On the network load balancer details page, select the **Back-end pools** tab if you need to edit a pool or virtual server instance parameters. In the Back-end pools table, click the Edit icon ![Edit icon](images/edit.png) beside the details that you want to update.1. After you're done editing, select **Save** to save your changes.
 
-The **Active** button on the upper left of your screen now shows as **Updating**. When **Updating** changes back to **Active**, the update is done and the new changes are applied.
+The Active button on the upper left of your screen now shows as Updating. When Updating changes back to Active, the update is done and the new changes are applied.
+{: note}
 
 ## Updating a network load balancer from the CLI
 {: #nlb-updating-cli}

@@ -1,8 +1,8 @@
 ---
 
 copyright:
-  years: 2020, 2023
-lastupdated: "2023-01-26"
+  years: 2020, 2025
+lastupdated: "2025-03-11"
 
 keywords: instance backup, veeam
 
@@ -22,7 +22,7 @@ You can use Veeam software backups to protect the following resources:
    * Individual volumes,
    * Folders and files.
 
-The Veeam Agent for Linux&reg; and the Veeam Agent for Microsoft&reg; Windows&reg; provides a stand-alone ability to do backups and restores for storage that is attached to individual virtual server instances. Additionally, with the Veeam Backup and Replication tool for Microsoft&reg; Windows&reg;, you can manage backup for multiple Linux&reg; and Microsoft&reg; Windows&reg; virtual server instances through a single interface.
+With the Veeam Agent for Linux&reg; and the Veeam Agent for Microsoft&trade; Windows&trade; you can create backups and perform restores for storage that is attached to an individual virtual server instance. Additionally, with the Veeam Backup and Replication tool for Microsoft Windows, you can manage backup for multiple Linux&reg; and Microsoft Windows virtual server instances through a single interface.
 
 ## Next steps
 {: #next-steps-veeam}

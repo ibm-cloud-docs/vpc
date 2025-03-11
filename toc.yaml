@@ -760,12 +760,12 @@ toc:
             - ha-dr.md
             - bc-dr.md
             - topicgroup:
-                label: Backup and recovery using Veeam
+                label: Backup and recovery by using Veeam
                 topics:
-                - about-veeam.md
-                - ordering-veeam-licenses.md
-                - using-veeam-agent.md
-                - using-veeam-backup-replication.md
+                - veeam-about.md
+                - veeam-ordering-licenses.md
+                - veeam-agent.md
+                - veeam-backup-replication.md
         - data-portability.md
         - vpc-responsibilities.md
         - vsi-understanding-cloud-maintenance.md
