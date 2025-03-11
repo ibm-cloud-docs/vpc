@@ -53,8 +53,8 @@ To update the target service of a Private Path provider service the {{site.data.
    * **Session stickiness**: Whether all requests during a user's session are sent to the same instance.
    * **Health check**: For more information about configuring health checks, see [Working with health checks](/docs/vpc?topic=vpc-nlb-health-checks#nlb-health-checks).
 1. Make sure to configure these servers for your new provider service by setting the **Method** to Weighted round robin for your old pool and your new pool. Set the **Weight** of the new pool to a non-zero value, and the **Weight** of the old pool to a zero value. This will redirect traffic from your old server pool to your new server pool.
-1. Update your existing front-end listener to finish attaching your load balancer to this new pool. On your load balancer details page, Click the **Front-end listeners** tab. In the table, Select the **Navigation Menu** ![navigation menu](../icons/icon_hamburger.svg) at the end of the row of your existing listener, then select **Edit**.
-1. In the menu that appears, select **Edit**. Under Default Back-end pool, type in the ID of your new pool. Select **Save**.
+1. Update your existing front-end listener to finish attaching your load balancer to this new pool. On your load balancer details page, Click the **Front-end listeners** tab. In the table, click the **Navigation Menu** ![navigation menu](../icons/icon_hamburger.svg) at the end of the row of your existing listener, then click **Edit**.
+1. In the menu that appears, click **Edit**. Under Default Back-end pool, type in the ID of your new pool. Click **Save**.
 
 ### Deleting a Private Path service in the UI
 {: #pps-ui-deleing-private-path-service}

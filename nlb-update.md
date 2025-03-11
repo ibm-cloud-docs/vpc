@@ -2,7 +2,7 @@
 
 copyright:
   years: 2020, 2025
-lastupdated: "2025-03-10"
+lastupdated: "2025-03-11"
 
 keywords: network load balancer, public, listener, back-end, front-end, pool, round-robin, weighted, connections, methods, policies, APIs, access, ports, vpc network, update
 
@@ -26,8 +26,8 @@ To update a network load balancer in the {{site.data.keyword.cloud_notm}} consol
 1. From your browser, open the [{{site.data.keyword.cloud_notm}} console](/login) and log in to your account.
 1. Select the **Navigation Menu** ![Menu icon](images/menu_icon.png), then click **Infrastructure > Network > Load balancers**.
 1. In the Load balancers for VPC table, locate and select the name of the network load balancer that you want to update.
-1. On the network load balancer details page, select **Front-end listeners** tab if you need to edit listener parameters. In the Front-end listeners table, Select the Edit icon ![Edit icon](images/edit.png) beside the details that you want to update.
-1. On the network load balancer details page, select the **Back-end pools** tab if you need to edit a pool or virtual server instance parameters. In the Back-end pools table, select the Edit icon ![Edit icon](images/edit.png) beside the details that you want to update.1. After you're done editing, select **Save** to save your changes.
+1. On the network load balancer details page, select the **Front-end listeners** tab if you need to edit listener parameters. In the Front-end listeners table, click the Edit icon ![Edit icon](images/edit.png) beside the details that you want to update.
+1. On the network load balancer details page, select the **Back-end pools** tab if you need to edit a pool or virtual server instance parameters. In the Back-end pools table, click the Edit icon ![Edit icon](images/edit.png) beside the details that you want to update.1. After you're done editing, select **Save** to save your changes.
 
 The Active button on the upper left of your screen now shows as Updating. When Updating changes back to Active, the update is done and the new changes are applied.
 {: note}
