@@ -2,7 +2,7 @@
 
 copyright:
   years: 2019, 2025
-lastupdated: "2025-01-10"
+lastupdated: "2025-03-11"
 
 subcollection: vpc
 
@@ -27,7 +27,7 @@ The following operating systems are available as stock images when you create a 
 | Image | Architectures |
 |---------|---------|
 | CentOS 7.x | x86-64 |
-| CentOS Stream 8.x, 9.x | x86-64 |
+| CentOS Stream 9.x, 10.x | x86-64 |
 | Debian 10.x, 11.x, 12.x | x86-64 |
 | Fedora Core OS | x86-64 |
 | Red Hat Enterprise Linux 8.x, 9.x | x86-64 |
@@ -71,11 +71,11 @@ ibm-centos-7-6-minimal-amd64-2
 
 The following list explains the variables that make up the components of the image name:
 * The leading prefix of `ibm-` is used for IBM-provided images. Custom images cannot be named with this prefix.
-* The `family` component provides the operating system family, such as *redhat*, *debian* or *windows-server*.
+* The `family` component provides the operating system family, such as *redhat*, *debian, or *windows-server*.
 * The `version` component provides the operating system version, such as *18-04* for Ubuntu 18.04, or *2012-r2* for Windows 2012 R2.
 * The `type` component provides the minimization level of the operating system image, such as *minimal* or *full*.
 * The `architecture` component provides the vCPU architecture that is supported by the operating system image, such as *amd64*.
-* The `build` component is a small, non-negative integer that is incremented each time a new build of the operating system is created. For image names that are otherwise identical, the image with the highest build value is the most recent image for that operating system.
+* The `build` component is a small, nonnegative integer that is incremented each time a new build of the operating system is created. For image names that are otherwise identical, the image with the highest build value is the most recent image for that operating system.
 
 You can obtain the current list of images, including stock images, by running the following command in the command-line interface: [ibmcloud is images](/docs/vpc?topic=vpc-vpc-reference#compute-images).
 
@@ -91,6 +91,7 @@ You can import an image from {{site.data.keyword.cos_full_notm}} to use for crea
 {: #custom-image-reqs}
 
 Custom images must meet the following requirements:
+
 - Contain a single file or volume
 - Is in qcow2 or vhd format
 - Is cloud-init enabled
