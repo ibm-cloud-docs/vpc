@@ -75,8 +75,6 @@ To create and configure {{site.data.keyword.nlb_full}} in the {{site.data.keywor
      If instances in the pool are unhealthy and you believe that your application is working correctly, double check the health protocol and health path values. Also, check any security groups that are attached to the instances to ensure that the rules allow traffic between the load balancer and the instances.
      {: tip}
 
-1. You can attach virtual server instances to your back-end pool now, or after you create your Private Path NLB. Click **Attach server** on the table row of your back-end pool. Specify the following information, then click **Attach**.
-
    * **Subnet**: Choose a subnet.
    * From the list of servers, select the servers that you want to attach to the back-end pool. Ensure that you specify valid values for each server port.
 
@@ -85,7 +83,8 @@ To create and configure {{site.data.keyword.nlb_full}} in the {{site.data.keywor
 
     You do not need to create multiple Private Path load balancers or specify more than a single subnet to ensure resiliency to zone failure. Your subnet selection only impacts the IP-addresses associated with the load balancer.
 
-1. To edit attached members, click the Edit icon ![Edit icon](images/edit.png) in the row of the member you want to edit in the Back-end pools table. To delete attached members, selct the minus icon in the row of the member you want to delete in the Back-end pools table. 
+   You can edit attached members by clicking the Edit icon ![Edit icon](images/edit.png) in the row of the member you want to edit in the back-end pools table. You can also delete attached members by selecting the minus icon in the row of the member you want to delete.
+   {: tip}
 
 1. In the Front-end listeners section, click **Create**, specify the following information, then click **Create**. You can create one or more listeners.
    * **Default back-end pool** - The default back-end pool to which this listener forwards traffic.
