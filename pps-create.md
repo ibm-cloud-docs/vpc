@@ -92,7 +92,7 @@ To create a Private Path service with the {{site.data.keyword.cloud_notm}} conso
        * Click **Save**. Repeat this step if you want to create another back-end pool.
    1. Optionally, in the Attach members section, specify the following information, then click **Attach**:
        * **Back-end pool**: Select the back-end pool where you want to attach servers.
-       * **Subnet**: Select the subnets that you want to attach. Search for specific subnets in the table, and check the box beside the subnets that you want to attach. In the Port column, enter a port number for each subnet you select.
+       * **Subnet**: Search for specific subnets in the table, and check the box beside the subnets that you want to attach. In the Port column, enter a port number for each subnet you select.
 
    1. Optionally, in the Add front-end listeners section, select the back-end pool where you want to attach your front-end listener. Then, select the listener port value and click **Save**. Repeat this step if you want to create another front-end listener.
    1. In the Review section, confirm that the information you submitted is correct. Review the order summary, then click **Create**.
