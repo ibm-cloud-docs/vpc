@@ -1,8 +1,8 @@
 ---
 
 copyright:
-  years: 2019, 2024
-lastupdated: "2024-10-10"
+  years: 2019, 2025
+lastupdated: "2025-03-12"
 
 keywords:
 
@@ -35,17 +35,28 @@ To make your ACLs effective, create rules that determine how to handle your inbo
 
 For more information about using ICMP, TCP, and UDP protocols in your ACL rules, see [Understanding internet communication protocols](/docs/vpc?topic=vpc-understanding-icp#understanding-icp).
 
+# Updating a VPC's default ACL rules
+{: #updating-the-default-acl}
+
+The default ACL is similar to any other ACL, with the exception that it cannot be deleted.
+{: shortdesc}
+
+When you create a VPC, the system creates a default ACL for the VPC with two rules:
+
+* A rule named `allow-inbound` to allow inbound ICMP, TCP and UDP traffic from any source
+* A rule named `allow-outbound` to allow outbound ICMP, TCP and UDP traffic to any destination
+
+You can modify the rules of the default ACL by using the UI, CLI, or API.
+
+If you edit the rules of the default ACL, those edited rules then apply to all current and future subnets attached to the ACL.
+{: important}
+
 ### Attaching an ACL to a subnet
 {: #attaching-an-acl-to-a-subnet}
 
-You can attach an ACL to a subnet two different ways:
+When you create a new subnet, you can specify an ACL to attach. If you don't specify an ACL, the VPC's default network ACL is attached.
 
-* You can create a new subnet, and specify an ACL to attach. If you don't specify an ACL, a default network ACL is attached. The default ACL allows all inbound traffic to this subnet, and all outbound traffic from this subnet.
-
-Creating a VPC automatically creates a default network ACL. You can modify the default network ACL and specify a different ACL to attach.
-{: note}
-
-* You can attach an ACL to an existing subnet. If another ACL is attached to this subnet already, that ACL is detached before the new ACL is attached.
+Every subnet has exactly one ACL attached. You can replace a subnet's ACL with a different ACL.
 
 ## ACL example
 {: #acl-demo-example}

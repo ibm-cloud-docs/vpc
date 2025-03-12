@@ -3,7 +3,7 @@
 copyright:
   years: 2018, 2022
 
-lastupdated: "2024-10-25"
+lastupdated: "2025-03-12"
 
 keywords:
 
@@ -20,17 +20,17 @@ subcollection: vpc
 The default security group is similar to any other security group, with the exception that it cannot be deleted.
 {: shortdesc}
 
-Each VPC has a default security group, with rules to allow:
+When you create a VPC, the system creates a default security group for the VPC with two rules:
 
-* Inbound traffic from all members of the group (that is, all other resources that are attached to this security group)
-* All outbound traffic
+* A rule to allow inbound ICMP, TCP and UDP traffic from any member of this security group (that is, all other resources that are attached to this security group)
+* A rule to allow outbound ICMP, TCP and UDP traffic to any destination
+
+Rules to allow inbound pinging and SSH from resources outside the security group are not automatically added to the default security group.
 
 You can modify the rules of the default security group by using the UI, CLI, or API.
 
 If you edit the rules of the default security group, those edited rules then apply to all current and future servers in the group.
 {: important}
-
-Inbound rules to allow pinging and SSH are not automatically added to the default security group.
 
 ## Updating the default security group in the UI
 {: #example-modifying-the-default-sg-rules-using-ui}
