@@ -31,9 +31,8 @@ The following list highlights how network interfaces work with your instance.
    * 49 or more vCPUs: Up to 15 network interfaces
 * You can attach each network interface to a different subnet in the same zone.
 * Each network is assigned a unique and immutable Media Access Control (MAC) address and receives a private IP address from the subnet range.
-* You can attach one floating IP address to the virtual server instance. The floating IP address must be attached to the primary network interface to establish the data path. By default the primary interface is `eth0` in {{site.data.keyword.cloud_notm}} console.
-* If you want to assign a floating IP address to a secondary NIC (`eth1`), you can use the [CLI](/docs/vpc?topic=vpc-vpc-reference#floating-ips-cli-ref).
-* You can associate and unassociate a single floating IP address for the instance.
+* You can attach one floating IP address to each network interface on the virtual server instance. In the data path, network address translation (NAT) is applied between the floating IP address and the primary IP address of the network interface.
+* By default the primary interface is `eth0` in {{site.data.keyword.cloud_notm}} console. Secondary interfaces are by default, `eth1`, `eth2`, and so on.
 * You can assign security groups to each network interface.
 * You can change the name of any existing network interface.
 
@@ -55,9 +54,9 @@ To add or edit the network interfaces associated with your virtual server instan
 ### Adding a floating IP address
 {: #adding-floating-ip}
 
-If you want to add a floating IP address to a primary network interface to allow traffic from the internet to access your virtual server instance, complete the following steps.
+If you want to add a floating IP address to a network interface to allow traffic from the internet to access your virtual server instance, complete the following steps.
 
-1. If you are adding a floating IP address to the virtual server instance for the first time, identify the primary network interface in the **Network interfaces** section of the **Instance details** page. By default, the first interface is named `eth0`. Initially associating the floating IP address with the primary network interface helps establish the data path. Later, you can associate the floating IP to a different primary network interface.
+1. If you are adding a floating IP address to the virtual server instance for the first time, identify a network interface in the **Network interfaces** section of the **Instance details** page. Typically, the instance's primary network interface is used for attaching a floating IP. By default, the first interface is named `eth0` in the guest operating system. Initially associating the floating IP address with the primary network interface helps establish the data path. Later, you can associate the floating IP to a different network interface on the instance, or associate separate floating IPs to secondary network interfaces.
 2. Click the **Edit icon** ![Edit icon](../icons/edit-tagging.svg "Edit") to edit the primary network interface.
 3. On the **Edit network interface** page, locate the **Floating IP address** field. You can select **Reserve a new floating IP** or you can select an existing floating IP address.
 4. After you make your selection, click **Save**.
