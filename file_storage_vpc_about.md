@@ -2,7 +2,7 @@
 
 copyright:
   years: 2021, 2025
-lastupdated: "2025-01-17"
+lastupdated: "2025-03-13"
 
 keywords: file share, mount target, virtual network interface, customer-managed encryption, encryption at rest, encryption in transit, file storage, share,
 
@@ -80,6 +80,9 @@ When you create or update a mount target, you can specify the manner in which yo
 * Use the **security groups access** mode to authorize access to the file share for a specific virtual server instance or instances within a subnet. This option is available to newer file shares based on the `dp2` profile. Communication between an authorized virtual server instance and the file share can optionally be IPsec encapsulated. For more information, see [Encryption in Transit](#fs-eit). Cross-zone mounting is also supported.
 
 * Use the **VPC access** mode to allow access to the file share to a bare metal server or any virtual server instances in the same zone of a VPC. This option is available for all [file share profiles](/docs/vpc?topic=vpc-file-storage-profiles). Cross-zone mounting and encryption of data in transit are not supported for shares with VPC access mode. Snapshots are also not supported for shares with VPC access mode. 
+
+    VPC access mode is not supported in newer MZRs, such as Montreal (ca-mon).
+    {: note}
 
 ### Granular authorization
 {: #fs-mount-granular-auth}
@@ -195,8 +198,6 @@ Access management tags help organize access control by creating flexible resourc
 
 You can create access management tags and then apply them to new or existing file shares and replica file shares. Use the IAM UI or the Global Search and Tagging API to create the access management tag. Then, from the VPC UI or API, add the tags to a file share. After the tags are added, you can manage access to them using the IAM policies. For more information, see [Add access management tags to a file share](/docs/vpc?topic=vpc-file-storage-managing&interface=ui#fs-add-access-mgt-tags).
 
-
-
 ## File share snapshots
 {: #fs-about-snapshots}
 
@@ -257,6 +258,7 @@ The following limitations apply to this release of {{site.data.keyword.filestora
 * Encryption in transit is not supported between {{site.data.keyword.filestorage_vpc_short}} for VPC and {{site.data.keyword.bm_is_short}}.
 * A file share cannot be split from its replica by using a `DELETE /shares/<id>/source` API request, if the `lifecycle_state` of the file share is `updating` or if replica operations are in progress.
 * Cross-regional replication is supported within the same geography when both source and replica shares belong to the same account. Cross-geography replication is not supported.
+* Cross-regional replication is not supported in Montreal (`ca-mon`) yet.
 
 ## Next steps
 {: #file-storage-vpc-next-steps}

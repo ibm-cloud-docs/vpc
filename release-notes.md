@@ -2,7 +2,7 @@
 
 copyright:
   years: 2019, 2025
-lastupdated: "2025-03-06"
+lastupdated: "2025-03-13"
 
 keywords:
 
@@ -26,6 +26,20 @@ For more information about changes to the {{site.data.keyword.vpc_short}} comman
 
 ## March 2025
 {: #vpc-mar25}
+
+### 13 March 2025
+{: #vpc-mar1325}
+{: release-note}
+
+Montreal region now available
+:   The Montreal region is now available for provisioning the [3rd generation](/docs/vpc?topic=vpc-profiles&interface=ui#next-gen-profiles) of virtual servers and dedicated hosts. You can provision 2nd generation [bare metal servers](/docs/vpc?topic=vpc-bare-metal-servers-profile&interface=ui) from the balanced family on Cascade Lakes hardware. For more information, see [IBM Cloud region and data center locations for resource deployment](/docs/overview?topic=overview-locations).
+
+### 05 March 2025
+{: #vpc-mar0525}
+{: release-note}
+
+Backup pool support for load balancers
+:   You can now manage potential failures in your environment by assigning a failover pool to an existing pool. For more information, refer to [Creating an application load balancer in the UI](/docs/vpc?topic=vpc-load-balancers&interface=ui#lb-ui-creating-network-load-balancer).
 
 ### 4 March 2025
 {: #vpc-mar0425}

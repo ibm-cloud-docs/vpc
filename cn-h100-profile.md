@@ -2,7 +2,7 @@
 
 copyright:
   years: 2024, 2025
-lastupdated: "2025-02-27"
+lastupdated: "2025-03-13"
 
 keywords: cluster profiles, cluster network, cluster-network, cluster network profile, cluster network profiles, gpu, nvidia, h100, rdma, roce, accelerated, rocev2, accelerated network
 
@@ -35,7 +35,8 @@ Currently, use of the H100 cluster network profile is available to select custom
 | Dallas (`us-south`)       | Not available | No              |
 | Frankfurt (`eu-de`)       | eu-de-2       | Yes             |
 | London (`eu-gb`)          | Not available | No              |
-| Madrid (`eu-es`)          | Not available | No              |
+| Madrid (`eu-es`)          | Not available | No              | 
+| Montreal (`ca-mon`)       | Not availabe  | No              |
 | Osaka (`jp-osa`)          | Not available | No              |
 | Sao Paulo (`br-sao`)      | Not available | No              |
 | Sydney (`au-syd`)         | Not available | No              |

@@ -2,7 +2,7 @@
 
 copyright:
   years: 2022, 2025
-lastupdated: "2025-02-24"
+lastupdated: "2025-03-13"
 
 keywords: confidential computing, enclave, secure execution, hpcr, contract, customization, schema, contract schema, env, workload, encryption
 
@@ -562,7 +562,7 @@ logging:
     port: <port default-6514>
     tags: ["custom tag name 1", "custom tag name 2"]
 ```
-{: codeblock} 
+{: codeblock}
 
 #### ICL
 {: #hpcr_contract_icl}
@@ -714,9 +714,9 @@ The encryption and attestation certificates are signed by the IBM intermediate c
    | `ibm-hyper-protect-container-runtime-1-0-s390x-13` | [Certificate](https://cloud.ibm.com/media/docs/downloads/hyper-protect-container-runtime/ibm-hyper-protect-container-runtime-1-0-s390x-13-encrypt.crt){: external} | 05 October 2024 | 15 April 2024 |   |
    {: caption="Encryption certificate expiry dates and image deprecation/ obsolete dates" caption-side="bottom"}
 
-   **Note:** 
+   **Note:**
    * Deprecated: You can use the image to create an instance from the IBM Cloud CLI. Using the deprecated status can discourage the use of the image before its status is changed to obsolete.
-   * Obsolete: You cannot use the image to create an instance. If you try to use an obsolete image to create an instance, you receive a message that states that you cannot use the image to create an instance. 
+   * Obsolete: You cannot use the image to create an instance. If you try to use an obsolete image to create an instance, you receive a message that states that you cannot use the image to create an instance.
    * Always download the encryption certs corresponding to the image and encrypt the contracts.
 
    To check the image deprecation or obsolete status, you can also use the IBM Cloud image list command.
@@ -994,7 +994,7 @@ Complete the following steps on an Ubuntu system to create the contract signatur
 Steps 4 - 8 are used to encrypt the `env` section. If you choose to not encrypt this section, skip these steps.
 {: note}
 
-A notification about the expiry of the contract is sent to your logging service. 
+A notification about the expiry of the contract is sent to your logging service.
 Timelines for the notification are as follows:
 - On the first of every month
 - Everyday for 30 days before the expiry
@@ -1013,10 +1013,10 @@ Attestation is the optional feature that can be used with contract. The `attesta
    ```
 
 *  If you use the Base64 encoded signing key for the `attestationPublicKey` in the yaml file, use the following command and example.
-    
+
    ```sh
    base64 -w0 <public RSA key file>
-   ``` 
+   ```
    You need to replace `<public RSA key file>` with the path to your actual public RSA key file.
    {: note}
 

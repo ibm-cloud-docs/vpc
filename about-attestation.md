@@ -1,8 +1,8 @@
 ---
 
 copyright:
-  years: 2022, 2024
-lastupdated: "2024-12-10"
+  years: 2022, 2025
+lastupdated: "2025-03-13"
 
 keywords: confidential computing, enclave, secure execution, hpcr, hyper protect virtual server for vpc
 
@@ -153,7 +153,7 @@ Checksums are the SHA256 of the message digest and can be calculated by using th
 ```sh
 sha256sum <file>
 ```
-{: pre} 
+{: pre}
 
 The following snippet is an example of an attestation document:
 ```text
@@ -166,8 +166,8 @@ ad65a3820d4a233c84e6d201ce537b8020435ccefe26682809da5ef9b176b8ae root.tar.gz
 e033c938bf6bd79f50b50d54d577c2909b4304c633501e3d67c5eb6b49570be2 cidata/meta-data
 1ca7ac0518344d5e7646d41fa768dad0deaf402576e44e2a0f9c298538ade3da cidata/user-data
 cb0535727a27ffe986bce98de8eb1b2c1fafb8033e19b783eefe107b7cc61f65 cidata/vendor-data
-3ec698881c8f79cfd8b911516e3a7c008cc6923767e46481479a88934e9bb932 contract:env 
-8dd306f8e1ce6a0a22197ac89eade4d892ebf1bede5abb6eeeb06213f7105ccb contract:envWorkloadSignature 
+3ec698881c8f79cfd8b911516e3a7c008cc6923767e46481479a88934e9bb932 contract:env
+8dd306f8e1ce6a0a22197ac89eade4d892ebf1bede5abb6eeeb06213f7105ccb contract:envWorkloadSignature
 1e8afc52b452b7439a8fe9d7d4950fbed2457bc091a4d83136c6a795b4d28c03 contract:workload
 a344bd0107382a6e019a0789dc2c43c75ea21342489a8800aa2e5ba140e5d820 contract:attestationPublicKey
 ```

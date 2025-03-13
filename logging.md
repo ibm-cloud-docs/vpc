@@ -2,7 +2,7 @@
 
 copyright:
   years: 2020, 2025
-lastupdated: "2025-02-26"
+lastupdated: "2025-03-13"
 
 keywords: flow logs, ordering, logging, log analysis
 
@@ -31,6 +31,8 @@ As of 28 March 2024, the {{site.data.keyword.la_full_notm}} service is deprecate
 {: #log-locations}
 
 
+Until the {{site.data.keyword.logs_routing_full_notm}} service is available in Montreal, platform logs are delivered to the {{site.data.keyword.logs_full_notm}} instance configured for the Washington DC (`us-east`) region. Logs sent from Montreal include a `logSourceCRN` field such as `ca-mon`, `mon01`, `mon02`, or `mon03`. If an {{site.data.keyword.logs_routing_full_notm}} tenant is not configured in `us-east`, then you must [create a tenant in `us-east`](/docs/logs-router?topic=logs-router-tenant-create&interface=ui) to receive platform logs for the Montreal region.
+{: attention}
 
 ### Locations where logs are sent to {{site.data.keyword.la_full_notm}}
 {: #la-legacy-locations}
@@ -39,9 +41,9 @@ As of 28 March 2024, the {{site.data.keyword.la_full_notm}} service is deprecate
 
 {{site.data.keyword.vpc_short}} sends platform logs to {{site.data.keyword.la_full_notm}} in the regions indicated in the following table.
 
-| Dallas (`us-south`) | Washington (`us-east`)  | Toronto (`ca-tor`) | Sao Paulo (`br-sao`) |
-|---------------------|-------------------------|-------------------|----------------------|
-| [Yes]{: tag-green} | [Yes]{: tag-green} | [Yes]{: tag-green} | [Yes]{: tag-green} |
+| Dallas (`us-south`) | Washington (`us-east`)  | Toronto (`ca-tor`) | Montreal (`ca-mon`) | Sao Paulo (`br-sao`) |
+|---------------------|-------------------------|-------------------|-------------------|----------------------|
+| [Yes]{: tag-green} | [Yes]{: tag-green} | [Yes]{: tag-green} | [Yes]{: tag-green} | [Yes]{: tag-green} |
 {: caption="Regions where platform logs are sent in Americas locations" caption-side="top"}
 {: #la-table-1}
 {: tab-title="Americas"}
@@ -76,9 +78,9 @@ As of 28 March 2024, the {{site.data.keyword.la_full_notm}} service is deprecate
 
 {{site.data.keyword.vpc_short}} sends logs by {{site.data.keyword.logs_routing_full_notm}} in the regions that are indicated in the following table.
 
-| Dallas (`us-south`) | Washington (`us-east`)  | Toronto (`ca-tor`) | Sao Paulo (`br-sao`) |
-|---------------------|-------------------------|--------------------|----------------------|
-| [Yes]{: tag-green} | [Yes]{: tag-green} | [Yes]{: tag-green} | [Yes]{: tag-green} |
+| Dallas (`us-south`) | Washington (`us-east`)  | Toronto (`ca-tor`) | Montreal (`ca-mon`) | Sao Paulo (`br-sao`) |
+|---------------------|-------------------------|--------------------|--------------------|----------------------|
+| [Yes]{: tag-green} | [Yes]{: tag-green} | [Yes]{: tag-green} | [Yes]{: tag-green} | [Yes]{: tag-green} |
 {: caption="Regions where platform logs are sent in Americas locations" caption-side="top"}
 {: #lr-table-1}
 {: tab-title="Americas"}

@@ -3,7 +3,7 @@
 copyright:
   years: 2019, 2023
 
-lastupdated: "2024-10-10"
+lastupdated: "2025-03-13"
 
 keywords: CSE, endpoint, service, DNS, resolver, mirror, object, storage, bandwidth, charges
 
@@ -29,6 +29,7 @@ Use one of the following public endpoints to connect to the VPC infrastructure A
 | US East (Washington DC) | `us-east` | `https://us-east.iaas.cloud.ibm.com`  | `https://us-east.private.iaas.cloud.ibm.com` |
 | Brazil (São Paulo) | `br-sao` | `https://br-sao.iaas.cloud.ibm.com`   | `https://br-sao.private.iaas.cloud.ibm.com` |
 | Canada (Toronto) | `ca-tor` | `https://ca-tor.iaas.cloud.ibm.com`   | `https://ca-tor.private.iaas.cloud.ibm.com` |
+| Canada (Montreal) | `ca-mon` | `https://ca-mon.iaas.cloud.ibm.com`   | `https://ca-mon.private.iaas.cloud.ibm.com` |
 {: class="simple-tab-table"}
 {: tab-title="Americas"}
 {: caption="VPC API Regional Endpoints for North and South America" caption-side="bottom"}

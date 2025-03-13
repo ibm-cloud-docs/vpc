@@ -1,8 +1,8 @@
 ---
 
 copyright:
-  years: 2019, 2024
-lastupdated: "2024-10-10"
+  years: 2019, 2025
+lastupdated: "2025-03-13"
 
 keywords: address prefixes, regions, subnets, zones, IP, ranges, CIDR
 
@@ -49,6 +49,9 @@ Sydney        |`au-syd-3`     | `10.245.128.0/18`
 Osaka         |`jp-osa-1`     | `10.248.0.0/18`
 Osaka         |`jp-osa-2`     | `10.248.64.0/18`
 Osaka         |`jp-osa-3`     | `10.248.128.0/18`
+Montreal      |`ca-mon-1`     | `10.253.0.0/18`
+Montreal      |`ca-mon-2`     | `10.253.64.0/18`
+Montreal      |`ca-mon-3`     | `10.253.128.0/18`
 Toronto       |`ca-tor-1`     | `10.249.0.0/18`
 Toronto       |`ca-tor-2`     | `10.249.64.0/18`
 Toronto       |`ca-tor-3`     | `10.249.128.0/18`

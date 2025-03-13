@@ -1,8 +1,8 @@
 ---
 
 copyright:
-  years: 2020, 2024
-lastupdated: "2024-10-10"
+  years: 2020, 2025
+lastupdated: "2025-03-13"
 
 keywords: region, zone, deploy, datacenter, data, center, federated, CLI, API, account, failover, disaster, recovery, DR, data center
 
@@ -28,6 +28,7 @@ Virtual Private Cloud is available in the following {{site.data.keyword.cloud}} 
 | US East (Washington DC) | us-east | `us-east.iaas.cloud.ibm.com`|
 | Brazil (São Paulo) | br-sao | `br-sao.iaas.cloud.ibm.com` |
 | Canada (Toronto) | ca-tor | `ca-tor.iaas.cloud.ibm.com` |
+| Canada (Montreal) | ca-mon | `ca-mon.iaas.cloud.ibm.com` |
 {: class="simple-tab-table"}
 {: tab-title="Americas"}
 {: caption="IBM Cloud regions for North and South America" caption-side="bottom"}

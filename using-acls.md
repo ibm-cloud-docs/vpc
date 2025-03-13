@@ -2,7 +2,7 @@
 
 copyright:
   years: 2019, 2025
-lastupdated: "2025-03-12"
+lastupdated: "2025-03-13"
 
 keywords:
 
@@ -35,7 +35,7 @@ To make your ACLs effective, create rules that determine how to handle your inbo
 
 For more information about using ICMP, TCP, and UDP protocols in your ACL rules, see [Understanding internet communication protocols](/docs/vpc?topic=vpc-understanding-icp#understanding-icp).
 
-# Updating a VPC's default ACL rules
+## Updating a VPC's default ACL rules
 {: #updating-the-default-acl}
 
 The default ACL is similar to any other ACL, with the exception that it cannot be deleted.
