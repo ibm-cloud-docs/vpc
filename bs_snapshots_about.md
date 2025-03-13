@@ -2,7 +2,7 @@
 
 copyright:
   years: 2022, 2025
-lastupdated: "2025-02-25"
+lastupdated: "2025-03-13"
 
 keywords: snapshots, Block Storage, volumes, cross-regional snapshot, restore volume, copy snapshot
 
@@ -138,6 +138,7 @@ The following limitations apply to this release:
 * You can't take a snapshot of a volume in a [degraded state](/docs/vpc?topic=vpc-block-storage-vpc-monitoring#block-storage-vpc-health-states).
 * You can't create a copy of a snapshot in the source (local) region.
 * When you create copies of a snapshot in other regions, only one copy can exist in each region. That means 9 copies globally.
+* Cross-regional copies are not supported in Montreal (`ca-mon`) MZR.
 * Taking a snapshot of a volume greater than 10 TB is not supported.
 * You can delete any snapshot that you take. However, snapshots must be in a `stable` or `pending` state and not actively restoring a volume.
 * You can delete a {{site.data.keyword.block_storage_is_short}} volume and all its snapshots. All snapshots must be in a `stable` or `pending` state. No snapshot can be actively restoring a volume.

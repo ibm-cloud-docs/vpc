@@ -2,7 +2,7 @@
 
 copyright:
  years: 2022, 2025
-lastupdated: "2025-03-06"
+lastupdated: "2025-03-13"
 
 keywords: Backup, backup service, backup plan, backup policy, restore, restore volume, restore data
 
@@ -214,6 +214,7 @@ This release has the following limitations.
 * Backup snapshots are not supported for shares that have "VPC" access control mode.
 * The fast restore feature is not supported for multi-volume backups of consistency groups, or for file share backups.
 * Consistency groups consist of the attached Block Storage volumes of virtual server instances, such as boot and data volumes. Instance storage volumes and virtual server instance configuration are not included.
+* Cross-regional copies are not supported in Montreal (`ca-mon`) MZR.
 
 ## Next steps
 {: #backup-next-steps}

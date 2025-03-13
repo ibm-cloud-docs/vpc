@@ -258,7 +258,7 @@ The following limitations apply to this release of {{site.data.keyword.filestora
 * Encryption in transit is not supported between {{site.data.keyword.filestorage_vpc_short}} for VPC and {{site.data.keyword.bm_is_short}}.
 * A file share cannot be split from its replica by using a `DELETE /shares/<id>/source` API request, if the `lifecycle_state` of the file share is `updating` or if replica operations are in progress.
 * Cross-regional replication is supported within the same geography when both source and replica shares belong to the same account. Cross-geography replication is not supported.
-* Cross-regional replication is not supported in Montreal (`ca-mon`) yet.
+* Cross-regional replication is not supported in Montreal (`ca-mon`) MZR.
 
 ## Next steps
 {: #file-storage-vpc-next-steps}
