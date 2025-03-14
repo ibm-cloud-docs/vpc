@@ -203,7 +203,7 @@ Specific IAM user roles are required to grant service-to-service authorizations.
 
 This release has the following limitations.
 
-* You can create up to 10 backup policies per account.
+* You can create up to 10 backup policies per account in a region. This quota can't be increased.
 * You can take a total of 750 backups per volume based on your backup policy, in your account and region. If you exceed this limit, no further backups are taken.
 * You can take a total of 750 backups per file share. 
 * The first backup and the entire volume backup cannot exceed 10 TB.

@@ -2,7 +2,7 @@
 
 copyright:
   years: 2022, 2025
-lastupdated: "2025-01-17"
+lastupdated: "2025-03-13"
 
 keywords: Backup for VPC, backup service, backup plan, backup policy, restore, restore volume, restore data
 
@@ -31,7 +31,7 @@ To help ensure that you're using the VPC Backup Service most effectively and eco
 
 * For large volumes, consider a shorter retention period so that you don't exceed the 10 TB limit for all volume backups.
 
-* If you have volumes in different regions, create separate backup policies for each region. You're limited to 10 backup policies per account in a region.
+* If you have volumes in different regions, create separate backup policies for each region. You're limited to 10 backup policies per account in a region. This quota can't be increased.
 
 * Confirm that the block storage resources that you tagged for backups are attached to a running virtual server instance. You can't back up detached volumes.
 

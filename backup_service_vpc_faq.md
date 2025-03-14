@@ -81,7 +81,7 @@ You can also specify the number of backups to retain, up to 750 per volume, afte
 {: faq}
 {: #faq-baas-limitations}
 
-Yes. You can create 10 backup policies per account and up to 750 backups of a volume or a file share. For other limitations of this release, see [Limitations in this release](/docs/vpc?topic=vpc-backup-service-about&interface=ui#backup-service-limitations).
+Yes. You can create 10 backup policies per account in a region. You can create up to 750 backups of a volume or a file share. For other limitations of this release, see [Limitations in this release](/docs/vpc?topic=vpc-backup-service-about&interface=ui#backup-service-limitations).
 
 ## How do I create a volume from a backup?
 {: faq}
