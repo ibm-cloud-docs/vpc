@@ -5,7 +5,6 @@ copyright:
 lastupdated: "2025-03-14"
 
 keywords:
-
 subcollection: vpc
 
 content-type: tutorial
