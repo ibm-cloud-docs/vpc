@@ -80,7 +80,7 @@ ibmcloud iam authorization-policy-create Reader --source-service-name is.vpc --t
 
 To host new RHEL AI instances, create a custom image that uses the RHEL AI image that you uploaded to the Cloud Object Storage bucket.
 
-1. Click the **Navigation menu** icon ![menu icon](../icons/icon_hamburger.svg) > **Infrastructure > Compute > Images**. Then, click **Create**.
+1. Go to the **Navigation menu** icon ![menu icon](../icons/icon_hamburger.svg) > **Infrastructure > Compute > Images**. Then, click **Create**.
 1. Select the location where you want to create the custom image.
 1. Enter the name for the image and select a resource group.
 1. Select **Cloud Object Storage** as the image source.
@@ -93,9 +93,10 @@ To host new RHEL AI instances, create a custom image that uses the RHEL AI image
 
 Check the status of the custom image to make sure that it was successfully created and is ready for use.
 
-1. Click the **Navigation menu** icon ![menu icon](../icons/icon_hamburger.svg) > **Infrastructure > Compute > Images > Custom images**.
+1. Go to the **Navigation menu** icon ![menu icon](../icons/icon_hamburger.svg) > **Infrastructure > Compute > Images > Custom images**.
 1. Click the image name to see the details.
-1. When the status is **Available**, it is ready to use.
+
+When the status is **Available**, it is ready to use.
 
 ### Step 5: Create a VPC to host the RHEL AI instance
 {: #how-to-step-5}
@@ -103,7 +104,7 @@ Check the status of the custom image to make sure that it was successfully creat
 Before you create a VSI instance with the RHEL AI custom image, you must set up a Virtual Private Cloud (VPC). The VPC provides the necessary networking environment for your instance.
 
 To create a VPC, complete the following steps:
-1. Click the **Navigation menu** icon ![menu icon](../icons/icon_hamburger.svg) > **Infrastructure > Network > VPCs**.
+1. Go to the **Navigation menu** icon ![menu icon](../icons/icon_hamburger.svg) > **Infrastructure > Network > VPCs**.
 1. Click **Create** and give the VPC instance a name. You can keep the remaining default selections.
 1. Click **Create virtual private cloud**.
 
@@ -112,13 +113,12 @@ To create a VPC, complete the following steps:
 
 After you create a VPC, you can now provision a VSI with the RHEL AI custom image.
 
-1. Click the **Navigation menu** icon ![menu icon](../icons/icon_hamburger.svg) > **Infrastructure > Compute > Virtual server instances**.
-1. Click **Create**.
+1. Go to the **Navigation menu** icon ![menu icon](../icons/icon_hamburger.svg) > **Infrastructure > Compute > Virtual server instances**. Then, click **Create**.
 1. Select a location and provide details, such as the name and resource group.
-1. Go to the section **Server configuration**.
-   1. Choose the custom image for RHEL AI by going to **Image** and clicking **Change image**.
-   1. Click **Custom images** and select the custom image that you previously created.
-   1. Choose the Instance Profile (GPU) in the **Profile** section by clicking **Change profile**.
+1. In the **Server configuration** section:
+   1. Click **Change image** in the Image section to choose the custom image for RHEL AI.
+   1. Click the **Custom images** tab and select the custom image that you previously created. Then, click **Save**.
+   1. Click **Change profile** in the Profile section to choose the Instance Profile (GPU).
    1. Select the **GPU** category.
    1. Select profile **gx3-48x240x2l40s**.
    1. Select or create an SSH key and store the private key. You use the private key to access the VSI after creation.
@@ -130,7 +130,7 @@ After you create a VPC, you can now provision a VSI with the RHEL AI custom imag
 
 Make sure to verify that the VSI instance is up and running.
 
-1. Click the **Navigation menu** icon ![menu icon](../icons/icon_hamburger.svg) > **Infrastructure > Compute > Virtual server instances**.
+1. Go to the **Navigation menu** icon ![menu icon](../icons/icon_hamburger.svg) > **Infrastructure > Compute > Virtual server instances**.
 1. Make sure that the VSI instance has the status **Running**.
 
    If the state of the VSI is **Pending**, wait to continue.
@@ -141,8 +141,8 @@ Make sure to verify that the VSI instance is up and running.
 
 To access the VSI instance after it finishes provisioning, you must have a floating IP, also known as a public IP address. This way, you can access the VSI over the internet. To attach a floating IP, complete the following steps:
 
-1. Click the **Navigation menu** icon ![menu icon](../icons/icon_hamburger.svg) > **Infrastructure > Compute > Virtual server instances** and click on your VSI.
-1. On the **Networking** tab, click the **Actions** menu ![Actions icon](../icons/action-menu-icon.svg "Actions"). and select **Edit floating IPs**.
+1. Go to the **Navigation menu** icon ![menu icon](../icons/icon_hamburger.svg) > **Infrastructure > Compute > Virtual server instances** and click on your VSI.
+1. Click the **Networking** tab. Then, click the **Actions** menu ![Actions icon](../icons/action-menu-icon.svg "Actions") and select **Edit floating IPs**.
 1. Click **Attach**.
 1. Reserve a new floating IP or select an existing one and click **Attach**.
 1. The VSI now shows the floating IP attached to it.
