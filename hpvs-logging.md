@@ -1,8 +1,8 @@
 ---
 
 copyright:
-  years: 2022, 2024
-lastupdated: "2024-12-10"
+  years: 2022, 2025
+lastupdated: "2025-03-14"
 
 keywords: confidential computing, secure execution, logging for hyper protect virtual server for vpc
 
@@ -14,6 +14,9 @@ subcollection: vpc
 
 # Logging for {{site.data.keyword.hpvs}} for VPC
 {: #logging-for-hyper-protect-virtual-servers-for-vpc}
+
+Effective 28 March 2024, the IBM {{site.data.keyword.loganalysisshort}} and {{site.data.keyword.at_full_notm}} services are deprecated and will no longer be supported as of 30 March 2025. Customers will need to migrate to {{site.data.keyword.logs_full_notm}}, which replaces these two services, prior to 30 March 2025. {{site.data.keyword.logs_full_notm}} will become generally available during the summer of 2024 in Frankfurt and Madrid with day-one support for EU-managed controls. The service will continue its worldwide multizone region (MZR) roll-out through 3Q2024. For information about {{site.data.keyword.logs_full_notm}}, see the [{{site.data.keyword.logs_full_notm}}](https://cloud.ibm.com/docs/cloud-logs) documentation.
+{: deprecated}
 
 To launch a {{site.data.keyword.hpvs}} for VPC instance, you (as the deployer) need to set up logging first by adding the logging configuration in the `env` section of the [contract](/docs/vpc?topic=vpc-about-contract_se#hpcr_contract_env). The instance reads the configuration and configures logging accordingly. All other services start only after logging is configured. If the logging configuration is incorrect, the instance will not start and an error message will be displayed in the serial console.
 {: shortdesc}
@@ -427,9 +430,6 @@ There are many ways to set up a compatible server endpoint. The following exampl
 
 Logging to {{site.data.keyword.loganalysisshort}} is dependent on the state and health of the {{site.data.keyword.loganalysisshort}} service. Service outages might lead to a loss of log data. If you want to log data for audit purposes, it's suggested that you employ your own logging service.
 {: note}
-
-Deprecation of {{site.data.keyword.loganalysisshort_notm}} and {{site.data.keyword.at_full_notm}} services 
-: Effective 28 March 2024, the IBM {{site.data.keyword.loganalysisshort}} and {{site.data.keyword.at_full_notm}} services are deprecated and will no longer be supported as of 30 March 2025. Customers will need to migrate to {{site.data.keyword.logs_full_notm}}, which replaces these two services, prior to 30 March 2025. {{site.data.keyword.logs_full_notm}} will become generally available during the summer of 2024 in Frankfurt and Madrid with day-one support for EU-managed controls. The service will continue its worldwide multizone region (MZR) roll-out through 3Q2024. For information about {{site.data.keyword.logs_full_notm}}, see the [{{site.data.keyword.logs_full_notm}}](https://cloud.ibm.com/docs/cloud-logs) documentation.
 
 1. [Log in to your IBM Cloud account](/login){: external}.
 2. [Provision a {{site.data.keyword.loganalysisshort}} instance](/docs/log-analysis?topic=log-analysis-provision). Choose a plan according to your requirements.  
