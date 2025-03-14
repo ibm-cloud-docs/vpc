@@ -112,7 +112,7 @@ For more information about viewing your backup jobs list, see [Viewing backup jo
 ## Backup policy quota exceeded
 {: #baas-backup-policy-quota-exceeded}
 
-You receive a message that the account reached its backup policy quota, when you try to create another backup policy.
+You receive the message that the account reached its backup policy quota when you try to create another backup policy.
 {: tsSymptoms}
 
 You are limited to 10 backup policies per account in a region.
