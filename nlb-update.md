@@ -2,7 +2,7 @@
 
 copyright:
   years: 2020, 2025
-lastupdated: "2025-03-11"
+lastupdated: "2025-03-14"
 
 keywords: network load balancer, public, listener, back-end, front-end, pool, round-robin, weighted, connections, methods, policies, APIs, access, ports, vpc network, update
 
@@ -33,7 +33,7 @@ To update a network load balancer in the {{site.data.keyword.cloud_notm}} consol
 The Active button on the upper left of your screen now shows as Updating. When Updating changes back to Active, the update is done and the new changes are applied.
 {: note}
 
-## Updating a network load balancer from the CLI
+## Updating a network load balancer by using the CLI
 {: #nlb-updating-cli}
 {: cli}
 
@@ -86,13 +86,13 @@ Sample output:
 ```
 {: screen}
 
-## Updating a network load balancer with the API
+## Updating a network load balancer by using the API
 {: #nlb-updating-frontend-listener-port-api}
 {: api}
 
 The following example illustrates how to use the API to update the front-end listener port of a {{site.data.keyword.nlb_full}} (NLB). For example, if the front-end listener port was set to 80 and you want to update the port value to 90.
 
-To update an NLB by with the API, perform the following procedure:
+To update an NLB by using the API, perform the following procedure:
 
 1. Set up your [API environment](/docs/vpc?topic=vpc-set-up-environment#api-prerequisites-setup).
 1. Use the following example to get the listener ID that you need for the update:
