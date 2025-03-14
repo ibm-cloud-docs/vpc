@@ -109,8 +109,8 @@ To address this error, list the jobs and see whether the job ID that you're look
 
 For more information about viewing your backup jobs list, see [Viewing backup jobs](/docs/vpc?topic=vpc-backup-view-policy-jobs).
 
-## Backup policies quota exceeded
-{: #baas-backup_policy-quota-exceeded}
+## Backup policy quota exceeded
+{: #baas-backup-policy-quota-exceeded}
 
 You receive a message that the account reached its backup policy quota, when you try to create another backup policy.
 {: tsSymptoms}
@@ -118,5 +118,5 @@ You receive a message that the account reached its backup policy quota, when you
 You are limited to 10 backup policies per account in a region.
 {: tsCauses}
 
-The backup policies quota can't be increased. To create a new policy, you need to delete a previous one. For more information about backup strategies, see [Best practices for backups](/docs/vpc?topic=vpc-backups-vpc-best-practices).
+The backup policy quota can't be increased. To create a new policy, you need to delete a previous one. For more information about backup strategies, see [Best practices for backups](/docs/vpc?topic=vpc-backups-vpc-best-practices).
 {: tsResolve}
