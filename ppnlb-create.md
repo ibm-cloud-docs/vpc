@@ -187,11 +187,6 @@ To create a Private Path NLB by using the CLI, follow these steps:
 
 1. Create a member:
 
-   ```sh
-   ibmcloud is load-balancer-pool-member-create test-ppnlb-1 test 3000 my-instance   
-   ```
-   {: pre}
-
    Sample output:
 
    ```sh
@@ -294,13 +289,6 @@ To create a Private Path NLB with the API, follow these steps:
 
     ```bash
     export subnetId=<your_subnet_id>
-    ```
-    {: pre}
-
-   * `vsiId` - Second, get the virtual server instance that is in the same VPC as the subnet's:
-
-    ```bash
-    export vsiId=<your_vsi_id>
     ```
     {: pre}
 
