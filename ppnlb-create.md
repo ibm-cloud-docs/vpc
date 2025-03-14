@@ -192,9 +192,6 @@ To create a Private Path NLB by using the CLI, follow these steps:
    ```
    {: pre}
 
-   A User can create a PPNLB targeting a virtual server instance or an application load balancer (ALB). Create a member with `my-target` as `my-instance` or `my-alb`.
-   {: note}
-
    Sample output:
 
    ```sh
