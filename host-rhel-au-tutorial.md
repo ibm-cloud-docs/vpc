@@ -24,7 +24,7 @@ Red Hat Enterprise Linux AI (RHEL AI) is a foundation model platform that is des
 
 {{site.data.keyword.cloud_notm}} provides GPU-based virtual server instances (VSIs) for different AI model requirements. Running a model that uses InstructLab (ilab) requires a GPU-based VSI on {{site.data.keyword.cloud_notm}} before you download a model from Hugging Face and use it to chat with the LLM. 
 
-In this tutorial, you learn how to complete the following tasks:
+Use this tutorial to learn how to complete the following tasks:
 
 1. Host RHEL AI on {{site.data.keyword.cloud_notm}}.
 2. Run and test foundation models by using InstructLab on hosted VSI.
@@ -32,10 +32,10 @@ In this tutorial, you learn how to complete the following tasks:
 ## Before you begin
 {: #how-to-pre-req}
 
-- [Create an {{site.data.keyword.cloud_notm}} account](/registration) if you don't already have one
-- [Download the RHEL AI image](https://developers.redhat.com/products/rhel-ai/download){: external}
-- [Create user access tokens in Hugging Face](https://huggingface.co/docs/hub/en/security-tokens){: external}
-- (Optional) Create a Red Hat account with the activation key. For more information, see [Creating and managing activation keys](https://docs.redhat.com/en/documentation/subscription_central/1-latest/html/getting_started_with_activation_keys_on_the_hybrid_cloud_console/assembly-creating-managing-activation-keys){: external}
+- [Create an {{site.data.keyword.cloud_notm}} account](/registration) if you don't already have one.
+- [Download the RHEL AI image](https://developers.redhat.com/products/rhel-ai/download){: external}.
+- [Create user access tokens in Hugging Face](https://huggingface.co/docs/hub/en/security-tokens){: external}.
+- (Optional) Create a Red Hat account with the activation key. For more information, see [Creating and managing activation keys](https://docs.redhat.com/en/documentation/subscription_central/1-latest/html/getting_started_with_activation_keys_on_the_hybrid_cloud_console/assembly-creating-managing-activation-keys){: external}.
 
 ## Setting up RHEL AI on {{site.data.keyword.cloud_notm}}
 {: #how-to-host}
@@ -49,9 +49,9 @@ Store the RHEL AI image that you downloaded in a Cloud Object Storage bucket. Th
 
 1. Log in to the [{{site.data.keyword.cloud_notm}} console](/login){: external}.
 1. [Create a Cloud Object Storage instance](/docs/cloud-object-storage?topic=cloud-object-storage-secure-content-store).
-1. Upload the RHEL AI qcow image, which you downloaded, to the Cloud Object Storage bucket.
+1. Upload the RHEL AI QCOW image that you downloaded to the Cloud Object Storage bucket.
 
-Uploading the large qcow image directly into Cloud Object Storage might fail. Use [IBM Aspera](https://www.ibm.com/products/aspera){: external} for large file transfers to your Cloud Object Storage bucket.
+Uploading the large QCOW image directly into Cloud Object Storage might fail. Use [IBM Aspera](https://www.ibm.com/products/aspera){: external} for large file transfers to your Cloud Object Storage bucket.
 {: note}
 
 ### Step 2: Grant VPC access to Cloud Object Storage to create a custom image
@@ -60,7 +60,7 @@ Uploading the large qcow image directly into Cloud Object Storage might fail. Us
 Before you can create a custom image, grant the {{site.data.keyword.cloud_notm}} VPC service access to Cloud Object Storage. This service-to-service authorization gives VPC access to create a custom image based on the one stored in Cloud Object Storage.
 
 1. In the [{{site.data.keyword.cloud_notm}} console](/login){: external}, click **Manage > Access (IAM) > Authorizations**. Then, click **Create**.
-1. Specify a policy that gives the source service, **VPC Infrastructure Service**, reader access to the target service, **Cloud Object Storage**.
+1. Specify a policy that gives the **VPC Infrastructure Service** source service reader access to the **Cloud Object Storage** target service.
    1. Select **This account** as the source account and click **Next**.
    1. Select **VPC Infrastructure Service** as the source service and click **Next**.
    1. Select **Specific resources**, select **Resource type**, and choose **Image Service for VPC**. Then, click **Next**.
@@ -85,8 +85,7 @@ To host new RHEL AI instances, create a custom image that uses the RHEL AI image
 1. Enter the name for the image and select a resource group.
 1. Select **Cloud Object Storage** as the image source.
 1. Select the Cloud Object Storage instance, region, and bucket where you saved the RHEL AI image.
-1. Select **Red Hat Enterprise Linux AI** as the operating system.
-1. Click **Create**.
+1. Select **Red Hat Enterprise Linux AI** as the operating system. Then, click **Create**.
 
 ### Step 4: Check the status of your custom image
 {: #how-to-step-4}
@@ -122,7 +121,7 @@ After you create a VPC, you can now provision a VSI with the RHEL AI custom imag
    1. Select the **GPU** category.
    1. Select profile **gx3-48x240x2l40s**.
    1. Select or create an SSH key and store the private key. You use the private key to access the VSI after creation.
-1.  Go to the Storage section and increase the size of the boot volume to 250 GB by clicking the **Edit** icon ![Edit icon](../icons/edit-tagging.svg "Edit").
+1.  To increase the size of the boot volume to 250 GB, go to the Storage section and click the **Edit** icon ![Edit icon](../icons/edit-tagging.svg "Edit").
 1. Click **Create virtual server**.
 
 ### Step 7: Verify that the VSI is running
@@ -155,25 +154,23 @@ To access the VSI instance after it finishes provisioning, you must have a float
 ### Step 9: Enable SSH port in security groups and network access control lists
 {: #how-to-step-9}
 
-After you provision the floating IP, you will require network access to the VSI instance. Security groups and network access control lists (NACLs) attached to the VSI instance have the access controls, also known as inbound and outbound rules. Create inbound rules and outbound rules that allow users to SSH into the VSI instance to run and chat with models. For a higher level of security, allow only your IP address or CIDR address range to access the VSI instance.
+The security groups and network access control lists (NACLs) associated with the VSI instance define the access controls, including inbound and outbound rules. Configure inbound and outbound rules to permit SSH access to the VSI instance, enabling users to run and chat with the models. For enhanced security, restrict access to the VSI instance by allowing only your IP address or CIDR address range to access it.
 
 1. On the VSI **Networking** tab, click the number that is listed in the Security groups column.
 1. Click the name of the security group and go to **Rules**.
 1. Click **Create** to add an inbound rule to allow SSH port 22.
 1. Select **TPC** and **Port range**. Then, enter `22` for the Port min and Port max.
-1. (Optional) You can select Source type **IP address** or **CIDR block** to allow only your IP address or CIDR address range to access the VSI instance.
+1. (Optional) To allow only your IP address or CIDR address range to access the VSI instance, select Source type **IP address** or **CIDR block**.
 1. Click **Create**.
 1. Click **Infrastructure > Network > Access control lists**.
 1. Click the name of the access control list. 
 1. Add inbound and outbound rules to allow SSH port 22:
-   1. In Inbound rules, click **Create**.
-   1. Name the inbound rule `ssh`.
+   1. In Inbound rules, click **Create**. Then, name the inbound rule `ssh`.
    1. Select **Allow** and **TCP**.
    1. In the Source section, select **Any** as the **Type**. Then, enter `22` for the Port min and Port max.
    1. In the Destination section, select **Any** as the **Type**. Then, enter `22` for the Port min and Port max.
    1. Click **Create**.
-   1. In Outbound rules, click **Create**.
-   1. Name the outbound rule `ssh`.
+   1. In Outbound rules, click **Create**. Then, name the outbound rule `ssh`.
    1. Select **Allow** and **TCP**.
    1. In the Source section, select **Any** as the **Type**. Then, enter `22` for the Port min and Port max.
    1. In the Destination section, select **Any** as the **Type**. Then, enter `22` for the Port min and Port max.
