@@ -154,6 +154,7 @@ toc:
             - include: ../containers/cs_tutorial_vpc.md
             - include: ../solution-tutorials/vpc-tg-dns-iam.md
             - include: ../solution-tutorials/vpc-pps-basics.md
+            - host-rhel-au-tutorial.md
     - navgroup:
         id: howto
         topics:
