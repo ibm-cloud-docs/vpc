@@ -2,7 +2,7 @@
 
 copyright:
   years: 2022, 2025
-lastupdated: "2025-02-11"
+lastupdated: "2025-03-14"
 
 keywords: Backup for VPC, backup service, backup plan, backup policy, restore, restore volume, restore data
 
@@ -108,3 +108,15 @@ To address this error, list the jobs and see whether the job ID that you're look
 {: tsResolve}
 
 For more information about viewing your backup jobs list, see [Viewing backup jobs](/docs/vpc?topic=vpc-backup-view-policy-jobs).
+
+## Backup policies quota exceeded
+{: #baas-backup_policy-quota-exceeded}
+
+You receive a message that the account reached its backup policy quota, when you try to create another backup policy.
+{: tsSymptoms}
+
+You are limited to 10 backup policies per account in a region.
+{: tsCauses}
+
+The backup policies quota can't be increased. To create a new policy, you need to delete a previous one. For more information about backup strategies, see [Best practices for backups](/docs/vpc?topic=vpc-backups-vpc-best-practices).
+{: tsResolve}
