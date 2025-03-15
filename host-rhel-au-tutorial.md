@@ -1,18 +1,15 @@
 ---
-
+subcollection: vpc
 copyright:
   years: 2025
-lastupdated: "2025-03-14"
-
-keywords:
-subcollection: vpc
+lastupdated: "2025-03-15"
+lasttested: "2025-03-14"
 
 content-type: tutorial
+services: vpc
 account-plan: paid
-completion-time: 30m
-
+completion-time: 30m 
 ---
-
 {{site.data.keyword.attribute-definition-list}}
 
 # Running a model in RHEL AI on IBM Cloud 
@@ -26,7 +23,7 @@ Red Hat Enterprise Linux AI (RHEL AI) is a foundation model platform that is des
 Use this tutorial to learn how to complete the following tasks:
 
 1. Host RHEL AI on {{site.data.keyword.cloud_notm}}.
-2. Run and test foundation models by using InstructLab on hosted VSI.
+1. Run and test foundation models by using InstructLab on hosted VSI.
 
 ## Before you begin
 {: #how-to-pre-req}
