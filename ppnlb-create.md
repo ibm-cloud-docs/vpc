@@ -2,7 +2,7 @@
 
 copyright:
   years: 2022, 2025
-lastupdated: "2025-03-14"
+lastupdated: "2025-03-15"
 
 keywords: load balancer, public, listener, back-end, front-end, pool, round-robin, weighted, connections, methods, policies, APIs, access, ports
 
@@ -187,6 +187,11 @@ To create a Private Path NLB by using the CLI, follow these steps:
 
 1. Create a member:
 
+   ```sh
+   ibmcloud is load-balancer-pool-member-create test-ppnlb-1 test 3000 my-instance
+   ```
+   {: pre}
+
    Sample output:
 
    ```sh
@@ -291,6 +296,14 @@ To create a Private Path NLB with the API, follow these steps:
     export subnetId=<your_subnet_id>
     ```
     {: pre}
+
+   * `vsiID` - Second, get the virtual server instance or application load balancer (ALB) that is in the same VPC as the subnet's:
+
+       ```bash
+    export vsiId=<your_vsi_id>
+    ```
+    {: pre}
+
 
 1. Create a Private Path NLB with a listener, pool, and attached server instances (pool members):
 
