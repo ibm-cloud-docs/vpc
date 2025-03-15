@@ -206,7 +206,7 @@ To create a Private Path NLB by using the CLI, follow these steps:
    Provision status   create_pending 
    ```
    {: screen}
-
+  
 1. Create a listener:
 
    ```sh
