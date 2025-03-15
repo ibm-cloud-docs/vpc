@@ -1,15 +1,20 @@
 ---
-subcollection: vpc
+
 copyright:
-  years: 2025
+   years: 2025
 lastupdated: "2025-03-15"
-lasttested: "2025-03-14"
+
+keywords:
+
+subcollection: vpc
 
 content-type: tutorial
-services: vpc
-account-plan: paid
-completion-time: 30m 
+services: vpc  
+account-plan: paid 
+completion-time: 13m 
+
 ---
+
 {{site.data.keyword.attribute-definition-list}}
 
 # Running a model in RHEL AI on IBM Cloud 
