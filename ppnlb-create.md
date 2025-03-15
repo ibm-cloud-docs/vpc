@@ -206,7 +206,7 @@ To create a Private Path NLB by using the CLI, follow these steps:
    Provision status   create_pending 
    ```
    {: screen}
-  
+
 1. Create a listener:
 
    ```sh
@@ -297,13 +297,12 @@ To create a Private Path NLB with the API, follow these steps:
     ```
     {: pre}
 
-   * `vsiID` - Second, get the virtual server instance or application load balancer (ALB) that is in the same VPC as the subnet's:
+   * `vsiId` - Second, get the virtual server instance that is in the same VPC as the subnet's:
 
-       ```bash
+    ```bash
     export vsiId=<your_vsi_id>
     ```
     {: pre}
-
 
 1. Create a Private Path NLB with a listener, pool, and attached server instances (pool members):
 
