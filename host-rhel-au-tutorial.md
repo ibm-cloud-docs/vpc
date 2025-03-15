@@ -1,17 +1,17 @@
 ---
 
 copyright:
-   years: 2025
-lastupdated: "2025-03-15"
+  years: 2018, 2025
+lastupdated: "2025-01-03"
 
 keywords:
 
 subcollection: vpc
 
 content-type: tutorial
-services: vpc  
-account-plan: paid 
-completion-time: 13m 
+services: vpc
+account-plan: paid
+completion-time: 30m
 
 ---
 
@@ -19,6 +19,9 @@ completion-time: 13m
 
 # Running a model in RHEL AI on IBM Cloud 
 {: #how-to-rhel-ai-tutorial}
+{: toc-content-type="tutorial"}
+{: toc-services="vpc"}
+{: toc-completion-time="30m"}
 
 Red Hat Enterprise Linux AI (RHEL AI) is a foundation model platform that is designed to develop, test, and run large language models (LLMs) for enterprise applications. It is available as a bootable Red Hat Enterprise Linux image optimized for AI workloads. These images include PyTorch, hardware acceleration libraries for NVIDIA, Intel, and AMD GPUs, and essential runtime libraries, which help streamline the setup of your AI development platform. For more information about RHEL AI, see [Introducing an accessible open source AI platform](https://developers.redhat.com/products/rhel-ai/overview){: external}. {{site.data.keyword.cloud_notm}} provides different GPU-based virtual server instances (VSIs) where you install RHEL AI and run the models. The following guide provides step-by-step instructions to deploy RHEL AI on {{site.data.keyword.cloud_notm}}.
 {: shortdesc}
