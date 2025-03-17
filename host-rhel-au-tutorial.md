@@ -1,8 +1,8 @@
 ---
 
 copyright:
-  years: 2018, 2025
-lastupdated: "2025-01-03"
+  years: 2025
+lastupdated: "2025-03-17"
 
 keywords:
 
@@ -31,7 +31,7 @@ Red Hat Enterprise Linux AI (RHEL AI) is a foundation model platform that is des
 Use this tutorial to learn how to complete the following tasks:
 
 1. Host RHEL AI on {{site.data.keyword.cloud_notm}}.
-1. Run and test foundation models by using InstructLab on hosted VSI.
+1. Run and test foundation models by using InstructLab on the hosted VSI.
 
 ## Before you begin
 {: #how-to-pre-req}
@@ -42,7 +42,7 @@ Use this tutorial to learn how to complete the following tasks:
 - (Optional) Create a Red Hat account with the activation key. For more information, see [Creating and managing activation keys](https://docs.redhat.com/en/documentation/subscription_central/1-latest/html/getting_started_with_activation_keys_on_the_hybrid_cloud_console/assembly-creating-managing-activation-keys){: external}.
 
 ## Setting up RHEL AI on {{site.data.keyword.cloud_notm}}
-{: #how-to-host}
+{: #how-to-host-rhel-ai}
 
 Complete the following steps to host an RHEL AI instance on {{site.data.keyword.cloud_notm}}.
 
