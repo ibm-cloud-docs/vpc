@@ -192,7 +192,6 @@ To create a Private Path NLB by using the CLI, follow these steps:
    ```
    {: pre}
    
-
    
    Sample output:
 
@@ -299,8 +298,7 @@ To create a Private Path NLB with the API, follow these steps:
     ```
     {: pre}
 
-   * `vsiId`
-    - Second, get the virtual server instance that is in the same VPC as the subnet's:
+   * `vsiId` - Second, get the virtual server instance that is in the same VPC as the subnet's:
 
     ```bash
     export vsiId=<your_vsi_id>
