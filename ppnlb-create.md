@@ -2,7 +2,7 @@
 
 copyright:
   years: 2022, 2025
-lastupdated: "2025-03-15"
+lastupdated: "2025-03-17"
 
 keywords: load balancer, public, listener, back-end, front-end, pool, round-robin, weighted, connections, methods, policies, APIs, access, ports
 
@@ -191,7 +191,7 @@ To create a Private Path NLB by using the CLI, follow these steps:
    ibmcloud is load-balancer-pool-member-create test-ppnlb-1 test 3000 my-instance
    ```
    {: pre}
-
+   
    Sample output:
 
    ```sh
