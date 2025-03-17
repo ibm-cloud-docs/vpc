@@ -191,6 +191,7 @@ To create a Private Path NLB by using the CLI, follow these steps:
    ibmcloud is load-balancer-pool-member-create test-ppnlb-1 test 3000 my-instance
    ```
    {: pre}
+   
    Sample output:
 
    ```sh
