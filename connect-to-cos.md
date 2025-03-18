@@ -1,7 +1,7 @@
 ---
 copyright:
-  years: 2019, 2024
-lastupdated: "2024-09-26"
+  years: 2019, 2025
+lastupdated: "2025-03-18"
 
 keywords: resource, storage, connection, COS, object, endpoints, cross-region, regional, data center
 
@@ -19,7 +19,7 @@ To use some features of {{site.data.keyword.vpc_short}} such as importing or exp
 
 {{site.data.keyword.cos_full_notm}} is a web-scale platform that stores unstructured data. It provides reliability, security, availability, and disaster recovery without replication.
 
-Information that is stored with {{site.data.keyword.cloud_notm}} Object Storage is encrypted and dispersed across multiple geographic locations. It is accessible through an implementation of the S3 API. This service uses the distributed storage technologies that are provided by the {{site.data.keyword.cloud}} Object Storage System. For more information, see [What is IBM Cloud Object Storage?](/docs/cloud-object-storage?topic=cloud-object-storage-about-cloud-object-storage). 
+Information that is stored with {{site.data.keyword.cloud_notm}} Object Storage is encrypted and dispersed across multiple geographic locations. It is accessible through an implementation of the S3 API. This service uses the distributed storage technologies that are provided by the {{site.data.keyword.cloud}} Object Storage System. For more information, see [About IBM Cloud Object Storage](/docs/cloud-object-storage?topic=cloud-object-storage-about-cloud-object-storage). 
 
 
 ## {{site.data.keyword.cos_full_notm}} direct endpoints for use with VPC

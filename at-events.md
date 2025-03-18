@@ -2,7 +2,7 @@
 
 copyright:
   years: 2019, 2025
-lastupdated: "2025-03-13"
+lastupdated: "2025-03-18"
 
 keywords:
 
@@ -749,10 +749,10 @@ The following table lists the actions that are related to volume resources and t
 
 | Resource  | Action  | Description  |
 |:----------------|:-----------------------|:-----------------------|
-| volume  | is.volume.volume.create  | Volume was created  |
-| volume  | is.volume.volume.update  | Volume was updated  |
-| volume  | is.volume.volume.delete  | Volume was deleted  |
-| volume  | is.volume.volume.read    | One or more volumes were retrieved  |
+| `volume`  | `is.volume.volume.create`  | Volume was created  |
+| `volume`  | `is.volume.volume.update`  | Volume was updated  |
+| `volume`  | `is.volume.volume.delete`  | Volume was deleted  |
+| `volume`  | `is.volume.volume.read`    | One or more volumes were retrieved  |
 | volume | is.volume.volume.operate | Volume ID was specified |
 {: caption="Actions that generate events for Block Storage resources" caption-side="bottom"}
 
@@ -766,13 +766,13 @@ The following table lists the actions that are related to snapshots resources an
 
 | Resource  | Action  | Description  |
 |:----------------|:-----------------------|:-----------------------|
-| snapshot  | is.snapshot.snapshot.create  | Snapshot creation process started |
-| snapshot  | is.snapshot.snapshot.capture | Volume data was captured  |
-| snapshot  | is.snapshot.snapshot.update  | Snapshot was updated  |
-| snapshot  | is.snapshot.snapshot.delete  | Snapshot was deleted  |
-| snapshot  | is.snapshot.snapshot.read    | One or more snapshots were retrieved  |
-| snapshot  | is.snapshot.snapshot.restore | Volume was restored from a snapshot |
-| snapshot  | is.snapshot.snapshot.operate | Source snapshot ID was specified |
+| `snapshot`  | `is.snapshot.snapshot.create`  | Snapshot creation process started |
+| `snapshot`  | `is.snapshot.snapshot.capture` | Volume data was captured  |
+| `snapshot`  | `is.snapshot.snapshot.update`  | Snapshot was updated  |
+| `snapshot`  | `is.snapshot.snapshot.delete`  | Snapshot was deleted  |
+| `snapshot`  | `is.snapshot.snapshot.read`    | One or more snapshots were retrieved  |
+| `snapshot`  | `is.snapshot.snapshot.restore` | Volume was restored from a snapshot |
+| `snapshot`  | `is.snapshot.snapshot.operate` | Source snapshot ID was specified |
 {: caption="Actions that generate events for snapshot resources" caption-side="bottom"}
 
 ### Consistency group events
@@ -782,41 +782,39 @@ The following table lists the actions that are related to snapshot consistency g
 
 | Resource |  Action | Description  |
 |---|---|---|
-| snapshot-consistency-group | is.snapshot-consistency-group.snapshot-consistency-group.create   | snapshot-consistency-group was created  |
-| snapshot-consistency-group | is.snapshot-consistency-group.snapshot-consistency-group.update   | snapshot-consistency-group was updated  |
-| snapshot-consistency-group | is.snapshot-consistency-group.snapshot-consistency-group.delete   | snapshot-consistency-group was deleted  |
-| snapshot-consistency-group | is.snapshot-consistency-group.snapshot-consistency-group.read     | One or more snapshot-consistency-group were retrieved |
+| `snapshot-consistency-group` | `is.snapshot-consistency-group.snapshot-consistency-group.create`   | snapshot-consistency-group was created  |
+| `snapshot-consistency-group` | `is.snapshot-consistency-group.snapshot-consistency-group.update`   | snapshot-consistency-group was updated  |
+| `snapshot-consistency-group` | `is.snapshot-consistency-group.snapshot-consistency-group.delete`   | snapshot-consistency-group was deleted  |
+| `snapshot-consistency-group` | `is.snapshot-consistency-group.snapshot-consistency-group.read`     | One or more snapshot-consistency-group were retrieved |
 {: caption="Actions that generate events for snapshot consistency group resources" caption-side="bottom"}
 
 ### File Storage events
 {: #events-file-storage}
 
-
-
 The following table lists the actions that are related to file share resources and the generation of events.
 
 | Resource | Action                | Description             |
 |:---------|:----------------------|:------------------------|
-| shares  | is.share.share.create  | File share was created  |
-| shares  | is.share.share.read    | One or more file shares were retrieved  |
-| shares  | is.share.share.update  | File share was updated  |
-| shares  | is.share.share.delete  | File share was deleted  |
-| shares  | is.share.share.schedule.modification | The replication schedule was modified. |
-| shares  | is.share.replica.read  | The replica share was read |
-| shares  | is.share.source.read   | The source share was read |
-| shares  | is.share.source.update | Updated share source |
-| shares  | is.share.share.init    | Replication Initialization status |
-| shares  | is.share.share.failover| Replication Failover status |
-| shares  | is.share.share.split   | Replication Split status |
-| shares  | is.share.accessor-binding.create | File share binding with accessor share was created.|
-| shares  | is.share.accessor-binding.delete | File share binding  deletion.|
-| shares  | is.share.accessor-binding.list | List of all bindings for a file share was retrieved.|
-| shares  | is.share.accessor-binding.read | One share binding for a file share was retrieved. |
-| share mount targets | is.share.mount-target.create| Mount target for a file share was created  |
-| share mount targets | is.share.mount-target.read  | One mount target for a file share was retrieved  |
-| share mount targets | is.share.mount-target.list  | List of all mount targets for a file share was retrieved  |
-| share mount targets | is.share.mount-target.update| Mount target for a file share was modified  |
-| share mount targets | is.share.mount-target.delete| Mount target for a file share was deleted  |
+| `shares`  | `is.share.share.create`  | File share was created  |
+| `shares`  | `is.share.share.read`    | One or more file shares were retrieved  |
+| `shares`  | `is.share.share.update`  | File share was updated  |
+| `shares`  | `is.share.share.delete`  | File share was deleted  |
+| `shares`  | `is.share.share.schedule.modification` | The replication schedule was modified. |
+| `shares`  | `is.share.replica.read`  | The replica share was read |
+| `shares`  | `is.share.source.read`   | The source share was read |
+| `shares`  | `is.share.source.update` | Updated share source |
+| `shares`  | `is.share.share.init`    | Replication Initialization status |
+| `shares`  | `is.share.share.failover`| Replication Failover status |
+| `shares`  | `is.share.share.split`   | Replication Split status |
+| `shares`  | `is.share.accessor-binding.create` | File share binding with accessor share was created.|
+| `shares`  | `is.share.accessor-binding.delete` | File share binding  deletion.|
+| `shares`  | `is.share.accessor-binding.list` | List of all bindings for a file share was retrieved.|
+| `shares`  | `is.share.accessor-binding.read` | One share binding for a file share was retrieved. |
+| `share mount targets` | `is.share.mount-target.create`| Mount target for a file share was created  |
+| `share mount targets` | `is.share.mount-target.read`  | One mount target for a file share was retrieved  |
+| `share mount targets` | `is.share.mount-target.list`  | List of all mount targets for a file share was retrieved  |
+| `share mount targets` | `is.share.mount-target.update`| Mount target for a file share was modified  |
+| `share mount targets` | `is.share.mount-target.delete`| Mount target for a file share was deleted  |
 {: caption="Actions that generate events for file storage resources" caption-side="bottom"}
 
 ### File storage snapshot events
@@ -824,15 +822,15 @@ The following table lists the actions that are related to file share resources a
 
 | Resource | Action | Description |
 |:---------|:-------|:------------|
-| share/snapshot    | is.share.snapshot.create | Snapshot creation of a file share is pending. |
-| share/snapshot    | is.share.snapshot.create | Snapshot of a file share was created.  |
-| share/snapshot    | is.share.snapshot.create | Snapshot creation of a file share failed. |
-| share/snapshot    | is.share.snapshot.read   | One snapshot of a file share was retrieved. |
-| share/snapshot    | is.share.snapshot.list   | A list of all snapshots for a file share was retrieved. |
-| share/snapshot    | is.share.snapshot.update | A snapshot of a file share was modified. |
-| share/snapshot    | is.share.snapshot.delete | The deletion of snapshot of a file share is pending.|
-| share/snapshot    | is.share.snapshot.delete | A snapshot of a file share was deleted. |
-| share/snapshot    | is.share.snapshot.delete | A snapshot deletion for a file share failed. |
+| `share/snapshot` | `is.share.snapshot.create` | Snapshot creation of a file share is pending. |
+| `share/snapshot` | `is.share.snapshot.create` | Snapshot of a file share was created.  |
+| `share/snapshot` | `is.share.snapshot.create` | Snapshot creation of a file share failed. |
+| `share/snapshot` | `is.share.snapshot.read`   | One snapshot of a file share was retrieved. |
+| `share/snapshot` | `is.share.snapshot.list`   | A list of all snapshots for a file share was retrieved. |
+| `share/snapshot` | `is.share.snapshot.update` | A snapshot of a file share was modified. |
+| `share/snapshot` | `is.share.snapshot.delete` | The deletion of snapshot of a file share is pending.|
+| `share/snapshot` | `is.share.snapshot.delete` | A snapshot of a file share was deleted. |
+| `share/snapshot` | `is.share.snapshot.delet`e | A snapshot deletion for a file share failed. |
 {: caption="Actions that generate events for file share snapshots resources" caption-side="bottom"}
 
 ### Backup service events
@@ -842,16 +840,16 @@ The following table lists the actions that are related to the VPC Backup service
 
 | Resource       | Action                                    | Description  |
 |:---------------|:------------------------------------------|:-----------------------|
-| backup-policy  | is.backup-policy.backup-policy.create     | Backup policy was created |
-| backup-policy  | is.backup-policy.backup-policy.update     | Backup policy was updated  |
-| backup-policy  | is.backup-policy.backup-policy.delete     | Backup policy was deleted  |
-| backup-policy  | is.backup-policy.backup-policy.list       | One or more backup policies were retrieved  |
-| backup-policy  | is.backup-policy.backup-policy.read       | Backup policy was retrieved  |
-| backup-policy  | is.backup-policy.backup-plan.create       | Backup plan was created  |
-| backup-policy  | is.backup-policy.backup-plan.delete       | Backup plan was deleted  |
-| backup-policy  | is.backup-policy.backup-plan.read         | One or more backup plans were retrieved  |
-| backup-policy  | is.backup-policy.backup-job.read          | One or more backup jobs were retrieved  |
-| backup-policy  | is.backup-policy.backup-policy-job.create | This event is triggered if an Enterprise-level backup policy fails to create backups in one or more child accounts due to missing service-to-service authorizations.  |
+| `backup-policy` | `is.backup-policy.backup-policy.create`     | Backup policy was created |
+| `backup-policy` | `is.backup-policy.backup-policy.update`     | Backup policy was updated  |
+| `backup-policy` | `is.backup-policy.backup-policy.delete`     | Backup policy was deleted  |
+| `backup-policy` | `is.backup-policy.backup-policy.list`       | One or more backup policies were retrieved  |
+| `backup-policy` | `is.backup-policy.backup-policy.read`       | Backup policy was retrieved  |
+| `backup-policy` | `is.backup-policy.backup-plan.create`       | Backup plan was created  |
+| `backup-policy` | `is.backup-policy.backup-plan.delete`       | Backup plan was deleted  |
+| `backup-policy` | `is.backup-policy.backup-plan.read`         | One or more backup plans were retrieved  |
+| `backup-policy` | `is.backup-policy.backup-job.read`          | One or more backup jobs were retrieved  |
+| `backup-policy` | `is.backup-policy.backup-policy-job.create` | This event is triggered if an Enterprise-level backup policy fails to create backups in one or more child accounts due to missing service-to-service authorizations.  |
 {: caption="Actions that generate events for VPC Backup service resources" caption-side="bottom"}
 
 ## Viewing events

@@ -1,8 +1,8 @@
 ---
 
 copyright:
-  years: 2021, 2024
-lastupdated: "2024-12-17"
+  years: 2021, 2025
+lastupdated: "2025-03-18"
 
 keywords: file share, file storage, rename share, increase size, adjust IOPS, mount target
 
@@ -755,7 +755,7 @@ For more information about the arguments and attributes, see [ibm_is_share_targe
 
 Before you delete a file share, make sure that it is [unmounted](#fs-mount-unmount-vsi) from all virtual server instances and that all mount targets that belong to the file share are deleted.If your file share is shared with another account, delete the accessor bindings before you delete the share. Also, if the file share has a replica file share, you must remove the replication relationship. For more information, see [Remove the replication relationship with Terraform](/docs/vpc?topic=vpc-file-storage-manage-replication&interface=terraform#fs-remove-replication-terraform).
 
-Use the `terraform destroy` command to conveniently destroy a remote object such as a file share. The following example shows the syntax for deleting a share. Substitute the actual ID of the share in for `ibm_is_share.example.id`. To delete a mount target or a share bindings, use their IDs with the same command.
+Use the `terraform destroy` command to conveniently delete a remote object such as a file share. The following example shows the syntax for deleting a share. Substitute the actual ID of the share in for `ibm_is_share.example.id`. To delete a mount target or a share binding, use their IDs with the same command.
 
 ```terraform
 terraform destroy --target ibm_is_share.example.id

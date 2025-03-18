@@ -79,7 +79,7 @@ To create an image of the boot volume, the associated virtual server instance mu
       * **Locate by CRN**
         1. Enter the CRN of your encryption key.
 
-6. **Advanced options**: You can use the toggle to activate Image lifecycle Management. By selecting this option, you can manage when your image becomes `deprecated` and `obsolete`. You can schedule a single status change or schedule the complete lifecycle of the images. You can schedule status changes by using calendar date and time or number of days. The obsolescence date must always be after the deprecation date. For more information, see https://cloud.ibm.com/docs/vpc?topic=vpc-planning-custom-images&interface=ui#custom-image-lifecycle.
+6. **Advanced options**: You can use the toggle to activate Image lifecycle Management. By selecting this option, you can manage when your image becomes `deprecated` and `obsolete`. You can schedule a single status change or schedule the complete lifecycle of the images. You can schedule status changes by using calendar date and time or number of days. The obsolescence date must always be after the deprecation date. For more information, see [Custom image lifecycle](/docs/vpc?topic=vpc-planning-custom-images&interface=ui#custom-image-lifecycle).
 
 6. On the right-side panel, click **Create custom image**.
 

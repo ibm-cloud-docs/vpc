@@ -2,7 +2,7 @@
 
 copyright:
   years: 2022, 2025
-lastupdated: "2025-03-13"
+lastupdated: "2025-03-18"
 
 keywords: Backup for VPC, backup service, backup plan, backup policy, restore, restore volume, restore data, faqs
 
@@ -137,7 +137,7 @@ No. If you update your backup policy plan to create copies of your automated bac
 
 How long the copy is kept depends on how often your backup plan generates backup snapshots and the number you chose to keep. For example, if your plan takes snapshots daily and you specified 5 remote copies to keep, then at any time the oldest remote copy is less than 5 days old. If you already have 5 remote copies in a region, then the system deletes the oldest one to make space for the new snapshot copy.
 
-Keep in mind, a remote snapshot copy is independent from the source volume or the parent snapshot. If those resources are inaccessible or deleted, the snapshot copy in the remote region is not affected. If a backup snapshots is deleted due to reaching the end of its retention period, its remote copy is not deleted automatically.
+Keep in mind, a remote snapshot copy is independent from the source volume or the parent snapshot. If those resources are inaccessible or deleted, the snapshot copy in the remote region is not affected. If a backup snapshot is deleted due to reaching the end of its retention period, its remote copy is not deleted automatically.
 
 ## What is a consistency group for backups?
 {: faq}

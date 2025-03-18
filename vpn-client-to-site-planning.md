@@ -1,8 +1,8 @@
 ---
 
 copyright:
-  years: 2021, 2024
-lastupdated: "2024-06-20"
+  years: 2021, 2025
+lastupdated: "2025-03-18"
 
 keywords:
 
@@ -91,7 +91,7 @@ VPN users don't use their password directly to connect to the VPN server. They g
 
 The VPN server receives the username and passcode from the VPN client and makes an IAM call to verify the passcode and permission with IAM policy.
 
-* The passcode is an one-time password. The user MUST re-generate the passcode for re-connection, even if the re-connection is initiated by the VPN server.
+* The passcode is a one-time password. The user MUST re-generate the passcode for re-connection, even if the re-connection is initiated by the VPN server.
 * The SoftLayer MFA is not supported because SoftLayer MFA enforcement is not done via the browser.
 
 If you use user ID/passcode authentication, maintenance activities force users to re-authenticate by fetching and re-entering the code. The connection is restored only after the new code is entered. This is applicable using stand-alone or HA mode.

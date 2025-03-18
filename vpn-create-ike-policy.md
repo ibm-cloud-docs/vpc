@@ -1,8 +1,8 @@
 ---
 
 copyright:
-  years: 2021, 2023
-lastupdated: "2023-01-17"
+  years: 2021, 2025
+lastupdated: "2025-03-18"
 
 keywords: ike policy
 
@@ -118,7 +118,7 @@ To create an IKE policy using the API, follow these steps:
 {: #vpn-using-terraform-create-ike-policy}
 {: terraform}
 
-In the following example, you can create a IKE policy using Terraform:
+In the following example, you can create an IKE policy using Terraform:
 
 ```terraform
    resource "ibm_is_ike_policy" "is_ike_policy" {

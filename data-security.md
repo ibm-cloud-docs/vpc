@@ -1,8 +1,8 @@
 ---
 
 copyright:
-  years: 2020, 2024
-lastupdated: "2024-11-05"
+  years: 2020, 2025
+lastupdated: "2025-03-18"
 
 keywords: data encryption, data storage, bring your own keys, BYOK, key management, key encryption, personal data, data deletion, data security
 
@@ -103,7 +103,7 @@ For more information about deleting root keys, see [Deleting root keys](/docs/vp
 ### Deleting a Block Storage volume
 {: #data-delete-volume}
 
-For more information about deleting Block Storage volumes, see this FAQ: [What happens to my data when I delete a Block Storage data volume?](/docs/vpc?topic=vpc-block-storage-vpc-faq#faq-block-storage-16).
+For more information about deleting Block Storage volumes, see the [FAQs for {{site.data.keyword.block_storage_is_short}}](/docs/vpc?topic=vpc-block-storage-vpc-faq#faq-block-storage-16).
 
 ### Deleting a custom image
 {: #delete-custom-images}

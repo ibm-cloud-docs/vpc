@@ -1,8 +1,8 @@
 ---
 
 copyright:
-  years: 2020, 2024
-lastupdated: "2024-11-06"
+  years: 2020, 2025
+lastupdated: "2025-03-18"
 
 keywords:
 
@@ -48,7 +48,7 @@ Use Figure 1 to help you (the User) choose the right load balancer for your requ
 ### Private Path network load balancers
 {: #load-balancer-pplb}
 
-Private Path NLBs are required when service consumer and service provider reside an different VPCs and there is a need to keep network traffic on a private path that never intersects with the public internet. These load balancers offer a high level of fault tolerance including resilience to a zone failure, and are highly scalable (millions of requests/second) and performant.
+Private Path NLBs are required when service consumer and service provider reside in different VPCs and there is a need to keep network traffic on a private path that never intersects with the public internet. These load balancers offer a high level of fault tolerance including resilience to a zone failure, and are highly scalable (millions of requests/second) and performant.
 {: important}
 
 A consumer's ability to access a Private Path NLB requires creation of a VPE which is gated by the provider's approval in a [Private Path service](/docs/vpc?topic=vpc-private-path-service-intro). So provider has granular control over who may access their service.

@@ -2,7 +2,7 @@
 
 copyright:
   years: 2019, 2025
-lastupdated: "2025-02-18"
+lastupdated: "2025-03-18"
 
 keywords:
 
@@ -761,7 +761,7 @@ To verify that the volume is deleted, list the volumes by making a `GET /volumes
 {: help}
 {: support}
 
-Use the `terraform destroy` command to conveniently destroy a remote object such as a block volume. The following example shows the syntax for deleting a volume. Substitute the actual ID of the volume in for `ibm_is_volume.example.id`.
+Use the `terraform destroy` command to conveniently remove a remote object such as a block volume. The following example shows the syntax for deleting a volume. Substitute the actual ID of the volume in for `ibm_is_volume.example.id`.
 
 ```terraform
 terraform destroy --target ibm_is_volume.example.id

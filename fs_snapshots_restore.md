@@ -2,7 +2,7 @@
 
 copyright:
   years: 2024, 2025
-lastupdated: "2025-01-17"
+lastupdated: "2025-03-18"
 
 keywords:
 
@@ -42,7 +42,7 @@ You can create shares from various pages in the {{site.data.keyword.cloud_notm}}
 ### Creating a share from a snapshot in the console
 {: #fs-snapshots-restore-snaphot-list-ui}
 
-From the list of {{site.data.keyword.filestorage_vpc_short}} snapshots, you can create an {{site.data.keyword.filestorage_vpc_short}} share. The new shares are added to the [list of {{site.data.keyword.filestorage_vpc_short}} shares](/vpc-ext/storage/fileShares).
+From the list of {{site.data.keyword.filestorage_vpc_short}} snapshots, you can create a {{site.data.keyword.filestorage_vpc_short}} share. The new shares are added to the [list of {{site.data.keyword.filestorage_vpc_short}} shares](/vpc-ext/storage/fileShares).
 
 1. Go to the list of {{site.data.keyword.filestorage_vpc_short}} snapshots. In the [{{site.data.keyword.cloud_notm}} console](/login){: external}, click the **Navigation menu** icon ![menu icon](../icons/icon_hamburger.svg) **> Infrastructure** ![VPC icon](../icons/vpc.svg) **> Storage > File storage shares**.
 1. Select the share that has the data that you want to use to create another share.

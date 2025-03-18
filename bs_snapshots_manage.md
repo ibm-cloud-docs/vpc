@@ -2,7 +2,7 @@
 
 copyright:
   years: 2021, 2025
-lastupdated: "2025-02-18"
+lastupdated: "2025-03-18"
 
 keywords: snapshots, Block Storage snapshots, manage snapshots, fast restore clone, backup snapshot, remote copy, cross-regional copy
 
@@ -140,7 +140,7 @@ provider "ibm" {
 ```
 {: screen}
 
-To update a snapshot, use the `ibm_is_snapshot` resource. You can change the name of the snapshot, the fast restore zones, and tags. However, changing the `resource_group` and `source_volume` values forces Terraform to destroy the snapshot and create a different snapshot.
+To update a snapshot, use the `ibm_is_snapshot` resource. You can change the name of the snapshot, the fast restore zones, and tags. However, changing the `resource_group` and `source_volume` values forces Terraform to delete the snapshot and create a different snapshot.
 
 ```terraform
 resource "ibm_is_snapshot" "example" {
@@ -672,7 +672,7 @@ For more information about the arguments and attributes, see [ibm_is_snapshot](h
 {: #snapshots-remote-copy-delete-terraform}
 {: terraform}
 
-Use the `terraform destroy` command to conveniently destroy a remote object such as a cross-regional copy of a snapshot. The following example shows the syntax for deleting a snapshot. Substitute the actual ID of the snapshot in for `ibm_is_snapshot.example.id`.
+Use the `terraform destroy` command to conveniently delete a remote object such as a cross-regional copy of a snapshot. The following example shows the syntax for deleting a snapshot. Substitute the actual ID of the snapshot in for `ibm_is_snapshot.example.id`.
 
 ```terraform
 terraform destroy --target ibm_is_snapshot.example.id
@@ -866,7 +866,7 @@ You can delete any snapshot for a volume or all snapshots for a volume. To be ab
 {: #snapshots-vpc-delete-terraform}
 {: terraform}
 
-Use the `terraform destroy` command to conveniently destroy a remote object such as a single snapshot. The following example deletes `my-snapshot`.
+Use the `terraform destroy` command to conveniently delete a remote object such as a single snapshot. The following example deletes `my-snapshot`.
 
 ```terraform
 terraform destroy --target ibm_is_snapshot.my-snapshot

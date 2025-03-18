@@ -2,7 +2,7 @@
 
 copyright:
   years: 2019, 2025
-lastupdated: "2025-01-14"
+lastupdated: "2025-03-18"
 
 keywords: view instance details, restart virtual server, stop, details, delete
 
@@ -93,6 +93,8 @@ A _Force stop_ action triggers a power cycle reset of the virtual server instanc
 {: note}
 
 The start action starts a virtual server instance that is in a stopped state.
+
+When a virtual server is stopped, it is removed from the host. When the virtual server is started again later, it might be started on a new host. Capacity for a specific virtual server profile is not guaranteed or reserved; for example, capacity might be limited, or not available, for profile families such as GPU (Accelerated) or Storage Optimized.   
 
 From the _Virtual server instances_ page in {{site.data.keyword.cloud_notm}} console, click **Stop** or **Start**.
 

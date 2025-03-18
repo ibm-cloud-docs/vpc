@@ -2,7 +2,7 @@
 
 copyright:
   years: 2022, 2025
-lastupdated: "2025-01-27"
+lastupdated: "2025-03-18"
 
 keywords:
 
@@ -468,7 +468,7 @@ To set the hop limit when you provision an instance, go to the Hop limit setting
 {: #set-hop-limit-ui-existing}
 {: ui}
 
-To set the hop limit on an existing instance, go to the Hop limit setting setting on the **Instance details** page of your instance. Specify a hop limit value between 1 and 64.
+To set the hop limit on an existing instance, go to the Hop limit setting on the **Instance details** page of your instance. Specify a hop limit value between 1 and 64.
 
 ## Configure metadata settings by using the CLI
 {: #metadata-config-cli}

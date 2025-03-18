@@ -2,7 +2,7 @@
 
 copyright:
   years: 2023, 2025
-lastupdated: "2025-02-20"
+lastupdated: "2025-03-18"
 
 keywords:
 
@@ -114,7 +114,7 @@ By using a virtual network interface, you can move it from one instance to anoth
 
 A virtual server instance that runs several instances of an application can be segmented such that each instance of the application has its own IP address.
 
-For this example, a single virtual server instance is running three instances of a SQL database application. Each SQL instance needs to have its own IP address. By using secondary IP addresses on a virtual network interface, you can assign different IP addresses to each application instance.
+For this example, a single virtual server instance is running three instances of an SQL database application. Each SQL instance needs to have its own IP address. By using secondary IP addresses on a virtual network interface, you can assign different IP addresses to each application instance.
 
 ![Secondary IP addresses in a virtual network interface](images/vni-use-case3.svg "Virtual network interface using secondary IP addresses"){: caption="Secondary IP addresses in a virtual network interface" caption-side="bottom"}
 

@@ -2,7 +2,7 @@
 
 copyright:
   years: 2022, 2025
-lastupdated: "2025-01-03"
+lastupdated: "2025-03-18"
 
 keywords:
 
@@ -218,7 +218,7 @@ You can use a Secrets Manager private certificate in your VPN server. Review the
    * Select the **Use certificates for server** checkbox if that created CA will sign the server certificate for the VPN server.
    * Select the **Use certificates for client** checkbox if that created CA will sign the client certificate for the VPN server.
    * Select both **Use certificates for server** and **Use certificates for client** checkboxes if that created CA will sign both server and client certificates for the VPN server.
-* Make sure that every CA has an unique **Common name** in the CA chain while creating it in the Secrets Manager instance.
+* Make sure that every CA has a unique **Common name** in the CA chain while creating it in the Secrets Manager instance.
 
 For more information, see [Creating private certificates](/docs/secrets-manager?topic=secrets-manager-certificates&interface=ui) in the Secrets Manager documentation.
 {: note}

@@ -2,7 +2,7 @@
 
 copyright:
   years: 2024, 2025
-lastupdated: "2025-01-17"
+lastupdated: "2025-03-18"
 
 keywords: snapshots, File storage snapshots, manage snapshots, fast restore clone, backup snapshot, remote copy, cross-regional copy
 
@@ -225,7 +225,7 @@ You can delete any snapshot for a share or all snapshots for a share. To be able
 * Be in a `stable` or `pending` state.
 * Not be actively restoring a share.
 
-Use the `terraform destroy` command to conveniently destroy a remote object such as a single snapshot. The following example deletes `my-snapshot`.
+Use the `terraform destroy` command to conveniently delete a remote object such as a single snapshot. The following example deletes `my-snapshot`.
 
 ```terraform
 terraform destroy --target ibm_is_snapshot.my-snapshot

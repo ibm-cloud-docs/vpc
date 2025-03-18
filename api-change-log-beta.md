@@ -418,7 +418,7 @@ The backup jobs API is now generally available. See the [VPC API change log](/do
 ### For all version dates
 {: #17-may-2022-all-version-dates-beta}
 
-**File share replication.** Accounts that have been granted special approval to preview this feature can now set up replication between a file share in one zone and a replica file share in another zone in the same region. [Using replication](/docs/vpc?topic=vpc-file-storage-replication) is a good way to recover from an incident at your primary site, if data becomes inaccessible or an applications fails.
+**File share replication.** Accounts that have been granted special approval to preview this feature can now set up replication between a file share in one zone and a replica file share in another zone in the same region. [Using replication](/docs/vpc?topic=vpc-file-storage-replication) is a good way to recover from an incident at your primary site, if data becomes inaccessible or an application fails.
 
 - When [creating a new file share](/apidocs/vpc-beta/initial#create-share), you can now configure replication by specifying the new `replica_share` property. To create a replica for an existing file share, create a new share and specify the existing file share as `source_share`, along with the replication schedule, using the `replication_cron_spec` property.
 - You can now [retrieve the source file share for a replica file share](/apidocs/vpc-beta/initial#get-share-source). Returned information also includes the replication schedule, role, status, and status reasons.

@@ -1,8 +1,8 @@
 ---
 
 copyright:
-  years: 2020, 2024
-lastupdated: "2024-09-23"
+  years: 2020, 2025
+lastupdated: "2025-03-18"
 
 keywords: migrate virtual server from classic infrastructure, migrate to vpc, migrate image template, image template, import image to vpc infrastructure, migrate virtual server, migrate instance
 
@@ -95,7 +95,7 @@ Follow the instructions in [Creating a Linux custom image](/docs/vpc?topic=vpc-c
 Complete the following customizations on your Windows virtual server to prepare the image for {{site.data.keyword.vpc_short}}.
 
 1. Use Remote Desktop to access your Classic Windows server.
-1. Download and install the Windows VirtIO drivers in this server. The `virtio-win` driver files can be taken from an existing {{site.data.keyword.vpc_short}} VPC virtual server by using the following steps.
+1. Download and install the Windows VirtIO drivers in this server. The `virtio-win` driver files can be taken from an existing {{site.data.keyword.vpc_short}} virtual server by using the following steps.
 
 
    Microsoft recommends that you obtain the drivers from a licensed RHEL version 8 or 9 instance because drivers that are obtained from Red Hat are certified by Microsoft. The minimum recommended Red Hat virtio-win package version is `virtio-win-1.9.24`. However, using the most recent package is best.

@@ -1,8 +1,8 @@
 ---
 
 copyright:
-  years: 2024
-lastupdated: "2024-07-08"
+  years: 2024, 2025
+lastupdated: "2025-03-18"
 
 keywords: virtual network interfaces, hazardous change remediation, mitigation
 
@@ -22,7 +22,7 @@ You can choose to defer access to this feature through [IBM Support](/unifiedsup
 {: important}
 
 If you have not deferred access to this feature, read the provided guidance even if you do not plan to use virtual network interfaces.
-{ :tip}
+{: tip}
 
 ## What changed?
 {: #vni-api-changes}

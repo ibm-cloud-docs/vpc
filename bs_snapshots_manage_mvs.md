@@ -1,8 +1,8 @@
 ---
 
 copyright:
-  years: 2022, 2024
-lastupdated: "2024-11-05"
+  years: 2022, 2025
+lastupdated: "2025-03-18"
 
 keywords: consistency group, snapshots, backups, instance snapshot, instance backup,
 
@@ -159,7 +159,7 @@ resource "ibm_is_snapshot_consistency_group" "example" {
 ```
 {: codeblock}
 
-Changing the `resource_group` and `source_volume` values of the member snapshots forces Terraform to destroy the snapshots and create different snapshots.
+Changing the `resource_group` and `source_volume` values of the member snapshots forces Terraform to delete the snapshots and create different snapshots.
 
 For more information about the arguments and attributes, see [ibm_is_snapshot_consistency_group](https://registry.terraform.io/providers/IBM-Cloud/ibm/latest/docs/resources/is_snapshot_consistency_group){: external}.
 
@@ -167,7 +167,7 @@ For more information about the arguments and attributes, see [ibm_is_snapshot_co
 {: #delete-consistencygroup-terraform}
 {: terraform}
 
-Use the `terraform destroy` command to conveniently destroy a remote object such as a snapshot consistency group. The following example deletes `my-snapshot-consistency-group`.
+Use the `terraform destroy` command to conveniently delete a remote object such as a snapshot consistency group. The following example deletes `my-snapshot-consistency-group`.
 
 ```terraform
 terraform destroy --target ibm_is_snapshot_consistency_group.my-snapshot-consistency-group

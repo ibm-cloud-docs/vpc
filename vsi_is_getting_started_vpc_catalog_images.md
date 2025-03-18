@@ -43,7 +43,7 @@ Images that are shared through a private catalog are still offered without billi
 
 Any private catalog images available to your VPC can be found in**Navigation Menu** icon ![menu icon](../icons/icon_hamburger.svg) **> Infrastructure** ![VPC icon](../../icons/vpc.svg) **> Compute > Images > Catalog images**
 
-To create a virtual server using a a private catalog image, see one of the following:
+To create a virtual server using a private catalog image, see one of the following:
 * [Creating a virtual server instance with the UI](/docs/vpc?topic=vpc-creating-virtual-servers&interface=ui#creating-virtual-servers-ui)
 * [Creating a virtual server instance with the CLI - provision with a private catalog image](/docs/vpc?topic=vpc-creating-virtual-servers&interface=cli#instance-create-from-private-catalog-image-cli)
 * [Creating a virtual server instance with the API - provision with a private catalog image](/docs/vpc?topic=vpc-creating-virtual-servers&interface=api#create-instance-private-catalog-image-api)
