@@ -103,31 +103,15 @@ You can use the members of the snapshot consistency group to restore volumes sep
 
 When you take a snapshot, read and write operations from your virtual server instance to the volume continue uninterrupted. After volume data is retrieved, the snapshot enters a `pending` state until the snapshot is created. When the snapshot is successfully created and in a `stable` state, you can resume volume management activities, such as deleting, resizing, or detaching a volume. You can also take more snapshots.
 
-Volume data that is retrieved for the requested snapshot is encrypted while in transit from the hypervisor to {{site.data.keyword.cos_full}}. The initial snapshot is the entire copy of your {{site.data.keyword.block_storage_is_short}} volume. Subsequent snapshots copy only what was changed since the last snapshot.
+Volume data that is captured for the requested snapshot is encrypted while in transit from the hypervisor to {{site.data.keyword.cos_full}}. The initial snapshot is the entire copy of your {{site.data.keyword.block_storage_is_short}} volume. Subsequent snapshots copy only what was changed since the last snapshot.
 
-You can [restore](/docs/vpc?topic=vpc-snapshots-vpc-restore) a boot or data volume from a running virtual server instance in the UI, CLI, API, or Terraform. Restoring a data from a snapshot creates a new, fully provisioned volume. 
+You can [restore](/docs/vpc?topic=vpc-snapshots-vpc-restore) a boot or data volume from a running virtual server instance in the UI, CLI, API, or Terraform. Restoring a data from a snapshot creates a new, fully provisioned volume. It does not overwrite data in the snapshot's parent volume.
 
-Restoring from a snapshot of a boot volume creates a new boot volume that you can use to provision another instance. Restoring from a snapshot of a data volume creates a secondary volume that is attached to the instance. You can also restore a stand-alone (unattached) data volume from a snapshot.
+Restoring from a snapshot of a boot volume creates a new boot volume that you can use to provision another instance. Restoring from a snapshot of a data volume creates a secondary volume that can be attached to the instance or be kept as a stand-alone (unattached) data volume.
 
 When you restore volumes from snapshots in a consistency group, you can select some or all of the snapshots.
 
-## IAM roles for creating, managing, and restoring from single and consistency group snapshots
-{: #snapshots-vpc-iam}
-
-Snapshots require IAM permissions for role-based access control. You need the right platform role to create and manager with snapshots in your own account, and the correct service roles to use a snapshot for restoring data from another account. 
-
-When you share a snapshot with another account, you must assign the *Snapshot Remote Account Restorer* role to the other account's user to allow them access to the snapshot. They must also have the *Restore Volume From Remote Account Snapshot* role in their account to create a volume with the CRN of the remote snapshot in the console.{: ui}
-
-When you share a snapshot with another account, you must assign the `SnapshotRemoteAccountRestorer` role to the other account's user to allow them access to the snapshot. They must also have the `VolumeRemoteAccountSnapshotRestorer` role in their account to create a volume with the CRN of the remote snapshot from the CLI.{: cli}
-
-When you share a snapshot with another account, you must assign the `SnapshotRemoteAccountRestorer` role to the other account's user to allow them access to the snapshot. They must also have the `VolumeRemoteAccountSnapshotRestorer` role in their account to create a volume with the CRN of the remote snapshot with the API.{: api}
-
-When you share a snapshot with another account, you must assign the `SnapshotRemoteAccountRestorer` role to the other account's user to allow them access to the snapshot. They must also have the `VolumeRemoteAccountSnapshotRestorer` role in their account to create a volume with the CRN of the remote snapshot with Terraform.{: terraform}
-
-For more information, see [IAM roles and actions for Block Storage Snapshots for VPC](/docs/account?topic=account-iam-service-roles-actions#is.snapshot-roles), [IAM roles, and actions for Multi Volume Snapshots for VPC](/docs/account?topic=account-iam-service-roles-actions#is.snapshot-consistency-group-roles) and [IAM roles and actions for Block Storage for VPC](/docs/account?topic=account-iam-service-roles-actions#is.volume-roles).
-
-For more information, see the [best practices for assigning access](/docs/account?topic=account-account_setup#account_setup). For the complete IAM process, which includes inviting users to your account and assigning Cloud IAM access, see the [IAM getting started tutorial](/docs/account?topic=account-iamoverview).
-{: tip}
+Volume data restoration begins immediately as the volume is created, but performance is degraded until all the data is copied from {{site.data.keyword.cos_short}} and the volume is fully restored. 
 
 ## Limitations
 {: #snapshots-vpc-limitations}
@@ -144,28 +128,23 @@ The following limitations apply to this release:
 * You can delete a {{site.data.keyword.block_storage_is_short}} volume and all its snapshots. All snapshots must be in a `stable` or `pending` state. No snapshot can be actively restoring a volume.
 * Restoring an instance directly from snapshot consistency group identifier is not supported.
 
-## Create and work with snapshots
-{: #snapshots-vpc-procedure-overview}
+## IAM roles for working with single and consistency group snapshots
+{: #snapshots-vpc-iam}
 
-You can create and manage your snapshots by using the UI, CLI, API, and Terraform.
-* To use the UI, log in to the [{{site.data.keyword.cloud_notm}} console](/docs/vpc?topic=vpc-snapshots-vpc-create&interface=ui).{: ui}
-* To use the [CLI](/docs/vpc?topic=vpc-snapshots-vpc-create&interface=cli), download and install the required CLI plug-ins. For more information, see the [CLI reference](/docs/vpc?topic=vpc-vpc-reference&interface=cli).{: cli}
-* To use the [API](/docs/vpc?topic=vpc-snapshots-vpc-create&interface=api), set up the [VPC API](/apidocs/vpc).{: api}
-* To use [Terraform](/docs/vpc?topic=vpc-snapshots-vpc-create&interface=terraform), download the Terraform CLI and configure the {{site.data.keyword.cloud_notm}} Provider plug-in. For more information, see [Getting started with Terraform](/docs/ibm-cloud-provider-for-terraform?topic=ibm-cloud-provider-for-terraform-getting-started).{: terraform}
+Snapshots require IAM permissions for role-based access control. You need the right platform role to create and manager with snapshots in your own account, and the correct service roles to use a snapshot for restoring data from another account. 
 
-For more information about creating and managing snapshots, and restoring a volume from a snapshot, see the following topics.
-* [Create](/docs/vpc?topic=vpc-snapshots-vpc-create#snapshots-vpc-create) your snapshots.
-* [View](/docs/vpc?topic=vpc-snapshots-vpc-view#snapshots-vpc-view) and [manage](/docs/vpc?topic=vpc-snapshots-vpc-manage#snapshots-vpc-manage) your snapshots.
-* [Restore](/docs/vpc?topic=vpc-snapshots-vpc-restore#snapshots-vpc-restore) a volume from a snapshot.
+When you share a snapshot with another account, you must assign the *Snapshot Remote Account Restorer* role to the other account's user to allow them access to the snapshot. They must also have the *Restore Volume From Remote Account Snapshot* role in their account to create a volume with the CRN of the remote snapshot in the console.{: ui}
 
-For more information about creating and managing consistency groups, see the following topics.
-* [Create](/docs/vpc?topic=vpc-snapshots-vpc-create-consistency-groups) your consistency group.
-* [View](/docs/vpc?topic=vpc-snapshots-vpc-view) and [manage](/docs/vpc?topic=vpc-snapshots-vpc-manage-consistency-groups) your consistency groups.
+When you share a snapshot with another account, you must assign the `SnapshotRemoteAccountRestorer` role to the other account's user to allow them access to the snapshot. They must also have the `VolumeRemoteAccountSnapshotRestorer` role in their account to create a volume with the CRN of the remote snapshot from the CLI.{: cli}
 
-## Restore a volume from a snapshot
-{: #bs-snapshots-restore-overview}
+When you share a snapshot with another account, you must assign the `SnapshotRemoteAccountRestorer` role to the other account's user to allow them access to the snapshot. They must also have the `VolumeRemoteAccountSnapshotRestorer` role in their account to create a volume with the CRN of the remote snapshot with the API.{: api}
 
-You can create a volume from a snapshot at any time. This process is called restoring. Volume data restoration begins immediately as the volume is hydrated, but performance is degraded until the volume is fully restored. The volume does not need to be attached to an instance. For more information, see [Restoring a volume from a snapshot](/docs/vpc?topic=vpc-snapshots-vpc-restore).
+When you share a snapshot with another account, you must assign the `SnapshotRemoteAccountRestorer` role to the other account's user to allow them access to the snapshot. They must also have the `VolumeRemoteAccountSnapshotRestorer` role in their account to create a volume with the CRN of the remote snapshot with Terraform.{: terraform}
+
+For more information, see [IAM roles and actions for Block Storage Snapshots for VPC](/docs/account?topic=account-iam-service-roles-actions#is.snapshot-roles), [IAM roles, and actions for Multi Volume Snapshots for VPC](/docs/account?topic=account-iam-service-roles-actions#is.snapshot-consistency-group-roles) and [IAM roles and actions for Block Storage for VPC](/docs/account?topic=account-iam-service-roles-actions#is.volume-roles).
+
+For more information, see the [best practices for assigning access](/docs/account?topic=account-account_setup#account_setup). For the complete IAM process, which includes inviting users to your account and assigning Cloud IAM access, see the [IAM getting started tutorial](/docs/account?topic=account-iamoverview).
+{: tip}
 
 ## Tags for {{site.data.keyword.block_storage_is_short}} snapshots
 {: #snapshots-about-tags}
@@ -189,4 +168,19 @@ For more information about managing tags for your account, see [Working with tag
 ## Next steps
 {: #snapshots-vpc-about-next-steps}
 
-Review [creating snapshots](/docs/vpc?topic=vpc-snapshots-vpc-create#snapshots-vpc-create).
+Before you begin, review the [Planning {{site.data.keyword.block_storage_is_short}} snapshots](https://test.cloud.ibm.com/docs/vpc?topic=vpc-snapshots-vpc-planning) topic.
+
+You can create and manage your snapshots by using the UI, CLI, API, and Terraform.
+* To use the UI, log in to the [{{site.data.keyword.cloud_notm}} console](/docs/vpc?topic=vpc-snapshots-vpc-create&interface=ui).{: ui}
+* To use the [CLI](/docs/vpc?topic=vpc-snapshots-vpc-create&interface=cli), download and install the required CLI plug-ins. For more information, see the [CLI reference](/docs/vpc?topic=vpc-vpc-reference&interface=cli).{: cli}
+* To use the [API](/docs/vpc?topic=vpc-snapshots-vpc-create&interface=api), set up the [VPC API](/apidocs/vpc).{: api}
+* To use [Terraform](/docs/vpc?topic=vpc-snapshots-vpc-create&interface=terraform), download the Terraform CLI and configure the {{site.data.keyword.cloud_notm}} Provider plug-in. For more information, see [Getting started with Terraform](/docs/ibm-cloud-provider-for-terraform?topic=ibm-cloud-provider-for-terraform-getting-started).{: terraform}
+
+For more information about creating and managing snapshots, and restoring a volume from a snapshot, see the following topics.
+* [Create](/docs/vpc?topic=vpc-snapshots-vpc-create#snapshots-vpc-create) your snapshots.
+* [View](/docs/vpc?topic=vpc-snapshots-vpc-view#snapshots-vpc-view) and [manage](/docs/vpc?topic=vpc-snapshots-vpc-manage#snapshots-vpc-manage) your snapshots.
+* [Restore](/docs/vpc?topic=vpc-snapshots-vpc-restore#snapshots-vpc-restore) a volume from a snapshot.
+
+For more information about creating and managing consistency groups, see the following topics.
+* [Create](/docs/vpc?topic=vpc-snapshots-vpc-create-consistency-groups) your consistency group.
+* [View](/docs/vpc?topic=vpc-snapshots-vpc-view) and [manage](/docs/vpc?topic=vpc-snapshots-vpc-manage-consistency-groups) your consistency groups.
