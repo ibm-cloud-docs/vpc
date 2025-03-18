@@ -2,7 +2,7 @@
 
 copyright:
   years: 2022, 2025
-lastupdated: "2025-03-13"
+lastupdated: "2025-03-18"
 
 keywords: snapshots, Block Storage, volumes, cross-regional snapshot, restore volume, copy snapshot
 
@@ -33,7 +33,7 @@ The first time that you take a snapshot of a volume, all the volume's contents a
 
 When you take a second snapshot, it captures only the changes that occurred since the last snapshot was taken. As such, the size of the snapshots can grow or shrink, depending on what is being uploaded to {{site.data.keyword.cos_full}}. The number of snapshots increases with each successive snapshot that you take. You can take up to 750 snapshots per volume in your region. Within this limit, you can take and keep an hourly snapshot for 30 days, plus some extra snapshots. Deleting snapshots from this quota frees up space for more snapshots. A snapshot of a volume can't be greater than 10 TB.
 
-You can create a virtual server instance with a boot volume that is initialized from a snapshot. The instance profile of the new instance is not required to match the instance that was used to create the snapshot. You can also import a snapshot of a data volume when you create and attach a new data volume to the instance. You can specify user tags for these snapshots.
+You can create a virtual server instance with a boot volume that is initialized from a snapshot. The instance profile of the new instance is not required to match the instance that was used to create the snapshot. You can also import a snapshot of a data volume when you create and attach a data volume to the instance. You can specify user tags for these snapshots.
 
 You can create a volume from a snapshot at any time. This process is called restoring a volume, and it can be performed when you create an instance, modify an instance, or when you create a stand-alone volume. For more information, see [Restoring a volume from a snapshot](#bs-snapshots-restore-overview). You can also restore a fully provisioned volume by using the fast restore feature after initial provisioning.
 
@@ -80,7 +80,7 @@ You can use and manage the cross-regional snapshot in the target region independ
 
 Creating a cross-regional copy affects billing. You're charged for the data transfer and the storage consumption in the target region separately.
 
-When you create a snapshot or list details of a snapshot in the console, from the CLI or with the API, the system lists only the direct copies of the snapshot that you specified. If you create a copy of a copy, the second copy is not returned when you query the original snapshot.
+When you create a snapshot or list details of a snapshot, the system lists only the direct copies of the snapshot that you specified. If you create a copy of a copy, the second copy is not returned when you query the original snapshot.
 {: note}
 
 ### Snapshot consistency groups
