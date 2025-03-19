@@ -2,7 +2,7 @@
 
 copyright:
   years: 2022, 2025
-lastupdated: "2025-03-18"
+lastupdated: "2025-03-19"
 
 keywords: snapshots, Block Storage, volumes, cross-regional snapshot, restore volume, copy snapshot
 
@@ -35,7 +35,7 @@ When you take a second snapshot, it captures only the changes that occurred sinc
 
 You can create a virtual server instance with a boot volume that is initialized from a snapshot. The instance profile of the new instance is not required to match the instance that was used to create the snapshot. You can also import a snapshot of a data volume when you create and attach a data volume to the instance. You can specify user tags for these snapshots.
 
-You can create a volume from a snapshot at any time. This process is called restoring a volume, and it can be performed when you create an instance, modify an instance, or when you create a stand-alone volume. For more information, see [Restoring a volume from a snapshot](#bs-snapshots-restore-overview). You can also restore a fully provisioned volume by using the fast restore feature after initial provisioning.
+You can create a volume from a snapshot at any time. This process is called restoring a volume, and it can be performed when you create an instance, modify an instance, or when you create a stand-alone volume. For more information, see [Restoring a volume from a snapshot](/docs/vpc?topic=vpc-snapshots-vpc-restore). You can also restore a fully provisioned volume by using the fast restore feature after initial provisioning.
 
 Snapshots have a lifecycle that is independent from the source {{site.data.keyword.block_storage_is_short}} volume. You can delete the original volume and the snapshot persists. However, do not detach the volume from the instance during snapshot creation. You need to wait until the snapshot becomes `stable` before you detach, otherwise you can't reattach the volume to an instance. Snapshots are crash-consistent. If the virtual server stops for any reason, the snapshot data is safe on the disk.
 
