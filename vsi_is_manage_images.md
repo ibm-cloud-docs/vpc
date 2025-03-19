@@ -43,7 +43,7 @@ You can manage an image by using the {{site.data.keyword.cloud_notm}} console.
 | Share to catalog | Share the {{site.data.keyword.vpc_short}} custom image to an existing private catalog. |
 | Copy | Copy the UUID of the custom image. |
 | View checksum | View the checksum for the custom image. |
-| Schedule lifecycle | Opens the **Schedule image lifecycle** panel. You can make an immediate status change or schedule a statue change for a future date and time. You can schedule a single status change or schedule the complete lifecycle of the images. The image statuses are:  \n  \n * `available`: The image can be used to create an instance.  \n  \n * `deprecated`: The image is still available to use to provision and instance. Using the `deprecated` status can discourage use of the image before the status changes to `obsolete`.  \n * `obsolete`: The image is not available to use to provision an instancce.  \n  \n * Schedule complete lifecycle: You can schedule both the `deprecated` and `obsolete` status changes at the same time.  \n  \n You can move back and forth between the three statuses. Only the statuses you can change to are displayed. You can schedule status changes by using calendar date and time or number of days. The obsolescence dates must always be after the deprecation date.|
+| Schedule lifecycle | Opens the **Schedule image lifecycle** panel. You can make an immediate status change or schedule a statue change for a future date and time. You can schedule a single status change or schedule the complete lifecycle of the images. The image statuses are:  \n  \n * `available`: The image can be used to create an instance.  \n  \n * `deprecated`: The image is still available to use to provision and instance. Using the `deprecated` status can discourage use of the image before the status changes to `obsolete`.  \n * `obsolete`: The image is not available to use to provision an instance.  \n  \n * Schedule complete lifecycle: You can schedule both the `deprecated` and `obsolete` status changes at the same time.  \n  \n You can move back and forth between the three statuses. Only the statuses you can change to are displayed. You can schedule status changes by using calendar date and time or number of days. The obsolescence dates must always be after the deprecation date.|
 | Delete | Delete the custom image.  \n  \n  If you want to delete a custom image in a private catalog, see [Deleting a custom image in a private catalog](/docs/vpc?topic=vpc-custom-image-cloud-private-catalog&interface=ui#deleting-private-catalog-custom-image-vpc). |
 {: caption="Custom image actions" caption-side="bottom"}
 
@@ -166,7 +166,7 @@ data "ibm_is_images" "image_name" {
 ## Exporting a custom image to {{site.data.keyword.cos_full_notm}}
 {: #custom-image-export-to-cos}
 
-You can export a custom image to {{site.data.keyword.cos_full_notm}}. Later, you might want to copy the image to a new region by importing it again, or you might want to extract the image outside of VPC for use in a different location, such as on premises. Charges might be incurred for storing images in {{site.data.keyword.cos_full_notm}}. For more information, see [Billing](/docs/cloud-object-storage?topic=cloud-object-storage-billing).
+You can export a custom image to {{site.data.keyword.cos_full_notm}}. Later, you might want to copy the image to a new region by importing it again. Or, you might want to extract the image outside of VPC for use in a different location, such as on premises. Charges might be incurred for storing images in {{site.data.keyword.cos_full_notm}}. For more information, see [Billing](/docs/cloud-object-storage?topic=cloud-object-storage-billing).
 
 ### Prerequisites
 {: #custom-image-export-to-cos-prereqs}
@@ -419,6 +419,7 @@ curl -X PATCH \
 You can share an existing {{site.data.keyword.vpc_short}} custom image to an existing private catalog. If you don't already have a private catalog, see [Onboarding a virtual server image for VPC](/docs/account?topic=account-catalog-vsivpc-tutorial&interface=ui).
 
 The **Share image to private catalog** action is not available for the following images:
+
 * The image is already shared with a private catalog. An image in a private catalog can exist in only one version within one product offering in one private catalog. You must remove the image from the version it is in first before that image can be shared in a different version.
 * The image is encrypted.
 * The image is not an x86 image.
@@ -432,26 +433,26 @@ To share a custom image to a private catalog, complete the following steps.
 1. Click **Create catalog offering** to share the image to the private catalog.
 1. After the image is created, click **Validate image**.
 
-This process shares only the custom image to the private catalog. The validation process occurs within the private catalog. Clicking **Validate image** takes you to a new page and from this screen, you can start with [Step 3: Validate the virtual server image in Onboarding a virtual server image for VPC](/docs/account?topic=account-catalog-vsivpc-tutorial&interface=ui#catalog-vsivpc-review-images) to complete the validation process.
+This process shares the custom image only to the private catalog. The validation process occurs within the private catalog. Clicking **Validate image** takes you to a new page and from this screen, you can start with [Step 3: Validate the virtual server image in Onboarding a virtual server image for VPC](/docs/account?topic=account-catalog-vsivpc-tutorial&interface=ui#catalog-vsivpc-review-images) to complete the validation process.
 {: note}
 
 ## Sharing a custom image to a private catalog by using the CLI
 {: #sharing-custom-image-private-catalog-cli}
 {: cli}
 
-You can only share a custom image to a private catalog from {{site.data.keyword.vpc_short}} by using the UI. For more information about onboarding to a private catalog using the CLI, see [Onboarding software to your account](/docs/account?topic=account-create-private-catalog&interface=cli).
+You can share a custom image only to a private catalog from {{site.data.keyword.vpc_short}} by using the UI. For more information about onboarding to a private catalog by using the CLI, see [Onboarding software to your account](/docs/account?topic=account-create-private-catalog&interface=cli).
 
 ## Sharing a custom image to a private catalog by using the API
 {: #sharing-custom-image-private-catalog-api}
 {: api}
 
-You can only share a custom image to a private catalog from {{site.data.keyword.vpc_short}} by using the UI. For more information about onboarding to a private catalog using the API, see [Onboarding software to your account](/docs/account?topic=account-create-private-catalog&interface=api).
+You can share a custom image only to a private catalog from {{site.data.keyword.vpc_short}} by using the UI. For more information about onboarding to a private catalog by using the API, see [Onboarding software to your account](/docs/account?topic=account-create-private-catalog&interface=api).
 
 ## Sharing a custom image to a private catalog by using Terraform
 {: #sharing-custom-image-private-catalog-terraform}
 {: terraform}
 
-You can only share a custom image to a private catalog from {{site.data.keyword.vpc_short}} by using the UI. For more information about onboarding to a private catalog using the Terraform, see [Onboarding software to your account](/docs/account?topic=account-create-private-catalog&interface=terraform).
+You can share a custom image only to a private catalog from {{site.data.keyword.vpc_short}} by using the UI. For more information about onboarding to a private catalog by using the Terraform, see [Onboarding software to your account](/docs/account?topic=account-create-private-catalog&interface=terraform).
 
 ## Schedule a custom image lifecycle status change in the UI
 {: #schedule-ilm-status-change-ui}
@@ -498,11 +499,11 @@ You can change the lifecycle status of an {{site.data.keyword.vpc_short}} custom
 
 {{_include-segments/ilm-reset-image-lifecycle-status-api.md}}
 
-## Change the custom image lifecycle status using Terraform
+## Change the custom image lifecycle status by using Terraform
 {: #schedule-ilm-status-change-terraform}
 {: terraform}
 
-To make an immediate status change using Terraform, use the [`ibm_is_image_deprecate`](https://registry.terraform.io/providers/IBM-Cloud/ibm/latest/docs/resources/is_image_deprecate){: external} or [`ibm_is_image_obsolete`](https://registry.terraform.io/providers/IBM-Cloud/ibm/latest/docs/resources/is_image_obsolete){: external} resource commands. use one of the following examples. For the `name` variable, specify the name of the custom image for the status change.
+To make an immediate status change by using Terraform, use the [`ibm_is_image_deprecate`](https://registry.terraform.io/providers/IBM-Cloud/ibm/latest/docs/resources/is_image_deprecate){: external} or [`ibm_is_image_obsolete`](https://registry.terraform.io/providers/IBM-Cloud/ibm/latest/docs/resources/is_image_obsolete){: external} resource commands. use one of the following examples. For the `name` variable, specify the name of the custom image for the status change.
 
 You can make an immediate status change only if a future status change is not scheduled. To remove a scheduled status change, see [Remove a scheduled custom image lifecycle status change by using Terraform](/docs/vpc?topic=vpc-managing-custom-images&interface=terraform#schedule-ilm-reset-status-change-terraform). After you remove the scheduled status change, you can make an immediate status change.
 {: note}
@@ -543,13 +544,13 @@ To schedule a status change, use one of the following examples.
 
 For the `deprecation_at` or `obsolescence_at` attribute, specify a date in the ISO 8601 (`YYYY-MM-DDThh:mm:ss+hh:mm`) date and time format.
 
-* `YYYY` is the four digit year
-* `MM` is the two digit month
-* `DD` is the two digit day
+* `YYYY` is the four-digit year
+* `MM` is the two-digit month
+* `DD` is the two-digit day
 * `T` separates the date and time information
-* `hh` is the two digit hours
-* `mm` is the two digit minutes
-* `+hh:mm` or `-hh:mm` is the UTC time zone
+* `hh` is the two-digit hours
+* `mm` is the two-digit minutes
+* `+hh:mm` or `-hh:mm` is the Coordinated Universal Time time zone
 
 Thus, the date of 30 September 2023 at 8:00 PM in the North American Central Standard Time Zone (CST) would be `2023-09-30T20:00:00-06:00`
 
@@ -581,7 +582,7 @@ When scheduling the date and time, you can't use your current date and time. For
 
    If you want to change the `deprecation_at` and `obsolescence_at` date and time entries, you can run these commands again. The previous dates and times are replaced with the new dates and times.
 
-## Remove previously scheduled custom image lifecycle status using Terraform
+## Remove previously scheduled custom image lifecycle status by using Terraform
 {: #schedule-ilm-reset-status-change-terraform}
 {: terraform}
 
