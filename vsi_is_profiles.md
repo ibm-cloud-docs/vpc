@@ -294,7 +294,7 @@ The following Ultra High Memory profiles are available for x86-64 processors:
 ## GPU
 {: #gpu}
 
-The GPU profile family includes `-v100`, `-a100`, `-l4`, and `-l40S` and `-h100` profiles. The GPU profile family includes profiles with and without [instance storage](/docs/vpc?topic=vpc-instance-storage).
+The GPU  profile family includes profiles with and without [instance storage](/docs/vpc?topic=vpc-instance-storage).
 
 - GPU `-v100` profiles include 1 or 2 NVIDIA V100 PCIe 16 GB GPUs. All OS images are supported on these GPU profiles.
 - [Select availability]{: tag-green} GPU `-a100` profiles includes 8 NVIDIA A100 NVlink 80 GB GPUs. The a100 offering is available to select customers. This GPU profile supports only Linux OS images Ubuntu or RHEL.
@@ -340,12 +340,12 @@ See [Download drivers](https://www.nvidia.com/en-us/drivers/) to review the most
 ### Considerations for GPU profiles
 {: #considerations-gpu-profiles}
 
-When you create a `-v100`, `-a100`, `-h100`, `l4`, or `l40S` GPU profile, keep the following recommendations in mind.
+When you create a virtual server by using a GPU or accelerated profile, keep the following recommendations in mind.
 
 - During {{site.data.keyword.Bluemix_notm}} periodic maintenance, GPU workloads aren't secure live migrated. Instead, the virtual server instance is restarted. You are notified 30 days in advance of any maintenance where the virtual server instance restarts. For more information, see [Understanding cloud maintenance operations](/docs/vpc?topic=vpc-about-cloud-maintenance).
-- If you are using GPU profiles, you need to install the NVIDA driver onto your virtual server instance. For more information, see [Managing GPUs](/docs/vpc?topic=vpc-managing-gpus).
-- If you are using GPU profiles, you might need to install the CUDA toolkit onto your virtual server instance. For more information, see [Managing GPUs](/docs/vpc?topic=vpc-managing-gpus).
+- If you are using GPU profiles, you need to install the required software and drivers onto your virtual server instance. For more information, see [Managing GPUs and accelerators](/docs/vpc?topic=vpc-managing-gpus).
 - For more information about persistent storage options, see [Storage notes for profiles](#block-storage-notes-for-profiles).
+- For GPU profiles that contain instance storage, those block devices are attached as native NVMe drives instead of virtio block devices. The ordering of the instance storage drives with respect to storage volumes might differ.
 
 ## Storage Optimized
 {: #storageopt}
