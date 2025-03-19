@@ -52,11 +52,6 @@ As a service provider, follow these steps to get started:
 
 The following use cases show you the various ways you can use Private Path services.
 
-In all Private Path use cases, you can use ALB policy capabilities to direct Private Path service traffic. 
-{: note}
-
-
-
 ### Use case 1: Connecting a service to a single consumer
 {: #pps-use-case-1}
 
