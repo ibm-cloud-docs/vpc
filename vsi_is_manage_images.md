@@ -166,7 +166,7 @@ data "ibm_is_images" "image_name" {
 ## Exporting a custom image to {{site.data.keyword.cos_full_notm}}
 {: #custom-image-export-to-cos}
 
-You can export a custom image to {{site.data.keyword.cos_full_notm}}. Later, you might want to copy the image to a new region by importing it again. Or, you might want to extract the image outside of VPC for use in a different location, such as on premises. Charges might be incurred for storing images in {{site.data.keyword.cos_full_notm}}. For more information, see [Billing](/docs/cloud-object-storage?topic=cloud-object-storage-billing).
+You can export a custom image to {{site.data.keyword.cos_full_notm}}. Later, you might want to copy the image to a new region by importing it again. Or, you might want to extract the image outside of the VPC for use in a different location, such as on premises. Charges might be incurred for storing images in {{site.data.keyword.cos_full_notm}}. For more information, see [Billing](/docs/cloud-object-storage?topic=cloud-object-storage-billing).
 
 ### Prerequisites
 {: #custom-image-export-to-cos-prereqs}
@@ -554,7 +554,7 @@ For the `deprecation_at` or `obsolescence_at` attribute, specify a date in the I
 
 Thus, the date of 30 September 2023 at 8:00 PM in the North American Central Standard Time Zone (CST) would be `2023-09-30T20:00:00-06:00`
 
-When scheduling the date and time, you can't use your current date and time. For example, if it is 8:00 AM on June 12, then the scheduled date and time must be after 8:00 AM on June 12. If you define both the `deprecation_at` and `obsolescence_at` dates and times, the `obsolescence_at` date must be after the `deprecation_at` date and time.
+When you schedule the date and time, you can't use your current date and time. For example, if it is 8:00 AM on June 12, then the scheduled date and time must be after 8:00 AM on June 12. If you define both the `deprecation_at` and `obsolescence_at` dates and times, the `obsolescence_at` date must be after the `deprecation_at` date and time.
 
 * Schedule a status change to `deprecated`.
 
