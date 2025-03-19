@@ -55,7 +55,7 @@ The following use cases show you the various ways you can use Private Path servi
 In all Private Path use cases, you can use ALB policy capabilities to direct Private Path service traffic. 
 {: note}
 
-Private Path NLBs support defining an ALB as a pool member. Traffic passes from the client service, through the client VPE, to a provider’s Private Path NLB, to their Private Path NLB pool containing an ALB, which then applies policies to select an ALB pool member as the final traffic destination. For more information, see [Connecting an on-premises service to a consumer using an ALB in a Private Path NLB pool](/docs/vpc?topic=vpc-private-path-service-intro&interface=ui#pps-use-case-5).
+
 
 ### Use case 1: Connecting a service to a single consumer
 {: #pps-use-case-1}
