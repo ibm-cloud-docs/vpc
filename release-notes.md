@@ -2,7 +2,7 @@
 
 copyright:
   years: 2019, 2025
-lastupdated: "2025-03-18"
+lastupdated: "2025-03-19"
 
 keywords:
 
@@ -26,6 +26,13 @@ For more information about changes to the {{site.data.keyword.vpc_short}} comman
 
 ## March 2025
 {: #vpc-mar25}
+
+### 19 March 2025
+{: #vpc-mar1925}
+{: release-note}
+
+Intel Gaudi 3 accelerated virtual server profile now available in Washington DC (`us-east`) and Frankfurt (`eu-de`) regions (select availability)
+:   The Intel Gaudi 3 accelerated virtual server profile is now available in the Washington DC (`us-east`) and Frankfurt (`eu-de`) regions. The Intel Gaudi 3 profile runs on an [Intel Gaudi 3 AI Accelerator](https://www.intel.com/content/www/us/en/products/details/processors/ai-accelerators/gaudi.html){: external} that is tuned for AI workloads, including inferencing and fine tuning. For more information about the `gx3d-160x1792x8gaudi3` profile, see [GPU](/docs/vpc?topic=vpc-profiles&interface=ui#gpu) profiles and [Intel Gaudi 3 instance profiles](/docs/vpc?topic=vpc-accelerated-profile-family&interface=ui#gaudi-3-profiles).
 
 ### 17 March 2025
 {: #vpc-mar1725}

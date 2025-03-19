@@ -12,10 +12,10 @@ subcollection: vpc
 
 {{site.data.keyword.attribute-definition-list}}
 
-# Managing GPUs 
+# Managing GPUs and accelerators
 {: #managing-gpus}
 
-The GPU-enabled family of profiles provides on demand, cost-effective access to GPUs . GPUs  help to accelerate the processing time that is required for compute intensive workloads such as AI, machine learning, inferencing and more. To use the GPUs , make sure that you install the appropriate driver and associated toolkit for your workloads.
+The GPU-enabled family of profiles provides on demand, cost-effective access to GPUs and accelerators. GPUs and accelerators help to accelerate the processing time that is required for compute intensive workloads such as AI, machine learning, inferencing and more. To use the GPUs and accelerators, make sure that you install the appropriate driver and associated toolkit for your workloads.
 {: shortdesc}
 
 
@@ -33,6 +33,12 @@ For a Linux focused guide on installing the NVIDIA drivers, see the [NVIDIA Driv
 If you want to automate the installation of the drivers, you can use the [User data](/docs/vpc?topic=vpc-user-data) section of the virtual server. By using the user data field, you can input a script that issues the commands to install the NVIDIA drivers.
 {: tip}
 
+
+## Configuring a virtual server instance with an Intel Gaudi 3 AI Accelerator
+{: #provision-gaudi-3-on-vsi}
+
+1. Provision a [virtual server instance](/docs/vpc?topic=vpc-creating-virtual-servers) by choosing the Intel® Gaudi® 3 AI Accelerator [instance profile](/docs/vpc?topic=vpc-accelerated-profile-family&interface=ui#gaudi-3-vsi-profiles) in the Profile field. Stock and custom operating system images are supported.
+2. Install the Intel Gaudi 3 AI Accelerator software and drivers for your virtual server. To download the drivers, see [Intel Gaudi Driver and Software Installation](https://docs.habana.ai/en/latest/Installation_Guide/Driver_Installation.html){: external} page.
 
 
 ## Integrating drivers into a custom image from volume

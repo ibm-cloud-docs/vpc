@@ -15,8 +15,92 @@ subcollection: vpc
 # Accelerated profile family - Gen 3
 {: #accelerated-profile-family}
 
-The accelerated family of profiles provides on-demand, cost-effective access to  GPUs. GPUs  help to accelerate the processing time that is required for compute intensive workloads such as AI, machine learning, inferencing, and more.
+The accelerated family of profiles provides on-demand, cost-effective access to accelerators and GPUs. GPUs and accelerators help to accelerate the processing time that is required for compute intensive workloads such as AI, machine learning, inferencing, and more.
 {: shortdesc}
+
+## Intel Gaudi 3 instance profiles
+{: #gaudi-3-profiles}
+
+
+The Intel Gaudi 3 accelerated virtual server profiles are built atop 128 GB OAM-based Intel Gaudi 3 AI Accelerators. These accelerators are tuned for AI workloads, including inferencing and fine tuning. The solution is paired with the 5th Generation Intel® Xeon® Scalable processors.
+
+### Operating systems
+{: #gaudi-3-os}
+
+- Linux
+
+### Processor generation
+{: #gaudi-3-processor}
+
+- Intel 8568Y+ - 5th Generation Xeon® Scalable processor
+
+### Accelerator
+{: #gaudi-3-accelerator}
+
+- Intel Gaudi 3 AI Accelerator (128 GB OAM)
+
+
+### Availability
+{: #gaudi-3-availability}
+
+
+Status: Select Availability
+
+| Region                    | Universal zone    | Cluster network |
+| ------------------------  | -------------     | --------------- |
+| us-east  | `us-east-wdc06-a | No              |
+| eu-de    | `eu-de-fra02-a`                    | No              |
+{: caption="Table 1. Supported regions and zones" caption-side="bottom"}
+
+For more information about regions and universal zones, see [Regions](/docs/overview?topic=overview-locations#regions). You can review the assigned zone mapping for an account on the [VPC Infrastructure Overview](/infrastructure/overview#endpoints) page in the Endpoint section. The zone mapping shows how the zone corresponds to the universal zone name that represents the physical location.
+
+### Capabilities
+{: #gaudi-3-capabilities}
+
+- Core type: Dedicated
+- Dedicated host: No
+- Hyperthreading: Yes (SMT-2)
+- Secure boot: No
+- Confidential computing: No
+- Live migration: No
+- Instance storage: Yes
+- Internal AI Fabric: Yes
+   - 21 x 200 GbE for OAM-to-OAM connections
+- Cluster network capable: No
+
+### VM configuration
+{: #gaudi-3-vm-config}
+
+- Hardware type: q35
+- Cloud networking: virtio
+- Block boot volume: virtio
+- Block data volumes: virtio
+- Instance storage: NVMe
+
+### Instance profiles
+{: #gaudi-3-vsi-profiles}
+
+| Instance profile | vCPU / Cores | Memory (GiB)  | Bandwidth cap (Gbps) | Accelerators | Instance storage (GB) |
+|---------|---------|---------|---------|---------|--------- |
+| gx3d-160x1792x8gaudi3 | 160 / 80 | 1792 | 200 | 8x Intel Gaudi-3 (128 GB) | 8 x 3.2 TB |
+{: caption="Accelerated Intel profile options" caption-side="bottom"}
+
+This large profile likely requires that you open a support ticket to request a
+[quota increase](/docs/vpc?topic=vpc-quotas). Please review your quota levels,
+and determine if the account provisioning the resource requires a change to the quotas. Note that
+this server utilizes vCPU, RAM, instance storage and GPU quotas.
+{: important}
+
+### Limits
+{: #gaudi-3-limits}
+
+An instance has a limit for the number of volumes and virtual network interfaces that can be
+attached. This limit is based on the size of the instance.
+
+| Profile | Max volumes | Max vNICs |
+| --------------- | ----------- | --------- |
+| gx3d-160x1792x8gaudi3 | 15          | 15        |
+{: caption="Accelerated Intel family limits for maximum volumes, and maximum network interfaces" caption-side="bottom"}
 
 
 ## NVIDIA Hopper HGX instance profiles
