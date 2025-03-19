@@ -50,7 +50,7 @@ As a service provider, follow these steps to get started:
 ## Private Path service use cases
 {: #pps-use-cases}
 
-The following use cases show you the various ways you can use Private Path services.
+The following use cases show you the various ways you can use Private Path services. 
 
 ### Use case 1: Connecting a service to a single consumer
 {: #pps-use-case-1}
