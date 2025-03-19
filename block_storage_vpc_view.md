@@ -2,7 +2,7 @@
 
 copyright:
   years: 2019, 2025
-lastupdated: "2025-03-03"
+lastupdated: "2025-03-19"
 
 keywords:
 
@@ -96,9 +96,9 @@ The page has 3 tabs. By default, the Overview tab is selected for volume details
 {: caption="Volume details" caption-side="bottom"}
 
 The Actions menu selections change depending on whether the volume is a boot volume, an attached data volume, or an unattached data volume.
-- **Create snapshot** - you can create a snapshot from an attached data volume or a boot volume. For more information, see [Create a snapshot in the console](/docs/vpc?topic=vpc-snapshots-vpc-create&interface=ui#snapshots-vpc-create-ui).
+- **Create a snapshot** - you can create a snapshot from an attached data volume or a boot volume. For more information, see [Create a snapshot in the console](/docs/vpc?topic=vpc-snapshots-vpc-create&interface=ui#snapshots-vpc-create-ui).
 - **Create image** - you can create an image from a boot volume. For more information, see [Creating an image from a volume in the console](/docs/vpc?topic=vpc-create-ifv&interface=ui#create-image-from-volume-vpc-ui).
-- **Expand volume** - you can [Increase the size](/docs/vpc?topic=vpc-about-increasing-volume-capacity) of an attached volume in increments of 1 GB. For more information see [Increasing capacity of a data volume](/docs/vpc?topic=vpc-expanding-block-storage-volumes&interface=ui) and [Increasing capacity of a boot volume](/docs/vpc?topic=vpc-resize-boot-volumes&interface=ui).
+- **Expand volume** - you can [Increase the size](/docs/vpc?topic=vpc-about-increasing-volume-capacity) of an attached volume in increments of 1 GB. For more information, see [Increasing capacity of a data volume](/docs/vpc?topic=vpc-expanding-block-storage-volumes&interface=ui) and [Increasing capacity of a boot volume](/docs/vpc?topic=vpc-resize-boot-volumes&interface=ui).
 - **Edit IOPS profile** - you can change the performance characteristics of an attached data volume by increasing or decreasing IOPS by [editing the IOPS profile](/docs/vpc?topic=vpc-adjusting-volume-iops). |
 - **Delete** - you can delete an unattached volume. For more information, see [Deleting a data volume in the console](/docs/vpc?topic=vpc-managing-block-storage&interface=ui#delete).
 

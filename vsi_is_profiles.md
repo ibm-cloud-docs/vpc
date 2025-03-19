@@ -2,7 +2,7 @@
 
 copyright:
   years: 2019, 2025
-lastupdated: "2025-03-11"
+lastupdated: "2025-03-19"
 
 keywords: vsi, virtual server instances, profile, profiles, balanced, compute, memory, very high memory, ultra high memory, gpu storage optimized, confidential compute
 
@@ -18,7 +18,7 @@ subcollection: vpc
 When you provision {{site.data.keyword.vsi_is_full}}, you can select from seven families of profiles: Balanced, Compute, Memory, Ultra High Memory, Very High Memory, Storage Optimized, and GPU.
 
 A profile is a combination of instance attributes, such as the number of vCPUs, amount of RAM, network bandwidth, and default bandwidth allocation. The attributes define the size and capabilities of the virtual server instance that is provisioned. In the {{site.data.keyword.Bluemix_notm}} console, you can select the most recently used profile or click **View All Profiles** to choose the profile that best fits your needs.
-{: shortdesc}  
+{: shortdesc}
 
 For more information about SAP profiles, see [Intel Virtual Server certified profiles on VPC infrastructure for SAP HANA](/docs/sap?topic=sap-hana-iaas-offerings-profiles-intel-vs-vpc) and [Intel Virtual Server certified profiles on VPC infrastructure for SAP NetWeaver](/docs/sap?topic=sap-nw-iaas-offerings-profiles-intel-vs-vpc).
 
@@ -294,7 +294,7 @@ The following Ultra High Memory profiles are available for x86-64 processors:
 ## GPU
 {: #gpu}
 
-The GPU profile family includes `-v100`, `-a100`, `-l4`, and `-l40S` and `-h100` profiles. The GPU profile family includes profiles with and without [instance storage](/docs/vpc?topic=vpc-instance-storage).
+The GPU  profile family includes profiles with and without [instance storage](/docs/vpc?topic=vpc-instance-storage).
 
 - GPU `-v100` profiles include 1 or 2 NVIDIA V100 PCIe 16 GB GPUs. All OS images are supported on these GPU profiles.
 - [Select availability]{: tag-green} GPU `-a100` profiles includes 8 NVIDIA A100 NVlink 80 GB GPUs. The a100 offering is available to select customers. This GPU profile supports only Linux OS images Ubuntu or RHEL.
@@ -340,12 +340,12 @@ See [Download drivers](https://www.nvidia.com/en-us/drivers/) to review the most
 ### Considerations for GPU profiles
 {: #considerations-gpu-profiles}
 
-When you create a `-v100`, `-a100`, `-h100`, `l4`, or `l40S` GPU profile, keep the following recommendations in mind.
+When you create a virtual server by using a GPU or accelerated profile, keep the following recommendations in mind.
 
 - During {{site.data.keyword.Bluemix_notm}} periodic maintenance, GPU workloads aren't secure live migrated. Instead, the virtual server instance is restarted. You are notified 30 days in advance of any maintenance where the virtual server instance restarts. For more information, see [Understanding cloud maintenance operations](/docs/vpc?topic=vpc-about-cloud-maintenance).
-- If you are using GPU profiles, you need to install the NVIDA driver onto your virtual server instance. For more information, see [Managing GPUs](/docs/vpc?topic=vpc-managing-gpus).
-- If you are using GPU profiles, you might need to install the CUDA toolkit onto your virtual server instance. For more information, see [Managing GPUs](/docs/vpc?topic=vpc-managing-gpus).
+- If you are using GPU profiles, you need to install the required software and drivers onto your virtual server instance. For more information, see [Managing GPUs and accelerators](/docs/vpc?topic=vpc-managing-gpus).
 - For more information about persistent storage options, see [Storage notes for profiles](#block-storage-notes-for-profiles).
+- For GPU profiles that contain instance storage, those block devices are attached as native NVMe drives instead of virtio block devices. The ordering of the instance storage drives with respect to storage volumes might differ.
 
 ## Storage Optimized
 {: #storageopt}

@@ -12,13 +12,13 @@ subcollection: vpc
 
 {{site.data.keyword.attribute-definition-list}}
 
-# Managing image from a volume
+# Managing images from a volume
 {: #image-from-volume-vpc-manage}
 
 Custom images that are created from a volume are independent from the original volume. You can update the image and delete it as needed. You can delete the original volume and the custom image persists. You can schedule the deprecation and making the image obsolete in the console, from the CLI, or the API.
 {: shortdesc}
 
-## Scheduling a lifecycle status change for a custom image in the UI
+## Scheduling a lifecycle status change for a custom image by using the UI
 {: #ifv-schedule-ilm-status-change-ui}
 {: ui}
 
@@ -31,7 +31,7 @@ Use the following steps to schedule a single status change:
 Use the following steps to schedule the entire lifecycle of the image:
 {{_include-segments/image_complete_lifecycle_status.md}}
 
-## Changing a lifecycle status of a custom image from the CLI
+## Changing a lifecycle status of a custom image by using the CLI
 {: #ifv-schedule-ilm-status-change-cli}
 {: cli}
 
@@ -40,14 +40,14 @@ You can change the lifecycle status of an {{site.data.keyword.vpc_short}} image 
 
 {{_include-segments/ilm-change-image-lifecycle-status-cli.md}}
 
-## Removing previously scheduled lifecycle status change from the CLI
+## Removing previously scheduled lifecycle status change by using the CLI
 {: #ifv-reset-ilm-status-change-cli}
 {: cli}
 
 
 {{_include-segments/ilm-reset-image-lifecycle-status-cli.md}}
 
-## Changing the lifecycle status of a custom image with the API
+## Changing the lifecycle status of a custom image by using the API
 {: #ifv-schedule-ilm-status-change-api}
 {: api}
 
@@ -56,7 +56,7 @@ You can change the lifecycle status of an {{site.data.keyword.vpc_short}} image 
 
 {{_include-segments/ilm-change-image-lifecycle-status-api.md}}
 
-## Removing previously scheduled lifecycle status change with the API
+## Removing previously scheduled lifecycle status change by using the API
 {: #ifv-reset-ilm-status-change-api}
 {: api}
 
@@ -91,16 +91,16 @@ The time for the job to start is about 30 seconds. This time does not reflect tr
 
 You can cancel the image creation by deleting the image if the underlying job didn't start yet. For images in a _pending_ state, the `GET /images` API call returns an `image_request_queued` reason code. You can delete the pending image with a `DELETE /image{image_id}` request. Alternatively, you can use the [UI](/docs/vpc?topic=vpc-image-from-volume-vpc-manage&interface=ui#ifv-delete-ui) or [CLI](/docs/vpc?topic=vpc-image-from-volume-vpc-manage&interface=cli#ifv-delete-cli) to delete the image that is in a pending state.
 
-## Deleting a custom image in the UI
+## Deleting a custom image by using the UI
 {: #ifv-delete-ui}
 {: ui}
 
-Delete an image that was created from a volume from the list of custom images. You can delete images that are in pending state (while they are being created) and in available state.
+You can delete an image that was created from a volume from the list of custom images. You can delete images that are in pending state (while they are being created) and in available state.
 
-1. Go to the list of custom images. In the [{{site.data.keyword.cloud_notm}} console](/login){: external}, go to  the **Navigation Menu ![menu icon](../../icons/icon_hamburger.svg) > VPC Infrastructure ![VPC icon](../../icons/vpc.svg) > Compute > Images**.
+1. Go to the list of custom images. In the [{{site.data.keyword.cloud_notm}} console](/login){: external}, go to the **Navigation Menu ![menu icon](../../icons/icon_hamburger.svg) > VPC Infrastructure ![VPC icon](../../icons/vpc.svg) > Compute > Images**.
 2. On the **Custom images** tab, locate the image that you want to delete. From the **Actions** menu ![Actions icon](../icons/action-menu-icon.svg "Actions"), select **Delete**.
 
-## Deleting an image from volume from the CLI
+## Deleting an image from volume by using the CLI
 {: #ifv-delete-cli}
 {: cli}
 
@@ -118,7 +118,7 @@ Delete an image that was created from a volume from the list of custom images. Y
    ```
    {: pre}
 
-## Deleting an image from volume with the API
+## Deleting an image from volume by using the API
 {: #ifv-delete-api}
 {: api}
 
