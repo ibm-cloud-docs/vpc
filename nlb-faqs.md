@@ -2,7 +2,7 @@
 
 copyright:
   years: 2019, 2025
-lastupdated: "2025-01-29"
+lastupdated: "2025-03-20"
 
 keywords: load balancer, network, faqs
 
@@ -164,4 +164,4 @@ The default quota is 10 front-end listeners for a Private Path NLB. To increase 
 {: faq}
 {: support}
 
-The default quota is 150 virtual server instances in a back-end pool for a Private Path NLB. To increase this quota, [contact IBM Support](/unifiedsupport/cases/form){: external}.
+For more information, see [Quotas and service limits for Private Path network load balancers](/docs/vpc?topic=vpc-quotas#ppnlb-quotas). To increase the quota for your Private Path network load balancer, you must [create a support case](/docs/account?topic=account-open-case).
