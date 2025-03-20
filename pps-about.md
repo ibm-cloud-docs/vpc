@@ -75,7 +75,7 @@ First, a consumer's application connects to a VPE gateway in the consumer's VPCs
 ### Use case 3: Connecting a service to a customer within your VPC
 {: #pps-use-case-3}
 
-This diagram illustrates how to establish a Private Path service with connections to the VPE gateway of a consumer within your VPC. The main benefit of using a Private Path service within a single VPC is if you have a need for the performance and scalability of your Private Path network load balancer. 
+This diagram illustrates how to establish a Private Path service with connections to the VPE gateway of a consumer within your VPC. The main benefit of using a Private Path service within a single VPC is that it enhances the performance and scalability of a Private Path network load balancer. 
 
 First, a consumer's application connects to the consumer's VPE gateway within the provider's VPC. Then, the VPE gateway connects to the Private Path NLB in the provider's VPC. In turn, the Private Path NLB connects to the provider's service. The provider's service then responds to the consumer's request through DSR. This Private Path service activity is completely contained in a single region (US South) in an IBM Cloud private network.
 
