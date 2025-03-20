@@ -2,7 +2,7 @@
 
 copyright:
   years: 2022, 2025
-lastupdated: "2025-03-17"
+lastupdated: "2025-03-20"
 
 keywords: load balancer, public, listener, back-end, front-end, pool, round-robin, weighted, connections, methods, policies, APIs, access, ports
 
@@ -97,7 +97,7 @@ To create and configure {{site.data.keyword.nlb_full}} in the {{site.data.keywor
 {: #ppnlb-cli-creating-network-load-balancer}
 {: cli}
 
-The following example demonstrates creating a Private Path NLB by using using the CLI. In this example, the Private Path NLB is in front of one VPC virtual server instance (ID `0716_6acdd058-4607-4463-af08-d4999d983945`) running a TCP server that listens on port `9090`. The load balancer has a front-end listener, which allows secure access to the TCP server.
+The following example demonstrates creating a Private Path NLB by using the CLI. In this example, the Private Path NLB is in front of one VPC virtual server instance (ID `0716_6acdd058-4607-4463-af08-d4999d983945`) running a TCP server that listens on port `9090`. The load balancer has a front-end listener, which allows secure access to the TCP server.
 
 To create a Private Path NLB by using the CLI, follow these steps:
 
