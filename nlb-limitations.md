@@ -2,7 +2,7 @@
 
 copyright:
   years: 2018, 2025
-lastupdated: "2025-03-04"
+lastupdated: "2025-03-20"
 
 keywords:
 
@@ -31,7 +31,7 @@ The following lists contain known limitations for {{site.data.keyword.cloud}} {{
    * The only supported back-end targets are Virtual Network Function (VNF) instances. When APIs are used, the listener `port_min` and `port_max` is to be set to `1` and `65535` respectively; `port` is to be left empty.
    * Only one listener is supported.
    * The NLB and the VNF back-end targets must be in the same subnet.
-* The default load balancer quota is 50 per region. To increase the number, you must [create a support case](/docs/account?topic=account-open-case).
+* For quotas and service limits, see [Quotas and service limits for Network load balancers](/docs/vpc?topic=vpc-quotas#nlb-quotas). To increase the quota for your Private Path network load balancer, you must [create a support case](/docs/account?topic=account-open-case).
 * When you create a listener for a network load balancer, you can specify a `protocol` of `tcp` or `udp`. However, each listener in the network load balancer must have a unique `port`.
 * [Private NLB]{: tag-blue} The NLB service might add rules to custom routing tables to ensure service availability for some failure conditions. As a result, if the client is outside the zone and/or VPC of the NLB, you must add an ingress custom routing table to the VPC where the NLB resides with the proper traffic source selected.
 * [Private NLB]{: tag-blue} Depending on the location of the clients, you must ensure that ingress routing tables exist.
@@ -52,13 +52,10 @@ The following lists contain known limitations for {{site.data.keyword.cloud}} {{
 ## Known limitations for {{site.data.keyword.cloud}} Private Path network load balancers
 {: #limitations-private-path-network-load-balancers}
 
-* When you create a pool for a Private Path network load balancer and set the `failsafe_policy.action` value to `drop`, the request incorrectly fails with `400` (Bad Request).
-   * A workaround is to not specify the drop value, as drop is the default behavior.
-* The `failsafe_policy.action` value included in any response from a Private Path load balancer pool shows `fail` instead of `drop`. Likewise, the `failsafe_policy.actions` value included in any response from a Private Path load balancer profile show `fail` instead of `drop`.
 * Access to a Virtual Private Endpoint gateway associated with Private Path Network load balancer from Direct Link or Transit Gateway is not supported.
    * A workaround is to access an ALB that has the VPE as a member. Contact IBM Support for assistance with the details.
 * Private Path network load balancer pool members on Bare Metal are not supported (similar to Public and Private NLB)
-* Private Path network load balancer pool members must be running in a VPC Virtual Server Instance. On-prem members are not supported.
+* Private Path network load balancer pool members must be running in a VPC virtual server instance. On-prem members are not supported.
 * Access to Private Path network load balancer from remote regions is not supported. The consumer Virtual Private Endpoint gateway and the Private Path network load balancer instance must reside in same region. 
    * A workaround is to access an ALB in the remote region that has the VPE as member. Contact IBM Support for assistance with the details.
 * Access to Private Path network load balancers from CSE (classic) is not supported.
@@ -66,11 +63,10 @@ The following lists contain known limitations for {{site.data.keyword.cloud}} {{
 * UDP is not supported in datapath.
 * Autoscaler integration is not supported.
 * The maximal MTU for Private Path NLB traffic is `8500`.
-* Default Quotas and limits
-   * Number of load balancers in account per region: `50` (can be increased)
-   * Members in pool: `150` (can be increased)
-   * Pools in load balancer: `10` (can be increased)
-   * Listeners in load balancer: `10` (can be increased)
+* For quotas and service limits, see [Quotas and service limits for Private Path network load balancers](/docs/vpc?topic=vpc-quotas#ppnlb-quotas). To increase the quota for your Private Path network load balancer, you must [create a support case](/docs/account?topic=account-open-case).
+* When you create a pool for a Private Path network load balancer and set the `failsafe_policy.action` value to `drop`, the request incorrectly fails with `400` (Bad Request).
+   * A workaround is to not specify the drop value, as drop is the default behavior.
+* The `failsafe_policy.action` value included in any response from a Private Path load balancer pool shows `fail` instead of `drop`. Likewise, the `failsafe_policy.actions` value included in any response from a Private Path load balancer profile show `fail` instead of `drop`.
 
 ### Related link
 {: #nlb-limitations-related-links}
