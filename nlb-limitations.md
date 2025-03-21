@@ -55,7 +55,8 @@ The following lists contain known limitations for {{site.data.keyword.cloud}} {{
 * Access to a Virtual Private Endpoint gateway associated with Private Path Network load balancer from Direct Link or Transit Gateway is not supported.
    * A workaround is to access an ALB that has the VPE as a member. Contact IBM Support for assistance with the details.
 * Private Path network load balancer pool members on Bare Metal are not supported (similar to Public and Private NLB).
-* Private Path network load balancer pool members must be running in a VPC virtual server instance. On-prem members are not supported. 
+* Private Path network load balancer pool members must be running in a VPC virtual server instance. On-prem members are not supported.
+
 * Access to Private Path network load balancer from remote regions is not supported. The consumer Virtual Private Endpoint gateway and the Private Path network load balancer instance must reside in same region. 
    * A workaround is to access an ALB in the remote region that has the VPE as member. Contact IBM Support for assistance with the details.
 * Access to Private Path network load balancers from CSE (classic) is not supported.
