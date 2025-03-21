@@ -2,7 +2,7 @@
 
 copyright:
   years: 2022, 2025
-lastupdated: "2025-03-14"
+lastupdated: "2025-03-21"
 
 keywords: confidential computing, secure execution, logging for hyper protect virtual server for vpc
 
@@ -61,11 +61,10 @@ To provision an `ICL` instance from the Observability dashboard in the IBM Cloud
 1. [Log in to your IBM Cloud account.](https://cloud.ibm.com/login)
 2. [Provision an ICL instance](https://cloud.ibm.com/docs/cloud-logs?topic=cloud-logs-instance-provision&interface=ui). Choose a plan according to your requirements.
 
-
 Input parameters to be provided in `env` section of contract are:
 
 - [required] iamApiKey key for the service id. Generate and retrieve the API key from the service ID in IAM.
-  
+
 - [required] hostname of the service instance. Retrieve the Hostname from the ICL instance in the Endpoints section, labeled as the Public Ingress endpoint.
 
 - [optional] port of the service instance. That is 443.
@@ -78,9 +77,9 @@ Add these values in the `env` `logging` subsection of the contract as the follow
      logRouter:
        hostname: <host name of the service instance> /
        iamApiKey: <iamApiKey of the service instance> / xxxx
-       port: <port of the service instance(443).
+       port: <port of the service instance(443)>
 ```
-
+{: codeblock}
 
 Custom tags support characters from A-Z, a-z, 0-9, and a hyphen (-).
 {: Note}
