@@ -2,7 +2,7 @@
 
 copyright:
   years: 2020, 2025
-lastupdated: "2025-03-18"
+lastupdated: "2025-03-21"
 
 keywords:
 
@@ -58,7 +58,7 @@ For more information, see the [Private Path solution guide](/docs/private-path).
 ## Load balancer comparison chart
 {: #lb-comparison-chart}
 
-The following table provides a comparison of the types of load balancers.
+The following table provides a comparison of the types of load balancers. 
 
 | Feature | Application load balancer  \n (Public/Private)| Network load balancer  \n (Public/Private) | Network load balancer  \n (Private Path) |
 |------|-----|------|------|
