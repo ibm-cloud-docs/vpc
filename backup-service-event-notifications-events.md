@@ -1,8 +1,8 @@
 ---
 
 copyright:
-  years: 2022, 2024
-lastupdated: "2024-12-16"
+  years: 2022, 2025
+lastupdated: "2025-03-21"
 
 keywords: backup for VPC, backup service, backup plan, backup policy, restore, restore volume, restore data
 
@@ -65,7 +65,7 @@ Then, you can connect to {{site.data.keyword.en_short}} programmatically by call
 1. In the Connect to {{site.data.keyword.en_short}} side panel, review the source details for the connection, and provide a description.
 1. Select the resource group and the {{site.data.keyword.en_short}} service instance that you want to connect.
 
-   If an IAM authorization between IBM Cloud Backup for VPC and {{site.data.keyword.en_short}} doesn't exist in your account, follow the steps in [Enabling service-to-service authorization for Event Notifications](/docs/vpc?topic=vpc-backup-s2s-auth&interface=ui#backup-s2s-auth-procedure-en-ui) to set it up. AIM Admin role is required to set up authorizations.
+   If an IAM authorization between IBM Cloud Backup for VPC and {{site.data.keyword.en_short}} doesn't exist in your account, follow the steps in [Enabling service-to-service authorization for {{site.data.keyword.en_short}}](/docs/vpc?topic=vpc-backup-s2s-auth&interface=ui#backup-s2s-auth-procedure-en-ui) to set it up. AIM Admin role is required to set up authorizations.
 
 1. To confirm the connection, click **Save**.
 
@@ -118,13 +118,13 @@ resource "ibm_en_source" "en_source" {
   instance_guid = ibm_resource_instance.en_terraform_test_resource.guid
   name          = "EN Source for Backup jobs"
   source        = "crn:v1:bluemix:public:is:us-south:a/{{account_id}}::backup-policy:"
-  description   = "API source for Event Notifications destinations"
+  description   = "API source for {{site.data.keyword.en_short}} destinations"
   enabled       = true
 }
 ```
 {: codeblock}
 
-For more information, see [Working with Terraform in Event Notifications](/docs/event-notifications?topic=event-notifications-en-tera-workwith).
+For more information, see [Working with Terraform in {{site.data.keyword.en_short}}](/docs/event-notifications?topic=event-notifications-en-tera-workwith).
 
 ## Delivering notifications to select destinations
 {: #event-notifications-destinations}

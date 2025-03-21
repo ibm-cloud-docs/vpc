@@ -1,8 +1,8 @@
 ---
 
 copyright:
-  years: 2021, 2024
-lastupdated: "2024-11-05"
+  years: 2021, 2025
+lastupdated: "2025-03-21"
 
 keywords: file share, file storage, mount helper, mount target, mount path, secure connection, NFS
 
@@ -61,7 +61,7 @@ Follow these steps to mount a file share on an RHEL host. Examples are based on 
    ```
    {: pre}
 
-   See following example.
+   See the following example.
 
    ```sh
    mount -t nfs4 -o sec=sys,nfsvers=4.1 fsf-dal2433a-dz.adn.networklayer.com:/nxg_s_voll_246a9cb9-4679-4dc5-9522-4a7ed2575136 /mnt/test
@@ -143,7 +143,7 @@ Follow these steps to mount a file share on an RHEL host. Examples are based on 
        ```
        {: pre}
 
-       See following example.
+       See the following example.
        ```text
        fsf-dal2433a-dz.adn.networklayer.com:/nxg_s_voll_246a9cb9-4679-4dc5-9522-4a7ed2575136 /mnt/test nfs4 nfsvers=4.1,sec=sys,_netdev 0 0
        ```

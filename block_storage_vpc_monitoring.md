@@ -1,8 +1,8 @@
 ---
 
 copyright:
-  years: 2019, 2024
-lastupdated: "2024-11-05"
+  years: 2019, 2025
+lastupdated: "2025-03-21"
 
 keywords: Block Storage, boot volume, data volume, status, health state, monitoring, performance 
 
@@ -47,7 +47,7 @@ The following table shows the statuses that you might see when you create, view,
 | Failed  | A volume creation failed. | Inapplicable |
 | Pending | A volume is being created. | Inapplicable |
 | Pending deletion | A volume is being deleted. When you're unsure if the volume is deleted, verify this state. Attempting to delete a volume again while in this state results in a conflict error. | Inapplicable |
-| Updating | A volume's capacity is [expanding](/docs/vpc?topic=vpc-expanding-block-storage-volumes) or volume IOPS being [adjusted](/docs/vpc?topic=vpc-adjusting-volume-iops). | OK |
+| Updating | A volume's capacity is [expanding](/docs/vpc?topic=vpc-expanding-block-storage-volumes) or the volume IOPS is getting [adjusted](/docs/vpc?topic=vpc-adjusting-volume-iops). | OK |
 | Unusable | A volume is unusable because the customer root key (CRK) was [deleted](/docs/vpc?topic=vpc-vpc-encryption-managing#byok-delete-root-keys) or [disabled](/docs/vpc?topic=vpc-vpc-encryption-managing#byok-disable-root-keys). | Inapplicable |
 {: caption="Block Storage statuses" caption-side="bottom"}
 
@@ -58,7 +58,7 @@ Volume health states correspond with volume statuses. Table 2 describes the heal
 
 | Health State | Reason |
 |--------|-------------|
-| OK | A volume is performing at the expected I/O performance and capacity is sufficient. No network connection issues are present. Or the volume was restored from a snapshot (hydration is completed). |
+| OK | A volume is performing at the expected I/O performance and capacity is sufficient. No network connection issues are present. Or the volume is restored from a snapshot (and hydration is completed). |
 | Degraded | A volume is experiencing degraded performance for any of the following reasons: \n  - Volume data is being restored (hydrated) and the volume shows as degraded until hydration is completed. \n - Volume initialization from a snapshot failed, and the volume hydration failed. \n - Volume hydration is not started. \n - Volume hydration is paused. \n - The snapshot is in an unusable state. |
 | Inapplicable | The volume is being created. The volume creation failed. The volume is pending, pending deletion, or unusable. No health reasons are reported. |
 | Faulted | The volume is unreachable, inoperative, or entirely incapacitated. |
@@ -71,4 +71,4 @@ For more information about the health states and reason codes in the API, see th
 
 Boot and data volume performance is initially degraded when you restore them from a snapshot. During the restoration, your data is copied from {{site.data.keyword.cos_full}} to {{site.data.keyword.block_storage_is_short}}. After the restoration process is complete, full IOPS can be realized on the new volume.
 
-Restoring a boot volume from a "bootable" snapshot and then provisioning an instance with it results in slower performance because the restored boot volume is not yet fully hydrated (that is, fully provisioned). Performance is slower than creating an instance from a regular boot volume.
+Creating a boot volume from a "bootable" snapshot and then provisioning an instance with it results in slower performance. The slower performance is caused by the ongoing hydration process. The virtual server instance's performance is temporarily slower than it would be if you created the instance with a regular boot volume.
