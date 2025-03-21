@@ -60,7 +60,6 @@ For more information, see the [Private Path solution guide](/docs/private-path).
 
 The following table provides a comparison of the types of load balancers.
 
-
 | Feature | Application load balancer  \n (Public/Private)| Network load balancer  \n (Public/Private) | Network load balancer  \n (Private Path) |
 |------|-----|------|------|
 | [HA mode](/docs/vpc?topic=vpc-nlb-vs-elb#nlb-ha-mode) | Active-Active (with multiple virtual IPs (VIPs) assigned to a DNS name) | Active-Standby (with single VIP) | Active-Active (Regional HA) |

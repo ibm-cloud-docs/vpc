@@ -2,7 +2,7 @@
 
 copyright:
   years: 2023, 2025
-lastupdated: "2025-03-14"
+lastupdated: "2025-03-21"
 
 keywords:
 
@@ -187,9 +187,7 @@ To create a Private Path service by using the API, follow these steps:
       {: pre}
 
 
-1. When all variables are initiated, do one of the following:
-
-   * To create a private path service:
+1. When all variables are initiated, to create a private path service:
 
       ```sh
       curl -X POST -sH "Authorization:${iam_token}" \
