@@ -1,8 +1,8 @@
 ---
 
 copyright:
-  years: 2021, 2024
-lastupdated: "2024-11-05"
+  years: 2021, 2025
+lastupdated: "2025-03-21"
 
 keywords: file share, file storage, mount helper, mount target, mount path, secure connection, NFS
 
@@ -60,7 +60,7 @@ Mount a file share on a CentOS host by following these steps. The examples are b
    ```
    {: pre}
 
-   See following example.
+   See the following example.
 
    ```sh
    mount -t nfs4 -o sec=sys,nfsvers=4.1 fsf-dal2433a-dz.adn.networklayer.com:/nxg_s_voll_246a9cb9-4679-4dc5-9522-4a7ed2575136 /mnt/test
@@ -111,7 +111,7 @@ Mount a file share on a CentOS host by following these steps. The examples are b
        ```
        {: pre}
 
-       See following example.
+       See the following example.
        ```sh
        host fsf-dal2433a-dz.adn.networklayer.com
        fsf-dal2433a-dz.adn.networklayer.com has address 203.0.113.0
@@ -127,7 +127,7 @@ Mount a file share on a CentOS host by following these steps. The examples are b
        ```
        {: pre}
 
-       See following example.
+       See the following example.
        ```text
        198.51.100.0 fsf-dal2433a-dz.adn.networklayer.com
        ```
@@ -139,7 +139,7 @@ Mount a file share on a CentOS host by following these steps. The examples are b
        ```
        {: pre}
 
-       See following example.
+       See the following example.
        ```text
        fsf-dal2433a-dz.adn.networklayer.com:/nxg_s_voll_246a9cb9-4679-4dc5-9522-4a7ed2575136 /mnt/test nfs4 nfsvers=4.1,sec=sys,_netdev 0 0
        ```
@@ -164,7 +164,7 @@ By default, NFS downgrades any files that were created with the root permissions
 
 By configuring `no_root_squash`, root clients can retain root permissions on the remote NFS file share.
 
-For NFSv4.1, set the nfsv4 domain to: `slnfsv4.com`, and start `rpcidmapd` or a similar service that is used by your OS. See following example.
+For NFSv4.1, set the nfsv4 domain to: `slnfsv4.com`, and start `rpcidmapd` or a similar service that is used by your OS. See the following example.
 
 1. From the host, set the domain setting in `/etc/idmapd.conf`.
 

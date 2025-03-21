@@ -2,7 +2,7 @@
 
 copyright:
   years: 2022, 2025
-lastupdated: "2025-03-18"
+lastupdated: "2025-03-21"
 
 keywords: Backup for VPC, backup service, backup plan, backup policy, restore, restore volume, restore data, faqs
 
@@ -105,7 +105,7 @@ Pricing of subsequent backups can also increase or decrease when you [increase s
 
 The fast restore feature is billed at an extra hourly rate for each zone that it is enabled in regardless of the size of the snapshot. Maintaining fast restore clones is considerably more costly than keeping regular snapshots.
 
-You can use the Cost estimator ![Cost estimator icon](../icons/calculator.svg "Cost estimator") in {{site.data.keyword.cloud_notm}} console to see how changes in the stored volume affect the cost. For more information, see [Estimating your costs](/docs/account?topic=account-cost).     
+You can use the Cost estimator ![Cost estimator icon](../icons/calculator.svg "Cost estimator") in the console to see how the changes in the stored volume affect the cost. For more information, see [Estimating your costs](/docs/account?topic=account-cost).     
 
 ## Can I use data backups for disaster recovery?
 {: faq}
@@ -129,7 +129,7 @@ You can't create independent copies of file share backups in another region beca
 {: faq}
 {: #faq-baas-crc-existing-snapshot}
 
-No. If you update your backup policy plan to create copies of your automated backup snapshot in another region, that action applies to upcoming backup snapshots. The next time the backup service creates a snapshot, that snapshot is copied to the remote region.
+No. If you update your backup policy plan to create copies of your automated backup snapshot in another region, that action applies to upcoming backup snapshots. The next time that the backup service creates a snapshot, that snapshot is copied to the remote region.
 
 ## How does the retention policy affect my remote copies?
 {: faq}
@@ -171,13 +171,13 @@ For more information about working with {{site.data.keyword.en_short}}, see [Get
 {: faq}
 {: #faq-baas-en-s2s}
 
-You need to create a service-to-service authorization between the Backup for VPC service (source service) and {{site.data.keyword.en_short}} (target service). Set the service access level to `Event Source Manager`. For more information, see [Enabling service-to-service authorization for Event Notifications](/docs/vpc?topic=vpc-backup-s2s-auth&interface=ui#backup-s2s-auth-procedure-en-ui){: ui}[Enabling service-to-service authorization for Event Notifications](/docs/vpc?topic=vpc-backup-s2s-auth&interface=cli#backup-s2s-auth-procedure-en-cli){: cli}[Enabling service-to-service authorization for Event Notifications](/docs/vpc?topic=vpc-backup-s2s-auth&interface=api#backup-s2s-auth-procedure-en-api){: api}[Enabling service-to-service authorization for Event Notifications](/docs/vpc?topic=vpc-backup-s2s-auth&interface=terraform#backup-s2s-auth-procedure-en-terraform){: terraform}.
+You need to create a service-to-service authorization between the Backup for VPC service (source service) and {{site.data.keyword.en_short}} (target service). Set the service access level to `Event Source Manager`. For more information, see [Enabling service-to-service authorization for {{site.data.keyword.en_short}}](/docs/vpc?topic=vpc-backup-s2s-auth&interface=ui#backup-s2s-auth-procedure-en-ui){: ui}[Enabling service-to-service authorization for {{site.data.keyword.en_short}}](/docs/vpc?topic=vpc-backup-s2s-auth&interface=cli#backup-s2s-auth-procedure-en-cli){: cli}[Enabling service-to-service authorization for {{site.data.keyword.en_short}}](/docs/vpc?topic=vpc-backup-s2s-auth&interface=api#backup-s2s-auth-procedure-en-api){: api}[Enabling service-to-service authorization for {{site.data.keyword.en_short}}](/docs/vpc?topic=vpc-backup-s2s-auth&interface=terraform#backup-s2s-auth-procedure-en-terraform){: terraform}.
 
 ## Can I receive notifications if backup jobs fail in a different region?
 {: faq}
 {: #faq-baas-en-location}
 
-{{site.data.keyword.en_short}} are supported in Dallas (`us-south`), London (`eu-gb`), Frankfurt (`eu-de`), Sydney (`au-syd`), Madrid (`eu-es`), Toronto (`ca-tor`), Osaka (`jp-osa`) and 
+{{site.data.keyword.en_short}} are supported in Dallas (`us-south`), London (`eu-gb`), Frankfurt (`eu-de`), Sydney (`au-syd`), Madrid (`eu-es`), Toronto (`ca-tor`), Osaka (`jp-osa`), and 
 Tokyo (`jp-tok`). For more information, see [Getting started with {{site.data.keyword.en_short}}](/docs/event-notifications?topic=event-notifications-getting-started). 
 
 For locations that don't currently support {{site.data.keyword.en_short}}, the notifications can be routed to another region. For more details, see the following table.

@@ -2,7 +2,7 @@
 
 copyright:
   years: 2021, 2025
-lastupdated: "2025-01-17"
+lastupdated: "2025-03-21"
 
 keywords: file share, file storage, sysdig, platform metrics
 
@@ -25,7 +25,7 @@ With {{site.data.keyword.mon_full}}, you can view utilization metrics that measu
 
 You can view platform metrics when you enable {{site.data.keyword.mon_full_notm}} on your {{site.data.keyword.cloud_notm}} platform. A monitoring instance must be configured in a region to monitor these metrics. For more information, see [Enabling platform metrics](/docs/monitoring?topic=monitoring-platform_metrics_enabling).
 
-Before you enable {{site.data.keyword.mon_full_notm}} on your platform, keep in mind:
+Before you enable {{site.data.keyword.mon_full_notm}} on your platform, keep in mind the following points.
 
 * You can configure only one instance of the {{site.data.keyword.mon_full_notm}} service per region to collect platform metrics.
 * Platform metrics are regional. Metrics are monitored only from {{site.data.keyword.mon_full_notm}} services, which are in the same region of the instance that you want to monitor.
@@ -68,7 +68,7 @@ It can take some time until all the metrics are displayed after the monitoring i
 ### Launching Sysdig web UI from the {{site.data.keyword.filestorage_vpc_short}} details page
 {: #sysdig-view-ui}
 
-To launch the Sysdig web UI from your {{site.data.keyword.filestorage_vpc_short}} share details page:
+To launch the Sysdig web UI from your {{site.data.keyword.filestorage_vpc_short}} share details page complete the following steps.
 1. In the {{site.data.keyword.cloud_notm}} console, go to the **Navigation menu** ![menu icon](../../icons/icon_hamburger.svg) **> Infrastructure** ![VPC icon](../../icons/vpc.svg) **> Storage > File storage shares**.
 2. Click the name of a file share that you want to monitor.
 3. Click the **Monitoring** tab in the File share details page. On this tab, you can see the graphs for share usage, total throughput, and total IOPS. These graphs are available to you at no cost, even without an {{site.data.keyword.mon_full_notm}} instance.
@@ -78,7 +78,7 @@ To launch the Sysdig web UI from your {{site.data.keyword.filestorage_vpc_short}
 ### Launching Sysdig web UI from the Observability page
 {: #sysdig-view-ob}
 
-To launch the Sysdig web UI from the Observability page:
+To launch the Sysdig web UI from the Observability page, complete the following steps.
 1. In the {{site.data.keyword.cloud_notm}} console, go to the **Navigation menu** ![menu icon](../../icons/icon_hamburger.svg) > **Observability**.
 2. Click **Monitoring**.
 3. Select the monitoring instance, and click **Open dashboard**.
@@ -86,12 +86,12 @@ To launch the Sysdig web UI from the Observability page:
 ## Predefined dashboard for {{site.data.keyword.filestorage_vpc_short}}
 {: #sysdig-dashboards}
 
-When you launch the file share dashboard, you can see graphs that show the following metrics:
+When you launch the file share dashboard, you can see the graphs that show the following metrics:
 
-- Share usage: available capacity, used capacity, total capacity
-- Throughput: read, write, and maximum throughput
-- IOPS: read, write, maximum
-- Snapshot space: available and used capacity for snapshots. 
+* Share usage - available capacity, used capacity, total capacity
+* Throughput - read, write, and maximum throughput
+* IOPS - read, write, maximum
+* Snapshot space - available and used capacity for snapshots. 
 
 The displayed metrics contain a timestamp in UNIX epoch time and the metric value for the time intervals that end at that timestamp. You can specify different scopes, and the time interval over which to report the metrics. The following time intervals are supported in the {{site.data.keyword.mon_full_notm}} dashboard:
 
@@ -118,17 +118,17 @@ The following metrics help track the IO activity and throughput that is handled 
 
 |Name                           | Description|
 |-------------------------------|------------|
-| ibm_is_share_throughput_read  | Current read throughput | 
-| ibm_is_share_throughput_write | Current write throughput | 
-| ibm_is_share_throughput_max   | Maximum throughput configured on the share |
-| ibm_is_share_iops_read        | Current read IOPS|
-| ibm_is_share_iops_write       | Current write IOPS| 
-| ibm_is_share_iops_max         | Maximum IOPS configured on the share 
-| ibm_is_share_capacity_total   | Total allocated capacity|
-| ibm_is_share_capacity_used    | Current used capacity| 
-| ibm_is_share_mount_targets_count | Number of Share mount targets |
-| ibm_is_share_snapshot_capacity_used  | Current capacity used by snapshots |
-| ibm_is_share_snapshot_capacity_total  | Available capacity for snapshots. |
+| `ibm_is_share_throughput_read`  | Current read throughput | 
+| `ibm_is_share_throughput_write` | Current write throughput | 
+| `ibm_is_share_throughput_max`   | Maximum throughput configured on the share |
+| `ibm_is_share_iops_read`       | Current read IOPS|
+| `ibm_is_share_iops_write`       | Current write IOPS| 
+| `ibm_is_share_iops_max`         | Maximum IOPS configured on the share 
+| `ibm_is_share_capacity_total`   | Total allocated capacity|
+| `ibm_is_share_capacity_used`    | Current used capacity| 
+| `ibm_is_share_mount_targets_count` | Number of Share mount targets |
+| `ibm_is_share_snapshot_capacity_used`  | Current capacity used by snapshots |
+| `ibm_is_share_snapshot_capacity_total`  | Available capacity for snapshots. |
 {: caption="Information about share metrics." caption-side="bottom"}
 
 ### Example of file share metrics
@@ -161,17 +161,17 @@ Each metric is composed of the following metadata types:
 
 | Metric name                           | Metric Type  | Metric value type |
 |---------------------------------------|--------------|-------------------|
-| ibm_is_share_throughput_read          | Gauge        |Floating point     | 
-| ibm_is_share_throughput_write         | Gauge        |Floating point     | 
-| ibm_is_share_throughput_max           | Gauge        |Floating point     | 
-| ibm_is_share_iops_read                | Gauge        |Integer            | 
-| ibm_is_share_iops_write               | Gauge        |Integer            | 
-| ibm_is_share_iops_max                 | Gauge        |Integer            | 
-| ibm_is_share_capacity_total           | Gauge        |Floating point     | 
-| ibm_is_share_capacity_used            | Gauge        |Floating point     | 
-| ibm_is_share_mount_targets_count      | Gauge        |Integer            |
-| ibm_is_share_snapshot_capacity_used  | Gauge  |Floating point |
-| ibm_is_share_snapshot_capacity_total | Gauge  |Floating point |
+| `ibm_is_share_throughput_read`          | Gauge        |Floating point     | 
+| `ibm_is_share_throughput_write`         | Gauge        |Floating point     | 
+| `ibm_is_share_throughput_max`           | Gauge        |Floating point     | 
+| `ibm_is_share_iops_read`                | Gauge        |Integer            | 
+| `ibm_is_share_iops_write`               | Gauge        |Integer            | 
+| `ibm_is_share_iops_max`                 | Gauge        |Integer            | 
+| `ibm_is_share_capacity_total`          | Gauge        |Floating point     | 
+| `ibm_is_share_capacity_used`            | Gauge        |Floating point     | 
+| `ibm_is_share_mount_targets_count`      | Gauge        |Integer            |
+| `ibm_is_share_snapshot_capacity_used`  | Gauge  |Floating point |
+| `ibm_is_share_snapshot_capacity_total` | Gauge  |Floating point |
 {: caption="Available metrics" caption-side="bottom"}
 
 ## Attributes for segmentation
