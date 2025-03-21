@@ -2,7 +2,7 @@
 
 copyright:
   years: 2023, 2025
-lastupdated: "2025-03-06"
+lastupdated: "2025-03-21"
 
 keywords: sgx, intel sgx, software guard extension, confidential computing, trusted execution environment, TEE, data protection
 
@@ -14,30 +14,30 @@ subcollection: vpc
 {{site.data.keyword.attribute-definition-list}}
 
 # Confidential computing for x86 Virtual Servers for VPC
-{: #about-sgx-vpc}
+{: #about-confidential-computing-vpc}
 
 [Select availability]{: tag-green}
 
-Confidential computing is a new technology that offers technical assurances that customer workloads and data are confidential and protected from everyone including the Cloud Service Provider(CSP).
+Confidential computing is a new technology that offers technical assurances that workloads and data are confidential and protected from everyone including the Cloud Service Provider (CSP).
 {: shortdesc}
 
 Confidential computing with Intel SGX for VPC is available only in the Dallas (us-south) and Frankfurt (eu-de) regions. Confidential computing with Intel TDX for VPC is available for select customers. Contact IBM Sales if you are interested in being allowlisted and using this offering.  Confidential computing with Intel TDX for VPC is available only in the Washington DC (us-east) region. Confidential computing is only available with select profiles. For more information, see [SGX-compatible profiles](/docs/vpc?topic=vpc-about-sgx-vpc&interface=ui#compatible-profiles-confidential-computing-vpc-sgx).
 {: preview}
 
 ## Confidential computing with Intel Trusted Domain Extension (TDX)
-{: #confidential-computing-vpc-tdx}
+{: #confidential-computing-vpc-with-tdx}
 
- Confidential computing with Intel Trust Domain Extensions(TDX) offers confidentiality to virtual machines by providing CPU enhancements that are leveraged by the firmware and hardware to provide confidentiality and integrity. Everything within the virtual machine is confidential and can't be eavesdropped. Also, everything within the virtual machine is integrity protected and can't be tampered. For more information about TDX, see [Intel Trust Domain Extensions](https://www.intel.com/content/www/us/en/developer/tools/trust-domain-extensions/overview.html){: external}.
+Confidential computing with Intel Trust Domain Extensions(TDX) offers confidentiality to virtual machines by providing CPU enhancements that are leveraged by the firmware and hardware to provide confidentiality and integrity. Everything within the virtual machine is confidential and can't be eavesdropped. Also, everything within the virtual machine is integrity protected and can't be tampered. For more information about TDX, see [Intel Trust Domain Extensions](https://www.intel.com/content/www/us/en/developer/tools/trust-domain-extensions/overview.html){: external}.
 
 ## Confidential computing with Intel Software Guard Extensions (SGX)
-{: #confidential-computing-vpc-sgx}
+{: #confidential-computing-vpc-with-sgx}
 
 Confidential computing with Intel&reg; Software Guard Extensions (SGX) protects your data through hardware-based server security by using isolated memory regions that are known as encrypted enclaves. This hardware-based computation helps protect your data from disclosure or modification. Which means that your sensitive data is encrypted while it is in virtual server instance memory by allowing applications to run in private memory space. To use SGX, you must install the platform software on SGX-capable worker nodes. Then, design your app to run in an SGX environment. While your sensitive data is inside an encrypted enclave, your data is split into trusted and untrusted parts. While the trusted parts are used in the encrypted enclave, the CPU denies all other access to the enclave regardless of access privileges. The data is guarded from internal and external threats and can't be stolen or sabottaged.
 
 When you use confidential computing with SGX, your data is protected through the entire compute lifecycle. Which means that your data is accessible only to authorized code and is invisible to anyone or anything else, including the operating system and {{site.data.keyword.cloud}}.
 
 ### SGX and TDX are trusted execution environments (TEE)
-{: #tee-sgx-vpc}
+{: #trusted-execution-environments-vpc}
 
 Both SGX and TDX use a trusted execution environment (TEE). TEE is a secure area of the main processor that provides a higher level of data security for trusted data and applications.
 
@@ -46,12 +46,12 @@ A TEE sets up an isolated, secure area of the main processor on a device that is
 So, all Intel SGXs and TDxs are TEEs, but not all TEEs are Intel SGXs or TDXs.
 
 ## Attestation
-{: #attestation-sgx-vpc}
+{: #attestation-confidential-computing-vpc}
 
 When you develop a confidential computing SGX application, you must design it so you can segment the information that needs confidentiality. At run time, the segmented information is kept in encrypted enclaves. The confidential information is loaded into the encrypted enclaves, only after the encrypted enclaves proves its authenticity through a process called attestation. For more information about attestation with Intel SGX and TDX, see [Attestation with Intel SGX or TDX and Data Center Attestation Primitives (DCAP)](/docs/vpc?topic=vpc-about-attestation-sgx-dcap-vpc).
 
 ## Confidential computing with SGX and TDX use cases
-{: #scenarios-sgx-vpc}
+{: #confidential-computing-scenarios-vpc}
 
 The following are some of the use cases for confidential computing with SGX and TDX.
 
@@ -64,7 +64,7 @@ The following are some of the use cases for confidential computing with SGX and 
 * **Digital Assets** is the trusted platform for digital custody solutions, for storing and transferring high-value digital assets in highly secure wallets, reliable at scale.
 
 ## SGX and TDX compatible profiles
-{: #compatible-profiles-confidential-computing-vpc-sgx}
+{: #compatible-profiles-confidential-computing-vpc}
 
 The following profiles support SGX.
 
@@ -84,7 +84,7 @@ SGX and TDX profiles might experience slightly longer start times, approximately
 For more information about profiles, see [x86-64 instance profiles](/docs/vpc?topic=vpc-profiles).
 
 ## Limitations
-{: #limitations-confidential-computing-vpc-sgx}
+{: #limitations-confidential-computing-vpc}
 
 Keep the following limitations in mind if you want to use SGX or TDX.
 
