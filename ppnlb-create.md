@@ -2,7 +2,7 @@
 
 copyright:
   years: 2022, 2025
-lastupdated: "2025-03-20"
+lastupdated: "2025-03-21"
 
 keywords: load balancer, public, listener, back-end, front-end, pool, round-robin, weighted, connections, methods, policies, APIs, access, ports
 
@@ -297,7 +297,7 @@ To create a Private Path NLB with the API, follow these steps:
     ```
     {: pre}
 
-   * `vsiId` - Second, get the virtual server instance that is in the same VPC as the subnet's:
+   * `vsiId`  Second, get the virtual server instance that is in the same VPC as the subnet's:
 
     ```bash
     export vsiId=<your_vsi_id>

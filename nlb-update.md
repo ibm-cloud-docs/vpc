@@ -2,7 +2,7 @@
 
 copyright:
   years: 2020, 2025
-lastupdated: "2025-03-14"
+lastupdated: "2025-03-21"
 
 keywords: network load balancer, public, listener, back-end, front-end, pool, round-robin, weighted, connections, methods, policies, APIs, access, ports, vpc network, update
 
@@ -97,7 +97,7 @@ To update an NLB by using the API, perform the following procedure:
 1. Set up your [API environment](/docs/vpc?topic=vpc-set-up-environment#api-prerequisites-setup).
 1. Use the following example to get the listener ID that you need for the update:
 
-   Save the ID of the load balancer
+   Save the ID of the load balancer.
 
    ```bash
    export lbid="0738-dd754295-e9e0-4c9d-bf6c-58fbc59e5727"
