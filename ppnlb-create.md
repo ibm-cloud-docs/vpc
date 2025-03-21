@@ -76,12 +76,12 @@ To create and configure {{site.data.keyword.nlb_full}} in the {{site.data.keywor
      {: tip}
 
    * **Subnet**: Choose a subnet.
-   * From the list of servers, select the servers that you want to attach to the back-end pool. Ensure that you specify valid values for each server port.
+   * From the list of servers, select the servers that you want to attach to the back-end pool. Ensure that you specify valid values for each server port. 
 
-      You can attach up to 50 virtual server instances to a back-end pool, though your Private Path load balancer provides regional availability and is resilient to zone failure even if a single subnet is selected.
+      Although you can attach more than one virtual server instance to a back-end pool, your Private Path load balancer provides regional availability and is resilient to zone failure even if a single subnet is selected.
       {: note}
 
-    You do not need to create multiple Private Path load balancers or specify more than a single subnet to ensure resiliency to zone failure. Your subnet selection only impacts the IP-addresses associated with the load balancer.
+    You do not need to create multiple Private Path load balancers or specify more than a single subnet to ensure resiliency to zone failure. Your subnet selection only impacts the IP-addresses associated with the load balancer. For more information on how many virtual server instances you can attach to a back-end pool, see [Quotas and service limits for Private Path network load balancers](/docs/vpc?topic=vpc-quotas#ppnlb-quotas).
 
    You can edit attached members by clicking the Edit icon ![Edit icon](images/edit.png) in the row of the member you want to edit in the back-end pools table. You can also delete attached members by selecting the minus icon in the row of the member you want to delete.
    {: tip}
