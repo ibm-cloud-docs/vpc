@@ -84,8 +84,8 @@ toc:
                label: Confidential computing with x86 on VPC
                topics:
                - about-sgx-confidential-computing.md
-               - sgx-dcap-attestation.md
                - create-sgx-virtual-server.md
+               - sgx-dcap-attestation.md
            - topicgroup:
                label: Confidential computing with LinuxONE
                topics:
