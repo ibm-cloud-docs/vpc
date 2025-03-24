@@ -2,7 +2,7 @@
 
 copyright:
   years: 2022, 2025
-lastupdated: "2025-03-21"
+lastupdated: "2025-03-24"
 
 keywords: backup for VPC, backup service, backup plan, backup policy, restore, restore volume, restore data
 
@@ -118,7 +118,7 @@ resource "ibm_en_source" "en_source" {
   instance_guid = ibm_resource_instance.en_terraform_test_resource.guid
   name          = "EN Source for Backup jobs"
   source        = "crn:v1:bluemix:public:is:us-south:a/{{account_id}}::backup-policy:"
-  description   = "API source for {{site.data.keyword.en_short}} destinations"
+  description   = "API source for Event notification destinations"
   enabled       = true
 }
 ```

@@ -2,7 +2,7 @@
 
 copyright:
   years: 2024, 2025
-lastupdated: "2025-03-19"
+lastupdated: "2025-03-24"
 
 keywords: vsi, virtual server, virtual server instances, profile, profiles, gpu, accelerated, h100, h200, l4, l40s
 
@@ -48,7 +48,7 @@ Status: Select Availability
 
 | Region                    | Universal zone    | Cluster network |
 | ------------------------  | -------------     | --------------- |
-| us-east  | `us-east-wdc06-a | No              |
+| us-east  | `us-east-wdc06-a` | No              |
 | eu-de    | `eu-de-fra02-a`                    | No              |
 {: caption="Table 1. Supported regions and zones" caption-side="bottom"}
 
