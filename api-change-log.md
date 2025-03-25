@@ -2,7 +2,7 @@
 
 copyright:
   years: 2019, 2025
-lastupdated: "2025-03-04"
+lastupdated: "2025-03-25"
 
 keywords: api, change log, new features, restrictions, migration
 
@@ -55,6 +55,18 @@ To prepare for this change, verify that your client checks that the `volume` pro
 
 The new response code will be rolled out gradually. Each phase of the rollout will be tied to a dated API version. These changes will be announced in future change log updates.
 {: note}
+
+## 25 March 2025
+{: #25-march-2025}
+
+### For all version dates
+{: #25-march-2025-all-version-dates}
+
+**Adjustable bandwidth for block storage volumes.** You can now specify the `bandwidth` property when [creating a volume](/apidocs/vpc/latest#create-volume) with a profile that supports adjustable bandwidth. The specified `bandwidth` will set the maximum bandwidth for a volume. You can also specify the `bandwidth` property when [creating an instance](/apidocs/vpc/latest#create-instance) with volume attachments. Additionally, you can [update a volume](/apidocs/vpc/latest#update-volume) to change the `bandwidth` property after volume creation.
+
+When [retrieving](/apidocs/vpc/latest#get-volume-profile) or [listing](/apidocs/vpc/latest#list-volume-profiles) volume profiles, the response now includes a `bandwidth` property, which indicates whether the profile supports adjustable bandwidth, and the range of supported values. Presently, only volume profiles with a `storage_generation` of `2` support adjustable bandwidth. For more information, see [Adjusting throughput limit of a Block Storage for VPC volumes](/docs/vpc?topic=vpc-adjusting-volume-throughput). See also [Storage known issues](/docs/vpc?topic=vpc-known-issues#gen1-bandwidth-property-dependent).
+
+**Intel accelerator instance profiles.** When [creating an instance](/apidocs/vpc/latest#create-instance), you can now specify a `profile` for a server with accelerators manufactured by Intel, such as `gx3d-160x1792x8gaudi3`. Accordingly, when [retrieving](/apidocs/vpc/latest#get-instance) or [listing instances]/apidocs/vpc/latest#list-instances), the response may also include a new `gpu.manufacturer` property value of `intel`. Similarly, when [retrieving](/apidocs/vpc/latest#get-instance-profile) or [listing instance profiles](/apidocs/vpc/latest#list-instance-profiles), the response may also include a `gpu_manufacturer.values` property value of `intel`. For more information, see [Intel Gaudi 3 instance profiles](/docs/vpc?topic=vpc-accelerated-profile-family&interface=ui#gaudi-3-profiles).
 
 ## 4 March 2025
 {: #4-march-2025}

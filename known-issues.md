@@ -1,8 +1,8 @@
 ---
 
 copyright:
-  years: 2018, 2024
-lastupdated: "2024-12-17"
+  years: 2018, 2025
+lastupdated: "2025-03-25"
 
 keywords:
 
@@ -125,3 +125,8 @@ The `source_snapshot` property is present in the API response when a share is cr
 {: #backup-policy-plan-fs}
 
 When details of a snapshot are retrieved, the API response shows the property name `backup_plan_id` instead of `backup_policy_plan`. A fix for this issue is planned.
+
+### The Bandwidth property of first-generation volumes profiles incorrectly displays `dependent_range`
+{: #gen1-bandwidth-property-dependent}
+
+When details of first-generation volume profiles are retrieved, the responses show the bandwidth type incorrectly as `dependent_range`. The correct value is `dependent` because the bandwidth value is automatically assigned by the system, and that value can't be changed manually or programmatically. 
