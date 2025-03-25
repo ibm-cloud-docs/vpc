@@ -82,7 +82,7 @@ Input parameters to be provided in the `env` section are:
    - For public network ICL access: Select **Public ingress endpoint** section as hostname in the contract.
    - For private network ICL access: Select **Private ingress endpoint** section as hostname in the contract.
 
-   You must create a virtual private endpoint (VPE) gateway for ICL to access {{site.data.keyword.logs_full_notm}} privately. For more information, see [Using virtual private endpoints for VPC to privately connect to {{site.data.keyword.logs_full_notm}}](https://cloud.ibm.com/docs/vpc?topic=vpc-logging-for-hyper-protect-virtual-servers-for-vpc). 
+   You must create a virtual private endpoint (VPE) gateway for ICL to access {{site.data.keyword.logs_full_notm}} privately. For more information, see [Using virtual private endpoints for VPC to privately connect to {{site.data.keyword.logs_full_notm}}](https://cloud.ibm.com/docs/cloud-logs?topic=cloud-logs-vpe-connection&interface=cli). 
    {: note}
 
 - `iamApiKey`: The IAM API key for the service id. Generate and retrieve the API key from the service ID in IAM.
