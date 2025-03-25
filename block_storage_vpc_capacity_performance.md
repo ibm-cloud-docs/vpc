@@ -2,7 +2,7 @@
 
 copyright:
   years: 2019, 2025
-lastupdated: "2025-02-28"
+lastupdated: "2025-03-25"
 
 keywords:
 
@@ -67,3 +67,5 @@ The following example shows how throughput decreases for smaller average I/O siz
 * 16 KB * 6000 IOPS == ~94 MBps
 * 8 KB * 6000 IOPS == ~47 MBps
 * 4 KB * 6000 IOPS == ~23 MBps
+
+If you want to improve the performance of your storage volume without changing the IO size, you can adjust the IOPS value. This might require increasing the capacity of your volume, too. For more information, see [Adjusting IOPS of a block storage volume](/docs/vpc?topic=vpc-adjusting-volume-iops&interface=ui). You can't adjust the throughput limit of a first-generation volume directly.

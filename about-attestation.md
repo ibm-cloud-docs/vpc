@@ -2,7 +2,7 @@
 
 copyright:
   years: 2022, 2025
-lastupdated: "2025-03-17"
+lastupdated: "2025-03-25"
 
 keywords: confidential computing, enclave, secure execution, hpcr, hyper protect virtual server for vpc
 
@@ -66,6 +66,7 @@ Use the following procedure to validate the attestation record and hashes:
 
 
 * Verify the signature of the attestation record:
+
    ```sh
    openssl sha256 -verify contract-public-key.pub -signature se-signature.bin se-checksums.txt
    ```
@@ -113,10 +114,12 @@ PASSWORD=$(openssl pkeyutl -decrypt -inkey "$RSA_PRIV_KEY" -in "$PASSWORD_ENC")
 
 # decrypt message
 echo -n "$PASSWORD" | openssl aes-256-cbc -d -pbkdf2 -in "$MESSAGE_ENC" -pass stdin --out se-checksums.txt
+
 ```
 {: codeblock}
 
 In the case of a docker container, the `decrypt-attestation.sh` file can be accessed by mounting `/var/hyperprotect` in the docker container. For example,
+
 ```sh
  volumes:
       - "/var/hyperprotect/:/var/hyperprotect/:ro"
@@ -124,6 +127,7 @@ In the case of a docker container, the `decrypt-attestation.sh` file can be acce
 {: codeblock}
 
 In the case of a Podman container, the `decrypt-attestation.sh` file can be accessed by mounting `/var/hyperprotect` in the Podman container. For example,
+
 ```sh
  volumeMounts:
      - name: attestation
@@ -138,6 +142,7 @@ In the case of a Podman container, the `decrypt-attestation.sh` file can be acce
 The attestation document is available at `/var/hyperprotect/se-checksums.txt`, within the {{site.data.keyword.hpvs}} for VPC instance. The other related files are also located in the same directory.
 
 The following information is available at the `/var/hyperprotect/` directory:
+
 ```sh
 /var/hyperprotect/
 |-- cidata
@@ -151,12 +156,14 @@ The following information is available at the `/var/hyperprotect/` directory:
 {: codeblock}
 
 Checksums are the SHA256 of the message digest and can be calculated by using the following Linux command-line utility:
+
 ```sh
 sha256sum <file>
 ```
 {: pre}
 
 The following snippet is an example of an attestation document:
+
 ```text
 25.3.0
 Machine Type/Plant/Serial: 8561/02/5C5E8
@@ -184,36 +191,42 @@ fbde59ab43b7e14a8dafb304557b068ada88de9394e8c90202abe3495f359993 contract:worklo
 The `baseimage` is the IBM internal QEMU Copy On Write Version 2 (QCOW2) file, which is used as the source for most of the operating system files of the Hyper Protect Container Runtime image. It is used only at image build time by the enabler process. The enabler uses this source together with other Debian packages to create the `root.tar.gz` and the encrypted secure execution kernel or 'initrd' image.
 
 Following is the shasum of the ibm-hyper-protect-container-runtime-1-0-s390x-21 `baseimage`:
+
 ```sh
 538170f79b7bd44553847e81afce7ae14c8ea8857df243e4f8656c9d06d42c18 baseimage
 ```
 {: pre}
 
 Following is the shasum of the ibm-hyper-protect-container-runtime-1-0-s390x-20 `baseimage`:
+
 ```sh
 080f817231fe4bc40021d24e20af9f1135a36711047212f9374664b86ab406ac baseimage
 ```
 {: pre}
 
 The following is the shasum of the ibm-hyper-protect-container-runtime-1-0-s390x-19 `baseimage`:
+
 ```sh
 b3fb54a3bb57fcbba070c456d7394fb5e7a4f9b1febaec0efc32c5aa0e325071 baseimage
 ```
 {: pre}
 
 The following is the shasum of the ibm-hyper-protect-container-runtime-1-0-s390x-18 `baseimage`:
+
 ```sh
 f9940321d043d133ddf2f22cd4794bc56be9d54b2e9c7893a6d6a4813635024c baseimage
 ```
 {: pre}
 
 The following is the shasum of the ibm-hyper-protect-container-runtime-1-0-s390x-17 and ibm-hyper-protect-container-runtime-1-0-s390x-16 `baseimage`:
+
 ```sh
 f9940321d043d133ddf2f22cd4794bc56be9d54b2e9c7893a6d6a4813635024c baseimage
 ```
 {: pre}
 
 The following is the shasum of the ibm-hyper-protect-container-runtime-1-0-s390x-15 `baseimage`:
+
 ```sh
 4330056bbbf5d53d48fa167f0f46bf4501b8ee42bd926e1a8b6c25d210cd1baf baseimage
 ```
@@ -227,12 +240,14 @@ The following is the shasum of the ibm-hyper-protect-container-runtime-1-0-s390x
 The `root.tar.gz` is part of the final secure execution enabled IBM Hyper Protect Container Runtime image and contains all operating system files. It is stored on the image's first partition (boot partition) as `/boot/root.tar.gz`.
 
 Following is the shasum of the ibm-hyper-protect-container-runtime-1-0-s390x-21 `root.tar.gz`.
+
 ```sh
 024ff109be23e1e4e7b9f07dc553afc60a5a93645939eedf2a936930cc8a44ae root.tar.gz
 ```
 {: pre}
 
 Following is the shasum of the ibm-hyper-protect-container-runtime-1-0-s390x-20 `root.tar.gz`.
+
 ```sh
 ad65a3820d4a233c84e6d201ce537b8020435ccefe26682809da5ef9b176b8ae root.tar.gz
 ```
@@ -240,6 +255,7 @@ ad65a3820d4a233c84e6d201ce537b8020435ccefe26682809da5ef9b176b8ae root.tar.gz
 
 
 Following is the shasum of the ibm-hyper-protect-container-runtime-1-0-s390x-19 `root.tar.gz`.
+
 ```sh
 d8e069345618143ce0948044cab27ba52ffc53eaba987d353bb5ab59f3ad2390 root.tar.gz
 ```
@@ -247,18 +263,21 @@ d8e069345618143ce0948044cab27ba52ffc53eaba987d353bb5ab59f3ad2390 root.tar.gz
 
 
 Following is the shasum of the ibm-hyper-protect-container-runtime-1-0-s390x-18 `root.tar.gz`.
+
 ```sh
 4802242b82dce78d11c4b02129a9b9c1e62598b1cb8073f8e7b097449644bbb4 root.tar.gz
 ```
 {: pre}
 
 Following is the shasum of the ibm-hyper-protect-container-runtime-1-0-s390x-17 and ibm-hyper-protect-container-runtime-1-0-s390x-16 `root.tar.gz`.
+
 ```sh
 4802242b82dce78d11c4b02129a9b9c1e62598b1cb8073f8e7b097449644bbb4 root.tar.gz
 ```
 {: pre}
 
 Following is the shasum of the ibm-hyper-protect-container-runtime-1-0-s390x-15 `root.tar.gz`.
+
 ```sh
 0bf377eea1136f03cbd5fbb1f2d12bb9a40a3e9f97a8438196b549fdafd0786e root.tar.gz
 ```
@@ -275,6 +294,7 @@ The `/dev/disk/by-label/cidata` is a block device that is attached to the runnin
 {: #cidata}
 
 All the files in `cidata` copied are from the `/dev/disk/by-label/cidata` block device that is provided by VPC.
+
 ```sh
 e033c938bf6bd79f50b50d54d577c2909b4304c633501e3d67c5eb6b49570be2 cidata/meta-data
 1ca7ac0518344d5e7646d41fa768dad0deaf402576e44e2a0f9c298538ade3da cidata/user-data
@@ -286,6 +306,7 @@ cb0535727a27ffe986bce98de8eb1b2c1fafb8033e19b783eefe107b7cc61f65 cidata/vendor-d
 {: #attest_pubkey}
 
 The `attestationPublicKey` is the public key that you provide which is used to encrypt the attestation document. The `attestationPublicKey` is part of the user-data file. Encrypting the attestation document is optional.
+
 ```sh
 a344bd0107382a6e019a0789dc2c43c75ea21342489a8800aa2e5ba140e5d820 contract:attestationPublicKey
 ```
@@ -299,6 +320,7 @@ If user data contains a public RSA key (attribute: attestationPublicKey), then t
 The encrypted attestation document is then named `se-checksums.txt.enc`.
 
 In the case of a docker container, the `decrypt-attestation.sh` file can be accessed by mounting `/var/hyperprotect` in the docker container. For example,
+
 ```sh
  volumes:
       - "/var/hyperprotect/:/var/hyperprotect/:ro"
@@ -306,6 +328,7 @@ In the case of a docker container, the `decrypt-attestation.sh` file can be acce
 {: codeblock}
 
 In the case of a Podman container, the `decrypt-attestation.sh` file can be accessed by mounting `/var/hyperprotect` in the Podman container. For example,
+
 ```sh
  volumeMounts:
      - name: attestation

@@ -96,26 +96,26 @@ Check logs in Log Analysis if your instance shuts down.
           hostname: syslog-a.eu-gb.logging.cloud.ibm.com
           ingestionKey: xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx
           port: 6514
-    volumes:
-      test:
-        kms:
-          - apiKey: "xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx"
-            crn: "crn:v1:bluemix:public:hs-crypto:us-south:a/xxxxxxxxxxxx:xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx:key:xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxx"
-            type: "public"
-          - apiKey: "xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx"
-            crn: "crn:v1:bluemix:public:hs-crypto:us-south:a/xxxxxxxxxxxxx:xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxx:key:xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxx"
-            type: "private"
-        seed:"seed1"
-        kmsTimeout: 10
-        apiKey: "L4SsSE32xxxxxjAgfHCVkdW8xl_CiqMn4Lpc1dzTD"
-    signingKey: "xxxxxxxxx"
+      volumes:
+        test:
+          kms:
+            - apiKey: "xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx"
+              crn: "crn:v1:bluemix:public:hs-crypto:us-south:a/xxxxxxxxxxxx:xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx:key:xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxx"
+              type: "public"
+            - apiKey: "xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx"
+              crn: "crn:v1:bluemix:public:hs-crypto:us-south:a/xxxxxxxxxxxxx:xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxx:key:xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxx"
+              type: "private"
+          seed:"seed1"
+          kmsTimeout: 10
+          apiKey: "L4SsSE32xxxxxjAgfHCVkdW8xl_CiqMn4Lpc1dzTD"
+      signingKey: "xxxxxxxxx"
 
     workload: |
-    volumes:
-      test:
-        mount: "/mnt/data"
-        seed: "seed2"
-        filesystem: "ext4"
+      volumes:
+        test:
+          mount: "/mnt/data"
+          seed: "seed2"
+          filesystem: "ext4"
     ```
     {: codeblock}
 

@@ -1,8 +1,8 @@
 ---
 
 copyright:
-  years: 2022, 2024
-lastupdated: "2024-09-23"
+  years: 2022, 2025
+lastupdated: "2025-03-25"
 
 keywords:
 
@@ -36,7 +36,7 @@ When you provision a virtual server on your VPC, you need to select an image to 
 * [s390x virtual server images](/docs/vpc?topic=vpc-vsabout-images)
 * [Bare metal server images](/docs/vpc?topic=vpc-bare-metal-image)
 
-All available stock images can be found in **Navigation Menu** icon![Navigation Menu icon](../icons/icon_hamburger.svg) **> Infrastructure** ![VPC icon](../../icons/vpc.svg) **> Compute **> Images **> Stock images**.
+All available stock images can be found in **Navigation Menu** icon![Navigation Menu icon](../icons/icon_hamburger.svg) **> Infrastructure** ![VPC icon](../../icons/vpc.svg) **> Compute** **> Images** **> Stock images**.
 
 When you use an {{site.data.keyword.IBM_notm}} stock image, you must apply the latest security patches and any updates that are provided by the operating system vendor. After you provision a virtual server, it is your responsibility to continue to regularly make package updates for the operating system.
 {: important}

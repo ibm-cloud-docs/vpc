@@ -2,7 +2,7 @@
 
 copyright:
   years: 2018, 2025
-lastupdated: "2025-03-13"
+lastupdated: "2025-03-25"
 
 keywords:
 
@@ -191,7 +191,7 @@ Each route has a destination property, which includes a prefix length (`/24` in 
 | Resource | Quota |
 |----------|-------|
 | Boot and secondary volumes | 300 total VPC volumes per region. |
-| Snapshots and backup snapshots | Up to 750 snapshots per volume in a region.|
+| Snapshots and backup snapshots | Up to 750 snapshots per first-generation storage volume in a region.|
 {: caption="Quotas for Block Storage volumes and snapshots" caption-side="bottom"}
 
 ### File shares and snapshots

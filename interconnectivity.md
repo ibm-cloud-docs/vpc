@@ -1,8 +1,8 @@
 ---
 
 copyright:
-  years: 2020, 2024
-lastupdated: "2024-10-10"
+  years: 2020, 2025
+lastupdated: "2025-03-24"
 
 keywords: peering, interconnectivity, interconnect
 
@@ -96,7 +96,7 @@ Benefits of these interconnectivity offerings include:
 ## Routing considerations for IANA-registered IP assignments
 {: #routing-considerations-iana}
 
-{{site.data.keyword.cloud_notm}} VPC supports the use of RFC-1918 and Regional Internet Registry (RIR) assigned addresses privately as VPC subnets. The following use cases require additional route configurations to designate the Internet Assigned Numbers Authority (IANA) assigned ranges for use in a VPC when a floating IP or a public gateway is attached to a resource within the VPC.
+{{site.data.keyword.cloud_notm}} VPC supports the use of RFC-1918 assigned addresses privately as VPC subnets. The following use cases require additional route configurations to designate the Internet Assigned Numbers Authority (IANA) assigned ranges for use in a VPC when a floating IP or a public gateway is attached to a resource within the VPC.
 
 * Use case 1: VPC is connected to your Enterprise with {{site.data.keyword.cloud_notm}} Direct Link and requires communication with IANA-assigned networks on that Enterprise.
 * Use case 2: VPC is connected to another VPC through {{site.data.keyword.cloud_notm}} Transit Gateway and requires communication to IANA-assigned networks in the connected VPCs.

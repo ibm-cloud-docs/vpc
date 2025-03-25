@@ -2,12 +2,11 @@
 
 copyright:
   years: 2023, 2025
-lastupdated: "2025-03-21"
+lastupdated: "2025-03-24"
 
 keywords: sgx, intel sgx, software guard extension, confidential computing, trusted execution environment, TEE, data protection
 
 subcollection: vpc
-
 
 ---
 
@@ -21,7 +20,7 @@ subcollection: vpc
 Confidential computing is a new technology that offers technical assurances that workloads and data are confidential and protected from everyone including the Cloud Service Provider (CSP).
 {: shortdesc}
 
-Confidential computing with Intel SGX for VPC is available only in the Dallas (us-south) and Frankfurt (eu-de) regions. Confidential computing with Intel TDX for VPC is available for select customers. Contact IBM Sales if you are interested in being allowlisted and using this offering.  Confidential computing with Intel TDX for VPC is available only in the Washington DC (us-east) region. Confidential computing is only available with select profiles. For more information, see [SGX-compatible profiles](/docs/vpc?topic=vpc-about-sgx-vpc&interface=ui#compatible-profiles-confidential-computing-vpc-sgx).
+Confidential computing with Intel SGX for VPC is available only in the Dallas (us-south) and Frankfurt (eu-de) regions. Confidential computing with Intel TDX for VPC is available for select customers. Contact IBM Sales if you are interested in being allowlisted and using this offering.  Confidential computing with Intel TDX for VPC is available only in the Washington DC (us-east) region. Confidential computing is only available with select profiles. For more information, see [SGX-compatible profiles](/docs/vpc?topic=vpc-about-confidential-computing-vpc&interface=ui#compatible-profiles-confidential-computing-vpc-sgx).
 {: preview}
 
 ## Confidential computing with Intel Trusted Domain Extension (TDX)

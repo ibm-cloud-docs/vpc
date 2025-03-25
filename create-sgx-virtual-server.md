@@ -2,7 +2,7 @@
 
 copyright:
   years: 2023, 2025
-lastupdated: "2025-03-21"
+lastupdated: "2025-03-24"
 
 keywords: sgx, intel sgx, software guard extension, confidential computing, trusted execution environment, TEE, data protection
 
@@ -21,7 +21,7 @@ subcollection: vpc
 You can create one or more virtual server instances with SGX or TDX in your {{site.data.keyword.cloud}} VPC.
 {: shortdesc}
 
-Confidential computing with Intel SGX for VPC is available only in the Dallas (us-south) and Frankfurt (eu-de) regions. Confidential computing with Intel TDX for VPC is available for select customers. Contact IBM Sales if you are interested in using this offering. Confidential computing with Intel TDX for VPC is available only in the Washington DC (us-east) region. Confidential computing is only available with select profiles. For more information, see [SGX-compatible profiles](/docs/vpc?topic=vpc-about-sgx-vpc&interface=ui#compatible-profiles-confidential-computing-vpc-sgx).
+Confidential computing with Intel SGX for VPC is available only in the Dallas (us-south) and Frankfurt (eu-de) regions. Confidential computing with Intel TDX for VPC is available for select customers. Contact IBM Sales if you are interested in using this offering. Confidential computing with Intel TDX for VPC is available only in the Washington DC (us-east) region. Confidential computing is only available with select profiles. For more information, see [SGX-compatible profiles](/docs/vpc?topic=vpc-about-confidential-computing-vpc&interface=ui#compatible-profiles-confidential-computing-vpc-sgx).
 {: preview}
 
 ## Creating a virtual server with confidential computing
@@ -36,7 +36,7 @@ Make sure that you created a VPC.
 1. Click **Create** and select or enter the following information.
 1. Select a location.
 1. Enter a unique name for your virtual server instance.
-1. Select an available image. For more information about SGX- or TDX-supported images, see [Limitations](/docs/vpc?topic=vpc-about-sgx-vpc#limitations-confidential-computing-vpc-sgx).
+1. Select an available image. For more information about SGX- or TDX-supported images, see [Limitations](/docs/vpc?topic=vpc-about-confidential-computing-vpc#limitations-confidential-computing-vpc-sgx).
 1. Select an SGX- or TDX-supported profile by clicking **Confidential computing**. Keep in mind that only the Balanced _bx3dc_ profiles and Compute _cx3dc_ profiles support SGX or TDX.
 1. Click **Save**.
 1. SGX is the default value. Keep the SGX confidential computing value or select TDX confidential computing. Secure boot is automatically enabled. Keep in mind that you can enable secure boot without enabling either SGX or TDX, but you can't enable SGX or TDX without enabling secure-boot.
