@@ -27,6 +27,13 @@ For more information about changes to the {{site.data.keyword.vpc_short}} comman
 ## March 2025
 {: #vpc-mar25}
 
+### 25 March 2025
+{: #vpc-mar2525}
+{: release-note}
+
+{{site.data.keyword.logs_full_notm}} private endpoint support for HPVS logging
+:   {{site.data.keyword.logs_full_notm}} private endpoint support is now added for HPVS logging. For more information, see [{{site.data.keyword.logs_full_notm}} (ICL)](/docs/vpc?topic=vpc-logging-for-hyper-protect-virtual-servers-for-vpc#cloud-logs-provision-instance-ui_exmpl).
+
 ### 19 March 2025
 {: #vpc-mar1925}
 {: release-note}
