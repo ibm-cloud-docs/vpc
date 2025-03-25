@@ -2,7 +2,7 @@
 
 copyright:
   years: 2022, 2025
-lastupdated: "2025-03-24"
+lastupdated: "2025-03-25"
 
 keywords: confidential computing, enclave, secure execution, hpcr, contract, customization, schema, contract schema, env, workload, encryption
 
@@ -246,10 +246,10 @@ In the `play` subsection, you can define the workload through [Pod descriptors](
    env: |
      type: env
      logging:
-       logDNA:
-       ingestionKey: <ingestion Key of the Log Analysis instance>
-       hostname: <host name of the Log Analysis instance>
-       port: 6514
+       logRouter:
+         hostname: 34be57c7-6ff2-4685-8839-903921e90ab9.ingress.jp-tok.logs.cloud.ibm.com
+         iamApiKey: <iamApiKey of the service instance> / xxxx
+         port: 443
      env:
        REGISTRY: docker-io/test
    ```
@@ -573,10 +573,10 @@ The following snippet is an example of the `ICL` subsection:
 ```yaml
  env:
    logging:
-     logDNA:
-       hostname: syslog-a.eu-gb.logging.cloud.ibm.com
-       ingestionKey: xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx
-       port: 6514
+     logRouter:
+       hostname: <host name of the service instance> /
+       iamApiKey: <iamApiKey of the service instance> / xxxx
+       port: <port of the service instance(443)
 ```
 {: codeblock}
 
@@ -608,10 +608,10 @@ When you use multiple volumes, the deployer must ensure that the volumes are cre
 ```yaml
  env: |
    logging:
-     logDNA:
-       hostname: syslog-a.eu-gb.logging.cloud.ibm.com
-       ingestionKey: xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx
-       port: 6514
+     logRouter:
+       hostname: 34be57c7-6ff2-4685-8839-903921e90ab9.ingress.jp-tok.logs.cloud.ibm.com
+       iamApiKey: xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx
+       port: 443
    volumes:
      test1:
        apiKey: "L4SsSE32xxxxxjAgfHCVkdW8xl_CiqMn4Lpc1dzTD"
@@ -703,15 +703,11 @@ The encryption and attestation certificates are signed by the IBM intermediate c
 
    | Image version| Certificate link | Encryption cert expiry date | Deprecation date | Obsolete Date |
    | -------- | ----------- | ----------- | ----------- | ----------- |
+   | `ibm-hyper-protect-container-runtime-1-0-s390x-22` | [Certificate](https://hpvsvpcubuntu.s3.us.cloud-object-storage.appdomain.cloud/s390x-22/ibm-hyper-protect-container-runtime-1-0-s390x-22-encrypt.crt){: external} | 26 February 2026 |   |   |
    | `ibm-hyper-protect-container-runtime-1-0-s390x-21` | [Certificate](https://public.dhe.ibm.com/systems/hyper-protect/se-header/ibm-hyper-protect-container-runtime-1-0-s390x-21-encrypt.crt){: external} | 26 February 2026 |   |   |
    | `ibm-hyper-protect-container-runtime-1-0-s390x-20` | [Certificate](https://cloud.ibm.com/media/docs/downloads/hyper-protect-container-runtime/ibm-hyper-protect-container-runtime-1-0-s390x-20-encrypt.crt){: external} | 02 September 2025 |   |   |
    | `ibm-hyper-protect-container-runtime-1-0-s390x-19` | [Certificate](https://cloud.ibm.com/media/docs/downloads/hyper-protect-container-runtime/ibm-hyper-protect-container-runtime-1-0-s390x-19-encrypt.crt){: external} | 02 September 2025 |   |   |
    | `ibm-hyper-protect-container-runtime-1-0-s390x-18` | [Certificate](https://cloud.ibm.com/media/docs/downloads/hyper-protect-container-runtime/ibm-hyper-protect-container-runtime-1-0-s390x-18-encrypt.crt){: external} | 04 July 2025 |   |   |
-   | `ibm-hyper-protect-container-runtime-1-0-s390x-17` | [Certificate](https://cloud.ibm.com/media/docs/downloads/hyper-protect-container-runtime/ibm-hyper-protect-container-runtime-1-0-s390x-17-encrypt.crt){: external} | 04 July 2025 |   |   |
-   | `ibm-hyper-protect-container-runtime-1-0-s390x-16` | [Certificate](https://cloud.ibm.com/media/docs/downloads/hyper-protect-container-runtime/ibm-hyper-protect-container-runtime-1-0-s390x-16-encrypt.crt){: external} | 06 June 2025 | 03 July 2024  |   |
-   | `ibm-hyper-protect-container-runtime-1-0-s390x-15` | [Certificate](https://cloud.ibm.com/media/docs/downloads/hyper-protect-container-runtime/ibm-hyper-protect-container-runtime-1-0-s390x-15-encrypt.crt){: external} | 08 March 2025 | 03 July 2024  |   |
-   | `ibm-hyper-protect-container-runtime-1-0-s390x-14` | [Certificate](https://cloud.ibm.com/media/docs/downloads/hyper-protect-container-runtime/ibm-hyper-protect-container-runtime-1-0-s390x-14-encrypt.crt){: external} | 05 October 2024 | 15 April 2024 |   |
-   | `ibm-hyper-protect-container-runtime-1-0-s390x-13` | [Certificate](https://cloud.ibm.com/media/docs/downloads/hyper-protect-container-runtime/ibm-hyper-protect-container-runtime-1-0-s390x-13-encrypt.crt){: external} | 05 October 2024 | 15 April 2024 |   |
    {: caption="Encryption certificate expiry dates and image deprecation/ obsolete dates" caption-side="bottom"}
 
    **Note:**
@@ -745,11 +741,11 @@ Complete the following steps on an Ubuntu system to encrypt the workload section
 
 2. Create the [workload section](#hpcr_contract_workload) of the contract and add the contents in the `workload.yaml` file.
 
-3. Export the complete path of the `workload.yaml` file and `ibm-hyper-protect-container-runtime-1-0-s390x-21-encrypt.crt`:
+3. Export the complete path of the `workload.yaml` file and `ibm-hyper-protect-container-runtime-1-0-s390x-22-encrypt.crt`:
 
    ```yaml
    WORKLOAD="<PATH to workload.yaml>"
-   CONTRACT_KEY="<PATH to ibm-hyper-protect-container-runtime-1-0-s390x-21-encrypt.crt>"
+   CONTRACT_KEY="<PATH to ibm-hyper-protect-container-runtime-1-0-s390x-22-encrypt.crt>"
    ```
    {: pre}
 
@@ -759,7 +755,7 @@ Complete the following steps on an Ubuntu system to encrypt the workload section
    ```
    {: pre}
 
-5. Use the following command to encrypt password with `ibm-hyper-protect-container-runtime-1-0-s390x-21-encrypt.crt`:
+5. Use the following command to encrypt password with `ibm-hyper-protect-container-runtime-1-0-s390x-22-encrypt.crt`:
 
    ```yaml
    ENCRYPTED_PASSWORD="$(echo -n "$PASSWORD" | base64 -d | openssl rsautl -encrypt -inkey $CONTRACT_KEY -certin | base64 -w0 )"
@@ -794,21 +790,23 @@ Complete the following steps on an Ubuntu system to encrypt the `env` section us
 
 1. Create the [`env` section](#hpcr_contract_env) of the contract and add the contents in the `env.yaml` file.
 
-2. Export the complete path of the `env.yaml` file and `ibm-hyper-protect-container-runtime-1-0-s390x-21-encrypt.crt`:
+2. Export the complete path of the `env.yaml` file and `ibm-hyper-protect-container-runtime-1-0-s390x-22-encrypt.crt`:
 
    ```yaml
    ENV="<PATH to env.yaml>"
-   CONTRACT_KEY="<PATH to ibm-hyper-protect-container-runtime-1-0-s390x-21-encrypt.crt>"
+   CONTRACT_KEY="<PATH to ibm-hyper-protect-container-runtime-1-0-s390x-22-encrypt.crt>"
    ```
    {: pre}
 
 3. Use the following command to create a random password:
+
    ```yaml
    PASSWORD="$(openssl rand 32 | base64 -w0)"
    ```
    {: pre}
 
-4. Use the following command to encrypt password with `ibm-hyper-protect-container-runtime-1-0-s390x-21-encrypt.crt`:
+4. Use the following command to encrypt password with `ibm-hyper-protect-container-runtime-1-0-s390x-22-encrypt.crt`:
+
    ```yaml
    ENCRYPTED_PASSWORD="$(echo -n "$PASSWORD" | base64 -d | openssl rsautl -encrypt -inkey $CONTRACT_KEY  -certin | base64 -w0)"
    ```
@@ -911,10 +909,10 @@ Complete the following steps on an Ubuntu system to create the contract signatur
       env: |
         type: env
         logging:
-          logDNA:
-            hostname: syslog-a.eu-gb.logging.cloud.ibm.com
-            ingestionKey: cfae1522876e860e58f5844a33bdcaa8
-            port: 6514
+          logRouter:
+            hostname: 34be57c7-6ff2-4685-8839-903921e90ab9.ingress.jp-tok.logs.cloud.ibm.com
+            iamApiKey: <iamApiKey of the service instance> / xxxx
+            port: 443
         volumes:
           test:
           seed: "hogwarts"
@@ -928,10 +926,10 @@ Complete the following steps on an Ubuntu system to create the contract signatur
         env: |
           type: env
           logging:
-            logDNA:
-              hostname: syslog-a.eu-gb.logging.cloud.ibm.com
-              ingestionKey: cfae1522876e860e58f5844a33bdcaa8
-              port: 6514
+            logRouter:
+              hostname: 34be57c7-6ff2-4685-8839-903921e90ab9.ingress.jp-tok.logs.cloud.ibm.com
+              iamApiKey: <iamApiKey of the service instance> / xxxx
+              port: 443
           volumes:
             test:
             seed: "hogwarts"
@@ -945,10 +943,10 @@ Complete the following steps on an Ubuntu system to create the contract signatur
         env: |
           type: env
           logging:
-            logDNA:
-              hostname: syslog-a.eu-gb.logging.cloud.ibm.com
-              ingestionKey: cfae1522876e860e58f5844a33bdcaa8
-              port: 6514
+            logRouter:
+              hostname: 34be57c7-6ff2-4685-8839-903921e90ab9.ingress.jp-tok.logs.cloud.ibm.com
+              iamApiKey: <iamApiKey of the service instance> / xxxx
+              port: 443
           volumes:
             test:
             seed: "hogwarts"
@@ -962,10 +960,10 @@ Complete the following steps on an Ubuntu system to create the contract signatur
     env: |
       type: env
       logging:
-        logDNA:
-          hostname: syslog-a.eu-gb.logging.cloud.ibm.com
-          ingestionKey: cfae1522876e860e58f5844a33bdcaa8
-          port: 6514
+        logRouter:
+          hostname: 34be57c7-6ff2-4685-8839-903921e90ab9.ingress.jp-tok.logs.cloud.ibm.com
+          iamApiKey: <iamApiKey of the service instance> / xxxx
+          port: 443
       volumes:
         test:
         seed: "hogwarts"
@@ -973,32 +971,37 @@ Complete the following steps on an Ubuntu system to create the contract signatur
    ```
    {: codeblock}
 
-7. Use the following command to export complete path of `env.yaml` and `ibm-hyper-protect-container-runtime-1-0-s390x-21-encrypt.crt`:
+7. Use the following command to export complete path of `env.yaml` and `ibm-hyper-protect-container-runtime-1-0-s390x-22-encrypt.crt`:
+   
    ```sh
    ENV="<PATH to env.yaml>"
-   CONTRACT_KEY="<PATH to ibm-hyper-protect-container-runtime-1-0-s390x-21-encrypt.crt>"
+   CONTRACT_KEY="<PATH to ibm-hyper-protect-container-runtime-1-0-s390x-22-encrypt.crt>"
    ```
    {: pre}
 
 8. Use the following command to create a random password:
+
    ```sh
    PASSWORD="$(openssl rand 32 | base64 -w0)"
    ```
    {: pre}
 
-9. Use the following command to encrypt password with `ibm-hyper-protect-container-runtime-1-0-s390x-21-encrypt.crt.`:
+9. Use the following command to encrypt password with `ibm-hyper-protect-container-runtime-1-0-s390x-22-encrypt.crt.`:
+
    ```yaml
    ENCRYPTED_PASSWORD="$(echo -n "$PASSWORD" | base64 -d | openssl rsautl -encrypt -inkey $CONTRACT_KEY  -certin | base64 -w0)"
    ```
    {: pre}
 
 10. Use the following command to encrypt `env.yaml` with a random password:
+
     ```yaml
     ENCRYPTED_ENV="$(echo -n "$PASSWORD" | base64 -d | openssl enc -aes-256-cbc -pbkdf2 -pass stdin -in "$ENV" | base64 -w0)"
     ```
     {: pre}
 
 11. Use the following command to extract the encrypted `env` section:
+
     ```yaml
     echo "hyper-protect-basic.${ENCRYPTED_PASSWORD}.${ENCRYPTED_ENV}"
     ```
@@ -1097,10 +1100,10 @@ Make sure that you do not miss the pipe symbol '|' if you are using a plain text
 env: |
   type: env
   logging:
-    logDNA:
-      hostname: syslog-a.au-syd.logging.cloud.ibm.com
-      ingestionKey: XXXXXXXXXX
-      port: 6514
+    logRouter:
+      hostname: 34be57c7-6ff2-4685-8839-903921e90ab9.ingress.jp-tok.logs.cloud.ibm.com
+      iamApiKey: xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx
+      port: 443
 ```
 {: codeblock}
 
@@ -1161,10 +1164,10 @@ workload: |
 env: |
   type: env
   logging:
-    logDNA:
-      hostname: syslog-a.au-syd.logging.cloud.ibm.com
-      ingestionKey: xxxxxxxxxx
-      port: 6514
+    logRouter:
+      hostname: 34be57c7-6ff2-4685-8839-903921e90ab9.ingress.jp-tok.logs.cloud.ibm.com
+      iamApiKey: xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx
+      port: 443
 workload: |
   type: workload
   compose:
