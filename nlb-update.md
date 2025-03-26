@@ -2,7 +2,7 @@
 
 copyright:
   years: 2020, 2025
-lastupdated: "2025-03-21"
+lastupdated: "2025-03-26"
 
 keywords: network load balancer, public, listener, back-end, front-end, pool, round-robin, weighted, connections, methods, policies, APIs, access, ports, vpc network, update
 
@@ -33,7 +33,7 @@ To update a network load balancer in the {{site.data.keyword.cloud_notm}} consol
 The Active button on the upper left of your screen now shows as Updating. When Updating changes back to Active, the update is done and the new changes are applied.
 {: note}
 
-## Updating a network load balancer by using the CLI
+## Updating a network load balancer from the CLI
 {: #nlb-updating-cli}
 {: cli}
 
@@ -86,7 +86,7 @@ Sample output:
 ```
 {: screen}
 
-## Updating a network load balancer by using the API
+## Updating a network load balancer with the API
 {: #nlb-updating-frontend-listener-port-api}
 {: api}
 

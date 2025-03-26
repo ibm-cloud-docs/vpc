@@ -2,7 +2,7 @@
 
 copyright:
   years: 2023, 2025
-lastupdated: "2025-03-21"
+lastupdated: "2025-03-26"
 
 keywords:
 
@@ -113,7 +113,7 @@ To create a Private Path service with the {{site.data.keyword.cloud_notm}} conso
 
    When provisioning completes, the Private Path service status indicates `Stable` in the Private Path services for VPC table.
 
-## Creating a Private Path service by using the CLI
+## Creating a Private Path service from the CLI
 {: #pps-cli-creating-private-path-service}
 {: cli}
 
@@ -121,7 +121,7 @@ The following example shows how to use the CLI to create a Private Path service.
 
 Before you begin, make sure to [set up your CLI environment](/docs/vpc?topic=vpc-set-up-environment&interface=cli).
 
-To create a Private Path service by using the CLI, follow these steps:
+To create a Private Path service from the CLI, follow these steps:
 
 1. Enter the following command:
 
@@ -169,11 +169,11 @@ Where:
 - Create a policy-based Private Path service with a deny policy and zonal affinity:
    `ibmcloud is private-path-service-gateway-create --load-balancer r006-d-439744e1-81d7-43fb-95d5-2356774240bb --service-endpoints clidemo.domain.com --default-access-policy deny --name cli-ppsg-2 --zonal-affinity true`
 
-## Creating a Private Path service by using the API
+## Creating a Private Path service with the API
 {: #pps-api-creating-private-path-service}
 {: api}
 
-To create a Private Path service by using the API, follow these steps:
+To create a Private Path service with the API, follow these steps:
 
 
 1. Set up your [API environment](/docs/vpc?topic=vpc-set-up-environment&interface=cli).
