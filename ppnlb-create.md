@@ -15,7 +15,7 @@ subcollection: vpc
 # Creating a Private Path network load balancer
 {: #ppnlb-ui-creating-private-path-network-load-balancer}
 
-You can use a Private Path network load balancer (NLB) only with a Private Path service. Create the Private Path NLB from the [Load Balancers for VPC page](/infrastructure/provision/loadBalancer) or as part of the Private Path service provisioning process. You can create a Private Path network load balancer using the UI, CLI, API, or Terraform.
+You can use a Private Path network load balancer (NLB) only with a Private Path service. Create the Private Path NLB from the [Load Balancers for VPC page](/infrastructure/provision/loadBalancer) or as part of the Private Path service provisioning process. You can create a Private Path network load balancer by using the UI, CLI, API, or Terraform.
 {: shortdesc}
 
 Private Path allows service providers to enable and manage private connectivity for the consumers of their hosted service. The Private Path service requires a Private Path NLB to establish a secure connection with each consumer's Virtual Private Endpoint (VPE) gateway. For more information, see [About Private Path services](/docs/vpc?topic=vpc-private-path-service-intro).
@@ -29,10 +29,10 @@ Private Path NLBs support the port range feature. Currently, all VPEs connected 
 Review the following requirements to ensure that your Private Path NLB is properly configured:
 
 - If you don't have a VPC, create one in the same region that you want to create your Private Path NLB. Use the same VPC region for the Private Path NLB and Private Path service.
-- Create your virtual server instances prior to creating a Private Path NLB. This ensures that it is fully operational.
+- Create your virtual server instances before creating a Private Path NLB. This ensures that it is fully operational.
 - Make sure you have at least one subnet in your selected VPC.
 
-You can create a Private Path network load balancer using the UI, CLI, API, or Terraform.
+You can create a Private Path network load balancer by using the UI, CLI, API, or Terraform.
 
 ## Creating a Private Path network load balancer in the UI
 {: #ppnlb-ui}
@@ -81,7 +81,7 @@ To create and configure {{site.data.keyword.nlb_full}} in the {{site.data.keywor
       Although you can attach more than one virtual server instance to a back-end pool, your Private Path load balancer provides regional availability and is resilient to zone failure even if a single subnet is selected.
       {: note}
 
-    You do not need to create multiple Private Path load balancers or specify more than a single subnet to ensure resiliency to zone failure. Your subnet selection only impacts the IP-addresses associated with the load balancer. For more information on how many virtual server instances you can attach to a back-end pool, see [Quotas and service limits for Private Path network load balancers](/docs/vpc?topic=vpc-quotas#ppnlb-quotas).
+    You do not need to create multiple Private Path load balancers or specify more than a single subnet to ensure resiliency to zone failure. Your subnet selection only impacts the IP-addresses that are associated with the load balancer. For more information on how many virtual server instances you can attach to a back-end pool, see [Quotas and service limits for Private Path network load balancers](/docs/vpc?topic=vpc-quotas#ppnlb-quotas).
 
    You can edit attached members by clicking the Edit icon ![Edit icon](images/edit.png) in the row of the member you want to edit in the back-end pools table. You can also delete attached members by selecting the minus icon in the row of the member you want to delete.
    {: tip}

@@ -92,7 +92,7 @@ Sample output:
 
 The following example illustrates how to use the API to update the front-end listener port of a {{site.data.keyword.nlb_full}} (NLB). For example, if the front-end listener port was set to 80 and you want to update the port value to 90.
 
-To update an NLB by using the API, perform the following procedure:
+To update an NLB by using the API, follow these steps:
 
 1. Set up your [API environment](/docs/vpc?topic=vpc-set-up-environment#api-prerequisites-setup).
 1. Use the following example to get the listener ID that you need for the update:
