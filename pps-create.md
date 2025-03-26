@@ -18,7 +18,7 @@ subcollection: vpc
 As a service provider, you are responsible for managing your consumer account IDs. Currently, tracking or validating account IDs is not supported. For more information, see [Responsibilities for managing consumer account IDs](/docs/vpc?topic=vpc-pps-consumer-account-id-responsibilities&interface=ui).
 {: attention}
 
-Private Path services for VPC enable service providers to create and manage private connectivity for hosted IBM Cloud and third-party services and applications. You can create a Private Path service using the UI, CLI, API, or Terraform.
+Private Path services for VPC enable service providers to create and manage private connectivity for hosted IBM Cloud and third-party services and applications. You can create a Private Path service by using the UI, CLI, API, or Terraform.
 {: shortdesc}
 
 ## Before you begin
@@ -33,7 +33,7 @@ Before you create a Private Path service, review the following prerequisites:
    You must use the same VPC region for both your load balancer and Private Path service.
    {: important}
 
-* You must choose a DNS FQDN for your service for consumer use. This domain is configured in a consumer's private DNS, but you are required to prove ownership of the FQDN in public DNS. This will require you to take steps with your DNS provider. For more information see [Registering and verifying ownership of service endpoints (FQDNs)](/docs/vpc?topic=vpc-private-path-service-about&interface=ui#pps-domain-register-verify). 
+* You must choose a DNS FQDN for your service for consumer use. This domain is configured in a consumer's private DNS, but you are required to prove ownership of the FQDN in public DNS. This requires you to take steps with your DNS provider. For more information, see [Registering and verifying ownership of service endpoints (FQDNs)](/docs/vpc?topic=vpc-private-path-service-about&interface=ui#pps-domain-register-verify). 
 
    You can opt out of this requirement if you are willing to use one of limited predefine set of domains listed in [Registering and verifying ownership of service endpoints (FQDNs)](/docs/private-path?topic=private-path-private-path-service-about&interface=ui#pps-domain-register-verify).
    {: note}
@@ -109,7 +109,7 @@ To create a Private Path service with the {{site.data.keyword.cloud_notm}} conso
    Individual account policies take precedence over the default policy.
    {: tip}
 
-1. Review the summary panel, then click **Create** to order your Private Path service.
+1. Review the summary page, then click **Create** to order your Private Path service.
 
    When provisioning completes, the Private Path service status indicates `Stable` in the Private Path services for VPC table.
 
@@ -208,7 +208,7 @@ To create a Private Path service with the API, follow these steps:
 {: #creating-private-path-service-terraform}
 {: terraform}
 
-The following example provisions a Private Path network by using Terraform:
+The following example provisions a Private Path network with Terraform:
 
 ```terraform
 resource "ibm_is_private_path_service_gateway" "ppsg" {
@@ -224,7 +224,7 @@ resource "ibm_is_private_path_service_gateway" "ppsg" {
 ## Registering and verifying ownership of service endpoints (FQDNs)
 {: #pps-domain-register-verify}
 
-When creating a Private Path service, you are required to prove that you own the _service-endpoints_ (DNS FQDNs) you provide. This is done to prevent DNS hijacking and FQDN conflicts. Ownership is verified by creating a TXT record for each FQDN (service endpoint) with specific contents. You must create the TXT records in a public DNS. The public DNS is only consulted when the Private Path service is created. After a Private Path service is created, only a private DNS is used in the data path  (never a public DNS).
+When creating a Private Path service, you are required to prove that you own the _service-endpoints_ (DNS FQDNs) you provide. This is done to prevent DNS hijacking and FQDN conflicts. Ownership is verified by creating a TXT record for each FQDN (service endpoint) with specific contents. Create the TXT records in a public DNS. The public DNS is only consulted when the Private Path service is created. After a Private Path service is created, only a private DNS is used in the data path  (never a public DNS).
 
 The required `TXT` record must start with a `ibm-domain-verification=` prefix. Validation is successful if the prefix is followed by a value that matches the `SHA-256` hash of the account ID associated with the user creating the Private Path service. An example TXT record to add:
 `ibm-domain-verification=252cfc164d3600a79007f25312a6a924288cfc6dbcaeec838ca9048cde664acb`
@@ -241,7 +241,7 @@ The following is a list of top-level domains that you can use to bypass domain n
 - `.home`
 - `.lan`
 
-Wildcard (&#42;) domains are supported. For example, a Private Path service with `"service_endpoints": ["*.service.com"]` will include all of its subdomains, such as `api1.service.com` and `api2.service.com`.
+Wildcard (&#42;) domains are supported. For example, a Private Path service with `"service_endpoints": ["*.service.com"]` includes all of its subdomains, such as `api1.service.com` and `api2.service.com`.
 
 The DNS ownership validation is successful when the wildcard domain contains the valid `TXT` record. In this example, to pass the validation, you can add the valid `TXT` record to `service.com`.
 
