@@ -145,3 +145,8 @@ When details of a snapshot are retrieved, the API response shows the property na
 {: #gen1-bandwidth-property-dependent}
 
 When details of first-generation volume profiles are retrieved, the responses show the bandwidth type incorrectly as `dependent_range`. The correct value is `dependent` because the bandwidth value is automatically assigned by the system, and that value can't be changed manually or programmatically.
+
+### Block volume snapshots that are taken in Montreal are stored in {{site.data.keyword.cos_short}} in the WDC
+{: #snapshot-COS-upload-CA-MON-US-EAST}
+
+Due to the unavailability of a local key management service ({{site.data.keyword.keymanagementserviceshort}}) instance in Montreal, the block volume snapshots that are taken in Montreal are routed to and stored in an encrypted {{site.data.keyword.cos_short}} bucket with local KMS keys in the WDC MZR. When the KMS service becomes available in Montreal, all the snapshots will be moved back to Montreal from Washington DC.

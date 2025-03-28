@@ -2,7 +2,7 @@
 
 copyright:
   years: 2022, 2025
-lastupdated: "2025-03-25"
+lastupdated: "2025-03-28"
 
 keywords: confidential computing, enclave, secure execution, hpcr, hyper protect virtual server for vpc
 
@@ -331,6 +331,7 @@ In the case of a docker container, the `decrypt-attestation.sh` file can be acce
 ```sh
  volumes:
       - "/var/hyperprotect/:/var/hyperprotect/:ro"
+      
 ```
 {: codeblock}
 
