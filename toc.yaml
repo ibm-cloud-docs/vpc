@@ -316,7 +316,7 @@ toc:
             topics:
             - cn-about.md
             - cn-planning.md
-            - cn-h100-profile.md
+            - cn-hopper-1-profile.md
             - cn-create.md
             - topicgroup:
                 label: Managing cluster networks

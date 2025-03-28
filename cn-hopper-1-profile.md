@@ -2,9 +2,9 @@
 
 copyright:
   years: 2024, 2025
-lastupdated: "2025-03-13"
+lastupdated: "2025-03-28"
 
-keywords: cluster profiles, cluster network, cluster-network, cluster network profile, cluster network profiles, gpu, nvidia, h100, rdma, roce, accelerated, rocev2, accelerated network
+keywords: cluster profiles, cluster network, cluster-network, cluster network profile, cluster network profiles, gpu, nvidia, hopper-1, rdma, roce, accelerated, rocev2, accelerated network
 
 subcollection: vpc
 
@@ -12,30 +12,33 @@ subcollection: vpc
 
 {{site.data.keyword.attribute-definition-list}}
 
-# NVIDIA H100 cluster network profile
-{: #cluster-network-h100-profile}
+# NVIDIA Hopper-1 cluster network profile
+{: #cluster-network-hopper-1-profile}
 
-The H100 cluster network profile provides isolated networks for [Hopper HGX H100 instances](/docs/vpc?topic=vpc-accelerated-profile-family#hopper-hgx-profiles) running workloads that require high-bandwidth, low-latency interconnectivity, such as AI training and large-scale simulations.
+The Hopper-1 cluster network profile provides isolated networks for [Hopper HGX instances](/docs/vpc?topic=vpc-accelerated-profile-family#hopper-hgx-profiles) running workloads that require high-bandwidth, low-latency interconnectivity, such as AI training and large-scale simulations.
 {: shortdesc}
 
+The H100 cluster network profile will be deprecated and replaced by the Hopper-1 cluster network profile, as it supports both NVIDIA H100 and H200 instance profiles.
+{: important}
+
 ## Overview
-{: #cluster-network-h100-profile-overview}
+{: #cluster-network-hopper-1-profile-overview}
 
-The H100 cluster network profile supports Remote Direct Memory Access (RDMA) over the Convergent Ethernet v2 (RoCEv2) network protocol for increased throughput, reduced latency, and improved system performance.
+The Hopper-1 cluster network profile supports Remote Direct Memory Access (RDMA) over the Convergent Ethernet v2 (RoCEv2) network protocol for increased throughput, reduced latency, and improved system performance.
 
-The supported instance profile is the [Hopper HGX H100 instance profile](/docs/vpc?topic=vpc-accelerated-profile-family#hopper-hgx-profiles).
+Supported instance profiles include the [Hopper HGX instance profiles](/docs/vpc?topic=vpc-accelerated-profile-family#hopper-hgx-profiles).
 
 ## Availability
-{: #cluster-network-h100-profile-availability}
+{: #cluster-network-hopper-1-profile-availability}
 
-Currently, use of the H100 cluster network profile is available to select customers in certain regions/zones: 
+Currently, use of the Hopper-1 cluster network profile is available to select customers in certain regions/zones:
 
 | Region                    | Zone          | Cluster network |
 | ------------------------  | ------------- | --------------- |
 | Dallas (`us-south`)       | Not available | No              |
 | Frankfurt (`eu-de`)       | eu-de-2       | Yes             |
 | London (`eu-gb`)          | Not available | No              |
-| Madrid (`eu-es`)          | Not available | No              | 
+| Madrid (`eu-es`)          | Not available | No              |
 | Montreal (`ca-mon`)       | Not availabe  | No              |
 | Osaka (`jp-osa`)          | Not available | No              |
 | Sao Paulo (`br-sao`)      | Not available | No              |
@@ -46,9 +49,9 @@ Currently, use of the H100 cluster network profile is available to select custom
 {: caption="Supported regions and zones" caption-side="bottom"}
 
 ## Capabilities and restrictions:
-{: #cluster-network-h100-profile-capabilities}
+{: #cluster-network-hopper-1-profile-capabilities}
 
-The cluster network H100 profile has the following capabilities and restrictions:
+The cluster network Hopper-1 profile has the following capabilities and restrictions:
 
 - Type: Dedicated
 - Bandwidth: 3.2 Tbps (8x 400 Gbps)
