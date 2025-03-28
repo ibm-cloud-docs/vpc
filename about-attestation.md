@@ -307,7 +307,7 @@ The `/dev/disk/by-label/cidata` is a block device that is attached to the runnin
 b65133a86e74ba813ee3e30f260d375c366194d00876b1454d2835c11b9a0c7b cidata/meta-data
 2a4f4ffa5fdff5886de052da47e3839347649fbb4ba657a1be3bd3a22e4f9a22 cidata/user-data
 5a2b8897d00e4f03436494a36304776a637bf3f134ae10107f2a47e9859ed0fb cidata/vendor-data
-``
+```
 {: codeblock}
 
 ### `attestationPublicKey`
@@ -331,7 +331,6 @@ In the case of a docker container, the `decrypt-attestation.sh` file can be acce
 ```sh
  volumes:
       - "/var/hyperprotect/:/var/hyperprotect/:ro"
-      
 ```
 {: codeblock}
 
