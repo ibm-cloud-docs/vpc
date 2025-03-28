@@ -27,12 +27,12 @@ For more information about changes to the {{site.data.keyword.vpc_short}} comman
 ## March 2025
 {: #vpc-mar25}
 
-### 28 March 2025
-{: #vpc-mar2825}
+### 27 March 2025
+{: #vpc-mar2725}
 {: release-note}
 
 Confidential computing with Intel Trusted Domain Extension (TDX) for Virtual Servers for VPC (select availability)
-:   Confidential computing with Intel&reg; Trusted Domain Extension (TDX) for VPC is available only in the Washington DC (us-east) region. Confidential computing with Intel TDX offers confidentiality to virtual machines by providing CPU enhancements that are leveraged by the firmware and hardware to provide confidentiality and integrity. For more information, see [Confidential computing for x86 Virtual Servers for VPC](/docs/vpc?topic=vpc-about-sgx-vpc). When you create a virtual server instance with a confidential computing profile and Intel Trusted Domain Extension (TDX), you can create that virtual server instance only in the Washington DC (us-east) region. You can’t create a virtual server instance with TDX in any other region, including Dallas (us-south) and Frankfurt (eu-de). For more information see [Confidential computing known issues](/docs/vpc?topic=vpc-known-issues#confidential-computing-vpc-known-issues).<bsvpc-289-SDSBlockSnapshot>
+:   Confidential computing with Intel&reg; Trusted Domain Extension (TDX) for VPC is available only in the Washington DC (us-east) region. Confidential computing with Intel TDX offers confidentiality to virtual machines by providing CPU enhancements that are leveraged by the firmware and hardware to provide confidentiality and integrity. For more information, see [Confidential computing for x86 Virtual Servers for VPC](/docs/vpc?topic=vpc-about-sgx-vpc). When you create a virtual server instance with a confidential computing profile and Intel Trusted Domain Extension (TDX), you can create that virtual server instance only in the Washington DC (us-east) region. You can’t create a virtual server instance with TDX in any other region, including Dallas (us-south) and Frankfurt (eu-de). For more information, see [Confidential computing known issues](/docs/vpc?topic=vpc-known-issues#confidential-computing-vpc-known-issues).
 
 ### 25 March 2025
 {: #vpc-mar2525}
@@ -46,7 +46,7 @@ Confidential computing with Intel Trusted Domain Extension (TDX) for Virtual Ser
 {: release-note}
 
 Intel Gaudi 3 accelerated virtual server profile now available in Washington DC (`us-east`) and Frankfurt (`eu-de`) regions (select availability)
-:   The Intel Gaudi 3 accelerated virtual server profile is now available in the Washington DC (`us-east`) and Frankfurt (`eu-de`) regions. The Intel Gaudi 3 profile runs on an [Intel Gaudi 3 AI Accelerator](https://www.intel.com/content/www/us/en/products/details/processors/ai-accelerators/gaudi.html){: external} that is tuned for AI workloads, including inferencing and fine tuning. For more information about the `gx3d-160x1792x8gaudi3` profile, see [GPU](/docs/vpc?topic=vpc-profiles&interface=ui#gpu) profiles and [Intel Gaudi 3 instance profiles](/docs/vpc?topic=vpc-accelerated-profile-family&interface=ui#gaudi-3-profiles).
+:   The Intel Gaudi 3 accelerated virtual server profile is now available in the Washington DC (`us-east`) and Frankfurt (`eu-de`) regions. The Intel Gaudi 3 profile runs on an [Intel Gaudi 3 AI Accelerator](https://www.intel.com/content/www/us/en/products/details/processors/ai-accelerators/gaudi.html){: external} that is tuned for AI workloads, including inferencing and fine-tuning. For more information about the `gx3d-160x1792x8gaudi3` profile, see [GPU](/docs/vpc?topic=vpc-profiles&interface=ui#gpu) profiles and [Intel Gaudi 3 instance profiles](/docs/vpc?topic=vpc-accelerated-profile-family&interface=ui#gaudi-3-profiles).
 
 ### 17 March 2025
 {: #vpc-mar1725}
@@ -124,7 +124,7 @@ GPU H200 profile now available in Washington DC (`us-east`) and Frankfurt (`eu-d
 {: release-note}
 
 Confidential computing with Intel Trusted Domain Extension (TDX) for Virtual Servers for VPC (beta)
-:   Confidential computing with Intel&reg; Trusted Domain Extension (TDX) for VPC is available for select customers. Contact IBM Sales if you are interested in being allowlisted and using this offering. Confidential computing with Intel TDX offers confidentiality to virtual machines by providing CPU enhancements that are leveraged by the firmware and hardware to provide confidentiality and integrity. Confidential computing with Intel TDX for VPC is available only in the Washington DC (us-east) region.  For more information, see [Confidential computing for x86 Virtual Servers for VPC](/docs/vpc?topic=vpc-about-sgx-vpc).
+:   Confidential computing with Intel&reg; Trusted Domain Extension (TDX) for VPC is available for select customers. Contact IBM Sales if you are interested in being allowlisted and using this offering. Confidential computing with Intel TDX offers confidentiality to virtual machines by providing CPU enhancements that are leveraged by the firmware and hardware to provide confidentiality and integrity. Confidential computing with Intel TDX for VPC is available only in the Washington DC (us-east) region. For more information, see [Confidential computing for x86 Virtual Servers for VPC](/docs/vpc?topic=vpc-about-sgx-vpc).
 
 ## December 2024
 {: #vpc-dec24}
