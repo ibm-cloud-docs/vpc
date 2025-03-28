@@ -23,11 +23,13 @@ Known issues might change over time, so check back occasionally.
 
 [Select availability]{: tag-green}
 
-You can only created TDX virtual server in Washington DC (us-east) region
+### You can only created TDX virtual server in Washington DC (us-east) region
+{: #tdx-wdc-confidential-computing-vpc-known-issues}
 
 **Issue:** All the confidential computing profiles support both Intel&reg; Software Guard Extensions (SGX) and Intel&reg; Trusted Domain Extension (TDX). Therefore, when you use the API to list instance profiles, such as with `GET /instance/profiles` or `GET /instance/profiles/{name}`, the list indicates that all confidential computing profiles support SGX and TDX. However, TDX is available only in Washington DC (us-east). If you want to create a virtual server instance with a confidential computing profile and TDX, you can create that virtual server instance only in the Washington DC (us-east) region. You can’t create a virtual server instance with TDX in any other region, including Dallas (us-south) and Frankfurt (eu-de).
 
-s390x profiles don't include 'values' property
+### s390x profiles don't include 'values' property
+{: #s390x-confidential-computing-vpc-known-issues}
 
 **Issue:** When [listing instance profiles](/apidocs/vpc#list-instance-profiles) or [retrieving an instance profile](/apidocs/vpc#get-instance-profile), s390x instance profiles don't include the required `values` property in the `confidential_compute_modes` object. See [s390x instance profiles](/docs/vpc?topic=vpc-vs-profiles&interface=ui) for a complete list of profiles.
 
