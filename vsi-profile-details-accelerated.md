@@ -2,7 +2,7 @@
 
 copyright:
   years: 2024, 2025
-lastupdated: "2025-03-24"
+lastupdated: "2025-03-28"
 
 keywords: vsi, virtual server, virtual server instances, profile, profiles, gpu, accelerated, h100, h200, l4, l40s
 
@@ -12,7 +12,7 @@ subcollection: vpc
 
 {{site.data.keyword.attribute-definition-list}}
 
-# Accelerated profile family - Gen 3
+# Accelerated instance profiles - Gen 3
 {: #accelerated-profile-family}
 
 The accelerated family of profiles provides on-demand, cost-effective access to accelerators and GPUs. GPUs and accelerators help to accelerate the processing time that is required for compute intensive workloads such as AI, machine learning, inferencing, and more.
