@@ -27,8 +27,8 @@ For more information about changes to the {{site.data.keyword.vpc_short}} comman
 ## March 2025
 {: #vpc-mar25}
 
-### 28 March 2025
-{: #vpc-mar2825}
+### 27 March 2025
+{: #vpc-mar2725}
 {: release-note}
 
 Confidential computing with Intel Trusted Domain Extension (TDX) for Virtual Servers for VPC (select availability)
