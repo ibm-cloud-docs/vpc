@@ -2,7 +2,7 @@
 
 copyright:
   years: 2023, 2025
-lastupdated: "2025-03-24"
+lastupdated: "2025-03-28"
 
 keywords: sgx, intel sgx, software guard extension, confidential computing, trusted execution environment, TEE, data protection
 
@@ -20,7 +20,7 @@ subcollection: vpc
 Confidential computing is a new technology that offers technical assurances that workloads and data are confidential and protected from everyone including the Cloud Service Provider (CSP).
 {: shortdesc}
 
-Confidential computing with Intel SGX for VPC is available only in the Dallas (us-south) and Frankfurt (eu-de) regions. Confidential computing with Intel TDX for VPC is available for select customers. Contact IBM Sales if you are interested in being allowlisted and using this offering.  Confidential computing with Intel TDX for VPC is available only in the Washington DC (us-east) region. Confidential computing is only available with select profiles. For more information, see [SGX-compatible profiles](/docs/vpc?topic=vpc-about-confidential-computing-vpc&interface=ui#compatible-profiles-confidential-computing-vpc-sgx).
+Confidential computing profiles are available in the Dallas (us-south), Washington DC (us-east), and Frankfurt (eu-de) regions. Confidential computing with Intel SGX for VPC is Dallas (us-south), Washington DC (us-east), and Frankfurt (eu-de). Confidential computing with Intel TDX for VPC is available only in the Washington DC (us-east) region. If you want to create a virtual server instance with a confidential computing profile and TDX, you can create that virtual server instance only in the Washington DC (us-east) region. You can’t create a virtual server instance with TDX in any other region, including Dallas (us-south) and Frankfurt (eu-de). For more information, see [Confidential computing known issues](/docs/vpc?topic=vpc-known-issues#confidential-computing-vpc-known-issues). Confidential computing is only available with select profiles. For more information, see [Confidential computing profiles](/docs/vpc?topic=vpc-profiles&interface=ui#confidential-computing-profiles).
 {: preview}
 
 ## Confidential computing with Intel Trusted Domain Extension (TDX)
@@ -90,7 +90,7 @@ Keep the following limitations in mind if you want to use SGX or TDX.
 * Available on only third-generation Sapphire Rapids-based virtual servers.
 * SGX doesn't protect against side-channel attacks.
 * Only the following images support SGX and TDX. Keep in mind that images with kernel versions 5.11 and earlier don't support SGX and images with kernel version 6.5 and earlier don't support TDX.
-  
+
    - SGX
       - Red Hat 8.6, 8.8, 9.0, 9.2
       - Ubuntu 20.04, 22.04
@@ -103,7 +103,7 @@ Keep the following limitations in mind if you want to use SGX or TDX.
       - CentOS Stream 9
       - Rocky Linux 9.2, 9.4
       - SLES 15.6
-      
+
 * TDX limitations
    - When you force a reboot of a TDX-enabled virtual server, the virtual server shuts down. You must then restart this virtual server.
    - VNC-console is not supported.
