@@ -2,17 +2,19 @@
 
 copyright:
   years: 2022, 2025
-lastupdated: "2025-02-25"
+lastupdated: "2025-04-01"
 
 keywords: Block Storage, snapshots, cross-regional copy, fast restore, backup, restore volume
 
 subcollection: vpc
 
+content-type: faq
+
 ---
 
 {{site.data.keyword.attribute-definition-list}}
 
-# FAQs for {{site.data.keyword.block_storage_is_short}} snapshots
+# FAQ for {{site.data.keyword.block_storage_is_short}} snapshots
 {: #snapshots-vpc-faqs}
 
 The following questions often arise about the {{site.data.keyword.block_storage_is_short}} snapshots offering. If you have other questions you'd like to see answered here, provide feedback by using the **Open doc issue** or **Edit topic** links at the end of the topic.

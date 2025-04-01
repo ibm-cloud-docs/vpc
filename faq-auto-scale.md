@@ -1,17 +1,18 @@
 ---
 
 copyright:
-  years: 2020, 2024
-lastupdated: "2024-07-10"
+  years: 2020, 2025
+lastupdated: "2025-04-01"
 
 subcollection: vpc
 
+content-type: faq
 
 ---
 
 {{site.data.keyword.attribute-definition-list}}
 
-# FAQs for auto scale
+# FAQ for auto scale
 {: #faqs-auto-scale}
 
 ## What elements do I need to create to set up auto scaling?

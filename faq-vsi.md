@@ -2,15 +2,17 @@
 
 copyright:
   years: 2018, 2025
-lastupdated: "2025-03-13"
+lastupdated: "2025-04-01"
 
 subcollection: vpc
+
+content-type: faq
 
 ---
 
 {{site.data.keyword.attribute-definition-list}}
 
-# FAQs for virtual server instances
+# FAQ for virtual server instances
 {: #faqs-for-vsis}
 
 ## Can a vNIC have both a floating IP and private IP address?

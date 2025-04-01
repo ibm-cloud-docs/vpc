@@ -1,17 +1,18 @@
 ---
 
 copyright:
-  years: 2024
-lastupdated: "2024-12-10"
+  years: 2024, 2025
+lastupdated: "2025-04-01"
 
 subcollection: vpc
 
+content-type: faq
 
 ---
 
 {{site.data.keyword.attribute-definition-list}}
 
-# FAQs for cluster networks
+# FAQ for cluster networks
 {: #faqs-cluster-network}
 
 This section contains answers to some frequently asked questions about {{site.data.keyword.cloud}} cluster networks.

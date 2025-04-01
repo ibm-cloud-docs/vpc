@@ -1,18 +1,20 @@
 ---
 
 copyright:
-  years: 2022, 2024
-lastupdated: "2024-10-29"
+  years: 2022, 2025
+lastupdated: "2025-04-01"
 
 keywords: VPN server, faq, faqs, frequently asked questions, vpn, VPN
 
 subcollection: vpc
 
+content-type: faq
+
 ---
 
 {{site.data.keyword.attribute-definition-list}}
 
-# FAQs for client-to-site VPN servers
+# FAQ for client-to-site VPN servers
 {: #faqs-vpn-server}
 
 You might encounter these frequently asked questions when you use {{site.data.keyword.cloud}} {{site.data.keyword.vpn_vpc_short}}.

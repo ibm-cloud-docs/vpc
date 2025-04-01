@@ -1,17 +1,20 @@
 ---
 
 copyright:
-  years: 2024
-lastupdated: "2024-03-12"
+  years: 2024, 2025
+lastupdated: "2025-04-01"
 
 keywords: virtual network interface, FAQs
 
 subcollection: vpc
+
+content-type: faq
+
 ---
 
 {{site.data.keyword.attribute-definition-list}}
 
-# FAQs for virtual network interfaces
+# FAQ for virtual network interfaces
 {: #vni-faq}
 
 You might encounter the following questions when you use {{site.data.keyword.cloud_notm}} virtual network interfaces for VPC.
