@@ -2,17 +2,19 @@
 
 copyright:
   years: 2019, 2025
-lastupdated: "2025-03-20"
+lastupdated: "2025-04-01"
 
 keywords: load balancer, network, faqs
 
 subcollection: vpc
 
+content-type: faq
+
 ---
 
 {{site.data.keyword.attribute-definition-list}}
 
-# FAQs for network load balancers
+# FAQ for network load balancers
 {: #nlb-faqs}
 
 This section contains answers to some frequently asked questions about {{site.data.keyword.cloud}} {{site.data.keyword.nlb_full}} (NLB).

@@ -1,18 +1,20 @@
 ---
 
 copyright:
-  years: 2020, 2024
-lastupdated: "2024-12-03"
+  years: 2020, 2025
+lastupdated: "2025-04-01"
 
 keywords: virtual private network, faq, faqs, frequently asked questions, vpn, vpn gateway
 
 subcollection: vpc
 
+content-type: faq
+
 ---
 
 {{site.data.keyword.attribute-definition-list}}
 
-# FAQs for site-to-site VPN gateways
+# FAQ for site-to-site VPN gateways
 {: #faqs-vpn}
 
 You might encounter these frequently asked questions when you use {{site.data.keyword.cloud}} {{site.data.keyword.vpn_vpc_short}}.

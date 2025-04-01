@@ -2,18 +2,20 @@
 
 copyright:
   years: 2018, 2025
-lastupdated: "2025-01-29"
+lastupdated: "2025-04-01"
 
 
 keywords: load balancer, public, listener, back-end, front-end, pool, round-robin, weighted, connections, methods, policies, APIs, access, ports, vpc network, layer 7, auto scale, managed pool, instance group
 
 subcollection: vpc
 
+content-type: faq
+
 ---
 
 {{site.data.keyword.attribute-definition-list}}
 
-# FAQs for application load balancers
+# FAQ for application load balancers
 {: #load-balancer-faqs}
 
 The following sections contain answers to some frequently asked questions about the {{site.data.keyword.cloud}} {{site.data.keyword.alb_full}} (ALB).

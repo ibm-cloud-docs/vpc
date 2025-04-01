@@ -2,9 +2,11 @@
 
 copyright:
   years: 2021, 2025
-lastupdated: "2025-01-03"
+lastupdated: "2025-04-01"
 
 subcollection: vpc
+
+content-type: faq
 
 ---
 

@@ -1,17 +1,20 @@
 ---
 
 copyright:
-  years: 2019, 2024
-lastupdated: "2024-09-16"
+  years: 2019, 2025
+lastupdated: "2025-04-01"
 
 keywords: flow logs, FAQs
 
 subcollection: vpc
+
+content-type: faq
+
 ---
 
 {{site.data.keyword.attribute-definition-list}}
 
-# FAQs for flow log collectors
+# FAQ for flow log collectors
 {: #fl-faq}
 
 You might encounter the following questions when you use {{site.data.keyword.cloud_notm}} Flow Logs for VPC.

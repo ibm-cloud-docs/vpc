@@ -1,18 +1,20 @@
 ---
 
 copyright:
-  years: 2020, 2024
-lastupdated: "2024-06-20"
+  years: 2020, 2025
+lastupdated: "2025-04-01"
 
 keywords: virtual private endpoint, FAQs, VPE, endpoint gateway
 
 subcollection: vpc
 
+content-type: faq
+
 ---
 
 {{site.data.keyword.attribute-definition-list}}
 
-# FAQs for virtual private endpoints
+# FAQ for virtual private endpoints
 {: #faqs-vpe}
 
 You might encounter the following frequently asked questions when you use {{site.data.keyword.cloud_notm}} Virtual Private Endpoints (VPE) for VPC.

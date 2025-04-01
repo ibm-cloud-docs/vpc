@@ -2,16 +2,17 @@
 
 copyright:
   years: 2024, 2025
-lastupdated: "2025-03-05"
+lastupdated: "2025-04-01"
 
 subcollection: vpc
 
+content-type: faq
 
 ---
 
 {{site.data.keyword.attribute-definition-list}}
 
-# FAQs for Private Path services
+# FAQ for Private Path services
 {: #faqs-private-path}
 
 The following questions are commonly asked about Private Path services. If you have additional questions you'd like to see addressed here, open an issue by using the **Open doc issue** or **Edit topic** links at the end of this page. 

@@ -1,17 +1,19 @@
 ---
 
 copyright:
-  years: 2019, 2024
-lastupdated: "2024-11-05"
+  years: 2019, 2025
+lastupdated: "2025-04-01"
 
 keywords: faqs, Block Storage for vpc, fast restore, multizone, instance, instance provisioning, volume management, volume deletion.
 
 subcollection: vpc
 
+content-type: faq
+
 ---
 {{site.data.keyword.attribute-definition-list}}
 
-# FAQs for {{site.data.keyword.block_storage_is_short}}
+# FAQ for {{site.data.keyword.block_storage_is_short}}
 {: #block-storage-vpc-faq}
 
 The following questions often arise about the {{site.data.keyword.block_storage_is_short}} service. If you have other questions you'd like to see answered here, provide feedback by using the **Open doc issue** or **Edit topic** links.

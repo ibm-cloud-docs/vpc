@@ -1,18 +1,20 @@
 ---
 
 copyright:
-  years: 2021, 2024
-lastupdated: "2024-12-11"
+  years: 2021, 2025
+lastupdated: "2025-04-01"
 
 keywords: file share, file storage, replication, replica, size increase, capacity, encryption, BYOK, security group
 
 subcollection: vpc
 
+content-type: faq
+
 ---
 
 {{site.data.keyword.attribute-definition-list}}
 
-# FAQs for {{site.data.keyword.filestorage_vpc_short}}
+# FAQ for {{site.data.keyword.filestorage_vpc_short}}
 {: #file-storage-vpc-faqs}
 
 The following questions often arise about {{site.data.keyword.filestorage_vpc_short}}. If you have other questions you'd like to see addressed here, provide feedback by using the **Open doc issue** or **Edit topic** links.

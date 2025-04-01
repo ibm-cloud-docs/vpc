@@ -2,15 +2,17 @@
 
 copyright:
   years: 2020, 2023
-lastupdated: "2025-01-10"
+lastupdated: "2025-04-01"
 
 subcollection: vpc
+
+content-type: faq
 
 ---
 
 {{site.data.keyword.attribute-definition-list}}
 
-# FAQs for dedicated hosts
+# FAQ for dedicated hosts
 {: #faqs-dedicated-host}
 
 ## What elements do I need to create a dedicated host?

@@ -2,15 +2,17 @@
 
 copyright:
   years: 2022, 2025
-lastupdated: "2025-01-27"
+lastupdated: "2025-04-01"
 
 subcollection: vpc
+
+content-type: faq
 
 ---
 
 {{site.data.keyword.attribute-definition-list}}
 
-# FAQs for the instance metadata service
+# FAQ for the instance metadata service
 {: #faqs-for-rmds}
 
 The following questions often arise about the VPC Instance Metadata service. If you have other questions you'd like to see answered here, provide feedback by using the **Open doc issue** or **Edit topic** links.

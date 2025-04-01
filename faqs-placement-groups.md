@@ -2,17 +2,19 @@
 
 copyright:
   years: 2021, 2023
-lastupdated: "2024-10-29"
+lastupdated: "2025-04-01"
 
 keywords: virtual private cloud, private cloud network, placement group, placement group strategy, host spread, power spread, faq, faqs
 
 subcollection: vpc
 
+content-type: faq
+
 ---
 
 {{site.data.keyword.attribute-definition-list}}
 
-# FAQs for Placement groups
+# FAQ for Placement groups
 {: #faqs-for-placement-groups}
 
 ## Can I assign my instance to more than one placement group?

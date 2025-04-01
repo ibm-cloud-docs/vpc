@@ -790,17 +790,17 @@ toc:
         id: help
         topics:
         - topicgroup:
-            label: FAQs
+            label: FAQ
             topics:
             - faq-vpc.md
             - faq-auto-scale.md
             - topicgroup:
-                label: FAQs for bare metal servers
+                label: FAQ for bare metal servers
                 topics:
                 - bare_metal_server_faq.md
             - faq-dedicated-host.md
             - topicgroup:
-                label: FAQs for storage
+                label: FAQ for storage
                 topics:
                 - block_storage_vpc_faq.md
                 - bs_snapshots_faqs.md
@@ -811,7 +811,7 @@ toc:
             - cn-faq.md
             - fl-faq.md
             - topicgroup:
-                label: FAQs for load balancers
+                label: FAQ for load balancers
                 topics:
                 - lb-faqs.md
                 - nlb-faqs.md
@@ -819,7 +819,7 @@ toc:
             - vni-faq.md
             - vpe-faqs.md
             - topicgroup:
-               label: FAQs for VPNs
+               label: FAQ for VPNs
                topics:
                - vpn-faqs.md
                - vpn-client-to-site-faqs.md
