@@ -2,7 +2,7 @@
 
 copyright:
   years: 2020, 2025
-lastupdated: "2025-03-13"
+lastupdated: "2025-03-31"
 
 keywords: flow logs, ordering, logging, log analysis
 
@@ -22,54 +22,11 @@ You can use {{site.data.keyword.logs_routing_full_notm}}, a platform service, to
 
 You can use {{site.data.keyword.logs_full_notm}} to visualize and alert on platform logs that are generated in your account and routed by {{site.data.keyword.logs_routing_full_notm}} to an {{site.data.keyword.logs_full_notm}} instance.
 
-
-
-As of 28 March 2024, the {{site.data.keyword.la_full_notm}} service is deprecated and will no longer be supported as of 30 March 2025. Customers need to migrate to {{site.data.keyword.logs_full_notm}} before 30 March 2025. During the migration period, customers can use {{site.data.keyword.la_full_notm}} along with {{site.data.keyword.logs_full_notm}}. Logging is the same for both services. For information about migrating from {{site.data.keyword.la_full_notm}} to {{site.data.keyword.logs_full_notm}} and running the services in parallel, see [migration planning](/docs/cloud-logs?topic=cloud-logs-migration-intro).
-{: important}
-
 ## Locations where platform logs are generated
 {: #log-locations}
 
-
 Until the {{site.data.keyword.logs_routing_full_notm}} service is available in Montreal, platform logs are delivered to the {{site.data.keyword.logs_full_notm}} instance configured for the Washington DC (`us-east`) region. Logs sent from Montreal include a `logSourceCRN` field such as `ca-mon`, `mon01`, `mon02`, or `mon03`. If an {{site.data.keyword.logs_routing_full_notm}} tenant is not configured in `us-east`, then you must [create a tenant in `us-east`](/docs/logs-router?topic=logs-router-tenant-create&interface=ui) to receive platform logs for the Montreal region.
 {: attention}
-
-### Locations where logs are sent to {{site.data.keyword.la_full_notm}}
-{: #la-legacy-locations}
-
-
-
-{{site.data.keyword.vpc_short}} sends platform logs to {{site.data.keyword.la_full_notm}} in the regions indicated in the following table.
-
-| Dallas (`us-south`) | Washington (`us-east`)  | Toronto (`ca-tor`) | Montreal (`ca-mon`) | Sao Paulo (`br-sao`) |
-|---------------------|-------------------------|-------------------|-------------------|----------------------|
-| [Yes]{: tag-green} | [Yes]{: tag-green} | [Yes]{: tag-green} | [Yes]{: tag-green} | [Yes]{: tag-green} |
-{: caption="Regions where platform logs are sent in Americas locations" caption-side="top"}
-{: #la-table-1}
-{: tab-title="Americas"}
-{: tab-group="la"}
-{: class="simple-tab-table"}
-{: row-headers}
-
-| Tokyo (`jp-tok`)    | Sydney (`au-syd`) |  Osaka (`jp-osa`) | 
-|---------------------|------------------|------------------|
-| [Yes]{: tag-green} | [Yes]{: tag-green} | [Yes]{: tag-green} | 
-{: caption="Regions where platform logs are sent in Asia Pacific locations" caption-side="top"}
-{: #la-table-2}
-{: tab-title="Asia Pacific"}
-{: tab-group="la"}
-{: class="simple-tab-table"}
-{: row-headers}
-
-| Frankfurt (`eu-de`)  | London (`eu-gb`) | Madrid (`eu-es`) |
-|---------------------------------------------------------------|---------------------|------------------|
-| [Yes]{: tag-green} | [Yes]{: tag-green} | [Yes]{: tag-green} |
-{: caption="Regions where platform logs are sent in Europe locations" caption-side="top"}
-{: #la-table-3}
-{: tab-title="Europe"}
-{: tab-group="la"}
-{: class="simple-tab-table"}
-{: row-headers}
 
 ### Locations where logs are sent by {{site.data.keyword.logs_routing_full_notm}}
 {: #lr-locations}
@@ -88,9 +45,9 @@ Until the {{site.data.keyword.logs_routing_full_notm}} service is available in M
 {: class="simple-tab-table"}
 {: row-headers}
 
-| Tokyo (`jp-tok`)    | Sydney (`au-syd`) |  Osaka (`jp-osa`) | 
+| Tokyo (`jp-tok`)    | Sydney (`au-syd`) |  Osaka (`jp-osa`) |
 |---------------------|------------------|------------------|
-| [Yes]{: tag-green} | [Yes]{: tag-green} | [Yes]{: tag-green} | 
+| [Yes]{: tag-green} | [Yes]{: tag-green} | [Yes]{: tag-green} |
 {: caption="Regions where platform logs are sent in Asia Pacific locations" caption-side="top"}
 {: #lr-table-2}
 {: tab-title="Asia Pacific"}
@@ -107,7 +64,7 @@ Until the {{site.data.keyword.logs_routing_full_notm}} service is available in M
 {: tab-group="lr"}
 {: class="simple-tab-table"}
 {: row-headers}
-  
+
 ## Viewing logs
 {: #log-viewing}
 
@@ -116,7 +73,7 @@ Until the {{site.data.keyword.logs_routing_full_notm}} service is available in M
 
 
 
-For more information about launching the {{site.data.keyword.logs_full_notm}} UI, see [Launching the UI in the {{site.data.keyword.logs_full_notm}} documentation.](/docs/cloud-logs?topic=cloud-logs-instance-launch) 
+For more information about launching the {{site.data.keyword.logs_full_notm}} UI, see [Launching the UI in the {{site.data.keyword.logs_full_notm}} documentation.](/docs/cloud-logs?topic=cloud-logs-instance-launch)
 
 ## Fields per log type
 {: #logging_fields}
@@ -242,7 +199,7 @@ The following table outlines the message IDs that are generated by the Snapshots
 | `snapshot.00009` | `info` | `All snapshots of volume <Volume ID> in the region <Region> are requested to be deleted.` |
 | `snapshot.00010` | `info` | `Delete all snapshots request for volume <Volume ID> is completed successfully. Region <Region>` |
 | `snapshot.00010` | `info` | `Snapshot copy creation in region <Region> requested for snapshot <Snapshot ID> from region <Source Region>. Volume <Volume ID>` |
-{: caption="Message IDs that are generated for Snapshot events" caption-side="bottom"} 
+{: caption="Message IDs that are generated for Snapshot events" caption-side="bottom"}
 
 ## VPN for VPC (site-to-site) logging
 {: #logging-s2s}
@@ -264,7 +221,7 @@ Sub-system name = `is.vpn`
 ### Logs (VPN for VPC)
 {: #logs-vpn-vpc}
 
-The following table outlines sample logs that are generated by the VPN for VPC service. The following logs are based on Internet Key Exchange version 2 (IKEv2). 
+The following table outlines sample logs that are generated by the VPN for VPC service. The following logs are based on Internet Key Exchange version 2 (IKEv2).
 
 | Log       | Description  |
 |------------------|---------------------|
@@ -297,14 +254,14 @@ Sub-system name = `is.vpn.server`
 | `tag`             | Required   | Includes the account where the VPN is and matches the account in `logSourceCRN`. |
 | `message`         | Required   | Contains different data based on the RFC protocol standard. |
 {: caption="Log record fields (Client VPN for VPC)" caption-side="bottom"}
- 
+
 ### Logs (Client VPN for VPC)
 {: #logs-client-vpn}
 
-The following table outlines sample logs that are generated by the Client VPN for VPC service. The following logs are based on Internet Key Exchange version 2 (IKEv2). 
+The following table outlines sample logs that are generated by the Client VPN for VPC service. The following logs are based on Internet Key Exchange version 2 (IKEv2).
 
 | Log       | Description  |
 |------------------|---------------------|
 | `YYYY-MM-DD HH24:MM:SS {DEVICE PUBLIC IP:PORT} {USERNAME/INTERMEDIATE CA} connect` | The connection between the OpenVPN client and the server is established. |
-| `YYYY-MM-DD HH24:MM:SS {DEVICE PUBLIC IP:PORT} {USERNAME/INTERMEDIATE CA} disconnect` | The OpenVPN client is no longer linked to the server. | 
-{: caption="Logs that are generated for Client VPN for VPC (client-to-site)" caption-side="bottom"} 
+| `YYYY-MM-DD HH24:MM:SS {DEVICE PUBLIC IP:PORT} {USERNAME/INTERMEDIATE CA} disconnect` | The OpenVPN client is no longer linked to the server. |
+{: caption="Logs that are generated for Client VPN for VPC (client-to-site)" caption-side="bottom"}

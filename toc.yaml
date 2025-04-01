@@ -315,8 +315,8 @@ toc:
             label: Cluster networks
             topics:
             - cn-about.md
-            - cn-planning.md
             - cn-h100-profile.md
+            - cn-planning.md
             - cn-create.md
             - topicgroup:
                 label: Managing cluster networks

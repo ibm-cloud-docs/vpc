@@ -2,7 +2,7 @@
 
 copyright:
   years: 2024, 2025
-lastupdated: "2025-03-13"
+lastupdated: "2025-03-28"
 
 keywords: cluster profiles, cluster network, cluster-network, cluster network profile, cluster network profiles, gpu, nvidia, h100, rdma, roce, accelerated, rocev2, accelerated network
 
