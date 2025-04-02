@@ -2,7 +2,7 @@
 
 copyright:
   years: 2019, 2025
-lastupdated: "2024-11-12"
+lastupdated: "2025-04-01"
 
 keywords: api, change log, metadata, new features, restrictions, migration, versioned change
 
@@ -27,6 +27,14 @@ Some changes, such as new response properties or new optional request parameters
 - Follow HTTP redirect rules for any `3xx` HTTP status code
 - Consume only the resources and properties your application needs to function
 - Avoid depending on behavior that is not explicitly documented
+
+## 1 April 2025
+{: #1-april-2025-metadata}
+
+### For all version dates
+{: #1-april-2025-all-version-dates-metadata}
+
+**Trust Domain Extensions for confidential computing.** In select regions, you can now enable [Intel&reg; Trust Domain Extensions (TDX)](/docs/vpc?topic=vpc-about-confidential-computing-vpc#confidential-computing-vpc-with-tdx). When [retrieving an instance](/apidocs/vpc-metadata#get-instance), the `confidential_compute_mode` property will have the value `tdx` if it is enabled for this virtual server instance. For more information, see the [VPC API change log](/docs/vpc?topic=vpc-api-change-log#1-april-2025).
 
 ## 12 November 2024
 {: #12-november-2024-metadata}

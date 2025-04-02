@@ -2,7 +2,7 @@
 
 copyright:
   years: 2019, 2025
-lastupdated: "2025-03-25"
+lastupdated: "2025-04-01"
 
 keywords: api, change log, new features, restrictions, migration
 
@@ -55,6 +55,16 @@ To prepare for this change, verify that your client checks that the `volume` pro
 
 The new response code will be rolled out gradually. Each phase of the rollout will be tied to a dated API version. These changes will be announced in future change log updates.
 {: note}
+
+## 1 April 2025
+{: #1-april-2025}
+
+### For all version dates
+{: #1-april-2025-all-version-dates}
+
+**Trust Domain Extensions for confidential computing.** In select regions, you can now enable [Intel&reg; Trust Domain Extensions (TDX)](/docs/vpc?topic=vpc-about-confidential-computing-vpc#confidential-computing-vpc-with-tdx). [Instance profiles](/apidocs/vpc#list-instance-profiles) that support TDX include `tdx` in their `confidential_compute_modes.values` property. To use TDX, specify a profile that supports it along with the `confidential_compute_mode` value of `tdx` when [creating](/apidocs/vpc/latest#create-instance) or [updating](/apidocs/vpc/latest#update-instance) an instance, or when [creating](/apidocs/vpc/latest#create-instance-template) an instance template.
+
+See [Confidential computing known issues](/docs/vpc?topic=vpc-known-issues#confidential-computing-vpc-known-issues) for details regarding a known issue when [listing instance profiles](/apidocs/vpc#list-instance-profiles) and [retrieving an instance profile](/apidocs/vpc#get-instance-profile) in the Dallas (`us-south`) and Frankfurt (`eu-de`) regions.
 
 ## 25 March 2025
 {: #25-march-2025}
@@ -1401,14 +1411,15 @@ For more information about key states and resource statuses, see [User actions t
 ### For all version dates
 {: #20-november-2020-all-version-dates}
 
-**Datapath log forwarding with {{site.data.keyword.la_full_notm}}** is now available for [IBM Cloud Application Load Balancer for VPC](/docs/vpc?topic=vpc-load-balancers#load-balancers). Data and health check logs are valuable for debugging, analysis, and maintenance purposes. With the datapath logging feature enabled, your load balancer forwards these logs to your account's [IBM Log Analysis](https://cloud.ibm.com/observe/logging){: external} dashboard.
+As of 28 March 2024, the {{site.data.keyword.la_full_notm}} service is deprecated and will no longer be supported as of 30 March 2025. Customers need to migrate to {{site.data.keyword.logs_full_notm}} before 30 March 2025. During the migration period, customers can use {{site.data.keyword.la_full_notm}} along with {{site.data.keyword.logs_full_notm}}. Logging is the same for both services. For information about migrating from {{site.data.keyword.la_full_notm}} to {{site.data.keyword.logs_full_notm}} and running the services in parallel, see [migration planning](/docs/cloud-logs?topic=cloud-logs-migration-intro).
+{: deprecated}
+
+**Datapath log forwarding** is now available for [IBM Cloud Application Load Balancer for VPC](/docs/vpc?topic=vpc-load-balancers#load-balancers). Data and health check logs are valuable for debugging, analysis, and maintenance purposes.
 
 View the `logging` property in the following API methods:
 
 - [List all load balancers](/apidocs/vpc/latest#list-load-balancers) (`GET /load_balancers`)
 - [Retrieve a load balancer](/apidocs/vpc/latest#get-load-balancer) (`GET /load_balancers/{id}`)
-
-For more information, see [Datapath log forwarding with IBM Log Analysis](/docs/vpc?topic=vpc-datapath-logging#datapath-logging).
 
 ## 19 November 2020
 {: #19-november-2020}
