@@ -2,7 +2,7 @@
 
 copyright:
   years: 2023, 2025
-lastupdated: "2025-03-26"
+lastupdated: "2025-04-02"
 
 keywords:
 
@@ -97,7 +97,7 @@ To create a Private Path service with the {{site.data.keyword.cloud_notm}} conso
    1. Optionally, in the Add front-end listeners section, select the back-end pool where you want to attach your front-end listener. Then, select the listener port value and click **Save**. Repeat this step if you want to create another front-end listener.
    1. In the Review section, confirm that the information you submitted is correct. Review the order summary, then click **Create**.
 
-      It takes several minutes for your Private Path NLB to be created. When the load balancer is created, its status changes from **Creating** to **Active** in the table.
+      It takes a few minutes for your Private Path NLB to be created. When the load balancer is created, its status changes from **Creating** to **Active** in the table.
       {: note}
 
 1. In the Service endpoint section, click **Create**. Provide a name for the service endpoint where you want to connect your Private Path service. Then, validate ownership of the FQDN domain name and click **Add**. For more information, see [Register and verify ownership of service endpoints (FQDNs)](/docs/vpc?topic=vpc-private-path-service-about&interface=ui#pps-domain-register-verify).
