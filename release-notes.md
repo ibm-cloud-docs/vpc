@@ -2,7 +2,7 @@
 
 copyright:
   years: 2019, 2025
-lastupdated: "2025-03-28"
+lastupdated: "2025-04-02"
 
 keywords:
 
@@ -32,7 +32,7 @@ For more information about changes to the {{site.data.keyword.vpc_short}} comman
 {: release-note}
 
 Confidential computing with Intel Trusted Domain Extension (TDX) for Virtual Servers for VPC (select availability)
-:   Confidential computing with Intel&reg; Trusted Domain Extension (TDX) for VPC is available only in the Washington DC (us-east) region. Confidential computing with Intel TDX offers confidentiality to virtual machines by providing CPU enhancements that are leveraged by the firmware and hardware to provide confidentiality and integrity. For more information, see [Confidential computing for x86 Virtual Servers for VPC](/docs/vpc?topic=vpc-about-sgx-vpc). When you create a virtual server instance with a confidential computing profile and Intel Trusted Domain Extension (TDX), you can create that virtual server instance only in the Washington DC (us-east) region. You can’t create a virtual server instance with TDX in any other region, including Dallas (us-south) and Frankfurt (eu-de). For more information, see [Confidential computing known issues](/docs/vpc?topic=vpc-known-issues#confidential-computing-vpc-known-issues).
+:   Confidential computing with Intel&reg; Trusted Domain Extension (TDX) for VPC is available only in the Washington DC (us-east) region. Confidential computing with Intel TDX offers confidentiality to virtual machines by providing CPU enhancements that are leveraged by the firmware and hardware to provide confidentiality and integrity. For more information, see [Confidential computing for x86 Virtual Servers for VPC](/docs/vpc?topic=vpc-about-confidential-computing-vpc). When you create a virtual server instance with a confidential computing profile and Intel Trusted Domain Extension (TDX), you can create that virtual server instance only in the Washington DC (us-east) region. You can’t create a virtual server instance with TDX in any other region, including Dallas (us-south) and Frankfurt (eu-de). For more information, see [Confidential computing known issues](/docs/vpc?topic=vpc-known-issues#confidential-computing-vpc-known-issues).
 
 ### 25 March 2025
 {: #vpc-mar2525}
@@ -124,7 +124,7 @@ GPU H200 profile now available in Washington DC (`us-east`) and Frankfurt (`eu-d
 {: release-note}
 
 Confidential computing with Intel Trusted Domain Extension (TDX) for Virtual Servers for VPC (beta)
-:   Confidential computing with Intel&reg; Trusted Domain Extension (TDX) for VPC is available for select customers. Contact IBM Sales if you are interested in being allowlisted and using this offering. Confidential computing with Intel TDX offers confidentiality to virtual machines by providing CPU enhancements that are leveraged by the firmware and hardware to provide confidentiality and integrity. Confidential computing with Intel TDX for VPC is available only in the Washington DC (us-east) region. For more information, see [Confidential computing for x86 Virtual Servers for VPC](/docs/vpc?topic=vpc-about-sgx-vpc).
+:   Confidential computing with Intel&reg; Trusted Domain Extension (TDX) for VPC is available for select customers. Contact IBM Sales if you are interested in being allowlisted and using this offering. Confidential computing with Intel TDX offers confidentiality to virtual machines by providing CPU enhancements that are leveraged by the firmware and hardware to provide confidentiality and integrity. Confidential computing with Intel TDX for VPC is available only in the Washington DC (us-east) region. For more information, see [Confidential computing for x86 Virtual Servers for VPC](/docs/vpc?topic=vpc-about-confidential-computing-vpc).
 
 ## December 2024
 {: #vpc-dec24}
@@ -502,7 +502,7 @@ Security group support for secondary IP addresses (GA)
 {: release-note}
 
 Confidential computing with Intel Software Guard Extensions (SGX) for Virtual Servers for VPC (select availability)
-:   Confidential computing with Intel&reg; Software Guard Extensions (SGX) protects your data through hardware-based server security by using isolated memory regions that are known as encrypted enclaves. This hardware-based computation helps protect your data from disclosure or modification. Which means that your sensitive data is encrypted while it is in virtual server instance memory by allowing applications to run in private memory space. To use SGX, you must install the SGX drivers and platform software on SGX-capable worker nodes. Then, design your app to run in an SGX environment. Confidential computing with Intel SGX for VPC is available only in US-South (Dallas) region. For more information, see [Confidential computing with Intel Software Guard Extensions (SGX) for Virtual Servers for VPC](/docs/vpc?topic=vpc-about-sgx-vpc).
+:   Confidential computing with Intel&reg; Software Guard Extensions (SGX) protects your data through hardware-based server security by using isolated memory regions that are known as encrypted enclaves. This hardware-based computation helps protect your data from disclosure or modification. Which means that your sensitive data is encrypted while it is in virtual server instance memory by allowing applications to run in private memory space. To use SGX, you must install the SGX drivers and platform software on SGX-capable worker nodes. Then, design your app to run in an SGX environment. Confidential computing with Intel SGX for VPC is available only in US-South (Dallas) region. For more information, see [Confidential computing with Intel Software Guard Extensions (SGX) for Virtual Servers for VPC](/docs/vpc?topic=vpc-about-confidential-computing-vpc).
 
 ### 14 May 2024
 {: #vpc-may1424}

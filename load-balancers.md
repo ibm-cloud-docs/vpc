@@ -2,7 +2,7 @@
 
 copyright:
   years: 2020, 2025
-lastupdated: "2025-03-21"
+lastupdated: "2025-04-02"
 
 keywords:
 
@@ -66,7 +66,7 @@ The following table provides a comparison of the types of load balancers.
 | Instance group support | Yes (see [Integrating an ALB for VPC with instance groups](/docs/vpc?topic=vpc-lbaas-integration-with-instance-groups)) | No | No |
 | Monitoring metrics | Yes | Yes | No |
 | [Multi-zone support](/docs/vpc?topic=vpc-nlb-vs-elb#nlb-mz-support) | Yes | Limited [^footnote1] (see [Multi-zone support](/docs/vpc?topic=vpc-nlb-vs-elb#nlb-mz-support)) | Yes |
-| Security group support | Yes (see [Integrating an ALB for VPC with security groups](/docs/vpc?topic=vpc-alb-integration-with-security-groups)) | Yes (see [Integrating a network load balancer with security groups](/docs/vpc?topic=vpc-nlb-integration-with-security-groups) | No. Access control is through a Private Path service |
+| Security group support | Yes (see [Integrating an ALB for VPC with security groups](/docs/vpc?topic=vpc-alb-integration-with-security-groups)) | Yes (see [Integrating a network load balancer with security groups](/docs/vpc?topic=vpc-nlb-integration-with-security-groups)) | No. Access control is through a Private Path service |
 | Source IP address is preserved | Yes, with proxy protocol | Yes | No |
 | SSL offloading | Yes  | No | No |
 | Supported protocols | HTTPS, HTTP, TCP | TCP, UDP | TCP |
@@ -81,7 +81,6 @@ The following table provides a comparison of the types of load balancers.
 {: caption="Comparison of private path network, network and application load balancers" caption-side="bottom"}
 
 [^footnote1]: NLBs can accept members across all three availability zones, but the NLB itself resides in one specific zone. NLB with routing mode does not support multi-zone support.
-
 [^footnote2]: NLB with routing mode supports a port range for all ports.
 
 For more information, such as load balancer architecture, methods, and use cases, see [About application load balancers](/docs/vpc?topic=vpc-load-balancers-about) and [About network load balancers](/docs/vpc?topic=vpc-network-load-balancers).

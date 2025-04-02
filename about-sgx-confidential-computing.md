@@ -2,7 +2,7 @@
 
 copyright:
   years: 2023, 2025
-lastupdated: "2025-03-28"
+lastupdated: "2025-04-02"
 
 keywords: sgx, intel sgx, software guard extension, confidential computing, trusted execution environment, TEE, data protection
 
@@ -47,7 +47,7 @@ So, all Intel SGXs and TDxs are TEEs, but not all TEEs are Intel SGXs or TDXs.
 ## Attestation
 {: #attestation-confidential-computing-vpc}
 
-When you develop a confidential computing SGX application, you must design it so you can segment the information that needs confidentiality. At run time, the segmented information is kept in encrypted enclaves. The confidential information is loaded into the encrypted enclaves, only after the encrypted enclaves proves its authenticity through a process called attestation. For more information about attestation with Intel SGX and TDX, see [Attestation with Intel SGX or TDX and Data Center Attestation Primitives (DCAP)](/docs/vpc?topic=vpc-about-attestation-sgx-dcap-vpc).
+When you develop a confidential computing SGX application, you must design it so you can segment the information that needs confidentiality. At run time, the segmented information is kept in encrypted enclaves. The confidential information is loaded into the encrypted enclaves, only after the encrypted enclaves proves its authenticity through a process called attestation. For more information about attestation with Intel SGX and TDX, see [Attestation with Intel SGX or TDX and Data Center Attestation Primitives (DCAP)](/docs/vpc?topic=vpc-about-confidential-computing-attestation-dcap-vpc).
 
 ## Confidential computing with SGX and TDX use cases
 {: #confidential-computing-scenarios-vpc}

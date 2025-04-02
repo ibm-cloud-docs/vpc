@@ -19,11 +19,10 @@ keywords: instance storage, local disk, storage, temporary storage, generation 2
 Instance storage is a set of one or more solid-state drives (full or isolated partial storage spaces) that are attached to your virtual server instance when the instance is provisioned. Instance storage is close to the compute resources of the virtual server and on a high-speed communication channel that is independent from the network. An instance storage disk provides fast, affordable, temporary storage to improve the performance of cloud native workloads with scratch space, caching buffers, or a place for replicated data. The data that is stored on instance storage is ephemeral, which means that the data is tied directly to the instance lifecycle. The instance storage disk is automatically created and destroyed with the instance. Instance storage data is not lost when an instance is only rebooted.
 {: shortdesc}
 
-Instance storage is a complementary storage technology to the boot and Block Storage volumes that are offered with VPC. Some examples of use cases for instance storage disks are:
+Instance storage is a complementary storage technology to the Block Storage boot and data volumes that are offered with VPC. Some examples of use cases for instance storage disks are:
 
 *	Distributed File Systems: Technologies such as Hadoop Distributed File System (HDFS), which do triplication of the data across multiple servers. These technologies can improve read bandwidth and retain reliability by maintaining multiple copies of the data. It is recommended that at least three copies of the data are maintained (ideally across availability zones) when you use Instance Storage for these workloads.  
 *	Transactional jobs: Transaction processing usually creates a significant number of temporary files. Instance Storage is a great place to temporarily store that data while the transactions are processed, with the results stored persistently on a data volume.
-*	Content Delivery Networks (CDNs): Improve performance for large geographically distributed applications with instance storage for fast, low cost, local data caching.
 
 ## Lifecycle of instance storage
 {: #instance-storage-lifecycle}

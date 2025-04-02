@@ -2,7 +2,7 @@
 
 copyright:
   years: 2019, 2025
-lastupdated: "2025-03-28"
+lastupdated: "2025-04-02"
 
 keywords: vsi, virtual server instances, profile, profiles, balanced, compute, memory, very high memory, ultra high memory, gpu storage optimized, confidential compute
 
@@ -386,7 +386,7 @@ Confidential computing profiles are available in the Dallas (us-south), Washingt
 
 The following profiles support Confidential computing with Intel Software Guard Extensions (SGX), Confidential computing with Intel Trusted Domain Extension (TDX), and secure boot.
 
-For more information about confidential computing, see [Confidential computing for x86 Virtual Servers for VPC](/docs/vpc?topic=vpc-about-sgx-vpc).
+For more information about confidential computing, see [Confidential computing for x86 Virtual Servers for VPC](/docs/vpc?topic=vpc-about-confidential-computing-vpc).
 
 | Instance profile | vCPU / Cores | GiB RAM | EPC (SGX) capacity (GiB)  | Bandwidth cap (Gbps) | Instance storage (GB) |
 | ---------------- | ---- | ------- | ------------------------- |------- | ------------------------- |
