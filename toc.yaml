@@ -73,6 +73,20 @@ toc:
                topics:
                - topic: vsi-profile-details-accelerated.md
                  navtitle: Accelerated - Gen 3
+               - topic: vsi-profile-details-general-purpose-gen3.md
+                 navtitle: General purpose - Gen 3 (x86)
+               - topic: vsi-profile-details-general-purpose-gen2-x86.md
+                 navtitle: General purpose - Gen 2 (x86)
+               - topic: vsi-profile-details-general-purpose-gen2-z.md
+                 navtitle: General purpose - Gen 2 (s390x)
+               - topic: vsi-profile-details-high-memory-gen2.md
+                 navtitle: High Memory - Gen 2
+               - topic: vsi-profile-details-storage-optimized-gen2.md
+                 navtitle: Storage Optimized - Gen 2
+               - topic: vsi-profile-details-confidential-computing-gen3-x86.md
+                 navtitle: Confidential Computing - Gen 3 (x86)
+               - topic: vsi-profile-details-confidential-computing-gen2-z.md
+                 navtitle: Confidential Computing - Gen 2 (s390x)
            - vsi_is_provisioning_scripts.md
            - instance-profiles-vpc-bandwidth.md
            - topicgroup:
