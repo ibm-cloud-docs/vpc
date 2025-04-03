@@ -2,7 +2,7 @@
 
 copyright:
   years: 2024, 2025
-lastupdated: "2025-04-02"
+lastupdated: "2025-04-03"
 
 keywords: vsi, virtual server, virtual server instances, profile, profiles, balanced, compute, memory, dedicated host, gen 3
 
@@ -62,7 +62,7 @@ for single-tenant hypervisors running workloads from a single {{site.data.keywor
 - Instance storage: virtio
 
 ## Instance profiles
-{: #general-purpose-vsi-profiles-gen3-intel}
+{: #general-purpose-profiles-gen3-intel}
 
 ### Balanced
 {: #balanced-profiles-gen3-intel}

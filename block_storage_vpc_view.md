@@ -2,7 +2,7 @@
 
 copyright:
   years: 2019, 2025
-lastupdated: "2025-03-19"
+lastupdated: "2025-04-03"
 
 keywords:
 
@@ -232,7 +232,7 @@ Storage Generation                     1
 ```
 {: screen}
 
-In the example, the volume is attached to a virtual server instance, so the names and IDs of the volume attachment and instance are also displayed in the command output. The Active property is `true` because the virtual server instance to which the volume is attached is running. The `busy` property with the value `false` indicates that this volume is not performing an operation that must be serialized.
+In the example, the volume is attached to a virtual server instance, so the names and IDs of the volume attachment and instance are also displayed in the command output. The `Active` property is `true` because the virtual server instance to which the volume is attached is running. The `Busy` property with the value `false` indicates that this volume is not performing an operation that must be serialized.
 
 For more information about available command options, see [`ibmcloud is volume`](/docs/cli?topic=cli-vpc-reference#volume-view).
 
@@ -491,7 +491,7 @@ A successful response provides details of the volume, including capacity and IOP
 ```
 {: codeblock}
 
-### Extra properties for boot volumes
+### Extra API properties for boot volumes
 {: #viewvol-boot}
 
 When you request to view details of boot volumes, a couple of extra properties are returned in the response for `GET /volumes` and `GET /volumes/{id}` requests.
