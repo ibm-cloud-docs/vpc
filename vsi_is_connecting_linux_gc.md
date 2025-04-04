@@ -90,8 +90,9 @@ The name of the default user account depends on the operating system image being
 | SUSE Linux Enterprise Server (SLES) | `vpcuser` |
 | Debian | `vpcuser` |
 | Rocky Linux | `vpcuser` |
+| Centos Stream | `vpcuser` |
 |  Ubuntu | `ubuntu` |
-| Fedora Core | `core` |
+| Fedora CoreOS | `core` |
 {: caption="Default user account for Linux images" caption-side="bottom"}
 
 ## Getting connected
