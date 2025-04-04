@@ -1,8 +1,8 @@
 ---
 
 copyright:
-  years: 2019, 2024
-lastupdated: "2024-08-26"
+  years: 2019, 2025
+lastupdated: "2025-04-04"
 
 keywords: creating a linux custom image, cloud-init, qcow2
 
@@ -107,12 +107,12 @@ Make sure that your image is cloud-init enabled. Cloud-init version 0.7.9 or gre
 
 4. In the */etc/cloud/cloud.cfg* file, verify that the `cloud_final_modules` section includes the `scripts-vendor` module and that it is enabled. By default, Red Hat Enterprise Linux and CentOS do not include the `scripts-vendor` module that is required to provision instances in the {{site.data.keyword.vpc_short}} infrastructure. You must enable the `scripts-vendor` module to provision an {{site.data.keyword.vpc_short}} virtual server instance with the Linux custom image.
 
-    For Red Hat Enterprise Linux images, the following packages are included as part of the base image by default and are required for cloud-init to run successfully: `subscription-manager`, `ethtool`, and `rpm`. In addition, make sure that these services are enabled: `cloud-init-local.service`, `cloud-init.service`, `cloud-config.service`, and `cloud-final.service`.
+    For Red Hat Enterprise Linux (RHEL) images, the following packages are included as part of the base image by default and are required for cloud-init to run successfully: `subscription-manager`, `ethtool`, and `rpm`. In addition, make sure that these services are enabled: `cloud-init-local.service`, `cloud-init.service`, `cloud-config.service`, and `cloud-final.service`.
     {: note}
 
 5. Make sure that you configure your image to use SSH for logging in to your virtual server.
 
-For more information about enabling cloud-init, see [cloud-init documentation](https://cloudinit.readthedocs.io/en/latest/){: external}.
+The default user for a RHEL-based custom images is `cloud-user`. For more information about enabling cloud-init, see [Setting up cloud-init]([https://cloudinit.readthedocs.io/en/latest/](https://access.redhat.com/documentation/en-us/red_hat_enterprise_linux_atomic_host/7/html/installation_and_configuration_guide/setting_up_cloud_init)){: external}.
 
 ## Step 5 - Boot disk size
 {: #boot-disk}
