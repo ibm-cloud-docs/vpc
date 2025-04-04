@@ -1,8 +1,8 @@
 ---
 
 copyright:
-  years: 2019, 2024
-lastupdated: "2024-11-05"
+  years: 2019, 2025
+lastupdated: "2025-04-04"
 
 keywords:
 
@@ -173,6 +173,7 @@ When you use root keys regionally or cross-regionally, all network traffic is di
 Setting up customer-managed encryption for your {{site.data.keyword.block_storage_is_short}} volumes involves several steps.
 
 1. Generate your own root key. You can use your on-premises HSM. Or you can create your root key by using an {{site.data.keyword.cloud_notm}} HSM or {{site.data.keyword.hscrypto}}.
+
    {{site.data.keyword.cloud_notm}} data centers provide a dedicated HSM to create and protect your keys. By using {{site.data.keyword.hscrypto}}, you can take control of your cloud data encryption keys and cloud hardware security module.
    {: tip}
 
