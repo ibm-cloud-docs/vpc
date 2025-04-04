@@ -300,7 +300,7 @@ toc:
             - topicgroup:
                 label: Preparing custom images
                 topics:
-                - vsi_is_prepare_custom_image_import.md
+                - vsi_is_pree_custom_image_import.md
                 - vsi_is_create_linux_custom_image.md
                 - vsi_is_create_windows_custom_image.md
                 - vsi_is_create_zos_custom_image.md
