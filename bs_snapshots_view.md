@@ -2,7 +2,7 @@
 
 copyright:
   years: 2021, 2025
-lastupdated: "2025-03-19"
+lastupdated: "2025-04-03"
 
 keywords: view snapshots, view snapshot, viewing snapshots, see snapshots, Block Storage snapshots
 
@@ -17,7 +17,6 @@ subcollection: vpc
 
 You can view a list of all snapshots and consistency groups, and drill down to see information about a particular snapshot. Choose the UI, CLI, API, or Terraform to retrieve this information.
 {: shortdesc}
-
 
 ## Listing snapshots in the UI
 {: #snapshots-vpc-view-ui}
@@ -290,12 +289,12 @@ ibmcloud is snapshots SNAPSHOT_ID [--json]
 The following example shows the details of a bootable snapshot in the `us-south` region.
 
 ```sh
-cloudshell:~$ ibmcloud is snapshot c2bc3194-0cab-40c4-9434-db9f26218700
-Getting snapshot c2bc3194-0cab-40c4-9434-db9f26218700 under account vpc1 as user user@mycompany.com...
+cloudshell:~$ ibmcloud is snapshot r006-c2bc3194-0cab-40c4-9434-db9f26218700
+Getting snapshot r006-c2bc3194-0cab-40c4-9434-db9f26218700 under account vpc1 as user user@mycompany.com...
 
-ID                         c2bc3194-0cab-40c4-9434-db9f26218700
+ID                         r006-c2bc3194-0cab-40c4-9434-db9f26218700
 Name                       my-snapshot
-CRN                        crn:v1:bluemix:public:is:us-south:a/a1234567::snapshot:c2bc3194-0cab-40c4-9434-db9f26218700
+CRN                        crn:v1:bluemix:public:is:us-south:a/a1234567::snapshot:r006-c2bc3194-0cab-40c4-9434-db9f26218700
 Status                     stable
 Source volume              ID                                          Name
                            fe027a90-19e7-4cb5-bda3-4c0e35d2bcdf        test5-vol
@@ -313,7 +312,7 @@ Operating system           Name             Vendor   Version                 Fam
                            centos-8-amd64   CentOS   8.x - Minimal Install   CentOS   amd64          CentOS 8.x - Minimal Install (amd64)
 
 Snapshot Consistency Group ID                                          Name                                   CRN                                                                    Resource type
-                             r174-4625d29b-3ac9-4bee-aca8-9366c4fd0c44 multiple-snapshots-consistency-group-1   crn:v1:bluemix:public:is:us-south:a/a1234567::snapshot-consistency-group:r174-4625d29b-3ac9-4bee-aca8-9366c4fd0c44   snapshot_consistency_group
+                             r006-4625d29b-3ac9-4bee-aca8-9366c4fd0c44 multiple-snapshots-consistency-group-1   crn:v1:bluemix:public:is:us-south:a/a1234567::snapshot-consistency-group:r006-4625d29b-3ac9-4bee-aca8-9366c4fd0c44   snapshot_consistency_group
 
 Resource group               ID                                     Name
                              ef2694fe-d6d1-4136-94c3-0ae315204e6b   Default

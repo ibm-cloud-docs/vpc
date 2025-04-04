@@ -2,7 +2,7 @@
 
 copyright:
   years: 2021, 2025
-lastupdated: "2025-01-17"
+lastupdated: "2025-04-03"
 
 keywords: file share, file storage, virtual network interface, encryption in transit, profiles, 
 
@@ -342,8 +342,6 @@ For more information about how to create a file share with customer-managed encr
 {: #fs-create-share-with-replica-cli}
 
 For more information about how to create a file share with a replica simultaneously, see [Create a file share with replication from the CLI](/docs/vpc?topic=vpc-file-storage-create-replication&interface=cli#fs-create-new-share-replica-cli).
-
-
 
 ### Creating a file share from a snapshot from the CLI
 {: #fs-create-share-from-snapshot-cli}
@@ -851,8 +849,6 @@ curl -X POST "$vpc_api_endpoint/v1/shares?version=2023-08-08&generation=2" \
 ### Creating a file share from a snapshot with the API
 {: #fs-create-share-from-snapshot-api}
 
-
-
 For more information about how to create a file share from a snapshot, see [Restoring data from a file share snapshot](/docs/vpc?topic=vpc-fs-snapshots-restore&interface=api#fs-snapshots-restore-API).
 
 ### Adding supplemental IDs when you create a file share with the API
@@ -957,8 +953,6 @@ resource "ibm_is_share" "example-2" {
 
 ### Creating a file share from a snapshot with Terraform
 {: #fs-create-share-from-snapshot-terraform}
-
-
 
 For more information about how to create a file share from a snapshot, see [Restoring data from a file share snapshot](/docs/vpc?topic=vpc-fs-snapshots-restore&interface=terraform#fs-snapshots-restore-terraform).
 
