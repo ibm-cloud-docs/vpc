@@ -2,7 +2,7 @@
 
 copyright:
   years: 2021, 2025
-lastupdated: "2025-03-19"
+lastupdated: "2025-04-04"
 
 keywords: image, virtual private cloud, boot volume, virtual server instance, instance, gpu, graphics processing unit, set up gpu
 
@@ -32,7 +32,6 @@ For a Linux focused guide on installing the NVIDIA drivers, see the [NVIDIA Driv
 
 If you want to automate the installation of the drivers, you can use the [User data](/docs/vpc?topic=vpc-user-data) section of the virtual server. By using the user data field, you can input a script that issues the commands to install the NVIDIA drivers.
 {: tip}
-
 
 ## Configuring a virtual server instance with an Intel Gaudi 3 AI Accelerator
 {: #provision-gaudi-3-on-vsi}
