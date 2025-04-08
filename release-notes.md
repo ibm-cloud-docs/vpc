@@ -2,7 +2,7 @@
 
 copyright:
   years: 2019, 2025
-lastupdated: "2025-04-02"
+lastupdated: "2025-04-08"
 
 keywords:
 
@@ -23,6 +23,21 @@ Use the release notes to learn the latest updates to {{site.data.keyword.vpc_ful
 For more information about changes to the {{site.data.keyword.vpc_short}} API, see [{{site.data.keyword.vpc_short}} API change log](/docs/vpc?topic=vpc-api-change-log).
 
 For more information about changes to the {{site.data.keyword.vpc_short}} command-line interface (CLI), see [{{site.data.keyword.vpc_short}} CLI release notes](/docs/vpc?topic=vpc-vpc-cli-rn).
+
+### 8 April 2025
+{: #vpc-apr825}
+{: release-note}
+
+SNI hostname layer-7 rule for application load balancers
+:   A new layer 7 rule for policy matching with appliation load balancers is now available. The `SNI hostname` rule allows you to match policy requests when the server provided in the "server name indication" extension during TLS negotiation matches a specified SNI hostname. For more information, refer to [Policy-based load balancing](/docs/vpc?topic=vpc-layer-7-load-balancing).
+
+Policy based layer-4 load balancing for application load balancers
+:   You can now employ layer-4 load balancing policies when using application load balancers. Similar to layer-7 policies, a layer-4 policy is applied with the lowest priority first and only when all of its designated rules are matched. The following actions are supported for layer-4 policies:
+
+   * **Forward To pool** - The request is sent to a specific back-end pool.
+   * **Forward To listener** - The request is sent to a specific front-end listener.
+
+   For more information, refer to [Layer-4 policies](/docs/vpc?topic=vpc-layer-7-load-balancing#layer-4-policy).
 
 ## March 2025
 {: #vpc-mar25}
