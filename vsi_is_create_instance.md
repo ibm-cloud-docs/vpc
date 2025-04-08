@@ -2,7 +2,7 @@
 
 copyright:
   years: 2018, 2025
-lastupdated: "2025-04-02"
+lastupdated: "2025-04-08"
 
 keywords:
 
@@ -1123,7 +1123,7 @@ To provision an instance with confidential compute, add the `confidential_comput
             "image": {
               "id": "'$image_id'"
              },
-             "confidential_compute_mode": "sgx",
+             "confidential_compute_mode": "sgx"
             }'
  ```
  {: pre}
@@ -1157,7 +1157,7 @@ To provision an instance with secure boot, add the `enable_secure_boot` property
             "image": {
               "id": "'$image_id'"
              },
-             "enable_secure_boot": "true",
+             "enable_secure_boot": "true"
             }'
  ```
  {: pre}
