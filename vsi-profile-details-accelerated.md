@@ -2,7 +2,7 @@
 
 copyright:
   years: 2024, 2025
-lastupdated: "2025-04-02"
+lastupdated: "2025-04-08"
 
 keywords: vsi, virtual server, virtual server instances, profile, profiles, gpu, accelerated, h100, h200, l4, l40s
 
@@ -46,10 +46,10 @@ The Intel Gaudi 3 accelerated virtual server profiles are built atop 128 GB OAM-
 
 Status: Select Availability
 
-| Region                    | Universal zone    | 
+| Region                    | Universal zone    |
 | ------------------------  | -------------     | 
-| us-east  | `us-east-wdc06-a` | 
-| eu-de    | `eu-de-fra02-a`                    | 
+| us-east  | `us-east-wdc06-a` |
+| eu-de    | `eu-de-fra02-a`                    |
 {: caption="Table 1. Supported regions and zones" caption-side="bottom"}
 
 For more information about regions and universal zones, see [Regions](/docs/overview?topic=overview-locations#regions). You can review the assigned zone mapping for an account on the [VPC Infrastructure Overview](/infrastructure/overview#endpoints) page in the Endpoint section. The zone mapping shows how the zone corresponds to the universal zone name that represents the physical location.
