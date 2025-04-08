@@ -2,7 +2,7 @@
 
 copyright:
   years: 2018, 2025
-lastupdated: "2025-03-10"
+lastupdated: "2025-04-07"
 
 keywords: application load balancer, alb, polices, rules
 
