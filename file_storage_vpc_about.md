@@ -37,7 +37,7 @@ You can enable context-based restrictions (CBR) for all file share operations. T
 
 You can [increase the file share size](/docs/vpc?topic=vpc-file-storage-expand-capacity) from its original capacity in GB increments up to 32,000 GB capacity, depending on your file share profile. You can also [increase or decrease file share IOPS](/docs/vpc?topic=vpc-file-storage-adjusting-iops) to meet your performance needs. Adjust IOPS by specifying a different IOPS tier profile or different IOPS value withing a custom IOPS band. Operations to increase the capacity or adjust the IOPS cause no outage or lack of access to the storage. Billing is adjusted automatically. You pay for only the capacity and performance that you need. 
 
-### File Storage profiles
+## File Storage profiles
 {: #fs-profiles-intro}
 
 When you create a file share in your availability zone, you use the **dp2** profile to specify the total IOPS for the file share based on the share size.
@@ -56,10 +56,17 @@ You can bring your own customer root key (CRK) to the cloud for customer-managed
 After you specified an encryption type for a file share, you can't change it.
 {: restriction}
 
-## NFS version
+## Access protocols
+{: #fs-allowed-access-protocols}
+
+File access protocols provide a standardized way for clients (virtual server instances or applications) to interact with the file server, which enables file sharing and collaboration across the network. 
+
+### NFS version
 {: #fs-nfs-version}
 
 {{site.data.keyword.filestorage_vpc_short}} requires NFS versions v4.1 or higher. When multiple users cooperate and run a series of read and write operations on the file share, data consistency is achieved by locking mechanisms that are native to the NFS protocol. NFS version 4.1 includes support for advisory byte-range file locking. Byte-range locking is used to serialize activity to a range of bytes within a file. As an advisory locking mechanism, it doesn’t prevent access to any application but provides a mechanism for applications to communicate cooperatively through obtaining locks and querying if a lock is held. For more information, see [RFC8881](https://datatracker.ietf.org/doc/html/rfc8881#name-locking-facilities){: external}.
+
+
 
 ## Mount targets for file shares
 {: #fs-share-mount-targets}
