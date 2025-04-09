@@ -2,7 +2,7 @@
 
 copyright:
   years: 2021, 2025
-lastupdated: "2025-02-05"
+lastupdated: "2025-04-09"
 
 keywords: file storage, file share, performance, IOPS, block size, capacity, range
 
@@ -23,7 +23,7 @@ When you provision {{site.data.keyword.filestorage_vpc_short}} file shares by us
 
 When you [create a file share](/docs/vpc?topic=vpc-file-storage-create), you select the share size and IOPS performance that is available, based on a file storage profile. Currently, all file shares are created based on the high-performance [dp2](#dp2-profile) profile.
 
-File shares that were created during the beta and limited availability phases with either one of the [tiered](#fs-tiers) profiles or the [custom](#fs-custom) profile can continue to operate based on these profiles. You can also update these file shares to use the `dp2` profile or switch to another previous generation profile. However, you cannot use the previous profiles when you create a file share, and only the file shares with the `dp2` profile can use new features like encryption-in-transit, cross-zone mounting, cross-account sharing, and snapshots.
+File shares that were created during the beta and limited availability phases with either one of the [tiered](#fs-tiers) profiles or the [custom](#fs-custom) profile can continue to operate based on these profiles. You can also update these file shares to use the `dp2` profile or switch to another previous generation profile. However, you cannot use the previous profiles when you create a file share, and only the file shares with the `dp2` profile can use new features like encryption-in-transit, cross-zone mounting, cross-account sharing, and snapshots. 
 
 The following tables show the characteristics and performance levels of the available profiles.
 
@@ -148,8 +148,7 @@ For more information about the command options, see [`ibmcloud is share-profiles
 Use the `GET /share/profiles` request to retrieve information for all share profiles.
 
 ```sh
-curl -X GET \
-$vpc_api_endpoint/v1/share/profiles?$api_version&generation=2\
+curl -X GET $vpc_api_endpoint/v1/share/profiles?$api_version&generation=2\
 -H "Authorization: $iam_token"
 ```
 {: pre}
