@@ -2,7 +2,7 @@
 
 copyright:
   years: 2021, 2025
-lastupdated: "2025-03-18"
+lastupdated: "2025-04-09"
 
 keywords: file share, mount target, virtual network interface, customer-managed encryption, encryption at rest, encryption in transit, file storage, share,
 
@@ -37,7 +37,7 @@ You can enable context-based restrictions (CBR) for all file share operations. T
 
 You can [increase the file share size](/docs/vpc?topic=vpc-file-storage-expand-capacity) from its original capacity in GB increments up to 32,000 GB capacity, depending on your file share profile. You can also [increase or decrease file share IOPS](/docs/vpc?topic=vpc-file-storage-adjusting-iops) to meet your performance needs. Adjust IOPS by specifying a different IOPS tier profile or different IOPS value withing a custom IOPS band. Operations to increase the capacity or adjust the IOPS cause no outage or lack of access to the storage. Billing is adjusted automatically. You pay for only the capacity and performance that you need. 
 
-### File Storage profiles
+## File Storage profiles
 {: #fs-profiles-intro}
 
 When you create a file share in your availability zone, you use the **dp2** profile to specify the total IOPS for the file share based on the share size.
@@ -46,20 +46,17 @@ If you have existing file shares that are based on either the IOPS tier profiles
 
 All profiles are backed by solid-state drives (SSDs). For more information, see [{{site.data.keyword.filestorage_vpc_short}} profiles](/docs/vpc?topic=vpc-file-storage-profiles).
 
-## Encryption at rest
-{: #FS-encryption}
+## Access protocols
+{: #fs-allowed-access-protocols}
 
-By default, file shares are encrypted at rest with IBM-managed encryption. 
-
-You can bring your own customer root key (CRK) to the cloud for customer-managed encryption or you can have a key management service (KMS) generate a key for you. You can select the root key when you [create an encrypted file share](/docs/vpc?topic=vpc-file-storage-byok-encryption). For more information, see [Customer-managed encryption](/docs/vpc?topic=vpc-vpc-encryption-about#vpc-customer-managed-encryption).
-
-After you specified an encryption type for a file share, you can't change it.
-{: restriction}
+File access protocols provide a standardized way for clients (virtual server instances or applications) to interact with the file server, which enables file sharing and collaboration across the network. 
 
 ### NFS version
 {: #fs-nfs-version}
 
 {{site.data.keyword.filestorage_vpc_short}} requires NFS versions v4.1 or higher. When multiple users cooperate and run a series of read and write operations on the file share, data consistency is achieved by locking mechanisms that are native to the NFS protocol. NFS version 4.1 includes support for advisory byte-range file locking. Byte-range locking is used to serialize activity to a range of bytes within a file. As an advisory locking mechanism, it doesn’t prevent access to any application but provides a mechanism for applications to communicate cooperatively through obtaining locks and querying if a lock is held. For more information, see [RFC8881](https://datatracker.ietf.org/doc/html/rfc8881#name-locking-facilities){: external}.
+
+
 
 ## Mount targets for file shares
 {: #fs-share-mount-targets}
@@ -123,6 +120,16 @@ When you create a mount target for a share with security access group mode, you 
 
 Cross-zone mounting is not supported for file shares with VPC-wide access mode.
 
+## Encryption at rest
+{: #FS-encryption}
+
+By default, file shares are encrypted at rest with IBM-managed encryption. 
+
+You can bring your own customer root key (CRK) to the cloud for customer-managed encryption or you can have a key management service (KMS) generate a key for you. You can select the root key when you [create an encrypted file share](/docs/vpc?topic=vpc-file-storage-byok-encryption). For more information, see [Customer-managed encryption](/docs/vpc?topic=vpc-vpc-encryption-about#vpc-customer-managed-encryption).
+
+After you specified an encryption type for a file share, you can't change it.
+{: restriction}
+
 ## Encryption in transit
 {: #fs-eit}
 
@@ -160,14 +167,6 @@ For more information about sharing and mounting a file share from another {{site
 
 Sharing a file share with other accounts or services is not supported for file shares with VPC-wide access mode
 
-## File share replication and failover
-{: #fs-repl-failover-overview}
-
-You can create read-only replicas of your file shares in another zone within your VPC, or another zone in a different region if you have multiple VPCs in the same geography. The replica is updated regularly based on the replication schedule that you specify. You can schedule to replicate your data as often as every 15 minutes. Using replication is a good way to recover from incidents at the primary site when data becomes inaccessible or applications fail. [Failover](/docs/vpc?topic=vpc-file-storage-failover) to the replica share makes it the new, writeable primary share. For more information, see [About file share replication](/docs/vpc?topic=vpc-file-storage-replication).
-
-For cross-region replication, you must configure [service to service authorizations](/docs/vpc?topic=vpc-file-s2s-auth) before you create your replica file share.
-{: requirement}
-
 ## Supplemental IDs and Groups for file shares
 {: #FS-supplemental-ids}
 
@@ -197,6 +196,14 @@ For more information, see [Add user tags to file shares](/docs/vpc?topic=vpc-fil
 Access management tags help organize access control by creating flexible resource groupings, enabling your file storage resources to grow without requiring updates to IAM policies.
 
 You can create access management tags and then apply them to new or existing file shares and replica file shares. Use the IAM UI or the Global Search and Tagging API to create the access management tag. Then, from the VPC UI or API, add the tags to a file share. After the tags are added, you can manage access to them using the IAM policies. For more information, see [Add access management tags to a file share](/docs/vpc?topic=vpc-file-storage-managing&interface=ui#fs-add-access-mgt-tags).
+
+## File share replication and failover
+{: #fs-repl-failover-overview}
+
+You can create read-only replicas of your file shares in another zone within your VPC, or another zone in a different region if you have multiple VPCs in the same geography. The replica is updated regularly based on the replication schedule that you specify. You can schedule to replicate your data as often as every 15 minutes. Using replication is a good way to recover from incidents at the primary site when data becomes inaccessible or applications fail. [Failover](/docs/vpc?topic=vpc-file-storage-failover) to the replica share makes it the new, writeable primary share. For more information, see [About file share replication](/docs/vpc?topic=vpc-file-storage-replication).
+
+For cross-region replication, you must configure [service to service authorizations](/docs/vpc?topic=vpc-file-s2s-auth) before you create your replica file share.
+{: requirement}
 
 ## File share snapshots
 {: #fs-about-snapshots}
