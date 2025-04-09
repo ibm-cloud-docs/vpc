@@ -18,7 +18,6 @@ subcollection: vpc
 You can update an {{site.data.keyword.cloud}} {{site.data.keyword.nlb_full}} (NLB) with the UI, CLI, or API.
 {: shortdesc}
 
-
 ## Updating a network load balancer in the UI
 {: #nlb-updating-ui}
 {: ui}
