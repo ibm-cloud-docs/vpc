@@ -2,7 +2,7 @@
 
 copyright:
   years: 2019, 2025
-lastupdated: "2025-04-01"
+lastupdated: "2025-04-08"
 
 keywords: api, change log, new features, restrictions, migration
 
@@ -55,6 +55,23 @@ To prepare for this change, verify that your client checks that the `volume` pro
 
 The new response code will be rolled out gradually. Each phase of the rollout will be tied to a dated API version. These changes will be announced in future change log updates.
 {: note}
+
+## 8 April 2025
+{: #8-april-2025}
+
+### For all version dates
+{: #8-april-2025-all-version-dates}
+
+**Load balancers as pool member targets.** Accounts that have been granted special approval to preview this feature can now create [pool members](/apidocs/vpc/latest#list-load-balancer-pool-members) that target other [load balancers](/apidocs/vpc/latest#list-load-balancers). When [creating a member in a load balancer pool](/apidocs/vpc/latest#create-load-balancer-pool-member), you can now specify the identity of another load balancer as the `target`. When  [retrieving](/apidocs/vpc/latest#get-load-balancer-profile) or [listing load balancer profiles](/apidocs/vpc/latest#list-load-balancer-profiles), use the new `targetable_load_balancer_profiles` property to determine which load balancers that profile can target.
+
+When [retrieving](/apidocs/vpc/latest#get-load-balancer) and [listing](/apidocs/vpc/latest#list-load-balancers) load balancers, the response now includes an `attached_load_balancer_pool_members` property, which references any pool members targeting this load balancer.
+
+**SNI hostname support for application load balancers.** You can now [create a policy rule](/apidocs/vpc/latest#create-load-balancer-listener-policy-rule) for a server name indication (SNI) hostname by specifying `sni_hostname` as the `type`. Moreover, when [creating a policy](/apidocs/vpc/latest#create-load-balancer-listener-policy) you can now target another listener on the load balancer by specifying the listener as the policy's `target`. For more information, see [Policy-based load balancing](/docs/vpc?topic=vpc-layer-7-load-balancing).
+
+### For version `2025-04-08` or later
+{: #version-2025-04-08}
+
+**Load balancer listener policy schema property value change.** When [creating a policy](/apidocs/vpc/latest#create-load-balancer-listener-policy) to target a pool using a `version` query parameter of `2025-04-08` or later,  the `action` value `forward_to_pool` must be used instead of `forward`. Similarly, when [retrieving](/apidocs/vpc/latest#get-load-balancer-listener-policy) or [listing policies](/apidocs/vpc/latest#list-load-balancer-listener-policies) using a `version` query parameter of `2025-04-08` or later,  the `action` value of `forward_to_pool` will be returned instead of `forward`. For migration guidance, see [Updating to the `2025-04-08` version (SNI hostname support for application load balancers)](/docs/vpc?topic=vpc-2025-04-08-migration-alb-listener-policy). Requests using a `version` query parameter of `2025-04-07` or earlier are unchanged.
 
 ## 1 April 2025
 {: #1-april-2025}
