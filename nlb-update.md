@@ -2,7 +2,7 @@
 
 copyright:
   years: 2020, 2025
-lastupdated: "2025-03-26"
+lastupdated: "2025-04-09"
 
 keywords: network load balancer, public, listener, back-end, front-end, pool, round-robin, weighted, connections, methods, policies, APIs, access, ports, vpc network, update
 
@@ -16,6 +16,8 @@ subcollection: vpc
 {: #nlb-updating}
 
 You can update an {{site.data.keyword.cloud}} {{site.data.keyword.nlb_full}} (NLB) with the UI, CLI, or API.
+{: shortdesc}
+
 
 ## Updating a network load balancer in the UI
 {: #nlb-updating-ui}
