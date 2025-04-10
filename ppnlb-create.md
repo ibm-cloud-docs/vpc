@@ -2,7 +2,7 @@
 
 copyright:
   years: 2022, 2025
-lastupdated: "2025-03-26"
+lastupdated: "2025-04-10"
 
 keywords: load balancer, public, listener, back-end, front-end, pool, round-robin, weighted, connections, methods, policies, APIs, access, ports
 
@@ -14,6 +14,9 @@ subcollection: vpc
 
 # Creating a Private Path network load balancer
 {: #ppnlb-ui-creating-private-path-network-load-balancer}
+
+Accounts with special approval can attach an ALB to a Private Path NLB pool, enabling access to on-prem resources while maintaining a private connection across IBM Cloud. 
+{: preview}
 
 You can use a Private Path network load balancer (NLB) only with a Private Path service. Create the Private Path NLB from the [Load Balancers for VPC page](/infrastructure/provision/loadBalancer) or as part of the Private Path service provisioning process. You can create a Private Path network load balancer by using the UI, CLI, API, or Terraform.
 {: shortdesc}
@@ -74,6 +77,13 @@ To create and configure {{site.data.keyword.nlb_full}} in the {{site.data.keywor
 
      If instances in the pool are unhealthy and you believe that your application is working correctly, double check the health protocol and health path values. Also, check any security groups that are attached to the instances to ensure that the rules allow traffic between the load balancer and the instances.
      {: tip}
+
+1. You can attach members to your back-end pool now, or after you create your Private Path NLB. Click **Attach** on the table row of your back-end pool. Specify the following information, then click **Attach**.
+
+   * **Member type**: Add virtual server instances, or an application load balancer as a member. For virtual server instances, attach each type individually.
+
+      If you attach an ALB as a member target to a Private Path NLB pool, no other members can be added to that pool.
+      {: note}
 
    * **Subnet**: Choose a subnet.
    * From the list of servers, select the servers that you want to attach to the back-end pool. Ensure that you specify valid values for each server port. 

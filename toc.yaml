@@ -446,6 +446,7 @@ toc:
                 - nlb-create.md
                 - nlb-vnf-create.md
                 - ppnlb-create.md
+                - ppnlb-update.md
                 - nlb-update.md
                 - nlb-delete.md
                 - nlb-health-checks.md

@@ -2,7 +2,7 @@
 
 copyright:
   years: 2019, 2025
-lastupdated: "2025-04-09"
+lastupdated: "2025-04-10"
 
 keywords:
 
@@ -26,6 +26,13 @@ For more information about changes to the {{site.data.keyword.vpc_short}} comman
 
 ## April 2025
 {: #vpc-apr25}
+
+### 10 April 2025
+{: #vpc-apr1025}
+{: release-note}
+
+Private path connectivity from IBM Cloud to on-premises locations (select availability)
+:   Accounts with special approval can now connect a consumer service running in IBM Cloud to an on-premises provider service using an ALB as a member of a Private Path NLB pool. This allows you to target on-premises resources while maintaining a private path across IBM Cloud. For more information, see [Using an ALB with a Private Path NLB to host services outside a VPC](/docs/vpc?topic=vpc-private-path-service-intro&interface=ui#pps-use-case-5).
 
 ### 8 April 2025
 {: #vpc-apr825}

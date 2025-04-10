@@ -12,29 +12,29 @@ subcollection: vpc
 
 {{site.data.keyword.attribute-definition-list}}
 
-# Updating a network load balancer
-{: #nlb-updating}
+# Updating a Private Path network load balancer
+{: #ppnlb-updating}
 
-Accounts with special approval can attach an ALB to a Private Path NLB pool, enabling access to on-prem resources while maintaining a private connection across IBM Cloud. 
+Accounts with special approval can attach an ALB to a Private Path NLB pool, enabling access to on-prem resources while maintaining a private connection across IBM Cloud.
 {: preview}
 
 You can update an {{site.data.keyword.cloud}} {{site.data.keyword.nlb_full}} (NLB) with the UI, CLI, or API.
 {: shortdesc}
 
-## Updating a network load balancer in the UI
-{: #nlb-updating-ui}
+## Updating a Private Path network load balancer in the UI
+{: #ppnlb-updating-ui}
 {: ui}
 
-To update a network load balancer in the {{site.data.keyword.cloud_notm}} console, follow these steps:
+To update a Private Path network load balancer in the {{site.data.keyword.cloud_notm}} console, follow these steps:
 
 1. From your browser, open the [{{site.data.keyword.cloud_notm}} console](/login) and log in to your account.
 1. Select the **Navigation Menu** ![Menu icon](images/menu_icon.png), then click **Infrastructure > Network > Load balancers**.
-1. In the Load balancers for VPC table, locate and select the name of the network load balancer that you want to update.
+1. In the Load balancers for VPC table, locate and select the name of the Private Path network load balancer that you want to update.
 1. On the network load balancer details page, select the **Front-end listeners** tab if you need to edit listener parameters. In the Front-end listeners table, click the Edit icon ![Edit icon](images/edit.png) beside the details that you want to update.
 1. On the network load balancer details page, select the **Back-end pools** tab if you need to edit a pool or virtual server instance parameters. In the Back-end pools table, click the Edit icon ![Edit icon](images/edit.png) beside the details that you want to update.
 1. If you are attaching new members, select **Attach** in the Members column of the back-end pool to which you want to add members. Specify the following information, then click **Attach**.
 
-   * **Member type**: Add Virtual server instances or application load balancer (ALB) as a member. If a load balancer is not available, select **Create load balancer**. For Virtual server instances, attach each type individually.
+   * **Member type**: Add Virtual server instances, or an application load balancer as a member. If a load balancer is not available, select **Create load balancer**. For Virtual server instances, attach each type individually.
 
       If you attach an ALB as a member target to a Private Path NLB pool, no other members can be added to that pool.
       {: note}
@@ -42,7 +42,7 @@ To update a network load balancer in the {{site.data.keyword.cloud_notm}} consol
    * **Subnet**: Choose a subnet.
    * From the list of servers, select the one that you want to attach to the back-end pool. Ensure that you specify valid values for each server port.
 
-      You can attach up to 50 virtual server instances to a back-end pool. However, your network load balancer provides regional availability and is resilient to zone failure even if you select a single subnet.
+      You can attach up to 50 virtual server instances to a back-end pool. However, your Private Path load balancer provides regional availability and is resilient to zone failure even if you select a single subnet.
       {: note}
 
     You do not need to create multiple network load balancers or specify more than a single subnet to ensure resiliency to zone failure. Your subnet selection only impacts the IP-addresses associated with the load balancer.
@@ -52,11 +52,11 @@ To update a network load balancer in the {{site.data.keyword.cloud_notm}} consol
 The Active button on the upper left of your screen now shows as Updating. When Updating changes back to Active, the update is done and the new changes are applied.
 {: note}
 
-## Updating a network load balancer from the CLI
-{: #nlb-updating-cli}
+## Updating a Private Path network load balancer from the CLI
+{: #ppnlb-updating-cli}
 {: cli}
 
-The following example shows how to use the CLI to update your network load balancer pool to use the algorithm `least_connections` and the port of the member:
+The following example shows how to use the CLI to update your Private Path NLB pool to use the algorithm `least_connections` and the port of the member:
 
 ```sh
 ibmcloud is load-balancer-pool-update r006-99b5ab45-6357-42db-8b32-5d2c8aa62776 r006-3b66d605-6aa5-4166-9f66-b16054da3cb0 --algorithm least_connections
@@ -105,13 +105,13 @@ Sample output:
 ```
 {: screen}
 
-## Updating a network load balancer with the API
-{: #nlb-updating-frontend-listener-port-api}
+## Updating a Private Path network load balancer with the API
+{: #ppnlb-updating-frontend-listener-port-api}
 {: api}
 
-The following example illustrates how to use the API to update the front-end listener port of a {{site.data.keyword.nlb_full}} (NLB). For example, if the front-end listener port was set to 80 and you want to update the port value to 90.
+The following example illustrates how to use the API to update the front-end listener port of a Private Path NLB. For example, if the front-end listener port was set to 80 and you want to update the port value to 90.
 
-To update an NLB by using the API, follow these steps:
+To update a Private Path NLB by using the API, follow these steps:
 
 1. Set up your [API environment](/docs/vpc?topic=vpc-set-up-environment#api-prerequisites-setup).
 1. Use the following example to get the listener ID that you need for the update:
