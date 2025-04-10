@@ -2,7 +2,7 @@
 
 copyright:
   years: 2021, 2025
-lastupdated: "2025-04-09"
+lastupdated: "2025-04-10"
 
 keywords: file share, mount target, virtual network interface, customer-managed encryption, encryption at rest, encryption in transit, file storage, share,
 
@@ -39,6 +39,8 @@ You can [increase the file share size](/docs/vpc?topic=vpc-file-storage-expand-c
 
 ## File Storage profiles
 {: #fs-profiles-intro}
+
+Share profiles define the capacity and performance characteristics of file shares. You can choose the best option for your specific needs, whether the share is meant for general use or high-performance workloads.
 
 When you create a file share in your availability zone, you use the **dp2** profile to specify the total IOPS for the file share based on the share size.
 

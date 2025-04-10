@@ -18,6 +18,7 @@ subcollection: vpc
 Accounts with special approval can attach an ALB to a Private Path NLB pool, enabling access to on-prem resources while maintaining a private connection across IBM Cloud.
 {: preview}
 
+Private Path services provide private connectivity for {{site.data.keyword.cloud_notm}} and third-party services. A Private Path service requires a Private Path network load balancer (NLB) to deploy a service on IBM Cloud and a Virtual Private Endpoint (VPE) gateway for consumers to connect to the service. Traffic stays on the IBM backbone without traversing the internet.
 {: shortdesc}
 
 The typical process for creating private connectivity between providers and consumers is as follows:

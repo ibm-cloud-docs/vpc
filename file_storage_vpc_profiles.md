@@ -2,7 +2,7 @@
 
 copyright:
   years: 2021, 2025
-lastupdated: "2025-04-09"
+lastupdated: "2025-04-10"
 
 keywords: file storage, file share, performance, IOPS, block size, capacity, range
 
@@ -12,7 +12,7 @@ subcollection: vpc
 
 {{site.data.keyword.attribute-definition-list}}
 
-# {{site.data.keyword.filestorage_vpc_short}} profile
+# {{site.data.keyword.filestorage_vpc_short}} profiles
 {: #file-storage-profiles}
 
 When you provision {{site.data.keyword.filestorage_vpc_short}} file shares by using the {{site.data.keyword.cloud_notm}} console, CLI, or API, you specify capacity and performance within a file share profile. Available performance levels vary based on the file share size. All file shares are backed by solid-state drives (SSDs).
