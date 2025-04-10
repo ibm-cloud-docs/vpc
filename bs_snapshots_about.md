@@ -2,7 +2,7 @@
 
 copyright:
   years: 2022, 2025
-lastupdated: "2025-03-25"
+lastupdated: "2025-04-10"
 
 keywords: snapshots, Block Storage, volumes, cross-regional snapshot, restore volume, copy snapshot
 
@@ -29,9 +29,7 @@ A snapshot is a copy of your volume that you take manually in the UI or from the
 Do you want to automatically create snapshots of your {{site.data.keyword.block_storage_is_short}} volumes? With Backup for VPC, you can create backup policies to schedule regular volume backups. For more information, see [About Backup for VPC](/docs/vpc?topic=vpc-backup-service-about).
 {: tip}
 
-The first time that you take a snapshot of a volume, all the volume's contents are copied. The snapshot has the same encryption as the volume (customer-managed or provider-managed). Snapshots are stored and retrieved from {{site.data.keyword.cos_full}}. Data is encrypted while in transit and stored in the same region as the original volume.
-
-When you take a second snapshot, it captures only the changes that occurred since the last snapshot was taken. As such, the size of the snapshots can grow or shrink, depending on what is being uploaded to {{site.data.keyword.cos_full}}. The number of snapshots increases with each successive snapshot that you take. You can take up to 750 snapshots per volume in your region. Within this limit, you can take and keep an hourly snapshot for 30 days, plus some extra snapshots. Deleting snapshots from this quota frees up space for more snapshots. A snapshot of a volume can't be greater than 10 TB.
+The first time that you take a snapshot of a volume, all the volume's contents are copied. When you take a second snapshot, it captures only the changes that occurred since the last snapshot was taken. As such, the size of the snapshots can grow or shrink, depending on what is being uploaded to {{site.data.keyword.cos_full}}. The number of snapshots increases with each successive snapshot that you take. You can take up to 750 snapshots per volume in your region. Within this limit, you can take and keep an hourly snapshot for 30 days, plus some extra snapshots. Deleting snapshots from this quota frees up space for more snapshots. A snapshot of a volume can't be greater than 10 TB.
 
 You can create a virtual server instance with a boot volume that is initialized from a snapshot. The instance profile of the new instance is not required to match the instance that was used to create the snapshot. You can also import a snapshot of a data volume when you create and attach a data volume to the instance. You can specify user tags for these snapshots.
 
@@ -69,14 +67,20 @@ You can copy a snapshot from one region to another region, and later use that sn
 
 When you choose to create a cross-regional copy of a snapshot, you need to specify a single snapshot to be copied to the target region. The snapshot is created as normal, and stored in your regional {{site.data.keyword.cos_short}}. When the snapshot is stable, a copy of the snapshot is created in the {{site.data.keyword.cos_short}} bucket in the target region.
 
-If the source snapshot is not encrypted with a customer key, the encryption of the copy remains provider-managed. If the source snapshot is protected by a customer-managed key, you must specify the customer-managed key that you want to use to encrypt the new copy.
+When the snapshot copy in the remote region is stable, you can use and manage it independently from the parent volume or the original snapshot.
+
+The creation of the copy in the remote region takes time. The more capacity a volume has the longer it takes for the copy in the remote region to become stable. For example, the creation of a full snapshots of a 3 TB volume in a remote region can take up to 12.5 hours.
+
+The first time that you create a cross-regional copy, that snapshot is a full copy of the parent volume's data. Subsequent copies can be incremental or full copies. Whether the remote copy is incremental depends on the immediately preceding snapshot in the chain. If the immediately preceding snapshot exists in the destination region, the copy can be incremental. If the immediately preceding snapshot does not exist, the copy must be full snapshot of the parent volume.
+
+If the source snapshot is not encrypted with a customer key, the encryption of the copy remains provider-managed. 
+
+If the source snapshot is protected by a customer-managed key, you must specify the customer-managed key that you want to use to encrypt the new copy.
+
+If you change the encryption type or the encryption key of the parent volume, the next remote copy must be a full copy of the parent snapshot, not an incremental copy.
 
 Only one copy of the snapshot can exist in each region. You can't create a copy in the local (source) region.
 {: restriction}
-
-The first time that you create a cross-regional copy, the snapshot is a full copy of the parent volume's data. Subsequent snapshots of the same volume contain only the changes that occurred since the previous snapshot was taken. The only exception to this rule is when you change the encryption type or the encryption key of the parent snapshot. When you change the encryption, the new remote copy needs to be a full copy of the parent snapshot, not an incremental copy.
-
-You can use and manage the cross-regional snapshot in the target region independently from the parent volume or the original snapshot.
 
 Creating a cross-regional copy affects billing. You're charged for the data transfer and the storage consumption in the target region separately.
 
@@ -128,10 +132,15 @@ The following limitations apply to this release:
 * You can delete a {{site.data.keyword.block_storage_is_short}} volume and all its snapshots. All snapshots must be in a `stable` or `pending` state. No snapshot can be actively restoring a volume.
 * Restoring an instance directly from snapshot consistency group identifier is not supported.
 
-## IAM roles for working with single and consistency group snapshots
+## Securing your data
+{: #bs-data-security}
+
+{{site.data.keyword.cloud}} offers security-specific tools and features to help you securely manage your data when you use {{site.data.keyword.vpc_full}}. The following section provides information about access control, data encryption, configuration management, and auditing options that are available for your block storage snapshots.
+
+### IAM roles for working with single and consistency group snapshots
 {: #snapshots-vpc-iam}
 
-Snapshots require IAM permissions for role-based access control. You need the right platform role to create and manager with snapshots in your own account, and the correct service roles to use a snapshot for restoring data from another account. 
+Snapshots require IAM permissions for role-based access control. You need the right platform role to create and manager with snapshots in your own account, and the correct service roles to use a snapshot for restoring data from another account. For more information, see [IAM roles and actions for Block Storage Snapshots for VPC](/docs/account?topic=account-iam-service-roles-actions#is.snapshot-roles).
 
 When you share a snapshot with another account, you must assign the *Snapshot Remote Account Restorer* role to the other account's user to allow them access to the snapshot. They must also have the *Restore Volume From Remote Account Snapshot* role in their account to create a volume with the CRN of the remote snapshot in the console.{: ui}
 
@@ -145,6 +154,16 @@ For more information, see [IAM roles and actions for Block Storage Snapshots for
 
 For more information, see the [best practices for assigning access](/docs/account?topic=account-account_setup#account_setup). For the complete IAM process, which includes inviting users to your account and assigning Cloud IAM access, see the [IAM getting started tutorial](/docs/account?topic=account-iamoverview).
 {: tip}
+
+### Encryption at rest and in transit
+{: #bs-snapshot-encryption}
+
+The snapshot has the same encryption type and encryption key as the parent volume (customer-managed or provider-managed). Snapshots are stored and retrieved from {{site.data.keyword.cos_full}}. Data is encrypted while in transit and stored in the same region as the original volume.
+
+### Activity tracking events
+{: #bs-snapshot-activity-tracking-events}
+
+You can use {{site.data.keyword.atracker_full}} to configure how to route auditing events. Auditing events are critical data for security operations and a key element for meeting compliance requirements. Such events are triggered when you create, modify, or delete a block volume. For more information, see [Activity tracking events for IBM Cloud VPC](/docs/vpc?topic=vpc-at_events).
 
 ## Tags for {{site.data.keyword.block_storage_is_short}} snapshots
 {: #snapshots-about-tags}

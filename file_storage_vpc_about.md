@@ -80,6 +80,54 @@ When you create or update a mount target, you can specify the manner in which yo
     VPC access mode is not supported in newer MZRs, such as Montreal (ca-mon).
     {: note}
 
+### Cross-zone mount targets
+{: #fs-cross-zone-mount}
+
+When you create a mount target for a share with security access group mode, you can attach a VNI with a specific reserved IP in the zone of your file share. By using such a mount target, you can mount a file share from zone A to a virtual server instance in zone B. When the virtual server instance and the file share are in different zones, the performance can be impacted.
+
+Cross-zone mounting is not supported for file shares with VPC-wide access mode.
+
+## Securing your data
+{: #fs-data-security}
+
+{{site.data.keyword.cloud}} offers security-specific tools and features to help you securely manage your data when you use {{site.data.keyword.vpc_full}}. The following section provides information about access control, data encryption, configuration management, auditing and logging options that are available for your file shares.  
+
+### IAM roles for creating and managing shares, accessor bindings, and mount targets
+{: #fs-vpc-iam}
+
+{{site.data.keyword.filestorage_vpc_short}} requires IAM permissions for role-based access control. Depending on your assigned role, you can create and manage file shares. For more information, see [IAM roles and actions for File Storage for VPC](/docs/account?topic=account-iam-service-roles-actions#is.share-roles).
+
+For more information, see the [best practices for assigning access](/docs/account?topic=account-account_setup#account_setup). For the complete IAM process, which includes inviting users to your account and assigning Cloud IAM access, see the [IAM getting started tutorial](/docs/account?topic=account-iamoverview).
+{: tip}
+
+### Encryption at rest
+{: #FS-encryption}
+
+By default, file shares are encrypted at rest with IBM-managed encryption. 
+
+You can bring your own customer root key (CRK) to the cloud for customer-managed encryption or you can have a key management service (KMS) generate a key for you. You can select the root key when you [create an encrypted file share](/docs/vpc?topic=vpc-file-storage-byok-encryption). For more information, see [Customer-managed encryption](/docs/vpc?topic=vpc-vpc-encryption-about#vpc-customer-managed-encryption).
+
+After you specified an encryption type for a file share, you can't change it.
+{: restriction}
+
+### Encryption in transit
+{: #fs-eit}
+
+You can [establish an encrypted mount connection](/docs/vpc?topic=vpc-file-storage-vpc-eit) between the authorized virtual server instance and the storage system by using IPsec. For file shares based on the `dp2` profile, mount targets that are created with a virtual network interface can support the encryption in transit. The mount targets can be for a source or replica share.
+
+If you want to connect a file share to instances that are running in different VPCs in a zone, you can create multiple mount targets. You can create one mount target for each VPC.
+{: important}
+
+If you choose to use Encryption-in-transit, you need to balance your requirements between performance and enhanced security. Encrypting data in transit can have some performance impact due to the processing that is needed to encrypt and decrypt the data at the endpoints. The impact depends on the workload characteristics. Workloads that perform synchronous writes or bypass VSI caching, such as databases, might have a substantial performance impact when EIT is enabled. To determine EIT’s performance impact, benchmark your workload with and without EIT.
+
+Even without EIT, the data moves through a secure data center network. For more information about network security, see [Security in your VPC](/docs/vpc?topic=vpc-security-in-your-vpc) and [Protecting Virtual Private Cloud (VPC) Infrastructure Services with context-based restrictions](/docs/vpc?topic=vpc-cbr).
+
+{{site.data.keyword.filestorage_vpc_short}} is considered to be a Financial Services Validated service only when encryption-in-transit is enabled. For more information, see [what is a Financial Services Validated service](/docs/framework-financial-services?topic=framework-financial-services-faqs-framework#financial-services-validated){: external}.
+{: important}
+
+Encryption in transit is not supported for {{site.data.keyword.bm_is_short}} or virtual server instances that are running on Red Hat Enterprise Linux CoreOS.
+{: restriction}
+
 ### Granular authorization
 {: #fs-mount-granular-auth}
 
@@ -110,52 +158,14 @@ When the mount target is attached and the share is mounted, the VNI performs sec
 
 ![File share mount target](images/vni-fs-arch.svg "File share with a mount target"){: caption="Diagram of a file share mount target connected to a virtual network interface" caption-side="bottom"}
 
-For greater security, [enable encryption in transit](/docs/vpc?topic=vpc-file-storage-vpc-eit) for your file share mount targets.
+### Supplemental IDs and Groups
+{: #FS-supplemental-ids}
 
-### Cross-zone mount targets
-{: #fs-cross-zone-mount}
+When a process runs on Unix and Linux, the operating system identifies a user with a user ID (UID) and a group with a group ID (GID). These IDs determine which system resources a user or group can access. For example, if the file storage user ID is 12345 and its group ID is 6789, then the mount on the host node and in the container must have those same IDs. The container’s main process must match one or both of those IDs to access the file share.
 
-When you create a mount target for a share with security access group mode, you can attach a VNI with a specific reserved IP in the zone of your file share. By using such a mount target, you can mount a file share from zone A to a virtual server instance in zone B. When the virtual server instance and the file share are in different zones, the performance can be impacted.
+With the API and the CLI, you can set these attributes for controlling access to your file shares when you create a file share. The API and the CLI provide an `initial owner` property where you can set the `UID` and `GID` values. Wherever you mount the file share, the root folder where you mount it uses that UID or GID owner. For more information, see [Add supplemental IDs when you create a file share](/docs/vpc?topic=vpc-file-storage-create&interface=api#fs-add-supplemental-id-api).
 
-Cross-zone mounting is not supported for file shares with VPC-wide access mode.
-
-## Encryption at rest
-{: #FS-encryption}
-
-By default, file shares are encrypted at rest with IBM-managed encryption. 
-
-You can bring your own customer root key (CRK) to the cloud for customer-managed encryption or you can have a key management service (KMS) generate a key for you. You can select the root key when you [create an encrypted file share](/docs/vpc?topic=vpc-file-storage-byok-encryption). For more information, see [Customer-managed encryption](/docs/vpc?topic=vpc-vpc-encryption-about#vpc-customer-managed-encryption).
-
-After you specified an encryption type for a file share, you can't change it.
-{: restriction}
-
-## Encryption in transit
-{: #fs-eit}
-
-You can [establish an encrypted mount connection](/docs/vpc?topic=vpc-file-storage-vpc-eit) between the authorized virtual server instance and the storage system by using IPsec. For file shares based on the `dp2` profile, mount targets that are created with a virtual network interface can support the encryption in transit. The mount targets can be for a source or replica share.
-
-If you want to connect a file share to instances that are running in different VPCs in a zone, you can create multiple mount targets. You can create one mount target for each VPC.
-{: important}
-
-If you choose to use Encryption-in-transit, you need to balance your requirements between performance and enhanced security. Encrypting data in transit can have some performance impact due to the processing that is needed to encrypt and decrypt the data at the endpoints. The impact depends on the workload characteristics. Workloads that perform synchronous writes or bypass VSI caching, such as databases, might have a substantial performance impact when EIT is enabled. To determine EIT’s performance impact, benchmark your workload with and without EIT.
-
-Even without EIT, the data moves through a secure data center network. For more information about network security, see [Security in your VPC](/docs/vpc?topic=vpc-security-in-your-vpc) and [Protecting Virtual Private Cloud (VPC) Infrastructure Services with context-based restrictions](/docs/vpc?topic=vpc-cbr).
-
-{{site.data.keyword.filestorage_vpc_short}} is considered to be a Financial Services Validated service only when encryption-in-transit is enabled. For more information, see [what is a Financial Services Validated service](/docs/framework-financial-services?topic=framework-financial-services-faqs-framework#financial-services-validated){: external}.
-{: important}
-
-Encryption in transit is not supported for {{site.data.keyword.bm_is_short}} or virtual server instances that are running on Red Hat Enterprise Linux CoreOS.
-{: restriction}
-
-## IAM roles for creating and managing shares, accessor bindings, and mount targets
-{: #fs-vpc-iam}
-
-{{site.data.keyword.filestorage_vpc_short}} requires IAM permissions for role-based access control. Depending on your assigned role, you can create and manage file shares. For more information, see [IAM roles and actions for File Storage for VPC](/docs/account?topic=account-iam-service-roles-actions#is.share-roles).
-
-For more information, see the [best practices for assigning access](/docs/account?topic=account-account_setup#account_setup). For the complete IAM process, which includes inviting users to your account and assigning Cloud IAM access, see the [IAM getting started tutorial](/docs/account?topic=account-iamoverview).
-{: tip}
-
-## Sharing file share data between accounts and services
+### Sharing file share data between accounts and services
 {: #fs-cross-account-mount}
 
 Customers who manage multiple accounts sometimes find that some of their accounts need to access and work with the same data. Administrators with the correct authorizations can share an NFS file system across accounts, so the data that their applications depend on is available across the different systems within the company. Customer can also share their {{site.data.keyword.filestorage_vpc_short}} shares with the [IBM watsonx](https://dataplatform.cloud.ibm.com/docs/content/wsj/getting-started/welcome-main.html?context=wx){: external} service.
@@ -166,19 +176,29 @@ For more information about sharing and mounting a file share from another {{site
 
 Sharing a file share with other accounts or services is not supported for file shares with VPC-wide access mode
 
-## Supplemental IDs and Groups for file shares
-{: #FS-supplemental-ids}
+### Managing security and compliance
+{: #fs-vpc-manage-security}
 
-When a process runs on Unix and Linux, the operating system identifies a user with a user ID (UID) and a group with a group ID (GID). These IDs determine which system resources a user or group can access. For example, if the file storage user ID is 12345 and its group ID is 6789, then the mount on the host node and in the container must have those same IDs. The container’s main process must match one or both of those IDs to access the file share.
+{{site.data.keyword.filestorage_vpc_short}} is integrated with the {{site.data.keyword.compliance_short}} to help you manage security and compliance for your organization. You can set up goals that check whether file shares are encrypted by using customer-managed keys. By using the {{site.data.keyword.compliance_short}} to validate the file service configurations in your account against a profile, you can identify potential issues as they arise.
 
-With the API and the CLI, you can set these attributes for controlling access to your file shares when you create a file share. The API and the CLI provide an `initial owner` property where you can set the `UID` and `GID` values. Wherever you mount the file share, the root folder where you mount it uses that UID or GID owner. For more information, see [Add supplemental IDs when you create a file share](/docs/vpc?topic=vpc-file-storage-create&interface=api#fs-add-supplemental-id-api).
+For more information, see [Getting started with Security and Compliance Center](/docs/security-compliance?topic=security-compliance-getting-started). For more information about creating security and compliance goals, see [Defining rules](/docs/security-compliance?topic=security-compliance-rules-define&interface=ui) in the Security and Compliance documentation.
+
+### Activity tracking events
+{: #fs-activity-tracking-events}
+
+You can use {{site.data.keyword.atracker_full}} to configure how to route auditing events. Auditing events are critical data for security operations and a key element for meeting compliance requirements. Such events are triggered when you create, modify, or delete a file share. Activity tracker events are also triggered when you establish and use file share replication. For more information, see [Activity tracking events for IBM Cloud VPC](/docs/vpc?topic=vpc-at_events).
+
+### Logging for the File share service
+{: #fs-event-logs}
+
+After you provision {{site.data.keyword.la_full}} to add log management capabilities to your {{site.data.keyword.cloud}} architecture, you can enable platform logs to view and analyze logs of the {{site.data.keyword.filestorage_vpc_short}} service. For more information, see [Logging for VPC](/docs/vpc?topic=vpc-logging#logging-file-share-replication).
 
 ## Tags for file shares
 {: #fs-about-fs-tags}
 
 {{site.data.keyword.filestorage_vpc_short}} is enabled for Global Searching and Tagging (GhoST). You can create and apply [user tags](#fs-about-user-tags) and [access management tags](#fs-about-mgt-tags) to file shares to better control and organize your file storage resources across the VPC. User tags can be added in the console, from the CLI, or with the API. To apply access management tags to file shares, you must use the GhoST API.
 
-### User tags for file shares
+### User tags
 {: #fs-about-user-tags}
 
 You can create new user tags or add existing tags when you provision a new file share or update an existing file share. You can create, view, and manage tags from the UI, CLI, or API, and remove then at any time.
@@ -189,14 +209,14 @@ User tags are uniquely identified by a Cloud Resource Name (CRN) identifier. Whe
 
 For more information, see [Add user tags to file shares](/docs/vpc?topic=vpc-file-storage-managing&interface=ui#fs-add-user-tags) and [Working with tags](/docs/account?topic=account-tag&interface=ui).
 
-### Access management tags for file shares
+### Access management tags
 {: #fs-about-mgt-tags}
 
 Access management tags help organize access control by creating flexible resource groupings, enabling your file storage resources to grow without requiring updates to IAM policies.
 
 You can create access management tags and then apply them to new or existing file shares and replica file shares. Use the IAM UI or the Global Search and Tagging API to create the access management tag. Then, from the VPC UI or API, add the tags to a file share. After the tags are added, you can manage access to them using the IAM policies. For more information, see [Add access management tags to a file share](/docs/vpc?topic=vpc-file-storage-managing&interface=ui#fs-add-access-mgt-tags).
 
-## File share replication and failover
+## Replication and failover
 {: #fs-repl-failover-overview}
 
 You can create read-only replicas of your file shares in another zone within your VPC, or another zone in a different region if you have multiple VPCs in the same geography. The replica is updated regularly based on the replication schedule that you specify. You can schedule to replicate your data as often as every 15 minutes. Using replication is a good way to recover from incidents at the primary site when data becomes inaccessible or applications fail. The [failover](/docs/vpc?topic=vpc-file-storage-failover) to the replica share makes it the new, writeable primary share. For more information, see [About file share replication](/docs/vpc?topic=vpc-file-storage-replication).
@@ -214,7 +234,7 @@ Snapshots are supported only for shares that have "security group" as their acce
 You can't create snapshots of replica or accessor shares. However, snapshots of the origin share are replicated to the read-only replica share at the next scheduled sync. Snapshots of the origin share are also available to the accessor shares.
 {: important}
 
-## File Storage data eradication
+## File share data eradication
 {: #file-storage-data-eradication}
 
 When you delete a file share, that data immediately becomes inaccessible. All pointers to the data on the physical disk are removed. If you later create a file share in the same or another account, a new set of pointers is assigned. The account can't access any data that was on the physical storage because those pointers are deleted. When new data is written to the disk, any inaccessible data from the deleted file storage is overwritten.
@@ -222,23 +242,6 @@ When you delete a file share, that data immediately becomes inaccessible. All po
 IBM guarantees that data deleted cannot be accessed and that deleted data is eventually overwritten and eradicated. When you delete a file share, those blocks must be overwritten before that file storage is made available again, either to you or to another customer.
 
 Further, when IBM decommissions a physical drive, the drive is destroyed before their disposal. Decommissioned physical drives are unusable and any data on them is inaccessible.
-
-## Managing security and compliance
-{: #fs-vpc-manage-security}
-
-{{site.data.keyword.filestorage_vpc_short}} is integrated with the {{site.data.keyword.compliance_short}} to help you manage security and compliance for your organization. You can set up goals that check whether file shares are encrypted by using customer-managed keys. By using the {{site.data.keyword.compliance_short}} to validate the file service configurations in your account against a profile, you can identify potential issues as they arise.
-
-For more information, see [Getting started with Security and Compliance Center](/docs/security-compliance?topic=security-compliance-getting-started). For more information about creating security and compliance goals, see [Defining rules](/docs/security-compliance?topic=security-compliance-rules-define&interface=ui) in the Security and Compliance documentation.
-
-## Activity tracking events
-{: #fs-activity-tracking-events}
-
-You can use {{site.data.keyword.atracker_full}} to configure how to route auditing events. Auditing events are critical data for security operations and a key element for meeting compliance requirements. Such events are triggered when you create, modify, or delete a file share. Activity tracker events are also triggered when you establish and use file share replication. For more information, see [Activity tracking events for IBM Cloud VPC](/docs/vpc?topic=vpc-at_events).
-
-## Logging for file share service
-{: #fs-event-logs}
-
-After you provision {{site.data.keyword.la_full}} to add log management capabilities to your {{site.data.keyword.cloud}} architecture, you can enable platform logs to view and analyze logs of the {{site.data.keyword.filestorage_vpc_short}} service. For more information, see [Logging for VPC](/docs/vpc?topic=vpc-logging#logging-file-share-replication).
 
 ## Monitoring share-related metrics in the console
 {: #fs-mon-sysdig}
@@ -270,7 +273,6 @@ The following limitations apply to this release of {{site.data.keyword.filestora
 {: #file-storage-vpc-next-steps}
 
 * [Plan your file shares and mount targets](/docs/vpc?topic=vpc-file-storage-planning).
-* [IAM Roles and Actions](/docs/account?topic=account-iam-service-roles-actions#is.share-roles).
 * [Create a file share and mount targets](/docs/vpc?topic=vpc-file-storage-create).
 * Mount your file share. Mounting is a process by which a server's operating system makes files and directories on the storage device available for users to access through the server's file system. For more information, see the following topics:
    * [IBM Cloud File Share Mount Helper utility](/docs/vpc?topic=vpc-fs-mount-helper-utility)

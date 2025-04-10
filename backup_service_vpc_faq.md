@@ -2,7 +2,7 @@
 
 copyright:
   years: 2022, 2025
-lastupdated: "2025-04-01"
+lastupdated: "2025-04-10"
 
 keywords: Backup for VPC, backup service, backup plan, backup policy, restore, restore volume, restore data, faqs
 
@@ -140,6 +140,22 @@ No. If you update your backup policy plan to create copies of your automated bac
 How long the copy is kept depends on how often your backup plan generates backup snapshots and the number you chose to keep. For example, if your plan takes snapshots daily and you specified 5 remote copies to keep, then at any time the oldest remote copy is less than 5 days old. If you already have 5 remote copies in a region, then the system deletes the oldest one to make space for the new snapshot copy.
 
 Keep in mind, a remote snapshot copy is independent from the source volume or the parent snapshot. If those resources are inaccessible or deleted, the snapshot copy in the remote region is not affected. If a backup snapshot is deleted due to reaching the end of its retention period, its remote copy is not deleted automatically.
+
+### Why do my backup copies show up in the remote region later than my backups in my source region?
+{: faq}
+{: #crc-creation-time}
+
+When you choose to create a cross-regional copy of a backup snapshot, the snapshot is created as normal, and stored in your regional {{site.data.keyword.cos_short}}. When the source backup snapshot is stable, the Backup service initiates the creation of the remote copy in the {{site.data.keyword.cos_short}} bucket in the target region. The data transfer process runs in the background and can take up to several hours to complete if your volumes are over 500 MB in capacity. For more information, see [Cross-regional backup copies](/docs/vpc?topic=vpc-backup-service-about&interface=ui#backup-service-crc).
+
+### Are the cross-regional copies of my backup snapshots full copies of my source volume?
+{: faq}
+{: #crc-full-copy}
+
+The first time that you create a cross-regional copy, that snapshot is a full copy of the parent volume's data. Subsequent copies can be incremental or full copies. 
+
+Whether the remote copy is incremental depends on the immediately preceding snapshot in the chain. If the immediately preceding snapshot exists in the destination region, the copy can be incremental. If the immediately preceding snapshot does not exist or is not stable, the copy must be a full snapshot of the parent volume. 
+
+Your backup schedule's frequency also plays a role. If your backup plan initiates the creation of a remote copy before the previous backup copy becomes stable, the system is unable to treat the newly initiated copy as incremental. For more information, see [Cross-regional backup copies](/docs/vpc?topic=vpc-backup-service-about&interface=ui#backup-service-crc).
 
 ## What is a consistency group for backups?
 {: faq}

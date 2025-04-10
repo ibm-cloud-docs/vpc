@@ -2,7 +2,7 @@
 
 copyright:
   years: 2022, 2025
-lastupdated: "2025-03-13"
+lastupdated: "2025-04-10"
 
 keywords: Backup for VPC, backup service, backup plan, backup policy, restore, restore volume, restore data
 
@@ -23,7 +23,9 @@ To help ensure that you're using the VPC Backup Service most effectively and eco
 
 * Assess the type of data that you have before you create backup policies. Critical data that changes more often might require more frequent backups than static data. Ask which data is most critical and which is to be archived.
 
-* Keep costs down by retaining backups for only while you need them to prevent data loss. Plan timely backups to restore data that might be deleted or corrupted. Think about the type of events that might happen. Ask how much data you can afford to lose. The answers can help you decide on a backup interval and retention policy.
+* Carefully consider when you need to include the creation of backup snapshot copies in other regions. The copies can help to create new volumes in the target region and aid with business continuity. However, it takes time to copy large amounts of data to another region, and creating remote copies incurs charges for data transfer and the storage consumption in the target region separately.
+
+* Keep costs down by retaining backups only where and while you need them to prevent data loss. Plan timely backups to restore data that might be deleted or corrupted. Think about the type of events that might happen. Ask how much data you can afford to lose. The answers can help you decide on a backup interval and retention policy.
 
 * Ask how quickly you need to recover the data. Create a volume or share from a backup and test the failover to get an idea of the time it can take.
 
@@ -82,6 +84,8 @@ Create a weekly backup plan for archived data:
    * Create another plan and define the backup frequency as 7 days. Assess the amount of data that is in the volume, and anticipated changes. The limit is 10 TB for all backups of the volume.
 
    * Set a longer retention period to have multiple copies of your archive volume. For weekly backups, you might want to retain the backups for a month.
+
+   * Add a remote region copy to keep data in separate location. Even if the volume is over 3 TB, your next snaphot copy is an incremental snapshot that contains the changes from the previous week.
 
 If you specify both age and the number of backups in your retention policy, age takes priority in determining when to delete a snapshot. The count applies only if the oldest snapshot is within the age range.
 

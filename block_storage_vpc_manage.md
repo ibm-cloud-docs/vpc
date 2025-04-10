@@ -2,7 +2,7 @@
 
 copyright:
   years: 2019, 2025
-lastupdated: "2025-03-18"
+lastupdated: "2025-04-09"
 
 keywords:
 
@@ -667,10 +667,6 @@ When you look at the specific resources for the VPC infrastructure and specify {
 {: #block-storage-data-eradication}
 
 When you delete a {{site.data.keyword.block_storage_is_short}} volume, that data immediately becomes inaccessible. All pointers to the data on the physical disk are removed. If you later create a volume in the same or another account, a new set of pointers is assigned. The account can't access any data that was on the physical storage because those pointers are deleted. When new data is written to the disk, any inaccessible data from the deleted volume is overwritten.
-
-IBM guarantees that data deleted cannot be accessed and that deleted data is eventually overwritten and eradicated. Further, when you delete a {{site.data.keyword.block_storage_is_short}} volume, those blocks must be overwritten before that {{site.data.keyword.block_storage_is_short}} is made available again, either to you or to another customer.
-
-Further, when IBM decommissions a physical drive, the drive is destroyed before disposal. Decommissioned drives are unusable and any data on them is inaccessible.
 
 ### Sanitizing your data before you delete a volume
 {: #block-storage-sanitization}

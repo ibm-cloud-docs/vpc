@@ -2,7 +2,7 @@
 
 copyright:
  years: 2022, 2025
-lastupdated: "2025-03-24"
+lastupdated: "2025-04-10"
 
 keywords: Backup, backup service, backup plan, backup policy, restore, restore volume, restore data
 
@@ -43,7 +43,7 @@ When the backup is triggered at the scheduled interval, a backup copy is created
 
 Backup jobs that create or delete backup snapshots run according to the backup plan and the retention policy. You can [view the status of the backup jobs](/docs/vpc?topic=vpc-backup-view-policy-jobs) in the console, from the CLI, with the API, or Terraform. If a job fails, the health status code shows the reason for the failure. You can also set up a connection to {{site.data.keyword.en_short}} and receive notifications to your preferred destinations.
 
-Block storage backups, like block storage snapshots, have a lifecycle that is independent from the source {{site.data.keyword.block_storage_is_short}} volume.  File storage backups, like file share snapshots, coexist with their parent file shares and their lifecycles are tied together. If a file share is deleted, its snapshots and backups are automatically deleted, too.
+Block storage backups, like block storage snapshots, have a lifecycle that is independent from the source {{site.data.keyword.block_storage_is_short}} volume. File storage backups, like file share snapshots, coexist with their parent file shares and their lifecycles are tied together. If a file share is deleted, its snapshots and backups are automatically deleted, too.
 
 You can copy a Block storage backup snapshot from one region to another region, and later use that snapshot to restore a volume in the new region. The [cross-regional copy](#backup-service-crc) can be used in disaster recovery scenarios when you need to turn on your virtual server instance and data volumes in a different region. The remote copy can be created automatically as part of a backup plan, or manually later.
 
@@ -53,7 +53,7 @@ You can [restore](#backup-service-restore-concepts) data from a backup snapshot 
 
 With the fast restore feature, you can cache snapshots in a specified zone of your choosing. This way, volumes can be restored from snapshots nearly immediately and the new volumes operate with full IOPS instantly. The fast restore feature can achieve a [recovery time objective](#x3167918){: term} (RTO) quicker than restoring from a regular backup snapshot. When you opt for fast restore, your existing regional plan is adjusted, including billing. The fast restore feature is billed at an extra hourly rate for each zone that it is enabled in regardless of the size of the snapshot. Maintaining fast restore clones is considerably more costly than keeping regular snapshots. The fast restore feature is supported only for individual volume backups, not for consistency group backups.
 
-You can also restore data from a backup snapshot of a file share. You can either create a file share or perform a single-file restoration by accessing the backup snapshot directly through the mount target. A new share that is created from a backup is fully available for read and write operations immediately. 
+You can also restore data from a backup snapshot of a file share. You can either create a file share or restore a single file by accessing the backup snapshot directly through the mount target. A new share that is created from a backup is fully available for read and write operations immediately. 
 
 As an enterprise account administrator, you can view and manage the backup policies and plans for the subaccounts for compliance reporting and billing from one place. For more information, see the [Scope of backup policy](#backup-service-about-scope) section.
 
@@ -178,6 +178,34 @@ For more information, see [Restoring a volume from a backup snapshot](/docs/vpc?
 
 You can copy a Block storage backup from one region to another region, and later use that snapshot to restore a volume in the new region. You can use and manage the cross-regional snapshot in the target region independently from the parent volume or the original snapshot.
 
+When a backup policy creates a job that includes a cross-regional copy, the service waits to initiate the request to create the copies in the target regions. The service start to create the copies after the source snapshot reached the _stable_ state.
+
+When you create a remote copy of the backup snapshot for the first time, that remote copy contains all the data of the parent volume. Subsequent copies can be incremental or full copies. 
+
+Whether the remote copy is incremental depends on the immediately preceding backup snapshot in the chain. If the immediately preceding snapshot exists in the destination region, the copy can be incremental. If the immediately preceding snapshot does not exist or is not stable, the new copy must be a full snapshot of the parent volume.
+
+If your backup plan calls for the creation of a remote copy before the previous backup copy becomes stable, the Backup service initiates a full copy, not an incremental one.
+
+| Volume capacity | Backup plan schedule | Incremental copies |
+|-----------------|----------------------|--------------------|
+| 10 GB           | 1-hour               | Enabled            |
+| 50 GB	          | 1-hour               | Enabled            |
+| 100 GB          | 1-hour               | Enabled            |
+| 200 GB          | 1-hour               | Enabled            |
+| 250 GB          | 1-hour               | Disabled           |
+| 250 GB          | 2-hour               | Enabled            |
+| 500 GB          | 2-hour               | Disabled           |
+| 500 GB          | 3-hour               | Enabled            |
+| 1000 GB         | 4-hour               | Disabled           |
+| 1000 GB         | 5-hour               | Enabled            |
+| 2000 GB         | 8-hour               | Disabled           |
+| 2000 GB         | 9-hour               | Enabled            |
+| 3000 GB         | 12-hour              | Disabled           |
+| 3000 GB         | Daily                | Enabled            |
+{: caption="How storage volume capacity and backup schedules affect the creation of remote snapshot copies." caption-side="bottom"}
+
+The more capacity that a volume has, the longer it takes to create the snapshot copy in another region. For example, creating a copy of a 3-TB storage volume in a remote region can take over 12.5 hours. Therefore, when your schedule specifies the creation of a snapshot with a remote copy every 12 hours, the system initiates a full copy because the previous copy is not complete and fully stable yet.
+
 If the source snapshot is not encrypted with a customer key, the encryption of the copy remains provider-managed. If the source snapshot is protected by a customer-managed key, you must specify the customer-managed key that you want to use to encrypt the new copy.
 
 Only one copy of the backup snapshot can exist in each region. You can't create a copy of the backup snapshot in the source (local) region.
@@ -196,7 +224,7 @@ For more information, see the [best practices for assigning access](/docs/accoun
 ## Service-to-service authorizations
 {: #baas-s2s-auth}
 
-Specific IAM user roles are required to grant service-to-service authorizations. Service-to-service authorizations between the Backup service and Cloud Block Storage, Snapshots for VPC, and Virtual server for VPC are needed so the backup service can detect volume tags and create snapshots.  If you want to create automated snapshots of your file shares, set up service-to-service authorizations between the Backup service and Cloud File Storage service. For more information, see [Establishing service-to-service authorizations](/docs/vpc?topic=vpc-backup-s2s-auth). 
+Specific IAM user roles are required to grant service-to-service authorizations. Service-to-service authorizations between the Backup service and Cloud Block Storage, Snapshots for VPC, and Virtual server for VPC are needed so the backup service can detect volume tags and create snapshots. If you want to create automated snapshots of your file shares, set up service-to-service authorizations between the Backup service and the Cloud File Storage service. For more information, see [Establishing service-to-service authorizations](/docs/vpc?topic=vpc-backup-s2s-auth). 
 
 ## Limitations
 {: #backup-service-limitations}
