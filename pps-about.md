@@ -2,7 +2,7 @@
 
 copyright:
   years: 2023, 2025
-lastupdated: "2025-03-26"
+lastupdated: "2025-04-10"
 
 keywords:
 
@@ -15,7 +15,9 @@ subcollection: vpc
 # About Private Path services
 {: #private-path-service-intro}
 
-Private Path services provide private connectivity for {{site.data.keyword.cloud_notm}} and third-party services. A Private Path service requires a Private Path network load balancer (NLB) to deploy a service on IBM Cloud and a Virtual Private Endpoint (VPE) gateway for consumers to connect to the service. Traffic stays on the IBM backbone without traversing the internet.
+Accounts with special approval can attach an ALB to a Private Path NLB pool, enabling access to on-prem resources while maintaining a private connection across IBM Cloud.
+{: preview}
+
 {: shortdesc}
 
 The typical process for creating private connectivity between providers and consumers is as follows:
@@ -50,7 +52,10 @@ As a service provider, follow these steps to get started:
 ## Private Path service use cases
 {: #pps-use-cases}
 
-The following use cases show you the various ways that you can use Private Path services. 
+The following use cases show you the various ways that you can use Private Path services.
+
+In all Private Path use cases, you can use ALB policy capabilities to direct Private Path service traffic. 
+{: note}
 
 ### Use case 1: Connecting a service to a single consumer
 {: #pps-use-case-1}
@@ -91,7 +96,23 @@ Private Path allows connection between an IBM Cloud service like IBM Cloud Code 
 
 This diagram illustrates how to establish a Private Path service with connections to the VPE gateway of a Code Engine application and your VPC. First, the Code Engine application connects to the VPE gateway within the Code Engine's VPC. Then, the VPE gateway connects to the Private Path NLB in the provider's VPC. In turn, the Private Path NLB connects to the provider's application. The provider's application then responds to the request. This Private Path service activity is completely contained in a single region (`us-south`) in an IBM Cloud private network.
 
-![Use Code Engine and Private Path to deploy complex architecture with dynamic and static scaling needs](images/private_path_detailed_4.svg "Use Code Engine and Private Path to deploy complex architecture with dynamic and static scaling needs"){: caption="Use Code Engine and Private Path to deploy complex architecture with dynamic and static scaling needs" caption-side="bottom"}  
+![Use Code Engine and Private Path to deploy complex architecture with dynamic and static scaling needs](images/private_path_detailed_4.svg "Use Code Engine and Private Path to deploy complex architecture with dynamic and static scaling needs"){: caption="Use Code Engine and Private Path to deploy complex architecture with dynamic and static scaling needs" caption-side="bottom"} 
+
+### Use case 5: Using an ALB with a Private Path NLB to host services outside a VPC
+{: #pps-use-case-5}
+
+[Select availability only]{: tag-green}
+
+This diagram illustrates how to establish a Private Path service with connections between a consumer's application or service running in IBM Cloud, and a provider's endpoint that runs on-premises or in other private locations reachable from the provider's VPC. First, the consumer application or service connects to the VPE gateway within the consumer’s VPC. Then, the VPE gateway connects to the Private Path NLB in the provider's VPC. 
+
+For the provider’s Private Path NLB to reach their on-premises endpoint, the provider adds a new or existing ALB as Private Path NLB member. Only one ALB can be added to a Private Path NLB pool. The provider can add an additional ALB to a separate Private Path NLB pool to achieve high availability. The provider then defines the on-premises endpoint as an ALB pool member. The provider connects their ALB to the on-premises endpoint using Direct Link. The provider can further harness ALB policy capabilities to direct traffic to the relevant ALB pool and member. For more information, see [Policy-based load balancing](/docs/vpc?topic=vpc-layer-7-load-balancing).
+
+The consumer can be an IBM service with Private Paths support deployed in VPC, such as IBM MQ as a Service or Code Engine. This enables connections such as connecting your on-cloud IBM MQ Queue Manager to your on-premises Queue Manager, or connecting your Code-engine project to an on-premises resource.
+
+Enabling zonal affinity in the Private Path service is recommended to ensure that traffic from the client to the VPE is routed to a Private Path NLB and ALB within the same zone (if available), preventing cross-zone traffic.
+{: note}
+
+![A Private Path connecting a consumer’s service to a provider’s on-premises service using an ALB in a Private Path NLB pool](images/private_path_detailed_5.svg "A Private Path connecting a consumer’s service to a provider’s on-premises service using an ALB in a Private Path NLB pool"){: caption="A Private Path connecting a consumer’s service to a provider’s on-premises service using an ALB in a Private Path NLB pool" caption-side="bottom"}
 
 ## Related links
 {: #pps-related-links}

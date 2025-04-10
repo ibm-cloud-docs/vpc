@@ -2,7 +2,7 @@
 
 copyright:
   years: 2023, 2025
-lastupdated: "2025-04-02"
+lastupdated: "2025-04-10"
 
 keywords:
 
@@ -14,6 +14,9 @@ subcollection: vpc
 
 # Creating a Private Path service
 {: #private-path-service-about}
+
+Accounts with special approval can attach an ALB to a Private Path NLB pool, enabling access to on-prem resources while maintaining a private connection across IBM Cloud.
+{: preview}
 
 As a service provider, you are responsible for managing your consumer account IDs. Currently, tracking or validating account IDs is not supported. For more information, see [Responsibilities for managing consumer account IDs](/docs/vpc?topic=vpc-pps-consumer-account-id-responsibilities&interface=ui).
 {: attention}
@@ -93,6 +96,10 @@ To create a Private Path service with the {{site.data.keyword.cloud_notm}} conso
    1. Optionally, in the Attach members section, specify the following information, then click **Attach**:
        * **Back-end pool**: Select the back-end pool where you want to attach servers.
        * **Subnet**: Search for specific subnets in the table, and check the box beside the subnets that you want to attach. In the Port column, enter a port number for each subnet you select.
+       * **Member type**: Add virtual server instances, or an application load balancer as a member. For virtual server instances, attach each type individually. If a load balancer is not available, select **Create load balancer**.
+
+          If you attach an ALB as a member target to a Private Path NLB pool, no other members can be added to that pool.
+          {: note}
 
    1. Optionally, in the Add front-end listeners section, select the back-end pool where you want to attach your front-end listener. Then, select the listener port value and click **Save**. Repeat this step if you want to create another front-end listener.
    1. In the Review section, confirm that the information you submitted is correct. Review the order summary, then click **Create**.
