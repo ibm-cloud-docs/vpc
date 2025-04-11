@@ -2,7 +2,7 @@
 
 copyright:
   years: 2021, 2025
-lastupdated: "2025-04-10"
+lastupdated: "2025-04-11"
 
 keywords: file share, mount target, virtual network interface, customer-managed encryption, encryption at rest, encryption in transit, file storage, share,
 
@@ -127,7 +127,7 @@ Even without EIT, the data moves through a secure data center network. For more 
 {{site.data.keyword.filestorage_vpc_short}} is considered to be a Financial Services Validated service only when encryption-in-transit is enabled. For more information, see [what is a Financial Services Validated service](/docs/framework-financial-services?topic=framework-financial-services-faqs-framework#financial-services-validated){: external}.
 {: important}
 
-Encryption in transit is not supported for {{site.data.keyword.bm_is_short}} or virtual server instances that are running on Red Hat Enterprise Linux CoreOS.
+Encryption in transit is not supported for {{site.data.keyword.bm_is_short}} or virtual server instances that are running on Red Hat Enterprise Linux CoreOS (RHCOS).
 {: restriction}
 
 ### Granular authorization
@@ -207,7 +207,7 @@ You can create new user tags or add existing tags when you provision a new file 
 
 User tags are uniquely identified by a Cloud Resource Name (CRN) identifier. When you create a user tag, you provide a unique name within your billing account. You can define user tags in label or key-value format. Behind the scenes, the file service sends and receives tags directly to the GhoST service. GhoST stores its key attributes and the array of tags. GhoST also stores user resource information, so you can view, tag, and search for resources that you own.
 
- User tags can also be used by [backup policies](/docs/vpc?topic=vpc-backup-service-about) to create snapshots of the share automatically.
+User tags can also be used by [backup policies](/docs/vpc?topic=vpc-backup-service-about) to create snapshots of the share automatically.
 
 For more information, see [Add user tags to file shares](/docs/vpc?topic=vpc-file-storage-managing&interface=ui#fs-add-user-tags) and [Working with tags](/docs/account?topic=account-tag&interface=ui).
 
