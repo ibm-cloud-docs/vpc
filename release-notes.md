@@ -2,7 +2,7 @@
 
 copyright:
   years: 2019, 2025
-lastupdated: "2025-04-10"
+lastupdated: "2025-04-11"
 
 keywords:
 
@@ -33,6 +33,9 @@ For more information about changes to the {{site.data.keyword.vpc_short}} comman
 
 Private path connectivity from IBM Cloud to on-premises locations (select availability)
 :   Accounts with special approval can now connect a consumer service running in IBM Cloud to an on-premises provider service using an ALB as a member of a Private Path NLB pool. This allows you to target on-premises resources while maintaining a private path across IBM Cloud. For more information, see [Using an ALB with a Private Path NLB to host services outside a VPC](/docs/vpc?topic=vpc-private-path-service-intro&interface=ui#pps-use-case-5).
+
+NVIDIA Hopper-1 cluster network profile
+:   The Hopper-1 cluster network profile is now available for IBM Cloud cluster networks. It provides isolated networks for Hopper HGX instances running workloads that require high-bandwidth, low-latency interconnectivity, such as AI training and large-scale simulations. The Hopper-1 network profile supports both H100 and H200 instance profiles. For more information, see [NVIDIA Hopper-1 cluster network profile](/docs/vpc?topic=vpc-cluster-network-hopper-1-profile).
 
 ### 8 April 2025
 {: #vpc-apr825}
