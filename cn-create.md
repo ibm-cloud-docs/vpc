@@ -2,7 +2,7 @@
 
 copyright:
   years: 2024, 2025
-lastupdated: "2025-02-25"
+lastupdated: "2025-04-11"
 
 keywords:
 
@@ -22,7 +22,7 @@ Cluster networks allow you to interconnect and define sets of performance criter
 {: #create-interface-prerequisites}
 
 * Review [Planning considerations](/docs/vpc?topic=vpc-planning-cluster-network&interface=ui) and [Known issues and limitations](/docs/vpc?topic=vpc-limitations-cluster-network&interface=ui).
-* Ensure that you have an existing VPC in a region that has capacity for NVIDIA H100 profiles with clustering support.
+* Ensure that you have an existing VPC in a region that has capacity for NVIDIA H100 or H200 profiles with clustering support.
 
    Currently, the only supported zone is `us-east-wdc07-a`. For more information about zones, see [zone mapping](/docs/overview?topic=overview-locations#zone-mapping).
    {: note}
@@ -47,10 +47,10 @@ To create a cluster network in the UI, follow these steps:
    * **Resource group**: Select a resource group for the virtual network interface.
    * **Tags**: (optional) Add tags to help you organize and find your resources. You can add more tags later. For more information, see [Working with tags](/docs/account?topic=account-tag).
    * **Virtual private cloud**: Choose the VPC to associate the cluster network with.
-1. Choose the profile for your cluster network.
+1. Choose the profile for your cluster network. 
 
-   Currently, cluster networks only support the NVIDIA H100 profile.
-   {: note}
+   Currently, cluster networking supports both H100 and Hopper-1 profiles for NVIDIA Hopper HGX instances. However, the H100 cluster network profile will be deprecated and replaced by the Hopper-1 cluster network profile, as it supports both NVIDIA H100 and H200 instance profiles.
+   {: note} 
 
 1. If you want to add cluster subnets to your cluster network, ensure that the Cluster network subnets section is switched On. Then:
    * Select the total number of cluster subnets you want to create (8, 16, or 32).
@@ -88,7 +88,7 @@ To create a cluster network from the CLI, follow these steps:
    :    The zone this cluster network will reside in. The zone must be listed as supported on the specified cluster network profile.
 
    `--profile`
-   :    Name of the profile to use for this cluster network. Currently, NVIDIA H100 is the only instance profile that you can select. For more information about this profile, see [x86-64 instance profiles](/docs/vpc?topic=vpc-profiles&interface=ui).
+   :    Name of the profile to use for this cluster network. Currently, cluster networking supports both H100 and Hopper-1 profiles for NVIDIA Hopper HGX instances. However, the H100 cluster network profile will be deprecated and replaced by the Hopper-1 cluster network profile, as it supports both NVIDIA H100 and H200 instance profiles. 
 
    `--name`
    :    Name for the cluster network.

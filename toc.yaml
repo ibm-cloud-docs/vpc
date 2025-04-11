@@ -330,8 +330,8 @@ toc:
             label: Cluster networks
             topics:
             - cn-about.md
-            - cn-h100-profile.md
             - cn-planning.md
+            - cn-hopper-1-profile.md
             - cn-create.md
             - topicgroup:
                 label: Managing cluster networks
