@@ -15,7 +15,7 @@ subcollection: vpc
 # About {{site.data.keyword.filestorage_vpc_short}}
 {: #file-storage-vpc-about}
 
-{{site.data.keyword.filestorage_vpc_full}} is a zonal file storage offering that provides NFS-based file storage services. You can create file shares in an availability zone within a region. You can share them with multiple virtual server instances within the same zone or other zones in your region, across multiple VPCs. You can also limit access to a file share to a specific virtual server instance within a VPC and encrypt the data in transit.
+{{site.data.keyword.filestorage_vpc_full}} provides NFS-based file storage services within the VPC Infrastructure. You can create file shares in an availability zone within a region. You can share them with multiple virtual server instances within the same zone or other zones in your region, across multiple VPCs. You can also limit access to a file share to a specific virtual server instance or group of instances within a VPC, and encrypt the data in transit.
 {: shortdesc}
 
 ## Overview
@@ -23,19 +23,17 @@ subcollection: vpc
 
 {{site.data.keyword.filestorage_vpc_short}} provides file shares within the VPC Infrastructure. You can create file shares at the zonal level, for example `us-south-1`. File shares are identified by name and associated with a resource group in your {{site.data.keyword.cloud_notm}} customer account.
 
-You create a file share in a zone and create the mount targets for the share per VPC. You can control how the file share is accessed by specifying the [access mode](#fs-mount-access-mode): VPC-wide access or targeted access for specific instances within a zone. 
+You create a file share in a zone and create the mount target for the share in the VPC. You can control how the file share is accessed by specifying the [access mode](#fs-mount-access-mode): targeted access for specific instances or VPC-wide access. 
 
-You can set up [replication](/docs/vpc?topic=vpc-file-storage-replication) between the source file share and a replica file share. So if an outage at the primary site was to occur, you can fail over to the replica file share.
+You can set up [replication](/docs/vpc?topic=vpc-file-storage-replication) between the source file share and a replica file share in different zones. So if an outage at the primary site was to occur, you can fail over to the replica file share and continue operations.
 
 Data on a file share is encrypted at rest with IBM-managed encryption by default. For added security, you can use your own root keys to protect your file shares with customer-managed keys. When you specify the security group access mode and attach a [virtual network interface](/docs/vpc?topic=vpc-vni-about) to the file share mount target, you can enable encryption of data in transit. For more information, see [File share encryption](#FS-encryption).
 
-You can apply user tags and access management tags to your file shares. Add tags when you create a share or update an existing share with the UI, CLI, API, or Terraform. For more information, see [Tags for file shares](#fs-about-fs-tags).
-
-You can enable context-based restrictions (CBR) for all file share operations. These restrictions work with traditional IAM policies, which are based on identity, to provide an extra layer of protection. Unlike IAM policies, context-based restrictions don't assign access. Context-based restrictions check that an access request comes from an allowed context that you configure, such as creating a file share. For more information, see [Protecting Virtual Private Cloud (VPC) Infrastructure Services with context-based restrictions](/docs/vpc?topic=vpc-cbr).
-
 {{site.data.keyword.filestorage_vpc_short}} is integrated with the Security and Compliance Center to help you manage security and compliance for your organization. For more information, see [Managing security and compliance](#fs-vpc-manage-security).
 
-You can [increase the file share size](/docs/vpc?topic=vpc-file-storage-expand-capacity) from its original capacity in GB increments up to 32,000 GB capacity, depending on your file share profile. You can also [increase or decrease file share IOPS](/docs/vpc?topic=vpc-file-storage-adjusting-iops) to meet your performance needs. Adjust IOPS by specifying a different IOPS tier profile or different IOPS value withing a custom IOPS band. Operations to increase the capacity or adjust the IOPS cause no outage or lack of access to the storage. Billing is adjusted automatically. You pay for only the capacity and performance that you need. 
+You can apply user tags and access management tags to your file shares. Add tags when you create a share or update an existing share with the UI, CLI, API, or Terraform. For more information, see [Tags for file shares](#fs-about-fs-tags).
+
+You can view and manager your file shares in the console, from the CLI, with the API, and Terraform. You can [increase the file share size](/docs/vpc?topic=vpc-file-storage-expand-capacity) from its original capacity in GB increments up to 32,000 GB capacity. You can also [increase or decrease file share IOPS](/docs/vpc?topic=vpc-file-storage-adjusting-iops) to meet your performance needs. Operations to increase the capacity or adjust the IOPS cause no outage or lack of access to the storage. Billing is adjusted automatically. You pay for only the capacity and performance that you need. 
 
 ## File Storage profiles
 {: #fs-profiles-intro}
@@ -101,6 +99,11 @@ Cross-zone mounting is not supported for file shares with VPC-wide access mode.
 
 For more information, see the [best practices for assigning access](/docs/account?topic=account-account_setup#account_setup). For the complete IAM process, which includes inviting users to your account and assigning Cloud IAM access, see the [IAM getting started tutorial](/docs/account?topic=account-iamoverview).
 {: tip}
+
+### Context-based restrictions
+{: #fs-vpc-cbr}
+
+You can enable context-based restrictions (CBR) for all file share operations. These restrictions work with traditional IAM policies, which are based on identity, to provide an extra layer of protection. Unlike IAM policies, context-based restrictions don't assign access. Context-based restrictions check that an access request comes from an allowed context that you configure, such as creating a file share. For more information, see [Protecting Virtual Private Cloud (VPC) Infrastructure Services with context-based restrictions](/docs/vpc?topic=vpc-cbr).
 
 ### Encryption at rest
 {: #FS-encryption}
