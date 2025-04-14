@@ -2,7 +2,7 @@
 
 copyright:
   years: 2022, 2025
-lastupdated: "2025-04-10"
+lastupdated: "2025-04-14"
 
 keywords: snapshots, Block Storage, volumes, cross-regional snapshot, restore volume, copy snapshot
 
@@ -133,7 +133,7 @@ The following limitations apply to this release:
 * Restoring an instance directly from snapshot consistency group identifier is not supported.
 
 ## Securing your data
-{: #bs-data-security}
+{: #bs-snapshot-data-security}
 
 {{site.data.keyword.cloud}} offers security-specific tools and features to help you securely manage your data when you use {{site.data.keyword.vpc_full}}. The following section provides information about access control, data encryption, configuration management, and auditing options that are available for your block storage snapshots.
 
