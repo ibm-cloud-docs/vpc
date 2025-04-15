@@ -2,7 +2,7 @@
 
 copyright:
   years: 2021, 2025
-lastupdated: "2025-04-01"
+lastupdated: "2025-04-14"
 
 keywords: file share, file storage, replication, replica, size increase, capacity, encryption, BYOK, security group
 
@@ -206,12 +206,12 @@ Yes, you can increase or decrease IOPS for file shares based on an **IOPS tier**
 {: faq}
 {: #faq-fs-update-profile}
 
-Yes, you can use the UI, CLI, or API to update a file share profile. You can change among IOPS tier profiles. When you select a custom profile or dp2 high-performance profile, you specify the maximum IOPS based on the file share size.
+If you have one of the tiered and custom file share profiles, you can use the UI, CLI, or API to update the file share profile. You can change among IOPS tier profiles. Or you can switch to custom profile, and you specify the maximum IOPS based on the file share size. You can also choose to convert your share to the dp2 high-performance profile.
 
-You can't use the UI, CLI, or API to update multiple file shares in a single operation. For more on this issue, see [troubleshooting {{site.data.keyword.filestorage_vpc_short}}](/docs/vpc?topic=vpc-troubleshooting-file-storage).
+You can't use the UI, CLI, or API to update multiple file shares in a single operation. For more on this issue, see [troubleshooting {{site.data.keyword.filestorage_vpc_short}}](/docs/vpc?topic=vpc-troubleshooting-file-storage). You can't change a file share that was created with the dp2 profile to an earlier profile version.
 {: note}
 
-## How many files and directories are allowed for specific file share? What is the maximum number of inodes of a shre?
+### How many files and directories are allowed for specific file share? What is the maximum number of inodes of a shre?
 {: #maxfilevolume}
 {: faq}
 {: support}

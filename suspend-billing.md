@@ -1,10 +1,10 @@
 ---
 
 copyright:
-  years: 2020, 2024
-lastupdated: "2024-10-10"
+  years: 2020, 2025
+lastupdated: "2025-04-14"
 
-keywords: pricing, billing, data, instance, VSI, suspend 
+keywords: pricing, billing, suspended billing, suspended virtual server, suspend billing
 
 subcollection: vpc
 
@@ -16,9 +16,10 @@ subcollection: vpc
 # Suspend billing for VPC
 {: #suspend-billing}
 
-When you stop a virtual server instance by using the {{site.data.keyword.cloud_notm}} console, CLI, or API, you don't accrue costs for certain compute resources. Billing stops automatically when you stop the instance. The suspend billing feature helps you reduce cost and prevents you from having to re-create an instance when you need its resources again.
+When you stop a virtual server instance by using the {{site.data.keyword.cloud_notm}} console, CLI, or API, you don't accrue costs for certain compute resources. Billing automatically stops when you stop the instance. Suspend billing helps you reduce costs and prevents you from having to re-create the instance when you need it again.
+{: shortdesc}
 
-In situations where you want to scale your infrastructure up and down in response to workload needs, you can stop an instance (and stop billing) as a faster alternative to creating and deleting instances.
+When you need to scale your infrastructure up or down in response to workload needs, you can stop an instance (and stop billing) as a faster alternative to deleting and re-creating instances.
 {: tip}
 
 ## Billing details
@@ -29,15 +30,15 @@ It's important to understand what costs stop accruing and what costs persist whe
 Review the following table for details on how suspended billing impacts various resource charges.
 
 | Resource                      | Billing stopped   | Billing persists |
-| ----------------------------- | ----------------- | ---------------- |
-| vCPU                          |          X        |                  |
-| RAM                           |          X        |                  |
-| Operating system licenses     |          X        |                  |
-| Floating IPs, Load balancers, or other attached networking offerings |                   |         X        |
-| Storage                       |                   |         X        |
+| ----------------------------- | :---------------: | :--------------: |
+| vCPU                          |   Stopped       |                  |
+| RAM                           |   Stopped       |                  |
+| Operating system licenses     |   Stopped       |                  |
+| Floating IPs, Load balancers, or other attached networking offerings |                   |         Persists        |
+| Storage                       |                   |         Persists        |
 {: caption="Resource billing details" caption-side="bottom"}
 
-Usage times are calculated per second, for both the in use time and suspended time of your virtual server instance. Even if you never initiate the suspend billing feature by powering off your instance, the billing is calculated per second of the instance's lifecycle. No minimum usage requirement exists for an instance. 
+Usage times are calculated per second, for both the in use time and suspended time of your virtual server instance. Even if you never initiate the suspend billing feature by powering off your instance, the billing is calculated per second of the instance's lifecycle. No minimum usage requirement exists for an instance.
 {: note}
 
 ### Suspend billing and sustained usage discounts

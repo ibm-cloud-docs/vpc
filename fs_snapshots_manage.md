@@ -2,7 +2,7 @@
 
 copyright:
   years: 2024, 2025
-lastupdated: "2025-03-18"
+lastupdated: "2025-04-14"
 
 keywords: snapshots, File storage snapshots, manage snapshots, fast restore clone, backup snapshot, remote copy, cross-regional copy
 
@@ -234,11 +234,6 @@ terraform destroy --target ibm_is_snapshot.my-snapshot
 
 For more information, see [terraform destroy](https://developer.hashicorp.com/terraform/cli/commands/destroy){: external}.
 
-## Activity tracking and auditing
-{: #fs-snapshots-at-events}
-
-When you initiate an activity on a snapshot, specific Activity tracking events are generated. These activities include creating, listing, modifying, and deleting snapshots. For more information, see [Snapshot events](/docs/vpc?topic=vpc-at_events#events-fs-snapshots).
-
 ## Snapshot lifecycle states
 {: #fs-snapshots-status}
 
@@ -255,11 +250,6 @@ Table 2 describes the snapshot states in the snapshot lifecycle.
 | Deleting | The snapshot is being deleted. |
 | Deleted | The snapshot was deleted and is not available to restore shares. |
 {: caption="File share snapshot lifecycle states" caption-side="bottom"}
-
-## Managing security and compliance
-{: #fs-snapshots-manage-security}
-
-Because snapshots are created from {{site.data.keyword.filestorage_vpc_short}} shares, they share the encryption key. When a share is created from a Snapshot, your SCC-registered preference of allowing only Customer-Managed encryption is applicable. For more information, see [Getting started with Security and Compliance Center](/docs/security-compliance?topic=security-compliance-getting-started).
 
 ## Next steps
 {: #fs-snapshots-manage-next-steps}

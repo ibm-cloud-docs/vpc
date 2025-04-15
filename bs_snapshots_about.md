@@ -160,10 +160,110 @@ For more information, see the [best practices for assigning access](/docs/accoun
 
 The snapshot has the same encryption type and encryption key as the parent volume (customer-managed or provider-managed). Snapshots are stored and retrieved from {{site.data.keyword.cos_full}}. Data is encrypted while in transit and stored in the same region as the original volume.
 
+### Managing security and compliance
+{: #snapshots-vpc-manage-security}
+
+The Snapshot for VPC service is integrated with the {{site.data.keyword.compliance_full}} to help you manage security and compliance for your organization. For snapshots, you can set up a goal that checks whether snapshots are encrypted by using customer-managed keys. By using the {{site.data.keyword.compliance_short}} to validate the snapshot resource configurations in your account against a profile, you can identify potential issues as they arise.
+
+Because snapshots are created from {{site.data.keyword.block_storage_is_short}} volumes, {{site.data.keyword.block_storage_is_short}} goals provide an extra level of security. For more information, see [Getting started with Security and Compliance Center](/docs/security-compliance?topic=security-compliance-getting-started). For more information about creating security and compliance goals, see [Defining rules](/docs/security-compliance?topic=security-compliance-rules-define&interface=ui) in the Security and Compliance Documentation.
+
 ### Activity tracking events
 {: #bs-snapshot-activity-tracking-events}
 
-You can use {{site.data.keyword.atracker_full}} to configure how to route auditing events. Auditing events are critical data for security operations and a key element for meeting compliance requirements. Such events are triggered when you create, modify, or delete a block volume. For more information, see [Activity tracking events for IBM Cloud VPC](/docs/vpc?topic=vpc-at_events).
+You can use {{site.data.keyword.atracker_full}} to configure how to route auditing events. Auditing events are critical data for security operations and a key element for meeting compliance requirements. Such events are triggered when you create, modify, or delete snapshots. For more information about the Activity tracking events, see [Snapshots events](/docs/vpc?topic=vpc-at_events#events-snapshots).
+
+#### Activity tracking snapshot event examples in JSON format
+{: #snapshots-vpc-at-event-examples}
+
+The following example shows the JSON output of an activity tracking event that was generated after you successfully created a snapshot. The name that you gave the snapshot appears in the response message and reason code `Created`.
+
+```json
+{
+    "eventTime": "2022-02-22T17:59:07.57+0000",
+    "action": "is.snapshot.create",
+    "outcome": "success",
+    "message": "Block Storage Snapshots for VPC: create my-snapshot-1",
+    "initiator": {
+        "id": "ABCid-45B7R6TVH4",
+        "typeURI": "service/security/account/user",
+        "name": "myname@mycompany.com",
+        "host": {
+            "address": "192.0.2.0"
+        },
+        "credential": {
+            "type": "token"
+        }
+    },
+    "target": {
+        "id": "crn:v1::public:is::a/a1234567::snapshot:09ca2bab-c5c4-4c06-b034-dda9bbeb859c",
+        "typeURI": "is.snapshot/snapshot",
+        "name": "my-snapshot-1"
+    },
+    "observer": {
+        "name": "ActivityTracker"
+    },
+    "reason": {
+        "reasonCode": 201,
+        "reasonType": "Created"
+    },
+    "severity": "normal",
+    "requestData": {
+        "generation": "2"
+    },
+    "responseData": {
+        "responseURI": "/v1/snapshots/09ca2bab-c5c4-4c06-b034-dda9bbeb859c"
+    },
+    "dataEvent": false,
+    "logSourceCRN": "crn:v1::public:is::a/a1234567::snapshot:09ca2bab-c5c4-4c06-b034-dda9bbeb859c",
+    "saveServiceCopy": true
+}
+```
+{: codeblock}
+
+The following example shows an event that was generated when you list snapshot details by ID:
+
+```json
+{
+    "eventTime": "2022-01-16T17:55:25.60+0000",
+    "action": "is.snapshot.read",
+    "outcome": "success",
+    "message": "Block Storage Snapshots for VPC: read my-snapshot-2",
+    "initiator": {
+        "id": "IBMid-50A7R6DVH5",
+        "typeURI": "service/security/account/user",
+        "name": "myuser@mycompany.com",
+        "host": {
+            "address": "192.0.2.0"
+        },
+        "credential": {
+            "type": "token"
+        }
+    },
+    "target": {
+        "id": "crn:v1::public:is::a/a1234567::snapshot:4e3252d7-cf32-4586-93e9-f7d9a497bed4",
+        "typeURI": "is.snapshot/snapshot",
+        "name": "my-snapshot-2"
+    },
+    "observer": {
+        "name": "ActivityTracker"
+    },
+    "reason": {
+        "reasonCode": 200,
+        "reasonType": "OK"
+    },
+    "severity": "normal",
+    "requestData": {
+        "generation": "2"
+    },
+    "responseData": {
+        "responseURI": "/v1/snapshots/4e3252d7-cf32-4586-93e9-f7d9a497bed4"
+    },
+    "dataEvent": false,
+    "logSourceCRN": "crn:v1::public:is::a/a1234567::snapshot:4e3252d7-cf32-4586-93e9-f7d9a497bed4",
+    "saveServiceCopy": true
+}
+```
+{: codeblock}
 
 ## Tags for {{site.data.keyword.block_storage_is_short}} snapshots
 {: #snapshots-about-tags}

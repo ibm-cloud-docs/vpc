@@ -2,7 +2,7 @@
 
 copyright:
   years: 2024, 2025
-lastupdated: "2025-03-06"
+lastupdated: "2025-04-14"
 
 keywords: snapshots, File Storage, shares, cross-regional snapshot, restore share, copy snapshot
 
@@ -39,7 +39,9 @@ The cost for snapshots is calculated based on GB capacity that is stored per mon
 Before you take a snapshot, make sure that all cached data is present on disk. For example, on Linux operating systems, run the `sync` command to force an immediate write of all cached data to disk.
 {: note}
 
-You can restore files to your share from a snapshot. You can also create another share with the data of the snapshot. For more information, see [Restoring a share from a snapshot](#fs-snapshots-restore-overview). 
+You can restore files to your share from a snapshot. To perform a single-file restoration, you can use native OS functions of your virtual server instance. Browse to the share's NFS mount target to open the `/.snapshot` directory and see the data that is contained within each snapshot of your share.
+
+You can use the snapshot to create a share as well. The share that you create by using a snapshot must have the same file share profile as the snapshot. However, you can increase the share's capacity beyond the size of the snapshot, and you can adjust the IOPS, too. For more information, see [Restoring a share from a snapshot](/docs/vpc?topic=vpc-fs-snapshots-restore).
 
 Do you want to automatically create snapshots of your {{site.data.keyword.filestorage_vpc_short}} shares? With Backup for VPC, you can create backup policies to schedule regular share backups. For more information, see [About Backup for VPC](/docs/vpc?topic=vpc-backup-service-about).
 {: tip}
@@ -49,30 +51,24 @@ Do you want to automatically create snapshots of your {{site.data.keyword.filest
 
 The following limitations apply to this release:
 
-* File share snapshots cannot be copied to another zone. They are stored in the same location as the file share. If you want the snapshots to survive the loss of the availability zone, you need to configure replication for the file share. When a replica share is created, all snapshots that are present on the source volume are also copied to the replica.
+* File share snapshots cannot be copied to another zone or region. They are stored in the same location as the file share. If you want the snapshots to survive the loss of the availability zone, you need to configure replication for the file share. When a replica share is created, all snapshots that are present on the source volume are also copied to the replica.
 * Snapshots are not supported on shares with Access control mode "VPC". 
 * Taking snapshots are also not supported on replica shares or Accessor shares. However, the `/.snapshot` directory is accessible both on replica and Accessor shares.
 
-## Creating and working with snapshots
-{: #fs-snapshots-procedure-overview}
+## Securing your data
+{: #bs-snapshot-data-security}
 
-You can create and manage your snapshots in the console, from the CLI, with the API, and Terraform.
-* To use the console, log in to the [{{site.data.keyword.cloud_notm}} console](/docs/vpc?topic=vpc-fs-snapshots-create&interface=ui).{: ui}
-* To use the [CLI](/docs/vpc?topic=vpc-fs-snapshots-create&interface=cli), download and install the required CLI plug-ins. For more information, see the [CLI reference](/docs/vpc?topic=vpc-vpc-reference&interface=cli).{: cli}
-* To use the [API](/docs/vpc?topic=vpc-fs-snapshots-create&interface=api), set up the [VPC API](/apidocs/vpc).{: api}
-* To use [Terraform](/docs/vpc?topic=vpc-fs-snapshots-create&interface=terraform), download the Terraform CLI and configure the {{site.data.keyword.cloud_notm}} Provider plug-in. For more information, see [Getting started with Terraform](/docs/ibm-cloud-provider-for-terraform?topic=ibm-cloud-provider-for-terraform-getting-started).{: terraform}
+{{site.data.keyword.cloud}} offers security-specific tools and features to help you securely manage your data when you use {{site.data.keyword.vpc_full}}. The following section provides information about access control, data encryption, configuration management, and auditing options that are available for your file share snapshots.
 
-For more information about creating and managing snapshots, and restoring a share from a snapshot, see the following topics.
-* [Create](/docs/vpc?topic=vpc-fs-snapshots-create#fs-snapshots-create) your snapshots.
-* [View](/docs/vpc?topic=vpc-fs-snapshots-view#fs-snapshots-view) and [manage](/docs/vpc?topic=vpc-fs-snapshots-manage#fs-snapshots-manage) your snapshots.
-* [Restore](/docs/vpc?topic=vpc-fs-snapshots-restore#fs-snapshots-restore) a share from a snapshot.
+### Managing security and compliance
+{: #fs-snapshots-manage-security}
 
-## Restoring a file or an entire share from a snapshot
-{: #fs-snapshots-restore-overview}
+Because snapshots are created from {{site.data.keyword.filestorage_vpc_short}} shares, they share the encryption key. When a share is created from a Snapshot, your SCC-registered preference of allowing only Customer-Managed encryption is applicable. For more information, see [Getting started with Security and Compliance Center](/docs/security-compliance?topic=security-compliance-getting-started).
 
-To perform a single-file restoration, you can use native OS functions of your virtual server instance. Browse to the share's NFS mount target to open the `/.snapshot` directory and see the data that is contained within each snapshot of your share.
+### Activity tracking and auditing
+{: #fs-snapshots-at-events}
 
-You can use the snapshot to create a share as well. The share that you create by using a snapshot must have the same file share profile as the snapshot. However, you can increase the share's capacity beyond the size of the snapshot, and you can adjust the IOPS, too. For more information, see [Restoring a share from a snapshot](/docs/vpc?topic=vpc-fs-snapshots-restore).
+When you initiate an activity on a snapshot, specific Activity tracking events are generated. These activities include creating, listing, modifying, and deleting snapshots. For more information, see [File storage snapshots events](/docs/vpc?topic=vpc-at_events#events-fs-snapshots).
 
 ## Tags for {{site.data.keyword.filestorage_vpc_short}} snapshots
 {: #fs-snapshots-about-tags}
@@ -84,11 +80,18 @@ User tags are uniquely identified by a Cloud Resource Name (CRN) identifier. Whe
 ## Observability
 {: #fs-snapshots-observability}
 
-Activity tracking events are generated when a snapshot creation is requested, when a snapshot is retrieved, when a snapshot is modified, and when its deletion is requested. For more information, see [File storage snapshots events](/docs/vpc?topic=vpc-at_events#events-fs-snapshots).
-
 When snapshots are added or deleted, the change in the snapshot size is reported within 15 minutes. For more information, see [Monitoring metrics for File Storage for VPC](/docs/vpc?topic=vpc-fs-vpc-monitoring-sysdig).
 
 ## Next steps
 {: #fs-snapshots-about-next-steps}
 
-Review [creating share snapshots](/docs/vpc?topic=vpc-fs-snapshots-create#fs-snapshots-create).
+You can [create](/docs/vpc?topic=vpc-fs-snapshots-create#fs-snapshots-create) and [manage](/docs/vpc?topic=vpc-fs-snapshots-manage) your snapshots in the console, from the CLI, with the API, and Terraform.
+* To use the console, log in to the [{{site.data.keyword.cloud_notm}} console](/docs/vpc?topic=vpc-fs-snapshots-create&interface=ui).{: ui}
+* To use the [CLI](/docs/vpc?topic=vpc-fs-snapshots-create&interface=cli), download and install the required CLI plug-ins. For more information, see the [CLI reference](/docs/vpc?topic=vpc-vpc-reference&interface=cli).{: cli}
+* To use the [API](/docs/vpc?topic=vpc-fs-snapshots-create&interface=api), set up the [VPC API](/apidocs/vpc).{: api}
+* To use [Terraform](/docs/vpc?topic=vpc-fs-snapshots-create&interface=terraform), download the Terraform CLI and configure the {{site.data.keyword.cloud_notm}} Provider plug-in. For more information, see [Getting started with Terraform](/docs/ibm-cloud-provider-for-terraform?topic=ibm-cloud-provider-for-terraform-getting-started).{: terraform}
+
+For more information about creating and managing snapshots, and restoring a share from a snapshot, see the following topics.
+* [Create](/docs/vpc?topic=vpc-fs-snapshots-create#fs-snapshots-create) your snapshots.
+* [View](/docs/vpc?topic=vpc-fs-snapshots-view#fs-snapshots-view) and [manage](/docs/vpc?topic=vpc-fs-snapshots-manage#fs-snapshots-manage) your snapshots.
+* [Restore](/docs/vpc?topic=vpc-fs-snapshots-restore#fs-snapshots-restore) a share from a snapshot.

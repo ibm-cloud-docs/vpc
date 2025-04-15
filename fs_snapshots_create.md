@@ -2,7 +2,7 @@
 
 copyright:
   years: 2024, 2025
-lastupdated: "2025-01-17"
+lastupdated: "2025-04-14"
 
 keywords: snapshots, File Storage, snapshot clone, remote copy, fast restore, File Storage snapshot, cross-regional snapshot
 
@@ -15,15 +15,13 @@ subcollection: vpc
 # Creating {{site.data.keyword.filestorage_vpc_short}} snapshots
 {: #fs-snapshots-create}
 
-
-
 You can create a snapshot of a {{site.data.keyword.filestorage_vpc_short}} share in the console, from the CLI, with the API, or Terraform. Snapshots capture the data on the share at a specific data and time. Snapshots can be used later to retrieve old versions of files or to create new shares with the data of the snapshot.
 {: shortdesc}
 
 Although you can't create a snapshot on a replica share, the snapshots of the origin share are copied from the source to the replica at the next scheduled sync. These replica snapshots are created by the file service. They do not inherit the tags or the name from the original snapshots. However, they have the same fingerprint value as the source snapshot. They can't be manually deleted from the replica share, but are removed from the replica share at the next replication sync if the source snapshot is deleted on the source share.
 {: note}
 
-The creation of a snapshot is quick. You can expect to have the snapshot stable and available within seconds. However, you can take only 1 snapshot in a minute. If you take too many snapshots too quickly, you can encounter errors.
+The creation of a share snapshot is quick. You can expect to have the snapshot stable and available within seconds. However, you can take only 1 snapshot in a minute. If you take too many snapshots too quickly, you can encounter errors.
 
 ## Creating a snapshot in the console
 {: #fs-snapshots-create-ui}
@@ -118,7 +116,6 @@ Status reasons         Status code   Status message
 Resource type          share_snapshot
 ```
 {: screen}
-
 
 The status shows `pending` while the snapshot is created. If you want to, you can issue a second `ibmcloud is share-snapshot` command with the snapshot ID to see the new snapshot in `stable` status.
 
