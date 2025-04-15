@@ -2,7 +2,7 @@
 
 copyright:
   years: 2021, 2025
-lastupdated: "2024-12-17"
+lastupdated: "2025-04-15"
 
 keywords: api, change log, beta
 
@@ -25,6 +25,18 @@ There are no backward-compatibility guarantees as a feature progresses through i
 {: important}
 
 To review the change log of generally available API features, see the [VPC API change log](/docs/vpc?topic=vpc-api-change-log).
+
+## 15 April 2025
+{: #15-april-2025-beta}
+
+### For all version dates
+{: #15-april-2025-all-version-dates-beta}
+
+**Public address ranges.** Accounts that have been granted special approval to preview this feature can now [create a public address range](/apidocs/vpc-beta#create-public-address-range). A public address range is a contiguous block of public IP addresses that can be bound to a zone in a VPC. You can bind a public address range when creating it, or [update](/apidocs/vpc-beta#update-public-address-range) its binding later by setting its `target`. You can update `target.zone` to bind it to anther zone in the VPC, or update `target.vpc` to bind it to another VPC. Traffic that originates from the internet destined for addresses in a public address range must be routed to resources in the bound VPC zone by [creating VPC routes](/apidocs/vpc-beta#create-vpc-routing-table-route) in the VPC's routing table with `route_internet_ingress` set to `true`.
+
+When [retrieving](/apidocs/vpc-beta#get-vpc) or [listing](/apidocs/vpc-beta#list-vpcs) VPCs, the response includes the `public_address_ranges` that are bound to each VPC.
+
+Learn about [public address ranges](/docs/vpc?topic=vpc-about-par), and explore the new [API methods](/apidocs/vpc-beta#list-public-address-ranges).
 
 ## 17 December 2024
 {: #17-december-2024-beta}
