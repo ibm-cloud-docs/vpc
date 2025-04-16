@@ -1,8 +1,8 @@
 ---
 
 copyright:
-  years: 2020, 2024
-lastupdated: "2024-06-20"
+  years: 2020, 2025
+lastupdated: "2025-04-16"
 
 keywords: fortigate, fortigate peer
 
@@ -70,6 +70,21 @@ Here's an example of how to connect an IBM static, route-based VPN to a FortiGat
 1. To configure an IPsec proposal, use the matched IPsec proposals.
 
    ![FortiGate connection IPsec proposal](images/vpn-fortigate-configure-ipsec-proposal.png){: caption="Figure 4: FortiGate connection IPsec proposal" caption-side="bottom"}
+
+When connecting FortiGate to a third-party VPN peer, Phase 1 authentication might fail if the local ID is sent in the wrong format. By default, FortiGate sends its local ID as a fully qualified domain name (FQDN), even if an IP address is configured. However, some third-party VPN gateways expect the local ID in IP address format instead. A mismatch in identity types might cause the VPN tunnel to fail with the error: `AUTHENTICATION_FAILED`. On the peer side, logs might show this error: `Failed to locate an item in the database – Peer identity type is FQDN`.
+{: note}
+
+To resolve this error, use the FortiGate CLI and set the `localid-type` to `address` and `localid` to the FortiGate public IP.
+
+```text
+config vpn ipsec phase1-interface
+    edit <tunnel_name>
+        set localid-type address
+        set localid <your FortiGate public IP>
+    next
+end
+```
+{: codeblock}
 
 ### Configuring a secondary tunnel
 {: #configure-secondary-tunnel}

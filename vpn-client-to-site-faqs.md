@@ -2,7 +2,7 @@
 
 copyright:
   years: 2022, 2025
-lastupdated: "2025-04-01"
+lastupdated: "2025-04-16"
 
 keywords: VPN server, faq, faqs, frequently asked questions, vpn, VPN
 
@@ -87,6 +87,20 @@ No, you cannot create routes and use the private IPs. The private IPs are not st
 {: support}
 
 You cannot delete a security group if any VPN servers are present.
+
+
+## How do I switch a client-to-site VPN from full tunnel mode to split tunnel mode?
+{: #faq-change-configuration-ft-to-st}
+{: faq}
+{: support}
+
+Follow the steps:
+
+1. In the [{{site.data.keyword.cloud_notm}} console](/login){: external}, click the **Navigation menu** icon ![menu icon](../icons/icon_hamburger.svg) **> Infrastructure** ![VPC icon](../icons/vpc.svg) **> **Network** > VPNs**.
+1. Click **Client-to-site servers**, and click the name of the VPN server that you want to update.
+1. In VPN server details, click **Edit** and select **Split Tunnel** in the Tunnel mode menu.
+1. Enter the specific IP addresses or address ranges of the networks that you want to access through the VPN.
+1. Click **Save**.
 
 ## Why must I choose subnets during VPN server provisioning?
 {: #faq-vpn-server-choose-subnet}
