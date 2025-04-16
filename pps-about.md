@@ -2,7 +2,7 @@
 
 copyright:
   years: 2023, 2025
-lastupdated: "2025-04-10"
+lastupdated: "2025-04-16"
 
 keywords:
 
@@ -104,14 +104,19 @@ This diagram illustrates how to establish a Private Path service with connection
 
 [Select availability only]{: tag-green}
 
-This diagram illustrates how to establish a Private Path service with connections between a consumer's application or service running in IBM Cloud, and a provider's endpoint that runs on-premises or in other private locations reachable from the provider's VPC. First, the consumer application or service connects to the VPE gateway within the consumer’s VPC. Then, the VPE gateway connects to the Private Path NLB in the provider's VPC. 
+The following diagram illustrates the process of setting up a Private Path service to connect a consumer's service to a provider's endpoint, which can be hosted on-premises or in other private locations that are accessible from the provider's VPC. 
 
-For the provider’s Private Path NLB to reach their on-premises endpoint, the provider adds a new or existing ALB as Private Path NLB member. Only one ALB can be added to a Private Path NLB pool. The provider can add an additional ALB to a separate Private Path NLB pool to achieve high availability. The provider then defines the on-premises endpoint as an ALB pool member. The provider connects their ALB to the on-premises endpoint using Direct Link. The provider can further harness ALB policy capabilities to direct traffic to the relevant ALB pool and member. For more information, see [Policy-based load balancing](/docs/vpc?topic=vpc-layer-7-load-balancing).
+1.	The consumer's application or service connects to a virtual private endpoint (VPE) gateway within the consumer’s VPC. The consumer's VPC can be an IBM service with Private Path support, like MQ as a Service or Code Engine, allowing connections such as linking an on-cloud MQ Queue Manager to an on-premises Queue Manager or connecting a Code Engine project to an on-premises resource.
 
-The consumer can be an IBM service with Private Paths support deployed in VPC, such as IBM MQ as a Service or Code Engine. This enables connections such as connecting your on-cloud IBM MQ Queue Manager to your on-premises Queue Manager, or connecting your Code-engine project to an on-premises resource.
+1.	The VPE gateway then links to the Private Path network load balancer (NLB) located in the provider's VPC.
+1.	To enable the Private Path NLB to reach its on-premises endpoint, the provider adds their application load balancer (ALB) as a member of the Private Path NLB. 
+1.	The provider configures the on-premises endpoint as an ALB pool member. 
+1.	Finally, the provider connects the on-premises endpoint to their ALB using IBM Cloud Direct Link.
 
-Enabling zonal affinity in the Private Path service is recommended to ensure that traffic from the client to the VPE is routed to a Private Path NLB and ALB within the same zone (if available), preventing cross-zone traffic.
-{: note}
+The provider can further harness ALB policy capabilities to direct traffic to the relevant ALB pool and member. For more information, see [Policy-based load balancing](/docs/vpc?topic=vpc-layer-7-load-balancing).
+
+It is recommended to enable zonal affinity in the Private Path service to ensure that traffic from the client to the VPE gateway is directed to a Private Path NLB and ALB within the same zone (if available), thereby avoiding cross-zone traffic.
+{: important}
 
 ![A Private Path connecting a consumer’s service to a provider’s on-premises service using an ALB in a Private Path NLB pool](images/private_path_detailed_5.svg "A Private Path connecting a consumer’s service to a provider’s on-premises service using an ALB in a Private Path NLB pool"){: caption="A Private Path connecting a consumer’s service to a provider’s on-premises service using an ALB in a Private Path NLB pool" caption-side="bottom"}
 
