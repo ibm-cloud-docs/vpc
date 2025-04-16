@@ -957,6 +957,7 @@ toc:
                 - vpn-ts-vpn-server-fix-bad-service-routes.md
                 - vpn-client-to-site-ts-advertise-route-not-work.md
                 - vpn-ts-c2s-over-quota.md
+                - vpn-ts-cannot-connect-vpn-from-office-network
                 - vpn-ts-c2s-cannot-access-classic-vsi.md
             - resource-suspension.md
             - instance-status-messages.md
