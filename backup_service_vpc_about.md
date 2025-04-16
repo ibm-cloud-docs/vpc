@@ -2,7 +2,7 @@
 
 copyright:
  years: 2022, 2025
-lastupdated: "2025-04-10"
+lastupdated: "2025-04-16"
 
 keywords: Backup, backup service, backup plan, backup policy, restore, restore volume, restore data
 
@@ -231,18 +231,24 @@ Specific IAM user roles are required to grant service-to-service authorizations.
 
 This release has the following limitations.
 
+Backup policy:
 * You can create up to 10 backup policies per account in a region. This quota can't be increased.
+
+Volume backups:
 * You can take a total of 750 backups per volume based on your backup policy, in your account and region. If you exceed this limit, no further backups are taken.
-* You can take a total of 750 backups per file share. 
 * The first backup and the entire volume backup cannot exceed 10 TB.
 * You can't take a backup of a detached volume.
 * You can't create a copy of a backup snapshot in the source (local) region. 
 * You can create a copy of a block storage backup in another region. However, only one copy of the backup snapshot can exist in each region.
+* Cross-regional copies are not supported in Montreal (`ca-mon`) MZR.
+* Consistency groups consist of the attached Block Storage volumes of virtual server instances, such as boot and data volumes. Instance storage volumes and virtual server instance configuration are not included.
+* The fast restore feature is not supported for multi-volume backups of consistency groups.
+
+File share backups:
+* You can take a total of 750 backups per file share. 
 * You can't create a copy of a file storage backup in another region. File share snapshots and backups are tied to their source shares. If the share is deleted, the backups are deleted as well. 
 * Backup snapshots are not supported for shares that have "VPC" access control mode.
-* The fast restore feature is not supported for multi-volume backups of consistency groups, or for file share backups.
-* Consistency groups consist of the attached Block Storage volumes of virtual server instances, such as boot and data volumes. Instance storage volumes and virtual server instance configuration are not included.
-* Cross-regional copies are not supported in Montreal (`ca-mon`) MZR.
+* The fast restore feature is not supported for file share backups.
 
 ## Next steps
 {: #backup-next-steps}
