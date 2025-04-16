@@ -1,8 +1,8 @@
 ---
 
 copyright:
-  years: 2021, 2024
-lastupdated: "2024-10-25"
+  years: 2021, 2025
+lastupdated: "2025-04-16"
 
 keywords:
 
@@ -98,7 +98,7 @@ To create a client-to-site VPN server in the UI:
 
 1. In the Security groups section, select at least one security group.
 
-   To configure one or more security groups and their rules or, to optionally configure access control lists (ACLs) on the subnet where you plan to deploy the VPN server and other VPC subnets that communicate over the VPN tunnel, see [Configuring ACLs and security groups for use with a VPN server](/docs/vpc?topic=vpc-acls-security-groups-vpn).
+   To configure one or more security groups and their rules or, to optionally configure access control lists (ACLs) on the subnet where you plan to deploy the VPN server and other VPC subnets that communicate over the VPN tunnel, see [Configuring ACLs for use with a VPN server](/docs/vpc?topic=vpc-configuring-acls-vpn).
    {: note}
 
    ![VPN security groups section](images/vpn-security-groups.png){: caption="VPN security groups section" caption-side="bottom"}
