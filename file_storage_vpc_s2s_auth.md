@@ -1,8 +1,8 @@
 ---
 
 copyright:
-  years: 2022, 2024
-lastupdated: "2024-12-05"
+  years: 2022, 2025
+lastupdated: "2025-04-16"
 
 keywords: Backup for VPC, backup service, backup plan, backup policy, restore, restore volume, restore data
 
@@ -23,9 +23,11 @@ You can use the {{site.data.keyword.iamshort}} (IAM) to create or remove an auth
 
 In an authorization, the source service is the service that is granted access to the target service. The roles that you select define the level of access for the source service. The target service is the service that you are granting permission to be accessed by the source service based on the roles that you assign. Generally, a source service can be in the same account where the authorization is created or in another account. The target service is always in the account where the authorization is created. 
 
-To be able to create an encrypted file share with customer-managed CRKs, you need to establish service-to-service authorization between the File service and the Key Management Service of your choice. The instructions to create the service-to-service authorization are provided in this topic.
+To be able to create an encrypted file share with a Customer Root Key (CRK), you must first have an instance of a Key Management Service (KMS) to hold your CRK. You can choose between {{site.data.keyword.keymanagementserviceshort}} or {{site.data.keyword.hscrypto}}. Then, you need to establish service-to-service authorization between the file service and the KMS instance. The authorization must be created in the account that owns and hosts the customer root key. The account that holds the CRK is the source, and the account where the file share is to be created is the target. 
 
-For cross-region replication, you need to establish service-to-service authorizations and specify [user roles](/docs/account?topic=account-iam-service-roles-actions#is.share-roles). for the various File service instances in different VPCs. This authorization enables the File service in one VPC to interact with the File service of another VPC. Both VPCs must belong to the same account. Cross-account replication is not supported. For more information, see [Replication overview](/docs/vpc?topic=vpc-file-storage-replication).
+For cross-region replication, you need to establish service-to-service authorizations and specify [user roles](/docs/account?topic=account-iam-service-roles-actions#is.share-roles) for the various File Storage Service instances in different VPCs. This authorization enables the File Storage service in one VPC to interact with the File Storage Service of another VPC. Both VPCs must belong to the same account. Cross-account replication is not supported. For more information, see [Replication overview](/docs/vpc?topic=vpc-file-storage-replication).
+
+For cross-account access, you need to establish service-to-service authorizations between the File Storage service of two different accounts. The authorization must be created in the account that owns and hosts the file share. You must also specify [user roles](/docs/account?topic=account-iam-service-roles-actions#is.share-roles) in both accounts to allow the users to create and manage accessor shares and share bindings. For more information, see [Sharing and mounting a file share from another account](/docs/vpc?topic=vpc-file-storage-accessor-create).
 
 For more information about authorizations, see [Using authorizations to grant access between services](/docs/account?topic=account-serviceauth).
 
@@ -33,11 +35,12 @@ For more information about authorizations, see [Using authorizations to grant ac
 {: #file-s2s-auth-encryption-ui}
 {: ui}
 
-1. In the {{site.data.keyword.cloud_notm}} console, go to **Manage > Access (IAM)**.
+1. In the {{site.data.keyword.cloud_notm}} console, log in to the account where the Key Management Service (KMS) and the Customer Root Key (CRK) are located.
+1. Go to **Manage > Access (IAM)**.
 1. From the side panel, select **Authorizations**.
 1. On the **Manage authorizations** page, click **Create**. 
-1. In the **Source** section, select the **Source account**. 
-   - If the goal is to allow the use of a CRK from another account, select **Specific account** and enter the 32-character-long account ID. Then, click **Next**.
+1. In the **Source** section, select the **Source account**. This account is where the CRK is to be used to create a file share with customer-managed encryption.
+   - To allow the use of CRKs from this account to encrypt file shares in another account, select **Specific account** and enter the 32-character-long account ID of the account of the File service. Then, click **Next**.
    - Otherwise, select **This account**. Then, click **Next**.
 1. For the source service, select **VPC Infrastructure Services** from the list. Click **Next**.
    1. Select the scope by clicking **Specific resources**.
@@ -55,7 +58,8 @@ For more information about authorizations, see [Using authorizations to grant ac
 {: #file-s2s-auth-replication-ui}
 {: ui}
 
-1. In the {{site.data.keyword.cloud_notm}} console, go to **Manage > Access (IAM)**.
+1. In the {{site.data.keyword.cloud_notm}} console, log in to the account where your file share is located.
+1. Go to **Manage > Access (IAM)**.
 1. From the side panel, select **Authorizations**.
 1. On the **Manage authorizations** page, click **Create**. 
 1. In the **Source** section, select the **Source account**. Select **This account**, and click **Next**.
@@ -79,7 +83,8 @@ For more information about authorizations, see [Using authorizations to grant ac
 {: #file-s2s-auth-xaccount-ui}
 {: ui}
 
-1. In the {{site.data.keyword.cloud_notm}} console, go to **Manage > Access (IAM)**.
+1. In the {{site.data.keyword.cloud_notm}} console, log in to the account where your file share is.
+1. Go to **Manage > Access (IAM)**.
 1. From the side panel, select **Authorizations**.
 1. On the **Manage authorizations** page, click **Create**. 
 1. In the **Source** section, select the **Source account**. 
@@ -108,7 +113,8 @@ For more information about authorizations, see [Using authorizations to grant ac
 {: #file-s2s-auth-watsonstudio-ui}
 {: ui}
 
-1. In the {{site.data.keyword.cloud_notm}} console, go to **Manage > Access (IAM)**.
+1. In the {{site.data.keyword.cloud_notm}} console, log in to the account where your file share is.
+1. Go to **Manage > Access (IAM)**.
 1. From the side panel, select **Authorizations**.
 1. On the **Manage authorizations** page, click **Create**. 
 1. On the **Grant a service authorization** page, select **This account**.
@@ -133,11 +139,11 @@ For more information about authorizations, see [Using authorizations to grant ac
 1. Click **Review** and inspect your choices.
 1. Click **Authorize**.
 
-## Creating  authorization for customer-managed encryption from the CLI
+## Creating authorization for customer-managed encryption from the CLI
 {: #file-s2s-auth-encryption-cli}
 {: cli}
 
-Run the `ibmcloud iam authorization-policy-create` command to create authorization policies for the File service to interact with one or both Key Management Services ({{site.data.keyword.keymanagementserviceshort}} or {{site.data.keyword.hscrypto}}). The source service is `is` with the `--source-resource-type share` and the target service is either `kms` or `hs-crypto`. The role that you need to assign is `Reader`. The following example creates an authorization policy between the File service and {{site.data.keyword.keymanagementserviceshort}}.
+Log in to your account. Run the `ibmcloud iam authorization-policy-create` command to create authorization policies for the File Storage Service to interact with your instance of one or both Key Management Services ({{site.data.keyword.keymanagementserviceshort}} or {{site.data.keyword.hscrypto}}). The source service is `is` with the `--source-resource-type share` and the target service is either `kms` or `hs-crypto`. The role that you need to assign is `Reader`. The following example creates an authorization policy between the File Storage Service and {{site.data.keyword.keymanagementserviceshort}}. 
 
 ```sh
 $ ibmcloud iam authorization-policy-create is kms Reader --source-resource-type share
@@ -177,7 +183,7 @@ For more information about all of the parameters that are available for this com
 {: #file-s2s-xaccount-encryption-cli}
 {: cli}
 
-Run the `ibmcloud iam authorization-policy-create` command to create authorization policies for the File service to interact with one or both Key Management Services ({{site.data.keyword.keymanagementserviceshort}} or {{site.data.keyword.hscrypto}}). The source service is `is` with the `--source-resource-type share` and the target service is either `kms` or `hs-crypto`. The role that you need to assign is `Reader`. The following example creates an authorization policy between the File service and {{site.data.keyword.keymanagementserviceshort}}.
+Log in to the account that holds the instance of a Key Management Service ({{site.data.keyword.keymanagementserviceshort}} or {{site.data.keyword.hscrypto}}). Run the `ibmcloud iam authorization-policy-create` command to create authorization policies for the File service to interact with the KMS. The source service is `is` with the `--source-resource-type share` and the target service is either `kms` or `hs-crypto`. The role that you need to assign is `Reader`. The following example creates an authorization policy between the File service of the `KeyUserAccount` and the {{site.data.keyword.keymanagementserviceshort}} instance of the `KeyOwnerAccount`.
 
 1. Create a JSON file with the following information for the authorization policies in your local Documents folder.
    ```json
@@ -275,7 +281,7 @@ As the share owner, create a JSON file and use it with the `ibmcloud iam authori
 {: #file-s2s-auth-encryption-api}
 {: api}
 
-Make a request to the [IAM Policy Management API](/apidocs/iam-policy-management#create-policy) to create the service-to-service authorization for the source share's file service to interact with a Key Management Service instance ({{site.data.keyword.keymanagementserviceshort}} or {{site.data.keyword.hscrypto}}).
+To authorize the file service to access your Key Management Service instance ({{site.data.keyword.keymanagementserviceshort}} or {{site.data.keyword.hscrypto}}), make an API request to the [IAM Policy Management API](/apidocs/iam-policy-management#create-policy) to create the service-to-service authorization.
 
 * The following example shows how you can authorize the File service `is.share` (source) to interact with the {{site.data.keyword.keymanagementserviceshort}} service `kms` (target) with the _Reader_ role.
 
@@ -299,7 +305,7 @@ Make a request to the [IAM Policy Management API](/apidocs/iam-policy-management
 {: #file-s2s-xaccount-encryption-api}
 {: api}
 
-As the owner of the encryption key, make a request to the [IAM Policy Management API](/apidocs/iam-policy-management#create-policy) to create the service-to-service authorization for the {{site.data.keyword.filestorage_vpc_short}} service of the source account to access the key management service of your account (target).
+To authorize the file service of another account to access your Key Management Service instance ({{site.data.keyword.keymanagementserviceshort}} or {{site.data.keyword.hscrypto}}), make a request to the [IAM Policy Management API](/apidocs/iam-policy-management#create-policy) to create the service-to-service authorization. The following example shows how to create an authorization for the {{site.data.keyword.filestorage_vpc_short}} service of the source account to access the key management service of your account (target) with Reader permission.
 
 ```json
 curl -X "POST" "https://iam.cloud.ibm.com/v1/policies" \
@@ -350,7 +356,7 @@ For more information, see the api spec for [IAM Policy Management](/apidocs/iam-
 {: #file-s2s-auth-xaccount-api}
 {: api}
 
-As the share owner, make a request to the [IAM Policy Management API](/apidocs/iam-policy-management#create-policy) to create the service-to-service authorization for the {{site.data.keyword.filestorage_vpc_short}} service of the origin share account (source) to access a share in accessor account (target).
+As the share owner, make an API request to the [IAM Policy Management API](/apidocs/iam-policy-management#create-policy) to create an authorization that allows the accessor account to access the origin share. The following example shows how to create the service-to-service authorization between the origin share account (source) and the accessor account (target).
 
 ```json
 curl -X "POST" "https://iam.cloud.ibm.com/v1/policies" \
@@ -466,7 +472,7 @@ For more information about the arguments and attributes, see the [Terraform docu
    ```
    {: codeblock}
 
-   The following example creates an authorization between the file service of one account and the {{site.data.keyword.keymanagementserviceshort}}  service of another account.
+   The following example creates an authorization between the file service of one account and the {{site.data.keyword.keymanagementserviceshort}} service of another account.
 
    ```Terraform
    resource "ibm_iam_authorization_policy" "policy" {

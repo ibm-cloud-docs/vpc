@@ -2,7 +2,7 @@
 
 copyright:
   years: 2024, 2025
-lastupdated: "2025-04-14"
+lastupdated: "2025-04-16"
 
 keywords: snapshots, File Storage, shares, cross-regional snapshot, restore share, copy snapshot
 
@@ -56,7 +56,7 @@ The following limitations apply to this release:
 * Taking snapshots are also not supported on replica shares or Accessor shares. However, the `/.snapshot` directory is accessible both on replica and Accessor shares.
 
 ## Securing your data
-{: #bs-snapshot-data-security}
+{: #fs-snapshot-data-security}
 
 {{site.data.keyword.cloud}} offers security-specific tools and features to help you securely manage your data when you use {{site.data.keyword.vpc_full}}. The following section provides information about access control, data encryption, configuration management, and auditing options that are available for your file share snapshots.
 
