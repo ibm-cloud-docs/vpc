@@ -34,7 +34,8 @@ For more information about changes to the {{site.data.keyword.vpc_short}} comman
 NVIDIA Hopper-1 cluster network profile
 :   The Hopper-1 cluster network profile is now available for IBM Cloud cluster networks. It provides isolated networks for Hopper HGX instances running workloads that require high-bandwidth, low-latency interconnectivity, such as AI training and large-scale simulations. The Hopper-1 network profile supports both H100 and H200 instance profiles. For more information, see [NVIDIA Hopper-1 cluster network profile](/docs/vpc?topic=vpc-cluster-network-hopper-1-profile).
 
-**Public address ranges (beta)** Accounts that have been granted special approval to preview this feature can now [create a public address range](/docs/vpc?topic=vpc-par-creating&interface=cli). A public address range is a contiguous set of public IPs that you can reserve and bind to a VPC in an availability zone. For more information, see [About public address ranges](/docs/vpc?topic=vpc-about-par&interface=cli).
+Public address ranges (beta) 
+:   Accounts that have been granted special approval to preview this feature can now [create a public address range](/docs/vpc?topic=vpc-par-creating&interface=cli). A public address range is a contiguous set of public IPs that you can reserve and bind to a VPC in an availability zone. For more information, see [About public address ranges](/docs/vpc?topic=vpc-about-par&interface=cli).
 
 ### 10 April 2025
 {: #vpc-apr1025}
