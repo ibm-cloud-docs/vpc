@@ -2,7 +2,7 @@
 
 copyright:
   years: 2024, 2025
-lastupdated: "2025-04-11"
+lastupdated: "2025-04-17"
 
 keywords:
 
@@ -106,5 +106,5 @@ To maintain minimal access to the cluster network, you must:
 * [IAM permissions](/docs/account?topic=account-iam-service-roles-actions#is.cluster-network-roles)
 * [AT events](/docs/vpc?topic=vpc-at_events&q=tracker&tags=vpc#events-cluster-network)
 * [FAQs](/docs/vpc?topic=vpc-faqs-cluster-network)
-* [NVIDIA H100 cluster network profile](/docs/vpc?topic=vpc-cluster-network-h100-profile&interface=cli)
+* [NVIDIA Hopper-1 cluster network profile](/docs/vpc?topic=vpc-cluster-network-hopper-1-profile&interface=cli)
 * [GPU profile information](/docs/vpc?topic=vpc-profiles#gpu)
