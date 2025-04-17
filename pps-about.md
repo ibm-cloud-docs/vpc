@@ -106,12 +106,12 @@ This diagram illustrates how to establish a Private Path service with connection
 
 The following diagram illustrates the process of setting up a Private Path service to connect a consumer's service to a provider's endpoint, which can be hosted on-premises or in other private locations that are accessible from the provider's VPC:
 
-1.	The consumer's application or service connects to a virtual private endpoint (VPE) gateway within the consumer’s VPC. The consumer's VPC can be an IBM service with Private Path support, like MQ as a Service or Code Engine, allowing connections such as linking an on-cloud MQ Queue Manager to an on-premises Queue Manager or connecting a Code Engine project to an on-premises resource.
+1. The consumer's application or service connects to a virtual private endpoint (VPE) gateway within the consumer’s VPC. The consumer's VPC can be an IBM service with Private Path support, like MQ as a Service or Code Engine, allowing connections such as linking an on-cloud MQ Queue Manager to an on-premises Queue Manager or connecting a Code Engine project to an on-premises resource.
 
-1.	The VPE gateway then links to the Private Path network load balancer (NLB) located in the provider's VPC.
-1.	To enable the Private Path NLB to reach its on-premises endpoint, the provider adds their application load balancer (ALB) as a member of the Private Path NLB. 
-1.	The provider configures the on-premises endpoint as an ALB pool member. 
-1.	Finally, the provider connects the on-premises endpoint to their ALB using IBM Cloud Direct Link.
+1. The VPE gateway then links to the Private Path network load balancer (NLB) located in the provider's VPC.
+1. To enable the Private Path NLB to reach its on-premises endpoint, the provider adds their application load balancer (ALB) as a member of the Private Path NLB. 
+1. The provider configures the on-premises endpoint as an ALB pool member. 
+1. Finally, the provider connects the on-premises endpoint to their ALB using IBM Cloud Direct Link.
 
 The provider can further harness ALB policy capabilities to direct traffic to the relevant ALB pool and member. For more information, see [Policy-based load balancing](/docs/vpc?topic=vpc-layer-7-load-balancing).
 
