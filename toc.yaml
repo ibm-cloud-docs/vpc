@@ -418,6 +418,15 @@ toc:
             - fip-about.md
             - fip-create.md
         - topicgroup:
+            label: Public address ranges
+            topics:
+            - par-about.md
+            - par-creating.md
+            - par-binding.md
+            - par-viewing.md
+            - par-deleting.md
+            - par-limitations.md
+        - topicgroup:
             label: Load balancers
             topics:
             - load-balancers.md
