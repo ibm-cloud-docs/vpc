@@ -21,7 +21,7 @@ Public Address Ranges for VPC is only available for evaluation and testing purpo
 A public address range is a contiguous set of public IPs that you can reserve and bind to a VPC in an availability zone. 
 {: shortdesc}
 
-The IPs in the range can be routed to an endpoint like a Virtual Network Function (VNF) virtual server instance in the VPC by configuring public ingress routing to route the destination IP range to a VNF virtual server next-hop. Response traffic from the VNF appliance retains the source IP as it egresses, ensuring traffic isn't dropped. 
+The IPs in the range can be routed to a Virtual Network Function (VNF) appliance in the VPC by configuring public ingress routing to route the destination IP range to a VNF virtual server next-hop. Response traffic from the VNF appliance retains the source IP as it egresses, ensuring traffic isn't dropped. 
  
 For more information about configuring ingress routing, see [About routing tables and routes](/docs/vpc?topic=vpc-about-custom-routes&interface=api).
 {: note}
@@ -75,7 +75,7 @@ To get started with using public address ranges, follow these steps:
 1. Ensure that you have [created a VPC](/docs/vpc?topic=vpc-getting-started&interface=ui#create-and-configure-vpc) and all the needed resources (if not already present).
 1. [Create your public address range](/docs/vpc?topic=vpc-par-creating&interface=ui).
 1. [Bind, unbind,and move public address ranges](/docs/vpc?topic=vpc-par-unbinding-binding&interface=ui) after creating a public address range.
-1. [Configure the ingress routing table for your VPC](/docs/vpc?topic=vpc-par-configuring&interface=ui) by adding routes that use public address range as a destination. These routes direct internet traffic to a next-hop within the VPC, such as a Network Functions Virtualization (NFV) instance, router, firewall, or load balancer.
+1. [Configure the ingress routing table for your VPC](/docs/vpc?topic=vpc-about-custom-routes&interface=ui) by adding routes that use public address range as a destination. These routes direct internet traffic to a next-hop within the VPC, such as a Network Functions Virtualization (NFV) instance, router, firewall, or load balancer.
  
    The next-hop IP must be an IP address that is bound to a network interface on a subnet in the route's zone for ingress routing.
    {: note}
