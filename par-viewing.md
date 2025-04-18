@@ -2,7 +2,7 @@
 
 copyright:
   years: 2025
-lastupdated: "2025-04-17"
+lastupdated: "2025-04-18"
 
 keywords: viewing, deleting, public address range
 
@@ -124,3 +124,12 @@ To view public address ranges with the API, follow these steps:
                -H "Authorization: Bearer $iam_token"
       ```
       {: pre}
+
+## Related links
+{: #after-view-par}
+
+- [IAM roles and actions](/docs/vpc?topic=vpc-about-par#par-access-management)
+- [Quotas and service limits](/docs/vpc?topic=vpc-quotas)
+- [Creating public address ranges](/docs/vpc?topic=vpc-par-creating&interface=ui)
+- [Binding, unbinding, and moving public address ranges to a VPC](/docs/vpc?topic=vpc-par-unbinding-binding&interface=ui) 
+- [Deleting public address ranges](/docs/vpc?topic=vpc-par-deleting&interface=ui)

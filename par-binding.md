@@ -216,3 +216,12 @@ To bind, unbind, or move public address ranges with the API, follow these steps:
                   }'
       ```
       {: pre}
+
+## Related links
+{: #after-binding-par}
+
+- [IAM roles and actions](/docs/vpc?topic=vpc-about-par#par-access-management)
+- [Quotas and service limits](/docs/vpc?topic=vpc-quotas)
+- [Creating public address ranges](/docs/vpc?topic=vpc-par-creating&interface=ui)
+- [Viewing public address ranges](/docs/vpc?topic=vpc-par-viewing&interface=ui)
+- [Deleting public address ranges](/docs/vpc?topic=vpc-par-deleting&interface=ui)

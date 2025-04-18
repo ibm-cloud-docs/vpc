@@ -2,7 +2,7 @@
 
 copyright:
   years: 2025
-lastupdated: "2025-04-17"
+lastupdated: "2025-04-18"
 
 keywords: public address range, create, bind
 
@@ -203,7 +203,9 @@ If you need to change the size of the address range or the resource group, you m
 
 ## Related links
 {: #after-create-par}
- 
+
+- [IAM roles and actions](/docs/vpc?topic=vpc-about-par#par-access-management)
+- [Quotas and service limits](/docs/vpc?topic=vpc-quotas)
 - [Binding, unbinding, and moving public address ranges to a VPC](/docs/vpc?topic=vpc-par-unbinding-binding&interface=ui)
 - [Viewing public address ranges](/docs/vpc?topic=vpc-par-viewing&interface=ui)
 - [Deleting public address ranges](/docs/vpc?topic=vpc-par-deleting&interface=ui)
