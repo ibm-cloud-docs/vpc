@@ -2,7 +2,7 @@
 
 copyright:
   years: 2021, 2025
-lastupdated: "2025-04-17"
+lastupdated: "2025-04-18"
 
 keywords: file share, mount target, virtual network interface, customer-managed encryption, encryption at rest, encryption in transit, file storage, share,
 
@@ -75,7 +75,7 @@ When you create or update a mount target, you can specify the manner in which yo
 
 * Use the **security groups access** mode to authorize access to the file share for a specific virtual server instance or instances within a subnet. This option is available to newer file shares based on the `dp2` profile. Communication between an authorized virtual server instance and the file share can optionally be IPsec encapsulated. For more information, see [Encryption in Transit](#fs-eit). Cross-zone mounting is also supported.
 
-* Use the **VPC access** mode to allow access to the file share to a bare metal server or any virtual server instances in the same zone of a VPC. This option is available for all [file share profiles](/docs/vpc?topic=vpc-file-storage-profiles). Cross-zone mounting and encryption of data in transit are not supported for shares with VPC access mode. Snapshots are also not supported for shares with VPC access mode. 
+* Use the **VPC access** mode to allow access to the file share to a bare metal server or any virtual server instances in the same zone of a VPC. This option is available for all [file share profiles](/docs/vpc?topic=vpc-file-storage-profiles). Cross-zone mounting and encryption of data in transit are not supported for shares with VPC access mode. Snapshots are also not supported for shares with VPC access mode.
 
     VPC access mode is not supported in newer MZRs, such as Montreal (ca-mon).
     {: note}
@@ -136,7 +136,7 @@ Encryption in transit is not supported for {{site.data.keyword.bm_is_short}} or 
 ### Granular authorization
 {: #fs-mount-granular-auth}
 
-When you set the access control mode of a file share to use [security groups](/docs/vpc?topic=vpc-using-security-groups), and create a mount target with a [virtual network interface](/docs/vpc?topic=vpc-vni-about), the VPC Infrastructure creates a file share gateway that provides a 1:1:1 granular authorization for the share. 
+You can set the access control mode of a file share to use [security groups](/docs/vpc?topic=vpc-using-security-groups). Then, create a mount target with a [virtual network interface](/docs/vpc?topic=vpc-vni-about). When you mount your file share by using this mount target, the created file share gateway provides a 1:1:1 granular authorization. 
 
 The security groups that are associated with the mount target act as a virtual firewall that controls the traffic between the mount target and the Compute host.
 
@@ -144,14 +144,14 @@ You can select a specific security group or use the VPC's default security group
 
 To enable traffic between a virtual server instance and a mount target, you must configure the following rules in the security groups:
 
-- The security groups that you attach to a mount target must allow inbound access for the TCP protocol on the NFS port from all virtual server instances on which you want to mount the file share.
+- The security group that you attach to a mount target must allow inbound access for the TCP protocol on the NFS port from all the instances where you want to mount the file share.
 - Each virtual server instance that you want the file share to be mounted on must have a security group that allows outbound access to the mount target on the NFS port.
 
 You can configure your security group in a more dynamic way by allowing all traffic between members of the security group. Then, attach this security group to the network interface of the virtual server instance and the virtual network interface of the mount target. For more information, see [Allow traffic between members of a security group](/docs/vpc?topic=vpc-using-security-groups#sg-use-case-3).
 
 It is also recommended that UDP ports 500 and 4500 are allowed. UDP port 500 is intended for Internet Key Exchange (IKE) to manage encryption keys, and UDP port 4500 is for IPsec NAT-Traversal (NAT-T). A VPN gateway for VPC accepts VPN packets with [UDP Encapsulation of IPsec ESP Packets](https://datatracker.ietf.org/doc/html/rfc3948){: external} only.
 
-When you create the mount target, you can specify a subnet and reserved IP address for the virtual network interface, or have the service pick an IP address for you in the specified subnet. The mount target must have a VPC private IP address, and the IP address must be in a subnet that is in the same zone as the share. The IP address that is assigned to the mount target cannot be changed later.
+When you create the mount target, you can specify a subnet and reserved IP address for the virtual network interface. You can also have the service pick an IP address for you in the specified subnet. The mount target must have a VPC private IP address, and the IP address must be in a subnet that is in the same zone as the share. The IP address that is assigned to the mount target cannot be changed later.
 
 When you create the mount target with a virtual network interface, its IP address is determined in either of the following ways:
 
@@ -234,7 +234,7 @@ For cross-region replication, you must configure [service to service authorizati
 ## File share snapshots
 {: #fs-about-snapshots}
 
-Snapshots are point-in-time copies of your file share. The snapshots can be used to restore individual files, or create other file shares in the same zone with the data that's captured in the snapshot. You can create snapshots manually in the console or from the CLI, and programmatically with the API. You can also schedule the snapshots to be created automatically at regular intervals by using the Backup for VPC service. For more information, see [About {{site.data.keyword.filestorage_vpc_short}} snapshots](/docs/vpc?topic=vpc-fs-snapshots-about) and [Planning snapshots](/docs/vpc?topic=vpc-fs-snapshots-planning).
+Snapshots are point-in-time copies of your file share. The snapshots can be used to restore individual files, or create other file shares in the same zone with the data that is captured in the snapshot. You can create snapshots manually in the console or from the CLI, and programmatically with the API. You can also schedule the snapshots to be created automatically at regular intervals by using the Backup for VPC service. For more information, see [About {{site.data.keyword.filestorage_vpc_short}} snapshots](/docs/vpc?topic=vpc-fs-snapshots-about) and [Planning snapshots](/docs/vpc?topic=vpc-fs-snapshots-planning).
 
 Snapshots are supported only for shares that have "security group" as their access control mode. You can't change access control mode to VPC either unless all the snapshots of the share are deleted.
 

@@ -2,7 +2,7 @@
 
 copyright:
   years: 2023, 2025
-lastupdated: "2025-04-10"
+lastupdated: "2025-04-18"
 
 keywords:
 
@@ -30,15 +30,15 @@ Private Path services for VPC enable service providers to create and manage priv
 Before you create a Private Path service, review the following prerequisites:
 
 * Review [Private Path service limitations](/docs/vpc?topic=vpc-ppsg-limitations&interface=ui) for known limitations.
-* Make sure that you have a VPC and at least one subnet in the selected VPC. [Learn more](/docs/vpc?topic=vpc-creating-a-vpc-using-the-ibm-cloud-console).
-* Create a Private Path network load balancer. You can create your load balancer while provisioning your Private Path service here, or you can use the [Load balancer for VPC](/infrastructure/provision/loadBalancer) console.
+* Make sure that you have a VPC and at least one subnet in the selected VPC. [Learn more](/docs/vpc?topic=vpc-creating-a-vpc-using-the-ibm-cloud-console)
+* Create a Private Path network load balancer. You can create your load balancer while provisioning your Private Path service, or you can use the [Load balancer for VPC](/infrastructure/provision/loadBalancer) console.
 
    You must use the same VPC region for both your load balancer and Private Path service.
    {: important}
 
 * You must choose a DNS FQDN for your service for consumer use. This domain is configured in a consumer's private DNS, but you are required to prove ownership of the FQDN in public DNS. This requires you to take steps with your DNS provider. For more information, see [Registering and verifying ownership of service endpoints (FQDNs)](/docs/vpc?topic=vpc-private-path-service-about&interface=ui#pps-domain-register-verify). 
 
-   You can opt out of this requirement if you are willing to use one of limited predefine set of domains listed in [Registering and verifying ownership of service endpoints (FQDNs)](/docs/private-path?topic=private-path-private-path-service-about&interface=ui#pps-domain-register-verify).
+   You can opt out of this requirement if you are willing to use one of limited predefined set of domains listed in [Registering and verifying ownership of service endpoints (FQDNs)](/docs/private-path?topic=private-path-private-path-service-about&interface=ui#pps-domain-register-verify).
    {: note}
 
 You can create an {{site.data.keyword.cloud}} Private Path service using the UI, CLI, API, or Terraform.
