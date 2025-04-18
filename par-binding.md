@@ -2,7 +2,7 @@
 
 copyright:
   years: 2025
-lastupdated: "2025-04-17"
+lastupdated: "2025-04-18"
 
 keywords: public address range, bind, unbind
 
@@ -26,9 +26,6 @@ You can bind, unbind, and move public address ranges to a VPC in an availability
 
 * Make sure to review [Planning considerations](/docs/vpc?topic=vpc-about-par#par-planning) and [Known issues and limitations](/docs/vpc?topic=vpc-par-limitations&interface=api) for public address ranges.
 * The binding of a public address range must include both a VPC and an availability zone.
-* The following [IAM permissions](/docs/vpc?topic=vpc-about-par&interface=ui#par-access-management) are required to bind or unbind a public address range:
-   * `is.public-address-range.public-address-range.create`
-   * `is.public-address-range.public-address-range.update`
 
 ## Binding, unbinding and moving public address ranges in the UI
 {: #bind-unbind-par-ui} 

@@ -75,7 +75,7 @@ To get started with using public address ranges, follow these steps:
 1. Ensure that you have [created a VPC](/docs/vpc?topic=vpc-getting-started&interface=ui#create-and-configure-vpc) and all the needed resources (if not already present).
 1. [Create your public address range](/docs/vpc?topic=vpc-par-creating&interface=ui).
 1. [Bind, unbind,and move public address ranges](/docs/vpc?topic=vpc-par-unbinding-binding&interface=ui) after creating a public address range.
-1. [Configure the ingress routing table for your VPC](/docs/vpc?topic=vpc-about-custom-routes&interface=ui) by adding routes that use public address range as a destination. These routes direct internet traffic to a next-hop within the VPC, such as a Network Functions Virtualization (NFV) instance, router, firewall, or load balancer.
+1. [Configure an ingress routing table for your VPC](/docs/vpc?topic=vpc-about-custom-routes&interface=ui) by adding routes that direct traffic to the next-hop IP of the target appliance, using the public IP address range as the destination. These routes direct internet traffic to a next-hop within the VPC, such as a Network Functions Virtualization (NFV) instance, router, firewall, or load balancer.
  
    The next-hop IP must be an IP address that is bound to a network interface on a subnet in the route's zone for ingress routing.
    {: note}
@@ -106,10 +106,10 @@ If you're using the CLI or API to assign access, use **`is.public-address-range`
 | ----- | :----- | :----- |
 | `is.public-address-range.public-address-range.read` | Read a public address range | Administrator, Editor, Operator, Viewer |
 | `is.public-address-range.public-address-range.list` | List a public address range | Administrator, Editor, Operator, Viewer |
-| `is.public-address-range.public-address-range.create` | Create a public address range | Administrator, Editor|
-| `is.public-address-range.public-address-range.update` \n \n _Required to bind or unbind a public address range._ | Modify a public address range | Administrator, Editor|
-| `is.public-address-range.public-address-range.operate` \n \n _Required to bind or unbind a public address range._ | Manage binding or unbinding of a public address range to a VPC | Administrator, Editor |
-| `is.public-address-range.public-address-range.delete` | Delete a public address range | Administrator, Editor |
+| `is.public-address-range.public-address-range.create` \n \n Also requires `is.vpc.vpc.operate` if the public address range is to be bound at the time of creation. | Create a public address range | Administrator, Editor|
+| `is.public-address-range.public-address-range.update` \n \n | Modify a public address range | Administrator, Editor|
+| `is.public-address-range.public-address-range.operate` \n \n and `is.public-address-range.public-address-range.update` | Bind, unbind, or move a public address range | Administrator, Editor |
+| `is.public-address-range.public-address-range.delete` \n \n Also requires `is.vpc.vpc.operate` if a public address range is bound at the time of deletion. | Delete a public address range | Administrator, Editor |
 {: caption="Service actions - Public Address Ranges for VPC" caption-side="top"}
 {: tab-title="Actions"}
 {: tab-group="is.public-address-range"}
