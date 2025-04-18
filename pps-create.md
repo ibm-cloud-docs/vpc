@@ -38,7 +38,7 @@ Before you create a Private Path service, review the following prerequisites:
 
 * You must choose a DNS FQDN for your service for consumer use. This domain is configured in a consumer's private DNS, but you are required to prove ownership of the FQDN in public DNS. This requires you to take steps with your DNS provider. For more information, see [Registering and verifying ownership of service endpoints (FQDNs)](/docs/vpc?topic=vpc-private-path-service-about&interface=ui#pps-domain-register-verify). 
 
-   You can opt out of this requirement if you are willing to use one of limited predefine set of domains listed in [Registering and verifying ownership of service endpoints (FQDNs)](/docs/private-path?topic=private-path-private-path-service-about&interface=ui#pps-domain-register-verify).
+   You can opt out of this requirement if you are willing to use one of limited predefined set of domains listed in [Registering and verifying ownership of service endpoints (FQDNs)](/docs/private-path?topic=private-path-private-path-service-about&interface=ui#pps-domain-register-verify).
    {: note}
 
 You can create an {{site.data.keyword.cloud}} Private Path service using the UI, CLI, API, or Terraform.
