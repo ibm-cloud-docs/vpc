@@ -2,7 +2,7 @@
 
 copyright:
   years: 2022, 2025
-lastupdated: "2025-01-17"
+lastupdated: "2025-04-19"
 
 keywords: file storage, file share, view share details, mount targets, view targets, view share
 
@@ -59,25 +59,22 @@ You can access the Actions menu by clicking ![Actions icon](../icons/action-menu
      |-------|-------|
      | **File share details** | |
      | Name  | The file share name. Click the **Edit icon** ![Edit icon](../icons/edit-tagging.svg "Edit") to change the name. |
-     | Zone | Zone for the file share (for example, Dallas 2). |
-     | Max IOPS | Maximum IOPS for the IOPS tier, custom, or dp2 [profile](/docs/vpc?topic=vpc-file-storage-profiles) associated with the file share. |
+     | File share ID | The UUID that was generated when you created the file share. |
      | Resource group | Resource groups associated with the file share in your account. |
+     | Created date | Date the file share was created. |
+     | Location | The location of the file share (for example, us-south-2). |
      | Replication role | Source file share or replica. |
-     | Encryption | Specifies provider-managed or [customer-managed encryption](/docs/vpc?topic=vpc-file-storage-byok-encryption). |
-     | Encryption instance | For customer-managed encryption, link to the {{site.data.keyword.keymanagementserviceshort}} or {{site.data.keyword.hscrypto}} instance. |
-     | Key ID |  Copiable customer root key ID. |
-     | ID | For customer-managed encryption, the UUID generated when you created the file share. |
-     | Size | File share capacity in GB. |
-     | Created | Date the file share was created. |
+     | Encryption | Specifies provider-managed or [customer-managed encryption](/docs/vpc?topic=vpc-file-storage-byok-encryption). When the file share is encrypted with customer-managed keys, the encryption instance, encryption key name and encryption key CRN are also shown. |
      | Mount target access mode   | Access to the file share is granted by either a security group within a subnet or to any virtual server instance in the VPC. Click the **Edit icon** ![Edit icon](../icons/edit-tagging.svg "Edit") to switch access modes. Security group access is available only to file shares created with the [`dp2` profile](/docs/vpc?topic=vpc-file-storage-profiles&interface=ui#dp2-profile). For more information, see the [Mount target access modes](/docs/vpc?topic=vpc-file-storage-vpc-about&interface=api#fs-mount-access-mode). |
-     | CRN | Copiable cloud resource name. |
-     | Allowed encryption in transit modes| This value shows whether encryption in transit is required when clients access the file share. Click the **Edit icon** ![Edit icon](../icons/edit-tagging.svg "Edit") to change the allowed values.|
-     | Snapshot count  | This value indicates the number of snapshots that were taken of the file share. |
-     | Size of changed data in all the snapshots  | It represents the billable volume of data across all the snapshots. |
-     | **Profile, size, and IOPS**| |
+     | CRN | The copiable Cloud Resource Name of the file share.|
+     | Allowed encryption in transit mode | This value shows whether encryption in transit is required when clients access the file share. Click the **Edit icon** ![Edit icon](../icons/edit-tagging.svg "Edit") to change the allowed values. The possible values are User managed, and None. This field is not applicable for file shares with VPC access mode.|
+     | Cross account role | The possible values are None, Origin, Accessor. This field is not applicable for file shares with VPC access mode.|
+     | Snapshot count  | This value indicates the number of snapshots that were taken of the file share. This field is not applicable for file shares with VPC access mode. |
+     | Size of changed data in all the snapshots  | It represents the billable volume of data across all the snapshots. This field is not applicable for file shares with VPC access mode. |
+     | **Profile details**| |
+     | Profile | The name of the share [profile](/docs/vpc?topic=vpc-file-storage-profiles) that defines the file share performance. In most cases, the dp2 profile.|
      | Size | File share capacity in GB. |
-     | IOPS tier | IOPS [profile](/docs/vpc?topic=vpc-file-storage-profiles) that defines the file share performance. In most cases, the dp2 profile is shown. |
-     | Max IOPS | Maximum IOPS for the specified profile. |
+     | Max IOPS | Maximum IOPS for the specified share. |
      | **Mount targets** | Number of mount targets associated with the file share. You can have one mount target per VPC per file share. You can create more mount targets for other VPCs. Click ![Actions icon](../icons/action-menu-icon.svg) to rename or delete the mount target, or to view the mount path. |
      | Name | Name of the mount target. |
      | Status | Status of the mount target on the VPC. |
@@ -153,14 +150,15 @@ You can list all your file shares in a region with the `ibmcloud is shares` comm
 
 ```sh
 ibmcloud is shares
-Listing shares in all resource groups and region au-syd under account Test Account as user test.user@ibm.com...
-ID                                          Name                 Lifecycle state   Zone       Profile   Size(GB)   Resource group   Replication role   Accessor binding role   
-r026-02aea1c7-adb6-4072-9799-6ca495561661   my-file-share-2      stable            au-syd-1   dp2       20         Default          none               origin   
-r026-d503c5ed-9343-4177-ad1b-a5941e522203   access-share         stable            au-syd-2   dp2       10         Default          none               accessor   
-r026-184d7d4e-cfe3-4d8f-b5cc-0a00996fed5e   my-file-share-1      stable            au-syd-1   dp2       40         Default          none               none   
-r026-734c173e-044f-4d09-a729-950364ea9900   my-file-share        stable            au-syd-1   dp2       40         Default          none               none   
-r026-6fafe634-310d-4a99-b12c-f581587c2ad7   cli-accessor-share   failed            au-syd-2   dp2       10         Default          none               accessor   
-r026-3d507136-5fb1-466b-8a1f-a379a755383f   cli-temp             stable            au-syd-2   dp2       10         Default          none               origin 
+Listing shares in all resource groups and region us-south under account Test Account as user test.user@ibm.com...
+
+ID                                          Name                    Lifecycle state   Zone         Profile   Size(GB)   Resource group   Replication role   Accessor binding role   Snapshot count   Snapshot size   
+r006-a8d6af48-0c97-4c6b-bab1-fbefdc1e1e03   my-file-share           stable            us-south-2   dp2       10         defaults         none               none                    0                0   
+r006-aaf4bfe9-358c-4faa-a4ec-0b955090b940   my-file-share-2         stable            us-south-2   dp2       10         defaults         none               none                    0                0   
+r006-a60bfa90-a893-40ad-be34-28ab51a963f9   replica-dal-2           stable            us-south-2   dp2       10         defaults         replica            none                    0                0   
+r006-3f21e3c3-e12d-425f-ab77-810cabfde8df   source-dal-1            stable            us-south-1   dp2       10         defaults         source             none                    0                0   
+r006-455b601c-8fc1-4476-8771-4708c49c8ef7   my-replica-share-dal-1  stable            us-south-1   dp2       10         defaults         replica            none                    0                0   
+r006-4dadac27-cd17-42df-a5fe-1388705d33e0   my-source-share-dal-2   stable            us-south-2   dp2       10         defaults         source             none                    0                0   
 ```
 {: screen}
 
@@ -174,41 +172,46 @@ To see the details of a file share, run the `ibmcloud is share` command and spec
 The following example identifies the file share by ID. This share is a replica that is based on the `dp2` profile, and access to the share is granted by using security groups. The output provides information about the source file share and the replication details, too.
 
 ```sh
-$ ibmcloud is share r006-dc6a644d-c7da-4c91-acf0-d66b47fc8516
-Getting file share r006-dc6a644d-c7da-4c91-acf0-d66b47fc8516 under account Test Account as user test.user@ibm.com...
+$ ibmcloud is share r006-455b601c-8fc1-4476-8771-4708c49c8ef7 
+Getting file share r006-455b601c-8fc1-4476-8771-4708c49c8ef7 under account Test Account as user test.user@ibm.com...
                                 
-ID                               r006-dc6a644d-c7da-4c91-acf0-d66b47fc8516   
-Name                             my-replica-file-share   
-CRN                              crn:v1:bluemix:public:is:us-south-1:a/a1234567::share:r006-dc6a644d-c7da-4c91-acf0-d66b47fc8516   
-Lifecycle state                  stable   
-Access control mode              security_group
-Accessor binding role            origin
-Allowed transit encryption modes user_managed,none  
-Zone                             us-south-1   
-Profile                          dp2   
-Size(GB)                         1500   
-IOPS                             100   
-Encryption                       provider_managed   
-Mount Targets                    ID                          Name      
-                                 No mounted targets found.      
-                                
-Resource group                   ID                                 Name      
-                                 db8e8d865a83e0aae03f25a492c5b39e   Default      
-                                
-Created                          2024-06-25T15:42:56+00:00   
-Latest job                       Job status   Job status reasons      
-                                 succeeded    -      
-                                
-Replication cron spec            55 09 * * *   
-Replication role                 replica   
-Replication status               active   
-Replication status reasons       Status code   Status message      
-                                 -             -      
-                                
-Source share                     ID                                          Name                   Resource type      
-                                 r006-e4acfa9b-88b0-4f90-9320-537e6fa3482a   my-source-file-share   share    
-Snapshot count                   0
-Snapshot size                    0                                       
+ID                                 r006-455b601c-8fc1-4476-8771-4708c49c8ef7   
+Name                               my-replica-share-dal-1   
+CRN                                crn:v1:bluemix:public:is:us-south-1:a/a1234567::share:r006-455b601c-8fc1-4476-8771-4708c49c8ef7   
+Lifecycle state                    stable   
+Access control mode                security_group   
+Accessor binding role              none   
+Allowed transit encryption modes   none,user_managed   
+Zone                               us-south-1   
+Profile                            dp2   
+Size(GB)                           10   
+IOPS                               100   
+Encryption                         provider_managed   
+Mount Targets                      ID                          Name      
+                                   No mounted targets found.      
+                                      
+Resource group                     ID                                 Name      
+                                   6edefe513d934fdd872e78ee6a8e73ef   defaults      
+                                      
+Created                            2025-04-04T09:19:27+00:00   
+Latest job                         Job status   Job status reasons      
+                                   succeeded    -      
+                                      
+Latest Sync                        Completed At                Data Transferred   Started At      
+                                   2025-04-18T21:00:04+00:00   3560               2025-04-18T21:00:00+00:00      
+                                      
+Replication cron spec              00 * * * *   
+Replication role                   replica   
+Replication status                 active   
+Replication status reasons         Status code   Status message      
+                                   -             -      
+                                      
+Source share                       ID                                          Name                    Resource type      
+                                   r006-4dadac27-cd17-42df-a5fe-1388705d33e0   my-source-share-dal-2   share      
+                                      
+Snapshot count                     0   
+Snapshot size                      0   
+Source snapshot                    -   
 ```
 {: screen}
 
@@ -424,7 +427,7 @@ Make a `GET /shares/{share_id}` request to get details about a single file share
 
 ```sh
 curl -X GET \
-"$vpc_api_endpoint/v1/shares/$share_id?version=2023-07-18&generation=2"\
+"$vpc_api_endpoint/v1/shares/$share_id?version=2025-04-01&generation=2"\
 -H "Authorization: $iam_token"
 ```
 {: pre}
@@ -434,53 +437,55 @@ A successful response looks like the following example. In this example, the sha
 ```json
 {
   "access_control_mode": "security_group",
-  "created_at": "2023-07-18T22:58:49.000Z",
-  "crn": "crn:[...]",
-  "encryption": "provider_managed",
-  "href": "https://us-south.iaas.cloud.ibm.com/v1/shares/199d78ec-b971-4a5c-a904-8f37ae710c63",
-  "id": "199d78ec-b971-4a5c-a904-8f37ae710c63",
-  "iops": 14400,
-  "lifecycle_state": "stable",
-  "mount_targets": [
-    {
-      "href": "https://us-south.iaas.cloud.ibm.com/v1/shares/199d78ec-b971-4a5c-a904-8f37ae710c63/mount_targets/d5fd8173-f519-4ff7-8f63-0ead23ecf1f4",
-      "id": "d5fd8173-f519-4ff7-8f63-0ead23ecf1f4",
-      "name": "my-share-mount-target",
-      "resource_type": "share_mount_target",
-      "vpc": {
-        "crn": "crn:[...]",
-        "href": "https://us-south.iaas.cloud.ibm.com/v1/vpcs/c2d941de-27f5-432c-b4d0-37a8491c3216",
-        "id": "c2d941de-27f5-432c-b4d0-37a8491c3216",
-        "name": "my-vpc",
-        "resource_type": "vpc"
-      }
-    }
+  "accessor_binding_role": "none",
+  "accessor_bindings": [],
+  "allowed_transit_encryption_modes": [
+      "none",
+      "user_managed"
   ],
-  "name": "my-share",
-  "profile": {
-    "href": "https://us-south.iaas.cloud.ibm.com/v1/share/profiles/dp2",
-    "family": "defined-performance",
-    "name": "dp2",
-    "resource_type": "share_profile"
+  "created_at": "2025-04-04T09:17:14.000Z",
+  "crn": "crn:v1:bluemix:public:is:us-south-2:a/a1234567::share:r006-4dadac27-cd17-42df-a5fe-1388705d33e0",
+  "encryption": "provider_managed",
+  "href": "https://us-south.iaas.cloud.ibm.com/v1/shares/r006-4dadac27-cd17-42df-a5fe-1388705d33e0",
+  "id": "r006-4dadac27-cd17-42df-a5fe-1388705d33e0",
+  "iops": 100,
+  "latest_job": {
+      "status": "succeeded",
+      "status_reasons": [],
+      "type": "replication_init"
   },
-  "replication_role": "none",
-  "replication_status": "none",
+  "lifecycle_reasons": [],
+  "lifecycle_state": "stable",
+  "mount_targets": [],
+  "name": "my-source-share-dal-2",
+  "profile": {
+      "href": "https://us-south.iaas.cloud.ibm.com/v1/share/profiles/dp2",
+      "name": "dp2",
+      "resource_type": "share_profile"
+  },
+  "replica_share": {
+      "crn": "crn:v1:bluemix:public:is:us-south-1:a/a1234567::share:r006-455b601c-8fc1-4476-8771-4708c49c8ef7",
+      "href": "https://us-south.iaas.cloud.ibm.com/v1/shares/r006-455b601c-8fc1-4476-8771-4708c49c8ef7",
+      "id": "r006-455b601c-8fc1-4476-8771-4708c49c8ef7",
+      "name": "my-replica-share-dal-1",
+      "resource_type": "share"
+  },
+  "replication_role": "source",
+  "replication_status": "active",
   "replication_status_reasons": [],
   "resource_group": {
-    "crn": "crn:[...]",
-    "href": "https://us-south.iaas.cloud.ibm.com/v2/resource_groups/678523bcbe2b4eada915d32640909956",
-    "id": "678523bcbe2b4eada915d32640909956",
-    "name": "Default"
+      "href": "https://resource-controller.cloud.ibm.com/v2/resource_groups/6edefe513d934fdd872e78ee6a8e73ef",
+      "id": "6edefe513d934fdd872e78ee6a8e73ef",
+      "name": "defaults"
   },
   "resource_type": "share",
-  "size": 4800,
-  "snapshot_count": 10, 
-  "snapshot_size": 10,
+  "size": 10,
+  "snapshot_count": 0,
+  "snapshot_size": 0,
   "user_tags": [],
   "zone": {
-    "href": "https://us-south.iaas.cloud.ibm.com/v1/regions/us-south/zones/us-south-1",
-    "name": "us-south-1",
-    "resource_type": "zone"
+      "href": "https://us-south.iaas.cloud.ibm.com/v1/regions/us-south/zones/us-south-2",
+      "name": "us-south-2"
   }
 }
 ```

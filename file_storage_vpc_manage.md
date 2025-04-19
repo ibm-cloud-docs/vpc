@@ -2,7 +2,7 @@
 
 copyright:
   years: 2021, 2025
-lastupdated: "2025-03-18"
+lastupdated: "2025-04-19"
 
 keywords: file share, file storage, rename share, increase size, adjust IOPS, mount target
 
@@ -67,7 +67,7 @@ Valid mount target names can include a combination of lowercase alpha-numeric ch
 ### Updating a file share profile in the UI
 {: #fs-update-profile-ui}
 
-These instructions are for the previous generation of file share profiles (general purpose, 5-iops, 10-iops, or custom). To access the latest features, you must change the IOPS profile of your share to dp2. The profiles of file shares that were created with the dp2 profile cannot be changed.
+These instructions are for the previous generation of file share profiles (general purpose, 5-iops, 10-iops, or custom). To access the latest features, you must change the IOPS profile of your share to dp2. The profiles of file shares that were created with the `dp2` profile cannot be changed.
 {: important}
 
 You can change the profile for a file share from the current profile to another **IOPS tier** profile, to a **custom** profile, or to a high-performance **dp2** profile. Your billing adjusts based on the type of profile that you choose.
@@ -223,7 +223,7 @@ For more information about the command options, see [`ibmcloud is share-mount-ta
 ### Updating a file share profile in the CLI
 {: #fs-update-profile-cli}
 
-These instructions are for the previous generation of file share profiles (general purpose, 5-iops, 10-iops, or custom). To access the latest features, you must change the IOPS profile of your share to dp2. The profiles of file shares that were created with the dp2 profile cannot be changed.
+These instructions are for the previous generation of file share profiles (general purpose, 5-iops, 10-iops, or custom). To access the latest features, you must change the IOPS profile of your share to dp2. The profiles of file shares that were created with the `dp2` profile cannot be changed.
 {: important}
 
 1. Locate the file share that you want to update by listing the file shares in the region with the `ibmcloud is shares` command.
@@ -523,7 +523,7 @@ Valid mount target names can include a combination of lowercase alpha-numeric ch
 ### Updating a file share profile with the API
 {: #fs-update-profile-api}
 
-These instructions are for the previous generation of file share profiles (general purpose, 5-iops, 10-iops, or custom). To access the latest features, you must change the IOPS profile of your share to dp2. The profiles of file shares that were created with the dp2 profile cannot be changed.
+These instructions are for the previous generation of file share profiles (general purpose, 5-iops, 10-iops, or custom). To access the latest features, you must change the IOPS profile of your share to dp2. The profiles of file shares that were created with the `dp2` profile cannot be changed.
 {: important}
 
 Make a `PATCH /shares/{share_ID}` call and specify the profile name in the `profile` property. The following example changes the profile to a `dp2` profile.

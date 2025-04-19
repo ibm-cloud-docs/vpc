@@ -2,7 +2,7 @@
 
 copyright:
   years: 2021, 2025
-lastupdated: "2025-04-18"
+lastupdated: "2025-04-19"
 
 keywords: file share, file storage, virtual network interface, encryption in transit, profiles, 
 
@@ -603,12 +603,11 @@ Access to the mount target is VPC wide; all instances in the VPC have access to 
 
 ```sh
 curl -X POST \
-"$vpc_api_endpoint/v1/shares?version=2023-08-08&generation=2\
+"$vpc_api_endpoint/v1/shares?version=2025-04-08&generation=2\
 -H "Authorization: Bearer $iam_token"\
 -H 'Content-Type: application/json'\
 -d '{
     "access_control_mode": "vpc",
-    "allowed_transit_encryption_modes": "none",
     "size": 4800,
     "iops": 48000,
     "mount_targets": [
@@ -634,7 +633,8 @@ A successful response looks like the following example.
 ```json
 {
   "access_control_mode": "vpc",
-  "created_at": "2023-08-08T23:31:59Z",
+  "allowed_transit_encryption_modes": "none",
+  "created_at": "2025-04-08T23:31:59Z",
   "crn": "crn:[...]",
   "encryption": "provider_managed",
   "href": "https://us-south.iaas.cloud.ibm.com/v1/shares/ff859972-8c39-4528-91df-eb9160eae918",
@@ -697,7 +697,7 @@ curl -X POST "$vpc_api_endpoint/v1/shares?version=2023-08-08&generation=2"\
 -d '{
     "allowed_transit_encryption_modes": ["user-managed"],
     "size": 10,
-    "name": "myshare-1",
+    "name": "my-share-1",
     "profile": {"name": "dp2"},
      "zone": {"name": "us-south-1"},
      "mount_targets": [{
