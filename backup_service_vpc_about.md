@@ -2,7 +2,7 @@
 
 copyright:
  years: 2022, 2025
-lastupdated: "2025-04-16"
+lastupdated: "2025-04-21"
 
 keywords: Backup, backup service, backup plan, backup policy, restore, restore volume, restore data
 
@@ -213,19 +213,6 @@ Only one copy of the backup snapshot can exist in each region. You can't create 
 
 Creating a cross-regional copy affects billing. You're charged for the data transfer and the storage consumption in the target region separately.
 
-## IAM roles for backup policies
-{: #baas-vpc-iam}
-
-Backups require IAM permissions for role-based access control. Depending on your assigned role as a backup user, you can create and administer backup policies. For more information, see [IAM roles and actions for Regional Backup as a Service for VPC](/docs/account?topic=account-iam-service-roles-actions#is.backup-policy-roles).
-
-For more information, see the [best practices for assigning access](/docs/account?topic=account-account_setup#account_setup). For the complete IAM process, which includes inviting users to your account and assigning Cloud IAM access, see the [IAM getting started tutorial](/docs/account?topic=account-iamoverview).
-{: tip}
-
-## Service-to-service authorizations
-{: #baas-s2s-auth}
-
-Specific IAM user roles are required to grant service-to-service authorizations. Service-to-service authorizations between the Backup service and Cloud Block Storage, Snapshots for VPC, and Virtual server for VPC are needed so the backup service can detect volume tags and create snapshots. If you want to create automated snapshots of your file shares, set up service-to-service authorizations between the Backup service and the Cloud File Storage service. For more information, see [Establishing service-to-service authorizations](/docs/vpc?topic=vpc-backup-s2s-auth). 
-
 ## Limitations
 {: #backup-service-limitations}
 
@@ -249,6 +236,36 @@ File share backups:
 * You can't create a copy of a file storage backup in another region. File share snapshots and backups are tied to their source shares. If the share is deleted, the backups are deleted as well. 
 * Backup snapshots are not supported for shares that have "VPC" access control mode.
 * The fast restore feature is not supported for file share backups.
+
+## Securing your data
+{: #backuo-data-security}
+
+{{site.data.keyword.cloud}} offers security-specific tools and features to help you securely manage your data when you use {{site.data.keyword.vpc_full}}. The following section provides information about access control, data encryption, configuration management, and auditing options that are available for you when you use the Backup service.
+
+### IAM roles for backup policies
+{: #baas-vpc-iam}
+
+Backups require IAM permissions for role-based access control. Depending on your assigned role as a backup user, you can create and administer backup policies. For more information, see [IAM roles and actions for Regional Backup as a Service for VPC](/docs/account?topic=account-iam-service-roles-actions#is.backup-policy-roles).
+
+For more information, see the [best practices for assigning access](/docs/account?topic=account-account_setup#account_setup). For the complete IAM process, which includes inviting users to your account and assigning Cloud IAM access, see the [IAM getting started tutorial](/docs/account?topic=account-iamoverview).
+{: tip}
+
+### Service-to-service authorizations
+{: #baas-s2s-auth}
+
+Specific IAM user roles are required to grant service-to-service authorizations. Service-to-service authorizations between the Backup service and Cloud Block Storage, Snapshots for VPC, and Virtual server for VPC are needed so the backup service can detect volume tags and create snapshots. If you want to create automated snapshots of your file shares, set up service-to-service authorizations between the Backup service and the Cloud File Storage service. For more information, see [Establishing service-to-service authorizations](/docs/vpc?topic=vpc-backup-s2s-auth).
+
+### Encryption at rest and in transit
+{: #backup-encryption}
+
+The backup snapshot has the same encryption type and encryption key as the parent volume or share (customer-managed or provider-managed).
+
+Volume backups are stored and retrieved from {{site.data.keyword.cos_full}}. Data is encrypted while in transit and stored in the same region as the original volume.
+
+### Activity tracking and auditing
+{: #backup-activity-tracker}
+
+When a backup is created, an event is triggered for the [Backup service](/docs/vpc?topic=vpc-at_events&interface=ui#events-backup-service) and [Snapshots service](/docs/vpc?topic=vpc-at_events&interface=ui#events-snapshots). Similarly, when the service fails to create a backup due to missing authorization, an event is triggered to notify you. Event logs are also created when backup policies or plans are created or deleted. For more information, see [Activity tracking events for IBM Cloud VPC](/docs/vpc?topic=vpc-at_events).
 
 ## Next steps
 {: #backup-next-steps}
