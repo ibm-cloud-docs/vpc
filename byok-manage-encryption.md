@@ -1,8 +1,8 @@
 ---
 
 copyright:
-  years: 2019, 2024
-lastupdated: "2024-10-10"
+  years: 2019, 2025
+lastupdated: "2025-04-21"
 
 keywords:
 
@@ -278,141 +278,10 @@ To make your data inaccessible, but retain it on the {{site.data.keyword.cloud_n
 
 You can also [disable a root key](#byok-disable-root-keys), which suspends the key and temporarily revokes access to it.
 
-## Viewing events in the {{site.data.keyword.at_full_notm}}
-{: #byok-activity-tracker-events}
+## Viewing events in the {{site.data.keyword.logs_full_notm}}
+{: #byok-auditing-events}
 
-Use the Activity Tracker to verify user-initiated activities that change the state of your keys in the key management service.
-
-Due to the sensitivity of the information, when an event is generated as a result of an API call to the KMS, the event doesn't include detailed information about the key. Instead, it includes a correlation ID that you can use to identify the key internally in your cloud environment. The correlation ID is a field that is returned as part of the `correlationId` field.
-
-### Activity tracking events for key rotation
-{: #byok-key-rotation-events}
-
-When you initiate an activity in the KMS to rotate and manage your root keys, Activity tracking events are generated. These events are particular to {{site.data.keyword.keymanagementserviceshort}}, but similar events are generated for {{site.data.keyword.hscrypto}}, too.
-
-* When you list keys, a `kms.secrets.list` event is generated.
-* When you rotate a root key, a `kms.secrets.rotate` event is generated.
-* When you manually rewrap a data encryption key (DEK) with new key material, a `kms.secrets.rewrap` event is generated.
-* If you initially imported a root key by using an import token and use the import token to rotate a key, a `kms.secrets.ack-rotate` event is generated.
-* When you retrieve a key, the `requestData.keyType` field includes the type of key that was retrieved.
-* The `responseData.keyState` field includes the integer that correlates to the state of the key. The integers correlate with these key state values: Pre-activation = 0, Active = 1, Suspended = 2, Deactivated = 3, and Destroyed = 5. For more information about key states, see [Key states and transitions](/docs/key-protect?topic=key-protect-key-states#key-transitions).
-* When you authorize the deletion of a key, a `kms.secrets.setkeyfordeletion` event is generated. The `responseData.keyState` field includes the integer that correlates to the deleted state (5).
-* The `responseData.totalResources` field includes the total number of key versions that are associated with the key.
-* The `responseData.eventAckData.newKeyVersionId` field includes the unique identifier of the latest key version.
-
-For more information about key rotation events that indicate a successful rotation, see these [key rotation events](/docs/key-protect?topic=key-protect-at-events#rotate-key-registrations-success). For more information about all Activity tracking events in {{site.data.keyword.keymanagementserviceshort}}, see [{{site.data.keyword.at_full_notm}} events](/docs/vpc?topic=vpc-at_events).
-
-### Example key rotation event
-{: #byok-activity-tracker-key-rotation-example}
-
-The following JSON example shows a `kms.secrets.rotate` event when a root key is rotated.
-
-```json
-{
-   "eventTime":"2020-06-22T15:36:16.7+0000",
-   "outcome":"success",
-   "message":"Key Protect: rotate secret my-secret-key1",
-   "action":"kms.secrets.rotate",
-   "initiator":{
-      "id":"MYid-111100P9W2",
-      "name":"john.doe@mycompany.com",
-      "typeURI":"service/security/account/user",
-      "credential":{
-         "type":"token"
-      },
-      "host":{
-         "address": "192.0.2.0"
-      }
-   },
-   "target":{
-      "id":"crn:v1:bluemix:public:kms:us-south:a/a12333e9bd28461a8c92385628efac9f:fd692647-43d0-4699-9f83-f39a54b1327b:key:76c2c9cb-9095-5a24-811b-0ef4b24ac4d5",
-      "name":"my-secret-key1",
-      "typeURI":"kms/secrets"
-   },
-   "observer":{
-      "name":"ActivityTracker"
-   },
-   "reason":{
-      "reasonCode":204,
-      "reasonType":"No Content"
-   },
-   "severity":"warning",
-   "requestData":{
-      "requestURI":"/api/v2/keys/76c2c9cb-9095-5a24-811b-0ef4b24ac4d5?action=rotate\u0026include_resource=true",
-      "instanceId":"fd692647-43d0-4699-9f83-f39a54b1327b"
-   },
-   "dataEvent":true,
-   "saveServiceCopy":true,
-   "correlationId":"ef56e7ed-abf5-4da4-bbf1-ac0d381891fd",
-   "logSourceCRN":"crn:v1:bluemix:public:kms:us-south:a/a12333e9bd28461a8c92385628efac9f:fd692647-43d0-4699-9f83-f39a54b1327b::"
-}
-```
-{: screen}
-
-This event shows the updated volume after a successful key rotation:
-
-```json
-{
-  "payload": {
-    "id": "496cbc9b-3758-4eff-bc7d-f71a51be0e1d",
-    "eventTime": "2020-06-10T17:27:24.81+0000",
-    "action": "is.volume.volume.update",
-    "outcome": "success",
-    "message": "Block Storage for VPC: update volume my-encrypted-volume1",
-    "initiator": {
-      "id": "keyreact",
-      "typeURI": "service/security/account/user",
-      "name": "",
-      "host": {
-        "address": "192.0.2.0/24172",
-        "agent": "grpc-go/1.22.1"
-      },
-      "credential": {
-        "type": "token"
-      }
-    },
-    "target": {
-      "id": "crn:v1:bluemix:public:is:us-south-1:a/82a90f2e-39e1-4a18-a8dc-6ebc17b61d7f::volume:cc6d2924-3cd2-459c-bb5e-9e84287fb530",
-      "typeURI": "is.volume/volume",
-      "name": "my-at-rewrap-encrypted-volume1",
-      "host": {}
-    },
-    "observer": {
-      "name": "ActivityTracker"
-    },
-    "reason": {
-      "reasonCode": 200,
-      "reasonType": "OK"
-    },
-    "severity": "normal",
-    "requestData": {
-      "account_id": "82a90f2e-39e1-4a18-a8dc-6ebc17b61d7f",
-      "action": "is.volume.volume.update",
-      "crn": "crn:v1:bluemix:public:is:us-south-1:a/82a90f2e-39e1-4a18-a8dc-6ebc17b61d7f::volume:cc6d2924-3cd2-459c-bb5e-9e84287fb530",
-      "generation": "gc",
-      "id": "cc6d2924-3cd2-459c-bb5e-9e84287fb530",
-      "requestPath": "",
-      "resourceGroupID": "696cb88e9039453f86f0802c92446a60"
-    },
-    "correlationId": "496cbc9b-3758-4eff-bc7d-f71a51be0e1d"
-  },
-  "logSourceCRN": "crn:v1:bluemix:public:is:us-south-1:a/82a90f2e-39e1-4a18-a8dc-6ebc17b61d7f::volume:cc6d2924-3cd2-459c-bb5e-9e84287fb530",
-  "saveServiceCopy": true
-}
-```
-{: screen}
-
-### Activity tracking events for key suspension and deletion
-{: #byok-key-delete-suspend-events}
-
-When you initiate activity in the KMS to disable or delete a root key, specific Activity tracking events are generated. These events are particular to {{site.data.keyword.keymanagementserviceshort}}, but similar events are generated for {{site.data.keyword.hscrypto}}.
-
-* When you disable a key (key state changes from _active_ to _suspended_), a `kms.secrets.disable` event is generated.
-* When you enable a disabled key (key state changes from _suspended_ to _active_), a `kms.secrets.enable` event is generated.
-* When you delete a key (key state changes to _destroyed_), a `kms.secrets.delete` event is generated.
-* When you restore a deleted key (key state changes from _destroyed_ to _active_), a `kms.secrets.restore` event is generated.
-
-For more information, see all [Activity Tracker key events](/docs/key-protect?topic=key-protect-at-events#key-actions).
+For audit purposes, you can also monitor the activity trail for a key by integrating {{site.data.keyword.keymanagementserviceshort}} with [{{site.data.keyword.logs_full_notm}}](/docs/cloud-logs){: external}. After both services are provisioned and running, events are generated and automatically collected in a {{site.data.keyword.logs_full_notm}} log when you perform actions on keys in {{site.data.keyword.keymanagementserviceshort}}.
 
 ## Next Steps
 {: #next-steps-byok-manage}

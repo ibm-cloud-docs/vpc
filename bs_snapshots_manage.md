@@ -2,7 +2,7 @@
 
 copyright:
   years: 2021, 2025
-lastupdated: "2025-04-14"
+lastupdated: "2025-04-21"
 
 keywords: snapshots, Block Storage snapshots, manage snapshots, fast restore clone, backup snapshot, remote copy, cross-regional copy
 
@@ -100,7 +100,7 @@ Tags                   -
 ```
 {: screen}
 
-For more information about available command options, see [`ibmcloud is snapshot-update`](/docs/vpc?topic=vpc-vpc-reference#snapshots-update).
+For more information about available command options, see [`ibmcloud is snapshot-update`](/docs/vpc?topic=vpc-vpc-reference#snapshot-update).
 
 ## Renaming a snapshot with the API
 {: #snapshots-vpc-rename-api}
