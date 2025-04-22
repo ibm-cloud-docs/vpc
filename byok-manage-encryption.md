@@ -111,7 +111,7 @@ For more information about disabling a root key, see the following topics.
 ### Enabling root keys
 {: #byok-disable-root-keys}
 
-You can [enable a root key](/docs/hs-crypto?topic=hs-crypto-disable-keys&interface=ui#enable-ui) that's in a _suspended_ state, which returns the key to an _active_ state. 
+You can enable a root key that's in a _suspended_ state, which returns the key to an _active_ state. 
 
 The following table shows the statuses of the encrypted resources when the root key is active. The CRK is available to unwrap passphrases that are protecting existing resources, and to encrypt new resources.
 
@@ -224,7 +224,12 @@ To make your data inaccessible, but retain it on the {{site.data.keyword.cloud_n
 ## Viewing events in the {{site.data.keyword.logs_full_notm}}
 {: #byok-auditing-events}
 
-For audit purposes, you can monitor the activity trail for a key by integrating {{site.data.keyword.keymanagementserviceshort}} with [{{site.data.keyword.logs_full_notm}}](/docs/cloud-logs){: external}. After both services are provisioned and running, events are generated and automatically collected in {{site.data.keyword.logs_full_notm}} when you perform actions on keys in {{site.data.keyword.keymanagementserviceshort}}.
+For audit purposes, you can monitor the activity trail for a key by integrating your key management service with [{{site.data.keyword.logs_full_notm}}](/docs/cloud-logs){: external}. After both services are provisioned and running, events are generated and automatically collected in {{site.data.keyword.logs_full_notm}} when you perform actions on keys.
+
+For more information, see the following topics:
+
+* [{{site.data.keyword.keymanagementserviceshort}} - Monitoring the lifecycle of encryption keys](/docs/key-protect?topic=key-protect-key-states#monitor-lifecycle-changes).
+* [Auditing events for {{site.data.keyword.hscrypto}}](/docs/hs-crypto?topic=hs-crypto-at-events).
 
 ## Next Steps
 {: #next-steps-byok-manage}

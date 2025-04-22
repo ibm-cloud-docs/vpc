@@ -340,7 +340,7 @@ For more information, see [Supported key management services for customer-manage
 
 You control access to your root keys stored in KMS instances within {{site.data.keyword.cloud}} by using IBM {{site.data.keyword.iamshort}} (IAM). You grant access to the IBM {{site.data.keyword.block_storage_is_short}} Service to use your keys. With the API, you can link a primary account that holds a root key to a secondary account, then use that key to encrypt new volumes in the secondary account. For more information, see [Cross-account encryption for multitenant storage resources](/docs/vpc?topic=vpc-getting-started).
 
-You can also revoke access at any time, for example, if you suspect your keys might be compromised. You can also disable or delete a root key, or temporarily revoke access to the key's associated data on the cloud. For more information, see [Managing root keys](/docs/vpc?topic=vpc-vpc-encryption-managing#byok-manage-root-keys).
+You can also revoke access at any time, for example, if you suspect your keys might be compromised. You can also disable or delete a root key, or temporarily revoke access to the key's associated data on the cloud. For more information, see [Managing data encryption](/docs/vpc?topic=vpc-vpc-encryption-managing).
 
 ### What are the advantages of using customer-managed encryption over provider-managed encryption?
 {: faq}

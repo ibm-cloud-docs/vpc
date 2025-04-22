@@ -1,8 +1,8 @@
 ---
 
 copyright:
-  years: 2019, 2024
-lastupdated: "2024-11-05"
+  years: 2019, 2025
+lastupdated: "2025-04-22"
 
 keywords:
 
@@ -46,7 +46,7 @@ Provision a key management service (KMS), and authorize access between your VPC 
 
 1. When you provision a KMS, you can choose between [{{site.data.keyword.keymanagementserviceshort}}](/docs/key-protect?topic=key-protect-getting-started-tutorial) and [{{site.data.keyword.hscrypto}}](/docs/hs-crypto?topic=hs-crypto-get-started). Follow the linked tutorials to provision a service instance, and create or import a customer root key.
 
-1. From IBM {{site.data.keyword.iamshort}} (IAM), [authorize access](/docs/account?topic=account-serviceauth#serviceauth) between Cloud Block Storage or Cloud File Storage (source service) and the target KMS service ({{site.data.keyword.keymanagementserviceshort}} or {{site.data.keyword.hscrypto}}). For more information, see [Establish service-to-service authorizations for File Storage for VPC](/docs/vpc?topic=vpc-file-s2s-auth).
+1. From IBM {{site.data.keyword.iamshort}} (IAM), [authorize access](/docs/account?topic=account-serviceauth#serviceauth) between Cloud Block Storage or Cloud File Storage (source service) and the target KMS service ({{site.data.keyword.keymanagementserviceshort}} or {{site.data.keyword.hscrypto}}). For more information, see [Establish service-to-service authorizations for File Storage for VPC](/docs/vpc?topic=vpc-file-s2s-auth) and [Establishing service-to-service authorizations for {{site.data.keyword.block_storage_is_short}}](/docs/vpc?topic=vpc-block-s2s-auth).
 
     You might need to upgrade your account to a Pay-as-you-go account to complete this set. For more information, see [Upgrading to a Pay-As-You-Go account](/docs/account?topic=account-upgrading-account#upgrade-paygo).
     {: tip}
