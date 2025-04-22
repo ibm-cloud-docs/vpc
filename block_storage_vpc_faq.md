@@ -2,7 +2,7 @@
 
 copyright:
   years: 2019, 2025
-lastupdated: "2025-04-01"
+lastupdated: "2025-04-22"
 
 keywords: faqs, Block Storage for vpc, fast restore, multizone, instance, instance provisioning, volume management, volume deletion.
 
@@ -394,7 +394,7 @@ For {{site.data.keyword.vpc_short}} resources such as {{site.data.keyword.block_
 
 Customer-managed encrypted resources such as {{site.data.keyword.block_storage_is_short}} volumes use your root key (CRK) as the root-of-trust key that encrypts a LUKS passphrase that encrypts a master key that's protecting the volume. You can import your CRK to a key management service (KMS) instance or instruct the KMS to generate one for you. Root keys are rotated in your KMS instance.
 
-When you rotate a root key, a new version of the key is created by generating or importing new cryptographic key material. The old root key is retired, which means its key material remains available for decrypting existing volumes, but not available for encrypting new ones. New resources are protected by the latest key. For more information, see [How key rotation works](/docs/vpc?topic=vpc-vpc-key-rotation#vpc-key-rotation-function).
+When you rotate a root key, a new version of the key is created by generating or importing new cryptographic key material. The old root key is retired, which means its key material remains available for decrypting existing volumes, but not available for encrypting new ones. New resources are protected by the latest key. For more information, see [How key rotation works](/docs/vpc?topic=vpc-vpc-key-rotation).
 
 ### Am I charged for using customer-managed encryption?
 {: faq}

@@ -136,3 +136,4 @@ In the event of a zonal failure, customers can reroute internet traffic for moni
 {: #par-related-links}
 
 * [Quotas and service limits](/docs/vpc?topic=vpc-quotas)
+* [FAQ for public address ranges](/docs/vpc?topic=vpc-faq-public-address-ranges)
