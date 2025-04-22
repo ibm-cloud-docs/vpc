@@ -2,7 +2,7 @@
 
 copyright:
   years: 2019, 2025
-lastupdated: "2025-04-04"
+lastupdated: "2025-04-22"
 
 keywords:
 
@@ -98,7 +98,7 @@ Customer-managed encryption has several advantages over IBM-managed encryption.
 
 * You can manually rotate your root keys with the API or from the CLI, or set up a rotation policy to automatically rotate your keys. Rotating keys replaces the root key's original cryptographic material and generates new material. For more information, see [Key rotation for VPC resources](/docs/vpc?topic=vpc-vpc-key-rotation).
 
-* Customer-managed encryption provides better audit records for root key usage. Your key access is logged in the [Activity Tracker](/docs/vpc?topic=vpc-vpc-encryption-managing#byok-activity-tracker-events) service. With the Activity Tracker, you can track interactions with the VPC, such as when a root key is rotated.
+* Customer-managed encryption provides audit records for root key usage. The events are generated and automatically collected in {{site.data.keyword.logs_full_notm}}.
 
 ### {{site.data.keyword.cloud_notm}} VPC encryption technology
 {: #byok-technologies}

@@ -1,5 +1,138 @@
 
 
+## 20 Apr 2025
+{: #network-latency-2025-04-20}
+
+### Inter-region latency
+{: #network-latency-2025-04-20-mzr}
+| Average latency (ms) | Dallas | Toronto | Washington DC | Frankfurt | London | Madrid | Osaka | Sydney | Tokyo | Sao Paulo |
+| --- | :---: | :---: | :---: | :---: | :---: | :---: | :---: | :---: | :---: | :---: |
+| **Dallas** |   | 34 | 31 | 123 | 113 | 119 | 148 | 184 | 142 | 142 |
+| **Toronto** |  34 |  | 19 | 93 | 84 | 106 | 169 | 214 | 163 | 126 |
+| **Washington DC** |  32 | 19 |  | 88 | 76 | 87 | 175 | 215 | 168 | 119 |
+| **Frankfurt** |  123 | 92 | 89 |  | 13 | 29 | 233 | 250 | 225 | 192 |
+| **London** |  113 | 83 | 76 | 13 |  | 27 | 242 | 261 | 236 | 182 |
+| **Madrid** |  116 | 103 | 87 | 29 | 27 |  | 258 | 276 | 251 | 204 |
+| **Osaka** |  149 | 170 | 174 | 232 | 245 | 259 |  | 125 | 9 | 288 |
+| **Sydney** |  183 | 216 | 213 | 250 | 261 | 276 | 124 |  | 117 | 323 |
+| **Tokyo** |  143 | 162 | 168 | 225 | 236 | 251 | 9 | 117 |  | 281 |
+| **Sao Paulo** |  142 | 126 | 117 | 192 | 184 | 203 | 290 | 324 | 283 |  |
+{: caption="22 Mar 2025–20 Apr 2025" caption-side="bottom"}
+
+### Inter-AZ latency
+{: #network-latency-2025-04-20-az}
+
+| Average latency (ms) | us-south-dal10-a | us-south-dal12-a | us-south-dal13-a | us-south-dal14-a |
+| --- | :---: | :---: | :---: | :---: |
+| **us-south-dal10-a** |  0.09 | 1.76 | 1.87 | 2.17 |
+| **us-south-dal12-a** |  1.76 | 0.1 | 1.89 | 2.19 |
+| **us-south-dal13-a** |  1.87 | 1.89 | 0.09 | 2.32 |
+| **us-south-dal14-a** |  2.17 | 2.19 | 2.32 | 0.1 |
+{: caption="22 Mar 2025–20 Apr 2025" caption-side="bottom"}
+{: #network-latency-az-tabs-2025-04-20-us-south}
+{: tab-title="Dallas"}
+{: tab-group="network-latency-az-tabs-2025-04-20"}
+{: class="simple-tab-table"}
+
+| Average latency (ms) | ca-tor-tor01-a | ca-tor-tor04-a | ca-tor-tor05-a |
+| --- | :---: | :---: | :---: |
+| **ca-tor-tor01-a** |  0.09 | 1.54 | 1.74 |
+| **ca-tor-tor04-a** |  1.54 | 0.09 | 1.71 |
+| **ca-tor-tor05-a** |  1.74 | 1.71 | 0.1 |
+{: caption="22 Mar 2025–20 Apr 2025" caption-side="bottom"}
+{: #network-latency-az-tabs-2025-04-20-ca-tor}
+{: tab-title="Toronto"}
+{: tab-group="network-latency-az-tabs-2025-04-20"}
+{: class="simple-tab-table"}
+
+| Average latency (ms) | us-east-wdc04-a | us-east-wdc06-a | us-east-wdc07-a |
+| --- | :---: | :---: | :---: |
+| **us-east-wdc04-a** |  0.09 | 0.65 | 0.69 |
+| **us-east-wdc06-a** |  0.65 | 0.11 | 0.63 |
+| **us-east-wdc07-a** |  0.69 | 0.63 | 0.08 |
+{: caption="22 Mar 2025–20 Apr 2025" caption-side="bottom"}
+{: #network-latency-az-tabs-2025-04-20-us-east}
+{: tab-title="Washington DC"}
+{: tab-group="network-latency-az-tabs-2025-04-20"}
+{: class="simple-tab-table"}
+
+| Average latency (ms) | eu-de-fra02-a | eu-de-fra04-a | eu-de-fra05-a |
+| --- | :---: | :---: | :---: |
+| **eu-de-fra02-a** |  0.1 | 0.75 | 0.68 |
+| **eu-de-fra04-a** |  0.75 | 0.1 | 0.67 |
+| **eu-de-fra05-a** |  0.68 | 0.67 | 0.11 |
+{: caption="22 Mar 2025–20 Apr 2025" caption-side="bottom"}
+{: #network-latency-az-tabs-2025-04-20-eu-de}
+{: tab-title="Frankfurt"}
+{: tab-group="network-latency-az-tabs-2025-04-20"}
+{: class="simple-tab-table"}
+
+| Average latency (ms) | eu-gb-lon04-a | eu-gb-lon05-a | eu-gb-lon06-a |
+| --- | :---: | :---: | :---: |
+| **eu-gb-lon04-a** |  0.09 | 2.22 | 2.02 |
+| **eu-gb-lon05-a** |  2.22 | 0.08 | 1.7 |
+| **eu-gb-lon06-a** |  2.02 | 1.7 | 0.09 |
+{: caption="22 Mar 2025–20 Apr 2025" caption-side="bottom"}
+{: #network-latency-az-tabs-2025-04-20-eu-gb}
+{: tab-title="London"}
+{: tab-group="network-latency-az-tabs-2025-04-20"}
+{: class="simple-tab-table"}
+
+| Average latency (ms) | eu-es-mad02-a | eu-es-mad04-a | eu-es-mad05-a |
+| --- | :---: | :---: | :---: |
+| **eu-es-mad02-a** |  0.1 | 0.68 | 0.63 |
+| **eu-es-mad04-a** |  0.68 | 0.1 | 0.81 |
+| **eu-es-mad05-a** |  0.63 | 0.81 | 0.1 |
+{: caption="22 Mar 2025–20 Apr 2025" caption-side="bottom"}
+{: #network-latency-az-tabs-2025-04-20-eu-es}
+{: tab-title="Madrid"}
+{: tab-group="network-latency-az-tabs-2025-04-20"}
+{: class="simple-tab-table"}
+
+| Average latency (ms) | jp-osa-osa21-a | jp-osa-osa22-a | jp-osa-osa23-a |
+| --- | :---: | :---: | :---: |
+| **jp-osa-osa21-a** |  0.1 | 1.44 | 1.42 |
+| **jp-osa-osa22-a** |  1.44 | 0.1 | 1.42 |
+| **jp-osa-osa23-a** |  1.42 | 1.42 | 0.1 |
+{: caption="22 Mar 2025–20 Apr 2025" caption-side="bottom"}
+{: #network-latency-az-tabs-2025-04-20-jp-osa}
+{: tab-title="Osaka"}
+{: tab-group="network-latency-az-tabs-2025-04-20"}
+{: class="simple-tab-table"}
+
+| Average latency (ms) | au-syd-syd01-a | au-syd-syd04-a | au-syd-syd05-a |
+| --- | :---: | :---: | :---: |
+| **au-syd-syd01-a** |  0.09 | 1.61 | 0.89 |
+| **au-syd-syd04-a** |  1.61 | 0.09 | 1.72 |
+| **au-syd-syd05-a** |  0.89 | 1.72 | 0.1 |
+{: caption="22 Mar 2025–20 Apr 2025" caption-side="bottom"}
+{: #network-latency-az-tabs-2025-04-20-au-syd}
+{: tab-title="Sydney"}
+{: tab-group="network-latency-az-tabs-2025-04-20"}
+{: class="simple-tab-table"}
+
+| Average latency (ms) | jp-tok-tok02-a | jp-tok-tok04-a | jp-tok-tok05-a |
+| --- | :---: | :---: | :---: |
+| **jp-tok-tok02-a** |  0.1 | 1.45 | 0.96 |
+| **jp-tok-tok04-a** |  1.45 | 0.11 | 1.68 |
+| **jp-tok-tok05-a** |  0.96 | 1.68 | 0.1 |
+{: caption="22 Mar 2025–20 Apr 2025" caption-side="bottom"}
+{: #network-latency-az-tabs-2025-04-20-jp-tok}
+{: tab-title="Tokyo"}
+{: tab-group="network-latency-az-tabs-2025-04-20"}
+{: class="simple-tab-table"}
+
+| Average latency (ms) | br-sao-sao01-a | br-sao-sao04-a | br-sao-sao05-a |
+| --- | :---: | :---: | :---: |
+| **br-sao-sao01-a** |  0.08 | 1.64 | 2.69 |
+| **br-sao-sao04-a** |  1.64 | 0.08 | 1.97 |
+| **br-sao-sao05-a** |  2.69 | 1.97 | 0.1 |
+{: caption="22 Mar 2025–20 Apr 2025" caption-side="bottom"}
+{: #network-latency-az-tabs-2025-04-20-br-sao}
+{: tab-title="Sao Paulo"}
+{: tab-group="network-latency-az-tabs-2025-04-20"}
+{: class="simple-tab-table"}
+
 ## 13 Apr 2025
 {: #network-latency-2025-04-13}
 
@@ -530,137 +663,4 @@
 {: #network-latency-az-tabs-2025-03-23-br-sao}
 {: tab-title="Sao Paulo"}
 {: tab-group="network-latency-az-tabs-2025-03-23"}
-{: class="simple-tab-table"}
-
-## 16 Mar 2025
-{: #network-latency-2025-03-16}
-
-### Inter-region latency
-{: #network-latency-2025-03-16-mzr}
-| Average latency (ms) | Dallas | Toronto | Washington DC | Frankfurt | London | Madrid | Osaka | Sydney | Tokyo | Sao Paulo |
-| --- | :---: | :---: | :---: | :---: | :---: | :---: | :---: | :---: | :---: | :---: |
-| **Dallas** |   | 34 | 31 | 124 | 115 | 116 | 150 | 184 | 142 | 140 |
-| **Toronto** |  34 |  | 19 | 95 | 86 | 106 | 173 | 214 | 163 | 137 |
-| **Washington DC** |  31 | 19 |  | 89 | 78 | 88 | 176 | 213 | 171 | 118 |
-| **Frankfurt** |  124 | 95 | 89 |  | 13 | 29 | 232 | 250 | 225 | 201 |
-| **London** |  117 | 87 | 78 | 13 |  | 27 | 244 | 262 | 237 | 197 |
-| **Madrid** |  118 | 106 | 86 | 29 | 27 |  | 259 | 276 | 251 | 206 |
-| **Osaka** |  150 | 170 | 175 | 232 | 244 | 259 |  | 123 | 9 | 290 |
-| **Sydney** |  185 | 215 | 214 | 250 | 262 | 277 | 123 |  | 116 | 323 |
-| **Tokyo** |  142 | 162 | 168 | 225 | 236 | 251 | 9 | 117 |  | 282 |
-| **Sao Paulo** |  141 | 138 | 117 | 204 | 197 | 206 | 288 | 325 | 283 |  |
-{: caption="15 Feb 2025–16 Mar 2025" caption-side="bottom"}
-
-### Inter-AZ latency
-{: #network-latency-2025-03-16-az}
-
-| Average latency (ms) | us-south-dal10-a | us-south-dal12-a | us-south-dal13-a | us-south-dal14-a |
-| --- | :---: | :---: | :---: | :---: |
-| **us-south-dal10-a** |  0.09 | 1.78 | 1.91 | 2.15 |
-| **us-south-dal12-a** |  1.78 | 0.1 | 1.9 | 2.13 |
-| **us-south-dal13-a** |  1.91 | 1.9 | 0.1 | 2.3 |
-| **us-south-dal14-a** |  2.15 | 2.13 | 2.3 | 0.1 |
-{: caption="15 Feb 2025–16 Mar 2025" caption-side="bottom"}
-{: #network-latency-az-tabs-2025-03-16-us-south}
-{: tab-title="Dallas"}
-{: tab-group="network-latency-az-tabs-2025-03-16"}
-{: class="simple-tab-table"}
-
-| Average latency (ms) | ca-tor-tor01-a | ca-tor-tor04-a | ca-tor-tor05-a |
-| --- | :---: | :---: | :---: |
-| **ca-tor-tor01-a** |  0.1 | 1.51 | 1.73 |
-| **ca-tor-tor04-a** |  1.51 | 0.1 | 1.71 |
-| **ca-tor-tor05-a** |  1.73 | 1.71 | 0.1 |
-{: caption="15 Feb 2025–16 Mar 2025" caption-side="bottom"}
-{: #network-latency-az-tabs-2025-03-16-ca-tor}
-{: tab-title="Toronto"}
-{: tab-group="network-latency-az-tabs-2025-03-16"}
-{: class="simple-tab-table"}
-
-| Average latency (ms) | us-east-wdc04-a | us-east-wdc06-a | us-east-wdc07-a |
-| --- | :---: | :---: | :---: |
-| **us-east-wdc04-a** |  0.09 | 0.65 | 0.65 |
-| **us-east-wdc06-a** |  0.65 | 0.11 | 0.57 |
-| **us-east-wdc07-a** |  0.65 | 0.57 | 0.08 |
-{: caption="15 Feb 2025–16 Mar 2025" caption-side="bottom"}
-{: #network-latency-az-tabs-2025-03-16-us-east}
-{: tab-title="Washington DC"}
-{: tab-group="network-latency-az-tabs-2025-03-16"}
-{: class="simple-tab-table"}
-
-| Average latency (ms) | eu-de-fra02-a | eu-de-fra04-a | eu-de-fra05-a |
-| --- | :---: | :---: | :---: |
-| **eu-de-fra02-a** |  0.1 | 0.74 | 0.66 |
-| **eu-de-fra04-a** |  0.74 | 0.11 | 0.66 |
-| **eu-de-fra05-a** |  0.66 | 0.66 | 0.12 |
-{: caption="15 Feb 2025–16 Mar 2025" caption-side="bottom"}
-{: #network-latency-az-tabs-2025-03-16-eu-de}
-{: tab-title="Frankfurt"}
-{: tab-group="network-latency-az-tabs-2025-03-16"}
-{: class="simple-tab-table"}
-
-| Average latency (ms) | eu-gb-lon04-a | eu-gb-lon05-a | eu-gb-lon06-a |
-| --- | :---: | :---: | :---: |
-| **eu-gb-lon04-a** |  0.08 | 2.17 | 2.02 |
-| **eu-gb-lon05-a** |  2.17 | 0.08 | 1.8 |
-| **eu-gb-lon06-a** |  2.02 | 1.8 | 0.09 |
-{: caption="15 Feb 2025–16 Mar 2025" caption-side="bottom"}
-{: #network-latency-az-tabs-2025-03-16-eu-gb}
-{: tab-title="London"}
-{: tab-group="network-latency-az-tabs-2025-03-16"}
-{: class="simple-tab-table"}
-
-| Average latency (ms) | eu-es-mad02-a | eu-es-mad04-a | eu-es-mad05-a |
-| --- | :---: | :---: | :---: |
-| **eu-es-mad02-a** |  0.1 | 0.67 | 0.61 |
-| **eu-es-mad04-a** |  0.67 | 0.11 | 0.79 |
-| **eu-es-mad05-a** |  0.61 | 0.79 | 0.1 |
-{: caption="15 Feb 2025–16 Mar 2025" caption-side="bottom"}
-{: #network-latency-az-tabs-2025-03-16-eu-es}
-{: tab-title="Madrid"}
-{: tab-group="network-latency-az-tabs-2025-03-16"}
-{: class="simple-tab-table"}
-
-| Average latency (ms) | jp-osa-osa21-a | jp-osa-osa22-a | jp-osa-osa23-a |
-| --- | :---: | :---: | :---: |
-| **jp-osa-osa21-a** |  0.09 | 1.45 | 1.42 |
-| **jp-osa-osa22-a** |  1.45 | 0.1 | 1.44 |
-| **jp-osa-osa23-a** |  1.42 | 1.44 | 0.1 |
-{: caption="15 Feb 2025–16 Mar 2025" caption-side="bottom"}
-{: #network-latency-az-tabs-2025-03-16-jp-osa}
-{: tab-title="Osaka"}
-{: tab-group="network-latency-az-tabs-2025-03-16"}
-{: class="simple-tab-table"}
-
-| Average latency (ms) | au-syd-syd01-a | au-syd-syd04-a | au-syd-syd05-a |
-| --- | :---: | :---: | :---: |
-| **au-syd-syd01-a** |  0.09 | 1.61 | 0.9 |
-| **au-syd-syd04-a** |  1.61 | 0.09 | 1.8 |
-| **au-syd-syd05-a** |  0.9 | 1.8 | 0.1 |
-{: caption="15 Feb 2025–16 Mar 2025" caption-side="bottom"}
-{: #network-latency-az-tabs-2025-03-16-au-syd}
-{: tab-title="Sydney"}
-{: tab-group="network-latency-az-tabs-2025-03-16"}
-{: class="simple-tab-table"}
-
-| Average latency (ms) | jp-tok-tok02-a | jp-tok-tok04-a | jp-tok-tok05-a |
-| --- | :---: | :---: | :---: |
-| **jp-tok-tok02-a** |  0.1 | 1.47 | 0.97 |
-| **jp-tok-tok04-a** |  1.47 | 0.1 | 1.69 |
-| **jp-tok-tok05-a** |  0.97 | 1.69 | 0.1 |
-{: caption="15 Feb 2025–16 Mar 2025" caption-side="bottom"}
-{: #network-latency-az-tabs-2025-03-16-jp-tok}
-{: tab-title="Tokyo"}
-{: tab-group="network-latency-az-tabs-2025-03-16"}
-{: class="simple-tab-table"}
-
-| Average latency (ms) | br-sao-sao01-a | br-sao-sao04-a | br-sao-sao05-a |
-| --- | :---: | :---: | :---: |
-| **br-sao-sao01-a** |  0.09 | 1.65 | 2.67 |
-| **br-sao-sao04-a** |  1.65 | 0.08 | 1.93 |
-| **br-sao-sao05-a** |  2.67 | 1.93 | 0.1 |
-{: caption="15 Feb 2025–16 Mar 2025" caption-side="bottom"}
-{: #network-latency-az-tabs-2025-03-16-br-sao}
-{: tab-title="Sao Paulo"}
-{: tab-group="network-latency-az-tabs-2025-03-16"}
 {: class="simple-tab-table"}

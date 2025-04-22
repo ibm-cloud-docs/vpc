@@ -2,7 +2,7 @@
 
 copyright:
   years: 2019, 2025
-lastupdated: "2025-04-17"
+lastupdated: "2025-04-22"
 
 keywords:
 
@@ -27,6 +27,13 @@ For more information about changes to the {{site.data.keyword.vpc_short}} comman
 ## April 2025
 {: #vpc-apr25}
 
+### 22 April 2025
+{: #vpc-apr2225}
+{: release-note}
+
+Intel Gaudi 3 accelerated virtual server profile now available in Washington DC (`us-east-wdc07-a`) and Dallas (`us-south-dal12-a`) regions (select availability)
+:   The Intel Gaudi 3 accelerated virtual server profile is now available in the in Washington DC (`us-east-wdc07-a`) and Dallas (`us-south-dal12-a`) regions, in addition to the Washington DC (`us-east-wdc06-a`) and Frankfurt (`eu-de-fra02-a`) regions. The Intel Gaudi 3 profile runs on an [Intel Gaudi 3 AI Accelerator](https://www.intel.com/content/www/us/en/products/details/processors/ai-accelerators/gaudi.html){: external} that is tuned for AI workloads, including inferencing and fine-tuning. For more information about the `gx3d-160x1792x8gaudi3` profile, see [GPU](/docs/vpc?topic=vpc-profiles&interface=ui#gpu) profiles and [Intel Gaudi 3 instance profiles](/docs/vpc?topic=vpc-accelerated-profile-family&interface=ui#gaudi-3-profiles).
+
 ### 17 April 2025
 {: #vpc-apr1725}
 {: release-note}
@@ -34,7 +41,7 @@ For more information about changes to the {{site.data.keyword.vpc_short}} comman
 NVIDIA Hopper-1 cluster network profile
 :   The Hopper-1 cluster network profile is now available for IBM Cloud cluster networks. It provides isolated networks for Hopper HGX instances running workloads that require high-bandwidth, low-latency interconnectivity, such as AI training and large-scale simulations. The Hopper-1 network profile supports both H100 and H200 instance profiles. For more information, see [NVIDIA Hopper-1 cluster network profile](/docs/vpc?topic=vpc-cluster-network-hopper-1-profile).
 
-Public address ranges (beta) 
+Public address ranges (beta)
 :   Accounts that have been granted special approval to preview this feature can now [create a public address range](/docs/vpc?topic=vpc-par-creating&interface=cli). A public address range is a contiguous set of public IPs that you can reserve and bind to a VPC in an availability zone. For more information, see [About public address ranges](/docs/vpc?topic=vpc-about-par&interface=cli).
 
 ### 10 April 2025

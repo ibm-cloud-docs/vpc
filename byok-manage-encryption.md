@@ -2,7 +2,7 @@
 
 copyright:
   years: 2019, 2025
-lastupdated: "2025-04-21"
+lastupdated: "2025-04-22"
 
 keywords:
 
@@ -281,7 +281,7 @@ You can also [disable a root key](#byok-disable-root-keys), which suspends the k
 ## Viewing events in the {{site.data.keyword.logs_full_notm}}
 {: #byok-auditing-events}
 
-For audit purposes, you can also monitor the activity trail for a key by integrating {{site.data.keyword.keymanagementserviceshort}} with [{{site.data.keyword.logs_full_notm}}](/docs/cloud-logs){: external}. After both services are provisioned and running, events are generated and automatically collected in a {{site.data.keyword.logs_full_notm}} log when you perform actions on keys in {{site.data.keyword.keymanagementserviceshort}}.
+For audit purposes, you can also monitor the activity trail for a key by integrating {{site.data.keyword.keymanagementserviceshort}} with [{{site.data.keyword.logs_full_notm}}](/docs/cloud-logs){: external}. After both services are provisioned and running, events are generated and automatically collected in {{site.data.keyword.logs_full_notm}} when you perform actions on keys in {{site.data.keyword.keymanagementserviceshort}}.
 
 ## Next Steps
 {: #next-steps-byok-manage}

@@ -1,8 +1,8 @@
 ---
 
 copyright:
-  years: 2019, 2024
-lastupdated: "2024-10-10"
+  years: 2019, 2025
+lastupdated: "2025-04-22"
 
 keywords: Block Storage, virtual private cloud, Key Protect, encryption, key management, Hyper Protect Crypto Services, HPCS, volume, data storage, virtual server instance, instance, customer-managed encryption, fihe share
 
@@ -114,7 +114,7 @@ This process rotates your root key to a new key version that you can use to reen
 5. Click **Rotate key** to confirm the action.
 6. You return to the Keys list. Note the date change in the Last rotated column, which indicates that the key was rotated. The root key retains its original name and ID.
 
-You can click the Actions icon again and click **Key details** to view the key registration information. You can also view Activity tracking events for key rotation. For more information, see [Important events for key rotation](/docs/vpc?topic=vpc-vpc-encryption-managing#byok-key-rotation-events)
+You can click the Actions icon again and click **Key details** to view the key registration information.
 
 ## Rotate keys with the key management service CLI
 {: #vpc-key-rotation-cli}

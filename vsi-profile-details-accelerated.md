@@ -2,7 +2,7 @@
 
 copyright:
   years: 2024, 2025
-lastupdated: "2025-04-08"
+lastupdated: "2025-04-22"
 
 keywords: vsi, virtual server, virtual server instances, profile, profiles, gpu, accelerated, h100, h200, l4, l40s
 
@@ -47,8 +47,9 @@ The Intel Gaudi 3 accelerated virtual server profiles are built atop 128 GB OAM-
 Status: Select Availability
 
 | Region                    | Universal zone    |
-| ------------------------  | -------------     | 
-| us-east  | `us-east-wdc06-a` |
+| ------------------------  | -------------     |
+| us-south | `us-south-dal12-a`                 |
+| us-east  | `us-east-wdc06-a`, `us-east-wdc07-a` |
 | eu-de    | `eu-de-fra02-a`                    |
 {: caption="Table 1. Supported regions and zones" caption-side="bottom"}
 
