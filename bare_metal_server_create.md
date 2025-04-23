@@ -180,10 +180,6 @@ After you have all the information, use the [Create bare metal server](/apidocs/
     "crn": "crn:[...]",
     "disks": [
       {
-       "allowed_use": {
-         "api_version": "2025-03-31",
-         "bare_metal_server": "true"
-      },
        "created_at": "2021-03-12T09:29:17.000Z",
         "href": "https://us-south.iaas.cloud.ibm.com/v1/bare_metal_servers/2302-5e095b83-ceb4-49b5-9699-0aa5a2c996a4/disks/2302-3744f199-6ccc-4698-8772-bb3937348c96",
         "id": "2302-3744f199-6ccc-4698-8772-bb3937348c96",
