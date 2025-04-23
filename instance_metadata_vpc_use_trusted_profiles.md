@@ -53,7 +53,7 @@ The instance inherits the access rights that are defined in the default trusted 
 To link a trusted profile to an instance, you must have sufficient authorization. With the correct IAM permissions, you can see all trusted profiles that are linked to an instance in the UI.
 
 You must be assigned the administrator, or editor role within the account, or on the IAM Identity Service to manage trusted profiles.
-{: requirements}
+{: requirement}
 
 Verify that your access permissions are assigned as Administrator or Editor in the console:
 1. Go to **Manage** > **Access (IAM)** > **[Users](/iam/users){: external}**.
@@ -86,10 +86,9 @@ Default trusted profiles cannot be changed on existing instances. A default trus
 1. Retrieve the information about the [trusted profile](/docs/account?topic=account-create-trusted-profile) that you want to use for the new instance.
 
 2. Create the instance and specify a default trusted profile while you provision the instance. With the VPC API, set the `auto_link` property to `true` to automatically link the trusted profile to the instance. Specify the trusted profile ID or the CRN of the trusted profile. See the following example.
-
-    ```sh
-    curl -X POST "$vpc_api_endpoint/v1/instances?version=2024-11-12&generation=2" -H "Authorization: $iam_token"
-    -d '{
+   ```sh
+   curl -X POST "$vpc_api_endpoint/v1/instances?version=2025-04-22&generation=2" -H "Authorization: Bearer $iam_token" 
+   -d '{
         "default_trusted_profile": {
            "auto_link": true,
            "target": {
@@ -100,36 +99,30 @@ Default trusted profiles cannot be changed on existing instances. A default trus
           .
           .
         }'
-    ```
-    {: codeblock}
+   ```
+   {: codeblock}
+   
+   For more information, see the API VPC reference: [Create an instance](/apidocs/vpc/latest#create-instance).
 
 3. Obtain an instance identity access token and create an environment variable for it:
    1. Log in to IBM Cloud CLI.
    1. Go to an existing instance. Use `ibmcloud is instances` to locate a running instance in which to enable the metadata service. The instance must be associated with a VPC. The instance can be running a stock or a custom image. The metadata service is supported on all stock and custom images, and CPU profiles.
    1. [Make an SSH connection to the virtual server instance](/docs/vpc?topic=vpc-creating-virtual-servers&interface=ui#next-steps-after-creating-virtual-servers-ui) to log in. 
    1. From the virtual server instance, make an API request to the metadata token service to retrieve an instance identity access token. Specify how long the token is valid, for example 3600 seconds (1 hour). In this example, the command is run through the `jq` parser to format the JSON response. You can choose the parser that you prefer.
-      ```json
-      instance_identity_token=`curl -X PUT "http://api.metadata.cloud.ibm.com/instance_identity/v1/token?version=2024-11-12"\
-        -H "Metadata-Flavor: ibm"\
-        -H "Accept: application/json"\
-        -d '{
-             "expires_in": 3600
-             }' | jq -r '(.instance_identity_token)'`
+      ```sh
+      curl -X PUT "$vpc_metadata_api_endpoint/instance_identity/v1/token?version=2025-04-22" -H "Metadata-Flavor: ibm" -d '{"expires_in": 3600}'| jq -r '(.instance_identity_token)'
       ```
-      {: codeblock}
+      {: pre}
 
-      The response is the access token payload.
+      The response is the access token payload. For more information, see the Metadata API reference: [Create an instance identity access token](/apidocs/vpc-metadata#create-access-token).
 
    1. You can now make a request to the metadata service. The first call is to get the initialization information:
-       ```sh
-       curl -X GET "http://api.metadata.cloud.ibm.com/metadata/v1/instance/initialization?version=2024-11-12"\
-          -H "Accept: application/json"\
-          -H "Authorization: Bearer $instance_identity_token"
-          | jq -r
-       ```
-       {: pre}
+      ```sh
+      curl -X GET "$vpc_metadata_api_endpoint/metadata/v1/instance/initialization?version=2025-04-22" -H "Authorization: Bearer $instance_identity_token"
+      ```
+      {: pre}
 
-       Information in the response shows the SSH key and user data that were specified when the virtual server was provisioned. If you configured passwords, that information is also returned.
+      Information in the response shows the SSH key and user data that were specified when the virtual server was provisioned. If you configured passwords, that information is also returned. For more information, see the Metadata API reference: [Retrieve initialization information](/apidocs/vpc-metadata#get-instance-initialization).
 
 4. [Generate an IAM token](/docs/vpc?topic=vpc-imd-configure-service&interface=api#imd-token-exchange) from the instance identity access token that was acquired from the metadata service.
 
