@@ -2,7 +2,7 @@
 
 copyright:
   years: 2021, 2025
-lastupdated: "2025-03-18"
+lastupdated: "2025-04-23"
 
 keywords:
 
@@ -161,7 +161,7 @@ power-vpn-server Github repository](https://github.com/IBM/power-vpn-server){: e
 ## Setting up a VPN server using Terraform
 {: #vpn-server-setup}
 
-You can download a Terraform configuration example for your VPN server setup from the [IBM / terraform-ibm-cloud-vpn-server-example Github repository](https://github.com/IBM/terraform-ibm-cloud-vpn-server-example){: external}. This project [Readme file](https://github.com/IBM/terraform-ibm-cloud-vpn-server-example/blob/main/README.md){: external}) shows you how to complete the following steps:
+You can download a Terraform configuration example for your VPN server setup from the [IBM / terraform-ibm-cloud-vpn-server-example Github repository](https://github.com/IBM/terraform-ibm-cloud-vpn-server-example){: external}. This project [Readme file](https://github.com/IBM/terraform-ibm-cloud-vpn-server-example/blob/main/README.md){: external} shows you how to complete the following steps:
 
 1. Create an IBM Cloud Secrets Manager instance with a trial plan.
 1. Generate the server certificate/key and client certificate/key locally, or generate the certificate/keys using the private certificate capability in the IBM Secrets Manager service.
@@ -174,7 +174,7 @@ You can download a Terraform configuration example for your VPN server setup fro
 1. Create another subnet.
 1. Create a security group with inbound and outbound rules to allow all traffic.
 1. Create the VPN server within the subnet, security group, and server/client certificates in the Secerts Manager instance.
-1. Download the VPN client profile and configure the client certicate and key in the client profile.
+1. Download the VPN client profile and configure the client certificate and key in the client profile.
 
 Then, a user can use the VPN client profile with OpenVPN client to connect their client system to the created VPN server.
 

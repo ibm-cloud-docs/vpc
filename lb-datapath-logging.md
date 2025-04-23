@@ -1,8 +1,8 @@
 ---
 
 copyright:
-  years: 2020, 2024
-lastupdated: "2024-11-15"
+  years: 2020, 2025
+lastupdated: "2025-04-23"
 
 keywords: application load balancer, datapath logging
 
@@ -31,23 +31,6 @@ To enable or disable the datapath logging feature, you can:
 
 If you do not have a {{site.data.keyword.la_short}} instance, you must create one before you enable datapath logging.
 {: note}
-
-## Viewing logs in the IBM Log Analysis service
-{: #viewing-logs-in-the-ibm-cloud-log-analysis-service}
-
-Log in to [{{site.data.keyword.la_full_notm}}](https://cloud.ibm.com/observe/logging){: external} with your IBM Cloud account. You can view logs from the {{site.data.keyword.la_short}} instance. For more information, see [Getting started with {{site.data.keyword.la_full_notm}}](/docs/log-analysis?topic=log-analysis-getting-started).
-
-To create a {{site.data.keyword.la_short}} instance, follow these steps:
-
-1. Select **Create a logging instance**. The logging instance creation page shows.
-
-
-2. Choose the region from the menu list that corresponds to the zone where you provisioned the load balancer. For example, for a load balancer in SYD01, choose the region of Sydney.
-
-   For information about the mapping between regions and zones, see [Zone mapping per account](/docs/overview?topic=overview-locations#zone-mapping).
-   {: tip}
-
-After you choose your region, click **Create** to create the logging instance, then configure it by clicking **Configure the platform service logs**.
 
 ## Log output examples
 {: #log-output-examples}

@@ -2,7 +2,7 @@
 
 copyright:
   years: 2019, 2025
-lastupdated: "2025-04-03"
+lastupdated: "2025-04-23"
 
 keywords:
 
@@ -255,7 +255,7 @@ curl -X GET "$vpc_api_endpoint/v1/volumes?version=2025-01-212&generation=2" \
 ```
 {: pre}
 
-A successful response looks like the following example. This example shows three data volumes. The first in the list is attached to an instance.
+A successful response looks like the following example. This example shows three data volumes. The second in the list is attached to an instance.
 
 ```json
 [

@@ -2,7 +2,7 @@
 
 copyright:
   years: 2019, 2025
-lastupdated: "2025-04-22"
+lastupdated: "2025-04-23"
 
 keywords:
 
@@ -109,7 +109,7 @@ For more information about disabling a root key, see the following topics.
 * {{site.data.keyword.hscrypto}} - [Disabling a root key](/docs/hs-crypto?topic=hs-crypto-disable-keys&interface=ui#disable-ui).
 
 ### Enabling root keys
-{: #byok-disable-root-keys}
+{: #byok-enable-root-keys}
 
 You can enable a root key that's in a _suspended_ state, which returns the key to an _active_ state. 
 
