@@ -866,7 +866,7 @@ Before you can create an instance, you need to know the details about the instan
 |    Instance details   |  Listing options                | API spec documentation |
 |-----------------------|---------------------------------| --------------------------------------------|
 | Image                 | `GET /images`                   | [List all images](/apidocs/vpc/latest#list-images)|
-| Profile               | `GET /instance/profiles`        | [List all instance profiles](/apidocs/vpc/latest#list-instance-profiles)|
+| Profile               | `GET /instance/profiles`        | [List all instance profiles](/apidocs/vpc/latest#list-instance-profiles) |
 | Key                   | `GET /keys`                     | [List all keys](/apidocs/vpc/latest#list-keys)|
 | VPC                   | `GET /vpcs`                     | [List all VPCs](/apidocs/vpc/latest#list-vpcs)|
 | Subnet                | `GET /subnets`                  | [List all subnets](/apidocs/vpc/latest#list-subnets) |
