@@ -510,11 +510,6 @@ A successful response looks like the following example.
     "limit": 5,
     "snapshots": [
       {
-        "allowed_use": {
-          "api_version": "2025-03-31",
-          "bare_metal_server": "false",
-          "instance": "gpu.count > 0 && gpu.manufacturer == 'nvidia'"
-       },
         "bootable": true,
         "clones": [],
         "created_at": "2022-12-18T20:18:18Z",
@@ -563,11 +558,6 @@ A successful response looks like the following example.
         "user_tags": []
       },
       {
-        "allowed_use": {
-          "api_version": "2025-03-31",
-          "bare_metal_server": "false",
-          "instance": "gpu.count > 0 && gpu.manufacturer == 'nvidia'"
-       },
         "bootable": true,
         "clones": [],
         "created_at": "2022-12-17T20:11:28Z",
