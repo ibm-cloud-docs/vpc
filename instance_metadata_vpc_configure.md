@@ -2,7 +2,7 @@
 
 copyright:
   years: 2022, 2025
-lastupdated: "2025-03-18"
+lastupdated: "2025-04-23"
 
 keywords:
 
@@ -31,20 +31,33 @@ Windows users have extra requirements to set up the metadata service. For more i
 
 An instance identity access token provides a security credential for accessing the metadata service. It's a signed token with a set of claims based on information about the instance and information that is passed in the token request. The minimum version date to use the instance identity access token feature is 2022-03-01.
 
-To access the instance identity, make a `PUT "https://api.metadata.cloud.ibm.com/instance_identity/v1/token` call by using the [Metadata service API](/apidocs/vpc-metadata#create-access-token) that invokes the instance host name. Communication between the instance and metadata service never leaves the host, you acquire the token from within the instance. If `https` secure protocol is not enabled on your instance, you can use your instance IP address instead of the host name.
+To access the instance identity, make a `PUT "/instance_identity/v1/token` request to the [Metadata service API](/apidocs/vpc-metadata#create-access-token).
 
-In the request, you specify an expiration time for the token. The default is 5 minutes, but you can specify that it expires sooner or later (5 seconds to 1 hour).
+```sh
+curl -X PUT "http://api.metadata.cloud.ibm.com/instance_identity/v1/token?version=2025-04-22" -H "Metadata-Flavor: ibm" -d '{}'
+```
+{: pre}
 
-The response (a JSON payload) contains the instance identity access token. Use this token to access the metadata service.
+Communication between the instance and metadata service never leaves the host, you acquire the token from within the instance. If secure access to the instance metadata service is enabled on your instance, use the "https" protocol instead of the "http" protocol.
+{: important}
+
+In the request, you can specify an expiration time for the token. The default expiration value is 5 minutes, but you can specify any value between 5 seconds to 1 hour. See the following example for a host that has secure access enabled. In the example, the expiration time of the token is specified as one hour.
+
+```sh
+curl -X PUT "https://api.metadata.cloud.ibm.com/instance_identity/v1/token?version=2025-04-22" -H "Metadata-Flavor: ibm" -d '{"expires_in": 3600}'
+```
+{: pre}
+
+The API response contains the instance identity access token. Use this token to access the metadata service.
 
 You can also generate an IAM token from this token and use the RIAS API to call IAM-enabled services. For more information, see [Generate an IAM token from an instance identity access token](/docs/vpc?topic=vpc-imd-configure-service&interface=api#imd-token-exchange).
 
 ### Acquiring an instance identity access token
 {: #imd-json-token}
 
-Using the Metadata service API, make `PUT "https://api.metadata.cloud.ibm.com/instance_identity/v1/token` call to get an instance identity access token from the token service. The following example uses `jq` to parse the JSON API response and then extract the instance identity access token value. You can use your preferred JSON parser.
+Using the Metadata service API, make `PUT /instance_identity/v1/token` request to get an instance identity access token from the token service.
 
-In the example, the return value of the cURL command is the instance identity access token, which is extracted by `jq` and placed in the `instance_identity_token` environment variable. You use specify this variable in a `GET` call to the metadata service to reach the metadata endpoint. For more information, see [Retrieve metadata from your running instances](/docs/vpc?topic=vpc-imd-get-metadata&interface=api#imd-retrieve-instance-data).
+In the example, the return value of the cURL command is the instance identity access token, which is extracted by `jq` and placed in the `instance_identity_token` environment variable. You can specify this variable in a `GET` call to the metadata service to reach the metadata endpoint. For more information, see [Retrieve metadata from your running instances](/docs/vpc?topic=vpc-imd-get-metadata&interface=api#imd-retrieve-instance-data).
 
 The example uses `jq` as a parser, a third-party tool licensed under the [MIT license](https://stedolan.github.io/jq/download/). `jq` might not come preinstalled on all VPC images available when you create an instance. You might need to install `jq` before use or use any parser of your choice.
 {: note}
@@ -76,7 +89,7 @@ The following JSON response shows the instance identity access token character s
 
 To access IBM Cloud IAM-enabled services in the account, you can generate an IAM token from the instance identity access token by using trusted profile information. After you generate the IAM token, you can use it to access IAM-enabled services, such as {{site.data.keyword.cos_full_notm}}, Cloud Database Service, and the VPC APIs. You can reuse the token multiple times.
 
-Make a `POST /instance_identity/v1/iam_token` call and specify the ID of the trusted profile. This request uses the instance identity access token and a trusted profile that is linked to a virtual server instance to generate an IAM access token. The trusted profile can be linked either when you create the instance or provided in the request body.
+Make a `POST /instance_identity/v1/iam_token` request and specify the ID of the trusted profile. This request uses the instance identity access token and a trusted profile that is linked to a virtual server instance to generate an IAM access token. The trusted profile can be linked either when you create the instance or provided in the request body.
 
 The IAM API used to pass the instance identity access token and generate an IAM token is being deprecated. Beta users must migrate to the metadata service API to generate an IAM token by using `POST /instance_identity/v1/iam_token`.
 {: note}
