@@ -2,9 +2,9 @@
 
 copyright:
   years: 2020, 2025
-lastupdated: "2025-03-31"
+lastupdated: "2025-04-23"
 
-keywords: flow logs, ordering, logging, log analysis
+keywords: flow logs, ordering, logging
 
 subcollection: vpc
 

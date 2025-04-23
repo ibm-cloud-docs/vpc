@@ -2,7 +2,7 @@
 
 copyright:
   years: 2020, 2025
-lastupdated: "2025-04-16"
+lastupdated: "2025-04-23"
 
 keywords: virtual private network, faq, faqs, frequently asked questions, vpn, vpn gateway
 
@@ -67,7 +67,7 @@ The VPN gateway must be deployed in the VPC to provide connectivity. A route-bas
 {: faq}
 {: support}
 
-Make sure that ACL rules are in place to allow management traffic and VPN tunnel traffic. For more information, see [Configuring ACLs for use with VPN](/docs/vpc?topic=vpc-configuring-acls-vpn).
+Make sure that ACL rules are in place to allow management traffic and VPN tunnel traffic. For more information, see [Configuring network ACLs for use with VPN](/docs/vpc?topic=vpc-configuring-acls-vpn).
 
 ## What should I do if I am using ACLs on the subnets that must communicate with an on-premises private network?
 {: #faq-vpn-7}
@@ -148,5 +148,5 @@ While using a VPN gateway, you are also charged for all outbound public internet
 
 If you configured a VPC route and its next hop is a VPN connection, the following use cases block the traffic forwarded through the VPN connection.
 
-* The security groups associated with the VPC instance do not permit the traffic; the network ACLs associated with the subnet of the VPC instance and VPN gateway blocked the traffic. For more information about configuring security groups and network ACLs, see [Configuring ACLs for use with VPN](/docs/vpc?topic=vpc-configuring-acls-vpn).
+* The security groups associated with the VPC instance do not permit the traffic; the network ACLs associated with the subnet of the VPC instance and VPN gateway blocked the traffic. For more information about configuring security groups and network ACLs, see [Configuring network ACLs for use with VPN](/docs/vpc?topic=vpc-configuring-acls-vpn).
 * The traffic source IP is not in any subnet associated with the VPC routing table. For example, the VPC routing table is associated with subnet A and includes a route whose next hop is a VPN connection. However, when the traffic reaches the VPN gateway, the source IP is not in subnet A or any other subnets that are associated with the routing table. Therefore, the VPN gateway drops the traffic.
