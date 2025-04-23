@@ -2,7 +2,7 @@
 
 copyright:
   years: 2023, 2025
-lastupdated: "2025-02-28"
+lastupdated: "2025-04-23"
 
 keywords: file share, file storage, encryption in transit, Mount Helper, IPsec, secure connection, mount share
 
@@ -81,5 +81,18 @@ The {{site.data.keyword.cloud}} file service provides a [Mount Helper utility](/
 
 3. Then, use the [Instance metadata service](/docs/vpc?topic=vpc-imd-about) to create a client certificate. 
    1. Make a `PUT /instance_identity/v1/token` API request to get a token from metadata service to be used for subsequent calls. For more information, see [Acquiring an instance identity access token](/docs/vpc?topic=vpc-imd-configure-service&interface=api#imd-json-token).
-   2. Make a `POST /instance_identity/v1/certificates` request and specify the instance identity token in the HTTP Authorization header, plus a Certificate Signing Request (as `csr` property) and a validity duration (as `expires_in` property). The call returns a new client certificate and intermediate certificate chain that allows the client to access file shares by using IPsec Encryption in Transit. For more information, see [Generating an instance identity certificate by using an instance identity access token](/docs/vpc?topic=vpc-imd-configure-service&interface=api#imd-acquire-certificate).
+   2. Make a `POST /instance_identity/v1/certificates` request and specify the instance identity token in the HTTP Authorization header, plus a Certificate Signing Request (as `csr` property) and a validity duration (as `expires_in` property). The call returns a new client certificate and intermediate certificate chain that allows the client to access file shares by using IPsec Encryption in Transit. For more information, see [Generating an instance identity certificate by using an instance identity access token](/docs/vpc?topic=vpc-imd-configure-service&interface=api#imd-acquire-certificate). Copy the output, including the `-----BEGIN CERTIFICATE-----` and `-----END CERTIFICATE-----` lines, save it to a file with a recognizable name, such as `ca-cert.pem`. Make sure that the file you create has the `.pem` extension.
+   
+4. Copy the instance indentity certificate in the `/etc/ipsec.d/cacerts` directory.
+   ```sh
+   sudo cp /tmp/ca-cert.pem /etc/ipsec.d/cacerts
+   ```
+   {: pre}
+
+5. Establish the secure connection by starting the strongSwan client.
+
+6. Mount your file share.
+   * [Mounting file shares on Red Hat Linux](/docs/vpc?topic=vpc-file-storage-mount-RHEL).
+   * [Mounting file shares in CentOS](/docs/vpc?topic=vpc-file-storage-mount-centos).
+   * [Mounting file shares on Ubuntu](/docs/vpc?topic=vpc-file-storage-mount-ubuntu).
    
