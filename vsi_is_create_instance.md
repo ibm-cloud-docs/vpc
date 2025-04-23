@@ -2,7 +2,7 @@
 
 copyright:
   years: 2018, 2025
-lastupdated: "2025-04-08"
+lastupdated: "2025-04-23"
 
 keywords:
 
@@ -59,7 +59,7 @@ Use the following steps to create a virtual server instance.
    | Confidential computing [Select availability]{: tag-green} | Confidential computing with Intel® Software Guard Extensions (SGX) and confidential computing with Intel Trusted Domain Extension (TDX) protects your data through hardware-based server security by using isolated memory regions that are known as encrypted enclaves. Both SGX and TDX are available with only compatible profiles. For more information about confidential computing, see [Confidential computing for x86 Virtual Servers for VPC](/docs/vpc?topic=vpc-about-confidential-computing-vpc). |
    {: caption="Table 3. Profile selections" caption-side="bottom"}
 
-   Secure boot and confidential computing are available with select balanced and compute profiles. For more information, see [SGX-compatible profiles](/docs/vpc?topic=vpc-about-confidential-computing-vpc#compatible-profiles-confidential-computing-vpc-sgx).
+   Secure boot and confidential computing are available with select balanced and compute profiles. For more information, see [SGX-compatible profiles](/docs/vpc?topic=vpc-about-confidential-computing-vpc#compatible-profiles-confidential-computing-vpc).
    {: important}
 
 4. Complete SSH keys, storage, and networking details by specifying the information in Table 4.
