@@ -2,7 +2,7 @@
 
 copyright:
   years: 2023, 2025
-lastupdated: "2025-03-13"
+lastupdated: "2025-04-24"
 
 keywords: file share, file storage, encryption in transit, Mount Helper, IPsec, secure connection, mount share
 
@@ -15,7 +15,7 @@ subcollection: vpc
 # IBM Cloud File Share Mount Helper utility
 {: #fs-mount-helper-utility}
 
-Mount Helper is an open source automation tool that configures and establishes secure IPsec communication between customer virtual server instance and the file share. It ensures that the communication between the virtual server instance and the zonal file share service is encrypted.
+Mount Helper is an open source automation tool that configures and establishes secure IPsec communication between customer compute host and the file share. It ensures that the communication between the server and the zonal file share is encrypted.
 {: shortdesc}
 
 The utility uses strongSwan and [`swanctl`](https://docs.strongswan.org/docs/5.9/swanctl/swanctl.html) to configure IPsec on the virtual server instance with Linux OS.
@@ -24,16 +24,14 @@ The utility uses strongSwan and [`swanctl`](https://docs.strongswan.org/docs/5.9
 
 The Mount Helper makes new certificate requests every 45 minutes, as the lifetime of the certificate is 1 hour. The new certificate is generated before the old certificate expires to ensure seamless connection. The certificates are generated with the shorter life span for security reasons.
 
-You can use the utility for encrypted or unencrypted connections. For encrypted connections, the Mount Helper uses the instance metadata service protocol option that is set to either `http` or `https`. For more information, see the API reference for `metadata_service` option of [instance provisioning](/apidocs/vpc/latest#create-instance).
-
-For more information, see the [readme file](https://github.com/IBM/vpc-file-storage-mount-helper){: external}.
+You can use the utility for encrypted or unencrypted connections. For encrypted connections, the Mount Helper uses the metadata service protocol option that is set to either `http` or `https`. For more information, see the API reference for `metadata_service` option of [instance provisioning](/apidocs/vpc/latest#create-instance).
 
 ## Requirements
 {: #fs-eit-requirements}
 
 * [Instance metadata service](/docs/vpc?topic=vpc-imd-about) must be enabled on the virtual server instance. If it is not enabled yet, follow the instructions for [enabling instance metadata in the UI.](/docs/vpc?topic=vpc-imd-configure-service&interface=ui#imd-enable-service-ui){: ui}[enabling instance metadata from the CLI.](/docs/vpc?topic=vpc-imd-configure-service&interface=cli#imd-metadata-service-enable-cli){: cli}[enabling instance metadata from the API.](/docs/vpc?topic=vpc-imd-configure-service&interface=api#imd-metadata-service-enable-api){: api}
 * The file share must have [security group access mode](/docs/vpc?topic=vpc-file-storage-vpc-about&interface=ui#fs-mount-access-mode), so the VPC's security access groups can be used to define which virtual server instances can mount the share.
-* Data encryption in transit must be enabled for the mount target either in the UI or with the API.
+* Data encryption in transit must be enabled for the mount target.
 * The virtual server instance and the mount target must be members of the same [security group](/docs/vpc?topic=vpc-using-security-groups).
 * The mount target must be created with a [virtual network interface](/docs/vpc?topic=vpc-vni-about), so it has an IP address within the VPC that represents the virtual NFS server.
 
@@ -53,11 +51,12 @@ For more information, see the [readme file](https://github.com/IBM/vpc-file-stor
    {: caption="This table shows the supported host OS distributions." caption-side="bottom"}
 
 * Installing the Mount Helper on Red Hat Enterprise Linux CoreOS is not supported.
+* Encryption in transit is not supported on {{site.data.keyword.bm_is_short}}.
    
 ## Installation and configuration of the Mount Helper
 {: #fs-eit-installation}
 
-[SSH into the Compute instance](/docs/vpc?topic=vpc-creating-virtual-servers&interface=ui#next-steps-after-creating-virtual-servers-ui) where you want to mount the file share. Then, you can download the package directly from GitHub, or build the utility from the source code. 
+[SSH into the Compute instance](/docs/vpc?topic=vpc-creating-virtual-servers&interface=ui#next-steps-after-creating-virtual-servers-ui) where you want to mount the file share. Then, you can download the package directly from GitHub, or build the utility from the source code.
 
 ### Downloading the installation package
 {: #download-from-github}
@@ -81,7 +80,7 @@ For more information, see the [readme file](https://github.com/IBM/vpc-file-stor
 
 1. To install the Mount Helper and all the dependencies, use the following script and specify the region where the file share is going to be mounted.
    ```sh
-   ./install.sh region=dal
+   ./install.sh region=us-south
    ```
    {: pre}
 
@@ -159,7 +158,7 @@ For more information, see the [readme file](https://github.com/IBM/vpc-file-stor
 ## Mounting a file share with the Mount Helper
 {: #fs-eit-mount-share}
 
-1. Create a directory in your instance.
+1. Create a directory on your server.
    ```sh
    mkdir /mnt/share-test
    ```
@@ -222,7 +221,6 @@ The following command uninstalls the utility.
    ```
    {: pre}
 
-
 - To manually start or disconnect the IPsec connection, use one of the following commands.
    ```sh
    ipsec up <connection-name>
@@ -261,7 +259,6 @@ The following command uninstalls the utility.
    /opt/ibm/mount-ibmshare/mount-ibmshare.log
    ```
    {: pre}
-
 
 ## Next steps
 {: #next-steps-eit}

@@ -2,7 +2,7 @@
 
 copyright:
   years: 2025
-lastupdated: "2025-04-17"
+lastupdated: "2025-04-24"
 
 keywords: public address ranges, limitations
 
@@ -23,4 +23,4 @@ Before you create a public address range, review the following limitations:
 
 * You can't assign IP addresses from a public range to resources in a VPC. These IPs can only be used in custom routes to configure the routing to the intended Network Functions Virtualization (NFV) appliance.
 * This service only supports IBM-provided public IP ranges. Bringing your own public IP or subnet is not supported. 
-*  You can't divide public address ranges into subranges and bind it to multiple VPCs or zones.
+*  You can't divide public address ranges into subranges or bind one to multiple VPCs or zones.

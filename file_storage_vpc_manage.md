@@ -2,7 +2,7 @@
 
 copyright:
   years: 2021, 2025
-lastupdated: "2025-04-23"
+lastupdated: "2025-04-24"
 
 keywords: file share, file storage, rename share, increase size, adjust IOPS, mount target
 
@@ -24,7 +24,7 @@ Manage the file shares that you created. You can rename a file share. You can in
 ## Differences in handling normal file shares and accessor shares
 {: #file-storage-manage-shares-comparison}
 
-The following sections contain instructions to modify and update various properties of file shares and mount targets. Due to the nature of the accessor shares, some properties (for example, file share profile, access control mode or allowed transit encryption modes) cannot be changed. Those properties are inherited from the origin share. For the accessor share properties that can be modified, the steps are the same as for updating a normal share. While it is not possible to create a snapshot of an accessor share, if the origin share has snapshots, you can access the snapshots in the `.snapshot` directory. This directory is read only.
+The following sections contain instructions to modify and update various properties of file shares and mount targets. Due to the nature of the accessor shares, some properties (for example, file share profile, access control mode or allowed transit encryption modes) cannot be changed. Those properties are inherited from the origin share. For the accessor share properties that can be modified, the steps are the same as for updating a normal share. While it is not possible to create a snapshot of an accessor share, if the origin share has snapshots, you can access the snapshots in the `.snapshot` directory. This directory is read-only.
 
 ## Managing file shares, accessor share bindings, and mount targets in the UI
 {: #file-storage-manage-ui}
@@ -80,7 +80,7 @@ You can change the profile for a file share from the current profile to another 
 ### Updating allowed transit encryption modes in the UI
 {: #fs-update-transit-encryption-ui}
 
-The owner of share can change the allowed transit encryption modes. However, before this property can be changed, all bindings must be deleted. Deleting the bindings severs the network path between origin file share and accessor share, and puts the mount target that is attached to the accessor share in a failed state. For more information, see [Removing access to a file share from other accounts](/docs/vpc?topic=vpc-file-storage-accessor-delete&interface=ui).
+The owner of a share can change the allowed transit encryption modes. However, before this property can be changed, all bindings must be deleted. Deleting the bindings severs the network path between origin file share and accessor share, and puts the mount target that is attached to the accessor share in a failed state. For more information, see [Removing access to a file share from other accounts](/docs/vpc?topic=vpc-file-storage-accessor-delete&interface=ui).
 {: important}
 
 1. Select a file share from the [list of file shares](/docs/vpc?topic=vpc-file-storage-view).
@@ -131,7 +131,7 @@ By using the CLI, you can:
 * [Delete a file share](#delete-file-share-cli).
 * [Add user tags to file shares](#fs-add-user-tags).
 
-Snapshots are supported only for shares that have security group as their access control mode. You can't change access control mode to VPC unless all the snapshots of the share are deleted.
+Snapshots are supported only for shares that have *security group* as their access control mode. You can't change access control mode to VPC unless all the snapshots of the share are deleted.
 {: note}
 
 ### Renaming a file share from the CLI
@@ -540,7 +540,7 @@ curl -X PATCH "$vpc_api_endpoint/v1/shares/432f1a4d-4aac-4ba1-922c-76fdbcbeb1e3?
 ### Updating allowed transit encryption modes with the API
 {: #fs-update-transit-encryption-api}
 
-The owner of the share can change the allowed transit encryption modes type to `user_managed,none`,`user_managed` or `none`.
+The owner of the share can change the allowed transit encryption modes type to `user_managed,none`,`user_managed`, or `none`.
 
 However, before this property can be changed, all bindings and mount targets must be deleted. Deleting the bindings severs the network path between origin file share and accessor share, and puts the mount target that is attached to the accessor share in a failed state. For more information, see [Removing access to a file share from other accounts](/docs/vpc?topic=vpc-file-storage-accessor-delete&interface=api).
 {: important}
@@ -733,7 +733,9 @@ Valid file share and mount target names can include a combination of lowercase a
 
 Some attributes, such as profile, mount target access mode, allowed transit encryption modes, and encryption at rest, are not editable for accessor shares.
 
-The owner of a share can change the allowed transit encryption modes type to `user_managed`, `none`, or `user_managed,none`. However, before this property can be changed, all bindings and [mount targets must be deleted](#delete-file-share-terraform). Deleting the bindings severs the network path between origin file share and accessor share, and puts the mount target that is attached to the accessor share in a failed state. For more information, see [Removing access to a file share from other accounts](/docs/vpc?topic=vpc-file-storage-accessor-delete&interface=terraform).
+The owner of the share can change the allowed transit encryption modes type to `user_managed,none`,`user_managed` or `none`. However, before this property can be changed, all bindings and [mount targets must be deleted](#delete-file-share-terraform). 
+
+Deleting the bindings severs the network path between origin file share and accessor share, and puts the mount target that is attached to the accessor share in a failed state. For more information, see [Removing access to a file share from other accounts](/docs/vpc?topic=vpc-file-storage-accessor-delete&interface=terraform).
 {: important}
 
 For more information about the arguments and attributes, see [ibm_is_share](https://registry.terraform.io/providers/IBM-Cloud/ibm/latest/docs/resources/is_share){: external}.

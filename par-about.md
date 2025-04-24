@@ -2,7 +2,7 @@
 
 copyright:
   years: 2025
-lastupdated: "2025-04-22"
+lastupdated: "2025-04-24"
 
 keywords: vpc, public address ranges, about
 
@@ -135,5 +135,5 @@ In the event of a zonal failure, customers can reroute internet traffic for moni
 ## Related links
 {: #par-related-links}
 
-* [Quotas and service limits](/docs/vpc?topic=vpc-quotas)
+* [Quotas and service limits](/docs/vpc?topic=vpc-quotas#par-quotas)
 * [FAQ for public address ranges](/docs/vpc?topic=vpc-faq-public-address-ranges)

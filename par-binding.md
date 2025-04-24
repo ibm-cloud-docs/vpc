@@ -2,7 +2,7 @@
 
 copyright:
   years: 2025
-lastupdated: "2025-04-22"
+lastupdated: "2025-04-24"
 
 keywords: public address range, bind, unbind
 
@@ -12,7 +12,7 @@ subcollection: vpc
 
 {{site.data.keyword.attribute-definition-list}}
 
-# Binding, unbinding, and moving public address ranges to a VPC
+# Binding, unbinding, and moving public address ranges
 {: #par-unbinding-binding}
 
 Public Address Ranges for VPC is only available for evaluation and testing purposes for users with special access.
@@ -24,7 +24,7 @@ You can bind, unbind, and move public address ranges to a VPC in an availability
 ## Before you begin
 {: #before-you-begin-binding-public-address-range}
 
-* Make sure to review [Planning considerations](/docs/vpc?topic=vpc-about-par#par-planning) and [Known issues and limitations](/docs/vpc?topic=vpc-par-limitations&interface=api) for public address ranges.
+* Make sure to review [Planning considerations](/docs/vpc?topic=vpc-about-par#par-planning) and [Public address range limitations](/docs/vpc?topic=vpc-par-limitations&interface=api).
 * The binding of a public address range must include both a VPC and an availability zone.
 
 ## Binding, unbinding and moving public address ranges in the UI
@@ -58,7 +58,7 @@ After a public address is unbound, it is still reserved and available to be boun
 ### Moving a public address range in the UI
 {: #moving-par-ui}
 
-If the public address range is bound to a VPC in an availability zone, you can update and bind it (move) to a different VPC and availability zone. The public address range is automatically unbound from its VPC and availability zone and then bound to the newly specified VPC and availability zone.
+If the public address range is bound to a VPC in an availability zone, you can update and bind (move) it to a different VPC and availability zone. The public address range is automatically unbound from its VPC and availability zone and then bound to the newly specified VPC and availability zone.
 
 You don't need to unbind the address range from its original target first.
 {: tip}
@@ -221,7 +221,7 @@ To bind, unbind, or move public address ranges with the API, follow these steps:
 {: #after-binding-par}
 
 - [IAM roles and actions](/docs/vpc?topic=vpc-about-par#par-access-management)
-- [Quotas and service limits](/docs/vpc?topic=vpc-quotas)
+- [Quotas and service limits](/docs/vpc?topic=vpc-quotas#par-quotas)
 - [Creating public address ranges](/docs/vpc?topic=vpc-par-creating&interface=ui)
 - [Viewing public address ranges](/docs/vpc?topic=vpc-par-viewing&interface=ui)
 - [Deleting public address ranges](/docs/vpc?topic=vpc-par-deleting&interface=ui)

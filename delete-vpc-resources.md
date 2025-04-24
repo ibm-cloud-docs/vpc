@@ -1,8 +1,8 @@
 ---
 
 copyright:
-  years: 2018, 2024
-lastupdated: "2024-07-17"
+  years: 2018, 2025
+lastupdated: "2025-04-24"
 
 keywords: delete, resources, ui, console, cli, infrastructure, command line interface
 
@@ -27,7 +27,7 @@ To delete a VPC by using the console:
 
 1. Find all subnets in the VPC. Click **VPCs** in the navigation pane and select your VPC.
 2. On the VPC details page, go to the **Subnets in this VPC** list and select a subnet to view its details.
-3. Delete any resources that are attached to the subnet. In the navigation pane, click **Attached resources**. Select each attached instance, load balancer, and VPN gateway to go its details page and click the delete icon. Attached instances must be stopped before you can delete them.
+3. Delete any resources that are attached to the subnet. In the navigation pane, click **Attached resources**. Select each attached instance, load balancer, and VPN gateway to go its details page. From the **Actions** menu ![Actions icon](../icons/action-menu-icon.svg "Actions"), select **Delete**. Attached instances must be stopped before you can delete them.
 
     Although the resource's status immediately changes to **Deleting**, it can take up to 30 minutes for the delete operation to complete. The subnet can't be deleted until all attached resources are no longer displayed in the console.
     {: tip}
@@ -231,14 +231,14 @@ The following sections provide some example API calls that you can run to delete
 
 Before a VPC can be deleted, each of its subnets must be deleted. Get the ID of the VPC that you want to delete by running the following command and looking at the `id` value:
 
-Add ` | json_pp ` or ` | jq ` after the curl command to get a readable JSON string.
-{: tip}
-
 ```bash
 curl -X GET "$vpc_api_endpoint/v1/vpcs?version=$version&generation=2" \
      -H "Authorization:$iam_token"
 ```
 {: pre}
+
+Add ` | json_pp ` or ` | jq ` after the curl command to get a readable JSON string. `jq` is a third-party tool that is licensed under the [MIT license](https://stedolan.github.io/jq/download/). `jq` might not come preinstalled on all VPC images available when you create an instance. The `json_pp` command is a JSON preprocessor that is typically installed by default on most Linux distributions.
+{: tip}
 
 Save the ID of the VPC in a variable so you can use it later, for example:
 
@@ -344,7 +344,7 @@ curl -X DELETE "$vpc_api_endpoint/v1/instances/$vsi?version=$version&generation=
 ```
 {: pre}
 
-The status of the instance changes to `deleting` immediately, but it still might be displayed in the results of a list query. The deletion of an instance can take up to 30 minutes. You can request other subnet resources to be deleted in parallel while you wait for the instance to be deleted. However, the subnet can't be deleted until the instance and all other resources in the subnet no longer appear in the list queries.
+The status of the instance changes to `deleting` immediately, but it might still be displayed in the results of a list query. The deletion of an instance can take up to 30 minutes. You can request other subnet resources to be deleted in parallel while you wait for the instance to be deleted. However, the subnet can't be deleted until the instance and all other resources in the subnet no longer appear in the list queries.
 
 #### Delete the subnet
 {: #deleting-subnet-api}

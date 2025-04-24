@@ -2,7 +2,7 @@
 
 copyright:
   years: 2022, 2023
-lastupdated: "2025-04-23"
+lastupdated: "2025-04-24"
 
 keywords:
 
@@ -64,7 +64,7 @@ Table 1 describes the steps that are involved in accessing instance metadata. Th
 
 5. Log in to the virtual server. You can be running a stock image or custom image. The metadata service is supported on all stock and custom images, and CPU profiles. Now, the floating IP is assigned. The security groups are in place, and you're now working within the virtual server.
 
-6. Make an API call to the metadata token service to retrieve an instance identity access token. Specify how long the token is valid, for example 3600 seconds (1 hour). In this example, the command is run through the `jq` parser to format the JSON response. You can choose the parser that you prefer.
+6. Make an API call to the metadata token service to retrieve an instance identity access token. Specify how long the token is valid, for example, you can specify 3600 seconds (1 hour). In this example, the command is run through the `jq` parser to format the JSON response.  You can choose another parser if you prefer.
 
    ```json
    export instance_identity_token=`curl -X PUT "http://api.metadata.cloud.ibm.com/instance_identity/v1/token?version=2024-11-12"\
@@ -76,7 +76,10 @@ Table 1 describes the steps that are involved in accessing instance metadata. Th
    ```
    {: codeblock}
 
-   The response is the instance identity access token payload.
+   The response provides the instance identity access token. The parser saves it into the `.access_token` file.
+
+   The example uses `jq` as a parser, a third-party tool licensed under the [MIT license](https://stedolan.github.io/jq/download/). `jq` might not come preinstalled on all VPC images available when you create an instance. You might need to install `jq` before use or use another parser of your choice.
+   {: note}
 
 7. You can now make an API call to the metadata service. The first call is for the initialization information:
 

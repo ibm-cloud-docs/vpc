@@ -118,11 +118,11 @@ If you have an instance with the Metadata service enabled, the following steps d
 1. Retrieve a short-lived instance identity token.
 
    ```bash
-   instance_identity_token=`curl -X PUT "http://api.metadata.cloud.ibm.com/instance_identity/v1/token?version=2024-02-20" -H "Metadata-Flavor: ibm" -H "Accept: application/json" -d '{ "expires_in": 300 }' | jq -r '(.access_token)'`
+   instance_identity_token=`curl -X PUT "http://api.metadata.cloud.ibm.com/instance_identity/v1/token?version=2024-02-20" -H "Metadata-Flavor: ibm" -H "Accept: application/json" -d '{ "expires_in": 300}' | jq -r '(.access_token)'`
    ```
    {: codeblock}
 
-   Use HTTPS instead of HTTP if the secure metadata service endpoint is enabled. You might need to install `curl` or `jq` packages before running the curl command. For example: `sudo apt install jq`
+   Use HTTPS instead of HTTP if the secure metadata service endpoint is enabled. You might need to install `curl` or `jq` packages before running the curl command. `jq` is a third-party tool licensed under the [MIT license](https://stedolan.github.io/jq/download/).
    {: note}
 
 2. Use the token to obtain instance metadata and select the `disks` portion and store the json in a bash variable.

@@ -2,7 +2,7 @@
 
 copyright:
   years: 2021, 2025
-lastupdated: "2025-01-22"
+lastupdated: "2025-04-24"
 
 keywords:
 
@@ -169,6 +169,9 @@ To create a reserved IP with the API, follow these steps:
    -d '{"name": "test-reserved-ip", "address": "10.240.0.15"}' | jq
    ```
    {: codeblock}
+
+   The example uses `jq` as a parser, a third-party tool licensed under the [MIT license](https://stedolan.github.io/jq/download/). `jq` might not come preinstalled on all VPC images available when you create an instance. You might need to install `jq` before use or use another parser of your choice.
+   {: note}
 
 ### Deleting a reserved IP
 {: #api-delete-rip}

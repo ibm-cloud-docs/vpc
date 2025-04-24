@@ -2,7 +2,7 @@
 
 copyright:
   years: 2020, 2025
-lastupdated: "2025-03-04"
+lastupdated: "2025-04-24"
 
 keywords: network load balancer, public, listener, pool, round-robin
 
@@ -279,6 +279,9 @@ To create a network load balancer with routing mode with the API, follow these s
    curl -s -H "Authorization: Bearer $IAM_TOKEN" -X POST -d @create.json "https://us-east.iaas.cloud.ibm.com/v1/load_balancers?version=2021-07-30&generation=2" | jq
    ```
    {: pre}
+
+   The example uses `jq` as a parser, a third-party tool licensed under the [MIT license](https://stedolan.github.io/jq/download/). `jq` might not come preinstalled on all VPC images available when you create an instance. You might need to install `jq` before use or use another parser of your choice.
+   {: note}
 
    Sample output:
 

@@ -1,8 +1,8 @@
 ---
 
 copyright:
-  years: 2021, 2024
-lastupdated: "2024-10-25"
+  years: 2021, 2025
+lastupdated: "2025-04-24"
 
 keywords: upgrading VPN, VPN server types
 
@@ -27,13 +27,13 @@ To change the VPN server type, follow these steps:
 1. From your browser, open the [{{site.data.keyword.cloud_notm}} console](/login){: external} and log in to your account.
 1. Select the **Navigation Menu** ![Menu icon](../../icons/icon_hamburger.svg), then click  **Infrastructure > Network > VPNs**.
 1. From the **VPNs for VPC** page, click the **Client-to-site servers** tab. Then, click the name of the VPN server that you want to modify.
-1. In the Subnets section, do one of the following:
+1. In the Subnets section, do one of the actions:
 
    * To upgrade to an HA VPN server, click **Add+** to add a second subnet in a different zone.
    * To change to a stand-alone VPN server, click the Remove icon ![Subtract icon](../../icons/subtract-alt.svg) to remove one of the two existing subnets.
    * To use a different subnet, click the subnet's Edit icon ![Edit icon](../../icons/edit-tagging.svg).
 
-   For example:
+   See the following example:
 
    ![Subnets section](images/vpn-change-subnets.png){: caption="Subnets section" caption-side="bottom"}
 
@@ -71,7 +71,7 @@ Where:
     * **`username,certificate`**
 * **--client-ca** - The CRN of the certificate instance to use for the VPN client certificate authority (CA).
 * **--client-crl** - CRL | @CRL-file. The certificate revocation list contents, encoded in PEM format.
-* **--client-dns** - Comma-separated of DNS server addresses that is provided to VPN clients connected to this VPN server. Two DNS servers can be set at most.
+* **--client-dns** - Comma-separated list of DNS server addresses that is provided to VPN clients connected to this VPN server. Two DNS servers can be set at most.
 * **--client-idle-timeout** - The seconds a VPN client can be idle before this VPN server will disconnect it. Specify 0 to prevent the server from disconnecting idle clients.
 * **--enable-split-tunnel** - Indicates whether the split tunneling is enabled on this VPN server. One of: **false**, **true** (default: **false**).
 * **--port** - The port number to use for this VPN server.
@@ -103,7 +103,7 @@ To upgrade to an HA VPN server with the API, follow these steps:
 1. Set up your [API environment](/docs/vpc?topic=vpc-set-up-environment#api-prerequisites-setup) with the correct variables.
 1. Find the VPN server that you want to upgrade:
 
-   Add ` | json_pp ` or ` | jq ` after the **curl** command to get a readable JSON string.
+   Add ` | json_pp ` or ` | jq ` after the **curl** command to get a readable JSON string. `jq` is a third-party tool that is licensed under the [MIT license](https://stedolan.github.io/jq/download/). `jq` might not come preinstalled on all VPC images available when you create an instance. The `json_pp` command is a JSON preprocessor that is typically installed by default on most Linux distributions.
    {: tip}
 
    ```bash

@@ -2,7 +2,7 @@
 
 copyright:
   years: 2021, 2025
-lastupdated: "2025-04-23"
+lastupdated: "2025-04-24"
 
 keywords: creating bare metal servers
 
@@ -157,7 +157,7 @@ After you have all the information, use the [Create bare metal server](/apidocs/
     ```
     {: pre}
 
-    The example request uses the JSON processing utility _jq_ to format the response. You can modify the command to use another parsing tool or remove `" | jq"` to receive an unformatted response.
+    The example request uses the JSON processing utility `jq` to format the response. `jq` is a third-party tool that is licensed under the [MIT license](https://stedolan.github.io/jq/download/). `jq` might not come preinstalled on all VPC images available when you create an instance. You can modify the command to use another parsing tool or remove `" | jq"` to receive an unformatted response.
     {: note}
 
     You see a response that is similar to the following example:
@@ -296,7 +296,6 @@ After you have all the information, use the [Create bare metal server](/apidocs/
     "zone": {
       "href": "https://us-south.iaas.cloud.ibm.com/v1/regions/us-south/zones/us-south-1",
       "name": "us-south-1"
-    }
     }
     ```
     {: pre}

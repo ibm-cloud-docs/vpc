@@ -2,7 +2,7 @@
 
 copyright:
   years: 2022, 2025
-lastupdated: "2025-04-23"
+lastupdated: "2025-04-24"
 
 keywords:
 
@@ -108,7 +108,7 @@ Default trusted profiles cannot be changed on existing instances. A default trus
    1. Log in to IBM Cloud CLI.
    1. Go to an existing instance. Use `ibmcloud is instances` to locate a running instance in which to enable the metadata service. The instance must be associated with a VPC. The instance can be running a stock or a custom image. The metadata service is supported on all stock and custom images, and CPU profiles.
    1. [Make an SSH connection to the virtual server instance](/docs/vpc?topic=vpc-creating-virtual-servers&interface=ui#next-steps-after-creating-virtual-servers-ui) to log in. 
-   1. From the virtual server instance, make an API request to the metadata token service to retrieve an instance identity access token. Specify how long the token is valid, for example 3600 seconds (1 hour). In this example, the command is run through the `jq` parser to format the JSON response. You can choose the parser that you prefer.
+   1. From the virtual server instance, make an API request to the metadata token service to retrieve an instance identity access token. Specify how long the token is valid, for example 3600 seconds (1 hour). In this example, the command is run through the `jq` parser to format the JSON response. You can choose another parser if you prefer.
       ```sh
       curl -X PUT "$vpc_metadata_api_endpoint/instance_identity/v1/token?version=2025-04-22" -H "Metadata-Flavor: ibm" -d '{"expires_in": 3600}'| jq -r '(.instance_identity_token)'
       ```

@@ -2,7 +2,7 @@
 
 copyright:
   years: 2019, 2025
-lastupdated: "2025-01-10"
+lastupdated: "2025-04-24"
 
 keywords: flow logs, activate, deactivate, suspend, resume
 
@@ -87,3 +87,6 @@ To suspend and resume flow log collectors by using the API, follow these steps:
       -d '{ "active": true }' | jq
       ```
       {: pre}
+
+      The example uses `jq` as a parser, a third-party tool licensed under the [MIT license](https://stedolan.github.io/jq/download/). `jq` might not come preinstalled on all VPC images available when you create an instance. You might need to install `jq` before use or use another parser of your choice.
+      {: note}

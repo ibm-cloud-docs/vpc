@@ -2,7 +2,7 @@
 
 copyright:
   years: 2018, 2025
-lastupdated: "2025-01-23"
+lastupdated: "2025-04-24"
 
 keywords: vpc, setup, environment, prerequisites, api, cli, command line interface, plugin, creating a vpc, iam, permissions, access, ssh key
 
@@ -198,7 +198,7 @@ If you run into unexpected results, add the `--verbose` (debug) flag after the `
 
 * Call the GET Profiles API to see the profiles available for your virtual server instances, in JSON format. At least one object should return.
 
-    Add ` | json_pp ` after the curl command to get a readable JSON string.
+    Add ` | json_pp ` after the curl command to get a readable JSON string. The `json_pp` command is a JSON preprocessor that is typically installed by default on most Linux distributions.
     {: tip}
 
     ```curl

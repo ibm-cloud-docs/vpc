@@ -2,7 +2,7 @@
 
 copyright:
   years: 2025
-lastupdated: "2025-04-18"
+lastupdated: "2025-04-24"
 
 keywords: viewing, deleting, public address range
 
@@ -105,7 +105,7 @@ To delete a public address range with the API, follow these steps:
    ```
    {: pre}
 
-   ## Related links
+## Related links
 {: #after-delete-par}
 
 - [IAM roles and actions](/docs/vpc?topic=vpc-about-par#par-access-management)

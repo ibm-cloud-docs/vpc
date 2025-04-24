@@ -1,8 +1,8 @@
 ---
 
 copyright:
-  years: 2021, 2024
-lastupdated: "2024-10-25"
+  years: 2021, 2025
+lastupdated: "2025-04-24"
 
 keywords:
 
@@ -238,6 +238,9 @@ To view a route on a VPN server with the API, follow these steps:
    "$vpc_api_endpoint/v1/vpn_servers/$vpn_server_id/routes?version=$api_version&generation=2" | jq
    ```
    {: codeblock}
+
+   The example uses `jq` as a parser, a third-party tool licensed under the [MIT license](https://stedolan.github.io/jq/download/). `jq` might not come preinstalled on all VPC images available when you create an instance. You might need to install `jq` before use or use another parser of your choice.
+   {: note}
 
 1. Perform a GET on `/vpn_servers/{vpn_server_id}/routes/{id}`. For details, see [`list_vpn-server_routes`](/apidocs/vpc/latest#list-vpn-server-routes).
 

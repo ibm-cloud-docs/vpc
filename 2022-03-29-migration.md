@@ -1,8 +1,8 @@
 ---
 
 copyright:
-  years: 2022, 2024
-lastupdated: "2024-10-10"
+  years: 2022, 2025
+lastupdated: "2025-04-24"
 
 keywords:
 
@@ -149,9 +149,10 @@ curl -X POST \
   "$vpc_api_endpoint/v1/instances/$instance_id/network_interfaces?version=2022-03-29&generation=2" \
   -H "Authorization: Bearer $iam_token" \
   -d '{
-        "primary_ip": {
-          "address": "10.240.0.5"
-        },
+        "primary_ip": 
+          {
+           "address": "10.240.0.5"
+          },
         "subnet": {"id": "'"$subnet_id"'"}
       }'
 ```
@@ -165,6 +166,9 @@ curl -X GET \
   -H "Authorization: Bearer $iam_token" | jq '.primary_ip.address'
 ```
 {: pre}
+
+The examples use `jq` as a parser, a third-party tool licensed under the [MIT license](https://stedolan.github.io/jq/download/). `jq` might not come preinstalled on all VPC images available when you create an instance. You might need to install `jq` before use or use another parser of your choice.
+{: note}
 
 ### Security group association examples
 {: #security-group-assoc-examples}
