@@ -2,7 +2,7 @@
 
 copyright:
   years: 2024, 2025
-lastupdated: "2025-01-17"
+lastupdated: "2025-04-24"
 
 keywords: view snapshots, view snapshot, viewing snapshots, see snapshots, File storage snapshots
 
@@ -14,8 +14,6 @@ subcollection: vpc
 
 # Viewing {{site.data.keyword.filestorage_vpc_short}} snapshots
 {: #fs-snapshots-view}
-
-
 
 You can view a list of all snapshots, and drill down to see information about a particular snapshot. Choose the UI, CLI, API, or Terraform to retrieve this information.
 {: shortdesc}
@@ -193,31 +191,34 @@ ibmcloud is share-snapshot SHARE_SNAPSHOT [--output JSON] [-q, --quiet]
 The following example shows the details of a snapshot.
 
 ```sh
-ibmcloud is share-snapshot my-file-share r006-e13ee54f-baa4-40d3-b35c-b9ec163972b4
-Getting share snapshot ID r138-4463eb2c-4913-43b1-b9bf-62a94f74c146 for share ID my-file-share under account Test Account as user test.user@ibm.com...
-ID                     r138-4463eb2c-4913-43b1-b9bf-62a94f74c146
-Name                   my-first-share-snapshot
-Fingerprint            7f29bdd5-bc67-4e67-9b24-638a73be4742   
-Backup Policy Plan     -   
-Status                 available   
-Status reasons         Status code   Status message      
-                       -             -      
-Created at             2024-12-17T15:32:37+05:30   
-Captured at            2024-12-17T15:32:37+05:30   
-CRN                    crn:v1:bluemix:public:is:au-syd-1:a/a1234567::share-snapshot:r026-aa73c50e-ce29-4828-99cb-faeb37fd285d/r026-7647ba64-9728-4bb4-be2f-d958f738fdae   
-LifeCycle State        stable   
-LifeCycle Reasons      Code   Message   More Info      
-                       -      -               
+ibmcloud is share-snapshot my-file-share r006-6c760e3e-33fc-41a4-b896-8a2c229ddccd
+Getting share snapshot ID r006-6c760e3e-33fc-41a4-b896-8a2c229ddccd for share ID my-file-share under account Test Account as user test.user@ibm.com...
+
+ID                   r006-6c760e3e-33fc-41a4-b896-8a2c229ddccd   
+Name                 my-first-share-snapshot
+Fingerprint          7f29bdd5-bc67-4e67-9b24-638a73be4742   
+Backup Policy Plan   -   
+Status               available   
+Created at           2025-03-10T19:17:55+00:00   
+Captured At          2025-03-10T19:17:58+00:00   
+CRN                  crn:v1:bluemix:public:is:us-south-2:a/a1234567::share-snapshot:r006-d14e4b29-cb73-4886-a267-b2cd58d67641/r006-6c760e3e-33fc-41a4-b896-8a2c229ddccd   
+LifeCycle Reasons    Code   Message   More Info      
+                     -      -               
                         
-Href                   https://au-syd.iaas.cloud.ibm.com/v1/shares/r026-aa73c50e-ce29-4828-99cb-faeb37fd285d/snapshots/r026-7647ba64-9728-4bb4-be2f-d958f738fdae   
-Minimum Size           40   
-User Tags              dev:tags   
-Zone                   ID   Name      
-                            au-syd-1      
+LifeCycle State      stable   
+Href                 https://us-south.iaas.cloud.ibm.com/v1/shares/r006-d14e4b29-cb73-4886-a267-b2cd58d67641/snapshots/r006-6c760e3e-33fc-41a4-b896-8a2c229ddccd   
+Minimum Size         10   
+Zone                 ID   Name      
+                          us-south-2      
                         
-Resource group         ID                                 Name      
-                       a4e1b8e273514f7ebc302fdfb2d0f58c   Default  
-Resource type          share_snapshot 
+Resource group       ID                                 Name      
+                     6edefe513d934fdd872e78ee6a8e73ef   defaults      
+                        
+Status reasons       Status code   Status message      
+                     -             -      
+                        
+Resource type        share_snapshot
+
 ```
 {: screen}
 
@@ -253,7 +254,7 @@ curl -X GET \
 -d '{
       "limit": 5,
       "backup_policy_plan":
-        "id": "TBD"
+        "id": "r006-b470ae68-8325-4a9c-9051-1ade8c3806c3"
       }'
    ```
    {: pre}
@@ -317,6 +318,7 @@ A successful response looks like the following example.
 }
 ```
 {: codeblock}
+
 
 ### Listing details of a snapshot with the API
 {: #fs-snapshots-view-api}
@@ -385,7 +387,6 @@ Import the details of a collection of snapshots as a read-only data source. You 
 
 ```terraform
 data "ibm_is_snapshots" "example" {
-  TBD
 }
 ```
 {: codeblock}

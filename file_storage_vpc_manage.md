@@ -463,7 +463,7 @@ A successful response looks like the following example.
     "href": "https://us-south.iaas.cloud.ibm.com/v1/share/profiles/tier-10iops",
     "name": "tier-10iops",
     "resource_type": "share_profile"
-  },
+  }, 
   "resource_group": {
     "crn": "crn:[...]",
     "href": "https://resource-controller.cloud.ibm.com/v2/resource_groups/bfb4a7c7-00d8-400b-98ba-5a67e5851970",
@@ -831,7 +831,7 @@ You can add and remove tags when you update a file share with the `ibmcloud is s
    CRN                          crn:v1:bluemix:public:is:us-south-2:a/a1234567::share:r006-b696742a-92ee-4f6a-bfd7-921d6ddf8fa6
    Lifecycle state              stable
    Access control mode          security_group
-   Accessor binding role        none 
+   Accessor binding role        none <fsvpc-101-regional-file-beta>
    Zone                         us-south-2
    Profile                      dp2
    Size(GB)                     1000
@@ -847,7 +847,7 @@ You can add and remove tags when you update a file share with the `ibmcloud is s
    Replication role             none
    Replication status           none
    Replication status reasons   Status code   Status message
-                                -             -
+                                -             - 
    ```
    {: screen}
 
@@ -883,7 +883,7 @@ The following example adds two user tags to the file share.
    Replication status reasons   Status code   Status message
                                 -             -
    Snapshot count               0
-   Snapshot size                0                             
+   Snapshot size                0                          
    ```
    {: screen}
 
@@ -946,7 +946,7 @@ Response:
 {
     "access_control_mode": "vpc",
     "created_at": "2023-01-28T22:31:50Z",
-    "crn": "crn": "crn:[...]",
+    "crn": "crn:[...]",
     "encryption": "provider_managed",
     "href": "https://us-south-1.cloud.ibm.com/v1/shares/432f1a4d-4aac-4ba1-922c-76fdbcbeb1e3",
     "id": "432f1a4d-4aac-4ba1-922c-76fdbcbeb1e3",

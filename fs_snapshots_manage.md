@@ -2,7 +2,7 @@
 
 copyright:
   years: 2024, 2025
-lastupdated: "2025-04-14"
+lastupdated: "2025-04-24"
 
 keywords: snapshots, File storage snapshots, manage snapshots, fast restore clone, backup snapshot, remote copy, cross-regional copy
 
@@ -14,8 +14,6 @@ subcollection: vpc
 
 # Managing {{site.data.keyword.filestorage_vpc_short}} snapshots
 {: #fs-snapshots-manage}
-
-
 
 You can manage existing snapshots in the console, from the CLI, with the API or Terraform. You can update the user tags of the snapshots, and delete snapshots that you no longer need to free up space for new snapshots.
 {: shortdesc}
@@ -79,9 +77,10 @@ Zone                 ID   Name
 Resource group       ID                                 Name      
                      11caaa983d9c4beb82690daab08717e9   Default      
            
-Resource type        share_snapshot 
+Resource type        share_snapshot
 ```
 {: screen}
+
 
 
 
@@ -89,7 +88,7 @@ Resource type        share_snapshot
 {: #fs-snapshots-updatetags-api}
 {: api}
 
-You can update user tags of a snapshot by using the API. Make a `PATCH /shares/{share-id}/snapshots/{snapshot-id}` call and specify the snapshot ID and the tags that you want the snapshot to have.
+You can update user tags of a snapshot by using the API. Make a `PATCH /shares/{share-id}/snapshots/{snapshot-id}` request and specify the snapshot ID and the tags that you want the snapshot to have.
 
 ```sh
 curl -X PATCH \

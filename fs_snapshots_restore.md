@@ -2,7 +2,7 @@
 
 copyright:
   years: 2024, 2025
-lastupdated: "2025-03-18"
+lastupdated: "2025-04-24"
 
 keywords:
 
@@ -14,8 +14,6 @@ subcollection: vpc
 
 # Restoring data from a file share snapshot
 {: #fs-snapshots-restore}
-
-
 
 Restoring data from a snapshot creates a new, fully provisioned share. Shares can be restored from snapshots that were created manually or by a backup policy. You can create shares from snapshots in the UI, from the CLI, with the API, or Terraform. The share that you create by using a snapshot must have the same file share profile as the snapshot. You can also restore single files from snapshots of your file share. 
 {: shortdesc}
