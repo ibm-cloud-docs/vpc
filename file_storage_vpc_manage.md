@@ -2,7 +2,7 @@
 
 copyright:
   years: 2021, 2025
-lastupdated: "2025-04-19"
+lastupdated: "2025-04-23"
 
 keywords: file share, file storage, rename share, increase size, adjust IOPS, mount target
 
@@ -42,7 +42,7 @@ In the console, you can:
 
 In the console, you can manage normal file shares and accessor shares. Only the share owner can modify properties like access control mode, IOPS, and profile. The accessor account cannot edit the origin share, and can modify a smaller set of properties of the accessor share.
 
-Snapshots are supported only for shares that have security group as their access control mode. You can't change access control mode to VPC unless all the snapshots of the share are deleted.
+Snapshots are supported only for shares that have *security group* as their access control mode. You can't change access control mode to VPC unless all the snapshots of the share are deleted.
 {: note} 
 
 ### Renaming a file share in the UI
@@ -70,7 +70,7 @@ Valid mount target names can include a combination of lowercase alpha-numeric ch
 These instructions are for the previous generation of file share profiles (general purpose, 5-iops, 10-iops, or custom). To access the latest features, you must change the IOPS profile of your share to dp2. The profiles of file shares that were created with the `dp2` profile cannot be changed.
 {: important}
 
-You can change the profile for a file share from the current profile to another **IOPS tier** profile, to a **custom** profile, or to a high-performance **dp2** profile. Your billing adjusts based on the type of profile that you choose.
+You can change the profile for a file share from the current profile to another **IOPS tier** profile, to a **custom** profile, or to a high-performance **dp2** profile. Your billing adjusts based on the profile that you choose.
 
 1. Go to the [file shares details](/docs/vpc?topic=vpc-file-storage-view&interface=ui#fs-view-single-share-ui) page.
 2. Click the **Edit icon** ![Edit icon](../icons/edit-tagging.svg "Edit") next to the current profile or use the **Actions** menu ![Actions icon](../icons/action-menu-icon.svg "Actions") and select **Edit IOPS profile**. A side panel shows the current profile, file share size, and maximum IOPS.
@@ -137,7 +137,7 @@ Snapshots are supported only for shares that have security group as their access
 ### Renaming a file share from the CLI
 {: #rename-file-share-cli}
 
-1. Locate the file share that you want to rename by listing the file shares in the region with the `ibmcloud is shares` command. Take a note of the file shares name and ID.
+1. Locate the file share that you want to rename by listing the file shares in the region with the `ibmcloud is shares` command. Take a note of the file share's name and ID.
 
    ```sh
    $ ibmcloud is shares
@@ -277,7 +277,7 @@ For more information about the command options, see [`ibmcloud is share-update`]
 ### Deleting file shares, accessor share bindings, and mount targets from the CLI
 {: #delete-share-targets-cli}
 
-Before you delete a file share, make sure that it is [unmounted](#fs-mount-unmount-vsi) from all virtual server instances and that all mount targets that belong to the file share are [deleted](#delete-mount-target-cli).If your file share is shared with another account, delete the accessor bindings before you delete the share. Also, if the file share has a replica file share, you must remove the replication relationship. For more information, see [Remove the replication relationship from the CLI](/docs/vpc?topic=vpc-file-storage-manage-replication&interface=cli#fs-remove-replication-cli).
+Before you delete a file share, make sure that it is [unmounted](#fs-mount-unmount-vsi) from all virtual server instances and that all mount targets that belong to the file share are [deleted](#delete-mount-target-cli). If your file share is shared with another account, delete the accessor bindings before you delete the share. Also, if the file share has a replica file share, you must remove the replication relationship. For more information, see [Remove the replication relationship from the CLI](/docs/vpc?topic=vpc-file-storage-manage-replication&interface=cli#fs-remove-replication-cli).
 
 1. Locate the file share that you want to delete by listing all the file shares with the `ibmcloud is shares` command.
 
@@ -374,10 +374,12 @@ For more information about the command options, see [`ibmcloud is share-delete`]
 If the file share has snapshots, those snapshots are deleted along with the file share.
 {: note}
 
-### Update allowed transit encryption modes from the CLI
+### Updating allowed transit encryption modes from the CLI
 {: #fs-update-transit-encryption-cli}
 
-The owner of the share can change the allowed transit encryption modes type to `user_managed,none`,`user_managed` or `none`. However, before this property can be changed, all bindings and [mount targets must be deleted](#delete-mount-target-cli). Deleting the bindings severs the network path between origin file share and accessor share, and puts the mount target that is attached to the accessor share in a failed state. For more information, see [Removing access to a file share from other accounts](/docs/vpc?topic=vpc-file-storage-accessor-delete&interface=cli).
+The owner of the share can change the allowed transit encryption modes type to `user_managed,none`,`user_managed` or `none`.
+
+However, before this property can be changed, all bindings and [mount targets must be deleted](#delete-mount-target-cli). Deleting the bindings severs the network path between origin file share and accessor share, and puts the mount target that is attached to the accessor share in a failed state. For more information, see [Removing access to a file share from other accounts](/docs/vpc?topic=vpc-file-storage-accessor-delete&interface=cli).
 {: important}
 
 ```sh
@@ -391,7 +393,7 @@ Lifecycle state                  stable
 Access control mode              security_group
 Accessor binding role            origin
 Allowed transit encryption modes user_managed
-Origin share                     CRN                                                                                             Name            Remote account  Remote region
+Origin share CRN                                                                                             Name            Remote account  Remote region
                                  crn:v1:bluemix:public:is:us-south-2:a/7654321::share:r006-d73v40a6-e08f-4d07-99e1-d28cbf2188ed  my-origin-share a7654321        -
 Zone                             us-south-2
 Profile                          dp2
@@ -428,7 +430,7 @@ By using the API, you can:
 
 To see information about the {{site.data.keyword.filestorage_vpc_short}} API methods, see the following section in the [API reference](/apidocs/vpc/latest#list-share-profiles).
 
-Snapshots are supported only for shares that have security group as their access control mode. You can't change access control mode to VPC unless all the snapshots of the share are deleted.
+Snapshots are supported only for shares that have *security group* as their access control mode. You can't change access control mode to VPC unless all the snapshots of the share are deleted.
 {: note}
 
 ### Renaming a file share with the API
@@ -538,7 +540,9 @@ curl -X PATCH "$vpc_api_endpoint/v1/shares/432f1a4d-4aac-4ba1-922c-76fdbcbeb1e3?
 ### Updating allowed transit encryption modes with the API
 {: #fs-update-transit-encryption-api}
 
-The owner of share can change the allowed transit encryption modes. However, before this property can be changed, all bindings and must be deleted. Deleting the bindings severs the network path between origin file share and accessor share, and puts the mount target that is attached to the accessor share in a failed state. For more information, see [Removing access to a file share from other accounts](/docs/vpc?topic=vpc-file-storage-accessor-delete&interface=api).
+The owner of the share can change the allowed transit encryption modes type to `user_managed,none`,`user_managed` or `none`.
+
+However, before this property can be changed, all bindings and mount targets must be deleted. Deleting the bindings severs the network path between origin file share and accessor share, and puts the mount target that is attached to the accessor share in a failed state. For more information, see [Removing access to a file share from other accounts](/docs/vpc?topic=vpc-file-storage-accessor-delete&interface=api).
 {: important}
 
 ```sh
@@ -552,7 +556,7 @@ curl -X PATCH \
 ### Deleting file shares, accessor share bindings, and mount targets with the API
 {: #delete-share-targets-api}
 
-Before you delete a file share, make sure that it is [unmounted](#fs-mount-unmount-vsi) from all virtual server instances and that all mount targets that belong to the file share are [deleted](#delete-mount-target-api). If your file share is shared with another account, delete the accessor bindings before you delete the share.Also, if the file share has a replica file share, you must remove the replication relationship. For more information, see [Remove the replication relationship with the API](/docs/vpc?topic=vpc-file-storage-manage-replication&interface=api#fs-remove-replication-api).
+Before you delete a file share, make sure that it is [unmounted](#fs-mount-unmount-vsi) from all virtual server instances and that all mount targets that belong to the file share are [deleted](#delete-mount-target-api). If your file share is shared with another account, delete the accessor bindings before you delete the share. Also, if the file share has a replica file share, you must remove the replication relationship. For more information, see [Remove the replication relationship with the API](/docs/vpc?topic=vpc-file-storage-manage-replication&interface=api#fs-remove-replication-api).
 
 #### Deleting share bindings of a file share with the API
 {: #delete-bindings-api}
@@ -729,7 +733,7 @@ Valid file share and mount target names can include a combination of lowercase a
 
 Some attributes, such as profile, mount target access mode, allowed transit encryption modes, and encryption at rest, are not editable for accessor shares.
 
-The owner of share can change the allowed transit encryption modes type to `user_managed`, `none`, or `user_managed,none`. However, before this property can be changed, all bindings and [mount targets must be deleted](#delete-file-share-terraform). Deleting the bindings severs the network path between origin file share and accessor share, and puts the mount target that is attached to the accessor share in a failed state. For more information, see [Removing access to a file share from other accounts](/docs/vpc?topic=vpc-file-storage-accessor-delete&interface=terraform).
+The owner of a share can change the allowed transit encryption modes type to `user_managed`, `none`, or `user_managed,none`. However, before this property can be changed, all bindings and [mount targets must be deleted](#delete-file-share-terraform). Deleting the bindings severs the network path between origin file share and accessor share, and puts the mount target that is attached to the accessor share in a failed state. For more information, see [Removing access to a file share from other accounts](/docs/vpc?topic=vpc-file-storage-accessor-delete&interface=terraform).
 {: important}
 
 For more information about the arguments and attributes, see [ibm_is_share](https://registry.terraform.io/providers/IBM-Cloud/ibm/latest/docs/resources/is_share){: external}.
@@ -753,7 +757,7 @@ For more information about the arguments and attributes, see [ibm_is_share_targe
 ### Deleting file shares, accessor share bindings, or mount targets with Terraform
 {: #delete-file-share-terraform}
 
-Before you delete a file share, make sure that it is [unmounted](#fs-mount-unmount-vsi) from all virtual server instances and that all mount targets that belong to the file share are deleted.If your file share is shared with another account, delete the accessor bindings before you delete the share. Also, if the file share has a replica file share, you must remove the replication relationship. For more information, see [Remove the replication relationship with Terraform](/docs/vpc?topic=vpc-file-storage-manage-replication&interface=terraform#fs-remove-replication-terraform).
+Before you delete a file share, make sure that it is [unmounted](#fs-mount-unmount-vsi) from all virtual server instances and that all mount targets that belong to the file share are deleted. If your file share is shared with another account, delete the accessor bindings before you delete the share. Also, if the file share has a replica file share, you must remove the replication relationship. For more information, see [Remove the replication relationship with Terraform](/docs/vpc?topic=vpc-file-storage-manage-replication&interface=terraform#fs-remove-replication-terraform).
 
 Use the `terraform destroy` command to conveniently delete a remote object such as a file share. The following example shows the syntax for deleting a share. Substitute the actual ID of the share in for `ibm_is_share.example.id`. To delete a mount target or a share binding, use their IDs with the same command.
 
