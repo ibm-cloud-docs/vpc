@@ -2,7 +2,7 @@
 
 copyright:
   years: 2019, 2025
-lastupdated: "2025-04-23"
+lastupdated: "2025-04-25"
 
 keywords: VPN, VPN gateways, encryption, IKE, IPsec, gateway, auto-negotiation, Diffie-Hellman, dead peer detection, PFS
 
@@ -53,7 +53,7 @@ Although not required, it is recommended to dedicate a subnet of at least 16 IPs
 
 To create a VPN gateway, follow these general steps:
 
-1. Make sure that the [network ACLs](/docs/vpc?topic=vpc-acls-vpn) for VPN traffic to flow are in place.
+1. Make sure that the [network ACLs](/docs/vpc?topic=vpc-configuring-acls-vpn) for VPN traffic to flow are in place.
 1. Make sure that your peer device supports NAT traversal and that it is enabled on the peer device. For more information, see [VPN gateway limitations](/docs/vpc?topic=vpc-vpn-limitations).
 1. Review planning considerations and [create your VPN gateway](/docs/vpc?topic=vpc-vpn-create-gateway).
 1. [Create VPN connections](/docs/vpc?topic=vpc-vpn-adding-connections).

@@ -1,8 +1,8 @@
 ---
 
 copyright:
-  years: 2022, 2024
-lastupdated: "2024-10-29"
+  years: 2022, 2025
+lastupdated: "2025-04-25"
 
 keywords: Backup for VPC, backup service, backup plan, backup policy, restore, restore volume, restore data
 
@@ -340,7 +340,7 @@ For more information about the arguments and attributes, see the [Terraform docu
 {: #block-s2s-auth-xaccountrestore-terraform}
 {: terraform}
 
-1. Configure the two IBM accounts for IBM provider. See the example in the [previous section](#block-s2s-xaccount-encryption-terraform).
+1. Configure the two IBM accounts for IBM provider. See the example in the previous section.
 
 1. To create the IAM authorization for the Block Storage service of one account to use a snapshot that was created by another account to restore volumes, use the resource `ibm_iam_authorization_policy`.
 

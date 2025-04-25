@@ -169,7 +169,7 @@ You can take snapshots of your file shares on demand in the console, from the CL
 
 ### Can I create a file share from a snapshot?
 {: faq}
-{: #faq-fs-mgt-snapshot}
+{: #faq-fs-mgt-snapshot-restore}
 
 Yes. You can create a file share from a snapshot in the console, from the CLI, with the API, or Terraform. The new share is created in the same location as the snapshot. For more information, see [Restoring data from a file share snapshot](/docs/vpc?topic=vpc-fs-snapshots-restore).
 
