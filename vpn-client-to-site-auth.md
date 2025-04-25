@@ -2,7 +2,7 @@
 
 copyright:
   years: 2022, 2025
-lastupdated: "2025-03-18"
+lastupdated: "2025-04-25"
 
 keywords:
 
@@ -98,16 +98,17 @@ To import VPN server certificates into Secrets Manager, follow these steps:
    For more information, see ordering certificates for [Secrets Manager](/docs/secrets-manager?topic=secrets-manager-certificates&interface=ui).
    {: note}
 
-1. Go to **Resource List > Security** and choose a Secrets Manager instance in IBM Cloud.
-1. Click **Add**.
-1. Choose the TLS certificate on the Add a secret page, then click **Import a certificate**.
-1. On the Your certificates page, follow these steps to import the certificate:
-   - Provide a certificate name.
-   - Click **Browse** and select `./pki/issued/vpn-server.vpn.ibm.com.crt` as the certificate file.
+1. In the console, click the **Navigation menu** icon ![menu icon](../icons/icon_hamburger.svg) > **Resource List > Security** and choose a Secrets Manager instance in IBM Cloud.
+1. Click **Manage Secrets** > **Add**.
+1. Click Imported certificate in the Add a secret page, then click **Next**.
+1. Follow these steps to import the certificate:
+   - Under General Settings, provide a certificate name.
+   - Under Import or create, click **Browse** and select `./pki/issued/vpn-server.vpn.ibm.com.crt` as the certificate file.
    - Click **Browse** and select `./pki/private/vpn-server.vpn.ibm.com.key` as the certificate's private key.
    - Click **Browse** and select `./pki/ca.crt` as the intermediate certificate.
-   - Optional: Enter a description.
-   - Click **Import**.
+   - Click **Next**.
+   - Review the details of your certificate.
+   - Click Add.
 
 For more information, see [Importing your existing certificates](/docs/secrets-manager?topic=secrets-manager-certificates&interface=ui#import-certificates).
 {: note}
