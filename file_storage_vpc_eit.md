@@ -2,7 +2,7 @@
 
 copyright:
   years: 2023, 2025
-lastupdated: "2025-04-23"
+lastupdated: "2025-04-25"
 
 keywords: file share, file storage, encryption in transit, Mount Helper, IPsec, secure connection, mount share
 
@@ -70,7 +70,7 @@ The {{site.data.keyword.cloud}} file service provides a [Mount Helper utility](/
       OpenSSL is an open source command-line toolkit that you can use to work with X.509 certificates, certificate signing requests (CSRs), and cryptographic keys. For more information, see [OpenSSL Documentation](https://docs.openssl.org/){: external}.
       {: note}
 
-      If you're using a different software to create the CSR, you might be prompted to enter information about your location such as country code (C), state (ST), locality (L), your organization name (O), and organization unit (OU). Any one of these naming attributes can be used. Any other naming attributes, such as common name, are rejected. CSRs with Common Name specified are rejected because when you make the request to the Metadata API, the system applies instance ID values to the subject Common Name for the instance identity certificates. CSRs with extensions are also rejected.
+      If you're using a different software to create the CSR, you might be prompted to enter information about your location such as country code (C), state (ST), locality (L), your organization name (O), and organization unit (OU). Any one of these naming attributes can be used. Any other naming attributes, such as common name, are rejected. CSRs with Common Name specified are rejected because when you make the API request, the system applies instance ID values to the subject Common Name for the instance identity certificates. CSRs with extensions are also rejected.
       {: important}
 
    2. Format the csr before you make an API call to the metadata service by using the following command.
@@ -81,9 +81,9 @@ The {{site.data.keyword.cloud}} file service provides a [Mount Helper utility](/
 
 3. Then, use the [Instance metadata service](/docs/vpc?topic=vpc-imd-about) to create a client certificate. 
    1. Make a `PUT /instance_identity/v1/token` API request to get a token from metadata service to be used for subsequent calls. For more information, see [Acquiring an instance identity access token](/docs/vpc?topic=vpc-imd-configure-service&interface=api#imd-json-token).
-   2. Make a `POST /instance_identity/v1/certificates` request and specify the instance identity token in the HTTP Authorization header, plus a Certificate Signing Request (as `csr` property) and a validity duration (as `expires_in` property). The call returns a new client certificate and intermediate certificate chain that allows the client to access file shares by using IPsec Encryption in Transit. For more information, see [Generating an instance identity certificate by using an instance identity access token](/docs/vpc?topic=vpc-imd-configure-service&interface=api#imd-acquire-certificate). Copy the output, including the `-----BEGIN CERTIFICATE-----` and `-----END CERTIFICATE-----` lines, save it to a file with a recognizable name, such as `ca-cert.pem`. Make sure that the file you create has the `.pem` extension.
+   2. Make a `POST /instance_identity/v1/certificates` request and specify the instance identity token in the HTTP Authorization header, plus a Certificate Signing Request (as `csr` property) and a validity duration (as `expires_in` property). The call returns a new client certificate and intermediate certificate chain that allows the client to access file shares by using IPsec Encryption in Transit. For more information, see [Generating an instance identity certificate by using an instance identity access token](/docs/vpc?topic=vpc-imd-configure-service&interface=api#imd-acquire-certificate). Copy the output, including the `-----BEGIN CERTIFICATE-----` and `-----END CERTIFICATE-----` lines, and save it to a file with a recognizable name, such as `ca-cert.pem`. Make sure that the file you create has the `.pem` extension.
    
-4. Copy the instance indentity certificate in the `/etc/ipsec.d/cacerts` directory.
+4. Copy the instance identity certificate in the `/etc/ipsec.d/cacerts` directory.
    ```sh
    sudo cp /tmp/ca-cert.pem /etc/ipsec.d/cacerts
    ```
