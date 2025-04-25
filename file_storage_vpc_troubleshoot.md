@@ -1,8 +1,8 @@
 ---
 
 copyright:
-  years: 2022, 2024
-lastupdated: "2024-10-29"
+  years: 2022, 2025
+lastupdated: "2025-04-25"
 
 keywords: troubleshooting, file storage for vpc, CBR errors
 
@@ -28,7 +28,7 @@ When you create or manage {{site.data.keyword.filestorage_vpc_short}}, you might
 A `shares_access_forbidden` error occurs when the context-based restriction (CBR) feature is used during file share operations, such as creating or updating a file share. In this case, the user request is forbidden, which is not the expected behavior.
 {: tsSymptoms}
 
-An issue exists with the [IAM CBR feature](/docs/account?topic=account-context-restrictions-whatis). Because the file service depends on the {{site.data.keyword.iamshort}} CBR, performing share operations results in an error.
+An issue exists with the [IAM CBR feature](/docs/account?topic=account-context-restrictions-whatis). Because the file service depends on the {{site.data.keyword.iamshort}} CBR, share operations result in an error.
 {: tsCauses}
 
 An error occurs after you set up CBR by [creating a network zone](/docs/vpc?topic=vpc-cbr&interface=ui#network-zone) and a [context-based rule](/docs/vpc?topic=vpc-cbr&interface=ui#cbr-rules), and then try to perform a file share operation.

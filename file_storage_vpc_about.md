@@ -2,7 +2,7 @@
 
 copyright:
   years: 2021, 2025
-lastupdated: "2025-04-18"
+lastupdated: "2025-04-25"
 
 keywords: file share, mount target, virtual network interface, customer-managed encryption, encryption at rest, encryption in transit, file storage, share,
 
@@ -144,7 +144,7 @@ You can select a specific security group or use the VPC's default security group
 
 To enable traffic between a virtual server instance and a mount target, you must configure the following rules in the security groups:
 
-- The security group that you attach to a mount target must allow inbound access for the TCP protocol on the NFS port from all the instances where you want to mount the file share.
+- The security group that you attach to a mount target must allow inbound access for the TCP protocol on the NFS port from all the servers where you want to mount the file share.
 - Each virtual server instance that you want the file share to be mounted on must have a security group that allows outbound access to the mount target on the NFS port.
 
 You can configure your security group in a more dynamic way by allowing all traffic between members of the security group. Then, attach this security group to the network interface of the virtual server instance and the virtual network interface of the mount target. For more information, see [Allow traffic between members of a security group](/docs/vpc?topic=vpc-using-security-groups#sg-use-case-3).
@@ -175,7 +175,7 @@ With the API and the CLI, you can set these attributes for controlling access to
 
 Customers who manage multiple accounts sometimes find that some of their accounts need to access and work with the same data. Administrators with the correct authorizations can share an NFS file system across accounts, so the data that their applications depend on is available across the different systems within the company. Customer can also share their {{site.data.keyword.filestorage_vpc_short}} shares with the [IBM watsonx](https://dataplatform.cloud.ibm.com/docs/content/wsj/getting-started/welcome-main.html?context=wx){: external} service.
 
-Cross-account [service-to-service authorization](/docs/vpc?topic=vpc-file-s2s-auth) is used to establish trust between share owner and accessor accounts. After the authorization is set in place, the share owner account can see the IDs of the accounts that can mount the shared file share. The accessor account can see the shared NFS shares in their resources list along with the share's owner information. The accessor account can't edit the properties of the origin share. Nor can they delete the origin share, but they can mount them in their own VPCs. Accessor accounts can use all the data of the share including the snapshots that might be present.
+Cross-account [service-to-service authorization](/docs/vpc?topic=vpc-file-s2s-auth) is used to establish trust between share owner and accessor accounts. After the authorization is set in place, the share owner account can see the IDs of the accounts that can mount the shared file share. The accessor account can see the shared NFS shares in their resources list along with the share's owner information. The accessor account can't edit the properties of the origin share. Nor can they delete the origin share, but they can mount them in their own VPCs. Accessor accounts can use all the data of the share, which includes the snapshots that might be present.
 
 The share owner has the right to enforce the use of encryption in transit when the accessor account accesses the file share data. The share owner can set the allowed transit encryption modes to allow either `user_managed` or `none`, or both. When the `allowed transit encryption modes` of the origin share is set to `user_managed`, the share accessor accounts must create all their mount targets with `user_managed` transit encryption. All mount targets that are created for one file share must have the same transit encryption mode.
 

@@ -2,7 +2,7 @@
 
 copyright:
   years: 2022, 2025
-lastupdated: "2025-01-17"
+lastupdated: "2025-04-25"
 
 keywords: file share, file storage, source volume, replica share, 
 
@@ -71,7 +71,7 @@ On the File share replica create page, review the source file share details, and
    * If you specify a `cron-spec` expression, replications must be scheduled not less than 15 minutes. Enter the replication frequency in `cron-spec` format: minute, hour, day, month, and weekday. For example, to replicate every day at 5:30 PM you need to enter `30 17 * * *`.
 
 1. Encryption
-   * **Encryption in transit** is disabled by default, you can click the toggle to enable it. For more information about this feature, see [Encryption in transit - Securing mount connections between file share and host](/docs/vpc?topic=vpc-file-storage-vpc-eit). |
+   * **Encryption in transit** is disabled by default. You can click the toggle to enable it. For more information about this feature, see [Encryption in transit - Securing mount connections between file share and host](/docs/vpc?topic=vpc-file-storage-vpc-eit). |
    * When you replicate to another zone of the same region, the encryption is inherited from the primary share. If you selected customer-managed encryption, the key management system is shown along with the root key. You can't encrypt a replica share with a different key.
    * When you replicate to another region, the encryption type (provider-managed vs customer-managed) of the replica must match the source share. However, it is not inherited from the source, and you must select a Customer Root Key for your replica if the source share is protected by customer-managed encryption.
   
@@ -326,7 +326,7 @@ curl -X POST\
 
 To add replication to an existing file share, you need to create a replica share in a different zone of your region. In the `POST /shares` request, specify the replica share's name and profile, and specify the `source_share` by either its name, ID, or CRN. Other required properties are the `zone`, and `replication_cron_spec`, which provides the replication schedule. You can schedule to replicate your data as often as 15 minutes.
 
-The following example shows an API request that creates a replica share in the `us-south-1` zone. In this example, the source share resides in another `us-south` zone and is identified by its ID.
+The following example shows an API request that creates a replica share in the `us-south-1` zone. In this example, the source share is in another `us-south` zone and is identified by its ID.
 
 ```sh
 curl -X POST \

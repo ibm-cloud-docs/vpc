@@ -2,7 +2,7 @@
 
 copyright:
   years: 2021, 2025
-lastupdated: "2025-04-24"
+lastupdated: "2025-04-25"
 
 keywords: file share, file storage, replication, replica, size increase, capacity, encryption, BYOK, security group
 
@@ -39,7 +39,7 @@ Yes.
 {: faq}
 {: #faq-fs-os}
 
-No, file shares can be mounted only on Linux operating systems or a z/OS-based {{site.data.keyword.cloud}} Compute Instance that support NFS file shares. For more information, see the topics about mounting file shares on [Red Hat](/docs/vpc?topic=vpc-file-storage-mount-RHEL), [CentOS](/docs/vpc?topic=vpc-file-storage-mount-centos), and [Ubuntu](/docs/vpc?topic=vpc-file-storage-mount-ubuntu) Linux distributions, or [z/OS](/docs/vpc?topic=vpc-file-storage-mount-zos) systems. Mounting file shares on Windows servers is not supported.
+No, file shares can be mounted only on Linux operating systems or z/OS-based {{site.data.keyword.cloud}} Compute instances that support NFS file shares. For more information, see the topics about mounting file shares on [Red Hat](/docs/vpc?topic=vpc-file-storage-mount-RHEL), [CentOS](/docs/vpc?topic=vpc-file-storage-mount-centos), and [Ubuntu](/docs/vpc?topic=vpc-file-storage-mount-ubuntu) Linux distributions, or [z/OS](/docs/vpc?topic=vpc-file-storage-mount-zos) systems. Mounting file shares on Windows servers is not supported.
 
 ### What is the minimum NFS version supported?
 {: faq}
@@ -71,7 +71,7 @@ You also incur charges when you [replicate data](/docs/vpc?topic=vpc-file-storag
 
 In the console, go to the [File storage share for VPC provisioning page](/infrastructure/provision/fileShare) and click the **Pricing** tab. On the **Pricing** tab, you can view details of the pricing plan based on the selected Geography, Region, and Currency. You can also switch between Hourly and Monthly rates.
 
-You can programmatically retrieve the pricing information by calling the [Global Catalog API](/apidocs/resource-catalog/global-catalog#get-pricing). For more information, see [Getting dynamic pricing](/docs/account?topic=account-getting-pricing-api).
+You can programmatically retrieve the pricing information by calling the [Global catalog API](/apidocs/resource-catalog/global-catalog#get-pricing). For more information, see [Getting dynamic pricing](/docs/account?topic=account-getting-pricing-api).
 
 ## File share management questions
 {: #file-storage-vpc-management-questions}
@@ -153,7 +153,7 @@ Yes. You can specify user and access management tags when you create a file shar
 {: faq}
 {: #faq-fs-mgt-dp2}
 
-The **dp2** profile is the latest file storage profile, offering greater capacity and performance for your file shares. With this profile, you can specify the total IOPS for the file share within the range for a specific file share size. You can provision shares with IOPS performance from 100 IOPS to 96,000 IOPS, based on share size. For more information, see [dp2 file storage profile](/docs/vpc?topic=vpc-file-storage-profiles#dp2-profile).
+The **dp2** profile is the current file storage profile, offering greater capacity and performance for your file shares. With this profile, you can specify the total IOPS for the file share within the range for a specific file share size. You can provision shares with IOPS performance from 100 IOPS to 96,000 IOPS, based on share size. For more information, see [dp2 file storage profile](/docs/vpc?topic=vpc-file-storage-profiles#dp2-profile).
 
 ### Can I migrate all my file share profiles to dp2?
 {: faq}
@@ -189,13 +189,13 @@ Yes. You can use IAM authorization policies to allow another account to mount yo
 {: faq}
 {: #faq-fs-accessor-share}
 
-Administrators with the right authorizations can configure access to a file share from virtual service instances of a VPC that belongs to another account. An accessor share is an object that is created in the accessor account that shares characteristics of the origin share such as size, profile and encryption types. It is the representation of the origin share in the accessor account. The accessor account creates a mount target to the accessor share which creates a network path that the virtual server can use to access the data on the origin share. The accessor share does not hold any data and cannot exist independently from the origin share.  For more information, see [Sharing file share data between accounts and services](/docs/vpc?topic=vpc-file-storage-vpc-about&interface=cli#fs-cross-account-mount).
+Administrators with the right authorizations can configure access to a file share from virtual service instances of a VPC that belongs to another account. An accessor share is an object that is created in the accessor account that shares characteristics of the origin share such as size, profile, and encryption types. It is the representation of the origin share in the accessor account. The accessor account creates a mount target to the accessor share, which creates a network path that the virtual server can use to access the data on the origin share. The accessor share does not hold any data and cannot exist independently from the origin share. For more information, see [Sharing file share data between accounts and services](/docs/vpc?topic=vpc-file-storage-vpc-about&interface=cli#fs-cross-account-mount).
 
 ### How many accessor shares can be set up to access my share?
 {: faq}
 {: #faq-fs-accessor-limit}
 
-A share can have maximum of 100 accessor bindings. This restriction is placed at origin share level. After the number of active accessor bindings reached 100, any attempt to create another accessor share fails.
+A share can have a maximum of 100 accessor bindings. This restriction is placed at the origin share level. After the number of active accessor bindings reached 100, any attempt to create another accessor share fails.
 
 ### How can I ensure other accounts use encryption in transit when they access my data?
 {: faq}
@@ -203,7 +203,7 @@ A share can have maximum of 100 accessor bindings. This restriction is placed at
 
 As the share owner, you have the right to enforce the use of encryption in transit when another account accesses the file share data. When you create a file share, you can set the allowed transit encryption modes to `user_managed`. This value is inherited by the accessor share of the accessor account, which ensures that only mount targets that support encryption in transit can be attached to the accessor share.
 
-If your file share was created before 18 June 2024, its allowed transit encryption modes is set to `user_managed,none`. This setting can be changed [in the console](/docs/vpc?topic=vpc-file-storage-managing&interface=ui#fs-update-transit-encryption-ui){: ui}[from the CLI](/docs/vpc?topic=vpc-file-storage-managing&interface=cli#fs-update-transit-encryption-cli){: cli}[with the API](/docs/vpc?topic=vpc-file-storage-managing&interface=api#fs-update-transit-encryption-api){: api}[with Terraform](/docs/vpc?topic=vpc-file-storage-managing&interface=terraform#file-storage-share-update-terraform){: terraform}. Existing mount targets must be deleted first. For more information, see [Deleting mount target of a file share in the UI](/docs/vpc?topic=vpc-file-storage-managing&interface=ui#delete-mount-target-ui){: ui}[Deleting a mount target of a file share from the CLI](/docs/vpc?topic=vpc-file-storage-managing&interface=cli#delete-share-targets-cli){: cli}[Deleting mount target of a file share with the API](/docs/vpc?topic=vpc-file-storage-managing&interface=api#delete-mount-target-api){: api}[Deleting a mount target with Terraform](/docs/vpc?topic=vpc-file-storage-managing&interface=terraform#delete-file-share-terraform){: terraform}.
+If your file share was created before 18 June 2024, its allowed transit encryption modes property is set to `user_managed,none`. This setting can be changed [in the console](/docs/vpc?topic=vpc-file-storage-managing&interface=ui#fs-update-transit-encryption-ui){: ui}[from the CLI](/docs/vpc?topic=vpc-file-storage-managing&interface=cli#fs-update-transit-encryption-cli){: cli}[with the API](/docs/vpc?topic=vpc-file-storage-managing&interface=api#fs-update-transit-encryption-api){: api}[with Terraform](/docs/vpc?topic=vpc-file-storage-managing&interface=terraform#file-storage-share-update-terraform){: terraform}. Existing mount targets must be deleted first. For more information, see [Deleting mount target of a file share in the UI](/docs/vpc?topic=vpc-file-storage-managing&interface=ui#delete-mount-target-ui){: ui}[Deleting a mount target of a file share from the CLI](/docs/vpc?topic=vpc-file-storage-managing&interface=cli#delete-share-targets-cli){: cli}[Deleting mount target of a file share with the API](/docs/vpc?topic=vpc-file-storage-managing&interface=api#delete-mount-target-api){: api}[Deleting a mount target with Terraform](/docs/vpc?topic=vpc-file-storage-managing&interface=terraform#delete-file-share-terraform){: terraform}.
 
 ## Performance questions
 {: #file-storage-vpc-performance-questions}
@@ -218,17 +218,17 @@ Yes, you can increase or decrease IOPS for file shares based on an **IOPS tier**
 {: faq}
 {: #faq-fs-update-profile}
 
-If you have one of the tiered and custom file share profiles, you can use the UI, CLI, or API to update the file share profile. You can change among IOPS tier profiles. Or you can switch to custom profile, and you specify the maximum IOPS based on the file share size. You can also choose to convert your share to the dp2 high-performance profile.
+If you have one of the tiered and custom file share profiles, you can use the UI, CLI, or API to update the file share profile. You can change among IOPS tier profiles. Or you can switch to the custom profile, and you specify the maximum IOPS based on the file share size. You can also choose to convert your share to the dp2 high-performance profile.
 
 You can't use the UI, CLI, or API to update multiple file shares in a single operation. For more on this issue, see [troubleshooting {{site.data.keyword.filestorage_vpc_short}}](/docs/vpc?topic=vpc-troubleshooting-file-storage). You can't change a file share that was created with the dp2 profile to an earlier profile version.
 {: note}
 
-### How many files and directories are allowed for specific file share? What is the maximum number of inodes of a shre?
+### How many files and directories are allowed for specific file share? What is the maximum number of inodes of a share?
 {: #maxfilevolume}
 {: faq}
 {: support}
 
-The number of files a file share can contain is determined by how many inodes it has. An inode is a data structure that contains information about files. File shares have both private and public inodes. Public inodes are used for files that are visible to you and private inodes are used for files that are used internally by the storage system. You can expect to have an inode for every 32 KB of share capacity. The maximum number of files setting is 2 billion. However, this maximum value can be configured only with file shares of 7.8 TB or larger. Any volume of 9,000 GB or larger reaches the maximum limit at 2,040,109,451 inodes.
+The number of files a file share can contain is determined by how many inodes it has. An inode is a data structure that contains information about files. File shares have both private and public inodes. Public inodes are used for files that are visible to you and private inodes are used for files that are used internally by the storage system. You can expect to have an inode for every 32 KB of share capacity. The maximum number of files is 2 billion. However, this maximum value can be configured only with file shares of 7.8 TB or larger. Any volume of 9,000 GB or larger reaches the maximum limit at 2,040,109,451 inodes.
 
 | Volume Size | Inodes |
 |------------:|-------:|

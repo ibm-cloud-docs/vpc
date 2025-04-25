@@ -2,7 +2,7 @@
 
 copyright:
   years: 2021, 2025
-lastupdated: "2025-03-21"
+lastupdated: "2025-04-25"
 
 keywords: file share, file storage, sysdig, platform metrics
 
@@ -45,7 +45,7 @@ To receive monitoring metrics, you must set up your {{site.data.keyword.mon_full
    {: important}
 
 1. Choose your pricing plan. Pricing plan details are explained in the selection window. Select the plan that best meets your requirements.
-1. Provide a unique service name for your instance. The name can be any name that you want. The name has no impact on functionality. 
+1. Provide a unique service name for your instance. The name can be any name that you want.
 
    Do not give multiple monitoring instances the same name.
    {: important}
@@ -65,20 +65,20 @@ It can take some time until all the metrics are displayed after the monitoring i
 ## Viewing metrics
 {: #sysdig-view}
 
-### Launching Sysdig web UI from the {{site.data.keyword.filestorage_vpc_short}} details page
+### Accessing the Sysdig web UI from the {{site.data.keyword.filestorage_vpc_short}} details page
 {: #sysdig-view-ui}
 
-To launch the Sysdig web UI from your {{site.data.keyword.filestorage_vpc_short}} share details page complete the following steps.
+To open the Sysdig web UI from your {{site.data.keyword.filestorage_vpc_short}} share details page, complete the following steps.
 1. In the {{site.data.keyword.cloud_notm}} console, go to the **Navigation menu** ![menu icon](../../icons/icon_hamburger.svg) **> Infrastructure** ![VPC icon](../../icons/vpc.svg) **> Storage > File storage shares**.
 2. Click the name of a file share that you want to monitor.
 3. Click the **Monitoring** tab in the File share details page. On this tab, you can see the graphs for share usage, total throughput, and total IOPS. These graphs are available to you at no cost, even without an {{site.data.keyword.mon_full_notm}} instance.
-4. Click **Launch monitoring** to launch the Sysdig web UI to view the other metrics, customize your dashboards, set up alerts.
+4. Click **Launch monitoring** to start the Sysdig web UI to view the other metrics, customize your dashboards, set up alerts.
 5. Select the monitoring instance, and click **Open dashboard**.
 
-### Launching Sysdig web UI from the Observability page
+### Accessing the Sysdig web UI from the Observability page
 {: #sysdig-view-ob}
 
-To launch the Sysdig web UI from the Observability page, complete the following steps.
+To open the Sysdig web UI from the Observability page, complete the following steps.
 1. In the {{site.data.keyword.cloud_notm}} console, go to the **Navigation menu** ![menu icon](../../icons/icon_hamburger.svg) > **Observability**.
 2. Click **Monitoring**.
 3. Select the monitoring instance, and click **Open dashboard**.
@@ -86,7 +86,7 @@ To launch the Sysdig web UI from the Observability page, complete the following 
 ## Predefined dashboard for {{site.data.keyword.filestorage_vpc_short}}
 {: #sysdig-dashboards}
 
-When you launch the file share dashboard, you can see the graphs that show the following metrics:
+When you open the file share dashboard, you can see the graphs that show the following metrics:
 
 * Share usage - available capacity, used capacity, total capacity
 * Throughput - read, write, and maximum throughput
@@ -105,7 +105,7 @@ The displayed metrics contain a timestamp in UNIX epoch time and the metric valu
 
 However, the system queries file share information hourly. Therefore, selecting an interval that is less than 1 hour is not recommended.
 
-When you create a file share, the data for the new share can take up to an hour or an hour and 15 minutes to appear in the dashboard. Changes in usage and share characteristics, such as an increase in capacity or a change in IOPS, can take from 15 to 30 minutes to be reflected in the graphs. Changes in snapshot space (adding or deleting snapshots) is reflected within 15 minutes.
+When you create a file share, the data for the new share can take up to an hour or an hour and 15 minutes to appear in the dashboard. Changes in usage and share characteristics, such as an increase in capacity or a change in IOPS, can take from 15 to 30 minutes to be reflected in the graphs. Changes in the snapshot space (adding or deleting snapshots) are reflected within 15 minutes.
 {: note}
 
 You can also create custom dashboards through the web UI or programmatically. You can back up and restore dashboards by using Python scripts or the {{site.data.keyword.mon_full_notm}} REST API. You can also copy and share dashboards through the web UI.
@@ -188,7 +188,7 @@ The following attributes are available for segmenting the file share metrics.
 |----------------|----------------|-----------------------|
 | `Cloud type`   | `ibm_ctype`    | Type of IBM Cloud. Cloud type values are `public`, `dedicated`, or `local`. |
 | `Location`     | `ibm_location` | Location of the monitored resource. This value can be a region, data center, or global. |
-| `Resource`     | `ibm_resource` | Resource being measured by the service. Typically, this value is an identifying name or GUID. |
+| `Resource`     | `ibm_resource` | The Resource that is measured by the service. Typically, this value is an identifying name or GUID. |
 | `Resource type`| `ibm_resource_type` | Type of resource that is measured by the service. |
 | `Scope`        | `ibm_scope`    | Scope of the account, organization, or space GUID that is associated with this metric. |
 | `Service name` | `ibm_service_name` | Name of the service that is generating this metric. |

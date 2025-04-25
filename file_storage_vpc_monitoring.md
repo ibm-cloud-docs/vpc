@@ -2,7 +2,7 @@
 
 copyright:
   years: 2021, 2025
-lastupdated: "2025-03-18"
+lastupdated: "2025-04-25"
 
 keywords: file share, file storage, rename share, increase size, adjust IOPS, mount target
 
@@ -99,4 +99,4 @@ You can monitor the read and write throughput, read and write IOPS, number of mo
 
 Monitoring utilization metrics such as total IOPS and total throughput can help you to determine how much work is done by your application or workload. You can use this information to determine whether the IOPS value needs to be adjusted. Monitoring the available capacity of your share can help you identify the need for more storage before insufficient space can become a problem with writing data to the share or replication. Seeing these metrics can help you anticipate any changes in charges at the end of the billing period. These graphs are available to you at no cost, even without an {{site.data.keyword.mon_full_notm}} instance.
 
-If you have an instance of the {{site.data.keyword.mon_full_notm}} service, click **Launch monitoring** to launch the Sysdig web UI to work with the metrics dashboards there. In the Sysdig web UI you can view these throughput, IOPS, and capacity metrics in more detail, customize your dashboards, and set up alerts. For more information, see [Getting started with monitoring](/docs/monitoring?topic=monitoring-getting-started) and [Monitoring metrics for {{site.data.keyword.filestorage_vpc_short}}](/docs/vpc?topic=vpc-fs-vpc-monitoring-sysdig).
+If you have an instance of the {{site.data.keyword.mon_full_notm}} service, click **Launch monitoring** to open the Sysdig web UI to work with the metrics dashboards there. In the Sysdig web UI you can view the throughput, IOPS, and capacity metrics in more detail, customize your dashboards, and set up alerts. For more information, see [Getting started with monitoring](/docs/monitoring?topic=monitoring-getting-started) and [Monitoring metrics for {{site.data.keyword.filestorage_vpc_short}}](/docs/vpc?topic=vpc-fs-vpc-monitoring-sysdig).

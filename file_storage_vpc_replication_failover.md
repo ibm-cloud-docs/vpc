@@ -1,8 +1,8 @@
 ---
 
 copyright:
-  years: 2022, 2024
-lastupdated: "2024-12-02"
+  years: 2022, 2025
+lastupdated: "2025-04-25"
 
 keywords: file storage, file share, replication, replica, source share, failover, 
 
@@ -25,11 +25,11 @@ When you create a replica file share, the replica pulls data from the source fil
 
 When you initiate a failover, you can choose what happens if the failover operation fails or times out. The default timeout is 5 minutes.
 
-* If you decide to keep the replication relationship, the system "falls back" to the source share. Even though the replication and the failover failed, the system attempts to replicate data again at the next scheduled time. This option can be used when the primary site is scheduled for [routine maintenance](#fs-failover-maintenance). You can fall back to the original share when the maintenance is complete and the site is stable again. Replication can resume.
+* If you decide to keep the replication relationship, the system "falls back" to the source share. Even though the operation failed, the system attempts to replicate data again at the next scheduled time. This option can be used when the primary site is scheduled for [routine maintenance](#fs-failover-maintenance). You can fall back to the original share when the maintenance is complete and the site is stable again. Replication can resume.
 
 * If you decide to remove the replication relationship, the system splits the two file shares apart, and they become independent read/write file shares. This option can be used for failover in a [disaster recovery](#fs-failover-dr) situation when it's more important to start your application up as quickly as possible. So you can continue normal operations on the replica site, while the future of the original site is uncertain. 
 
-A failover operation or a replica split cannot occur when another operation is being performed on the source or replica file share (for example, the file share size is being expanded). The split or failover operation remains pending until the other operation completes.
+A failover operation or a replica split cannot occur when another operation is being performed on the source or replica file share (for example, the file share size is being expanded). The split or failover operation continues to pend until the other operation completes.
 {: important}
 
 The [failover status](/docs/vpc?topic=vpc-fs-vpc-monitoring) shows `failover_pending` while the operation is underway, or while the service is waiting for another operation to complete.
@@ -47,7 +47,7 @@ Use a failover for routine maintenance on the primary site or when the site is h
 ### Failover in a disaster recovery situation
 {: #fs-failover-dr}
 
-Failover is also an option for disaster recovery. If the original site is confirmed to be unavailable and you need your application started as soon as possible on the replica location, choose the option to remove the replication relationship as the fallback policy when you initiate the failover. Failover for disaster recovery works in the following way:
+Failover is also an option for disaster recovery. If the original site is confirmed to be unavailable and you need your application started as soon as possible on the replica location, opt to remove the replication relationship. Removing the replication relationship is an option for the fallback policy when you initiate the failover. Failover for disaster recovery works in the following way:
 
 * The file share at the source site refuses all read and write operations and the system attempts to pull a final copy of the share's data to the replica file share.
 * When the data-pull times out and fails, the file service breaks the replication relationship. The replica file share becomes read/write and operates as an independent file share. It can be mounted and managed as a normal file share.

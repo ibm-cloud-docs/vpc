@@ -2,7 +2,7 @@
 
 copyright:
   years: 2024, 2025
-lastupdated: "2025-04-10"
+lastupdated: "2025-04-25"
 
 keywords: file share, file storage, accessor share, cross-account share
 
@@ -16,7 +16,7 @@ subcollection: vpc
 # Sharing and mounting a file share from another account
 {: #file-storage-accessor-create}
 
-As a storage administrator who manages multiple accounts, you can share an NFS file system across accounts, so the data that your applications depend on is available across the different systems within the company. You can also share your {{site.data.keyword.filestorage_vpc_short}} with the [IBM watsonx](https://dataplatform.cloud.ibm.com/docs/content/wsj/getting-started/welcome-main.html?context=wx){: external} service.
+As a storage administrator who manages multiple accounts, you can share an NFS file system across accounts, so the data that your applications depend on is available across the different systems. You can also share your {{site.data.keyword.filestorage_vpc_short}} with the [IBM watsonx](https://dataplatform.cloud.ibm.com/docs/content/wsj/getting-started/welcome-main.html?context=wx){: external} service.
 {: shortdesc}
 
 [Cross-account service-to-service authorization](/docs/vpc?topic=vpc-file-s2s-auth) is used to establish trust between share owner and accessor accounts. Also, the appropriate IAM platform and services roles must be assigned to the users so they can perform their tasks. To create an accessor share within the same account as the origin share, the user must have *Share Broker* and *Editor* roles. To create an accessor share within a different account from the origin share, the user must have *Share Remote Account Accessor* and *Editor* roles. For more information, see [IAM Roles and actions](/docs/account?topic=account-iam-service-roles-actions#is.share-roles).
@@ -123,7 +123,7 @@ For more information about the command options, see [`ibmcloud is share-create`]
 
 To create a mount target for the file share, run the `share-mount-target-create` command. Before you begin, gather some necessary information.
 
-When you create a mount target, you must specify the file share that it is for. You can use the file share's name or ID. You must specify the VPC, too, either with its ID or name. The VPC must be unique to each mount target. You must also specify the security access group that's going to be used to manage access to the share. The security groups that you associate with a mount target must allow inbound access for the TCP protocol on the NFS port from all virtual server instances on which you want to mount the file share.
+When you create a mount target, you must specify the file share that it is for. You can use the file share's name or ID. You must specify the VPC, too, either with its ID or name. The VPC must be unique to each mount target. You must also specify the security access group that's going to be used to manage access to the share. The security groups that you associate with a mount target must allow inbound access for the TCP protocol on the NFS port from all servers where you want to mount the share.
 
 Lastly, you must specify values for the options that are needed to create a [virtual network interface](/docs/vpc?topic=vpc-vni-about) for the mount target. Use the appropriate CLI commands to list the available [subnets](/docs/vpc?topic=vpc-vpc-reference#subnets-list), [reserved IP addresses in a subnet](/docs/vpc?topic=vpc-vpc-reference#subnet-reserved-ips-list), [security groups](/docs/vpc?topic=vpc-vpc-reference#security-groups-list) to get the information that you need.
 
@@ -273,7 +273,7 @@ A successful response looks like the following example.
 
 If the share's access control mode is `security_group`, then the mount target must be created with a [virtual network interface](/docs/vpc?topic=vpc-vni-about). When the share's allowed transit encryption mode is `user-managed`, the mount target's `transit_encryption` value must be `user-managed`, too. 
 
-Make a `POST /shares/{share_id}/mount_targets` request and specify a subnet and security group for the mount target network interface. The security groups that you associate with a mount target must allow inbound access for the TCP protocol on the NFS port from all virtual server instances on which you want to mount the file share.
+Make a `POST /shares/{share_id}/mount_targets` request and specify a subnet and security group for the mount target network interface. The security groups that you associate with a mount target must allow inbound access for the TCP protocol on the NFS port from all servers where you want to mount the share.
 
 This example adds a mount target to an existing accessor share, which is identified by ID, and provides a subnet and security group to create the network interface. 
 
@@ -335,7 +335,7 @@ resource "ibm_is_share" "example-accessor" {
 ### Creating a mount target with Terraform
 {: #file-accessor-share-mount-create-terraform}
 
-To create a mount target for a file share, use the `is_share_mount_target` resource. The following example creates a mount target with `security_group` access control mode. First, specify the share for which the mount target is created. Then, you specify the name of the mount target and define the new virtual network interface by providing an IP address and a name. You must also specify the security group that you want to use to manage access to the file share that the mount target is associated to. The security groups that you associate with a mount target must allow inbound access for the TCP protocol on the NFS port from all virtual server instances on which you want to mount the file share. The attribute `auto_delete = true` means that the virtual network interface is to be deleted if the mount target is deleted.
+To create a mount target for a file share, use the `is_share_mount_target` resource. The following example creates a mount target with `security_group` access control mode. First, specify the share for which the mount target is created. Then, you specify the name of the mount target and define the new virtual network interface by providing an IP address and a name. You must also specify the security group that you want to use to manage access to the file share that the mount target is associated to. The security groups that you associate with a mount target must allow inbound access for the TCP protocol on the NFS port from all servers where you want to mount the share. The attribute `auto_delete = true` means that the virtual network interface is to be deleted if the mount target is deleted.
 
 ```terraform
 resource "ibm_is_share_mount_target" "target-with-vni" {
@@ -361,7 +361,7 @@ For more information about the arguments and attributes, see [ibm_is_share_mount
 ### Creating an accessor share with a mount target with security group access mode
 {: #file-accessor-share-create-with-target-sg-terraform}
 
-You don't need to create the file share and the mount target separately. To create a file share with a mount target that allows for security group-based authentication within a VPC, use the `ibm_is_share` resource. The accessor share inherits the following characteristics from its origin share: profile, size, encryption type both at rest and in-transit. Specify the access control mode as `security_group`, and define the mount target by providing a name for it, details of the virtual network interface such as name, subnet, or IP address. Also, specify the security groups that you want to use to control access to the file share. The security groups that you associate with a mount target must allow inbound access for the TCP protocol on the NFS port from all virtual server instances on which you want to mount the file share. 
+You don't need to create the file share and the mount target separately. To create a file share with a mount target that allows for security group-based authentication within a VPC, use the `ibm_is_share` resource. The accessor share inherits the following characteristics from its origin share: profile, size, encryption type both at rest and in-transit. Specify the access control mode as `security_group`, and define the mount target by providing a name for it, details of the virtual network interface such as name, subnet, or IP address. Also, specify the security groups that you want to use to control access to the file share. The security groups that you associate with a mount target must allow inbound access for the TCP protocol on the NFS port from all servers where you want to mount the share. 
 
 ```terraform
 resource "ibm_is_share" "share4" {

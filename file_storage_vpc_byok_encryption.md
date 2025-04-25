@@ -1,8 +1,8 @@
 ---
 
 copyright:
-  years: 2022, 2024
-lastupdated: "2024-12-17"
+  years: 2022, 2025
+lastupdated: "2025-04-25"
 
 keywords: file share, customer-managed encryption, encryption, byok, KMS, Key Protect, Hyper Protect Crypto Services,
 
@@ -27,7 +27,7 @@ To create file shares with customer-managed encryption, you must have your own c
 
 It's also possible to use a customer root key from another account. In {{site.data.keyword.cloud_notm}}, the KMS can be either located in the same or in another account as the service that is using an encryption key. This deployment pattern allows enterprises to centrally manage encryption keys for all corporate accounts. For more information, see [Encryption key management](/docs/solution-tutorials?topic=solution-tutorials-resource-sharing#resource-sharing-security-kms).
 
-Configure all required [service-to-service authorizations](/docs/vpc?topic=vpc-file-s2s-auth&interface=ui#file-s2s-auth-encryption-ui){: ui}[service-to-service authorizations](/docs/vpc?topic=vpc-file-s2s-auth&interface=cli#file-s2s-auth-encryption-cli){: cli}[service-to-service authorizations](/docs/vpc?topic=vpc-file-s2s-auth&interface=api#file-s2s-auth-encryption-api){: api}[service-to-service authorizations](/docs/vpc?topic=vpc-file-s2s-auth&interface=terraform#file-s2s-auth-encryption-terraform){: terraform} between File Storage for VPC (source service) and the KMS instance (target service) that holds the customer root key. If you're provisioning volumes with a CRK of another account, contact that account's administrator to set up the authorization and for the CRN of the root key that is being shared.
+Configure all required [service-to-service authorizations](/docs/vpc?topic=vpc-file-s2s-auth&interface=ui#file-s2s-auth-encryption-ui){: ui}[service-to-service authorizations](/docs/vpc?topic=vpc-file-s2s-auth&interface=cli#file-s2s-auth-encryption-cli){: cli}[service-to-service authorizations](/docs/vpc?topic=vpc-file-s2s-auth&interface=api#file-s2s-auth-encryption-api){: api}[service-to-service authorizations](/docs/vpc?topic=vpc-file-s2s-auth&interface=terraform#file-s2s-auth-encryption-terraform){: terraform} between File Storage for VPC (source service) and the KMS instance (target service) that holds the customer root key. If you're provisioning volumes with a CRK of another account, ask that account's administrator to set up the authorization and to share the CRN of the root key.
 {: requirement}
 
 ## Creating file shares with customer-managed encryption in the UI
@@ -51,7 +51,7 @@ Follow this procedure to specify customer-managed encryption when you create a f
    | Access-management tags| You can apply flexible access policies on your file shares with access-management tags. For more information, see [Controlling access to resources by using tags](/docs/account?topic=account-access-tags-tutorial). |
    | Profile | New file shares are created with the dp2 profile. Select the size and IOPS for your file share. For more information, see [file Storage profiles](/docs/vpc?topic=vpc-file-storage-profiles). |
    | Mount target access mode  | Select how you want to manage access to this file share: |
-   |  | Security group: Access to the file share is based on [security group](/docs/vpc?topic=vpc-using-security-groups#sg-getting-started) rules. This option can be used to restrict access to specific virtual server instances. You can also use this option if you want to mount the file share to a virtual server instance in another zone. This option is recommended as you have more control over who can access the data that is stored on the file share. When, you choose this type of access, you can also specify the allowed transit encryption modes. |
+   |  | Security group: Access to the file share is based on [security group](/docs/vpc?topic=vpc-using-security-groups#sg-getting-started) rules. This option can be used to restrict access to specific virtual server instances. You can also use this option if you want to mount the file share to a virtual server instance in another zone. This option is recommended as you have more control over who can access the data that is stored on the file share. When you choose this type of access, you can also specify the allowed transit encryption modes. |
    |  | Virtual private cloud: Access to the file share is granted to any virtual server instance in the same region. Cross-zone mounting and encryption in transit are not supported. |
    | Allowed transit encryption modes| As the share owner, you can specify how you want clients within your account and authorized accounts to connect to your file share. You can select *none* if you do not want them to use encryption in transit, and *user-managed* if you want them to use encryption in transit. If you select both, then the transit encryption type of the first mount target decides the transit encryption types of all future mount targets within the account. |
    {: caption="Values for creating a file share and mount target." caption-side="bottom"}
@@ -70,7 +70,7 @@ Follow this procedure to specify customer-managed encryption when you create a f
      | **Reserved IP address** | Required for the mount target. The IP address cannot be changed afterward. However, you can delete the mount target and create another one with a different IP address. |
      | Reserving method | You can have the file service select an IP address for you. The reserved IP becomes visible after the mount target is created. Or, specify your own IP. |
      | Auto-release | Releases the IP address when you delete the mount target. Enabled by default. |
-     | **Security groups** | The [security group](/docs/vpc?topic=vpc-using-security-groups#sg-getting-started) for the VPC is selected by default, or select from the list. The security groups that you associate with a mount target must allow inbound access for the TCP protocol on the NFS port from all virtual server instances on which you want to mount the file share. |
+     | **Security groups** | The [security group](/docs/vpc?topic=vpc-using-security-groups#sg-getting-started) for the VPC is selected by default, or select from the list. The security groups that you associate with a mount target must allow inbound access for the TCP protocol on the NFS port from all servers where you want to mount the share. |
      | **Encryption in transit** | Disabled by default, click the toggle to enable. For more information about this feature, see [Encryption in transit - Securing mount connections between file share and host](/docs/vpc?topic=vpc-file-storage-vpc-eit). |
      {: caption="Values for creating a mount target." caption-side="top"}
 
@@ -79,8 +79,8 @@ Follow this procedure to specify customer-managed encryption when you create a f
 1. Update the fields in the **Encryption at rest** section. 
    1. Select the encryption type. By default, all file shares are encrypted by IBM-managed keys. You can also choose to create an envelop-encryption for your shares with your own keys. If you want to use your own keys, select one of the [key management services](/docs/vpc?topic=vpc-vpc-encryption-about#kms-for-byok): {{site.data.keyword.keymanagementserviceshort}} or {{site.data.keyword.hscrypto}}.
    1. Specify the key by locating it by the instance or by its CRN.
-      - If you chose to locae by instance, choose an instance from the Encryption service instead field's menu. Then, select the Key name from the list.
-      - If you chose to locate by CRN, enter the CRN value. Use this option when you want to use a CRN of a key from another account, as you won't see that key listed in the instance selector.
+      - If you chose to locate by instance, choose an instance from the Encryption service instance menu. Then, select the Key name from the list.
+      - If you chose to locate by CRN, enter the CRN value. Use this option when you want to use a CRN of a key from another account, as you can't see that key in the instance selector.
 
 1. When all the required information is entered, click **Create file share**. You return to the {{site.data.keyword.filestorage_vpc_short}} page, where a message indicates that the file share is provisioning. When the transaction completes, the share status changes to **Active**.
 
@@ -127,10 +127,10 @@ Before you can use the CLI, you must install the IBM Cloud CLI and the VPC CLI p
       ```
       {: screen}
 
-   If you plan to use the encryption key of another account, the previous steps have to be performed on the other account. You can't list the resources of another account even if you are authorized to use them.
+   If you plan to use the encryption key of another account, the previous steps must be performed on the other account. You can't list the resources of another account even if you are authorized to use them.
    {: note}
 
-1. Specify the `ibmcloud is share-create` command with the `--encryption-key` option to create a file share with customer-managed encryption. The `encryption_key` option must be followed by a valid CRN for the root key in the key management service. If you want to enable encryption in transit, too, specify that in the mount target JSON. The security groups that you associate with a mount target must allow inbound access for the TCP protocol on the NFS port from all virtual server instances on which you want to mount the file share.
+1. Specify the `ibmcloud is share-create` command with the `--encryption-key` option to create a file share with customer-managed encryption. The `encryption_key` option must be followed by a valid CRN for the root key in the key management service. If you want to enable encryption in transit, too, specify that in the mount target JSON. The security groups that you associate with a mount target must allow inbound access for the TCP protocol on the NFS port from all servers where you want to mount the share.
 
    - The following example creates a file share with customer-managed encryption, security group access mode, and a mount target with a virtual network interface. Encryption in transit is not enabled.
 
@@ -268,7 +268,7 @@ curl -X POST \
 ```
 {: pre}
 
-You can also specify the CRN of a root key from a different account in the `POST /shares` call. If you want to do that, contact the other account's administrator to ensure that the service-to-service authorizations are in place and to get the CRN of the enncryption key.
+You can also specify the CRN of a root key from a different account in the `POST /shares` call. If you want to do that, contact the other account's administrator to ensure that the service-to-service authorizations are in place and to get the CRN of the encryption key.
 
 ## Creating file shares with customer-managed encryption with Terraform
 {: #fs-byok-terraform}

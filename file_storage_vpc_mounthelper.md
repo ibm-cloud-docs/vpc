@@ -2,7 +2,7 @@
 
 copyright:
   years: 2023, 2025
-lastupdated: "2025-04-24"
+lastupdated: "2025-04-25"
 
 keywords: file share, file storage, encryption in transit, Mount Helper, IPsec, secure connection, mount share
 
@@ -15,7 +15,7 @@ subcollection: vpc
 # IBM Cloud File Share Mount Helper utility
 {: #fs-mount-helper-utility}
 
-Mount Helper is an open source automation tool that configures and establishes secure IPsec communication between customer compute host and the file share. It ensures that the communication between the server and the zonal file share is encrypted.
+Mount Helper is an open source automation tool that configures and establishes secure IPsec communication between the compute host and the file share. It ensures that the communication between the server and the zonal file share is encrypted.
 {: shortdesc}
 
 The utility uses strongSwan and [`swanctl`](https://docs.strongswan.org/docs/5.9/swanctl/swanctl.html) to configure IPsec on the virtual server instance with Linux OS.

@@ -1,8 +1,8 @@
 ---
 
 copyright:
-  years: 2022, 2024
-lastupdated: "2024-12-17"
+  years: 2022, 2025
+lastupdated: "2025-04-25"
 
 keywords: file share, file storage, increase capacity, expand capacity, expand share size, file share size
 
@@ -50,9 +50,9 @@ The file share must be in a `stable` state before you can request the capacity t
 The following limitations apply to this release.
 
 * File shares can expand, with the following restrictions:
-    * If the file share was created with a [Tiered IOPS profile](/docs/vpc?topic=vpc-file-storage-profiles#fs-tiers) that limits capacity to less than 32,000 GB, it can expand only to the allowed capacity for that tier.
-    * If the file share was created with a [Custom IOPS profile](/docs/vpc?topic=vpc-file-storage-profiles#fs-custom) in an IOPS range that doesn't allow expanding to 16,000 GB (custom GB max), it can expand only to its maximum capacity for the specified custom range.
-    * If the file share was created with a [dp2 profile](/docs/vpc?topic=vpc-file-storage-profiles#dp2-profile) in an IOPS range that doesn't allow expanding to 32,000 GB (dp2 GB max), it can expand only to its maximum capacity for the specified dp2 range.
+    * If the file share was created with a [Tiered profile](/docs/vpc?topic=vpc-file-storage-profiles#fs-tiers) that limits capacity to less than 32,000 GB, it can expand only to the allowed capacity for that tier.
+    * If the file share was created with the [Custom profile](/docs/vpc?topic=vpc-file-storage-profiles#fs-custom) in an IOPS range that doesn't allow expanding to 16,000 GB, the share can expand only to the maximum capacity of the specified range.
+    * If the file share was created with the [dp2 profile](/docs/vpc?topic=vpc-file-storage-profiles#dp2-profile) in an IOPS range that doesn't allow expanding to 32,000 GB, the share can expand only to the maximum capacity of the specified range.
     * File shares can expand multiple times until maximum capacity is reached.
 * IOPS increase to the maximum allowed by the profile.
 * You can't independently modify IOPS for a file share that was created from an IOPS tier profile. IOPS is adjusted when you expand capacity.

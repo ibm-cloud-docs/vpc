@@ -2,7 +2,7 @@
 
 copyright:
   years: 2022, 2025
-lastupdated: "2025-04-16"
+lastupdated: "2025-04-25"
 
 keywords: Backup for VPC, backup service, backup plan, backup policy, restore, restore volume, restore data
 
@@ -131,7 +131,7 @@ For more information about authorizations, see [Using authorizations to grant ac
    1. In the next field, select **File Storage for VPC**.
    1. Click **Add a condition**. 
    1. Click **Select an attribute** and select **Share ID**. 
-   1. Leve the **string equals** field as it is.
+   1. Leave the **string equals** field as it is.
    1. In the next field, select the origin share from the list.
    1. Click **Next**.
 1. Select the role `Share Broker`.

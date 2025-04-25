@@ -2,7 +2,7 @@
 
 copyright:
   years: 2022, 2025
-lastupdated: "2025-04-19"
+lastupdated: "2025-04-25"
 
 keywords: file storage, file share, view share details, mount targets, view targets, view share
 
@@ -64,11 +64,11 @@ You can access the Actions menu by clicking ![Actions icon](../icons/action-menu
      | Created date | Date the file share was created. |
      | Location | The location of the file share (for example, us-south-2). |
      | Replication role | Source file share or replica. |
-     | Encryption | Specifies provider-managed or [customer-managed encryption](/docs/vpc?topic=vpc-file-storage-byok-encryption). When the file share is encrypted with customer-managed keys, the encryption instance, encryption key name and encryption key CRN are also shown. |
+     | Encryption | Specifies provider-managed or [customer-managed encryption](/docs/vpc?topic=vpc-file-storage-byok-encryption). When the file share is encrypted with customer-managed keys, the encryption instance, encryption key name, and encryption key CRN are also shown. |
      | Mount target access mode   | Access to the file share is granted by either a security group within a subnet or to any virtual server instance in the VPC. Click the **Edit icon** ![Edit icon](../icons/edit-tagging.svg "Edit") to switch access modes. Security group access is available only to file shares created with the [`dp2` profile](/docs/vpc?topic=vpc-file-storage-profiles&interface=ui#dp2-profile). For more information, see the [Mount target access modes](/docs/vpc?topic=vpc-file-storage-vpc-about&interface=api#fs-mount-access-mode). |
      | CRN | The copiable Cloud Resource Name of the file share.|
      | Allowed encryption in transit mode | This value shows whether encryption in transit is required when clients access the file share. Click the **Edit icon** ![Edit icon](../icons/edit-tagging.svg "Edit") to change the allowed values. The possible values are User managed, and None. This field is not applicable for file shares with VPC access mode.|
-     | Cross account role | The possible values are None, Origin, Accessor. This field is not applicable for file shares with VPC access mode.|
+     | Cross-account role | The possible values are None, Origin, Accessor. This field is not applicable for file shares with VPC access mode.|
      | Snapshot count  | This value indicates the number of snapshots that were taken of the file share. This field is not applicable for file shares with VPC access mode. |
      | Size of changed data in all the snapshots  | It represents the billable volume of data across all the snapshots. This field is not applicable for file shares with VPC access mode. |
      | **Profile details**| |
@@ -103,8 +103,8 @@ You can access the Actions menu by clicking ![Actions icon](../icons/action-menu
      {: caption="File shares details page" caption-side="bottom"}
 
    -  **Snapshots**  - On the Snapshots tab you can find a summary that's related to all the snapshots and the list of the snapshots that were taken of the file share.
-      - Snapshot summary provides information such as the number of snapshots, the overall data volume captured in the snapshots, and the replication role.
-      - Snapshots list shows the snapshots that were taken of the file share. You can see the name, size of the file share when the snapshot was taken, and status of the snapshot. You can click **Create** to capture a new snapshot. Click the **Actions** icon ![Actions icon](../icons/action-menu-icon.svg "Actions") to reveal the Actions menu. The Actions menu has 2 options: Restore, and Delete.
+      - The snapshot summary provides information such as the number of snapshots, the overall data volume captured in the snapshots, and the replication role.
+      - The Snapshots list shows the snapshots that were taken of the file share. You can see the name, size of the file share when the snapshot was taken, and the status of the snapshot. You can click **Create** to capture a new snapshot. Click the **Actions** icon ![Actions icon](../icons/action-menu-icon.svg "Actions") to reveal the Actions menu. The Actions menu has 2 options: Restore, and Delete.
      
    - **Monitoring** - On the Monitoring tab, you can see three graphs for share usage, total throughput, and total IOPS. These graphs are available to you at no cost, even without an {{site.data.keyword.mon_full_notm}} instance. You can customize the date range to view data over time.
 
@@ -113,7 +113,7 @@ You can access the Actions menu by clicking ![Actions icon](../icons/action-menu
      These metrics are not updated in real time. Data for new file shares can take up to an hour or an hour and 15 minutes to appear in the dashboard. Changes in usage can take from 15 to 30 minutes to be reflected in the graphs.
      {: note}
    
-     If you have an instance of the {{site.data.keyword.mon_full_notm}} service, click **Launch monitoring** to launch the Sysdig web UI to work with the metrics dashboards there. For more information about how to set up the {{site.data.keyword.mon_full_notm}} instance, see [Monitoring metrics for File Storage for VPC](/docs/vpc?topic=vpc-fs-vpc-monitoring-sysdig).
+     If you have an instance of the {{site.data.keyword.mon_full_notm}} service, click **Launch monitoring** to open the Sysdig web UI to work with the metrics dashboards there. For more information about how to set up the {{site.data.keyword.mon_full_notm}} instance, see [Monitoring metrics for File Storage for VPC](/docs/vpc?topic=vpc-fs-vpc-monitoring-sysdig).
 
 ### Viewing all file shares for a VPC in the UI
 {: #fs-view-shares-vpc}
@@ -348,7 +348,7 @@ You must provide the `generation` parameter and specify `generation=2`. For more
 {: #share-states-api}
 
 - `lifecycle_state`
-   - This property provides the current state of a resource through the [Retrieve a file share](/apidocs/vpc/latest#get-share) method. The values that `lifecycle_state` provides are generic and are meant to apply to various resources, not only file shares. `lifecycle_state` indicate whether the file share is stable, updating, deleting, suspended, and so on.  `Stable` is expected. For more information, see [File share statuses](/docs/vpc?topic=vpc-fs-vpc-monitoring&interface=ui#file-share-statuses).
+   - This property provides the current state of a resource through the [Retrieve a file share](/apidocs/vpc/latest#get-share) method. The values that `lifecycle_state` provides are generic and are meant to apply to various resources, not only file shares. `lifecycle_state` indicate whether the file share is stable, updating, deleting, suspended, and so on. `Stable` is expected. For more information, see [File share statuses](/docs/vpc?topic=vpc-fs-vpc-monitoring&interface=ui#file-share-statuses).
 - `replication_status`
    - This property provides the current replication status of the file through the [Retrieve a file share](/apidocs/vpc/latest#get-share) method. The values that `replication_status` returns are specific for file shares. For more information, see the [Virtual Private Cloud API](/apidocs/vpc/latest) content.
 
