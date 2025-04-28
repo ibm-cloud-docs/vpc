@@ -2,7 +2,7 @@
 
 copyright:
   years: 2025
-lastupdated: "2025-04-24"
+lastupdated: "2025-04-28"
 
 keywords: vpc, public address ranges, about
 
