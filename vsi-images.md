@@ -2,7 +2,7 @@
 
 copyright:
   years: 2019, 2025
-lastupdated: "2025-03-11"
+lastupdated: "2025-04-28"
 
 subcollection: vpc
 
@@ -38,6 +38,8 @@ The following operating systems are available as stock images when you create a 
 | Ubuntu 20.04.x, 22.04.x, 24.04.x | x86-64 |
 | Windows 2016, 2019, 2022 | x86-64 |
 {: caption="Supported x86_64 stock image operating systems" caption-side="top"}
+
+For more information about support for Red Hat, see [FAQs about Red Hat and IBM Cloud® infrastructure](/docs/infrastructure-hub?topic=infrastructure-hub-faqs-for-red-hat-ibm-cloud).
 
 ### Supported x86_64 virtual server operating system bundle stock image
 {: #x86-supported-os-bundle-image}

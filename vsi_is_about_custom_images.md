@@ -2,7 +2,7 @@
 
 copyright:
   years: 2022, 2025
-lastupdated: "2025-04-03"
+lastupdated: "2025-04-28"
 
 keywords:
 
@@ -101,6 +101,8 @@ The Red Hat Enterprise AI (RHEL AI) operating system can be imported as a bring 
 
 For information regarding the supported profiles and use cases, see [Red Hat Enterprise Linux AI hardware requirements](https://docs.redhat.com/en/documentation/red_hat_enterprise_linux_ai/1.1/html-single/getting_started/index#hardware_requirements_rhelai){: external}.
 {: note}
+
+For more information about support for Red Hat, see [FAQs about Red Hat and IBM Cloud® infrastructure](/docs/infrastructure-hub?topic=infrastructure-hub-faqs-for-red-hat-ibm-cloud).
 
 For more information about importing the image into {{site.data.keyword.vpc_short}}, see [Bring your own license](/docs/vpc?topic=vpc-byol-vpc-about) and [Importing and validating custom images into VPC](/docs/vpc?topic=vpc-importing-custom-images-vpc&interface=ui). For more information on the GPU profiles, see the [x86 GPU profiles](/docs/vpc?topic=vpc-profiles&interface=ui#gpu).
 
