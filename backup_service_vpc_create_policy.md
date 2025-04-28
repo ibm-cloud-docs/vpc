@@ -2,7 +2,7 @@
 
 copyright:
   years: 2022, 2025
-lastupdated: "2025-02-24"
+lastupdated: "2025-04-28"
 
 keywords: Backup, backup snapshot, create backups, backup service, backup plan, backup policy, restore, restore volume, restore data, restore share
 
@@ -451,7 +451,7 @@ Run the `backup-policy-plan-create` command to create a backup plan and attach i
 Syntax:
 
 ```sh
-ibmcloud is backup-policy-plan-create POLICY --cron-spec CRON_SPEC [--name NAME] [--active] [--attach-tags ATTACH_TAGS] [--copy-tags true | false] [--delete-after DELETE_AFTER] [--delete-over-count DELETE_OVER_COUNT] [--output JSON] [-q, --quiet] [--copy-remote-regions TBD] [--encryption-key TBD]
+ibmcloud is backup-policy-plan-create POLICY --cron-spec CRON_SPEC [--name NAME] [--active] [--attach-tags ATTACH_TAGS] [--copy-tags true | false] [[--delete-after DELETE_AFTER] [--delete-over-count DELETE_OVER_COUNT]] [[--clone-policy-zones  ZONE1,ZONE2,...] [--clone-policy-max-snapshots CLONE_POLICY_MAX_SNAPSHOTS]] [--remote-region-policies REMOTE_REGION_POLICY_JSON | @REMOTE_REGION_POLICY_JSON] [--output JSON] [-q, --quiet]
 ```
 {: pre}
 
@@ -891,8 +891,6 @@ A successful response looks like the following example.
 ### Creating a backup policy and plan for a file share
 {: #backup-policy-create-api-share}
 
-
-
 Make a `POST /backup_policies` request to create a backup policy. The value of `match_resource_type` is `share`. The `match_user_tags` property identifies the backup tags on the file share resources and associates them with this policy and plan.
 
 ```sh
@@ -920,14 +918,6 @@ curl -X POST "$vpc_api_endpoint/v1/backup_policies?version=2024-12-10&generation
      }'
 ```
 {: codeblock}
-
-A successful response looks like the following example:
-
-```json
-TBD
-```
-{: screen}
-
 
 ### Creating a plan for an existing backup policy with the API
 {: #backup-policy-create-plan-api}

@@ -2,7 +2,7 @@
 
 copyright:
   years: 2022, 2025
-lastupdated: "2025-02-24"
+lastupdated: "2025-04-28"
 
 keywords: Backup, backup service, backup plan, backup policy, restore, restore volume, restore data
 
@@ -237,7 +237,7 @@ Run the `ibmcloud is backup-policy-plan-update` command to update a backup plan.
 The following code snippet shows the command syntax.
 
 ```sh
-ibmcloud is backup-policy-plan-update POLICY PLAN --cron-spec CRON_SPEC [--name NAME] [--active] [--attach-tags ATTACH_TAGS] [--copy-tags true | false] [--delete-after DELETE_AFTER] [--delete-over-count DELETE_OVER_COUNT] [--clone-policy-zones ZONES] [--clone-policy-max-snapshots MAX_SNAPSHOTS] [--output JSON] [-q, --quiet] [--copy-remote-regions TBD] [--encryption-key TBD]
+ibmcloud is backup-policy-plan-update POLICY PLAN [--name NAME] [--active] [--attach-tags ATTACH_TAGS] [--copy-tags true | false] [--cron-spec CRON_SPEC] [[--delete-after DELETE_AFTER] [--delete-over-count DELETE_OVER_COUNT]] [--reset-delete-over-count] [[--clone-policy-zones  ZONE1,ZONE2,...] [--clone-policy-max-snapshots CLONE_POLICY_MAX_SNAPSHOTS]] [--remote-region-policies REMOTE_REGION_POLICY_JSON | @REMOTE_REGION_POLICY_JSON] [--output JSON] [-q, --quiet]
 ```
 {: pre}
 

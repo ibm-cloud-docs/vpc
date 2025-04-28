@@ -2,7 +2,7 @@
 
 copyright:
   years: 2024, 2025
-lastupdated: "2025-04-24"
+lastupdated: "2025-04-28"
 
 keywords: view snapshots, view snapshot, viewing snapshots, see snapshots, File storage snapshots
 
@@ -399,15 +399,14 @@ For more information, see [ibm_is_snapshots](https://registry.terraform.io/provi
 Import the details of a snapshot as a read-only data source. You can specify either the snapshot ID or the snapshot name.
 
 ```terraform
-data "ibm_is_TBD" "example" {
-  identifier = "r138-e6664842-b370-496a-9ae7-da3fb647707c"
+resource "ibm_is_share_snapshot" "example" {
+  name = "my-example-share-snapshot"
+  share = ibm_is_share.example.id
+  tags = ["my-example-share-snapshot-tag"]
 }
-```
-{: codeblock}
-
-```terraform
-data "ibm_is_TBD" "example" {
-  name = "snappy-snap-snap"
+data "ibm_is_share_snapshot" "example" {
+    share_snapshot = ibm_is_share_snapshot.is_share_snapshot_instance.is_share_snapshot_id
+    share = ibm_is_share.example.id
 }
 ```
 {: codeblock}

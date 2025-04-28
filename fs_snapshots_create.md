@@ -2,7 +2,7 @@
 
 copyright:
   years: 2024, 2025
-lastupdated: "2025-04-24"
+lastupdated: "2025-04-28"
 
 keywords: snapshots, File Storage, snapshot clone, remote copy, fast restore, File Storage snapshot, cross-regional snapshot
 
@@ -211,17 +211,17 @@ provider "ibm" {
 ```
 {: screen}
 
-To create a snapshot, use the `ibm_is_TBD` resource. The following example creates a snapshot of the share with the ID `r010-df8ffd90-f2e5-470b-83d7-76e64995a1aa`. The snapshot is named `my-first-share-snapshot`.
+To create a snapshot, use the `ibm_is_share_snapshot` resource. The following example creates a snapshot of the share with the ID `r010-df8ffd90-f2e5-470b-83d7-76e64995a1aa`. The snapshot is named `my-first-share-snapshot`.
 
 ```terraform
-resource "ibm_is_TBD" "example" {
+resource "ibm_is_share_snapshot" "example" {
    name          = "my-first-share-snapshot"
    source_share = "r010-df8ffd90-f2e5-470b-83d7-76e64995a1aa"
 }
 ```
 {: codeblock}
 
-For more information about the arguments and attributes, see [ibm_is_snapshot](https://registry.terraform.io/providers/IBM-Cloud/ibm/latest/docs/resources/is_snapshot){: external}.
+For more information about the arguments and attributes, see [ibm_is_share_snapshot](https://registry.terraform.io/providers/IBM-Cloud/ibm/latest/docs/resources/is_share_snapshot){: external}.
 
 ## Next steps
 {: #fs_snapshots_create_next_steps}
