@@ -12,7 +12,7 @@ subcollection: vpc
 
 {{site.data.keyword.attribute-definition-list}}
 
-# About {{site.data.keyword.cloud_notm}} Floating IPs
+# About floating IPs
 {: #fip-about}
 
 Floating IP addresses are IP addresses that are provided by the system and are reachable from the public internet. They are allocated an IPv4 address which can be used for external connectivity in a number of ways.
