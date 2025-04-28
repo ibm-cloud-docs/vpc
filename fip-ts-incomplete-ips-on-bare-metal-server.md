@@ -19,7 +19,7 @@ content-type: troubleshoot
 {: troubleshoot}
 {: support}
 
-Users see an incomplete list of floating IPs on a bare metal server interface when the interface is not yet available.
+You see an incomplete list of floating IPs on a bare metal server interface when the interface is not yet available.
 {: shortdesc}
 
 When you use the VPC API to [list floating IP addresses on a bare metal server network interface](/apidocs/vpc#list-bare-metal-server-network-interface-floating-), you might get an incomplete list of the floating IP addresses.
