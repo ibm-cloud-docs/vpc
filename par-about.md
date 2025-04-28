@@ -2,7 +2,7 @@
 
 copyright:
   years: 2025
-lastupdated: "2025-04-24"
+lastupdated: "2025-04-28"
 
 keywords: vpc, public address ranges, about
 
@@ -127,10 +127,18 @@ Public address ranges help customers simplify the integration of network and sec
 
 To manage access to sensitive data effectively, firewalls automatically detect and handle threats using policy-based routing for enhanced security. Define routing rules for public endpoints to redirect ingress traffic to third-party appliances before it reaches the final destination. This makes it easier for customers to deploy production-grade applications with the networking and security services they require in their VPC.
 
+The following diagram illustrates how to secure your workloads in VPC using public address ranges:
+
+![Secure your workloads in VPC](images/par_use_case_1.svg "Secure your workloads in VPC"){: caption="Secure your workloads in VPC" caption-side="bottom"} 
+
 ### Deploy highly-available and resilient workloads in VPC
 {: #deploy-ha-resilient-workloads-vpc}
 
 In the event of a zonal failure, customers can reroute internet traffic for monitoring and inspection to a VNF appliance deployed in another zone, providing highly available workloads in their VPC.
+
+The following diagram illustrates how to deploy highly-available and resilient workloads in VPC using public address ranges:
+
+![Deploy highly-available and resilient workloads in VPC](images/par_use_case_2.svg "Deploy highly-available and resilient workloads in VPC"){: caption="Deploy highly-available and resilient workloads in VPC" caption-side="bottom"} 
     
 ## Related links
 {: #par-related-links}
