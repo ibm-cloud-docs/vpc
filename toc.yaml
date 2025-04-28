@@ -887,8 +887,8 @@ toc:
             - topicgroup:
                 label: Troubleshooting floating IPs
                 topics:
-                - fip-connection-troubleshoot.md
-                - fip-incomplete-ips-on-bare-metal-server.md
+                - fip-ts-connection-troubleshoot.md
+                - fip-ts-incomplete-ips-on-bare-metal-server.md
             - topicgroup:
                 label: Troubleshooting flow log collectors
                 topics:
