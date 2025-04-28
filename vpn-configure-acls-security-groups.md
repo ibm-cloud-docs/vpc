@@ -2,7 +2,7 @@
 
 copyright:
   years: 2020, 2025
-lastupdated: "2025-04-16"
+lastupdated: "2025-04-28"
 
 keywords:  VPN, network, encryption, authentication, algorithm, IKE, IPsec, policies, gateway
 
@@ -15,25 +15,28 @@ subcollection: vpc
 # Configuring ACLs for use with VPN
 {: #configuring-acls-vpn}
 
-You can configure access control lists (ACLs) on the VPN gateway's subnet where the VPN gateway is deployed, and other VPC subnets that communicate over the VPN tunnel.
+An access control list (ACL) is a built-in, virtual firewall, similar to a security group. In contrast to security groups, ACL rules control traffic to and from the _subnets_, rather than to and from the _instances_.
+
+You can configure ACLs on the VPN gateway's subnet where the VPN gateway is deployed, and other VPC subnets that communicate over the VPN tunnel.
 
 The following diagram illustrates packet flow through VPC network ACLs.
 
    ![Packet flow through VPC ACLs](images/vpc-traffic-flow.png){: caption="Packet flow through VPC ACLs" caption-side="bottom"}
 
-Encapsulated, bidirectional traffic flows from the peer gateway (1) to the VPC resources that are a part of the encrypted domain. Unencapsulated packets then leave the VPN subnet and enter the virtual server instance subnet (2). They travel back to the VPN subnet (3), where they then return to the peer gateway (4).
+1. Encapsulated, bidirectional traffic flows from the peer gateway to the VPC resources that are a part of the encrypted domain.
+1. Unencapsulated packets then leave the VPN subnet and enter the virtual server instance subnet.
+1. These unencapsulated packets travel back to the VPN subnet.
+1. Finally, the packets return to the peer gateway from the VPN subnet.
 
 If you configure ACLs on the VPN gateway's subnet, make sure that the following rules are in place to allow management traffic and VPN tunnel traffic. For more information, see [Setting up network ACLs](/docs/vpc?topic=vpc-using-acls).
 
 | Inbound/Outbound Rules | Protocol | Source IP | Source Port | Destination IP | Destination Port |
 |--------------|------|------|------|------|------------------|
 | Inbound | All | Peer gateway public IP[^IP] | N/A | VPN gateway's subnet | N/A
-| Outbound | All  | VPN gateway's subnet | N/A | Peer gateway public IP[^IP2] | N/A
 | Inbound | All | On-premises, private CIDR | N/A | VPC CIDR | N/A
-| Outbound | All  | VPC CIDR | N/A | On-premises, private CIDR | N/A
-| Inbound | All  | VPC CIDR | N/A | On-premises, private CIDR | N/A
-| Outbound | All | On-premises, private CIDR | N/A | VPC CIDR | N/A
 | Inbound (optional) | ICMP | Any | N/A | Any | N/A
+| Outbound | All  | VPN gateway's subnet | N/A | Peer gateway public IP[^IP2] | N/A
+| Outbound | All  | VPC CIDR | N/A | On-premises, private CIDR | N/A
 {: caption="Inbound and outbound rules on VPN gateway's subnet" caption-side="bottom"}
 
 If you use ACLs on the VPC subnets that communicate over the VPN tunnel, make sure that ACL rules are in place to allow traffic between virtual server instances in your VPC and the other network.
