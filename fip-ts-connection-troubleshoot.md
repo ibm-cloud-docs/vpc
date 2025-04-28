@@ -19,7 +19,7 @@ content-type: troubleshoot
 {: troubleshoot}
 {: support}
 
-Users are unable to connect to a floating IP after they assign it to a virtual server instance.
+You are unable to connect to a floating IP after you assign it to a virtual server instance.
 {: shortdesc}
 
 The floating IP is successfully assigned, but network traffic to the virtual server instance is blocked or fails to reach the instance.
