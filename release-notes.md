@@ -2,7 +2,7 @@
 
 copyright:
   years: 2019, 2025
-lastupdated: "2025-04-24"
+lastupdated: "2025-04-28"
 
 keywords:
 
@@ -21,6 +21,7 @@ Use the release notes to learn the latest updates to {{site.data.keyword.vpc_ful
 {: shortdesc}
 
 For more information about changes to the {{site.data.keyword.vpc_short}} API, see [{{site.data.keyword.vpc_short}} API change log](/docs/vpc?topic=vpc-api-change-log).
+
 
 For more information about changes to the {{site.data.keyword.vpc_short}} command-line interface (CLI), see [{{site.data.keyword.vpc_short}} CLI release notes](/docs/vpc?topic=vpc-vpc-cli-rn).
 

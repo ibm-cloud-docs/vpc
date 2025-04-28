@@ -4,7 +4,7 @@ copyright:
 
   years: 2022, 2025
 
-lastupdated: "2025-01-07"
+lastupdated: "2025-04-28"
 
 keywords: operating system end of support (eos)
 
@@ -70,6 +70,7 @@ The version of Fedora&reg; CoreOS is updated regularly, with the previous releas
 {: #rhel}
 
 The following table describes the end of support date and license model for Red Hat&reg; Enterprise Linux&reg; operating systems. This guest OS is a paid operating system. For more information, see [Red Hat Enterprise Linux](https://www.redhat.com/en/technologies/linux-platforms/enterprise-linux){: external}. For more information about support for Red Hat, see [FAQs about Red Hat and IBM Cloud® infrastructure](/docs/infrastructure-hub?topic=infrastructure-hub-faqs-for-red-hat-ibm-cloud).
+
 
 | Operating system | End of support | License model |
 |-----------------|----------------|---------------|
