@@ -2,7 +2,7 @@
 
 copyright:
   years: 2021, 2025
-lastupdated: "2025-04-25"
+lastupdated: "2025-04-28"
 
 keywords:
 
@@ -165,7 +165,7 @@ To set up a VPN server using Terraform, follow these steps:
 
 1. Create an IBM Cloud Secrets Manager instance with a trial plan.
 
-1. Generate the server certificate/key and client certificate/key locally and import it to the secrets manager instance, or generate the certificate/keys using the private certificate capability in the IBM secrets manager service.
+1. Generate the server certificate/key and client certificate/key locally and import it to the Secrets Manager instance, or generate the certificate/keys using the private certificate capability in the Secrets Manager service.
 
    ```terraform
    resource "ibm_resource_instance" "sec_mgr" {
@@ -238,7 +238,7 @@ To set up a VPN server using Terraform, follow these steps:
    {: codeblock}
 
 
-1. Create the VPN server within the subnet, security group, and server/client certificates in the Secerts Manager instance.
+1. Create the VPN server within the subnet, security group, and server/client certificates in the Secrets Manager instance.
 
    ```terraform
    resource "ibm_is_vpn_server" "example" {
@@ -285,7 +285,7 @@ To set up a VPN server using Terraform, follow these steps:
    ```
    {: codeblock}
 
-Then, a user can use the VPN client profile with OpenVPN client to connect their client system to the created VPN server.
+   Then, a user can use the VPN client profile with OpenVPN client to connect their client system to the created VPN server.
 
 For more information, see the [IBM Terraform Registry](https://registry.terraform.io/providers/IBM-Cloud/ibm/latest/docs/resources/is_vpn_server).{: external}
 {: note}
