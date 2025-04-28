@@ -885,6 +885,11 @@ toc:
                 topics:
                 - dedicated-host-failed.md
             - topicgroup:
+                label: Troubleshooting floating IPs
+                topics:
+                - fip-connection-troubleshoot.md
+                - fip-incomplete-ips-on-bare-metal-server.md
+            - topicgroup:
                 label: Troubleshooting flow log collectors
                 topics:
                 - fl-ts-failed-write.md
