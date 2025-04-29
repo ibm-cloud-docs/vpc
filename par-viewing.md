@@ -25,7 +25,7 @@ You can view public address ranges with the console, CLI, and API.
 {: #view-par-ui}
 {: ui}
 
-To view public address ranges in the [{{site.data.keyword.cloud_notm}} console](/login){: external}, select the **Navigation Menu** ![menu icon](images/menu_icon.png), then click **Infrastructure > Network > Public address ranges**. 
+To view public address ranges in the [{{site.data.keyword.cloud_notm}} console](/login){: external}, select the **Navigation Menu** ![menu icon](../icons/icon_hamburger.svg), then click **Infrastructure > Network > Public address ranges**. 
 
 The Public address ranges for VPC page shows the following information:
 

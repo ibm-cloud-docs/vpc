@@ -50,7 +50,7 @@ You can create an {{site.data.keyword.cloud}} Private Path service using the con
 To create a Private Path service with the {{site.data.keyword.cloud_notm}} console, follow these steps:
 
 1. From your browser, open the [{{site.data.keyword.cloud_notm}} console](/login) and log in to your account.
-1. Select the **Navigation Menu** ![Menu icon](images/menu_icon.png), then click **Infrastructure > Network > Private Path services**.
+1. Select the **Navigation Menu** ![Menu icon](../icons/icon_hamburger.svg), then click **Infrastructure > Network > Private Path services**.
 1. Click **Create**.
 1. Review the checklist for important information.
 1. In the Location section, ensure that the following fields are correct. If not, click the Edit icon ![Edit icon](images/edit.png) to update.

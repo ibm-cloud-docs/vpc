@@ -44,7 +44,7 @@ You can create a Private Path network load balancer by using the console, CLI, A
 To create and configure {{site.data.keyword.nlb_full}} in the {{site.data.keyword.cloud_notm}} console, follow these steps:
 
 1. From your browser, open the [{{site.data.keyword.cloud_notm}} console](/login) and log in to your account.
-1. Select the **Navigation Menu** ![Menu icon](images/menu_icon.png), then click **Infrastructure > Network > Load balancers**.
+1. Select the **Navigation Menu** ![Menu icon](../icons/icon_hamburger.svg), then click **Infrastructure > Network > Load balancers**.
 1. Click **Create** in the upper right of the page.
 1. For Load balancer type, select the **Network Load Balancer (NLB)** tile.
 1. In the Location section, edit the following fields, if necessary.
