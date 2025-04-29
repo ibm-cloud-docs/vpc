@@ -24,7 +24,7 @@ You can bind, unbind, and move public address ranges to a VPC in an availability
 ## Before you begin
 {: #before-you-begin-binding-public-address-range}
 
-* Make sure to review [Planning considerations](/docs/vpc?topic=vpc-about-par#par-planning) and [Public address range limitations](/docs/vpc?topic=vpc-par-limitations&interface=api).
+* Make sure to review [planning considerations](/docs/vpc?topic=vpc-about-par#par-planning) and [limitations](/docs/vpc?topic=vpc-par-limitations&interface=api) for public address ranges.
 * The binding of a public address range must include both a VPC and an availability zone.
 
 ## Binding, unbinding and moving public address ranges in the console

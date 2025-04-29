@@ -578,12 +578,12 @@ The following example creates a Private Path network load balancer with Terrafor
 
 1. Create a Private Path NLB:
 
-    ```terraform
-    resource "ibm_is_lb" "testacc_lb" {
-    name     = "my-example-ppnlb"
-    subnets  = [ibm_is_subnet.testacc_subnet.id]
-    profile = "network-private-path"
-    type = "private_path"
-    }
-    ```
-    {: codeblock}
+```terraform
+resource "ibm_is_lb" "testacc_lb" {
+name     = "my-example-ppnlb"
+subnets  = [ibm_is_subnet.testacc_subnet.id]
+profile = "network-private-path"
+type = "private_path"
+}
+```
+{: codeblock}

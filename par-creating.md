@@ -29,7 +29,7 @@ You can create public address ranges with the console, CLI, and API.
 ## Before you begin
 {: #par-before-you-begin}
 
-Make sure to review [Planning considerations](/docs/vpc?topic=vpc-about-par#par-planning) and [Known issues and limitations](/docs/vpc?topic=vpc-par-limitations&interface=api) for public address ranges.
+Make sure to review [planning considerations](/docs/vpc?topic=vpc-about-par#par-planning) and [limitations](/docs/vpc?topic=vpc-par-limitations&interface=api) for public address ranges.
 
 ## Creating a public access range in the console
 {: #par-creating-ui} 

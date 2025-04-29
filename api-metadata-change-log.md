@@ -2,7 +2,7 @@
 
 copyright:
   years: 2019, 2025
-lastupdated: "2025-04-01"
+lastupdated: "2025-04-29"
 
 keywords: api, change log, metadata, new features, restrictions, migration, versioned change
 
@@ -58,7 +58,7 @@ Some changes, such as new response properties or new optional request parameters
 ### For all version dates
 {: #28-may-2024-all-version-dates-metadata}
 
-**Virtual network interface protocol state filtering mode.** When [listing](/apidocs/vpc-metadata#list-virtual-network-interfaces) and [retrieving](/apidocs/vpc-metadata#get-virtual-network-interface) a virtual network interface, the new `protocol_state_filtering_mode` property denotes the protocol state filtering mode used for this virtual network interface. If the value is `auto`, protocol state packet filtering is enabled or disabled based on the virtual network interface's `target` resource type. For more information, see [Virtual network interfaces protocol state filtering](/docs/vpc?topic=vpc-api-change-log#28-may-2024) in the VPC API change log.
+**Virtual network interface protocol state filtering mode.** When [retrieving](/apidocs/vpc-metadata#get-virtual-network-interface) or [listing](/apidocs/vpc-metadata#list-virtual-network-interfaces) virtual network interfaces, the new `protocol_state_filtering_mode` property denotes the protocol state filtering mode used for this virtual network interface. If the value is `auto`, protocol state packet filtering is enabled or disabled based on the virtual network interface's `target` resource type. For more information, see [Virtual network interfaces protocol state filtering](/docs/vpc?topic=vpc-api-change-log#28-may-2024) in the VPC API change log.
 
 This release introduces the following updates for accounts that have been granted special approval to preview these features:
 
@@ -94,7 +94,7 @@ This feature is now generally available. See the [26 March 2024](#26-march-2024-
 ### For all version dates
 {: #19-december-2023-all-version-dates-metadata}
 
-**Virtual network interface support.** Accounts that have been granted special approval can preview a new feature that expands the support for [virtual network interfaces](/docs/vpc?topic=vpc-vni-about). You can now [list](/apidocs/vpc-metadata#list-instance-network-attachments) and [view](/apidocs/vpc-metadata#get-instance-network-attachment) an instance's network attachments, and you can [list](/apidocs/vpc-metadata#list-virtual-network-interfaces) and [view](/apidocs/vpc-metadata#get-virtual-network-interface) virtual network interfaces targeting the instance. For compatibility with existing clients, an instance with virtual network interfaces now includes a read-only representation of its network attachments and virtual network interfaces as legacy network interface child resources. For more information, see the [API change log](/docs/vpc?topic=vpc-api-change-log#19-december-2023), and learn about [support for old API clients](/docs/vpc?topic=vpc-vni-about&interface=ui#vni-old-api-clients).
+**Virtual network interface support.** Accounts that have been granted special approval can preview a new feature that expands the support for [virtual network interfaces](/docs/vpc?topic=vpc-vni-about). You can now [list](/apidocs/vpc-metadata#list-instance-network-attachments) or [view](/apidocs/vpc-metadata#get-instance-network-attachment) an instance's network attachments, and you can [list](/apidocs/vpc-metadata#list-virtual-network-interfaces) or [view](/apidocs/vpc-metadata#get-virtual-network-interface) virtual network interfaces targeting the instance. For compatibility with existing clients, an instance with virtual network interfaces now includes a read-only representation of its network attachments and virtual network interfaces as legacy network interface child resources. For more information, see the [API change log](/docs/vpc?topic=vpc-api-change-log#19-december-2023), and learn about [support for old API clients](/docs/vpc?topic=vpc-vni-about&interface=ui#vni-old-api-clients).
 
 ## 17 October 2023
 {: #17-october-2023-metadata}
@@ -118,7 +118,7 @@ This feature is now generally available. See the [26 March 2024](#26-march-2024-
 ### For all version dates
 {: #27-june-2023-all-version-dates-metadata}
 
-**Extended SSH key encryption.** The `type` property now includes `ed25519` when [listing](/apidocs/vpc-metadata#list-keys) and [retrieving](/apidocs/vpc-metadata#get-key) public SSH keys. For more information, see [Getting started with SSH keys](/docs/vpc?topic=vpc-ssh-keys&interface=api). See also [Extended SSH key encryption](/docs/vpc?topic=vpc-api-change-log#27-june-2023) in the VPC API change log.
+**Extended SSH key encryption.** The `type` property now includes `ed25519` when [retrieving](/apidocs/vpc-metadata#get-key) or [listing](/apidocs/vpc-metadata#list-keys) public SSH keys. For more information, see [Getting started with SSH keys](/docs/vpc?topic=vpc-ssh-keys&interface=api). See also [Extended SSH key encryption](/docs/vpc?topic=vpc-api-change-log#27-june-2023) in the VPC API change log.
 
 ## 14 February 2023
 {: #14-february-2023-metadata}
@@ -128,7 +128,7 @@ This feature is now generally available. See the [26 March 2024](#26-march-2024-
 
 **VPC instance metadata new endpoint URL.** You can now use the fully qualified domain name (FQDN) `api.metadata.cloud.ibm.com` for the metadata service endpoint. The FQDN resolves to the link-local IP address `169.254.169.254` without requiring the application of special configurations. For more information, see [Endpoint URLs](/apidocs/vpc-metadata#endpoint-url-metadata) in the VPC Instance Metadata API.
 
-**VPC instance metadata communication protocol and hop limit.** You can now view the communication protocol and hop limit for IP response packets used by the [VPC Instance Metadata service](/docs/vpc?topic=vpc-imd-about). When you [retrieve the instance](/apidocs/vpc-metadata#get-instance), the new `protocol` and `response_hop_limit` properties will be shown. For more information, see [Configure the instance metadata service](/docs/vpc?topic=vpc-imd-configure-service&interface=api).
+**VPC instance metadata communication protocol and hop limit.** You can now view the communication protocol and hop limit for IP response packets used by the [VPC Instance Metadata service](/docs/vpc?topic=vpc-imd-about). When [retrieving the instance](/apidocs/vpc-metadata#get-instance), the new `protocol` and `response_hop_limit` properties will be shown. For more information, see [Configure the instance metadata service](/docs/vpc?topic=vpc-imd-configure-service&interface=api).
 
 ## 27 September 2022
 {: #27-september-2022-metadata}
