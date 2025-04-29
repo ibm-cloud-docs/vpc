@@ -136,7 +136,7 @@ If a source share with snapshots is replicated, the corresponding replica share 
 
 The `source_snapshot` property is present in the API response when a share is created by using a snapshot. However, when the share is replicated, this property is not copied to the replica.
 
-### Backup plan ID property in API response
+### Backup plan ID property in the API response
 {: #backup-policy-plan-fs}
 
 When details of a snapshot are retrieved, the API response shows the property name `backup_plan_id` instead of `backup_policy_plan`. A fix for this issue is planned.
