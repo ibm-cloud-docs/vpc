@@ -2,7 +2,7 @@
 
 copyright:
   years: 2025
-lastupdated: "2025-04-24"
+lastupdated: "2025-04-29"
 
 keywords: viewing, deleting, public address range
 
@@ -111,5 +111,5 @@ To delete a public address range with the API, follow these steps:
 - [IAM roles and actions](/docs/vpc?topic=vpc-about-par#par-access-management)
 - [Quotas and service limits](/docs/vpc?topic=vpc-quotas)
 - [Creating public address ranges](/docs/vpc?topic=vpc-par-creating&interface=ui)
-- [Binding, unbinding, and moving public address ranges to a VPC](/docs/vpc?topic=vpc-par-unbinding-binding&interface=ui)
+- [Binding, unbinding, and moving public address ranges](/docs/vpc?topic=vpc-par-unbinding-binding&interface=ui)
 - [Viewing public address ranges](/docs/vpc?topic=vpc-par-viewing&interface=ui) 
