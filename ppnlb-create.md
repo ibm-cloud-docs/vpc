@@ -2,7 +2,7 @@
 
 copyright:
   years: 2022, 2025
-lastupdated: "2025-04-25"
+lastupdated: "2025-04-29"
 
 keywords: load balancer, public, listener, back-end, front-end, pool, round-robin, weighted, connections, methods, policies, APIs, access, ports
 
@@ -576,12 +576,43 @@ To create a Private Path NLB with the API, follow these steps:
 
 The following example creates a Private Path network load balancer by using Terraform:
 
-```terraform
-resource "ibm_is_lb" "ppnlb" {
-  name     = "my-example-ppnlb"
-  subnets  = [ibm_is_subnet.subnet1.id]
-  profile = "network-private-path"
-  type = "private_path"
-}
-```
-{: codeblock}
+1. Create a Private Path NLB:
+
+    ```terraform
+    resource "ibm_is_lb" "testacc_lb" {
+    name     = "my-example-ppnlb"
+    subnets  = [ibm_is_subnet.testacc_subnet.id}
+    profile = "network-private-path"
+    type = "private_path"
+    }
+    ```
+    {: codeblock}
+
+1. Optionally, create a pool for your Private Path NLB:
+
+    ```terraform
+    resource "ibm_is_lb_pool" "testacc_lb_pool" {
+    name           = "my-tf-pool"
+    lb             = [ibm_is_lb.testacc_LB.id]
+    algorithm      = "round_robin"
+    protocol       = "tcp"
+    health_delay   = 2
+    health_retries = 2
+    health_timeout = 1
+    health_type    = "tcp"
+    }
+    ```
+    {: codeblock}
+
+1. Optionally, target an ALB or VSI ID as a pool member for your Private Path NLB:
+
+    ```terraform
+    resource "ibm_is_lb_pool_member" {
+    lb      = [ibm_is_lb.testacc_LB.id]
+    pool    = "element(split("/", [ibm_is_lb_pool.testacc_lb_pool.id]), 1)"
+    port    = 8080
+    weight  = 20
+    target_id = [ibm_is_lb.example1.id]
+    }
+    ```
+    {: codeblock}
