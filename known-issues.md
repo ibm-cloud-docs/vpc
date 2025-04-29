@@ -2,7 +2,7 @@
 
 copyright:
   years: 2018, 2025
-lastupdated: "2025-04-01"
+lastupdated: "2025-04-29"
 
 keywords:
 
@@ -119,7 +119,7 @@ When replication occurs between the source share and its replica, the system cre
 ### File share snapshots are not visible in UI, CLI, or API responses for Accessor shares
 {: #filesnapshotsonaccessorshare}
 
-Users of Accessor shares have access to all the data of the source share, which includes of the snapshots of the file share. Although users of an Accessor share can't see the file share snapshots of the source share in the console, in the CLI or API responses, they can access the snapshots in the `.snapshot` directory of the Accessor share.
+Users of Accessor shares have access to all the data of the source share, which includes the snapshots of the file share. Although users of an Accessor share can't see the file share snapshots of the source share in the console, in the CLI or API responses, they can access the snapshots in the `.snapshot` directory of the Accessor share.
 
 ### File share snapshot directory visible property in API response
 {: #snapshotdirectoryvisibleAPI}
