@@ -4,7 +4,9 @@ copyright:
   years: 2020, 2025
 lastupdated: "2025-04-29"
 
-keywords:  VPN, network, encryption, authentication, algorithm, IKE, IPsec, policies, gateway
+keywords: VPN, network, encryption, authentication, algorithm, IKE, IPsec, policies, gateway
+
+subcollection: vpc
 
 ---
 
@@ -19,7 +21,7 @@ You can configure ACLs on the VPN gateway's subnet where the VPN gateway is depl
 
 The following diagram illustrates packet flow through VPC network ACLs.
 
-   ![Packet flow through VPC ACLs](images/vpc-traffic-flow.png){: caption="Packet flow through VPC ACLs" caption-side="bottom"}
+![Packet flow through VPC ACLs](images/vpc-traffic-flow.png){: caption="Packet flow through VPC ACLs" caption-side="bottom"}
 
 1. Encapsulated, bidirectional traffic flows from the peer gateway to the VPC resources that are a part of the encrypted domain.
 1. Unencapsulated packets then leave the VPN subnet and enter the virtual server instance subnet.
