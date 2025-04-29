@@ -2,7 +2,7 @@
 
 copyright:
   years: 2025
-lastupdated: "2025-04-24"
+lastupdated: "2025-04-29"
 
 keywords: public address range, create, bind
 
@@ -24,20 +24,20 @@ You can create a public address range by defining its size and, optionally, spec
 If the VPC is deleted while it is bound to a public address range, the address range continues to exist and can be bound later to a different VPC in any availability zone.
 {: tip}
 
-You can create public address ranges with the UI, CLI, and API.
+You can create public address ranges with the console, CLI, and API.
 
 ## Before you begin
 {: #par-before-you-begin}
 
 Make sure to review [Planning considerations](/docs/vpc?topic=vpc-about-par#par-planning) and [Known issues and limitations](/docs/vpc?topic=vpc-par-limitations&interface=api) for public address ranges.
 
-## Creating a public access range in the UI
+## Creating a public access range in the console
 {: #par-creating-ui} 
 {: ui}
 
 To create a public access range in the {{site.data.keyword.cloud_notm}} console, follow these steps:
 
-1. From the [{{site.data.keyword.cloud_notm}} console](/login){: external}, select the **Navigation Menu** ![Menu icon](images/menu_icon.png), then click **Infrastructure > Network > Public Address Ranges**. The Public Address Ranges for VPC page appears.
+1. From the [{{site.data.keyword.cloud_notm}} console](/login){: external}, select the **Navigation Menu** ![Menu icon](../icons/icon_hamburger.svg), then click **Infrastructure > Network > Public Address Ranges**. The Public Address Ranges for VPC page appears.
 1. Click **Create** to go to the provisioning page.
 1. In the Location section, edit the following fields, if necessary:
    * **Geography**: Indicates the geography where you want the public address range created.
@@ -46,12 +46,12 @@ To create a public access range in the {{site.data.keyword.cloud_notm}} console,
    * **Name**: Enter a name for the public address range, such as `my-public-address-range`.
    * **Size**: Choose the size (number of IPs) of the address range. You can choose from 1, 2, 4, 8, or 16 IPs to include in the block.
 
-      After you create a public address range, you cannot change its size.
+      After you create a public address range, you can't change its size.
       {: note}
 
    * **Resource group**: Select a resource group for the public address range.
 
-      After you create a public address range, the resource group cannot be changed.
+      After you create a public address range, you can't change the resource group.
       {: note}
 
    * **Tags**: (Optional) Add tags to help you organize and find your resources. You can always add more tags later. For more information, see [Working with tags](/docs/account?topic=account-tag).

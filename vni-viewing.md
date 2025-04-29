@@ -1,8 +1,8 @@
 ---
 
 copyright:
-  years: 2023, 2024
-lastupdated: "2024-10-25"
+  years: 2023, 2025
+lastupdated: "2025-04-29"
 
 keywords:
 
@@ -18,7 +18,7 @@ subcollection: vpc
 With virtual network interfaces, where you view resources is different. In older network interfaces, you can view the details of the resources by going to the resource directly. In a virtual network interface, you can view the resource's details from within the virtual network interface.
 {: shortdesc}
 
-You can view the details of a VNI with the UI, CLI, API, or Terraform.
+You can view the details of a VNI with the console, CLI, API, or Terraform.
 
 ## Viewing details of a virtual network interface from the UI
 {: #virtual-network-interface-view-ui}

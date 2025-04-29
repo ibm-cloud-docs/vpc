@@ -1,8 +1,8 @@
 ---
 
 copyright:
-  years: 2022, 2024
-lastupdated: "2024-11-12"
+  years: 2022, 2025
+lastupdated: "2025-04-29"
 
 keywords:
 
@@ -31,7 +31,7 @@ Before you begin, you must be assigned one or more IAM access roles that include
 ## Creating a subnet in VPC
 {: #subnets-vpc-create}
 
-You can create a subnet in VPC by using the UI, CLI, or API.
+You can create a subnet in VPC by using the console, CLI, or API.
 
 If you use an IP range outside of the ranges [RFC 1918](https://datatracker.ietf.org/doc/html/rfc1918){: external} defines (10.0.0.0/8, 172.16.0.0/12, or 192.168.0.0/16) for a subnet, the instances attached to that subnet might be unable to reach parts of the public internet. If you plan to configure VPCs that use both non-RFC-1918 addresses and also have public connectivity (floating IPs or public gateways), make sure to use a custom route that contains the Delegate-VPC action.
 {: tip}
@@ -223,7 +223,7 @@ You can view the details of a subnet in your VPC by using the UI, API, or CLI.
 
 After you have created a subnet, it appears in the Subnets for VPC list.
 
-To view the details about a subnet in the list using the UI, click the link of the subnet in the **Name** column. The **Overview** tab shows the information you used in the subnet creation.
+To view the details about a subnet in the list using the console, CLIck the link of the subnet in the **Name** column. The **Overview** tab shows the information you used in the subnet creation.
 
 ### Viewing subnets in VPC using the CLI
 {: #subnets-view-cli}

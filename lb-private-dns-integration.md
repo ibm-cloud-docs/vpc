@@ -2,7 +2,7 @@
 
 copyright:
   years: 2022, 2025
-lastupdated: "2025-01-29"
+lastupdated: "2025-04-29"
 
 keywords:
 
@@ -35,13 +35,13 @@ Before binding DNS zones to load balancers, you must first create DNS zones and 
 
 1. To give a load balancer access to your DNS zone, you must enable service-to-service authorization. This grants your load balancer access to the DNS zone. For more information, see [Granting access between services](/docs/account?topic=account-serviceauth&interface=ui#create-auth). Make sure to choose **VPC Infrastructure Services** as the source service, **Load Balancer for VPC** as the resource type, **DNS Services** as the target service, and assign the **Manager** service access role.
 
-## Working with DNS zones in the UI
+## Working with DNS zones in the console
 {: #dns-zones-ui}
 {: ui}
 
 You can bind and unbind DNS zones to an application load balancer during provisioning, or to an existing load balancer.
 
-### Binding DNS zones when creating a load balancer in the UI
+### Binding DNS zones when creating a load balancer in the console
 {: #create-lb-with-dns-zone-ui}
 
 You can bind a DNS zone to a load balancer when you create a load balancer. If you do not specify a DNS zone during load balancer creation, the default zone is used. By default, the load balancer hostname is a subdomain of `lb.appdomain.cloud` and is publicly visible.
@@ -56,7 +56,7 @@ To bind a DNS zone when [creating a load balancer](/docs/vpc?topic=vpc-load-bala
 2. Click **Bind+** to enter DNS instance, and DNS zone information.
 3. Click **Create** to provision the load balancer.
 
-### Binding a DNS zone to an existing load balancer in the UI
+### Binding a DNS zone to an existing load balancer in the console
 {: #binding-dns-zone-to-lb-ui}
 
 To bind a DNS zone to an existing load balancer, follow these steps:
@@ -71,7 +71,7 @@ To bind a DNS zone to an existing load balancer, follow these steps:
 When migrating to a private DNS zone for an existing load balancer, the default A records in `lb.appdomain.cloud` are removed. To prepare your client devices, create a CNAME record with the default hostname under the wanted private DNS zone before the migration. After configuring all client devices to use the new private DNS zone, you can then delete the CNAME record and begin the migration. This allows the client devices to cache the private DNS hostname until the A records are created.
 {: tip}
 
-### Unbinding a DNS zone to an existing load balancer in the UI
+### Unbinding a DNS zone to an existing load balancer in the console
 {: #unbinding-dns-zone-to-lb-ui}
 
 To unbind a DNS zone from a load balancer, follow these steps:

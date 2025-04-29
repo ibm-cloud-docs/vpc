@@ -1,8 +1,8 @@
 ---
 
 copyright:
-  years: 2021, 2023
-lastupdated: "2023-01-17"
+  years: 2021, 2025
+lastupdated: "2025-04-29"
 
 keywords: vpn, ipsec policy
 
@@ -18,7 +18,7 @@ subcollection: vpc
 You can use custom IPsec policies to define security parameters to use during Phase 2 of IKE negotiation. In this phase, the VPN and peer device use the security association that is established during Phase 1 to negotiate what traffic to send and how to authenticate and encrypt that traffic.
 {: shortdesc}
 
-## Creating an IPsec policy in the UI
+## Creating an IPsec policy in the console
 {: #vpn-using-ui-create-ipsec-policy}
 {: ui}
 
@@ -55,7 +55,7 @@ ibmcloud is ipsec-policy-create IPSEC_POLICY_NAME AUTHENTICATION_ALGORITHM ENCRY
 
 Where:
 
-`md-5` and `sha-1` authentication algorithms, `group_2` and `group_5` DH groups, and the `triple_des` encryption algorithm were deprecated on 20 September 2022 and are no longer supported in the UI.
+`md-5` and `sha-1` authentication algorithms, `group_2` and `group_5` DH groups, and the `triple_des` encryption algorithm were deprecated on 20 September 2022 and are no longer supported in the console.
 {: deprecated}
 
 - **IPSEC_POLICY_NAME** - Name of the IPsec policy.

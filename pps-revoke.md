@@ -1,8 +1,8 @@
 ---
 
 copyright:
-  years: 2024
-lastupdated: "2024-11-12"
+  years: 2024, 2025
+lastupdated: "2025-04-29"
 
 keywords:
 
@@ -18,17 +18,17 @@ subcollection: vpc
 As a service provider, you are responsible for managing your consumer account IDs. Currently, tracking or validating account IDs is not supported. For more information, see [Responsibilities for managing consumer account IDs](/docs/vpc?topic=vpc-pps-consumer-account-id-responsibilities&interface=ui).
 {: attention}
 
-You can revoke an account's access to a Private Path service using the UI, CLI, API, or Terraform.
+You can revoke an account's access to a Private Path service using the console, CLI, API, or Terraform.
 {: shortdesc}
 
-## Revoking an account's access to a Private Path service in the UI
+## Revoking an account's access to a Private Path service in the console
 {: #pps-ui-revoke-account-path-service}
 {: ui}
 
 To Revoke an account's access to a Private Path service in the {{site.data.keyword.cloud_notm}} console, follow these steps:
 
 1. From your browser, open the [{{site.data.keyword.cloud_notm}} console](/login){: external} and log in to your account.
-1. Select the **Navigation Menu** ![Menu icon](images/menu_icon.png), then click **Infrastructure > Network > Private Path services**.
+1. Select the **Navigation Menu** ![Menu icon](../icons/icon_hamburger.svg), then click **Infrastructure > Network > Private Path services**.
 1. Click the name of the Private Path service that includes the account policy that you want to update.
 1. On the Private Path service's Details page, click the Connections tab.
 1. Locate the Account ID of the account you want to revoke, and click the Menu icon ![navigation menu](../icons/icon_hamburger.svg) at the end of the row.

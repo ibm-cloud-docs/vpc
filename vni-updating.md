@@ -1,8 +1,8 @@
 ---
 
 copyright:
-  years: 2023, 2024
-lastupdated: "2024-10-25"
+  years: 2023, 2025
+lastupdated: "2025-04-29"
 
 keywords:
 
@@ -15,10 +15,10 @@ subcollection: vpc
 # Updating a virtual network interface
 {: #vni-updating}
 
-If you need to make changes to a virtual network interface, you can update it by using the UI, CLI, API, or Terraform.
+If you need to make changes to a virtual network interface, you can update it by using the console, CLI, API, or Terraform.
 {: shortdesc}
 
-## Updating a virtual network interface in the UI
+## Updating a virtual network interface in the console
 {: #vni-update-ui}
 {: ui}
 

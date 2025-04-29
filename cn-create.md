@@ -2,7 +2,7 @@
 
 copyright:
   years: 2024, 2025
-lastupdated: "2025-04-11"
+lastupdated: "2025-04-29"
 
 keywords:
 
@@ -27,13 +27,13 @@ Cluster networks allow you to interconnect and define sets of performance criter
    Currently, the only supported zone is `us-east-wdc07-a`. For more information about zones, see [zone mapping](/docs/overview?topic=overview-locations#zone-mapping).
    {: note}
    
-You can create a cluster network with the UI, API, CLI, and Terraform.
+You can create a cluster network with the console, API, CLI, and Terraform.
 
-## Creating a cluster network in the UI
+## Creating a cluster network in the console
 {: #cn-ui-create}
 {: ui}
 
-To create a cluster network in the UI, follow these steps:
+To create a cluster network in the console, follow these steps:
 
 1. From your browser, open the [{{site.data.keyword.cloud_notm}} console](/login) and log in to your account.
 1. Select the **Navigation Menu** ![Navigation Menu icon](../../icons/icon_hamburger.svg), then click  **Infrastructure** ![VPC icon](../../icons/vpc.svg)  > **Cluster networks**.

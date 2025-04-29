@@ -2,7 +2,7 @@
 
 copyright:
   years: 2024, 2025
-lastupdated: "2025-02-28"
+lastupdated: "2025-04-29"
 
 keywords: private path
 
@@ -21,16 +21,16 @@ As a service provider, you are responsible for managing your consumer account ID
 You can create a policy for a specific account ID. This is advantageous when you want a different action for an account than what is set for the default policy. For example, if you set the default policy to **Review all requests**, but you want to automatically **Permit** requests from ID `Lauren`, you can create an account policy to bypass triaging requests from that ID.
 {: shortdesc}
 
-You can create an account policy to review, accept, or reject connection requests using the UI, CLI, API, or Terraform.
+You can create an account policy to review, accept, or reject connection requests using the console, CLI, API, or Terraform.
 
-## Creating an account policy in the UI
+## Creating an account policy in the console
 {: #pps-ui-create-account-policy}
 {: ui}
 
 To create a Private Path service policy in the {{site.data.keyword.cloud_notm}} console, follow these steps:
 
 1. From your browser, open the [{{site.data.keyword.cloud_notm}} console](/login) and log in to your account.
-1. Select the **Navigation Menu** ![Menu icon](images/menu_icon.png), then click **Infrastructure > Network > Private Path services**.
+1. Select the **Navigation Menu** ![Menu icon](../icons/icon_hamburger.svg), then click **Infrastructure > Network > Private Path services**.
 1. Click the name of the Private Path service where you want to add an account policy.
 1. On the Private Path service's Details page, click the Account policies tab.
 1. In the Account policies table, click **Create policy**.

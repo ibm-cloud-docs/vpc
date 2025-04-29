@@ -2,7 +2,7 @@
 
 copyright:
   years: 2020, 2025
-lastupdated: "2025-04-24"
+lastupdated: "2025-04-29"
 
 keywords:
 
@@ -16,7 +16,7 @@ subcollection: vpc
 
 You can list your flow log collectors by using the UI, the CLI, or the API.
 
-##  Listing flow log collectors in the UI
+##  Listing flow log collectors in the console
 {: #fl-list-ui}
 {: ui}
 

@@ -2,7 +2,7 @@
 
 copyright:
   years: 2024, 2025
-lastupdated: "2025-04-17"
+lastupdated: "2025-04-29"
 
 keywords:
 
@@ -49,7 +49,7 @@ A cluster network enhances the efficiency and speed of data transfer within a ne
 1. [Create a cluster network](/docs/vpc?topic=vpc-create-cluster-network&interface=ui). Currently, cluster networking supports both H100 and Hopper-1 profiles for NVIDIA Hopper HGX instances. However, the H100 cluster network profile will be deprecated in the future and replaced by the Hopper-1 cluster network profile that supports both NVIDIA and H200 instance profiles.
 1. [Create cluster network subnets](/docs/vpc?topic=vpc-create-cluster-network-subnet&interface=ui) (8, 16, or 32) as child objects on the cluster network.
    
-   If creating a cluster network in the UI, you can create cluster network subnets at the same time. While it is recommended that you use 8 subnets, certain scenarios will utilize a larger number of subnets.
+   If creating a cluster network in the console, you can create cluster network subnets at the same time. While it is recommended that you use 8 subnets, certain scenarios will utilize a larger number of subnets.
    {: note}
 
    Subnets within the Hopper 1 cluster network type are routable to each other. However, the cluster network is not routable externally.

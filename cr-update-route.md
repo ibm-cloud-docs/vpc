@@ -1,8 +1,8 @@
 ---
 
 copyright:
-  years: 2020, 2024
-lastupdated: "2024-12-10"
+  years: 2020, 2025
+lastupdated: "2025-04-29"
 
 keywords: custom routes
 
@@ -15,14 +15,14 @@ subcollection: vpc
 # Updating a route
 {: #update-vpc-route}
 
-You can update a route for an IBM Cloud service by using the UI, CLI, API, or Terraform.
+You can update a route for an IBM Cloud service by using the console, CLI, API, or Terraform.
 {: shortdesc}
 
-## Updating a route in the UI
+## Updating a route in the console
 {: #cr-route-update-the-ui}
 {: ui}
 
-To update a route in the UI, follow these steps:
+To update a route in the console, follow these steps:
 
 1. Make sure to review [Limitations and guidelines](/docs/vpc?topic=vpc-about-custom-routes&interface=ui#limitations-custom-routes).
 1. From the [{{site.data.keyword.cloud_notm}} console](/login){: external}, select the **Navigation Menu** ![Navigation Menu](images/menu_icon.png), then click **Infrastructure > Network > Routing tables**. The Routing tables for VPC page appears.

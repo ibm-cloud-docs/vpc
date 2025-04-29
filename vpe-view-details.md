@@ -1,8 +1,8 @@
 ---
 
 copyright:
-  years: 2020, 2024
-lastupdated: "2024-10-25"
+  years: 2020, 2025
+lastupdated: "2025-04-29"
 
 keywords: virtual private endpoints, view details, VPE, endpoint gateway
 subcollection: vpc
@@ -14,7 +14,7 @@ subcollection: vpc
 # Viewing details of an endpoint gateway
 {: #vpe-viewing-details-of-an-endpoint-gateway}
 
-You can view details about a specific endpoint gateway, or see a summary of endpoint gateways for VPC by using the UI, CLI, or API.
+You can view details about a specific endpoint gateway, or see a summary of endpoint gateways for VPC by using the console, CLI, or API.
 {: shortdesc}
 
 Only services that support Virtual Private Endpoints for VPC show up in the list of endpoint gateway targets.
@@ -26,7 +26,7 @@ Only services that support Virtual Private Endpoints for VPC show up in the list
 
 To view details of an endpoint gateway by using the {{site.data.keyword.cloud}} console, follow these steps:
 
-1. From the [{{site.data.keyword.cloud_notm}} console](/login){: external}, select the **Navigation Menu** ![menu icon](images/menu_icon.png), then click  **Infrastructure > Network > Virtual private endpoint gateways**.
+1. From the [{{site.data.keyword.cloud_notm}} console](/login){: external}, select the **Navigation Menu** ![menu icon](../icons/icon_hamburger.svg), then click  **Infrastructure > Network > Virtual private endpoint gateways**.
 
    The Virtual private endpoint gateways for VPC page shows all endpoint gateways for all VPCs in the region.
 

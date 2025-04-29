@@ -2,7 +2,7 @@
 
 copyright:
   years: 2024, 2025
-lastupdated: "2025-02-24"
+lastupdated: "2025-04-29"
 
 keywords:
 
@@ -23,16 +23,16 @@ If a Private Path service is not published, it cannot be accessed outside of the
 
 Publishing allows any account to request access to the Private Path service. If need be, you can also unpublish where access is restricted to the account that created the Private Path service.
 
-You can publish and unpublish an {{site.data.keyword.cloud}} Private Path service using the UI, CLI, API, or Terraform.
+You can publish and unpublish an {{site.data.keyword.cloud}} Private Path service using the console, CLI, API, or Terraform.
 
-## Publishing a Private Path service in the UI
+## Publishing a Private Path service in the console
 {: #pps-ui-activating-private-path-service}
 {: ui}
 
 To publish a Private Path service in the {{site.data.keyword.cloud_notm}} console, follow these steps:
 
 1. From your browser, open the [{{site.data.keyword.cloud_notm}} console](/login) and log in to your account.
-1. Select the **Navigation Menu** ![Menu icon](images/menu_icon.png), then click **Infrastructure > Network > Private Path services**.
+1. Select the **Navigation Menu** ![Menu icon](../icons/icon_hamburger.svg), then click **Infrastructure > Network > Private Path services**.
 1. Locate the name of your new Private Path service in the table, and click the name to view the Private Path service details page.
 1. Click **Publish** in the Actions menu ![Actions menu](images/overflow.png).
 
@@ -42,14 +42,14 @@ The Private Path service is now exposed for other accounts to connect to the ser
 
 After publishing, the Private Path service name is visible to customers connecting to the Private Path service.
 
-## Unpublishing a Private Path service in the UI
+## Unpublishing a Private Path service in the console
 {: #pps-ui-deactivating-private-path-service}
 {: ui}
 
 To unpublish a Private Path service in the {{site.data.keyword.cloud_notm}} console, follow these steps:
 
 1. From your browser, open the [{{site.data.keyword.cloud_notm}} console](/login) and log in to your account.
-1. Select the **Navigation Menu** ![Menu icon](images/menu_icon.png), then click  **Infrastructure > Network > Private Path services**.
+1. Select the **Navigation Menu** ![Menu icon](../icons/icon_hamburger.svg), then click  **Infrastructure > Network > Private Path services**.
 1. In the Private Path services for VPC table, locate the Private Path that you want to unpublish, then click the name of that Private Path service.
 1. On the Private Path service details page, click the **Actions** menu, then click **Unpublish**.
 1. Confirm that you want to unpublish your Private Path service.

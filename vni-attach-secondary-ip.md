@@ -1,8 +1,8 @@
 ---
 
 copyright:
-  years: 2023, 2024
-lastupdated: "2024-10-25"
+  years: 2023, 2025
+lastupdated: "2025-04-29"
 
 keywords:
 
@@ -20,9 +20,9 @@ A secondary IP addresses in virtual network interfaces can help you operate netw
 
 Secondary IP addresses can be created when you create your virtual network interface, or they can be added to the virtual network interface after the VNI creation. For steps to add a secondary IP while you create a VNI, see [Creating a virtual network interface](/docs/vpc?topic=vpc-vni-create).
 
-You can add secondary IP addresses to a VNI with the UI, CLI, API, or Terraform.
+You can add secondary IP addresses to a VNI with the console, CLI, API, or Terraform.
 
-## Adding a secondary IP address to an existing virtual network interface in the UI
+## Adding a secondary IP address to an existing virtual network interface in the console
 {: #vni-existing-secondary-ip-ui}
 {: ui}
 

@@ -2,7 +2,7 @@
 
 copyright:
   years: 2022, 2025
-lastupdated: "2025-03-18"
+lastupdated: "2025-04-29"
 
 keywords: context-based restrictions for VPC Infrastructure Services
 
@@ -273,7 +273,7 @@ ibmcloud cbr rule-create --context-attributes 'endpointType=private' --zone-id a
 ```
 {: pre}
 
-### Creating rules in the UI
+### Creating rules in the console
 {: #rules-ui}
 {: ui}
 

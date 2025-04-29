@@ -1,8 +1,8 @@
 ---
 
 copyright:
-  years: 2023, 2024
-lastupdated: "2024-10-25"
+  years: 2023, 2025
+lastupdated: "2025-04-29"
 
 keywords:
 
@@ -34,13 +34,13 @@ To create a virtual network interface, you must have the following prerequisites
 Review [planning considerations](/docs/vpc?topic=vpc-vni-about#vni-planning) and [known limitations](/docs/vpc?topic=vpc-vni-known-issues) for virtual network interfaces.
 {: important}
 
-You can create a virtual network interface with the UI, CLI, API, or Terraform.
+You can create a virtual network interface with the console, CLI, API, or Terraform.
 
-## Creating a virtual network interface in the UI
+## Creating a virtual network interface in the console
 {: #vni-create-ui}
 {: ui}
 
-To create a virtual network interface in the UI, follow these steps:
+To create a virtual network interface in the console, follow these steps:
 
 1. From your browser, open the [{{site.data.keyword.cloud_notm}} console](/login){: external} and log in to your account.
 1. Select the **Navigation Menu** ![Navigation Menu icon](../../icons/icon_hamburger.svg), then click  **Infrastructure > Network > Virtual network interfaces**.

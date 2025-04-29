@@ -32,16 +32,16 @@ You can choose from three options when working with connection requests:
 If you don't want to review every connection request, you can streamline the process by changing the default policy or creating account-specific policies. For more information, see [About account policies](/docs/vpc?topic=vpc-pps-about-account-policies).
 {: fast-path}
 
-As the service provider, you can review and triage (permit, deny, or revoke) connection requests to your service using the UI, CLI, API, or Terraform.
+As the service provider, you can review and triage (permit, deny, or revoke) connection requests to your service using the console, CLI, API, or Terraform.
 
-## Reviewing connection requests in the UI
+## Reviewing connection requests in the console
 {: #pps-ui-review-requests}
 {: ui}
 
 To triage incoming connection requests in the {{site.data.keyword.cloud_notm}} console, follow these steps:
 
 1. From your browser, open the [{{site.data.keyword.cloud_notm}} console](/login) and log in to your account.
-1. Select the **Navigation Menu** ![Menu icon](images/menu_icon.png), then click **Infrastructure > Network > Private Path services**.
+1. Select the **Navigation Menu** ![Menu icon](../icons/icon_hamburger.svg), then click **Infrastructure > Network > Private Path services**.
 1. In the Private Path services for VPC table, click the name of a Private Path service to show its details page.
 1. Scroll to the **Connections** section to review connection requests. Click the Actions menu ![Actions menu](images/overflow.png) and select an option to permit, deny, or revoke the connection request. After you select an option, you are prompted to confirm your choice, and optionally create an account policy for the account ID.
 

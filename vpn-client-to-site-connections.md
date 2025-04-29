@@ -1,8 +1,8 @@
 ---
 
 copyright:
-  years: 2021, 2024
-lastupdated: "2024-09-23"
+  years: 2021, 2025
+lastupdated: "2025-04-29"
 
 keywords:
 
@@ -17,7 +17,7 @@ subcollection: vpc
 
 Connections are VPN sessions that are established by VPN clients. After a VPN client connects to the VPN server, you can view all VPN clients that connected to the server in the last hour. VPN client information includes the client IP, user ID, status, remote IP, remote port, and session start/end time (if applicable).
 
-## Disconnecting VPN clients in the UI
+## Disconnecting VPN clients in the console
 {: #vpn-client-to-site-ending-connections}
 {: ui}
 

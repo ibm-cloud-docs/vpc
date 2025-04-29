@@ -2,7 +2,7 @@
 
 copyright:
   years: 2024, 2025
-lastupdated: "2025-02-05"
+lastupdated: "2025-04-29"
 
 keywords:
 
@@ -23,13 +23,13 @@ You can create a cluster network interface either during the creation of a clust
 
 Review [Planning considerations](/docs/vpc?topic=vpc-planning-cluster-network&interface=ui) and [Known issues and limitations](/docs/vpc?topic=vpc-limitations-cluster-network&interface=ui).
 
-You can create a cluster network interface with the UI, CLI, API, or Terraform.
+You can create a cluster network interface with the console, CLI, API, or Terraform.
 
-## Creating a cluster network interface in the UI
+## Creating a cluster network interface in the console
 {: #create-cluster-network-interface-ui}
 {: ui}
 
-To create a cluster network interface within a network cluster in the UI, follow these steps:
+To create a cluster network interface within a network cluster in the console, follow these steps:
 
 1. From your browser, open the [{{site.data.keyword.cloud_notm}} console](/login){: external} and log in to your account.
 1. Select the **Navigation Menu** ![menu icon](../../icons/icon_hamburger.svg), then click **Infrastructure > Network > Cluster networks**.

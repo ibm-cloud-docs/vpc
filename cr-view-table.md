@@ -1,8 +1,8 @@
 ---
 
 copyright:
-  years: 2020, 2024
-lastupdated: "2024-10-25"
+  years: 2020, 2025
+lastupdated: "2025-04-29"
 
 keywords: custom routes
 
@@ -15,14 +15,14 @@ subcollection: vpc
 # Viewing details of a routing table
 {: #view-details-routing-table}
 
-You can view details of a routing table by using the UI, CLI, API, or Terraform. From the Routing table details page in the console, you can also view details of attached routes and subnets, as well as go to other pages to view VPC details, manage address prefixes, and more.
+You can view details of a routing table by using the console, CLI, API, or Terraform. From the Routing table details page in the console, you can also view details of attached routes and subnets, as well as go to other pages to view VPC details, manage address prefixes, and more.
 {: shortdesc}
 
-## Viewing details of a routing table in the UI
+## Viewing details of a routing table in the console
 {: #cr-routing-table-using-the-ui}
 {: ui}
 
-To view the details of a routing table in the UI, follow these steps:
+To view the details of a routing table in the console, follow these steps:
 
 1. From the [{{site.data.keyword.cloud_notm}} console](/login){: external}, select the **Navigation Menu** ![Navigation menu](images/menu_icon.png), then click **Infrastructure > Network > Routing tables**. The Routing tables for VPC page appears.
 

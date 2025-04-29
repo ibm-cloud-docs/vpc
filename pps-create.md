@@ -21,7 +21,7 @@ Accounts with special approval can attach an ALB to a Private Path NLB pool, ena
 As a service provider, you are responsible for managing your consumer account IDs. Currently, tracking or validating account IDs is not supported. For more information, see [Responsibilities for managing consumer account IDs](/docs/vpc?topic=vpc-pps-consumer-account-id-responsibilities&interface=ui).
 {: attention}
 
-Private Path services for VPC enable service providers to create and manage private connectivity for hosted IBM Cloud and third-party services and applications. You can create a Private Path service by using the UI, CLI, API, or Terraform.
+Private Path services for VPC enable service providers to create and manage private connectivity for hosted IBM Cloud and third-party services and applications. You can create a Private Path service by using the console, CLI, API, or Terraform.
 {: shortdesc}
 
 ## Before you begin
@@ -41,16 +41,16 @@ Before you create a Private Path service, review the following prerequisites:
    You can opt out of this requirement if you are willing to use one of limited predefined set of domains listed in [Registering and verifying ownership of service endpoints (FQDNs)](/docs/private-path?topic=private-path-private-path-service-about&interface=ui#pps-domain-register-verify).
    {: note}
 
-You can create an {{site.data.keyword.cloud}} Private Path service using the UI, CLI, API, or Terraform.
+You can create an {{site.data.keyword.cloud}} Private Path service using the console, CLI, API, or Terraform.
 
-## Creating a Private Path service in the UI
+## Creating a Private Path service in the console
 {: #pps-ui-creating-private-path-service}
 {: ui}
 
 To create a Private Path service with the {{site.data.keyword.cloud_notm}} console, follow these steps:
 
 1. From your browser, open the [{{site.data.keyword.cloud_notm}} console](/login) and log in to your account.
-1. Select the **Navigation Menu** ![Menu icon](images/menu_icon.png), then click **Infrastructure > Network > Private Path services**.
+1. Select the **Navigation Menu** ![Menu icon](../icons/icon_hamburger.svg), then click **Infrastructure > Network > Private Path services**.
 1. Click **Create**.
 1. Review the checklist for important information.
 1. In the Location section, ensure that the following fields are correct. If not, click the Edit icon ![Edit icon](images/edit.png) to update.

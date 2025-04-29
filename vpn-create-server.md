@@ -2,7 +2,7 @@
 
 copyright:
   years: 2021, 2025
-lastupdated: "2025-04-16"
+lastupdated: "2025-04-29"
 
 keywords:
 
@@ -20,7 +20,7 @@ subcollection: vpc
 Create a VPN server to allow clients from the internet to connect to the VPC network while maintaining secure connectivity.
 {: shortdesc}
 
-You can create a VPN server by using the UI, CLI, or API.
+You can create a VPN server by using the console, CLI, or API.
 
 ## Before you begin
 {: #vpn-client-to-site-prerequisites}
@@ -40,11 +40,11 @@ Before you provision a VPN server, complete the following prerequisites in the f
    For high availability, create a VPC and two subnets in two different zones. The VPN server resides in the two subnets.
    {: note}
 
-## Creating a VPN server in the UI
+## Creating a VPN server in the console
 {: #creating-vpn-server-ui}
 {: ui}
 
-To create a client-to-site VPN server in the UI:
+To create a client-to-site VPN server in the console:
 
 1. Complete all prerequisites in the "Before you begin" section.
 1. From your browser, open the [{{site.data.keyword.cloud_notm}} console](/login){: external} and log in to your account.

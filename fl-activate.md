@@ -2,7 +2,7 @@
 
 copyright:
   years: 2019, 2025
-lastupdated: "2025-04-24"
+lastupdated: "2025-04-29"
 
 keywords: flow logs, activate, deactivate, suspend, resume
 
@@ -19,7 +19,7 @@ You can suspend and resume a flow log collector by using the UI, the CLI, or the
 After you create a flow log collector, its default state is `Active`.
 {: note}
 
-## Suspending and resuming a flow log collector in the UI
+## Suspending and resuming a flow log collector in the console
 {: #fl-managing-ui}
 {: ui}
 

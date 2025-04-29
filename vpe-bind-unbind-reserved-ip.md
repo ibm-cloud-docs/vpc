@@ -1,8 +1,8 @@
 ---
 
 copyright:
-  years: 2020, 2024
-lastupdated: "2024-10-25"
+  years: 2020, 2025
+lastupdated: "2025-04-29"
 
 keywords: virtual private endpoints, bind, unbind, reserved IP, VPE, endpoint gateways
 
@@ -17,10 +17,10 @@ subcollection: vpc
 {: help}
 {: support}
 
-You can bind and unbind a reserved IP address to an endpoint gateway by using the UI, CLI, and API.
+You can bind and unbind a reserved IP address to an endpoint gateway by using the console, CLI, and API.
 {: shortdesc}
 
-## Binding and unbinding a reserved IP address in the UI
+## Binding and unbinding a reserved IP address in the console
 {: #bind-reserved-ip-ui}
 {: ui}
 
@@ -31,7 +31,7 @@ You can bind or unbind a reserved IP address to an endpoint gateway by using the
 
 To reserve or bind an IP address by using the {{site.data.keyword.cloud}} console:
 
-1. From the [{{site.data.keyword.cloud_notm}} console](/login){: external}, select the **Navigation Menu** ![menu icon](images/menu_icon.png), then click **Infrastructure > Network > Virtual private endpoint gateways**. The Virtual private endpoint gateways for VPC page appears.
+1. From the [{{site.data.keyword.cloud_notm}} console](/login){: external}, select the **Navigation Menu** ![menu icon](../icons/icon_hamburger.svg), then click **Infrastructure > Network > Virtual private endpoint gateways**. The Virtual private endpoint gateways for VPC page appears.
 1. Highlight the row of the gateway in the table, then click **Reserve or bind IP** from the Actions menu ![Actions menu](images/overflow.png). Alternatively, you can click the gateway name and access this link from the endpoint gateway's details page.
 
    If you did not reserve or bind an IP during endpoint gateway creation, this link appears in the IP address column in the table.

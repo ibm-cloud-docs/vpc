@@ -1,8 +1,8 @@
 ---
 
 copyright:
-  years: 2023, 2024
-lastupdated: "2024-10-25"
+  years: 2023, 2025
+lastupdated: "2025-04-29"
 
 keywords:
 
@@ -18,9 +18,9 @@ subcollection: vpc
 Security groups give you a convenient way to apply rules that establish filtering to a target of a virtual server instance, based on its IP address. Virtual network interfaces can be a target for a security group.
 {: shortdesc}
 
-You can add security groups to a VNI with the UI, CLI, API, or Terraform.
+You can add security groups to a VNI with the console, CLI, API, or Terraform.
 
-## Attaching a security group to a virtual network interface in the UI
+## Attaching a security group to a virtual network interface in the console
 {: #vni-add-sg-ui}
 {: ui}
 

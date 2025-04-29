@@ -2,7 +2,7 @@
 
 copyright:
   years: 2020, 2023
-lastupdated: "2024-10-10"
+lastupdated: "2025-04-29"
 
 keywords: anti-spoofing, source destination check, ip spoofing
 
@@ -41,7 +41,7 @@ The IAM IP Spoofing Operator is disabled by default for all users.
 
 For more information about IAM permissions, see [Managing IAM access for VPC Infrastructure Services](/docs/vpc?topic=vpc-iam-getting-started&interface=ui).
 
-To enable IP spoofing in the UI, take the following steps:
+To enable IP spoofing in the console, take the following steps:
 
 1. Go to **Manage > Access (IAM)** in the horizontal navigation bar of your instance.
 2. Select **Users** in the **Manage identities** section and choose the user that you want to grant the IP spoofing role.

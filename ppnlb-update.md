@@ -2,7 +2,7 @@
 
 copyright:
   years: 2020, 2025
-lastupdated: "2025-04-10"
+lastupdated: "2025-04-29"
 
 keywords: network load balancer, public, listener, back-end, front-end, pool, round-robin, weighted, connections, methods, policies, APIs, access, ports, vpc network, update
 
@@ -18,17 +18,17 @@ subcollection: vpc
 Accounts with special approval can attach an ALB to a Private Path NLB pool, enabling access to on-prem resources while maintaining a private connection across IBM Cloud.
 {: preview}
 
-You can update an {{site.data.keyword.cloud}} {{site.data.keyword.nlb_full}} (NLB) with the UI, CLI, or API.
+You can update an {{site.data.keyword.cloud}} {{site.data.keyword.nlb_full}} (NLB) with the console, CLI, or API.
 {: shortdesc}
 
-## Updating a Private Path network load balancer in the UI
+## Updating a Private Path network load balancer in the console
 {: #ppnlb-updating-ui}
 {: ui}
 
 To update a Private Path network load balancer in the {{site.data.keyword.cloud_notm}} console, follow these steps:
 
 1. From your browser, open the [{{site.data.keyword.cloud_notm}} console](/login) and log in to your account.
-1. Select the **Navigation Menu** ![Menu icon](images/menu_icon.png), then click **Infrastructure > Network > Load balancers**.
+1. Select the **Navigation Menu** ![Menu icon](../icons/icon_hamburger.svg), then click **Infrastructure > Network > Load balancers**.
 1. In the Load balancers for VPC table, locate and select the name of the Private Path network load balancer that you want to update.
 1. On the network load balancer details page, select the **Front-end listeners** tab if you need to edit listener parameters. In the Front-end listeners table, click the Edit icon ![Edit icon](images/edit.png) beside the details that you want to update.
 1. On the network load balancer details page, select the **Back-end pools** tab if you need to edit a pool or virtual server instance parameters. In the Back-end pools table, click the Edit icon ![Edit icon](images/edit.png) beside the details that you want to update.

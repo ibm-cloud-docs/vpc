@@ -2,7 +2,7 @@
 
 copyright:
   years: 2025
-lastupdated: "2025-04-24"
+lastupdated: "2025-04-29"
 
 keywords: viewing, deleting, public address range
 
@@ -18,16 +18,16 @@ subcollection: vpc
 Public Address Ranges for VPC is only available for evaluation and testing purposes for users with special access.
 {: beta}
 
-You can delete public address ranges with the UI, CLI, and API.
+You can delete public address ranges with the console, CLI, and API.
 {: shortdesc}
 
-## Deleting public address ranges in the UI
+## Deleting public address ranges in the console
 {: #delete-par-ui}
 {: ui}
 
 To delete public address ranges in the IBM Cloud console, follow these steps:
 
-1. From the [{{site.data.keyword.cloud_notm}} console](/login){: external}, select the **Navigation Menu** ![menu icon](images/menu_icon.png), then click **Infrastructure > Network > Public address ranges**. The Public address ranges for VPC page appears.
+1. From the [{{site.data.keyword.cloud_notm}} console](/login){: external}, select the **Navigation Menu** ![menu icon](../icons/icon_hamburger.svg), then click **Infrastructure > Network > Public address ranges**. The Public address ranges for VPC page appears.
 1. Highlight the row of the address range in the table, then click **Delete** from the **Actions** menu ![Actions icon](../icons/action-menu-icon.svg "Actions").
 1. Click **Delete** to confirm that you want to delete this address range from the VPC.
 
@@ -111,5 +111,5 @@ To delete a public address range with the API, follow these steps:
 - [IAM roles and actions](/docs/vpc?topic=vpc-about-par#par-access-management)
 - [Quotas and service limits](/docs/vpc?topic=vpc-quotas)
 - [Creating public address ranges](/docs/vpc?topic=vpc-par-creating&interface=ui)
-- [Binding, unbinding, and moving public address ranges to a VPC](/docs/vpc?topic=vpc-par-unbinding-binding&interface=ui)
+- [Binding, unbinding, and moving public address ranges](/docs/vpc?topic=vpc-par-unbinding-binding&interface=ui)
 - [Viewing public address ranges](/docs/vpc?topic=vpc-par-viewing&interface=ui) 

@@ -18,7 +18,7 @@ subcollection: vpc
 Accounts with special approval can attach an ALB to a Private Path NLB pool, enabling access to on-prem resources while maintaining a private connection across IBM Cloud. 
 {: preview}
 
-You can use a Private Path network load balancer (NLB) only with a Private Path service. Create the Private Path NLB from the [Load Balancers for VPC page](/infrastructure/provision/loadBalancer) or as part of the Private Path service provisioning process. You can create a Private Path network load balancer by using the UI, CLI, API, or Terraform.
+You can use a Private Path network load balancer (NLB) only with a Private Path service. Create the Private Path NLB from the [Load Balancers for VPC page](/infrastructure/provision/loadBalancer) or as part of the Private Path service provisioning process. You can create a Private Path network load balancer by using the console, CLI, API, or Terraform.
 {: shortdesc}
 
 Private Path allows service providers to enable and manage private connectivity for the consumers of their hosted service. The Private Path service requires a Private Path NLB to establish a secure connection with each consumer's Virtual Private Endpoint (VPE) gateway. For more information, see [About Private Path services](/docs/vpc?topic=vpc-private-path-service-intro).
@@ -35,16 +35,16 @@ Review the following requirements to ensure that your Private Path NLB is proper
 - Create your virtual server instances before creating a Private Path NLB. This ensures that it is fully operational.
 - Make sure you have at least one subnet in your selected VPC.
 
-You can create a Private Path network load balancer by using the UI, CLI, API, or Terraform.
+You can create a Private Path network load balancer by using the console, CLI, API, or Terraform.
 
-## Creating a Private Path network load balancer in the UI
+## Creating a Private Path network load balancer in the console
 {: #ppnlb-ui}
 {: ui}
 
 To create and configure {{site.data.keyword.nlb_full}} in the {{site.data.keyword.cloud_notm}} console, follow these steps:
 
 1. From your browser, open the [{{site.data.keyword.cloud_notm}} console](/login) and log in to your account.
-1. Select the **Navigation Menu** ![Menu icon](images/menu_icon.png), then click **Infrastructure > Network > Load balancers**.
+1. Select the **Navigation Menu** ![Menu icon](../icons/icon_hamburger.svg), then click **Infrastructure > Network > Load balancers**.
 1. Click **Create** in the upper right of the page.
 1. For Load balancer type, select the **Network Load Balancer (NLB)** tile.
 1. In the Location section, edit the following fields, if necessary.
