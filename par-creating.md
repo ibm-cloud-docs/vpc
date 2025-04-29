@@ -2,7 +2,7 @@
 
 copyright:
   years: 2025
-lastupdated: "2025-04-24"
+lastupdated: "2025-04-29"
 
 keywords: public address range, create, bind
 
@@ -46,12 +46,12 @@ To create a public access range in the {{site.data.keyword.cloud_notm}} console,
    * **Name**: Enter a name for the public address range, such as `my-public-address-range`.
    * **Size**: Choose the size (number of IPs) of the address range. You can choose from 1, 2, 4, 8, or 16 IPs to include in the block.
 
-      After you create a public address range, you cannot change its size.
+      After you create a public address range, you can't change its size.
       {: note}
 
    * **Resource group**: Select a resource group for the public address range.
 
-      After you create a public address range, the resource group cannot be changed.
+      After you create a public address range, you can't change the resource group.
       {: note}
 
    * **Tags**: (Optional) Add tags to help you organize and find your resources. You can always add more tags later. For more information, see [Working with tags](/docs/account?topic=account-tag).
