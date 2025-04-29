@@ -15,7 +15,7 @@ subcollection: vpc
 # Network load balancer limitations
 {: #nlb-limitations}
 
-The following lists contain limitations for {{site.data.keyword.cloud}} {{site.data.keyword.nlb_full}} (NLB) and {{site.data.keyword.cloud}} Private Path Network Load Balancer.
+The following lists contain known limitations for {{site.data.keyword.cloud}} {{site.data.keyword.nlb_full}} (NLB) and {{site.data.keyword.cloud}} Private Path Network Load Balancer.
 {: shortdesc}
 
 ## Known limitations for {{site.data.keyword.cloud}} {{site.data.keyword.nlb_full}} (NLB)
