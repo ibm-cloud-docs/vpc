@@ -24,14 +24,14 @@ You can create a public address range by defining its size and, optionally, spec
 If the VPC is deleted while it is bound to a public address range, the address range continues to exist and can be bound later to a different VPC in any availability zone.
 {: tip}
 
-You can create public address ranges with the UI, CLI, and API.
+You can create public address ranges with the console, CLI, and API.
 
 ## Before you begin
 {: #par-before-you-begin}
 
 Make sure to review [Planning considerations](/docs/vpc?topic=vpc-about-par#par-planning) and [Known issues and limitations](/docs/vpc?topic=vpc-par-limitations&interface=api) for public address ranges.
 
-## Creating a public access range in the UI
+## Creating a public access range in the console
 {: #par-creating-ui} 
 {: ui}
 

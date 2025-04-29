@@ -2,7 +2,7 @@
 
 copyright:
   years: 2020, 2025
-lastupdated: "2025-02-24"
+lastupdated: "2025-04-29"
 
 keywords:
 
@@ -21,7 +21,7 @@ You can add connections when [creating a VPN gateway](/docs/vpc?topic=vpc-vpn-cr
 The IKE Phase 1 and Phase 2 (IPsec) security options that you specify for the connection must be the same options that are set on the peer gateway for the network outside your VPC.
 {: important}
 
-## Adding a connection in the UI
+## Adding a connection in the console
 {: #vpn-using-ui-add-connection}
 {: ui}
 

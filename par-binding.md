@@ -2,7 +2,7 @@
 
 copyright:
   years: 2025
-lastupdated: "2025-04-24"
+lastupdated: "2025-04-29"
 
 keywords: public address range, bind, unbind
 
@@ -18,7 +18,7 @@ subcollection: vpc
 Public Address Ranges for VPC is only available for evaluation and testing purposes for users with special access.
 {: beta}
 
-You can bind, unbind, and move public address ranges to a VPC in an availability zone with the UI, CLI, and API.  
+You can bind, unbind, and move public address ranges to a VPC in an availability zone with the console, CLI, and API.  
 {: shortdesc}
 
 ## Before you begin
@@ -27,13 +27,13 @@ You can bind, unbind, and move public address ranges to a VPC in an availability
 * Make sure to review [Planning considerations](/docs/vpc?topic=vpc-about-par#par-planning) and [Public address range limitations](/docs/vpc?topic=vpc-par-limitations&interface=api).
 * The binding of a public address range must include both a VPC and an availability zone.
 
-## Binding, unbinding and moving public address ranges in the UI
+## Binding, unbinding and moving public address ranges in the console
 {: #bind-unbind-par-ui} 
 {: ui}
 
-You can bind, unbind, and move a public address range to a VPC in an availability zone in the UI.
+You can bind, unbind, and move a public address range to a VPC in an availability zone in the console.
 
-### Binding a public address range in the UI
+### Binding a public address range in the console
 {: #bind-par-ui}
 
 To bind a public address range in the {{site.data.keyword.cloud}} console, follow these steps:
@@ -43,7 +43,7 @@ To bind a public address range in the {{site.data.keyword.cloud}} console, follo
 1. From the Bind public address range side panel, select the VPC and its corresponding availability zone where you want to bind the address range.
 1. Click **Bind** to bind the public address range to the VPC.
 
-### Unbinding a public address range in the UI
+### Unbinding a public address range in the console
 {: #unbind-par-ui}
 
 To unbind a public address range in the IBM Cloud console, follow these steps:
@@ -55,7 +55,7 @@ After a public address is unbound, it is still reserved and available to be boun
 1. Highlight the row of the address range in the table, then click **Unbind** from the **Actions** menu ![Actions icon](../icons/action-menu-icon.svg "Actions").
 1. Click **Unbind** to confirm that you want to unbind this address range from the VPC.
 
-### Moving a public address range in the UI
+### Moving a public address range in the console
 {: #moving-par-ui}
 
 If the public address range is bound to a VPC in an availability zone, you can update and bind (move) it to a different VPC and availability zone. The public address range is automatically unbound from its VPC and availability zone and then bound to the newly specified VPC and availability zone.
@@ -63,7 +63,7 @@ If the public address range is bound to a VPC in an availability zone, you can u
 You don't need to unbind the address range from its original target first.
 {: tip}
 
-To move a public address range in the UI, follow these steps:
+To move a public address range in the console, follow these steps:
 
 1. From the [{{site.data.keyword.cloud_notm}} console](/login){: external}, select the **Navigation Menu** ![menu icon](images/menu_icon.png), then click **Infrastructure > Network > Public address ranges**. The Public Address Ranges for VPC page appears.
 1. Highlight the row of the address range in the table, then click **Edit** from the **Actions** menu ![Actions icon](../icons/action-menu-icon.svg "Actions").

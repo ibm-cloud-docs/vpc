@@ -1,8 +1,8 @@
 ---
 
 copyright:
-  years: 2022, 2024
-lastupdated: "2024-09-23"
+  years: 2022, 2025
+lastupdated: "2025-04-29"
 
 keywords: floating ip, reserving, bare metal, vnic, public gateways
 
@@ -17,13 +17,13 @@ subcollection: vpc
 
 You can reserve a floating IP address, then add it to a network interface to allow traffic from the internet to access your VPC public gateway, virtual server instance, or Bare Metal server.
 
-## Adding floating IP addresses to network interfaces with the UI
+## Adding floating IP addresses to network interfaces with the console
 {: #fip-add-ni-ui}
 {: ui}
 
-You can add floating IP addresses to network interfaces with the UI.
+You can add floating IP addresses to network interfaces with the console.
 
-### Adding a floating IP address to a virtual server instance with the UI
+### Adding a floating IP address to a virtual server instance with the console
 {: #fip-add-vsi-ui}
 
 To add a floating IP to a network interface to allow internet traffic to access your VSI, perform the following procedure:
@@ -47,7 +47,7 @@ establish the data path. Later, you can associate the floating IP to a different
    1. Select **Reserve**.
 1. After making your selections, click **Save**.
 
-### Adding a floating IP address to a Bare Metal server with the UI
+### Adding a floating IP address to a Bare Metal server with the console
 {: #fip-add-bare-metal-ui}
 
 To add your floating IP to a network interface to allow internet traffic to access your Bare Metal server, perform the following procedure:
@@ -70,7 +70,7 @@ To associate multiple floating IPs to a network interface, make sure that both *
 
 1. After making your selections, click **Save**.
 
-### Adding a floating IP address to a virtual network interface with the UI
+### Adding a floating IP address to a virtual network interface with the console
 {: #fip-create-vni-ui}
 
 1. In the {{site.data.keyword.cloud_notm}} console, go to **Navigation Menu** icon ![menu icon](../../icons/icon_hamburger.svg) **> Infrastructure** ![VPC icon](../../icons/vpc.svg) **> Compute > Virtual network interfaces**.

@@ -32,9 +32,9 @@ You can choose from three options when working with connection requests:
 If you don't want to review every connection request, you can streamline the process by changing the default policy or creating account-specific policies. For more information, see [About account policies](/docs/vpc?topic=vpc-pps-about-account-policies).
 {: fast-path}
 
-As the service provider, you can review and triage (permit, deny, or revoke) connection requests to your service using the UI, CLI, API, or Terraform.
+As the service provider, you can review and triage (permit, deny, or revoke) connection requests to your service using the console, CLI, API, or Terraform.
 
-## Reviewing connection requests in the UI
+## Reviewing connection requests in the console
 {: #pps-ui-review-requests}
 {: ui}
 

@@ -2,7 +2,7 @@
 
 copyright:
   years: 2023, 2025
-lastupdated: "2025-02-24"
+lastupdated: "2025-04-29"
 
 keywords:
 
@@ -23,9 +23,9 @@ You can enable a VPC as the DNS hub so that other VPCs can create DNS resolution
 * Before you enable a VPC as a DNS hub, review [Planning considerations](/docs/vpc?topic=vpc-vpe-dns-sharing-planning-considerations) and [Known issues and limitations](/docs/vpc?topic=vpc-vpe-dns-sharing-limitations).
 * Ensure that the VPC you choose to enable as a hub has its DNS resolver type set to System (the default) or Manual. For more information, see [Setting the DNS resolver type](/docs/vpc?topic=vpc-configure-dns-resolver&interface=ui).
 
-You can enable a VPC as a DNS hub with the UI, CLI, API, or Terraform.
+You can enable a VPC as a DNS hub with the console, CLI, API, or Terraform.
 
-## Enabling a VPC as a DNS hub in the UI
+## Enabling a VPC as a DNS hub in the console
 {: #vpe-dns-sharing-ui}
 {: ui}
 

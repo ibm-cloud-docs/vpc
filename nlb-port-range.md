@@ -1,8 +1,8 @@
 ---
 
 copyright:
-  years: 2018, 2024
-lastupdated: "2024-10-25"
+  years: 2018, 2025
+lastupdated: "2025-04-29"
 
 keywords: port, range, nlb, configuring
 
@@ -24,7 +24,7 @@ After you attach a pool to the listener, the back-end target has the same port r
 Private network load balancers do not support the port range feature. Only Private Path and public network load balancers can use this feature.
 {: note}
 
-## Configuring the port range in the UI
+## Configuring the port range in the console
 {: #port-range-ui}
 {: ui}
 

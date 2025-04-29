@@ -1,8 +1,8 @@
 ---
 
 copyright:
-  years: 2023, 2024
-lastupdated: "2024-12-10"
+  years: 2023, 2025
+lastupdated: "2025-04-29"
 
 keywords:
 
@@ -33,9 +33,9 @@ There are three DNS resolver types:
 Before you set the DNS resolver type, review [Planning considerations](/docs/vpc?topic=vpc-vpe-dns-sharing-planning-considerations) and [Known issues and limitations](/docs/vpc?topic=vpc-vpe-dns-sharing-limitations).
 {: important}
 
-You can set the DNS resolver type with the UI, CLI, API, or Terraform.
+You can set the DNS resolver type with the console, CLI, API, or Terraform.
 
-## Setting the DNS resolver type in the UI
+## Setting the DNS resolver type in the console
 {: #vpe-dns-sharing-resolver-ui}
 {: ui}
 

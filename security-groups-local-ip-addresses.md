@@ -1,8 +1,8 @@
 ---
 
 copyright:
-  years: 2024
-lastupdated: "2024-10-25"
+  years: 2024, 2025
+lastupdated: "2025-04-29"
 
 keywords:
 
@@ -25,7 +25,7 @@ Allowing specific local IP addresses or address ranges with a security group rul
 
 You can apply an inbound security group rule that allows only specific local destination IP addresses. You can also apply an outbound security group rule that allows only specific local source IP addresses.
 
-You can apply security group rules (inbound and outbound) by using the UI, CLI, API, and Terraform.
+You can apply security group rules (inbound and outbound) by using the console, CLI, API, and Terraform.
 
 **Tips:**
 * All rules are evaluated, regardless of the order in which they're added.
@@ -48,7 +48,7 @@ Figure 2 depicts a security group inbound rule with a `local` IP address. Traffi
 
 ![Figure of security group rules that handle inbound traffic](images/inbound.svg "Figure showing security group rules handling inbound traffic"){: caption="A security group rule handling inbound traffic" caption-side="bottom"}
 
-## Creating security group rules in the UI
+## Creating security group rules in the console
 {: #security-groups-secondary-ip-ui}
 {: ui}
 

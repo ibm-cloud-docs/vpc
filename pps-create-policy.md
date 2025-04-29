@@ -2,7 +2,7 @@
 
 copyright:
   years: 2024, 2025
-lastupdated: "2025-02-28"
+lastupdated: "2025-04-29"
 
 keywords: private path
 
@@ -21,9 +21,9 @@ As a service provider, you are responsible for managing your consumer account ID
 You can create a policy for a specific account ID. This is advantageous when you want a different action for an account than what is set for the default policy. For example, if you set the default policy to **Review all requests**, but you want to automatically **Permit** requests from ID `Lauren`, you can create an account policy to bypass triaging requests from that ID.
 {: shortdesc}
 
-You can create an account policy to review, accept, or reject connection requests using the UI, CLI, API, or Terraform.
+You can create an account policy to review, accept, or reject connection requests using the console, CLI, API, or Terraform.
 
-## Creating an account policy in the UI
+## Creating an account policy in the console
 {: #pps-ui-create-account-policy}
 {: ui}
 

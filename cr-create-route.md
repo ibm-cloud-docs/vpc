@@ -1,8 +1,8 @@
 ---
 
 copyright:
-  years: 2020, 2024
-lastupdated: "2024-10-25"
+  years: 2020, 2025
+lastupdated: "2025-04-29"
 
 keywords: custom routes
 
@@ -46,13 +46,13 @@ The `Delegate-VPC` action is NOT required if:
 * The VPC uses only RFC-1918 addresses
 * The VPC has no public connectivity
 
-You can create a route for an IBM Cloud service by using the UI, CLI, API, or Terraform.
+You can create a route for an IBM Cloud service by using the console, CLI, API, or Terraform.
 
-## Creating a route in the UI
+## Creating a route in the console
 {: #cr-route-using-the-ui}
 {: ui}
 
-To create a route in the UI, follow these steps:
+To create a route in the console, follow these steps:
 
 1. Make sure to review [Limitations and guidelines](/docs/vpc?topic=vpc-about-custom-routes&interface=ui#limitations-custom-routes).
 1. From the [{{site.data.keyword.cloud_notm}} console](/login){: external}, select the **Navigation Menu** ![Navigation menu](images/menu_icon.png), then click **Infrastructure > Network > Routing tables**. The Routing tables for VPC page appear.

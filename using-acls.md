@@ -2,7 +2,7 @@
 
 copyright:
   years: 2019, 2025
-lastupdated: "2025-03-13"
+lastupdated: "2025-04-29"
 
 keywords:
 
@@ -20,7 +20,7 @@ You can use an access control list (ACL) to control all incoming and outgoing tr
 For a comparison of the characteristics of security groups and ACLs, see the [comparison table](/docs/vpc?topic=vpc-security-in-your-vpc#compare-security-groups-and-access-control-lists).
 {: tip}
 
-The example that is presented in this document shows how to create network ACLs in your VPC by using the CLI. For more information about how to set up ACLs in the {{site.data.keyword.cloud_notm}} console, see [Configuring ACLs in the UI](/docs/vpc?topic=vpc-creating-a-vpc-using-the-ibm-cloud-console#configuring-the-acl-ct).
+The example that is presented in this document shows how to create network ACLs in your VPC by using the CLI. For more information about how to set up ACLs in the {{site.data.keyword.cloud_notm}} console, see [Configuring ACLs in the console](/docs/vpc?topic=vpc-creating-a-vpc-using-the-ibm-cloud-console#configuring-the-acl-ct).
 
 ## Working with ACLs and ACL rules
 {: #working-with-acls-and-acl-rules}
@@ -46,7 +46,7 @@ When you create a VPC, the system creates a default ACL for the VPC with two rul
 * A rule named `allow-inbound` to allow inbound ICMP, TCP and UDP traffic from any source
 * A rule named `allow-outbound` to allow outbound ICMP, TCP and UDP traffic to any destination
 
-You can modify the rules of the default ACL by using the UI, CLI, or API.
+You can modify the rules of the default ACL by using the console, CLI, or API.
 
 If you edit the rules of the default ACL, those edited rules then apply to all current and future subnets attached to the ACL.
 {: important}

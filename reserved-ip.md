@@ -2,7 +2,7 @@
 
 copyright:
   years: 2021, 2025
-lastupdated: "2025-04-24"
+lastupdated: "2025-04-29"
 
 keywords:
 
@@ -51,7 +51,7 @@ The floating IP associated with a bare metal network interface is not available 
 - Wait for the bare metal server network interfaces to be `available` before listing the floating IP addresses on the interfaces.
 - [List all floating IPs](/apidocs/vpc#list-floating-ips) to view those associated with bare metal server interfaces that are not yet `available`.
 
-## Creating reserved IPs in the UI
+## Creating reserved IPs in the console
 {: #using-ui}
 {: ui}
 

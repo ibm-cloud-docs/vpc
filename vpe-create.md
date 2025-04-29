@@ -1,8 +1,8 @@
 ---
 
 copyright:
-  years: 2020, 2024
-lastupdated: "2024-11-22"
+  years: 2020, 2025
+lastupdated: "2025-04-29"
 
 keywords: virtual private endpoints, VPE, endpoint gateway
 
@@ -16,7 +16,7 @@ subcollection: vpc
 {: help}
 {: support}
 
-You can create an endpoint gateway for an {{site.data.keyword.cloud}} or third-party service or application that you want to access on your private VPC network. You can use the UI, CLI, API, or Terraform.
+You can create an endpoint gateway for an {{site.data.keyword.cloud}} or third-party service or application that you want to access on your private VPC network. You can use the console, CLI, API, or Terraform.
 {: shortdesc}
 
 ## Before you begin
@@ -30,7 +30,7 @@ Before creating an endpoint gateway, ensure that you review [Planning for virtua
 * Appropriate [IAM permissions](/docs/vpc?topic=vpc-vpe-iam) to create an endpoint gateway, create or bind a reserved IP, and view or list the target service
 * Verification that the service you are configuring is enabled for VPE
 
-## Creating an endpoint gateway in the UI
+## Creating an endpoint gateway in the console
 {: #vpe-creating-ui}
 {: ui}
 

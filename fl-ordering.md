@@ -2,7 +2,7 @@
 
 copyright:
   years: 2020, 2025
-lastupdated: "2025-04-24"
+lastupdated: "2025-04-29"
 
 keywords: flow logs, ordering, getting started
 
@@ -21,7 +21,7 @@ You can order and provision a flow log collector for a specific Virtual Private 
 When you are provisioning a flow log collector, keep in mind that [the finest granularity wins](/docs/vpc?topic=vpc-flow-logs#flow-logs-granularity-wins).
 {: tip}
 
-## Prerequisites in the UI
+## Prerequisites in the console
 {: #fl-before-you-begin-ui}
 {: ui}
 
@@ -129,7 +129,7 @@ Before you create a flow log collector, make sure that you meet the following pr
    For more information, see [Using authorizations to grant access between services](/docs/account?topic=account-serviceauth&interface=ui#create-auth).
    {: note}
 
-## Creating a flow log collector in the UI
+## Creating a flow log collector in the console
 {: #fl-ordering-ui}
 {: ui}
 

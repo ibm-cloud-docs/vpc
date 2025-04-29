@@ -2,7 +2,7 @@
 
 copyright:
   years: 2018, 2025
-lastupdated: "2025-03-06"
+lastupdated: "2025-04-29"
 
 keywords:
 
@@ -18,7 +18,7 @@ subcollection: vpc
 You can configure security groups to define the inbound and outbound traffic that is allowed for your resource. For example, after you configure ACL rules for the subnet based on your company's security policies, you can further restrict traffic for specific instances depending on their workloads.
 {: shortdesc}
 
-## Setting up the security groups for your resource in the UI
+## Setting up the security groups for your resource in the console
 {: #sgg-using-ui}
 {: ui}
 

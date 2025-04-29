@@ -1,8 +1,8 @@
 ---
 
 copyright:
-  years: 2023, 2024
-lastupdated: "2024-07-18"
+  years: 2023, 2025
+lastupdated: "2025-04-29"
 
 keywords:
 
@@ -23,13 +23,13 @@ To configure DNS sharing for VPE gateways between hub and DNS-shared VPCs on dif
 * If a DNS-shared VPC and the hub VPC are using the same or different accounts, as the hub VPC administrator, you must create an IAM service-to-service authorization policy that gives this DNS-shared VPC the `DNSBindingConnector` permission on the hub VPC.
 * Currently, the UI allows only **All VPC instances** to have the `DNSBindingConnector` permission on the hub VPC. To indicate a "specific" VPC, you must use the API or wrap an API request in a JSON file to use with the CLI. Example code is provided for use with the [CLI](/docs/vpc?topic=vpc-vpe-dns-sharing-s2s-auth&interface=cli#indicate-specific-vpc-instance-cli) and [API](/docs/vpc?topic=vpc-vpe-dns-sharing-s2s-auth&interface=api#indicate-specific-vpc-instance).
 
-You can establish s2s authorization with the UI, CLI, API, or Terraform.
+You can establish s2s authorization with the console, CLI, API, or Terraform.
 
-## Creating an IAM s2s authorization policy in the UI
+## Creating an IAM s2s authorization policy in the console
 {: #vpe-dns-sharing-s2s-auth-procedure-ui}
 {: ui}
 
-To create an IAM s2s authorization policy in the UI, follow these steps:
+To create an IAM s2s authorization policy in the console, follow these steps:
 
 1. In the [{{site.data.keyword.cloud_notm}} console](/login){: external}, go to **Manage > Access (IAM)**. The IBM Cloud Identity and Access Management page displays.
 1. From the side panel, select **Authorizations**.

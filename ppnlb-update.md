@@ -2,7 +2,7 @@
 
 copyright:
   years: 2020, 2025
-lastupdated: "2025-04-10"
+lastupdated: "2025-04-29"
 
 keywords: network load balancer, public, listener, back-end, front-end, pool, round-robin, weighted, connections, methods, policies, APIs, access, ports, vpc network, update
 
@@ -18,10 +18,10 @@ subcollection: vpc
 Accounts with special approval can attach an ALB to a Private Path NLB pool, enabling access to on-prem resources while maintaining a private connection across IBM Cloud.
 {: preview}
 
-You can update an {{site.data.keyword.cloud}} {{site.data.keyword.nlb_full}} (NLB) with the UI, CLI, or API.
+You can update an {{site.data.keyword.cloud}} {{site.data.keyword.nlb_full}} (NLB) with the console, CLI, or API.
 {: shortdesc}
 
-## Updating a Private Path network load balancer in the UI
+## Updating a Private Path network load balancer in the console
 {: #ppnlb-updating-ui}
 {: ui}
 

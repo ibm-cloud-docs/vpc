@@ -2,7 +2,7 @@
 
 copyright:
   years: 2021, 2025
-lastupdated: "2025-04-24"
+lastupdated: "2025-04-29"
 
 keywords:
 
@@ -28,7 +28,7 @@ When the VPN is established in split-tunnel configuration, all routes in the cli
 To avoid running out of routes, make note of the client device's route capacity before modifying the client-to-site VPN server routing table.
 {: tip}
 
-## Creating a route in the UI
+## Creating a route in the console
 {: #create-route-ui-c2s}
 {: ui}
 
@@ -56,7 +56,7 @@ Add `0.0.0.0/0` as a route to enable clients access to the internet.
 You can select **Edit** from the Actions menu of the VPN server route to change the name of your route.
 {: note}
 
-## Deleting a route in the UI
+## Deleting a route in the console
 {: #delete-route-ui-c2s}
 {: ui}
 

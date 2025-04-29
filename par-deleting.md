@@ -18,10 +18,10 @@ subcollection: vpc
 Public Address Ranges for VPC is only available for evaluation and testing purposes for users with special access.
 {: beta}
 
-You can delete public address ranges with the UI, CLI, and API.
+You can delete public address ranges with the console, CLI, and API.
 {: shortdesc}
 
-## Deleting public address ranges in the UI
+## Deleting public address ranges in the console
 {: #delete-par-ui}
 {: ui}
 

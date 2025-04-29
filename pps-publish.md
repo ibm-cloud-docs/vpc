@@ -2,7 +2,7 @@
 
 copyright:
   years: 2024, 2025
-lastupdated: "2025-02-24"
+lastupdated: "2025-04-29"
 
 keywords:
 
@@ -23,9 +23,9 @@ If a Private Path service is not published, it cannot be accessed outside of the
 
 Publishing allows any account to request access to the Private Path service. If need be, you can also unpublish where access is restricted to the account that created the Private Path service.
 
-You can publish and unpublish an {{site.data.keyword.cloud}} Private Path service using the UI, CLI, API, or Terraform.
+You can publish and unpublish an {{site.data.keyword.cloud}} Private Path service using the console, CLI, API, or Terraform.
 
-## Publishing a Private Path service in the UI
+## Publishing a Private Path service in the console
 {: #pps-ui-activating-private-path-service}
 {: ui}
 
@@ -42,7 +42,7 @@ The Private Path service is now exposed for other accounts to connect to the ser
 
 After publishing, the Private Path service name is visible to customers connecting to the Private Path service.
 
-## Unpublishing a Private Path service in the UI
+## Unpublishing a Private Path service in the console
 {: #pps-ui-deactivating-private-path-service}
 {: ui}
 

@@ -2,7 +2,7 @@
 
 copyright:
   years: 2021, 2025
-lastupdated: "2025-03-18"
+lastupdated: "2025-04-29"
 
 keywords: ike policy
 
@@ -18,7 +18,7 @@ subcollection: vpc
 You can use custom Internet Key Exchange (IKE) policies to define security parameters to use during Phase 1 of IKE negotiation. In this phase, the VPN and peer device exchange credentials and security policies to authenticate each other and establish a secure communication channel to be used for Phase 2 negotiation.
 {: shortdesc}
 
-## Creating an IKE policy in the UI
+## Creating an IKE policy in the console
 {: #vpn-using-ui-create-ike-policy}
 {: ui}
 
@@ -55,7 +55,7 @@ ibmcloud is ike-policy-create IKE_POLICY_NAME AUTHENTICATION_ALGORITHM DH_GROUP 
 
 Where:
 
-`md-5` and `sha-1` authentication algorithms, `2` and `5` DH groups, and the `triple_des` encryption algorithm were deprecated on 20 September 2022 and are no longer supported in the UI.
+`md-5` and `sha-1` authentication algorithms, `2` and `5` DH groups, and the `triple_des` encryption algorithm were deprecated on 20 September 2022 and are no longer supported in the console.
 {: deprecated}
 
 - **IKE_POLICY_NAME** - Name of the IKE policy.

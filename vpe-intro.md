@@ -1,8 +1,8 @@
 ---
 
 copyright:
-  years: 2020, 2024
-lastupdated: "2024-10-10"
+  years: 2020, 2025
+lastupdated: "2025-04-29"
 
 keywords: virtual private endpoints, endpoint gateway, VPE
 subcollection: vpc
@@ -33,7 +33,7 @@ The features of VPE for VPC include:
 * You can apply security through Network Access Control Lists (NACLs).
 * The endpoint IP deploys in a customer-defined, virtual network.
 * Includes platform integration to VPC - Identity and Access Management (IAM), network ACLs, security groups, and tagging.
-* Access to new endpoints is achieved through the UI, CLI, and API.
+* Access to new endpoints is achieved through the console, CLI, and API.
 * Integrates with DNS Services.
 
    When creating an endpoint gateway, a DNS zone and records are created. The VPE service automatically upgrades your virtual server instances to use the private DNS as the default DNS resolver. For more information, see [DNS Services](/docs/dns-svcs?topic=dns-svcs-getting-started).

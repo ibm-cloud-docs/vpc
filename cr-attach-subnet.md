@@ -1,8 +1,8 @@
 ---
 
 copyright:
-  years: 2020, 2024
-lastupdated: "2024-10-25"
+  years: 2020, 2025
+lastupdated: "2025-04-29"
 
 keywords: custom routes
 
@@ -19,13 +19,13 @@ When you view details of a routing table, you can also view details of attached 
 By default, any subnet that is not associated with a routing table is associated with the default routing table. You can also reassign the routing table of a subnet to another subnet.
 {: shortdesc}
 
-You can attach a subnet to a routing table, or reassign a routing table to a particular subnet by using the UI, CLI, API, or Terraform.
+You can attach a subnet to a routing table, or reassign a routing table to a particular subnet by using the console, CLI, API, or Terraform.
 
-## Attaching subnets to a routing table in the UI
+## Attaching subnets to a routing table in the console
 {: #cr-attach-subnet-ui}
 {: ui}
 
-To attach a routing table to a subnet in the UI, follow these steps:
+To attach a routing table to a subnet in the console, follow these steps:
 
 1. From the [{{site.data.keyword.cloud_notm}} console](/login){: external}, select the **Navigation Menu** ![Navigation menu](images/menu_icon.png), then click **Infrastructure > Network > Routing tables**. The Routing tables for VPC page appears.
 1. Click the name of the routing table in which you want to view subnet details. Alternatively, you can click the number of attached subnets.

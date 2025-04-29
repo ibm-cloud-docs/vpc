@@ -2,7 +2,7 @@
 
 copyright:
   years: 2020, 2025
-lastupdated: "2025-03-04"
+lastupdated: "2025-04-29"
 
 keywords: network load balancer, public, listener, pool, round-robin
 
@@ -15,7 +15,7 @@ subcollection: vpc
 # Creating a public or private network load balancer
 {: #nlb-ui-creating-network-load-balancer}
 
-You can create an {{site.data.keyword.cloud}} {{site.data.keyword.nlb_full}} (NLB) with the UI, CLI, or API.
+You can create an {{site.data.keyword.cloud}} {{site.data.keyword.nlb_full}} (NLB) with the console, CLI, or API.
 
 ## Before you begin
 {: #before-you-begin-nlb-public-private}
@@ -40,7 +40,7 @@ For Private NLB, depending on the location of the clients, you must ensure that 
 For more information, see [About routing tables and routes](/docs/vpc?topic=vpc-about-custom-routes).
 {: note}
 
-## Creating a network load balancer in the UI
+## Creating a network load balancer in the console
 {: #nlb-ui}
 {: ui}
 

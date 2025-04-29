@@ -1,8 +1,8 @@
 ---
 
 copyright:
-  years: 2019, 2024
-lastupdated: "2024-10-25"
+  years: 2019, 2025
+lastupdated: "2025-04-29"
 
 keywords:
 
@@ -23,7 +23,7 @@ Each subnet can be attached to only one ACL. However, each ACL can be attached t
 
 Before you begin, ensure that you have created a VPC and subnet.
 
-## Creating a network ACL in the UI
+## Creating a network ACL in the console
 {: #configuring-the-acl}
 {: ui}
 

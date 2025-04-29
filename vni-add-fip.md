@@ -1,8 +1,8 @@
 ---
 
 copyright:
-  years: 2023, 2024
-lastupdated: "2024-10-25"
+  years: 2023, 2025
+lastupdated: "2025-04-29"
 
 keywords:
 
@@ -18,9 +18,9 @@ subcollection: vpc
 Floating IP addresses are IP addresses that are provided by the system and are reachable from the public internet. A floating cannot be attached to a virtual network interface if that virtual network interface is attached to a share mount target.
 {: shortdesc}
 
-You can attach floating IPs to a VNI with the UI, CLI, API, or Terraform.
+You can attach floating IPs to a VNI with the console, CLI, API, or Terraform.
 
-## Attaching a floating IP to a virtual network interface in the UI
+## Attaching a floating IP to a virtual network interface in the console
 {: #vni-add-fip-ui}
 {: ui}
 

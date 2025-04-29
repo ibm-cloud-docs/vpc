@@ -1,8 +1,8 @@
 ---
 
 copyright:
-  years: 2020, 2024
-lastupdated: "2024-10-25"
+  years: 2020, 2025
+lastupdated: "2025-04-29"
 
 keywords: application load balancer, public, listener, back-end, front-end, pool, round-robin, weighted, connections, methods, policies, APIs, access, ports, vpc network, delete
 
@@ -15,10 +15,10 @@ subcollection: vpc
 # Deleting an application load balancer
 {: #alb-deleting}
 
-You can delete an {{site.data.keyword.cloud}} {{site.data.keyword.alb_full}} (ALB) with the UI, CLI, or API.
+You can delete an {{site.data.keyword.cloud}} {{site.data.keyword.alb_full}} (ALB) with the console, CLI, or API.
 {: shortdesc}
 
-## Deleting an application load balancer in the UI
+## Deleting an application load balancer in the console
 {: #alb-deleting-ui}
 {: ui}
 

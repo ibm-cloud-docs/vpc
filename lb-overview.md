@@ -2,7 +2,7 @@
 
 copyright:
   years: 2018, 2025
-lastupdated: "2025-03-04"
+lastupdated: "2025-04-29"
 
 keywords: listener, pool, round-robin, weighted, layer 7, datapath logging, http2, websocket
 
@@ -159,7 +159,7 @@ The following lists the supported ciphers (in order of precedence):
 ### Locating the certificate CRN
 {: #locating-alb-crn}
 
-When configuring authentication for an application load balancer during provisioning in the UI, you can choose to specify the Secrets Manager and SSL certificate, or the certificate's CRN. You might want to do this if you cannot view the Secrets Manager in the drop-down menu, which means you don't have access to the Secrets Manager instance. Keep in mind that you must enter the CRN if using the API to create an ALB.
+When configuring authentication for an application load balancer during provisioning in the console, you can choose to specify the Secrets Manager and SSL certificate, or the certificate's CRN. You might want to do this if you cannot view the Secrets Manager in the drop-down menu, which means you don't have access to the Secrets Manager instance. Keep in mind that you must enter the CRN if using the API to create an ALB.
 
 To obtain the CRN, you must have permission to access the Secrets Manager instance.
 {: note}

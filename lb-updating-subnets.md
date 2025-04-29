@@ -1,8 +1,8 @@
 ---
 
 copyright:
-  years: 2022, 2024
-lastupdated: "2024-09-23"
+  years: 2022, 2025
+lastupdated: "2025-04-29"
 
 keywords: application load balancer, subnet, APIs, vpc network, update, detach, attach, etag
 
@@ -15,7 +15,7 @@ subcollection: vpc
 # Updating subnets for existing application load balancers
 {: #alb-updating-subnets}
 
-You can update subnets for an {{site.data.keyword.cloud}} {{site.data.keyword.alb_full}} (ALB) with the UI, CLI, or API. ETag support is added for the load balancer resource, and is required for any resource that allows arrays to be updated.
+You can update subnets for an {{site.data.keyword.cloud}} {{site.data.keyword.alb_full}} (ALB) with the console, CLI, or API. ETag support is added for the load balancer resource, and is required for any resource that allows arrays to be updated.
 
 ## Updating subnets for an application load balancer using the UI
 {: #alb-updating-subnets-ui}

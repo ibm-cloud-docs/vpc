@@ -15,10 +15,10 @@ subcollection: vpc
 # Updating and deleting a Private Path service
 {: #pps-ui-updating-deleting}
 
-You can migrate to a newer version of Private Path service without deleting or disrupting the service you provide to your current customers. You can delete a Private Path service using the UI, CLI, API, or Terraform.
+You can migrate to a newer version of Private Path service without deleting or disrupting the service you provide to your current customers. You can delete a Private Path service using the console, CLI, API, or Terraform.
 {: shortdesc}
 
-## Update a Private Path service in the UI
+## Update a Private Path service in the console
 {: #pps-ui-update-private-path-service}
 {: ui}
 
@@ -29,10 +29,10 @@ To update a Private Path provider service the {{site.data.keyword.cloud_notm}} c
 1. In the Private Path services for VPC table, locate and click the name of the Private Path service that you want to update.
 1. On the Private Path details page, click the Edit icon ![Edit icon](images/edit.png) beside the details that you want to update.
 
-You can also update the members attached to a Private Path NLB in your Private Path service. For more information, see [Updating a network load balancer in the UI](/docs/vpc?topic=vpc-nlb-updating&interface=ui).
+You can also update the members attached to a Private Path NLB in your Private Path service. For more information, see [Updating a network load balancer in the console](/docs/vpc?topic=vpc-nlb-updating&interface=ui).
 {: note}
 
-### Update the target service of a Private Path service in the UI
+### Update the target service of a Private Path service in the console
 {: #pps-ui-update-target-private-path-service}
 {: ui}
 
@@ -56,7 +56,7 @@ To update the target service of a Private Path provider service the {{site.data.
 1. Update your existing front-end listener to finish attaching your load balancer to this new pool. On your load balancer details page, Click the **Front-end listeners** tab. In the table, click the **Navigation Menu** ![navigation menu](../icons/icon_hamburger.svg) at the end of the row of your existing listener, then click **Edit**.
 1. In the menu that appears, click **Edit**. Under Default Back-end pool, type in the ID of your new pool. Click **Save**.
 
-### Deleting a Private Path service in the UI
+### Deleting a Private Path service in the console
 {: #pps-ui-deleing-private-path-service}
 {: ui}
 

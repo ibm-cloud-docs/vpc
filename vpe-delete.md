@@ -1,8 +1,8 @@
 ---
 
 copyright:
-  years: 2020, 2024
-lastupdated: "2024-10-25"
+  years: 2020, 2025
+lastupdated: "2025-04-29"
 
 keywords: virtual private endpoints, delete, VPE, endpoint gateway
 
@@ -18,7 +18,7 @@ subcollection: vpc
 You can delete an endpoint gateway by using the UI, the CLI, or the API.
 {: shortdesc}
 
-## Deleting an endpoint gateway in the UI
+## Deleting an endpoint gateway in the console
 {: #vpe-deleting-ui}
 {: ui}
 

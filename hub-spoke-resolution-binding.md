@@ -1,8 +1,8 @@
 ---
 
 copyright:
-  years: 2023, 2024
-lastupdated: "2024-12-10"
+  years: 2023, 2025
+lastupdated: "2025-04-29"
 
 keywords:
 
@@ -27,9 +27,9 @@ Before you create a DNS resolution binding, review the following prerequisites:
 * Ensure a [VPC enabled as a DNS hub](/docs/vpc?topic=vpc-vpe-dns-sharing-configure-hub) already exists.
 * The hub VPC administrator must create an IAM service-to-service authorization policy that allows this DNS-shared VPC to have `DNSBindingConnector` permission on the hub VPC. This `DNSBindingConnector` role on the hub VPC is required regardless of whether the DNS-shared VPC is in the same or a different account. For more information, see [Establishing service-to-service authorization](/docs/vpc?topic=vpc-vpe-dns-sharing-s2s-auth&interface=api).
 
-You can create a DNS resolution binding with the UI, CLI, API, or Terraform.
+You can create a DNS resolution binding with the console, CLI, API, or Terraform.
 
-## Creating a DNS resolution binding in the UI
+## Creating a DNS resolution binding in the console
 {: #create-dns-resolution-binding-ui}
 {: ui}
 
@@ -45,7 +45,7 @@ To create a DNS resolution binding in the IBM Cloud console, follow these steps:
 
    The VPC with the DNS resolution binding now shows a `DNS-Shared` tag next to its name.
 
-## Deleting a DNS resolution binding in the UI
+## Deleting a DNS resolution binding in the console
 {: #delete-dns-resolution-binding-ui}
 {: ui}
 

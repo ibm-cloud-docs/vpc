@@ -2,7 +2,7 @@
 
 copyright:
   years: 2025
-lastupdated: "2025-04-24"
+lastupdated: "2025-04-29"
 
 keywords: viewing, deleting, public address range
 
@@ -18,10 +18,10 @@ subcollection: vpc
 Public Address Ranges for VPC is only available for evaluation and testing purposes for users with special access.
 {: beta}
 
-You can view public address ranges with the UI, CLI, and API.
+You can view public address ranges with the console, CLI, and API.
 {: shortdesc}
 
-## Viewing public address ranges in the UI
+## Viewing public address ranges in the console
 {: #view-par-ui}
 {: ui}
 

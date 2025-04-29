@@ -1,8 +1,8 @@
 ---
 
 copyright:
-  years: 2023, 2024
-lastupdated: "2024-12-10"
+  years: 2023, 2025
+lastupdated: "2025-04-29"
 
 keywords:
 
@@ -18,7 +18,7 @@ subcollection: vpc
 To disconnect DNS sharing to a DNS hub VPC, the DNS-shared VPC authorized user can unshare the Virtual Private Endpoint (VPE) gateways to the DNS hub VPC.
 {: shortdesc}
 
-You can disconnect DNS sharing to a hub VPC with the UI, CLI, API, or Terraform.
+You can disconnect DNS sharing to a hub VPC with the console, CLI, API, or Terraform.
 
 ## Before you begin
 {: #dns-sharing-before-you-begin}
@@ -28,7 +28,7 @@ Before you disconnect DNS sharing, review the following prerequisites:
 * To disconnect DNS sharing from a DNS-shared VPC with its DNS resolver type set to `Delegated`, you must first update the resolver type to `System` or `Manual`. Then, delete the DNS resolution binding.
 * To disconnect DNS sharing from a hub VPC, the hub VPC user must be assigned the `DNSBindingConnector` IAM role.
 
-## Disconnecting DNS sharing to a hub VPC in the UI
+## Disconnecting DNS sharing to a hub VPC in the console
 {: #vpe-dns-sharing-disconnect-from-hub-ui}
 {: ui}
 

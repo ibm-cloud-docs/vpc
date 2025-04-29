@@ -1,8 +1,8 @@
 ---
 
 copyright:
-  years: 2019, 2024
-lastupdated: "2024-11-14"
+  years: 2019, 2025
+lastupdated: "2025-04-29"
 
 keywords:
 
@@ -33,7 +33,7 @@ To initiate sending VPN logs to {{site.data.keyword.la_full_notm}}, you need the
    After the VPN gateway gets provisioned, note the ID and region.
    {: tip}
 
-## Sending VPN logs to {{site.data.keyword.la_full_notm}} in the UI
+## Sending VPN logs to {{site.data.keyword.la_full_notm}} in the console
 {: #sending-vpn-logs}
 {: ui}
 

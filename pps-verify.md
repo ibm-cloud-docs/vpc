@@ -23,7 +23,7 @@ To verify that the Private Path service is fully functional before publishing it
 
 You can verify connectivity to a Private Path service by using SSH to log into a virtual server instance running in the VPC containing the endpoint gateway. Then, initiate traffic to the VPE service endpoint or private IP.
 
-## Verifying connectivity to a Private Path service in the UI
+## Verifying connectivity to a Private Path service in the console
 {: #pps-ui-verify-private-path-service}
 {: ui}
 

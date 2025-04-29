@@ -3,7 +3,7 @@
 copyright:
   years: 2018, 2022
 
-lastupdated: "2025-03-12"
+lastupdated: "2025-04-29"
 
 keywords:
 
@@ -27,12 +27,12 @@ When you create a VPC, the system creates a default security group for the VPC w
 
 Rules to allow inbound pinging and SSH from resources outside the security group are not automatically added to the default security group.
 
-You can modify the rules of the default security group by using the UI, CLI, or API.
+You can modify the rules of the default security group by using the console, CLI, or API.
 
 If you edit the rules of the default security group, those edited rules then apply to all current and future servers in the group.
 {: important}
 
-## Updating the default security group in the UI
+## Updating the default security group in the console
 {: #example-modifying-the-default-sg-rules-using-ui}
 {: ui}
 

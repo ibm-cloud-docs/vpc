@@ -1,8 +1,8 @@
 ---
 
 copyright:
-  years: 2023, 2024
-lastupdated: "2024-10-25"
+  years: 2023, 2025
+lastupdated: "2025-04-29"
 
 keywords:
 
@@ -15,10 +15,10 @@ subcollection: vpc
 # Deleting a virtual network interface
 {: #vni-deleting}
 
-When you no longer need a virtual network interface, you can delete it by using the UI, CLI, API, or Terraform. Make sure that no attachments remain in the virtual network interface before attempting to delete.
+When you no longer need a virtual network interface, you can delete it by using the console, CLI, API, or Terraform. Make sure that no attachments remain in the virtual network interface before attempting to delete.
 {: shortdesc}
 
-## Deleting a virtual network interface in the UI
+## Deleting a virtual network interface in the console
 {: #vni-delete-ui}
 {: ui}
 

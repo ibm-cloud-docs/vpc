@@ -2,7 +2,7 @@
 
 copyright:
   years: 2021, 2025
-lastupdated: "2025-04-24"
+lastupdated: "2025-04-29"
 
 keywords: upgrading VPN, VPN server types
 
@@ -18,7 +18,7 @@ subcollection: vpc
 You can change VPN server types after you create a VPN server. For example, you can upgrade a stand-alone VPN server (pilot deployment) to a High Availability (HA) VPN server (production deployment). You can also detach a subnet to downgrade an HA VPN server to a stand-alone deployment, or change a VPN subnet after your VPN server is provisioned.
 {: shortdesc}
 
-## Upgrading to an HA VPN server in the UI
+## Upgrading to an HA VPN server in the console
 {: #vpn-client-to-site-upgrade-ui}
 {: ui}
 

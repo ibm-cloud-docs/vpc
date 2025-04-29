@@ -21,7 +21,7 @@ Accounts with special approval can attach an ALB to a Private Path NLB pool, ena
 As a service provider, you are responsible for managing your consumer account IDs. Currently, tracking or validating account IDs is not supported. For more information, see [Responsibilities for managing consumer account IDs](/docs/vpc?topic=vpc-pps-consumer-account-id-responsibilities&interface=ui).
 {: attention}
 
-Private Path services for VPC enable service providers to create and manage private connectivity for hosted IBM Cloud and third-party services and applications. You can create a Private Path service by using the UI, CLI, API, or Terraform.
+Private Path services for VPC enable service providers to create and manage private connectivity for hosted IBM Cloud and third-party services and applications. You can create a Private Path service by using the console, CLI, API, or Terraform.
 {: shortdesc}
 
 ## Before you begin
@@ -41,9 +41,9 @@ Before you create a Private Path service, review the following prerequisites:
    You can opt out of this requirement if you are willing to use one of limited predefined set of domains listed in [Registering and verifying ownership of service endpoints (FQDNs)](/docs/private-path?topic=private-path-private-path-service-about&interface=ui#pps-domain-register-verify).
    {: note}
 
-You can create an {{site.data.keyword.cloud}} Private Path service using the UI, CLI, API, or Terraform.
+You can create an {{site.data.keyword.cloud}} Private Path service using the console, CLI, API, or Terraform.
 
-## Creating a Private Path service in the UI
+## Creating a Private Path service in the console
 {: #pps-ui-creating-private-path-service}
 {: ui}
 

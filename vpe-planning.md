@@ -1,8 +1,8 @@
 ---
 
 copyright:
-  years: 2020, 2023
-lastupdated: "2023-01-27"
+  years: 2020, 2025
+lastupdated: "2025-04-29"
 
 keywords: VPE, virtual private endpoint, endpoint gateway, planning
 
@@ -22,7 +22,7 @@ Before you create a virtual private endpoint gateway, review the following consi
    If you do not select at least one security group, it is recommended that you update your default security group rules to minimize disruption in traffic on a newly created VPE.
    {: important}
 
-* You can create a security group before provisioning (or during provisioning in the UI).
+* You can create a security group before provisioning (or during provisioning in the console).
 
    * The security group must be created in the same VPC as your VPE.
    * Configure inbound rules that define what type of traffic is allowed to the VPE. For each rule, complete the following information:

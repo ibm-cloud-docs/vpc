@@ -1,8 +1,8 @@
 ---
 
 copyright:
-  years: 2020, 2024
-lastupdated: "2024-10-25"
+  years: 2020, 2025
+lastupdated: "2025-04-29"
 
 keywords: custom routes
 
@@ -15,10 +15,10 @@ subcollection: vpc
 # Deleting a routing table
 {: #delete-routing-table}
 
-You can delete a routing table for an IBM Cloud service by using the UI, CLI, API, or Terraform.
+You can delete a routing table for an IBM Cloud service by using the console, CLI, API, or Terraform.
 {: shortdesc}
 
-## Deleting a routing table in the UI
+## Deleting a routing table in the console
 {: #cr-delete-table-using-the-ui}
 {: ui}
 

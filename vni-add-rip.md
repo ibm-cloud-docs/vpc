@@ -1,8 +1,8 @@
 ---
 
 copyright:
-  years: 2023, 2024
-lastupdated: "2024-04-12"
+  years: 2023, 2025
+lastupdated: "2025-04-29"
 
 keywords:
 
@@ -18,14 +18,14 @@ subcollection: vpc
 A VNI is created with a primary IP address, which can be an existing reserved IP or created with the virtual network interface. The primary IP address of a virtual network interface is a reserved IP address.
 {: shortdesc}
 
-You can add a reserved IP to a VNI with the UI, CLI, API, or Terraform.
+You can add a reserved IP to a VNI with the console, CLI, API, or Terraform.
 
 
-## Determining the primary reserved IP for a virtual network interface in the UI
+## Determining the primary reserved IP for a virtual network interface in the console
 {: #vni-add-rip-ui}
 {: ui}
 
-In the UI, the primary IP address of the virtual network interface is a reserved IP. Reserved IPs can be added to a virtual network interface in three ways.
+in the console, the primary IP address of the virtual network interface is a reserved IP. Reserved IPs can be added to a virtual network interface in three ways.
 
 * When you create a virtual network interface, you must specify a subnet. If you specify _only_ a subnet, a reserved IP address is automatically allocated from that subnet, and assigned as the primary IP address of the virtual network interface.
 * While you are creating a virtual network interface, you can select an existing reserved IP address that isn't already attached to another resource. This reserved IP address is used as the primary IP address for your virtual network interface.

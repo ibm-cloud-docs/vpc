@@ -1,7 +1,7 @@
 ---
 copyright:
-  years: 2022, 2024
-lastupdated: "2024-10-25"
+  years: 2022, 2025
+lastupdated: "2025-04-29"
 
 keywords:
 
@@ -33,7 +33,7 @@ Attaching floating IP addresses to virtual server instances enables communicatio
 Only one public gateway per zone is allowed in a VPC, but a public gateway can be attached to multiple subnets in a zone.
 {: important}
 
-## Creating a public gateway in the UI
+## Creating a public gateway in the console
 {: #pg-creating-ui}
 {: ui}
 

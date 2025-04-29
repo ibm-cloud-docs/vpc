@@ -1,8 +1,8 @@
 ---
 
 copyright:
-  years: 2024
-lastupdated: "2024-11-12"
+  years: 2024, 2025
+lastupdated: "2025-04-29"
 
 keywords:
 
@@ -18,10 +18,10 @@ subcollection: vpc
 As a service provider, you are responsible for managing your consumer account IDs. Currently, tracking or validating account IDs is not supported. For more information, see [Responsibilities for managing consumer account IDs](/docs/vpc?topic=vpc-pps-consumer-account-id-responsibilities&interface=ui).
 {: attention}
 
-You can revoke an account's access to a Private Path service using the UI, CLI, API, or Terraform.
+You can revoke an account's access to a Private Path service using the console, CLI, API, or Terraform.
 {: shortdesc}
 
-## Revoking an account's access to a Private Path service in the UI
+## Revoking an account's access to a Private Path service in the console
 {: #pps-ui-revoke-account-path-service}
 {: ui}
 
