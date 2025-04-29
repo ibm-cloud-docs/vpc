@@ -2,7 +2,7 @@
 
 copyright:
   years: 2023, 2025
-lastupdated: "2025-04-18"
+lastupdated: "2025-04-29"
 
 keywords:
 
@@ -96,7 +96,7 @@ To create a Private Path service with the {{site.data.keyword.cloud_notm}} conso
    1. Optionally, in the Attach members section, specify the following information, then click **Attach**:
        * **Back-end pool**: Select the back-end pool where you want to attach servers.
        * **Subnet**: Search for specific subnets in the table, and check the box beside the subnets that you want to attach. In the Port column, enter a port number for each subnet you select.
-       * **Member type**: Add virtual server instances, or an application load balancer as a member. For virtual server instances, attach each type individually. If a load balancer is not available, select **Create load balancer**.
+       * **Member type**: Add virtual server instances, or an application load balancer as a member. For virtual server instances, attach each type individually.
 
           If you attach an ALB as a member target to a Private Path NLB pool, no other members can be added to that pool.
           {: note}
