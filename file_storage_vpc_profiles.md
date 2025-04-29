@@ -2,7 +2,7 @@
 
 copyright:
   years: 2021, 2025
-lastupdated: "2025-04-14"
+lastupdated: "2025-04-29"
 
 keywords: file storage, file share, performance, IOPS, block size, capacity, range
 
@@ -50,6 +50,8 @@ Previous file share profiles:
 The maximum allowable throughput is determined by the number of IOPS multiplied by the throughput multiplier, which is specific to the profile. 
 
 The application I/O size directly impacts storage performance. If the application I/O size is smaller than the throughput multiplier that is used by the profile to calculate the bandwidth, the IOPS limit is reached before the throughput limit. Conversely, if the application I/O size is larger, the throughput limit is reached before the IOPS limit.
+
+A single session can achieve up to 64 KB block size transfer. To utilize the max allowable bandwidth, you need multiple concurrent sessions to the share.
 
 ## Defined performance profile
 {: #dp2-profile}

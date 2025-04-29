@@ -2,7 +2,7 @@
 
 copyright:
   years: 2021, 2025
-lastupdated: "2025-04-25"
+lastupdated: "2025-04-29"
 
 keywords: file share, file storage, replication, replica, size increase, capacity, encryption, BYOK, security group
 
@@ -213,6 +213,14 @@ If your file share was created before 18 June 2024, its allowed transit encrypti
 {: #faq-fs-perf-2}
 
 Yes, you can increase or decrease IOPS for file shares based on an **IOPS tier**, **custom**, or **dp2** profile. Adjusting IOPS depends on the file share size. Adjusting the IOPS causes no outage or lack of access to the storage. Pricing is adjusted with your selection. For more information, see [Adjusting file share IOPS](/docs/vpc?topic=vpc-file-storage-adjusting-iops&interface=ui).
+
+### What is the maximum IO transfer size that's supported for a file share per session?
+{: faq}
+{: #faq-fs-supported-IO-size}
+ 
+The maximum IO size that can be transferred for a share per session is 64 KB. To consume up to the max allowable bandwidth, you need multiple concurrent sessions to the share. 
+
+Throughput performance can vary depending on the IOPS that is configured for the file share.
 
 ### Can I change a file share profile?
 {: faq}
