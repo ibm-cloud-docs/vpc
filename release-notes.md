@@ -2,7 +2,7 @@
 
 copyright:
   years: 2019, 2025
-lastupdated: "2025-04-28"
+lastupdated: "2025-04-29"
 
 keywords:
 
@@ -109,7 +109,7 @@ Updated `workload` section for Hyper Protect Secure Build
 {: release-note}
 
 Montreal region now available
-:   The Montreal region is now available for provisioning the [3rd generation](/docs/vpc?topic=vpc-profiles&interface=ui#next-gen-profiles) of virtual servers and dedicated hosts. You can provision 2nd generation [bare metal servers](/docs/vpc?topic=vpc-bare-metal-servers-profile&interface=ui) from the balanced family on Cascade Lakes hardware. For more information, see [IBM Cloud region and data center locations for resource deployment](/docs/overview?topic=overview-locations). Storage services are also available, except for the Cross-regional replication feature for file shares and cross-regional copy feature for block volume snapshots. Block volume snapshots are temporarily routed to Cloud Object Storage in the WDC MZR instead of Montreal to provide proper data protection until a local KMS service is provided in the region. For more information see, [Storage known issues](/docs/vpc?topic=vpc-known-issues#snapshot-COS-upload-CA-MON-US-EAST).
+:   The Montreal region is now available for provisioning the [3rd generation](/docs/vpc?topic=vpc-profiles&interface=ui#next-gen-profiles) of virtual servers and dedicated hosts. You can provision 2nd-generation [bare metal servers](/docs/vpc?topic=vpc-bare-metal-servers-profile&interface=ui) from the balanced family on Cascade Lakes hardware. For more information, see [IBM Cloud region and data center locations for resource deployment](/docs/overview?topic=overview-locations). Storage services are also available, except for the Cross-regional replication feature for file shares and cross-regional copy feature for block volume snapshots. Block volume snapshots are temporarily routed to Cloud Object Storage in the WDC MZR instead of Montreal to provide proper data protection until a local KMS service is provided in the region. For more information see, [Storage known issues](/docs/vpc?topic=vpc-known-issues#snapshot-COS-upload-CA-MON-US-EAST).
 
 ### 05 March 2025
 {: #vpc-mar0525}

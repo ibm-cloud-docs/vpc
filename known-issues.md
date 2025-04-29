@@ -2,7 +2,7 @@
 
 copyright:
   years: 2018, 2025
-lastupdated: "2025-04-01"
+lastupdated: "2025-04-29"
 
 keywords:
 
@@ -119,7 +119,7 @@ When replication occurs between the source share and its replica, the system cre
 ### File share snapshots are not visible in UI, CLI, or API responses for Accessor shares
 {: #filesnapshotsonaccessorshare}
 
-Users of Accessor shares have access to all the data of the source share, which includes of the snapshots of the file share. Although users of an Accessor share can't see the file share snapshots of the source share in the console, in the CLI or API responses, they can access the snapshots in the `.snapshot` directory of the Accessor share.
+Users of Accessor shares have access to all the data of the source share, which includes the snapshots of the file share. Although users of an Accessor share can't see the file share snapshots of the source share in the console, in the CLI or API responses, they can access the snapshots in the `.snapshot` directory of the Accessor share.
 
 ### File share snapshot directory visible property in API response
 {: #snapshotdirectoryvisibleAPI}
@@ -136,7 +136,7 @@ If a source share with snapshots is replicated, the corresponding replica share 
 
 The `source_snapshot` property is present in the API response when a share is created by using a snapshot. However, when the share is replicated, this property is not copied to the replica.
 
-### Backup plan ID property in API response
+### Backup plan ID property in the API response
 {: #backup-policy-plan-fs}
 
 When details of a snapshot are retrieved, the API response shows the property name `backup_plan_id` instead of `backup_policy_plan`. A fix for this issue is planned.
