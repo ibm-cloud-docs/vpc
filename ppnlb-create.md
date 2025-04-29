@@ -581,7 +581,7 @@ The following example creates a Private Path network load balancer by using Terr
     ```terraform
     resource "ibm_is_lb" "testacc_lb" {
     name     = "my-example-ppnlb"
-    subnets  = [ibm_is_subnet.testacc_subnet.id}
+    subnets  = [ibm_is_subnet.testacc_subnet.id]
     profile = "network-private-path"
     type = "private_path"
     }
@@ -592,10 +592,10 @@ The following example creates a Private Path network load balancer by using Terr
 
     ```terraform
     resource "ibm_is_lb_pool" "testacc_lb_pool" {
-    name           = "my-tf-pool"
-    lb             = [ibm_is_lb.testacc_LB.id]
-    algorithm      = "round_robin"
-    protocol       = "tcp"
+    name   = "my-tf-pool"
+    lb    = [ibm_is_lb.testacc_LB.id]
+    algorithm  = "round_robin"
+    protocol   = "tcp"
     health_delay   = 2
     health_retries = 2
     health_timeout = 1
@@ -608,9 +608,9 @@ The following example creates a Private Path network load balancer by using Terr
 
     ```terraform
     resource "ibm_is_lb_pool_member" {
-    lb      = [ibm_is_lb.testacc_LB.id]
-    pool    = "element(split("/", [ibm_is_lb_pool.testacc_lb_pool.id]), 1)"
-    port    = 8080
+    lb    = [ibm_is_lb.testacc_LB.id]
+    pool  = "element(split("/", [ibm_is_lb_pool.testacc_lb_pool.id]), 1)"
+    port  = 8080
     weight  = 20
     target_id = [ibm_is_lb.example1.id]
     }
