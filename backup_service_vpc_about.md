@@ -2,7 +2,7 @@
 
 copyright:
  years: 2022, 2025
-lastupdated: "2025-04-21"
+lastupdated: "2025-04-29"
 
 keywords: Backup, backup service, backup plan, backup policy, restore, restore volume, restore data
 
@@ -254,6 +254,13 @@ For more information, see the [best practices for assigning access](/docs/accoun
 {: #baas-s2s-auth}
 
 Specific IAM user roles are required to grant service-to-service authorizations. Service-to-service authorizations between the Backup service and Cloud Block Storage, Snapshots for VPC, and Virtual server for VPC are needed so the backup service can detect volume tags and create snapshots. If you want to create automated snapshots of your file shares, set up service-to-service authorizations between the Backup service and the Cloud File Storage service. For more information, see [Establishing service-to-service authorizations](/docs/vpc?topic=vpc-backup-s2s-auth).
+
+### Context-based restrictions
+{: #baas-cbr}
+
+You can enable context-based restrictions (CBR) for all block volume and file share operations. These restrictions work with traditional IAM policies, which are based on identity, to provide an extra layer of protection. For more information, see [Protecting Virtual Private Cloud (VPC) Infrastructure Services with context-based restrictions](/docs/vpc?topic=vpc-cbr). 
+
+When you create a [context-based rule](/docs/vpc?topic=vpc-cbr&interface=ui#cbr-rules), make sure that it allows private endpoints. All the inter-service connections that the Backup service needs to work are private.
 
 ### Encryption at rest and in transit
 {: #backup-encryption}
