@@ -2,7 +2,7 @@
 
 copyright:
   years: 2022, 2025
-lastupdated: "2025-04-25"
+lastupdated: "2025-04-30"
 
 keywords: file share, customer-managed encryption, encryption, byok, KMS, Key Protect, Hyper Protect Crypto Services,
 
@@ -30,7 +30,7 @@ It's also possible to use a customer root key from another account. In {{site.da
 Configure all required [service-to-service authorizations](/docs/vpc?topic=vpc-file-s2s-auth&interface=ui#file-s2s-auth-encryption-ui){: ui}[service-to-service authorizations](/docs/vpc?topic=vpc-file-s2s-auth&interface=cli#file-s2s-auth-encryption-cli){: cli}[service-to-service authorizations](/docs/vpc?topic=vpc-file-s2s-auth&interface=api#file-s2s-auth-encryption-api){: api}[service-to-service authorizations](/docs/vpc?topic=vpc-file-s2s-auth&interface=terraform#file-s2s-auth-encryption-terraform){: terraform} between File Storage for VPC (source service) and the KMS instance (target service) that holds the customer root key. If you're provisioning volumes with a CRK of another account, ask that account's administrator to set up the authorization and to share the CRN of the root key.
 {: requirement}
 
-## Creating file shares with customer-managed encryption in the UI
+## Creating file shares with customer-managed encryption in the console
 {: #fs-byok-encryption-ui}
 {: ui}
 
@@ -84,7 +84,7 @@ Follow this procedure to specify customer-managed encryption when you create a f
 
 1. When all the required information is entered, click **Create file share**. You return to the {{site.data.keyword.filestorage_vpc_short}} page, where a message indicates that the file share is provisioning. When the transaction completes, the share status changes to **Active**.
 
-If you created your {{site.data.keyword.keymanagementserviceshort}} or {{site.data.keyword.hscrypto}} instance by using a private endpoint, root keys that were created by using that instance are not shown in the UI. You must use the CLI or API to access and use those root keys.
+If you created your {{site.data.keyword.keymanagementserviceshort}} or {{site.data.keyword.hscrypto}} instance by using a private endpoint, root keys that were created by using that instance are not shown in the console. You must use the CLI or API to access and use those root keys.
 {: important}
 
 ## Creating file shares with customer-managed encryption from the CLI

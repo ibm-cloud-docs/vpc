@@ -2,7 +2,7 @@
 
 copyright:
   years: 2022, 2025
-lastupdated: "2025-03-18"
+lastupdated: "2025-04-30"
 
 keywords: consistency group, snapshots, backups, instance snapshot, instance backup,
 
@@ -21,7 +21,7 @@ A snapshot consistency group contains snapshots of multiple volumes that are att
 If you update the backup consistency group to keep the individual snapshots after the consistency group is deleted, a backup job is not created when the consistency group is deleted. The system creates an event in the Activity Tracker when the consistency group is deleted.
 {: note}
 
-## Updating a consistency group in the UI
+## Updating a consistency group in the console
 {: #update-consistencygroup-ui}
 {: ui}
 
@@ -31,7 +31,7 @@ If you update the backup consistency group to keep the individual snapshots afte
    * To change the name on the group, click the **Edit icon** ![Edit icon](../icons/edit-tagging.svg "Edit") and enter the new name.
    * Switch the toggle to enable or disable the deletion of the snapshots when the consistency group is deleted.
 
-## Deleting a consistency group in the UI
+## Deleting a consistency group in the console
 {: #delete-consistencygroup-ui}
 {: ui}
 

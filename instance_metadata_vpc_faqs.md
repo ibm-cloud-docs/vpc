@@ -2,7 +2,7 @@
 
 copyright:
   years: 2022, 2025
-lastupdated: "2025-04-01"
+lastupdated: "2025-04-30"
 
 subcollection: vpc
 
@@ -36,12 +36,12 @@ By calling the [metadata service APIs](/apidocs/vpc-metadata-beta) from within a
 
 To use the metadata service, you need an instance identity access token. By using the instance identity token service, you can access the metadata service. For more information, see this [FAQ](#faq-rmds-4).
 
-The metadata service is disabled by default. You can enable it for new and existing instances in the UI, from the CLI, or with the API.
+The metadata service is disabled by default. You can enable it for new and existing instances in the console, from the CLI, or with the API.
 
 ## How do I enable the metadata service? Can I later disable it?
 {: #faq-rdms-6}
 
-The metadata service is disabled by default. You can enable it on new and existing instances in the UI, from the CLI, or with the API. For more information, see [Enable or disable the instance metadata service](/docs/vpc?topic=vpc-imd-configure-service&interface=cli#imd-metadata-service-enable).
+The metadata service is disabled by default. You can enable it on new and existing instances in the console, from the CLI, or with the API. For more information, see [Enable or disable the instance metadata service](/docs/vpc?topic=vpc-imd-configure-service&interface=cli#imd-metadata-service-enable).
 
 When you enable the metadata service for a virtual server instance that was created with the metadata service disabled, you must stop and restart the instance to fully enable the metadata service.
 {: note}

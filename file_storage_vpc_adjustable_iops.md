@@ -1,8 +1,8 @@
 ---
 
 copyright:
-  years: 2022, 2024
-lastupdated: "2024-12-17"
+  years: 2022, 2025
+lastupdated: "2025-04-30"
 
 keywords: file share, file storage, IOPS, performance needs, adjust IOPS
 
@@ -66,7 +66,7 @@ The following limitations apply.
 * When you use a custom or dp2 profile, IOPS can be adjusted multiple times until the maximum or minimum limit is reached.
 * The maximum IOPS for a file share for all profiles is [96,000 IOPS](/docs/vpc?topic=vpc-file-storage-profiles&interface=ui#fs-tiers). For 96,000 IOPS to be realized, a single file share must be accessed by multiple virtual server instances. A single file share in an instance is limited to 48,000 IOPS.
 
-## Adjusting IOPS in the UI
+## Adjusting IOPS in the console
 {: #adjust-vpc-iops-ui-file}
 {: ui}
 

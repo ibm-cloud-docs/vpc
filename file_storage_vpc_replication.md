@@ -2,7 +2,7 @@
 
 copyright:
   years: 2022, 2025
-lastupdated: "2025-04-10"
+lastupdated: "2025-04-30"
 
 keywords: file share, file storage, replication, replica, 
 
@@ -89,7 +89,7 @@ You can use replication to address disaster recovery concerns. The replication a
 ## Next steps
 {: #fs-replication-next-steps}
 
-1. [Create a replica file share](/docs/vpc?topic=vpc-file-storage-create-replication) in the UI, from the CLI, with the API or Terraform. 
+1. [Create a replica file share](/docs/vpc?topic=vpc-file-storage-create-replication) in the console, from the CLI, with the API or Terraform. 
    If you want to set up replication between different regions, you need to [establish service-to-service authorizations](/docs/vpc?topic=vpc-file-s2s-auth) between the file services of the two VPCs first. 
    {: requirement}
 

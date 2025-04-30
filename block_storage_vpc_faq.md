@@ -2,7 +2,7 @@
 
 copyright:
   years: 2019, 2025
-lastupdated: "2025-04-22"
+lastupdated: "2025-04-30"
 
 keywords: faqs, Block Storage for vpc, fast restore, multizone, instance, instance provisioning, volume management, volume deletion.
 
@@ -72,7 +72,7 @@ You can programmatically retrieve the pricing information by calling the [Global
 
 One confusing aspect of storage is the units that storage capacity and usage are reported in. Sometime GB is really gigabytes (base-10) and sometimes GB represents gibibytes (base-2) which should be abbreviated as GiB.
 
-Humans usually think and calculate numbers in the decimal (base-10) system. In our documentation, we refer to storage capacity by using the unit GB (Gigabytes) to align with the industry standard terminology. In the UI, CLI, API, and Terraform, you see the unit GB used and displayed when you query the capacity. When you want to order a 4-TB volume, you enter 4,000 GB in your provisioning request.
+Humans usually think and calculate numbers in the decimal (base-10) system. In our documentation, we refer to storage capacity by using the unit GB (Gigabytes) to align with the industry standard terminology. in the console, CLI, API, and Terraform, you see the unit GB used and displayed when you query the capacity. When you want to order a 4-TB volume, you enter 4,000 GB in your provisioning request.
 
 However, computers operate in binary, so it makes more sense to represent some resources like memory address spaces in base-2. Since 1984, computer file systems show sizes in base-2 to go along with the memory. Back then, available storage devices were smaller, and the size difference between the binary and decimal units was negligible. Now that the available storage systems are considerably larger this unit difference is causing confusion.
 
@@ -186,7 +186,7 @@ Boot volume capacity can be increased during instance provisioning or later, by 
 {: faq}
 {: #faq-block-storge-rbv-instance}
 
-Yes, boot volume capacity can be increased for an existing instance. For example, in the console, select a boot volume from the list of {{site.data.keyword.block_storage_is_short}} volumes and then resize the volume from the volume details page. For more information, see [Increase boot volume capacity from the list of {{site.data.keyword.block_storage_is_short}} volumes in the UI](/docs/vpc?topic=vpc-resize-boot-volumes&interface=ui#resize-boot-vol-list-ui). You can also use the [CLI](/docs/vpc?topic=vpc-resize-boot-volumes&interface=cli#expand-existing-boot-vol-cli) or the [API](/docs/vpc?topic=vpc-resize-boot-volumes&interface=api#expand-existing-boot-vol-api).
+Yes, boot volume capacity can be increased for an existing instance. For example, in the console, select a boot volume from the list of {{site.data.keyword.block_storage_is_short}} volumes and then resize the volume from the volume details page. For more information, see [Increase boot volume capacity from the list of {{site.data.keyword.block_storage_is_short}} volumes in the console](/docs/vpc?topic=vpc-resize-boot-volumes&interface=ui#resize-boot-vol-list-ui). You can also use the [CLI](/docs/vpc?topic=vpc-resize-boot-volumes&interface=cli#expand-existing-boot-vol-cli) or the [API](/docs/vpc?topic=vpc-resize-boot-volumes&interface=api#expand-existing-boot-vol-api).
 
 ### How many volumes can I provision on my account?
 {: faq}
@@ -249,7 +249,7 @@ IBM guarantees that your data is inaccessible on the physical disk and is eventu
 
 Valid volume names can include a combination of lowercase alphanumeric characters (a-z, 0-9) and the hyphen (-), up to 63 characters. Volume names must begin with a lowercase letter and be unique across the entire VPC infrastructure.
 
-You can change the name of an existing volume in the UI. For more information, see [Managing {{site.data.keyword.block_storage_is_short}}](/docs/vpc?topic=vpc-managing-block-storage#rename).
+You can change the name of an existing volume in the console. For more information, see [Managing {{site.data.keyword.block_storage_is_short}}](/docs/vpc?topic=vpc-managing-block-storage#rename).
 
 ### Does the volume need to be pre-warmed to achieve the expected throughput?
 {: faq}

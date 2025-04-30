@@ -2,7 +2,7 @@
 
 copyright:
   years: 2022, 2025
-lastupdated: "2025-04-25"
+lastupdated: "2025-04-30"
 
 keywords: Backup for VPC, backup service, backup plan, backup policy, restore, restore volume, restore data
 
@@ -31,7 +31,7 @@ For cross-account access, you need to establish service-to-service authorization
 
 For more information about authorizations, see [Using authorizations to grant access between services](/docs/account?topic=account-serviceauth).
 
-## Creating authorization for customer-managed encryption in the UI
+## Creating authorization for customer-managed encryption in the console
 {: #file-s2s-auth-encryption-ui}
 {: ui}
 
@@ -54,7 +54,7 @@ For more information about authorizations, see [Using authorizations to grant ac
 1. Click **Review** and inspect your choices.
 1. Click **Authorize**.
 
-## Creating authorization for cross-region replication in the UI
+## Creating authorization for cross-region replication in the console
 {: #file-s2s-auth-replication-ui}
 {: ui}
 
@@ -79,7 +79,7 @@ For more information about authorizations, see [Using authorizations to grant ac
 1. Click **Review** and inspect your choices.
 1. Click **Authorize**.
 
-## Creating authorization for cross-account access in the UI
+## Creating authorization for cross-account access in the console
 {: #file-s2s-auth-xaccount-ui}
 {: ui}
 
@@ -109,7 +109,7 @@ For more information about authorizations, see [Using authorizations to grant ac
 1. Click **Review** and inspect your choices.
 1. Click **Authorize**.
 
-## Creating authorization for Watson Studio in the UI
+## Creating authorization for Watson Studio in the console
 {: #file-s2s-auth-watsonstudio-ui}
 {: ui}
 

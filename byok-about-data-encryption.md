@@ -2,7 +2,7 @@
 
 copyright:
   years: 2019, 2025
-lastupdated: "2025-04-22"
+lastupdated: "2025-04-30"
 
 keywords:
 
@@ -165,7 +165,7 @@ Cross-regional keys offer more key availability with the tradeoff of slightly hi
 
 For optimal performance and security, use root keys in the same region as your encrypted resources. Regional service uses private endpoints to multiple availability zones. If a specific zone is unavailable, you can continue to access your root keys and encrypted resources from another zone.
 
-When you use root keys regionally or cross-regionally, all network traffic is directed to a private endpoint. In other words, your keys encrypt and decrypt resources over a private network that's inaccessible to the internet. For more information about private endpoints, see [Secure access to services by using service endpoints](/docs/account?topic=account-service-endpoints-overview). You can see a list of private endpoints in the UI by going to the Resource List > Security and clicking a {{site.data.keyword.keymanagementserviceshort}} or {{site.data.keyword.hscrypto}} instance. In the left menu, select **Endpoints**.
+When you use root keys regionally or cross-regionally, all network traffic is directed to a private endpoint. In other words, your keys encrypt and decrypt resources over a private network that's inaccessible to the internet. For more information about private endpoints, see [Secure access to services by using service endpoints](/docs/account?topic=account-service-endpoints-overview). You can see a list of private endpoints in the console by going to the Resource List > Security and clicking a {{site.data.keyword.keymanagementserviceshort}} or {{site.data.keyword.hscrypto}} instance. In the left menu, select **Endpoints**.
 
 ### General procedure for setting up customer-managed encryption
 {: #byok-general-prodedure}
@@ -205,7 +205,7 @@ To import an encrypted custom image to {{site.data.keyword.vpc_short}}, begin by
 
 With the required IAM authorizations in place, you can import the encrypted image from {{site.data.keyword.cos_full_notm}}. You import the image to the VPC and specify the cloud resource name (CRN) for your root key that is stored in the KMS. You also specify the ciphertext for your WDEK, which is the passphrase that you use to encrypt your image, wrapped by the root key.
 
-When you import with the API or UI, you supply a single QCOW2 boot image file that can be 10 GB to 250 GB. This file is private to the account to which it is imported. The region where you import the encrypted image is the region where you create virtual server instances from that image. The encrypted image displays with other custom images that you have permission to use. In the UI, a lock icon next to the name indicates that it's an encrypted custom image.
+When you import with the API or UI, you supply a single QCOW2 boot image file that can be 10 GB to 250 GB. This file is private to the account to which it is imported. The region where you import the encrypted image is the region where you create virtual server instances from that image. The encrypted image displays with other custom images that you have permission to use. in the console, a lock icon next to the name indicates that it's an encrypted custom image.
 
 If you import an encrypted image that is not exactly 100 GB virtual disk size and use it to provision an instance, and then try to create a custom image from that instance’s boot volume, the `POST /images` call is going to return an error.
 {: note}

@@ -2,7 +2,7 @@
 
 copyright:
   years: 2024, 2025
-lastupdated: "2025-04-24"
+lastupdated: "2025-04-30"
 
 keywords: snapshots, File storage snapshots, manage snapshots, fast restore clone, backup snapshot, remote copy, cross-regional copy
 
@@ -23,7 +23,7 @@ Although you can't create a snapshot on a replica share, the snapshots of the or
 
 
 
-## Updating user tags of a snapshot in the UI
+## Updating user tags of a snapshot in the console
 {: #fs-snapshot-rename-ui}
 {: ui}
 
@@ -141,7 +141,7 @@ You can delete any snapshot of a share. To be able to delete a snapshot, it must
 
 An easy way to determine whether you can delete a snapshot is to look in the [console](/docs/vpc?topic=vpc-fs-snapshots-view&interface=ui#fs-snapshots-view-ui) for the list of snapshots and check its status.
 
-### Deleting a single snapshot in the UI
+### Deleting a single snapshot in the console
 {: #fs-snapshots-delete-single-snapshot-ui}
 
 You can delete a snapshot from the list of snapshots by using the following steps.

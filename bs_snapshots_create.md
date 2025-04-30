@@ -2,7 +2,7 @@
 
 copyright:
   years: 2021, 2025
-lastupdated: "2025-03-25"
+lastupdated: "2025-04-30"
 
 keywords: snapshots, Block Storage, snapshot clone, remote copy, fast restore, Block Storage snapshot, cross-regional snapshot
 
@@ -23,7 +23,7 @@ Before you take a snapshot, make sure that all cached data is present on disk, e
 
 You can create a consistency group that contains snapshots of multiple volumes that are attached to a virtual server instance. All snapshots in the consistency group are created at the same time and are loosely coupled. For more information, see [Creating snapshot consistency groups](/docs/vpc?topic=vpc-snapshots-vpc-create-consistency-groups).
 
-## Creating a snapshot in the UI
+## Creating a snapshot in the console
 {: #snapshots-vpc-create-ui}
 {: ui}
 
@@ -63,12 +63,12 @@ In the console, you can create a snapshot of a {{site.data.keyword.block_storage
    | Optional configurations | Cross-region snapshot copy. Select Copy Snapshot to a different region. Click **Create**.|
    {: caption="Selections for creating a snapshot" caption-side="bottom"}
 
-3. Click **Create**. You're returned to the screen that you started from. Messages are displayed while the snapshot is being created and when it's ready, the snapshot is displayed in the list of snapshots. For more information, see [View snapshot details in the UI](/docs/vpc?topic=vpc-snapshots-vpc-view&interface=ui#snapshots-vpc-view-snapshot-ui).
+3. Click **Create**. You're returned to the screen that you started from. Messages are displayed while the snapshot is being created and when it's ready, the snapshot is displayed in the list of snapshots. For more information, see [View snapshot details in the console](/docs/vpc?topic=vpc-snapshots-vpc-view&interface=ui#snapshots-vpc-view-snapshot-ui).
    
 If you're not ready to order yet or just looking for pricing information, you can add the information that you see in the side panel to an Estimate. For more information about how this feature works, see [Estimating your costs](/docs/account?topic=account-cost).    
 {: tip}
 
-## Enabling fast restore snapshot clones in the UI
+## Enabling fast restore snapshot clones in the console
 {: #frsnapshots-vpc-create-ui}
 {: ui}
 
@@ -84,7 +84,7 @@ The fast restore feature is billed at an extra hourly rate for each zone that it
 {: #crsnapshots-vpc-create-ui}
 {: ui}
 
-In the previous section, you saw how to create a cross-regional snapshot copy when you take a new snapshot in the UI. You can also create cross-regional copies of existing snapshots.
+In the previous section, you saw how to create a cross-regional snapshot copy when you take a new snapshot in the console. You can also create cross-regional copies of existing snapshots.
 
 1. In the console, click the **Navigation menu** icon ![menu icon](../icons/icon_hamburger.svg) **> Infrastructure** ![VPC icon](../icons/vpc.svg) **> Storage > Block Storage snapshots**.
 1. In the list of snapshots, locate that snapshot that you want to copy. Make sure that the snapshot is in Stable status.

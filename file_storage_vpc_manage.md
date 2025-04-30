@@ -2,7 +2,7 @@
 
 copyright:
   years: 2021, 2025
-lastupdated: "2025-04-25"
+lastupdated: "2025-04-30"
 
 keywords: file share, file storage, rename share, increase size, adjust IOPS, mount target
 
@@ -26,7 +26,7 @@ Manage the file shares that you created. You can rename a file share. You can in
 
 The following sections contain instructions to modify and update various properties of file shares and mount targets. Due to the nature of the accessor shares, some properties (for example, file share profile, access control mode or allowed transit encryption modes) cannot be changed. Those properties are inherited from the origin share. For the accessor share properties that can be modified, the steps are the same as for updating a normal share. While it is not possible to create a snapshot of an accessor share, if the origin share has snapshots, you can access the snapshots in the `.snapshot` directory. This directory is read-only.
 
-## Managing file shares, accessor share bindings, and mount targets in the UI
+## Managing file shares, accessor share bindings, and mount targets in the console
 {: #file-storage-manage-ui}
 {: ui}
 
@@ -45,7 +45,7 @@ In the console, you can manage normal file shares and accessor shares. Only the 
 Snapshots are supported only for shares that have *security group* as their access control mode. You can't change access control mode to VPC unless all the snapshots of the share are deleted.
 {: note} 
 
-### Renaming a file share in the UI
+### Renaming a file share in the console
 {: #rename-file-share-ui}
 
 1. On the [file shares details](/docs/vpc?topic=vpc-file-storage-view#fs-view-single-share-ui) page, click the **Edit icon** ![Edit icon](../icons/edit-tagging.svg "Edit") next to the file share name.
@@ -54,7 +54,7 @@ Snapshots are supported only for shares that have *security group* as their acce
 
 Valid file share names can include a combination of lowercase alpha-numeric characters (a-z, 0-9) and the hyphen (-), up to 63 characters. File share names must begin with a lowercase letter.
 
-### Renaming a mount target of a file share in the UI
+### Renaming a mount target of a file share in the console
 {: #rename-mount-target-ui}
 
 1. Go to the [file shares details](/docs/vpc?topic=vpc-file-storage-view&interface=ui#fs-view-single-share-ui) page.
@@ -64,7 +64,7 @@ Valid file share names can include a combination of lowercase alpha-numeric char
 
 Valid mount target names can include a combination of lowercase alpha-numeric characters (a-z, 0-9) and the hyphen (-), up to 63 characters. Mount target names must begin with a lowercase letter.
 
-### Updating a file share profile in the UI
+### Updating a file share profile in the console
 {: #fs-update-profile-ui}
 
 These instructions are for the previous generation of file share profiles (general purpose, 5-iops, 10-iops, or custom). To access the current features, you must change the IOPS profile of your share to dp2. The profiles of file shares that were created with the `dp2` profile cannot be changed.
@@ -77,7 +77,7 @@ You can change the profile for a file share from the current profile to another 
 3. For a **New profile**, click the down arrow. You can select a new IOPS tier, a custom profile, or dp2. For **Custom IOPS** or **dp2**, specify a new max IOPS based on the file share size. The file share price is automatically calculated based on your selection.
 4. Click **Save and continue**.
 
-### Updating allowed transit encryption modes in the UI
+### Updating allowed transit encryption modes in the console
 {: #fs-update-transit-encryption-ui}
 
 The owner of a share can change the allowed transit encryption modes. However, before this property can be changed, all bindings must be deleted. Deleting the bindings severs the network path between origin file share and accessor share, and puts the mount target that is attached to the accessor share in a failed state. For more information, see [Removing access to a file share from other accounts](/docs/vpc?topic=vpc-file-storage-accessor-delete&interface=ui).
@@ -87,29 +87,29 @@ The owner of a share can change the allowed transit encryption modes. However, b
 1. On the File share details page, locate the allowed transit encryption modes.
 1. Click the **Edit icon** ![Edit icon](../icons/edit-tagging.svg "Edit") to change the current value.
 
-### Deleting file shares, accessor share bindings, and mount targets in the UI
+### Deleting file shares, accessor share bindings, and mount targets in the console
 {: #delete-targets-shares-ui}
 
-Before you delete a file share, make sure that it is [unmounted](#fs-mount-unmount-vsi) from all virtual server instances and that all mount targets that belong to the file share are [deleted](#delete-mount-target-ui). If your file share is shared with another account, delete the accessor bindings before you delete the share. Also, if the file share has a replica file share, you must remove the replication relationship. For more information, see [Remove the replication relationship in the UI](/docs/vpc?topic=vpc-file-storage-manage-replication&interface=ui#fs-remove-replication-ui).
+Before you delete a file share, make sure that it is [unmounted](#fs-mount-unmount-vsi) from all virtual server instances and that all mount targets that belong to the file share are [deleted](#delete-mount-target-ui). If your file share is shared with another account, delete the accessor bindings before you delete the share. Also, if the file share has a replica file share, you must remove the replication relationship. For more information, see [Remove the replication relationship in the console](/docs/vpc?topic=vpc-file-storage-manage-replication&interface=ui#fs-remove-replication-ui).
 
 If the file share has snapshots, those snapshots are deleted along with the file share.
 {: note}
 
-#### Deleting share bindings of a file share in the UI
+#### Deleting share bindings of a file share in the console
 {: #delete-bindings-ui}
 
 1. Select a file share from the [list of file shares](/docs/vpc?topic=vpc-file-storage-view#file-storage-view-shares-targets-ui).
 1. On the File share details page, scroll to the Accessor share bindings section to locate the binding that you want to delete.
 1. At the end of the row of the binding, click the **Actions** icon ![Actions icon](../icons/action-menu-icon.svg "Actions") and select **Delete**.
 
-#### Deleting mount target of a file share in the UI
+#### Deleting mount target of a file share in the console
 {: #delete-mount-target-ui}
 
 1. Select a file share from the [list of file shares](/docs/vpc?topic=vpc-file-storage-view#file-storage-view-shares-targets-ui).
 2. On the File share details page, select a mount target that you want to delete.
 3. Click the Actions icon ![Actions icon](../icons/action-menu-icon.svg "Actions") and select **Delete**.
 
-#### Deleting a file share in the UI
+#### Deleting a file share in the console
 {: #delete-file-share-ui}
 
 The file share must be in a `stable` state or `failed` state.
@@ -782,11 +782,11 @@ Up to 100 tags can be attached or detached in the same operation. When you edit 
 
 You can manage your tags in the {{site.data.keyword.cloud_notm}} with the [Global Tagging API](/apidocs/tagging). With this API, you can create, delete, search, attach, or detach tags. For more information about managing tags for your account, see [Working with tags](/docs/account?topic=account-tag).
 
-### Adding user tags to file share in the UI
+### Adding user tags to file share in the console
 {: #fs-add-tags-shares-ui}
 {: ui}
 
-You can add user tags to a file share in the UI.
+You can add user tags to a file share in the console.
 
 1. Go to the list of file shares. In the [{{site.data.keyword.cloud_notm}} console](/login){: external}, click the **Navigation menu** icon ![menu icon](../icons/icon_hamburger.svg) **> Infrastructure** ![VPC icon](../icons/vpc.svg) **> Storage > File Shares**.
 2. Select a file share to view its details.

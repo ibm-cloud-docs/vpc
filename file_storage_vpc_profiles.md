@@ -2,7 +2,7 @@
 
 copyright:
   years: 2021, 2025
-lastupdated: "2025-04-29"
+lastupdated: "2025-04-30"
 
 keywords: file storage, file share, performance, IOPS, block size, capacity, range
 
@@ -123,11 +123,11 @@ Table 4 shows the available IOPS ranges based on file share size.
 The total maximum IOPS is rounded up to the next multiple of 10 when the IOPS calculation results in IOPS less than or equal to 48,000 IOPS.
 {: note}
 
-## View profiles in the UI
+## View profiles in the console
 {: #fs-using-ui-iops-profile}
 {: ui}
 
-When you [create a file share in the UI](/docs/vpc?topic=vpc-file-storage-create&interface=ui#file-storage-create-ui), you can see the dp2 profile in the table in the **Profiles** section.
+When you [create a file share in the console](/docs/vpc?topic=vpc-file-storage-create&interface=ui#file-storage-create-ui), you can see the dp2 profile in the table in the **Profiles** section.
 
 ## Viewing profiles from the CLI
 {: #fs-using-cli-iops-profiles}

@@ -1,8 +1,8 @@
 ---
 
 copyright:
-  years: 2020, 2024
-lastupdated: "2024-11-05"
+  years: 2020, 2025
+lastupdated: "2025-04-30"
 
 keywords: Block Storage, boot volume, data volume, volume, data storage, virtual server instance, instance, expandable volume
 
@@ -20,7 +20,7 @@ After you provisioned a {{site.data.keyword.block_storage_is_short}} data volume
 
 You can't change the volume to a smaller size after you expand its capacity. However, if your requirements change, you can expand the same volume again up to the maximum capacity that's available for its profile.
 
-## Expand Block Storage volumes in the UI
+## Expand Block Storage volumes in the console
 {: #expand-vpc-volumes-ui}
 {: ui}
 

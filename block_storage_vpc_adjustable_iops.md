@@ -1,8 +1,8 @@
 ---
 
 copyright:
-  years: 2021, 2024
-lastupdated: "2024-10-23"
+  years: 2021, 2025
+lastupdated: "2025-04-30"
 
 keywords: Block Storage for VPC, boot volume, data volume, volume, data storage, virtual server instance, instance, adjustable volume, iops
 
@@ -330,5 +330,5 @@ For more information about the arguments and attributes, see [ibm_is_volume](htt
 
 Create more volumes or manage your existing {{site.data.keyword.block_storage_is_short}} volumes:
 
-* [Creating {{site.data.keyword.block_storage_is_short}} volumes in the UI](/docs/vpc?topic=vpc-creating-block-storage)
-* [Managing {{site.data.keyword.block_storage_is_short}} volumes in the UI](/docs/vpc?topic=vpc-managing-block-storage)
+* [Creating {{site.data.keyword.block_storage_is_short}} volumes in the console](/docs/vpc?topic=vpc-creating-block-storage)
+* [Managing {{site.data.keyword.block_storage_is_short}} volumes in the console](/docs/vpc?topic=vpc-managing-block-storage)

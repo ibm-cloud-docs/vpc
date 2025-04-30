@@ -2,7 +2,7 @@
 
 copyright:
   years: 2024, 2025
-lastupdated: "2025-04-01"
+lastupdated: "2025-04-30"
 
 keywords: File Storage, snapshots, cross-regional copy, fast restore, backup, restore share
 
@@ -94,7 +94,7 @@ To help ensure that snapshots are able to survive the loss of an availability zo
 {: faq}
 {: #faq-fs-customer-service-snapshots}
 
-All the snapshots that are present in the share are visible as subdirectories inside a hidden `/.snapshot` directory, and the snapshot directories are named the same as the snapshot fingerprint ID that you see in the UI, from the CLI, or with the API. These snapshots are the snapshots that you took manually or that were created automatically by the backup service. 
+All the snapshots that are present in the share are visible as subdirectories inside a hidden `/.snapshot` directory, and the snapshot directories are named the same as the snapshot fingerprint ID that you see in the console, from the CLI, or with the API. These snapshots are the snapshots that you took manually or that were created automatically by the backup service. 
 
 You can also see special "replication" snapshots that are named by using the word "replication" and the associated creation timestamp rather than the fingerprint of the snapshot. These snapshots are created by the system and are used to mirror data to the replica share. The replication snapshots are automatically released and deleted when they are no longer needed.
 

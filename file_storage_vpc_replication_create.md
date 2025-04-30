@@ -2,7 +2,7 @@
 
 copyright:
   years: 2022, 2025
-lastupdated: "2025-04-25"
+lastupdated: "2025-04-30"
 
 keywords: file share, file storage, source volume, replica share, 
 
@@ -15,7 +15,7 @@ subcollection: vpc
 # Creating replica file shares
 {: #file-storage-create-replication}
 
-Create a replica file share in the UI, from the CLI, with the API, or with Terraform. Replica file shares can be created in another zone of the same metro region as the primary share's zone, or a zone of a different metro region in the same geography.
+Create a replica file share in the console, from the CLI, with the API, or with Terraform. Replica file shares can be created in another zone of the same metro region as the primary share's zone, or a zone of a different metro region in the same geography.
 {: shortdesc}
 
 The following table shows which metro regions can replicate with each other within each geography. 
@@ -31,11 +31,11 @@ The specified source file share must not have another replica already, and must 
 If you want to create a replica in another region, you need to establish service-to-service authorizations first. Both file service instances must belong to the same account. Cross-account replication is not supported. For more information, see [Establishing service-to-service authorizations for {{site.data.keyword.filestorage_vpc_short}}](/docs/vpc?topic=vpc-file-s2s-auth).
 {: requirement}
 
-## Adding replication to a file share in the UI
+## Adding replication to a file share in the console
 {: #fs-create-replica-ui}
 {: ui}
 
-You can create a replica of your file share from the list of all file shares or the file share details page. If you don't already have a source file share, provision one as described in [Create a file share and mount target in the UI](/docs/vpc?topic=vpc-file-storage-create&interface=ui#fs-create-share-target-ui). When the file share appears as "stable" on the File shares for VPC page, click the **Actions** icon ![Actions icon](../icons/action-menu-icon.svg "Actions") and click **Create replica**.
+You can create a replica of your file share from the list of all file shares or the file share details page. If you don't already have a source file share, provision one as described in [Create a file share and mount target in the console](/docs/vpc?topic=vpc-file-storage-create&interface=ui#fs-create-share-target-ui). When the file share appears as "stable" on the File shares for VPC page, click the **Actions** icon ![Actions icon](../icons/action-menu-icon.svg "Actions") and click **Create replica**.
 
 On the File share replica create page, review the source file share details, and complete the replica details.
 

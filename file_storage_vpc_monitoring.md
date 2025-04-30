@@ -2,7 +2,7 @@
 
 copyright:
   years: 2021, 2025
-lastupdated: "2025-04-25"
+lastupdated: "2025-04-30"
 
 keywords: file share, file storage, rename share, increase size, adjust IOPS, mount target
 
@@ -71,7 +71,7 @@ Table 2 shows all the replication status that the file shares can have.
 
 Replication is an asynchronous operation, which is not instantaneous. The system queries the last sync status every 15 minutes. The result shows the data of the last replication that completed, such as start and end date, and the transferred data volume.
 
-You can see information about the last replication operation when you view the details of either the source or the replica share. For more information, see [View details of a file share in the UI](/docs/vpc?topic=vpc-file-storage-view&interface=ui#fs-view-single-share-ui).
+You can see information about the last replication operation when you view the details of either the source or the replica share. For more information, see [View details of a file share in the console](/docs/vpc?topic=vpc-file-storage-view&interface=ui#fs-view-single-share-ui).
 {: ui}
 
 You can see information about the last replication operation when you list the details of either the source or the replica share. For more information, see [View details of a file share from the CLI](/docs/vpc?topic=vpc-file-storage-view&interface=cli#fs-share-details-cli).

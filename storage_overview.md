@@ -2,7 +2,7 @@
 
 copyright:
   years: 2022, 2025
-lastupdated: "2025-01-24"
+lastupdated: "2025-04-30"
 
 keywords: block storage for VPC, File Storage for VPC, Snapshots for VPC, Backup for VPC, block storage, file storage, snapshots, backup, 
 
@@ -39,9 +39,9 @@ For more information about this service, see [About {{site.data.keyword.block_st
 ## {{site.data.keyword.block_storage_is_short}} snapshots
 {: #vpc-bs-snapshots-overview}
 
-Block storage snapshots is a regional offering. A snapshot is a point-in-time copy of your block storage volume that you create manually in the UI, from the CLI, with the API or Terraform. The initial snapshot is a full copy of the volume. Subsequent snapshots of the same volume are incremental; only those changes are captured that occurred since the last snapshot was taken. Snapshots inherit encryption from the source volume.
+Block storage snapshots is a regional offering. A snapshot is a point-in-time copy of your block storage volume that you create manually in the console, from the CLI, with the API or Terraform. The initial snapshot is a full copy of the volume. Subsequent snapshots of the same volume are incremental; only those changes are captured that occurred since the last snapshot was taken. Snapshots inherit encryption from the source volume.
 
-You can create, list, view details, and manage snapshots in the UI, from the CLI, and with the API or Terraform. You can select a nonbootable snapshot to create a data volume and attach it to a running virtual instance. You can also select a bootable snapshot during instance provisioning to restore its data to a new boot volume to start the instance. You can use the snapshot to create a stand-alone volume and attach it to an instance later.
+You can create, list, view details, and manage snapshots in the console, from the CLI, and with the API or Terraform. You can select a nonbootable snapshot to create a data volume and attach it to a running virtual instance. You can also select a bootable snapshot during instance provisioning to restore its data to a new boot volume to start the instance. You can use the snapshot to create a stand-alone volume and attach it to an instance later.
 
 You can copy snapshot to another region and use it to provision new volumes in that region, as a BCDR measure or geographic expansion.
 
@@ -76,7 +76,7 @@ For more information, see [About {{site.data.keyword.filestorage_vpc_short}}](/d
 
 {{site.data.keyword.filestorage_vpc_short}} snapshots is a zonal offering. A snapshot is a point-in-time copy of your file share that you create manually in the console, from the CLI, with the API, or Terraform. The initial snapshot is a full copy of the share. Subsequent snapshots of the same share are incremental; only those changes are captured that occurred since the last snapshot was taken. Snapshots inherit encryption from the source share.
 
-You can create, list, view details, and manage snapshots in the UI, from the CLI, and with the API or Terraform. You can use the snapshot to create another file share or to retrieve previous versions of files that are stored in the share.
+You can create, list, view details, and manage snapshots in the console, from the CLI, and with the API or Terraform. You can use the snapshot to create another file share or to retrieve previous versions of files that are stored in the share.
 
 Snapshots are tied to their source share. If you delete the original share and the snapshot is also deleted. However, you cannot delete a snapshot that is being used to hydrate a newly restored file.
 
@@ -85,7 +85,7 @@ For more information, see [About {{site.data.keyword.filestorage_vpc_short}} sna
 ## Backup for VPC
 {: #vpc-backup-serv-overview}
 
-The {{site.data.keyword.cloud}} provides the means to create backup copies of your block storage volumes and file shares automatically. You can create a backup policy with one or more plans, and associate tags to the policy in the UI, from the CLI, with the API or Terraform. 
+The {{site.data.keyword.cloud}} provides the means to create backup copies of your block storage volumes and file shares automatically. You can create a backup policy with one or more plans, and associate tags to the policy in the console, from the CLI, with the API or Terraform. 
 
 The user-defined tags can be added to block storage volumes, file shares, and virtual server instances. When tags match, the backup policy is applied to the resources, and backup copies of the data are created based on the backup plan. You can set your own retention schedule to automatically delete older backups. This way, you can control how much space is used and how long backups are retained. By using Backup for VPC service, you can prevent data loss, manage risk, and improve data compliance.
 

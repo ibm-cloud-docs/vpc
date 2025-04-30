@@ -1,8 +1,8 @@
 ---
 
 copyright:
-  years: 2022, 2024
-lastupdated: "2024-10-10"
+  years: 2022, 2025
+lastupdated: "2025-04-30"
 
 keywords:
 
@@ -26,7 +26,7 @@ You can programmatically access metadata about a virtual server instance and use
 
 Metadata that you can access includes the instance name, CRN, resource groups, user data, as well as information about SSH keys and placement groups. For more information about all metadata that is returned from the service, see the [summary of data returned by the metadata service](/docs/vpc?topic=vpc-imd-metadata-summary).
 
-The instance metadata service uses a REST API and the instance's host name to retrieve metadata. The metadata service is disabled by default. You can enable the metadata services on all instances with the VPC API, from the CLI, or in the UI.
+The instance metadata service uses a REST API and the instance's host name to retrieve metadata. The metadata service is disabled by default. You can enable the metadata services on all instances with the VPC API, from the CLI, or in the console.
 
 The instance metadata service has two components:
 

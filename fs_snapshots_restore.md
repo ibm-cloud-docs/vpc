@@ -2,7 +2,7 @@
 
 copyright:
   years: 2024, 2025
-lastupdated: "2025-04-24"
+lastupdated: "2025-04-30"
 
 keywords:
 
@@ -15,7 +15,7 @@ subcollection: vpc
 # Restoring data from a file share snapshot
 {: #fs-snapshots-restore}
 
-Restoring data from a snapshot creates a new, fully provisioned share. Shares can be restored from snapshots that were created manually or by a backup policy. You can create shares from snapshots in the UI, from the CLI, with the API, or Terraform. The share that you create by using a snapshot must have the same file share profile as the snapshot. You can also restore single files from snapshots of your file share. 
+Restoring data from a snapshot creates a new, fully provisioned share. Shares can be restored from snapshots that were created manually or by a backup policy. You can create shares from snapshots in the console, from the CLI, with the API, or Terraform. The share that you create by using a snapshot must have the same file share profile as the snapshot. You can also restore single files from snapshots of your file share. 
 {: shortdesc}
 
 Shares can be created only in the same availability zone as the origin share of the snapshot. When the new share is created, it contains only pointers to the original share, and the data copy process begins. While the data is being copied, the share is in a _pending_ state. While the new share can be mounted for read/write in _pending_ state, a few operations like creating a replica or snapshots are not permitted. After the data-copy operation is complete, the new share is split from the parent share to become independent, completing the initialization process. After the initialization process is complete, the share moves to the _stable_ state and can be used as any other share. 
@@ -241,7 +241,7 @@ For more information about the arguments and attributes, see [ibm_is_share](http
 
 To perform single-file restoration, you can use native OS functions. You can browse to the share's NFS mount target to open the hidden `/.snapshot` directory and access the data that is contained within each snapshot of your share. Then, you can copy the selected file to a different location.
 
-Although the snapshot directory is hidden, it is accessible and viewable when it is addressed directly with commands such as `cd .snapshot` or `ls .snapshot/`. All the snapshots that are present in the share are visible as subdirectories inside that hidden `/.snapshot` directory, and each snapshot directory is named with the snapshot's fingerprint that you see in the UI, from the CLI, or with the API. See the following example.
+Although the snapshot directory is hidden, it is accessible and viewable when it is addressed directly with commands such as `cd .snapshot` or `ls .snapshot/`. All the snapshots that are present in the share are visible as subdirectories inside that hidden `/.snapshot` directory, and each snapshot directory is named with the snapshot's fingerprint that you see in the console, from the CLI, or with the API. See the following example.
 
 ```sh
 [root@server .snapshot]# ls -lah

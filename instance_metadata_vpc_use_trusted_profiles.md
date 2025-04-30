@@ -2,7 +2,7 @@
 
 copyright:
   years: 2022, 2025
-lastupdated: "2025-04-24"
+lastupdated: "2025-04-30"
 
 keywords:
 
@@ -50,7 +50,7 @@ The instance inherits the access rights that are defined in the default trusted 
 ### IAM authorizations for linking trusted profiles
 {: #imd-iam-auth}
 
-To link a trusted profile to an instance, you must have sufficient authorization. With the correct IAM permissions, you can see all trusted profiles that are linked to an instance in the UI.
+To link a trusted profile to an instance, you must have sufficient authorization. With the correct IAM permissions, you can see all trusted profiles that are linked to an instance in the console.
 
 You must be assigned the administrator, or editor role within the account, or on the IAM Identity Service to manage trusted profiles.
 {: requirement}

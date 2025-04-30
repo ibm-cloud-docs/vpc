@@ -2,7 +2,7 @@
 
 copyright:
   years: 2022, 2025
-lastupdated: "2025-04-25"
+lastupdated: "2025-04-30"
 
 keywords: file storage, file share, view share details, mount targets, view targets, view share
 
@@ -16,14 +16,14 @@ subcollection: vpc
 # Viewing file shares, share bindings, and mount targets
 {: #file-storage-view}
 
-You can view all file shares, their bindings and mount targets in the UI, retrieve their information from the CLI, with the API, or Terraform. You can retrieve information for all shares, bindings, and mount targets, or just the information of a specific resource.
+You can view all file shares, their bindings and mount targets in the console, retrieve their information from the CLI, with the API, or Terraform. You can retrieve information for all shares, bindings, and mount targets, or just the information of a specific resource.
 {: shortdesc}
 
-## Viewing file shares, share bindings and mount targets in the UI
+## Viewing file shares, share bindings and mount targets in the console
 {: #file-storage-view-shares-targets-ui}
 {: ui}
 
-### Viewing all file shares in the UI
+### Viewing all file shares in the console
 {: #fs-view-all-shares-ui}
 
 1. In the [{{site.data.keyword.cloud_notm}} console](/login){: external}, click the **Navigation menu** icon ![menu icon](../icons/icon_hamburger.svg) **> Infrastructure** ![VPC icon](../icons/vpc.svg) **> Storage > File Shares**.
@@ -45,7 +45,7 @@ You can view all file shares, their bindings and mount targets in the UI, retrie
 
 You can access the Actions menu by clicking ![Actions icon](../icons/action-menu-icon.svg "Actions"). The Actions menu has options for managing the file share, depending on its state. For a file share in a _stable_ state, you can rename the share, edit IOPS, copy the share's CRN, create a replica, or delete a file share. **Delete** and **Create replica** are disabled if you set up replication to a replica file share already. For more information, see [Creating replica file shares](/docs/vpc?topic=vpc-file-storage-create-replication&interface=ui).
 
-### Viewing details of a file share in the UI
+### Viewing details of a file share in the console
 {: #fs-view-single-share-ui}
 
 1. Go to the list of all file shares. From the [{{site.data.keyword.cloud_notm}} console](/login){: external}, click the **Navigation menu** icon ![menu icon](../icons/icon_hamburger.svg) **> Infrastructure** ![VPC icon](../icons/vpc.svg) **> Storage > File Shares**.
@@ -115,7 +115,7 @@ You can access the Actions menu by clicking ![Actions icon](../icons/action-menu
    
      If you have an instance of the {{site.data.keyword.mon_full_notm}} service, click **Launch monitoring** to open the Sysdig web UI to work with the metrics dashboards there. For more information about how to set up the {{site.data.keyword.mon_full_notm}} instance, see [Monitoring metrics for File Storage for VPC](/docs/vpc?topic=vpc-fs-vpc-monitoring-sysdig).
 
-### Viewing all file shares for a VPC in the UI
+### Viewing all file shares for a VPC in the console
 {: #fs-view-shares-vpc}
 
 You can see all file shares that have a mount target to a VPC by viewing the VPC details page.
@@ -127,7 +127,7 @@ You can see all file shares that have a mount target to a VPC by viewing the VPC
 
 2. On the VPC details page, scroll to **File shares in this VPC**.
 
-### Viewing mount target details in the UI
+### Viewing mount target details in the console
 {: #fs-get-mountpath-ui-vpc}
 
 1. Go to the list of all file shares. From the [{{site.data.keyword.cloud_notm}} console](/login){: external}, click the **Navigation menu** icon ![menu icon](../icons/icon_hamburger.svg) **> Infrastructure** ![VPC icon](../icons/vpc.svg) **> Storage > File Shares**.

@@ -1,8 +1,8 @@
 ---
 
 copyright:
-  years: 2022, 2024
-lastupdated: "2024-11-05"
+  years: 2022, 2025
+lastupdated: "2025-04-30"
 
 keywords: consistency groups, Block Storage snapshots, multi-volume snapshot, instance snapshot,
 
@@ -15,7 +15,7 @@ subcollection: vpc
 # Creating snapshot consistency groups
 {: #snapshots-vpc-create-consistency-groups}
 
-A snapshot consistency group contains snapshots of multiple volumes that are attached to the same virtual server instance. You can include or exclude boot volumes. You can create a consistency group in the UI, CLI, API, and Terraform.
+A snapshot consistency group contains snapshots of multiple volumes that are attached to the same virtual server instance. You can include or exclude boot volumes. You can create a consistency group in the console, CLI, API, and Terraform.
 {: shortdesc}
 
 When you request a snapshot of a consistency group, the system ensures that all write operations are complete before it takes the snapshots. Then, the system generates snapshots of all the tagged Block Storage volumes that are attached to the virtual server instance at the same time. Depending on the number and size of the attached volumes, plus the amount of data that is to be captured, you might observe a slight IO pause. This IO pause can range from a few milliseconds up to 4 seconds.
@@ -27,7 +27,7 @@ Before you start, gather the following information:
 - The resource group ID, which is optional. However, you can't change the resource group after the snapshot is created.
 - Any tags that you want to attach to the snapshots.
 
-## Creating a consistency group snapshot in the UI
+## Creating a consistency group snapshot in the console
 {: #mvsnapshot-create-ui}
 {: ui}
 
@@ -49,7 +49,7 @@ In the console, you can create a consistency group snapshot of {{site.data.keywo
    | Volumes        | Select the volumes that you want to include in the group from the list. |
    {: caption="Selections for creating a snapshot" caption-side="bottom"}
 
-1. Click **Create**. You're returned to the screen that you started from. Messages are displayed while the snapshots and the consistency group are being created and when they are ready. The snapshots and the consistency group are displayed on the Block Storage snapshots for VPC page, on their respective tabs. For more information, see [View snapshot details in the UI](/docs/vpc?topic=vpc-snapshots-vpc-view&interface=ui#snapshots-vpc-view-snapshot-ui).
+1. Click **Create**. You're returned to the screen that you started from. Messages are displayed while the snapshots and the consistency group are being created and when they are ready. The snapshots and the consistency group are displayed on the Block Storage snapshots for VPC page, on their respective tabs. For more information, see [View snapshot details in the console](/docs/vpc?topic=vpc-snapshots-vpc-view&interface=ui#snapshots-vpc-view-snapshot-ui).
 
 ## Creating a consistency group snapshot from the CLI
 {: #mvsnapshot-create-cli}

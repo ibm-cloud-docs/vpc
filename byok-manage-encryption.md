@@ -2,7 +2,7 @@
 
 copyright:
   years: 2019, 2025
-lastupdated: "2025-04-23"
+lastupdated: "2025-04-30"
 
 keywords:
 
@@ -98,10 +98,10 @@ When the CRK is suspended, it can't be used to encrypt new resources or unwrap (
 | Data volume |  _available_ | Data volumes remain encrypted, attached, and available until you stop the instance. Stand-alone data volumes that are encrypted by the suspended key can't be attached to an instance. |
 | Snapshot | _unusable_ | Snapshot cannot be used to restore a volume or file share. |
 | File share | _stable_ | Data on the file share is accessible but you can't create a file share with that key. |
-| Instance |  _available_ | Instance workloads continue to run with an _available_ status in the CLI and API, and with a _running_ status in the UI. If you stop instances, they can't restart. |
+| Instance |  _available_ | Instance workloads continue to run with an _available_ status in the CLI and API, and with a _running_ status in the console. If you stop instances, they can't restart. |
 {: caption="Disabled root key" caption-side="bottom"}
 
-To see which root keys are disabled, look in the UI list of resources. The status of volume and snapshot resources are _unusable_. File shares in a _stable_ state remain so. The UI tooltip displays "key suspended" for the resource. In the API response, you can see an _encryption_key_disabled_ reason code.
+To see which root keys are disabled, look in the console list of resources. The status of volume and snapshot resources are _unusable_. File shares in a _stable_ state remain so. The UI tooltip displays "key suspended" for the resource. In the API response, you can see an _encryption_key_disabled_ reason code.
 
 For more information about disabling a root key, see the following topics.
 

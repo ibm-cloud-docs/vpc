@@ -2,7 +2,7 @@
 
 copyright:
   years: 2022, 2025
-lastupdated: "2025-04-01"
+lastupdated: "2025-04-30"
 
 keywords: Backup for VPC, backup service, backup plan, backup policy, restore, restore volume, restore data, faqs
 
@@ -30,7 +30,7 @@ To create a backup policy and plans and for the backup jobs to run correctly, mu
 {: faq}
 {: #faq-baas-ee-2}
 
-When you log in any of the child accounts in the UI, you can view the IAM authorizations by clicking **Manage > Access (IAM) > Authorizations**. 
+When you log in any of the child accounts in the console, you can view the IAM authorizations by clicking **Manage > Access (IAM) > Authorizations**. 
 
 If any of the required authorizations are missing, the backup job fails. When the backup job fails for this reason, an error message is generated that looks like the following example.
 
@@ -44,7 +44,7 @@ For more information, see [Activity tracking events for IBM Cloud VPC](/docs/vpc
 {: faq}
 {: #faq-baas-ee-3}
 
-Currently, the number of resources that a backup policy is applied to can't be seen from the enterprise account. When you view the Backup policies for VPC page of the enterprise account in the [console](/login){: external}, you can click the name of the backup policy that was created for the account. Then, click the applied resources tab to view the list of volumes that the policy applies to. The list includes volumes that were created by users for the account. If the policy is an enterprise-wide policy, the list shows volumes of the enterprise account, and not the volumes of its child accounts. For more information, see [Viewing the list of volumes that are associated to a backup policy in the UI](/docs/vpc?topic=vpc-backup-view-policies&interface=ui#backup-view-vol-backup-policies).
+Currently, the number of resources that a backup policy is applied to can't be seen from the enterprise account. When you view the Backup policies for VPC page of the enterprise account in the [console](/login){: external}, you can click the name of the backup policy that was created for the account. Then, click the applied resources tab to view the list of volumes that the policy applies to. The list includes volumes that were created by users for the account. If the policy is an enterprise-wide policy, the list shows volumes of the enterprise account, and not the volumes of its child accounts. For more information, see [Viewing the list of volumes that are associated to a backup policy in the console](/docs/vpc?topic=vpc-backup-view-policies&interface=ui#backup-view-vol-backup-policies).
 
 One way to identify the volumes is to go to the child accounts and list their volumes and filter for the tag that the enterprise policy specified for target resources.
 
@@ -98,7 +98,7 @@ ibmcloud enterprise show
 ```
 {: pre}
 
-### Obtain enterprise CRN in the UI
+### Obtain enterprise CRN in the console
 {: #faq-baas-ee-5-ui}
 
 In the [{{site.data.keyword.cloud_notm}} console](/login){: external}, go to the enterprise dashboard. From there, you can view the enterprise details, accounts, users, and billing information. For more information, see [What is an enterprise](/docs/enterprise-management?topic=enterprise-management-what-is-enterprise).

@@ -2,7 +2,7 @@
 
 copyright:
   years: 2021, 2023
-lastupdated: "2025-02-20"
+lastupdated: "2025-04-30"
 
 keywords: compute, virtual private cloud, virtual server instance, instance, bandwidth
 
@@ -32,7 +32,7 @@ The maximum bandwidth of a volume is the highest potential bandwidth that can be
 
 To ensure reasonable boot times, a minimum of 393 Mbps of volume bandwidth is allocated to the boot volume. In the example that has the instance's total volume bandwidth of 1,000 Mbps, the remaining 607 Mbps is allocated to any data volumes that you attach, up to the maximum bandwidth of the volume. For example, if you attach one data volume with 500 Mbps bandwidth, you can expect to get 500 Mbps throughput.
 
-You can see bandwidth allocations with the `/instance/profiles` endpoint in the API. You can also see the bandwidth allocations in the profile information during instance creation in the UI.
+You can see bandwidth allocations with the `/instance/profiles` endpoint in the API. You can also see the bandwidth allocations in the profile information during instance creation in the console.
 
 ## Adjusting bandwidth allocation
 {: #adjusting-bandwidth-allocation}
@@ -75,4 +75,4 @@ The network bandwidth cap applies separately to egress (transmitted) and ingress
 
 For more information, see the following topics:
 * [x86-64 instance profiles](/docs/vpc?topic=vpc-profiles&interface=ui)
-* [Adjusting bandwidth allocation in the UI](/docs/vpc?topic=vpc-managing-virtual-server-instances&interface=ui#adjusting-bandwidth-allocation-ui)
+* [Adjusting bandwidth allocation in the console](/docs/vpc?topic=vpc-managing-virtual-server-instances&interface=ui#adjusting-bandwidth-allocation-ui)

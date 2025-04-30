@@ -2,7 +2,7 @@
 
 copyright:
   years: 2021, 2025
-lastupdated: "2025-04-25"
+lastupdated: "2025-04-30"
 
 keywords: view snapshots, view snapshot, viewing snapshots, see snapshots, Block Storage snapshots
 
@@ -18,13 +18,13 @@ subcollection: vpc
 You can view a list of all snapshots and consistency groups, and drill down to see information about a particular snapshot. Choose the UI, CLI, API, or Terraform to retrieve this information.
 {: shortdesc}
 
-## Listing snapshots in the UI
+## Listing snapshots in the console
 {: #snapshots-vpc-view-ui}
 {: ui}
 
 You can use the UI to list your snapshots and consistency groups.
 
-### Listing all snapshots in the UI
+### Listing all snapshots in the console
 {: #snapshots-vpc-view-list-ui}
 
 In the console, you can view a list of all snapshots that you created, with the most recent one at the beginning of the list. You can filter the list to view specific snapshots.
@@ -74,7 +74,7 @@ By clicking the Actions icon ![Actions icon](../icons/action-menu-icon.svg "Acti
 You can also list all snapshots that were created from a {{site.data.keyword.block_storage_is_short}} volume from the volume details page. For more information, see [View all snapshots that were created from the {{site.data.keyword.block_storage_is_short}} volume](/docs/vpc?topic=vpc-viewing-block-storage&interface=ui#view-snapshots-for-volume).
 {: tip}
 
-### Viewing snapshot details in the UI
+### Viewing snapshot details in the console
 {: #snapshots-vpc-view-snapshot-ui}
 
 To see detailed information about a snapshot, locate the snapshot on the Block Storage snapshots for VPC list. Then, click the name of a snapshot. The details page displays the name of the snapshot, its status, and attached user tags in the title.
@@ -102,7 +102,7 @@ By clicking the Actions icon ![Actions icon](../icons/action-menu-icon.svg "Acti
    - [Create a volume from the snapshot](/docs/vpc?topic=vpc-snapshots-vpc-restore&interface=ui)
    - [Edit fast restore](/docs/vpc?topic=vpc-snapshots-vpc-manage#snapshots-edit-fast-restore), or delete a snapshot.
 
-### Listing all consistency groups of snapshots in the UI
+### Listing all consistency groups of snapshots in the console
 {: #consistency-group-vpc-view-list-ui}
 
 In the console, you can view a list of all consistency groups that you created, with the most recent one at the beginning of the list. You can filter the list to view specific consistency groups.
@@ -140,7 +140,7 @@ By clicking the Actions icon ![Actions icon](../icons/action-menu-icon.svg "Acti
    - [Create virtual server](/docs/vpc?topic=vpc-snapshots-vpc-restore&interface=ui#snapshots-vpc-restore-cr-details-ui)
    - Delete
 
-### Viewing details of a consistency group in the UI
+### Viewing details of a consistency group in the console
 {: #snapshot-vpc-view-consistency-group-ui}
 
 To see detailed information about a consistency group, locate the group on the Block Storage snapshots for VPC list. Then, click the name of a consistency group.

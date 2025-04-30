@@ -2,7 +2,7 @@
 
 copyright:
   years: 2022, 2025
-lastupdated: "2025-04-25"
+lastupdated: "2025-04-30"
 
 keywords: file storage, file share, replication, replica, source share, failover, 
 
@@ -64,7 +64,7 @@ These restrictions apply when you perform a failover.
 
 * A failover remains pending when other operations are being performed on the source file share, such as expanding the share size. When the operation completes, the failover resumes.
 
-## Initiating a failover in the UI
+## Initiating a failover in the console
 {: #fs-failover-procedure-ui}
 {: ui}
 

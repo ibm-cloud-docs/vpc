@@ -2,7 +2,7 @@
 
 copyright:
   years: 2022, 2025
-lastupdated: "2025-04-14"
+lastupdated: "2025-04-30"
 
 keywords: snapshots, Block Storage, volumes, cross-regional snapshot, restore volume, copy snapshot
 
@@ -24,7 +24,7 @@ subcollection: vpc
 ### Single volume snapshots
 {: #single-volume-snapshots}
 
-A snapshot is a copy of your volume that you take manually in the UI or from the CLI, or create programmatically with the API, or Terraform. You can take a snapshot of a first-generation boot or data volume that is attached to a running virtual server instance. A "bootable" snapshot is a snapshot of a boot volume. A "nonbootable" snapshot is of a data volume. You can take snapshots as often as you want. However, you can't take a snapshot of a volume that's in a degraded state.
+A snapshot is a copy of your volume that you take manually in the console or from the CLI, or create programmatically with the API, or Terraform. You can take a snapshot of a first-generation boot or data volume that is attached to a running virtual server instance. A "bootable" snapshot is a snapshot of a boot volume. A "nonbootable" snapshot is of a data volume. You can take snapshots as often as you want. However, you can't take a snapshot of a volume that's in a degraded state.
 
 Do you want to automatically create snapshots of your {{site.data.keyword.block_storage_is_short}} volumes? With Backup for VPC, you can create backup policies to schedule regular volume backups. For more information, see [About Backup for VPC](/docs/vpc?topic=vpc-backup-service-about).
 {: tip}
@@ -54,7 +54,7 @@ For customers with special access, data isolation is provided to store snapshots
 
 By using the snapshots fast restore feature, you create and keep a clone of the data in a zone within your VPC region. In other words, your data is fully available when the volume is created because it is already in the VPC region and not in {{site.data.keyword.cos_short}}. In contrast, when data is not restored from a fast restore snapshot clone, volume data is copied from {{site.data.keyword.cos_short}} when the volume is attached to an instance over time. The fast restore feature can achieve a [recovery time objective](#x3167918){: term} (RTO) quicker than restoring from a regular snapshot.
 
-The fast restore feature can be enabled in the UI, from the CLI, with the API, or Terraform. In the CLI, API, and Terraform, the responses show `clones`. The UI shows fast restore snapshot clones as fast restore snapshots, but they are the same thing.
+The fast restore feature can be enabled in the console, from the CLI, with the API, or Terraform. In the CLI, API, and Terraform, the responses show `clones`. The UI shows fast restore snapshot clones as fast restore snapshots, but they are the same thing.
 
 Billing for the fast restore feature is set at a flat rate based on instance hours. The feature is billed at an extra hourly rate for each zone that it is enabled in regardless of the size of the snapshot. Maintaining fast restore clones is considerably more costly than keeping regular snapshots.
 
@@ -109,7 +109,7 @@ When you take a snapshot, read and write operations from your virtual server ins
 
 Volume data that is captured for the requested snapshot is encrypted while in transit from the hypervisor to {{site.data.keyword.cos_full}}. The initial snapshot is the entire copy of your {{site.data.keyword.block_storage_is_short}} volume. Subsequent snapshots copy only what was changed since the last snapshot.
 
-You can [restore](/docs/vpc?topic=vpc-snapshots-vpc-restore) a boot or data volume from a running virtual server instance in the UI, CLI, API, or Terraform. Restoring a data from a snapshot creates a new, fully provisioned volume. It does not overwrite data in the snapshot's parent volume.
+You can [restore](/docs/vpc?topic=vpc-snapshots-vpc-restore) a boot or data volume from a running virtual server instance in the console, CLI, API, or Terraform. Restoring a data from a snapshot creates a new, fully provisioned volume. It does not overwrite data in the snapshot's parent volume.
 
 Restoring from a snapshot of a boot volume creates a new boot volume that you can use to provision another instance. Restoring from a snapshot of a data volume creates a secondary volume that can be attached to the instance or be kept as a stand-alone (unattached) data volume.
 

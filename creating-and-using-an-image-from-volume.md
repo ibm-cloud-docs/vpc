@@ -1,8 +1,8 @@
 ---
 
 copyright:
-  years: 2021, 2024
-lastupdated: "2024-10-10"
+  years: 2021, 2025
+lastupdated: "2025-04-30"
 
 keywords: image, virtual private cloud, boot volume, virtual server instance, instance, instances, virtual servers, creating virtual servers, virtual server instances, virtual machines, Virtual Servers for VPC, compute, vsi, vpc, creating, UI, console
 
@@ -16,7 +16,7 @@ completion-time: 15m
 
 {{site.data.keyword.attribute-definition-list}}
 
-# Creating a custom image from volume and provisioning an instance in the UI
+# Creating a custom image from volume and provisioning an instance in the console
 {: #creating-and-using-an-image-from-volume}
 {: toc-content-type="tutorial"}
 {: toc-completion-time="15m"}
@@ -53,7 +53,7 @@ You can use [resource groups](/docs/vpc?topic=vpc-iam-getting-started&interface=
 4. Give the resource group a unique name such as *Image resources*.
 5. Click **Add**.
 
-## Creating an image from a volume in the UI
+## Creating an image from a volume in the console
 {: #image-from-volume-vpc-ui}
 {: step}
 
@@ -62,7 +62,7 @@ You can use the UI to create an image from a volume that is attached to an avail
 ### Choose the source for your custom image
 {: #import-custom-image-source-UI}
 
-Complete the following actions to import your custom image in the UI.
+Complete the following actions to import your custom image in the console.
 
 1. In [{{site.data.keyword.cloud_notm}} console](/login){: external}, go to **Navigation Menu** icon ![menu icon](../icons/icon_hamburger.svg) **> Infrastructure** ![VPC icon](../../icons/vpc.svg) **> Compute > Images**.
 2. On the **Custom images** tab, click **Create**. The Custom image provision page is displayed.
@@ -88,7 +88,7 @@ When you select **Virtual server instance boot volume** as the source of your cu
 4. Select IBM-managed encryption as the encryption type.
 5. On the side panel, click **Create custom image**.
 
-## Creating virtual server instances in the UI
+## Creating virtual server instances in the console
 {: #creating-virtual-servers-ifv}
 {: step}
 

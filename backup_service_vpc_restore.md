@@ -1,8 +1,8 @@
 ---
 
 copyright:
-  years: 2022, 2024
-lastupdated: "2024-12-17"
+  years: 2022, 2025
+lastupdated: "2025-04-30"
 
 keywords: Backup, backup service, backup plan, backup policy, restore, restore volume, restore data
 
@@ -15,7 +15,7 @@ subcollection: vpc
 # Restoring a volume from a backup snapshot
 {: #baas-vpc-restore}
 
-Restoring data from a backup snapshot creates a fully provisioned boot or data volume that you can use to boot an instance or attach as auxiliary storage. You can restore volumes during instance creation or when you want to create stand-alone boot or data volumes to be used later. You can restore a data volume to add more storage to an existing instance. You can use backup snapshots to restore volumes in a different region for business continuity purposes or geographic expansion. You can restore volumes from backup snapshots in the UI, from the CLI, with the API, or Terraform.
+Restoring data from a backup snapshot creates a fully provisioned boot or data volume that you can use to boot an instance or attach as auxiliary storage. You can restore volumes during instance creation or when you want to create stand-alone boot or data volumes to be used later. You can restore a data volume to add more storage to an existing instance. You can use backup snapshots to restore volumes in a different region for business continuity purposes or geographic expansion. You can restore volumes from backup snapshots in the console, from the CLI, with the API, or Terraform.
 {: shortdesc}
 
 ## About restoring a volume from a backup snapshot
@@ -52,11 +52,11 @@ You can restore a volume from a backup snapshot of a data volume in multiple way
 - You can restore a data volume when you want to add more storage to an existing instance.
 - You can restore a data volume to create a stand-alone volume, which you can attach to an instance later.
 
-## Restoring a volume from a backup snapshot in the UI
+## Restoring a volume from a backup snapshot in the console
 {: #baas-vpc-restore-ui}
 {: ui}
 
-Restoring a volume from a backup snapshot in the UI creates a fully provisioned boot or data volume. You can restore a volume from the list of Block Storage snapshots and from the snapshot details page.
+Restoring a volume from a backup snapshot in the console creates a fully provisioned boot or data volume. You can restore a volume from the list of Block Storage snapshots and from the snapshot details page.
 
 You can restore a volume from a backup snapshot in the following ways.
 
@@ -136,7 +136,7 @@ Follow these steps to create a boot and data volume from snapshots when you prov
 
 1. In the [{{site.data.keyword.cloud_notm}} console](/login){: external}, click the **Navigation menu** icon ![menu icon](../icons/icon_hamburger.svg) **> Infrastructure ![VPC icon](../icons/vpc.svg) > Compute > Virtual server instances**.
 
-2. Click **Create** and provision your new instance with the information from the table in [Creating virtual server instances in the UI](/docs/vpc?topic=vpc-creating-virtual-servers).
+2. Click **Create** and provision your new instance with the information from the table in [Creating virtual server instances in the console](/docs/vpc?topic=vpc-creating-virtual-servers).
 
 3. For the boot volume with the operating system, click the tab for **Snapshots**.
    1. The most recent bootable snapshot is listed. To select a different bootable snapshot and create a boot volume, click **Change**.

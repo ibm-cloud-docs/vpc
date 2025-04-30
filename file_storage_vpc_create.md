@@ -2,7 +2,7 @@
 
 copyright:
   years: 2021, 2025
-lastupdated: "2025-04-25"
+lastupdated: "2025-04-30"
 
 keywords: file share, file storage, virtual network interface, encryption in transit, profiles, 
 
@@ -15,7 +15,7 @@ subcollection: vpc
 # Creating file shares and mount targets
 {: #file-storage-create}
 
-Create file shares and mount targets in the UI, CLI, API, or Terraform.
+Create file shares and mount targets in the console, CLI, API, or Terraform.
 {: shortdesc}
 
 Before you get started, and try to create mount targets for file shares, make sure that you created a [VPC](/docs/vpc?topic=vpc-creating-a-vpc-using-the-ibm-cloud-console).
@@ -28,13 +28,13 @@ You can create file shares and mount targets either of the following ways:
 
 When you create a mount target, its transit encryption type must reflect the share's allowed transit encryption modes. You can create multiple mount targets for the share if it's to be used by resources in different VPCs. You can create one mount target per VPC for the file share.
 
-## Creating a file share in the UI
+## Creating a file share in the console
 {: #file-storage-create-ui}
 {: ui}
 
 In the {{site.data.keyword.cloud_notm}} console, you can create a file share with or without a mount target. However, you need to create a mount target when you want to mount the share on a virtual server instance.
 
-### Creating a file share in the UI
+### Creating a file share in the console
 {: #fs-create-share-target-ui}
 
 1. In the [{{site.data.keyword.cloud_notm}} console](/login){: external}, click the **Navigation menu** icon ![menu icon](../icons/icon_hamburger.svg) **> Infrastructure** ![VPC icon](../icons/vpc.svg) **> Storage > File Shares**. A list of file shares displays.
@@ -86,7 +86,7 @@ In the {{site.data.keyword.cloud_notm}} console, you can create a file share wit
 If you're not ready to order yet or just looking for pricing information, you can add the information that you see in the side panel to an Estimate. For more information about how this feature works, see [Estimating your costs](/docs/account?topic=account-cost).    
 {: tip}
 
-### Creating a mount target in the UI
+### Creating a mount target in the console
 {: #fs-create-mount-target-ui}
 
 1. In the [{{site.data.keyword.cloud_notm}} console](/login){: external}, click the **Navigation menu** icon ![menu icon](../icons/icon_hamburger.svg) **> Infrastructure** ![VPC icon](../icons/vpc.svg) **> Storage > File shares**.

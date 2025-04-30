@@ -2,7 +2,7 @@
 
 copyright:
   years: 2021, 2025
-lastupdated: "2025-04-21"
+lastupdated: "2025-04-30"
 
 keywords: snapshots, Block Storage snapshots, manage snapshots, fast restore clone, backup snapshot, remote copy, cross-regional copy
 
@@ -896,7 +896,7 @@ For more information about the arguments and attributes, see [ibm_is_volume](htt
 ## Monitoring snapshot lifecycle states
 {: #snapshots-vpc-status}
 
-Table 2 describes the snapshot states in the snapshot lifecycle. You can see these states in the UI, the command outputs of the CLI, in the API responses, and in Terraform data sources.
+Table 2 describes the snapshot states in the snapshot lifecycle. You can see these states in the console, the command outputs of the CLI, in the API responses, and in Terraform data sources.
 
 | Snapshot status | Explanation |
 |-----------------|-------------|

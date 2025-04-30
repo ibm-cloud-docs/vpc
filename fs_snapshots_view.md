@@ -2,7 +2,7 @@
 
 copyright:
   years: 2024, 2025
-lastupdated: "2025-04-28"
+lastupdated: "2025-04-30"
 
 keywords: view snapshots, view snapshot, viewing snapshots, see snapshots, File storage snapshots
 
@@ -55,7 +55,7 @@ In the console, you can view a list of all snapshots that belong to a file share
    The Actions menu is dynamic. If the share is a replica share, only the Restore action is displayed. If the share is a source share or has no replica, all 3 actions are available.
    {: note}
 
-### Viewing snapshot details in the UI
+### Viewing snapshot details in the console
 {: #fs-snapshots-view-snapshot-ui}
 
 To see detailed information about a snapshot, locate the snapshot on the File share's details page. Then, click the name of a snapshot. The Snapshot details side panel displays information such as the name of the snapshot, its CRN and ID, and attached user and access management tags.

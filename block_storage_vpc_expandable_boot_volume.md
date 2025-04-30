@@ -1,8 +1,8 @@
 ---
 
 copyright:
-  years: 2022, 2024
-lastupdated: "2024-12-02"
+  years: 2022, 2025
+lastupdated: "2025-04-30"
 
 keywords: Block Storage, boot volume, data volume, volume, data storage, virtual server instance, instance, expandable volume
 
@@ -20,20 +20,20 @@ For boot volumes that are attached to an instance, you can increase the capacity
 
 
 
-## Increase boot volume capacity in the UI
+## Increase boot volume capacity in the console
 {: #resize-vpc-boot-volumes-ui}
 {: ui}
 
 Increase boot volume capacity for new or existing instances in the console. For existing instances, you can increase the boot volume capacity by selecting a boot volume from the list of Block Storage volumes.
 
-### Increase boot volume capacity during instance provisioning in the UI
+### Increase boot volume capacity during instance provisioning in the console
 {: #resize-boot-vol-new-instance-ui}
 
-When you create an instance from either a stock or custom image, you can increase the size of the boot volume. For example, a stock image would show 100 GB by default. You can modify the size up to 250 GB. For more information about creating virtual server instances, see [Creating virtual server instances in the UI](/docs/vpc?topic=vpc-creating-virtual-servers&interface=ui).
+When you create an instance from either a stock or custom image, you can increase the size of the boot volume. For example, a stock image would show 100 GB by default. You can modify the size up to 250 GB. For more information about creating virtual server instances, see [Creating virtual server instances in the console](/docs/vpc?topic=vpc-creating-virtual-servers&interface=ui).
 
 You can also specify a larger boot volume capacity when you create an instance template. For more information, see [Creating an instance template](/docs/vpc?topic=vpc-creating-auto-scale-instance-group&interface=ui#creating-instance-template).
 
-### Increase boot volume capacity from the list of Block Storage volumes in the UI
+### Increase boot volume capacity from the list of Block Storage volumes in the console
 {: #resize-boot-vol-list-ui}
 
 For an existing instance, you can increase its boot volume capacity by selecting it from the list of Block Storage volumes.

@@ -2,7 +2,7 @@
 
 copyright:
   years: 2024, 2025
-lastupdated: "2025-04-28"
+lastupdated: "2025-04-30"
 
 keywords: snapshots, File Storage, snapshot clone, remote copy, fast restore, File Storage snapshot, cross-regional snapshot
 
@@ -42,7 +42,7 @@ In the console, you can create a snapshot of a {{site.data.keyword.filestorage_v
 
 2. Enter a unique name for the snapshot, and any user tags that you want to use to identify this resource. For suggestions about how to name your snapshots, see [Naming snapshots](/docs/vpc?topic=vpc-fs-snapshots-planning#fs-snapshots-naming). Consider keyvalue pairs for your tags (for example, `dev:test` or `costctr:124`) and do not include sensitive information because tags are visible account-wide.
 
-3. Click **Create**. You're returned to the screen that you started from. Messages are displayed while the snapshot is being created and when it's ready, the snapshot is displayed in the list of snapshots on the file share details page. For more information, see [View snapshot details in the UI](/docs/vpc?topic=vpc-fs-snapshots-view&interface=ui#fs-snapshots-view-snapshot-ui).
+3. Click **Create**. You're returned to the screen that you started from. Messages are displayed while the snapshot is being created and when it's ready, the snapshot is displayed in the list of snapshots on the file share details page. For more information, see [View snapshot details in the console](/docs/vpc?topic=vpc-fs-snapshots-view&interface=ui#fs-snapshots-view-snapshot-ui).
 
 ## Creating a snapshot from the CLI
 {: #fs-snapshots-create-cli}

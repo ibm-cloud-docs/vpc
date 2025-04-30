@@ -2,7 +2,7 @@
 
 copyright:
   years: 2019, 2025
-lastupdated: "2025-03-21"
+lastupdated: "2025-04-30"
 
 keywords: Block Storage, boot volume, data volume, status, health state, monitoring, performance 
 
@@ -27,7 +27,7 @@ You can monitor certain {{site.data.keyword.block_storage_is_short}} volume perf
 
 * Cumulative number of [bytes written for a volume](/docs/vpc?topic=vpc-vpc-monitoring-metrics#bytes-written-for-volume-gen2) since the virtual server instance was started.
 
-To see these metrics in the UI, do the following.
+To see these metrics in the console, do the following.
 
 1. In the [{{site.data.keyword.cloud_notm}} console](/login){: external}, go to **Infrastructure ![VPC icon](../icons/vpc.svg) > Compute > Virtual server instances**.
 2. Click the instance name to go to the instance details.

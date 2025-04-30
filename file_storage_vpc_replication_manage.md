@@ -1,8 +1,8 @@
 ---
 
 copyright:
-  years: 2022, 2024
-lastupdated: "2024-12-17"
+  years: 2022, 2025
+lastupdated: "2025-04-30"
 
 keywords: VPC File Storage, file for VPC, NSF, replica, file share, replication, schedule
 
@@ -32,7 +32,7 @@ When the amount of data to be transferred exceeds the amount of data that can be
 
 The system queries the last sync status every 15 minutes. The result shows the data of the last replication that completed. If a replication is in progress when the query runs, it does not show in the response. After the replication is completed, the next query updates the last sync information. You can expect a short delay between the replication completion and the time the last sync information is updated in the interfaces.
 
-You can see information about the last replication operation when you view the details of either the source or the replica share. For more information, see [View details of a file share in the UI](/docs/vpc?topic=vpc-file-storage-view&interface=ui#fs-view-single-share-ui).
+You can see information about the last replication operation when you view the details of either the source or the replica share. For more information, see [View details of a file share in the console](/docs/vpc?topic=vpc-file-storage-view&interface=ui#fs-view-single-share-ui).
 {: ui}
 
 You can see information about the last replication operation when you list the details of either the source or the replica share. For more information, see [View details of a file share from the CLI](/docs/vpc?topic=vpc-file-storage-view&interface=cli#fs-share-details-cli).
@@ -124,11 +124,11 @@ Removing the replication relationship cannot occur when another operation is bei
 When you remove the replication relationship, you can't undo the action. Also, the data on the replica is not synced automatically with the source file before removal of the replication relationship.
 {: important}
 
-### Removing the replication relationship in the UI
+### Removing the replication relationship in the console
 {: #fs-remove-replication-ui}
 {: ui}
 
-To remove the replication relationship in the UI:
+To remove the replication relationship in the console:
 
 1. Go to the list of all file shares. From the [{{site.data.keyword.cloud_notm}} console](/login){: external}, click the **Navigation menu** icon ![menu icon](../icons/icon_hamburger.svg) **> Infrastructure** ![VPC icon](../icons/vpc.svg) **> Storage > File Shares**.
 

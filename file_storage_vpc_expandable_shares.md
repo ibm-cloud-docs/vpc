@@ -2,7 +2,7 @@
 
 copyright:
   years: 2022, 2025
-lastupdated: "2025-04-25"
+lastupdated: "2025-04-30"
 
 keywords: file share, file storage, increase capacity, expand capacity, expand share size, file share size
 
@@ -60,11 +60,11 @@ The following limitations apply to this release.
 * The maximum IOPS for a file share is capped at 48,000 IOPS if it is accessed by a single host. For a file share that is accessed by multiple hosts, IOPS can reach up to 96,000 IOPS.
 * After a file share is expanded, you can't reduce its size.
 
-## Expanding file share capacity in the UI
+## Expanding file share capacity in the console
 {: #expand-vpc-shares-ui}
 {: ui}
 
-Follow these steps for expanding file share capacity in the UI:
+Follow these steps for expanding file share capacity in the console:
 
 1. In the [{{site.data.keyword.cloud_notm}} console](/login){: external}, click the **Navigation menu** icon ![menu icon](../icons/icon_hamburger.svg) **> Infrastructure** ![VPC icon](../icons/vpc.svg) **> Storage > File Shares**.
 

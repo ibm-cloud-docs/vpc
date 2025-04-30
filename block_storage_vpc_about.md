@@ -2,7 +2,7 @@
 
 copyright:
   years: 2019, 2025
-lastupdated: "2025-04-10"
+lastupdated: "2025-04-30"
 
 keywords:
 
@@ -118,7 +118,7 @@ You can use {{site.data.keyword.atracker_full}} to configure how to route auditi
 
 {{site.data.keyword.block_storage_is_short}} is enabled for Global Searching and Tagging (GhoST). You can create and apply user tags and access management tags to volumes to better control and organize your {{site.data.keyword.block_storage_is_short}} resources across the VPC. 
 
-You can also apply tags to your boot and data volumes anytime in the UI, from the CLI, with the API, and Terraform. Each resource can have up to 1000 user tags, and no more than 250 access tags. However, only 100 tags can be attached or detached in the same operation.
+You can also apply tags to your boot and data volumes anytime in the console, from the CLI, with the API, and Terraform. Each resource can have up to 1000 user tags, and no more than 250 access tags. However, only 100 tags can be attached or detached in the same operation.
 
 ### User tags
 {: #storage-about-user-tags}
@@ -162,7 +162,7 @@ Create your {{site.data.keyword.block_storage_is_short}} volumes.
 
 For more information about creating and managing instances in the VPC, see [About virtual server instances for VPC](/docs/vpc?topic=vpc-about-advanced-virtual-servers).
 
-When you create, [view](/docs/vpc?topic=vpc-viewing-block-storage), or [update a {{site.data.keyword.block_storage_is_short}} volume](/docs/vpc?topic=vpc-managing-block-storage), or [restore a volume from a snapshot](/docs/vpc?topic=vpc-snapshots-vpc-restore), the volume health state is reported in the UI, CLI, and the API. For more information, see [{{site.data.keyword.block_storage_is_short}} volume health states](/docs/vpc?topic=vpc-block-storage-vpc-monitoring#block-storage-vpc-health-states).
+When you create, [view](/docs/vpc?topic=vpc-viewing-block-storage), or [update a {{site.data.keyword.block_storage_is_short}} volume](/docs/vpc?topic=vpc-managing-block-storage), or [restore a volume from a snapshot](/docs/vpc?topic=vpc-snapshots-vpc-restore), the volume health state is reported in the console, CLI, and the API. For more information, see [{{site.data.keyword.block_storage_is_short}} volume health states](/docs/vpc?topic=vpc-block-storage-vpc-monitoring#block-storage-vpc-health-states).
 
 {{site.data.keyword.block_storage_is_short}} provides features that are unique to the VPC and are not compatible with the classic infrastructure storage. If you're interested in {{site.data.keyword.blockstoragefull}} on the classic infrastructure, see [{{site.data.keyword.blockstoragefull}}](/docs/BlockStorage?topic=BlockStorage-getting-started).
 {: note}
