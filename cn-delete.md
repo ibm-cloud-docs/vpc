@@ -2,7 +2,7 @@
 
 copyright:
   years: 2024, 2025
-lastupdated: "2025-04-29"
+lastupdated: "2025-04-30"
 
 keywords:
 
@@ -32,7 +32,7 @@ You can delete a cluster network with the console, CLI, API, or Terraform.
 To delete a cluster network in the {{site.data.keyword.cloud_notm}} console, follow these steps:
 
 1. From your browser, open the [{{site.data.keyword.cloud_notm}} console](/login) and log in to your account.
-1. Select the **Navigation Menu** ![Navigation Menu icon](../../icons/icon_hamburger.svg), then click  **Infrastructure** ![VPC icon](../../icons/vpc.svg)  > **Cluster networks**.
+1. Select the **Navigation Menu** ![Navigation Menu icon](../../icons/icon_hamburger.svg), then click  **Infrastructure** ![VPC icon](../../icons/vpc.svg) > **Network** > **Cluster networks**.
 1. In the Cluster networks for VPC table, locate the cluster network interface that you want to delete, then click **Delete** in the Actions menu ![Actions menu](images/overflow.png).
 
    Alternatively, you can **Delete** a cluster network from the Actions menu on the cluster network's details page.
@@ -43,8 +43,8 @@ To delete a cluster network in the {{site.data.keyword.cloud_notm}} console, fol
 
 To delete a cluster network in the CLI, follow these steps:
 
-1. [Set up your CLI environment](/docs/vpc?topic=vpc-set-up-environment&interface=cli). 
-   
+1. [Set up your CLI environment](/docs/vpc?topic=vpc-set-up-environment&interface=cli).
+
 1. Log in to your account with the CLI. After you enter the password, the system prompts for the account and region that you want to use:
 
     ```sh
@@ -82,7 +82,7 @@ To delete cluster network `cli-cn-1`. You are prompted for confirmation. This ac
 ibmcloud is cluster-network-delete cli-cn-1
 ```
 {: codeblock}
- 
+
 ## Deleting a cluster network with the API
 {: #delete-cluster-network-api}
 {: api}

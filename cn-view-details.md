@@ -2,7 +2,7 @@
 
 copyright:
   years: 2024, 2025
-lastupdated: "2025-04-29"
+lastupdated: "2025-04-30"
 
 keywords:
 
@@ -32,7 +32,7 @@ You can view details of a cluster network with the console, CLI, API, or Terrafo
 To view details of a cluster network interface in the {{site.data.keyword.cloud_notm}} console, follow these steps:
 
 1. From your browser, open the [{{site.data.keyword.cloud_notm}} console](/login){: external} and log in to your account.
-1. Select the **Navigation Menu** ![Navigation Menu icon](../../icons/icon_hamburger.svg), then click **Infrastructure** ![VPC icon](../../icons/vpc.svg)  > **Cluster networks**.
+1. Select the **Navigation Menu** ![Navigation Menu icon](../../icons/icon_hamburger.svg), then click **Infrastructure** ![VPC icon](../../icons/vpc.svg)  > **Network** > **Cluster networks**.
 1. In the Cluster networks for VPC table, locate the cluster network for which you want to view details, then click the name of that cluster network.
 1. View the details of your cluster network in the **Cluster network details** section.
 
@@ -42,8 +42,8 @@ To view details of a cluster network interface in the {{site.data.keyword.cloud_
 
 To view the details of a cluster network in the CLI, follow these steps:
 
-1. [Set up your CLI environment](/docs/vpc?topic=vpc-set-up-environment&interface=cli). 
-   
+1. [Set up your CLI environment](/docs/vpc?topic=vpc-set-up-environment&interface=cli).
+
 1. Log in to your account with the CLI. After you enter the password, the system prompts for the account and region that you want to use:
 
     ```sh
@@ -85,7 +85,7 @@ To view cluster network `my-cl-net-2` by ID:
 ibmcloud is cl-net 7208-353ec740-c1b1-4778-b7a1-8c77a365e435
 ```
 {: codeblock}
- 
+
 ## Viewing details of a cluster network with the API
 {: #view-details-cluster-network-api}
 {: api}

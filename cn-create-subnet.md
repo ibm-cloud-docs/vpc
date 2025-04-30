@@ -2,7 +2,7 @@
 
 copyright:
   years: 2024, 2025
-lastupdated: "2025-04-29"
+lastupdated: "2025-04-30"
 
 keywords:
 
@@ -32,7 +32,7 @@ You can create a cluster network subnet with the console, CLI, API, or Terraform
 To create a subnet within a network cluster in the console, follow these steps:
 
 1. From your browser, open the [{{site.data.keyword.cloud_notm}} console](/login){: external} and log in to your account.
-1. Select the **Navigation Menu** ![menu icon](../../icons/icon_hamburger.svg), then click  **Infrastructure > Network > Cluster networks**.
+1. Select the **Navigation Menu** ![menu icon](../../icons/icon_hamburger.svg), then click  **Infrastructure** ![VPC icon](../../icons/vpc.svg) > **Network** > **Cluster networks**.
 1. On the Cluster networks for VPC page, click the link of the cluster network name where you want to create a subnet. The Overview page displays.
 1. Click the Subnets tab to show the Cluster network subnets table, then click **Create +**.
 1. Complete the information in the Create subnet side panel, then click **Create**.
@@ -51,8 +51,8 @@ The cluster network subnet is requested for use.
 
 To create a cluster network subnet in the CLI, follow these steps:
 
-1. [Set up your CLI environment](/docs/vpc?topic=vpc-set-up-environment&interface=cli). 
-   
+1. [Set up your CLI environment](/docs/vpc?topic=vpc-set-up-environment&interface=cli).
+
 1. Log in to your account with the CLI. After you enter the password, the system prompts for the account and region that you want to use:
 
     ```sh
@@ -95,7 +95,7 @@ To create a cluster network subnet with name `cli-cn-sub-1` for cluster network 
 ```sh
 ibmcloud is cluster-network-subnet-create cli-cn-1 --name cli-cn-sub-1 --total-ipv4-address-count 32
 ```
-{: codeblock} 
+{: codeblock}
 
 ## Creating a cluster network subnet with the API
 {: #create-cluster-network-subnet-api}
