@@ -1,8 +1,8 @@
 ---
 
 copyright:
-  years: 2020, 2024
-lastupdated: "2024-12-03"
+  years: 2020, 2025
+lastupdated: "2025-04-30"
 
 keywords: flow logs, getting started
 
@@ -126,5 +126,3 @@ These links provide additional information about {{site.data.keyword.cloud_notm}
 * [Flow logs API reference](/apidocs/vpc/latest#list-flow-log-collectors)
 * [FAQs for flow log collectors](/docs/vpc?topic=vpc-fl-faq)
 * [Activity Tracker events](/docs/vpc?topic=vpc-at_events#events-flow-logs)
-* [Blog: Time Series Analytics for IBM Virtual Private Cloud (VPC) Flows Using Grafana](https://www.ibm.com/blog/time-series-analytics-for-ibm-virtual-private-cloud-flows-using-grafana/){: external}
-* [Blog: Indexing and Searching VPC Flow Logs in IBM Cloud Databases for Elasticsearch](https://www.ibm.com/blog/indexing-and-searching-vpc-flow-logs-in-ibm-cloud-databases-for-elasticsearch/){: external}
