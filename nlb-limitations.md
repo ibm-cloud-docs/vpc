@@ -2,7 +2,7 @@
 
 copyright:
   years: 2018, 2025
-lastupdated: "2025-04-29"
+lastupdated: "2025-04-30"
 
 keywords:
 
@@ -48,6 +48,11 @@ The following lists contain known limitations for {{site.data.keyword.cloud}} {{
 
 * You can have a maximum of 128 direct server return configurations for each backend member VSI.
 * When a member target instance is deleted, a Network load balancer pool member is not automatically deleted.
+
+## Known issue for IBM Cloud Private Path network load balancers
+{: #issues-private-path-network-load-balancers}
+
+* When you configure an ALB as a Private Path NLB member, the Private Path NLB's TCP health check status will always show OK, even if the ALB pool members are faulty. Health check status of ALB should be considered to determine the system health.
 
 ## Known limitations for IBM Cloud Private Path network load balancers
 {: #limitations-private-path-network-load-balancers}
