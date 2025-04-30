@@ -2,7 +2,7 @@
 
 copyright:
   years: 2023, 2025
-lastupdated: "2025-04-29"
+lastupdated: "2025-04-30"
 
 keywords:
 
@@ -14,9 +14,6 @@ subcollection: vpc
 
 # Creating a Private Path service
 {: #private-path-service-about}
-
-Accounts with special approval can attach an ALB to a Private Path NLB pool, enabling access to on-prem resources while maintaining a private connection across IBM Cloud.
-{: preview}
 
 As a service provider, you are responsible for managing your consumer account IDs. Currently, tracking or validating account IDs is not supported. For more information, see [Responsibilities for managing consumer account IDs](/docs/vpc?topic=vpc-pps-consumer-account-id-responsibilities&interface=ui).
 {: attention}

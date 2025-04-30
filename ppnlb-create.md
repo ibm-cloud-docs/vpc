@@ -2,7 +2,7 @@
 
 copyright:
   years: 2022, 2025
-lastupdated: "2025-04-29"
+lastupdated: "2025-04-30"
 
 keywords: load balancer, public, listener, back-end, front-end, pool, round-robin, weighted, connections, methods, policies, APIs, access, ports
 
@@ -14,9 +14,6 @@ subcollection: vpc
 
 # Creating a Private Path network load balancer
 {: #ppnlb-ui-creating-private-path-network-load-balancer}
-
-Accounts with special approval can attach an ALB to a Private Path NLB pool, enabling access to on-prem resources while maintaining a private connection across IBM Cloud. 
-{: preview}
 
 You can use a Private Path network load balancer (NLB) only with a Private Path service. Create the Private Path NLB from the [Load Balancers for VPC page](/infrastructure/provision/loadBalancer) or as part of the Private Path service provisioning process. You can create a Private Path network load balancer by using the console, CLI, API, or Terraform.
 {: shortdesc}
