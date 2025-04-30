@@ -15,10 +15,10 @@ subcollection: vpc
 # Network load balancer limitations
 {: #nlb-limitations}
 
-The following lists contain known limitations for {{site.data.keyword.cloud}} {{site.data.keyword.nlb_full}} (NLB) and {{site.data.keyword.cloud}} Private Path Network Load Balancer.
+The following lists contain known limitations for {{site.data.keyword.cloud}} {{site.data.keyword.nlb_full}} (NLB) and IBM Cloud Private Path Network Load Balancer.
 {: shortdesc}
 
-## Known limitations for {{site.data.keyword.cloud}} {{site.data.keyword.nlb_full}} (NLB)
+## Known limitations for IBM Cloud {{site.data.keyword.nlb_full}} (NLB)
 {: #limitations-network-load-balancers}
 
 * The NLB requires the member and port combination to be unique.
@@ -49,7 +49,7 @@ The following lists contain known limitations for {{site.data.keyword.cloud}} {{
 * You can have a maximum of 128 direct server return configurations for each backend member VSI.
 * When a member target instance is deleted, a Network load balancer pool member is not automatically deleted.
 
-## Known limitations for {{site.data.keyword.cloud}} Private Path network load balancers
+## Known limitations for IBM Cloud Private Path network load balancers
 {: #limitations-private-path-network-load-balancers}
 
 * Access to a Virtual Private Endpoint gateway associated with Private Path Network load balancer from Direct Link or Transit Gateway is not supported.

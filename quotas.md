@@ -2,7 +2,7 @@
 
 copyright:
   years: 2018, 2025
-lastupdated: "2025-04-17"
+lastupdated: "2025-04-30"
 
 keywords:
 
@@ -137,9 +137,6 @@ Bare metal servers use physical cores and don't count toward your vCPU quota.
 
 ### Private Path network load balancers
 {: #ppnlb-quotas}
-
-Accounts with special approval can attach an ALB to a Private Path NLB pool, enabling access to on-prem resources while maintaining a private connection across IBM Cloud. 
-{: preview}
 
 | Resource | Quota |
 |--------|-----|
