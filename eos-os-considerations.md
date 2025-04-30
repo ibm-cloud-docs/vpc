@@ -2,7 +2,7 @@
 
 copyright:
   years: 2023, 2025
-lastupdated: "2025-03-18"
+lastupdated: "2025-04-30"
 
 keywords:
 
@@ -144,6 +144,11 @@ To migrate workloads from CentOS, you can switch to a compatible OS distribution
 - The migration tool available from the OS distribution you are migrating to, {{site.data.keyword.cloud_notm}} does not provide or support for these OS conversion tools.
 - The [migrate2rocky](https://github.com/rocky-linux/rocky-tools/tree/main/migrate2rocky){: external} tool available from Rocky Linux. For more information, see the [Rocky Linux documentation](https://docs.rockylinux.org/){: external}.
 - The [Convert2RHEL](https://www.redhat.com/en/technologies/linux-platforms/enterprise-linux/migration-process/convert2rhel){: external} tool available from RHEL. For more information, see the [RHEL documentation](https://www.redhat.com/en/technologies/linux-platforms/enterprise-linux/migration-process/convert2rhel){: external}.
+
+### Ubuntu 20.04
+{: ubuntu-twenty-eos-bm-clasic}
+
+Ubuntu 20.04 EOS date is 31 May 2025. Support for this software discontinues on 31 May 2025. After deprecation, clients can't download the software. For existing customers, upgrade to the latest version. For more information, see the [Ubuntu documentation](https://ubuntu.com/20-04){external}.
 
 ## Troubleshooting
 {: #troubleshooting-upgrading-your-os-vpc}
