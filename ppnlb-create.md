@@ -585,7 +585,7 @@ resource "ibm_is_lb" "example_ppnlb" {
 ```
 {: codeblock}
 
-1. Optionally, create a pool for your Private Path NLB:
+2. Optionally, create a pool for your Private Path NLB:
 
 ```terraform
 resource "ibm_is_lb_pool" "example_pool" {
@@ -601,7 +601,7 @@ resource "ibm_is_lb_pool" "example_pool" {
 ```
 {: codeblock}
 
-1. Optionally, target an ALB or VSI ID as a pool member for your Private Path NLB:
+3. Optionally, target an ALB or VSI ID as a pool member for your Private Path NLB:
 
 ```terraform
 resource "ibm_is_lb" "example_alb" {
