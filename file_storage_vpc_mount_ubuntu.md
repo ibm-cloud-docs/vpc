@@ -2,7 +2,7 @@
 
 copyright:
   years: 2021, 2025
-lastupdated: "2025-04-25"
+lastupdated: "2025-04-30"
 
 keywords: file share, file storage, mount helper, mount target, mount path, secure connection, NFS, mounting share
 
@@ -32,42 +32,37 @@ Use these instructions to connect a Network File System (NFS) file share to an U
 {{site.data.keyword.filestorage_vpc_short}} service requires NFS versions v4.1 or higher.
 {: requirement}
 
+For more information about how NFS works on Ubuntu, see the [Ubuntu Server Documentation](https://documentation.ubuntu.com/server/how-to/networking/install-nfs/){: external}.
+
 ## Mounting the file share
 {: #fs-Ubuntu-mount}
 
-Follow these steps to mount a file share on an Ubuntu host. Examples are based on Ubuntu 20.04.
+Follow these steps to mount a file share on an Ubuntu host. 
 
-[SSH into the Compute instance](/docs/vpc?topic=vpc-creating-virtual-servers&interface=ui#next-steps-after-creating-virtual-servers-ui) where you want to mount the file share, then continue with these steps:
+1. [Log in to the Compute host through an SSH connection](/docs/vpc?topic=vpc-creating-virtual-servers&interface=ui#next-steps-after-creating-virtual-servers-ui).
 
-1. Update and upgrade the distribution:
-
-    ```sh
-    apt update && apt upgrade
-    ```
-    {: pre}
-
-2. Create a `/mnt/nfs` directory.
+1. Create a `/mnt/nfs` directory.
 
     ```sh
     mkdir -p /mnt/nfs
     ```
     {: pre}
 
-3. Install `nfs-common`:
+1. Install `nfs-common`:
 
     ```sh
     apt install nfs-common
     ```
     {: pre}
 
-4. Restart your instance:
+1. Restart your instance:
 
     ```sh
     reboot
     ```
     {: pre}
 
-5. Mount the remote file share:
+1. Mount the remote file share:
 
    ```sh
    mount -t nfs4 -o <options> <host:/mount_target> /mnt/nfs
@@ -81,7 +76,7 @@ Follow these steps to mount a file share on an Ubuntu host. Examples are based o
    ```
    {: pre}
 
-6. Verify that the mount was successful by using the disk file system command `df -h`:
+1. Verify that the mount was successful by using the disk file system command `df -h`:
 
     ```sh
     $ df -h
@@ -100,7 +95,7 @@ Follow these steps to mount a file share on an Ubuntu host. Examples are based o
     fsf-dal1099a-fz.adn.networklayer.com:/voll_58fd55a_685c_4ccd_b42e_25d5b61129e2   95G  256K   95G   1% /mnt/nfs
     ```
 
-7. Go to the mount point to create a test file and list all files to verify that the share is mounted as read/write.
+1. Go to the mount point to create a test file and list all files to verify that the share is mounted as read/write.
 
    ```sh
    touch /mnt/nfs/test.txt
@@ -121,7 +116,7 @@ Follow these steps to mount a file share on an Ubuntu host. Examples are based o
    -rw-r--r--   1 nobody nobody    0 Apr 28 15:52 test.txt
    ```
 
-8. Make the configuration persistent by editing the file systems table (`/etc/fstab`). Add the remote share to the list of entries that are automatically mounted on startup:
+1. Make the configuration persistent by editing the file systems table (`/etc/fstab`). Add the remote share to the list of entries that are automatically mounted on startup:
 
    ```sh
    sudo nano /etc/fstab
@@ -140,7 +135,7 @@ Follow these steps to mount a file share on an Ubuntu host. Examples are based o
    fsf-dal2433a-dz.adn.networklayer.com:/nxg_s_voll_mz0726_c391f0ba-50ed-4460-8704-a36032c96a4c /mnt/nfs nfsvers=4.1 defaults 0 0
    ```
 
-9. Verify that the configuration file has no errors.
+1. Verify that the configuration file has no errors.
 
    ```sh
    mount -fav
