@@ -573,51 +573,51 @@ To create a Private Path NLB with the API, follow these steps:
 
 The following example creates a Private Path network load balancer with Terraform:
 
-1.    Create a Private Path NLB:
+1. Create a Private Path NLB:
 
-```terraform
-resource "ibm_is_lb" "example_ppnlb" {
-  name    = "example-ppnlb"
-  subnets = [ibm_is_subnet.example_subnet.id]
-  profile = "network-private-path"
-  type    = "private_path"
-}
-```
-{: codeblock}
+    ```terraform
+    resource "ibm_is_lb" "example_ppnlb" {
+      name    = "example-ppnlb"
+      subnets = [ibm_is_subnet.example_subnet.id]
+      profile = "network-private-path"
+      type    = "private_path"
+    }
+    ```
+    {: codeblock}
 
-1.    Optionally, create a pool for your Private Path NLB:
+1. Optionally, create a pool for your Private Path NLB:
 
-```terraform
-resource "ibm_is_lb_pool" "example_pool" {
-  name            = "example-pool"
-  lb              = [ibm_is_lb.example_ppnlb.id]
-  algorithm       = "round_robin"
-  protocol        = "tcp"
-  health_delay    = 2
-  health_retries  = 2
-  health_timeout  = 1
-  health_type     = "tcp"
-}
-```
-{: codeblock}
+    ```terraform
+    resource "ibm_is_lb_pool" "example_pool" {
+      name            = "example-pool"
+      lb              = [ibm_is_lb.example_ppnlb.id]
+      algorithm       = "round_robin"
+      protocol        = "tcp"
+      health_delay    = 2
+      health_retries  = 2
+      health_timeout  = 1
+      health_type     = "tcp"
+    }
+    ```
+    {: codeblock}
 
-1.    Optionally, target an ALB or VSI ID as a pool member for your Private Path NLB:
+1. Optionally, target an ALB or a virtual server instance ID as a pool member for your Private Path NLB:
 
-```terraform
-resource "ibm_is_lb" "example_alb" {
-  name    = "example-alb"
-  subnets = [ibm_is_subnet.example_subnet.id]
-}
-```
-{: codeblock}
+    ```terraform
+    resource "ibm_is_lb" "example_alb" {
+      name    = "example-alb"
+      subnets = [ibm_is_subnet.example_subnet.id]
+    }
+    ```
+    {: codeblock}
 
-```terraform
-resource "ibm_is_lb_pool_member" "example_member" {
-  lb        = [ibm_is_lb.example_ppnlb.id]
-  pool      = element(split("/", ibm_is_lb_pool.example_pool.id), 1)
-  port      = 8080
-  weight    = 20
-  target_id = [ibm_is_lb.example_alb.id]
-}
-```
-{: codeblock}
+    ```terraform
+    resource "ibm_is_lb_pool_member" "example_member" {
+      lb        = [ibm_is_lb.example_ppnlb.id]
+      pool      = element(split("/", ibm_is_lb_pool.example_pool.id), 1)
+      port      = 8080
+      weight    = 20
+      target_id = [ibm_is_lb.example_alb.id]
+    }
+    ```
+    {: codeblock}
