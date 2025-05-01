@@ -2,7 +2,7 @@
 
 copyright:
   years: 2022, 2025
-lastupdated: "2025-04-29"
+lastupdated: "2025-05-01"
 
 keywords: context-based restrictions for VPC Infrastructure Services
 
@@ -77,8 +77,8 @@ the **Authorizations** tab.
 |------------------------------------|--------------------------------------------|-----------------------------------------|
 | Cloud Object storage                    | * [Image service](/docs/vpc?topic=vpc-planning-custom-images) \n * [Flow logs](/docs/vpc?topic=vpc-flow-logs)                                                                                                                                                  | VPC Infrastructure Services (`is`) |
 | Key Protect                             | * [Snapshot](/docs/vpc?topic=vpc-snapshots-vpc-planning) \n * [Block Storage volume](/docs/vpc?topic=vpc-creating-block-storage&interface=ui) \n * [File Storage](/docs/vpc?topic=vpc-file-storage-planning) \n * [Image service](/docs/vpc?topic=vpc-planning-custom-images)  | Cloud Block Storage (`server-protect`)|
-| Hyper Protect Crypto service            | * [Snapshot](/docs/vpc?topic=vpc-snapshots-vpc-planning) \n * [Block Storage volume](/docs/vpc?topic=vpc-creating-block-storage&interface=ui) \n * [File Storage](/docs/vpc?topic=vpc-file-storage-planning) \n * [Image service](/docs/vpc?topic=vpc-planning-custom-images) | Cloud Block Storage (`server-protect`)|
-| Virtual Server Instances                | * [Auto scale](/docs/vpc?topic=vpc-creating-auto-scale-instance-group)                                                                                                                                                                                                 | VPC Infrastructure Services (`is`) |
+| Hyper Protect Crypto service            | * [Snapshot](/docs/vpc?topic=vpc-snapshots-vpc-planning) \n * [Block Storage volume](/docs/vpc?topic=vpc-creating-block-storage&interface=ui) \n * [File Storage](/docs/vpc?topic=vpc-file-storage-planning) \n * [Image service](/docs/vpc?topic=vpc-planning-custom-images) | Cloud Block Storage (`server-protect`) |
+| Virtual Server Instances                | * [Auto scale](/docs/vpc?topic=vpc-creating-auto-scale-instance-group) | VPC Infrastructure Services (`is`) |
 | Various VPC Infrastructure Services - Block Storage Volume, Security Groups, Subnets | * [IBM Kubernetes Service](/docs/containers) | IBM Kubernetes Service (`containers-kubernetes`) |
 | Secrets Manager                         | * [Client-to-site VPN](/docs/vpc?topic=vpc-vpn-client-to-site-overview) \n * [Load balancers](/docs/vpc?topic=vpc-nlb-vs-elb)  | VPC Infrastructure Services (`is`) |
 {: caption="Service references needed for context-based restrictions" caption-side="bottom"}
@@ -90,7 +90,7 @@ the **Authorizations** tab.
 You can create network zones by using the `create-zone` command. For more information, see the
 [API docs](/apidocs/context-based-restrictions#create-zone).
 
-The `serviceRef` attribute for VPC Infrastructure Services is `is` and Cloud Block Storage is
+The `serviceRef` attribute for VPC Infrastructure Services is `is`, Cloud Block Storage is
 `server-protect`.
 {: tip}
 
@@ -138,7 +138,7 @@ The `serviceRef` attribute for VPC Infrastructure Services is `is` and Cloud Blo
 
    To find a list of available service reference targets, run the `ibmcloud cbr service-ref-targets`
    [command](/docs/account?topic=account-cbr-plugin&interface=ui#cbr-cli-service-ref-targets-command). The
-   `service_name` for *VPC Infrastructure Services* is `is` and *Cloud Block Storage* is `server-protect`.
+   `service_name` for *VPC Infrastructure Services* is `is`, *Cloud Block Storage* is `server-protect`.
    {: tip}
 
    The following example command adds the `is` service, referred to as *VPC Infrastructure Services* in

@@ -2,7 +2,7 @@
 
 copyright:
   years: 2019, 2025
-lastupdated: "2025-04-30"
+lastupdated: "2025-05-01"
 
 keywords:
 
@@ -83,7 +83,7 @@ For more information, see [{{site.data.keyword.block_storage_is_short}} profiles
 {{site.data.keyword.cloud}} offers security-specific tools and features to help you securely manage your data when you use {{site.data.keyword.vpc_full}}. The following section provides information about access control, data encryption, configuration management, and auditing options that are available for your storage volumes.
 
 ### IAM roles for creating and managing volumes
-{: #block-sorage-vpc-iam}
+{: #block-storage-vpc-iam}
 
 {{site.data.keyword.block_storage_is_short}} require IAM permissions for role-based access control. Depending on your assigned role, you can create and manage volumes. For more information, see [IAM roles and actions for Block Storage for VPC](/docs/account?topic=account-iam-service-roles-actions#is.volume-roles).
 
