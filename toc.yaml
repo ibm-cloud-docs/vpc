@@ -724,7 +724,6 @@ toc:
             topics:
             - architecture-workload-isolation.md
             - cbr.md
-            - storage_durability.md
             - data-security.md
             - topicgroup:
                 label: Data encryption at rest
@@ -784,6 +783,7 @@ toc:
             topics:
             - ha-dr.md
             - bc-dr.md
+            - storage_durability.md
             - topicgroup:
                 label: Backup and recovery by using Veeam
                 topics:

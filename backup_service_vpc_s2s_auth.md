@@ -2,7 +2,7 @@
 
 copyright:
   years: 2022, 2025
-lastupdated: "2025-02-27"
+lastupdated: "2025-05-01"
 
 keywords: Backup for VPC, backup service, backup plan, backup policy, restore, restore volume, restore data
 
@@ -1238,4 +1238,5 @@ For more information about the arguments and attributes, see the [Terraform docu
 ## Next Steps
 {: #backup-s2s-next-steps}
 
-[Create backup policies](/docs/vpc?topic=vpc-create-backup-policy-and-plan).
+- [Create backup policies](/docs/vpc?topic=vpc-create-backup-policy-and-plan).
+- Review [Protecting Virtual Private Cloud (VPC) Infrastructure Services with context-based restrictions](/docs/vpc?topic=vpc-cbr).
