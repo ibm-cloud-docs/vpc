@@ -2,7 +2,7 @@
 
 copyright:
   years: 2022, 2025
-lastupdated: "2025-04-30"
+lastupdated: "2025-05-01"
 
 keywords: file share, file storage, replication, replica, 
 
@@ -89,7 +89,8 @@ You can use replication to address disaster recovery concerns. The replication a
 ## Next steps
 {: #fs-replication-next-steps}
 
-1. [Create a replica file share](/docs/vpc?topic=vpc-file-storage-create-replication) in the console, from the CLI, with the API or Terraform. 
+1. [Create a replica file share](/docs/vpc?topic=vpc-file-storage-create-replication) in the console, from the CLI, with the API or Terraform.
+
    If you want to set up replication between different regions, you need to [establish service-to-service authorizations](/docs/vpc?topic=vpc-file-s2s-auth) between the file services of the two VPCs first. 
    {: requirement}
 
@@ -97,6 +98,7 @@ You can use replication to address disaster recovery concerns. The replication a
    {: requirement}
 
 2. Verify that the replication is working by checking the replication status and the [replication sync information](/docs/vpc?topic=vpc-file-storage-manage-replication#fs-repl-syncinfo). The system queries the last sync status every 15 minutes.
+
 3. Use the replica file share - If the primary file share fails or becomes unavailable for any reason, you can fail over to the replica file share. When you perform the failover, the replica share becomes the new primary file share, with read and write capability.
    
 4. Restart the replication with the original file share as scheduled when it's back online. In this case, you can continue to use the replica site as primary, or fail back to the original site.
