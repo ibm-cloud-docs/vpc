@@ -2,7 +2,7 @@
 
 copyright:
   years: 2024, 2025
-lastupdated: "2025-04-22"
+lastupdated: "2025-05-02"
 
 keywords: vsi, virtual server, virtual server instances, profile, profiles, gpu, accelerated, h100, h200, l4, l40s
 
@@ -153,7 +153,7 @@ Status: Select Availability
 | Osaka (`jp-osa`)          | Not Available     | No              |
 {: caption="Table 1. Supported regions and zones" caption-side="bottom"}
 
-For more information about regions and universal zones, see [Regions](/docs/overview?topic=overview-locations#regions).
+For more information about regions and universal zones, see [Regions](/docs/overview?topic=overview-locations#regions). You can review the assigned zone mapping for an account on the [VPC Infrastructure Overview](/infrastructure/overview#endpoints) page in the Endpoint section. The zone mapping shows how the zone corresponds to the universal zone name that represents the physical location.
 
 #### NVIDIA H200 SXM5 (141 GB)
 {: #hopper-hgx-availability-H200}
@@ -165,6 +165,8 @@ Status: Select Availability
 | Washington DC (`us-east`) | `us-east-wdc07-a` |
 | Frankfurt (`eu-de`)       | `eu-de-fra04-a`   |
 {: caption="Table 1. Supported regions and zones" caption-side="bottom"}
+
+For more information about regions and universal zones, see [Regions](/docs/overview?topic=overview-locations#regions). You can review the assigned zone mapping for an account on the [VPC Infrastructure Overview](/infrastructure/overview#endpoints) page in the Endpoint section. The zone mapping shows how the zone corresponds to the universal zone name that represents the physical location.
 
 ### Capabilities
 {: #hopper-hgx-capabilities}
