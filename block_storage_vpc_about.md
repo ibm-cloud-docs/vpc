@@ -2,7 +2,7 @@
 
 copyright:
   years: 2019, 2025
-lastupdated: "2025-05-01"
+lastupdated: "2025-05-05"
 
 keywords:
 
@@ -89,6 +89,16 @@ For more information, see [{{site.data.keyword.block_storage_is_short}} profiles
 
 For more information, see the [best practices for assigning access](/docs/account?topic=account-account_setup#account_setup). For the complete IAM process, which includes inviting users to your account and assigning Cloud IAM access, see the [IAM getting started tutorial](/docs/account?topic=account-iamoverview).
 {: tip}
+
+### IAM service-to-service authorizations
+{: #block-storage-vpc-iam-s2sauth}
+
+You can use the {{site.data.keyword.iamshort}} (IAM) to create or remove an authorization that grants one service access to another service. For {{site.data.keyword.block_storage_is_short}}, you need to create service-to-service authorization for configuring customer-managed encryption, and backups. For more information, see [Establishing service-to-service authorizations for {{site.data.keyword.block_storage_is_short}}](/docs/vpc?topic=vpc-block-s2s-auth).
+
+### Context-based restrictions
+{: #block-storage-vpc-cbr}
+
+You can enable context-based restrictions (CBR) for block volume operations. These restrictions work with traditional IAM policies, which are based on identity, to provide an extra layer of protection. Unlike IAM policies, context-based restrictions don't assign access. Context-based restrictions check that an access request comes from an allowed context that you configure, such as creating a data volume. For more information, see [Protecting Virtual Private Cloud (VPC) Infrastructure Services with context-based restrictions](/docs/vpc?topic=vpc-cbr).
 
 ### Encryption at rest and in transit
 {: #vpc-storage-encryption}
