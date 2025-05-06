@@ -35,6 +35,9 @@ For more information about changes to the {{site.data.keyword.vpc_short}} comman
 Dynamic network bandwidth control available for Cascade Lake (x2) x86-64 bare metal server profiles
 :   Dynamic network bandwidth control available for Cascade Lake (x2) x86-64 bare metal server profiles. Total network bandwidth for these profiles is now 200 Gbps. For more information, see [x86-64 bare metal server profiles](/docs/vpc?topic=vpc-bare-metal-servers-profile&interface=ui).
 
+AMD Instinct MI300X accelerated virtual server profile now available in Washington DC (`us-east`)(select availability)
+:   The AMD Instinct MI300X accelerated virtual server profile is now available in the Washington DC (`us-east`)region. The profile runs on an [AMD Instinct™ MI300X Accelerator](https://www.amd.com/en/products/accelerators/instinct/mi300/mi300x.html){: external} that is tuned for AI workloads, including inferencing and fine-tuning. For more information about the `gx3d-208x1792x8mi300x` profile, see [GPU](/docs/vpc?topic=vpc-profiles&interface=ui#gpu) profiles and [Accelerated instance profiles](/docs/vpc?topic=vpc-accelerated-profile-family&interface=ui).
+
 ## April 2025
 {: #vpc-apr25}
 

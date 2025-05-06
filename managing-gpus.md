@@ -2,7 +2,7 @@
 
 copyright:
   years: 2021, 2025
-lastupdated: "2025-04-04"
+lastupdated: "2025-05-06"
 
 keywords: image, virtual private cloud, boot volume, virtual server instance, instance, gpu, graphics processing unit, set up gpu
 
@@ -38,6 +38,38 @@ If you want to automate the installation of the drivers, you can use the [User d
 
 1. Provision a [virtual server instance](/docs/vpc?topic=vpc-creating-virtual-servers) by choosing the Intel® Gaudi® 3 AI Accelerator [instance profile](/docs/vpc?topic=vpc-accelerated-profile-family&interface=ui#gaudi-3-vsi-profiles) in the Profile field. Stock and custom operating system images are supported.
 2. Install the Intel Gaudi 3 AI Accelerator software and drivers for your virtual server. To download the drivers, see [Intel Gaudi Driver and Software Installation](https://docs.habana.ai/en/latest/Installation_Guide/Driver_Installation.html){: external} page.
+
+## Configuring a virtual server instance with an AMD Instinct MI300X Accelerator
+{: #provision-amd-mi300x-on-vsi}
+
+1. Provision a [virtual server instance](/docs/vpc?topic=vpc-creating-virtual-servers) by choosing the AMD Instinct™ MI300X Accelerator [instance profile](/docs/vpc?topic=vpc-accelerated-profile-family) in the Profile field. Stock and custom operating system images are supported.
+2. Install the necessary drivers for your virtual server. To download the drivers, see [Installing ROCm and machine learning frameworks](https://rocm.docs.amd.com/en/latest/how-to/rocm-for-ai/inference/install.html){: external} page.
+3. If the guest OS for your virtual server is Ubuntu, you must remove `nomodeset` from the command line and restart the virtual server.
+    1. These commands must be run as root. Sudo to root.
+       ```sh
+       sudo -i  
+       ```
+       {: pre}
+       
+    2. Remove `nomodeset` from the settings file. The following example uses vi.
+       ```sh
+       vi /etc/default/grub.d/50-cloudimg-settings.cfg
+       ```
+       {: pre}
+       
+    3. Verify that `nomodeset` is removed from the settings file.
+       ```sh
+       cat /etc/default/grub.d/50-cloudimg-settings.cfg
+       ```
+       {: pre}
+       
+    4. Update grub.
+       ```sh
+       update-grub
+       ```
+       {: pre}
+       
+    5. Restart the virtual server.
 
 
 ## Integrating drivers into a custom image from volume
