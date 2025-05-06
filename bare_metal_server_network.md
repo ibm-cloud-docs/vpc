@@ -2,7 +2,7 @@
 
 copyright:
   years: 2021, 2025
-lastupdated: "2025-02-03"
+lastupdated: "2025-05-06"
 
 keywords: bare metal server network, bare metal network, nics, pci, vlan, network overview
 
@@ -20,7 +20,7 @@ The following information is an overview of the networking features of Bare Meta
 
 * Bare Metal Server for VPC provides full support for VPC networking features. The network is fully software-defined, so you can configure it through the UI and the API.
 
-* Each bare metal server has a maximum allotted bandwidth. The bandwidth is shared by all the network interfaces on the bare metal server. Based on the generation of the selected profile, different bandwidth options are available to you. Generation 2 (x2) profiles have a fixed bandwidth of 100 Gbps. Generation 3 (x3) profiles support dynamic network bandwidth which allows users to select an hourly bandwidth speed of 10/25/50/100/200 Gbps. The network bandwidth speed can be selected at provisioning or changed post-provision. For more information on profile generations, see [x86-64 bare metal server profiles](/docs/vpc?topic=vpc-bare-metal-servers-profile&interface=ui).
+* Each bare metal server has a maximum allotted bandwidth. The bandwidth is shared by all the network interfaces on the bare metal server. The network bandwidth speed can be selected at provisioning or changed post-provision. For more information on profile generations, see [x86-64 bare metal server profiles](/docs/vpc?topic=vpc-bare-metal-servers-profile&interface=ui).
 
 * For more information about managing network interfaces, see [Managing network interfaces for a bare metal server](/docs/vpc?topic=vpc-managing-nic-for-bare-metal-servers).
 

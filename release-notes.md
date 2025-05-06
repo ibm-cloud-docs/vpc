@@ -2,7 +2,7 @@
 
 copyright:
   years: 2019, 2025
-lastupdated: "2025-04-30"
+lastupdated: "2025-05-06"
 
 keywords:
 
@@ -24,6 +24,16 @@ For more information about changes to the {{site.data.keyword.vpc_short}} API, s
 
 
 For more information about changes to the {{site.data.keyword.vpc_short}} command-line interface (CLI), see [{{site.data.keyword.vpc_short}} CLI release notes](/docs/vpc?topic=vpc-vpc-cli-rn).
+
+## May 2025
+{: #vpc-may25}
+
+### 06 May 2025
+{: #vpc-may0625}
+{: release-note}
+
+Dynamic network bandwidth control available for Cascade Lake (x2) x86-64 bare metal server profiles
+:   Dynamic network bandwidth control available for Cascade Lake (x2) x86-64 bare metal server profiles. Total network bandwidth for these profiles is now 200 Gbps. For more information, see [x86-64 bare metal server profiles](/docs/vpc?topic=vpc-bare-metal-servers-profile&interface=ui).
 
 ## April 2025
 {: #vpc-apr25}
@@ -51,6 +61,7 @@ NVIDIA Hopper-1 cluster network profile
 
 Public address ranges (beta)
 :   Accounts that have been granted special approval to preview this feature can now [create a public address range](/docs/vpc?topic=vpc-par-creating&interface=cli). A public address range is a contiguous set of public IPs that you can reserve and bind to a VPC in an availability zone. For more information, see [About public address ranges](/docs/vpc?topic=vpc-about-par&interface=cli).
+
 
 ### 10 April 2025
 {: #vpc-apr1025}
