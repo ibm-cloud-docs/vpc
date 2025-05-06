@@ -2,7 +2,7 @@
 
 copyright:
   years: 2020, 2025
-lastupdated: "2025-04-29"
+lastupdated: "2025-05-05"
 
 keywords: VPN, network, encryption, authentication, algorithm, IKE, IPsec, policies, gateway
 
@@ -15,77 +15,246 @@ subcollection: vpc
 # Configuring ACLs for use with VPN
 {: #configuring-acls-vpn}
 
-An access control list (ACL) is a built-in, virtual firewall, similar to a security group. In contrast to security groups, ACL rules control traffic to and from the _subnets_, rather than to and from the _instances_.
+A network access control list (NACL) is a built-in, virtual firewall, similar to a security group. In contrast to security groups, ACL rules control traffic to and from the _subnets_, rather than to and from the _instances_.
 
-You can configure ACLs on the VPN gateway's subnet where the VPN gateway is deployed, and other VPC subnets that communicate over the VPN tunnel.
+You can set up ACLs on the VPN gateway subnet and other VPC subnets that communicate over the VPN tunnel.
 
-The following diagram illustrates packet flow through VPC network ACLs.
+The VPN gateway and the VPC virtual server instance can share common or different NACLs and can be in common or different subnet CIDRs.
+{: note}
 
-![Packet flow through VPC ACLs](images/vpc-traffic-flow.png){: caption="Packet flow through VPC ACLs" caption-side="bottom"}
+## Case 1 : When the VPN gateway and virtual server instance are in a common NACL
+{: #case-1-cmn-acl}
 
-1. Encapsulated, bidirectional traffic flows from the peer gateway to the VPC resources that are a part of the encrypted domain.
-1. Unencapsulated packets then leave the VPN subnet and enter the virtual server instance subnet.
-1. These unencapsulated packets travel back to the VPN subnet.
-1. Finally, the packets return to the peer gateway from the VPN subnet.
+### Scenario 1: The VPN gateway and virtual server instance are in a common subnet
+{: #vpn-vsi-cmn-subnet}
 
-If you configure ACLs on the VPN gateway's subnet, make sure that the following rules are in place to allow management traffic and VPN tunnel traffic. For more information, see [Setting up network ACLs](/docs/vpc?topic=vpc-using-acls).
+The following diagram illustrates the packet flow through the common NACL subnet pair.
 
-| Inbound/Outbound Rules | Protocol | Source IP | Source Port | Destination IP | Destination Port |
-|--------------|------|------|------|------|------------------|
-| Inbound | All | Peer gateway public IP[^IP] | N/A | VPN gateway's subnet | N/A
-| Inbound | All | On-premises, private CIDR | N/A | VPC CIDR | N/A
-| Inbound (optional) | ICMP | Any | N/A | Any | N/A
-| Outbound | All  | VPN gateway's subnet | N/A | Peer gateway public IP[^IP2] | N/A
-| Outbound | All  | VPC CIDR | N/A | On-premises, private CIDR | N/A
-{: caption="Inbound and outbound rules on VPN gateway's subnet" caption-side="bottom"}
+   ![Packet flow through VPC NACL](images/vpc-traffic-flow-same-subnet.svg){: caption="Packet flow through the common NACL subnet" caption-side="bottom"}
 
-If you use ACLs on the VPC subnets that communicate over the VPN tunnel, make sure that ACL rules are in place to allow traffic between virtual server instances in your VPC and the other network.
+1. Encrypted traffic flows between your on-premises (peer) gateway and the VPN gateway subnet, covering IP ranges from both sides, which are a part of the encrypted domain (On-premises private CIDR, VPC CIDR).
+1. After the packet reaches the VPC VPN gateway, it is decrypted and forwarded from the VPN subnet to the VPC virtual server subnet.
+1. The response packets to your on-premises network travel back to the VPN subnet.
+1. Finally, the packets are encrypted and returned to the on-premises gateway from the VPN subnet.
+
+When the VPN gateway and virtual server instance are in the common subnet and you create a common NACL, you must add the following rules for bidirectional traffic flow between your on-premises gateway and the common subnet NACL pair. For more information, see [Setting up network ACLs](/docs/vpc?topic=vpc-using-acls).
 {: important}
 
-| Inbound/Outbound Rules | Protocol | Source IP | Source Port | Destination IP | Destination Port |
+1. The first pair of inbound and outbound rules in the table allow management traffic. This traffic uses IKE and IPsec protocols for establishing and maintaining the VPN connection between your on-premises gateway and the VPN gateway.
+
+1. The second pair of inbound and outbound rules allow VPN tunnel traffic, which flows between your on-premises network and the VPC CIDR through the established VPN tunnel.
+
+1. The last inbound rule allows traffic for connectivity tests, such as pinging the VPN gateway or VPC virtual server instance for reachability checks and troubleshooting. (Optional)
+
+| Inbound and Outbound Rules | Protocol | Source IP | Source Port | Destination IP | Destination Port |
 |--------------|------|------|------|------|------------------|
-| Inbound | All | On-premises, private CIDR | N/A | VPC CIDR | N/A
-| Outbound | All | VPC CIDR | N/A | On-premises, private CIDR | N/A
-{: caption="Inbound and outbound rules on VPC subnets" caption-side="bottom"}
+| Inbound | All | Your on-premises gateway public IP | N/A | VPN gateway's subnet | N/A |
+| Outbound | All  | VPN gateway's subnet | N/A | On-premises gateway public IP | N/A |
+| Inbound | All | On-premises, private CIDR | N/A | VPC CIDR | N/A |
+| Outbound | All | VPC CIDR | N/A | On-premises, private CIDR | N/A |
+| Inbound (optional) | ICMP | Any | N/A | Any | N/A |
+{: caption="Inbound and outbound rules on the common NACL and common subnet" caption-side="bottom"}
 
-[^IP]: Set the source IP to the peer gateway public IP address. This setting allows traffic from the VPC and the on-premises subnets.
+### Scenario 1: Example
+{: #example-cmn-nacl-cmn-subnet}
 
-[^IP2]: Set the source IP to the peer gateway public IP address. This setting allows traffic from the VPC and the on-premises subnets.
+The following table shows the source and destination IP addresses for inbound and outbound rules. In this example, both the VPN gateway and the virtual server instance are in the common subnet CIDR 192.168.1.0/24.
 
-## Rules for VPN traffic using NACLs
-{: #rules-vpn-traffic-using-nacls}
+| Inbound and Outbound Rules | Protocol | Source IP | Source Port | Destination IP | Destination Port |
+|--------------|------|------|------|------|------------------|
+| Inbound | All | Your on-premises gateway public IP[^IP] | N/A | 192.168.1.0/24 | N/A |
+| Outbound | All  | 192.168.1.0/24 | N/A | On-premises gateway public IP[^IP2] | N/A |
+| Inbound | All | On-premises, private CIDR | N/A | 192.168.1.0/24 | N/A |
+| Outbound | All | 192.168.1.0/24 | N/A | On-premises, private CIDR | N/A |
+| Inbound (optional) | ICMP | Any | N/A | Any | N/A |
+{: caption="Inbound and outbound rules on the common NACL and common subnet example" caption-side="bottom"}
 
-There are two types of NACLs: one attached to the subnet where you create the VPN gateway, and the other attached to the subnet where you create the virtual server instance.
+[^IP]: Set the source IP to your on-premises gateway public IP for the inbound rule. This setting allows traffic from the on-premises subnet to the VPC.
 
-### NACL attached to the subnet that you chose to create the VPN gateway
+[^IP2]: Set the destination IP to your on-premises gateway public IP address for the outbound rule. This setting allows traffic from the VPC to the on-premises subnet.
+
+### Scenario 2: The VPN gateway and virtual server instance are in different subnets
+{: #vpn-vsi-diff-subnet}
+
+When the VPN gateway and virtual server instance are in different subnets and you create a common NACL, you must add the following rules for bidirectional traffic flow between your on-premises gateway and the different subnets.
+{: important}
+
+| Inbound and Outbound Rules | Protocol | Source IP | Source Port | Destination IP | Destination Port |
+|--------------|------|------|------|------|------------------|
+| Inbound | All | Your on-premises gateway public IP | N/A | VPN gateway's subnet | N/A |
+| Outbound | All  | VPN gateway's subnet | N/A | On-premises gateway public IP | N/A |
+| Inbound | All | On-premises, private CIDR | N/A | VPC CIDR | N/A |
+| Outbound | All | VPC CIDR | N/A | On-premises, private CIDR | N/A |
+| Inbound (optional) | ICMP | Any | N/A | Any | N/A |
+{: caption="Inbound and outbound rules on the common NACL and different subnet" caption-side="bottom"}
+
+### Scenario 2: Example
+{: #example-cmn-nacl-diff-subnet}
+
+The following table shows the source and destination IP addresses for inbound and outbound rules. In this example, the VPN gateway is in the subnet CIDR 192.168.1.0/24 and the virtual server instance is in the subnet CIDR 192.168.2.0/24.
+
+| Inbound and Outbound Rules | Protocol | Source IP | Source Port | Destination IP | Destination Port |
+|--------------|------|------|------|------|------------------|
+| Inbound | All | Your on-premises gateway public IP[^IP3] | N/A | 192.168.1.0/24 | N/A |
+| Outbound | All  | 192.168.1.0/24 | N/A | On-premises gateway public IP[^IP4] | N/A |
+| Inbound | All | On-premises, private CIDR | N/A | 192.168.2.0/24 | N/A |
+| Outbound | All | 192.168.2.0/24 | N/A | On-premises, private CIDR | N/A |
+| Inbound (optional) | ICMP | Any | N/A | Any | N/A |
+{: caption="Inbound and outbound rules on the common NACL and different subnet example" caption-side="bottom"}
+
+[^IP3]: Set the source IP to your on-premises gateway public IP for the inbound rule. This setting allows traffic from the on-premises subnet to the VPC.
+
+[^IP4]: Set the destination IP to your on-premises gateway public IP address for the outbound rule. This setting allows traffic from the VPC to the on-premises subnet.
+
+The following diagram illustrates the packet flow through the NACL with different subnets.
+
+   ![Packet flow through VPC NACL](images/vpc-traffic-flow-diff-subnet.svg){: caption="Packet flow through the NACL with different subnets" caption-side="bottom"}
+
+## Case 2 : When the VPN gateway and virtual server instance are in different NACLs
+{: #case-2-diff-acl}
+
+### Scenario 1: The VPN gateway and virtual server instance are in different subnets
+{: #vpn-vsi-cmn-vpc-diff-subnet}
+
+When the VPN gateway and virtual server instance are in different subnets and you create two NACLs: one attached to the VPN gateway subnet, and the other attached to the virtual server subnet, you must add the following rules for traffic flow between your on-premises gateway and the different subnets.
+{: important}
+
+#### NACL configuration for VPN gateway subnet
 {: #nacl-vpn-gateway}
 
-The following rules apply to NACLs attached to the subnet where the VPN gateway is deployed.
+This NACL will be attached to the VPN gateway subnet. The traffic rules for the VPN gateway subnet should cover the management traffic used to set up the VPN tunnel and the encrypted VPN tunnel traffic between your on-premises network and the VPC.
 
-#### Rules scenario 1
-{: #rules-1}
+| Inbound and Outbound Rules | Protocol | Source IP | Source Port | Destination IP | Destination Port |
+|--------------|------|------|------|------|------------------|
+| Inbound | All | Your on-premises gateway public IP | N/A | VPN gateway's subnet | N/A |
+| Outbound | All  | VPN gateway's subnet | N/A | On-premises gateway public IP | N/A |
+| Inbound| All  | On-premises private CIDR | N/A | VPC CIDR | N/A |
+| Outbound | All | VPC CIDR | N/A | On-premises, private CIDR | N/A |
+| Inbound (optional) | ICMP | Any | N/A | Any | N/A |
+{: caption="Inbound and outbound rules on VPN gateway's subnet" caption-side="bottom"}
 
-Inbound/Outbound Rules|Protocol| Source IP| Destination|
-|---------------------|--------|----------|------------|
-|Inbound |ALL |Your on-premises gateway public IP|Subnet CIDR that you choose to create the VPN gateway.|
-|Outbound |ALL |Subnet CIDR that you choose to create the VPN gateway|Your on-premises gateway public IP.|
-{: caption="Allow IPsec protocol packet between the IBM gateway and your on-premises gateway" caption-side="bottom"}
+#### NACL configuration for virtual server instance subnet
+{: #nacl-virtual-server}
 
-#### Rules scenario 2
-{: #rules-2}
+This NACL will be attached to the virtual server subnet. The traffic rules for the virtual server subnet should cover VPN tunnel traffic for communication between your on-premises network and the virtual server instance.
 
-Inbound/Outbound Rules|Protocol| Source IP| Destination|
-|---------------------|--------|----------|------------|
-|Inbound |ALL |Your on-premises subnets|Subnet CIDR that you choose to create the VPC virtual server instance.|
-|Outbound |ALL |Subnet CIDR in which you choose to create the VPC virtual server instance|Your on-premises subnets.|
-{: caption="Allow traffic between your on-premises private subnet and the VPC subnet where the virtual server instance is deployed" caption-side="bottom"}
+| Inbound and Outbound Rules | Protocol | Source IP | Source Port | Destination IP | Destination Port |
+|--------------|------|------|------|------|------------------|
+| Inbound | All | On-premises, private CIDR | N/A | VPC CIDR | N/A |
+| Outbound | All | VPC CIDR | N/A | On-premises, private CIDR | N/A |
+{: caption="Inbound and outbound rules on virtual server subnets" caption-side="bottom"}
 
-#### Rules scenario 3
-{: #rules-3}
+#### Troubleshooting traffic
+{: #traffic-troubleshooting}
 
-Allow ICMP traffic to the VPN gateway for troubleshooting. (Optional)
+| Inbound and Outbound Rules | Protocol | Source IP | Source Port | Destination IP | Destination Port |
+|--------------|------|------|------|------|------------------|
+| Inbound (optional) | ICMP | Any | N/A | Any | N/A |
+{: caption="Rules for traffic troubleshooting" caption-side="bottom"}
 
-### NACL attached to create the virtual server instance
-{: #nacl-vsi}
+### Scenario 1: Example
+{: #example-diff-subnet}
 
-These rules are the same as those listed in [Table 4](#rules-2).
+The following table shows the source and destination IP addresses for inbound and outbound rules. In this example, the VPN gateway is in subnet CIDR 192.168.1.0/24, and the virtual server is in subnet CIDR 192.168.2.0/24
+
+#### VPN gateway subnet NACL
+{: #example-vpn-gateway-nacl}
+
+| Inbound and Outbound Rules | Protocol | Source IP | Source Port | Destination IP | Destination Port |
+|--------------|------|------|------|------|------------------|
+| Inbound | All | Your on-premises gateway public IP[^IP5] | N/A | 192.168.1.0/24 | N/A |
+| Outbound | All  | 192.168.1.0/24 | N/A | On-premises gateway public IP[^IP6] | N/A |
+| Inbound | All | On-premises, private CIDR | N/A | 192.168.2.0/24 | N/A |
+| Outbound | All | 192.168.2.0/24| N/A | On-premises, private CIDR | N/A |
+| Inbound (optional) | ICMP | Any | N/A | Any | N/A |
+{: caption="Inbound and outbound rules on VPN gateway's subnet example" caption-side="bottom"}
+
+[^IP5]: Set the source IP to your on-premises gateway public IP for the inbound rule. This setting allows traffic from the on-premises subnet to the VPC.
+
+[^IP6]: Set the destination IP to your on-premises gateway public IP address for the outbound rule. This setting allows traffic from the VPC to the on-premises subnet.
+
+#### Virtual server subnet NACL
+{: #example-virtual-server-nacl}
+
+| Inbound and Outbound Rules | Protocol | Source IP | Source Port | Destination IP | Destination Port |
+|--------------|------|------|------|------|------------------|
+| Inbound | All | On-premises, private CIDR | N/A | 192.168.2.0/24 | N/A |
+| Outbound | All | 192.168.2.0/24 | N/A | On-premises, private CIDR | N/A |
+{: caption="Inbound and outbound rules on virtual server subnet example" caption-side="bottom"}
+
+The following diagram illustrates the packet flow for different NACLs with different subnets.
+
+ ![Packet flow through different VPC NACLs](images/vpc-traffic-flow-diff-acls-subnets.svg){: caption="Packet flow through different NACLs with different subnets" caption-side="bottom"}
+
+### Scenario 2: The VPN gateway and virtual server instance are in different VPCs connected through a transit gateway
+{: #vpn-vsi-diff-vpc-tgw}
+
+When the VPN gateway and virtual server instance are in different VPCs with different subnets and different NACLs, you must add the following rules for traffic flow between your on-premises gateway and the subnets in different VPCs.
+{: important}
+
+#### NACL configuration for VPN gateway subnet
+{: #nacl-vpn-gateway}
+
+This NACL will be attached to the VPN gateway subnet. The traffic rules for the VPN gateway subnet should cover the management traffic used to set up the VPN tunnel and the encrypted VPN tunnel traffic between your on-premises network and the VPC.
+
+| Inbound and Outbound Rules | Protocol | Source IP | Source Port | Destination IP | Destination Port |
+|--------------|------|------|------|------|------------------|
+| Inbound | All | Your on-premises gateway public IP | N/A | VPN gateway's subnet | N/A |
+| Outbound | All  | VPN gateway's subnet | N/A | On-premises gateway public IP | N/A |
+| Inbound| All  | On-premises private CIDR | N/A | VPC CIDR | N/A |
+| Outbound | All | VPC CIDR | N/A | On-premises, private CIDR | N/A |
+| Inbound (optional) | ICMP | Any | N/A | Any | N/A |
+{: caption="Inbound and outbound rules on VPN gateway's subnet" caption-side="bottom"}
+
+#### NACL configuration for virtual server instance subnet
+{: #nacl-virtual-server}
+
+This NACL will be attached to the virtual server subnet. The traffic rules for the virtual server subnet should cover VPN tunnel traffic for communication between your on-premises network and the virtual server instance.
+
+| Inbound and Outbound Rules | Protocol | Source IP | Source Port | Destination IP | Destination Port |
+|--------------|------|------|------|------|------------------|
+| Inbound | All | On-premises, private CIDR | N/A | VPC CIDR | N/A |
+| Outbound | All | VPC CIDR | N/A | On-premises, private CIDR | N/A |
+{: caption="Inbound and outbound rules on virtual server subnets" caption-side="bottom"}
+
+#### Troubleshooting traffic
+{: #traffic-troubleshooting}
+
+| Inbound and Outbound Rules | Protocol | Source IP | Source Port | Destination IP | Destination Port |
+|--------------|------|------|------|------|------------------|
+| Inbound (optional) | ICMP | Any | N/A | Any | N/A |
+{: caption="Rules for traffic troubleshooting" caption-side="bottom"}
+
+### Scenario 2 : Example
+{: #example-diff-subnet-diff-vpc}
+
+The following table shows the source and destination IP addresses for inbound and outbound rules. In this example, the VPN gateway in VPC A is in the subnet CIDR 192.168.1.0/24, and the virtual server in VPC B is in the subnet CIDR 192.168.2.0/24
+
+#### VPN gateway subnet NACL
+{: #example-vpn-gateway-nacl-tgw}
+
+| Inbound and Outbound Rules | Protocol | Source IP | Source Port | Destination IP | Destination Port |
+|--------------|------|------|------|------|------------------|
+| Inbound | All | Your on-premises gateway public IP[^IP7] | N/A | 192.168.1.0/24 | N/A |
+| Outbound | All  | 192.168.1.0/24 | N/A | On-premises gateway public IP[^IP8] | N/A |
+| Inbound | All | On-premises, private CIDR | N/A | 192.168.2.0/24 | N/A |
+| Outbound | All | 192.168.2.0/24| N/A | On-premises, private CIDR | N/A |
+| Inbound (optional) | ICMP | Any | N/A | Any | N/A |
+{: caption="Inbound and outbound rules on VPN gateway's subnet example" caption-side="bottom"}
+
+[^IP7]: Set the source IP to your on-premises gateway public IP for the inbound rule. This setting allows traffic from the on-premises subnet to the VPC.
+
+[^IP8]: Set the destination IP to your on-premises gateway public IP address for the outbound rule. This setting allows traffic from the VPC to the on-premises subnet.
+
+#### Virtual server subnet NACL
+{: #example-virtual-server-nacl-tgw}
+
+| Inbound and Outbound Rules | Protocol | Source IP | Source Port | Destination IP | Destination Port |
+|--------------|------|------|------|------|------------------|
+| Inbound | All | On-premises, private CIDR | N/A | 192.168.2.0/24 | N/A |
+| Outbound | All | 192.168.2.0/24 | N/A | On-premises, private CIDR | N/A |
+{: caption="Inbound and outbound rules on virtual server subnet example" caption-side="bottom"}
+
+The following diagram illustrates the packet flow through NACLs with different subnets in different VPCs
+
+ ![Packet flow through different VPC NACLs](images/vpc-traffic-flow-diff-vpc-acls-subnets.svg){: caption="Packet flow through different VPCs with different NACLs and subnets" caption-side="bottom"}

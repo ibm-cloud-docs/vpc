@@ -2,7 +2,7 @@
 
 copyright:
   years: 2018, 2025
-lastupdated: "2025-04-02"
+lastupdated: "2025-05-05"
 
 keywords: high availability, disaster recovery, SLA, placement group
 
@@ -20,7 +20,7 @@ All {{site.data.keyword.cloud}} general availability (GA) services have a Servic
 {: shortdesc}
 
 For more information about the high
-availability and disaster recovery standards in {site.data.keyword.cloud_notm}, see [High availability through redundancy](/docs/resiliency?topic=resiliency-ha-redundancy#zero-downtime). For more information about high
+availability and disaster recovery standards in {{site.data.keyword.cloud_notm}}, see [High availability through redundancy](/docs/resiliency?topic=resiliency-ha-redundancy#zero-downtime). For more information about high
 availability and disaster recovery for {{site.data.keyword.vpc_short}}, see
 [Your responsibilities by using Virtual Private Cloud](/docs/vpc?topic=vpc-responsibilities-vpc). You can
 also find information about [Service Level Agreements](/docs/overview?topic=overview-slas).
