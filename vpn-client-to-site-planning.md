@@ -2,7 +2,7 @@
 
 copyright:
   years: 2021, 2025
-lastupdated: "2025-04-28"
+lastupdated: "2025-05-07"
 
 keywords:
 
@@ -247,7 +247,7 @@ To set up a VPN server using Terraform, follow these steps:
      method        = "certificate"
    client_ca_crn = ibm_sm_imported_certificate.sm_imported_certificate_client.crn
    }
-    client_ip_pool         = "192.167.0.0/16"
+    client_ip_pool         = "198.168.0.0/16"
     enable_split_tunneling = true
     name                   = "terry-vpn-server"
     port                   = 443
