@@ -2,7 +2,7 @@
 
 copyright:
   years: 2021, 2025
-lastupdated: "2025-04-30"
+lastupdated: "2025-05-07"
 
 keywords: view snapshots, view snapshot, viewing snapshots, see snapshots, Block Storage snapshots
 
@@ -291,40 +291,40 @@ ibmcloud is snapshots SNAPSHOT_ID [--json]
 The following example shows the details of a bootable snapshot in the `us-south` region.
 
 ```sh
-cloudshell:~$ ibmcloud is snapshot r006-2cd91284-1c46-499d-b1c5-ebe248b8ff12 
+cloudshell:~$ ibmcloud is snapshot r006-2cd91284-1c46-499d-b1c5-ebe248b8ff12
 Getting snapshot r006-2cd91284-1c46-499d-b1c5-ebe248b8ff12 under account Test Account as user test.user@ibm.com...
-                          
-ID                              r006-2cd91284-1c46-499d-b1c5-ebe248b8ff12   
+
+ID                              r006-2cd91284-1c46-499d-b1c5-ebe248b8ff12
 Name                            my-bootable-snapshot
-CRN                             crn:v1:bluemix:public:is:us-south:a/a1234567::snapshot:r006-2cd91284-1c46-499d-b1c5-ebe248b8ff12   
-Status                          stable   
-Clones                          Zone   Available   Created      
-                          
-Source volume                   ID                                          Name             CRN                                                          Resource type     
-                                r010-85ad4f39-1bd1-4d1e-95c0-ec4caf21b4dc   my-boot-volume   crn:v1:bluemix:public:is:us-south:a/a1234567::volume:r010-85ad4f39-1bd1-4d1e-95c0-ec4caf21b4dc   volume      
-                          
-Backup policy plan              -   
-Snapshot Copies                 -   
-Bootable                        true   
-Encryption                      provider_managed   
-Encryption key                  -   
-                          
-Minimum capacity(GB)            100   
-Size(GB)                        5   
+CRN                             crn:v1:bluemix:public:is:us-south:a/a1234567::snapshot:r006-2cd91284-1c46-499d-b1c5-ebe248b8ff12
+Status                          stable
+Clones                          Zone   Available   Created
+
+Source volume                   ID                                          Name             CRN                                                          Resource type
+                                r010-85ad4f39-1bd1-4d1e-95c0-ec4caf21b4dc   my-boot-volume   crn:v1:bluemix:public:is:us-south:a/a1234567::volume:r010-85ad4f39-1bd1-4d1e-95c0-ec4caf21b4dc   volume
+
+Backup policy plan              -
+Snapshot Copies                 -
+Bootable                        true
+Encryption                      provider_managed
+Encryption key                  -
+
+Minimum capacity(GB)            100
+Size(GB)                        5
 Source Image                    ID                                          Name              Region CRN                                                         Resource type
-                                r010-f68ef7b3-1c5e-4ef7-8040-7ae0f5bf04fd   my-custom-image   us-south  crn:v1:bluemix:public:is:us-south:a/a1234567::image:r010-f68ef7b3-1c5e-4ef7-8040-7ae0f5bf04fd   image      
-                          
-Operating system                Name                 Vendor      Version                                     Family         Architecture   Display name      
+                                r010-f68ef7b3-1c5e-4ef7-8040-7ae0f5bf04fd   my-custom-image   us-south  crn:v1:bluemix:public:is:us-south:a/a1234567::image:r010-f68ef7b3-1c5e-4ef7-8040-7ae0f5bf04fd   image
+
+Operating system                Name                 Vendor      Version                                     Family         Architecture   Display name
                                 ubuntu-22-04-amd64   Canonical   22.04 LTS Jammy Jellyfish Minimal Install   Ubuntu Linux   amd64          Ubuntu Linux 22.04 LTS Jammy Jellyfish Minimal Install (amd64)      
-                          
-Resource group                  ID                                 Name      
-                                6edefe513d934fdd872e78ee6a8e73ef   defaults      
-                          
-Created                         2024-04-18T18:19:10+00:00   
-Captured at                     2024-02-21T21:45:41+00:00   
-Tags                            -   
-Service Tags                    -   
-Storage Generation              1   
+
+Resource group                  ID                                 Name
+                                6edefe513d934fdd872e78ee6a8e73ef   defaults
+
+Created                         2024-04-18T18:19:10+00:00
+Captured at                     2024-02-21T21:45:41+00:00
+Tags                            -
+Service Tags                    -
+Storage Generation              1
 ```
 {: screen}
 
@@ -358,8 +358,8 @@ Resource group             ID                                 Name
 Created                    2023-12-05T20:15:43+00:00
 Captured at                2023-12-05T20:15:44+00:00
 Tags                       env:prod,env:test
-Service Tags               -   
-Storage Generation         1  
+Service Tags               -
+Storage Generation         1
 ```
 {: screen}
 
@@ -408,36 +408,36 @@ You can run the `ibmcloud is snaphot` command to list the details about a specif
 ibmcloud is snapshot my-cli-snapshot-crc
 Getting snapshot my-cli-snapshot-crc-target under account Test Account as user test.user@ibm.com...
 
-ID                     r006-8428038a-a399-4894-8c84-c8d7a4a75fae   
-Name                   my-cli-snapshot-crc  
-CRN                    crn:v1:bluemix:public:is:us-south:a/a1234567::snapshot:r006-8428038a-a399-4894-8c84-c8d7a4a75fae   
-Status                 stable   
-Clones                 Zone   Available   Created      
-                          
-Source volume          ID                                          Name                   Remote Region   CRN                                                                                                                       Resource type      
-                       r014-77ecae08-4a1e-4d15-94f0-814bfc1e108b   -remote-814bfc1e108b   us-east         crn:v1:bluemix:public:is:us-east-a/a1234567::volume:r014-77ecae08-4a1e-4d15-94f0-814bfc1e108b   volume      
-                          
-Backup policy plan     ID                                          Name                   Resource type      
-                       r014-d659eb15-ff07-4d54-8dd8-808a037e1b61   -remote-808a037e1b61   backup_policy_plan      
-                          
-Snapshot Copies        -   
-Bootable               false   
-Encryption             provider_managed   
-Encryption key         -   
-Source Snapshot        ID                                          Name                Remote Region   CRN                                                                                                                       Resource type      
-                       r014-1b960f89-e5f8-4323-ab81-ceaf15ea2a1c   cli-snap-crc-test   us-east         crn:v1:bluemix:public:is:us-east:a/a1234567::snapshot:r014-1b960f89-e5f8-4323-ab81-ceaf15ea2a1c   snapshot      
-                          
-Minimum capacity(GB)   100   
-Size(GB)               1   
-Source Image           -   
-Resource group         ID                                 Name      
-                       6edefe513d934fdd872e78ee6a8e73ef   defaults      
-                          
-Created                2024-06-18T17:21:24+00:00   
-Captured at            2024-06-18T17:21:20+00:00   
-Tags                   -   
-Service Tags           -   
-Storage Generation     1  
+ID                     r006-8428038a-a399-4894-8c84-c8d7a4a75fae
+Name                   my-cli-snapshot-crc
+CRN                    crn:v1:bluemix:public:is:us-south:a/a1234567::snapshot:r006-8428038a-a399-4894-8c84-c8d7a4a75fae
+Status                 stable
+Clones                 Zone   Available   Created
+
+Source volume          ID                                          Name                   Remote Region   CRN                                                                                                                       Resource type
+                       r014-77ecae08-4a1e-4d15-94f0-814bfc1e108b   -remote-814bfc1e108b   us-east         crn:v1:bluemix:public:is:us-east-a/a1234567::volume:r014-77ecae08-4a1e-4d15-94f0-814bfc1e108b   volume
+
+Backup policy plan     ID                                          Name                   Resource type
+                       r014-d659eb15-ff07-4d54-8dd8-808a037e1b61   -remote-808a037e1b61   backup_policy_plan
+
+Snapshot Copies        -
+Bootable               false
+Encryption             provider_managed
+Encryption key         -
+Source Snapshot        ID                                          Name                Remote Region   CRN                                                                                                                       Resource type
+                       r014-1b960f89-e5f8-4323-ab81-ceaf15ea2a1c   cli-snap-crc-test   us-east         crn:v1:bluemix:public:is:us-east:a/a1234567::snapshot:r014-1b960f89-e5f8-4323-ab81-ceaf15ea2a1c   snapshot
+
+Minimum capacity(GB)   100
+Size(GB)               1
+Source Image           -
+Resource group         ID                                 Name
+                       6edefe513d934fdd872e78ee6a8e73ef   defaults
+
+Created                2024-06-18T17:21:24+00:00
+Captured at            2024-06-18T17:21:20+00:00
+Tags                   -
+Service Tags           -
+Storage Generation     1
 ```
 {: screen}
 
