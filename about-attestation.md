@@ -2,7 +2,7 @@
 
 copyright:
   years: 2022, 2025
-lastupdated: "2025-04-10"
+lastupdated: "2025-05-08"
 
 keywords: confidential computing, enclave, secure execution, hpcr, hyper protect virtual server for vpc
 
@@ -53,11 +53,12 @@ Use the following procedure to validate the attestation record and hashes:
     | `ibm-hyper-protect-container-runtime-1-0-s390x-17` | [certificate](https://hpvsvpcubuntu.s3.us.cloud-object-storage.appdomain.cloud/s390x-17/ibm-hyper-protect-container-runtime-1-0-s390x-17-attestation.crt){: external} | 04 July 2025 |
     {: caption="Attestation certificate expiry dates" caption-side="bottom"}
 
+
 * Validate the attestation certificate by following the instructions [here](/docs/vpc?topic=vpc-cert_validate#validate_attest_cert).
-* Extract the encryption public key from the encryption certificate by using the following command:
+* Extract the attestation public key from the attestation certificate by using the following command:
 
    ```sh
-   openssl x509 -pubkey -noout -in ibm-hyper-protect-container-runtime-1-0-s390x-22-attestation.crt > contract-public-key.pub
+   openssl x509 -pubkey -noout -in ibm-hyper-protect-container-runtime-1-0-s390x-23-attestation.crt > contract-public-key.pub
    ```
    {: pre}
 
@@ -160,7 +161,6 @@ sha256sum <file>
 {: pre}
 
 The following snippet is an example of an attestation document:
-
 ```text
 25.3.1
 Machine Type/Plant/Serial: 3932/02/8A018
@@ -290,7 +290,6 @@ The `/dev/disk/by-label/cidata` is a block device that is attached to the runnin
 
 ### `cidata`
 {: #cidata}
-
 ```sh
 b65133a86e74ba813ee3e30f260d375c366194d00876b1454d2835c11b9a0c7b cidata/meta-data
 2a4f4ffa5fdff5886de052da47e3839347649fbb4ba657a1be3bd3a22e4f9a22 cidata/user-data
