@@ -161,6 +161,7 @@ sha256sum <file>
 {: pre}
 
 The following snippet is an example of an attestation document:
+
 ```text
 25.3.1
 Machine Type/Plant/Serial: 3932/02/8A018
@@ -257,7 +258,6 @@ ad65a3820d4a233c84e6d201ce537b8020435ccefe26682809da5ef9b176b8ae root.tar.gz
 ```
 {: pre}
 
-
 Following is the shasum of the ibm-hyper-protect-container-runtime-1-0-s390x-19 `root.tar.gz`.
 
 ```sh
@@ -290,6 +290,7 @@ The `/dev/disk/by-label/cidata` is a block device that is attached to the runnin
 
 ### `cidata`
 {: #cidata}
+
 ```sh
 b65133a86e74ba813ee3e30f260d375c366194d00876b1454d2835c11b9a0c7b cidata/meta-data
 2a4f4ffa5fdff5886de052da47e3839347649fbb4ba657a1be3bd3a22e4f9a22 cidata/user-data
@@ -342,7 +343,6 @@ The result is a secure execution image that is seen at the end of the diagram, w
 During boot several hashes of components and measures of code are taken and added to the attestation record. To further protect this attestation record, the record is encrypted with the public key that the auditor provided. By doing so, only the auditor is in the position to decrypt the attestation record and can validate that the workload that is deployed in the enclave is the expected and untampered version of the workload that is expected to be deployed into the {{site.data.keyword.hpvs}} for VPC instance.
 
 ![Figure showing the attestation process](images/vsi_se_attestationrecord.png "Figure showing the attestation process"){: caption="Attestation process" caption-side="bottom"}
-
 
 ## Next steps
 {: #next-steps-attestation}
