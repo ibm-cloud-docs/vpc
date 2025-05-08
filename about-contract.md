@@ -2,7 +2,7 @@
 
 copyright:
   years: 2022, 2025
-lastupdated: "2025-04-10"
+lastupdated: "2025-05-08"
 
 keywords: confidential computing, enclave, secure execution, hpcr, contract, customization, schema, contract schema, env, workload, encryption
 
@@ -710,6 +710,7 @@ The encryption and attestation certificates are signed by the IBM intermediate c
    | `ibm-hyper-protect-container-runtime-1-0-s390x-18` | [Certificate](https://hpvsvpcubuntu.s3.us.cloud-object-storage.appdomain.cloud/s390x-18/ibm-hyper-protect-container-runtime-1-0-s390x-18-encrypt.crt){: external} | 04 July 2025 |   |   |
    | `ibm-hyper-protect-container-runtime-1-0-s390x-17` | [Certificate](https://hpvsvpcubuntu.s3.us.cloud-object-storage.appdomain.cloud/s390x-17/ibm-hyper-protect-container-runtime-1-0-s390x-17-encrypt.crt){: external} | 04 July 2025 |   |   |
    {: caption="Encryption certificate expiry dates and image deprecation/ obsolete dates" caption-side="bottom"}
+   
 
    **Note:**
    * Deprecated: You can use the image to create an instance from the IBM Cloud CLI. Using the deprecated status can discourage the use of the image before its status is changed to obsolete.

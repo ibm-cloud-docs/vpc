@@ -2,7 +2,7 @@
 
 copyright:
   years: 2022, 2025
-lastupdated: "2025-04-29"
+lastupdated: "2025-05-08"
 
 keywords: confidential computing, secure execution, hpcr, contract, customization, env, workload, encryption, attestation, validating
 
@@ -35,6 +35,7 @@ Download the following certificates:
     | `ibm-hyper-protect-container-runtime-1-0-s390x-17` | [certificate](https://hpvsvpcubuntu.s3.us.cloud-object-storage.appdomain.cloud/s390x-17/ibm-hyper-protect-container-runtime-1-0-s390x-17-intermediate.crt){: external} | 03 June 2026 |
     {: caption="Intermediate certificate expiry dates" caption-side="bottom"}
 
+
 * Ensure to use the certificates corresponding to the hyper protect container runtime image for contract encryption and attestation.
 
 ## Validating the contract encryption certificate
@@ -62,7 +63,6 @@ Complete the following steps on an Ubuntu system to validate the encryption cert
    openssl verify -untrusted DigiCertTrustedG4CodeSigningRSA4096SHA3842021CA1.crt.pem -CRLfile ibm-hyper-protect-container-runtime-1-0-s390x-intermediate.crl ibm-hyper-protect-container-runtime-1-0-s390x-22-intermediate.crt
    ```
    {: pre}
-
 3. Complete the following steps to verify the signature of the attestation certificate document:
 
    1. Extract the public signing key into a file. In the following example, the file is called `pubkey.pem`:
@@ -107,7 +107,6 @@ Complete the following steps on an Ubuntu system to validate the encryption cert
    openssl x509 -in ibm-hyper-protect-container-runtime-1-0-s390x-22-intermediate.crt -subject -noout
    ```
    {: pre}
-
 5. Verify that the encryption certificate document is still valid by checking the output of the following command:
 
    ```sh
