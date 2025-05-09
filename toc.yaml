@@ -158,6 +158,7 @@ toc:
             - user-access-to-dedicated-hosts-and-groups.md
             - creating-and-using-an-image-from-volume.md
             - vpn-openvpn-client-tutorial.md
+            - private-path-host-services-outside-vpc.md
         - topicgroup:
             label: Solution tutorials
             topics:
