@@ -291,6 +291,8 @@ The `/dev/disk/by-label/cidata` is a block device that is attached to the runnin
 ### `cidata`
 {: #cidata}
 
+
+
 ```sh
 b65133a86e74ba813ee3e30f260d375c366194d00876b1454d2835c11b9a0c7b cidata/meta-data
 2a4f4ffa5fdff5886de052da47e3839347649fbb4ba657a1be3bd3a22e4f9a22 cidata/user-data

@@ -2,7 +2,7 @@
 
 copyright:
   years: 2023, 2025
-lastupdated: "2025-04-30"
+lastupdated: "2025-05-09"
 
 keywords: file share, file storage, encryption in transit, Mount Helper, IPsec, secure connection, mount share
 
@@ -41,13 +41,13 @@ You can use the utility for encrypted or unencrypted connections. For encrypted 
 * The same certificates cannot be used across multiple regions.
 * The Mount Helper is supported on Linux hosts only. See the table for the supported distributions:
 
-   | Supported OS | Supported OS | Supported OS                 |
-   |--------------|--------------|------------------------------|
-   | UBUNTU_2004  | RHEL_7       | SAP_SLES_15_SP3_HANA         |
-   | UBUNTU_2204  | RHEL_8       | SAP_SLES_15_SP3_APPLICATIONS |
-   | CENTOS_7     | RHEL_8_6     | SAP_SLES_15_SP4_HANA         |
-   | DEBIAN_10    | RHEL_9       | SAP_SLES_15_SP4_APPLICATIONS |
-   | ROCKYLINUX_8 |              | |
+   | Supported OS    | Supported OS | Supported OS                 |
+   |-----------------|--------------|------------------------------|
+   | UBUNTU_2204     | UBUNTU_2404  | SAP_SLES_15_SP3_HANA         |
+   | RHEL_8          | RHEL_9       | SAP_SLES_15_SP3_APPLICATIONS |
+   | CENTOS_STREAM_9 | CENTOS_STREAM_10 | SAP_SLES_15_SP4_HANA       |
+   | DEBIAN_11       | DEBIAN_12    | SAP_SLES_15_SP4_APPLICATIONS |
+   | ROCKYLINUX_8[8.9,8.10] | ROCKYLINUX_9[9.4,9.5]  |   |
    {: caption="This table shows the supported host OS distributions." caption-side="bottom"}
 
 * Installing the Mount Helper on Red Hat Enterprise Linux CoreOS is not supported.

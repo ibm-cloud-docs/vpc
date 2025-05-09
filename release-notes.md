@@ -2,7 +2,7 @@
 
 copyright:
   years: 2019, 2025
-lastupdated: "2025-05-06"
+lastupdated: "2025-05-09"
 
 keywords:
 
@@ -27,6 +27,13 @@ For more information about changes to the {{site.data.keyword.vpc_short}} comman
 
 ## May 2025
 {: #vpc-may25}
+
+### 09 May 2025
+{: #vpc-may0925}
+{: release-note}
+
+Mount Helper utility supports new OS distributions
+:   The IBM Cloud File Share Mount Helper utility can now be installed and used on virtual servers that are running CentOS Stream 9 or 10, and Debian 11 or 12 to establish encrypted connection to file shares. For more information, see [IBM Cloud File Share Mount Helper utility](/docs/vpc?topic=vpc-fs-mount-helper-utility).
 
 ### 06 May 2025
 {: #vpc-may0625}
