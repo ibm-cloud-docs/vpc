@@ -2,7 +2,7 @@
 
 copyright:
   years: 2022, 2025
-lastupdated: "2025-05-08"
+lastupdated: "2025-05-09"
 
 keywords: confidential computing, enclave, secure execution, hpcr, hyper protect virtual server for vpc
 
@@ -43,15 +43,15 @@ Use the following procedure to validate the attestation record and hashes:
 * Obtain the attestation record `se-checksums.txt` and the signature file `se-signature.bin` from your {{site.data.keyword.hpvs}} for VPC instance. To do so, you can implement your container to provide the attestation record and the signature file. The attestation record and the signature file are made available to your container in the `/var/hyperprotect` directory.
 * Get the IBM attestation certificate. The following table lists the expiry dates for the attestation certificates based on the version of the image.
 
-    | Image version| Certificate link | Expiry date |
-    | -------- | ----------- | ----------- |
-    | `ibm-hyper-protect-container-runtime-1-0-s390x-22` | [certificate](https://hpvsvpcubuntu.s3.us.cloud-object-storage.appdomain.cloud/s390x-22/ibm-hyper-protect-container-runtime-1-0-s390x-22-attestation.crt){: external} | 21 March 2026 |
-    | `ibm-hyper-protect-container-runtime-1-0-s390x-21` | [certificate](https://hpvsvpcubuntu.s3.us.cloud-object-storage.appdomain.cloud/s390x-21/ibm-hyper-protect-container-runtime-1-0-s390x-21-attestation.crt){: external} | 04 March 2026 |
-    | `ibm-hyper-protect-container-runtime-1-0-s390x-20` | [certificate](https://hpvsvpcubuntu.s3.us.cloud-object-storage.appdomain.cloud/s390x-20/ibm-hyper-protect-container-runtime-1-0-s390x-20-attestation.crt){: external} | 20 November 2025 |
-    | `ibm-hyper-protect-container-runtime-1-0-s390x-19` | [certificate](https://hpvsvpcubuntu.s3.us.cloud-object-storage.appdomain.cloud/s390x-19/ibm-hyper-protect-container-runtime-1-0-s390x-19-attestation.crt){: external} | 19 September 2025 |
-    | `ibm-hyper-protect-container-runtime-1-0-s390x-18` | [certificate](https://hpvsvpcubuntu.s3.us.cloud-object-storage.appdomain.cloud/s390x-18/ibm-hyper-protect-container-runtime-1-0-s390x-18-attestation.crt){: external} | 01 August 2025 |
-    | `ibm-hyper-protect-container-runtime-1-0-s390x-17` | [certificate](https://hpvsvpcubuntu.s3.us.cloud-object-storage.appdomain.cloud/s390x-17/ibm-hyper-protect-container-runtime-1-0-s390x-17-attestation.crt){: external} | 04 July 2025 |
-    {: caption="Attestation certificate expiry dates" caption-side="bottom"}
+  | Image version| Certificate link | Expiry date |
+  | -------- | ----------- | ----------- |
+  | `ibm-hyper-protect-container-runtime-1-0-s390x-22` | [certificate](https://hpvsvpcubuntu.s3.us.cloud-object-storage.appdomain.cloud/s390x-22/ibm-hyper-protect-container-runtime-1-0-s390x-22-attestation.crt){: external} | 21 March 2026 |
+  | `ibm-hyper-protect-container-runtime-1-0-s390x-21` | [certificate](https://hpvsvpcubuntu.s3.us.cloud-object-storage.appdomain.cloud/s390x-21/ibm-hyper-protect-container-runtime-1-0-s390x-21-attestation.crt){: external} | 04 March 2026 |
+  | `ibm-hyper-protect-container-runtime-1-0-s390x-20` | [certificate](https://hpvsvpcubuntu.s3.us.cloud-object-storage.appdomain.cloud/s390x-20/ibm-hyper-protect-container-runtime-1-0-s390x-20-attestation.crt){: external} | 20 November 2025 |
+  | `ibm-hyper-protect-container-runtime-1-0-s390x-19` | [certificate](https://hpvsvpcubuntu.s3.us.cloud-object-storage.appdomain.cloud/s390x-19/ibm-hyper-protect-container-runtime-1-0-s390x-19-attestation.crt){: external} | 19 September 2025 |
+  | `ibm-hyper-protect-container-runtime-1-0-s390x-18` | [certificate](https://hpvsvpcubuntu.s3.us.cloud-object-storage.appdomain.cloud/s390x-18/ibm-hyper-protect-container-runtime-1-0-s390x-18-attestation.crt){: external} | 01 August 2025 |
+  | `ibm-hyper-protect-container-runtime-1-0-s390x-17` | [certificate](https://hpvsvpcubuntu.s3.us.cloud-object-storage.appdomain.cloud/s390x-17/ibm-hyper-protect-container-runtime-1-0-s390x-17-attestation.crt){: external} | 04 July 2025 |
+  {: caption="Attestation certificate expiry dates" caption-side="bottom"}
 
 
 * Validate the attestation certificate by following the instructions [here](/docs/vpc?topic=vpc-cert_validate#validate_attest_cert).
