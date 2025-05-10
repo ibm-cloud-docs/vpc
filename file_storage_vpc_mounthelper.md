@@ -44,7 +44,7 @@ You can use the utility for encrypted or unencrypted connections. For encrypted 
    | Supported OS    | Supported OS | Supported OS                 |
    |-----------------|--------------|------------------------------|
    | UBUNTU_2204     | UBUNTU_2404  | SAP_SLES_15_SP3_HANA         |
-   | RHEL_8          | RHEL_9       | SAP_SLES_15_SP3_APPLICATIONS |
+   | RHEL_8[8.4, 8.6, 8.8, 8.10] | RHEL_9 [9.0, 9.2, 9.4] | SAP_SLES_15_SP3_APPLICATIONS |
    | CENTOS_STREAM_9 | CENTOS_STREAM_10 | SAP_SLES_15_SP4_HANA       |
    | DEBIAN_11       | DEBIAN_12    | SAP_SLES_15_SP4_APPLICATIONS |
    | ROCKYLINUX_8[8.9,8.10] | ROCKYLINUX_9[9.4,9.5]  |   |
