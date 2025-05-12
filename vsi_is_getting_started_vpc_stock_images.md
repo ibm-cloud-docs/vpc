@@ -2,7 +2,7 @@
 
 copyright:
   years: 2022, 2025
-lastupdated: "2025-04-28"
+lastupdated: "2025-05-12"
 
 keywords:
 
@@ -38,7 +38,7 @@ When you provision a virtual server on your VPC, you need to select an image to 
 
 All available stock images can be found in **Navigation Menu** icon![Navigation Menu icon](../icons/icon_hamburger.svg) **> Infrastructure** ![VPC icon](../../icons/vpc.svg) **> Compute** **> Images** **> Stock images**.
 
-When you use an {{site.data.keyword.IBM_notm}} stock image, you must apply the latest security patches and any updates that are provided by the operating system vendor. After you provision a virtual server, it is your responsibility to continue to regularly make package updates for the operating system. 
+When you use an {{site.data.keyword.IBM_notm}} stock image, you must apply the latest security patches and any updates that are provided by the operating system vendor. After you provision a virtual server, it is your responsibility to continue to regularly make package updates for the operating system. If you are using the RHEL AI 1.x stock image, you can't apply updates to an existing virtual server instance. You must provision a new virtual server instance with the most recent image.
 {: important}
 
 To create a virtual server using a stock image, see one of the following:

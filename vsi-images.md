@@ -2,7 +2,7 @@
 
 copyright:
   years: 2019, 2025
-lastupdated: "2025-04-28"
+lastupdated: "2025-05-12"
 
 subcollection: vpc
 
@@ -32,6 +32,7 @@ The following operating systems are available as stock images when you create a 
 | Fedora Core OS | x86-64 |
 | Red Hat Enterprise Linux 8.x, 9.x | x86-64 |
 | Red Hat Enterprise Linux for SAP 8.x, 9.x | x86-64 |
+| RHEL AI 1.x | x86-64 |
 | Rocky Linux 8.x, 9.x | x86-64 |
 | SUSE Linux Enterprise Server 12.x, 15.x | x86-64 |
 | SUSE Linux Enterprise Server for SAP 12.x, 15.x | x86-64 |
@@ -40,6 +41,9 @@ The following operating systems are available as stock images when you create a 
 {: caption="Supported x86_64 stock image operating systems" caption-side="top"}
 
 For more information about support for Red Hat, see [FAQs about Red Hat and IBM Cloud® infrastructure](/docs/infrastructure-hub?topic=infrastructure-hub-faqs-for-red-hat-ibm-cloud).
+
+For information regarding the supported profiles and use cases for RHEL AI, see [Red Hat Enterprise Linux AI hardware requirements](https://docs.redhat.com/en/documentation/red_hat_enterprise_linux_ai/1.1/html-single/getting_started/index#hardware_requirements_rhelai){: external}.
+{: note}
 
 ### Supported x86_64 virtual server operating system bundle stock image
 {: #x86-supported-os-bundle-image}
