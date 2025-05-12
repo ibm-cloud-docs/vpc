@@ -2,7 +2,7 @@
 
 copyright:
   years: 2018, 2025
-lastupdated: "2025-03-05"
+lastupdated: "2025-05-12"
 
 keywords: connecting, linux
 
@@ -87,6 +87,7 @@ The name of the default user account depends on the operating system image being
 | Operating system | Default user account |
 |-----------------|----------------|
 | Red Hat Enterprise Linux (RHEL) | `vpcuser` |
+| Red Hat Enterprise Linux (RHEL) AI | `cloud-user` |
 | SUSE Linux Enterprise Server (SLES) | `vpcuser` |
 | Debian | `vpcuser` |
 | Rocky Linux | `vpcuser` |

@@ -2,7 +2,7 @@
 
 copyright:
   years: 2019, 2025
-lastupdated: "2025-05-09"
+lastupdated: "2025-05-12"
 
 keywords:
 
@@ -26,7 +26,15 @@ For more information about changes to the {{site.data.keyword.vpc_short}} API, s
 For more information about changes to the {{site.data.keyword.vpc_short}} command-line interface (CLI), see [{{site.data.keyword.vpc_short}} CLI release notes](/docs/vpc?topic=vpc-vpc-cli-rn).
 
 ## May 2025
+{: #vpc-May25}
 {: #vpc-may25}
+
+### 12 May 2025
+{: #vpc-may1225}
+{: release-note}
+
+Red Hat Enterprise Linux AI stock images (GA)
+:   The Red Hat Enterprise Linux AI (RHEL AI) 1.x operating system is now available as a stock image. When using the {{site.data.keyword.IBM_notm}}-supplied stock image, the RHEL AI license cost is included in the monthly instance cost. In-place updates of the virtual server instance are not supported. If updates are needed, you need to create a new virtual server with the most recent RHEL AI image, which contains the recent image updates. For more information, see [FAQs about Red Hat and {{site.data.keyword.cloud}} infrastructure](/docs/infrastructure-hub?topic=infrastructure-hub-faqs-for-red-hat-ibm-cloud). For more information about stock images, see [x86 virtual server images](/docs/vpc?topic=vpc-about-images) and [Lifecycle for guest operating systems](/docs/vpc?topic=vpc-guest-os-lifecycle).
 
 ### 09 May 2025
 {: #vpc-may0925}
