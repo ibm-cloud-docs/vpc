@@ -2,7 +2,7 @@
 
 copyright:
   years: 2024, 2025
-lastupdated: "2025-05-06"
+lastupdated: "2025-05-12"
 
 keywords: vsi, virtual server, virtual server instances, profile, profiles, gpu, accelerated, h100, h200, l4, l40s
 
@@ -20,7 +20,6 @@ The accelerated family of profiles provides on-demand, cost-effective access to 
 
 ## AMD MI300X instance profiles
 {: #amd-mi300x-profiles}
-
 
 The AMD MI300X accelerated virtual server profiles are built atop 192 GB OAM-based AMD Instinct™ MI300X Accelerators. These accelerators are tuned for AI workloads, including inferencing and fine tuning. The solution is paired with the 5th Generation Intel® Xeon® Scalable processors.
 
@@ -241,10 +240,13 @@ For more information about regions and universal zones, see [Regions](/docs/over
 
 Status: Select Availability
 
-| Region                    | Universal zone    |
-| ------------------------  | -------------     |
-| Washington DC (`us-east`) | `us-east-wdc07-a` |
-| Frankfurt (`eu-de`)       | `eu-de-fra04-a`   |
+| Region                    | Universal zone    | Cluster network |
+| ------------------------  | -------------     | --------------- |
+| Washington DC (`us-east`) | `us-east-wdc07-a` | Yes             |
+| Toronto (`ca-tor`)        | `ca-tor-tor05-a`  | No              |
+| Frankfurt (`eu-de`)       | `eu-de-fra04-a`   | Yes             |
+| London (`eu-gb`)          | `eu-gb-lon05-a`   | No              |
+| Sydney (`au-syd`)         | `au-syd-syd04-a`  | No              |
 {: caption="Table 1. Supported regions and zones" caption-side="bottom"}
 
 For more information about regions and universal zones, see [Regions](/docs/overview?topic=overview-locations#regions). You can review the assigned zone mapping for an account on the [VPC Infrastructure Overview](/infrastructure/overview#endpoints) page in the Endpoint section. The zone mapping shows how the zone corresponds to the universal zone name that represents the physical location.
