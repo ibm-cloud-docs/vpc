@@ -98,8 +98,8 @@ For information regarding the supported profiles and use cases for RHEL AI, see 
 | RHEL 8.1 (SAP HANA and SAP applications) | 28 February 2023 | Pay-as-you-Go |
 | RHEL 7.9 minimal | 30 June 2024 | Pay-as-you-Go |
 | RHEL 7.9 (SAP HANA and SAP applications) | 30 June 2024 | Pay-as-you-Go |
-| RHEL 7.6 (SAP HANA and SAP applications) | 28 February 2023  | Pay-as-you-Go |<vpcimg-273-rhel-ai-stock>
-| RHEL AI 1.X | [RHEL AI Life Cycle](https://access.redhat.com/support/policy/updates/rhelai) | Pay-as-you-Go |</vpcimg-273-rhel-ai-stock>
+| RHEL 7.6 (SAP HANA and SAP applications) | 28 February 2023  | Pay-as-you-Go |
+| RHEL AI 1.X | [RHEL AI Life Cycle](https://access.redhat.com/support/policy/updates/rhelai) | Pay-as-you-Go |
 {: caption="Lifecycle for Red Hat Enterprise Linux (RHEL) operating systems" caption-side="bottom"}
 
 **BYOL**: For Red Hat Enterprise Linux® (RHEL) operating systems, you can bring your own license (BYOL) to {{site.data.keyword.vpc_short}} when you import a custom image. These images are registered and licensed by you. You maintain control over your license and incur no additional costs by using your license. Acquisition and activation of the license is between you and the OS vendor. BYOL is not supported on Red Hat Enterprise Linux for SAP.
