@@ -41,7 +41,7 @@ Red Hat Enterprise Linux AI stock images (GA)
 {: release-note}
 
 Mount Helper utility supports new OS distributions
-:   The IBM Cloud File Share Mount Helper utility can now be installed and used on virtual servers that are running CentOS Stream 9 or 10, and Debian 11 or 12 to establish encrypted connection to file shares. For more information, see [IBM Cloud File Share Mount Helper utility](/docs/vpc?topic=vpc-fs-mount-helper-utility).<vpcimg-273-rhel-ai-stock>
+:   The IBM Cloud File Share Mount Helper utility can now be installed and used on virtual servers that are running CentOS Stream 9 or 10, and Debian 11 or 12 to establish encrypted connection to file shares. For more information, see [IBM Cloud File Share Mount Helper utility](/docs/vpc?topic=vpc-fs-mount-helper-utility).
 
 ### 06 May 2025
 {: #vpc-may0625}
