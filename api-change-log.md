@@ -2,7 +2,7 @@
 
 copyright:
   years: 2019, 2025
-lastupdated: "2025-04-29"
+lastupdated: "2025-05-13"
 
 keywords: api, change log, new features, restrictions, migration
 
@@ -51,6 +51,14 @@ At this time, all instances, and therefore all instance templates, continue to r
 
 The new response code will be rolled out gradually. Each phase of the rollout will be tied to a dated API version. These changes will be announced in future change log updates.
 {: note}
+
+## 13 May 2025
+{: #13-may-2025}
+
+### For all version dates
+{: #13-may-2025-all-version-dates}
+
+**AMD GPU instance profiles.** When [creating an instance](/apidocs/vpc/latest#create-instance), you can now specify a `profile` for a server with GPUs manufactured by AMD, such as `gx3d-208x1792x8mi300x`. Accordingly, when [retrieving](/apidocs/vpc/latest#get-instance) or [listing]/apidocs/vpc/latest#list-instances) instances, the response may include a new `gpu.manufacturer` property value of `amd`. Similarly, when [retrieving](/apidocs/vpc/latest#get-instance-profile) or [listing](/apidocs/vpc/latest#list-instance-profiles) instance profiles, the response may include a `gpu_manufacturer.values` property value of `amd`. For more information, see [AMD MI300X instance profiles](/docs/vpc?topic=vpc-accelerated-profile-family&interface=ui#amd-mi300x-profiles).
 
 ## 29 April 2025
 {: #29-april-2025}
