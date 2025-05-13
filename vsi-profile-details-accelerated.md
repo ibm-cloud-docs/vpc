@@ -2,7 +2,7 @@
 
 copyright:
   years: 2024, 2025
-lastupdated: "2025-05-12"
+lastupdated: "2025-05-13"
 
 keywords: vsi, virtual server, virtual server instances, profile, profiles, gpu, accelerated, h100, h200, l4, l40s
 
@@ -357,7 +357,7 @@ Regions:
 {: #l4-capabilities}
 
 - Core type: Dedicated
-- Dedicated host: Yes
+- Dedicated host: No
 - Hyperthreading: Yes (SMT-2)
 - Secure boot: No
 - Confidential computing: No
@@ -443,7 +443,7 @@ Regions:
 {: #l40s-capabilities}
 
 - Core type: Dedicated
-- Dedicated host: Yes
+- Dedicated host: No
 - Hyperthreading: Yes (SMT-2)
 - Secure boot: No
 - Confidential computing: No
