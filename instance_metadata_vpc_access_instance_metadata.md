@@ -35,7 +35,7 @@ Table 1 describes the steps that are involved in accessing instance metadata. Th
 ## End-to-end procedure for accessing metadata from an instance
 {: #imd-access-md-ex}
 
-### Locating the running instance in the console
+### Locating the running instance and enabling the metadata service in the console
 {: #imd-access-md-locate-vsi-ui}
 {: ui}
 
@@ -45,7 +45,7 @@ Table 1 describes the steps that are involved in accessing instance metadata. Th
 
 1. If the instance has a floating IP address already (shown on the Networking tab), use that address to establish a secure connection to the server. If it does not have a floating IP address, assign one to it. For more information, see the [Next steps](/docs/vpc?topic=vpc-creating-virtual-servers&interface=ui#next-steps-after-creating-virtual-servers-ui) in the Creating virtual server instances topic.
 
-### Locating the running instance from the CLI
+### Locating the running instance and enabling the metadata service from the CLI
 {: #imd-access-md-locate-vsi-cli}
 {: cli}
 
@@ -178,7 +178,7 @@ Table 1 describes the steps that are involved in accessing instance metadata. Th
 
 1. If the instance has a floating IP address already, use that address to establish a secure connection to the server. If it does not have a floating IP address, assign one to it. For more information, see the [Next steps](/docs/vpc?topic=vpc-creating-virtual-servers&interface=cli#next-step-after-creating-virtual-servers-cli) in the Creating virtual server instances topic.
 
-### Locating the running instance with the API
+### Locating the running instance and enabling the metadata service with the API
 {: #imd-access-md-locate-vsi-api}
 {: api}
 
@@ -285,7 +285,7 @@ For more information, see [Connecting to your Linux instance](/docs/vpc?topic=vp
 ### Collecting information from the metadata service
 {: #imd-access-md-use}
 
-1. From the virtual server instance, make a request to the metadata token service to retrieve an instance identity access token. Specify how long the token is valid, for example, you can specify 3600 seconds (1 hour).
+1. From the virtual server instance, make a request to the metadata token service to retrieve an instance identity access token. Specify how long you want the token to remain valid. For example, you can specify 3600 seconds (1 hour).
 
    ```json
    export instance_identity_token=`curl -X PUT "http://api.metadata.cloud.ibm.com/instance_identity/v1/token?version=2024-11-12"\
