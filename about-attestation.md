@@ -2,7 +2,7 @@
 
 copyright:
   years: 2022, 2025
-lastupdated: "2025-05-12"
+lastupdated: "2025-05-14"
 
 keywords: confidential computing, enclave, secure execution, hpcr, hyper protect virtual server for vpc
 
@@ -43,8 +43,12 @@ Use the following procedure to validate the attestation record and hashes:
 * Obtain the attestation record `se-checksums.txt` and the signature file `se-signature.bin` from your {{site.data.keyword.hpvs}} for VPC instance. To do so, you can implement your container to provide the attestation record and the signature file. The attestation record and the signature file are made available to your container in the `/var/hyperprotect` directory.
 * Get the IBM attestation certificate. The following table lists the expiry dates for the attestation certificates based on the version of the image.
 
+From 25 March 2025, the certificate links are changed.
+{: note}
+
    | Image version| Certificate link | Expiry date |
-   | -------- | ----------- | ----------- |
+   |--------------|------------------|-------------|
+   | `ibm-hyper-protect-container-runtime-1-0-s390x-23` | [Certificate](https://hpvsvpcubuntu.s3.us.cloud-object-storage.appdomain.cloud/s390x-23/ibm-hyper-protect-container-runtime-1-0-s390x-23-attestation.crt){: external} | 25 April 2026 |
    | `ibm-hyper-protect-container-runtime-1-0-s390x-22` | [Certificate](https://hpvsvpcubuntu.s3.us.cloud-object-storage.appdomain.cloud/s390x-22/ibm-hyper-protect-container-runtime-1-0-s390x-22-attestation.crt){: external} | 21 March 2026 |
    | `ibm-hyper-protect-container-runtime-1-0-s390x-21` | [Certificate](https://hpvsvpcubuntu.s3.us.cloud-object-storage.appdomain.cloud/s390x-21/ibm-hyper-protect-container-runtime-1-0-s390x-21-attestation.crt){: external} | 04 March 2026 |
    | `ibm-hyper-protect-container-runtime-1-0-s390x-20` | [Certificate](https://hpvsvpcubuntu.s3.us.cloud-object-storage.appdomain.cloud/s390x-20/ibm-hyper-protect-container-runtime-1-0-s390x-20-attestation.crt){: external} | 20 November 2025 |
@@ -52,8 +56,6 @@ Use the following procedure to validate the attestation record and hashes:
    | `ibm-hyper-protect-container-runtime-1-0-s390x-18` | [Certificate](https://hpvsvpcubuntu.s3.us.cloud-object-storage.appdomain.cloud/s390x-18/ibm-hyper-protect-container-runtime-1-0-s390x-18-attestation.crt){: external} | 01 August 2025 |
    | `ibm-hyper-protect-container-runtime-1-0-s390x-17` | [Certificate](https://hpvsvpcubuntu.s3.us.cloud-object-storage.appdomain.cloud/s390x-17/ibm-hyper-protect-container-runtime-1-0-s390x-17-attestation.crt){: external} | 04 July 2025 |
    {: caption="Attestation certificate expiry dates" caption-side="bottom"}
-   
-   
 
 * Validate the attestation certificate by following the instructions [here](/docs/vpc?topic=vpc-cert_validate#validate_attest_cert).
 * Extract the attestation public key from the attestation certificate by using the following command:
@@ -163,18 +165,24 @@ sha256sum <file>
 The following snippet is an example of an attestation document:
 
 ```text
-25.3.1
+25.4.0
 Machine Type/Plant/Serial: 3932/02/8A018
-Image age: 3 days since creation.
-ff09f53f19d0f82ca24d4f2d5277c851516734c3d55ae7f8db47cde378a51ec9 root.tar.gz
-538170f79b7bd44553847e81afce7ae14c8ea8857df243e4f8656c9d06d42c18 baseimage
-6d8d29792e3269d0d917f6a6e51d73cc82894f798d1b3d7b23f9db55e2d079b8 /dev/disk/by-label/cidata
-b65133a86e74ba813ee3e30f260d375c366194d00876b1454d2835c11b9a0c7b cidata/meta-data
-2a4f4ffa5fdff5886de052da47e3839347649fbb4ba657a1be3bd3a22e4f9a22 cidata/user-data
+Image age: 11 days since creation.
+Ultravisor CUID: 0x580f2286ec628711ec828b17b31a572c
+Host HKD: HKD-3932-028A018.crt (HKD-3932-028A018.crt)
+HKD is valid until: Feb 27 18:11:39 2025 GMT
+AP device present: true
+Number of configured APs: 1
+e23a548070908ae09eb8b42df1865c2bc03c2f7135ddbae56b9064ec015fc867 AP(1):secret
+84ae048bc5d88e99f6ec13b4c4ba3e2ffe5f10285f7dd71a65ea99eaa1838ce0 root.tar.gz
+3e13f7658ef790dbc040e90ff4f8d537c9c10da879b0b16df9e98265c7b5170a baseimage
+348f4e1c9ff891956ab23f4dbec91b3cc46a761afc1187d06c2d77ef87ed44b9 /dev/disk/by-label/cidata
+58d327a44a3a13a679b153900ab215c4a163c7f9ca8f4152074027f9d1d2d33a cidata/meta-data
+c2530f161027a25e948a82b50e1b7fd4a0df74449d0317c315e30d9e089f2f23 cidata/user-data
 5a2b8897d00e4f03436494a36304776a637bf3f134ae10107f2a47e9859ed0fb cidata/vendor-data
-1a16d9d7632f991eb5e4d8bb0e003a57ea643c15b311b9631d408a6e61b409a8 contract:attestationPublicKey 
-15649f26816df8f663b38b31a59b816ca817313d7418e60f76179322169d7c7d contract:env 
-ed5beb01e278296b29043523b92cbdead2b14dd26b908116da2ab0d58544333c contract:workload
+a17a6ea7d8fdd9831c345510c1ceb4823c929ccef89bfab3d43fdf1b6a87871f contract:attestationPublicKey 
+23364d8558c5d151e15963543c82c8127d05f2635720fd559a76e5cc20290ab7 contract:env 
+e568d46f563a0afc41059f71e4c9e9eab26c4f4dffde24701dc3e7d5b14a16ae contract:workload
 ```
 {: codeblock}
 
@@ -187,6 +195,13 @@ ed5beb01e278296b29043523b92cbdead2b14dd26b908116da2ab0d58544333c contract:worklo
 {: #base_image}
 
 The `baseimage` is the IBM internal QEMU Copy On Write Version 2 (QCOW2) file, which is used as the source for most of the operating system files of the Hyper Protect Container Runtime image. It is used only at image build time by the enabler process. The enabler uses this source together with other Debian packages to create the `root.tar.gz` and the encrypted secure execution kernel or 'initrd' image.
+
+Following is the shasum of the ibm-hyper-protect-container-runtime-1-0-s390x-23 `baseimage`:
+
+```sh
+3e13f7658ef790dbc040e90ff4f8d537c9c10da879b0b16df9e98265c7b5170a baseimage
+```
+{: pre}
 
 Following is the shasum of the ibm-hyper-protect-container-runtime-1-0-s390x-22 `baseimage`:
 
@@ -236,6 +251,13 @@ f9940321d043d133ddf2f22cd4794bc56be9d54b2e9c7893a6d6a4813635024c baseimage
 {: #root_tarfile}
 
 The `root.tar.gz` is part of the final secure execution enabled IBM Hyper Protect Container Runtime image and contains all operating system files. It is stored on the image's first partition (boot partition) as `/boot/root.tar.gz`.
+
+Following is the shasum of the ibm-hyper-protect-container-runtime-1-0-s390x-23 `root.tar.gz`.
+
+```sh
+84ae048bc5d88e99f6ec13b4c4ba3e2ffe5f10285f7dd71a65ea99eaa1838ce0 root.tar.gz
+```
+{: pre}
 
 Following is the shasum of the ibm-hyper-protect-container-runtime-1-0-s390x-22 `root.tar.gz`.
 
@@ -290,11 +312,9 @@ The `/dev/disk/by-label/cidata` is a block device that is attached to the runnin
 ### `cidata`
 {: #cidata}
 
-
-
 ```sh
-b65133a86e74ba813ee3e30f260d375c366194d00876b1454d2835c11b9a0c7b cidata/meta-data
-2a4f4ffa5fdff5886de052da47e3839347649fbb4ba657a1be3bd3a22e4f9a22 cidata/user-data
+58d327a44a3a13a679b153900ab215c4a163c7f9ca8f4152074027f9d1d2d33a cidata/meta-data
+c2530f161027a25e948a82b50e1b7fd4a0df74449d0317c315e30d9e089f2f23 cidata/user-data
 5a2b8897d00e4f03436494a36304776a637bf3f134ae10107f2a47e9859ed0fb cidata/vendor-data
 ```
 {: codeblock}
@@ -305,7 +325,7 @@ b65133a86e74ba813ee3e30f260d375c366194d00876b1454d2835c11b9a0c7b cidata/meta-dat
 The `attestationPublicKey` is the public key that you provide which is used to encrypt the attestation document. The `attestationPublicKey` is part of the user-data file. Encrypting the attestation document is optional.
 
 ```sh
-1a16d9d7632f991eb5e4d8bb0e003a57ea643c15b311b9631d408a6e61b409a8 contract:attestationPublicKey
+a17a6ea7d8fdd9831c345510c1ceb4823c929ccef89bfab3d43fdf1b6a87871f contract:attestationPublicKey
 ```
 {: pre}
 
