@@ -2,7 +2,7 @@
 
 copyright:
   years: 2021, 2025
-lastupdated: "2025-05-08"
+lastupdated: "2025-05-14"
 
 keywords: file share, mount target, virtual network interface, customer-managed encryption, encryption at rest, encryption in transit, file storage, share,
 
@@ -99,6 +99,11 @@ Cross-zone mounting is not supported for file shares with VPC-wide access mode.
 
 For more information, see the [best practices for assigning access](/docs/account?topic=account-account_setup#account_setup). For the complete IAM process, which includes inviting users to your account and assigning Cloud IAM access, see the [IAM getting started tutorial](/docs/account?topic=account-iamoverview).
 {: tip}
+
+### IAM service-to-service authorizations
+{: #fs-vpc-iam-s2sauth}
+
+You can use the {{site.data.keyword.iamshort}} (IAM) to create or remove an authorization that grants one service access to another service. For {{site.data.keyword.block_storage_is_short}}, you need to create service-to-service authorization for configuring customer-managed encryption, cross-regional replication, cross-account access, and backups. For more information, see [Establishing service-to-service authorizations](/docs/vpc?topic=vpc-file-s2s-auth).
 
 ### Context-based restrictions
 {: #fs-vpc-cbr}
