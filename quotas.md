@@ -85,7 +85,7 @@ Bare metal servers use physical cores and don't count toward your vCPU quota.
 
 | Resource | Quota | Policy Mode | Route Mode
 |--------|-----|----------|----------|
-| VPN gateways| 9 per region, 3 per zone | Yes | Yes (one per zone per VPC)|
+| VPN gateways| 9 per region, 3 per zone | Yes | Yes (1 per zone per VPC)|
 | VPN connections | 10 per VPN gateway | Yes | Yes |
 | IKE policies | 20 per region | Yes| Yes |
 | IPsec policies | 20 per region | Yes | Yes |
