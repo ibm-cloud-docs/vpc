@@ -15,7 +15,7 @@ subcollection: vpc
 # Accessing metadata from an instance
 {: #imd-access-instance-metadata}
 
-Most often, you want to collect metadata from a running instance and use it to bootstrap another virtual server instance. Review this topic to understand the general procedure for enabling the metadata service, creating an instance identity access token, and accessing the metadata.
+Most often, you want to collect metadata from a running instance and use it to bootstrap another virtual server instance. Review the general procedure and step-by-step instructions for enabling the metadata service, creating an instance identity access token, and accessing the metadata.
 {: shortdesc}
 
 ## General procedure to access instance metadata
@@ -25,10 +25,10 @@ Table 1 describes the steps that are involved in accessing instance metadata. Th
 
 | Step | Context | Service Called | User Action |
 |------|---------|----------------|-------------|
-| 1    | IBM Cloud | VPC UI, CLI, API | Create a virtual server instance and enable the metadata service on it. (The service is disabled by default.) You can also enable the service on an existing instance, in the [console](/docs/vpc?topic=vpc-imd-configure-service&interface=ui#imd-enable-on-instance-ui) or with the API. With the API, make a request to create a virtual server instance that is configured with the [metadata service](/docs/vpc?topic=vpc-imd-configure-service) enabled. Customer user data is specified on instance creation. |
-| 2    | IBM Cloud | - | Sign on to the instance by using the normal startup operations. |
-| 3    | VPC instance | Metadata service | Provide a `curl` command to call the metadata token service to [acquire an instance identity access token](/docs/vpc?topic=vpc-imd-configure-service&interface=ui#imd-json-token). |
-| 4    | VPC instance | Metadata service | Provide a `curl` command to [call the metadata service](/docs/vpc?topic=vpc-imd-get-metadata#imd-retrieve-instance-data). The token from the previous step is passed and the metadata is returned.|
+| 1    | IBM Cloud | VPC UI, CLI, API | The metadata service is disabled by default. You can enable the metadata service on an existing instance in the [console](/docs/vpc?topic=vpc-imd-configure-service&interface=ui#imd-enable-on-instance-ui), from the CLI, or with the API. Customer user data is specified on instance creation. |
+| 2    | IBM Cloud | - | Sign on to the instance by using normal startup operations. |
+| 3    | VPC instance | Metadata service | Run a `curl` command to call the metadata token service to [acquire an instance identity access token](/docs/vpc?topic=vpc-imd-configure-service&interface=ui#imd-json-token). |
+| 4    | VPC instance | Metadata service | Run a `curl` command to [call the metadata service](/docs/vpc?topic=vpc-imd-get-metadata#imd-retrieve-instance-data). The token from the previous step is passed and the metadata is returned.|
 | 5    | VPC instance | - | Parse the JSON returned in the previous step to acquire the user data. |
 {: caption="General procedure for accessing instance metadata" caption-side="bottom"}
 
@@ -41,7 +41,7 @@ Table 1 describes the steps that are involved in accessing instance metadata. Th
 
 1. In the [{{site.data.keyword.cloud_notm}} console](/login){: external}, click the **Navigation menu** icon ![menu icon](../icons/icon_hamburger.svg) **> Infrastructure** ![VPC icon](../icons/vpc.svg) **> Compute > Virtual server instances**.
 
-1. Locate the running instance in the list. Click the name of the instance to display its details. On the Overview tab, scroll to the **Advanced configuration details**, and click the toggle to enable the Metadata service.
+1. Locate the running instance in the list. Click the name of the instance to display its details. On the Overview tab, scroll to the **Advanced configuration details**, and click the toggle to enable the metadata service.
 
 1. If the instance has a floating IP address already (shown on the Networking tab), use that address to establish a secure connection to the server. If it does not have a floating IP address, assign one to it. For more information, see the [Next steps](/docs/vpc?topic=vpc-creating-virtual-servers&interface=ui#next-steps-after-creating-virtual-servers-ui) in the Creating virtual server instances topic.
 
@@ -55,8 +55,8 @@ Table 1 describes the steps that are involved in accessing instance metadata. Th
     ```sh
     $ ibmcloud is instances
     Listing instances in all resource groups and region us-south under account Test Account as user test.user@ibm.com...
-    ID                                          Name                    Status    Reserved IP    Floating IP      Profile    Image                                VPC                              Zone         Confidential Compute Mode   Enable Secure Boot   Resource group   Reservation Name   Cluster Network ID   Cluster Network Name   Cluster Network Attachments   
-    0727_ed12480a-40a4-41a0-98e3-6dfac8b25ad6   my-virtual-server-1     running   10.240.0.6     -                bx2-2x8    ibm-ubuntu-24-04-2-minimal-amd64-1   my-test-vpc                 us-south-1   disabled                    false                defaults         -                  -                    -                      -   
+    ID                                          Name                    Status    Reserved IP    Floating IP      Profile    Image                                VPC                         Zone         Confidential Compute Mode   Enable Secure Boot   Resource group   Reservation Name   Cluster Network ID   Cluster Network Name   Cluster Network Attachments   
+    0717_9c55d9d2-0685-4300-b475-49eb1b8c1faf   my-virtual-server-1     running   10.240.0.6     -                bx2-2x8    ibm-ubuntu-24-04-2-minimal-amd64-1   my-test-vpc                 us-south-1   disabled                    false                defaults         -                  -                    -                      -   
     0727_ed12480a-40a4-41a0-98e3-6dfac8b25ad6   my-virtual-server-2     running   10.240.64.11   169.47.94.48     bx2-2x8    ibm-ubuntu-24-04-6-minimal-amd64-3   my-test-vpc                 us-south-2   disabled                    false                defaults         -                  -                    -                      -   
     0727_d7ff31ef-75ed-42c6-b0fb-a5837a63d722   my-virtual-server-3     running   10.240.64.12   52.116.204.232   bx2-2x8    ibm-redhat-9-2-minimal-amd64-5       my-test-vpc                 us-south-2   disabled                    false                defaults         -                  -                    -                      -   
     ```
@@ -65,7 +65,7 @@ Table 1 describes the steps that are involved in accessing instance metadata. Th
     The metadata service is supported on all stock and custom images, and CPU profiles.
     {: note}
 
-1. Run `ibmcloud is instance {instance.ID}` command to confirm if the metadata service is enabled. The following example shows the value `false` for the metadata service-enabled property.
+1. Run `ibmcloud is instance` command to confirm if the metadata service is enabled. The following example shows the value `false`.
 
     ```sh
     $ ibmcloud is instance 0727_ed12480a-40a4-41a0-98e3-6dfac8b25ad6
@@ -99,7 +99,7 @@ Table 1 describes the steps that are involved in accessing instance metadata. Th
                                          
     Numa Count                            1   
     VPC                                   ID                                          Name      
-                                          r006-01030e3c-2663-4f7d-ac55-651929dafe37   bluitel-test-vpc      
+                                          r006-01030e3c-2663-4f7d-ac55-651929dafe37   my-test-vpc      
                                          
     Zone                                  us-south-2   
     Resource group                        ID                                 Name      
@@ -107,7 +107,7 @@ Table 1 describes the steps that are involved in accessing instance metadata. Th
                                          
     Created                               2025-03-06T19:24:02+00:00   
     Network Attachments                   Interface   Name   ID                                          Subnet              Subnet ID                                   Floating IP    VNI                                         Reserved IP      
-                                          Primary     eth0   0727-a3ff4d3e-be95-4a52-8025-b55b3c3285ea   eq-subnet-test-01   0727-f24237f5-bdf0-4b94-ab4c-167a44b8bcb5   169.47.94.48   0727-dda9244a-64b9-421b-87e9-70549a70b4c3   10.240.64.12      
+                                          Primary     eth0   0727-a3ff4d3e-be95-4a52-8025-b55b3c3285ea   my-subnet-01   0727-f24237f5-bdf0-4b94-ab4c-167a44b8bcb5   169.47.94.48   0727-dda9244a-64b9-421b-87e9-70549a70b4c3   10.240.64.11      
                                          
     Boot volume                           ID                                          Name                                Attachment ID                               Attachment name      
                                           r006-9afd6e01-0466-4e7b-a38b-75bf39469a42   eat-client-poc-boot-1741289020000   0727-241f39a8-3573-4ebc-b512-33508eb970c9   undaunted-starved-slander-galleria      
@@ -156,7 +156,7 @@ Table 1 describes the steps that are involved in accessing instance metadata. Th
                                          
     Numa Count                            1   
     VPC                                   ID                                          Name      
-                                          r006-01030e3c-2663-4f7d-ac55-651929dafe37   bluitel-test-vpc      
+                                          r006-01030e3c-2663-4f7d-ac55-651929dafe37   my-test-vpc      
                                          
     Zone                                  us-south-2   
     Resource group                        ID                                 Name      
@@ -164,7 +164,7 @@ Table 1 describes the steps that are involved in accessing instance metadata. Th
                                          
     Created                               2025-03-06T19:24:02+00:00   
     Network Attachments                   Interface   Name   ID                                          Subnet              Subnet ID                                   Floating IP    VNI                                         Reserved IP      
-                                          Primary     eth0   0727-a3ff4d3e-be95-4a52-8025-b55b3c3285ea   eq-subnet-test-01   0727-f24237f5-bdf0-4b94-ab4c-167a44b8bcb5   169.47.94.48   0727-dda9244a-64b9-421b-87e9-70549a70b4c3   10.240.64.12      
+                                          Primary     eth0   0727-a3ff4d3e-be95-4a52-8025-b55b3c3285ea   my-subnet-01   0727-f24237f5-bdf0-4b94-ab4c-167a44b8bcb5   169.47.94.48   0727-dda9244a-64b9-421b-87e9-70549a70b4c3   10.240.64.11      
                                          
     Boot volume                           ID                                          Name                                Attachment ID                               Attachment name      
                                           r006-9afd6e01-0466-4e7b-a38b-75bf39469a42   eat-client-poc-boot-1741289020000   0727-241f39a8-3573-4ebc-b512-33508eb970c9   undaunted-starved-slander-galleria      
@@ -176,7 +176,97 @@ Table 1 describes the steps that are involved in accessing instance metadata. Th
     ```
     {: screen}
 
-1. If the instance has a floating IP address already, use that address to establish a secure connection to the server. If it does not have a floating IP address, assign one to it. For more information, see the [Next steps](/https://cloud.ibm.com/docs/vpc?topic=vpc-creating-virtual-servers&interface=cli#next-step-after-creating-virtual-servers-cli) in the Creating virtual server instances topic.
+1. If the instance has a floating IP address already, use that address to establish a secure connection to the server. If it does not have a floating IP address, assign one to it. For more information, see the [Next steps](/docs/vpc?topic=vpc-creating-virtual-servers&interface=cli#next-step-after-creating-virtual-servers-cli) in the Creating virtual server instances topic.
+
+### Locating the running instance with the API
+{: #imd-access-md-locate-vsi-api}
+{: api}
+
+1. Locate the running instance by [listing the available instances](/apidocs/vpc/latest#list-instances) in the region. Select the instance ID from the response.
+
+   ```sh
+   curl -X GET "$vpc_api_endpoint/v1/instances?version=2025-05-13&generation=2" -H "Authorization: Bearer $iam_token"
+   ```
+   {: pre}
+
+1. [Retrieve the information of the selected instance](/apidocs/vpc/latest#get-instance) to confirm if the metadata service is enabled.
+
+   ```sh
+   curl -X GET "$vpc_api_endpoint/v1/instances/0727_ed12480a-40a4-41a0-98e3-6dfac8b25ad6?version=2025-05-13&generation=2" -H "Authorization: Bearer $iam_token"
+   ```
+   {: pre}
+
+   The API response shows `"enabled": false` in the `metadata_service` section.
+
+   ```json
+   {
+    "availability_policy": {
+        "host_failure": "restart",
+        "host_maintenance": null
+    },
+    "bandwidth": 4000,
+    "boot_volume_attachment": {
+        "device": {
+            "id": "0727-241f39a8-3573-4ebc-b512-33508eb970c9-mzpzd"
+        },
+        "href": "https://us-south.iaas.cloud.ibm.com/v1/instances/0727_ed12480a-40a4-41a0-98e3-6dfac8b25ad6/volume_attachments/0727-241f39a8-3573-4ebc-b512-33508eb970c9",
+        "id": "0727-241f39a8-3573-4ebc-b512-33508eb970c9",
+        "name": "undaunted-starved-slander-galleria",
+        "volume": {
+            "crn": "crn:v1:bluemix:public:is:us-south-2:a/a1234567::volume:r006-9afd6e01-0466-4e7b-a38b-75bf39469a42",
+            "href": "https://us-south.iaas.cloud.ibm.com/v1/volumes/r006-9afd6e01-0466-4e7b-a38b-75bf39469a42",
+            "id": "r006-9afd6e01-0466-4e7b-a38b-75bf39469a42",
+            "name": "eat-client-poc-boot-1741289020000",
+            "resource_type": "volume"
+        }
+    },
+    "confidential_compute_mode": "disabled",
+    "created_at": "2025-03-06T19:24:02.000Z",
+    "crn": "crn:v1:bluemix:public:is:us-south-2:a/a1234567::instance:0727_ed12480a-40a4-41a0-98e3-6dfac8b25ad6",
+    "disks": [],
+    "enable_secure_boot": false,
+    "health_reasons": [],
+    "health_state": "ok",
+    "href": "https://us-south.iaas.cloud.ibm.com/v1/instances/0727_ed12480a-40a4-41a0-98e3-6dfac8b25ad6",
+    "id": "0727_ed12480a-40a4-41a0-98e3-6dfac8b25ad6",
+    "image": {
+        "crn": "crn:v1:bluemix:public:is:us-south:a/a1234567::image:r006-aa2af291-45b3-4f18-801c-8b7985e928f7",
+        "href": "https://us-south.iaas.cloud.ibm.com/v1/images/r006-aa2af291-45b3-4f18-801c-8b7985e928f7",
+        "id": "r006-aa2af291-45b3-4f18-801c-8b7985e928f7",
+        "name": "ibm-ubuntu-24-04-6-minimal-amd64-3",
+        "resource_type": "image"
+    },
+    "lifecycle_reasons": [],
+    "lifecycle_state": "stable",
+    "memory": 8,
+    "metadata_service": {
+        "enabled": false,
+        "protocol": "http",
+        "response_hop_limit": 1
+    }
+    .
+    .
+    .
+   }
+   ```
+   {: codeblock}
+
+1. Enable the metadata service by making a [`PATCH /instances`](/apidocs/vpc/latest#update-instance) request for the instance.
+
+   ```json
+   curl -X PATCH "$vpc_api_endpoint/v1/instances/0727_ed12480a-40a4-41a0-98e3-6dfac8b25ad6?version=2025-05-13&generation=2" \
+   -H "Authorization: Bearer $iam_token" \
+   -d '{
+        "metadata_service": {
+           "enabled": true,
+           "protocol": "http",
+           "response_hop_limit": 1
+           }
+       }`    
+   ```
+   {: pre}
+
+1. If the instance has a floating IP address already, use that address to establish a secure connection to the server. If it does not have a floating IP address, assign one to it. For more information, see [logging in to your instance](/docs/vpc?topic=vpc-creating-vpc-resources-with-cli-and-api&interface=api#log-in-to-instance-api-tutorial).
 
 ### Establishing a secure connection to the virtual server instance
 {: #imd-access-md-login-vsi}
