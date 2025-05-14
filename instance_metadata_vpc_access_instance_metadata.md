@@ -25,10 +25,10 @@ Table 1 describes the steps that are involved in accessing instance metadata. Th
 
 | Step | Context | Service Called | User Action |
 |------|---------|----------------|-------------|
-| 1    | IBM Cloud | VPC UI, CLI, API | The metadata service is disabled by default. You can enable the metadata service on an existing instance in the [console](/docs/vpc?topic=vpc-imd-configure-service&interface=ui#imd-enable-on-instance-ui), from the CLI, or with the API. Customer user data is specified on instance creation. |
+| 1    | IBM Cloud | VPC UI, CLI, API | The metadata service is disabled by default. You can enable the metadata service on an existing instance in the console, from the CLI, or with the API. Customer user data is specified on instance creation. |
 | 2    | IBM Cloud | - | Sign on to the instance by using normal startup operations. |
-| 3    | VPC instance | Metadata service | Run a `curl` command to call the metadata token service to [acquire an instance identity access token](/docs/vpc?topic=vpc-imd-configure-service&interface=ui#imd-json-token). |
-| 4    | VPC instance | Metadata service | Run a `curl` command to [call the metadata service](/docs/vpc?topic=vpc-imd-get-metadata#imd-retrieve-instance-data). The token from the previous step is passed and the metadata is returned.|
+| 3    | VPC instance | Metadata service | Run a `curl` command to call the metadata token service to [acquire an instance identity access token](/apidocs/vpc-metadata#create-access-token). |
+| 4    | VPC instance | Metadata service | Run a `curl` command to call the metadata service to [retrieve instance information](/apidocs/vpc-metadata#get-instance). The token from the previous step is passed and the metadata is returned.|
 | 5    | VPC instance | - | Parse the JSON returned in the previous step to acquire the user data. |
 {: caption="General procedure for accessing instance metadata" caption-side="bottom"}
 
