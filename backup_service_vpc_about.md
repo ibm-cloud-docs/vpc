@@ -2,7 +2,7 @@
 
 copyright:
  years: 2022, 2025
-lastupdated: "2025-04-29"
+lastupdated: "2025-05-14"
 
 keywords: Backup, backup service, backup plan, backup policy, restore, restore volume, restore data
 
@@ -99,7 +99,7 @@ The {{site.data.keyword.cloud_notm}} Backup for VPC offers you the following ben
 
 A backup policy identifies the target resource types and lists the tags that are used to identify the resources to be backed up. The policy contains one or more backup plans that define schedules for automatic backup creation and data retention.
 
-In a backup plan, you schedule the frequency of your backups. In the [UI](/docs/vpc?topic=vpc-create-backup-policy-and-plan&interface=ui), you can choose daily, weekly, or monthly. Or you can use a `cron` expression to specify the frequency.
+In a backup plan, you schedule the frequency of your backups. in the [console](/docs/vpc?topic=vpc-create-backup-policy-and-plan&interface=ui), you can choose daily, weekly, or monthly. Or you can use a `cron` expression to specify the frequency.
 {: ui}
 
 In a backup plan, you schedule the frequency of your backups. When you create a plan from the [CLI](/docs/vpc?topic=vpc-create-backup-policy-and-plan&interface=cli), you can use a `cron` expression to specify the frequency.

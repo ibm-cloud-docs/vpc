@@ -2,7 +2,7 @@
 
 copyright:
   years: 2021, 2025
-lastupdated: "2025-02-24"
+lastupdated: "2025-05-14"
 
 keywords: bare metal servers, managing, operation, manage bare metal server, manage bare metal, manage server, restart bare metal, stop bare metal, delete bare metal, reboot bare metal, restart server, stop server, delete server
 
@@ -176,7 +176,7 @@ ibmcloud is bare-metal-server-start SERVER
 Billing continues after the bare metal server stops.
 {: note}
 
-For a full list of command options, see [ibmcloud is bare-metal-server-restart](/docs/vpc?topic=vpc-vpc-reference#bare-metal-server-restart
+For a full list of command options, see [ibmcloud is bare-metal-server-restart](/docs/vpc?topic=vpc-vpc-reference#bare-metal-server-restart)
 
 ### Reinitialize a bare metal server by using the CLI
 {: #reinitialize-bare-metal-servers-cli}
@@ -187,7 +187,7 @@ You can reinitialize the server only if the server is stopped and provisioned wi
 To reinitialize a bare metal server by using the CLI, use the `ibmcloud is bare-metal-server-initialization-replace` command.
 
 ```sh
-ibmcloud is bare-metal-server-initialization-replace SERVER --image IMAGE ---keys KEYS --user-data DATA
+ibmcloud is bare-metal-server-initialization-replace SERVER --image IMAGE ---keys KEYS --user-data DATA 
 ```
 {: pre}
 
@@ -196,6 +196,7 @@ Specify the following variables to use when you reinitialize the bare metal serv
 - `IMAGE` specifies the operating system image
 - `KEYS` specifies the SSH keys
 - `DATA` specifies any optional user data
+- `PROFILE` ID, name, or CRN of the trusted profile
 
 For a full list of command options, see [ibmcloud is bare-metal-server-initialization-replace](/docs/vpc?topic=vpc-vpc-reference#bare-metal-server-initialization-replace-view).
 
@@ -336,7 +337,18 @@ Specify a `PUT /bare_metal_servers/{id}/initialization` request to reinitialize 
 
 ```sh
 curl -X PUT "$vpc_api_endpoint/v1/bare_metal_servers/$bare_metal_server_id/initialization?version=2021-03-09&generation=2" \
--H "Authorization: $iam_token"
+-H "Authorization: $iam_token" \
+-d '{
+	  "image": {
+		"id": $image
+	  },
+	  "keys": [
+		{
+			"id": $key
+		}
+	  ],
+	  }
+}'
 ```
 {: pre}
 

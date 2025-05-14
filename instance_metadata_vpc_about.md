@@ -2,7 +2,7 @@
 
 copyright:
   years: 2022, 2025
-lastupdated: "2025-04-30"
+lastupdated: "2025-05-14"
 
 keywords:
 
@@ -71,7 +71,7 @@ The compute resource identity service creates a trusted profile, against which y
 #### User data
 {: #imd-user-data}
 
-The metadata that you access from the instance includes _user data_. The user data is data that you specified when you provisioned the instance, and that is available when you provision another instances. (It's the same user data that is available from cloud-init for VPC instances.) For example, information to load database software, custom software for worker nodes, or information to make decisions about how to initialize the instance are provided in user data. For more information, see the topic on [User data](/docs/vpc?topic=vpc-user-data).
+The metadata that you access from the instance includes _user data_. The user data is data that you specified when you provisioned the instance, and that is available when you provision other instances. (It's the same user data that is available from cloud-init for VPC instances.) For example, information to load database software, custom software for worker nodes, or information to make decisions about how to initialize the instance are provided in user data. For more information, see the topic on [User data](/docs/vpc?topic=vpc-user-data).
 
 The metadata that you access from within the instance is not protected by any encryption method. Any user with access to the instance and metadata service can potentially see the metadata. As a precaution, do not store sensitive data, such as passwords or customer encryption keys, as user data.
 {: important}
