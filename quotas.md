@@ -70,42 +70,6 @@ Bare metal servers use physical cores and don't count toward your vCPU quota.
 | Rules | 100 per ACL |
 {: caption="Quotas for access control lists" caption-side="bottom"}
 
-### Security groups
-{: #security-group-quotas}
-
-| Resource | Quota |
-|--------|-----|
-| Security groups | 100 per VPC |
-| Rules | 250 per security group |
-| [Targets](/docs/vpc?topic=vpc-using-security-groups#about-security-group-targets) | 1000 per security group |
-{: caption="Quotas for security groups" caption-side="bottom"}
-
-### VPN gateways (site-to-site)
-{: #vpn-quotas}
-
-| Resource | Quota | Supports Policy Mode | Supports Route Mode |
-|--------|-----|----------|----------|
-| VPN gateways| 9 per account per region, 3 per zone | Yes | Yes (1 per zone per VPC)|
-| VPN connections | 10 per VPN gateway | Yes | Yes |
-| IKE policies | 20 per region | Yes| Yes |
-| IPsec policies | 20 per region | Yes | Yes |
-| Peer subnets | 50 across all connections, 15 per connection | Yes | No |
-| Local subnets | 50 across all connections, 15 per connection | Yes| No |
-{: caption="Quotas for the site-to-site VPN gateway service" caption-side="bottom"}
-
-### VPN servers (client-to-site)
-{: #vpn-server-quotas}
-
-| Resource | Quota |
-|--------|-----|
-| Active connections per VPN server | 2000 |
-| Active VPN servers | 10 per region |
-| Active routes per VPN server | 50 |
-| Number of certificate revocations lists | 20000 |
-| Number of VPN servers in a security group | 10 |
-| Number of auth clients per second per VPN server | 10 |
-{: caption="Quotas for the client-to-site VPN server service" caption-side="bottom"}
-
 ### Application load balancers
 {: #alb-quotas}
 
@@ -119,6 +83,16 @@ Bare metal servers use physical cores and don't count toward your vCPU quota.
 | Rules | 10 per policy |
 | Subnets | 15 per load balancer |
 {: caption="Quotas for load balancers" caption-side="bottom"}
+
+### Cluster networks
+{: #cluster-networks-quotas}
+
+| Resource | Quota |
+|--------|-----|
+| Maximum number of cluster networks per account per region | 5 |
+| Maximum number of cluster network subnets per cluster network | 32 |
+| Maximum number of cluster network subnet reserved IP addresses per account | 5000 |
+{: caption="Quotas for cluster networks" caption-side="bottom"}
 
 ### Network load balancers
 {: #nlb-quotas}
@@ -157,15 +131,13 @@ Public Address Ranges for VPC is only available for evaluation and testing purpo
 | Prefix size | `/32` to `/28` |
 {: caption="Quotas for public address ranges" caption-side="bottom"}
 
-### Cluster networks
-{: #cluster-networks-quotas}
+### Reserved IP addresses
+{: #reserved-ip-quotas}
 
 | Resource | Quota |
 |--------|-----|
-| Maximum number of cluster networks per account per region | 5 |
-| Maximum number of cluster network subnets per cluster network | 32 |
-| Maximum number of cluster network subnet reserved IP addresses per account | 5000 |
-{: caption="Quotas for cluster networks" caption-side="bottom"}
+| Reserved IP addresses | 20,000 per region |
+{: caption="Quotas for reserved IP addresses" caption-side="bottom"}
 
 ### Routing tables and routes
 {: #routing-tables-routes-quotas}
@@ -180,13 +152,15 @@ Public Address Ranges for VPC is only available for evaluation and testing purpo
 Each route has a destination property, which includes a prefix length (`/24` in `10.2.0.0/24`). The number of unique prefix lengths that are supported per custom routing table is 14. Multiple routes with the same prefix count as only one unique prefix.
 {: note}
 
-### Reserved IP addresses
-{: #reserved-ip-quotas}
+### Security groups
+{: #security-group-quotas}
 
 | Resource | Quota |
 |--------|-----|
-| Reserved IP addresses | 20,000 per region |
-{: caption="Quotas for reserved IP addresses" caption-side="bottom"}
+| Security groups | 100 per VPC |
+| Rules | 250 per security group |
+| [Targets](/docs/vpc?topic=vpc-using-security-groups#about-security-group-targets) | 1000 per security group |
+{: caption="Quotas for security groups" caption-side="bottom"}
 
 ### Virtual network interfaces
 {: #virtual-network-interfaces-quotas}
@@ -195,6 +169,32 @@ Each route has a destination property, which includes a prefix length (`/24` in 
 |--------|-----|
 | IP addresses | 8 per virtual network interface |
 {: caption="Quotas for virtual network interfaces" caption-side="bottom"}
+
+### VPN gateways (site-to-site)
+{: #vpn-quotas}
+
+| Resource | Quota | Supports Policy Mode | Supports Route Mode |
+|--------|-----|----------|----------|
+| VPN gateways| 9 per account per region, 3 per zone | Yes | Yes (1 per zone per VPC)|
+| VPN connections | 10 per VPN gateway | Yes | Yes |
+| IKE policies | 20 per region | Yes| Yes |
+| IPsec policies | 20 per region | Yes | Yes |
+| Peer subnets | 50 across all connections, 15 per connection | Yes | No |
+| Local subnets | 50 across all connections, 15 per connection | Yes| No |
+{: caption="Quotas for the site-to-site VPN gateway service" caption-side="bottom"}
+
+### VPN servers (client-to-site)
+{: #vpn-server-quotas}
+
+| Resource | Quota |
+|--------|-----|
+| Active connections per VPN server | 2000 |
+| Active VPN servers | 10 per region |
+| Active routes per VPN server | 50 |
+| Number of certificate revocations lists | 20000 |
+| Number of VPN servers in a security group | 10 |
+| Number of auth clients per second per VPN server | 10 |
+{: caption="Quotas for the client-to-site VPN server service" caption-side="bottom"}
 
 ### Block Storage volumes and snapshots
 {: #block-storage-quotas}
