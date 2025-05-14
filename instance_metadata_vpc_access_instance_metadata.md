@@ -106,7 +106,7 @@ Table 1 describes the steps that are involved in accessing instance metadata. Th
                                           6edefe513d934fdd872e78ee6a8e73ef   defaults      
                                          
     Created                               2025-03-06T19:24:02+00:00   
-    Network Attachments                   Interface   Name   ID                                          Subnet              Subnet ID                                   Floating IP    VNI                                         Reserved IP      
+    Network Attachments                   Interface   Name   ID                                          Subnet         Subnet ID                                   Floating IP    VNI                                         Reserved IP      
                                           Primary     eth0   0727-a3ff4d3e-be95-4a52-8025-b55b3c3285ea   my-subnet-01   0727-f24237f5-bdf0-4b94-ab4c-167a44b8bcb5   169.47.94.48   0727-dda9244a-64b9-421b-87e9-70549a70b4c3   10.240.64.11      
                                          
     Boot volume                           ID                                          Name                                Attachment ID                               Attachment name      
@@ -124,9 +124,6 @@ Table 1 describes the steps that are involved in accessing instance metadata. Th
     ```sh
     $ ibmcloud is instance-update  0727_ed12480a-40a4-41a0-98e3-6dfac8b25ad6 --metadata-service true
     Updating instance 0727_ed12480a-40a4-41a0-98e3-6dfac8b25ad6 under account Test Account as user test.user@ibm.com...
-                                         
-    $ ibmcloud is instance 0727_ed12480a-40a4-41a0-98e3-6dfac8b25ad6
-    Getting instance 0727_ed12480a-40a4-41a0-98e3-6dfac8b25ad6 under account Test Account as user test.user@ibm.com...
                                          
     ID                                    0727_ed12480a-40a4-41a0-98e3-6dfac8b25ad6   
     Name                                  my-virtual-server-2   
