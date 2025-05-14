@@ -175,13 +175,14 @@ Each route has a destination property, which includes a prefix length (`/24` in 
 
 | Resource | Quota | Supports Policy Mode | Supports Route Mode |
 |--------|-----|----------|----------|
-| VPN gateways| 9 per account per region, 3 per zone | Yes | Yes (1 per zone per VPC)|
+| VPN gateways | 9 per account per region, 3 per zone | Yes | Yes[^fn1] |
 | VPN connections | 10 per VPN gateway | Yes | Yes |
 | IKE policies | 20 per region | Yes| Yes |
 | IPsec policies | 20 per region | Yes | Yes |
-| Peer subnets | 50 across all connections, 15 per connection | Yes | No |
-| Local subnets | 50 across all connections, 15 per connection | Yes| No |
+| Peer and local subnets | 50 across all connections, 15 per connection | Yes | No | 
 {: caption="Quotas for the site-to-site VPN gateway service" caption-side="bottom"}
+
+[^fn1]: A single VPC supports a maximum of one route mode VPN per zone.
 
 ### VPN servers (client-to-site)
 {: #vpn-server-quotas}
