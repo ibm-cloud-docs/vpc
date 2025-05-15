@@ -304,7 +304,6 @@ The GPU and accelerated profile family includes profiles with and without [insta
 - GPU `-gaudi3` profiles include the [Intel® Gaudi® 3 AI Accelerator](https://www.intel.com/content/www/us/en/products/details/processors/ai-accelerators/gaudi.html). [Select availability]{: tag-green} The Intel Gaudi 3 offering is available in Dallas (us-south-dal12-a), Washington DC (us-east-wdc06-a, us-east-wdc07-a) and Frankfurt (eu-de-fra02-a).
 - GPU `mi300x` profiles include the [AMD Instinct™ MI300X Accelerator](https://www.amd.com/en/products/accelerators/instinct/mi300/mi300x.html). [Select availability]{: tag-green} The AMD Instinct MI300X offering is available in Washington DC (us-east-wdc06-a).
 
-
 Make sure to install the appropriate driver and software for the profile you select:
 - [NVIDIA Drivers](https://www.nvidia.com/en-us/drivers/){: external}
 - [Intel Gaudi Driver and Software Installation](https://docs.habana.ai/en/latest/Installation_Guide/Driver_Installation.html){: external}
