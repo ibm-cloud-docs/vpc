@@ -2,7 +2,7 @@
 
 copyright:
   years: 2020, 2025
-lastupdated: "2025-04-23"
+lastupdated: "2025-05-15"
 
 keywords: application load balancer, datapath logging
 
@@ -15,7 +15,7 @@ subcollection: vpc
 # Datapath log forwarding
 {: #datapath-logging}
 
-As of 28 March 2024, the {{site.data.keyword.la_full_notm}} service is deprecated and will no longer be supported as of 30 March 2025. Customers need to migrate to {{site.data.keyword.logs_full_notm}} before 30 March 2025. During the migration period, customers can use {{site.data.keyword.la_full_notm}} along with {{site.data.keyword.logs_full_notm}}. Logging is the same for both services. For information about migrating from {{site.data.keyword.la_full_notm}} to {{site.data.keyword.logs_full_notm}} and running the services in parallel, see [migration planning](/docs/cloud-logs?topic=cloud-logs-migration-intro).
+As of 28 March 2024, the {{site.data.keyword.la_full_notm}} service is deprecated and will no longer be supported as of 30 March 2025. Customers need to migrate to {{site.data.keyword.logs_full_notm}} before 30 March 2025. During the migration period, customers can use {{site.data.keyword.la_full_notm}} along with {{site.data.keyword.logs_full_notm}}. Logging is the same for both services. For information, see [IBM Cloud Logs replaces IBM Log Analysis and IBM Cloud Activity Tracker](/docs/cloud-logs?topic=cloud-logs-atla).
 {: deprecated} 
 
 Data and health check logs are valuable for debugging and maintenance purposes. With the datapath logging feature enabled, {{site.data.keyword.vpc_full}} {{site.data.keyword.alb_full}} (ALB) forwards these logs to your account's [{{site.data.keyword.la_full_notm}}](https://cloud.ibm.com/observe/logging){: external} dashboard.
@@ -103,6 +103,7 @@ The format of the logs can be impacted by internal upgrades. It is recommended t
 ## Related links
 {: #datapath-logging-related-links}
 
-* [{{site.data.keyword.la_full_notm}}](https://cloud.ibm.com/observe/logging){: external}
-* [Getting started with {{site.data.keyword.la_full_notm}}](/docs/log-analysis?topic=log-analysis-getting-started)
-* [Activity Tracker with {{site.data.keyword.la_short}} events](/docs/vpc?topic=vpc-at_events#events-load-balancers)
+* [IBM Cloud Observability UI](https://cloud.ibm.com/observe/logging){: external}
+* [Getting started with {{site.data.keyword.atracker_full_notm}}](/docs/atracker?topic=atracker-getting-started)
+* [Getting started with IBM Cloud Logs](/docs/cloud-logs?topic=cloud-logs-getting-started)
+* [Activity tracking events](/docs/vpc?topic=vpc-at_events#events-load-balancers)

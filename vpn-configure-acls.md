@@ -2,7 +2,7 @@
 
 copyright:
   years: 2020, 2025
-lastupdated: "2025-05-12"
+lastupdated: "2025-05-15"
 
 keywords: VPN, network, encryption, authentication, algorithm, IKE, IPsec, policies, gateway
 
@@ -23,7 +23,7 @@ A NACL is a stateless set of rules that controls incoming and outgoing traffic a
 A VPN gateway and a VPC virtual server instance can share the same or different NACLs, and can reside in the same or different subnet CIDR blocks.
 {: note}
 
-## Use case 1 : VPN gateway and virtual server instance share NACL
+## Use case 1: VPN gateway and virtual server instance share NACL
 {: #case-1-same-nacl}
 
 This use case demonstrates scenarios where the IBM Cloud VPN gateway and the VPC virtual server instance are governed by a shared NACL, enabling consistent traffic control policies. In both scenarios, the VPN gateway and virtual server are part of the same VPC.
@@ -113,7 +113,7 @@ For example, the following table shows the source and destination IP addresses f
 
 [^IP4]: Set the destination IP to your on-premises gateway public IP address for the outbound rule. This setting allows traffic from the VPC to the on-premises subnet.
 
-## Use case 2 : VPN gateway and virtual server instance use different NACLs
+## Use case 2: VPN gateway and virtual server instance use different NACLs
 {: #case-2-diff-acl}
 
 This use case demonstrates scenarios where the IBM Cloud VPN gateway and the VPC virtual server instance are governed by different NACL, enabling consistent traffic control policies. In the first scenario, the VPN gateway and virtual server are part of the same VPC, whereas in the second scenario they are in different VPCs connected by a transit gateway.
@@ -204,7 +204,7 @@ In this scenario, the VPN gateway and the virtual server instance reside in diff
 When the VPN gateway and virtual server instance are in different VPCs with different subnets and different NACLs, you must add the following rules for traffic flow between your on-premises gateway and the subnets in different VPCs.
 
 #### Configuring NACL for VPN gateway subnet
-{: #nacl-vpn-gateway}
+{: #nacl-vpn-gateway2}
 
 This NACL is attached to the VPN gateway subnet. The traffic rules for the VPN gateway subnet must cover the management traffic used to set up the VPN tunnel and the encrypted VPN tunnel traffic between your on-premises network and the VPC.
 
@@ -218,7 +218,7 @@ This NACL is attached to the VPN gateway subnet. The traffic rules for the VPN g
 {: caption="Inbound and outbound rules on VPN gateway's subnet" caption-side="bottom"}
 
 #### Configuring NACL for virtual server instance subnet
-{: #nacl-virtual-server}
+{: #nacl-virtual-server2}
 
 This NACL is attached to the virtual server subnet. The traffic rules for the virtual server subnet must cover VPN tunnel traffic for communication between your on-premises network and the virtual server instance.
 
@@ -229,7 +229,7 @@ This NACL is attached to the virtual server subnet. The traffic rules for the vi
 {: caption="Inbound and outbound rules on virtual server subnets" caption-side="bottom"}
 
 #### Troubleshooting traffic
-{: #traffic-troubleshooting}
+{: #traffic-troubleshooting2}
 
 Optional: This rule allows traffic for connectivity tests, such as pinging the VPN gateway or VPC virtual server instance for reachability checks and troubleshooting.
 
