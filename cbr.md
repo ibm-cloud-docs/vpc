@@ -2,7 +2,7 @@
 
 copyright:
   years: 2022, 2025
-lastupdated: "2025-05-05"
+lastupdated: "2025-05-15"
 
 keywords: context-based restrictions for VPC Infrastructure Services
 
@@ -391,7 +391,7 @@ The following is an example context-based restriction event. Some fields have be
 ```
 {: codeblock}
 
-You can then use the same Trace ID or Reference ID to look at the specific VPC Infrastructure service event in your Activity Tracker instance.
+You can then use the same Trace ID or Reference ID to look at the specific VPC Infrastructure service event in your {{site.data.keyword.logs_full_notm}} instance.
 
 ```json
 {

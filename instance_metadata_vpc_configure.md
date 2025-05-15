@@ -2,7 +2,7 @@
 
 copyright:
   years: 2022, 2025
-lastupdated: "2025-04-24"
+lastupdated: "2025-05-15"
 
 keywords:
 
@@ -650,11 +650,11 @@ This property applies only when the metadata service is enabled by setting `meta
 
 To set the response hop limit on an existing instance, call the [PATCH /instances/{id}](/apidocs/vpc/latest#update-instance) method, and specify the `metadata_service.response_hop_limit` property value between `1` (default) and `64`.
 
-## Activity Tracker events for instance metadata
+## Activity tracking events for instance metadata
 {: #imd-at-events}
 {: ui}
 
-Activity Tracker events are triggered when you get an [instance access identity token](#imd-json-token) and then [use the service](/docs/vpc?topic=vpc-imd-get-metadata). For more information about these events, see [Instance Metadata service events](/docs/vpc?topic=vpc-at_events#events-metadata).
+Activity tracking events are triggered when you get an [instance access identity token](#imd-json-token) and then [use the service](/docs/vpc?topic=vpc-imd-get-metadata). For more information about these events, see [Instance Metadata service events](/docs/vpc?topic=vpc-at_events#events-metadata).
 
 ## Next steps
 {: #imd-token-next}
