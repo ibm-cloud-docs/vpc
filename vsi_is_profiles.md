@@ -2,7 +2,7 @@
 
 copyright:
   years: 2019, 2025
-lastupdated: "2025-05-13"
+lastupdated: "2025-05-15"
 
 keywords: vsi, virtual server instances, profile, profiles, balanced, compute, memory, very high memory, ultra high memory, gpu storage optimized, confidential compute
 
@@ -299,6 +299,7 @@ The GPU and accelerated profile family includes profiles with and without [insta
 - GPU `-v100` profiles include 1 or 2 NVIDIA V100 PCIe 16 GB GPUs. All OS images are supported on these GPU profiles. 
 - GPU `-l4` profiles include NVIDIA L4 24 GB GPUs.
 - GPU `-l40S` profiles include NVIDIA L40S 48 GB GPUs.
+- [Select availability]{: tag-green} GPU `-a100p` profiles include NVIDIA A100 Tensor Core 80 GB GPUs.
 - GPU `-h100` and `-h200` profiles include [NVIDIA](https://www.nvidia.com/en-us/data-center/hgx/){: external} GPUs. The system is an HGX design. The H100 offering is available in the following regions and zones: London (eu-gb-2), Sydney (au-syd-2), Toronto (ca-tor-3), Madrid (eu-es-3), Washington DC (us-east-3), Tokyo (jp-tok-3), Sao Paulo (br-sao-1), Dallas (us-south-1), and Frankfurt (eu-de-2). [Select availability]{: tag-green} The H200 offering is available in Washington DC (us-east-3), Toronto (ca-tor-3), Frankfurt (eu-de-2), London (eu-gb-2), and Sydney (au-syd-2).
 - GPU `-gaudi3` profiles include the [Intel® Gaudi® 3 AI Accelerator](https://www.intel.com/content/www/us/en/products/details/processors/ai-accelerators/gaudi.html). [Select availability]{: tag-green} The Intel Gaudi 3 offering is available in Dallas (us-south-dal12-a), Washington DC (us-east-wdc06-a, us-east-wdc07-a) and Frankfurt (eu-de-fra02-a).
 - GPU `mi300x` profiles include the [AMD Instinct™ MI300X Accelerator](https://www.amd.com/en/products/accelerators/instinct/mi300/mi300x.html). [Select availability]{: tag-green} The AMD Instinct MI300X offering is available in Washington DC (us-east-wdc06-a).
@@ -317,6 +318,8 @@ Make sure to install the appropriate driver and software for the profile you sel
 | gx3-64x320x4l4 | 64 / 32 | 320 | l4 / 4 | 128 | - |
 | gx3-24x120x1l40s | 24 / 12 | 120 | l40s / 1 | 50 | - |
 | gx3-48x240x2l40s | 48 / 24 | 240 | l40s / 2  | 100 | - |
+| gx3d-24x120x1a100p | 24 / 12 | 120 | a100p / 1  | 48 | 780 |
+| gx3d-48x240x2a100p | 48 / 24 | 240 | a100p / 2 | 96 | 1560 |
 | gx3d-160x1792x8h100 | 160 / 80 | 1792 | h100 / 8 | 200 | 8x7680 |
 | gx3d-160x1792x8h200 | 160 / 80 | 1792 | h200 / 8 | 200 | 8x7680 |
 | gx3d-160x1792x8gaudi3 | 160 / 80 | 1792 | Gaudi-3 / 8 | 200 | 8x3200 |

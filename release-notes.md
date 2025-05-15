@@ -2,7 +2,7 @@
 
 copyright:
   years: 2019, 2025
-lastupdated: "2025-05-14"
+lastupdated: "2025-05-15"
 
 keywords:
 
@@ -27,6 +27,13 @@ For more information about changes to the {{site.data.keyword.vpc_short}} comman
 
 ## May 2025
 {: #vpc-may25}
+
+### 15 May 2025
+{: #vpc-may1525}
+{: release-note}
+
+GPU A100 PCIe virtual server profiles now available (select availability)
+:   The A100 PCIe GPU virtual server profiles are now available in the Washington DC (us-east), Frankfurt (eu-de), London (eu-gb), and Tokyo (jp-tok) regions. The profiles run on an [NVIDIA A100 Tensor Core GPU](https://www.nvidia.com/en-us/data-center/a100/) that is tuned for HPC and inferencing workloads. For more information, see [GPU](/docs/vpc?topic=vpc-profiles&interface=ui#gpu) profiles and [NVIDIA A100 instance profiles](/docs/vpc?topic=vpc-accelerated-profile-family&interface=ui#a100-profiles).
 
 ### 14 May 2025
 {: #vpc-may1425}

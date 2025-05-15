@@ -2,7 +2,7 @@
 
 copyright:
   years: 2024, 2025
-lastupdated: "2025-05-13"
+lastupdated: "2025-05-15"
 
 keywords: vsi, virtual server, virtual server instances, profile, profiles, gpu, accelerated, h100, h200, l4, l40s
 
@@ -481,3 +481,84 @@ attached. This limit is based on the size of the instance.
 | 17-48           | 15          | 10        |
 | 49+             | 15          | 15        |
 {: caption="Accelerated L40s limits for vCPU, maximum volumes, and maximum network interfaces" caption-side="bottom"}
+
+## NVIDIA A100 instance profiles
+{: #a100-profiles}
+
+The A100 profiles are built atop NVIDIA A100 80 GB accelerators. These accelerators are tuned for
+HPC and inferencing workloads. The solution is paired with the 4th Generation Intel® Xeon®
+Scalable processors.
+
+### Operating systems
+{: #a100-os}
+
+- Windows
+- Linux
+
+### Processor generation
+{: #a100-processor}
+
+- Intel 8474C - 4th Generation Xeon® Scalable processor
+
+
+### Accelerator
+{: #a100-accelerator}
+
+- NVIDIA A100 Tensor Core GPU (80 GB)
+
+### Availability
+{: #a100-availability}
+
+Status: Select Availability
+
+Regions:
+- Americas
+   - Washington DC (`us-east`)
+- Europe
+   - Frankfurt (`eu-de`)
+   - London (`eu-gb`)
+- Asia Pacific
+   - Tokyo (`jp-tok`)
+
+### Capabilities
+{: #a100-capabilities}
+
+- Core type: Dedicated
+- Dedicated host: No
+- Hyperthreading: Yes (SMT-2)
+- Secure boot: No
+- Confidential computing: No
+- Live migration: No
+- Instance storage: Yes
+- NVLink: No
+
+### VM configuration
+{: #a100-vm-config}
+
+- Hardware type: i440fx
+- Cloud networking: virtio
+- Block boot volume: virtio
+   - Exception: vscsi for Windows-based instances   
+- Block data volumes: virtio
+
+### Instance profiles
+{: #a100-vsi-profiles}
+
+| Instance profile  | vCPUs / Cores | Memory (GiB) | Bandwidth Cap (Gbps) | Accelerators           |Instance storage (GB) |
+| ----------------- | ------------- | ------------ | -------------------- | ---------------------- | -------------------- |
+| gx3d-24x120x1a100p | 24 / 12 | 120 |  48 | 1x NVIDIA A100 PCIe (80 GB) | 780 GB |
+| gx3d-48x240x2a100p | 48 / 24 | 240 |  96 | 2x NVIDIA A100 PCIe (80 GB) | 1560 GB |
+{: caption="Accelerated A100 profile options" caption-side="bottom"}
+
+### Limits
+{: #a100-vsi-limits}
+
+An instance has a limit for the number of volumes and virtual network interfaces that can be
+attached. This limit is based on the size of the instance.
+
+| Number of vCPUs | Max volumes | Max vNICs |
+| --------------- | ----------- | --------- |
+| 2-16            | 15          | 5         |
+| 17-48           | 15          | 10        |
+| 49+             | 15          | 15        |
+{: caption="Accelerated A100 limits for vCPU, maximum volumes, and maximum network interfaces" caption-side="bottom"}
