@@ -296,7 +296,7 @@ The following Ultra High Memory profiles are available for x86-64 processors:
 
 The GPU and accelerated profile family includes profiles with and without [instance storage](/docs/vpc?topic=vpc-instance-storage).
 
-- GPU `-v100` profiles include 1 or 2 NVIDIA V100 PCIe 16 GB GPUs. All OS images are supported on these GPU profiles. 
+- GPU `-v100` profiles include 1 or 2 NVIDIA V100 PCIe 16 GB GPUs. All OS images are supported on these GPU profiles.
 - GPU `-l4` profiles include NVIDIA L4 24 GB GPUs.
 - GPU `-l40S` profiles include NVIDIA L40S 48 GB GPUs.
 - [Select availability]{: tag-green} GPU `-a100p` profiles include NVIDIA A100 Tensor Core 80 GB GPUs.
@@ -304,12 +304,10 @@ The GPU and accelerated profile family includes profiles with and without [insta
 - GPU `-gaudi3` profiles include the [Intel® Gaudi® 3 AI Accelerator](https://www.intel.com/content/www/us/en/products/details/processors/ai-accelerators/gaudi.html). [Select availability]{: tag-green} The Intel Gaudi 3 offering is available in Dallas (us-south-dal12-a), Washington DC (us-east-wdc06-a, us-east-wdc07-a) and Frankfurt (eu-de-fra02-a).
 - GPU `mi300x` profiles include the [AMD Instinct™ MI300X Accelerator](https://www.amd.com/en/products/accelerators/instinct/mi300/mi300x.html). [Select availability]{: tag-green} The AMD Instinct MI300X offering is available in Washington DC (us-east-wdc06-a).
 
-
 Make sure to install the appropriate driver and software for the profile you select:
 - [NVIDIA Drivers](https://www.nvidia.com/en-us/drivers/){: external}
 - [Intel Gaudi Driver and Software Installation](https://docs.habana.ai/en/latest/Installation_Guide/Driver_Installation.html){: external}
 - [Installing AMD ROCm and machine learning frameworks](https://rocm.docs.amd.com/en/latest/how-to/rocm-for-ai/inference/install.html){: external}
-
 
 | Instance profile | vCPU / Cores | GiB RAM | Type / Number of GPUs | Bandwidth Cap (Gbps) | Instance storage (GB) |
 |---------|---------|---------|---------|---------|---------|
@@ -440,6 +438,7 @@ Instance bandwidth is allocated between volume bandwidth and networking bandwidt
 The initial volume and network bandwidth allocation depends on the bandwidth that is set by the instance profile that you selected. You can also see the bandwidth allocations in the profile information during instance creation in the console. The bandwidth allocation between Storage and Network can be changed on the instance details page after you provision an instance.
 
 For example, for the bx2-2x8 profile, you might have the following bandwidth configuration:
+
 - Storage: 1 Gbps
 - Network: 3 Gbps
 

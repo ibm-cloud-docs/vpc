@@ -2,7 +2,7 @@
 
 copyright:
   years: 2019, 2025
-lastupdated: "2025-05-12"
+lastupdated: "2025-05-15"
 
 subcollection: vpc
 
@@ -42,7 +42,7 @@ The following operating systems are available as stock images when you create a 
 
 For more information about support for Red Hat, see [FAQs about Red Hat and IBM Cloud® infrastructure](/docs/infrastructure-hub?topic=infrastructure-hub-faqs-for-red-hat-ibm-cloud).
 
-For information regarding the supported profiles and use cases for RHEL AI, see [Red Hat Enterprise Linux AI hardware requirements](https://docs.redhat.com/en/documentation/red_hat_enterprise_linux_ai/1.1/html-single/getting_started/index#hardware_requirements_rhelai){: external}.
+For information regarding the supported use cases for RHEL AI, see [Red Hat Enterprise Linux AI](https://docs.redhat.com/en/documentation/red_hat_enterprise_linux_ai){: external}.
 {: note}
 
 ### Supported x86_64 virtual server operating system bundle stock image
