@@ -2,7 +2,7 @@
 
 copyright:
   years: 2023, 2025
-lastupdated: "2025-04-30"
+lastupdated: "2025-05-15"
 
 keywords:
 
@@ -101,7 +101,7 @@ This diagram illustrates how to establish a Private Path service with connection
 
 The following diagram illustrates the process of setting up a Private Path service to connect a consumer's service to a provider's endpoint, which can be hosted on-premises or in other private locations that are accessible from the provider's VPC:
 
-1. The consumer's application or service connects to a virtual private endpoint (VPE) gateway within the consumer’s VPC. 
+1. The consumer's application or service connects to a virtual private endpoint (VPE) gateway within the consumer’s VPC.
 
    The consumer's VPC can be an IBM service with Private Path support, such as MQ as a Service or Code Engine. This enables connections like linking an on-cloud MQ Queue Manager with an on-premises Queue Manager, or connecting a Code Engine project to on-premises resources.
 

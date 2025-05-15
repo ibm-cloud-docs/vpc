@@ -2,7 +2,7 @@
 
 copyright:
   years: 2019, 2025
-lastupdated: "2025-03-03"
+lastupdated: "2025-05-15"
 
 keywords: Block Storage profiles, Block Storage for VPC, IOPS tiers, custom IOPS, storage performance
 
@@ -27,12 +27,12 @@ When you create a Block Storage volume, you can select from various profiles.
 
 The following table shows the available storage profiles with their different properties.
 
-| Family name  | Profile name      | Capacity range \n (GB) | IOPS rate \n (IOPS/GB)  | IOPS range [^ttext1] \n (IOPS)| Max throughput[^ttext2] \n (MBps)|
+| Family name  | Profile name      | Capacity range \n (GB) | IOPS rate \n (IOPS/GB)  | IOPS range [^ttext1] \n (IOPS)| Max throughput[^ttext2]|
 |--------------|-------------------|---------------:|----------------------:|------------------:|-----------------------:|
-| tiered       | `general-purpose` |    10 - 16,000 |  3        | 3,000 - 48,000 |  786 | 
-| tiered       | `5iops-tier`      |    10 -  9,600 |  5        | 3,000 - 48,000 |  786 |
-| tiered       | `10iops-tier`     |    10 -  4,800 | 10        | 3,000 - 48,000 | 1024 | 
-| custom       | `custom`          |    10 - 16,000 | 10 - 100  | 100 - 48,000[^ttext3] | 1024 |
+| tiered       | `general-purpose` |    10 - 16,000 |  3        | 3,000 - 48,000 |  670 MBps \n (5360 Mbps)| 
+| tiered       | `5iops-tier`      |    10 -  9,600 |  5        | 3,000 - 48,000 |  768 MBps \n (6144 Mbps) |
+| tiered       | `10iops-tier`     |    10 -  4,800 | 10        | 3,000 - 48,000 | 1024 MBps \n (8192 Mbps)| 
+| custom       | `custom`          |    10 - 16,000 | 10 - 100  | 100 - 48,000[^ttext3] | 1024 MBps \n (8192 Mbps)|
 {: caption="Block Storage profiles and performance levels." caption-side="bottom"}
 
 [^ttext1]: The provisioned IOPS values are based on a preset 16k I/O size.
