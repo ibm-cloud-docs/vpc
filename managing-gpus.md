@@ -2,7 +2,7 @@
 
 copyright:
   years: 2021, 2025
-lastupdated: "2025-05-06"
+lastupdated: "2025-05-16"
 
 keywords: image, virtual private cloud, boot volume, virtual server instance, instance, gpu, graphics processing unit, set up gpu
 
@@ -43,7 +43,7 @@ If you want to automate the installation of the drivers, you can use the [User d
 {: #provision-amd-mi300x-on-vsi}
 
 1. Provision a [virtual server instance](/docs/vpc?topic=vpc-creating-virtual-servers) by choosing the AMD Instinct™ MI300X Accelerator [instance profile](/docs/vpc?topic=vpc-accelerated-profile-family) in the Profile field. Stock and custom operating system images are supported.
-2. Install the necessary drivers for your virtual server. To download the drivers, see [Installing ROCm and machine learning frameworks](https://rocm.docs.amd.com/en/latest/how-to/rocm-for-ai/inference/install.html){: external} page.
+2. Install the necessary drivers for your virtual server. To download the drivers, see [Installing ROCm and machine learning frameworks](https://rocm.docs.amd.com/en/latest/how-to/rocm-for-ai/install.html){: external} page.
 3. If the guest OS for your virtual server is Ubuntu, you must remove `nomodeset` from the command line and restart the virtual server.
     1. These commands must be run as root. Sudo to root.
        ```sh

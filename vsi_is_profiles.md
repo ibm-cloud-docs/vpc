@@ -2,7 +2,7 @@
 
 copyright:
   years: 2019, 2025
-lastupdated: "2025-05-15"
+lastupdated: "2025-05-16"
 
 keywords: vsi, virtual server instances, profile, profiles, balanced, compute, memory, very high memory, ultra high memory, gpu storage optimized, confidential compute
 
@@ -307,7 +307,7 @@ The GPU and accelerated profile family includes profiles with and without [insta
 Make sure to install the appropriate driver and software for the profile you select:
 - [NVIDIA Drivers](https://www.nvidia.com/en-us/drivers/){: external}
 - [Intel Gaudi Driver and Software Installation](https://docs.habana.ai/en/latest/Installation_Guide/Driver_Installation.html){: external}
-- [Installing AMD ROCm and machine learning frameworks](https://rocm.docs.amd.com/en/latest/how-to/rocm-for-ai/inference/install.html){: external}
+- [Installing AMD ROCm and machine learning frameworks](https://rocm.docs.amd.com/en/latest/how-to/rocm-for-ai/install.html){: external}
 
 | Instance profile | vCPU / Cores | GiB RAM | Type / Number of GPUs | Bandwidth Cap (Gbps) | Instance storage (GB) |
 |---------|---------|---------|---------|---------|---------|
