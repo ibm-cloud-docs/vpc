@@ -141,7 +141,7 @@ The following table lists the actions that are related to DNS resolution binding
 | DNS resolution binding | is.vpc.dns-resolution-binding.list | Lists DNS resolution bindings. |
 {: caption="Actions that generate events for DNS resolution bindings" caption-side="bottom"}
 
-Although the DNS resolution binding is created or deleted by the DNS-shared VPC authorized user, the system is actually creating or deleting the DNS resolution binding objects for both the hub VPC and DNS-shared VPCs. Therefore, the system also generates the Activity Tracker event for both hub and DNS-shared VPCs.
+Although the DNS resolution binding is created or deleted by the DNS-shared VPC authorized user, the system is creating or deleting the DNS resolution binding objects for both the hub VPC and DNS-shared VPCs. Therefore, the system also generates the Activity Tracker event for both hub and DNS-shared VPCs.
 {: note}
 
 Existing events include a new attribute:
@@ -235,14 +235,14 @@ The following table lists the actions that are related to load balancers and the
 | private-path-service-gateway | is.private-path-service-gateway.endpoint-gateway-binding.list | Private Path service gateway consumer connection requests were listed |
 | private-path-service-gateway | is.private-path-service-gateway.endpoint-gateway-binding.permit | Private Path service gateway consumer connection request was permitted |
 | private-path-service-gateway | is.private-path-service-gateway.endpoint-gateway-binding.deny | Private Path service gateway consumer connection request was denied |
-| private-path-service-gateway | is.private-path-service-gateway.endpoint-gateway-binding.create | Private Path service gateway consumer connection has been created |
-| private-path-service-gateway | is.private-path-service-gateway.endpoint-gateway-binding.read | Private Path service gateway consumer connection request has been retrieved |
-| private-path-service-gateway | is.private-path-service-gateway.endpoint-gateway-binding.delete | Private Path service gateway consumer connection has been deleted |
-| private-path-service-gateway | is.private-path-service-gateway.account-policy.read | Private Path service gateway account policy has been retrieved |
-| private-path-service-gateway | is.private-path-service-gateway.account-policy.list | Private Path service gateway account policy has been listed |
-| private-path-service-gateway | is.private-path-service-gateway.account-policy.create | Private Path service gateway account policy has been created |
-| private-path-service-gateway | is.private-path-service-gateway.account-policy.delete | Private Path service gateway account policy has been deleted |
-| private-path-service-gateway | is.private-path-service-gateway.account-policy.update | Private Path service gateway account policy has been updated |
+| private-path-service-gateway | is.private-path-service-gateway.endpoint-gateway-binding.create | Private Path service gateway consumer connection was created |
+| private-path-service-gateway | is.private-path-service-gateway.endpoint-gateway-binding.read | Private Path service gateway consumer connection request was retrieved |
+| private-path-service-gateway | is.private-path-service-gateway.endpoint-gateway-binding.delete | Private Path service gateway consumer connection was deleted |
+| private-path-service-gateway | is.private-path-service-gateway.account-policy.read | Private Path service gateway account policy was retrieved |
+| private-path-service-gateway | is.private-path-service-gateway.account-policy.list | Private Path service gateway account policy was listed |
+| private-path-service-gateway | is.private-path-service-gateway.account-policy.create | Private Path service gateway account policy was created |
+| private-path-service-gateway | is.private-path-service-gateway.account-policy.delete | Private Path service gateway account policy was deleted |
+| private-path-service-gateway | is.private-path-service-gateway.account-policy.update | Private Path service gateway account policy was updated |
 {: caption="Actions that generate events for Private Path services" caption-side="bottom"}
 
 ### Public gateway events
@@ -274,7 +274,7 @@ Summary of is.reservation AT events:
 |  | is.reservation.reservation.read | Reserved Instance for VPC: read reservation `<res-name>` |
 |  | is.reservation.reservation.list | Reserved Instance for VPC: list reservation |
 |  | is.reservation.reservation.attach | Reserved Instance for VPC: attach reservation `<res-name>` |
-|  | is.reservation.reservation.attach | Reserved Instance for VPC: attach reservationv`<res-name>`|
+|  | is.reservation.reservation.attach | Reserved Instance for VPC: attach reservation`<res-name>`|
 |  | is.reservation.reservation.attach | Reserved Instance for VPC: reservation `<res-name>` attached |
 |  | is.reservation.reservation.detach | Reserved Instance for VPC: detach reservation `<res-name>` |
 |  | is.reservation.reservation.detach | Reserved Instance for VPC: reservation `<res-name>` detached |
@@ -319,7 +319,7 @@ Summary of new is.instance AT events:
 
 The following table lists the actions that are related to VPC routing tables and routes.
 
-Starting 30 Sep 2024, VPC routing tables support tagging, which requires routing tables to be identified by a Cloud Resource Name (CRN). For AT event updates due to this feature, see [Activity Tracker event changes for routing tables](/docs/vpc?topic=vpc-at-changes-announcement-routing-table).
+Starting 30 September 2024, VPC routing tables support tagging, which requires routing tables to be identified by a Cloud Resource Name (CRN). For AT event updates due to this feature, see [Activity Tracker event changes for routing tables](/docs/vpc?topic=vpc-at-changes-announcement-routing-table).
 {: attention}
 
 | Resource | Action | Description |
@@ -380,7 +380,7 @@ The following table lists the actions that are related to virtual network interf
 | virtual-network-interface | is.virtual-network-interface.virtual-network-interface.create | Virtual network interface was created. To determine if the VNI was created with protocol state filtering enabled, see [Analyzing events](/docs/vpc?topic=vpc-at_events#at-protocol-state-filtering). |
 | virtual-network-interface | is.virtual-network-interface.virtual-network-interface.attach | Virtual network interface was attached |
 | virtual-network-interface | is.virtual-network-interface.virtual-network-interface.detach | Virtual network interface was detached |
-| virtual-network-interface | is.virtual-network-interface.virtual-network-interface.update | Virtual network interface was updated. You can use to change the protocol state filtering mode. For mode values, see [Analyzing events](/docs/vpc?topic=vpc-at_events#at-protocol-state-filtering).  |
+| virtual-network-interface | is.virtual-network-interface.virtual-network-interface.update | Virtual network interface was updated. You can use to change the protocol state filtering mode. For mode values, see [Analyzing events](/docs/vpc?topic=vpc-at_events#at-protocol-state-filtering). |
 | virtual-network-interface | is.virtual-network-interface.virtual-network-interface.delete | Virtual network interface was deleted |
 {: caption="Actions that generate events for virtual network interfaces" caption-side="bottom"}
 
@@ -546,7 +546,7 @@ The following tables list the actions that are related to compute resources and 
 ### Instance Metadata service events
 {: #events-metadata}
 
-The instance metadata service events are undergoing changes and should not be used for automation. They are useful, however, for audit purposes.
+The instance metadata service events are undergoing changes and should not be used for automation. However, they are useful for audit purposes.
 {: note}
 
 | Resource  | Action  | Description  |
@@ -568,7 +568,7 @@ The instance metadata service events are undergoing changes and should not be us
 ### Bare metal server events
 {: #events-compute-bm}
 
-Some fields for Bare Metal Servers for VPC AT events will be changing between the Beta and Limited Available (LA) releases. For more information, see [Analyzing events](/docs/vpc?topic=vpc-at_events#at_events_iam_analyze).
+Some fields for Bare Metal Servers for VPC AT events change between the Beta and Limited Available (LA) releases. For more information, see [Analyzing events](/docs/vpc?topic=vpc-at_events#at_events_iam_analyze).
 {: note}
 
 | Resource  | Action  | Description  |
@@ -828,7 +828,7 @@ Refer to the following information when you are analyzing events:
 
 - Activity Tracker actions are set to `read` for both the GET and LIST calls, for example, `is.instance.instance.read`. However, for the LIST calls, the `target.name` field is set to `*`, whereas for the GET calls, it is set to the name of the resource. {: #at-protocol-state-filtering}
 
-- To determine if a virtual network interface is created with the protocol state filtering feature, look for the `protocol_state_filtering_mode` field in the AT events `is.virtual-network-interface.virtual-network-interface.create` or `is.virtual-network-interface.virtual-network-interface.update`. Values are as follows:
+- To determine whether a virtual network interface is created with the protocol state filtering feature, look for the `protocol_state_filtering_mode` field in the AT events `is.virtual-network-interface.virtual-network-interface.create` or `is.virtual-network-interface.virtual-network-interface.update`. Values are as follows:
 
    - `0` sets the mode to Auto, which enables or disables filtering based on your VNI's target resource type. If the target type is a bare metal server or Elba virtual server instance, filtering is disabled; for other virtual server instances or a file share mount, filtering is enabled.
    - `1` enables protocol state filtering.
@@ -855,11 +855,11 @@ Refer to the following information when you are analyzing events:
 
    1) The `severity` field in Beta events is not consistent with general practice within VPC and is corrected in the LA release.
 
-   2) The `target resourceGroupID` field in Beta events does not include the CRN prefix. This is corrected in the LA release.
+   2) The `target resourceGroupID` field in Beta events does not include the CRN prefix. This item is corrected in the LA release.
 
    3) Some Beta events include array data. If the array is too large, the event isn't recorded. For LA, these events display an array element count rather than the actual data.
 
-- Each time you open a console for a virtual server instance or bare metal server, two API calls are issued: the first one generates a console access token, the second one uses the generated token to open the console websocket.
+- Each time that you open a console for a virtual server instance or bare metal server, two API calls are issued: the first one generates a console access token, the second one uses the generated token to open the console websocket.
 
    This API call generates two Activity Tracker events: `is.instance.console-access-token.create` and `is.instance.console.read`, or `is.bare-metal-server.console-access-token.create` and `is.bare-metal-server.console.read`.
 
