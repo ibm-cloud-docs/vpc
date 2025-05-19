@@ -782,8 +782,8 @@ toc:
         - topicgroup:
             label: High availability and disaster recovery
             topics:
-            - ha-dr.md
-            - bc-dr.md
+            - topic: ha-dr-new.md
+              navtitle: Understanding high availability and disaster recovery
             - storage_durability.md
             - topicgroup:
                 label: Backup and recovery by using Veeam

@@ -2,7 +2,7 @@
 
 copyright:
   years: 2019, 2025
-lastupdated: "2025-05-15"
+lastupdated: "2025-05-19"
 
 keywords:
 
@@ -18,7 +18,7 @@ subcollection: vpc
 {{site.data.keyword.cloud_notm}} services, such as {{site.data.keyword.vpc_short}}, generate activity tracking events.
 {: shortdesc}
 
-Activity tracking events report on activities that change the state of a service in {{site.data.keyword.cloud_notm}}. You can use the events to investigate abnormal activity and critical actions and to comply with regulatory audit requirements.
+Activity tracking events report on activities that change the state of resources in {{site.data.keyword.cloud_notm}} and also report on certain activities that do not change any state, such as attempts to access and update resources. You can use the events to investigate abnormal activity and critical actions and to comply with regulatory audit requirements.
 
 You can use {{site.data.keyword.atracker_full_notm}}, a platform service, to route auditing events in your account to destinations of your choice by configuring targets and routes that define where activity tracking events are sent. For more information, see [About {{site.data.keyword.atracker_full_notm}}](/docs/atracker?topic=atracker-about).
 

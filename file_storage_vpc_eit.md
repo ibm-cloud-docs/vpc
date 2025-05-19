@@ -2,7 +2,7 @@
 
 copyright:
   years: 2023, 2025
-lastupdated: "2025-04-30"
+lastupdated: "2025-05-19"
 
 keywords: file share, file storage, encryption in transit, Mount Helper, IPsec, secure connection, mount share
 
@@ -36,6 +36,7 @@ The IPsec connection requires that you have an X.509 certificate for authenticat
 
 A Certificate Signing Request (CSR) is a block of encoded texts that are forwarded to a certificate authority (CA) when users apply for a certificate. CSR is created on the server where the certificate is to be installed. CSR includes information such as domain name, organization name, locality, and country. The request also contains the public key, which is associated with the certificate that is generated, and the private key. The CA uses only the public key when the certificate is created. The private key must be saved and kept secret. As the private key is part of the key pair with the public key, and the certificate does not work if the private key is lost.
 
+
 Encryption in transit is not supported on {{site.data.keyword.bm_is_short}}.
 {: restriction}
 
@@ -45,7 +46,7 @@ Encryption in transit is not supported on {{site.data.keyword.bm_is_short}}.
 To use the feature, the following requirements need to be met:
 - The file share must be based on the [`dp2` profile](/docs/vpc?topic=vpc-file-storage-profiles&interface=api#dp2-profile) and be configured with [Security Group access mode](/docs/vpc?topic=vpc-file-storage-vpc-about#fs-share-mount-targets). 
 - The mount target must be created with a [virtual network interface](/docs/vpc?topic=vpc-vni-about). The virtual server instance and the mount target must be members of the same [security group](/docs/vpc?topic=vpc-using-security-groups). For more information, see [Creating file shares and mount targets](/docs/vpc?topic=vpc-file-storage-create).
-- Data encryption in transit must be enabled. in the console, you can toggle encryption in transit on when you create the mount target. The API `transit_encryption` property accepts the `user_managed` value to enable the feature.
+- Data encryption in transit must be enabled. In the console, you can toggle encryption in transit on when you create the mount target. The API `transit_encryption` property accepts the `user_managed` value to enable the feature.
 - [Instance metadata service](/docs/vpc?topic=vpc-imd-about) must be enabled for the virtual server instance.
 
 If you want to connect a file share to instances that are running in different VPCs in a zone, you can create multiple mount targets. You can create one mount target for each VPC.
@@ -67,7 +68,7 @@ The {{site.data.keyword.cloud}} file service provides a [Mount Helper utility](/
 
       When you run the command, replace the country code `US` with your two-digit country code in `'/C=US'`.
 
-      OpenSSL is an open source command-line toolkit that you can use to work with X.509 certificates, certificate signing requests (CSRs), and cryptographic keys. For more information, see [OpenSSL Documentation](https://docs.openssl.org/){: external}.
+      OpenSSL is an open-source command-line toolkit that you can use to work with X.509 certificates, certificate signing requests (CSRs), and cryptographic keys. For more information, see [OpenSSL Documentation](https://docs.openssl.org/){: external}.
       {: note}
 
       If you're using a different software to create the CSR, you might be prompted to enter information about your location such as country code (C), state (ST), locality (L), your organization name (O), and organization unit (OU). Any one of these naming attributes can be used. Any other naming attributes, such as common name, are rejected. CSRs with Common Name specified are rejected because when you make the API request, the system applies instance ID values to the subject Common Name for the instance identity certificates. CSRs with extensions are also rejected.
