@@ -115,8 +115,8 @@ You can use the UI, [CLI](#connect-to-vnc-console-cli), or [API](#connect-to-vnc
 {: #login-esxi-dcui}
 
 1. Open the ESXi DCUI in a VNC console.
-2. Press **F2** from the DCUI main page to access the **System Customization** menu.
-3. In the open window, enter the account name and password, then press **Enter**.
+2. Press F2 from the DCUI main page to access the **System Customization** menu.
+3. In the open window, enter the account name and password, then press Enter.
 
 You can reset the password in the **Configure Password** section.
 {: tip}
@@ -124,7 +124,7 @@ You can reset the password in the **Configure Password** section.
 ## Enabling SSH for the bare metal server (optional)
 {: #enable-ssh}
 
-By default, you don't have SSH access to the ESXi bare metal server. You can enable SSH access in DCUI by using one the following options.
+By default, you don't have SSH access to the ESXi bare metal server. You can enable SSH access in DCUI with one the following options.
 
 ### Enabling SSH from the DCUI
 {: #enable-shh-dcui-option-1}
@@ -153,11 +153,11 @@ vim-cmd hostsvc/start_ssh
 
 You can optionally use a serial console to access ESXi DCUI. You must first manually switch to the serial console mode by using the following steps:
 
-1. Reboot the bare metal server. Then, immediately open a VNC console following [Accessing ESXi DCUI by using a VNC or serial console](/docs/vpc?topic=vpc-connect-to-ESXi-bare-metal-servers#access-esxi-dcui-using-console).
+1. Reboot the bare metal server. Then, immediately open a VNC console. Follow the steps in [Accessing ESXi DCUI by using a VNC or serial console](/docs/vpc?topic=vpc-connect-to-ESXi-bare-metal-servers#access-esxi-dcui-using-console).
 
 2. After you click **Connect** on the noVNC connect window, wait until the **Loading VMware Hypervisor** window appears, then press **shift**+**O** to edit boot options.
 
-3. Enter `gdbPort=none logPort=none tty2Port=com1` in the input field, then press **Enter**. To use com2 instead, replace `com1` with `com2`.
+3. Enter `gdbPort=none logPort=none tty2Port=com1` in the input field, then press Enter. To use com2 instead, replace `com1` with `com2`.
 
 4. When the loading completes, close the noVNC window.
 
