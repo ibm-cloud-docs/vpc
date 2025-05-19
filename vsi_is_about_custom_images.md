@@ -2,7 +2,7 @@
 
 copyright:
   years: 2022, 2025
-lastupdated: "2025-05-16"
+lastupdated: "2025-05-19"
 
 keywords:
 
@@ -99,7 +99,7 @@ If you plan to import an image from a file, you must provision an instance of {{
 
 The Red Hat Enterprise Linux AI (RHEL AI) operating system can be imported as a bring your own license (BYOL). A RHEL AI qcow2 file is available directly from Red Hat. The operating system name to use when importing the image into {{site.data.keyword.vpc_short}} is`red-ai-9-amd64-nvidia-byol`. For more information, see [Red Hat Enterprise Linux AI](https://www.redhat.com/en/products/ai/enterprise-linux-ai){: external}. To download the RHEL AI image, see [Download Red Hat Enterprise Linux AI](https://access.redhat.com/downloads/content/932){: external}. You will need a Red Hat account in order to view the documentation and download the image.
 
-For information regarding the supported profiles and use cases, see [Red Hat Enterprise Linux AI hardware requirements](https://docs.redhat.com/en/documentation/red_hat_enterprise_linux_ai/1.4/1.1/html-single/getting_started/index#hardware_requirements_rhelai){: external}.
+For information regarding the supported profiles and use cases, see [Red Hat Enterprise Linux AI hardware requirements](https://docs.redhat.com/en/documentation/red_hat_enterprise_linux_ai/1.4#hardware_requirements_rhelai){: external}.
 {: note}
 
 For more information about support for Red Hat, see [FAQs about Red Hat and IBM Cloud® infrastructure](/docs/infrastructure-hub?topic=infrastructure-hub-faqs-for-red-hat-ibm-cloud).

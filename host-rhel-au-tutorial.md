@@ -2,7 +2,7 @@
 
 copyright:
   years: 2025
-lastupdated: "2025-05-16"
+lastupdated: "2025-05-19"
 
 keywords:
 
@@ -211,7 +211,7 @@ The following steps describe how to configure InstructLab, download models, and 
 
 First you must initialize ilab, the environment for running and fine-tuning LLMs on your VSI.
 
-1. Initialize ilab using the `ilab config init` command. For more information, see the [Red Hat Enterprise Linux AI CLI reference](https://docs.redhat.com/en/documentation/red_hat_enterprise_linux_ai/1.4/1.4#rhelai_cli_ref){: external}.
+1. Initialize ilab using the `ilab config init` command. For more information, see the [Red Hat Enterprise Linux AI CLI reference](https://docs.redhat.com/en/documentation/red_hat_enterprise_linux_ai/1.4#rhelai_cli_ref){: external}.
 1. Create the `insights-opt-out` file in the `/etc/ilab` directory:
 
     ```sh
