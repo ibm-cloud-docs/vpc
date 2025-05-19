@@ -1,8 +1,8 @@
 ---
 
 copyright:
-  years: 2020, 2024
-lastupdated: "2024-11-08"
+  years: 2020, 2025
+lastupdated: "2025-05-19"
 
 keywords: load balancer, public, listener, back-end, front-end, pool, round-robin, weighted, connections, methods, policies, APIs, access, ports
 
@@ -176,4 +176,3 @@ You can use this deployment scenario to obtain high availability and ensure work
 * [Activity Tracker events](/docs/vpc?topic=vpc-at_events#events-load-balancers)
 * [FAQs for network load balancers](/docs/vpc?topic=vpc-nlb-faqs)
 * [Quotas and service limits](/docs/vpc?topic=vpc-quotas&interface=ui#nlb-quotas)
-* [Blog: On-Premises Private Access to Workloads Across Zones Using a DNS GLB and VPC NLB](https://www.ibm.com/blog/on-premises-private-access-to-workloads-across-zones-using-a-dns-glb-and-vpc-nlb/){: external}

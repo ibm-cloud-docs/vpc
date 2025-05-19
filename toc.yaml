@@ -841,6 +841,7 @@ toc:
                 - lb-faqs.md
                 - nlb-faqs.md
             - faq-private-path.md
+            - faq-par.md
             - vni-faq.md
             - vpe-faqs.md
             - topicgroup:
