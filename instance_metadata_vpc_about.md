@@ -2,7 +2,7 @@
 
 copyright:
   years: 2022, 2025
-lastupdated: "2025-05-14"
+lastupdated: "2025-05-19"
 
 keywords:
 
@@ -113,3 +113,5 @@ For more information about extra security measures that you can take, see [Secur
 * [Create an instance identity access token for accessing the metadata service](/docs/vpc?topic=vpc-imd-configure-service#imd-get-token).
 
 * [Retrieve data by using the metadata service](/docs/vpc?topic=vpc-imd-get-metadata).
+
+* [Using the metadata service to identify disks in your virtual server instance](https://www.ibm.com/products/tutorials/using-the-metadata-service-to-identify-disks-in-your-vsi-with-ibm-cloud-vpc){: external}.
