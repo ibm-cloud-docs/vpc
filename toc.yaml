@@ -897,6 +897,11 @@ toc:
                 - fl-ts-cos-bucket.md
                 - fl-ts-unauth-access-cos.md
             - topicgroup:
+                label: Troubleshooting public address ranges
+                topics:
+                - par-troubleshooting1.md
+                - par-troubleshooting2.md
+            - topicgroup:
                 label: Troubleshooting public ingress routes
                 topics:
                 - ingressroutes-ts-traffic.md
