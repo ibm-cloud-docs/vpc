@@ -253,7 +253,7 @@ The following table displays current VPC service limits. Unlike quotas, these li
 | Network interfaces | 5, 10, or 15 (depending on the size of the instance) per instance | 
 | PCI network interfaces for bare metal servers | 8 per bare metal server |
 | Public gateways | 1 per zone per VPC |
-| Security groups | 5 per [target](/docs/vpc?topic=vpc-using-security-groups#about-security-group-targets) |  
+| Security groups | 5 per [target](/docs/vpc?topic=vpc-using-security-groups#about-security-group-targets) |
 | Rules targeting remote security groups | 15 unique remote security groups across all rules per security group |
 | Public address ranges [Beta]{: tag-purple}| 10 per VPC per zone |
 | Secondary volumes per instance | Up to 12 secondary volumes |
