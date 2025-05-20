@@ -28,6 +28,11 @@ Some changes, such as new response properties or new optional request parameters
 - Consume only the resources and properties your application needs to function
 - Avoid depending on behavior that is not explicitly documented
 
+## Upcoming changes
+{: #upcoming-changes-metadata}
+
+In an upcoming release, the **Access tokens** and **Certificates** methods will no longer be part of the [Virtual Private Cloud Instance Metadata API](/apidocs/vpc-metadata). Those methods will be included in a new **Virtual Private Cloud Identity API**. The paths will change from `/instance_identity` to `/identity`. Prepare for behavior changes that could lead to API client and workflow failures by starting to update the design for your automation, even if you won't be able to test it yet.
+
 ## 1 April 2025
 {: #1-april-2025-metadata}
 

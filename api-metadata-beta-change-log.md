@@ -26,6 +26,11 @@ There are no backward-compatibility guarantees as a feature progresses through i
 
 To review the change log of generally available metadata API features, see the [VPC Instance Metadata API change log](/docs/vpc?topic=vpc-metadata-api-change-log).
 
+## Upcoming changes
+{: #upcoming-changes-metadata-beta}
+
+In an upcoming release, the **Access tokens** and **Certificates** methods will no longer be part of the [beta Virtual Private Cloud Instance Metadata API](/apidocs/vpc-metadata-beta). Those methods will be included in a new beta **Virtual Private Cloud Identity API**. The paths will change from `/instance_identity` to `/identity`. Prepare for behavior changes that could lead to API client and workflow failures by starting to update the design for your automation, even if you won't be able to test it yet.
+
 ## 17 December 2024
 {: #17-december-2024-metadata-beta}
 
