@@ -2,7 +2,7 @@
 
 copyright:
   years: 2024, 2025
-lastupdated: "2025-04-29"
+lastupdated: "2025-05-20"
 
 keywords:
 
@@ -198,6 +198,8 @@ resource "ibm_is_private_path_service_gateway_operations" "publish" {
 ```
 {: codeblock}
 
+For documentation about Terraform resources, see the [Terraform Registry](https://registry.terraform.io/providers/IBM-Cloud/ibm/latest/docs/resources/is_vpc_routing_table).{: external}
+
 ## Unpublishing a Private Path service with Terraform
 {: #unpublishing-private-path-service-terraform}
 {: terraform}
@@ -214,6 +216,8 @@ resource "ibm_is_private_path_service_gateway_operations" "publish" {
 }
 ```
 {: codeblock}
+
+For documentation about Terraform resources, see the [Terraform Registry](https://registry.terraform.io/providers/IBM-Cloud/ibm/latest/docs/resources/is_vpc_routing_table).{: external}
 
 ## Next steps
 {: #pps-next-steps-after-activation}
