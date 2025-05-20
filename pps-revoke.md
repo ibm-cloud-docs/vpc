@@ -2,7 +2,7 @@
 
 copyright:
   years: 2024, 2025
-lastupdated: "2025-04-29"
+lastupdated: "2025-05-20"
 
 keywords:
 
@@ -127,3 +127,5 @@ resource "ibm_is_private_path_service_gateway_revoke_account" "example" {
 }
 ```
 {: codeblock}
+
+For documentation about Terraform resources, see the [Terraform Registry](https://registry.terraform.io/providers/IBM-Cloud/ibm/latest/docs/resources/is_vpc_routing_table).{: external}

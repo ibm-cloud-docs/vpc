@@ -2,7 +2,7 @@
 
 copyright:
   years: 2023, 2025
-lastupdated: "2025-04-30"
+lastupdated: "2025-05-20"
 
 keywords:
 
@@ -224,6 +224,8 @@ resource "ibm_is_private_path_service_gateway" "ppsg" {
 }
 ```
 {: codeblock}
+
+For documentation about Terraform resources, see the [Terraform Registry](https://registry.terraform.io/providers/IBM-Cloud/ibm/latest/docs/resources/is_vpc_routing_table).{: external}
 
 ## Registering and verifying ownership of service endpoints (FQDNs)
 {: #pps-domain-register-verify}
