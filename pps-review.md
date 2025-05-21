@@ -243,7 +243,7 @@ resource "ibm_is_private_path_service_gateway_endpoint_gateway_binding_operation
 ```
 {: codeblock}
 
-For documentation about Terraform resources, see the [Terraform Registry](https://registry.terraform.io/providers/IBM-Cloud/ibm/latest/docs/resources/is_vpc_routing_table).{: external}
+For documentation about Terraform resources, see the [Terraform Registry](https://registry.terraform.io/providers/IBM-Cloud/ibm/latest/docs/resources/is_private_path_service_gateway).{: external}
 
 ## Related links
 {: #related-links-review-requests}

@@ -2,7 +2,7 @@
 
 copyright:
   years: 2023, 2025
-lastupdated: "2025-05-20"
+lastupdated: "2025-05-21"
 
 keywords:
 
@@ -33,7 +33,7 @@ Before you create a Private Path service, review the following prerequisites:
    You must use the same VPC region for both your load balancer and Private Path service.
    {: important}
 
-* You must choose a DNS FQDN for your service for consumer use. This domain is configured in a consumer's private DNS, but you are required to prove ownership of the FQDN in public DNS. This requires you to take steps with your DNS provider. For more information, see [Registering and verifying ownership of service endpoints (FQDNs)](/docs/vpc?topic=vpc-private-path-service-about&interface=ui#pps-domain-register-verify). 
+* You must choose a DNS FQDN for your service for consumer use. This domain is configured in a consumer's private DNS, but you are required to prove ownership of the FQDN in public DNS. This requires you to take steps with your DNS provider. For more information, see [Registering and verifying ownership of service endpoints (FQDNs)](/docs/vpc?topic=vpc-private-path-service-about&interface=ui#pps-domain-register-verify).
 
    You can opt out of this requirement if you are willing to use one of limited predefined set of domains listed in [Registering and verifying ownership of service endpoints (FQDNs)](/docs/private-path?topic=private-path-private-path-service-about&interface=ui#pps-domain-register-verify).
    {: note}
@@ -225,7 +225,7 @@ resource "ibm_is_private_path_service_gateway" "ppsg" {
 ```
 {: codeblock}
 
-For documentation about Terraform resources, see the [Terraform Registry](https://registry.terraform.io/providers/IBM-Cloud/ibm/latest/docs/resources/is_vpc_routing_table).{: external}
+For documentation about Terraform resources, see the [Terraform Registry](https://registry.terraform.io/providers/IBM-Cloud/ibm/latest/docs/resources/is_private_path_service_gateway).{: external}
 
 ## Registering and verifying ownership of service endpoints (FQDNs)
 {: #pps-domain-register-verify}
