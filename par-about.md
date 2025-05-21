@@ -58,7 +58,7 @@ Review the following considerations before creating a public address range:
    {: note}
 
 * You can limit a public address range to specific resources within the VPC by configuring network ACLs, security groups, or a combination of both.
-* A public address range can be bound to a VPC. As a result, any virtual servers within any resource group in the same VPC might send traffic with a source IP from that public address range. It is your responsibility to configure the appropriate security groups, network ACLs, or egress custom routes to block traffic from the public address range that could reach unintended virtual servers or resource groups.
+* A public address range can be bound to a VPC. As a result, any virtual servers within any resource group in the same VPC might send traffic with a source IP from that public address range. It is your responsibility to configure the appropriate [security groups](/docs/vpc?topic=vpc-configuring-the-security-group&interface=ui), [network ACLs](/docs/vpc?topic=vpc-acl-create-ui&interface=ui), or [egress custom routes](/docs/vpc?topic=vpc-create-vpc-route&interface=ui) to block traffic from the public address range that could reach unintended virtual servers or resource groups.
 * You can reserve a public address range with the following prefix sizes. For more information, review public address range [quotas and service limits](/docs/vpc?topic=vpc-quotas&interface=ui#par-quotas). 
    * `/28` = 16 addresses
    * `/29`  = 8 addresses
