@@ -91,7 +91,7 @@ resource "ibm_is_virtual_endpoint_gateway" "endpoint_gateway" {
 ```
 {: codeblock}
 
-For documentation about Terraform resources, see the [Terraform Registry](https://registry.terraform.io/providers/IBM-Cloud/ibm/latest/docs/resources/is_vpc_routing_table).{: external}
+For documentation about Terraform resources, see the [Terraform Registry](https://registry.terraform.io/providers/IBM-Cloud/ibm/latest/docs/resources/is_private_path_service_gateway).{: external}
 
 ## Next steps
 {: #pps-next-step-after-verify}

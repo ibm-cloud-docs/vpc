@@ -2,7 +2,7 @@
 
 copyright:
   years: 2022, 2025
-lastupdated: "2025-05-20"
+lastupdated: "2025-05-21"
 
 keywords: load balancer, public, listener, back-end, front-end, pool, round-robin, weighted, connections, methods, policies, APIs, access, ports
 
@@ -83,7 +83,7 @@ To create and configure {{site.data.keyword.nlb_full}} in the {{site.data.keywor
       {: note}
 
    * **Subnet**: Choose a subnet.
-   * From the list of servers, select the servers that you want to attach to the back-end pool. Ensure that you specify valid values for each server port. 
+   * From the list of servers, select the servers that you want to attach to the back-end pool. Ensure that you specify valid values for each server port.
 
       Although you can attach more than one virtual server instance to a back-end pool, your Private Path load balancer provides regional availability and is resilient to zone failure even if a single subnet is selected.
       {: note}
@@ -129,34 +129,34 @@ To create a Private Path NLB by from the CLI, follow these steps:
    ```sh
    Creating load balancer ppnlb-test in resource group under account IBM Cloud Network Services as user test@ibm.com...
 
-    ID                 
+    ID
     Name               ppnlb-test
-    CRN                
+    CRN
     Family             Network
-    Host name         
+    Host name
     Subnets            ID                                          Name
                                                                    cli-subnet-2
 
     Public IPs
-    Reserved IPs         ID                                          Address        Subnet    
+    Reserved IPs         ID                                          Address        Subnet
 
     Provision status   create_pending
     Operating status   offline
     Is public          false
-    Is private path    true   
+    Is private path    true
     Listeners
     Pools              ID                                 Name
                                                           my-pool
     Resource group     ID                                 Name
                                                           Default
 
-    Created            2025-01-10T15:07:53+05:30  
-    Availability                 region   
-    Instance Group Supported     false   
-    SourceIP Session Supported   false   
-    Security groups supported    false   
-    UDP Supported                false   
-    Access mode                  private_path 
+    Created            2025-01-10T15:07:53+05:30
+    Availability                 region
+    Instance Group Supported     false
+    SourceIP Session Supported   false
+    Security groups supported    false
+    UDP Supported                false
+    Access mode                  private_path
     ```
     {: screen}
 
@@ -173,7 +173,7 @@ To create a Private Path NLB by from the CLI, follow these steps:
    ```sh
    Creating pool my-pool of load balancer my-pool under account IBM Cloud Network Services as user test@ibm.com...
 
-   ID                         
+   ID
    Name                       my-pool
    Protocol                   tcp
    Algorithm                  round_robin
@@ -185,7 +185,7 @@ To create a Private Path NLB by from the CLI, follow these steps:
 
    Session persistence type   Type   Cookie name
                               -      -
-   
+
    Members
    Provision status           create_pending
    Created                    2025-01-10T20:44:57+05:30
@@ -201,26 +201,26 @@ To create a Private Path NLB by from the CLI, follow these steps:
 
    A User can create a PPNLB targeting a virtual server instance or an application load balancer (ALB). Create a member with `my-target` as `my-instance` or `my-alb`.
    {: note}
-   
+
    Sample output:
 
    ```sh
    Creating member of pool test under account IBM Cloud Network Services as user test@ibm.com...
 
    ID                 test
-   Port               3000   
-   Target             10.240.66.14   
-   Weight             50   
-   Health             unknown   
-   Created            0001-01-01T05:53:28+05:53   
-   Provision status   create_pending 
+   Port               3000
+   Target             10.240.66.14
+   Weight             50
+   Health             unknown
+   Created            0001-01-01T05:53:28+05:53
+   Provision status   create_pending
    ```
    {: screen}
 
 1. Create a listener:
 
    ```sh
-   ibmcloud is load-balancer-listener-create ppnlb-test --port-min 443 --protocol tcp      
+   ibmcloud is load-balancer-listener-create ppnlb-test --port-min 443 --protocol tcp
    ```
    {: pre}
 
@@ -229,14 +229,14 @@ To create a Private Path NLB by from the CLI, follow these steps:
    ```sh
    Creating listener of load balancer ppnlb-test under account IBM Cloud Network Services as user test@ibm.com...
 
-   ID                     
+   ID
    Certificate instance      -
    Connection limit          -
    Ports                     443
-   Idle connection timeout   -   
+   Idle connection timeout   -
    Protocol                  tcp
    Default pool              -
-   Accept proxy protocol     false   
+   Accept proxy protocol     false
    Provision status          create_pending
    Created                   2025-01-10T21:02:37+05:30
    ```
@@ -254,34 +254,34 @@ To create a Private Path NLB by from the CLI, follow these steps:
    ```sh
    Getting load balancer ppnlb-test under account IBM Cloud Network Services as user test@ibm.com...
 
-   ID                 
+   ID
    Name               ppnlb-test
-   CRN                
+   CRN
    Family             Network
-   Host name      
+   Host name
    Subnets            ID                                          Name
                                                                   nlb
 
-   Public IPs         
-   Reserved IPs       ID                                          Address        Subnet     
+   Public IPs
+   Reserved IPs       ID                                          Address        Subnet
    Provision status   active
    Operating status   online
    Is public          false
-   Is private path    true   
-   Listeners        
+   Is private path    true
+   Listeners
    Pools              ID                                          Name
                                                                   my-pool
 
    Resource group     ID                                 Name
                                                          Default
 
-   Created                      2025-01-10T15:07:53+05:30   
-   Availability                 region   
-   Instance Group Supported     false   
-   SourceIP Session Supported   false   
-   Security groups supported    false   
-   UDP Supported                false   
-   Access mode                  private_path 
+   Created                      2025-01-10T15:07:53+05:30
+   Availability                 region
+   Instance Group Supported     false
+   SourceIP Session Supported   false
+   Security groups supported    false
+   UDP Supported                false
+   Access mode                  private_path
    ```
    {: screen}
 
@@ -308,7 +308,7 @@ To create a Private Path NLB with the API, follow these steps:
     {: pre}
 
    * `targetId` - Second, get the virtual server instance or application load balancer (ALB) that is in the same VPC as the subnet's:
-    
+
     ```bash
     export targetId=<your_target_id>
     ```
@@ -622,4 +622,4 @@ The following example creates a Private Path network load balancer with Terrafor
     ```
     {: codeblock}
 
-For documentation about Terraform resources, see the [Terraform Registry](https://registry.terraform.io/providers/IBM-Cloud/ibm/latest/docs/resources/is_vpc_routing_table).{: external}
+For documentation about Terraform resources, see the [Terraform Registry](https://registry.terraform.io/providers/IBM-Cloud/ibm/latest/docs/resources/is_private_path_service_gateway).{: external}
