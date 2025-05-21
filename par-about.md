@@ -106,10 +106,10 @@ If you're using the CLI or API to assign access, use **`is.public-address-range`
 | ----- | :----- | :----- |
 | `is.public-address-range.public-address-range.read` | Read a public address range | Administrator, Editor, Operator, Viewer |
 | `is.public-address-range.public-address-range.list` | List a public address range | Administrator, Editor, Operator, Viewer |
-| `is.public-address-range.public-address-range.create` \n \n Requires `is.vpc.vpc.operate` if the public address range is to be bound at the time of creation. | Create a public address range | Administrator, Editor|
+| `is.public-address-range.public-address-range.create`| Create a public address range | Administrator, Editor|
 | `is.public-address-range.public-address-range.update` \n \n | Modify a public address range | Administrator, Editor|
 | `is.public-address-range.public-address-range.operate` \n \n and `is.public-address-range.public-address-range.update` | Bind, unbind, or move a public address range | Administrator, Editor |
-| `is.public-address-range.public-address-range.delete` \n \n Requires `is.vpc.vpc.operate` if a public address range is bound at the time of deletion. | Delete a public address range | Administrator, Editor |
+| `is.public-address-range.public-address-range.delete` | Delete a public address range | Administrator, Editor |
 {: caption="Service actions - Public Address Ranges for VPC" caption-side="top"}
 {: tab-title="Actions"}
 {: tab-group="is.public-address-range"}
