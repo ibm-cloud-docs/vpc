@@ -1,8 +1,8 @@
 ---
 
 copyright:
-  years: 2022, 2024
-lastupdated: "2024-10-10"
+  years: 2022, 2025
+lastupdated: "2025-05-22"
 
 keywords: confidential computing, secure execution, hyper protect virtual server for vpc, terraform, tutorial, financial transaction
 
@@ -34,7 +34,7 @@ To complete this tutorial, you need to meet the following prerequisites:
 2.	[Create an API key](/docs/account?topic=account-userapikey) for your user identity.
 3.	[Install IBM Cloud CLI](/docs/cli?topic=cli-install-ibmcloud-cli) and the [container registry CLI plug-in](/docs/cli?topic=cli-containerregcli).
 4.	Create a [VPC and a subnet](/docs/vpc?topic=vpc-creating-a-vpc-using-the-ibm-cloud-console#creating-a-vpc-and-subnet) with a [public gateway](/docs/vpc?topic=vpc-create-public-gateways) and a [security group](https://cloud.ibm.com/infrastructure/network/securityGroups){: external} with rules that allow at least inbound IP connections on port 8443 and all outbound IP connections.
-5.	Create a [Log Analysis instance](https://cloud.ibm.com/catalog/services/logdna?callback=%2Fobserve%2Flogging%2Fcreate){: external} on IBM Cloud. Make a note of the ingestion host and the ingestion key.
+5.	Create a [Log Analysis instance](https://cloud.ibm.com/catalog/services/cloud-logs?callback=%252Fobservability%252Fapi%252Flogging%252Fcreate){: external} on IBM Cloud. Make a note of the ingestion host and the ingestion key.
 6.	Install [Git](https://github.com/git-guides/install-git){: external}.
 
 ## Estimated time 
