@@ -39,18 +39,18 @@ Reconfigure AESM to use the locally cached PCK certificate and restart the servi
 
 1. Configure  /etc/sgx_default_qcnl.conf
 
-```sh
- "use_secure_cert": false
- "local_cache_only": true
- ```
- {: codeblock}
+   ```sh
+    "use_secure_cert": false
+    "local_cache_only": true
+   ```
+   {: codeblock}
 
- 2. Restart `aesmd`
+ 1. Restart `aesmd`
 
-```sh
- systemctl restart aesmd
-```
-{: codeblock}
+   ```sh
+    systemctl restart aesmd
+   ```
+   {: codeblock}
 
 ## Enabling attestation for TDX
 {: #enabling-attestation-dcap-for-tdx}
