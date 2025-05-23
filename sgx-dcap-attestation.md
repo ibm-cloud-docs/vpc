@@ -45,7 +45,7 @@ Reconfigure AESM to use the locally cached PCK certificate and restart the servi
  ```
  {: codeblock}
 
- 1. Restart `aesmd`
+ 2. Restart `aesmd`
 
 ```sh
  systemctl restart aesmd
