@@ -2,7 +2,7 @@
 
 copyright:
   years: 2023, 2025
-lastupdated: "2025-05-19"
+lastupdated: "2025-05-23"
 
 keywords: sgx, intel sgx, software guard extension, confidential computing, attestation, DCAP, data center attestation primitives
 
@@ -28,7 +28,7 @@ Intel SGX helps protect data that is in use through application isolation techno
 ## Enabling attestation for SGX
 {: #enabling-attestation-dcap-for-sgx}
 
-The PCK certificate is available in the SGX virtual server, so you don't need to procure it from a PCCS service. This certificate is at `/root/.dcap-qcnl/*`.
+The PCK certificate is available in the SGX virtual server, so you don't need to procure it from a PCCS service. This certificate is at `/root/.dcap-qcnl/*`. A non-root user must copy the `/root/.dcap-qcnl/*` directory to their `$HOME` directory to use DCAP.
 
 Install DCAP and QCNL packages as specified by Intel.
 
@@ -48,9 +48,6 @@ service as shown in the following example.
  systemctl restart aesmd
 ```
 {: codeblock}
-
-A non-root user must copy the `/root/.dcap-qcnl/*` directory to their `$HOME` directory to use DCAP.
-{: note}
 
 ## Enabling attestation for TDX
 {: #enabling-attestation-dcap-for-tdx}

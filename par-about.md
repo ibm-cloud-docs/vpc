@@ -2,7 +2,7 @@
 
 copyright:
   years: 2025
-lastupdated: "2025-05-21"
+lastupdated: "2025-05-22"
 
 keywords: vpc, public address ranges, about
 
@@ -58,7 +58,6 @@ Review the following considerations before creating a public address range:
    {: note}
 
 * You can limit a public address range to specific resources within the VPC by configuring network ACLs, security groups, or a combination of both.
-
 * You can reserve a public address range with the following prefix sizes. For more information, review public address range [quotas and service limits](/docs/vpc?topic=vpc-quotas&interface=ui#par-quotas). 
    * `/28` = 16 addresses
    * `/29`  = 8 addresses
