@@ -2,7 +2,7 @@
 
 copyright:
   years: 2023, 2025
-lastupdated: "2025-04-02"
+lastupdated: "2025-05-23"
 
 keywords: sgx, intel sgx, software guard extension, confidential computing, trusted execution environment, TEE, data protection
 
@@ -107,4 +107,4 @@ Keep the following limitations in mind if you want to use SGX or TDX.
 * TDX limitations
    - When you force a reboot of a TDX-enabled virtual server, the virtual server shuts down. You must then restart this virtual server.
    - VNC-console is not supported.
-   - Serial-console is not supported.
+   - TDX doesn't support the `vsock` interface for Quote Generation. For Quote Generation, you must use `tdvmcal`.

@@ -35,16 +35,19 @@ Install DCAP and QCNL packages as specified by Intel.
 Install DCAP version 1.19 or greater since previous versions do not support locally cached certificates.
 {: note}
 
-Reconfigure AESM to use the locally cached PCK certificate and restart the
-service as shown in the following example.
+Reconfigure AESM to use the locally cached PCK certificate and restart the service as shown in the following example.
+
+1. Configure  /etc/sgx_default_qcnl.conf
 
 ```sh
- Configure  /etc/sgx_default_qcnl.conf
  "use_secure_cert": false
  "local_cache_only": true
+ ```
+ {: codeblock}
 
- and restart aesmd
+ 1. Restart `aesmd`
 
+```sh
  systemctl restart aesmd
 ```
 {: codeblock}
@@ -53,6 +56,9 @@ service as shown in the following example.
 {: #enabling-attestation-dcap-for-tdx}
 
 To enable attestation for TDX, follow the Intel instructions [Trust Domain at Runtime](https://cc-enabling.trustedservices.intel.com/intel-tdx-enabling-guide/07/trust_domain_at_runtime/){: external}.
+
+TDX doesn't support `vsock` interface for Quote Generation. For Quote Generation, you must use `tdvmcal`.
+{: note}
 
 ## SGX and TDX documentation from Intel
 {: #sgx-tdx-documentation-intel}

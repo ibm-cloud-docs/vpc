@@ -1,8 +1,8 @@
 ---
 
 copyright:
-  years: 2022, 2024
-lastupdated: "2024-10-24"
+  years: 2022, 2025
+lastupdated: "2025-05-23"
 
 keywords:
 
@@ -35,9 +35,9 @@ You can disable the service on an existing instance where it is enabled. See [En
 ## Use `iptables` firewall to limit access on Linux
 {: #imd-iptables}
 
-Use the `iptables` Linux firewall utility to create a barrier between the metadata service link local address (trusted network) and the internet (untrusted network). Defines rules that govern which traffic is allowed and which is blocked.
+Use the `iptables` Linux firewall utility to create a barrier between the metadata service link-local address (trusted network) and the internet (untrusted network). Defines rules that govern which traffic is allowed and which is blocked.
 
-The following example uses Linux `iptables` and its owner module, based on its default installation Apache ID, to prevent the Apache Web server from accessing the metadata link local address (169.254.169.254). It uses a deny rule to reject all instance metadata requests from any process that's running as that user.
+The following example uses Linux `iptables` and its owner module, based on its default installation Apache ID, to prevent the Apache Web server from accessing the metadata link-local address (169.254.169.254). It uses a deny rule to reject all instance metadata requests from any process that's running as that user.
 
 ```sh
 sudo iptables --append OUTPUT --proto tcp --destination 169.254.169.254 --match owner --uid-owner apache --jump REJECT
