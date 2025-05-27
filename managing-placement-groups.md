@@ -22,7 +22,7 @@ After the placement group is created, you can assign a selected virtual server i
 Placement groups can be managed with the UI, CLI, API, or Terraform. You can create extra placement groups, delete resources, and display the details of the placement groups, which are helpful when you assign placement groups to instances. Additionally, all existing placement groups can be listed and renamed if needed.
 
 ## Managing the placement group in the console
-{: #managing-placement-groups-console}
+{: #managing-placement-groups-UI}
 {: ui}
 
 You can manage a placement group in your {{site.data.keyword.vpc_short}} by using the {{site.data.keyword.cloud_notm}} console.
@@ -42,7 +42,7 @@ The VPC must exist before you create a placement group. If the VPC is not create
 {: important}
 
 ## Creating the placement group in the console
-{: #creating-placement-group-console}
+{: #creating-placement-group-UI}
 {: ui}
 
 You can create a placement group in your {{site.data.keyword.vpc_short}} by using the {{site.data.keyword.cloud_notm}} console. A placement group must be created first before an instance can use it. After a placement group is created, an instance can be attached to it during provisioning.
@@ -156,7 +156,7 @@ For more information about the `host_spread` and `power_spread` strategy variabl
 
 
 ## Changing the placement group name in the console
-{: #changing-placement-group-name-console}
+{: #changing-placement-group-name-UI}
 {: ui}
 
 You can update the name of a placement group in your {{site.data.keyword.vpc_short}} by using the {{site.data.keyword.cloud_notm}} console.

@@ -33,7 +33,7 @@ Depending on the size of the image that you're creating, the job might take from
 {: note}
 
 ## Creating an image from a volume in the console
-{: #create-image-from-volume-vpc-console}
+{: #create-image-from-volume-vpc-ui}
 {: ui}
 
 You can create an image from a volume that is attached to an available virtual server instance as a boot volume in the console.
