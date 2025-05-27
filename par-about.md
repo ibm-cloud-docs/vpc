@@ -2,7 +2,7 @@
 
 copyright:
   years: 2025
-lastupdated: "2025-05-22"
+lastupdated: "2025-05-27"
 
 keywords: vpc, public address ranges, about
 
@@ -121,15 +121,15 @@ If you're using the CLI or API to assign access, use **`is.public-address-range`
 
 Public address ranges help customers simplify the integration of network and security appliances into their network topology to run their workloads on a VPC. This provides more control over routing, security, and traffic management, enabling solutions that enhance network performance and security.
 
-### Secure your workloads in VPC
+### Securing your workloads in VPC
 {: #secure-workloads-vpc}
 
-To manage access to sensitive data effectively, firewalls automatically detect and handle threats using policy-based routing for enhanced security. Define routing rules for public endpoints to redirect ingress traffic to third-party appliances before it reaches the final destination. This makes it easier for customers to deploy production-grade applications with the networking and security services they require in their VPC.
+To manage access to sensitive data effectively, firewalls automatically detect and handle threats using policy-based routing for enhanced security. You can define public address ranges to expose specific services or applications, enabling controlled ingress into the VPC. Define routing rules for public endpoints to redirect ingress traffic to third-party appliances before it reaches the final destination. This approach simplifies the deployment of production-grade applications with the networking and security services required in a VPC.
 
-### Deploy highly-available and resilient workloads in VPC
+### Deploying highly-available and resilient workloads in VPC
 {: #deploy-ha-resilient-workloads-vpc}
 
-In the event of a zonal failure, customers can reroute internet traffic for monitoring and inspection to a VNF appliance deployed in another zone, providing highly available workloads in their VPC.
+To ensure workload resilience, you can use public address ranges to maintain consistent access to services during zonal failures. In the event of a zonal failure, internet traffic for monitoring and inspection can be rerouted to a virtual network function (VNF) appliance deployed in another zone, maintaining high availability within the VPC.
     
 ## Related links
 {: #par-related-links}
