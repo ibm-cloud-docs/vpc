@@ -2,7 +2,7 @@
 
 copyright:
   years: 2022, 2025
-lastupdated: "2025-04-30"
+lastupdated: "2025-05-27"
 
 keywords:
 
@@ -21,17 +21,17 @@ You can create a trusted profile for compute resource identities in {{site.data.
 ## About trusted profiles for compute resource identities
 {: #imd-compute-res-identity}
 
-Trusted profiles for compute resource identities allow for fine-grained authorization for all applications that run in a virtual server instance. They eliminate the need for creating service IDs or managing API key lifecycles for applications. Instead, compute resources become identities as part of a trusted profile, and trust is established through conditions based on resource attributes. 
+Trusted profiles for compute resource identities allow for fine-grained authorization for all applications that run in a virtual server instance. They eliminate the need for creating service IDs or managing API key lifecycles for applications. Instead, compute resources become identities as part of a trusted profile, and trust is established through conditions based on resource attributes.
 
 You can assign an IAM identity directly to the instance and acquire an instance identity access token. So the applications that are running on the virtual server instance can securely access other IBM Cloud services with the identity access token without storing API keys.
 
-The compute resource identity service creates the trusted profile, then you can assign access rights to the trusted profile to enable the instance to call IAM-enabled services, such as {{site.data.keyword.cos_full_notm}} and {{site.data.keyword.keymanagementservicelong}}. 
+You can assign access rights to the trusted profile to enable the instance to call IAM-enabled services, such as {{site.data.keyword.cos_full_notm}} and {{site.data.keyword.keymanagementservicelong}}.
 
-You link a trusted profile when you provision an instance. Trusted profiles define authorization for all applications that are running on the instance.
+You can link a trusted profile when you provision an instance. You can also link trusted profiles to an instance after it is provisioned. Trusted profiles define authorization for all applications that are running on the instance.
 
-The trusted profile that you specify when you provision the instance becomes the default trusted profile.
+The trusted profile that you specify when you provision the instance becomes the default trusted profile. Trusted profiles linked after the instance is provisioned might define more authorizations, but they cannot replace or become the default trusted profile for the instance.
 
-The instance inherits the access rights that are defined in the default trusted profile. VPC uses that trusted profile for any instance identity request to generate an IAM token from an instance identity access token, where the token generation request does not specify a trusted profile.
+The instance inherits the access rights that are defined in all the trusted profiles that are linked to the instance. For any instance identity request that doesn't specify a trusted profile, VPC generates an IAM token from an instance identity access token that uses the default trusted profile. If you don't want to use the instance's default trusted profile used for these requests, you must specify the trusted profile that you want to be used for the instance identity request.
 
 ## Before you begin
 {: #imd-byb-identities-procedure}
@@ -87,7 +87,7 @@ Default trusted profiles cannot be changed on existing instances. A default trus
 
 2. Create the instance and specify a default trusted profile while you provision the instance. With the VPC API, set the `auto_link` property to `true` to automatically link the trusted profile to the instance. Specify the trusted profile ID or the CRN of the trusted profile. See the following example.
    ```sh
-   curl -X POST "$vpc_api_endpoint/v1/instances?version=2025-04-22&generation=2" -H "Authorization: Bearer $iam_token" 
+   curl -X POST "$vpc_api_endpoint/v1/instances?version=2025-04-22&generation=2" -H "Authorization: Bearer $iam_token"
    -d '{
         "default_trusted_profile": {
            "auto_link": true,
@@ -101,13 +101,13 @@ Default trusted profiles cannot be changed on existing instances. A default trus
         }'
    ```
    {: codeblock}
-   
+
    For more information, see the API VPC reference: [Create an instance](/apidocs/vpc/latest#create-instance).
 
 3. Obtain an instance identity access token and create an environment variable for it:
    1. Log in to IBM Cloud CLI.
    1. Go to an existing instance. Use `ibmcloud is instances` to locate a running instance in which to enable the metadata service. The instance must be associated with a VPC. The instance can be running a stock or a custom image. The metadata service is supported on all stock and custom images, and CPU profiles.
-   1. [Make an SSH connection to the virtual server instance](/docs/vpc?topic=vpc-creating-virtual-servers&interface=ui#next-steps-after-creating-virtual-servers-ui) to log in. 
+   1. [Make an SSH connection to the virtual server instance](/docs/vpc?topic=vpc-creating-virtual-servers&interface=ui#next-steps-after-creating-virtual-servers-ui) to log in.
    1. From the virtual server instance, make an API request to the metadata token service to retrieve an instance identity access token. Specify how long the token is valid, for example 3600 seconds (1 hour). In this example, the command is run through the `jq` parser to format the JSON response. You can choose another parser if you prefer.
       ```sh
       curl -X PUT "$vpc_metadata_api_endpoint/instance_identity/v1/token?version=2025-04-22" -H "Metadata-Flavor: ibm" -d '{"expires_in": 3600}'| jq -r '(.instance_identity_token)'
