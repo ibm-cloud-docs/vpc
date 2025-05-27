@@ -1,7 +1,7 @@
 ---
 copyright:
-  years: 2022, 2024
-lastupdated: "2024-10-10"
+  years: 2022, 2025
+lastupdated: "2025-05-27"
 
 
 keywords: vsi, virtual server instances, profile, profiles, balanced, compute, memory, ultra high memory, storage optimized
@@ -152,7 +152,7 @@ Ensure that you select a secure execution enabled profile (for example, mz2e-2x1
 {: #vs-bandwidth-allocation-ui}
 {: ui}
 
-Instance bandwidth is allocated between volume bandwidth and networking bandwidth. The bandwidth capacity (Bandwidth Cap) is determined by the virtual server profile that you select during instance provisioning. For example, a bx2-2x8 balanced server profile allows a bandwidth cap of 4 Gbps. The initial volume and network bandwidth allocation depends on the bandwidth set by the instance profile you selected. You can also see the bandwidth allocations in the profile information during instance creation in the UI. The bandwidth allocation can be changed on the instance details page after provisioning an instance.
+Instance bandwidth is allocated between volume bandwidth and networking bandwidth. The bandwidth capacity (Bandwidth Cap) is determined by the virtual server profile that you select during instance provisioning. For example, a bx2-2x8 balanced server profile allows a bandwidth cap of 4 Gbps. The initial volume and network bandwidth allocation depends on the bandwidth set by the instance profile you selected. You can also see the bandwidth allocations in the profile information during instance creation in the console. The bandwidth allocation can be changed on the instance details page after provisioning an instance.
 
 For example, for the bz2-2x8 profile you might have:
 
@@ -218,7 +218,7 @@ The fourth character is an "e", such as bz2e, which identifies the profile as a 
 
 Using “bz2-4x16” as an example, you can know from the name that it is a balanced profile that provides 4 vCPUs of compute and 16 GiB of memory. The profile is deployed on an s390x host and is for the second-generation VPC.
 
-### Viewing instance profiles in the UI
+### Viewing instance profiles in the console
 {: #vs-profiles-using-console}
 {: ui}
 

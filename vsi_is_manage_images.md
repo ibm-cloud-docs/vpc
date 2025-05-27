@@ -456,7 +456,7 @@ You can share a custom image only to a private catalog from {{site.data.keyword.
 
 You can share a custom image only to a private catalog from {{site.data.keyword.vpc_short}} by using the UI. For more information about onboarding to a private catalog by using the Terraform, see [Onboarding software to your account](/docs/account?topic=account-create-private-catalog&interface=terraform).
 
-## Schedule a custom image lifecycle status change in the UI
+## Schedule a custom image lifecycle status change in the console
 {: #schedule-ilm-status-change-ui}
 {: ui}
 

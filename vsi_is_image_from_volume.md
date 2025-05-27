@@ -31,12 +31,12 @@ With {{site.data.keyword.iamshort}} (IAM), you can securely authenticate users f
 
 | Operation                          | Action                      |  IAM access roles     |   API method      |
 |------------------------------------|-----------------------------|-----------------------|------------------|
-| Create an instance                 | is.instance.instance.create | Administrator, Editor| `POST /instances` | 
+| Create an instance                 | is.instance.instance.create | Administrator, Editor| `POST /instances` |
 | List all instances                 | is.instance.instance.list   | Administrator, Editor, Operator, Viewer |`GET /instances`|
-| Create an image from a boot volume | is.image.image.create       | Administrator, Editor| `POST /images` | 
+| Create an image from a boot volume | is.image.image.create       | Administrator, Editor| `POST /images` |
 | List all images                    | is.image.image.list         | Administrator, Editor, Operator, Viewer | `GET /images` |
 | Delete image                       | is.image.image.delete       | Administrator, Editor| `DELETE /images` |
-| Schedule deprecation               | is.image.image.deprecate    | Administrator, Editor| `POST /images` with `deprecation_at` value specified| 
+| Schedule deprecation               | is.image.image.deprecate    | Administrator, Editor| `POST /images` with `deprecation_at` value specified|
 | Schedule obsolescence              | is.image.image.obsolete     | Administrator, Editor | `POST /images` with `obsolescence_at` value specified|
 {: caption="IAM user permissions" caption-side="bottom"}
 
@@ -84,6 +84,6 @@ When you create an image from a volume, you have the following encryption choice
 ## Next steps
 {: #ifv-next-steps}
 
-* Check out the [Creating a custom image from volume and provisioning an instance in the UI](/docs/vpc?topic=vpc-creating-and-using-an-image-from-volume) tutorial.
+* Check out the [Creating a custom image from volume and provisioning an instance in the console](/docs/vpc?topic=vpc-creating-and-using-an-image-from-volume) tutorial.
 * [Create an image from a volume](/docs/vpc?topic=vpc-create-ifv).
 * [Troubleshooting custom images](/docs/vpc?topic=vpc-ifv-troubleshooting-custom-images).

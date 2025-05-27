@@ -1,7 +1,7 @@
 ---
 copyright:
-  years: 2021, 2024
-lastupdated: "2024-10-10"
+  years: 2021, 2025
+lastupdated: "2025-05-27"
 
 keywords: virtual private cloud, private cloud network, placement group, placement group strategy, host spread, power spread, generation 2, gen 2
 
@@ -21,8 +21,8 @@ After the placement group is created, you can assign a selected virtual server i
 
 Placement groups can be managed with the UI, CLI, API, or Terraform. You can create extra placement groups, delete resources, and display the details of the placement groups, which are helpful when you assign placement groups to instances. Additionally, all existing placement groups can be listed and renamed if needed.
 
-## Managing the placement group in the UI
-{: #managing-placement-groups-UI}
+## Managing the placement group in the console
+{: #managing-placement-groups-console}
 {: ui}
 
 You can manage a placement group in your {{site.data.keyword.vpc_short}} by using the {{site.data.keyword.cloud_notm}} console.
@@ -41,8 +41,8 @@ To complete management tasks on your placement groups, complete the following st
 The VPC must exist before you create a placement group. If the VPC is not created first, you receive an error when you create the placement group and the placement group is not created.
 {: important}
 
-## Creating the placement group in the UI
-{: #creating-placement-group-UI}
+## Creating the placement group in the console
+{: #creating-placement-group-console}
 {: ui}
 
 You can create a placement group in your {{site.data.keyword.vpc_short}} by using the {{site.data.keyword.cloud_notm}} console. A placement group must be created first before an instance can use it. After a placement group is created, an instance can be attached to it during provisioning.
@@ -155,8 +155,8 @@ resource "ibm_is_placement_group" "is_placement_group" {
 For more information about the `host_spread` and `power_spread` strategy variables, see [Create a placement group](/apidocs/vpc/latest#create-placement-group) in the Virtual Private Cloud API documentation.
 
 
-## Changing the placement group name in the UI
-{: #changing-placement-group-name-ui}
+## Changing the placement group name in the console
+{: #changing-placement-group-name-console}
 {: ui}
 
 You can update the name of a placement group in your {{site.data.keyword.vpc_short}} by using the {{site.data.keyword.cloud_notm}} console.

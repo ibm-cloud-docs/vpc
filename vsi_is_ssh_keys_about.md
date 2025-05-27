@@ -1,8 +1,8 @@
 ---
 
 copyright:
-  years: 2018, 2024
-lastupdated: "2024-10-10"
+  years: 2018, 2025
+lastupdated: "2025-05-27"
 
 keywords: ssh public keys, OpenSSH, add ssh key, ssh key, manage ssh key, generate ssh key, locate ssh key
 
@@ -21,7 +21,7 @@ When you create a server, you must select an existing SSH key or generate an SSH
 Creating a server with a password option for connecting isn't supported. You must specify an SSH key when you provision the server and use the private key to connect to the server.
 {: requirement}
 
-## Supported SSH key types: RSA and ED25519 in the UI
+## Supported SSH key types: RSA and ED25519 in the console
 {: #ssh-key-types-ui}
 {: ui}
 
@@ -74,7 +74,7 @@ On {{site.data.keyword.vpc_short}}, RSA is the default SSH key type. You can sel
 * For Windows or VMware images, you must use the RSA SSH key type. The ED25519 SSH key type can't be used with Windows or VMware images.
 * For Linux images, the ED25519 SSH key type can be used only if the SSH server for the operating system supports that key type.
 
-You can't create SSH keys within the API, you can import only an existing SSH key. You can generate a new RSA SSH key pair within the UI. You have the option when you create an SSH key to copy the API code snippet for that key.
+You can't create SSH keys within the API, you can import only an existing SSH key. You can generate a new RSA SSH key pair within the console. You have the option when you create an SSH key to copy the API code snippet for that key.
 
 In the API, you can specify which type of key by using the `type` variable. The default `type` is RSA. If you try to import an ED25519 SSH key and don't specify the `ed25519` key type, the process fails.
 
@@ -98,7 +98,7 @@ On {{site.data.keyword.vpc_short}}, RSA is the default SSH key type. You can sel
 * For Windows or VMware images, you must use the RSA SSH key type. The ED25519 SSH key type can't be used with Windows or VMware images.
 * For Linux images, the ED25519 SSH key type can be used only if the SSH server for the operating system supports that key type.
 
-You can't create SSH keys within Terraform, you can import only an existing SSH key. You can generate a new RSA SSH key pair within the UI.
+You can't create SSH keys within Terraform, you can import only an existing SSH key. You can generate a new RSA SSH key pair within the console.
 
 In Terraform, you can specify which type of key by using the `type` variable. The default type is `rsa`. If you try to import the ED25519 SSH key and don't specify the `ed25519` key type, the process fails.
 
@@ -192,7 +192,7 @@ Use the following steps to create an SSH key. You can create only an RSA SSH key
    | Resource group | Select a resource group for the SSH key. |
    | Tags | You can assign a user tag to the SSH key so that you can easily filter a list of SSH keys. For more information, see [Working with tags](/docs/account?topic=account-tag&interface=ui).|
    | Access management tags | Access management tags help you apply flexible access policies on specific resources. For more information, see the [Controlling access to resources by using tags](/docs/account?topic=account-access-tags-tutorial) UI tutorial. |
-   | SSH key type | The default value is `rsa`. You can generate new RSA key pairs in the UI. Pre-existing RSA and ED25519 SSH keys can be uploaded. ED25519 can be used only if the operating system supports this key type. ED25519 can't be used with Windows or VMware images. |
+   | SSH key type | The default value is `rsa`. You can generate new RSA key pairs in the console. Pre-existing RSA and ED25519 SSH keys can be uploaded. ED25519 can be used only if the operating system supports this key type. ED25519 can't be used with Windows or VMware images. |
    {: caption="Creating an SSH key for VPC selections" caption-side="bottom"}
 
 1. Select **Generate a key pair for me**.
@@ -248,7 +248,7 @@ ibmcloud is key-create KEY_NAME (KEY | @KEY_FILE) [--resource-group-id RESOURCE_
 {: #import-ssh-keys-api}
 {: api}
 
-To import an SSH key by using the API, use the [Create a key](/apidocs/vpc/latest#create-key). You can't create an SSH key by using the API. However, you can create an SSH key in the console and from the UI, generate the API code snippet that you need that includes the new SSH key. If you use the UI, make sure you save the SSH key that you create in the UI before you generate the API code snippet.
+To import an SSH key by using the API, use the [Create a key](/apidocs/vpc/latest#create-key). You can't create an SSH key by using the API. However, you can create an SSH key in the console and from the UI, generate the API code snippet that you need that includes the new SSH key. If you use the UI, make sure you save the SSH key that you create in the console before you generate the API code snippet.
 
 For the `name` property, specify the name of the SSH key. For `public_key` property, enter in the public key information. For the `type` property, specify either `rsa` or `ed25519` for the SSH key type.
 

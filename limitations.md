@@ -1,8 +1,8 @@
 ---
 
 copyright:
-  years: 2018, 2024
-lastupdated: "2024-10-09"
+  years: 2018, 2025
+lastupdated: "2025-05-27"
 
 keywords: limitations, restrictions
 
@@ -54,7 +54,7 @@ An {{site.data.keyword.vpc_short}} cannot be peered with other VPCs natively. It
 ## Compute restrictions
 {: #compute-restrictions}
 
-* Start and Stop actions are not registered under virtual server instance activity in the UI.
+* Start and Stop actions are not registered under virtual server instance activity in the console.
 * The placement group of the instance can't be changed after an instance is provisioned with a placement group. You must delete the instance to remove it from the placement group.
 * API support for creating new instances from an existing boot volume is temporarily suspended. For more information, see the [API change log](/docs/vpc?topic=vpc-api-change-log).
 

@@ -2,7 +2,7 @@
 
 copyright:
   years: 2018, 2025
-lastupdated: "2025-04-29"
+lastupdated: "2025-05-27"
 
 keywords:
 
@@ -49,7 +49,7 @@ Known issues might change over time, so check back occasionally.
 ### Custom images in a private catalog known issue
 {: #custom-images-private-catalog-known-issues}
 
-**Issue:** If you imported one or more images into a virtual server image for VPC catalog product offering version and you edit that version, an extra version ending in "draft" is created. You can't provision an instance from this draft version. Draft versions might appear on the Virtual server instance creation page in the UI or in the output of the CLI command `ibmcloud is catalog-image-offering`.
+**Issue:** If you imported one or more images into a virtual server image for VPC catalog product offering version and you edit that version, an extra version ending in "draft" is created. You can't provision an instance from this draft version. Draft versions might appear on the Virtual server instance creation page in the console or in the output of the CLI command `ibmcloud is catalog-image-offering`.
 
 ## Bare metal servers known issues and limitations
 {: #bare-metal-servers-known-issues-limitations}

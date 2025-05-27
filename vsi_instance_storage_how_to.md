@@ -19,7 +19,7 @@ Instance storage provides fast, affordable, temporary storage that can improve t
 
 To provision an instance storage disk with your virtual server instance, select a profile that includes instance storage. The instance storage disk devices can't be live attached or detached because they are purchased as part of the instance profile itself. The general-purpose profile families (Balanced, Compute, and Memory) and some specialty profile families (Very High Memory and Storage Optimized) all have profile options with instance storage. All 3rd generation instance profiles include instance storage. For more information, see [3rd generation instance profiles](/docs/vpc?topic=vpc-profiles#next-gen-profiles). The amount of instance storage is proportionally allocated based on the number of vCPUs assigned to the profile. For more information about profiles, see [x86-64 instance profiles](/docs/vpc?topic=vpc-profiles&interface=ui).
 
-## Provisioning a Virtual Server Instance with instance storage in the UI
+## Provisioning a Virtual Server Instance with instance storage in the console
 {: #instance-storage-create-vsi-ui}
 {: ui}
 
