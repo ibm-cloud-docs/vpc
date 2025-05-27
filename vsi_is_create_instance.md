@@ -2,7 +2,7 @@
 
 copyright:
   years: 2018, 2025
-lastupdated: "2025-05-26"
+lastupdated: "2025-05-27"
 
 keywords:
 
@@ -45,7 +45,7 @@ Use the following steps to create a virtual server instance.
    |-------|-------|
    | Stock image | Select from available stock images and click **Save**. \n - For more information about available stock images, see [x86 virtual server images](/docs/vpc?topic=vpc-about-images) and [s390x virtual server images](/docs/vpc?topic=vpc-vsabout-images). All operating system images use cloud-init that you can use to enter user metadata that is associated with the instance for post-provisioning scripts. Metadata isn't supported for {{site.data.keyword.cloud}} Hyper Protect Virtual Server for {{site.data.keyword.vpc_full}} instances and z/OS virtual server instances. \n - If you plan to use Windows operating systems with SQL Server, see the [About Microsoft SQL on VPC](/docs/microsoft?topic=microsoft-mssql-about).  |
    | Custom image  | Select from available custom images and click **Save**. If no custom images are available, click **Create**. \n - A custom image can be an image that you customize and upload to {{site.data.keyword.cos_full_notm}}, which you can then import into {{site.data.keyword.vpc_short}}. For more information about custom images, see [Getting started with custom images](/docs/vpc?topic=vpc-planning-custom-images). \n - You can also use a custom image that was created from a boot volume. For more information about creating an image from a volume, see [About creating an image from a volume](/docs/vpc?topic=vpc-image-from-volume-vpc). \n - You can also select either an RHEL or Windows custom image and bring your own license (BYOL). For more information about creating BYOL custom images, see [Bring your own license](/docs/vpc?topic=vpc-byol-vpc-about). |
-   | Catalog image | After you select an available catalog image, click **Select version and pricing plan**, choose the version and pricing plan, and then click **Save**. \n - A catalog image is a custom image that is imported into a private catalog. For more information about catalog images, see [VPC considerations for custom images in a private catalog](/docs/vpc?topic=vpc-custom-image-cloud-private-catalog&interface=ui). \n **Note:** If you select a catalog image that belongs to a different account, you have more considerations and limitations to review. See [Using cross-account image references in a private catalog in the UI](/docs/vpc?topic=vpc-custom-image-cloud-private-catalog&interface=ui#private-catalog-image-reference-vpc-ui). \n - To create a private catalog, see the tutorial [Onboarding a virtual server image for VPC](/docs/account?topic=account-catalog-vsivpc-tutorial&interface=ui).|
+   | Catalog image | After you select an available catalog image, click **Select version and pricing plan**, choose the version and pricing plan, and then click **Save**. \n - A catalog image is a custom image that is imported into a private catalog. For more information about catalog images, see [VPC considerations for custom images in a private catalog](/docs/vpc?topic=vpc-custom-image-cloud-private-catalog&interface=ui). \n **Note:** If you select a catalog image that belongs to a different account, you have more considerations and limitations to review. See [Using cross-account image references in a private catalog in the console](/docs/vpc?topic=vpc-custom-image-cloud-private-catalog&interface=ui#private-catalog-image-reference-vpc-ui). \n - To create a private catalog, see the tutorial [Onboarding a virtual server image for VPC](/docs/account?topic=account-catalog-vsivpc-tutorial&interface=ui).|
    | Snapshot | Select either **Import existing snapshot** or **Import snapshot by CRN**. [Updated]{: tag-new}Then, choose a snapshot of a boot volume, and click **Save**. If no snapshots are available, click **Create**. \n - Filter the list of snapshots for [fast restore](/docs/vpc?topic=vpc-snapshots-vpc-restore&interface=ui#snapshots-vpc-use-fast-restore). With this option, you can create the boot volume quickly by using a snapshot that is cached in a different zone of your region. For more information about restoring a volume from a snapshot, see [Restoring a volume from a snapshot](/docs/vpc?topic=vpc-snapshots-vpc-restore). \n - If you're using the CRN of a snapshot from another account, make sure that the right [IAM authorizations](/docs/vpc?topic=vpc-block-s2s-auth&interface=ui#block-s2s-auth-xaccountrestore-ui) are in place. |
    | Existing volume | Select an existing boot volume that is not attached to an instance and click **Save**.  |
    {: caption="Instance provisioning image, snapshot, or volume selections" caption-side="bottom"}
@@ -101,7 +101,7 @@ Use the following steps to create a virtual server instance.
 
 6. Click **Create virtual server instance** when you are ready to provision.
 
-## Next steps after an instance is created in the UI
+## Next steps after an instance is created in the console
 {: #next-steps-after-creating-virtual-servers-ui}
 {: ui}
 

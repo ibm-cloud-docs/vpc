@@ -40,7 +40,7 @@ Custom images in a private catalog have the following restrictions:
 * Can exist in only one version of one catalog product offering in one private catalog at a time
 * Must be in `available` status
 
-## Using cross-account image references in a private catalog in the UI
+## Using cross-account image references in a private catalog in the console
 {: #private-catalog-image-reference-vpc-ui}
 {: ui}
 

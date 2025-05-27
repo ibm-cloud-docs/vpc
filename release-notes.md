@@ -2,7 +2,7 @@
 
 copyright:
   years: 2019, 2025
-lastupdated: "2025-05-21"
+lastupdated: "2025-05-27"
 
 keywords:
 
@@ -171,7 +171,7 @@ Montreal region now available
 {: release-note}
 
 Backup pool support for load balancers
-:   You can now manage potential failures in your environment by assigning a failover pool to an existing pool. For more information, refer to [Creating an application load balancer in the UI](/docs/vpc?topic=vpc-load-balancers&interface=ui#lb-ui-creating-network-load-balancer).
+:   You can now manage potential failures in your environment by assigning a failover pool to an existing pool. For more information, refer to [Creating an application load balancer in the console](/docs/vpc?topic=vpc-load-balancers&interface=ui#lb-ui-creating-network-load-balancer).
 
 ### 4 March 2025
 {: #vpc-mar0425}
@@ -527,7 +527,7 @@ Sharing file share data between accounts and services
 {: release-note}
 
 Update firmware on Bare Metal Servers for VPC (GA)
-:  The new Update firmware action on Bare Metal Servers for VPC is now generally available. You can see if a firmware update is available for your bare metal server and also initiate the update. You can use the UI, CLI, and API to update the firmware. In the UI, this action is only visible if the server is stopped and there is a firmware update available. It is recommended to back up your bare metal server before any firmware update. For more information, see [Managing Bare Metal Servers for VPC](/docs/vpc?topic=vpc-managing-bare-metal-servers&interface=ui).
+:  The new Update firmware action on Bare Metal Servers for VPC is now generally available. You can see if a firmware update is available for your bare metal server and also initiate the update. You can use the UI, CLI, and API to update the firmware. In the console, this action is only visible if the server is stopped and there is a firmware update available. It is recommended to back up your bare metal server before any firmware update. For more information, see [Managing Bare Metal Servers for VPC](/docs/vpc?topic=vpc-managing-bare-metal-servers&interface=ui).
 
 ### 20 June 2024
 {: #vpc-jun2024}
@@ -573,7 +573,7 @@ Network boot of operating systems with Bare Metal Servers for VPC (GA)
 {: release-note}
 
 Update firmware on Bare Metal Servers for VPC (beta)
-:   With the new Update firmware action on Bare Metal Servers for VPC, you can see if a firmware update is available for your bare metal server and also initiate the update. You can use the UI, CLI, and API to update the firmware. In the UI, this action is only visible if the server is stopped and there is a firmware update available. It is recommended to back up your bare metal server before any firmware update. For more information, see [Managing Bare Metal Servers for VPC](/docs/vpc?topic=vpc-managing-bare-metal-servers&interface=ui).
+:   With the new Update firmware action on Bare Metal Servers for VPC, you can see if a firmware update is available for your bare metal server and also initiate the update. You can use the UI, CLI, and API to update the firmware. In the console, this action is only visible if the server is stopped and there is a firmware update available. It is recommended to back up your bare metal server before any firmware update. For more information, see [Managing Bare Metal Servers for VPC](/docs/vpc?topic=vpc-managing-bare-metal-servers&interface=ui).
 
 Protocol state filtering on virtual network interfaces can be updated
 :   Protocol state filtering works well if the packet forwarding path and the return path are the same, and if the packet forwarding path is never changed. However, the VPC routing table supports two-way ECMP routes. When a two-way ECMP route is configured, the forward path might differ from the return path and protocol state filtering can cause legitimate packets to drop. You can now disable protocol state filtering when intermittent routing issues occur. For more information, see [Protocol state filtering mode](/docs/vpc?topic=vpc-vni-about#protocol-state-filtering).
@@ -721,7 +721,7 @@ Private Path Services for VPC (Beta)
 {: release-note}
 
 UI Enhancement to SSH Keys
-:   The UI process for uploading SSH keys is improved where you **Select SSH key input method**. Improvements were made to the ability to copy and paste, drag and drop, and the upload buttons. Previously, these three actions were all individually located. These actions are now combined to use the same space within the UI.
+:   The UI process for uploading SSH keys is improved where you **Select SSH key input method**. Improvements were made to the ability to copy and paste, drag and drop, and the upload buttons. Previously, these three actions were all individually located. These actions are now combined to use the same space within the console.
 
 ### 15 March 2024
 {: #vpc-mar1524}
@@ -1505,7 +1505,7 @@ End of support (EOS) for deprecated VPN for VPC IKE and IPsec ciphers
    - Encryption algorithm `triple_des`
    - Diffie–Hellman groups `2` and `5`
 
-   Effective today, these ciphers are no longer supported in the UI and EOS for use with the CLI and API is forthcoming. If you didn't upgrade to more secure ciphers, do so now.
+   Effective today, these ciphers are no longer supported in the console and EOS for use with the CLI and API is forthcoming. If you didn't upgrade to more secure ciphers, do so now.
 
 
 ## December 2022
@@ -1621,7 +1621,7 @@ Windows BYOL for multi-tenant hosts
 VPC Public Ingress Routing
 :   You can now route public internet ingress traffic (destined to a floating IP) to a VPC next-hop IP. For more information, see [Creating a routing table](/docs/vpc?topic=vpc-create-vpc-routing-table) and limitations and guidelines for [Ingress routes](/docs/vpc?topic=vpc-about-custom-routes&interface=ui#routes-ingress).
 
-   Currently, public ingress routing (`public internet` traffic choice) is available in the UI and API only. CLI is forthcoming.
+   Currently, public ingress routing (`public internet` traffic choice) is available in the console and API only. CLI is forthcoming.
    {: note}
 
 Flow Logs for VPC

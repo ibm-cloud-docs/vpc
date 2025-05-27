@@ -32,8 +32,8 @@ You can create an image from a volume in several ways.
 Depending on the size of the image that you're creating, the job might take from 5 minutes to 1.5 hours. You can cancel a job that's taking too long to queue. For more information, see [Performance considerations](/docs/vpc?topic=vpc-image-from-volume-vpc-manage#ifv-performance).
 {: note}
 
-## Creating an image from a volume in the UI
-{: #create-image-from-volume-vpc-ui}
+## Creating an image from a volume in the console
+{: #create-image-from-volume-vpc-console}
 {: ui}
 
 You can create an image from a volume that is attached to an available virtual server instance as a boot volume in the console.
@@ -60,7 +60,7 @@ To create an image of the boot volume, the associated virtual server instance mu
    | Source | Select the source for the custom image by choosing either **Virtual server instance boot volume** (default) or **Block Storage boot volume**. |
    {: caption="Import custom image user interface fields" caption-side="bottom"}
 
-4. Choose your image source: 
+4. Choose your image source:
    * Select the **Virtual server instance boot volume** as the source of your custom image to display a list of available instances.
        - Select the instance from the list.
        - If the instance is running and the volume selector is disabled, click the **Actions** icon ![Actions icon](../icons/action-menu-icon.svg "Actions") and select **Stop**.
@@ -69,7 +69,7 @@ To create an image of the boot volume, the associated virtual server instance mu
        - Select the volume from the list.
        - If the volume selector is disabled, click the **Actions** icon ![Actions icon](../icons/action-menu-icon.svg "Actions") and select **Stop attached instance**.
 
-5. Select your encryption type, either IBM-managed encryption or customer-managed encryption. 
+5. Select your encryption type, either IBM-managed encryption or customer-managed encryption.
 
    * The default selection is **Provider managed**. This encryption uses IBM-managed keys. You can't remove encryption later.
    * If you want to create an image that uses your own keys for encryption select the key management service where your customer root key (CRK) that protects your passphrase is stored: either **Key Protect** or **Hyper Protect Crypto Services**. Then, you can specify your key in two ways.
@@ -96,7 +96,7 @@ When the image is created, it appears in the list of custom images.
 To use this image when you create an instance, select it as the operating system type.
 
 1. In the [{{site.data.keyword.cloud_notm}} console](/login){: external}, go to the **menu ![menu icon](../icons/icon_hamburger.svg) > VPC Infrastructure![VPC icon](../../icons/vpc.svg) > Compute > Virtual server instances**.
-2. Click **Create**. For more information about how to provision a new virtual server instance, see [Creating virtual server instances in the UI](/docs/vpc?topic=vpc-creating-virtual-servers). For the **Operating system**, select the **Custom image** tile.
+2. Click **Create**. For more information about how to provision a new virtual server instance, see [Creating virtual server instances in the console](/docs/vpc?topic=vpc-creating-virtual-servers). For the **Operating system**, select the **Custom image** tile.
 3. Click **Select custom image** and select the image from volume that you created.
 
 ## Create an image from a volume with the CLI
@@ -215,7 +215,7 @@ Before you begin, make sure that you [set up your API environment](/docs/vpc?top
       curl -X GET "$vpc_api_endpoint/v1/instances/$instance_id?version=2024-06-11&generation=2" -H "Authorization: Bearer $iam_token"
       ```
       {: pre}
-    
+
       The response contains the name, ID, and other details of the boot volume in the `volume_attachments` section.
 
       ```json
@@ -249,8 +249,8 @@ Before you begin, make sure that you [set up your API environment](/docs/vpc?top
 
 1. By using the boot volume ID, [create an image](/apidocs/vpc/latest#create-image). See the following example:
       ```sh
-       curl -X POST "$vpc_api_endpoint/v1/images?version=2024-06-11&generation=2" 
-       -H "Authorization: Bearer $iam_token" 
+       curl -X POST "$vpc_api_endpoint/v1/images?version=2024-06-11&generation=2"
+       -H "Authorization: Bearer $iam_token"
        -d '{
             "name": "my-image",
             "source_volume": {"id": "4fec84ef-baf9-405d-bf3b-9d5a60e068f7"}
@@ -306,8 +306,8 @@ Before you begin, make sure that you [set up your API environment](/docs/vpc?top
 
 1. Make an API request to [create an image](/apidocs/vpc/latest#create-image). Specify the volume ID the CRN of the root key as shown in the following example.
    ```sh
-   curl -X POST "$vpc_api_endpoint/v1/images?version=2024-06-11&generation=2" 
-   -H "Authorization: Bearer $iam_token" 
+   curl -X POST "$vpc_api_endpoint/v1/images?version=2024-06-11&generation=2"
+   -H "Authorization: Bearer $iam_token"
        -d '{
             "name": "my-encrypted-image",
             "source_volume": {"id": "4fec84ef-baf9-405d-bf3b-9d5a60e068f7"}

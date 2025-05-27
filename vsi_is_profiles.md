@@ -2,7 +2,7 @@
 
 copyright:
   years: 2019, 2025
-lastupdated: "2025-05-16"
+lastupdated: "2025-05-27"
 
 keywords: vsi, virtual server instances, profile, profiles, balanced, compute, memory, very high memory, ultra high memory, gpu storage optimized, confidential compute
 
@@ -515,7 +515,7 @@ The characters after "-" represents the number of vCPUs and the size of RAM (GiB
 
 Using “bx2-4x16” as an example, you can know from the name that it is a balanced profile that provides 4 vCPUs of compute and 16 GiB of memory. The profile is deployed on an x86-based host and is for the second-generation VPC.
 
-### Viewing instance profiles in the UI
+### Viewing instance profiles in the console
 {: #profiles-using-console}
 {: ui}
 
