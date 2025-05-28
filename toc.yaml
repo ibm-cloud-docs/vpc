@@ -606,10 +606,12 @@ toc:
                label: Getting started with IBM Cloud DNS Services
                href: /dns-svcs/dns-svcs-getting-started
         - topicgroup:
+            id: block-storage-for-vpc
             label: Block storage
             topics:
             - block_storage_vpc_s2s_auth.md
             - topicgroup:
+                id: creating-block-volumes
                 label: Creating block storage volumes
                 topics:
                 - block_storage_vpc_create.md
@@ -619,6 +621,7 @@ toc:
             - block_storage_vpc_use_volume_lin.md
             - block_storage_vpc_use_volume_win.md
             - topicgroup:
+                id: managing-block-volumes
                 label: Managing block storage volumes
                 topics:
                 - block_storage_vpc_view.md
@@ -628,25 +631,30 @@ toc:
                 - block_storage_vpc_adjustable_iops.md
                 - block_storage_vpc_monitoring.md
         - topicgroup:
+            id: block-volume-snapshots
             label: Block storage snapshots
             topics:
             - bs_snapshots_planning.md
             - topicgroup:
+                id: creating-volume-snapshots
                 label: Creating snapshots and consistency groups
                 topics:
                 - bs_snapshots_create.md
                 - bs_snapshots_create_mvs.md
+            - bs_snapshots_view.md     
             - topicgroup:
+                id: managing-volume-snapshots
                 label: Managing snapshots and consistency groups
                 topics:
-                - bs_snapshots_view.md
                 - bs_snapshots_manage.md
                 - bs_snapshots_manage_mvs.md
             - bs_snapshots_restore.md
         - topicgroup:
+            id: backup-for-vpc
             label: Backup service
             topics:
             - topicgroup:
+                id: planning-backups
                 label: Planning backup policies and plans
                 topics:
                 - backup_service_vpc_best_practices.md
@@ -667,12 +675,14 @@ toc:
                 - backup-service-event-notifications-events.md
             - backup_service_vpc_restore.md
         - topicgroup:
+            id: file-storage-for-vpc
             label: File storage
             topics:
             - file_storage_vpc_plan.md
             - file_storage_vpc_s2s_auth.md
             - topicgroup:
-                label:  Creating file shares
+                id: creating-file-storage
+                label: Creating file shares
                 topics:
                 - file_storage_vpc_create.md
                 - file_storage_vpc_byok_encryption.md
@@ -680,6 +690,7 @@ toc:
                 - file_storage_vpc_cross_account_share.md
                 - file_storage_vpc_manage_storage_limits.md
             - topicgroup:
+                id: mounting-file-shares
                 label: Mounting file shares
                 topics:
                 - file_storage_vpc_mounthelper.md
@@ -688,7 +699,8 @@ toc:
                 - file_storage_vpc_mount_ubuntu.md
                 - file_storage_vpc_mount_zos.md
             - topicgroup:
-                label:  Managing file shares
+                id: managing-file-shares
+                label: Managing file shares
                 topics:
                 - file_storage_vpc_view.md
                 - file_storage_vpc_manage.md
@@ -698,6 +710,7 @@ toc:
                 - file_storage_vpc_expandable_shares.md
                 - file_storage_vpc_adjustable_iops.md
             - topicgroup:
+                id: replication
                 label: Replication
                 topics:
                 - file_storage_vpc_replication.md
@@ -705,6 +718,7 @@ toc:
                 - file_storage_vpc_replication_manage.md
                 - file_storage_vpc_replication_failover.md
         - topicgroup:
+            id: file-share-snapshots
             label: File storage snapshots
             topics:
             - fs_snapshots_planning.md

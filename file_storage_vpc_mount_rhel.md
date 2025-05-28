@@ -2,7 +2,7 @@
 
 copyright:
   years: 2021, 2025
-lastupdated: "2025-05-14"
+lastupdated: "2025-05-28"
 
 keywords: file share, file storage, mount helper, mount target, mount path, secure connection, NFS
 
@@ -24,7 +24,7 @@ Use these instructions to connect a Red Hat Enterprise Linux&reg;-based {{site.d
 1. If the file share was set up with Security group access mode, verify that the compute host is part of the same [security group](/docs/vpc?topic=vpc-using-security-groups#sg-getting-started) as the share. If your file share was set up with VPC access mode, verify that the server where you want to mount the share is in the same zone as the file share. For more information, see [Mount target access modes](/docs/vpc?topic=vpc-file-storage-vpc-about#fs-mount-access-mode).
 2. Confirm that a mount target for the share exists for the VPC where the server is. If a new mount target is needed, follow the instructions in [Creating file shares and mount targets](/docs/vpc?topic=vpc-file-storage-create). 
 3. Get the mount path of the file share from the mount target. Mount path information can be obtained from the File share details page in the [console](/docs/vpc?topic=vpc-file-storage-view&interface=ui#fs-get-mountpath-ui-vpc), from the [CLI](/docs/vpc?topic=vpc-file-storage-view&interface=cli#fs-get-mountpath-cli), with the [API](/docs/vpc?topic=vpc-file-storage-view&interface=api#fs-get-target-api), or [Terraform](/docs/vpc?topic=vpc-file-storage-view&interface=terraform#fs-view-mount-target-terraform).
-4. If you want to use encryption in transit, you need to obtain an IPsec certificate from the Instance metadata service. Make sure that encryption in transit is enabled for the mount target. Plus, mount the file share with a secure connection. This feature is only available for file shares with `dp2` profiles and security group access mode. For more information, see [Encryption in transit - Securing mount connections between file share and host](/docs/vpc?topic=vpc-file-storage-vpc-eit).
+4. If you want to use encryption in transit, you need to obtain an IPsec certificate from the metadata service. Make sure that encryption in transit is enabled for the mount target. Plus, mount the file share with a secure connection. This feature is only available for file shares with `dp2` profiles and security group access mode. For more information, see [Encryption in transit - Securing mount connections between file share and host](/docs/vpc?topic=vpc-file-storage-vpc-eit).
    
    Install and run the [mount helper utility](/docs/vpc?topic=vpc-fs-mount-helper-utility) to mount file shares with encryption in transit or without an encrypted connection.
    {: fast-path}
