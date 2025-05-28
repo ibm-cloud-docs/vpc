@@ -2,7 +2,7 @@
 
 copyright:
   years: 2022, 2025
-lastupdated: "2025-05-27"
+lastupdated: "2025-05-28"
 
 keywords:
 
@@ -23,7 +23,7 @@ You can create a trusted profile for compute resource identities in {{site.data.
 
 Trusted profiles for compute resource identities allow for fine-grained authorization for all applications that run in a virtual server instance. They eliminate the need for creating service IDs or managing API key lifecycles for applications. Instead, compute resources become identities as part of a trusted profile, and trust is established through conditions based on resource attributes.
 
-You can assign an IAM identity directly to the instance and acquire an instance identity access token. So the applications that are running on the virtual server instance can securely access other IBM Cloud services with the identity access token without storing API keys.
+You can assign an IAM identity directly to the instance so that the applications that are running on the virtual server instance can securely access other IBM Cloud services without storing API keys.
 
 You can assign access rights to the trusted profile to enable the instance to call IAM-enabled services, such as {{site.data.keyword.cos_full_notm}} and {{site.data.keyword.keymanagementservicelong}}.
 
