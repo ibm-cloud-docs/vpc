@@ -2,7 +2,7 @@
 
 copyright:
   years: 2019, 2025
-lastupdated: "2025-03-05"
+lastupdated: "2025-05-28"
 
 keywords: user data, virtual server username
 
@@ -192,7 +192,7 @@ mount_default_fields: [ None, None, "auto", "defaults,nofail", "0", "2" ]
 
 This cloud-config script example automatically configures both the instance storage `/dev/vdb` and `dev/vdc` block devices, and assumes a `virtio_blk` interface type for instance storage. If reboot your virtual server only, this configuration continues to work because the configuration and data persists.
 
-If you start a virtual server that was stopped, then the virtual server has a fresh set of instance storage disks when it boots. This situation requires the cloud-init steps to be manually run again. By default, the cloud-config script is run on only the first boot. You can also edit the cloud-init section of the cloud.config file so that the cloud-init steps are automatically run on each boot. For more information, see [Edit the cloud_cloud_init_modules section of the cloud.config file to run on each boot](#edit-cloud-init-run-cloud-config-each-boot).
+If you start a virtual server that was stopped, then the virtual server has a fresh set of instance storage disks when it boots. This situation requires the cloud-init steps to be manually run again. By default, the cloud-config script is run on only the first boot. You can also edit the cloud-init section of the cloud.config file so that the cloud-init steps are automatically run on each boot.
 
 #### Edit the cloud_cloud_init_modules section of the cloud.config file to run on each boot
 {: #edit-cloud-init-run-cloud-config-each-boot}

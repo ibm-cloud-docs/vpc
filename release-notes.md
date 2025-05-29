@@ -2,7 +2,7 @@
 
 copyright:
   years: 2019, 2025
-lastupdated: "2025-05-27"
+lastupdated: "2025-05-29"
 
 keywords:
 
@@ -27,6 +27,13 @@ For more information about changes to the {{site.data.keyword.vpc_short}} comman
 
 ## May 2025
 {: #vpc-may25}
+
+### 29 May 2025
+{: #vpc-may2925}
+{: release-note}
+
+AMD Instinct MI300X accelerated virtual server profile now available in Washington DC (us-east-wdc07-a) and Frankfurt (eu-de) (select availability)
+:   The AMD Instinct MI300X accelerated virtual server profile is now available in Washington DC (us-east-wdc07-a) and Frankfurt  (eu-de-fra02-a, eu-de-fra05-a), in addition to Washington DC (us-east-wdc06-a). The profile runs on an [AMD Instinct™ MI300X Accelerator](https://www.amd.com/en/products/accelerators/instinct/mi300/mi300x.html){: external} that is tuned for AI workloads, including inferencing and fine-tuning. For more information about the `gx3d-208x1792x8mi300x` profile, see [GPU](/docs/vpc?topic=vpc-profiles&interface=ui#gpu) profiles and [Accelerated instance profiles](/docs/vpc?topic=vpc-accelerated-profile-family&interface=ui).
 
 ### 15 May 2025
 {: #vpc-may1525}

@@ -2,7 +2,7 @@
 
 copyright:
   years: 2022, 2025
-lastupdated: "2025-05-19"
+lastupdated: "2025-05-29"
 
 keywords:
 
@@ -13,7 +13,7 @@ subcollection: vpc
 
 {{site.data.keyword.attribute-definition-list}}
 
-# About VPC Instance Metadata
+# About VPC Instance Metadata service
 {: #imd-about}
 
 The VPC Instance Metadata service is a free service that you can use to access information about your virtual server instances. You can invoke the service through a REST API within an instance to get information about that instance. Access to the API is unavailable from outside the instance. Before you can access the metadata, you need to generate an instance identity access token. You can use the instance identity token to optionally get an IAM token that can be used to access all IAM-enabled services.
