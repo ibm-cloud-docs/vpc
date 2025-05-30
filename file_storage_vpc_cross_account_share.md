@@ -2,7 +2,7 @@
 
 copyright:
   years: 2024, 2025
-lastupdated: "2025-04-30"
+lastupdated: "2025-05-30"
 
 keywords: file share, file storage, accessor share, cross-account share
 
@@ -25,6 +25,8 @@ As a storage administrator who manages multiple accounts, you can share an NFS f
 After the authorization is set in place and roles are assigned, you can create an accessor share that is bound to the origin share. The accessor share inherits the profile, size, encryption type both at rest and in-transit from the origin share. The origin share's account can see the IDs of the accounts who can mount the shared NFS share.
 
 As the accessor, you can't edit the properties of the origin share, and you can't delete the origin share. The accessors can mount the share by creating an accessor share and a mount target to the accessor share. Then, you can access and use the data of the origin share, including the snapshots that might be present.
+
+Sharing a file share with other accounts or services is not supported for file shares with VPC-wide access mode. 
 
 ## Transit encryption policy
 {: #file-storage-transit-encryption-policy}

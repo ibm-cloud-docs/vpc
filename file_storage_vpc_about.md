@@ -2,7 +2,7 @@
 
 copyright:
   years: 2021, 2025
-lastupdated: "2025-05-15"
+lastupdated: "2025-05-30"
 
 keywords: file share, mount target, virtual network interface, customer-managed encryption, encryption at rest, encryption in transit, file storage, share,
 
@@ -15,15 +15,15 @@ subcollection: vpc
 # About {{site.data.keyword.filestorage_vpc_short}}
 {: #file-storage-vpc-about}
 
-{{site.data.keyword.filestorage_vpc_full}} provides NFS-based file storage services within the VPC Infrastructure. You can create file shares in an availability zone within a region. You can share them with multiple virtual server instances within the same zone or other zones in your region, across multiple VPCs. You can also limit access to a file share to a specific virtual server instance or group of instances within a VPC, and encrypt the data in transit.
+{{site.data.keyword.filestorage_vpc_full}} provides NFS-based file storage services within the VPC Infrastructure. You can create file shares in an availability zone within a region. You can share them with multiple virtual server instances within the same zone or other zones in your region, across multiple VPCs.  You can also limit access to a file share to a specific virtual server instance or group of instances within a VPC, and encrypt the data in transit.
 {: shortdesc}
 
 ## Overview
 {: #file-storage-overview}
 
-{{site.data.keyword.filestorage_vpc_short}} provides file shares within the VPC Infrastructure. You can create file shares at the zonal level, for example `us-south-1`. File shares are identified by name and associated with a resource group in your {{site.data.keyword.cloud_notm}} customer account.
+You can create file shares with the `dp2` profile at a zonal level, for example in `us-south-1`. File shares are identified by name and associated with a resource group in your {{site.data.keyword.cloud_notm}} customer account.
 
-You create a file share in a zone and create the mount target for the share in the VPC. You can control how the file share is accessed by specifying the [access mode](#fs-mount-access-mode): targeted access for specific instances or VPC-wide access. 
+You create a file share in a zone and create the mount target for the share in the VPC. You can control how the file share is accessed by specifying the [access mode](#fs-mount-access-mode): targeted access for specific instances or VPC-wide access.
 
 You can set up [replication](/docs/vpc?topic=vpc-file-storage-replication) between the source file share and a replica file share in different zones. So if an outage at the primary site was to occur, you can fail over to the replica file share and continue operations.
 
@@ -33,9 +33,9 @@ Data on a file share is encrypted at rest with IBM-managed encryption by default
 
 You can apply user tags and access management tags to your file shares. Add tags when you create a share or update an existing share with the UI, CLI, API, or Terraform. For more information, see [Tags for file shares](#fs-about-fs-tags).
 
-You can view and manager your file shares in the console, from the CLI, with the API, and Terraform. You can [increase the file share size](/docs/vpc?topic=vpc-file-storage-expand-capacity) from its original capacity in GB increments up to 32,000 GB capacity. You can also [increase or decrease file share IOPS](/docs/vpc?topic=vpc-file-storage-adjusting-iops) to meet your performance needs. Operations to increase the capacity or adjust the IOPS cause no outage or lack of access to the storage. Billing is adjusted automatically. You pay for only the capacity and performance that you need. 
+You can view and manage your file shares in the console, from the CLI, with the API, and Terraform. You can [increase the file share size](/docs/vpc?topic=vpc-file-storage-expand-capacity) from its original capacity in GB increments up to 32,000 GB capacity. You can also [increase or decrease file share IOPS](/docs/vpc?topic=vpc-file-storage-adjusting-iops) to meet your performance needs. Operations to increase the capacity or adjust the IOPS cause no outage or lack of access to the storage. Billing is adjusted automatically. You pay for only the capacity and performance that you need. 
 
-## File Storage profiles
+## File storage profiles
 {: #fs-profiles-intro}
 
 Share profiles define the capacity and performance characteristics of file shares. You can choose the best option for your specific needs, whether the share is meant for general use or high-performance workloads.
@@ -49,7 +49,7 @@ All profiles are backed by solid-state drives (SSDs). For more information, see 
 ## Access protocols
 {: #fs-allowed-access-protocols}
 
-File access protocols provide a standardized way for clients (virtual server instances or applications) to interact with the file server, which enables file sharing and collaboration across the network. 
+File access protocols provide a standardized way for clients (virtual server instances or applications) to interact with the file server, which enables file sharing and collaboration across the network.
 
 ### NFS version
 {: #fs-nfs-version}
@@ -64,7 +64,7 @@ Mounting is a process by which a server's operating system makes files and direc
 
 A mount target for a file share is a network endpoint. When you create a mount target, an NFS mount path is created for the file share. You use the mount path to attach the file share to virtual server instances or Kubernetes clusters in the same region. Depending on the [access mode](#fs-mount-access-mode) you choose, you can restrict access to a share to a specific instance in the VPC or allow all the virtual server instances to mount the share.
 
-If you want to connect a file share to instances that are running in different VPCs in a zone, you can create multiple mount targets, one mount target for each VPC.  
+If you want to connect a file share to instances that are running in different VPCs in a zone, you can create multiple mount targets, one mount target for each VPC.
 
 After the mount target is created, you can SSH into the virtual server instance and attach the file share.
 
@@ -90,7 +90,7 @@ Cross-zone mounting is not supported for file shares with VPC-wide access mode.
 ## Securing your data
 {: #fs-data-security}
 
-{{site.data.keyword.cloud}} offers security-specific tools and features to help you securely manage your data when you use {{site.data.keyword.vpc_full}}. The following section provides information about access control, data encryption, configuration management, auditing and logging options that are available for your file shares.  
+{{site.data.keyword.cloud}} offers security-specific tools and features to help you securely manage your data when you use {{site.data.keyword.vpc_full}}. The following section provides information about access control, data encryption, configuration management, auditing and logging options that are available for your file shares.
 
 ### IAM roles for creating and managing shares, accessor bindings, and mount targets
 {: #fs-vpc-iam}
@@ -113,7 +113,7 @@ You can enable context-based restrictions (CBR) for all file share operations. T
 ### Encryption at rest
 {: #FS-encryption}
 
-By default, file shares are encrypted at rest with IBM-managed encryption. 
+By default, file shares are encrypted at rest with IBM-managed encryption.
 
 You can bring your own customer root key (CRK) to the cloud for customer-managed encryption or you can have a key management service (KMS) generate a key for you. You can select the root key when you [create an encrypted file share](/docs/vpc?topic=vpc-file-storage-byok-encryption). For more information, see [Customer-managed encryption](/docs/vpc?topic=vpc-vpc-encryption-about#vpc-customer-managed-encryption).
 
@@ -123,7 +123,7 @@ After you specified an encryption type for a file share, you can't change it.
 ### Encryption in transit
 {: #fs-eit}
 
-You can [establish an encrypted mount connection](/docs/vpc?topic=vpc-file-storage-vpc-eit) between the authorized virtual server instance and the storage system by using IPsec. For file shares based on the `dp2` profile, mount targets that are created with a virtual network interface can support the encryption in transit. The mount targets can be for a source or replica share.
+You can [establish an encrypted mount connection](/docs/vpc?topic=vpc-file-storage-vpc-eit) between the authorized virtual server instance and the storage system. For file shares based on the `dp2` profile, mount targets that are created with a virtual network interface can support the encryption in transit.
 
 If you want to connect a file share to instances that are running in different VPCs in a zone, you can create multiple mount targets. You can create one mount target for each VPC.
 {: important}
@@ -141,7 +141,7 @@ Encryption in transit is not supported for {{site.data.keyword.bm_is_short}} or 
 ### Granular authorization
 {: #fs-mount-granular-auth}
 
-You can set the access control mode of a file share to use [security groups](/docs/vpc?topic=vpc-using-security-groups). Then, create a mount target with a [virtual network interface](/docs/vpc?topic=vpc-vni-about). When you mount your file share by using this mount target, the created file share gateway provides a 1:1:1 granular authorization. 
+You can set the access control mode of a file share to use [security groups](/docs/vpc?topic=vpc-using-security-groups). Then, create a mount target with a [virtual network interface](/docs/vpc?topic=vpc-vni-about). When you mount your file share by using this mount target, the created file share gateway provides a 1:1:1 granular authorization.
 
 The security groups that are associated with the mount target act as a virtual firewall that controls the traffic between the mount target and the Compute host.
 
@@ -186,7 +186,7 @@ The share owner has the right to enforce the use of encryption in transit when t
 
 For more information about sharing and mounting a file share from another {{site.data.keyword.cloud}} account or VPC, see [Sharing and mounting a file share from another account](/docs/vpc?topic=vpc-file-storage-accessor-create&interface=ui).
 
-Sharing a file share with other accounts or services is not supported for file shares with VPC-wide access mode
+Sharing a file share with other accounts or services is not supported for file shares with VPC-wide access mode. 
 
 ### Managing security and compliance
 {: #fs-vpc-manage-security}
@@ -268,12 +268,12 @@ The following limitations apply to this release of {{site.data.keyword.filestora
 * Previous profiles are not supported when you provision a file share. New file shares must use the `dp2` profile. However, earlier version file shares can continue to use their profiles.
 * Restricting file share access to specific virtual server instances and data encryption in transit is available only for shares that are based on the `dp2` profile.
 * Windows operating systems are not supported.
-* The minimum capacity is 10 GB per file share.
+* The minimum capacity of a zonal file share is 10 GB.
 * The maximum capacity is 32,000 GB per file share.
 * No data retention policy exists for deleted file shares. You cannot undelete a file share after you delete it.
 * Up to 256 hosts per zone per VPC can be concurrently connected to a single file share.
 * You can create up to 300 file shares within your VPC.
-* Up to 100 accessor share bindings can be created when you share your file share with another account or external service.
+* Up to 100 accessor share bindings can be created when you share your zonal file share with another account or external service.
 * A file share cannot be deleted by using a `DELETE /shares/<id>` API request, if an existing mount target is associated with that file share or if replica operations are in progress.
 * Only {{site.data.keyword.bm_is_short}} that are provisioned after 31 August 2023 support {{site.data.keyword.filestorage_vpc_short}}.
 * Encryption in transit is not supported between {{site.data.keyword.filestorage_vpc_short}} and {{site.data.keyword.bm_is_short}}.
@@ -297,4 +297,3 @@ The following limitations apply to this release of {{site.data.keyword.filestora
    * [Manage your file shares](/docs/vpc?topic=vpc-file-storage-managing). You can rename a file share. You can increase its capacity and modify its IOPS. You can add mount targets to a file share. You can rename or delete a mount target. You can delete a file share when you no longer need it.
    * [Create a file share with replication](/docs/vpc?topic=vpc-file-storage-create-replication). With the replication feature, you can keep a read-only copy of your file share in another zone. The replica share is updated from the source share on a schedule that you specify. Replication provides a way to recover from an incident at the primary site, when data becomes inaccessible or an application fails. Replication can also be used for geographical expansion.
    * [Sharing and mounting a file share from another account](/docs/vpc?topic=vpc-file-storage-accessor-create&interface=ui).
-   

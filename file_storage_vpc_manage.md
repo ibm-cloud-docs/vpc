@@ -2,7 +2,7 @@
 
 copyright:
   years: 2021, 2025
-lastupdated: "2025-04-30"
+lastupdated: "2025-05-30"
 
 keywords: file share, file storage, rename share, increase size, adjust IOPS, mount target
 
@@ -15,7 +15,7 @@ subcollection: vpc
 # Managing file shares, accessor share bindings, and mount targets
 {: #file-storage-managing}
 
-Manage the file shares that you created. You can rename a file share. You can increase its capacity and modify its IOPS. You can add mount targets to a file share, and use the mount path to mount a file share from virtual server instances. You can rename or delete a mount target. Or you can delete a file share if you no longer need it.
+Manage the file shares that you created. You can rename a file share. You can increase its capacity and modify its performance characteristic. You can add mount targets to a file share, and use the mount path to mount a file share from virtual server instances. You can rename or delete a mount target. Or you can delete a file share if you no longer need it.
 {: shortdesc}
 
 {{site.data.keyword.filestorage_vpc_short}} service requires IAM permissions for role-based access control. For example, to create a file share, you need to have at least editor permissions. For more information, see [Managing IAM access for VPC Infrastructure Services](/docs/vpc?topic=vpc-iam-getting-started&interface=ui) for file shares.
@@ -831,7 +831,7 @@ You can add and remove tags when you update a file share with the `ibmcloud is s
    CRN                          crn:v1:bluemix:public:is:us-south-2:a/a1234567::share:r006-b696742a-92ee-4f6a-bfd7-921d6ddf8fa6
    Lifecycle state              stable
    Access control mode          security_group
-   Accessor binding role        none <fsvpc-101-regional-file-beta>
+   Accessor binding role        none
    Zone                         us-south-2
    Profile                      dp2
    Size(GB)                     1000
@@ -847,9 +847,10 @@ You can add and remove tags when you update a file share with the `ibmcloud is s
    Replication role             none
    Replication status           none
    Replication status reasons   Status code   Status message
-                                -             - 
+                                -             -
    ```
    {: screen}
+
 
 1. Use the `ibmcloud is share-update` command with the `--user-tags` option to add a tag to the file share. If the file share had tags previously, they are overwritten by the tags that are specified in the command.
 
@@ -883,7 +884,7 @@ The following example adds two user tags to the file share.
    Replication status reasons   Status code   Status message
                                 -             -
    Snapshot count               0
-   Snapshot size                0                          
+   Snapshot size                0    
    ```
    {: screen}
 

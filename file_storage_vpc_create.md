@@ -2,7 +2,7 @@
 
 copyright:
   years: 2021, 2025
-lastupdated: "2025-04-30"
+lastupdated: "2025-05-30"
 
 keywords: file share, file storage, virtual network interface, encryption in transit, profiles, 
 
@@ -156,7 +156,7 @@ CRN                                crn:v1:bluemix:public:is:us-south-2:a/a123456
 Lifecycle state                    pending   
 Access control mode                security_group   
 Accessor binding role              none   
-Allowed transit encryption modes   user_managed,none   
+Allowed transit encryption modes   user_managed,none
 Zone                               us-south-2   
 Profile                            dp2   
 Size(GB)                           1000   

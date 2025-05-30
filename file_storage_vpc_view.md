@@ -2,7 +2,7 @@
 
 copyright:
   years: 2022, 2025
-lastupdated: "2025-04-30"
+lastupdated: "2025-05-30"
 
 keywords: file storage, file share, view share details, mount targets, view targets, view share
 
@@ -35,11 +35,14 @@ You can view all file shares, their bindings and mount targets in the console, r
 | Region | Account region for the file share. Select a different region to see file shares for zones in that region. |
 | Name  | The file share name. It can be the original file share or a replica file share. Click the name to see details about that file share. |
 | Status | For a list of statuses for file shares, see [File share lifecycle states](/docs/vpc?topic=vpc-fs-vpc-monitoring). |
+| Resource group | The field displays name of the resource group that the file share belongs to.|
+| Location       | The field displays the zone where the file share is. |
 | Mount targets | Number of mount targets that are associated with the file share. You can have one mount target per VPC per file share. |
+| Snapshots | This field shows the number of snapshots that were taken of the file share. This column is hidden by default. Click the ![Settings icon](../icons/settings.svg "Settings") to select which columns you want to see. |
 | Size | Size of the file share, in GBs. |
-| IOPS profile| It shows the performance profile that is associated with the file share.|
-| Replication role | Relationship to the source file share. "Replica of" indicates that the file share a replica of the source share, which is linked. "Source of" indicates that the share the source of the replica, which is linked. "None" indicates that the file share does not replicate with another share. |
 | Cross-account role | The values in this column can be _None_, _Origin share_, or _Accessor share_. If the value is _None_, the share is not shared with another account or external service. If the value is _Origin share_, the share is shared with another account or external service and is bound to an accessor share in the other account. If the value is _Accessor share_, then this share is bound to an origin share with the purpose of accessing the origin share's data.|
+| Replication role | Relationship between the source and the replica file share. "Replica of" indicates that the file share a replica of the source share, which is linked. "Source of" indicates that the share the source of the replica, which is linked. "None" indicates that the file share does not replicate with another share. |
+| Replication status | This column is hidden by default. Click the ![Settings icon](../icons/settings.svg "Settings") to select which columns you want to see.  |
 | Encryption type | It shows the encryption type of the file share, either provider-managed or customer-managed. [Customer-managed encryption](/docs/vpc?topic=vpc-file-storage-byok-encryption) uses your own root keys to protect your data. The UI also identifies the key management service (KMS), either {{site.data.keyword.keymanagementserviceshort}} or {{site.data.keyword.hscrypto}}. |
 {: caption="File shares list page." caption-side="bottom"}
 
@@ -112,7 +115,7 @@ You can access the Actions menu by clicking ![Actions icon](../icons/action-menu
      
      These metrics are not updated in real time. Data for new file shares can take up to an hour or an hour and 15 minutes to appear in the dashboard. Changes in usage can take from 15 to 30 minutes to be reflected in the graphs.
      {: note}
-   
+
      If you have an instance of the {{site.data.keyword.mon_full_notm}} service, click **Launch monitoring** to open the Sysdig web UI to work with the metrics dashboards there. For more information about how to set up the {{site.data.keyword.mon_full_notm}} instance, see [Monitoring metrics for File Storage for VPC](/docs/vpc?topic=vpc-fs-vpc-monitoring-sysdig).
 
 ### Viewing all file shares for a VPC in the console
