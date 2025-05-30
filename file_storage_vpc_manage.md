@@ -36,9 +36,11 @@ In the console, you can:
 * [Rename a mount target of a file share](#rename-mount-target-ui).
 * [Update a file share profile](#fs-update-profile-ui) (not applicable for accessor shares).
 * [Update allowed transit encryption modes](#fs-update-transit-encryption-ui) (not applicable for accessor shares).
+* [Increase file share capacity](/docs/vpc?topic=vpc-file-storage-expand-capacity&interface=ui)
+* [Adjust the IOPS for a zonal file share](/docs/vpc?topic=vpc-file-storage-adjusting-iops&interface=ui)
+* [Add user tags to file shares](#fs-add-user-tags).
 * [Delete mount target of a file share](#delete-mount-target-ui).
 * [Delete a file share](#delete-file-share-ui).
-* [Add user tags to file shares](#fs-add-user-tags).
 
 In the console, you can manage normal file shares and accessor shares. Only the share owner can modify properties like access control mode, IOPS, and profile. The accessor account cannot edit the origin share, and can modify a smaller set of properties of the accessor share.
 
@@ -127,9 +129,11 @@ By using the CLI, you can:
 * [Rename a mount target of a file share](#rename-mount-target-cli).
 * [Update a file share profile](#fs-update-profile-cli) (not applicable for accessor share).
 * [Update allowed transit encryption modes](#fs-update-transit-encryption-cli) (not applicable for accessor share).
+* [Increase file share capacity](/docs/vpc?topic=vpc-file-storage-expand-capacity&interface=cli)
+* [Adjust the IOPS for a zonal file share](/docs/vpc?topic=vpc-file-storage-adjusting-iops&interface=cli)
+* [Add user tags to file shares](#fs-add-user-tags).
 * [Delete mount target of a file share](#delete-mount-target-cli).
 * [Delete a file share](#delete-file-share-cli).
-* [Add user tags to file shares](#fs-add-user-tags).
 
 Snapshots are supported only for shares that have *security group* as their access control mode. You can't change access control mode to VPC unless all the snapshots of the share are deleted.
 {: note}
@@ -424,9 +428,11 @@ By using the API, you can:
 * [Rename a mount target of a file share](#rename-mount-target-api).
 * [Update a file share profile](#fs-update-profile-api) (not applicable for accessor shares).
 * [Update allowed transit encryption modes with the API](#fs-update-transit-encryption-api) (not applicable for accessor shares).
+* [Increase file share capacity](/docs/vpc?topic=vpc-file-storage-expand-capacity&interface=api)
+* [Adjust the IOPS for a zonal file share](/docs/vpc?topic=vpc-file-storage-adjusting-iops&interface=api)
+* [Add user tags to file shares](#fs-add-user-tags).
 * [Delete mount target of a file share](#delete-mount-target-api).
 * [Delete a file share](#delete-file-share-api).
-* [Manage user tags for file shares](#fs-add-user-tags).
 
 To see information about the {{site.data.keyword.filestorage_vpc_short}} API methods, see the following section in the [API reference](/apidocs/vpc/latest#list-share-profiles).
 
