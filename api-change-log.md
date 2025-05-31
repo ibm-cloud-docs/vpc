@@ -58,7 +58,7 @@ The new response code will be rolled out gradually. Each phase of the rollout wi
 ### For all version dates
 {: #13-may-2025-all-version-dates}
 
-**AMD GPU instance profiles.** When [creating an instance](/apidocs/vpc/latest#create-instance), you can now specify a `profile` for a server with GPUs manufactured by AMD, such as `gx3d-208x1792x8mi300x`. Accordingly, when [retrieving](/apidocs/vpc/latest#get-instance) or [listing]/apidocs/vpc/latest#list-instances) instances, the response may include a new `gpu.manufacturer` property value of `amd`. Similarly, when [retrieving](/apidocs/vpc/latest#get-instance-profile) or [listing](/apidocs/vpc/latest#list-instance-profiles) instance profiles, the response may include a `gpu_manufacturer.values` property value of `amd`. For more information, see [AMD MI300X instance profiles](/docs/vpc?topic=vpc-accelerated-profile-family&interface=ui#amd-mi300x-profiles).
+**AMD GPU instance profiles.** When [creating an instance](/apidocs/vpc/latest#create-instance), you can now specify a `profile` for a server with GPUs manufactured by AMD, such as `gx3d-208x1792x8mi300x`. Accordingly, when [retrieving](/apidocs/vpc/latest#get-instance) or [listing](/apidocs/vpc/latest#list-instances) instances, the response may include a new `gpu.manufacturer` property value of `amd`. Similarly, when [retrieving](/apidocs/vpc/latest#get-instance-profile) or [listing](/apidocs/vpc/latest#list-instance-profiles) instance profiles, the response may include a `gpu_manufacturer.values` property value of `amd`. For more information, see [AMD MI300X instance profiles](/docs/vpc?topic=vpc-accelerated-profile-family&interface=ui#amd-mi300x-profiles).
 
 ## 29 April 2025
 {: #29-april-2025}
@@ -66,7 +66,7 @@ The new response code will be rolled out gradually. Each phase of the rollout wi
 ### For all version dates
 {: #29-april-2025-all-version-dates}
 
-**Load balancers as pool member targets.** You can now create [pool members](/apidocs/vpc/latest#list-load-balancer-pool-members) that target other [load balancers](/apidocs/vpc/latest#list-load-balancers). When [creating a member in a load balancer pool](/apidocs/vpc/latest#create-load-balancer-pool-member), you can now specify the identity of another load balancer as the `target`. When [retrieving](/apidocs/vpc/latest#get-load-balancer-profile) or [listing load balancer profiles](/apidocs/vpc/latest#list-load-balancer-profiles), use the new `targetable_load_balancer_profiles` property to determine which load balancers that profile can target.
+**Load balancers as pool member targets.** You can now create [pool members](/apidocs/vpc/latest#list-load-balancer-pool-members) that target other [load balancers](/apidocs/vpc/latest#list-load-balancers). When [creating a member in a load balancer pool](/apidocs/vpc/latest#create-load-balancer-pool-member), you can now specify the identity of another load balancer as the `target`. When [retrieving](/apidocs/vpc/latest#get-load-balancer-profile) or [listing](/apidocs/vpc/latest#list-load-balancer-profiles) load balancer profiles, use the new `targetable_load_balancer_profiles` property to determine which load balancers that profile can target.
 
 When [retrieving](/apidocs/vpc/latest#get-load-balancer) and [listing](/apidocs/vpc/latest#list-load-balancers) load balancers, the response now includes an `attached_load_balancer_pool_members` property, which references any pool members targeting this load balancer.
 
