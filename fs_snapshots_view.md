@@ -2,7 +2,7 @@
 
 copyright:
   years: 2024, 2025
-lastupdated: "2025-04-30"
+lastupdated: "2025-05-30"
 
 keywords: view snapshots, view snapshot, viewing snapshots, see snapshots, File storage snapshots
 
@@ -318,7 +318,6 @@ A successful response looks like the following example.
 }
 ```
 {: codeblock}
-
 
 ### Listing details of a snapshot with the API
 {: #fs-snapshots-view-api}

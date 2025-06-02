@@ -12,7 +12,7 @@ subcollection: vpc
 
 {{site.data.keyword.attribute-definition-list}}
 
-# Adjusting file share IOPS
+# Adjusting IOPS for a file share
 {: #file-storage-adjusting-iops}
 
 For zonal file shares, you can increase or decrease IOPS to meet your performance needs. Adjust IOPS by specifying a different IOPS tier profile (IOPS are adjusted within the selected profile), custom profile, or dp2 profile. The process of adjusting the IOPS causes no outage or lack of access to the storage.

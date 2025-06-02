@@ -1,8 +1,8 @@
 ---
 
 copyright:
-  years: 2018, 2024
-lastupdated: "2024-10-29"
+  years: 2018, 2025
+lastupdated: "2025-06-01"
 
 keywords: help, support
 
@@ -18,6 +18,7 @@ subcollection: vpc
 If you experience an issue or have questions when using VPC infrastructure services, you can use the following resources before you open a support case.
 {: shortdesc}
 
+* Ask a question in the [AI assistant](/docs/overview?topic=overview-ask-ai-assistant) from the console or the {{site.data.keyword.cloud_notm}} CLI.
 * Review the [FAQs](/docs/vpc?topic=vpc-faqs-for-VPC) in the product documentation.
 * Review the [troubleshooting documentation](/docs/vpc?topic=vpc-troubleshooting-vpc&interface=ui) to troubleshoot and resolve common issues.
 * Check the status of the {{site.data.keyword.Bluemix_notm}} platform and resources by going to the [Status page](https://cloud.ibm.com/status){: external}.
