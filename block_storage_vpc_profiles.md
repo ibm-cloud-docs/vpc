@@ -2,7 +2,7 @@
 
 copyright:
   years: 2019, 2025
-lastupdated: "2025-05-15"
+lastupdated: "2025-06-03"
 
 keywords: Block Storage profiles, Block Storage for VPC, IOPS tiers, custom IOPS, storage performance
 
@@ -198,7 +198,7 @@ Before 24 September 2024, the API response included the fields `name`, `href`, `
 - `adjustable_iops_states` indicates whether the IOPS for the volume can be changed when the volume is not attached to a running virtual server instance. This field is informational. It describes the characteristics of the volume profile and cannot be changed.
    - For the `custom` profiles, this value is `attached`.
    - For the `tiered` profiles, this value is empty because changes to IOPS are not supported in any state. If you want to change the IOPS value of a volume, you can change to another `tiered` profile.
-- [New]{: tag-new} `storage_generation` indicates which generation the profile family belongs to.
+- `storage_generation` indicates which generation the profile family belongs to.
    - For the `custom` and `tiered` profiles, this value is `1`.
 
 To see details of a specific profile, make a `GET /volume/profiles/` request with the profile name.

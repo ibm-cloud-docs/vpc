@@ -2,7 +2,7 @@
 
 copyright:
   years: 2022, 2025
-lastupdated: "2025-04-30"
+lastupdated: "2025-06-03"
 
 keywords: block storage for VPC, File Storage for VPC, Snapshots for VPC, Backup for VPC, block storage, file storage, snapshots, backup, 
 
@@ -32,7 +32,6 @@ By using this service, you can:
 * Use the UI, CLI, API, or Terraform to create volumes, rename volumes, attach, and detach a volume, transfer volumes to a different instance. You can assign access to a volume, access performance metrics or delete the volume.
 * You can adjust IOPS up or down, for greater performance or when you want to reduce costs.
 * Start with a smaller volume and expand volume capacity later when you need more storage.
-* Adjust the volume bandwidth ratio for volumes that are attached to a virtual server instance.
 
 For more information about this service, see [About {{site.data.keyword.block_storage_is_short}}](/docs/vpc?topic=vpc-block-storage-about).
 
@@ -56,7 +55,7 @@ For more information, see [About Snapshots for VPC](/docs/vpc?topic=vpc-snapshot
 ## {{site.data.keyword.filestorage_vpc_short}}
 {: #vpc-file-storage-overview}
 
-{{site.data.keyword.filestorage_vpc_short}} is a zonal storage offering that provides NFS-based file storage services. You create file shares in an availability zone within a region. You can share them with multiple virtual server instances within the same zone across multiple VPCs.
+{{site.data.keyword.filestorage_vpc_short}} provides NFS-based file storage services. You create file shares in an availability zone within a region. You can share them with multiple virtual server instances within the same zone across multiple VPCs.
 
 By using this service, you can:
 

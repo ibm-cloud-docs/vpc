@@ -2,7 +2,7 @@
 
 copyright:
   years: 2021, 2025
-lastupdated: "2025-06-02"
+lastupdated: "2025-06-03"
 
 keywords: file storage, file share, performance, IOPS, block size, capacity, range
 
@@ -219,9 +219,7 @@ The response returns the following profiles and related information:
 
 IOPS values are based on a 16 KB block size for all profiles, with a 50-50 read/write random workload. Each 16 KB of data that is read or written counts as one read/write operation. A single write of less than 16 KB counts as a single write operation.
 
-Maximum throughput for a file share is calculated by taking the file share's IOPS and multiplying it by the throughput multiplier. The throughput multiplier is 16 KB for 3 IOPS/GB or 5 IOPS/GB tiers, or 256 KB for 10 IOPS/GB, custom IOPS, and `dp2` tiers.
-
-The higher the IOPS that you specify, the higher the throughput. Maximum throughput is 1024 MBps.
+Maximum throughput for a file share is calculated by taking the file share's IOPS and multiplying it by the throughput multiplier. The throughput multiplier is 16 KB for 3 IOPS/GB or 5 IOPS/GB tiers, or 256 KB for 10 IOPS/GB, custom IOPS, and `dp2` profiles. The higher the IOPS that you specify, the higher the throughput. Maximum throughput is 1024 MBps.
 
 The application I/O size directly impacts storage performance. If the application I/O size is smaller than the throughput multiplier that is used by the profile to calculate the bandwidth, the IOPS limit is reached before the throughput limit. Conversely, if the application I/O size is larger, the throughput limit is reached before the IOPS limit.
 
