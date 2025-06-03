@@ -2,7 +2,7 @@
 
 copyright:
   years: 2024, 2025
-lastupdated: "2025-04-16"
+lastupdated: "2025-06-02"
 
 keywords: snapshots, File Storage, shares, cross-regional snapshot, restore share, copy snapshot
 
@@ -15,7 +15,7 @@ subcollection: vpc
 # About {{site.data.keyword.filestorage_vpc_short}} snapshots
 {: #fs-snapshots-about}
 
-File Storage snapshots are a zonal feature that is used to create a point-in-time copy of your {{site.data.keyword.filestorage_vpc_short}} share. The initial snapshot that you take is a full backup of the share. Subsequent snapshots of the same share are incremental, so they capture only the changes that occurred after the last snapshot was taken. You can use a snapshot to restore data to a new share in the console, from the CLI, with the API, or Terraform.
+File Storage snapshots are used to create a point-in-time copy of your {{site.data.keyword.filestorage_vpc_short}} share. The initial snapshot that you take is a full backup of the share. Subsequent snapshots of the same share are incremental, so they capture only the changes that occurred after the last snapshot was taken. You can use a snapshot to restore data to a new share in the console, from the CLI, with the API, or Terraform.
 {: shortdesc}
 
 ## Snapshots concepts

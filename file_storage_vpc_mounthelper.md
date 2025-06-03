@@ -2,7 +2,7 @@
 
 copyright:
   years: 2023, 2025
-lastupdated: "2025-05-28"
+lastupdated: "2025-06-02"
 
 keywords: file share, file storage, encryption in transit, Mount Helper, IPsec, secure connection, mount share
 
@@ -84,7 +84,7 @@ You can use the utility for encrypted or unencrypted connections. For encrypted 
    ```
    {: pre}
 
-    The `region` argument is used to copy region-specific root CA cert to the strongSwan certificate location. If no region is specified, then the utility copies all the root CA certs. The following table shows the values that you can use to specify the region.
+    The `region` argument is used to copy region-specific root CA cert. If no region is specified, then the utility copies all the root CA certs. The following table shows the values that you can use to specify the region.
 
    | Location            | New value | Previous Value |
    |---------------------|-------------|-------|
@@ -164,16 +164,17 @@ You can use the utility for encrypted or unencrypted connections. For encrypted 
    ```
    {: pre}
    
-1. Run the `mount` command with the following syntax.
-   ```sh
-   mount -t ibmshare -o secure=true  <share-ip>:/<mount-point> /mnt/share-test
-   ```
-   {: pre}
-   
-   The `ibmshare` in the command is a script that creates the certificate signing request(csr) and calls the Metadata service to get the intermediate cert and end peer certificate. It parses the mount command-line arguments and creates `/etc/swanctl/conf.d/type_ibmshare_.conf`. The strongSwan service uses this configuration file to establish the IPsec connection. Then, the script loads the IPsec connection and calls the NFS `mount` command. A successful response looks like the following example.
+1. Run the `mount` command with the following syntax. 
 
-   ```sh 
-   [root@my-demo-eit-instance ~]# mount -t ibmshare -o secure=true 10.240.64.5:/0c937ac3_814e_4a7c_99b8_719ec3cad7fd  /mnt/share-test
+```sh
+mount -t ibmshare -o secure=true <share-ip>:/<mount-path> /mnt/mount-point
+```
+{: pre}
+   
+when the command is sent, the utility creates the certificate signing request(csr) and calls the Metadata service to get the intermediate cert and end peer certificate. It parses the mount command-line arguments and creates `/etc/swanctl/conf.d/type_ibmshare_.conf`. The strongSwan service uses this configuration file to establish the IPsec connection. Then, the script loads the IPsec connection and calls the NFS `mount` command. A successful response looks like the following example.
+
+```sh 
+   [root@my-eit-instance ~]# mount -t ibmshare -o secure=true 10.240.64.5:/0c937ac3_814e_4a7c_99b8_719ec3cad7fd  /mnt/share-test
    Info  - IpSec using StrongSwan(5.7.2)
    Debug - RunCmd: /usr/sbin/swanctl --list-conns 
    Debug - Config data unchanged:/etc/strongswan/swanctl/conf.d/type_ibmshare_10.240.64.5.conf
@@ -184,11 +185,11 @@ You can use the utility for encrypted or unencrypted connections. For encrypted 
    Debug - RunCmd: LoadCert (openssl x509 -in /etc/strongswan/swanctl/x509ca/type_ibmshare_int.crt -noout -dates -subject -issuer)
    Debug - RunCmd: LoadCert (openssl x509 -in /etc/strongswan/swanctl/x509ca/type_ibmshare_root_dal.crt -noout -dates -subject -issuer)
    Share successfully mounted:
-   ```
-   {: screen}
+```
+{: screen}
 
 Adding the mount details to the `/etc/fstab` is not recommended. The IPsec connection might not be established in time for the automated `fstab` mount requests.
-{: note}
+{: note} 
 
 ## Updating the Mount Helper
 {: #fs-eit-mount-helper-update}
@@ -262,5 +263,7 @@ The following command uninstalls the utility.
 
 ## Next steps
 {: #next-steps-eit}
+
+By default, NFS downgrades any files that were created with the root permissions to the `nobody` user. This security feature prevents privileges from being shared unless they are requested. By configuring `no_root_squash`, root clients can retain root permissions on the remote NFS file share. For NFSv4.1, set the nfsv4 domain to: `slnfsv4.com` and start `rpcidmapd` or a similar service that is used by your OS. For more information, see [Implementing `no_root_squash` for NFS (optional)](/docs/vpc?topic=vpc-file-storage-vpc-eit-tls#fs-eit-norootsquash).
 
 Learn about [Managing file shares](/docs/vpc?topic=vpc-file-storage-managing).
