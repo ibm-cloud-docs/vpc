@@ -2,9 +2,9 @@
 
 copyright:
   years: 2024, 2025
-lastupdated: "2025-06-02"
+lastupdated: "2025-06-03"
 
-keywords: snapshots, File Storage, shares, cross-regional snapshot, restore share, copy snapshot
+keywords: snapshots, File Storage, shares, restore share
 
 subcollection: vpc
 

@@ -2,7 +2,7 @@
 
 copyright:
   years: 2022, 2025
-lastupdated: "2025-04-28"
+lastupdated: "2025-06-03"
 
 keywords: Backup, backup snapshot, create backups, backup service, backup plan, backup policy, restore, restore volume, restore data, restore share
 
@@ -99,11 +99,11 @@ You can schedule backups in your plan on a daily, weekly, or monthly basis by us
 
 1. Under **Optional**, you can configure two options for individual volume backups. When you're creating a plan for a policy that is for multi-volume backups or share backups, fast snapshot restore is not available.
 
-   * **Fast snapshot restore** - When you enable this feature, you must specify the zone or zones where you want [fast restore](/docs/vpc?topic=vpc-snapshots-vpc-about#snapshots_vpc_fast_restore) enabled. You can also specify the maximum number of fast restore snapshots that you want to retain. The fast restore feature is billed at an extra hourly rate for each zone that it is enabled in regardless of the size of the snapshot. Maintaining fast restore clones is considerably more costly than keeping regular snapshots
+   * **Fast snapshot restore** - When you enable this feature, you must specify the zone or zones where you want [fast restore](/docs/vpc?topic=vpc-snapshots-vpc-about#snapshots_vpc_fast_restore) enabled. You can also specify the maximum number of fast restore snapshots that you want to retain. The fast restore feature is billed at an extra hourly rate for each zone that it is enabled in regardless of the size of the snapshot. Maintaining fast restore clones is considerably more costly than keeping regular snapshots.
 
    * **Tagging**, specify more tags that apply to the backup when the plan runs.
       * Select the box to copy all tags from the source resource to all backups.
-      * Under **Tags for backups**, you can manually add any extra plan tags in this field. This option is not available for File share backups
+      * Under **Tags for backups**, you can manually add any extra plan tags in this field. This option is not available for File share backups.
 
 1. If you're creating a backup plan for multi-volume backups or share backups, you can click **Create** and return to the backup policy page. If you're creating a backup plan for individual volumes, you can click **Next** to proceed to configure remote copies, which are an optional part of the plan.
    1. To create cross-regional copies of your backup, select the geography and regions where you want to have a copy. Remember, you can have only one copy per region.

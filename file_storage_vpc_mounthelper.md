@@ -2,7 +2,7 @@
 
 copyright:
   years: 2023, 2025
-lastupdated: "2025-06-02"
+lastupdated: "2025-06-03"
 
 keywords: file share, file storage, encryption in transit, Mount Helper, IPsec, secure connection, mount share
 
@@ -18,7 +18,7 @@ subcollection: vpc
 Mount Helper is an open source automation tool that configures and establishes secure IPsec communication between the compute host and the file share. It ensures that the communication between the server and the zonal file share is encrypted.
 {: shortdesc}
 
-The utility uses strongSwan and [`swanctl`](https://docs.strongswan.org/docs/5.9/swanctl/swanctl.html) to configure IPsec on the virtual server instance with Linux OS.
+The utility uses strongSwan and [`swanctl`](https://docs.strongswan.org/docs/5.9/swanctl/swanctl.html) to configure IPsec on the compute host that's running a Linux OS.
 
 {{site.data.keyword.filestorage_vpc_short}} IPsec connection requires mutual authentication. The Mount Helper retrieves the instance identity token from the Metadata service, and with the instance identity token it requests the creation of the instance identity certificate.
 
@@ -166,12 +166,14 @@ You can use the utility for encrypted or unencrypted connections. For encrypted 
    
 1. Run the `mount` command with the following syntax. 
 
+Use the following command syntax to mount the share. Replace the mountpath with the information that is specific to your file share.
+
 ```sh
 mount -t ibmshare -o secure=true <share-ip>:/<mount-path> /mnt/mount-point
 ```
 {: pre}
    
-when the command is sent, the utility creates the certificate signing request(csr) and calls the Metadata service to get the intermediate cert and end peer certificate. It parses the mount command-line arguments and creates `/etc/swanctl/conf.d/type_ibmshare_.conf`. The strongSwan service uses this configuration file to establish the IPsec connection. Then, the script loads the IPsec connection and calls the NFS `mount` command. A successful response looks like the following example.
+When the command is sent, the utility creates the certificate signing request(csr) and calls the Metadata service to get the intermediate cert and end peer certificate. It parses the mount command-line arguments and creates `/etc/swanctl/conf.d/type_ibmshare_.conf`. The strongSwan service uses this configuration file to establish the IPsec connection. Then, the script loads the IPsec connection and calls the NFS `mount` command. A successful response looks like the following example.
 
 ```sh 
    [root@my-eit-instance ~]# mount -t ibmshare -o secure=true 10.240.64.5:/0c937ac3_814e_4a7c_99b8_719ec3cad7fd  /mnt/share-test

@@ -2,9 +2,9 @@
 
 copyright:
   years: 2024, 2025
-lastupdated: "2025-04-30"
+lastupdated: "2025-06-03"
 
-keywords: snapshots, File Storage, snapshot clone, remote copy, fast restore, File Storage snapshot, cross-regional snapshot
+keywords: snapshots, File Storage, File Storage snapshot
 
 subcollection: vpc
 
