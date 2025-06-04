@@ -2,7 +2,7 @@
 
 copyright:
   years: 2022, 2025
-lastupdated: "2025-04-30"
+lastupdated: "2025-06-04"
 
 keywords: consistency groups, Block Storage snapshots, multi-volume snapshot, instance snapshot,
 

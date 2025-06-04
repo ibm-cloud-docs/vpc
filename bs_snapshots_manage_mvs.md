@@ -2,7 +2,7 @@
 
 copyright:
   years: 2022, 2025
-lastupdated: "2025-05-15"
+lastupdated: "2025-06-04"
 
 keywords: consistency group, snapshots, backups, instance snapshot, instance backup,
 

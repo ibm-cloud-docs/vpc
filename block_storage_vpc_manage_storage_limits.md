@@ -1,8 +1,8 @@
 ---
 
 copyright:
-  years: 2019, 2024
-lastupdated: "2024-10-16"
+  years: 2019, 2025
+lastupdated: "2025-06-04"
 
 keywords: volume, capacity, Block Storage
 

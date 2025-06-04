@@ -2,7 +2,7 @@
 
 copyright:
   years: 2022, 2025
-lastupdated: "2025-04-01"
+lastupdated: "2025-06-04"
 
 keywords: Block Storage, snapshots, cross-regional copy, fast restore, backup, restore volume
 
