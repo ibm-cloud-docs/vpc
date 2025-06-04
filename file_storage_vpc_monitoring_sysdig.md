@@ -2,7 +2,7 @@
 
 copyright:
   years: 2021, 2025
-lastupdated: "2025-04-25"
+lastupdated: "2025-06-04"
 
 keywords: file share, file storage, sysdig, platform metrics
 
@@ -18,7 +18,7 @@ subcollection: vpc
 {{site.data.keyword.mon_full}} is a third-party cloud-native, and container-intelligence management system that you can include as part of your {{site.data.keyword.cloud_notm}} architecture. Use it to gain operational visibility into the performance and health of your applications, services, and platforms. It offers administrators, DevOps teams, and developers full-stack telemetry with advanced features to monitor and troubleshoot, define alerts, and design custom dashboards. {{site.data.keyword.mon_full_notm}} is operated by Sysdig in partnership with {{site.data.keyword.IBM_notm}}. 
 {: shortdesc}
 
-With {{site.data.keyword.mon_full}}, you can view utilization metrics that measure the amount of transmitted data (throughput) and the number of read and write operations (IOPS) that are performed on the share. It can help you to determine how much work is done by your application or workload. You can use this information to determine whether the IOPS value needs to be adjusted. Monitoring the available capacity of your share can help you identify the need for more storage before insufficient space can become a problem with writing data to the share or replication. Seeing these metrics can help you anticipate any changes in charges at the end of the billing period. 
+With {{site.data.keyword.mon_full}}, you can view utilization metrics that measure the amount of transmitted data (throughput) and the number of read and write operations (IOPS) that are performed on the share. It can help you to determine how much work is done by your application or workload. You can use this information to determine whether the IOPS value needs to be adjusted. Monitoring the available capacity of your share can help you identify the need for more storage before insufficient space can become a problem with writing data to the share or replication. Seeing these metrics can help you anticipate any changes in charges at the end of the billing period.
 
 ## Platform metrics overview
 {: #sysdig-ov}

@@ -2,7 +2,7 @@
 
 copyright:
   years: 2025
-lastupdated: "2025-05-27"
+lastupdated: "2025-06-04"
 
 keywords: vpc, public address ranges, about
 
@@ -16,7 +16,7 @@ subcollection: vpc
 {: #about-par}
 
 Public Address Ranges for VPC is only available for evaluation and testing purposes for users with special access.
-{: beta}
+{: beta} 
 
 A public address range is a contiguous set of public IPs that you can reserve and bind to a VPC in an availability zone. 
 {: shortdesc}
@@ -57,7 +57,14 @@ Review the following considerations before creating a public address range:
    IPs in different public address ranges aren't guaranteed to be contiguous.
    {: note}
 
-* You can limit a public address range to specific resources within the VPC by configuring network ACLs, security groups, or a combination of both.
+* You can limit a public address range to specific resources within the VPC by configuring network ACLs, security groups, or a combination of both. 
+* When a public address range is bound to a zone in a VPC, traffic originating from any virtual server or bare metal server in that zone in the VPC, and using a source IP from the public address range, can communicate with the public and private destinations. To control this behavior, you can:
+
+   * [Configure security groups](/docs/vpc?topic=vpc-configuring-the-security-group&interface=ui) to limit which resources can send or receive traffic with IP addresses from the public address range. 
+   * [Configure network ACLs](/docs/vpc?topic=vpc-acl-create-ui&interface=ui) to allow or deny traffic at the subnet level.
+   * [Configure VPC egress routes](/docs/vpc?topic=vpc-create-vpc-route&interface=ui) to explicitly direct outbound traffic and avoid unintended paths.
+
+   When setting up these network traffic controls, keep in mind that some users might lack the necessary IAM permissions to secure resources properly.
 * You can reserve a public address range with the following prefix sizes. For more information, review public address range [quotas and service limits](/docs/vpc?topic=vpc-quotas&interface=ui#par-quotas). 
    * `/28` = 16 addresses
    * `/29`  = 8 addresses
@@ -129,7 +136,7 @@ To manage access to sensitive data effectively, firewalls automatically detect a
 ### Deploying highly-available and resilient workloads in VPC
 {: #deploy-ha-resilient-workloads-vpc}
 
-To ensure workload resilience, you can use public address ranges to maintain consistent access to services during zonal failures. In the event of a zonal failure, internet traffic for monitoring and inspection can be rerouted to a virtual network function (VNF) appliance deployed in another zone, maintaining high availability within the VPC.
+To ensure workload resilience, you can use public address ranges to maintain consistent access to services during zonal failures. In the event of a zonal failure, internet traffic is rerouted to a virtual network function (VNF) appliance deployed in another zone for monitoring and inspection, maintaining high availability within the VPC.
     
 ## Related links
 {: #par-related-links}

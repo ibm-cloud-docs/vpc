@@ -2,7 +2,7 @@
 
 copyright:
   years: 2022, 2025
-lastupdated: "2025-05-15"
+lastupdated: "2025-06-04"
 
 keywords:
 
@@ -31,7 +31,7 @@ Windows users have extra requirements to set up the metadata service. For more i
 
 An instance identity access token provides a security credential for accessing the metadata service. It's a signed token with a set of claims based on information about the instance and information that is passed in the token request. The minimum version date to use the instance identity access token feature is 2022-03-01.
 
-To access the instance identity, make a `PUT "/instance_identity/v1/token` request to the [Metadata service API](/apidocs/vpc-metadata#create-access-token).
+To access the instance identity, make a `PUT /instance_identity/v1/token` request to the [Metadata service API](/apidocs/vpc-metadata#create-access-token).
 
 ```sh
 curl -X PUT "http://api.metadata.cloud.ibm.com/instance_identity/v1/token?version=2025-04-22" -H "Metadata-Flavor: ibm" -d '{}'

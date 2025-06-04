@@ -2,7 +2,7 @@
 
 copyright:
   years: 2023, 2025
-lastupdated: "2025-06-03"
+lastupdated: "2025-06-04"
 
 keywords: file share, file storage, encryption in transit, Mount Helper, IPsec, secure connection, mount share
 
@@ -266,6 +266,6 @@ The following command uninstalls the utility.
 ## Next steps
 {: #next-steps-eit}
 
-By default, NFS downgrades any files that were created with the root permissions to the `nobody` user. This security feature prevents privileges from being shared unless they are requested. By configuring `no_root_squash`, root clients can retain root permissions on the remote NFS file share. For NFSv4.1, set the nfsv4 domain to: `slnfsv4.com` and start `rpcidmapd` or a similar service that is used by your OS. For more information, see [Implementing `no_root_squash` for NFS (optional)](/docs/vpc?topic=vpc-file-storage-vpc-eit-tls#fs-eit-norootsquash).
+By default, NFS downgrades any files that were created with the root permissions to the `nobody` user. This security feature prevents privileges from being shared unless they are requested. By configuring `no_root_squash`, root clients can retain root permissions on the remote NFS file share. For NFSv4.1, set the nfsv4 domain to: `slnfsv4.com` and start `rpcidmapd` or a similar service that is used by your OS. For more information, see [Implementing `no_root_squash` for NFS (optional)](/docs/vpc?topic=vpc-file-storage-mount-RHEL&interface=ui#fs-RHEL-norootsquash).
 
 Learn about [Managing file shares](/docs/vpc?topic=vpc-file-storage-managing).

@@ -1,8 +1,8 @@
 ---
 
 copyright:
-  years: 2015, 2024
-lastupdated: "2024-11-11"
+  years: 2015, 2025
+lastupdated: "2025-06-04"
 
 keywords:
 
@@ -93,7 +93,8 @@ When you want to delete an {{site.data.keyword.vpc_short}} custom image that is 
 | Load Balancer for VPC | `loadBalancerId: <load-balancer-id>` |
 | Network ACL | `networkAclId: <nacl-id>` |
 | Placement Group for VPC | `placementGroupId: <placement-group-id>` |
-| Private Path services for VPC | `privatePathServiceGatewayId: <private-path-service-gateway-id>` |
+| Private Path services for VPC | `privatePathServiceGatewayId: <private-path-service-gateway-id> |
+| Public Address Range for VPC | `publicAddressRangeId: <public-address-range-id>` |
 | Public Gateway for VPC | `publicGatewayId: <pgw-id>` |
 | Reservations for VPC | `reservationId: <reservation-id>` |
 | Security Group for VPC | `securityGroupId: <default-sec-grp-id>` |

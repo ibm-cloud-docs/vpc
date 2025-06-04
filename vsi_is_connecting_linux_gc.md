@@ -2,7 +2,7 @@
 
 copyright:
   years: 2018, 2025
-lastupdated: "2025-05-12"
+lastupdated: "2025-06-04"
 
 keywords: connecting, linux
 
@@ -91,8 +91,9 @@ The name of the default user account depends on the operating system image being
 | SUSE Linux Enterprise Server (SLES) | `vpcuser` |
 | Debian | `vpcuser` |
 | Rocky Linux | `vpcuser` |
-|  Ubuntu | `ubuntu` |
-| Fedora Core | `core` |
+| CentOS Stream | `vpcuser` |
+| Ubuntu | `ubuntu` |
+| Fedora CoreOS | `core` |
 {: caption="Default user account for Linux images" caption-side="bottom"}
 
 ## Getting connected
