@@ -2,7 +2,7 @@
 
 copyright:
   years: 2022, 2025
-lastupdated: "2025-06-04"
+lastupdated: "2025-06-05"
 
 keywords: block storage for VPC, File Storage for VPC, Snapshots for VPC, Backup for VPC, block storage, file storage, snapshots, backup, 
 
@@ -25,7 +25,7 @@ The {{site.data.keyword.vpc_full}} (VPC) provides block storage, file storage, a
 
 By using this service, you can:
 
-* Create block storage volumes with maximum storage capacity of 16 TB and performance level of 48,000 IOPS.
+* Create block storage volumes with maximum storage capacity of 16 TB and a performance level of 48,000 IOPS.
 * Create a volume with a predefined IOPS tier profile (3, 5, or 10 IOPS per GB) that best meets your storage requirements. Or you can create a volume with a custom profile, and choose IOPS performance from 100 IOPS to 48,000 IOPS, based on volume size (up to 16 TB).
 * Use a boot volume to start a virtual server instance and attach data volumes to the instance.
 * Choose customer-managed encryption for your block storage volume, and secure your data with your own encryption keys.
@@ -38,18 +38,17 @@ For more information about this service, see [About {{site.data.keyword.block_st
 ## {{site.data.keyword.block_storage_is_short}} snapshots
 {: #vpc-bs-snapshots-overview}
 
-Block storage snapshots is a regional offering. A snapshot is a point-in-time copy of your block storage volume that you create manually in the console, from the CLI, with the API or Terraform. The initial snapshot is a full copy of the volume. Subsequent snapshots of the same volume are incremental; only those changes are captured that occurred since the last snapshot was taken. Snapshots inherit encryption from the source volume.
+Block storage snapshots are a regional offering. A snapshot is a point-in-time copy of your block storage volume that you create manually in the console, from the CLI, with the API or Terraform. The initial snapshot is a full copy of the volume. Subsequent snapshots of the same volume are incremental; only those changes are captured that occurred since the last snapshot was taken. Snapshots inherit encryption from the source volume.
 
 You can create, list, view details, and manage snapshots in the console, from the CLI, and with the API or Terraform. You can select a nonbootable snapshot to create a data volume and attach it to a running virtual instance. You can also select a bootable snapshot during instance provisioning to restore its data to a new boot volume to start the instance. You can use the snapshot to create a stand-alone volume and attach it to an instance later.
 
-You can copy snapshot to another region and use it to provision new volumes in that region, as a BCDR measure or geographic expansion.
+You can copy the snapshot to another region and use it to provision new volumes in that region, as a BCDR measure or geographic expansion.
 
 You can also share a snapshot with another account and allow the other account to create volumes with the snapshot. To do so, set up cross-account authorization in {{site.data.keyword.iamshort}}, and share the CRN of the snapshot with the other account. The other account's authorized storage administrator can use the CRN to create a volume in the console, from the CLI, with the API, or Terraform.
 
 Snapshots are independent of the source block storage volumes. You can delete the original volume and the snapshot persists. However, you cannot delete a snapshot that is being used to hydrate a newly restored storage volume.
 
 You can create a snapshot consistency group that contains snapshots of multiple Block Storage volumes that are attached to the same virtual server instance. You can include or exclude boot volumes. The snapshot consistency group has its own lifecycle, and it keeps references to the member snapshots. So if a member snapshot is deleted or renamed, the consistency group is also updated.
-
 For more information, see [About Snapshots for VPC](/docs/vpc?topic=vpc-snapshots-vpc-about).
 
 ## {{site.data.keyword.filestorage_vpc_short}}
@@ -59,7 +58,7 @@ For more information, see [About Snapshots for VPC](/docs/vpc?topic=vpc-snapshot
 
 By using this service, you can:
 
-* Create file shares and mount targets with maximum storage capacity of 32 TB and performance level of 96,000 IOPS.
+* Create file shares and mount targets with maximum storage capacity of 32 TB and a performance level of 96,000 IOPS.
 * Create a file share that best meets your storage requirements by using the `dp2` profile and specifying the capacity and IOPS that you need.
 * Use the UI, CLI, API, or Terraform to create file shares and mount targets, rename or delete file shares and mount targets, add mount targets to a file share. You can mount and unmount a file share from virtual server instances, and add supplemental IDs to a file share.
 * Adjust IOPS up or down, for greater performance or when you want to reduce costs.
@@ -73,12 +72,11 @@ For more information, see [About {{site.data.keyword.filestorage_vpc_short}}](/d
 ## {{site.data.keyword.filestorage_vpc_short}} snapshots
 {: #vpc-fs-snapshots-overview}
 
-{{site.data.keyword.filestorage_vpc_short}} snapshots is a zonal offering. A snapshot is a point-in-time copy of your file share that you create manually in the console, from the CLI, with the API, or Terraform. The initial snapshot is a full copy of the share. Subsequent snapshots of the same share are incremental; only those changes are captured that occurred since the last snapshot was taken. Snapshots inherit encryption from the source share.
+{{site.data.keyword.filestorage_vpc_short}} snapshot is a point-in-time copy of your file share that you create manually in the console, from the CLI, with the API, or Terraform. The initial snapshot is a full copy of the share. Subsequent snapshots of the same share are incremental; only those changes are captured that occurred since the last snapshot was taken. Snapshots inherit encryption from the source share.
 
 You can create, list, view details, and manage snapshots in the console, from the CLI, and with the API or Terraform. You can use the snapshot to create another file share or to retrieve previous versions of files that are stored in the share.
 
 Snapshots are tied to their source share. If you delete the original share and the snapshot is also deleted. However, you cannot delete a snapshot that is being used to hydrate a newly restored file.
-
 For more information, see [About {{site.data.keyword.filestorage_vpc_short}} snapshots](/docs/vpc?topic=vpc-fs-snapshots-about).
 
 ## Backup for VPC
@@ -102,7 +100,7 @@ Data that is stored on instance storage is tied directly to the instance lifecyc
 ## Storage for bare metal servers
 {: #vpc-baremetal-storage-overview}
 
-All profiles of {{site.data.keyword.bm_is_short}} provide one 0.96 TB SATA M.2 mirrored SSD as the boot disk. Profile `bx2d-metal-96x384` provides an extra set of NVMe (Non-Volatile Memory Express) U.2 solid-state drives (SSD) as secondary local storage. For more information, see [Storage overview for Bare Metal Servers for VPC](/docs/vpc?topic=vpc-bare-metal-servers-storage).
+All profiles of {{site.data.keyword.bm_is_short}} provide one 0.96 TB SATA M.2 mirrored SSD as the boot disk. Profile `bx2d-metal-96x384` provides an extra set of NVMe (Non-Volatile Memory Express) U.2 solid-state drives (SSD) as secondary local storage. For more information, see the [Storage overview for Bare Metal Servers for VPC](/docs/vpc?topic=vpc-bare-metal-servers-storage).
 
 ## Next steps
 {: #vpc-storage-next-steps}
