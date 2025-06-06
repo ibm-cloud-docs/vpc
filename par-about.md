@@ -2,7 +2,7 @@
 
 copyright:
   years: 2025
-lastupdated: "2025-06-04"
+lastupdated: "2025-06-06"
 
 keywords: vpc, public address ranges, about
 
@@ -57,8 +57,8 @@ Review the following considerations before creating a public address range:
    IPs in different public address ranges aren't guaranteed to be contiguous.
    {: note}
 
-* You can limit a public address range to specific resources within the VPC by configuring network ACLs, security groups, or a combination of both. 
-* When a public address range is bound to a zone in a VPC, traffic originating from any virtual server or bare metal server in that zone in the VPC, and using a source IP from the public address range, can communicate with the public and private destinations. To control this behavior, you can:
+* You can limit the use of a public address range to specific resources within the VPC by configuring network ACLs, security groups, or a combination of both.
+* When a public address range is bound to a zone in a VPC, traffic originating from any virtual server or bare metal server in that zone in the VPC, and using a source IP from the public address range, can communicate with the public and private destinations. To limit this, you can:
 
    * [Configure security groups](/docs/vpc?topic=vpc-configuring-the-security-group&interface=ui) to limit which resources can send or receive traffic with IP addresses from the public address range. 
    * [Configure network ACLs](/docs/vpc?topic=vpc-acl-create-ui&interface=ui) to allow or deny traffic at the subnet level.
