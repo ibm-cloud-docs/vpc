@@ -2,7 +2,7 @@
 
 copyright:
   years: 2019, 2025
-lastupdated: "2025-01-21"
+lastupdated: "2025-06-06"
 
 keywords:
 
@@ -73,7 +73,7 @@ Because a resource can have multiple security groups associated with it, all the
 * Protocol - Indicates the protocol that this rule applies for. Values are `tcp`, `udp`, `icmp`, or `all`.
 
    * If its value is `all`, it means that this rule applies to all protocols. Then, it's invalid to specify the port range (PortMin, PortMax).
-   * If protocol is either `tcp` or `udp`, then the rule can also contain the port range (PortMin, PortMax). You must set either both ports, or neither. When neither is set, then traffic is allowed on all ports. For a single port, you must set both ports to the same value.
+   * If protocol is either `tcp` or `udp`, then the rule can also contain the port range (PortMin, PortMax). Set either both ports, or neither. When neither is set, then traffic is allowed on all ports. For a single port, you must set both ports to the same value.
    * When protocol is `icmp`, you can optionally specify the `type` property. If specified, then ICMP traffic is allowed for only the specified ICMP type. Further, if you specify `type`, you can optionally specify the code property to allow traffic for only the specified ICMP code.
 
 *	Remote - Describes the set of network interfaces to which this rule allows traffic (or from which, for outbound rules).
@@ -84,7 +84,7 @@ For more information about setting up security group rules using the CLI, see th
 ## Getting started
 {: #sg-getting-started}
 
-To get started, decide if you want to create a new security group for your resource, and [Create your security group](/docs/vpc?topic=vpc-configuring-the-security-group&interface=ui).
+To get started, decide whether you want to create a new security group for your resource, and [Create your security group](/docs/vpc?topic=vpc-configuring-the-security-group&interface=ui).
 
 ## Security group use cases
 {: #sg-use-cases}
@@ -99,7 +99,7 @@ Every VPC has a default security group, which is a security group that is create
 A default security group is different from the default rule for new security groups. You can customize both the rule on your default security group, as well as the default rule assigned to new security groups.
 {: note}
 
-For example, let's say you are part of an organization and someone with access to your organization's account modifies the default security group's rule to be different than the default rule you get when you create a new security group. Your team member is a very security-conscious customer, and they change the default security group settings to deny all inbound and outbound network traffic.
+For example, imagine you are part of an organization and someone with access to your organization's account modifies the default security group's rule to be different than the default rule you get when you create a new security group. Your team member is a very security-conscious customer, and they change the default security group settings to deny all inbound and outbound network traffic.
 
 In this example, if you create a new resource, it will initially be assigned to your VPC's default security group. This default security group's rule denies all inbound and outbound network traffic because of the deny rules your security-conscious team member set up. As a result, traffic to and from your new resource will have this deny behavior applied.
 
