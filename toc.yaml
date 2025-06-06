@@ -641,7 +641,7 @@ toc:
                 topics:
                 - bs_snapshots_create.md
                 - bs_snapshots_create_mvs.md
-            - bs_snapshots_view.md     
+            - bs_snapshots_view.md
             - topicgroup:
                 id: managing-volume-snapshots
                 label: Managing snapshots and consistency groups
