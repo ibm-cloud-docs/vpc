@@ -2,7 +2,7 @@
 
 copyright:
   years: 2024, 2025
-lastupdated: "2025-05-26"
+lastupdated: "2025-06-09"
 
 keywords:
 
@@ -132,7 +132,7 @@ To create a cluster network with the API, follow these steps:
 1. When all variables are initiated, run the following command to create the cluster network:
 
    ```sh
-   curl -X POST   "$vpc_api_endpoint/v1/cluster_networks?version=$tomorrow&generation=2&maturity=development" -H "Authorization: Bearer $iam_token" -d '{
+   curl -X POST   "$vpc_api_endpoint/v1/cluster_networks?version=$tomorrow&generation=2&maturity=beta" -H "Authorization: Bearer $iam_token" -d '{
       "name": "my-cluster-network",
       "profile": {
           "name": "h100"

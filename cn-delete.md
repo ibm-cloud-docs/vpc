@@ -97,7 +97,7 @@ To delete a cluster network with the API, follow these steps:
 1. When all variables are initiated, run the following command delete the cluster network:
 
    ```sh
-   curl -X DELETE   "$vpc_api_endpoint/v1/cluster_networks/$cluster_network_id?version=$tomorrow&generation=2&maturity=development" -H "Authorization: Bearer $iam_token"
+   curl -X DELETE   "$vpc_api_endpoint/v1/cluster_networks/$cluster_network_id?version=$tomorrow&generation=2&maturity=beta" -H "Authorization: Bearer $iam_token"
    ```
    {: codeblock}
 
