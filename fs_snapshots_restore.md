@@ -56,7 +56,7 @@ From the list of {{site.data.keyword.filestorage_vpc_short}} snapshots, you can 
     | Resource group | Use the defaults or select from the list. |
     | User tags | Specify [user tags](/docs/vpc?topic=vpc-block-storage-about&interface=ui#storage-about-user-tags) to organize your resources and for use by [backup policies](/docs/vpc?topic=vpc-backup-service-about) | 
     | Access management tags | Specify [access management tags](/docs/vpc?topic=vpc-block-storage-about&interface=ui#storage-about-mgt-tags) that were created in IAM to help you manage access to your shares. |
-    | **Profile** | Defaults to dp2. The profile of the new share must match the profile of the snapshot. |
+    | **Profile** | Defaults to dp2. The profile and storage generation value of the new share must match the profile and storage generation value of the snapshot. |
     | Size | Enter a share size that is allowed by the profile. It must be bigger or equal to the size of the snapshot. |
     | IOPS | Select the IOPS that is within the range that the share profile allows. |
     | **Mount targets** | The creation of a mount target is optional, but you need to have a mount target if you want to connect to your file share from a virtual server instance. |
