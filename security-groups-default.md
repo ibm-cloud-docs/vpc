@@ -41,8 +41,8 @@ If you edit the rules of the default security group, those edited rules then app
 1. In the Security groups list, click the name of the default security group that you want to update.
 1. On the default security group's details page, click the **Rules** tab.
 1. Modify the rules as necessary:
-      - To edit a rule, click the Actions menu ![Actions menu](images/overflow.png), click **Edit**, make your changes, then click **Save**.
-      - To delete a rule, click the Actions menu ![Actions menu](images/overflow.png), click **Delete**, then click **Delete** again.
+      - To edit a rule, click the Actions menu ![Actions menu](../icons/action-menu-icon.svg "Actions"), click **Edit**, make your changes, then click **Save**.
+      - To delete a rule, click the Actions menu ![Actions menu](../icons/action-menu-icon.svg "Actions"), click **Delete**, then click **Delete** again.
       - To create a rule, click the **Create** button.
 
       For each rule, specify the following information:

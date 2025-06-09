@@ -41,7 +41,7 @@ To list the routing tables for a VPC in the console, follow these steps:
 
 1. From the Routing tables for VPC page, you can create, delete, and view the details of a routing table.
 
-The Actions menu ![Actions menu](images/overflow.png) is used to delete a routing table. Keep in mind that you can do this action only on routing tables without attached subnets.
+The Actions menu ![Actions menu](../icons/action-menu-icon.svg "Actions") is used to delete a routing table. Keep in mind that you can do this action only on routing tables without attached subnets.
 {: note}
 
 ## Listing routing tables for a VPC from the CLI

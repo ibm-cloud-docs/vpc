@@ -27,7 +27,7 @@ To delete an ALB by in the IBM Cloud console, perform the following procedure:
 1. Log in to the [{{site.data.keyword.cloud_notm}} console](/login){: external}.
 1. Select the **Navigation Menu** ![Navigation Menu icon](../icons/icon_hamburger.svg), then click **Infrastructure** ![VPC icon](../../icons/vpc.svg) > **Network** > **Load balancers** from the Network section.
 1. Select the Region of your load balancer.
-1. Click the Actions menu ![Actions menu](images/overflow.png) next to the load balancer that you want to delete, then select **Delete**.
+1. Click the Actions menu ![Actions menu](../icons/action-menu-icon.svg "Actions") next to the load balancer that you want to delete, then select **Delete**.
 
 The Status for the load balancer now shows **Deleting**. Refresh the page to confirm that the load balancer was deleted.
 

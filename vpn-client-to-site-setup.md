@@ -1,8 +1,8 @@
 ---
 
 copyright:
-  years: 2021, 2023
-lastupdated: "2023-11-16"
+  years: 2021, 2025
+lastupdated: "2025-06-09"
 
 keywords:
 
@@ -68,5 +68,5 @@ After you create the VPN server using the newly created certificate, you can set
 1. Connect to the VPN server using the OpenVPN client and configuration file.
 1. To verify that a client connected successfully, open the details page of the VPN server. Then, click the Clients tab to view all connected VPN clients in the last 5 minutes.
 
-   You can click the Actions menu ![Actions menu](images/overflow.png) to disconnect or delete clients.
+   You can click the Actions menu ![Actions menu](../icons/action-menu-icon.svg "Actions") to disconnect or delete clients.
    {: tip}

@@ -36,7 +36,7 @@ To attach a routing table to a subnet in the console, follow these steps:
 To reassign a routing table to a subnet, follow these steps:
 
 1. From the routing table details page, click the Subnets tab.
-1. Click the Actions menu ![Actions menu](images/overflow.png) next to the subnet, then click **Reassign routing table**.
+1. Click the Actions menu ![Actions menu](../icons/action-menu-icon.svg "Actions") next to the subnet, then click **Reassign routing table**.
 1. From the Reassign subnet routing table side panel, click the subnet that you want to assign to this routing table.
 1. Click **Reassign**.
 

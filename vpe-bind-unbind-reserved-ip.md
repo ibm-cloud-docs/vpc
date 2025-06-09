@@ -32,7 +32,7 @@ You can bind or unbind a reserved IP address to an endpoint gateway by using the
 To reserve or bind an IP address by using the {{site.data.keyword.cloud}} console:
 
 1. From the [{{site.data.keyword.cloud_notm}} console](/login){: external}, select the **Navigation Menu** ![Navigation Menu icon](../icons/icon_hamburger.svg), then click **Infrastructure** ![VPC icon](../../icons/vpc.svg) > **Network** > **Virtual private endpoint gateways**. The Virtual private endpoint gateways for VPC page appears.
-1. Highlight the row of the gateway in the table, then click **Reserve or bind IP** from the Actions menu ![Actions menu](images/overflow.png). Alternatively, you can click the gateway name and access this link from the endpoint gateway's details page.
+1. Highlight the row of the gateway in the table, then click **Reserve or bind IP** from the Actions menu ![Actions menu](../icons/action-menu-icon.svg "Actions"). Alternatively, you can click the gateway name and access this link from the endpoint gateway's details page.
 
    If you did not reserve or bind an IP during endpoint gateway creation, this link appears in the IP address column in the table.
    {: note}
@@ -52,7 +52,7 @@ Unbinding means that the selected reserved IP is no longer bound to the endpoint
 
 To unbind an IP address by using the IBM Cloud console, follow these steps:
 
-1. From the Virtual private endpoint gateways for VPC page, highlight the row of the gateway in the table, then click **Unbind IP** from the Actions menu ![Actions menu](images/overflow.png). Alternatively, you can unbind a reserved IP from an endpoint gateway's details page.
+1. From the Virtual private endpoint gateways for VPC page, highlight the row of the gateway in the table, then click **Unbind IP** from the Actions menu ![Actions menu](../icons/action-menu-icon.svg "Actions"). Alternatively, you can unbind a reserved IP from an endpoint gateway's details page.
 1. Click **Unbind IP** to confirm that you want to unbind this IP from the specified subnet.
 
 ## Binding and unbinding a reserved IP address from the CLI

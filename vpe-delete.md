@@ -28,7 +28,7 @@ To delete an endpoint gateway, follow these steps:
 
    The Virtual private endpoint gateways for VPC page shows all endpoint gateways for all VPCs in the region.
 
-2. Click the Actions menu ![Actions menu](images/overflow.png) next to the endpoint gateway you want to delete, then click **Delete**. Click **Delete** again to confirm the deletion.
+2. Click the Actions menu ![Actions menu](../icons/action-menu-icon.svg "Actions") next to the endpoint gateway you want to delete, then click **Delete**. Click **Delete** again to confirm the deletion.
 
 If you previously selected the auto-delete option for attached IP addresses, any attached reserved IPs are also deleted.
 {: note}

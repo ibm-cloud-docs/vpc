@@ -2,7 +2,7 @@
 
 copyright:
   years: 2021, 2025
-lastupdated: "2025-04-29"
+lastupdated: "2025-06-09"
 
 keywords:
 
@@ -26,7 +26,7 @@ To disconnect a VPN client from the VPN server, follow these steps:
 1. Navigate to the [VPNs for VPC](https://cloud.ibm.com/infrastructure/network/vpngateways){: external} page and click the **Client-to-site servers** tab.
 1. Click the name of the VPN server to display its details.
 1. Click the Clients tab to view VPN clients that connected in the last 5 minutes.
-1. Click the Actions menu ![Actions menu](images/overflow.png) next to the client that you want to disconnect, then click **Disconnect**. The disconnected VPN client is automatically deleted after one hour.
+1. Click the Actions menu ![Actions menu](../icons/action-menu-icon.svg "Actions") next to the client that you want to disconnect, then click **Disconnect**. The disconnected VPN client is automatically deleted after one hour.
 
    ![VPN clients](images/vpn-clients.png){: caption="VPN clients" caption-side="bottom"}
 

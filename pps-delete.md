@@ -69,7 +69,7 @@ To delete a Private Path service in the {{site.data.keyword.cloud_notm}} console
 
 1. From your browser, open the [{{site.data.keyword.cloud_notm}} console](/login) and log in to your account.
 1. Select the **Navigation Menu** ![navigation menu](../icons/icon_hamburger.svg), then click **Infrastructure > Network > Private Path services**.
-1. In the Private Path services for VPC table, locate the Private Path service that you want to delete, then click **Delete** in the Actions menu ![Actions menu](images/overflow.png).
+1. In the Private Path services for VPC table, locate the Private Path service that you want to delete, then click **Delete** in the Actions menu ![Actions menu](../icons/action-menu-icon.svg "Actions").
 
 ## Updating a provider service from the CLI
 {: #pps-cli-update-provider-service}

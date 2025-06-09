@@ -59,10 +59,10 @@ The Reserved IPs table shows all bound, reserved IPs to this endpoint gateway. D
 | Location | The reserved IP's location and subnet. |
 | IP address | The IP address value of the reserved IP. Click to copy it. |
 | Auto delete | Move the **Auto Delete** switch to enable or disable deletion for the reserved IP. If it is enabled (green), this reserved IP is deleted automatically when the target is deleted. |
-| Actions | Click the Actions menu ![Actions menu](images/overflow.png) to display a menu of context-specific actions that you can take. There are 4 actions in the menu (Rename, Release, Unbind and Copy UUID for this reserved IP). |
+| Actions | Click the Actions menu ![Actions menu](../icons/action-menu-icon.svg "Actions") to display a menu of context-specific actions that you can take. There are 4 actions in the menu (Rename, Release, Unbind and Copy UUID for this reserved IP). |
 {: caption="Details about your endpoint gateway bound reserved IPs" caption-side="bottom"}
 
-Scroll to the Security groups section to view attached security groups. You can click **Attach** to attach a security group, or click the Actions menu ![Actions menu](images/overflow.png) to edit rules, or detach a security group.
+Scroll to the Security groups section to view attached security groups. You can click **Attach** to attach a security group, or click the Actions menu ![Actions menu](../icons/action-menu-icon.svg "Actions") to edit rules, or detach a security group.
 
    At least one security group must be attached.
    {: note}

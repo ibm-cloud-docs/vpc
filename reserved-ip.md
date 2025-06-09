@@ -2,7 +2,7 @@
 
 copyright:
   years: 2021, 2025
-lastupdated: "2025-04-29"
+lastupdated: "2025-06-09"
 
 keywords:
 
@@ -77,7 +77,7 @@ To create an unassociated reserved IP, follow these steps:
 ### Deleting a reserved IP
 {: #ui-delete-reserved-ip}
 
-To delete (release) a reserved IP using the UI, navigate to  **Subnets > Reserved IPs** and click the actions menu ![actions menu](images/overflow.png) next to the reserved IP that you want to delete. Select **Release**.
+To delete (release) a reserved IP using the UI, navigate to  **Subnets > Reserved IPs** and click the actions menu ![actions menu](../icons/action-menu-icon.svg "Actions") next to the reserved IP that you want to delete. Select **Release**.
 
 
 
