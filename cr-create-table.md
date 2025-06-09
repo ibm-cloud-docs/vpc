@@ -2,7 +2,7 @@
 
 copyright:
   years: 2020, 2025
-lastupdated: "2025-04-29"
+lastupdated: "2025-06-09"
 
 keywords: custom routes
 
@@ -31,7 +31,7 @@ You can create a routing table for an {{site.data.keyword.cloud_notm}} service b
 
 To create a routing table in the console, follow these steps:
 
-1. From the [{{site.data.keyword.cloud_notm}} console](/login){: external}, select the **Navigation Menu** ![Navigation menu](images/menu_icon.png), then click **Infrastructure > Network > Routing tables**. The Routing tables for VPC page appears.
+1. From the [{{site.data.keyword.cloud_notm}} console](/login){: external}, select the **Navigation Menu** ![Navigation Menu icon](../icons/icon_hamburger.svg), then click **Infrastructure** ![VPC icon](../../icons/vpc.svg) > **Network** > **Routing tables**. The Routing tables for VPC page appears.
 1. Click **Create** in the upper right of the page.
 1. In the Routing table for VPC provisioning page, complete the following information:
 
@@ -60,7 +60,7 @@ To create a routing table in the console, follow these steps:
 Before you begin, [set up your CLI environment](/docs/vpc?topic=vpc-set-up-environment&interface=cli).
 
 To create a routing table from the CLI, run the following command:
- 
+
 ```sh
 ibmcloud is vpc-routing-table-create VPC [--name NAME] [--direct-link-ingress false | true] [--internet-ingress, --internet false | true] [--transit-gateway-ingress false | true] [--vpc-zone-ingress false | true] [--accept-routes-from-resource-type-filters, --ar-rtf vpn_server | vpn_gateway] [--advertise-routes-to direct_link | transit_gateway | direct_link, transit_gateway] [--output JSON] [-q, --quiet]
 ```

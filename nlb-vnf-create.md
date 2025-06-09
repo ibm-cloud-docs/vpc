@@ -2,7 +2,7 @@
 
 copyright:
   years: 2020, 2025
-lastupdated: "2025-04-24"
+lastupdated: "2025-06-09"
 
 keywords: network load balancer, public, listener, pool, round-robin
 
@@ -52,7 +52,7 @@ The following list details some important considerations about network load bala
 To create and configure {{site.data.keyword.nlb_full}} with routing mode with the {{site.data.keyword.cloud_notm}} console, follow these steps:
 
 1. From your browser, open the [{{site.data.keyword.cloud_notm}} console](/login){: external} and log in to your account.
-1. Select the **Navigation Menu** ![Navigation Menu icon](../../icons/icon_hamburger.svg), then click  **Infrastructure** ![VPC icon](../../icons/vpc.svg)  > **Load balancers**.
+1. Select the **Navigation Menu** ![Navigation Menu icon](../icons/icon_hamburger.svg), then click **Infrastructure** ![VPC icon](../../icons/vpc.svg) > **Network** > **Load balancers**.
 1. Click **New load balancer +** in the upper right of the page.
 1. In the order form, complete the following information:
    * Type a unique name for your load balancer and select a VPC.
@@ -553,5 +553,5 @@ After the NLB with routing mode is in an active state, follow these steps to fin
 1. Configure your custom routes as follows:
    * For all traffic destined for the back-end customer workload subnet, set the next hop to the NLB private IP.
    * For all traffic destined for the client subnet, set the next hop to the NLB private IP.
-  
+
 1. VNF instances (VNIs) must reside on the same subnet with the NLB, and must be added as a member to your pool.

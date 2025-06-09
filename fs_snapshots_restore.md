@@ -2,7 +2,7 @@
 
 copyright:
   years: 2024, 2025
-lastupdated: "2025-04-30"
+lastupdated: "2025-06-09"
 
 keywords:
 
@@ -69,7 +69,7 @@ From the list of {{site.data.keyword.filestorage_vpc_short}} snapshots, you can 
 {: #fs-snapshots-restore-CLI}
 {: cli}
 
-You can create a {{site.data.keyword.filestorage_vpc_short}} share from a snapshot from the CLI. When the share is created, you can create a mount target and mount the share to an instance later.
+You can create a {{site.data.keyword.filestorage_vpc_short}} share from a snapshot from the CLI. When the share is created, you can create a mount target and mount the share to an instance later. 
 
 ### Before you begin
 {: #fs-snapshots-restore-prereq-CLI}

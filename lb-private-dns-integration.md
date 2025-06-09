@@ -2,7 +2,7 @@
 
 copyright:
   years: 2022, 2025
-lastupdated: "2025-04-29"
+lastupdated: "2025-06-09"
 
 keywords:
 
@@ -49,7 +49,7 @@ You can bind a DNS zone to a load balancer when you create a load balancer. If y
 To bind a DNS zone when [creating a load balancer](/docs/vpc?topic=vpc-load-balancers), follow these steps:
 
 1. From your browser, open the [{{site.data.keyword.cloud_notm}} console](/login){: external} and log in to your account.
-1. Select the **Navigation Menu** ![Navigation Menu icon](../../icons/icon_hamburger.svg), then click **Infrastructure > Network > Load balancers**.
+1. Select the **Navigation Menu** ![Navigation Menu icon](../icons/icon_hamburger.svg), then click **Infrastructure** ![VPC icon](../../icons/vpc.svg) > **Network** > **Load balancers**.
 1. Click **Create**.
 1. Configure the VPC, type, subnet, listeners, and pools as needed.
 1. Under the DNS type section, choose **Private**.
@@ -62,7 +62,7 @@ To bind a DNS zone when [creating a load balancer](/docs/vpc?topic=vpc-load-bala
 To bind a DNS zone to an existing load balancer, follow these steps:
 
 1. From your browser, open the [{{site.data.keyword.cloud_notm}} console](/login){: external} and log in to your account.
-1. Select the **Navigation Menu** ![Navigation Menu icon](../../icons/icon_hamburger.svg), then click **Infrastructure > Network > Load balancers**.
+1. Select the **Navigation Menu** ![Navigation Menu icon](../icons/icon_hamburger.svg), then click **Infrastructure** ![VPC icon](../../icons/vpc.svg) > **Network** > **Load balancers**.
 1. From the list of load balancers, select the load balancer to view its details page.
 1. Click **Bind private DNS** in the Private DNS section.
 1. Enter the DNS instance, and DNS zone information.
@@ -77,7 +77,7 @@ When migrating to a private DNS zone for an existing load balancer, the default 
 To unbind a DNS zone from a load balancer, follow these steps:
 
 1. From your browser, open the [{{site.data.keyword.cloud_notm}} console](/login){: external} and log in to your account.
-1. Select the **Navigation Menu** ![Navigation Menu icon](../../icons/icon_hamburger.svg), then click **Infrastructure > Network > Load balancers**.
+1. Select the **Navigation Menu** ![Navigation Menu icon](../icons/icon_hamburger.svg), then click **Infrastructure** ![VPC icon](../../icons/vpc.svg) > **Network** > **Load balancers**.
 1. From the list of load balancers, select the load balancer to view its details page.
 1. Click the **Unbind** button in the Private DNS section
 1. Verify the action by clicking **Unbind** again.

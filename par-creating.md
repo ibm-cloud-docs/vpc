@@ -2,7 +2,7 @@
 
 copyright:
   years: 2025
-lastupdated: "2025-04-29"
+lastupdated: "2025-06-09"
 
 keywords: public address range, create, bind
 
@@ -32,12 +32,12 @@ You can create public address ranges with the console, CLI, and API.
 Make sure to review [planning considerations](/docs/vpc?topic=vpc-about-par#par-planning) and [limitations](/docs/vpc?topic=vpc-par-limitations&interface=api) for public address ranges.
 
 ## Creating a public access range in the console
-{: #par-creating-ui} 
+{: #par-creating-ui}
 {: ui}
 
 To create a public access range in the {{site.data.keyword.cloud_notm}} console, follow these steps:
 
-1. From the [{{site.data.keyword.cloud_notm}} console](/login){: external}, select the **Navigation Menu** ![Menu icon](../icons/icon_hamburger.svg), then click **Infrastructure > Network > Public Address Ranges**. The Public Address Ranges for VPC page appears.
+1. From the [{{site.data.keyword.cloud_notm}} console](/login){: external}, select the **Navigation Menu** ![Navigation Menu icon](../icons/icon_hamburger.svg), then click **Infrastructure** ![VPC icon](../../icons/vpc.svg) > **Network** > **Public Address Ranges**. The Public Address Ranges for VPC page appears.
 1. Click **Create** to go to the provisioning page.
 1. In the Location section, edit the following fields, if necessary:
    * **Geography**: Indicates the geography where you want the public address range created.
@@ -58,15 +58,15 @@ To create a public access range in the {{site.data.keyword.cloud_notm}} console,
 
 1. (Optional) If you want to bind your public address range to an existing VPC, toggle the **Bind** switch to On. Then, select the VPC and availability zone that you want to bind to.
 
-   You can bind a public address range to any VPC in a single availability zone that already exists in your account. You can also bind the address range to a VPC later. For more information, see [Binding a public address range](/docs/vpc?topic=vpc-par-unbinding-binding&interface=ui#bind-par-ui). 
+   You can bind a public address range to any VPC in a single availability zone that already exists in your account. You can also bind the address range to a VPC later. For more information, see [Binding a public address range](/docs/vpc?topic=vpc-par-unbinding-binding&interface=ui#bind-par-ui).
    {: tip}
 
 1. Review the **Order summary**, then click **Create**. The public address range is requested for use.
 
-On the Public address ranges for VPC page, your address range now shows in the table. For IBM Cloud services, the status of your public address range changes from `Updating` to `Stable`. 
+On the Public address ranges for VPC page, your address range now shows in the table. For IBM Cloud services, the status of your public address range changes from `Updating` to `Stable`.
 
 ## Creating a public address range from the CLI
-{: #par-ordering-cli} 
+{: #par-ordering-cli}
 {: cli}
 
 To create a public address range from the command line, follow these steps:
@@ -89,7 +89,7 @@ To create a public address range from the command line, follow these steps:
    You'll receive a notification in the command line when updates to the IBM Cloud CLI and its plug-ins are available. It's important to keep your CLI up to date to access the latest commands. To check the current version of all installed plug-ins, run **`ibmcloud plugin list`**.
    {: tip}
 
-1. Run the following command: 
+1. Run the following command:
 
    ```sh
    ibmcloud is public-address-range-create --ipv4-address-count IPV4_ADDRESS_COUNT [--zone ZONE] [--name NAME] [--resource-group-id RESOURCE_GROUP_ID | --resource-group-name RESOURCE_GROUP_NAME | --all-resource-groups] [--vpc VPC] [--output JSON] [-q, --quiet]
@@ -151,7 +151,7 @@ cli-test-vpc --zone us-south-1 --resource-group-id 72b27b5c-f4b0-48bb-b954-5becc
 {: pre}
 
 ## Creating a public address range with the API
-{: #par-ordering-api} 
+{: #par-ordering-api}
 {: api}
 
 To create a public address range with the API, follow these steps:
@@ -198,7 +198,7 @@ To create a public address range with the API, follow these steps:
       ```
       {: pre}
 
-If you need to change the size of the address range or the resource group, you must delete and recreate the address range. 
+If you need to change the size of the address range or the resource group, you must delete and recreate the address range.
 {: important}
 
 ## Related links

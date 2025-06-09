@@ -2,7 +2,7 @@
 
 copyright:
   years: 2020, 2025
-lastupdated: "2025-04-29"
+lastupdated: "2025-06-09"
 
 keywords: custom routes
 
@@ -24,7 +24,7 @@ You can list routing tables for a VPC by using the console, CLI, API, or Terrafo
 
 To list the routing tables for a VPC in the console, follow these steps:
 
-1. From the [{{site.data.keyword.cloud_notm}} console](/login){: external}, select the **Navigation Menu** ![Navigation Menu](images/menu_icon.png), then click **Infrastructure > Network > Routing tables**. The Routing tables for VPC page appears.
+1. From the [{{site.data.keyword.cloud_notm}} console](/login){: external}, select the **Navigation Menu** ![Navigation Menu icon](../icons/icon_hamburger.svg), then click **Infrastructure** ![VPC icon](../../icons/vpc.svg) > **Network** > **Routing tables**. The Routing tables for VPC page appears.
 1. From the Virtual private cloud drop-down list, select the VPC that you want to list routing tables for.
 
    Column descriptions are as follows:

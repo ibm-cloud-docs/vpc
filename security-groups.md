@@ -2,7 +2,7 @@
 
 copyright:
   years: 2019, 2025
-lastupdated: "2025-06-06"
+lastupdated: "2025-06-09"
 
 keywords:
 
@@ -28,7 +28,7 @@ When you create a VPC, it is assigned a default security group. You can modify t
 
 When you create a resource that uses a security group and don't specify a security group, the resource's primary network interface is attached to the _default_ security group of that resource's VPC.
 {: note}
- 
+
 Updating the rules for the _default_ security group is a separate process from updating the default security group. If you edit the rules of the default security group, those edited rules then apply to all current and future servers in the group. For more information, see [Updating default security group rules](/docs/vpc?topic=vpc-updating-the-default-security-group#updating-the-default-security-group).
 
 You cannot nest security groups within one another, but you can reference remote security groups. Referencing a remote security group in a rule will apply that rule to all the reference security group targets attached to that rule.
@@ -133,7 +133,7 @@ To make this process easier, you can define a rule in which you allow all traffi
 The following are UI instructions for defining rules in a security group to allow all traffic between members of that security group:
 
 1. From your browser, open the [{{site.data.keyword.cloud_notm}} console](/login){: external}.
-1. Select the **Navigation Menu** ![menu icon](../icons/icon_hamburger.svg), then click **Infrastructure > Network  > Security groups**.
+1. Select the **Navigation Menu** ![Navigation Menu icon](../icons/icon_hamburger.svg), then click **Infrastructure** ![VPC icon](../../icons/vpc.svg) > **Network** > **Security groups**.
 1. In the Security groups, select the security group object that you want to modify.
 1. Click the **Create +** button in the upper right of the **Inbound rules** table. A **Create inbound rule** window appears.
 1. In the **Protocol** section, select **ALL**.

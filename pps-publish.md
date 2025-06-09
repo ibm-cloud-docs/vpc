@@ -2,7 +2,7 @@
 
 copyright:
   years: 2024, 2025
-lastupdated: "2025-05-21"
+lastupdated: "2025-06-09"
 
 keywords:
 
@@ -32,7 +32,7 @@ You can publish and unpublish an {{site.data.keyword.cloud}} Private Path servic
 To publish a Private Path service in the {{site.data.keyword.cloud_notm}} console, follow these steps:
 
 1. From your browser, open the [{{site.data.keyword.cloud_notm}} console](/login) and log in to your account.
-1. Select the **Navigation Menu** ![Menu icon](../icons/icon_hamburger.svg), then click **Infrastructure > Network > Private Path services**.
+1. Select the **Navigation Menu** ![Navigation Menu icon](../icons/icon_hamburger.svg), then click **Infrastructure** ![VPC icon](../../icons/vpc.svg) > **Network** > **Private Path services**.
 1. Locate the name of your new Private Path service in the table, and click the name to view the Private Path service details page.
 1. Click **Publish** in the Actions menu ![Actions menu](images/overflow.png).
 

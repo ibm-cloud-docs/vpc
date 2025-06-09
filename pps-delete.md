@@ -25,7 +25,7 @@ You can migrate to a newer version of Private Path service without deleting or d
 To update a Private Path provider service the {{site.data.keyword.cloud_notm}} console, follow these steps:
 
 1. From your browser, open the [{{site.data.keyword.cloud_notm}} console](/login) and log in to your account.
-1. Select the **Navigation Menu** ![Menu icon](../icons/icon_hamburger.svg), then click **Infrastructure > Network > Private Path services**.
+1. Select the **Navigation Menu** ![Navigation Menu icon](../icons/icon_hamburger.svg), then click **Infrastructure** ![VPC icon](../../icons/vpc.svg) > **Network** > **Private Path services**.
 1. In the Private Path services for VPC table, locate and click the name of the Private Path service that you want to update.
 1. On the Private Path details page, click the Edit icon ![Edit icon](images/edit.png) beside the details that you want to update.
 

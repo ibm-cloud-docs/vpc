@@ -1,7 +1,7 @@
 ---
 copyright:
   years: 2022, 2025
-lastupdated: "2025-04-29"
+lastupdated: "2025-06-09"
 
 keywords:
 
@@ -41,7 +41,7 @@ To create a public gateway using the {{site.data.keyword.cloud_notm}} console, f
 
 1. Go to the [{{site.data.keyword.cloud_notm}} console](https://cloud.ibm.com){: external} and log in to your account.
 
-1. Select the **Navigation Menu** ![Menu icon](./images/menu_icon.png), then click **Infrastructure** > **Network** > **Public gateways**. The Public gateways for VPC page shows.
+1. Select the **Navigation Menu** ![Navigation Menu icon](../icons/icon_hamburger.svg), then click **Infrastructure** ![VPC icon](../../icons/vpc.svg) > **Network** > **Public gateways**. The Public gateways for VPC page shows.
 1. Click **Create** to go to the **Create public gateway** page.
 1. Select the **Edit location** icon ![Edit location icon](../icons/edit-tagging.svg "Edit location") and enter values for the following fields:
 

@@ -2,7 +2,7 @@
 
 copyright:
   years: 2020, 2025
-lastupdated: "2025-04-29"
+lastupdated: "2025-06-09"
 
 keywords:
 
@@ -23,7 +23,7 @@ You can list your flow log collectors by using the UI, the CLI, or the API.
 To list your flow log collectors by using the IBM Cloud console:
 
 1. From your browser, open the [{{site.data.keyword.cloud_notm}} console](/login){: external} and log in to your account.
-1. Select the **Navigation Menu** ![menu icon](../../icons/icon_hamburger.svg), then click > **Infrastructure > Network  > Flow logs**. If available, a list of provisioned flow log collectors shows.
+1. Select the **Navigation Menu** ![Navigation Menu icon](../icons/icon_hamburger.svg), then click **Infrastructure** ![VPC icon](../../icons/vpc.svg) > **Network** > **Flow logs**. If available, a list of provisioned flow log collectors shows.
 
 Flow log collector attributes shown in the table are as follows:
 
@@ -31,10 +31,10 @@ Flow log collector attributes shown in the table are as follows:
 * **Status** - The status of the flow log collector (Example: Stable, Failed, Pending).
 * **Active** - On/Off flag for the flow log. If Active, the flow log collector is set to write log files. If Suspended, the collector is deactivated and not writing log files.
 * **Target** - The specified resource the collector logs traffic for.
-* **Target type** - The type of target (for example, VPC, Subject, Instance).* 
+* **Target type** - The type of target (for example, VPC, Subject, Instance).*
 * **Object Storage Bucket** - The selected {{site.data.keyword.cos_full_notm}} bucket where the system saves flow log files.
 * **Resource group** - Resource group associated with this flow log.
-* **Created date (Local)** - Date created, specified in your local browser time zone. 
+* **Created date (Local)** - Date created, specified in your local browser time zone.
 
 ##  Listing flow log collectors from the CLI
 {: #fl-list-cli}

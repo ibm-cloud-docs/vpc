@@ -2,7 +2,7 @@
 
 copyright:
   years: 2024, 2025
-lastupdated: "2025-04-29"
+lastupdated: "2025-06-09"
 
 keywords:
 
@@ -56,7 +56,7 @@ You can create inbound and outbound rules during or after the provisioning of a 
 {: shortdesc}
 
 1. From your browser, open the [{{site.data.keyword.cloud_notm}} console](/login){: external}.
-1. Select the **Navigation Menu** ![Menu icon](../icons/icon_hamburger.svg), then click **Infrastructure > Network  > Security groups**.
+1. Select the **Navigation Menu** ![Navigation Menu icon](../icons/icon_hamburger.svg), then click **Infrastructure** ![VPC icon](../../icons/vpc.svg) > **Network** > **Security groups**.
 1. From the Security groups for VPC table, choose one of the following:
 
    * To create rules when provisioning a new security group, click **Create**, then follow instructions in [Setting up a security group for your resource](/docs/vpc?topic=vpc-configuring-the-security-group&interface=ui).

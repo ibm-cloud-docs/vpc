@@ -2,7 +2,7 @@
 
 copyright:
   years: 2021, 2025
-lastupdated: "2025-04-29"
+lastupdated: "2025-06-09"
 
 keywords:
 
@@ -25,7 +25,7 @@ You can create an {{site.data.keyword.cloud}} {{site.data.keyword.alb_full}} (AL
 To create an ALB:
 
 1. From your browser, open the [{{site.data.keyword.cloud_notm}} console](/login){: external} and log in to your account.
-1. Select the **Navigation Menu** ![Navigation Menu icon](../../icons/icon_hamburger.svg), then click  **Infrastructure** ![VPC icon](../../icons/vpc.svg)  > **Load balancers**.
+1. Select the **Navigation Menu** ![Navigation Menu icon](../icons/icon_hamburger.svg), then click **Infrastructure** ![VPC icon](../../icons/vpc.svg) > **Network** > **Load balancers**.
 1. On the Load balancers page, click **Create +**.
 1. For Load balancer type, select the Applicatoin Load Balancer (ALB) tile.
 3. In the Location section, edit the following fields, if necessary.
@@ -120,10 +120,10 @@ To create an ALB:
 1. After you finish creating pools and listeners, click **Create load balancer**.
 1. To view details of an existing load balancer, click the name of your load balancer on the **Load balancers** page.
 1. Optionally, you can create a backup for any of your existing pools. This allows the backup pool to manage traffic in the case of a member failure. To do so, you will need to create a failsafe policy:
-   
+
    There should be at least one pool already existing in the load balancer.
    {: note}
-   
+
    * After the status of your load balancer changes to **Active**, select the **Back-end pools** tab.
    * In the pools list page, click **Edit**, then specify the following information:
       * **Action**: Select **forward** in order to create a backup pool. This makes the **Target** section active.
@@ -134,10 +134,10 @@ To create an ALB:
     {: note}
 
     To do so:
-    
+
     There must be an existing HTTPS listener before you create a new HTTP listener with HTTPS redirect.
     {: note}
-    
+
     *  After the status of the load balancer changes to **Active**, click the **Front-end listeners** tab.
     *  In the listener list page, click **Create**, then specify the following information:
         * **Protocol**: Select your **HTTP** protocol.

@@ -2,7 +2,7 @@
 
 copyright:
   years: 2025
-lastupdated: "2025-04-29"
+lastupdated: "2025-06-09"
 
 keywords: viewing, deleting, public address range
 
@@ -25,7 +25,7 @@ You can view public address ranges with the console, CLI, and API.
 {: #view-par-ui}
 {: ui}
 
-To view public address ranges in the [{{site.data.keyword.cloud_notm}} console](/login){: external}, select the **Navigation Menu** ![menu icon](../icons/icon_hamburger.svg), then click **Infrastructure > Network > Public address ranges**. 
+To view public address ranges in the [{{site.data.keyword.cloud_notm}} console](/login){: external}, select the **Navigation Menu** ![Navigation Menu icon](../icons/icon_hamburger.svg), then click **Infrastructure** ![VPC icon](../../icons/vpc.svg) > **Network** > **Public address ranges**.
 
 The Public address ranges for VPC page shows the following information:
 
@@ -63,7 +63,7 @@ To view public address ranges from the command line, follow these steps:
 1. Run the following command:
 
    ```sh
-   ibmcloud is public-address-range PUBLIC_ADDRESS_RANGE [--output JSON] [-q, --quiet] 
+   ibmcloud is public-address-range PUBLIC_ADDRESS_RANGE [--output JSON] [-q, --quiet]
    ```
 
    Where:
@@ -101,7 +101,7 @@ ibmcloud is public address ranges
 To view public address ranges with the API, follow these steps:
 
 1. Set up your [API environment](/docs/vpc?topic=vpc-set-up-environment#api-prerequisites-setup).
-1. Store the following values in variables to use in the API command:  
+1. Store the following values in variables to use in the API command:
 
    For example: `version` (string): The API version, in format `YYYY-MM-DD`.
 
@@ -131,5 +131,5 @@ To view public address ranges with the API, follow these steps:
 - [IAM roles and actions](/docs/vpc?topic=vpc-about-par#par-access-management)
 - [Quotas and service limits](/docs/vpc?topic=vpc-quotas#par-quotas)
 - [Creating public address ranges](/docs/vpc?topic=vpc-par-creating&interface=ui)
-- [Binding, unbinding, and moving public address ranges](/docs/vpc?topic=vpc-par-unbinding-binding&interface=ui) 
+- [Binding, unbinding, and moving public address ranges](/docs/vpc?topic=vpc-par-unbinding-binding&interface=ui)
 - [Deleting public address ranges](/docs/vpc?topic=vpc-par-deleting&interface=ui)

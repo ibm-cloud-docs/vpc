@@ -2,7 +2,7 @@
 
 copyright:
   years: 2020, 2025
-lastupdated: "2025-04-29"
+lastupdated: "2025-06-09"
 
 keywords: flow logs, ordering, getting started
 
@@ -137,7 +137,7 @@ To create a flow log collector by using the IBM Cloud console, follow these step
 
 1. Go to the [{{site.data.keyword.cloud_notm}} console](/login){: external} and log in to your account.
 
-1. Select the **Navigation Menu** ![menu icon](../icons/icon_hamburger.svg), then click **Infrastructure** > **Network** > **Flow Logs**. The Flow logs for VPC dashboard appears.
+1. Select the **Navigation Menu** ![Navigation Menu icon](../icons/icon_hamburger.svg), then click **Infrastructure** ![VPC icon](../../icons/vpc.svg) > **Network** > **Flow Logs**. The Flow logs for VPC dashboard appears.
 
    ![Flow log collector dashboard](images/list-view-01.png "Flow Log Collector dashboard"){: caption="Flow log collector dashboard" caption-side="bottom}
 
