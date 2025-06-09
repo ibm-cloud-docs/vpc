@@ -28,12 +28,12 @@ To update a routing table in the console, follow these steps:
 1. From the [{{site.data.keyword.cloud_notm}} console](/login){: external}, select the **Navigation Menu** ![Navigation Menu icon](../icons/icon_hamburger.svg), then click **Infrastructure** ![VPC icon](../../icons/vpc.svg) > **Network** > **Routing tables**. The Routing tables for VPC page appears.
 1. Locate the routing table in the table. You can:
 
-   * Use the Actions menu ![Actions menu](images/overflow.png) to rename or delete the routing table.
+   * Use the Actions menu ![Actions menu](../icons/action-menu-icon.svg "Actions") to rename or delete the routing table.
    * Click the routing table's name to view its details page. From the Overview tab, you can do the following:
 
       * Click **Add tags** to add a tag, or click the Edit icon ![Edit icon](images/edit.png) to edit your tags for the routing table.
       * Click the Edit icon ![Edit icon](images/edit.png) to rename the routing table.
-      * Click the Actions menu ![Actions menu](images/overflow.png) to delete the routing table.
+      * Click the Actions menu ![Actions menu](../icons/action-menu-icon.svg "Actions") to delete the routing table.
       * In the Traffic section, click the Edit icon ![Edit icon](images/edit.png) to edit the traffic configuration and manage routes.
       * In the Routes section, manage existing routes, or click **Create** to add a route.
 

@@ -26,7 +26,7 @@ To delete a route in the console, follow these steps:
 
 1. From the [{{site.data.keyword.cloud_notm}} console](/login){: external}, select the **Navigation Menu** ![Navigation Menu icon](../icons/icon_hamburger.svg), then click **Infrastructure** ![VPC icon](../../icons/vpc.svg) > **Network** > **Routing tables**. The Routing tables for VPC page appears.
 2. Click the number of routes, or the routing table name that contains the route.
-3. Click the Actions menu ![Actions menu](images/overflow.png) next to the route that you want to delete, then click **Delete**. Click **Delete** again to confirm the deletion.
+3. Click the Actions menu ![Actions menu](../icons/action-menu-icon.svg "Actions") next to the route that you want to delete, then click **Delete**. Click **Delete** again to confirm the deletion.
 
 ## Deleting a route from the CLI
 {: #cr-delete-using-the-cli}

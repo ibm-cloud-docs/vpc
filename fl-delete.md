@@ -2,7 +2,7 @@
 
 copyright:
   years: 2020, 2025
-lastupdated: "2025-04-29"
+lastupdated: "2025-06-09"
 
 keywords: flow logs, delete
 
@@ -25,7 +25,7 @@ You can delete a flow log collector by using the UI, the CLI, or the API.
 {: #fl-deleting-ui}
 {: ui}
 
-To delete a flow log collector, click the Actions menu ![Actions menu](images/overflow.png) next to the collector that you want to delete, then click **Delete**. Click **Delete** again to confirm the deletion.
+To delete a flow log collector, click the Actions menu ![Actions menu](../icons/action-menu-icon.svg "Actions") next to the collector that you want to delete, then click **Delete**. Click **Delete** again to confirm the deletion.
 
 ## Deleting a flow log collector from the CLI
 {: #fl-deleting-cli}
