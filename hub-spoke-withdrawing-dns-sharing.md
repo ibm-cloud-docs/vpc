@@ -2,7 +2,7 @@
 
 copyright:
   years: 2023, 2025
-lastupdated: "2025-04-29"
+lastupdated: "2025-06-09"
 
 keywords:
 
@@ -35,7 +35,7 @@ Before you disconnect DNS sharing, review the following prerequisites:
 To disconnect DNS sharing to a DNS hub VPC, follow these steps:
 
 1. From your browser, open the [{{site.data.keyword.cloud_notm}} console](/login){: external} and log in to the account where the DNS-shared VPC resides.
-1. Select the **Navigation Menu** ![menu icon](../../icons/icon_hamburger.svg), then click  **Infrastructure > Network > VPCs**.
+1. Select the **Navigation Menu** ![Navigation Menu icon](../icons/icon_hamburger.svg), then click **Infrastructure** ![VPC icon](../../icons/vpc.svg) > **Network** > **VPCs**.
 1. Click the DNS-shared VPC whose DNS sharing you want to disconnect.
 1. Scroll to the Optional DNS settings section, then expand the DNS resolver settings and click **Edit**.
 1. In the Edit DNS resolver settings side panel, disable the DNS hub.
@@ -57,7 +57,7 @@ To disconnect DNS sharing to a DNS hub VPC with the CLI, follow these steps:
     ```sh
     ibmcloud login --sso
     ```
-    {: pre} 
+    {: pre}
 
 1. To disconnect DNS sharing to a DNS hub VPC, enter the following command:
 

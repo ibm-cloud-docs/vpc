@@ -2,7 +2,7 @@
 
 copyright:
   years: 2023, 2025
-lastupdated: "2025-04-29"
+lastupdated: "2025-06-09"
 
 keywords:
 
@@ -42,7 +42,7 @@ You can set the DNS resolver type with the console, CLI, API, or Terraform.
 To set the DNS resolver type on a DNS-shared VPC, follow these steps:
 
 1. From your browser, open the [{{site.data.keyword.cloud_notm}} console](/login){: external} and log in to your account.
-1. Select the **Navigation Menu** ![menu icon](../../icons/icon_hamburger.svg), then click  **Infrastructure > Network > VPCs**.
+1. Select the **Navigation Menu** ![Navigation Menu icon](../icons/icon_hamburger.svg), then click **Infrastructure** ![VPC icon](../../icons/vpc.svg) > **Network** > **VPCs**.
 1. Click the DNS-shared VPC whose DNS resolver type you want to set.
 1. Scroll to the Optional DNS settings section, then expand the DNS resolver settings and click **Edit**.
 1. In the Edit DNS resolver settings side panel, disable the DNS hub.
@@ -62,7 +62,7 @@ To set the DNS resolver type for a DNS-shared VPC with the CLI, follow these ste
     ibmcloud login --sso
     ```
     {: pre}
- 
+
 1. Disable the hub VPC and specify the DNS resolver type for your DNS-shared VPC:
 
    ```bash

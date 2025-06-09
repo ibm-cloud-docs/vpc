@@ -2,7 +2,7 @@
 
 copyright:
   years: 2024, 2025
-lastupdated: "2025-01-09"
+lastupdated: "2025-06-09"
 
 keywords:
 
@@ -109,7 +109,7 @@ Alternatively, you can use the [IBM Cloud VPC API](/apidocs/vpc/latest#create-se
 To create a security group using the UI:
 
 1. From your browser, open the [{{site.data.keyword.cloud_notm}} console](/login){: external} and log in to your account.
-1. Select the **Navigation Menu** ![Navigation Menu icon](../../icons/icon_hamburger.svg), then click  **Infrastructure > Network > Security groups**.
+1. Select the **Navigation Menu** ![Navigation Menu icon](../icons/icon_hamburger.svg), then click **Infrastructure** ![VPC icon](../../icons/vpc.svg) > **Network** > **Security groups**.
 1. Click **Create**.
 1. Provide a unique name for your security group.
 1. Select the VPC for your security group.
@@ -150,7 +150,7 @@ Then, configure outbound rules that allow TCP traffic to your target:
 To attach security groups when [creating your network load balancer](/docs/vpc?topic=vpc-nlb-ui-creating-network-load-balancer&interface=ui), follow these steps:
 
 1. From your browser, open the [{{site.data.keyword.cloud_notm}} console](/login){: external} and log in to your account.
-1. Select the **Navigation Menu** ![Navigation Menu icon](../../icons/icon_hamburger.svg), then click  **Infrastructure > Network > Load balancers**.
+1. Select the **Navigation Menu** ![Navigation Menu icon](../icons/icon_hamburger.svg), then click **Infrastructure** ![VPC icon](../../icons/vpc.svg) > **Network** > **Load balancers**.
 1. Click **Create**.
 1. Configure the name, VPC, type, subnet, listeners, and pools as needed.
 1. Select the check boxes of the security groups that you want to attach from the security group table.
@@ -168,7 +168,7 @@ Load balancers created prior to `07 August 2023` do not have a security group at
 {: important}
 
 1. From your browser, open the [{{site.data.keyword.cloud_notm}} console](/login){: external} and log in to your account.
-1. Select the **Navigation Menu** ![Navigation Menu icon](../../icons/icon_hamburger.svg), then click  **Infrastructure > Network > Load balancers**.
+1. Select the **Navigation Menu** ![Navigation Menu icon](../icons/icon_hamburger.svg), then click **Infrastructure** ![VPC icon](../../icons/vpc.svg) > **Network** > **Load balancers**.
 1. From the list of load balancers, select the load balancer to view its details page.
 1. Click the **Attached security groups** tab to view attached security groups.
 1. To attach one or more security groups, click **Attach**.
@@ -179,7 +179,7 @@ Load balancers created prior to `07 August 2023` do not have a security group at
 To detach a security group from a load balancer, follow these steps:
 
 1. From your browser, open the [{{site.data.keyword.cloud_notm}} console](/login){: external} and log in to your account.
-1. Select the **Navigation Menu** ![Navigation Menu icon](../../icons/icon_hamburger.svg), then click  **Infrastructure > Network > Load balancers**.
+1. Select the **Navigation Menu** ![Navigation Menu icon](../icons/icon_hamburger.svg), then click **Infrastructure** ![VPC icon](../../icons/vpc.svg) > **Network** > **Load balancers**.
 1. From the list of load balancers, select the load balancer to view its details page.
 1. Click the **Attached security groups** tab to view attached security groups.
 1. To detach a security group, click the security group's Action menu ![Actions icon](../icons/action-menu-icon.svg).
