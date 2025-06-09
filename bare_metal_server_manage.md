@@ -2,7 +2,7 @@
 
 copyright:
   years: 2021, 2025
-lastupdated: "2025-05-14"
+lastupdated: "2025-06-09"
 
 keywords: bare metal servers, managing, operation, manage bare metal server, manage bare metal, manage server, restart bare metal, stop bare metal, delete bare metal, reboot bare metal, restart server, stop server, delete server
 
@@ -368,7 +368,7 @@ Specify a `POST /bare_metal_servers/{id}/firmware/update` request to update the 
 The default value for `auto_start` is `true`. If you don't want the bare metal server to start after the firmware update, you must change this value to `false`.
 
 ```sh
-curl -X POST "$vpc_api_endpoint/v1/bare_metal_servers/$bare_metal_server_id/firmware/update?version=$tomorrow&generation=2&maturity=development" -H "Authorization: Bearer $iam_token" -d '{
+curl -X POST "$vpc_api_endpoint/v1/bare_metal_servers/$bare_metal_server_id/firmware/update?version=$tomorrow&generation=2&maturity=beta" -H "Authorization: Bearer $iam_token" -d '{
   "auto_start": false
 }'
 ```

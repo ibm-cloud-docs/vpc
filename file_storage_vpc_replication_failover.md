@@ -2,7 +2,7 @@
 
 copyright:
   years: 2022, 2025
-lastupdated: "2025-04-30"
+lastupdated: "2025-06-09"
 
 keywords: file storage, file share, replication, replica, source share, failover, 
 
@@ -143,7 +143,7 @@ This example specifies `fail` for the `fallback_policy` property. The `timeout` 
 
 ```sh
 curl -X POST \
-"$vpc_api_endpoint/v1/shares/$replica_id?/failover?version=2023-08-08&generation=2&maturity=beta""\
+"$vpc_api_endpoint/v1/shares/$replica_id?/failover?version=2023-08-08"\
 -H "Authorization: $iam_token"\
 -d '{
      "fallback_policy": "fail",
