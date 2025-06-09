@@ -2,7 +2,7 @@
 
 copyright:
   years: 2022, 2025
-lastupdated: "2025-05-19"
+lastupdated: "2025-06-09"
 
 keywords:
 
@@ -190,6 +190,8 @@ For more information, see [Bringing your own image with Wazi Image Builder](http
 
 ## More information about custom images
 {: #custom-image-additional-information}
+
+You can review the blog [How to create and distribute {{site.data.keyword.vpc_full}} (VPC) instances from custom images](https://www.ibm.com/products/tutorials/vpc-custom-image-creation-and-distribution){: external} for detailed view, including graphics, on the various custom image options. Or you can review the following links for specific tasks. 
 
 * [Using granular RBAC permissions for custom images](/docs/vpc?topic=vpc-using-granular-RBAC-permissions-for-custom-images)
 * [Configuration requirements for custom Linux kernel](/docs/vpc?topic=vpc-configuration-requirements-for-custom-linux-kernels)
