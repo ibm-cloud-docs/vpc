@@ -2,7 +2,7 @@
 
 copyright:
   years: 2022, 2025
-lastupdated: "2025-04-23"
+lastupdated: "2025-06-10"
 
 keywords:
 
@@ -69,7 +69,7 @@ The example uses `jq` as a parser, a third-party tool licensed under the [MIT li
 {: #imd-token-exchange-usemd}
 {: api}
 
-To access IBM Cloud IAM-enabled services in the account, you can generate an IAM token from the instance identity access token by using trusted profile information. You can use trusted profiles for compute resource identities to assign an {{site.data.keyword.cloud}} IAM identity to a virtual server instance.
+To access IBM Cloud IAM-enabled services in the account, you can generate an IAM token from the instance identity access token by using trusted profile information. You can use [trusted profiles](/docs/account?topic=account-create-trusted-profile) for compute resource identities to assign an {{site.data.keyword.cloud}} IAM identity to a virtual server instance.
 
 After you generate the IAM token, you can use it to access IAM-enabled services without having to manage and distribute IAM secrets to the instance. You can reuse the token multiple times. The trusted profile can be linked either when you create the instance or provided in the request body.
 
