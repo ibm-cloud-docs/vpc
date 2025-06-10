@@ -2,7 +2,7 @@
 
 copyright:
   years: 2025
-lastupdated: "2025-06-09"
+lastupdated: "2025-06-10"
 
 keywords: viewing, deleting, public address range
 
@@ -127,6 +127,7 @@ To view public address ranges with the API, follow these steps:
 
 ## Related links
 {: #after-view-par}
+
 
 - [IAM roles and actions](/docs/vpc?topic=vpc-about-par#par-access-management)
 - [Quotas and service limits](/docs/vpc?topic=vpc-quotas#par-quotas)

@@ -2,7 +2,7 @@
 
 copyright:
   years: 2019, 2025
-lastupdated: "2025-06-04"
+lastupdated: "2025-06-10"
 
 keywords:
 
@@ -105,7 +105,6 @@ NVIDIA Hopper-1 cluster network profile
 
 Public address ranges (beta)
 :   Accounts that have been granted special approval to preview this feature can now [create a public address range](/docs/vpc?topic=vpc-par-creating&interface=cli). A public address range is a contiguous set of public IPs that you can reserve and bind to a VPC in an availability zone. For more information, see [About public address ranges](/docs/vpc?topic=vpc-about-par&interface=cli).
-
 
 ### 10 April 2025
 {: #vpc-apr1025}

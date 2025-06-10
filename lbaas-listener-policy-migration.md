@@ -2,7 +2,7 @@
 
 copyright:
   years: 2025
-lastupdated: 2025-04-08
+lastupdated: "2025-06-10"
 
 keywords: application load balancer migration, api migration, versioned change
 
@@ -22,7 +22,7 @@ Before you adopt the release version `2025-04-08` or later, review the changes d
 
 The following application load balancer listener policy property has changed for API requests that use a `version` query parameter of `2024-04-08` or later.
 
-When [creating an application load balancer policy](/apidocs/vpc/2025-04-08#create-load-balancer-listener-policy) (`POST /load_balancers/{load_balancer_id}/listeners/{listener_id}/policies`):
+When [creating an application load balancer policy](/apidocs/vpc/latest#create-load-balancer-listener) (`POST /load_balancers/{load_balancer_id}/listeners/{listener_id}/policies`):
 
 | Old property           |        New property      |
 |------------------------|--------------------------|
