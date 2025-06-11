@@ -493,7 +493,7 @@ To apply tags to a {{site.data.keyword.block_storage_is_short}} volume, follow t
 ### Updating a volume attachment with the API
 {: #update-vol-attachment-api}
 
-Make a `PATCH /instances` call and specify the ID of the new volume attachment. In the request body, specify the new name of the attachment or the new value of the `delete_volume_on_instance_delete` property.
+Make a `PATCH /instances/$instance_id/volume_attachments/$volume_attachment_id` call and specify the IDs of the volume and the volume attachment. In the request body, specify the new name of the attachment or the new value of the `delete_volume_on_instance_delete` property. If the `delete_volume_on_instance_delete` property is set to `true`, when the instance is deleted, the attached volume is deleted. If you want to retain the volume after the instance is deleted, specify the value `true` for the `delete_volume_on_instance_delete` property.
 
 ```sh
 curl -X PATCH "$vpc_api_endpoint/v1/instances/$instance_id/volume_attachments/$volume_attachment_id?version=2022-04-22&generation=2" \
