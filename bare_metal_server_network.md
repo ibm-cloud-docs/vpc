@@ -2,7 +2,7 @@
 
 copyright:
   years: 2021, 2025
-lastupdated: "2025-05-06"
+lastupdated: "2025-06-11"
 
 keywords: bare metal server network, bare metal network, nics, pci, vlan, network overview
 
@@ -15,12 +15,12 @@ subcollection: vpc
 # Networking overview for Bare Metal Servers on VPC
 {: #bare-metal-servers-network}
 
-The following information is an overview of the networking features of Bare Metal Servers for VPC. Make sure that you go through this information before you build a network on bare metal servers. Keep in mind that this information is for users with basic network knowledge of {{site.data.keyword.cloud}} VPC. If you aren't familiar with VPC networking, see [About networking](/docs/vpc?topic=vpc-about-networking-for-vpc).
+The following information is an overview of the networking features of {{site.data.keyword.bm_is_full}}. Make sure that you go through this information before you build a network on bare metal servers. Keep in mind that this information is for users with basic network knowledge of {{site.data.keyword.cloud}} VPC. If you aren't familiar with VPC networking, see [About networking](/docs/vpc?topic=vpc-about-networking-for-vpc).
 {: shortdesc}
 
 * Bare Metal Server for VPC provides full support for VPC networking features. The network is fully software-defined, so you can configure it through the UI and the API.
 
-* Each bare metal server has a maximum allotted bandwidth. The bandwidth is shared by all the network interfaces on the bare metal server. The network bandwidth speed can be selected at provisioning or changed post-provision. For more information on profile generations, see [x86-64 bare metal server profiles](/docs/vpc?topic=vpc-bare-metal-servers-profile&interface=ui).
+* Dynamic Network Bandwidth is only available on {{site.data.keyword.bm_is_short}}. Each bare metal server has a maximum allotted bandwidth. The bandwidth is shared by all the network interfaces on the server. The network bandwidth speed can be selected at provisioning or changed post-provision. For more information on profile generations, see [x86-64 bare metal server profiles](/docs/vpc?topic=vpc-bare-metal-servers-profile&interface=ui).
 
 * For more information about managing network interfaces, see [Managing network interfaces for a bare metal server](/docs/vpc?topic=vpc-managing-nic-for-bare-metal-servers).
 
@@ -85,9 +85,9 @@ The following list highlights characteristics of the PCI and VLAN interfaces.
 ## Mapping network concepts between bare metal servers and VMware vSphere
 {: #mapping-network-concepts}
 
-Bare Metal Servers for VPC fully supports VMware vSphere networking functions. To set up networks in the vSphere environment, you need to first understand the mapping of the networking concepts between your bare metal server and vSphere.
+{{site.data.keyword.bm_is_short}} fully supports VMware vSphere networking functions. To set up networks in the vSphere environment, you need to first understand the mapping of the networking concepts between your bare metal server and vSphere.
 
-The following table describes the mapping of network concepts between Bare Metal Servers for VPC and VMware vSphere.
+The following table describes the mapping of network concepts between {{site.data.keyword.bm_is_short}} and VMware vSphere.
 
 | Bare metal server | VMware vSphere |
 |---------|---------|
