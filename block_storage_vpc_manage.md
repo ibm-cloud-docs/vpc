@@ -153,7 +153,7 @@ Manage your {{site.data.keyword.block_storage_is_short}} from the command-line i
 
 * Rename a {{site.data.keyword.block_storage_is_short}} volume.
 * Add user tags to a {{site.data.keyword.block_storage_is_short}} volume.
-* Update the volume attachment by changing its name or 
+* Update the volume attachment by changing its name or change the auto-delete setting.
 * Detach a volume from a virtual server instance.
 * Adjust the IOPS of a data volume. For more information, see [Adjusting IOPS](/docs/vpc?topic=vpc-adjusting-volume-iops).
 * Increase the capacity of a volume. For more information, see [Increasing capacity of a data volume](/docs/vpc?topic=vpc-expanding-block-storage-volumes) and [Increasing capacity of a boot volume](/docs/vpc?topic=vpc-resize-boot-volumes). 
