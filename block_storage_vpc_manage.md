@@ -710,6 +710,7 @@ To delete a volume, complete the following steps.
 
 ### Deleting a {{site.data.keyword.block_storage_is_short}} volume from the CLI
 {: #delete-vol-cli}
+{: cli}
 {: help}
 {: support}
 
@@ -737,6 +738,8 @@ Volume demovolume1 is deleted.
 ### Deleting a {{site.data.keyword.block_storage_is_short}} volume with the API
 {: #delete-vol-api}
 {: api}
+{: help}
+{: support}
 
 Make a `DELETE /volumes/{id}` call.
 
@@ -750,6 +753,7 @@ To verify that the volume is deleted, list the volumes by making a `GET /volumes
 
 ### Deleting a {{site.data.keyword.block_storage_is_short}} volume with Terraform
 {: #delete-vol-terraform}
+{: terraform}
 {: help}
 {: support}
 
