@@ -2,7 +2,7 @@
 
 copyright:
   years: 2019, 2025
-lastupdated: "2025-06-04"
+lastupdated: "2025-06-11"
 
 keywords: faqs, Block Storage for vpc, fast restore, multizone, instance, instance provisioning, volume management, volume deletion.
 
@@ -225,11 +225,13 @@ Yes, you can create a custom image directly from a {{site.data.keyword.block_sto
 
 The boot volume is created when you provision a virtual server instance. The boot disk of an instance is a cloned image of the virtual machine image. For stock images, the boot volume capacity is 100 GB. If you are importing a custom image, the boot volume capacity can be 10 GB to 250 GB, depending on what the image requires. Images smaller than 10 GB are rounded up to 10 GB.
 
-### When can I delete a {{site.data.keyword.block_storage_is_short}} data volume?
+### When can I delete a {{site.data.keyword.block_storage_is_short}} volume?
 {: faq}
 {: #faq-block-storage-15}
 
-You can delete a {{site.data.keyword.block_storage_is_short}} data volume only when it isn't attached to a virtual server instance. [Detach the volume](/docs/vpc?topic=vpc-managing-block-storage#detach) before you delete it. Boot volumes are detached and deleted when the instance is deleted.
+You can delete a {{site.data.keyword.block_storage_is_short}} data volume only when it isn't attached to a virtual server instance. You have to [detach the volume](/docs/vpc?topic=vpc-managing-block-storage#detach) before you can delete it. You can also enable the auto-delete feature in the console, from the CLI, or with the API. Wnen auto-delete is enabled, the data volume is deleted along with the instance.
+
+By default, boot volumes are detached and deleted when the instance is deleted. If you want to retain your boot volume, disable the the auto-delete feature. For more information, see [Managing Block Storage for VPC volumes](/docs/vpc?topic=vpc-managing-block-storage).
 
 ### What happens to my data when I delete a {{site.data.keyword.block_storage_is_short}} data volume?
 {: faq}

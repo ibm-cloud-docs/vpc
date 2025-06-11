@@ -2,7 +2,7 @@
 
 copyright:
   years: 2019, 2025
-lastupdated: "2025-06-04"
+lastupdated: "2025-06-11"
 
 keywords:
 
@@ -29,6 +29,7 @@ Use the UI to manage your {{site.data.keyword.block_storage_is_short}} volumes. 
 * Attach a previously attached {{site.data.keyword.block_storage_is_short}} data volume.
 * Rename a {{site.data.keyword.block_storage_is_short}} volume.
 * Add user tags to a {{site.data.keyword.block_storage_is_short}} volume.
+* Update the auto-delete setting of the volume.
 * Adjust the IOPS of a data volume. For more information, see [Adjusting IOPS](/docs/vpc?topic=vpc-adjusting-volume-iops).
 * Increase the capacity of a volume. For more information, see [Increasing capacity of a data volume](/docs/vpc?topic=vpc-expanding-block-storage-volumes) and [Increasing capacity of a boot volume](/docs/vpc?topic=vpc-resize-boot-volumes). 
 * Delete a {{site.data.keyword.block_storage_is_short}} data volume.
@@ -126,6 +127,24 @@ When you go to the [backup policy page](/docs/vpc?topic=vpc-backup-view-policies
 
 For more information about creating backups, see [Creating a backup policy](/docs/vpc?topic=vpc-backup-service-about). For more information about user tags, see [Working with tags](/docs/account?topic=account-tag).
 
+### Updating the auto-delete setting of a {{site.data.keyword.block_storage_is_short}} volume
+{: #auto-delete-ui}
+{: ui}
+
+By using the Auto Delete feature, you can specify that a {{site.data.keyword.block_storage_is_short}} volume is to be deleted when you delete the instance to which it is attached. For data volumes, this option is disabled by default for data 
+
+When boot volumes are created during instance creation and automatic deletion is enabled for them. When you delete the instance, the boot volume is also deleted unless you disable this feature.
+
+To change the default setting of the auto-delete option of an existing {{site.data.keyword.block_storage_is_short}} volume, follow these steps:
+
+1. Locate the virtual server instance to which the volume is attached. In the [{{site.data.keyword.cloud_notm}} console](/login){: external}, click the **Navigation menu** icon ![menu icon](../icons/icon_hamburger.svg) **> Infrastructure** ![VPC icon](../icons/vpc.svg) **> Compute > Virtual server instances**.
+1. Click the **Storage** tab to see all the volumes that are attached to the server.
+1. Locate the volume in the list and click the toggle in the Auto-delete column to enable or disable the feature.
+
+Alternatively, select a volume from the list of {{site.data.keyword.block_storage_is_short}}(**Storage > Block Storage volumes**). On the volume details page, under **Attached instances**, click the **Auto-delete** toggle to enable or disable automatic deletion.
+
+You can also enable or disable the Auto-delete option on the volumes when you create an instance. For more information, see [Create and attach a {{site.data.keyword.block_storage_is_short}} volume when you create an instance](/docs/vpc?topic=vpc-creating-block-storage#create-from-vsi).
+
 ## Managing {{site.data.keyword.block_storage_is_short}} from the CLI
 {: #managing-block-storage-cli}
 {: cli}
@@ -134,7 +153,7 @@ Manage your {{site.data.keyword.block_storage_is_short}} from the command-line i
 
 * Rename a {{site.data.keyword.block_storage_is_short}} volume.
 * Add user tags to a {{site.data.keyword.block_storage_is_short}} volume.
-* Update the volume attachment.
+* Update the volume attachment by changing its name or 
 * Detach a volume from a virtual server instance.
 * Adjust the IOPS of a data volume. For more information, see [Adjusting IOPS](/docs/vpc?topic=vpc-adjusting-volume-iops).
 * Increase the capacity of a volume. For more information, see [Increasing capacity of a data volume](/docs/vpc?topic=vpc-expanding-block-storage-volumes) and [Increasing capacity of a boot volume](/docs/vpc?topic=vpc-resize-boot-volumes). 
@@ -238,18 +257,18 @@ Storage Generation                     1
 ### Updating a volume attachment from the CLI
 {: #update-vol-attachment-cli}
 
-You can update the volume attachment name and change the default auto delete setting with the `instance-volume-attachment-update` command.
+You can update the volume attachment name and change the default auto-delete setting with the `instance-volume-attachment-update` command.
 
 ```sh
 ibmcloud is instance-volume-attachment-update INSTANCE_ID VOLUME_ATTACHMENT_ID [--name NEW_NAME] [--auto-delete true | false] [--json]
 ```
 {: pre}
 
-Use the `--name` option and specify a new name for the volume attachment. Specify `--auto-delete true` to automatically delete a volume that is attached to an instance, when you delete the instance. Specify `--auto-delete false`, if you want to keep the volume as a stand-alone volume after the instance is deleted.
+Use the `--name` option and specify a new name for the volume attachment. Specify `--auto-delete true` to make sure that the volume is automatically deleted when the instance is deleted. Specify `--auto-delete false`, if you want to keep the volume as a stand-alone volume after the instance is deleted.
 
 ```sh
-$ ibmcloud is instance-volume-attachment-update kj-test-ro otp1 --name one-true-pairing --auto-delete false
-Updating volume attachment otp1 of instance kj-test-ro under account Test Account as user test.user@ibm.com...
+$ ibmcloud is instance-volume-attachment-update doc-test-ro otp1 --name one-true-pairing --auto-delete false
+Updating volume attachment otp1 of instance doc-test-ro under account Test Account as user test.user@ibm.com...
 ID                0757-6757e676-0bf5-4b79-9a5b-29c24e17420c
 Name              one-true-pairing
 Volume            ID                                          Name
@@ -292,6 +311,9 @@ Volume attachment one-true-pairing is deleted.
 
 For more information about available command options, see [`ibmcloud is instance-volume-attachment-detach`](/docs/cli?topic=cli-vpc-reference#instance-volume-attachment-detach).
 
+A boot volume cannot be detached from an instance while the instance exists. If you want to keep the boot volume after the instance is deleted, make sure that the `auto-delete` option in the volume attachment is set to `false`.
+{: note}
+
 ## Managing {{site.data.keyword.block_storage_is_short}} with the API
 {: #managing-block-storage-api}
 {: api}
@@ -300,7 +322,7 @@ Manage your {{site.data.keyword.block_storage_is_short}} programmatically by mak
 
 * Rename a {{site.data.keyword.block_storage_is_short}} volume.
 * Add user tags to a {{site.data.keyword.block_storage_is_short}} volume.
-* Update the volume attachment.
+* Update the volume attachment by changing its name or change the auto-delete setting.
 * Detach a volume from a virtual server instance.
 * Adjust the IOPS of a data volume. For more information, see [Adjusting IOPS](/docs/vpc?topic=vpc-adjusting-volume-iops).
 * Increase the capacity of a volume. For more information, see [Increasing capacity of a data volume](/docs/vpc?topic=vpc-expanding-block-storage-volumes) and [Increasing capacity of a boot volume](/docs/vpc?topic=vpc-resize-boot-volumes). 
@@ -471,12 +493,7 @@ To apply tags to a {{site.data.keyword.block_storage_is_short}} volume, follow t
 ### Updating a volume attachment with the API
 {: #update-vol-attachment-api}
 
-Make a `PATCH /instances` call and specify the ID of the new volume attachment.
-
-```sh
-PATCH /instances/{instance_id}/volume_attachments/{id}
-```
-{: pre}
+Make a `PATCH /instances` call and specify the ID of the new volume attachment. In the request body, specify the new name of the attachment or the new value of the `delete_volume_on_instance_delete` property.
 
 ```sh
 curl -X PATCH "$vpc_api_endpoint/v1/instances/$instance_id/volume_attachments/$volume_attachment_id?version=2022-04-22&generation=2" \
@@ -512,12 +529,7 @@ A successful response looks like the following example.
 ### Detaching a volume with the API
 {: #detach-vol-attachment-api}
 
-Make a `DELETE /instances` request and specify the volume attachment ID to delete a volume attachment. Deleting a volume attachment detaches a volume from an instance.
-
-```sh
-DELETE /instances/{instance_id}/volume_attachments/{id}
-```
-{: pre}
+Make a `DELETE /instances/{instance_id}/volume_attachments/{id}` request and specify the volume attachment ID to delete a volume attachment. Deleting a volume attachment detaches a volume from an instance.
 
 ```sh
 curl -X DELETE "$vpc_api_endpoint/v1/instances/$instance_id/volume_attachments/$volume_attachment_id?version=2022-04-22&generation=2" \
@@ -525,6 +537,9 @@ curl -X DELETE "$vpc_api_endpoint/v1/instances/$instance_id/volume_attachments/$
 
 ```
 {: pre}
+
+A boot volume cannot be detached from an instance while the instance exists. If you want to keep the boot volume after the instance is deleted, make sure that the `delete_volume_on_instance_delete` property in the volume attachment is set to `false`.
+{: note}
 
 Verify that the volume is detached from the instance by making a `GET /instances/{instance_id}` call.
 
@@ -692,25 +707,6 @@ To delete a volume, complete the following steps.
 1. From the options menu, click **Delete**.
 1. Confirm the deletion.
 
-### Automatically delete {{site.data.keyword.block_storage_is_short}} data volumes
-{: #auto-delete}
-{: ui}
-
-By using the Auto Delete feature, you can specify that a {{site.data.keyword.block_storage_is_short}} data volume is automatically deleted when you delete an instance to which it is attached.
-
-You don't need to set automatic deletion for boot volumes. Boot volumes are created during instance creation and automatic deletion is enabled by default. When you delete the instance, the boot volume is also deleted.
-{: note}
-
-To enable Auto Delete for an existing {{site.data.keyword.block_storage_is_short}} data volume that is attached to an instance, follow these steps:
-
-1. Locate the virtual server instance to which the data volume is attached. In the [{{site.data.keyword.cloud_notm}} console](/login){: external}, click the **Navigation menu** icon ![menu icon](../icons/icon_hamburger.svg) **> Infrastructure** ![VPC icon](../icons/vpc.svg) **> Compute > Virtual server instances**.
-1. Under **Attached {{site.data.keyword.block_storage_is_short}} volumes**, select a volume.
-1. On the next page, click **Auto Delete** to enable.
-1. Confirm your selection.
-
-Alternatively, select a data volume from the list of {{site.data.keyword.block_storage_is_short}}(**Storage > Block Storage volumes**). On the volume details page, under **Attached instances**, click the **Auto delete** toggle to enable or disable automatic deletion.
-
-You can also enable Auto Delete on a new data volume when you create an instance. For more information, see [Create and attach a {{site.data.keyword.block_storage_is_short}} volume when you create an instance](/docs/vpc?topic=vpc-creating-block-storage#create-from-vsi).
 
 ### Deleting a {{site.data.keyword.block_storage_is_short}} volume from the CLI
 {: #delete-vol-cli}
