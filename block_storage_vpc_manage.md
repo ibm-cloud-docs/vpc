@@ -131,7 +131,7 @@ For more information about creating backups, see [Creating a backup policy](/doc
 {: #auto-delete-ui}
 {: ui}
 
-By using the Auto Delete feature, you can specify that a {{site.data.keyword.block_storage_is_short}} volume is to be deleted when you delete the instance to which it is attached. For data volumes, this option is disabled by default for data 
+By using the Auto Delete feature, you can specify that a {{site.data.keyword.block_storage_is_short}} volume is to be deleted when you delete the instance to which it is attached. For data volumes, this option is disabled by default. 
 
 When boot volumes are created during instance creation and automatic deletion is enabled for them. When you delete the instance, the boot volume is also deleted unless you disable this feature.
 
