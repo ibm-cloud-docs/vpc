@@ -2,7 +2,7 @@
 
 copyright:
   years: 2019, 2025
-lastupdated: "2025-06-11"
+lastupdated: "2025-06-12"
 
 keywords:
 
@@ -66,7 +66,7 @@ When you create an {{site.data.keyword.cloud_notm}} {{site.data.keyword.hpvs}} f
 
 When the instance is deleted, these volumes are detached by default. Detaching by default allows your data to persist beyond the virtual server instance lifecycle. Only the volume's association with the instance is removed. Detached volumes can be attached to an available, running instance without reprovisioning the volume or the instance. Or you can delete data volumes manually after they are detached.
 
-When you create volumes, you can specify if you want the data volumes to be deleted wnen then instance is deleted. You can enable and disable the auto-delete feature in the console, from the CLI or with the API.
+When you create volumes, you can specify whether you want the data volumes to be deleted when then instance is deleted. You can enable and disable the auto-delete feature in the console, from the CLI or with the API.
 
 You can also increase the size of an attached volume in the console, from the CLI, or with the API. You can increase the capacity in GB increments up to 16,000 GB capacity, depending on your volume profile. For more information, see [expanding {{site.data.keyword.block_storage_is_short}} volume capacity](/docs/vpc?topic=vpc-expanding-block-storage-volumes).
 

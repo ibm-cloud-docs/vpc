@@ -2,7 +2,7 @@
 
 copyright:
   years: 2019, 2025
-lastupdated: "2025-06-11"
+lastupdated: "2025-06-12"
 
 keywords: faqs, Block Storage for vpc, fast restore, multizone, instance, instance provisioning, volume management, volume deletion.
 
@@ -64,7 +64,7 @@ You can use the Cost estimator ![Cost estimator icon](../icons/calculator.svg "C
 
 In the console, go to the [Block storage volume for VPC provisioning page](/infrastructure/provision/storage) and click the **Pricing** tab. On the **Pricing** tab, you can view details of the pricing plan for each volume profile based on the selected Geography, Region, and Currency. You can also switch between Hourly and Monthly rates.
 
-You can programmatically retrieve the pricing information by calling the [Global Catalog API](/apidocs/resource-catalog/global-catalog#get-pricing). For more information, see [Getting dynamic pricing](/docs/account?topic=account-getting-pricing-api).
+You can programmatically retrieve the pricing information by calling the [Global catalog API](/apidocs/resource-catalog/global-catalog#get-pricing). For more information, see [Getting dynamic pricing](/docs/account?topic=account-getting-pricing-api).
 
 ### Is storage capacity measured in GB or GiB?
 {: faq}
@@ -72,7 +72,7 @@ You can programmatically retrieve the pricing information by calling the [Global
 
 One confusing aspect of storage is the units that storage capacity and usage are reported in. Sometime GB is really gigabytes (base-10) and sometimes GB represents gibibytes (base-2) which should be abbreviated as GiB.
 
-Humans usually think and calculate numbers in the decimal (base-10) system. In our documentation, we refer to storage capacity by using the unit GB (Gigabytes) to align with the industry standard terminology. in the console, CLI, API, and Terraform, you see the unit GB used and displayed when you query the capacity. When you want to order a 4-TB volume, you enter 4,000 GB in your provisioning request.
+Humans usually think and calculate numbers in the decimal (base-10) system. In our documentation, we refer to storage capacity by using the unit GB (Gigabytes) to align with the industry standard terminology. In the console, CLI, API, and Terraform, you see the unit GB used and displayed when you query the capacity. When you want to order a 4-TB volume, you enter 4,000 GB in your provisioning request.
 
 However, computers operate in binary, so it makes more sense to represent some resources like memory address spaces in base-2. Since 1984, computer file systems show sizes in base-2 to go along with the memory. Back then, available storage devices were smaller, and the size difference between the binary and decimal units was negligible. Now that the available storage systems are considerably larger this unit difference is causing confusion.
 
@@ -99,7 +99,7 @@ The storage system uses base-2 units for volume allocation. So if your volume is
 
 One of the reasons can be that your operating system uses base-2 conversion. For example, when you provision a 4000 GB volume on the UI, the storage system reserves a 4,000 GiB volume or 4,294,967,296,000 bytes of storage space for you. The provisioned volume size is larger than 4 TB. However, your operating system might display the storage size as 3.9 T because it uses base-2 conversion and the T stands for TiB, not TB.
 
-Second, partitioning your Block Storage and creating a file system on it reduces available storage space. The amount by which formatting reduces space varies depending upon the type of formatting that is used and the amount and size of the various files on the system.
+Second, partitioning your Block Storage and creating a file system on it reduces available storage space. The amount by which formatting reduces space varies depending upon the type of formatting and the amount and size of the various files on the system.
 
 Take the volume `docs-block-test3` as an example. We specified 1200 GB during provisioning and when you list the details in the CLI, you can see that it has the capacity of 1200.
 
@@ -231,9 +231,9 @@ The boot volume is created when you provision a virtual server instance. The boo
 
 You can delete a {{site.data.keyword.block_storage_is_short}} volume only when it isn't attached to a virtual server instance. 
 
-You have to [detach the data volume](/docs/vpc?topic=vpc-managing-block-storage#detach) before you can delete it. You can also enable the auto-delete feature in the console, from the CLI, or with the API. Wnen auto-delete is enabled, the data volume is deleted along with the instance.
+You must [detach the data volume](/docs/vpc?topic=vpc-managing-block-storage#detach) before you can delete it. You can also enable the auto-delete feature in the console, from the CLI, or with the API. When auto-delete is enabled, the data volume is deleted along with the instance.
 
-By default, boot volumes are detached and deleted when the instance is deleted. If you want to retain your boot volume, disable the the auto-delete feature. For more information, see [Managing Block Storage for VPC volumes](/docs/vpc?topic=vpc-managing-block-storage).
+By default, boot volumes are detached and deleted when the instance is deleted. If you want to retain your boot volume, disable the auto-delete feature. For more information, see [Managing Block Storage for VPC volumes](/docs/vpc?topic=vpc-managing-block-storage).
 
 ### What happens to my data when I delete a {{site.data.keyword.block_storage_is_short}} data volume?
 {: faq}

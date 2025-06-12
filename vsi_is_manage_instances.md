@@ -2,7 +2,7 @@
 
 copyright:
   years: 2019, 2025
-lastupdated: "2025-05-27"
+lastupdated: "2025-06-12"
 
 keywords: view instance details, restart virtual server, stop, details, delete
 
@@ -30,7 +30,7 @@ You can view and manage your {{site.data.keyword.vsi_is_full}} instances from th
 
 To manage your instances, complete the following steps.
 
-1. In [{{site.data.keyword.cloud_notm}} console](https://console.cloud.ibm.com){: external}, click the **Navigation Menu** icon ![menu icon](../icons/icon_hamburger.svg) **> Infrastructure** ![VPC icon](../../icons/vpc.svg) **> Compute > Virtual server instances**.
+1. In [{{site.data.keyword.cloud_notm}} console](https://console.cloud.ibm.com){: external}, click the **Navigation menu** icon ![menu icon](../icons/icon_hamburger.svg) **> Infrastructure** ![VPC icon](../../icons/vpc.svg) **> Compute > Virtual server instances**.
 2. On the **Virtual server instances** page, click the Actions icon ![More Actions icon](../icons/action-menu-icon.svg) for the instance that you want to manage. You can select from the following actions:
 
 | Action | Description |
@@ -271,7 +271,7 @@ If the instance has a floating IP address, it must be unassociated or released b
 
 From the _Virtual server instances_ page in {{site.data.keyword.cloud_notm}} console, click **Delete**.
 
-The delete action permanently removes an instance, its connected vNIC, and data from your account. The instance boot volume is also deleted if the volume auto-delete setting is configured to delete when the attached instance is deleted. If an existing boot volume is attached as part of provisioning a virtual server instance, the volume is preserved by default when the instance is deleted. If a boot volume was created as part of provisioning a virtual server instance, the volume is deleted by default when the instance is deleted. After you confirm the delete action, the process to delete the instance and its associated vNIC, boot volume, and data begins. The delete action can take up to 30 minutes, but when the process is complete, the instance no longer appears on the virtual server instances page.
+The delete action permanently removes an instance, its connected vNIC, and data from your account. The instance boot volume is also deleted if the volume auto-delete setting is enabled. If an existing boot volume is attached as part of provisioning a virtual server instance, the volume is preserved by default when the instance is deleted. If a boot volume was created as part of provisioning a virtual server instance, the volume is deleted by default when the instance is deleted. After you confirm the delete action, the process to delete the instance and its associated vNIC, boot volume, and data begins. The delete action can take up to 30 minutes, but when the process is complete, the instance no longer appears on the virtual server instances page.
 
 ## Deleting a virtual server instance from the CLI
 {: #delete-virtual-server-instances-cli}
@@ -291,7 +291,7 @@ ibmcloud is instance-delete INSTANCE
 
 For a full list of command options, see [ibmcloud is instance-delete](/docs/vpc?topic=vpc-vpc-reference#instance-delete).
 
-The delete action permanently removes an instance, its connected vNIC, and data from your account. The instance boot volume is also deleted if the volume auto-delete setting is configured to delete when the attached instance is deleted. If an existing boot volume is attached as part of provisioning a virtual server instance, the volume is preserved by default when the instance is deleted. If a boot volume was created as part of provisioning a virtual server instance, the volume is deleted by default when the instance is deleted. After you confirm the delete action, the process to delete the instance and its associated vNIC, boot volume, and data begins. The delete action can take up to 30 minutes, but when the process is complete, the instance no longer appears on the virtual server instances page.
+The delete action permanently removes an instance, its connected vNIC, and data from your account. The instance boot volume is also deleted if the volume auto-delete setting is enabled. If an existing boot volume is attached as part of provisioning a virtual server instance, the volume is preserved by default when the instance is deleted. If a boot volume was created as part of provisioning a virtual server instance, the volume is deleted by default when the instance is deleted. After you confirm the delete action, the process to delete the instance and its associated vNIC, boot volume, and data begins. The delete action can take up to 30 minutes, but when the process is complete, the instance no longer appears on the virtual server instances page.
 
 ## Deleting a virtual server instance with the API
 {: #delete-virtual-server-instances-api}
@@ -309,27 +309,27 @@ curl -X DELETE "$vpc_api_endpoint/v1/instances/$instance_id?version=2021-06-22&g
 ```
 {: pre}
 
-The delete action permanently removes an instance, its connected vNIC, and data from your account. The instance boot volume is also deleted if the volume auto-delete setting is configured to delete when the attached instance is deleted. If an existing boot volume is attached as part of provisioning a virtual server instance, the volume is preserved by default when the instance is deleted. If a boot volume was created as part of provisioning a virtual server instance, the volume deletes by default when the instance is deleted. After you confirm the delete action, the process to delete the instance and its associated vNIC, boot volume, and data begins. The delete action can take up to 30 minutes, but when the process is complete, the instance no longer appears on the virtual server instances page.
+The delete action permanently removes an instance, its connected vNIC, and data from your account. The instance boot volume is also deleted if the volume auto-delete setting is enabled. If an existing boot volume is attached as part of provisioning a virtual server instance, the volume is preserved by default when the instance is deleted. If a boot volume was created as part of provisioning a virtual server instance, the volume deletes by default when the instance is deleted. After you confirm the delete action, the process to delete the instance and its associated vNIC, boot volume, and data begins. The delete action can take up to 30 minutes, but when the process is complete, the instance no longer appears on the virtual server instances page.
 
 For more information, see the [Delete an instance](/apidocs/vpc/latest#delete-instance) in the VPC API.
 
-## Toggling the auto-deletion of boot volumes that are attached to an instance in the console
+## Changing the auto-deletion setting of volumes that are attached to an instance in the console
 {: #auto-delete-toggle-ui}
 {: ui}
 
-By default, a boot volume that was created as part of provisioning a virtual server instance is deleted when the instance is deleted. If an existing boot volume is attached as part of provisioning a virtual server instance, the volume is preserved by default when the instance is deleted. You can control this deletion by setting the auto-delete option on the Edit boot volume panel when you create an instance. For more information, see [Creating virtual server instances](/docs/vpc?topic=vpc-creating-virtual-servers&interface=ui).
+During instance provisioning, a boot volume is created with the auto-delete option enabled by default.  When this feature is enabled, the volume is deleted deleted when the instance is deleted. The opposite is true for data volumes that are created during instance provisioning, the auto-delete feature is disabled for them. Data volumes are meant to be detached but not deleted by default so your data can persist beyond the virtual server instance lifecycle. You can change this setting on the Edit boot volume panel when you create an instance. For more information, see [Creating virtual server instances](/docs/vpc?topic=vpc-creating-virtual-servers&interface=ui).
 
-## Toggling the auto-deletion of boot volumes that are attached to an instance from the CLI
+## Changing the auto-deletion setting of volumes that are attached to an instance from the CLI
 {: #auto-delete-toggle-cli}
 {: cli}
 
-By default, a boot volume that was created as part of provisioning a virtual server instance is preserved when the instance is deleted. You can control this deletion by specifying the `auto_delete` property when you create the instance or update the boot volume attachment. For more information, see [Creating virtual server instances](/docs/vpc?topic=vpc-creating-virtual-servers&interface=cli).
+During instance provisioning, a boot volume is created with the auto-delete option enabled by default.  When this feature is enabled, the volume is deleted deleted when the instance is deleted. The opposite is true for data volumes that are created during instance provisioning, the auto-delete feature is disabled for them. Data volumes are meant to be detached but not deleted by default so your data can persist beyond the virtual server instance lifecycle. You can change this setting by specifying the `auto_delete` property when you create the instance or update the boot volume attachment. For more information, see [Creating virtual server instances](/docs/vpc?topic=vpc-creating-virtual-servers&interface=cli).
 
-## Toggling the auto-deletion of boot volumes that are attached to an instance with the API
+## Changing the auto-deletion setting of volumes that are attached to an instance with the API
 {: #auto-delete-toggle-api}
 {: api}
 
-By default, a boot volume that was created as part of provisioning a virtual server instance is preserved when the instance is deleted. You can control this deletion by specifying the `delete_volume_on_instance_delete` property when you [create the instance](/apidocs/vpc/latest#create-instance) or update the [boot volume attachment](/apidocs/vpc/latest#update-instance-volume-attachment). For more information, see [Creating virtual server instances](/docs/vpc?topic=vpc-creating-virtual-servers&interface=api)
+During instance provisioning, a boot volume is created with the auto-delete option enabled by default.  When this feature is enabled, the volume is deleted deleted when the instance is deleted. The opposite is true for data volumes that are created during instance provisioning, the auto-delete feature is disabled for them. Data volumes are meant to be detached but not deleted by default so your data can persist beyond the virtual server instance lifecycle. You can change this setting by specifying the `delete_volume_on_instance_delete` property when you [create the instance](/apidocs/vpc/latest#create-instance) or update the [volume attachment](/apidocs/vpc/latest#update-instance-volume-attachment). For more information, see [Creating virtual server instances](/docs/vpc?topic=vpc-creating-virtual-servers&interface=api)
 
 ## Viewing instance details in the console
 {: #viewing-virtual-server-instances-ui}
