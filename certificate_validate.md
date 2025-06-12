@@ -2,7 +2,7 @@
 
 copyright:
   years: 2022, 2025
-lastupdated: "2025-05-14"
+lastupdated: "2025-06-12"
 
 keywords: confidential computing, secure execution, hpcr, contract, customization, env, workload, encryption, attestation, validating
 
@@ -61,7 +61,7 @@ Complete the following steps on an Ubuntu system to validate the encryption cert
    ```
    {: pre}
 
-   If the `OpenSSL` command fails to execute, download the [CRL](http://ibm.biz/hyper-protect-container-runtime-0b8907-crl-1) and verify certificate manually using below command:
+   If the `OpenSSL` command fails to execute, download the [CRL](http://crl3.digicert.com/DigiCertTrustedG4CodeSigningRSA4096SHA3842021CA1.crl) and verify certificate manually using below command:
 
    ```sh
    openssl verify -untrusted DigiCertTrustedG4CodeSigningRSA4096SHA3842021CA1.crt.pem -CRLfile ibm-hyper-protect-container-runtime-1-0-s390x-intermediate.crl ibm-hyper-protect-container-runtime-1-0-s390x-23-intermediate.crt
