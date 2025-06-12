@@ -317,19 +317,31 @@ For more information, see the [Delete an instance](/apidocs/vpc/latest#delete-in
 {: #auto-delete-toggle-ui}
 {: ui}
 
-During instance provisioning, a boot volume is created with the auto-delete option enabled by default.  When this feature is enabled, the volume is deleted deleted when the instance is deleted. The opposite is true for data volumes that are created during instance provisioning, the auto-delete feature is disabled for them. Data volumes are meant to be detached but not deleted by default so your data can persist beyond the virtual server instance lifecycle. You can change this setting on the Edit boot volume panel when you create an instance. For more information, see [Creating virtual server instances](/docs/vpc?topic=vpc-creating-virtual-servers&interface=ui).
+During instance provisioning, a boot volume is created with the auto-delete option enabled by default. When this feature is enabled, the volume is deleted when the instance is deleted. 
+
+The opposite is true for data volumes that are created during instance provisioning, the auto-delete feature is disabled for them. Data volumes are meant to be detached but not deleted by default so your data can persist beyond the virtual server instance lifecycle. 
+
+You can change this setting on the Edit boot volume panel when you create an instance, or later in the instance details page. For more information, see [Creating virtual server instances](/docs/vpc?topic=vpc-creating-virtual-servers&interface=ui) and [Updating the auto-delete setting of a volume](/docs/vpc?topic=vpc-managing-block-storage&interface=ui#auto-delete-ui).
 
 ## Changing the auto-deletion setting of volumes that are attached to an instance from the CLI
 {: #auto-delete-toggle-cli}
 {: cli}
 
-During instance provisioning, a boot volume is created with the auto-delete option enabled by default.  When this feature is enabled, the volume is deleted deleted when the instance is deleted. The opposite is true for data volumes that are created during instance provisioning, the auto-delete feature is disabled for them. Data volumes are meant to be detached but not deleted by default so your data can persist beyond the virtual server instance lifecycle. You can change this setting by specifying the `auto_delete` property when you create the instance or update the boot volume attachment. For more information, see [Creating virtual server instances](/docs/vpc?topic=vpc-creating-virtual-servers&interface=cli).
+During instance provisioning, a boot volume is created with the auto-delete option enabled by default. When this feature is enabled, the volume is deleted when the instance is deleted. 
+
+The opposite is true for data volumes that are created during instance provisioning, the auto-delete feature is disabled for them. Data volumes are meant to be detached but not deleted by default so your data can persist beyond the virtual server instance lifecycle. 
+
+You can change this setting by specifying the `auto_delete` property when you create the instance or update the boot volume attachment. For more information, see [Creating virtual server instances](/docs/vpc?topic=vpc-creating-virtual-servers&interface=cli) and [Updating a volume attachment from the CLI](/docs/vpc?topic=vpc-managing-block-storage&interface=cli#update-vol-attachment-cli).
 
 ## Changing the auto-deletion setting of volumes that are attached to an instance with the API
 {: #auto-delete-toggle-api}
 {: api}
 
-During instance provisioning, a boot volume is created with the auto-delete option enabled by default.  When this feature is enabled, the volume is deleted deleted when the instance is deleted. The opposite is true for data volumes that are created during instance provisioning, the auto-delete feature is disabled for them. Data volumes are meant to be detached but not deleted by default so your data can persist beyond the virtual server instance lifecycle. You can change this setting by specifying the `delete_volume_on_instance_delete` property when you [create the instance](/apidocs/vpc/latest#create-instance) or update the [volume attachment](/apidocs/vpc/latest#update-instance-volume-attachment). For more information, see [Creating virtual server instances](/docs/vpc?topic=vpc-creating-virtual-servers&interface=api)
+During instance provisioning, a boot volume is created with the auto-delete option enabled by default. When this feature is enabled, the volume is deleted when the instance is deleted.
+
+The opposite is true for data volumes that are created during instance provisioning, the auto-delete feature is disabled for them. Data volumes are meant to be detached but not deleted by default so your data can persist beyond the virtual server instance lifecycle.
+
+You can change this setting by specifying the `delete_volume_on_instance_delete` property when you [create the instance](/apidocs/vpc/latest#create-instance) or update the [volume attachment](/apidocs/vpc/latest#update-instance-volume-attachment). For more information, see [Creating virtual server instances](/docs/vpc?topic=vpc-creating-virtual-servers&interface=api) and [Updating a volume attachment with the API](/docs/vpc?topic=vpc-managing-block-storage&interface=api#update-vol-attachment-api).
 
 ## Viewing instance details in the console
 {: #viewing-virtual-server-instances-ui}
