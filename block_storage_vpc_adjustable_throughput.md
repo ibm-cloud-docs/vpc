@@ -64,9 +64,6 @@ Your new bandwidth allocation is realized when you restart the instance.
 {: #adjust-vpc-throughput-cli-block}
 {: cli}
 
-### Adjust throughput of a second-generation volume from the CLI
-{: #adjust-throughput-cli-block}
-
 From the CLI, use the `ibmcloud is volume-update` command with the `--bandwidth` option to indicate the new throughput value for a custom profile. The new value must be in the range of 1000-8192 Mbps. For more information, see [SSD defined performance profile](/docs/vpc?topic=vpc-block-storage-profiles&interface=cli#defined-performance-profile).
 
 ```sh
