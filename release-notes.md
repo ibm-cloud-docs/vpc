@@ -2,7 +2,7 @@
 
 copyright:
   years: 2019, 2025
-lastupdated: "2025-06-10"
+lastupdated: "2025-06-12"
 
 keywords:
 
@@ -24,6 +24,15 @@ For more information about changes to the {{site.data.keyword.vpc_short}} API, s
 
 For more information about changes to the {{site.data.keyword.vpc_short}} command-line interface (CLI), see [{{site.data.keyword.vpc_short}} CLI release notes](/docs/vpc?topic=vpc-vpc-cli-rn).
 
+## June 2025
+{: #vpc-jun25}>
+
+### 03 June 2025
+{: #vpc-jun0325}
+
+New regions for second-generation block storage volumes (select availability)
+:   The `sdp` profile is now available in Madrid (`eu-es`), Osaka (`jp-osa`), Sao Paulo (`br-sao`), Sydney (`au-syd`), and Toronto (`ca-tor`) regions. For more information, see [The SSD defined performance profile](/docs/vpc?topic=vpc-block-storage-about#block-storage-sdp-intro).
+
 ## May 2025
 {: #vpc-may25}
 
@@ -33,6 +42,13 @@ For more information about changes to the {{site.data.keyword.vpc_short}} comman
 
 AMD Instinct MI300X accelerated virtual server profile now available in Washington DC (us-east-wdc07-a) and Frankfurt (eu-de) (select availability)
 :   The AMD Instinct MI300X accelerated virtual server profile is now available in Washington DC (us-east-wdc07-a) and Frankfurt  (eu-de-fra02-a, eu-de-fra05-a), in addition to Washington DC (us-east-wdc06-a). The profile runs on an [AMD Instinct™ MI300X Accelerator](https://www.amd.com/en/products/accelerators/instinct/mi300/mi300x.html){: external} that is tuned for AI workloads, including inferencing and fine-tuning. For more information about the `gx3d-208x1792x8mi300x` profile, see [GPU](/docs/vpc?topic=vpc-profiles&interface=ui#gpu) profiles and [Accelerated instance profiles](/docs/vpc?topic=vpc-accelerated-profile-family&interface=ui).
+
+### 27 May 2025
+{: #vpc-may2725}
+{: release-note}
+
+New region for second-generation block storage volumes (select availability)
+:   The `sdp` profile is now available in the Dallas (`us-south`) region for allow-listed customers. For more information, see [The SSD defined performance profile](/docs/vpc?topic=vpc-block-storage-about#block-storage-sdp-intro).
 
 ### 15 May 2025
 {: #vpc-may1525}
@@ -143,6 +159,16 @@ Confidential computing with Intel Trusted Domain Extension (TDX) for Virtual Ser
 
 {{site.data.keyword.logs_full_notm}} private endpoint support for HPVS logging
 :   {{site.data.keyword.logs_full_notm}} private endpoint support is now added for HPVS logging. For more information, see [{{site.data.keyword.logs_full_notm}} (ICL)](/docs/vpc?topic=vpc-logging-for-hyper-protect-virtual-servers-for-vpc#cloud-logs-provision-instance-ui_exmpl).
+
+Snapshots for second-generation block volumes
+:   Customers with special access to preview the second-generation block storage volumes can now create snapshots of these volumes in the console, from the CLI, or with the API. For more information, see [About Block Storage for VPC snapshots](/docs/vpc?topic=vpc-snapshots-vpc-about&interface=ui#sdp-snapshots).
+
+Adjustable throughput values for second-generation block volumes
+:   Customers with special access to preview the second-generation block storage volumes can now specify custom bandwidth for their data volumes. For more information, see [Block storage volume profiles](/docs/vpc?topic=vpc-capacity-performance&interface=ui#iops-profiles) and [Adjusting the throughput limit of a volume](/docs/vpc?topic=vpc-adjusting-volume-throughput&interface=ui).
+
+New regions for second-generation block storage volumes (select availability)
+:   The `sdp` profile is now available in the Frankfurt (`eu-de`), and Tokyo (`jp-tok`) regions. For more information, see
+[The SSD defined performance profile](/docs/vpc?topic=vpc-block-storage-about#block-storage-sdp-intro).
 
 ### 19 March 2025
 {: #vpc-mar1925}
@@ -372,6 +398,9 @@ IBM log analysis is deprecated
 Block Storage for VPC snapshots for cross-account restore
 :   You can now share a snapshot with another account and allow the other account to create volumes with the snapshot. To do so, you must set up [cross-account authorization](/docs/vpc?topic=vpc-block-s2s-auth) in {{site.data.keyword.iamshort}}, and share the CRN of the snapshot with the other account. The other account's authorized storage administrator can use the CRN to create a volume in the console, from the CLI, with the API, or Terraform. For more information, see [Sharing a snapshot with another account in the console](/docs/vpc?topic=vpc-snapshots-vpc-manage&interface=ui#snapshots-vpc-s2s-ui) and [Restoring a volume from a snapshot](/docs/vpc?topic=vpc-snapshots-vpc-restore).
 
+Defined performance profile for Block Storage for VPC
+:   Select Availability: Customers with special approval to preview the defined performance profile can now provision block storage volumes with the `sdp` profile in WDC and LON MZRs. For more information, see [The defined performance profile](/docs/vpc?topic=vpc-block-storage-about#block-storage-sdp-intro).
+
 ### 23 September 2024
 {: #vpc-sep2324}
 {: release-note}
@@ -402,6 +431,9 @@ Next generation instance profiles available in Sao Paulo (br-sao) region (GA)
 
 Very High Memory profiles for SAP-HANA (select availability)
 :   New Very High Memory profiles for SAP-HANA are now available. These profiles are only available in Toronto (`ca-tor`) region. For more information, see [x86-64 Very High Memory profiles](/docs/vpc?topic=vpc-profiles&interface=ui#vhmemory). For more information about the Multizone regions, see [Region and data center locations for resource deployment](/docs/overview?topic=overview-locations).
+
+Updated API properties returned for volumes with the `sdp` profile (beta)
+:   The volume and volume profile property of `unattached_capacity_update_supported` changed to `adjustable_capacity_states`, and the volume and volume profile property of `unattached_iops_update_supported` changed to `adjustable_iops_states`. These changes applies when [listing](/apidocs/vpc-beta/initial#list-volume-profiles) or [retrieving](/apidocs/vpc-beta/initial#get-volume-profile) a volume profile, [creating](/apidocs/vpc-beta/initial#create-volume) or [updating](/apidocs/vpc-beta/initial#update-volume) a volume, [listing volumes](/apidocs/vpc-beta/initial#list-volumes), and [retrieving a volume](/apidocs/vpc-beta/initial#get-volume). For more information, see [Viewing available volume profiles](/docs/vpc?topic=vpc-block-storage-profiles&interface=api#view-iops-profiles).
 
 ### 11 September 2024
 {: #vpc-sep1124}

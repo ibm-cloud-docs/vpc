@@ -2,7 +2,7 @@
 
 copyright:
   years: 2022, 2025
-lastupdated: "2025-06-04"
+lastupdated: "2025-06-12"
 
 keywords: snapshots, Block Storage, volumes, cross-regional snapshot, restore volume, copy snapshot
 
@@ -124,6 +124,7 @@ The following limitations apply to this release:
 
 * You can take up to 750 snapshots per volume in a region.
 * You can't take a snapshot of a volume in a [degraded state](/docs/vpc?topic=vpc-block-storage-vpc-monitoring#block-storage-vpc-health-states).
+* A first-generation volume must be attached to a running virtual server instance for you to take a snapshot of its data. This limitation does not apply to second-generation volumes.
 * You can't create a copy of a snapshot in the source (local) region.
 * When you create copies of a snapshot in other regions, only one copy can exist in each region. That means 9 copies globally.
 * Cross-regional copies are not supported in Montreal (`ca-mon`) MZR.
@@ -131,6 +132,22 @@ The following limitations apply to this release:
 * You can delete any snapshot that you take. However, snapshots must be in a `stable` or `pending` state and not actively restoring a volume.
 * You can delete a {{site.data.keyword.block_storage_is_short}} volume and all its snapshots. All snapshots must be in a `stable` or `pending` state. No snapshot can be actively restoring a volume.
 * Restoring an instance directly from snapshot consistency group identifier is not supported.
+
+## Snapshots for second-generation block storage volumes
+{: #sdp-snapshots}
+
+As of 25 March 2025, as a customer with special access, you can provision second-generation storage volumes with the `sdp` profile and create snapshots of these volumes.
+{: beta}
+
+During the [Beta]{: tag-cyan} phase, you can create up to 512 snapshots. You can even create snapshots when the volumes are unattached.
+
+Second-generation storage volumes can range in size from 1 TB to 32 TB. You can create a snapshot of the entire volume without capacity restrictions.
+
+The snapshots that are created for `sdp` volumes have an independent lifecycle from the parent volume. You can delete the volume and the snapshot persists. 
+
+You can use your snapshots to create other second-generation volumes in the same region. You can't use your second-generation snapshot to create a volume with a first-generation volume profile. Similarly, you can't use first-generation volume's snapshot to create a volume with the `sdp` profile.
+
+You cannot copy the snapshot to another region, nor can you create of consistency group snapshots of multiple `sdp` volumes. Fast restore clones are not supported for second-generation snapshots yet either.
 
 ## Securing your data
 {: #bs-snapshot-data-security}

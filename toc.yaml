@@ -629,6 +629,7 @@ toc:
                 - block_storage_vpc_expandable_boot_volume.md
                 - block_storage_vpc_expandable_data_volumes.md
                 - block_storage_vpc_adjustable_iops.md
+                - block_storage_vpc_adjustable_throughput.md
                 - block_storage_vpc_monitoring.md
         - topicgroup:
             id: block-volume-snapshots

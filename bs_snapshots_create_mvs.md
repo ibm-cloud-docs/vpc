@@ -2,7 +2,7 @@
 
 copyright:
   years: 2022, 2025
-lastupdated: "2025-06-04"
+lastupdated: "2025-06-12"
 
 keywords: consistency groups, Block Storage snapshots, multi-volume snapshot, instance snapshot,
 
@@ -26,6 +26,9 @@ Before you start, gather the following information:
 - The IDs of the source volumes.
 - The resource group ID, which is optional. However, you can't change the resource group after the snapshot is created.
 - Any tags that you want to attach to the snapshots.
+
+Consistency groups are not supported for second-generation storage volumes yet.
+{: exception}
 
 ## Creating a consistency group snapshot in the console
 {: #mvsnapshot-create-ui}

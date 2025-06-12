@@ -417,3 +417,68 @@ Both key management systems provide you with complete control over your data, ma
 {: #faq-block-storage-29}
 
 No, after you provision a volume and specify the encryption type, you can't change it.
+
+## Questions about the defined performance volume profile family
+{: #block-storage-sdp-questions}
+
+[Select availability]{: tag-green}
+
+### What does Select Availability mean for the defined performance volume family?
+{: faq}
+{: #faq-sdp-vpc-version}
+
+Customers with special approval to preview the second-generation Block Storage offering can provision block volumes with the new `sdp` profile. The `sdp` profile is available in the Dallas, Frankfurt, London, Madrid, Osaka, Sao Paulo, Sydney, Tokyo, Toronto, and Washington, DC regions during this release. For more information about the allow-listing process, see TBD.
+
+### Does the defined performance profile support Gen 1 and Gen 2 VPCs?
+{: faq}
+{: #faq-sdp-vpc-version}
+
+The `sdp` profile is available only as a Gen 2 VPC resource.
+
+### Which interface can I use to create Block Storage volumes with the `sdp` profile?
+{: faq}
+{: #faq-sdp-interfaces}
+
+Customers with special approval to preview the defined performance volume profile family can provision volumes with the `sdp` profile in the console, from the CLI, with the API, or Terraform.
+
+When you're provisioning in the console, select the `sdp` profile when you provision a virtual server instance or a stand-alone volume. For more information, see [Creating {{site.data.keyword.block_storage_is_short}} volumes in the console](/docs/vpc?topic=vpc-creating-block-storage&interface=ui#creating-block-storage-ui).{: ui}
+
+When you're provisioning from the CLI, you must specify the volume profile as `sdp` in your `volume-create` command. No extra options are needed. For more information, see [creating {{site.data.keyword.block_storage_is_short}} volumes from the CLI](/docs/vpc?topic=vpc-creating-block-storage&interface=cli#creating-block-storage-cli).{: cli}
+
+When you're provising with the VPC API, you must specify the volume profile as `sdp` in the `POST /instances` or `POST /volumes` requests. No extra options are needed. For more information, see the [Creating {{site.data.keyword.block_storage_is_short}} volumes with the API](/docs/vpc?topic=vpc-creating-block-storage&interface=api#creating-block-storage-api).{: api}
+
+When you're provisioning with Terraform, use the `ibm_is_volume` resource and specify the `sdp` profile. For more information, see [Creating stand-alone Block Storage for VPC volumes with Terraform](/docs/vpc?topic=vpc-creating-block-storage&interface=terraform#creating-vol-terraform).{: terraform}
+
+### What functions are supported in this release of the `sdp` profile?
+{: faq}
+{: #faq-sdp-functionality}
+
+In this release, you can:
+
+* Create Block Storage volumes, and specify a custom throughput limit for it in addition to capacity and IOPS.
+* Expand the capacity of the Block Storage volumes after their creation when they are attached to a virtual server instance or unattached,
+* Adjust IOPS after Block Storage volume creation when they are attached to a virtual server instance or unattached,
+* Change the maximum throughput limit when the volume is attached to a virtual server instance or unattached.
+* Attach Block Storage volumes to virtual service instances,
+* Create custom nonencrypted images,
+* Delete Block Storage volumes,
+* List Block Storage volumes,
+* Add customer-managed encryption for data volumes.
+
+### How is my data protected in the `sdp` profile-based storage volume?
+{: faq}
+{: #faq-sdp-encryption}
+
+Your data is protected at rest by using either IBM-managed encryption or customer-managed encryption. Data-in-transit is also encrypted.
+
+### Can a Block Storage volume be copied to a different zone?
+{: faq}
+{: #faq-sdp-zone-copy}
+
+No. You can't copy the storage volume to a different zone.
+
+### Can I create snapshots for data retention of a defined performance volume?
+{: faq}
+{: #faq-sdp-backup}
+
+Customers who are allow-lasted for the beta phase of regional snapshots can create snapshots of their second-generation volumes. During the beta phase, snapshots can't be copied to another region. Consistency group snapshots of multiple `sdp` volumes and fast restore clones are not supported for second-generation snapshots yet.

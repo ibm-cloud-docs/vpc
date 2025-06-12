@@ -2,7 +2,7 @@
 
 copyright:
   years: 2019, 2025
-lastupdated: "2025-06-04"
+lastupdated: "2025-06-12"
 
 keywords: vpc Block Storage, provision Block Storage for vpc, bootable snapshots, create volume from snapshot, fast restore
 
@@ -27,6 +27,9 @@ Before you get started, make sure that you [created a VPC](/docs/vpc?topic=vpc-c
 
 Use the {{site.data.keyword.cloud_notm}} console to create a {{site.data.keyword.block_storage_is_short}} volume when you create a virtual server instance or as a stand-alone volume.
 
+Customers with special access can create a virtual server instance with a boot volume that is based on the `sdp` profile. As an allow-listed customer, you can also create data volumes with the `sdp` profile as part of the instance creation. The steps are the same as for the other profiles.
+{: preview}
+
 ### Creating and attaching a {{site.data.keyword.block_storage_is_short}} volume when you create an instance
 {: #create-from-vsi}
 {: help}
@@ -45,8 +48,13 @@ Use the {{site.data.keyword.cloud_notm}} console to create a {{site.data.keyword
    1. Select the encryption type. Provider-managed encryption is enabled by default on all volumes. You can also choose to create an envelop encryption with your own root keys. Encryption keys are created and maintained in Key Management Services ({{site.data.keyword.keymanagementserviceshort}} or {{site.data.keyword.hscrypto}}). For more information, see [Prerequisites for setting up customer-managed encryption](/docs/vpc?topic=vpc-vpc-encryption-planning#byok-encryption-prereqs).
    1. Click **Next**.
    1. Select the storage profile.
-      - For [IOPS tiers](/docs/vpc?topic=vpc-block-storage-profiles#tiers), select the tile with the performance level that you require and specify the volume size in GBs. Volume size can be 10 - 16,000 GB. 
-      - For [Custom](/docs/vpc?topic=vpc-block-storage-profiles#custom) IOPS, specify the size of your volume and IOPS range based on the size of the volume. Volume size can be 10 - 16,000 GB. As you type the IOPS value, the UI shows the acceptable range. You can also click the **storage size** link to see the table that contains the size and IOPS ranges of the [custom volume profile](/docs/vpc?topic=vpc-block-storage-profiles#custom).
+        
+      First- and second-generation volume profiles are not interchangeable. You can use a snapshot of a second-generation volume to create another second-generation volume, but you can't switch the volume profile to a first-generation volume profile. In the same way, you can use a snapshot of a first-generation volume to create another first-generation volume with the same data, and you can't switch the new volume to the `sdp` profile.
+      {: important}
+
+      - [Select Availability]{: tag-green} As an allow-listed customer, you can select the [`sdp` profile](/docs/vpc?topic=vpc-block-storage-profiles#defined-performance-profile) when you use a seond-generation snapshot to restore the data. Specify the capacity of your volume and the required IOPS.
+      - When you use a first-generation snapshot, you can select one of the [_tiered_ profiles](/docs/vpc?topic=vpc-block-storage-profiles&interface=ui#tiers). When you select _general-purpose_, _5iops-tier_, or _10iops-tier_, you just need to specify the volume capacity.
+      - When you use a first-generation snapshot, you can select the _custom_ profile if your application performance requirements don't fall within any of the IOPS tiers. Specify the size of your volume and the IOPS in the appropriate range for the volume capacity. Volume size can be 10 - 16,000 GB. As you type the IOPS value, the UI shows the acceptable range. You can also click the **storage size** link to see the size and IOPS ranges of the [custom volume profile](/docs/vpc?topic=vpc-block-storage-profiles#custom).
    1. Click **Save**.
 1. You return to the virtual instance provisioning page to finish defining the remaining attributes of your virtual server instance.
 1. When you are satisfied with your choices, click **Create virtual server**.
@@ -70,8 +78,9 @@ You can create a {{site.data.keyword.block_storage_is_short}} volume from an exi
    1. Select the encryption type. Provider-managed encryption is enabled by default on all volumes. You can also choose to create an envelop encryption with your own root keys. Encryption keys are created and maintained in Key Management Services ({{site.data.keyword.keymanagementserviceshort}} or {{site.data.keyword.hscrypto}}).
    1. Click **Next**.
    1. Select the storage profile.
-      - For [IOPS tiers](/docs/vpc?topic=vpc-block-storage-profiles#tiers), select the tile with the performance level that you require and specify the volume size in GBs. Volume size can be 10 - 16,000 GB. 
-      - For [Custom](/docs/vpc?topic=vpc-block-storage-profiles#custom) IOPS, specify the size of your volume and IOPS range based on the size of the volume. As you type the IOPS value, the UI shows the acceptable range. You can also click the **storage size** link to see the table that contains the size and IOPS ranges of the [custom volume profile](/docs/vpc?topic=vpc-block-storage-profiles#custom).
+      - [Select Availability]{: tag-green} As an allow-listed customer, you can select the [`sdp` profile](/docs/vpc?topic=vpc-block-storage-profiles#defined-performance-profile). Then, specify the capacity of your volume, the required bandwidth limit, and the required IOPS. Volume size can range from 1 - 32,000 GB. You can specify IOPS in the range of 100 - 64,000. The throughput limit range is 1000-8192 Mbps.
+      - You can select one of the [_tiered_ profiles](/docs/vpc?topic=vpc-block-storage-profiles&interface=ui#tiers). After you select _general-purpose_, _5iops-tier_, or _10iops-tier_, the next step is to specify the volume capacity. Volume size can be 10 - 16,000 GB. 
+      - You can select the _custom_ profile if your application performance requirements don't fall within any of the IOPS tiers. Then, specify the size of your volume and the IOPS in the appropriate range for the volume capacity. Volume size can be 10 - 16,000 GB. As you type the IOPS value, the UI shows the acceptable range. You can also click the **storage size** link to see the size and IOPS ranges of the [custom volume profile](/docs/vpc?topic=vpc-block-storage-profiles#custom).
    1. Click **Save**.
 5. When you're finished defining the volume, click **Save**. The volume is created and attached to the instance. You're returned to the instance details page. The new volume is shown in the list of storage volumes.
 
@@ -96,8 +105,9 @@ You can create a {{site.data.keyword.block_storage_is_short}} volume independent
     1. Specify [access management tags](/docs/vpc?topic=vpc-block-storage-about&interface=ui#storage-about-mgt-tags) that were created in IAM to help you manage access to your volumes.
 1. In the **Optional configurations** section, you can specify whether you want to create the volume with data from a snapshot. For more information, see [Create a stand-alone {{site.data.keyword.block_storage_is_short}} volume from a snapshot](#create-standalone-vol). Also, you can choose to apply a backup policy. Click **Apply** to see available policies and plans.
 1. In the **Profile** section, you can specify the performance profile of your volume, its IOPS, and capacity.
-    - For [IOPS tiers](/docs/vpc?topic=vpc-block-storage-profiles#tiers), select the tile with the performance level that you require and specify the volume size in GBs. Volume size can be 10 - 16,000 GB. 
-    - For [Custom](/docs/vpc?topic=vpc-block-storage-profiles#custom) IOPS, specify the size of your volume and IOPS range based on the size of the volume. As you type the IOPS value, the UI shows the acceptable range. You can also click the **storage size** link to see the table that contains the size and IOPS ranges of the [custom volume profile](/docs/vpc?topic=vpc-block-storage-profiles#custom).
+    - [Select Availability]{: tag-green} As an allow-listed customer, you can select the [`sdp` profile](/docs/vpc?topic=vpc-block-storage-profiles#defined-performance-profile). Then, specify the capacity of your volume, the requested throughput limit, and the required IOPS. Volume size can range from 1 - 32,000 GB. You can specify IOPS in the range of 100 - 64,000. The throughput limit range is 1000-8192 Mbps.
+    - You can select one of the [_tiered_ profiles](/docs/vpc?topic=vpc-block-storage-profiles&interface=ui#tiers). After you select _general-purpose_, _5iops-tier_, or _10iops-tier_, the next step is to specify the volume capacity. Volume size can be 10 - 16,000 GB. 
+    - You can select the _custom_ profile if your application performance requirements don't fall within any of the IOPS tiers. Then, specify the size of your volume and the IOPS in the appropriate range for the volume capacity. As you type the IOPS value, the UI shows the acceptable range. You can also click the **storage size** link to see the size and IOPS ranges of the [custom volume profile](/docs/vpc?topic=vpc-block-storage-profiles#custom).
 1. In the **Encryption at rest** section, you can choose to keep the encryption with IBM-managed keys that is enabled by default on all volumes. Or you can choose to use [your own encryption key](/docs/vpc?topic=vpc-block-storage-vpc-encryption) by selecting your key management service: {{site.data.keyword.keymanagementserviceshort}} or {{site.data.keyword.hscrypto}}. To locate your encryption key, select one of the following options:
     - **Locate by Instance**:
        1. Select the data encryption instance from the list. If you don't have an instance yet, you can click the link to create one.
@@ -125,6 +135,9 @@ You can restore a boot volume from a "bootable" snapshot. The boot volume is res
    - Click **Import snapshot by CRN** and provide the CRN of the snapshot that you want to use.
 1. Click **Save**. Information about the snapshot is shown on the volume provisioning page, including the name, its size, the date when it was created, its source volume, and whether it is a bootable snapshot. Bootable snapshot information includes the operating system and image. The encryption is inherited from the snapshot and shown in the encryption section.
 1. Click **Create block storage volume**.
+
+First- and second-generation volume profiles are not interchangeable. You can use a snapshot of a second-generation volume to create another second-generation volume, but you can't switch the volume profile to a first-generation volume profile. In the same way, you can use a snapshot of a first-generation volume to create another first-generation volume with the same data, and you can't switch the new volume to the `sdp` profile.
+{: important}
 
 When you refresh the {{site.data.keyword.block_storage_is_short}} volumes page, the new volume appears at the beginning of the list of volumes. If the volume was created successfully, it shows a status of Available. For stand-alone volumes, the Attachment Type column is blank (-). The **Actions** menu ![Actions icon](../icons/action-menu-icon.svg "Actions") at the end of a table row provides a link for [attaching a {{site.data.keyword.block_storage_is_short}} volume to an instance](/docs/vpc?topic=vpc-attaching-block-storage&interface=ui#attach).
 
@@ -203,6 +216,39 @@ The volume health state shows `inapplicable` while the volume status is `pending
 
 User tags are added to identify the volume resource. When these tags are matched with the tags in a backup policy, the volume is backed up according to the schedule in the backup plan. For more information, see [Creating a backup policy](/docs/vpc?topic=vpc-create-backup-policy-and-plan).
 
+Customers with special access to volume profiles within the defined performance family can create block storage volumes with the `sdp` profile as stand-alone volumes, and can attach them to virtual server instances later. In addition to the capacity and IOPS values, you can also specify a custom throughput limit in the range of 1000-8192 Mbps.
+{: preview}
+
+To create a stand-alone volume, run the `ibmcloud is volume-create` command and specify the `sdp` profile, size and performance requirements for the volume. The following example creates a data volume in the us-east region with 200 MB capacity and 100 IOPS.
+
+```sh
+ibmcloud is volume-create defined-performance-vol sdp us-east-3 --capacity 200 --iops 3000 --bandwidth 2000
+Creating volume defined-performance-vol under account Test Account as user test.user@ibm.com...
+                                          
+ID                                     r014-9b41d061-d00c-4571-92c0-f592b91f5cd0
+Name                                   defined-performance-vol
+CRN                                    crn:v1:bluemix:public:is:us-east-3:a/a1234567::volume:r014-9b41d061-d00c-4571-92c0-f592b91f5cd0
+Status                                 pending
+Attachment state                       unattached
+Capacity                               200
+IOPS                                   3000
+Bandwidth(Mbps)                        2000
+Profile                                sdp
+Encryption key                         -
+Encryption                             provider_managed
+Resource group                         Default
+Created                                2025-03-25T09:59:26+05:30
+Zone                                   us-east-3
+Health State                           inapplicable
+Volume Attachment Instance Reference   -
+Active                                 false
+Adjustable IOPS                        true
+Busy                                   false
+Tags                                   -
+Storage Generation                     2
+```
+{: screen}
+
 ### Creating a stand-alone {{site.data.keyword.block_storage_is_short}} volume with customer-managed encryption from the CLI
 {: #encrypt-standalone-data-vol-cli}
 
@@ -278,6 +324,9 @@ Storage Generation                     1
 
 For more information, see [ibmcloud is volume-create](/docs/vpc?topic=vpc-vpc-reference&interface=cli#volume-create) in the CLI reference.
 
+First- and second-generation volume profiles are not interchangeable. You can use a snapshot of a second-generation volume to create another second-generation volume, but you can't switch the volume profile to a first-generation volume profile. In the same way, you can use a snapshot of a first-generation volume to create another first-generation volume with the same data, and you can't switch the new volume to the `sdp` profile.
+{: important}
+
 ### Creating a data volume as an attachment to an existing virtual server instance
 {: #create-vol-as-attachment-cli}
 {: cli}
@@ -301,6 +350,62 @@ Created           2023-05-05T07:42:33+05:30
 {: screen}
 
 For more information, see [ibmcloud is instance-volume-attachment-add](/docs/vpc?topic=vpc-vpc-reference&interface=cli#instance-volume-attachment-add) in the CLI reference.
+
+### Creating an instance with `sdp` volumes from the CLI
+{: #create-instance-sdp-vol-cli}
+{: cli}
+
+[Select Availability]{: tag-green}
+
+Customers with special access can create a virtual server instance with a boot volume that is based on the `sdp` profile. The boot volume is attached automatically. You can also create data volumes as part of the instance creation.
+
+To create a virtual server instance, run the `ibmcloud is instance-create` command and specify the details of your instance and the details of the volumes that you want to attach. The following example creates a virtual server instance with an `sdp` boot volume and also attaches an `sdp` data volume.
+
+```sh
+ibmcloud is instance-create my-defined-performance-instance test-vpc us-east-3 bx2-2x8 csi-subnet-cidr-3b6k-storage-v5lvug8w-380sal --boot-volume '{"name": "boot-vol-attachment-name-instance-1", "volume": {"name": "boot-vol-name-1", "profile": {"name": "sdp"},"user_tags": ["env:test4", "env:dev4"]}} --volume-attach '[{"volume": {"capacity": 1000,"iops": 32000,"bandwidth": 3000,"name": "my-data-volume-1","profile": {"name": "sdp"}}}]' --image r006-5f183c60-78a0-4d6e-9be5-84335939255a
+Creating instance my-defined-performance instance under account Test Account as user test.user@ibm.com...
+                                         
+ID                                    730f_59883a41-c943-423c-a6ab-e2b066f2f314
+Name                                  my-defined-performance-instance
+CRN                                   crn:v1:bluemix:public:is:us-east-3:a/a1234567::instance:730f_59883a41-c943-423c-a6ab-e2b066f2f314
+Status                                pending
+Availability policy on host failure   restart
+Startable                             true
+Profile                               bx2-2x8
+Architecture                          amd64
+vCPU Manufacturer                     intel
+vCPUs                                 2
+Memory(GiB)                           8
+Bandwidth(Mbps)                       4000
+Volume bandwidth(Mbps)                1000
+Network bandwidth(Mbps)               3000
+Lifecycle Reasons                     Code   Message
+                                      -      - 
+  
+Lifecycle State                       pending   
+Metadata service                      Enabled   Protocol   Response hop limit      
+                                      false     http       1
+  
+Image                                 ID                                          Name      
+                                      r006-5f183c60-78a0-4d6e-9be5-84335939255a   embolism-lapped-overjoyed-bagel-elated   
+  
+VPC                                   ID                                          Name      
+                                      r006-be9d04ab-d10c-4be7-9de6-95cd2208d1de   test-vpc-do-not-delete-default
+  
+Zone                                  us-east-3
+Resource group                        ID                                 Name
+                                      85cbbee12af748eabb6513cf311d4e2d   Default
+  
+Created                               2024-09-24T02:01:10+05:30   
+Boot volume                           ID   Name   Attachment ID                               Attachment name
+                                      -    -      730f-e4d7ce78-011e-4dd1-8752-3ceb12bce79f   boot-vol-attachment-name-instance-1
+    
+Data volumes                          ID   Name   Attachment ID                               Attachment name
+                                      -    -      730f-78f2db0a-57df-4b5f-9f1e-f800e91e89af   upscale-embargo-oops-overeager
+```
+{: screen}   
+
+For more information, see [ibmcloud is instance-create](/docs/vpc?topic=vpc-vpc-reference&interface=cli#instance-create) in the CLI reference.
 
 ### Creating an instance and adding user tags to volumes from the CLI
 {: #create-instance-vol-cli}
@@ -589,6 +694,44 @@ A successful response looks like this:
 ```
 {: screen}
 
+### Creating an `sdp` boot volume as part of instance provisioning with the API
+{: #block-storage-create-sdp-vol-api}
+
+[Select Availability]{: tag-green}
+
+Customers with special access can create a virtual server instance with a boot volume that is based on the `sdp` profile in the `us-east` and `eu-gb` regions. In addition to capacity and IOPS, you can also specify custom throughput limit with the `bandwidth` property. See the following example.
+
+```sh
+curl -X POST "$vpc_api_endpoint/v1/instances?version=2024-09-24&generation=2"\
+-H "Authorization: $iam_token" \
+-d '{
+  "boot_volume_attachment": {
+    "volume": {
+      "encryption_key": {"crn": "crn:[...]"},
+      "name": "my-defined-performance-boot-volume",
+      "profile": {"name": "sdp"},
+      "boot_capacity": 250,
+      "iops": 3000,
+      "bandwidth": 1000>
+      "storage_generation": 2,
+      "user_tags": {"env:test","env:prod"}},
+  "image": {"id": "9aaf3bcb-dcd7-4de7-bb60-24e39ff9d366"},
+  "keys": [{"id": "363f6d70-0000-0001-0000-00000013b96c"}],
+  "name": "my-instance",
+  "placement_target": {"id": "0787-8c2a09be-ee18-4af2-8ef4-6a6060732221"},
+  "primary_network_interface": {
+    "name": "my-network-interface",
+    "subnet": {"id": "bea6a632-5e13-42a4-b4b8-31dc877abfe4"}},
+  "profile": {"name": "bx3dc-2x10"},
+  "vpc": {"id": "f0aae929-7047-46d1-92e1-9102b07a7f6f"},
+  "zone": {"name": "us-east-1"}
+  }
+}
+```
+{: pre}
+
+For more information about volume creation with the API, see [Creating Block Storage volumes](/docs/vpc?topic=vpc-creating-block-storage&interface=api#creating-block-storage-api) and the API reference for [creating an instance](/apidocs/vpc-aspirational#create-instance)
+
 ### Creating a stand-alone {{site.data.keyword.block_storage_is_short}} volume with the API
 {: #block-storage-create-vol-api}
 
@@ -643,6 +786,66 @@ A successful response looks like the following example.
   "zone": {
     "href": "https://us-south.iaas.cloud.ibm.com/v1/regions/us-south/zones/us-south-2",
     "name": "us-south-2"
+  }
+}
+```
+{: screen}
+
+[Select Availability]{: tag-green}
+
+Customers with special access to preview the `sdp` profile can create data volume with the new profile. In addition to capacity and IOPS, you can also specify custom throughput limit with the `bandwidth` property. The following example creates such a stand-alone data volume in the `us-east` region.
+
+```sh
+curl -X POST "$vpc_api_endpoint/v2/volumes?version=2024-09-27&generation=2" \
+-H "Authorization: $iam_token" \
+-d '{
+      "name": "my-special-volume-1",
+      "iops": 3000,
+      "capacity": 250,
+      "bandwidth": 5000
+      "zone": {"name": "us-east-2"},
+      "profile": {"name": "sdp"},
+      "encryption_key":{"crn":"crn:[...]"},
+      "resource_group": {"id": "2d1bb5a8-40a8-447a-acf7-0eadc8aeb054"}
+    }'
+```
+{: pre}
+
+A successful response looks like the following example.
+
+```json
+{
+  "adjustable_capacity_states:": "attached, unattached",
+  "adjustable_iops_states": "attached, unattached",
+  "bandwidth": 5000,
+  "capacity": 250,
+  "created_at": "2024-09-27T23:16:53.000Z",
+  "crn": "crn:[...]",
+  "encryption": "user_managed",
+  "encryption_key": {
+    "crn": "crn:[...]"
+  },
+  "health_reasons": [],
+  "health_state": "ok",
+  "href": "https://us-east.iaas.cloud.ibm.com/v2/volumes/2d1bb5a8-40a8-447a-acf7-0eadc8aeb054",
+  "id": "2d1bb5a8-40a8-447a-acf7-0eadc8aeb054",
+  "iops": 3000,
+  "name": "my-special-volume-1",
+  "profile": {
+    "href": "https://us-east.iaas.cloud.ibm.com/v2/volume/profiles/sdp",
+    "name": "sdp"
+  },
+  "resource_group": {
+    "href": "https://resource-controller.cloud.ibm.com/v2/resource_groups/4bbce614c13444cd8fc5e7e878ef8e21",
+    "id": "2d1bb5a8-40a8-447a-acf7-0eadc8aeb054",
+    "name": "Default"
+  },
+  "status": "available",
+  "status_reasons": [],
+  "volume_attachments": [],
+  "zone": {
+    "href": "https://us-east.iaas.cloud.ibm.com/v1/regions/us-east/zones/us-east-2",
+    "name": "us-east-2"
   }
 }
 ```
@@ -727,6 +930,9 @@ resource "ibm_is_volume" "storage" {
 {: codeblock}
 
 For more information about the arguments and attributes, see [ibm_is_volume](https://registry.terraform.io/providers/IBM-Cloud/ibm/latest/docs/resources/is_volume){: external}.
+
+First- and second-generation volume profiles are not interchangeable. You can use a snapshot of a second-generation volume to create another second-generation volume, but you can't switch the volume profile to a first-generation volume profile. In the same way, you can use a snapshot of a first-generation volume to create another first-generation volume with the same data, and you can't switch the new volume to the `sdp` profile.
+{: important}
 
 ### Creating a boot volume from a snapshot as part of instance provisioning with Terraform
 {: #block-storage-create-instance-terraform}

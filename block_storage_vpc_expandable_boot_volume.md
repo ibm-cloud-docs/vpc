@@ -2,7 +2,7 @@
 
 copyright:
   years: 2022, 2025
-lastupdated: "2025-06-04"
+lastupdated: "2025-06-12"
 
 keywords: Block Storage, boot volume, data volume, volume, data storage, virtual server instance, instance, expandable volume
 
@@ -18,6 +18,7 @@ subcollection: vpc
 For boot volumes that are attached to an instance, you can increase the capacity from the default 100 GB up to 250 GB during or after instance provisioning in the console, from the CLI, with the API, or Terraform.
 {: shortdesc}
 
+Customers with special access to preview the `sdp` profile can expand their `sdp` volumes even if the volumes are not attached to a running virtual server instance. The maximum capacity is 32,000 GB. The steps for increasing the capacity are the same as for the other profiles.
 
 
 ## Increase boot volume capacity in the console
@@ -45,6 +46,9 @@ For an existing instance, you can increase its boot volume capacity by selecting
 3. In the boot volume details, click the **Size** pencil icon. Alternatively, select **Expand volume** from the Actions menu ![Actions icon](../icons/action-menu-icon.svg "Actions").
 
 4. In the side panel, increase the boot volume size in the **Create size** field. The size must be more than the current size up to 250 GB.
+    
+    Customers with special access to preview the `sdp` profile can expand their `sdp` volumes to the maximum capacity of 32,000 GB.
+    {: preview}
    
 5. Click **Expand boot volume size**.
 
@@ -157,6 +161,9 @@ Tags                                   -
 ```
 {: screen}
 
+Customers with special access to volume profiles within the defined performance family can expand their `sdp` volumes to the maximum capacity of 32,000 GB.
+{: preview}
+
 ## Increase boot volume capacity with the API
 {: #increase-vpc-volumes-api}
 {: api}
@@ -207,6 +214,9 @@ curl -X PATCH "$vpc_api_endpoint/v1/volumes/$volume_id/?version=2022-02-12&gener
    }'
 ```
 {: codeblock}
+
+Customers with special access to volume profiles within the defined performance family can expand their `sdp` volumes to the maximum capacity of 32,000 GB.
+{: preview}
 
 ## Increasing the capacity of an existing boot volume with Terraform
 {: #expand-existing-boot-vol-terraform}

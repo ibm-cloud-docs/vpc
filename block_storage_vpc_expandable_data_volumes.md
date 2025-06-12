@@ -2,7 +2,7 @@
 
 copyright:
   years: 2020, 2025
-lastupdated: "2025-06-04"
+lastupdated: "2025-06-12"
 
 keywords: Block Storage, boot volume, data volume, volume, data storage, virtual server instance, instance, expandable volume
 
@@ -19,6 +19,9 @@ After you provisioned a {{site.data.keyword.block_storage_is_short}} data volume
 {: shortdesc}
 
 You can't change the volume to a smaller size after you expand its capacity. However, if your requirements change, you can expand the same volume again up to the maximum capacity that's available for its profile.
+
+Customers with special access to volume profiles within the defined performance family can expand their `sdp` volumes even if the volumes are not attached to a running virtual server instance. The steps for increasing the capacity are the same as for the other profiles.
+{: preview}
 
 ## Expand Block Storage volumes in the console
 {: #expand-vpc-volumes-ui}
@@ -38,6 +41,9 @@ Follow these steps to expand volume capacity:
 1. Click the **Edit icon** ![Edit icon](../icons/edit-tagging.svg "Edit"). Alternatively, click the **Actions** icon ![Actions icon](../icons/action-menu-icon.svg "Actions"), and select **Expand Block Storage volume**.
 
 1. In the panel, increase the volume size in GB up to 16,000 GB. The maximum size that you can expand to is based on the selected profile. The UI indicates the maximum capacity for the selected profile. For a custom profile, you can expand the volume based on [sizing limits](/docs/vpc?topic=vpc-about-increasing-volume-capacity#expandable-volume-limitations). When you increase the size of the volume, max IOPS and throughput are calculated for the expanded volume.
+
+   Customers with special access to volume profiles within the defined performance family can expand their `sdp` volumes to the maximum capacity of 32,000 GB.
+   {: preview}
 
 1. Review the estimated monthly order summary and new pricing.
 
@@ -62,6 +68,9 @@ Before you can use the CLI, you must install the IBM Cloud CLI and the VPC CLI p
    {: pre}
 
    This command returns a URL and prompts for a passcode. Go to that URL in your browser and log in. If successful, you get a one-time passcode. Copy this passcode and paste it as a response on the prompt. After successful authentication, you are prompted to choose your account. If you have access to multiple accounts, select the account that you want to log in as. Respond to any remaining prompts to finish logging in.
+
+Customers with special access to volume profiles within the defined performance family can expand their `sdp` volumes to the maximum capacity of 32,000 GB.
+{: preview}
 
 ### Expand volume capacity from the CLI
 {: #expand-vol-capacity-cli}
@@ -219,6 +228,9 @@ When the volume expansion completes, the new value displays, and the volume stat
 }
 ```
 {: screen}
+
+Customers with special access to volume profiles within the defined performance family can expand their `sdp` volumes to the maximum capacity of 32,000 GB.
+{: preview}
 
 ## Expand Block Storage volumes with Terraform
 {: #expand-vpc-volumes-terraform}

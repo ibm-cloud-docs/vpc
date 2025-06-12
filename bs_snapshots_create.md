@@ -2,7 +2,7 @@
 
 copyright:
   years: 2021, 2025
-lastupdated: "2025-06-04"
+lastupdated: "2025-06-12"
 
 keywords: snapshots, Block Storage, snapshot clone, remote copy, fast restore, Block Storage snapshot, cross-regional snapshot
 
@@ -22,6 +22,9 @@ Before you take a snapshot, make sure that all cached data is present on disk, e
 {: note}
 
 You can create a consistency group that contains snapshots of multiple volumes that are attached to a virtual server instance. All snapshots in the consistency group are created at the same time and are loosely coupled. For more information, see [Creating snapshot consistency groups](/docs/vpc?topic=vpc-snapshots-vpc-create-consistency-groups).
+
+You can take a snapshot of a second-generation storage volume even if it is not attached to a running virtual server instance. Fast restore snapshot clones, cross-regional copies, and consistency groups are not supported for second-generation storage volumes during the beta phase.
+{: beta}
 
 ## Creating a snapshot in the console
 {: #snapshots-vpc-create-ui}

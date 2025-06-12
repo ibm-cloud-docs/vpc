@@ -2,7 +2,7 @@
 
 copyright:
   years: 2021, 2025
-lastupdated: "2025-06-04"
+lastupdated: "2025-06-12"
 
 keywords: snapshots, Block Storage snapshots, manage snapshots, fast restore clone, backup snapshot, remote copy, cross-regional copy
 
@@ -17,6 +17,9 @@ subcollection: vpc
 
 You can manage existing snapshots in several ways. Rename existing snapshots to make them simpler to identify. Add user tags to snapshots for use by the VPC backup service. Enable of disable fast restore copies of a snapshot. Delete snapshots that you no longer need and free up space for new snapshots. Verify {{site.data.keyword.iamshort}} access. Verify snapshot statuses.
 {: shortdesc}
+
+Fast restore snapshot clones, cross-regional copies, and consistency groups are not supported for second-generation storage volumes during the beta phase. Operations to create such resources in the console, from the CLI, with the API, or Terraform fail inevitably.
+{: beta}
 
 ## Naming snapshots
 {: #snapshots-vpc-naming}

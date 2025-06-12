@@ -2,7 +2,7 @@
 
 copyright:
   years: 2020, 2025
-lastupdated: "2025-06-04"
+lastupdated: "2025-06-12"
 
 keywords: Block Storage, boot volume, data volume, volume, data storage, virtual server instance, instance, expandable volume
 
@@ -52,7 +52,8 @@ You can resize a data volume that is attached to an {{site.data.keyword.cloud_no
 _z/OS_ When you expand Block Storage volume capacity on an existing z/OS virtual server instance, a new device address is broadcasted to the users with the additional storage size.
 {: tip}
 
-
+Customers with special access to volume profiles within the defined performance family can expand their `sdp` volumes even if the volumes are not attached to a running virtual server instance. The maximum capacity is 32,000 GB. The steps for increasing the capacity are the same as for the other profiles.
+{: preview}
 
 ### Boot volumes
 {: #expand-boot-vols}
@@ -64,7 +65,8 @@ Regardless of the image type, you can increase boot volume capacity from its min
 The boot volume expansion takes effect without a restart of the virtual server. However, to use the increased boot volume space, you must expand your operating system so the increased boot volume capacity is recognized.
 {: note}
 
-
+Customers with special access to volume profile within the defined performance family can expand their `sdp` volumes even if the volumes are not attached to a running virtual server instance. The maximum capacity is 32,000 GB. The steps for increasing the capacity are the same as for the other profiles. However, when the boot volume capacity is increased over 250 GB, you can no longer create a custom image from that volume.
+{: preview}
 
 ## Requirements
 {: #exp-vol-requirements}

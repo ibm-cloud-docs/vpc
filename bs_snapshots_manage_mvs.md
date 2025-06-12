@@ -2,7 +2,7 @@
 
 copyright:
   years: 2022, 2025
-lastupdated: "2025-06-04"
+lastupdated: "2025-06-12"
 
 keywords: consistency group, snapshots, backups, instance snapshot, instance backup,
 
@@ -20,6 +20,9 @@ A snapshot consistency group contains snapshots of multiple volumes that are att
 
 If you update the backup consistency group to keep the individual snapshots after the consistency group is deleted, a backup job is not created when the consistency group is deleted. The system creates an activity tracking event when the consistency group is deleted.
 {: note}
+
+Fast restore snapshot clones, cross-regional copies, and consistency groups are not supported for second-generation storage volumes during the beta phase.
+{: beta}
 
 ## Updating a consistency group in the console
 {: #update-consistencygroup-ui}

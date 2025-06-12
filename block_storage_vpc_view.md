@@ -2,7 +2,7 @@
 
 copyright:
   years: 2019, 2025
-lastupdated: "2025-06-04"
+lastupdated: "2025-06-12"
 
 keywords:
 
@@ -82,7 +82,7 @@ The page has 3 tabs. By default, the Overview tab is selected for volume details
 | Size | Size of the volume you specified. When the volume is attached to a virtual server instance and the volume is not at maximum capacity for its range, you can click the icon to expand the volume. For more information, see [expanding {{site.data.keyword.block_storage_is_short}} volume capacity (Beta)](/docs/vpc?topic=vpc-expanding-block-storage-volumes). |
 | Profile | [IOPS tier](/docs/vpc?topic=vpc-block-storage-profiles#tiers) or [custom IOPS](/docs/vpc?topic=vpc-block-storage-profiles#custom) profile. Click the icon to [adjust IOPS](/docs/vpc?topic=vpc-adjusting-volume-iops) by selecting a different profile. |
 | Max IOPS | The maximum IOPS value for a predefined IOPS tier or the value you specified for custom IOPS. |
-| Throughput | The field shows the allocated bandwidth of the storage volume, which is measured in Gigabits per second (Gbps). Throughput is calculated as the result of the number of IOPS the volume is provisioned for times the throughput multiplier. Depending on the [volume profile](/docs/vpc?topic=vpc-block-storage-profiles), the throughput multiplier can be 16 KB or 256 KB. |
+| Throughput | The field shows the allocated bandwidth of the storage volume, which is measured in Gigabits per second (Gbps). Throughput is calculated as the result of the number of IOPS the volume is provisioned for times the throughput multiplier. Depending on the [volume profile](/docs/vpc?topic=vpc-block-storage-profiles), the throughput multiplier can be 16 KB or 256 KB. For volumes that are created with the `sdp` profile, the throughput value is customizable in the range of 1000-8192 Mbps.|
 | Encryption | Encryption with IBM-managed keys is enabled by default on all volumes. You can also use your own root keys to protect your data. The Encryption field shows the name of the key management service (KMS) you provisioned (for example, {{site.data.keyword.keymanagementserviceshort}}) and **customer-managed**. For more information, see [Creating {{site.data.keyword.block_storage_is_short}} volumes with customer-managed encryption](/docs/vpc?topic=vpc-block-storage-vpc-encryption).|
 | Encryption Instance | _Optional._ A link to the provisioned KMS instance for a customer-managed encryption volume. |
 | Key | _Optional._ The name and copiable ID of the root key that is used to encrypt the passphrase, which secures a customer-managed encryption volume. |
@@ -226,6 +226,7 @@ Volume Attachment Instance Reference   Attachment type   Instance ID            
 Active                                 true
 Adjustable Capacity States             attached
 Adjustable IOPS States                     
+Adjustable Bandwidth Supported         false
 Busy                                   false
 Tags                                   -
 Storage Generation                     1
@@ -441,51 +442,59 @@ A successful response provides details of the volume, including capacity and IOP
 
 ```json
 {
-  "active": true,
-  "bandwidth": 128,
+  "active": false,
+  "adjustable_capacity_states": ["attached"],
+  "adjustable_iops_states": ["attached"],
+  "adjustable_iops_supported": true,
+  "attachment_state": "attached",
+  "bandwidth": 1000,
   "busy": false,
   "capacity": 100,
-  "created_at": "2022-12-09T06:26:17Z",
-  "crn": "crn:[...]",
-  "encryption": "provider_managed",
+  "created_at": "2024-10-07T23:16:53.000Z",
+  "crn": "crn:v1:bluemix:public:is:us-south-1:a/a1234567::volume:r006-1a6b7274-678d-4dfb-8981-c71dd9d4daa5",
+  "encryption": "user_managed",
+  "encryption_key": {
+    "crn": "crn:v1:bluemix:public:kms:us-south:a/a1234567:e4a29d1a-2ef0-42a6-8fd2-350deb1c647e:key:5437653b-c4b1-447f-9646-b2a2a4cd6179"
+  },
   "health_reasons": [],
   "health_state": "ok",
-  "href": "https://us-south.iaas.cloud.ibm.com/v1/volumes/ccbe6fe1-5680-4865-94d3-687076a38293",
-  "id": "ccbe6fe1-5680-4865-94d3-687076a38293",
+  "href": "https://us-south.iaas.cloud.ibm.com/v1/volumes/r006-1a6b7274-678d-4dfb-8981-c71dd9d4daa5",
+  "id": "r006-1a6b7274-678d-4dfb-8981-c71dd9d4daa5",
   "iops": 1000,
-  "name": "my-volume-1",
+  "name": "my-volume",
   "profile": {
-    "href": "https://us-south.iaas.cloud.ibm.com/v1/volume/profiles/general-purpose",
-    "name": "general-purpose"
+    "href": "https://us-south.iaas.cloud.ibm.com/v1/volume/profiles/custom",
+    "name": "custom"
   },
   "resource_group": {
-    "href": "https://resource-controller.cloud.ibm.com/v2/resource_groups/4bbce614c13444cd8fc5e7e878ef8e21",
-    "id": "4bbce614c13444cd8fc5e7e878ef8e21",
+    "href": "https://resource-controller.cloud.ibm.com/v2/resource_groups/fee82deba12e4c0fb69c3b09d1f12345",
+    "id": "fee82deba12e4c0fb69c3b09d1f12345",
     "name": "Default"
   },
+  "resource_type": "volume",
   "status": "available",
   "status_reasons": [],
   "storage_generation": 1,
   "user_tags": [],
   "volume_attachments": [
     {
-      "delete_volume_on_instance_delete": true,
-      "href": "https://us-south.iaas.cloud.ibm.com/v1/instances/33bd5872-7034-462b-9f3e-d400c49d347a/volume_attachments/b31c1a5a-122a-4e32-a10b-f2c31271de85",
-      "id": "b31c1a5a-122a-4e32-a10b-f2c31271de85",
+      "delete_volume_on_instance_delete": false,
+      "href": "https://us-south.iaas.cloud.ibm.com/v1/instances/0717_e21b7391-2ca2-4ab5-84a8-b92157a633b0/volume_attachments/0717-82cbf856-9cbb-45fb-b62f-d7bcef32399a",
+      "id": "0717-82cbf856-9cbb-45fb-b62f-d7bcef32399a",
       "instance": {
-        "crn": "crn:[...]",
-        "href": "https://us-south.iaas.cloud.ibm.com/v1/instances/33bd5872-7034-462b-9f3e-d400c49d347a",
-        "id": "33bd5872-7034-462b-9f3e-d400c49d347a",
-        "name": "instance-1",
+        "crn": "crn:v1:bluemix:public:is:us-south-1:a/a1234567::instance:0717_e21b7391-2ca2-4ab5-84a8-b92157a633b0",
+        "href": "https://us-south.iaas.cloud.ibm.com/v1/instances/0717_e21b7391-2ca2-4ab5-84a8-b92157a633b0",
+        "id": "0717_e21b7391-2ca2-4ab5-84a8-b92157a633b0",
+        "name": "my-instance",
         "resource_type": "instance"
       },
-      "name": "volume-attachment-1",
+      "name": "my-volume-attachment",
       "type": "data"
     }
   ],
   "zone": {
-    "href": "https://us-south.iaas.cloud.ibm.com/v1/regions/us-south/zones/us-south-2",
-    "name": "us-south-2"
+    "href": "https://us-south.iaas.cloud.ibm.com/v1/regions/us-south/zones/us-south-1",
+    "name": "us-south-1"
   }
 }
 ```

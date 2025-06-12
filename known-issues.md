@@ -2,7 +2,7 @@
 
 copyright:
   years: 2018, 2025
-lastupdated: "2025-06-04"
+lastupdated: "2025-06-12"
 
 keywords:
 
@@ -140,6 +140,11 @@ The `source_snapshot` property is present in the API response when a share is cr
 {: #backup-policy-plan-fs}
 
 When details of a snapshot are retrieved, the API response shows the property name `backup_plan_id` instead of `backup_policy_plan`. A fix for this issue is planned.
+
+### Multi-volume snapshot creation requests fail to complete if the consistency group contains second-generation volumes
+{: #consistency-group-with-mixed-volume-generation-fails}
+
+Multi-volume snapshots are not supported for second-generation volumes. When you try to create a consistency group of snapshots of a mix of first and second-generation volumes, the API request appears successful. However, the new snapshot consistency group ends up in a failed state or gets stuck in the pending state without an error message.
 
 ### The Bandwidth property of first-generation volumes profiles incorrectly displays `dependent_range`
 {: #gen1-bandwidth-property-dependent}

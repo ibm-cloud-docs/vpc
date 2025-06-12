@@ -2,7 +2,7 @@
 
 copyright:
   years: 2022, 2025
-lastupdated: "2025-06-05"
+lastupdated: "2025-06-12"
 
 keywords: block storage for VPC, File Storage for VPC, Snapshots for VPC, Backup for VPC, block storage, file storage, snapshots, backup, 
 
@@ -33,6 +33,24 @@ By using this service, you can:
 * You can adjust IOPS up or down, for greater performance or when you want to reduce costs.
 * Start with a smaller volume and expand volume capacity later when you need more storage.
 
+Customers with special access to preview the second-generation Block Storage offering can provision block volumes with the new `sdp` profile. The `sdp` profile is available in the Dallas, Frankfurt, London, Madrid, Osaka, Sao Paulo, Sydney, Tokyo, Toronto, and Washington, DC regions in the select availability release.
+{: preview}
+
+Second-generation block volumes can be created with capacity in the range of 1 - 32,000 GB. The maximum IOPS that a volume with the `sdp` profile can support is 64,000. You can also modify the throughput limit in the range of 125-1024 MBps (1000-8192 Mbps). Capacity, IOPS, and throughput values of volumes that are created with the `sdp` profile can be modified even when the volume is not attached to a virtual server instance.
+
+| Features            | First-generation volumes | Second-generation volumes |
+|---------------------|--------------------------|---------------------------|
+| Availability        | Generally available in all VPC regions for all customers. | In the [Select Availability]{: tag-green} release, available in Dallas, Frankfurt, London, Madrid, Osaka, Sao Paulo, Sydney, Tokyo, Toronto, and Washington, DC for allow-listed customers.|
+| Expandable capacity | Yes, up to 16,000 GB     | Yes, up to 32,000 GB |
+| Adjustable IOPS     | Yes, up to 48,000. IOPS depends on capacity range. | Yes, up to 64,000.| 
+| Adjustable Bandwidth| No. Throughput can be increased by increasing capacity and IOPS. The maximum is 1024 MBps.| Yes, bandwidth can be adjusted to any value between 125 and 1024 MBps.|
+| Customer-managed encryption at rest | Yes. | Yes.|
+| Importing encrypted custom image for boot volumes |  Yes.  | Not supported in the [Select Availability]{: tag-green} release.|
+| Creating encrypted custom image from boot volume | Yes. | Not supported in the [Select Availability]{: tag-green} release.|
+| On-demand snapshots | Yes, up to 750 snapshots per region. | Yes, up to 512 snapshots per region in the [Beta]{: tag-cyan} release. |
+| Scheduled snapshots | Yes, up to 750 snapshots per region. | Not supported in the [Beta]{: tag-cyan} release.|
+{: caption="Block Storage volume generations comparison." caption-side="bottom"}
+
 For more information about this service, see [About {{site.data.keyword.block_storage_is_short}}](/docs/vpc?topic=vpc-block-storage-about).
 
 ## {{site.data.keyword.block_storage_is_short}} snapshots
@@ -49,6 +67,25 @@ You can also share a snapshot with another account and allow the other account t
 Snapshots are independent of the source block storage volumes. You can delete the original volume and the snapshot persists. However, you cannot delete a snapshot that is being used to hydrate a newly restored storage volume.
 
 You can create a snapshot consistency group that contains snapshots of multiple Block Storage volumes that are attached to the same virtual server instance. You can include or exclude boot volumes. The snapshot consistency group has its own lifecycle, and it keeps references to the member snapshots. So if a member snapshot is deleted or renamed, the consistency group is also updated.
+
+Customer with special access to preview the `sdp` profile can create snapshots of their second-generation block volumes in Dallas, Frankfurt, Tokyo, and Washington, DC. In this release, you can create up to 512 snapshots of these volumes. You can even create snapshots when the volumes are unattached.
+{: beta}
+
+You can use your snapshots to create other second-generation volumes in the same region. Cross-regional copy is not supported. You can't use your second-generation snapshot to create a volume with a first-generation volume profile. Similarly, you can't use first-generation volume's snapshot to create a volume with the `sdp` profile. Consistency group snapshots of multiple `sdp` volumes and fast restore snapshots are not supported either.
+
+| Features            | First-generation snapshots | Second-generation snapshots |
+|---------------------|--------------------------|---------------------------|
+| Availability        | Generally available in all VPC regions for all customers. | In the [Beta]{: tag-cyan} release, available in Dallas, Frankfurt, Tokyo, and Washington, DC for allow-listed customers.|
+| On-demand snapshots | Yes, up to 750 snapshots per region. | Yes, up to 512 snapshots per region in the [Beta]{: tag-cyan} release. |
+| Scheduled snapshots | Yes, up to 750 snapshots per region. | Not supported in the [Beta]{: tag-cyan} release.|
+| Fast restore clones | Yes. You can cache a copy of your snapshot in any zone of the region. | Not supported in the [Beta]{: tag-cyan} release.|
+| Cross-regional copy | Yes, one cross-regional clone per snapshot per region | Not supported in the [Beta]{: tag-cyan} release.|
+| Consistency group   | Multi-volume snapshots are supported. | Not supported in the [Beta]{: tag-cyan} release.|
+{: caption="Block Storage snapshot generations comparison." caption-side="bottom"}
+
+First- and second-generation volume profiles are not interchangeable. You can't create a second-generation block volume with a snapshot that was taken of a first-generation volume. You can't use the snapshot with a second-generation volume profile to create a first-generation volume.
+{: note}
+
 For more information, see [About Snapshots for VPC](/docs/vpc?topic=vpc-snapshots-vpc-about).
 
 ## {{site.data.keyword.filestorage_vpc_short}}
