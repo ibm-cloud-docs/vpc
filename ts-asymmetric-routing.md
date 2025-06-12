@@ -1,8 +1,8 @@
 ---
 
 copyright:
-  years: 2023, 2024
-lastupdated: "2024-10-25"
+  years: 2023, 2025
+lastupdated: "2025-06-12"
 
 keywords: asymmetric routing, troubleshooting
 
@@ -19,7 +19,7 @@ content-type: troubleshoot
 {: troubleshoot}
 {: support}
 
-You sent a packet, but it didn't go through.
+You are concerned that your routing isn't working because you sent a packet, but it didn't go through.
 {: shortdesc}
 
 Sometimes packets go through with no issues, but other times the packets fail to arrive as expected.
