@@ -82,7 +82,6 @@ Follow these steps to adjust IOPS by selecting a new IOPS tier or custom IOPS ba
    * For an IOPS tier, select a different tier from the menu. For example, you might have a 3 IOPS/GB general-purpose profile you're increasing to a 5 IOPS/GB profile.
    * For a Custom IOPS, the current IOPS value is shown and volume size. Enter a new IOPS value in the range specified for that custom band.
    * For customers with special access to preview the defined performance profile, you can specify volume performance in the range of 100 - 64,000 IOPS without capacity-based restrictions.
-   
 
 1. Review the estimated monthly order summary for your geography and new pricing.
 1. If you're satisfied, click **Save and continue**.

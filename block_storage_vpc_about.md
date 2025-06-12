@@ -96,6 +96,8 @@ The following limitations apply to this release:
 * The `sdp` profile is available for use with 2nd and 3rd generation Compute resources only. Generation 1 VPC infrastructure is not supported.
 * No support for the IBM Z platform (s390x architecture) or {{site.data.keyword.bm_is_short}}.
 * Secure boot from SDP boot volume is not supported. If you want to provision a third-generation virtual server instance with an SDP-profile-based boot volume, make sure that you do not enable secure boot.
+* Importing custom encrypted images are not supported.
+* Creating a custom image from a boot volume with customer-managed encryption is not supported.
 * Migration between storage volume profile families is not supported.
 * Migration of volumes across zones is not supported.
 
