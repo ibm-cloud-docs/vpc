@@ -550,7 +550,6 @@ toc:
                 - vpn-configure-acls.md
                 - vpn-gateway-status.md
                 - vpn-health.md
-                - vpn-view-logs.md
                 - vpn-monitoring-metrics.md
                 - vpn-mtu.md
                 - vpn-api-example.md
