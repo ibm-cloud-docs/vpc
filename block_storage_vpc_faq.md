@@ -2,7 +2,7 @@
 
 copyright:
   years: 2019, 2025
-lastupdated: "2025-06-12"
+lastupdated: "2025-06-13"
 
 keywords: faqs, Block Storage for vpc, fast restore, multizone, instance, instance provisioning, volume management, volume deletion.
 
@@ -425,9 +425,9 @@ No, after you provision a volume and specify the encryption type, you can't chan
 
 ### What does Select Availability mean for the defined performance volume family?
 {: faq}
-{: #faq-sdp-vpc-version}
+{: #faq-sdp-release}
 
-Customers with special approval to preview the second-generation Block Storage offering can provision block volumes with the new `sdp` profile. The `sdp` profile is available in the Dallas, Frankfurt, London, Madrid, Osaka, Sao Paulo, Sydney, Tokyo, Toronto, and Washington, DC regions during this release. For more information about the allow-listing process, see TBD.
+Customers with special approval to preview the second-generation Block Storage offering can provision block volumes with the new `sdp` profile. The `sdp` profile is available in the Dallas, Frankfurt, London, Madrid, Osaka, Sao Paulo, Sydney, Tokyo, Toronto, and Washington, DC regions during this release. 
 
 ### Does the defined performance profile support Gen 1 and Gen 2 VPCs?
 {: faq}
