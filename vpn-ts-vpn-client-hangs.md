@@ -35,10 +35,10 @@ Follow these steps to resolve this issue:
 {: tsResolve}
 
 1. Check that the security group that is attached to the VPN server allows VPN server protocol traffic.
-2. Check that the ACL on the subnet of the VPN server allows VPN server protocol traffic.
-3. Check with your ISP to allow VPN server protocol traffic.
-4. Check the client certificate expiration date. On Linux, you can run the following command to see the expiration date:
+1. Check that the ACL on the subnet of the VPN server allows VPN server protocol traffic.
+1. Check with your ISP to allow VPN server protocol traffic.
+1. Check the client certificate expiration date. On Linux, you can run the following command to see the expiration date:
 
    `openssl x509 -enddate -noout -in client.crt`
 
-5. An expired CRL can also lead to connection issues. Updating and replacing the CRL might resolve the problem. For more information, see [client certificate revocation lists](/docs/vpc?topic=vpc-client-to-site-vpn-planning#client-certificate-revocation-lists).
+1. An expired CRL can also lead to connection issues. Updating and replacing the CRL might resolve the problem. For more information, see [client certificate revocation lists](/docs/vpc?topic=vpc-client-to-site-vpn-planning#client-certificate-revocation-lists)
