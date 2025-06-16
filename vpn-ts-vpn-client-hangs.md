@@ -41,4 +41,4 @@ Follow these steps to resolve this issue:
 
    `openssl x509 -enddate -noout -in client.crt`
 
-5. An expired CRL can also lead to connection issues. Updating and replacing the CRL might resolve the problem. See [client certificate revocation lists](/docs/vpc?topic=vpc-client-to-site-vpn-planning#client-certificate-revocation-lists)
+5. An expired CRL can also lead to connection issues. Updating and replacing the CRL might resolve the problem. For more information, see [client certificate revocation lists](/docs/vpc?topic=vpc-client-to-site-vpn-planning#client-certificate-revocation-lists).
