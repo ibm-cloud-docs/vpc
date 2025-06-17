@@ -2,7 +2,7 @@
 
 copyright:
   years: 2021, 2025
-lastupdated: "2025-06-16"
+lastupdated: "2025-06-17"
 
 keywords: virtual private network, VPN, VPN server, troubleshooting
 
@@ -26,10 +26,12 @@ The VPN client logs the following error `TLS Error: TLS key negotiation failed t
 {: tsSymptoms}
 
 This error can occur due to the following reasons:
+{: tsCauses}
+
 * A firewall is blocking the VPN server protocol traffic.
 * Your VPN client certificate expired.
 * The Certificate Revocation List (CRL) is outdated.
-{: tsCauses}
+
 
 Follow these steps to resolve this issue:
 {: tsResolve}
