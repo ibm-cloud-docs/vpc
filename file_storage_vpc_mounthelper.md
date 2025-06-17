@@ -2,7 +2,7 @@
 
 copyright:
   years: 2023, 2025
-lastupdated: "2025-06-04"
+lastupdated: "2025-06-17"
 
 keywords: file share, file storage, encryption in transit, Mount Helper, IPsec, secure connection, mount share
 
@@ -77,6 +77,9 @@ You can use the utility for encrypted or unencrypted connections. For encrypted 
 
    Closed environments: To install Mount Helper on a virtual server instance without internet connection, create or update a local repository on the VSI based on the OS. Copy the Mount Helper package along with its dependencies to the local directory.
    {: note}
+
+### Installing the Mount Helper
+{: #install-MH-for-zonal}
 
 1. To install the Mount Helper and all the dependencies, use the following script and specify the region where the file share is going to be mounted.
    ```sh
@@ -169,7 +172,7 @@ You can use the utility for encrypted or unencrypted connections. For encrypted 
 Use the following command syntax to mount the share. Replace the mountpath with the information that is specific to your file share.
 
 ```sh
-mount -t ibmshare -o secure=true <share-ip>:/<mount-path> /mnt/mount-point
+mount -t ibmshare -o secure=true 10.0.0.1:/MOUNT_PATH /mnt/MOUNT_POINT
 ```
 {: pre}
    
@@ -239,7 +242,7 @@ The following command uninstalls the utility.
    ```
    {: codeblock}
 
-- To list active connections, use one of the following commands.
+- To list active connections with ipsec encryption, use one of the following commands.
    ```sh
    ipsec status
    ```
@@ -261,7 +264,7 @@ The following command uninstalls the utility.
    ```sh
    /opt/ibm/mount-ibmshare/mount-ibmshare.log
    ```
-   {: pre}
+   {: pre} 
 
 ## Next steps
 {: #next-steps-eit}
