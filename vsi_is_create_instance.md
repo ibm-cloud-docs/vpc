@@ -2,7 +2,7 @@
 
 copyright:
   years: 2018, 2025
-lastupdated: "2025-06-12"
+lastupdated: "2025-06-17"
 
 keywords:
 
@@ -40,6 +40,8 @@ Use the following steps to create a virtual server instance.
    {: caption="Selections to begin instance provisioning" caption-side="bottom"}
 
 3. Select an image and profile for the instance. To select from all available images, click **Change image**. You can select an image, a snapshot of a boot volume, or an existing boot volume. If the geographic location where you are provisioning an instance supports it, you can select either *x86* or *s390x* architecture. Table 2 describes image, snapshot, and existing volume options. Then, select a profile. To select from all available vCPU and RAM combinations, click **Change profile**. Table 3 describes profile selection. {: #select-image-and-profile}
+
+   
 
    | Field | Value |
    |-------|-------|
