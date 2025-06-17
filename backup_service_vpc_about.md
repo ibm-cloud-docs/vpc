@@ -2,7 +2,7 @@
 
 copyright:
  years: 2022, 2025
-lastupdated: "2025-05-14"
+lastupdated: "2025-06-17"
 
 keywords: Backup, backup service, backup plan, backup policy, restore, restore volume, restore data
 
@@ -117,8 +117,8 @@ If you specify both the age and the number of backups, age takes priority in det
 
 Consider the following examples:
 - Example 1 - You create a daily plan with a retention period of 14 days, and no maximum number of snapshots to keep. You're going to keep 14 backups and the oldest is going to be 2 weeks old.
-- Example 2 - You create a weekly plan that has the retention period of 365 days, and the maximum count of 8. In practice, you're going to get a maximum of 8 snapshots in the chain, with the oldest being 8 weeks old.
-- Example 2 - You create a monthly plan and set the retention period for 80 days with a maximum count of 10. In practice, you keep a maximum of 3 snapshots always. By the time when your 4th backup is taken, the first one meets the 80-day mark, and gets deleted.
+- Example 2 - You create a weekly plan that has a retention period of 365 days, and a maximum count of 8. In practice, you're going to get a maximum of 8 snapshots in the chain, with the oldest being 8 weeks old.
+- Example 2 - You create a monthly plan and set the retention period for 80 days with a maximum count of 10. In practice, you keep a maximum of 3 snapshots always. By the time when your 4th backup is taken, the first one meets the 80-day mark and gets deleted.
 
 You can create up to four plans per backup policy and modify the backup schedule and retention policy anytime. Your four plans can have different frequencies. For example, one can be daily. Another one can be weekly, or monthly. All plans apply to the volumes with tags that match the backup policy. Backups that are created by the backup plan inherit the parent volume resource group details. 
 
@@ -145,7 +145,7 @@ Backup policies contain user tags for target resources that associate the policy
 In addition to user tags, tags can be access management tags and service tags. Only user tags are applied to backup policies. [Access management tags](/docs/vpc?topic=vpc-managing-block-storage&interface=ui#storage-add-access-mgt-tags) are used to manage access to resources; only the account administrator can create access management tags. Service tags are a privileged construct that only authorized services can manage. Users are not authorized to attach and detach service tags on a resource, even if they have access to manage tags on the resource. Service tags are helpful to distinguish which snapshots were created manually or automatically by a backup policy.
 {: note}
 
-If a volume, a share, or virtual server instance has multiple tags, only one tag needs to match a backup policy tag. Based on the schedule in the backup plan, a matching tag triggers a backup. If multiple tags match backup policy tags, only one backup is created at the scheduled interval. If you have multiple resources with the same tag, backups are created for all the matching resources.
+If a volume, a share, or a virtual server instance has multiple tags, only one tag needs to match a backup policy tag. Based on the schedule in the backup plan, a matching tag triggers a backup. If multiple tags match backup policy tags, only one backup is created at the scheduled interval. If you have multiple resources with the same tag, backups are created for all the matching resources.
 
 You can add up to 1,000 user tags for your resources. However, only 100 tags can be attached or detached in the same operation. Keeping the number of tags low can make it easier to track the number of backups that you're creating. For more information, see [Applying backup policies to resources with tags](/docs/vpc?topic=vpc-backup-use-policies).
 

@@ -2,7 +2,7 @@
 
 copyright:
   years: 2021, 2025
-lastupdated: "2025-06-12"
+lastupdated: "2025-06-17"
 
 keywords: snapshots, Block Storage, snapshot clone, remote copy, fast restore, Block Storage snapshot, cross-regional snapshot
 
@@ -23,7 +23,7 @@ Before you take a snapshot, make sure that all cached data is present on disk, e
 
 You can create a consistency group that contains snapshots of multiple volumes that are attached to a virtual server instance. All snapshots in the consistency group are created at the same time and are loosely coupled. For more information, see [Creating snapshot consistency groups](/docs/vpc?topic=vpc-snapshots-vpc-create-consistency-groups).
 
-You can take a snapshot of a second-generation storage volume even if it is not attached to a running virtual server instance. Fast restore snapshot clones, cross-regional copies, and consistency groups are not supported for second-generation storage volumes during the beta phase.
+You can take a snapshot of a second-generation storage volume even if it is not attached to a running virtual server instance. In this release, fast restore snapshot clones, cross-regional copies, and consistency groups are not supported for second-generation storage volumes. 
 {: beta}
 
 ## Creating a snapshot in the console
@@ -63,7 +63,7 @@ In the console, you can create a snapshot of a {{site.data.keyword.block_storage
    | Access management tags | Specify any [access management tags](/docs/vpc?topic=vpc-managing-block-storage&interface=ui#storage-add-access-mgt-tags) for this resource. |
    | Volume | Select a volume from the list. The boot or data volume must be attached to a running virtual server instance. |
    | Encryption | Encryption information for the volume that you selected, either [provider-managed encryption](/docs/vpc?topic=vpc-vpc-encryption-about&interface=ui#vpc-provider-managed-encryption) or [customer-managed encryption](/docs/vpc?topic=vpc-vpc-encryption-about&interface=ui#vpc-customer-managed-encryption). The snapshot inherits the encryption of the source volume. You can't change the encryption type. |
-   | Optional configurations | Cross-region snapshot copy. Select Copy Snapshot to a different region. Click **Create**.|
+   | Optional configurations | Cross-region snapshot copy. Select Copy Snapshot to a different region. Click **Create**. \n  This feature is not supported for second-generation snapshots.|
    {: caption="Selections for creating a snapshot" caption-side="bottom"}
 
 3. Click **Create**. You're returned to the screen that you started from. Messages are displayed while the snapshot is being created and when it's ready, the snapshot is displayed in the list of snapshots. For more information, see [View snapshot details in the console](/docs/vpc?topic=vpc-snapshots-vpc-view&interface=ui#snapshots-vpc-view-snapshot-ui).
@@ -94,7 +94,7 @@ In the previous section, you saw how to create a cross-regional snapshot copy wh
 1. Click the Actions menu (![Actions menu](images/overflow.png)) and select **Copy snapshot**.
 1. Select the region where you want to create the copy.
 
-   You can have only one copy per region. You can't create a copy in the local (source) region.
+   You can have only one copy per region. You can't create a copy in the local (source) region. During the beta release, you can't create copies of second-generation snapshots.
    {: restriction}
 
 1. Click **Create**.
@@ -127,7 +127,7 @@ Before you start, gather the following information:
 
 Use the following CLI commands to collect the information that you need.
 
-- `ibmcloud is volumes` - Lists all available volumes in the region that you selected. Locate the volume in the list, verify the status (`available`), the attachment type (`boot` or `data`), and the resource group.
+- `ibmcloud is volumes` - the command lists all available volumes in the region that you selected. Locate the volume in the list, verify the status (`available`), the attachment type (`boot` or `data`), and the resource group.
 - `ibmcloud is volume VOLUME_ID` - Use this command with the volume ID from the output of the previous command to review the details of the volume. If the output shows that the volume is available, attached to an instance and not busy, you can create a snapshot.
 
 ### Creating a snapshot from the CLI

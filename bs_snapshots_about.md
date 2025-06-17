@@ -2,7 +2,7 @@
 
 copyright:
   years: 2022, 2025
-lastupdated: "2025-06-12"
+lastupdated: "2025-06-17"
 
 keywords: snapshots, Block Storage, volumes, cross-regional snapshot, restore volume, copy snapshot
 
@@ -136,18 +136,20 @@ The following limitations apply to this release:
 ## Snapshots for second-generation block storage volumes
 {: #sdp-snapshots}
 
-As of 25 March 2025, as a customer with special access, you can provision second-generation storage volumes with the `sdp` profile and create snapshots of these volumes.
+As of 25 March 2025, as a customer with special access, you can provision second-generation storage volumes with the `sdp` profile and create snapshots of these volumes in Dallas, Frankfurt, Tokyo, and Washington, DC.
 {: beta}
 
 During the [Beta]{: tag-cyan} phase, you can create up to 512 snapshots. You can even create snapshots when the volumes are unattached.
 
+The snapshots that are created for `sdp` volumes have an independent lifecycle from the parent volume. You can delete the volume and the snapshot persists.
+
 Second-generation storage volumes can range in size from 1 TB to 32 TB. You can create a snapshot of the entire volume without capacity restrictions.
 
-The snapshots that are created for `sdp` volumes have an independent lifecycle from the parent volume. You can delete the volume and the snapshot persists. 
+You can use your snapshots to create second-generation volumes in the region where the snapshot is. You can't use your second-generation snapshot to create a volume with a first-generation volume profile. Similarly, a snapshot from a first-generation volume can't be used to create a volume with the 'sdp' profile.
 
-You can use your snapshots to create other second-generation volumes in the same region. You can't use your second-generation snapshot to create a volume with a first-generation volume profile. Similarly, you can't use first-generation volume's snapshot to create a volume with the `sdp` profile.
+Cross-region copies of snapshots are not supported in this release.
 
-You cannot copy the snapshot to another region, nor can you create of consistency group snapshots of multiple `sdp` volumes. Fast restore clones are not supported for second-generation snapshots yet either.
+You cannot create of consistency group snapshots of `sdp` volumes. Fast restore clones are not supported for second-generation snapshots yet either.
 
 ## Securing your data
 {: #bs-snapshot-data-security}
