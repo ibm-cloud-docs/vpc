@@ -24,6 +24,9 @@ For more information about changes to the {{site.data.keyword.vpc_short}} API, s
 
 For more information about changes to the {{site.data.keyword.vpc_short}} command-line interface (CLI), see [{{site.data.keyword.vpc_short}} CLI release notes](/docs/vpc?topic=vpc-vpc-cli-rn).
 
+## June 2025
+{: #vpc-jun25}
+
 ### 03 June 2025
 {: #vpc-jun0325}
 
