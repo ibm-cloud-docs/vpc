@@ -2,7 +2,7 @@
 
 copyright:
   years: 2020, 2025
-lastupdated: "2025-06-09"
+lastupdated: "2025-06-18"
 
 keywords:
 
@@ -23,7 +23,7 @@ You can list your flow log collectors by using the UI, the CLI, or the API.
 To list your flow log collectors by using the IBM Cloud console:
 
 1. From your browser, open the [{{site.data.keyword.cloud_notm}} console](/login){: external} and log in to your account.
-1. Select the **Navigation Menu** ![Navigation Menu icon](../icons/icon_hamburger.svg), then click **Infrastructure** ![VPC icon](../../icons/vpc.svg) > **Network** > **Flow logs**. If available, a list of provisioned flow log collectors shows.
+1. Select the **Navigation menu** ![Menu icon](../icons/icon_hamburger.svg), then click **Infrastructure** ![VPC icon](../../icons/vpc.svg) > **Network** > **Flow logs**. If available, a list of provisioned flow log collectors shows.
 
 Flow log collector attributes shown in the table are as follows:
 

@@ -2,7 +2,7 @@
 
 copyright:
   years: 2025
-lastupdated: "2025-06-10"
+lastupdated: "2025-06-18"
 
 keywords: viewing, deleting, public address range
 
@@ -25,7 +25,7 @@ You can view public address ranges with the console, CLI, and API.
 {: #view-par-ui}
 {: ui}
 
-To view public address ranges in the [{{site.data.keyword.cloud_notm}} console](/login){: external}, select the **Navigation Menu** ![Navigation Menu icon](../icons/icon_hamburger.svg), then click **Infrastructure** ![VPC icon](../../icons/vpc.svg) > **Network** > **Public address ranges**.
+To view public address ranges in the [{{site.data.keyword.cloud_notm}} console](/login){: external}, select the **Navigation menu** ![Menu icon](../icons/icon_hamburger.svg), then click **Infrastructure** ![VPC icon](../../icons/vpc.svg) > **Network** > **Public address ranges**.
 
 The Public address ranges for VPC page shows the following information:
 

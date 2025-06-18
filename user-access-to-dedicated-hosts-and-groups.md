@@ -1,8 +1,8 @@
 ---
 
 copyright:
-  years: 2021, 2024
-lastupdated: "2024-10-10"
+  years: 2021, 2025
+lastupdated: "2025-06-18"
 
 keywords: dedicated host, dedicated hosts, dedicated host group, access, user access,
 
@@ -95,7 +95,7 @@ Complete the following steps to create a dedicated host and dedicated host group
 {: #creating-a-vpc}
 
 1. Open [{{site.data.keyword.cloud_notm}} console](/login){: external}.
-2. Click **Navigation Menu** icon ![Menu icon](../../icons/icon_hamburger.svg) **> Infrastructure** ![VPC icon](../../icons/vpc.svg) **> Network > VPCs** and click **Create**.
+2. Click **Navigation menu** icon ![Menu icon](../../icons/icon_hamburger.svg) **> Infrastructure** ![VPC icon](../../icons/vpc.svg) **> Network > VPCs** and click **Create**.
 3. Enter a name for the VPC, such as `my-vpc`.
 4. Select *Users resources* as the resource group for the VPC.
 5. Create the default access control list for new subnets in this VPC.
