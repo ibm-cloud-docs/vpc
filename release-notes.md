@@ -2,7 +2,7 @@
 
 copyright:
   years: 2019, 2025
-lastupdated: "2025-06-12"
+lastupdated: "2025-06-18"
 
 keywords:
 
@@ -24,8 +24,11 @@ For more information about changes to the {{site.data.keyword.vpc_short}} API, s
 
 For more information about changes to the {{site.data.keyword.vpc_short}} command-line interface (CLI), see [{{site.data.keyword.vpc_short}} CLI release notes](/docs/vpc?topic=vpc-vpc-cli-rn).
 
-## June 2025
-{: #vpc-jun25}
+### 24 June 2025
+{: #vpc-jun2425}
+
+Beta release of cross-regional copies of second-generation block volumes
+:   Customers with special access to preview the second-generation block storage volumes can now create copies of their snapshots in the console, from the CLI, or with the API. For more information about this feature and its limitations, see [About Block Storage for VPC snapshots](/docs/vpc?topic=vpc-snapshots-vpc-about&interface=ui#sdp-snapshots).
 
 ### 03 June 2025
 {: #vpc-jun0325}
