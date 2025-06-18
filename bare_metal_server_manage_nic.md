@@ -24,7 +24,7 @@ After you create a bare metal server, you can add new network interfaces or edit
 For x86 bare metal servers, you can create two types of network interfaces, PCI interface and VLAN interface.
 
    * A PCI interface is a physical network interface. The VLAN interface is a virtual interface that is associated with a PCI interface. The maximum number of PCI interfaces per bare metal server is eight.
-   * The VLAN interface automatically tags traffic that is routed through it with the VLAN ID. Inbound traffic that is tagged with a VLAN ID is directed to the appropriate VLAN interface. The VLAN interface has its own security groups and doesn't inherit security groups from the PCI interface. The combined PCI/VLAN interface limit is 128 network interfaces per bare metal server. For more information, see [Retrieve a bare metal server profile](/apidocs/vpc/latest#get-bare-metal-server-profile).
+   * The VLAN interface automatically tags traffic that is routed through it with the VLAN ID. Inbound traffic that is tagged with a VLAN ID is directed to the appropriate VLAN interface. The VLAN interface has its own security groups and doesn't inherit security groups from the PCI interface. The number of floating VLAN interfaces that are supported is 100 and the combined number of PCI interfaces of nonfloating VLAN interfaces is 228. For more information, see [Retrieve a bare metal server profile](/apidocs/vpc/latest#get-bare-metal-server-profile).
 
    - When you create a bare metal server, a primary PCI interface is created for you. Optionally, you can add one or more secondary PCI or VLAN interfaces. You can also add, update, or delete the network interfaces.
 
