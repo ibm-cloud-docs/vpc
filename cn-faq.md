@@ -2,7 +2,7 @@
 
 copyright:
   years: 2024, 2025
-lastupdated: "2025-04-01"
+lastupdated: "2025-06-18"
 
 subcollection: vpc
 
@@ -22,4 +22,4 @@ This section contains answers to some frequently asked questions about {{site.da
 {: #can-my-cluster-networks-communicate-acrosssubnets}
 {: faq}
 
-Yes, as long as your cluster network virtual network interfaces configure the route correctly. Both virtual network interfaces must configure the route tables to send traffic through the same interface that it would receive traffic from the other virtual server (subnet). These route tables are needed only if the virtual server instances have at least one cluster network that is not present on the other virtual server instance.
+Yes, as long as your cluster network virtual network interfaces configure the route correctly. Both virtual network interfaces must configure the route tables to send traffic through the same interface that it would receive traffic from the other virtual server (subnet). These route tables are needed only if the virtual server instances have at least one cluster network that isn't present on the other virtual server instance.

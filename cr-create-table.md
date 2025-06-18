@@ -2,7 +2,7 @@
 
 copyright:
   years: 2020, 2025
-lastupdated: "2025-06-09"
+lastupdated: "2025-06-18"
 
 keywords: custom routes
 
@@ -21,7 +21,7 @@ Create a routing table to define rules to forward network traffic along the best
 ## Before you begin
 {: #routing-planning-guidelines}
 
-Before you create a routing table, ensure that you have at least one VPC and review and adhere to routing table [limitations and guidelines](/docs/vpc?topic=vpc-about-custom-routes&interface=ui#limitations-custom-routes).
+Before you create a routing table, make sure that you have at least one VPC and review and adhere to routing table [limitations and guidelines](/docs/vpc?topic=vpc-about-custom-routes&interface=ui#limitations-custom-routes).
 
 You can create a routing table for an {{site.data.keyword.cloud_notm}} service by using the console, CLI, API, or Terraform.
 
