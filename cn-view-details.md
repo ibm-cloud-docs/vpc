@@ -2,7 +2,7 @@
 
 copyright:
   years: 2024, 2025
-lastupdated: "2025-06-12"
+lastupdated: "2025-06-18"
 
 keywords:
 
@@ -32,7 +32,7 @@ You can view details of a cluster network with the console, CLI, API, or Terrafo
 To view details of a cluster network interface in the {{site.data.keyword.cloud_notm}} console, follow these steps:
 
 1. From your browser, open the [{{site.data.keyword.cloud_notm}} console](/login){: external} and log in to your account.
-1. Select the **Navigation Menu** ![Navigation Menu icon](../../icons/icon_hamburger.svg), then click **Infrastructure** ![VPC icon](../../icons/vpc.svg)  > **Network** > **Cluster networks**.
+1. Select the **Navigation menu** ![Navigation menu icon](../../icons/icon_hamburger.svg), then click **Infrastructure** ![VPC icon](../../icons/vpc.svg)  > **Network** > **Cluster networks**.
 1. In the Cluster networks for VPC table, locate the cluster network for which you want to view details, then click the name of that cluster network.
 1. View the details of your cluster network in the **Cluster network details** section.
 

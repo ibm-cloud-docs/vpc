@@ -2,7 +2,7 @@
 
 copyright:
   years: 2023, 2025
-lastupdated: "2025-06-09"
+lastupdated: "2025-06-18"
 
 keywords:
 
@@ -32,7 +32,7 @@ You can enable a VPC as a DNS hub with the console, CLI, API, or Terraform.
 To enable a VPC as a DNS hub in the {{site.data.keyword.cloud_notm}} console, follow these steps:
 
 1. From your browser, open the [{{site.data.keyword.cloud_notm}} console](/login){: external} and log in to your account.
-1. Select the **Navigation Menu** ![Navigation Menu icon](../icons/icon_hamburger.svg), then click **Infrastructure** ![VPC icon](../../icons/vpc.svg) > **Network** > **VPCs**.
+1. Select the **Navigation menu** ![Menu icon](../icons/icon_hamburger.svg), then click **Infrastructure** ![VPC icon](../../icons/vpc.svg) > **Network** > **VPCs**.
 1. Click the link of the Virtual Private Cloud that you want to designate as the DNS hub VPC. The Overview page displays.
 1. Scroll to the Optional DNS settings section at the end of the page, then expand the DNS hub section and enable the DNS hub switch.
 

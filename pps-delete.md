@@ -25,7 +25,7 @@ You can migrate to a newer version of Private Path service without deleting or d
 To update a Private Path provider service the {{site.data.keyword.cloud_notm}} console, follow these steps:
 
 1. From your browser, open the [{{site.data.keyword.cloud_notm}} console](/login) and log in to your account.
-1. Select the **Navigation Menu** ![Navigation Menu icon](../icons/icon_hamburger.svg), then click **Infrastructure** ![VPC icon](../../icons/vpc.svg) > **Network** > **Private Path services**.
+1. Select the **Navigation menu** ![Navigation menu icon](../icons/icon_hamburger.svg), then click **Infrastructure** ![VPC icon](../../icons/vpc.svg) > **Network** > **Private Path services**.
 1. In the Private Path services for VPC table, locate and click the name of the Private Path service that you want to update.
 1. On the Private Path details page, click the Edit icon ![Edit icon](images/edit.png) beside the details that you want to update.
 
@@ -41,7 +41,7 @@ If you’re updating the actual target service without changing the load balance
 To update the target service of a Private Path provider service the {{site.data.keyword.cloud_notm}} console, follow these steps:
 
 1. From your browser, open the [{{site.data.keyword.cloud_notm}} console](/login) and log in to your account.
-1. Select the **Navigation Menu** ![Menu icon](../icons/icon_hamburger.svg), then click **Infrastructure > Network > Load balancers**.
+1. Select the **Navigation menu** ![Menu icon](../icons/icon_hamburger.svg), then click **Infrastructure > Network > Load balancers**.
 1. Select the region of your load balancer.
 1. Select the load balancer that you want to update.
 1. Select **Back-end pools** > **Create pool** to create a new pool of servers for your updated service.
@@ -53,7 +53,7 @@ To update the target service of a Private Path provider service the {{site.data.
    * **Session stickiness**: Whether all requests during a user's session are sent to the same instance.
    * **Health check**: For more information about configuring health checks, see [Working with health checks](/docs/vpc?topic=vpc-nlb-health-checks#nlb-health-checks).
 1. Make sure to configure these servers for your new provider service by setting the **Method** to Weighted round robin for your old pool and your new pool. Set the **Weight** of the new pool to a non-zero value, and the **Weight** of the old pool to a zero value. This will redirect traffic from your old server pool to your new server pool.
-1. Update your existing front-end listener to finish attaching your load balancer to this new pool. On your load balancer details page, Click the **Front-end listeners** tab. In the table, click the **Navigation Menu** ![navigation menu](../icons/icon_hamburger.svg) at the end of the row of your existing listener, then click **Edit**.
+1. Update your existing front-end listener to finish attaching your load balancer to this new pool. On your load balancer details page, Click the **Front-end listeners** tab. In the table, click the **Navigation menu** ![navigation menu](../icons/icon_hamburger.svg) at the end of the row of your existing listener, then click **Edit**.
 1. In the menu that appears, click **Edit**. Under Default Back-end pool, type in the ID of your new pool. Click **Save**.
 
 ### Deleting a Private Path service in the console
@@ -68,7 +68,7 @@ To delete a Private Path service in the {{site.data.keyword.cloud_notm}} console
    {: note}
 
 1. From your browser, open the [{{site.data.keyword.cloud_notm}} console](/login) and log in to your account.
-1. Select the **Navigation Menu** ![navigation menu](../icons/icon_hamburger.svg), then click **Infrastructure > Network > Private Path services**.
+1. Select the **Navigation menu** ![Menu icon](../icons/icon_hamburger.svg), then click **Infrastructure > Network > Private Path services**.
 1. In the Private Path services for VPC table, locate the Private Path service that you want to delete, then click **Delete** in the Actions menu ![Actions menu](../icons/action-menu-icon.svg "Actions").
 
 ## Updating a provider service from the CLI

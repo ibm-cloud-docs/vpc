@@ -2,7 +2,7 @@
 
 copyright:
   years: 2024, 2025
-lastupdated: "2025-05-26"
+lastupdated: "2025-06-18"
 
 keywords:
 
@@ -32,7 +32,7 @@ You can create a cluster network interface with the console, CLI, API, or Terraf
 To create a cluster network interface within a network cluster in the console, follow these steps:
 
 1. From your browser, open the [{{site.data.keyword.cloud_notm}} console](/login){: external} and log in to your account.
-1. Select the **Navigation Menu** ![menu icon](../../icons/icon_hamburger.svg), then click **Infrastructure** ![VPC icon](../../icons/vpc.svg) > **Network** > **Cluster networks**.
+1. Select the **Navigation menu** ![menu icon](../../icons/icon_hamburger.svg), then click **Infrastructure** ![VPC icon](../../icons/vpc.svg) > **Network** > **Cluster networks**.
 1. On the Cluster networks for VPC page, click the link of the cluster network name where you want to create an interface. The Overview page displays.
 1. Click the Interfaces tab to show the Cluster network interfaces table, then click **Create +**.
 1. Complete the information in the Create interface side panel, then click **Create**.

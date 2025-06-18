@@ -3,7 +3,7 @@
 copyright:
   years: 2018, 2022
 
-lastupdated: "2025-06-09"
+lastupdated: "2025-06-18"
 
 keywords:
 
@@ -37,7 +37,7 @@ If you edit the rules of the default security group, those edited rules then app
 {: ui}
 
 1. From your browser, open the [{{site.data.keyword.cloud_notm}} console](/login){: external}.
-1. Select the **Navigation Menu** ![Navigation Menu icon](../icons/icon_hamburger.svg), then click **Infrastructure** ![VPC icon](../../icons/vpc.svg) > **Network** > **Security groups**.
+1. Select the **Navigation menu** ![Navigation menu icon](../icons/icon_hamburger.svg), then click **Infrastructure** ![VPC icon](../../icons/vpc.svg) > **Network** > **Security groups**.
 1. In the Security groups list, click the name of the default security group that you want to update.
 1. On the default security group's details page, click the **Rules** tab.
 1. Modify the rules as necessary:

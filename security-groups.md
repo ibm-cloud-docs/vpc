@@ -2,7 +2,7 @@
 
 copyright:
   years: 2019, 2025
-lastupdated: "2025-06-09"
+lastupdated: "2025-06-18"
 
 keywords:
 
@@ -133,7 +133,7 @@ To make this process easier, you can define a rule in which you allow all traffi
 The following are UI instructions for defining rules in a security group to allow all traffic between members of that security group:
 
 1. From your browser, open the [{{site.data.keyword.cloud_notm}} console](/login){: external}.
-1. Select the **Navigation Menu** ![Navigation Menu icon](../icons/icon_hamburger.svg), then click **Infrastructure** ![VPC icon](../../icons/vpc.svg) > **Network** > **Security groups**.
+1. Select the **Navigation menu** ![Navigation menu icon](../icons/icon_hamburger.svg), then click **Infrastructure** ![VPC icon](../../icons/vpc.svg) > **Network** > **Security groups**.
 1. In the Security groups, select the security group object that you want to modify.
 1. Click the **Create +** button in the upper right of the **Inbound rules** table. A **Create inbound rule** window appears.
 1. In the **Protocol** section, select **ALL**.

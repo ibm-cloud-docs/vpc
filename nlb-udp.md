@@ -1,7 +1,7 @@
 ---
 copyright:
   years: 2018, 2025
-lastupdated: "2025-06-09"
+lastupdated: "2025-06-18"
 
 keywords: port, range, nlb, configuring, udp
 
@@ -32,7 +32,7 @@ You can configure UDP when [creating a network load balancer](/docs/vpc?topic=vp
 
 1. From your browser, open the [{{site.data.keyword.cloud_notm}} console](/login){: external} and log in to your account.
 
-2. Select the **Navigation Menu** ![Navigation Menu icon](../icons/icon_hamburger.svg), then click **Infrastructure** ![VPC icon](../../icons/vpc.svg) > **Network** > **Load balancers**.
+2. Select the **Navigation menu** ![Menu icon](../icons/icon_hamburger.svg), then click **Infrastructure** ![VPC icon](../../icons/vpc.svg) > **Network** > **Load balancers**.
 
 3. Click the NLB that you want to change.
 

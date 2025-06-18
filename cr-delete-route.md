@@ -2,7 +2,7 @@
 
 copyright:
   years: 2020, 2025
-lastupdated: "2025-06-09"
+lastupdated: "2025-06-18"
 
 keywords: custom routes
 
@@ -24,7 +24,7 @@ You can delete a route for an IBM Cloud service by using the console, CLI, API, 
 
 To delete a route in the console, follow these steps:
 
-1. From the [{{site.data.keyword.cloud_notm}} console](/login){: external}, select the **Navigation Menu** ![Navigation Menu icon](../icons/icon_hamburger.svg), then click **Infrastructure** ![VPC icon](../../icons/vpc.svg) > **Network** > **Routing tables**. The Routing tables for VPC page appears.
+1. From the [{{site.data.keyword.cloud_notm}} console](/login){: external}, select the **Navigation menu** ![Menu icon](../icons/icon_hamburger.svg), then click **Infrastructure** ![VPC icon](../../icons/vpc.svg) > **Network** > **Routing tables**. The Routing tables for VPC page appears.
 2. Click the number of routes, or the routing table name that contains the route.
 3. Click the Actions menu ![Actions menu](../icons/action-menu-icon.svg "Actions") next to the route that you want to delete, then click **Delete**. Click **Delete** again to confirm the deletion.
 

@@ -2,7 +2,7 @@
 
 copyright:
   years: 2020, 2025
-lastupdated: "2025-06-09"
+lastupdated: "2025-06-18"
 
 keywords: custom routes
 
@@ -25,7 +25,7 @@ You can update a route for an IBM Cloud service by using the console, CLI, API, 
 To update a route in the console, follow these steps:
 
 1. Make sure to review [Limitations and guidelines](/docs/vpc?topic=vpc-about-custom-routes&interface=ui#limitations-custom-routes).
-1. From the [{{site.data.keyword.cloud_notm}} console](/login){: external}, select the **Navigation Menu** ![Navigation Menu icon](../icons/icon_hamburger.svg), then click **Infrastructure** ![VPC icon](../../icons/vpc.svg) > **Network** > **Routing tables**. The Routing tables for VPC page appears.
+1. From the [{{site.data.keyword.cloud_notm}} console](/login){: external}, select the **Navigation menu** ![Menu icon](../icons/icon_hamburger.svg), then click **Infrastructure** ![VPC icon](../../icons/vpc.svg) > **Network** > **Routing tables**. The Routing tables for VPC page appears.
 1. Locate the routing table with the routes that you want to update, and click its name in the table.
 1. In the Routes section, locate the route that you want to update in the table. Then, click the Actions menu ![Actions menu](../icons/action-menu-icon.svg "Actions") to edit or delete the route. You can change the name, priority, advertise, and route type information.
 1. Click **Save** to save your updates.

@@ -2,7 +2,7 @@
 
 copyright:
   years: 2025
-lastupdated: "2025-06-09"
+lastupdated: "2025-06-18"
 
 keywords: public address range, create, bind
 
@@ -37,7 +37,7 @@ Make sure to review [planning considerations](/docs/vpc?topic=vpc-about-par#par-
 
 To create a public access range in the {{site.data.keyword.cloud_notm}} console, follow these steps:
 
-1. From the [{{site.data.keyword.cloud_notm}} console](/login){: external}, select the **Navigation Menu** ![Navigation Menu icon](../icons/icon_hamburger.svg), then click **Infrastructure** ![VPC icon](../../icons/vpc.svg) > **Network** > **Public Address Ranges**. The Public Address Ranges for VPC page appears.
+1. From the [{{site.data.keyword.cloud_notm}} console](/login){: external}, select the **Navigation menu** ![Menu icon](../icons/icon_hamburger.svg), then click **Infrastructure** ![VPC icon](../../icons/vpc.svg) > **Network** > **Public Address Ranges**. The Public Address Ranges for VPC page appears.
 1. Click **Create** to go to the provisioning page.
 1. In the Location section, edit the following fields, if necessary:
    * **Geography**: Indicates the geography where you want the public address range created.
