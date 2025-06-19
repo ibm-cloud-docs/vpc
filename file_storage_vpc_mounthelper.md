@@ -2,7 +2,7 @@
 
 copyright:
   years: 2023, 2025
-lastupdated: "2025-06-17"
+lastupdated: "2025-06-19"
 
 keywords: file share, file storage, encryption in transit, Mount Helper, IPsec, secure connection, mount share
 
@@ -203,7 +203,7 @@ To update the installation package, run the `install.sh` script again.
 ```sh
 ./install.sh
 ```
-{: pre} 
+{: pre}
 
 ## Uninstalling the Mount Helper
 {: #fs-eit-mount-helper-uninstall}

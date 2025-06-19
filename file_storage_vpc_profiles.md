@@ -2,7 +2,7 @@
 
 copyright:
   years: 2021, 2025
-lastupdated: "2025-06-03"
+lastupdated: "2025-06-18"
 
 keywords: file storage, file share, performance, IOPS, block size, capacity, range
 
@@ -127,7 +127,7 @@ The total maximum IOPS is rounded up to the next multiple of 10 when the IOPS ca
 {: #fs-using-ui-iops-profile}
 {: ui}
 
-When you [create a file share in the console](/docs/vpc?topic=vpc-file-storage-create&interface=ui#file-storage-create-ui), you can see the dp2 profile in the table in the **Profiles** section.
+When you [create a file share in the console](/docs/vpc?topic=vpc-file-storage-create&interface=ui#file-storage-create-ui), you can see the availale profiles in the table in the **Profiles** section.
 
 ## Viewing profiles from the CLI
 {: #fs-using-cli-iops-profiles}
@@ -144,6 +144,23 @@ dp2    defined_performance
 {: screen}
 
 For more information about the command options, see [`ibmcloud is share-profiles`](/docs/vpc?topic=vpc-vpc-reference#share-profiles-list).
+
+To see the details of the share profile, use the `ibmcloud is share-profile` command and specify the name of the profile. See the following example.
+
+```sh
+$ ibmcloud is share-profile dp2
+Listing file share profiles in region us-south under account Test Account as user test.user@ibm.com...
+Name       dp2   
+Family     defined_performance   
+IOPS       Default   Max     Min   Step   Type      
+           100       96000   100   1      range      
+              
+Capacity   Default   Max     Min   Step   Type      
+           10        32000   10    1      range     
+```
+{: screen}
+
+For more information about the command options, see [`ibmcloud is share-profile`](/docs/vpc?topic=vpc-vpc-reference#share-profile-viewt).
 
 ## Viewing profiles with the API
 {: #fs-using-api-iops-profiles}

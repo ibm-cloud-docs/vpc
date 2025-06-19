@@ -2,7 +2,7 @@
 
 copyright:
   years: 2020, 2025
-lastupdated: "2025-04-23"
+lastupdated: "2025-06-19"
 
 keywords: virtual private network, faq, faqs, frequently asked questions, vpn, vpn gateway
 
@@ -122,6 +122,8 @@ To send all traffic from the VPC side to the on-premises side, set peer CIDRs to
 When a connection is created successfully, the VPN service adds a `0.0.0.0/0` via `<VPN gateway private IP>` route into the default routing table of the VPC. However, this new route can cause routing issues, such as virtual servers in different subnets not being able to communicate with each other, and VPN gateways not communicating with on-premises VPN gateways.
 
    To troubleshooting routing issues, see [Why aren't my VPN gateways or virtual server instances communicating?](/docs/vpc?topic=vpc-troubleshoot-routing-issues).
+
+
 
 ## Does IBM complete quarterly ASV scans of data-plane VPN appliances?
 {: #vpn-asv}
