@@ -2,7 +2,7 @@
 
 copyright:
   years: 2025
-lastupdated: "2025-06-06"
+lastupdated: "2025-06-19"
 
 keywords: vpc, public address ranges, about
 
@@ -58,13 +58,6 @@ Review the following considerations before creating a public address range:
    {: note}
 
 * You can limit the use of a public address range to specific resources within the VPC by configuring network ACLs, security groups, or a combination of both.
-* When a public address range is bound to a zone in a VPC, traffic originating from any virtual server or bare metal server in that zone in the VPC, and using a source IP from the public address range, can communicate with the public and private destinations. To limit this, you can:
-
-   * [Configure security groups](/docs/vpc?topic=vpc-configuring-the-security-group&interface=ui) to limit which resources can send or receive traffic with IP addresses from the public address range. 
-   * [Configure network ACLs](/docs/vpc?topic=vpc-acl-create-ui&interface=ui) to allow or deny traffic at the subnet level.
-   * [Configure VPC egress routes](/docs/vpc?topic=vpc-create-vpc-route&interface=ui) to explicitly direct outbound traffic and avoid unintended paths.
-
-   When setting up these network traffic controls, keep in mind that some users might lack the necessary IAM permissions to secure resources properly.
 * You can reserve a public address range with the following prefix sizes. For more information, review public address range [quotas and service limits](/docs/vpc?topic=vpc-quotas&interface=ui#par-quotas). 
    * `/28` = 16 addresses
    * `/29`  = 8 addresses
@@ -72,6 +65,14 @@ Review the following considerations before creating a public address range:
    * `/31` = 2 addresses
    * `/32` = 1 address
 * If there is an overlap between a public address range and the private address prefix in a VPC, the private address prefix takes precedence.  
+* When a public address range is bound to a zone in a VPC, traffic originating from any virtual server or bare metal server in that zone in the VPC, and using a source IP from the public address range, can communicate with the public and private destinations. To limit this, you can:
+
+   * [Configure security groups](/docs/vpc?topic=vpc-configuring-the-security-group&interface=ui) to limit which resources can send or receive traffic with IP addresses from the public address range. 
+   * [Configure network ACLs](/docs/vpc?topic=vpc-acl-create-ui&interface=ui) to allow or deny traffic at the subnet level.
+   * [Configure VPC egress routes](/docs/vpc?topic=vpc-create-vpc-route&interface=ui) to explicitly direct outbound traffic and avoid unintended paths.
+
+   When setting up these network traffic controls, keep in mind that some users might lack the necessary IAM permissions to secure resources properly.
+
 
 ## Getting started with public address ranges
 {: #par-getting-started}
