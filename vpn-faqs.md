@@ -2,7 +2,7 @@
 
 copyright:
   years: 2020, 2025
-lastupdated: "2025-06-19"
+lastupdated: "2025-06-20"
 
 keywords: virtual private network, faq, faqs, frequently asked questions, vpn, vpn gateway
 
@@ -144,11 +144,11 @@ The following metrics are collected for VPN gateway billing on a monthly basis:
 While using a VPN gateway, you are also charged for all outbound public internet traffic billed at VPC data rates.
 {: note}
 
-## Why doesn't the route-based VPN gateway route the traffic?
+## When isn't traffic routed through a route-based VPN gateway?
 {: #vpn-gateway-route}
 {: faq}
 
-If you configured a VPC route and its next hop is a VPN connection, the following use cases block the traffic forwarded through the VPN connection.
+If you configured a VPC route with a VPN connection as the next hop, traffic might not be routed as expected due to the following conditions:
 
-* The security groups associated with the VPC instance do not permit the traffic; the network ACLs associated with the subnet of the VPC instance and VPN gateway blocked the traffic. For more information about configuring security groups and network ACLs, see [Configuring network ACLs for use with VPN](/docs/vpc?topic=vpc-configuring-acls-vpn).
-* The traffic source IP is not in any subnet associated with the VPC routing table. For example, the VPC routing table is associated with subnet A and includes a route whose next hop is a VPN connection. However, when the traffic reaches the VPN gateway, the source IP is not in subnet A or any other subnets that are associated with the routing table. Therefore, the VPN gateway drops the traffic.
+* The security groups associated with the VPC instance don't permit the traffic, or the network ACLs associated with the instance's subnet or the VPN gateway blocked the traffic. Make sure that your security groups and ACLs allow the intended traffic. For more information, see [Configuring network ACLs for use with VPN](/docs/vpc?topic=vpc-configuring-acls-vpn).
+* If the traffic's source IP isn't in a subnet that is associated with the routing table containing the VPN route, the VPN gateway drops the traffic. For example, suppose that there is a VPC routing table that is associated only with subnet A and includes a route whose next hop is a VPN connection. When the traffic reaches the VPN gateway, the source IP isn't in subnet A or any other subnets that are associated with the routing table. As a result, the VPN gateway doesn't forward the traffic.
