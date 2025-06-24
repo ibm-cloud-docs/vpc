@@ -2,7 +2,7 @@
 
 copyright:
   years: 2020, 2025
-lastupdated: "2025-06-20"
+lastupdated: "2025-06-24"
 
 keywords: virtual private network, faq, faqs, frequently asked questions, vpn, vpn gateway
 
@@ -106,7 +106,7 @@ Only PSK authentication is supported.
 
 No. To set up a VPN gateway in your classic environment, you must use an [IPsec VPN](/catalog/infrastructure/ipsec-vpn){: external}.
 
-## What does rekey collision cause?
+## What does a rekey collision cause?
 {: #faq-vpn-14}
 {: faq}
 
@@ -117,11 +117,11 @@ If you use IKEv1, rekey collision deletes the IKE/IPsec security association (SA
 {: faq}
 {: support}
 
-To send all traffic from the VPC side to the on-premises side, set peer CIDRs to `0.0.0.0/0` when creating a connection.
+To send all traffic from the VPC side to the on-premises side, set peer CIDRs to `0.0.0.0/0` when you create a connection.
 
 When a connection is created successfully, the VPN service adds a `0.0.0.0/0` via `<VPN gateway private IP>` route into the default routing table of the VPC. However, this new route can cause routing issues, such as virtual servers in different subnets not being able to communicate with each other, and VPN gateways not communicating with on-premises VPN gateways.
 
-   To troubleshooting routing issues, see [Why aren't my VPN gateways or virtual server instances communicating?](/docs/vpc?topic=vpc-troubleshoot-routing-issues).
+   To troubleshoot routing issues, see [Why aren't my VPN gateways or virtual server instances communicating?](/docs/vpc?topic=vpc-troubleshoot-routing-issues).
 
 
 
@@ -139,9 +139,9 @@ The following metrics are collected for VPN gateway billing on a monthly basis:
 
 * VPN Gateway Instance Hour: How much time your VPN gateway instance is up and running.
 * VPN Connection Hour: How much time each of your VPN connections is established and maintained on the VPN gateway.
-* Floating IP: The number of active floating IP addresses being used by the VPN gateway instance.
+* Floating IP: The number of active floating IP addresses used by the VPN gateway instance.
 
-While using a VPN gateway, you are also charged for all outbound public internet traffic billed at VPC data rates.
+When you use a VPN gateway, you are also charged for all outbound public internet traffic billed at VPC data rates.
 {: note}
 
 ## When isn't traffic routed through a route-based VPN gateway?
@@ -150,5 +150,5 @@ While using a VPN gateway, you are also charged for all outbound public internet
 
 If you configured a VPC route with a VPN connection as the next hop, traffic might not be routed as expected due to the following conditions:
 
-* The security groups associated with the VPC instance don't permit the traffic, or the network ACLs associated with the instance's subnet or the VPN gateway blocked the traffic. Make sure that your security groups and ACLs allow the intended traffic. For more information, see [Configuring network ACLs for use with VPN](/docs/vpc?topic=vpc-configuring-acls-vpn).
+* The security groups that are associated with the VPC instance don't permit the traffic, or the network ACLs associated with the instance's subnet or the VPN gateway blocked the traffic. Make sure that your security groups and ACLs allow the intended traffic. For more information, see [Configuring network ACLs for use with VPN](/docs/vpc?topic=vpc-configuring-acls-vpn).
 * If the traffic's source IP isn't in a subnet that is associated with the routing table containing the VPN route, the VPN gateway drops the traffic. For example, suppose that there is a VPC routing table that is associated only with subnet A and includes a route whose next hop is a VPN connection. When the traffic reaches the VPN gateway, the source IP isn't in subnet A or any other subnets that are associated with the routing table. As a result, the VPN gateway doesn't forward the traffic.

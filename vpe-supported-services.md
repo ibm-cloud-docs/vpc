@@ -1,8 +1,8 @@
 ---
 
 copyright:
-  years: 2020, 2024
-lastupdated: "2024-11-12"
+  years: 2020, 2025
+lastupdated: "2025-06-24"
 
 keywords: virtual private endpoints, endpoint gateway, VPE services
 subcollection: vpc
@@ -46,6 +46,7 @@ The following IBM Cloud services are enabled for Virtual Private Endpoints (VPE)
 * Databases ([Instructions](/docs/cloud-databases?topic=cloud-databases-vpes))
 * Direct Link ([Instructions](/docs/dl?topic=dl-vpe-connection))
 * DNS Services ([Instructions](/docs/dns-svcs?topic=dns-svcs-vpe-for-dns-svcs#vpe-for-dns-svcs))
+* Enterprise Application Service for Java ([Instructions])(https://www.ibm.com/docs/en/ease?topic=security-connecting-applications-using-virtual-private-endpoints){: external}
 * Enterprise Billing Units ([Endpoint URLs](/apidocs/enterprise-apis/billing-unit#endpoint-url))
 * Enterprise Management ([Endpoint URLs](/apidocs/enterprise-apis/enterprise#endpoint-url))
 * Enterprise Usage Reports ([Endpoint URLs](/apidocs/enterprise-apis/resource-usage-reports#endpoint-url))
