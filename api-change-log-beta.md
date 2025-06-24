@@ -26,6 +26,16 @@ There are no backward-compatibility guarantees as a feature progresses through i
 
 To review the change log of generally available API features, see the [VPC API change log](/docs/vpc?topic=vpc-api-change-log).
 
+## 24 June 2025
+{: #24-june-2025-beta}
+
+### For all version dates
+{: #24-june-2025-all-version-dates-beta}
+
+**Flex instance profiles.** Accounts that have been granted special approval to preview this feature can now use [flex instance profiles](/docs/vpc?topic=vpc-flexible-profiles-virtual-servers) when [creating](/apidocs/vpc-beta#create-instance) or [updating](/apidocs/vpc-beta#update-instance) an instance, or when [creating](/apidocs/vpc-beta#create-instance-template) an instance template.
+
+**Default instance profile change.** When [creating](/apidocs/vpc-beta#create-instance) a new instance, the `profile` property will now default to `bxf-2x8` for accounts that have been granted special approval to preview [flex instance profiles](/docs/vpc?topic=vpc-flexible-profiles-virtual-servers).
+
 ## 15 April 2025
 {: #15-april-2025-beta}
 
