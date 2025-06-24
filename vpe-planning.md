@@ -2,7 +2,7 @@
 
 copyright:
   years: 2020, 2025
-lastupdated: "2025-04-29"
+lastupdated: "2025-06-19"
 
 keywords: VPE, virtual private endpoint, endpoint gateway, planning
 
@@ -15,8 +15,9 @@ keywords: VPE, virtual private endpoint, endpoint gateway, planning
 
 Before you create a virtual private endpoint gateway, review the following considerations.
 
-* A reserved IP address that is bound to an endpoint gateway can receive traffic from another zone of the same VPC if your Network ACL (NACL) allows it.
-* You can bind only one IP address per VPC zone to an endpoint gateway.
+* A reserved IP address that is bound to a VPE gateway can receive traffic from other zones within the same VPC, as long as your Network ACL (NACL) rules allow it.
+* You can create only one VPE per service within a single VPC.
+* You can bind only one IP address per VPC zone to a VPE gateway.
 * You can attach up to five security groups when you create a VPE. If you do not specify a security group during VPE creation, the default security group for your VPC is used.
 
    If you do not select at least one security group, it is recommended that you update your default security group rules to minimize disruption in traffic on a newly created VPE.
