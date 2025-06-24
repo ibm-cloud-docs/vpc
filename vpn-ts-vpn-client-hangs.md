@@ -2,7 +2,7 @@
 
 copyright:
   years: 2021, 2025
-lastupdated: "2025-06-17"
+lastupdated: "2025-06-24"
 
 keywords: virtual private network, VPN, VPN server, troubleshooting
 
@@ -43,4 +43,4 @@ Follow these steps to resolve this issue:
 
    `openssl x509 -enddate -noout -in client.crt`
 
-1. An expired CRL can also lead to connection issues. Updating and replacing the CRL might resolve the problem. For more information, see [client certificate revocation lists](/docs/vpc?topic=vpc-client-to-site-vpn-planning#client-certificate-revocation-lists)
+1. An expired CRL can also lead to connection issues. Updating and replacing the CRL might resolve the problem. For more information, see [client certificate revocation lists](/docs/vpc?topic=vpc-client-to-site-vpn-planning#client-certificate-revocation-lists).
