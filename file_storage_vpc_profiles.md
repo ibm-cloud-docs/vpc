@@ -2,7 +2,7 @@
 
 copyright:
   years: 2021, 2025
-lastupdated: "2025-06-18"
+lastupdated: "2025-06-25"
 
 keywords: file storage, file share, performance, IOPS, block size, capacity, range
 
@@ -160,7 +160,7 @@ Capacity   Default   Max     Min   Step   Type
 ```
 {: screen}
 
-For more information about the command options, see [`ibmcloud is share-profile`](/docs/vpc?topic=vpc-vpc-reference#share-profile-viewt).
+For more information about the command options, see [`ibmcloud is share-profile`](/docs/vpc?topic=vpc-vpc-reference#share-profile-view).
 
 ## Viewing profiles with the API
 {: #fs-using-api-iops-profiles}

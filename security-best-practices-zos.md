@@ -2,7 +2,7 @@
 
 copyright:
   years: 2022, 2025
-lastupdated: "2025-01-02"
+lastupdated: "2025-06-25"
 
 keywords: zos, security, virtual server instance
 
@@ -45,7 +45,7 @@ For this release, you need to follow the security best practices for your z/OS v
 
     * [IBM X-Force Threat Intelligence Report](https://www.ibm.com/reports/threat-intelligence){: external}
 
-    * [IBM on Enterprise Security](https://www.ibm.com/z/security){: external}
+    * [Advanced security on IBM Z](https://www.ibm.com/products/z/security){: external}
 
     * [PCI DSS v4.0](https://docs-prv.pcisecuritystandards.org/PCI%20DSS/Standard/PCI-DSS-v4_0.pdf){: external}
 
