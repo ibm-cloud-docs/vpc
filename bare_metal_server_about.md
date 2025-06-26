@@ -75,6 +75,7 @@ Pay-as-you-go bandwidth is per gigabyte. Your billing charges accrue from provis
 For more information about pricing, see the [bare metal server provisioning page](https://cloud.ibm.com/infrastructure/provision/bm){: external}.
 
 ## Comparing Bare Metal Servers for VPC
+{: #compare-bare-metal-servers-for-vpc}
 
 ### VPC versus classic infrastructure
 {: #vs-classic-bare-metal}
