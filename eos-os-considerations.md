@@ -2,7 +2,7 @@
 
 copyright:
   years: 2023, 2025
-lastupdated: "2025-06-13"
+lastupdated: "2025-06-26"
 
 keywords:
 
@@ -88,16 +88,16 @@ If you choose to continue with an EOS OS, consider the following information:
 - Support isn't available for performance or operational issues on the server with an EOS OS.
    - Vendor support is unavailable for an EOS OS.
    - EOS operating systems are not supported by {{site.data.keyword.Bluemix_notm}} Technical Support.
- 
+
 ## End of Support (EOS) announcements
 {: #bm-classic-eos-announcements}
 
 End of Support (EOS) is the last date that {{site.data.keyword.cloud}} delivers standard support for a version or release of a product. The end of support date is aligned to the vendor and community support dates. The EOS date is also the effective date that the product ceases to exist (is deprecated) and can no longer be ordered or purchased.
 
-### SUSE Linux Enterprise Server (SLES) 12 
+### SUSE Linux Enterprise Server (SLES) 12
 {: #sles-12-eos-bm-clasic}
 
-SUSE Linux Enterprise Server (SLES) 12 EOS date is 31 October 2024. After deprecation, clients can't download the software. Clients are encouraged to upgrade to the most recent version for continued support. 
+SUSE Linux Enterprise Server (SLES) 12 EOS date is 31 October 2024. After deprecation, clients can't download the software. Clients are encouraged to upgrade to the most recent version for continued support.
 
 For more information about upgrading, see [SUSE documentation](https://documentation.suse.com/sles/15-SP6/single-html/SLES-upgrade/#sec-upgrade-paths-supported){: external} or contact [IBM support](/docs/account?topic=account-using-avatar).
 
@@ -119,8 +119,7 @@ For existing customers, upgrade to the latest version. For more information, see
 ### Windows 2012 and Windows 2012 R2 EOS
 {: #upgrading-windows-2012-os}
 
-Windows Server 2012 and Windows Server 2012 R2 EOS date is 10 October 2023. For more information, see [Overview of Windows Server upgrades
-](https://learn.microsoft.com/en-us/windows-server/get-started/upgrade-overview){: external}.
+Windows Server 2012 and Windows Server 2012 R2 EOS date is 10 October 2023. For more information, see [Overview of Windows Server upgrades](https://learn.microsoft.com/en-us/windows-server/get-started/upgrade-overview){: external}.
 
 If you decide to upgrade with the in-place method on Windows OS, open a case with {{site.data.keyword.IBM_notm}} support to accomplish the following tasks. You can open a support case in the [customer portal](/login){: external}.
 - Obtain a Windows ISO image. A Windows ISO is required to complete the upgrade process.
@@ -146,12 +145,12 @@ To migrate workloads from CentOS, you can switch to a compatible OS distribution
 - The [Convert2RHEL](https://www.redhat.com/en/technologies/linux-platforms/enterprise-linux/migration-process/convert2rhel){: external} tool available from RHEL. For more information, see the [RHEL documentation](https://www.redhat.com/en/technologies/linux-platforms/enterprise-linux/migration-process/convert2rhel){: external}.
 
 ### Ubuntu 20.04
-{: ubuntu-twenty-eos}
+{: #ubuntu-twenty-eos}
 
 Ubuntu 20.04 EOS date is 31 May 2025. Support for this software discontinues on 31 May 2025. After deprecation, clients can't download the software. For existing customers, upgrade to the latest version. For more information, see the [Ubuntu documentation](https://ubuntu.com/20-04){external}.
 
 ### Debian 11
-{: debian-eleven-eos}
+{: #debian-eleven-eos}
 
 Debian 11 EOS date is 31 August 2026. Support for this software discontinues on 31 August 2026. After deprecation, clients can't download the software. For existing customers, upgrade to the latest version. For more information, see the [Debian documentation](https://www.debian.org/releases/bookworm/amd64/release-notes/ch-upgrading.en.html){: external}.
 

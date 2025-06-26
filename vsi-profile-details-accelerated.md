@@ -2,7 +2,7 @@
 
 copyright:
   years: 2024, 2025
-lastupdated: "2025-05-29"
+lastupdated: "2025-06-26"
 
 keywords: vsi, virtual server, virtual server instances, profile, profiles, gpu, accelerated, h100, h200, l4, l40s
 
@@ -64,7 +64,7 @@ For more information about regions and universal zones, see [Regions](/docs/over
 - Live migration: No
 - Instance storage: Yes
 - Internal AI Fabric: Yes
-  - Infinity Fabric™ (XGMI) 128 GB/s GPU-to-GPU connections
+- Infinity Fabric™ (XGMI) 128 GB/s GPU-to-GPU connections
 - Cluster network capable: No
 
 ### VM configuration

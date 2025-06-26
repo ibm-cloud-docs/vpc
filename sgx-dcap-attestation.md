@@ -2,7 +2,7 @@
 
 copyright:
   years: 2023, 2025
-lastupdated: "2025-05-23"
+lastupdated: "2025-06-26"
 
 keywords: sgx, intel sgx, software guard extension, confidential computing, attestation, DCAP, data center attestation primitives
 
@@ -45,7 +45,7 @@ Reconfigure AESM to use the locally cached PCK certificate and restart the servi
    ```
    {: codeblock}
 
- 1. Restart `aesmd`
+1. Restart `aesmd`
 
    ```sh
     systemctl restart aesmd
