@@ -2,7 +2,7 @@
 
 copyright:
   years: 2025
-lastupdated: "2025-06-10"
+lastupdated: "2025-06-26"
 
 keywords: application load balancer migration, api migration, versioned change
 
@@ -68,6 +68,7 @@ Review the changes that were announced in the [API change log](/docs/vpc?topic=v
 {: #example-create-application-load-balancer-listener-policy}
 
 ### Creating an ALB listener policy
+{: #creating-alb-listener-policy}
 
 The following example uses API version `2025-04-07` or earlier to create an application load balancer listener policy with the `action` `forward`.
 
