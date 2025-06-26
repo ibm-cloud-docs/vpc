@@ -2,7 +2,7 @@
 
 copyright:
   years: 2019, 2025
-lastupdated: "2025-06-24"
+lastupdated: "2025-06-26"
 
 keywords: vsi, virtual server instances, profile, profiles, balanced, compute, memory, very high memory, ultra high memory, gpu storage optimized, confidential compute
 
@@ -34,6 +34,7 @@ The following profile families are available when you provision a virtual server
 | [GPU](#gpu) | GPU enabled profiles provide on-demand access to GPUs and accelerators to facilitate AI, high-performance computing, data science, and graphics workloads.|
 | [Storage Optimized](#storageopt) | Storage Optimized profiles offer temporary SSD instance storage disks at a ratio of 1 vCPU to 300 GB instance storage with a smaller price point per GB. These profiles are designed for storage-dense workloads and offer `virtio` interface type for attached disks. |
 | [Confidential Compute](#confidential-computing-profiles) | Confidential Compute-supported profiles use processor reserved memory called EPC (Enclave Page Cache) to encrypt application data. Processor reserved memory EPC maintains confidentiality and integrity. |
+| [Flex profiles](#flex-profiles) | Flex profiles offer a cost-effective option to help improve and mainstream capacity and scalability where and when you need it. |
 {: caption="Virtual server family selections" caption-side="bottom"}
 
 2nd generation profiles with instance storage and 2nd generation profiles with 64 or more vCPUs are deployed exclusively on the Intel&reg;'s second-generation quad processor Xeon&reg; Platinum 8260 Cascade Lake with 96 cores that are running at a base speed of 2.4 GHz and an all-core turbo frequency of 3.1 GHz or Intel&reg;'s quad processor Xeon&reg; Gold 6248 Cascade Lake with 80 cores that are running at a base speed of 2.5 GHz and an all-core turbo frequency of 3.1 GHz.
@@ -427,6 +428,44 @@ For more information about confidential computing, see [Confidential computing f
 {: class="simple-tab-table"}
 {: summary="Compute cx3 profile options for confidential compute compatible virtual server instances."}
 
+## Flex profiles
+{: #flexible-profiles}
+
+[Beta]{: tag-blue}
+
+Flex profiles are a cost-effective option to help improve mainstream capacity where and when its needed. As a dedicated core offering, you have cpu-to-memory ratio options for compute, balanced, memory, and two low-memory variants (small and nano). The Flex profile family doesn't include instance storage.
+
+The following flex profiles are available.
+
+| Instance profile | vCPU | Memory (GiB) | Bandwidth cap (Gbps)|
+|------------------|------|--------------|---------------------|
+| nxf-2x1          | 2    | 1            | 2   |
+| nxf-2x2          | 2    | 2            | 2   |
+| bxf-2x8          | 2    | 8            | 2   |
+| bxf-4x16         | 4    | 16           | 4   |
+| bxf-8x32         | 8    | 32           |  8  |
+| bxf-16x64        | 16   | 64           | 16  |
+| bxf-24x96        | 24   | 96           | 24  |
+| bxf-32x128       | 32   | 128          | 32  |
+| bxf-48x192       | 48   | 192          | 48  |
+| bxf-64x256       | 64   | 256          | 64  |
+| cxf-2x4          | 2    | 4            | 2   |
+| cxf-4x8          | 4    | 8            | 4   |
+| cxf-8x16         | 8    | 16           | 8   |
+| cxf-16x32        | 16   | 32           | 16  |
+| cxf-24x48        | 24   | 48           | 24  |
+| cxf-32x64        | 32   | 64           | 32  |
+| cxf-48x96        | 48   | 96           | 48  |
+| cxf-64x128       | 64   | 128          | 64  |
+| mxf-2x16         | 2    | 16           | 2   |
+| mxf-4x32         | 4    | 32           | 4   |
+| mxf-8x64         | 8    | 64           | 8   |
+| mxf-16x128       | 16   | 128          | 16  |
+| mxf-24x192       | 24   | 192          | 32  |
+| mxf-48x384       | 48   | 384          | 48  |
+| mxf-64x512       | 64   | 512          | 64  |
+{: caption="Flex profile options for virtual servers" caption-side="bottom"}
+
 ## Bandwidth allocation
 {: #bandwidth-allocation}
 
@@ -469,6 +508,11 @@ You can add up to 15 network interfaces for your virtual server instance, depend
 * 17-48 vCPUs: Up to 10 network interfaces
 * 49 or more vCPUs: Up to 15 network interfaces
 
+With [flex profiles](#flex-profiles), you can add up to 2 network interfaces for a virtual server instance, depending on the vCPU count that is included in the profile.
+
+* 2-4 vCPUs: 1 network interface
+* 8 or more vCPUs: 2 network interfaces
+
 With multiple network interfaces, bandwidth is distributed evenly across the network interfaces that are attached to the virtual server instance.
 
 For more information, see [Managing network interfaces](/docs/vpc?topic=vpc-using-instance-vnics).
@@ -497,6 +541,7 @@ The following information describes the profile naming rule.
 
 The first character represents the profile families. Different profile families have different ratios of vCPU to memory and other characteristics that are designed for different workloads.
 
+- "n" nano family of profiles
 - "b": balanced family of profiles
 - "c": compute family of profiles (higher on the CPUs)
 - "m": memory family of profiles (higher on the memory)
@@ -504,6 +549,7 @@ The first character represents the profile families. Different profile families 
 - "v": very high memory family of profiles, 1 vCPU to 14 GiB of memory ratio
 - "g": GPU profiles, which is a 1:8 or 1:16 ratio
 - "o": storage optimized family of profiles, 1 vCPU to 8 GiB memory ratio and 1 vCPU to 300 GB instance storage ratio
+- "f": flex profiles offer a broad set of capabilities and scale from 2 vCPUs (1 physical core) up to 64 vCPUs (64 physical cores).
 
 The second character represents the CPU architecture.
 
