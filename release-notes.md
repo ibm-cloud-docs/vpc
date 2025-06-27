@@ -168,15 +168,15 @@ Confidential computing with Intel Trusted Domain Extension (TDX) for Virtual Ser
 {{site.data.keyword.logs_full_notm}} private endpoint support for HPVS logging
 :   {{site.data.keyword.logs_full_notm}} private endpoint support is now added for HPVS logging. For more information, see [{{site.data.keyword.logs_full_notm}} (ICL)](/docs/vpc?topic=vpc-logging-for-hyper-protect-virtual-servers-for-vpc#cloud-logs-provision-instance-ui_exmpl).
 
-Snapshots for second-generation block volumes
-:   Customers with special access to preview the second-generation block storage volumes can now create snapshots of these volumes in the console, from the CLI, or with the API. For more information, see [About Block Storage for VPC snapshots](/docs/vpc?topic=vpc-snapshots-vpc-about&interface=ui#sdp-snapshots).
-
 Adjustable throughput values for second-generation block volumes
 :   Customers with special access to preview the second-generation block storage volumes can now specify custom bandwidth for their data volumes. For more information, see [Block storage volume profiles](/docs/vpc?topic=vpc-capacity-performance&interface=ui#iops-profiles) and [Adjusting the throughput limit of a volume](/docs/vpc?topic=vpc-adjusting-volume-throughput&interface=ui).
 
 New regions for second-generation block storage volumes (select availability)
 :   The `sdp` profile is now available in the Frankfurt (`eu-de`), and Tokyo (`jp-tok`) regions. For more information, see
 [The SSD defined performance profile](/docs/vpc?topic=vpc-block-storage-about#block-storage-sdp-intro).
+
+Snapshots for second-generation block volumes
+:   Customers with special access to preview the second-generation block storage volumes can now create snapshots of these volumes in `us-east` and `eu-de` regions in the console, from the CLI, or with the API. For more information, see [About Block Storage for VPC snapshots](/docs/vpc?topic=vpc-snapshots-vpc-about&interface=ui#sdp-snapshots).
 
 ### 19 March 2025
 {: #vpc-mar1925}

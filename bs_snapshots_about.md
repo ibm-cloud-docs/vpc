@@ -2,7 +2,7 @@
 
 copyright:
   years: 2022, 2025
-lastupdated: "2025-06-17"
+lastupdated: "2025-06-27"
 
 keywords: snapshots, Block Storage, volumes, cross-regional snapshot, restore volume, copy snapshot
 
@@ -136,7 +136,7 @@ The following limitations apply to this release:
 ## Snapshots for second-generation block storage volumes
 {: #sdp-snapshots}
 
-As of 25 March 2025, as a customer with special access, you can provision second-generation storage volumes with the `sdp` profile and create snapshots of these volumes in Dallas, Frankfurt, Tokyo, and Washington, DC.
+As of 25 March 2025, as a customer with special access, you can provision second-generation storage volumes with the `sdp` profile and create snapshots of these volumes in Frankfurt, Tokyo, and Washington, DC.
 {: beta}
 
 During the [Beta]{: tag-cyan} phase, you can create up to 512 snapshots. You can even create snapshots when the volumes are unattached.
