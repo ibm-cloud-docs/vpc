@@ -71,6 +71,8 @@ toc:
                id: profile-details
                label: Profile details
                topics:
+               - topic: vsi-profile-details-flexible.md
+                 navtitle: General purpse - Flex profiles (beta)
                - topic: vsi-profile-details-accelerated.md
                  navtitle: Accelerated - Gen 3
                - topic: vsi-profile-details-general-purpose-gen3.md
@@ -87,8 +89,6 @@ toc:
                  navtitle: Confidential Computing - Gen 3 (x86)
                - topic: vsi-profile-details-confidential-computing-gen2-z.md
                  navtitle: Confidential Computing - Gen 2 (s390x)
-               - topic: vsi-profile-details-flexible.md
-                 navtitle: Flex profiles (beta)
            - vsi_is_provisioning_scripts.md
            - instance-profiles-vpc-bandwidth.md
            - topicgroup:
@@ -938,8 +938,8 @@ toc:
             label: Known issues (limitations)
             topics:
             - limitations.md
-            - known-issues.md     
-            - lb-limitations.md       
+            - known-issues.md
+            - lb-limitations.md
             - cn-limitations-known-issues.md
             - fl-limitations.md
             - nlb-limitations.md
