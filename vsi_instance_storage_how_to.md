@@ -26,7 +26,7 @@ To provision an instance storage disk with your virtual server instance, select 
 Before you can create a virtual server instance with instance storage, you need to create an {{site.data.keyword.vpc_short}}. {: important}
 
 To provision a with instance storage, complete the following steps:
-1. In the [{{site.data.keyword.cloud_notm}} console](/login){: external}, go to **Navigation Menu** icon ![menu icon](../icons/icon_hamburger.svg) **> Infrastructure** ![VPC icon](../../icons/vpc.svg) **> Virtual server instances**.
+1. In the [{{site.data.keyword.cloud_notm}} console](/login){: external}, go to **Navigation Menu** icon ![menu icon](../icons/icon_hamburger.svg) **> Infrastructure** ![VPC icon](../../icons/vpc.svg) **> Compute > Virtual server instances**.
 2. On the Virtual server instances for VPC page, click **Create** and enter the required information. For more information about specific fields, see [Creating virtual servers](/docs/vpc?topic=vpc-creating-virtual-servers).
 3. To choose your instance storage profile, click **View all profiles**. All ox2 profiles and profiles with the letter "d" in the fourth position of the Profile name include instance storage. Examples of profiles that include instance storage are bx2d-2x8 and ox2-2x16. Use the checkboxes to filter the list. For a list of instance profiles, see [x86-64 instance profiles](/docs/vpc?topic=vpc-profiles&interface=ui).
 4. Choose the profile that you want to use and click **Save**. The instance storage disks are attached to the virtual server instance after the boot volume, and before remote Block Storage volumes, if any.

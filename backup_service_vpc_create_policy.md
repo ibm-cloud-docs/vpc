@@ -2,7 +2,7 @@
 
 copyright:
   years: 2022, 2025
-lastupdated: "2025-06-03"
+lastupdated: "2025-06-27"
 
 keywords: Backup, backup snapshot, create backups, backup service, backup plan, backup policy, restore, restore volume, restore data, restore share
 
@@ -39,7 +39,7 @@ You can use the UI to create a backup policy and plan.
 
 Use the following steps to create a backup policy by using the UI.
 
-1. In the [{{site.data.keyword.cloud_notm}} console](/login){: external}, click the **Navigation menu** icon ![menu icon](../icons/icon_hamburger.svg) **> Infrastructure** ![VPC icon](../icons/vpc.svg) **> Backup policies**. The **Create** tab is selected by default.
+1. In the [{{site.data.keyword.cloud_notm}} console](/login){: external}, click the **Navigation menu** icon ![menu icon](../icons/icon_hamburger.svg) **> Infrastructure** ![VPC icon](../icons/vpc.svg) **> Storage > Backup policies**. The **Create** tab is selected by default.
 
    The UI displays a notification message when service-to-service authorizations are incorrect or missing on your account.
 
@@ -92,7 +92,7 @@ You can schedule backups in your plan on a daily, weekly, or monthly basis by us
 
 1. Specify a **Retention type** for the backups. You can specify how long to keep them by the number of days and the total number to retain.
 
-   * For **Age**, specify the number of days that you want to retain the backups in the range of 1 to 1000. 
+   * For **Age**, specify the number of days that you want to retain the backups in the range of 1 to 1000.
    * For **Count**, provide the number of backups that you want to keep.
 
    To keep costs down, set a retention period or snapshots count adequate to your needs. For example, setting "7" for **Age** retains a week's worth of backups.
@@ -111,8 +111,8 @@ You can schedule backups in your plan on a daily, weekly, or monthly basis by us
    1. If the source snapshot is encrypted by using a customer-managed key, you must select the encryption service instance and provide the key name. If you prefer, you can create a service instance or encryption key by following the links.
       * {{site.data.keyword.keymanagementserviceshort}} - it can be used when the original back is encrypted by using the {{site.data.keyword.keymanagementserviceshort}} service.
       * {{site.data.keyword.hscrypto}} - it can be used when the original back is encrypted by using the {{site.data.keyword.hscrypto}} service.
-   1. Click **Apply changes** to save the new plan. The list of plans is updated in the policy details page. 
-   
+   1. Click **Apply changes** to save the new plan. The list of plans is updated in the policy details page.
+
 1. If you want to make any changes, click the **Edit icon** ![Edit icon](../icons/edit-tagging.svg "Edit") for that plan. If you want to delete the plan, click the delete icon.
 
 ### Estimating your expected usage and costs
@@ -302,7 +302,7 @@ Plans                 ID   Name   Resource type
 
 Backup tags           dev:test
 Match resource type   share
-Included Content      
+Included Content
 Resource group        ID                                 Name
                       11caaa983d9c4beb82690daab08717e9   Default
 

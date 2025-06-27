@@ -2,7 +2,7 @@
 
 copyright:
   years: 2020, 2025
-lastupdated: "2025-03-18"
+lastupdated: "2025-06-27"
 
 keywords: migrate virtual server from classic infrastructure, migrate to vpc, migrate image template, image template, import image to vpc infrastructure, migrate virtual server, migrate instance
 
@@ -61,7 +61,7 @@ Secondary disks and their associated files for an image template aren't supporte
 
 Complete the following steps to create an image template for the virtual server that you want to migrate.
 
-1. From the Dashboard in [{{site.data.keyword.cloud_notm}} console](https://cloud.ibm.com/){: external}, create an image template by clicking **Navigation menu** ![Menu icon](../../icons/icon_hamburger.svg) > **Classic Infrastructure** > **Devices** > **Device List**.
+1. From the Dashboard in [{{site.data.keyword.cloud_notm}} console](https://cloud.ibm.com/){: external}, create an image template by clicking **Navigation menu** ![Menu icon](../../icons/icon_hamburger.svg) > **Infrastructure** > **Classic Infrastructure** > **Devices** > **Device List**.
 2. Click the virtual server that you want to use.
 3. From the **Actions** menu, select **Create Image Template**. Make sure to name it something you can easily recognize. For more information, see [Creating an image template](/docs/image-templates?topic=image-templates-creating-an-image-template).
 
@@ -230,7 +230,7 @@ Complete the following customizations on your Windows virtual server to prepare 
 
 When your customizations are complete on your backup virtual server, create a new image template by using the following steps.
 
-1. From the Dashboard in [{{site.data.keyword.cloud_notm}} console](https://cloud.ibm.com/){: external}, click **menu** ![Menu icon](../../icons/icon_hamburger.svg) > **Classic Infrastructure** > **Devices** > **Device List** to create an image template.
+1. From the Dashboard in [{{site.data.keyword.cloud_notm}} console](https://cloud.ibm.com/){: external}, click **menu** ![Menu icon](../../icons/icon_hamburger.svg) > **Infrastructure** > **Classic Infrastructure** > **Devices** > **Device List** to create an image template.
 1. Click the backup virtual server that you previously customized.
 1. From the **Actions** menu, select **Create Image Template**. The image template must be created before you can proceed with the following steps.
 

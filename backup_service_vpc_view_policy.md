@@ -2,7 +2,7 @@
 
 copyright:
   years: 2022, 2025
-lastupdated: "2025-02-24"
+lastupdated: "2025-06-27"
 
 keywords: Backup, backup service, backup plan, backup policy, restore, restore volume, restore data
 
@@ -18,7 +18,7 @@ subcollection: vpc
 You can list and view all backup policies that you created for your storage resources in the console, from the CLI, with the API, or Terraform. You can review the details of individual policies, and view the number of resources that have tags that match a backup policy.
 {: shortdesc}
 
-For the backup operation to be successful, the tagged volumes must be attached to running virtual server instances. Unattached volumes are not backed up even if they have the right tags. 
+For the backup operation to be successful, the tagged volumes must be attached to running virtual server instances. Unattached volumes are not backed up even if they have the right tags.
 {: note}
 
 ## Viewing backup policies in the console
@@ -32,7 +32,7 @@ You can list all backup policies and view details of a specific policy by using 
 
 List all backup policies that you created for volumes in your account for the selected region by using the UI.
 
-In the [{{site.data.keyword.cloud_notm}} console](/login){: external}, click the **Navigation menu** icon ![menu icon](../icons/icon_hamburger.svg) **> Infrastructure** ![VPC icon](../icons/vpc.svg) **> Backup policies**.
+In the [{{site.data.keyword.cloud_notm}} console](/login){: external}, click the **Navigation menu** icon ![menu icon](../icons/icon_hamburger.svg) **> Infrastructure** ![VPC icon](../icons/vpc.svg) **> Storage > Backup policies**.
 
 Table 1 describes the information on the Backup policy list page. The default region for the account is selected. You can select a different region from the menu. Policies are listed on the page from newest to oldest.
 
@@ -57,7 +57,7 @@ By clicking the Actions icon ![Actions icon](../icons/action-menu-icon.svg "Acti
 
 You can view details of a backup policy by using the UI.
 
-1. In the [{{site.data.keyword.cloud_notm}} console](/login){: external}, click the **Navigation menu** icon ![menu icon](../icons/icon_hamburger.svg) **> Infrastructure** ![VPC icon](../icons/vpc.svg) **> Backup policies**.
+1. In the [{{site.data.keyword.cloud_notm}} console](/login){: external}, click the **Navigation menu** icon ![menu icon](../icons/icon_hamburger.svg) **> Infrastructure** ![VPC icon](../icons/vpc.svg) **> Storage > Backup policies**.
 
 2. Click a policy name. Tables 2 and 3 describe the information about the selected backup policy and its associated plans. You can add activity tracking, event notifications or delete the policy from the Actions menu ![Actions icon](../icons/action-menu-icon.svg "Actions").
 
@@ -95,7 +95,7 @@ View the list of resources that are backed up by the policy. For a resource to b
 
 You can use this list of {{site.data.keyword.block_storage_is_short}} volumes, {{site.data.keyword.filestorage_vpc_short}} shares, or virtual server instances to verify that the backup policies are correctly applied.
 
-1. In the [{{site.data.keyword.cloud_notm}} console](/login){: external}, click the **Navigation menu** icon ![menu icon](../icons/icon_hamburger.svg) **> Infrastructure** ![VPC icon](../icons/vpc.svg) **> Backup policies**.
+1. In the [{{site.data.keyword.cloud_notm}} console](/login){: external}, click the **Navigation menu** icon ![menu icon](../icons/icon_hamburger.svg) **> Infrastructure** ![VPC icon](../icons/vpc.svg) **> Storage > Backup policies**.
 
 2. Click a policy name.
 
@@ -114,7 +114,7 @@ You can use this list of {{site.data.keyword.block_storage_is_short}} volumes, {
      You can add other volumes to this policy by clicking **Add volumes**. The informational side panel provides a list of tags for target resources that you can apply to the volume, and a link to the [list of {{site.data.keyword.block_storage_is_short}} volumes](/docs/vpc?topic=vpc-viewing-block-storage&interface=ui#viewvols-ui). You must apply at least one of the policy's tags for target resources to the volume. |
 
    - If the policy is for multi-volume backups of a consistency group of {{site.data.keyword.block_storage_is_short}} volumes, a list of virtual server instances is shown. The list contains the virtual server instances whose Block Storage volumes are backed up this policy. Information about the virtual server instances includes the name, status, VPC, and profile.
-   
+
       | Field  | Description |
       |--------|-------------|
       | Name   | Name of the volume. Click the **Edit icon** ![Edit icon](../icons/edit-tagging.svg "Edit") to edit. |
@@ -125,8 +125,8 @@ You can use this list of {{site.data.keyword.block_storage_is_short}} volumes, {
 
        Click **Add virtual server instance** to add the attached volumes of a virtual server instance to this policy. The informational side panel provides a list of tags for target resources that you can apply to the virtual server instance. It also contains a link to the list of virtual server instances of your account. You must apply at least one of the policy's tags for target resources to the volume.
 
-   
-   - If the policy is for file shares, a list of the shares that are backed up by this policy is shown. Information about the shares includes their names, status, volume sizes, and encryption types. 
+
+   - If the policy is for file shares, a list of the shares that are backed up by this policy is shown. Information about the shares includes their names, status, volume sizes, and encryption types.
 
      | Field | Description |
      |-------|-------------|
