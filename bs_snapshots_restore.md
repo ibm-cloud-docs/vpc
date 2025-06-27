@@ -2,7 +2,7 @@
 
 copyright:
   years: 2021, 2025
-lastupdated: "2025-06-12"
+lastupdated: "2025-06-27"
 
 keywords:
 
@@ -18,7 +18,7 @@ subcollection: vpc
 Restoring data from a snapshot creates a new, fully provisioned volume that you can use to start an instance or attach as auxiliary storage. You can restore boot and data volumes during instance creation or when you modify an existing instance. You can also create a stand-alone data volume from a snapshot. Volumes can be restored from snapshots that were created manually or by a backup policy. You can restore volumes from fast restore clones and cross-regional copies of snapshots, too. You can create volumes from snapshots in the console, from the CLI, with the API, or Terraform.
 {: shortdesc}
 
-## About restoring a volume from a snapshot 
+## About restoring a volume from a snapshot
 {: #snapshots-vpc-restore-concepts}
 
 Restoring a volume from a snapshot creates a boot or data volume, depending on whether the snapshot is bootable or nonbootable.
@@ -49,7 +49,7 @@ Restoring an instance directly from snapshot consistency group identifier is not
 The following limitations apply when you restore a volume from a snapshot.
 
 * To restore a volume, the snapshot must be in a _stable_ state.
-* You can delete the new volume at any time. 
+* You can delete the new volume at any time.
 * You can't delete the snapshot from which the volume is restored from unless the hydration is complete or the volume is deleted.
 * If snapshot is protected with customer-managed encryption and you don't specify a different root key CRN, the restored volume is encrypted with the snapshot's encryption key. The encryption cannot be changed later.
 * When the new volume is created, data restoration begins immediately, but performance is degraded until the volume is fully hydrated.
@@ -140,7 +140,7 @@ Follow these steps to create volumes for virtual server instance from the consis
 1. Select a snapshot consistency group from the list. It must be in a `stable` state.
 1. From the Actions icon ![Actions icon](../icons/action-menu-icon.svg "Actions"), select **Create virtual server**.
    * If the group has more than one bootable snapshot, you can choose the one that you want to use for the boot volume of the new virtual server instance. Then, click **Configure virtual server**.
-   * If only one bootable snapshot is in the consistency group, you're taken directly to the VPC provisioning page. 
+   * If only one bootable snapshot is in the consistency group, you're taken directly to the VPC provisioning page.
 1. The information about your region, profile, boot volume, and data volumes is populated in the New virtual server for VPC provisioning page.
 
    If you change the profile selection to **Image** or **Existing volume**, the boot volume snapshot is removed. The data volumes section is also populated with the nonbootable snapshots from the consistency group. You can remove a snapshot or create another data volume. However, if you removed a data volume and want to add it back, you must return to the step of selecting the consistency group again.
@@ -171,10 +171,10 @@ Follow these steps to create a boot and a data volume from snapshots when you pr
 
 You can also create a data volume from a snapshot for an existing instance. Choose from the list of virtual server instances.
 
-1. In the [{{site.data.keyword.cloud_notm}} console](/login){: external}, click the **Navigation menu** icon ![menu icon](../icons/icon_hamburger.svg) **> Infrastructure** ![VPC icon](../icons/vpc.svg) **> Compute> Virtual server instances**.
+1. In the [{{site.data.keyword.cloud_notm}} console](/login){: external}, click the **Navigation menu** icon ![menu icon](../icons/icon_hamburger.svg) **> Infrastructure** ![VPC icon](../icons/vpc.svg) **> Compute > Virtual server instances**.
 2. From the list, click the name of an instance. The instance must be in a _running_ state.
 3. On the Instance details page, scroll to the list of Storage volumes and click **Attach volumes**. A side panel opens for you to define the volume attachment.
-4. From the Attach storage volume panel, expand the list of Block Volumes, and select **Create a data volume**. 
+4. From the Attach storage volume panel, expand the list of Block Volumes, and select **Create a data volume**.
 5. You can expand the list and select a snapshot, or search for a specific snapshot by its CRN.
 6. The snapshot contains the properties of the original source volume, including the auto-delete status, tags, profile, and encryption. You can change all these properties. Keep in mind that you can change the volume name, profile, size, and IOPS later, but you cannot change the encryption type or CRK after the volume is created.
 7. Select a unique name, specify the size, and click **Save**. The data volume information is added in the Data volume list.
@@ -199,7 +199,7 @@ Before you can use the CLI, you must install the IBM Cloud CLI and the VPC CLI p
    ```
    {: pre}
 
-   This command returns a URL and prompts for a passcode. Go to that URL in your browser and log in. If successful, you get a one-time passcode. Copy this passcode and paste it as a response on the prompt. After successful authentication, you are prompted to choose your account. If you have access to multiple accounts, select the account that you want to log in as. Respond to any remaining prompts to finish logging in. 
+   This command returns a URL and prompts for a passcode. Go to that URL in your browser and log in. If successful, you get a one-time passcode. Copy this passcode and paste it as a response on the prompt. After successful authentication, you are prompted to choose your account. If you have access to multiple accounts, select the account that you want to log in as. Respond to any remaining prompts to finish logging in.
 
 1. Gather information about the snapshot or snapshots that you want to use to restore a volume.
    - If you want to restore a volume from a single snapshot, locate the snapshot first and view its details. You can use the CLI to [view all the snapshots of an account in a region](/docs/vpc?topic=vpc-snapshots-vpc-view&interface=cli#snapshots-vpc-view-all-account-cli) and select from the list. Alternatively, you can also [list all the snapshots of a specific volume](/docs/vpc?topic=vpc-snapshots-vpc-view&interface=cli#snapshots-vpc-view-all-snapshots-cli) and choose one from the output. Then, use the `ibmcloud is snapshots SNAPSHOT_ID` command to list the details of the chosen snapshot. If you want to restore a volume from a snapshot of another account, contact the snapshot's owner for the CRN of the snapshot.

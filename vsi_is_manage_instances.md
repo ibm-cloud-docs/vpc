@@ -2,7 +2,7 @@
 
 copyright:
   years: 2019, 2025
-lastupdated: "2025-06-12"
+lastupdated: "2025-06-27"
 
 keywords: view instance details, restart virtual server, stop, details, delete
 
@@ -317,9 +317,9 @@ For more information, see the [Delete an instance](/apidocs/vpc/latest#delete-in
 {: #auto-delete-toggle-ui}
 {: ui}
 
-During instance provisioning, a boot volume is created with the auto-delete option enabled by default. When this feature is enabled, the volume is deleted when the instance is deleted. 
+During instance provisioning, a boot volume is created with the auto-delete option enabled by default. When this feature is enabled, the volume is deleted when the instance is deleted.
 
-The opposite is true for data volumes that are created during instance provisioning, the auto-delete feature is disabled for them. Data volumes are meant to be detached but not deleted by default so your data can persist beyond the virtual server instance lifecycle. 
+The opposite is true for data volumes that are created during instance provisioning, the auto-delete feature is disabled for them. Data volumes are meant to be detached but not deleted by default so your data can persist beyond the virtual server instance lifecycle.
 
 You can change this setting on the Edit boot volume panel when you create an instance, or later in the instance details page. For more information, see [Creating virtual server instances](/docs/vpc?topic=vpc-creating-virtual-servers&interface=ui) and [Updating the auto-delete setting of a volume](/docs/vpc?topic=vpc-managing-block-storage&interface=ui#auto-delete-ui).
 
@@ -327,9 +327,9 @@ You can change this setting on the Edit boot volume panel when you create an ins
 {: #auto-delete-toggle-cli}
 {: cli}
 
-During instance provisioning, a boot volume is created with the auto-delete option enabled by default. When this feature is enabled, the volume is deleted when the instance is deleted. 
+During instance provisioning, a boot volume is created with the auto-delete option enabled by default. When this feature is enabled, the volume is deleted when the instance is deleted.
 
-The opposite is true for data volumes that are created during instance provisioning, the auto-delete feature is disabled for them. Data volumes are meant to be detached but not deleted by default so your data can persist beyond the virtual server instance lifecycle. 
+The opposite is true for data volumes that are created during instance provisioning, the auto-delete feature is disabled for them. Data volumes are meant to be detached but not deleted by default so your data can persist beyond the virtual server instance lifecycle.
 
 You can change this setting by specifying the `auto_delete` property when you create the instance or update the boot volume attachment. For more information, see [Creating virtual server instances](/docs/vpc?topic=vpc-creating-virtual-servers&interface=cli) and [Updating a volume attachment from the CLI](/docs/vpc?topic=vpc-managing-block-storage&interface=cli#update-vol-attachment-cli).
 
@@ -568,6 +568,6 @@ For more information, see the [update an instance action](/apidocs/vpc/latest#up
 
 You can detach a virtual server from a reservation in the console.
 
-1. In the [{{site.data.keyword.cloud_notm}} console](/login){: external}, click **Navigation Menu** icon ![the menu icon ](../icons/icon_hamburger.svg) **> Infrastructure** ![VPC icon](../../icons/vpc.svg) **> Compute > Reservations**.
+1. In the [{{site.data.keyword.cloud_notm}} console](/login){: external}, click **Navigation Menu** icon ![the menu icon ](../icons/icon_hamburger.svg) **> Infrastructure** ![VPC icon](../../icons/vpc.svg) **> Reservations**.
 1. From your virtual server list or in the Reservation details page, click the server that you want to detach and then click **Actions** > **Detach**.
 1. To confirm, click **Detach**.
