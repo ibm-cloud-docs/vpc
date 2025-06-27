@@ -2,7 +2,7 @@
 
 copyright:
   years: 2024, 2025
-lastupdated: "2025-03-18"
+lastupdated: "2025-06-27"
 
 keywords: virtual network interfaces, hazardous change remediation, mitigation
 
@@ -105,19 +105,19 @@ Behavior change
 
 :   _Mitigation_: Review and update your tooling, auditing, or troubleshooting procedures that create flow log collectors and analyze flow logs. When targeting a virtual network interface with a flow log collector, make sure that your procedures to analyze flow logs take into account that the collector may collect flow logs for more than one instance over the lifetime of the virtual network interface. The identifier of the instance is in the `instance-id` section of the name of the [flow log Object Storage bucket](/docs/vpc?topic=vpc-fl-analyze#flow-log-object-format). Therefore, a new flow log Object Storage bucket is created when the `target` of a virtual network interface is updated by associating the virtual network interface with a new instance.
 
-### Activity tracker event remediation
+### Activity tracking event remediation
 {: #vni-api-at-event-changes}
 
 Behavior change
-:   Expanded support for virtual network interfaces adds many new [activity tracker events](/docs/vpc?topic=vpc-at_events#events-vni):
+:   Expanded support for virtual network interfaces adds many new [activity tracking events](/docs/vpc?topic=vpc-at_events#events-vni):
 
     - [Bare metal events](/docs/vpc?topic=vpc-at_events#events-compute-bm)
     - [Floating IP events](/docs/vpc?topic=vpc-at_events&interface=api#events-network-floatingIP)
     - [Subnet events](/docs/vpc?topic=vpc-at_events&interface=api#events-network-subnet)
 
-:   _Possible failures_: Client tools and auditing processes that have not been updated for the new activity tracker events will report incomplete event sequences.
+:   _Possible failures_: Client tools and auditing processes that have not been updated for the new activity tracking events will report incomplete event sequences.
 
-:   _Mitigation_: Review your tooling that consumes activity tracker events, and update your tooling, as needed, to include the new events. Take into account that no activity tracker events are generated for [read-only representations](/docs/vpc?topic=vpc-vni-about&interface=ui#vni-old-api-clients) of network attachments.
+:   _Mitigation_: Review your tooling that consumes activity tracking events, and update your tooling, as needed, to include the new events. Take into account that no activity tracking events are generated for [read-only representations](/docs/vpc?topic=vpc-vni-about&interface=ui#vni-old-api-clients) of network attachments.
 
 ### Instance template remediation
 {: #vni-api-instance-template-changes}

@@ -179,7 +179,7 @@ To export a custom image, you must meet the following prerequisites:
 * You need an {{site.data.keyword.cos_full_notm}} service instance created. You must also create an authorization for the Image Service for VPC to access {{site.data.keyword.cos_full_notm}} with the Writer service access role. For more information, see [Granting access to {{site.data.keyword.cos_full_notm}} to import and export images](/docs/vpc?topic=vpc-object-storage-prereq).
 * You need IAM access to write to the bucket where you plan to export an image. For more information, see [Assigning access to an individual bucket](/docs/cloud-object-storage?topic=cloud-object-storage-iam-bucket-permissions).
 
-If the image that is being exported is deleted while an export job is in progress, the image status is set to `deleting`. The export job is allowed to complete before deletion of the image completes. When the image deletion is complete, its export job history is not available. You can use [Activity Tracker](/docs/vpc?topic=vpc-at_events#events-images) events for the export job to determine its final status.
+If the image that is being exported is deleted while an export job is in progress, the image status is set to `deleting`. The export job is allowed to complete before deletion of the image completes. When the image deletion is complete, its export job history is not available. You can use [Activity tracking](/docs/vpc?topic=vpc-at_events#events-images) events for the export job to determine its final status.
 {: note}
 
 ### Exporting a custom image by using the UI

@@ -2,7 +2,7 @@
 
 copyright:
   years: 2020, 2025
-lastupdated: "2025-04-29"
+lastupdated: "2025-06-27"
 
 keywords: custom routes
 
@@ -258,7 +258,7 @@ These links provide additional information about {{site.data.keyword.cloud_notm}
 
 * [VPC CLI reference](/docs/vpc?topic=vpc-vpc-reference#custom-routes-section)
 * [VPC API reference](/apidocs/vpc)
-* [Activity Tracker events](/docs/vpc?topic=vpc-at_events#events-custom-routes)
+* [Activity tracking events](/docs/vpc?topic=vpc-at_events#events-custom-routes)
 * [Routing tables for VPC infrastructure resources for Terraform](https://registry.terraform.io/providers/IBM-Cloud/ibm/latest/docs/resources/is_vpc_routing_table){: external}
 * [Managing IAM access for VPC Infrastructure Services](/docs/vpc?topic=vpc-iam-getting-started&interface=ui) (see Actions tab for [VPC roles and actions](/docs/account?topic=account-iam-service-roles-actions#is.vpc-roles))
 * [Quotas and service limits](/docs/vpc?topic=vpc-quotas#routing-tables-routes-quotas)

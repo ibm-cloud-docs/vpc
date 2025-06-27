@@ -2,7 +2,7 @@
 
 copyright:
   years: 2022, 2025
-lastupdated: "2025-03-25"
+lastupdated: "2025-06-27"
 
 keywords: confidential computing, secure execution, logging for hyper protect virtual server for vpc
 
@@ -14,9 +14,6 @@ subcollection: vpc
 
 # Logging for {{site.data.keyword.hpvs}} for VPC
 {: #logging-for-hyper-protect-virtual-servers-for-vpc}
-
-Effective 28 March 2024, the IBM {{site.data.keyword.loganalysisshort}} and {{site.data.keyword.at_full_notm}} services are deprecated and will no longer be supported as of 30 March 2025. Customers will need to migrate to {{site.data.keyword.logs_full_notm}}, which replaces these two services, prior to 30 March 2025. {{site.data.keyword.logs_full_notm}} will become generally available during the summer of 2024 in Frankfurt and Madrid with day-one support for EU-managed controls. The service will continue its worldwide multizone region (MZR) roll-out through 3Q2024. For information about {{site.data.keyword.logs_full_notm}}, see the [{{site.data.keyword.logs_full_notm}}](https://cloud.ibm.com/docs/cloud-logs) documentation.
-{: deprecated}
 
 To launch a {{site.data.keyword.hpvs}} for VPC instance, you (as the deployer) need to set up logging first by adding the logging configuration in the `env` section of the [contract](/docs/vpc?topic=vpc-about-contract_se#hpcr_contract_env). The instance reads the configuration and configures logging accordingly. All other services start only after logging is configured. If the logging configuration is incorrect, the instance will not start and an error message will be displayed in the serial console.
 {: shortdesc}
@@ -46,7 +43,7 @@ Access to {{site.data.keyword.logs_full_notm}} instances for users in vpc accoun
 {: #cloud-logs-accesspolicies}
 
  - Cloud Logs
-  
+
 
 
 To add relevant roles for these policies, refer to [Managing IAM access for IBM Cloud Logs](https://cloud.ibm.com/docs/cloud-logs?topic=cloud-logs-iam-assign-access&interface=ui)
@@ -82,7 +79,7 @@ Input parameters to be provided in the `env` section are:
    - For public network ICL access: Select **Public ingress endpoint** section as hostname in the contract.
    - For private network ICL access: Select **Private ingress endpoint** section as hostname in the contract.
 
-   You must create a virtual private endpoint (VPE) gateway for ICL to access {{site.data.keyword.logs_full_notm}} privately. For more information, see [Using virtual private endpoints for VPC to privately connect to {{site.data.keyword.logs_full_notm}}](https://cloud.ibm.com/docs/cloud-logs?topic=cloud-logs-vpe-connection&interface=cli). 
+   You must create a virtual private endpoint (VPE) gateway for ICL to access {{site.data.keyword.logs_full_notm}} privately. For more information, see [Using virtual private endpoints for VPC to privately connect to {{site.data.keyword.logs_full_notm}}](https://cloud.ibm.com/docs/cloud-logs?topic=cloud-logs-vpe-connection&interface=cli).
    {: note}
 
 - `iamApiKey`: The IAM API key for the service id. Generate and retrieve the API key from the service ID in IAM.
@@ -134,7 +131,7 @@ For more information, see [Managing {{site.data.keyword.logs_full_notm}} logging
 
 You can also configure logging with a generic [syslog backend](https://datatracker.ietf.org/doc/html/rfc5424) such as an [rsyslog](https://www.rsyslog.com/) server or a [Logstash](https://www.elastic.co/logstash/) server. The {{site.data.keyword.hpvs}} for VPC instance uses TLS with [mutual authentication](https://en.wikipedia.org/wiki/Mutual_authentication) to connect to the logging backend. Find the following pieces of information to configure logging:
 
-- Syslog hostname 
+- Syslog hostname
 - [optional] port and it defaults to 514
 - Certificate Authority (CA) - the certificate used to verify the certificate chain both for client and server authentication. Note that the same CA has to be used for both the client and server certificates.
 - Client certificate - used to prove the client to the server, signed by the CA
@@ -295,7 +292,7 @@ You can follow the following procedure to create the required certificates and k
 Configure the contract with the following template.
 
 ```yaml
-env: 
+env:
   logging:
     syslog:
       hostname: ${HOSTNAME}
@@ -315,7 +312,7 @@ Use the content of the following files in preparation to fill in the placeholder
 
 Example:
 ```yaml
-env: 
+env:
   logging:
     syslog:
       hostname: ${HOSTNAME}
@@ -334,7 +331,7 @@ cat ${CLIENT_PRIVATE_KEY} | base64 -w0
 
 Configure the contract with base64 encoded certificates:
 ```yaml
-env: 
+env:
   logging:
     syslog:
       hostname: ${HOSTNAME}
@@ -412,7 +409,7 @@ There are many ways to set up a compatible server endpoint. The following exampl
    type="imtcp"
    port="${PORT}"
    ruleset="journal-output"
-   )    
+   )
    ```
    {: codeblock}
 
@@ -425,9 +422,9 @@ There are many ways to set up a compatible server endpoint. The following exampl
 
    In this configuration, we accept any client certificate that is signed by the certificate authority via the `x509/certvalid` mode. This may change depending on the `StreamDriver.Authmode` setting. See [StreamDriver.Authmode](https://www.rsyslog.com/doc/configuration/modules/imtcp.html#streamdriver-authmode).
    {: note}
-   
+
 4. Restart the syslog service.
-   
+
    ```sh
    service syslog restart
    ```
@@ -443,7 +440,7 @@ Effective from 31 March 2025, `LOGDNA` is not supported in HPVS contracts.
 {: important}
 
 1. [Log in to your IBM Cloud account](/login){: external}.
-2. [Provision a {{site.data.keyword.loganalysisshort}} instance](/docs/log-analysis?topic=log-analysis-provision). Choose a plan according to your requirements.  
+2. [Provision a {{site.data.keyword.loganalysisshort}} instance](/docs/log-analysis?topic=log-analysis-provision). Choose a plan according to your requirements.
 3. After you create the {{site.data.keyword.loganalysisshort}} instance, click it open and click **Open dashboard**.
 4. Click the question mark icon (**Install Instructions**) at the lower left of the page. On the **Add Log Source** page, under **Via Syslog**, click **rsyslog**.
 5. Make a note of the ingestion key value at the upper right of the page, and the endpoint value. In the following example, the endpoint value is `syslog-u.au-syd.logging.cloud.ibm.com`.
@@ -479,13 +476,13 @@ Effective from 31 March 2025, `LOGDNA` is not supported in HPVS contracts.
     {: codeblock}
 
 
-- [optional] port. The default port of logdna is 6514. 
+- [optional] port. The default port of logdna is 6514.
 {: note}
 
    When the {{site.data.keyword.hpvs}} for VPC instance boots, it extracts the {{site.data.keyword.loganalysisshort}} information from the contract and configures accordingly so that all the logs are routed to the endpoint specified. Then, you can open the {{site.data.keyword.loganalysisshort}} dashboard and view the logs from the virtual server instance.
-1. If the LogDNA is used for collecting logs from multiple systems, you can utilise custom tags to isolate logs optionally. 
+1. If the LogDNA is used for collecting logs from multiple systems, you can utilise custom tags to isolate logs optionally.
    Following is an example of a custom tag:
-  
+
    ```yaml
    env:
      logging:

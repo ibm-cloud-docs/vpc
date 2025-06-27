@@ -21,7 +21,7 @@ Instance storage is a set of one or more solid-state drives (full or isolated pa
 
 Instance storage is a complementary storage technology to the Block Storage boot and data volumes that are offered with VPC. Some examples of use cases for instance storage disks are:
 
-*	Distributed File Systems: Technologies such as Hadoop Distributed File System (HDFS), which do triplication of the data across multiple servers. These technologies can improve read bandwidth and retain reliability by maintaining multiple copies of the data. It is recommended that at least three copies of the data are maintained (ideally across availability zones) when you use Instance Storage for these workloads.  
+*	Distributed File Systems: Technologies such as Hadoop Distributed File System (HDFS), which do triplication of the data across multiple servers. These technologies can improve read bandwidth and retain reliability by maintaining multiple copies of the data. It is recommended that at least three copies of the data are maintained (ideally across availability zones) when you use Instance Storage for these workloads.
 *	Transactional jobs: Transaction processing usually creates a significant number of temporary files. Instance Storage is a great place to temporarily store that data while the transactions are processed, with the results stored persistently on a data volume.
 
 ## Lifecycle of instance storage
@@ -32,7 +32,7 @@ The lifecycle of instance storage is critical to understand. Without a proper un
 
 The instance storage space is allocated and attached to the virtual server instance at the time of provisioning. It is an integral and inseparable element of the virtual server instance. If you reboot your instance (either from its operating system or through an IBM Cloud Management interface), the instance storage data is retained and the instance is reconnected to its original disks.
 
-However, when an instance is stopped or shut down, the instance storage that is attached to the virtual server instance is cryptographically erased and the instance storage is no longer available. The instance's boot volume is not affected. For auditing purposes, when an instance that has one or more storage disks is shut down, an IBM Cloud Activity Tracker event is published for each disk indicating it was "wiped". The event action is `is.instance.disk.wipe`. Refer to the Compute Events table on the [Activity Tracker page](/docs/vpc?topic=vpc-at_events#events-compute) for listing of such events.
+However, when an instance is stopped or shut down, the instance storage that is attached to the virtual server instance is cryptographically erased and the instance storage is no longer available. The instance's boot volume is not affected. For auditing purposes, when an instance that has one or more storage disks is shut down, an {{site.data.keyword.atracker_full_notm}} event is published for each disk indicating it was "wiped". The event action is `is.instance.disk.wipe`. Refer to the Compute Events table on the [Activity tracking page](/docs/vpc?topic=vpc-at_events#events-compute) for listing of such events.
 
 When a virtual server is powered off and then powered back on to complete a host or zone maintenance, the instance storage ephemeral data is not restored. However, advanced notice is given for maintenance windows. For more information, see [Understanding cloud maintenance operations](/docs/vpc?topic=vpc-about-cloud-maintenance).
 
@@ -47,14 +47,14 @@ Block Storage volumes and instance storage are complementary technologies. Volum
 ## Encryption and isolation
 {: #encryption-isolation}
 
-Instance storage data is secured with on-disk encryption. The physical disks that are used for instance storage are self-encrypting with the strong AES-256 encryption standard. The data is automatically decrypted when your instance accesses the data. When your instance is shut down or deleted, the underlying storage space is erased and unrecoverable. At that point, the data is unrecoverable. 
+Instance storage data is secured with on-disk encryption. The physical disks that are used for instance storage are self-encrypting with the strong AES-256 encryption standard. The data is automatically decrypted when your instance accesses the data. When your instance is shut down or deleted, the underlying storage space is erased and unrecoverable. At that point, the data is unrecoverable.
 
 Data is automatically encrypted on the physical media at the drive level. However, customer-managed keys are not supported for instance storage. For sensitive data, it is strongly recommended that customers use software-based file system encryption such as LUKS for Linux&reg; or BitLocker for Windows&reg;. With this technology, users can encrypt entirely within the instance, and can provide extra protection for sensitive data in-transit between the instances and the physical drive media. Some operating systems also provide FIPS-certified encryption algorithms that can also be used. See [Encrypting block devices by using LUKS](https://docs.redhat.com/en/documentation/red_hat_enterprise_linux/8/html/security_hardening/encrypting-block-devices-using-luks_security-hardening){: external} for an example of how to encrypt data on Red Hat Enterprise Linux&reg;. However, refer to the Operating System documentation or specific information about how to encrypt each device.
 
 ## Isolation
 {: #isolation-instance-storage}
 
-The instance storage disk that is attached to the virtual server instance cannot be shared with any other virtual servers, and cannot be accessed by any other virtual servers in the future. The instance storage disks are one-time use, single-attach, for the virtual server that requested the instance storage. There is also isolation from negative performance effects of different virtual servers that are accessing, reading, and writing to different portions of the same physical device (as described in the next section). 
+The instance storage disk that is attached to the virtual server instance cannot be shared with any other virtual servers, and cannot be accessed by any other virtual servers in the future. The instance storage disks are one-time use, single-attach, for the virtual server that requested the instance storage. There is also isolation from negative performance effects of different virtual servers that are accessing, reading, and writing to different portions of the same physical device (as described in the next section).
 
 ## Performance
 {: #performance-instance-storage}

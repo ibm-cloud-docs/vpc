@@ -29,7 +29,7 @@ When you resize an instance, keep the following information in mind:
 * The location doesn't change. The location includes the location geography, region, and zone that were used when you create the virtual server instance.
 * You must select a secure execution-enabled profile when you want to resize an {{site.data.keyword.cloud_notm}} {{site.data.keyword.hpvs}} for {{site.data.keyword.vpc_full}} instance. Selecting a profile that is not secure execution-enabled causes the provisioning to fail.
 * After the instance is resized, you are billed the hourly rate of the new instance profile.
-* You can track the instance resize in Activity Tracker and {{site.data.keyword.la_full}} for troubleshooting and audit purposes.
+* You can track the instance resize in {{site.data.keyword.atracker_full_notm}} and {{site.data.keyword.logs_full_notm}} for troubleshooting and audit purposes.
 
 ## Resizing virtual servers on dedicated hosts
 {: #resizing-dedicated-virtual-servers}

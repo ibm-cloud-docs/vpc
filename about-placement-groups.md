@@ -1,7 +1,7 @@
 ---
 copyright:
   years: 2021, 2024
-lastupdated: "2024-09-10"
+lastupdated: "2025-06-27"
 
 keywords: virtual private cloud, private cloud network, cloud-native, workloads, high availability, generation 2, placement group, host spread, power spread
 
@@ -20,7 +20,7 @@ subcollection: vpc
 Placement groups for {{site.data.keyword.vpc_full}} are used to create placement strategies for managing high availability workloads. A placement group contains virtual server instances that share a common placement strategy. Placement strategies influence the physical placement of select VPC resources to meet certain workload demands.
 {: shortdesc}
 
-Placement groups and their assigned resources can be managed by using the UI, CLI, API, and Terraform. A placement group can have 1 of two placement strategies: [host spread](#host-spread-placement-groups-for-vpc) or [power spread](#power-spread-placement-groups-for-vpc). With a VPC resource called `placement-groups`, you can create a policy for placing groups of instances together. The `placement-groups` resource is then added to the service `is.placement-groups`. For more information about actions that are related to placement group resources, see the placement group events section in [Activity Tracker events](/docs/vpc?topic=vpc-at_events#events-placement-group).
+Placement groups and their assigned resources can be managed by using the UI, CLI, API, and Terraform. A placement group can have 1 of two placement strategies: [host spread](#host-spread-placement-groups-for-vpc) or [power spread](#power-spread-placement-groups-for-vpc). With a VPC resource called `placement-groups`, you can create a policy for placing groups of instances together. The `placement-groups` resource is then added to the service `is.placement-groups`. For more information about actions that are related to placement group resources, see the placement group events section in [Activity tracking events](/docs/vpc?topic=vpc-at_events#events-placement-group).
 
 After the placement group is created, a selected virtual server instance or a group of virtual server instances are assigned to the placement group. When you provision these virtual server instances, the virtual server instances are then placed on a compute host in the appropriate zone for the instance based on the placement group strategy. The same placement group can be used for instances that are provisioned on shared public servers in different VPCs.
 

@@ -154,7 +154,7 @@ Figure 5 illustrates how a Private Path NLB works to support a Private Path serv
 ## Use case 5: Multi-zone, high availability using a network load balancer
 {: #nlb-use-case-5}
 
-Figure 6 illustrates how you can deploy an NLB to support multiple zones. This deployment scenario often requires the use of the global load balancer (GLB) option in [IBM Cloud Internet Services (CIS)](/docs/cis?topic=cis-configure-glb).  
+Figure 6 illustrates how you can deploy an NLB to support multiple zones. This deployment scenario often requires the use of the global load balancer (GLB) option in [IBM Cloud Internet Services (CIS)](/docs/cis?topic=cis-configure-glb).
 
 Be aware that a [known limitation](/docs/vpc?topic=vpc-nlb-limitations#limitations-network-load-balancers) applies to this scenario: Two members with the same instance and port cannot exist at the same time, so use a different port with the same instance.
 {: important}
@@ -173,6 +173,6 @@ You can use this deployment scenario to obtain high availability and ensure work
 * [Load balancer resources for Terraform](https://registry.terraform.io/providers/IBM-Cloud/ibm/latest/docs/data-sources/is_lb){: external}
 * [Network load balancer in {{site.data.keyword.cloud}} Kubernetes Service](/docs/containers?topic=containers-vpclb-about#vpc-nlb)
 * [Managing IAM access for VPC Infrastructure Services](/docs/vpc?topic=vpc-iam-getting-started&interface=ui)
-* [Activity Tracker events](/docs/vpc?topic=vpc-at_events#events-load-balancers)
+* [Activity tracking events](/docs/vpc?topic=vpc-at_events#events-load-balancers)
 * [FAQs for network load balancers](/docs/vpc?topic=vpc-nlb-faqs)
 * [Quotas and service limits](/docs/vpc?topic=vpc-quotas&interface=ui#nlb-quotas)

@@ -34,7 +34,7 @@ MD-5 and SHA-1 authentication algorithms, 2 and 5 DH groups, and the 3-DES encry
 
    A static, route-based VPN deploys in Active-Active redundancy mode. Two VPN tunnels are connected with the peer VPN gateway; however, the IBM gateway always uses the tunnel with the small public IP as the primary egress path. The tunnel with the large public IP is the secondary egress path. Traffic from the IBM VPC to the on-prem network goes through the primary egress path if both tunnels are active. Traffic goes through the secondary egress path if the primary egress path is disabled. The on-prem VPN gateway must use route priority to choose the same preferred path. [Learn more](/docs/vpc?topic=vpc-using-vpn&amp%3Binterface=ui#use-case-4-vpn) {: #important-notice}
    {: important}
-  
+
 * **Dead peer detection** - Configurable mechanism to detect availability of an IPsec peer.
 * **Diffie-Hellman (DH)** - Key exchange protocol used in Phase 1 to generate a shared secret key between VPN peers. Optionally, users can enable Perfect Forward Secrecy (PFS) and a DH group for Phase 2 IPsec negotiation. IBM Cloud VPN for VPC supports DH groups 14-24 and 31.
 * **Encryption** - IBM Cloud VPN for VPC supports AES-128, AES-192, and AES-256 for data encryption during both IKE Phase 1 and Phase 2.
@@ -180,7 +180,7 @@ These links provide additional information about IBM Cloud VPN for VPC:
 * [VPN API reference](/apidocs/vpc/latest#list-ike-policies)
 * [VPN Terraform reference](https://registry.terraform.io/providers/IBM-Cloud/ibm/latest/docs/resources/is_vpn_gateway){: external}
 * [Managing IAM access for VPC Infrastructure Services](/docs/vpc?topic=vpc-iam-getting-started&interface=ui)
-* [Activity Tracker events](/docs/vpc?topic=vpc-at_events#events-vpns)
+* [Activity tracking events](/docs/vpc?topic=vpc-at_events#events-vpns)
 * [FAQs for VPN gateways](/docs/vpc?topic=vpc-faqs-vpn)
 * [Troubleshooting VPN gateways](/docs/vpc?topic=vpc-troubleshoot-gateway-unable-to-establish-vpn-connection)
 * [VPN gateway quotas](/docs/vpc?topic=vpc-quotas#vpn-quotas)

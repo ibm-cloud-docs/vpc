@@ -172,7 +172,7 @@ The `status` value is determined according to the following table:
 
 These links provide additional information about virtual network interfaces for VPC:
 
-* [Activity tracker events](/docs/vpc?topic=vpc-at_events&interface=ui#events-vni)
+* [Activity tracking events](/docs/vpc?topic=vpc-at_events&interface=ui#events-vni)
 * [FAQs](/docs/vpc?topic=vpc-vni-faq&interface=ui)
 * [IAM permissions](/docs/account?topic=account-iam-service-roles-actions#is.virtual-network-interface-roles)
 * [Quotas](/docs/vpc?topic=vpc-quotas&interface=ui#virtual-network-interfaces-quotas)

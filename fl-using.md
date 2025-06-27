@@ -2,7 +2,7 @@
 
 copyright:
   years: 2020, 2025
-lastupdated: "2025-04-30"
+lastupdated: "2025-06-27"
 
 keywords: flow logs, getting started
 
@@ -125,4 +125,4 @@ These links provide additional information about {{site.data.keyword.cloud_notm}
 * [Flow logs CLI reference](/docs/vpc?topic=vpc-vpc-reference#flow-logs-cli-ref)
 * [Flow logs API reference](/apidocs/vpc/latest#list-flow-log-collectors)
 * [FAQs for flow log collectors](/docs/vpc?topic=vpc-fl-faq)
-* [Activity Tracker events](/docs/vpc?topic=vpc-at_events#events-flow-logs)
+* [Activity tracking events](/docs/vpc?topic=vpc-at_events#events-flow-logs)

@@ -2,7 +2,7 @@
 
 copyright:
   years: 2020, 2025
-lastupdated: "2025-04-14"
+lastupdated: "2025-06-27"
 
 keywords: pricing, billing, suspended billing, suspended virtual server, suspend billing
 
@@ -71,7 +71,7 @@ When you suspend billing on a virtual server instance, the associated storage pe
 
 All network configurations and IPs (private IPs from the subnet range) remain unchanged while the instance is suspended.
 
-You can use the [Activity Tracker](/docs/vpc?topic=vpc-at_events) to check the status of your instance.
+You can use the [Activity tracking events](/docs/vpc?topic=vpc-at_events) to check the status of your instance.
 
 ### Limitations
 {: #suspend-billing-limitations}

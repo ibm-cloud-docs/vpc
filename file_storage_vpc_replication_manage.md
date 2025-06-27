@@ -2,7 +2,7 @@
 
 copyright:
   years: 2022, 2025
-lastupdated: "2025-04-30"
+lastupdated: "2025-06-27"
 
 keywords: VPC File Storage, file for VPC, NSF, replica, file share, replication, schedule
 
@@ -26,7 +26,7 @@ You need Administrator or Editor IAM user roles to create and manage file share 
 
 Replication is an asynchronous operation, which is not instantaneous. After each sync operation, the system provides useful information about the last replication process, such as start and end date, and the transferred data volume. By viewing the replication information, you can see how long the last replication took and calculate the transfer rate. Seeing the transferred data values can help you estimate the global transfer charges at the end of the billing period.
 
-You can use the replication sync information to fine-tune your replication schedule. It can help you balance the cost and the frequency that you need the data to be refreshed on the replica to satisfy your [recovery point objective](#x3429911){: term}. It can also help to determine whether the replication process is in danger of degradation. 
+You can use the replication sync information to fine-tune your replication schedule. It can help you balance the cost and the frequency that you need the data to be refreshed on the replica to satisfy your [recovery point objective](#x3429911){: term}. It can also help to determine whether the replication process is in danger of degradation.
 
 When the amount of data to be transferred exceeds the amount of data that can be transferred during the replication window with the normal transfer rate, the replication process can't complete and the replication status becomes `degraded`. If this situation occurs, try adjusting the rate of change on the file share and the replication frequency.
 
@@ -41,7 +41,7 @@ You can see information about the last replication operation when you list the d
 You can programmatically retrieve the last sync details by calling the `/shares` method in the [VPC API](/apidocs/vpc/latest#get-share){: external}. Look for the `latest_sync` section in the API response to see when the replication started (`started_at`), when it ended (`completed_at`), and how much data was transferred (`data_transferred`). For more information, see [View a single file share with the API](/docs/vpc?topic=vpc-file-storage-view&interface=api#fs-single-file-shares-api).
 {: api}
 
-In addition, you can view historical information of the recent replication sync when you use {{site.data.keyword.la_full}}. When replication occurs, the file service generates a `regional-file.00002I` log message, which includes information about when the replication occurred, and how much data was transferred. For more information, see [Logging for VPC](/docs/vpc?topic=vpc-logging#logging-file-share-replication).
+In addition, you can view historical information of the recent replication sync when you use {{site.data.keyword.logs_full_notm}}. When replication occurs, the file service generates a `regional-file.00002I` log message, which includes information about when the replication occurred, and how much data was transferred. For more information, see [Logging for VPC](/docs/vpc?topic=vpc-logging#logging-file-share-replication).
 
 ## Verifying replication with the API
 {: #fs-verify-replica-api}
@@ -152,13 +152,13 @@ Before you can use the CLI, you must install the IBM Cloud CLI and the VPC CLI p
    ```sh
    $ ibmcloud is shares
    Listing shares in all resource groups and region us-south under account Test Account as user test.user@ibm.com...
-   ID                                          Name                    Lifecycle state   Zone         Profile   Size(GB)   Resource group   Replication role   
-   r006-dc6a644d-c7da-4c91-acf0-d66b47fc8516   my-replica-file-share   stable            us-south-1   dp2       1500       Default          replica   
-   r006-e4acfa9b-88b0-4f90-9320-537e6fa3482a   my-source-file-share    stable            us-south-2   dp2       1500       Default          source   
-   r006-6d1719da-f790-45cc-9f68-896fd5673a1a   my-replica-share        stable            us-south-3   dp2       1500       Default          replica   
-   r006-925214bc-ded5-4626-9d8e-bc4e2e579232   my-new-file-share       stable            us-south-2   dp2       500        Default          none   
-   r006-b1707390-3825-41eb-a5bb-1161f77f8a58   my-vpc-file-share       stable            us-south-2   dp2       1000       Default          none   
-   r006-b696742a-92ee-4f6a-bfd7-921d6ddf8fa6   my-file-share           stable            us-south-2   dp2       1500       Default          source 
+   ID                                          Name                    Lifecycle state   Zone         Profile   Size(GB)   Resource group   Replication role
+   r006-dc6a644d-c7da-4c91-acf0-d66b47fc8516   my-replica-file-share   stable            us-south-1   dp2       1500       Default          replica
+   r006-e4acfa9b-88b0-4f90-9320-537e6fa3482a   my-source-file-share    stable            us-south-2   dp2       1500       Default          source
+   r006-6d1719da-f790-45cc-9f68-896fd5673a1a   my-replica-share        stable            us-south-3   dp2       1500       Default          replica
+   r006-925214bc-ded5-4626-9d8e-bc4e2e579232   my-new-file-share       stable            us-south-2   dp2       500        Default          none
+   r006-b1707390-3825-41eb-a5bb-1161f77f8a58   my-vpc-file-share       stable            us-south-2   dp2       1000       Default          none
+   r006-b696742a-92ee-4f6a-bfd7-921d6ddf8fa6   my-file-share           stable            us-south-2   dp2       1500       Default          source
    ```
    {: screen}
 
@@ -167,42 +167,42 @@ Before you can use the CLI, you must install the IBM Cloud CLI and the VPC CLI p
    ```sh
    $ ibmcloud is share my-file-share
    Getting file share my-file-share under account Test Account as user test.user@ibm.com...
-                                
-   ID                           r006-b696742a-92ee-4f6a-bfd7-921d6ddf8fa6   
-   Name                         my-file-share   
-   CRN                          crn:v1:bluemix:public:is:us-south-2:a/a1234567::share:r006-b696742a-92ee-4f6a-bfd7-921d6ddf8fa6   
-   Lifecycle state              stable   
-   Access control mode          security_group   
-   Accessor binding role        none 
-   Zone                         us-south-2   
-   Profile                      dp2   
-   Size(GB)                     1500   
-   IOPS                         2000   
-   Encryption                   provider_managed   
-   Mount Targets                ID                                          Name      
-                                r006-dd497561-c7c9-4dfb-af0a-c84eeee78b61   my-cli-share-mount-target-1      
-                                 
-   Resource group               ID                                 Name      
-                                db8e8d865a83e0aae03f25a492c5b39e   Default      
-                                
-   Created                      2023-10-18T22:15:15+00:00   
-   Latest job                   Job status   Job status reasons      
-                                succeeded    -      
-                                
-   Replication share            ID                                          Name               Resource type      
-                                r006-6d1719da-f790-45cc-9f68-896fd5673a1a   my-replica-share   share      
-                                
-   Replication role             source   
-   Replication status           active   
-   Replication status reasons   Status code   Status message      
-                                -             -      
+
+   ID                           r006-b696742a-92ee-4f6a-bfd7-921d6ddf8fa6
+   Name                         my-file-share
+   CRN                          crn:v1:bluemix:public:is:us-south-2:a/a1234567::share:r006-b696742a-92ee-4f6a-bfd7-921d6ddf8fa6
+   Lifecycle state              stable
+   Access control mode          security_group
+   Accessor binding role        none
+   Zone                         us-south-2
+   Profile                      dp2
+   Size(GB)                     1500
+   IOPS                         2000
+   Encryption                   provider_managed
+   Mount Targets                ID                                          Name
+                                r006-dd497561-c7c9-4dfb-af0a-c84eeee78b61   my-cli-share-mount-target-1
+
+   Resource group               ID                                 Name
+                                db8e8d865a83e0aae03f25a492c5b39e   Default
+
+   Created                      2023-10-18T22:15:15+00:00
+   Latest job                   Job status   Job status reasons
+                                succeeded    -
+
+   Replication share            ID                                          Name               Resource type
+                                r006-6d1719da-f790-45cc-9f68-896fd5673a1a   my-replica-share   share
+
+   Replication role             source
+   Replication status           active
+   Replication status reasons   Status code   Status message
+                                -             -
    Snapshot count               0
-   Snapshot size                0                             
+   Snapshot size                0
    ```
    {: screen}
 
-1. Run the `ibmcloud is share-replica-split` command and specify the replica file share by its name or ID. 
-   
+1. Run the `ibmcloud is share-replica-split` command and specify the replica file share by its name or ID.
+
    ```sh
    $ ibmcloud is share-replica-split r006-6d1719da-f790-45cc-9f68-896fd5673a1a
    This will disassociate a replica file share r006-6d1719da-f790-45cc-9f68-896fd5673a1a from its source file share and cannot be undone. Continue [y/N] ?> y
@@ -217,16 +217,16 @@ Before you can use the CLI, you must install the IBM Cloud CLI and the VPC CLI p
    ```sh
    $ ibmcloud is shares
    Listing shares in all resource groups and region us-south under account Test Account as user test.user@ibm.com...
-   ID                                          Name                    Lifecycle state   Zone         Profile   Size(GB)   Resource group   Replication role   
-   r006-dc6a644d-c7da-4c91-acf0-d66b47fc8516   my-replica-file-share   stable            us-south-1   dp2       1500       Default          replica   
-   r006-e4acfa9b-88b0-4f90-9320-537e6fa3482a   my-source-file-share    stable            us-south-2   dp2       1500       Default          source   
-   r006-6d1719da-f790-45cc-9f68-896fd5673a1a   my-replica-share        stable            us-south-3   dp2       1500       Default          none   
-   r006-925214bc-ded5-4626-9d8e-bc4e2e579232   my-new-file-share       stable            us-south-2   dp2       500        Default          none   
-   r006-b1707390-3825-41eb-a5bb-1161f77f8a58   my-vpc-file-share       stable            us-south-2   dp2       1000       Default          none   
+   ID                                          Name                    Lifecycle state   Zone         Profile   Size(GB)   Resource group   Replication role
+   r006-dc6a644d-c7da-4c91-acf0-d66b47fc8516   my-replica-file-share   stable            us-south-1   dp2       1500       Default          replica
+   r006-e4acfa9b-88b0-4f90-9320-537e6fa3482a   my-source-file-share    stable            us-south-2   dp2       1500       Default          source
+   r006-6d1719da-f790-45cc-9f68-896fd5673a1a   my-replica-share        stable            us-south-3   dp2       1500       Default          none
+   r006-925214bc-ded5-4626-9d8e-bc4e2e579232   my-new-file-share       stable            us-south-2   dp2       500        Default          none
+   r006-b1707390-3825-41eb-a5bb-1161f77f8a58   my-vpc-file-share       stable            us-south-2   dp2       1000       Default          none
    r006-b696742a-92ee-4f6a-bfd7-921d6ddf8fa6   my-file-share           stable            us-south-2   dp2       1500       Default          none
    ```
    {: screen}
-   
+
 For more information about the command options, see [`ibmcloud is share-replica-split`](/docs/vpc?topic=vpc-vpc-reference#share-replica-split).
 
 ### Removing the replication relationship with the API

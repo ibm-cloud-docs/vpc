@@ -2,7 +2,7 @@
 
 copyright:
   years: 2021, 2025
-lastupdated: "2025-05-19"
+lastupdated: "2025-06-27"
 
 keywords: file share, file storage, rename share, increase size, adjust IOPS, mount target
 
@@ -85,7 +85,7 @@ When the amount of data to be transferred exceeds the amount of data that can be
 ## Activity tracking events
 {: #fs-activity-tracker}
 
-You can use {{site.data.keyword.atracker_full}} to configure how to route auditing events. Auditing events are critical data for security operations and a key element for meeting compliance requirements. Such events are triggered when you create, modify, or delete a file share. Activity tracker events are also triggered when you establish and use file share replication. For more information, see [Activity tracking events for IBM Cloud VPC](/docs/vpc?topic=vpc-at_events).
+You can use {{site.data.keyword.atracker_full}} to configure how to route auditing events. Auditing events are critical data for security operations and a key element for meeting compliance requirements. Such events are triggered when you create, modify, or delete a file share. Activity tracking events are also triggered when you establish and use file share replication. For more information, see [Activity tracking events for IBM Cloud VPC](/docs/vpc?topic=vpc-at_events).
 
 ## Logging for file share service
 {: #fs-event-la-logs}
@@ -95,7 +95,7 @@ After you provision {{site.data.keyword.logs_routing_full_notm}} to add log mana
 ## Monitoring metrics
 {: #fs-sysdig-mon}
 
-You can monitor the read and write throughput, read and write IOPS, number of mount targets, and capacity usage of your share over time in the {{site.data.keyword.cloud_notm}} console. To see these metrics, go to the file share details page, and click the **Monitoring** tab. 
+You can monitor the read and write throughput, read and write IOPS, number of mount targets, and capacity usage of your share over time in the {{site.data.keyword.cloud_notm}} console. To see these metrics, go to the file share details page, and click the **Monitoring** tab.
 
 Monitoring utilization metrics such as total IOPS and total throughput can help you to determine how much work is done by your application or workload. You can use this information to determine whether the IOPS value needs to be adjusted. Monitoring the available capacity of your share can help you identify the need for more storage before insufficient space can become a problem with writing data to the share or replication. Seeing these metrics can help you anticipate any changes in charges at the end of the billing period. These graphs are available to you at no cost, even without an {{site.data.keyword.mon_full_notm}} instance.
 

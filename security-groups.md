@@ -2,7 +2,7 @@
 
 copyright:
   years: 2019, 2025
-lastupdated: "2025-06-18"
+lastupdated: "2025-06-27"
 
 keywords:
 
@@ -149,5 +149,5 @@ These links provide additional information about IBM Cloud Security Groups for V
 * [Security groups API reference](/apidocs/vpc/latest#list-security-groups)
 * [Security group required permissions](/docs/account?topic=account-iam-service-roles-actions#is.security-group-roles)
 * [Security groups for VPC infrastructure resources for Terraform](https://registry.terraform.io/providers/IBM-Cloud/ibm/latest/docs/resources/is_security_group){: external}
-* [Security group Activity Tracker events](/docs/vpc?topic=vpc-at_events#events-network-security-group)
+* [Security group activity tracking events](/docs/vpc?topic=vpc-at_events#events-network-security-group)
 * [Security group quotas](/docs/vpc?topic=vpc-quotas#security-group-quotas)

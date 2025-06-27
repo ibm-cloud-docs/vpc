@@ -2,7 +2,7 @@
 
 copyright:
   years: 2021, 2025
-lastupdated: "2025-06-03"
+lastupdated: "2025-06-27"
 
 keywords: file share, mount target, virtual network interface, customer-managed encryption, encryption at rest, encryption in transit, file storage, share,
 
@@ -33,7 +33,7 @@ Data on a file share is encrypted at rest with IBM-managed encryption by default
 
 You can apply user tags and access management tags to your file shares. Add tags when you create a share or update an existing share with the UI, CLI, API, or Terraform. For more information, see [Tags for file shares](#fs-about-fs-tags).
 
-You can view and manage your file shares in the console, from the CLI, with the API, and Terraform. You can [increase the file share size](/docs/vpc?topic=vpc-file-storage-expand-capacity) from its original capacity in GB increments up to 32,000 GB capacity. You can also [increase or decrease file share IOPS](/docs/vpc?topic=vpc-file-storage-adjusting-iops) to meet your performance needs. Operations to increase the capacity or adjust the IOPS cause no outage or lack of access to the storage. Billing is adjusted automatically. You pay for only the capacity and performance that you need. 
+You can view and manage your file shares in the console, from the CLI, with the API, and Terraform. You can [increase the file share size](/docs/vpc?topic=vpc-file-storage-expand-capacity) from its original capacity in GB increments up to 32,000 GB capacity. You can also [increase or decrease file share IOPS](/docs/vpc?topic=vpc-file-storage-adjusting-iops) to meet your performance needs. Operations to increase the capacity or adjust the IOPS cause no outage or lack of access to the storage. Billing is adjusted automatically. You pay for only the capacity and performance that you need.
 
 ## File storage profiles
 {: #fs-profiles-intro}
@@ -204,7 +204,7 @@ You can use {{site.data.keyword.atracker_full}} to configure how to route auditi
 ### Logging for the File share service
 {: #fs-event-logs}
 
-After you provision {{site.data.keyword.la_full}} to add log management capabilities to your {{site.data.keyword.cloud}} architecture, you can enable platform logs to view and analyze logs of the {{site.data.keyword.filestorage_vpc_short}} service. For more information, see [Logging for VPC](/docs/vpc?topic=vpc-logging#logging-file-share-replication).
+After you provision {{site.data.keyword.logs_full_notm}} to add log management capabilities to your {{site.data.keyword.cloud}} architecture, you can enable platform logs to view and analyze logs of the {{site.data.keyword.filestorage_vpc_short}} service. For more information, see [Logging for VPC](/docs/vpc?topic=vpc-logging#logging-file-share-replication).
 
 ## Tags for file shares
 {: #fs-about-fs-tags}

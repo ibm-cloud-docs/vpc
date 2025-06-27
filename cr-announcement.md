@@ -1,8 +1,8 @@
 ---
 
 copyright:
-  years: 2024
-lastupdated: "2024-09-30"
+  years: 2024, 2025
+lastupdated: "2025-06-27"
 
 keywords: custom routes
 
@@ -12,11 +12,11 @@ subcollection: vpc
 
 {{site.data.keyword.attribute-definition-list}}
 
-# Activity Tracker event changes for routing tables
+# Activity tracking event changes for routing tables
 {: #at-changes-announcement-routing-table}
 
-Starting 30 Sep 2024, VPC routing tables support tagging, which requires routing tables to be identified by a Cloud Resource Name (CRN). 
-As a result of this new feature, the field values of the following Activity Tracker events were updated:
+Starting 30 Sep 2024, VPC routing tables support tagging, which requires routing tables to be identified by a Cloud Resource Name (CRN).
+As a result of this new feature, the field values of the following {{site.data.keyword.atracker_full_notm}} events were updated:
 {: shortdesc}
 
 * `is.vpc.routing-table.create`
@@ -37,7 +37,7 @@ Changed values:
    * New value: contains VPC routing table's name
 
 * Field: `target.id`
-   * Old value: VPC's CRN 
+   * Old value: VPC's CRN
    * New value: VPC routing table's CRN
 
 * Field: `target.name`

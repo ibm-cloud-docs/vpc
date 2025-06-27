@@ -2,7 +2,7 @@
 
 copyright:
   years: 2022, 2025
-lastupdated: "2025-06-12"
+lastupdated: "2025-06-27"
 
 keywords: consistency group, snapshots, backups, instance snapshot, instance backup,
 
@@ -58,23 +58,23 @@ ibmcloud is snapshot-consistency-group-update CONSISTENCY_GROUP_ID
 The following example changes the consistency group name. It identifies the consistency group by name. You can also use the ID of the consistency group with this command.
 
 ```sh
-ibmcloud is snapshot-consistency-group-update multiple-snapshots-consistency-group-1 --name my-consistency-group               
+ibmcloud is snapshot-consistency-group-update multiple-snapshots-consistency-group-1 --name my-consistency-group
 
 Updating snapshot consistency group multiple-snapshots-consistency-group-1 under account Test Account as user test.user@ibm.com...
-                               
-ID                          r174-ed7c034e-9bd1-4474-83d0-f5b050f1490a   
-Name                        my-consistency-group   
-CRN                         crn:v1:bluemix:public:is:us-south:a/a1234567::snapshot-consistency-group:r174-ed7c034e-9bd1-4474-83d0-f5b050f1490a   
-Href                        https://us-south.iaas.cloud.ibm.com/v1/snapshot_consistency_groups/r174-ed7c034e-9bd1-4474-83d0-f5b050f1490a   
-Status                      stable   
-Backup policy plan          -   
-Delete snapshot on delete   true   
-Source Snapshot             -   
-Resource group              ID                                 Name      
-                            11caaa983d9c4beb82690daab08717e9   Default      
-                               
-Created                     2023-08-25T10:55:37+05:30   
-Service Tags                -   
+
+ID                          r174-ed7c034e-9bd1-4474-83d0-f5b050f1490a
+Name                        my-consistency-group
+CRN                         crn:v1:bluemix:public:is:us-south:a/a1234567::snapshot-consistency-group:r174-ed7c034e-9bd1-4474-83d0-f5b050f1490a
+Href                        https://us-south.iaas.cloud.ibm.com/v1/snapshot_consistency_groups/r174-ed7c034e-9bd1-4474-83d0-f5b050f1490a
+Status                      stable
+Backup policy plan          -
+Delete snapshot on delete   true
+Source Snapshot             -
+Resource group              ID                                 Name
+                            11caaa983d9c4beb82690daab08717e9   Default
+
+Created                     2023-08-25T10:55:37+05:30
+Service Tags                -
 ```
 {: screen}
 
@@ -115,7 +115,7 @@ You can programmatically update a consistency group by calling the `/snapshot_co
 
 ```sh
 curl -X PATCH\
-"$vpc_api_endpoint/v1/snapshot_consistency_groups/$consistency_group_id?version=2023-12-05&generation=2" 
+"$vpc_api_endpoint/v1/snapshot_consistency_groups/$consistency_group_id?version=2023-12-05&generation=2"
 -H "Authorization: $iam_token"
 -d "{\
    "delete_snapshot_on_delete_snapshot_consistency_group":false,\
@@ -131,7 +131,7 @@ You can programmatically delete a consistency group by calling the `/snapshot_co
 
 ```sh
 curl -X DELETE\
-"$vpc_api_endpoint/v1/snapshot_consistency_groups/$consistency_group_id?version=2023-12-05&generation=2" 
+"$vpc_api_endpoint/v1/snapshot_consistency_groups/$consistency_group_id?version=2023-12-05&generation=2"
 -H "Authorization: $iam_token"
 ```
 {: pre}
@@ -147,12 +147,12 @@ resource "ibm_is_snapshot_consistency_group" "example" {
   delete_snapshots_on_delete = true
   name = "example-snapshot-consistency-group"
   snapshots {
-    [ 
+    [
       name = "snapshot-1"
       source_volume = {id = "ibm_is_instance.example.volume_attachments[0].volume_id_1"}
       user_tags = ["my-tag"]
     ].
-    [ 
+    [
       name = "snapshot-2"
       source_volume = {id = "ibm_is_instance.example.volume_attachments[0].volume_id_2"}
       user_tags = ["my-tag"]
@@ -182,4 +182,4 @@ For more information, see [terraform destroy](https://developer.hashicorp.com/te
 ## Activity Tracking events
 {: #consistency-groups-at-events}
 
-All multi-volume snapshot operations generate events in {{site.data.keyword.at_full_notm}} regardless if the consistency group was created manually or by the Backup service. For more information, see [Consistency group events](/docs/vpc?topic=vpc-at_events&interface=ui#events-consistency-group).
+All multi-volume snapshot operations generate events in {{site.data.keyword.atracker_full_notm}} regardless if the consistency group was created manually or by the Backup service. For more information, see [Consistency group events](/docs/vpc?topic=vpc-at_events&interface=ui#events-consistency-group).

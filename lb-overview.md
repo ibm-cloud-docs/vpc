@@ -2,7 +2,7 @@
 
 copyright:
   years: 2018, 2025
-lastupdated: "2025-04-29"
+lastupdated: "2025-06-27"
 
 keywords: listener, pool, round-robin, weighted, layer 7, datapath logging, http2, websocket
 
@@ -23,7 +23,7 @@ If you have public and private workloads and layer 7 traffic, use an application
 ## Types of application load balancers
 {: #types-load-balancer}
 
-As discussed in the [Load balancers for VPC overview](/docs/vpc?topic=vpc-nlb-vs-elb&interface=ui), you can create a public or private ALB. 
+As discussed in the [Load balancers for VPC overview](/docs/vpc?topic=vpc-nlb-vs-elb&interface=ui), you can create a public or private ALB.
 
 This table shows a comparison of public versus private features.
 
@@ -203,7 +203,7 @@ An application load balancer adjusts its capacity automatically according to the
 ## Datapath log forwarding
 {: #datapath-log-forwarding}
 
-With datapath logging enabled, load balancer logs are forwarded to the [{{site.data.keyword.la_full_notm}}](/catalog){: external} service, where you can view your datapath logs.
+With datapath logging enabled, load balancer logs are forwarded to the [{{site.data.keyword.logs_full_notm}}](/catalog){: external} service, where you can view your datapath logs.
 
 ## HTTP2 support
 {: #http2-support}

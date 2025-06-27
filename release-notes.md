@@ -943,7 +943,7 @@ UI enhancement to VPC download button
 {: release-note}
 
 Corrected events
-:   The following table shows activity tracker events that have been corrected.
+:   The following table shows activity tracking events that have been corrected.
 
 | Incorrect event | Corrected events  |
 |:----------------|:-----------------------|
@@ -1308,8 +1308,8 @@ UI Enhancement to the List view
 {: #vpc-may3023}
 {: release-note}
 
-{{site.data.keyword.filestorage_vpc_short}} file share activity tracker event name changes (beta)
-:    For users with accounts that have access to file shares, when making API requests using a `version` query parameter of `2023-05-30` or later, the shares `targets` property was changed to `mount_targets`. This change affects file share Activity Tracker events. Events generated when [creating](/apidocs/vpc-beta/initial#create-share-mount-target), [listing](/apidocs/vpc-beta/initial#list-share-mount-targets), [retrieving](/apidocs/vpc-beta/initial#get-share-mount-target), [deleting](/apidocs/vpc-beta/initial#delete-share-mount-target), and [updating](/apidocs/vpc-beta/initial#update-share-mount-target) mount targets for a file share are now `is.share.mount-target.create`, `is.share.mount-target.list`,`is.share.mount-target.read`, `is.share.mount-target.delete`, and `is.share.mount-target.update`. Events for `is.share.target.create`, `is.share.target.list`, `is.share.target.read`, `is.share.target.delete`, and `is.share.target.update` are deprecated and will be removed in a future API release per the VPC beta API [versioning policy](/apidocs/vpc-beta#api-versioning-beta).
+{{site.data.keyword.filestorage_vpc_short}} file share activity tracking event name changes (beta)
+:    For users with accounts that have access to file shares, when making API requests using a `version` query parameter of `2023-05-30` or later, the shares `targets` property was changed to `mount_targets`. This change affects file share activity tracking events. Events generated when [creating](/apidocs/vpc-beta/initial#create-share-mount-target), [listing](/apidocs/vpc-beta/initial#list-share-mount-targets), [retrieving](/apidocs/vpc-beta/initial#get-share-mount-target), [deleting](/apidocs/vpc-beta/initial#delete-share-mount-target), and [updating](/apidocs/vpc-beta/initial#update-share-mount-target) mount targets for a file share are now `is.share.mount-target.create`, `is.share.mount-target.list`,`is.share.mount-target.read`, `is.share.mount-target.delete`, and `is.share.mount-target.update`. Events for `is.share.target.create`, `is.share.target.list`, `is.share.target.read`, `is.share.target.delete`, and `is.share.target.update` are deprecated and will be removed in a future API release per the VPC beta API [versioning policy](/apidocs/vpc-beta#api-versioning-beta).
 
 ### 19 May 2023
 {: #vpc-may1923}
