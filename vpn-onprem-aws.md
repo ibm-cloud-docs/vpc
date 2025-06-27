@@ -1,8 +1,8 @@
 ---
 
 copyright:
-  years: 2020, 2024
-lastupdated: "2024-06-20"
+  years: 2020, 2025
+lastupdated: "2025-06-27"
 
 keywords: aws peer, vpn aws
 
@@ -23,7 +23,7 @@ Because AWS requires PFS to be enabled in Phase 2, you must create a custom IPse
 
 When the AWS VPN receives a connection request from VPN for VPC, AWS VPN uses IPsec Phase 1 parameters to establish a secure connection and authenticate the {{site.data.keyword.vpn_vpc_short}} gateway. Then, if the security policy permits the connection, the AWS VPN establishes the tunnel by using IPsec Phase 2 parameters and applies the IPsec security policy. Key management, authentication, and security services are negotiated dynamically through the IKE protocol.
 
-Review the [VPN gateway limitations](/docs/vpc?topic=vpc-vpn-limitations) before you connect to your on-prem peer.
+Review the [Known issues for VPN gateways](/docs/vpc?topic=vpc-vpn-limitations) before you connect to your on-prem peer.
 {: note}
 
 To support these functions, you must perform the following general configuration steps on the AWS VPN:

@@ -373,7 +373,6 @@ toc:
                 - cn-attach-interface.md
                 - cn-view-details.md
                 - cn-delete.md
-            - cn-limitations-known-issues.md
         - topicgroup:
             id: subnets
             label: Subnets
@@ -402,7 +401,6 @@ toc:
                 - vni-add-rip.md
                 - vni-attach-secondary-ip.md
                 - vni-add-sg.md
-            - vni-known-issues.md
             - topicgroup:
                 id: vni-hazardous-change-remediation
                 label: Virtual network interface hazardous change remediation
@@ -470,7 +468,6 @@ toc:
             - par-binding.md
             - par-viewing.md
             - par-deleting.md
-            - par-limitations.md
         - topicgroup:
             id: load-balancers
             label: Load balancers
@@ -494,7 +491,6 @@ toc:
                 - lb-private-dns-integration.md
                 - lb-api.md
                 - lb-datapath-logging.md
-                - lb-limitations.md
             - topicgroup:
                 id: network-load-balancer
                 label: Network Load Balancer for VPC
@@ -516,7 +512,6 @@ toc:
                 - nlb-udp.md
                 - nlb-monitoring-metrics.md
                 - nlb-privatelb.md
-                - nlb-limitations.md
             - topicgroup:
                 id: nlb-hazardous-change-remediation
                 label: Network load balancer hazardous change remediation
@@ -550,7 +545,6 @@ toc:
             - vpe-list.md
             - vpe-delete.md
             - vpe-iam.md
-            - vpe-limitations.md
         - topicgroup:
             id: private-path-services
             label: Private Path services
@@ -571,7 +565,6 @@ toc:
                 - pps-create-policy.md
                 - pps-update-policy.md
             - pps-delete.md
-            - pps-limitations.md
         - topicgroup:
             id: vpns
             label: VPNs
@@ -583,7 +576,6 @@ toc:
                 topics:
                 - vpn-using.md
                 - vpn-planning.md
-                - vpn-limitations.md
                 - vpn-create.md
                 - vpn-add-connection.md
                 - vpn-create-ike-policy.md
@@ -625,7 +617,6 @@ toc:
                 - vpn-client-to-site-change-server-types.md
                 - vpn-client-to-site-status.md
                 - vpn-client-to-site-health.md
-                - vpn-client-to-site-limitations.md
                 - vpn-client-to-site-monitoring.md
         - topicgroup:
             id: flow-logs
@@ -638,7 +629,6 @@ toc:
             - fl-managing.md
             - fl-activate.md
             - fl-delete.md
-            - fl-limitations.md
             - fl-monitoring.md
         - topicgroup:
             id: virtual-network-functions
@@ -655,7 +645,6 @@ toc:
                 - vnf-deploy-vnf.md
                 - vnf-deploy-nlb.md
                 - vnf-configure-custom-routes.md
-                - vnf-limitations.md
         - topicgroup:
             id: dns-services
             label: DNS Services
@@ -945,6 +934,23 @@ toc:
             - faqs-placement-groups.md
             - instance_metadata_vpc_faqs.md
         - topicgroup:
+            id: issues
+            label: Known issues (limitations)
+            topics:
+            - limitations.md
+            - known-issues.md     
+            - lb-limitations.md       
+            - cn-limitations-known-issues.md
+            - fl-limitations.md
+            - nlb-limitations.md
+            - par-limitations.md
+            - pps-limitations.md
+            - vnf-limitations.md
+            - vni-known-issues.md
+            - vpe-limitations.md
+            - vpn-limitations.md
+            - vpn-client-to-site-limitations.md
+        - topicgroup:
             id: troubleshooting
             label: Troubleshooting
             topics:
@@ -1095,8 +1101,6 @@ toc:
             - reservation-health-status-messages.md
             - quota-dashboard-troubleshooting.md
             - ts-asymmetric-routing.md
-        - limitations.md
-        - known-issues.md
         - metadata-error-codes.md
         - enable-local-browser-storage-for-notifications.md
         - getting-help.md

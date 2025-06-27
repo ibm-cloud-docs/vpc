@@ -12,7 +12,7 @@ subcollection: vpc
 
 {{site.data.keyword.attribute-definition-list}}
 
-# Public address range limitations
+# Known issues for public address ranges
 {: #par-limitations}
 
 Public Address Ranges for VPC is only available for evaluation and testing purposes for users with special access. 

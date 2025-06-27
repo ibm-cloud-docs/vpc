@@ -1,8 +1,8 @@
 ---
 
 copyright:
-  years: 2020, 2024
-lastupdated: "2024-06-20"
+  years: 2020, 2025
+lastupdated: "2025-06-27"
 
 keywords: juniper, juniper peer, vSRX peer
 
@@ -24,7 +24,7 @@ If Juniper vSRX requires Perfect Forward Secrecy (PFS) to be enabled in Phase 2,
 These instructions are based on Juniper vSRX, JUNOS Software Release [23.2R1-S1 Standard 23.2.1.1].
 {: note}
 
-Read [VPN gateway limitations](/docs/vpc?topic=vpc-vpn-limitations) before you continue to connect to your on-premises peer.
+Read [Known issues for VPN gateways](/docs/vpc?topic=vpc-vpn-limitations) before you continue to connect to your on-premises peer.
 {: tip}
 
 When the Juniper VPN receives a connection request from VPN for VPC, Juniper uses IPsec Phase 1 parameters to establish a secure connection and authenticate the VPN for VPC gateway. Then, if the security policy permits the connection, the Juniper VPN establishes the tunnel using IPsec Phase 2 parameters and applies the IPsec security policy. Key management, authentication, and security services are negotiated dynamically through the IKE protocol.

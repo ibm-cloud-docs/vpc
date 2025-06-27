@@ -2,7 +2,7 @@
 
 copyright:
   years: 2025
-lastupdated: "2025-06-19"
+lastupdated: "2025-06-27"
 
 keywords: vpc, public address ranges, about
 
@@ -49,7 +49,7 @@ High Availability
 Review the following considerations before creating a public address range:
 
 * Make sure that you have the appropriate [IAM permissions](/docs/vpc?topic=vpc-about-par#par-access-management).
-* Review public address range [limitations](/docs/vpc?topic=vpc-par-limitations).
+* Review public address range [known issues](/docs/vpc?topic=vpc-par-limitations).
 * You can bind multiple public address ranges to a VPC.
 * You can't divide public address ranges into subranges and bind it to multiple VPCs or zones.
 * You can't change the size of the address range after it is reserved. Make sure to reserve a public address range size large enough to meet your needs.

@@ -1,8 +1,8 @@
 ---
 
 copyright:
-  years: 2019, 2024
-lastupdated: "2024-06-20"
+  years: 2019, 2025
+lastupdated: "2025-06-27"
 
 keywords: check point peer
 
@@ -21,7 +21,7 @@ You can use IBM Cloud VPN for VPC to securely connect your VPC to an on-prem net
 These instructions are based on Check Point Security Gateway, Software Release [R81.10]. Earlier versions of Check Point software are not supported.
 {: note}
 
-Read [VPN gateway limitations](/docs/vpc?topic=vpc-vpn-limitations) before you continue to connect to your on-premises peer.
+Read [Known issues for VPN gateways](/docs/vpc?topic=vpc-vpn-limitations) before you continue to connect to your on-premises peer.
 {: tip}
 
 Because Check Point Security Gateway uses IKEv1 by default, you must create a custom IKE and IPsec policy to replace the default auto-negotiation policy for the VPN in your VPC.

@@ -1,8 +1,8 @@
 ---
 
 copyright:
-  years: 2023, 2024
-lastupdated: "2024-06-20"
+  years: 2023, 2025
+lastupdated: "2025-06-27"
 keywords:
 
 subcollection: vpc
@@ -11,7 +11,7 @@ subcollection: vpc
 
 {{site.data.keyword.attribute-definition-list}}
 
-# VPN server limitations
+# Known issues for VPN servers
 {: #vpn-client-vpn-limitations}
 
 The limitations for this release are as follows:

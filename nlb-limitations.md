@@ -2,7 +2,7 @@
 
 copyright:
   years: 2018, 2025
-lastupdated: "2025-05-30"
+lastupdated: "2025-06-27"
 
 keywords:
 
@@ -12,13 +12,13 @@ subcollection: vpc
 
 {{site.data.keyword.attribute-definition-list}}
 
-# Network load balancer limitations
+# Known issues for network load balancers
 {: #nlb-limitations}
 
-The following lists contain known limitations for {{site.data.keyword.cloud}} {{site.data.keyword.nlb_full}} (NLB) and IBM Cloud Private Path Network Load Balancer.
+The following lists contain known issues for {{site.data.keyword.cloud}} {{site.data.keyword.nlb_full}} (NLB) and IBM Cloud Private Path network load balancers.
 {: shortdesc}
 
-## Known limitations for IBM Cloud {{site.data.keyword.nlb_full}} (NLB)
+## Known issues for IBM Cloud {{site.data.keyword.nlb_full}} (NLB)
 {: #limitations-network-load-balancers}
 
 * The NLB requires the member and port combination to be unique.
@@ -49,14 +49,10 @@ The following lists contain known limitations for {{site.data.keyword.cloud}} {{
 * You can have a maximum of 128 direct server return configurations for each backend member VSI.
 * When a member target instance is deleted, a Network load balancer pool member is not automatically deleted.
 
-## Known issue for IBM Cloud Private Path network load balancers
+## Known issues for IBM Cloud Private Path network load balancers
 {: #issues-private-path-network-load-balancers}
 
 * When you configure an ALB as a Private Path NLB member, the Private Path NLB's TCP health check status will always show OK, even if the ALB pool members are faulty. Health check status of ALB should be considered to determine the system health.
-
-## Known limitations for IBM Cloud Private Path network load balancers
-{: #limitations-private-path-network-load-balancers}
-
 * Access to a Virtual Private Endpoint gateway associated with Private Path Network load balancer from Direct Link or Transit Gateway is not supported.
    * Workaround: access an ALB that has the VPE as a member. Contact IBM Support for assistance with the details.
 * Private Path network load balancer pool members on Bare Metal are not supported (similar to Public and Private NLB).
@@ -76,4 +72,4 @@ The following lists contain known limitations for {{site.data.keyword.cloud}} {{
 ### Related link
 {: #nlb-limitations-related-links}
 
-[Private Path service limitations](/docs/vpc?topic=vpc-ppsg-limitations)
+[Known issues for Private Path services](/docs/vpc?topic=vpc-ppsg-limitations)

@@ -1,8 +1,8 @@
 ---
 
 copyright:
-  years: 2020, 2024
-lastupdated: "2024-06-20"
+  years: 2020, 2025
+lastupdated: "2025-06-27"
 
 keywords: firepower, firepower peer, vpn
 
@@ -17,7 +17,7 @@ subcollection: vpc
 
 You can use IBM Cloud VPN for VPC to securely connect your VPC to an on-premises network through a VPN tunnel. This topic provides guidance about how to configure your Cisco FTDv to connect to VPN for VPC.
 
-Review [VPN gateway limitations](/docs/vpc?topic=vpc-vpn-limitations) before you connect to your on-premises peer.
+Review [Known issues for VPN gateways](/docs/vpc?topic=vpc-vpn-limitations) before you connect to your on-premises peer.
 {: important}
 
 These instructions are based on Cisco FTDv, Cisco Firepower Thread Defender Version **7.0.4**.

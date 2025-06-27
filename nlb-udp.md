@@ -1,7 +1,7 @@
 ---
 copyright:
   years: 2018, 2025
-lastupdated: "2025-06-18"
+lastupdated: "2025-06-27"
 
 keywords: port, range, nlb, configuring, udp
 
@@ -22,7 +22,7 @@ The following information does not apply to Private Path network load balancers.
 UDP is only supported on network load balancers. When configuring UDP and attaching a pool to your listener, you must configure the pool with the same protocol as the listener.
 {: important}
 
-For more information about limitations, see [IBM Cloud Network Load Balancer for VPC limitations](/docs/vpc?topic=vpc-nlb-limitations) and [Port range limitations](/docs/vpc?topic=vpc-nlb-port-ranges&interface=ui#port-range-limitations).
+For more information about limitations, see [Known issues for network load balancers](/docs/vpc?topic=vpc-nlb-limitations) and [Port range limitations](/docs/vpc?topic=vpc-nlb-port-ranges&interface=ui#port-range-limitations).
 
 ## Configuring UDP using the UI
 {: #udp-ui}

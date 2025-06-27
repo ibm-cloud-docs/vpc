@@ -1,8 +1,8 @@
 ---
 
 copyright:
-  years: 2018, 2024
-lastupdated: "2024-10-29"
+  years: 2018, 2025
+lastupdated: "2025-06-27"
 
 keywords: application load balancer, limitations, issues, unique combinations, mapping, listener, pool, port
 
@@ -12,7 +12,7 @@ subcollection: vpc
 
 {{site.data.keyword.attribute-definition-list}}
 
-# Application load balancer limitations
+# Known issues for application load balancers
 {: #lb-limitations}
 
 {{site.data.keyword.cloud}} {{site.data.keyword.alb_full}} (ALB) has the following known limitations.

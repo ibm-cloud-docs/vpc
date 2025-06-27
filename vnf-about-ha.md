@@ -1,8 +1,8 @@
 ---
 
 copyright:
-  years: 2022, 2024
-lastupdated: "2024-07-16"
+  years: 2022, 2025
+lastupdated: "2025-06-27"
 
 keywords:
 
@@ -62,7 +62,7 @@ Ensure that you have the required IAM permissions to configure custom routing an
 
 Follow these basic steps to configure high availability for supported IBM Cloud VNFs:
 
-1. [Review VNF limitations](/docs/vpc?topic=vpc-vnf-limitations).
+1. [Review known issues for virtual network functions](/docs/vpc?topic=vpc-vnf-limitations).
 1. [Configure VPC resources](/docs/vpc?topic=vpc-configure-vpc-resources).
 1. [Configure security groups](/docs/vpc?topic=vpc-configure-security-groups).
 1. [Deploy a VNF](/docs/vpc?topic=vpc-deploy-vnf).
