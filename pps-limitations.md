@@ -1,8 +1,8 @@
 ---
 
 copyright:
-  years: 2023, 2024
-lastupdated: "2024-11-08"
+  years: 2023, 2025
+lastupdated: "2025-06-27"
 
 keywords:
 
@@ -12,7 +12,7 @@ subcollection: vpc
 
 {{site.data.keyword.attribute-definition-list}}
 
-# Private Path service limitations
+# Known issues for Private Path services
 {: #ppsg-limitations}
 
 * Private Path service supports providers and consumers in the same region. Currently, Private Path service does not support providers and consumers in different regions.
@@ -23,4 +23,4 @@ subcollection: vpc
 ## Related links
 {: #ppsg-limitations-related-links}
 
-* [Network load balancer limitations](/docs/vpc?topic=vpc-nlb-limitations)
+* [Known issues for network load balancers](/docs/vpc?topic=vpc-nlb-limitations)

@@ -2,7 +2,7 @@
 
 copyright:
   years: 2021, 2025
-lastupdated: "2025-05-30"
+lastupdated: "2025-06-27"
 
 keywords: file share, file storage, rename share, increase size, adjust IOPS, mount target
 
@@ -591,7 +591,7 @@ curl -X DELETE \
 
 A successful response has a confirmation of acceptance for deletion and a response that contains the target information. 
 
-The following example shows a mount target where `access_control_mode` is `security_group`. The response shows the security group and subnet. You can see the specifics of the reserved IP address that was used for the virtual network interface of the mount target in the `primary_ip` section. By default the virtual network interface is deleted along with the mount target when the mount target is deleted. Status of mount target shows _deleting_ while the deletion is underway.
+The following example shows a mount target where `access_control_mode` is `security_group`. The response shows the security group and subnet. You can see the specifics of the reserved IP address that was used for the virtual network interface of the mount target in the `primary_ip` section. By default the virtual network interface is deleted along with the mount target when the mount target is deleted. Status of mount target shows *deleting* while the deletion is underway.
 
 ```json
 {
@@ -664,7 +664,7 @@ curl -X DELETE \
 ```
 {: codeblock}
 
-A successful response confirms acceptance for deletion and shows file share information. The status of file share is updated to _pending_deletion_. See the following example:
+A successful response confirms acceptance for deletion and shows file share information. The status of file share is updated to *pending_deletion*. See the following example:
 
 ```json
 {

@@ -2,7 +2,7 @@
 
 copyright:
   years: 2020, 2025
-lastupdated: "2025-04-16"
+lastupdated: "2025-06-27"
 
 keywords: fortigate, fortigate peer
 
@@ -21,7 +21,7 @@ You can use IBM Cloud VPN for VPC to securely connect your VPC to an on-prem net
 These instructions are based on FortiGate 300C, Firmware Version v5.2.13, build762 (GA).
 {: note}
 
-Read [VPN gateway limitations](/docs/vpc?topic=vpc-vpn-limitations) before you continue to connect to your on-premises peer.
+Read [Known issues for VPN gateways](/docs/vpc?topic=vpc-vpn-limitations) before you continue to connect to your on-premises peer.
 {: tip}
 
 ## Connecting an IBM policy-based VPN to a FortiGate peer

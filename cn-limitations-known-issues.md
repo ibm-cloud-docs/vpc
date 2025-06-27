@@ -2,7 +2,7 @@
 
 copyright:
   years: 2024, 2025
-lastupdated: "2025-05-26"
+lastupdated: "2025-06-27"
 
 keywords:
 
@@ -12,21 +12,14 @@ subcollection: vpc
 
 {{site.data.keyword.attribute-definition-list}}
 
-# Known issues and limitations for cluster networks
+# Known issues for cluster networks
 {: #limitations-cluster-network}
 
 Before you create a cluster network, review the following known issues and limitations.
 {: shortdesc}
 
-## Known issues
-{: #known-issues-cluster-networks}
-
 - The new instance profiles are expected to take about 20 minutes to start.
 - When [creating an instance](/apidocs/vpc/latest#create-instance) using the API, the `instance.create` Activity Tracker event will be missing if you specify the `cluster_network_attachments` property. If you want to avoid this, you can [create cluster network attachments](/apidocs/vpc/latest#create-cluster-network-attachment) separately.
-
-## Limitations
-{: #limitations-cluster-networks}
-
 - Cluster network attachments can only be set when the instance is stopped or created.
 - Cluster network traffic is isolated and cannot be routed outside. Any access to a cluster network must be through an attached instance. As a result, without connectivity between the cluster network and the VPC network, the following resources cannot connect with cluster networks:
    - [Floating IPs](/docs/vpc?topic=vpc-fip-about&interface=ui)
@@ -35,7 +28,6 @@ Before you create a cluster network, review the following known issues and limit
    - [Public gateways](/docs/vpc?topic=vpc-about-public-gateways&interface=ui)
    - [Virtual Private Endpoint gateways](/docs/vpc?topic=vpc-about-vpe&interface=ui)
    - [VPNs](/docs/vpc?topic=vpc-vpn-overview&interface=ui)
-
 
 - Services that are not supported:
    * [Flow logs](/docs/vpc?topic=vpc-flow-logs&interface=ui)

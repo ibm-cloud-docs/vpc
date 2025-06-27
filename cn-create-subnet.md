@@ -2,7 +2,7 @@
 
 copyright:
   years: 2024, 2025
-lastupdated: "2025-06-18"
+lastupdated: "2025-06-27"
 
 keywords:
 
@@ -21,7 +21,7 @@ A cluster network subnet is a subnet within a cluster network. While it resemble
 ## Before you begin
 {: #create-subnet-prerequisites}
 
-Review [Planning considerations](/docs/vpc?topic=vpc-planning-cluster-network&interface=ui) and [Known issues and limitations](/docs/vpc?topic=vpc-limitations-cluster-network&interface=ui).
+Review [planning considerations](/docs/vpc?topic=vpc-planning-cluster-network&interface=ui) and [known issues](/docs/vpc?topic=vpc-limitations-cluster-network&interface=ui).
 
 You can create a cluster network subnet with the console, CLI, API, or Terraform.
 

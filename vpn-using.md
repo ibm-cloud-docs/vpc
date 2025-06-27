@@ -2,7 +2,7 @@
 
 copyright:
   years: 2019, 2025
-lastupdated: "2025-05-01"
+lastupdated: "2025-06-27"
 
 keywords: VPN, VPN gateways, encryption, IKE, IPsec, gateway, auto-negotiation, Diffie-Hellman, dead peer detection, PFS
 
@@ -54,7 +54,7 @@ Although not required, it is recommended to dedicate a subnet of at least 16 IPs
 To create a VPN gateway, follow these general steps:
 
 1. Make sure that the [network ACLs](/docs/vpc?topic=vpc-configuring-acls-vpn) for VPN traffic to flow are in place.
-1. Make sure that your peer device supports NAT traversal and that it is enabled on the peer device. For more information, see [VPN gateway limitations](/docs/vpc?topic=vpc-vpn-limitations).
+1. Make sure that your peer device supports NAT traversal and that it is enabled on the peer device. For more information, see [Known issues for VPN gateways](/docs/vpc?topic=vpc-vpn-limitations).
 1. Review planning considerations and [create your VPN gateway](/docs/vpc?topic=vpc-vpn-create-gateway).
 1. [Create VPN connections](/docs/vpc?topic=vpc-vpn-adding-connections).
 
@@ -131,7 +131,7 @@ By default, PFS is disabled for IBM Cloud VPN for VPC. Some vendors require PFS 
 
 Both route-based and policy-based VPNs allow users to connect to a single remote peer device associated with one or more networks.
 
-This use case does not apply for connections between a policy-based VPN and a route-based VPN. For more information, see [Known limitations](/docs/vpc?topic=vpc-vpn-limitations).
+This use case does not apply for connections between a policy-based VPN and a route-based VPN. For more information, see [Known issues for VPN gateways](/docs/vpc?topic=vpc-vpn-limitations).
 {: important}
 
 ![Single peer VPN use case](images/vpn-single-peer.png){: caption="Single peer VPN use case" caption-side="bottom"}

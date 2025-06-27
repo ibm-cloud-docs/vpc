@@ -1,8 +1,8 @@
 ---
 
 copyright:
-  years: 2023, 2024
-lastupdated: "2024-05-28"
+  years: 2023, 2025
+lastupdated: "2025-06-27"
 
 keywords:
 
@@ -12,7 +12,7 @@ subcollection: vpc
 
 {{site.data.keyword.attribute-definition-list}}
 
-# Virtual network interface known limitations
+# Known issues for virtual network interfaces
 {: #vni-known-issues}
 
 The following known limitations apply to this virtual network interface release:

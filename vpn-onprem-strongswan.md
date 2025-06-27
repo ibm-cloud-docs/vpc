@@ -1,8 +1,8 @@
 ---
 
 copyright:
-  years: 2020, 2024
-lastupdated: "2024-08-12"
+  years: 2020, 2025
+lastupdated: "2025-06-27"
 
 keywords: strongswan peer
 
@@ -21,7 +21,7 @@ You can use IBM Cloud VPN for VPC to securely connect your VPC to an on-premises
 These instructions are based on Linux strongSwan U5.3.5/K4.4.0-133-generic.
 {: note}
 
-Read [VPN gateway limitations](/docs/vpc?topic=vpc-vpn-limitations) before continuing to connect to your on-premises peer.
+Read [Known issues for VPN gateways](/docs/vpc?topic=vpc-vpn-limitations) before continuing to connect to your on-premises peer.
 {: important}
 
 Go to the **/etc** directory and create a new custom tunnel configuration file with a name (such as `ipsec.abc.conf`). Edit the `/etc/ipsec.conf` file to include the new `ipsec.abc.conf` file by adding the following line:

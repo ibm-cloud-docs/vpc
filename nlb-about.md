@@ -2,7 +2,7 @@
 
 copyright:
   years: 2020, 2025
-lastupdated: "2025-05-19"
+lastupdated: "2025-06-27"
 
 keywords: load balancer, public, listener, back-end, front-end, pool, round-robin, weighted, connections, methods, policies, APIs, access, ports
 
@@ -41,7 +41,7 @@ As discussed in the [Load balancers for VPC overview](/docs/vpc?topic=vpc-nlb-vs
 
 To get started using network load balancers, follow these steps:
 
-1. Review [Network load balancer limitations](/docs/vpc?topic=vpc-nlb-limitations).
+1. Review [Known issues for network load balancers](/docs/vpc?topic=vpc-nlb-limitations).
 1. Follow instructions for your particular NLB:
    * [Create a public or private network load balancer](/docs/vpc?topic=vpc-nlb-ui-creating-network-load-balancer).
    * [Create a private network load balancer with routing mode](/docs/vpc?topic=vpc-nlb-vnf).

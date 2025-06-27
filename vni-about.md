@@ -2,7 +2,7 @@
 
 copyright:
   years: 2023, 2025
-lastupdated: "2025-03-18"
+lastupdated: "2025-06-27"
 
 keywords:
 
@@ -34,7 +34,7 @@ Floating IPs and flow log collectors are resources that you can attach to a VNI.
 * References to the floating IPs attached to a VNI are retrievable as a child collection of the VNI.
 * A flow log collector attached to a VNI can be retrieved by listing your flow log collectors, filtering by `target.id`, then specifying the `id` of the VNI.
 
-Not all supported target resources support all VNI policies. For more information, see [known limitations](/docs/vpc?topic=vpc-vni-known-issues).
+Not all supported target resources support all VNI policies. For more information, see [known issues](/docs/vpc?topic=vpc-vni-known-issues).
 {: note}
 
 ## Key benefits and capabilities
@@ -82,7 +82,7 @@ Protocol state filtering mode is available only on a VNI. On older-style network
 You can use a VNI to manage the IP addresses and security groups in a separate resource with a lifecycle that is independent of your target resource.
 
 1. Ensure that you have a VPC and subnet attached. For more information, see creating VPC resources [using the IBM Cloud console](/docs/vpc?topic=vpc-creating-a-vpc-using-the-ibm-cloud-console) or [creating with CLI and API](/docs/vpc?topic=vpc-creating-vpc-resources-with-cli-and-api).
-1. Review [planning considerations](/docs/vpc?topic=vpc-vni-about#vni-planning) and any [known issues and limitations](/docs/vpc?topic=vpc-vni-known-issues).
+1. Review [planning considerations](/docs/vpc?topic=vpc-vni-about#vni-planning) and [known issues](/docs/vpc?topic=vpc-vni-known-issues).
 1. Ensure that you have the correct [IAM permissions](/docs/account?topic=account-iam-service-roles-actions#is.virtual-network-interface-roles) to create a VNI.
 1. [Create a virtual network interface](/docs/vpc?topic=vpc-vni-create&interface=ui) with a private IP address, a public IP address, and security groups.
 1. Attach your VNI to a supported target resource when provisioning the target. Currently, there are three supported target types:

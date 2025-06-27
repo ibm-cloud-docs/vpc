@@ -1,8 +1,8 @@
 ---
 
 copyright:
-  years: 2022, 2024
-lastupdated: "2024-06-20"
+  years: 2022, 2025
+lastupdated: "2025-06-27"
 
 keywords: cisco peer, ASAv
 
@@ -18,7 +18,7 @@ subcollection: vpc
 You can use IBM Cloud VPN for VPC to securely connect your VPC to an on-premises network through a VPN tunnel. This topic provides guidance about how to configure your Cisco ASAv VPN gateway to connect to VPN for VPC.
 {: shortdesc}
 
-Read [VPN gateway limitations](/docs/vpc?topic=vpc-vpn-limitations) before you continue to connect to your on-premises peer.
+Read [Known issues for VPN gateways](/docs/vpc?topic=vpc-vpn-limitations) before you continue to connect to your on-premises peer.
 {: note}
 
 ## Connecting an IBM policy-based VPN to a Cisco ASAv peer

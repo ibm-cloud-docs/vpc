@@ -2,7 +2,7 @@
 
 copyright:
   years: 2024, 2025
-lastupdated: "2025-06-18"
+lastupdated: "2025-06-27"
 
 keywords:
 
@@ -21,7 +21,7 @@ View details of your cluster network, such as its name, creation date, and CRN. 
 ## Before you begin
 {: #view-details-cluster-network-prerequisites}
 
-Review [Planning considerations](/docs/vpc?topic=vpc-planning-cluster-network&interface=ui) and [Known issues and limitations](/docs/vpc?topic=vpc-limitations-cluster-network&interface=ui).
+Review [planning considerations](/docs/vpc?topic=vpc-planning-cluster-network&interface=ui) and [known issues](/docs/vpc?topic=vpc-limitations-cluster-network&interface=ui).
 
 You can view details of a cluster network with the console, CLI, API, or Terraform.
 

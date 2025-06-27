@@ -1,8 +1,8 @@
 ---
 
 copyright:
-  years: 2021, 2024
-lastupdated: "2024-06-20"
+  years: 2021, 2025
+lastupdated: "2025-06-27"
 
 keywords:
 
@@ -12,7 +12,7 @@ subcollection: vpc
 
 {{site.data.keyword.attribute-definition-list}}
 
-# VNF limitations
+# Known issues for virtual network functions
 {: #vnf-limitations}
 
 High Availability (HA) Virtual Network Function (VNF) deployments have the following known limitations.

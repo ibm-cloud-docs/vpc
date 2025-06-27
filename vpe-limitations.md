@@ -1,8 +1,8 @@
 ---
 
 copyright:
-  years: 2020, 2023
-lastupdated: "2023-06-01"
+  years: 2020, 2025
+lastupdated: "2025-06-27"
 
 keywords: VPE, virtual private endpoints, limitations, endpoint gateway
 
@@ -10,7 +10,7 @@ keywords: VPE, virtual private endpoints, limitations, endpoint gateway
 
 {{site.data.keyword.attribute-definition-list}}
 
-# Virtual private endpoint limitations
+# Known issues for virtual private endpoints
 {: #limitations-vpe}
 
 * The following items are not supported for {{site.data.keyword.cloud}} Virtual Private Endpoints for VPC:
