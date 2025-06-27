@@ -2,7 +2,7 @@
 
 copyright:
   years: 2019, 2025
-lastupdated: "2025-06-26"
+lastupdated: "2025-06-27"
 
 keywords:
 
@@ -29,12 +29,14 @@ For more information about changes to the {{site.data.keyword.vpc_short}} comman
 
 ### 27 June 2025
 {: #vpc-jun2725}
+{: release-note}
 
 Flex profiles (beta)
 :   The general purpose flex virtual server profiles (nano, balanced, compute, and memory) are built atop the 2nd and 4th Generation Intel® Xeon® Scalable processors and AMD’s 3rd generation EPYC processors. Flex profiles may be placed on any available generation of these processors in a specified region. Customers with special access can preview flex virtual server profiles on any supported processor in a supported region. For more information, see [Flex profiles](/docs/vpc?topic=vpc-flexible-profiles-virtual-servers).
 
 ### 03 June 2025
 {: #vpc-jun0325}
+{: release-note}
 
 New regions for second-generation block storage volumes (select availability)
 :   The `sdp` profile is now available in Madrid (`eu-es`), Osaka (`jp-osa`), Sao Paulo (`br-sao`), Sydney (`au-syd`), and Toronto (`ca-tor`) regions. For more information, see [The SSD defined performance profile](/docs/vpc?topic=vpc-block-storage-about#block-storage-sdp-intro).
