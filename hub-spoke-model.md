@@ -2,7 +2,7 @@
 
 copyright:
   years: 2023, 2025
-lastupdated: "2025-06-27"
+lastupdated: "2025-06-30"
 
 keywords:
 
@@ -27,7 +27,7 @@ VPC private DNS resolution works within the same VPC, but it requires you to man
 
 When multiple VPCs are connected by using transit gateways, direct links, or other connectivity options, a VPC in the connected topology can be enabled as a hub to centralize the DNS resolution for VPCs, including resolution for all endpoint gateways from all VPCs in the topology.
 
-Before you begin, review [Planning considerations](/docs/vpc?topic=vpc-vpe-dns-sharing-planning-considerations&interface=ui) and [Known issues and limitations](/docs/vpc?topic=vpc-vpe-dns-sharing-limitations&interface=ui).
+Before you begin, review [planning considerations](/docs/vpc?topic=vpc-vpe-dns-sharing-planning-considerations&interface=ui) and [known issues and limitations](/docs/vpc?topic=vpc-vpe-dns-sharing-limitations&interface=ui).
 {: important}
 
 General steps to configure DNS sharing for VPE gateways are as follows:
