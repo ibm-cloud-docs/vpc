@@ -2,7 +2,7 @@
 
 copyright:
   years: 2019, 2025
-lastupdated: "2025-06-18"
+lastupdated: "2025-06-30"
 
 keywords:
 
@@ -39,7 +39,7 @@ To configure an ACL in the {{site.data.keyword.cloud_notm}} console, follow thes
 
 1. Enter values for the following fields under details:
 
-   * **Public gateway name** - Type a unique name for your access control list.
+   * **Name** - Type a unique name for your access control list.
    * **Resource group** -  Select a resource group for your access control list. You can use the default group for this access control list, or select from the resource group list (if defined). For more information, see [Best practices for organizing resources in a resource group](/docs/account?topic=account-account_setup).
 
    After provisioning is complete, you cannot change the resource group.
@@ -47,7 +47,7 @@ To configure an ACL in the {{site.data.keyword.cloud_notm}} console, follow thes
 
    * **Tags** - Add user tags. User tags are visible account-wide. For more information, see [Working with tags](/docs/account?topic=account-tag).
    * **Access management tags** - Add access management tags to help organize access control relationships. For more information, see [Controlling access to resources by using tags](/docs/account?topic=account-access-tags-tutorial).
-   * **VPC** - Select a VPC. You can use the default VPC for this public gateway, or select from the list (if defined). For more information, see [Getting started with Virtual Private Cloud](/docs/vpc?topic=vpc-getting-started&interface=ui).
+   * **Virtual private cloud** - Select a VPC. You can use the default VPC for this ACL, or select from the list (if defined). For more information, see [Getting started with Virtual Private Cloud](/docs/vpc?topic=vpc-getting-started&interface=ui).
 
 1. Under Rules, click **Create +** to configure inbound and outbound rules that define what traffic is allowed in or out of the subnet. For each rule, specify the following information:
       * Select whether to allow or deny the specified traffic.
