@@ -21,7 +21,7 @@ Public Address Ranges for VPC is only available for evaluation and testing purpo
 A public address range is a contiguous set of public IPs that you can reserve and bind to a VPC in an availability zone. 
 {: shortdesc}
 
-The IPs in the range can be routed to a Virtual Network Function (VNF) appliance in the VPC by configuring public ingress routing to route the destination IP range to a VNF appliance next-hop. Response traffic from the VNF appliance retains the source IP as it egresses, ensuring traffic isn't dropped. 
+You can route the IPs in the range to a target resource in the VPC, such as a virtual server instance, VNF appliance, or other compute resource. For example, you can configure public ingress routing to send the destination IP range to a VNF appliance next-hop. Response traffic from the target retains the original source IP as it exits the VPC, ensuring that return traffic isn't dropped. 
  
 For more information about configuring ingress routing, see [About routing tables and routes](/docs/vpc?topic=vpc-about-custom-routes&interface=api).
 {: note}
