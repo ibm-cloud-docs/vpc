@@ -2,7 +2,7 @@
 
 copyright:
   years: 2025
-lastupdated: "2025-06-27"
+lastupdated: "2025-06-30"
 
 keywords: public address ranges, limitations
 
@@ -21,7 +21,7 @@ Public Address Ranges for VPC is only available for evaluation and testing purpo
 Before you create a public address range, review the following limitations:
 {: shortdesc}
 
-* You can't assign IP addresses from a public range to resources in a VPC. These IPs can only be used in custom routes to configure the routing to the intended Virtual Network Function (NFV) appliance.
+* You can't assign IP addresses from a public range to resources in a VPC. You can only use these IPs in custom routes to direct traffic to a target resource, such as a virtual server instance, network appliance, or other compute resource.
 * This service only supports IBM-provided public IP ranges. Bringing your own public IP or subnet is not supported. 
 *  You can't divide public address ranges into subranges or bind one to multiple VPCs or zones.
 * Using public address ranges with a shared virtual IP for ingress routing (for example, NSX-T Tier 0 HA VIP or similar appliances with Bare Metal Server VNI VLAN attachments), can cause an asymmetric routing issue that disrupts stateful firewall handling in security groups. 
