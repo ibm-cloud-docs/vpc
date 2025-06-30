@@ -2,7 +2,7 @@
 
 copyright:
   years: 2025
-lastupdated: "2025-06-27"
+lastupdated: "2025-06-30"
 
 keywords: vpc, public address ranges, about
 
@@ -71,8 +71,7 @@ Review the following considerations before creating a public address range:
    * [Configure network ACLs](/docs/vpc?topic=vpc-acl-create-ui&interface=ui) to allow or deny traffic at the subnet level.
    * [Configure VPC egress routes](/docs/vpc?topic=vpc-create-vpc-route&interface=ui) to explicitly direct outbound traffic and avoid unintended paths.
 
-   When setting up these network traffic controls, keep in mind that some users might lack the necessary IAM permissions to secure resources properly.
-
+   When setting up these network traffic controls, keep in mind that some users might lack the necessary IAM permissions to secure resources properly. 
 
 ## Getting started with public address ranges
 {: #par-getting-started}
