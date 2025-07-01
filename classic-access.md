@@ -1,7 +1,7 @@
 ---
 copyright:
-  years: 2018, 2024
-lastupdated: "2024-10-10"
+  years: 2018, 2025
+lastupdated: "2025-07-01"
 
 keywords: classic, access, classic access, VRF, peering
 
@@ -69,7 +69,7 @@ ibmcloud is vpc-create my-access-vpc --classic-access
 Pass in the `classic_access` parameter when you create the VPC, for example:
 
 ```bash
-curl -X POST "$rias_endpoint/v1/vpcs?version=$api_version&generation=2" \
+curl -X POST "$vpc_api_endpoint/v1/vpcs?version=$api_version&generation=2" \
   -H "Authorization: $iam_token" \
   -d '{
         "name": "my-access-vpc",

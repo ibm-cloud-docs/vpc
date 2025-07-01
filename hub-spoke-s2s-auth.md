@@ -2,7 +2,7 @@
 
 copyright:
   years: 2023, 2025
-lastupdated: "2025-04-29"
+lastupdated: "2025-07-01"
 
 keywords:
 
@@ -31,7 +31,7 @@ You can establish s2s authorization with the console, CLI, API, or Terraform.
 
 To create an IAM s2s authorization policy in the console, follow these steps:
 
-1. In the [{{site.data.keyword.cloud_notm}} console](/login){: external}, go to **Manage > Access (IAM)**. The IBM Cloud Identity and Access Management page displays.
+1. In the [{{site.data.keyword.cloud_notm}} console](/login){: external}, go to **Manage > Access (IAM)**. The {{site.data.keyword.iamlong}} page displays.
 1. From the side panel, select **Authorizations**.
 1. On the Manage authorizations page, click **Create**.
 1. On the Grant a service authorization page, select source account.

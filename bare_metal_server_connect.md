@@ -55,7 +55,7 @@ After you retrieve the account name and password, you can use them to access the
 
 You can access the VMware&reg; ESXi DCUI by connecting to a VNC or serial console.
 
-To connect to a console, you need to be assigned **Operator** (or greater) and **Bare Metal Console Administrator** roles for the bare metal server in IBM Cloud Identity and Access Management (IAM). If you are an administrator of your account, you also need to self-assign the **Bare Metal Console Administrator** role.
+To connect to a console, you need to be assigned **Operator** (or greater) and **Bare Metal Console Administrator** roles for the bare metal server in {{site.data.keyword.iamlong}} (IAM). If you are an administrator of your account, you also need to self-assign the **Bare Metal Console Administrator** role.
 
 ESXi DCUI doesn’t output from a serial console by default. You can enable it by following [Connecting to a serial console](/docs/vpc?topic=vpc-connect-to-ESXi-bare-metal-servers#connect-to-serial-console).
 

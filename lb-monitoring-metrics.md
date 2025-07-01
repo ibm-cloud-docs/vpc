@@ -2,7 +2,7 @@
 
 copyright:
   years: 2017, 2025
-lastupdated: "2025-02-20"
+lastupdated: "2025-07-01"
 
 keywords: l7, layer 7, monitor, metrics, connection
 
@@ -292,7 +292,7 @@ To do so, follow these steps:
    Do not create multiple monitoring instances with the same name.
    {: important}
 
-1. Optionally, select a resource group. A resource group is a way to organize account resources in customizable groupings. Any account resource that is managed by using IBM Cloud Identity and Access Management (IAM) access control belongs to a resource group within your account.
+1. Optionally, select a resource group. A resource group is a way to organize account resources in customizable groupings. Any account resource that is managed by using {{site.data.keyword.iamlong}} (IAM) access control belongs to a resource group within your account.
 
    If you do not have any pre-configured resource groups, or no reason to share this resource selectively, use the default selection.
    {: note}

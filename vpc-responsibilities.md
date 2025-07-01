@@ -2,7 +2,7 @@
 
 copyright:
   years: 2019, 2025
-lastupdated: "2025-06-27"
+lastupdated: "2025-07-01"
 
 keywords: responsibilities, ha, high availability, disaster recovery
 
@@ -79,7 +79,7 @@ Identity and access management includes tasks such as authentication, authorizat
 
 | Task | {{site.data.keyword.IBM_notm}} Responsibilities | Your Responsibilities |
 |----------|-----------------------|-----------------------|
-| IBM Cloud IAM  | {{site.data.keyword.IBM_notm}} provides the function to restrict access to resources through the IBM Cloud console and REST APIs. | The Customer is responsible for managing access to resources through IBM Cloud Identity and Access Management (IAM). |
+| IBM Cloud IAM  | {{site.data.keyword.IBM_notm}} provides the function to restrict access to resources through the IBM Cloud console and REST APIs. | The Customer is responsible for managing access to resources through {{site.data.keyword.iamlong}} (IAM). |
 {: caption="Responsibilities for identity and access management" caption-side="bottom"}
 
 ### Security and regulation compliance

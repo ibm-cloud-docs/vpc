@@ -2,7 +2,7 @@
 
 copyright:
   years: 2022, 2025
-lastupdated: "2025-06-04"
+lastupdated: "2025-07-01"
 
 keywords:
 
@@ -50,7 +50,7 @@ curl -X PUT "https://api.metadata.cloud.ibm.com/instance_identity/v1/token?versi
 
 The API response contains the instance identity access token. Use this token to access the metadata service.
 
-You can also generate an IAM token from this token and use the RIAS API to call IAM-enabled services. For more information, see [Generate an IAM token from an instance identity access token](/docs/vpc?topic=vpc-imd-configure-service&interface=api#imd-token-exchange).
+You can also generate an IAM token from this token and use the API to call IAM-enabled services. For more information, see [Generate an IAM token from an instance identity access token](/docs/vpc?topic=vpc-imd-configure-service&interface=api#imd-token-exchange).
 
 ### Acquiring an instance identity access token
 {: #imd-json-token}

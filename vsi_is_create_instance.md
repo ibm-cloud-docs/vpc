@@ -2,7 +2,7 @@
 
 copyright:
   years: 2018, 2025
-lastupdated: "2025-06-17"
+lastupdated: "2025-07-01"
 
 keywords:
 
@@ -268,7 +268,7 @@ Use the following commands to determine the required information for creating a 
 
    Secure execution-enabled profiles are now available and are identified by the fourth character of the profile name that is an "e", such as *bz2e*. For more information, see [Confidential computing with LinuxONE](/docs/vpc?topic=vpc-about-se).
 
-   The secure execution-enabled profiles are available for Balanced, Compute, and Memory families. Make sure that you use secure-enabled profiles when you use the IBM Hyper Protect Container Runtime image. Profile validation for the IBM-provided stock images and the IBM Hyper Protect Container Runtime occurs in the RIAS layer. Any profile mismatch results in an error message that is similar to the following example.
+   The secure execution-enabled profiles are available for Balanced, Compute, and Memory families. Make sure that you use secure-enabled profiles when you use the IBM Hyper Protect Container Runtime image. Any profile mismatch during profile validation results in an error message that is similar to the following example.
 
    ```text
    FAILED

@@ -2,7 +2,7 @@
 
 copyright:
   years: 2018, 2025
-lastupdated: "2025-04-24"
+lastupdated: "2025-07-01"
 
 keywords: delete, resources, ui, console, cli, infrastructure, command line interface
 
@@ -274,7 +274,7 @@ If the VPC you want to delete has multiple subnets, repeat the steps to delete e
 To list all VPN gateways in your account, run the following command:
 
 ```bash
-curl -X GET "$rias_endpoint/v1/vpn_gateways?version=$version&generation=2" \
+curl -X GET "$vpc_api_endpoint/v1/vpn_gateways?version=$version&generation=2" \
      -H "Authorization:$iam_token"
 ```
 {: pre}
@@ -282,7 +282,7 @@ curl -X GET "$rias_endpoint/v1/vpn_gateways?version=$version&generation=2" \
 Run the following command for each VPN gateway in the subnet that you want to delete, where `$vpnid` is the ID of the VPN gateway.
 
 ```bash
-curl -X DELETE "$rias_endpoint/v1/vpn_gateways/$vpnid?version=$version&generation=2" \
+curl -X DELETE "$vpc_api_endpoint/v1/vpn_gateways/$vpnid?version=$version&generation=2" \
      -H "Authorization:$iam_token"
 ```
 {: pre}
@@ -295,7 +295,7 @@ The status of the VPN gateway changes to `deleting` immediately, but it is still
 To list all load balancers in your account, run the following command:
 
 ```bash
-curl -X GET "$rias_endpoint/v1/load_balancers?version=$version&generation=2" \
+curl -X GET "$vpc_api_endpoint/v1/load_balancers?version=$version&generation=2" \
      -H "Authorization:$iam_token"
 ```
 {: pre}
@@ -303,7 +303,7 @@ curl -X GET "$rias_endpoint/v1/load_balancers?version=$version&generation=2" \
 Run the following command for each load balancer in the subnet that you want to delete, where `$lbid` is the ID of the load balancer.
 
 ```bash
-curl -X DELETE "$rias_endpoint/v1/load_balancers/$lbid?version=$version&generation=2" \
+curl -X DELETE "$vpc_api_endpoint/v1/load_balancers/$lbid?version=$version&generation=2" \
      -H "Authorization:$iam_token"
 ```
 {: pre}

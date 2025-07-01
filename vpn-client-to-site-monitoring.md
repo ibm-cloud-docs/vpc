@@ -2,7 +2,7 @@
 
 copyright:
   years: 2021, 2025
-lastupdated: "2025-02-20"
+lastupdated: "2025-07-01"
 
 keywords:
 
@@ -204,7 +204,7 @@ To receive monitoring metrics, use the following steps:
    Do not give multiple {{site.data.keyword.mon_full_notm}} instances the same name.
    {: important}
 
-1. Optionally, select a resource group. A resource group organizes account resources in customizable groupings. Any account resource that is managed by using IBM Cloud Identity and Access Management (IAM) access control belongs to a resource group within your account.
+1. Optionally, select a resource group. A resource group organizes account resources in customizable groupings. Any account resource that is managed by using {{site.data.keyword.iamlong}} (IAM) access control belongs to a resource group within your account.
 
    If you do not have any pre-configured resource groups, or have no reason to share this resource selectively, use the default selection.
    {: note}

@@ -2,7 +2,7 @@
 
 copyright:
   years: 2022, 2025
-lastupdated: "2025-06-17"
+lastupdated: "2025-07-01"
 
 keywords: confidential computing, secure execution, hpcr, contract, customization, env, workload, encryption, attestation, validating
 
@@ -112,6 +112,7 @@ Complete the following steps on an Ubuntu system to validate the encryption cert
    openssl x509 -in ibm-hyper-protect-container-runtime-1-0-s390x-23-intermediate.crt -subject -noout
    ```
    {: pre}
+   
 5. Verify that the encryption certificate document is still valid by checking the output of the following command:
 
    ```sh

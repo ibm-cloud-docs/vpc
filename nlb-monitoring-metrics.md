@@ -2,7 +2,7 @@
 
 copyright:
   years: 2020, 2025
-lastupdated: "2025-02-20"
+lastupdated: "2025-07-01"
 
 keywords: l7, layer 7, monitor, metrics, connection
 
@@ -138,7 +138,7 @@ To do so, follow these steps:
    Pricing plan details are explained in the selection window. Select the plan that best meets your requirements.
 
 4. Provide a unique service name for your instance.
-5. Optionally, select a resource group. A resource group is a way to organize account resources in customizable groupings. Any account resource that is managed by using IBM Cloud Identity and Access Management (IAM) access control belongs to a resource group within your account.
+5. Optionally, select a resource group. A resource group is a way to organize account resources in customizable groupings. Any account resource that is managed by using {{site.data.keyword.iamlong}} (IAM) access control belongs to a resource group within your account.
 
    If you do not have any pre-configured resource groups, or no reason to share this resource selectively, use the default selection.
    {: note}

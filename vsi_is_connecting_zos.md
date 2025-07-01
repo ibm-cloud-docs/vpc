@@ -2,7 +2,7 @@
 
 copyright:
   years: 2022, 2025
-lastupdated: "2025-02-05"
+lastupdated: "2025-07-01"
 
 keywords: connecting, zos, s390x, zosmf, virtual server instance
 
@@ -166,7 +166,7 @@ When you launch z/OSMF, browser security warnings are displayed because z/OS vir
 
 You can use the {{site.data.keyword.cloud_notm}} to connect to a serial console and monitor the progress of the IPL within the console. 
 
-To connect to the serial console, you need to be assigned `Operator` (or greater) and `Console Administrator` roles for the virtual server instance in IBM Cloud Identity and Access Management (IAM). Otherwise, the serial console is disabled.
+To connect to the serial console, you need to be assigned `Operator` (or greater) and `Console Administrator` roles for the virtual server instance in {{site.data.keyword.iamlong}} (IAM). Otherwise, the serial console is disabled.
 {: note}
 
 Follow these steps to connect to a console by using IBM Cloud UI.

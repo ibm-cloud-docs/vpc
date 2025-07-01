@@ -28,11 +28,11 @@ For x86 bare metal servers, you can create two types of network interfaces, PCI 
 
    - When you create a bare metal server, a primary PCI interface is created for you. Optionally, you can add one or more secondary PCI or VLAN interfaces. You can also add, update, or delete the network interfaces.
 
-   - You can associate one or more floating IPs with a network interface. The multiple floating IPs feature enables the VMware&reg; NSX-T Data Center to assign floating IPs. For more information about associating floating IP, see [Associate floating IPs with a network interface](/docs/vpc?topic=vpc-managing-nic-for-bare-metal-servers#bare-metal-add-fips-to-nic).
+   - You can associate one or more floating IP addresses with a network interface. The multiple floating IP addresses feature enables the VMware&reg; NSX-T Data Center to assign floating IP addresses. For more information about associating floating IP, see [Associate floating IP addresses with a network interface](/docs/vpc?topic=vpc-managing-nic-for-bare-metal-servers#bare-metal-add-fips-to-nic).
 
 
 
-For more information about associating floating IP, see [Associate floating IPs with a network interface](/docs/vpc?topic=vpc-managing-nic-for-bare-metal-servers&interface=ui#bare-metal-add-fips-to-nic).
+For more information about associating floating IP, see [Associate floating IP addresses with a network interface](/docs/vpc?topic=vpc-managing-nic-for-bare-metal-servers&interface=ui#bare-metal-add-fips-to-nic).
 
 If you want to control the flow of network traffic in your VPC, you can configure routes. VPC routes specify the next hop for packets, based on their destination addresses. For more information, see [Creating a route](/docs/vpc?topic=vpc-create-vpc-route).
 
@@ -83,7 +83,7 @@ To add a network interface to an existing bare metal server, do the following st
 
 1. In the **Network interfaces** section of the **Bare metal server details** page, click **New interface** to create a new interface.
 
-For x86 architecture-based bare metal servers, PCI interfaces can be only created or deleted when the bare metal server is **Stopped**. The PCI interfaces will remain **Pending** until the server is started. When the server is started, the PCI interfaces transition to **Ready**.
+For x86 architecture-based bare metal servers, PCI interfaces can be created or deleted only when the bare metal server is **Stopped**. The PCI interfaces remain **Pending** until the server is started. When the server is started, the PCI interfaces transition to **Ready**.
 {: important}
 
 ### Creating a virtual network interface
@@ -96,18 +96,18 @@ Virtual network interfaces can be attached to new bare metal server instances, a
 
 ![Bare metal server network attachment](images/vni-bm-arch.svg "Bare metal server with a network attachment"){: caption="Diagram of a bare metal server with a network attachment connected to a virtual network interface" caption-side="bottom"}
 
-1. In the {{site.data.keyword.cloud_notm}} console, go to **Navigation Menu** icon ![menu icon](../../icons/icon_hamburger.svg) **> Infrastructure** ![VPC icon](../../icons/vpc.svg) **> Compute > Bare metal servers**.
+1. In the {{site.data.keyword.cloud_notm}} console, go to the **Navigation menu** icon ![menu icon](../../icons/icon_hamburger.svg) **> Infrastructure** ![VPC icon](../../icons/vpc.svg) **> Compute > Bare metal servers**.
 1. Click **Create** to begin creating a bare metal server capable of using a virtual network interface.
 1. In the **Networking** section, select whether to create one of the following:
    * **Network attachment with a virtual network interface**: a network interface with additional features, such as secondary IP addresses and a lifecycle separate from the bare metal server you are creating.
    * **Instance network interface**: a child network interface.
 
-## Associating floating IPs with a network interface
+## Associating floating IP addresses with a network interface
 {: #bare-metal-add-fips-to-nic}
 
-You can associate one or more floating IPs with one network interface.
+You can associate one or more floating IP addresses with one network interface.
 
-To associate multiple floating IPs to a network interface, make sure that both **Allow IP spoofing** and **Enable infrastructure NAT** are disabled on the network interface.
+To associate multiple floating IP addresses to a network interface, make sure that both **Allow IP spoofing** and **Enable infrastructure NAT** are disabled on the network interface.
 {: important}
 
 Use the following steps to associate a floating IP with the network interface:
@@ -116,11 +116,11 @@ Use the following steps to associate a floating IP with the network interface:
 
 2. Click the edit icon of the target interface.
 
-3. On the **Edit network interface** page, locate the **Floating IP address** field and select the floating IPs that you want to associate with the network interface.
+3. On the **Edit network interface** page, locate the **Floating IP address** field and select the floating IP addresses that you want to associate with the network interface.
 
    Keep in mind that you can associate a floating IP to the secondary network interface only when you configure a default gateway to the secondary network interface within the operating system.
 
-4. Click **Save** when you finish adding floating IPs.
+4. Click **Save** when you finish adding floating IP addresses.
 
 You can disassociate the associated floating IP from the network interface.
 {: tip}
@@ -128,7 +128,7 @@ You can disassociate the associated floating IP from the network interface.
 ## Updating a network interface
 {: #bare-metal-update-nic}
 
-After you create a network interface, you can change the **Enable infrastructure NAT** and **Allow IP spoofing** setting. You can also change the floating IPs that are attached to it. For PCI interface, updating its associated VLAN IDs is available.
+After you create a network interface, you can change the **Enable infrastructure NAT** and **Allow IP spoofing** setting. You can also change the floating IP addresses that are attached to it. For PCI interface, updating its associated VLAN IDs is available.
 
 Use the following steps to update the network interface:
 
@@ -148,16 +148,16 @@ You can delete a network interface by clicking the delete icon of a network inte
 Keep the following information in mind when you delete a network interface:
 
 * Network interface deletion can't be reversed.
-* The floating IPs that are associated with the network interface are implicitly disassociated.
+* The floating IP addresses that are associated with the network interface are implicitly disassociated.
 * You can delete a network interface only when the bare metal server is **Stopped**.
 * You can't delete the primary network interface.
 
 ## Creating a virtual IP (VIP)
 {: #bare-metal-virtual-ips}
 
-A VIP is used for moving between interfaces to achieve high availability. Typically, two interfaces belong to two servers. Each interface has a primary IP that negotiates with VRRP to determine which server owns the VIP.
+A VIP is used for moving between interfaces to achieve high availability. Typically, two interfaces belong to two servers. Each interface has a primary IP address that negotiates with VRRP to determine which server owns the VIP.
 
-From a RIAS perspective, you create a VIP the same way that you create a primary IP.
+From the API perspective, you create a VIP the same way that you create a primary IP.
 
 1. Use the following command to create a VIP.
 

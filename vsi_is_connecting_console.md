@@ -2,7 +2,7 @@
 
 copyright:
   years: 2020, 2025
-lastupdated: "2025-01-28"
+lastupdated: "2025-07-01"
 
 keywords: vnc console, serial console, virtual server instance
 
@@ -32,7 +32,7 @@ The console can be opened by using any of the [supported browsers](/docs/overvie
 ## Before you begin
 {: #vsi_is_connecting_console_prereq}
 
-1. To connect to the consoles, you need to be assigned `Operator` (or greater) and `Console Administrator` roles for the virtual server instance in IBM Cloud Identity and Access Management (IAM).
+1. To connect to the consoles, you need to be assigned `Operator` (or greater) and `Console Administrator` roles for the virtual server instance in {{site.data.keyword.iamlong}} (IAM).
 
     `Console Administrator` role is not applied automatically. If you are an administrator of your account, you also need to self-assign the `Console Administrator` role to use this feature.
     {: important}

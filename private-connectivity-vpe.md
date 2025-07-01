@@ -1,8 +1,8 @@
 ---
 
 copyright:
-  years: 2022
-lastupdated: "2022-11-27"
+  years: 2022, 2025
+lastupdated: "2025-07-01"
 
 keywords:
 
@@ -12,10 +12,10 @@ subcollection: vpc
 
 {{site.data.keyword.attribute-definition-list}}
 
-# Accessing VPEs from an on-prem network using Direct Link or from another VPC using Transit Gateway
+# Accessing VPEs from an on-premises network using Direct Link or from another VPC by using Transit Gateway
 {: #end-to-end-private-connectivity-vpe}
 
-For Virtual Private Endpoint (VPE) enabled services, you can access IBM Cloud resources over a private network from your on-premises location through IBM Cloud Direct Link, or from another VPC using IBM Cloud Transit Gateway. By using an endpoint gateway, traffic between your VPC and IBM Cloud services does not leave the private network.
+For Virtual Private Endpoint (VPE) enabled services, you can access IBM Cloud resources over a private network from your on-premises location through IBM Cloud Direct Link, or from another VPC by using IBM Cloud Transit Gateway. By using an endpoint gateway, traffic between your VPC and IBM Cloud services does not leave the private network.
 
 IBM Cloud Virtual Private Endpoint (VPE) for VPC enables you to access supported IBM Cloud services remotely by using the IP addresses of your choice, which are allocated from a subnet within your VPC.
 
@@ -36,7 +36,7 @@ The topology demonstrates that you can access a VPE from a remote client that is
 ## Procedure
 {: #accessing-private-api-endpoints}
 
-You cannot provision multiple VPE gateways using the same service within the VPC. For example, if you have a VPE for the Global Search service, you cannot provision a duplicate Global Search service.
+You cannot provision multiple VPE gateways by using the same service within the VPC. For example, if you have a VPE for the Global Search service, you cannot provision a duplicate Global Search service.
 {: important}
 
 Follow these steps:
@@ -49,7 +49,7 @@ Follow these steps:
       1. Create a custom resolver. For more information, see [Working with custom resolvers](/docs/dns-svcs?topic=dns-svcs-custom-resolver).
 
           * For IBM domains, you must also have an on-premises DNS resolver that points to either the user's DNS (Direct Link) or the custom resolver (Transit Gateway) in your VPC. You can then connect directly to the VPE and access IBM Cloud services.
-          * If accessing the VPC from another VPC, you only need a custom resolver, which forwards to the custom resolver in the VPC that has the VPE.
+          * If accessing the VPC from another VPC, you need only a custom resolver, which forwards to the custom resolver in the VPC that has the VPE.
 
       1. Create a VPE. For more information, see [Creating an endpoint gateway](/docs/vpc?topic=vpc-ordering-endpoint-gateway).
       1. Attach a new or existing security group (or modify the default security group) to allow inbound traffic to the VPE.
@@ -65,10 +65,10 @@ Follow these steps:
 
    You should now be able to access a VPC API endpoint from an on-prem network through your Direct Link. You can use this VPC API endpoint over IBM Cloud Direct Link to provision additional resources in your VPC, such as VPEs for other IBM Cloud services.
 
-   For example, if you want to create a VPE for IBM Cloud Identity and Access Management (IAM), you can make the following REST API call from an on-premises network by using a private VPC API endpoint to provision VPE for IAM:
+   For example, if you want to create a VPE for (IAM), you can make the following REST API call from an on-premises network by using a private VPC API endpoint to provision VPE for IAM:
 
    ```sh
-   curl -X POST "$rias_endpoint/v1/endpoint_gateways?version=$version&generation=2" -H "Authorization: $iam_token" -d '{
+   curl -X POST "$vpc_api_endpoint/v1/endpoint_gateways?version=$version&generation=2" -H "Authorization: $iam_token" -d '{
    "name": "my-iam-endpoint-gateway",
    "target": {
    "crn" : "crn:v1:bluemix:public:iam-svcs:global:::endpoint:private.iam.cloud.ibm.com",
@@ -156,19 +156,19 @@ To access the VPC API private endpoint by using the CLI, follow these steps:
 {: #vpe-api-private-endpoint-setup-api}
 {: api}
 
-To access the VPC API private endpoint using the API, follow these steps:
+To access the VPC API private endpoint by using the API, follow these steps:
 
 1. Set an environment variable for the region that you want to access. For example, for `us-south`, enter:
 
    ```sh
-   set rias_endpoint=https://us-south.private.iaas.cloud.ibm.com
+   set vpc_api_endpoint=https://us-south.private.iaas.cloud.ibm.com
    ```
    {: pre}
 
 1. When the environment variable is initiated, enter the following command:
 
    ```curl
-   curl -s GET "$rias_endpoint/v1/regions/us-south/zones?generation=2&&version=2021-01-01" -H "Authorization:$iam_token" |jq .
+   curl -s GET "$vpc_api_endpoint/v1/regions/us-south/zones?generation=2&&version=2021-01-01" -H "Authorization:$iam_token" |jq .
    ```
    {: pre}
 

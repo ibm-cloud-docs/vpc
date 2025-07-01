@@ -2,7 +2,7 @@
 
 copyright:
   years: 2023, 2025
-lastupdated: "2025-06-30"
+lastupdated: "2025-07-01"
 
 keywords:
 
@@ -56,7 +56,7 @@ In this example, the customer has three applications they want to isolate on sep
 
 Each of the application VPCs contains an IBM Kubernetes Service (IKS) cluster and an IBM Cloud Databases (ICD) database. The VPCs contain VPEs to each of these services.
 
-These VPCs also rely on common IBM services, such as Cloud Object Storage (COS) for backups, IBM Cloud Identity and Access Management (IAM) for authorization, IBM Cloud Business Support Server (BSS) for billing, and Container Registry for managing application images. The customer also uses these services through a VPE for private connectivity.
+These VPCs also rely on common IBM services, such as Cloud Object Storage (COS) for backups, {{site.data.keyword.iamlong}} (IAM) for authorization, IBM Cloud Business Support Server (BSS) for billing, and Container Registry for managing application images. The customer also uses these services through a VPE for private connectivity.
 
 While the network connectivity between VPCs is already provided through a transit gateway, by default the DNS resolution of VPE DNS records is not resolvable by each other. Without DNS sharing for VPE, management of the VPE is overwhelming, as the customer must manage:
 

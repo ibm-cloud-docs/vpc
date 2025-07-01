@@ -2,7 +2,7 @@
 
 copyright:
   years: 2025
-lastupdated: "2025-06-30"
+lastupdated: "2025-07-01"
 
 keywords: vpc, public address ranges, about
 
@@ -89,7 +89,7 @@ To get started with using public address ranges, follow these steps:
 ## IAM roles and actions
 {: #par-access-management}
 
-IBM Cloud Identity and Access Management (IAM) controls access to public address ranges for users in your account. Every user that accesses this service in your account must be assigned an access policy with an IAM role. Review the following available platform and service roles and the actions mapped to each to help you assign access.
+{{site.data.keyword.iamlong}} (IAM) controls access to public address ranges for users in your account. Every user that accesses this service in your account must be assigned an access policy with an IAM role. Review the following available platform and service roles and the actions mapped to each to help you assign access.
 
 If you're using the CLI or API to assign access, use **`is.public-address-range`** for the service name.
 {: note}

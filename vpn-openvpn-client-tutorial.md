@@ -1,8 +1,8 @@
 ---
 
 copyright:
-  years: 2023
-lastupdated: "2023-11-16"
+  years: 2023, 2025
+lastupdated: "2025-07-01"
 
 keywords:
 subcollection: vpc
@@ -129,7 +129,7 @@ If your administrator used a private certificate, they might have provided you w
 
 If your administrator configured user ID and passcode authentication on the VPN server, follow these steps:
 
-Your VPN server administrator invites you to the account that the VPN server resides in so that you can connect to the VPN server. Your administrator already assigned your ID an IBM Cloud Identity and Access Management (IAM) permission.
+Your VPN server administrator invites you to the account that the VPN server resides in so that you can connect to the VPN server. Your administrator already assigned your ID an {{site.data.keyword.iamlong}} (IAM) permission.
 {: note}
 
 1. Go to this website to generate a passcode for your user ID:
