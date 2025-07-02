@@ -2,7 +2,7 @@
 
 copyright:
   years: 2021, 2025
-lastupdated: "2025-06-25"
+lastupdated: "2025-07-02"
 
 keywords: file storage, file share, performance, IOPS, block size, capacity, range
 
@@ -79,7 +79,7 @@ Table 2 shows the available IOPS ranges, based on share size.
 ## Tiered and custom file storage profiles
 {: #fs-v2-profiles}
 
-In the following section, you can find information about the file share profiles (general purpose, 5-iops, 10-iops, or custom) that were used in the Beta release. New file shares can be provisioned with only the defined performance profile. To access the newest features, you must change the IOPS profile of your share to dp2.
+In the following section, you can find information about the file share profiles (general purpose, 5-iops, 10-iops, or custom) that were used in the beta release. New file shares can be provisioned with only the defined performance profile. To access the newest features, you must change the IOPS profile of your share to dp2.
 {: deprecated}
 
 ### IOPS tiers

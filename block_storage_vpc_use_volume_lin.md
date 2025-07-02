@@ -1,8 +1,8 @@
 ---
 
 copyright:
-  years: 2019, 2024
-lastupdated: "2024-06-14"
+  years: 2019, 2025
+lastupdated: "2025-07-02"
 
 keywords: Block Storage for VPC, iscsi for VPC, SAN for VPC
 
@@ -21,7 +21,7 @@ If you want to use your {{site.data.keyword.block_storage_is_full}} volume as a 
 
 [Connect to your instance](/docs/vpc?topic=vpc-vsi_is_connecting_linux), then follow this procedure to use your Block Storage volume on a Linux&reg; system.
 
-## Step 1 - Listing all storage volumes
+## Listing all storage volumes
 {: #linux-procedure-list-volumes}
 
 Run the following command to list all {{site.data.keyword.block_storage_is_short}} volumes from your instance.
@@ -44,7 +44,7 @@ vdb    202:32   0  100G  0 disk
 
 Volume `vdb` is your Block Storage data volume.
 
-## Step 2 - Partitioning the volume
+## Partitioning the volume
 {: #linux-procedure-partition-volume}
 
 1. Run the following command to partition the volume.
@@ -68,11 +68,13 @@ Volume `vdb` is your Block Storage data volume.
 
 4. After the partition is created, run the `w` command to save changes to the partition table. Restart your system to verify the newly created partition.
 
-## Step 3 - Formatting the volume partition
+## Formatting the volume partition
 {: #linux-procedure-format-volume}
 
+Create a file system on the new partition.
+
 ```sh
-/sbin/mkfs -t ext4 /dev/vdb1
+mkfs.ext4 /dev/vdb1
 ```
 {: pre}
 
@@ -83,25 +85,7 @@ fdisk -s /dev/vdb1
 ```
 {: pre}
 
-## Step 4 - Updating the file systems table
-{: #linux-procedure-update-fstab}
-
-Update `/etc/fstab`.
-
-```sh
-fstab /dev/vdb1
-```
-{: pre}
-
-```sh
-disk_partition=/dev/vdb1
- uuid=$(blkid -sUUID -ovalue $disk_partition)
- mount_point=$mount_parent/$uuid
- echo "UUID=$uuid $mount_point ext4 defaults,relatime 0 0" >> /etc/fstab
-```
-{: codeblock}
-
-## Step 5 - Creating a directory
+## Creating a directory
 {: #linux-procedure-mkdir}
 
 ```sh
@@ -110,7 +94,7 @@ mount /dev/vdb1 /myvolumedir
 ```
 {: pre}
 
-## Step 6 - Mounting the volume as a file system
+## Mounting the volume as a file system
 {: #linux-procedure-mount-volume}
 
 ```sh
@@ -118,7 +102,7 @@ mount /dev/vdb1 /myvolumedir
 ```
 {: pre}
 
-## Step 7 - Accessing the new file system
+## Accessing the new file system
 {: #linux-procedure-use-file-system}
 
 To see your new file system, run the following command.
@@ -151,3 +135,34 @@ cd /myvolumedir
 touch myvolumefile1
 ```
 {: pre}
+
+## Updating the file systems table
+{: #linux-procedure-update-fstab}
+
+Update the configuration file `/etc/fstab` so the data volume is automatically mounted upon boot. Root privileges are needed to update this file with a text editor, like nano, vim, or emacs. It's recommended that you back up the file before you make any changes.
+
+```sh
+sudo cp /etc/fstab /etc/fstab.orig
+```
+{: pre}
+
+Get the UUID of the data volume.
+
+```sh
+blkid /dev/vdb1
+```
+{: pre}
+
+The following command starts nano to edit the configuration file.
+
+```sh
+sudo nano /etc/fstab
+```
+{: pre}
+
+Add the line 
+```text
+/dev/vdb1    /myvolumedir    ext4    defaults,_netdev    0    1
+```
+
+After editing, you can use `sudo mount -a` to remount the file systems that are listed in the updated `/etc/fstab` file without restarting your virtual server instance.

@@ -2,7 +2,7 @@
 
 copyright:
   years: 2022, 2025
-lastupdated: "2025-06-27"
+lastupdated: "2025-07-02"
 
 keywords: block storage for VPC, File Storage for VPC, Snapshots for VPC, Backup for VPC, block storage, file storage, snapshots, backup, 
 
@@ -47,8 +47,8 @@ Second-generation block volumes can be created with capacity in the range of 1 -
 | Customer-managed encryption at rest | Yes. | Yes.|
 | Importing encrypted custom image for boot volumes |  Yes.  | Not supported in the [Select Availability]{: tag-green} release.|
 | Creating encrypted custom image from boot volume | Yes. | Not supported in the [Select Availability]{: tag-green} release.|
-| On-demand snapshots | Yes, up to 750 snapshots per region. | Yes, up to 512 snapshots per region in the [Beta]{: tag-cyan} release. |
-| Scheduled snapshots | Yes, up to 750 snapshots per region. | Not supported in the [Beta]{: tag-cyan} release.|
+| On-demand snapshots | Yes, up to 750 snapshots per region. | Yes, up to 512 snapshots per region in the [beta]{: tag-cyan} release. |
+| Scheduled snapshots | Yes, up to 750 snapshots per region. | Not supported in the [beta]{: tag-cyan} release.|
 {: caption="Block Storage volume generations comparison." caption-side="bottom"}
 
 For more information about this service, see [About {{site.data.keyword.block_storage_is_short}}](/docs/vpc?topic=vpc-block-storage-about).
@@ -75,12 +75,12 @@ You can use your snapshots to create other second-generation volumes in the same
 
 | Features            | First-generation snapshots | Second-generation snapshots |
 |---------------------|--------------------------|---------------------------|
-| Availability        | Generally available in all VPC regions for all customers. | In the [Beta]{: tag-cyan} release, available in Frankfurt and Washington, DC for allow-listed customers.|
-| On-demand snapshots | Yes, up to 750 snapshots per region. | Yes, up to 512 snapshots per region in the [Beta]{: tag-cyan} release. |
-| Scheduled snapshots | Yes, up to 750 snapshots per region. | Not supported in the [Beta]{: tag-cyan} release.|
-| Fast restore clones | Yes. You can cache a copy of your snapshot in any zone of the region. | Not supported in the [Beta]{: tag-cyan} release.|
-| Cross-regional copy | Yes, one cross-regional clone per snapshot per region. | Not supported in the [Beta]{: tag-cyan} release. |
-| Consistency group   | Multi-volume snapshots are supported. | Not supported in the [Beta]{: tag-cyan} release.|
+| Availability        | Generally available in all VPC regions for all customers. | In the [beta]{: tag-cyan} release, available in Frankfurt and Washington, DC for allow-listed customers.|
+| On-demand snapshots | Yes, up to 750 snapshots per region. | Yes, up to 512 snapshots per region in the [beta]{: tag-cyan} release. |
+| Scheduled snapshots | Yes, up to 750 snapshots per region. | Not supported in the [beta]{: tag-cyan} release.|
+| Fast restore clones | Yes. You can cache a copy of your snapshot in any zone of the region. | Not supported in the [beta]{: tag-cyan} release.|
+| Cross-regional copy | Yes, one cross-regional clone per snapshot per region. | Not supported in the [beta]{: tag-cyan} release. |
+| Consistency group   | Multi-volume snapshots are supported. | Not supported in the [beta]{: tag-cyan} release.|
 {: caption="Block Storage snapshot generations comparison." caption-side="bottom"}
 
 First- and second-generation volume profiles are not interchangeable. You can't create a second-generation block volume with a snapshot that was taken of a first-generation volume. You can't use the snapshot with a second-generation volume profile to create a first-generation volume.
