@@ -146,13 +146,6 @@ sudo cp /etc/fstab /etc/fstab.orig
 ```
 {: pre}
 
-Get the UUID of the data volume.
-
-```sh
-blkid /dev/vdb1
-```
-{: pre}
-
 The following command starts nano to edit the configuration file.
 
 ```sh
@@ -160,9 +153,16 @@ sudo nano /etc/fstab
 ```
 {: pre}
 
-Add the line 
+Add a line for the newly attached data volume that looks similar to the following example.
 ```text
 /dev/vdb1    /myvolumedir    ext4    defaults,_netdev    0    1
 ```
+
+Instead of the device name, you can also use the UUID. To get the UUID of the data volume, use the `blkid` command.
+
+```sh
+blkid /dev/vdb1
+```
+{: pre}
 
 After editing, you can use `sudo mount -a` to remount the file systems that are listed in the updated `/etc/fstab` file without restarting your virtual server instance.
