@@ -2,7 +2,7 @@
 
 copyright:
   years: 2024, 2025
-lastupdated: "2025-06-26"
+lastupdated: "2025-07-02"
 
 keywords: file share, file storage, accessor share, cross-account share
 
@@ -46,9 +46,9 @@ In the {{site.data.keyword.cloud_notm}} console, you can create an accessor shar
 ### Creating an accessor share in the console
 {: #fs-create-accessor-target-ui}
 
-1. In the [{{site.data.keyword.cloud_notm}} console](/login){: external}, click the **Navigation menu** icon ![menu icon](../icons/icon_hamburger.svg) **> Infrastructure** ![VPC icon](../icons/vpc.svg) **> Storage > File Shares**. A list of file shares displays.
+1. In the [{{site.data.keyword.cloud_notm}} console](/login){: external}, click the **Navigation menu** icon ![menu icon](../icons/icon_hamburger.svg) **> Infrastructure** ![VPC icon](../icons/vpc.svg) **> Storage > File storage shares**. A list of file shares displays.
 
-1. On the File shares for VPC page, click **Create** >  **Create accessor share**.
+1. On the File storage shares for VPC page, click **Create** >  **Create accessor share**.
 
 1. Enter the following information.
 

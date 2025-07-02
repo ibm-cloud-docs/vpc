@@ -2,7 +2,7 @@
 
 copyright:
   years: 2022, 2025
-lastupdated: "2025-06-09"
+lastupdated: "2025-07-02"
 
 keywords: file storage, file share, replication, replica, source share, failover, 
 
@@ -68,7 +68,7 @@ These restrictions apply when you perform a failover.
 {: #fs-failover-procedure-ui}
 {: ui}
 
-1. Navigate to the list of all file shares. In the [{{site.data.keyword.cloud_notm}} console](/login){: external}, click the **Navigation menu** icon ![menu icon](../icons/icon_hamburger.svg) **> Infrastructure** ![VPC icon](../icons/vpc.svg) **> Storage > File Shares**.
+1. Navigate to the list of all file shares. In the [{{site.data.keyword.cloud_notm}} console](/login){: external}, click the **Navigation menu** icon ![menu icon](../icons/icon_hamburger.svg) **> Infrastructure** ![VPC icon](../icons/vpc.svg) **> Storage > File storage shares**.
 
 2. Click the name of a replica file share to open its details page.
 

@@ -2,7 +2,7 @@
 
 copyright:
   years: 2019, 2025
-lastupdated: "2025-06-27"
+lastupdated: "2025-07-02"
 
 keywords:
 
@@ -31,8 +31,8 @@ For more information about changes to the {{site.data.keyword.vpc_short}} comman
 {: #vpc-jun2725}
 {: release-note}
 
-Flex profiles (beta)
-:   The general purpose flex virtual server profiles (nano, balanced, compute, and memory) are built atop the 2nd and 4th Generation Intel® Xeon® Scalable processors and AMD’s 3rd generation EPYC processors. Flex profiles may be placed on any available generation of these processors in a specified region. Customers with special access can preview flex virtual server profiles on any supported processor in a supported region. For more information, see [Flex profiles](/docs/vpc?topic=vpc-flexible-profiles-virtual-servers).
+Flex profiles (beta release)
+:   The general-purpose flex virtual server profiles (nano, balanced, compute, and memory) are built atop the 2nd and 4th Generation Intel® Xeon® Scalable processors and AMD’s 3rd generation EPYC processors. Flex profiles may be placed on any available generation of these processors in a specified region. Customers with special access can preview flex virtual server profiles on any supported processor in a supported region. For more information, see [Flex profiles](/docs/vpc?topic=vpc-flexible-profiles-virtual-servers).
 
 ### 03 June 2025
 {: #vpc-jun0325}
@@ -49,7 +49,7 @@ New regions for second-generation block storage volumes (select availability)
 {: release-note}
 
 AMD Instinct MI300X accelerated virtual server profile now available in Washington DC (us-east-wdc07-a) and Frankfurt (eu-de) (select availability)
-:   The AMD Instinct MI300X accelerated virtual server profile is now available in Washington DC (us-east-wdc07-a) and Frankfurt  (eu-de-fra02-a, eu-de-fra05-a), in addition to Washington DC (us-east-wdc06-a). The profile runs on an [AMD Instinct™ MI300X Accelerator](https://www.amd.com/en/products/accelerators/instinct/mi300/mi300x.html){: external} that is tuned for AI workloads, including inferencing and fine-tuning. For more information about the `gx3d-208x1792x8mi300x` profile, see [GPU](/docs/vpc?topic=vpc-profiles&interface=ui#gpu) profiles and [Accelerated instance profiles](/docs/vpc?topic=vpc-accelerated-profile-family&interface=ui).
+:   The AMD Instinct MI300X accelerated virtual server profile is now available in Washington DC (us-east-wdc07-a) and Frankfurt (eu-de-fra02-a, eu-de-fra05-a), in addition to Washington DC (us-east-wdc06-a). The profile runs on an [AMD Instinct™ MI300X Accelerator](https://www.amd.com/en/products/accelerators/instinct/mi300/mi300x.html){: external} that is tuned for AI workloads, including inferencing and fine-tuning. For more information about the `gx3d-208x1792x8mi300x` profile, see [GPU](/docs/vpc?topic=vpc-profiles&interface=ui#gpu) profiles and [Accelerated instance profiles](/docs/vpc?topic=vpc-accelerated-profile-family&interface=ui).
 
 ### 27 May 2025
 {: #vpc-may2725}
@@ -90,17 +90,17 @@ Red Hat Enterprise Linux AI stock images (GA)
 {: release-note}
 
 Mount Helper utility supports new OS distributions
-:   The IBM Cloud File Share Mount Helper utility can now be installed and used on virtual servers that are running CentOS Stream 9 or 10, and Debian 11 or 12 to establish encrypted connection to file shares. For more information, see [IBM Cloud File Share Mount Helper utility](/docs/vpc?topic=vpc-fs-mount-helper-utility).
+:   The IBM Cloud File Share Mount Helper utility can now be installed and used on virtual servers that are running CentOS Stream 9 or 10, and Debian 11 or 12 to establish encrypted connection to file shares. For more information, see the [IBM Cloud File Share Mount Helper utility](/docs/vpc?topic=vpc-fs-mount-helper-utility).
 
 ### 06 May 2025
 {: #vpc-may0625}
 {: release-note}
 
 Dynamic network bandwidth control available for Cascade Lake (x2) x86-64 bare metal server profiles
-:   Dynamic network bandwidth control available for Cascade Lake (x2) x86-64 bare metal server profiles. Total network bandwidth for these profiles is now 200 Gbps. For more information, see [x86-64 bare metal server profiles](/docs/vpc?topic=vpc-bare-metal-servers-profile&interface=ui).
+:   Dynamic network bandwidth control is available for Cascade Lake (x2) x86-64 bare metal server profiles. The total network bandwidth for these profiles is now 200 Gbps. For more information, see [x86-64 bare metal server profiles](/docs/vpc?topic=vpc-bare-metal-servers-profile&interface=ui).
 
 AMD Instinct MI300X accelerated virtual server profile now available in Washington DC (`us-east`)(select availability)
-:   The AMD Instinct MI300X accelerated virtual server profile is now available in the Washington DC (`us-east`)region. The profile runs on an [AMD Instinct™ MI300X Accelerator](https://www.amd.com/en/products/accelerators/instinct/mi300/mi300x.html){: external} that is tuned for AI workloads, including inferencing and fine-tuning. For more information about the `gx3d-208x1792x8mi300x` profile, see [GPU](/docs/vpc?topic=vpc-profiles&interface=ui#gpu) profiles and [Accelerated instance profiles](/docs/vpc?topic=vpc-accelerated-profile-family&interface=ui).
+:   The AMD Instinct MI300X accelerated virtual server profile is now available in the Washington DC (`us-east`) region. The profile runs on an [AMD Instinct™ MI300X Accelerator](https://www.amd.com/en/products/accelerators/instinct/mi300/mi300x.html){: external} that is tuned for AI workloads, including inferencing and fine-tuning. For more information about the `gx3d-208x1792x8mi300x` profile, see [GPU](/docs/vpc?topic=vpc-profiles&interface=ui#gpu) profiles and [Accelerated instance profiles](/docs/vpc?topic=vpc-accelerated-profile-family&interface=ui).
 
 ## April 2025
 {: #vpc-apr25}
@@ -110,7 +110,7 @@ AMD Instinct MI300X accelerated virtual server profile now available in Washingt
 {: release-note}
 
 Private path connectivity from IBM Cloud to on-premises locations
-:   You can now connect a consumer service running in IBM Cloud to an on-premises provider service, by using an ALB as part of a Private Path NLB pool. This enables access to on-premises resources, while maintaining a private path across IBM Cloud using the console, CLI, API, or Terraform. For more information, see [Using an ALB with a Private Path NLB to host services outside a VPC](/docs/vpc?topic=vpc-private-path-service-intro&interface=ui#pps-use-case-5).
+:   You can now connect a consumer service running in IBM Cloud to an on-premises provider service, by using an ALB as part of a Private Path NLB pool. This enables access to on-premises resources, while maintaining a private path across IBM Cloud by using the console, CLI, API, or Terraform. For more information, see [Using an ALB with a Private Path NLB to host services outside a VPC](/docs/vpc?topic=vpc-private-path-service-intro&interface=ui#pps-use-case-5).
 
 ### 22 April 2025
 {: #vpc-apr2225}
@@ -124,19 +124,19 @@ Intel Gaudi 3 accelerated virtual server profile now available in Washington DC 
 {: release-note}
 
 NVIDIA Hopper-1 cluster network profile
-:   The Hopper-1 cluster network profile is now available for IBM Cloud cluster networks. It provides isolated networks for Hopper HGX instances running workloads that require high-bandwidth, low-latency interconnectivity, such as AI training and large-scale simulations. The Hopper-1 network profile supports both H100 and H200 instance profiles. For more information, see [NVIDIA Hopper-1 cluster network profile](/docs/vpc?topic=vpc-cluster-network-hopper-1-profile).
+:   The Hopper-1 cluster network profile is now available for IBM Cloud cluster networks. It provides isolated networks for Hopper HGX instances running workloads that require high-bandwidth, low-latency interconnectivity, such as AI training and large-scale simulations. The Hopper-1 network profile supports both H100 and H200 instance profiles. For more information, see the [NVIDIA Hopper-1 cluster network profile](/docs/vpc?topic=vpc-cluster-network-hopper-1-profile).
 
-Public address ranges (beta)
-:   Accounts that have been granted special approval to preview this feature can now [create a public address range](/docs/vpc?topic=vpc-par-creating&interface=cli). A public address range is a contiguous set of public IPs that you can reserve and bind to a VPC in an availability zone. For more information, see [About public address ranges](/docs/vpc?topic=vpc-about-par&interface=cli).
+Public address ranges (beta release)
+:   Accounts that have been granted special approval to preview this feature can now [create a public address range](/docs/vpc?topic=vpc-par-creating&interface=cli). A public address range is a contiguous set of public IP addresses that you can reserve and bind to a VPC in an availability zone. For more information, see [About public address ranges](/docs/vpc?topic=vpc-about-par&interface=cli).
 
 ### 10 April 2025
 {: #vpc-apr1025}
 {: release-note}
 
 Private path connectivity from IBM Cloud to on-premises locations (select availability)
-:   Accounts with special approval can now connect a consumer service running in IBM Cloud to an on-premises provider service using an ALB as a member of a Private Path NLB pool. This allows you to target on-premises resources while maintaining a private path across IBM Cloud. For more information, see [Using an ALB with a Private Path NLB to host services outside a VPC](/docs/vpc?topic=vpc-private-path-service-intro&interface=ui#pps-use-case-5).
+:   Accounts with special approval can now connect a consumer service running in IBM Cloud to an on-premises provider service by using an ALB as a member of a Private Path NLB pool. This allows you to target on-premises resources while maintaining a private path across IBM Cloud. For more information, see [Using an ALB with a Private Path NLB to host services outside a VPC](/docs/vpc?topic=vpc-private-path-service-intro&interface=ui#pps-use-case-5).
 
-### 8 April 2025
+### 08 April 2025
 {: #vpc-apr825}
 {: release-note}
 
@@ -212,7 +212,7 @@ Montreal region now available
 Backup pool support for load balancers
 :   You can now manage potential failures in your environment by assigning a failover pool to an existing pool. For more information, refer to [Creating an application load balancer in the console](/docs/vpc?topic=vpc-load-balancers&interface=ui#lb-ui-creating-network-load-balancer).
 
-### 4 March 2025
+### 04 March 2025
 {: #vpc-mar0425}
 {: release-note}
 
@@ -260,7 +260,7 @@ GPU H200 profile now available in Washington DC (`us-east`) and Frankfurt (`eu-d
 {: #vpc-jan1425}
 {: release-note}
 
-Confidential computing with Intel Trusted Domain Extension (TDX) for Virtual Servers for VPC (beta)
+Confidential computing with Intel Trusted Domain Extension (TDX) for Virtual Servers for VPC (beta release)
 :   Confidential computing with Intel&reg; Trusted Domain Extension (TDX) for VPC is available for select customers. Contact IBM Sales if you are interested in being allowlisted and using this offering. Confidential computing with Intel TDX offers confidentiality to virtual machines by providing CPU enhancements that are leveraged by the firmware and hardware to provide confidentiality and integrity. Confidential computing with Intel TDX for VPC is available only in the Washington DC (us-east) region. For more information, see [Confidential computing for x86 Virtual Servers for VPC](/docs/vpc?topic=vpc-about-confidential-computing-vpc).
 
 ## December 2024
@@ -277,7 +277,7 @@ File share snapshots
 {: #vpc-dec1024}
 
 Cluster networks for VPC (GA)
-:   Cluster Networks for VPC is now generally available. Cluster networks provide high-bandwidth, low-latency networking for workloads such as AI training and large-scale simulations. Review [Planning considerations for cluster networks](/docs/vpc?topic=vpc-planning-cluster-network&interface=ui) before you [create a cluster network](/docs/vpc?topic=vpc-create-cluster-network&interface=ui). Cluster network profiles define the cluster network performance characteristics and capabilities. Learn more about the [H100 cluster network profile](/docs/vpc?topic=vpc-profiles&interface=api#gpu), the first cluster network profile being introduced. It provides a specialized network that implements the RoCEv2 protocol to enable remote direct memory access for your workloads that are running on the `gx3d-160x1792x8h100` instance profile. For more information, see [About cluster networks](/docs/vpc?topic=vpc-about-cluster-network&interface=ui).
+:   Cluster Networks for VPC are now generally available. Cluster networks provide high-bandwidth, low-latency networking for workloads such as AI training and large-scale simulations. Review [Planning considerations for cluster networks](/docs/vpc?topic=vpc-planning-cluster-network&interface=ui) before you [create a cluster network](/docs/vpc?topic=vpc-create-cluster-network&interface=ui). Cluster network profiles define the cluster network performance characteristics and capabilities. Learn more about the [H100 cluster network profile](/docs/vpc?topic=vpc-profiles&interface=api#gpu), the first cluster network profile being introduced. It provides a specialized network that implements the RoCEv2 protocol to enable remote direct memory access for your workloads that are running on the `gx3d-160x1792x8h100` instance profile. For more information, see [About cluster networks](/docs/vpc?topic=vpc-about-cluster-network&interface=ui).
 
 ### 06 December 2024
 {: #vpc-dec0624}
@@ -289,8 +289,8 @@ IBM Hyper Protect Container Runtime image `ibm-hyper-protect-container-runtime-1
    - [Encryption certificate](/docs/vpc?topic=vpc-about-contract_se#hpcr_contract_encrypt)
    - [Intermediate certificate](/docs/vpc?topic=vpc-cert_validate#download_cert)
 
-Base 64 support for rsyslog configuration
-:  The syslog certificates and the key can be given in base64 format.
+Base64 support for rsyslog configuration
+:  The syslog certificates and the key can be given in Base64 format.
 For more information, see [Syslog](/docs/vpc?topic=vpc-logging-for-hyper-protect-virtual-servers-for-vpc#syslog).
 
 Updated `workload` section for Hyper Protect Secure Build
@@ -307,7 +307,7 @@ Reservations for Bare Metal Servers for VPC (GA)
 :   Reservations for Bare Metal Servers for VPC is now generally available. A reservation is a great option if you want guaranteed resources for future deployments and cost savings. You can choose between either a 1 or 3-year contract term for your reservation. For more information about reservations, see [About Reservations for VPC](/docs/vpc?topic=vpc-about-reserved-virtual-servers-vpc).
 
 Automatic attachments for Reservations (GA)
-:   Automatic attachments for Reservations are now generally available. You can use automatic attachments to automatically attachment resources to a reservation. For more information, see [Automatic attachments for Reservations](/docs/vpc?topic=vpc-automatic-reservation-vpc).
+:   Automatic attachments for Reservations are now generally available. You can use automatic attachments to automatically attach resources to a reservation. For more information, see [Automatic attachments for Reservations](/docs/vpc?topic=vpc-automatic-reservation-vpc).
 
 ### 12 November 2024
 {: #vpc-nov1224}
@@ -440,7 +440,7 @@ Next generation instance profiles available in Sao Paulo (br-sao) region (GA)
 Very High Memory profiles for SAP-HANA (select availability)
 :   New Very High Memory profiles for SAP-HANA are now available. These profiles are only available in Toronto (`ca-tor`) region. For more information, see [x86-64 Very High Memory profiles](/docs/vpc?topic=vpc-profiles&interface=ui#vhmemory). For more information about the Multizone regions, see [Region and data center locations for resource deployment](/docs/overview?topic=overview-locations).
 
-Updated API properties returned for volumes with the `sdp` profile (beta)
+Updated API properties returned for volumes with the `sdp` profile (beta release)
 :   The volume and volume profile property of `unattached_capacity_update_supported` changed to `adjustable_capacity_states`, and the volume and volume profile property of `unattached_iops_update_supported` changed to `adjustable_iops_states`. These changes applies when [listing](/apidocs/vpc-beta/initial#list-volume-profiles) or [retrieving](/apidocs/vpc-beta/initial#get-volume-profile) a volume profile, [creating](/apidocs/vpc-beta/initial#create-volume) or [updating](/apidocs/vpc-beta/initial#update-volume) a volume, [listing volumes](/apidocs/vpc-beta/initial#list-volumes), and [retrieving a volume](/apidocs/vpc-beta/initial#get-volume). For more information, see [Viewing available volume profiles](/docs/vpc?topic=vpc-block-storage-profiles&interface=api#view-iops-profiles).
 
 ### 11 September 2024
@@ -477,7 +477,7 @@ GPU H100 profile available in select regions (select availability)
 ### 28 August 2024
 {: #vpc-aug2824}
 
-Reservations for Bare Metal Servers for VPC (beta)
+Reservations for Bare Metal Servers for VPC (beta release)
 :   Reservations for Bare Metal Servers for VPC is now available as a beta feature. A reservation is a great option if you want guaranteed resources for future deployments and cost savings. You can choose between either a 1 or 3-year contract term for your reservation. For more information about reservations, see [About Reservations for VPC](/docs/vpc?topic=vpc-about-reserved-virtual-servers-vpc).
 
 ### 21 August 2024
@@ -494,14 +494,14 @@ Select availability for {{site.data.keyword.hpvs}} for VPC profiles
 IBM Wazi as a Service available in Frankfurt (`eu-de`) region
 :   {{site.data.keyword.waziaas_full_notm}} (Wazi aaS) is now available in the Frankfurt (`eu-de`) region in {{site.data.keyword.cloud_notm}}. For more information, see [{{site.data.keyword.waziaas_full_notm}} product page](https://www.ibm.com/cloud/wazi-as-a-service){: external}.
 
-### 7 August 2024
+### 07 August 2024
 {: #vpc-aug0724}
 {: release-note}
 
 UI enhancement: Filter instance profiles by business scenario
 :   When provisioning a virtual server, you can now use the **By scenario** tab on the Select an instance profile page to narrow the results to include only applicable instance profiles. For example, you can filter profiles by the following business scenarios: SAP; Web Development and Test; HPC; Confidential computing; AI, Deep learning & Machine learning; Visualizations, VDI; and Storage optimized. When a specific filter is selected, the profile results display only the profiles related to the defined business scenario.
 
-### 5 August 2024
+### 05 August 2024
 {: #vpc-aug0524}
 {: release-note}
 
@@ -617,7 +617,7 @@ Network boot of operating systems with Bare Metal Servers for VPC (GA)
 {: #vpc-may3124}
 {: release-note}
 
-Update firmware on Bare Metal Servers for VPC (beta)
+Update firmware on Bare Metal Servers for VPC (beta release)
 :   With the new Update firmware action on Bare Metal Servers for VPC, you can see if a firmware update is available for your bare metal server and also initiate the update. You can use the UI, CLI, and API to update the firmware. In the console, this action is only visible if the server is stopped and there is a firmware update available. It is recommended to back up your bare metal server before any firmware update. For more information, see [Managing Bare Metal Servers for VPC](/docs/vpc?topic=vpc-managing-bare-metal-servers&interface=ui).
 
 Protocol state filtering on virtual network interfaces can be updated
@@ -638,7 +638,7 @@ Next generation instance profiles available in Tokyo and Osaka regions (select a
 :   The 3rd generation of {{site.data.keyword.cloud_notm}} {{site.data.keyword.vsi_is_short}} are now available as a select availability offering in the Tokyo (`jp-tok`) and Osaka (`jp-osa`) regions, in addition to the Dallas (`us-south`), London (`eu-gb`), Frankfurt (`eu-de`), Washington DC (`us-east`), Toronto (`ca-tor`), Madrid (`eu-es`), and Sydney (`au-syd`) regions. This new generation features virtual server profile families hosted exclusively on 4th Generation Intel&reg; Xeon&reg; Scalable processors to provide the most powerful and performant general-purpose profiles available. For more information, see [Next generation instance profiles](/docs/vpc?topic=vpc-profiles&interface=ui#next-gen-profiles). In the [Balanced](/docs/vpc?topic=vpc-profiles&interface=ui#balanced) family, see the *bx3d* profiles tab. In the [Compute](/docs/vpc?topic=vpc-profiles&interface=ui#compute) family, see the *cx3d* profiles tab. In the [Memory](/docs/vpc?topic=vpc-profiles&interface=ui#memory) family, see the *mx3d* profiles tab. 3rd generation dedicated host profiles are also available. For more information, see *bx3d*, *cx3d*, and *mx3d* profiles in [x86-64 dedicated host profiles](/docs/vpc?topic=vpc-dh-profiles&interface=ui). For more information about the Multizone regions, see [Region and data center locations for resource deployment](/docs/overview?topic=overview-locations).
 
 Security group support for secondary IP addresses (GA)
-:   You can now attach both primary and secondary IP addresses to a security group to refine the binding of security groups rules to a particular port IP instead of all IPs belonging to the port. Also, security group rules now support both source and destination on ingress and egress rules. This allows customers with multiple, secondary private IP addresses associated with a single vNIC to have the ability to apply security group rules to source and destination IP addresses, thus enabling finer granularity in security rules. This enhancement provides the capability to secure the primary IP different from the secondary IPs, and also applies to VIP prefixes (custom routes) used with a vNIC with IP spoofing disabled. For more information, see [Applying security group rules to source and destination IP addresses](/docs/vpc?topic=vpc-security-groups-rules&interface=ui).
+:   You can now attach both primary and secondary IP addresses to a security group to refine the binding of security groups rules to a particular port IP instead of all IP addresses belonging to the port. Also, security group rules now support both source and destination on ingress and egress rules. This allows customers with multiple, secondary private IP addresses associated with a single vNIC to have the ability to apply security group rules to source and destination IP addresses, thus enabling finer granularity in security rules. This enhancement provides the capability to secure the primary IP different from the secondary IP addresses, and also applies to VIP prefixes (custom routes) used with a vNIC with IP spoofing disabled. For more information, see [Applying security group rules to source and destination IP addresses](/docs/vpc?topic=vpc-security-groups-rules&interface=ui).
 
 ### 29 May 2024
 {: #vpc-may2924}
@@ -685,7 +685,7 @@ GPU l4 and l40S profiles now available in Brazil region (GA)
 {: #vpc-apr1824}
 {: release-note}
 
-Third-party image billing and metering (beta)
+Third-party image billing and metering (beta release)
 :   When you select a catalog image, you now have associated billing plans to choose from. Catalog images are billed in one of the following ways:
 
    * Free trial
@@ -696,10 +696,10 @@ Third-party image billing and metering (beta)
 {: #vpc-apr0924}
 {: release-note}
 
-Generic operating system custom images with Virtual Server Instances and Bare Metal Servers for VPC (beta)
+Generic operating system custom images with Virtual Server Instances and Bare Metal Servers for VPC (beta release)
 :   When you create a server on {{site.data.keyword.vpc_full}} (VPC) using an x86 profile, you can use an operating system that is not listed in IBM Cloud by specifying a generic operating system custom image. You can create this custom image by specifying one of the new operating systems with properties that indicate it is generic. When you provision a server by using a generic operating system custom image, most operating system-specific provisioning steps aren't performed, such as console setup and automatic registration. You must provide the appropriate user data if you want your generic operating system custom image to perform these steps. For more information, see [Generic operating system custom images](/docs/vpc?topic=vpc-planning-custom-images&interface=ui#generic-os-custom-images) and [Creating a generic operating system custom image](/docs/vpc?topic=vpc-create-generic-os-custom-image&interface=ui).
 
-Network boot of operating systems with Bare Metal Servers for VPC (beta)
+Network boot of operating systems with Bare Metal Servers for VPC (beta release)
 :   When you create a bare metal server on {{site.data.keyword.vpc_full}} (VPC), you can select to network boot an operating system over the network. The operating system image can be hosted on your own server or on a public server. You can install the booted operating system to a disk or you can run the operating system without a disk. For more information, see [Network booting your own operating system with Bare Metal Servers on VPC](/docs/vpc?topic=vpc-network-boot-bare-metal-servers&interface=ui).
 
 ### 08 April 2024
@@ -731,7 +731,7 @@ Sharing DNS resolution for endpoint gateways across VPCs
 {: release-note}
 
 VMware ESXi 7 End of Market for Bare Metal for VPC
-:   VMware ESXi image on Bare Metal Servers for VPC will no longer be available when you provision a bare metal for VPC servers. If looking to deploy a VMware solution in VPC, consider provisioning VMware Cloud Foundation (VCF) through IBM Cloud VMware Solutions. For more information about this solution, see [VMware Cloud Foundation overview](/docs/vmwaresolutions?topic=vmwaresolutions-vpc-vcf-ovw). For more information on the updated packaging and pricing for VMware® portfolio, see [Packaging and pricing for VMware by Broadcom](/docs/vmwaresolutions?topic=vmwaresolutions-vmwaresol_packaging-pricing).
+:   VMware ESXi image on Bare Metal Servers for VPC will no longer be available when you provision a bare metal for VPC servers. If looking to deploy a VMware solution in VPC, consider provisioning VMware Cloud Foundation (VCF) through IBM Cloud VMware Solutions. For more information about this solution, see the [VMware Cloud Foundation overview](/docs/vmwaresolutions?topic=vmwaresolutions-vpc-vcf-ovw). For more information on the updated packaging and pricing for VMware® portfolio, see [Packaging and pricing for VMware by Broadcom](/docs/vmwaresolutions?topic=vmwaresolutions-vmwaresol_packaging-pricing).
 
 Next generation instance profiles available in Washington DC region (select availability)
 :   The 3rd generation of {{site.data.keyword.cloud_notm}} {{site.data.keyword.vsi_is_short}} are now available as a select availability offering in the Washington DC (`us-east`) region, in addition to the Dallas (`us-south`), London (`eu-gb`), and Frankfurt (`eu-de`) regions. This new generation features virtual server profile families hosted exclusively on 4th Generation Intel&reg; Xeon&reg; Scalable processors to provide the most powerful and performant general-purpose profiles available. For more information, see [Next generation instance profiles](/docs/vpc?topic=vpc-profiles&interface=ui#next-gen-profiles). In the [Balanced](/docs/vpc?topic=vpc-profiles&interface=ui#balanced) family, see the *bx3d* profiles tab. In the [Compute](/docs/vpc?topic=vpc-profiles&interface=ui#compute) family, see the *cx3d* profiles tab. In the [Memory](/docs/vpc?topic=vpc-profiles&interface=ui#memory) family, see the *mx3d* profiles tab. 3rd generation dedicated host profiles are also available. For more information, see *bx3d*, *cx3d*, and *mx3d* profiles in [x86-64 dedicated host profiles](/docs/vpc?topic=vpc-dh-profiles&interface=ui). For more information about the Multizone regions, see [Region and data center locations for resource deployment](/docs/overview?topic=overview-locations).
@@ -741,7 +741,7 @@ Next generation instance profiles available in Washington DC region (select avai
 {: release-note}
 
 Security group support for secondary IP addresses (select availability)
-:   Accounts that are granted special approval to preview this feature can now attach both primary and secondary IP addresses to a security group to refine the binding of security groups rules to a particular port IP instead of all IPs belonging to the port. Also, security group rules now support both source and destination on ingress and egress rules. This allows customers with multiple, secondary private IP addresses associated with a single vNIC to have the ability to apply security group rules to source and destination IP addresses, thus enabling finer granularity in security rules. This enhancement provides the capability to secure the primary IP different from the secondary IPs, and also applies to VIP prefixes (custom routes) used with a vNIC with IP spoofing disabled. For more information, see [Applying security group rules to source and destination IP addresses](/docs/vpc?topic=vpc-security-groups-rules&interface=ui).
+:   Accounts that are granted special approval to preview this feature can now attach both primary and secondary IP addresses to a security group to refine the binding of security groups rules to a particular port IP instead of all IP addresses belonging to the port. Also, security group rules now support both source and destination on ingress and egress rules. This allows customers with multiple, secondary private IP addresses associated with a single vNIC to have the ability to apply security group rules to source and destination IP addresses, thus enabling finer granularity in security rules. This enhancement provides the capability to secure the primary IP different from the secondary IP addresses, and also applies to VIP prefixes (custom routes) used with a vNIC with IP spoofing disabled. For more information, see [Applying security group rules to source and destination IP addresses](/docs/vpc?topic=vpc-security-groups-rules&interface=ui).
 
 ### 25 March 2024
 {: #vpc-mar2524}
@@ -753,7 +753,7 @@ Reservations for VPC (GA)
 {: #vpc-mar2224}
 {: release-note}
 
-Private Path Services for VPC (Beta)
+Private Path Services for VPC (beta release)
 :   Accounts that are granted special approval to preview this feature can now create a [Private Path service](/docs/vpc?topic=vpc-private-path-service-intro&interface=ui) and [Private Path network load balancer](/docs/vpc?topic=vpc-ppnlb-ui-creating-private-path-network-load-balancer&interface=ui).
 
    Private Path services provide private connectivity for IBM Cloud and third-party services. A Private Path service requires a Private Path network load balancer to deploy a service on IBM Cloud and a Virtual Private Endpoint (VPE) gateway for consumers to connect to the service. Traffic stays on the IBM Cloud backbone without traversing the public internet.
@@ -1004,7 +1004,7 @@ IBM Hyper Protect Container Runtime image `ibm-hyper-protect-container-runtime-1
 {: #vpc-dec0123}
 {: release-note}
 
-Reserved Capacity for VPC (Beta)
+Reserved Capacity for VPC (beta release)
 :   You can now reserve capacity for VPC. Reserved capacity is a great option if you want guaranteed resources for future deployments and cost savings. You can choose between either a 1 or 3-year contract term for your reserved capacity. For more information, see [About Reserved Capacity for VPC](/docs/vpc?topic=vpc-about-reserved-virtual-servers-vpc).
 
 ## November 2023
@@ -1163,7 +1163,7 @@ File Storage for Bare metal servers for VPC
 {: #vpc-aug2523}
 {: release-note}
 
-Next generation instance profiles (Beta)
+Next generation instance profiles (beta release)
 :   The 3rd generation of {{site.data.keyword.cloud_notm}} {{site.data.keyword.vsi_is_short}} are available as a beta offering to select customers. This new generation features virtual server profile families hosted exclusively on 4th Generation Intel&reg; Xeon&reg; Scalable processors to provide the most powerful and performant general-purpose profiles available. For more information, see [Next generation instance profiles](/docs/vpc?topic=vpc-profiles&interface=ui#next-gen-profiles) and the *bx3d* and *mx3d* profiles in the [Balanced](/docs/vpc?topic=vpc-profiles&interface=ui#balanced) and [Memory](/docs/vpc?topic=vpc-profiles&interface=ui#memory) profile families.
 
 ### 22 August 2023
@@ -1261,13 +1261,13 @@ IBM Hyper Protect Container Runtime image `ibm-hyper-protect-container-runtime-1
 Instance group integration with network load balancers (GA)
 :  Network Load Balancer for VPC is now integrated with instance groups to improve pool member scaling. When you create or update an instance group for auto scaling, you can now specify the Network Load Balancer pool for the instance group to manage. For more information see [Creating an instance group for auto scaling](/docs/vpc?topic=vpc-creating-auto-scale-instance-group).
 
-Access control modes and granular authorization for File Storage for VPC file shares (beta)
+Access control modes and granular authorization for File Storage for VPC file shares (beta release)
 :   For users with accounts that have access to file shares, you can now specify an access control mode to either restrict mounting a file share to a specific virtual server instance in the VPC or allow VPC-wide file share mounting. File share mount targets that were created before `20-June-2023` have a default of VPC-wide file share mounting. File shares that are created after that date can specify security group access control mode to restrict access to a specific instance. For this option, file shares must be based on the [`dp2` profile](/docs/vpc?topic=vpc-file-storage-profiles&interface=ui#dp2-profile). From the UI, CLI, or API, you set the access control mode when you create or update file shares, and can see the setting when you list file shares and in the file share details. When you create a mount target for a file share with security group access mode, you can specify a [virtual network interface](/docs/vpc?topic=vpc-vni-about) to be created and attached to the mount target with a [security group](/docs/vpc?topic=vpc-using-security-groups). For the virtual network interface, you can specify an existing reserved IP, or specify a subnet and allow the system to assign an IP address. When the mount target is attached and the share is mounted, the virtual network interface performs security group policy check to ensure only authorized virtual server instances can communicate with the share. For more information, see [Mount targets for file shares](/docs/vpc?topic=vpc-file-storage-vpc-about#fs-share-mount-targets).
 
-Data encryption in transit for file shares (beta)
+Data encryption in transit for file shares (beta release)
 :  For users with accounts that have access to file shares, you can enable secure end-to-end encryption of your data when using security group based access control on file shares and mount targets with virtual network interfaces. The traffic between the authorized virtual server and the file share can optionally be IPsec encapsulated by the client. By using an Internet Security Protocol (IPsec), you can establish an encrypted mount connection between the virtual server instance and a file share with the `dp2` profile. The {{site.data.keyword.cloud}} file service provides a [mount helper utility](/docs/vpc?topic=vpc-fs-mount-helper-utility) to automate the complex tasks of configuring and maintaining the connection. For more information, see [Encryption in transit - Securing mount connections between file share and host](/docs/vpc?topic=vpc-file-storage-vpc-eit).
 
-Virtual network interface (beta)
+Virtual network interface (beta release)
 :  Virtual network interfaces are now available in a beta release for use with file share mount targets. For more information see [About virtual network interfaces](/docs/vpc?topic=vpc-vni-about).
 
 ### 16 June 2023
@@ -1308,7 +1308,7 @@ UI Enhancement to the List view
 {: #vpc-may3023}
 {: release-note}
 
-{{site.data.keyword.filestorage_vpc_short}} file share activity tracking event name changes (beta)
+{{site.data.keyword.filestorage_vpc_short}} file share activity tracking event name changes (beta release)
 :    For users with accounts that have access to file shares, when making API requests using a `version` query parameter of `2023-05-30` or later, the shares `targets` property was changed to `mount_targets`. This change affects file share activity tracking events. Events generated when [creating](/apidocs/vpc-beta/initial#create-share-mount-target), [listing](/apidocs/vpc-beta/initial#list-share-mount-targets), [retrieving](/apidocs/vpc-beta/initial#get-share-mount-target), [deleting](/apidocs/vpc-beta/initial#delete-share-mount-target), and [updating](/apidocs/vpc-beta/initial#update-share-mount-target) mount targets for a file share are now `is.share.mount-target.create`, `is.share.mount-target.list`,`is.share.mount-target.read`, `is.share.mount-target.delete`, and `is.share.mount-target.update`. Events for `is.share.target.create`, `is.share.target.list`, `is.share.target.read`, `is.share.target.delete`, and `is.share.target.update` are deprecated and will be removed in a future API release per the VPC beta API [versioning policy](/apidocs/vpc-beta#api-versioning-beta).
 
 ### 19 May 2023
@@ -1333,7 +1333,7 @@ IBM Hyper Protect Container Runtime image `ibm-hyper-protect-container-runtime-1
    - Encryption certificate
    - Intermediate certificate
 
-### 9 May 2023
+### 09 May 2023
 {: #vpc-may0923}
 {: release-note}
 
@@ -1356,21 +1356,21 @@ UI update to enable deletion of nested resources
 Export custom images (GA)
 :   The ability to export custom images to {{site.data.keyword.cos_full_notm}}, a feature previously available in beta, is now generally available. For more information, see [Exporting a custom image to IBM Cloud Object Storage](/docs/vpc?topic=vpc-managing-custom-images&interface=ui#custom-image-export-to-cos).
 
-### 6 April 2023
+### 06 April 2023
 {: #vpc-apr0623}
 {: release-note}
 
-Image lifecycle management for custom images (beta)
+Image lifecycle management for custom images (beta release)
 :   For customers with special access to this feature, you can use the UI, CLI, and API to manage the lifecycle of your custom images with the following three statuses. You can move the image back and forth through all the statuses. You can also schedule status changes to manage the entire lifecycle of the image. For more information, see [Custom image lifecycle](/docs/vpc?topic=vpc-planning-custom-images&interface=ui#custom-image-lifecycle) in [Getting started with custom images](/docs/vpc?topic=vpc-planning-custom-images&interface=ui).
     * `available`: The image can be used to create an instance.
     * `deprecated`: The image can be used to create an instance. Using the `deprecated` status can discourage use of the image before the status changes to `obsolete`.
     * `obsolete`: The image can't be used to create an instance.
 
-### 4 April 2023
+### 04 April 2023
 {: #vpc-apr0423}
 {: release-note}
 
-{{site.data.keyword.filestorage_vpc_short}} high-performance profile (beta)
+{{site.data.keyword.filestorage_vpc_short}} high-performance profile (beta release)
 :    For customers with special access to this feature, you can now create file shares by using the **dp2** high-performance profile. This profile provides higher IOPS and greater capacity than earlier profiles. You can also modify existing file shares to use this profile. For more information, see the [file share profiles overview](/docs/vpc?topic=vpc-file-storage-profiles&interface=ui#file-storage-profile-overview).
 
 ## March 2023
@@ -1477,14 +1477,14 @@ VPC instance metadata communication protocol and hop limit
 Hyper Protect Secure Build
 :    You can now use [Hyper Protect Secure Build](/docs/vpc?topic=vpc-about-hpsb) to securely build an Open Container Initiative (OCI) image in [Hyper Protect Virtual Servers for VPC](/docs/vpc?topic=vpc-about-se). You can push the image to DockerHub or IBM Cloud Container Registry (ICR). Later, you can pull the image from the registry to provision it in another {{site.data.keyword.hpvs}} for VPC instance. You can also pull SLES BaseContainerImages (BCI) from the SUSE registry, and use the images to provision {{site.data.keyword.hpvs}} for VPC instances.
 
-### 9 February 2023
+### 09 February 2023
 {: #vpc-feb0923}
 {: release-note}
 
-Export custom images (Beta)
-:   For accounts that are authorized to preview this feature, you can now export custom images to {{site.data.keyword.cos_full_notm}}. For more information, see [Exporting a custom image to IBM Cloud Object Storage (Beta)](/docs/vpc?topic=vpc-managing-custom-images&interface=ui#custom-image-export-to-cos).
+Export custom images (beta release)
+:   For accounts that are authorized to preview this feature, you can now export custom images to {{site.data.keyword.cos_full_notm}}. For more information, see [Exporting a custom image to IBM Cloud Object Storage (beta release)](/docs/vpc?topic=vpc-managing-custom-images&interface=ui#custom-image-export-to-cos).
 
-### 7 February 2023
+### 07 February 2023
 {: #vpc-feb0723}
 {: release-note}
 
@@ -1494,7 +1494,7 @@ Block Storage fast restore snapshots
 Extra security for VPC snapshots (closed beta)
 :    For customers with special access to this security beta feature, data isolation is provided to store snapshots created from your dedicated hosts. With data isolation extra security, your data is encrypted at rest with a unique key and access to your data is protected by a private firewall.
 
-### 3 February 2023
+### 03February 2023
 {: #vpc-feb0323}
 {: release-note}
 
@@ -1560,7 +1560,7 @@ End of support (EOS) for deprecated VPN for VPC IKE and IPsec ciphers
 {: #vpc-dec2022}
 {: release-note}
 
-Instance provision by volume (Beta)
+Instance provision by volume (beta release)
 :   By default, when a virtual server instance is deleted attached boot volumes are deleted.
 You can disable this behavior, causing the boot volume to instead be detached when the virtual server instance is deleted. You can then attach the boot volume to a new virtual server instance.
 For more information, see [Creating virtual server instances](/docs/vpc?topic=vpc-creating-virtual-servers&interface=ui), [Creating VPC resources with CLI and API](/docs/vpc?topic=vpc-creating-vpc-resources-with-cli-and-api&interface=cli), and [Managing virtual server instances](/docs/vpc?topic=vpc-managing-virtual-server-instances&interface=ui).
@@ -1579,7 +1579,7 @@ IBM Hyper Protect Container Runtime image `ibm-hyper-protect-container-runtime-1
    - Intermediate certificate
 
    Certificate revocation list
-   - Starting from `ibm-hyper-protect-container-runtime-1-0-s390x-7-encrypt.crt` and `ibm-hyper-protect-container-runtime-1-0-s390x-7-attestation.crt`, the certificates contain **Certificate Revocation List (CRL) Distribution Points**. You can use the CRL to verify that your certificates are valid (not revoked). For more information, see [Certificate revocation list](/docs/vpc?topic=vpc-cert_validate#certificate-revocation-list).
+   - Starting from `ibm-hyper-protect-container-runtime-1-0-s390x-7-encrypt.crt` and `ibm-hyper-protect-container-runtime-1-0-s390x-7-attestation.crt`, the certificates contain **Certificate Revocation List (CRL) Distribution Points**. You can use the CRL to verify that your certificates are valid (not revoked). For more information, see the [Certificate revocation list](/docs/vpc?topic=vpc-cert_validate#certificate-revocation-list).
 
 ### 15 December 2022
 {: #vpc-dec1522}
@@ -1628,7 +1628,7 @@ Access management tags to manage VPC resources
     * [Working with tags](/docs/account?topic=account-tag&interface=ui)
     * [Granting users access to tag resources and service IDs](/docs/account?topic=account-access&interface=ui)
 
-### 8 November 2022
+### 08 November 2022
 {: #vpc-nov0822}
 {: release-note}
 
@@ -1660,7 +1660,7 @@ Windows BYOL for multi-tenant hosts
 :   You can now bring your own license for Windows operating systems with a custom image to provision virtual server instances on multi-tenant hosts. Previously Windows BYOL was limited to dedicated hosts. For more information, see [Bring your Own License](/docs/vpc?topic=vpc-byol-vpc-about) and [Getting started with custom images](/docs/vpc?topic=vpc-planning-custom-images).
 
 
-## 3 October 2022
+## 03October 2022
 {: #vpc-oct0322}
 
 VPC Public Ingress Routing
@@ -1800,7 +1800,7 @@ Snapshot and Backup for VPC
 {: #vpc-august0122}
 {: release-note}
 
-Sharing images across an enterprise account (beta)
+Sharing images across an enterprise account (beta release)
 :    You can now share or publish custom images to other accounts within your enterprise by using a private catalog. A private catalog provides a way for you to manage access to products for multiple accounts. You can use any existing x86 virtual server custom image with a private catalog, with the exception of an encrypted image. For more information, see [Getting started with Catalog Images on VPC](/docs/vpc?topic=vpc-getting-started-images-on-vpc-catalog).
 
 ## June 2022

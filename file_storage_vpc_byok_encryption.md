@@ -2,7 +2,7 @@
 
 copyright:
   years: 2022, 2025
-lastupdated: "2025-04-30"
+lastupdated: "2025-07-02"
 
 keywords: file share, customer-managed encryption, encryption, byok, KMS, Key Protect, Hyper Protect Crypto Services,
 
@@ -36,7 +36,7 @@ Configure all required [service-to-service authorizations](/docs/vpc?topic=vpc-f
 
 Follow this procedure to specify customer-managed encryption when you create a file share.
 
-1. In the [{{site.data.keyword.cloud_notm}} console](/login){: external}, go to the **menu icon** ![menu icon](../icons/icon_hamburger.svg) **> Infrastructure** ![VPC icon](../icons/vpc.svg) **> Storage > File Shares**.
+1. In the [{{site.data.keyword.cloud_notm}} console](/login){: external}, go to the **menu icon** ![menu icon](../icons/icon_hamburger.svg) **> Infrastructure** ![VPC icon](../icons/vpc.svg) **> Storage > File storage shares**.
 
 1. Click **Create**.
 
