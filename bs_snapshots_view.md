@@ -2,7 +2,7 @@
 
 copyright:
   years: 2021, 2025
-lastupdated: "2025-06-12"
+lastupdated: "2025-07-03"
 
 keywords: view snapshots, view snapshot, viewing snapshots, see snapshots, Block Storage snapshots
 
@@ -18,8 +18,8 @@ subcollection: vpc
 You can view a list of all snapshots and consistency groups, and drill down to see information about a particular snapshot. Choose the UI, CLI, API, or Terraform to retrieve this information.
 {: shortdesc}
 
-Fast restore snapshot clones, cross-regional copies, and consistency groups are not supported for second-generation storage volumes during the beta phase.
-{: beta}
+Fast restore snapshot clones, cross-regional copies, and consistency groups are not supported for second-generation storage volumes during this release.
+{: preview}
 
 ## Listing snapshots in the console
 {: #snapshots-vpc-view-ui}
