@@ -2,7 +2,7 @@
 
 copyright:
   years: 2019, 2025
-lastupdated: "2025-07-02"
+lastupdated: "2025-07-03"
 
 keywords: Block Storage for VPC, iscsi for VPC, SAN for VPC
 
@@ -16,15 +16,15 @@ subcollection: vpc
 # Setting up your {{site.data.keyword.block_storage_is_short}} data volume for use (Linux)
 {: #start-using-your-block-storage-data-volume-lin}
 
-If you want to use your {{site.data.keyword.block_storage_is_full}} volume as a file system, you need to partition the volume, format it, and then mount it as a file system. You can perform this operation after you created a {{site.data.keyword.block_storage_is_short}} volume and attached it to an instance.
+You can create a {{site.data.keyword.block_storage_is_short}} volume and attached it to an instance in the IBM Cloud console, with the CLI, API or Terraform. If you want to use your {{site.data.keyword.block_storage_is_full}} volume as a file system, your next steps are to partition the volume, format it, and then mount it as a file system. 
 {: shortdesc}
 
-[Connect to your instance](/docs/vpc?topic=vpc-vsi_is_connecting_linux), then follow this procedure to use your Block Storage volume on a Linux&reg; system.
+First [connect to your instance](/docs/vpc?topic=vpc-vsi_is_connecting_linux). Then, follow this procedure from the shell.
 
 ## Listing all storage volumes
 {: #linux-procedure-list-volumes}
 
-Run the following command to list all {{site.data.keyword.block_storage_is_short}} volumes from your instance.
+Run the following command to list all {{site.data.keyword.block_storage_is_short}} volumes that are attached to your instance.
 
 ```sh
 lsblk
@@ -42,19 +42,19 @@ vdb    202:32   0  100G  0 disk
 ```
 {: screen}
 
-Volume `vdb` is your Block Storage data volume.
+Volume `vdb` is your data volume.
 
 ## Partitioning the volume
 {: #linux-procedure-partition-volume}
 
-1. Run the following command to partition the volume.
+1. Run the following command to partition the data volume.
 
    ```sh
    fdisk /dev/vdb
    ```
    {: pre}
 
-2. Type the `n` command for a new partition, then `p` for primary partition.
+2. Type the `n` command for a new partition, then type `p` for primary partition.
 
    ```sh
    Partition type:
@@ -85,16 +85,15 @@ fdisk -s /dev/vdb1
 ```
 {: pre}
 
-## Creating a directory
+## Creating a mount point
 {: #linux-procedure-mkdir}
 
 ```sh
 mkdir /myvolumedir
-mount /dev/vdb1 /myvolumedir
 ```
 {: pre}
 
-## Mounting the volume as a file system
+## Mounting the volume
 {: #linux-procedure-mount-volume}
 
 ```sh
@@ -128,7 +127,7 @@ tmpfs             817040       0    817040   0% /run/user/0
 ```
 {: screen}
 
-Go to the directory in your new file system and create a file.
+Go to the directory and create a file.
 
 ```sh
 cd /myvolumedir
@@ -139,7 +138,7 @@ touch myvolumefile1
 ## Updating the file systems table
 {: #linux-procedure-update-fstab}
 
-Update the configuration file `/etc/fstab` so the data volume is automatically mounted upon boot. Root privileges are needed to update this file with a text editor, like nano, vim, or emacs. It's recommended that you back up the file before you make any changes.
+Update the configuration file `/etc/fstab` so the data volume is automatically mounted upon boot. Root privileges are needed to update this file with a text editor, like nano, vim, or emacs. It is recommended that you back up the file before you make any changes.
 
 ```sh
 sudo cp /etc/fstab /etc/fstab.orig
@@ -158,11 +157,11 @@ Add a line for the newly attached data volume that looks similar to the followin
 /dev/vdb1    /myvolumedir    ext4    defaults,_netdev    0    1
 ```
 
-Instead of the device name, you can also use the UUID. To get the UUID of the data volume, use the `blkid` command.
+Instead of the device name `/dev/vdb1`, you can also use the UUID. To get the UUID of the data volume, use the `blkid` command.
 
 ```sh
 blkid /dev/vdb1
 ```
 {: pre}
 
-After editing, you can use `sudo mount -a` to remount the file systems that are listed in the updated `/etc/fstab` file without restarting your virtual server instance.
+When you're done editing, you can use `sudo mount -a` to remount the file systems that are listed in the updated `/etc/fstab` file without restarting your virtual server instance.
