@@ -2,7 +2,7 @@
 
 copyright:
   years: 2021, 2025
-lastupdated: "2025-06-17"
+lastupdated: "2025-07-03"
 
 keywords: snapshots, Block Storage, snapshot clone, remote copy, fast restore, Block Storage snapshot, cross-regional snapshot
 
@@ -23,8 +23,8 @@ Before you take a snapshot, make sure that all cached data is present on disk, e
 
 You can create a consistency group that contains snapshots of multiple volumes that are attached to a virtual server instance. All snapshots in the consistency group are created at the same time and are loosely coupled. For more information, see [Creating snapshot consistency groups](/docs/vpc?topic=vpc-snapshots-vpc-create-consistency-groups).
 
-You can take a snapshot of a second-generation storage volume even if it is not attached to a running virtual server instance. In this release, fast restore snapshot clones, cross-regional copies, and consistency groups are not supported for second-generation storage volumes. 
-{: beta}
+You can take a snapshot of a second-generation storage volume even if it is not attached to a running virtual server instance. The snapshots feature is available in Dallas (`us-south`), Frankfurt (`eu-de`), London (`eu-gb`), Madrid (`eu-es`), Osaka (`js-osa`), Sao Paulo (`br-sao`), Sydney (`au-sys`), Tokyo (`jp-tok`), Toronto (`ca-tor`), and Washington (`us-east`) regions. Fast restore snapshot clones, and consistency groups are not supported for second-generation storage volumes during the select availability phase.
+{: preview}
 
 ## Creating a snapshot in the console
 {: #snapshots-vpc-create-ui}
@@ -127,7 +127,7 @@ Before you start, gather the following information:
 
 Use the following CLI commands to collect the information that you need.
 
-- `ibmcloud is volumes` - the command lists all available volumes in the region that you selected. Locate the volume in the list, verify the status (`available`), the attachment type (`boot` or `data`), and the resource group.
+- `ibmcloud is volumes` - The command lists all available volumes in the region that you selected. Locate the volume in the list, verify the status (`available`), the attachment type (`boot` or `data`), and the resource group.
 - `ibmcloud is volume VOLUME_ID` - Use this command with the volume ID from the output of the previous command to review the details of the volume. If the output shows that the volume is available, attached to an instance and not busy, you can create a snapshot.
 
 ### Creating a snapshot from the CLI

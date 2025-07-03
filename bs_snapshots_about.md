@@ -136,10 +136,10 @@ The following limitations apply to this release:
 ## Snapshots for second-generation block storage volumes
 {: #sdp-snapshots}
 
-As of 25 March 2025, as a customer with special access, you can provision second-generation storage volumes with the `sdp` profile and create snapshots of these volumes in Frankfurt, Tokyo, and Washington, DC.
-{: beta}
+As a customer with special access to preview the new defined performance profile, you can provision second-generation storage volumes with the `sdp` profile and create snapshots of these volumes. The snapshots feature is available in Dallas (`us-south`), Frankfurt (`eu-de`), London (`eu-gb`), Madrid (`eu-es`), Osaka (`js-osa`), Sao Paulo (`br-sao`), Sydney (`au-sys`), Tokyo (`jp-tok`), Toronto (`ca-tor`), and Washington (`us-east`) regions.
+{: preview}
 
-During the [Beta]{: tag-cyan} phase, you can create up to 512 snapshots. You can even create snapshots when the volumes are unattached.
+During the [Select Availability]{: tag-green} phase, you can create up to 512 snapshots. You can create snapshots even when the `sdp` volumes are unattached.
 
 The snapshots that are created for `sdp` volumes have an independent lifecycle from the parent volume. You can delete the volume and the snapshot persists.
 

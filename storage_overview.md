@@ -68,19 +68,19 @@ Snapshots are independent of the source block storage volumes. You can delete th
 
 You can create a snapshot consistency group that contains snapshots of multiple Block Storage volumes that are attached to the same virtual server instance. You can include or exclude boot volumes. The snapshot consistency group has its own lifecycle, and it keeps references to the member snapshots. So if a member snapshot is deleted or renamed, the consistency group is also updated.
 
-Customer with special access to preview the `sdp` profile can create snapshots of their second-generation block volumes in Frankfurt, Tokyo, , and Washington, DC. In this release, you can create up to 512 snapshots of these volumes. You can even create snapshots when the volumes are unattached.
-{: beta}
+Customer with special access to preview the `sdp` profile can create snapshots of their second-generation block volumes in Dallas, Frankfurt, London, Madrid, Osaka, Sao Paulo, Sydney, Tokyo, Toronto, and Washington, DC. In this release, you can create up to 512 snapshots of these volumes. You can even create snapshots when the volumes are unattached.
+{: preview}
 
 You can use your snapshots to create other second-generation volumes in the same region. You can't use your second-generation snapshot to create a volume with a first-generation volume profile. Similarly, you can't use first-generation volume's snapshot to create a volume with the `sdp` profile. Cross-regional copy of a second-generation snapshot is not supported. Consistency group snapshots of multiple `sdp` volumes and fast restore snapshots are not supported either.
 
 | Features            | First-generation snapshots | Second-generation snapshots |
 |---------------------|--------------------------|---------------------------|
-| Availability        | Generally available in all VPC regions for all customers. | In the [beta]{: tag-cyan} release, available in Frankfurt and Washington, DC for allow-listed customers.|
-| On-demand snapshots | Yes, up to 750 snapshots per region. | Yes, up to 512 snapshots per region in the [beta]{: tag-cyan} release. |
-| Scheduled snapshots | Yes, up to 750 snapshots per region. | Not supported in the [beta]{: tag-cyan} release.|
-| Fast restore clones | Yes. You can cache a copy of your snapshot in any zone of the region. | Not supported in the [beta]{: tag-cyan} release.|
-| Cross-regional copy | Yes, one cross-regional clone per snapshot per region. | Not supported in the [beta]{: tag-cyan} release. |
-| Consistency group   | Multi-volume snapshots are supported. | Not supported in the [beta]{: tag-cyan} release.|
+| Availability        | Generally available in all VPC regions for all customers. | In the [Select Availability]{: tag-green} release, available in Dallas (`us-south`), Frankfurt (`eu-de`), London (`eu-gb`), Madrid (`eu-es`), Osaka (`js-osa`), Sao Paulo (`br-sao`), Sydney (`au-sys`), Tokyo (`jp-tok`), Toronto (`ca-tor`), and Washington (`us-east`) regions for allow-listed customers.|
+| On-demand snapshots | Yes, up to 750 snapshots per region. | Yes, up to 512 snapshots per region in the [Select Availability]{: tag-green} release. |
+| Scheduled snapshots | Yes, up to 750 snapshots per region. | Not supported in the [Select Availability]{: tag-green} release. |
+| Fast restore clones | Yes. You can cache a copy of your snapshot in any zone of the region. | Not supported in the [Select Availability]{: tag-green} release. |
+| Cross-regional copy | Yes, one cross-regional clone per snapshot per region | [Select Availability]{: tag-green} Yes, one cross-regional clone per snapshot per region. |
+| Consistency group   | Multi-volume snapshots are supported. | Not supported in the [Select Availability]{: tag-green} release. |
 {: caption="Block Storage snapshot generations comparison." caption-side="bottom"}
 
 First- and second-generation volume profiles are not interchangeable. You can't create a second-generation block volume with a snapshot that was taken of a first-generation volume. You can't use the snapshot with a second-generation volume profile to create a first-generation volume.
