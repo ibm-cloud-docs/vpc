@@ -19,7 +19,7 @@ subcollection: vpc
 You can create a {{site.data.keyword.block_storage_is_short}} volume and attached it to an instance in the IBM Cloud console, with the CLI, API or Terraform. If you want to use your {{site.data.keyword.block_storage_is_full}} volume as a file system, your next steps are to partition the volume, format it, and then mount it as a file system. 
 {: shortdesc}
 
-First [connect to your instance](/docs/vpc?topic=vpc-vsi_is_connecting_linux). Then, follow this procedure from the shell.
+First, [connect to your instance](/docs/vpc?topic=vpc-vsi_is_connecting_linux). Then, follow this procedure from the shell.
 
 ## Listing all storage volumes
 {: #linux-procedure-list-volumes}
