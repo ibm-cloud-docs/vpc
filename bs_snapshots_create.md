@@ -2,7 +2,7 @@
 
 copyright:
   years: 2021, 2025
-lastupdated: "2025-07-03"
+lastupdated: "2025-07-04"
 
 keywords: snapshots, Block Storage, snapshot clone, remote copy, fast restore, Block Storage snapshot, cross-regional snapshot
 
@@ -94,7 +94,7 @@ In the previous section, you saw how to create a cross-regional snapshot copy wh
 1. Click the Actions menu (![Actions menu](images/overflow.png)) and select **Copy snapshot**.
 1. Select the region where you want to create the copy.
 
-   You can have only one copy per region. You can't create a copy in the local (source) region. During the beta release, you can't create copies of second-generation snapshots.
+   You can have only one copy per region. You can't create a copy in the local (source) region. During the select availability release, you can't create copies of second-generation snapshots.
    {: restriction}
 
 1. Click **Create**.

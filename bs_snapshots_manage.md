@@ -2,7 +2,7 @@
 
 copyright:
   years: 2021, 2025
-lastupdated: "2025-07-03"
+lastupdated: "2025-07-04"
 
 keywords: snapshots, Block Storage snapshots, manage snapshots, fast restore clone, backup snapshot, remote copy, cross-regional copy
 
@@ -19,7 +19,7 @@ You can manage existing snapshots in several ways. Rename existing snapshots to 
 {: shortdesc}
 
 Fast restore snapshot clones, cross-regional copies, and consistency groups are not supported for second-generation storage volumes in the current release. Operations to create such resources in the console, from the CLI, with the API, or Terraform fail inevitably.
-{: beta}
+{: preview}
 
 ## Naming snapshots
 {: #snapshots-vpc-naming}

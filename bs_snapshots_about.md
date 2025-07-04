@@ -147,9 +147,7 @@ Second-generation storage volumes can range in size from 1 TB to 32 TB. You can 
 
 You can use your snapshots to create second-generation volumes in the region where the snapshot is. You can't use your second-generation snapshot to create a volume with a first-generation volume profile. Similarly, a snapshot from a first-generation volume can't be used to create a volume with the 'sdp' profile.
 
-Cross-region copies of snapshots are not supported in this release.
-
-You cannot create of consistency group snapshots of `sdp` volumes. Fast restore clones are not supported for second-generation snapshots yet either.
+Cross-region copies of snapshots are not supported in this release. You cannot create of consistency group snapshots of `sdp` volumes. Fast restore clones are not supported for second-generation snapshots yet either.
 
 ## Securing your data
 {: #bs-snapshot-data-security}
