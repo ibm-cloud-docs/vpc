@@ -2,7 +2,7 @@
 
 copyright:
   years: 2025
-lastupdated: "2025-05-19"
+lastupdated: "2025-07-06"
 
 keywords:
 
@@ -18,6 +18,7 @@ content-type: troubleshoot
 {: #troubleshoot-public-address-ranges-traffic}
 {: troubleshoot}
 {: support}
+
 
 Public Address Ranges for VPC is only available for evaluation and testing purposes for users with special access.
 {: beta}

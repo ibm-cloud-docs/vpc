@@ -2,7 +2,7 @@
 
 copyright:
   years: 2025
-lastupdated: "2025-07-01"
+lastupdated: "2025-07-06"
 
 keywords: vpc, public address ranges, about
 
@@ -15,8 +15,9 @@ subcollection: vpc
 # About public address ranges
 {: #about-par}
 
+
 Public Address Ranges for VPC is only available for evaluation and testing purposes for users with special access.
-{: beta} 
+{: beta}
 
 A public address range is a contiguous set of public IPs that you can reserve and bind to a VPC in an availability zone. 
 {: shortdesc}
@@ -71,7 +72,10 @@ Review the following considerations before creating a public address range:
    * [Configure network ACLs](/docs/vpc?topic=vpc-acl-create-ui&interface=ui) to allow or deny traffic at the subnet level.
    * [Configure VPC egress routes](/docs/vpc?topic=vpc-create-vpc-route&interface=ui) to explicitly direct outbound traffic and avoid unintended paths.
 
-   When setting up these network traffic controls, keep in mind that some users might lack the necessary IAM permissions to secure resources properly. 
+   When setting up these network traffic controls, keep in mind that some users might lack the necessary IAM permissions to secure resources properly.
+
+   When a VPC is created, the default security groups and network ACLs allows inbound and outbound traffic for the supported protocols. To ensure secure and intentional use of these public address range IPs, it is highly recommended to review and customize your security group rules, network ACLs, and egress routes to ensure an adequate security posture. This practice helps prevent unintended access to traffic patterns, particularly when multiple users have permission to deploy virtual server instances and compute resources in your account.
+   {: attention} 
 
 ## Getting started with public address ranges
 {: #par-getting-started}
@@ -121,7 +125,7 @@ If you're using the CLI or API to assign access, use **`is.public-address-range`
 {: tab-group="is.public-address-range"}
 {: class="simple-tab-table"}
 {: summary="Use the tab buttons to change the context of the table. This table provides the available actions for the service, descriptions of each, and the roles that each action are mapped to."}
-{: #actions-table-pr}
+{: #actions-table-pr} 
 
 ## Common use cases
 {: #par-use-cases}

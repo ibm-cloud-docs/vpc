@@ -2,7 +2,7 @@
 
 copyright:
   years: 2025
-lastupdated: "2025-06-18"
+lastupdated: "2025-07-06"
 
 keywords: viewing, deleting, public address range
 
@@ -14,6 +14,7 @@ subcollection: vpc
 
 # Deleting public address ranges
 {: #par-deleting}
+
 
 Public Address Ranges for VPC is only available for evaluation and testing purposes for users with special access.
 {: beta}

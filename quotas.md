@@ -2,7 +2,7 @@
 
 copyright:
   years: 2018, 2025
-lastupdated: "2025-07-03"
+lastupdated: "2025-07-06"
 
 keywords:
 
@@ -124,6 +124,7 @@ Bare metal servers use physical cores and don't count toward your vCPU quota.
 
 Public Address Ranges for VPC is only available for evaluation and testing purposes for users with special access.
 {: beta}
+
 
 | Resource | Quota |
 |--------|-----|

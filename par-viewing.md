@@ -2,7 +2,7 @@
 
 copyright:
   years: 2025
-lastupdated: "2025-06-18"
+lastupdated: "2025-07-06"
 
 keywords: viewing, deleting, public address range
 
@@ -14,6 +14,7 @@ subcollection: vpc
 
 # Viewing public address ranges
 {: #par-viewing}
+
 
 Public Address Ranges for VPC is only available for evaluation and testing purposes for users with special access.
 {: beta}
@@ -127,7 +128,6 @@ To view public address ranges with the API, follow these steps:
 
 ## Related links
 {: #after-view-par}
-
 
 - [IAM roles and actions](/docs/vpc?topic=vpc-about-par#par-access-management)
 - [Quotas and service limits](/docs/vpc?topic=vpc-quotas#par-quotas)
