@@ -15,7 +15,8 @@ subcollection: vpc
 # Known issues for public address ranges
 {: #par-limitations}
 
-Public Address Ranges for VPC is only available for evaluation and testing purposes for users with special access. 
+
+Public Address Ranges for VPC is only available for evaluation and testing purposes for users with special access.
 {: beta}
 
 Before you create a public address range, review the following limitations:

@@ -15,8 +15,9 @@ subcollection: vpc
 # About public address ranges
 {: #about-par}
 
+
 Public Address Ranges for VPC is only available for evaluation and testing purposes for users with special access.
-{: beta} 
+{: beta}
 
 A public address range is a contiguous set of public IPs that you can reserve and bind to a VPC in an availability zone. 
 {: shortdesc}
@@ -124,7 +125,7 @@ If you're using the CLI or API to assign access, use **`is.public-address-range`
 {: tab-group="is.public-address-range"}
 {: class="simple-tab-table"}
 {: summary="Use the tab buttons to change the context of the table. This table provides the available actions for the service, descriptions of each, and the roles that each action are mapped to."}
-{: #actions-table-pr}
+{: #actions-table-pr} 
 
 ## Common use cases
 {: #par-use-cases}

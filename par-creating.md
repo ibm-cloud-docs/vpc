@@ -2,7 +2,7 @@
 
 copyright:
   years: 2025
-lastupdated: "2025-06-27"
+lastupdated: "2025-07-06"
 
 keywords: public address range, create, bind
 
@@ -14,6 +14,7 @@ subcollection: vpc
 
 # Creating public address ranges
 {: #par-creating}
+
 
 Public Address Ranges for VPC is only available for evaluation and testing purposes for users with special access.
 {: beta}
