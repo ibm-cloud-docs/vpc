@@ -2,7 +2,7 @@
 
 copyright:
   years: 2021, 2025
-lastupdated: "2025-07-02"
+lastupdated: "2025-07-07"
 
 keywords: file share, file storage, virtual network interface, encryption in transit, profiles, 
 
@@ -121,8 +121,6 @@ If you're not ready to order yet or just looking for pricing information, you ca
 
 Before you can use the CLI, you must install the IBM Cloud CLI and the VPC CLI plug-in. For more information, see the [CLI prerequisites](/docs/vpc?topic=vpc-set-up-environment#cli-prerequisites-setup).
 {: requirement}
-
-Make sure that you [created an {{site.data.keyword.vpc_short}}](/docs/vpc?topic=vpc-creating-vpc-resources-with-cli-and-api&interface=cli#create-a-vpc-cli).
 
 ### Gathering information from the CLI
 {: #fs-vpc-getinfo-cli}

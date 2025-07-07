@@ -2,7 +2,7 @@
 
 copyright:
   years: 2022, 2025
-lastupdated: "2025-07-02"
+lastupdated: "2025-07-07"
 
 keywords: file share, customer-managed encryption, encryption, byok, KMS, Key Protect, Hyper Protect Crypto Services,
 
@@ -261,7 +261,7 @@ curl -X POST \
      "zone": {"name": "us-south-2"},
      "iops": 3000,
      "allowed_transit_encryption_modes": ["none","user_managed"],
-     "encryption_key": {"crn": "crn:v1:bluemix:public:kms:eu-de:a/a1234567:key:1b5902d3-6a25-4ea5-a493-707c49ccb415"},
+     "encryption_key": {"crn": "crn:v1:bluemix:public:kms:us-south:a/a1234567-c02c-4d7f-81e2-2aa867da176d:key:2fb8d675-bde3-4780-b127-3d0b413631c1"},
      "resource_group": {"id": "db00a952a88945a987b7be1980fdae8e"},
      "access_control_mode": "security_group"
    }'
