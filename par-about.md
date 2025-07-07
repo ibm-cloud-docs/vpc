@@ -2,7 +2,7 @@
 
 copyright:
   years: 2025
-lastupdated: "2025-07-06"
+lastupdated: "2025-07-07"
 
 keywords: vpc, public address ranges, about
 
@@ -74,7 +74,7 @@ Review the following considerations before creating a public address range:
 
    When setting up these network traffic controls, keep in mind that some users might lack the necessary IAM permissions to secure resources properly.
 
-   When a VPC is created, the default security groups and network ACLs allows inbound and outbound traffic for the supported protocols. To ensure secure and intentional use of these public address range IPs, it is highly recommended to review and customize your security group rules, network ACLs, and egress routes to ensure an adequate security posture. This practice helps prevent unintended access to traffic patterns, particularly when multiple users have permission to deploy virtual server instances and compute resources in your account.
+   When a VPC is created, the default security group and network ACL allow inbound and outbound traffic for the supported protocols. To ensure secure and intentional use of these public address range IPs, it is highly recommended to review and customize your security group rules, network ACLs, and egress routes to ensure an adequate security posture. This practice helps prevent unintended access to traffic patterns, particularly when multiple users have permission to deploy virtual server instances and compute resources in your account.
    {: attention} 
 
 ## Getting started with public address ranges

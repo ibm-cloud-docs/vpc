@@ -2,7 +2,7 @@
 
 copyright:
   years: 2022, 2025
-lastupdated: "2025-07-03"
+lastupdated: "2025-07-07"
 
 keywords: block storage for VPC, File Storage for VPC, Snapshots for VPC, Backup for VPC, block storage, file storage, snapshots, backup, 
 
@@ -146,5 +146,5 @@ All profiles of {{site.data.keyword.bm_is_short}} provide one 0.96 TB SATA M.2 m
 * [Create {{site.data.keyword.block_storage_is_short}} snapshots](/docs/vpc?topic=vpc-snapshots-vpc-create).
 * [Create file shares and mount targets](/docs/vpc?topic=vpc-file-storage-create).
 * [Create {{site.data.keyword.filestorage_vpc_short}} snapshots](/docs/vpc?topic=vpc-fs-snapshots-create).
-* [Manage instance storage](/docs/vpc?topic=vpc-instance-storage-provisioning).
 * [Create backup policies](/docs/vpc?topic=vpc-create-backup-policy-and-plan).
+* [Manage instance storage](/docs/vpc?topic=vpc-instance-storage-provisioning).
