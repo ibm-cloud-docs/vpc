@@ -2,7 +2,7 @@
 
 copyright:
   years: 2023, 2025
-lastupdated: "2025-02-24"
+lastupdated: "2025-07-07"
 
 keywords: hyper protect container runtime, error messages, troubleshooting
 
@@ -460,12 +460,6 @@ The following list shows the error messages from Hyper Protect Container Runtime
    - Name: INVALID_INGESTION_HOSTNAME
    - Message: The ingestion hostname [{HOSTNAME}] is invalid.
    - Explanation: The ingestion hostname needs to be of the form ^(syslog[^.]*)\.(.+)$.
-   - System Action: Startup continues but logging is not setup.
-   - User Action: Adjust the contract according to the schema.
-- **HPL01004E**:
-   - Name: INVALID_LOGDNA_INGESTION_CONFIG
-   - Message: Validation of the logDNA config for host [{HOSTNAME}] failed with message [{MESSAGE}].
-   - Explanation: The logDNA configuration is invalid.
    - System Action: Startup continues but logging is not setup.
    - User Action: Adjust the contract according to the schema.
 - **HPL01005E**:

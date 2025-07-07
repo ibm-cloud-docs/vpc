@@ -2,7 +2,7 @@
 
 copyright:
   years: 2022, 2025
-lastupdated: "2025-05-14"
+lastupdated: "2025-07-07"
 
 keywords: confidential computing, enclave, secure execution, hpcr, contract, customization, schema, contract schema, env, workload, encryption
 
@@ -542,27 +542,6 @@ The subsections for the `env` section are:
 ### The `logging` subsection
 {: #hpcr_contract_env_log}
 
-#### LogDNA
-{: #hpcr_contract_logdna}
-
-The LogDNA is deprecated and will no longer be supported as of 30 March 2025. It remains supported until March 2025 along with [IBM Cloud Logs](https://cloud.ibm.com/docs/cloud-logs?topic=cloud-logs-getting-started).
-{: deprecated}
-
-The minimum subsection that is required for this section is the logDNA subsection. For more information, see [Logging for {{site.data.keyword.hpvs}} for VPC](/docs/vpc?topic=vpc-logging-for-hyper-protect-virtual-servers-for-vpc#log-analysis).
-
-The following snippet is an example of the `logDNA` subsection:
-
-
-```yaml
-logging:
-  logDNA:
-    hostname: <host name of the Log Analysis instance>
-    ingestionKey: <ingestion Key of the Log Analysis instance>
-    port: <port default-6514>
-    tags: ["custom tag name 1", "custom tag name 2"]
-```
-{: codeblock}
-
 #### ICL
 {: #hpcr_contract_icl}
 
@@ -977,7 +956,7 @@ Complete the following steps on an Ubuntu system to create the contract signatur
    {: codeblock}
 
 7. Use the following command to export complete path of `env.yaml` and `ibm-hyper-protect-container-runtime-1-0-s390x-23-encrypt.crt`:
-   
+
    ```sh
    ENV="<PATH to env.yaml>"
    CONTRACT_KEY="<PATH to ibm-hyper-protect-container-runtime-1-0-s390x-23-encrypt.crt>"

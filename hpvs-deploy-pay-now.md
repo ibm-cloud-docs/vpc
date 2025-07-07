@@ -2,7 +2,7 @@
 
 copyright:
   years: 2022, 2025
-lastupdated: "2025-05-22"
+lastupdated: "2025-07-07"
 
 keywords: confidential computing, secure execution, hyper protect virtual server for vpc, terraform, tutorial, financial transaction
 
@@ -29,7 +29,7 @@ You can provision {{site.data.keyword.hpvs}} with the advantage of [IBM Secure E
 ## Before you begin
 {: #hpvs-ftcc-before-you-begin}
 
-To complete this tutorial, you need to meet the following prerequisites: 
+To complete this tutorial, you need to meet the following prerequisites:
 1.	Create an IBM Cloud account.
 2.	[Create an API key](/docs/account?topic=account-userapikey) for your user identity.
 3.	[Install IBM Cloud CLI](/docs/cli?topic=cli-install-ibmcloud-cli) and the [container registry CLI plug-in](/docs/cli?topic=cli-containerregcli).
@@ -37,7 +37,7 @@ To complete this tutorial, you need to meet the following prerequisites:
 5.	Create a [Log Analysis instance](https://cloud.ibm.com/catalog/services/cloud-logs?callback=%252Fobservability%252Fapi%252Flogging%252Fcreate){: external} on IBM Cloud. Make a note of the ingestion host and the ingestion key.
 6.	Install [Git](https://github.com/git-guides/install-git){: external}.
 
-## Estimated time 
+## Estimated time
 {: #hpvs-ftcc-estimated-time}
 
 Completing this tutorial takes approximately 60 minutes.
@@ -48,41 +48,41 @@ Completing this tutorial takes approximately 60 minutes.
 ### Step 1. Build the PayNow application container image
 {: #hpvs-ftcc-step1}
 
-1. Use Git to clone the [repo](https://github.com/ibm-hyper-protect/paynow-website){: external}. 
+1. Use Git to clone the [repo](https://github.com/ibm-hyper-protect/paynow-website){: external}.
 
 2. Build the PayNow container image for the linux/s390x platform and tag the container image with the following command:
    ```sh
    docker buildx build --platform linux/s390x -t us.icr.io/hpvs-sample/paynow-website .
    ```
-   {: codeblock} 
+   {: codeblock}
 
 3. Log in to the IBM Cloud Container Registry with the following commands:
    ```sh
    ibmcloud login
    ```
-   {: codeblock} 
+   {: codeblock}
 
    ```sh
    ibmcloud target -r us-south
    ```
-   {: codeblock} 
+   {: codeblock}
 
    ```sh
    ibmcloud cr login --client docker
    ```
-   {: codeblock} 
+   {: codeblock}
 
-4. Create a namespace and push the container image by running the following commands: 
+4. Create a namespace and push the container image by running the following commands:
    ```sh
    ibmcloud cr namespace-add hpvs-sample
    ```
-   {: codeblock} 
-   
+   {: codeblock}
+
    ```sh
    docker push us.icr.io/hpvs-sample/paynow-website
    ```
-   {: codeblock} 
-   
+   {: codeblock}
+
 5. Display the container image digest. You can view and note the container image digest in your [container registry](/registry/images){: external}, or alternatively use the following command:
    ```sh
    docker inspect us.icr.io/hpvs-sample/paynow-website | grep -A 1 RepoDigests
@@ -93,14 +93,14 @@ Completing this tutorial takes approximately 60 minutes.
 {: #hpvs-ftcc-step2}
 
 1. Prepare for contract creation:
-   1. Make sure to have the OpenSSL binary installed. For more information, see [OpenSSL](https://github.com/ibm-hyper-protect/linuxone-vsi-automation-samples){: external}. 
-   2. Install the Terraform CLI for your environment with the [Terraform documentation](https://developer.hashicorp.com/terraform){: external}. 
+   1. Make sure to have the OpenSSL binary installed. For more information, see [OpenSSL](https://github.com/ibm-hyper-protect/linuxone-vsi-automation-samples){: external}.
+   2. Install the Terraform CLI for your environment with the [Terraform documentation](https://developer.hashicorp.com/terraform){: external}.
 
 2. Create the contract:
-   1. Use Git to clone the [repo](https://github.com/ibm-hyper-protect/linuxone-vsi-automation-samples){: external}. 
+   1. Use Git to clone the [repo](https://github.com/ibm-hyper-protect/linuxone-vsi-automation-samples){: external}.
    2. Move to the following directory with the command:
       ```sh
-      cd linuxone-vsi-automation-samples\terraform-hpvs\create-contract-dynamic-registry
+      cd linuxone-vsi-automation-samples/terraform-hpvs/create-contract-dynamic-registry
       ```
       {: codeblock}
 
@@ -116,13 +116,13 @@ Completing this tutorial takes approximately 60 minutes.
    ```
    {: codeblock}
 
-4. Set the required Terraform variables. To do so, you need to copy the file `my-settings.auto.tfvars-template` to `my-settings.auto.tfvars`, edit the copied file, and adapt the variable values. See the following example: 
+4. Set the required Terraform variables. To do so, you need to copy the file `my-settings.auto.tfvars-template` to `my-settings.auto.tfvars`, edit the copied file, and adapt the variable values. See the following example:
    ```sh
+   icl_iam_apikey="IBM API Key"
+   icl_hostname=<instance-id>.ingress.<region>.logs.cloud.ibm.com
    registry="<your container registry, e.g. us.icr.io>"
    pull_username="iamapikey"
    pull_password="<your API key>"
-   logdna_ingestion_key="<the ingestion key of your log instance>"
-   logdna_ingestion_hostname="<the rsyslog endpoint of your log instance without theport, e.g. syslog-a.<log_region>.logging.cloud.ibm.com>"
    ```
    {: codeblock}
 
@@ -143,7 +143,7 @@ Completing this tutorial takes approximately 60 minutes.
    cat build/contract.yml
    ```
    {: codeblock}
- 
+
    Copy the displayed contract. You need to paste the copied contract into an input field in the subsequent steps.
    {: note}
 
@@ -153,14 +153,14 @@ Completing this tutorial takes approximately 60 minutes.
 1.	Log in to [IBM Cloud](/login){: external}.
 2.	Go to the [provisoning page](/infrastructure/provision/vs?architecture=s390x&secureExecution=true){: external} for Hyper Protect Virtual Server for VPC on the IBM Cloud catalog.
 3.	Name the virtual server instance.
-4.	Paste the created contract information into **User data**. 
+4.	Paste the created contract information into **User data**.
 5.	Under the **Networking**, select your VPC and subnet.
 6.	Click **Create virtual server**.
 7.	View the logs in the Log Analysis instance dashboard.
-8.	Assign a floating IP address to the Hyper Protect Virtual Server for VPC instance and click Save. 
+8.	Assign a floating IP address to the Hyper Protect Virtual Server for VPC instance and click Save.
 9.	To open the PayNow website, copy and paste the floating IP address and use your browser to open the PayNow website under the URL `https://<floatingip>:8443/index.html`.
 
-Now, by using Confidential Computing with IBM Cloud Hyper Protect Virtual Server for VPC, you can ensure that you have a level of data security that is unmatched in the industry. 
+Now, by using Confidential Computing with IBM Cloud Hyper Protect Virtual Server for VPC, you can ensure that you have a level of data security that is unmatched in the industry.
 
 ## Next steps
 {: #hpvs-ftcc-next-steps}

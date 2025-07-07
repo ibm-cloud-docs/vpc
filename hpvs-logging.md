@@ -2,7 +2,7 @@
 
 copyright:
   years: 2022, 2025
-lastupdated: "2025-06-27"
+lastupdated: "2025-07-07"
 
 keywords: confidential computing, secure execution, logging for hyper protect virtual server for vpc
 
@@ -122,7 +122,7 @@ For more information, see [Managing {{site.data.keyword.logs_full_notm}} logging
 {: #cloud-logs-migrate}
 
 - Create an [ICL](https://cloud.ibm.com/catalog/services/cloud-logs) instance
-- Prepare a contract modifying the logging section from LogDNA to ICL
+- Prepare a contract ensuring that the logging section is set to ICL
 - Bring down the current HPVS, without deleting the data volumes
 - Create new HPVS attaching the existing volumes with the new contract
 
@@ -429,68 +429,3 @@ There are many ways to set up a compatible server endpoint. The following exampl
    service syslog restart
    ```
    {: codeblock}
-
-## {{site.data.keyword.loganalysislong_notm}}
-{: #log-analysis}
-
-Logging to {{site.data.keyword.loganalysisshort}} is dependent on the state and health of the {{site.data.keyword.loganalysisshort}} service. Service outages might lead to a loss of log data. If you want to log data for audit purposes, it's suggested that you employ your own logging service.
-{: note}
-
-Effective from 31 March 2025, `LOGDNA` is not supported in HPVS contracts.
-{: important}
-
-1. [Log in to your IBM Cloud account](/login){: external}.
-2. [Provision a {{site.data.keyword.loganalysisshort}} instance](/docs/log-analysis?topic=log-analysis-provision). Choose a plan according to your requirements.
-3. After you create the {{site.data.keyword.loganalysisshort}} instance, click it open and click **Open dashboard**.
-4. Click the question mark icon (**Install Instructions**) at the lower left of the page. On the **Add Log Source** page, under **Via Syslog**, click **rsyslog**.
-5. Make a note of the ingestion key value at the upper right of the page, and the endpoint value. In the following example, the endpoint value is `syslog-u.au-syd.logging.cloud.ibm.com`.
-   ```sh
-   ### START Log Analysis rsyslog logging directives ###
-
-   ## TCP TLS only ##
-   $DefaultNetstreamDriverCAFile /etc/ld-root-ca.crt # trust these CAs
-   $ActionSendStreamDriver gtls # use gtls netstream driver
-   $ActionSendStreamDriverMode 1 # require TLS
-   $ActionSendStreamDriverAuthMode x509/name # authenticate by hostname
-   $ActionSendStreamDriverPermittedPeer *.au-syd.logging.cloud.ibm.com
-   ## End TCP TLS only ##
-
-   $template LogDNAFormat,"<%PRI%>%protocol-version% %timestamp:::date-rfc3339% %HOSTNAME% %app-name% %procid% %msgid% [logdna@48950 key=\"bc8a5ba9aa5c0c12b26c6c45089228a4\"] %msg%"
-
-   # Send messages to Log Analysis over TCP using the template.
-   *.* @@syslog-u.au-syd.logging.cloud.ibm.com:6514;LogDNAFormat
-
-   ### END Log Analysis rsyslog logging directives ###
-   ```
-   {: codeblock}
-
-6. Add these values in the `env` `logging` subsection of the contract as the following example shows. For more information, see the [`logging` subsection](/docs/vpc?topic=vpc-about-contract_se&interface=ui#hpcr_contract_logdna).
-
-    ```yaml
-    env:
-      logging:
-        logDNA:
-          hostname: ${RSYSLOG_LOGDNA_HOSTNAME}
-          ingestionKey: ${LOGDNA_INGESTION_KEY}
-    ```
-    {: codeblock}
-
-
-- [optional] port. The default port of logdna is 6514.
-{: note}
-
-   When the {{site.data.keyword.hpvs}} for VPC instance boots, it extracts the {{site.data.keyword.loganalysisshort}} information from the contract and configures accordingly so that all the logs are routed to the endpoint specified. Then, you can open the {{site.data.keyword.loganalysisshort}} dashboard and view the logs from the virtual server instance.
-1. If the LogDNA is used for collecting logs from multiple systems, you can utilise custom tags to isolate logs optionally.
-   Following is an example of a custom tag:
-
-   ```yaml
-   env:
-     logging:
-       logDNA:
-         hostname: ${RSYSLOG_LOGDNA_HOSTNAME}
-         ingestionKey: ${LOGDNA_INGESTION_KEY}
-         tags: ["custom tag name 1", "custom tag name 2"]
-   ```
-
-Custom tags support characters from A-Z, a-z, 0-9, and a hyphen (-).
-{: note}

@@ -92,10 +92,9 @@ Check logs in Log Analysis if your instance shuts down.
     ```yaml
     env: |
       logging:
-        logDNA:
-          hostname: syslog-a.eu-gb.logging.cloud.ibm.com
-          ingestionKey: xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx
-          port: 6514
+        logRouter:
+          hostname: 34be57c7-6ff2-4685-8839-903921e90ab9.ingress.jp-tok.logs.cloud.ibm.com
+          iamApiKey: "xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx"
       volumes:
         test:
           kms:
