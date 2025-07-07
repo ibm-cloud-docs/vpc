@@ -2,7 +2,7 @@
 
 copyright:
   years: 2019, 2025
-lastupdated: "2025-07-03"
+lastupdated: "2025-07-07"
 
 keywords:
 
@@ -29,6 +29,7 @@ For more information about changes to the {{site.data.keyword.vpc_short}} comman
 
 ### 03 July 2025
 {: #vpc-jul0325}
+{: release-note}
 
 Snapshot for second-generation block volumes (select availability)
 :   The snapshots feature for second-generation volumes is now available in Dallas (`us-south`), Frankfurt (`eu-de`), London (`eu-gb`), Madrid (`eu-es`), Osaka (`js-osa`), Sao Paulo (`br-sao`), Sydney (`au-sys`), Tokyo (`jp-tok`), Toronto (`ca-tor`), and Washington (`us-east`) regions for allow-listed customers. For more information, see [About {{site.data.keyword.block_storage_is_short}} snapshots](/docs/vpc?topic=vpc-snapshots-vpc-about).
