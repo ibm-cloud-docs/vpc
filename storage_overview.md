@@ -139,6 +139,13 @@ Data that is stored on instance storage is tied directly to the instance lifecyc
 
 All profiles of {{site.data.keyword.bm_is_short}} provide one 0.96 TB SATA M.2 mirrored SSD as the boot disk. Profile `bx2d-metal-96x384` provides an extra set of NVMe (Non-Volatile Memory Express) U.2 solid-state drives (SSD) as secondary local storage. For more information, see the [Storage overview for Bare Metal Servers for VPC](/docs/vpc?topic=vpc-bare-metal-servers-storage).
 
+## {{site.data.keyword.cos_full_notm}}
+{: #intro-cos}
+
+{{site.data.keyword.cos_full}} is a web-scale platform that stores unstructured data. It provides reliability, security, availability, and disaster recovery without replication. Information that is stored in {{site.data.keyword.cos_short}} is encrypted and dispersed across multiple geographic locations. It is accessible through the {{site.data.keyword.cloud}} console, {{site.data.keyword.cos_full_notm}} CLI, and API. For more information, see [About IBM Cloud Object Storage](/docs/cloud-object-storage?topic=cloud-object-storage-about-cloud-object-storage). 
+
+Within the VPC environment, {{site.data.keyword.cos_short}} has many uses. For example, you can import and store [custom images](docs/vpc?topic=vpc-custom-image-using-COS) for your compute instances. In addition, you need {{site.data.keyword.cos_short}} to collect and store [flow logs](/docs/vpc?topic=vpc-flow-logs) that summarize the network traffic between two virtual network interface cards (vNICs) within a certain time window.
+
 ## Next steps
 {: #vpc-storage-next-steps}
 
@@ -148,3 +155,5 @@ All profiles of {{site.data.keyword.bm_is_short}} provide one 0.96 TB SATA M.2 m
 * [Create {{site.data.keyword.filestorage_vpc_short}} snapshots](/docs/vpc?topic=vpc-fs-snapshots-create).
 * [Create backup policies](/docs/vpc?topic=vpc-create-backup-policy-and-plan).
 * [Manage instance storage](/docs/vpc?topic=vpc-instance-storage-provisioning).
+* [Provision {{site.data.keyword.cos_short}}](/docs/cloud-object-storage?group=provisioning-storage)
+* [Connecting to {{site.data.keyword.cos_full_notm}}](/docs/vpc?topic=vpc-connecting-vpc-cos)

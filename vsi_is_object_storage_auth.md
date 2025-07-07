@@ -2,7 +2,7 @@
 
 copyright:
   years: 2019, 2025
-lastupdated: "2024-02-22"
+lastupdated: "2025-07-07"
 
 keywords: create authorization for {{site.data.keyword.cos_full_notm}}, import image to vpc infrastructure, migrate virtual server, migrate instance
 
@@ -15,25 +15,22 @@ subcollection: vpc
 # Granting access to {{site.data.keyword.cos_full_notm}} to import and export images
 {: #object-storage-prereq}
 
-To import a custom image to {{site.data.keyword.vpc_short}}, or to export a custom image from {{site.data.keyword.vpc_short}}, you must have an instance of {{site.data.keyword.cos_full}}
-available. You must also create a bucket in {{site.data.keyword.cos_full_notm}} to store your images. Finally, you must
-create an authorization so that the Image Service for VPC can access {{site.data.keyword.cos_full_notm}}.
+To import a custom image to {{site.data.keyword.vpc_short}}, or to export a custom image from {{site.data.keyword.vpc_short}}, you must have an instance of {{site.data.keyword.cos_full}} available. You must also create a bucket in {{site.data.keyword.cos_short}} to store your images. Finally, you must create an authorization so that the Image Service for VPC can access {{site.data.keyword.cos_short}}.
 {: shortdesc}
 
 ## Creating an {{site.data.keyword.cos_full_notm}} service instance
 {: #migrate-prereq-icos-instance}
 
-If you need to create an instance of {{site.data.keyword.cos_full_notm}}, see
-[Getting started with {{site.data.keyword.cos_full_notm}}](/docs/cloud-object-storage?topic=cloud-object-storage-getting-started-cloud-object-storage).
+If you need to create an instance of {{site.data.keyword.cos_full_notm}}, see [Getting started with {{site.data.keyword.cos_full_notm}}](/docs/cloud-object-storage?topic=cloud-object-storage-getting-started-cloud-object-storage).
 
-From IBM {{site.data.keyword.iamshort}}, you must create an authorization so that the Image Service for VPC can access {{site.data.keyword.cos_full_notm}}.
+From {{site.data.keyword.iamshort}}, you must create an authorization so that the Image Service for VPC can access {{site.data.keyword.cos_full_notm}}.
 
 ## Creating an authorization
 {: #migrate-prereq-create-service-authorization}
 
-To authorize the Image Service for VPC to access the target service, {{site.data.keyword.cos_full_notm}}, you must create an [authorization](/docs/account?topic=account-serviceauth). To import an image, you must specify the Reader service access role for {{site.data.keyword.cos_full_notm}}. To export an image, you must specify the Writer service access role for {{site.data.keyword.cos_full_notm}}. With both Reader and Writer service access roles for {{site.data.keyword.cos_full_notm}}, you can both import and export images.
+To authorize the Image Service for VPC to access the target service, {{site.data.keyword.cos_full_notm}}, you must create an [authorization](/docs/account?topic=account-serviceauth). To import an image, you must specify the Reader service access role for {{site.data.keyword.cos_short}}. To export an image, you must specify the Writer service access role for {{site.data.keyword.cos_full_notm}}. With both Reader and Writer service access roles for {{site.data.keyword.cos_short}}, you can both import and export images.
 
-### Granting Reader and Writer access with the UI
+### Granting Reader and Writer access in the console
 {: #custom-image-service-authorization-rw-ui}
 {: ui}
 
@@ -43,18 +40,18 @@ Complete the following steps to create an authorization for the Image Service fo
 2. On the Manage authorizations page, click **Create**.
 3. Make your selection for the **Source account**. By default **This account** is selected. Click **Next**. 
 4. Select a source service for the authorization. Specify **VPC Infrastructure Services** as the source service. Click **Next**.
-5. For Resources, make your selection for how you want to scope the access. 
+5. For Resources, select how you want to scope the access. 
     1. Select **Specific resources**.
     2. For Specific resources, select **Resource type** and **Image service for VPC**.
     3. Click **Next**.
 6. For the Target service, select **Cloud Object Storage**. Click **Next**.
-7. For Resources, specify how you want to scope the access. You can use the default selection **All resources**. Click **Next**.
+7. For Resources, specify how you want to scope the access. You can use the default selection of **All resources**. Click **Next**.
 
-    If you want to scope the access to a specific resource within {{site.data.keyword.cos_full_notm}}, you can select **Resources based on selected attributes**. Then make selections to narrow the access according to your preferences.
+    If you want to scope the access to a specific resource within {{site.data.keyword.cos_full_notm}}, you can select **Resources based on selected attributes**. Then, make selections to narrow the access according to your preferences.
     {: tip}
 
 9. For Roles, select both service access roles, **Reader** and **Writer**.
-10. Click **Review** to ensure your selections look correct.
+10. Click **Review** to make sure that your selections look correct.
 11. Click **Authorize**.
 
 For more information, see [Using authorizations to grant access between services](/docs/account?topic=account-serviceauth#serviceauth).
@@ -63,7 +60,7 @@ For more information, see [Using authorizations to grant access between services
 {: #custom-image-service-authorization-rw}
 {: cli}
 
-To grant both `Reader` and `Writer` access to all buckets in {{site.data.keyword.cos_full_notm}}, run the `iam authorization-policy-create` command. The following command authorizes the Image Service for VPC to both import images from any bucket in an {{site.data.keyword.cos_full_notm}} service instance and export images to any bucket in an {{site.data.keyword.cos_full_notm}} service instance.
+To grant both `Reader` and `Writer` access to all buckets in {{site.data.keyword.cos_full_notm}}, run the `iam authorization-policy-create` command. The following command authorizes the Image Service for VPC to both import images from any bucket in an {{site.data.keyword.cos_short}} service instance and export images to any bucket in an {{site.data.keyword.cos_short}} service instance.
 
 ```sh
 ibmcloud iam authorization-policy-create is cloud-object-storage Reader,Writer --source-resource-type image
@@ -76,9 +73,9 @@ For more information, see [`ibmcloud iam authorization-policy-create`](/docs/cli
 {: #custom-image-service-authorization-bucket}
 {: cli}
 
-You can choose to grant authorization to a specific bucket in {{site.data.keyword.cos_full_notm}}. The following example describes how to grant `Reader` access to a specific bucket for importing images from {{site.data.keyword.cos_full_notm}}. To export an image to {{site.data.keyword.cos_full_notm}}, you must also grant `Writer` access.
+You can choose to grant authorization to a specific bucket in {{site.data.keyword.cos_full_notm}}. The following example describes how to grant `Reader` access to a specific bucket for importing images from {{site.data.keyword.cos_short}}. To export an image to {{site.data.keyword.cos_short}}, you must also grant `Writer` access.
 
-Before you run the command you need to know the GUID for the {{site.data.keyword.cos_full_notm}} service instance.
+Before you run the command, you need to know the GUID for the {{site.data.keyword.cos_short}} service instance.
 1. Use the `ibmcloud resource service-instance` command to obtain the GUID. See the following example:
 
    ```sh
@@ -216,8 +213,8 @@ For more information about the arguments and attributes, see the [Terraform docu
 ## Next steps
 {: #next-grant-icos-auth}
 
-When you've completed these steps so that Image Service for VPC can access images in {{site.data.keyword.cos_full_notm}} or export images to {{site.data.keyword.cos_full_notm}}, continue with one of the following topics:
- * [Creating a Linux custom image](/docs/vpc?topic=vpc-create-linux-custom-image)
- * [Creating a Windows custom image](/docs/vpc?topic=vpc-create-windows-custom-image)
+After you completed these steps so that Image Service for VPC can access images in {{site.data.keyword.cos_short}} or export images to {{site.data.keyword.cos_short}}, continue with one of the following topics:
+ * [Creating a Linux-based custom image](/docs/vpc?topic=vpc-create-linux-custom-image)
+ * [Creating a Windows-based custom image](/docs/vpc?topic=vpc-create-windows-custom-image)
  * [Importing a custom image](/docs/vpc?topic=vpc-importing-custom-images-vpc)
  * [Exporting a custom image](/docs/vpc?topic=vpc-managing-custom-images#custom-image-export-to-cos)

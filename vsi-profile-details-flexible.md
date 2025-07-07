@@ -1,9 +1,8 @@
-
 ---
 
 copyright:
   years: 2025, 2025
-lastupdated: "2025-06-26"
+lastupdated: "2025-07-07"
 
 keywords: virtual server instances, flex profile, flexible profile, virtual server profile
 
