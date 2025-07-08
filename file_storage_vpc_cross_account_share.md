@@ -280,7 +280,7 @@ Make a `POST /shares/{share_id}/mount_targets` request and specify a subnet and 
 This example adds a mount target to an existing accessor share, which is identified by ID, and provides a subnet and security group to create the network interface.
 
 ```json
- curl -X POST "$vpc_api_endpoint/v1/shares/f1ab81ef-dd30-459a-85e0-9094164978b1/mount_targets/?version=2023-07=18&generation=2"\
+ curl -X POST "$vpc_api_endpoint/v1/shares/f1ab81ef-dd30-459a-85e0-9094164978b1/mount_targets/?version=2023-07-18&generation=2"\
  -d '{
      "virtual_network_interface": {
         "subnet": {"id": "1a0b3d75-8a62-4c78-9263-f9bcd25a8759"},
