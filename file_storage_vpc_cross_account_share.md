@@ -97,6 +97,7 @@ Zone                             us-south-2
 Profile                          dp2
 Size(GB)                         1000
 IOPS                             1000
+User Tags                        -
 Encryption                       provider_managed
 Mount Targets                    ID                          Name
                                  No mounted targets found.
@@ -111,7 +112,7 @@ Replication status reasons       Status code   Status message
                                  -             -
 Snapshot count                   0
 Snapshot size                    0
-User tags
+Source snapshot                  -
 ```
 {: screen}
 
@@ -136,21 +137,19 @@ $ ibmcloud is share-mount-target-create my-accessor-share --subnet my-subnet --n
 Mounting target for share r006-b696742a-92ee-4f6a-bfd7-921d6ddf8fa6 under account Test Account as user test.user@ibm.com...
 
 ID                          r006-dd497561-c7c9-4dfb-af0a-c84eeee78b61
-Name                        my-cli-share-mount-target-1
-VPC                         ID                                          Name
-                            r006-6e8fb140-5668-45b8-b98a-d5cb0e0bf39b   my-vpc
-
-Access control mode         security_group
-Resource type               share_mount_target
-Virtual network interface   ID                                          Name
-                            r006-13c070d8-d038-49c6-95f5-e8503c5595e3   my-share-vni-1
-
-Lifecycle state             pending
-Mount path                  -
-Transit Encryption          none
-Snapshot count              0
-Snapshot size               0
-User tags
+Name                        my-cli-share-mount-target-1  
+VPC                         ID                                          Name      
+                            r006-912b5ac5-4ed1-4b2a-8f09-5fd8d79f6042   my-vpc      
+                               
+Access control mode         security_group   
+Resource type               share_mount_target   
+Virtual network interface   ID                                          Name             Protocol State Filtering Mode      
+                            0727-709ccc60-0c43-45cb-87b6-7ea1e37ef423   my-share-vni-1   auto      
+                               
+Lifecycle state             stable   
+Mount path                  10.240.64.5:/2be3efe6_6dff_46ea_9cec_b397f3141faf   
+Transit Encryption          none   
+Created                     2024-09-16T21:27:09+00:00   
 ```
 {: screen}
 
@@ -197,6 +196,7 @@ Replication status reasons       Status code   Status message
                                  -             -
 Snapshot count                   0
 Snapshot size                    0
+Source snapshot                  -
 ```
 {: screen}
 
