@@ -127,9 +127,11 @@ Accounts with special approval can now create public address ranges and use thei
 
 | Resource | Quota |
 |--------|-----|
-| Maximum number of public address ranges per account per region | 5 |
+| Maximum number of public address ranges per account per region | 5 [^par] |
 | Prefix size | `/32` to `/28` |
 {: caption="Quotas for public address ranges" caption-side="bottom"}
+
+[^par]: You can increase the quota to a maximum of 10 by contacting support.
 
 ### Reserved IP addresses
 {: #reserved-ip-quotas}
@@ -255,7 +257,7 @@ The following table displays current VPC service limits. Unlike quotas, these li
 | Public gateways | 1 per zone per VPC |
 | Security groups | 5 per [target](/docs/vpc?topic=vpc-using-security-groups#about-security-group-targets) |
 | Rules targeting remote security groups | 15 unique remote security groups across all rules per security group |
-| Public address ranges [Beta]{: tag-purple}| 10 per VPC per zone |
+| Public address ranges [Select Availability]{: tag-green}| 10 per VPC per zone |
 | Secondary volumes per instance | Up to 12 secondary volumes |
 | Image export jobs | 5 active jobs per image, 10 total per image, 20 active jobs per account, per region|
 | Instance groups for auto scale and more | 200 per account |

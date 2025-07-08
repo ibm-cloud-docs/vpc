@@ -2,7 +2,7 @@
 
 copyright:
   years: 2019, 2025
-lastupdated: "2025-04-01"
+lastupdated: "2025-07-08"
 
 keywords: load balancer, network, faqs
 
@@ -167,3 +167,12 @@ The default quota is 10 front-end listeners for a Private Path NLB. To increase 
 {: support}
 
 For more information, see [Quotas and service limits for Private Path network load balancers](/docs/vpc?topic=vpc-quotas#ppnlb-quotas). To increase the quota for your Private Path network load balancer, you must [create a support case](/docs/account?topic=account-open-case).
+
+### What is the recommended setting for health checks when a Private Path network load balancer (NLB) pool targets an application load balancer (ALB)?
+{: #health-checks-private-path-nlb}
+{: faq}
+{: support}
+
+If your ALB member does not support HTTP or HTTPS health checks, set Private Path network load balancer health check protocol and ALB health check and listener protocol to TCP.
+
+If your ALB member supports HTTP or HTTPS health checks, set Private Path NLB health check protocol and ALB health check and listener protocol to HTTP or HTTPS.
