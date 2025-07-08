@@ -2,7 +2,7 @@
 
 copyright:
   years: 2025
-lastupdated: "2025-07-06"
+lastupdated: "2025-07-08"
 
 keywords: public address range, bind, unbind
 
@@ -14,10 +14,9 @@ subcollection: vpc
 
 # Binding, unbinding, and moving public address ranges
 {: #par-unbinding-binding}
-
-
-Public Address Ranges for VPC is only available for evaluation and testing purposes for users with special access.
-{: beta}
+ 
+Accounts with special approval can now create public address ranges and use their IPs in custom route tables to route ingress traffic to VPC resources. Available in Frankfurt and Madrid.
+{: preview} 
 
 You can bind, unbind, and move public address ranges to a VPC in an availability zone with the console, CLI, and API.
 {: shortdesc}

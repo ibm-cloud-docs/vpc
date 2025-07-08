@@ -2,7 +2,7 @@
 
 copyright:
   years: 2025
-lastupdated: "2025-07-06"
+lastupdated: "2025-07-08"
 
 keywords: public address ranges, limitations
 
@@ -13,11 +13,10 @@ subcollection: vpc
 {{site.data.keyword.attribute-definition-list}}
 
 # Known issues for public address ranges
-{: #par-limitations}
+{: #par-limitations} 
 
-
-Public Address Ranges for VPC is only available for evaluation and testing purposes for users with special access.
-{: beta}
+Accounts with special approval can now create public address ranges and use their IPs in custom route tables to route ingress traffic to VPC resources. Available in Frankfurt and Madrid.
+{: preview} 
 
 Before you create a public address range, review the following limitations:
 {: shortdesc}

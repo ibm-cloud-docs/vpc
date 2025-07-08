@@ -2,7 +2,7 @@
 
 copyright:
   years: 2025
-lastupdated: "2025-07-07"
+lastupdated: "2025-07-08"
 
 keywords: vpc, public address ranges, about
 
@@ -13,11 +13,10 @@ subcollection: vpc
 {{site.data.keyword.attribute-definition-list}}
 
 # About public address ranges
-{: #about-par}
+{: #about-par} 
 
-
-Public Address Ranges for VPC is only available for evaluation and testing purposes for users with special access.
-{: beta}
+Accounts with special approval can now create public address ranges and use their IPs in custom route tables to route ingress traffic to VPC resources. Available in Frankfurt and Madrid.
+{: preview} 
 
 A public address range is a contiguous set of public IPs that you can reserve and bind to a VPC in an availability zone. 
 {: shortdesc}
@@ -137,10 +136,18 @@ Public address ranges help customers simplify the integration of network and sec
 
 To manage access to sensitive data effectively, firewalls automatically detect and handle threats using policy-based routing for enhanced security. You can define public address ranges to expose specific services or applications, enabling controlled ingress into the VPC. Define routing rules for public endpoints to redirect ingress traffic to third-party appliances before it reaches the final destination. This approach simplifies the deployment of production-grade applications with the networking and security services required in a VPC.
 
+The following diagram illustrates how to secure your workloads in a VPC using public address ranges. First, traffic from the internet enters the VPC through a public address range. It is then routed through a routing table, redirected through a firewall or third-party appliance, and finally forwarded to the protected applications.
+
+![Secure your workloads in VPC](images/par_use_case_1.svg "Secure your workloads in VPC"){: caption="Secure your workloads in VPC" caption-side="bottom"} 
+
 ### Deploying highly-available and resilient workloads in VPC
 {: #deploy-ha-resilient-workloads-vpc}
 
-To ensure workload resilience, you can use public address ranges to maintain consistent access to services during zonal failures. In the event of a zonal failure, internet traffic is rerouted to a virtual network function (VNF) appliance deployed in another zone for monitoring and inspection, maintaining high availability within the VPC.
+To ensure workload resilience, you can use public address ranges to maintain consistent access to services during zonal failures. In the event of a zonal failure, internet traffic is rerouted to a virtual network function (VNF) appliance deployed in another zone for monitoring and inspection, maintaining high availability within the VPC. 
+
+The following diagram illustrates how to configure routes and firewalls using public address ranges to enable cross-zone failover and support highly available, resilient workloads in your VPC. First, set up two routing paths that are available in two different zones. One path is active and one passive, and each passes through its own firewall.Traffic from the internet enters the VPC through a public address range. It is then routed through a routing table, and redirected through a zone with an active firewall. If a zonal failure affects the active route (Route 1) or Firewall 1, the passive route (Route 2) and Firewall 2 take effect to maintain service continuity.
+
+![Deploying highly-available and resilient workloads in VPC](images/par_use_case_2.svg "Deploy highly-available and resilient workloads in VPC"){: caption="Deploy highly-available and resilient workloads in VPC" caption-side="bottom"} 
     
 ## Related links
 {: #par-related-links}

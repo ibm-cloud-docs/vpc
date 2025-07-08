@@ -2,7 +2,7 @@
 
 copyright:
   years: 2025
-lastupdated: "2025-07-06"
+lastupdated: "2025-07-08"
 
 keywords: viewing, deleting, public address range
 
@@ -13,11 +13,10 @@ subcollection: vpc
 {{site.data.keyword.attribute-definition-list}}
 
 # Viewing public address ranges
-{: #par-viewing}
+{: #par-viewing} 
 
-
-Public Address Ranges for VPC is only available for evaluation and testing purposes for users with special access.
-{: beta}
+Accounts with special approval can now create public address ranges and use their IPs in custom route tables to route ingress traffic to VPC resources. Available in Frankfurt and Madrid.
+{: preview} 
 
 You can view public address ranges with the console, CLI, and API.
 {: shortdesc}

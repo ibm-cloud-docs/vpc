@@ -2,7 +2,7 @@
 
 copyright:
   years: 2018, 2025
-lastupdated: "2025-07-06"
+lastupdated: "2025-07-08"
 
 keywords:
 
@@ -120,11 +120,10 @@ Bare metal servers use physical cores and don't count toward your vCPU quota.
 {: caption="Quotas for Private Path load balancers" caption-side="bottom"}
 
 ### Public address ranges
-{: #par-quotas}
+{: #par-quotas}  
 
-Public Address Ranges for VPC is only available for evaluation and testing purposes for users with special access.
-{: beta}
-
+Accounts with special approval can now create public address ranges and use their IPs in custom route tables to route ingress traffic to VPC resources. Available in Frankfurt and Madrid.
+{: preview} 
 
 | Resource | Quota |
 |--------|-----|
