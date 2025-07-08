@@ -163,8 +163,7 @@ Before you can use the CLI, you must install the IBM Cloud CLI and the VPC CLI p
       Replication status reasons   Status code   Status message      
                                    -             -      
       Snapshot count               10
-      Snapshot size                10
-      User tags                                  
+      Snapshot size                10         
       ```
       {: screen}
 
@@ -206,8 +205,10 @@ Before you can use the CLI, you must install the IBM Cloud CLI and the VPC CLI p
       Replication status           none   
       Replication status reasons   Status code   Status message      
                                    -             -      
+
       Snapshot count               0
-      Snapshot size                0                              
+      Snapshot size                0       
+      Source snapshot              -                       
       ```
       {: screen}
 

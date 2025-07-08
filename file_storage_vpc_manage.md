@@ -2,7 +2,7 @@
 
 copyright:
   years: 2021, 2025
-lastupdated: "2025-07-02"
+lastupdated: "2025-07-08"
 
 keywords: file share, file storage, rename share, increase size, adjust IOPS, mount target
 
@@ -172,7 +172,7 @@ Snapshots are supported only for shares that have *security group* as their acce
    Profile                      dp2
    Size(GB)                     100
    IOPS                         100
-   Encryption                   user_managed
+   Encryption                   user_managed   
    Mount Targets                ID                          Name
                                 No mounted targets found.
 
@@ -261,7 +261,7 @@ These instructions are for the previous generation of file share profiles (gener
    Size(GB)                     1000
    IOPS                         3000
    User Tags                    env:dev,env:prod
-   Encryption                   provider_managed
+   Encryption                   provider_managed   
    Mount Targets                ID                                          Name
                                 r006-c9d82a15-7ead-4388-abc8-88e81c12ed28   my-target121
 
@@ -314,7 +314,7 @@ Before you delete a file share, make sure that it is [unmounted](#fs-mount-unmou
    Size(GB)                     40
    IOPS                         2000
    User Tags                    env:dev,env:prod
-   Encryption                   provider_managed
+   Encryption                   provider_managed   
    Mount Targets                ID                                          Name
                                 r006-36d67ada-ca83-44be-adad-dc58e7c38dc5   my-new-mount-target
 
@@ -842,7 +842,7 @@ You can add and remove tags when you update a file share with the `ibmcloud is s
    Profile                      dp2
    Size(GB)                     1000
    IOPS                         1000
-   Encryption                   provider_managed
+   Encryption                   provider_managed   
    Mount Targets                ID                                          Name
                                 r006-dd497561-c7c9-4dfb-af0a-c84eeee78b61   my-cli-share-mount-target-1
 
@@ -885,12 +885,15 @@ The following example adds two user tags to the file share.
                                 db8e8d865a83e0aae03f25a492c5b39e   Default
 
    Created                      2023-10-18T22:15:15+00:00
+
    Replication role             none
    Replication status           none
    Replication status reasons   Status code   Status message
                                 -             -
+
    Snapshot count               0
-   Snapshot size                0    
+   Snapshot size                0  
+   Source snapshot              -  
    ```
    {: screen}
 

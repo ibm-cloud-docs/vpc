@@ -2,7 +2,7 @@
 
 copyright:
   years: 2024, 2025
-lastupdated: "2025-07-02"
+lastupdated: "2025-07-08"
 
 keywords: file share, file storage, accessor share, cross-account share
 
@@ -190,13 +190,13 @@ Mount Targets                    ID                                          Nam
 Resource group                   ID                                 Name
                                  db8e8d865a83e0aae03f25a492c5b39e   Default
 
-Created                         2024-06-25T00:30:11+00:00
-Replication role                none
-Replication status              none
-Replication status reasons      Status code   Status message
-                                -             -
-Snapshot count                  0
-Snapshot size                   0
+Created                          2024-06-25T00:30:11+00:00
+Replication role                 none
+Replication status               none
+Replication status reasons       Status code   Status message
+                                 -             -
+Snapshot count                   0
+Snapshot size                    0
 ```
 {: screen}
 

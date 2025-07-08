@@ -2,7 +2,7 @@
 
 copyright:
   years: 2022, 2025
-lastupdated: "2025-07-02"
+lastupdated: "2025-07-08"
 
 keywords: file share, file storage, source volume, replica share, 
 
@@ -181,12 +181,15 @@ Replication status reasons   Status code   Status message
                                 db8e8d865a83e0aae03f25a492c5b39e   Default      
                                 
    Created                      2023-10-18T22:15:15+00:00   
+
    Replication role             none   
    Replication status           none   
    Replication status reasons   Status code   Status message      
                                 -             -     
+
    Snapshot count               0
-   Snapshot size                0  
+   Snapshot size                0
+   Source snapshot              -
    ```
    {: screen}
 
@@ -208,7 +211,7 @@ Replication status reasons   Status code   Status message
    Size(GB)                         1000   
    IOPS                             100   
    User Tags                        docs:test 
-   Encryption                       provider_managed   
+   Encryption                       provider_managed      
    Mount Targets                    ID                          Name      
                                     No mounted targets found.      
                                 
@@ -228,7 +231,8 @@ Replication status reasons   Status code   Status message
    Source share                     ID                                          Name            Resource type      
                                     r006-b696742a-92ee-4f6a-bfd7-921d6ddf8fa6   my-file-share   share 
    Snapshot count                   0
-   Snapshot size                    0                                  
+   Snapshot size                    0         
+   Source snapshot                  -                         
    ```
    {: screen}
 
@@ -269,8 +273,10 @@ When you create a replica of a file share in another region, you must use the CR
                                 
    Source share                     ID                                          Name       Resource type  Remote
                                     r006-d8c8821c-a227-451d-a9ed-0c0cd2358829   my-share   share          us-south
+
    Snapshot count                   0
    Snapshot size                    0
+   Source snapshot                  -
    ```
    {: screen}
 

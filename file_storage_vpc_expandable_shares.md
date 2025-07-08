@@ -2,7 +2,7 @@
 
 copyright:
   years: 2022, 2025
-lastupdated: "2025-07-02"
+lastupdated: "2025-07-07"
 
 keywords: file share, file storage, increase capacity, expand capacity, expand share size, file share size
 
@@ -134,8 +134,10 @@ To increase the capacity of a file share from the CLI, use the `share-update` co
    Replication status           none   
    Replication status reasons   Status code   Status message      
                                 -             -      
+
    Snapshot count               0
-   Snapshot size                0                 
+   Snapshot size                0  
+   Source snapshot             -               
    ```
    {: screen}
 
@@ -172,8 +174,10 @@ To increase the capacity of a file share from the CLI, use the `share-update` co
    Replication status           active   
    Replication status reasons   Status code   Status message      
                                 -             -      
+
    Snapshot count               0
    Snapshot size                0 
+   Source snapshot              -
    ```
    {: screen}
 

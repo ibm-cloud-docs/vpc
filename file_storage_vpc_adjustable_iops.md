@@ -2,7 +2,7 @@
 
 copyright:
   years: 2022, 2025
-lastupdated: "2025-07-02"
+lastupdated: "2025-07-08"
 
 keywords: file share, file storage, IOPS, performance needs, adjust IOPS
 
@@ -140,12 +140,14 @@ Before you can use the CLI, you must install the IBM Cloud CLI and the VPC CLI p
                                 db8e8d865a83e0aae03f25a492c5b39e   Default      
                                 
    Created                      2023-10-18T22:15:15+00:00   
+
    Replication role             none   
    Replication status           none   
    Replication status reasons   Status code   Status message      
                                 -             -      
    Snapshot count               0
-   Snapshot size                0                                            
+   Snapshot size                0   
+   Source snapshot              -   
    ```
    {: screen}
 
@@ -178,8 +180,10 @@ Before you can use the CLI, you must install the IBM Cloud CLI and the VPC CLI p
    Replication status           none   
    Replication status reasons   Status code   Status message      
                                 -             -      
+
    Snapshot count               0
-   Snapshot size                0              
+   Snapshot size                0   
+   Source snapshot              -              
    ```
    {: screen}
 
@@ -218,8 +222,10 @@ Resource group               ID                                     Name
                              7f1645c5-8afa-4a7e-860d-3df563e0aa8d   Default
 
 Created                      2023-02-26T20:01:18+05:30
+
 Snapshot count               0
 Snapshot size                0        
+Source snapshot              -
 ```
 {: screen}               
 
