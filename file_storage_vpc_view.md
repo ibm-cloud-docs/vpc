@@ -35,7 +35,7 @@ You can view all file shares, their bindings and mount targets in the console, r
 | Region | Account region for the file share. Select a different region to see file shares for zones in that region. |
 | Name  | The file share name. It can be the original file share or a replica file share. Click the name to see details about that file share. |
 | Status | For a list of statuses for file shares, see [File share lifecycle states](/docs/vpc?topic=vpc-fs-vpc-monitoring). |
-| Resource group | The field displays name of the resource group that the file share belongs to.|
+| Resource group | The field displays the name of the resource group that the file share belongs to.|
 | Location       | The field displays the zone where the file share is. |
 | Mount targets | Number of mount targets that are associated with the file share. You can have one mount target per VPC per file share. |
 | Snapshots | This field shows the number of snapshots that were taken of the file share. This column is hidden by default. Click the ![Settings icon](../icons/settings.svg "Settings") to select which columns you want to see. |
@@ -155,7 +155,8 @@ You can list all your file shares in a region with the `ibmcloud is shares` comm
 ibmcloud is shares
 Listing shares in all resource groups and region us-south under account Test Account as user test.user@ibm.com...
 ID                                          Name                    Lifecycle state   Zone         Profile   Size(GB)   Resource group   Replication role   Accessor binding role   Snapshot count   Snapshot size   
-r006-a8d6af48-0c97-4c6b-bab1-fbefdc1e1e03   my-file-share           stable            us-south-2   dp2       10         defaults         none               none                    0                0   r006-aaf4bfe9-358c-4faa-a4ec-0b955090b940   my-file-share-2         stable            us-south-2   dp2       10         defaults         none               none                    0                0   
+r006-a8d6af48-0c97-4c6b-bab1-fbefdc1e1e03   my-file-share           stable            us-south-2   dp2       10         defaults         none               none                    0                0   
+r006-aaf4bfe9-358c-4faa-a4ec-0b955090b940   my-file-share-2         stable            us-south-2   dp2       10         defaults         none               none                    0                0   
 r006-a60bfa90-a893-40ad-be34-28ab51a963f9   replica-dal-2           stable            us-south-2   dp2       10         defaults         replica            none                    0                0   
 r006-3f21e3c3-e12d-425f-ab77-810cabfde8df   source-dal-1            stable            us-south-1   dp2       10         defaults         source             none                    0                0   
 r006-455b601c-8fc1-4476-8771-4708c49c8ef7   my-replica-share-dal-1  stable            us-south-1   dp2       10         defaults         replica            none                    0                0   

@@ -885,9 +885,9 @@ File shares can be integrated with {{site.data.keyword.mon_full}} to gain operat
 
 Before you delete a file share, make sure that it is [unmounted](#fs-mount-unmount-vsi) from all virtual server instances and that all mount targets that belong to the file share are deleted. If your file share is shared with another account, delete the accessor bindings before you delete the share. Also, if the file share has a replica file share, you must remove the replication relationship. For more information, see [Remove the replication relationship in the console](/docs/vpc?topic=vpc-file-storage-manage-replication&interface=ui#fs-remove-replication-ui){: ui}[Remove the replication relationship from the CLI](/docs/vpc?topic=vpc-file-storage-manage-replication&interface=cli#fs-remove-replication-cli){: cli}[Remove the replication relationship with the API](/docs/vpc?topic=vpc-file-storage-manage-replication&interface=api#fs-remove-replication-api){: api}[Remove the replication relationship with Terraform](/docs/vpc?topic=vpc-file-storage-manage-replication&interface=terraform#fs-remove-replication-terraform){: terraform}.
 
-
 ### Deleting file shares, accessor share bindings, and mount targets in the console
 {: #delete-targets-shares-ui}
+{: ui}
 
 The following instructions can assist you in making sure that share bindings and mount targets are deleted before you try to delete the file share that you no longer need.
 
@@ -918,6 +918,7 @@ The file share must be in a `stable` state or `failed` state.
 
 ### Deleting file shares, accessor share bindings, and mount targets from the CLI
 {: #delete-share-targets-cli}
+{: cli}
 
 The following instructions can assist you in making sure that share bindings and mount targets are deleted before you try to delete the file share that you no longer need.
 
@@ -1023,6 +1024,7 @@ If the file share has snapshots, those snapshots are deleted along with the file
 
 ### Deleting file shares, accessor share bindings, and mount targets with the API
 {: #delete-share-targets-api}
+{: api}
 
 The following instructions can assist you in making sure that share bindings and mount targets are deleted before you try to delete the file share that you no longer need.
 
@@ -1171,6 +1173,7 @@ A `DELETE /shares/$share_id` call can optionally include an `If-Match` header th
 
 ### Deleting file shares, accessor share bindings, or mount targets with Terraform
 {: #delete-file-share-terraform}
+{: terraform}
 
 Use the `terraform destroy` command to conveniently delete a remote object such as a file share. The following example shows the syntax for deleting a share. Substitute the actual ID of the share in for `ibm_is_share.example.id`. To delete a mount target or a share binding, use their IDs with the same command.
 
