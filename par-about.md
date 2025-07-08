@@ -152,5 +152,6 @@ The following diagram illustrates how to configure routes and firewalls using pu
 ## Related links
 {: #par-related-links}
 
+* [Known issues (limitations) for public address ranges](/docs/vpc?topic=vpc-par-limitations&interface=ui)
 * [Quotas and service limits](/docs/vpc?topic=vpc-quotas#par-quotas)
 * [FAQ for public address ranges](/docs/vpc?topic=vpc-faq-public-address-ranges)
