@@ -2,7 +2,7 @@
 
 copyright:
   years: 2019, 2025
-lastupdated: "2025-05-13"
+lastupdated: "2025-07-08"
 
 keywords: api, change log, new features, restrictions, migration
 
@@ -51,6 +51,30 @@ At this time, all instances, and therefore all instance templates, continue to r
 
 The new response code will be rolled out gradually. Each phase of the rollout will be tied to a dated API version. These changes will be announced in future change log updates.
 {: note}
+
+## 8 July 2025
+{: #8-july-2025}
+
+### For all version dates
+{: #8-july-2025-all-version-dates}
+
+**Public address ranges.** Accounts that have been granted special approval to preview this feature can now [create a public address range](/apidocs/vpc/latest#create-public-address-range). A public address range is a contiguous block of public IP addresses that can be bound to a zone in a VPC. You can bind a public address range when creating it, or [update](/apidocs/vpc/latest#update-public-address-range) its binding later by setting its `target`. You can update `target.zone` to bind it to anther zone in the VPC, or update `target.vpc` to bind it to another VPC. Traffic that originates from the internet destined for addresses in a public address range must be routed to resources in the bound VPC zone by [creating VPC routes](/apidocs/vpc/latest#create-vpc-routing-table-route) in the VPC's routing table with `route_internet_ingress` set to `true`.
+
+When [retrieving](/apidocs/vpc/latest#get-vpc) or [listing](/apidocs/vpc/latest#list-vpcs) VPCs, the response now includes the `public_address_ranges` that are bound to each VPC.
+
+Learn about [public address ranges](/docs/vpc?topic=vpc-about-par), and explore the new [API methods](/apidocs/vpc/latest#list-public-address-ranges).
+
+## 30 June 2025
+{: #30-june-2025}
+
+### For version `2025-06-30` or later
+{: #version-2025-06-30}
+
+**Image ownership property and filter change.** When [retrieving](/apidocs/vpc/2025-06-30#get-image), [listing](/apidocs/vpc/2025-06-30#list-images), [creating](/apidocs/vpc/2025-06-30#create-image), or [updating](/apidocs/vpc/2025-06-30#update-image) an image using a `version` query parameter of `2025-06-30` or later, the `remote.account` property replaces the `owner_type` property in the `Image` schema. The new property conveys the same information as the old in a different form.
+
+Additionally, when [listing images](/apidocs/vpc/2025-06-30#list-images), the `remote.account.id` filter replaces the `owner_type` filter. The new filter is functionally equivalent to the old, allowing filtering of images to include or exclude those owned by the requester or by all other accounts. In addition, you can now specify the account ID of the image owner, if different from that of the requester, rather than the type of owner.
+
+For migration guidance, see [Updating to the `2025-06-30` version (image ownership property and filter change)](/docs/vpc?topic=vpc-2025-06-30-image-ownership-property-change). Requests and responses using a `version` query parameter of `2025-06-29` or earlier are unchanged.
 
 ## 13 May 2025
 {: #13-may-2025}
