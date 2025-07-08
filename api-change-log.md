@@ -2,7 +2,7 @@
 
 copyright:
   years: 2019, 2025
-lastupdated: "2025-05-13"
+lastupdated: "2025-07-08"
 
 keywords: api, change log, new features, restrictions, migration
 
@@ -51,6 +51,18 @@ At this time, all instances, and therefore all instance templates, continue to r
 
 The new response code will be rolled out gradually. Each phase of the rollout will be tied to a dated API version. These changes will be announced in future change log updates.
 {: note}
+
+## 30 June 2025
+{: #30-june-2025}
+
+### For version `2025-06-30` or later
+{: #version-2025-06-30}
+
+**Image ownership property and filter change.** When [retrieving](/apidocs/vpc/2025-06-30#get-image), [listing](/apidocs/vpc/2025-06-30#list-images), [creating](/apidocs/vpc/2025-06-30#create-image), or [updating](/apidocs/vpc/2025-06-30#update-image) an image using a `version` query parameter of `2025-06-30` or later, the `remote.account` property replaces the `owner_type` property in the `Image` schema. The new property conveys the same information as the old in a different form.
+
+Additionally, when [listing images](/apidocs/vpc/2025-06-30#list-images), the `remote.account.id` filter replaces the `owner_type` filter. The new filter is functionally equivalent to the old, allowing filtering of images to include or exclude those owned by the requester or by all other accounts. In addition, you can now specify the account ID of the image owner, if different from that of the requester, rather than the type of owner.
+
+For migration guidance, see [Updating to the `2025-06-30` version (image ownership property and filter change)](/docs/vpc?topic=vpc-2025-06-30-image-ownership-property-change). Requests and responses using a `version` query parameter of `2025-06-29` or earlier are unchanged.
 
 ## 13 May 2025
 {: #13-may-2025}
