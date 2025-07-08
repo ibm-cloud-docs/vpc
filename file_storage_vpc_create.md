@@ -578,7 +578,7 @@ A successful response looks like the following example.
 
 Make a `POST /shares/{share_id}/mount_targets` request and specify a subnet and security group for the mount target network interface. The security groups that you associate with a mount target must allow inbound access for the TCP protocol on the NFS port from all servers where you want to mount the share.
 
-This example adds a mount target to an existing file share, which is identified by ID, and provides a subnet and security group to define the network interface. 
+This example adds a mount target to an existing file share, which is identified by ID, and provides a subnet and security group to define the network interface. Encryption in transit is enabled.
 
 ```json
  curl -X POST "$vpc_api_endpoint/v1/shares/f1ab81ef-dd30-459a-85e0-9094164978b1/mount_targets/?version=2023-07-18&generation=2"\
