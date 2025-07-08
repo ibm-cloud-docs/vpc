@@ -12,7 +12,7 @@ subcollection: vpc
 
 {{site.data.keyword.attribute-definition-list}}
 
-# Known issues for public address ranges
+# Known issues (limitations) for public address ranges
 {: #par-limitations} 
 
 Accounts with special approval can now create public address ranges and use their IPs in custom route tables to route ingress traffic to VPC resources. Available in Frankfurt and Madrid.

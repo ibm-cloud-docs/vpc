@@ -116,8 +116,8 @@ If you're using the CLI or API to assign access, use **`is.public-address-range`
 | `is.public-address-range.public-address-range.read` | Read a public address range | Administrator, Editor, Operator, Viewer |
 | `is.public-address-range.public-address-range.list` | List a public address range | Administrator, Editor, Operator, Viewer |
 | `is.public-address-range.public-address-range.create`| Create a public address range | Administrator, Editor|
-| `is.public-address-range.public-address-range.update` \n \n | Modify a public address range | Administrator, Editor|
-| `is.public-address-range.public-address-range.operate` \n \n and `is.public-address-range.public-address-range.update` | Bind, unbind, or move a public address range | Administrator, Editor |
+| `is.public-address-range.public-address-range.update`| Modify a public address range | Administrator, Editor|
+| `is.public-address-range.public-address-range.operate` | Bind, unbind, or move a public address range | Administrator, Editor |
 | `is.public-address-range.public-address-range.delete` | Delete a public address range | Administrator, Editor |
 {: caption="Service actions - Public Address Ranges for VPC" caption-side="top"}
 {: tab-title="Actions"}
@@ -152,5 +152,6 @@ The following diagram illustrates how to configure routes and firewalls using pu
 ## Related links
 {: #par-related-links}
 
+* [Known issues (limitations) for public address ranges](/docs/vpc?topic=vpc-par-limitations&interface=ui)
 * [Quotas and service limits](/docs/vpc?topic=vpc-quotas#par-quotas)
 * [FAQ for public address ranges](/docs/vpc?topic=vpc-faq-public-address-ranges)

@@ -1064,6 +1064,7 @@ toc:
                 - lb-ts-faulted.md
                 - lb-ts-409.md
                 - lb-ts-backend-members.md
+                - ppnlb-ts.md
             - topicgroup:
                 id: tbs-pps
                 label: Troubleshooting Private Path services
