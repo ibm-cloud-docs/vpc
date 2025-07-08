@@ -89,36 +89,6 @@ The owner of a share can change the allowed transit encryption modes. However, b
 1. On the File share details page, locate the allowed transit encryption modes.
 1. Click the **Edit icon** ![Edit icon](../icons/edit-tagging.svg "Edit") to change the current value.
 
-### Deleting file shares, accessor share bindings, and mount targets in the console
-{: #delete-targets-shares-ui}
-
-Before you delete a file share, make sure that it is [unmounted](#fs-mount-unmount-vsi) from all virtual server instances and that all mount targets that belong to the file share are [deleted](#delete-mount-target-ui). If your file share is shared with another account, delete the accessor bindings before you delete the share. Also, if the file share has a replica file share, you must remove the replication relationship. For more information, see [Remove the replication relationship in the console](/docs/vpc?topic=vpc-file-storage-manage-replication&interface=ui#fs-remove-replication-ui).
-
-If the file share has snapshots, those snapshots are deleted along with the file share.
-{: note}
-
-#### Deleting share bindings of a file share in the console
-{: #delete-bindings-ui}
-
-1. Select a file share from the [list of file shares](/docs/vpc?topic=vpc-file-storage-view#file-storage-view-shares-targets-ui).
-1. On the File share details page, scroll to the Accessor share bindings section to locate the binding that you want to delete.
-1. At the end of the row of the binding, click the **Actions** icon ![Actions icon](../icons/action-menu-icon.svg "Actions") and select **Delete**.
-
-#### Deleting mount target of a file share in the console
-{: #delete-mount-target-ui}
-
-1. Select a file share from the [list of file shares](/docs/vpc?topic=vpc-file-storage-view#file-storage-view-shares-targets-ui).
-2. On the File share details page, select a mount target that you want to delete.
-3. Click the Actions icon ![Actions icon](../icons/action-menu-icon.svg "Actions") and select **Delete**.
-
-#### Deleting a file share in the console
-{: #delete-file-share-ui}
-
-The file share must be in a `stable` state or `failed` state.
-
-1. Select a file share from the [list of file shares](/docs/vpc?topic=vpc-file-storage-view).
-2. Click the **Actions** icon ![Actions icon](../icons/action-menu-icon.svg "Actions") at the end of the row and select **Delete**.
-
 ## Managing file shares, accessor share bindings, and mount targets from the CLI
 {: #file-storage-manage-cli}
 {: cli}
@@ -146,26 +116,26 @@ Snapshots are supported only for shares that have *security group* as their acce
    ```sh
    $ ibmcloud is shares
    Listing shares in all resource groups and region us-south under account Test Account as user test.user@ibm.com...
-   ID                                          Name                                 Lifecycle state   Zone         Profile       Size(GB)   Resource group   Replication role
-   r006-600f9bff-3c2e-4542-9fc3-ef3be15da04a   my-file-share-2                      stable            us-south-2   dp2           100        defaults         replica
-   r006-52c68ba5-2754-4c9d-8345-1fe6aa930073   disposal-snare-revivable-chitchat    stable            us-south-3   dp2           10         defaults         replica
-   r006-46541dc4-9e73-453a-9075-90ced0d612c3   trapdoor-urgency-attitude-imposing   stable            us-south-1   dp2           10         defaults         source
-   r006-72604692-0dc5-49fb-8eca-08b16a6a4854   fiction-create-platter-decidable     stable            us-south-3   dp2           10         defaults         replica
-   r006-c23ce229-fee9-4d40-a509-44886b21bb69   prismoid-evergreen-chains-granola    stable            us-south-1   dp2           10         defaults         source
-   r006-89b34134-2be6-4281-ae8e-b1c625d533ae   my-test-share                        stable            us-south-1   dp2           10         defaults         none
-   r006-cc7ab6a0-bb71-4e03-8ef7-dcffca43717f   my-old-file-share                    stable            us-south-1   tier-3iops    40         defaults         none
+   ID                                          Name                    Lifecycle state   Zone         Profile    Size(GB)   Resource group   Replication role   Accessor binding role   Snapshot count   Snapshot size   
+   r006-a8d6af48-0c97-4c6b-bab1-fbefdc1e1e03   my-file-share           stable            us-south-2   dp2        10         defaults         none               none                    0                0   
+   r006-aaf4bfe9-358c-4faa-a4ec-0b955090b940   my-file-share-2         stable            us-south-2   dp2        10         defaults         none               none                    0                0   
+   r006-a60bfa90-a893-40ad-be34-28ab51a963f9   replica-dal-2           stable            us-south-2   dp2        10         defaults         replica            none                    0                0   
+   r006-3f21e3c3-e12d-425f-ab77-810cabfde8df   source-dal-1            stable            us-south-1   dp2        10         defaults         source             none                    0                0   
+   r006-455b601c-8fc1-4476-8771-4708c49c8ef7   my-replica-share-dal-1  stable            us-south-1   dp2        10         defaults         replica            none                    0                0   
+   r006-4dadac27-cd17-42df-a5fe-1388705d33e0   my-source-share-dal-2   stable            us-south-2   dp2        10         defaults         source             none                    0                0   
+   r006-cc7ab6a0-bb71-4e03-8ef7-dcffca43717f   my-old-file-share       stable            us-south-1   tier-3iops 40         defaults         none               -                       -                -
    ```
    {: screen}
 
 1. Run the `ibmcloud is share-update` command and specify a new file share name with the `--name` options.
 
    ```sh
-   ibmcloud is share-update r006-600f9bff-3c2e-4542-9fc3-ef3be15da04a --name my-renamed-share
-   Updating file share r006-600f9bff-3c2e-4542-9fc3-ef3be15da04a under account Test Account as user test.user@ibm.com...
+   ibmcloud is share-update r006-a8d6af48-0c97-4c6b-bab1-fbefdc1e1e03 --name my-renamed-share
+   Updating file share r006-a8d6af48-0c97-4c6b-bab1-fbefdc1e1e03 under account Test Account as user test.user@ibm.com...
 
-   ID                           r006-600f9bff-3c2e-4542-9fc3-ef3be15da04a
+   ID                           r006-a8d6af48-0c97-4c6b-bab1-fbefdc1e1e03
    Name                         my-renamed-share
-   CRN                          crn:v1:bluemix:public:is:us-south-2:a/a1234567::share:r006-600f9bff-3c2e-4542-9fc3-ef3be15da04a
+   CRN                          crn:v1:bluemix:public:is:us-south-2:a/a1234567::share:r006-a8d6af48-0c97-4c6b-bab1-fbefdc1e1e03
    Lifecycle state              stable
    Access control mode          vpc
    Zone                         us-south-2
@@ -190,8 +160,9 @@ Snapshots are supported only for shares that have *security group* as their acce
    Replication status reasons   Status code   Status message
                                 -             -
 
-   Source share                 ID                                          Name   Resource type
-                                r006-9272410d-38b2-447e-b98f-abc944ea02cc   dal1   share
+   Snapshot count               0
+   Snapshot size                0   
+   Source snapshot              -  
    ```
    {: screen}
 
@@ -207,8 +178,8 @@ For more information about the command options, see [`ibmcloud is share-update`]
 
 1. Use the share's name or ID to find its mount targets with the `ibmcloud is share-mount-targets` command.
    ```sh
-   $ ibmcloud is share-mount-targets r006-e4acfa9b-88b0-4f90-9320-537e6fa3482a
-   Listing share mount target of r006-e4acfa9b-88b0-4f90-9320-537e6fa3482a in all resource groups and region us-south under account Test Account as user test.user@ibm.com...
+   $ ibmcloud is share-mount-targets r006-a8d6af48-0c97-4c6b-bab1-fbefdc1e1e03
+   Listing share mount target of r006-a8d6af48-0c97-4c6b-bab1-fbefdc1e1e03 in all resource groups and region us-south under account Test Account as user test.user@ibm.com...
    ID                                          Name                     VPC      Lifecycle state   Transit Encryption
    r006-fdbffc45-618c-49f1-bb08-ec530d7be378   my-source-mount-target   my-vpc   stable            none
    ```
@@ -216,7 +187,7 @@ For more information about the command options, see [`ibmcloud is share-update`]
 
 1. To rename the mount target, run the `share-mount-target-update` command with the file share name or ID, and the mount target name. Specify a new mount target name with the `--name` option.
    ```sh
-   ibmcloud is share-mount-target-update r006-e4acfa9b-88b0-4f90-9320-537e6fa3482a r006-fdbffc45-618c-49f1-bb08-ec530d7be378 --name my-renamed-mount-target
+   ibmcloud is share-mount-target-update r006-a8d6af48-0c97-4c6b-bab1-fbefdc1e1e03 r006-fdbffc45-618c-49f1-bb08-ec530d7be378 --name my-renamed-mount-target
    ```
    {: screen}
 
@@ -235,13 +206,14 @@ These instructions are for the previous generation of file share profiles (gener
    ```sh
    $ ibmcloud is shares
    Listing shares in all resource groups and region us-south under account Test Account as user test.user@ibm.com...
-   ID                                          Name                                 Lifecycle state   Zone         Profile       Size(GB)   Resource group   Replication role
-   r006-52c68ba5-2754-4c9d-8345-1fe6aa930073   disposal-snare-revivable-chitchat    stable            us-south-3   dp2           10         defaults         replica
-   r006-46541dc4-9e73-453a-9075-90ced0d612c3   trapdoor-urgency-attitude-imposing   stable            us-south-1   dp2           10         defaults         source
-   r006-72604692-0dc5-49fb-8eca-08b16a6a4854   fiction-create-platter-decidable     stable            us-south-3   dp2           10         defaults         replica
-   r006-c23ce229-fee9-4d40-a509-44886b21bb69   prismoid-evergreen-chains-granola    stable            us-south-1   dp2           10         defaults         source
-   r006-89b34134-2be6-4281-ae8e-b1c625d533ae   test-share                           stable            us-south-1   dp2           10         defaults         none
-   r006-cc7ab6a0-bb71-4e03-8ef7-dcffca43717f   my-old-file-share                    stable            us-south-1   tier-3iops    40         defaults         none
+   ID                                          Name                    Lifecycle state   Zone         Profile    Size(GB)   Resource group   Replication role   Accessor binding role   Snapshot count   Snapshot size   
+   r006-a8d6af48-0c97-4c6b-bab1-fbefdc1e1e03   my-file-share           stable            us-south-2   dp2        10         defaults         none               none                    0                0   
+   r006-aaf4bfe9-358c-4faa-a4ec-0b955090b940   my-file-share-2         stable            us-south-2   dp2        10         defaults         none               none                    0                0   
+   r006-a60bfa90-a893-40ad-be34-28ab51a963f9   replica-dal-2           stable            us-south-2   dp2        10         defaults         replica            none                    0                0   
+   r006-3f21e3c3-e12d-425f-ab77-810cabfde8df   source-dal-1            stable            us-south-1   dp2        10         defaults         source             none                    0                0   
+   r006-455b601c-8fc1-4476-8771-4708c49c8ef7   my-replica-share-dal-1  stable            us-south-1   dp2        10         defaults         replica            none                    0                0   
+   r006-4dadac27-cd17-42df-a5fe-1388705d33e0   my-source-share-dal-2   stable            us-south-2   dp2        10         defaults         source             none                    0                0   
+   r006-cc7ab6a0-bb71-4e03-8ef7-dcffca43717f   my-old-file-share       stable            us-south-1   tier-3iops 40         defaults         none               -                       -                -
    ```
    {: screen}
 
@@ -273,110 +245,14 @@ These instructions are for the previous generation of file share profiles (gener
    Replication status           none
    Replication status reasons   Status code   Status message
                                 -             -
+
+   Snapshot count               0
+   Snapshot size                0   
+   Source snapshot              - 
    ```
    {: screen}
 
 For more information about the command options, see [`ibmcloud is share-update`](/docs/vpc?topic=vpc-vpc-reference#share-update).
-
-### Deleting file shares, accessor share bindings, and mount targets from the CLI
-{: #delete-share-targets-cli}
-
-Before you delete a file share, make sure that it is [unmounted](#fs-mount-unmount-vsi) from all virtual server instances and that all mount targets that belong to the file share are [deleted](#delete-mount-target-cli). If your file share is shared with another account, delete the accessor bindings before you delete the share. Also, if the file share has a replica file share, you must remove the replication relationship. For more information, see [Remove the replication relationship from the CLI](/docs/vpc?topic=vpc-file-storage-manage-replication&interface=cli#fs-remove-replication-cli).
-
-1. Locate the file share that you want to delete by listing all the file shares with the `ibmcloud is shares` command.
-
-   ```sh
-   ibmcloud is sharesListing shares in all resource groups and region us-south under account Test Account as user test.user@ibm.com...
-   ID                                          Name                    Lifecycle state   Zone         Profile   Size(GB)   Resource group   Replication role
-   r006-dc6a644d-c7da-4c91-acf0-d66b47fc8516   my-replica-file-share   stable            us-south-1   dp2       1500       Default          replica
-   r006-e4acfa9b-88b0-4f90-9320-537e6fa3482a   my-source-file-share    stable            us-south-2   dp2       1500       Default          source
-   r006-6d1719da-f790-45cc-9f68-896fd5673a1a   my-replica-share        stable            us-south-3   dp2       1000       Default          replica
-   r006-925214bc-ded5-4626-9d8e-bc4e2e579232   my-new-file-share       stable            us-south-2   dp2       500        Default          none
-   r006-97733317-35c3-4726-9c28-1159de30012e   my-file-share-8         stable            us-south-1   dp2       40         Default          none
-   r006-b1707390-3825-41eb-a5bb-1161f77f8a58   my-vpc-file-share       stable            us-south-2   dp2       1000       Default          none
-   r006-b696742a-92ee-4f6a-bfd7-921d6ddf8fa6   my-file-share           stable            us-south-2   dp2       1000       Default          source
-   ```
-   {: screen}
-
-1. Retrieve the file share details to see the attached mount target and replication information with the `ibmcloud is share` command.
-
-   ```sh
-   $ ibmcloud is share my-file-share-8
-   Getting file share my-file-share-8 under account Test Account as user test.user@ibm.com...
-
-   ID                           r006-97733317-35c3-4726-9c28-1159de30012e
-   Name                         my-file-share-8
-   CRN                          crn:v1:bluemix:public:is:us-south-1:a/a1234567::share:r006-97733317-35c3-4726-9c28-1159de30012e
-   Lifecycle state              stable
-   Access control mode          vpc
-   Zone                         us-south-1
-   Profile                      dp2
-   Size(GB)                     40
-   IOPS                         2000
-   User Tags                    env:dev,env:prod
-   Encryption                   provider_managed   
-   Mount Targets                ID                                          Name
-                                r006-36d67ada-ca83-44be-adad-dc58e7c38dc5   my-new-mount-target
-
-   Resource group               ID                                 Name
-                                db8e8d865a83e0aae03f25a492c5b39e   Default
-
-   Created                      2023-10-18T23:52:45+00:00
-   Replication role             none
-   Replication status           none
-   Replication status reasons   Status code   Status message
-                                -             -
-   ```
-   {: screen}
-
-#### Deleting share bindings of a file share from the CLI
-{: #delete-bindings-cli}
-
-Run the `share-binding-delete` command and specify the origin file share and binding by either their names or IDs. Type `y` when you're prompted. If more than one bindings are attached to the file share, repeat this step until all bindings are deleted. See the following example.
-
-```sh
-$ ibmcloud is share-bindings-delete my-origin-share r-006-c2e53b1b-3b15-4792-8d96-c9c035fd65c3
-This will delete accessor binding r-006-c2e53b1b-3b15-4792-8d96-c9c035fd65c3 for share ID my-origin-share and cannot be undone. Continue [y/N] ?> y
-Deleting binding r-006-c2e53b1b-3b15-4792-8d96-c9c035fd65c3 for share ID my-origin-share under account Test Account as user test.user@ibm.com...
-OK
-Binding r-006-c2e53b1b-3b15-4792-8d96-c9c035fd65c3 is deleted.
-```
-{: screen}
-
-#### Deleting a mount target of a file share from the CLI
-{: #delete-mount-target-cli}
-
-Run the `share-mount-target-delete` command and specify the file share and mount target by either their names or IDs. Type `y` when you're prompted. If more than one mount targets are attached to the file share, repeat this step until all mount targets are deleted.
-
-```sh
-$ ibmcloud is share-mount-target-delete my-file-share-8 my-new-mount-target
-This will delete mounted target my-new-mount-target for share ID my-file-share-8 and cannot be undone. Continue [y/N] ?> y
-Deleting mounted target my-new-mount-target for share ID my-file-share-8 under account Test Account as user test.user@ibm.com...
-OK
-Share mount target my-new-mount-target is deleted.
-```
-{: pre}
-
-For more information about the command options, see [`ibmcloud is share-mount-target-delete`](/docs/vpc?topic=vpc-vpc-reference#share-mount-target-delete).
-
-#### Deleting a file share from the CLI
-{: #delete-file-share-cli}
-
-The file share must be in a `stable` or `failed` state. To delete the file share, run the `share_delete` command and specify the file share by its name or ID.
-
-```sh
-$ ibmcloud is share-delete my-file-share-8
-This will delete file share my-file-share-8 and cannot be undone. Continue [y/N] ?> y
-Deleting file share my-file-share-8 under account Test Account as user test.user@ibm.com...
-OK
-File share my-file-share-8 is deleted.
-```
-{: screen}
-
-For more information about the command options, see [`ibmcloud is share-delete`](/docs/vpc?topic=vpc-vpc-reference#share-delete).
-
-If the file share has snapshots, those snapshots are deleted along with the file share.
-{: note}
 
 ### Updating allowed transit encryption modes from the CLI
 {: #fs-update-transit-encryption-cli}
@@ -559,154 +435,6 @@ curl -X PATCH \
 ```
 {: codeblock}
 
-### Deleting file shares, accessor share bindings, and mount targets with the API
-{: #delete-share-targets-api}
-
-Before you delete a file share, make sure that it is [unmounted](#fs-mount-unmount-vsi) from all virtual server instances and that all mount targets that belong to the file share are [deleted](#delete-mount-target-api). If your file share is shared with another account, delete the accessor bindings before you delete the share. Also, if the file share has a replica file share, you must remove the replication relationship. For more information, see [Remove the replication relationship with the API](/docs/vpc?topic=vpc-file-storage-manage-replication&interface=api#fs-remove-replication-api).
-
-#### Deleting share bindings of a file share with the API
-{: #delete-bindings-api}
-
-You can programmatically delete a share binding by calling the `/shares` method in the [VPC API](/apidocs/vpc/latest){: external} as shown in the following sample request.
-{: api}
-
-```sh
-curl -X DELETE "$vpc_api_endpoint/v1/shares/v1/shares/$share_id/bindings/$binding_id?version=2024-06-21&generation=2"
-```
-{: pre}
-
-#### Deleting mount target of a file share with the API
-{: #delete-mount-target-api}
-
-Make a `DELETE /shares/{share_ID}/mount_targets/{target_id}` call to delete a mount target of a file share. The file share must be in a `stable` state. A file share cannot be deleted, if an existing mount target is associated with that file share or if replica operations are in progress.
-
-See the following example.
-
-```sh
-curl -X DELETE \
-"$vpc_api_endpoint/v1/shares/$share_id/mount_targets/$target_id?version=2023-08-08&generation=2"\
-  -H "Authorization: Bearer ${API_TOKEN}"
-```
-{: pre}
-
-A successful response has a confirmation of acceptance for deletion and a response that contains the target information. 
-
-The following example shows a mount target where `access_control_mode` is `security_group`. The response shows the security group and subnet. You can see the specifics of the reserved IP address that was used for the virtual network interface of the mount target in the `primary_ip` section. By default the virtual network interface is deleted along with the mount target when the mount target is deleted. Status of mount target shows *deleting* while the deletion is underway.
-
-```json
-{
-  "access_control_mode": "security_group",
-  "created_at": "2022-08-08T01:59:46.000Z",
-  "href": "https://us-south.iaas.cloud.ibm.com/v1/shares/0995b8c6-c323-4e59-9ea9-fa14dd66bba8/mount_targets/9fdf4438-f5b4-4b6f-8bca-602494fd6c31",
-  "id": "9fdf4438-f5b4-4b6f-8bca-602494fd6c31",
-  "lifecycle_reasons": [],
-  "lifecycle_state": "deleting",
-  "mount_path": "domain.com:/vol_xyz_2891fd0a_63aa_4deb_9ed5_1159e37cb5aa",
-  "name": "target-name1",
-  "primary_ip": {
-    "address": "10.10.12.64",
-    "href": "https://us-south.iaas.cloud.ibm.com/v1/subnets/2302-ea5fe79f-52c3-4f05-86ae-9540a10489f5/reserved_ips/0716-6fd4925d-7774-4e87-829e-7e5765d454ad",
-    "id": "0716-6fd4925d-7774-4e87-829e-7e5765d454ad",
-    "name": "my-reserved-ip",
-    "resource_type": "subnet_reserved_ip"
-  },
-  "resource_type": "share_mount_target",
-  "security_groups": [
-    {
-      "crn": "crn:[...]",
-      "href": "https://us-south.iaas.cloud.ibm.com/v1/security_groups/r006-1dfeccef-3ad6-4760-8653-a202bc795db4",
-      "id": "r006-1dfeccef-3ad6-4760-8653-a202bc795db4",
-      "name": "my-security-group",
-      "resource_type": "security_group"
-    }
-  ],
-  "subnet": {
-    "crn": "crn:[...]",
-    "href": "https://us-south.iaas.cloud.ibm.com/v1/subnets/2302-ea5fe79f-52c3-4f05-86ae-9540a10489f5",
-    "id": "2302-ea5fe79f-52c3-4f05-86ae-9540a10489f5",
-    "name": "my-subnet",
-    "resource_type": "subnet"
-  },
-  "transit_encryption": "none",
-  "virtual_network_interface": {
-    "crn": "crn:[...]",
-    "href": "https://us-south.iaas.cloud.ibm.com/v1/virtual_network_interfaces/4727d842-f94f-4a2d-824a-9bc9b02c523b",
-    "id": "4727d842-f94f-4a2d-824a-9bc9b02c523b",
-    "name": "my-virtual-network-interface",
-    "resource_type": "virtual_network_interface"
-  },
-  "vpc": {
-  "crn": "crn:[...]",
-  "href": "https://us-south.iaas.cloud.ibm.com/v1/vpcs/8c95b3c1-fe3c-45c-97a6-e43d14088287",
-  "id": "82a7b841-9586-43b4-85dc-c0ab5e8b1c7a",
-  "name": "vpc-name1",
-  "resource_type": "vpc"
-  }
-}
-```
-{: codeblock}
-
-The mount target is deleted in the background. Confirm the deletion by trying to view the mount target information. If you get an `404 Not Found` error, the mount target is successfully deleted.
-
-#### Deleting a file share in the API
-{: #delete-file-share-api}
-
-The file share must be in a `stable` or `failed` state.
-
-Make a `DELETE /shares/$share_id` call to delete a file share. The file share must be in a `stable` state or `failed` state (that is, when provisioning fails). A file share cannot be deleted, if an existing mount target is associated with that file share or if replica operations are in progress.
-
-See the following example.
-
-```sh
-curl -X DELETE \
-"$vpc_api_endpoint/v1/shares/$share_id?version=2023-08-08&generation=2"\
-  -H "Authorization: Bearer ${API_TOKEN}"
-```
-{: codeblock}
-
-A successful response confirms acceptance for deletion and shows file share information. The status of file share is updated to *pending_deletion*. See the following example:
-
-```json
-{
-  "access_control_mode": "vpc",
-  "created_at": "2022-08-08T23:31:59Z",
-  "crn": "crn:[...]",
-  "encryption": "provider_managed",
-  "href": "https://us-south.iaas.cloud.ibm.com/v1/shares/0995b8c6-c323-4e59-9ea9-fa14dd66bba8",
-  "id": "0995b8c6-c323-4e59-9ea9-fa14dd66bba8",
-  "iops": 3000,
-  "lifecycle_state": "pending_deletion",
-  "name": "share-name1",
-  "profile": {
-    "href": "https://us-south.iaas.cloud.ibm.com/v1/share/profiles/tier-10iops",
-    "name": "tier-10iops",
-    "resource_type": "share_profile"
-  },
-  "resource_group": {
-    "crn": "crn:[...]",
-    "href": "https://resource-controller.cloud.ibm.com/v2/resource_groups/bfb4a7c7-00d8-400b-98ba-5a67e5851970",
-    "id": "bfb4a7c7-00d8-400b-98ba-5a67e5851970",
-    "name": "Default"
-  },
-  "resource_type": "share",
-  "size": 100,
-  "snapshot_count": 10, 
-  "snapshot_size": 10,
-  "user_tags": [],
-  "mount_targets": [],
-  "zone": {
-    "href": "https://us-south.iaas.cloud.ibm.com/v1/regions/us-south/zones/us-south-1",
-    "name": "us-south-1"
-  }
-}
-```
-{: codeblock}
-
-The file share is deleted in the background. Confirm the deletion by trying to view the mount target information. If you get a `404 Not Found` error, the mount target is successfully deleted. If the file share has snapshots, those snapshots are deleted along with the file share.
-
-A `DELETE /shares/$share_id` call can optionally include an `If-Match` header that specifies an `ETag` hash string. Make a `GET /shares/{share_id}` call and copy the `ETag` hash string from the response header. For more information, see [User tags for file shares](/docs/vpc?topic=vpc-file-storage-vpc-about#fs-about-user-tags).
-{: note}
-
 ## Managing file shares, accessor share bindings, and mount targets with Terraform
 {: #file-storage-manage-terraform}
 {: terraform}
@@ -762,22 +490,6 @@ resource "is_share_target" "is_share_target" {
 
 For more information about the arguments and attributes, see [ibm_is_share_target](https://registry.terraform.io/providers/IBM-Cloud/ibm/latest/docs/resources/is_share_target){: external}.
 
-### Deleting file shares, accessor share bindings, or mount targets with Terraform
-{: #delete-file-share-terraform}
-
-Before you delete a file share, make sure that it is [unmounted](#fs-mount-unmount-vsi) from all virtual server instances and that all mount targets that belong to the file share are deleted. If your file share is shared with another account, delete the accessor bindings before you delete the share. Also, if the file share has a replica file share, you must remove the replication relationship. For more information, see [Remove the replication relationship with Terraform](/docs/vpc?topic=vpc-file-storage-manage-replication&interface=terraform#fs-remove-replication-terraform).
-
-Use the `terraform destroy` command to conveniently delete a remote object such as a file share. The following example shows the syntax for deleting a share. Substitute the actual ID of the share in for `ibm_is_share.example.id`. To delete a mount target or a share binding, use their IDs with the same command.
-
-```terraform
-terraform destroy --target ibm_is_share.example.id
-```
-{: codeblock}
-
-If the file share has snapshots, those snapshots are deleted along with the file share.
-
-For more information, see [terraform destroy](https://developer.hashicorp.com/terraform/cli/commands/destroy){: external}.
-
 ## Adding user tags to a file share
 {: #fs-add-user-tags}
 
@@ -816,13 +528,13 @@ You can add and remove tags when you update a file share with the `ibmcloud is s
    ```sh
    $ ibmcloud is shares
    Listing shares in all resource groups and region us-south under account Test Account as user test.user@ibm.com...
-   ID                                          Name                    Lifecycle state   Zone         Profile   Size(GB)   Resource group   Replication role
-   r006-dc6a644d-c7da-4c91-acf0-d66b47fc8516   my-replica-file-share   stable            us-south-1   dp2       1500       Default          replica
-   r006-e4acfa9b-88b0-4f90-9320-537e6fa3482a   my-source-file-share    stable            us-south-2   dp2       1500       Default          source
-   r006-6d1719da-f790-45cc-9f68-896fd5673a1a   my-replica-share        stable            us-south-3   dp2       1500       Default          replica
-   r006-925214bc-ded5-4626-9d8e-bc4e2e579232   my-new-file-share       stable            us-south-2   dp2       500        Default          none
-   r006-b1707390-3825-41eb-a5bb-1161f77f8a58   my-vpc-file-share       stable            us-south-2   dp2       1000       Default          none
-   r006-b696742a-92ee-4f6a-bfd7-921d6ddf8fa6   my-file-share           stable            us-south-2   dp2       1500       Default          source
+   ID                                          Name                    Lifecycle state   Zone         Profile   Size(GB)   Resource group   Replication role   Accessor binding role   Snapshot count   Snapshot size   
+   r006-a8d6af48-0c97-4c6b-bab1-fbefdc1e1e03   my-file-share           stable            us-south-2   dp2       10         defaults         none               none                    0                0   
+   r006-aaf4bfe9-358c-4faa-a4ec-0b955090b940   my-file-share-2         stable            us-south-2   dp2       10         defaults         none               none                    0                0   
+   r006-a60bfa90-a893-40ad-be34-28ab51a963f9   replica-dal-2           stable            us-south-2   dp2       10         defaults         replica            none                    0                0   
+   r006-3f21e3c3-e12d-425f-ab77-810cabfde8df   source-dal-1            stable            us-south-1   dp2       10         defaults         source             none                    0                0   
+   r006-455b601c-8fc1-4476-8771-4708c49c8ef7   my-replica-share-dal-1  stable            us-south-1   dp2       10         defaults         replica            none                    0                0   
+   r006-4dadac27-cd17-42df-a5fe-1388705d33e0   my-source-share-dal-2   stable            us-south-2   dp2       10         defaults         source             none                    0                0   
    ```
    {: screen}
 
@@ -832,9 +544,9 @@ You can add and remove tags when you update a file share with the `ibmcloud is s
    $ ibmcloud is share my-file-share
    Getting file share my-file-share under account Test Account as user test.user@ibm.com...
 
-   ID                           r006-b696742a-92ee-4f6a-bfd7-921d6ddf8fa6
+   ID                           r006-a8d6af48-0c97-4c6b-bab1-fbefdc1e1e03
    Name                         my-file-share
-   CRN                          crn:v1:bluemix:public:is:us-south-2:a/a1234567::share:r006-b696742a-92ee-4f6a-bfd7-921d6ddf8fa6
+   CRN                          crn:v1:bluemix:public:is:us-south-2:a/a1234567::share:r006-a8d6af48-0c97-4c6b-bab1-fbefdc1e1e03
    Lifecycle state              stable
    Access control mode          security_group
    Accessor binding role        none
@@ -844,7 +556,7 @@ You can add and remove tags when you update a file share with the `ibmcloud is s
    IOPS                         1000
    Encryption                   provider_managed   
    Mount Targets                ID                                          Name
-                                r006-dd497561-c7c9-4dfb-af0a-c84eeee78b61   my-cli-share-mount-target-1
+                                r006-dd497561-c7c9-4dfb-af0a-c84eeee78b61   my-cli-share-mount-target
 
    Resource group               ID                                 Name
                                 db8e8d865a83e0aae03f25a492c5b39e   Default
@@ -854,9 +566,11 @@ You can add and remove tags when you update a file share with the `ibmcloud is s
    Replication status           none
    Replication status reasons   Status code   Status message
                                 -             -
+   Snapshot count               0   
+   Snapshot size                0   
+   Source snapshot              -                               
    ```
    {: screen}
-
 
 1. Use the `ibmcloud is share-update` command with the `--user-tags` option to add a tag to the file share. If the file share had tags previously, they are overwritten by the tags that are specified in the command.
 
@@ -1165,3 +879,306 @@ Mounting is a process by which a server's operating system makes files and direc
 You can check the status and health states of your file share by using the console, the CLI, or the API. You can monitor the total throughput, the total IOPS, the number of mount targets, and capacity usage of your share over time in the {{site.data.keyword.cloud_notm}} console. You can use {{site.data.keyword.atracker_full}} to configure how to route auditing events for file shares. You can also configure {{site.data.keyword.logs_routing_full_notm}} for handling logs. For more information, see [Monitoring file share health states, lifecycle status, and events](/docs/vpc?topic=vpc-fs-vpc-monitoring).
 
 File shares can be integrated with {{site.data.keyword.mon_full}} to gain operational visibility into the performance and health of your shares. In the Sysdig web UI you can view the throughput, IOPS, and capacity metrics in more detail, customize your dashboards, and set up alerts. For more information, see [Monitoring metrics for {{site.data.keyword.filestorage_vpc_short}}](/docs/vpc?topic=vpc-fs-vpc-monitoring-sysdig).
+
+## Deleting file shares, accessor share bindings, and mount targets
+{: #delete-vpc-file-resources}
+
+Before you delete a file share, make sure that it is [unmounted](#fs-mount-unmount-vsi) from all virtual server instances and that all mount targets that belong to the file share are deleted. If your file share is shared with another account, delete the accessor bindings before you delete the share. Also, if the file share has a replica file share, you must remove the replication relationship. For more information, see [Remove the replication relationship in the console](/docs/vpc?topic=vpc-file-storage-manage-replication&interface=ui#fs-remove-replication-ui){: ui}[Remove the replication relationship from the CLI](/docs/vpc?topic=vpc-file-storage-manage-replication&interface=cli#fs-remove-replication-cli){: cli}[Remove the replication relationship with the API](/docs/vpc?topic=vpc-file-storage-manage-replication&interface=api#fs-remove-replication-api){: api}[Remove the replication relationship with Terraform](/docs/vpc?topic=vpc-file-storage-manage-replication&interface=terraform#fs-remove-replication-terraform){: terraform}.
+
+
+### Deleting file shares, accessor share bindings, and mount targets in the console
+{: #delete-targets-shares-ui}
+
+The following instructions can assist you in making sure that share bindings and mount targets are deleted before you try to delete the file share that you no longer need.
+
+If the file share has snapshots, those snapshots are deleted along with the file share.
+{: note}
+
+#### Deleting share bindings of a file share in the console
+{: #delete-bindings-ui}
+
+1. Select a file share from the [list of file shares](/docs/vpc?topic=vpc-file-storage-view#file-storage-view-shares-targets-ui).
+1. On the File share details page, scroll to the Accessor share bindings section to locate the binding that you want to delete.
+1. At the end of the row of the binding, click the **Actions** icon ![Actions icon](../icons/action-menu-icon.svg "Actions") and select **Delete**.
+
+#### Deleting mount target of a file share in the console
+{: #delete-mount-target-ui}
+
+1. Select a file share from the [list of file shares](/docs/vpc?topic=vpc-file-storage-view#file-storage-view-shares-targets-ui).
+2. On the File share details page, select a mount target that you want to delete.
+3. Click the Actions icon ![Actions icon](../icons/action-menu-icon.svg "Actions") and select **Delete**.
+
+#### Deleting a file share in the console
+{: #delete-file-share-ui}
+
+The file share must be in a `stable` state or `failed` state.
+
+1. Select a file share from the [list of file shares](/docs/vpc?topic=vpc-file-storage-view).
+2. Click the **Actions** icon ![Actions icon](../icons/action-menu-icon.svg "Actions") at the end of the row and select **Delete**.
+
+### Deleting file shares, accessor share bindings, and mount targets from the CLI
+{: #delete-share-targets-cli}
+
+The following instructions can assist you in making sure that share bindings and mount targets are deleted before you try to delete the file share that you no longer need.
+
+1. Locate the file share that you want to delete by listing all the file shares with the `ibmcloud is shares` command.
+
+   ```sh
+   ibmcloud is shares
+   Listing shares in all resource groups and region us-south under account Test Account as user test.user@ibm.com...
+   ID                                          Name                    Lifecycle state   Zone         Profile    Size(GB)   Resource group   Replication role   Accessor binding role   Snapshot count   Snapshot size   
+   r006-a8d6af48-0c97-4c6b-bab1-fbefdc1e1e03   my-file-share           stable            us-south-2   dp2        10         defaults         none               none                    0                0   
+   r006-aaf4bfe9-358c-4faa-a4ec-0b955090b940   my-file-share-2         stable            us-south-2   dp2        10         defaults         none               none                    0                0   
+   r006-a60bfa90-a893-40ad-be34-28ab51a963f9   replica-dal-2           stable            us-south-2   dp2        10         defaults         replica            none                    0                0   
+   r006-3f21e3c3-e12d-425f-ab77-810cabfde8df   source-dal-1            stable            us-south-1   dp2        10         defaults         source             none                    0                0   
+   r006-455b601c-8fc1-4476-8771-4708c49c8ef7   my-replica-share-dal-1  stable            us-south-1   dp2        10         defaults         replica            none                    0                0   
+   r006-4dadac27-cd17-42df-a5fe-1388705d33e0   my-source-share-dal-2   stable            us-south-2   dp2        10         defaults         source             none                    0                0   
+   r006-cc7ab6a0-bb71-4e03-8ef7-dcffca43717f   my-old-file-share       stable            us-south-1    dp2        40         defaults         none               -                       -                -
+    ```
+   {: screen}
+
+1. Retrieve the file share details to see the attached mount target and replication information with the `ibmcloud is share` command.
+
+   ```sh
+   $ ibmcloud is share my-file-share-2
+   Getting file share my-file-share-2 under account Test Account as user test.user@ibm.com...
+
+   ID                           r006-aaf4bfe9-358c-4faa-a4ec-0b955090b940
+   Name                         my-file-share-2
+   CRN                          crn:v1:bluemix:public:is:us-south-1:a/a1234567::share:r006-aaf4bfe9-358c-4faa-a4ec-0b955090b940
+   Lifecycle state              stable
+   Access control mode          vpc
+   Zone                         us-south-1
+   Profile                      dp2
+   Size(GB)                     40
+   IOPS                         2000
+   User Tags                    env:dev,env:prod
+   Encryption                   provider_managed   
+   Mount Targets                ID                                          Name
+                                r006-36d67ada-ca83-44be-adad-dc58e7c38dc5   my-new-mount-target
+
+   Resource group               ID                                 Name
+                                db8e8d865a83e0aae03f25a492c5b39e   Default
+
+   Created                      2023-10-18T23:52:45+00:00
+   Replication role             none
+   Replication status           none
+   Replication status reasons   Status code   Status message
+                                -             -
+
+   Snapshot count               0
+   Snapshot size                0   
+   Source snapshot              - 
+   ```
+   {: screen}
+
+#### Deleting share bindings of a file share from the CLI
+{: #delete-bindings-cli}
+
+Run the `share-binding-delete` command and specify the origin file share and binding by either their names or IDs. Type `y` when you're prompted. If more than one bindings are attached to the file share, repeat this step until all bindings are deleted. See the following example.
+
+```sh
+$ ibmcloud is share-bindings-delete my-origin-share r-006-c2e53b1b-3b15-4792-8d96-c9c035fd65c3
+This will delete accessor binding r-006-c2e53b1b-3b15-4792-8d96-c9c035fd65c3 for share ID my-origin-share and cannot be undone. Continue [y/N] ?> y
+Deleting binding r-006-c2e53b1b-3b15-4792-8d96-c9c035fd65c3 for share ID my-origin-share under account Test Account as user test.user@ibm.com...
+OK
+Binding r-006-c2e53b1b-3b15-4792-8d96-c9c035fd65c3 is deleted.
+```
+{: screen}
+
+#### Deleting a mount target of a file share from the CLI
+{: #delete-mount-target-cli}
+
+Run the `share-mount-target-delete` command and specify the file share and mount target by either their names or IDs. Type `y` when you're prompted. If more than one mount targets are attached to the file share, repeat this step until all mount targets are deleted.
+
+```sh
+$ ibmcloud is share-mount-target-delete my-file-share-2 my-new-mount-target
+This will delete mounted target my-new-mount-target for share ID my-file-share-2 and cannot be undone. Continue [y/N] ?> y
+Deleting mounted target my-new-mount-target for share ID my-file-share-2 under account Test Account as user test.user@ibm.com...
+OK
+Share mount target my-new-mount-target is deleted.
+```
+{: pre}
+
+For more information about the command options, see [`ibmcloud is share-mount-target-delete`](/docs/vpc?topic=vpc-vpc-reference#share-mount-target-delete).
+
+#### Deleting a file share from the CLI
+{: #delete-file-share-cli}
+
+The file share must be in a `stable` or `failed` state. To delete the file share, run the `share_delete` command and specify the file share by its name or ID.
+
+```sh
+$ ibmcloud is share-delete my-file-share-2
+This will delete file share my-file-share-2 and cannot be undone. Continue [y/N] ?> y
+Deleting file share my-file-share-2 under account Test Account as user test.user@ibm.com...
+OK
+File share my-file-share-2 is deleted.
+```
+{: screen}
+
+For more information about the command options, see [`ibmcloud is share-delete`](/docs/vpc?topic=vpc-vpc-reference#share-delete).
+
+If the file share has snapshots, those snapshots are deleted along with the file share.
+{: note}
+
+### Deleting file shares, accessor share bindings, and mount targets with the API
+{: #delete-share-targets-api}
+
+The following instructions can assist you in making sure that share bindings and mount targets are deleted before you try to delete the file share that you no longer need.
+
+#### Deleting share bindings of a file share with the API
+{: #delete-bindings-api}
+
+You can programmatically delete a share binding by calling the `/shares` method in the [VPC API](/apidocs/vpc/latest){: external} as shown in the following sample request.
+{: api}
+
+```sh
+curl -X DELETE "$vpc_api_endpoint/v1/shares/v1/shares/$share_id/bindings/$binding_id?version=2024-06-21&generation=2"
+```
+{: pre}
+
+#### Deleting mount target of a file share with the API
+{: #delete-mount-target-api}
+
+Make a `DELETE /shares/{share_ID}/mount_targets/{target_id}` call to delete a mount target of a file share. The file share must be in a `stable` state. A file share cannot be deleted, if an existing mount target is associated with that file share or if replica operations are in progress.
+
+See the following example.
+
+```sh
+curl -X DELETE \
+"$vpc_api_endpoint/v1/shares/$share_id/mount_targets/$target_id?version=2023-08-08&generation=2"\
+  -H "Authorization: Bearer ${API_TOKEN}"
+```
+{: pre}
+
+A successful response has a confirmation of acceptance for deletion and a response that contains the target information. 
+
+The following example shows a mount target where `access_control_mode` is `security_group`. The response shows the security group and subnet. You can see the specifics of the reserved IP address that was used for the virtual network interface of the mount target in the `primary_ip` section. By default the virtual network interface is deleted along with the mount target when the mount target is deleted. Status of mount target shows *deleting* while the deletion is underway.
+
+```json
+{
+  "access_control_mode": "security_group",
+  "created_at": "2022-08-08T01:59:46.000Z",
+  "href": "https://us-south.iaas.cloud.ibm.com/v1/shares/0995b8c6-c323-4e59-9ea9-fa14dd66bba8/mount_targets/9fdf4438-f5b4-4b6f-8bca-602494fd6c31",
+  "id": "9fdf4438-f5b4-4b6f-8bca-602494fd6c31",
+  "lifecycle_reasons": [],
+  "lifecycle_state": "deleting",
+  "mount_path": "domain.com:/vol_xyz_2891fd0a_63aa_4deb_9ed5_1159e37cb5aa",
+  "name": "target-name1",
+  "primary_ip": {
+    "address": "10.10.12.64",
+    "href": "https://us-south.iaas.cloud.ibm.com/v1/subnets/2302-ea5fe79f-52c3-4f05-86ae-9540a10489f5/reserved_ips/0716-6fd4925d-7774-4e87-829e-7e5765d454ad",
+    "id": "0716-6fd4925d-7774-4e87-829e-7e5765d454ad",
+    "name": "my-reserved-ip",
+    "resource_type": "subnet_reserved_ip"
+  },
+  "resource_type": "share_mount_target",
+  "security_groups": [
+    {
+      "crn": "crn:[...]",
+      "href": "https://us-south.iaas.cloud.ibm.com/v1/security_groups/r006-1dfeccef-3ad6-4760-8653-a202bc795db4",
+      "id": "r006-1dfeccef-3ad6-4760-8653-a202bc795db4",
+      "name": "my-security-group",
+      "resource_type": "security_group"
+    }
+  ],
+  "subnet": {
+    "crn": "crn:[...]",
+    "href": "https://us-south.iaas.cloud.ibm.com/v1/subnets/2302-ea5fe79f-52c3-4f05-86ae-9540a10489f5",
+    "id": "2302-ea5fe79f-52c3-4f05-86ae-9540a10489f5",
+    "name": "my-subnet",
+    "resource_type": "subnet"
+  },
+  "transit_encryption": "none",
+  "virtual_network_interface": {
+    "crn": "crn:[...]",
+    "href": "https://us-south.iaas.cloud.ibm.com/v1/virtual_network_interfaces/4727d842-f94f-4a2d-824a-9bc9b02c523b",
+    "id": "4727d842-f94f-4a2d-824a-9bc9b02c523b",
+    "name": "my-virtual-network-interface",
+    "resource_type": "virtual_network_interface"
+  },
+  "vpc": {
+  "crn": "crn:[...]",
+  "href": "https://us-south.iaas.cloud.ibm.com/v1/vpcs/8c95b3c1-fe3c-45c-97a6-e43d14088287",
+  "id": "82a7b841-9586-43b4-85dc-c0ab5e8b1c7a",
+  "name": "vpc-name1",
+  "resource_type": "vpc"
+  }
+}
+```
+{: codeblock}
+
+The mount target is deleted in the background. Confirm the deletion by trying to view the mount target information. If you get an `404 Not Found` error, the mount target is successfully deleted.
+
+#### Deleting a file share in the API
+{: #delete-file-share-api}
+
+The file share must be in a `stable` or `failed` state.
+
+Make a `DELETE /shares/$share_id` call to delete a file share. The file share must be in a `stable` state or `failed` state (that is, when provisioning fails). A file share cannot be deleted, if an existing mount target is associated with that file share or if replica operations are in progress.
+
+See the following example.
+
+```sh
+curl -X DELETE \
+"$vpc_api_endpoint/v1/shares/$share_id?version=2023-08-08&generation=2"\
+  -H "Authorization: Bearer ${API_TOKEN}"
+```
+{: codeblock}
+
+A successful response confirms acceptance for deletion and shows file share information. The status of file share is updated to *pending_deletion*. See the following example:
+
+```json
+{
+  "access_control_mode": "vpc",
+  "created_at": "2022-08-08T23:31:59Z",
+  "crn": "crn:[...]",
+  "encryption": "provider_managed",
+  "href": "https://us-south.iaas.cloud.ibm.com/v1/shares/0995b8c6-c323-4e59-9ea9-fa14dd66bba8",
+  "id": "0995b8c6-c323-4e59-9ea9-fa14dd66bba8",
+  "iops": 3000,
+  "lifecycle_state": "pending_deletion",
+  "name": "share-name1",
+  "profile": {
+    "href": "https://us-south.iaas.cloud.ibm.com/v1/share/profiles/tier-10iops",
+    "name": "tier-10iops",
+    "resource_type": "share_profile"
+  },
+  "resource_group": {
+    "crn": "crn:[...]",
+    "href": "https://resource-controller.cloud.ibm.com/v2/resource_groups/bfb4a7c7-00d8-400b-98ba-5a67e5851970",
+    "id": "bfb4a7c7-00d8-400b-98ba-5a67e5851970",
+    "name": "Default"
+  },
+  "resource_type": "share",
+  "size": 100,
+  "snapshot_count": 10, 
+  "snapshot_size": 10,
+  "user_tags": [],
+  "mount_targets": [],
+  "zone": {
+    "href": "https://us-south.iaas.cloud.ibm.com/v1/regions/us-south/zones/us-south-1",
+    "name": "us-south-1"
+  }
+}
+```
+{: codeblock}
+
+The file share is deleted in the background. Confirm the deletion by trying to view the mount target information. If you get a `404 Not Found` error, the mount target is successfully deleted. If the file share has snapshots, those snapshots are deleted along with the file share.
+
+A `DELETE /shares/$share_id` call can optionally include an `If-Match` header that specifies an `ETag` hash string. Make a `GET /shares/{share_id}` call and copy the `ETag` hash string from the response header. For more information, see [User tags for file shares](/docs/vpc?topic=vpc-file-storage-vpc-about#fs-about-user-tags).
+{: note}
+
+### Deleting file shares, accessor share bindings, or mount targets with Terraform
+{: #delete-file-share-terraform}
+
+Use the `terraform destroy` command to conveniently delete a remote object such as a file share. The following example shows the syntax for deleting a share. Substitute the actual ID of the share in for `ibm_is_share.example.id`. To delete a mount target or a share binding, use their IDs with the same command.
+
+```terraform
+terraform destroy --target ibm_is_share.example.id
+```
+{: codeblock}
+
+If the file share has snapshots, those snapshots are deleted along with the file share.
+
+For more information, see [terraform destroy](https://developer.hashicorp.com/terraform/cli/commands/destroy){: external}.

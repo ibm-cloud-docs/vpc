@@ -2,7 +2,7 @@
 
 copyright:
   years: 2022, 2025
-lastupdated: "2025-07-07"
+lastupdated: "2025-07-08"
 
 keywords: VPC File Storage, file for VPC, NSF, replica, file share, replication, schedule
 
@@ -152,13 +152,11 @@ Before you can use the CLI, you must install the IBM Cloud CLI and the VPC CLI p
    ```sh
    $ ibmcloud is shares
    Listing shares in all resource groups and region us-south under account Test Account as user test.user@ibm.com...
-   ID                                          Name                    Lifecycle state   Zone         Profile   Size(GB)   Resource group   Replication role
-   r006-dc6a644d-c7da-4c91-acf0-d66b47fc8516   my-replica-file-share   stable            us-south-1   dp2       1500       Default          replica
-   r006-e4acfa9b-88b0-4f90-9320-537e6fa3482a   my-source-file-share    stable            us-south-2   dp2       1500       Default          source
-   r006-6d1719da-f790-45cc-9f68-896fd5673a1a   my-replica-share        stable            us-south-3   dp2       1500       Default          replica
-   r006-925214bc-ded5-4626-9d8e-bc4e2e579232   my-new-file-share       stable            us-south-2   dp2       500        Default          none
-   r006-b1707390-3825-41eb-a5bb-1161f77f8a58   my-vpc-file-share       stable            us-south-2   dp2       1000       Default          none
-   r006-b696742a-92ee-4f6a-bfd7-921d6ddf8fa6   my-file-share           stable            us-south-2   dp2       1500       Default          source
+   ID                                          Name                    Lifecycle state   Zone         Profile   Size(GB)   Resource group  Replication role   Accessor binding role   Snapshot count   Snapshot size   
+   r006-2a10af45-de9e-4894-8e9e-fd01a25ec529   my-replica-file-share   stable            us-south-1   dp2       101        Default         replica            none                    0                0   
+   r006-74634ace-43bd-4983-a22b-47b1c9662794   my-source-file-share    stable            us-south-2   dp2       101        Default         source             none                    1                1   
+   r006-b1707390-3825-41eb-a5bb-1161f77f8a58   my-vpc-file-share       stable            us-south-2   dp2       1000       Default         none               none                    0                0
+   r006-b696742a-92ee-4f6a-bfd7-921d6ddf8fa6   my-file-share           stable            us-south-2   dp2       1500       Default         none               none                    0                0
    ```
    {: screen}
 
