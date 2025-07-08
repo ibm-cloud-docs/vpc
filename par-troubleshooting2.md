@@ -2,7 +2,7 @@
 
 copyright:
   years: 2025
-lastupdated: "2025-07-06"
+lastupdated: "2025-07-08"
 
 keywords:
 
@@ -17,11 +17,10 @@ content-type: troubleshoot
 # Why can't I bind a public address range at creation or delete one that's already bound?
 {: #troubleshoot-binding-public-address-ranges}
 {: troubleshoot}
-{: support}
+{: support} 
 
-
-Public Address Ranges for VPC is only available for evaluation and testing purposes for users with special access.
-{: beta}
+Accounts with special approval can now create public address ranges and use their IPs in custom route tables to route ingress traffic to VPC resources. Available in Frankfurt and Madrid.
+{: preview} 
 
 Binding a public address range during creation or deleting a bound range fails due to insufficient permissions. 
 {: shortdesc}
