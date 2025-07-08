@@ -2,7 +2,7 @@
 
 copyright:
   years: 2021, 2025
-lastupdated: "2025-05-28"
+lastupdated: "2025-07-08"
 
 keywords: file share, file storage, mount helper, mount target, mount path, secure connection, NFS, mounting share
 
@@ -94,6 +94,7 @@ Follow these steps to mount a file share on an Ubuntu host.
     tmpfs                                                                                         798M     0  798M   0% /run/user/0
     fsf-dal1099a-fz.adn.networklayer.com:/voll_58fd55a_685c_4ccd_b42e_25d5b61129e2   95G  256K   95G   1% /mnt/nfs
     ```
+    {: screen}
 
 1. Go to the mount point to create a test file and list all files to verify that the share is mounted as read/write.
 

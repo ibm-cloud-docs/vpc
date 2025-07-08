@@ -123,7 +123,7 @@ To increase the capacity of a file share from the CLI, use the `share-update` co
    IOPS                         1000
    User Tags                    docs:test
    Encryption                   provider_managed   
-   Mount Targets                ID                                          Name      
+   Mount Targets                ID                                          Name
                                 r006-dd497561-c7c9-4dfb-af0a-c84eeee78b61   my-cli-share-mount-target-1      
                                 
    Resource group               ID                                 Name      
