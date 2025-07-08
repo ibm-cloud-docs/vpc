@@ -2,7 +2,7 @@
 
 copyright:
   years: 2022, 2025
-lastupdated: "2025-07-07"
+lastupdated: "2025-07-08"
 
 keywords: file share, customer-managed encryption, encryption, byok, KMS, Key Protect, Hyper Protect Crypto Services,
 
@@ -163,7 +163,8 @@ Before you can use the CLI, you must install the IBM Cloud CLI and the VPC CLI p
       Replication status reasons   Status code   Status message      
                                    -             -      
       Snapshot count               10
-      Snapshot size                10         
+      Snapshot size                10 
+      Source snapshot              -        
       ```
       {: screen}
 

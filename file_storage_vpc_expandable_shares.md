@@ -134,7 +134,7 @@ To increase the capacity of a file share from the CLI, use the `share-update` co
    Replication status           none   
    Replication status reasons   Status code   Status message      
                                 -             -      
-
+   
    Snapshot count               0
    Snapshot size                0  
    Source snapshot              -               
