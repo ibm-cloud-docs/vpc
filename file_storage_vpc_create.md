@@ -189,7 +189,7 @@ Name                         my-vpc-file-share
 CRN                          crn:v1:bluemix:public:is:us-south-2:a/a1234567::share:r006-5016920c-a53a-44ad-86c3-ea0f76e88876   
 Lifecycle state              pending   
 Access control mode          vpc   
-Accessor binding role        none   
+Accessor binding role        none
 Zone                         us-south-2   
 Profile                      dp2   
 Size(GB)                     1000   
@@ -304,6 +304,10 @@ Replication role                 none
 Replication status               none   
 Replication status reasons       Status code   Status message      
                                  -             -      
+
+Snapshot count                   0   
+Snapshot size                    0   
+Source snapshot                  -                                   
 ```
 {: screen}
 
@@ -417,13 +421,14 @@ Mount Targets                      ID                          Name
 Resource group                     ID                                 Name      
                                    6edefe513d934fdd872e78ee6a8e73ef   defaults      
                                       
-Created                            2024-12-04T22:35:22+00:00   
+Created                            2025-04-18T19:18:37+00:00   
 Replication role                   none   
 Replication status                 none   
 Replication status reasons         Status code   Status message      
                                    -             -      
 Snapshot count                     0
-Snapshot size                      0         
+Snapshot size                      0    
+Source snapshot                    -    
 ```
 {: screen}
 

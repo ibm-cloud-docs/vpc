@@ -2,7 +2,7 @@
 
 copyright:
   years: 2021, 2025
-lastupdated: "2025-06-27"
+lastupdated: "2025-07-09"
 
 keywords: file share, mount target, virtual network interface, customer-managed encryption, encryption at rest, encryption in transit, file storage, share,
 
@@ -84,7 +84,9 @@ When you create or update a mount target, you can specify the manner in which yo
 ### Cross-zone mount targets
 {: #fs-cross-zone-mount}
 
-When you create a mount target for a  share with security access group mode, you can attach a VNI with a specific reserved IP in the zone of your file share. By using such a mount target, you can mount a file share from zone 1 to a virtual server instance in zone 2. When the server and the file share are in different zones, the performance can be impacted as traffic passes through between zones.
+When you create a mount target for a share with security access group mode, you can attach a VNI with a specific reserved IP in the zone of your file share. By using a mount target with a reserved IP, you can mount a file share from zone 1 to a compute host in zone 2. When the server and the file share are in different zones, the performance can be impacted as traffic passes through between zones.
+
+![Zonal File shares can be accessed by multiple compute hosts within the region.](images/ZonalFile.svg "A zonal file share can be accessed by multiple hosts within the region by using the same mount target. Security groups provide granular access control."){: caption="Zonal file shares" caption-side="bottom"}
 
 Cross-zone mounting is not supported for file shares with VPC-wide access mode.
 

@@ -422,7 +422,7 @@ curl -X PATCH "$vpc_api_endpoint/v1/shares/432f1a4d-4aac-4ba1-922c-76fdbcbeb1e3?
 ### Updating allowed transit encryption modes with the API
 {: #fs-update-transit-encryption-api}
 
-The owner of the share can change the allowed transit encryption modes type to `user_managed,none`,`user_managed`, or `none`.
+The owner of the share can change the allowed transit encryption modes type to `user_managed,none`,`user_managed` or `none`.
 
 However, before this property can be changed, all bindings and mount targets must be deleted. Deleting the bindings severs the network path between origin file share and accessor share, and puts the mount target that is attached to the accessor share in a failed state. For more information, see [Removing access to a file share from other accounts](/docs/vpc?topic=vpc-file-storage-accessor-delete&interface=api).
 {: important}
@@ -467,9 +467,9 @@ Valid file share and mount target names can include a combination of lowercase a
 
 Some attributes, such as profile, mount target access mode, allowed transit encryption modes, and encryption at rest, are not editable for accessor shares.
 
-The owner of the share can change the allowed transit encryption modes type to `user_managed,none`,`user_managed` or `none`. However, before this property can be changed, all bindings and [mount targets must be deleted](#delete-file-share-terraform). 
+The owner of the share can change the allowed transit encryption modes type to `user_managed,none`,`user_managed` or `none`. 
 
-Deleting the bindings severs the network path between origin file share and accessor share, and puts the mount target that is attached to the accessor share in a failed state. For more information, see [Removing access to a file share from other accounts](/docs/vpc?topic=vpc-file-storage-accessor-delete&interface=terraform).
+However, before this property can be changed, all bindings and [mount targets must be deleted](#delete-file-share-terraform). Deleting the bindings severs the network path between origin file share and accessor share, and puts the mount target that is attached to the accessor share in a failed state. For more information, see [Removing access to a file share from other accounts](/docs/vpc?topic=vpc-file-storage-accessor-delete&interface=terraform).
 {: important}
 
 For more information about the arguments and attributes, see [ibm_is_share](https://registry.terraform.io/providers/IBM-Cloud/ibm/latest/docs/resources/is_share){: external}.
@@ -566,9 +566,10 @@ You can add and remove tags when you update a file share with the `ibmcloud is s
    Replication status           none
    Replication status reasons   Status code   Status message
                                 -             -
-   Snapshot count               0   
+                              
+   Snapshot count               0
    Snapshot size                0   
-   Source snapshot              -                               
+   Source snapshot              -   
    ```
    {: screen}
 

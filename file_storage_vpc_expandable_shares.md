@@ -2,7 +2,7 @@
 
 copyright:
   years: 2022, 2025
-lastupdated: "2025-07-08"
+lastupdated: "2025-07-09"
 
 keywords: file share, file storage, increase capacity, expand capacity, expand share size, file share size
 
@@ -82,7 +82,8 @@ Follow these steps for expanding file share capacity in the console:
 
 Your new file storage allocation is available in a few minutes. If your requirements change, you can increase capacity again after the file share size is increased and when it's in `stable` state.
 
-**Note**: You can't change the file share to a smaller size after you expand its capacity.
+You can't change the file share to a smaller size after you expand its capacity.
+{: important}
 
 ## Expanding file shares from the CLI
 {: #expand-vpc-shares-cli}
