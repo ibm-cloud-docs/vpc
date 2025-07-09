@@ -15,7 +15,7 @@ subcollection: vpc
 # About public address ranges
 {: #about-par} 
 
-You can now create and use public address ranges in the Frankfurt and Madrid regions in your accounts that have been approved for access. For access to Public Address Ranges for VPC, contact your IBM representative. 
+You can now create and use public address ranges in the Frankfurt and Madrid regions, if your account has been approved for access. To request access to Public Address Ranges for VPC, contact your IBM representative.
 {: preview} 
 
 A public address range is a contiguous set of public IPs that you can reserve and bind to a VPC in an availability zone. 
