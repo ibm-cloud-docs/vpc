@@ -2,7 +2,7 @@
 
 copyright:
   years: 2018, 2025
-lastupdated: "2025-07-01"
+lastupdated: "2025-07-09"
 
 keywords:
 
@@ -292,10 +292,10 @@ Use the following commands to determine the required information for creating a 
 
       ```text
       ID                                          Name                               Status       Arch    OS name                   OS version       File size(GB)
-      Visibility   Owner type   Encryption   Resource group   Catalog Offering
-      r006-24d856e2-6aec-41c2-8f36-5a8a3766f0d6   ibm-centos-7-9-minimal-amd64-9     available    amd64   centos-7-amd64            7.x - Minimal Install  1             public       provider     none         Default          -
-      r006-9768bb7f-c75d-4408-ba34-61015632f907   ibm-debian-10-13-minimal-amd64-2   available    amd64   debian-10-amd64           10.x Buster/Stable     1             public       provider     none         Default          -
-      r006-f83ce520-00b5-40c5-9938-a5c82a273f91   ibm-debian-11-3-minimal-amd64-4    available    amd64   debian-11-amd64           11.x Bullseye/Stable   1
+      Visibility   Encryption   Resource group   Catalog Offering User Data Format   Remote Account ID
+      r006-24d856e2-6aec-41c2-8f36-5a8a3766f0d6   my-test-image                      available    amd64   centos-7-amd64            7.x - Minimal Install  1             private      none         Default          -                cloud_init
+      r006-9768bb7f-c75d-4408-ba34-61015632f907   ibm-debian-10-13-minimal-amd64-2   available    amd64   debian-10-amd64           10.x Buster/Stable     1             public       none         Default          -                cloud_init         811f8abfbd32425597dc7ba40da98fa6
+      r006-f83ce520-00b5-40c5-9938-a5c82a273f91   ibm-debian-11-3-minimal-amd64-4    available    amd64   debian-11-amd64           11.x Bullseye/Stable   1             public       none         Default          -                cloud_init         811f8abfbd32425597dc7ba40da98fa6
       ```
       {: screen}
 

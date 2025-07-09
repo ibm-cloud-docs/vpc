@@ -1,8 +1,8 @@
 ---
 
 copyright:
-  years: 2020, 2024
-lastupdated: "2024-10-10"
+  years: 2020, 2025
+lastupdated: "2025-07-09"
 
 keywords:
 
@@ -192,9 +192,9 @@ Use the following commands to determine the required information for creating an
    The command output is similar to the following example.
 
    ```sh
-   ID                                          Name                                                Status       Arch    OS name                              OS version                                               File size(GB)   Visibility   Owner type   Encryption   Resource group
-   r006-3fa3bea4-7f9c-4eeb-8248-ab1f6e03185b   ibm-centos-7-9-minimal-amd64-9                      available    amd64   centos-7-amd64                       7.x - Minimal Install                                    1               public       provider     none         Default
-   r006-c55167af-ea8c-4c27-871f-ccc9c868753e   ibm-centos-stream-8-amd64-1                         available    amd64   centos-stream-8-amd64                8                                                        2               public       provider     none         Default
+   ID                                          Name                                                Status       Arch    OS name                              OS version                                               File size(GB)   Visibility   Encryption   Resource group   Catalog Offering User Data Format   Remote Account ID
+   r006-3fa3bea4-7f9c-4eeb-8248-ab1f6e03185b   my-test-image                                       available    amd64   centos-7-amd64                       7.x - Minimal Install                                    1               private      none         Default          -                cloud_init
+   r006-c55167af-ea8c-4c27-871f-ccc9c868753e   ibm-centos-stream-8-amd64-1                         available    amd64   centos-stream-8-amd64                8                                          2               public       none         Default          -                cloud_init       811f8abfbd32425597dc7ba40da98fa6
     ```
    {: screen}
 

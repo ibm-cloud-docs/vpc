@@ -2,7 +2,7 @@
 
 copyright:
   years: 2021, 2025
-lastupdated: "2025-07-08"
+lastupdated: "2025-07-09"
 
 keywords: file share, file storage, rename share, increase size, adjust IOPS, mount target
 
@@ -611,7 +611,7 @@ The following example adds two user tags to the file share.
    ```
    {: screen}
 
-### Adding or modify file share user tags with the API
+### Adding or modifying file share user tags with the API
 {: #fs-add-tags-api}
 {: api}
 
@@ -648,7 +648,7 @@ curl -X POST \
 
 Add new user tags to an existing file share by making a `PATCH /shares` request and specify the user tags in the `user_tags` property. If the file share did not have any tags, the new tags in the request are added. If the file share had tags previously, the new tags overwrite the previous tags.
 
-The following example modifies a file share that is identified by ID by renaming the share and adding user tags.
+The following example modifies a file share that is identified by ID. The share is renamed and user tags are added.
 
 ```sh
 curl -X PATCH\
@@ -664,7 +664,7 @@ curl -X PATCH\
 ```
 {: codeblock}
 
-Response:
+The successful response looks like this example:
 
 ```json
 {
@@ -717,7 +717,7 @@ To ensure that updates to a file share are valid, you can obtain an `ETag` hash 
 
 To modify existing user tags that are added to a file share, you first make a `GET /shares/{share_id}` call and copy the hash value from `ETag` property in the response header. Then, you send the `ETag` value by using the `If-Match` header in a `PATCH /shares/{share_id}` request. Specifying an `Etag` value ensures any updates to or deletions of a file share fail if the `If-Match` value does not match the file share's current `Etag`. Follow these steps:
 
-1. Make a `GET /shares/{share_id}` call and copy the hash string from `ETag` property in the response header. Use need the hash string value for when you specify `If-Match` in the `PATCH /shares/{share_id}` request to modify user tags for the share in step 2.
+1. Make a `GET /shares/{share_id}` request and copy the hash string from `ETag` property in the response header. Use the hash string value when you specify `If-Match` in the `PATCH /shares/{share_id}` request to modify user tags for the share in step 2.
 
    ```sh
    curl -sSL -D GET\ "https://us-south.cloud.ibm.com/v1/shares/{share_id}?version=2023-08-08&generation=2"\

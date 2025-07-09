@@ -2,7 +2,7 @@
 
 copyright:
   years: 2021, 2025
-lastupdated: "2025-07-02"
+lastupdated: "2025-07-09"
 
 keywords: file storage, file share, performance, IOPS, block size, capacity, range
 
@@ -166,7 +166,7 @@ For more information about the command options, see [`ibmcloud is share-profile`
 {: #fs-using-api-iops-profiles}
 {: api}
 
-Use the `GET /share/profiles` request to retrieve information for all share profiles.
+Use the `GET /share/profiles` request to retrieve information about the generally available file share profiles.
 
 ```sh
 curl -X GET $vpc_api_endpoint/v1/share/profiles?$api_version&generation=2\

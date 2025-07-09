@@ -127,11 +127,9 @@ You can now create and use public address ranges in the Frankfurt and Madrid reg
 
 | Resource | Quota |
 |--------|-----|
-| Maximum number of public address ranges per account per region | 5 [^par] |
+| Maximum number of public address ranges per account per region | 5 |
 | Prefix size | `/32` to `/28` |
 {: caption="Quotas for public address ranges" caption-side="bottom"}
-
-[^par]: You can increase the quota to a maximum of 10 by contacting support.
 
 ### Reserved IP addresses
 {: #reserved-ip-quotas}

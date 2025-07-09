@@ -2,7 +2,7 @@
 
 copyright:
   years: 2021, 2025
-lastupdated: "2025-07-08"
+lastupdated: "2025-07-09"
 
 keywords: file share, file storage, virtual network interface, encryption in transit, profiles, 
 
@@ -687,7 +687,7 @@ The default access control mode for file shares is `security_group`. It's more s
 
 The following example creates and attaches a [virtual network interface](/docs/vpc?topic=vpc-vni-about) to your mount target with a reserved IP address and applies the rules of the selected security group. The security groups that you associate with a mount target must allow inbound access for the TCP protocol on the NFS port from all servers where you want to mount the share. 
 
-In this example, the mount target section specifies a subnet ID. The system picks a reserved IP from that subnet for the [virtual network interface](/docs/vpc?topic=vpc-vni-about) when the mount target is created. 
+In this example, the mount target section specifies a subnet ID. The system picks a reserved IP from that subnet for the [virtual network interface](/docs/vpc?topic=vpc-vni-about) when the mount target is created.
 
 ```json
 curl -X POST "$vpc_api_endpoint/v1/shares?version=2023-08-08&generation=2"\
@@ -721,8 +721,9 @@ A successful response looks like the following example.
     "name": "myshare-1",
     "primary_ip": {"address": ""},
     "resource_type": "share_target",
-    "snapshot_count": 10, 
-    "snapshot_size": 10,
+    "size": 10,
+    "snapshot_count": 0, 
+    "snapshot_size": 0,
     "subnet": {
         "crn": "crn:[...]",
         "href": "https://us-south.iaas.cloud.ibm.com/v1/subnets/4e95744c-7e64-48c9-b5d2-3b6481b1dfde",

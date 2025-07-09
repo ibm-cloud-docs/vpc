@@ -306,7 +306,6 @@ Created                        2023-03-16T01:11:03+05:30
 Deprecation Date               2023-03-01T06:11:28+05:30
 Obsolescence Date              2023-12-31T06:11:28+05:30
 Visibility                     private
-Owner type                     user
 Minimum provisioned size(GB)   250
 SHA256 Checksum                774d44ac0d55f2bfe869b995565715e5d9970ec23ce7127b2e2776b2618a9f7c
 File size(GB)                  2
