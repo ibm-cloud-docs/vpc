@@ -2,7 +2,7 @@
 
 copyright:
   years: 2025
-lastupdated: "2025-07-08"
+lastupdated: "2025-07-09"
 
 keywords:
 
@@ -19,7 +19,7 @@ content-type: troubleshoot
 {: troubleshoot}
 {: support} 
 
-Accounts with special approval can now create public address ranges and use their IPs in custom route tables to route ingress traffic to VPC resources. Available in Frankfurt and Madrid.
+You can now create and use public address ranges in the Frankfurt and Madrid regions, if your account has been approved for access. To request access to Public Address Ranges for VPC, contact your IBM representative.
 {: preview} 
 
 Binding a public address range during creation or deleting a bound range fails due to insufficient permissions. 
