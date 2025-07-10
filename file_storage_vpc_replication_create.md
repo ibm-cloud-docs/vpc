@@ -2,7 +2,7 @@
 
 copyright:
   years: 2022, 2025
-lastupdated: "2025-07-08"
+lastupdated: "2025-07-10"
 
 keywords: file share, file storage, source volume, replica share, 
 
@@ -195,7 +195,7 @@ Replication status reasons   Status code   Status message
    ```
    {: screen}
 
-1. Create a replica share by running the `ibmcloud is share-create` command in the region where the replica share is created. Specify the source share by name, ID, or CRN. Provide values to define where the replica file share is going to be created, and the profile of the replica share. Specify the replication schedule with a cron expression. If the source file share has `user_managed` encryption, you must provide the `--encryption_key`. The `--encryption_key` property must not be specified otherwise.
+1. Create a replica share by running the `ibmcloud is share-replica-create` command in the region where the replica share is created. Specify the source share by name, ID, or CRN. Provide values to define where the replica file share is going to be created, and the profile of the replica share. Specify the replication schedule with a cron expression. If the source file share has `user_managed` encryption, you must provide the `--encryption_key`. The `--encryption_key` property must not be specified otherwise.
 
    ```sh
    ibmcloud is share-replica-create --name my-replica-share --zone us-south-3 --profile dp2 --replication-cron-spec '10 05 * * *' --source-share my-file-share
@@ -241,7 +241,7 @@ Replication status reasons   Status code   Status message
 When you create a replica of a file share in another region, you must use the CRN of the source file share. If the source file share has `user_managed` encryption, you must provide the `encryption_key`. The `encryption_key` value must not be specified otherwise. See the following example.
 
    ```sh
-   ibmcloud is share-cross-regional-replica-create --name my-replica-share --zone us-east-1 --profile dp2 --replication-cron-spec '5 * * * *' --source-share crn:v1:bluemix:public:is:us-south-1:a/a1234567::share:r006-d8c8821c-a227-451d-a9ed-0c0cd2358829 --encryption-key crn:v1:bluemix:public:kms:us-south:a/a1234567:1be45161-6dae-44ca-b248-837f98004057:key:3dd21cc5-cc20-4f7c-bc62-8ec9a8a3d1bd
+   ibmcloud is share-replica-create --name my-replica-share --zone us-east-1 --profile dp2 --replication-cron-spec '5 * * * *' --source-share crn:v1:bluemix:public:is:us-south-1:a/a1234567::share:r006-d8c8821c-a227-451d-a9ed-0c0cd2358829 --encryption-key crn:v1:bluemix:public:kms:us-south:a/a1234567:1be45161-6dae-44ca-b248-837f98004057:key:3dd21cc5-cc20-4f7c-bc62-8ec9a8a3d1bd
    Creating replica file share my-cross-regional-replica-share under account Test Account as user test.user@ibm.com...
                                 
    ID                               r006-6d1719da-g687-45ac-9f68-896fd76843a1b    

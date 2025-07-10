@@ -149,7 +149,8 @@ To see the details of the share profile, use the `ibmcloud is share-profile` com
 
 ```sh
 $ ibmcloud is share-profile dp2
-Listing file share profiles in region us-south under account Test Account as user test.user@ibm.com...
+Getting file share profile dp2 under account Test Account as user test.user@ibm.com...
+
 Name       dp2   
 Family     defined_performance   
 IOPS       Default   Max     Min   Step   Type      

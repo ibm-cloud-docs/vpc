@@ -2,7 +2,7 @@
 
 copyright:
   years: 2018, 2025
-lastupdated: "2025-05-27"
+lastupdated: "2025-07-10"
 
 keywords: limitations, restrictions
 
@@ -33,6 +33,8 @@ The following features are not supported, including all properties associated wi
 * Direct Link on Classic access to VPC is supported through [Setting up access to classic infrastructure](/docs/vpc?topic=vpc-setting-up-access-to-classic-infrastructure) only. IBM Cloud Direct Link does not have this limitation.
 
 * Nested virtualization on virtual server instances is not a supported configuration.
+
+* Protocols other than ICMP, TCP, and UDP are not supported at the moment.
 
 ### Billing note
 {: #billing-note}
