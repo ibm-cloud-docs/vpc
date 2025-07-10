@@ -195,7 +195,7 @@ Replication status reasons   Status code   Status message
    ```
    {: screen}
 
-1. Create a replica share by running the `ibmcloud is share-replica-create` command in the region where the replica share is created. Specify the source share by name, ID, or CRN. Provide values to define where the replica file share is going to be created, and the profile of the replica share. Specify the replication schedule with a cron expression. If the source file share has `user_managed` encryption, you must provide the `--encryption_key`. The `--encryption_key` property must not be specified otherwise.
+1. Create a replica share by running the `ibmcloud is share-replica-create` command in the target region. If you're not targeting the right region, use the `ibmcloud target -r REGION` command to switch the target region. Specify the source share by name, ID, or CRN. Provide values to define the zone where the replica file share is going to be created, and the profile of the replica share. Specify the replication schedule with a cron expression. If the source file share has `user_managed` encryption, you must provide the `--encryption_key`. The `--encryption_key` property must not be specified otherwise.
 
    ```sh
    ibmcloud is share-replica-create --name my-replica-share --zone us-south-3 --profile dp2 --replication-cron-spec '10 05 * * *' --source-share my-file-share
