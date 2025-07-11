@@ -1,8 +1,8 @@
 ---
 
 copyright:
-  years: 2023, 2024
-lastupdated: "2024-11-18"
+  years: 2023, 2025
+lastupdated: "2025-07-11"
 
 subcollection: vpc
 
@@ -46,6 +46,7 @@ In the {{site.data.keyword.cloud_notm}}, complete the following steps to provisi
    | Server quantity         | Enter the number of instances that you want to assign to this reservation (a limit of 200 vCPUs). |
    | Term length             | Choose either a 1 or 3-year term length. |
    | Server profile          | Select a [profile](/docs/vpc?topic=vpc-about-reserved-virtual-servers-vpc#reserved-virtual-servers-vpc-supported-profiles) for your reservation. Keep the following rules in mind when you reserve capacity.  \n You can't change profiles after your reservation is created.  \n You can't combine different profile sizes.  \n Your reserved virtual servers must all have the same size (all resources must be identical). |
+   | Reservation attachment policy | Choose either an _automatic_ or _restricted_ attachment policy. |
    | Advanced options | Toggle **Auto renew** to **On** if you want to continue your reservation after your selected term length completes.|
    {: caption="Reservation UI provisioning selections" caption-side="top"}
 
@@ -58,7 +59,12 @@ When a reservation expires, the servers that are attached to a reservation conve
 {: #attach-virtual-server-ui-vpc}
 {: ui}
 
-You can attach existing virtual servers to your reservation. Keep in mind that all existing virtual servers must be the same profile, size, and location.
+You can attach existing virtual servers to your reservation if the reservation has a restricted attachment policy. Keep in mind that all existing virtual servers must be the same profile, size, location, and manual attachment policy.
+
+Virtual servers with an automatic attachment policy automatically attach to a reservation that has an automatic attachment policy.
+{: note}
+
+Use the following steps to attach an existing virtual server to a reservation.
 
 1. From your virtual server list, click **Attach**.
 2. Select the reservation to attach the server to and click **Attach**.
@@ -67,7 +73,12 @@ You can attach existing virtual servers to your reservation. Keep in mind that a
 {: #attach-bare-metal-server-ui-vpc}
 {: ui}
 
-You can attach an existing bare metal server to your reservation. Keep in mind that all existing bare metal servers that are attached to a reservation must be the same profile, size, and location.
+You can attach an existing bare metal server to your reservation. Keep in mind that all existing bare metal servers that are attached to a reservation must be the same profile, size, and location and manual attachment policy.
+
+Bare metal servers with an automatic attachment policy automatically attach to reservations with an automatic attachment policy.
+{: note}
+
+Use the following steps to acctach an existing bare metal server to a reservation that has an automatic attachment policy.
 
 1. From your bare metal server list, click **Attach**.
 2. Select the reservation to attach the server to and click **Attach**.
@@ -107,6 +118,7 @@ Gather the following information by using the associated commands.
 | Server profile          |  Keep the following rules in mind when you provision a reservation.  \n - You can't change profiles after your reservation is created.  \n - You can't combine different profile sizes.  \n - Your reserved virtual servers must all have the same size (all resources must be identical). |
 | Zone               | Select the specific location for your workload. Locations are composed of regions; each region is a separate geographic area. Keep in mind that you can't select individual locations for each virtual server that you provision within this reserved capacity. Your selection is the location for all virtual server instances that you provision within this reservation. |
 | Name                    | The name for your reservation. |
+| Reservation attachment policy | Choose whether you want an _automatic_ or _restricted_ attachment policy. |
 {: caption="Required reservation details for the CLI" captin-side="bottom"}
 
 ## Provisioning a reservation by using the CLI
@@ -170,7 +182,7 @@ After your reservation is provisioned and active, you can **Attach** or **Create
 {: #attach-virtual-server-cli-vpc}
 {: cli}
 
-You can attach an existing virtual server to a reservation by using the CLI. To create a reserved reservation by using the CLI, use the `ibmcloud is instance-update` command.
+You can attach an existing virtual server to a reservation with restricted affinity policy by using the CLI. To attach a reserved reservation by using the CLI, use the `ibmcloud is instance-update` command.
 
 1. Attach a virtual server to a reservation by using the following command with the associated details.
 
@@ -183,7 +195,7 @@ ibmcloud is instance-update <instance-name> -reservation-affinity-policy manual 
 {: #attach-bare-metal-server-cli-vpc}
 {: cli}
 
-You can attach an existing bare metal server to a reservation by using the CLI. To create a reserved reservation by using the CLI, use the `ibmcloud is bare-metal-server-update` command.
+You can attach an existing bare metal server to a reservation with restricted affinity policy by using the CLI. To create a reserved reservation by using the CLI, use the `ibmcloud is bare-metal-server-update` command.
 
 1. Attach a bare metal server to a reservation by using the following command with the associated details.
 

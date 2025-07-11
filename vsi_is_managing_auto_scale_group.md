@@ -2,7 +2,7 @@
 
 copyright:
   years: 2020, 2025
-lastupdated: "2024-03-18"
+lastupdated: "2025-07-11"
 
 keywords: auto scale, autoscale, UI, console
 
@@ -46,7 +46,7 @@ On the Instance group details page, you can click the **Edit icon** ![Edit icon]
 
 * **Name**
 * **Subnets**: Subnet IP address capacity is validated against the size of the instance group. The membership count of the group cannot exceed the total number of IP addresses that are available to assign across your subnets. Currently, 6 IP addresses per subnet are allotted as overhead and not available to assign to instances.
-* **Load balancer pool**: If the membership count of an instance group is set to 0, you can change the load balancer pool that is associated with the instance group. You can select a different load balancer that is available, or select **none** to stop using an assigned load balancer.
+* **Load balancer pool**: If the membership count of an instance group is set to 0, you can change the load balancer pool that is associated with the instance group. You can select a different load balancer that is available, or select **none** to stop use of an assigned load balancer.
 * **Instance template**: You can select a different instance template to be used to provision any new instances that are created for the instance group. Existing instances are not updated with the new instance template.
 * **Membership count**: For more information, see [Changing the membership count of a static instance group](/docs/vpc?topic=vpc-managing-instance-group#changing-membership-count). You cannot manually adjust the membership count for an instance group that is using the dynamic auto scale method, unless dynamic auto scaling is disabled.
 
@@ -122,7 +122,7 @@ If you are using the dynamic method for auto scale, you can temporarily disable 
 
 You can temporarily disable dynamic auto scaling for an instance group to create all new instances with a new instance template. Complete the following steps to remove existing instances in the group and create new instances with a new instance template:
 
-1. When the dynamic auto scale scaling method is enabled, move the slider in the **Scaling method** section from **Enabled** to change it to **Disabled**.
+1. When dynamic auto scale is enabled, move the slider in the **Scaling method** section from **Enabled** to change it to **Disabled**.
 2. With Auto scale set to **Disabled**, change your **Membership count** for the instance group to 0. All of your existing instances in the group are removed.
 3. For the **Instance template** field, use the **Edit icon** ![Edit icon](../icons/edit-tagging.svg "Edit") to edit and select a new instance template to use for creating instances in the instance group.
 4. Change the **Membership count** for the instance group to the number of instances that you want to provision with the new instance template. For example, you can specify a membership count of _5_.
@@ -135,7 +135,7 @@ Keep the following information in mind when you use an instance group with a res
 
 The instance prototype definition, and thus the instance template includes a new reservation property to enable an instance to attach to a specific reservation.
 
-An instance template resource is required when you create an autoscale group. If the instance template is created with a reservation identifier, any instances that are started by the autoscale group attempt to attach to the specified reservation.
+An instance template resource is required when you create an autoscale group. If the instance template is created with a reservation identifier, any instances that are started by the autoscale group attempt to attach to the specified reservation. If the instance template uses an instance prototype with a reservation_affinity=automatic, autoscaled instances attach to any reservation in the account with an affinity_policy of automatic and matching the same profile.
 
 ## Best practices for autoscale groups with reservations
 {: #best-practices-autoscale-with-reservations}
