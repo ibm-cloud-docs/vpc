@@ -2,7 +2,7 @@
 
 copyright:
   years: 2019, 2025
-lastupdated: "2025-06-12"
+lastupdated: "2025-07-12"
 
 keywords:
 
@@ -38,7 +38,7 @@ Customers with special access to use the volume profiles within the defined perf
 
 {{site.data.keyword.block_storage_is_short}} offers block-level volumes that are attached to an instance as a boot volume when the instance is created or attached as secondary data volumes. You can configure up to 300 {{site.data.keyword.block_storage_is_short}} volumes per account in a region. You can request to increase this quota by [opening support case](/docs/vpc?topic=vpc-manage-storage-limit) and specifying in which zone you need more volumes.
 
-You can attach only one boot volume to a virtual server instance at a time, but you can attach up to 12 {{site.data.keyword.block_storage_is_short}} data volumes to a single instance. For other limitations, see [Volume attachment limits](/docs/vpc?topic=vpc-attaching-block-storage#vol-attach-limits).
+You can attach only one boot volume to a virtual server instance at a time, but you can attach up to 12 {{site.data.keyword.block_storage_is_short}} data volumes to a single instance. For other limits, see [Volume attachment limits](/docs/vpc?topic=vpc-attaching-block-storage#vol-attach-limits).
 
 ### Boot volumes
 {: #block-storage-vpc-boot-volumes}
@@ -80,13 +80,10 @@ For more information, see [Managing Block Storage for VPC volumes](/docs/vpc?top
 
 Volume profiles define the capacity and performance characteristics of storage volumes. So you can choose the best option for your specific needs, whether the volume is meant for general use or high-performance workloads.
 
-### Traditional volume profiles
-{: #block-storage-gen1-profiles}
-
-When you create a {{site.data.keyword.block_storage_is_short}} volume in your availability zone, you can use 3 different tiered profiles with predefined IOPS levels. Or you can select a custom profile and define your own IOPS level based on the volume capacity. All profiles are backed by solid-state drives (SSDs).
-
 ### The SSD defined performance profile
 {: #block-storage-sdp-intro}
+
+[New]{: tag-new}
 
 Customers with special approval to preview the defined performance profile can use the `sdp` profile in the Dallas (`us-south`), Frankfurt (`eu-de`), London (`eu-gb`), Madrid (`eu-es`), Osaka (`jp-osa`), Sao Paulo (`br-sao`), Sydney (`au-syd`), Tokyo (`jp-tok`), Toronto (`ca-tor`), and Washington (`us-east`) regions to specify custom capacity, custom throughput limit, and custom IOPS for their volumes.
 {: preview}
@@ -100,6 +97,11 @@ The following limitations apply to this release:
 * Creating a custom image from a boot volume with customer-managed encryption is not supported.
 * Migration between storage volume profile families is not supported.
 * Migration of volumes across zones is not supported.
+
+### Traditional volume profiles
+{: #block-storage-gen1-profiles}
+
+When you create a {{site.data.keyword.block_storage_is_short}} volume in your availability zone, you can use 3 different tiered profiles with predefined IOPS levels. Or you can select a custom profile and define your own IOPS level based on the volume capacity. All profiles are backed by solid-state drives (SSDs).
 
 For more information, see [{{site.data.keyword.block_storage_is_short}} profiles](/docs/vpc?topic=vpc-block-storage-profiles).
 

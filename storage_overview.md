@@ -2,7 +2,7 @@
 
 copyright:
   years: 2022, 2025
-lastupdated: "2025-07-07"
+lastupdated: "2025-07-12"
 
 keywords: block storage for VPC, File Storage for VPC, Snapshots for VPC, Backup for VPC, block storage, file storage, snapshots, backup, 
 
@@ -38,7 +38,7 @@ Customers with special access to preview the second-generation Block Storage off
 
 Second-generation block volumes can be created with capacity in the range of 1 - 32,000 GB. The maximum IOPS that a volume with the `sdp` profile can support is 64,000. You can also modify the throughput limit in the range of 125-1024 MBps (1000-8192 Mbps). Capacity, IOPS, and throughput values of volumes that are created with the `sdp` profile can be modified even when the volume is not attached to a virtual server instance.
 
-| Features            | First-generation volumes | Second-generation volumes |
+| Features            | First-generation volumes | Second-generation volumes [New]{: tag-new}|
 |---------------------|--------------------------|---------------------------|
 | Availability        | Generally available in all VPC regions for all customers. | In the [Select Availability]{: tag-green} release, available in Dallas, Frankfurt, London, Madrid, Osaka, Sao Paulo, Sydney, Tokyo, Toronto, and Washington, DC for allow-listed customers.|
 | Expandable capacity | Yes, up to 16,000 GB     | Yes, up to 32,000 GB |
@@ -73,7 +73,7 @@ Customer with special access to preview the `sdp` profile can create snapshots o
 
 You can use your snapshots to create other second-generation volumes in the same region. You can't use your second-generation snapshot to create a volume with a first-generation volume profile. Similarly, you can't use first-generation volume's snapshot to create a volume with the `sdp` profile. Cross-regional copy of a second-generation snapshot is not supported. Consistency group snapshots of multiple `sdp` volumes and fast restore snapshots are not supported either.
 
-| Features            | First-generation snapshots | Second-generation snapshots |
+| Features            | First-generation snapshots | Second-generation snapshots [New]{: tag-new} |
 |---------------------|--------------------------|---------------------------|
 | Availability        | Generally available in all VPC regions for all customers. | In the [Select Availability]{: tag-green} release, available in Dallas (`us-south`), Frankfurt (`eu-de`), London (`eu-gb`), Madrid (`eu-es`), Osaka (`js-osa`), Sao Paulo (`br-sao`), Sydney (`au-sys`), Tokyo (`jp-tok`), Toronto (`ca-tor`), and Washington (`us-east`) regions for allow-listed customers.|
 | On-demand snapshots | Yes, up to 750 snapshots per region. | Yes, up to 512 snapshots per region in the [Select Availability]{: tag-green} release. |
