@@ -2,7 +2,7 @@
 
 copyright:
   years: 2019, 2025
-lastupdated: "2025-07-07"
+lastupdated: "2025-07-11"
 
 keywords:
 
@@ -26,6 +26,13 @@ For more information about changes to the {{site.data.keyword.vpc_short}} comman
 
 ## July 2025
 {: #vpc-jul25}
+
+### 11 July 2025
+{: #vpc-jul1125}
+{: release-note}
+
+Public address ranges (select availability)
+:   Customers with special access can now create and use public address ranges in the Frankfurt (eu-de) and Madrid (eu-es) regions. A public address range is a contiguous block of public IP addresses that can be bound to a zone in a VPC. For more information, see [About public address ranges](/docs/vpc?topic=vpc-about-par).
 
 ### 03 July 2025
 {: #vpc-jul0325}
