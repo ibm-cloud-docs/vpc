@@ -2,7 +2,7 @@
 
 copyright:
   years: 2018, 2025
-lastupdated: "2025-06-18"
+lastupdated: "2025-07-13"
 
 keywords:
 
@@ -218,7 +218,7 @@ To configure the security group, follow these steps:
    * All rules are evaluated, regardless of the order in which they're added.
    * Rules are stateful, which means that return traffic in response to allowed traffic is automatically permitted. For example, you created a rule that allows inbound TCP traffic on port 80. That rule also allows replying outbound TCP traffic on port 80 back to the originating host, without the need for another rule.
    * For Windows images, make sure that the security group that is associated with the instance allows inbound and outbound Remote Desktop Protocol traffic (TCP port 3389).
-   * If your z/OS virtual server instance is created by using the z/OS dev and test stock image, you can refer to the [Reserved configurations](https://www.ibm.com/docs/en/wazi-aas/1.0.0?topic=vpc-configurations-in-zos-stock-images){: external} table when adding additional ports to the security group of your z/OS virtual server instance.
+   * If your z/OS virtual server instance is created by using the z/OS dev and test stock image, you can refer to the [Reserved configurations](https://www.ibm.com/docs/en/wazi-aas/1.1.0?topic=vpc-configurations-in-zos-stock-images){: external} table when adding additional ports to the security group of your z/OS virtual server instance.
 
 1. _Optional:_ To view interfaces that are attached to the security group, click **Attached resources** tab and review the Attached interfaces section.
 1. When you finish creating rules, click the **Security groups** breadcrumb at the beginning of the page.

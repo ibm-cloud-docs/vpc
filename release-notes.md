@@ -2,7 +2,7 @@
 
 copyright:
   years: 2019, 2025
-lastupdated: "2025-07-11"
+lastupdated: "2025-07-13"
 
 keywords:
 
@@ -1703,7 +1703,7 @@ Flow Logs for VPC
 
 IBM Wazi as a Service
 :   {{site.data.keyword.waziaas_full_notm}} (Wazi aaS) is now generally available in IBM Cloud in Tokyo (`jp-tok`), São Paulo (`br-sao`), Toronto (`ca-tor`), London (`eu-gb`), and Washington DC (`us-east`) regions. For more information, see [{{site.data.keyword.waziaas_full_notm}} product page](https://www.ibm.com/cloud/wazi-as-a-service){: external}.
-* For the latest updates of z/OS dev and test stock images, see [Change log for z/OS stock images](https://www.ibm.com/docs/en/wazi-aas/1.0.0?topic=vpc-change-log-zos-stock-images){: external}.
+* For the latest updates of z/OS dev and test stock images, see [Change log for z/OS stock images](https://www.ibm.com/docs/en/wazi-aas/1.1.0?topic=vpc-change-log-zos-stock-images){: external}.
 * For instructions on creating z/OS virtual server instances, see [Creating virtual server instances](/docs/vpc?topic=vpc-creating-virtual-servers).
 
 

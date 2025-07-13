@@ -2,7 +2,7 @@
 
 copyright:
   years: 2022, 2025
-lastupdated: "2025-06-09"
+lastupdated: "2025-07-13"
 
 keywords:
 
@@ -186,7 +186,7 @@ The z/OS Wazi aaS custom image must meet the following requirements:
 - qcow2 format
 - z/OS 2.4 or z/OS 2.5 operating system
 
-For more information, see [Bringing your own image with Wazi Image Builder](https://www.ibm.com/docs/en/wazi-aas/1.0.0?topic=bringing-your-own-image-wazi-image-builder){: external}.
+For more information, see [Bringing your own image with Wazi Image Builder](https://www.ibm.com/docs/en/wazi-aas/1.1.0?topic=bringing-your-own-image-wazi-image-builder){: external}.
 
 ## More information about custom images
 {: #custom-image-additional-information}

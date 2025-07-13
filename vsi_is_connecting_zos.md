@@ -2,7 +2,7 @@
 
 copyright:
   years: 2022, 2025
-lastupdated: "2025-07-01"
+lastupdated: "2025-07-13"
 
 keywords: connecting, zos, s390x, zosmf, virtual server instance
 
@@ -32,7 +32,7 @@ After you connected to the VPC network by using the client-to-site VPN server, y
 
 Make sure that you locate the private IP address before you connect to the z/OS instances. Private IP addresses are IP addresses that are provided by the system and are only reachable within the VPC network. You can find the private IP address of your z/OS virtual server instance under the *Reserved IP address* column on the console after the instance is created successfully.
 
-If your z/OS virtual server instance is created by using the z/OS dev and test stock image, you can refer to the [Reserved configurations](https://www.ibm.com/docs/en/wazi-aas/1.0.0?topic=vpc-configurations-in-zos-stock-images){: external} table to add additional ports to the security group of your instance.
+If your z/OS virtual server instance is created by using the z/OS dev and test stock image, you can refer to the [Reserved configurations](https://www.ibm.com/docs/en/wazi-aas/1.1.0?topic=vpc-configurations-in-zos-stock-images){: external} table to add additional ports to the security group of your instance.
 
 
 ## Step 1. Configuring the password

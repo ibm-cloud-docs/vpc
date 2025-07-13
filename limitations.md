@@ -2,7 +2,7 @@
 
 copyright:
   years: 2018, 2025
-lastupdated: "2025-07-10"
+lastupdated: "2025-07-13"
 
 keywords: limitations, restrictions
 
@@ -78,4 +78,4 @@ The following feature is not supported:
 ## z/OS virtual server instance restrictions
 {: #zos-vsi-restrictions}
 
-* For limitations of z/OS virtual server instances, see [{{site.data.keyword.waziaas_full_notm}} documentation](https://www.ibm.com/docs/en/wazi-aas/1.0.0?topic=known-limitations){: external}.
+* For limitations of z/OS virtual server instances, see [{{site.data.keyword.waziaas_full_notm}} documentation](https://www.ibm.com/docs/en/wazi-aas/1.1.0?topic=known-limitations){: external}.

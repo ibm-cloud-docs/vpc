@@ -2,7 +2,7 @@
 
 copyright:
   years: 2018, 2025
-lastupdated: "2025-02-28"
+lastupdated: "2025-07-13"
 
 subcollection: vpc
 
@@ -163,7 +163,7 @@ ssh-keyscan -t rsa [sFTP] >> ~/.ssh/known_hosts
 
 If you need more help, you can open a [support case](/docs/account?topic=account-using-avatar).
 
-For troubleshooting information about z/OS virtual server instances, see [{{site.data.keyword.waziaas_full_notm}} documentation](https://www.ibm.com/docs/en/wazi-aas/1.0.0?topic=known-limitations){: external}.
+For troubleshooting information about z/OS virtual server instances, see [{{site.data.keyword.waziaas_full_notm}} documentation](https://www.ibm.com/docs/en/wazi-aas/1.1.0?topic=known-limitations){: external}.
 
 ## Why am I getting an error when I attempt to add more than 5 network interfaces for an existing virtual server instance?
 {: #error-above-5-network-interfaces}

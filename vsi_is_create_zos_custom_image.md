@@ -26,12 +26,11 @@ IBM Wazi Image Builder is a separately orderable product from [IBM Passport Adva
 The z/OS Wazi aaS custom image must meet the following requirements: 
 * qcow2 format
 * z/OS 2.4 or z/OS 2.5 operating system
-* See [Prerequisites](https://www.ibm.com/docs/en/wazi-aas/1.0.0?topic=builder-prerequisites){: external} for required PTF fixes on z/OS and other IBM software products to allow them to run as a guest of alternate IBM hypervisor, IBM Z Hypervisor as a Service (zHYPaaS).
+* See [Prerequisites](https://www.ibm.com/docs/en/wazi-aas/1.1.0?topic=builder-prerequisites){: external} for required PTF fixes on z/OS and other IBM software products to allow them to run as a guest of alternate IBM hypervisor, IBM Z Hypervisor as a Service (zHYPaaS).
 
 IBM Wazi Image Builder is licensed only for development, testing, employee education, or demonstration of your applications that run on z/OS. This product must not be used for production workloads of any kind, nor robust development workloads, production module builds, preproduction testing, stress testing, or performance testing.
 {: important}
 
 For details about getting IBM Wazi Image Builder license keys and activation kits, go to the [IBM Support Licensing](https://www.ibm.com/support/pages/ibm-support-licensing-start-page){: external} page. To download the software, follow the instructions on [IBM Passport Advantage&reg;](https://www.ibm.com/software/passportadvantage/){: external}. 
 
-For details about installing, configuring, and using IBM Wazi Image Builder, see [{{site.data.keyword.waziaas_full_notm}} documentation](https://www.ibm.com/docs/en/wazi-aas/1.0.0){: external}.
-
+For details about installing, configuring, and using IBM Wazi Image Builder, see [{{site.data.keyword.waziaas_full_notm}} documentation](https://www.ibm.com/docs/en/wazi-aas/1.1.0){: external}.
