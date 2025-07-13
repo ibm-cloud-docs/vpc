@@ -2,7 +2,7 @@
 
 copyright:
   years: 2021, 2025
-lastupdated: "2025-07-09"
+lastupdated: "2025-07-13"
 
 keywords: file share, file storage, rename share, increase size, adjust IOPS, mount target
 
@@ -444,7 +444,7 @@ With Terraform, you can:
 * [Change file share attributes such as name, size, profile, tags](#file-storage-share-update-terraform),
 * [Add](/docs/vpc?topic=vpc-file-storage-create-replication&interface=terraform#fs-create-replica-terraform) or [remove a replica relationship](/docs/vpc?topic=vpc-file-storage-manage-replication&interface=terraform#fs-remove-replication-terraform).
 * [Change the name of a mount target](#file-storage-mount-target-update-terraform).
-* [Delete a file share or a mount target](#delete-file-share-terraform).
+* [Delete a file share or a mount target](/docs/vpc?topic=vpc-file-storage-managing&interface=terraform#delete-file-share-terraform).
 
 ### Updating attributes of a file share with Terraform
 {: #file-storage-share-update-terraform}
@@ -469,7 +469,7 @@ Some attributes, such as profile, mount target access mode, allowed transit encr
 
 The owner of the share can change the allowed transit encryption modes type to `user_managed,none`,`user_managed` or `none`. 
 
-However, before this property can be changed, all bindings and [mount targets must be deleted](#delete-file-share-terraform). Deleting the bindings severs the network path between origin file share and accessor share, and puts the mount target that is attached to the accessor share in a failed state. For more information, see [Removing access to a file share from other accounts](/docs/vpc?topic=vpc-file-storage-accessor-delete&interface=terraform).
+However, before this property can be changed, all bindings and [mount targets must be deleted](/docs/vpc?topic=vpc-file-storage-managing&interface=terraform#delete-file-share-terraform). Deleting the bindings severs the network path between origin file share and accessor share, and puts the mount target that is attached to the accessor share in a failed state. For more information, see [Removing access to a file share from other accounts](/docs/vpc?topic=vpc-file-storage-accessor-delete&interface=terraform).
 {: important}
 
 For more information about the arguments and attributes, see [ibm_is_share](https://registry.terraform.io/providers/IBM-Cloud/ibm/latest/docs/resources/is_share){: external}.
