@@ -2,7 +2,7 @@
 
 copyright:
   years: 2019, 2025
-lastupdated: "2025-07-12"
+lastupdated: "2025-07-14"
 
 keywords: faqs, Block Storage for vpc, fast restore, multizone, instance, instance provisioning, volume management, volume deletion.
 
@@ -22,7 +22,8 @@ The following questions often arise about the {{site.data.keyword.block_storage_
 ## Questions about the defined performance volume profile family
 {: #block-storage-sdp-questions}
 
-[Select availability]{: tag-green}
+Customers with special access can provision storage with the new `sdp` profile.  The `sdp` profile is available in the Dallas, Frankfurt, London, Madrid, Osaka, Sao Paulo, Sydney, Tokyo, Toronto, and Washington, DC regions during the select availability release. For more information about this release, see [About {{site.data.keyword.block_storage_is_short}}](/docs/vpc?topic=vpc-block-storage-about#block-storage-sdp-intro).
+{: preview}
 
 ### What does Select Availability mean for the defined performance volume family?
 {: faq}
