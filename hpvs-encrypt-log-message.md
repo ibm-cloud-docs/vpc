@@ -30,7 +30,7 @@ In this tutorial, we use Log Analysis as the logging service. The process also a
 ## Introduction
 {: #introduction}
 
-This tutorial deploys a Docker container as a Hyper Protect Virtual Server for VPC. Inside the [`/example-files` folder](https://github.com/ibm-hyper-protect/hyper-protect-virtual-server-samples/tree/main/log-encryption/example-files){: external}, you can find the following materials:
+This tutorial deploys a Docker container as a Hyper Protect Virtual Server for VPC. Inside the [`/example-files` folder](https://github.com/ibm-hyper-protect/hyper-protect-virtual-server-samples/tree/main/log-encryption){: external}, you can find the following materials:
 
 1. A `docker-compose.yaml` file under the `/compose` directory, which deploys and manages the container application to be used in this tutorial. The image that we use is the official Ubuntu image from [DockerHub](https://hub.docker.com/_/ubuntu){: external}.
 2. Within the Docker Compose file, there is a `command:` instruction to tell Docker to run a Shell script that prints a line of plain text, and a line of encrypted message to the standard output. This `example.sh` file exists in the `/compose/bin` directory.

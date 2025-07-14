@@ -20,7 +20,7 @@ As described in the VPC API reference [versioning](/apidocs/vpc/latest#api-versi
 Before you adopt the release version `2025-06-30` or later, review the changes described in this migration guidance that might require you to update your client.
 
 ## Changed image properties
-{: changed-properties-image-api-version-2025-06-30}
+{: #changed-properties-image-api-version-2025-06-30}
   
 The following properties have changed for API requests that use a `version` query parameter of `2025-06-30` or later.
 

@@ -2,7 +2,7 @@
 
 copyright:
   years: 2019, 2025
-lastupdated: "2025-06-26"
+lastupdated: "2025-07-14"
 
 keywords: vsi, virtual server instances, profile, profiles, balanced, compute, memory, very high memory, ultra high memory, gpu storage optimized, confidential compute
 
@@ -34,7 +34,7 @@ The following profile families are available when you provision a virtual server
 | [GPU](#gpu) | GPU enabled profiles provide on-demand access to GPUs and accelerators to facilitate AI, high-performance computing, data science, and graphics workloads.|
 | [Storage Optimized](#storageopt) | Storage Optimized profiles offer temporary SSD instance storage disks at a ratio of 1 vCPU to 300 GB instance storage with a smaller price point per GB. These profiles are designed for storage-dense workloads and offer `virtio` interface type for attached disks. |
 | [Confidential Compute](#confidential-computing-profiles) | Confidential Compute-supported profiles use processor reserved memory called EPC (Enclave Page Cache) to encrypt application data. Processor reserved memory EPC maintains confidentiality and integrity. |
-| [Flex profiles](#flex-profiles) | Flex profiles offer a cost-effective option to help improve and mainstream capacity and scalability where and when you need it. |
+| [Flex profiles](#flexible-profiles) | Flex profiles offer a cost-effective option to help improve and mainstream capacity and scalability where and when you need it. |
 {: caption="Virtual server family selections" caption-side="bottom"}
 
 2nd generation profiles with instance storage and 2nd generation profiles with 64 or more vCPUs are deployed exclusively on the Intel&reg;'s second-generation quad processor Xeon&reg; Platinum 8260 Cascade Lake with 96 cores that are running at a base speed of 2.4 GHz and an all-core turbo frequency of 3.1 GHz or Intel&reg;'s quad processor Xeon&reg; Gold 6248 Cascade Lake with 80 cores that are running at a base speed of 2.5 GHz and an all-core turbo frequency of 3.1 GHz.
@@ -508,7 +508,7 @@ You can add up to 15 network interfaces for your virtual server instance, depend
 * 17-48 vCPUs: Up to 10 network interfaces
 * 49 or more vCPUs: Up to 15 network interfaces
 
-With [flex profiles](#flex-profiles), you can add up to 2 network interfaces for a virtual server instance, depending on the vCPU count that is included in the profile.
+With [flex profiles](#flexible-profiles), you can add up to 2 network interfaces for a virtual server instance, depending on the vCPU count that is included in the profile.
 
 * 2-4 vCPUs: 1 network interface
 * 8 or more vCPUs: 2 network interfaces
