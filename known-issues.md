@@ -2,7 +2,7 @@
 
 copyright:
   years: 2018, 2025
-lastupdated: "2025-06-18"
+lastupdated: "2025-07-15"
 
 keywords:
 
@@ -127,15 +127,15 @@ Users of Accessor shares have access to all the data of the source share, which 
 
 The property `snapshot_directory_visible` is included in the API response for the methods that are listing, creating, deleting, retrieving, or updating a file share. This field is not recommended for use, and it is planned to be removed.
 
-### Replicated snapshots do not inherit names from the source snapshots
-{: #missingsnapshotnames}
+## Creating accessor share with specific resource group fails
+{: #accessor-shares-need-default-resource-group}
 
-If a source share with snapshots is replicated, the corresponding replica share snapshots are created with system-generated names, rather than inheriting the source share snapshot names. Since replicated snapshots share the source's fingerprint ID, you can use the fingerprint to correlate the snapshots.
+When you specify a resource group explicitly in your API request to create an accessor share for an origin share, the request fails with 400 Bad Request error. As a workaround you can create the accessor share without specifying a resource group, the system automatically picks the default resource group to create the share.
 
-### The `source_snapshot` property is not copied to the replica share
-{: #source-snapshot-not-in-replica}
+## When a cross-regional replica is created, the displayed href value of the parent snapshot is incorrect
+{: #crr-incorrect-href-source-snapshot}
 
-The `source_snapshot` property is present in the API response when a share is created by using a snapshot. However, when the share is replicated, this property is not copied to the replica.
+When you retrieve information about your cross-regional replica share, the source snapshot's href value is incorrect in the API response. Refer to the source snapshot ID or source snapshot CRN instead.
 
 ### Backup plan ID property in the API response
 {: #backup-policy-plan-fs}
@@ -155,4 +155,4 @@ When details of first-generation volume profiles are retrieved, the responses sh
 ### Block volume snapshots that are taken in Montreal are stored in {{site.data.keyword.cos_short}} in Washington, DC
 {: #snapshot-COS-upload-CA-MON-US-EAST}
 
-Due to the unavailability of a local key management service ({{site.data.keyword.keymanagementserviceshort}}) instance in Montreal, the block volume snapshots that are taken in Montreal are routed to and stored in an encrypted {{site.data.keyword.cos_short}} bucket with local KMS keys in the WDC MZR. When the KMS service becomes available in Montreal, all the snapshots will be moved back to Montreal from Washington DC.
+The Montreal MZR currently does not have a local key management service ({{site.data.keyword.keymanagementserviceshort}}) instance available. Hence, the block volume snapshots that are taken in Montreal are routed to and stored in an encrypted {{site.data.keyword.cos_short}} bucket with local KMS keys in the WDC MZR. When the KMS service becomes available in Montreal, all the snapshots will be moved back to Montreal from Washington DC.
