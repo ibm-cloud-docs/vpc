@@ -2,7 +2,7 @@
 
 copyright:
   years: 2018, 2025
-lastupdated: "2025-07-09"
+lastupdated: "2025-07-15"
 
 keywords:
 
@@ -225,7 +225,7 @@ Each route has a destination property, which includes a prefix length (`/24` in 
 |----------|-------|
 | Backup policies |  You can create up to 10 backup policies per region. This quota can't be increased. |
 | File shares | The cumulative size of all backups for a share can't exceed 100 TB. |
-| Block volumes | The cumulative size of all backups for a volume can't exceed 10 TB. |
+| Block volumes | The cumulative size of all backups for a first-generation storage volume can't exceed 10 TB. \n During the [Select Availability]{: tag-green} phase, you can create backup snapshots of second-generation storage volumes up to 32 TB. |
 | Retention period | You can keep your backup snapshots for up to 1000 days. |
 {: caption="Quotas for file shares" caption-side="bottom"}
 

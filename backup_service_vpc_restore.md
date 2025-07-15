@@ -2,7 +2,7 @@
 
 copyright:
   years: 2022, 2025
-lastupdated: "2025-07-03"
+lastupdated: "2025-07-15"
 
 keywords: Backup, backup service, backup plan, backup policy, restore, restore volume, restore data
 
@@ -22,6 +22,9 @@ Restoring data from a backup snapshot creates a fully provisioned boot or data v
 {: #baas-vpc-restore-concepts}
 
 When you restore a volume from a backup, the service creates another volume. The restored volume inherits the same [profile](/docs/vpc?topic=vpc-block-storage-profiles), capacity, data, and metadata as the original volume. However, you can choose a different profile and capacity if you prefer. If the source volume used [customer-managed encryption](/docs/vpc?topic=vpc-vpc-encryption-about#vpc-customer-managed-encryption), the new volume inherits that encryption.
+
+First- and second-generation volume profiles are not interchangeable. You can use a backup of a second-generation volume to create another second-generation volume, but you can't switch the volume profile to a first-generation volume profile. In the same way, you can use a backup of a first-generation volume to create another first-generation volume with the same data, and you can't switch the new volume to the `sdp` profile. Fast restore backup clones, cross-regional copies, and consistency groups are not supported for second-generation storage volumes.
+{: important}
 
 Restoring a volume from a backup snapshot creates a boot or data volume, depending on whether the snapshot is bootable or nonbootable. The volume appears first as _pending_ while it's being created. During the restoration, your data is copied from {{site.data.keyword.cos_full}} to {{site.data.keyword.block_storage_is_short}}. After the volume is hydrated (fully provisioned), you can use the new boot or data volume. For more information about how performance is affected during restoration, see [Performance impact when backup snapshots are used](#baas-performance-considerations).
 

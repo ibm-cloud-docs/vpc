@@ -2,7 +2,7 @@
 
 copyright:
   years: 2019, 2025
-lastupdated: "2025-07-13"
+lastupdated: "2025-07-15"
 
 keywords:
 
@@ -26,6 +26,13 @@ For more information about changes to the {{site.data.keyword.vpc_short}} comman
 
 ## July 2025
 {: #vpc-jul25}
+
+### 15 July 2025
+{: #vpc-jul1525}
+{: release-note}
+
+Backup for VPC support for second-generation block volumes (select availability)
+:   Customers with special access to preview the second-generation block storage volumes can automate the creation and deletion of snapshots for these volumes with the Backup for VPC service. You can manage your backup policies for second-generation volumes in the console, from the CLI, or with the API. For more information, see [Backups for second-generation block storage volumes](/docs/vpc?topic=vpc-backup-service-about&interface=ui#sdp-backups).
 
 ### 11 July 2025
 {: #vpc-jul1125}
@@ -1214,7 +1221,7 @@ File Storage for VPC (GA)
 VPC services using IBM Cloud Metrics Routing
 :    You can use IBM Cloud Metrics Routing to manage metrics at the account-level by configuring targets and routes that define where data points are routed. This platform service can only route metrics that are generated in [supported regions](/docs/metrics-router?topic=metrics-router-regions) by enabled services. Other regions, where IBM Cloud Metrics Routing is not available, continue to manage metrics by using [IBM Cloud Monitoring](/docs/monitoring?topic=monitoring-getting-started).
 
-   For a list of supported IBM Cloud VPC services, see [IBM Cloud services that generate metrics that are managed through IBM Cloud Metrics Routing](/docs/metrics-router?topic=metrics-router-cloud-services-mr#vpc). To learn more about IBM Cloud Metrics Routing, see [Getting started with IBM Cloud Metrics Routing](/docs/metrics-router?topic=metrics-router-getting-started).
+For a list of supported IBM Cloud VPC services, see [IBM Cloud services that generate metrics that are managed through IBM Cloud Metrics Routing](/docs/metrics-router?topic=metrics-router-cloud-services-mr#vpc). To learn more about IBM Cloud Metrics Routing, see [Getting started with IBM Cloud Metrics Routing](/docs/metrics-router?topic=metrics-router-getting-started).
 
 ### 14 July 2023
 {: #vpc-july1423}
@@ -1869,9 +1876,10 @@ File Storage for VPC
 {: release-note}
 
 Secrets Manager for application load balancers
-:    Application load balancers now support [IBM Secrets Manager](/docs/secrets-manager?topic=secrets-manager-getting-started). With Secrets Manager, you can create, lease, and centrally manage secrets that are used in {{site.data.keyword.cloud}} services or your custom-built applications.
+:   Application load balancers now support [IBM Secrets Manager](/docs/secrets-manager?topic=secrets-manager-getting-started). With Secrets Manager, you can create, lease, and centrally manage secrets that are used in {{site.data.keyword.cloud}} services or your custom-built applications.
 
-:    As a reminder, end of support for IBM Cloud Certificate Manager was 31 December 2022. Remaining instances of Certificate Manager have been deleted. If you have any user-provided Ingress secrets stored in Certificate Manager, they are no longer valid.
+IBM Cloud Certificate Manager - End of Support
+:   As a reminder, end of support for IBM Cloud Certificate Manager was 31 December 2022. Remaining instances of Certificate Manager have been deleted. If you have any user-provided Ingress secrets stored in Certificate Manager, they are no longer valid.
 
 ### 17 May 2022
 {: #vpc-may1722}

@@ -2,7 +2,7 @@
 
 copyright:
  years: 2022, 2025
-lastupdated: "2025-07-03"
+lastupdated: "2025-07-15"
 
 keywords: Backup, backup service, backup plan, backup policy, restore, restore volume, restore data
 
@@ -29,6 +29,9 @@ You can create up to 10 [backup policies](#backup-service-policies) in one regio
 You can choose to back up individual {{site.data.keyword.block_storage_is_short}} volumes or {{site.data.keyword.filestorage_vpc_short}} shares that are identified by tags. Or you can choose to create backups of all the {{site.data.keyword.block_storage_is_short}} volumes that are attached to a specific virtual server instance as members of a **consistency group**. When you configure backups for a [consistency group](/docs/vpc?topic=vpc-snapshots-vpc-about&interface=ui#multi-volume-snapshots), you can choose to include the boot volume or leave it out. When you create multi-volume backups, you add the tag to the virtual server instance.
 
 When you request a backup snapshot of a consistency group, the system ensures that all write operations are complete before it takes the snapshots. Then, the system generates snapshots of all the selected Block Storage volumes that are attached to the virtual server instance at the same time. Depending on the number and size of the attached volumes, plus the amount of data that is to be captured, you might observe a slight IO pause. This IO pause can range from a few milliseconds up to 4 seconds. It is recommended to run your automated backup-policy during off-peak hours to minimize any impact on performance.
+
+As a customer with special access to preview the second-generation storage volumes with the `sdp` profile, you can now also automate the creation of individual snapshots with the Backup service. Cross-regional copies are not supported in this release. For more information, see [Backups for second-generation block storage volumes](#sdp-backups).
+{: preview}
 
 An individual volume or share is backed up when a user-provided [tag](#backup-service-about-tags) that is associated with a volume or share matches the tags for target resources in a backup policy. When you choose to back up all the Block Storage volumes that are attached to a virtual server instance, the user-provided tag is associated with the virtual server instance. When the scheduled backup is triggered by a backup plan, all resources with matching tags are backed up.
 
@@ -213,6 +216,22 @@ Only one copy of the backup snapshot can exist in each region. You can't create 
 
 Creating a cross-regional copy affects billing. You're charged for the data transfer and the storage consumption in the target region separately.
 
+## Backups for second-generation block storage volumes
+{: #sdp-backups}
+
+If you are a customer with special access, you can provision second-generation storage volumes with the `sdp` profile and create snapshots of these volumes. You can now also use the Backup service to automate and schedule the creation and deletion of snapshots of second-generation block volumes.
+{: preview}
+
+Currently, customer can create up to 512 manual and backup snapshots of their `sdp` volumes. The backup service can even create snapshots when the `sdp` volumes are unattached. 
+
+Second-generation storage volumes can range in size from 1 TB to 32 TB. You can back up the entire volume without any restriction of capacity. 
+
+The backup snapshots that are created for `sdp` volumes have an independent life cycle from the parent volume. You can delete the volume and the backup snapshot persists until the retention period that you set is reached.
+
+You can use your backup snapshots to create other second-generation volumes in the same region. However, backup policies that include cross-regional copies are not supported. The creation of consistency group backups is not supported either.
+
+A snapshot of a first-generation volume cannot be used to create a second-generation volume with the `sdp` profile. Similarly, you can't use a snapshot from a second-generation volume to create a volume with a first-generation profile.
+
 ## Limitations
 {: #backup-service-limitations}
 
@@ -230,6 +249,11 @@ Volume backups:
 * Cross-regional copies are not supported in Montreal (`ca-mon`) MZR.
 * Consistency groups consist of the attached Block Storage volumes of virtual server instances, such as boot and data volumes. Instance storage volumes and virtual server instance configuration are not included.
 * The fast restore feature is not supported for multi-volume backups of consistency groups.
+* During the [Beta]{: tag-cyan} phase of the backup support for second-generation volumes, the following limitations apply.
+   - You can take up to 512 backup snapshots of your `sdp` volume.
+   - You can't create consistency group backups that contain `sdp` volumes.
+   - You can't create fast restore clones of your second-generation volume backups.
+   - You can't create cross-regional copies of your second-generation volume backups.
 
 File share backups:
 * You can take a total of 750 backups per file share. 
