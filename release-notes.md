@@ -2,7 +2,7 @@
 
 copyright:
   years: 2019, 2025
-lastupdated: "2025-07-15"
+lastupdated: "2025-07-16"
 
 keywords:
 
@@ -30,6 +30,9 @@ For more information about changes to the {{site.data.keyword.vpc_short}} comman
 ### 15 July 2025
 {: #vpc-jul1525}
 {: release-note}
+
+Allowed-use expressions now available for custom images (GA)
+:   You can use allowed-use expressions to configure which profiles, images, and server settings can be used together when you provision a virtual server instance or bare metal server. When you make selections to create a virtual server instance or bare metal server, if you use a custom image with defined allowed-use expressions, you can then determine which profiles are compatible with those expressions. For more information, see [Adding allowed-use expressions to custom images](/docs/vpc?topic=vpc-custom-image-allowed-use-expressions&interface=ui). There is a known issue that `GET /bare_metal_servers` doesn't display the `allowed_use` property in the response. Functionality is not affected. For more information, see [The allowed_use property is not displayed for bare metal servers](/docs/vpc?topic=vpc-known-issues#bare-metal-allowed-use-known-issue).
 
 Backup for VPC support for second-generation block volumes (select availability)
 :   Customers with special access to preview the second-generation block storage volumes can automate the creation and deletion of snapshots for these volumes with the Backup for VPC service. You can manage your backup policies for second-generation volumes in the console, from the CLI, or with the API. For more information, see [Backups for second-generation block storage volumes](/docs/vpc?topic=vpc-backup-service-about&interface=ui#sdp-backups).

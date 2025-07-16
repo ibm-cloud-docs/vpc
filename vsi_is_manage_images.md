@@ -20,6 +20,7 @@ After you import a custom image to {{site.data.keyword.vpc_short}}, you can view
 
 - To manage an image from volume, see [Managing image from volume](/docs/vpc?topic=vpc-image-from-volume-vpc-manage&interface=ui).
 - To use a custom image in a private catalog, see [Onboarding a virtual server image for VPC](/docs/account?topic=account-catalog-vsivpc-tutorial&interface=ui).
+- To use allowed-use expressions with your custom images to define the capabilities and restrictions of an image and help you find compatible image and profile combinations during server creation, see [Adding allowed-use expressions to custom images](/docs/vpc?topic=vpc-custom-image-allowed-use-expressions&interface=ui).
 
 {{site.data.keyword.cloud}} Identity and Access Management (IAM) enables you to securely authenticate users for platform services and control access to resources consistently across {{site.data.keyword.cloud_notm}}. For more information about access requirements for custom images, see the IAM roles and actions information in [Image Service for VPC](/docs/account?topic=account-iam-service-roles-actions#is.image-roles).
 
@@ -97,6 +98,8 @@ data "ibm_is_images" "images" {
 {: ui}
 
 You can view the following details of a custom image:
+
+* Allowed-use expression (if set)
 * Assigned resource group
 * Checksum
 * Creation date
@@ -116,8 +119,8 @@ You can edit the name of the custom image, adds tags for searchability, and view
 To view details for a custom image, complete the following steps.
 
 1. In [{{site.data.keyword.cloud_notm}} console](/login){: external}, go to **Navigation Menu** icon![menu icon](../icons/icon_hamburger.svg) **> Infrastructure** ![VPC icon](../../icons/vpc.svg) **> Compute > Images**.
-1. On the **Custom images** tab, click the name of a custom image to view details about that image.
-1. On the **Image details** page you can edit the name of the image, copy the checksum, add tags, and copy the CRN for the image.
+1. On the **Custom images** tab, click the name of a custom image then, on the next panel, click `View image details`.
+1. On the **Image details** page you can edit the name of the image, copy the checksum, add tags, copy the CRN for the image, and edit the allowed-use expression of the image.
 1. From the **Actions** menu of the Image details page, you can do take actions such as create a virtual server instance from the custom image or delete the image. For a full list of possible actions, see [Managing custom images by using the UI](/docs/vpc?topic=vpc-managing-custom-images&interface=ui#custom-images-managing-ui).
 
 ## Viewing custom image details by using the CLI

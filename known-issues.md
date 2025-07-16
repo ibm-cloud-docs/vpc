@@ -2,7 +2,7 @@
 
 copyright:
   years: 2018, 2025
-lastupdated: "2025-07-15"
+lastupdated: "2025-07-16"
 
 keywords:
 
@@ -53,7 +53,6 @@ Known issues might change over time, so check back occasionally.
 
 ## Bare metal servers known issues and limitations
 {: #bare-metal-servers-known-issues-limitations}
-
 
 ### iPXE network boot known timing issue
 {: #ipxe-network-boot-known-issue}

@@ -2,7 +2,7 @@
 
 copyright:
   years: 2021, 2025
-lastupdated: "2025-07-03"
+lastupdated: "2025-07-16"
 
 keywords: view snapshots, view snapshot, viewing snapshots, see snapshots, Block Storage snapshots
 
@@ -18,8 +18,7 @@ subcollection: vpc
 You can view a list of all snapshots and consistency groups, and drill down to see information about a particular snapshot. Choose the UI, CLI, API, or Terraform to retrieve this information.
 {: shortdesc}
 
-Fast restore snapshot clones, cross-regional copies, and consistency groups are not supported for second-generation storage volumes during this release.
-{: preview}
+You can use allowed-use expressions with bootable block storage snapshots to define the capabilities and restrictions of a snapshot and help you find compatible image and profile combinations during server creation. To use allowed-use expressions with your snapshots, see [Adding allowed-use expressions to custom images](/docs/vpc?topic=vpc-custom-image-allowed-use-expressions&interface=ui).
 
 ## Listing snapshots in the console
 {: #snapshots-vpc-view-ui}
@@ -97,6 +96,7 @@ The snapshot details panel shows the information that is described in the follow
 | Size| Size in GBs of the snapshot, inherited from the source volume. |
 | Source volume | Source volume from which the first snapshot was taken. Click the link for volume details. If the volume was deleted, the name appears without a link. |
 | Encryption | Provider-managed or customer-managed encryption. For customer-managed encryption, the KMS instance, root key name, and root key ID are shown. |
+| Virtual server expression | When provisioning a virtual server instance using this snapshot, the expression is matched against the requested instance properties to determine compatibility. |
 | Fast restore panel | Use [fast restore](/docs/vpc?topic=vpc-snapshots-vpc-about#snapshots_vpc_fast_restore) to create a volume from this snapshot that is fully provisioned. Click **Edit** to [enable or disable fast restore](/docs/vpc?topic=vpc-snapshots-vpc-manage&interface=ui#snapshots-edit-fast-restore) in a zone. |
 | Consistency group panel | It displays information about the consistency group that the snapshot is a member of. Click **Create virtual server** to restore volumes from the consistency group. |
 {: caption="Snapshot details" caption-side="bottom"}
@@ -318,7 +318,11 @@ Source Image                    ID                                          Name
                                 r010-f68ef7b3-1c5e-4ef7-8040-7ae0f5bf04fd   my-custom-image   us-south  crn:v1:bluemix:public:is:us-south:a/a1234567::image:r010-f68ef7b3-1c5e-4ef7-8040-7ae0f5bf04fd   image
 
 Operating system                Name                 Vendor      Version                                     Family         Architecture   Display name
-                                ubuntu-22-04-amd64   Canonical   22.04 LTS Jammy Jellyfish Minimal Install   Ubuntu Linux   amd64          Ubuntu Linux 22.04 LTS Jammy Jellyfish Minimal Install (amd64)      
+                                ubuntu-22-04-amd64   Canonical   22.04 LTS Jammy Jellyfish Minimal Install   Ubuntu Linux   amd64          Ubuntu Linux 22.04 LTS Jammy Jellyfish Minimal Install (amd64)
+
+Allowed Use API Version         2024-01-01
+Allowed Use Bare Metal Server   enable_secure_boot == true
+Allowed Use Instance            gpu.count > 0 && gpu.memory > 16
 
 Resource group                  ID                                 Name
                                 6edefe513d934fdd872e78ee6a8e73ef   defaults
@@ -330,6 +334,8 @@ Service Tags                    -
 Storage Generation              1
 ```
 {: screen}
+
+* The `allowed-used` properties are inherited from the source volume or snapshot at creation time. You can change their value either at creation time or later if you are authorized to the `is.snapshot.snapshot.manage-allowed-use` IAM role. The properties comprise a Boolean [Common Expression Language](https://github.com/google/cel-spec/blob/master/doc/langdef.md){: external} expression. When the instance expression is evaluated to be `true`, then the provisioning of a virtual server instance is allowed with the snapshot. When the expression is evaluated to be `false`, the provisioning is blocked. If the value is not specified at the time of creation, then the constraint expressions are taken from the source resource.
 
 The following example shows the details of a nonbootable snapshot in the `eu-de` region, which also has a fast restore clone in the `eu-de-1` zone.
 
@@ -516,6 +522,11 @@ A successful response looks like the following example.
     "limit": 5,
     "snapshots": [
       {
+        "allowed_use": {
+          "api_version": "2025-03-31",
+          "bare_metal_server": "false",
+          "instance": "gpu.count > 0 && gpu.manufacturer == 'nvidia'"
+        },
         "bootable": true,
         "clones": [],
         "created_at": "2022-12-18T20:18:18Z",
@@ -564,6 +575,11 @@ A successful response looks like the following example.
         "user_tags": []
       },
       {
+        "allowed_use": {
+          "api_version": "2025-03-31",
+          "bare_metal_server": "false",
+          "instance": "gpu.count > 0 && gpu.manufacturer == 'nvidia'"
+        },
         "bootable": true,
         "clones": [],
         "created_at": "2022-12-17T20:11:28Z",
@@ -633,6 +649,11 @@ A successful response looks like the following example.
 
 ```json
 {
+  "allowed_use": {
+    "api_version": "2025-03-31",
+    "instance": "gpu.count >= 2 && gpu.model in ['h100', 'a100'] && gpu.memory > 16 && enable_secure_boot == true",
+    "bare_metal_server": "false"
+  },
   "bootable": true,
   "clones": [],
   "captured_at": "2022-12-16T20:19:12Z",
@@ -683,6 +704,8 @@ A successful response looks like the following example.
 }
 ```
 {: codeblock}
+
+* The `allowed-used` properties are inherited from the source volume or snapshot at creation time. You can change their value either at creation time or later if you are authorized to the `is.snapshot.snapshot.manage-allowed-use` IAM role. The properties comprise a Boolean [Common Expression Language](https://github.com/google/cel-spec/blob/master/doc/langdef.md){: external} expression. When the instance expression is evaluated to be `true`, then the provisioning of a virtual server instance is allowed with the snapshot. When the expression is evaluated to be `false`, the provisioning is blocked. If the value is not specified at the time of creation, then the constraint expressions are taken from the source resource.
 
 ### Viewing all fast restore snapshot clones with the API
 {: #snapshots-view-zonal-clones-api}
@@ -768,6 +791,11 @@ A successful response shows information that is similar to the following example
 
 ```json
 {
+  "allowed_use": {
+    "api_version": "2025-03-31",
+    "instance": "gpu.count >= 2 && gpu.model in ['h100', 'a100'] && gpu.memory > 16 && enable_secure_boot == true",
+    "bare_metal_server": "false"
+  },
   "bootable": true,
   "created_at": "2023-05-18T20:18:18Z",
   "crn": "crn:[...]",
@@ -830,7 +858,7 @@ A successful response shows information that is similar to the following example
     "remote": {
     	"region": {
     	   "name": "us-south",
-    	   "hfef": "https://us-east.iaas.cloud.ibm.com/v1/regions/us-south"
+    	   "href": "https://us-east.iaas.cloud.ibm.com/v1/regions/us-south"
     	}
     },
     "href": "https://us-south.iaas.cloud.ibm.com/v1/volumes/r006-411a798c-5816-4082-8ecb-554a440f83de",
@@ -954,6 +982,8 @@ data "ibm_is_snapshot" "example" {
 }
 ```
 {: codeblock}
+
+* The `allowed-used` properties are inherited from the source volume or snapshot at creation time. You can change their value either at creation time or later if you are authorized to the `is.snapshot.snapshot.manage-allowed-use` IAM role. The properties comprise a Boolean [Common Expression Language](https://github.com/google/cel-spec/blob/master/doc/langdef.md){: external} expression. When the instance expression is evaluated to be `true`, then the provisioning of a virtual server instance is allowed with the snapshot. When the expression is evaluated to be `false`, the provisioning is blocked. If the value is not specified at the time of creation, then the constraint expressions are taken from the source resource.</
 
 For more information, see [ibm_is_snapshot](https://registry.terraform.io/providers/IBM-Cloud/ibm/latest/docs/data-sources/is_snapshot){: external}.
 

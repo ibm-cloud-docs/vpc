@@ -1,8 +1,8 @@
 ---
 
 copyright:
-  years: 2023, 2024
-lastupdated: "2024-10-10"
+  years: 2023, 2025
+lastupdated: "2025-07-16"
 
 keywords: secure boot, tpm, Trusted Platform Module
 
@@ -20,6 +20,11 @@ Secure boot makes sure that your server starts with trusted software by verifyin
 
 Servers that you provisioned before [31 January 2023](/docs/vpc?topic=vpc-release-notes#vpc-jan3123) aren't supported.
 {: important}
+
+The following versions of TPM are supported.
+
+- TPM 2.0
+- TPM 2.0 with Intel&reg; Trusted Execution Technology (TXT)
 
 ## Supported images for secure boot
 {: #secure-boot-tpm-images}

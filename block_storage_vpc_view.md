@@ -2,7 +2,7 @@
 
 copyright:
   years: 2019, 2025
-lastupdated: "2025-06-12"
+lastupdated: "2025-07-16"
 
 keywords:
 
@@ -237,6 +237,52 @@ In the example, the volume is attached to a virtual server instance, so the name
 
 For more information about available command options, see [`ibmcloud is volume`](/docs/cli?topic=cli-vpc-reference#volume-view).
 
+### Extra CLI properties for boot volumes
+{: #viewvol-boot-cli}
+
+When you request to view details of boot volumes, a few extra properties are returned in the response. See the following example:
+
+```sh
+ibmcloud is volume r006-77851646-75da-4bd0-8bbd-ed86fdec0b0e
+Getting volume r006-77851646-75da-4bd0-8bbd-ed86fdec0b0e under account Test Account as user test.user@ibm.com...
+
+ID                                     r006-77851646-75da-4bd0-8bbd-ed86fdec0b0e
+Name                                   vsi-test-boot-1712686424000
+CRN                                    crn:v1:bluemix:public:is:us-south-2:a/a1234567::volume:r006-77851646-75da-4bd0-8bbd-ed86fdec0b0e
+Status                                 available
+Attachment state                       attached
+Capacity                               100
+IOPS                                   3000
+Bandwidth(Mbps)                        393
+Profile                                general-purpose
+Encryption key                         -
+Encryption                             provider_managed
+Resource group                         defaults
+Created                                2025-04-01T18:18:57+00:00
+Zone                                   us-south-2
+Health State                           ok
+Volume Attachment Instance Reference   Attachment type   Instance ID                                 Instance name   Auto delete   Attachment ID                               Attachment name
+                                       boot              0727_a9910bc9-3ea0-40d2-b3de-2b03e752f989   vsi-lvm-test    true          0727-7ff0df1b-ba0b-40c7-ad99-122819342f39   prissy-reason-unselect-overcome
+
+Operating system                       CentOS Stream 9 - Minimal Install (amd64)
+Source image                           ID                                          Name
+                                       r134-0950e619-325e-446e-b895-e0bdd21dd1ea   ibm-centos-stream-9-amd64-9
+
+Active                                 true
+Adjustable IOPS                        false
+Busy                                   false
+Tags                                   -
+Storage Generation                     1
+Allowed Use API Version                2025-03-31
+Allowed Use Bare Metal Server          true
+Allowed Use Instance                   true
+```
+{: screen}
+
+The allowed-use properties are inherited from the source image or snapshot that the parent boot volume was created from. By using the CLI or API, you can override these values when you create an instance or when you update the boot volume. You must have the `is.volume.volume.manage-allowed-use` IAM role to make these updates.
+
+These properties comprise a Boolean [Common Expression Language](https://github.com/google/cel-spec/blob/master/doc/langdef.md){: external} expression. When the expression is evaluated to be `true`, the virtual server instance or bare metal server provisioning is allowed with the boot volume or an image that was created from the boot volume. When the expression is evaluated to be `false`, the provisioning is blocked. For more information, see [Adding allowed-use expressions to custom images](/docs/vpc?topic=vpc-custom-image-allowed-use-expressions&interface=cli).
+
 ## Viewing {{site.data.keyword.block_storage_is_short}} volumes with the API
 {: #viewing-block-storage-api}
 {: api}
@@ -311,6 +357,11 @@ A successful response looks like the following example. This example shows three
   {
     "active": false,
     "adjustable_iops_supported": false,
+    "allowed_use": {
+      "api_version": "2025-03-31",
+      "instance": "true",
+      "bare_metal_server": "false"
+    },
     "attachment_state": "attached",
     "bandwidth": 393,
     "busy": false,
@@ -446,6 +497,11 @@ A successful response provides details of the volume, including capacity and IOP
   "adjustable_capacity_states": ["attached"],
   "adjustable_iops_states": ["attached"],
   "adjustable_iops_supported": true,
+  "allowed_use": {
+    "api_version": "2025-03-31",
+    "instance": "true",
+    "bare_metal_server": "false"
+  },
   "attachment_state": "attached",
   "bandwidth": 1000,
   "busy": false,
@@ -509,6 +565,8 @@ When you request to view details of boot volumes, a couple of extra properties a
 
 * The `busy` property indicates whether this volume is performing an operation that must be serialized. If an operation requires serialization, the operation fails unless this property is `false`.
 
+* The allowed-use expressions are inherited from the source image or snapshot that the parent boot volume was created from. You can update allowed-use expressions only on detached boot volumes. Using the CLI or API, you can override these values when you create an instance or by updating the boot volume. You must have the `is.volume.volume.manage-allowed-use` IAM role to make these updates. These properties comprise a Boolean [Common Expression Language](https://github.com/google/cel-spec/blob/master/doc/langdef.md){: external} expression. When the expression is evaluated to be `true`, the virtual server instance or bare metal server provisioning is allowed with the boot volume or an image that was created from the boot volume. When the expression is evaluated to be `false`, the provisioning is blocked. For more information, see [Adding allowed-use expressions to custom images](/docs/vpc?topic=vpc-custom-image-allowed-use-expressions&interface=ui).
+
 See the following example.
 
 ```json
@@ -522,6 +580,11 @@ See the following example.
   "id": "ccbe6fe1-5680-4865-94d3-687076a38293",
   "iops": 300,
   "name": "boot-volume-1",
+  "allowed_use": {
+    "api_version": "2025-03-31",
+    "instance": "true",
+    "bare_metal_server": "false"
+  },
   .
   .
   .

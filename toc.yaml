@@ -318,6 +318,7 @@ toc:
            label: Images - Custom images
            topics:
             - vsi_is_about_custom_images.md
+            - vsi_is_allowed_use_expression.md
             - topicgroup:
                 id: planning-custom-images
                 label: Planning for custom images
