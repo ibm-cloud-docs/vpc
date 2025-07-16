@@ -18,6 +18,9 @@ subcollection: vpc
 Custom images that are created from a volume are independent from the original volume. You can update the image and delete it as needed. You can delete the original volume and the custom image persists. You can schedule the deprecation and making the image obsolete in the console, from the CLI, or the API.
 {: shortdesc}
 
+Allowed-use expressions: You can use an allowed-use expression with your custom image to define the capabilities and restrictions of an image and help you find compatible image and profile combinations during server creation. The allowed-use expressions default value for any custom images that are created from a volume is the allowed-use expressions from the original source volume. However, you can edit these allowed-use expressions on the custom image. For more information, see [Adding allowed-use expressions to custom images](/docs/vpc?topic=vpc-custom-image-allowed-use-expressions&interface=ui).
+{: note}
+
 ## Scheduling a lifecycle status change for a custom image by using the UI
 {: #ifv-schedule-ilm-status-change-ui}
 {: ui}

@@ -30,6 +30,10 @@ To complete this task, you must have an instance of {{site.data.keyword.cos_full
 {{site.data.content.custom-image-requirements-list}}
 
 Keep the following considerations in mind when you import a custom image:
+
+* When you use a custom image, you are responsible for any updates to the image.
+* Support for any custom image software must be obtained directly from the vendor who provided the image.
+* You can restrict which types of servers that you can can provision from your custom image by setting an allowed-use expression on the image. For more information about allowed-use expressions, see [Adding allowed-use expressions to custom images](https://test.cloud.ibm.com/docs/vpc?topic=vpc-custom-image-allowed-use-expressions&interface=ui)
 * When you import a custom image, it's private to the account where you import it.
 * The region where you choose to import the image is the region where you can create virtual servers from that image.
 * For custom images with Red Hat Enterprise Linux&reg; or Windows&reg; operating systems, you must select the appropriate version of the operating system. Depending on how you configured the image, select either bring your own license `byol`, or if you plan to license the OS through {{site.data.keyword.cloud_notm}}, select the version without `byol` appended.
@@ -62,6 +66,7 @@ When you have an image available in {{site.data.keyword.cos_full_notm}}, you can
 | Encryption service instance | For an encrypted image, select the specific instance of the key management service where your CRK that wraps your encryption passphrase is stored. For more information, see [Setting up your key management service and keys](/docs/vpc?topic=vpc-create-encrypted-custom-image#kms-prereqs). |
 | Key name | Select the customer root key (CRK) that you used to wrap your encryption passphrase. For more information, see [Setting up your key management service and keys](/docs/vpc?topic=vpc-create-encrypted-custom-image#kms-prereqs). |
 | Wrapped data encryption key | For an encrypted image, specify the ciphertext that is associated with the wrapped data encryption key (WDEK). The WDEK is produced by wrapping the passphrase that you used to encrypt your image with your customer root key. For more information, see [Setting up your key management service and keys](/docs/vpc?topic=vpc-create-encrypted-custom-image#kms-prereqs).|
+| Set allowed-use expressions (optional) | You can use an allowed-use expression with your custom image to define the capabilities and restrictions of an image and help you find compatible image and profile combinations during server creation. To include allowed-use expressions, see [Adding allowed-use expressions to custom images](/docs/vpc?topic=vpc-custom-image-allowed-use-expressions&interface=ui). |
 | Manage image lifecycle (optional) | Select to schedule status changes for the image. You can schedule a single status change or schedule the complete lifecycle of the image. The image statuses are:  \n  \n * `available`: The image can be used to create an instance.  \n  \n * `deprecated`: The image is still available to use to provision an instance. Using the `deprecated` status can discourage use of the image before the status changes to `obsolete`.  \n * `obsolete`: The image is not available to use to provision an instance.  \n  \n * Schedule complete lifecycle: You can schedule both the `deprecated` and `obsolete` status changes at the same time.  \n  \n You can move back and forth between the three statuses. Only the statuses you can change to are displayed. You can schedule status changes by using calendar date and time or number of days. The obsolescence date must always be after the deprecation date. |
 {: caption="Import custom image user interface fields" caption-side="bottom"}
 
@@ -69,7 +74,7 @@ When you have an image available in {{site.data.keyword.cos_full_notm}}, you can
 {: #import-custom-image-cloud-object-storage-cli}
 {: cli}
 
-Make sure that your compatible custom image is available in {{site.data.keyword.cos_full_notm}}. For more information, see [Creating a Linux custom image](/docs/vpc?topic=vpc-create-linux-custom-image), [Creating a Windows custom image](/docs/vpc?topic=vpc-create-windows-custom-image), [Creating a generic operating system custom image](/docs/vpc?topic=vpc-create-generic-os-custom-image), [Bring your own license](/docs/vpc?topic=vpc-byol-vpc-about) and [Uploading data](/docs/cloud-object-storage?topic=cloud-object-storage-upload) to {{site.data.keyword.cos_full_notm}}. 
+Make sure that your compatible custom image is available in {{site.data.keyword.cos_full_notm}}. For more information, see [Creating a Linux custom image](/docs/vpc?topic=vpc-create-linux-custom-image), [Creating a Windows custom image](/docs/vpc?topic=vpc-create-windows-custom-image), [Creating a generic operating system custom image](/docs/vpc?topic=vpc-create-generic-os-custom-image), [Bring your own license](/docs/vpc?topic=vpc-byol-vpc-about) and [Uploading data](/docs/cloud-object-storage?topic=cloud-object-storage-upload) to {{site.data.keyword.cos_full_notm}}. To include allowed-use expressions, see [Adding allowed-use expressions to custom images](/docs/vpc?topic=vpc-custom-image-allowed-use-expressions&interface=ui).
 
 When you have an image available in {{site.data.keyword.cos_full_notm}}, you can import it to {{site.data.keyword.vpc_short}} infrastructure by using the command-line interface (CLI).
 
@@ -128,7 +133,7 @@ For more information, see [ibmcloud is image-create](/docs/vpc?topic=vpc-vpc-ref
 {: #import-custom-image-cloud-object-storage-api}
 {: api}
 
-Make sure that your compatible custom image is available in {{site.data.keyword.cos_full_notm}}. For more information, see [Creating a Linux custom image](/docs/vpc?topic=vpc-create-linux-custom-image), [Creating a Windows custom image](/docs/vpc?topic=vpc-create-windows-custom-image), [Creating a generic operating system custom image](/docs/vpc?topic=vpc-create-generic-os-custom-image), [Bring your own license](/docs/vpc?topic=vpc-byol-vpc-about), and [Uploading data](/docs/cloud-object-storage?topic=cloud-object-storage-upload) to {{site.data.keyword.cos_full_notm}}. 
+Make sure that your compatible custom image is available in {{site.data.keyword.cos_full_notm}}. For more information, see [Creating a Linux custom image](/docs/vpc?topic=vpc-create-linux-custom-image), [Creating a Windows custom image](/docs/vpc?topic=vpc-create-windows-custom-image), [Creating a generic operating system custom image](/docs/vpc?topic=vpc-create-generic-os-custom-image), [Bring your own license](/docs/vpc?topic=vpc-byol-vpc-about), and [Uploading data](/docs/cloud-object-storage?topic=cloud-object-storage-upload) to {{site.data.keyword.cos_full_notm}}. To include an allowed-use expression, see [Adding allowed-use expressions to custom images](/docs/vpc?topic=vpc-custom-image-allowed-use-expressions&interface=ui).
 
 When you have an image available in {{site.data.keyword.cos_full_notm}}, you can import it to {{site.data.keyword.vpc_short}} infrastructure by using the application programming interface (API).
 
