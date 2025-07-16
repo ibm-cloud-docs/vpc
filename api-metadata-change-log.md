@@ -2,7 +2,7 @@
 
 copyright:
   years: 2019, 2025
-lastupdated: "2025-04-29"
+lastupdated: "2025-07-15"
 
 keywords: api, change log, metadata, new features, restrictions, migration, versioned change
 
@@ -12,10 +12,10 @@ subcollection: vpc
 
 {{site.data.keyword.attribute-definition-list}}
 
-# VPC Instance Metadata API change log
+# VPC Metadata API change log
 {: #metadata-api-change-log}
 
-Read the API change log to learn about updates and improvements to the {{site.data.keyword.vpc_full}} (VPC) [Instance Metadata API](/apidocs/vpc-metadata). The change log lists changes that are ordered by the date they were released. Changes to existing API versions are designed to be compatible with existing client applications.
+Read the API change log to learn about updates and improvements to the {{site.data.keyword.vpc_full}} (VPC) [Metadata API](/apidocs/vpc-metadata). Change log announcements are ordered by the date they were released. Changes to existing API versions are designed to be compatible with existing client applications.
 {: shortdesc}
 
 By design, new features with backward-incompatible changes apply only to version dates on and after the feature's release. Changes that apply to older versions of the API are designed to maintain compatibility with existing applications and code. If backward-incompatible changes require non-trivial client code changes to use an API version, the API change log might provide links to instructions, tips, or best practices for updating client code.
