@@ -2,7 +2,7 @@
 
 copyright:
   years: 2019, 2025
-lastupdated: "2025-07-08"
+lastupdated: "2025-07-15"
 
 keywords: api, change log, new features, restrictions, migration
 
@@ -15,7 +15,7 @@ subcollection: vpc
 # VPC API change log
 {: #api-change-log}
 
-Read the VPC API change log to learn about updates and improvements to the {{site.data.keyword.vpc_full}} (VPC) [API](/apidocs/vpc). The change log lists changes that are ordered by the date they were released. Changes to existing API versions are designed to be compatible with existing client applications.
+Read the VPC API change log to learn about updates and improvements to the {{site.data.keyword.vpc_full}} (VPC) [API](/apidocs/vpc). Change log announcements are ordered by the date they were released. Changes to existing API versions are designed to be compatible with existing client applications.
 {: shortdesc}
 
 By design, new features with backward-incompatible changes apply only to version dates on and after the feature's release. Changes that apply to older versions of the API are designed to maintain compatibility with existing applications and code. If backward-incompatible changes require non-trivial client code changes to use an API version, the API change log might provide links to instructions, tips, or best practices for updating client code.
@@ -51,6 +51,14 @@ At this time, all instances, and therefore all instance templates, continue to r
 
 The new response code will be rolled out gradually. Each phase of the rollout will be tied to a dated API version. These changes will be announced in future change log updates.
 {: note}
+
+## 15 July 2025
+{: #15-july-2025}
+
+### For all version dates
+{: #15-july-2025-all-version-dates}
+
+**Allowed-use constraints for custom images.** When creating or updating [images](/apidocs/vpc/latest#list-images), [volumes](/apidocs/vpc/latest#list-volumes), or [snapshots](/apidocs/vpc/latest#list-snapshots), you can now specify the `allowed_use` property to constrain how the resource can be used for provisioning. The `allowed_use` property includes `bare_metal_server` and `instance` child properties that constrain provisioning for bare metal servers and virtual server instances, respectively. You can also list the [bare metal server profiles](/apidocs/vpc/latest#list-image-bare-metal-server-profile) that are compatible with the with the allowed use constraints for a given image, and the instance profiles that are compatible with the allowed use constraints for a given [image](/apidocs/vpc/latest#list-image-instance-profile), boot [volume](/apidocs/vpc/latest#list-volume-instance-profile), or bootable [snapshot](/apidocs/vpc/latest#list-snapshot-instance-profile). For more information, see [Defining allowed-use expressions](/docs/vpc?topic=vpc-custom-image-allowed-use-expressions&interface=api).
 
 ## 8 July 2025
 {: #8-july-2025}

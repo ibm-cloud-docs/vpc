@@ -190,6 +190,7 @@ toc:
             id: updating-api
             label: Updating to the latest API code
             topics:
+            - metadata_identity_migration.md
             - image_api_migration.md
             - lbaas-listener-policy-migration.md
             - vpn_advanced_configuration_api_migration.md
@@ -843,8 +844,16 @@ toc:
                href: https://{DomainName}/apidocs/vpc-beta
             - api-change-log-beta.md
         - topicgroup:
+            id: beta-vpc-identity-api
+            label: Beta VPC identity API
+            topics:
+            - link:
+               label: Reference
+               href: https://{DomainName}/apidocs/vpc-identity-beta
+            - api-identity-beta-change-log.md
+        - topicgroup:
             id: vpc-metadata-service-api
-            label: VPC instance metadata API
+            label: VPC metadata API
             topics:
             - link:
                label: Reference

@@ -2,7 +2,7 @@
 
 copyright:
   years: 2021, 2025
-lastupdated: "2025-04-29"
+lastupdated: "2025-07-15"
 
 keywords: api, change log, beta
 
@@ -15,7 +15,7 @@ subcollection: vpc
 # Beta VPC API change log
 {: #api-change-log-beta}
 
-Read this change log to learn about updates and improvements to the beta {{site.data.keyword.vpc_full}} (VPC) [API](/apidocs/vpc-beta). The change log lists changes that are ordered by the date they were released.
+Read this change log to learn about updates and improvements to the beta {{site.data.keyword.vpc_full}} (VPC) [API](/apidocs/vpc-beta). Change log announcements are ordered by the date they were released.
 {: shortdesc}
 
 Some beta features are for accounts that have been granted special approval to preview a particular beta feature. Contact your IBM sales representative if you are interested in getting access.
@@ -26,7 +26,19 @@ There are no backward-compatibility guarantees as a feature progresses through i
 
 To review the change log of generally available API features, see the [VPC API change log](/docs/vpc?topic=vpc-api-change-log).
 
-## 24 June 2025
+## 15 July 2025
+{: #15-july-2025}
+
+### For all version dates
+{: #15-july-2025-all-version-dates}
+
+**Metadata service support for bare metal servers.** Accounts that have been granted special approval to preview this feature can now enable the metadata service for bare metal servers when [creating](/apidocs/vpc/latest#create-bare-metal-server) or [updating](/apidocs/vpc/latest#update-bare-metal-server) a bare metal server. You can access the metadata service on a bare metal server using an [endpoint URL](/apidocs/vpc-identity-beta#endpoint-urls-identity-beta) by specifying the new `metadata_service.protocol` property as `http` or `https`.
+
+The metadata service is disabled on bare metal servers by default. To enable the service, when creating or updating a bare metal server, set the new `metadata_service.enabled` property to `true`. The default communication protocol to the metadata service from the server is `http` (unencrypted). To change the protocol to secure access, specify the `metadata_service.protocol` as `https`.
+
+
+For more information, see the [Beta VPC Identity API](/apidocs/vpc-identity-beta).
+
 {: #24-june-2025-beta}
 
 ### For all version dates
