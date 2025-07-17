@@ -2,7 +2,7 @@
 
 copyright:
   years: 2019, 2025
-lastupdated: "2025-06-27"
+lastupdated: "2025-07-17"
 
 keywords:
 
@@ -43,12 +43,12 @@ The default ACL is similar to any other ACL, with the exception that it cannot b
 
 When you create a VPC, the system creates a default ACL for the VPC with two rules:
 
-* A rule named `allow-inbound` to allow inbound ICMP, TCP and UDP traffic from any source
-* A rule named `allow-outbound` to allow outbound ICMP, TCP and UDP traffic to any destination
+* A rule named `allow-inbound` to allow inbound ICMP, TCP, and UDP traffic from any source
+* A rule named `allow-outbound` to allow outbound ICMP, TCP, and UDP traffic to any destination
 
 You can modify the rules of the default ACL by using the console, CLI, or API.
 
-If you edit the rules of the default ACL, those edited rules then apply to all current and future subnets attached to the ACL.
+If you edit the rules of the default ACL, those edited rules then apply to all current and future subnets that are attached to the ACL.
 {: important}
 
 ### Attaching an ACL to a subnet
@@ -75,37 +75,42 @@ The example rules that follow show how to set up the ACL rules for the basic sce
 As a best practice, give fine-grained rules a higher priority than coarse-grained rules. For example, you have a rule that blocks all traffic from the subnet `10.10.30.0/24`. If it is assigned a higher priority, any fine-grained rules with lower priority that allow traffic from `10.10.30.5` are never applied.
 {: note}
 
+For two-way protocols such as TCP, it is essential to define both inbound and outbound rules. The outbound rule allows the initial TCP SYN connection request, while the corresponding inbound rule is required to accept the TCP SYN ACK response. Without both rules, the communication can't be established.
+{: note}
+
 #### ACL-1 example rules
 {: #acl1-example-rules}
 
-| Inbound/Outbound| Allow/Deny | Source IP | Destination IP | Protocol | Port | Description|
-|--------------|-----------|------|------|------|------------------|-------|
-| Inbound | Allow | 0.0.0.0/0 | 0.0.0.0/0 | TCP| 80 | Allow HTTP traffic from the internet|
-| Inbound | Allow | 0.0.0.0/0 | 0.0.0.0/0 | TCP | 443 | Allow HTTPS traffic from the internet|
-| Inbound | Allow| 10.10.20.0/24 | 0.0.0.0/0 |All| All| Allow all inbound traffic from the subnet `10.10.20.0/24` where the back-end servers are placed|
-| Inbound | Deny| 0.0.0.0/0| 0.0.0.0/0 |All| All| Deny all other traffic inbound|
-| Outbound | Allow | 0.0.0.0/0 | 0.0.0.0/0 | TCP|80 | Allow HTTP traffic to the internet|
-| Outbound | Allow | 0.0.0.0/0 | 0.0.0.0/0 | TCP|443 | Allow HTTPS traffic to the internet|
-| Outbound | Allow| 0.0.0.0/0 | 10.10.20.0/24 |All| All| Allow all outbound traffic to the subnet `10.10.20.0/24` where the back-end servers are placed|
-| Outbound | Deny| 0.0.0.0/0 | 0.0.0.0/0|All| All| Deny all other traffic outbound|
+| Inbound/Outbound| Allow/Deny | Source IP | Source Port | Destination IP | Destination Port | Protocol | Description|
+|--------------|-----------|------|------|------|------------------|-------|----------|
+| Inbound | Allow | `10.10.20.0/24`| Any | `10.10.10.0/24` | Any | Any| Allow all inbound traffic from the subnet `10.10.20.0/24` where the back-end servers are placed|
+| Inbound | Allow | `0.0.0.0/0` | Any | `10.10.10.0/24` | 80 | TCP | Allow HTTP traffic from the internet|
+| Inbound | Allow | `0.0.0.0/0` | Any | `10.10.10.0/24` | 443 | TCP | Allow HTTPS traffic from the internet|
+| Inbound | Deny| `0.0.0.0/0`| Any | `0.0.0.0/0`| Any | Any | Deny all other traffic inbound|
+| Outbound | Allow | `10.10.10.0/24` | 80 | `0.0.0.0/0`| Any | TCP | Allow HTTP traffic to the internet|
+| Outbound | Allow | `10.10.10.0/24` | 443 |`0.0.0.0/0` | Any | TCP | Allow HTTPS traffic to the internet|
+| Outbound | Allow | `10.10.10.0/24` | Any |`10.10.20.0/24` | Any | Any | Allow all outbound traffic to the subnet `10.10.20.0/24` where the back-end servers are placed|
+| Outbound | Deny | `0.0.0.0/0` | Any | `0.0.0.0/0`| Any | Any | Deny all other traffic outbound |
 {: caption="Example rules for ACL-1" caption-side="bottom"}
 
 #### ACL-2 example rules
 {: #acl2-example-rules}
 
-| Inbound/Outbound| Allow/Deny | Source IP | Destination IP | Protocol| Port | Description|
-|--------------|-----------|------|------|------|------------------|--------|
-| Inbound | Allow| `10.10.10.0/24` | 0.0.0.0/0 |All| All| Allow all inbound traffic from the subnet `10.10.10.0/24` where the web servers are placed|
-| Inbound | Deny| 0.0.0.0/0| 0.0.0.0/0 |All| All| Deny all other traffic inbound|
-| Outbound | Allow | 0.0.0.0/0 | 0.0.0.0/0 | TCP| 80 | Allow HTTP traffic to the internet|
-| Outbound | Allow | 0.0.0.0/0 | 0.0.0.0/0 | TCP| 443 | Allow HTTPS traffic to the internet|
-| Outbound | Allow| 0.0.0.0/0 | `10.10.10.0/24` |All| All| Allow all outbound traffic to the subnet `10.10.10.0/24` where the web servers are placed|
-| Outbound | Deny| 0.0.0.0/0 | 0.0.0.0/0|All| All| Deny all other traffic outbound|
+| Inbound/Outbound| Allow/Deny | Source IP | Source Port | Destination IP | Destination Port | Protocol | Description|
+|--------------|-----------|------|------|------|------------------|-------|----------|
+| Inbound | Allow| `10.10.10.0/24` | Any |`10.10.20.0/24`| Any | Any | Allow all inbound traffic from the subnet `10.10.10.0/24` where the web servers are placed|
+| Inbound | Allow | `0.0.0.0/0` | 80 | `10.10.20.0/24` | Any | TCP | Allow HTTP traffic from the internet |
+| Inbound | Allow | `0.0.0.0/0` | 443 |`10.10.20.0/24` | Any | TCP | Allow HTTPS traffic from the internet |
+| Inbound | Deny | `0.0.0.0/0` | Any | `0.0.0.0/0` | Any | Any | Deny all other traffic inbound|
+| Outbound | Allow | `10.10.20.0/24` | Any | `0.0.0.0/0` | 80  | TCP | Allow HTTP traffic to the internet |
+| Outbound | Allow | `10.10.20.0/24` | Any | `0.0.0.0/0` | 443 | TCP | Allow HTTPS traffic to the internet |
+| Outbound | Allow | `10.10.20.0/24` | Any | `10.10.10.0/24` | Any | Any | Allow all outbound traffic to the subnet `10.10.10.0/24` where the web servers are placed|
+| Outbound | Deny | `0.0.0.0/0`| Any | `0.0.0.0/0`| Any | Any | Deny all other traffic outbound |
 {: caption="Example rules for ACL-2" caption-side="bottom"}
 
 This example illustrates general cases only. In your scenarios, you might want to have more granular control over the traffic:
 
-* You might have a network administrator who needs access to the 10.10.10.0/24 subnet from a remote network for operation purposes. In that case, you need to allow SSH traffic from the internet to this subnet.
+* You might have a network administrator who needs access to the `10.10.10.0/24` subnet from a remote network for operation purposes. In that case, you need to allow SSH traffic from the internet to this subnet.
 * You might want to narrow down the protocol scope that you allow between your two subnets.
 
 ### Example steps
@@ -235,6 +240,7 @@ ibmcloud is subnet-create my-backend-subnet$vpc_id $zone --ipv4_cidr_block 10.10
 --network-acl-id $bkacl
 ```
 {: codeblock}
+{: pre}
 
 ## Command list cheat sheet
 {: #acl-cli-command-list-cheat-sheet}
