@@ -2,7 +2,7 @@
 
 copyright:
   years: 2023, 2025
-lastupdated: "2025-06-26"
+lastupdated: "2025-07-17"
 
 keywords:
 
@@ -152,7 +152,7 @@ Ubuntu 20.04 EOS date is 31 May 2025. Support for this software discontinues on 
 ### Debian 11
 {: #debian-eleven-eos}
 
-Debian 11 EOS date is 31 August 2026. Support for this software discontinues on 31 August 2026. After deprecation, clients can't download the software. For existing customers, upgrade to the latest version. For more information, see the [Debian documentation](https://www.debian.org/releases/bookworm/amd64/release-notes/ch-upgrading.en.html){: external}.
+Debian 11 EOS date is 31 August 2026. Support for this software discontinues on 31 August 2026. Debian 11 reaches its End of Marketing (EOM) on 31 July 2026. After 31 July 2026, clients can't download the software. For existing customers, upgrade to the latest version. For more information, see the [Debian documentation](https://www.debian.org/releases/bookworm/amd64/release-notes/ch-upgrading.en.html){: external}.
 
 ## Troubleshooting
 {: #troubleshooting-upgrading-your-os-vpc}
