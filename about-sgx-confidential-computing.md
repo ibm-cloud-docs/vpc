@@ -2,7 +2,7 @@
 
 copyright:
   years: 2023, 2025
-lastupdated: "2025-05-23"
+lastupdated: "2025-07-21"
 
 keywords: sgx, intel sgx, software guard extension, confidential computing, trusted execution environment, TEE, data protection
 
@@ -74,8 +74,6 @@ The following profiles support TDX.
 
 * All Balanced _bx3dc_ profiles with less than 160GB memory
 * All Compute _cx3dc_ profiles with less than 160GB memory
-
-For these Gen3 profiles, secure-boot is enabled by default and can't be disabled.
 
 SGX and TDX profiles might experience slightly longer start times, approximately in the range of 180-240 seconds, depending on profile memory size.
 {: note}

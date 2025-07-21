@@ -2,7 +2,7 @@
 
 copyright:
   years: 2023, 2025
-lastupdated: "2025-04-23"
+lastupdated: "2025-07-21"
 
 keywords: sgx, intel sgx, software guard extension, confidential computing, trusted execution environment, TEE, data protection
 
@@ -39,7 +39,8 @@ Make sure that you created a VPC.
 1. Select an available image. For more information about SGX- or TDX-supported images, see [Limitations](/docs/vpc?topic=vpc-about-confidential-computing-vpc#limitations-confidential-computing-vpc).
 1. Select an SGX- or TDX-supported profile by clicking **Confidential computing**. Keep in mind that only the Balanced _bx3dc_ profiles and Compute _cx3dc_ profiles support SGX or TDX.
 1. Click **Save**.
-1. SGX is the default value. Keep the SGX confidential computing value or select TDX confidential computing. Secure boot is automatically enabled. Keep in mind that you can enable secure boot without enabling either SGX or TDX, but you can't enable SGX or TDX without enabling secure-boot.
+1. SGX is the default value. Keep the SGX confidential computing value or select TDX confidential computing.
+1. Secure boot is enabled by default. To disable it, toggle secure boot to **Disabled**.
 1. Select an existing public SSH key or click **Create an SSH key** to create a new one. For more information about creating an SSH key, see [Creating your SSH key by using the UI](/docs/vpc?topic=vpc-ssh-keys&interface=ui#generate-ssh-keys-ui).
 1. Go to **Networking**, and choose a **VPC** for this virtual server instance.
 1. Click **Create a virtual server instance** when you are ready to provision. After your new virtual server with SGX or TDX is provisioned, it's ready to use.
