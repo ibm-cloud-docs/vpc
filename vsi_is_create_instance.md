@@ -139,7 +139,7 @@ You can create instances by using the command-line interface (CLI). If you would
 {: #gather-info-to-create-virtual-servers-cli}
 {: cli}
 
-Ready to create an instance? Before you can run the `ibmcloud is instances` command, you need to know the details about the instance, such as what profile or image that you want to use.
+Ready to create an instance? Before you can run the `ibmcloud is instance-create` command, you need to know the details about the instance, such as what profile or image that you want to use.
 
 Gather the following information by using the associated commands.
 
