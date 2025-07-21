@@ -2,7 +2,7 @@
 
 copyright:
   years: 2018, 2025
-lastupdated: "2025-07-16"
+lastupdated: "2025-07-21"
 
 keywords:
 
@@ -139,249 +139,308 @@ You can create instances by using the command-line interface (CLI). If you would
 {: #gather-info-to-create-virtual-servers-cli}
 {: cli}
 
-Ready to create an instance? Before you can run the `ibmcloud is instance-create` command, you need to know the details about the instance, such as what profile or image that you want to use.
+Ready to create an instance? Before you can run the `ibmcloud is instances` command, you need to know the details about the instance, such as what profile or image that you want to use.
 
 Gather the following information by using the associated commands.
 
 |    Instance details   |  Listing options                | VPC CLI reference documentation |
 | --------------------- | --------------------------------|----------------------------|
-| Image | `ibmcloud is images` | [List all images](/docs/vpc?topic=vpc-vpc-reference#images-list)|
+| Image | `ibmcloud is image` | [List all images](/docs/vpc?topic=vpc-vpc-reference#images-list)|
 | Boot volume | `ibmcloud is volumes` | [List all volumes](/docs/vpc?topic=vpc-vpc-reference#volumes-list) |
-| Profile | `ibmcloud is instance-profiles` | [List all virtual server instance profiles](/docs/vpc?topic=vpc-vpc-reference#instances-list) |
+| Profile | `ibmcloud is instances` | [List all virtual server instances](/docs/vpc?topic=vpc-vpc-reference#instance-profiles-list) |
+| Profile | `ibmcloud is image-instance-profiles` | [List instance profiles that are compatible with an image](/docs/vpc?topic=vpc-vpc-reference#image-instance-profiles-list)|
+| Profile | `ibmcloud is volume-instance-profiles` | [List instance profiles that are compatible with a volume.](/docs/vpc?topic=vpc-vpc-reference#volume-instance-profiles-list) |
+| Profile | `ibmcloud is snapshot-instance-profiles` | [List instance profiles that are compatible with a snapshot](/docs/vpc?topic=vpc-vpc-reference#snapshot-instance-profiles-list) |
 | Keys | `ibmcloud is keys` | [List all keys](/docs/vpc?topic=vpc-vpc-reference#keys) \n \n If you don't have any available SSH keys, use [Create a key](/docs/vpc?topic=vpc-vpc-reference#key-create) to create one. \n \n **Note:** RSA and ED25519 are the two types of SSH keys that you can use. However, you can't use the ED25519 SSH key type with Windows or VMware images. You can use only RSA SSH keys for these images. \n For more information, see [Getting started with SSH keys](/docs/vpc?topic=vpc-ssh-keys). |
 | VPC | `ibmcloud is vpcs` | [List all VPCs](/docs/vpc?topic=vpc-vpc-reference#vpcs-list) |
 | Subnet | `ibmcloud is subnets` | [List all subnets](/docs/vpc?topic=vpc-vpc-reference#subnets-list) |
-| Zone | `ibmcloud is zones` | [List all regions in the target region](/docs/vpc?topic=vpc-vpc-reference#zones-list) |
+| Zone | `ibmcloud is zones` | [List all regions](/docs/vpc?topic=vpc-vpc-reference#zones-list) |
 | Placement groups | `ibmcloud is placement-groups` | [List all placement groups](/docs/vpc?topic=vpc-vpc-reference#placement-groups-list) |
 {: caption="Required instance details" caption-side="bottom"}
 
 Use the following commands to determine the required information for creating a new instance.
 
-1. List the regions associated with your account.
+#### 1. List the regions associated with your account
+{: #list-regions-associated-account-cli}
 
-   ```sh
-   ibmcloud is regions
-   ```
-   {: pre}
+List the regions associated with your account.
 
-   See the following example.
+```sh
+ibmcloud is regions
+```
+{: pre}
 
-   ```text
-   $ ibmcloud is regions
-   Listing regions under account Test Account as user test.user@ibm.com...
-   Name       Endpoint                              Status
-   au-syd     https://au-syd.iaas.cloud.ibm.com     available
-   br-sao     https://br-sao.iaas.cloud.ibm.com     available
-   ca-tor     https://ca-tor.iaas.cloud.ibm.com     available
-   eu-de      https://eu-de.iaas.cloud.ibm.com      available
-   eu-es      https://eu-es.iaas.cloud.ibm.com      available
-   eu-gb      https://eu-gb.iaas.cloud.ibm.com      available
-   jp-osa     https://jp-osa.iaas.cloud.ibm.com     available
-   jp-tok     https://jp-tok.iaas.cloud.ibm.com     available
-   us-east    https://us-east.iaas.cloud.ibm.com    available
-   us-south   https://us-south.iaas.cloud.ibm.com   available
-   ```
-   {: screen}
+See the following example.
 
-1. Switch to your target region.
+```text
+$ ibmcloud is regions
+Listing regions under account Test Account as user test.user@ibm.com...
+Name       Endpoint                              Status
+au-syd     https://au-syd.iaas.cloud.ibm.com     available
+br-sao     https://br-sao.iaas.cloud.ibm.com     available
+ca-tor     https://ca-tor.iaas.cloud.ibm.com     available
+eu-de      https://eu-de.iaas.cloud.ibm.com      available
+eu-es      https://eu-es.iaas.cloud.ibm.com      available
+eu-gb      https://eu-gb.iaas.cloud.ibm.com      available
+jp-osa     https://jp-osa.iaas.cloud.ibm.com     available
+jp-tok     https://jp-tok.iaas.cloud.ibm.com     available
+us-east    https://us-east.iaas.cloud.ibm.com    available
+us-south   https://us-south.iaas.cloud.ibm.com   available
+```
+{: screen}
 
-   ```sh
-   ibmcloud target -r <region-name>
-   ```
-   {: pre}
+#### 2. Switch to your target region
+{: #switch-target-region-cli}
 
-1. List the zones associated with the target region.
+Switch to your target region.
 
-   ```sh
-   ibmcloud is zones
-   ```
-   {: pre}
+```sh
+ibmcloud target -r <region-name>
+```
+{: pre}
 
-   In the following example, the command is run in the `us-south` region and the output shows the available zones in the region.
+#### 3. List the zones associated with the target region
+{: #list-zones-target-region-cli}
 
-   ```text
-   $ ibmcloud is zones
-   Listing zones in target region us-south under account Test Account as user test.user@ibm.com...
-   Name         Region     Status
-   us-south-1   us-south   available
-   us-south-2   us-south   available
-   us-south-3   us-south   available
-   ```
-   {: screen}
+List the zones associated with the target region.
 
-1. List the {{site.data.keyword.vpc_short}}s that are associated with your account.
+```sh
+ibmcloud is zones
+```
+{: pre}
 
-   ```sh
-   ibmcloud is vpcs
-   ```
-   {: pre}
+In the following example, the command is run in the `us-south` region and the output shows the available zones in the region.
 
-   For this example, you see a response that is similar to the following output.
+```text
+$ ibmcloud is zones
+Listing zones in target region us-south under account Test Account as user test.user@ibm.com...
+Name         Region     Status
+us-south-1   us-south   available
+us-south-2   us-south   available
+us-south-3   us-south   available
+```
+{: screen}
 
-   ```text
-   ID                                        Name       Status     Classic access   Default network ACL              Default security group        Resource group
-   r006-35b9cf35-616e-462e-a145-cf8db4062fcf my-vpc     available  false            immortality-casing-extoll-exit   enhance-corsage-managing-jinx Default
-   ```
-   {: screen}
+#### 4. List {{site.data.keyword.vpc_short}}s associated with your account
+{: #list-vpcs-account-cli}
 
-   If you do not have an available VPC, you can create one by using the **`ibmcloud is vpc-create`** command. For more information about creating a VPC, see [ibmcloud is vpc-create](/docs/vpc?topic=vpc-vpc-reference#vpc-create).
+List the {{site.data.keyword.vpc_short}}s that are associated with your account.
 
-4. List the subnets that are associated with the {{site.data.keyword.vpc_short}}.
+```sh
+ibmcloud is vpcs
+```
+{: pre}
 
-   ```sh
-   ibmcloud is subnets
-   ```
-   {: pre}
+For this example, you see a response that is similar to the following output.
 
-   For this example, you see a response that is similar to the following output.
+```text
+ID                                        Name       Status     Classic access   Default network ACL              Default security group        Resource group
+r006-35b9cf35-616e-462e-a145-cf8db4062fcf my-vpc     available  false            immortality-casing-extoll-exit   enhance-corsage-managing-jinx Default
+```
+{: screen}
 
-   ```text
-   ID                                          Name            Status      Subnet CIDR      Addresses   ACL                              Public Gateway   VPC
-   Zone         Resource group
-   0717-198db988-3b9b-4cfa-9dec-0206420d37d0   my-subnet       available   10.240.64.0/28   7/16        immortality-casing-extoll-exit   -               my-vpc
-   us-south-2   Default
-   ```
-   {: screen}
+If you do not have an available VPC, you can create one by using the **`ibmcloud is vpc-create`** command. For more information about creating a VPC, see [ibmcloud is vpc-create](/docs/vpc?topic=vpc-vpc-reference#vpc-create).
 
-   If you do not have a subnet available, you can create one by using the **`ibmcloud is subnet-create`** command. For more information about creating a subnet, see [ibmcloud is subnet-create](/docs/vpc?topic=vpc-vpc-reference#subnet-create).
+#### 5. List the subnets that are associated with the {{site.data.keyword.vpc_short}}
+{: #list-subnets-associated-vpc-cli}
 
-5. List the available profiles for creating your instance.
+List the subnets that are associated with the {{site.data.keyword.vpc_short}}.
 
-   ```sh
-   ibmcloud is instance-profiles
-   ```
-   {: pre}
+```sh
+ibmcloud is subnets
+```
+{: pre}
 
-   For this example, you see a response that is similar to the following output.
+For this example, you see a response that is similar to the following output.
 
-   ```text
-   Name                         vCPU Manufacturer   Architecture   Family              vCPUs   Memory(GiB)   Bandwidth(Mbps)   Volume bandwidth(Mbps)   GPUs          Storage(GB)   Min NIC Count   Max NIC Count
-   bx2-2x8                      intel               amd64          balanced            2       8             4000              1000                     -      -                    1               5
-   bx2a-2x8                     amd                 amd64          balanced            2       8             2000              500                      -      -                    1               5
-   bx2d-2x8                     intel               amd64          balanced            2       8             4000              1000                     -            1x75          1               5
-   bx2-4x16                     intel               amd64          balanced            4       16            8000              2000                     -      -                    1               5
-   bx2a-4x16                    amd                 amd64          balanced            4       16            4000              1000                     -      -                    1               5
-   bx2d-4x16                    intel               amd64          balanced            4       16            8000              2000                     -            1x150         1               5
-   ```
-   {: screen}
+```text
+ID                                          Name            Status      Subnet CIDR      Addresses   ACL                              Public Gateway   VPC
+Zone         Resource group
+0717-198db988-3b9b-4cfa-9dec-0206420d37d0   my-subnet       available   10.240.64.0/28   7/16        immortality-casing-extoll-exit   -               my-vpc
+us-south-2   Default
+```
+{: screen}
 
-   For more information about available profiles, see [x86 instance profiles](/docs/vpc?topic=vpc-profiles) and [s390x instance profiles](/docs/vpc?topic=vpc-vs-profiles).
+If you do not have a subnet available, you can create one by using the **`ibmcloud is subnet-create`** command. For more information about creating a subnet, see [ibmcloud is subnet-create](/docs/vpc?topic=vpc-vpc-reference#subnet-create).
 
-   Secure execution-enabled profiles are now available and are identified by the fourth character of the profile name that is an "e", such as *bz2e*. For more information, see [Confidential computing with LinuxONE](/docs/vpc?topic=vpc-about-se).
+#### 6. List the available images
+{: #list-available-images-cli}
 
-   The secure execution-enabled profiles are available for Balanced, Compute, and Memory families. Make sure that you use secure-enabled profiles when you use the IBM Hyper Protect Container Runtime image. Any profile mismatch during profile validation results in an error message that is similar to the following example.
+You can use various image options with {{site.data.keyword.vpc_short}} included stock images, custom images, images that are shared with your account from a private catalog, boot volumes, and snapshots. Use one of the following links to see how to list resources that are available for creating your instance.
 
-   ```text
-   FAILED
-   Response HTTP Status Code: 400
-   Error code: bad_field
-   Error message: Image OS IBM Hyper Protect is not supported by the instance profile <profile_name>
-   Error target name: profile, type: field
-   ```
-   {: screen}
+- [List all the available stock or custom images](/docs/vpc?topic=vpc-creating-virtual-servers&interface=cli#list-available-stock-custom-images-cli)
+- [List all available images shared from a private catalog](/docs/vpc?topic=vpc-creating-virtual-servers&interface=cli#list-available-shared-private-catalog-images-cli)
+- [List all available boot volume images](/docs/vpc?topic=vpc-creating-virtual-servers&interface=cli#list-available-boot-volumes-images-cli)
+- [List all available snapshot images](/docs/vpc?topic=vpc-creating-virtual-servers&interface=cli#list-snapshots-images-cli)
 
-6. List the available stock images, custom images, or images that are shared with your account from a private catalog for creating your instance. If you are creating an instance from an existing boot volume, skip this step.
+You can use allowed-use expressions with images source resources to define the capabilities and restrictions with stock images, custom images, images that are shared with your account from a private catalog, boot volumes, and snapshots and help you find compatible image and profile combinations during server creation. During the creation of a virtual server instance with images that have an allowed-use expression, the information that is provided in the allowed-use properties is then evaluated against a potential virtual server instance to determine whether that image can be used to create the virtual server instance. Allowed-used expressions are already set for stock images. You must define them for custom images. For more information, see [Adding allowed-use expressions to custom images](/docs/vpc?topic=vpc-custom-image-allowed-use-expressions&interface=ui).
 
-   * To list all available stock or custom images, run the following command.
+Depending on the image that you are using, you can use one of the following commands to verify whether a profile is compatible with an image, volume, or snapshot.
+
+- `ibmcloud is image-instance-profiles IMAGE`
+- `ibmcloud is volume-instance-profiles VOLUME`
+- `ibmcloud is snapshot-instance-profiles SNAPSHOT`
+
+For a full list of command options, see [ibmcloud is images](/docs/vpc?topic=vpc-vpc-reference#images-list).
+
+Deprecated images do not include the most current support. For more information, see [End of support operating system considerations](/docs/vpc?topic=vpc-eos-os-considerations-intro).
+{: tip}
+
+##### List all available stock or custom images
+{: #list-available-stock-custom-images-cli}
+
+List the available stock images, custom images, or images that are shared with your account from a private catalog for creating your instance. If you are creating an instance from an existing boot volume, skip this step.
+
+To list all available stock or custom images, run the following command.
+
+```sh
+ibmcloud is images
+```
+{: pre}
+
+For this example, you see a response that is similar to the following output.
+
+```text
+ID                                          Name                               Status       Arch    OS name                   OS version       File size(GB)
+Visibility   Encryption   Resource group   Catalog Offering User Data Format   Remote Account ID
+r006-24d856e2-6aec-41c2-8f36-5a8a3766f0d6   my-test-image                      available    amd64   centos-7-amd64            7.x - Minimal Install  1             private      none         Default          -                cloud_init
+r006-9768bb7f-c75d-4408-ba34-61015632f907   ibm-debian-10-13-minimal-amd64-2   available    amd64   debian-10-amd64           10.x Buster/Stable     1             public       none         Default          -                cloud_init       811f8abfbd32425597dc7ba40da98fa6
+r006-f83ce520-00b5-40c5-9938-a5c82a273f91   ibm-debian-11-3-minimal-amd64-4    available    amd64   debian-11-amd64           11.x Bullseye/Stable   1             public       none         Default          -                cloud_init       811f8abfbd32425597dc7ba40da98fa6
+```
+{: screen}
+
+##### List all available images that are shared from a private catalog
+{: #list-available-shared-private-catalog-images-cli}
+
+To list all available images shared from a private catalog, run the following commands:
+
+If you select a catalog image that belongs to a different account, you have extra considerations and limitations to review. See [Using cross-account image references in a private catalog in the CLI](/docs/vpc?topic=vpc-custom-image-cloud-private-catalog&interface=cli#private-catalog-image-reference-vpc-cli)
+{: note}
+
+   - To list all available private catalog image offerings, run the following command.
 
       ```sh
-      ibmcloud is images
+      ibmcloud is catalog-image-offerings
       ```
       {: pre}
 
-      For this example, you see a response that is similar to the following output.
+      This command returns the identifier of each image offering and the identifier of the private catalog where the image is. Save the `offering_id` and `catalog_id` in variables, which are used later to provision an instance.
 
-      ```text
-      ID                                          Name                               Status       Arch    OS name                   OS version       File size(GB)
-      Visibility   Encryption   Resource group   Catalog Offering User Data Format   Remote Account ID
-      r006-24d856e2-6aec-41c2-8f36-5a8a3766f0d6   my-test-image                      available    amd64   centos-7-amd64            7.x - Minimal Install  1             private      none         Default          -                cloud_init
-      r006-9768bb7f-c75d-4408-ba34-61015632f907   ibm-debian-10-13-minimal-amd64-2   available    amd64   debian-10-amd64           10.x Buster/Stable     1             public       none         Default          -                cloud_init         811f8abfbd32425597dc7ba40da98fa6
-      r006-f83ce520-00b5-40c5-9938-a5c82a273f91   ibm-debian-11-3-minimal-amd64-4    available    amd64   debian-11-amd64           11.x Bullseye/Stable   1             public       none         Default          -                cloud_init         811f8abfbd32425597dc7ba40da98fa6
+      ```sh
+      offering_id=6bf79f7b-de48-4ce8-8cae-866b376f2889
+      catalog_id=71306253-8444-4cae-a45d-64d35e5393ec
       ```
-      {: screen}
+      {: pre}
 
-      For a full list of command options, see [ibmcloud is images](/docs/vpc?topic=vpc-vpc-reference#images-list).
+   - To get the `offering_crn` for the offering and the `offering_version_crn` for each version in the offering, run the following command.
 
-      Deprecated images do not include the most current support.
-      {: tip}
+      ```sh
+      ibmcloud is catalog-image-offering $catalog_id $offering_id
+      ```
+      {: pre}
 
-   * To list all available images shared from a private catalog, run the following commands:
+   When you provision an instance, you can either provision the instance from the private catalog-managed image in the latest version in a catalog product offering by using the `offering_crn` value or from the specific version in the catalog product offering by using the `offering_version_crn` value.
 
-      If you select a catalog image that belongs to a different account, you have extra considerations and limitations to review. See [Using cross-account image references in a private catalog in the CLI](/docs/vpc?topic=vpc-custom-image-cloud-private-catalog&interface=cli#private-catalog-image-reference-vpc-cli)
-      {: note}
+      Save the `offering_crn` and `offering_version_crn`in variables, which are used later to provision an instance.
 
-       - To list all available private catalog image offerings, run the following command.
-
-          ```sh
-          ibmcloud is catalog-image-offerings
-          ```
-          {: pre}
-
-          This command returns the identifier of each image offering and the identifier of the private catalog where the image is. Save the `offering_id` and `catalog_id` in variables, which are used later to provision an instance.
-
-          ```sh
-          offering_id=6bf79f7b-de48-4ce8-8cae-866b376f2889
-          catalog_id=71306253-8444-4cae-a45d-64d35e5393ec
-          ```
-          {: pre}
-
-       - To get the `offering_crn` for the offering and the `offering_version_crn` for each version in the offering, run the following command.
-
-          ```sh
-          ibmcloud is catalog-image-offering $catalog_id $offering_id
-          ```
-          {: pre}
-
-       When you provision an instance, you can either provision the instance from the private catalog-managed image in the latest version in a catalog product offering by using the `offering_crn` value or from the specific version in the catalog product offering by using the `offering_version_crn` value.
-
-       Save the `offering_crn` and `offering_version_crn`in variables, which are used later to provision an instance.
-
-       ```sh
+      ```sh
        offering_crn="crn:v1:bluemix:public:globalcatalog-collection:global:a/a1234567:0b322820-dafd-4b5e-b694-6465da6f008a:offering:136559f6-4588-4af2-8585-f3c625eee09d"
        offering_version_crn="crn:v1:bluemix:public:globalcatalog-collection:global:a/a1234567:0b322820-dafd-4b5e-b694-6465da6f008a:version:136559f6-4588-4af2-8585-f3c625eee09d/8ae92879-e253-4a7c-b09f-8d30af12e518"
        ```
        {: pre}
 
-7. List the available boot volumes for creating your instance. If you are creating an instance from an image, skip this step To create an instance from an existing volume, you must use a volume that is compatible with the instance options chosen previously. A compatible volume is in the same zone as the instance that is being provisioned, is unattached, and has an OS compatible with the profile that is selected in step 5. Use the `volumes` subcommand to see the compatible volumes. For example, to see unattached volumes with an x64 operating system architecture in `us-south-1`:
+##### List all available boot volumes
+{: #list-available-boot-volumes-images-cli}
 
-   ```sh
-   ibmcloud is volumes --attachment-state unattached --operating-system-architecture amd64 --zone us-south-1
-   ```
-   {: pre}
+List the available boot volumes for creating your instance. If you are creating an instance from an image, skip this step To create an instance from an existing volume, you must use a volume that is compatible with the instance options chosen previously. A compatible volume is in the same zone as the instance that is being provisioned, is unattached, and has an OS compatible with the profile that is selected in step 5. Use the `volumes` subcommand to see the compatible volumes. For example, to see unattached volumes with an x64 operating system architecture in `us-south-1`:
 
-8. You can optionally [create a boot volume from a bootable snapshot](#create-instance-bootable-snapshot-cli) and use that for your image. To list all snapshots for a volume, see [View all snapshots that were created from the Block Storage for VPC volume](/docs/vpc?topic=vpc-viewing-block-storage&interface=ui#view-snapshots-for-volume). If you plan to use a snapshot from another account, make sure that the right [IAM authorizations](/docs/vpc?topic=vpc-block-s2s-auth&interface=cli#block-s2s-auth-xaccountrestore-cli) are in place first. Then, contact the snapshot's owner for the CRN of the snapshot.
+```sh
+ibmcloud is volumes --attachment-state unattached --operating-system-architecture amd64 --zone us-south-1
+```
+{: pre}
 
-9. List the available SSH keys that you can associate with your instance.
+##### List available snapshots
+{: #list-snapshots-images-cli}
 
-   ```sh
-   ibmcloud is keys
-   ```
-   {: pre}
+You can optionally [create a boot volume from a bootable snapshot](#create-instance-bootable-snapshot-cli) and use that for your image. To list all snapshots for a volume, see [View all snapshots that were created from the Block Storage for VPC volume](/docs/vpc?topic=vpc-viewing-block-storage&interface=ui#view-snapshots-for-volume).
 
-   For this example, you see a response that is similar to the following output.
+If you plan to use a snapshot from another account, make sure that the right [IAM authorizations](/docs/vpc?topic=vpc-block-s2s-auth&interface=cli#block-s2s-auth-xaccountrestore-cli) are in place first. Then, contact the snapshot's owner for the CRN of the snapshot.
 
-   ```text
-   ID                                          Name     Type   Length   FingerPrint          Resource group
-   r006-89ec781c-9630-4f76-b9c4-a7d204828d61   my-key   rsa    4096     gtnf+pdX2PYI9Ofq..   Default
-   ```
-   {: screen}
+#### 7. List the available profiles when you create an instance
+{: #list-available-profiles-cli}
 
-   If you do not have an SSH key available, you can create an SSH key by using the [ibmcloud is key-create](/docs/vpc?topic=vpc-vpc-reference#key-create) command. For more information, see [SSH keys](/docs/vpc?topic=vpc-ssh-keys).
+List the available profiles for creating your instance.
 
-10. List all the available placement groups that you can associate with your instance.
+```sh
+ibmcloud is instance-profiles
+```
+{: pre}
 
-    ```sh
-    ibmcloud is placement-groups
-    ```
-    {: pre}
+For this example, you see a response that is similar to the following output.
 
-    For this example, you see a response that is similar to the following output.
+```text
+Name                         vCPU Manufacturer   Architecture   Family              vCPUs   Memory(GiB)   Bandwidth(Mbps)   Volume bandwidth(Mbps)   GPUs          Storage(GB)   Min NIC Count   Max NIC Count
+bx2-2x8                      intel               amd64          balanced            2       8             4000              1000                     -      -                    1               5
+bx2a-2x8                     amd                 amd64          balanced            2       8             2000              500                      -      -                    1               5
+bx2d-2x8                     intel               amd64          balanced            2       8             4000              1000                     -            1x75          1               5
+bx2-4x16                     intel               amd64          balanced            4       16            8000              2000                     -      -                    1               5
+bx2a-4x16                    amd                 amd64          balanced            4       16            4000              1000                     -      -                    1               5
+bx2d-4x16                    intel               amd64          balanced            4       16            8000              2000                     -            1x150         1               5
+```
+{: screen}
 
-    ```text
-    ID                                            Name                             State    Strategy       Resource Group
-    c5f1f366-b92a-4080-991a-aa5c2e33d96b          placement-group-region-us-south   stable   power_spread  Default
-    ```
-    {: screen}
+For more information about available profiles, see [x86 instance profiles](/docs/vpc?topic=vpc-profiles) and [s390x instance profiles](/docs/vpc?topic=vpc-vs-profiles).
+
+Secure execution-enabled profiles are now available and are identified by the fourth character of the profile name that is an "e", such as *bz2e*. For more information, see [Confidential computing with LinuxONE](/docs/vpc?topic=vpc-about-se).
+
+The secure execution-enabled profiles are available for Balanced, Compute, and Memory families. Make sure that you use secure-enabled profiles when you use the IBM Hyper Protect Container Runtime image. Any profile mismatch during profile validation results in an error message that is similar to the following example.
+
+```text
+FAILED
+Response HTTP Status Code: 400
+Error code: bad_field
+Error message: Image OS IBM Hyper Protect is not supported by the instance profile <profile_name>
+Error target name: profile, type: field
+```
+{: screen}
+
+#### 8. List the available SSH keys that you can associate with your instance
+{: #list-available-ssh-keys-cli}
+
+List the available SSH keys that you can associate with your instance.
+
+```sh
+ibmcloud is keys
+```
+{: pre}
+
+For this example, you see a response that is similar to the following output.
+
+```text
+ID                                          Name     Type   Length   FingerPrint          Resource group
+r006-89ec781c-9630-4f76-b9c4-a7d204828d61   my-key   rsa    4096     gtnf+pdX2PYI9Ofq..   Default
+```
+{: screen}
+
+If you do not have an SSH key available, you can create an SSH key by using the [ibmcloud is key-create](/docs/vpc?topic=vpc-vpc-reference#key-create) command. For more information, see [SSH keys](/docs/vpc?topic=vpc-ssh-keys).
+
+#### 9. List all the available placement groups that you can associate with your instance.
+{: #list-available-placement-grouops-cli}
+
+List all the available placement groups that you can associate with your instance.
+
+```sh
+ibmcloud is placement-groups
+```
+{: pre}
+
+For this example, you see a response that is similar to the following output.
+
+```text
+ID                                            Name                             State    Strategy       Resource Group
+c5f1f366-b92a-4080-991a-aa5c2e33d96b          placement-group-region-us-south   stable   power_spread  Default
+```
+{: screen}
 
 ### Creating an instance by using the CLI
 {: #create-instance-cli}
