@@ -2,7 +2,7 @@
 
 copyright:
   years: 2020, 2025
-lastupdated: "2025-06-18"
+lastupdated: "2025-07-21"
 
 keywords: flow logs, ordering, getting started
 
@@ -137,11 +137,11 @@ To create a flow log collector by using the IBM Cloud console, follow these step
 
 1. Go to the [{{site.data.keyword.cloud_notm}} console](/login){: external} and log in to your account.
 
-1. Select the **Navigation menu** ![Menu icon](../icons/icon_hamburger.svg), then click **Infrastructure** ![VPC icon](../../icons/vpc.svg) > **Network** > **Flow Logs**. The Flow logs for VPC dashboard appears.
+1. Select the **Navigation menu** ![Menu icon](../icons/icon_hamburger.svg), then click **Infrastructure** ![VPC icon](../../icons/vpc.svg) > **Network** > **Flow Logs**.
 
-   ![Flow log collector dashboard](images/list-view-01.png "Flow Log Collector dashboard"){: caption="Flow log collector dashboard" caption-side="bottom}
+   The Flow logs for VPC dashboard appears.
 
-1. Click **Create flow log collector** to go to the flow logs provisioning page.
+1. Click **Create** to go to the flow logs provisioning page.
 1. Enter values for the following fields:
 
    * **Name** - Type a unique name for your flow log collector.
@@ -149,14 +149,15 @@ To create a flow log collector by using the IBM Cloud console, follow these step
    * **Tags** - Optionally, add tags to organize, track usage costs, or manage access to your resources.
    * **Access management tags** - Optionally, add access management tags to resources to help organize access control relationships. The only supported format for access management tags is `key:value`. For more information, see [Controlling access to resources by using tags](/docs/account?topic=account-access-tags-tutorial).
 
-1. From the **Attach the flow log connector to** menu, choose a target type for the flow log. Depending on your selection, additional fields might be required.
+1. For **Collector details**, choose a target service for the flow log. Depending on your selection, additional fields might be required.
 
    * **Virtual private cloud** - Select a VPC. All network traffic within the selected VPC is logged.
    * **Subnet** -  Select a VPC and a subnet within the selected VPC. All traffic within the selected subnet is logged.
    * **Instance** - Select a VPC and a virtual server instance that exists within the selected VPC. All traffic for the virtual server instance is logged.
    * **Interface** - Select a VPC, a virtual server instance within the selected VPC, and a specific network interface for the selected virtual server instance. All traffic for the selected network interface is logged.
+   * **Unattached virtual network interface** - Specify the ID of an unattached virtual network interface. This is useful to create a dedicated and isolated logging path that can be attached to a log collection service when ready.
 
-1. Specify where the logs are written. Flow logs are written to an {{site.data.keyword.cos_short}} bucket, which must be created as a single-region bucket in the same region as the target resource.
+1. Specify where the logs are stored. Flow logs are written to an {{site.data.keyword.cos_short}} bucket, which must be created as a single-region bucket in the same region as the target resource.
 
    * **Cloud Object Storage instances** - The {{site.data.keyword.cos_short}} instance that the wanted bucket resides in.
    * **Location** - This input is unavailable because it is directly tied to the region the target resource resides in.
