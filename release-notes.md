@@ -2,7 +2,7 @@
 
 copyright:
   years: 2019, 2025
-lastupdated: "2025-07-16"
+lastupdated: "2025-07-21"
 
 keywords:
 
@@ -27,12 +27,19 @@ For more information about changes to the {{site.data.keyword.vpc_short}} comman
 ## July 2025
 {: #vpc-jul25}
 
+### 21 July 2025
+{: #vpc-jul2125}
+{: release-note}
+
+Secure boot for Virtual Servers for VPC is now optional
+:   When you select a [confidential computing instance profile](/docs/vpc?topic=vpc-profiles&interface=ui#confidential-computing-profiles), Secure boot for Virtual Servers for VPC is selected automatically. You now have the option to disable secure boot and still utilize the confidential computing profile. For more information, see [Secure boot for Virtual Servers for VPC](/docs/vpc?topic=vpc-confidential-computing-with-secure-boot-vpc) and Managing virtual server instances: Disable or enable secure boot](/docs/vpc?topic=vpc-managing-virtual-server-instances&interface=ui#disable-secure-boot-ui).
+
 ### 15 July 2025
 {: #vpc-jul1525}
 {: release-note}
 
 Allowed-use expressions now available for custom images (GA)
-:   You can use allowed-use expressions to configure which profiles, images, and server settings can be used together when you provision a virtual server instance or bare metal server. When you make selections to create a virtual server instance or bare metal server, if you use a custom image with defined allowed-use expressions, you can then determine which profiles are compatible with those expressions. For more information, see [Adding allowed-use expressions to custom images](/docs/vpc?topic=vpc-custom-image-allowed-use-expressions&interface=ui). 
+:   You can use allowed-use expressions to configure which profiles, images, and server settings can be used together when you provision a virtual server instance or bare metal server. When you make selections to create a virtual server instance or bare metal server, if you use a custom image with defined allowed-use expressions, you can then determine which profiles are compatible with those expressions. For more information, see [Adding allowed-use expressions to custom images](/docs/vpc?topic=vpc-custom-image-allowed-use-expressions&interface=ui).
 
 Backup for VPC support for second-generation block volumes (select availability)
 :   Customers with special access to preview the second-generation block storage volumes can automate the creation and deletion of snapshots for these volumes with the Backup for VPC service. You can manage your backup policies for second-generation volumes in the console, from the CLI, or with the API. For more information, see [Backups for second-generation block storage volumes](/docs/vpc?topic=vpc-backup-service-about&interface=ui#sdp-backups).

@@ -2,7 +2,7 @@
 
 copyright:
   years: 2019, 2025
-lastupdated: "2025-07-13"
+lastupdated: "2025-07-21"
 
 keywords: view instance details, restart virtual server, stop, details, delete
 
@@ -538,27 +538,48 @@ curl -X PATCH "$vpc_api_endpoint/v1/instances/$instance_id?version=2024-10-17&ge
 
 For more information, see the [update an instance action](/apidocs/vpc/latest#update-instance) in the {{site.data.keyword.vsi_is_short}} API.
 
-## Setting the secure boot value from the CLI
+## Disable or enable secure boot in the console
+{: #disable-secure-boot-ui}
+{: ui}
+
+When you select a [confidential computing instance profile](/docs/vpc?topic=vpc-profiles&interface=ui#confidential-computing-profiles), the secure boot option is enabled by default. You can disable secure boot on your virtual server instance, but you must first stop the virtual server instance. After disabling secure boot, you can then restart your virtual server instance.
+
+1. From the _Virtual server instances_ page in {{site.data.keyword.cloud_notm}} console, select the virtual server instance.
+1. From **Actions**, click **Stop**.
+1. In **Advanced configuration details**, toggle secure boot to **Disabled**.
+1. From **Actions**, click **Start**.
+
+If you decide to re-enable secure boot, follow these same steps and toggle the option back to **Enabled**
+
+## Enabling and disabling secure boot from the CLI
 {: #set-secure-boot-cli}
 {: cli}
 
-You can update an instance and change the `enable-secure-boot` by using the command-line interface (CLI). Use the `ibmcloud is instance-update` command. For INSTANCE, specify the ID or name of the instance and set the `--enable-secure-boot` property to `true`.
+When you select a [confidential computing instance profile](/docs/vpc?topic=vpc-profiles&interface=ui#confidential-computing-profiles), the secure boot option is enabled by default. You can disable secure boot on your virtual server instance, but you must first stop the virtual server instance. After disabling secure boot, you can then restart your virtual server instance.
+
+You can update an instance and change the `enable-secure-boot` by using the command-line interface (CLI). Use the `ibmcloud is instance-update` command. For INSTANCE, specify the ID or name of the instance and set the `--enable-secure-boot` property to `false`.
 
 ```sh
-ibmcloud is instance-update INSTANCE --enable-secure-boot true
+ibmcloud is instance-update INSTANCE --enable-secure-boot false
 ```
 {: pre}
 
-## Setting the secure boot value from the API
+If you decide to re-enable secure boot, follow these same steps and set the `--enable-secure-boot` property to `true`.
+
+## Enabling and disabling secure boot value from the API
 {: #set-secure-boot-API}
 {: api}
 
-You can update a virtual server instance and change the `enable_secure_boot` property by using the API. Use the `update-instance` command. Make a `PATCH /instances` request and specify a new value for the `enable_secure_boot` property. To enable confidential secure boot, change this value to `true`.
+When you select a [confidential computing instance profile](/docs/vpc?topic=vpc-profiles&interface=ui#confidential-computing-profiles), the secure boot option is enabled by default. You can disable secure boot on your virtual server instance, but you must first stop the virtual server instance. After disabling secure boot, you can then restart your virtual server instance.
+
+You can update a virtual server instance and change the `enable_secure_boot` property by using the API. Use the `update-instance` command. Make a `PATCH /instances` request and specify a new value for the `enable_secure_boot` property. To enable confidential secure boot, change this value to `false`.
 
 ```sh
-curl -X PATCH "$vpc_api_endpoint/v1/instances/$instance_id?version=2024-10-17&generation=2" -H "Authorization: Bearer $iam_token" -d '{"enable_secure_boot": "true"}'
+curl -X PATCH "$vpc_api_endpoint/v1/instances/$instance_id?version=2024-10-17&generation=2" -H "Authorization: Bearer $iam_token" -d '{"enable_secure_boot": "false"}'
 ```
 {: pre}
+
+If you decide to re-enable secure boot, follow these same steps and set the `enable_secure_boot` property to `true`.
 
 For more information, see the [update an instance action](/apidocs/vpc/latest#update-instance) in the {{site.data.keyword.vsi_is_short}} API.
 
