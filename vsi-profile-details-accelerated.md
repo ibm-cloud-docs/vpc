@@ -2,7 +2,7 @@
 
 copyright:
   years: 2024, 2025
-lastupdated: "2025-06-26"
+lastupdated: "2025-07-21"
 
 keywords: vsi, virtual server, virtual server instances, profile, profiles, gpu, accelerated, h100, h200, l4, l40s
 
@@ -98,7 +98,7 @@ attached. This limit is based on the size of the instance.
 
 | Profile | Max volumes | Max vNICs |
 | --------------- | ----------- | --------- |
-| gx3d-208x1792x8mi300x | 15          | 15        |
+| gx3d-208x1792x8mi300x | 12          | 15        |
 {: caption="Accelerated AMD family limits for maximum volumes, and maximum network interfaces" caption-side="bottom"}
 
 ## Intel Gaudi 3 instance profiles
@@ -183,7 +183,7 @@ attached. This limit is based on the size of the instance.
 
 | Profile | Max volumes | Max vNICs |
 | --------------- | ----------- | --------- |
-| gx3d-160x1792x8gaudi3 | 15          | 15        |
+| gx3d-160x1792x8gaudi3 | 12          | 15        |
 {: caption="Accelerated Intel family limits for maximum volumes, and maximum network interfaces" caption-side="bottom"}
 
 
@@ -305,9 +305,9 @@ attached. This limit is based on the size of the instance.
 
 | Number of vCPUs | Max volumes | Max vNICs |
 | --------------- | ----------- | --------- |
-| 2-16            | 15          | 5         |
-| 17-48           | 15          | 10        |
-| 49+             | 15          | 15        |
+| 2-16            | 12          | 5         |
+| 17-48           | 12          | 10        |
+| 49+             | 12          | 15        |
 {: caption="Accelerated NVIDIA Hopper HGX limits for vCPU, maximum volumes, and maximum network interfaces" caption-side="bottom"}
 
 If you configure an RDMA-enabled cluster network, you must have either 8, 16 or 32 cluster
@@ -395,9 +395,9 @@ attached. This limit is based on the size of the instance.
 
 | Number of vCPUs | Max volumes | Max vNICs |
 | --------------- | ----------- | --------- |
-| 2-16            | 15          | 5         |
-| 17-48           | 15          | 10        |
-| 49+             | 15          | 15        |
+| 2-16            | 12          | 5         |
+| 17-48           | 12          | 10        |
+| 49+             | 12          | 15        |
 {: caption="Accelerated L4 limits for vCPU, maximum volumes, and maximum network interfaces" caption-side="bottom"}
 
 ## NVIDIA L40S instance profiles
@@ -480,9 +480,9 @@ attached. This limit is based on the size of the instance.
 
 | Number of vCPUs | Max volumes | Max vNICs |
 | --------------- | ----------- | --------- |
-| 2-16            | 15          | 5         |
-| 17-48           | 15          | 10        |
-| 49+             | 15          | 15        |
+| 2-16            | 12          | 5         |
+| 17-48           | 12          | 10        |
+| 49+             | 12          | 15        |
 {: caption="Accelerated L40s limits for vCPU, maximum volumes, and maximum network interfaces" caption-side="bottom"}
 
 ## NVIDIA A100 instance profiles
@@ -561,7 +561,7 @@ attached. This limit is based on the size of the instance.
 
 | Number of vCPUs | Max volumes | Max vNICs |
 | --------------- | ----------- | --------- |
-| 2-16            | 15          | 5         |
-| 17-48           | 15          | 10        |
-| 49+             | 15          | 15        |
+| 2-16            | 12          | 5         |
+| 17-48           | 12          | 10        |
+| 49+             | 12          | 15        |
 {: caption="Accelerated A100 limits for vCPU, maximum volumes, and maximum network interfaces" caption-side="bottom"}
