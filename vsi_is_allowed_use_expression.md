@@ -2,7 +2,7 @@
 
 copyright:
   years: 2025, 2025
-lastupdated: "2025-07-16"
+lastupdated: "2025-07-21"
 
 keywords:
 
@@ -22,11 +22,11 @@ You can use allowed-use expressions to configure which profiles, images, and ser
 
 During the creation of a virtual server instance or a bare metal server with custom images that have an allowed-use expression, the information that is provided in the allowed-use properties is then evaluated against a potential virtual server instance or bare metal server properties to determine whether that custom image can be used to create the virtual server instance or bare metal server.
 
-With the UI, CLI, and API, you can define allowed-use expressions for any custom image, image from volume, detached boot volume, or snapshots of boot volumes. {{site.data.keyword.vpc_full}} sets the allowed-use expression for all stock images, but you can define them for any custom image you created. The default value is the allowed-use expressions evaluates to true, meaning that the custom image is allowed to be used with all potential server provisions. You must define or edit the allowed-use expression if you don't want the custom image to be used in specific situations.
+With the UI, CLI, and API, you can define allowed-use expressions for any custom image, image from volume, detached boot volume, or snapshots of boot volumes.  {{site.data.keyword.vpc_full}} sets the allowed-use expressions for all stock images, but you can define them for any custom image you created. The default value is the allowed-use expressions evaluates to true, meaning that the custom image is allowed to be used with all potential server provisions. You must define or edit the allowed-use expressions if you don't want the custom image to be used in specific situations.
 
-For custom images and images shared with a private catalog, you can define the allowed-use expression when creating the image in {{site.data.keyword.vpc_short}}. For images from volumes, detached boot volumes, and snapshots of boot volumes, the allowed-use expression is inherited from the source by default. However, you can override this expression when creating the resource. For all images, boot volumes, and snapshots of boot volumes, the allowed-use expression can be updated after creation.
+For custom images and images shared with a private catalog, you can define the allowed-use expressions when creating the image in {{site.data.keyword.vpc_short}}. For images from volumes, detached boot volumes, and snapshots of boot volumes, the allowed-use expressions are inherited from the source by default. However, you can override these expressions when creating the resource. For all images, boot volumes, and snapshots of boot volumes, the allowed-use expressions can be updated after creation.
 
-For more information on x86 virtual server profiles and to get the information to define the allowed-use expression you want to use for your custom image, see [x86-64 instance profiles](/docs/vpc?topic=vpc-profiles&interface=ui). For more information on x86-64 bare metal server profiles, see [x86-64 bare metal server profiles](/docs/vpc?topic=vpc-bare-metal-servers-profile&interface=ui).
+For more information on x86 virtual server profiles and to get the information to define the allowed-use expressions you want to use for your custom image, see [x86-64 instance profiles](/docs/vpc?topic=vpc-profiles&interface=ui). For more information on x86-64 bare metal server profiles, see [x86-64 bare metal server profiles](/docs/vpc?topic=vpc-bare-metal-servers-profile&interface=ui).
 
 ## IAM authority required to define allowed-use expressions
 {: #iam-allowed-use-expression}
@@ -154,7 +154,7 @@ See the following tables for the allowed-use expression details for virtual serv
 {: class="simple-tab-table"}
 {: summary="Bare metal server API allowed-use expression options"}
 
-To create a new custom image with an allowed-use expression, use the `POST /images` API command. The following example creates a new custom image with an allowed-use expression for a virtual server instance for GPU count that is greater than one with Nvidia as the GPU manufacturer. Secure boot is required. The bare metal server allowed-use expression is set to false which prevents the image from being used to provision a bare metal server.
+To create a new custom image with allowed-use expressions, use the `POST /images` API command. The following example creates a new custom image with an allowed-use expression for a virtual server instance for GPU count that is greater than one with Nvidia as the GPU manufacturer. Secure boot is required. The bare metal server allowed-use expression is set to false which prevents the image from being used to provision a bare metal server.
 
 ```sh
 curl -X POST "$vpc_api_endpoint/v1/images?version=$today&generation=2" -H "Authorization: Bearer $iam_token" -d '{
@@ -185,4 +185,4 @@ curl -X PATCH "$vpc_api_endpoint/v1/images/$image_id?version=$today&generation=2
 ```
 {: pre}
 
-For more details on the API allowed-use expression property, sub-properties, and expressions, see the [Virtual Private Cloud API: Create image](/apidocs/vpc-scoped#create-image) and [Virtual Private Cloud API: Update image](/apidocs/vpc-scoped#update-image). For more information regarding Common Expression Language, which is used to create the allowed-use expression, see [Google's CEL Language Definition reference](https://github.com/google/cel-spec/blob/master/doc/langdef.md){: external}
+For more details on the API `allowed_use` property and sub-properties, see the [Virtual Private Cloud API: Create image](/apidocs/vpc-scoped#create-image) and [Virtual Private Cloud API: Update image](/apidocs/vpc-scoped#update-image). For more information regarding Common Expression Language, which is used to create the allowed-use expression, see [Google's CEL Language Definition reference](https://github.com/google/cel-spec/blob/master/doc/langdef.md){: external}

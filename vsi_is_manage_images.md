@@ -99,7 +99,7 @@ data "ibm_is_images" "images" {
 
 You can view the following details of a custom image:
 
-* Allowed-use expression (if set)
+* Allowed-use expressions
 * Assigned resource group
 * Checksum
 * Creation date
@@ -120,7 +120,7 @@ To view details for a custom image, complete the following steps.
 
 1. In [{{site.data.keyword.cloud_notm}} console](/login){: external}, go to **Navigation Menu** icon![menu icon](../icons/icon_hamburger.svg) **> Infrastructure** ![VPC icon](../../icons/vpc.svg) **> Compute > Images**.
 1. On the **Custom images** tab, click the name of a custom image then, on the next panel, click `View image details`.
-1. On the **Image details** page you can edit the name of the image, copy the checksum, add tags, copy the CRN for the image, and edit the allowed-use expression of the image.
+1. On the **Image details** page you can edit the name of the image, copy the checksum, add tags, copy the CRN for the image, and edit the allowed-use expressions of the image.
 1. From the **Actions** menu of the Image details page, you can do take actions such as create a virtual server instance from the custom image or delete the image. For a full list of possible actions, see [Managing custom images by using the UI](/docs/vpc?topic=vpc-managing-custom-images&interface=ui#custom-images-managing-ui).
 
 ## Viewing custom image details by using the CLI
