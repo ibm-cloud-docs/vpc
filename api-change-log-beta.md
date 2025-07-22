@@ -2,7 +2,7 @@
 
 copyright:
   years: 2021, 2025
-lastupdated: "2025-07-15"
+lastupdated: "2025-07-22"
 
 keywords: api, change log, beta
 
@@ -25,6 +25,44 @@ There are no backward-compatibility guarantees as a feature progresses through i
 {: important}
 
 To review the change log of generally available API features, see the [VPC API change log](/docs/vpc?topic=vpc-api-change-log).
+
+## 22 July 2025
+{: #22-july-2025-beta}
+
+### For all version dates
+{: #22-july-2025-all-version-dates-beta}
+
+This release introduces the following updates for accounts that have been granted special approval to preview and use these features. Although usage of these features is restricted, changes to schemas (such as new properties) will be visible to all accounts.
+
+**File shares with regional availability.** You can now [create file shares](/apidocs/vpc-beta#create-share) with regional availability by specifying the `rfs` profile. When creating file shares with regional availability, the `zone` property must not be specified. For more information, see [About File Storage for VPC](docs/vpc?topic=vpc-file-storage-vpc-about&interface=api). See also [Storage known issues](/docs/vpc?topic=vpc-known-issues#storage-vpc-known-issues).
+
+Snapshots, accessor shares, cross-region replication, and encryption at rest for regional file shares are not currently supported.
+{: note}
+
+**Enhanced transit encryption support for file shares.** When [creating a file share](/apidocs/vpc-beta#create-share) with `storage_generation` of `2`, you can include the new [`stunnel`](/docs/vpc?topic=vpc-file-storage-vpc-eit-tls) value when specifying the `allowed_transit_encryption_modes` property for this share. Subsequently, you can also specify the `stunnel` value for the `transit_encryption` property when [creating a mount target](/apidocs/vpc-beta#create-share-mount-target) for the file share. The `stunnel` transit encryption mode is supported only for file shares that are created with a `storage_generation` of `2`.
+
+When [retrieving](/apidocs/vpc-beta#get-share-profile) or [listing](/apidocs/vpc-beta#list-share-profiles) file share profiles, a new `allowed_transit_encryption_modes` property is provided in the response. The `allowed_transit_encryption_modes.default` property denotes the allowed transit encryption modes for a share with this profile, which will be used if `allowed_transit_encryption_modes` is not specified when [creating a file share](/apidocs/vpc-beta#create-share). 
+
+**Allowed access protocols for file shares.** When [creating a file share](/apidocs/vpc-beta#create-share), a set of [`allowed_access_protocols`](/docs/vpc?topic=vpc-file-storage-vpc-about&interface=api#fs-allowed-access-protocols) may now be specified to denote which access protocols to use when [creating mount targets for that file share](/apidocs/vpc-beta#create-share-mount-target). The `allowed_access_protocols` properties are also included in the `Share` and `ShareProfile` response schemas.
+
+**Allowed transit encryption modes for files shares.** When [retrieving](/apidocs/vpc-beta#get-share-profile) or [listing](/apidocs/vpc-beta#list-share-profiles) file share profiles, the response now includes an `allowed_transit_encryption_modes` property. This property denotes the allowed [transit encryption modes](/docs/vpc?topic=vpc-file-storage-vpc-about&interface=ui#fs-eit) used when [creating file shares](/apidocs/vpc-beta#create-share) using the specified profile, and subsequently when [creating mount targets](/apidocs/vpc-beta#create-share-mount-target) for those file shares.
+
+**Bandwidth for file shares.** When [creating](/apidocs/vpc-beta#create-share), [retrieving](/apidocs/vpc-beta#get-share), or [listing](/apidocs/vpc-beta#list-shares) file shares, and when [retrieving](/apidocs/vpc-beta#get-share-profile) or [listing](/apidocs/vpc-beta#list-share-profiles) file share profiles, the response now includes a `bandwidth` property that denotes the [available bandwidth](/docs/vpc?topic=vpc-file-storage-profiles&interface=api) that is provided when that profile is specified during file share [creation](/apidocs/vpc-beta#create-share).
+
+For more information, see [About File Storage for VPC](docs/vpc?topic=vpc-file-storage-vpc-about&interface=api) and [Securing mount connections between a file share and virtual server instance](/docs/vpc?topic=vpc-file-storage-vpc-eit). See also [Storage known issues](/docs/vpc?topic=vpc-known-issues#storage-vpc-known-issues).
+
+### For version `2025-07-22` or later
+{: #version-2025-07-22-beta}
+
+**File share `zone` property no longer always included.** When using a `version` query parameter of `2025-07-22` or later, the response no longer includes `zone` when [creating](/apidocs/vpc-beta#create-share), [updating](/apidocs/vpc-beta#update-share), [retrieving](/apidocs/vpc-beta#get-share), [listing](/apidocs/vpc-beta#list-shares), or [deleting](/apidocs/vpc-beta#delete-share) regional file shares. When using a `version` query parameter of `2025-07-21` or earlier, the `zone` property in the `Share` response for regional file shares will return the first zone from the region.
+
+**File share `user_managed` transit encryption mode renamed.** When using a `version` query parameter of `2025-07-22` or later, the IPsec encryption mode is represented as `ipsec` rather than `user_managed`. This change affects the `allowed_transit_encryption_modes` property in the `Share`, `SharePrototype`, `SharePatch`, and `ShareProfile` schemas, as well as the `transit_encryption` property in the `ShareMountTarget` and `ShareMountTargetPrototype` schemas. Requests using a `version` query parameter of `2025-07-21` or earlier are unchanged.
+
+**File share mount target access protocol and transit encryption.** When using a `version` query parameter of `2025-07-22` or later, [`access_protocol`](/docs/vpc?topic=vpc-file-storage-vpc-about&interface=api#fs-allowed-access-protocols) and [`transit_encryption`](/docs/vpc?topic=vpc-file-storage-vpc-about&interface=api#fs-allowed-transit-encryption-modes) modes must be specified when [creating a mount target for a file share](/apidocs/vpc-beta#create-share-mount-target). The specified value for the `access_protocol` must be included in the share's `allowed_access_protocols` property. The specified value for `transit_encryption` must be included in the share's `allowed_transit_encryption_modes` property. Requests using a `version` query parameter of `2025-07-21` or earlier are unchanged.
+
+For more information, see [About File Storage for VPC snapshots](/docs/vpc?topic=vpc-fs-snapshots-about&interface=api). See also [Storage known issues](/docs/vpc?topic=vpc-known-issues#storage-vpc-known-issues).
+
+For migration guidance, see [Updating to the `2025-07-22` version (file shares, file share profiles, and file share mount targets)](/docs/vpc?topic=vpc-2025-07-22-migration-file-shares).
 
 ## 15 July 2025
 {: #15-july-2025}
