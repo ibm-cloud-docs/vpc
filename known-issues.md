@@ -2,7 +2,7 @@
 
 copyright:
   years: 2018, 2025
-lastupdated: "2025-07-16"
+lastupdated: "2025-07-22"
 
 keywords:
 
@@ -126,15 +126,53 @@ Users of Accessor shares have access to all the data of the source share, which 
 
 The property `snapshot_directory_visible` is included in the API response for the methods that are listing, creating, deleting, retrieving, or updating a file share. This field is not recommended for use, and it is planned to be removed.
 
-## Creating accessor share with specific resource group fails
+### Creating accessor share with specific resource group fails
 {: #accessor-shares-need-default-resource-group}
 
 When you specify a resource group explicitly in your API request to create an accessor share for an origin share, the request fails with 400 Bad Request error. As a workaround you can create the accessor share without specifying a resource group, the system automatically picks the default resource group to create the share.
 
-## When a cross-regional replica is created, the displayed href value of the parent snapshot is incorrect
-{: #crr-incorrect-href-source-snapshot}
+### When a cross-regional replica is created, the displayed href value of the parent snapshot is incorrect
+{: #cross-regional-replica-incorrect-href-source-snapshot}
 
 When you retrieve information about your cross-regional replica share, the source snapshot's href value is incorrect in the API response. Refer to the source snapshot ID or source snapshot CRN instead.
+
+### Regional file share mount targets and `us-south-dal14-a` availability zone
+{: #regional-file-share-mount-us-south-dal14-a}
+
+Creating a mount target for a regional share in any of the subnets in `us-south-dal14-a` is currently not supported. Provisioning attempts in that zone do not complete successfully. Instead, the mount target stays in the `lifecycle_state` of `pending`. Regional file shares in the `us-south` region cannot be mounted on virtual server instances that are provisioned in the `us-south-dal14-a` zone by using a mount target in a different zone.
+
+
+You can determine if one of your VPC zones is mapped to `us-south-dal14-a` by using the [IBM Cloud console](/infrastructure), [CLI](/docs/vpc?topic=vpc-vpc-reference#zones), or the [VPC API](/apidocs/vpc#list-region-zones). For more information, see [Zone mapping per account](/docs/overview?topic=overview-locations#zone-mapping).
+
+### File share properties missing in API response
+{: #file-share-properties-missing-in-api-response}
+
+In an API response, the following properties may be missing or incorrect:
+
+- `allowed_access_protocols` may not be included in the share API response when retrieving, listing, or updating file shares.
+- `storage_generation` may not be included in the share profile API response when retrieving or listing share profiles. The `storage_generation` for file share profiles is `2` for the `rfs` profile and `1` for all other profiles.
+- `zone` may be absent in the share API response when creating, retrieving, listing, updating, or deleting file shares with `rfs` profile when using a version of `2025-07-21` or earlier. Also when using a `version` query parameter of `2025-07-21` or earlier, the `zone` of an `rfs` share will return the first zone from the region and is informational only. `zone` is not affected for `dp2` shares and is represented correctly for `rfs` shares when using an API version of `2025-07-22` or later.
+
+
+### Updating a regional file share to `vpc` access control mode succeeds
+{: #regional-file-share-vpc-access-control-mode}
+
+Although regional file shares do not support the `vpc` access control mode, requests to update a regional file share to use an `access_control_mode` of `vpc` will erroneously succeed, with the file share remaining in `pending` state.
+
+### Creating replica file shares with `allowed_transit_encryption_modes` or mount targets with `transit_encryption`
+{: #replica-file-share-transit-encryption} 
+
+When creating a replica file share with `allowed_transit_encryption_modes` specified, the request incorrectly fails. Additionaly, creating a replica file share with a mount target with a  `transit_encryption` value not listed in the source share's `allowed_transit_encryption_modes` incorrectly fails. To work around this issue, do not specify `allowed_transit_encryption_modes` in requests to create a replica file share. The replica's `allowed_transit_encryption_modes` are inherited from the source share. For share mount target creation to a replica file share, use only `transit_encryption` values specified in the source share's `allowed_transit_encryption_modes`.
+
+### File share bandwidth for `dp2` file shares is incorrectly reported
+{: #dp2-file-share-bandwidth-incorrectly-reported}
+
+For `dp2` profile shares, the `bandwidth` returned in the API response is incorrectly reported as `1` Mbps in the file share. This value is calculated based on the share's selected `iops` value and does not affect `dp2` file share QoS.
+
+### Regional file share mount target provisioning delays
+{: #regional-file-share-mount-target-provisioning}
+
+Creating a share mount target for a regional file share may take more than 10 minutes, during which time its `lifecycle_state` will be `pending`. Mount targets for shares using the `dp2` profile are not affected.
 
 ### Backup plan ID property in the API response
 {: #backup-policy-plan-fs}

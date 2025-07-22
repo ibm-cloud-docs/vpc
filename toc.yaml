@@ -196,6 +196,7 @@ toc:
             - vpn_advanced_configuration_api_migration.md
             - backup_service_API_migration_instance_backups.md
             - vpn-api-migration.md
+            - file_storage_vpc_api_migration.md
             - 2022-03-29-migration.md
         - topicgroup:
             id: managing-access
