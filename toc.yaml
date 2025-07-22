@@ -877,7 +877,7 @@ toc:
             - storage_durability.md
             - topicgroup:
                 id: veeam
-                label: Backup and recovery by using Veeam
+                label: Backup and recovery with Veeam
                 topics:
                 - veeam-about.md
                 - veeam-ordering-licenses.md
