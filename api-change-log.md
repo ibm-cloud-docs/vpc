@@ -60,14 +60,14 @@ The new response code will be rolled out gradually. Each phase of the rollout wi
 
 **Availability modes for file shares.** When [creating](/apidocs/vpc/latest#create-share), [retrieving](/apidocs/vpc/latest#get-share), or [listing](/apidocs/vpc/latest#list-shares) file shares, and when [retrieving](/apidocs/vpc/latest#get-share-profile) or [listing](/apidocs/vpc/latest#list-share-profiles) file share profiles, the response now includes an [`availability_modes`](/docs/vpc?topic=vpc-file-storage-profiles&interface=api) property that denotes the availability modes that may be specified when [creating a file share](/apidocs/vpc/latest#create-share).
 
-**Bandwidth for file shares.** When [retrieving](/apidocs/vpc/latest#get-share) or [listing](/apidocs/vpc/latest#list-shares) file shares, and when [retrieving](/apidocs/vpc/latest#get-share-profiles) or [listing](/apidocs/vpc/latest#list-shares-profiles) file share profiles, the response now includes a `bandwidth` property that denotes the [available bandwidth](/docs/vpc?topic=vpc-file-storage-profiles&interface=api) provided for the file share using that profile.
+**Bandwidth for file shares.** When [retrieving](/apidocs/vpc/latest#get-share) or [listing](/apidocs/vpc/latest#list-shares) file shares, and when [retrieving](/apidocs/vpc/latest#get-share-profile) or [listing](/apidocs/vpc/latest#list-shares-profiles) file share profiles, the response now includes a `bandwidth` property that denotes the [available bandwidth](/docs/vpc?topic=vpc-file-storage-profiles&interface=api) provided for the file share using that profile.
 
 Bandwidth provided for file shares created with the `dp2` profile is solely informational.
 {: note}
 
-**Storage generation for file shares.** When [retrieving](/apidocs/vpc/latest#get-share-profiles) or [listing](/apidocs/vpc/latest#list-share-profiles) file share profiles, the response now includes a `storage_generation` property that denotes which [generation](/docs/vpc?topic=vpc-file-storage-profiles&interface=api#fs-using-api-iops-profiles) of file storage will be created when [creating a file share](/apidocs/vpc/latest#create-share) using that profile. Consequently, when [retrieving](/apidocs/vpc/latest#get-share) or [listing](/apidocs/vpc/latest#list-shares) file shares, the response now includes a `storage_generation` property.
+**Storage generation for file shares.** When [retrieving](/apidocs/vpc/latest#get-share-profile) or [listing](/apidocs/vpc/latest#list-share-profiles) file share profiles, the response now includes a `storage_generation` property that denotes which [generation](/docs/vpc?topic=vpc-file-storage-profiles&interface=api#fs-using-api-iops-profiles) of file storage will be created when [creating a file share](/apidocs/vpc/latest#create-share) using that profile. Consequently, when [retrieving](/apidocs/vpc/latest#get-share) or [listing](/apidocs/vpc/latest#list-shares) file shares, the response now includes a `storage_generation` property.
 
-For more information, see [About File Storage for VPC](/docs/vpc?topic=vpc-fs-&interface=api). See also [Storage known issues](/docs/vpc?topic=vpc-known-issues#storage-vpc-known-issues).
+For more information, see [About File Storage for VPC](/docs/vpc?topic=vpc-file-storage-vpc-about). See also [Storage known issues](/docs/vpc?topic=vpc-known-issues#storage-vpc-known-issues).
 
 ## 15 July 2025
 {: #15-july-2025}

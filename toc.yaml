@@ -190,13 +190,13 @@ toc:
             id: updating-api
             label: Updating to the latest API code
             topics:
+            - file_storage_vpc_api_migration.md
             - metadata_identity_migration.md
             - image_api_migration.md
             - lbaas-listener-policy-migration.md
             - vpn_advanced_configuration_api_migration.md
             - backup_service_API_migration_instance_backups.md
             - vpn-api-migration.md
-            - file_storage_vpc_api_migration.md
             - 2022-03-29-migration.md
         - topicgroup:
             id: managing-access
