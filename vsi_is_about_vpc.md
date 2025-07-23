@@ -32,7 +32,8 @@ To review and start deploying compute resources, see the following topics:
 |              Deployment options                           |  Description                                        |
 | --------------------------------------------------------- | --------------------------------------------------- |
 |[Virtual Servers for VPC profiles](/docs/vpc?topic=vpc-profiles#profiles) | IBM Cloud Virtual Servers for VPC provide the advanced security of a private cloud with the agility and ease of a public cloud. Virtual servers for VPC offer the best network performance (up to 80 Gbps), best security, and fastest provisioning times.|
-|[Dedicated hosts for VPC](/docs/vpc?topic=vpc-creating-dedicated-hosts-instances) | With dedicated host availability, you can choose to create a single-tenancy environment where you can provision virtual server instances according to your needs.|
+|[Dedicated hosts for VPC](/docs/vpc?topic=vpc-creating-dedicated-hosts-instances) | With dedicated host availability, you can choose to create a single-tenancy environment where you can provision virtual server instances according to your needs.|<shared-core>
+| [Shared cores for VPC](/docs/vpc?topic=shared-core-virtual-servers) | With shared cores, you can create multi-tenancy virtual servers that share a host CPU. Which makes your deployments more cost-effective and scalable. |</shared-core>
 |[Virtual Servers for Classic](/docs/virtual-servers?topic=virtual-servers-getting-started-tutorial)| When you create an x86-based virtual server in classic infrastructure, you have several options. You can choose between a public (multi-tenancy) environment or a dedicated (single-tenancy) environment. Then, depending on the chosen environment, you select hourly, monthly, or transient virtual servers. For public virtual servers, you also choose to use either SAN-based storage or local storage. |
 {: caption="Deployment options" caption-side="bottom"}
 

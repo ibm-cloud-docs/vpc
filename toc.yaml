@@ -54,7 +54,8 @@ toc:
            id: compute-concepts
            label: Compute
            topics:
-           - vsi_is_about_vpc.md
+           - vsi_is_about_vpc.md<shared-core>
+           - vsi_shared_core.md</shared-core>
            - bare_metal_server_about.md
            - suspend-billing.md
            - topicgroup:
