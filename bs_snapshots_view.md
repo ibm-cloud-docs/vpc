@@ -18,7 +18,11 @@ subcollection: vpc
 You can view a list of all snapshots and consistency groups, and drill down to see information about a particular snapshot. Choose the UI, CLI, API, or Terraform to retrieve this information.
 {: shortdesc}
 
+
 You can use allowed-use expressions with bootable block storage snapshots to define the capabilities and restrictions of a snapshot and help you find compatible image and profile combinations during server creation. To use allowed-use expressions with your snapshots, see [Adding allowed-use expressions to custom images](/docs/vpc?topic=vpc-custom-image-allowed-use-expressions&interface=ui).
+
+Fast restore snapshot clones and consistency groups are not supported for second-generation storage volumes in the current release. Cross-region copies are available only in Sydney, Sao Paulo, Osaka, and London regions as a [beta]{: tag-cyan} feature. During the beta release, you can't create a copy of your second-generation snapshot in another region if your snapshot is encrypted with a customer-managed key or if the snapshot is bigger than 10 TB.
+
 
 ## Listing snapshots in the console
 {: #snapshots-vpc-view-ui}
