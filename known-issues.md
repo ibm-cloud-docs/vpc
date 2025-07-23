@@ -2,7 +2,7 @@
 
 copyright:
   years: 2018, 2025
-lastupdated: "2025-07-22"
+lastupdated: "2025-07-23"
 
 keywords:
 
@@ -192,4 +192,10 @@ When details of first-generation volume profiles are retrieved, the responses sh
 ### Block volume snapshots that are taken in Montreal are stored in {{site.data.keyword.cos_short}} in Washington, DC
 {: #snapshot-COS-upload-CA-MON-US-EAST}
 
-The Montreal MZR currently does not have a local key management service ({{site.data.keyword.keymanagementserviceshort}}) instance available. Hence, the block volume snapshots that are taken in Montreal are routed to and stored in an encrypted {{site.data.keyword.cos_short}} bucket with local KMS keys in the WDC MZR. When the KMS service becomes available in Montreal, all the snapshots will be moved back to Montreal from Washington DC.
+
+Due to the unavailability of a local key management service ({{site.data.keyword.keymanagementserviceshort}}) instance in Montreal, the block volume snapshots that are taken in Montreal are routed to and stored in an encrypted {{site.data.keyword.cos_short}} bucket with local KMS keys in the WDC MZR. When the KMS service becomes available in Montreal, all the snapshots will be moved back to Montreal from Washington DC.
+
+### Block volume snapshot is greater in remote region than the original snapshot
+{: #snapshot-CRC-billing}
+
+The first time that you create a cross-regional copy, that snapshot is a full copy of the parent volume's data. Subsequent copies can be incremental or full copies. Whether the remote copy is incremental depends on the immediately preceding snapshot in the chain. If the immediately preceding snapshot exists in the destination region, the copy can be incremental. If the immediately preceding snapshot is not found or it's not stable in the remote region, a new full-copy is created. When a full remote copy is generated from an incremental snapshot, it creates a discrepancy in the billing.

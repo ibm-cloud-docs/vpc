@@ -2,7 +2,7 @@
 
 copyright:
   years: 2021, 2025
-lastupdated: "2025-07-04"
+lastupdated: "2025-07-23"
 
 keywords: snapshots, Block Storage, snapshot clone, remote copy, fast restore, Block Storage snapshot, cross-regional snapshot
 
@@ -23,8 +23,10 @@ Before you take a snapshot, make sure that all cached data is present on disk, e
 
 You can create a consistency group that contains snapshots of multiple volumes that are attached to a virtual server instance. All snapshots in the consistency group are created at the same time and are loosely coupled. For more information, see [Creating snapshot consistency groups](/docs/vpc?topic=vpc-snapshots-vpc-create-consistency-groups).
 
-You can take a snapshot of a second-generation storage volume even if it is not attached to a running virtual server instance. The snapshots feature is available in Dallas (`us-south`), Frankfurt (`eu-de`), London (`eu-gb`), Madrid (`eu-es`), Osaka (`js-osa`), Sao Paulo (`br-sao`), Sydney (`au-sys`), Tokyo (`jp-tok`), Toronto (`ca-tor`), and Washington (`us-east`) regions. Fast restore snapshot clones, cross-regional copies, and consistency groups are not supported for second-generation storage volumes in this release.
+You can take a snapshot of a second-generation storage volume even if it is not attached to a running virtual server instance. The snapshots feature is available in Dallas (`us-south`), Frankfurt (`eu-de`), London (`eu-gb`), Madrid (`eu-es`), Osaka (`js-osa`), Sao Paulo (`br-sao`), Sydney (`au-sys`), Tokyo (`jp-tok`), Toronto (`ca-tor`), and Washington (`us-east`) regions.
 {: preview}
+
+Fast restore snapshot clones and consistency groups are not supported for second-generation storage volumes in this release. Cross-region copies are available only in Sydney, Sao Paulo, Osaka, and London regions as a beta feature. During the beta release, you can't create a copy of your second-generation snapshot in another region if your snapshot is encrypted with a customer-managed key or if the snapshot is bigger than 10 TB.
 
 ## Creating a snapshot in the console
 {: #snapshots-vpc-create-ui}
@@ -63,7 +65,7 @@ In the console, you can create a snapshot of a {{site.data.keyword.block_storage
    | Access management tags | Specify any [access management tags](/docs/vpc?topic=vpc-managing-block-storage&interface=ui#storage-add-access-mgt-tags) for this resource. |
    | Volume | Select a volume from the list. The boot or data volume must be attached to a running virtual server instance. |
    | Encryption | Encryption information for the volume that you selected, either [provider-managed encryption](/docs/vpc?topic=vpc-vpc-encryption-about&interface=ui#vpc-provider-managed-encryption) or [customer-managed encryption](/docs/vpc?topic=vpc-vpc-encryption-about&interface=ui#vpc-customer-managed-encryption). The snapshot inherits the encryption of the source volume. You can't change the encryption type. |
-   | Optional configurations | Cross-region snapshot copy. Select Copy Snapshot to a different region. Click **Create**. \n  This feature is not supported for second-generation snapshots.|
+   | Optional configurations | Cross-region snapshot copy. Select Copy Snapshot to a different region. Click **Create**. \n  This feature is not supported for snapshots larger than 10 TB.|
    {: caption="Selections for creating a snapshot" caption-side="bottom"}
 
 3. Click **Create**. You're returned to the screen that you started from. Messages are displayed while the snapshot is being created and when it's ready, the snapshot is displayed in the list of snapshots. For more information, see [View snapshot details in the console](/docs/vpc?topic=vpc-snapshots-vpc-view&interface=ui#snapshots-vpc-view-snapshot-ui).
@@ -94,7 +96,7 @@ In the previous section, you saw how to create a cross-regional snapshot copy wh
 1. Click the Actions menu (![Actions menu](images/overflow.png)) and select **Copy snapshot**.
 1. Select the region where you want to create the copy.
 
-   You can have only one copy per region. You can't create a copy in the local (source) region. During the select availability release, you can't create copies of second-generation snapshots.
+   During the Beta release, you can't create a cross-regional copy of a second-generation snapshot if it's encrypted with a customer-managed key or if it's larger than 10 TB.
    {: restriction}
 
 1. Click **Create**.

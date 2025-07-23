@@ -2,7 +2,7 @@
 
 copyright:
   years: 2025, 2025
-lastupdated: "2025-07-07"
+lastupdated: "2025-07-23"
 
 keywords: virtual server instances, flex profile, flexible profile, virtual server profile
 
@@ -20,12 +20,12 @@ subcollection: vpc
 Flex profiles are a beta feature and are available for evaluation and testing purposes. Contact [IBM support](/docs/account?topic=account-using-avatar#getting-support) if you're interested in getting access.
 {: beta}
 
-The general purpose flex virtual server profiles (nano, balanced, compute, and memory) are built atop the 2nd and 4th Generation Intel® Xeon® Scalable processors and AMD’s 3rd generation EPYC processors. You can place Flex profiles on any available generation of these processors in a specified region.
+The general purpose Flex virtual server profiles (nano, balanced, compute, and memory) are built atop the 2nd and 4th Generation Intel® Xeon® Scalable processors and AMD’s 3rd generation EPYC processors. You can place Flex profiles on any available generation of these processors in a specified region.
 {: shortdesc}
 
 Flex profiles offer a broad set of capabilities and scale from 2 vCPUs (1 physical core) up to 64 vCPUs (64 physical cores).
 
-Virtual servers with a flex profile are configured with a baseline CPU family regardless of hypervisor host CPU family.
+Virtual servers with a Flex profile are configured with a baseline CPU family regardless of hypervisor host CPU family.
 
 Hardware placement is random. You can't select hardware or CPU family. The hardware that is selected is based on hardware availability.
 {: note}
@@ -45,7 +45,7 @@ Flex profiles support the following operating systems.
 * Intel 4th Generation Xeon® 8474C Scalable processor
 * AMD 3rd generation EPYC 7763 processor
 
-Keep in mind that you don't have control over which hardware that a flex profile provisions.
+Keep in mind that you don't have control over which hardware that a Flex profile provisions.
 
 ## Availability
 {: #flexible-profiles-availability}
@@ -56,12 +56,12 @@ Keep in mind that you don't have control over which hardware that a flex profile
 ## Features and capabilities
 {: #flexible-profiles-features-capabilities}
 
-See the following features and capabilities for flex profiles.
+See the following features and capabilities for Flex profiles.
 
 ### Capabilities and limitations
 {: #flexible-profiles-capabilities-limitations}
 
-The following list shows the capabilities of flex profiles.
+The following list shows the capabilities of Flex profiles.
 
 * Core type: Flex
 * Dedicated host: No
@@ -80,9 +80,9 @@ The following list shows the capabilities of flex profiles.
 ### Features
 {: #flexible-profiles-features}
 
-The following list shows the supported features of flex profiles.
+The following list shows the supported features of Flex profiles.
 
-* Resizable to and away from flex profiles and between flex profile types
+* Resizable to and away from Flex profiles and between Flex profile types
 * Flex profiles can be placed on multiple CPU families, including Intel Cascade Lake, Intel Sapphire Rapids, and AMD Milan.
 * 1 Gbps overall bandwidth per vCPU
 * Reservations
@@ -108,7 +108,7 @@ See the following list for VM configuration.
 ## Instance profiles
 {: #flexible-profiles-instance-profiles}
 
-The following flex profiles are available and are subject to change.
+The following Flex profiles are available and are subject to change.
 
 | Instance profile | vCPU | Memory (GiB) | Total instance bandwidth (Gbps)|
 |------------------|------|--------------|--------------------------------|
@@ -137,7 +137,7 @@ The following flex profiles are available and are subject to change.
 | mxf-24x192       | 24   | 192          | 32  |
 | mxf-48x384       | 48   | 384          | 48  |
 | mxf-64x512       | 64   | 512          | 64  |
-{: caption="Flexible profile options for virtual servers" caption-side="bottom"}
+{: caption="Flex profile options for virtual servers" caption-side="bottom"}
 
 ## Limits
 {: #flexible-profiles-limits}

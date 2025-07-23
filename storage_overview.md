@@ -2,7 +2,7 @@
 
 copyright:
   years: 2022, 2025
-lastupdated: "2025-07-15"
+lastupdated: "2025-07-23"
 
 keywords: block storage for VPC, File Storage for VPC, Snapshots for VPC, Backup for VPC, block storage, file storage, snapshots, backup, 
 
@@ -71,7 +71,7 @@ You can create a snapshot consistency group that contains snapshots of multiple 
 Customer with special access to preview the `sdp` profile can create snapshots of their second-generation block volumes in Dallas, Frankfurt, London, Madrid, Osaka, Sao Paulo, Sydney, Tokyo, Toronto, and Washington, DC. In this release, you can create up to 512 snapshots of these volumes. You can even create snapshots when the volumes are unattached.
 {: preview}
 
-You can use your snapshots to create other second-generation volumes in the same region. You can't use your second-generation snapshot to create a volume with a first-generation volume profile. Similarly, you can't use first-generation volume's snapshot to create a volume with the `sdp` profile. Cross-regional copy of a second-generation snapshot is not supported. Consistency group snapshots of multiple `sdp` volumes and fast restore snapshots are not supported either.
+You can use your snapshots to create other second-generation volumes in the same region. You can't use your second-generation snapshot to create a volume with a first-generation volume profile. Similarly, you can't use first-generation volume's snapshot to create a volume with the `sdp` profile. Cross-regional copy of a second-generation snapshot is supported with limitations. You can't create a copy in another region if your snapshot is encrypted with a customer-managed key or if the snapshot is bigger than 10 TB. Consistency group snapshots of multiple `sdp` volumes and fast restore snapshots are not supported either.
 
 | Features            | First-generation snapshots | Second-generation snapshots [New]{: tag-new} |
 |---------------------|--------------------------|---------------------------|
@@ -79,7 +79,7 @@ You can use your snapshots to create other second-generation volumes in the same
 | On-demand snapshots | Yes, up to 750 snapshots per region. | Yes, up to 512 snapshots per region in the [Select Availability]{: tag-green} release. |
 | Scheduled snapshots | Yes, up to 750 snapshots per region. | Not supported in the [Select Availability]{: tag-green} release. |
 | Fast restore clones | Yes. You can cache a copy of your snapshot in any zone of the region. | Not supported in the [Select Availability]{: tag-green} release. |
-| Cross-regional copy | Yes, one cross-regional clone per snapshot per region | Not supported in the [Select Availability]{: tag-green} release.|
+| Cross-regional copy | Yes, one cross-regional clone per snapshot per region | During the [beta]{: tag-cyan} release, this feature is available only in Sydney, Sao Paulo, Osaka, and London regions. You can create one cross-regional clone per snapshot per region.|
 | Consistency group   | Multi-volume snapshots are supported. | Not supported in the [Select Availability]{: tag-green} release. |
 {: caption="Block Storage snapshot generations comparison." caption-side="bottom"}
 
