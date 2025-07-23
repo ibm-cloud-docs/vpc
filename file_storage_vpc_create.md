@@ -2,7 +2,7 @@
 
 copyright:
   years: 2021, 2025
-lastupdated: "2025-07-09"
+lastupdated: "2025-07-23"
 
 keywords: file share, file storage, virtual network interface, encryption in transit, profiles, 
 
@@ -145,28 +145,28 @@ Before you run the `ibmcloud is share-create` command, you can gather informatio
 You can use the `ibmcloud is share-create` command to provision a file share in your selected zone with the `dp2` profile, with your specific capacity and IOPS values. The following example shows how to create 1000-GB file share with 1000 IOPS in the us-south-2 zone. This file share is created with the default security group access mode and with provider-managed encryption.
 
 ```sh
-$ ibmcloud is share-create --name my-file-share --zone us-south-2 --profile dp2 --size 1000 --iops 1000
+$ ibmcloud is share-create --name my-file-share --zone us-south-1 --profile dp2 --size 40 --iops 100
 Creating file share my-file-share under account Test Account as user test.user@ibm.com...
                                       
-ID                                 r006-446e7246-9a7f-4585-b4fc-38b549f71ab3   
+ID                                 r134-4c4bd25f-4ecf-4636-a99a-c80dff3e8910    
 Name                               my-file-share   
-CRN                                crn:v1:bluemix:public:is:us-south-2:a/a1234567::share:r006-446e7246-9a7f-4585-b4fc-38b549f71ab3   
+CRN                                crn:v1:staging:public:is:ussouth1:a/efe5afc483594adaa8325e2b4d1290df::share:r1344c4bd25f-4ecf-4636-a99a-c80dff3e8910    
 Lifecycle state                    pending   
 Access control mode                security_group   
 Accessor binding role              none   
-Allowed transit encryption modes   user_managed,none
-Zone                               us-south-2   
+Allowed transit encryption modes   ipsec,none
+Zone                               us-south-1   
 Profile                            dp2   
-Size(GB)                           1000   
-IOPS                               1000   
+Size(GB)                           40   
+IOPS                               100   
 Encryption                         provider_managed   
 Mount Targets                      ID                          Name      
                                    No mounted targets found.      
                                       
 Resource group                     ID                                 Name      
-                                   6edefe513d934fdd872e78ee6a8e73ef   defaults      
+                                   8302a7a06e7440d6927383cd7c06e7d2   Default      
                                       
-Created                            2025-04-18T19:18:37+00:00   
+Created                            2025-07-23T12:21:30+05:30   
 Replication role                   none   
 Replication status                 none   
 Replication status reasons         Status code   Status message      
@@ -174,7 +174,7 @@ Replication status reasons         Status code   Status message
                                       
 Snapshot count                     0   
 Snapshot size                      0   
-Source snapshot                    -   
+Source snapshot                    -    
 ```
 {: screen}
 
@@ -184,32 +184,33 @@ Security group access mode is the default and recommended setting. However, you 
 $ ibmcloud is share-create --name my-vpc-file-share --zone us-south-2 --profile dp2 --size 1000 --iops 500 --access-control-mode vpc
 Creating file share my-vpc-file-share under account Test Account as user test.user@ibm.com...
                                 
-ID                           r006-5016920c-a53a-44ad-86c3-ea0f76e88876   
-Name                         my-vpc-file-share   
-CRN                          crn:v1:bluemix:public:is:us-south-2:a/a1234567::share:r006-5016920c-a53a-44ad-86c3-ea0f76e88876   
-Lifecycle state              pending   
-Access control mode          vpc   
-Accessor binding role        none
-Zone                         us-south-2   
-Profile                      dp2   
-Size(GB)                     1000   
-IOPS                         500   
-Encryption                   provider_managed   
-Mount Targets                ID                          Name      
-                             No mounted targets found.      
+ID                                 r134-83100dcb-24d8-45a6-91f3-256e5c17233f       
+Name                               my-vpc-file-share   
+CRN                                crn:v1:staging:public:is:us-south-2:a/efe5afc483594adaa8325e2b4d1290df::share:r134-83100dcb-24d8-45a6-91f3-256e5c17233f    
+Lifecycle state                    pending   
+Access control mode                vpc   
+Accessor binding role              none
+Allowed transit encryption modes   ipsec,none
+Zone                               us-south-2   
+Profile                            dp2   
+Size(GB)                           1000   
+IOPS                               500  
+Encryption                         provider_managed   
+Mount Targets                      ID                                 Name      
+                                   No mounted targets found.      
                                 
-Resource group               ID                                 Name      
-                             6edefe513d934fdd872e78ee6a8e73ef   defaults      
+Resource group                     ID                                 Name      
+                                   11caaa983d9c4beb82690daab08717e9  Default      
                                 
-Created                      2025-04-18T19:22:41+00:00   
-Replication role             none   
-Replication status           none   
-Replication status reasons   Status code   Status message      
-                             -             -      
+Created                            2025-04-18T19:22:41+00:00   
+Replication role                   none   
+Replication status                 none   
+Replication status reasons         Status code   Status message      
+                                   -             -      
                                 
-Snapshot count               0   
-Snapshot size                0   
-Source snapshot              -   
+Snapshot count                     0   
+Snapshot size                      0   
+Source snapshot                    -    
 ```
 {: screen}
 
@@ -227,7 +228,7 @@ Lastly, you must specify values for the options that are needed to create a [vir
 The following example creates a mount target with a virtual network interface for a file share that has security group access mode.
 
 ```sh
-$ ibmcloud is share-mount-target-create my-file-share --subnet my-subnet --name my-cli-share-mount-target-1 --vni-name my-share-vni-1  --vni-sgs my-sg --resource-group-name Default --vpc my-vpc
+$ ibmcloud is share-mount-target-create my-file-share --subnet my-subnet --name my-cli-share-mount-target-1 --vni-name my-share-vni-1 --vni-sgs my-sg --resource-group-name Default --vpc my-vpc --transit-encryption none
 Mounting target for share r006-b696742a-92ee-4f6a-bfd7-921d6ddf8fa6 under account Test Account as user test.user@ibm.com...
                                
 ID                          r006-dd497561-c7c9-4dfb-af0a-c84eeee78b61   
@@ -237,32 +238,35 @@ VPC                         ID                                          Name
                                
 Access control mode         security_group   
 Resource type               share_mount_target   
-Virtual network interface   ID                                          Name      
-                            r006-13c070d8-d038-49c6-95f5-e8503c5595e3   my-share-vni-1      
+Virtual network interface   ID                                          Name             Protocol State Filtering Mode
+                            r006-13c070d8-d038-49c6-95f5-e8503c5595e3   my-share-vni-1   auto   
                                
 Lifecycle state             pending   
-Mount path                  -   
-Transit Encryption          none   
+Created                     2025-07-22T22:15:15+00:00
+Mount path                  -    
+Transit Encryption          none     
+   
 ```
 {: screen}
 
 The following example creates a mount target for a file share that has VPC access mode.
 
 ```sh
-$ ibmcloud is share-mount-target-create my-vpc-file-share --vpc my-vpc --name my-vpc-mount-target
-Mounting target for share r006-b1707390-3825-41eb-a5bb-1161f77f8a58 under account Test Account as user test.user@ibm.com...
+$ ibmcloud is share-mount-target-create my-vpc-file-share --vpc cli-vpc-3 --name my-vpc-mount-targetnfs4 --transit-encryption none
+Mounting target for share r134-10e82e16-ff7f-4ca4-b543-d24084fc03cf under account Test Account as user test.user@ibm.com...
                          
-ID                    r006-5ed68506-860e-4dea-a1eb-9634704e3c4d   
-Name                  my-vpc-mount-target   
-VPC                   ID                                          Name      
-                      r006-6e8fb140-5668-45b8-b98a-d5cb0e0bf39b   my-vpc      
+ID                        r134-71fd953c-8e49-48e8-ab49-5977c324a365   
+Name                      my-vpc-mount-target   
+VPC                       ID                                          Name      
+                          r134-060fbfe6-4d0f-47b0-b9c5-94da8e719e22   cli-vpc-3      
                          
-Access control mode   vpc   
-Resource type         share_mount_target   
-Lifecycle state       pending   
-Mount path            -   
-Transit Encryption    none   
-Created               2023-10-18T23:09:43+00:00   
+Access control mode       vpc   
+Resource type             share_mount_target
+Virtual network interface   
+Lifecycle state           pending   
+Created                   2025-07-22T22:15:15+00:00
+Mount path                -    
+Transit Encryption        none   
 ```
 {: screen}
 
@@ -273,34 +277,32 @@ For more information about the command options, see [`ibmcloud is share-mount-ta
 
 You can create a file share with one or more mount targets in one step by using the `ibmcloud is share-create` command. You need to provide the zone name, the [file share profile](/docs/vpc?topic=vpc-file-storage-profiles), the file share size, and the IOPS. You can also specify a name, user tags, and even the initial owner UID. To create the mount target, you need to provide the mount target information in JSON format.
 
-The following example shows how to create a file share with 500 GB capacity and 2000 IOPS in the `us-south-2` zone. The file share is tagged with `env:dev` and has security group access control mode. The file share can be mounted on authorized virtual servers by using the mount target `my-new-mount-target`.
+The following example shows how to create a file share with 40 GB capacity and 100 IOPS in the `us-south-1` zone. The file share is tagged with `env:dev` and has security group access control mode. The file share can be mounted on authorized virtual servers by using the mount target `my-target1`.
 
 ```sh
-$ ibmcloud is share-create --name my-new-file-share --zone us-south-2 --profile dp2 --size 500 --iops 2000 --allowed-transit-encryption-modes user_managed,none --user-tags env:dev --mount-targets '
->[{"name":"my-new-mount-target","virtual_network_interface": {"name":"my-vni","subnet": {"id":"r006-298acd6c-e71e-4204-a04f-fe4a4dd89805"}}}]'
-Creating file share my-new-file-share under account Test Account as user test.user@ibm.com...
+$ ibmcloud is share-create --name my-fs-cli-1 --profile dp2 --zone us-south-1 --size 40 --mount-targets '[{ "name":"my-target1", "virtual_network_interface":{"name":"my-fs-cli-vni", "primary_ip":{"address":"12345","auto-delete":true,"name":"vni-target-1"},"security_groups":[{"id":"r134-d1fef8e0-8e16-41a7-bca5-84e2029deb05"}],"subnet":{"id":"0726-3d6502c8-baa1-4632-a5d9-d4b015aa93c1"}}}]'
+Creating file share my-fs-cli-1 under account Test Account as user test.user@ibm.com...
                                 
-ID                               r006-925214bc-ded5-4626-9d8e-bc4e2e579232   
-Name                             my-new-file-share   
-CRN                              crn:v1:bluemix:public:is:us-south-2:a/a1234567::share:r006-925214bc-ded5-4626-9d8e-bc4e2e579232   
+ID                               r134-5a544f6d-5fb9-4f31-acac-1fd13a5531bf   
+Name                             my-fs-cli-1   
+CRN                              crn:v1:staging:public:is:us-south-1:a/efe5afc483594adaa8325e2b4d1290df::share:r134-5a544f6d-5fb9-4f31-acac-1fd13a5531bf   
 Lifecycle state                  pending   
 Access control mode              security_group
-Accessor binding role            origin
-Allowed transit encryption modes user_managed,none
-Zone                             us-south-2   
+Accessor binding role            none
+Allowed transit encryption modes ipsec,none
+Zone                             us-south-1   
 Profile                          dp2   
-Size(GB)                         500   
-IOPS                             2000   
-User Tags                        env:dev   
+Size(GB)                         40   
+IOPS                             100      
 Encryption                       provider_managed   
 Mount Targets                    ID                                          Name      
-                                 r006-ad313f6b-ccb5-4941-a5f7-0c953f1043df   my-new-mount-target      
+                                 r134-68c20e6b-58d6-48c2-8c9c-564c8eed72db   my-target1      
                                 
-Resource group                   ID                                 Name      
-                                 db8e8d865a83e0aae03f25a492c5b39e   Default      
+Resource group                   ID                                          Name      
+                                 11caaa983d9c4beb82690daab08717e9            Default      
                                 
-Created                          2023-10-19T00:30:11+00:00   
-Replication role                 none   
+Created                          2025-07-23T15:53:17+05:30                                   
+Replication role                 none 
 Replication status               none   
 Replication status reasons       Status code   Status message      
                                  -             -      
@@ -314,7 +316,7 @@ Source snapshot                  -
 The following example creates a file share with VPC access mode and a mount target that can be used by any virtual server instance within the VPC.
 
 ```sh
-$ ibmcloud is share-create --name my-file-share-8 --zone us-south-1 --profile dp2 --size 40 --iops 2000  --user-tags env:dev --mount-targets '[{"name": "my-new-mount-target","vpc": {"name": "my-vpc"}}]'
+$ ibmcloud is share-create --name my-file-share-8 --zone us-south-1 --profile dp2 --size 40 --iops 2000 --user-tags env:dev --mount-targets '[{ "name": "my-new-mount-target","vpc": {"name": "my-vpc"}}]'
 Creating file share my-file-share-8 under account Test Account as user test.user@ibm.com...
 
 ID                           r006-95ec87ba-c5fd-4178-a114-2a55c4d907d4   
@@ -333,9 +335,10 @@ Mount Targets                ID                                          Name
                              r006-8b917757-ad19-4bec-8417-83157b047cea   my-new-mount-target      
                                 
 Resource group               ID                                 Name      
-                             6edefe513d934fdd872e78ee6a8e73ef   defaults      
+                             6edefe513d934fdd872e78ee6a8e73ef   Default    
                                 
-Created                      2025-04-18T19:36:35+00:00   
+Created                      2025-04-18T19:36:35+00:00 
+
 Replication role             none   
 Replication status           none   
 Replication status reasons   Status code   Status message      
@@ -403,13 +406,13 @@ To set supplemental IDs when you create a share, run the `ibmcloud is share-crea
 $ ibmcloud is share-create --name my-file-share --zone us-south-2 --profile dp2 --size 1000 --iops 1000 --initial-owner-gid 101 --initial-owner-uid 10001
 Creating file share my-file-share under account Test Account as user test.user@ibm.com...
                                 
-ID                                 r006-1579b805-1b6f-4a2e-be9b-e0041ef018c9   
+ID                                 r134-346811e7-cf29-4baa-af77-909fb549d1e6   
 Name                               my-file-share   
-CRN                                crn:v1:bluemix:public:is:us-south-2:a/a123456::share:r006-1579b805-1b6f-4a2e-be9b-e0041ef018c9   
+CRN                                crn:v1:staging:public:is:us-south-2:a/efe5afc483594adaa8325e2b4d1290df::share:r134-346811e7-cf29-4baa-af77-909fb549d1e6   
 Lifecycle state                    pending   
 Access control mode                security_group   
 Accessor binding role              none   
-Allowed transit encryption modes   user_managed,none   
+Allowed transit encryption modes   ipsec,none   
 Zone                               us-south-2   
 Profile                            dp2   
 Size(GB)                           1000   
@@ -419,9 +422,9 @@ Mount Targets                      ID                          Name
                                    No mounted targets found.      
                                       
 Resource group                     ID                                 Name      
-                                   6edefe513d934fdd872e78ee6a8e73ef   defaults      
+                                   11caaa983d9c4beb82690daab08717e9   Default      
                                       
-Created                            2025-04-18T19:18:37+00:00   
+Created                            2025-07-23T12:28:50+05:30   
 Replication role                   none   
 Replication status                 none   
 Replication status reasons         Status code   Status message      
