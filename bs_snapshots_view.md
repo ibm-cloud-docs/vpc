@@ -2,7 +2,7 @@
 
 copyright:
   years: 2021, 2025
-lastupdated: "2025-07-16"
+lastupdated: "2025-07-23"
 
 keywords: view snapshots, view snapshot, viewing snapshots, see snapshots, Block Storage snapshots
 
@@ -982,8 +982,6 @@ data "ibm_is_snapshot" "example" {
 }
 ```
 {: codeblock}
-
-* The `allowed-used` properties are inherited from the source volume or snapshot at creation time. You can change their value either at creation time or later if you are authorized to the `is.snapshot.snapshot.manage-allowed-use` IAM role. The properties comprise a Boolean [Common Expression Language](https://github.com/google/cel-spec/blob/master/doc/langdef.md){: external} expression. When the instance expression is evaluated to be `true`, then the provisioning of a virtual server instance is allowed with the snapshot. When the expression is evaluated to be `false`, the provisioning is blocked. If the value is not specified at the time of creation, then the constraint expressions are taken from the source resource.</
 
 For more information, see [ibm_is_snapshot](https://registry.terraform.io/providers/IBM-Cloud/ibm/latest/docs/data-sources/is_snapshot){: external}.
 

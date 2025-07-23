@@ -2,7 +2,7 @@
 
 copyright:
   years: 2019, 2025
-lastupdated: "2025-07-21"
+lastupdated: "2025-07-23"
 
 keywords:
 
@@ -26,6 +26,13 @@ For more information about changes to the {{site.data.keyword.vpc_short}} comman
 
 ## July 2025
 {: #vpc-jul25}
+
+### 23 July 2025
+{: #vpc-jul2325}
+{: release-note}
+
+Cross-regional copies of second-generation block volume snapshots (beta release)
+:   Customers with special access to preview the second-generation block storage volumes can now create cross-regional copies of their snapshots in London (`eu-gb`), Osaka (`js-osa`), Sao Paulo (`br-sao`), and Sydney (`au-sys`) regions in the console, from the CLI, or with the API. For more information about this feature and its limitations, see [About Block Storage for VPC snapshots](/docs/vpc?topic=vpc-snapshots-vpc-about&interface=ui#sdp-snapshots).
 
 ### 21 July 2025
 {: #vpc-jul2125}
