@@ -41,6 +41,13 @@ Cross-regional copies of second-generation block volume snapshots (beta release)
 Secure boot for Virtual Servers for VPC is now optional
 :   When you select a [confidential computing instance profile](/docs/vpc?topic=vpc-profiles&interface=ui#confidential-computing-profiles), Secure boot for Virtual Servers for VPC is selected automatically. You now have the option to disable secure boot and still utilize the confidential computing profile. For more information, see [Secure boot for Virtual Servers for VPC](/docs/vpc?topic=vpc-confidential-computing-with-secure-boot-vpc) and [Managing virtual server instances: Disable or enable secure boot](/docs/vpc?topic=vpc-managing-virtual-server-instances&interface=ui#disable-secure-boot-ui).
 
+### 17 July 2025
+{: #vpc-july1725}
+{: release-note}
+
+UI enhancement: Profile tables now include categories that are collapsible and expandable
+:   When provisioning a virtual server or bare metal server, you can now view profiles by category within the table on the Select a profile page. Click the category heading to expand or collapse the section. For virtual server profiles you can view profiles in the following categories: Balanced, Compute, Memory, GPU & Accelerated, Storage optimized, and High memory. For bare metal servers profiles you can view profiles in the following categories: Balanced, Compute, Memory, and Ultra high memory. For more information about profile families, see [x86-64 instance profiles](/docs/vpc?topic=vpc-profiles&interface=ui).
+
 ### 15 July 2025
 {: #vpc-jul1525}
 {: release-note}
