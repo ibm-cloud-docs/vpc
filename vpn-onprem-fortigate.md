@@ -2,7 +2,7 @@
 
 copyright:
   years: 2020, 2025
-lastupdated: "2025-06-27"
+lastupdated: "2025-07-24"
 
 keywords: fortigate, fortigate peer
 
@@ -18,7 +18,7 @@ subcollection: vpc
 You can use IBM Cloud VPN for VPC to securely connect your VPC to an on-prem network through a VPN tunnel. This topic provides guidance about how to configure your FortiGate VPN gateway to connect to VPN for VPC.
 {: shortdesc}
 
-These instructions are based on FortiGate 300C, Firmware Version v5.2.13, build762 (GA).
+These instructions are based on FortiGate 300C, Firmware Version v5.2.13, build762 (GA). The instructions, specifically for the configuration of IKE and IPsec policies, are written with the consideration that you use the default (Auto) IPsec and IKE policies for your VPC VPN gateway. If you create custom IKE and IPsec policies for your VPN, it can change some of the values for Diffie-Hellman, authentication, encryption, and key lifetime that are suggested in the following sections.
 {: note}
 
 Read [Known issues for VPN gateways](/docs/vpc?topic=vpc-vpn-limitations) before you continue to connect to your on-premises peer.
@@ -29,7 +29,7 @@ Read [Known issues for VPN gateways](/docs/vpc?topic=vpc-vpn-limitations) before
 
 Select **VPN > IPsec Tunnels** and create a new custom tunnel, or edit an existing tunnel.
 
-When a FortiGate VPN receives a connection request from {{site.data.keyword.vpn_vpc_short}}, FortiGate uses IPsec Phase 1 parameters to establish a secure connection and authenticate {{site.data.keyword.vpn_vpc_short}}. Then, if the security policy permits the connection, the FortiGate VPN establishes the tunnel using IPsec Phase 2 parameters and applies the IPsec security policy. Key management, authentication, and security services are negotiated dynamically through the IKE protocol.
+When a FortiGate VPN receives a connection request from {{site.data.keyword.vpn_vpc_short}}, FortiGate uses IPsec Phase 1 parameters to establish a secure connection and authenticate {{site.data.keyword.vpn_vpc_short}}. Then, if the security policy permits the connection, the FortiGate VPN establishes the tunnel by using IPsec Phase 2 parameters and applies the IPsec security policy. Key management, authentication, and security services are negotiated dynamically through the IKE protocol.
 
 To support these functions, the following general configuration steps must be performed for the FortiGate VPN:
 
@@ -71,7 +71,7 @@ Here's an example of how to connect an IBM static, route-based VPN to a FortiGat
 
    ![FortiGate connection IPsec proposal](images/vpn-fortigate-configure-ipsec-proposal.png){: caption="Figure 4: FortiGate connection IPsec proposal" caption-side="bottom"}
 
-When connecting FortiGate to a third-party VPN peer, Phase 1 authentication might fail if the local ID is sent in the wrong format. By default, FortiGate sends its local ID as a fully qualified domain name (FQDN), even if an IP address is configured. However, some third-party VPN gateways expect the local ID in IP address format instead. A mismatch in identity types might cause the VPN tunnel to fail with the error: `AUTHENTICATION_FAILED`. On the peer side, logs might show this error: `Failed to locate an item in the database – Peer identity type is FQDN`.
+When you connect FortiGate to a third-party VPN peer, Phase 1 authentication might fail if the local ID is sent in the wrong format. By default, FortiGate sends its local ID as a fully qualified domain name (FQDN), even if an IP address is configured. However, some third-party VPN gateways expect the local ID in IP address format instead. A mismatch in identity types might cause the VPN tunnel to fail with the error: `AUTHENTICATION_FAILED`. On the peer side, logs might show this error: `Failed to locate an item in the database – Peer identity type is FQDN`.
 {: note}
 
 To resolve this error, use the FortiGate CLI and set the `localid-type` to `address` and `localid` to the FortiGate public IP.
