@@ -21,7 +21,7 @@ You can use IBM Cloud VPN for VPC to securely connect your VPC to an on-prem net
 These instructions are based on FortiGate 300C, Firmware Version v5.2.13, build762 (GA). The instructions, specifically for the configuration of IKE and IPsec policies, are written with the consideration that you use the default (Auto) IPsec and IKE policies for your VPC VPN gateway. If you create custom IKE and IPsec policies for your VPN, it can change some of the values for Diffie-Hellman, authentication, encryption, and key lifetime that are suggested in the following sections.
 {: note}
 
-Read [Known issues for VPN gateways](/docs/vpc?topic=vpc-vpn-limitations) before you continue to connect to your on-premises peer.
+See [Known issues for VPN gateways](/docs/vpc?topic=vpc-vpn-limitations) before you continue to connect to your on-premises peer.
 {: tip}
 
 ## Connecting an IBM policy-based VPN to a FortiGate peer
@@ -54,22 +54,22 @@ Here's an example of how to connect an IBM static, route-based VPN to a FortiGat
 
 1. To configure a primary tunnel, select **VPN > IPsec Tunnels** and create a new custom template type tunnel, or edit an existing tunnel.
 
-   ![FortiGate connection primary tunnel creation](images/vpn-fortigate-create-primary.png){: caption="Figure 1: FortiGate connection primary tunnel creation" caption-side="bottom"}
+   ![FortiGate connection primary tunnel creation](images/vpn-fortigate-create-primary.png){: caption="FortiGate connection primary tunnel creation" caption-side="bottom"}
 
 1. To configure a peer IP of a primary tunnel, use the small public IP address of the IBM route-based VPN gateway as the remote gateway IP address.
 
    For more information about the small public IP, see this [important notice](/docs/vpc?topic=vpc-using-vpn#important-notice).
    {: note}
 
-   ![FortiGate connection peer IP of the primary tunnel](images/vpn-fortigate-configure-peer-ip.png){: caption="Figure 2: FortiGate connection eer IP of primary tunnel" caption-side="bottom"}
+   ![FortiGate connection peer IP of the primary tunnel](images/vpn-fortigate-configure-peer-ip.png){: caption="FortiGate connection eer IP of primary tunnel" caption-side="bottom"}
 
 1. To configure an IKE proposal, use the matched IKE version and proposals.
 
-   ![FortiGate connection IKE proposal](images/vpn-fortigate-configure-ike-proposal.png){: caption="Figure 3: FortiGate connection IKE proposal" caption-side="bottom"}
+   ![FortiGate connection IKE proposal](images/vpn-fortigate-configure-ike-proposal.png){: caption="FortiGate connection IKE proposal" caption-side="bottom"}
 
 1. To configure an IPsec proposal, use the matched IPsec proposals.
 
-   ![FortiGate connection IPsec proposal](images/vpn-fortigate-configure-ipsec-proposal.png){: caption="Figure 4: FortiGate connection IPsec proposal" caption-side="bottom"}
+   ![FortiGate connection IPsec proposal](images/vpn-fortigate-configure-ipsec-proposal.png){: caption="FortiGate connection IPsec proposal" caption-side="bottom"}
 
 When you connect FortiGate to a third-party VPN peer, Phase 1 authentication might fail if the local ID is sent in the wrong format. By default, FortiGate sends its local ID as a fully qualified domain name (FQDN), even if an IP address is configured. However, some third-party VPN gateways expect the local ID in IP address format instead. A mismatch in identity types might cause the VPN tunnel to fail with the error: `AUTHENTICATION_FAILED`. On the peer side, logs might show this error: `Failed to locate an item in the database – Peer identity type is FQDN`.
 {: note}
@@ -93,16 +93,16 @@ To configure a secondary tunnel, follow these steps:
 
 1. Repeat the preceding steps to create the secondary tunnel. Use the large public IP address of the IBM route-based VPN gateway as the remote gateway IP address.
 
-   ![FortiGate connection secondary tunnel creation](images/vpn-fortigate-configure-secondary.png){: caption="Figure 5: FortiGate connection secondary tunnel Creation" caption-side="bottom"}
+   ![FortiGate connection secondary tunnel creation](images/vpn-fortigate-configure-secondary.png){: caption="FortiGate connection secondary tunnel Creation" caption-side="bottom"}
 
 1. Create the primary route where the destination is your VPC subnet and the interface is the primary tunnel.
 
-   ![FortiGate connection primary route](images/vpn-fortigate-configure-primary-route.png){: caption="Figure 6: FortiGate connection primary route" caption-side="bottom"}
+   ![FortiGate connection primary route](images/vpn-fortigate-configure-primary-route.png){: caption="FortiGate connection primary route" caption-side="bottom"}
 
 1. To configure a secondary route, create the backup route where the destination is your VPC subnet, the interface is the secondary tunnel, and the administrative distance is greater than the one on the primary route.
 
-   ![FortiGate connection secondary route](images/vpn-fortigate-configure-secondary-route.png){: caption="Figure 7: FortiGate connection secondary route" caption-side="bottom"}
+   ![FortiGate connection secondary route](images/vpn-fortigate-configure-secondary-route.png){: caption="FortiGate connection secondary route" caption-side="bottom"}
 
 1. To verify configurations, list all the routes and verify the route configurations. Then, check that the route distance and primary are configured properly on the primary and secondary routes.
 
-   ![FortiGate connection configuration verification](images/vpn-fortigate-route-summary.png){: caption="Figure 8: FortiGate connection configuration verification" caption-side="bottom"}
+   ![FortiGate connection configuration verification](images/vpn-fortigate-route-summary.png){: caption="FortiGate connection configuration verification" caption-side="bottom"}
