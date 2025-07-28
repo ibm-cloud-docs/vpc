@@ -768,6 +768,7 @@ toc:
                 - file_storage_vpc_xaccount_share_access_removal.md
                 - file_storage_vpc_expandable_shares.md
                 - file_storage_vpc_adjustable_iops.md
+                - file_storage_vpc_adjustable_throughput.md
             - topicgroup:
                 id: replication
                 label: Replication
@@ -809,7 +810,14 @@ toc:
                 - byok-planning-encryption.md
                 - byok-key-rotation.md
                 - byok-manage-encryption.md
-            - file_storage_vpc_eit.md
+            - topicgroup:
+                id: data-encryption-in-transit
+                label: Data encryption in transit
+                topics:
+                - topic: file_storage_vpc_eit_new.md
+                  navtitle: Securing mount connections between file share and server
+                - file_storage_vpc_eit_ipsec.md
+                - file_storage_vpc_eit_tls.md
         - topicgroup:
             id: observability
             label: Observability

@@ -2,7 +2,7 @@
 
 copyright:
   years: 2022, 2025
-lastupdated: "2025-07-08"
+lastupdated: "2025-07-28"
 
 keywords: file share, file storage, IOPS, performance needs, adjust IOPS
 
@@ -12,13 +12,16 @@ subcollection: vpc
 
 {{site.data.keyword.attribute-definition-list}}
 
-# Adjusting IOPS for a file share
+# Adjusting IOPS for a zonal file share
 {: #file-storage-adjusting-iops}
 
 For zonal file shares, you can increase or decrease IOPS to meet your performance needs. Adjust IOPS by specifying a different IOPS tier profile (IOPS are adjusted within the selected profile), custom profile, or dp2 profile. The process of adjusting the IOPS causes no outage or lack of access to the storage.
 {: shortdesc}
 
 Billing for an updated share is automatically updated. The prorated difference of the new price is added to the current billing cycle. The new full amount is then billed in the next billing cycle.
+
+You can't modify the IOPS value of regional file shares that are created with the `rfs` profile. However, you can adjust the throughput value to finetune the share's performance.
+{: beta}
 
 ## Adjustable IOPS concepts
 {: #fs-adj-iops-concepts}

@@ -2,7 +2,7 @@
 
 copyright:
   years: 2021, 2025
-lastupdated: "2025-07-04"
+lastupdated: "2025-07-28"
 
 keywords:
 
@@ -54,7 +54,7 @@ The following limitations apply when you restore a volume from a snapshot.
 * If snapshot is protected with customer-managed encryption and you don't specify a different root key CRN, the restored volume is encrypted with the snapshot's encryption key. The encryption cannot be changed later.
 * When the new volume is created, data restoration begins immediately, but performance is degraded until the volume is fully hydrated.
 
-First- and second-generation volume profiles are not interchangeable. You can use a snapshot of a second-generation volume to create another second-generation volume, but you can't switch the volume profile to a first-generation volume profile. In the same way, you can use a snapshot of a first-generation volume to create another first-generation volume with the same data, and you can't switch the new volume to the `sdp` profile. Fast restore backup clones, cross-regional copies, and consistency groups are not supported for second-generation storage volumes.
+First- and second-generation volume profiles are not interchangeable. You can use a snapshot of a second-generation volume to create another second-generation volume, but you can't switch the volume profile to a first-generation volume profile. In the same way, you can use a snapshot of a first-generation volume to create another first-generation volume with the same data, and you can't switch the new volume to the `sdp` profile. Fast restore backup clones, cross-regional copies of encrypted volumes, and consistency groups are not supported for second-generation storage volumes.
 {: preview}
 
 ### Performance impact

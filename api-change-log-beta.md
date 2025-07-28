@@ -74,9 +74,9 @@ For migration guidance, see [Updating to the `2025-07-22` version (file shares, 
 
 The metadata service is disabled on bare metal servers by default. To enable the service, when creating or updating a bare metal server, set the new `metadata_service.enabled` property to `true`. The default communication protocol to the metadata service from the server is `http` (unencrypted). To change the protocol to secure access, specify the `metadata_service.protocol` as `https`.
 
-
 For more information, see the [Beta VPC Identity API](/apidocs/vpc-identity-beta).
 
+## 24 June 2025
 {: #24-june-2025-beta}
 
 ### For all version dates

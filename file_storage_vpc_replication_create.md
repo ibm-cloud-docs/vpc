@@ -31,6 +31,9 @@ The specified source file share must not have another replica already, and must 
 If you want to create a replica in another region, you need to establish service-to-service authorizations first. Both file service instances must belong to the same account. Cross-account replication is not supported. For more information, see [Establishing service-to-service authorizations for {{site.data.keyword.filestorage_vpc_short}}](/docs/vpc?topic=vpc-file-s2s-auth).
 {: requirement}
 
+Customers with special access to preview the new regional file share offering can use the **rfs** profile to create file shares with regional availability. When you create file shares with regional availability, data is automatically replicated throughout the region, so you don't need to set up replication pairs. Cross-regional replication of regional file shares is not supported in this release.
+{: beta}
+
 ## Adding replication to a file share in the console
 {: #fs-create-replica-ui}
 {: ui}
@@ -105,7 +108,7 @@ When you use the `ibmcloud is share-create` command to create your share, you ca
 In the following example, a share `my-source-file-share` is created in `us-south-1` with a replica file share `my-replica-file-share` in `us-south-3`. In this example, only one mount target is created for the source file share, but you can also create the mount target for the replica share by using the same JSON syntax with the `--replica-share-mount-targets` option as below.
 
 ```sh
-$ ibmcloud is share-create --name my-source-file-share --profile dp2 --zone us-south-1 --size 40 --mount-targets '[{"name":"my-target1", "virtual_network_interface":{"name":"my-fs-cli-vni", "primary_ip":{"address":"12345","auto-delete":true,"name":"vni-target-1"},"security_groups":[{"id":"r006-bfa4dea5-3e09-4a76-90ef-cee3b840936b"}],"subnet":{"id":"0726-c5941a73-2e07-46e6-b0c8-db306259341f"}}}]' --replica-share-profile dp2 --replica-share-cron-spec '55 09 * * *' --replica-share-zone us-south-3  --replica-share-name my-replica-file-share --replica-share-mount-targets '[{"name": "my-target2", "virtual_network_interface":{"name":"my-fs-cli-vni-1", "primary_ip":{"address":"12345","auto-delete":true,"name":"vni-target-2"},"security_groups":[{"id":"r006-bfa4dea5-3e09-4a76-90ef-cee3b840936b"}],"subnet":{"id":"0726-c5941a73-2e07-46e6-b0c8-db306259341f"}}}]'
+$ ibmcloud is share-create --name my-source-file-share --profile dp2 --zone us-south-1 --size 40 --allowed-access-protocols nfs4 --atem ipsec,none --mount-targets '[{"access-protocol": "nfs4", "transit_encryption":"ipsec","name":"my-target1", "virtual_network_interface":{"name":"my-fs-cli-vni", "primary_ip":{"address":"12345","auto-delete":true,"name":"vni-target-1"},"security_groups":[{"id":"r006-bfa4dea5-3e09-4a76-90ef-cee3b840936b"}],"subnet":{"id":"0726-c5941a73-2e07-46e6-b0c8-db306259341f"}}}]' --replica-share-profile dp2 --replica-share-cron-spec '55 09 * * *' --replica-share-zone us-south-3  --replica-share-name my-replica-file-share --replica-share-mount-targets '[{"access-protocol": "nfs4", "transit_encryption":"ipsec","name": "my-target2", "virtual_network_interface":{"name":"my-fs-cli-vni-1", "primary_ip":{"address":"12345","auto-delete":true,"name":"vni-target-2"},"security_groups":[{"id":"r006-bfa4dea5-3e09-4a76-90ef-cee3b840936b"}],"subnet":{"id":"0726-c5941a73-2e07-46e6-b0c8-db306259341f"}}}]'
 Creating file share my-source-file-share under account Test Account as user test.user@ibm.com...
                                 
 ID                                 r006-fd7e989b-c7a9-4295-81b1-f1265856e176    
@@ -139,7 +142,11 @@ Replication status reasons        Status code   Status message
                                   -             -    
 Snapshot count                     0   
 Snapshot size                      0   
-Source snapshot                    -                               
+Source snapshot                    -   
+Allowed Access Protocols           nfs4   
+Availability Mode                  zonal   
+Bandwidth(Mbps)                    1   
+Storage Generation                 1                               
 ```
 {: screen}
 
@@ -236,7 +243,11 @@ Source snapshot                    -
                                     r006-346811e7-cf29-4baa-af77-909fb549d1e6   my-file-share   share 
    Snapshot count                   0
    Snapshot size                    0         
-   Source snapshot                  -                      
+   Source snapshot                  -  
+   Allowed Access Protocols         nfs4   
+   Availability Mode                zonal   
+   Bandwidth(Mbps)                  1   
+   Storage Generation               1                      
    ```
    {: screen}
 
@@ -280,7 +291,11 @@ When you create a replica of a file share in another region, you must use the CR
 
    Snapshot count                   0
    Snapshot size                    0
-   Source snapshot                  -   
+   Source snapshot                  - 
+   Allowed Access Protocols         nfs4   
+   Availability Mode                zonal   
+   Bandwidth(Mbps)                  1   
+   Storage Generation               1    
    ```
    {: screen}
 

@@ -2,7 +2,7 @@
 
 copyright:
   years: 2022, 2025
-lastupdated: "2025-07-08"
+lastupdated: "2025-07-28"
 
 keywords: file share, customer-managed encryption, encryption, byok, KMS, Key Protect, Hyper Protect Crypto Services,
 
@@ -19,6 +19,9 @@ By default, {{site.data.keyword.filestorage_vpc_short}} shares are encrypted wit
 {: shortdesc}
 
 For more information, see [Protecting data with envelope encryption](/docs/key-protect?topic=key-protect-envelope-encryption).
+
+Customer-managed encryption is not supported during the beta release of the regional file share profile.
+{: beta}
 
 ## Before you begin
 {: #custom-managed-vol-prereqs-file}
@@ -234,7 +237,7 @@ Make a `POST /shares` request and specify the `encryption_key` parameter to iden
 You must provide the `generation` parameter and specify `generation=2`. For more information, see **Generation** in the [Virtual Private Cloud API reference](/apidocs/vpc/latest#api-generation-parameter).
 {: requirement}
 
-The following example creates a file share with a mount target, and specifies the CRN of the root key for customer-managed encryption.
+The following example creates a zonal file share with a mount target, and specifies the CRN of the root key for customer-managed encryption.
 
 ```sh
 curl -X POST \

@@ -2,7 +2,7 @@
 
 copyright:
   years: 2019, 2025
-lastupdated: "2025-07-23"
+lastupdated: "2025-07-28"
 
 keywords:
 
@@ -33,6 +33,12 @@ For more information about changes to the {{site.data.keyword.vpc_short}} comman
 
 Cross-regional copies of second-generation block volume snapshots (beta release)
 :   Customers with special access to preview the second-generation block storage volumes can now create cross-regional copies of their snapshots in London (`eu-gb`), Osaka (`js-osa`), Sao Paulo (`br-sao`), and Sydney (`au-sys`) regions in the console, from the CLI, or with the API. For more information about this feature and its limitations, see [About Block Storage for VPC snapshots](/docs/vpc?topic=vpc-snapshots-vpc-about&interface=ui#sdp-snapshots).
+
+New file share profile with regional data availability (beta release)
+:   The File Storage for VPC offering includes a new profile in the Defined Performance profile family. Customers with special access can use this profile to create regional file shares that provide data availability across all 3 zones of a region. The regional shares can be created with capacity 1 - 32000 GB, adjustable throughput up to 1024 MBps, and a fixed IOPS value of 35000. The regional shares can be encrypted with provider-managed or customer-managed encryption keys. You can mount these file shares by using a regional mount target and opt to encrypt your data in transit with stunnel. For more information, see [About File Storage for VPC](/docs/vpc?topic=vpc-file-storage-vpc-about#fs-cross-account-mount).
+
+Mount Helper utility supports mounting regional file shares with stunnel
+:   Customers with special access to preview the regional file share profile, can use the Mount Helper utility to mount their regional shares. The utility is upgraded to include the `--stunnel` option in the installation script. Download version 0.1.8 or later to create a secure mount with in-transit encryption capability. For more information, see the [IBM Cloud File Share Mount Helper utility](/docs/vpc?topic=vpc-fs-mount-helper-utility).
 
 ### 21 July 2025
 {: #vpc-jul2125}

@@ -70,14 +70,15 @@ You can access the Actions menu by clicking ![Actions icon](../icons/action-menu
      | Encryption | Specifies provider-managed or [customer-managed encryption](/docs/vpc?topic=vpc-file-storage-byok-encryption). When the file share is encrypted with customer-managed keys, the encryption instance, encryption key name, and encryption key CRN are also shown. |
      | Mount target access mode   | Access to the file share is granted by either a security group within a subnet or to any virtual server instance in the VPC. Click the **Edit icon** ![Edit icon](../icons/edit-tagging.svg "Edit") to switch access modes. Security group access is available only to file shares created with the [`dp2` profile](/docs/vpc?topic=vpc-file-storage-profiles&interface=ui#dp2-profile). For more information, see the [Mount target access modes](/docs/vpc?topic=vpc-file-storage-vpc-about&interface=api#fs-mount-access-mode). |
      | CRN | The copiable Cloud Resource Name of the file share.|
-     | Allowed encryption in transit mode | This value shows whether encryption in transit is required when clients access the file share. Click the **Edit icon** ![Edit icon](../icons/edit-tagging.svg "Edit") to change the allowed values. The possible values are User managed, and None. This field is not applicable for file shares with VPC access mode.|
+     | Allowed encryption in transit mode | This value shows whether encryption in transit is required when clients access the file share. Click the **Edit icon** ![Edit icon](../icons/edit-tagging.svg "Edit") to change the allowed values. The possible values are User managed, and None. This field is not applicable for file shares with VPC access mode. \n [Beta]{: tag-cyan} Customers with special access to preview the new regional file share offering can choose from IPsec, Stunnel, and None.|
      | Cross-account role | The possible values are None, Origin, Accessor. This field is not applicable for file shares with VPC access mode.|
      | Snapshot count  | This value indicates the number of snapshots that were taken of the file share. This field is not applicable for file shares with VPC access mode. |
      | Size of changed data in all the snapshots  | It represents the billable volume of data across all the snapshots. This field is not applicable for file shares with VPC access mode. |
      | **Profile details**| |
      | Profile | The name of the share [profile](/docs/vpc?topic=vpc-file-storage-profiles) that defines the file share performance. In most cases, the dp2 profile.|
      | Size | File share capacity in GB. |
-     | Max IOPS | Maximum IOPS for the specified share. |
+     | Max IOPS | Maximum IOPS for the specified share. This field is displayed for zonal shares. |
+     | Throughput [Beta]{: tag-cyan} | The maximum throughput limit that is specified for the share. This field is displayed for regional shares.|
      | **Mount targets** | Number of mount targets associated with the file share. You can have one mount target per VPC per file share. You can create more mount targets for other VPCs. Click ![Actions icon](../icons/action-menu-icon.svg) to rename or delete the mount target, or to view the mount path. |
      | Name | Name of the mount target. |
      | Status | Status of the mount target on the VPC. |
@@ -116,6 +117,9 @@ You can access the Actions menu by clicking ![Actions icon](../icons/action-menu
      These metrics are not updated in real time. Data for new file shares can take up to an hour or an hour and 15 minutes to appear in the dashboard. Changes in usage can take from 15 to 30 minutes to be reflected in the graphs.
      {: note}
 
+     During the beta release of regional shares, these metrics are not available in the Monitoring tab for the `rfs` shares.
+     {: beta}
+
      If you have an instance of the {{site.data.keyword.mon_full_notm}} service, click **Launch monitoring** to open the Sysdig web UI to work with the metrics dashboards there. For more information about how to set up the {{site.data.keyword.mon_full_notm}} instance, see [Monitoring metrics for File Storage for VPC](/docs/vpc?topic=vpc-fs-vpc-monitoring-sysdig).
 
 ### Viewing all file shares for a VPC in the console
@@ -145,6 +149,15 @@ You can see all file shares that have a mount target to a VPC by viewing the VPC
 
 Before you can use the CLI, you must install the IBM Cloud CLI and the VPC CLI plug-in. For more information, see the [CLI prerequisites](/docs/vpc?topic=vpc-set-up-environment#cli-prerequisites-setup).
 {: requirement}
+
+If you are a customer with special access to preview the regional file share profile, you can use the `rfs` profile to create a file share. To be able to create and manage a regional file share from the CLI, set the appropriate environmental variable with the following command.
+
+```sh
+export IBMCLOUD_IS_FEATURE_SHARE_DENALI_REGIONAL_AVAILABILITY=true
+```
+{: pre}
+
+The CLI returns the properties for "Allowed Access Protocols", "Availability Mode", "Bandwidth", and "Storage Generation" only when this environmental variable is set to "true".
 
 ### Viewing all file shares from the CLI
 {: #fs-view-all-shares-cli}
@@ -256,6 +269,48 @@ Replication status reasons       Status code   Status message
 Snapshot count                   0
 Snapshot size                    0 
 Source snapshot                  -
+```
+{: screen}
+
+[New]{: tag-new}
+
+The following example shows the information that the `ibmcloud is share` command returns when you retrieve information about a regional file share. 
+
+```sh
+$ ibmcloud is share my-regional-file-share
+Getting file share my-file-share under account Test Account as user test.user@ibm.com...
+
+ID                                 r006-9ae55188-610e-4cf9-9350-d0b675026ff8 
+Name                               my-regional-file-share
+CRN                                crn:v1:bluemix:public:is:us-south-2:a/a1234567::share:r006-9ae55188-610e-4cf9-9350-d0b675026ff8
+Lifecycle state                    stable
+Access control mode                security_group
+Accessor binding role              none
+Allowed transit encryption modes   stunnel,none   
+Zone                               -  
+Profile                            rfs
+Size(GB)                           1000
+IOPS                               35000
+Encryption                         provider_managed
+Mount Targets                      ID                       Name       
+                                   No mounted targets found
+
+Resource group                     ID                                 Name
+                                   db8e8d865a83e0aae03f25a492c5b39e   Default
+
+Created                            2025-07-22T22:15:15+00:00
+Replication role                   none
+Replication status                 none
+Replication status reasons         Status code   Status message
+                                   -             -
+
+Snapshot count                     0   
+Snapshot size                      0   
+Source snapshot                    -   
+Allowed Access Protocols           nsf4   
+Availability Mode                  regional   
+Bandwidth(Mbps)                    125   
+Storage Generation                 2
 ```
 {: screen}
 
@@ -490,6 +545,65 @@ A successful response looks like the following example. In this example, the sha
       "href": "https://us-south.iaas.cloud.ibm.com/v1/regions/us-south/zones/us-south-2",
       "name": "us-south-2"
   }
+}
+```
+{: codeblock}
+
+Customers with special access to review the regional file share offering can use the Beta VPC API to retrieve information about their regional file shares. See the following example.
+
+```sh
+curl -X GET \
+"$vpc_api_endpoint/v1/shares/$share_id?version=2025-04-01&generation=2&maturity=beta"\
+-H "Authorization: $iam_token"
+```
+{: pre}
+
+A successful response looks like the following example:
+
+```json
+{
+  "access_control_mode": "security_group",
+  "accessor_binding_role": "none",
+  "accessor_bindings": [],
+  "allowed_access_protocol": "nsf4",
+  "allowed_transit_encryption_modes": [
+      "none",
+      "stunnel"
+  ],
+  "availability_mode": "regional",
+  "bandwidth": 100,
+  "created_at": "2025-06-24T09:17:14.000Z",
+  "crn": "crn:v1:bluemix:public:is:us-south:a/a1234567::share:r006-4dadac27-cd17-42df-a5fe-1388705d33f1",
+  "encryption": "provider_managed",
+  "href": "https://us-south.iaas.cloud.ibm.com/v1/shares/r006-4dadac27-cd17-42df-a5fe-1388705d33e0",
+  "id": "r006-4dadac27-cd17-42df-a5fe-1388705d33ef1",
+  "iops": 100,
+  "latest_job": {
+      "status": "succeeded",
+      "status_reasons": [],
+      "type": "replication_init"
+  },
+  "lifecycle_reasons": [],
+  "lifecycle_state": "stable",
+  "mount_targets": [],
+  "name": "my-regional-share-us-south",
+  "profile": {
+      "family": "defined_performance",
+      "href": "https://us-south.iaas.cloud.ibm.com/v1/share/profiles/rfs",
+      "name": "rfs",
+      "resource_type": "share_profile"
+    },
+    "resource_group": {
+        "href": "https://resource-controller.cloud.ibm.com/v2/resource_groups/6edefe513d934fdd872e78ee6a8e73ef",
+        "id": "6edefe513d934fdd872e78ee6a8e73ef",
+        "name": "defaults"
+    },
+    "resource_type": "share",
+    "size": 100,
+    "snapshot_count": 0,
+    "snapshot_size": 0,
+    "storage_generation": 2,
+    "user_tags": []
 }
 ```
 {: codeblock}

@@ -2,7 +2,7 @@
 
 copyright:
   years: 2023, 2025
-lastupdated: "2025-07-09"
+lastupdated: "2025-07-28"
 
 keywords: file share, file storage, encryption in transit, Mount Helper, IPsec, secure connection, mount share
 
@@ -15,7 +15,7 @@ subcollection: vpc
 # IBM Cloud File Share Mount Helper utility
 {: #fs-mount-helper-utility}
 
-Mount Helper is an open source automation tool that configures and establishes secure communication between the compute host and the file share. It ensures that the communication between the server and the zonal file share is encrypted.
+Mount Helper is an open source automation tool that configures and establishes secure communication between the compute host and the file share. It ensures that the communication between the server and the zonal or regional file share is encrypted.
 {: shortdesc}
 
 ## IPsec encapsulated connection for zonal shares
@@ -28,6 +28,13 @@ The utility uses strongSwan and [`swanctl`](https://docs.strongswan.org/docs/5.9
 The Mount Helper makes new certificate requests every 45 minutes, as the lifetime of the certificate is 1 hour. The new certificate is generated before the old certificate expires to ensure seamless connection. The certificates are generated with the shorter life span for security reasons.
 
 You can use the utility for encrypted or unencrypted connections. For encrypted connections, the Mount Helper uses the metadata service protocol option that is set to either `http` or `https`. For more information, see the API reference for `metadata_service` option of [instance provisioning](/apidocs/vpc/latest#create-instance).
+
+## Stunnel secure connection for regional shares
+{: #fs-eit-stunnel-requirements}
+
+[New]{: tag-new}
+
+The utility installs stunnel on the compute host that's running a Linux OS. Stunnel needs a pem file. Because stunnel is used in client mode, you can use the pem that that comes with the distribution.
 
 ## Requirements
 {: #fs-eit-requirements}
@@ -81,7 +88,7 @@ You can use the utility for encrypted or unencrypted connections. For encrypted 
    Closed environments: To install Mount Helper on a virtual server instance without internet connection, create or update a local repository on the VSI based on the OS. Copy the Mount Helper package along with its dependencies to the local directory.
    {: note}
 
-### Installing the Mount Helper
+### Installing the Mount Helper to mount zonal file shares
 {: #install-MH-for-zonal}
 
 1. To install the Mount Helper and all the dependencies, use the following script and specify the region where the file share is going to be mounted.
@@ -140,6 +147,33 @@ You can use the utility for encrypted or unencrypted connections. For encrypted 
    ```
    {: pre}
 
+### Installing the Mount Helper to mount regional file shares
+{: #install-MH-for-regional}
+
+1. To install the Mount Helper and all the dependencies, use the following script and specify the `--stunnel` option.
+   ```sh
+   ./install.sh --stunnel
+   ```
+   {: pre}
+
+1. Optional - Every installation image is accompanied by a file that contains the checksum value for the image file. For example, the image file ibmshare-0.0.1.tar.gz is accompanied by the ibmshare-0.0.1.tar.gz.sha256 file that contains the checksum value. To verify the integrity of the downloaded package, use the following commands.
+   ```sh
+   curl -LO https://github.com/IBM/vpc-file-storage-mount-helper/releases/download/latest/mount.ibmshare-latest.tar.gz.sha256
+   ```
+   {: pre}
+   
+   ```sh
+   sha256sum -c mount.ibmshare-latest.tar.gz.sha256
+   ```
+   {: pre}
+
+   A successful response shows "OK". The output looks like the following example.
+   ```text
+   # sha256sum -c mount.ibmshare-latest.tar.gz.sha256
+   ./mount.ibmshare-latest.tar.gz: OK
+   ```
+   {: screen}
+
 ### Building the Mount Helper utility from the source code
 {: #build-from-source-code}
 
@@ -172,6 +206,9 @@ You can use the utility for encrypted or unencrypted connections. For encrypted 
    
 1. Run the `mount` command with the following syntax. 
 
+### Mounting zonal file share
+{: #fs-eit-mount-share-ipsec} 
+
 Use the following command syntax to mount the share. Replace the mountpath with the information that is specific to your file share.
 
 ```sh
@@ -199,6 +236,43 @@ When the command is sent, the utility creates the certificate signing request(cs
 Adding the mount details to the `/etc/fstab` is not recommended. The IPsec connection might not be established in time for the automated `fstab` mount requests.
 {: note} 
 
+### Mounting regional file share
+{: #fs-eit-mount-share-stunnel}
+
+[Beta]{: tag-cyan}
+
+Use the following command syntax to mount the share. Replace the mountpath with the information that is specific to your file share.
+
+```sh
+mount -t ibmshare -o stunnel 10.0.0.1:/MOUNT_PATH /mnt/MOUNT_POINT
+```
+{: pre}
+
+When the command is sent, the utility initiates the stunnel connection and calls the NFS `mount` command. A successful response looks like the following example.
+
+Adding the `-v` option to the mount command generates the debug output, which can help pinpoint any issues during mounting.
+{: tip}
+
+```sh
+[root@my-eit-instance ~]#  mount -v -o stunnel -t ibmshare 10.240.64.24:/EAD9B8582BC84FDAB57B7A315BCA1210 /mnt/EAD9B8582BC84FDAB57B7A315BCA1210
+Debug - Locked ok:/var/lock/ibm_mount_helper.lck
+Debug - File unlocked:/var/lock/ibm_mount_helper.lck
+Debug - Locked ok:/var/lock/ibm_mount_helper.lck
+Debug - RunCmd: ListNfsMounts (mount -t nfs,nfs4)
+Debug - Existing nfs/nfs4 mounts found:0
+Debug - RunCmd: ListNfsMounts (mount -t nfs,nfs4)
+Debug - Existing nfs/nfs4 mounts found:0
+Debug - Local port 10001 will be used for setting up next stunnel
+Debug - Starting stunnel for mounting /EAD9B8582BC84FDAB57B7A315BCA1210
+Debug - Stunnel conf file created /etc/stunnel/ibmshare_EAD9B8582BC84FDAB57B7A315BCA1210.conf
+Debug - Attempting to start stunnel using /etc/stunnel/ibmshare_EAD9B8582BC84FDAB57B7A315BCA1210.conf
+Debug - Attempting mount of /EAD9B8582BC84FDAB57B7A315BCA1210 on the local host
+Debug - RunCmd: Mount using stunnel  (mount -t nfs4 -o sec=sys,nfsvers=4.1,rw,port=10001 127.0.0.1:/EAD9B8582BC84FDAB57B7A315BCA1210 /mnt/EAD9B8582BC84FDAB57B7A315BCA1210 -v)
+Debug - Stunnel mount was successful
+Debug - File unlocked:/var/lock/ibm_mount_helper.lck
+```
+{: pre} 
+
 ## Updating the Mount Helper
 {: #fs-eit-mount-helper-update}
 
@@ -206,7 +280,9 @@ To update the installation package, run the `install.sh` script again.
 ```sh
 ./install.sh
 ```
-{: pre}
+{: pre} 
+
+Use the `--stunnel` option when you want to upgrade the stunnel package, too.
 
 ## Uninstalling the Mount Helper
 {: #fs-eit-mount-helper-uninstall}
@@ -266,6 +342,12 @@ The following command uninstalls the utility.
 - Location of the mount helper log.
    ```sh
    /opt/ibm/mount-ibmshare/mount-ibmshare.log
+   ```
+   {: pre} 
+
+- Location of the stunnel logs:
+   ```sh
+   /var/log/stunnel/ibmshare_[MOUNT_PATH].log
    ```
    {: pre} 
 

@@ -114,14 +114,14 @@ ibmcloud login --sso -a cloud.ibm.com
 
 This command returns a URL and prompts for a passcode. Go to that URL in your browser and log in. If successful, you get a one-time passcode. Copy this passcode and paste it as a response on the prompt. After successful authentication, you are prompted to choose your account. If you have access to multiple accounts, select the account that you want to log in as. Respond to any remaining prompts to finish logging in.
 
-### Viewing all snapshots in the zone from the CLI
+### Viewing all snapshots in the region from the CLI
 {: #fs-snapshots-view-all-snapshots-cli}
 
 Run the `ibmcloud is share-snapshots` command to see all the snapshots that are available in the zone.
 
 ```sh
 ibmcloud is share-snapshots [--share SHARE] [--backup-policy-plan BACKUP_POLICY_PLAN [--backup-policy BACKUP_POLICY]] [--output JSON] [-q, --quiet]
-```sh
+```
 {: pre}
 
 ```sh

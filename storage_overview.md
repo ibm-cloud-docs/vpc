@@ -2,7 +2,7 @@
 
 copyright:
   years: 2022, 2025
-lastupdated: "2025-07-23"
+lastupdated: "2025-07-28"
 
 keywords: block storage for VPC, File Storage for VPC, Snapshots for VPC, Backup for VPC, block storage, file storage, snapshots, backup, 
 
@@ -104,6 +104,34 @@ By using this service, you can:
 * Share file shares with other accounts or services.
 * Create read-only replicas of your file shares in another zone within your VPC, or another zone in a different region if you have multiple VPCs in the same geography. The replica is updated regularly based on the replication schedule that you specify. You can schedule to replicate your data as often as every 15 minutes. You can fail over to the replica and make it active if an outage occurs at the primary site.
 
+Customers with special access to preview the second-generation File Storage offering can provision file share with the new `rfs` profile. The `rfs` profile is available in the Dallas, Frankfurt, Madrid, and Washington, DC regions in the beta release.
+{: beta}
+
+Second-generation file shares can be created with capacity in the range of 1 - 32,000 GB. Customers can directly adjust their file share's bandwidth up to 1024 MBps (8192 Mbps). The preset value is 1 MBps for every 20 GB of capacity. The maximum IOPS that a share with the `rfs` profile can support is 35,000.
+
+Second-generation profiles provide regional data availability across all 3 zones of an MZR. Data is regionally available, setting up replication between different zones is unnecessary.
+
+| Features            | First-generation shares | Second-generation shares |
+|---------------------|--------------------------|---------------------------|
+| Availability        | Generally available in all VPC regions for all customers. | In the [beta]{: tag-cyan} release, available in Dallas, Frankfurt, Madrid, and Washington, DC for allow-listed customers.|
+| Data Availability   | Zonal                    | Regional  |
+| Expandable capacity | Yes, up to 16,000 GB     | Yes, up to 32,000 GB |
+| Adjustable IOPS     | Yes, up to 96,000. IOPS depends on capacity range. | No. Maximum IOPS is preset at 35,000.| 
+| Adjustable Bandwidth| No. Throughput can be increased by increasing capacity and IOPS, up to 1024 MBps.| Yes, bandwidth can be increased up to 1024 MBps, and it can be reduced to the preset value that is based on the file share capacity. No capacity increase needed.|
+| Customer-managed encryption at rest | Yes. | |
+| Customer-managed encryption in transit | Yes. IPsec protocol with strongSwan. | Yes. TLS protocol with stunnel.|
+| On-demand snapshots | Yes, up to 750 per share in a region. |  |
+| Scheduled snapshots | Yes, up to 750 snapshots per region. |  Not supported in the [beta]{: tag-cyan} release. |
+| Cross-zonal replication| Yes, as often as every 15 minutes. | Not applicable. Data is synchronously available in all zones of the region. |
+| Cross-regional replication | Yes, as often as every 15 minutes. |  Not supported in the [beta]{: tag-cyan}. |
+| Cross-zonal mounting | Yes. | Not applicable. Data is synchronously available in all zones of the region. Storage traffic does not cross zone-boundaries. |
+| Cross-account access | Yes. A share can have up to 100 accessor bindings. | Not supported in the [beta]{: tag-cyan} release. |
+| Monitoring integration with Sysdig | Yes. | Not supported in the [beta]{: tag-cyan} release. |
+{: caption="File share generations comparison." caption-side="bottom"}
+
+First- and second-generation profiles in the defined performance profile family are not interchangeable. You can't convert a zonal file share to a regional share, or a regional share to a zonal share.
+{: note}
+
 For more information, see [About {{site.data.keyword.filestorage_vpc_short}}](/docs/vpc?topic=vpc-file-storage-vpc-about).
 
 ## {{site.data.keyword.filestorage_vpc_short}} snapshots
@@ -114,6 +142,14 @@ For more information, see [About {{site.data.keyword.filestorage_vpc_short}}](/d
 You can create, list, view details, and manage snapshots in the console, from the CLI, and with the API or Terraform. You can use the snapshot to create another file share or to retrieve previous versions of files that are stored in the share.
 
 Snapshots are tied to their source share. If you delete the original share and the snapshot is also deleted. However, you cannot delete a snapshot that is being used to hydrate a newly restored file.
+
+| Features            | First-generation shares | Second-generation shares |
+|---------------------|--------------------------|---------------------------|
+| Availability        | Generally available in all VPC regions for all customers. | |
+| On-demand snapshots | Yes, Up to 750 per share in a region. | |
+| Scheduled snapshots | Yes, up to 750 snapshots per region. | Not supported in the [beta]{: tag-cyan} release.|
+{: caption="File share snapshot generations comparison." caption-side="bottom"}
+
 For more information, see [About {{site.data.keyword.filestorage_vpc_short}} snapshots](/docs/vpc?topic=vpc-fs-snapshots-about).
 
 ## Backup for VPC

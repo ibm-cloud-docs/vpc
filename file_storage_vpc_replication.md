@@ -2,7 +2,7 @@
 
 copyright:
   years: 2022, 2025
-lastupdated: "2025-05-01"
+lastupdated: "2025-07-28"
 
 keywords: file share, file storage, replication, replica, 
 
@@ -17,6 +17,9 @@ subcollection: vpc
 
 You can create replicas of your file shares in another zone of the same geography. With the replication feature, you can keep a read-only copy of your file share in another zone. The replica share is updated from the source share on a schedule that you specify. Replication provides a way to recover from an incident at the primary site, when data becomes inaccessible or an application fails. Replication can also be used for geographical expansion.
 {: shortdesc}
+
+Customers with special access to preview the new regional file share offering can use the **rfs** profile to create file shares with regional availability. When you create file shares with regional availability, data is automatically replicated throughout the region, so you don't need to set up replication pairs. Cross-regional replication of regional file shares is not supported in this release.
+{: beta}
 
 ## Replication overview
 {: #fs-replication-overview}

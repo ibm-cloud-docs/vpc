@@ -2,7 +2,7 @@
 
 copyright:
   years: 2021, 2025
-lastupdated: "2025-07-13"
+lastupdated: "2025-07-28"
 
 keywords: file share, file storage, rename share, increase size, adjust IOPS, mount target
 
@@ -38,6 +38,7 @@ In the console, you can:
 * [Update allowed transit encryption modes](#fs-update-transit-encryption-ui) (not applicable for accessor shares).
 * [Increase file share capacity](/docs/vpc?topic=vpc-file-storage-expand-capacity&interface=ui)
 * [Adjust the IOPS for a zonal file share](/docs/vpc?topic=vpc-file-storage-adjusting-iops&interface=ui)
+* [Adjust the throughput limit for a regional file share](/docs/vpc?topic=vpc-file-storage-adjusting-throughput&interface=ui)
 * [Add user tags to file shares](#fs-add-user-tags).
 * [Delete mount target of a file share](#delete-mount-target-ui).
 * [Delete a file share](#delete-file-share-ui).
@@ -69,7 +70,7 @@ Valid mount target names can include a combination of lowercase alpha-numeric ch
 ### Updating a file share profile in the console
 {: #fs-update-profile-ui}
 
-These instructions are for the previous generation of file share profiles (general purpose, 5-iops, 10-iops, or custom). To access the current features, you must change the IOPS profile of your share to dp2. The profiles of file shares that were created with the `dp2` profile cannot be changed.
+These instructions are for the previous generation of file share profiles (general purpose, 5-iops, 10-iops, or custom). To access the current features, you must change the IOPS profile of your share to dp2. The profiles of file shares that were created with the `dp2` or the `rfs` profile cannot be changed.
 {: important}
 
 You can change the profile for a file share from the current profile to another **IOPS tier** profile, to a **custom** profile, or to a high-performance **dp2** profile. Your billing adjusts based on the profile that you choose.
@@ -101,12 +102,22 @@ By using the CLI, you can:
 * [Update allowed transit encryption modes](#fs-update-transit-encryption-cli) (not applicable for accessor share).
 * [Increase file share capacity](/docs/vpc?topic=vpc-file-storage-expand-capacity&interface=cli)
 * [Adjust the IOPS for a zonal file share](/docs/vpc?topic=vpc-file-storage-adjusting-iops&interface=cli)
+* [Adjust the throughput limit for a regional file share](/docs/vpc?topic=vpc-file-storage-adjusting-throughput&interface=cli)
 * [Add user tags to file shares](#fs-add-user-tags).
 * [Delete mount target of a file share](#delete-mount-target-cli).
 * [Delete a file share](#delete-file-share-cli).
 
 Snapshots are supported only for shares that have *security group* as their access control mode. You can't change access control mode to VPC unless all the snapshots of the share are deleted.
 {: note}
+
+If you are a customer with special access to preview the regional file share profile, you can use the `rfs` profile to create a file share. To be able to create and manage a regional file share from the CLI, set the appropriate environmental variable with the following command.
+
+```sh
+export IBMCLOUD_IS_FEATURE_SHARE_DENALI_REGIONAL_AVAILABILITY=true
+```
+{: pre}
+
+The CLI returns the properties for "Allowed Access Protocols", "Availability Mode", "Bandwidth", and "Storage Generation" only when this environmental variable is set to "true".
 
 ### Renaming a file share from the CLI
 {: #rename-file-share-cli}
@@ -198,7 +209,7 @@ For more information about the command options, see [`ibmcloud is share-mount-ta
 ### Updating a file share profile in the CLI
 {: #fs-update-profile-cli}
 
-These instructions are for the previous generation of file share profiles (general purpose, 5-iops, 10-iops, or custom). To access the current features, you must change the IOPS profile of your share to dp2. The profiles of file shares that were created with the `dp2` profile cannot be changed.
+These instructions are for the previous generation of file share profiles (general purpose, 5-iops, 10-iops, or custom). To access the current features, you must change the IOPS profile of your share to dp2. The profiles of file shares that were created with the `dp2` or the `rfs` profile cannot be changed.
 {: important}
 
 1. Locate the file share that you want to update by listing the file shares in the region with the `ibmcloud is shares` command.
@@ -259,6 +270,10 @@ For more information about the command options, see [`ibmcloud is share-update`]
 
 The owner of the share can change the allowed transit encryption modes type to `user_managed,none`,`user_managed` or `none`.
 
+[Beta]{: tag-cyan} Customers with special access to preview the new regional file share offering, can update the allowed transit encryption modes as follows:
+- for zonal file shares, the allowed values are `ipsec,none`,`ipsec` or `none`.
+- for regional file shares, the allowed values are `stunnel,none`, `stunnel`, or `none`.
+
 However, before this property can be changed, all bindings and [mount targets must be deleted](#delete-mount-target-cli). Deleting the bindings severs the network path between origin file share and accessor share, and puts the mount target that is attached to the accessor share in a failed state. For more information, see [Removing access to a file share from other accounts](/docs/vpc?topic=vpc-file-storage-accessor-delete&interface=cli).
 {: important}
 
@@ -306,6 +321,7 @@ By using the API, you can:
 * [Update allowed transit encryption modes with the API](#fs-update-transit-encryption-api) (not applicable for accessor shares).
 * [Increase file share capacity](/docs/vpc?topic=vpc-file-storage-expand-capacity&interface=api)
 * [Adjust the IOPS for a zonal file share](/docs/vpc?topic=vpc-file-storage-adjusting-iops&interface=api)
+* [Adjust the throughput limit for a regional file share](/docs/vpc?topic=vpc-file-storage-adjusting-throughput&interface=api)
 * [Add user tags to file shares](#fs-add-user-tags).
 * [Delete mount target of a file share](#delete-mount-target-api).
 * [Delete a file share](#delete-file-share-api).
@@ -407,7 +423,7 @@ Valid mount target names can include a combination of lowercase alpha-numeric ch
 ### Updating a file share profile with the API
 {: #fs-update-profile-api}
 
-These instructions are for the previous generation of file share profiles (general purpose, 5-iops, 10-iops, or custom). To access the current features, you must change the IOPS profile of your share to dp2. The profiles of file shares that were created with the `dp2` profile cannot be changed.
+These instructions are for the previous generation of file share profiles (general purpose, 5-iops, 10-iops, or custom). To access the current features, you must change the IOPS profile of your share to dp2. The profiles of file shares that were created with the `dp2` or the `rfs` profile cannot be changed.
 {: important}
 
 Make a `PATCH /shares/{share_ID}` call and specify the profile name in the `profile` property. The following example changes the profile to a `dp2` profile.
@@ -423,6 +439,10 @@ curl -X PATCH "$vpc_api_endpoint/v1/shares/432f1a4d-4aac-4ba1-922c-76fdbcbeb1e3?
 {: #fs-update-transit-encryption-api}
 
 The owner of the share can change the allowed transit encryption modes type to `user_managed,none`,`user_managed` or `none`.
+
+[Beta]{: tag-cyan} Customers with special access to preview the new regional file share offering, can update the allowed transit encryption modes with the beta VPC API as follows:
+- for zonal file shares, the allowed values are `ipsec,none`,`ipsec` or `none`.
+- for regional file shares, the allowed values are `stunnel,none`, `stunnel`, or `none`.
 
 However, before this property can be changed, all bindings and mount targets must be deleted. Deleting the bindings severs the network path between origin file share and accessor share, and puts the mount target that is attached to the accessor share in a failed state. For more information, see [Removing access to a file share from other accounts](/docs/vpc?topic=vpc-file-storage-accessor-delete&interface=api).
 {: important}
@@ -468,6 +488,10 @@ Valid file share and mount target names can include a combination of lowercase a
 Some attributes, such as profile, mount target access mode, allowed transit encryption modes, and encryption at rest, are not editable for accessor shares.
 
 The owner of the share can change the allowed transit encryption modes type to `user_managed,none`,`user_managed` or `none`. 
+
+[Beta]{: tag-cyan] Customers with special access to preview the new regional file share offering can update the allowed transit encryption modes as follows:
+- for zonal file shares the allowed values are `ipsec,none`,`ipsec` or `none`.
+- for regional file shares the allowed values are `stunnel,none`, `stunnel`, or `none`.
 
 However, before this property can be changed, all bindings and [mount targets must be deleted](/docs/vpc?topic=vpc-file-storage-managing&interface=terraform#delete-file-share-terraform). Deleting the bindings severs the network path between origin file share and accessor share, and puts the mount target that is attached to the accessor share in a failed state. For more information, see [Removing access to a file share from other accounts](/docs/vpc?topic=vpc-file-storage-accessor-delete&interface=terraform).
 {: important}
@@ -570,6 +594,46 @@ You can add and remove tags when you update a file share with the `ibmcloud is s
    Snapshot count               0
    Snapshot size                0   
    Source snapshot              -   
+   ```
+   {: screen}
+
+   The following example shows the information that the `ibmcloud is share` command returns when you retrieve information about a regional file share. 
+
+   ```sh
+   $ ibmcloud is share my-regional-file-share
+   Getting file share my-file-share under account Test Account as user test.user@ibm.com...
+
+   ID                                 r006-9ae55188-610e-4cf9-9350-d0b675026ff8 
+   Name                               my-regional-file-share
+   CRN                                crn:v1:bluemix:public:is:us-south-2:a/a1234567::share:r006-9ae55188-610e-4cf9-9350-d0b675026ff8
+   Lifecycle state                    stable
+   Access control mode                security_group
+   Accessor binding role              none
+   Allowed transit encryption modes   stunnel,none   
+   Zone                               -  
+   Profile                            rfs
+   Size(GB)                           1000
+   IOPS                               35000
+   Encryption                         provider_managed
+   Mount Targets                      ID                          Name      
+                                      No mounted targets foun
+
+   Resource group                     ID                                 Name
+                                      db8e8d865a83e0aae03f25a492c5b39e   Default
+
+   Created                            2025-07-22T22:15:15+00:00
+   Replication role                   none
+   Replication status                 none
+   Replication status reasons         Status code   Status message
+                                      -             -
+
+   Snapshot count                     0   
+   Snapshot size                      0   
+   Source snapshot                    -   
+   Allowed Access Protocols           nsf4   
+   Availability Mode                  regional   
+   Bandwidth(Mbps)                    125   
+   Storage Generation                 2
    ```
    {: screen}
 
@@ -878,6 +942,9 @@ Mounting is a process by which a server's operating system makes files and direc
 {: #fs-manage-monitor}
 
 You can check the status and health states of your file share by using the console, the CLI, or the API. You can monitor the total throughput, the total IOPS, the number of mount targets, and capacity usage of your share over time in the {{site.data.keyword.cloud_notm}} console. You can use {{site.data.keyword.atracker_full}} to configure how to route auditing events for file shares. You can also configure {{site.data.keyword.logs_routing_full_notm}} for handling logs. For more information, see [Monitoring file share health states, lifecycle status, and events](/docs/vpc?topic=vpc-fs-vpc-monitoring).
+
+During the beta release of regional shares, these metrics are not available in the Monitoring tab of the console.
+{: beta}
 
 File shares can be integrated with {{site.data.keyword.mon_full}} to gain operational visibility into the performance and health of your shares. In the Sysdig web UI you can view the throughput, IOPS, and capacity metrics in more detail, customize your dashboards, and set up alerts. For more information, see [Monitoring metrics for {{site.data.keyword.filestorage_vpc_short}}](/docs/vpc?topic=vpc-fs-vpc-monitoring-sysdig).
 

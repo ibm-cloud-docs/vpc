@@ -2,7 +2,7 @@
 
 copyright:
   years: 2024, 2025
-lastupdated: "2025-06-03"
+lastupdated: "2025-07-28"
 
 keywords: snapshots, File Storage, shares, restore share
 
@@ -54,6 +54,7 @@ The following limitations apply to this release:
 * File share snapshots cannot be copied to another zone or region. They are stored in the same location as the file share. If you want the snapshots to survive the loss of the availability zone, you need to configure replication for the file share. When a replica share is created, all snapshots that are present on the source volume are also copied to the replica.
 * Snapshots are not supported on shares with Access control mode "VPC". 
 * Taking snapshots are also not supported on replica shares or Accessor shares. However, the `/.snapshot` directory is accessible both on replica and Accessor shares.
+* [Beta]{: tag-cyan} During the beta release of regional file shares snapshots are not supported. The Backup for VPC service cannot be used to automate the snapshots of second-generation file shares with regional availability during this release.
 
 ## Securing your data
 {: #fs-snapshot-data-security}
@@ -81,6 +82,9 @@ User tags are uniquely identified by a Cloud Resource Name (CRN) identifier. Whe
 {: #fs-snapshots-observability}
 
 When snapshots are added or deleted, the change in the snapshot size is reported within 15 minutes. For more information, see [Monitoring metrics for File Storage for VPC](/docs/vpc?topic=vpc-fs-vpc-monitoring-sysdig).
+
+During the beta release of regional shares, these metrics are not available in the Monitoring tab for the `rfs` shares.
+{: beta}
 
 ## Next steps
 {: #fs-snapshots-about-next-steps}

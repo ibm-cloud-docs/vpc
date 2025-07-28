@@ -2,7 +2,7 @@
 
 copyright:
  years: 2022, 2025
-lastupdated: "2025-07-23"
+lastupdated: "2025-07-28"
 
 keywords: Backup, backup service, backup plan, backup policy, restore, restore volume, restore data
 
@@ -228,7 +228,7 @@ Second-generation storage volumes can range in size from 1 TB to 32 TB. You can 
 
 The backup snapshots that are created for `sdp` volumes have an independent life cycle from the parent volume. You can delete the volume and the backup snapshot persists until the retention period that you set is reached.
 
-You can use your backup snapshots to create other second-generation volumes in the same region<bsvpc-235-SDSBlockCRC-beta> and create copies in other regions</bsvpc-235-SDSBlockCRC-beta>. However, backup policies that include cross-regional copies are not supported<bsvpc-235-SDSBlockCRC-beta> for volumes with customer-managed encryption</bsvpc-235-SDSBlockCRC-beta>. The creation of consistency group backups is not supported either.
+You can use your backup snapshots to create other second-generation volumes in the same region and create copies in other regions. However, backup policies that include cross-regional copies are not supported for volumes with customer-managed encryption. The creation of consistency group backups is not supported either.
 
 A snapshot of a first-generation volume cannot be used to create a second-generation volume with the `sdp` profile. Similarly, you can't use a snapshot from a second-generation volume to create a volume with a first-generation profile.
 
@@ -260,6 +260,7 @@ File share backups:
 * You can't create a copy of a file storage backup in another region. File share snapshots and backups are tied to their source shares. If the share is deleted, the backups are deleted as well. 
 * Backup snapshots are not supported for shares that have "VPC" access control mode.
 * The fast restore feature is not supported for file share backups.
+* [Beta]{: tag-cyan} Backup snapshots of second-generation file shares with regional availability are not supported.
 
 ## Securing your data
 {: #backuo-data-security}
