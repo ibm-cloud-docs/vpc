@@ -308,7 +308,6 @@ A successful response looks like the following example. This example shows three
 [
   {
     "active": false,
-    "adjustable_iops_supported": false,
     "attachment_state": "unattached",
     "bandwidth": 393,
     "busy": false,
@@ -356,7 +355,6 @@ A successful response looks like the following example. This example shows three
   },
   {
     "active": false,
-    "adjustable_iops_supported": false,
     "allowed_use": {
       "api_version": "2025-03-31",
       "instance": "true",
@@ -438,7 +436,6 @@ A successful response looks like the following example. This example shows three
   },
   {
     "active": false,
-    "adjustable_iops_supported": false,
     "attachment_state": "unattached",
     "bandwidth": 393,
     "busy": false,
@@ -496,7 +493,6 @@ A successful response provides details of the volume, including capacity and IOP
   "active": false,
   "adjustable_capacity_states": ["attached"],
   "adjustable_iops_states": ["attached"],
-  "adjustable_iops_supported": true,
   "allowed_use": {
     "api_version": "2025-03-31",
     "instance": "true",

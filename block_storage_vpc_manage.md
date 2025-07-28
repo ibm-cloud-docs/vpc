@@ -2,7 +2,7 @@
 
 copyright:
   years: 2019, 2025
-lastupdated: "2025-06-12"
+lastupdated: "2025-07-28"
 
 keywords: Block storage for VPC, change IOPS, change auto-delete, increase volume, change name, rename volume, delete volume, renaming volume, updating volume
 
@@ -446,7 +446,6 @@ To apply tags to a block storage volume, follow these steps:
    ```json
    {
     "active": false,
-    "adjustable_iops_supported": false,
     "attachment_state": "unattached",
     "bandwidth": 393,
     "busy": false,
