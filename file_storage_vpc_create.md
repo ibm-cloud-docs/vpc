@@ -48,8 +48,8 @@ In the {{site.data.keyword.cloud_notm}} console, you can create a file share wit
 
    | Field | Value |
    |-------|-------|
-   | **Availability** [New]{: tag-new} | [Beta]{: tag-cyan} You can choose between Regional and Single zone data availability. You can't change this property after the share is created. |
-   | **Location** | [Beta]{: tag-cyan} If you chose Single zone availability, select the geography, region, and zone for the new file share, for example, North America, Dallas (us-south), us-south-2. If you chose regional availability, select the MZR, such as Dallas (us-south). |
+   | **Availability** [New]{: tag-new} | [Beta]{: tag-cyan} If you're a customer with special access to preview the new regional file share offering, you can choose between Regional and Single zone data availability. You can't change this property after the share is created. \n If you're account is not allow-listed, this field does not appear. Select the location for your zonal file share. |
+   | **Location** | [Beta]{: tag-cyan} If you chose Single zone availability, select the geography, region, and zone for the new file share, for example, North America, Dallas (us-south), us-south-2. If you chose regional availability, select the region. For example, Dallas (us-south). |
    | **Details** | |
    | Name  | Specify a meaningful name for your file share. The file share name can be up to 63 lowercase alpha-numeric characters and include the hyphen (-), and must begin with a lowercase letter. You can later edit the name if you want.
    | Resource Group | Use the default resource group or specify a [Resource group](/docs/vpc?topic=vpc-iam-getting-started&interface=ui#iam-resource-groups). Resource groups help organize your account resources for access control and billing purposes. |

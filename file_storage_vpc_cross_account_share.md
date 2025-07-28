@@ -26,7 +26,7 @@ After the authorization is set in place and roles are assigned, you can create a
 
 As the accessor, you can't edit the properties of the origin share, and you can't delete the origin share. The accessors can mount the share by creating an accessor share and a mount target to the accessor share. Then, you can access and use the data of the origin share, including the snapshots that might be present.
 
-Sharing a file share with other accounts or services is not supported for zonal file shares with VPC-wide access mode.  During the beta phase, cross-account access is not supported for regional file shares with the `rfs` profile.
+Sharing a file share with other accounts or services is not supported for zonal file shares with VPC-wide access mode. During the beta phase, cross-account access is not supported for regional file shares with the `rfs` profile.
 {: note}
 
 ## Transit encryption policy
