@@ -2,7 +2,7 @@
 
 copyright:
   years: 2020, 2025
-lastupdated: "2025-07-27"
+lastupdated: "2025-07-28"
 
 keywords: application load balancer, public, listener, back-end, front-end, pool, round-robin, weighted, connections, methods, policies, APIs, access, ports, vpc network, update
 
@@ -28,7 +28,7 @@ To update an ALB in the {{site.data.keyword.cloud_notm}} console, perform the fo
 1. Select the Region of your load balancer.
 1. Select the load balancer that you want to update.
 1. Select **Back-end pools** if you need to edit a pool or virtual server instance parameters.
-1. Select **Front-end listeners** if you need to edit listener parameters. You can select a timeout value between 50 sec and 7200 sec. If you need more than 7200 sec, you can [open a support case](/docs/account?topic=account-open-case&interface=ui).
+1. Select **Front-end listeners** if you need to edit listener parameters. To update the Client/Server timeout values, select **Edit** from the Actions menu ![Actions icon](../icons/action-menu-icon.svg "Actions") in the row of the Listener that you want to edit. You can select a timeout value between 50 sec and 2 hours (7200 sec). This value is for both Client and Server. If you need more than 2 hours, you can [open a support case](/docs/account?topic=account-open-case&interface=ui) providing the business requirement for the timeout value required.
 1. After you're done editing, select **Save** to save your changes.
 
 The **Active** button on the upper left of your screen now shows as **Updating**. When **Updating** changes back to **Active**, the update is done and the new changes are applied.
@@ -37,7 +37,11 @@ The **Active** button on the upper left of your screen now shows as **Updating**
 {: #alb-updating-cli}
 {: cli}
 
+There are multiple options to update your ALB from the CLI. For more options, see [VPC CLI reference for load balancers](/docs/vpc?topic=vpc-vpc-reference#lb-anchor). 
+
 The following example shows how to use the CLI to update your ALB pool to use the algorithm `least_connections` and the port of the member:
+
+Sample command:
 
 ```sh
 ibmcloud is load-balancer-pool-update r006-99b5ab45-6357-42db-8b32-5d2c8aa62776 r006-3b66d605-6aa5-4166-9f66-b16054da3cb0 --algorithm least_connections
@@ -65,6 +69,8 @@ Provision status           update_pending
 Created                    2020-08-27T14:45:42.038-05:00
 ```
 {: screen}
+
+Sample command:
 
 ```sh
 ibmcloud is load-balancer-pool-member-update r006-99b5ab45-6357-42db-8b32-5d2c8aa62776 r006-3b66d605-6aa5-4166-9f66-b16054da3cb0 r006-61f8b000-a90d-4abe-909e-c507dffec565 --port 6060
@@ -120,7 +126,6 @@ ibmcloud is load-balancer-listener-update
 ```
 {: pre}
 
-
 Where:
 
 `--load-balancer`
@@ -135,8 +140,30 @@ Where:
 `-idle-connection-timeout`
 :   specify idle connection timeout value in seconds.
 
-You can set a timeout value between 50 sec and 7200 sec. If you need more than 7200 sec, you can [open a support case](/docs/account?topic=account-open-case&interface=ui).
-{: note}
+Sample command:
+
+```sh
+ibmcloud is load-balancer-listener-update r042-ce351658-c236-4c99-8711-1414c5a6a99c r042-a00f2544-a1d3-4f9b-af31-4c34990a01f0 --idle-connection-timeout 90
+```
+{: pre}
+
+Sample output:
+
+```sh
+Updating listener r042-a00f2544-a1d3-4f9b-af31-4c34990a01f0 of load balancer r042-ce351658-c236-4c99-8711-1414c5a6a99c under account SoftLayer Internal - Network Operations as user labhatia@in.ibm.com...
+
+ID                        r042-a00f2544-a1d3-4f9b-af31-4c34990a01f0
+Certificate instance      -
+Connection limit          -
+Ports                     22
+Idle connection timeout   90
+Protocol                  http
+Default pool              -
+Accept proxy protocol     false
+Provision status          update_pending
+Created                   2025-04-15T14:11:06+05:30
+```
+{: screen}
 
 ## Updating an application load balancer with the API
 {: #alb-updating-frontend-listener-port-api}
@@ -149,16 +176,19 @@ To update an application load balancer with the API, perform the following proce
 1. Set up your [API environment](/docs/vpc?topic=vpc-set-up-environment#api-prerequisites-setup).
 1. Use the following example to get the listener ID that you need for the update:
 
-   Save the ID of the load balan
+   Save the ID of the load balancer by running below command:
 
    ```bash
-   export lbid="0738-dd754295-e9e0-4c9d-bf6c-58fbc59e5727"
+  export lbid="r042-ce351658-c236-4c99-8711-1414c5a6a99c"
    ```
    {: pre}
 
+   Install "jq" to view the output from the following command in clean json format. 
+   {: note}
+
    ```bash
-   curl -H "Authorization: $iam_token" -X GET
-   "$vpc_api_endpoint/v1/load_balancers/$lbid?version=$api_version&generation=2"
+   curl -H "Authorization: $iam_token" -X GET 
+   "$vpc_api_endpoint/v1/load_balancers/$lbid?version=$api_version&generation=2" | jq
    ```
    {: codeblock}
 
@@ -166,112 +196,138 @@ To update an application load balancer with the API, perform the following proce
 
    ```sh
    {
-       "created_at": "2020-08-24T23:36:22.990359Z",
-       "crn": "crn:v1:bluemix:public:is:eu-gb-3:a/be636a7a6e4d4b6296bedf669ce8f88::load-balancer:r018-808fedde-2650-46cc-9cd1-4b828b92970a",
-       "hostname": "808fedde-eu-gb.lb.appdomain.cloud",
-       "href": "https://eu-gb.iaas.cloud.ibm.com/v1/load_balancers/r018-808fedde-2650-46cc-9cd1-4b828b92970a",
-       "id": "r018-808fedde-2650-46cc-9cd1-4b828b92970a",
-       "is_public": true,
-       "listeners": [
-           {
-               "href": "https://eu-gb.iaas.cloud.ibm.com/v1/load_balancers/r018-808fedde-2650-46cc-9cd1-4b828b92970a/listeners/r018-3811d7ad-3bbe-4cb4-82de-8608f767866a",
-               "id": "r018-3811d7ad-3bbe-4cb4-82de-8608f767866a"
-           }
-       ],
-       "name": "test-alb",
-       "operating_status": "online",
-       "pools": [
-           {
-               "href": "https://eu-gb.iaas.cloud.ibm.com/v1/load_balancers/r018-808fedde-2650-46cc-9cd1-4b828b92970a/pools/r018-df11657f-63cf-49b5-af0f-6eeab32b3559",
-               "id": "r018-df11657f-63cf-49b5-af0f-6eeab32b3559",
-              "name": "pool1"
-           },
-           {
-               "href": "https://eu-gb.iaas.cloud.ibm.com/v1/load_balancers/r018-808fedde-2650-46cc-9cd1-4b828b92970a/pools/r018-733df056-2a46-4b5a-8889-9a787e60871d",
-               "id": "r018-733df056-2a46-4b5a-8889-9a787e60871d",
-               "name": "pool2"
-           }
-       ],
-       "private_ips": [
-           {
-               "address": "10.242.128.5"
-           },
-           {
-               "address": "10.242.128.6"
-           }
-       ],
-       "profile": {
-           "family": "Network",
-           "href": "https://eu-gb.iaas.cloud.ibm.com/v1/load_balancer/profiles/network-fixed",
-           "name": "network-fixed"
-       },
-       "provisioning_status": "active",
-       "public_ips": [
-           {
-               "address": "158.176.168.61"
-           },
-           {
-               "address": "158.176.172.132"
-           }
-       ],
-       "resource_group": {
-           "href": "https://resource-controller.cloud.ibm.com/v1/resource_groups/42c4f51adc3147b4b4049ad9826c30a1",
-           "id": "42c4f51adc3147b4b4049ad9826c30a1",
-           "name": "Default"
-       },
-       "resource_type": "load_balancer",
-       "subnets": [
-           {
-               "href": "https://eu-gb.iaas.cloud.ibm.com/v1/subnets/07a7-37b4dcfc-841e-4d4a-9f9f-9e45ffbd0285",
-               "id": "07a7-37b4dcfc-841e-4d4a-9f9f-9e45ffbd0285",
-               "name": "alb1"
-           }
-       ]
+    "access_mode": "private",
+    "attached_load_balancer_pool_members": [],
+    "availability": "subnet",
+    "created_at": "2024-12-23T06:29:04Z",
+    "crn": "crn:v1:bluemix:public:is:br-sao:a/5a83dca0e9c3408788bac5da136a9e76::load-balancer:r042-ce351658-c236-4c99-8711-1414c5a6a99c",
+    "dns": {
+        "instance": {
+        "crn": "crn:v1:bluemix:public:dns-svcs:global:a/74589ab5050034ede18fa510153e91f8:a2b96ed8-cea2-4db0-b60a-c02d99586d4f::"
+        },
+        "zone": {
+        "id": "a9240f0c-da77-4c55-be84-1d56c549a4de"
+        }
+    },
+    "failsafe_policy_actions": [
+        "fail",
+        "drop",
+        "forward"
+    ],
+    "hostname": "ce351658-br-sao.test.com",
+    "href": "https://br-sao.iaas.cloud.ibm.com/v1/load_balancers/r042-ce351658-c236-4c99-8711-1414c5a6a99c",
+    "id": "r042-ce351658-c236-4c99-8711-1414c5a6a99c",
+    "instance_groups_supported": true,
+    "is_private_path": false,
+    "is_public": false,
+    "listeners": [
+        {
+        "href": "https://br-sao.iaas.cloud.ibm.com/v1/load_balancers/r042-ce351658-c236-4c99-8711-1414c5a6a99c/listeners/r042-a00f2544-a1d3-4f9b-af31-4c34990a01f0",
+        "id": "r042-a00f2544-a1d3-4f9b-af31-4c34990a01f0"
+        }
+    ],
+    "logging": {
+        "datapath": {
+        "active": true
+        }
+    },
+    "name": "test-alb",
+    "operating_status": "online",
+    "pools": [
+        {
+        "href": "https://br-sao.iaas.cloud.ibm.com/v1/load_balancers/r042-ce351658-c236-4c99-8711-1414c5a6a99c/pools/r042-40fe93a2-16f4-467d-b0e4-70c7b093e137",
+        "id": "r042-40fe93a2-16f4-467d-b0e4-70c7b093e137",
+        "name": "pooltest"
+        }
+    ],
+    "private_ips": [
+        {
+        "address": "192.168.40.12",
+        "href": "https://br-sao.iaas.cloud.ibm.com/v1/subnets/02v7-3520cb95-db1a-4787-9bde-f9cb8e811685/reserved_ips/02v7-be9dd47d-3899-4f67-8f7d-0a38ee73a376",
+        "id": "02v7-be9dd47d-3899-4f67-8f7d-0a38ee73a376",
+        "name": "author-sabbatical-zookeeper-paddleboat",
+        "resource_type": "subnet_reserved_ip"
+        },
+        {
+        "address": "192.168.40.13",
+        "href": "https://br-sao.iaas.cloud.ibm.com/v1/subnets/02v7-3520cb95-db1a-4787-9bde-f9cb8e811685/reserved_ips/02v7-4a439c6a-15ed-43c0-910c-345d3af5f0c0",
+        "id": "02v7-4a439c6a-15ed-43c0-910c-345d3af5f0c0",
+        "name": "thinning-visitor-prance-chaps",
+        "resource_type": "subnet_reserved_ip"
+        }
+    ],
+    "profile": {
+        "family": "application",
+        "href": "https://br-sao.iaas.cloud.ibm.com/v1/load_balancer/profiles/dynamic",
+        "name": "dynamic"
+    },
+    "provisioning_status": "active",
+    "public_ips": [],
+    "resource_group": {
+        "href": "https://resource-controller.cloud.ibm.com/v2/resource_groups/5710acc3545d425db62cb37037d17245",
+        "id": "5710acc3545d425db62cb37037d17245",
+        "name": "Default"
+    },
+    "resource_type": "load_balancer",
+    "route_mode": false,
+    "security_groups": [
+        {
+        "crn": "crn:v1:bluemix:public:is:br-sao:a/5a83dca0e9c3408788bac5da136a9e76::security-group:r042-f9a9b05b-9f19-4e65-a39c-8e5ccd1b0303",
+        "href": "https://br-sao.iaas.cloud.ibm.com/v1/security_groups/r042-f9a9b05b-9f19-4e65-a39c-8e5ccd1b0303",
+        "id": "r042-f9a9b05b-9f19-4e65-a39c-8e5ccd1b0303",
+        "name": "resent-wrongness-erasure-flaky"
+        }
+    ],
+    "security_groups_supported": true,
+    "source_ip_session_persistence_supported": true,
+    "subnets": [
+        {
+        "crn": "crn:v1:bluemix:public:is:br-sao-3:a/5a83dca0e9c3408788bac5da136a9e76::subnet:02v7-3520cb95-db1a-4787-9bde-f9cb8e811685",
+        "href": "https://br-sao.iaas.cloud.ibm.com/v1/subnets/02v7-3520cb95-db1a-4787-9bde-f9cb8e811685",
+        "id": "02v7-3520cb95-db1a-4787-9bde-f9cb8e811685",
+        "name": "subnet-test-zone3",
+        "resource_type": "subnet"
+        }
+    ],
+    "udp_supported": false
    }
+
    ```
    {: screen}
 
-1. Save the listener ID that you want to update from the previous step. For example, save it in the variable `listenerid`.
+    1. Save the listener ID that you want to update from the previous step. For example, save it in the variable `listenerid`.
 
-   ```sh
-   export listenerid="r018-3811d7ad-3bbe-4cb4-82de-8608f767866a"
-   ```
-   {: pre}
+    ```sh
+    export listenerid="r042-a00f2544-a1d3-4f9b-af31-4c34990a01f0"
+    ```
+    {: pre}
 
-1. Update the listener port of the load balancer:
+    1. Update the listener port and Client/Server timeout values of the load balancer:
 
-   ```bash
-   curl -H "Authorization: $iam_token" -X PATCH
-   "$vpc_api_endpoint/v1/load_balancers/$lbid/listeners/$listenerid?version=$api_version&generation=2" \
-       -d '{"port": 200}'
-   ```
-   {: codeblock}
+    ```bash
+    curl -H "Authorization: $iam_token" -X PATCH
+    "$vpc_api_endpoint/v1/load_balancers/$lbid/listeners/$listenerid?version=$api_version&generation=2" \
+        -d '{"idle_connection_timeout": 50 , "port": 8080}' | jq
+    ```
+    {: codeblock}
 
-   Sample output:
+    Sample output:
 
-   ```sh
-   {
-       "created_at": "2020-08-24T23:36:23.723008Z",
-       "default_pool": {
-           "href": "https://eu-gb.iaas.cloud.ibm.com/v1/load_balancers/r018-808fedde-2650-46cc-9cd1-4b828b92970a/pools/r018-df11657f-63cf-49b5-af0f-6eeab32b3559",
-           "id": "r018-df11657f-63cf-49b5-af0f-6eeab32b3559",
-           "name": "pool1"
-       },
-       "href": "https://eu-gb.iaas.cloud.ibm.com/v1/load_balancers/r018-808fedde-2650-46cc-9cd1-4b828b92970a/listeners/r018-3811d7ad-3bbe-4cb4-82de-8608f767866a",
-       "id": "r018-3811d7ad-3bbe-4cb4-82de-8608f767866a",
-       "port": 200,
-       "protocol": "tcp",
-       "provisioning_status": "update_pending"
-   }
+    ```sh
+    {
+        "id": "r042-a00f2544-a1d3-4f9b-af31-4c34990a01f0",
+        "href": "https://br-sao.iaas.cloud.ibm.com/v1/load_balancers/r042-ce351658-c236-4c99-8711-1414c5a6a99c/listeners/r042-a00f2544-a1d3-4f9b-af31-4c34990a01f0",
+        "protocol": "http",
+        "port": 8080,
+        "port_min": 8080,
+        "port_max": 8080,
+        "provisioning_status": "update_pending",
+        "created_at": "2025-04-15T08:41:06Z",
+        "accept_proxy_protocol": false,
+        "idle_connection_timeout": 50
+    }
    ```
    {: screen}
 
-1. Update the timeout value of the load balancer listener:
-
-```bash
-curl -H "Authorization: $iam_token" -X PATCH "$vpc_api_endpoint/v1/load_balancers/$lbid/listeners/$listenerid?version=$api_version&generation=2" -d '{"idle_connection_timeout": VALUE_IN_SECONDS}' | jq
- ```
-{: codeblock}
-
-You can set a timeout value between 50 sec and 7200 sec. If you need more than 7200 sec, you can [open a support case](/docs/account?topic=account-open-case&interface=ui).
+You can set a timeout value between 50 sec and 7200 sec. If you need more than 2 hours (7200 sec), you can [open a support case](/docs/account?topic=account-open-case&interface=ui).
 {: note}
