@@ -2,7 +2,7 @@
 
 copyright:
   years: 2021, 2025
-lastupdated: "2025-06-18"
+lastupdated: "2025-07-28"
 
 keywords:
 
@@ -19,7 +19,7 @@ You can create an {{site.data.keyword.cloud}} {{site.data.keyword.alb_full}} (AL
 {: shortdesc}
 
 ## Creating an application load balancer in the console
-{: #lb-ui-creating-network-load-balancer}
+{: #lb-ui-creating-application-load-balancer}
 {: ui}
 
 To create an ALB:
@@ -28,10 +28,10 @@ To create an ALB:
 1. Select the **Navigation menu** ![Menu icon](../icons/icon_hamburger.svg), then click **Infrastructure** ![VPC icon](../../icons/vpc.svg) > **Network** > **Load balancers**.
 1. On the Load balancers page, click **Create +**.
 1. For Load balancer type, select the Applicatoin Load Balancer (ALB) tile.
-3. In the Location section, edit the following fields, if necessary.
+1. In the Location section, edit the following fields, if necessary.
    * **Geography**: Indicates the geography where you want the load balancer created.
    * **Region**: Indicates the region where you want the load balancer created.
-4. In the Details section, complete the following information:
+1. In the Details section, complete the following information:
    * **Name**: Enter a name for the load balancer, such as `my-load-balancer`.
    * **Resource group**: Select a resource group for the load balancer.
    * **Tags**: (Optional) Add tags to help you organize and find your resources. You can add more tags later. For more information, see [Working with tags](/docs/account?topic=account-tag).
@@ -109,7 +109,7 @@ To create an ALB:
     * **IAM Authorization**: If HTTPS is the selected protocol for this listener, you must designate your IAM authorization, either by instance or your CRN.
     * **Secrets Manager**: If HTTPS is the selected protocol for this listener, you must select or create a secrets manager.
     * **SSL certificate**: If HTTPS is the selected protocol for this listener, you must select an SSL certificate. Make sure that the load balancer is authorized to access the SSL certificate.
-    * **Timeout (sec)** (optional): The maximum timeout after which the load balancer closes the connection if no data has been sent or received by the time that the idle timeout period elapses. The minimum and maximum timeout value is 50 seconds and 2 hours respectively.
+    * **Timeout (sec)** (optional): The maximum timeout after which the load balancer closes the connection if no data has been sent or received by the time that the idle timeout period elapses. The minimum and maximum timeout values are 50 seconds and 2 hours. These values are for both the Client and Server. To increase the timeout limit to more than 2 hours, [Create a support case](/docs/account?topic=account-open-case&interface=ui) providing the business requirement for the timeout value required. 
 
 1. Click **Create** to create the front-end listener.
 1. In the Security groups section, select the security groups that you want to attach to your load balancer, or click **Create** to create a new security group to attach to your ALB.
@@ -170,7 +170,7 @@ To create an ALB:
         * **Key**: The name of the HTTP header field to evaluate, if the rule type is **Header**. For example, to match a cookie in the HTTP header, enter **Cookie** for the key.
 
 ## Creating an application load balancer from the CLI
-{: #lb-cli-creating-network-load-balancer}
+{: #lb-cli-creating-application-load-balancer}
 {: cli}
 
 The following example illustrates using the CLI to create an {{site.data.keyword.alb_full}} (ALB). In this example, it is in front of one VPC virtual server instance (ID `0716_6acdd058-4607-4463-af08-d4999d983945`) running a TCP server that listens on port 9090. The load balancer has a front-end listener, which allows secure access to the TCP server.
@@ -278,19 +278,21 @@ To create an application load balancer from the CLI, follow these steps:
 1. Create a listener:
 
     ```sh
-    ibmcloud is load-balancer-listener-create r006-99b5ab45-6357-42db-8b32-5d2c8aa62776 7070 tcp --default-pool r006-3b66d605-6aa5-4166-9f66-b16054da3cb0
+    $ibmcloud is load-balancer-listener-create r006-99b5ab45-6357-42db-8b32-5d2c8aa62776 7070 tcp --default-pool r006-3b66d605-6aa5-4166-9f66-b16054da3cb0 -idle-connection-timeout 30
     ```
     {: pre}
 
     Sample output:
 
     ```sh
-    Creating listener of load balancer r006-99b5ab45-6357-42db-8b32-5d2c8aa62776 under account IBM Cloud Network Services as user test@ibm.com...
+    $ibmcloud is load-balancer-listener-create r006-99b5ab45-6357-42db-8b32-5d2c8aa62776 7070 tcp --default-pool r006-3b66d605-6aa5-4166-9f66-b16054da3cb0 -idle-connection-timeout 30
 
+    Sample output:
+    Creating listener of load balancer r006-99b5ab45-6357-42db-8b32-5d2c8aa62776 under account IBM Cloud Network Services as user test@ibm.com...
     ID                      r006-2847a948-f9b6-4fc1-91c6-f1c49dac3eba
     Certificate instance    -
     Connection limit        -
-    Idle connection timeout 50
+    Idle connection timeout 30
     Port                    7070
     Protocol                tcp
     Default pool            r006-3b66d605-6aa5-4166-9f66-b16054da3cb0
@@ -298,6 +300,8 @@ To create an application load balancer from the CLI, follow these steps:
     Created                 2020-08-27T15:16:08.643-05:00
     ```
     {: screen}
+
+    For more options, see [VPC CLI reference for load balancers](/docs/vpc?topic=vpc-vpc-reference#lb-anchor). 
 
 1. Create a policy:
 
@@ -358,7 +362,7 @@ To create an application load balancer from the CLI, follow these steps:
     {: screen}
 
 ## Creating an application load balancer with the API
-{: #lb-api-creating-network-load-balancer}
+{: #lb-api-creating-application-load-balancer}
 {: api}
 
 The following example illustrates using the API to create an application load balancer in front of two VPC virtual server instances (`192.168.100.5` and `192.168.100.6`) running a web application that listens on port `80`. The load balancer has a front-end listener, which allows secure access to the web application by using HTTPS.
@@ -379,12 +383,16 @@ To create an application load balancer with the API, follow these steps:
     ```
     {: pre}
 
-1. Create a load balancer with a listener, pool, and attached server instances (pool members)
+    You can also find your resource group ID by using IBM Cloud console. From your browser, open the [{{site.data.keyword.cloud_notm}} console](/login){: external} and log in to your account. Select **Manage** > **Account** > **Resource Groups**. 
+
+1. Create a load balancer with a listener, pool, and attached server instances (pool members) with the following sample code:
 
     ```bash
     curl -H "Authorization: $iam_token" -X POST
     "$vpc_api_endpoint/v1/load_balancers?version=$api_version&generation=2" \
-      -d '{
+      -d @alb_create_payload.json
+      Where alb_create_payload.json has the following content:
+      '{
           "name": "example-balancer",
           "is_public": true,
           "listeners": [
@@ -394,6 +402,7 @@ To create an application load balancer with the API, follow these steps:
                   },
                   "port": 443,
                   "protocol": "tcp",
+                  "idle_connection_timeout" : 80,
                   "default_pool": {
                       "name": "example-pool"
                   }
@@ -441,6 +450,8 @@ To create an application load balancer with the API, follow these steps:
           }'
     ```
     {: codeblock}
+
+    For more options, see [VPC API reference for load balancers](https://cloud.ibm.com/apidocs/vpc/latest#list-load-balancer-profiles). 
 
     Sample output:
 
