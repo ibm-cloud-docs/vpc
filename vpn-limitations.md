@@ -33,7 +33,7 @@ Lists known limitations, issues, and restrictions for IBM Cloud VPN for VPC.
 * When you configure and optimize site-to-site IPsec VPN connections, you might encounter network performance issues, one of which is related to Maximum Transmission Unit (MTU) and Maximum Segment Size (MSS) clamping. For more information, see [IBM site-to-site VPN Maximum Transmission Unit (MTU) clamping](/docs/vpc?topic=vpc-about-mtu).
 * When a route uses a VPN gateway connection as its next hop, it must be present in an egress routing table that is associated with VPC subnets. Additionally, when the VPN gateway forwards traffic into the VPN tunnel, it checks whether the source IP of this traffic is within the subnet that is attached to that routing table. If the source IP is outside that subnet, the traffic isn't encrypted or sent through the VPN tunnel to the peer gateway. For instance, if the VPN gateway receives traffic that is routed through the ingress routing table, the traffic isn't forwarded into the VPN tunnel because the source IP is outside the subnet that is attached to the routing table.
 
-   Creating a route in an ingress routing table with a VPN gateway as the next hop isn't supported.
+   Creating a route in an ingress routing table with a VPN gateway connection as the next hop isn't supported.
    {: note}
 
 * When you update the `peer.address` or `peer.fqdn` of a VPN gateway connection, it affects how the VPN identifies and connects to your remote peer.
