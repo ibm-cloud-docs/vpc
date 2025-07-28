@@ -17,7 +17,7 @@ subcollection: vpc
 
 As described in the VPC API reference [versioning](/apidocs/vpc/latest#api-versioning) policy, most changes to the VPC APIs are fully compatible with earlier versions and are made available to all clients, regardless of the API version the client requests. However, the beta `2025-07-22` release of the VPC API necessitated incompatible changes in support of file shares, file share profiles, and file share mount target methods.
 
-Before you adopt the release version `2025-07-22` or later, review the changes described in this migration guidance that might require you to update your client.
+Before you adopt the release version `2025-07-22` or later, review the changes that are described in this migration guidance that might require you to update your client.
 {: important}
 
 ## Changed properties
@@ -26,7 +26,7 @@ Before you adopt the release version `2025-07-22` or later, review the changes d
 ### Updating `user_managed` transit encryption mode to `ipsec`
 {: #updating-user-managed-transit-encryption-to-ipsec}
 
-In this beta update, the value `user_managed` for the `allowed_transit_encryption_mode` of file shares and file share profiles, as well as `transit_encryption` property of file share mount targets (introduced in the [11 July 2023](/docs/vpc?topic=vpc-api-change-log-beta#version-2023-07-11-beta) release for file shares, file share profiles, and file share mount targets) is now replaced with `ipsec`.
+In this beta update, the value `user_managed` for the `allowed_transit_encryption_mode` of file shares and file share profiles, and `transit_encryption` property of file share mount targets (introduced in the [11 July 2023](/docs/vpc?topic=vpc-api-change-log-beta#version-2023-07-11-beta) release for file shares, file share profiles, and file share mount targets) is now replaced with `ipsec`.
 
 | Property name                     | Old property value | New property value |
 |-----------------------------------|--------------------|--------------------|
@@ -42,7 +42,7 @@ In this beta update, the `access_protocol` and `transit_encryption` properties a
 ### `zone` property no longer required
 {: #zone-property-no-longer-required}
 
-In this beta update, the `zone` property of `Share` requests is no longer required as part of the `Share` API request. This value must not be specified for regional file shares using the `rfs` profile, but the value is still required for file shares using the `dp2` profile. Existing requests for file shares using the `dp2` profile are not affected.
+In this beta update, the `zone` property of `Share` requests is no longer required as part of the `Share` API request. This value must not be specified for regional file shares with the `rfs` profile, but the value is still required for the zonal file shares that use the `dp2` profile. Existing requests for file shares that use the `dp2` profile are not affected.
 
 ## Action needed
 {: #action-needed-2025-07-22-beta}
@@ -50,11 +50,11 @@ In this beta update, the `zone` property of `Share` requests is no longer requir
 ### Migrating from `user_managed` to `ipsec`
 {: #migrating-from-user_managed-to-ipsec-2025-07-22-beta}
 
-Before you specify version query parameter of `2025-07-22` or later, follow these actions to avoid regressions in client functionality.
+Before you specify the version query parameter of `2025-07-22` or later, follow these actions to avoid regressions in client functionality.
 
 If your clients continue to specify version `2025-07-21` or earlier, no changes are required.
 
-### Client Migration
+### Client migration
 {: #client-migration-2025-07-22-beta}
 
 Before you migrate a client to an API version `2025-07-22` or later, review your code that uses the following methods: 
@@ -143,7 +143,7 @@ curl --request POST \
 ```
 {: pre}
 
-The following example shows a response to an API request for a regional file share using the API version `2025-07-21` or earlier. The  `zone` property indicates the first zone in the region.
+The following example shows a response to an API request for a regional file share that uses the API version `2025-07-21` or earlier. The `zone` property indicates the first zone in the region.
 
 ```sh
 {
@@ -199,7 +199,7 @@ The following example shows a response to an API request for a regional file sha
 ```
 {: pre}
 
-The following example shows a response to an API request for a regional file share using the API version `2025-07-22` or later. The `zone` property is absent. 
+The following example shows a response to an API request for a regional file share that uses the API version `2025-07-22` or later. The `zone` property is absent. 
 
 ```sh
 {
