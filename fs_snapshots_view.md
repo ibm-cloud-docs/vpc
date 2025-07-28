@@ -2,7 +2,7 @@
 
 copyright:
   years: 2024, 2025
-lastupdated: "2025-05-30"
+lastupdated: "2025-07-28"
 
 keywords: view snapshots, view snapshot, viewing snapshots, see snapshots, File storage snapshots
 
@@ -164,15 +164,15 @@ ibmcloud is share-snapshots [--backup-policy-plan BACKUP_POLICY_PLAN] [--backup-
 ```
 {: pre}
 
-The following example shows the snapshots that were taken by the backup policy plan with the ID `r134-158e0d66-338e-4501-b756-be0732677da8`.
+The following example shows the snapshots that were taken by the backup policy plan with the ID `r006-158e0d66-338e-4501-b756-be0732677da8`.
 
 ```sh
-ibmcloud is share-snapshots --backup-policy-plan r134-158e0d66-338e-4501-b756-be0732677da8 --share my-file-share
+ibmcloud is share-snapshots --backup-policy-plan r006-158e0d66-338e-4501-b756-be0732677da8 --share my-file-share
 Listing share snapshots of share my-file-share under account Test Account as user test.user@ibm.com...
 ID                                          Name                                Created at                  Fingerprint                            Minimum Size   LifeCycle State   Zone         Status      User Tags   
-r134-b4d12d66-18de-4660-9fe7-12e667d5ed5b   demo-bkp-plan-1-d619b2fb4a68-4602   2024-11-19T11:33:27+05:30   643ce8da-bbbd-4515-b988-701aea2667df   40             stable            us-south-1   available   dev:tags   
-r134-59d25cac-92cd-4076-b988-e5d6746a848f   demo-bkp-plan-1-e4406ae16e8f-4cb0   2024-11-19T12:32:23+05:30   202a5bd4-a1e0-4d89-914c-3574f45fc725   40             stable            us-south-1   available   dev:tags   
-r134-41785c6b-5d48-4dc1-89b7-21a5b2ada21e   demo-bkp-plan-1-efc6f81b8505-4782   2024-11-19T10:32:19+05:30   acd57e05-ffe2-4eed-8e78-40b5000c53d3   40             stable            us-south-1   available   dev:tags 
+r006-b4d12d66-18de-4660-9fe7-12e667d5ed5b   demo-bkp-plan-1-d619b2fb4a68-4602   2024-11-19T11:33:27+05:30   643ce8da-bbbd-4515-b988-701aea2667df   40             stable            us-south-1   available   dev:tags   
+r006-59d25cac-92cd-4076-b988-e5d6746a848f   demo-bkp-plan-1-e4406ae16e8f-4cb0   2024-11-19T12:32:23+05:30   202a5bd4-a1e0-4d89-914c-3574f45fc725   40             stable            us-south-1   available   dev:tags   
+r006-41785c6b-5d48-4dc1-89b7-21a5b2ada21e   demo-bkp-plan-1-efc6f81b8505-4782   2024-11-19T10:32:19+05:30   acd57e05-ffe2-4eed-8e78-40b5000c53d3   40             stable            us-south-1   available   dev:tags 
 ```
 {: screen}
 

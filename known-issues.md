@@ -2,7 +2,7 @@
 
 copyright:
   years: 2018, 2025
-lastupdated: "2025-07-23"
+lastupdated: "2025-07-28"
 
 keywords:
 
@@ -139,40 +139,50 @@ When you retrieve information about your cross-regional replica share, the sourc
 ### Regional file share mount targets and `us-south-dal14-a` availability zone
 {: #regional-file-share-mount-us-south-dal14-a}
 
-Creating a mount target for a regional share in any of the subnets in `us-south-dal14-a` is currently not supported. Provisioning attempts in that zone do not complete successfully. Instead, the mount target stays in the `lifecycle_state` of `pending`. Regional file shares in the `us-south` region cannot be mounted on virtual server instances that are provisioned in the `us-south-dal14-a` zone by using a mount target in a different zone.
+[Beta]{: tag-cyan}
 
+Creating a mount target for a regional share in any of the subnets in `us-south-dal14-a` is not supported in the beta release. Provisioning attempts in that zone do not complete successfully. Instead, the mount target stays in the `lifecycle_state` of `pending`. Regional file shares in the `us-south` region cannot be mounted on virtual server instances that are provisioned in the `us-south-dal14-a` zone by using a mount target in a different zone.
 
-You can determine if one of your VPC zones is mapped to `us-south-dal14-a` by using the [IBM Cloud console](/infrastructure), [CLI](/docs/vpc?topic=vpc-vpc-reference#zones), or the [VPC API](/apidocs/vpc#list-region-zones). For more information, see [Zone mapping per account](/docs/overview?topic=overview-locations#zone-mapping).
+You can determine whether one of your VPC zones is mapped to `us-south-dal14-a` by using the [IBM Cloud console](/infrastructure), [CLI](/docs/vpc?topic=vpc-vpc-reference#zones), or the [VPC API](/apidocs/vpc#list-region-zones). For more information, see [Zone mapping per account](/docs/overview?topic=overview-locations#zone-mapping).
 
 ### File share properties missing in API response
 {: #file-share-properties-missing-in-api-response}
 
-In an API response, the following properties may be missing or incorrect:
+[Beta]{: tag-cyan}
 
-- `allowed_access_protocols` may not be included in the share API response when retrieving, listing, or updating file shares.
-- `storage_generation` may not be included in the share profile API response when retrieving or listing share profiles. The `storage_generation` for file share profiles is `2` for the `rfs` profile and `1` for all other profiles.
-- `zone` may be absent in the share API response when creating, retrieving, listing, updating, or deleting file shares with `rfs` profile when using a version of `2025-07-21` or earlier. Also when using a `version` query parameter of `2025-07-21` or earlier, the `zone` of an `rfs` share will return the first zone from the region and is informational only. `zone` is not affected for `dp2` shares and is represented correctly for `rfs` shares when using an API version of `2025-07-22` or later.
+In an API response, the following properties might be missing or incorrect:
 
+- `allowed_access_protocols` might not be included in the share API response when files shares are retrieved, listed, or updated.
+- `storage_generation` might not be included in the share profile API response when file share profiles are listed or retrieved. The `storage_generation` for file share profiles is `2` for the `rfs` profile and `1` for all other profiles.
+- `zone` might be absent in the share API response when file shares with `rfs` profile are created, retrieved, listed, updated, or deleted by using an API version of `2025-07-21` or earlier. Also, when a `version` query parameter of `2025-07-21` or earlier is used, the `zone` of an `rfs` share returns the first zone from the region and is informational only. `zone` is not affected for `dp2` shares and is represented correctly for `rfs` shares when an API version of `2025-07-22` or later is used.
 
 ### Updating a regional file share to `vpc` access control mode succeeds
 {: #regional-file-share-vpc-access-control-mode}
 
-Although regional file shares do not support the `vpc` access control mode, requests to update a regional file share to use an `access_control_mode` of `vpc` will erroneously succeed, with the file share remaining in `pending` state.
+[Beta]{: tag-cyan}
+
+Although regional file shares do not support the `vpc` access control mode, requests to update a regional file share to use an `access_control_mode` of `vpc` can erroneously appear to succeed. However, the resulting file share remains in `pending` state.
 
 ### Creating replica file shares with `allowed_transit_encryption_modes` or mount targets with `transit_encryption`
 {: #replica-file-share-transit-encryption} 
 
-When creating a replica file share with `allowed_transit_encryption_modes` specified, the request incorrectly fails. Additionaly, creating a replica file share with a mount target with a  `transit_encryption` value not listed in the source share's `allowed_transit_encryption_modes` incorrectly fails. To work around this issue, do not specify `allowed_transit_encryption_modes` in requests to create a replica file share. The replica's `allowed_transit_encryption_modes` are inherited from the source share. For share mount target creation to a replica file share, use only `transit_encryption` values specified in the source share's `allowed_transit_encryption_modes`.
+[Beta]{: tag-cyan}
+
+When you try to create a replica file share with the `allowed_transit_encryption_modes` option specified, the request fails. Additionally, creating a replica file share with a mount target without a `transit_encryption` value in the source share's `allowed_transit_encryption_modes` property fails. This behavior is incorrect. To work around this issue, do not specify `allowed_transit_encryption_modes` in requests to create a replica file share. The replica's `allowed_transit_encryption_modes` are inherited from the source share. When you want to create a mount target for a replica file share, use only the `transit_encryption` values that are specified in the source share's `allowed_transit_encryption_modes` property.
 
 ### File share bandwidth for `dp2` file shares is incorrectly reported
 {: #dp2-file-share-bandwidth-incorrectly-reported}
 
-For `dp2` profile shares, the `bandwidth` returned in the API response is incorrectly reported as `1` Mbps in the file share. This value is calculated based on the share's selected `iops` value and does not affect `dp2` file share QoS.
+[Beta]{: tag-cyan}
+
+For `dp2` profile shares, the `bandwidth` returned in the API response is incorrectly reported as `1` Mbps in the file share. This value is calculated based on the share's selected `iops` value and does not affect `dp2` file share's QoS.
 
 ### Regional file share mount target provisioning delays
 {: #regional-file-share-mount-target-provisioning}
 
-Creating a share mount target for a regional file share may take more than 10 minutes, during which time its `lifecycle_state` will be `pending`. Mount targets for shares using the `dp2` profile are not affected.
+[Beta]{: tag-cyan}
+
+Creating a share mount target for a regional file share can take more than 10 minutes, during which time its `lifecycle_state` shows as `pending`. Mount targets for shares that use the `dp2` profile are not affected.
 
 ### Backup plan ID property in the API response
 {: #backup-policy-plan-fs}
@@ -192,10 +202,9 @@ When details of first-generation volume profiles are retrieved, the responses sh
 ### Block volume snapshots that are taken in Montreal are stored in {{site.data.keyword.cos_short}} in Washington, DC
 {: #snapshot-COS-upload-CA-MON-US-EAST}
 
-
 Due to the unavailability of a local key management service ({{site.data.keyword.keymanagementserviceshort}}) instance in Montreal, the block volume snapshots that are taken in Montreal are routed to and stored in an encrypted {{site.data.keyword.cos_short}} bucket with local KMS keys in the WDC MZR. When the KMS service becomes available in Montreal, all the snapshots will be moved back to Montreal from Washington DC.
 
-### Block volume snapshot is greater in remote region than the original snapshot
+### Block volume snapshot is greater in the remote region than the original snapshot
 {: #snapshot-CRC-billing}
 
 The first time that you create a cross-regional copy, that snapshot is a full copy of the parent volume's data. Subsequent copies can be incremental or full copies. Whether the remote copy is incremental depends on the immediately preceding snapshot in the chain. If the immediately preceding snapshot exists in the destination region, the copy can be incremental. If the immediately preceding snapshot is not found or it's not stable in the remote region, a new full-copy is created. When a full remote copy is generated from an incremental snapshot, it creates a discrepancy in the billing.

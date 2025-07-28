@@ -2,7 +2,7 @@
 
 copyright:
   years: 2022, 2025
-lastupdated: "2025-07-08"
+lastupdated: "2025-07-28"
 
 keywords: file storage, file share, view share details, mount targets, view targets, view share
 
@@ -513,8 +513,8 @@ A successful response looks like the following example.
     {
       "accessor": {
         "crn": "crn:[...]",
-        "href": "https://us-south.iaas.cloud.ibm.com/v1/shares/r134-f64efe74-a5a2-45c7-b37d-5071d2dd6339",
-        "id": "r134-f64efe74-a5a2-45c7-b37d-5071d2dd6339",
+        "href": "https://us-south.iaas.cloud.ibm.com/v1/shares/r006-f64efe74-a5a2-45c7-b37d-5071d2dd6339",
+        "id": "r006-f64efe74-a5a2-45c7-b37d-5071d2dd6339",
         "name": "my-accessor-share",
         "resource_type": "share"
       },
@@ -524,15 +524,15 @@ A successful response looks like the following example.
       },
       "created_at": "2022-01-07T16:56:54Z",
       "crn": "crn:[...]",
-      "href": "https://us-south.iaas.cloud.ibm.com/v1/shares/r134-f64efe74-a5a2-45c7-b37d-5071d2dd6339/bindings/r134-df760133-3513-47e7-b980-26cca666561b",
-      "id": "r134-df760133-3513-47e7-b980-26cca666561b",
+      "href": "https://us-south.iaas.cloud.ibm.com/v1/shares/r006-f64efe74-a5a2-45c7-b37d-5071d2dd6339/bindings/r006-df760133-3513-47e7-b980-26cca666561b",
+      "id": "r006-df760133-3513-47e7-b980-26cca666561b",
       "lifecycle_state": "stable",
       "name": "my-share-bind",
       "resource_type": "share_binding"
     }
   ],
   "first": {
-    "href": "https://us-south.iaas.cloud.ibm.com/v1/shares/r134-65f30e48-3074-4eb0-9ec4-51ce2ec968eb/bindings?limit=20"
+    "href": "https://us-south.iaas.cloud.ibm.com/v1/shares/r006-65f30e48-3074-4eb0-9ec4-51ce2ec968eb/bindings?limit=20"
   },
   "limit": 50,
   "total_count": 1
@@ -557,8 +557,8 @@ A successful response looks like the following example.
 {
   "accessor": {
     "crn": "crn:[...]",
-    "href": "https://us-south.iaas.cloud.ibm.com/v1/shares/r134-f64efe74-a5a2-45c7-b37d-5071d2dd6339",
-    "id": "r134-f64efe74-a5a2-45c7-b37d-5071d2dd6339",
+    "href": "https://us-south.iaas.cloud.ibm.com/v1/shares/r006-f64efe74-a5a2-45c7-b37d-5071d2dd6339",
+    "id": "r006-f64efe74-a5a2-45c7-b37d-5071d2dd6339",
     "name": "my-accessor-share",
     "resource_type": "share"
   },
@@ -568,8 +568,8 @@ A successful response looks like the following example.
   },
   "created_at": "2022-01-07T16:56:54Z",
   "crn": "crn:[...]",
-  "href": "https://us-south.iaas.cloud.ibm.com/v1/shares/r134-f64efe74-a5a2-45c7-b37d-5071d2dd6339/bindings/r134-df760133-3513-47e7-b980-26cca666561b",
-  "id": "r134-df760133-3513-47e7-b980-26cca666561b",
+  "href": "https://us-south.iaas.cloud.ibm.com/v1/shares/r006-f64efe74-a5a2-45c7-b37d-5071d2dd6339/bindings/r006-df760133-3513-47e7-b980-26cca666561b",
+  "id": "r006-df760133-3513-47e7-b980-26cca666561b",
   "lifecycle_state": "stable",
   "name": "my-share-bind",
   "resource_type": "share_binding"

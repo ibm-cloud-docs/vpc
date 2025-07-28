@@ -2,7 +2,7 @@
 
 copyright:
   years: 2021, 2025
-lastupdated: "2025-07-23"
+lastupdated: "2025-07-28"
 
 keywords: file share, file storage, virtual network interface, encryption in transit, profiles, 
 
@@ -148,9 +148,9 @@ You can use the `ibmcloud is share-create` command to provision a file share in 
 $ ibmcloud is share-create --name my-file-share --zone us-south-1 --profile dp2 --size 40 --iops 100
 Creating file share my-file-share under account Test Account as user test.user@ibm.com...
                                       
-ID                                 r134-4c4bd25f-4ecf-4636-a99a-c80dff3e8910    
+ID                                 r006-4c4bd25f-4ecf-4636-a99a-c80dff3e8910    
 Name                               my-file-share   
-CRN                                crn:v1:staging:public:is:ussouth1:a/efe5afc483594adaa8325e2b4d1290df::share:r1344c4bd25f-4ecf-4636-a99a-c80dff3e8910    
+CRN                                crn:v1:bluemix:public:is:ussouth1:a/efe5afc483594adaa8325e2b4d1290df::share:r1344c4bd25f-4ecf-4636-a99a-c80dff3e8910    
 Lifecycle state                    pending   
 Access control mode                security_group   
 Accessor binding role              none   
@@ -184,9 +184,9 @@ Security group access mode is the default and recommended setting. However, you 
 $ ibmcloud is share-create --name my-vpc-file-share --zone us-south-2 --profile dp2 --size 1000 --iops 500 --access-control-mode vpc
 Creating file share my-vpc-file-share under account Test Account as user test.user@ibm.com...
                                 
-ID                                 r134-83100dcb-24d8-45a6-91f3-256e5c17233f       
+ID                                 r006-83100dcb-24d8-45a6-91f3-256e5c17233f       
 Name                               my-vpc-file-share   
-CRN                                crn:v1:staging:public:is:us-south-2:a/efe5afc483594adaa8325e2b4d1290df::share:r134-83100dcb-24d8-45a6-91f3-256e5c17233f    
+CRN                                crn:v1:bluemix:public:is:us-south-2:a/efe5afc483594adaa8325e2b4d1290df::share:r006-83100dcb-24d8-45a6-91f3-256e5c17233f    
 Lifecycle state                    pending   
 Access control mode                vpc   
 Accessor binding role              none
@@ -253,12 +253,12 @@ The following example creates a mount target for a file share that has VPC acces
 
 ```sh
 $ ibmcloud is share-mount-target-create my-vpc-file-share --vpc cli-vpc-3 --name my-vpc-mount-targetnfs4 --transit-encryption none
-Mounting target for share r134-10e82e16-ff7f-4ca4-b543-d24084fc03cf under account Test Account as user test.user@ibm.com...
+Mounting target for share r006-10e82e16-ff7f-4ca4-b543-d24084fc03cf under account Test Account as user test.user@ibm.com...
                          
-ID                        r134-71fd953c-8e49-48e8-ab49-5977c324a365   
+ID                        r006-71fd953c-8e49-48e8-ab49-5977c324a365   
 Name                      my-vpc-mount-target   
 VPC                       ID                                          Name      
-                          r134-060fbfe6-4d0f-47b0-b9c5-94da8e719e22   cli-vpc-3      
+                          r006-060fbfe6-4d0f-47b0-b9c5-94da8e719e22   cli-vpc-3      
                          
 Access control mode       vpc   
 Resource type             share_mount_target
@@ -280,12 +280,12 @@ You can create a file share with one or more mount targets in one step by using 
 The following example shows how to create a file share with 40 GB capacity and 100 IOPS in the `us-south-1` zone. The file share is tagged with `env:dev` and has security group access control mode. The file share can be mounted on authorized virtual servers by using the mount target `my-target1`.
 
 ```sh
-$ ibmcloud is share-create --name my-fs-cli-1 --profile dp2 --zone us-south-1 --size 40 --mount-targets '[{ "name":"my-target1", "virtual_network_interface":{"name":"my-fs-cli-vni", "primary_ip":{"address":"12345","auto-delete":true,"name":"vni-target-1"},"security_groups":[{"id":"r134-d1fef8e0-8e16-41a7-bca5-84e2029deb05"}],"subnet":{"id":"0726-3d6502c8-baa1-4632-a5d9-d4b015aa93c1"}}}]'
+$ ibmcloud is share-create --name my-fs-cli-1 --profile dp2 --zone us-south-1 --size 40 --mount-targets '[{ "name":"my-target1", "virtual_network_interface":{"name":"my-fs-cli-vni", "primary_ip":{"address":"12345","auto-delete":true,"name":"vni-target-1"},"security_groups":[{"id":"r006-d1fef8e0-8e16-41a7-bca5-84e2029deb05"}],"subnet":{"id":"0726-3d6502c8-baa1-4632-a5d9-d4b015aa93c1"}}}]'
 Creating file share my-fs-cli-1 under account Test Account as user test.user@ibm.com...
                                 
-ID                               r134-5a544f6d-5fb9-4f31-acac-1fd13a5531bf   
+ID                               r006-5a544f6d-5fb9-4f31-acac-1fd13a5531bf   
 Name                             my-fs-cli-1   
-CRN                              crn:v1:staging:public:is:us-south-1:a/efe5afc483594adaa8325e2b4d1290df::share:r134-5a544f6d-5fb9-4f31-acac-1fd13a5531bf   
+CRN                              crn:v1:bluemix:public:is:us-south-1:a/efe5afc483594adaa8325e2b4d1290df::share:r006-5a544f6d-5fb9-4f31-acac-1fd13a5531bf   
 Lifecycle state                  pending   
 Access control mode              security_group
 Accessor binding role            none
@@ -296,7 +296,7 @@ Size(GB)                         40
 IOPS                             100      
 Encryption                       provider_managed   
 Mount Targets                    ID                                          Name      
-                                 r134-68c20e6b-58d6-48c2-8c9c-564c8eed72db   my-target1      
+                                 r006-68c20e6b-58d6-48c2-8c9c-564c8eed72db   my-target1      
                                 
 Resource group                   ID                                          Name      
                                  11caaa983d9c4beb82690daab08717e9            Default      
@@ -406,9 +406,9 @@ To set supplemental IDs when you create a share, run the `ibmcloud is share-crea
 $ ibmcloud is share-create --name my-file-share --zone us-south-2 --profile dp2 --size 1000 --iops 1000 --initial-owner-gid 101 --initial-owner-uid 10001
 Creating file share my-file-share under account Test Account as user test.user@ibm.com...
                                 
-ID                                 r134-346811e7-cf29-4baa-af77-909fb549d1e6   
+ID                                 r006-346811e7-cf29-4baa-af77-909fb549d1e6   
 Name                               my-file-share   
-CRN                                crn:v1:staging:public:is:us-south-2:a/efe5afc483594adaa8325e2b4d1290df::share:r134-346811e7-cf29-4baa-af77-909fb549d1e6   
+CRN                                crn:v1:bluemix:public:is:us-south-2:a/efe5afc483594adaa8325e2b4d1290df::share:r006-346811e7-cf29-4baa-af77-909fb549d1e6   
 Lifecycle state                    pending   
 Access control mode                security_group   
 Accessor binding role              none   

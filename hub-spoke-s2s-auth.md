@@ -2,7 +2,7 @@
 
 copyright:
   years: 2023, 2025
-lastupdated: "2025-07-01"
+lastupdated: "2025-07-28"
 
 keywords:
 
@@ -92,7 +92,7 @@ ibmcloud iam authorization-policy-create --file JSON_FILE
 Where the `JSON_FILE` contains:
 
 ```json
-{"type":"authorization","subjects":[{"attributes":[{"name":"accountId","value":"e38cfd44b6e44b249ac75dd5de0cc8aa"},{"name":"serviceName","value":"is"},{"name":"resourceType","value":"vpc"},{"name":"resource","value":"r134-fd189c4f-52a0-4694-abfd-186cb6011a3c"}]}],"roles":[{"role_id":"crn:v1:bluemix:public:is::::serviceRole:DNSBindingConnector"}],"resources":[{"attributes":[{"name":"accountId","value":"e38cfd44b6e44b249ac75dd5de0cc8aa"},{"name":"serviceName","value":"is"},{"name":"vpcId","value":"r134-ffaedf75-4f44-4ead-989d-cd37816a13d2"}]}]}
+{"type":"authorization","subjects":[{"attributes":[{"name":"accountId","value":"e38cfd44b6e44b249ac75dd5de0cc8aa"},{"name":"serviceName","value":"is"},{"name":"resourceType","value":"vpc"},{"name":"resource","value":"r006-fd189c4f-52a0-4694-abfd-186cb6011a3c"}]}],"roles":[{"role_id":"crn:v1:bluemix:public:is::::serviceRole:DNSBindingConnector"}],"resources":[{"attributes":[{"name":"accountId","value":"e38cfd44b6e44b249ac75dd5de0cc8aa"},{"name":"serviceName","value":"is"},{"name":"vpcId","value":"r006-ffaedf75-4f44-4ead-989d-cd37816a13d2"}]}]}
 ```
 {: pre}
 

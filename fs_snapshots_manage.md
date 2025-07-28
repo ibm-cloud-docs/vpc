@@ -2,7 +2,7 @@
 
 copyright:
   years: 2024, 2025
-lastupdated: "2025-06-03"
+lastupdated: "2025-07-28"
 
 keywords: snapshots, File storage snapshots, manage snapshots, backup snapshot, remote copy, cross-regional copy
 
@@ -52,10 +52,10 @@ ibmcloud is share-snapshot-update SHARE SNAPSHOT --tags NEW_TAG1,NEW_TAG2 [--out
 See the following example, which adds a user tag.
 
 ```sh
-ibmcloud is share-snapshot-update my-file-share r134-6ce54f3b-8971-4b5d-95a7-7dfa897ddfb3 --user-tags test:cli
+ibmcloud is share-snapshot-update my-file-share r006-6ce54f3b-8971-4b5d-95a7-7dfa897ddfb3 --user-tags test:cli
 Updating file share snapshot share-snapshot-cli-update for share my-file-share under account Test Account as user test.user@ibm.com...
                         
-ID                   r134-6ce54f3b-8971-4b5d-95a7-7dfa897ddfb3   
+ID                   r006-6ce54f3b-8971-4b5d-95a7-7dfa897ddfb3   
 Name                 share-snapshot-cli-update   
 Fingerprint          c25fdce4-6e0a-433f-99c0-9985f127cd54   
 Backup Policy Plan   -   
@@ -64,11 +64,11 @@ Status reasons       Status code   Status message
                      -             -  
 Created at           2024-12-17T11:19:33+05:30   
 Captured At          2024-12-17T11:19:34+05:30   
-CRN                  crn:v1:bluemix:public:is:us-south-1:a/a123456::share-snapshot:r134-2ae87eb2-b26c-4126-ab34-e6e64f6f1773/r134-6ce54f3b-8971-4b5d-95a7-7dfa897ddfb3   
+CRN                  crn:v1:bluemix:public:is:us-south-1:a/a123456::share-snapshot:r006-2ae87eb2-b26c-4126-ab34-e6e64f6f1773/r006-6ce54f3b-8971-4b5d-95a7-7dfa897ddfb3   
 LifeCycle State      stable
 LifeCycle Reasons    Code   Message   More Info      
                       -      -         
-Href                 https://us-south.iaas.cloud.ibm.com/v1/shares/r134-2ae87eb2-b26c-4126-ab34-e6e64f6f1773/snapshots/r134-6ce54f3b-8971-4b5d-95a7-7dfa897ddfb3   
+Href                 https://us-south.iaas.cloud.ibm.com/v1/shares/r006-2ae87eb2-b26c-4126-ab34-e6e64f6f1773/snapshots/r006-6ce54f3b-8971-4b5d-95a7-7dfa897ddfb3   
 Minimum Size         40   
 User Tags            test:cli   
 Zone                 ID   Name      
@@ -187,11 +187,11 @@ Use the following steps to delete a single snapshot by using the CLI.
 3. Confirm the deletion of the snapshot. The response message indicates that the snapshot is deleted.
 
    ```sh
-   $ ibmcloud is share-snapshot-delete my-file-share r134-6ce54f3b-8971-4b5d-95a7-7dfa897ddfb3
-   This will delete share snapshot r134-6ce54f3b-8971-4b5d-95a7-7dfa897ddfb3 for share ID my-file-share and cannot be undone. Continue [y/N] ?> y
-   Deleting share snapshot r134-6ce54f3b-8971-4b5d-95a7-7dfa897ddfb3 for share ID my-file-share under account Test Account as user test.user@ibm.com...
+   $ ibmcloud is share-snapshot-delete my-file-share r006-6ce54f3b-8971-4b5d-95a7-7dfa897ddfb3
+   This will delete share snapshot r006-6ce54f3b-8971-4b5d-95a7-7dfa897ddfb3 for share ID my-file-share and cannot be undone. Continue [y/N] ?> y
+   Deleting share snapshot r006-6ce54f3b-8971-4b5d-95a7-7dfa897ddfb3 for share ID my-file-share under account Test Account as user test.user@ibm.com...
    OK
-   Share snapshot r134-6ce54f3b-8971-4b5d-95a7-7dfa897ddfb3 is deleted.
+   Share snapshot r006-6ce54f3b-8971-4b5d-95a7-7dfa897ddfb3 is deleted.
    ```
    {: screen}
 

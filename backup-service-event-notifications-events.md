@@ -2,7 +2,7 @@
 
 copyright:
   years: 2022, 2025
-lastupdated: "2025-06-27"
+lastupdated: "2025-07-28"
 
 keywords: backup for VPC, backup service, backup plan, backup policy, restore, restore volume, restore data
 
@@ -146,14 +146,14 @@ Email Title: Volume Backup Job Creation Failure
 
 Email Body:
 
-Volume Backup Job Creation Failure. Resource: crn:v1:staging:public:is:us-south-1:a/be09dae34250437f96fc8b27ae7d233b::volume:r134-f6583aac-8ba9-4d04-ab7a-acfe7b420016. BackupJobID: r134-899ab8fb-3b71-4fc8-bca5-1544cb425e4f. Reason: Snapshot quota per volume reached.
+Volume Backup Job Creation Failure. Resource: crn:v1:bluemix:public:is:us-south-1:a/be09dae34250437f96fc8b27ae7d233b::volume:r006-f6583aac-8ba9-4d04-ab7a-acfe7b420016. BackupJobID: r006-899ab8fb-3b71-4fc8-bca5-1544cb425e4f. Reason: Snapshot quota per volume reached.
 
 Notification details:
 
  {
-        "backup_policy": "r134-306fd8f6-b14c-410d-8f29-f05282b6daa9",
-        "backup_policy_job": "r134-899ab8fb-3b71-4fc8-bca5-1544cb425e4f",
-        "backup_policy_plan": "r134-444bb07f-3399-42d5-b895-febcaca8d1bc",
+        "backup_policy": "r006-306fd8f6-b14c-410d-8f29-f05282b6daa9",
+        "backup_policy_job": "r006-899ab8fb-3b71-4fc8-bca5-1544cb425e4f",
+        "backup_policy_plan": "r006-444bb07f-3399-42d5-b895-febcaca8d1bc",
         "match_resource_type" : "volume",
         "job_type" : "creation",
         "reasons": [
@@ -162,7 +162,7 @@ Notification details:
             "status": "source_volume_too_large"
           }
         ],
-        "resource": "crn:v1:staging:public:is:us-south-1:a/be09dae34250437f96fc8b27ae7d233b::volume:r134-f6583aac-8ba9-4d04-ab7a-acfe7b420016"
+        "resource": "crn:v1:bluemix:public:is:us-south-1:a/be09dae34250437f96fc8b27ae7d233b::volume:r006-f6583aac-8ba9-4d04-ab7a-acfe7b420016"
  }
 ```
 {: screen}
@@ -188,8 +188,8 @@ The properties that are sent to {{site.data.keyword.en_short}} vary depending on
 ```json
 {
   "ibmendefaultlong": "{\"status\":\"Backup job creation / retention failed\",
-                        \"backup_policy\": r134-6da51cfe-6f7b-4638-a6ba-00e9c327b178,
-                        \"backup_policy_plan\":\"r134-076191ba-49c2-4763-94fd-c70de73ee2e6\",
+                        \"backup_policy\": r006-6da51cfe-6f7b-4638-a6ba-00e9c327b178,
+                        \"backup_policy_plan\":\"r006-076191ba-49c2-4763-94fd-c70de73ee2e6\",
                         \"status_reason\": \"source_volume_busy: The source volume has busy set (after multiple retries)\",
                         \"match_resource_type\": \"instance\",
                         \"job_type\": \"creation\",

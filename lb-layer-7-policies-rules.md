@@ -2,7 +2,7 @@
 
 copyright:
   years: 2018, 2025
-lastupdated: "2025-04-08"
+lastupdated: "2025-07-28"
 
 keywords: application load balancer, alb, polices, rules
 
@@ -399,7 +399,7 @@ curl -H "Authorization: $iam_token" -X POST
                       }
                     ],
                     "target": {
-                      "id": "r134-20275400-825e-4d9b-8177-076fdb4134cc"
+                      "id": "r006-20275400-825e-4d9b-8177-076fdb4134cc"
                     }
                 }
             ]

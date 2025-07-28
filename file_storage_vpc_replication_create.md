@@ -2,7 +2,7 @@
 
 copyright:
   years: 2022, 2025
-lastupdated: "2025-07-23"
+lastupdated: "2025-07-28"
 
 keywords: file share, file storage, source volume, replica share, 
 
@@ -105,12 +105,12 @@ When you use the `ibmcloud is share-create` command to create your share, you ca
 In the following example, a share `my-source-file-share` is created in `us-south-1` with a replica file share `my-replica-file-share` in `us-south-3`. In this example, only one mount target is created for the source file share, but you can also create the mount target for the replica share by using the same JSON syntax with the `--replica-share-mount-targets` option as below.
 
 ```sh
-$ ibmcloud is share-create --name my-source-file-share --profile dp2 --zone us-south-1 --size 40 --mount-targets '[{"name":"my-target1", "virtual_network_interface":{"name":"my-fs-cli-vni", "primary_ip":{"address":"12345","auto-delete":true,"name":"vni-target-1"},"security_groups":[{"id":"r134-bfa4dea5-3e09-4a76-90ef-cee3b840936b"}],"subnet":{"id":"0726-c5941a73-2e07-46e6-b0c8-db306259341f"}}}]' --replica-share-profile dp2 --replica-share-cron-spec '55 09 * * *' --replica-share-zone us-south-3  --replica-share-name my-replica-file-share --replica-share-mount-targets '[{"name": "my-target2", "virtual_network_interface":{"name":"my-fs-cli-vni-1", "primary_ip":{"address":"12345","auto-delete":true,"name":"vni-target-2"},"security_groups":[{"id":"r134-bfa4dea5-3e09-4a76-90ef-cee3b840936b"}],"subnet":{"id":"0726-c5941a73-2e07-46e6-b0c8-db306259341f"}}}]'
+$ ibmcloud is share-create --name my-source-file-share --profile dp2 --zone us-south-1 --size 40 --mount-targets '[{"name":"my-target1", "virtual_network_interface":{"name":"my-fs-cli-vni", "primary_ip":{"address":"12345","auto-delete":true,"name":"vni-target-1"},"security_groups":[{"id":"r006-bfa4dea5-3e09-4a76-90ef-cee3b840936b"}],"subnet":{"id":"0726-c5941a73-2e07-46e6-b0c8-db306259341f"}}}]' --replica-share-profile dp2 --replica-share-cron-spec '55 09 * * *' --replica-share-zone us-south-3  --replica-share-name my-replica-file-share --replica-share-mount-targets '[{"name": "my-target2", "virtual_network_interface":{"name":"my-fs-cli-vni-1", "primary_ip":{"address":"12345","auto-delete":true,"name":"vni-target-2"},"security_groups":[{"id":"r006-bfa4dea5-3e09-4a76-90ef-cee3b840936b"}],"subnet":{"id":"0726-c5941a73-2e07-46e6-b0c8-db306259341f"}}}]'
 Creating file share my-source-file-share under account Test Account as user test.user@ibm.com...
                                 
-ID                                 r134-fd7e989b-c7a9-4295-81b1-f1265856e176    
+ID                                 r006-fd7e989b-c7a9-4295-81b1-f1265856e176    
 Name                               my-source-file-share   
-CRN                                crn:v1:staging:public:is:us-south-1:a/3bf43234b648447d95aa1aee1bc5e73a::share:r134-fd7e989b-c7a9-4295-81b1-f1265856e176   
+CRN                                crn:v1:bluemix:public:is:us-south-1:a/3bf43234b648447d95aa1aee1bc5e73a::share:r006-fd7e989b-c7a9-4295-81b1-f1265856e176   
 Lifecycle state                    pending
 Access control mode                security_group  
 Accessor binding role              none  
@@ -121,7 +121,7 @@ Size(GB)                           40
 IOPS                               100    
 Encryption                         provider_managed   
 Mount Targets                      ID                                          Name      
-                                   r134-0c01fbfe-e61f-4b41-9467-0502302e35ef   my-target1      
+                                   r006-0c01fbfe-e61f-4b41-9467-0502302e35ef   my-target1      
                                 
 Resource group                     ID                                 Name      
                                    8302a7a06e7440d6927383cd7c06e7d2   Default      
@@ -131,7 +131,7 @@ Latest job                         Job status    Job status reasons
                                    running       -
                    
 Replication share                  ID                                          Name                    Resource type      
-                                   r134-6b406f9f-4adf-4110-a901-08a2ffa54946   replica-p-share-3       share      
+                                   r006-6b406f9f-4adf-4110-a901-08a2ffa54946   replica-p-share-3       share      
                                 
 Replication role                  source   
 Replication status                none   
@@ -203,9 +203,9 @@ Source snapshot                    -
    ibmcloud is share-replica-create --name my-replica-share --zone us-south-3 --profile dp2 --replication-cron-spec '10 05 * * *' --source-share my-file-share
    Creating replica file share my-replica-share under account Test Account as user test.user@ibm.com...
                                 
-   ID                               r134-fad85001-48f4-4a2d-9f97-d6fac86484af   
+   ID                               r006-fad85001-48f4-4a2d-9f97-d6fac86484af   
    Name                             my-replica-share   
-   CRN                              crn:v1:staging:public:is:us-south-3:a/efe5afc483594adaa8325e2b4d1290df::share:r134-fad85001-48f4-4a2d-9f97-d6fac86484af   
+   CRN                              crn:v1:bluemix:public:is:us-south-3:a/efe5afc483594adaa8325e2b4d1290df::share:r006-fad85001-48f4-4a2d-9f97-d6fac86484af   
    Lifecycle state                  pending   
    Access control mode              security_group
    Accessor binding role            origin
@@ -233,7 +233,7 @@ Source snapshot                    -
                                     -             -      
                                 
    Source share                     ID                                          Name            Resource type      
-                                    r134-346811e7-cf29-4baa-af77-909fb549d1e6   my-file-share   share 
+                                    r006-346811e7-cf29-4baa-af77-909fb549d1e6   my-file-share   share 
    Snapshot count                   0
    Snapshot size                    0         
    Source snapshot                  -                      

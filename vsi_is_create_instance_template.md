@@ -2,7 +2,7 @@
 
 copyright:
   years: 2020, 2025
-lastupdated: "2025-07-09"
+lastupdated: "2025-07-28"
 
 keywords:
 
@@ -262,7 +262,7 @@ Where
 - `PROFILE_NAME` is _bx2-2x8_
 - `SUBNET_ID` is _0076-2249dabc-8c71-4a54-bxy7-953701ca3999_
 - `IMAGE` is _r008-54e9238a-feaa-4f90-9742-7424cb2b9ff1_
-- `PLACEMENT_GROUP_ID` is _r134-953db18c-068c-4a11-9b07-645684b444b2
+- `PLACEMENT_GROUP_ID` is _r006-953db18c-068c-4a11-9b07-645684b444b2
 
 For this example, you see a response similar to the following output.
 

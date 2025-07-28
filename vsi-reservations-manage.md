@@ -1,8 +1,8 @@
 ---
 
 copyright:
-  years: 2023, 2024
-lastupdated: "2024-11-11"
+  years: 2023, 2025
+lastupdated: "2025-07-28"
 
 subcollection: vpc
 
@@ -139,7 +139,7 @@ Getting reservation aaaaaaaa-aaaa-default-reservation2-aaaaaaaaaaaa under accoun
 
 ID                aaaaaaaa-aaaa-default-reservation2-aaaaaaaaaaaa
 Name              aaa-default-reservation-2
-CRN               crn:v1:staging:public:is:jp-tok:a/823bd195e9fd4f0db40ac2e1bffef3e0::reservation:aaaaaaaa-aaaa-default-reservation2-aaaaaaaaaaaa
+CRN               crn:v1:bluemix:public:is:jp-tok:a/823bd195e9fd4f0db40ac2e1bffef3e0::reservation:aaaaaaaa-aaaa-default-reservation2-aaaaaaaaaaaa
 Status            active
 Zone              us-east-1
 Lifecycle state   stable
@@ -227,7 +227,7 @@ Getting reservation aaaaaaaa-aaaa-default-reservation2-aaaaaaaaaaaa under accoun
 
 ID                aaaaaaaa-aaaa-default-reservation2-aaaaaaaaaaaa
 Name              aaa-default-reservation-2
-CRN               crn:v1:staging:public:is:jp-tok:a/823bd195e9fd4f0db40ac2e1bffef3e0::reservation:aaaaaaaa-aaaa-default-reservation2-aaaaaaaaaaaa
+CRN               crn:v1:bluemix:public:is:jp-tok:a/823bd195e9fd4f0db40ac2e1bffef3e0::reservation:aaaaaaaa-aaaa-default-reservation2-aaaaaaaaaaaa
 Status            active
 Zone              us-east-1
 Lifecycle state   stable
@@ -262,7 +262,7 @@ Updating reservation aaaaaaaa-aaaa-default-reservation2-aaaaaaaaaaaa under accou
 
 ID                aaaaaaaa-aaaa-default-reservation2-aaaaaaaaaaaa
 Name              aaa-default-reservation-2-renamed
-CRN               crn:v1:staging:public:is:us-east:a/823bd195e9fd4f0db40ac2e1bffef3e0::reservation:aaaaaaaa-aaaa-default-reservation2-aaaaaaaaaaaa
+CRN               crn:v1:bluemix:public:is:us-east:a/823bd195e9fd4f0db40ac2e1bffef3e0::reservation:aaaaaaaa-aaaa-default-reservation2-aaaaaaaaaaaa
 Status            active
 Zone              us-east-1
 Lifecycle state   stable
@@ -332,7 +332,7 @@ Getting instance instance-cli-test-patch-reservation-1 under account VPCUI-DEV a
 
 ID                                    0735_78c1b310-6dc3-45d4-9c01-0335dc526135
 Name                                  instance-cli-test-patch-reservation-1
-CRN                                   crn:v1:staging:public:is:us-south-3:a/efe5afc483594adaa8325e2b4d1290df::instance:0735_78c1b310-6dc3-45d4-9c01-0335dc526135
+CRN                                   crn:v1:bluemix:public:is:us-south-3:a/efe5afc483594adaa8325e2b4d1290df::instance:0735_78c1b310-6dc3-45d4-9c01-0335dc526135
 Status                                running
 Availability policy on host failure   restart
 Startable                             true
@@ -352,11 +352,11 @@ Metadata service                      Enabled   Protocol   Response hop limit
                                       false     http       1
 
 Image                                 ID                                          Name
-                                      r134-f47cc24c-e020-4db5-ad96-1e5be8b5853b   ibm-centos-7-9-minimal-amd64-11
+                                      r006-f47cc24c-e020-4db5-ad96-1e5be8b5853b   ibm-centos-7-9-minimal-amd64-11
 
 Numa Count                            1
 VPC                                   ID                                          Name
-                                      r134-832aa717-816d-4351-8c44-65399dbfe069   test
+                                      r006-832aa717-816d-4351-8c44-65399dbfe069   test
 
 Zone                                  us-south-3
 Resource group                        ID                                 Name
@@ -367,14 +367,14 @@ Network Interfaces                    Interface   Name      ID                  
                                       Primary     primary   0735-a51439ba-9a96-4f17-867c-89cffcd76c31   sn-20231006-01   0735-3edc7506-bece-4ee6-9c5c-916c750dab57   -             dream-grove-spleen-tinwork   false                      10.240.128.18
 
 Boot volume                           ID                                          Name                              Attachment ID                               Attachment name
-                                      r134-4ca2ad61-98c8-4182-a095-82cbd5db2f1f   dynastic-thyself-hunter-compile   0735-7cd56e60-025d-4dda-ab17-003457d2df30   sterilize-handlebar-transpire-blender
+                                      r006-4ca2ad61-98c8-4182-a095-82cbd5db2f1f   dynastic-thyself-hunter-compile   0735-7cd56e60-025d-4dda-ab17-003457d2df30   sterilize-handlebar-transpire-blender
 
 Reservation Affinity Policy           manual
 Reservation Affinity Pool             ID                                          Name                     CRN                                                                                                                             Resource type
-                                      0735-4d504e68-b22b-41ed-9a13-6df324301a9f   reservation-cli-test-1   crn:v1:staging:public:is:us-south-3:a/efe5afc483594adaa8325e2b4d1290df::reservation:0735-4d504e68-b22b-41ed-9a13-6df324301a9f   reservation
+                                      0735-4d504e68-b22b-41ed-9a13-6df324301a9f   reservation-cli-test-1   crn:v1:bluemix:public:is:us-south-3:a/efe5afc483594adaa8325e2b4d1290df::reservation:0735-4d504e68-b22b-41ed-9a13-6df324301a9f   reservation
 
 Reservation                           ID                                          Name                     CRN                                                                                                                             Resource type
-                                      0735-4d504e68-b22b-41ed-9a13-6df324301a9f   reservation-cli-test-1   crn:v1:staging:public:is:us-south-3:a/efe5afc483594adaa8325e2b4d1290df::reservation:0735-4d504e68-b22b-41ed-9a13-6df324301a9f   reservation
+                                      0735-4d504e68-b22b-41ed-9a13-6df324301a9f   reservation-cli-test-1   crn:v1:bluemix:public:is:us-south-3:a/efe5afc483594adaa8325e2b4d1290df::reservation:0735-4d504e68-b22b-41ed-9a13-6df324301a9f   reservation
 
 Health State                          ok
 ```

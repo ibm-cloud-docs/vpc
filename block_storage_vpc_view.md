@@ -2,7 +2,7 @@
 
 copyright:
   years: 2019, 2025
-lastupdated: "2025-07-16"
+lastupdated: "2025-07-28"
 
 keywords:
 
@@ -266,7 +266,7 @@ Volume Attachment Instance Reference   Attachment type   Instance ID            
 
 Operating system                       CentOS Stream 9 - Minimal Install (amd64)
 Source image                           ID                                          Name
-                                       r134-0950e619-325e-446e-b895-e0bdd21dd1ea   ibm-centos-stream-9-amd64-9
+                                       r006-0950e619-325e-446e-b895-e0bdd21dd1ea   ibm-centos-stream-9-amd64-9
 
 Active                                 true
 Adjustable IOPS                        false

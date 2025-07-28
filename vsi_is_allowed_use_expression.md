@@ -2,7 +2,7 @@
 
 copyright:
   years: 2025, 2025
-lastupdated: "2025-07-21"
+lastupdated: "2025-07-28"
 
 keywords:
 
@@ -118,7 +118,7 @@ ibmcloud is image-create my-ubuntu-20-amd64 --file cos://us-south/custom-image-v
 The following code example shows how to use the allowed-use expression options when you update an existing custom image by using the CLI. The example is updating an image to require secure boot enablement for provisions of both a bare metal server and a virtual server instance.
 
 ```sh
-ibmcloud is image-update r134-c9da1575-20cd-4412-9269-8ed08d3ac278 --allowed-use-bare-metal-server enable_secure_boot==true --allowed-use-instance enable_secure_boot==true
+ibmcloud is image-update r006-c9da1575-20cd-4412-9269-8ed08d3ac278 --allowed-use-bare-metal-server enable_secure_boot==true --allowed-use-instance enable_secure_boot==true
 ```
 {: pre}
 

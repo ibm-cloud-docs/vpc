@@ -2,7 +2,7 @@
 
 copyright:
   years: 2023, 2025
-lastupdated: "2025-07-11"
+lastupdated: "2025-07-28"
 
 subcollection: vpc
 
@@ -142,7 +142,7 @@ Creating reservation with name reservation-mock-test-1 under account VPCUI-DEMO 
 
 ID                22d3ec3b-d798-454a-ad88-fe608ae86ad6
 Name              reservation-mock-test-1
-CRN               crn:v1:staging:public:is:us-east:a/823bd195e9fd4f0db40ac2e1bffef3e0::reservation:22d3ec3b-d798-454a-ad88-fe608ae86ad6
+CRN               crn:v1:bluemix:public:is:us-east:a/823bd195e9fd4f0db40ac2e1bffef3e0::reservation:22d3ec3b-d798-454a-ad88-fe608ae86ad6
 Status            active
 Zone              us-east-1
 Lifecycle state   stable

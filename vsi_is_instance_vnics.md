@@ -190,10 +190,10 @@ ibmcloud is virtual-network-interface-create [--name NAME] [--allow-ip-spoofing 
 ```
 {: pre}
 
-The following example creates a virtual network interface that is based off of the settings of the reserved IP. The virtual network interface name is `cli-vni-1`. The ID of the reserved IP address is `7208-d4c0abbe-3fc2-4696-9fe1-4eb3dc9af976`. The ID of the primary reserved IP address is `7208-d83b7e58-3c3d-47d0-89c5-02d9a20c72fd`. The secondary reserved IP addresses is `10.240.64.13`. The security group IDs to associate with the virtual network interface are `r134-aa7c7658-e503-4456-b342-8d6a89e05115` and `r134-4fb388f1-2b6e-4013-b279-7a8748f4d6ca`. The ID for the resource group where the virtual network interface is created is `11caaa983d9c4beb82690daab08717e9`.
+The following example creates a virtual network interface that is based off of the settings of the reserved IP. The virtual network interface name is `cli-vni-1`. The ID of the reserved IP address is `7208-d4c0abbe-3fc2-4696-9fe1-4eb3dc9af976`. The ID of the primary reserved IP address is `7208-d83b7e58-3c3d-47d0-89c5-02d9a20c72fd`. The secondary reserved IP addresses is `10.240.64.13`. The security group IDs to associate with the virtual network interface are `r006-aa7c7658-e503-4456-b342-8d6a89e05115` and `r006-4fb388f1-2b6e-4013-b279-7a8748f4d6ca`. The ID for the resource group where the virtual network interface is created is `11caaa983d9c4beb82690daab08717e9`.
 
 ```sh
-ibmcloud is virtual-network-interface-create --name cli-vni-1 --allow-ip-spoofing true --auto-delete false --enable-infrastructure-nat true --rip 7208-d4c0abbe-3fc2-4696-9fe1-4eb3dc9af976  --ips '[{"id":"7208-d83b7e58-3c3d-47d0-89c5-02d9a20c72fd"},{"address":"10.240.64.13", "auto_delete": false, "name": "srip2"}]' --sgs r134-aa7c7658-e503-4456-b342-8d6a89e05115,r134-4fb388f1-2b6e-4013-b279-7a8748f4d6ca --resource-group-id 11caaa983d9c4beb82690daab08717e9
+ibmcloud is virtual-network-interface-create --name cli-vni-1 --allow-ip-spoofing true --auto-delete false --enable-infrastructure-nat true --rip 7208-d4c0abbe-3fc2-4696-9fe1-4eb3dc9af976  --ips '[{"id":"7208-d83b7e58-3c3d-47d0-89c5-02d9a20c72fd"},{"address":"10.240.64.13", "auto_delete": false, "name": "srip2"}]' --sgs r006-aa7c7658-e503-4456-b342-8d6a89e05115,r006-4fb388f1-2b6e-4013-b279-7a8748f4d6ca --resource-group-id 11caaa983d9c4beb82690daab08717e9
 ```
 {: pre}
 

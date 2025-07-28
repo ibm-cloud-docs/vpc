@@ -2,7 +2,7 @@
 
 copyright:
   years: 2022, 2025
-lastupdated: "2025-02-11"
+lastupdated: "2025-07-28"
 
 keywords: Backup for VPC, backup service, backup plan, backup policy, restore, restore volume, restore data, view backup lists,
 
@@ -189,10 +189,10 @@ In the third example, the backup policy is identified with its name. The Match r
 ibmcloud is backup-policy-jobs my-files-daily
 Listing jobs of backup policy my-files-daily under account Test Account as user test.user@ibm.com...
 ID                                          Auto delete   Auto delete after   Completed at                Created at                  Job type   Status      Match resource type   
-r134-4574ede8-f502-40db-827a-0d65b6039e20   true          30                  2024-11-27T19:20:22+05:30   2024-11-27T19:20:18+05:30   creation   succeeded   share   
-r134-6a508a4c-67fd-4745-98ab-50447d09d974   true          30                  2024-11-28T19:20:22+05:30   2024-11-28T19:20:18+05:30   creation   succeeded   share   
-r134-b072e083-972a-406c-b38c-c2f4ded6180c   true          30                  2024-11-29T19:20:21+05:30   2024-11-29T19:20:17+05:30   creation   succeeded   share   
-r134-967a8568-b538-409f-a96b-3c66985b677b   true          30                  2024-11-30T19:20:22+05:30   2024-11-30T19:20:17+05:30   creation   succeeded   share   
+r006-4574ede8-f502-40db-827a-0d65b6039e20   true          30                  2024-11-27T19:20:22+05:30   2024-11-27T19:20:18+05:30   creation   succeeded   share   
+r006-6a508a4c-67fd-4745-98ab-50447d09d974   true          30                  2024-11-28T19:20:22+05:30   2024-11-28T19:20:18+05:30   creation   succeeded   share   
+r006-b072e083-972a-406c-b38c-c2f4ded6180c   true          30                  2024-11-29T19:20:21+05:30   2024-11-29T19:20:17+05:30   creation   succeeded   share   
+r006-967a8568-b538-409f-a96b-3c66985b677b   true          30                  2024-11-30T19:20:22+05:30   2024-11-30T19:20:17+05:30   creation   succeeded   share   
 ```
 {: screen}
 

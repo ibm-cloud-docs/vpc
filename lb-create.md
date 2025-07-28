@@ -315,7 +315,7 @@ To create an application load balancer from the CLI, follow these steps:
     ```sh
     Creating policy of load balancer listener 72b27b5c-f4b0-48bb-b954-5becc7c1dcb3 under account IBM Cloud Network Services as user test@ibm.com...
 
-    ID                      r134-4847a949-f9b6-4fc1-71c6-d1c49dac3ebc
+    ID                      r006-4847a949-f9b6-4fc1-71c6-d1c49dac3ebc
     Action                  redirect
     Priority                2
     Http status code        301

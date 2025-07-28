@@ -159,10 +159,10 @@ The following example shows a response to an API request for a regional file sha
   "availability_mode": "regional",
   "bandwidth": 10,
   "created_at": "2025-07-22T13:07:54.000Z",
-  "crn": "crn:v1:bluemix:public:is:us-south:a/df0564dd126042ebb03e0224728ce939::share:r134-7ee9c4d4-88ff-4b6c-8a8a-49aa096bf0d8",
+  "crn": "crn:v1:bluemix:public:is:us-south:a/df0564dd126042ebb03e0224728ce939::share:r006-7ee9c4d4-88ff-4b6c-8a8a-49aa096bf0d8",
   "encryption": "provider_managed",
-  "href": "https://us-south.iaas.cloud.ibm.com/v1/shares/r134-7ee9c4d4-88ff-4b6c-8a8a-49aa096bf0d8",
-  "id": "r134-7ee9c4d4-88ff-4b6c-8a8a-49aa096bf0d8",
+  "href": "https://us-south.iaas.cloud.ibm.com/v1/shares/r006-7ee9c4d4-88ff-4b6c-8a8a-49aa096bf0d8",
+  "id": "r006-7ee9c4d4-88ff-4b6c-8a8a-49aa096bf0d8",
   "initial_owner": {
     "gid": 0,
     "uid": 0
@@ -215,10 +215,10 @@ The following example shows a response to an API request for a regional file sha
   "availability_mode": "regional",
   "bandwidth": 10,
   "created_at": "2025-07-22T13:07:54.000Z",
-  "crn": "crn:v1:bluemix:public:is:us-south:a/df0564dd126042ebb03e0224728ce939::share:r134-7ee9c4d4-88ff-4b6c-8a8a-49aa096bf0d8",
+  "crn": "crn:v1:bluemix:public:is:us-south:a/df0564dd126042ebb03e0224728ce939::share:r006-7ee9c4d4-88ff-4b6c-8a8a-49aa096bf0d8",
   "encryption": "provider_managed",
-  "href": "https://us-south.iaas.cloud.ibm.com/v1/shares/r134-7ee9c4d4-88ff-4b6c-8a8a-49aa096bf0d8",
-  "id": "r134-7ee9c4d4-88ff-4b6c-8a8a-49aa096bf0d8",
+  "href": "https://us-south.iaas.cloud.ibm.com/v1/shares/r006-7ee9c4d4-88ff-4b6c-8a8a-49aa096bf0d8",
+  "id": "r006-7ee9c4d4-88ff-4b6c-8a8a-49aa096bf0d8",
   "initial_owner": {
     "gid": 0,
     "uid": 0

@@ -2,7 +2,7 @@
 
 copyright:
   years: 2024, 2025
-lastupdated: "2025-06-10"
+lastupdated: "2025-07-28"
 
 keywords:
 
@@ -99,9 +99,9 @@ Run the `ibmcloud is share-create` command and specify the `--snapshot` paramete
 $ ibmcloud is share-create --name my-file-share-from-snapshot --snapshot cli-share-snapshot --share my-file-share --zone us-south-1 --profile dp2 --size 100 --iops 2000  --user-tags env:test
 Creating file share my-file-share-from-snapshot under account Test Account as user test.user@ibm.com...
                                       
-ID                                 r134-c956e095-afb1-408c-a589-887e77afab20   
+ID                                 r006-c956e095-afb1-408c-a589-887e77afab20   
 Name                               my-file-share-from-snapshot   
-CRN                                crn:v1:staging:public:is:us-south-1:a/a1234567::share:r134-c956e095-afb1-408c-a589-887e77afab20   
+CRN                                crn:v1:bluemix:public:is:us-south-1:a/a1234567::share:r006-c956e095-afb1-408c-a589-887e77afab20   
 Lifecycle state                    pending   
 Access control mode                security_group   
 Accessor binding role              none   
@@ -129,12 +129,12 @@ Replication status reasons         Status code   Status message
 The following example creates a share from a snapshot by using the CRN of the snapshot. If you don't provide a name for your new share, a name is auto-generated for you. The size and IOPS values are inherited from the snapshot, and you can change them after the share is created.
 
 ```sh
-$ ibmcloud is share-create --profile dp2 --snapshot crn:v1:staging:public:is:us-south-1:a/a1234567::share-snapshot:r134-2ae87eb2-b26c-4126-ab34-e6e64f6f1773/r134-6ce54f3b-8971-4b5d-95a7-7dfa897ddfb3 --user-tags dev:tags
+$ ibmcloud is share-create --profile dp2 --snapshot crn:v1:bluemix:public:is:us-south-1:a/a1234567::share-snapshot:r006-2ae87eb2-b26c-4126-ab34-e6e64f6f1773/r006-6ce54f3b-8971-4b5d-95a7-7dfa897ddfb3 --user-tags dev:tags
 Creating file share  under account Test Account as user test.user@ibm.com...
                                       
-ID                                 r134-5fb2d6aa-544d-4469-8e59-36e0fc21d0fa   
+ID                                 r006-5fb2d6aa-544d-4469-8e59-36e0fc21d0fa   
 Name                               portion-unsafe-itinerary-oppressor   
-CRN                                crn:v1:staging:public:is:us-south-1:a/a123456::share:r134-5fb2d6aa-544d-4469-8e59-36e0fc21d0fa   
+CRN                                crn:v1:bluemix:public:is:us-south-1:a/a123456::share:r006-5fb2d6aa-544d-4469-8e59-36e0fc21d0fa   
 Lifecycle state                    pending   
 Access control mode                security_group   
 Accessor binding role              none   
