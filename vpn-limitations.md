@@ -2,7 +2,7 @@
 
 copyright:
   years: 2019, 2025
-lastupdated: "2025-07-28"
+lastupdated: "2025-07-29"
 
 keywords:
 
@@ -36,10 +36,10 @@ Lists known limitations, issues, and restrictions for IBM Cloud VPN for VPC.
    Creating a route in an ingress routing table with a VPN gateway connection as the next hop isn't supported.
    {: note}
 
-* When you update the `peer.address` or `peer.fqdn` of a VPN gateway connection, it affects how the VPN identifies and connects to your remote peer.
+* Setting the local and peer IKE identities such as address, FQDN, or hostname is optional when you create a VPN gateway. However, if you later update the peer address or FQDN, you must consider how this change affects VPN connectivity:
 
-   * If you didn’t explicitly set the `local.ike_identities` and `peer.ike_identity` properties when you create the VPN gateway connection, [updating a VPN gateway connection](/apidocs/vpc/latest#update-vpn-gateway-connection) and specifying either `peer.address` or `peer.fqdn` changes the `peer.ike_identity` automatically to match the updated address or domain name. This setup maintains a working VPN connection without manual changes.
-   * However, if you explicitly set the `local.ike_identities` and `peer.ike_identity` properties when you create the VPN gateway connection, it doesn't update the `peer.ike_identity` automatically when you change the address or domain. To avoid breaking the VPN connection in this case, you must delete and re-create the VPN connection to apply the changes.
+   * If you don't specify the local and peer IKE identities when you create a VPN gateway, the gateway automatically uses default values: the public IP of the VPN gateway is used as the local IKE identity, and the peer gateway’s public IP is used as the peer IKE identity. This default setup helps maintain a stable VPN connection even if the peer address changes.
+   * If you explicitly set the local and peer IKE identities when you create a VPN gateway, you’re locking in specific values. In this case, updating the peer address or FQDN requires you to delete and re-create the VPN connection to avoid breaking connectivity.
 
 ## Distributing traffic restrictions
 {: #distributing-traffic-restrictions}

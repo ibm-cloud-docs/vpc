@@ -2,7 +2,7 @@
 
 copyright:
   years: 2024, 2025
-lastupdated: "2025-04-02"
+lastupdated: "2025-07-29"
 
 keywords: vsi, virtual server, virtual server instances, profile, profiles, balanced, compute, memory, dedicated host, gen 2, intel, amd
 
@@ -17,7 +17,6 @@ subcollection: vpc
 
 The general purpose 2nd generation virtual server profiles (balanced, compute, and memory) are available to provision virtual servers on both Intel and AMD processor architectures.
 {: shortdesc}
-
 
 ## Intel profiles
 {: #general-purpose-gen2-intel}
