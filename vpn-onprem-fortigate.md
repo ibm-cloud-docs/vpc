@@ -2,7 +2,7 @@
 
 copyright:
   years: 2020, 2025
-lastupdated: "2025-07-24"
+lastupdated: "2025-07-29"
 
 keywords: fortigate, fortigate peer
 
@@ -18,7 +18,7 @@ subcollection: vpc
 You can use IBM Cloud VPN for VPC to securely connect your VPC to an on-prem network through a VPN tunnel. This topic provides guidance about how to configure your FortiGate VPN gateway to connect to VPN for VPC.
 {: shortdesc}
 
-These instructions are based on FortiGate 300C, Firmware Version v5.2.13, build762 (GA). The instructions, specifically for the configuration of IKE and IPsec policies, are written with the consideration that you use the default (Auto) IPsec and IKE policies for your VPC VPN gateway. If you create custom IKE and IPsec policies for your VPN, it can change some of the values for Diffie-Hellman, authentication, encryption, and key lifetime that are suggested in the following sections.
+These instructions are based on FortiGate 300C, Firmware Version v5.2.13, build762 (GA) and are written considering that you use the default (Auto) IPsec and IKE policies for your VPN gateway. If you create custom IKE and IPsec policies for your VPN gateway, some of the values that are suggested in the following sections for Diffie-Hellman, authentication, encryption, and key lifetime can change.
 {: note}
 
 See [Known issues for VPN gateways](/docs/vpc?topic=vpc-vpn-limitations) before you continue to connect to your on-premises peer.
@@ -50,7 +50,7 @@ An example configuration is as follows:
 ## Connecting an IBM static, route-based VPN to a FortiGate peer
 {: #fortigate-route-based-vpn}
 
-Here's an example of how to connect an IBM static, route-based VPN to a FortiGate peer.
+The following steps show how to connect an IBM static, route-based VPN to a FortiGate peer.
 
 1. To configure a primary tunnel, select **VPN > IPsec Tunnels** and create a new custom template type tunnel, or edit an existing tunnel.
 
@@ -61,7 +61,7 @@ Here's an example of how to connect an IBM static, route-based VPN to a FortiGat
    For more information about the small public IP, see this [important notice](/docs/vpc?topic=vpc-using-vpn#important-notice).
    {: note}
 
-   ![FortiGate connection peer IP of the primary tunnel](images/vpn-fortigate-configure-peer-ip.png){: caption="FortiGate connection eer IP of primary tunnel" caption-side="bottom"}
+   ![FortiGate connection with peer IP of the primary tunnel](images/vpn-fortigate-configure-peer-ip.png){: caption="FortiGate connection with peer IP of primary tunnel" caption-side="bottom"}
 
 1. To configure an IKE proposal, use the matched IKE version and proposals.
 

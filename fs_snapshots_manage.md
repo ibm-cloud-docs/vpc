@@ -2,7 +2,7 @@
 
 copyright:
   years: 2024, 2025
-lastupdated: "2025-07-28"
+lastupdated: "2025-07-29"
 
 keywords: snapshots, File storage snapshots, manage snapshots, backup snapshot, remote copy, cross-regional copy
 
@@ -139,7 +139,7 @@ You can delete any snapshot of a share. To be able to delete a snapshot, it must
 * Be in a `stable` or `pending` state.
 * Not be actively restoring a share.
 
-An easy way to determine whether you can delete a snapshot is to look in the [console](/docs/vpc?topic=vpc-fs-snapshots-view&interface=ui#fs-snapshots-view-ui) for the list of snapshots and check its status.
+A convenient way to determine whether you can delete a snapshot is to look in the [console](/docs/vpc?topic=vpc-fs-snapshots-view&interface=ui#fs-snapshots-view-ui) for the list of snapshots and check its status.
 
 ### Deleting a single snapshot in the console
 {: #fs-snapshots-delete-single-snapshot-ui}

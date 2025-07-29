@@ -2,7 +2,7 @@
 
 copyright:
   years: 2021, 2025
-lastupdated: "2025-07-23"
+lastupdated: "2025-07-29"
 
 keywords: snapshots, Block Storage snapshots, manage snapshots, fast restore clone, backup snapshot, remote copy, cross-regional copy
 
@@ -176,7 +176,7 @@ Alternatively, you can create a service-to-service authorization through the **M
 2. From the **Actions** menu ![Actions icon](../icons/action-menu-icon.svg "Actions"), select **Manage share permission**.
 3. The side-panel displays the list of accounts that you shared your snapshot with.
 
-   The list shows all the authorization that were setup for the snapshot. For example, if an account has an authorization for this specific snapshot and an authorization for all snapshots in your account, that account is listed twice.
+   The list shows all the authorization that were set up for the snapshot. For example, if an account has an authorization for this specific snapshot and an authorization for all snapshots in your account, that account is listed twice.
    {: note}
 
 4. Click **Manage IAM Authorization** to go to the Authorization page to modify or revoke the authorization.
@@ -662,7 +662,7 @@ To create a copy of the snapshot in a remote region, use the `ibm_is_snapshot` r
 
 ```terraform
 resource "ibm_is_snapshot" "snapshot" {
-  name 		      = "my-cross-regional-snapshot"
+  name 		        = "my-cross-regional-snapshot"
   source_snapshot = "r138-4463eb2c-4913-43b1-b9bf-62a94f74c146"
   encryption_key  = "crn:bluemix:public:kms:us-south:a/df0564dd126042ebb03e0224728ce939:4957299d-0ba0-487f-a1a0-c724a729b8b4:key:0cb88b98-9261-4d07-8329-8f594b6641b5"
 }
@@ -693,7 +693,7 @@ You can delete any snapshot for a volume or all snapshots for a volume. To be ab
 * Be in a `stable` or `pending` state.
 * Not be actively restoring a volume.
 
-An easy way to determine whether you can delete a snapshot is to look in the [console](/docs/vpc?topic=vpc-snapshots-vpc-view#snapshots-vpc-view-list-ui) for the list of snapshots and check its status.
+A convenient way to determine whether you can delete a snapshot is to look in the [console](/docs/vpc?topic=vpc-snapshots-vpc-view#snapshots-vpc-view-list-ui) for the list of snapshots and check its status.
 You can delete all snapshots for a volume. Deleting all snapshots requires further confirmation in the console.
 
 ### Deleting a single snapshot in the console

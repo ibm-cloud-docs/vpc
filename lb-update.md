@@ -2,7 +2,7 @@
 
 copyright:
   years: 2020, 2025
-lastupdated: "2025-07-28"
+lastupdated: "2025-07-29"
 
 keywords: application load balancer, public, listener, back-end, front-end, pool, round-robin, weighted, connections, methods, policies, APIs, access, ports, vpc network, update
 
@@ -28,16 +28,16 @@ To update an ALB in the {{site.data.keyword.cloud_notm}} console, perform the fo
 1. Select the Region of your load balancer.
 1. Select the load balancer that you want to update.
 1. Select **Back-end pools** if you need to edit a pool or virtual server instance parameters.
-1. Select **Front-end listeners** if you need to edit listener parameters. To update the Client/Server timeout values, select **Edit** from the Actions menu ![Actions icon](../icons/action-menu-icon.svg "Actions") in the row of the Listener that you want to edit. You can select a timeout value between 50 sec and 2 hours (7200 sec). This value is for both Client and Server. If you need more than 2 hours, you can [open a support case](/docs/account?topic=account-open-case&interface=ui) providing the business requirement for the timeout value required.
+1. Select **Front-end listeners** if you need to edit listener parameters. To update the Client/Server timeout values, select **Edit** from the Actions menu ![Actions icon](../icons/action-menu-icon.svg "Actions") in the row of the Listener that you want to edit. You can select a timeout value between 50 seconds and 2 hours (7200 seconds). This value is for both the client and server. If you need more than 2 hours, you can [open a support case](/docs/account?topic=account-open-case&interface=ui) and provide a business requirement for the timeout value required.
 1. After you're done editing, select **Save** to save your changes.
 
-The **Active** button on the upper left of your screen now shows as **Updating**. When **Updating** changes back to **Active**, the update is done and the new changes are applied.
+The **Active** button on the upper left of your window now shows as **Updating**. When **Updating** changes back to **Active**, the update is done and the new changes are applied.
 
 ## Updating an application load balancer from the CLI
 {: #alb-updating-cli}
 {: cli}
 
-There are multiple options to update your ALB from the CLI. For more options, see [VPC CLI reference for load balancers](/docs/vpc?topic=vpc-vpc-reference#lb-anchor). 
+There are multiple options to update your ALB from the CLI. For options, see [VPC CLI reference for load balancers](/docs/vpc?topic=vpc-vpc-reference#lb-anchor). 
 
 The following example shows how to use the CLI to update your ALB pool to use the algorithm `least_connections` and the port of the member:
 
@@ -98,47 +98,40 @@ Provision status   update_pending
 
 The following example shows how to use the CLI to update your ALB timeout value:
 
-1. Get the `Listener ID` by entering the following command: 
+1. Get the listener ID: 
 
 ```sh
-ibmcloud is load-balancer 
-    LOAD_BALANCER_ID
+ibmcloud is load-balancer LOAD_BALANCER_ID
 ```
 {: pre}
 
-1. Verify Current listener details by entering the following command:
+1. Verify the current listener details:
 
 ```sh
-ibmcloud is load-balancer-listener  
-    [--load-balancer LOAD_BALANCER_ID]
-    [--listener LISTENER_ID ]
-    [--output JSON]
+ibmcloud is load-balancer-listener [--load-balancer LOAD_BALANCER_ID] [--listener LISTENER_ID] [--output JSON]
 ```
 {: pre}
 
-1. Update the timeout value by entering the following command:
+1. Update the timeout value:
 
 ```sh
-ibmcloud is load-balancer-listener-update 
-    [--load-balancer LOAD_BALANCER_ID]
-    [--listener LISTENER_ID ]
-    [--idle-connection-timeout VALUE_IN_SECONDS]
+ibmcloud is load-balancer-listener-update [--load-balancer LOAD_BALANCER_ID] [--listener LISTENER_ID] [--idle-connection-timeout VALUE_IN_SECONDS]
 ```
 {: pre}
 
 Where:
 
 `--load-balancer`
-:   Indicates ID or name of load balancer.
+:   ID or name of the load balancer.
 
 `--listener`
-:   Indicates ID or name of listener.
+:   ID or name of the listener.
 
 `--output`
-:   specify output format, only JSON is supported. One of: `JSON`.
+:   Output format, only `JSON` is supported.  
 
 `-idle-connection-timeout`
-:   specify idle connection timeout value in seconds.
+:   Idle connection timeout value in seconds.
 
 Sample command:
 
@@ -171,22 +164,22 @@ Created                   2025-04-15T14:11:06+05:30
 
 The following example illustrates how to use the API to update the front-end listener port of an application load balancer. For example, if the front-end listener port was set to 80 and you want to update the port value to 90.
 
-To update an application load balancer with the API, perform the following procedure:
+To update an application load balancer with the API, follow these steps:
 
 1. Set up your [API environment](/docs/vpc?topic=vpc-set-up-environment#api-prerequisites-setup).
 1. Use the following example to get the listener ID that you need for the update:
 
-   Save the ID of the load balancer by running below command:
+   Save the ID of the load balancer:
 
-   ```bash
+   ```sh
   export lbid="r042-ce351658-c236-4c99-8711-1414c5a6a99c"
    ```
    {: pre}
 
-   Install "jq" to view the output from the following command in clean json format. 
+   Install "jq" to view the output from the following command in clean JSON format. 
    {: note}
 
-   ```bash
+   ```sh
    curl -H "Authorization: $iam_token" -X GET 
    "$vpc_api_endpoint/v1/load_balancers/$lbid?version=$api_version&generation=2" | jq
    ```
@@ -302,9 +295,9 @@ To update an application load balancer with the API, perform the following proce
     ```
     {: pre}
 
-    1. Update the listener port and Client/Server timeout values of the load balancer:
+    1. Update the listener port and client/server timeout values of the load balancer:
 
-    ```bash
+    ```sh
     curl -H "Authorization: $iam_token" -X PATCH
     "$vpc_api_endpoint/v1/load_balancers/$lbid/listeners/$listenerid?version=$api_version&generation=2" \
         -d '{"idle_connection_timeout": 50 , "port": 8080}' | jq
@@ -329,5 +322,5 @@ To update an application load balancer with the API, perform the following proce
    ```
    {: screen}
 
-You can set a timeout value between 50 sec and 7200 sec. If you need more than 2 hours (7200 sec), you can [open a support case](/docs/account?topic=account-open-case&interface=ui).
+You can set a timeout value between 50 and 7200 seconds. If you need more than 2 hours (7200 seconds), you can [open a support case](/docs/account?topic=account-open-case&interface=ui).
 {: note}
