@@ -105,6 +105,58 @@ Tags                   -
 
 For more information about available command options, see [`ibmcloud is snapshot-update`](/docs/vpc?topic=vpc-vpc-reference#snapshot-update).
 
+## Changing the Allowed Use property of a snapshot from the CLI
+{: #snapshot-update-allowed-use-cli}
+{: cli}
+
+[New]{: tag-new}[VPCIMG-209]{: tag-teal} The `Allowed Use` properties are inherited from the parent volume. You can use the `ibmcloud is snapshot-update` command to change these values.
+
+You must have the `is.volume.volume.manage-allowed-use` IAM role to change these properties of a snapshot.
+{: requirement}
+
+```sh
+ibmcloud is snapshot-update r006-b6b5e2ad-e60a-40c9-bbc2-356dad292fe3 --allowed-use-api-version "2025-03-03" --allowed-use-bare-metal-server "enable_secure_boot==true" --allowed-use-instance true
+Updating snapshot r006-b6b5e2ad-e60a-40c9-bbc2-356dad292fe3 under account Test Account as user test.user@ibm.com...
+
+ID                              r006-b6b5e2ad-e60a-40c9-bbc2-356dad292fe3   
+Name                            my-bootable-snapshot   
+CRN                             crn:v1:bluemix:public:is:us-south:a/a1234567::snapshot:r006-b6b5e2ad-e60a-40c9-bbc2-356dad292fe3   
+Status                          stable   
+Clones                          Zone   Available   Created      
+                          
+Source volume                   ID                                          Name                         Remote Region   CRN                                                                                                                        Resource type      
+                                r006-9a40241d-d116-4fc3-83ea-6134d30ee33c   fence-denture-mosaic-royal   -               crn:v1:bluemix:public:is:us-south-1:a/a1234567::volume:r006-9a40241d-d116-4fc3-83ea-6134d30ee33c   volume      
+                          
+Backup policy plan              -   
+Snapshot Copies                 -   
+Bootable                        true   
+Encryption                      provider_managed   
+Encryption key                  -   
+Source Snapshot                 -   
+Minimum capacity(GB)            100   
+Size(GB)                        1   
+Source Image                    ID                                          Name                                 Remote Region   CRN                                                                                                                     Resource type      
+                                r006-d734b459-b5a0-4777-8600-9fa3254d2cea   ibm-ubuntu-24-04-6-minimal-amd64-2   -               crn:v1:bluemix:public:is:us-south:a/a1234567::image:r006-d734b459-b5a0-4777-8600-9fa3254d2cea   image      
+                          
+Operating system                Name                 Vendor      Version                                  Family         Architecture   Display name      
+                                ubuntu-24-04-amd64   Canonical   24.04 LTS Noble Numbat Minimal Install   Ubuntu Linux   amd64          Ubuntu Linux 24.04 LTS Noble Numbat Minimal Install (amd64)      
+                          
+Resource group                  ID                                 Name      
+                                6edefe513d934fdd872e78ee6a8e73ef   defaults      
+                          
+Created                         2025-02-17T17:08:15+00:00   
+Captured at                     2025-02-17T17:08:15+00:00   
+Tags                            -   
+Service Tags                    -   
+Storage Generation              1   
+Allowed Use API Version         2025-03-03   
+Allowed Use Bare Metal Server   enable_secure_boot==true   
+Allowed Use Instance            true   
+```
+{: screen}
+
+The properties comprise a Boolean [Common Expression Language](https://github.com/google/cel-spec/blob/master/doc/langdef.md){: external} expression. When the expression is evaluated to be `true`, then the provisioning of a virtual server instance or a bare metal server is allowed with the snapshot. When the expression is evaluated to be `false`, the provisioning is blocked.
+
 ## Renaming a snapshot with the API
 {: #snapshots-vpc-rename-api}
 {: api}
