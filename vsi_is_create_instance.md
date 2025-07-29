@@ -2,7 +2,7 @@
 
 copyright:
   years: 2018, 2025
-lastupdated: "2025-07-21"
+lastupdated: "2025-07-29"
 
 keywords:
 
@@ -1251,6 +1251,8 @@ Ready to create an instance? Before you can run the `ibm_is_instance` command, y
 Gather the following information by using `DataSource` command.
 
 1. Gather instance profile details. Run the following command for the profile that you select. See [x86 instance profiles](/docs/vpc?topic=vpc-profiles&interface=ui#profiles) for a list of available profiles. For more information, see the Terraform documentation on [ibm_is_instance_profiles](https://registry.terraform.io/providers/IBM-Cloud/ibm/latest/docs/data-sources/is_instance_profiles). Use an instance profile by referring to the instance profile data source. For more information, see the Terraform documentation on [ibm_is_instance_profile](https://registry.terraform.io/providers/IBM-Cloud/ibm/latest/docs/data-sources/is_instance_profile).
+
+   * Gather instance profile details for a specific profile
 
    ```terraform
    data "ibm_is_instance_profile" "example_profile" {
