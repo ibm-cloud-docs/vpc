@@ -2,7 +2,7 @@
 
 copyright:
   years: 2018, 2025
-lastupdated: "2025-05-27"
+lastupdated: "2025-07-29"
 
 keywords: ssh public keys, OpenSSH, add ssh key, ssh key, manage ssh key, generate ssh key, locate ssh key
 
@@ -288,6 +288,7 @@ Virtual servers
 * [Planning for virtual servers](/docs/vpc?topic=vpc-vsi_best_practices)
 * [Creating a virtual server in the console](/docs/vpc?topic=vpc-creating-virtual-servers)
 * [Creating a virtual server by using the CLI](/docs/vpc?topic=vpc-creating-virtual-servers&interface=cli)
+* [Connecting to Linux instances](/docs/vpc?topic=vpc-vsi_is_connecting_linux)
 
 Bare metal servers
 
