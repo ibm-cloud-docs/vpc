@@ -2,7 +2,7 @@
 
 copyright:
  years: 2022, 2025
-lastupdated: "2025-07-28"
+lastupdated: "2025-07-29"
 
 keywords: Backup, backup service, backup plan, backup policy, restore, restore volume, restore data
 
@@ -192,7 +192,7 @@ If your backup plan calls for the creation of a remote copy before the previous 
 | Volume capacity | Backup plan schedule | Incremental copies |
 |-----------------|----------------------|--------------------|
 | 10 GB           | 1-hour               | Enabled            |
-| 50 GB	          | 1-hour               | Enabled            |
+| 50 GB           | 1-hour               | Enabled            |
 | 100 GB          | 1-hour               | Enabled            |
 | 200 GB          | 1-hour               | Enabled            |
 | 250 GB          | 1-hour               | Disabled           |

@@ -2,7 +2,7 @@
 
 copyright:
   years: 2021, 2025
-lastupdated: "2025-07-23"
+lastupdated: "2025-07-29"
 
 keywords: snapshots, Block Storage, snapshot clone, remote copy, fast restore, Block Storage snapshot, cross-regional snapshot
 
@@ -615,7 +615,7 @@ To create a copy of the snapshot in a remote region, use the `ibm_is_snapshot` r
 
 ```terraform
 resource "ibm_is_snapshot" "snapshot" {
-   name 		        = "my-cross-regional-snapshot"
+   name 		   = "my-cross-regional-snapshot"
    source_snapshot = "r138-4463eb2c-4913-43b1-b9bf-62a94f74c146"
    encryption_key  = "crn:bluemix:public:kms:us-south:a/df0564dd126042ebb03e0224728ce939:4957299d-0ba0-487f-a1a0-c724a729b8b4:key:0cb88b98-9261-4d07-8329-8f594b6641b5"
 }
