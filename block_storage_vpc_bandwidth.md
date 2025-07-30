@@ -38,12 +38,14 @@ You can adjust the storage-networking bandwidth ratio to be more favorable to st
 Before you change the storage-networking bandwidth ratio, evaluate your instance's network bandwidth requirements. Make sure that the new bandwidth allocation does not have negative effects on your instance’s network performance.
 {: important}
 
+The allocation does not change unless a volume is detached or attached to the instance. If you change the storage-networking bandwidth ratio, detach and reattach the data volumes for the new bandwidth allocation to be realized.
+
 ## Bandwidth allocation for attached volumes
 {: #attached-block-vol-bandwidth}
 
-To help ensure reasonable boot times, a minimum of 393 Mbps is allocated to the primary boot volume. Boot volume IOPS and bandwidth are never reduced to be less than 3000 IOPS and 393 Mbps. The remaining volume bandwidth is proportionally allocated between the attached data volumes. The allocation does not change unless a volume is detached or attached to the instance. If you change the storage-networking bandwidth ratio, detach and reattach the data volumes for the new bandwidth allocation to be realized.
+To help ensure reasonable boot times, primary boot volume receives priority IOPS and a minimum of 393 Mbps bandwidth. Boot volume IOPS and bandwidth are never reduced to be less than 3000 IOPS and 393 Mbps. 
 
-All attached volumes are assigned instance bandwidth proportional to their maximum throughput limit, where the sum of all volume bandwidth equals the overall volumes bandwidth.
+The remaining volume bandwidth is proportionally allocated between the attached data volumes. All attached volumes are assigned instance bandwidth proportional to their maximum throughput limit. Whether that throughput limit is calculated automatically by using a throughput multiplier (traditional profiles) or specified explicitly (defined performance profile) makes no difference.
 
 ### Throughput limit value of block volumes
 {: #block-vol-throughout-limit}
@@ -165,8 +167,8 @@ Where can you see what bandwidth or throughput limit is assigned to your volume?
 
 The volume bandwidth is always apportioned on a per volume basis. The bandwidth is assigned per volume, not shared between volumes. In the examples where 3 or 4 data volumes are attached, the allocated bandwidth is less than the volume's own throughput limit. While the volume is provisioned to be able to handle more, it can use only the bandwidth that was allocated to it. It cannot use any bandwidth that is allocated to, but not used by another volume.
 
-Increasing volume size, adjusting IOPS or throughput limit (of second-generation profiles) does not change the assigned bandwidth. Bandwidth assignment is updated when volumes are detached and attached.
-{: note}
+Increasing volume size, adjusting IOPS or throughput limit (of second-generation profiles) does not automatically change the assigned bandwidth. Bandwidth assignment is updated when volumes are detached and attached.
+{: important}
 
 In most cases, the unattached provisioned volume bandwidth value is not the same as the bandwidth value that you see after the volume is attached to an instance.
 
