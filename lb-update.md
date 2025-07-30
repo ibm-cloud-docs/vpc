@@ -2,7 +2,7 @@
 
 copyright:
   years: 2020, 2025
-lastupdated: "2025-07-29"
+lastupdated: "2025-07-30"
 
 keywords: application load balancer, public, listener, back-end, front-end, pool, round-robin, weighted, connections, methods, policies, APIs, access, ports, vpc network, update
 
@@ -37,7 +37,7 @@ The **Active** button on the upper left of your window now shows as **Updating**
 {: #alb-updating-cli}
 {: cli}
 
-There are multiple options to update your ALB from the CLI. For options, see [VPC CLI reference for load balancers](/docs/vpc?topic=vpc-vpc-reference#lb-anchor). 
+There are multiple options to update your ALB from the CLI. For options, see [VPC CLI reference for load balancers](/docs/vpc?topic=vpc-vpc-reference#lb-anchor).
 
 The following example shows how to use the CLI to update your ALB pool to use the algorithm `least_connections` and the port of the member:
 
@@ -98,7 +98,7 @@ Provision status   update_pending
 
 The following example shows how to use the CLI to update your ALB timeout value:
 
-1. Get the listener ID: 
+1. Get the listener ID:
 
 ```sh
 ibmcloud is load-balancer LOAD_BALANCER_ID
@@ -128,7 +128,7 @@ Where:
 :   ID or name of the listener.
 
 `--output`
-:   Output format, only `JSON` is supported.  
+:   Output format, only `JSON` is supported.
 
 `-idle-connection-timeout`
 :   Idle connection timeout value in seconds.
@@ -172,15 +172,15 @@ To update an application load balancer with the API, follow these steps:
    Save the ID of the load balancer:
 
    ```sh
-  export lbid="r042-ce351658-c236-4c99-8711-1414c5a6a99c"
+   export lbid="r042-ce351658-c236-4c99-8711-1414c5a6a99c"
    ```
    {: pre}
 
-   Install "jq" to view the output from the following command in clean JSON format. 
+   Install "jq" to view the output from the following command in clean JSON format.
    {: note}
 
    ```sh
-   curl -H "Authorization: $iam_token" -X GET 
+   curl -H "Authorization: $iam_token" -X GET
    "$vpc_api_endpoint/v1/load_balancers/$lbid?version=$api_version&generation=2" | jq
    ```
    {: codeblock}
@@ -306,7 +306,7 @@ To update an application load balancer with the API, follow these steps:
 
     Sample output:
 
-    ```sh
+    ```text
     {
         "id": "r042-a00f2544-a1d3-4f9b-af31-4c34990a01f0",
         "href": "https://br-sao.iaas.cloud.ibm.com/v1/load_balancers/r042-ce351658-c236-4c99-8711-1414c5a6a99c/listeners/r042-a00f2544-a1d3-4f9b-af31-4c34990a01f0",
