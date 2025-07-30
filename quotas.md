@@ -2,7 +2,7 @@
 
 copyright:
   years: 2018, 2025
-lastupdated: "2025-07-15"
+lastupdated: "2025-07-30"
 
 keywords:
 
@@ -120,10 +120,10 @@ Bare metal servers use physical cores and don't count toward your vCPU quota.
 {: caption="Quotas for Private Path load balancers" caption-side="bottom"}
 
 ### Public address ranges
-{: #par-quotas}  
+{: #par-quotas}
 
 You can now create and use public address ranges in the Frankfurt and Madrid regions, if your account has been approved for access. To request access to Public Address Ranges for VPC, contact your IBM representative.
-{: preview} 
+{: preview}
 
 | Resource | Quota |
 |--------|-----|
@@ -173,13 +173,15 @@ Each route has a destination property, which includes a prefix length (`/24` in 
 ### VPN gateways (site-to-site)
 {: #vpn-quotas}
 
+
+
 | Resource | Quota | Supports Policy Mode | Supports Route Mode |
 |--------|-----|----------|----------|
 | VPN gateways | 9 per account per region, 3 per zone | Yes | Yes[^fn1] |
 | VPN connections | 10 per VPN gateway | Yes | Yes |
 | IKE policies | 20 per region | Yes| Yes |
 | IPsec policies | 20 per region | Yes | Yes |
-| Peer and local subnets | 50 across all connections per gateway, 15 per connection | Yes | No | 
+| User defined advertised routes | 10 per BGP peer | No | Yes[^fn2] |
 {: caption="Quotas for the site-to-site VPN gateway service" caption-side="bottom"}
 
 [^fn1]: A single VPC supports a maximum of one route-mode VPN per zone.

@@ -34,7 +34,7 @@ The following profile families are available when you provision a virtual server
 | [GPU](#gpu) | GPU-enabled profiles provide on-demand access to GPUs and accelerators to facilitate AI, high-performance computing, data science, and graphics workloads.|
 | [Storage Optimized](#storageopt) | Storage Optimized profiles offer temporary SSD instance storage disks at a ratio of 1 vCPU to 300 GB instance storage with a smaller price point per GB. These profiles are designed for storage-dense workloads and offer `virtio` interface type for attached disks. |
 | [Confidential Compute](#confidential-computing-profiles) | Confidential Compute-supported profiles use processor reserved memory called EPC (Enclave Page Cache) to encrypt application data. Processor reserved memory EPC maintains confidentiality and integrity. |
-| [Flex profiles](#flexible-profiles) | Flex profiles offer a cost-effective option to help improve and mainstream capacity and scalability where and when you need it. |
+| [Flex profiles](#flexible-profiles) (beta) | Flex profiles offer a cost-effective option to help improve and mainstream capacity and scalability where and when you need it. |
 {: caption="Virtual server family selections" caption-side="bottom"}
 
 2nd generation profiles with instance storage and 2nd generation profiles with 64 or more vCPUs are deployed exclusively on the Intel&reg;'s second-generation quad processor Xeon&reg; Platinum 8260 Cascade Lake with 96 cores that are running at a base speed of 2.4 GHz and an all-core turbo frequency of 3.1 GHz or Intel&reg;'s quad processor Xeon&reg; Gold 6248 Cascade Lake with 80 cores that are running at a base speed of 2.5 GHz and an all-core turbo frequency of 3.1 GHz.
