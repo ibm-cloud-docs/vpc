@@ -27,7 +27,7 @@ Flex profiles offer a broad set of capabilities and scale from 2 vCPUs (1 physic
 
 Virtual servers with a Flex profile are configured with a baseline CPU family regardless of hypervisor host CPU family.
 
-Hardware placement is random. You can't select hardware or CPU family. The hardware that is selected is based on hardware availability.
+With a Flex profile, you can't select hardware or CPU family. The hardware that is selected is based on hardware availability.
 {: note}
 
 ## Operating systems
@@ -85,7 +85,7 @@ The following list shows the supported features of Flex profiles.
 * Resizable to and away from Flex profiles and between Flex profile types
 * Flex profiles can be placed on multiple CPU families, including Intel Cascade Lake, Intel Sapphire Rapids, and AMD Milan.
 * 1 Gbps overall bandwidth per vCPU
-* Reservations 
+* Reservations
 * Instance templates
 * Autoscale
 * Placement groups
