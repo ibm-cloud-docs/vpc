@@ -72,7 +72,7 @@ toc:
                label: Profile details
                topics:
                - topic: vsi-profile-details-flexible.md
-                 navtitle: General purpse - Flex profiles (beta)
+                 navtitle: General purpose - Flex profiles (beta)
                - topic: vsi-profile-details-accelerated.md
                  navtitle: Accelerated - Gen 3
                - topic: vsi-profile-details-general-purpose-gen3.md
