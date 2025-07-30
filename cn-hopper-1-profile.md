@@ -2,7 +2,7 @@
 
 copyright:
   years: 2024, 2025
-lastupdated: "2025-04-11"
+lastupdated: "2025-07-30"
 
 keywords: cluster profiles, cluster network, cluster-network, cluster network profile, cluster network profiles, gpu, nvidia, hopper-1, rdma, roce, accelerated, rocev2, accelerated network
 
@@ -15,7 +15,7 @@ subcollection: vpc
 # NVIDIA Hopper-1 cluster network profile
 {: #cluster-network-hopper-1-profile}
 
-The Hopper-1 cluster network profile provides isolated networks for [Hopper HGX instances](/docs/vpc?topic=vpc-accelerated-profile-family#hopper-hgx-profiles) running workloads that require high-bandwidth, low-latency interconnectivity, such as AI training and large-scale simulations.
+The Hopper-1 cluster network profile provides isolated networks for [Hopper HGX instances](/docs/vpc?topic=vpc-accelerated-profile-family#hopper-hgx-profiles) that run workloads that require high-bandwidth, low-latency interconnectivity, such as AI training and large-scale simulations.
 {: shortdesc}
 
 The H100 cluster network profile will be deprecated and replaced by the Hopper-1 cluster network profile that will support both NVIDIA H100 and H200 instance profiles.
@@ -91,5 +91,5 @@ export NCCL_TOPO_FILE=<path-to-xml-topology-file> #Sample file provided below, v
 ```
 {: codeblock}
 
-NCCL can determine the optimal paths between system components, including GPU's and NIC's, by referencing VSI-provided PCI topology information. This [topology file](https://cloud.ibm.com/media/docs/downloads/vpc/topo.xml){: external} has been tested for an H100 VSI with eight cluster subnets, and can be used if you want to provide a topology file using the `NCCL_TOPO_FILE` environment variable.
+NCCL can determine the optimal paths between system components, including GPU's and NICs, by referencing VSI-provided PCI topology information. This [topology file](https://cloud.ibm.com/media/docs/downloads/vpc/topo.xml){: external} was tested for an H100 VSI with eight cluster subnets, and can be used if you want to provide a topology file by using the `NCCL_TOPO_FILE` environment variable.
 {: note}
