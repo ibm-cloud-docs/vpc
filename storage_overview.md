@@ -2,7 +2,7 @@
 
 copyright:
   years: 2022, 2025
-lastupdated: "2025-07-28"
+lastupdated: "2025-07-31"
 
 keywords: block storage for VPC, File Storage for VPC, Snapshots for VPC, Backup for VPC, block storage, file storage, snapshots, backup, 
 
@@ -47,8 +47,8 @@ Second-generation block volumes can be created with capacity in the range of 1 -
 | Customer-managed encryption at rest | Yes. | Yes.|
 | Importing encrypted custom image for boot volumes |  Yes.  | Not supported in the [Select Availability]{: tag-green} release.|
 | Creating encrypted custom image from boot volume | Yes. | Not supported in the [Select Availability]{: tag-green} release.|
-| On-demand snapshots | Yes, up to 750 snapshots per region. | Yes, up to 512 snapshots per region in the [beta]{: tag-cyan} release. |
-| Scheduled snapshots | Yes, up to 750 snapshots per region. | Not supported in the [beta]{: tag-cyan} release.|
+| On-demand snapshots | Yes, up to 750 snapshots per region. | Yes, up to 512 snapshots per region in the [Select Availability]{: tag-green} release. |
+| Scheduled snapshots | Yes, up to 750 snapshots per region. | Yes, up to 512 snapshots per region in the [Select Availability]{: tag-green} release.|
 {: caption="Block Storage volume generations comparison." caption-side="bottom"}
 
 For more information about this service, see [About {{site.data.keyword.block_storage_is_short}}](/docs/vpc?topic=vpc-block-storage-about).

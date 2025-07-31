@@ -2,7 +2,7 @@
 
 copyright:
   years: 2021, 2025
-lastupdated: "2025-07-30"
+lastupdated: "2025-07-31"
 
 keywords: Block Storage, virtual private cloud, boot volume, data volume, volume, data storage, virtual server instance, bandwidth
 
@@ -45,24 +45,33 @@ The allocation does not change unless a volume is detached or attached to the in
 
 To help ensure reasonable boot times, primary boot volume receives priority IOPS and a minimum of 393 Mbps bandwidth. Boot volume IOPS and bandwidth are never reduced to be less than 3000 IOPS and 393 Mbps. 
 
-The remaining volume bandwidth is proportionally allocated between the attached data volumes. All attached volumes are assigned instance bandwidth proportional to their maximum throughput limit. Whether that throughput limit is calculated automatically by using a throughput multiplier (traditional profiles) or specified explicitly (defined performance profile) makes no difference.
+The remaining volume bandwidth is proportionally allocated between the attached data volumes. All attached volumes are assigned instance bandwidth proportional to their maximum throughput limit.
 
 ### Throughput limit value of block volumes
 {: #block-vol-throughout-limit}
 
-Each volume has an IOPS and a throughput limit. When you create a stand-alone (unattached) data volume, the volume throughput limit is calculated based on volume capacity, IOPS, and the [volume profile](/docs/vpc?topic=vpc-block-storage-profiles). The IOPS limit is always set to the maximum IOPS of the volume. 
+Each volume has an IOPS and a throughput limit. This throughput limit is either calculated automatically by using a throughput multiplier (traditional profiles) or can be specified explicitly (defined performance profile).
 
-The provisioned throughput limit is determined by the total number of IOPS multiplied by the throughput multiplier. The throughput multiplier is 16 KB for 3 IOPS/GB or 5 IOPS/GB tiers, or 256 KB for 10 IOPS/GB or custom IOPS tiers. The maximum throughput limit for the general-purpose volume profile is 670 MBps (5360 Mbps). The maximum throughput limit for the 5iops-tier volume profile is 768 MBps (6144 Mbps). The remaining volume profiles (10iops-tier and custom) can't exceed the throughput limit of 1024 MBps (8192 Mbps).
+When you create a stand-alone data volume with a first-generation profile, the volume throughput limit is calculated based on volume capacity, IOPS, and the [volume profile](/docs/vpc?topic=vpc-block-storage-profiles). The IOPS limit is always set to the maximum IOPS of the volume. 
 
-See the following examples:
-- When you provision a stand-alone volume with 1,800 GB capacity and the 5 IOPS/GB volume profile, it can handle 9,000 IOPS, which means a maximum throughput limit of 1,179 Mbps. In the later example and tables, this volume is called _`volume-a`_.
-- When you provision a stand-alone volume with 3000 GB capacity and the 5 IOPS/GB volume profile, it can handle 15,000 IOPS, which means a maximum throughput limit of 1,966 Mbps. In the later example and tables, this volume is called _`volume-b`_.
-- When you provision a stand-alone volume with 3000 GB capacity and the general-purpose volume profile, it can handle 9,000 IOPS, which means a maximum throughput limit of 1,179 Mbps. In the later example and tables, this volume is called _`volume-c`_.
-- When you provision a stand-alone volume with 2000 GB capacity and the general-purpose volume profile, it can handle 6,000 IOPS, which means a maximum throughput limit of 786 Mbps. In the later example and tables, this volume is called _`volume_d`_.
+The provisioned throughput limit is determined by the total number of IOPS multiplied by the throughput multiplier. The throughput multiplier is 16 KB for 3 IOPS/GB or 5 IOPS/GB tiers, or 256 KB for 10 IOPS/GB or custom IOPS tiers. 
 
-Where can you see what bandwidth or throughput limit is assigned to your volume? in the console, the volume bandwidth can be seen as **Throughput** on the overview tab of the Block Storage volume details page.{: ui}
+Maximum throughput limit:
+- for the general-purpose volume profile the limit is 670 MBps (5360 Mbps). 
+- for the 5iops-tier volume profile the limit is 768 MBps (6144 Mbps). 
+- for the 10iops-tier and custom profiles, throughput can't exceed 1024 MBps (8192 Mbps).
 
-Where can you see what bandwidth or throughput limit is assigned to your volume? In the CLI, you can see the bandwidth in the output of the `ibmcloud is volume` command.{: cli}
+In the following examples, the stand-alone volumes are provisioned with:
+- _`volume-a`_ has 1,800 GB capacity and the 5 IOPS/GB volume profile, it can handle 9,000 IOPS, which means a maximum throughput limit of 1,179 Mbps.
+- _`volume-b`_. has 3,000 GB capacity and the 5 IOPS/GB volume profile, it can handle 15,000 IOPS, which means a maximum throughput limit of 1,966 Mbps. 
+- _`volume-c`_ has 3,000 GB capacity and the general-purpose volume profile, it can handle 9,000 IOPS, which means a maximum throughput limit of 1,179 Mbps.
+- _`volume_d`_ has 2,000 GB capacity and the general-purpose volume profile, it can handle 6,000 IOPS, which means a maximum throughput limit of 786 Mbps.
+
+Note that volumes that have the same volume profile can have different IOPS and Throughput limit values based on their capacity. Volumes can have the same IOPS limit, even if their capacity and volume profiles are different.
+
+Where can you see what bandwidth or throughput limit is assigned to your volume? The bandwidth or throughput limits assigned to the volume can been seen as **Throughput** on the overview tab of the Block Storage volume details page.{: ui}
+
+Where can you see what bandwidth or throughput limit is assigned to your volume? You can see the bandwidth value in the output of the `ibmcloud is volume` command.{: cli}
 
    ```sh
    ibmcloud is volume my-test-volume 
@@ -119,11 +128,11 @@ Where can you see what bandwidth or throughput limit is assigned to your volume?
 ### Bandwidth allocation for data volumes
 {: #volume-bandwidth-allocation}
 
-1. In the first example, the bx2-2x8 instance's total instance bandwidth of the bx2-2x8 profile is 4 Gbps. The storage bandwidth is 1 Gbps (1000 Mbps), and the boot volume is allocated 393 Mbps. The remaining 607 Mbps is divided among to the data volumes that you attach. The bandwidth allocation is proportional to the provisioned throughput limit of each data volume.
+1. In the first example, the bx2-2x8 instance's total instance bandwidth of the bx2-2x8 profile is 4 Gbps. The storage bandwidth is 1000 Mbps, and the boot volume is allocated 393 Mbps. The remaining 607 Mbps is divided among to the data volumes that you attach. The bandwidth allocation is proportional to the provisioned throughput limit of each data volume.
 
    In Table 1, you can see the 3 attached data volumes and their provisioned throughput limits. The percentage column shows the proportion of each volume's bandwidth compared to the combined provisioned throughput value. To calculate how the available instance volume bandwidth is allocated to each volume, multiply the available instance volume bandwidth with the volume's percentage. The results are shown in the allocated volume bandwidth column.
 
-   In this example, the combined provisioned value equals 4,324 Mbps, which is 100%. The throughput limit value of `volume-a` and `volume-c` is 27% of the combined throughput value. To see how much of the available instance volume bandwidth is allocated to them, you must multiply 607 Mbps with 0.27. The result is 166 Mbps.
+   In this example, the combined provisioned value equals 4,324 Mbps. The throughput limit value of `volume-a` and `volume-c` is 27% of the combined throughput value. To see how much of the available instance volume bandwidth is allocated to them, you must multiply 607 Mbps with 0.27. The result is 166 Mbps.
 
    | Volumes | Maximum IOPS | Provisioned max throughput limit | Percentage | Allocated volume bandwidth |
    |---------|-------------:|----------------------------------|-----------:|---------------------------:|
@@ -133,7 +142,7 @@ Where can you see what bandwidth or throughput limit is assigned to your volume?
    | All data volumes | N/A | 4,324 Mbps | 100% | 607 Mbps |
    {: caption="Volume bandwidth allocation with 3 data volumes." caption-side="bottom"}
 
-2. In the second example, the cx3d-8x20 instance's total volume bandwidth is 4 Gbps (4,000 Mbps). The available bandwidth that can be divided among the data volumes is 3607 Mbps. If you attach _`volume-a`_ and _`volume-b`_, both of which have the same 5 IOPS/GB volume profile, their combined maximum throughput limit is 3145 Mbps. That value is less than the available 3607 Mbps, which means that the volume with more capacity (_`volume-b`_) is allocated 1966 Mbps and the volume with less capacity (_`volume-a`_) is allocated 1179 Mbps. That's their provisioned throughput limit, and that's the most bandwidth that can be allocated to them, even if more bandwidth is available.
+2. In the second example, the cx3d-8x20 instance's total volume bandwidth is 4,000 Mbps. The available bandwidth that can be divided among the data volumes is 3607 Mbps. If you attach _`volume-a`_ and _`volume-b`_, their combined maximum throughput limit is 3145 Mbps. That value is less than the available 3607 Mbps, which means that the volume with more capacity (_`volume-b`_) is allocated 1966 Mbps and the volume with less capacity (_`volume-a`_) is allocated 1179 Mbps. That's their provisioned throughput limit, and that's the most bandwidth that can be allocated to them, even if more bandwidth is available.
 
    | Volumes | Maximum IOPS | Provisioned max throughput limit | Percentage | Allocated volume bandwidth |
    |---------|-------------:|----------------------------------|-----------:|---------------------------:|
@@ -154,7 +163,7 @@ Where can you see what bandwidth or throughput limit is assigned to your volume?
    | All data volumes | N/A |4,324 Mbps | 100% | 3,607 Mbps |
    {: caption="Volume bandwidth allocation with 3 data volumes." caption-side="bottom"}
 
-   If you provision and attach a 4th data volume with the general-purpose profile and capacity of 2,000 GB, the bandwidth allocation changes again. Table 4 shows the 4 attached volumes with their provisioned throughput limits in the 3rd column.
+   If you attach _volume-d_, the bandwidth allocation changes again. Table 4 shows the 4 attached volumes with their provisioned throughput limits in the 3rd column.
 
    | Volumes | Maximum IOPS | Provisioned max throughput limit | Percentage | Allocated volume bandwidth |
    |---------|-------------:|----------------------------------|-----------:|---------------------------:|
@@ -165,14 +174,14 @@ Where can you see what bandwidth or throughput limit is assigned to your volume?
    | All data volumes |N/A | 4,324 Mbps | 100% | 3,607 Mbps |
    {: caption="Volume bandwidth allocation with 4 data volumes." caption-side="bottom"}
 
-The volume bandwidth is always apportioned on a per volume basis. The bandwidth is assigned per volume, not shared between volumes. In the examples where 3 or 4 data volumes are attached, the allocated bandwidth is less than the volume's own throughput limit. While the volume is provisioned to be able to handle more, it can use only the bandwidth that was allocated to it. It cannot use any bandwidth that is allocated to, but not used by another volume.
+The volume bandwidth is always apportioned on a per volume basis. The bandwidth is assigned per volume, not shared between volumes. In the examples where 3 or 4 data volumes are attached, the allocated bandwidth is less than the volume's own throughput limit. While the volume is provisioned to be able to handle more, it can use only the bandwidth that was allocated to it. It cannot use any bandwidth that is allocated to another volume, even if the other volume is not using its allocated bandwidth.
 
 Increasing volume size, adjusting IOPS or throughput limit (of second-generation profiles) does not automatically change the assigned bandwidth. Bandwidth assignment is updated when volumes are detached and attached.
 {: important}
 
 In most cases, the unattached provisioned volume bandwidth value is not the same as the bandwidth value that you see after the volume is attached to an instance.
 
-## Estimating volume bandwidth
-{: #volume-estimate-bandwidth}
+## Next steps
+{: #volume-bandwidth-next steps}
 
-Think about the type of data volume that your workloads require and select the appropriate volume profile. Data intensive workloads might require the higher bandwidth performance of a 10 IOPS/GB profile. For more information, see [How virtual server profiles relate to storage profiles](/docs/vpc?topic=vpc-block-storage-profiles&interface=ui#vsi-profiles-relate-to-storage).
+Think about the type of data volume that your workloads require and select the appropriate instance and volume profile. For more information, see [How virtual server profiles relate to storage profiles](/docs/vpc?topic=vpc-block-storage-profiles&interface=ui#vsi-profiles-relate-to-storage).

@@ -2,7 +2,7 @@
 
 copyright:
   years: 2022, 2025
-lastupdated: "2025-07-23"
+lastupdated: "2025-07-31"
 
 keywords: Block Storage, snapshots, cross-regional copy, fast restore, backup, restore volume
 
@@ -44,8 +44,8 @@ A bootable snapshot is a copy of a boot volume. You can use this snapshot to cre
 
 A [fast restore snapshot](/docs/vpc?topic=vpc-snapshots-vpc-restore&interface=ui#snapshots-vpc-use-fast-restore) is a clone of a snapshot that is stored within one or more zones of a VPC region. The original snapshot is stored in {{site.data.keyword.cos_full_notm}}. When you perform a restore, data can be restored faster from a clone than from the snapshot in {{site.data.keyword.cos_short}}.
 
-Fast restore snapshot clones and consistency groups are not supported for second-generation storage volumes during the beta phase.
-{: beta}
+Fast restore snapshot clones and consistency groups are not supported for second-generation storage volumes during the select availability phase.
+{: preview}
 
 ## What is a cross-regional copy of a snapshot?
 {: faq}
@@ -151,8 +151,8 @@ You can use your snapshots and backups to create volumes when an emergency occur
 
 You can copy a snapshot from one region to another region, and later use that snapshot to restore a volume in the new region. Only one copy of the snapshot can exist in each region. You can't create a copy of the snapshot in the source (local) region.
 
-Fast restore snapshot clones and consistency groups are not supported for second-generation storage volumes during the beta phase.
-{: beta}
+Fast restore snapshot clones and consistency groups are not supported for second-generation storage volumes during the select availability phase.
+{: preview}
 
 ## What is a consistency group?
 {: faq}
@@ -164,5 +164,5 @@ The snapshots are loosely coupled. The snapshots can be used to create new volum
 
 For more information, see [Snapshot consistency groups](/docs/vpc?topic=vpc-snapshots-vpc-about&interface=ui#multi-volume-snapshots).
 
-Fast restore snapshot clones and consistency groups are not supported for second-generation storage volumes during the beta phase.
-{: beta}
+Fast restore snapshot clones and consistency groups are not supported for second-generation storage volumes during the select availability phase.
+{: preview}
