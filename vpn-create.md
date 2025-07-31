@@ -78,7 +78,7 @@ To create a VPN gateway in the console:
       * You need to enforce particular security requirements.
       * The VPN gateway on the other network doesn't support the security proposals that are automatically negotiated during setup.
 
-   The IKE and IPsec security options that you specify for the connection must exactly match those options that are specified on the peer gateway for the network outside your VPC.
+   The IKE and IPsec security options that you specify for the connection must exactly match the ones that are set on the peer gateway for the network outside your VPC.
    {: important} {: #ike-identities}
 
 1. In the Advanced options section, you can customize local and peer IKE identities instead of using the default IKE identity. One peer IKE identity can be specified at most.

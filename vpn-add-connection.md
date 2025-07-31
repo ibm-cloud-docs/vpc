@@ -2,7 +2,7 @@
 
 copyright:
   years: 2020, 2025
-lastupdated: "2025-06-09"
+lastupdated: "2025-07-31"
 
 keywords:
 
@@ -18,7 +18,7 @@ subcollection: vpc
 You can add connections when [creating a VPN gateway](/docs/vpc?topic=vpc-vpn-create-gateway&interface=ui), or after provisioning one. When you configure a VPN connection, you can choose to connect with auto-negotiation or use a pre-defined custom IKE or IPsec policy. For more information, see [About policy negotiation](/docs/vpc?topic=vpc-using-vpn#policy-negotiation).
 {: shortdesc}
 
-The IKE Phase 1 and Phase 2 (IPsec) security options that you specify for the connection must be the same options that are set on the peer gateway for the network outside your VPC.
+The IKE and IPsec security options that you specify for the connection must exactly match the ones that are set on the peer gateway for the network outside your VPC.
 {: important}
 
 ## Adding a connection in the console
@@ -27,10 +27,12 @@ The IKE Phase 1 and Phase 2 (IPsec) security options that you specify for the co
 
 To add a VPN connection to an existing VPN gateway, follow these steps:
 
-1. Highlight the row of the gateway you want to work with in the VPN gateways table, then click **New connection** from the Actions menu ![Actions menu](../icons/action-menu-icon.svg "Actions").
+1. Highlight the row of the gateway that you want to work with in the VPN gateways table, then click **New connection** from the Actions menu ![Actions menu](../icons/action-menu-icon.svg "Actions").
 
    Alternatively, on the gateway's details page, you can click **Create** in the VPN connections section.
    {: note}
+
+
 
 1. Define a connection between this gateway and a network outside your VPC by specifying the following information:
    * **VPN connection name** - Enter a name for the connection, such as `my-connection`.
@@ -38,6 +40,8 @@ To add a VPN connection to an existing VPN gateway, follow these steps:
 
       After you provision the VPN connection, you cannot change the peer gateway address type from IP address to FQDN, or from FQDN to IP address.
       {: note}
+
+   
 
    * **Establish mode** - Select either **Bidirectional** or **Peer only**.
 
@@ -52,10 +56,12 @@ To add a VPN connection to an existing VPN gateway, follow these steps:
       * The length of the string must be 6 - 128 characters.
       * Cannot start with `0x` or `0s`.
 
-   * **Distribute traffic (Route-based VPN only)** - Enable to distribute traffic between the `Up` tunnels of the VPN gateway connection when a VPC route's next hop is the VPN connection. If this checkbox is not selected,  the VPN gateway uses the tunnel with the small public IP as the primary egress path, and only when the primary egress path is disabled, does traffic go through the secondary path. For more information, see [Use case 4: Distributing traffic for a route-based VPN](/docs/vpc?topic=vpc-using-vpn&interface=ui#use-case-4-vpn).
+   * **Distribute traffic (Route-based VPN only)** - Enable this option to automatically distribute traffic between the `Up` tunnels of the VPN gateway connection when a VPC route's next hop is the VPN connection. Otherwise, the VPN gateway chooses the tunnel with the smaller public IP address as the primary egress path, and traffic switches to the secondary path only if the primary path is disabled. For more information, see [Use case 4: Distributing traffic for a route-based VPN](/docs/vpc?topic=vpc-using-vpn&interface=ui#use-case-4-vpn).
 
    * **Local IBM CIDRs (Policy-based VPN only)** - Specify one or more CIDRs in the VPC that you want to connect through the VPN tunnel.
    * **Peer CIDRs (Policy-based VPN only)** - Specify one or more CIDRs in the other network that you want to connect through the VPN tunnel. Subnet range overlap between local and peer subnets is not allowed.
+
+
 
 1. To configure how the VPN gateway sends messages to check that the peer gateway is active, specify the following information in the **Dead peer detection** section.
    * **Action** - The action to take if a peer gateway stops responding. For example, select **Restart** if you want the gateway to immediately renegotiate the connection.
@@ -63,14 +69,17 @@ To add a VPN connection to an existing VPN gateway, follow these steps:
    * **Timeout (secs)** - How long to wait for a response from the peer gateway. By default, a peer gateway is considered inactive if a response isn't received within 10 seconds.
 1. In the **Policies** section, specify the Internet Key Exchange (IKE) and Internet Protocol Security (IPsec) options to use for Phase 1 and Phase 2 negotiation of the connection.
    * Select **Auto** if you want the gateway to try to automatically establish the connection.
-   * Select or create custom policies if you need to enforce particular security requirements, or if the VPN gateway for the other network doesn't support the security proposals that are tried by auto-negotiation.
+   * Select or create custom policies if:
+      * You need to enforce particular security requirements.
+      * The VPN gateway on the other network doesn't support the security proposals that are automatically negotiated during setup.
+
 
 1. In the **Advanced options** section, you can customize local and peer IKE identities instead of using the default IKE identity. One peer IKE identity can be specified at most.
 
    For policy-based VPN gateways, you can configure one local IKE identity at most. For route-based VPN gateways, if you want to configure a local IKE identity, you must provide two. You can provide values for the members or leave the input fields empty.
    {: note}
 
-   * **Local IKE identities** - Select a type for the local IKE identity, then enter its value. For example, you can enter a single 4 octe IPv4 address (`9.168.3.4`), an FQDN (`my-vpn.example.com`), hostname (`my-host`), or base64-encoded key ID (`MTIzNA==`).
+   * **Local IKE identities** - Select a type for the local IKE identity, then enter its value. For example, you can enter a single 4 octet IPv4 address (`9.168.3.4`), an FQDN (`my-vpn.example.com`), hostname (`my-host`), or base64-encoded key ID (`MTIzNA==`).
 
       * Static route mode consists of two members in active-active mode, where the first identity applies to the first member and the second identity applies to the second member. If you do not specify local IKE identities, then the type is an IPv4 address, and the value is the public IP address of the member’s VPN connection tunnel.
 
@@ -119,13 +128,13 @@ Where:
     : The preshared key.
 
 `--vpc`
-    : The ID or name of the VPC. This is only required to specify the unique resource by its name inside this VPC.
+    : The ID or name of the VPC. This field is only required to specify the unique resource by its name inside this VPC.
 
 `--admin-state-up`
-    : If set to `false`, the VPN gateway connection is shut down. This can be either `true` or `false`.
+    : If set to `false`, the VPN gateway connection is shut down. This field value can be either `true` or `false`.
 
 `--dead-peer-detection-action`
-    : The dead peer detection action. This can be either `restart`, `clear`, `hold`, or `none`. (default: `restart`).
+    : The dead peer detection action. This field value can be either `restart`, `clear`, `hold`, or `none`. (Default: `restart`).
 
 `--dead-peer-detection-interval`
     : The dead peer detection interval in seconds (default: `2`).
@@ -134,7 +143,7 @@ Where:
     :  The dead peer detection timeout in seconds (default: `10`).
 
 `--distribute-traffic`
-    :  Set to `true` to distribute traffic between the `Up` tunnels of the VPN gateway connection when a VPC route's next hop is the VPN connection.This can be either `true` or `false`. For more information, see [Distributing traffic for a route-based VPN](/docs/vpc?topic=vpc-using-vpn&interface=terraform#use-case-4-vpn).
+    :  Set to `true` to distribute traffic between the `Up` tunnels of the VPN gateway connection when a VPC route's next hop is the VPN connection. This value can be either `true` or `false`. For more information, see [Distributing traffic for a route-based VPN](/docs/vpc?topic=vpc-using-vpn&interface=terraform#use-case-4-vpn).
 
 `--ike-policy`
     : The ID of the IKE policy.
@@ -143,7 +152,7 @@ Where:
     : The ID of the IPsec policy.
 
 `--local-ike-identity-type`
-    : The type of local IKE identity. This can be either `fqdn`, `hostname`, `ipv4_address` or `key_id`.
+    : The type of local IKE identity. This field value can be either `fqdn`, `hostname`, `ipv4_address`, or `key_id`.
 
 `--local-ike-identity-value`
     : The value of the local IKE identity.
@@ -158,20 +167,20 @@ Where:
     : The local CIDR for the resource.
 
 `-peer-ike-identity-type`
-    : The type of peer IKE identity. This can be either `ipv4_address`, `fqdn`, `hostname`, or `key_id`.
+    : The type of peer IKE identity. This field value can either be `ipv4_address`, `fqdn`, `hostname`, or `key_id`.
 
 `--peer-ike-identity-value`
     : The value of the peer IKE identity.
 
-   Policy-based VPN gateways can only have one local IKE identity.
+   Policy-based VPN gateways can have only one local IKE identity.
 
    If a route-based VPN gateway has local IKE identities specified, then there must be at least two; the first identity applies to the first member of the VPN gateway, and the second identity applies to the second member.
 
 `--establish-mode`
-    : This can be either `bidirectional` or `peer_only`. Bidirectional mode initiates IKE protocol negotiations (or rekeying processes) from either side of the VPN gateway. Peer only mode allows the peer to initiate IKE protocol negotiations for this VPN gateway connection. The peer is also responsible for initiating the rekeying process after the connection is established. If rekeying doesn't occur, the VPN gateway connection is removed after its lifetime expires.
+    : This field can be either `bidirectional` or `peer_only`. Bidirectional mode initiates IKE protocol negotiations (or rekeying processes) from either side of the VPN gateway. Peer only mode allows the peer to initiate IKE protocol negotiations for this VPN gateway connection. The peer is also responsible for initiating the rekeying process after the connection is established. If rekeying doesn't occur, the VPN gateway connection is removed after its lifetime expires.
 
 `-output`
-    : Specifies that the output will be in JSON format.
+    : Specifies that the output format is JSON.
 
 `-q, --quiet`
     : Suppresses verbose output.
@@ -197,7 +206,7 @@ Where:
 - Create a VPN connection that allows the peer to initiate IKE protocol negotiations for this VPN gateway connection:
    `ibmcloud is vpn-gateway-connection-create my-connection fee82deba12e4c0fb69c3b09d1f12345 169.21.50.5 lkj14b1oi0alcniejkso --establish-mode peer_only --local-ike-identities '[{type:ipv4_address,value:2.2.2.2},{type:fqdn,value:sadsadasd.com}]' --peer-ike-identity-type key_id --peer-ike-identity-value MTIzNA==`
 
-- Create a VPN connection using advanced configuration options:
+- Create a VPN connection by using advanced configuration options:
    `ibmcloud is vpn-gateway-connection-create to-prem ${gateway_id} on-prem.test.com test123 --local-cidr 10.10.20.0/28 --peer-cidr 192.168.0.0/24 --peer-ike-identity-type ipv4_address --peer-ike-identity-value 192.168.0.1 --establish-mode peer_only`
 
 ## Adding a local CIDR to a VPN gateway connection from the CLI
@@ -315,7 +324,7 @@ To create a VPN connection with the API, follow these steps:
        ```
        {: pre}
 
-1. When all variables are initiated, create the VPN gateway connection. For example:
+1. When all variables are initiated, create the VPN gateway connection. For example,
 
    ```sh
       curl -X POST "$vpc_api_endpoint/v1/vpn_gateways/$vpnGatewayId/connections?version=$api_version&generation=2" \
@@ -345,7 +354,7 @@ To create a VPN connection with the API, follow these steps:
    ```
    {: codeblock}
 
-1. (Optional) To create a connection using advanced configuration options:
+1. (Optional) To create a connection by using advanced configuration options:
 
    ```sh
    curl -X POST "$vpc_api_endpoint/v1/vpn_gateways/$vpnGatewayId/connections?version=$api_version&generation=2"  \
@@ -428,7 +437,7 @@ This API is only supported by policy mode VPN gateways.
       {: pre}
 
 
-1. When all variables are initiated, add a local CIDR to a VPN gateway connection. For example:
+1. When all variables are initiated, add a local CIDR to a VPN gateway connection. For example,
 
    ```sh
       curl -X PUT "$vpc_api_endpoint/v1/vpn_gateways/$vpnGatewayId/connections/$connectionId/local_cidrs/${cidr_prefix}/${prefix_length}?version=$api_version&generation=2" \
@@ -478,7 +487,7 @@ This API is only supported by policy mode VPN gateways.
       {: pre}
 
 
-1. When all variables are initiated, add a peer CIDR to a VPN gateway connection. For example:
+1. When all variables are initiated, add a peer CIDR to a VPN gateway connection. For example,
 
    ```sh
       curl -X PUT "$vpc_api_endpoint/v1/vpn_gateways/$vpnGatewayId/connections/$connectionId/peer_cidrs/${cidr_prefix}/${prefix_length}?version=$api_version&generation=2" \
@@ -539,7 +548,7 @@ resource "ibm_is_vpn_gateway_connection" "test_VPNGatewayConnection1" {
 ```
 {: codeblock}
 
-The following Terraform example creates a VPN connection using advanced configuration options:
+The following Terraform example creates a VPN connection by using advanced configuration options:
 
 ```terraform
 resource "ibm_is_vpn_gateway_connection" "is_vpn_gateway_connection" {
