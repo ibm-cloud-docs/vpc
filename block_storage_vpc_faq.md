@@ -2,7 +2,7 @@
 
 copyright:
   years: 2019, 2025
-lastupdated: "2025-07-14"
+lastupdated: "2025-07-31"
 
 keywords: faqs, Block Storage for vpc, fast restore, multizone, instance, instance provisioning, volume management, volume deletion.
 
@@ -83,7 +83,7 @@ No. You can't copy the storage volume to a different zone.
 {: faq}
 {: #faq-sdp-backup}
 
-Customers who are allow-lasted for the beta phase of regional snapshots can create snapshots of their second-generation volumes. During the beta phase, snapshots can't be copied to another region. Consistency group snapshots of multiple `sdp` volumes and fast restore clones are not supported for second-generation snapshots yet.
+Customers who are allowlisted for the beta phase of regional snapshots can create snapshots of their second-generation volumes. During the beta phase, snapshots can't be copied to another region. Consistency group snapshots of multiple `sdp` volumes and fast restore clones are not supported for second-generation snapshots yet.
 
 
 ## Questions about the traditional volume profile family
