@@ -2,7 +2,7 @@
 
 copyright:
   years: 2022, 2023
-lastupdated: "2025-05-14"
+lastupdated: "2025-07-31"
 
 keywords:
 
@@ -12,16 +12,16 @@ subcollection: vpc
 
 {{site.data.keyword.attribute-definition-list}}
 
-# Accessing metadata from an instance
+# Retrieving metadata from an instance
 {: #imd-access-instance-metadata}
 
-Most often, you want to collect metadata from a running instance and use it to bootstrap another virtual server instance. Review the general procedure and step-by-step instructions for enabling the metadata service, creating an instance identity access token, and accessing the metadata.
+Most often, you want to collect metadata from a running instance and use it to bootstrap another virtual server instance. Other times, you might need to collect information about network attachments or volume attachments. Review the general procedure and step-by-step instructions for enabling the metadata service, creating an instance identity access token, and retrieving the metadata.
 {: shortdesc}
 
-## General procedure to access instance metadata
+## General procedure to access the instance's metadata
 {: #imd-gen-procedure}
 
-Table 1 describes the steps that are involved in accessing instance metadata. The information provides the context for each step and links to specific information for completing the step. In an actual environment, steps 3 - 5 would more likely be started by your instance's initialization software at startup or by using cloud-init.
+Table 1 describes the steps that are involved in accessing metadata. The information provides the context for each step and links to specific information for completing the step. In an actual environment, steps 3 - 5 would more likely be started by your instance's initialization software at startup or by using cloud-init.
 
 | Step | Context | Service Called | User Action |
 |------|---------|----------------|-------------|
@@ -30,7 +30,7 @@ Table 1 describes the steps that are involved in accessing instance metadata. Th
 | 3    | VPC instance | Metadata service | Run a `curl` command to call the metadata token service to [acquire an instance identity access token](/apidocs/vpc-metadata#create-access-token). |
 | 4    | VPC instance | Metadata service | Run a `curl` command to call the metadata service to [retrieve instance information](/apidocs/vpc-metadata#get-instance). The token from the previous step is passed and the metadata is returned.|
 | 5    | VPC instance | - | Parse the JSON returned in the previous step to acquire the user data. |
-{: caption="General procedure for accessing instance metadata" caption-side="bottom"}
+{: caption="General procedure for accessing metadata" caption-side="bottom"}
 
 ## End-to-end procedure for accessing metadata from an instance
 {: #imd-access-md-ex}
@@ -268,6 +268,8 @@ Table 1 describes the steps that are involved in accessing instance metadata. Th
 ### Establishing a secure connection to the virtual server instance
 {: #imd-access-md-login-vsi}
 
+[Linux]{: tag-linux}
+
 The following example shows the command syntax to use to connect to a Linux-based server instance.
 
 ```sh
@@ -275,17 +277,21 @@ ssh -i <path to your private key file> <default-user-account>@<floating ip addre
 ```
 {: pre}
 
-If your server is running a Windows OS, use an RDP client.
+[Windows]{: tag-windows}
+
+Windows users have extra requirements to access and use the metadata service. For more information, see [Setting up windows servers for using the metadata service](/docs/vpc?topic=vpc-imd-windows-configuration).
+
+If your server is running a Windows OS, use an RDP client to connect to it.  
 
 For more information, see [Connecting to your Linux instance](/docs/vpc?topic=vpc-vsi_is_connecting_linux) or [Connecting to your Windows instance](/docs/vpc?topic=vpc-vsi_is_connecting_windows).
 
 ### Collecting information from the metadata service
 {: #imd-access-md-use}
 
-1. From the virtual server instance, make a request to the metadata token service to retrieve an instance identity access token. Specify how long you want the token to remain valid. For example, you can specify 3600 seconds (1 hour).
+From the virtual server instance, make a request to the identity API to retrieve an instance identity token. Specify how long you want the token to remain valid. For example, you can specify 3600 seconds (1 hour).
 
    ```json
-   export instance_identity_token=`curl -X PUT "http://api.metadata.cloud.ibm.com/instance_identity/v1/token?version=2024-11-12"\
+   export instance_identity_token=`curl -X PUT "http://api.metadata.cloud.ibm.com/instance_identity/v1/token?version=2022-03-01"\
      -H "Metadata-Flavor: ibm"\
      -H "Accept: application/json"\
      -d '{
@@ -299,7 +305,10 @@ For more information, see [Connecting to your Linux instance](/docs/vpc?topic=vp
    The example uses `jq` as a parser, a third-party tool licensed under the [MIT license](https://stedolan.github.io/jq/download/). `jq` might not come preinstalled on all VPC images available when you create an instance. You might need to install `jq` before use or use another parser of your choice.
    {: note}
 
-1. You can now make an API request to the metadata service to gather the initialization information:
+#### Retrieving the initialization information
+{: #imd-retrieve-initialization-data}
+
+After you obtained your identity token, you can now make an API request to the metadata service to gather the initialization information:
 
    ```sh
    curl -X GET "http://api.metadata.cloud.ibm.com/metadata/v1/instance/initialization?version=2024-11-12"\
@@ -309,9 +318,124 @@ For more information, see [Connecting to your Linux instance](/docs/vpc?topic=vp
    ```
    {: codeblock}
 
-   The API response contains information such as the SSH key and user data that was specified when the virtual server was provisioned. If you configured passwords, that information is also returned. 
+   The API response contains information such as the SSH key and user data that was specified when the virtual server was provisioned. If you configured passwords, that information is also returned. You can use this information to bootstrap a new virtual server instance.
 
-1. Use other API methods to retrieve more information about the instance, such as volume and network attachments, or gather information about SSH keys, placement groups, or virtual network interfaces. For more information, see the [Metadata service API](/apidocs/vpc-metadata) reference and the [Summary of instance metadata service information](/docs/vpc?topic=vpc-imd-metadata-summary).
+#### Retrieving instance information
+{: #imd-retrieve-instance}
+
+Make a `GET "/metadata/v1/instance"` request to retrieve detailed information about the instance.
+
+```sh
+curl -X GET "$vpc_metadata_api_endpoint/metadata/v1/instance?version=2025-04-22" -H "Authorization: Bearer $instance_identity_token"
+```
+{: codeblock}
+
+The response lists all details for an instance, including network interfaces, compute profile, and volume attachments.
+
+```json
+{
+  "boot_volume_attachment": {
+    "id": "a8a15363-a6f7-4f01-af60-715e85b28141",
+    "name": "my-boot-volume-attachment",
+    "volume": {
+      "crn": "crn:[...]",
+      "id": "49c5d61b-41e7-4c01-9b7a-1a97366c6916",
+      "name": "my-boot-volume"
+    }
+  },
+  "created_at": "2021-10-19T16:11:57Z",
+  "crn": "crn:[...]",
+  "disks": [],
+  "id": "eb1b7391-2ca2-4ab5-84a8-b92157a633b0",
+  "image": {
+    "crn": "crn:[...]",
+    "id": "9aaf3bcb-dcd7-4de7-bb60-24e39ff9d366",
+    "name": "my-image"
+  },
+  "memory": 8,
+  "name": "my-instance",
+  "network_interfaces": [
+    {
+      "id": "7ca88dfb-8962-469d-b1de-1dd56f4c3275",
+      "name": "my-network-interface",
+      "primary_ipv4_address": "10.0.0.32",
+      "resource_type": "network_interface",
+      "subnet": {
+        "crn": "crn:[...]",
+        "id": "bea6a632-5e13-42a4-b4b8-31dc877abfe4",
+        "name": "my-subnet",
+        "resource_type": "subnet"
+      }
+    }
+  ],
+  "primary_network_interface": {
+    "id": "7ca88dfb-8962-469d-b1de-1dd56f4c3275",
+    "name": "my-network-interface",
+    "primary_ipv4_address": "10.0.0.32",
+    "resource_type": "network_interface",
+    "subnet": {
+      "crn": "crn:[...]",
+      "id": "bea6a632-5e13-42a4-b4b8-31dc877abfe4",
+      "name": "my-subnet",
+      "resource_type": "subnet"
+    }
+  },
+  "profile": {
+    "name": "bx2-2x8"
+  },
+  "resource_type": "instance",
+  "vcpu": {
+    "architecture": "amd64",
+    "count": 2
+  },
+  "volume_attachments": [
+    {
+      "id": "a8a15363-a6f7-4f01-af60-715e85b28141",
+      "name": "my-boot-volume-attachment",
+      "volume": {
+        "crn": "crn:[...]",
+        "id": "49c5d61b-41e7-4c01-9b7a-1a97366c6916",
+        "name": "my-boot-volume"
+      }
+    },
+    {
+      "id": "e77125cb-4df0-4988-a878-531ae0ae0b70",
+      "name": "my-volume-attachment-1",
+      "volume": {
+        "crn": "crn:[...]",
+        "id": "2cc091f5-4d46-48f3-99b7-3527ae3f4392",
+        "name": "my-data-volume"
+      }
+    }
+  ],
+  "vpc": {
+    "crn": "crn:[...]",
+    "id": "f0aae929-7047-46d1-92e1-9102b07a7f6f",
+    "name": "my-vpc",
+    "resource_type": "vpc"
+  },
+  "zone": {
+    "name": "us-south-1"
+  }
+}
+```
+{: codeblock}   
+
+1. Use other API methods to retrieve more information about the instance, such as volume and network attachments, or gather information about SSH keys, placement groups, or virtual network interfaces. For more information, see the [Metadata service API](/apidocs/vpc-metadata) reference and the [Summary of metadata service information](/docs/vpc?topic=vpc-imd-metadata-summary).
+
+The following table shows more methods for API GET requests that you can make to get specific information about the instance.
+
+| API endpoint | Description |
+|--------------|-------------|
+| `/metadata/v1/instance/cluster_network_attachments`| List cluster network attachments |
+| `/metadata/v1/instance/cluster_network_attachments/{id}` | Retrieve a cluster network attachment |
+| `/metadata/v1/instance/network_attachments` | List network attachments |
+| `/metadata/v1/instance/network_attachments/{id}`| Retrieve a network attachment |
+| `/metadata/v1/instance/network_interfaces` | List metadata for all network interfaces for an instance. |
+| `/metadata/v1/instance/network_interfaces/{id}` | Retrieve metadata for a network interface by ID. |
+| `/metadata/v1/instance/volume_attachments` | List metadata for all volume attachments for an instance. |
+| `/metadata/v1/instance/volume_attachment/{id}` | Retrieve metadata for a volume attachment by ID. |
+{: caption="Metadata URIs" caption-side="bottom"}
 
 ## Next steps
 {: #imd-access-md-next-steps}

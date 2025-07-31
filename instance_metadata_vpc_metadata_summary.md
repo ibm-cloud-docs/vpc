@@ -2,7 +2,7 @@
 
 copyright:
   years: 2021, 2023
-lastupdated: "2024-10-10"
+lastupdated: "2025-07-31"
 
 keywords:
 
@@ -12,10 +12,10 @@ subcollection: vpc
 
 {{site.data.keyword.attribute-definition-list}}
 
-# Summary of data returned by the instance metadata service
+# Summary of data returned by the metadata service
 {: #imd-metadata-summary}
 
-Use the instance metadata service to access information about the instance, SSH keys, and placement groups. This topic provides a summary of this data by URI path and metadata key, and describes the metadata.
+Use the metadata service to access information about the instance, SSH keys, and placement groups. This topic provides a summary of this data by URI path and metadata key, and describes the metadata.
 {: shortdesc}
 
 The API response for each metadata type is presented in JSON format that contains metadata key:value pairs.
@@ -23,7 +23,7 @@ The API response for each metadata type is presented in JSON format that contain
 ## Summary of metadata for instances
 {: #imd-instance-summary}
 
-Use the information in the Table 1 to understand the type of metadata returned for an instance. To access all metadata, see [Use the instance metadata service](/docs/vpc?topic=vpc-imd-get-metadata).
+Use the information in the Table 1 to understand the type of metadata returned for an instance. To access all metadata, see [Retrieving metadata from an instance](/docs/vpc?topic=vpc-imd-access-instance-metadata).
 
 | Instance URI path | Metadata key | Description of the metadata |
 |-------------------|--------------|-----------------------------|
@@ -103,7 +103,6 @@ Use the information in the Table 2 to understand the type of metadata returned f
 | `/keys/{id}` | `type` | The cryptosystem used by the key. |
 {: caption="Metadata for SSH keys" caption-side="bottom"}
 
-
 ## Summary of metadata for placement groups
 {: #imd-placement-group-summary}
 
@@ -124,4 +123,4 @@ Use the information in the Table 3 to understand the type of metadata returned f
 ## Next steps
 {: #imd-summary-next-steps}
 
-[Retrieve data by using the metadata service](/docs/vpc?topic=vpc-imd-get-metadata).
+[Retrieve data by using the metadata service](/docs/vpc?topic=vpc-imd-access-instance-metadata).

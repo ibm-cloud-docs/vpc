@@ -62,10 +62,10 @@ Maximum throughput limit:
 - for the 10iops-tier and custom profiles, throughput can't exceed 1024 MBps (8192 Mbps).
 
 In the following examples, the stand-alone volumes are provisioned with:
-- _`volume-a`_ has 1,800 GB capacity and the 5 IOPS/GB volume profile, it can handle 9,000 IOPS, which means a maximum throughput limit of 1,179 Mbps.
-- _`volume-b`_. has 3,000 GB capacity and the 5 IOPS/GB volume profile, it can handle 15,000 IOPS, which means a maximum throughput limit of 1,966 Mbps. 
-- _`volume-c`_ has 3,000 GB capacity and the general-purpose volume profile, it can handle 9,000 IOPS, which means a maximum throughput limit of 1,179 Mbps.
-- _`volume_d`_ has 2,000 GB capacity and the general-purpose volume profile, it can handle 6,000 IOPS, which means a maximum throughput limit of 786 Mbps.
+- **`volume-a`** has 1,800 GB capacity and the 5 IOPS/GB volume profile, it can handle 9,000 IOPS, which means a maximum throughput limit of 1,179 Mbps.
+- **`volume-b`** has 3,000 GB capacity and the 5 IOPS/GB volume profile, it can handle 15,000 IOPS, which means a maximum throughput limit of 1,966 Mbps. 
+- **`volume-c`** has 3,000 GB capacity and the general-purpose volume profile, it can handle 9,000 IOPS, which means a maximum throughput limit of 1,179 Mbps.
+- **`volume_d`** has 2,000 GB capacity and the general-purpose volume profile, it can handle 6,000 IOPS, which means a maximum throughput limit of 786 Mbps.
 
 Note that volumes that have the same volume profile can have different IOPS and Throughput limit values based on their capacity. Volumes can have the same IOPS limit, even if their capacity and volume profiles are different.
 

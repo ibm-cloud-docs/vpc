@@ -2,7 +2,7 @@
 
 copyright:
   years: 2023, 2025
-lastupdated: "2025-07-28"
+lastupdated: "2025-07-31"
 
 keywords: file share, file storage, encryption in transit, Mount Helper, IPsec, secure connection, mount share
 
@@ -67,7 +67,7 @@ Obtain the X.509 certificates that are needed for authentication. The same certi
    ```
    {: pre}
 
-3. Then, use the metadata service on the [virtual server instance](/docs/vpc?topic=vpc-imd-about) or the [bare metal server](/docs/vpc?topic=vpc-bare-metal-server-metadata-about) to create a client certificate. 
+3. Then, use the metadata service on the [virtual server instance](/docs/vpc?topic=vpc-imd-identity-operations#imd-json-token) or the [bare metal server](/docs/vpc?topic=vpc-metal-server-metadata-about) to create a client certificate. 
    1. Make a `PUT /instance_identity/v1/token` (virtual server instance) or `PUT /identity/v1/tokens` (bare metal server) request to get a token from the VPC identity service to be used for subsequent calls. For more information, see the following topics:
       - [Acquiring an instance identity access token](/docs/vpc?topic=vpc-imd-configure-service&interface=api#imd-json-token).
       - [Acquiring a bare metal server identity access token](/docs/vpc?topic=vpc-configure-metadata-service-bare-metal&interface=api#metadata-json-token-bare-metal).

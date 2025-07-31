@@ -118,7 +118,7 @@ If you have an instance with the Metadata service enabled, the following steps d
 1. Retrieve a short-lived instance identity token.
 
    ```bash
-   instance_identity_token=`curl -X PUT "http://api.metadata.cloud.ibm.com/instance_identity/v1/token?version=2024-02-20" -H "Metadata-Flavor: ibm" -H "Accept: application/json" -d '{ "expires_in": 300}' | jq -r '(.access_token)'`
+   instance_identity_token=`curl -X PUT "http://api.metadata.cloud.ibm.com/instance_identity/v1/token?version=2022-03-01" -H "Metadata-Flavor: ibm" -H "Accept: application/json" -d '{ "expires_in": 300}' | jq -r '(.access_token)'`
    ```
    {: codeblock}
 

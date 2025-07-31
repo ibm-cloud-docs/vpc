@@ -2,7 +2,7 @@
 
 copyright:
   years: 2021, 2025
-lastupdated: "2025-01-23"
+lastupdated: "2025-07-31"
 
 keywords: api, errors, error codes, status codes, metadata, http status codes
 
@@ -12,10 +12,10 @@ subcollection: vpc
 
 {{site.data.keyword.attribute-definition-list}}
 
-# Instance metadata API error codes
+# Metadata API error codes
 {: #instance-metadata-error-codes}
 
-As covered in [Error handling](/apidocs/vpc-metadata#error-handling-metadata), the VPC Instance Metadata API uses standard HTTP response codes to indicate the outcome of a request. For example, a `4xx`-series response indicates a failure that the client must resolve. A `5xx`-series response indicates a service failure.
+As covered in [Error handling](/apidocs/vpc-metadata#error-handling-metadata), the VPC Metadata API uses standard HTTP response codes to indicate the outcome of a request. For example, a `4xx`-series response indicates a failure that the client must resolve. A `5xx`-series response indicates a service failure.
 {: shortdesc}
 
 Additionally, all `4xx` and `5xx` responses include a JSON error response object that provides additional information about the problem. This information includes a `trace` property whose value might be requested by IBM support when they troubleshoot the failure, and an `errors` array property that contains one or more specific errors that are related to the problem. Each item in the `errors` array uses the following JSON schema:
@@ -50,7 +50,7 @@ Example `400` JSON error response object:
 ```
 {: codeblock}
 
-Error codes can be added, removed, or modified in subsequent releases, with updates announced in the VPC Instance Metadata API change log. If you use error codes programmatically, we recommend that you code defensively. Any code that checks for specific error codes must always have a "default" or "catch-all" clause. So it can handle the case where the returned error code does not match any of the ones the code expected.
+Error codes can be added, removed, or modified in subsequent releases, with updates announced in the VPC Metadata API change log. If you use error codes programmatically, we recommend that you code defensively. Any code that checks for specific error codes must always have a "default" or "catch-all" clause. So it can handle the case where the returned error code does not match any of the ones the code expected.
 {: important}
 
 ## `invalid_request`

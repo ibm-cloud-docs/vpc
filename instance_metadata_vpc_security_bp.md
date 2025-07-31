@@ -2,7 +2,7 @@
 
 copyright:
   years: 2022, 2025
-lastupdated: "2025-05-23"
+lastupdated: "2025-07-31"
 
 keywords:
 
@@ -12,10 +12,10 @@ subcollection: vpc
 
 {{site.data.keyword.attribute-definition-list}}
 
-# Security best practices for the instance metadata service
+# Security best practices for the metadata service
 {: #imd-security-best-practices}
 
-IBM takes data security seriously and recommends you follow these best practices to ensure the highest level of protection for your instance metadata.
+IBM takes data security seriously and recommends you follow these best practices to ensure the highest level of protection for your metadata.
 {: shortdesc}
 
 ## Overview
@@ -23,35 +23,35 @@ IBM takes data security seriously and recommends you follow these best practices
 
 This topic describes how to configure security safeguards to protect your metadata by:
 
-* Disabling the metadata service for an instance or an account.
-* Limiting or not assigning trusted profiles for compute resource identities.
+* Disabling the metadata service for an instance or an account when it's not needed.
+* Limiting or not assigning trusted profiles for compute resource identities as necessary.
 * Enhancing network security.
 
 ## Disable the metadata service for an instance or account
 {: #imd-disable-instance-acct}
 
-You can disable the service on an existing instance where it is enabled. See [Enable or disable the instance metadata service](/docs/vpc?topic=vpc-imd-configure-service).
+You can disable the service on an existing instance where it is enabled. See [Enable or disable the metadata service](/docs/vpc?topic=vpc-imd-configure-service).
 
 ## Use `iptables` firewall to limit access on Linux
 {: #imd-iptables}
 
-Use the `iptables` Linux firewall utility to create a barrier between the metadata service link-local address (trusted network) and the internet (untrusted network). Defines rules that govern which traffic is allowed and which is blocked.
+Use the `iptables` Linux firewall utility to create a barrier between the metadata service link-local address (trusted network) and the internet (untrusted network). Define rules that govern which traffic is allowed and which is blocked.
 
-The following example uses Linux `iptables` and its owner module, based on its default installation Apache ID, to prevent the Apache Web server from accessing the metadata link-local address (169.254.169.254). It uses a deny rule to reject all instance metadata requests from any process that's running as that user.
+The following example uses Linux `iptables` and its owner module, based on its default installation Apache ID, to prevent the Apache Web server from accessing the metadata link-local address (169.254.169.254). It uses a deny rule to reject all metadata requests from any process that's running as that user.
 
 ```sh
 sudo iptables --append OUTPUT --proto tcp --destination 169.254.169.254 --match owner --uid-owner apache --jump REJECT
 ```
 {: pre}
 
- This endpoint is accessible to all commands, processes, and software applications that are running within a virtual server instance. Access to the API endpoint is not available outside the virtual server instance. This step adds another level of security.
- {: note}
+This endpoint is accessible to all commands, processes, and software applications that are running within a virtual server instance. Access to the API endpoint is not available outside the virtual server instance. This step adds another level of security.
+{: note}
 
-Another alternative is to use allow rules to define access to particular users or groups. Allow rules require you to decide what software needs access to instance metadata. By defining rules, you can prevent software from accidentally accessing the metadata service if you later change the software or configuration on the instance.
+Another alternative is to use allow rules to define access to particular users or groups. Allow rules require you to decide what software needs access to instance's metadata. By defining rules, you can prevent software from accidentally accessing the metadata service if you later change the software or configuration on the instance.
 
 You can also define group usage of the allow rules. Add and remove users from a permitted group without changing the firewall rule.
 
-The following example prevents access to the instance metadata service by all processes, except for processes that are running in the user account `trustworthy-user`:
+The following example prevents access to the metadata service by all processes, except for processes that are running in the user account `trustworthy-user`:
 
 ```sh
 sudo iptables --append OUTPUT --proto tcp --destination 169.254.169.254 --match owner ! --uid-owner trustworthy-user --jump REJECT
@@ -61,7 +61,7 @@ sudo iptables --append OUTPUT --proto tcp --destination 169.254.169.254 --match 
 ## Limit trusted profiles for compute resource identities
 {: #imd-limit-trusted-profiles}
 
-Limit trusted profiles that you create for compute resource identities. Optionally, don't assign a compute resource identity to an instance.
+Limit trusted profiles that you create for compute resource identities in IAM. Optionally, don't assign a compute resource identity to an instance.
 
 When you [remove trusted profiles](/docs/account?topic=account-trusted-profile-update&interface=ui#remove-tp-console){: ui}[remove trusted profiles](/docs/account?topic=account-trusted-profile-update&interface=cli#remove-tp-cli){: cli}[remove trusted profiles](/docs/account?topic=account-trusted-profile-update&interface=api#remove-tp-api){: api}, compute resources and federated users are unlinked from the profile, and can no longer apply the trusted profile identity.
 
@@ -84,7 +84,7 @@ Consider the following options for controlling network traffic to your virtual s
 
 * Use IBM Cloud [flow Logs](/docs/vpc?topic=vpc-flow-logs) on the VPC to monitor the traffic that reaches your instances.
 
-* [Enable secure access](/docs/vpc?topic=vpc-imd-configure-service&interface=ui#secure-access-ui) to the instance metadata service. When secure access is enabled, the metadata service is accessible only to the virtual server instance by encrypted HTTP secure protocol (HTTPS).
+* [Enable secure access](/docs/vpc?topic=vpc-imd-configure-service&interface=ui#secure-access-ui) to the metadata service. When secure access is enabled, the metadata service is accessible only to the virtual server instance by encrypted HTTP secure protocol (HTTPS).
 
 ## Manage security and compliance with VPC Infrastructure Services
 {: #imd-compliance}
