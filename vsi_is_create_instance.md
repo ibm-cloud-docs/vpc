@@ -2,7 +2,7 @@
 
 copyright:
   years: 2018, 2025
-lastupdated: "2025-07-29"
+lastupdated: "2025-07-31"
 
 keywords:
 
@@ -1263,6 +1263,9 @@ Gather the following information by using `DataSource` command.
 
 1. List the available images for creating your instance. The command depends on what image that you want to use. You can use a stock image, a custom image from your account, or an image that was shared with your account from a private catalog. For more information, see the Terraform documentation on [ibm_is_image](https://registry.terraform.io/providers/IBM-Cloud/ibm/latest/docs/data-sources/is_image). If you plan to use an image that was shared from a private catalog, see the Terraform documentation on [ibm_cm_version](https://registry.terraform.io/providers/IBM-Cloud/ibm/latest/docs/resources/cm_version) or [ibm_cm_offering_instance](https://registry.terraform.io/providers/IBM-Cloud/ibm/latest/docs/resources/cm_offering_instance).
 
+Allowed-use expressions: The image that you select determines the profiles that are available to create the virtual server instance. During the creation of a virtual server instance with images that use an allowed-use expression, the information that is provided in the allowed-use properties is then evaluated against a potential virtual server instance to determine whether that image can be used to create the virtual server instance. Stock images use defined allowed-use expressions. You must define any allowed-use expressions for custom images. For more information, see [Adding allowed-use expressions to custom images](/docs/vpc?topic=vpc-custom-image-allowed-use-expressions&interface=ui).
+{: note}
+
    * Select a stock image or custom image from your account for your instance.
 
    ```terraform
@@ -1285,6 +1288,33 @@ Gather the following information by using `DataSource` command.
           }
          ```
          {: codeblock}
+
+   * List profiles and compatiable images using allowed-use expressions
+
+      - List instance profiles that are compatiable with an image
+
+      ```terraform
+      data "ibm_is_image_instance_profiles" "testacc_image_instance_profiles" {
+      identifier = "r134-0950e619-325e-446e-b895-e0bdd21dd1ea"
+      }
+      ```
+      {: codeblock}
+
+      - List instance profiles compatible with a volume
+
+      ```terraform
+      data "ibm_is_volume_instance_profiles" "testacc_volume_instance_profiles" {
+      identifier = "r134-0950e619-325e-446e-b895-e0bdd21dd1ea"
+      }
+      {: codeblock}
+
+      - List instance profiles compatible with a snapshot
+
+      ```terraform
+      data "ibm_is_snapshot_instance_profiles" "testacc_snapshot_instance_profiles" {
+      identifier = "r134-0950e619-325e-446e-b895-e0bdd21dd1ea"
+      }
+      {: codeblock}
 
 1. Create a VPC resource or use an existing VPC by referring to the VPC data source. For more information, see the Terraform documentation on [ibm_is_vpc](https://registry.terraform.io/providers/IBM-Cloud/ibm/latest/docs/data-sources/is_vpc).
 
@@ -1340,6 +1370,9 @@ To use Terraform, download the Terraform CLI and configure the {{site.data.keywo
 {: requirement}
 
 Create the instance by using one of the following examples. For more information, see the Terraform documentation on [ibm_is_instance](https://registry.terraform.io/providers/IBM-Cloud/ibm/latest/docs/resources/is_instance).
+
+Allowed-use expressions: The image that you select determines the profiles that are available to create the virtual server instance. During the creation of a virtual server instance with images that use an allowed-use expression, the information that is provided in the allowed-use properties is then evaluated against a potential virtual server instance to determine whether that image can be used to create the virtual server instance. Stock images use defined allowed-use expressions. You must define any allowed-use expressions for custom images. For more information, see [Adding allowed-use expressions to custom images](/docs/vpc?topic=vpc-custom-image-allowed-use-expressions&interface=ui).
+{: note}
 
 Run one of the following Terraform commands based on the image that you plan to use.
 
@@ -1403,6 +1436,31 @@ Run one of the following Terraform commands based on the image that you plan to 
      vpc  = ibm_is_vpc.example_vpc.id
      zone = "us-south-1"
      keys = [ibm_is_ssh_key.example_sshkey.id]
+   }
+   ```
+   {: codeblock}
+
+   * Create an instance by using an image with an allowed-use expression from your account for your instance.
+
+   ```terraform
+   resource "ibm_is_instance" "testacc_instance" {
+     name    = "example-instance"
+     profile = "cx2-2x4"
+     primary_network_interface {
+       subnet = ibm_is_subnet.testacc_subnet.id
+     }
+     vpc  = ibm_is_vpc.testacc_vpc.id
+     zone = "us-south-1"
+     keys = [ibm_is_ssh_key.testacc_sshkey.id]
+     boot_volume {
+       name     = "example-boot-volume"
+       snapshot = ibm_is_snapshot.testacc_snapshot.id
+       allowed_use {
+         api_version       = "2025-06-05"
+         bare_metal_server = "true"
+         instance          = "true"
+       }
+     }
    }
    ```
    {: codeblock}

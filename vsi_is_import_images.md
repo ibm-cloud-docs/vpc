@@ -197,6 +197,30 @@ curl -X POST "$vpc_api_endpoint/v1/images?version=2023-02-21&generation=2" -H "A
 ```
 {: pre}
 
+## Importing a custom image by using Terraform
+{: #import-custom-image-cloud-object-storage-terraform}
+{: terraform}
+
+To use Terraform, download the Terraform CLI and configure the {{site.data.keyword.cloud_notm}} Provider plug-in. For more information, see [Getting started with Terraform](/docs/ibm-cloud-provider-for-terraform?topic=ibm-cloud-provider-for-terraform-getting-started).
+{: requirement}
+
+Make sure that your compatible custom image is available in {{site.data.keyword.cos_full_notm}}. For more information, see [Creating a Linux custom image](/docs/vpc?topic=vpc-create-linux-custom-image), [Creating a Windows custom image](/docs/vpc?topic=vpc-create-windows-custom-image), [Creating a generic operating system custom image](/docs/vpc?topic=vpc-create-generic-os-custom-image), [Bring your own license](/docs/vpc?topic=vpc-byol-vpc-about) and [Uploading data](/docs/cloud-object-storage?topic=cloud-object-storage-upload) to {{site.data.keyword.cos_full_notm}}. To include allowed-use expressions, see [Adding allowed-use expressions to custom images](/docs/vpc?topic=vpc-custom-image-allowed-use-expressions&interface=ui).
+
+When you have an image available in {{site.data.keyword.cos_full_notm}}, you can import it to {{site.data.keyword.vpc_short}} infrastructure by using Terraform.
+
+To import a custom image by using Terraform, use the Terraform resource command [ibm_is_image](https://registry.terraform.io/providers/IBM-Cloud/ibm/latest/docs/resources/is_image){: external}.
+
+Specify the name of the custom image to be created by using the `name` value. The name can't be used by another image in the region and names that start with `ibm-` are reserved for system-provided images. You must also specify the source; for example, specify the `href` value with the image file location. Specify the `operating_system` value with the name of the operating system for the image.
+
+```sh
+resource "ibm_is_image" "example" {
+  name               = "my-image"
+  href               = "cos://us-south/buckettesttest/livecd.ubuntu-cpc.azure.vhd"
+  operating_system   = "ubuntu-16-04-amd64"
+}
+```
+{: codeblock}
+
 ## Schedule custom image lifecycle status changes by using Terraform
 {: #import-schedule-ilm-status-change-terraform}
 {: terraform}
