@@ -2,7 +2,7 @@
 
 copyright:
   years: 2025, 2025
-lastupdated: "2025-07-28"
+lastupdated: "2025-07-31"
 
 keywords:
 
@@ -186,3 +186,51 @@ curl -X PATCH "$vpc_api_endpoint/v1/images/$image_id?version=$today&generation=2
 {: pre}
 
 For more details on the API `allowed_use` property and sub-properties, see the [Virtual Private Cloud API: Create image](/apidocs/vpc-scoped#create-image) and [Virtual Private Cloud API: Update image](/apidocs/vpc-scoped#update-image). For more information regarding Common Expression Language, which is used to create the allowed-use expression, see [Google's CEL Language Definition reference](https://github.com/google/cel-spec/blob/master/doc/langdef.md){: external}
+
+## Defining allowed-use expressions by using Terraform
+{: #custom-image-allowed-use-expressions-terraform}
+{: terraform}
+
+See the following tables for the allowed-use expression details for virtual server instances and bare metal servers.
+
+| Allowed-use attribute | Allowed-use subattribute | Expression variable | Type |
+|----------|---------|---------|---------|
+| `allowed_use` | `instance` | `gpu.count`  \n Indicates the number of GPUs assigned to the virtual server instance. | Integer |
+| - | - | `gpu.manufacturer`  \n Indicates the GPU manufacturer. | Case-sensitive string |
+| -| - | `gpu.memory`  \n Indicates the overall amount of GPU memory in GiB. | Integer |
+| -| - | `gpu.model`  \n Indicates the GPU model. | Case-sensitive string |
+| - | - | `enable_secure_boot`  \n  Indicates whether secure boot is enabled for the virtual server instance. | Boolean |
+{: caption="Virtual server instance Terraform allowed-use expressions" caption-side="bottom"}
+{: #terraform-instance}
+{: tab-title="Virtual server instance Terraform allowed-use expressions"}
+{: tab-group="Terraform allowed-use expressions"}
+{: class="simple-tab-table"}
+{: summary="Virtual server instance Terraform allowed-use expression options"}
+
+| Allowed-use attribute | Allowed-use subattribute | Expression variable | Type |
+|----------|---------|---------|---------|
+| `allowed_use` | `bare_metal_server` | `enable_secure_boot`  \n  Indicates whether secure boot is enabled for the virtual server instance. | Boolean |
+{: caption="Bare metal server Terraform allowed-use expressions" caption-side="bottom"}
+{: #terraform-bare-metal}
+{: tab-title="Bare metal servers Terraform allowed-use expressions"}
+{: tab-group="Terraform allowed-use expressions"}
+{: class="simple-tab-table"}
+{: summary="Bare metal server Terraform allowed-use expression options"}
+
+To create a new custom image with allowed-use expressions or update an existing image, update the `ibm_is_image` resource. The following example creates a new custom image with an allowed-use expression for a virtual server instance for GPU count that is greater than one with Nvidia as the GPU manufacturer. Secure boot is required. The bare metal server allowed-use expression is set to false which prevents the image from being used to provision a bare metal server.
+
+```sh
+resource "ibm_is_image" "example" {
+  name               = "my-image"
+  href               = "cos://us-south/buckettesttest/livecd.ubuntu-cpc.azure.vhd"
+  operating_system   = "ubuntu-16-04-amd64"
+  allowed_use{
+    api_version       = "2025-04-03"
+    bare_metal_server = “enable_secure_boot == true”
+    instance = “gpu.count > 0 && enable_secure_boot == true”
+  }
+}
+```
+{: codeblock}
+
+For more information regarding Common Expression Language, which is used to create the allowed-use expressions, see [Google's CEL Language Definition reference](https://github.com/google/cel-spec/blob/master/doc/langdef.md){: external}</

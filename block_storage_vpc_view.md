@@ -2,7 +2,7 @@
 
 copyright:
   years: 2019, 2025
-lastupdated: "2025-07-28"
+lastupdated: "2025-07-31"
 
 keywords:
 
@@ -225,7 +225,7 @@ Volume Attachment Instance Reference   Attachment type   Instance ID            
 
 Active                                 true
 Adjustable Capacity States             attached
-Adjustable IOPS States                     
+Adjustable IOPS States
 Adjustable Bandwidth Supported         false
 Busy                                   false
 Tags                                   -
@@ -637,6 +637,11 @@ data "ibm_is_volume" "example1" {
 The attributes that are exported include the total count of volumes and the list of volumes. The nested attributes include volume ID, name, creation date, size, IOPS, CRN, access and user tags, profile, encryption type and key, lifecycle state, health state and reason, operating system, and other attributes.
 
 For more information, see [ibm_is_volume](https://registry.terraform.io/providers/IBM-Cloud/ibm/latest/docs/data-sources/is_volume){: external}.
+
+### Extra Terraform properties for boot volumes
+{: #viewvol-boot-terraform}
+
+The allowed-use expressions are inherited from the source image or snapshot that the parent boot volume was created from. You can update allowed-use expressions only on detached boot volumes. Using Terraform, you can override these values when you create an instance or by updating the boot volume. You must have the `is.volume.volume.manage-allowed-use` IAM role to make these updates. These properties comprise a Boolean [Common Expression Language](https://github.com/google/cel-spec/blob/master/doc/langdef.md){: external} expression. When the expression is evaluated to be `true`, the virtual server instance or bare metal server provisioning is allowed with the boot volume or an image that was created from the boot volume. When the expression is evaluated to be `false`, the provisioning is blocked. For more information, see [Adding allowed-use expressions to custom images](/docs/vpc?topic=vpc-custom-image-allowed-use-expressions&interface=ui).
 
 ## Next steps
 {: #next-step-viewing-block-storage}
