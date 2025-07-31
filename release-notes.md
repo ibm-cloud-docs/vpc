@@ -2,7 +2,7 @@
 
 copyright:
   years: 2019, 2025
-lastupdated: "2025-07-28"
+lastupdated: "2025-07-31"
 
 keywords:
 
@@ -26,6 +26,13 @@ For more information about changes to the {{site.data.keyword.vpc_short}} comman
 
 ## July 2025
 {: #vpc-jul25}
+
+### 31 July 2025
+{: #vpc-jul3125}
+{: release-note}
+
+Cross-regional replication of file shares is available in Montreal
+:   Customers can now create cross-regional file share replicas in the `ca-mon` region, or use their file shares in the `ca-mon` region as the source share. For more information about cross-regional replication, see [About file share replication](/docs/vpc?topic=vpc-file-storage-replication).
 
 ### 23 July 2025
 {: #vpc-jul2325}
