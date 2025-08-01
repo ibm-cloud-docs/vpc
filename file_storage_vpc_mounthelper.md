@@ -2,7 +2,7 @@
 
 copyright:
   years: 2023, 2025
-lastupdated: "2025-07-28"
+lastupdated: "2025-08-01"
 
 keywords: file share, file storage, encryption in transit, Mount Helper, IPsec, secure connection, mount share
 
@@ -39,10 +39,10 @@ The utility installs stunnel on the compute host that's running a Linux OS. Stun
 ## Requirements
 {: #fs-eit-requirements}
 
-* For setting up secure connection with zonal file share, the [Metadata service](/docs/vpc?topic=vpc-imd-about) must be enabled on the virtual server instance. If it is not enabled yet, follow the instructions for [enabling metadata in the console](/docs/vpc?topic=vpc-imd-configure-service&interface=ui#imd-enable-service-ui){: ui}[enabling metadata from the CLI](/docs/vpc?topic=vpc-imd-configure-service&interface=cli#imd-metadata-service-enable-cli){: cli}[enabling metadata from the API](/docs/vpc?topic=vpc-imd-configure-service&interface=api#imd-metadata-service-enable-api){: api}.
-* The file share must have [security group access mode](/docs/vpc?topic=vpc-file-storage-vpc-about&interface=ui#fs-mount-access-mode), so the VPC's security access groups can be used to define which virtual server instances can mount the share.
+* For setting up secure connection with _zonal_ file share, the [Metadata service](/docs/vpc?topic=vpc-imd-about) must be enabled on the virtual server instance. If it is not enabled yet, follow the instructions for [enabling metadata in the console](/docs/vpc?topic=vpc-imd-configure-service&interface=ui#imd-enable-service-ui){: ui}[enabling metadata from the CLI](/docs/vpc?topic=vpc-imd-configure-service&interface=cli#imd-metadata-service-enable-cli){: cli}[enabling metadata from the API](/docs/vpc?topic=vpc-imd-configure-service&interface=api#imd-metadata-service-enable-api){: api}.
+* The file share must have [security group access mode](/docs/vpc?topic=vpc-file-storage-vpc-about&interface=ui#fs-mount-access-mode), so the VPC's security access groups can be used to define which compute host can mount the share.
 * Data encryption in transit must be enabled for the mount target.
-* The virtual server instance and the mount target must be members of the same [security group](/docs/vpc?topic=vpc-using-security-groups).
+* The compute host and the mount target must be members of the same [security group](/docs/vpc?topic=vpc-using-security-groups).
 * The mount target must be created with a [virtual network interface](/docs/vpc?topic=vpc-vni-about), so it has an IP address within the VPC that represents the virtual NFS server.
 
 ## Restrictions
