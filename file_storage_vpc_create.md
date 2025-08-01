@@ -596,14 +596,14 @@ To set supplemental IDs when you create a share, run the `ibmcloud is share-crea
 ```sh
 $ ibmcloud is share-create --name my-file-share --zone us-south-2 --profile dp2 --size 1000 --iops 1000 --initial-owner-gid 101 --initial-owner-uid 10001
 Creating file share my-file-share under account Test Account as user test.user@ibm.com...
-                                
-ID                                 r006-1579b805-1b6f-4a2e-be9b-e0041ef018c9   
+
+ID                                 r006-bc73917f-b86e-4f6d-b919-6997a88c8031   
 Name                               my-file-share   
-CRN                                crn:v1:bluemix:public:is:us-south-2:a/a123456::share:r006-1579b805-1b6f-4a2e-be9b-e0041ef018c9   
-Lifecycle state                    pending   
+CRN                                crn:v1:bluemix:public:is:us-south-2:a/a1234567::share:r006-bc73917f-b86e-4f6d-b919-6997a88c8031   
+Lifecycle state                    stable   
 Access control mode                security_group   
 Accessor binding role              none   
-Allowed transit encryption modes   user_managed,none   
+Allowed transit encryption modes   none,user_managed   
 Zone                               us-south-2   
 Profile                            dp2   
 Size(GB)                           1000   
@@ -615,14 +615,56 @@ Mount Targets                      ID                          Name
 Resource group                     ID                                 Name      
                                    6edefe513d934fdd872e78ee6a8e73ef   defaults      
                                       
-Created                            2025-04-18T19:18:37+00:00   
+Created                            2025-08-01T21:42:38+00:00   
 Replication role                   none   
 Replication status                 none   
 Replication status reasons         Status code   Status message      
                                    -             -      
-Snapshot count                     0
-Snapshot size                      0    
-Source snapshot                    -
+                                      
+Snapshot count                     0   
+Snapshot size                      0   
+Source snapshot                    -  
+```
+{: screen}
+
+[Beta]{: tag-cyan} When the `IBMCLOUD_IS_FEATURE_SHARE_DENALI_REGIONAL_AVAILABILITY` variable is set to `true`, the same command produces a slightly different response.
+
+```sh
+$ ibmcloud is share-create --name my-file-share --zone us-south-2 --profile dp2 --size 1000 --iops 1000 --initial-owner-gid 101 --initial-owner-uid 10001
+Creating file share my-file-share under account Test Account as user test.user@ibm.com...
+
+ID                                 r006-bc73917f-b86e-4f6d-b919-6997a88c8031   
+Name                               my-file-share   
+CRN                                crn:v1:bluemix:public:is:us-south-2:a/a1234567::share:r006-bc73917f-b86e-4f6d-b919-6997a88c8031   
+Lifecycle state                    pending   
+Access control mode                security_group   
+Accessor binding role              none   
+Allowed transit encryption modes   none,ipsec   
+
+Zone                               us-south-2   
+Profile                            dp2   
+Size(GB)                           1000   
+IOPS                               1000   
+Encryption                         provider_managed   
+Mount Targets                      ID                          Name      
+                                   No mounted targets found.      
+                                      
+Resource group                     ID                                 Name      
+                                   6edefe513d934fdd872e78ee6a8e73ef   defaults      
+
+Created                            2025-08-01T21:42:38+00:00   
+Replication role                   none   
+Replication status                 none   
+Replication status reasons         Status code   Status message      
+                                   -             -      
+                                    
+Snapshot count                     0   
+Snapshot size                      0   
+Source snapshot                    -   
+Allowed Access Protocols           nfs4   
+Availability Mode                  zonal   
+Bandwidth(Mbps)                    1   
+Storage Generation                 1
 ```
 {: screen}
 
