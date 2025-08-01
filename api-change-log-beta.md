@@ -65,10 +65,10 @@ For more information, see [About File Storage for VPC snapshots](/docs/vpc?topic
 For migration guidance, see [Updating to the `2025-07-22` version (file shares, file share profiles, and file share mount targets)](/docs/vpc?topic=vpc-2025-07-22-migration-file-shares).
 
 ## 15 July 2025
-{: #15-july-2025}
+{: #15-july-2025-beta}
 
 ### For all version dates
-{: #15-july-2025-all-version-dates}
+{: #15-july-2025-all-version-dates-beta}
 
 **Metadata service support for bare metal servers.** Accounts that have been granted special approval to preview this feature can now enable the metadata service for bare metal servers when [creating](/apidocs/vpc/latest#create-bare-metal-server) or [updating](/apidocs/vpc/latest#update-bare-metal-server) a bare metal server. You can access the metadata service on a bare metal server using an [endpoint URL](/apidocs/vpc-identity-beta#endpoint-urls-identity-beta) by specifying the new `metadata_service.protocol` property as `http` or `https`.
 

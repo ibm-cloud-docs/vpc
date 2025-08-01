@@ -273,11 +273,11 @@ toc:
             topics:
             - instance_metadata_vpc_about.md
             - instance_metadata_vpc_configure.md
-            - instance_metadata_vpc_get_metadata.md
-            - instance_metadata_vpc_metadata_summary.md
-            - instance_metadata_vpc_access_instance_metadata.md
-            - instance_metadata_vpc_use_trusted_profiles.md
             - instance_metadata_vpc_config_windows.md
+            - instance_metadata_vpc_identity_operations.md
+            - instance_metadata_vpc_access_instance_metadata.md
+            - instance_metadata_vpc_metadata_summary.md
+            - instance_metadata_vpc_use_trusted_profiles.md
             - instance_metadata_vpc_security_bp.md
         - topicgroup:
             id: placement-groups

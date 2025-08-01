@@ -2,7 +2,7 @@
 
 copyright:
   years: 2021, 2025
-lastupdated: "2025-07-31"
+lastupdated: "2025-08-01"
 
 keywords: Block Storage, virtual private cloud, boot volume, data volume, volume, data storage, virtual server instance, bandwidth
 
@@ -67,7 +67,8 @@ In the following examples, the stand-alone volumes are provisioned with:
 - **`volume-c`** has 3,000 GB capacity and the general-purpose volume profile, it can handle 9,000 IOPS, which means a maximum throughput limit of 1,179 Mbps.
 - **`volume_d`** has 2,000 GB capacity and the general-purpose volume profile, it can handle 6,000 IOPS, which means a maximum throughput limit of 786 Mbps.
 
-Note that volumes that have the same volume profile can have different IOPS and Throughput limit values based on their capacity. Volumes can have the same IOPS limit, even if their capacity and volume profiles are different.
+Volumes that have the same volume profile can have different IOPS and Throughput limit values based on their capacity. Volumes can have the same IOPS limit, even if their capacity and volume profiles are different.
+{: note}
 
 Where can you see what bandwidth or throughput limit is assigned to your volume? The bandwidth or throughput limits assigned to the volume can been seen as **Throughput** on the overview tab of the Block Storage volume details page.{: ui}
 
@@ -142,7 +143,7 @@ Where can you see what bandwidth or throughput limit is assigned to your volume?
    | All data volumes | N/A | 4,324 Mbps | 100% | 607 Mbps |
    {: caption="Volume bandwidth allocation with 3 data volumes." caption-side="bottom"}
 
-2. In the second example, the cx3d-8x20 instance's total volume bandwidth is 4,000 Mbps. The available bandwidth that can be divided among the data volumes is 3607 Mbps. If you attach _`volume-a`_ and _`volume-b`_, their combined maximum throughput limit is 3145 Mbps. That value is less than the available 3607 Mbps, which means that the volume with more capacity (_`volume-b`_) is allocated 1966 Mbps and the volume with less capacity (_`volume-a`_) is allocated 1179 Mbps. That's their provisioned throughput limit, and that's the most bandwidth that can be allocated to them, even if more bandwidth is available.
+2. In the second example, the cx3d-8x20 instance's total volume bandwidth is 4,000 Mbps. The available bandwidth that can be divided among the data volumes is 3607 Mbps. If you attach _`volume-a`_ and _`volume-b`_, their combined maximum throughput limit is 3145 Mbps. That value is less than the available 3607 Mbps, which means that the volume with more capacity (_`volume-b`_) is allocated 1966 Mbps and the volume with less capacity (_`volume-a`_) is allocated 1179 Mbps. These values are the volumes' provisioned throughput limit, which is the most bandwidth that can be allocated to the volumes, even if more bandwidth is available.
 
    | Volumes | Maximum IOPS | Provisioned max throughput limit | Percentage | Allocated volume bandwidth |
    |---------|-------------:|----------------------------------|-----------:|---------------------------:|

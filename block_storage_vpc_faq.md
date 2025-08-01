@@ -83,8 +83,7 @@ No. You can't copy the storage volume to a different zone.
 {: faq}
 {: #faq-sdp-backup}
 
-Customers who are allowlisted for the beta phase of regional snapshots can create snapshots of their second-generation volumes. During the beta phase, snapshots can't be copied to another region. Consistency group snapshots of multiple `sdp` volumes and fast restore clones are not supported for second-generation snapshots yet.
-
+Customers with special access to preview the defined perfomance volume profile can create snapshots of their second-generation volumes in Dallas (`us-south`), Frankfurt (`eu-de`), London (`eu-gb`), Madrid (`eu-es`), Osaka (`js-osa`), Sao Paulo (`br-sao`), Sydney (`au-sys`), Tokyo (`jp-tok`), Toronto (`ca-tor`), and Washington (`us-east`) regions. Cross-regional copies are supported in London (`eu-gb`), Osaka (`js-osa`), Sao Paulo (`br-sao`), and Sydney (`au-sys`) with limitations. Cross-regional copies. You can't create a copy in another region if your snapshot is encrypted with a customer-managed key or if the snapshot is bigger than 10 TB. Consistency group snapshots of multiple `sdp` volumes and fast restore clones are not supported for second-generation snapshots yet.
 
 ## Questions about the traditional volume profile family
 {: #block-storage-vpc-offering-questions}
