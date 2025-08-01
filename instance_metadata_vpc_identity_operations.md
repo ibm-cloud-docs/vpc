@@ -2,7 +2,7 @@
 
 copyright:
   years: 2022, 2025
-lastupdated: "2025-07-31"
+lastupdated: "2025-08-01"
 
 keywords:
 
@@ -68,7 +68,7 @@ instance_identity_token=`curl -X PUT "https://api.metadata.cloud.ibm.com/instanc
 The example uses `jq` as a parser, a third-party tool licensed under the [MIT license](https://stedolan.github.io/jq/download/). `jq` might not come preinstalled on all VPC images available when you create an instance. You might need to install `jq` before use or use another parser of your choice.
 {: note}
 
-You can specify `instance_identity_token` variable in a `GET` call to the metadata service to invoke one of the metadata methods. For more information, see [Retrieve metadata from your running instances](/docs/vpc?topic=vpc-imd-access-instance-metadata&interface=api#imd-retrieve-instance-data).
+You can specify `instance_identity_token` variable in a `GET` call to the metadata service to invoke one of the metadata methods. For more information, see [Retrieve metadata from your running instances](/docs/vpc?topic=vpc-imd-access-instance-metadata&interface=api#imd-access-md-use).
 
 You can also generate an IAM token from this identity token and use the RIAS API to call IAM-enabled services. For more information, see [Generate an IAM token from an instance identity access token](/docs/vpc?topic=vpc-imd-identity-operations#imd-token-exchange).
 

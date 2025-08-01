@@ -2,7 +2,7 @@
 
 copyright:
   years: 2022, 2025
-lastupdated: "2025-07-31"
+lastupdated: "2025-08-01"
 
 keywords:
 
@@ -104,7 +104,7 @@ When you make API requests to the metadata service, events are triggered that ca
 ## Next steps
 {: #imd-next-steps-about}
 
-* [Create an instance identity access token for accessing the metadata service](/docs/vpc?topic=vpc-imd-configure-service#imd-get-token).
+* [Create an instance identity access token for accessing the metadata service](/docs/vpc?topic=vpc-imd-identity-operations).
 
 * [Retrieve instance-specific data by using the metadata service](/docs/vpc?topic=vpc-imd-access-instance-metadata).
 

@@ -2,7 +2,7 @@
 
 copyright:
   years: 2021, 2025
-lastupdated: "2025-07-31"
+lastupdated: "2025-08-01"
 
 keywords:
 
@@ -75,4 +75,4 @@ To add routes, you must run as an administrator on the Windows server.
 
 After you add a route to the default gateway, you can access metadata by using the link-local address. Construct your automation script by using the tool of your choice to transfer data over the network, such as `curl`.
 
-To see `curl` commands to invoke the metadata service API and retrieve data, see [Retrieving metadata from an instance](/docs/vpc?topic=vpc-imd-access-instance-metadata#imd-retrieve-instance-data).
+To see `curl` commands to invoke the metadata service API and retrieve data, see [Retrieving metadata from an instance](/docs/vpc?topic=vpc-imd-access-instance-metadata&interface=api#imd-access-md-use).

@@ -115,7 +115,7 @@ This feature is now generally available. See the [26 March 2024](#26-march-2024-
 ### For all version dates
 {: #15-august-2023-all-version-dates-metadata}
 
-**Instance identity certificates.** You can now use the instance identity access token and a certificate signing request (CSR) to [create](/apidocs/vpc-metadata#create-certificate) an instance identity certificate. For more information, see [Generating an instance identity certificate by using an instance identity access token](/docs/vpc?topic=vpc-imd-configure-service&interface=api#imd-acquire-certificate). Instance identity certificates are used when the traffic between an authorized client and the mounted file share is [encrypted in transit](/docs/vpc?topic=vpc-file-storage-vpc-eit).
+**Instance identity certificates.** You can now use the instance identity access token and a certificate signing request (CSR) to [create](/apidocs/vpc-metadata#create-certificate) an instance identity certificate. For more information, see [Generating an instance identity certificate by using an instance identity access token](/docs/vpc?topic=vpc-imd-identity-operations&interface=api#imd-acquire-certificate). Instance identity certificates are used when the traffic between an authorized client and the mounted file share is [encrypted in transit](/docs/vpc?topic=vpc-file-storage-vpc-eit).
 
 ## 27 June 2023
 {: #27-june-2023-metadata}
