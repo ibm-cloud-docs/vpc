@@ -2,7 +2,7 @@
 
 copyright:
   years: 2021, 2025
-lastupdated: "2025-07-28"
+lastupdated: "2025-08-01"
 
 keywords: file share, file storage, virtual network interface, encryption in transit, profiles, 
 
@@ -129,7 +129,7 @@ If you're not ready to order yet or just looking for pricing information, you ca
 Before you can use the CLI, you must install the IBM Cloud CLI and the VPC CLI plug-in. For more information, see the [CLI prerequisites](/docs/vpc?topic=vpc-set-up-environment#cli-prerequisites-setup).
 {: requirement}
 
-If you are a customer with special access to preview the regional file share profile, you can use the `rfs` profile to create a file share. To be able to create and manage a regional file share from the CLI, set the appropriate environmental variable with the following command.
+If you are a customer with special access to preview the regional file share profile, you can use the `rfs` profile to create a file share. To access the beta feature, you must set the appropriate environmental variable with the following command.
 
 ```sh
 export IBMCLOUD_IS_FEATURE_SHARE_DENALI_REGIONAL_AVAILABILITY=true
@@ -161,16 +161,16 @@ Before you run the `ibmcloud is share-create` command, you can gather informatio
 You can use the `ibmcloud is share-create` command to provision a zonal file share in your selected zone with the `dp2` profile, with your specific capacity and IOPS values. The following example shows how to create 1000-GB file share with 1000 IOPS in the us-south-2 zone. This file share is created with the default security group access mode and with provider-managed encryption.
 
 ```sh
-$ ibmcloud is share-create --name my-file-share --zone us-south-1 --profile dp2 --size 40 --iops 100 --allowed-access-protocols nfs4 --atem ipsec,none
+$ ibmcloud is share-create --name my-file-share --zone us-south-1 --profile dp2 --size 40 --iops 100
 Creating file share my-file-share under account Test Account as user test.user@ibm.com...
                                       
-ID                                 r006-4c4bd25f-4ecf-4636-a99a-c80dff3e8910    
+ID                                 r006-a08c2505-b933-4dce-a771-efff2e1a59e1   
 Name                               my-file-share   
-CRN                                crn:v1:bluemix:public:is:ussouth1:a/efe5afc483594adaa8325e2b4d1290df::share:r1344c4bd25f-4ecf-4636-a99a-c80dff3e8910    
-Lifecycle state                    pending   
+CRN                                crn:v1:bluemix:public:is:us-south-1:a/a1234567::share:r006-a08c2505-b933-4dce-a771-efff2e1a59e1   
+Lifecycle state                    stable   
 Access control mode                security_group   
 Accessor binding role              none   
-Allowed transit encryption modes   ipsec,none
+Allowed transit encryption modes   user_managed,none   
 Zone                               us-south-1   
 Profile                            dp2   
 Size(GB)                           40   
@@ -180,9 +180,9 @@ Mount Targets                      ID                          Name
                                    No mounted targets found.      
                                       
 Resource group                     ID                                 Name      
-                                   8302a7a06e7440d6927383cd7c06e7d2   Default      
+                                   6edefe513d934fdd872e78ee6a8e73ef   defaults      
                                       
-Created                            2025-07-23T12:21:30+05:30   
+Created                            2025-08-01T20:10:35+00:00   
 Replication role                   none   
 Replication status                 none   
 Replication status reasons         Status code   Status message      
@@ -190,18 +190,58 @@ Replication status reasons         Status code   Status message
                                       
 Snapshot count                     0   
 Snapshot size                      0   
-Source snapshot                    - 
+Source snapshot                    -   
+```
+{: screen}
+
+Customers with special access to preview the regional file share offering can access the beta features by setting the environmental variable to true first. Then, use the same command to create the zonal file share. The response shows `ipsec` instead of `user_managed` as allowed value for the transit encryption. The response also shows the `Allowed Access Protocols`, `Availability Mode`, `Bandwidth`, and `Storage Generation` properties.
+
+[beta]{: tag-cyan}
+
+```sh
+$ export IBMCLOUD_IS_FEATURE_SHARE_DENALI_REGIONAL_AVAILABILITY=true
+$ ibmcloud is share-create --name my-file-share --zone us-south-1 --profile dp2 --size 40 --iops 100 --allowed-access-protocols nfs4 --atem ipsec,none
+
+Creating file share my-file-share under account Kranthi's Test Account as user Viktoria.Muirhead@ibm.com...
+                                      
+ID                                 r006-a08c2505-b933-4dce-a771-efff2e1a59e1   
+Name                               my-file-share   
+CRN                                crn:v1:bluemix:public:is:us-south-1:a/a1234567::share:r006-a08c2505-b933-4dce-a771-efff2e1a59e1   
+Lifecycle state                    pending   
+Access control mode                security_group   
+Accessor binding role              none   
+Allowed transit encryption modes   ipsec,none   
+Zone                               us-south-1   
+Profile                            dp2   
+Size(GB)                           40   
+IOPS                               100   
+Encryption                         provider_managed   
+Mount Targets                      ID                          Name      
+                                   No mounted targets found.      
+                                      
+Resource group                     ID                                 Name      
+                                   6edefe513d934fdd872e78ee6a8e73ef   defaults      
+                                      
+Created                            2025-08-01T20:10:35+00:00   
+Replication role                   none   
+Replication status                 none   
+Replication status reasons         Status code   Status message      
+                                   -             -      
+                                      
+Snapshot count                     0   
+Snapshot size                      0   
+Source snapshot                    -   
 Allowed Access Protocols           nfs4   
 Availability Mode                  zonal   
-Bandwidth(Mbps)                    1 
-Storage Generation                 1    
+Bandwidth(Mbps)                    1   
+Storage Generation                 1  
 ```
 {: screen}
 
 Security group access mode is the default and recommended setting. However, you can choose to create a file share with the VPC access mode that allows every Compute host in the VPC to mount the file share. See the following example.
 
 ```sh
-$ ibmcloud is share-create --name my-vpc-file-share --zone us-south-2 --profile dp2 --size 1000 --iops 500 --access-control-mode vpc --allowed-access-protocols nfs4 --atem ipsec,none
+$ ibmcloud is share-create --name my-vpc-file-share --zone us-south-2 --profile dp2 --size 1000 --iops 500 --access-control-mode vpc
 Creating file share my-vpc-file-share under account Test Account as user test.user@ibm.com...
                                 
 ID                                 r006-83100dcb-24d8-45a6-91f3-256e5c17233f       
@@ -210,7 +250,7 @@ CRN                                crn:v1:bluemix:public:is:us-south-2:a/efe5afc
 Lifecycle state                    pending   
 Access control mode                vpc   
 Accessor binding role              none
-Allowed transit encryption modes   ipsec,none
+Allowed transit encryption modes   user_managed,none
 Zone                               us-south-2   
 Profile                            dp2   
 Size(GB)                           1000   
@@ -230,21 +270,14 @@ Replication status reasons         Status code   Status message
                                 
 Snapshot count                     0   
 Snapshot size                      0   
-Source snapshot                    - 
-Allowed Access Protocols           nfs4   
-Availability Mode                  zonal   
-Bandwidth(Mbps)                    1 
-Storage Generation                 1    
+Source snapshot                    -  
 ```
 {: screen}
 
 ### Creating a regional file share without a mount target from the CLI
 {: #fs-create-regional-share-cli}
 
-[Beta]{: tag-cyan}
-
-Customers with special access to preview the new regional file share offering can use the **rfs** profile to create file shares with regional availability and adjustable throughput values.
-{: beta}
+[Beta]{: tag-cyan} Customers with special access to preview the new regional file share offering can use the **rfs** profile to create file shares with regional availability and adjustable throughput values.
 
 Before you begin, remember to set the environmental variable:
 
@@ -261,37 +294,38 @@ The following example shows how to create 40-GB regional file share with 125 MBp
 $ ibmcloud is share-create --name my-regional-file-share --profile rfs --size 40 --bandwidth 125 --allowed-access-protocols nfs4 --atem stunnel,none 
 Creating file share my-regional-file-share under account Test Account as user test.user@ibm.com...
                                 
-ID                               r006-cda9e94d-24ad-43d0-80b3-be71c017a594  
-Name                             my-regional-file-share   
-CRN                              crn:v1:bluemix:public:is:us-south:a/efe5afc483594adaa8325e2b4d1290df::share:r006-cda9e94d-24ad-43d0-80b3-be71c017a594 
-Lifecycle state                  pending   
-Access control mode              security_group   
-Accessor binding role            none 
-Allowed transit encryption modes stunnel, none
-Zone                             -
-Profile                          rfs   
-Size(GB)                         40
-IOPS                             35000
-Encryption                       provider_managed   
-Mount Targets                    ID                        Name      
-                                 No mounted targets found.     
-                                
-Resource group                   ID                                 Name      
-                                 811caaa983d9c4beb82690daab08717e9  Default      
-                                
-Created                          2025-07-23T12:22:45+05:30   
-Replication role                 none
-Replication status               none
-Replication status reasons       Status code   Status message
-                                 -             -
-
-Snapshot count                   -   
-Snapshot size                    -   
-Source snapshot                  -   
-Allowed Access Protocols         nsf4   
-Availability Mode                regional   
-Bandwidth(Mbps)                  125   
-Storage Generation               2   
+                                      
+ID                                 r006-749d05eb-9779-4414-b902-553a4fd1421d   
+Name                               my-regional-file-share   
+CRN                                crn:v1:bluemix:public:is:us-south:a/a1234567::share:r006-749d05eb-9779-4414-b902-553a4fd1421d   
+Lifecycle state                    pending   
+Access control mode                security_group   
+Accessor binding role              none   
+Allowed transit encryption modes   stunnel,none   
+Zone                               -   
+Profile                            rfs   
+Size(GB)                           40   
+IOPS                               35000   
+Encryption                         provider_managed   
+Mount Targets                      ID                          Name      
+                                   No mounted targets found.      
+                                      
+Resource group                     ID                                 Name      
+                                   6edefe513d934fdd872e78ee6a8e73ef   defaults      
+                                      
+Created                            2025-08-01T20:20:09+00:00   
+Replication role                   none   
+Replication status                 none   
+Replication status reasons         Status code   Status message      
+                                   -             -      
+                                      
+Snapshot count                     -   
+Snapshot size                      -   
+Source snapshot                    -   
+Allowed Access Protocols           nfs4   
+Availability Mode                  regional   
+Bandwidth(Mbps)                    125   
+Storage Generation                 2
 ```
 {: screen}
 
@@ -312,29 +346,54 @@ Lastly, you must specify values for the options that are needed to create a [vir
 The following example creates a mount target with a virtual network interface for a file share that has security group access mode.
 
 ```sh
-$ ibmcloud is share-mount-target-create my-file-share --subnet my-subnet --name my-cli-share-mount-target-1 --vni-name my-share-vni-1 --vni-sgs my-sg --resource-group-name Default --vpc my-vpc --access-protocol nfs4 --transit-encryption none
+$ ibmcloud is share-mount-target-create my-file-share --subnet my-subnet --name my-cli-share-mount-target-1 --vni-name my-share-vni-1  --resource-group-id 6edefe513d934fdd872e78ee6a8e73ef  --access-protocol nfs4 --transit-encryption none --vpc my-vpc
 Mounting target for share r006-b696742a-92ee-4f6a-bfd7-921d6ddf8fa6 under account Test Account as user test.user@ibm.com...
                                
-ID                          r006-dd497561-c7c9-4dfb-af0a-c84eeee78b61   
+ID                          r006-72c81658-35ae-40b7-abab-8480e5050857   
 Name                        my-cli-share-mount-target-1   
 VPC                         ID                                          Name      
-                            r006-6e8fb140-5668-45b8-b98a-d5cb0e0bf39b   my-vpc      
+                            r006-243394d6-b192-4e05-bfab-5d0b4e77cf81   my-vpc      
                                
 Access control mode         security_group   
 Resource type               share_mount_target   
-Virtual network interface   ID                                          Name             Protocol State Filtering Mode
-                            r006-13c070d8-d038-49c6-95f5-e8503c5595e3   my-share-vni-1   auto   
+Virtual network interface   ID                                          Name             Protocol State Filtering Mode      
+                            0717-6dedcf6f-7596-4274-b158-c01f08edb697   my-share-vni-1   auto      
                                
 Lifecycle state             pending   
-Created                     2025-07-22T22:15:15+00:00
-Mount path                  -    
-Transit Encryption          none 
-Access Protocol             nfs4     
-   
+Mount path                  -   
+Transit Encryption          none   
+Created                     2025-08-01T20:28:50+00:0
 ```
 {: screen}
 
-The following example creates a mount target for a file share that has VPC access mode.
+[beta]{: tag-cyan}
+
+When the same command is used to create a mount target for a regional file share, the output looks very similar. The `Access Protocol` property is also shown.
+
+```sh
+$ ibmcloud is share-mount-target-create my-regional-file-share --subnet my-subnet --name my-regional-share-mount-target-1 --vni-name my-share-vni-2  --resource-group-id 6edefe513d934fdd872e78ee6a8e73ef  --access-protocol nfs4 --transit-encryption none --vpc my-vpc
+
+Mounting target for share r006-749d05eb-9779-4414-b902-553a4fd1421d under account Test Account as user test.user@ibm.com...
+
+ID                          r006-bc95a3c2-b84b-4186-8c5a-e3dd220abefa   
+Name                        my-regional-share-mount-target-1   
+VPC                         ID                                          Name      
+                            r006-243394d6-b192-4e05-bfab-5d0b4e77cf81   my-vpc      
+                               
+Access control mode         security_group   
+Resource type               share_mount_target   
+Virtual network interface   ID                                          Name             Protocol State Filtering Mode      
+                            0717-24e7dcac-e30f-43cf-9bee-3cab93692690   my-share-vni-2   auto      
+                               
+Lifecycle state             pending   
+Mount path                  -   
+Transit Encryption          none   
+Created                     2025-08-01T20:45:14+00:00   
+Access Protocol             nfs4   
+```
+{: screen}
+
+The following example creates a mount target for a zonal file share that has VPC access mode.
 
 ```sh
 $ ibmcloud is share-mount-target-create my-vpc-file-share --vpc cli-vpc-3 --name my-vpc-mount-target --access-protocol nfs4 --transit-encryption none
@@ -352,7 +411,6 @@ Lifecycle state           pending
 Created                   2025-07-22T22:15:15+00:00
 Mount path                -    
 Transit Encryption        none 
-Access Protocol           nfs4   
 ```
 {: screen}
 
@@ -366,47 +424,85 @@ You can create a file share with one or more mount targets in one step by using 
 The following example shows how to create a file share with 40 GB capacity and 100 IOPS in the `us-south-1` zone. The file share is tagged with `env:dev` and has security group access control mode. The file share can be mounted on authorized virtual servers by using the mount target `my-target1`.
 
 ```sh
-$ ibmcloud is share-create --name my-fs-cli-1 --profile dp2 --zone us-south-1 --size 40 --allowed-access-protocols nfs4 --atem ipsec,none --mount-targets '[{"access-protocol": "nfs4", "transit_encryption":"ipsec", "name":"my-target1", "virtual_network_interface":{"name":"my-fs-cli-vni", "primary_ip":{"address":"12345","auto-delete":true,"name":"vni-target-1"},"security_groups":[{"id":"r006-d1fef8e0-8e16-41a7-bca5-84e2029deb05"}],"subnet":{"id":"0726-3d6502c8-baa1-4632-a5d9-d4b015aa93c1"}}}]'
-Creating file share my-fs-cli-1 under account Test Account as user test.user@ibm.com...
-                                
-ID                               r006-5a544f6d-5fb9-4f31-acac-1fd13a5531bf   
-Name                             my-fs-cli-1   
-CRN                              crn:v1:bluemix:public:is:us-south-1:a/efe5afc483594adaa8325e2b4d1290df::share:r006-5a544f6d-5fb9-4f31-acac-1fd13a5531bf   
-Lifecycle state                  pending   
-Access control mode              security_group
-Accessor binding role            none
-Allowed transit encryption modes ipsec,none
-Zone                             us-south-1   
-Profile                          dp2   
-Size(GB)                         40   
-IOPS                             100      
-Encryption                       provider_managed   
-Mount Targets                    ID                                          Name      
-                                 r006-68c20e6b-58d6-48c2-8c9c-564c8eed72db   my-target1      
-                                
-Resource group                   ID                                          Name      
-                                 11caaa983d9c4beb82690daab08717e9            Default      
-                                
-Created                          2025-07-23T15:53:17+05:30                                   
-Replication role                 none 
-Replication status               none   
-Replication status reasons       Status code   Status message      
-                                 -             -      
+$ ibmcloud is share-create --name my-new-file-share --zone us-south-2 --profile dp2 --size 500 --iops 2000 --allowed-transit-encryption-modes user_managed,none --user-tags env:dev --mount-targets '[{"name":"my-new-mount-target","virtual_network_interface": {"name":"my-vni","subnet": {"id":"0717-c66032c9-048d-4c35-aa83-c932e24afdbb"}}}]'
 
-Snapshot count                   0   
-Snapshot size                    0   
-Source snapshot                  - 
-Allowed Access Protocols         nfs4   
-Availability Mode                zonal   
-Bandwidth(Mbps)                  1 
-Storage Generation               1                                   
+Creating file share my-new-file-share under account Test Account as user test.user@ibm.com...
+                                
+ID                                 r006-201487a2-cf35-4b2a-a4fe-f480803e1e80   
+Name                               my-new-file-share   
+CRN                                crn:v1:bluemix:public:is:us-south-2:a/a1234567::share:r006-201487a2-cf35-4b2a-a4fe-f480803e1e80   
+Lifecycle state                    pending   
+Access control mode                security_group   
+Accessor binding role              none   
+Allowed transit encryption modes   user_managed,none   
+Zone                               us-south-2   
+Profile                            dp2   
+Size(GB)                           500   
+IOPS                               2000   
+User Tags                          env:dev   
+Encryption                         provider_managed   
+Mount Targets                      ID                                          Name      
+                                   r006-c8952df9-f479-49a8-a66b-85bf112e0831   my-new-mount-target      
+                                      
+Resource group                     ID                                 Name      
+                                   6edefe513d934fdd872e78ee6a8e73ef   defaults      
+                                      
+Created                            2025-08-01T21:17:25+00:00   
+Replication role                   none   
+Replication status                 none   
+Replication status reasons         Status code   Status message      
+                                   -             -      
+                                      
+Snapshot count                     0   
+Snapshot size                      0   
+Source snapshot                    -                            
+```
+{: screen}
+
+The following example shows how you can create a regional file share with a mount target from the CLI. Before you run the command, make sure that you set the environmental variable to `true`. Note that while the command specifies a low bandwidth value, the system auto-corrects the configuration to provide at least 1 Mbps for every 20 GB of capacity.
+
+```sh
+$ $ ibmcloud is share-create --name my-regional-file-share --profile rfs --size 5000 --bandwidth 125 --allowed-access-protocols nfs4 --atem stunnel --mount-targets '[{"name":"my-new-mount-target","virtual_network_interface": {"name":"my-regional-vni","subnet": {"id":"0717-c66032c9-048d-4c35-aa83-c932e24afdbb"}}}]'
+Creating file share my-regional-file-share under account under account Test Account as user test.user@ibm.com...
+                                      
+ID                                 r006-770ff2f9-3211-459d-918b-fbf0b4a4f999   
+Name                               my-regional-file-share   
+CRN                                crn:v1:bluemix:public:is:us-south:a/a1234567::share:r006-770ff2f9-3211-459d-918b-fbf0b4a4f999   
+Lifecycle state                    pending   
+Access control mode                security_group   
+Accessor binding role              none   
+Allowed transit encryption modes   stunnel   
+Zone                               -   
+Profile                            rfs   
+Size(GB)                           5000   
+IOPS                               35000   
+Encryption                         provider_managed   
+Mount Targets                      ID                                          Name      
+                                   r006-f7c84cb2-0e82-4f9e-b729-6e51ea437df6   my-new-mount-target      
+                                      
+Resource group                     ID                                 Name      
+                                   6edefe513d934fdd872e78ee6a8e73ef   defaults      
+                                      
+Created                            2025-08-01T21:27:07+00:00   
+Replication role                   none   
+Replication status                 none   
+Replication status reasons         Status code   Status message      
+                                   -             -      
+                                      
+Snapshot count                     -   
+Snapshot size                      -   
+Source snapshot                    -   
+Allowed Access Protocols           nfs4   
+Availability Mode                  regional   
+Bandwidth(Mbps)                    250   
+Storage Generation                 2
 ```
 {: screen}
 
 The following example creates a file share with VPC access mode and a mount target that can be used by any virtual server instance within the VPC.
 
 ```sh
-$ ibmcloud is share-create --name my-file-share-8 --zone us-south-1 --profile dp2 --size 40 --iops 2000 --user-tags env:dev --allowed-access-protocols nfs4 --atem ipsec,none --mount-targets '[{"access-protocol": "nfs4", "transit_encryption":"ipsec", "name": "my-new-mount-target","vpc": {"name": "my-vpc"}}]'
+$ ibmcloud is share-create --name my-file-share-8 --zone us-south-1 --profile dp2 --size 40 --iops 2000 --user-tags env:dev --mount-targets '[{"name": "my-new-mount-target","vpc": {"name": "my-vpc"}}]'
 Creating file share my-file-share-8 under account Test Account as user test.user@ibm.com...
 
 ID                           r006-95ec87ba-c5fd-4178-a114-2a55c4d907d4   
@@ -436,11 +532,7 @@ Replication status reasons   Status code   Status message
                                 
 Snapshot count               0   
 Snapshot size                0   
-Source snapshot              -       
-Allowed Access Protocols     nfs4   
-Availability Mode            zonal   
-Bandwidth(Mbps)              1 
-Storage Generation           1       
+Source snapshot              -  
 ```
 {: screen}
 
@@ -473,6 +565,8 @@ ibmcloud is share-create --snapshot r026-7647ba64-9728-4bb4-be2f-d958f738fdae
 
 For more information about how to create a file share from a snapshot with other examples, see [Restoring data from a file share snapshot](/docs/vpc?topic=vpc-fs-snapshots-restore&interface=cli#fs-snapshots-restore-CLI).
 
+[Beta]{: tag-cyan} During the beta phase, snapshots are not supported for file shares with regional data availability. First- and second-generation file share profiles in the defined performance profile family are not interchangeable. You can't use first-generation file share's snapshot to create a share with the `rfs` profile.
+
 ### Adding supplemental IDs when you create a file share with the CLI
 {: #fs-add-supplemental-id-cli}
 
@@ -503,13 +597,13 @@ To set supplemental IDs when you create a share, run the `ibmcloud is share-crea
 $ ibmcloud is share-create --name my-file-share --zone us-south-2 --profile dp2 --size 1000 --iops 1000 --initial-owner-gid 101 --initial-owner-uid 10001
 Creating file share my-file-share under account Test Account as user test.user@ibm.com...
                                 
-ID                                 r006-346811e7-cf29-4baa-af77-909fb549d1e6   
+ID                                 r006-1579b805-1b6f-4a2e-be9b-e0041ef018c9   
 Name                               my-file-share   
-CRN                                crn:v1:bluemix:public:is:us-south-2:a/efe5afc483594adaa8325e2b4d1290df::share:r006-346811e7-cf29-4baa-af77-909fb549d1e6   
+CRN                                crn:v1:bluemix:public:is:us-south-2:a/a123456::share:r006-1579b805-1b6f-4a2e-be9b-e0041ef018c9   
 Lifecycle state                    pending   
 Access control mode                security_group   
 Accessor binding role              none   
-Allowed transit encryption modes   ipsec,none   
+Allowed transit encryption modes   user_managed,none   
 Zone                               us-south-2   
 Profile                            dp2   
 Size(GB)                           1000   
@@ -519,20 +613,16 @@ Mount Targets                      ID                          Name
                                    No mounted targets found.      
                                       
 Resource group                     ID                                 Name      
-                                   11caaa983d9c4beb82690daab08717e9   Default      
+                                   6edefe513d934fdd872e78ee6a8e73ef   defaults      
                                       
-Created                            2025-07-23T12:28:50+05:30   
+Created                            2025-04-18T19:18:37+00:00   
 Replication role                   none   
 Replication status                 none   
 Replication status reasons         Status code   Status message      
                                    -             -      
 Snapshot count                     0
 Snapshot size                      0    
-Source snapshot                    -    
-Allowed Access Protocols           nfs4   
-Availability Mode                  zonal   
-Bandwidth(Mbps)                    1 
-Storage Generation                 1    
+Source snapshot                    -
 ```
 {: screen}
 

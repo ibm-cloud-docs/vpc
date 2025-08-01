@@ -2,7 +2,7 @@
 
 copyright:
   years: 2024, 2025
-lastupdated: "2025-07-21"
+lastupdated: "2025-08-01"
 
 keywords: vsi, virtual server, virtual server instances, profile, profiles, gpu, accelerated, h100, h200, l4, l40s
 
@@ -351,7 +351,7 @@ Regions:
 - Europe
    - Frankfurt (`eu-de`)
    - London (`eu-gb`)
-   - Madrid (`eu-es`)
+   - Madrid (`eu-es`), except in zone 2 (MAD04)
 - Asia Pacific
    - Sydney (`au-syd`)
    - Tokyo (`jp-tok`)
