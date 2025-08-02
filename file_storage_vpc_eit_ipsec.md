@@ -69,7 +69,7 @@ Obtain the X.509 certificates that are needed for authentication. The same certi
 
 3. Then, use the metadata service on the [virtual server instance](/docs/vpc?topic=vpc-imd-identity-operations#imd-json-token) to create a client certificate. 
    1. Make a `PUT /instance_identity/v1/token` (virtual server instance) or `PUT /identity/v1/tokens` (bare metal server) request to get a token from the VPC identity service to be used for subsequent calls. For more information, see the following topic:
-      - [Acquiring an instance identity access token](/docs/vpc?topic=vpc-imd-configure-service&interface=api#imd-json-token).
+      - [Acquiring an instance identity access token](/docs/vpc?topic=vpc-imd-identity-operations&interface=api#imd-json-token).
    1. Use the identity token to create an identity certificate. Make a `POST /instance_identity/v1/certificates` request for a virtual server instance or a `POST /identity/v1/certificates` for a bare metal server. Specify the identity token in the HTTP Authorization header, plus a Certificate Signing Request (as `csr` property) and a validity duration (as `expires_in` property). The call returns a new client certificate and intermediate certificate chain that allows the client to access file shares by using IPsec Encryption in Transit. For more information, see the following topic:
       - [Generating an instance identity certificate by using an instance identity access token](/docs/vpc?topic=vpc-imd-identity-operations&interface=api#imd-acquire-certificate).
    1. Copy the API response output, including the `-----BEGIN CERTIFICATE-----` and `-----END CERTIFICATE-----` lines, and save it to a file with a recognizable name, such as `ca-cert.pem`. Make sure that the file you create has the `.pem` extension.

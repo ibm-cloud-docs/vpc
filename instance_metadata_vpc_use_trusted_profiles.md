@@ -2,7 +2,7 @@
 
 copyright:
   years: 2022, 2025
-lastupdated: "2025-07-31"
+lastupdated: "2025-08-01"
 
 keywords:
 
@@ -20,7 +20,7 @@ subcollection: vpc
 You can create a trusted profile for compute resource identities in {{site.data.keyword.iamlong}}, and then assign access rights for IAM-enabled services to a virtual server instance. These services can be called from an instance without having to manage and distribute IAM secrets to the instance. Use this option when you want to call IAM-enabled services as part of instance initialization.
 {: shortdesc}
 
-For more information about creating a trusted profile, see [Establishing trust with compute resources in the console](/docs/account?topic=account-create-trusted-profile&interface=ui&q=trusted+profiles&tags=account#create-profile-compute){: ui}[Establishing trust with compute resources by using the CLI](/docs/account?topic=account-create-trusted-profile&interface=cli&q=trusted+profiles&tags=account#create-profile-compute-cli){: cli}[Establishing trust with compute resources with the API](/docs/account?topic=account-create-trusted-profile&interface=api&q=trusted+profiles&tags=account#create-profile-compute-api){: api}.
+For more information about creating a trusted profile, see [Establishing trust with compute resources in the console](/docs/account?topic=account-create-trusted-profile&interface=ui#create-profile-compute){: ui}[Establishing trust with compute resources by using the CLI](/docs/account?topic=account-create-trusted-profile&interface=cli#create-profile-compute-cli){: cli}[Establishing trust with compute resources with the API](/docs/account?topic=account-create-trusted-profile&interface=api#create-profile-compute-api){: api}.
 
 ## About trusted profiles for compute resource identities
 {: #imd-compute-res-identity}
@@ -64,9 +64,9 @@ Verify that your access permissions are assigned as Administrator or Editor in t
 {: #imd-byb-environment}
 
 Create or retrieve a trusted profile. You need either its ID or CRN.
-- In the console, go to **Manage > Access (IAM)**, and select [**Trusted profiles**](/iam/trusted-profiles). For more information about creating a trusted profile and linking it to existing VPC virtual server instance, see [Establishing trust with compute resources in the console](/docs/account?topic=account-create-trusted-profile&interface=ui&q=trusted+profiles&tags=account#create-profile-compute).{: ui}
-- From the CLI, you can run the `ibmcloud iam trusted-profile-create` command to create a trusted profile or run the `ibmcloud iam trusted-profiles` command to list existing trusted profiles. For more information,  [Establishing trust with compute resources by using the CLI](/docs/account?topic=account-create-trusted-profile&interface=cli&q=trusted+profiles&tags=account#create-profile-compute-cli).{: cli}
-- You can make a [`GET /v1/profiles`](/apidocs/iam-identity-token-api#list-profiles) or [`POST /v1/profiles`](/apidocs/iam-identity-token-api#create-profile) request to the IAM Identity Services API. For more information, see [Establishing trust with compute resources with the API](/docs/account?topic=account-create-trusted-profile&interface=api&q=trusted+profiles&tags=account#create-profile-compute-api).{: api}
+- In the console, go to **Manage > Access (IAM)**, and select [**Trusted profiles**](/iam/trusted-profiles). For more information about creating a trusted profile and linking it to existing VPC virtual server instance, see [Establishing trust with compute resources in the console](/docs/account?topic=account-create-trusted-profile&interface=ui#create-profile-compute).{: ui}
+- From the CLI, you can run the `ibmcloud iam trusted-profile-create` command to create a trusted profile or run the `ibmcloud iam trusted-profiles` command to list existing trusted profiles. For more information,  [Establishing trust with compute resources by using the CLI](/docs/account?topic=account-create-trusted-profile&interface=cli#create-profile-compute-cli).{: cli}
+- You can make a [`GET /v1/profiles`](/apidocs/iam-identity-token-api#list-profiles) or [`POST /v1/profiles`](/apidocs/iam-identity-token-api#create-profile) request to the IAM Identity Services API. For more information, see [Establishing trust with compute resources with the API](/docs/account?topic=account-create-trusted-profile&interface=api#create-profile-compute-api).{: api}
 
 ## End-to-end procedure for using a trusted profile to call IAM-enabled services
 {: #imd-trusted-profile-md-ex}

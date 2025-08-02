@@ -183,6 +183,6 @@ Increasing volume size, adjusting IOPS or throughput limit (of second-generation
 In most cases, the unattached provisioned volume bandwidth value is not the same as the bandwidth value that you see after the volume is attached to an instance.
 
 ## Next steps
-{: #volume-bandwidth-next steps}
+{: #volume-bandwidth-next-steps}
 
 Think about the type of data volume that your workloads require and select the appropriate instance and volume profile. For more information, see [How virtual server profiles relate to storage profiles](/docs/vpc?topic=vpc-block-storage-profiles&interface=ui#vsi-profiles-relate-to-storage).
