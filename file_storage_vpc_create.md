@@ -2,7 +2,7 @@
 
 copyright:
   years: 2021, 2025
-lastupdated: "2025-08-01"
+lastupdated: "2025-08-02"
 
 keywords: file share, file storage, virtual network interface, encryption in transit, profiles, 
 
@@ -58,7 +58,7 @@ In the {{site.data.keyword.cloud_notm}} console, you can create a file share wit
    | Profile | The profile is auto-populated based on your data availability selection. For more information, see [file Storage profiles](/docs/vpc?topic=vpc-file-storage-profiles). \n - If you chose Single zone availability, your file share uses the `dp2` profile. Select the size and IOPS for your file share. You can increase the capacity later, and you can also adjust the IOPS as needed. \n - [Beta]{: tag-cyan} If you chose regional availability, your file share uses the `rfs` profile. Select the size and bandwidth for your file share. You can increase the capacity later, and you can also adjust the bandwidth as needed.|
    | Mount target access mode  | Select how you want to manage access to this file share: |
    |  | Security group: Access to the file share is based on [security group](/docs/vpc?topic=vpc-using-security-groups#sg-getting-started) rules. This option can be used to restrict access to specific virtual server instances. You can also use this option if you want to mount the file share to a virtual server instance in another zone. This option is recommended as you have more control over who can access the data that is stored on the file share. When you choose this type of access, you can also specify the allowed transit encryption modes. |
-   |  | Virtual private cloud: Access to the file share is granted to any virtual server instance in the same region. Cross-zone mounting, encryption in transit, cross-zone mounting, and snapshots are not supported when this access mode is selected. [Beta]{: tag-cyan}This legacy access mode is not supported for regional shares. |
+   |  | Virtual private cloud: Access to the file share is granted to any virtual server instance in the same region. Cross-zone mounting, encryption in transit, cross-zone mounting, and snapshots are not supported when this access mode is selected. [Beta]{: tag-cyan} This legacy access mode is not supported for regional shares. |
    | Allowed transit encryption modes | As the share owner, you can specify how you want clients within your account and authorized accounts to connect to your file share. You can select *none* if you do not want them to use encryption in transit. If you want them to use encryption in transit, select *IPsec* for a zonal share or [Beta]{: tag-cyan} *stunnel* for a regional share. If you select both available options, then the transit encryption type of the first mount target decides the transit encryption types of all future mount targets within the account. |
    {: caption="Values for creating a file share" caption-side="top"}
 
@@ -194,9 +194,9 @@ Source snapshot                    -
 ```
 {: screen}
 
-Customers with special access to preview the regional file share offering can access the beta features by setting the environmental variable to true first. Then, use the same command to create the zonal file share. The response shows `ipsec` instead of `user_managed` as allowed value for the transit encryption. The response also shows the `Allowed Access Protocols`, `Availability Mode`, `Bandwidth`, and `Storage Generation` properties.
+[Beta]{: tag-cyan} Customers with special access to preview the regional file share offering can access the beta features by setting the environmental variable to true first. 
 
-[beta]{: tag-cyan}
+Then, you can use the same command to create the zonal file share. The response shows `ipsec` instead of `user_managed` as allowed value for the transit encryption. The response also shows the `Allowed Access Protocols`, `Availability Mode`, `Bandwidth`, and `Storage Generation` properties.
 
 ```sh
 $ export IBMCLOUD_IS_FEATURE_SHARE_DENALI_REGIONAL_AVAILABILITY=true
@@ -366,9 +366,7 @@ Created                     2025-08-01T20:28:50+00:0
 ```
 {: screen}
 
-[beta]{: tag-cyan}
-
-When the same command is used to create a mount target for a regional file share, the output looks very similar. The `Access Protocol` property is also shown.
+[Beta]{: tag-cyan} When the same command is used to create a mount target for a regional file share, the output looks very similar. The `Access Protocol` property is also shown.
 
 ```sh
 $ ibmcloud is share-mount-target-create my-regional-file-share --subnet my-subnet --name my-regional-share-mount-target-1 --vni-name my-share-vni-2  --resource-group-id 6edefe513d934fdd872e78ee6a8e73ef  --access-protocol nfs4 --transit-encryption none --vpc my-vpc
@@ -421,7 +419,7 @@ For more information about the command options, see [`ibmcloud is share-mount-ta
 
 You can create a file share with one or more mount targets in one step by using the `ibmcloud is share-create` command. You need to provide the zone name, the [file share profile](/docs/vpc?topic=vpc-file-storage-profiles), the file share size, and the IOPS. You can also specify a name, user tags, and even the initial owner UID. To create the mount target, you need to provide the mount target information in JSON format.
 
-The following example shows how to create a file share with 40 GB capacity and 100 IOPS in the `us-south-1` zone. The file share is tagged with `env:dev` and has security group access control mode. The file share can be mounted on authorized virtual servers by using the mount target `my-target1`.
+The following example shows how to create a zonal file share with 40 GB capacity and 100 IOPS in the `us-south-1` zone. The file share is tagged with `env:dev` and has security group access control mode. The file share can be mounted on authorized virtual servers by using the mount target `my-target1`.
 
 ```sh
 $ ibmcloud is share-create --name my-new-file-share --zone us-south-2 --profile dp2 --size 500 --iops 2000 --allowed-transit-encryption-modes user_managed,none --user-tags env:dev --mount-targets '[{"name":"my-new-mount-target","virtual_network_interface": {"name":"my-vni","subnet": {"id":"0717-c66032c9-048d-4c35-aa83-c932e24afdbb"}}}]'
@@ -459,7 +457,7 @@ Source snapshot                    -
 ```
 {: screen}
 
-The following example shows how you can create a regional file share with a mount target from the CLI. Before you run the command, make sure that you set the environmental variable to `true`. Note that while the command specifies a low bandwidth value, the system auto-corrects the configuration to provide at least 1 Mbps for every 20 GB of capacity.
+[Beta]{: beta} The following example shows how you can create a regional file share with a mount target from the CLI. Before you run the command, make sure that you set the environmental variable to `true`. Note that while the command specifies a low bandwidth value, the system auto-corrects the configuration to provide at least 1 Mbps for every 20 GB of capacity.
 
 ```sh
 $ $ ibmcloud is share-create --name my-regional-file-share --profile rfs --size 5000 --bandwidth 125 --allowed-access-protocols nfs4 --atem stunnel --mount-targets '[{"name":"my-new-mount-target","virtual_network_interface": {"name":"my-regional-vni","subnet": {"id":"0717-c66032c9-048d-4c35-aa83-c932e24afdbb"}}}]'
@@ -596,7 +594,7 @@ To set supplemental IDs when you create a share, run the `ibmcloud is share-crea
 ```sh
 $ ibmcloud is share-create --name my-file-share --zone us-south-2 --profile dp2 --size 1000 --iops 1000 --initial-owner-gid 101 --initial-owner-uid 10001
 Creating file share my-file-share under account Test Account as user test.user@ibm.com...
-
+                                
 ID                                 r006-bc73917f-b86e-4f6d-b919-6997a88c8031   
 Name                               my-file-share   
 CRN                                crn:v1:bluemix:public:is:us-south-2:a/a1234567::share:r006-bc73917f-b86e-4f6d-b919-6997a88c8031   
@@ -640,7 +638,6 @@ Lifecycle state                    pending
 Access control mode                security_group   
 Accessor binding role              none   
 Allowed transit encryption modes   none,ipsec   
-
 Zone                               us-south-2   
 Profile                            dp2   
 Size(GB)                           1000   
@@ -651,13 +648,13 @@ Mount Targets                      ID                          Name
                                       
 Resource group                     ID                                 Name      
                                    6edefe513d934fdd872e78ee6a8e73ef   defaults      
-
+                                      
 Created                            2025-08-01T21:42:38+00:00   
 Replication role                   none   
 Replication status                 none   
 Replication status reasons         Status code   Status message      
                                    -             -      
-                                    
+                                      
 Snapshot count                     0   
 Snapshot size                      0   
 Source snapshot                    -   
