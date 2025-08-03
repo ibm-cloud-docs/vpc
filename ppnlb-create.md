@@ -77,7 +77,7 @@ To create and configure {{site.data.keyword.nlb_full}} in the {{site.data.keywor
 
 1. You can attach members to your back-end pool now, or after you create your Private Path NLB. Click **Attach** on the table row of your back-end pool. Specify the following information, then click **Attach**.
 
-   * **Member type**: Add virtual server instances,  or an application load balancer as a member. For virtual server instances, attach each type individually.
+   * **Member type**: Add virtual server instances, or an application load balancer as a member. For virtual server instances, attach each type individually.
 
       If you attach an ALB as a member target to a Private Path NLB pool, no other members can be added to that pool.
       {: note}
