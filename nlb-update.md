@@ -2,7 +2,7 @@
 
 copyright:
   years: 2020, 2025
-lastupdated: "2025-06-18"
+lastupdated: "2025-08-03"
 
 keywords: network load balancer, public, listener, back-end, front-end, pool, round-robin, weighted, connections, methods, policies, APIs, access, ports, vpc network, update
 
@@ -31,7 +31,7 @@ To update a network load balancer in the {{site.data.keyword.cloud_notm}} consol
 1. On the network load balancer details page, select the **Back-end pools** tab if you need to edit a pool or virtual server instance parameters. In the Back-end pools table, click the Edit icon ![Edit icon](images/edit.png) beside the details that you want to update.
 1. If you are attaching new members, select **Attach** in the Members column of the back-end pool to which you want to add members. Specify the following information, then click **Attach**.
 
-   * **Member type**: Add Virtual server instances or application load balancer (ALB) as a member. If a load balancer is not available, select **Create load balancer**. For Virtual server instances, attach each type individually.
+   * **Member type**: Add Virtual server instances or an application load balancer (ALB) as a member. If a load balancer is not available, select **Create load balancer**. For Virtual server instances, attach each type individually.
 
       If you attach an ALB as a member target to a Private Path NLB pool, no other members can be added to that pool.
       {: note}
