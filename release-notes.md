@@ -2,7 +2,7 @@
 
 copyright:
   years: 2019, 2025
-lastupdated: "2025-08-01"
+lastupdated: "2025-08-04"
 
 keywords:
 
@@ -286,7 +286,7 @@ Montreal region now available
 {: release-note}
 
 Backup pool support for load balancers
-:   You can now manage potential failures in your environment by assigning a failover pool to an existing pool. For more information, refer to [Creating an application load balancer in the console](/docs/vpc?topic=vpc-load-balancers&interface=ui#lb-ui-creating-network-load-balancer).
+:   You can now manage potential failures in your environment by assigning a failover pool to an existing pool. For more information, refer to [Creating an application load balancer in the console](/docs/vpc?topic=vpc-load-balancers&interface=ui#lb-ui-creating-application-load-balancer).
 
 ### 04 March 2025
 {: #vpc-mar0425}

@@ -2,7 +2,7 @@
 
 copyright:
   years: 2025, 2025
-lastupdated: "2025-07-31"
+lastupdated: "2025-08-04"
 
 keywords:
 
@@ -185,7 +185,7 @@ curl -X PATCH "$vpc_api_endpoint/v1/images/$image_id?version=$today&generation=2
 ```
 {: pre}
 
-For more details on the API `allowed_use` property and sub-properties, see the [Virtual Private Cloud API: Create image](/apidocs/vpc-scoped#create-image) and [Virtual Private Cloud API: Update image](/apidocs/vpc-scoped#update-image). For more information regarding Common Expression Language, which is used to create the allowed-use expression, see [Google's CEL Language Definition reference](https://github.com/google/cel-spec/blob/master/doc/langdef.md){: external}
+For more details on the API `allowed_use` property and sub-properties, see the [Virtual Private Cloud API: Create image](/apidocs/vpc/latest#create-image) and [Virtual Private Cloud API: Update image](/apidocs/vpc/latest#update-image). For more information regarding Common Expression Language, which is used to create the allowed-use expression, see [Google's CEL Language Definition reference](https://github.com/google/cel-spec/blob/master/doc/langdef.md){: external}
 
 ## Defining allowed-use expressions by using Terraform
 {: #custom-image-allowed-use-expressions-terraform}

@@ -15,7 +15,7 @@ subcollection: vpc
 # Updating to the `2025-07-15` version (metadata identity)
 {: #2025-07-15-migration-metadata-identity}
 
-As described in the [Beta VPC Identity API](/apidocs/vpcidentity-beta) reference [versioning](/apidocs/vpc-identity-beta#versioning-identity-beta) policy, most changes to the VPC APIs are fully compatible with earlier versions and are made available to all clients, regardless of the API version the client requests. However, the `2025-07-15` release of the VPC API necessitated incompatible changes in support of metadata identity methods.
+As described in the [Beta VPC Identity API](/apidocs/vpc-identity-beta/latest) reference [versioning](/apidocs/vpc-identity-beta#versioning-identity-beta) policy, most changes to the VPC APIs are fully compatible with earlier versions and are made available to all clients, regardless of the API version the client requests. However, the `2025-07-15` release of the VPC API necessitated incompatible changes in support of metadata identity methods.
 
 When you adopt the release version `2025-07-15` or later, the metadata identity APIs will operate this way:
 

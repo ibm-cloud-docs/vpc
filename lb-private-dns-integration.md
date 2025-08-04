@@ -2,7 +2,7 @@
 
 copyright:
   years: 2022, 2025
-lastupdated: "2025-06-18"
+lastupdated: "2025-08-04"
 
 keywords:
 
@@ -278,7 +278,7 @@ You need the CRN of the private DNS that you want to bind to your load balancer.
 
 To specify a private DNS zone during creation:
 
-Specify the `dns` information in the `POST /load_balancers` call. For more information about this creation payload, see [Creating an application load balancer with the API](/docs/vpc?topic=vpc-load-balancers&interface=api#lb-api-creating-network-load-balancer).
+Specify the `dns` information in the `POST /load_balancers` call. For more information about this creation payload, see [Creating an application load balancer with the API](/docs/vpc?topic=vpc-load-balancers&interface=api#lb-api-creating-application-load-balancer).
 {: note}
 
 ```sh
@@ -375,7 +375,7 @@ You need the CRN of the private DNS that you want to bind to your load balancer.
 
 To use the API to bind an existing load balancer to a private DNS zone:
 
-Specify the `dns` information in the `PATCH /load_balancers` call. For more information about this `PATCH` payload, see [Creating an application load balancer with the API](/docs/vpc?topic=vpc-load-balancers&interface=api#lb-api-creating-network-load-balancer).
+Specify the `dns` information in the `PATCH /load_balancers` call. For more information about this `PATCH` payload, see [Creating an application load balancer with the API](/docs/vpc?topic=vpc-load-balancers&interface=api#lb-api-creating-application-load-balancer).
 {: note}
 
 ```sh
@@ -476,7 +476,7 @@ Sample output:
 
 To use the API to unbind an existing load balancer to a private DNS zone:
 
-Specify null `dns` information in the `PATCH /load_balancers call`. For more information about this `PATCH` payload, see [Creating an application load balancer with the API](/docs/vpc?topic=vpc-load-balancers&interface=api#lb-api-creating-network-load-balancer).
+Specify null `dns` information in the `PATCH /load_balancers call`. For more information about this `PATCH` payload, see [Creating an application load balancer with the API](/docs/vpc?topic=vpc-load-balancers&interface=api#lb-api-creating-application-load-balancer).
 {: note}
 
 ```sh
