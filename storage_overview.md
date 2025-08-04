@@ -2,7 +2,7 @@
 
 copyright:
   years: 2022, 2025
-lastupdated: "2025-07-31"
+lastupdated: "2025-08-04"
 
 keywords: block storage for VPC, File Storage for VPC, Snapshots for VPC, Backup for VPC, block storage, file storage, snapshots, backup, 
 
@@ -118,9 +118,9 @@ Second-generation profiles provide regional data availability across all 3 zones
 | Expandable capacity | Yes, up to 16,000 GB     | Yes, up to 32,000 GB |
 | Adjustable IOPS     | Yes, up to 96,000. IOPS depends on capacity range. | No. Maximum IOPS is preset at 35,000.| 
 | Adjustable Bandwidth| No. Throughput can be increased by increasing capacity and IOPS, up to 1024 MBps.| Yes, bandwidth can be increased up to 1024 MBps, and it can be reduced to the preset value that is based on the file share capacity. No capacity increase needed.|
-| Customer-managed encryption at rest | Yes. | |
+| Customer-managed encryption at rest | Yes. | Not supported in the [beta]{: tag-cyan} release.|
 | Customer-managed encryption in transit | Yes. IPsec protocol with strongSwan. | Yes. TLS protocol with stunnel.|
-| On-demand snapshots | Yes, up to 750 per share in a region. |  |
+| On-demand snapshots | Yes, up to 750 per share in a region. | Not supported in the [beta]{: tag-cyan} release. |
 | Scheduled snapshots | Yes, up to 750 snapshots per region. |  Not supported in the [beta]{: tag-cyan} release. |
 | Cross-zonal replication| Yes, as often as every 15 minutes. | Not applicable. Data is synchronously available in all zones of the region. |
 | Cross-regional replication | Yes, as often as every 15 minutes. |  Not supported in the [beta]{: tag-cyan}. |
@@ -145,8 +145,8 @@ Snapshots are tied to their source share. If you delete the original share and t
 
 | Features            | First-generation shares | Second-generation shares |
 |---------------------|--------------------------|---------------------------|
-| Availability        | Generally available in all VPC regions for all customers. | |
-| On-demand snapshots | Yes, Up to 750 per share in a region. | |
+| Availability        | Generally available in all VPC regions for all customers. | Not supported in the [beta]{: tag-cyan} release.|
+| On-demand snapshots | Yes, Up to 750 per share in a region. |Not supported in the [beta]{: tag-cyan} release. |
 | Scheduled snapshots | Yes, up to 750 snapshots per region. | Not supported in the [beta]{: tag-cyan} release.|
 {: caption="File share snapshot generations comparison." caption-side="bottom"}
 

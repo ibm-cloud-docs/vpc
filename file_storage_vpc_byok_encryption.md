@@ -2,7 +2,7 @@
 
 copyright:
   years: 2022, 2025
-lastupdated: "2025-07-28"
+lastupdated: "2025-08-04"
 
 keywords: file share, customer-managed encryption, encryption, byok, KMS, Key Protect, Hyper Protect Crypto Services,
 
@@ -279,7 +279,7 @@ You can also specify the CRN of a root key from a different account in the `POST
 {: #fs-byok-terraform}
 {: terraform}
 
-To create a file share, use the `ibm_is_share` resource. The following example creates a share with 800 GiB capacity and the `dp2` performance profile. The file share is encrypted by using a key that is identified by its CRN. The example also specifies a new mount target with a virtual network interface.
+To create a file share, use the `ibm_is_share` resource. The following example creates a zonal file share with 800 GiB capacity and the `dp2` performance profile. The file share is encrypted by using a key that is identified by its CRN. The example also specifies a new mount target with a virtual network interface.
 
 ```terraform
 resource "ibm_is_share" "share4" {

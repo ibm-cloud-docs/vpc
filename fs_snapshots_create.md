@@ -2,7 +2,7 @@
 
 copyright:
   years: 2024, 2025
-lastupdated: "2025-07-28"
+lastupdated: "2025-08-04"
 
 keywords: snapshots, File Storage, File Storage snapshot
 
@@ -88,7 +88,7 @@ ibmcloud is share-snapshot-create SHARE [--name NAME] [--user-tags USER_TAGS] [-
 ```
 {: pre}
 
-The following example creates a snapshot with the name `my-first-share-snapshot` of the share `my-file-share`. The snapshot is tagged with `env:test`.
+The following example creates a snapshot with the name `my-first-share-snapshot` of the zonal share `my-file-share`. The snapshot is tagged with `env:test`.
 
 ```sh
 ibmcloud is share-snapshot-create my-file-share --name my-first-share-snapshot --user-tags env:test
@@ -121,9 +121,6 @@ Resource type          share_snapshot
 {: screen}
 
 The status shows `pending` while the snapshot is created. If you want to, you can issue a second `ibmcloud is share-snapshot` command with the snapshot ID to see the new snapshot in `stable` status.
-
-For snapshots of regional shares, the zone value in the command response defaults to the first zone in the region.
-{: beta}
 
 For more information about available command options, see [`ibmcloud is share-snapshot-create`](/docs/cli?topic=cli-vpc-reference#share-snapshot-create).
 
@@ -190,9 +187,6 @@ A successful response looks like the following example. The snapshot lifecycle s
 }
 ```
 {: codeblock}
-
-For the snapshots of regional shares, the zone value in the API response defaults to the first zone in the region.
-{: beta}
 
 ## Creating a snapshot with Terraform
 {: #fs-snapshots-create-terraform}

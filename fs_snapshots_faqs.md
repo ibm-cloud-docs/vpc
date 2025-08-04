@@ -2,7 +2,7 @@
 
 copyright:
   years: 2024, 2025
-lastupdated: "2025-06-03"
+lastupdated: "2025-08-04"
 
 keywords: File Storage, snapshots, cross-regional copy, backup, restore share
 
@@ -33,6 +33,9 @@ Snapshots are a point-in-time copy of your {{site.data.keyword.filestorage_vpc_s
 Backup snapshots, also called _backups_, are scheduled snapshots that are created by using the Backup for VPC service. You can schedule backups for file shares by creating a backup policy with a plan. Then, add the user tags that are specified in the policy to your shares so the service knows which shares to create a snapshot from. For more information, see [Backup for VPC](/docs/vpc?topic=vpc-backup-service-about).
 
 Backup schedules can be configured only on the source side of a replication pair. When you choose to failover operations to the replica share, the source and replica shares switch roles. After a failover is performed, backup policies need to be removed from what was previously the source and applied to the current source share. Make sure that you update the tags on the source and replica shares.
+
+During the beta release of regional file shares, you cannot schedule the creation of regional snapshots with the Backup for VPC service.
+{: beta}
 
 ## How many snapshots can I take?
 {: faq}
@@ -72,6 +75,9 @@ Deleting a share from which you created a snapshot deletes the snapshot, too. Sn
 
 Yes, you can use Backup for VPC to create a backup policy and plan. In the plan, you can schedule daily, weekly, or monthly backup snapshots, or more frequent backups with a `cron-spec` expression. For more information about scheduling backup snapshots and how it works, see the [Backup for VPC](/docs/vpc?topic=vpc-backup-service-about) overview.
 
+During the beta release of regional file shares, you cannot schedule the creation of regional snapshots with the Backup for VPC service.
+{: beta}
+
 ## How am I charged for usage?
 {: faq}
 {: #faq-fs-snapshot-pricing}
@@ -103,6 +109,9 @@ You can also see special "replication" snapshots that are named by using the wor
 {: #faq-fs-backup-snapshots}
 
 You can use the Backup for VPC service to schedule the creation and deletion of your snapshots. For more information, see [Backup for VPC](/docs/vpc?topic=vpc-backup-service-about).
+
+During the beta release of regional file shares, you cannot automate the creation of regional snapshots with the Backup for VPC service.
+{: beta}
 
 ## Can the users of an accessor share see the snapshots of the origin share?
 {: faq}
