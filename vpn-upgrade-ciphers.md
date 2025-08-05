@@ -575,7 +575,7 @@ To upgrade the IKE policy by using the SDK, follow these Go language example ste
     ```
     {: codeblock}
 
-1. Perform an update to replace IKE policy with secure ciphers in your SDK.
+1. Perform an update to replace the IKE policy with secure ciphers in your SDK.
 
    ```go
    options := &vpcv1.UpdateIkePolicyOptions {
