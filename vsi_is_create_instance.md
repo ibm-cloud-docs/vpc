@@ -1268,12 +1268,12 @@ Allowed-use expressions: The image that you select determines the profiles that 
 
    * Select a stock image or custom image from your account for your instance.
 
-   ```terraform
-   data "ibm_is_image" "example_image" {
-      name = "ibm-centos-7-6-minimal-amd64-2"
-   }
-   ```
-   {: codeblock}
+       ```terraform
+       data "ibm_is_image" "example_image" {
+          name = "ibm-centos-7-6-minimal-amd64-2"
+       }
+       ```
+       {: codeblock}
 
    * Select an image that is shared from a private catalog for the instance. For more information, see the Terraform documentation on [ibm_is_images](https://registry.terraform.io/providers/IBM-Cloud/ibm/latest/docs/data-sources/is_images). You can select an image from the list to create the instance as shown in the section [Go to Creating an instance by using Terraform section](/docs/vpc?topic=vpc-creating-virtual-servers&interface=terraform#create-instance-terraform).
 
@@ -1282,41 +1282,41 @@ Allowed-use expressions: The image that you select determines the profiles that 
 
       - To list all available private catalog image offerings, run the following command.
 
-      ```terraform
-      data "ibm_is_images" "example_images" {
-      catalog_managed = true
-      }
-      ```
-      {: codeblock}
+          ```terraform
+          data "ibm_is_images" "example_images" {
+          catalog_managed = true
+          }
+          ```
+          {: codeblock}
 
    * List profiles and compatiable images using allowed-use expressions
 
       - List instance profiles that are compatiable with an image
 
-      ```terraform
-      data "ibm_is_image_instance_profiles" "testacc_image_instance_profiles" {
-      identifier = "r134-0950e619-325e-446e-b895-e0bdd21dd1ea"
-      }
-      ```
-      {: codeblock}
+          ```terraform
+          data "ibm_is_image_instance_profiles" "testacc_image_instance_profiles" {
+          identifier = "r134-0950e619-325e-446e-b895-e0bdd21dd1ea"
+          }
+          ```
+          {: codeblock}
 
       - List instance profiles compatible with a volume
 
-      ```terraform
-      data "ibm_is_volume_instance_profiles" "testacc_volume_instance_profiles" {
-      identifier = "r134-0950e619-325e-446e-b895-e0bdd21dd1ea"
-      }
-      ```
-      {: codeblock}
+          ```terraform
+          data "ibm_is_volume_instance_profiles" "testacc_volume_instance_profiles" {
+          identifier = "r134-0950e619-325e-446e-b895-e0bdd21dd1ea"
+          }
+          ```
+          {: codeblock}
 
       - List instance profiles compatible with a snapshot
 
-      ```terraform
-      data "ibm_is_snapshot_instance_profiles" "testacc_snapshot_instance_profiles" {
-      identifier = "r134-0950e619-325e-446e-b895-e0bdd21dd1ea"
-      }
-      ```
-      {: codeblock}
+          ```terraform
+          data "ibm_is_snapshot_instance_profiles" "testacc_snapshot_instance_profiles" {
+          identifier = "r134-0950e619-325e-446e-b895-e0bdd21dd1ea"
+          }
+          ```
+          {: codeblock}
 
 1. Create a VPC resource or use an existing VPC by referring to the VPC data source. For more information, see the Terraform documentation on [ibm_is_vpc](https://registry.terraform.io/providers/IBM-Cloud/ibm/latest/docs/data-sources/is_vpc).
 
