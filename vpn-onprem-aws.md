@@ -2,7 +2,7 @@
 
 copyright:
   years: 2020, 2025
-lastupdated: "2025-06-27"
+lastupdated: "2025-08-05"
 
 keywords: aws peer, vpn aws
 
@@ -40,7 +40,7 @@ You can use a {{site.data.keyword.vpn_vpc_short}} policy-based VPN to connect to
 If you have multiple subnets with a contiguous address range, you can create a connection with a CIDR that is a superset of your subnets. For example, `192.168.0.0/24` and `192.168.1.0/24` are covered by CIDR `192.168.0.0/23`.
 {: tip}
 
-![Connecting an IBM policy-based VPN to an AWS peer](images/vpn-interop-aws-diagram-policy-based.png){: caption="Figure 1: Connecting an IBM policy-based VPN to an AWS peer" caption-side="bottom"}
+![Connecting an IBM policy-based VPN to an AWS peer](images/vpn-interop-aws-diagram-policy-based.png){: caption="Connecting an IBM policy-based VPN to an AWS peer" caption-side="bottom"}
 
 ### Configuring AWS
 {: #aws-to-policy-based-aws-config}
@@ -61,17 +61,17 @@ To configure an AWS peer, follow these steps:
    * Enter a pre-shared key for both **tunnel1** and **tunnel2**.
    * For both AWS tunnels, choose **Edit tunnel x options** and select the wanted security parameters. You can choose multiple values for each parameter if they are also supported by the IBM VPN.
 
-     ![AWS tunnel options](images/vpn-interop-aws-tunnel-options.png){: caption="Figure 2: AWS tunnel options" caption-side="bottom"}
+     ![AWS tunnel options](images/vpn-interop-aws-tunnel-options.png){: caption="AWS tunnel options" caption-side="bottom"}
 
 1. After the status for the AWS site-to-site connection is **Available**, go to the **Static routes** tab to verify that the correct route was added automatically. Make manual adjustments if necessary.
 
    The following image shows that networks `10.240.128.0/27` and `10.240.128.32/27` on the IBM VPC side are routed with the new destination `10.240.128.0/26`.
 
-   ![AWS connection static routes](images/vpn-aws-connection-static-routes.png){: caption="Figure 3: AWS connection static routes" caption-side="bottom"}
+   ![AWS connection static routes](images/vpn-aws-connection-static-routes.png){: caption="AWS connection static routes" caption-side="bottom"}
 
 1. Go to AWS **Route tables** in the **Virtual private cloud** section and find the route table that is associated with the VPC where the VPN was attached. Click **Edit routes** and add the same route to the route table.
 
-   ![AWS route table](images/vpn-aws-route-table.png){: caption="Figure 4: AWS route table" caption-side="bottom"}
+   ![AWS route table](images/vpn-aws-route-table.png){: caption="AWS route table" caption-side="bottom"}
 
 1. Verify the connection status on the **Site-to-Site Connection** page.
 1. Verify that the AWS ACL and security group rules are adjusted to allow the traffic you need.
@@ -94,7 +94,7 @@ To configure an IBM policy-based VPN for an AWS peer, follow these steps:
 You must have one IBM VPN gateway and two AWS VPN connections (a total of four tunnels) for this setup.
 {: note}
 
-![Connecting an IBM route-based VPN to an AWS peer](images/vpn-interop-aws-diagram.png){: caption="Figure 5: Connecting an IBM route-based VPN to an AWS peer" caption-side="bottom"}
+![Connecting an IBM route-based VPN to an AWS peer](images/vpn-interop-aws-diagram.png){: caption=" Connecting an IBM route-based VPN to an AWS peer" caption-side="bottom"}
 
 ### Configuring AWS
 {: #aws-to-route-based-aws-config}
@@ -118,17 +118,17 @@ To configure an AWS peer, follow these steps:
    * Enter a pre-shared key for both **tunnel1** and **tunnel2**
    * For both AWS tunnels, choose **Edit Tunnel X Options** and select the security parameters you need. You can choose multiple values for each parameter if they are also supported by the IBM VPN.
 
-   ![AWS Tunnel Options](images/vpn-interop-aws-tunnel-options.png){: caption="Figure 6: AWS tunnel options" caption-side="bottom"}
+   ![AWS Tunnel Options](images/vpn-interop-aws-tunnel-options.png){: caption="AWS tunnel options" caption-side="bottom"}
 
 1. After the AWS site-to-site connections are in **Available** state, go to the **Static Routes** tab of each site-to-site connection to verify that the correct routes were added automatically. Make manual adjustments if necessary. The following images show that the network `10.248.0.0/24` is routed on both connections.
 
-   ![AWS connection static routes](images/vpn-aws-connection-static-routes-route-based-one.png){: caption="Figure 7: AWS connection static routes" caption-side="bottom"}
+   ![AWS connection static routes](images/vpn-aws-connection-static-routes-route-based-one.png){: caption="AWS connection static routes" caption-side="bottom"}
 
-   ![AWS connection static routes](images/vpn-aws-connection-static-routes-route-based-two.png){: caption="Figure 8: AWS connection static routes" caption-side="bottom"}
+   ![AWS connection static routes](images/vpn-aws-connection-static-routes-route-based-two.png){: caption="AWS connection static routes" caption-side="bottom"}
 
 1. Go to AWS **Route Tables** under **VIRTUAL PRIVATE CLOUD** and find the route table that is associated with the VPC where the VPN is attached. Click **Edit Routes** and add the same route to the route table.
 
-   ![AWS route table](images/vpn-aws-route-table-route-based.png){: caption="Figure 9: AWS route table" caption-side="bottom"}
+   ![AWS route table](images/vpn-aws-route-table-route-based.png){: caption="AWS route table" caption-side="bottom"}
 
 1. Verify the connection status on the **Site-to-Site Connection** page.
 1. Verify that the AWS ACL and security group rules are adjusted to allow the traffic you need.
@@ -148,7 +148,7 @@ To configure an IBM route-based VPN for an AWS peer, follow these steps:
    The route with the lowest **Priority** value is the priority route.
    {: note}
 
-   ![IBM routing table](images/vpn-aws-route-table-route-based-ibm.png){: caption="Figure 5: IBM routing table" caption-side="bottom"}
+   ![IBM routing table](images/vpn-aws-route-table-route-based-ibm.png){: caption="IBM routing table" caption-side="bottom"}
 
 1. After the status for both connections shows **Active**, verify the traffic between your subnets.
 
