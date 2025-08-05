@@ -2,7 +2,7 @@
 
 copyright:
   years: 2021, 2025
-lastupdated: "2025-04-29"
+lastupdated: "2025-08-05"
 
 keywords: ike policy
 
@@ -22,7 +22,7 @@ You can use custom Internet Key Exchange (IKE) policies to define security param
 {: #vpn-using-ui-create-ike-policy}
 {: ui}
 
-To create an IKE policy using the UI, follow these steps:
+To create an IKE policy in the console, follow these steps:
 
 1. From the VPNs for VPC list page, select the **Site-to-site gateways > IKE policies** tabs.
 1. Click **Create +** and specify the following information:
@@ -43,7 +43,7 @@ To create an IKE policy using the UI, follow these steps:
 
 Before you begin, [set up your CLI environment](/docs/vpc?topic=vpc-set-up-environment&interface=cli).
 
-To create an IKE policy using the CLI, enter the following command:
+To create an IKE policy from the CLI, enter the following command:
 
 ```sh
 ibmcloud is ike-policy-create IKE_POLICY_NAME AUTHENTICATION_ALGORITHM DH_GROUP ENCRYPTION_ALGORITHM IKE_VERSION
@@ -72,9 +72,9 @@ Where:
 ### Command examples
 {: #command-examples-vpn-create-ike-policy}
 
-- Create an IKE policy using SHA 256 authentication, DH Group 14, AES 128 encryption, and IKE Version 2:
+- Create an IKE policy by using SHA 256 authentication, DH Group 14, AES 128 encryption, and IKE Version 2:
    - `ibmcloud is ike-policy-create my-ike-policy sha256 14 aes128 2`
-- Create an IKE policy with the same parameters and a 3600-seconds lifetime:
+- Create an IKE policy with the same parameters and a 3600-second lifetime:
    - `ibmcloud is ipsec-policy-create my-ipsec-policy sha256 14 aes128 2 --key-lifetime 3600`
 - Create an IKE policy with the same parameters and a resource group ID:
    - `ibmcloud is ipsec-policy-create my-ipsec-policy sha256 14 aes128 2 --resource-group-id fee82deba12e4c0fb69c3b09d1f12345 --output JSON`
@@ -83,7 +83,7 @@ Where:
 {: #vpn-using-api-create-ike-policy}
 {: api}
 
-To create an IKE policy using the API, follow these steps:
+To create an IKE policy with the API, follow these steps:
 
 1. Set up your [API environment](/docs/vpc?topic=vpc-set-up-environment#api-prerequisites-setup) with the right variables.
 
@@ -118,7 +118,7 @@ To create an IKE policy using the API, follow these steps:
 {: #vpn-using-terraform-create-ike-policy}
 {: terraform}
 
-In the following example, you can create an IKE policy using Terraform:
+In the following example, you can create an IKE policy by using Terraform:
 
 ```terraform
    resource "ibm_is_ike_policy" "is_ike_policy" {
@@ -137,5 +137,5 @@ See the [Terraform registry](https://registry.terraform.io/providers/IBM-Cloud/i
 {: #vpn-ike-policy-next-steps}
 
 * [Create an IPsec policy](/docs/vpc?topic=vpc-creating-ipsec-policy) if you decide to use custom IPsec policy instead of auto-negotiation.
-* Create a VPN connection if you have not already done so when creating your VPN gateway. If you did not create a VPN connection, you can do so after the VPN gateway is provisioned. For more information, see [Adding connections to a VPN gateway](/docs/vpc?topic=vpc-vpn-adding-connections).
+* Create a VPN connection if you haven't already done so when creating your VPN gateway. If you didn't create a VPN connection, you can do so after the VPN gateway is provisioned. For more information, see [Adding connections to a VPN gateway](/docs/vpc?topic=vpc-vpn-adding-connections).
 * For a route-based VPN, select or [create a routing table](/docs/vpc?topic=vpc-create-vpc-routing-table). Then, [create a route using the VPN connection type](/docs/vpc?topic=vpc-create-vpc-route).

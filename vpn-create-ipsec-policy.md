@@ -2,7 +2,7 @@
 
 copyright:
   years: 2021, 2025
-lastupdated: "2025-04-29"
+lastupdated: "2025-08-05"
 
 keywords: vpn, ipsec policy
 
@@ -74,7 +74,7 @@ The `AUTHENTICATION_ALGORITHM` must be `disabled` if and only if `ENCRYPTION_ALG
 ### Command examples
 {: #command-examples-vpn-create-ipsec-policy}
 
-- Create an IPsec policy using SHA 256 authentication, AES 128 encryption, and PFS with DH Group 14:
+- Create an IPsec policy by using SHA 256 authentication, AES 128 encryption, and PFS with DH Group 14:
    `ibmcloud is ipsec-policy-create my-ipsec-policy sha256 aes128 group_14`
 - Create an IPsec policy with the same parameters and a 3600-seconds lifetime:
    `ibmcloud is ipsec-policy-create my-ipsec-policy sha256 aes128 group_14 --key-lifetime 3600`
@@ -120,7 +120,7 @@ To create an IPsec policy with the API, follow these steps:
 {: #vpn-using-terraform-create-ipsec-policy}
 {: terraform}
 
-In the following example, you can create a IPsec policy using Terraform:
+In the following example, you can create a IPsec policy by using Terraform:
 
 ```terraform
    resource "ibm_is_ipsec_policy" "is_ipsec_policy" {
@@ -138,5 +138,5 @@ See the [Terraform registry](https://registry.terraform.io/providers/IBM-Cloud/i
 {: #vpn-create-ipsec-next-steps}
 
 * [Create an IKE policy](/docs/vpc?topic=vpc-creating-ike-policy) if you decide to use custom IKE policy instead of auto-negotiation.
-* Create a VPN connection if you have not already done so when creating your VPN gateway. If you did not create the VPN connection, you can do so after the VPN gateway is provisioned. For more information, see [Adding connections to a VPN gateway](/docs/vpc?topic=vpc-vpn-adding-connections).
+* Create a VPN connection if you haven't already done so when creating your VPN gateway. If you didn't create the VPN connection, you can do so after the VPN gateway is provisioned. For more information, see [Adding connections to a VPN gateway](/docs/vpc?topic=vpc-vpn-adding-connections).
 * For a route-based VPN, select or [create a routing table](/docs/vpc?topic=vpc-create-vpc-routing-table). Then, [create a route using the VPN connection type](/docs/vpc?topic=vpc-create-vpc-route).

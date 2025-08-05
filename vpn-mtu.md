@@ -1,8 +1,8 @@
 ---
 
 copyright:
-  years: 2023
-lastupdated: "2023-09-15"
+  years: 2023, 2025
+lastupdated: "2025-08-05"
 
 keywords:
 
@@ -39,9 +39,9 @@ Where:
 ## MSS clamping
 {: #mss-clamping}
 
-The VPN gateway's MSS is 1460 when the packet is not yet encrypted by IPsec. When a VPC virtual machine sends traffic into VPN connections through an IBM VPN gateway, issues can arise due to the encapsulation of IP packets within additional headers for encryption and authentication. This encapsulation increases the size of the packets, exceeding the MTU 1500 bytes. When this happens, problems like packet fragmentation and reassembly can occur, leading to degraded performance and increased latency.
+The VPN gateway's MSS is 1460 when the packet is not yet encrypted by IPsec. When a VPC virtual machine sends traffic into VPN connections through an IBM VPN gateway, issues can arise due to the encapsulation of IP packets within additional headers for encryption and authentication. This encapsulation increases the size of the packets, exceeding the MTU 1500 bytes. Due to the increase in size, problems like packet fragmentation and reassembly can occur, leading to degraded performance and increased latency.
 
-To address the MTU-related problems in IBM site-to-site IPsec VPNs, the VPN gateway uses _MSS clamping_, which is an approach that is used to limit the MSS of TCP packets to a value that ensures they fit within the network's MTU. By doing this, it prevents packet fragmentation and the associated performance issues.
+To address the MTU-related problems in IBM site-to-site IPsec VPNs, the VPN gateway uses _MSS clamping_. This approach is used to limit the MSS of TCP packets to a value that ensures they fit within the network's MTU, which prevents packet fragmentation and the associated performance issues.
 
 The increased size of the packets due to IPsec encapsulation varies with the encryption cipher that is used by the IPsec VPN. Generally, an MSS of 1360 is a safe value for all kinds of encryption ciphers for the MTU 1500. So, when the traffic passes through the IBM site-to-site VPN gateway, the MSS in the TCP packet is automatically reduced to 1360.
 

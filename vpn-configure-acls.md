@@ -2,7 +2,7 @@
 
 copyright:
   years: 2020, 2025
-lastupdated: "2025-05-15"
+lastupdated: "2025-08-05"
 
 keywords: VPN, network, encryption, authentication, algorithm, IKE, IPsec, policies, gateway
 
@@ -206,7 +206,7 @@ When the VPN gateway and virtual server instance are in different VPCs with diff
 #### Configuring NACL for VPN gateway subnet
 {: #nacl-vpn-gateway2}
 
-This NACL is attached to the VPN gateway subnet. The traffic rules for the VPN gateway subnet must cover the management traffic used to set up the VPN tunnel and the encrypted VPN tunnel traffic between your on-premises network and the VPC.
+This NACL is attached to the VPN gateway subnet. The traffic rules for the VPN gateway subnet must cover the management traffic that is used to set up the VPN tunnel and the encrypted VPN tunnel traffic between your on-premises network and the VPC.
 
 | Inbound and Outbound Rules | Protocol | Source IP | Source Port | Destination IP | Destination Port |
 |--------------|------|------|------|------|------------------|

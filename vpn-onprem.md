@@ -1,8 +1,8 @@
 ---
 
 copyright:
-  years: 2019, 2024
-lastupdated: "2024-06-20"
+  years: 2019, 2025
+lastupdated: "2025-08-05"
 
 keywords:
 
@@ -23,10 +23,10 @@ Create a VPN gateway in your VPC and create a VPN connection between the VPC and
 * **Connection name** - Enter a name for the connection, such as `onprem-connection`.
 * **Peer gateway address** - Specify the IP address of the VPN gateway for the on-prem network.
 * **Preshared key** - Specify the authentication key of the VPN gateway for the on-prem network.
-* **Local subnets (Policy-based VPN only)** - Specify one or more subnets in the VPC you want to connect through the VPN tunnel.
-* **Peer subnets (Policy-based VPN only)** - Specify one or more subnets in the on-prem network you want to connect through the VPN tunnel.
+* **Local subnets (Policy-based VPN only)** - Specify one or more subnets in the VPC that you want to connect through the VPN tunnel.
+* **Peer subnets (Policy-based VPN only)** - Specify one or more subnets in the on-premises network that you want to connect through the VPN tunnel.
 
-For the Internet Key Exchange (IKE) and IPsec security parameters, select **Auto** so the cloud gateway uses auto-negotiation to automatically establish the connection with the on-premises gateway.
+For the Internet Key Exchange (IKE) and IPsec security parameters, select **Auto** so that the cloud gateway uses auto-negotiation to automatically establish the connection with the on-premises gateway.
 
 The gateway status appears as **Pending** while the VPN gateway is being created, and the status changes to **Available** after it is created.
 {: tip}
@@ -44,7 +44,7 @@ The next step is configuring your on-premises VPN gateway peer to connect to you
 * [Connecting to a strongSwan peer](/docs/vpc?topic=vpc-strongswan-config)
 * [Connecting to a Vyatta peer](/docs/vpc?topic=vpc-vyatta-config)
 
-These configurations are fully tested and supported by IBM. If you plan to use an on-premises VPN gateway peer other than those listed, IBM Support can assist in troubleshooting your configuration, but cannot guarantee a resolution.
+These configurations are fully tested and supported by IBM. If you plan to use an on-premises VPN gateway peer other than those listed, IBM Support can help troubleshoot your configuration, but cannot guarantee a resolution.
 {: note}
 
 ## Checking the status of the secure connection
