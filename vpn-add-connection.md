@@ -2,7 +2,7 @@
 
 copyright:
   years: 2020, 2025
-lastupdated: "2025-07-31"
+lastupdated: "2025-08-05"
 
 keywords:
 
@@ -27,7 +27,7 @@ The IKE and IPsec security options that you specify for the connection must exac
 
 To add a VPN connection to an existing VPN gateway, follow these steps:
 
-1. Highlight the row of the gateway that you want to work with in the VPN gateways table, then click **New connection** from the Actions menu ![Actions menu](../icons/action-menu-icon.svg "Actions").
+1. Highlight the row of the gateway that you want to work with in the VPN gateways table, then click **Create connection** from the Actions menu ![Actions menu](../icons/action-menu-icon.svg "Actions").
 
    Alternatively, on the gateway's details page, you can click **Create** in the VPN connections section.
    {: note}
