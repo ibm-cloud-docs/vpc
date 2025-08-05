@@ -2,7 +2,7 @@
 
 copyright:
   years: 2019, 2025
-lastupdated: "2025-07-16"
+lastupdated: "2025-08-04"
 
 subcollection: vpc
 
@@ -44,7 +44,7 @@ The following operating systems are available as stock images when you create a 
 
 For more information about support for Red Hat, see [FAQs about Red Hat and IBM Cloud® infrastructure](/docs/infrastructure-hub?topic=infrastructure-hub-faqs-for-red-hat-ibm-cloud).
 
-When using a RHEL AI 1.x image, ensure you are using the correct RHEL AI image for the profile you are using. For more information about the GPU profiles you can use with RHEL AI images, see [Accelerated instance profiles - Gen 3](/docs/vpc?topic=vpc-accelerated-profile-family). For information about RHEL AI, including information such as the supported use cases for RHEL AI, see [Red Hat Enterprise Linux AI](https://docs.redhat.com/en/documentation/red_hat_enterprise_linux_ai/1.4){: external}.
+When using a RHEL AI 1.x image, ensure you are using the correct RHEL AI image for the profile you are using. For more information about the GPU profiles you can use with RHEL AI images, see [Accelerated instance profiles - Gen 3](/docs/vpc?topic=vpc-accelerated-profile-family). For information about RHEL AI, including information such as the supported use cases for RHEL AI, see [Red Hat Enterprise Linux AI](https://docs.redhat.com/en/documentation/red_hat_enterprise_linux_ai/1.5){: external}.
 {: note}
 
 ### Supported x86_64 virtual server operating system bundle stock image
