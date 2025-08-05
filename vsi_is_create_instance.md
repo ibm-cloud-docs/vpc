@@ -2,7 +2,7 @@
 
 copyright:
   years: 2018, 2025
-lastupdated: "2025-07-31"
+lastupdated: "2025-08-05"
 
 keywords:
 
@@ -1280,14 +1280,14 @@ Allowed-use expressions: The image that you select determines the profiles that 
    If you select a catalog image that belongs to a different account, you have more considerations and limitations to review. See [Using cross-account image references in a private catalog in Terraform](/docs/vpc?topic=vpc-custom-image-cloud-private-catalog&interface=terraform#private-catalog-image-reference-vpc-terraform).
      {: note}
 
-      * To list all available private catalog image offerings, run the following command.
+      - To list all available private catalog image offerings, run the following command.
 
-         ```terraform
-         data "ibm_is_images" "example_images" {
-            catalog_managed = true
-          }
-         ```
-         {: codeblock}
+      ```terraform
+      data "ibm_is_images" "example_images" {
+      catalog_managed = true
+      }
+      ```
+      {: codeblock}
 
    * List profiles and compatiable images using allowed-use expressions
 
@@ -1306,6 +1306,7 @@ Allowed-use expressions: The image that you select determines the profiles that 
       data "ibm_is_volume_instance_profiles" "testacc_volume_instance_profiles" {
       identifier = "r134-0950e619-325e-446e-b895-e0bdd21dd1ea"
       }
+      ```
       {: codeblock}
 
       - List instance profiles compatible with a snapshot
@@ -1314,6 +1315,7 @@ Allowed-use expressions: The image that you select determines the profiles that 
       data "ibm_is_snapshot_instance_profiles" "testacc_snapshot_instance_profiles" {
       identifier = "r134-0950e619-325e-446e-b895-e0bdd21dd1ea"
       }
+      ```
       {: codeblock}
 
 1. Create a VPC resource or use an existing VPC by referring to the VPC data source. For more information, see the Terraform documentation on [ibm_is_vpc](https://registry.terraform.io/providers/IBM-Cloud/ibm/latest/docs/data-sources/is_vpc).
