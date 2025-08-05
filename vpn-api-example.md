@@ -1,8 +1,8 @@
 ---
 
 copyright:
-  years: 2019, 2024
-lastupdated: "2024-06-20"
+  years: 2019, 2025
+lastupdated: "2025-08-05"
 
 keywords: VPN, network, encryption, authentication, algorithm, IKE, IPsec, policies
 
@@ -25,7 +25,7 @@ You can use a VPN gateway to connect two VPCs. However, it is recommended to use
 
 The following diagram shows how to interconnect three VPCs; the following example shows you how to connect only the first two. You can repeat the steps to connect more VPCs.
 
-![Interconnecting VPCs by using VPN gateways](images/vpc-vpn.svg){: caption="Figure 1: Interconnecting VPCs by using VPN gateways" caption-side="bottom"}
+![Interconnecting VPCs by using VPN gateways](images/vpc-vpn.svg){: caption="Interconnecting VPCs by using VPN gateways" caption-side="bottom"}
 
 The following example assumes that:
 
