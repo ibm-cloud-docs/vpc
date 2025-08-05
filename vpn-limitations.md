@@ -2,7 +2,7 @@
 
 copyright:
   years: 2019, 2025
-lastupdated: "2025-07-29"
+lastupdated: "2025-08-05"
 
 keywords:
 
@@ -23,7 +23,7 @@ Lists known limitations, issues, and restrictions for IBM Cloud VPN for VPC.
 * Peer subnets of a VPN gateway connection cannot overlap.
 * When you connect a policy-based VPN with a route-based peer (or static, route-based VPN with a policy-based peer), use only a single network range for both sides. A policy-based VPN uses one tunnel for each associated network. However, a route-based VPN requires only a single tunnel. Therefore, a connection between different types of VPNs associated with multiple network ranges on either side might result in a connection that only works for a single-network range.
 
-   ![Mixed VPN types use case](images/vpn-mixed-types.png){: caption="Mixed VPN Types use case" caption-side="bottom"}
+   ![Mixed VPN types use case](images/vpn-mixed-types.svg){: caption="Mixed VPN Types use case" caption-side="bottom"}
 
    If possible, combine contiguous subnets into a single network range in a VPN configuration. For example, subnets `192.168.0.0/24` and `192.168.1.0/24` can be defined as `192.168.0.0/23` in a VPN or routing configuration.
    {: tip}

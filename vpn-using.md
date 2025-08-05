@@ -2,7 +2,7 @@
 
 copyright:
   years: 2019, 2025
-lastupdated: "2025-07-25"
+lastupdated: "2025-08-05"
 
 keywords: VPN, VPN gateways, encryption, IKE, IPsec, gateway, auto-negotiation, Diffie-Hellman, dead peer detection, PFS
 
@@ -70,7 +70,7 @@ To create a VPN gateway, follow these general steps:
 
 This diagram illustrates an example VPN setup with multiple on-premises networks. The VPN is configured on a subnet within a user's VPC, but can be shared by instances on all subnets within the zone. The IKE and IPsec policies also can be used by one or more VPN connections.
 
-![VPN setup example](images/vpn-setup.png){: caption="VPN setup example" caption-side="bottom"}
+![VPN setup example](images/vpn-setup.svg){: caption="VPN setup example" caption-side="bottom"}
 
 ## About policy negotiation
 {: #policy-negotiation}
@@ -134,21 +134,21 @@ Both route-based and policy-based VPNs allow users to connect to a single remote
 This use case does not apply for connections between a policy-based VPN and a route-based VPN. For more information, see [Known issues for VPN gateways](/docs/vpc?topic=vpc-vpn-limitations).
 {: important}
 
-![Single peer VPN use case](images/vpn-single-peer.png){: caption="Single peer VPN use case" caption-side="bottom"}
+![Single peer VPN use case](images/vpn-single-peer.svg){: caption="Single peer VPN use case" caption-side="bottom"}
 
 ### Use case 2: VPN connections to multiple remote peer devices
 {: #use-case-2-vpn}
 
 Both policy-based and route-based VPNs allow users to connect to multiple remote peer devices associated with different VPCs/environments by using multiple VPN connections
 
-![Multiple peers VPN use case](images/vpn-multiple-peers.png){: caption="Multiple Peers VPN use case" caption-side="bottom"}
+![Multiple peers VPN use case](images/vpn-multiple-peers.svg){: caption="Multiple Peers VPN use case" caption-side="bottom"}
 
 ### Use case 3: VPN advanced configuration using an FQDN
 {: #use-case-3-vpn}
 
 The following use case illustrates a customer that has one VPC in IBM Cloud and wants to connect their on-prem site with a single VPN gateway. The on-prem site VPN gateway is behind a NAT device and has no public IP address. The local IKE identity of the on-prem VPN gateway is the private IP address it owns. One FQDN is associated with the public IP address of the NAT device.
 
-![VPN advanced configuration with FQDN](images/vpn-advanced-configuration.png){: caption="VPN advanced configuration with FQDN" caption-side="bottom"}
+![VPN advanced configuration with FQDN](images/vpn-advanced-configuration.svg){: caption="VPN advanced configuration with FQDN" caption-side="bottom"}
 
 ### Use case 4: Distributing traffic for a route-based VPN
 {: #use-case-4-vpn}
