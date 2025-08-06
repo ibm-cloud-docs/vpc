@@ -2,7 +2,7 @@
 
 copyright:
   years: 2024, 2025
-lastupdated: "2025-08-04"
+lastupdated: "2025-08-06"
 
 keywords: File storage for VPC, file share snapshots, file share restore
 
@@ -14,15 +14,10 @@ content-type: troubleshoot
 
 {{site.data.keyword.attribute-definition-list}}
 
-# Troubleshooting {{site.data.keyword.filestorage_vpc_short}} snapshots
+# Why did my file share creation fail when I used a file share snapshot with a customer-managed encryption key?
 {: #fs-snapshots-troubleshooting}
-
-When you create or manage Snapshots for VPC, you might encounter issues. Often, you can recover by following a few steps. Issues, symptoms, likely causes, and resolutions are described in the following sections.
-{: shortdesc}
-
-## Failure to create a share from a snapshot
-{: #fs_snapshot_ts_restore_fail}
 {: troubleshoot}
+{: support}
 
 You initiated the creation of a share from a snapshot. However, the new share did not move to the `stable` state because the initialization failed. 
 {: tsSymptoms}
