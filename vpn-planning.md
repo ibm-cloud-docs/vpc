@@ -27,6 +27,7 @@ Review the following considerations before you create a VPN gateway:
 * After you provision a VPN connection, you cannot change the peer gateway address type from IP address to FQDN, or from FQDN to IP address.
 * IBM Cloud VPC supports FQDN resolution through [DNS Services](/docs/dns-svcs). If the VPC where the VPN gateway resides is in the permitted network of a private DNS instance, then DNS records that are added in this private DNS are resolvable in the VPN gateway.
 
+
 * A VPN gateway for VPC accepts VPN packets with [UDP Encapsulation of IPsec ESP Packets](https://datatracker.ietf.org/doc/html/rfc3948){: external} only. The [Encapsulating Security Payload (ESP)](https://datatracker.ietf.org/doc/html/rfc4303){: external} is not accepted. Make sure that the NAT-T feature is enabled on your on-premises VPN device. Also, make sure that UDP ports `500` and `4500` are allowed for both IBM VPC NACL and peer networks.
 * When multiple networks, subnets, or both are associated with either an {{site.data.keyword.cloud_notm}} VPN gateway or an on-premises device, avoid mixing policy-based and route-based VPNs. Policy-based VPNs create a tunnel for each target network range. However, route-based VPNs route everything to a peer device through a single tunnel. Therefore, when multiple network ranges are configured, only a single tunnel that is associated with a single-network range can be established. Combining contiguous subnets into a single superset CIDR is a valid workaround to this limitation.
 * Peer subnets of a VPN gateway connection cannot overlap.

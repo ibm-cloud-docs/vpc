@@ -21,6 +21,7 @@ Review the following planning considerations before creating a cluster network.
 ## General considerations
 {: #cn-general-considerations}
 
+
 - Cluster network attachments only can be set when the instance is stopped or created.
 - Cluster network traffic is isolated and can't be routed outside. Any access to a cluster network must be through an attached instance. As a result, without connectivity between the cluster network and the VPC network, the following resources cannot connect with cluster networks:
 
