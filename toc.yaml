@@ -997,14 +997,32 @@ toc:
                 - troubleshooting-hpvs-decryption.md
                 - troubleshooting-hpvs-single-volume-workload.md
             - topicgroup:
-                id: tbs-storage
-                label: Troubleshooting storage
+                id: tbs-block-storage
+                label: Troubleshooting block storage
                 topics:
                 - block_storage_vpc_troubleshoot.md
-                - bs_snapshots_troubleshooting.md
-                - backup_service_vpc_troubleshoot.md
+            - topicgroup:
+                id: tbs-block-snapshots
+                label: Troubleshooting block storage snapshots
+                topics:
+                - bs_snapshots_ts_degraded_performance.md
+                - bs_snapshots_ts_restore_from_snapshot_fails.md
+                - bs_snapshots_ts_unusable_snapshot.md
+            - topicgroup:
+                id: tbs-file-storage
+                label: Troubleshooting file storage
+                topics:
                 - file_storage_vpc_troubleshoot.md
+            - topicgroup:
+                id: tbs-file-snapshots
+                label: Troubleshooting file storage snapshots
+                topics:
                 - fs_snapshots_troubleshooting.md
+            - topicgroup:
+                id: tbs-backup
+                label: Troubleshooting backups
+                topics:               
+                - backup_service_vpc_troubleshoot.md
             - topicgroup:
                 id: tbs-custom-images
                 label: Troubleshooting custom images
