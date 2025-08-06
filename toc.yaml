@@ -998,7 +998,12 @@ toc:
                 id: tbs-block-storage
                 label: Troubleshooting block storage
                 topics:
-                - block_storage_vpc_troubleshoot.md
+                - block_storage_vpc_ts1.md
+                - block_storage_vpc_ts2.md
+                - block_storage_vpc_ts3.md
+                - block_storage_vpc_ts4.md
+                - block_storage_vpc_ts5.md
+                - block_storage_vpc_ts6.md
             - topicgroup:
                 id: tbs-block-snapshots
                 label: Troubleshooting block storage snapshots

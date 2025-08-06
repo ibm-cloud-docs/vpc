@@ -2,7 +2,7 @@
 
 copyright:
   years: 2020, 2025
-lastupdated: "2025-06-12"
+lastupdated: "2025-08-06"
 
 keywords: Block Storage, boot volume, data volume, volume, data storage, virtual server instance, instance, expandable volume
 
@@ -111,7 +111,7 @@ Limitations for resizing boot and data volumes apply in this release.
 * Maximum IOPS for a volume is capped at [48,000 IOPS](/docs/vpc?topic=vpc-block-storage-profiles&interface=api#tiers).
 * After a volume is expanded, you can't reduce the size of the volume.
 * When a volume is in transition, its state is _updating_. If the volume is detached while the volume expansion is in progress, the volume remains in an _updating_ state until you reattach it to an instance. After reattachment, the volume expansion resumes and completes.
-* When you delete an instance, volumes that are marked for auto-deletion are not deleted when volume expansion is underway. For more information, see [troubleshooting](/docs/vpc?topic=vpc-troubleshooting-block-storage#troubleshoot-topic-4).
+* When you delete an instance, volumes that are marked for auto-deletion are not deleted when volume expansion is underway. For more information, see [troubleshooting block storage](/docs/vpc?group=tbs-block-storage).
 
 ### Boot volume limitations
 {: #exp-vols-boot-limits}
