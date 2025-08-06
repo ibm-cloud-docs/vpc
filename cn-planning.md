@@ -2,7 +2,7 @@
 
 copyright:
   years: 2024, 2025
-lastupdated: "2025-05-26"
+lastupdated: "2025-08-06"
 
 keywords:
 
@@ -17,6 +17,26 @@ subcollection: vpc
 
 Review the following planning considerations before creating a cluster network.
 {: shortdesc}
+
+## General considerations
+{: #cn-general-considerations}
+
+- Cluster network attachments only can be set when the instance is stopped or created.
+- Cluster network traffic is isolated and can't be routed outside. Any access to a cluster network must be through an attached instance. As a result, without connectivity between the cluster network and the VPC network, the following resources cannot connect with cluster networks:
+
+   - [Floating IPs](/docs/vpc?topic=vpc-fip-about&interface=ui)
+   - [Load balancers](/docs/vpc?topic=vpc-nlb-vs-elb&interface=ui)
+   - [Private Path services](/docs/vpc?topic=vpc-private-path-service-intro&interface=ui)
+   - [Public gateways](/docs/vpc?topic=vpc-about-public-gateways&interface=ui)
+   - [Virtual Private Endpoint gateways](/docs/vpc?topic=vpc-about-vpe&interface=ui)
+   - [VPNs](/docs/vpc?topic=vpc-vpn-overview&interface=ui)
+
+- Services that are not supported:
+   * [Flow logs](/docs/vpc?topic=vpc-flow-logs&interface=ui)
+   * [Network ACLs](/docs/vpc?topic=vpc-using-acls)
+   * [Routing tables](/docs/vpc?topic=vpc-about-custom-routes)
+   * [Secondary IPs](/docs/vpc?topic=vpc-vni-about-secondary-ip)
+   * [Security groups](/docs/vpc?topic=vpc-using-security-groups)
 
 ## Considerations for cluster subnets
 {: #cn-considerations-cluster-subnets}
@@ -44,7 +64,6 @@ Review the following planning considerations before creating a cluster network.
 You can only apply the following considerations through the API and CLI.
 {: note}
 
-
    * Cluster networks are isolated from the VPC network. You are allowed to specify cluster nework `subnet_prefixes` that overlap with the VPC's [default](/docs/vpc?topic=vpc-configuring-address-prefixes) or [custom](/docs/vpc?topic=vpc-vpc-addressing-plan-design) address prefixes. However, this may result in instances having two network interfaces (one on the VPC network, and one on the cluster network) with the same IP address. In such a scenario you must be careful to isolate the network interfaces in the guest operating system. For example, Linux guests can use [network namespaces](https://www.man7.org/linux/man-pages/man8/ip-netns.8.html).
 
    * The default `subnet_prefixes` for cluster networks (`["cidr": "10.0.0.0/9"]`) do not overlap with the [default address prefixes for VPCs](/docs/vpc?topic=vpc-configuring-address-prefixes). To simplify the guest operating system configurations, either use the defaults, or plan your custom address ranges to avoid overlap.
@@ -52,3 +71,8 @@ You can only apply the following considerations through the API and CLI.
    * When statically configuring IP addresses for network interfaces in a guest OS:
       * Ensure that the IP addresses for cluster network interfaces are in the address range of one of the `subnet_prefixes` in the cluster network. Cluster network interfaces with an IP address outside the address range of one of the `subnet_prefixes` will not receive packets.
       * If a statically configured IP address does not match the cluster network interface's primary reserved IP or one of its secondary reserved IPs, you must create a VPC routing table route to redirect traffic for the statically configured IP to one of the reserved IPs. Additionally, you must set `allow_ip_spoofing` to `true` on the associated cluster network interface to allow outbound packets with the statically configured IP as the source address.
+
+## Related link
+{: #related-link-cluster-networks}
+
+[Known issues for cluster networks](/docs/vpc?topic=vpc-limitations-cluster-network)

@@ -304,4 +304,4 @@ For more information, see the [IBM Terraform Registry](https://registry.terrafor
 ## Related link
 {: #related-link-vpn-servers}
 
-[VPN client known limitations](/docs/vpc?topic=vpc-vpn-client-vpn-limitations)
+[Known issues for VPN servers](/docs/vpc?topic=vpc-vpn-client-vpn-limitations)
