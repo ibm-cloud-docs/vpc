@@ -2,7 +2,7 @@
 
 copyright:
   years: 2021, 2025
-lastupdated: "2025-05-07"
+lastupdated: "2025-08-06"
 
 keywords:
 
@@ -18,10 +18,21 @@ subcollection: vpc
 Review the following considerations before creating a client-to-site VPN server.
 {: shortdesc}
 
-## Scaling considerations
-{: #scaling-considerations}
+## General considerations
+{: #general-considerations}
 
-The aggregation bandwidth is 600 Mbps for a stand-alone VPN and 1200 Mbps for a high availability VPN server. The maximum number of active clients is 2000. If you require more bandwidth, or have more clients that need to connect with the VPN server, you can create multiple VPN servers in the same VPC, or in different VPCs in different regions.
+* The aggregation bandwidth is 600 Mbps for a stand-alone VPN and 1200 Mbps for a high availability VPN server. The maximum number of active clients is 2000. If you require more bandwidth, or have more clients that need to connect with the VPN server, you can create multiple VPN servers in the same VPC, or in different VPCs in different regions.
+
+* Currently, only 2000 maximum active client connections are supported per server.
+* MFA support is provided by IAM.
+* Features not supported:
+   * Integration with other identity providers, such as Active Directory and RADIUS
+   * IPsec client-to-site VPN
+   * More than two VPN appliances per VPN server
+   * VPN server auto scaling
+   * In-house, customized OpenVPN client
+   * VPN client user self-service portal
+* In client certificate authentication mode, or client certificate and User ID/passcode authentication mode, authentication failure due to an invalid client certificate doesn't generate an activity tracker event
 
 ## Existing VPC configuration considerations
 {: #existing-vpc-configuration-considerations}
@@ -289,3 +300,8 @@ To set up a VPN server using Terraform, follow these steps:
 
 For more information, see the [IBM Terraform Registry](https://registry.terraform.io/providers/IBM-Cloud/ibm/latest/docs/resources/is_vpn_server).{: external}
 {: note}
+
+## Related link
+{: #related-link-vpn-servers}
+
+[VPN client known limitations](/docs/vpc?topic=vpc-vpn-client-vpn-limitations)

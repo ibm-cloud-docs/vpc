@@ -960,7 +960,7 @@ toc:
             - instance_metadata_vpc_faqs.md
         - topicgroup:
             id: issues
-            label: Known issues (limitations)
+            label: Known issues
             topics:
             - limitations.md
             - known-issues.md
@@ -973,8 +973,6 @@ toc:
             - vnf-limitations.md
             - vni-known-issues.md
             - vpe-limitations.md
-            - vpn-limitations.md
-            - vpn-client-to-site-limitations.md
         - topicgroup:
             id: troubleshooting
             label: Troubleshooting
