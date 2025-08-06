@@ -2,7 +2,7 @@
 
 copyright:
   years: 2023, 2025
-lastupdated: "2025-06-27"
+lastupdated: "2025-08-06"
 
 keywords:
 
@@ -178,3 +178,4 @@ These links provide additional information about virtual network interfaces for 
 * [Quotas](/docs/vpc?topic=vpc-quotas&interface=ui#virtual-network-interfaces-quotas)
 * [Terraform registry](https://registry.terraform.io/providers/IBM-Cloud/ibm/latest/docs/data-sources/is_virtual_network_interface){: external}
 * [Troubleshooting](/docs/vpc?topic=vpc-troubleshoot-vni-1)
+* [Known issues](/docs/vpc?topic=vpc-vni-known-issues)

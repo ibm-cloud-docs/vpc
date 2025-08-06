@@ -2,7 +2,7 @@
 
 copyright:
   years: 2022, 2025
-lastupdated: "2025-06-27"
+lastupdated: "2025-08-06"
 
 keywords:
 
@@ -55,7 +55,7 @@ An egress custom route was created to ensure client (`10.241.0.6`) data packets 
 ## Before you begin
 {: #vnf-before-you-begin}
 
-Ensure that you have the required IAM permissions to configure custom routing and enable IP spoofing. 
+Ensure that you have the required IAM permissions to configure custom routing and enable IP spoofing. For more information about IAM permissions, see [Required permissions](/docs/vpc?topic=vpc-resource-authorizations-required-for-api-and-cli-calls).
 
 ## Getting started
 {: #getting-started-vnf-ha}
@@ -68,3 +68,12 @@ Follow these basic steps to configure high availability for supported IBM Cloud 
 1. [Deploy a VNF](/docs/vpc?topic=vpc-deploy-vnf).
 1. [Create a network load balancer with routing mode](/docs/vpc?topic=vpc-deploy-nlb).
 1. [Configure custom routes](/docs/vpc?topic=vpc-config-custom-routes).
+
+## VNF limitations
+{: #vnf-limitations}
+
+High Availability (HA) Virtual Network Function (VNF) deployments have the following known limitations:
+
+* The Virtual Network Function (VNF) must share one subnet with the Network Load Balancer (NLB).
+* Routing public internet "ingress" traffic to a VNF is not supported.
+* Auto-scaling with the VNF is not supported.
