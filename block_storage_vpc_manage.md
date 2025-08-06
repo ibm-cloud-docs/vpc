@@ -2,7 +2,7 @@
 
 copyright:
   years: 2019, 2025
-lastupdated: "2025-07-28"
+lastupdated: "2025-08-06"
 
 keywords: Block storage for VPC, change IOPS, change auto-delete, increase volume, change name, rename volume, delete volume, renaming volume, updating volume
 
@@ -776,4 +776,4 @@ For more information, see [terraform destroy](https://developer.hashicorp.com/te
 
 You can [create more volumes](/docs/vpc?topic=vpc-creating-block-storage), or [monitor your volumes' health states, volume status, and metrics](/docs/vpc?topic=vpc-block-storage-vpc-monitoring).
 
-For issues with existing block storage volumes, you might be able to troubleshoot and fix the problems yourself. For more information, see [troubleshooting {{site.data.keyword.block_storage_is_short}}](/docs/vpc?topic=vpc-troubleshooting-block-storage).
+For issues with existing block storage volumes, you might be able to troubleshoot and fix the problems yourself. For more information, see [troubleshooting {{site.data.keyword.block_storage_is_short}}](/docs/vpc?group=tbs-block-storage).
