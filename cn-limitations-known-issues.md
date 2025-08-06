@@ -13,7 +13,7 @@ subcollection: vpc
 {{site.data.keyword.attribute-definition-list}}
 
 # Known issues for cluster networks
-{: #limitations-cluster-network}
+{: #known-issues-cluster-networks}
 
 Before you create a cluster network, review the following known issues.
 {: shortdesc}

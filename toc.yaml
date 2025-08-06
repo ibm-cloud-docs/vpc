@@ -970,9 +970,7 @@ toc:
             - nlb-limitations.md
             - par-limitations.md
             - pps-limitations.md
-            - vnf-limitations.md
             - vni-known-issues.md
-            - vpe-limitations.md
         - topicgroup:
             id: troubleshooting
             label: Troubleshooting

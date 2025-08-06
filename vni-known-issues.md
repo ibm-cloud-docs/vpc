@@ -2,7 +2,7 @@
 
 copyright:
   years: 2023, 2025
-lastupdated: "2025-06-27"
+lastupdated: "2025-08-06"
 
 keywords:
 
@@ -15,9 +15,11 @@ subcollection: vpc
 # Known issues for virtual network interfaces
 {: #vni-known-issues}
 
-The following known limitations apply to this virtual network interface release:
+Known issues are identified bugs or unexpected behaviors that were not fixed before release, but weren’t critical enough to delay it. These issues are communicated to you, often with workarounds, and are prioritized for resolution in the near term by the development team.
 {: shortdesc}
 
+Known issues for virtual network interfaces are as follows:
+ 
 * With infrastructure NAT enabled for a virtual network interface, no more than one floating IP can target the virtual network interface.
 * When a floating IP is attached to a virtual network interface, network address translation (NAT) is performed between the floating IP’s public address and the virtual network interface’s primary IP address.
 * The `protocol_state_filtering_mode` property cannot be `disabled` when the target is a file share mount target.
