@@ -33,5 +33,5 @@ To set up access to a service endpoint, follow these steps:
 You can narrow the range of the destination CIDR instead of using `166.8.0.0/14` or `161.26.0.0/16`. For example, if you need to access only IBM DNS IP `161.26.0.10` and `161.26.0.11`, choose `161.26.0.10/30` as the destination instead of using `161.26.0.0/16`.
 {: tip}
 
-For some on-premises VPN gateways, the next hop must be an IP address instead of a tunnel interface name. You must assign an IP address from a CIDR block with a 30-bit mask to the tunnel interface on the on-premises VPN gateway. The other IP address from the same CIDR must be used as the next hop in the route. For example, assign `169.254.0.1/30` as the tunnel interface IP address on the on-premises VPN gateway, and use `169.254.0.2/30` as the route's next hop.
+For some on-premises VPN gateways, the next hop must be an IP address instead of a tunnel interface name. You must assign an IP address from a CIDR block with a 30-bit mask to the tunnel interface on the on-premises VPN gateway. The other IP address from the same CIDR can be used as the next hop in the route. For example, assign `169.254.0.1/30` as the tunnel interface IP address on the on-premises VPN gateway, and use `169.254.0.2/30` as the route's next hop.
 {: note}
