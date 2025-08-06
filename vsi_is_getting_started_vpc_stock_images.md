@@ -2,7 +2,7 @@
 
 copyright:
   years: 2022, 2025
-lastupdated: "2025-05-12"
+lastupdated: "2025-08-06"
 
 keywords:
 
@@ -15,17 +15,12 @@ subcollection: vpc
 # Getting started with Stock images on VPC
 {: #getting-started-images-on-vpc-stock}
 
-When you provision {{site.data.keyword.vsi_is_full}} on x86 architecture, you can select from the supported virtual server operating system stock images, the virtual server operating system bundle stock image, or a custom image that you import from {{site.data.keyword.cos_full_notm}}.
+A stock image is the out-of-the-box operating system customized for {{site.data.keyword.vsi_is_full}} environments. It is used to deploy virtual servers or bare metal servers using different architecture types.
 {: shortdesc}
 
 The image that you select determines the operating system that is provisioned for your instance. If the image you select is a virtual server operating system bundle stock image, the software that is part of that bundle is also included in your instance.
 
 In [{{site.data.keyword.cloud_notm}} console](/login){: external}, go to **Navigation Menu** icon![Navigation Menu icon](../icons/icon_hamburger.svg) **> Infrastructure** ![VPC icon](../../icons/vpc.svg) **> Compute **> Images**.
-
-You can choose from 3 different types of images for VPC.
-* [Custom images](/docs/vpc?topic=vpc-planning-custom-images) (includes [Image from volume](/docs/vpc?topic=vpc-image-from-volume-vpc))
-* Stock images
-* [Catalog images](/docs/vpc?topic=vpc-getting-started-images-on-vpc-catalog)
 
 ## Images on VPC - Stock images
 {: #images-on-vpc-stock-images}
