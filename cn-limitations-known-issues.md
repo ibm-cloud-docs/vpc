@@ -2,7 +2,7 @@
 
 copyright:
   years: 2024, 2025
-lastupdated: "2025-08-06"
+lastupdated: "2025-08-07"
 
 keywords:
 
@@ -19,4 +19,4 @@ Before you create a cluster network, review the following known issues.
 {: shortdesc}
 
 - The new instance profiles are expected to take about 20 minutes to start.
-- When [creating an instance](/apidocs/vpc/latest#create-instance) that uses the API, the `instance.create` Activity Tracker event is missing if you specify the `cluster_network_attachments` property. If you want to avoid this issue, you can [create cluster network attachments](/apidocs/vpc/latest#create-cluster-network-attachment) separately.
+- When you [create an instance](/apidocs/vpc/latest#create-instance) by using the API with the `cluster_network_attachments` property specified, the `instance.create` Activity Tracker event isn't generated. To avoid this issue, [create cluster network attachments](/apidocs/vpc/latest#create-cluster-network-attachment) separately.

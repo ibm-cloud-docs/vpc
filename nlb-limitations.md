@@ -2,7 +2,7 @@
 
 copyright:
   years: 2018, 2025
-lastupdated: "2025-06-30"
+lastupdated: "2025-08-07"
 
 keywords:
 
@@ -14,6 +14,9 @@ subcollection: vpc
 
 # Known issues for network load balancers
 {: #nlb-limitations}
+
+Known issues are identified bugs or unexpected behaviors that were not fixed before release, but weren’t critical enough to delay it. These issues are communicated to you, often with workarounds, and are prioritized for resolution in the near term by the development team.
+{: shortdesc} 
 
 The following lists contain known issues for network load balancers (NLBs), including Private Path network load balancers.
 {: shortdesc}

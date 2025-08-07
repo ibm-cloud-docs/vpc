@@ -2,7 +2,7 @@
 
 copyright:
   years: 2021, 2025
-lastupdated: "2025-04-30"
+lastupdated: "2025-08-07"
 
 keywords: image, virtual private cloud, boot volume, virtual server instance, instance, instances, virtual servers, creating virtual servers, virtual server instances, virtual machines, Virtual Servers for VPC, compute, vsi, vpc, creating, UI, console
 
@@ -70,10 +70,10 @@ Complete the following actions to import your custom image in the console.
 
 | Field | Value |
 |-------|-------|
-| Name | Custom OS |
-| Resource group | Image resources |
-| Tags | Custom image |
-| Region | Dallas 2 |
+| Name | custom-image |
+| Resource group | Default |
+| Tags | env:prod |
+| Region | Dallas |
 | Source | Virtual server instance boot volume (default) |
 {: caption="Custom image provision user interface fields" caption-side="bottom"}
 
@@ -100,14 +100,14 @@ You can create virtual server instances in your {{site.data.keyword.vpc_short}} 
 
    | Field | Value |
    |-------|-------|
-   | Name  | Server Instance |
-   | Resource group | Image resources |
-   | Tags | OS |
-   | Location | Dallas 2 |
+   | Name  | server-instance |
+   | Resource group | Default |
+   | Tags | env:prod |
+   | Location | Dallas |
    | Type of virtual server | Public |
    | Operating system | Select **Custom image** > (custom image). |
    | SSH key | An existing SSH key \n For more information, see [SSH keys](/docs/vpc?topic=vpc-ssh-keys). |
-   | Data volumes | You can add one or more secondary data volumes to be included when you provision the instance. To add volumes, click **Create** in the Data volumes section of the page. \n For more information about provisioning the volume, see [Create and attach a Block Storage volume when you create an instance](/docs/vpc?topic=vpc-creating-block-storage#create-from-vsi). |
+   | Data volumes | Add one or more secondary data volumes to be included when you provision the instance. \n For more information about provisioning the volume, see [Create and attach a Block Storage volume when you create an instance](/docs/vpc?topic=vpc-creating-block-storage#create-from-vsi). |
    | Networking | Select your pre-existing VPC |
    {: caption="Instance provisioning selections" caption-side="bottom"}
 
