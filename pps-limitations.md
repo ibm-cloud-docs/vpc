@@ -2,7 +2,7 @@
 
 copyright:
   years: 2023, 2025
-lastupdated: "2025-06-27"
+lastupdated: "2025-08-07"
 
 keywords:
 
@@ -14,6 +14,11 @@ subcollection: vpc
 
 # Known issues for Private Path services
 {: #ppsg-limitations}
+
+Known issues are identified bugs or unexpected behaviors that were not fixed before release, but weren’t critical enough to delay it. These issues are communicated to you, often with workarounds, and are prioritized for resolution in the near term by the development team.
+{: shortdesc}
+
+Known issues for Private Path services are as follows:
 
 * Private Path service supports providers and consumers in the same region. Currently, Private Path service does not support providers and consumers in different regions.
 * Providers may not update service endpoints once the Private Path service is created. If they want to change endpoints, they must create a new Private Path service.

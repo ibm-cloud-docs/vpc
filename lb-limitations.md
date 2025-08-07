@@ -2,7 +2,7 @@
 
 copyright:
   years: 2018, 2025
-lastupdated: "2025-06-27"
+lastupdated: "2025-08-07"
 
 keywords: application load balancer, limitations, issues, unique combinations, mapping, listener, pool, port
 
@@ -15,7 +15,10 @@ subcollection: vpc
 # Known issues for application load balancers
 {: #lb-limitations}
 
-{{site.data.keyword.cloud}} {{site.data.keyword.alb_full}} (ALB) has the following known limitations.
+Known issues are identified bugs or unexpected behaviors that were not fixed before release, but weren’t critical enough to delay it. These issues are communicated to you, often with workarounds, and are prioritized for resolution in the near term by the development team.
+{: shortdesc}
+
+Known issues for {{site.data.keyword.alb_full}} (ALB) are as follows: 
 
 * Two members with the same instance X and same port Y cannot exist at the same time for an ALB. This case is not supported and your traffic might not be routed correctly.
 
