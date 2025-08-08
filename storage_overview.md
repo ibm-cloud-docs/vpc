@@ -2,7 +2,7 @@
 
 copyright:
   years: 2022, 2025
-lastupdated: "2025-08-04"
+lastupdated: "2025-08-08"
 
 keywords: block storage for VPC, File Storage for VPC, Snapshots for VPC, Backup for VPC, block storage, file storage, snapshots, backup, 
 
@@ -77,7 +77,7 @@ You can use your snapshots to create other second-generation volumes in the same
 |---------------------|--------------------------|---------------------------|
 | Availability        | Generally available in all VPC regions for all customers. | In the [Select Availability]{: tag-green} release, available in Dallas (`us-south`), Frankfurt (`eu-de`), London (`eu-gb`), Madrid (`eu-es`), Osaka (`js-osa`), Sao Paulo (`br-sao`), Sydney (`au-sys`), Tokyo (`jp-tok`), Toronto (`ca-tor`), and Washington (`us-east`) regions for allow-listed customers.|
 | On-demand snapshots | Yes, up to 750 snapshots per region. | Yes, up to 512 snapshots per region in the [Select Availability]{: tag-green} release. |
-| Scheduled snapshots | Yes, up to 750 snapshots per region. | Not supported in the [Select Availability]{: tag-green} release. |
+| Scheduled snapshots | Yes, up to 750 snapshots per region. | Yes, up to 512 snapshots per region in the [Select Availability]{: tag-green} release. |
 | Fast restore clones | Yes. You can cache a copy of your snapshot in any zone of the region. | Not supported in the [Select Availability]{: tag-green} release. |
 | Cross-regional copy | Yes, one cross-regional clone per snapshot per region | During the [beta]{: tag-cyan} release, this feature is available only in Sydney, Sao Paulo, Osaka, and London regions. You can create one cross-regional clone per snapshot per region.|
 | Consistency group   | Multi-volume snapshots are supported. | Not supported in the [Select Availability]{: tag-green} release. |
