@@ -2,7 +2,7 @@
 
 copyright:
   years: 2024, 2025
-lastupdated: "2025-06-27"
+lastupdated: "2025-08-08"
 
 keywords:
 
@@ -21,7 +21,7 @@ Cluster networks allow you to interconnect and define sets of performance criter
 ## Before you begin
 {: #create-interface-prerequisites}
 
-* Review [planning considerations](/docs/vpc?topic=vpc-planning-cluster-network&interface=ui) and [known issues](/docs/vpc?topic=vpc-limitations-cluster-network&interface=ui).
+* Review [planning considerations](/docs/vpc?topic=vpc-planning-cluster-network&interface=ui) and [known issues](/docs/vpc?topic=vpc-known-issues-cluster-networks).
 * Ensure that you have an existing VPC in a region that has capacity for NVIDIA H100 or H200 profiles with clustering support.
 
    Currently, the only supported zone is `us-east-wdc07-a`. For more information about zones, see [zone mapping](/docs/overview?topic=overview-locations#zone-mapping).

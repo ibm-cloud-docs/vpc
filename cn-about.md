@@ -2,7 +2,7 @@
 
 copyright:
   years: 2024, 2025
-lastupdated: "2025-07-30"
+lastupdated: "2025-08-08"
 
 keywords:
 
@@ -40,7 +40,7 @@ Flexibility and control
 
 A cluster network enhances the efficiency and speed of data transfer within a networked group of systems, making it an essential component for high-performance computing tasks. Follow these general steps to create a simple cluster network for AI training:
 
-1. Review [planning considerations for cluster networks](/docs/vpc?topic=vpc-planning-cluster-network) and be aware of any [known issues and limitations](/docs/vpc?topic=vpc-limitations-cluster-network).
+1. Review [planning considerations for cluster networks](/docs/vpc?topic=vpc-planning-cluster-network) and be aware of any [known issues](/docs/vpc?topic=vpc-known-issues-cluster-networks).
 1. Determine the total resources that are required for your cluster by multiplying the number of instances you intend to create by the resources defined in the corresponding [instance profile](/docs/vpc?topic=vpc-profiles&interface=ui#gpu).
 1. Check the calculated total resources required for your cluster against the [default quotas](/docs/vpc?topic=vpc-quotas&q=service+limits&tags=vpc#cluster-networks-quotas) to determine whether a quota increase is necessary.
 1. Ensure that you have an existing VPC in a region that has capacity for NVIDIA H100 and H200 profiles with clustering support.
