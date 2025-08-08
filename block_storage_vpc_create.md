@@ -2,7 +2,7 @@
 
 copyright:
   years: 2019, 2025
-lastupdated: "2025-06-13"
+lastupdated: "2025-08-08"
 
 keywords: vpc Block Storage, provision Block Storage for vpc, bootable snapshots, create volume from snapshot, fast restore
 
@@ -699,7 +699,7 @@ A successful response looks like this:
 
 [Select Availability]{: tag-green}
 
-Customers with special access can create a virtual server instance with a boot volume that is based on the `sdp` profile in the `us-east` and `eu-gb` regions. In addition to capacity and IOPS, you can also specify custom throughput limit with the `bandwidth` property. See the following example.
+Customers with special access can create a virtual server instance with a boot volume that is based on the `sdp` profile. In addition to capacity and IOPS, you can also specify custom throughput limit with the `bandwidth` property. See the following example.
 
 ```sh
 curl -X POST "$vpc_api_endpoint/v1/instances?version=2024-09-24&generation=2"\
