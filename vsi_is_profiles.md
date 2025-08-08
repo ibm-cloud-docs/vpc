@@ -2,7 +2,7 @@
 
 copyright:
   years: 2019, 2025
-lastupdated: "2025-07-29"
+lastupdated: "2025-08-08"
 
 keywords: vsi, virtual server instances, profile, profiles, balanced, compute, memory, very high memory, ultra high memory, gpu storage optimized, confidential compute
 
@@ -526,7 +526,7 @@ When you create secondary data volumes, you select a volume profile that best me
 - A [5-IOPS tier](/docs/vpc?topic=vpc-block-storage-profiles#tiers) profile provides IOPS/GB performance that is suitable for a virtual server instance Compute profile.
 - A [10-IOPS tier](/docs/vpc?topic=vpc-block-storage-profiles#tiers) profile provides IOPS/GB performance that is suitable for a virtual server instance Memory profile.
 
-Customers with special access can provision storage with the new sdp profile. The defined performance profile is similar to the custom IOPS profile. For more information about the allow-listed release, such as supported features, and limitations, see [About Block Storage for VPC](/docs/vpc?topic=vpc-block-storage-about#block-storage-sdp-intro).
+Customers with special access can provision storage with the new `sdp` profile. The defined performance profile is similar to the custom IOPS profile. For more information about the allow-listed release, such as supported features, and limitations, see [About Block Storage for VPC](/docs/vpc?topic=vpc-block-storage-about#block-storage-sdp-intro).
 {: preview}
 
 ## Viewing profile configurations
