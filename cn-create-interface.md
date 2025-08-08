@@ -2,7 +2,7 @@
 
 copyright:
   years: 2024, 2025
-lastupdated: "2025-06-30"
+lastupdated: "2025-08-08"
 
 keywords:
 
@@ -21,7 +21,7 @@ You can create a cluster network interface either during the creation of a clust
 ## Before you begin
 {: #create-cluster-prerequisites}
 
-Review [planning considerations](/docs/vpc?topic=vpc-planning-cluster-network&interface=ui) and [known issues](/docs/vpc?topic=vpc-limitations-cluster-network&interface=ui).
+Review [planning considerations](/docs/vpc?topic=vpc-planning-cluster-network&interface=ui) and [known issues](/docs/vpc?topic=vpc-known-issues-cluster-networks).
 
 You can create a cluster network interface with the console, CLI, API, or Terraform.
 

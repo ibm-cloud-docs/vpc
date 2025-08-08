@@ -2,7 +2,7 @@
 
 copyright:
   years: 2024, 2025
-lastupdated: "2025-06-27"
+lastupdated: "2025-08-08"
 
 keywords:
 
@@ -15,13 +15,13 @@ subcollection: vpc
 # Attaching cluster network interfaces to an instance
 {: #attach-interfaces-cluster-network}
 
-After you create an instance, you can attach it to a cluster network instance subnet. Alternatively, you can plan out your network by creating your interfaces up front before attaching your instances.  
-{: shortdesc} 
+After you create an instance, you can attach it to a cluster network instance subnet. Alternatively, you can plan out your network by creating your interfaces up front before attaching your instances.
+{: shortdesc}
 
 ## Before you begin
 {: #attach-interfaces-prerequisites}
 
-Review [planning considerations](/docs/vpc?topic=vpc-planning-cluster-network&interface=ui) and [known issues](/docs/vpc?topic=vpc-limitations-cluster-network&interface=ui).
+Review [planning considerations](/docs/vpc?topic=vpc-planning-cluster-network&interface=ui) and [known issues](/docs/vpc?topic=vpc-known-issues-cluster-networks).
 
 You can attach cluster network interfaces to an instance with the CLI, API, or Terraform.
 
@@ -31,8 +31,8 @@ You can attach cluster network interfaces to an instance with the CLI, API, or T
 
 To attach interfaces to an instance in the CLI, follow these steps:
 
-1. [Set up your CLI environment](/docs/vpc?topic=vpc-set-up-environment&interface=cli). 
-   
+1. [Set up your CLI environment](/docs/vpc?topic=vpc-set-up-environment&interface=cli).
+
 1. Log in to your account with the CLI. After you enter the password, the system prompts for the account and region that you want to use:
 
     ```sh
