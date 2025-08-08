@@ -2,7 +2,7 @@
 
 copyright:
  years: 2022, 2025
-lastupdated: "2025-07-29"
+lastupdated: "2025-08-08"
 
 keywords: Backup, backup service, backup plan, backup policy, restore, restore volume, restore data
 
@@ -249,7 +249,7 @@ Volume backups:
 * Cross-regional copies are not supported in Montreal (`ca-mon`) MZR.
 * Consistency groups consist of the attached Block Storage volumes of virtual server instances, such as boot and data volumes. Instance storage volumes and virtual server instance configuration are not included.
 * The fast restore feature is not supported for multi-volume backups of consistency groups.
-* During the [Beta]{: tag-cyan} phase of the backup support for second-generation volumes, the following limitations apply.
+* During the [select availability]{: tag-green} phase of second-generation volumes, the following limitations apply.
    - You can take up to 512 backup snapshots of your `sdp` volume.
    - You can't create consistency group backups that contain `sdp` volumes.
    - You can't create fast restore clones of your second-generation volume backups.

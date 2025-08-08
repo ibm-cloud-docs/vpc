@@ -2,7 +2,7 @@
 
 copyright:
   years: 2021, 2025
-lastupdated: "2025-07-29"
+lastupdated: "2025-08-08"
 
 keywords: snapshots, Block Storage snapshots, manage snapshots, fast restore clone, backup snapshot, remote copy, cross-regional copy
 
@@ -109,7 +109,7 @@ For more information about available command options, see [`ibmcloud is snapshot
 {: #snapshot-update-allowed-use-cli}
 {: cli}
 
-[New]{: tag-new}[VPCIMG-209]{: tag-teal} The `Allowed Use` properties are inherited from the parent volume. You can use the `ibmcloud is snapshot-update` command to change these values.
+The `Allowed Use` properties are inherited from the parent volume. You can use the `ibmcloud is snapshot-update` command to change these values.
 
 You must have the `is.volume.volume.manage-allowed-use` IAM role to change these properties of a snapshot.
 {: requirement}
