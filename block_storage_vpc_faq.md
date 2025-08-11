@@ -2,7 +2,7 @@
 
 copyright:
   years: 2019, 2025
-lastupdated: "2025-07-31"
+lastupdated: "2025-08-11"
 
 keywords: faqs, Block Storage for vpc, fast restore, multizone, instance, instance provisioning, volume management, volume deletion.
 
@@ -55,17 +55,17 @@ When you're provisioning with Terraform, use the `ibm_is_volume` resource and sp
 {: faq}
 {: #faq-sdp-functionality}
 
-In this release, you can:
+In this release, you can perform the following actions:
 
 * Create Block Storage volumes, and specify a custom throughput limit for it in addition to capacity and IOPS.
-* Expand the capacity of the Block Storage volumes after their creation when they are attached to a virtual server instance or unattached,
-* Adjust IOPS after Block Storage volume creation when they are attached to a virtual server instance or unattached,
-* Change the maximum throughput limit when the volume is attached to a virtual server instance or unattached.
-* Attach Block Storage volumes to virtual service instances,
-* Create custom nonencrypted images,
-* Delete Block Storage volumes,
-* List Block Storage volumes,
 * Add customer-managed encryption for data volumes.
+* Expand the capacity of the Block Storage volumes after their creation when they are attached to a virtual server instance or unattached.
+* Adjust IOPS after Block Storage volume creation when they are attached to a virtual server instance or unattached.
+* Change the maximum throughput limit when the volume is attached to a virtual server instance or unattached.
+* Attach Block Storage volumes to virtual service instances.
+* Create custom images with provider-managed encryption.
+* List Block Storage volumes.
+* Delete Block Storage volumes.
 
 ### How is my data protected in the `sdp` profile-based storage volume?
 {: faq}
