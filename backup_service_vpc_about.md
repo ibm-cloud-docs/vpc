@@ -2,7 +2,7 @@
 
 copyright:
  years: 2022, 2025
-lastupdated: "2025-08-08"
+lastupdated: "2025-08-12"
 
 keywords: Backup, backup service, backup plan, backup policy, restore, restore volume, restore data
 
@@ -224,7 +224,7 @@ If you are a customer with special access, you can provision second-generation s
 
 Currently, customer can create up to 512 manual and backup snapshots of their `sdp` volumes. The backup service can even create snapshots when the `sdp` volumes are unattached. 
 
-Second-generation storage volumes can range in size from 1 TB to 32 TB. You can back up the entire volume without any restriction of capacity. 
+Second-generation storage volumes can range in size from 1 GB to 32 TB. You can back up the entire volume without any restriction of capacity. 
 
 The backup snapshots that are created for `sdp` volumes have an independent life cycle from the parent volume. You can delete the volume and the backup snapshot persists until the retention period that you set is reached.
 

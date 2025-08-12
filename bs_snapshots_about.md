@@ -2,7 +2,7 @@
 
 copyright:
   years: 2022, 2025
-lastupdated: "2025-08-08"
+lastupdated: "2025-08-12"
 
 keywords: snapshots, Block Storage, volumes, cross-regional snapshot, restore volume, copy snapshot
 
@@ -143,7 +143,7 @@ During the [Select Availability]{: tag-green} phase, you can create up to 512 sn
 
 The snapshots that are created for `sdp` volumes have an independent lifecycle from the parent volume. You can delete the volume and the snapshot persists.
 
-Second-generation storage volumes can range in size from 1 TB to 32 TB. You can create a snapshot of the entire volume without capacity restrictions.
+Second-generation storage volumes can range in size from 1 GB to 32 TB. You can create a snapshot of the entire volume without capacity restrictions.
 
 You can use your snapshots to create second-generation volumes in the region where the snapshot is. You can't use your second-generation snapshot to create a volume with a first-generation volume profile. Similarly, a snapshot from a first-generation volume can't be used to create a volume with the `sdp` profile.
 
