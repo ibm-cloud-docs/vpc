@@ -509,7 +509,7 @@ curl -X DELETE \
 
 Use the following steps to create cross-regional copies of snapshots from the Snapshots for VPC list or from the snapshot details page.
 
-Creating ross-region copy of a second-generation snapshot is available only in Sydney, Sao Paulo, Osaka, and London regions.
+Creating cross-region copy of a second-generation snapshot is available only in Sydney, Sao Paulo, Osaka, and London regions.
 {: beta}
 
 1. In the console, click the **Navigation menu** icon ![menu icon](../icons/icon_hamburger.svg) **> Infrastructure** ![VPC icon](../icons/vpc.svg) **> Storage > Block Storage snapshots**.
@@ -585,7 +585,7 @@ Service Tags           -
 
 For more information about available command options, see [`ibmcloud is snapshot-create`](/docs/cli?topic=cli-vpc-reference#snapshot-create).
 
-Creating ross-region copy of a second-generation snapshot is available only in Sydney, Sao Paulo, Osaka, and London regions.
+Creating cross-region copy of a second-generation snapshot is available only in Sydney, Sao Paulo, Osaka, and London regions.
 {: beta}
 
 ## Deleting a remote region copy from the CLI
@@ -701,7 +701,7 @@ A successful response looks like the following example:
 ```
 {: screen}
 
-Creating ross-region copy of a second-generation snapshot is available only in Sydney, Sao Paulo, Osaka, and London regions.
+Creating cross-region copy of a second-generation snapshot is available only in Sydney, Sao Paulo, Osaka, and London regions.
 {: beta}
 
 ## Deleting a remote-region copy of a snapshot with the API
@@ -732,7 +732,7 @@ resource "ibm_is_snapshot" "snapshot" {
 
 For more information about the arguments and attributes, see [ibm_is_snapshot](https://registry.terraform.io/providers/IBM-Cloud/ibm/latest/docs/resources/is_snapshot){: external}.
 
-Creating ross-region copy of a second-generation snapshot is available only in Sydney, Sao Paulo, Osaka, and London regions.
+Creating cross-region copy of a second-generation snapshot is available only in Sydney, Sao Paulo, Osaka, and London regions.
 {: beta}
 
 ## Deleting a remote region copy with Terraform

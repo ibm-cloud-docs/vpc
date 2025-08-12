@@ -47,8 +47,8 @@ Second-generation block volumes can be created with capacity in the range of 1 -
 | Customer-managed encryption at rest | Yes. | Yes.|
 | Importing encrypted custom image for boot volumes |  Yes.  | Not supported in the [Select Availability]{: tag-green} release.|
 | Creating encrypted custom image from boot volume | Yes. | Not supported in the [Select Availability]{: tag-green} release.|
-| On-demand snapshots | Yes, up to 750 snapshots per region. | Yes, up to 512 snapshots per region in the [Select Availability]{: tag-green} release. |
-| Scheduled snapshots | Yes, up to 750 snapshots per region. | Yes, up to 512 snapshots per region in the [Select Availability]{: tag-green} release.|
+| On-demand snapshots | Yes, up to 750 snapshots per region. | During the [beta]{: tag-cyan} release, this feature is available only in Sydney, Sao Paulo, Osaka, and London regions. You can create one cross-regional clone per snapshot per region. |
+| Scheduled snapshots | Yes, up to 750 snapshots per region. | During the [beta]{: tag-cyan} release, this feature is available only in Sydney, Sao Paulo, Osaka, and London regions. You can create one cross-regional clone per snapshot per region.|
 {: caption="Block Storage volume generations comparison." caption-side="bottom"}
 
 For more information about this service, see [About {{site.data.keyword.block_storage_is_short}}](/docs/vpc?topic=vpc-block-storage-about).
