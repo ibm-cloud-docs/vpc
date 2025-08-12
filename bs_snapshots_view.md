@@ -21,6 +21,7 @@ You can view a list of all snapshots and consistency groups, and drill down to s
 You can use allowed-use expressions with bootable block storage snapshots to define the capabilities and restrictions of a snapshot and help you find compatible image and profile combinations during server creation. To use allowed-use expressions with your snapshots, see [Adding allowed-use expressions to custom images](/docs/vpc?topic=vpc-custom-image-allowed-use-expressions&interface=ui).
 
 Fast restore snapshot clones and consistency groups are not supported for second-generation storage volumes in the current release. During the select availability phase, you can't create a copy of your second-generation snapshot in another region if your snapshot is encrypted with a customer-managed key or if the snapshot's source volume is bigger than 10 TB.
+{: preview}
 
 ## Listing snapshots in the console
 {: #snapshots-vpc-view-ui}
