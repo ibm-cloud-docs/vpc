@@ -2,7 +2,7 @@
 
 copyright:
   years: 2019, 2025
-lastupdated: "2025-07-12"
+lastupdated: "2025-08-12"
 
 keywords: Block Storage profiles, Block Storage for VPC, IOPS tiers, custom IOPS, storage performance
 
@@ -29,7 +29,7 @@ When you create a Block Storage volume, you can select from various profiles.
 - Select a profile from the _tiered_ profile family when you want to pick a profile where performance scales with capacity of the volume.
 - Select the profile from the _custom_ profile family if your performance requirements don't fall within any of the predefined IOPS tiers. When you select the custom profile, you can define your IOPS within a range that depends on the capacity that you specified. 
 
-The _sdp_ profile is available in the Dallas, Frankfurt, London, Madrid, Osaka, Sao Paulo, Sydney, Tokyo, Toronto, and Washington, DC regions during the select availability release for allow-listed customers. The _custom_ and _tiered_ profiles are available in every region for every customer. 
+The _sdp_ profile is available in the Dallas, Frankfurt, London, Madrid, Osaka, Sao Paulo, Sydney, Tokyo, Toronto, and Washington, DC regions during the select availability release for allowlisted customers. The _custom_ and _tiered_ profiles are available in every region for every customer. 
 
 The following table shows the available storage profiles with their different properties.
 
