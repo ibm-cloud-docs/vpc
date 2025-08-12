@@ -26,7 +26,7 @@ You can create a consistency group that contains snapshots of multiple volumes t
 You can take a snapshot of a second-generation storage volume even if it is not attached to a running virtual server instance. The snapshots feature is available in Dallas (`us-south`), Frankfurt (`eu-de`), London (`eu-gb`), Madrid (`eu-es`), Osaka (`js-osa`), Sao Paulo (`br-sao`), Sydney (`au-sys`), Tokyo (`jp-tok`), Toronto (`ca-tor`), and Washington (`us-east`) regions.
 {: preview}
 
-Fast restore snapshot clones and consistency groups are not supported for second-generation storage volumes in this release. During the select availability phase, you can't create a copy of your second-generation snapshot in another region if your snapshot is encrypted with a customer-managed key or if the snapshot's source volume is bigger than 10 TB.
+Fast restore snapshot clones and consistency groups are not supported for second-generation storage volumes in this release. Cross-region copies are available only in Sydney, Sao Paulo, Osaka, and London regions as a beta feature. During the beta release, you can't create a copy of your second-generation snapshot in another region if your snapshot is encrypted with a customer-managed key or if the snapshot is bigger than 10 TB.
 
 ## Creating a snapshot in the console
 {: #snapshots-vpc-create-ui}
