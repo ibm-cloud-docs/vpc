@@ -2,7 +2,7 @@
 
 copyright:
   years: 2019, 2025
-lastupdated: "2025-07-31"
+lastupdated: "2025-08-12"
 
 keywords: faqs, Block Storage for vpc, fast restore, multizone, instance, instance provisioning, volume management, volume deletion.
 
@@ -55,17 +55,17 @@ When you're provisioning with Terraform, use the `ibm_is_volume` resource and sp
 {: faq}
 {: #faq-sdp-functionality}
 
-In this release, you can:
+In this release, you can perform the following actions:
 
 * Create Block Storage volumes, and specify a custom throughput limit for it in addition to capacity and IOPS.
-* Expand the capacity of the Block Storage volumes after their creation when they are attached to a virtual server instance or unattached,
-* Adjust IOPS after Block Storage volume creation when they are attached to a virtual server instance or unattached,
-* Change the maximum throughput limit when the volume is attached to a virtual server instance or unattached.
-* Attach Block Storage volumes to virtual service instances,
-* Create custom nonencrypted images,
-* Delete Block Storage volumes,
-* List Block Storage volumes,
 * Add customer-managed encryption for data volumes.
+* Expand the capacity of the Block Storage volumes after their creation when they are attached to a virtual server instance or unattached.
+* Adjust IOPS after Block Storage volume creation when they are attached to a virtual server instance or unattached.
+* Change the maximum throughput limit when the volume is attached to a virtual server instance or unattached.
+* Attach Block Storage volumes to virtual service instances.
+* Create custom images with provider-managed encryption.
+* List Block Storage volumes.
+* Delete Block Storage volumes.
 
 ### How is my data protected in the `sdp` profile-based storage volume?
 {: faq}
@@ -83,7 +83,7 @@ No. You can't copy the storage volume to a different zone.
 {: faq}
 {: #faq-sdp-backup}
 
-Customers with special access to preview the defined perfomance volume profile can create snapshots of their second-generation volumes in Dallas (`us-south`), Frankfurt (`eu-de`), London (`eu-gb`), Madrid (`eu-es`), Osaka (`js-osa`), Sao Paulo (`br-sao`), Sydney (`au-sys`), Tokyo (`jp-tok`), Toronto (`ca-tor`), and Washington (`us-east`) regions. Cross-regional copies are supported in London (`eu-gb`), Osaka (`js-osa`), Sao Paulo (`br-sao`), and Sydney (`au-sys`) with limitations. Cross-regional copies. You can't create a copy in another region if your snapshot is encrypted with a customer-managed key or if the snapshot is bigger than 10 TB. Consistency group snapshots of multiple `sdp` volumes and fast restore clones are not supported for second-generation snapshots yet.
+Customers with special access to preview the defined perfomance volume profile can create snapshots of their second-generation volumes in Dallas (`us-south`), Frankfurt (`eu-de`), London (`eu-gb`), Madrid (`eu-es`), Osaka (`js-osa`), Sao Paulo (`br-sao`), Sydney (`au-sys`), Tokyo (`jp-tok`), Toronto (`ca-tor`), and Washington (`us-east`) regions. Cross-regional copies are supported in London (`eu-gb`), Osaka (`js-osa`), Sao Paulo (`br-sao`), and Sydney (`au-sys`) with limitations. Cross-regional copies. You can't create a copy in another region if your snapshot is encrypted with a customer-managed key or if the snapshot's source volume is bigger than 10 TB. Consistency group snapshots of multiple `sdp` volumes and fast restore clones are not supported for second-generation snapshots yet.
 
 ## Questions about the traditional volume profile family
 {: #block-storage-vpc-offering-questions}

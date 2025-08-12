@@ -2,7 +2,7 @@
 
 copyright:
   years: 2021, 2025
-lastupdated: "2025-08-08"
+lastupdated: "2025-08-12"
 
 keywords: snapshots, Block Storage snapshots, manage snapshots, fast restore clone, backup snapshot, remote copy, cross-regional copy
 
@@ -18,8 +18,8 @@ subcollection: vpc
 You can manage existing snapshots in several ways. Rename existing snapshots to make them simpler to identify. Add user tags to snapshots for use by the VPC backup service. Enable of disable fast restore copies of a snapshot. Delete snapshots that you no longer need and free up space for new snapshots. Verify {{site.data.keyword.iamshort}} access. Verify snapshot statuses.
 {: shortdesc}
 
-Fast restore snapshot clones and consistency groups are not supported for second-generation storage volumes during the beta phase. Operations to create such resources in the console, from the CLI, with the API, or Terraform fail inevitably.
-{: beta}
+Fast restore snapshot clones and consistency groups are not supported for second-generation storage volumes during the select availability phase. Operations to create such resources in the console, from the CLI, with the API, or Terraform fail inevitably.
+{: preview}
 
 ## Naming snapshots
 {: #snapshots-vpc-naming}
@@ -509,6 +509,9 @@ curl -X DELETE \
 
 Use the following steps to create cross-regional copies of snapshots from the Snapshots for VPC list or from the snapshot details page.
 
+Creating ross-region copy of a second-generation snapshot is available only in Sydney, Sao Paulo, Osaka, and London regions.
+{: beta}
+
 1. In the console, click the **Navigation menu** icon ![menu icon](../icons/icon_hamburger.svg) **> Infrastructure** ![VPC icon](../icons/vpc.svg) **> Storage > Block Storage snapshots**.
 2. In the list of snapshots, find the snapshot that you want to duplicate in another region. Make sure that the snapshot is in Stable status.
 3. click the Actions menu (![Actions menu](images/overflow.png)) and select **Copy snapshot**.
@@ -581,6 +584,9 @@ Service Tags           -
 {: codeblock}
 
 For more information about available command options, see [`ibmcloud is snapshot-create`](/docs/cli?topic=cli-vpc-reference#snapshot-create).
+
+Creating ross-region copy of a second-generation snapshot is available only in Sydney, Sao Paulo, Osaka, and London regions.
+{: beta}
 
 ## Deleting a remote region copy from the CLI
 {: #snapshots-remote-copy-delete-cli}
@@ -695,6 +701,9 @@ A successful response looks like the following example:
 ```
 {: screen}
 
+Creating ross-region copy of a second-generation snapshot is available only in Sydney, Sao Paulo, Osaka, and London regions.
+{: beta}
+
 ## Deleting a remote-region copy of a snapshot with the API
 {: #snapshots-remote-copy-delete-api}
 {: api}
@@ -722,6 +731,9 @@ resource "ibm_is_snapshot" "snapshot" {
 {: codeblock}
 
 For more information about the arguments and attributes, see [ibm_is_snapshot](https://registry.terraform.io/providers/IBM-Cloud/ibm/latest/docs/resources/is_snapshot){: external}.
+
+Creating ross-region copy of a second-generation snapshot is available only in Sydney, Sao Paulo, Osaka, and London regions.
+{: beta}
 
 ## Deleting a remote region copy with Terraform
 {: #snapshots-remote-copy-delete-terraform}

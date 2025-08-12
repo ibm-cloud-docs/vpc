@@ -2,7 +2,7 @@
 
 copyright:
   years: 2022, 2025
-lastupdated: "2025-08-08"
+lastupdated: "2025-08-12"
 
 keywords: block storage for VPC, File Storage for VPC, Snapshots for VPC, Backup for VPC, block storage, file storage, snapshots, backup, 
 
@@ -40,7 +40,7 @@ Second-generation block volumes can be created with capacity in the range of 1 -
 
 | Features            | First-generation volumes | Second-generation volumes [New]{: tag-new}|
 |---------------------|--------------------------|---------------------------|
-| Availability        | Generally available in all VPC regions for all customers. | In the [Select Availability]{: tag-green} release, available in Dallas, Frankfurt, London, Madrid, Osaka, Sao Paulo, Sydney, Tokyo, Toronto, and Washington, DC for allow-listed customers.|
+| Availability        | Generally available in all VPC regions for all customers. | In the [select availability]{: tag-green} release, available in Dallas, Frankfurt, London, Madrid, Osaka, Sao Paulo, Sydney, Tokyo, Toronto, and Washington, DC for allowlisted customers.|
 | Expandable capacity | Yes, up to 16,000 GB     | Yes, up to 32,000 GB |
 | Adjustable IOPS     | Yes, up to 48,000. IOPS depends on capacity range. | Yes, up to 64,000.| 
 | Adjustable Bandwidth| No. Throughput can be increased by increasing capacity and IOPS. The maximum is 1024 MBps.| Yes, bandwidth can be adjusted to any value between 125 and 1024 MBps.|
@@ -71,15 +71,15 @@ You can create a snapshot consistency group that contains snapshots of multiple 
 Customers with special access to preview the `sdp` profile can create snapshots of their second-generation block volumes in Dallas, Frankfurt, London, Madrid, Osaka, Sao Paulo, Sydney, Tokyo, Toronto, and Washington, DC. In this release, you can create up to 512 snapshots of these volumes. You can even create snapshots when the volumes are unattached.
 {: preview}
 
-You can use your snapshots to create other second-generation volumes in the same region. You can't use your second-generation snapshot to create a volume with a first-generation volume profile. Similarly, you can't use first-generation volume's snapshot to create a volume with the `sdp` profile. Cross-regional copy of a second-generation snapshot is supported with limitations. You can't create a copy in another region if your snapshot is encrypted with a customer-managed key or if the snapshot is bigger than 10 TB. Consistency group snapshots of multiple `sdp` volumes and fast restore snapshots are not supported either.
+You can use your snapshots to create other second-generation volumes in the same region. You can't use your second-generation snapshot to create a volume with a first-generation volume profile. Similarly, you can't use first-generation volume's snapshot to create a volume with the `sdp` profile. Cross-regional copy of a second-generation snapshot is supported with limitations. You can't create a copy in another region if your snapshot is encrypted with a customer-managed key or if the snapshot's source volume is bigger than 10 TB. Consistency group snapshots of multiple `sdp` volumes and fast restore snapshots are not supported either.
 
 | Features            | First-generation snapshots | Second-generation snapshots [New]{: tag-new} |
 |---------------------|--------------------------|---------------------------|
-| Availability        | Generally available in all VPC regions for all customers. | In the [Select Availability]{: tag-green} release, available in Dallas (`us-south`), Frankfurt (`eu-de`), London (`eu-gb`), Madrid (`eu-es`), Osaka (`js-osa`), Sao Paulo (`br-sao`), Sydney (`au-sys`), Tokyo (`jp-tok`), Toronto (`ca-tor`), and Washington (`us-east`) regions for allow-listed customers.|
+| Availability        | Generally available in all VPC regions for all customers. | In the [Select Availability]{: tag-green} release, available in Dallas (`us-south`), Frankfurt (`eu-de`), London (`eu-gb`), Madrid (`eu-es`), Osaka (`js-osa`), Sao Paulo (`br-sao`), Sydney (`au-sys`), Tokyo (`jp-tok`), Toronto (`ca-tor`), and Washington (`us-east`) regions for allowlisted customers.|
 | On-demand snapshots | Yes, up to 750 snapshots per region. | Yes, up to 512 snapshots per region in the [Select Availability]{: tag-green} release. |
 | Scheduled snapshots | Yes, up to 750 snapshots per region. | Yes, up to 512 snapshots per region in the [Select Availability]{: tag-green} release. |
 | Fast restore clones | Yes. You can cache a copy of your snapshot in any zone of the region. | Not supported in the [Select Availability]{: tag-green} release. |
-| Cross-regional copy | Yes, one cross-regional clone per snapshot per region | During the [beta]{: tag-cyan} release, this feature is available only in Sydney, Sao Paulo, Osaka, and London regions. You can create one cross-regional clone per snapshot per region.|
+| Cross-regional copy | Yes, one cross-regional clone per snapshot per region |During the [beta]{: tag-cyan} release, this feature is available only in Sydney, Sao Paulo, Osaka, and London regions. You can create one cross-regional clone per snapshot per region.|
 | Consistency group   | Multi-volume snapshots are supported. | Not supported in the [Select Availability]{: tag-green} release. |
 {: caption="Block Storage snapshot generations comparison." caption-side="bottom"}
 
@@ -113,7 +113,7 @@ Second-generation profiles provide regional data availability across all 3 zones
 
 | Features            | First-generation shares | Second-generation shares |
 |---------------------|--------------------------|---------------------------|
-| Availability        | Generally available in all VPC regions for all customers. | In the [beta]{: tag-cyan} release, available in Dallas, Frankfurt, Madrid, and Washington, DC for allow-listed customers.|
+| Availability        | Generally available in all VPC regions for all customers. | In the [beta]{: tag-cyan} release, available in Dallas, Frankfurt, Madrid, and Washington, DC for allowlisted customers.|
 | Data Availability   | Zonal                    | Regional  |
 | Expandable capacity | Yes, up to 16,000 GB     | Yes, up to 32,000 GB |
 | Adjustable IOPS     | Yes, up to 96,000. IOPS depends on capacity range. | No. Maximum IOPS is preset at 35,000.| 
