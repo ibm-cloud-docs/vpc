@@ -2,7 +2,7 @@
 
 copyright:
   years: 2020, 2025
-lastupdated: "2025-08-05"
+lastupdated: "2025-08-13"
 
 keywords:
 
@@ -56,7 +56,7 @@ To add a VPN connection to an existing VPN gateway, follow these steps:
       * The length of the string must be 6 - 128 characters.
       * Cannot start with `0x` or `0s`.
 
-   * **Distribute traffic (Route-based VPN only)** - Enable this option to automatically distribute traffic between the `Up` tunnels of the VPN gateway connection when a VPC route's next hop is the VPN connection. Otherwise, the VPN gateway chooses the tunnel with the smaller public IP address as the primary egress path, and traffic switches to the secondary path only if the primary path is disabled. For more information, see [Use case 4: Distributing traffic for a route-based VPN](/docs/vpc?topic=vpc-using-vpn&interface=ui#use-case-4-vpn).
+   * **Distribute traffic (Route-based VPN only)** - Enable this option to automatically distribute traffic between the active tunnels of the VPN gateway when a VPC route's next hop is the VPN connection. This option is useful to maximize throughput wherein two VPN tunnels connect to your remote peer network. If this option isn't enabled, the VPN gateway chooses the tunnel with the smaller public IP as the primary path, and switches to the secondary tunnel only if the primary goes down. For more information, see [Use case 4: Distributing traffic for a route-based VPN](/docs/vpc?topic=vpc-using-vpn&interface=ui#use-case-4-vpn).
 
    * **Local IBM CIDRs (Policy-based VPN only)** - Specify one or more CIDRs in the VPC that you want to connect through the VPN tunnel.
    * **Peer CIDRs (Policy-based VPN only)** - Specify one or more CIDRs in the other network that you want to connect through the VPN tunnel. Subnet range overlap between local and peer subnets is not allowed.

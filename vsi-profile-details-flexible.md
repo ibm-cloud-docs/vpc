@@ -146,6 +146,6 @@ An instance has a limit for the number of volumes and virtual network interfaces
 
 | Number of vCPUs | Max volumes | Max vNICs |
 | --------------- | ----------- | --------- |
-| 2 - 4 | 15 | 1 |
+| 1 - 4 | 15 | 1 |
 | 8+ | 15 | 2 |
 {: caption="Flex profile family limits for for maximum volumes and maximum network interfaces" caption-side="bottom"}
