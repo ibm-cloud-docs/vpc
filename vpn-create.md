@@ -2,7 +2,7 @@
 
 copyright:
   years: 2019, 2025
-lastupdated: "2025-08-12"
+lastupdated: "2025-08-13"
 
 keywords:
 subcollection: vpc
@@ -58,7 +58,7 @@ To create a VPN gateway in the console:
         * The length of the string must be 6 - 128 characters.
         * Cannot start with `0x` or `0s`.
 
-    * **Distribute traffic (Route-based VPN only)** - Enable this option to automatically distribute traffic between the active tunnels of the VPN gateway connection when a VPC route's next hop is the VPN connection. This option is useful to maximize throughput where two VPN tunnels connect to two separate appliances on your remote peer network. If this option isn't enabled, the VPN gateway chooses the tunnel with the smaller public IP as the primary path, and switches to the secondary tunnel only if the primary goes down. For more information, see [Use case 4: Distributing traffic for a route-based VPN](/docs/vpc?topic=vpc-using-vpn&interface=ui#use-case-4-vpn).
+    * **Distribute traffic (Route-based VPN only)** - Enable this option to automatically distribute traffic between the active tunnels of the VPN gateway when a VPC route's next hop is the VPN connection. This option is useful to maximize throughput wherein two VPN tunnels connect to your remote peer network. If this option isn't enabled, the VPN gateway chooses the tunnel with the smaller public IP as the primary path, and switches to the secondary tunnel only if the primary goes down. For more information, see [Use case 4: Distributing traffic for a route-based VPN](/docs/vpc?topic=vpc-using-vpn&interface=ui#use-case-4-vpn).
     * **Local subnets (Policy-based VPN only)** - Specify one or more subnets in the VPC that you want to connect through the VPN tunnel.
     * **Peer subnets (Policy-based VPN only)** - Specify one or more subnets in the other network that you want to connect through the VPN tunnel.
 
@@ -213,4 +213,5 @@ After you create a VPN gateway, you can:
 * [Create an IKE policy](/docs/vpc?topic=vpc-creating-ike-policy) if you decide to use a custom IKE policy instead of auto-negotiation.
 * [Create an IPsec policy](/docs/vpc?topic=vpc-creating-ipsec-policy) if you decide to use a custom IPsec policy instead of auto-negotiation.
 * Create a VPN connection if you haven't already created one when provisioning your VPN gateway. For more information, see [Adding connections to a VPN gateway](/docs/vpc?topic=vpc-vpn-adding-connections).
+* [Configure route-propagation](/docs/vpc?topic=vpc-advertise-routes-s2s) for VPN gateways in policy-based mode.
 * To create a route-based VPN, first [create a routing table](/docs/vpc?topic=vpc-create-vpc-routing-table), then [create a route by using the VPN connection type](/docs/vpc?topic=vpc-create-vpc-route).
