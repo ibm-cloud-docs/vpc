@@ -174,7 +174,7 @@ Where:
 
    Policy-based VPN gateways can have only one local IKE identity.
 
-   If a route-based VPN gateway has local IKE identities specified, then there must be at least two; the first identity applies to the first member of the VPN gateway, and the second identity applies to the second member.
+   If a route-based VPN gateway has local IKE identities that are specified, then there must be at least two; the first identity applies to the first member of the VPN gateway, and the second identity applies to the second member.
 
 `--establish-mode`
     : This field can be either `bidirectional` or `peer_only`. Bidirectional mode initiates IKE protocol negotiations (or rekeying processes) from either side of the VPN gateway. Peer only mode allows the peer to initiate IKE protocol negotiations for this VPN gateway connection. The peer is also responsible for initiating the rekeying process after the connection is established. If rekeying doesn't occur, the VPN gateway connection is removed after its lifetime expires.
