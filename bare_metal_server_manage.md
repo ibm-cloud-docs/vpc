@@ -2,7 +2,7 @@
 
 copyright:
   years: 2021, 2025
-lastupdated: "2025-06-09"
+lastupdated: "2025-08-13"
 
 keywords: bare metal servers, managing, operation, manage bare metal server, manage bare metal, manage server, restart bare metal, stop bare metal, delete bare metal, reboot bare metal, restart server, stop server, delete server
 
@@ -427,7 +427,7 @@ For more information, see [ibm_is_bare_metal_servers](https://registry.terraform
 
 To restart a bare metal server by using the Terraform, you need to use the `ibm_is_bare_metal_server_action` resource.
 
-```sh
+```terraform
 resource "ibm_is_bare_metal_server_action" "bms_action" {
   bare_metal_server = SERVER
   action            = "restart"
@@ -447,7 +447,7 @@ For a full list of command options, see [ibm_is_bare_metal_server_action](https:
 
 To stop a bare metal server by using the Terraform, you need to use the `ibm_is_bare_metal_server_action` resource.
 
-```sh
+```terraform
 resource "ibm_is_bare_metal_server_action" "bms_action" {
   bare_metal_server = SERVER
   action            = "stop"
@@ -458,7 +458,7 @@ resource "ibm_is_bare_metal_server_action" "bms_action" {
 
 To start a bare metal server by using the Terraform, you need to use the `ibm_is_bare_metal_server_action` resource.
 
-```sh
+```terraform
 resource "ibm_is_bare_metal_server_action" "bms_action" {
   bare_metal_server = SERVER
   action            = "stop"
@@ -482,7 +482,7 @@ You can reinitialize the server only if the server is stopped and provisioned wi
 
 To reinitialize a bare metal server by using the Terraform, you need to use the resource command `ibm_is_bare_metal_server_initialization`.
 
-```sh
+```terraform
 resource "ibm_is_bare_metal_server_initialization" "reinitialize" {
   bare_metal_server = SERVER
   user_data         = DATA
@@ -502,7 +502,7 @@ While you can retain the same physical node, interfaces, IP addresses, and resou
 
 For a full list of command options, see [ibm_is_bare_metal_server_initialization](https://registry.terraform.io/providers/IBM-Cloud/ibm/latest/docs/resources/is_bare_metal_server_initialization).
 
-```sh
+```terraform
 resource "ibm_is_bare_metal_server_initialization" "reinitialize" {
   bare_metal_server = SERVER
   user_data         = DATA
@@ -525,7 +525,7 @@ resource "ibm_is_bare_metal_server" "bms" {
 
 To delete a bare metal server resource by using Terraform, you need to use the `ibm_is_bare_metal_server` resource.
 
-```sh
+```terraform
 resource "ibm_is_bare_metal" "server" {
   delete_type          = "hard"
 }
