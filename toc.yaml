@@ -921,11 +921,7 @@ toc:
             topics:
             - faq-vpc.md
             - faq-auto-scale.md
-            - topicgroup:
-                id: faq-bare-metal
-                label: FAQ for bare metal servers
-                topics:
-                - bare_metal_server_faq.md
+            - bare_metal_server_faq.md
             - faq-dedicated-host.md
             - topicgroup:
                 id: faq-storage
@@ -1025,6 +1021,26 @@ toc:
                 label: Troubleshooting backups
                 topics:
                 - backup_service_vpc_troubleshoot.md
+                - backup_service_vpc_ts1.md
+                - backup_service_vpc_ts2.md
+                - backup_service_vpc_ts3.md
+                - backup_service_vpc_ts4.md
+                - backup_service_vpc_ts-backup-policy-quota-exceeded.md
+                - backup_service_vpc_ts-service-to-service-policy-missing.md
+                - backup_service_vpc_ts-snapshot-bad-state.md
+                - backup_service_vpc_ts-snapshot-pending.md
+                - backup_service_vpc_ts-snapshot-encryption-key-invalid.md
+                - backup_service_vpc_ts-snapshot-quota-reached.md
+                - backup_service_vpc_ts-snapshot-source-volume-busy.md
+                - backup_service_vpc_ts-snapshot-volume-unavailable.md
+                - backup_service_vpc_ts-snapshot-volume-too-large.md
+                - backup_service_vpc_ts-scg-bad-state.md
+                - backup_service_vpc_ts-scg-pending.md
+                - backup_service_vpc_ts-scg-encryption-key-invalid.md
+                - backup_service_vpc_ts-scg-quota-reached.md
+                - backup_service_vpc_ts-scg-source-volume-busy.md
+                - backup_service_vpc_ts-scg-volume-unavailable.md
+                - backup_service_vpc_ts-scg-volume-too-large.md
             - topicgroup:
                 id: tbs-custom-images
                 label: Troubleshooting custom images

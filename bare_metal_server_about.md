@@ -39,7 +39,7 @@ For more information, see [Profiles for Bare Metal Servers for VPC](/docs/vpc?to
 ### Advanced Intel® Xeon® CPUs
 {: #bare-metal-advanced-intel-xeon-cpu}
 
-{{site.data.keyword.Bluemix_notm}} {{site.data.keyword.bm_is_short}} for VPC Infrastructure are deployed only with second Gen Intel® Xeon® Platinum 8260 processors, Intel® Xeon® Gold 6426Y processors, and Intel® Xeon® Platinum 8474C processors that are built for cloud-enterprise applications, HPC workloads, virtualization, enhanced networking, and security.
+{{site.data.keyword.Bluemix_notm}} {{site.data.keyword.bm_is_short}} for VPC Infrastructure are deployed with 2nd Gen Intel® Xeon® Platinum 8260 processors, 4th Gen Intel® Xeon® Gold 6426Y processors, and 4th Gen Intel® Xeon® Platinum 8474C processors that are built for cloud-enterprise applications, HPC workloads, virtualization, enhanced networking, and security.
 
 ### SmartNIC technology
 {: #bare-metal-smart-nic}
