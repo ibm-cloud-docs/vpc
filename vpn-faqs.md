@@ -60,7 +60,7 @@ Yes. When you create a VPN connection without referencing a policy ID (IKE or IP
 {: faq}
 {: support}
 
-When you provision a VPN gateway in IBM Cloud, you must choose a subnet because the gateway is deployed within a VPC subnet to establish connectivity. A route-based VPN can support connectivity across all zones, but the gateway itself requires four available private IP addresses in the chosen subnet to provide high availability and automatic maintenance. It is best if you use a dedicated subnet for the VPN gateway of size 16, where the length of the subnet prefix is shorter or equal to 28.
+You must choose a subnet when you provision a VPN gateway in IBM Cloud, because the gateway is deployed within a VPC subnet to establish connectivity. A route-based VPN can support connectivity across all zones, but the gateway itself requires four available private IP addresses in the chosen subnet to provide high availability and automatic maintenance. It is best if you use a size 16 dedicated subnet for the VPN gateway, where the length of the subnet prefix is shorter or equal to 28.
 
 ## What should I do if I am using ACLs on the subnet that is used to deploy the VPN gateway?
 {: #faq-vpn-6}
@@ -104,13 +104,13 @@ Only PSK authentication is supported.
 {: #faq-vpn-12}
 {: faq}
 
-Yes. The recommended method to interconnect classic network to VPC is by using [IBM Cloud Transit Gateway](/docs/transit-gateway?topic=transit-gateway-getting-started). See [Setting up access to classic infrastructure](/docs/vpc?topic=vpc-setting-up-access-to-classic-infrastructure&interface=ui).
+Yes. The recommended method to connect your classic network to a VPC is to use an [IBM Cloud Transit Gateway](/docs/transit-gateway?topic=transit-gateway-getting-started). See [Setting up access to classic infrastructure](/docs/vpc?topic=vpc-setting-up-access-to-classic-infrastructure&interface=ui).
 
-## What is a rekey collision in site-to-site VPNs?
+## What is a rekey collision between site-to-site VPNs?
 {: #faq-vpn-14}
 {: faq}
 
-A rekey collision occurs when both VPN peers attempt to initiate a rekey at the same time, which can lead to conflicting negotiations, tunnel instability or dropped connections. This issue is commonly observed in IKEv1 because both sides must use matching key lifetimes and the protocol lacks collision-handling mechanisms, which makes it unreliable. However, IKEv2 supports asymmetric key lifetimes to gracefully handle simultaneous rekey attempts. If you use IKEv1, rekey collision deletes the IKE/IPsec security association (SA). To re-create the IKE/IPsec SA, set the connection admin state to `down` and then `up` again. To minimize rekey collisions and maintain a stable performance, use IKEv2.
+A rekey collision occurs when both VPN peers attempt to initiate a rekey at the same time, which can lead to conflicting negotiations, tunnel instability or dropped connections. This issue is commonly observed in IKEv1, because both sides must use matching key lifetimes, and the protocol lacks collision-handling mechanisms, which makes it unreliable. However, IKEv2 supports asymmetric key lifetimes to gracefully handle simultaneous rekey attempts. If you use IKEv1, rekey collision deletes the IKE/IPsec security association (SA). To re-create the IKE/IPsec SA, set the connection admin state to `down` and then `up` again. To minimize rekey collisions and maintain stable performance, use IKEv2.
 
 ## How can I send all traffic from the VPC side to the on-premises side in a policy-based VPN?
 {: #faq-vpn-16}
