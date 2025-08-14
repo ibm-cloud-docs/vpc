@@ -104,7 +104,7 @@ Only PSK authentication is supported.
 {: #faq-vpn-12}
 {: faq}
 
-Yes. The recommended method to interconnect classic network to VPC is by using [IBM Cloud Transit Gateway](/docs/transit-gateway?topic=transit-gateway-getting-started). See [Setting up access to classic infrastructure](/docs/vpc?topic=vpc-setting-up-access-to-classic-infrastructure&interface=ui)
+Yes. The recommended method to interconnect classic network to VPC is by using [IBM Cloud Transit Gateway](/docs/transit-gateway?topic=transit-gateway-getting-started). See [Setting up access to classic infrastructure](/docs/vpc?topic=vpc-setting-up-access-to-classic-infrastructure&interface=ui).
 
 ## What is a rekey collision in site-to-site VPNs?
 {: #faq-vpn-14}
