@@ -2,7 +2,7 @@
 
 copyright:
   years: 2019, 2025
-lastupdated: "2025-08-04"
+lastupdated: "2025-08-14"
 
 keywords:
 
@@ -23,6 +23,17 @@ Use the release notes to learn the latest updates to {{site.data.keyword.vpc_ful
 For more information about changes to the {{site.data.keyword.vpc_short}} API, see [{{site.data.keyword.vpc_short}} API change log](/docs/vpc?topic=vpc-api-change-log).
 
 For more information about changes to the {{site.data.keyword.vpc_short}} command-line interface (CLI), see [{{site.data.keyword.vpc_short}} CLI release notes](/docs/vpc?topic=vpc-vpc-cli-rn).
+
+## August 2025
+{: #vpc-aug25}
+  
+### 14 August 2025
+{: #vpc-aug1425}
+{: release-note}
+
+UI enhancement for bare metal servers: Filter instance profiles by business scenario
+
+:   When creating a bare metal server, you can now use the By scenario tab on the Select a server profile page to narrow the results to include only applicable bare metal server profiles. For example, you can filter profiles by the following business scenarios: SAP; Web Development and Test; HPC; Confidential computing; and Storage optimized. When a specific filter is selected, the profile results display only the profiles related to the defined business scenario.
 
 ## July 2025
 {: #vpc-jul25}
