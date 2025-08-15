@@ -2,7 +2,7 @@
 
 copyright:
   years: 2021, 2025
-lastupdated: "2025-08-02"
+lastupdated: "2025-08-15"
 
 keywords: file share, file storage, virtual network interface, encryption in transit, profiles, 
 
@@ -202,7 +202,7 @@ Then, you can use the same command to create the zonal file share. The response 
 $ export IBMCLOUD_IS_FEATURE_SHARE_DENALI_REGIONAL_AVAILABILITY=true
 $ ibmcloud is share-create --name my-file-share --zone us-south-1 --profile dp2 --size 40 --iops 100 --allowed-access-protocols nfs4 --atem ipsec,none
 
-Creating file share my-file-share under account Kranthi's Test Account as user Viktoria.Muirhead@ibm.com...
+Creating file share my-file-share under account Test Account as user test.user@ibm.com...
                                       
 ID                                 r006-a08c2505-b933-4dce-a771-efff2e1a59e1   
 Name                               my-file-share   
