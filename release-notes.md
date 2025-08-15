@@ -2,7 +2,7 @@
 
 copyright:
   years: 2019, 2025
-lastupdated: "2025-08-14"
+lastupdated: "2025-08-15"
 
 keywords:
 
@@ -1558,8 +1558,8 @@ Client-server timeout for application load balancers
 {: #vpc-feb1423}
 {: release-note}
 
-VPC instance metadata communication protocol and hop limit
-:    You can now control the communication protocol and hop limit for IP response packets that are used by the [VPC Instance Metadata service](/docs/vpc?topic=vpc-imd-about). When you provision or update an instance, use the new **Secure access** setting to specify either `http` (default) or `https` (secure access) communication. In addition, use the new **Hop limit** setting to specify a value between `1` (default) and `64`. Both of these settings apply only when the metadata service is enabled. For more information, see [Configure metadata settings by using the UI](/docs/vpc?topic=vpc-imd-configure-service&interface=ui#metadata-config-ui).
+VPC metadata communication protocol and hop limit
+:    You can now control the communication protocol and hop limit for IP response packets that are used by the [VPC Metadata service](/docs/vpc?topic=vpc-imd-about). When you provision or update an instance, use the new **Secure access** setting to specify either `http` (default) or `https` (secure access) communication. In addition, use the new **Hop limit** setting to specify a value between `1` (default) and `64`. Both of these settings apply only when the metadata service is enabled. For more information, see [Configure metadata settings by using the UI](/docs/vpc?topic=vpc-imd-configure-service&interface=ui#metadata-config-ui).
 
 Hyper Protect Secure Build
 :    You can now use [Hyper Protect Secure Build](/docs/vpc?topic=vpc-about-hpsb) to securely build an Open Container Initiative (OCI) image in [Hyper Protect Virtual Servers for VPC](/docs/vpc?topic=vpc-about-se). You can push the image to DockerHub or IBM Cloud Container Registry (ICR). Later, you can pull the image from the registry to provision it in another {{site.data.keyword.hpvs}} for VPC instance. You can also pull SLES BaseContainerImages (BCI) from the SUSE registry, and use the images to provision {{site.data.keyword.hpvs}} for VPC instances.
@@ -1870,8 +1870,8 @@ Health check metrics for application load balancer pools
 {: #vpc-august0922}
 {: release-note}
 
-VPC Instance Metadata service
-:   A restriction was removed from the [instance metadata service](/docs/vpc?topic=vpc-imd-about&interface=ui) in which you had to stop and restart the virtual server instance to fully enable the metadata service. You can now create instances with the metadata service disabled and then enable the service for the instance to start using it immediately.
+VPC Metadata service
+:   A restriction was removed from the [metadata service](/docs/vpc?topic=vpc-imd-about&interface=ui) in which you had to stop and restart the virtual server instance to fully enable the metadata service. You can now create instances with the metadata service disabled and then enable the service for the instance to start using it immediately.
 
 ### 08 August 2022
 {: #vpc-august0822}

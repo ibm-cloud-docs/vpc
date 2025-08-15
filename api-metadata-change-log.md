@@ -31,7 +31,7 @@ Some changes, such as new response properties or new optional request parameters
 ## Upcoming changes
 {: #upcoming-changes-metadata}
 
-In an upcoming release, the **Access tokens** and **Certificates** methods will no longer be part of the [Virtual Private Cloud Instance Metadata API](/apidocs/vpc-metadata). Those methods will be included in a new **Virtual Private Cloud Identity API**. The paths will change from `/instance_identity` to `/identity`. Prepare for behavior changes that could lead to API client and workflow failures by starting to update the design for your automation, even if you won't be able to test it yet.
+In an upcoming release, the **Access tokens** and **Certificates** methods will no longer be part of the [Virtual Private Cloud Metadata API](/apidocs/vpc-metadata). Those methods will be included in a new **Virtual Private Cloud Identity API**. The paths will change from `/instance_identity` to `/identity`. Prepare for behavior changes that could lead to API client and workflow failures by starting to update the design for your automation, even if you won't be able to test it yet.
 
 ## 1 April 2025
 {: #1-april-2025-metadata}
@@ -131,9 +131,9 @@ This feature is now generally available. See the [26 March 2024](#26-march-2024-
 ### For all version dates
 {: #14-february-2023-all-version-dates-metadata}
 
-**VPC instance metadata new endpoint URL.** You can now use the fully qualified domain name (FQDN) `api.metadata.cloud.ibm.com` for the metadata service endpoint. The FQDN resolves to the link-local IP address `169.254.169.254` without requiring the application of special configurations. For more information, see [Endpoint URLs](/apidocs/vpc-metadata#endpoint-url-metadata) in the VPC Instance Metadata API.
+**VPC metadata new endpoint URL.** You can now use the fully qualified domain name (FQDN) `api.metadata.cloud.ibm.com` for the metadata service endpoint. The FQDN resolves to the link-local IP address `169.254.169.254` without requiring the application of special configurations. For more information, see [Endpoint URLs](/apidocs/vpc-metadata#endpoint-url-metadata) in the VPC Metadata API.
 
-**VPC instance metadata communication protocol and hop limit.** You can now view the communication protocol and hop limit for IP response packets used by the [VPC Instance Metadata service](/docs/vpc?topic=vpc-imd-about). When [retrieving the instance](/apidocs/vpc-metadata#get-instance), the new `protocol` and `response_hop_limit` properties will be shown. For more information, see [Configure the instance metadata service](/docs/vpc?topic=vpc-imd-configure-service&interface=api).
+**VPC metadata communication protocol and hop limit.** You can now view the communication protocol and hop limit for IP response packets used by the [VPC Metadata service](/docs/vpc?topic=vpc-imd-about). When [retrieving the instance](/apidocs/vpc-metadata#get-instance), the new `protocol` and `response_hop_limit` properties will be shown. For more information, see [Configure the metadata service](/docs/vpc?topic=vpc-imd-configure-service&interface=api).
 
 ## 27 September 2022
 {: #27-september-2022-metadata}
@@ -141,6 +141,6 @@ This feature is now generally available. See the [26 March 2024](#26-march-2024-
 ### For all version dates
 {: #27-september-2022-all-version-dates-metadata}
 
-**Sharing images across an enterprise account.** If a virtual server instance was provisioned from a catalog offering, [retrieving the instance metadata](/apidocs/vpc-metadata#get-instance) will now include a `catalog_offering` property in the response. For more information, see the [Virtual Private Cloud Instance Metadata API](/apidocs/vpc-metadata).
+**Sharing images across an enterprise account.** If a virtual server instance was provisioned from a catalog offering, [retrieving the metadata](/apidocs/vpc-metadata#get-instance) will now include a `catalog_offering` property in the response. For more information, see the [Virtual Private Cloud Metadata API](/apidocs/vpc-metadata).
 
 See also the tutorial [Onboarding a virtual server image for VPC](/docs/account?topic=account-catalog-vsivpc-tutorial) and the [Import offering](/apidocs/resource-catalog/private-catalog#import-offering){: external} method in the Catalog Management API.

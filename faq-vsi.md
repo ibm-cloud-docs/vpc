@@ -2,7 +2,7 @@
 
 copyright:
   years: 2018, 2025
-lastupdated: "2025-04-01"
+lastupdated: "2025-08-15"
 
 subcollection: vpc
 
@@ -148,7 +148,7 @@ For more information, including how to retrieve this information from within you
 ## Can I access metadata about my virtual server instances?
 {: #faq-vsi-21}
 
-Yes, if your account is granted special approval, you can access the instance metadata service to get information about your VPC compute resources. The metadata service is a REST API that you invoke by using a well-known URI to retrieve instance-specific information from the metadata server. For more information, see For more information, see [About Instance Metadata for VPC (Beta)](/docs/vpc?topic=vpc-imd-about).
+Yes, if your account is granted special approval, you can access the metadata service to get information about your VPC compute resources. The metadata service is a REST API that you invoke by using a well-known URI to retrieve instance-specific information from the metadata server. For more information, see For more information, see [About Metadata for VPC (Beta)](/docs/vpc?topic=vpc-imd-about).
 
 ## Can I use the same operating system image for more than one account?
 {: #faq-vsi-22}

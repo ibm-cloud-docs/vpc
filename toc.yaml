@@ -269,7 +269,7 @@ toc:
            - reserved-capacity-status-reasons.md
         - topicgroup:
             id: metadata-service
-            label: Instance metadata service
+            label: Metadata service
             topics:
             - instance_metadata_vpc_about.md
             - instance_metadata_vpc_configure.md
@@ -871,7 +871,7 @@ toc:
             - api-metadata-change-log.md
         - topicgroup:
             id: beta-metadata-service-api
-            label: Beta VPC instance metadata API
+            label: Beta VPC metadata API
             topics:
             - link:
                label: Reference

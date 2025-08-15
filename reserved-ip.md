@@ -2,7 +2,7 @@
 
 copyright:
   years: 2021, 2025
-lastupdated: "2025-06-09"
+lastupdated: "2025-08-15"
 
 keywords:
 
@@ -39,7 +39,7 @@ As a result, such reserved IP addresses may appear to be unbound. Despite appear
 
 In the console, reserved IP addresses that are labeled "unbound" might be bound to a resource that can't be displayed.
 
-**Issue:** The instance metadata API does not currently support reserved IPs.
+**Issue:** The metadata API does not currently support reserved IPs.
 
 **Workaround:** Continue to use the `primary_ipv4_address` property to retrieve the IP address for each network interface on an instance. See the [VPC Metadata API](/apidocs/vpc-metadata).
 

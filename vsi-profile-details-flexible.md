@@ -2,7 +2,7 @@
 
 copyright:
   years: 2025, 2025
-lastupdated: "2025-08-12"
+lastupdated: "2025-08-15"
 
 keywords: virtual server instances, flex profile, flexible profile, virtual server profile
 
@@ -89,7 +89,7 @@ The following list shows the supported features of Flex profiles.
 * Instance templates
 * Autoscale
 * Placement groups
-* Instance metadata
+* Metadata
 * Lost node remediation (LNR). LNR is supported according to the server's host failure availability policy (stop or restart)
 * Live migration
 

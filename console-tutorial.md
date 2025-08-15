@@ -2,7 +2,7 @@
 
 copyright:
   years: 2018, 2025
-lastupdated: "2025-07-13"
+lastupdated: "2025-08-15"
 
 keywords:
 
@@ -164,15 +164,15 @@ To create a virtual server instance in the newly created subnet, use these steps
 
 1. _Optional:_ In the Advanced options section, you can enter **User data** to run common configuration tasks when your instance starts. For example, you can specify cloud-init directives or shell scripts for Linux images. For more information, see [User Data](/docs/vpc?topic=vpc-user-data).
 
-1. The **Metadata** setting is disabled by default. When the metadata service is enabled, the instance collects instance configuration information and user data. For more information, see [About instance metadata for VPC](/docs/vpc?topic=vpc-imd-about). Metadata isn't supported for {{site.data.keyword.cloud}} Hyper Protect Virtual Server for {{site.data.keyword.vpc_full}} instances and z/OS virtual server instances.
+2. The **Metadata** setting is disabled by default. When the metadata service is enabled, the instance collects instance configuration information and user data. For more information, see [About metadata for VPC](/docs/vpc?topic=vpc-imd-about). Metadata isn't supported for {{site.data.keyword.cloud}} Hyper Protect Virtual Server for {{site.data.keyword.vpc_full}} instances and z/OS virtual server instances.
 
-1. The **Add to dedicated host** setting is disabled by default. For more information about dedicated hosts, see [Creating dedicated hosts and groups](/docs/vpc?topic=vpc-creating-dedicated-hosts-instances).
+3. The **Add to dedicated host** setting is disabled by default. For more information about dedicated hosts, see [Creating dedicated hosts and groups](/docs/vpc?topic=vpc-creating-dedicated-hosts-instances).
 
-1. The **Add to placement group** setting is disabled by default. For more information, see [About placement groups](/docs/vpc?topic=vpc-about-placement-groups-for-vpc).
+4. The **Add to placement group** setting is disabled by default. For more information, see [About placement groups](/docs/vpc?topic=vpc-about-placement-groups-for-vpc).
 
-1. The **Host failure auto restart** setting is enabled by default. To disable host failure auto restart, click the toggle. For more information, see [Host failure recovery policies](/docs/vpc?topic=vpc-host-failure-recovery-policies&interface=ui).
+5. The **Host failure auto restart** setting is enabled by default. To disable host failure auto restart, click the toggle. For more information, see [Host failure recovery policies](/docs/vpc?topic=vpc-host-failure-recovery-policies&interface=ui).
 
-1. Click **Create virtual server instance**. The status of the instance starts as _Pending_, changes to _Stopped_, and then _Running_. You might need to refresh the page to see the change in status.
+6. Click **Create virtual server instance**. The status of the instance starts as _Pending_, changes to _Stopped_, and then _Running_. You might need to refresh the page to see the change in status.
 
 ## Creating and attaching a Block Storage volume
 {: #creating-a-block-storage-volume}
