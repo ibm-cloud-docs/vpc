@@ -2,7 +2,7 @@
 
 copyright:
   years: 2015, 2025
-lastupdated: "2025-06-04"
+lastupdated: "2025-08-15"
 
 keywords:
 
@@ -68,7 +68,7 @@ When you want to delete an {{site.data.keyword.vpc_short}} custom image that is 
 | Virtual private cloud | Specify the IBM Cloud VPC where you want to create your instance. You can use an existing VPC or you can create a new VPC. To create a new VPC, click **New VPC**. |
 | Network interfaces | Defines the networking connection into the IBM Cloud VPC. By default, the new option **Network attachment with a virtual network interface** is selected for your instance template. Alternatively, you can select the legacy option **Instance network interface**. Whichever type of network interface option that you select when you provision the virtual server persists through the lifecycle of the virtual server. After you selected your network interface type, you can click the **Edit icon** ![Edit icon](../icons/edit-tagging.svg "Edit") to update the details of the network interface, for example, the subnet or the associated security group. |
 | User data | You can add user data that automatically performs common configuration tasks or runs scripts. For more information, see [User data](/docs/vpc?topic=vpc-user-data). |
-| Metadata | Disabled by default, lets the instance that is created from this template gather metadata about itself. Click the toggle to turn on the metadata service. For more information, see [About Instance Metadata for VPC](/docs/vpc?topic=vpc-imd-about). |
+| Metadata | Disabled by default, lets the instance that is created from this template gather metadata about itself. Click the toggle to turn on the metadata service. For more information, see [About Metadata for VPC](/docs/vpc?topic=vpc-imd-about). |
 | Add to dedicated host | You can add the virtual server instance to a dedicated host, creating the instance in a single-tenant space. To provision a dedicated instance, you must have a dedicated host available or [create one](/docs/vpc?topic=vpc-creating-dedicated-hosts-instances).  |
 | Add to placement group | You can select a placement group for the instance. To enable placement groups, click the toggle. Then, select or create a placement group for the instance. If you add a placement group, the instance is placed according to the placement group strategy. For more information, see [About placement groups](/docs/vpc?topic=vpc-about-placement-groups-for-vpc). |
 | Host failure auto restart | This setting is enabled by default. To disable host failure auto restart, click the toggle. For more information, see [Host failure recovery policies](/docs/vpc?topic=vpc-host-failure-recovery-policies&interface=ui). |

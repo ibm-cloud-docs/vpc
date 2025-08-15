@@ -2,7 +2,7 @@
 
 copyright:
   years: 2022, 2025
-lastupdated: "2025-04-24"
+lastupdated: "2025-08-15"
 
 keywords:
 
@@ -25,7 +25,7 @@ If your clients continue to specify version `2022-03-28` or earlier of the VPC A
 Even if you are not planning to use reserved IP addresses, to avoid regressions in client functionality, read, and follow the [action needed](#action-needed) section before your client specifies a version `2022-03-29` or later.
 {: important}
 
-The [VPC Instance Metadata API](/apidocs/vpc-metadata) does not yet support reserved IP addresses. Clients that use the metadata API do not require changes to use version `2022-03-29` or later.
+The [VPC Metadata API](/apidocs/vpc-metadata) does not yet support reserved IP addresses. Clients that use the metadata API do not require changes to use version `2022-03-29` or later.
 {: note}
 
 ## Action needed
