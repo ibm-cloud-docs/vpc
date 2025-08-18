@@ -2,7 +2,7 @@
 
 copyright:
   years: 2020, 2025
-lastupdated: "2025-07-29"
+lastupdated: "2025-08-18"
 
 keywords: fortigate, fortigate peer
 
@@ -58,7 +58,7 @@ The following steps show how to connect an IBM static, route-based VPN to a Fort
 
 1. To configure a peer IP of a primary tunnel, use the small public IP address of the IBM route-based VPN gateway as the remote gateway IP address.
 
-   For more information about the small public IP, see this [important notice](/docs/vpc?topic=vpc-using-vpn#important-notice).
+   For more information about the small public IP, see this [important notice](/docs/vpc?topic=vpc-using-vpn#important-notice). Also, keep in mind that in some cases, when you configure the Fortigate peer, set the NAT Traversal option to **Forced** instead of **Enabled** to avoid experiencing packet drop issues.
    {: note}
 
    ![FortiGate connection with peer IP of the primary tunnel](images/vpn-fortigate-configure-peer-ip.png){: caption="FortiGate connection with peer IP of primary tunnel" caption-side="bottom"}
@@ -99,7 +99,7 @@ To configure a secondary tunnel, follow these steps:
 
    ![FortiGate connection primary route](images/vpn-fortigate-configure-primary-route.png){: caption="FortiGate connection primary route" caption-side="bottom"}
 
-1. To configure a secondary route, create the backup route where the destination is your VPC subnet, the interface is the secondary tunnel, and the administrative distance is greater than the one on the primary route.
+1. To configure a secondary route, create the backup route where the destination is your VPC subnet and the interface is the secondary tunnel. Make sure that the administrative distance is greater than the one on the primary route.
 
    ![FortiGate connection secondary route](images/vpn-fortigate-configure-secondary-route.png){: caption="FortiGate connection secondary route" caption-side="bottom"}
 
