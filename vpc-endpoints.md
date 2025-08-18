@@ -3,7 +3,7 @@
 copyright:
   years: 2019, 2023
 
-lastupdated: "2025-03-13"
+lastupdated: "2025-08-18"
 
 keywords: CSE, endpoint, service, DNS, resolver, mirror, object, storage, bandwidth, charges
 
@@ -49,7 +49,7 @@ Use one of the following public endpoints to connect to the VPC infrastructure A
 {: tab-group="vpc-api-endpoints"}
 {: #vpc-europe-endpoints}
 
-For x86-64 dedicated host profiles, the Madrid region only supports dedicated host profiles with instance storage. For more information, see [Dedicated host profiles](/docs/vpc?topic=vpc-dh-profiles&interface=ui).
+For x86-64 dedicated host profiles, the Madrid region supports only dedicated host profiles with instance storage. For more information, see [Dedicated host profiles](/docs/vpc?topic=vpc-dh-profiles&interface=ui).
 {: important}
 
 |   Location     | Region | Public Endpoint | Private Endpoint |
@@ -69,7 +69,7 @@ LinuxONE (s390x processor architecture) profiles are supported on virtual server
 
 After resources are created and accessible in your VPC, you're ready to run workloads. From inside the VPC infrastructure, you can access two types of {{site.data.keyword.cloud_notm}} endpoints: platform as a service (PaaS) endpoints, also known as service endpoints, and infrastructure as a service (IaaS) endpoints.
 
-Although the addresses for these endpoints look as if they communicate through the public internet, traffic to and from these endpoints does not leave {{site.data.keyword.cloud_notm}}. Therefore, this traffic avoids the bandwidth charges associated with traffic that exits the cloud and goes onto the public internet.
+Although the addresses for these endpoints look as if they communicate through the public internet, traffic to and from these endpoints doesn't leave {{site.data.keyword.cloud_notm}}. Therefore, this traffic avoids the bandwidth charges associated with traffic that exits the cloud and goes onto the public internet.
 
 ## Service endpoints
 {: #cloud-service-endpoints}
@@ -104,6 +104,8 @@ The following ports must be open to allow ADN network traffic to flow for the fo
 For Linux virtual machines, open port `8443` to `161.26.0.0/16`.
 {: note}
 
+
+
 ## Virtual private endpoints
 {: #virtual-private-endpoints}
 
@@ -136,4 +138,4 @@ An NTP server is available from `time.adn.networklayer.com`, which resolves to `
 
 {{site.data.keyword.cos_full_notm}} stores encrypted and dispersed data across multiple geographic locations. For more information about {{site.data.keyword.cos_full_notm}}, see [Getting started with {{site.data.keyword.cos_full_notm}}](/docs/cloud-object-storage?topic=cloud-object-storage-getting-started-cloud-object-storage).
 
-For more information about reaching {{site.data.keyword.cos_short}} from a VPC see [Connecting to {{site.data.keyword.cos_full_notm}} from VPC](/docs/vpc?topic=vpc-connecting-vpc-cos).
+For more information about reaching {{site.data.keyword.cos_short}} from a VPC, see [Connecting to {{site.data.keyword.cos_full_notm}} from VPC](/docs/vpc?topic=vpc-connecting-vpc-cos).
