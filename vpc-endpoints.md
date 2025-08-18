@@ -104,7 +104,15 @@ The following ports must be open to allow ADN network traffic to flow for the fo
 For Linux virtual machines, open port `8443` to `161.26.0.0/16`.
 {: note}
 
+## Instance metadata endpoints
+{: #instance-metadata-endpoint}
 
+The metadata endpoint provides instance-specific metadata and is accessible only from within the virtual machine. The metadata API can be accessed from within that instance by using the following endpoint URLs:
+
+* When the metadata_service.protocol property is `http`, the endpoint URL can either contain the service's IP address `http://169.254.169.254` or the service's hostname `http://api.metadata.cloud.ibm.com`.
+* When the metadata_service.protocol property is `https`, the endpoint URL must contain the service's hostname `https://api.metadata.cloud.ibm.com`.
+
+You cannot configure the metadata service with both `http` and `https` protocols at the same time. See [Endpoint URLs](/apidocs/vpc-metadata#endpoint-url-metadata), for instance metadata API.
 
 ## Virtual private endpoints
 {: #virtual-private-endpoints}
