@@ -2,7 +2,7 @@
 
 copyright:
   years: 2021, 2025
-lastupdated: "2025-07-28"
+lastupdated: "2025-08-18"
 
 keywords: file storage, file share, performance, IOPS, block size, capacity, range
 
@@ -23,7 +23,7 @@ When you provision {{site.data.keyword.filestorage_vpc_short}} file shares by us
 
 When you [create a file share](/docs/vpc?topic=vpc-file-storage-create), you select the share size and IOPS performance that is available, based on a file storage profile. Currently, all file shares are created based on the high-performance [dp2](#dp2-profile) profile.
 
-Customers with special access to preview the new regional file share offering can use the **rfs** profile to create file shares with regional availability and adjustable throughput values.
+Customers with special access to preview the new regional file share offering can use the **rfs** profile to create file shares with regional availability and adjustable bandwidth values.
 {: beta}
 
 File shares that were created during the beta and limited availability phases with either one of the [tiered](#fs-tiers) profiles or the [custom](#fs-custom) profile can continue to operate based on these profiles. You can also update these file shares to use the `dp2` profile or switch to another previous generation profile. However, you cannot use the previous profiles when you create a file share, and only the file shares with the `dp2` profile can use new features like encryption-in-transit, cross-zone mounting, cross-account sharing, and snapshots.
@@ -32,20 +32,20 @@ The following tables show the characteristics and performance levels of the avai
 
 Current file share profiles:
 
-| Family   | Profile         | Availability  | Share size   |IOPS per share | Max throughput[^tabletext1]| 
+| Family   | Profile         | Availability  | Share size   |IOPS per share | Max bandwidth[^tabletext1]| 
 |----------|-----------------|--------------:|-------------:|---------------|-------------:|
 | `defined_performance`|`dp2`|         Zonal | 10-32,000 GB |    100-96,000 |    8192 Mbps |
 | `defined_performance`|`rfs`|      Regional |  1-32,000 GB |        35,000 |    8192 Mbps |
 {: caption="Comparison of file share profiles and performance levels." caption-side="top"}
 
-[^tabletext1]: For the `dp2` profile, the maximum allowable bandwidth is determined by the number of IOPS multiplied by 256 KB. For the `rfs` profile, the baseline throughput is 1 MBps for every 20 GB of capacity. You can increase the throughput value by increasing the capacity and IOPS of the `dp2` shares, and by increasing the throughput value of the `rfs` profile-based shares. Maximum throughput is 8192 Mbps for all defined performance profiles.
+[^tabletext1]: For the `dp2` profile, the maximum allowable bandwidth is determined by the number of IOPS multiplied by 256 KB. For the `rfs` profile, the baseline bandwidth is 8 Mbps for every 20 GB of capacity. You can increase the bandwidth value by increasing the capacity and IOPS of the `dp2` shares, and by increasing the bandwidth value of the `rfs` profile-based shares. Maximum bandwidth is 8192 Mbps for all defined performance profiles.
 
 First- and second-generation profiles in the defined performance profile family are not interchangeable. You can't convert a zonal file share to a regional share, or a regional share to a zonal share.
 {: important}
 
 Deprecated file share profiles:
 
-| Family   | Profile         | Availability  | Share size   |IOPS per share | Max throughput| 
+| Family   | Profile         | Availability  | Share size   |IOPS per share | Max bandwidth| 
 |----------|-----------------|--------------:|-------------:|---------------|-------------:|
 | `tiered` | `tier-3iops`    |         Zonal | 10-32,000 GB |  3,000-96,000 |    5360 Mbps |
 | `tiered` | `tier-5iops`    |         Zonal |  10-9,600 GB |  3,000-48,000 |    6144 Mbps |
@@ -53,11 +53,11 @@ Deprecated file share profiles:
 | `custom` | `custom`        |         Zonal | 10-16,000 GB |  3,000-48,000 |    8192 Mbps |
 {: caption="Comparison of file share profiles and performance levels." caption-side="top"}
 
-The maximum allowable throughput for zonal shares is determined by the number of IOPS multiplied by the throughput multiplier, which is specific to the profile. 
+The maximum allowable bandwidth for zonal shares is determined by the number of IOPS multiplied by the bandwidth multiplier, which is specific to the profile. 
 
-[Beta]{: tag-cyan} The throughput value of regional file shares is adjustable. For the `rfs` profile, the baseline throughput is 8 Mbps for every 20 GB of capacity. This value can be increased up to 8192 Mbps in the console, from the CLI, and with the API.
+[Beta]{: tag-cyan} The bandwidth value of regional file shares is adjustable. For the `rfs` profile, the baseline bandwidth is 8 Mbps for every 20 GB of capacity. This value can be increased up to 8192 Mbps in the console, from the CLI, and with the API.
 
-The application I/O size directly impacts storage performance. If the application I/O size is smaller than the throughput multiplier that is used by the profile to calculate the bandwidth, the IOPS limit is reached before the throughput limit. Conversely, if the application I/O size is larger, the throughput limit is reached before the IOPS limit.
+The application I/O size directly impacts storage performance. If the application I/O size is smaller than the bandwidth multiplier that is used by the profile to calculate the bandwidth, the IOPS limit is reached before the bandwidth limit. Conversely, if the application I/O size is larger, the bandwidth limit is reached before the IOPS limit.
 
 A single session can achieve up to 64 KB block size transfer. To use the max allowable bandwidth, you need multiple concurrent sessions to the share.
 
@@ -75,7 +75,7 @@ Zonal data availability means that data is available within a single availabilit
 
 File shares can be created with capacity in the range of 10 GB (preset minimum) to 32,000 GB. You can start small, and if you need more storage capacity later, you can increase the size of the file share. When you create a file share, you can select an IOPS value between 100 IOPS (the preset minimum) to 96,000 IOPS, based on share size. You can also adjust the IOPS later. 
 
-For the `dp2` profile, the baseline throughput is determined by the number of IOPS multiplied by 256 KB. So when you increase the capacity and the IOPS, you also increase the throughput limit. The maximum throughput value for this profile is 8192 Mbps.
+For the `dp2` profile, the baseline bandwidth is determined by the number of IOPS multiplied by 256 KB. So when you increase the capacity and the IOPS, you also increase the bandwidth limit. The maximum bandwidth value for this profile is 8192 Mbps.
 
 Table 2 shows the available IOPS ranges, based on share size.
 
@@ -104,7 +104,7 @@ The `rfs` profile is the second-generation profile in the defined performance pr
 
 Regional data availability means that data is replicated across all 3 zones within the region, offering higher availability and fault tolerance. Due to the synchronous replication between the zones and the need to ensure data durability, you might experience increased latency during write operations. For workloads where latency performance is less critical than durability, or higher and more consistent IOPS is preferred over low latency, the regional shares can be a better choice.
 
-When you create a regional file share, you can specify its capacity between 1 GiB to 32,000 GiB. For every 20 GiB of capacity, 1 MBps of throughput is included. For example, the preset throughput value of a 500 GB file share is 25 MBps (200 Mbps) and the preset value of a 16,000 GB file share is 800 MBps (6400 Mbps). You can increase the throughput from the preset value up to 1024 MBps (8192 Mbps) for extra cost. After the file share is created, you can adjust the throughput between the preset and the maximum values anytime.
+When you create a regional file share, you can specify its capacity between 1 GiB to 32,000 GiB. For every 20 GiB of capacity, 8 Mbps of bandwidth is included. For example, the preset bandwidth value of a 500 GB file share is 200 Mbps and the preset value of a 16,000 GB file share is 6400 Mbps. You can increase the bandwidth from the preset value up to 8192 Mbps for extra cost. After the file share is created, you can adjust the bandwidth between the preset and the maximum values anytime.
 
 In the beta release, cross-account access, cross-region asynchronous replication, and scheduled backups are not supported.
 
@@ -393,9 +393,9 @@ The beta API response is enhanced to include the following fields:
 - `availability_modes` denotes the data availability. 
     - The `dp2` profile supports zonal data availability.
     - The `rfs` profile supports regional data availability.
-- `bandwidth` denotes the available maximum throughput value that the file share can handle.
+- `bandwidth` denotes the available maximum bandwidth value that the file share can handle.
     - For the `dp2` profile, the bandwidth is calculated by multiplying the number of IOPS by 256 KB.
-    - For the `rfs` profile, the preset value is calculated as 1 MBps for every 20 GB of capacity. However, you can increase this value up to 1024 MBps.
+    - For the `rfs` profile, the preset value is calculated as 8 Mbps for every 20 GB of capacity. However, you can increase this value up to 8192 Mbps.
 - `storage_generation` denotes the generation of the file share profile within the Defined performance profile family. 
     - For the `dp2` profile, the value is `1`.
     - For the `rfs` profile, the value is `2`.
@@ -430,15 +430,15 @@ The beta API response is enhanced to include the following fields:
 
 IOPS values are based on a 16 KB block size for all profiles, with a 50-50 read/write random workload. Each 16 KB of data that is read or written counts as one read/write operation. A single write of less than 16 KB counts as a single write operation.
 
-Maximum throughput for a file share is calculated by taking the file share's IOPS and multiplying it by the throughput multiplier. The throughput multiplier is 16 KB for 3 IOPS/GB or 5 IOPS/GB tiers, or 256 KB for 10 IOPS/GB, custom IOPS, and `dp2` profiles. The higher the IOPS that you specify, the higher the throughput. Maximum throughput is 1024 MBps.
+Maximum bandwidth for a file share is calculated by taking the file share's IOPS and multiplying it by the bandwidth multiplier. The bandwidth multiplier is 16 KB for 3 IOPS/GB or 5 IOPS/GB tiers, or 256 KB for 10 IOPS/GB, custom IOPS, and `dp2` profiles. The higher the IOPS that you specify, the higher the bandwidth. Maximum bandwidth is 8192 Mbps.
 
-[Beta]{: tag-cyan} For the `rfs` profile, the throughput is directly [adjustable](/docs/vpc?topic=vpc-file-storage-adjusting-throughput). The preset value is calculated as 1 MBps for every 20 GB of capacity. You can increase this value up to 1024 MBps, or reduce it back to the preset value. The IOPS value for a regional file share is 35000.
+[Beta]{: tag-cyan} For the `rfs` profile, the bandwidth is directly [adjustable](/docs/vpc?topic=vpc-file-storage-adjusting-bandwidth). The preset value is calculated as 1 MBps for every 20 GB of capacity. You can increase this value up to 8192 Mbps, or reduce it back to the preset value. The IOPS value for a regional file share is 35000.
 
-The application I/O size directly impacts storage performance. If the application I/O size is smaller than the throughput multiplier that is used by the profile to calculate the bandwidth, the IOPS limit is reached before the throughput limit. Conversely, if the application I/O size is larger, the throughput limit is reached before the IOPS limit.
+The application I/O size directly impacts storage performance. If the application I/O size is smaller than the bandwidth multiplier that is used by the profile to calculate the bandwidth, the IOPS limit is reached before the bandwidth limit. Conversely, if the application I/O size is larger, the bandwidth limit is reached before the IOPS limit.
 
-Table 5 provides some examples of how block size and IOPS affect the throughput, calculated average I/O block size x IOPS = Throughput in MBps.
+Table 5 provides some examples of how block size and IOPS affect the bandwidth, calculated average I/O block size x IOPS = Bandwidth in MBps.
 
-| Block Size (KB) | IOPS | Throughput (MBps) |
+| Block Size (KB) | IOPS | Bandwidth (MBps) |
 |-----------------|------|-------------------|
 | 4 | 1,000 | 4¹|
 | 8 | 1,000 | 8¹|
@@ -448,11 +448,11 @@ Table 5 provides some examples of how block size and IOPS affect the throughput,
 | 128 | 128 | 16 |
 | 512 | 32 | 16 |
 | 1,024 | 16 | 16 |
-{: caption="How block size and IOPS affect throughput." caption-side="bottom"}
+{: caption="How block size and IOPS affect bandwidth." caption-side="bottom"}
 
-¹ If your cap is 1000 IOPS or 16 KB block size, the throughput caps at whatever limit is reached first.
+¹ If your cap is 1000 IOPS or 16 KB block size, the bandwidth caps at whatever limit is reached first.
 
-Maximum IOPS can still be obtained when you use smaller block sizes, but throughput is less. The following example shows how throughput decreases for smaller block sizes, when max IOPS is maintained.
+Maximum IOPS can still be obtained when you use smaller block sizes, but bandwidth is less. The following example shows how bandwidth decreases for smaller block sizes, when max IOPS is maintained.
 
 * 16 KB * 6000 IOPS == ~94 MBps
 * 8 KB * 6000 IOPS == ~47 MBps

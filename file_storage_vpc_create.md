@@ -2,7 +2,7 @@
 
 copyright:
   years: 2021, 2025
-lastupdated: "2025-08-15"
+lastupdated: "2025-08-18"
 
 keywords: file share, file storage, virtual network interface, encryption in transit, profiles, 
 
@@ -28,7 +28,7 @@ You can create file shares and mount targets either of the following ways:
 
 When you create a mount target, its transit encryption type must reflect the share's allowed transit encryption modes. You can create multiple mount targets for the share if it's to be used by resources in different VPCs. You can create one mount target per VPC for the file share.
 
-Customers with special access to preview the new regional file share offering can use the **rfs** profile to create file shares with regional availability and adjustable throughput values.
+Customers with special access to preview the new regional file share offering can use the **rfs** profile to create file shares with regional availability and adjustable bandwidth values.
 {: beta}
 
 ## Creating a file share in the console
@@ -277,7 +277,7 @@ Source snapshot                    -
 ### Creating a regional file share without a mount target from the CLI
 {: #fs-create-regional-share-cli}
 
-[Beta]{: tag-cyan} Customers with special access to preview the new regional file share offering can use the **rfs** profile to create file shares with regional availability and adjustable throughput values.
+[Beta]{: tag-cyan} Customers with special access to preview the new regional file share offering can use the **rfs** profile to create file shares with regional availability and adjustable bandwidth values.
 
 Before you begin, remember to set the environmental variable:
 
@@ -288,7 +288,7 @@ export IBMCLOUD_IS_FEATURE_SHARE_DENALI_REGIONAL_AVAILABILITY=true
 
 The CLI returns the properties for "Allowed Access Protocols", "Availability Mode", "Bandwidth", and "Storage Generation" only when this environmental variable is set to "true".
 
-The following example shows how to create 40-GB regional file share with 125 MBps bandwidth. This file share is created with security group access mode and with provider-managed encryption. The file share is created in the region that you selected when you logged in, no location selection is required.
+The following example shows how to create 40-GB regional file share with 125 Mbps bandwidth. This file share is created with security group access mode and with provider-managed encryption. The file share is created in the region that you selected when you logged in, no location selection is required.
 
 ```sh
 $ ibmcloud is share-create --name my-regional-file-share --profile rfs --size 40 --bandwidth 125 --allowed-access-protocols nfs4 --atem stunnel,none 
@@ -768,10 +768,10 @@ A successful response looks like the following example.
 ### Creating a regional file share with the API
 {: #fs-create-rfs-file-share-api}
 
-Customers with special access to preview the new regional file share offering can use the **rfs** profile to create file shares with regional availability and adjustable throughput values.
+Customers with special access to preview the new regional file share offering can use the **rfs** profile to create file shares with regional availability and adjustable bandwidth values.
 {: beta}
 
-The following example shows how to create 1000-GB regional file share with 60 MBps bandwidth. This file share is created with the default security group access mode and with provider-managed encryption. The file share is created in the region that you selected when you logged in, no location selection is required.
+The following example shows how to create 1000-GB regional file share with 60 Mbps bandwidth. This file share is created with the default security group access mode and with provider-managed encryption. The file share is created in the region that you selected when you logged in, no location selection is required.
 
 ```sh
 curl -X POST \

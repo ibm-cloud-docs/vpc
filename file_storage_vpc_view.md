@@ -2,7 +2,7 @@
 
 copyright:
   years: 2022, 2025
-lastupdated: "2025-07-28"
+lastupdated: "2025-08-18"
 
 keywords: file storage, file share, view share details, mount targets, view targets, view share
 
@@ -78,7 +78,7 @@ You can access the Actions menu by clicking ![Actions icon](../icons/action-menu
      | Profile | The name of the share [profile](/docs/vpc?topic=vpc-file-storage-profiles) that defines the file share performance. In most cases, the dp2 profile.|
      | Size | File share capacity in GB. |
      | Max IOPS | Maximum IOPS for the specified share. This field is displayed for zonal shares. |
-     | Throughput [Beta]{: tag-cyan} | The maximum throughput limit that is specified for the share. This field is displayed for regional shares.|
+     | Throughput [Beta]{: tag-cyan} | The maximum bandwidth limit that is specified for the share. This field is displayed for regional shares.|
      | **Mount targets** | Number of mount targets associated with the file share. You can have one mount target per VPC per file share. You can create more mount targets for other VPCs. Click ![Actions icon](../icons/action-menu-icon.svg) to rename or delete the mount target, or to view the mount path. |
      | Name | Name of the mount target. |
      | Status | Status of the mount target on the VPC. |
@@ -110,7 +110,7 @@ You can access the Actions menu by clicking ![Actions icon](../icons/action-menu
       - The snapshot summary provides information such as the number of snapshots, the overall data volume captured in the snapshots, and the replication role.
       - The Snapshots list shows the snapshots that were taken of the file share. You can see the name, size of the file share when the snapshot was taken, and the status of the snapshot. You can click **Create** to capture a new snapshot. Click the **Actions** icon ![Actions icon](../icons/action-menu-icon.svg "Actions") to reveal the Actions menu. The Actions menu has 2 options: Restore, and Delete.
      
-   - **Monitoring** - On the Monitoring tab, you can see three graphs for share usage, total throughput, and total IOPS. These graphs are available to you at no cost, even without an {{site.data.keyword.mon_full_notm}} instance. You can customize the date range to view data over time.
+   - **Monitoring** - On the Monitoring tab, you can see three graphs for share usage, total bandwidth, and total IOPS. These graphs are available to you at no cost, even without an {{site.data.keyword.mon_full_notm}} instance. You can customize the date range to view data over time.
 
      Monitoring these utilization metrics can help you to determine how much work is done by your application or workload. You can use this information to determine whether the IOPS value needs to be adjusted. Monitoring the available capacity of your share can help you identify the need for more storage before insufficient space can become a problem with writing data to the share or replication. Seeing these metrics can help you anticipate any changes in charges at the end of the billing period.
      

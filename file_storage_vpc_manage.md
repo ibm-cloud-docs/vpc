@@ -2,7 +2,7 @@
 
 copyright:
   years: 2021, 2025
-lastupdated: "2025-07-28"
+lastupdated: "2025-08-18"
 
 keywords: file share, file storage, rename share, increase size, adjust IOPS, mount target
 
@@ -38,7 +38,7 @@ In the console, you can:
 * [Update allowed transit encryption modes](#fs-update-transit-encryption-ui) (not applicable for accessor shares).
 * [Increase file share capacity](/docs/vpc?topic=vpc-file-storage-expand-capacity&interface=ui)
 * [Adjust the IOPS for a zonal file share](/docs/vpc?topic=vpc-file-storage-adjusting-iops&interface=ui)
-* [Adjust the throughput limit for a regional file share](/docs/vpc?topic=vpc-file-storage-adjusting-throughput&interface=ui)
+* [Adjust the bandwidth limit for a regional file share](/docs/vpc?topic=vpc-file-storage-adjusting-bandwidth&interface=ui)
 * [Add user tags to file shares](#fs-add-user-tags).
 * [Delete mount target of a file share](#delete-mount-target-ui).
 * [Delete a file share](#delete-file-share-ui).
@@ -102,7 +102,7 @@ By using the CLI, you can:
 * [Update allowed transit encryption modes](#fs-update-transit-encryption-cli) (not applicable for accessor share).
 * [Increase file share capacity](/docs/vpc?topic=vpc-file-storage-expand-capacity&interface=cli)
 * [Adjust the IOPS for a zonal file share](/docs/vpc?topic=vpc-file-storage-adjusting-iops&interface=cli)
-* [Adjust the throughput limit for a regional file share](/docs/vpc?topic=vpc-file-storage-adjusting-throughput&interface=cli)
+* [Adjust the bandwidth limit for a regional file share](/docs/vpc?topic=vpc-file-storage-adjusting-bandwidth&interface=cli)
 * [Add user tags to file shares](#fs-add-user-tags).
 * [Delete mount target of a file share](#delete-mount-target-cli).
 * [Delete a file share](#delete-file-share-cli).
@@ -321,7 +321,7 @@ By using the API, you can:
 * [Update allowed transit encryption modes with the API](#fs-update-transit-encryption-api) (not applicable for accessor shares).
 * [Increase file share capacity](/docs/vpc?topic=vpc-file-storage-expand-capacity&interface=api)
 * [Adjust the IOPS for a zonal file share](/docs/vpc?topic=vpc-file-storage-adjusting-iops&interface=api)
-* [Adjust the throughput limit for a regional file share](/docs/vpc?topic=vpc-file-storage-adjusting-throughput&interface=api)
+* [Adjust the bandwidth limit for a regional file share](/docs/vpc?topic=vpc-file-storage-adjusting-bandwidth&interface=api)
 * [Add user tags to file shares](#fs-add-user-tags).
 * [Delete mount target of a file share](#delete-mount-target-api).
 * [Delete a file share](#delete-file-share-api).
@@ -941,12 +941,12 @@ Mounting is a process by which a server's operating system makes files and direc
 ## Monitoring file shares
 {: #fs-manage-monitor}
 
-You can check the status and health states of your file share by using the console, the CLI, or the API. You can monitor the total throughput, the total IOPS, the number of mount targets, and capacity usage of your share over time in the {{site.data.keyword.cloud_notm}} console. You can use {{site.data.keyword.atracker_full}} to configure how to route auditing events for file shares. You can also configure {{site.data.keyword.logs_routing_full_notm}} for handling logs. For more information, see [Monitoring file share health states, lifecycle status, and events](/docs/vpc?topic=vpc-fs-vpc-monitoring).
+You can check the status and health states of your file share by using the console, the CLI, or the API. You can monitor the total bandwidth, the total IOPS, the number of mount targets, and capacity usage of your share over time in the {{site.data.keyword.cloud_notm}} console. You can use {{site.data.keyword.atracker_full}} to configure how to route auditing events for file shares. You can also configure {{site.data.keyword.logs_routing_full_notm}} for handling logs. For more information, see [Monitoring file share health states, lifecycle status, and events](/docs/vpc?topic=vpc-fs-vpc-monitoring).
 
 During the beta release of regional shares, these metrics are not available in the Monitoring tab of the console.
 {: beta}
 
-File shares can be integrated with {{site.data.keyword.mon_full}} to gain operational visibility into the performance and health of your shares. In the Sysdig web UI you can view the throughput, IOPS, and capacity metrics in more detail, customize your dashboards, and set up alerts. For more information, see [Monitoring metrics for {{site.data.keyword.filestorage_vpc_short}}](/docs/vpc?topic=vpc-fs-vpc-monitoring-sysdig).
+File shares can be integrated with {{site.data.keyword.mon_full}} to gain operational visibility into the performance and health of your shares. In the Sysdig web UI you can view the bandwidth, IOPS, and capacity metrics in more detail, customize your dashboards, and set up alerts. For more information, see [Monitoring metrics for {{site.data.keyword.filestorage_vpc_short}}](/docs/vpc?topic=vpc-fs-vpc-monitoring-sysdig).
 
 ## Deleting file shares, accessor share bindings, and mount targets
 {: #delete-vpc-file-resources}

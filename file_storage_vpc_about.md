@@ -2,7 +2,7 @@
 
 copyright:
   years: 2021, 2025
-lastupdated: "2025-07-31"
+lastupdated: "2025-08-18"
 
 keywords: file share, mount target, virtual network interface, customer-managed encryption, encryption at rest, encryption in transit, file storage, share,
 
@@ -27,7 +27,7 @@ When you create a file share in your availability zone, you use the **dp2** prof
 
 If you have existing file shares that are based on either the IOPS tier profiles or custom IOPS profile; you can update those shares to use the **dp2** profile.
 
-Customers with special access to preview the new regional file share offering can use the **rfs** profile to create file shares with regional availability and adjustable throughput values.
+Customers with special access to preview the new regional file share offering can use the **rfs** profile to create file shares with regional availability and adjustable bandwidth values.
 {: beta}
 
 First- and second-generation profiles in the defined performance profile family are not interchangeable. You can't change the file share profile after the file share is created. You can't convert a zonal file share to a regional share, or a regional share to a zonal share.
@@ -61,7 +61,7 @@ Data is regionally available, setting up replication between different zones is 
 
 Data on a regional file share is encrypted at rest with IBM-managed encryption by default. For added security, you can use your own root keys to protect your file shares with customer-managed keys. When you specify the security group access mode and attach a [virtual network interface](/docs/vpc?topic=vpc-vni-about) to the file share mount target, you can enable encryption of data in transit. For more information, see [File share encryption](#FS-encryption).
 
-You can view and manage your regional file shares in the console, from the CLI, and with the API. You can [increase the file share size](/docs/vpc?topic=vpc-file-storage-expand-capacity) from its original capacity in GB increments up to 32,000 GB capacity. You can also [adjust your file share throughput](/docs/vpc?topic=vpc-file-storage-adjusting-throughput) to meet your performance needs. Operations to increase the capacity or adjust the throughput cause no outage or lack of access to the storage. Billing is adjusted automatically. You pay for only the capacity and performance that you need.
+You can view and manage your regional file shares in the console, from the CLI, and with the API. You can [increase the file share size](/docs/vpc?topic=vpc-file-storage-expand-capacity) from its original capacity in GB increments up to 32,000 GB capacity. You can also [adjust your file share bandwidth](/docs/vpc?topic=vpc-file-storage-adjusting-bandwidth) to meet your performance needs. Operations to increase the capacity or adjust the bandwidth cause no outage or lack of access to the storage. Billing is adjusted automatically. You pay for only the capacity and performance that you need.
 
 ## Access protocols
 {: #fs-allowed-access-protocols}
@@ -310,7 +310,7 @@ Further, when IBM decommissions a physical drive, the drive is destroyed before 
 ## Monitoring share-related metrics in the console
 {: #fs-mon-sysdig}
 
-{{site.data.keyword.mon_full}} is a third-party cloud-native, and container-intelligence management system that you can include as part of your {{site.data.keyword.cloud_notm}} architecture. {{site.data.keyword.mon_full_notm}} is operated by Sysdig in partnership with {{site.data.keyword.IBM_notm}}. You can access File share dashboards in the {{site.data.keyword.cloud_notm}} console and view metrics such as current read and write throughput, and maximum throughput. For more information, see [Monitoring metrics for File Storage for VPC](/docs/vpc?topic=vpc-fs-vpc-monitoring-sysdig&interface=ui).
+{{site.data.keyword.mon_full}} is a third-party cloud-native, and container-intelligence management system that you can include as part of your {{site.data.keyword.cloud_notm}} architecture. {{site.data.keyword.mon_full_notm}} is operated by Sysdig in partnership with {{site.data.keyword.IBM_notm}}. You can access File share dashboards in the {{site.data.keyword.cloud_notm}} console and view metrics such as current read and write bandwidth, and maximum bandwidth. For more information, see [Monitoring metrics for File Storage for VPC](/docs/vpc?topic=vpc-fs-vpc-monitoring-sysdig&interface=ui).
 
 During the beta release of regional shares, these metrics are not available in the Monitoring tab for the `rfs` shares.
 {: beta}

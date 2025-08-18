@@ -2,7 +2,7 @@
 
 copyright:
   years: 2022, 2025
-lastupdated: "2025-08-12"
+lastupdated: "2025-08-18"
 
 keywords: block storage for VPC, File Storage for VPC, Snapshots for VPC, Backup for VPC, block storage, file storage, snapshots, backup, 
 
@@ -43,7 +43,7 @@ Second-generation block volumes can be created with capacity in the range of 1 -
 | Availability        | Generally available in all VPC regions for all customers. | In the [select availability]{: tag-green} release, available in Dallas, Frankfurt, London, Madrid, Osaka, Sao Paulo, Sydney, Tokyo, Toronto, and Washington, DC for allowlisted customers.|
 | Expandable capacity | Yes, up to 16,000 GB     | Yes, up to 32,000 GB |
 | Adjustable IOPS     | Yes, up to 48,000. IOPS depends on capacity range. | Yes, up to 64,000.| 
-| Adjustable Bandwidth| No. Throughput can be increased by increasing capacity and IOPS. The maximum is 1024 MBps.| Yes, bandwidth can be adjusted to any value between 125 and 1024 MBps.|
+| Adjustable Bandwidth| No. Bandwidth can be increased by increasing capacity and IOPS. The maximum is 1024 MBps.| Yes, bandwidth can be adjusted to any value between 125 and 1024 MBps.|
 | Customer-managed encryption at rest | Yes. | Yes.|
 | Importing encrypted custom image for boot volumes |  Yes.  | Not supported in the [Select Availability]{: tag-green} release.|
 | Creating encrypted custom image from boot volume | Yes. | Not supported in the [Select Availability]{: tag-green} release.|
@@ -107,7 +107,7 @@ By using this service, you can:
 Customers with special access to preview the second-generation File Storage offering can provision file share with the new `rfs` profile. The `rfs` profile is available in the Dallas, Frankfurt, Madrid, and Washington, DC regions in the beta release.
 {: beta}
 
-Second-generation file shares can be created with capacity in the range of 1 - 32,000 GB. Customers can directly adjust their file share's bandwidth up to 1024 MBps (8192 Mbps). The preset value is 1 MBps for every 20 GB of capacity. The maximum IOPS that a share with the `rfs` profile can support is 35,000.
+Second-generation file shares can be created with capacity in the range of 1 - 32,000 GB. Customers can directly adjust their file share's bandwidth up to 8192 Mbps (1024 MBps). The preset value is 1 MBps for every 20 GB of capacity. The maximum IOPS that a share with the `rfs` profile can support is 35,000.
 
 Second-generation profiles provide regional data availability across all 3 zones of an MZR. Data is regionally available, setting up replication between different zones is unnecessary.
 
@@ -117,13 +117,13 @@ Second-generation profiles provide regional data availability across all 3 zones
 | Data Availability   | Zonal                    | Regional  |
 | Expandable capacity | Yes, up to 16,000 GB     | Yes, up to 32,000 GB |
 | Adjustable IOPS     | Yes, up to 96,000. IOPS depends on capacity range. | No. Maximum IOPS is preset at 35,000.| 
-| Adjustable Bandwidth| No. Throughput can be increased by increasing capacity and IOPS, up to 1024 MBps.| Yes, bandwidth can be increased up to 1024 MBps, and it can be reduced to the preset value that is based on the file share capacity. No capacity increase needed.|
+| Adjustable Bandwidth| No. Bandwidth can be increased by increasing capacity and IOPS, up to 8192 Mbps.| Yes, bandwidth can be increased up to 8192 Mbps, and it can be reduced to the preset value that is based on the file share capacity. No capacity increase needed.|
 | Customer-managed encryption at rest | Yes. | Not supported in the [beta]{: tag-cyan} release.|
 | Customer-managed encryption in transit | Yes. IPsec protocol with strongSwan. | Yes. TLS protocol with stunnel.|
 | On-demand snapshots | Yes, up to 750 per share in a region. | Not supported in the [beta]{: tag-cyan} release. |
 | Scheduled snapshots | Yes, up to 750 snapshots per region. |  Not supported in the [beta]{: tag-cyan} release. |
 | Cross-zonal replication| Yes, as often as every 15 minutes. | Not applicable. Data is synchronously available in all zones of the region. |
-| Cross-regional replication | Yes, as often as every 15 minutes. |  Not supported in the [beta]{: tag-cyan}. |
+| Cross-regional replication | Yes, as often as every 15 minutes. |  Not supported in the [beta]{: tag-cyan} release. |
 | Cross-zonal mounting | Yes. | Not applicable. Data is synchronously available in all zones of the region. Storage traffic does not cross zone-boundaries. |
 | Cross-account access | Yes. A share can have up to 100 accessor bindings. | Not supported in the [beta]{: tag-cyan} release. |
 | Monitoring integration with Sysdig | Yes. | Not supported in the [beta]{: tag-cyan} release. |

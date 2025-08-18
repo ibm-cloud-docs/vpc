@@ -2,7 +2,7 @@
 
 copyright:
   years: 2022, 2025
-lastupdated: "2025-07-28"
+lastupdated: "2025-08-18"
 
 keywords: file share, file storage, IOPS, performance needs, adjust IOPS
 
@@ -20,7 +20,7 @@ For zonal file shares, you can increase or decrease IOPS to meet your performanc
 
 Billing for an updated share is automatically updated. The prorated difference of the new price is added to the current billing cycle. The new full amount is then billed in the next billing cycle.
 
-You can't modify the IOPS value of regional file shares that are created with the `rfs` profile. However, you can adjust the throughput value to finetune the share's performance.
+You can't modify the IOPS value of regional file shares that are created with the `rfs` profile. However, you can adjust the bandwidth value to finetune the share's performance.
 {: beta}
 
 ## Adjustable IOPS concepts

@@ -2,9 +2,9 @@
 
 copyright:
   years: 2025, 2025
-lastupdated: "2025-07-28"
+lastupdated: "2025-08-18"
 
-keywords: file share, regional, file storage, throughput, bandwidth
+keywords: file share, regional, file storage, bandwidth, bandwidth
 
 subcollection: vpc
 
@@ -12,32 +12,32 @@ subcollection: vpc
 
 {{site.data.keyword.attribute-definition-list}}
 
-# Adjusting throughput limit for a regional file share
-{: #file-storage-adjusting-throughput}
+# Adjusting bandwidth limit for a regional file share
+{: #file-storage-adjusting-bandwidth}
 
-Customers with special access to preview the new regional file share offering can use the `rfs` profile to create file shares with regional data availability and adjustable throughput values. The `rfs` profile is available in the Dallas, Frankfurt, Madrid, and Washington, DC regions during the beta release.
+Customers with special access to preview the new regional file share offering can use the `rfs` profile to create file shares with regional data availability and adjustable bandwidth values. The `rfs` profile is available in the Dallas, Frankfurt, Madrid, and Washington, DC regions during the beta release.
 {: beta}
 
-For regional file shares that are provisioned with the `rfs` profile, you can increase or decrease the throughput limit to meet your performance needs. The maximum throughput for any file share with the `rfs` profile is 1024 MBps (8192 Mbps). The minimum throughput value is calculated as 1 MBps for every 20 GB of capacity.
+For regional file shares that are provisioned with the `rfs` profile, you can increase or decrease the bandwidth limit to meet your performance needs. The maximum bandwidth for any file share with the `rfs` profile is 8192 Mbps (1024 MBps). The minimum bandwidth value is calculated as 8 Mbps for every 20 GB of capacity.
 {: shortdesc}
 
-With this feature, you can increase or decrease your share's throughput limit in the console, from the CLI, or with the API. To change this attribute, the share must be in an _available_ state. Your user authorization is verified before the bandwidth limit is adjusted.
+With this feature, you can increase or decrease your share's bandwidth limit in the console, from the CLI, or with the API. To change this attribute, the share must be in an _available_ state. Your user authorization is verified before the bandwidth limit is adjusted.
 
 Billing for an updated file share is automatically updated. The prorated difference of the new price is added to the current billing cycle. The new full amount is then billed in the next billing cycle.
 
-## Adjusting throughput in the console
-{: #adjust-fs-throughput-ui-block}
+## Adjusting bandwidth in the console
+{: #adjust-fs-bandwidth-ui-block}
 {: ui}
 
 1. Go to the list of all file shares. From the [{{site.data.keyword.cloud_notm}} console](/login){: external}, click the **Navigation menu** icon ![menu icon](../icons/icon_hamburger.svg) **> Infrastructure** ![VPC icon](../icons/vpc.svg) **> Storage > File storage shares**.
 1. Click the name of a file share to see the details page.
-1. Locate the **Profile** section, and click the **Edit icon** ![Edit icon](../icons/edit-tagging.svg "Edit"), or use the **Actions** menu ![Actions icon](../icons/action-menu-icon.svg "Actions") and select **Edit throughput**.
+1. Locate the **Profile** section, and click the **Edit icon** ![Edit icon](../icons/edit-tagging.svg "Edit"), or use the **Actions** menu ![Actions icon](../icons/action-menu-icon.svg "Actions") and select **Edit bandwidth**.
 1. In the side panel, you can specify a file share bandwidth limit between the file share's preset value and the maximum of 8192 Mbps.
 1. Review the estimated monthly order summary.
 1. If you're satisfied, click **Save and continue**.
 
-## Adjusting throughput from the CLI
-{: #adjust-fs-throughput-cli-block}
+## Adjusting bandwidth from the CLI
+{: #adjust-fs-bandwidth-cli-block}
 {: cli}
 
 To be able to create and manage a regional file share from the CLI, set the appropriate environmental variable with the following command.
@@ -49,14 +49,14 @@ export IBMCLOUD_IS_FEATURE_SHARE_DENALI_REGIONAL_AVAILABILITY=true
 
 The CLI returns the properties for "Allowed Access Protocols", "Availability Mode", "Bandwidth", and "Storage Generation" only when this environmental variable is set to "true".
 
-From the CLI, use the `ibmcloud is share-update` command with the `--bandwidth` option to indicate the new throughput value for a custom profile.
+From the CLI, use the `ibmcloud is share-update` command with the `--bandwidth` option to indicate the new bandwidth value for a custom profile.
 
 ```sh
 ibmcloud is share-update share_ID --bandwidth BANDWIDTH
 ```
 {: pre}
 
-This example shows an increase of the throughput limit to 3,000 Mbps. (The preset throughput value of a 1000 GB file share is 400 Mbps.)
+This example shows an increase of the bandwidth limit to 3,000 Mbps. (The preset bandwidth value of a 1000 GB file share is 400 Mbps.)
 
 ```sh
    $ ibmcloud is share-update my-file-share --bandwidth 2000
@@ -100,16 +100,16 @@ File shares with regional availability serve data in every zone of the region. T
 
 For more information about available command options, see [`ibmcloud is share-update`](/docs/cli?topic=cli-vpc-reference#share-update).
 
-## Adjusting throughput with the API
-{: #adjust-fs-throughput-api-block}
+## Adjusting bandwidth with the API
+{: #adjust-fs-bandwidth-api-block}
 {: api}
 
-You can adjust throughput for existing data shares by calling the beta VPC API. Make a `PATCH /shares` request and specify the `bandwidth` parameter to adjust the throughput limit.
+You can adjust bandwidth for existing data shares by calling the beta VPC API. Make a `PATCH /shares` request and specify the `bandwidth` parameter to adjust the bandwidth limit.
 
-You can't update the name of the share, increase the size, adjust IOPS, and adjust throughput limit in the same `PATCH /shares` request. Make separate `PATCH /shares` requests.
+You can't update the name of the share, increase the size, adjust IOPS, and adjust bandwidth limit in the same `PATCH /shares` request. Make separate `PATCH /shares` requests.
 {: important}
 
-This example shows the bandwidth value increased to 3,000 Mbps. The preset throughput of a 1000 GB file share is 400 Mbps.
+This example shows the bandwidth value increased to 3,000 Mbps. The preset bandwidth of a 1000 GB file share is 400 Mbps.
 
 ```sh
 curl -X PATCH \
@@ -121,7 +121,7 @@ curl -X PATCH \
 ```
 {: codeblock}
 
-The file share status shows `updating` while the throughput is being adjusted. The preset bandwidth is shown until after the update is complete.
+The file share status shows `updating` while the bandwidth is being adjusted. The preset bandwidth is shown until after the update is complete.
 
 ```json
 {
@@ -138,4 +138,3 @@ The file share status shows `updating` while the throughput is being adjusted. T
 }
 ```
 {: screen}
-
