@@ -2,7 +2,7 @@
 
 copyright:
   years: 2024, 2025
-lastupdated: "2025-08-01"
+lastupdated: "2025-08-21"
 
 keywords: vsi, virtual server, virtual server instances, profile, profiles, gpu, accelerated, h100, h200, l4, l40s
 
@@ -22,6 +22,9 @@ The accelerated family of profiles provides on-demand, cost-effective access to 
 {: #amd-mi300x-profiles}
 
 The AMD MI300X accelerated virtual server profiles are built atop 192 GB OAM-based AMD Instinct™ MI300X Accelerators. These accelerators are tuned for AI workloads, including inferencing and fine tuning. The solution is paired with the 5th Generation Intel® Xeon® Scalable processors.
+
+AMD MI300X accelerated virtual server profiles are available for select customers. Create a [support case](/docs/account?topic=account-open-case&interface=ui) if you are interested in purchasing and using this offering.
+{: preview}
 
 ### Operating systems
 {: #amd-mi300x-os}
