@@ -223,7 +223,7 @@ To create a VPN gateway with the API, follow these steps:
    ```
    {: codeblock}
 
-
+   
 
 ## Creating a VPN gateway with Terraform
 {: #vpn-create-terraform}
