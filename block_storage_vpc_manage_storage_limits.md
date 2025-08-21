@@ -2,7 +2,7 @@
 
 copyright:
   years: 2019, 2025
-lastupdated: "2025-06-12"
+lastupdated: "2025-08-20"
 
 keywords: volume, capacity, Block Storage
 
@@ -45,11 +45,11 @@ Review the following checklist items and record your answers. Provide this infor
     >*"I expect to create these volumes within 90 days".*
 
 - **Provide a 90-day forecast of expected average capacity usage of these volumes.**
-    >*"I expect 25% of the volumes to be used in 30 days, 50 percent to be used in 60 days and 75% to be used in 90 days".*
+    >*"I expect 25% of the volumes to be used in 30 days, 50% to be used in 60 days and 75% to be used in 90 days".*
     >*"For secondary volumes, I expect to create 50% of the secondary volumes at less than 250 GB within 30 days and secondary volumes greater than 250 GB within 60 days."*
 
 - **Which volume profiles are used: general-purpose, 5iops-tier, 10iops-tier, custom, or sdp?**
-    >*"As an allow-listed customer, we request the capacity increase for `sdp` volumes."*.
+    >*"As an allow-listed customer, we request the capacity increase for `sdp` volumes."*
 
 Respond promptly to all questions and statements in your request. They're necessary for processing and approval. If some things are unclear, the support team contacts you to clarify your answers. 
 {: important}

@@ -2,7 +2,7 @@
 
 copyright:
   years: 2018, 2025
-lastupdated: "2025-07-28"
+lastupdated: "2025-08-19"
 
 keywords:
 
@@ -17,6 +17,15 @@ subcollection: vpc
 
 Known issues might change over time, so check back occasionally.
 {: shortdesc}
+
+## Metadata API known issues
+{: #metadata-api-known-issues}
+
+
+### `vcpu.manufacturer` property returns an empty string value
+{: #vcpu-manufacturer-instance-metadata-api-known-issues}
+
+**Issue:** When [retrieving an instance](/apidocs/vpc-metadata#get-instance) the value of the `vcpu.manufacturer` property is an empty string `""`.
 
 ## Confidential computing known issues
 {: #confidential-computing-vpc-known-issues}

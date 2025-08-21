@@ -2,7 +2,7 @@
 
 copyright:
   years: 2021, 2025
-lastupdated: "2025-08-05"
+lastupdated: "2025-08-20"
 
 keywords: vpn, ipsec policy
 
@@ -75,11 +75,25 @@ The `AUTHENTICATION_ALGORITHM` must be `disabled` if and only if `ENCRYPTION_ALG
 {: #command-examples-vpn-create-ipsec-policy}
 
 - Create an IPsec policy by using SHA 256 authentication, AES 128 encryption, and PFS with DH Group 14:
-   `ibmcloud is ipsec-policy-create my-ipsec-policy sha256 aes128 group_14`
+
+   ```sh
+   ibmcloud is ipsec-policy-create my-ipsec-policy sha256 aes128 group_14
+   ```
+   {: pre}
+
 - Create an IPsec policy with the same parameters and a 3600-seconds lifetime:
-   `ibmcloud is ipsec-policy-create my-ipsec-policy sha256 aes128 group_14 --key-lifetime 3600`
+
+   ```sh
+   ibmcloud is ipsec-policy-create my-ipsec-policy sha256 aes128 group_14 --key-lifetime 3600
+   ```
+   {: pre}
+
 - Create an IPsec policy with the same parameters and a resource group ID:
-   `ibmcloud is ipsec-policy-create my-ipsec-policy sha256 aes128 group_14 --resource-group-id fee82deba12e4c0fb69c3b09d1f12345 --output JSON`
+
+   ```sh
+   ibmcloud is ipsec-policy-create my-ipsec-policy sha256 aes128 group_14 --resource-group-id fee82deba12e4c0fb69c3b09d1f12345 --output JSON
+   ```
+   {: pre}
 
 ## Creating an IPsec policy with the API
 {: #vpn-using-api-create-ipsec-policy}

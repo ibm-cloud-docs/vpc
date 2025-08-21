@@ -2,7 +2,7 @@
 
 copyright:
   years: 2019, 2025
-lastupdated: "2025-08-13"
+lastupdated: "2025-08-20"
 
 keywords:
 subcollection: vpc
@@ -123,6 +123,8 @@ Where:
 `--mode`
     : The mode of the VPN gateway. One of: `policy`, `route`.
 
+
+
 `--resource-group-id`
     : The ID of the resource group. This option is mutually exclusive with `--resource-group-name`.
 
@@ -139,13 +141,27 @@ Where:
 {: #cli-cmd-examples-vpn-gateway-create}
 
 - Create a route-based VPN gateway with a specific subnet ID:
-   `ibmcloud is vpn-gateway-create my-vpc-gateway fee82deba12e4c0fb69c3b09d1f12345 --mode route`
+
+   ```sh
+   ibmcloud is vpn-gateway-create my-vpc-gateway fee82deba12e4c0fb69c3b09d1f12345 --mode route
+   ```
+   {: pre}
 
 - Create a policy-based VPN gateway by using the Default resource group:
-   `ibmcloud is vpn-gateway-create my-vpc-gateway fee82deba12e4c0fb69c3b09d1f12345 --mode policy --resource-group-name Default`
+
+   ```sh
+   ibmcloud is vpn-gateway-create my-vpc-gateway fee82deba12e4c0fb69c3b09d1f12345 --mode policy --resource-group-name Default
+   ```
+   {: pre}
 
 - Create a route-based VPN gateway, by using a specific resource group ID with output in JSON format:
-   `ibmcloud is vpn-gateway-create my-vpc-gateway fee82deba12e4c0fb69c3b09d1f12345 --mode route --resource-group-id fee82deba12e4c0fb69c3b09d1f12345 --output JSON`
+
+   ```sh
+   ibmcloud is vpn-gateway-create my-vpc-gateway fee82deba12e4c0fb69c3b09d1f12345 --mode route --resource-group-id fee82deba12e4c0fb69c3b09d1f12345 --output JSON
+   ```
+   {: pre}
+
+
 
 ## Creating a VPN gateway with the API
 {: #vpn-create-api}

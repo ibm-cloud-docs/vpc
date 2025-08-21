@@ -2,7 +2,7 @@
 
 copyright:
   years: 2019, 2025
-lastupdated: "2025-08-06"
+lastupdated: "2025-08-20"
 
 keywords: Block storage for VPC, change IOPS, change auto-delete, increase volume, change name, rename volume, delete volume, renaming volume, updating volume
 
@@ -626,7 +626,7 @@ In the console, complete the following steps.
 2. Click the **Access management tags** tab. Add a tag name in the field. Access management tags require a `key:value` format.
 3. Click **Create Tags**.
 
-### Step 1 - Creating an IAM access management tag from the cli
+### Step 1 - Creating an IAM access management tag from the CLI
 {: #storage-create-access-mgt-tag-cli}
 {: cli}
 

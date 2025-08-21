@@ -2,7 +2,7 @@
 
 copyright:
   years: 2019, 2025
-lastupdated: "2025-08-12"
+lastupdated: "2025-08-20"
 
 keywords: Block Storage profiles, Block Storage for VPC, IOPS tiers, custom IOPS, storage performance
 
@@ -18,24 +18,24 @@ subcollection: vpc
 When you provision {{site.data.keyword.block_storage_is_short}} volumes by using the {{site.data.keyword.cloud_notm}} console, CLI, API, or Terraform you specify a volume profile that best meets your storage requirements. Profiles are generally available as three predefined IOPS levels or with custom IOPS. The volume profiles from the _tiered_ family provide reliable IOPS/GB performance for volumes up to 16,000 GB capacity. With a _custom_ volume profile, you can specify your own IOPS value in a range that is appropriate for your selected volume capacity.
 {: shortdesc}
 
-Customers with special access can provision storage with the new `sdp` profile.  The `sdp` profile is available in the Dallas, Frankfurt, London, Madrid, Osaka, Sao Paulo, Sydney, Tokyo, Toronto, and Washington, DC regions during the select availability release. For more information about this release, such as billing, supported features, and limitations, see [About {{site.data.keyword.block_storage_is_short}}](/docs/vpc?topic=vpc-block-storage-about#block-storage-sdp-intro).
+Customers with special access can provision storage with the new `sdp` profile. The `sdp` profile is available in the Dallas, Frankfurt, London, Madrid, Osaka, Sao Paulo, Sydney, Tokyo, Toronto, and Washington, DC regions during the select availability release. For more information about this release, such as billing, supported features, and limitations, see [About {{site.data.keyword.block_storage_is_short}}](/docs/vpc?topic=vpc-block-storage-about#block-storage-sdp-intro).
 {: preview}
 
 ## Block Storage profile families
 {: #block-storage-profile-overview}
 
 When you create a Block Storage volume, you can select from various profiles.
-- [Select Availability]{: tag-green} The defined performance family profile provides even more flexibility when it comes to specifying capacity and IOPS. Volume profiles in the defined performance family can scale volume performance independent of capacity. By using the sdp profile, you can create a volume with up to 32 TB capacity and an IOPS value in a range of 100 - 64,000.
+- [Select Availability]{: tag-green} The defined performance family profile provides even more flexibility when it comes to specifying capacity and IOPS. Volume profiles in the defined performance family can scale volume performance independent of capacity. By using the `sdp` profile, you can create a volume with up to 32 TB capacity and an IOPS value in a range of 100 - 64,000.
 - Select a profile from the _tiered_ profile family when you want to pick a profile where performance scales with capacity of the volume.
 - Select the profile from the _custom_ profile family if your performance requirements don't fall within any of the predefined IOPS tiers. When you select the custom profile, you can define your IOPS within a range that depends on the capacity that you specified. 
 
-The _sdp_ profile is available in the Dallas, Frankfurt, London, Madrid, Osaka, Sao Paulo, Sydney, Tokyo, Toronto, and Washington, DC regions during the select availability release for allowlisted customers. The _custom_ and _tiered_ profiles are available in every region for every customer. 
+The `sdp` profile is available in the Dallas, Frankfurt, London, Madrid, Osaka, Sao Paulo, Sydney, Tokyo, Toronto, and Washington, DC regions during the select availability release for allowlisted customers. The _custom_ and _tiered_ profiles are available in every region for every customer. 
 
 The following table shows the available storage profiles with their different properties.
 
 | Family name  | Profile name      | Capacity range \n (GB) | IOPS rate \n (IOPS/GB)  | IOPS range [^ttext1] \n (IOPS)| Max throughput[^ttext2]|
 |--------------|-------------------|---------------:|----------------------:|------------------:|-----------------------:|
-| defined performance | `sdp`      |     1 - 32,000 | 100 - 64K | 100 - 64,000[^ttext4] | 1024 MBps \n (8192 Mbps)|
+| defined performance | `sdp`      |     1 - 32,000 | 100 - 64k | 100 - 64,000[^ttext4] | 1024 MBps \n (8192 Mbps)|
 | tiered       | `general-purpose` |    10 - 16,000 |  3        | 3,000 - 48,000 |  670 MBps \n (5360 Mbps)| 
 | tiered       | `5iops-tier`      |    10 -  9,600 |  5        | 3,000 - 48,000 |  768 MBps \n (6144 Mbps) |
 | tiered       | `10iops-tier`     |    10 -  4,800 | 10        | 3,000 - 48,000 | 1024 MBps \n (8192 Mbps)| 
@@ -44,7 +44,7 @@ The following table shows the available storage profiles with their different pr
 
 [^ttext1]: The provisioned IOPS values are based on a preset 16k I/O size.
 [^ttext2]: Max throughput is determined by the number of IOPS multiplied by the preset throughput multiplier. The throughput multiplier is 16 KB for 3 IOPS/GB or 5 IOPS/GB tiers. The throughput multiplier for the 10 IOPS/GB tier and the custom profile is 256 KB. The higher the IOPS that you specify, the higher the throughput limit becomes.
-[^ttext3]: The available IOPS range is dependent on the volume capacity. For more information, see [Table 3](#custom).
+[^ttext3]: The available IOPS range depends the volume capacity. For more information, see [Table 3](#custom).
 [^ttext4]: The IOPS value is independent of the volume capacity.
 
 Nominal IOPS values are based on 16k I/O size. The maximum throughput value is determined by the number of IOPS multiplied by the throughput multiplier. The throughput multiplier is 16 KB for 3 IOPS/GB or 5 IOPS/GB tiers, or 256 KB for 10 IOPS/GB or custom IOPS tiers. The higher the IOPS that you specify, the higher the throughput the volume can handle.
@@ -62,7 +62,7 @@ Moving volumes across volume-profiles that belong to different families is not a
 
 The SSD defined performance (`sdp`) profile is a second-generation volume profile that offers more flexibility than the previous custom profile when it comes to specifying capacity and performance. By using the `sdp` profile, you can specify the capacity, and the maximum throughput limit. Volume size can range from 1 - 32,000 GB. You can specify volume performance in the range of 3000 - 64,000 IOPS. In addition, you can also specify the maximum throughput value of your volume. The available throughput range is 125-1024 MBps (1000-8192 Mbps). The following table shows the minimum and maximum values of IOPS and Throughput in relation to the volume capacity.
 
-| Capacity range (GB) | Min IOPS  | Max IOPS  | Min Throughput (mbps) | Max Throughput (mbps)  |
+| Capacity range (GB) | Min IOPS  | Max IOPS  | Min Throughput (Mbps) | Max Throughput (Mbps)  |
 |---------------------|-----------|-----------|-----------------------|------------------------|
 | 1 - 20              | 3000      | 3000      |         1000          |          1000          |
 | 21 - 50             | 3000      | 5000      |         1000          |          4096          |
@@ -156,8 +156,6 @@ You can view available volume profiles by using the {{site.data.keyword.cloud_no
 ### In the console
 {: #using-console-iops-profile}
 {: ui}
-
-
 
 Customers with special access can create Block Storage volumes with the `sdp` profile.
 {: preview}

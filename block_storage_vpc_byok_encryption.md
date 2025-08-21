@@ -2,7 +2,7 @@
 
 copyright:
   years: 2019, 2025
-lastupdated: "2025-06-12"
+lastupdated: "2025-08-20"
 
 keywords: Block Storage, IBM Cloud, VPC, virtual private cloud, Key Protect, encryption, key management, Hyper Protect Crypto Services, HPCS, volume, data storage, virtual server instance, instance, customer-managed encryption, Block Storage for vpc, customer-managed encryption,
 
@@ -60,7 +60,7 @@ This procedure explains how to specify customer-managed encryption when you crea
     - **Locate by CRN**: enter the CRN of the customer root key to be used for encrypting the volume. Choose this option if you're using the CRK of another account.
 1. When your changes are complete, click **Create block storage volume**.
 
-When you refresh the list of Block Storage volumes in the console, the new volume appears at the beginning of the list of volumes with the _customer managed_ encryption type. When the volume is created, it shows a status of _Available_. For stand-alone volumes, the Attachment Type column is blank (-). The **Actions** menu ![Actions icon](../icons/action-menu-icon.svg "Actions") at the end of a table row provides a link for [attaching a Block Storage volume to an instance](/docs/vpc?topic=vpc-attaching-block-storage).
+When you refresh the list of Block Storage volumes in the console, the new volume appears at the beginning of the list of volumes with the _customer-managed_ encryption type. When the volume is created, it shows a status of _Available_. For stand-alone volumes, the Attachment Type column is blank (-). The **Actions** menu ![Actions icon](../icons/action-menu-icon.svg "Actions") at the end of a table row provides a link for [attaching a Block Storage volume to an instance](/docs/vpc?topic=vpc-attaching-block-storage).
 
 ## Creating data volumes with customer-managed encryption from the CLI
 {: #data-vol-encryption-cli}
@@ -232,7 +232,7 @@ Follow these steps to create an instance with a new Block Storage volume.
 
 1. In the [{{site.data.keyword.cloud_notm}} console](/login){: external}, click the **Navigation menu** icon ![menu icon](../icons/icon_hamburger.svg) **> Infrastructure** ![VPC icon](../icons/vpc.svg) **> Compute > Virtual server instances**.
 1. Click **New instance** and complete the required fields. For more information about these required fields, see _Table 1 - Instance provisioning selections_ in [Creating virtual server instances](/docs/vpc?topic=vpc-creating-virtual-servers).
-1. In the **Boot volume** section, the default mode of encryption is _Provider managed_ encryption. To specify customer-managed encryption, click the **Edit icon** ![Edit icon](../icons/edit-tagging.svg "Edit") in the boot volume row. 
+1. In the **Boot volume** section, the default mode of encryption is _Provider-managed_ encryption. To specify customer-managed encryption, click the **Edit icon** ![Edit icon](../icons/edit-tagging.svg "Edit") in the boot volume row. 
 1. On the **Edit boot volume** page, update the fields in the **Encryption** section. Select your key management service: ({{site.data.keyword.keymanagementserviceshort}} or {{site.data.keyword.hscrypto}}). To locate your encryption key, select one of the following options:
     - **Locate by Instance**:
        1. Select the data encryption instance from the list. If you don't have an instance yet, you can click the link to create one.

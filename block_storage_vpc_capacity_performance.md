@@ -2,7 +2,7 @@
 
 copyright:
   years: 2019, 2025
-lastupdated: "2025-06-12"
+lastupdated: "2025-08-20"
 
 keywords:
 
@@ -70,7 +70,7 @@ The following example shows how throughput decreases for smaller average I/O siz
 * 8 KB * 6000 IOPS == ~47 MBps
 * 4 KB * 6000 IOPS == ~23 MBps
 
-If you want to improve the performance of your storage volume without changing the IO size, you can adjust the IOPS value. This might require increasing the capacity of your volume, too. For more information, see [Adjusting IOPS of a block storage volume](/docs/vpc?topic=vpc-adjusting-volume-iops&interface=ui). You can't adjust the throughput limit of a first-generation volume directly.
+If you want to improve the performance of your storage volume without changing the IO size, you can adjust the IOPS value. Increasing the IOPS value might require increasing the capacity of your volume, too. For more information, see [Adjusting IOPS of a block storage volume](/docs/vpc?topic=vpc-adjusting-volume-iops&interface=ui). You can't adjust the throughput limit of a first-generation volume directly.
 
-Second-generation volumes: Understanding the relationship between the IO size, IOPS, and Throughput is especially important when you create a second-generation volume or adjust its IOPS and Throughput values. The IOPS value that you set is based on an assumed IO size of 16 KB. The preset throughput value is calculated by multiplying the specified IOPS value with the preset 16 KB IO size. If your application uses an IO size that is bigger than 16 KB, you might not be able to achieve the maximum IOPS value due to reaching the Throughput limit. In such cases, you can increase the Throughput value of the volume to get more IOPS. For more information, see [Adjusting throughput limit of a Block Storage for VPC volume](/docs/vpc?topic=vpc-adjusting-volume-throughput)
+Second-generation volumes: Understanding the relationship between the IO size, IOPS, and Throughput is especially important when you create a second-generation volume or adjust its IOPS and Throughput values. The IOPS value that you set is based on an assumed IO size of 16 KB. The preset throughput value is calculated by multiplying the specified IOPS value with the preset 16 KB IO size. If your application uses an IO size that is bigger than 16 KB, you might not be able to achieve the maximum IOPS value due to reaching the Throughput limit. In such cases, you can increase the Throughput value of the volume to get more IOPS. For more information, see [Adjusting the throughput limit of a Block Storage for VPC volume](/docs/vpc?topic=vpc-adjusting-volume-throughput)
 {: preview}

@@ -2,7 +2,7 @@
 
 copyright:
   years: 2025
-lastupdated: "2025-06-12"
+lastupdated: "2025-08-20"
 
 keywords: Block Storage for VPC, boot volume, data volume, volume, data storage, virtual server instance, instance, adjustable volume, throughput, bandwidth
 
@@ -32,7 +32,7 @@ Billing for an updated volume is automatically updated. The prorated difference 
 
 Review the following table to make sure that the throughput limit you want is available for your volume. To set the maximum bandwidth value on the volume, it must have at least 151 GB capacity. Increasing your capacity and adjusting throughput are two separate operations.
 
-| Capacity range (GB) | Min Throughput (mbps) | Max Throughput (mbps)  |
+| Capacity range (GB) | Min Throughput (Mbps) | Max Throughput (Mbps)  |
 |---------------------|-----------------------|------------------------|
 | 1 - 20              | 1000                  |          1000          |
 | 21 - 50             | 1000                  |          4096          |
@@ -50,7 +50,7 @@ Review the following table to make sure that the throughput limit you want is av
 1. Go to the list of {{site.data.keyword.block_storage_is_short}} volumes. In the [{{site.data.keyword.cloud_notm}} console](/login){: external}, click the **Navigation menu** icon ![menu icon](../icons/icon_hamburger.svg) **> Infrastructure** ![VPC icon](../icons/vpc.svg) **> Storage > Block Storage volumes**. By default, {{site.data.keyword.block_storage_is_short}} volumes display for all resource groups in your region.
 1. In the list of all **{{site.data.keyword.block_storage_is_short}} volumes**, click the name of the volume to see the volume details.
 
-   Alternatively, go to the virtual server instance's detailss page and locate the volume that you want to update from the list of attached volumes.
+   Alternatively, go to the virtual server instance's details page and locate the volume that you want to update from the list of attached volumes.
    {: tip}
 
 1. On the volume details page, locate **Profile** and click the **Edit icon** ![Edit icon](../icons/edit-tagging.svg "Edit") or use the **Actions** menu ![Actions icon](../icons/action-menu-icon.svg "Actions") and select **Edit throughput**.

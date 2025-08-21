@@ -2,7 +2,7 @@
 
 copyright:
   years: 2020, 2025
-lastupdated: "2025-06-12"
+lastupdated: "2025-08-20"
 
 keywords: Block Storage, boot volume, data volume, volume, data storage, virtual server instance, instance, expandable volume
 
@@ -15,13 +15,10 @@ subcollection: vpc
 # Increasing capacity of a {{site.data.keyword.block_storage_is_short}} data volume
 {: #expanding-block-storage-volumes}
 
-After you provisioned a {{site.data.keyword.block_storage_is_short}} data volume and attached it to a virtual server instance, you can increase its volume size in the console, from the CLI, with the API or Terraform. 
+You can increase the capacity of data volumes after you provisioned them in the console, from the CLI, with the API, or Terraform. First-generation data volumes must be attached to a running virtual server instance before you increase the capacity. [Select availability]{: tag-green} Customers with special access to volume profiles within the defined performance family can expand their `sdp` volumes even if the volumes are not attached to a running instance. The steps for increasing the capacity are the same as for all volume profiles.
 {: shortdesc}
 
-You can't change the volume to a smaller size after you expand its capacity. However, if your requirements change, you can expand the same volume again up to the maximum capacity that's available for its profile.
-
-Customers with special access to volume profiles within the defined performance family can expand their `sdp` volumes even if the volumes are not attached to a running virtual server instance. The steps for increasing the capacity are the same as for the other profiles.
-{: preview}
+You can't decrease volume capacity. However, if your requirements change, you can expand the same volume again up to the maximum capacity that's available for its profile.
 
 ## Expand Block Storage volumes in the console
 {: #expand-vpc-volumes-ui}

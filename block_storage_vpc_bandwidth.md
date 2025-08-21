@@ -2,7 +2,7 @@
 
 copyright:
   years: 2021, 2025
-lastupdated: "2025-08-01"
+lastupdated: "2025-08-20"
 
 keywords: Block Storage, virtual private cloud, boot volume, data volume, volume, data storage, virtual server instance, bandwidth
 
@@ -43,7 +43,7 @@ The allocation does not change unless a volume is detached or attached to the in
 ## Bandwidth allocation for attached volumes
 {: #attached-block-vol-bandwidth}
 
-To help ensure reasonable boot times, primary boot volume receives priority IOPS and a minimum of 393 Mbps bandwidth. Boot volume IOPS and bandwidth are never reduced to be less than 3000 IOPS and 393 Mbps. 
+To help ensure reasonable boot times, the primary boot volume receives priority IOPS and a minimum of 393 Mbps bandwidth. Boot volume IOPS and bandwidth are never reduced to be less than 3000 IOPS and 393 Mbps. 
 
 The remaining volume bandwidth is proportionally allocated between the attached data volumes. All attached volumes are assigned instance bandwidth proportional to their maximum throughput limit.
 
@@ -57,8 +57,8 @@ When you create a stand-alone data volume with a first-generation profile, the v
 The provisioned throughput limit is determined by the total number of IOPS multiplied by the throughput multiplier. The throughput multiplier is 16 KB for 3 IOPS/GB or 5 IOPS/GB tiers, or 256 KB for 10 IOPS/GB or custom IOPS tiers. 
 
 Maximum throughput limit:
-- for the general-purpose volume profile the limit is 670 MBps (5360 Mbps). 
-- for the 5iops-tier volume profile the limit is 768 MBps (6144 Mbps). 
+- for the general-purpose volume profile, the limit is 670 MBps (5360 Mbps). 
+- for the 5iops-tier volume profile, the limit is 768 MBps (6144 Mbps). 
 - for the 10iops-tier and custom profiles, throughput can't exceed 1024 MBps (8192 Mbps).
 
 In the following examples, the stand-alone volumes are provisioned with:
@@ -70,7 +70,7 @@ In the following examples, the stand-alone volumes are provisioned with:
 Volumes that have the same volume profile can have different IOPS and Throughput limit values based on their capacity. Volumes can have the same IOPS limit, even if their capacity and volume profiles are different.
 {: note}
 
-Where can you see what bandwidth or throughput limit is assigned to your volume? The bandwidth or throughput limits assigned to the volume can been seen as **Throughput** on the overview tab of the Block Storage volume details page.{: ui}
+Where can you see what bandwidth or throughput limit is assigned to your volume? The bandwidth or throughput limits assigned to the volume can be seen as **Throughput** on the overview tab of the Block Storage volume details page.{: ui}
 
 Where can you see what bandwidth or throughput limit is assigned to your volume? You can see the bandwidth value in the output of the `ibmcloud is volume` command.{: cli}
 

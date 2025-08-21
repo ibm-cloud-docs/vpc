@@ -2,7 +2,7 @@
 
 copyright:
   years: 2020, 2025
-lastupdated: "2025-06-12"
+lastupdated: "2025-08-20"
 
 keywords: flow logs, ordering, logging
 
@@ -85,8 +85,8 @@ The following table outlines the fields that are included in each log record:
 | `logSourceCRN`    | Required   | Defines the account and flow log instance where the log is published. |
 | `saveServiceCopy` | Required   | Defines whether IBM saves a copy of the record for operational purposes. |
 | `message`         | Required   | Description of the log that is generated. |
-| `messageID`       | Required   | ID of the log that is generated. |
-| `msg_timestamp`   | Required   | The timestamps when the log is generated. |
+| `messageId`       | Required   | ID of the log that is generated. |
+| `msgTimestamp`    | Required   | The timestamps when the log is generated. |
 | `resolution`      | Optional   | Guidance on how to proceed if you receive this log record. |
 | `documentsURL`    | Optional   | More information on how to proceed if you receive this log record. |
 | `generation`      | Required   | Defines the VPC source of the log. Valid options are `1` for VPC Classic, and `2` for `VPC Gen 2`. |

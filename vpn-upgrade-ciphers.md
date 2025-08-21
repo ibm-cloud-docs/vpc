@@ -375,18 +375,54 @@ To upgrade a custom IKE policy from the CLI, following these steps:
    Command examples:
 
    - Initiate the IKE policy variables:
-      - `export ike_policy=my-ike-policy`
-      - `export authentication_algorithm=sha256`
-      - `export dh_group=14`
-      - `export encryption_algorithm=aes128`
+
+      ```sh
+      export ike_policy=my-ike-policy
+      ```
+      {: pre}
+
+      ```sh
+      export authentication_algorithm=sha256`
+      ```
+      {: pre}
+
+      ```sh
+      export dh_group=14
+      ```
+      {: pre}
+
+      ```sh
+      export encryption_algorithm=aes128
+      ```
+      {: pre}
+
    - Update an IKE policy by using SHA 256 authentication:
-      - `ibmcloud is ike-policy-update $ike_policy --authentication-algorithm $authentication_algorithm`
+
+      ```sh
+      ibmcloud is ike-policy-update $ike_policy --authentication-algorithm $authentication_algorithm
+      ```
+      {: pre}
+
    - Update an IKE policy by using DH Group 14:
-      - `ibmcloud is ike-policy-update $ike_policy --dh-group $dh_group`
+
+      ```sh
+      ibmcloud is ike-policy-update $ike_policy --dh-group $dh_group
+      ```
+      {: pre}
+
    - Update an IKE policy by using AES 128 encryption:
-      - `ibmcloud is ike-policy-update $ike_policy --encryption-algorithm $encryption_algorithm`
+
+      ```sh
+      ibmcloud is ike-policy-update $ike_policy --encryption-algorithm $encryption_algorithm
+      ```
+      {: pre}
+
    - Update an IKE policy by using SHA 256 authentication, DH Group 14, AES 128 encryption:
-      - `ibmcloud is ike-policy-update $ike_policy --authentication-algorithm $authentication_algorithm --dh-group $dh_group --encryption-algorithm $encryption_algorithm`
+
+      ```sh
+      ibmcloud is ike-policy-update $ike_policy --authentication-algorithm $authentication_algorithm --dh-group $dh_group --encryption-algorithm $encryption_algorithm
+      ```
+      {: pre}
 
 ### Upgrading a VPN from a custom IPsec policy from the CLI
 {: #upgrade-vpn-custom-ipsec-policy-procedure-cli}
@@ -436,18 +472,55 @@ To upgrade a custom IPsec policy from the CLI, follow these steps:
    Command examples:
 
    - Initiate the IPsec policy variables:
-      - `export ipesc_policy=my-ipsec-policy`
-      - `export authentication_algorithm=sha256`
-      - `export pfs=14`
-      - `export encryption_algorithm=aes128`
+
+      ```sh
+      export ipesc_policy=my-ipsec-policy
+      ```
+      {: pre}
+
+      ```sh
+      export authentication_algorithm=sha256
+      ```
+      {: pre}
+
+      ```sh
+      export pfs=14
+      ```
+      {: pre}
+
+      ```sh
+      export encryption_algorithm=aes128
+      ```
+      {: pre}
+
    - Update an IPsec policy by using SHA 256 authentication:
-      `ibmcloud is ipsec-policy-update $ipesc_policy --authentication-algorithm $authentication_algorithm`
+
+      ```sh
+      ibmcloud is ipsec-policy-update $ipesc_policy --authentication-algorithm $authentication_algorithm
+      ```
+      {: pre}
+
+
    - Update an IPsec policy by using PFS with DH Group 14:
-      `ibmcloud is ipsec-policy-update $ipesc_policy --pfs $pfs`
+
+      ```sh
+      ibmcloud is ipsec-policy-update $ipesc_policy --pfs $pfs
+      ```
+      {: pre}
+
    - Update an IPsec policy by using AES 128 encryption:
-      `ibmcloud is ipsec-policy-update $ipesc_policy --encryption-algorithm $encryption_algorithm`
+
+      ```sh
+      ibmcloud is ipsec-policy-update $ipesc_policy --encryption-algorithm $encryption_algorithm
+      ```
+      {: pre}
+
    - Update an IPsec policy by using SHA 256 authentication, AES 128 encryption, and PFS with DH Group 14:
-      `ibmcloud is ipsec-policy-update $ipesc_policy --authentication-algorithm $authentication_algorithm --pfs $pfs --encryption-algorithm $encryption_algorithm`
+
+      ```sh
+      ibmcloud is ipsec-policy-update $ipesc_policy --authentication-algorithm $authentication_algorithm --pfs $pfs --encryption-algorithm $encryption_algorithm
+      ```
+      {: pre}
 
 ### Upgrading a VPN from a custom IKE policy with the API
 {: #upgrade-vpn-custom-ike-policy-procedure-api}

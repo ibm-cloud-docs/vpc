@@ -2,7 +2,7 @@
 
 copyright:
   years: 2019, 2025
-lastupdated: "2025-08-18"
+lastupdated: "2025-08-20"
 
 keywords:
 
@@ -50,7 +50,7 @@ Cross-regional replication of file shares is available in Montreal
 {: release-note}
 
 Cross-regional copies of second-generation block volume snapshots (beta release)
-:   Customers with special access to preview the second-generation block storage volumes can now create cross-regional copies of their snapshots in London (`eu-gb`), Osaka (`js-osa`), Sao Paulo (`br-sao`), and Sydney (`au-sys`) regions in the console, from the CLI, or with the API. For more information about this feature and its limitations, see [About Block Storage for VPC snapshots](/docs/vpc?topic=vpc-snapshots-vpc-about&interface=ui#sdp-snapshots).
+:   Customers with special access to preview the second-generation block storage volumes can now create cross-regional copies of their snapshots in London (`eu-gb`), Osaka (`js-osa`), Sao Paulo (`br-sao`), and Sydney (`au-syd`) regions in the console, from the CLI, or with the API. For more information about this feature and its limitations, see [About Block Storage for VPC snapshots](/docs/vpc?topic=vpc-snapshots-vpc-about&interface=ui#sdp-snapshots).
 
 New file share profile with regional data availability (beta release)
 :   The File Storage for VPC offering includes a new profile in the Defined Performance profile family. Customers with special access can use this profile to create regional file shares that provide data availability across all 3 zones of a region. The regional shares can be created with capacity 1 - 32000 GB, adjustable throughput up to 8192 Mbps, and a fixed IOPS value of 35000. The regional shares can be encrypted with provider-managed or customer-managed encryption keys. You can mount these file shares by using a regional mount target and opt to encrypt your data in transit with stunnel. For more information, see [About File Storage for VPC](/docs/vpc?topic=vpc-file-storage-vpc-about#fs-cross-account-mount).
@@ -94,7 +94,7 @@ Public address ranges (select availability)
 {: release-note}
 
 Snapshot for second-generation block volumes (select availability)
-:   The snapshots feature for second-generation volumes is now available in Dallas (`us-south`), Frankfurt (`eu-de`), London (`eu-gb`), Madrid (`eu-es`), Osaka (`js-osa`), Sao Paulo (`br-sao`), Sydney (`au-sys`), Tokyo (`jp-tok`), Toronto (`ca-tor`), and Washington (`us-east`) regions for allow-listed customers. For more information, see [About {{site.data.keyword.block_storage_is_short}} snapshots](/docs/vpc?topic=vpc-snapshots-vpc-about).
+:   The snapshots feature for second-generation volumes is now available in Dallas (`us-south`), Frankfurt (`eu-de`), London (`eu-gb`), Madrid (`eu-es`), Osaka (`js-osa`), Sao Paulo (`br-sao`), Sydney (`au-syd`), Tokyo (`jp-tok`), Toronto (`ca-tor`), and Washington (`us-east`) regions for allow-listed customers. For more information, see [About {{site.data.keyword.block_storage_is_short}} snapshots](/docs/vpc?topic=vpc-snapshots-vpc-about).
 
 ## June 2025
 {: #vpc-jun25}

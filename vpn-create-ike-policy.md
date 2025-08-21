@@ -2,7 +2,7 @@
 
 copyright:
   years: 2021, 2025
-lastupdated: "2025-08-05"
+lastupdated: "2025-08-20"
 
 keywords: ike policy
 
@@ -73,11 +73,25 @@ Where:
 {: #command-examples-vpn-create-ike-policy}
 
 - Create an IKE policy by using SHA 256 authentication, DH Group 14, AES 128 encryption, and IKE Version 2:
-   - `ibmcloud is ike-policy-create my-ike-policy sha256 14 aes128 2`
+
+   ```sh
+   ibmcloud is ike-policy-create my-ike-policy sha256 14 aes128 2
+   ```
+   {: pre}
+
 - Create an IKE policy with the same parameters and a 3600-second lifetime:
-   - `ibmcloud is ipsec-policy-create my-ipsec-policy sha256 14 aes128 2 --key-lifetime 3600`
+
+   ```sh
+   ibmcloud is ipsec-policy-create my-ipsec-policy sha256 14 aes128 2 --key-lifetime 3600
+   ```
+   {: pre}
+
 - Create an IKE policy with the same parameters and a resource group ID:
-   - `ibmcloud is ipsec-policy-create my-ipsec-policy sha256 14 aes128 2 --resource-group-id fee82deba12e4c0fb69c3b09d1f12345 --output JSON`
+
+   ```sh
+   ibmcloud is ipsec-policy-create my-ipsec-policy sha256 14 aes128 2 --resource-group-id fee82deba12e4c0fb69c3b09d1f12345 --output JSON
+   ```
+   {: pre}
 
 ## Creating an IKE policy with the API
 {: #vpn-using-api-create-ike-policy}

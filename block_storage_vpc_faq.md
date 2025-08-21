@@ -2,7 +2,7 @@
 
 copyright:
   years: 2019, 2025
-lastupdated: "2025-08-13"
+lastupdated: "2025-08-20"
 
 keywords: faqs, Block Storage for vpc, fast restore, multizone, instance, instance provisioning, volume management, volume deletion.
 
@@ -22,14 +22,14 @@ The following questions often arise about the {{site.data.keyword.block_storage_
 ## Questions about the defined performance volume profile family
 {: #block-storage-sdp-questions}
 
-Customers with special access can provision storage with the new `sdp` profile.  The `sdp` profile is available in the Dallas, Frankfurt, London, Madrid, Osaka, Sao Paulo, Sydney, Tokyo, Toronto, and Washington, DC regions during the select availability release. For more information about this release, see [About {{site.data.keyword.block_storage_is_short}}](/docs/vpc?topic=vpc-block-storage-about#block-storage-sdp-intro).
+Customers with special access can provision storage with the new `sdp` profile. The `sdp` profile is available in the Dallas, Frankfurt, London, Madrid, Osaka, Sao Paulo, Sydney, Tokyo, Toronto, and Washington, DC regions during the select availability release. For more information about this release, see [About {{site.data.keyword.block_storage_is_short}}](/docs/vpc?topic=vpc-block-storage-about#block-storage-sdp-intro).
 {: preview}
 
 ### What does Select Availability mean for the defined performance volume family?
 {: faq}
 {: #faq-sdp-release}
 
-Customers with special approval to preview the second-generation Block Storage offering can provision block volumes with the new `sdp` profile. The `sdp` profile is available in the Dallas, Frankfurt, London, Madrid, Osaka, Sao Paulo, Sydney, Tokyo, Toronto, and Washington, DC regions during this release. If you're interested in previewing the new offering, contact your assigned Account Team representative or Customer Success Manager.
+Customers with special approval to preview the second-generation Block Storage offering can provision block volumes with the new `sdp` profile. The `sdp` profile is available in the Dallas, Frankfurt, London, Madrid, Osaka, Sao Paulo, Sydney, Tokyo, Toronto, and Washington, DC regions during this release. If you're interested in previewing the new offering, contact your assigned Account team representative or Customer Success Manager.
 
 ### Does the defined performance profile support Gen 1 and Gen 2 VPCs?
 {: faq}
@@ -47,7 +47,7 @@ When you're provisioning in the console, select the `sdp` profile when you provi
 
 When you're provisioning from the CLI, you must specify the volume profile as `sdp` in your `volume-create` command. No extra options are needed. For more information, see [creating {{site.data.keyword.block_storage_is_short}} volumes from the CLI](/docs/vpc?topic=vpc-creating-block-storage&interface=cli#creating-block-storage-cli).{: cli}
 
-When you're provising with the VPC API, you must specify the volume profile as `sdp` in the `POST /instances` or `POST /volumes` requests. No extra options are needed. For more information, see the [Creating {{site.data.keyword.block_storage_is_short}} volumes with the API](/docs/vpc?topic=vpc-creating-block-storage&interface=api#creating-block-storage-api).{: api}
+When you're provisioning with the VPC API, you must specify the volume profile as `sdp` in the `POST /instances` or `POST /volumes` requests. No extra options are needed. For more information, see the [Creating {{site.data.keyword.block_storage_is_short}} volumes with the API](/docs/vpc?topic=vpc-creating-block-storage&interface=api#creating-block-storage-api).{: api}
 
 When you're provisioning with Terraform, use the `ibm_is_volume` resource and specify the `sdp` profile. For more information, see [Creating stand-alone Block Storage for VPC volumes with Terraform](/docs/vpc?topic=vpc-creating-block-storage&interface=terraform#creating-vol-terraform).{: terraform}
 
@@ -83,7 +83,8 @@ No. You can't copy the storage volume to a different zone.
 {: faq}
 {: #faq-sdp-backup}
 
-Customers with special access to preview the defined perfomance volume profile can create snapshots of their second-generation volumes in Dallas (`us-south`), Frankfurt (`eu-de`), London (`eu-gb`), Madrid (`eu-es`), Osaka (`js-osa`), Sao Paulo (`br-sao`), Sydney (`au-sys`), Tokyo (`jp-tok`), Toronto (`ca-tor`), and Washington (`us-east`) regions. Cross-regional copies are supported in London (`eu-gb`), Osaka (`js-osa`), Sao Paulo (`br-sao`), and Sydney (`au-sys`) with limitations. You can't create a copy in another region if your snapshot is encrypted with a customer-managed key or if the snapshot's source volume is bigger than 10 TB. Consistency group snapshots of multiple `sdp` volumes and fast restore clones are not supported for second-generation snapshots yet.
+
+Customers with special access to preview the defined performance volume profile can create snapshots of their second-generation volumes in Dallas (`us-south`), Frankfurt (`eu-de`), London (`eu-gb`), Madrid (`eu-es`), Osaka (`js-osa`), Sao Paulo (`br-sao`), Sydney (`au-syd`), Tokyo (`jp-tok`), Toronto (`ca-tor`), and Washington (`us-east`) regions. Cross-regional copies are supported in London (`eu-gb`), Osaka (`js-osa`), Sao Paulo (`br-sao`), and Sydney (`au-syd`) with limitations. You can't create a copy in another region if your snapshot is encrypted with a customer-managed key or if the snapshot's source volume exceeds 10 TB. Consistency group snapshots of multiple `sdp` volumes and fast restore clones are not supported.
 
 ## Questions about the traditional volume profile family
 {: #block-storage-vpc-offering-questions}
@@ -428,7 +429,7 @@ Virtual disk images for VPC use QEMU Copy On Write Version 2 (QCOW2) file format
 {: faq}
 {: #faq-block-storage-23}
 
-Each volume is assigned a unique master encryption key, called a data encryption key or DEK, which is generated by the instance's host hypervisor. The master key for each {{site.data.keyword.block_storage_is_short}} volume is encrypted with a unique KMS-generated LUKS passphrase, which is then encrypted by your customer root key (CRK) and stored in the KMS. Passphrases are AES-256 cipher keys, which means that they are 32 bytes long and not limited to printable characters. You can view the cloud resource name (CRN) for the CRK that is used to encrypt a volume. However, the CRK, LUKS passphrase, and the volume's master encryption key are never exposed. For more information about all the keys IBM VPC uses to secure your data, see [IBM's encryption technology - How your data is secured](/docs/vpc?topic=vpc-vpc-encryption-about#byok-technologies).
+A unique master encryption key is assigned to each volume, called a data encryption key or DEK, which is generated by the instance's host hypervisor. The master key for each {{site.data.keyword.block_storage_is_short}} volume is encrypted with a unique KMS-generated LUKS passphrase, which is then encrypted by your customer root key (CRK) and stored in the KMS. Passphrases are AES-256 cipher keys, which means that they are 32 bytes long and not limited to printable characters. You can view the cloud resource name (CRN) for the CRK that is used to encrypt a volume. However, the CRK, LUKS passphrase, and the volume's master encryption key are never exposed. For more information about all the keys IBM VPC uses to secure your data, see [IBM's encryption technology - How your data is secured](/docs/vpc?topic=vpc-vpc-encryption-about#byok-technologies).
 
 ### I use customer-managed encryption for my volumes. What happens when I disable or delete my root key?
 {: faq}

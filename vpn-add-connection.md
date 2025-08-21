@@ -2,7 +2,7 @@
 
 copyright:
   years: 2020, 2025
-lastupdated: "2025-08-13"
+lastupdated: "2025-08-20"
 
 keywords:
 
@@ -101,7 +101,8 @@ To create a VPN connection from the CLI, enter the following command:
 
 ```sh
 ibmcloud is vpn-gateway-connection-create CONNECTION_NAME VPN_GATEWAY PEER PRESHARED_KEY
-[--vpc VPC] [--admin-state-up true | false] [--dead-peer-detection-action restart | clear | hold | none]
+[--vpc VPC] [--admin-state-up true | false] 
+[--dead-peer-detection-action restart | clear | hold | none]
 [--distribute-traffic true | false]
 [--dead-peer-detection-interval INTERVAL] [--dead-peer-detection-timeout TIMEOUT] [--ike-policy IKE_POLICY_ID]
 [--ipsec-policy IPSEC_POLICY_ID] [--peer-cidr CIDR1 --peer-cidr CIDR2 ... --local-cidr CIDR1 --local-cidr CIDR2 ...]
@@ -133,6 +134,8 @@ Where:
 `--admin-state-up`
     : If set to `false`, the VPN gateway connection is shut down. This field value can be either `true` or `false`.
 
+
+
 `--dead-peer-detection-action`
     : The dead peer detection action. This field value can be either `restart`, `clear`, `hold`, or `none`. (Default: `restart`).
 
@@ -159,6 +162,8 @@ Where:
 
 `--local-ike-identities`
     : The ID of the local IKE identity. `LOCAL_IKE_IDENTITIES_JSON  | @LOCAL_IKE_IDENTITIES_JSON_FILE` in JSON or a JSON file.
+
+
 
 `-peer-cidr`
     : The peer CIDRs for the resource.
@@ -189,25 +194,55 @@ Where:
 {: #command-examples-vpn-connection-create}
 
 - Create a VPN connection for a specific gateway ID with its required configuration values:
-   `ibmcloud is vpn-gateway-connection-create my-connection fee82deba12e4c0fb69c3b09d1f12345 169.21.50.5 lkj14b1oi0alcniejkso --local-cidr 10.240.0.0/24 --peer-cidr 192.168.1.0/24`
+
+   ```sh
+   ibmcloud is vpn-gateway-connection-create my-connection fee82deba12e4c0fb69c3b09d1f12345 169.21.50.5 lkj14b1oi0alcniejkso --local-cidr 10.240.0.0/24 --peer-cidr 192.168.1.0/24
+   ```
+   {: pre}
 
 - Create a VPN connection for a route-based VPN gateway with the [distribute traffic feature](/docs/vpc?topic=vpc-using-vpn&interface=terraform#use-case-4-vpn) enabled:
-   `ibmcloud is vpn-gateway-connection-create CONNECTION_NAME VPN_GATEWAY PEER PRESHARED_KEY --distribute-traffic true`
+
+   ```sh
+   ibmcloud is vpn-gateway-connection-create CONNECTION_NAME VPN_GATEWAY PEER PRESHARED_KEY --distribute-traffic true
+   ```
+   {: pre}
 
 - Create a VPN connection with the same core parameters and specified DPD configurations:
-   `ibmcloud is vpn-gateway-connection-create my-connection fee82deba12e4c0fb69c3b09d1f12345 169.21.50.5 lkj14b1oi0alcniejkso --local-cidr 10.240.0.0/24 --peer-cidr 192.168.1.0/24 --dead-peer-detection-action clear --dead-peer-detection-interval 33 --dead-peer-detection-timeout 100`
+
+   ```sh
+   ibmcloud is vpn-gateway-connection-create my-connection fee82deba12e4c0fb69c3b09d1f12345 169.21.50.5 lkj14b1oi0alcniejkso --local-cidr 10.240.0.0/24 --peer-cidr 192.168.1.0/24 --dead-peer-detection-action clear --dead-peer-detection-interval 33 --dead-peer-detection-timeout 100
+   ```
+   {: pre}
 
 - Create a VPN connection with the same core parameters and custom policies with specified IDs:
-   `ibmcloud is vpn-gateway-connection-create my-connection fee82deba12e4c0fb69c3b09d1f12345 169.21.50.5 lkj14b1oi0alcniejkso --local-cidr 10.240.0.0/24 --peer-cidr 192.168.1.0/24 --ipsec-policy 72251a2e-d6c5-42b4-97b0-b5f8e8d1f479 --ike-policy 72251a2e-d6c5-42b4-97b0-b5f8e8d1f480`
+
+   ```sh
+   ibmcloud is vpn-gateway-connection-create my-connection fee82deba12e4c0fb69c3b09d1f12345 169.21.50.5 lkj14b1oi0alcniejkso --local-cidr 10.240.0.0/24 --peer-cidr 192.168.1.0/24 --ipsec-policy 72251a2e-d6c5-42b4-97b0-b5f8e8d1f479 --ike-policy 72251a2e-d6c5-42b4-97b0-b5f8e8d1f480
+   ```
+   {: pre}
 
 - Create a VPN connection with peer FQDN and specify the local and peer IKE identity:
-   `ibmcloud is vpn-gateway-connection-create my-connection fee82deba12e4c0fb69c3b09d1f12345 on-prem.my-company.com lkj14b1oi0alcniejkso --local-cidr 10.240.0.0/24 --peer-cidr 192.168.1.0/24 --local-ike-identities '[{"type":"key_id","value":"MTIzNA=="}]' --peer-ike-identity-type fqdn --peer-ike-identity-value on-prem.my-company.com --establish-mode peer_only`
+
+   ```sh
+   ibmcloud is vpn-gateway-connection-create my-connection fee82deba12e4c0fb69c3b09d1f12345 on-prem.my-company.com lkj14b1oi0alcniejkso --local-cidr 10.240.0.0/24 --peer-cidr 192.168.1.0/24 --local-ike-identities '[{"type":"key_id","value":"MTIzNA=="}]' --peer-ike-identity-type fqdn --peer-ike-identity-value on-prem.my-company.com --establish-mode peer_only
+   ```
+   {: pre}
 
 - Create a VPN connection that allows the peer to initiate IKE protocol negotiations for this VPN gateway connection:
-   `ibmcloud is vpn-gateway-connection-create my-connection fee82deba12e4c0fb69c3b09d1f12345 169.21.50.5 lkj14b1oi0alcniejkso --establish-mode peer_only --local-ike-identities '[{type:ipv4_address,value:2.2.2.2},{type:fqdn,value:sadsadasd.com}]' --peer-ike-identity-type key_id --peer-ike-identity-value MTIzNA==`
+
+   ```sh
+   ibmcloud is vpn-gateway-connection-create my-connection fee82deba12e4c0fb69c3b09d1f12345 169.21.50.5 lkj14b1oi0alcniejkso --establish-mode peer_only --local-ike-identities '[{type:ipv4_address,value:2.2.2.2},{type:fqdn,value:sadsadasd.com}]' --peer-ike-identity-type key_id --peer-ike-identity-value MTIzNA==
+   ```
+   {: pre}
 
 - Create a VPN connection by using advanced configuration options:
-   `ibmcloud is vpn-gateway-connection-create to-prem ${gateway_id} on-prem.test.com test123 --local-cidr 10.10.20.0/28 --peer-cidr 192.168.0.0/24 --peer-ike-identity-type ipv4_address --peer-ike-identity-value 192.168.0.1 --establish-mode peer_only`
+
+   ```sh
+   ibmcloud is vpn-gateway-connection-create to-prem ${gateway_id} on-prem.test.com test123 --local-cidr 10.10.20.0/28 --peer-cidr 192.168.0.0/24 --peer-ike-identity-type ipv4_address --peer-ike-identity-value 192.168.0.1 --establish-mode peer_only
+   ```
+   {: pre}
+
+
 
 ## Adding a local CIDR to a VPN gateway connection from the CLI
 {: #vpn-using-cli-vpn-gateway-connection-local-cidr-add}
@@ -249,7 +284,11 @@ Where:
 {: #command-examples-for-vpn-gateway-connection-local-cidr-add}
 
 Add a local CIDR for a specific connection name with required configuration values:
-`ibmcloud is vpn-gateway-connection-local-cidr-add my-vpn-gateway my-connection 3.3.3.0/24`
+
+   ```sh
+   ibmcloud is vpn-gateway-connection-local-cidr-add my-vpn-gateway my-connection 3.3.3.0/24
+   ```
+   {: pre}
 
 ## Adding a peer CIDR to a VPN gateway connection from the CLI
 {: #vpn-using-cli-vpn-gateway-connection-peer-cidr-add}
@@ -291,7 +330,11 @@ Where:
 {: #command-examples-for-vpn-gateway-connection-peer-cidr-add}
 
 Add a peer CIDR for a specific connection name with its required configuration values:
-`ibmcloud is vpn-gateway-connection-peer-cidr-add my-vpn-gateway my-connection 4.4.4.0/24`
+
+   ```sh
+   ibmcloud is vpn-gateway-connection-peer-cidr-add my-vpn-gateway my-connection 4.4.4.0/24
+   ```
+   {: pre}
 
 ## Adding a connection with the API
 {: #vpn-using-api-add-connection}
