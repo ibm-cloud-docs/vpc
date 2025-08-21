@@ -2,7 +2,7 @@
 
 copyright:
   years: 2019, 2025
-lastupdated: "2025-08-20"
+lastupdated: "2025-08-21"
 
 keywords:
 subcollection: vpc
@@ -167,7 +167,7 @@ Where:
 {: #vpn-create-api}
 {: api}
 
-To create a policy-based VPN gateway with the API, follow these steps:
+To create a VPN gateway with the API, follow these steps:
 
 1. Set up your [API environment](/docs/vpc?topic=vpc-set-up-environment#api-prerequisites-setup) with the right variables.
 1. Store any additional variables to be used in the API commands. For example,
@@ -189,6 +189,7 @@ To create a policy-based VPN gateway with the API, follow these steps:
 1. When all variables are initiated, create the VPN gateway:
 
    ```sh
+      # For policy-based VPN, use the following command:
       curl -X POST "$vpc_api_endpoint/v1/vpn_gateways?version=$api_version&generation=2" \
         -H "Authorization: $iam_token" \
         -d '{
@@ -203,6 +204,26 @@ To create a policy-based VPN gateway with the API, follow these steps:
          }'
    ```
    {: codeblock}
+
+
+   ```sh
+      # For static route-based VPN, use the following command:
+      curl -X POST "$vpc_api_endpoint/v1/vpn_gateways?version=$api_version&generation=2" \
+        -H "Authorization: $iam_token" \
+        -d '{
+           "name": "my-new-vpn-gateway",
+           "mode": "route",
+           "subnet": {
+            "id": "'$SubnetId'"
+            },
+           "resource_group": {
+             "id": "'$ResourceGroupId'"
+           }
+         }'
+   ```
+   {: codeblock}
+
+
 
 ## Creating a VPN gateway with Terraform
 {: #vpn-create-terraform}
