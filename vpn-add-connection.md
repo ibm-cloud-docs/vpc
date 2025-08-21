@@ -2,7 +2,7 @@
 
 copyright:
   years: 2020, 2025
-lastupdated: "2025-08-20"
+lastupdated: "2025-08-21"
 
 keywords:
 
@@ -370,6 +370,7 @@ To create a VPN connection with the API, follow these steps:
 1. When all variables are initiated, create the VPN gateway connection. For example,
 
    ```sh
+      # For policy-based VPN, use the following command
       curl -X POST "$vpc_api_endpoint/v1/vpn_gateways/$vpnGatewayId/connections?version=$api_version&generation=2" \
         -H "Authorization: $iam_token" \
         -d '{
@@ -396,6 +397,32 @@ To create a VPN connection with the API, follow these steps:
         }'
    ```
    {: codeblock}
+
+   ```sh
+      # For a static route-based VPN, use the following command
+      curl -X POST "$vpc_api_endpoint/v1/vpn_gateways/$vpnGatewayId/connections?version=$api_version&generation=2" \
+        -H "Authorization: $iam_token" \
+        -d '{
+            "name": "my-vpn-connection",
+            "routing_protocol": "none",
+            "psk": "'$psk'",
+            "distribute_traffic":true,
+            "dead_peer_detection": {
+                "action": "restart",
+                "interval": 2,
+                "timeout": 10
+            },
+            "ike_policy": {
+                "id": "'$ikePolicyId'"
+            },
+            "ipsec_policy": {
+                "id": "'$ipsecPolicyId'"
+            }
+        }'
+   ```
+   {: codeblock}
+
+   
 
 1. (Optional) To create a connection by using advanced configuration options:
 
