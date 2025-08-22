@@ -2,7 +2,7 @@
 
 copyright:
   years: 2019, 2025
-lastupdated: "2025-08-20"
+lastupdated: "2025-08-22"
 
 keywords:
 
@@ -26,6 +26,13 @@ For more information about changes to the {{site.data.keyword.vpc_short}} comman
 
 ## August 2025
 {: #vpc-aug25}
+
+### 22 August 2025
+{: #vpc-aug2225}
+{: release-note}
+
+Increasing limit on NACLs rules
+:   The default service limit of `100` rules for Network ACLs is increasing to `200` rules. By creating rules in Network ACLs (Access Control Lists), network administrators can define granular access policies for inbound and outbound traffic, ensuring that only authorized communication is permitted while blocking unwanted or potentially harmful traffic. For more information, see [Quotas for Access Control Lists](/docs/vpc?topic=vpc-quotas#acl-quotas).
   
 ### 14 August 2025
 {: #vpc-aug1425}

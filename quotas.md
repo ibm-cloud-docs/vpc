@@ -2,7 +2,7 @@
 
 copyright:
   years: 2018, 2025
-lastupdated: "2025-08-08"
+lastupdated: "2025-08-22"
 
 keywords:
 
@@ -67,7 +67,7 @@ Bare metal servers use physical cores and don't count toward your vCPU quota.
 | Resource | Quota |
 |--------|-----|
 | ACLs | 100 per VPC |
-| Rules | 100 per ACL |
+| Rules | 200 per ACL |
 {: caption="Quotas for access control lists" caption-side="bottom"}
 
 ### Application load balancers
