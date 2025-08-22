@@ -2,7 +2,7 @@
 
 copyright:
   years: 2021, 2025
-lastupdated: "2025-08-20"
+lastupdated: "2025-08-22"
 
 keywords: vpn, ipsec policy
 
@@ -51,7 +51,7 @@ ibmcloud is ipsec-policy-create IPSEC_POLICY_NAME AUTHENTICATION_ALGORITHM ENCRY
     [--resource-group-id RESOURCE_GROUP_ID | --resource-group-name RESOURCE_GROUP_NAME]
     [--output JSON] [-q, --quiet]
 ```
-{: pre}
+{: codeblock}
 
 Where:
 
@@ -107,10 +107,10 @@ To create an IPsec policy with the API, follow these steps:
 
    `ResourceGroupId` - Find the resource group ID by using the **get resource groups** command and then populate the variable:
 
-    ```sh
+   ```sh
     export ResourceGroupId=<your_resourcegroup_id>
     ```
-    {: pre}
+   {: pre}
 
 1. When all variables are initiated, create the IPsec policy:
 
