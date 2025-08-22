@@ -2,7 +2,7 @@
 
 copyright:
   years: 2019, 2025
-lastupdated: "2025-08-21"
+lastupdated: "2025-08-22"
 
 keywords:
 subcollection: vpc
@@ -110,7 +110,7 @@ ibmcloud is vpn-gateway-create VPN_GATEWAY_NAME SUBNET
     [--resource-group-id RESOURCE_GROUP_ID | --resource-group-name RESOURCE_GROUP_NAME]
     [--output JSON] [-q, --quiet]
 ```
-{: pre}
+{: codeblock}
 
 Where:
 

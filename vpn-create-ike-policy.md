@@ -2,7 +2,7 @@
 
 copyright:
   years: 2021, 2025
-lastupdated: "2025-08-20"
+lastupdated: "2025-08-22"
 
 keywords: ike policy
 
@@ -51,7 +51,7 @@ ibmcloud is ike-policy-create IKE_POLICY_NAME AUTHENTICATION_ALGORITHM DH_GROUP 
     [--resource-group-id RESOURCE_GROUP_ID | --resource-group-name RESOURCE_GROUP_NAME]
     [--output JSON] [-q, --quiet]
 ```
-{: pre}
+{: codeblock}
 
 Where:
 
@@ -105,10 +105,10 @@ To create an IKE policy with the API, follow these steps:
 
    `ResourceGroupId` - Find the resource group ID by using the **get resource groups** command and then populate the variable:
 
-    ```sh
-    export ResourceGroupId=<your_resourcegroup_id>
-    ```
-    {: pre}
+   ```sh
+   export ResourceGroupId=<your_resourcegroup_id>
+   ```
+   {: pre}
 
 1. When all variables are initiated, create the IKE policy:
 

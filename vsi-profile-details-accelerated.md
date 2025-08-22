@@ -252,7 +252,7 @@ Status: Select Availability
 | Toronto (`ca-tor`)        | `ca-tor-tor05-a`  | No              |
 | Frankfurt (`eu-de`)       | `eu-de-fra04-a`   | Yes             |
 | London (`eu-gb`)          | `eu-gb-lon05-a`   | No              |
-| Sydney (`au-syd`)         | `au-syd-syd04-a`  | No              |
+| Sydney (`au-syd`)         | `au-syd-syd05-a`  | No              |
 {: caption="Table 1. Supported regions and zones" caption-side="bottom"}
 
 For more information about regions and universal zones, see [Regions](/docs/overview?topic=overview-locations#regions). You can review the assigned zone mapping for an account on the [VPC Infrastructure Overview](/infrastructure/overview#endpoints) page in the Endpoint section. The zone mapping shows how the zone corresponds to the universal zone name that represents the physical location.
