@@ -2,7 +2,7 @@
 
 copyright:
   years: 2019, 2025
-lastupdated: "2025-08-21"
+lastupdated: "2025-08-22"
 
 keywords: vpc Block Storage, provision Block Storage for vpc, bootable snapshots, create volume from snapshot, fast restore
 
@@ -52,7 +52,7 @@ Customers with special access can create a virtual server instance with a boot v
       First- and second-generation volume profiles are not interchangeable. You can use a snapshot of a second-generation volume to create another second-generation volume, but you can't switch the volume profile to a first-generation volume profile. In the same way, you can use a snapshot of a first-generation volume to create another first-generation volume with the same data, and you can't switch the new volume to the `sdp` profile.
       {: important}
 
-      - [Select Availability]{: tag-green} As an allow-listed customer, you can select the [`sdp` profile](/docs/vpc?topic=vpc-block-storage-profiles#defined-performance-profile) when you use a seond-generation snapshot to restore the data. Specify the capacity of your volume and the required IOPS.
+      - [Select Availability]{: tag-green} As an allow-listed customer, you can select the [`sdp` profile](/docs/vpc?topic=vpc-block-storage-profiles#defined-performance-profile) when you use a second-generation snapshot to restore the data. Specify the capacity of your volume and the required IOPS.
       - When you use a first-generation snapshot, you can select one of the [_tiered_ profiles](/docs/vpc?topic=vpc-block-storage-profiles&interface=ui#tiers). When you select _general-purpose_, _5iops-tier_, or _10iops-tier_, all you need to specify is the volume capacity.
       - When you use a first-generation snapshot, you can select the _custom_ profile if your application performance requirements don't fall within any of the IOPS tiers. Specify the size of your volume and the IOPS in the appropriate range for the volume capacity. Volume size can be 10 - 16,000 GB. As you type the IOPS value, the UI shows the acceptable range. You can also click the **storage size** link to see the size and IOPS ranges of the [custom volume profile](/docs/vpc?topic=vpc-block-storage-profiles#custom).
    1. Click **Save**.
