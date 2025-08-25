@@ -27,15 +27,19 @@ For more information about changes to the {{site.data.keyword.vpc_short}} comman
 ## August 2025
 {: #vpc-aug25}
 
+### 25 August 2025
+{: #vpc-aug2525}
+{: release-note}
+
+Burstable Flex virtual servers (beta)
+:   Burstable Flex virtual servers are designed to provide flexible CPU performance so workloads can operate at a smaller baseline level and opportunistically burst to higher performance when needed. Flex virtual servers are ideal for applications that require a baseline of CPU performance and experience intermittent spikes in CPU demand but don't require sustained high performance. For more information, see [Burstable virtual servers](/docs/vpc?topic=vpc-burstable-virtual-servers).
+
 ### 22 August 2025
 {: #vpc-aug2225}
 {: release-note}
 
 Increasing limit on NACLs rules
 :   The default service limit of `100` rules for Network ACLs is increasing to `200` rules. By creating rules in Network ACLs (Access Control Lists), network administrators can define granular access policies for inbound and outbound traffic, ensuring that only authorized communication is permitted while blocking unwanted or potentially harmful traffic. For more information, see [Quotas for Access Control Lists](/docs/vpc?topic=vpc-quotas#acl-quotas).
-
-Burstable Flex virtual servers (beta)
-:   Burstable Flex virtual servers are designed to provide flexible CPU performance so workloads can operate at a smaller baseline level and opportunistically burst to higher performance when needed. Flex virtual servers are ideal for applications that require a baseline of CPU performance and experience intermittent spikes in CPU demand but don't require sustained high performance. For more information, see [Burstable virtual servers](/docs/vpc?topic=vpc-burstable-virtual-servers).
   
 ### 14 August 2025
 {: #vpc-aug1425}
