@@ -2,7 +2,7 @@
 
 copyright:
   years: 2019, 2025
-lastupdated: "2025-08-21"
+lastupdated: "2025-08-25"
 
 keywords: vsi, virtual server instances, profile, profiles, balanced, compute, memory, very high memory, ultra high memory, gpu storage optimized, confidential compute
 
@@ -35,6 +35,7 @@ The following profile families are available when you provision a virtual server
 | [Storage Optimized](#storageopt) | Storage Optimized profiles offer temporary SSD instance storage disks at a ratio of 1 vCPU to 300 GB instance storage with a smaller price point per GB. These profiles are designed for storage-dense workloads and offer `virtio` interface type for attached disks. |
 | [Confidential Compute](#confidential-computing-profiles) | Confidential Compute-supported profiles use processor reserved memory called EPC (Enclave Page Cache) to encrypt application data. Processor reserved memory EPC maintains confidentiality and integrity. |
 | [Flex profiles](#flexible-profiles) (beta) | Flex profiles offer a cost-effective option to help improve and mainstream capacity and scalability where and when you need it. |
+| [Burstable Flex profiles](#burstable-supported-flex-profiles) (beta) | Burstable profiles are designed to provide flexible CPU performance so workloads can operate at a smaller baseline level and burst to higher performance when needed. |
 {: caption="Virtual server family selections" caption-side="bottom"}
 
 2nd generation profiles with instance storage and 2nd generation profiles with 64 or more vCPUs are deployed exclusively on the Intel&reg;'s second-generation quad processor Xeon&reg; Platinum 8260 Cascade Lake with 96 cores that are running at a base speed of 2.4 GHz and an all-core turbo frequency of 3.1 GHz or Intel&reg;'s quad processor Xeon&reg; Gold 6248 Cascade Lake with 80 cores that are running at a base speed of 2.5 GHz and an all-core turbo frequency of 3.1 GHz.
@@ -465,6 +466,45 @@ The following flex profiles are available.
 | mxf-48x384       | 48   | 384          | 48  |
 | mxf-64x512       | 64   | 512          | 64  |
 {: caption="Flex profile options for virtual servers" caption-side="bottom"}
+
+### Burstable-supported Flex profiles
+{: #burstable-supported-flex-profiles}
+
+[Beta]{: tag-blue}
+
+With supported Flex profiles, you can enable Burstable CPU capability. Burstable means that Flex virtual server CPUs are configured with the baseline CPUs and can "burst" beyond the baseline when idle host CPU capacity is available. For more information, see [Burstable virtual servers](/docs/vpc?topic=vpc-burstable-virtual-servers).
+
+The following Burstable profiles are available.
+
+| Name      | vCPU | Memory (GiB) | Full Ratio     | %vCPU share | Total vCPU |
+|:----------|:-----|:-------------|:---------------|:------------|:-----------|
+| nxf-1x1   | 1    | 1            | 1:1 (small)    | 10%         | 0.10       |
+|           |      |              |                | 25%         | 0.25       |
+|           |      |              |                | 50%         | 0.50       |
+| nxf-1x2   | 1    | 2            | 1:2 (compute)  | 10%         | 0.10       |
+|           |      |              |                | 25%         | 0.25       |
+|           |      |              |                | 50%         | 0.50       |
+| nxf-1x4   | 1    | 4            | 1:4 (balanced) | 25%         | 0.25       |
+|           |      |              |                | 50%         | 0.50       |
+| nxf-2x1   | 2    | 1            | 1:0.5 (nano)   | 10%         | 0.20       |
+|           |      |              |                | 25%         | 0.50       |
+|           |      |              |                | 50%         | 1          |
+| nxf-2x2   | 2    | 2            | 1:1 (small)    | 10%         | 0.20       |
+|           |      |              |                | 25%         | 0.50       |
+|           |      |              |                | 50%         | 1          |
+| cxf-2x4   | 2    | 4            | 1:2 (compute)  | 25%         | 0.50       |
+|           |      |              |                | 50%         | 1          |
+| bxf-2x8   | 2    | 8            | 1:1 (balanced) | 50%         | 1          |
+| cxf-4x8   | 4    | 8            | 1:2 (compute)  | 25%         | 1          |
+|           |      |              |                | 50%         | 2          |
+| bxf-4x16  | 4    | 16           | 1:4 (balanced) | 50%         | 2          |
+| cxf-8x16  | 8    | 16           | 1:2 (compute)  | 25%         | 2          |
+|           |      |              |                | 50%         | 4          |
+| bxf-8x32  | 8    | 32           | 1:4 (balanced) | 50%         | 4          |
+| cxf-16x32 | 16   | 32           | 1:2 (compute)  | 25%         | 4          |
+|           |      |              |                | 50%         | 8          |
+| bxf-16x64 | 16   | 64           | 1:4 (balanced) | 50%         | 8          |
+{: caption="Burstable-supported Flex profile options for virtual servers" caption-side="bottom"}
 
 ## Bandwidth allocation
 {: #bandwidth-allocation}

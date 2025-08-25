@@ -2,7 +2,7 @@
 
 copyright:
   years: 2025, 2025
-lastupdated: "2025-08-15"
+lastupdated: "2025-08-25"
 
 keywords: virtual server instances, flex profile, flexible profile, virtual server profile
 
@@ -85,7 +85,7 @@ The following list shows the supported features of Flex profiles.
 * Resizable to and away from Flex profiles and between Flex profile types
 * Flex profiles can be placed on multiple CPU families, including Intel Cascade Lake, Intel Sapphire Rapids, and AMD Milan.
 * 1 Gbps overall bandwidth per vCPU
-* Reservations
+* Reservations (Burstable virtual servers not supported)
 * Instance templates
 * Autoscale
 * Placement groups
@@ -108,35 +108,39 @@ See the following list for VM configuration.
 ## Instance profiles
 {: #flexible-profiles-instance-profiles}
 
-The following Flex profiles are available and are subject to change.
+The following Flex profiles are available when you provision a virtual server instance and are subject to change.
 
-| Instance profile | vCPU | Memory (GiB) | Total instance bandwidth (Gbps)|
-|------------------|------|--------------|--------------------------------|
-| nxf-2x1          | 2    | 1            | 2   |
-| nxf-2x2          | 2    | 2            | 2   |
-| bxf-2x8          | 2    | 8            | 2   |
-| bxf-4x16         | 4    | 16           | 4   |
-| bxf-8x32         | 8    | 32           |  8  |
-| bxf-16x64        | 16   | 64           | 16  |
-| bxf-24x96        | 24   | 96           | 24  |
-| bxf-32x128       | 32   | 128          | 32  |
-| bxf-48x192       | 48   | 192          | 48  |
-| bxf-64x256       | 64   | 256          | 64  |
-| cxf-2x4          | 2    | 4            | 2   |
-| cxf-4x8          | 4    | 8            | 4   |
-| cxf-8x16         | 8    | 16           | 8   |
-| cxf-16x32        | 16   | 32           | 16  |
-| cxf-24x48        | 24   | 48           | 24  |
-| cxf-32x64        | 32   | 64           | 32  |
-| cxf-48x96        | 48   | 96           | 48  |
-| cxf-64x128       | 64   | 128          | 64  |
-| mxf-2x16         | 2    | 16           | 2   |
-| mxf-4x32         | 4    | 32           | 4   |
-| mxf-8x64         | 8    | 64           | 8   |
-| mxf-16x128       | 16   | 128          | 16  |
-| mxf-24x192       | 24   | 192          | 32  |
-| mxf-48x384       | 48   | 384          | 48  |
-| mxf-64x512       | 64   | 512          | 64  |
+| Instance profile | vCPU | Memory (GiB) | Total instance bandwidth (Gbps)| % vCPU share |
+|------------------|------|--------------|-------------------------------|--------------|
+| nxf-1x1          | 1    | 1            | 1                             | 10% 25% 50%  |
+| nxf-1x2          | 1    | 2            | 1                             | 10% 25% 50%  |
+| nxf-1x4          | 1    | 4            | 1                             | 25% 50%      |
+| nxf-1x8          | 1    | 8            | 1                             | 50%          |
+| nxf-2x1          | 2    | 1            | 2                             | 10% 25% 50%  |
+| nxf-2x2          | 2    | 2            | 2                             | 10% 25% 50% |
+| bxf-2x8          | 2    | 8            | 2                             | 50%         |
+| bxf-4x16         | 4    | 16           | 4                             | 50% |
+| bxf-8x32         | 8    | 32           | 8                             | 50% |
+| bxf-16x64        | 16   | 64           | 16                            | 50% |
+| bxf-24x96        | 24   | 96           | 24                            | - |
+| bxf-32x128       | 32   | 128          | 32                            | -|
+| bxf-48x192       | 48   | 192          | 48                            | - |
+| bxf-64x256       | 64   | 256          | 64                            | - |
+| cxf-2x4          | 2    | 4            | 2                             | 25% 50% |
+| cxf-4x8          | 4    | 8            | 4                             | 25% 50% |
+| cxf-8x16         | 8    | 16           | 8                             | 25% 50% |
+| cxf-16x32        | 16   | 32           | 16                            | 25% 50% |
+| cxf-24x48        | 24   | 48           | 24                            | - |
+| cxf-32x64        | 32   | 64           | 32                            | - |
+| cxf-48x96        | 48   | 96           | 48                            | - |
+| cxf-64x128       | 64   | 128          | 64                            | - |
+| mxf-2x16         | 2    | 16           | 2                             | - |
+| mxf-4x32         | 4    | 32           | 4                             | - |
+| mxf-8x64         | 8    | 64           | 8                             | - |
+| mxf-16x128       | 16   | 128          | 16                            | - |
+| mxf-24x192       | 24   | 192          | 32                            | - |
+| mxf-48x384       | 48   | 384          | 48                            | - |
+| mxf-64x512       | 64   | 512          | 64                            | - |
 {: caption="Flex profile options for virtual servers" caption-side="bottom"}
 
 ## Limits
