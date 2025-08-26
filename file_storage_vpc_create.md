@@ -2,7 +2,7 @@
 
 copyright:
   years: 2021, 2025
-lastupdated: "2025-08-18"
+lastupdated: "2025-08-26"
 
 keywords: file share, file storage, virtual network interface, encryption in transit, profiles, 
 
@@ -789,6 +789,8 @@ curl -X POST \
 }'
 ```
 {: pre}
+
+For more information, see the [Create a file share method in the Beta VPC API spec](/apidocs/vpc-beta/latest#create-share).
 
 ### Creating a mount target for a file share with the API
 {: #fs-create-mount-target-api}
