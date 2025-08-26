@@ -2,7 +2,7 @@
 
 copyright:
   years: 2022, 2025
-lastupdated: "2025-06-04"
+lastupdated: "2025-08-26"
 
 keywords: confidential computing, enclave, secure execution, hpcr, hyper protect virtual server for vpc
 
@@ -43,7 +43,7 @@ The {{site.data.keyword.hpvs}} for VPC takes advantage of the IBM Secure Executi
 
 - Multiparty contract and attestation of deployment
 
-   Apply zero trust principles from workload development through deployment. As multiple personas and legal entities collaborate, it’s essential to separate duty and access. {{site.data.keyword.hpvs}} for VPC is based on a newly introduced [encrypted contract](/docs/vpc?topic=vpc-about-contract_se) concept. It enables each persona to provide its contribution and be ensured through encryption that none of the other personas can access this data or intellectual property. The deployment can be validated by an auditor persona through an [attestation record](https://cloud.ibm.com/docs/vpc?topic=vpc-about-attestation), which is signed and encrypted to ensure that only the auditor has this level of insight.
+   Apply zero trust principles from workload development through deployment. As multiple personas and legal entities collaborate, it’s essential to separate duty and access. {{site.data.keyword.hpvs}} for VPC is based on a newly introduced [encrypted contract](/docs/vpc?topic=vpc-about-contract_se) concept. It enables each persona to provide its contribution and be ensured through encryption that none of the other personas can access this data or intellectual property. The deployment can be validated by an auditor persona through an [attestation record](/docs/vpc?topic=vpc-about-attestation), which is signed and encrypted to ensure that only the auditor has this level of insight.
 
 - Malware protections
 

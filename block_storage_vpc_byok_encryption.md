@@ -2,7 +2,7 @@
 
 copyright:
   years: 2019, 2025
-lastupdated: "2025-08-20"
+lastupdated: "2025-08-26"
 
 keywords: Block Storage, IBM Cloud, VPC, virtual private cloud, Key Protect, encryption, key management, Hyper Protect Crypto Services, HPCS, volume, data storage, virtual server instance, instance, customer-managed encryption, Block Storage for vpc, customer-managed encryption,
 
@@ -512,7 +512,7 @@ For more information about the arguments and attributes, see [ibm_is_volume](htt
 
 - After the instance is created with the encrypted boot and data volumes, associate a floating IP address to the instance that you can use to connect to your instance. For more information, see [Connecting to your Linux instance](/docs/vpc?topic=vpc-vsi_is_connecting_linux) or [Connecting to your Windows instance](/docs/vpc?topic=vpc-vsi_is_connecting_windows).
 - Prepare your data volumes for use by formatting and configuring them to meet your requirements.
-   - [Setting up your Block Storage for VPC data volume for use (Linux)](https://cloud.ibm.com/docs/vpc?topic=vpc-start-using-your-block-storage-data-volume-lin)
-   - [Setting up your Block Storage for VPC data volume for use (Windows)](https://cloud.ibm.com/docs/vpc?topic=vpc-start-using-your-block-storage-data-volume-win)
+   - [Setting up your Block Storage for VPC data volume for use (Linux)](/docs/vpc?topic=vpc-start-using-your-block-storage-data-volume-lin)
+   - [Setting up your Block Storage for VPC data volume for use (Windows)](/docs/vpc?topic=vpc-start-using-your-block-storage-data-volume-win)
 - [Attach your stand-alone volumes](/docs/vpc?topic=vpc-attaching-block-storage) to a virtual server instance.
 - Configure [Key rotation for VPC resources](/docs/vpc?topic=vpc-vpc-key-rotation).

@@ -1025,7 +1025,6 @@ toc:
                 - backup_service_vpc_ts1.md
                 - backup_service_vpc_ts2.md
                 - backup_service_vpc_ts3.md
-                - backup_service_vpc_ts4.md
                 - backup_service_vpc_ts-backup-policy-quota-exceeded.md
                 - backup_service_vpc_ts-service-to-service-policy-missing.md
                 - backup_service_vpc_ts-snapshot-bad-state.md

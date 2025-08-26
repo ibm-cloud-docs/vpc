@@ -2,7 +2,7 @@
 
 copyright:
   years: 2019, 2025
-lastupdated: "2025-08-25"
+lastupdated: "2025-08-26"
 
 keywords:
 
@@ -27,19 +27,15 @@ For more information about changes to the {{site.data.keyword.vpc_short}} comman
 ## August 2025
 {: #vpc-aug25}
 
-### 25 August 2025
-{: #vpc-aug2525}
-{: release-note}
-
-Burstable Flex virtual servers (beta)
-:   Burstable Flex virtual servers are designed to provide flexible CPU performance so workloads can operate at a smaller baseline level and opportunistically burst to higher performance when needed. Flex virtual servers are ideal for applications that require a baseline of CPU performance and experience intermittent spikes in CPU demand but don't require sustained high performance. For more information, see [Burstable virtual servers](/docs/vpc?topic=vpc-burstable-virtual-servers).
-
 ### 22 August 2025
 {: #vpc-aug2225}
 {: release-note}
 
 Increasing limit on NACLs rules
 :   The default service limit of `100` rules for Network ACLs is increasing to `200` rules. By creating rules in Network ACLs (Access Control Lists), network administrators can define granular access policies for inbound and outbound traffic, ensuring that only authorized communication is permitted while blocking unwanted or potentially harmful traffic. For more information, see [Quotas for Access Control Lists](/docs/vpc?topic=vpc-quotas#acl-quotas).
+
+Burstable Flex virtual servers (beta)
+:   Burstable Flex virtual servers are designed to provide flexible CPU performance so workloads can operate at a smaller baseline level and opportunistically burst to higher performance when needed. Flex virtual servers are ideal for applications that require a baseline of CPU performance and experience intermittent spikes in CPU demand but don't require sustained high performance. For more information, see [Burstable virtual servers](/docs/vpc?topic=vpc-burstable-virtual-servers).
   
 ### 14 August 2025
 {: #vpc-aug1425}
@@ -1335,7 +1331,7 @@ Backup for VPC Cross Regional Copy (GA)
 {: release-note}
 
 New Ed25519 SSH key type is available
-:  The Ed25519 SSH key type is a new, supported SSH key type and can be used as an alternative to the RSA SSH key type. The Ed25519 SSH key can be used with Linux operating systems, but is not supported for Windows or VMware images. For more information, see [Getting started with SSH keys](/docs/vpc?topic=vpc-ssh-keys) and [Managing SSH Keys](https://cloud.ibm.com/docs/vpc?topic=vpc-managing-ssh-keys).
+:  The Ed25519 SSH key type is a new, supported SSH key type and can be used as an alternative to the RSA SSH key type. The Ed25519 SSH key can be used with Linux operating systems, but is not supported for Windows or VMware images. For more information, see [Getting started with SSH keys](/docs/vpc?topic=vpc-ssh-keys) and [Managing SSH Keys](/docs/vpc?topic=vpc-managing-ssh-keys).
 
 Madrid multi zone region (MZR)
 :  A new MZR is available for VPC and Classic infrastructures. Classic Virtual Servers will not be available in the Madrid MZR. The Madrid (`eu-es`) region supports only dedicated host profiles with instance storage. For more information, see [Region and data center locations for resource deployment](/docs/overview?topic=overview-locations), [Setting up access to classic infrastructure](/docs/vpc?topic=vpc-setting-up-access-to-classic-infrastructure&interface=ui), and [Dedicated host profiles](/docs/vpc?topic=vpc-dh-profiles&interface=ui).

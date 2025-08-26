@@ -2,7 +2,7 @@
 
 copyright:
   years: 2024, 2025
-lastupdated: "2025-05-14"
+lastupdated: "2025-08-26"
 
 keywords: confidential computing, enclave, secure execution, hpcr, hyper protect virtual server for vpc, hyper protect secure build, hpsb, sbs
 
@@ -45,7 +45,7 @@ Make sure that you use the latest Secure Build CLI code from [this repository](h
    ```
    {: codeblock}
 
-   2. Create the `env` section of the contract. For more information about the `env` section of the contract, see [The env section](https://cloud.ibm.com/docs/vpc?topic=vpc-about-contract_se#hpcr_contract_env) and [an example of the `env` section](https://github.com/ibm-hyper-protect/secure-build-cli/blob/master/HPSB-VPC.md#an-example-of-the-env-section-of-the-contract).
+   2. Create the `env` section of the contract. For more information about the `env` section of the contract, see [The env section](/docs/vpc?topic=vpc-about-contract_se#hpcr_contract_env) and [an example of the `env` section](https://github.com/ibm-hyper-protect/secure-build-cli/blob/master/HPSB-VPC.md#an-example-of-the-env-section-of-the-contract).
 
    3. Combine the `workload` and `env` sections in the `user-data.yaml` file. The following snippet shows an example of how you can combine the two sections:
 

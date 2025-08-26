@@ -2,7 +2,7 @@
 
 copyright:
   years: 2022, 2025
-lastupdated: "2025-05-01"
+lastupdated: "2025-08-26"
 
 keywords: Backup for VPC, backup service, backup plan, backup policy, restore, restore volume, restore data
 
@@ -31,7 +31,7 @@ To create a backup policy and for the backup jobs to run correctly for File shar
 
 For more information about authorizations, see [Using authorizations to grant access between services](/docs/account?topic=account-serviceauth).
 
-If you set up service authorizations incorrectly, the backup service cannot create the backup policies. For more information, see the troubleshooting topic [Backup policy not created due to incorrect authorizations](/docs/vpc?topic=vpc-baas-troubleshoot&interface=ui#baas-ts-3).
+If you set up service authorizations incorrectly, the backup service cannot create the backup policies. For more information, see the troubleshooting topic [What causes the service authorization error when I try to create a backup policy?](/docs/vpc?topic=vpc-baas-ts-3)
 {: note}
 
 ## Creating authorization policies in the console

@@ -2,7 +2,7 @@
 
 copyright:
   years: 2022, 2025
-lastupdated: "2025-07-07"
+lastupdated: "2025-08-26"
 
 keywords: confidential computing, secure execution, logging for hyper protect virtual server for vpc
 
@@ -32,7 +32,7 @@ The following logging services are supported.
 
 Logs are comprised of events that are typically human-readable and have different formats, for example, unstructured text, JSON, delimiter-separated values, key-value pairs, and so on. The {{site.data.keyword.logs_full_notm}} service can manage general purpose application logs, platform logs, or structured audit events. {{site.data.keyword.logs_full_notm}} can be used with logs from both IBM Cloud services and customer applications.
 
-For information about {{site.data.keyword.logs_full_notm}}, see [{{site.data.keyword.logs_full_notm}}](https://cloud.ibm.com/docs/cloud-logs).
+For information about {{site.data.keyword.logs_full_notm}}, see [{{site.data.keyword.logs_full_notm}}](/docs/cloud-logs).
 
 ### Access to IBM Cloud Logs:
 {: #cloud-logs-access}
@@ -46,7 +46,7 @@ Access to {{site.data.keyword.logs_full_notm}} instances for users in vpc accoun
 
 
 
-To add relevant roles for these policies, refer to [Managing IAM access for IBM Cloud Logs](https://cloud.ibm.com/docs/cloud-logs?topic=cloud-logs-iam-assign-access&interface=ui)
+To add relevant roles for these policies, refer to [Managing IAM access for IBM Cloud Logs](/docs/cloud-logs?topic=cloud-logs-iam-assign-access&interface=ui)
 
 
 
@@ -56,7 +56,7 @@ To add relevant roles for these policies, refer to [Managing IAM access for IBM 
 To provision an `ICL` instance from the Observability dashboard in the IBM Cloud, complete the following steps:
 
 1. [Log in to your IBM Cloud account.](https://cloud.ibm.com/login)
-2. [Provision an ICL instance](https://cloud.ibm.com/docs/cloud-logs?topic=cloud-logs-instance-provision&interface=ui). Choose a plan according to your requirements.
+2. [Provision an ICL instance](/docs/cloud-logs?topic=cloud-logs-instance-provision&interface=ui). Choose a plan according to your requirements.
 
 #### The `logging` subsection
 {: #cloud-logs-provision-instance-ui_exmpl}
@@ -79,13 +79,13 @@ Input parameters to be provided in the `env` section are:
    - For public network ICL access: Select **Public ingress endpoint** section as hostname in the contract.
    - For private network ICL access: Select **Private ingress endpoint** section as hostname in the contract.
 
-   You must create a virtual private endpoint (VPE) gateway for ICL to access {{site.data.keyword.logs_full_notm}} privately. For more information, see [Using virtual private endpoints for VPC to privately connect to {{site.data.keyword.logs_full_notm}}](https://cloud.ibm.com/docs/cloud-logs?topic=cloud-logs-vpe-connection&interface=cli).
+   You must create a virtual private endpoint (VPE) gateway for ICL to access {{site.data.keyword.logs_full_notm}} privately. For more information, see [Using virtual private endpoints for VPC to privately connect to {{site.data.keyword.logs_full_notm}}](/docs/cloud-logs?topic=cloud-logs-vpe-connection&interface=cli).
    {: note}
 
 - `iamApiKey`: The IAM API key for the service id. Generate and retrieve the API key from the service ID in IAM.
 - `port`: (Optional) The port of the service instance, that is 443.
 
-For more information, see the [logging subsection](https://cloud.ibm.com/docs/vpc?topic=vpc-about-contract_se#hpcr_contract_icl).
+For more information, see the [logging subsection](/docs/vpc?topic=vpc-about-contract_se#hpcr_contract_icl).
 
 Custom tags support characters from A-Z, a-z, 0-9, and a hyphen (-).
 {: Note}
@@ -116,7 +116,7 @@ To see the logs, open ICL [instance](https://cloud.ibm.com/observability/logging
 **Explore Other Filters:**
 - Additional filters are available and can be applied based on specific requirements.
 
-For more information, see [Managing {{site.data.keyword.logs_full_notm}} logging instances](https://cloud.ibm.com/docs/cloud-logs?topic=cloud-logs-observe&interface=ui#observe_manage).
+For more information, see [Managing {{site.data.keyword.logs_full_notm}} logging instances](/docs/cloud-logs?topic=cloud-logs-observe&interface=ui#observe_manage).
 
 #### Steps to migrate for existing customers:
 {: #cloud-logs-migrate}

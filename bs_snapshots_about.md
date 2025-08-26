@@ -2,7 +2,7 @@
 
 copyright:
   years: 2022, 2025
-lastupdated: "2025-08-21"
+lastupdated: "2025-08-26"
 
 keywords: snapshots, Block Storage, volumes, cross-regional snapshot, restore volume, copy snapshot
 
@@ -306,7 +306,7 @@ For more information about managing tags for your account, see [Working with tag
 ## Next steps
 {: #snapshots-vpc-about-next-steps}
 
-Before you begin, review the [Planning {{site.data.keyword.block_storage_is_short}} snapshots](https://test.cloud.ibm.com/docs/vpc?topic=vpc-snapshots-vpc-planning) topic.
+Before you begin, review the [Planning {{site.data.keyword.block_storage_is_short}} snapshots](/docs/vpc?topic=vpc-snapshots-vpc-planning) topic.
 
 You can create and manage your snapshots by using the UI, CLI, API, and Terraform.
 * To use the UI, log in to the [{{site.data.keyword.cloud_notm}} console](/docs/vpc?topic=vpc-snapshots-vpc-create&interface=ui).{: ui}

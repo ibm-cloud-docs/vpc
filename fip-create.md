@@ -2,7 +2,7 @@
 
 copyright:
   years: 2022, 2025
-lastupdated: "2025-04-29"
+lastupdated: "2025-08-26"
 
 keywords: floating ip, reserving, bare metal, vnic, public gateways
 
@@ -43,7 +43,7 @@ establish the data path. Later, you can associate the floating IP to a different
    1. Enter your geography, region, and zone information.
    1. Provide the details for the floating IP, including its name and resource group.
    1. (Optional) Add any tags you want associated with the IP.
-   1. (Optional) Add access management tags to resources to help organize access control relationships. The only supported format for access management tags is `key:value`. For more information, see [Controlling access to resources by using tags](https://cloud.ibm.com/docs/account?topic=account-access-tags-tutorial).
+   1. (Optional) Add access management tags to resources to help organize access control relationships. The only supported format for access management tags is `key:value`. For more information, see [Controlling access to resources by using tags](/docs/account?topic=account-access-tags-tutorial).
    1. Select **Reserve**.
 1. After making your selections, click **Save**.
 
