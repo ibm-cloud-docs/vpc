@@ -258,7 +258,7 @@ The following example uses API version `2025-07-21` or earlier to create a mount
 
 ```sh
 curl --request POST \
-  --url '$vpc_api_endpoint/v1/shares/$my_share_id/mount_targets?version=2025-07-21&generation=2&meturity=beta' \
+  --url '$vpc_api_endpoint/v1/shares/$my_share_id/mount_targets?version=2025-07-21&generation=2&maturity=beta' \
   --header 'Authorization: Bearer $iam_token' \
   --header 'Content-Type: application/json' \
   --data '{
