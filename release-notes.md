@@ -27,6 +27,13 @@ For more information about changes to the {{site.data.keyword.vpc_short}} comman
 ## August 2025
 {: #vpc-aug25}
 
+### 26 August 2025
+{: #vpc-aug2625}
+{: release-note}
+
+Cross-regional copies of second-generation block volume snapshots (select availability)
+:   Customers with special access to preview the second-generation block storage volumes can now create cross-regional copies of their snapshots in every region where second-generation block volumes are supported. Cross-regional copies can be created in the console, from the CLI, or with the API. For more information about this feature and its limitations, see [About Block Storage for VPC snapshots](/docs/vpc?topic=vpc-snapshots-vpc-about&interface=ui#sdp-snapshots).
+
 ### 22 August 2025
 {: #vpc-aug2225}
 {: release-note}

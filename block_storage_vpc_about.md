@@ -2,7 +2,7 @@
 
 copyright:
   years: 2019, 2025
-lastupdated: "2025-08-08"
+lastupdated: "2025-08-26"
 
 keywords:
 
@@ -82,8 +82,6 @@ Volume profiles define the capacity and performance characteristics of storage v
 
 ### The SSD defined performance profile
 {: #block-storage-sdp-intro}
-
-[New]{: tag-new}
 
 Customers with special access to preview the defined performance profile can use the `sdp` profile in the Dallas (`us-south`), Frankfurt (`eu-de`), London (`eu-gb`), Madrid (`eu-es`), Osaka (`jp-osa`), Sao Paulo (`br-sao`), Sydney (`au-syd`), Tokyo (`jp-tok`), Toronto (`ca-tor`), and Washington (`us-east`) regions to specify custom capacity, custom throughput limit, and custom IOPS for their volumes.
 {: preview}

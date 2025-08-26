@@ -2,7 +2,7 @@
 
 copyright:
   years: 2022, 2025
-lastupdated: "2025-08-12"
+lastupdated: "2025-08-26"
 
 keywords: Block Storage, snapshots, cross-regional copy, fast restore, backup, restore volume
 
@@ -53,8 +53,8 @@ Fast restore snapshot clones and consistency groups are not supported for second
 
 You can copy a snapshot from one region to another region, and later use that snapshot to restore a volume in the new region. This feature can be used in disaster recovery scenarios when you need to start your virtual server instance and data volumes in a different region. Or you can use the remote copy to create storage volumes in a new region to expand your VPC. For more information, see [Cross-regional snapshot copies](/docs/vpc?topic=vpc-snapshots-vpc-about&interface=ui#snapshots_vpc_crossregion_copy).
 
-During the beta release, you can't create a cross-regional copy of a second-generation snapshot if it is encrypted with a customer-managed key or if's larger than 10 TB.
-{: beta}
+In this release, cross-regional snapshot copies are not supported if the source volume exceeds 10 TB or if it is encrypted with customer-managed encryption key.
+{: preview}
 
 ## What is the retention policy for cross-regional copies?
 {: faq}

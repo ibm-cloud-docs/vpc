@@ -2,7 +2,7 @@
 
 copyright:
   years: 2021, 2025
-lastupdated: "2025-08-20"
+lastupdated: "2025-08-26"
 
 keywords: snapshots, Block Storage snapshots, manage snapshots, fast restore clone, backup snapshot, remote copy, cross-regional copy
 
@@ -509,9 +509,6 @@ curl -X DELETE \
 
 Use the following steps to create cross-regional copies of snapshots from the Snapshots for VPC list or from the snapshot details page.
 
-Creating cross-region copy of a second-generation snapshot is available only in Sydney, Sao Paulo, Osaka, and London regions.
-{: beta}
-
 1. In the console, click the **Navigation menu** icon ![menu icon](../icons/icon_hamburger.svg) **> Infrastructure** ![VPC icon](../icons/vpc.svg) **> Storage > Block Storage snapshots**.
 2. In the list of snapshots, find the snapshot that you want to duplicate in another region. Make sure that the snapshot is in Stable status.
 3. click the Actions menu (![Actions menu](images/overflow.png)) and select **Copy snapshot**.
@@ -583,10 +580,7 @@ Service Tags           -
 ```
 {: codeblock}
 
-For more information about available command options, see [`ibmcloud is snapshot-create`](/docs/cli?topic=cli-vpc-reference#snapshot-create).
-
-Creating cross-region copy of a second-generation snapshot is available only in Sydney, Sao Paulo, Osaka, and London regions.
-{: beta}
+For more information about available command options, see [`ibmcloud is snapshot-create`](/docs/cli?topic=cli-vpc-reference#snapshot-create)
 
 ## Deleting a remote region copy from the CLI
 {: #snapshots-remote-copy-delete-cli}
@@ -701,9 +695,6 @@ A successful response looks like the following example:
 ```
 {: screen}
 
-Creating cross-region copy of a second-generation snapshot is available only in Sydney, Sao Paulo, Osaka, and London regions.
-{: beta}
-
 ## Deleting a remote-region copy of a snapshot with the API
 {: #snapshots-remote-copy-delete-api}
 {: api}
@@ -731,9 +722,6 @@ resource "ibm_is_snapshot" "snapshot" {
 {: codeblock}
 
 For more information about the arguments and attributes, see [ibm_is_snapshot](https://registry.terraform.io/providers/IBM-Cloud/ibm/latest/docs/resources/is_snapshot){: external}.
-
-Creating cross-region copy of a second-generation snapshot is available only in Sydney, Sao Paulo, Osaka, and London regions.
-{: beta}
 
 ## Deleting a remote region copy with Terraform
 {: #snapshots-remote-copy-delete-terraform}
