@@ -2,7 +2,7 @@
 
 copyright:
   years: 2021, 2023
-lastupdated: "2025-04-30"
+lastupdated: "2025-08-26"
 
 keywords: compute, virtual private cloud, virtual server instance, instance, bandwidth
 
@@ -15,7 +15,7 @@ subcollection: vpc
 # About bandwidth allocation for instance profiles
 {: #bandwidth-allocation-profiles}
 
-Instance profiles inform the available instance bandwidth of an instance. The number of vCPUs determine the available instance bandwidth. The bandwidth multiplier for instance bandwidth is 2 Gbps per vCPU.
+Instance profiles inform the available instance bandwidth of an instance. The number of vCPUs determine the available instance bandwidth. Depending on the profile, the bandwidth multiplier for instance bandwidth is 1 or 2 Gbps per vCPU.
 {: shortdesc}
 
 ## Bandwidth allocation for resources that are attached to an instance
