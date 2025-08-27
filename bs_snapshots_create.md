@@ -2,7 +2,7 @@
 
 copyright:
   years: 2021, 2025
-lastupdated: "2025-08-26"
+lastupdated: "2025-08-27"
 
 keywords: snapshots, Block Storage, snapshot clone, remote copy, fast restore, Block Storage snapshot, cross-regional snapshot
 
@@ -26,7 +26,7 @@ You can create a consistency group that contains snapshots of multiple volumes t
 You can take a snapshot of a second-generation storage volume even if it is not attached to a running virtual server instance. The snapshots feature is available in Dallas (`us-south`), Frankfurt (`eu-de`), London (`eu-gb`), Madrid (`eu-es`), Osaka (`js-osa`), Sao Paulo (`br-sao`), Sydney (`au-syd`), Tokyo (`jp-tok`), Toronto (`ca-tor`), and Washington (`us-east`) regions.
 {: preview}
 
-Fast restore snapshot clones and consistency groups are not supported for second-generation storage volumes in this release. In this release, cross-regional snapshot copies are not supported if the source volume exceeds 10 TB or if it is encrypted with customer-managed encryption key..
+Fast restore snapshot clones and consistency groups are not supported for second-generation storage volumes in this release. Cross-regional snapshot copies are not supported if the source volume exceeds 10 TB or if it is encrypted with a customer-managed encryption key.
 
 ## Creating a snapshot in the console
 {: #snapshots-vpc-create-ui}

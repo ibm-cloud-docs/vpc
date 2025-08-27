@@ -36,9 +36,6 @@ Some changes, such as new response properties or new optional request parameters
 
 **Access tokens and Certificates methods.** The existing access tokens and certificates methods in the [VPC Metadata API](/apidocs/vpc-metadata) are documented in the new [VPC Identity API](/apidocs/vpc-identity). For details, see the [VPC Identity change log](/docs/vpc?topic=vpc-#identity-api-change-log#26-august-2025-identity).
 
-
-In an upcoming release, the **Access tokens** and **Certificates** methods will no longer be part of the [Virtual Private Cloud Metadata API](/apidocs/vpc-metadata). Those methods will be included in a new **Virtual Private Cloud Identity API**. The paths will change from `/instance_identity` to `/identity`. Prepare for behavior changes that could lead to API client and workflow failures by starting to update the design for your automation, even if you won't be able to test it yet.
-
 ## 1 April 2025
 {: #1-april-2025-metadata}
 
