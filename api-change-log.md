@@ -52,6 +52,18 @@ At this time, all instances, and therefore all instance templates, continue to r
 The new response code will be rolled out gradually. Each phase of the rollout will be tied to a dated API version. These changes will be announced in future change log updates.
 {: note}
 
+## 26 August 2025
+{: #26-august-2025}
+
+### For all version dates
+{: #26-august-2025-all-version-dates}
+
+**VPC Metadata service support for bare metal servers.** When [creating](/apidocs/vpc/latest#create-bare-metal-server) or [updating](/apidocs/vpc/latest#update-bare-metal-server) a bare metal server, you can now enable access to the VPC Metadata service. You can access the VPC Metadata service on a bare metal server using an [endpoint URL](/apidocs/vpc-identity#endpoint-urls-identity) by specifying the new `metadata_service.protocol` property as `http` or `https`.
+
+Access to the VPC Metadata service is disabled on bare metal servers by default. To enable access to the VPC Metadata service, when creating or updating a bare metal server, set the new `metadata_service.enabled` property to `true`. The default communication protocol to the VPC Metadata service from the server is `http` (unencrypted). To change the protocol to secure access, specify the `metadata_service.protocol` as `https`
+
+For more information, see the [VPC Identity API](/apidocs/vpc-identity).
+
 ## 22 July 2025
 {: #22-july-2025}
 
@@ -838,9 +850,9 @@ By default, a boot volume created as part of provisioning a virtual server insta
 ### For all version dates
 {: #14-february-2023-all-version-dates}
 
-**VPC metadata new endpoint URL.** You can now use the fully qualified domain name (FQDN) `api.metadata.cloud.ibm.com` for the metadata service endpoint. The FQDN resolves to the link-local IP address `169.254.169.254` without requiring the application of special configurations. For more information, see [Endpoint URLs](/apidocs/vpc-metadata#endpoint-url-metadata) in the VPC Metadata API.
+**VPC Metadata new endpoint URL.** You can now use the fully qualified domain name (FQDN) `api.metadata.cloud.ibm.com` for the VPC Metadata service endpoint. The FQDN resolves to the link-local IP address `169.254.169.254` without requiring the application of special configurations. For more information, see [Endpoint URLs](/apidocs/vpc-metadata#endpoint-url-metadata) in the VPC Metadata API.
 
-**VPC metadata communication protocol and hop limit.** You can now control the communication protocol and hop limit for IP response packets used by the [VPC Metadata service](/docs/vpc?topic=vpc-imd-about). When you [create](/apidocs/vpc/latest#create-instance) or [update](/apidocs/vpc/latest#update-instance) an instance, use the new `metadata_service.protocol` property to specify either `http` (default) or `https` (secure access) communication. In addition, use the new `metadata_service.response_hop_limit` property to specify a value between `1` (default) and `64`. Both of these properties apply only when the metadata service is enabled by setting `metadata_service.enabled` to `true`. The default is `false`. For more information, see [Configure metadata settings on an existing instance with the API](/docs/vpc?topic=vpc-imd-configure-service&interface=api#metadata-config-api).
+**VPC Metadata communication protocol and hop limit.** You can now control the communication protocol and hop limit for IP response packets used by the [VPC Metadata service](/docs/vpc?topic=vpc-imd-about). When you [create](/apidocs/vpc/latest#create-instance) or [update](/apidocs/vpc/latest#update-instance) an instance, use the new `metadata_service.protocol` property to specify either `http` (default) or `https` (secure access) communication. In addition, use the new `metadata_service.response_hop_limit` property to specify a value between `1` (default) and `64`. Both of these properties apply only when the VPC Metadata service is enabled by setting `metadata_service.enabled` to `true`. The default is `false`. For more information, see [Configure metadata settings on an existing instance with the API](/docs/vpc?topic=vpc-imd-configure-service&interface=api#metadata-config-api).
 
 ## 7 February 2023
 {: #7-february-2023}

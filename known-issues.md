@@ -2,7 +2,7 @@
 
 copyright:
   years: 2018, 2025
-lastupdated: "2025-08-19"
+lastupdated: "2025-08-27"
 
 keywords:
 
@@ -18,14 +18,23 @@ subcollection: vpc
 Known issues might change over time, so check back occasionally.
 {: shortdesc}
 
-## Metadata API known issues
+## VPC Metadata API known issues
 {: #metadata-api-known-issues}
-
 
 ### `vcpu.manufacturer` property returns an empty string value
 {: #vcpu-manufacturer-instance-metadata-api-known-issues}
 
 **Issue:** When [retrieving an instance](/apidocs/vpc-metadata#get-instance) the value of the `vcpu.manufacturer` property is an empty string `""`.
+
+## VPC Identity API known issues
+{: #identity-api-known-issues}
+
+### The `/instance_identity` methods return incorrect HTTP status
+{: #identity-api-incorrect-http-status-known-issues}
+
+**Issue:** When using a `version` query parameter of `2025-08-25` or earlier from bare metal servers, an incorrect HTTP response of `404` will be returned for `/instance_identity` methods used to [create an identity token](/apidocs/vpc-identity/latest#create-identity-token), [create an identity certificate](/apidocs/vpc-identity/latest#create-identity-certificate), and [create an IAM token](/apidocs/vpc-identity/latest#create-identity-iam-token). The behavior is correct when using a `version` query parameter of `2025-08-26` or later.
+
+When using a beta `version` query parameter of `2025-07-14` or earlier from bare metal servers, an incorrect HTTP reponse of `404` will be returned for all `/instance_identity` methods.
 
 ## Confidential computing known issues
 {: #confidential-computing-vpc-known-issues}

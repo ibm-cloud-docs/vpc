@@ -2,7 +2,7 @@
 
 copyright:
   years: 2021, 2025
-lastupdated: "2025-07-22"
+lastupdated: "2025-08-26"
 
 keywords: api, change log, beta
 
@@ -25,6 +25,14 @@ There are no backward-compatibility guarantees as a feature progresses through i
 {: important}
 
 To review the change log of generally available API features, see the [VPC API change log](/docs/vpc?topic=vpc-api-change-log).
+
+## 26 August 2025
+{: #26-august-2025-beta}
+
+### For all version dates
+{: #26-august-2025-all-version-dates-beta}
+
+**Burstable (shared core) instances.** Accounts that have been granted special approval to preview this feature can now enable [burstable virtual server instances](/docs/vpc?topic=vpc-burstable-virtual-servers) by setting the `vcpu.tenancy` property to `shared` when [creating an instance](/apidocs/vpc-beta#create-instance) or when [creating an instance template](/apidocs/vpc-beta#create-instance-template). You can also set the `vcpu.tenancy` to `shared` or `dedicated` when [updating an instance](/apidocs/vpc-beta#update-instance). Additionally, [instance profiles](/apidocs/vpc-beta#list-instance-profiles) that support the burstable instances feature will have `shared` included in their `vcpu_tenancy` property as well as the supported percentage shares of the VCPUs in the `vcpu_percentage` property.
 
 ## 22 July 2025
 {: #22-july-2025-beta}
@@ -70,9 +78,11 @@ For migration guidance, see [Updating to the `2025-07-22` version (file shares, 
 ### For all version dates
 {: #15-july-2025-all-version-dates-beta}
 
-**Metadata service support for bare metal servers.** Accounts that have been granted special approval to preview this feature can now enable the metadata service for bare metal servers when [creating](/apidocs/vpc/latest#create-bare-metal-server) or [updating](/apidocs/vpc/latest#update-bare-metal-server) a bare metal server. You can access the metadata service on a bare metal server using an [endpoint URL](/apidocs/vpc-identity-beta#endpoint-urls-identity-beta) by specifying the new `metadata_service.protocol` property as `http` or `https`.
+VPC Metadata service support for bare metal servers is now generally available. See the [VPC API change log](/docs/vpc?topic=vpc-api-change-log#26-august-2025).
 
-The metadata service is disabled on bare metal servers by default. To enable the service, when creating or updating a bare metal server, set the new `metadata_service.enabled` property to `true`. The default communication protocol to the metadata service from the server is `http` (unencrypted). To change the protocol to secure access, specify the `metadata_service.protocol` as `https`.
+**VPC Metadata service support for bare metal servers.** Accounts that have been granted special approval to preview this feature can now enable access to the VPC Metadata service for bare metal servers when [creating](/apidocs/vpc/latest#create-bare-metal-server) or [updating](/apidocs/vpc/latest#update-bare-metal-server) a bare metal server. You can access the VPC Metadata service on a bare metal server using an [endpoint URL](/apidocs/vpc-identity-beta#endpoint-urls-identity-beta) by specifying the new `metadata_service.protocol` property as `http` or `https`.
+
+Access to the VPC Metadata service is disabled on bare metal servers by default. To enable access to the service, when creating or updating a bare metal server, set the new `metadata_service.enabled` property to `true`. The default communication protocol to the VPC Metadata service from the server is `http` (unencrypted). To change the protocol to secure access, specify the `metadata_service.protocol` as `https`.
 
 For more information, see the [Beta VPC Identity API](/apidocs/vpc-identity-beta).
 
@@ -566,7 +576,7 @@ This feature is now generally available. See the [VPC API change log](/docs/vpc?
 ### For all version dates
 {: #10-august-2021-all-version-dates-beta}
 
-**Beta VPC Metadata API.** Accounts that have been granted special approval to preview this feature can now preview the new beta {{site.data.keyword.vpc_full}} (VPC) [Metadata API](/apidocs/vpc-metadata-beta/initial). This API provides access to VPC metadata, including instance initialization data, network interfaces, volume attachments, public SSH keys, and placement groups. Use the [VPC create instance](/apidocs/vpc-beta#create-instance) or [VPC update instance](/apidocs/vpc-beta#update-instance) methods to enable or disable the metadata service endpoint for a particular instance. For more information, see [About VPC Metadata](/docs/vpc?topic=vpc-imd-about).
+**Beta VPC Metadata API.** Accounts that have been granted special approval to preview this feature can now preview the new beta {{site.data.keyword.vpc_full}} (VPC) [Metadata API](/apidocs/vpc-metadata-beta/initial). This API provides access to VPC metadata, including instance initialization data, network interfaces, volume attachments, public SSH keys, and placement groups. Use the [VPC create instance](/apidocs/vpc-beta#create-instance) or [VPC update instance](/apidocs/vpc-beta#update-instance) methods to enable or disable the VPC Metadata service endpoint for a particular instance. For more information, see [About VPC Metadata](/docs/vpc?topic=vpc-imd-about).
 
 ## 27 July 2021
 {: #27-july-2021-beta}
