@@ -29,10 +29,10 @@ To review the change log of generally available metadata API features, see the [
 ## 15 July 2025
 {: #15-july-2025-metadata-beta}
 
+This feature is now generally available. See the [VPC API change log](/docs/vpc?topic=vpc-api-change-log#26-august-2025).
+
 ### For all version dates
 {: #15-july-2025-all-version-dates-metadata-beta}
-
-VPC Metadata service support for bare metal servers is now generally available. See the [VPC API change log](/docs/vpc?topic=vpc-api-change-log#26-august-2025).
 
 **Access tokens and Certificates methods.** The existing access tokens and certificates methods in the [Beta VPC Metadata API](/apidocs/vpc-metadata-beta) are documented in the new [Beta VPC Identity API](/apidocs/vpc-identity-beta). For details, see the [Beta VPC Identity change log](/docs/vpc?topic=vpc-#identity-beta-api-change-log#15-july-2025-identity-beta).
 
