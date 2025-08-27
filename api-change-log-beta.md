@@ -2,7 +2,7 @@
 
 copyright:
   years: 2021, 2025
-lastupdated: "2025-07-22"
+lastupdated: "2025-08-26"
 
 keywords: api, change log, beta
 
@@ -25,6 +25,14 @@ There are no backward-compatibility guarantees as a feature progresses through i
 {: important}
 
 To review the change log of generally available API features, see the [VPC API change log](/docs/vpc?topic=vpc-api-change-log).
+
+## 26 August 2025
+{: #26-august-2025-beta}
+
+### For all version dates
+{: #26-august-2025-all-version-dates-beta}
+
+**Burstable (shared core) instances.** Accounts that have been granted special approval to preview this feature can now enable [burstable virtual server instances](/docs/vpc?topic=vpc-burstable-virtual-servers) by setting the `vcpu.tenancy` property to `shared` when [creating an instance](/apidocs/vpc-beta#create-instance) or when [creating an instance template](/apidocs/vpc-beta#create-instance-template). You can also set the `vcpu.tenancy` to `shared` or `dedicated` when [updating an instance](/apidocs/vpc-beta#update-instance). Additionally, [instance profiles](/apidocs/vpc-beta#list-instance-profiles) that support the burstable instances feature will have `shared` included in their `vcpu_tenancy` property as well as the supported percentage shares of the VCPUs in the `vcpu_percentage` property.
 
 ## 22 July 2025
 {: #22-july-2025-beta}
