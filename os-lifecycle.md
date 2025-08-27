@@ -4,7 +4,7 @@ copyright:
 
   years: 2022, 2025
 
-lastupdated: "2025-08-04"
+lastupdated: "2025-08-27"
 
 keywords: operating system end of support (eos)
 
@@ -129,6 +129,7 @@ The following table describes the end of support date and license model for SUSE
 | SLES 15 SP4 | 31 December 2023 | Pay-as-you-Go |
 | SLES 15 SP3 | 31 December 2022 | Pay-as-you-Go |
 | SLES 12 SP5 | 31 October 2024 |  Pay-as-you-Go |
+| SLES 15 SP7 (SAP HANA and SAP applications) | 31 December 2029 | Pay-as-you-Go |
 | SLES 15 SP6 (SAP HANA and SAP applications) | 31 December 2028 | Pay-as-you-Go |
 | SLES 15 SP5 (SAP HANA and SAP applications) | 31 December 2027 | Pay-as-you-Go |
 | SLES 15 SP4 (SAP HANA and SAP applications) | 31 December 2026 | Pay-as-you-Go |
@@ -148,7 +149,7 @@ The following table describes the end of support date and license model for Ubun
 |-----------------|----------------|---------------|
 | Ubuntu 24.04 minimal | 25 April 2029 | Free |
 | Ubuntu 22.04 minimal | 30 April 2027 | Free |
-| Ubuntu 20.04 minimal | 30 April 2025 | Free |
+| Ubuntu 20.04 minimal [^tabletext]| 30 April 2025 | Free |
 | Ubuntu 18.04 minimal [^tabletext]| 31 May 2023  | Free |
 | Ubuntu 16.04 minimal | 01 April 2021  | Free |
 {: caption="Lifecycle for Ubuntu operating systems" caption-side="bottom"}
