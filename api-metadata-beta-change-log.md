@@ -32,6 +32,8 @@ To review the change log of generally available metadata API features, see the [
 ### For all version dates
 {: #15-july-2025-all-version-dates-metadata-beta}
 
+VPC Metadata service support for bare metal servers is now generally available. See the [VPC API change log](/docs/vpc?topic=vpc-api-change-log#26-august-2025).
+
 **Access tokens and Certificates methods.** The existing access tokens and certificates methods in the [Beta VPC Metadata API](/apidocs/vpc-metadata-beta) are documented in the new [Beta VPC Identity API](/apidocs/vpc-identity-beta). For details, see the [Beta VPC Identity change log](/docs/vpc?topic=vpc-#identity-beta-api-change-log#15-july-2025-identity-beta).
 
 ## 17 December 2024
@@ -70,7 +72,7 @@ This feature is now generally available. See the [VPC Metadata API change log](/
 ### For all version dates
 {: #1-march-2022-all-version-dates-metadata-beta}
 
-**VPC metadata service.** The [VPC Metadata API](/apidocs/vpc-metadata) is now generally available in all regions. See [About VPC Metadata](/docs/vpc?topic=vpc-imd-about) and [Known issues](/docs/vpc?topic=vpc-known-issues).
+**VPC Metadata service.** The [VPC Metadata API](/apidocs/vpc-metadata) is now generally available in all regions. See [About VPC Metadata](/docs/vpc?topic=vpc-imd-about) and [Known issues](/docs/vpc?topic=vpc-known-issues).
 
 ## 2 November 2021
 {: #2-november-2021-metadata-beta}
@@ -78,4 +80,4 @@ This feature is now generally available. See the [VPC Metadata API change log](/
 ### For all version dates
 {: #2-november-2021-all-version-dates-metadata-beta}
 
-The metadata service introduces a [new method](/apidocs/vpc-metadata-beta#create-iam-token) (`POST /instance_identity/v1/iam_token`) to [generate an IAM token](/docs/vpc?topic=vpc-imd-identity-operations&interface=api#imd-token-exchange) from an instance identity access token. This method uses the instance identity access token and a trusted profile linked to a virtual server instance to generate an IAM access token. Beta users should migrate to this new method. Using the IAM API to pass the instance identity access token and generate an IAM token is deprecated.
+The VPC Metadata service introduces a [new method](/apidocs/vpc-metadata-beta#create-iam-token) (`POST /instance_identity/v1/iam_token`) to [generate an IAM token](/docs/vpc?topic=vpc-imd-identity-operations&interface=api#imd-token-exchange) from an instance identity access token. This method uses the instance identity access token and a trusted profile linked to a virtual server instance to generate an IAM access token. Beta users should migrate to this new method. Using the IAM API to pass the instance identity access token and generate an IAM token is deprecated.

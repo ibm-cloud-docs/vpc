@@ -2,7 +2,7 @@
 
 copyright:
   years: 2019, 2025
-lastupdated: "2025-07-15"
+lastupdated: "2025-08-26"
 
 keywords: api, change log, metadata, new features, restrictions, migration, versioned change
 
@@ -28,8 +28,14 @@ Some changes, such as new response properties or new optional request parameters
 - Consume only the resources and properties your application needs to function
 - Avoid depending on behavior that is not explicitly documented
 
-## Upcoming changes
-{: #upcoming-changes-metadata}
+## 26 August 2025
+{: #26-august-2025-metadata}
+
+### For all version dates
+{: #26-august-2025-all-version-dates-metadata}
+
+**Access tokens and Certificates methods.** The existing access tokens and certificates methods in the [VPC Metadata API](/apidocs/vpc-metadata) are documented in the new [VPC Identity API](/apidocs/vpc-identity). For details, see the [VPC Identity change log](/docs/vpc?topic=vpc-#identity-api-change-log#26-august-2025-identity).
+
 
 In an upcoming release, the **Access tokens** and **Certificates** methods will no longer be part of the [Virtual Private Cloud Metadata API](/apidocs/vpc-metadata). Those methods will be included in a new **Virtual Private Cloud Identity API**. The paths will change from `/instance_identity` to `/identity`. Prepare for behavior changes that could lead to API client and workflow failures by starting to update the design for your automation, even if you won't be able to test it yet.
 
@@ -131,9 +137,9 @@ This feature is now generally available. See the [26 March 2024](#26-march-2024-
 ### For all version dates
 {: #14-february-2023-all-version-dates-metadata}
 
-**VPC metadata new endpoint URL.** You can now use the fully qualified domain name (FQDN) `api.metadata.cloud.ibm.com` for the metadata service endpoint. The FQDN resolves to the link-local IP address `169.254.169.254` without requiring the application of special configurations. For more information, see [Endpoint URLs](/apidocs/vpc-metadata#endpoint-url-metadata) in the VPC Metadata API.
+**VPC Metadata new endpoint URL.** You can now use the fully qualified domain name (FQDN) `api.metadata.cloud.ibm.com` for the VPC Metadata service endpoint. The FQDN resolves to the link-local IP address `169.254.169.254` without requiring the application of special configurations. For more information, see [Endpoint URLs](/apidocs/vpc-metadata#endpoint-url-metadata) in the VPC Metadata API.
 
-**VPC metadata communication protocol and hop limit.** You can now view the communication protocol and hop limit for IP response packets used by the [VPC Metadata service](/docs/vpc?topic=vpc-imd-about). When [retrieving the instance](/apidocs/vpc-metadata#get-instance), the new `protocol` and `response_hop_limit` properties will be shown. For more information, see [Configure the metadata service](/docs/vpc?topic=vpc-imd-configure-service&interface=api).
+**VPC Metadata communication protocol and hop limit.** You can now view the communication protocol and hop limit for IP response packets used by the [VPC Metadata service](/docs/vpc?topic=vpc-imd-about). When [retrieving the instance](/apidocs/vpc-metadata#get-instance), the new `protocol` and `response_hop_limit` properties will be shown. For more information, see [Configure the Metadata service](/docs/vpc?topic=vpc-imd-configure-service&interface=api).
 
 ## 27 September 2022
 {: #27-september-2022-metadata}

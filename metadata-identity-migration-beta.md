@@ -12,12 +12,12 @@ subcollection: vpc
 
 {{site.data.keyword.attribute-definition-list}}
 
-# Updating to the `2025-07-15` version (metadata identity)
+# Updating to the `2025-07-15` version of the Beta VPC Identity API
 {: #2025-07-15-migration-metadata-identity}
 
-As described in the [Beta VPC Identity API](/apidocs/vpc-identity-beta/latest) reference [versioning](/apidocs/vpc-identity-beta#versioning-identity-beta) policy, most changes to the VPC APIs are fully compatible with earlier versions and are made available to all clients, regardless of the API version the client requests. However, the `2025-07-15` release of the VPC API necessitated incompatible changes in support of metadata identity methods.
+As described in the [Beta VPC Identity API](/apidocs/vpc-identity-beta/latest) reference [versioning](/apidocs/vpc-identity-beta#versioning-identity-beta) policy, most changes to the VPC Identity API are fully compatible with earlier versions and are made available to all clients, regardless of the VPC Identity API version the client requests. However, the `2025-07-15` release of the VPC Identity API necessitated incompatible changes in support of identity methods.
 
-When you adopt the release version `2025-07-15` or later, the metadata identity APIs will operate this way:
+When you adopt the release version `2025-07-15` or later, the VPC Identity API will operate this way:
 
 - Methods with `/instance_identity` in the path cannot be used on bare metal servers and virtual server instances.
 - Methods with `/identity` in the path can be used by both virtual server instances and bare metal servers. Methods with `/identity` in the path operate the same as `/instance_identity` methods when used in virtual server instances.
@@ -46,36 +46,36 @@ The following table lists the methods and their changed paths for API requests t
 
 These examples compare differences between before and after the `2025-07-15` versioned change.
 
-### Creating an identity access token
+### Creating an identity token
 {: #migration-2025-07-15-examples}
 
-The following example uses API version `2025-07-14` or earlier to create an identity access token.
+The following example uses API version `2025-07-14` or earlier to create an identity token.
 ```sh
 curl -X PUT "http://api.metadata.cloud.ibm.com/instance_identity/v1/token?version=2025-07-14&generation=2&maturity=beta"
   -H "Metadata-Flavor: ibm"
   -d '{"expires_in": 3600}'
 ```
-{: pre}
+{: codeblock}
 
-The response includes the access token:
+The response includes the identity token:
 
-```sh
-{"access_token":"","expires_in":3600}
+```json
+{"access_token":"eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ0aGVfYmVzdCI6IkVyaWNhIn0.c4C_BKtyZ4g78TB6wjdsX_MNx4KPoYj8YiikB1jO4o8","created_at":"2025-07-15T15:09:45Z","expires_at": "2025-07-16T15:09:45Z","expires_in":3600}
 ```
-{: pre}
+{: codeblock}
 
-The following example uses API version `2025-07-15` or later to create an identity access token.  
+The following example uses API version `2025-07-15` or later to create an identity token.  
 
 ```sh
 curl -X PUT "http://api.metadata.cloud.ibm.com/identity/v1/token?version=2025-07-15&generation=2&maturity=beta"
   -H "Metadata-Flavor: ibm"
   -d '{"expires_in": 3600}'
 ```
-{: pre}
+{: codeblock}
 
-The response includes the access token:
+The response includes the identity token:
 
-```sh
-{"access_token":"","expires_in":3600}
+```json
+{"access_token":"eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ0aGVfYmVzdCI6IkVyaWNhIn0.c4C_BKtyZ4g78TB6wjdsX_MNx4KPoYj8YiikB1jO4o8","created_at":"2025-07-15T15:09:45Z","expires_at": "2025-07-16T15:09:45Z","expires_in":3600}
 ```
-{: pre}
+{: codeblock}
