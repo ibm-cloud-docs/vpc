@@ -2,7 +2,7 @@
 
 copyright:
   years: 2019, 2025
-lastupdated: "2025-08-04"
+lastupdated: "2025-08-27"
 
 subcollection: vpc
 
@@ -28,7 +28,7 @@ The following operating systems are available as stock images when you create a 
 |---------|---------|
 | CentOS 7.x | x86-64 |
 | CentOS Stream 9.x, 10.x | x86-64 |
-| Debian 10.x, 11.x, 12.x | x86-64 |
+| Debian 11.x, 12.x, 13.x | x86-64 |
 | Fedora Core OS | x86-64 |
 | Red Hat Enterprise Linux 8.x, 9.x | x86-64 |
 | Red Hat Enterprise Linux for SAP 8.x, 9.x | x86-64 |
