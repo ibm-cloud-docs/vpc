@@ -2,7 +2,7 @@
 
 copyright:
   years: 2024, 2025
-lastupdated: "2025-04-02"
+lastupdated: "2025-08-28"
 
 keywords: vsi, virtual server, virtual server instances, profile, profiles, gpu, very high memory, ultra high memory, high memory
 
@@ -89,9 +89,9 @@ attached. This limit is based on the size of the instance.
 
 | Number of vCPUs | Max volumes | Max vNICs |
 | --------------- | ----------- | --------- |
-| 2-16            | 15          | 5         |
-| 17-48           | 15          | 10        |
-| 49+             | 15          | 15        |
+| 2-16            | 12          | 5         |
+| 17-48           | 12          | 10        |
+| 49+             | 12          | 15        |
 {: caption="Very high memory family limits for maximum volumes, and maximum network interfaces" caption-side="bottom"}
 
 ### Dedicated host profiles
@@ -99,7 +99,7 @@ attached. This limit is based on the size of the instance.
 
 Dedicated hosts allow users to provision a single-tenant host server and then provision virtual server instances of the corresponding family on the dedicated host.
 
-| Profile            | vCPUs / Cores | Memory (GiB) | Instance Storage | Sockets per Host (NUMA) | Supported Instance Types |
+| Profile            | vCPUs / Cores | Memory (GiB) | Instance storage | Sockets per host (NUMA) | Supported instance types |
 | ------------------ | ------------- | ------------ | ---------------- | ----------------------- | ------------------------ |
 | vx2d-host-176x2464 | 176 / 88      | 2464         | 5280 GB          | 4                       | vx2d (all)               |
 {: caption="Very high memory profile option for dedicated hosts" caption-side="bottom"}
@@ -174,9 +174,9 @@ attached. This limit is based on the size of the instance.
 
 | Number of vCPUs | Max volumes | Max vNICs |
 | --------------- | ----------- | --------- |
-| 2-16            | 15          | 5         |
-| 17-48           | 15          | 10        |
-| 49+             | 15          | 15        |
+| 2-16            | 12          | 5         |
+| 17-48           | 12          | 10        |
+| 49+             | 12          | 15        |
 {: caption="Ultra high memory family limits for vCPU, maximum volumes, and maximum network interfaces" caption-side="bottom"}
 
 ### Dedicated host profiles
@@ -184,7 +184,7 @@ attached. This limit is based on the size of the instance.
 
 Dedicated hosts allow users to provision a single-tenant host server and then provision virtual server instances of the corresponding family on the dedicated host.
 
-| Profile            | vCPUs / Cores | Memory (GiB) | Instance Storage | Sockets per Host (NUMA) | Supported Instance Types |
+| Profile            | vCPUs / Cores | Memory (GiB) | Instance Storage | Sockets per host (NUMA) | Supported instance types |
 | ------------------ | ------------- | ------------ | ---------------- | ----------------------- | ------------------------ |
 | ux2d-host-200x5600 | 200 / 100     | 5600         | 6000 GB          | 4                       | ux2d (all)               |
 {: caption="Ultra high memory profile option for dedicated hosts" caption-side="bottom"}

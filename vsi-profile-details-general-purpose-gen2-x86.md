@@ -2,7 +2,7 @@
 
 copyright:
   years: 2024, 2025
-lastupdated: "2025-07-29"
+lastupdated: "2025-08-28"
 
 keywords: vsi, virtual server, virtual server instances, profile, profiles, balanced, compute, memory, dedicated host, gen 2, intel, amd
 
@@ -26,13 +26,13 @@ The general purpose 2nd generation virtual server profiles (balanced, compute, a
 The general purpose profiles can also be paired with a corresponding dedicated host. This solution allows
 for single-tenant hypervisors running workloads from a single {{site.data.keyword.cloud}} account.
 
-### Operating Systems
+### Operating systems
 {: #general-purpose-os-gen2-intel}
 
 - Linux
 - Windows
 
-### Processor Generation
+### Processor generation
 {: #general-purpose-processor-gen2-intel}
 
 - Intel - 2nd Generation Xeon® Scalable processors
@@ -151,11 +151,11 @@ for single-tenant hypervisors running workloads from a single {{site.data.keywor
 An instance has a limit for the number of volumes and virtual network interfaces that can be
 attached. This limit is based on the size of the instance.
 
-| Number of vCPUs | Max Volumes | Max vNICs |
+| Number of vCPUs | Max volumes | Max vNICs |
 | --------------- | ----------- | --------- |
-| 2-16            | 15          | 5         |
-| 17-48           | 15          | 10        |
-| 49+             | 15          | 15        |
+| 2-16            | 12          | 5         |
+| 17-48           | 12          | 10        |
+| 49+             | 12          | 15        |
 {: caption="General purpose profile family limits for vCPU, maximum volumes, and maximum network interfaces" caption-side="bottom"}
 
 ### Dedicated host profiles
@@ -181,13 +181,13 @@ The general purpose 2nd generation virtual server profiles are built atop the AM
 The general purpose profiles can also be paired with a corresponding dedicated host. This solution allows
 for single-tenant hypervisors running workloads from a single {{site.data.keyword.cloud}} account.
 
-### Operating Systems
+### Operating systems
 {: #general-purpose-os-gen2-amd}
 
 - Linux
 - Windows
 
-### Processor Generation
+### Processor generation
 {: #general-purpose-processor-gen2-amd}
 
 - AMD EPYC 7763
@@ -209,7 +209,7 @@ for single-tenant hypervisors running workloads from a single {{site.data.keywor
 - Live migration: Yes
 - Instance storage: No
 
-### VM Configuration
+### VM configuration
 {: #general-purpose-vm-config-gen2-amd}
 
 - Hardware type: i440fx
@@ -244,11 +244,11 @@ for single-tenant hypervisors running workloads from a single {{site.data.keywor
 An instance has a limit for the number of volumes and virtual network interfaces that can be
 attached. This limit is based on the size of the instance.
 
-| Number of vCPUs | Max Volumes | Max vNICs |
+| Number of vCPUs | Max volumes | Max vNICs |
 | --------------- | ----------- | --------- |
-| 2-16            | 15          | 5         |
-| 17-48           | 15          | 10        |
-| 49+             | 15          | 15        |
+| 2-16            | 12          | 5         |
+| 17-48           | 12          | 10        |
+| 49+             | 12          | 15        |
 {: caption="General purpose profile family limits for vCPU, maximum volumes, and maximum network interfaces" caption-side="bottom"}
 
 ### Dedicated host profiles

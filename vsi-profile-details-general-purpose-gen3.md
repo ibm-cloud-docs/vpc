@@ -2,7 +2,7 @@
 
 copyright:
   years: 2024, 2025
-lastupdated: "2025-04-03"
+lastupdated: "2025-08-28"
 
 keywords: vsi, virtual server, virtual server instances, profile, profiles, balanced, compute, memory, dedicated host, gen 3
 
@@ -86,7 +86,7 @@ for single-tenant hypervisors running workloads from a single {{site.data.keywor
 ### Compute
 {: #compute-profiles-gen3-intel}
 
-| Profile      | vCPUs / Cores / NUMA Domains | Memory (GiB) | Bandwidth cap (Gbps) | Instance storage (Qty x GB) |
+| Profile      | vCPUs / Cores / NUMA domains | Memory (GiB) | Bandwidth cap (Gbps) | Instance storage (Qty x GB) |
 | ------------ | ---------------------------- | ------------ | -------------------- | --------------------------- |
 | cx3d-2x5     | 2 / 1 / 1                    | 5            | 4                    | 1x65                        |
 | cx3d-4x10    | 4 / 2 / 1                    | 10           | 8                    | 1x130                       |
@@ -104,7 +104,7 @@ for single-tenant hypervisors running workloads from a single {{site.data.keywor
 ### Memory
 {: #memory-profiles-gen3-intel}
 
-| Profile      | vCPUs / Cores / NUMA Domains | Memory (GiB) | Bandwidth cap (Gbps) | Instance storage (Qty x GB) |
+| Profile      | vCPUs / Cores / NUMA domains | Memory (GiB) | Bandwidth cap (Gbps) | Instance storage (Qty x GB) |
 | ------------- | ------------- | ------------ | -------------------- | --------------------------- |
 | mx3d-2x20     | 2 / 1 / 1     | 20           | 4                    | 1x65                        |
 | mx3d-4x40     | 4 / 2 / 1     | 40           | 8                    | 1x130                       |
@@ -125,11 +125,11 @@ for single-tenant hypervisors running workloads from a single {{site.data.keywor
 An instance has a limit for the number of volumes and virtual network interfaces that can be
 attached. This limit is based on the size of the instance.
 
-| Number of vCPUs | Max Volumes | Max vNICs |
+| Number of vCPUs | Max volumes | Max vNICs |
 | --------------- | ----------- | --------- |
-| 2-16            | 15          | 5         |
-| 17-48           | 15          | 10        |
-| 49+             | 15          | 15        |
+| 2-16            | 12          | 5         |
+| 17-48           | 12          | 10        |
+| 49+             | 12          | 15        |
 {: caption="General purpose profile family limits for vCPU, maximum volumes, and maximum network interfaces" caption-side="bottom"}
 
 ## Dedicated host profiles
