@@ -2,7 +2,7 @@
 
 copyright:
   years: 2024, 2025
-lastupdated: "2025-04-02"
+lastupdated: "2025-08-28"
 
 keywords: vsi, virtual server, virtual server instances, profile, profiles, balanced, compute, memory, gen 2, confidential computing, Hyper Protect, s390x architecture
 
@@ -22,12 +22,12 @@ The confidential computing profiles enable [IBM Secure Execution for Linux](http
 [IBM Hyper Protect Container Runtime image](/docs/vpc?topic=vpc-vsabout-images#hyper-protect-runtime).
 
 
-## Operating Systems
+## Operating systems
 {: #cc-os-gen2-z}
 
 - Linux (s390x)
 
-## Processor Generation
+## Processor generation
 {: #cc-processor-gen2-z}
 
 - IBM Z or LinuxONE
@@ -88,7 +88,7 @@ Regions:
 {: #cc-compute-profiles-gen2-z}
 
 
-| Profile    | vCPUs | Memory (GiB) | Bandwidth Cap (Gbps) |
+| Profile    | vCPUs | Memory (GiB) | Bandwidth cap (Gbps) |
 | ---------- | ----- | ------------ | -------------------- |
 | cz2e-2x4   | 2     | 4            | 4                    |
 | cz2e-4x8   | 4     | 8            | 8                    |
@@ -115,5 +115,5 @@ attached. This limit is based on the size of the instance.
 
 | Number of vCPUs | Max volumes | Max vNICs |
 | --------------- | ----------- | --------- |
-| 2-16            | 15          | 5         |
+| 2-16            | 12          | 5         |
 {: caption="Confidential computing profile family limits for vCPU, maximum volumes, and maximum network interfaces" caption-side="bottom"}
