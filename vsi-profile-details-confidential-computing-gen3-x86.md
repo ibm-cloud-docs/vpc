@@ -2,7 +2,7 @@
 
 copyright:
   years: 2024, 2025
-lastupdated: "2025-04-02"
+lastupdated: "2025-08-28"
 
 keywords: vsi, virtual server, virtual server instances, profile, profiles, balanced, compute, gen 3, intel, confidential computing
 
@@ -19,12 +19,12 @@ The confidential computing family of 3rd generation {{site.data.keyword.cloud}} 
 computing capability.
 {: shortdesc}
 
-## Operating Systems
+## Operating systems
 {: #cc-os-gen3-intel}
 
 - Linux
 
-## Processor Generation
+## Processor generation
 {: #cc-processor-gen3-intel}
 
 - Intel 8474C - 4th Generation Xeon Scalable processor
@@ -53,7 +53,7 @@ computing capability.
 - Live migration: No
 - Instance storage: Yes
 
-## VM Configuration
+## VM configuration
 {: #cc-vm-config-gen3-intel}
 
 - Hardware type: q35
@@ -68,7 +68,7 @@ computing capability.
 ### Balanced
 {: #cc-balanced-profiles-gen3-intel}
 
-| Profile      | vCPUs / Cores / NUMA Domains | Memory (GiB) | SGX mode | TDX mode| Bandwidth cap (Gbps) | Instance storage (Qty x GB)|
+| Profile      | vCPUs / Cores / NUMA domains | Memory (GiB) | SGX mode | TDX mode| Bandwidth cap (Gbps) | Instance storage (Qty x GB)|
 | ------------ | ---------------------------- | ------------ | ---------|-------- | -------------------- | ---------------------------|
 | bx3dc-2x10   | 2 / 1 / 1                    | 10           | 4GB   EPC| 0GB EPC | 4                    | 1 x 65                     |
 | bx3dc-4x20   | 4 / 2 / 1                    | 20           | 8GB   EPC| 0GB EPC | 8                    | 1 x 130                    |
@@ -85,7 +85,7 @@ computing capability.
 ### Compute
 {: #cc-compute-profiles-gen3-intel}
 
-| Profile       | vCPUs / Cores / NUMA Domains | Memory (GiB) | SGX mode | TDX mode| Bandwidth cap (Gbps) | Instance storage (Qty x GB)|
+| Profile       | vCPUs / Cores / NUMA domains | Memory (GiB) | SGX mode | TDX mode| Bandwidth cap (Gbps) | Instance storage (Qty x GB)|
 | ------------- | ---------------------------- | ------------ | ---------|-------- | -------------------- | ---------------------------|
 | cx3dc-2x5     | 2 / 1 / 1                    | 5            | 2GB   EPC| 0GB EPC |  4                   | 1 x 65                     |
 | cx3dc-4x10    | 4 / 2 / 1                    | 10           | 4GB   EPC| 0GB EPC |  8                   | 1 x 130                    |
@@ -110,9 +110,9 @@ attached. This limit is based on the size of the instance.
 
 | Number of vCPUs | Max volumes | Max vNICs |
 | --------------- | ----------- | --------- |
-| 2-16            | 15          | 5         |
-| 17-48           | 15          | 10        |
-| 49+             | 15          | 15        |
+| 2-16            | 12          | 5         |
+| 17-48           | 12          | 10        |
+| 49+             | 12          | 15        |
 {: caption="Confidential computing profile family limits for vCPU, maximum volumes, and maximum network interfaces" caption-side="bottom"}
 
 ## SGX limitations
