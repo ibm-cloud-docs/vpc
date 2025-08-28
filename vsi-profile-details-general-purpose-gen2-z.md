@@ -2,7 +2,7 @@
 
 copyright:
   years: 2024, 2025
-lastupdated: "2025-04-02"
+lastupdated: "2025-08-28"
 
 keywords: vsi, virtual server, virtual server instances, profile, profiles, balanced, compute, memory, dedicated host, gen 2, s390x architecture, LinuxONE, IBM z, mainframe
 
@@ -21,12 +21,12 @@ The IBM Z or LinuxONE general purpose instance profiles (balanced, compute, and 
 The general purpose profiles can also be paired with a corresponding dedicated host. This solution allows
 for single-tenant hypervisors running workloads from a single {{site.data.keyword.cloud_notm}} account. For s390x, a dedicated host offering is a dedicated logical partition running the {{site.data.keyword.cloud_notm}} hypervisor.
 
-## Operating Systems
+## Operating systems
 {: #general-purpose-os-gen2-s390x}
 
 - Linux (s390x)
 
-## Processor Generation
+## Processor generation
 {: #general-purpose-processor-gen2-s390x}
 
 - IBM Z or LinuxONE
@@ -46,7 +46,7 @@ for single-tenant hypervisors running workloads from a single {{site.data.keywor
 - Live migration: Yes
 - Instance storage: No
 
-## VM Configuration
+## VM configuration
 {: #general-purpose-vm-config-gen2-s390x}
 
 - Hardware type: s390-ccw-virtio
@@ -97,9 +97,9 @@ for single-tenant hypervisors running workloads from a single {{site.data.keywor
 An instance has a limit for the number of volumes and virtual network interfaces that can be
 attached. This limit is based on the size of the instance.
 
-| Number of vCPUs | Max Volumes | Max vNICs |
+| Number of vCPUs | Max volumes | Max vNICs |
 | --------------- | ----------- | --------- |
-| 2-16            | 15          | 5         |
+| 2-16            | 12          | 5         |
 {: caption="General purpose profile family limits for vCPU, maximum volumes, and maximum network interfaces" caption-side="bottom"}
 
 ## Dedicated host profiles
