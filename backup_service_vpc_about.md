@@ -2,7 +2,7 @@
 
 copyright:
  years: 2022, 2025
-lastupdated: "2025-08-12"
+lastupdated: "2025-08-28"
 
 keywords: Backup, backup service, backup plan, backup policy, restore, restore volume, restore data
 
@@ -253,7 +253,7 @@ Volume backups:
    - You can take up to 512 backup snapshots of your `sdp` volume.
    - You can't create consistency group backups that contain `sdp` volumes.
    - You can't create fast restore clones of your second-generation volume backups.
-   - You can't create cross-regional copies of your second-generation volume backups.
+   - You can't create cross-regional copies of your second-generation volume backups if the source volume exceeds 10 TB or if the source volume is encrypted with customer-managed keys.
 
 File share backups:
 * You can take a total of 750 backups per file share. 
