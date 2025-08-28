@@ -2,7 +2,7 @@
 
 copyright:
   years: 2024, 2025
-lastupdated: "2025-04-02"
+lastupdated: "2025-08-28"
 
 keywords: vsi, virtual server, virtual server instances, profile, profiles, storage optimized, gen 2
 
@@ -18,13 +18,13 @@ subcollection: vpc
 The storage optimized family of 2nd generation virtual server profiles are built atop the 2nd Generation Intel® Xeon® Scalable processors. These profiles provide a broad set of capabilities and scale from 2 vCPUs (1 physical core) up to 128 vCPUs (64 physical cores).
 {: shortdesc}
 
-## Operating Systems
+## Operating systems
 {: #storage-optimized-os-gen2}
 
 - Linux
 - Windows
 
-## Processor Generation
+## Processor generation
 {: #storage-optimize-processor-gen2}
 
 - Intel 2nd Generation Xeon Scalable processors
@@ -61,7 +61,7 @@ Regions:
 - Live migration: Yes
 - Instance storage: Yes
 
-## VM Configuration
+## VM configuration
 {: #storage-optimized-vm-config-gen2}
 
 - Hardware type: i440fx
@@ -97,5 +97,5 @@ attached. This limit is based on the size of the instance.
 | --------------- | ----------- | --------- |
 | 2-16            | 15          | 5         |
 | 17-48           | 15          | 10        |
-| 49+             | 15          | 15        |
+| 49+             | 15          | 12        |
 {: caption="Storage optimized profile family limits for vCPU, maximum volumes, and maximum network interfaces" caption-side="bottom"}
