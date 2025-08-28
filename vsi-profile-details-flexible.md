@@ -2,7 +2,7 @@
 
 copyright:
   years: 2025, 2025
-lastupdated: "2025-08-25"
+lastupdated: "2025-08-28"
 
 keywords: virtual server instances, flex profile, flexible profile, virtual server profile
 
@@ -150,6 +150,6 @@ An instance has a limit for the number of volumes and virtual network interfaces
 
 | Number of vCPUs | Max volumes | Max vNICs |
 | --------------- | ----------- | --------- |
-| 1 - 4 | 15 | 1 |
-| 8+ | 15 | 2 |
+| 1 - 4 | 12 | 1 |
+| 8+ | 12 | 2 |
 {: caption="Flex profile family limits for for maximum volumes and maximum network interfaces" caption-side="bottom"}
