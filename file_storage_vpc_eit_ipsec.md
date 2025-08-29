@@ -2,7 +2,7 @@
 
 copyright:
   years: 2023, 2025
-lastupdated: "2025-08-01"
+lastupdated: "2025-08-29"
 
 keywords: file share, file storage, encryption in transit, Mount Helper, IPsec, secure connection, mount share
 
@@ -35,7 +35,7 @@ To use the feature, the following requirements need to be met:
 - The file share must be based on the [`dp2` profile](/docs/vpc?topic=vpc-file-storage-profiles&interface=api#dp2-profile) and be configured with [Security Group access mode](/docs/vpc?topic=vpc-file-storage-vpc-about#fs-share-mount-targets). 
 - The mount target must be created with a [virtual network interface](/docs/vpc?topic=vpc-vni-about). The virtual server instance and the mount target must be members of the same [security group](/docs/vpc?topic=vpc-using-security-groups). For more information, see [Creating file shares and mount targets](/docs/vpc?topic=vpc-file-storage-create).
 - Data encryption in transit must be enabled. In the console, you can toggle encryption in transit on when you create the mount target. The API `transit_encryption` property accepts the `ipsec` value to enable the feature.
-- The metadata service must be enabled on the compute host. For more information, see [Metadata service on virtual server instances](/docs/vpc?topic=vpc-imd-about).
+- The metadata service must be enabled on the compute host. For more information, see [Metadata service on virtual server instances](/docs/vpc?topic=vpc-imd-about) and [Metadata service on bare metal servers](/docs/vpc?topic=vpc-bare-metal-server-metadata-about).
 
 The {{site.data.keyword.cloud}} file service provides a [Mount Helper utility](/docs/vpc?topic=vpc-fs-mount-helper-utility) to automate the following tasks that are performed on the compute host.
 {: fast-path}
@@ -67,11 +67,13 @@ Obtain the X.509 certificates that are needed for authentication. The same certi
    ```
    {: pre}
 
-3. Then, use the metadata service on the [virtual server instance](/docs/vpc?topic=vpc-imd-identity-operations#imd-json-token) to create a client certificate. 
-   1. Make a `PUT /instance_identity/v1/token` (virtual server instance) or `PUT /identity/v1/tokens` (bare metal server) request to get a token from the VPC identity service to be used for subsequent calls. For more information, see the following topic:
+3. Then, use the metadata service on the [virtual server instance](/docs/vpc?topic=vpc-imd-identity-operations#imd-json-token) or the [bare metal server](/docs/vpc?topic=vpc-bare-metal-server-metadata-about) to create a client certificate. 
+   1. Make a `PUT /instance_identity/v1/token` (virtual server instance) or `PUT /identity/v1/tokens` (bare metal server) request to get a token from the VPC identity service to be used for subsequent calls. For more information, see the following topics:
       - [Acquiring an instance identity access token](/docs/vpc?topic=vpc-imd-identity-operations&interface=api#imd-json-token).
-   1. Use the identity token to create an identity certificate. Make a `POST /instance_identity/v1/certificates` request for a virtual server instance or a `POST /identity/v1/certificates` for a bare metal server. Specify the identity token in the HTTP Authorization header, plus a Certificate Signing Request (as `csr` property) and a validity duration (as `expires_in` property). The call returns a new client certificate and intermediate certificate chain that allows the client to access file shares by using IPsec Encryption in Transit. For more information, see the following topic:
+      - [Acquiring a bare metal server identity access token](/docs/vpc?topic=vpc-configure-metadata-service-bare-metal&interface=api#metadata-json-token-bare-metal).
+   1. Use the identity token to create an identity certificate. Make a `POST /instance_identity/v1/certificates` request for a virtual server instance or a `POST /identity/v1/certificates` for a bare metal server. Specify the identity token in the HTTP Authorization header, plus a Certificate Signing Request (as `csr` property) and a validity duration (as `expires_in` property). The call returns a new client certificate and intermediate certificate chain that allows the client to access file shares by using IPsec Encryption in Transit. For more information, see the following topics:
       - [Generating an instance identity certificate by using an instance identity access token](/docs/vpc?topic=vpc-imd-identity-operations&interface=api#imd-acquire-certificate).
+      - [Generating a bare metal server identity certificate by using a bare metal server identity access token](/docs/vpc?topic=vpc-configure-metadata-service-bare-metal&interface=api#metadata-acquire-certificate-bare-metal).
    1. Copy the API response output, including the `-----BEGIN CERTIFICATE-----` and `-----END CERTIFICATE-----` lines, and save it to a file with a recognizable name, such as `ca-cert.pem`. Make sure that the file you create has the `.pem` extension.
    
 4. Copy the instance identity certificate in the `/etc/ipsec.d/cacerts` directory.

@@ -23,7 +23,7 @@ Storage for {{site.data.keyword.bm_is_short}} is unmanaged. You are responsible 
 
 
 
-{{site.data.keyword.filestorage_vpc_short}} is a compatible network-attached storage solution for {{site.data.keyword.bm_is_short}} that are provisioned after 31 August 2023. Currently, encryption in transit is not supported between {{site.data.keyword.filestorage_vpc_short}} and {{site.data.keyword.bm_is_short}}. For more information, see [About {{site.data.keyword.filestorage_vpc_short}}](/docs/vpc?topic=vpc-file-storage-vpc-about).
+{{site.data.keyword.filestorage_vpc_short}} is a compatible network-attached storage solution for {{site.data.keyword.bm_is_short}} that are provisioned after 31 August 2023. For more information, see [About {{site.data.keyword.filestorage_vpc_short}}](/docs/vpc?topic=vpc-file-storage-vpc-about).
 
 The following network-attached storage is not supported:
 * {{site.data.keyword.block_storage_is_short}} 

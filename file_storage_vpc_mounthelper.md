@@ -2,7 +2,7 @@
 
 copyright:
   years: 2023, 2025
-lastupdated: "2025-08-01"
+lastupdated: "2025-08-29"
 
 keywords: file share, file storage, encryption in transit, Mount Helper, IPsec, secure connection, mount share
 
@@ -23,11 +23,11 @@ Mount Helper is an open source automation tool that configures and establishes s
 
 The utility uses strongSwan and [`swanctl`](https://docs.strongswan.org/docs/5.9/swanctl/swanctl.html) to configure IPsec on the compute host that's running a Linux OS.
 
-{{site.data.keyword.filestorage_vpc_short}} IPsec connection requires mutual authentication. The Mount Helper retrieves the instance identity token from the Metadata service, and with the instance identity token it requests the creation of the instance identity certificate.
+{{site.data.keyword.filestorage_vpc_short}} IPsec connection requires mutual authentication. The Mount Helper retrieves the instance or bare metal server identity token from the Metadata service. Then, it requests the creation of the instance or bare metal server identity certificate by using the identity token.
 
 The Mount Helper makes new certificate requests every 45 minutes, as the lifetime of the certificate is 1 hour. The new certificate is generated before the old certificate expires to ensure seamless connection. The certificates are generated with the shorter life span for security reasons.
 
-You can use the utility for encrypted or unencrypted connections. For encrypted connections, the Mount Helper uses the metadata service protocol option that is set to either `http` or `https`. For more information, see the API reference for `metadata_service` option of [instance provisioning](/apidocs/vpc/latest#create-instance).
+You can use the utility for encrypted or unencrypted connections. For encrypted connections, the Mount Helper uses the metadata service protocol option that is set to either `http` or `https`. For more information, see the API reference for `metadata_service` option of [instance provisioning](/apidocs/vpc/latest#create-instance) and [bare metal server provisioning](/apidocs/latest#create-bare-metal-server).
 
 ## Stunnel secure connection for regional shares
 {: #fs-eit-stunnel-requirements}
@@ -39,7 +39,7 @@ The utility installs stunnel on the compute host that's running a Linux OS. Stun
 ## Requirements
 {: #fs-eit-requirements}
 
-* For setting up secure connection with _zonal_ file share, the [Metadata service](/docs/vpc?topic=vpc-imd-about) must be enabled on the virtual server instance. If it is not enabled yet, follow the instructions for [enabling metadata in the console](/docs/vpc?topic=vpc-imd-configure-service&interface=ui#imd-enable-service-ui){: ui}[enabling metadata from the CLI](/docs/vpc?topic=vpc-imd-configure-service&interface=cli#imd-metadata-service-enable-cli){: cli}[enabling metadata from the API](/docs/vpc?topic=vpc-imd-configure-service&interface=api#imd-metadata-service-enable-api){: api}.
+* For setting up secure connection with zonal file share, the [Metadata service](/docs/vpc?topic=vpc-imd-about) must be enabled on the virtual server instance. If it is not enabled yet, follow the instructions for [enabling metadata in the console](/docs/vpc?topic=vpc-imd-configure-service&interface=ui#imd-enable-service-ui){: ui}[enabling metadata from the CLI](/docs/vpc?topic=vpc-imd-configure-service&interface=cli#imd-metadata-service-enable-cli){: cli}[enabling metadata from the API](/docs/vpc?topic=vpc-imd-configure-service&interface=api#imd-metadata-service-enable-api){: api} for virtual server instances or [enabling metadata in the console](/docs/vpc?topic=vpc-configure-metadata-service-bare-metal&interface=ui#metadata-enable-service-ui-bare-metal){: ui}[enabling metadata from the CLI](/docs/vpc?topic=vpc-configure-metadata-service-bare-metal&interface=cli#metadata-service-enable-cli-bare-metal){: cli}[enabling metadata from the API](/docs/vpc?topic=vpc-configure-metadata-service-bare-metal&interface=api#metadata-service-enable-api-bare-metal){: api} for bare metal servers.
 * The file share must have [security group access mode](/docs/vpc?topic=vpc-file-storage-vpc-about&interface=ui#fs-mount-access-mode), so the VPC's security access groups can be used to define which compute host can mount the share.
 * Data encryption in transit must be enabled for the mount target.
 * The compute host and the mount target must be members of the same [security group](/docs/vpc?topic=vpc-using-security-groups).
@@ -61,12 +61,18 @@ The utility installs stunnel on the compute host that's running a Linux OS. Stun
    {: caption="This table shows the supported host OS distributions." caption-side="bottom"}
 
 * Installing the Mount Helper on Red Hat Enterprise Linux CoreOS is not supported.
-* Encryption in transit is not supported on {{site.data.keyword.bm_is_short}}.
    
 ## Installation and configuration of the Mount Helper
 {: #fs-eit-installation}
 
-[SSH into the Compute instance](/docs/vpc?topic=vpc-creating-virtual-servers&interface=ui#next-steps-after-creating-virtual-servers-ui) where you want to mount the file share. Then, you can download the package directly from GitHub, or build the utility from the source code.
+Log in to the compute host where you want to mount the file share.
+- [Connect to your virtual server instance](/docs/vpc?topic=vpc-creating-virtual-servers&interface=ui#next-steps-after-creating-virtual-servers-ui).
+- [Connect to your bare metal server](/docs/vpc?topic=vpc-connect-to-ESXi-bare-metal-servers).
+
+Then, you can download the package directly from GitHub, or build the utility from the source code
+
+To establish an encrypted connection between a bare metal server and a file share, download Mount Helper version 0.2.1.
+{: important}
 
 ### Downloading the installation package
 {: #download-from-github}

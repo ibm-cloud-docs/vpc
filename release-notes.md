@@ -43,6 +43,9 @@ VPC Metadata on bare metal servers (GA)
 
    If you currently use the `/instance_identity/v1/token` method and want to adopt the API release version 2025-08-26 or later, review the changes that are described in the migration guidance: [Updating to the `2025-08-26` version of the VPC Identity API](/docs/vpc?topic=vpc-#2025-08-26-migration-metadata-identity#changed-paths-metadata-identity).
 
+Encryption-in-transit support for bare metal servers
+:   Customers can use the VPC Identity API to obtain bare metal server identity certificates. The bare metal server identity certificate can be used to establish an encrypted connection between the bare metal server and the file share that is mounted on it. The Mount Helper utility is updated to support installation on bare metal servers. For more information, see [Encryption in transit](/docs/vpc?topic=vpc-file-storage-vpc-eit) and [IBM Cloud File Share Mount Helper utility](/docs/vpc?topic=vpc-fs-mount-helper-utility) topics.
+
 ### 26 August 2025
 {: #vpc-aug2625}
 {: release-note}
@@ -66,7 +69,6 @@ Burstable Flex virtual servers (beta)
 {: release-note}
 
 UI enhancement for bare metal servers: Filter instance profiles by business scenario
-
 :   When creating a bare metal server, you can now use the By scenario tab on the Select a server profile page to narrow the results to include only applicable bare metal server profiles. For example, you can filter profiles by the following business scenarios: SAP; Web Development and Test; HPC; Confidential computing; and Storage optimized. When a specific filter is selected, the profile results display only the profiles related to the defined business scenario.
 
 ## July 2025

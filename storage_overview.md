@@ -2,7 +2,7 @@
 
 copyright:
   years: 2022, 2025
-lastupdated: "2025-08-26"
+lastupdated: "2025-08-29"
 
 keywords: block storage for VPC, File Storage for VPC, Snapshots for VPC, Backup for VPC, block storage, file storage, snapshots, backup, 
 
@@ -91,7 +91,7 @@ For more information, see [About Snapshots for VPC](/docs/vpc?topic=vpc-snapshot
 ## {{site.data.keyword.filestorage_vpc_short}}
 {: #vpc-file-storage-overview}
 
-{{site.data.keyword.filestorage_vpc_short}} provides NFS-based file storage services. You create file shares in an availability zone within a region. You can share them with multiple virtual server instances within the same zone across multiple VPCs.
+{{site.data.keyword.filestorage_vpc_short}} provides NFS-based file storage services. You create file shares in an availability zone within a region. You can share them with multiple virtual server instances or bare metal servers within the same zone across multiple VPCs.
 
 By using this service, you can:
 
