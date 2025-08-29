@@ -12,10 +12,10 @@ subcollection: vpc
 
 {{site.data.keyword.attribute-definition-list}}
 
-# Use the metadata service for bare metal servers
+# Using the metadata service for bare metal servers
 {: #get-metadata-bare-metal}
 
-After you obtained a bare metal server identity access token, you can access the metadata service and retrieve metadata about a bare metal server. This topic describes how to make calls to the API to access bare metal server metadata such as initialization data, network interfaces, volume attachments, public SSH keys, and placement groups.
+After you obtain a bare metal server identity access token, you can access the metadata service and retrieve metadata about a bare metal server. The following information describes how to make calls to the API to access bare metal server metadata such as initialization data, network interfaces, volume attachments, public SSH keys, and placement groups.
 {: shortdesc}
 
 When you make API calls to the bare metal server metadata service, activity tracking events are triggered. For more information, see [Bare metal server events](/docs/vpc?topic=vpc-at_events#events-compute-bm).
@@ -32,7 +32,6 @@ For more information about these API calls and examples, see the [Metadata servi
 Windows users have extra requirements to access and use the metadata service. For more information, see [Setting up windows servers for using the metadata service](/docs/vpc?topic=vpc-configure-metadata-service-bare-metal&interface=ui#metadata-service-enable-bare-metal).
 {: note}
 
-
 ## Accessing the metadata service by using the bare metal server identity access token service
 {: #metadata-get-token-usemd-bare-metal}
 
@@ -46,15 +45,15 @@ Windows users have extra requirements to access and use the metadata service. Fo
 
 A bare metal server identity access token provides a security credential for accessing the metadata service. It's a signed token with a set of claims based on information about the bare metal server and information that is passed in the token request.
 
-To access the bare metal server identity, make a `PUT "http://api.metadata.cloud.ibm.com /identity/v1/token` call by using the [Metadata service API](/apidocs/vpc-identity-beta#create-access-token) that invokes the bare metal server host name. Communication between the bare metal server and metadata service never leaves the host, you acquire the token from within the bare metal server. If secure access to the bare metal server metadata service is enabled on your bare metal server use, the "https" protocol instead of the "http" protocol.
+To access the bare metal server identity, make a `PUT "http://api.metadata.cloud.ibm.com /identity/v1/token` call by using the [Metadata service API](/apidocs/vpc-identity-beta#create-access-token) that invokes the bare metal server hostname. Communication between the bare metal server and metadata service never departs the host. You acquire the token from within the bare metal server. If secure access to the bare metal server metadata service is enabled on your bare metal server, use the `https` protocol instead of the `http` protocol.
 
 In the request, you specify an expiration time for the token. The default is 5 minutes, but you can specify that it expires sooner or later (5 seconds to 1 hour).
 
 The response (a JSON payload) contains the bare metal server identity access token. Use this token to access the metadata service.
 
-You can also generate an IAM token from this token and use the API to call IAM-enabled services. For more information, see [Generate an IAM token from an bare metal server identity access token](/docs/vpc?topic=vpc-configure-metadata-service-bare-metal&interface=api#metadata-token-exchange-bare-metal).
+You can also generate an IAM token from this token and use the API to call IAM-enabled services. For more information, see [Generate an IAM token from a bare metal server identity access token](/docs/vpc?topic=vpc-configure-metadata-service-bare-metal&interface=api#metadata-token-exchange-bare-metal).
 
-### Acquire a bare metal server identity access token
+### Acquiring a bare metal server identity access token
 {: #metadata-json-token-usemd-bare-metal}
 
 Using the Metadata service API, make `PUT "http://api.metadata.cloud.ibm.com /identity/v1/token` call to get a bare metal server identity access token. The following example uses `jq` to parse the JSON API response and then extract the bare metal server identity access token value. You can use your preferred JSON parser.
@@ -85,12 +84,11 @@ The following JSON response shows the bare metal server identity access token ch
 ```
 {: codeblock}
 
-
-## Generate an IAM token from a bare metal server identity access token
+## Generating an IAM token from a bare metal server identity access token
 {: #metadata-token-exchange-usemd-bare-metal}
 {: api}
 
-To access IBM Cloud IAM-enabled services in the account, you can generate an IAM token from the bare metal server identity access token by using trusted profile information. After you generate the IAM token, you can use it to access IAM-enabled services, such as {{site.data.keyword.cos_full_notm}}, Cloud Database Service, and the VPC APIs. You can reuse the token multiple times.
+To access {{site.data.keyword.cloud_notm}} IAM-enabled services in the account, you can generate an IAM token from the bare metal server identity access token by using trusted profile information. After you generate the IAM token, you can use it to access IAM-enabled services, such as {{site.data.keyword.cos_full_notm}}, Cloud Database Service, and the VPC APIs. You can reuse the token multiple times.
 
 Make a `POST /identity/v1/iam_tokens` call and specify the ID of the trusted profile. This request uses the bare metal server identity access token and a trusted profile that is linked to a bare metal server to generate an IAM access token. The trusted profile can be linked either when you create the bare metal server or provided in the request body.
 
