@@ -21,11 +21,11 @@ You can create a trusted profile for compute resource identities in {{site.data.
 ## About trusted profiles for compute resource identities
 {: #metadata-compute-res-identity-bare-metal}
 
-Trusted profiles for compute resource identities let you assign an {{site.data.keyword.iamshort}} identity to an individual compute resource, such as a bare metal server. Instead of having to create a service ID, generate an API key, get the application to store and validate that key, you can assign IAM identity directly to the bare metal server and acquire a bare metal server identity access token.
+You use trusted profiles for compute resource identities to assign an {{site.data.keyword.iamshort}} identity to an individual compute resource, such as a bare metal server. Instead of creating a service ID, generating an API key, getting the application to store, and validating that key, you can assign IAM identity directly to the bare metal server and acquire a bare metal server identity access token.
 
-The compute resource identity service creates the trusted profile, against which you assign access rights to enable the bare metal server to call IAM-enabled services, such as {{site.data.keyword.cos_full_notm}} and {{site.data.keyword.keymanagementservicelong}}. You link a trusted profile when you provision a bare metal server. Trusted profiles define authorization for all applications running on the bare metal server.
+The compute resource identity service creates the trusted profile, against which you assign access rights to enable the bare metal server to call IAM-enabled services, such as {{site.data.keyword.cos_full_notm}} and {{site.data.keyword.keymanagementservicelong}}. You link a trusted profile when you provision a bare metal server. Trusted profiles define authorization for all applications that are running on the bare metal server.
 
-The trusted profile that you specify when you provision the bare metal server becomes the default trusted profile. It's automatically linked to the bare metal server when you use the UI. From the API, you can link it in the same call to create the bare metal server.
+The trusted profile that you specify when you provision the bare metal server becomes the default trusted profile. It automatically links to the bare metal server when you use the UI. From the API, you can link it in the same call to create the bare metal server.
 
 The bare metal server inherits the access rights that are defined in the default trusted profile. VPC uses that trusted profile for any bare metal server identity request to generate an IAM token from a bare metal server identity access token, where the token generation request does not specify a trusted profile.
 
@@ -48,6 +48,7 @@ To link a trusted profile to a bare metal server, you must have sufficient autho
 Verify that your access permissions are assigned as Administrator or Editor:
 
 In the console,
+
 1. Go to [Manage access and users](/iam/users){: external}.
 2. Click **Users**, select your name, and click **Access policies**.
 
@@ -73,8 +74,8 @@ The IAM token is obtained by exchanging the bare metal server identity access to
 |------|---------|----------------|-------------|
 | 1    | IBM Cloud | IAM | [Create an IAM trusted profile](/docs/account?topic=account-trustedprofile-compute-tutorial). |
 | 2    | IBM Cloud | IAM | Assign access rights to the IAM trusted profile. |
-| 3    | IBM Cloud | VPC API or UI| With the API, make a request to create a new bare metal server, configured with the [metadata service](/docs/vpc?topic=vpc-configure-metadata-service-bare-metal) enabled. Specify any user data and the default trusted profile. Specify to link the trusted profile in the same call. \n In the console, [create a bare metal server](/docs/vpc?topic=vpc-creating-bare-metal-servers&interface=ui) and select a trusted profile and link it to the bare metal server. You can also [Enable the metadata service for an existing bare metal server](/docs/vpc?topic=vpc-configure-metadata-service-bare-metal#metadata-enable-on-bare-metal-server-ui-bare-metal). |
-| 4    | Bare metal server | VPC API | Make an API request to the metadata token service and get an [bare metal server identity access token](/docs/vpc?topic=vpc-configure-metadata-service-bare-metal#metadata-json-token-bare-metal). |
+| 3    | IBM Cloud | VPC API or UI| With the API, make a request to create a new bare metal server, which is configured with the [metadata service](/docs/vpc?topic=vpc-configure-metadata-service-bare-metal) enabled. Specify any user data and the default trusted profile. Specify to link the trusted profile in the same call. \n In the console, [create a bare metal server](/docs/vpc?topic=vpc-creating-bare-metal-servers&interface=ui) and select a trusted profile and link it to the bare metal server. You can also [Enable the metadata service for an existing bare metal server](/docs/vpc?topic=vpc-configure-metadata-service-bare-metal#metadata-enable-on-bare-metal-server-ui-bare-metal). |
+| 4    | Bare metal server | VPC API | Make an API request to the metadata token service and get a bare metal server identity access token](/docs/vpc?topic=vpc-configure-metadata-service-bare-metal#metadata-json-token-bare-metal). |
 | 5    | Bare metal server | Metadata service API |  Make an API request to [generate an IAM token from the bare metal server identity access token](/docs/vpc?topic=vpc-configure-metadata-service-bare-metal#metadata-token-exchange-bare-metal). The IAM token allows access to all IAM-enabled services. |
 | 6    | Bare metal server | IAM-enabled service | Pass the IAM token to call an IAM-enabled service API. The required access rights to the service exist in the trusted profile. |
 {: caption="Procedure for using a trusted profile" caption-side="bottom"}
@@ -89,7 +90,7 @@ Default trusted profiles cannot be changed on existing bare metal servers. A def
 
 1. Create a [trusted profile](/docs/account?topic=account-create-trusted-profile) for the new bare metal server.
 
-2. Create the bare metal server and specify a default trusted profile while you provision the bare metal server. With the VPC API, set the `auto_link` property to `true` to automatically link the trusted profile to the bare metal server. Specify the trusted profile ID or the CRN of the trusted profile. For example:
+2. Create the bare metal server and specify a default trusted profile while you provision the bare metal server. With the VPC API, set the `auto_link` property to `true` to automatically link the trusted profile to the bare metal server. Specify the trusted profile ID or the CRN of the trusted profile. For example,
 
     ```sh
     curl -X POST "$vpc_api_endpoint/v1/bare_metal_servers?version=2025-06-30&generation=2" -H "Authorization: $iam_token"
@@ -107,13 +108,13 @@ Default trusted profiles cannot be changed on existing bare metal servers. A def
     ```
     {: codeblock}
 
-    You must have Administrator or Editor IAM permissions to complete this step. See [IAM permissions for linking trusted profiles](#metadata-auth-trusted-profiles-bare-metal) in this topic for more information.
+    You must have Administrator or Editor IAM permissions to complete this step. For more information, [IAM permissions for linking trusted profiles](#metadata-auth-trusted-profiles-bare-metal).
     {: requirement}
 
 3. Obtain a bare metal server identity access token and create an environment variable for it:
 
    1. Log in to IBM Cloud CLI.
-   2. Go to an existing bare metal server. Use `ibmcloud is bare-metal-server` to locate a running bare metal server in which to enable the metadata service. The bare metal server must have a VPC associated with it.
+   2. Go to an existing bare metal server. Use `ibmcloud is bare-metal-server` to locate a running bare metal server in which to enable the metadata service. The bare metal server needs an associated VPC.
    3. List security group rules so you can ping the virtual servers over the floating IP address:
 
        ```sh
@@ -122,7 +123,7 @@ Default trusted profiles cannot be changed on existing bare metal servers. A def
        {: pre}
 
    4. SSH to get a connection into the bare metal server to issue the APIs for the metadata service.
-   5. Log in to the bare metal server. You can be running a stock image or custom image. The metadata service is supported on all stock and custom images, and CPU profiles At this point, the floating IP is assigned, the security groups are in place, and you're now working within the bare metal server.
+   5. Log in to the bare metal server. You can be running a stock image or custom image. The metadata service is supported on all stock and custom images, and CPU profiles. Then, the floating IP is assigned and the security groups are in place. Now you're working within the bare metal server.
    6. Make an API request to the metadata token service to retrieve a bare metal server identity access token. Specify how long the token is valid, for example 3600 seconds (1 hour). In this example, the command is run through the `jq` parser to format the JSON response. You can choose the parser that you prefer.
 
       ```json

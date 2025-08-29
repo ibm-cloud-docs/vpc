@@ -364,7 +364,7 @@ curl -X PATCH "$vpc_api_endpoint/v1/bare_metal_servers/$bare_metal_server_id?ver
 
 Specify the following properties values to use when you update the bare metal server.
 - `name` specifies the name of the bare metal server
-- `metadata_service` specifies whether the service is enabled and whicih protocol to use.
+- `metadata_service` specifies whether the service is enabled and which protocol to use.
 
 For more information about the API request, see [Update a bare metal server](/apidocs/vpc/latest#update-bare-metal-server).
 

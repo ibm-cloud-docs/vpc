@@ -15,24 +15,24 @@ subcollection: vpc
 # Security best practices for the metadata service for bare metal servers
 {: #metadata-security-best-practices-bare-metal}
 
-IBM takes data security seriously and recommends you follow these best practices to ensure the highest level of protection for your bare metal server metadata.
+IBM takes data security seriously and recommends that you follow these best practices to help make sure that you have the highest level of protection for your bare metal server metadata.
 {: shortdesc}
 
 ## Overview
 {: #metadata-sec-overview-bare-metal}
 
-This topic describes how to configure security safeguards to protect your metadata by:
+Use the following information describes how to configure security safeguards to protect your metadata by using the following actions.
 
-* Disabling the metadata service for an bare metal server or an account.
+* Disabling the metadata service for a bare metal server or an account.
 * Limiting or not assigning trusted profiles for compute resource identities.
 * Enhancing network security.
 
-## Disable the metadata service for an bare metal server or account
+## Disable the metadata service for a bare metal server or account
 {: #metadata-disable--acct-bare-metal}
 
 You can disable the service on an existing bare metal server where it is enabled. See [Enable or disable the bare metal server metadata service](/docs/vpc?topic=vpc-configure-metadata-service-bare-metal#metadata-service-enable-bare-metal).
 
-## Use `iptables` firewall to limit access on Linux
+## Using the `iptables` firewall to limit access on Linux
 {: #metadata-iptables-bare-metal}
 
 Use the `iptables` Linux firewall utility to create a barrier between the metadata service link-local address (trusted network) and the internet (untrusted network). Defines rules that govern which traffic is allowed and which is blocked.
@@ -61,13 +61,13 @@ sudo iptables --append OUTPUT --proto tcp --destination 169.254.169.254 --match 
 ## Limit trusted profiles for compute resource identities
 {: #metadata-limit-trusted-profiles-bare-metal}
 
-Limit trusted profiles that you create for compute resource identities. Optionally, don't assign a compute resource identity to an bare metal server.
+Limit trusted profiles that you create for compute resource identities. Optionally, don't assign a compute resource identity to a bare metal server.
 
 When you [remove trusted profiles](/docs/account?topic=account-trusted-profile-update&interface=ui#remove-tp-console){: ui}[remove trusted profiles](/docs/account?topic=account-trusted-profile-update&interface=cli#remove-tp-cli){: cli}[remove trusted profiles](/docs/account?topic=account-trusted-profile-update&interface=api#remove-tp-api){: api}, compute resources and federated users are unlinked from the profile, and can no longer apply the trusted profile identity.
 
 You can also update existing trusted profiles by redefining the trust relationship, assigning access policies, and updating session limits. For more information, see [Updating trusted profiles](/docs/account?topic=account-trusted-profile-update).
 
-## Additional network security measures
+## Extra network security measures
 {: #metadata-network-security-bare-metal}
 
 Consider the following options for controlling network traffic to your bare metal servers:
@@ -80,7 +80,7 @@ Consider the following options for controlling network traffic to your bare meta
 
 * Use {{site.data.keyword.cloud}} [Virtual Private Endpoints](/docs/vpc?topic=vpc-about-vpe) (VPE) for VPC to connect to supported {{site.data.keyword.cloud_notm}} services from your VPC network by using the IP addresses of your choosing, which are allocated from a subnet within your VPC. VPEs are virtual IP interfaces that are bound to an endpoint gateway created on a per service or service bare metal server basis.
 
-* Use IBM Cloud [flow Logs](/docs/vpc?topic=vpc-flow-logs) on the VPC to monitor the traffic that reaches your bare metal servers.
+* Use {{site.data.keyword.cloud_notm}} [flow Logs](/docs/vpc?topic=vpc-flow-logs) on the VPC to monitor the traffic that reaches your bare metal servers.
 
 * [Enable secure access](/docs/vpc?topic=vpc-imd-configure-service&interface=ui#secure-access-ui) to the bare metal server metadata service. When secure access is enabled, the metadata service is accessible only to the bare metal server by encrypted HTTP secure protocol (HTTPS).
 

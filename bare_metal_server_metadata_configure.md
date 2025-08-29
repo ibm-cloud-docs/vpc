@@ -15,22 +15,22 @@ subcollection: vpc
 # Configure the metadata service for bare metal servers
 {: #configure-metadata-service-bare-metal}
 
-Configure the metadata service by obtaining an bare metal server identity access token from the metadata service. Optionally, generate an IAM access token from this token to access IAM-enabled services in the account.
+Configure the metadata service by obtaining a bare metal server identity access token from the metadata service. Optionally, generate an IAM access token from this token to access IAM-enabled services in the account.
 {: shortdesc}
 
 ## Accessing the metadata service by using the bare metal server identity access token service
 {: #metadata-get-token-bare-metal}
 
-To access the bare metal server metadata service, you must first obtain an bare metal server identity access token (a JSON Web Token). You can later generate an IAM token from the bare metal server identity access token and then use it to access IAM-enabled services.
+To access the bare metal server metadata service, you must first obtain a bare metal server identity access token (a JSON Web Token). You can later generate an IAM token from the bare metal server identity access token and then use it to access IAM-enabled services.
 
 Windows users have extra requirements to set up the metadata service. For more information, see [Setting up Windows servers for using the metadata service](/docs/vpc?topic=vpc-configure-metadata-service-bare-metal&interface=ui#metadata-service-enable-bare-metal)
 
 ### Bare metal server identity access token concepts
 {: #metadata-token-concepts-bare-metal}
 
-A bare metal server identity access token provides a security credential for accessing the metadata service. It's a signed token with a set of claims based on information about the bare metal server and information that is passed in the token request. The minimum version date to use the bare metal server identity access token feature is 2022-03-01.
+A bare metal server identity access token provides a security credential for accessing the metadata service. It's a signed token with a set of claims based on information about the bare metal server and information that is passed in the token request. The minimum version date to use the bare metal server identity access token feature is 1 March 2022.
 
-To access the bare metal server identity, make a `PUT "https://api.metadata.cloud.ibm.com/i /identity/v1/token` call by using the [Metadata service API](/apidocs/vpc-identity-beta#create-access-token) that invokes the bare metal server host name. Communication between the bare metal server and metadata service never leaves the host, you acquire the token from within the bare metal server. If `https` secure protocol is not enabled on your bare metal server, you can use your bare metal server IP address instead of the host name.
+To access the bare metal server identity, make a `PUT "https://api.metadata.cloud.ibm.com/i /identity/v1/token` call by using the [Metadata service API](/apidocs/vpc-identity-beta#create-access-token) that invokes the bare metal server hostname. Communication between the bare metal server and metadata service never stops with the host. You acquire the token from within the bare metal server. If `https` secure protocol is not enabled on your bare metal server, you can use your bare metal server IP address instead of the hostname.
 
 In the request, you specify an expiration time for the token. The default is 5 minutes, but you can specify that it expires sooner or later (5 seconds to 1 hour).
 
@@ -41,11 +41,11 @@ You can also generate an IAM token from this token and use the API to call IAM-e
 ### Acquiring a bare metal server identity access token
 {: #metadata-json-token-bare-metal}
 
-Using the Metadata service API, make `PUT /identity/v1/token` call to get an bare metal server identity access token from the token service. The following example uses `jq` to parse the JSON API response and then extract the bare metal server identity access token value. You can use your preferred JSON parser.
+Using the Metadata service API, make `PUT /identity/v1/token` call to get a bare metal server identity access token from the token service. The following example uses `jq` to parse the JSON API response and then extract the bare metal server identity access token value. You can use your preferred JSON parser.
 
 In the example, the return value of the CURL command is the bare metal server identity access token, which is extracted by `jq` and placed in the `identity_token` environment variable. You use specify this variable in a `GET` call to the metadata service to reach the metadata endpoint. For more information, see [Acquire a bare metal server identity access token](/docs/vpc?topic=vpc-get-metadata-bare-metal&interface=api#metadata-json-token-usemd-bare-metal).
 
-The example uses `jq` as a parser, a third-party tool licensed under the [MIT license](https://stedolan.github.io/jq/download/). `jq` might not come preinstalled on all VPC images available when you create an bare metal server. You might need to install `jq` before use or use any parser of your choice.
+The example uses `jq` as a parser, a third-party tool licensed under the [MIT license](https://stedolan.github.io/jq/download/). `jq` might not come preinstalled on all VPC images available when you create a bare metal server. You might need to install `jq` before use or use any parser of your choice.
 {: note}
 
 ```json
@@ -69,7 +69,7 @@ The following JSON response shows the bare metal server identity access token ch
 ```
 {: codeblock}
 
-## Generate an IAM token from an bare metal server identity access token
+## Generate an IAM token from a bare metal server identity access token
 {: #metadata-token-exchange-bare-metal}
 {: api}
 
@@ -107,12 +107,12 @@ The JSON response shows the IAM token.
 
 For more information about trusted profiles, see [Using a trusted profile to call IAM-enabled services](/docs/vpc?topic=vpc-imd-trusted-profile-metadata).
 
-## Generating an bare metal server identity certificate by using an bare metal server identity access token
+## Generating a bare metal server identity certificate by using a bare metal server identity access token
 {: #metadata-acquire-certificate-bare-metal}
 
-Bare metal server identity certificates are required to successfully enable and use encryption in transit between bare metal servers and {{site.data.keyword.filestorage_vpc_full}} shares. To generate an bare metal server identity certificate for the bare metal server, make a `POST /identity/v1/certificates` call with the bare metal server identity access token and a certificate signing request (CSR).
+Bare metal server identity certificates are required to successfully enable and use encryption in transit between bare metal servers and {{site.data.keyword.filestorage_vpc_full}} shares. To generate a bare metal server identity certificate for the bare metal server, make a `POST /identity/v1/certificates` call with the bare metal server identity access token and a certificate signing request (CSR).
 
-You can obtain the certificate signing requests (CSRs) from the open-source command-line toolkit, [OpenSSL](https://docs.openssl.org/){: external}.
+You can obtain the certificate signing requests (CSRs) from the open source command-line toolkit, [OpenSSL](https://docs.openssl.org/){: external}.
 
    1. The following command generates a *Certificate Signing Request* (CSR) and *RSA Key Pair* by using openssl. When you run the command, replace the country code `US` with your two-digit country code in `'/C=US'`.
       ```sh
@@ -120,16 +120,16 @@ You can obtain the certificate signing requests (CSRs) from the open-source comm
       ```
       {: pre}
 
-       If you're using a different software to create the CSR, you might be prompted to enter information about your location such as country code (C), state (ST), locality (L), your organization name (O), and organization unit (OU). Any one of these naming attributes can be used. Any other naming attributes, such as common name for example are rejected. CSRs with Common Name specified are rejected because when you make the request to the Metadata API, the system applies bare metal server ID values to the subject Common Name for the bare metal server identity certificates. CSRs with extensions are also rejected.
+       If you're using a different software to create the CSR, you might be prompted to enter information about your location such as country code (C), state (ST), locality (L), your organization name (O), and organization unit (OU). Any one of these naming attributes can be used. Any other naming attributes, such as common name, are rejected. CSRs with Common Name specified are rejected because when you make the request to the Metadata API, the system applies bare metal server ID values to the subject Common Name for the bare metal server identity certificates. CSRs with extensions are also rejected.
       {: important}
 
-   2. Format the csr before you make an API call to metadata service by using the following command.
+   2. Format the csr before you make an API call to the metadata service by using the following command.
       ```sh
       awk 'NF {sub(/\r/, ""); printf "%s\\n",$0;}' sslcert.csr
       ```
       {: pre}
 
-Then, you can make the API request to the Metadata service. See the following example. The `csr` value is required, the `expires_in` value is optional. The default value for expiration is 3600, which equals 1 hour.
+Then, you can make the API request to the Metadata service. See the following example. The `csr` value is required. The `expires_in` value is optional. The default value for expiration is 3600, which equals 1 hour.
 
 ```sh
 curl -X POST "$vpc_metadata_api_endpoint /identity/v1/certificates?version=2025-06-30" \
@@ -160,12 +160,12 @@ For more information, see [Encryption in transit - Securing mount connections be
 ## Creating a trusted profile for the bare metal server
 {: #metadata-create-trusted-profile-config}
 
-Trusted profiles for compute resource identities help you assign an {{site.data.keyword.cloud}} IAM identity to an {{site.data.keyword.cloud}} resource, such as a bare metal server. You can call any IAM-enabled service from an bare metal server without having to manage and distribute IAM secrets to the bare metal server. You can create a trusted profile when you generate an IAM token from an bare metal server identity access token and link it to the bare metal server. For more information, see [Using a trusted profile to call IAM-enabled services](/docs/vpc?topic=vpc-metadata-trusted-profile-bare-metal).
+Trusted profiles for compute resource identities help you assign an {{site.data.keyword.cloud}} IAM identity to an {{site.data.keyword.cloud}} resource, such as a bare metal server. You can call any IAM-enabled service from a bare metal server without having to manage and distribute IAM secrets to the bare metal server. You can create a trusted profile when you generate an IAM token from a bare metal server identity access token and link it to the bare metal server. For more information, see [Using a trusted profile to call IAM-enabled services](/docs/vpc?topic=vpc-metadata-trusted-profile-bare-metal).
 
 ## Enabling or disabling the bare metal server metadata service
 {: #metadata-service-enable-bare-metal}
 
-The bare metal server metadata service is disabled by default. To retrieve metadata from an bare metal server, enable the service on new bare metal servers or existing bare metal servers by using the VPC UI, CLI, API, or Terraform.
+The bare metal server metadata service is disabled by default. To retrieve metadata from a bare metal server, enable the service on new bare metal servers or existing bare metal servers by using the VPC UI, CLI, API, or Terraform.
 
 ### Enabling bare metal server metadata in the console
 {: #metadata-enable-service-ui-bare-metal}
@@ -180,9 +180,9 @@ Use the UI to enable the metadata service on an existing bare metal server.
 
 1. Go to the list of bare metal servers. In the [{{site.data.keyword.cloud_notm}} console](/login){: external}, click the **Navigation Menu** icon ![menu icon](../icons/icon_hamburger.svg) **> Infrastructure** ![VPC icon](../../icons/vpc.svg) **> Compute > Bare metal servers**.
 
-1. Click the name of an bare metal server to go to the details page.
+1. Click the name of a bare metal server to go to the details page.
 
-1. Navigate to **Advanced configuration details**.
+1. Go to **Advanced configuration details**.
 
 1. Under **Metadata**, click the toggle (appears green).
 
@@ -197,7 +197,7 @@ The following procedure shows how to enable the metadata service when you create
 
 1. [Provision the bare metal server](/docs/vpc?topic=vpc-creating-bare-metal-servers&interface=ui).
 
-1. Navigate to **Advanced options**.
+1. Go to **Advanced options**.
 
 1. Under **Metadata**, click the toggle (appears green).
 
@@ -207,13 +207,13 @@ The following procedure shows how to enable the metadata service when you create
 {: #metadata-disable-new-bare-metal-server}
 {: ui}
 
-This procedure shows how to disable the metadata service for an bare metal server on which it is enabled. By default, the metadata service is disabled when you create a new bare metal server.
+This procedure shows how to disable the metadata service for a bare metal server on which it is enabled. By default, the metadata service is disabled when you create a new bare metal server.
 
 1. In the [{{site.data.keyword.cloud_notm}} console](/login){: external}, click the **Navigation Menu** icon ![menu icon](../icons/icon_hamburger.svg) **> Infrastructure** ![VPC icon](../../icons/vpc.svg) **> Compute > Bare metal servers**.
 
-2. Click an bare metal server from the list to go to its details page.
+2. Click a bare metal server from the list to go to its details page.
 
-3. Navigate to **Advanced configuration details**. Under **Metadata**, the click the toggle button off (appears gray).
+3. Go to **Advanced configuration details**. Under **Metadata**, the click the toggle to off (appears gray).
 
 ### Enable or disable bare metal server metadata from the CLI
 {: #metadata-service-enable-cli-bare-metal}
@@ -227,7 +227,7 @@ Before you begin:
 
 1. Make sure that you [created an {{site.data.keyword.vpc_short}}](/docs/vpc?topic=vpc-creating-vpc-resources-with-cli-and-api&interface=cli#create-a-vpc-cli).
 
-#### Enable or disable the metadata service when you create an bare metal server by using the CLI
+#### Enable or disable the metadata service when you create a bare metal server by using the CLI
 {: #metadata-enable-on-bare-metal-server-cli-bare-metal}
 
 Run the `ibmcloud bare-metal-server-create` command and set the `metadata-service` property to `true`. The metadata service is disabled by default. In the response, you see `Metadata service enabled` set to `true`.
@@ -344,7 +344,7 @@ You can configure features of the metadata service by using the UI. When the met
 
 You can select an existing trusted profile for the bare metal server metadata service.
 
-**Select a trusted profile when you provision a bare metal server** To select a trusted profile, navigate to the Default trusted profile option and select a trusted profile from a list of preexisting trusted profiles.
+**Select a trusted profile when you provision a bare metal server** To select a trusted profile, go to the default trusted profile option, then select a trusted profile from a list of preexisting trusted profiles.
 
 For more information, see [Create a trusted profile for the bare metal server](/docs/vpc?topic=vpc-get-metadata-bare-metal&interface=api#metadata-token-exchange-usemd-bare-metal).
 
@@ -352,12 +352,14 @@ For more information, see [Create a trusted profile for the bare metal server](/
 {: #auto-link-ui-bare-metal}
 {: ui}
 
-After selecting a default trusted profile, you can toggle auto link for the bare metal server metadata service. When autolink is enabled, the specified trusted profile is automatically linked to the  bare metal server when the bare metal server is provisioned. On bare metal servers provisioned with auto link, the trusted profile is available to the bare metal server immediatley at startup. When auto link is disabled, the specified trusted profile must be linked to the bare metal server for it to be used by the bare metal server.
+After you select a default trusted profile, you can toggle auto link for the bare metal server metadata service. When autolink is enabled, the specified trusted profile is automatically linked to the bare metal server when the bare metal server is provisioned.
+
+On bare metal servers that are provisioned with auto link, the trusted profile is available to the bare metal server immediately at startup. When auto link is disabled, the specified trusted profile must be linked to the bare metal server for it to be used by the bare metal server.
 
 After a server is provisioned, you can't add or remove a default trusted profile or its autolink
 {: note}
 
-**Toggle auto link when you provision a bare metal server** To toggle auto link when you provision a bare metal server, navigate to the Secure access setting in the Metadata window on the bare metal server provision page. Toggle the secure access switch so that it displays `Enabled`.
+**Toggle auto link when you provision a bare metal server** To toggle auto link when you provision a bare metal server, go to the Secure access setting in the Metadata window on the bare metal server provision page. Toggle the secure access switch so that it displays `Enabled`.
 
 ### Enable secure access by using the UI
 {: #secure-access-ui-bare-metal}
@@ -365,7 +367,7 @@ After a server is provisioned, you can't add or remove a default trusted profile
 
 You can enable secure access to the bare metal server metadata service. When secure access is enabled, the metadata service is accessible only to the bare metal server by encrypted HTTP secure protocol (HTTPS). When secure access is disabled, the metadata service is accessible only to the bare metal server by unencrypted HTTP protocol. Secure access is disabled by default.
 
-Additional properties might be required in the following scenarios:
+More properties might be required in the following scenarios:
 
 - You are using the IBM Cloud CLI Virtual Server Instance for VPC compute resource identity login method. For more information, see [Logging in as a Virtual Server Instance Compute Resource Identity](/docs/cli?topic=cli-vsi-cri-login).
 - You are using the IBM Cloud SDK with [VPC Instance Authentication](https://github.com/IBM/ibm-cloud-sdk-common#authentication){: external} inside a bare metal server with secure access to the bare metal server metadata service enabled. For more information, see [IBM Cloud Go SDK](https://github.com/IBM/go-sdk-core/blob/main/Authentication.md#vpc-instance-authentication){: external}
@@ -374,19 +376,19 @@ Additional properties might be required in the following scenarios:
 {: #secure-access-ui-provisioning-bare-metal}
 {: ui}
 
-To enable secure access when provisioning a bare metal server, navigate to the Secure access setting in the Metadata window when you **Create** a bare metal server from the **Bare metal servers for VPC** page. Toggle the secure access switch so that it displays `Enabled`.
+To enable secure access when you provision a bare metal server, go to the Secure access setting in the Metadata window when you **Create** a bare metal server from the **Bare metal servers for VPC** page. Toggle the secure access switch so that it displays `Enabled`.
 
 #### Enable secure access on an existing bare metal server
 {: #secure-access-ui-existing-bare-metal}
 {: ui}
 
-To enable secure access on an existing bare metal server, navigate to the Secure access setting on the **Bare metal server details** page of your bare metal server.
+To enable secure access on an existing bare metal server, go to the Secure access setting on the **Bare metal server details** page of your bare metal server.
 
 ## Configure metadata settings by using the CLI
 {: #metadata-config-cli-bare-metal}
 {: cli}
 
-You can enable and disable features of the metadata service using the CLI.
+You can enable and disable features of the metadata service by using the CLI.
 
 The following example shows a bare metal server with the metadata service enabled.
 
@@ -435,7 +437,7 @@ You can select an existing trusted profile for the bare metal server metadata se
 
 For more information, see [Create a trusted profile for the bare metal server](/docs/vpc?topic=vpc-configure-metadata-service-bare-metal&interface=cli#metadata-create-trusted-profile-config).
 
-You can link a bare metal server to more than one trusted profile, but the properties of a bare metal server only supports one default trusted profile setting.
+You can link a bare metal server to more than one trusted profile, but the properties of a bare metal server support only one default trusted profile setting.
 
 After a server is provisioned, you can't add or remove a default trusted profile or its autolink
 {: note}
@@ -444,9 +446,9 @@ After a server is provisioned, you can't add or remove a default trusted profile
 {: #auto-link-cli-bare-metal}
 {: cli}
 
-You can disable auto link for the bare metal server metadata service when provisioning a bare metal server. Auto link is enabled by default when a trusted profile is selected. When autolink is enabled, the specified trusted profile is automatically linked to the bare metal server when the bare metal server is provisioned. A bare metal server provisioned with auto link the trusted profile is available to the bare metal server immediatley at startup. When auto link is disabled, the specified trusted profile must be linked to the bare metal server for it to be used by the bare metal server.
+You can disable auto link for the bare metal server metadata service when you provision a bare metal server. Auto link is enabled by default when a trusted profile is selected. When autolink is enabled, the specified trusted profile is automatically linked to the bare metal server when the bare metal server is provisioned. A bare metal server that is provisioned with auto link the trusted profile is available to the bare metal server immediately at startup. When auto link is disabled, the specified trusted profile must be linked to the bare metal server for it to be used by the bare metal server.
 
-To disable auto link, set the `--default-trusted-profile-auto-link` option to `true` when provisioning a bare metal server. The following example shows a bare metal server provision command with auto link set to `false`.
+To disable auto link, set the `--default-trusted-profile-auto-link` option to `true` when you provision a bare metal server. The following example shows a bare metal server provision command with auto link set to `false`.
 
 ```sh
 ibmcloud is bare-metal-server-create .... --default-trusted-profile "Profile-9fd84246-7df4-4667-94e4-8ecde51d5ac5" --default-trusted-profile-auto-link false
@@ -457,7 +459,7 @@ ibmcloud is bare-metal-server-create .... --default-trusted-profile "Profile-9fd
 {: #secure-access-cli-bare-metal}
 {: cli}
 
-You can enable secure access to the bare metal server metadata service. When secure access is enabled, the metadata service is accessible only to the bare metal server by encrypted HTTP Secure protocol (HTTPS). When secure access is disabled the metadata service is accessible only to the bare metal server by unencrypted HTTP protocol. Secure access is disabled by default.
+You can enable secure access to the bare metal server metadata service. When secure access is enabled, the metadata service is accessible only to the bare metal server by encrypted HTTP Secure protocol (HTTPS). When secure access is disabled, the metadata service is accessible only to the bare metal server by unencrypted HTTP protocol. Secure access is disabled by default.
 
 Certain properties might be required in the following scenarios:
 
@@ -468,7 +470,7 @@ Certain properties might be required in the following scenarios:
 {: #secure-access-cli-provision-bare-metal}
 {: cli}
 
-To enable secure access when you provision a bare metal server, specify a value for the `--metadata-service-protocol` option when you use the `bare-metal-server-create` command. For secure access specify `https`. The default setting is unencrypted `http`.
+To enable secure access when you provision a bare metal server, specify a value for the `--metadata-service-protocol` option when you use the `bare-metal-server-create` command. For secure access, specify `https`. The default setting is unencrypted `http`.
 
 ```sh
 ibmcloud is bare-metal-server-create BARE_METAL_SERVER_NAME VPC ZONE_NAME PROFILE_NAME SUBNET ... [--metadata-service-protocol http | https] ...
@@ -478,7 +480,7 @@ ibmcloud is bare-metal-server-create BARE_METAL_SERVER_NAME VPC ZONE_NAME PROFIL
 ```
 {: pre}
 
-To enable secure access on an existing bare metal server, specify a value for the `protocol` sub-property of the `metadata service` when you use the `bare-metal-server-update` command.
+To enable secure access on an existing bare metal server, specify a value for the `protocol` subproperty of the `metadata service` when you use the `bare-metal-server-update` command.
 
 ## Configure metadata settings by using the API
 {: #metadata-config-api-bare-metal}
@@ -494,7 +496,7 @@ You can select an existing trusted profile for the bare metal server metadata se
 
 For more information, see [Create a trusted profile for the bare metal server](/docs/vpc?topic=vpc-configure-metadata-service-bare-metal&interface=api#metadata-create-trusted-profile-config).
 
-You can link a bare metal server to more than one trusted profile, but the properties of a bare metal server only support one default trusted profile setting.
+You can link a bare metal server to more than one trusted profile, but the properties of a bare metal server support only one default trusted profile setting.
 
 After a server is provisioned, you can't add or remove a default trusted profile or its autolink
 {: note}
@@ -503,7 +505,7 @@ After a server is provisioned, you can't add or remove a default trusted profile
 {: #auto-link-api-bare-metal}
 {: api}
 
-You can disable auto link for the bare metal server metadata service when provisioning a bare metal server. Auto link is enabled automatically when a trusted profile is selected. When autolink is enabled, the specified trusted profile is automatically linked to the bare metal server when the bare metal server is provisioned. The trusted profile that is associated with a bare metal server that is provisioned with auto link is available to the bare metal server immediately at startup. When auto link is disabled, the specified trusted profile must be linked to the bare metal server for it to be used by the bare metal server.
+You can disable auto link for the bare metal server metadata service when you provision a bare metal server. Auto link is enabled automatically when a trusted profile is selected. When autolink is enabled, the specified trusted profile is automatically linked to the bare metal server when the bare metal server is provisioned. The trusted profile that is associated with a bare metal server that is provisioned with auto link is available to the bare metal server immediately at startup. When auto link is disabled, the specified trusted profile must be linked to the bare metal server for it to be used by the bare metal server.
 
 To disable auto link by using the API, the `auto_link` value for the `default_trusted_profile` property must be set to `false`. The following example shows the `default_trusted_profile` property with the `auto_link` option disabled.
 
@@ -521,7 +523,7 @@ To disable auto link by using the API, the `auto_link` value for the `default_tr
 {: #secure-access-api-bare-metal}
 {: api}
 
-You can enable secure access to the bare metal server metadata service. When secure access is enabled, the metadata service is accessible only to the bare metal server by encrypted HTTP Secure protocol (HTTPS). When secure access is disabled the metadata service is accessible only to the bare metal server by unencrypted HTTP protocol. Secure access is disabled by default.
+You can enable secure access to the bare metal server metadata service. When secure access is enabled, the metadata service is accessible only to the bare metal server by encrypted HTTP Secure protocol (HTTPS). When secure access is disabled, the metadata service is accessible only to the bare metal server by unencrypted HTTP protocol. Secure access is disabled by default.
 Certain properties might be required in the following scenarios:
 
 - You are using the IBM Cloud CLI Virtual Server Instance for VPC compute resource identity login method. For more information, see [Logging in as a Virtual Server Instance Compute Resource Identity](/docs/cli?topic=cli-vsi-cri-login).
@@ -531,13 +533,13 @@ Certain properties might be required in the following scenarios:
 {: #secure-access-api-provision-bare-metal}
 {: api}
 
-To enable secure access, when you provision a bare metal server with the [POST /bare_metal_servers](/apidocs/vpc/latest#create-bare-metal-server) method, specify a value for the `metadata_service.protocol` property for your bare metal server. For secure access specify `https`. The default setting is unencrypted `http`.
+To enable secure access, when you provision a bare metal server with the [POST /bare_metal_servers](/apidocs/vpc/latest#create-bare-metal-server) method, specify a value for the `metadata_service.protocol` property for your bare metal server. For secure access, specify `https`. The default setting is unencrypted `http`.
 
 #### Enable secure access on an existing bare metal server
 {: #secure-access-api-existing-bare-metal}
 {: api}
 
-To enable secure access on an existing bare metal server, use the [PATCH /bare_metal_servers/{id}](/apidocs/vpc/latest#update-bare-metal-server) method to update the bare metal server. Specify a value for the `metadata_service.protocol` property for your bare metal server. For secure access specify `https`. The default setting is unencrypted `http`. 
+To enable secure access on an existing bare metal server, use the [PATCH /bare_metal_servers/{id}](/apidocs/vpc/latest#update-bare-metal-server) method to update the bare metal server. Specify a value for the `metadata_service.protocol` property for your bare metal server. For secure access, specify `https`. The default setting is unencrypted `http`. 
 
 ## Activity tracking events for bare metal server metadata
 {: #metadata-at-events-bare-metal}

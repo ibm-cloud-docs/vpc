@@ -14,17 +14,17 @@ subcollection: vpc
 # Setting up windows servers for the metadata service for bare metal servers
 {: #metadata-windows-configuration-bare-metal}
 
-To access bare metal server metadata from Windows servers, there are extra requirements to locate a default gateway and add a route.
+To access bare metal server metadata from Windows servers, you have extra requirements to locate a default gateway and add a route.
 {: shortdesc}
 
 ## Overview
 {: #overview-bare-metal-metadata-windows-config}
 
-To use the metadata service on Windows, you set up a default route to a link-local address for the metadata. To do this, you need to locate the IP address of the default gateway and then add a route to the link-local address. After this initial setup, you make calls to access the bare metal server metadata.
+To use the metadata service on Windows, you set up a default route to a link-local address for the metadata. To use the metadata service on Windows, you need to locate the IP address of the default gateway, then add a route to the link-local address. After this initial setup, you make calls to access the bare metal server metadata.
 
-The information in this topic is presented as separate steps. More likely, you would set up a `cloudbaseinit` automation process that does all the steps in a single process. Examples presented are to illustrate what you need, but you can use other methods to get the default gateway and add the route.
+The following information is presented as separate steps. More likely, you need to set up a `cloudbaseinit` automation process that does all the steps in a single process. The examples illustrate what you need, but you can use other methods to get the default gateway and add the route.
 
-## Step 1 - Locate the IP of the default gateway
+## Step 1 - Locating the IP of the default gateway
 {: #bare-metal-metadata-windows-def-gateway}
 
 Running as administrator, locate the IP of the default gateway. A convenient way is to use Powershell `Get-NetRoute` command.
@@ -40,7 +40,7 @@ C:\> powershell "Get-NetRoute -DestinationPrefix "0.0.0.0/0" | Select-Object -Ex
 
 The first IP address that is retrieved is the default route. Place the output into a variable.
 
-## Step 2: Add a route to the default gateway
+## Step 2: Adding a route to the default gateway
 {: #bare-metal-metadata-windows-add-route}
 
 The metadata service uses a link-local address (169.254.169.254) to [set up access to the service](/docs/vpc?topic=vpc-configure-metadata-service-bare-metal) and [retrieve metadata from the bare metal server](/docs/vpc?topic=vpc-get-metadata-bare-metal).
@@ -59,7 +59,7 @@ command = 'route -p add 169.254.169.254 MASK 255.255.255.255 ()'.format(default_
 ```
 {: codeblock}
 
-These examples use the `route` command, but can also use the Powershell `New-NetRoute` command and pipe the route in a single command. For example, to combine steps 1 and 2 in a single command, you could specify:
+These examples use the `route` command, but can also use the Powershell `New-NetRoute` command and pipe the route in a single command. For example, to combine steps 1 and 2 in a single command, use the following example.
 
 ```powershell
 C:\> powershell "Get-NetRoute -DestinationPrefix "0.0.0.0/0" | Select-Object -ExpandProperty "NextHop" | New-NetRoute"
@@ -69,7 +69,7 @@ C:\> powershell "Get-NetRoute -DestinationPrefix "0.0.0.0/0" | Select-Object -Ex
 To add routes, you must run as an administrator on the Windows server.
 {: note}
 
-## Step 3: Programmatically retrieve bare metal server metadata
+## Step 3: Retrieving bare metal server metadata programmatically
 {: #windows-get-bare-metal-metadata}
 
 After you add a route to the default gateway, you can access bare metal server metadata by using the link-local address. Construct your automation script by using the tool of your choice to transfer data over the network, such as `curl`.
