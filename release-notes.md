@@ -44,7 +44,10 @@ VPC Metadata on bare metal servers (GA)
    If you currently use the `/instance_identity/v1/token` method and want to adopt the API release version 2025-08-26 or later, review the changes that are described in the migration guidance: [Updating to the `2025-08-26` version of the VPC Identity API](/docs/vpc?topic=vpc-#2025-08-26-migration-metadata-identity#changed-paths-metadata-identity).
 
 Encryption-in-transit support for bare metal servers
-:   Customers can use the VPC Identity API to obtain bare metal server identity certificates. The bare metal server identity certificate can be used to establish an encrypted connection between the bare metal server and the file share that is mounted on it. The Mount Helper utility is updated to support installation on bare metal servers. For more information, see [Encryption in transit](/docs/vpc?topic=vpc-file-storage-vpc-eit) and [IBM Cloud File Share Mount Helper utility](/docs/vpc?topic=vpc-fs-mount-helper-utility) topics.
+:   Customers can use the VPC Identity API to obtain bare metal server identity certificates. The bare metal server identity certificate can be used to establish an encrypted connection between the bare metal server and the file share that is mounted on it. For more information, see [Encryption in transit](/docs/vpc?topic=vpc-file-storage-vpc-eit).
+
+Mount Helper utility supports mounting file shares on bare metal servers with EIT
+:   The Mount Helper utility is updated to support installation on bare metal servers. Download version 0.2.1 or later to help you mount a zonal file share on your bare metal server with encryption-in-transit. For more information, see the [IBM Cloud File Share Mount Helper utility](/docs/vpc?topic=vpc-fs-mount-helper-utility) topic.
 
 ### 26 August 2025
 {: #vpc-aug2625}
