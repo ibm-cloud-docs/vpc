@@ -2,7 +2,7 @@
 
 copyright:
   years: 2021, 2025
-lastupdated: "2025-08-13"
+lastupdated: "2025-08-29"
 
 keywords: bare metal servers, managing, operation, manage bare metal server, manage bare metal, manage server, restart bare metal, stop bare metal, delete bare metal, reboot bare metal, restart server, stop server, delete server
 
@@ -178,6 +178,24 @@ Billing continues after the bare metal server stops.
 
 For a full list of command options, see [ibmcloud is bare-metal-server-restart](/docs/vpc?topic=vpc-vpc-reference#bare-metal-server-restart)
 
+### Updating a bare metal server by using the CLI
+{: #updating-bare-metal-servers-cli}
+
+To update your bare metal server by using the CLI, use the `ibmcloud is bare-metal-server-update` command.
+
+Specify the following variables to use when you reinitialize the bare metal server.
+- `SERVER` specifies the name of the bare metal server
+- `NAME` ID, name, or CRN of the trusted profile
+- `METADATA` specifying `true` or `false` enables or disables the metadata service
+- `PROTOCOL` specifies which protocol for the metadata service.
+
+```sh
+ibmcloud is bare-metal-server-update SERVER --name NAME --enable-secure-boot true --metadata-service true --metadata-service-protocol https
+```
+{: codeblock}
+
+For a full list of command options, see [ibmcloud is bare-metal-server-update](/docs/vpc?topic=vpc-vpc-reference#bare-metal-server-update)
+
 ### Reinitialize a bare metal server by using the CLI
 {: #reinitialize-bare-metal-servers-cli}
 {: cli}
@@ -187,7 +205,7 @@ You can reinitialize the server only if the server is stopped and provisioned wi
 To reinitialize a bare metal server by using the CLI, use the `ibmcloud is bare-metal-server-initialization-replace` command.
 
 ```sh
-ibmcloud is bare-metal-server-initialization-replace SERVER --image IMAGE ---keys KEYS --user-data DATA 
+ibmcloud is bare-metal-server-initialization-replace SERVER --image IMAGE ---keys KEYS --user-data DATA [--default-trusted-profile DEFAULT_TRUSTED_PROFILE [--default-trusted-profile-auto-link true]]
 ```
 {: pre}
 
@@ -197,6 +215,9 @@ Specify the following variables to use when you reinitialize the bare metal serv
 - `KEYS` specifies the SSH keys
 - `DATA` specifies any optional user data
 - `PROFILE` ID, name, or CRN of the trusted profile
+- `DEFAULT_TRUSTED_PROFILE` changes the default trusted profile auto-link parameter
+
+When using a default_trusted_profile, reinitializing the bare metal server includes the same auto_link parameter defined for the default_trusted_profile to determine whether the links the trusted profile to the bare metal server as part of the reinitialization process. Trusted profiles previously linked to the bare metal server before the reinitialization process remain linked. The reinitialization process doesn't remove the link to IAM trusted profiles. To prevent the trusted profile from remaining linked to the bare metal server, change the "auto_link" parameter to false.
 
 For a full list of command options, see [ibmcloud is bare-metal-server-initialization-replace](/docs/vpc?topic=vpc-vpc-reference#bare-metal-server-initialization-replace-view).
 
@@ -325,6 +346,28 @@ curl -X POST "$vpc_api_endpoint/v1/bare_metal_servers/$bare_metal_server_id/star
 
 For more information about the API request, see [Start a bare metal server](/apidocs/vpc/latest#start-bare-metal-server).
 
+### Updating  a bare metal server by using the API
+{: #update-bare-metal-servers-api}
+
+Specify a `PATCH /bare_metal_servers/{id}` request to update a specific bare metal server where `id` is the identifier of the bare metal server you are updating.
+
+```sh
+curl -X PATCH "$vpc_api_endpoint/v1/bare_metal_servers/$bare_metal_server_id?version=2025-05-13&generation=2" -H "Authorization: Bearer $iam_token" -d '{
+  "name": "my-bare-metal-server-updated"
+  "metadata_service": {
+     "enabled": true,
+     "protocol": "https"
+  }
+}'
+```
+{: codeblock}
+
+Specify the following properties values to use when you update the bare metal server.
+- `name` specifies the name of the bare metal server
+- `metadata_service` specifies whether the service is enabled and whicih protocol to use.
+
+For more information about the API request, see [Update a bare metal server](/apidocs/vpc/latest#update-bare-metal-server).
+
 ### Reinitialize a bare metal server by using the API
 {: #reinitialize-bare-metal-servers-api}
 {: api}
@@ -347,6 +390,11 @@ curl -X PUT "$vpc_api_endpoint/v1/bare_metal_servers/$bare_metal_server_id/initi
 			"id": $key
 		}
 	  ],
+	  "default_trusted_profile": {
+		"auto_link": true,
+		"target": {
+			"id": $trusted_profile
+		}
 	  }
 }'
 ```
@@ -357,6 +405,9 @@ Specify the following properties values to use when you reinitialize the bare me
 - `image` specifies the operating system image
 - `keys` specifies the SSH keys
 - `user_data` specifies any optional user data
+- `default_trusted_profile` changes or removes the default trusted profile
+
+When using a `default_trusted_profile`, reinitializing the bare metal server includes the same `"auto_link"` parameter defined for the `default_trusted_profile` to determine whether the links the trusted profile to the bare metal server as part of the reinitialization process. Trusted profiles previously linked to the bare metal server before the reinitialization process remain linked. The reinitialization process doesn't remove the link to IAM trusted profiles. To prevent the trusted profile from remaining linked to the bare metal server, change the `"auto_link"` parameter to `false`.
 
 ### Updating the firmware for a bare metal server by using the API
 {: #update-firmware-bare-metal-servers-API}

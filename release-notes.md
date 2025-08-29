@@ -2,7 +2,7 @@
 
 copyright:
   years: 2019, 2025
-lastupdated: "2025-08-26"
+lastupdated: "2025-08-29"
 
 keywords:
 
@@ -27,6 +27,22 @@ For more information about changes to the {{site.data.keyword.vpc_short}} comman
 ## August 2025
 {: #vpc-aug25}
 
+### 28 August 2025
+{: #vpc-aug2825}
+{: release-note}
+
+VPC Metadata on bare metal servers (GA)
+:   The VPC Metadata service is available on bare metal servers. It is a free service that provides a REST API that you invoke within a bare metal server to get bare metal server identity tokens and bare metal server identity certificates. Access to the API is unavailable from outside the bare metal server. The service is disabled by default. You can optionally use bare metal server identity tokens to get IAM access tokens for access to all IAM-enabled services. For more information, see [About {{site.data.keyword.vpc_full}} (VPC) Metadata on bare metal servers](/docs/vpc?topic=vpc-bare-metal-server-metadata-about).
+
+   For information about the REST API, see the following:
+
+   - [API change log](/docs/vpc?topic=vpc-api-change-log#26-august-2025)
+   - [API Identity change log](/docs/vpc?topic=vpc-identity-api-change-log#26-august-2025-identity)
+   - [API Metadata change log](/docs/vpc?topic=vpc-metadata-api-change-log#26-august-2025-metadata)
+   - [VPC Identity API](/apidocs/vpc-identity)
+
+   If you currently use the `/instance_identity/v1/token` method and want to adopt the API release version 2025-08-26 or later, review the changes that are described in the migration guidance: [Updating to the `2025-08-26` version of the VPC Identity API](/docs/vpc?topic=vpc-#2025-08-26-migration-metadata-identity#changed-paths-metadata-identity).
+
 ### 26 August 2025
 {: #vpc-aug2625}
 {: release-note}
@@ -42,8 +58,9 @@ Increasing limit on NACLs rules
 :   The default service limit of `100` rules for Network ACLs is increasing to `200` rules. By creating rules in Network ACLs (Access Control Lists), network administrators can define granular access policies for inbound and outbound traffic, ensuring that only authorized communication is permitted while blocking unwanted or potentially harmful traffic. For more information, see [Quotas for Access Control Lists](/docs/vpc?topic=vpc-quotas#acl-quotas).
 
 Burstable Flex virtual servers (beta)
+
 :   Burstable Flex virtual servers are designed to provide flexible CPU performance so workloads can operate at a smaller baseline level and opportunistically burst to higher performance when needed. Flex virtual servers are ideal for applications that require a baseline of CPU performance and experience intermittent spikes in CPU demand but don't require sustained high performance. For more information, see [Burstable virtual servers](/docs/vpc?topic=vpc-burstable-virtual-servers).
-  
+
 ### 14 August 2025
 {: #vpc-aug1425}
 {: release-note}
@@ -128,7 +145,7 @@ Flex profiles (beta release)
 {: release-note}
 
 New Intel RHEL AI operating system images for GPU types
-:  The new Red Hat Enterprise Linux&reg; (RHEL) operating system images are each tailored for their respective GPU type. RHEL AI for Intel is now available. When using a RHEL AI 1.x image, ensure you are using the correct RHEL AI image for the profile you are using. If you are using the Intel GPU profile, you must use the RHEL AI for Intel image. For more information about the GPU profiles you can use with RHEL AI images, see [Accelerated instance profiles - Gen 3](/docs/vpc?topic=vpc-accelerated-profile-family). For information about RHEL AI, including information such as the supported use cases for RHEL AI, see [Red Hat Enterprise Linux AI](https://docs.redhat.com/en/documentation/red_hat_enterprise_linux_ai/1.5){: external}.
+:  The new Red Hat Enterprise Linux&reg; (RHEL) operating system images are each tailored for their respective GPU type. RHEL AI for Intel is now available. When using a RHEL AI 1.x image, ensure you are using the correct RHEL AI image for the profile you are using. If you are using the Intel GPU profile, you must use the RHEL AI for Intel image. For more information about the GPU profiles you can use with RHEL AI images, see [Accelerated instance profiles - Gen 3](/docs/vpc?topic=vpc-accelerated-profile-family). For information about RHEL AI, including information such as the supported use cases for RHEL AI, see [Red Hat Enterprise Linux AI](https://docs.redhat.com/en/documentation/red_hat_enterprise_linux_ai/1.5){: external}
 
 ### 05 June 2025
 {: #vpc-jun0525}

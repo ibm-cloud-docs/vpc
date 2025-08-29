@@ -2,7 +2,7 @@
 
 copyright:
   years: 2021, 2025
-lastupdated: "2025-07-16"
+lastupdated: "2025-08-29"
 
 keywords: creating bare metal servers
 
@@ -55,6 +55,7 @@ Use the following steps to create a bare metal server by using the {{site.data.k
 | Trusted Platform Module (TPM) | Click the toggle to enable Trusted Platform Module capabilities. Then, select the mode that you want to use. For more information, see [Secure boot with Trusted Platform Module (TPM)](/docs/vpc?topic=vpc-secure-boot-tpm&interface=ui). |
 | Secure boot | Click the toggle to enable secure boot. For more information, see [Secure boot with Trusted Platform Module (TPM)](/docs/vpc?topic=vpc-secure-boot-tpm&interface=ui). |
 | Add to reservation (beta) | If you have an active reservation, click the toggle to add the server to that reservation. For more information about reservations, see [About Reservations for VPC](/docs/vpc?topic=vpc-about-reserved-virtual-servers-vpc). |
+| Metadata | Disabled by default. Click the toggle to enable. This setting informs the bare metal server to collect the bare metal server configuration information and user data. For more information, see [About {{site.data.keyword.vpc_full}} (VPC) Metadata on bare metal servers](/docs/vpc?topic=vpc-bare-metal-server-metadata-about). |
 {: caption="Bare metal server advanced options" caption-side="bottom"}
 
 For x86 architecture-based bare metal servers, the DHCP response for all interfaces (PCI or VLAN) includes a gateway. So, if you create multiple interfaces on different subnets, consider a static IP configuration or use separate network namespaces to handle the different gateways.
@@ -108,6 +109,8 @@ After you have all the information, use the [Create bare metal server](/apidocs/
    * A secondary VLAN interface with ID "4". This VLAN interface is floatable.
    * Profile name: "bx2d-metal-192x768"
    * Zone: "us-south-1"
+   * Metadata service: enabled
+   * Metadata service protocol: "https"
 
    The API request is similar to:
    ```sh
@@ -121,6 +124,12 @@ After you have all the information, use the [Create bare metal server](/apidocs/
            "keys": [
            {"id": "a6b1a881-2ce8-41a3-80fc-36316a73f803"}
            ]
+           "default_trusted_profile": {
+              "auto_link": true,
+              "target": {
+              "crn": "crn:v1:bluemix:public:iam-identity::a/aa2432b1fa4d4ace891e9b80fc104e34::profile:Profile-e9001353-12e5-41b7-a6bb-11de58dcbfea"
+           }
+         }
        },
        "primary_network_interface": {
            "interface_type": "pci",
@@ -144,6 +153,10 @@ After you have all the information, use the [Create bare metal server](/apidocs/
         "name": "my-bare-metal-server",
         "profile": {
             "name": "bx2d-metal-192x768"
+        "metadata_service": {
+         "enabled": true,
+         "protocol": "https"
+      }
         },
         "zone": {
             "name": "us-south-1"
@@ -364,9 +377,12 @@ For example, you can create a bare metal server with the following configuration
    * A secondary VLAN interface with ID "4". This VLAN interface is floatable.
    * Profile name: "bx2d-metal-192x768"
    * Zone: "us-south-1"
+   * Metadata: "true"
+   * Protocol: "https"
+   * Default trusted profile autolink: "true"
 
    ```sh
-   ibmcloud is bare-metal-server-create --name my-bare-metal-server --zone us-south-1 --profile mx2-metal-96x768 --image r006-31c8ca90-2623-48d7-8cf7-737be6fc4c3e --keys a6b1a881-2ce8-41a3-80fc-36316a73f803 --pnic-subnet 7ec86020-1c6e-4889-b3f0-a15f2e50f87e –pnic-name my-primary-network-interface --pnic-allowed-vlans 4 --network-interfaces '[{"name": "my-vlan-interface", "interface_type": "vlan", "vlan": 4, "allow_interface_to_float": true, "subnet": {"id":"7ec86020-1c6e-4889-b3f0-a15f2e50f87e"}}]' --output JSON
+   ibmcloud is bare-metal-server-create --name my-bare-metal-server --zone us-south-1 --profile mx2-metal-96x768 --image r006-31c8ca90-2623-48d7-8cf7-737be6fc4c3e --keys a6b1a881-2ce8-41a3-80fc-36316a73f803 --metadata-service true --metadata-service-protocol https --default-trusted-profile default-trusted-profile-name --default-trusted-profile-auto-link true --pnic-subnet 7ec86020-1c6e-4889-b3f0-a15f2e50f87e –pnic-name my-primary-network-interface --pnic-allowed-vlans 4 --network-interfaces '[{"name": "my-vlan-interface", "interface_type": "vlan", "vlan": 4, "allow_interface_to_float": true, "subnet": {"id":"7ec86020-1c6e-4889-b3f0-a15f2e50f87e"}}]' --output JSON
    ```
    {: pre}
 

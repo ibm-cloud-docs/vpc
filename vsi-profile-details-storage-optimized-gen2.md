@@ -2,7 +2,7 @@
 
 copyright:
   years: 2024, 2025
-lastupdated: "2025-08-28"
+lastupdated: "2025-08-29"
 
 keywords: vsi, virtual server, virtual server instances, profile, profiles, storage optimized, gen 2
 
@@ -95,7 +95,7 @@ attached. This limit is based on the size of the instance.
 
 | Number of vCPUs | Max volumes | Max vNICs |
 | --------------- | ----------- | --------- |
-| 2-16            | 12          | 5         |
-| 17-48           | 12          | 10        |
-| 49+             | 12          | 12        |
+| 2-16            | 15          | 5         |
+| 17-48           | 15          | 10        |
+| 49+             | 15          | 12        |
 {: caption="Storage optimized profile family limits for vCPU, maximum volumes, and maximum network interfaces" caption-side="bottom"}
