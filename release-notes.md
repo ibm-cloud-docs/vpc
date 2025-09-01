@@ -2,7 +2,7 @@
 
 copyright:
   years: 2019, 2025
-lastupdated: "2025-08-29"
+lastupdated: "2025-09-01"
 
 keywords:
 
@@ -23,6 +23,16 @@ Use the release notes to learn the latest updates to {{site.data.keyword.vpc_ful
 For more information about changes to the {{site.data.keyword.vpc_short}} API, see [{{site.data.keyword.vpc_short}} API change log](/docs/vpc?topic=vpc-api-change-log).
 
 For more information about changes to the {{site.data.keyword.vpc_short}} command-line interface (CLI), see [{{site.data.keyword.vpc_short}} CLI release notes](/docs/vpc?topic=vpc-vpc-cli-rn).
+
+## September 2025
+{: #vpc-sep25}
+
+### 1 September 2025
+{: #vpc-sep0125}
+{: release-note}
+
+Removing limit on rules targeting remote security groups
+:   The service limit of 15 unique remote security groups across all rules per security group, targeting remote security groups, has been removed. With this change, customers can maintain consistent security policies for all the security groups of a VPC. For more information, see [Service limits for VPC services](/docs/vpc?topic=vpc-quotas#service-limits-for-vpc-services).
 
 ## August 2025
 {: #vpc-aug25}

@@ -2,7 +2,7 @@
 
 copyright:
   years: 2018, 2025
-lastupdated: "2025-08-22"
+lastupdated: "2025-09-01"
 
 keywords:
 
@@ -255,7 +255,6 @@ The following table displays current VPC service limits. Unlike quotas, these li
 | PCI network interfaces for bare metal servers | 8 per bare metal server |
 | Public gateways | 1 per zone per VPC |
 | Security groups | 5 per [target](/docs/vpc?topic=vpc-using-security-groups#about-security-group-targets) |
-| Rules targeting remote security groups | 15 unique remote security groups across all rules per security group |
 | Public address ranges [Select Availability]{: tag-green}| 10 per VPC per zone |
 | Secondary volumes per instance | Up to 12 secondary volumes |
 | Image export jobs | 5 active jobs per image, 10 total per image, 20 active jobs per account, per region|
