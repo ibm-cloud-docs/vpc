@@ -2,7 +2,7 @@
 
 copyright:
   years: 2021, 2025
-lastupdated: "2025-08-26"
+lastupdated: "2025-09-02"
 
 keywords: file share, file storage, virtual network interface, encryption in transit, profiles, 
 
@@ -970,7 +970,7 @@ The following example creates and attaches a [virtual network interface](/docs/v
 
 In this example, the mount target section specifies a subnet ID. The system picks a reserved IP from that subnet for the [virtual network interface](/docs/vpc?topic=vpc-vni-about) when the mount target is created.
 
-```json
+```sh
 curl -X POST "$vpc_api_endpoint/v1/shares?version=2023-08-08&generation=2"\
 -H "Authorization: $iam_token"\
 -d '{
@@ -1034,7 +1034,7 @@ A successful response looks like the following example.
 
 Customers with special access to review the regional file share offering can use the Beta VPC API to create regional mount targets for their regional file shares. When you want to enable encryption in transit, specify "stunnel" for regional shares.
 
-```json
+```sh
 curl -X POST "$vpc_api_endpoint/v1/shares?version=2025-07-22&generation=2"&maturity=beta"\
 -H "Authorization: $iam_token"\
 -d '{
@@ -1108,7 +1108,7 @@ To create the mount target network interface, make a `POST /shares` request and 
 
 In this example, the `mount_targets` property specifies a subnet ID and security group ID. When the `transit_encryption` property is set to `user_managed`, it enables encryption in transit by using an instance identity certificate. The default value is none, which disables encryption in transit.
 
-```json
+```sh
 curl -X POST "$vpc_api_endpoint/v1/shares?version=2023-08-08&generation=2"\
 -H "Authorization: $iam_token" \
 -d '{
@@ -1185,7 +1185,7 @@ The following response shows that access control mode is `security_group`, which
 
 Customers with special access to review the regional file share offering can use the Beta VPC API to create file shares. In the following example, the `mount_targets` property specifies a subnet ID and security group ID. When the `transit_encryption` property is set to `ipsec`, it enables encryption in transit by using an instance identity certificate. This option is applicable only for zonal shares. For regional shares, the allowed `transit_encryption` type is `stunnel`.
 
-```json
+```sh
 curl -X POST "$vpc_api_endpoint/v1/shares?version=2025-07-22&generation=2&maturity=beta"\
 -H "Authorization: $iam_token" \
 -d '{
@@ -1272,7 +1272,7 @@ To perform this operation, you must already have a [virtual network interface](/
 
 Make a `POST /shares` request and create a mount target with a virtual network interface. Specify the ID of an unattached virtual network interface in the mount target's `virtual_network_interface` property.
 
-```json
+```sh
 curl -X POST "$vpc_api_endpoint/v1/shares?version=2023-08-08&generation=2" \
 -H "Authorization: $iam_token" \
 -d '{
@@ -1321,7 +1321,7 @@ Table 1 shows UID and GID values that you can set and values that are reserved.
 
 To set supplemental IDs when you create a share, make a `POST /shares` call and specify the `initial_owner` property with the supplemental IDs. See the following example.
 
-```json
+```sh
 curl -X POST \
 "$vpc_api_endpoint/v1/shares?version=2023-08-08&generation=2"\
 -H "Authorization: $iam_token" \

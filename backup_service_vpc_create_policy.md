@@ -965,7 +965,7 @@ Make a `POST /backup_policies/{backup_policy_id}/plans` request to create a back
 
 The following example creates a backup plan for an existing policy that includes fast restore in the _us-south-2_ zone. The plan specifies keeping a maximum of two cached backup snapshots.
 
-```json
+```sh
 curl -X POST "$vpc_api_endpoint/v1/backup_policies/8758bd18-344b-486a-b606-5b8cb8cdd044/plans?version=2022-12-09&generation=2"\
    -H "Authorization: $iam_token"\
    -d '{
@@ -1032,7 +1032,7 @@ If the source snapshot is not encrypted with a customer key, the encryption of t
 
 The following example creates a backup policy in the `us-south` region with a copy of the backup in the `us-east` region.
 
-```json
+```sh
 curl -X POST "$vpc_api_endpoint/v1/backup_policies/8758bd18-344b-486a-b606-5b8cb8cdd044/plans?version=2023-05-09&generation=2"\
    -H "Authorization: $iam_token"\
    -d '{

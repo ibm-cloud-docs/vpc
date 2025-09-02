@@ -2,7 +2,7 @@
 
 copyright:
   years: 2022, 2025
-lastupdated: "2025-04-28"
+lastupdated: "2025-09-02"
 
 keywords: Backup, backup service, backup plan, backup policy, restore, restore volume, restore data
 
@@ -407,7 +407,7 @@ Make a `POST /backup_policies/{backup_policy_id}/plans/{plan_id}` request to upd
 
 This example updates a backup policy to create a backup plan. The new plan defines a clone policy to create snapshot clones in zone _us-south-3_. The plan specifies keeping a maximum of three cached backup snapshots.
 
-```json
+```sh
 curl -X POST "$vpc_api_endpoint/v1/backup_policies/8758bd18-344b-486a-b606-5b8cb8cdd044/plans?version=2022-12-09&generation=2"\
    -H "Authorization: $iam_token"\
    -d '{
@@ -464,7 +464,7 @@ Make a `PATCH /backup_policies/{backup_policy_id}/plans/{plan_id}` request to up
 
 This example updates a backup policy to create a backup plan that creates backups in the `us-south` region and includes the creation of a remote copy. The following example specifies that the copies are to be created in the `us-east` region.
 
-```json
+```sh
 curl -X PATCH "$vpc_api_endpoint/v1/backup_policies/8758bd18-344b-486a-b606-5b8cb8cdd044/plans?version=2023-05-09&generation=2"\
    -H "Authorization: $iam_token"\
    -d '{

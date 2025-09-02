@@ -2,7 +2,7 @@
 
 copyright:
   years: 2022, 2025
-lastupdated: "2025-08-26"
+lastupdated: "2025-09-02"
 
 keywords: Backup for VPC, backup service, backup plan, backup policy, restore, restore volume, restore data
 
@@ -524,7 +524,7 @@ To use Backup for VPC in your account to create policies, plans and run backup j
 
 Make the request to the [IAM Policy Management API](/apidocs/iam-policy-management#create-v2-policy), similar to the following examples.
 
-```json
+```sh
 curl -X POST 'https://iam.cloud.ibm.com/v1/policies' 
 -H 'Authorization: Bearer $TOKEN' 
 -H 'Content-Type: application/json' 
@@ -552,7 +552,7 @@ curl -X POST 'https://iam.cloud.ibm.com/v1/policies'
 ```
 {: pre}
 
-```json
+```sh
 curl -X POST 'https://iam.cloud.ibm.com/v1/policies' \
 -H 'Authorization: Bearer $TOKEN' \
 -H 'Content-Type: application/json' \
@@ -580,7 +580,7 @@ curl -X POST 'https://iam.cloud.ibm.com/v1/policies' \
 ```
 {: pre}
 
-```json
+```sh
 curl -X POST 'https://iam.cloud.ibm.com/v1/policies' \
 -H 'Authorization: Bearer $TOKEN' \
 -H 'Content-Type: application/json' \
@@ -608,7 +608,7 @@ curl -X POST 'https://iam.cloud.ibm.com/v1/policies' \
 ```
 {: pre}
 
-```json
+```sh
 curl -X POST 'https://iam.cloud.ibm.com/v1/policies' \
 -H 'Authorization: Bearer $TOKEN' \
 -H 'Content-Type: application/json' \
@@ -784,7 +784,7 @@ For more information, see the api spec for [IAM Policy Management](/apidocs/iam-
 
 To use Backup for VPC in your account to create policies, plans and run backup jobs for file shares, make the following request to create the required service-to-service authorization.
 
-```json
+```sh
 curl -X POST 'https://iam.cloud.ibm.com/v2/policies' 
 -H 'Authorization: Bearer $TOKEN' 
 -H 'Content-Type: application/json'
@@ -1033,7 +1033,7 @@ For more information, see the api spec for [IAM Policy Management](/apidocs/iam-
 
 To create a service-to-service authorization policy for {{site.data.keyword.en_short}}, make an API request to grant`is.backup-policy` (source) access to `event-notification` (target) with the `EventSourceManager` role.
 
-```json
+```sh
 curl -X POST 'https://iam.cloud.ibm.com/v2/policies' -H 
 'Authorization: Bearer $TOKEN' -H 
 'Content-Type: application/json' -d 

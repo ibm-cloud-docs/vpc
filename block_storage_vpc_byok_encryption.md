@@ -292,7 +292,7 @@ You can create virtual server instances with boot volumes that use customer-mana
 
 The following example creates an instance with a boot volume with customer-managed encryption and two secondary volumes with customer-managed encryption.
 
-```json
+```sh
 curl -X POST \
  "$vpc_api_endpoint/v1/instances?version=version=2020-03-10&generation=2" \
  -H "Authorization: $iam_token" \
