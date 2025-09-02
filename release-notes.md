@@ -31,12 +31,9 @@ For more information about changes to the {{site.data.keyword.vpc_short}} comman
 {: release-note}
 
 Customer-defined AS Path Prepends support
-:    You can now influence BGP route selection in VPC networking using AS path length. Previously, VPC networking ignored AS path length when choosing the best route, which often required you to use a Transit Gateway between Direct Link and VPC in certain topologies to achieve specific routing behavior. Now, you can influence routing by deprioritizing paths, ideal for managing primary and backup Direct Link connections or configuring failover in hybrid and multicloud environments. For more information, see [Using AS Prepends with VPC connections](/docs/dl?topic=dl-dl-planning-considerations#as-prepends-routes).
+:    You can now influence BGP route selection in VPC networking using AS path length. Previously, VPC networking ignored AS path length when choosing the best route, which often required you to use a Transit Gateway between Direct Link and VPC in certain topologies to achieve specific routing behavior. Now, you can influence routing by deprioritizing paths, ideal for managing primary and backup Direct Link connections or configuring failover in hybrid and multicloud environments. For more information, see [Using AS Prepends with VPC connections](/docs/dl?topic=dl-dl-planning-considerations#as-prepends-routes). 
 
-## September 2025
-{: #vpc-sep25}
-
-### 1 September 2025
+### 01 September 2025
 {: #vpc-sep0125}
 {: release-note}
 
