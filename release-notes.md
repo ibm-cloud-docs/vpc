@@ -2,7 +2,7 @@
 
 copyright:
   years: 2019, 2025
-lastupdated: "2025-09-01"
+lastupdated: "2025-09-02"
 
 keywords:
 
@@ -23,6 +23,15 @@ Use the release notes to learn the latest updates to {{site.data.keyword.vpc_ful
 For more information about changes to the {{site.data.keyword.vpc_short}} API, see [{{site.data.keyword.vpc_short}} API change log](/docs/vpc?topic=vpc-api-change-log).
 
 For more information about changes to the {{site.data.keyword.vpc_short}} command-line interface (CLI), see [{{site.data.keyword.vpc_short}} CLI release notes](/docs/vpc?topic=vpc-vpc-cli-rn).
+## September 2025
+{: #vpc-sept25}
+
+### 02 September 2025
+{: vpc-sept0225}
+{: release-note}
+
+Customer-defined AS Path Prepends support
+:    You can now influence BGP route selection in VPC networking using AS path length. Previously, VPC networking ignored AS path length when choosing the best route, which often required you to use a Transit Gateway between Direct Link and VPC in certain topologies to achieve specific routing behavior. Now, you can influence routing by deprioritizing paths, ideal for managing primary and backup Direct Link connections or configuring failover in hybrid and multicloud environments. For more information, see [Using AS Prepends with VPC connections](/docs/dl?topic=dl-dl-planning-considerations#as-prepends-routes).
 
 ## September 2025
 {: #vpc-sep25}
@@ -36,7 +45,7 @@ Removing limit on rules targeting remote security groups
 
 ## August 2025
 {: #vpc-aug25}
-
+ 
 ### 28 August 2025
 {: #vpc-aug2825}
 {: release-note}
