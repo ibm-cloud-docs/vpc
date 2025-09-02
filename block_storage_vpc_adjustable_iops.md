@@ -124,7 +124,7 @@ Updating volume 933c8781-f7f5-4a8f-8a2d-3bfc711788ee under account Test Account 
 ID                                      0738-933c8781-f7f5-4a8f-8a2d-3bfc711788ee
 Name                                    demo-volume-update
 Capacity                                100
-IOPs                                    3000
+IOPS                                    3000
 Profile                                 custom
 Encryption Key                          -
 Encryption                              provider managed
@@ -140,7 +140,8 @@ Volume Attachment Instance Reference    Vdisk Name    Vdisk ID                  
 ```
 {: codeblock}
 
-You can use the same command for adjusting the IOPs of a volume that was created with a `sdp` profile. The new IOPS value can be anywhere between 100-64,000.
+
+You can use the same command for adjusting the IOPS of a volume that was created with a `sdp` profile. The new IOPS value can be anywhere between 100-64,000.
 
 ### Adjust IOPS by specifying a different IOPS tier profile
 {: #adjust-profile-cli}
@@ -274,7 +275,7 @@ When the IOPS expansion completes, restart the instance. The new value displays,
 ```
 {: screen}
 
-You can use the same API request for adjusting the IOPs of a volume that was created with the `sdp` profile. The new IOPS value can be anywhere between 100-64,000. To achieve more than 48,000 IOPS, the volume must be attached to a virtual server instance with a [3rd generation instance profile](/docs/vpc?topic=vpc-profiles&interface=ui#next-gen-profiles).
+You can use the same API request for adjusting the IOPS of a volume that was created with the `sdp` profile. The new IOPS value can be anywhere between 100-64,000. To achieve more than 48,000 IOPS, the volume must be attached to a virtual server instance with a [3rd generation instance profile](/docs/vpc?topic=vpc-profiles&interface=ui#next-gen-profiles).
 
 ### Adjust IOPS by specifying a different IOPS tier profile
 {: #adjust-profile-api-block}

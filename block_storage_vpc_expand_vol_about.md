@@ -30,7 +30,7 @@ After you provisioned and attached a data volume to a virtual server instance, y
 
 Billing for the volume is automatically updated to add the pro-rated difference of the new price to the current billing cycle. The new full amount is then billed in the next billing cycle.
 
-To expand a  volume, it must be in an _available_ state and attached to an instance that must be running.
+To expand a volume, it must be in an _available_ state and attached to an instance that must be running.
 
 You can use the UI, CLI, API, or Terraform to expand volume capacity. Your user authorization is verified before the volume is expanded. 
 

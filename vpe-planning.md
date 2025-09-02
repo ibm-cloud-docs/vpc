@@ -2,7 +2,7 @@
 
 copyright:
   years: 2020, 2025
-lastupdated: "2025-08-06"
+lastupdated: "2025-09-02"
 
 keywords: VPE, virtual private endpoint, endpoint gateway, planning
 
@@ -35,8 +35,7 @@ Before you create a virtual private endpoint gateway, review the following consi
 * You can access {{site.data.keyword.cloud}} services by using either VPEs or the service endpoint directly. However, if you want your VPC to enforce a certain behavior or discipline, it is recommended to block direct access to the service endpoint IP addresses that use NACLs. For more information, see [Configuring ACLs and security groups for use with endpoint gateways](/docs/vpc?topic=vpc-configure-acls-sgs-endpoint-gateways).
 
    {{site.data.keyword.cloud_notm}} services do not support accessing a service endpoint and VPE simultaneously from the same virtual instance.
-   {: note}
-
+   {: note} 
 
 * The following items are not supported:
 

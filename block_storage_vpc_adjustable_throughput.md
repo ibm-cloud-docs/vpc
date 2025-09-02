@@ -2,7 +2,7 @@
 
 copyright:
   years: 2025
-lastupdated: "2025-08-20"
+lastupdated: "2025-09-02"
 
 keywords: Block Storage for VPC, boot volume, data volume, volume, data storage, virtual server instance, instance, adjustable volume, throughput, bandwidth
 
@@ -79,7 +79,7 @@ Updating volume 933c8781-f7f5-4a8f-8a2d-3bfc711788ee under account Test Account 
 ID                                      0738-933c8781-f7f5-4a8f-8a2d-3bfc711788ee
 Name                                    demo-volume-update
 Capacity                                100
-IOPs                                    3000
+IOPS                                    3000
 Bandwidth                               3000
 Profile                                 sdp
 Encryption Key                          -
