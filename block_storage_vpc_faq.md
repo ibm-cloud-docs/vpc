@@ -2,7 +2,7 @@
 
 copyright:
   years: 2019, 2025
-lastupdated: "2025-08-26"
+lastupdated: "2025-09-02"
 
 keywords: faqs, Block Storage for vpc, fast restore, multizone, instance, instance provisioning, volume management, volume deletion.
 
@@ -83,8 +83,7 @@ No. You can't copy the storage volume to a different zone.
 {: faq}
 {: #faq-sdp-backup}
 
-
-Customers with special access to preview the defined performance volume profile can create snapshots of their second-generation volumes in Dallas (`us-south`), Frankfurt (`eu-de`), London (`eu-gb`), Madrid (`eu-es`), Osaka (`js-osa`), Sao Paulo (`br-sao`), Sydney (`au-syd`), Tokyo (`jp-tok`), Toronto (`ca-tor`), and Washington (`us-east`) regions. Cross-regional copies are supported in London (`eu-gb`), Osaka (`js-osa`), Sao Paulo (`br-sao`), and Sydney (`au-syd`) with limitations. You can't create a copy in another region if the snapshot is encrypted with a customer-managed key or if its source volume exceeds 10 TB. Consistency group snapshots of multiple `sdp` volumes and fast restore clones are not supported.
+Customers with special access to preview the defined performance volume profile can create snapshots of their second-generation volumes in Dallas (`us-south`), Frankfurt (`eu-de`), London (`eu-gb`), Madrid (`eu-es`), Osaka (`js-osa`), Sao Paulo (`br-sao`), Sydney (`au-syd`), Tokyo (`jp-tok`), Toronto (`ca-tor`), and Washington (`us-east`) regions. Cross-regional copies are supported in London (`eu-gb`), Osaka (`js-osa`), Sao Paulo (`br-sao`), and Sydney (`au-syd`) with limitations. You can't create a copy in another region if your snapshot is encrypted with a customer-managed key or if the snapshot's source volume exceeds 10 TB. Fast restore clones and consistency group snapshots of multiple `sdp` volumes are not supported.
 
 ## Questions about the traditional volume profile family
 {: #block-storage-vpc-offering-questions}

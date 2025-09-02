@@ -2,7 +2,7 @@
 
 copyright:
   years: 2022, 2025
-lastupdated: "2025-08-20"
+lastupdated: "2025-09-02"
 
 keywords: Block Storage, boot volume, data volume, volume, data storage, virtual server instance, instance, expandable volume
 
@@ -42,10 +42,7 @@ For an existing instance, you can increase its boot volume capacity by selecting
 
 3. In the boot volume details, click the **Size** pencil icon. Alternatively, select **Expand volume** from the Actions menu ![Actions icon](../icons/action-menu-icon.svg "Actions").
 
-4. In the side panel, increase the boot volume size in the **Create size** field. The size must be more than the current size up to 250 GB.
-    
-    Customers with special access to preview the `sdp` profile can expand their `sdp` volumes to the maximum capacity of 32,000 GB.
-    {: preview}
+4. In the side panel, increase the boot volume size in the **Create size** field. The size must be more than the current size up to 250 GB if the volume has a first-generation volume profile. If the boot volume is based on the `sdp` profile, you can can expand it up to 32,000 GB.
    
 5. Click **Expand boot volume size**.
 

@@ -2,7 +2,7 @@
 
 copyright:
  years: 2022, 2025
-lastupdated: "2025-08-28"
+lastupdated: "2025-09-02"
 
 keywords: Backup, backup service, backup plan, backup policy, restore, restore volume, restore data
 
@@ -26,7 +26,9 @@ Backups and snapshot services are different than a [disaster recovery (DR)](#x21
 
 You can create up to 10 [backup policies](#backup-service-policies) in one region with the {{site.data.keyword.cloud_notm}} Backup for VPC service. You can create up to four plans per policy, and edit and delete them as needed. If you're undecided on the backup schedule or retention requirements, you can create a backup policy without a plan and add one later. 
 
-You can choose to back up individual {{site.data.keyword.block_storage_is_short}} volumes or {{site.data.keyword.filestorage_vpc_short}} shares that are identified by tags. Or you can choose to create backups of all the {{site.data.keyword.block_storage_is_short}} volumes that are attached to a specific virtual server instance as members of a **consistency group**. When you configure backups for a [consistency group](/docs/vpc?topic=vpc-snapshots-vpc-about&interface=ui#multi-volume-snapshots), you can choose to include the boot volume or leave it out. When you create multi-volume backups, you add the tag to the virtual server instance.
+You can back up individual {{site.data.keyword.block_storage_is_short}} volumes or {{site.data.keyword.filestorage_vpc_short}} shares that are identified by tags.
+
+You can create backups of all the {{site.data.keyword.block_storage_is_short}} volumes that are attached to a specific virtual server instance as members of a **consistency group**. When you configure backups for a [consistency group](/docs/vpc?topic=vpc-snapshots-vpc-about&interface=ui#multi-volume-snapshots), you can include the boot volume or leave it out. When you create multi-volume backups, you must add the tag to the virtual server instance, not the individual volumes.
 
 When you request a backup snapshot of a consistency group, the system ensures that all write operations are complete before it takes the snapshots. Then, the system generates snapshots of all the selected Block Storage volumes that are attached to the virtual server instance at the same time. Depending on the number and size of the attached volumes, plus the amount of data that is to be captured, you might observe a slight IO pause. This IO pause can range from a few milliseconds up to 4 seconds. It is recommended to run your automated backup-policy during off-peak hours to minimize any impact on performance.
 
@@ -48,7 +50,7 @@ Backup jobs that create or delete backup snapshots run according to the backup p
 
 Block storage backups, like block storage snapshots, have a lifecycle that is independent from the source {{site.data.keyword.block_storage_is_short}} volume. File storage backups, like file share snapshots, coexist with their parent file shares and their lifecycles are tied together. If a file share is deleted, its snapshots and backups are automatically deleted, too.
 
-You can copy a Block storage backup snapshot from one region to another region, and later use that snapshot to restore a volume in the new region. The [cross-regional copy](#backup-service-crc) can be used in disaster recovery scenarios when you need to turn on your virtual server instance and data volumes in a different region. The remote copy can be created automatically as part of a backup plan, or manually later.
+You can copy a Block storage backup snapshot from one region to another region, and later use that snapshot to restore a volume in the new region. The [cross-regional copy](#backup-service-crc) can be used in disaster recovery scenarios when you need to turn on your virtual server instance and data volumes in a different region. The remote copy can be created automatically as part of a backup plan, or manually later. 
 
 When the backup of a file share is triggered at the scheduled interval, a point-in-time snapshot is taken of your share. When the first backup snapshot is taken, the entire contents of the share are copied and retained in the same location as the share. Subsequent backups of the same volume capture the changes that occurred since the previous backup. You can take up to 750 backups of a share. If a file share has a replica in another zone, its backups are automatically copied to the replica location. However, file share backups cannot be independently copied to other zones or regions. For more information, see [About {{site.data.keyword.filestorage_vpc_short}} snapshots](/docs/vpc?topic=vpc-fs-snapshots-about).  
 
@@ -165,7 +167,7 @@ The restored volume has the same capacity and volume profile as the original vol
 
 Restoring a virtual server instance directly from snapshot consistency group identifier is not supported. However, you can restore a virtual server instance by restoring all of its boot and data volumes from the snapshots that are part of a consistency group.
 
-File share backups can be used to create new shares, too. Because the snapshot is colocated with the file share, the performance of the new share is not impacted during initialization. However, for the same reason, file share backups can't be copied to another region or zone by themselves to create new shares. For more information, see [Restoring a share from a snapshot](/docs/vpc?topic=vpc-fs-snapshots-restore). 
+File share backups can be used to create new shares, too. Because the snapshot is colocated with the file share, the performance of the new share is not impacted during initialization. However, for the same reason, file share backups can't be copied to another region or zone by themselves to create new shares. For more information, see [Restoring a share from a snapshot](/docs/vpc?topic=vpc-fs-snapshots-restore).
 
 ### Restore a volume by using fast restore
 {: #backup-service-fastrestore}
@@ -242,7 +244,7 @@ Backup policy:
 
 Volume backups:
 * You can take a total of 750 backups per volume based on your backup policy, in your account and region. If you exceed this limit, no further backups are taken.
-* The first backup and the entire volume backup cannot exceed 10 TB.
+* The first backup and the entire volume backup cannot exceed 10 TB if the parent volume is based on a tiered or custom profile.
 * You can't take a backup of a detached volume.
 * You can't create a copy of a backup snapshot in the source (local) region. 
 * You can create a copy of a block storage backup in another region. However, only one copy of the backup snapshot can exist in each region.
@@ -253,7 +255,7 @@ Volume backups:
    - You can take up to 512 backup snapshots of your `sdp` volume.
    - You can't create consistency group backups that contain `sdp` volumes.
    - You can't create fast restore clones of your second-generation volume backups.
-   - You can't create cross-regional copies of your second-generation volume backups if the source volume exceeds 10 TB or if the source volume is encrypted with customer-managed keys.
+   - You can't create cross-regional copies of your second-generation volume backups if the source volume exceeds 10 TB or the source volume is encrypted with a customer-managed key.
 
 File share backups:
 * You can take a total of 750 backups per file share. 

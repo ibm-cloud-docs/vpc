@@ -2,7 +2,7 @@
 
 copyright:
   years: 2019, 2025
-lastupdated: "2025-08-29"
+lastupdated: "2025-09-02"
 
 keywords:
 
@@ -28,9 +28,9 @@ IBM-managed encryption uses the following industry standard protocols:
 
 * AES-256 encryption.
 * Keys are managed in-house with Key Management Interoperability Protocol (KMIP).
-* The self-encrypting drives in the Storage architecture are validated for Federal Information Processing Standard (FIPS) Publication 140-2 Level 2. 
 * Storage architecture is validated for Federal Information Security Management Act (FISMA), and the Health Insurance Portability and Accountability Act (HIPAA)
 * Storage architecture is also validated for Payment Card Industry (PCI), Basel II, California Security Breach Information Act (SB 1386), and EU Data Protection Directive 95/46/EC compliance.
+* The self-encrypting drives in the Storage architecture are validated for Federal Information Processing Standard (FIPS) Publication 140-2 Level 2. 
 
 ## Customer-managed encryption
 {: #vpc-customer-managed-encryption}

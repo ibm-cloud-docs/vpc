@@ -2,7 +2,7 @@
 
 copyright:
   years: 2019, 2025
-lastupdated: "2025-08-20"
+lastupdated: "2025-09-02"
 
 keywords: Block Storage profiles, Block Storage for VPC, IOPS tiers, custom IOPS, storage performance
 
@@ -44,7 +44,7 @@ The following table shows the available storage profiles with their different pr
 
 [^ttext1]: The provisioned IOPS values are based on a preset 16k I/O size.
 [^ttext2]: Max throughput is determined by the number of IOPS multiplied by the preset throughput multiplier. The throughput multiplier is 16 KB for 3 IOPS/GB or 5 IOPS/GB tiers. The throughput multiplier for the 10 IOPS/GB tier and the custom profile is 256 KB. The higher the IOPS that you specify, the higher the throughput limit becomes.
-[^ttext3]: The available IOPS range depends the volume capacity. For more information, see [Table 3](#custom).
+[^ttext3]: The available IOPS range depends on the volume capacity. For more information, see [Table 3](#custom).
 [^ttext4]: The IOPS value is independent of the volume capacity.
 
 Nominal IOPS values are based on 16k I/O size. The maximum throughput value is determined by the number of IOPS multiplied by the throughput multiplier. The throughput multiplier is 16 KB for 3 IOPS/GB or 5 IOPS/GB tiers, or 256 KB for 10 IOPS/GB or custom IOPS tiers. The higher the IOPS that you specify, the higher the throughput the volume can handle.
@@ -57,8 +57,6 @@ Moving volumes across volume-profiles that belong to different families is not a
 
 ### SSD defined performance profile
 {: #defined-performance-profile}
-
-[New]{: tag-new}
 
 The SSD defined performance (`sdp`) profile is a second-generation volume profile that offers more flexibility than the previous custom profile when it comes to specifying capacity and performance. By using the `sdp` profile, you can specify the capacity, and the maximum throughput limit. Volume size can range from 1 - 32,000 GB. You can specify volume performance in the range of 3000 - 64,000 IOPS. In addition, you can also specify the maximum throughput value of your volume. The available throughput range is 125-1024 MBps (1000-8192 Mbps). The following table shows the minimum and maximum values of IOPS and Throughput in relation to the volume capacity.
 
@@ -121,7 +119,6 @@ If your application needs more IOPS and throughput, you can increase the volume 
 By default, boot volumes are created with the `general-purpose` volume profile with 100 GB capacity during instance provisioning. [Boot volume capacity](/docs/vpc?topic=vpc-resize-boot-volumes) can be increased by modifying the boot volume, up to 250 GB. Boot volume IOPS and bandwidth are never reduced to be less than 3000 IOPS or 393 Mbps.
 
 You can use the console, the CLI, or the API to create boot volumes with the `sdp` profile up to 250-GB capacity, and specify 3000 or more IOPS for better performance. It's also possible to increase the size of the `sdp` profile-based boot volume to 32 TB after it is provisioned. However, when the boot volume capacity is increased over 250 GB, you can no longer create a custom image from that volume.
-{: preview}
 
 ## How virtual server profiles relate to volume profiles
 {: #vsi-profiles-relate-to-storage}
@@ -160,7 +157,7 @@ You can view available volume profiles by using the {{site.data.keyword.cloud_no
 Customers with special access can create Block Storage volumes with the `sdp` profile.
 {: preview}
 
-As an allow-listed customer, you can see a list of all the available profiles, such as the three `tiered`, the `custom`, and the new `sdp`profile. When you select one of the tiered profiles, you need to specify the capacity. When you select the custom profile, you need to specify the capacity and an IOPS value that's in the applicable range for your capacity ([Table 3](#custom)). When you select the `sdp` profile, you can specify the capacity and IOPS without any capacity-based range restriction. You can also specify the maximum throughput limit for your volume.
+As an allow-listed customer, you can see a list of all the available profiles in the Create block storage page, such as the 'sdp' profile, the three `tiered`, and the `custom` profile. When you select one of the tiered profiles, you need to specify the capacity. When you select the custom profile, you need to specify the capacity and an IOPS value that's in the applicable range for your capacity ([Table 3](#custom)). When you select the `sdp` profile, you can specify the capacity and IOPS without any capacity-based range restriction. You can also specify the maximum throughput limit for your volume.
 
 ### From the CLI
 {: #using-cli-iops-profiles}

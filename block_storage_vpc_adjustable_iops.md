@@ -2,7 +2,7 @@
 
 copyright:
   years: 2021, 2025
-lastupdated: "2025-08-08"
+lastupdated: "2025-09-02"
 
 keywords: Block Storage for VPC, boot volume, data volume, volume, data storage, virtual server instance, instance, adjustable volume, iops
 
@@ -30,9 +30,9 @@ With this feature, you can:
 
 The degree to which IOPS can be increased is determined by the maximum that is allowed by the volume's profile.
 
-- [SSD defined performance profile](/docs/vpc?topic=vpc-block-storage-profiles#defined-performance-profile): [Select Availability]{: tag-green} Customers with special access to volume profiles within the defined performance family can modify the performance level of their `sdp` volumes even if the volumes are not attached to a running virtual server instance. You can specify volume performance in the range of 100 - 64,000 IOPS without capacity-based restrictions. The steps for modifying IOPS are the same as for the custom profile.
+- [SSD defined performance profile](/docs/vpc?topic=vpc-block-storage-profiles#defined-performance-profile): [Select Availability]{: tag-green} Customers with special access to volume profiles within the defined performance family can modify the performance level of their `sdp` volumes even if the volumes are not attached to a running virtual server instance.You can specify volume performance in the range of 100 - 64,000 IOPS without capacity-based restrictions. The steps for modifying IOPS are the same as for the custom profile.  
 
-- [Tiered profiles](/docs/vpc?topic=vpc-block-storage-profiles#tiers): you can adjust IOPS for an IOPS tier based on volume size or select the next profile that allows for increased performance.  
+- [Tiered profiles](/docs/vpc?topic=vpc-block-storage-profiles#tiers): you can adjust IOPS for an IOPS tier based on volume size or select the next profile that allows for increased performance. The volume must be attached to a running virtual server instance.
 
 - [Custom volume profile](/docs/vpc?topic=vpc-block-storage-profiles#custom): you can increase IOPS by specifying the next IOPS custom band. For example, for a volume 10 - 39 GB, you can increase custom IOPS to 1,000 IOPS. The IOPS range within a custom band is based on the volume size. If you later [increase the size of a volume](/docs/vpc?topic=vpc-expanding-block-storage-volumes), you can increase the IOPS again. The volume must be attached to a running virtual server instance.
 
@@ -141,7 +141,6 @@ Volume Attachment Instance Reference    Vdisk Name    Vdisk ID                  
 {: codeblock}
 
 You can use the same command for adjusting the IOPs of a volume that was created with a `sdp` profile. The new IOPS value can be anywhere between 100-64,000.
-{: preview}
 
 ### Adjust IOPS by specifying a different IOPS tier profile
 {: #adjust-profile-cli}
@@ -276,7 +275,6 @@ When the IOPS expansion completes, restart the instance. The new value displays,
 {: screen}
 
 You can use the same API request for adjusting the IOPs of a volume that was created with the `sdp` profile. The new IOPS value can be anywhere between 100-64,000. To achieve more than 48,000 IOPS, the volume must be attached to a virtual server instance with a [3rd generation instance profile](/docs/vpc?topic=vpc-profiles&interface=ui#next-gen-profiles).
-{: preview}
 
 ### Adjust IOPS by specifying a different IOPS tier profile
 {: #adjust-profile-api-block}

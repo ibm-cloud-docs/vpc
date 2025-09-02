@@ -2,7 +2,7 @@
 
 copyright:
   years: 2020, 2025
-lastupdated: "2025-08-06"
+lastupdated: "2025-09-02"
 
 keywords: Block Storage, boot volume, data volume, volume, data storage, virtual server instance, instance, expandable volume
 
@@ -26,13 +26,18 @@ You can increase capacity for boot and data volumes that are attached to a virtu
 ### Data volumes
 {: #expand-data-vols}
 
-After you provisioned and attached a data volume to a virtual server instance, you can increase its volume size in GB increments up to 16,000 GB capacity, depending on your volume profile. This process doesn't require you to perform manual steps. For example, you don't need to migrate your data to a larger volume. The resizing operation causes no outage or lack of access to the storage.
+After you provisioned and attached a data volume to a virtual server instance, you can increase its volume size in GB increments up to 16,000 GB capacity, depending on your volume profile. The resizing operation causes no outage or lack of access to the storage.
 
 Billing for the volume is automatically updated to add the pro-rated difference of the new price to the current billing cycle. The new full amount is then billed in the next billing cycle.
 
-To expand a volume, it must be in an _available_ state and the instance must be running. Your user authorization is verified before the volume is expanded. You can use the UI, CLI, API, or Terraform to expand volume capacity. You can expand the volume multiple times, up to its maximum capacity limit. After the volume is expanded, you can't reduce the volume capacity.
+To expand a  volume, it must be in an _available_ state and attached to an instance that must be running.
 
-Expanded capacity is determined by the maximum that is allowed by the volume's profile.
+You can use the UI, CLI, API, or Terraform to expand volume capacity. Your user authorization is verified before the volume is expanded. 
+
+You can expand the volume multiple times, up to its maximum capacity limit. After the volume is expanded, you can't reduce the volume capacity.
+{: important}
+
+Expanded capacity is determined by the maximum that is allowed by the volume's profile. 
 
 Volumes that were created with one of the volume profiles from the [tiered family](/docs/vpc?topic=vpc-block-storage-profiles) can be expanded to the maximum size for its tier:
 
@@ -66,7 +71,7 @@ The boot volume expansion takes effect without a restart of the virtual server. 
 {: note}
 
 Customers with special access to volume profile within the defined performance family can expand their `sdp` volumes even if the volumes are not attached to a running virtual server instance. The maximum capacity is 32,000 GB. The steps for increasing the capacity are the same as for the other profiles. However, when the boot volume capacity is increased over 250 GB, you can no longer create a custom image from that volume.
-{: preview}
+{: preview} 
 
 ## Requirements
 {: #exp-vol-requirements}
@@ -80,7 +85,8 @@ You must meet the following requirements to increase a data volume's capacity.
 * The volume must be in an _available_ state.
 * The volume must be attached to a virtual server instance.
 * The instance must be powered on and in a _running_ state.
-* You must detach and reattach the volume to the instance to adjust the available [volume bandwidth](/docs/vpc?topic=vpc-block-storage-bandwidth).
+
+No matter what generation your data volume is, you must detach and reattach the volume to the instance to adjust the available [volume bandwidth](/docs/vpc?topic=vpc-block-storage-bandwidth).
 
 ### Boot volume requirements
 {: #exp-boot-vol-reqs}
@@ -89,7 +95,6 @@ You must meet these requirements to resize a boot volume:
 
 * When an instance is provisioned, the size of the boot volume can be larger than the existing image size but not smaller. The maximum boot volume size is 250 GB.
 * For an existing instance, you can increase the size of the boot volume up to the maximum size that was allowed during instance provisioning.
-* Encrypted boot volumes have no special requirements.
 * For more information about supported Operating Systems, see [x86 virtual server images](/docs/vpc?topic=vpc-about-images).
 
 ## Limitations
@@ -108,7 +113,7 @@ Limitations for resizing boot and data volumes apply in this release.
 * IOPS can increase to the maximum that is allowed by the IOPS tier profile. For the increased IOPS to take effect, you must restart the virtual server instance, or detach and reattach the volume from the instance. This behavior is unlike a capacity increase that doesn't incur any downtime.
 * You can't independently modify IOPS for a volume that is created from an IOPS tier profile. IOPS is adjusted when you expand a volume's capacity and then restart the instance, or attach and detach the volume from the instance.
 * When you expand a volume that was created from a custom profile, the capacity is increased but the IOPS remains the same. You can't independently increase the IOPS.
-* Maximum IOPS for a volume is capped at [48,000 IOPS](/docs/vpc?topic=vpc-block-storage-profiles&interface=api#tiers).
+* Maximum IOPS for a first-generation volume is capped at [48,000 IOPS](/docs/vpc?topic=vpc-block-storage-profiles&interface=api#tiers).
 * After a volume is expanded, you can't reduce the size of the volume.
 * When a volume is in transition, its state is _updating_. If the volume is detached while the volume expansion is in progress, the volume remains in an _updating_ state until you reattach it to an instance. After reattachment, the volume expansion resumes and completes.
 * When you delete an instance, volumes that are marked for auto-deletion are not deleted when volume expansion is underway. For more information, see [troubleshooting block storage](/docs/vpc?group=tbs-block-storage).
@@ -117,7 +122,7 @@ Limitations for resizing boot and data volumes apply in this release.
 {: #exp-vols-boot-limits}
 
 * Boot volume capacity cannot be smaller than the size of the image. If the custom image is smaller than 10 GB, the boot volume capacity is rounded up to 10 GB.
-* Boot volumes that are stored as unattached volumes can't be expanded.
+* First-generation boot volumes that are stored as unattached volumes can't be expanded.
 * Z/OS systems are not supported.
 
 ## Next steps

@@ -2,7 +2,7 @@
 
 copyright:
   years: 2019, 2025
-lastupdated: "2025-08-22"
+lastupdated: "2025-09-02"
 
 keywords: vpc Block Storage, provision Block Storage for vpc, bootable snapshots, create volume from snapshot, fast restore
 
@@ -129,7 +129,7 @@ You can restore a boot volume from a "bootable" snapshot. The boot volume is res
 
 1. In the [{{site.data.keyword.cloud_notm}} console](/login){: external}, click the **Navigation menu** icon ![menu icon](../icons/icon_hamburger.svg) **> Infrastructure** ![VPC icon](../icons/vpc.svg) **> Storage > Block Storage volumes**.
 1. Select **Create**.
-1. Specify the location of the volume, volume name, optional resource group and tags.
+1. Specify the location of the volume, volume name, optional resource group, and tags.
 1. In the **Optional configurations** section, click **Import from snapshot**. Select one of the following options
    - Click **Import existing snapshot** to see the list of available snapshots. All snapshots that are presented are in a _stable_ state. By default, the **Nonbootable** tab is selected that lists all data volume snapshots. To restore a boot volume, click the **Bootable** tab. **Attach volume to new virtual server instance** is selected by default. The boot volume is restored when the instance is created.
    - Click **Import snapshot by CRN** and provide the CRN of the snapshot that you want to use.

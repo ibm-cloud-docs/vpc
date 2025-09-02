@@ -2,7 +2,7 @@
 
 copyright:
   years: 2021, 2025
-lastupdated: "2025-08-06"
+lastupdated: "2025-09-02"
 
 keywords:
 
@@ -24,5 +24,5 @@ When you restore a volume from a snapshot, while the data downloads, the API `he
 The data for the snapshot is stored in {{site.data.keyword.cos_full}}. After the volume is created, the data is downloaded from {{site.data.keyword.cos_short}} bucket to the availability zone where the volume is being created. Depending on the snapshot size, the download can take several minutes, at which time some of the data blocks are read or written directly from {{site.data.keyword.cos_short}}, but not all data. You might experience less IOPS and bandwidth than what you'd expect when you create a regular volume. The health state show as `degraded` with health reason `initializing_from_snapshot`.
 {: tsCauses}
 
-Wait until the data is fully downloaded from {{site.data.keyword.cos_short}} to the volume. When the data is fully downloaded, you can expect the normal provisioned IOPS and bandwidth for the volume.
+Wait until the data is fully downloaded from {{site.data.keyword.cos_short}}> to the volume. When the data is fully downloaded, you can expect the normal provisioned IOPS and bandwidth for the volume.
 {: tsResolve}

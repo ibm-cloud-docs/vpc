@@ -2,7 +2,7 @@
 
 copyright:
   years: 2022, 2025
-lastupdated: "2025-08-29"
+lastupdated: "2025-09-02"
 
 keywords: block storage for VPC, File Storage for VPC, Snapshots for VPC, Backup for VPC, block storage, file storage, snapshots, backup, 
 
@@ -25,8 +25,10 @@ The {{site.data.keyword.vpc_full}} (VPC) provides block storage, file storage, a
 
 By using this service, you can:
 
-* Create block storage volumes with maximum storage capacity of 16 TB and a performance level of 48,000 IOPS.
-* Create a volume with a predefined IOPS tier profile (3, 5, or 10 IOPS per GB) that best meets your storage requirements. Or you can create a volume with a custom profile, and choose IOPS performance from 100 IOPS to 48,000 IOPS, based on volume size (up to 16 TB).
+* Create second-generation block storage volumes with maximum storage capacity of 32 TB and a performance level of 64,000 IOPS.
+* Create first-generation block storage volumes with maximum storage capacity of 16 TB and a performance level of 48,000 IOPS.
+* Specify your own performance requirement. You can select your IOPS (up to 64,000) and Throughput limit (up to 1024 MBps) when you provision a second-generation volume. 
+* Create a first-generation volume with a predefined IOPS tier profile (3, 5, or 10 IOPS per GB) that best meets your storage requirements. Or you can choose the custom profile and specify your performance. IOPS per volume ranged from 100 IOPS to 48,000 IOPS, based on volume size (up to 16 TB).
 * Use a boot volume to start a virtual server instance and attach data volumes to the instance.
 * Choose customer-managed encryption for your block storage volume, and secure your data with your own encryption keys.
 * Use the UI, CLI, API, or Terraform to create volumes, rename volumes, attach, and detach a volume, transfer volumes to a different instance. You can assign access to a volume, access performance metrics or delete the volume.
@@ -40,7 +42,7 @@ Second-generation block volumes can be created with capacity in the range of 1 -
 
 | Features            | First-generation volumes | Second-generation volumes [New]{: tag-new}|
 |---------------------|--------------------------|---------------------------|
-| Availability        | Generally available in all VPC regions for all customers. | In the [select availability]{: tag-green} release, available in Dallas, Frankfurt, London, Madrid, Osaka, Sao Paulo, Sydney, Tokyo, Toronto, and Washington, DC for allowlisted customers.|
+| Availability        | Generally available in all VPC regions for all customers. | In the [Select Availability]{: tag-green} release, available in Dallas, Frankfurt, London, Madrid, Osaka, Sao Paulo, Sydney, Tokyo, Toronto, and Washington, DC for allow-listed customers.|
 | Expandable capacity | Yes, up to 16,000 GB     | Yes, up to 32,000 GB |
 | Adjustable IOPS     | Yes, up to 48,000. IOPS depends on capacity range. | Yes, up to 64,000.| 
 | Adjustable Bandwidth| No. Bandwidth can be increased by increasing capacity and IOPS. The maximum is 1024 MBps.| Yes, bandwidth can be adjusted to any value between 125 and 1024 MBps.|
@@ -73,13 +75,13 @@ Customers with special access to preview the `sdp` profile can create snapshots 
 
 You can use your snapshots to create other second-generation volumes in the same region. You can't use your second-generation snapshot to create a volume with a first-generation volume profile. Similarly, you can't use first-generation volume's snapshot to create a volume with the `sdp` profile. Cross-regional copy of a second-generation snapshot is supported with limitations. You can't create a copy in another region if your snapshot is encrypted with a customer-managed key or if the snapshot's source volume exceeds 10 TB. Consistency group snapshots of multiple `sdp` volumes and fast restore snapshots are not supported either.
 
-| Features            | First-generation snapshots | Second-generation snapshots [New]{: tag-new} |
+| Features            | First-generation snapshots | Second-generation snapshots |
 |---------------------|--------------------------|---------------------------|
-| Availability        | Generally available in all VPC regions for all customers. | In the [Select Availability]{: tag-green} release, available in Dallas (`us-south`), Frankfurt (`eu-de`), London (`eu-gb`), Madrid (`eu-es`), Osaka (`js-osa`), Sao Paulo (`br-sao`), Sydney (`au-syd`), Tokyo (`jp-tok`), Toronto (`ca-tor`), and Washington (`us-east`) regions for allowlisted customers.|
+| Availability        | Generally available in all VPC regions for all customers. | In the [Select Availability]{: tag-green} release, available for allow-listed customers.|
 | On-demand snapshots | Yes, up to 750 snapshots per region. | Yes, up to 512 snapshots per region in the [Select Availability]{: tag-green} release. |
 | Scheduled snapshots | Yes, up to 750 snapshots per region. | Yes, up to 512 snapshots per region in the [Select Availability]{: tag-green} release. |
 | Fast restore clones | Yes. You can cache a copy of your snapshot in any zone of the region. | Not supported in the [Select Availability]{: tag-green} release. |
-| Cross-regional copy | Yes, one cross-regional clone per snapshot per region |During the [select availability]{: tag-green} phase, this feature is available to allowlisted customers where second-generation snapshots are enabled with some limitations. You can create one cross-regional clone per snapshot per region. For more information, see [About Block Storage for VPC snapshots](/docs/vpc?topic=vpc-snapshots-vpc-about). |
+| Cross-regional copy | Yes, one cross-regional clone per snapshot per region | In the [Select Availability]{: tag-green} release, the feature is available in Dallas (`us-south`), Frankfurt (`eu-de`), London (`eu-gb`), Madrid (`eu-es`), Osaka (`js-osa`), Sao Paulo (`br-sao`), Sydney (`au-syd`), Tokyo (`jp-tok`), Toronto (`ca-tor`), and Washington (`us-east`) regions. You can create one cross-regional clone per snapshot per region.|
 | Consistency group   | Multi-volume snapshots are supported. | Not supported in the [Select Availability]{: tag-green} release. |
 {: caption="Block Storage snapshot generations comparison." caption-side="bottom"}
 

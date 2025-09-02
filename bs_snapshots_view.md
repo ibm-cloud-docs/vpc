@@ -2,7 +2,7 @@
 
 copyright:
   years: 2021, 2025
-lastupdated: "2025-08-26"
+lastupdated: "2025-09-02"
 
 keywords: view snapshots, view snapshot, viewing snapshots, see snapshots, Block Storage snapshots
 
@@ -18,9 +18,7 @@ subcollection: vpc
 You can view a list of all snapshots and consistency groups, and drill down to see information about a particular snapshot. Choose the UI, CLI, API, or Terraform to retrieve this information.
 {: shortdesc}
 
-You can use allowed-use expressions with bootable block storage snapshots to define the capabilities and restrictions of a snapshot and help you find compatible image and profile combinations during server creation. To use allowed-use expressions with your snapshots, see [Adding allowed-use expressions to custom images](/docs/vpc?topic=vpc-custom-image-allowed-use-expressions&interface=ui).
-
-Fast restore snapshot clones and consistency groups are not supported for second-generation storage volumes in the current release. Cross-regional snapshot copies are not supported if the source volume exceeds 10 TB or if it is encrypted with customer-managed encryption key.
+Fast restore snapshot clones and consistency groups are not supported for second-generation storage volumes in the current release. During the [select availability]{: tag-green} phase, you can't create a cross-regional copy of your second-generation snapshot if it is encrypted with a customer-managed key or if its source volume exceeds 10 TB.
 
 ## Listing snapshots in the console
 {: #snapshots-vpc-view-ui}
@@ -98,7 +96,7 @@ The snapshot details panel shows the information that is described in the follow
 | Size| Size in GBs of the snapshot, inherited from the source volume. |
 | Source volume | Source volume from which the first snapshot was taken. Click the link for volume details. If the volume was deleted, the name appears without a link. |
 | Encryption | Provider-managed or customer-managed encryption. For customer-managed encryption, the KMS instance, root key name, and root key ID are shown. |
-| Virtual server expression | When provisioning a virtual server instance using this snapshot, the expression is matched against the requested instance properties to determine compatibility. |
+| Virtual server expression | The allowed-use expression defines and restricts which virtual server profiles the bootable snapshot is compatible with. When you provision a virtual server instance by using the snapshot, the expression is matched against the requested instance properties. For more information, see [Adding allowed-use expressions to custom images](/docs/vpc?topic=vpc-custom-image-allowed-use-expressions&interface=ui). |
 | Fast restore panel | Use [fast restore](/docs/vpc?topic=vpc-snapshots-vpc-about#snapshots_vpc_fast_restore) to create a volume from this snapshot that is fully provisioned. Click **Edit** to [enable or disable fast restore](/docs/vpc?topic=vpc-snapshots-vpc-manage&interface=ui#snapshots-edit-fast-restore) in a zone. |
 | Consistency group panel | It displays information about the consistency group that the snapshot is a member of. Click **Create virtual server** to restore volumes from the consistency group. |
 {: caption="Snapshot details" caption-side="bottom"}
@@ -192,21 +190,14 @@ You can use the CLI to list all snapshots, all snapshots for a volume, and detai
 Before you can use the CLI, you must install the IBM Cloud CLI and the VPC CLI plug-in. For more information, see the [CLI prerequisites](/docs/vpc?topic=vpc-set-up-environment#cli-prerequisites-setup).
 {: requirement}
 
-1. Log in to {{site.data.keyword.cloud}}.
+Log in to {{site.data.keyword.cloud}}.
 
-   ```sh
-   ibmcloud login --sso -a cloud.ibm.com
-   ```
-   {: pre}
+```sh
+ibmcloud login --sso -a cloud.ibm.com
+```
+{: pre}
 
-   This command returns a URL and prompts for a passcode. Go to that URL in your browser and log in. If successful, you get a one-time passcode. Copy this passcode and paste it as a response on the prompt. After successful authentication, you are prompted to choose your account. If you have access to multiple accounts, select the account that you want to log in as. Respond to any remaining prompts to finish logging in.
-
-1. Set the `IBMCLOUD_IS_FEATURE_SNAPSHOT` environment variable to `true`.
-
-   ```sh
-   export IBMCLOUD_IS_FEATURE_SNAPSHOT=true
-   ```
-   {: pre}
+This command returns a URL and prompts for a passcode. Go to that URL in your browser and log in. If successful, you get a one-time passcode. Copy this passcode and paste it as a response on the prompt. After successful authentication, you are prompted to choose your account. If you have access to multiple accounts, select the account that you want to log in as. Respond to any remaining prompts to finish logging in.
 
 ### Viewing all snapshots of an account in a region from the CLI
 {: #snapshots-vpc-view-all-account-cli}
@@ -218,18 +209,14 @@ ibmcloud is snapshots [--json]
 ```
 {: pre}
 
-The following example provides a list of all the snapshots in all the resource groups in the `eu-de` region that were created by the users of the "Test Account".
+The following example provides a list of all the snapshots in all the resource groups in the `us-south` region.
 
 ```sh
-cloudshell:~$ ibmcloud is snapshots [--json]
-Listing snapshots in all resource groups and region eu-de under account Test Account as user test.user@ibm.com...
-ID                                          Name                                           Status     Source volume                               Bootable   Resource group   Created
-r138-7cac80af-63bb-4a1b-83dd-5f6d550a5db7   bear-peroxide-viewable-oxidant                 stable     r010-df8ffd90-f2e5-470b-83d7-76e64995a1aa   false      test-snap        2023-02-17T18:49:48+00:00
-r138-f95ef79e-5452-4a2a-b674-923c8ab84923   csi-plan-6kraq5zm-x7ss0u3h-3dbc4108a6b6-4356   stable     r010-a32b3fc7-8cd1-4b6e-ab97-f9837024fc03   false      defaults         2023-01-18T15:35:19+00:00
-r138-9ad969ee-64b2-409a-b1e8-a3093446ad4e   csi-plan-nmplujx4-67413149ce61-4740            unusable   r010-63524a21-889d-4c44-95d1-4d2332394975   false      defaults         2023-01-18T13:40:28+00:00
-r138-0f005da7-026c-453a-aa9b-2bc6f5cc6961   demo2-8be140e9561c-4381                        stable     r010-5a558256-ca83-4534-973f-f7a3b80aebe7   true       defaults         2023-02-01T00:41:23+00:00
-r138-f7030231-bc5b-4672-8454-2f30271578f6   my-hpcs-snapshot                               stable     r010-921c3c6f-6a0a-4914-bdc5-3e8c9167ec30   false      defaults         2022-02-11T16:54:35+00:00
-r138-e6664842-b370-496a-9ae7-da3fb647707c   snappy-snap-snap                               stable     r010-df8ffd90-f2e5-470b-83d7-76e64995a1aa   false      test-snap        2023-02-17T18:53:57+00:00
+$ ibmcloud is snapshots [--json]
+Listing snapshots in all resource groups and region us-south under account Test Account as user test.user@ibm.com...
+ID                                          Name             Status   Source volume                               Bootable   Resource group   Created                     Catalog Offering Version   Catalog Offering Plan   Storage Generation   
+r006-22db5609-69a1-4fe2-bd02-f64fb11230b3   my-test-snapshot stable   r006-ccbc5bc6-cd88-48e0-9a1d-de0f4d024324   true       defaults         2025-07-31T00:04:24+00:00   -                          -                       1   
+r006-e799fad8-aefa-4df5-81bd-dac6d13200a6   my-test-snap-1   stable   r006-2c5f577c-8cd0-47ef-8aec-cd8d1423249f   true       defaults         2025-08-06T22:38:01+00:00   -                          -                       1   
 ```
 {: screen}
 
@@ -296,48 +283,48 @@ ibmcloud is snapshots SNAPSHOT_ID [--json]
 The following example shows the details of a bootable snapshot in the `us-south` region.
 
 ```sh
-cloudshell:~$ ibmcloud is snapshot r006-2cd91284-1c46-499d-b1c5-ebe248b8ff12
-Getting snapshot r006-2cd91284-1c46-499d-b1c5-ebe248b8ff12 under account Test Account as user test.user@ibm.com...
+$ ibmcloud is snapshot r006-e799fad8-aefa-4df5-81bd-dac6d13200a6
+Getting snapshot r006-e799fad8-aefa-4df5-81bd-dac6d13200a6 under account Test Account as user test.user@ibm.com...
 
-ID                              r006-2cd91284-1c46-499d-b1c5-ebe248b8ff12
-Name                            my-bootable-snapshot
-CRN                             crn:v1:bluemix:public:is:us-south:a/a1234567::snapshot:r006-2cd91284-1c46-499d-b1c5-ebe248b8ff12
-Status                          stable
-Clones                          Zone   Available   Created
-
-Source volume                   ID                                          Name             CRN                                                          Resource type
-                                r010-85ad4f39-1bd1-4d1e-95c0-ec4caf21b4dc   my-boot-volume   crn:v1:bluemix:public:is:us-south:a/a1234567::volume:r010-85ad4f39-1bd1-4d1e-95c0-ec4caf21b4dc   volume
-
-Backup policy plan              -
-Snapshot Copies                 -
-Bootable                        true
-Encryption                      provider_managed
-Encryption key                  -
-
-Minimum capacity(GB)            100
-Size(GB)                        5
-Source Image                    ID                                          Name              Region CRN                                                         Resource type
-                                r010-f68ef7b3-1c5e-4ef7-8040-7ae0f5bf04fd   my-custom-image   us-south  crn:v1:bluemix:public:is:us-south:a/a1234567::image:r010-f68ef7b3-1c5e-4ef7-8040-7ae0f5bf04fd   image
-
-Operating system                Name                 Vendor      Version                                     Family         Architecture   Display name
-                                ubuntu-22-04-amd64   Canonical   22.04 LTS Jammy Jellyfish Minimal Install   Ubuntu Linux   amd64          Ubuntu Linux 22.04 LTS Jammy Jellyfish Minimal Install (amd64)
-
-Allowed Use API Version         2024-01-01
-Allowed Use Bare Metal Server   enable_secure_boot == true
-Allowed Use Instance            gpu.count > 0 && gpu.memory > 16
-
-Resource group                  ID                                 Name
-                                6edefe513d934fdd872e78ee6a8e73ef   defaults
-
-Created                         2024-04-18T18:19:10+00:00
-Captured at                     2024-02-21T21:45:41+00:00
-Tags                            -
-Service Tags                    -
-Storage Generation              1
+                                   
+ID                              r006-e799fad8-aefa-4df5-81bd-dac6d13200a6   
+Name                            my-test-snap-1   
+CRN                             crn:v1:bluemix:public:is:us-south:a/a10d63fa66daffc9b9b5286ce1533080::snapshot:r006-e799fad8-aefa-4df5-81bd-dac6d13200a6   
+Status                          stable   
+Clones                          Zone   Available   Created      
+                                   
+Source volume                   ID                                          Name               Remote Region   CRN                                                                                                                        Resource type      
+                                r006-2c5f577c-8cd0-47ef-8aec-cd8d1423249f   test-volume-fast   -               crn:v1:bluemix:public:is:us-south-1:a/a10d63fa66daffc9b9b5286ce1533080::volume:r006-2c5f577c-8cd0-47ef-8aec-cd8d1423249f   volume      
+                                   
+Backup policy plan              -   
+Snapshot Copies                 -   
+Bootable                        true   
+Encryption                      provider_managed   
+Encryption key                  -   
+Source Snapshot                 -   
+Minimum capacity(GB)            100   
+Size(GB)                        10   
+Source Image                    ID                                          Name                                 Remote Region   CRN                                                                                                                     Resource type      
+                                r006-cec640a3-615e-4364-bae7-d3642d9f9e34   ibm-ubuntu-22-04-5-minimal-amd64-4   -               crn:v1:bluemix:public:is:us-south:a/a1234567::image:r006-cec640a3-615e-4364-bae7-d3642d9f9e34   image      
+                                   
+Operating system                Name                 Vendor      Version                                     Family         Architecture   Display name      
+                                ubuntu-22-04-amd64   Canonical   22.04 LTS Jammy Jellyfish Minimal Install   Ubuntu Linux   amd64          Ubuntu Linux 22.04 LTS Jammy Jellyfish Minimal Install (amd64)      
+                                   
+Resource group                  ID                                 Name      
+                                6edefe513d934fdd872e78ee6a8e73ef   defaults      
+                                   
+Created                         2025-08-06T22:38:01+00:00   
+Captured at                     2025-08-06T22:38:02+00:00   
+Tags                            -   
+Service Tags                    -   
+Storage Generation              1   
+Allowed Use API Version         2025-07-17   
+Allowed Use Bare Metal Server   true   
+Allowed Use Instance            true   
 ```
 {: screen}
 
-* The `allowed-used` properties are inherited from the source volume or snapshot at creation time. You can change their value either at creation time or later if you are authorized to the `is.snapshot.snapshot.manage-allowed-use` IAM role. The properties comprise a Boolean [Common Expression Language](https://github.com/google/cel-spec/blob/master/doc/langdef.md){: external} expression. When the instance expression is evaluated to be `true`, then the provisioning of a virtual server instance is allowed with the snapshot. When the expression is evaluated to be `false`, the provisioning is blocked. If the value is not specified at the time of creation, then the constraint expressions are taken from the source resource.
+The `allowed-used` properties are inherited from the source volume or snapshot at creation time. You can change their value either at creation time or later if you are authorized to the `is.snapshot.snapshot.manage-allowed-use` IAM role. The properties comprise a Boolean [Common Expression Language](https://github.com/google/cel-spec/blob/master/doc/langdef.md){: external} expression. When the instance expression is evaluated to be `true`, then the provisioning of a virtual server instance is allowed with the snapshot. When the expression is evaluated to be `false`, the provisioning is blocked. If the value is not specified at the time of creation, then the constraint expressions are taken from the source resource.
 
 The following example shows the details of a nonbootable snapshot in the `eu-de` region, which also has a fast restore clone in the `eu-de-1` zone.
 

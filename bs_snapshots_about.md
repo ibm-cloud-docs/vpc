@@ -2,7 +2,7 @@
 
 copyright:
   years: 2022, 2025
-lastupdated: "2025-08-26"
+lastupdated: "2025-09-02"
 
 keywords: snapshots, Block Storage, volumes, cross-regional snapshot, restore volume, copy snapshot
 
@@ -33,7 +33,7 @@ The first time that you take a snapshot of a volume, all the volume's contents a
 
 You can create a virtual server instance with a boot volume that is initialized from a snapshot. The instance profile of the new instance is not required to match the instance that was used to create the snapshot. You can also import a snapshot of a data volume when you create and attach a data volume to the instance. You can specify user tags for these snapshots.
 
-You can create a volume from a snapshot at any time. This process is called restoring a volume, and it can be performed when you create an instance, modify an instance, or when you create a stand-alone volume. For more information, see [Restoring a volume from a snapshot](/docs/vpc?topic=vpc-snapshots-vpc-restore). You can also restore a fully provisioned volume by using the fast restore feature after initial provisioning.
+You can create a volume from a snapshot at any time. This process is called restoring a volume, and it can be performed when you create an instance, modify an instance, or when you create a stand-alone volume. For more information, see [Restoring a volume from a snapshot](/docs/vpc?topic=vpc-snapshots-vpc-restore).
 
 Snapshots have a lifecycle that is independent from the source {{site.data.keyword.block_storage_is_short}} volume. You can delete the original volume and the snapshot persists. However, do not detach the volume from the instance during snapshot creation. You need to wait until the snapshot becomes `stable` before you detach, otherwise you can't reattach the volume to an instance. Snapshots are crash-consistent. If the virtual server stops for any reason, the snapshot data is safe on the disk.
 
@@ -69,18 +69,21 @@ When you choose to create a cross-regional copy of a snapshot, you need to speci
 
 When the snapshot copy in the remote region is stable, you can use and manage it independently from the parent volume or the original snapshot.
 
-The creation of the copy in the remote region takes time. The more capacity a volume has the longer it takes for the copy in the remote region to become stable. For example, the creation of a full snapshots of a 3 TB volume in a remote region can take up to 12.5 hours.
+The creation of the copy in the remote region takes time. The more capacity a volume has the longer it takes for the copy in the remote region to become stable. For example, the creation of a full snapshot of a 3 TB volume in a remote region can take up to 12.5 hours.
 
-The first time that you create a cross-regional copy, that snapshot is a full copy of the parent volume's data. Subsequent copies can be incremental or full copies. Whether the remote copy is incremental depends on the immediately preceding snapshot in the chain. If the immediately preceding snapshot exists in the destination region, the copy can be incremental. If the immediately preceding snapshot does not exist, the copy must be full snapshot of the parent volume.
+The first time that you create a cross-regional copy, that snapshot is a full copy of the parent volume's data. Subsequent copies can be incremental or full copies. Whether the remote copy is incremental depends on the immediately preceding snapshot in the chain. If the immediately preceding snapshot exists in the destination region, the copy can be incremental. If the immediately preceding snapshot does not exist, the copy must be a full snapshot of the parent volume.
 
 If the source snapshot is not encrypted with a customer key, the encryption of the copy remains provider-managed. 
 
 If the source snapshot is protected by a customer-managed key, you must specify the customer-managed key that you want to use to encrypt the new copy.
 
+You can't create cross-regional copies of second-generation snapshots for volumes that are bigger than 10 TB.
+{: note}
+
 If you change the encryption type or the encryption key of the parent volume, the next remote copy must be a full copy of the parent snapshot, not an incremental copy.
 
 Only one copy of the snapshot can exist in each region. You can't create a copy in the local (source) region.
-{: restriction}
+{: important}
 
 Creating a cross-regional copy affects billing. You're charged for the data transfer and the storage consumption in the target region separately.
 
@@ -91,6 +94,9 @@ When you create a snapshot or list details of a snapshot, the system lists only 
 {: #multi-volume-snapshots}
 
 A snapshot consistency group contains snapshots of multiple Block Storage volumes that are attached to the same virtual server instance. You can include or exclude boot volumes. Instance storage is not included.
+
+Multi-volume snapshots of a consistency group are not yet supported for second-generation block storage.
+{: note}
 
 When you request a snapshot of a consistency group, the system ensures that all write operations are complete before it takes the snapshots. Then, the system generates snapshots of all the tagged Block Storage volumes that are attached to the virtual server instance at the same time. Depending on the number and size of the attached volumes, plus the amount of data that is to be captured, you might observe a slight IO pause. This IO pause can range from a few milliseconds up to 4 seconds.
 
@@ -120,36 +126,26 @@ Volume data restoration begins immediately as the volume is created, but perform
 ## Limitations
 {: #snapshots-vpc-limitations}
 
-The following limitations apply to this release:
+The following limitations apply for the second-generation block storage snapshots:
 
-* You can take up to 750 snapshots per volume in a region.
-* You can't take a snapshot of a volume in a [degraded state](/docs/vpc?topic=vpc-block-storage-vpc-monitoring#block-storage-vpc-health-states).
-* A first-generation volume must be attached to a running virtual server instance for you to take a snapshot of its data. This limitation does not apply to second-generation volumes.
+* When you use second-generation block storage, you can take up to 512 snapshots.
 * You can't create a copy of a snapshot in the source (local) region.
-* When you create copies of a snapshot in other regions, only one copy can exist in each region. That means 9 copies globally.
+* Cross-regional copies are not supported in any region for snapshots of volumes that exceed 10 TB or that are protected by customer-managed encryption keys.
+* When you create copies of a snapshot in other regions, only one copy can exist in each region.
+* Consistency-group snapshots are not supported.
+
+The following limitations apply for the first-generation block storage snapshots:
+
+* When you use the first-generation block storage, you can take up to 750 snapshots per volume in a region.
+* You can't take a snapshot of a volume in a [degraded state](/docs/vpc?topic=vpc-block-storage-vpc-monitoring#block-storage-vpc-health-states).
+* A first-generation volume must be attached to a running virtual server instance for you to take a snapshot of its data.
+* You can't create a copy of a snapshot in the source (local) region.
 * Cross-regional copies are not supported in Montreal (`ca-mon`) MZR.
+* When you create copies of a snapshot in other regions, only one copy can exist in each region.
 * Taking a snapshot of a volume greater than 10 TB is not supported.
 * You can delete any snapshot that you take. However, snapshots must be in a `stable` or `pending` state and not actively restoring a volume.
 * You can delete a {{site.data.keyword.block_storage_is_short}} volume and all its snapshots. All snapshots must be in a `stable` or `pending` state. No snapshot can be actively restoring a volume.
 * Restoring an instance directly from snapshot consistency group identifier is not supported.
-
-## Snapshots for second-generation block storage volumes
-{: #sdp-snapshots}
-
-As a customer with special access to preview the new defined performance profile, you can provision second-generation storage volumes with the `sdp` profile and create snapshots of these volumes. The snapshots feature is available in Dallas (`us-south`), Frankfurt (`eu-de`), London (`eu-gb`), Madrid (`eu-es`), Osaka (`js-osa`), Sao Paulo (`br-sao`), Sydney (`au-syd`), Tokyo (`jp-tok`), Toronto (`ca-tor`), and Washington (`us-east`) regions.
-{: preview}
-
-During the [Select Availability]{: tag-green} phase, you can create up to 512 snapshots. You can create snapshots even when the `sdp` volumes are unattached.
-
-The snapshots that are created for `sdp` volumes have an independent lifecycle from the parent volume. You can delete the volume and the snapshot persists.
-
-Second-generation storage volumes can range in size from 1 GB to 32 TB. You can create a snapshot of the entire volume without capacity restrictions.
-
-You can use your snapshots to create second-generation volumes in the region where the snapshot is. You can't use your second-generation snapshot to create a volume with a first-generation volume profile. Similarly, a snapshot from a first-generation volume can't be used to create a volume with the `sdp` profile.
-
-In this release, cross-regional snapshot copies are not supported if the source volume exceeds 10 TB or if it is encrypted with customer-managed encryption key.
-
-You cannot create of consistency group snapshots of `sdp` volumes. Fast restore clones are not supported for second-generation snapshots yet either.
 
 ## Securing your data
 {: #bs-snapshot-data-security}

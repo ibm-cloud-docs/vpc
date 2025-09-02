@@ -23,15 +23,16 @@ Use the release notes to learn the latest updates to {{site.data.keyword.vpc_ful
 For more information about changes to the {{site.data.keyword.vpc_short}} API, see [{{site.data.keyword.vpc_short}} API change log](/docs/vpc?topic=vpc-api-change-log).
 
 For more information about changes to the {{site.data.keyword.vpc_short}} command-line interface (CLI), see [{{site.data.keyword.vpc_short}} CLI release notes](/docs/vpc?topic=vpc-vpc-cli-rn).
-## September 2025
-{: #vpc-sept25}
 
-### 02 September 2025
-{: vpc-sept0225}
+## September 2025
+{: #vpc-sep25}
+
+### 02 September 2025 
+{: #vpc-sep0225} 
 {: release-note}
 
-Customer-defined AS Path Prepends support
-:    You can now influence BGP route selection in VPC networking using AS path length. Previously, VPC networking ignored AS path length when choosing the best route, which often required you to use a Transit Gateway between Direct Link and VPC in certain topologies to achieve specific routing behavior. Now, you can influence routing by deprioritizing paths, ideal for managing primary and backup Direct Link connections or configuring failover in hybrid and multicloud environments. For more information, see [Using AS Prepends with VPC connections](/docs/dl?topic=dl-dl-planning-considerations#as-prepends-routes). 
+Manage BGP route selection in VPC
+:    Previously, VPC didn't honor AS path length when choosing the best route, and this required using a Transit Gateway between Direct Link and VPC in certain topologies to achieve specific routing behavior and high availability. With this enhancement, you can now influence routing decisions by using AS Path length to choose specific paths-ideal for managing primary and backup Direct Link connections, or configuring failover in hybrid and multicloud environments. For more information, see [Using AS Prepends with VPC connections](/docs/dl?topic=dl-dl-planning-considerations#as-prepends-routes).
 
 ### 01 September 2025
 {: #vpc-sep0125}
@@ -42,7 +43,7 @@ Removing limit on rules targeting remote security groups
 
 ## August 2025
 {: #vpc-aug25}
- 
+
 ### 28 August 2025
 {: #vpc-aug2825}
 {: release-note}
@@ -105,7 +106,7 @@ Cross-regional replication of file shares is available in Montreal
 {: release-note}
 
 Cross-regional copies of second-generation block volume snapshots (beta release)
-:   Customers with special access to preview the second-generation block storage volumes can now create cross-regional copies of their snapshots in London (`eu-gb`), Osaka (`js-osa`), Sao Paulo (`br-sao`), and Sydney (`au-syd`) regions in the console, from the CLI, or with the API. For more information about this feature and its limitations, see [About Block Storage for VPC snapshots](/docs/vpc?topic=vpc-snapshots-vpc-about&interface=ui#sdp-snapshots).
+:   Customers with special access to preview the second-generation block storage volumes can now create cross-regional copies of their snapshots in London (`eu-gb`), Osaka (`js-osa`), Sao Paulo (`br-sao`), and Sydney (`au-syd`) regions in the console, from the CLI, or with the API. For more information about this feature and its limitations, see [About Block Storage for VPC snapshots](/docs/vpc?topic=vpc-snapshots-vpc-about&interface=ui).
 
 New file share profile with regional data availability (beta release)
 :   The File Storage for VPC offering includes a new profile in the Defined Performance profile family. Customers with special access can use this profile to create regional file shares that provide data availability across all 3 zones of a region. The regional shares can be created with capacity 1 - 32000 GB, adjustable throughput up to 8192 Mbps, and a fixed IOPS value of 35000. The regional shares can be encrypted with provider-managed or customer-managed encryption keys. You can mount these file shares by using a regional mount target and opt to encrypt your data in transit with stunnel. For more information, see [About File Storage for VPC](/docs/vpc?topic=vpc-file-storage-vpc-about#fs-cross-account-mount).
@@ -318,7 +319,7 @@ New regions for second-generation block storage volumes (select availability)
 [The SSD defined performance profile](/docs/vpc?topic=vpc-block-storage-about#block-storage-sdp-intro).
 
 Snapshots for second-generation block volumes
-:   Customers with special access to preview the second-generation block storage volumes can now create snapshots of these volumes in `us-east` and `eu-de` regions in the console, from the CLI, or with the API. For more information, see [About Block Storage for VPC snapshots](/docs/vpc?topic=vpc-snapshots-vpc-about&interface=ui#sdp-snapshots).
+:   Customers with special access to preview the second-generation block storage volumes can now create snapshots of these volumes in `us-east` and `eu-de` regions in the console, from the CLI, or with the API. For more information, see [About Block Storage for VPC snapshots](/docs/vpc?topic=vpc-snapshots-vpc-about&interface=ui).
 
 ### 19 March 2025
 {: #vpc-mar1925}
@@ -506,10 +507,10 @@ GPU H100 profile now available in Dallas (`us-south`) and Frankfurt (`eu-de`) re
 :   The GPU H100 profile is now available in the Dallas (`us-south`) and Frankfurt (`eu-de`) regions, in addition to London (`eu-gb`), Sydney (`au-syd`), Toronto (`ca-tor`), Madrid (`eu-es`), Washington DC (`us-east`), Tokyo (`jp-tok`), and Sao Paulo (`br-sao`) regions. The GPU H100 profile is available on the latest generation GPU-enabled infrastructure for running machine learning (ML) and deep learning (DL) frameworks in support of AI initiatives. When you use the H100 virtual server profile, it runs on an [NVIDIA Hopper-based HGX](https://www.nvidia.com/en-us/data-center/hgx/){: external} server and is the sole tenant running on the host. For more information about the `gx3d-160x1792x8h100` profile, see [GPU](/docs/vpc?topic=vpc-profiles&interface=ui#gpu) profiles.
 
 ## September 2024
-{: #vpc-sept24}
+{: #vpc-sep24}
 
 ### 30 September 2024
-{: #vpc-sept3024}
+{: #vpc-sep3024}
 {: release-note}
 
 Tagging VPC routing tables

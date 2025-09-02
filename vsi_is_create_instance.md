@@ -2,7 +2,7 @@
 
 copyright:
   years: 2018, 2025
-lastupdated: "2025-08-15"
+lastupdated: "2025-09-02"
 
 keywords:
 
@@ -72,7 +72,7 @@ Allowed-use expressions: The image that you select determines the profiles that 
    | SSH keys | You must select an existing public SSH key or click **Create an SSH key** to create one. For more information about creating an SSH key, see [Creating your SSH key by using the UI](/docs/vpc?topic=vpc-ssh-keys&interface=ui#generate-ssh-keys-ui). SSH keys are used to securely connect to the instance after it's running. |
    | | **Note:** Alpha-numeric combinations are limited to 100 characters. SSH keys can be either RSA or ED25519. You can create only RSA SSH keys. For an ED25519 SSH key, you must upload the key information. ED25519 can be used only if the operating system supports this key type. ED25519 can't be used with Windows or VMware images. |
    | | For more information, see [Getting started with SSH keys](/docs/vpc?topic=vpc-ssh-keys). |
-   | Boot volume | The default boot volume size for most profiles is 100 GB. The default boot volume size for a z/OS virtual server instance is 245 GB. If you're importing a custom image, the boot volume capacity can be 10 - 250 GB, depending on what the image requires. Images that are smaller than 10 GB are rounded up to 10 GB. click the **Edit icon** ![Edit icon](../icons/edit-tagging.svg "Edit") to modify the boot volume's attributes in the side panel. \n [Select Availability]{: tag-green} Customers with special access to volume profiles within the defined performance family can expand their `sdp` volumes up to 32,000 GB. |
+   | Boot volume | The default boot volume size for most profiles is 100 GB. The default boot volume size for a z/OS virtual server instance is 245 GB. If you're importing a custom image, the boot volume capacity can be 10 - 250 GB, depending on what the image requires. Images that are smaller than 10 GB are rounded up to 10 GB. Click the **Edit icon** ![Edit icon](../icons/edit-tagging.svg "Edit") to modify the boot volume's attributes in the side panel. \n [Select Availability]{: tag-green} Customers with special access to volume profiles within the defined performance family can expand their `sdp` volumes up to 32,000 GB. |
    | | You can change the name of the boot volume by specifying a unique, meaningful name. For example, it can be a name that describes your compute or workload function. The volume name must begin with a lowercase letter. The name can be up to 63 lowercase alpha-numeric characters and include the hyphen (-). Volume names must be unique the entire VPC infrastructure. You can edit the name later if you want to.|
    | | You can toggle the auto-delete option off for the boot volume. If it is enabled, then the volume is deleted when the instance is deleted. If it is disabled, then the volume persists after the instance is deleted. |
    | | You can specify optional user tags and access management tags to associate with this volume. For more information about organizing resources with user tags, see [Working with tags](/docs/account?topic=account-tag&interface=ui).|

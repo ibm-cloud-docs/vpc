@@ -2,7 +2,7 @@
 
 copyright:
   years: 2022, 2025
-lastupdated: "2025-08-26"
+lastupdated: "2025-09-02"
 
 keywords: Block Storage, snapshots, cross-regional copy, fast restore, backup, restore volume
 
@@ -53,7 +53,7 @@ Fast restore snapshot clones and consistency groups are not supported for second
 
 You can copy a snapshot from one region to another region, and later use that snapshot to restore a volume in the new region. This feature can be used in disaster recovery scenarios when you need to start your virtual server instance and data volumes in a different region. Or you can use the remote copy to create storage volumes in a new region to expand your VPC. For more information, see [Cross-regional snapshot copies](/docs/vpc?topic=vpc-snapshots-vpc-about&interface=ui#snapshots_vpc_crossregion_copy).
 
-In this release, cross-regional snapshot copies are not supported if the source volume exceeds 10 TB or if it is encrypted with customer-managed encryption key.
+In the current release, you can't create cross-regional copies of second-generation snapshots if they are encrypted with customer-managed keys or if the snapshot's source volume exceeds 10 TB.
 {: preview}
 
 ## What is the retention policy for cross-regional copies?
@@ -73,7 +73,6 @@ Manually created copies remain in the other region until you delete them.
 You can take up to 750 snapshots per volume in a region. Deleting snapshots from this quota makes space for more snapshots. A snapshot of a volume cannot be greater than 10 TB. Also, consider how your billing is affected when you increase the number of snapshots that you take and retain.
 
 In the current release, you can create up to 512 manual and backup snapshots of second-generation volumes. You can even create snapshots when the `sdp` volumes are unattached.
-{: preview}
 
 ## Is there a limit on the size of a volume that I can take a snapshot of?
 {: faq}

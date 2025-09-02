@@ -2,7 +2,7 @@
 
 copyright:
   years: 2022, 2025
-lastupdated: "2025-06-27"
+lastupdated: "2025-09-02"
 
 keywords: Backup, backup snapshot, create backups, backup service, backup plan, backup policy, restore, restore volume, restore data, restore share
 
@@ -127,7 +127,7 @@ Use the cost estimator to see what your backups might cost based on the rate of 
    * Number of volumes or shares that you want to associate with the backup policy.
    * Average amount of data per volume or share (in GBs). For example, you might associate two volumes with a policy. The first volume has 4 GB of data and the second 20 GB. An average of the two would be 12 GB.
    * Number of backups per volume or share per month. You can take a maximum of 750 backup snapshots per volume and a maximum of 750 backups per share.
-   * Percent of incremental change after the initial backup. For example, a 15% increase in size for each subsequent backup.
+   * Percentage of incremental change after the initial backup. For example, a 15% increase in size for each subsequent backup.
 
 3. When you're finished, click **Calculate cost**.
 
@@ -523,7 +523,7 @@ For more information about available command options, see [`ibmcloud is backup-p
 The fast restore feature is billed at an extra rate per hour for each zone in which it is enabled. Maintaining fast restore clones is considerably more costly than keeping regular backup snapshots.
 {: note}
 
-The fast restore feature is not applicable for multi-volume or share backups.
+The fast restore feature is not available for multi-volume or share backups.
 {: important}
 
 ### Creating a backup plan with cross-regional copy option from the CLI

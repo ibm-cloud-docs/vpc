@@ -2,7 +2,7 @@
 
 copyright:
   years: 2021, 2025
-lastupdated: "2025-07-28"
+lastupdated: "2025-09-02"
 
 keywords:
 
@@ -27,7 +27,7 @@ Restoring a volume from a snapshot creates a boot or data volume, depending on w
 
    * A new data volume that was created from **nonbootable** snapshot inherits its properties from the original volume, such as [profile](/docs/vpc?topic=vpc-block-storage-profiles), capacity, storage generation, data, and metadata. If the source volume used [customer-managed encryption](/docs/vpc?topic=vpc-vpc-encryption-about#vpc-customer-managed-encryption), the volume inherits that encryption with the original customer root key (CRK). However, you can specify a larger volume size, a different profile of the same storage generation, and a different CRK if you prefer.
 
-You can restore volumes from a manually created snapshot or from a snapshot that was created by a backup policy. This type of snapshot is called a backup. For more information, see [Restoring a volume from a backup snapshot](/docs/vpc?topic=vpc-baas-vpc-restore).
+You can restore volumes from a manually created snapshot or from a snapshot that was created by a backup policy. For more information, see [Restoring a volume from a backup snapshot](/docs/vpc?topic=vpc-baas-vpc-restore).
 
 You can restore a volume in a different region by using a cross-regional copy of a snapshot. For more information, see [Cross-regional snapshots](/docs/vpc?topic=vpc-snapshots-vpc-about#snapshots_vpc_crossregion_copy).
 
@@ -54,7 +54,7 @@ The following limitations apply when you restore a volume from a snapshot.
 * If snapshot is protected with customer-managed encryption and you don't specify a different root key CRN, the restored volume is encrypted with the snapshot's encryption key. The encryption cannot be changed later.
 * When the new volume is created, data restoration begins immediately, but performance is degraded until the volume is fully hydrated.
 
-First- and second-generation volume profiles are not interchangeable. You can use a snapshot of a second-generation volume to create another second-generation volume, but you can't switch the volume profile to a first-generation volume profile. In the same way, you can use a snapshot of a first-generation volume to create another first-generation volume with the same data, and you can't switch the new volume to the `sdp` profile. Fast restore backup clones, cross-regional copies of encrypted volumes, and consistency groups are not supported for second-generation storage volumes.
+First- and second-generation volume profiles are not interchangeable. You can use a snapshot of a second-generation volume to create another second-generation volume, but you can't switch the volume profile to a first-generation volume profile. In the same way, you can use a snapshot of a first-generation volume to create another first-generation volume with the same data, and you can't switch the new volume to the `sdp` profile. Fast restore backup clones and consistency groups are not supported for second-generation storage volumes. Cross-regional snapshot copies of encrypted volumes or volumes that exceed 10 TB are not supported
 {: preview}
 
 ### Performance impact
@@ -141,7 +141,7 @@ Follow these steps to create volumes for virtual server instance from the consis
 1. From the Actions icon ![Actions icon](../icons/action-menu-icon.svg "Actions"), select **Create virtual server**.
    * If the group has more than one bootable snapshot, you can choose the one that you want to use for the boot volume of the new virtual server instance. Then, click **Configure virtual server**.
    * If only one bootable snapshot is in the consistency group, you're taken directly to the VPC provisioning page.
-1. The information about your region, profile, boot volume, and data volumes is populated in the New virtual server for VPC provisioning page.
+1. The information about your region, profile, boot volume, and data volumes are populated in the New virtual server for VPC provisioning page.
 
    If you change the profile selection to **Image** or **Existing volume**, the boot volume snapshot is removed. The data volumes section is also populated with the nonbootable snapshots from the consistency group. You can remove a snapshot or create another data volume. However, if you removed a data volume and want to add it back, you must return to the step of selecting the consistency group again.
    {: important}
