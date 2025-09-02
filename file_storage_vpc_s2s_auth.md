@@ -308,7 +308,7 @@ To authorize the file service to access your Key Management Service instance ({{
 To authorize the file service of another account to access your Key Management Service instance ({{site.data.keyword.keymanagementserviceshort}} or {{site.data.keyword.hscrypto}}), make a request to the [IAM Policy Management API](/apidocs/iam-policy-management#create-policy) to create the service-to-service authorization. The following example shows how to create an authorization for the {{site.data.keyword.filestorage_vpc_short}} service of the source account to access the key management service of your account (target) with Reader permission.
 
 ```sh
-curl -X "POST" "https://iam.cloud.ibm.com/v1/policies" \
+curl -X POST "https://iam.cloud.ibm.com/v1/policies" \
      -H "Authorization: <Auth Token>" \
      -H 'Content-Type: application/json' \
      -d '{
@@ -359,7 +359,7 @@ For more information, see the api spec for [IAM Policy Management](/apidocs/iam-
 As the share owner, make an API request to the [IAM Policy Management API](/apidocs/iam-policy-management#create-policy) to create an authorization that allows the accessor account to access the origin share. The following example shows how to create the service-to-service authorization between the origin share account (source) and the accessor account (target).
 
 ```sh
-curl -X "POST" "https://iam.cloud.ibm.com/v1/policies" \
+curl -X POST "https://iam.cloud.ibm.com/v1/policies" \
      -H "Authorization: <Auth Token>" \
      -H 'Content-Type: application/json' \
      -d '{

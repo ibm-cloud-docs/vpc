@@ -1,8 +1,8 @@
 ---
 
 copyright:
-  years: 2022, 2024
-lastupdated: "2024-11-05"
+  years: 2022, 2025
+lastupdated: "2025-09-02"
 
 keywords:
 
@@ -50,7 +50,7 @@ To create the IAM policy, Account A must make a `POST /policies` call to the IAM
 * The `subjects` section specifies Account B and the file share service that is to access Account A's {{site.data.keyword.keymanagementserviceshort}} instance and use the CRK.
 
 ```sh
-curl -X "POST" "https://iam.cloud.ibm.com/v1/policies" \
+curl -X POST "https://iam.cloud.ibm.com/v1/policies" \
      -H "Authorization: <Auth Token>" \
      -H 'Content-Type: application/json' \
      -d '{

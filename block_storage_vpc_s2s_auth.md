@@ -211,7 +211,7 @@ Make a request to the [IAM Policy Management API](/apidocs/iam-policy-management
 * The following example shows how you can authorize the Block service `is.server-protect` of one account (source) to interact with the {{site.data.keyword.hscrypto}} service `hs-crypto` of another account (target) with the _Reader_ and _Authorization Delegator_ roles.
 
    ```sh
-   curl -X "POST" "https://iam.cloud.ibm.com/v1/policies" \
+   curl -X POST "https://iam.cloud.ibm.com/v1/policies" \
      -H "Authorization: <Auth Token>" \
      -H 'Content-Type: application/json' \
      -d '{
@@ -242,7 +242,7 @@ The cross-account authorization is one-way and specific to key and service. When
 The following API request authorizes the Block Storage service of the source account to use a snapshot that was created by the target account to restore volumes. This call needs to be issued by the account that owns the snapshot. The receiving source account must ensure that their admin user has the `SnapshotRemoteAccountRestorer` role in IAM before they start a volume restoration with the CRN of the shared snapshot.
 
 ```sh
-curl -X "POST" "https://iam.cloud.ibm.com/v1/policies"\
+curl -X POST "https://iam.cloud.ibm.com/v1/policies"\
    -H 'Content-Type: application/json\
    -d '{
         "type":"authorization",
