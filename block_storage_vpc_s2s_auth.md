@@ -33,8 +33,8 @@ For more information about authorizations, see [Using authorizations to grant ac
 {: #block-s2s-auth-encryption-ui}
 {: ui}
 
-If the authorization is needed for cross-account encryption, the authorization must be created in the target account that owns the encryption key.
-{: important>
+When the authorization is needed for cross-account encryption, the authorization must be created in the target account that owns the encryption key.
+{: important}
 
 1. In the {{site.data.keyword.cloud_notm}} console, go to **Manage > Access (IAM)**.
 1. From the side panel, select **Authorizations**.
@@ -119,7 +119,7 @@ For more information about all of the parameters that are available for this com
 {: #block-s2s-xaccount-encryption-cli}
 {: cli}
 
-If the authorization is needed for cross-account encryption, the authorization must be created in the target account that owns the encryption key. Run the `ibmcloud iam authorization-policy-create` command to create authorization policies for the Block service of the source account to interact with one or both Key Management Services ({{site.data.keyword.keymanagementserviceshort}} or {{site.data.keyword.hscrypto}}) of the target account. The source service is `server-protect` and the target service is either `kms` or `hs-crypto`. The role that you need to assign is `Reader`. The following example creates an authorization policy between the Block service and {{site.data.keyword.keymanagementserviceshort}}.
+When the authorization is needed for cross-account encryption, the authorization must be created in the target account that owns the encryption key. Run the `ibmcloud iam authorization-policy-create` command to create authorization policies for the Block service of the source account to interact with one or both Key Management Services ({{site.data.keyword.keymanagementserviceshort}} or {{site.data.keyword.hscrypto}}) of the target account. The source service is `server-protect` and the target service is either `kms` or `hs-crypto`. The role that you need to assign is `Reader`. The following example creates an authorization policy between the Block service and {{site.data.keyword.keymanagementserviceshort}}.
 
 1. Create a JSON file with the following information for the authorization policies in your local Documents folder.
    ```json
