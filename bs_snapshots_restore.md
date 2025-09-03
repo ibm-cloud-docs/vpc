@@ -23,7 +23,7 @@ Restoring data from a snapshot creates a new, fully provisioned volume that you 
 
 Restoring a volume from a snapshot creates a boot or data volume, depending on whether the snapshot is bootable or nonbootable.
 
-   * Restoring from a **bootable** snapshot creates a boot volume that you can use to start a virtual server instance. The boot volume uses a general-purpose profile and is limited to 250 GB.
+   * Restoring from a **bootable** snapshot creates a boot volume that you can use to start a virtual server instance. The boot volume uses either the `sdp` or the `general-purpose profile` and is limited to 250 GB at its creation. Second generation boot volumes with the `sdp` profile, can be expanded later.
 
    * A new data volume that was created from **nonbootable** snapshot inherits its properties from the original volume, such as [profile](/docs/vpc?topic=vpc-block-storage-profiles), capacity, storage generation, data, and metadata. If the source volume used [customer-managed encryption](/docs/vpc?topic=vpc-vpc-encryption-about#vpc-customer-managed-encryption), the volume inherits that encryption with the original customer root key (CRK). However, you can specify a larger volume size, a different profile of the same storage generation, and a different CRK if you prefer.
 
@@ -54,7 +54,7 @@ The following limitations apply when you restore a volume from a snapshot.
 * If snapshot is protected with customer-managed encryption and you don't specify a different root key CRN, the restored volume is encrypted with the snapshot's encryption key. The encryption cannot be changed later.
 * When the new volume is created, data restoration begins immediately, but performance is degraded until the volume is fully hydrated.
 
-First- and second-generation volume profiles are not interchangeable. You can use a snapshot of a second-generation volume to create another second-generation volume, but you can't switch the volume profile to a first-generation volume profile. In the same way, you can use a snapshot of a first-generation volume to create another first-generation volume with the same data, and you can't switch the new volume to the `sdp` profile. Fast restore backup clones and consistency groups are not supported for second-generation storage volumes. Cross-regional snapshot copies of encrypted volumes or volumes that exceed 10 TB are not supported
+First- and second-generation volume profiles are not interchangeable. You can use a snapshot of a second-generation volume to create another second-generation volume, but you can't switch the volume profile to a first-generation volume profile. In the same way, you can use a snapshot of a first-generation volume to create another first-generation volume with the same data, and you can't switch the new volume to the `sdp` profile. Fast restore backup clones and consistency groups are not supported for second-generation storage volumes. Cross-regional snapshot copies of encrypted volumes or volumes that exceed 10 TB are not supported.
 {: preview}
 
 ### Performance impact
@@ -111,9 +111,10 @@ From the list of {{site.data.keyword.block_storage_is_short}} snapshots, you can
     | Resource group | Use the defaults or select from the list. |
     | Zone | Inherited from the snapshot. Change it to another zone in your region if you want to. |
     | Size | Enter a volume size allowed by the profile. The default is the minimum provisioning size based on the snapshot. |
-    | **Profile** | This value defaults to the snapshot's volume profile. You can change the profile to another one in the same storage generation.|
-    | IOPS | For IOPS tiers, specify an IOPS tier profile. For custom IOPS, select a range. |
-    | Size | Enter a volume size that is allowed by the profile. |
+    | **Profile** | This value defaults to the snapshot's volume profile. You can change the profile to another one in the same storage generation. For example, you can switch between Gen 1 profiles, but you can't switch from a Gen 1 profile to the Gen 2 `sdp` profile. |
+    | Size | Enter a volume capacity value that is allowed by the profile. |
+    | IOPS | For IOPS tiers, specify an IOPS tier profile. For custom IOPS, select the maximum value. |
+    | Throughput | Enter the maximum bandwidth limit. This option is available only for the `sdp` profile. Its maximum value is 1024 MBps.|
     | **Encryption** | Inherited from the snapshot.|
     {: caption="Create volume options." caption-side="bottom"}
 

@@ -21,7 +21,7 @@ For {{site.data.keyword.block_storage_is_short}} boot and data volumes, you can 
 ## Expandable volume concepts
 {: #expandable-volume-concepts}
 
-You can increase capacity for boot and data volumes that are attached to a virtual server instance.
+You can increase the capacity of second-generation boot volumes at any time, regardless if they are attached to a virtual server or not. First-generation boot and data volumes must be attached to a running server when you attempt to increase the capacity.
 
 ### Data volumes
 {: #expand-data-vols}

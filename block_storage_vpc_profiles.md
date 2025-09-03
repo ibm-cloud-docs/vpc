@@ -25,7 +25,7 @@ Customers with special access can provision storage with the new `sdp` profile. 
 {: #block-storage-profile-overview}
 
 When you create a Block Storage volume, you can select from various profiles.
-- [Select Availability]{: tag-green} The defined performance family profile provides even more flexibility when it comes to specifying capacity and IOPS. Volume profiles in the defined performance family can scale volume performance independent of capacity. By using the `sdp` profile, you can create a volume with up to 32 TB capacity and an IOPS value in a range of 100 - 64,000.
+- [Select availability]{: tag-green} The defined performance family profile provides even more flexibility when it comes to specifying capacity and IOPS. Volume profiles in the defined performance family can scale volume performance independent of capacity. By using the `sdp` profile, you can create a volume with up to 32 TB capacity and an IOPS value in a range of 100 - 64,000.
 - Select a profile from the _tiered_ profile family when you want to pick a profile where performance scales with capacity of the volume.
 - Select the profile from the _custom_ profile family if your performance requirements don't fall within any of the predefined IOPS tiers. When you select the custom profile, you can define your IOPS within a range that depends on the capacity that you specified. 
 

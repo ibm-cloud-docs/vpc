@@ -27,12 +27,12 @@ For more information about changes to the {{site.data.keyword.vpc_short}} comman
 ## September 2025
 {: #vpc-sep25}
 
-### 02 September 2025 
-{: #vpc-sep0225} 
+### 02 September 2025
+{: #vpc-sep0225}
 {: release-note}
 
 Manage BGP route selection in VPC
-:    Previously, VPC didn't honor AS path length when choosing the best route, and this required using a Transit Gateway between Direct Link and VPC in certain topologies to achieve specific routing behavior and high availability. With this enhancement, you can now influence routing decisions by using AS Path length to choose specific paths—ideal for managing primary and backup Direct Link connections, or configuring failover in hybrid and multicloud environments. For more information, see [Using AS Prepends with VPC connections](/docs/dl?topic=dl-dl-planning-considerations#as-prepends-routes).
+:   Previously, VPC didn't honor AS path length when choosing the best route, and this required using a Transit Gateway between Direct Link and VPC in certain topologies to achieve specific routing behavior and high availability. With this enhancement, you can now influence routing decisions by using AS Path length to choose specific paths—ideal for managing primary and backup Direct Link connections, or configuring failover in hybrid and multicloud environments. For more information, see [Using AS Prepends with VPC connections](/docs/dl?topic=dl-dl-planning-considerations#as-prepends-routes).
 
 ### 01 September 2025
 {: #vpc-sep0125}

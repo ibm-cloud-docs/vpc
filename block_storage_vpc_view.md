@@ -2,7 +2,7 @@
 
 copyright:
   years: 2019, 2025
-lastupdated: "2025-07-31"
+lastupdated: "2025-09-02"
 
 keywords:
 
@@ -172,6 +172,7 @@ The following example shows all volumes for all resource groups in your availabi
 ```sh
 $ ibmcloud is volumes
 Listing volumes in all resource groups and region us-east under account Test Account as user test.user@ibm.com...
+
 ID                                          Name                                      Status      Capacity   IOPS   Profile           Attachment state   Attachment type   Zone        Resource group
 r014-0a7c28f3-3612-46e6-b874-51136c7f1def   concurrent-vol-09afy4vz700                unusable    20         3000   general-purpose   unattached         -                 us-east-1   defaults
 r014-faefcc1d-f899-4688-ae97-67e5079da702   concurrent-vol-1s26tgtqg70                unusable    20         3000   general-purpose   unattached         -                 us-east-1   defaults
@@ -183,7 +184,7 @@ r014-84ff8138-4f4f-434b-bdc3-45d1aaaa4329   csi-boot-vol-pgb1-oqpm7een          
 r014-a1f6b311-6e4b-4e27-a216-a0b602471268   csi-boot-vol-qgbi-h76dy77d                available   100        3000   general-purpose   attached           boot              us-east-1   Default
 r014-158e904d-0d48-4090-b6c1-57617c1fcc20   csi-boot-vol-txmz-54wzen5m                available   100        3000   general-purpose   attached           boot              us-east-1   Default
 r014-dee9736d-08ee-4992-ba8d-3b64a4f0baac   demo-volume-update                        available   100        3000   general-purpose   attached           data              us-east-1   defaults
-r014-eef16365-17e3-4627-bc8b-c7c3dd1d6a81   kj-test-ro-boot-1629867631000             available   100        3000   general-purpose   attached           boot              us-east-1   defaults
+r014-eef16365-17e3-4627-bc8b-c7c3dd1d6a81   test-ro-boot-1629867631000             available   100        3000   general-purpose   attached           boot              us-east-1   defaults
 ```
 {: screen}
 
@@ -208,28 +209,29 @@ Getting volume demo-volume-update under account Test Account as user test.user@i
 ID                                     r014-dee9736d-08ee-4992-ba8d-3b64a4f0baac
 Name                                   demo-volume-update
 CRN                                    crn:v1:bluemix:public:is:us-east-1:a/a1234567::volume:r014-dee9736d-08ee-4992-ba8d-3b64a4f0baac
-Status                                 available
-Attachment state                       attached
-Capacity                               100
-IOPS                                   3000
-Bandwidth(Mbps)                        393
-Profile                                general-purpose
-Encryption key                         -
-Encryption                             provider_managed
+Status                                 available   
+Attachment state                       attached   
+Capacity                               100   
+IOPS                                   3000   
+Bandwidth(Mbps)                        393   
+Profile                                general-purpose   
+Encryption key                         -   
+Encryption                             provider_managed   
 Resource group                         defaults
 Created                                2023-06-29T16:14:59+00:00
 Zone                                   us-east-1
-Health State                           ok
-Volume Attachment Instance Reference   Attachment type   Instance ID                                 Instance name   Auto delete   Attachment ID                               Attachment name
-                                       data              0757_11f5db7f-35a1-4678-bcbd-c85204e09507   kj-test-ro      false         0757-4dfc4384-c4b5-497e-bab3-6415f9c4d44b   otp
+Health State                           ok   
+Volume Attachment Instance Reference   Attachment type   Instance ID                                 Instance name                Auto delete   Attachment ID                               Attachment name      
+                                       data              0757_11f5db7f-35a1-4678-bcbd-c85204e09507   test-ro      false         0757-4dfc4384-c4b5-497e-bab3-6415f9c4d44b   otp
+                                          
+Active                                 true   
 
-Active                                 true
-Adjustable Capacity States             attached
+Adjustable Capacity States             attached   
 Adjustable IOPS States
 Adjustable Bandwidth Supported         false
-Busy                                   false
-Tags                                   -
-Storage Generation                     1
+Busy                                   false   
+Tags                                   -   
+Storage Generation                     1   
 ```
 {: screen}
 

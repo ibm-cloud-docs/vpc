@@ -2,7 +2,7 @@
 
 copyright:
   years: 2018, 2025
-lastupdated: "2025-09-01"
+lastupdated: "2025-09-02"
 
 keywords:
 
@@ -204,7 +204,7 @@ Each route has a destination property, which includes a prefix length (`/24` in 
 | Resource | Quota |
 |----------|-------|
 | Boot and secondary volumes | 300 total VPC volumes per region. |
-| Snapshots and backup snapshots | Up to 750 snapshots per first-generation storage volume in a region. \n During the [Select Availability]{: tag-green} phase, you can create up to 512 manual snapshots of second-generation storage volumes.|
+| Snapshots and backup snapshots | Up to 750 snapshots per first-generation storage volume in a region. \n During the [Select availability]{: tag-green} phase, you can create up to 512 manual snapshots of second-generation storage volumes.|
 {: caption="Quotas for Block Storage volumes and snapshots" caption-side="bottom"}
 
 ### File shares and snapshots
@@ -226,7 +226,7 @@ Each route has a destination property, which includes a prefix length (`/24` in 
 |----------|-------|
 | Backup policies |  You can create up to 10 backup policies per region. This quota can't be increased. |
 | File shares | The cumulative size of all backups for a share can't exceed 100 TB. |
-| Block volumes | The cumulative size of all backups for a first-generation storage volume can't exceed 10 TB. \n During the [Select Availability]{: tag-green} phase, you can create backup snapshots of second-generation storage volumes up to 32 TB. |
+| Block volumes | The cumulative size of all backups for a first-generation storage volume can't exceed 10 TB. \n During the [Select availability]{: tag-green} phase, you can create backup snapshots of second-generation storage volumes up to 32 TB. |
 | Retention period | You can keep your backup snapshots for up to 1000 days. |
 {: caption="Quotas for file shares" caption-side="bottom"}
 
@@ -255,7 +255,7 @@ The following table displays current VPC service limits. Unlike quotas, these li
 | PCI network interfaces for bare metal servers | 8 per bare metal server |
 | Public gateways | 1 per zone per VPC |
 | Security groups | 5 per [target](/docs/vpc?topic=vpc-using-security-groups#about-security-group-targets) |
-| Public address ranges [Select Availability]{: tag-green}| 10 per VPC per zone |
+| Public address ranges [Select availability]{: tag-green}| 10 per VPC per zone |
 | Secondary volumes per instance | Up to 12 secondary volumes |
 | Image export jobs | 5 active jobs per image, 10 total per image, 20 active jobs per account, per region|
 | Instance groups for auto scale and more | 200 per account |

@@ -18,14 +18,12 @@ subcollection: vpc
 With the UI, CLI, API, or Terraform, you can create a snapshot of a first-generation {{site.data.keyword.block_storage_is_short}} volume that is attached to a running virtual server instance. You can create a snapshot of a boot or a data volume. If the volume is not attached to a server instance, you can't create a snapshot of it.
 {: shortdesc}
 
+In the current release of second-generation block storage volumes, you can take a snapshot of a second-generation storage volume even if it is not attached to a running virtual server instance. The feature is available in Dallas (`us-south`), Frankfurt (`eu-de`), London (`eu-gb`), Madrid (`eu-es`), Osaka (`js-osa`), Sao Paulo (`br-sao`), Sydney (`au-syd`), Tokyo (`jp-tok`), Toronto (`ca-tor`), and Washington (`us-east`) regions. Fast restore snapshot clones and consistency groups are not supported. Cross-regional snapshot copies are not supported if the source volume exceeds 10 TB or if it is encrypted with a customer-managed encryption key.
+
 Before you take a snapshot, make sure that all cached data is present on disk, especially when you're taking a snapshot of instances with Windows and Linux&reg; operating systems. For example, on Linux&reg; operating systems, run the `sync` command to force an immediate write of all cached data to disk.
 {: note}
 
-You can create a consistency group that contains snapshots of multiple volumes that are attached to a virtual server instance. All snapshots in the consistency group are created at the same time and are loosely coupled. For more information, see [Creating snapshot consistency groups](/docs/vpc?topic=vpc-snapshots-vpc-create-consistency-groups).
-
-You can take a snapshot of a second-generation storage volume even if it is not attached to a running virtual server instance. The snapshots feature is available in Dallas (`us-south`), Frankfurt (`eu-de`), London (`eu-gb`), Madrid (`eu-es`), Osaka (`js-osa`), Sao Paulo (`br-sao`), Sydney (`au-syd`), Tokyo (`jp-tok`), Toronto (`ca-tor`), and Washington (`us-east`) regions.
-
-Fast restore snapshot clones and consistency groups are not supported for second-generation storage volumes in this release. Cross-regional snapshot copies are not supported if the source volume exceeds 10 TB or if it is encrypted with a customer-managed encryption key.
+You can create a consistency group that contains snapshots of multiple Gen 1 volumes that are attached to a virtual server instance. All snapshots in the consistency group are created at the same time and are loosely coupled. For more information, see [Creating snapshot consistency groups](/docs/vpc?topic=vpc-snapshots-vpc-create-consistency-groups).
 
 ## Creating a snapshot in the console
 {: #snapshots-vpc-create-ui}
@@ -147,7 +145,7 @@ For more information about available command options, see [`ibmcloud is snapshot
 The following example creates a snapshot with the name `cli-snapshot-test` of the data volume `block-test1` in the `eu-de-2` region. The snapshot is tagged with `env:test` and `env:prod`, and it has a fast restore snapshot clone in the `eu-de-1` zone.
 
 ```sh
-cloudshell:~$ ibmcloud is snapshot-create --volume r010-df8ffd90-f2e5-470b-83d7-76e64995a1aa --name cli-snapshot-test --tags env:test,env:prod --clone-zones eu-de-1
+$ ibmcloud is snapshot-create --volume r010-df8ffd90-f2e5-470b-83d7-76e64995a1aa --name cli-snapshot-test --tags env:test,env:prod --clone-zones eu-de-1
 Creating snapshot cli-snapshot-test under account Test Account as user test.user@ibm.com...
 
 ID                     r138-4463eb2c-4913-43b1-b9bf-62a94f74c146
@@ -177,7 +175,7 @@ Tags                   env:prod,env:test
 The status shows `pending` while the snapshot is created. Issue the `ibmcloud is snapshot` command with the snapshot ID to see the new snapshot in `stable` status.
 
 ```sh
-cloudshell:~$ ibmcloud is snapshot r138-4463eb2c-4913-43b1-b9bf-62a94f74c146
+$ ibmcloud is snapshot r138-4463eb2c-4913-43b1-b9bf-62a94f74c146
 Getting snapshot r138-4463eb2c-4913-43b1-b9bf-62a94f74c146 under account Test Account as user test.user@ibm.com...
 
 ID                     r138-4463eb2c-4913-43b1-b9bf-62a94f74c146
@@ -213,7 +211,7 @@ You can create a fast restore clone by using the `ibmcloud is snapshot-clc` comm
 The following example creates a fast restore snapshot clone of the snapshot `r138-4463eb2c-4913-43b1-b9bf-62a94f74c146` in the `eu-de-3` zone.
 
 ```sh
-cloudshell:~$ ibmcloud is snapshot-clc r138-4463eb2c-4913-43b1-b9bf-62a94f74c146  --zone eu-de-3
+$ ibmcloud is snapshot-clc r138-4463eb2c-4913-43b1-b9bf-62a94f74c146  --zone eu-de-3
 Creating zonal clone of snapshot r138-4463eb2c-4913-43b1-b9bf-62a94f74c146 under account Test Account as user test.user@ibm.com...
 
 Zone        eu-de-3
@@ -226,7 +224,7 @@ Href        https://eu-de.iaas.cloud.ibm.com/v1/regions/eu-de/zones/eu-de-3
 The snapshot clone appears as unavailable while the snapshot clone is created. Issue the `ibmcloud is snapshot-cl` command with the snapshot ID and the clone target zone to see the new snapshot clone as available.
 
 ```sh
-cloudshell:~$ ibmcloud is snapshot-cl r138-4463eb2c-4913-43b1-b9bf-62a94f74c146 eu-de-3
+$ ibmcloud is snapshot-cl r138-4463eb2c-4913-43b1-b9bf-62a94f74c146 eu-de-3
 Getting zonal clone eu-de-3 of snapshot r138-4463eb2c-4913-43b1-b9bf-62a94f74c146 under account Test Account as user test.user@ibm.com...
 
 Zone        eu-de-3

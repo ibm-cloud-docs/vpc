@@ -27,30 +27,28 @@ By using this service, you can:
 
 * Create second-generation block storage volumes with maximum storage capacity of 32 TB and a performance level of 64,000 IOPS.
 * Create first-generation block storage volumes with maximum storage capacity of 16 TB and a performance level of 48,000 IOPS.
-* Specify your own performance requirement. You can select your IOPS (up to 64,000) and Throughput limit (up to 1024 MBps) when you provision a second-generation volume. 
-* Create a first-generation volume with a predefined IOPS tier profile (3, 5, or 10 IOPS per GB) that best meets your storage requirements. Or you can choose the custom profile and specify your performance. IOPS per volume ranged from 100 IOPS to 48,000 IOPS, based on volume size (up to 16 TB).
-* Use a boot volume to start a virtual server instance and attach data volumes to the instance.
+* You can start with a smaller volume, and increase the capacity later.
+* Specify your own performance requirement. 
+   - You can select your custom IOPS (up to 64,000) and Bandwidth limit (up to 1024 MBps) when you provision a second-generation volume. Capacity, IOPS, and throughput values of volumes that are created with the `sdp` profile can be modified even when the volume is not attached to a virtual server instance.
+   - You can create a first-generation volume with a predefined IOPS tier profile (3, 5, or 10 IOPS per GB) that best meets your storage requirements. Or you can choose the custom profile and specify your performance. IOPS per volume ranges from 100 IOPS to 48,000 IOPS, based on volume size (up to 16 TB).
+   - Adjust IOPS up or down, for greater performance or when you want to reduce costs.
 * Choose customer-managed encryption for your block storage volume, and secure your data with your own encryption keys.
-* Use the UI, CLI, API, or Terraform to create volumes, rename volumes, attach, and detach a volume, transfer volumes to a different instance. You can assign access to a volume, access performance metrics or delete the volume.
-* You can adjust IOPS up or down, for greater performance or when you want to reduce costs.
-* Start with a smaller volume and expand volume capacity later when you need more storage.
+* Use the IBM Cloud console, CLI, API, or Terraform to create volumes, rename volumes, attach and detach a volume of a virtual server instance, transfer volumes to a different instance. You can access performance metrics or delete the volume.
 
 Customers with special access to preview the second-generation Block Storage offering can provision block volumes with the new `sdp` profile. The `sdp` profile is available in the Dallas, Frankfurt, London, Madrid, Osaka, Sao Paulo, Sydney, Tokyo, Toronto, and Washington, DC regions in the select availability release.
 {: preview}
 
-Second-generation block volumes can be created with capacity in the range of 1 - 32,000 GB. The maximum IOPS that a volume with the `sdp` profile can support is 64,000. You can also modify the throughput limit in the range of 125-1024 MBps (1000-8192 Mbps). Capacity, IOPS, and throughput values of volumes that are created with the `sdp` profile can be modified even when the volume is not attached to a virtual server instance.
-
-| Features            | First-generation volumes | Second-generation volumes [New]{: tag-new}|
+| Features            | First-generation volumes | Second-generation volumes |
 |---------------------|--------------------------|---------------------------|
-| Availability        | Generally available in all VPC regions for all customers. | In the [Select Availability]{: tag-green} release, available in Dallas, Frankfurt, London, Madrid, Osaka, Sao Paulo, Sydney, Tokyo, Toronto, and Washington, DC for allow-listed customers.|
+| Availability        | Generally available in all VPC regions for all customers. | In the [Select availability]{: tag-green} release, available in most MZRs, except Montreal for allow-listed customers.|
 | Expandable capacity | Yes, up to 16,000 GB     | Yes, up to 32,000 GB |
 | Adjustable IOPS     | Yes, up to 48,000. IOPS depends on capacity range. | Yes, up to 64,000.| 
 | Adjustable Bandwidth| No. Bandwidth can be increased by increasing capacity and IOPS. The maximum is 1024 MBps.| Yes, bandwidth can be adjusted to any value between 125 and 1024 MBps.|
 | Customer-managed encryption at rest | Yes. | Yes.|
-| Importing encrypted custom image for boot volumes |  Yes.  | Not supported in the [Select Availability]{: tag-green} release.|
-| Creating encrypted custom image from boot volume | Yes. | Not supported in the [Select Availability]{: tag-green} release.|
-| On-demand snapshots | Yes, up to 750 snapshots per region. | Yes, up to 512 snapshots per region in the [Select Availability]{: tag-green} release. |
-| Scheduled snapshots | Yes, up to 750 snapshots per region. | Yes, up to 512 snapshots per region in the [Select Availability]{: tag-green} release.|
+| Importing encrypted custom image for boot volumes |  Yes.  | Not supported in the [Select availability]{: tag-green} release.|
+| Creating encrypted custom image from boot volume | Yes. | Not supported in the [Select availability]{: tag-green} release.|
+| On-demand snapshots | Yes, up to 750 snapshots per region. | Yes, up to 512 snapshots per region in the [Select availability]{: tag-green} release. |
+| Scheduled snapshots | Yes, up to 750 snapshots per region. | Yes, up to 512 snapshots per region in the [Select availability]{: tag-green} release.|
 {: caption="Block Storage volume generations comparison." caption-side="bottom"}
 
 For more information about this service, see [About {{site.data.keyword.block_storage_is_short}}](/docs/vpc?topic=vpc-block-storage-about).
@@ -76,13 +74,13 @@ Customers with special access to preview the `sdp` profile can create snapshots 
 You can use your snapshots to create other second-generation volumes in the same region. You can't use your second-generation snapshot to create a volume with a first-generation volume profile. Similarly, you can't use first-generation volume's snapshot to create a volume with the `sdp` profile. Cross-regional copy of a second-generation snapshot is supported with limitations. You can't create a copy in another region if your snapshot is encrypted with a customer-managed key or if the snapshot's source volume exceeds 10 TB. Consistency group snapshots of multiple `sdp` volumes and fast restore snapshots are not supported either.
 
 | Features            | First-generation snapshots | Second-generation snapshots |
-|---------------------|--------------------------|---------------------------|
-| Availability        | Generally available in all VPC regions for all customers. | In the [Select Availability]{: tag-green} release, available for allow-listed customers.|
-| On-demand snapshots | Yes, up to 750 snapshots per region. | Yes, up to 512 snapshots per region in the [Select Availability]{: tag-green} release. |
-| Scheduled snapshots | Yes, up to 750 snapshots per region. | Yes, up to 512 snapshots per region in the [Select Availability]{: tag-green} release. |
-| Fast restore clones | Yes. You can cache a copy of your snapshot in any zone of the region. | Not supported in the [Select Availability]{: tag-green} release. |
-| Cross-regional copy | Yes, one cross-regional clone per snapshot per region | In the [Select Availability]{: tag-green} release, the feature is available in Dallas (`us-south`), Frankfurt (`eu-de`), London (`eu-gb`), Madrid (`eu-es`), Osaka (`js-osa`), Sao Paulo (`br-sao`), Sydney (`au-syd`), Tokyo (`jp-tok`), Toronto (`ca-tor`), and Washington (`us-east`) regions. You can create one cross-regional clone per snapshot per region.|
-| Consistency group   | Multi-volume snapshots are supported. | Not supported in the [Select Availability]{: tag-green} release. |
+|---------------------|----------------------------|-----------------------------|
+| Availability        | Generally available in all VPC regions for all customers. | In the [Select availability]{: tag-green} release, available for allow-listed customers.|
+| On-demand snapshots | Yes, up to 750 snapshots per region. | Yes, up to 512 snapshots per region in the [Select availability]{: tag-green} release. |
+| Scheduled snapshots | Yes, up to 750 snapshots per region. | Yes, up to 512 snapshots per region in the [Select availability]{: tag-green} release. |
+| Fast restore clones | Yes. You can cache a copy of your snapshot in any zone of the region. | Not supported in the [Select availability]{: tag-green} release. |
+| Cross-regional copy | Yes, one cross-regional clone per snapshot per region | In the [Select availability]{: tag-green} release, the feature is available in most regions, except Montreal. You can create one cross-regional clone per snapshot per region.|
+| Consistency group   | Multi-volume snapshots are supported. | Not supported in the [Select availability]{: tag-green} release. |
 {: caption="Block Storage snapshot generations comparison." caption-side="bottom"}
 
 First- and second-generation volume profiles are not interchangeable. You can't create a second-generation block volume with a snapshot that was taken of a first-generation volume. You can't use the snapshot with a second-generation volume profile to create a first-generation volume.

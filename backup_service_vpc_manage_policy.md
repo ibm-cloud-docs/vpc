@@ -104,7 +104,7 @@ ibmcloud is backup-policy-update POLICY [--name NEW_NAME] [--output JSON] [-q, -
 The following example renames a backup policy that is identified by name:
 
 ```sh
-cloudshell:~$ ibmcloud is backup-policy-update backup-policy-v1 --name new-policy-23
+$ ibmcloud is backup-policy-update backup-policy-v1 --name new-policy-23
 Updating backup policy backup-policy-v1 under account Test Account as user test.user@ibm.com...
 
 ID                      r138-0521986d-963c-4c18-992d-d6a7a99d115f
@@ -126,7 +126,7 @@ Created at              2023-02-21T22:42:10+00:00
 The following example updates an Enterprise backup policy that is identified by ID:
 
 ```sh
-cloudshell:~$ ibmcloud is backup-policy-update r006-0bc533ed-4796-407a-982e-693b418f3de3 --name cli-updated-2
+$ ibmcloud is backup-policy-update r006-0bc533ed-4796-407a-982e-693b418f3de3 --name cli-updated-2
 Updating backup policy r006-0bc533ed-4796-407a-982e-693b418f3de3 under account Enterprise Test as user test.user@ibm.com...
 
 ID                     r006-0bc533ed-4796-407a-982e-693b418f3de3
@@ -164,7 +164,7 @@ ibmcloud is backup-policy-update POLICY [--match-tags MATCH_TAGS] [--output JSON
 The following example updates backup policy user tags of the policy that is identified by ID.
 
 ```sh
-cloudshell:~$ ibmcloud is backup-policy-update r138-0521986d-963c-4c18-992d-d6a7a99d115f --match-tags dev:env,bck:test
+$ ibmcloud is backup-policy-update r138-0521986d-963c-4c18-992d-d6a7a99d115f --match-tags dev:env,bck:test
 Updating backup policy r138-0521986d-963c-4c18-992d-d6a7a99d115f under account Test Account as user test.user@ibm.com...
 
 ID                      r138-0521986d-963c-4c18-992d-d6a7a99d115f
@@ -244,7 +244,7 @@ ibmcloud is backup-policy-plan-update POLICY PLAN [--name NAME] [--active] [--at
 To rename the backup plan, run the command like the following example. It specifies the backup policy and plan by name, and changes the name of the plan from `my-policy-plan-c` to `my-policy-plan-b`.
 
 ```sh
-cloudshell:~$ ibmcloud is backup-policy-plan-update new-policy-23 my-policy-plan-c --name my-policy-plan-b
+$ ibmcloud is backup-policy-plan-update new-policy-23 my-policy-plan-c --name my-policy-plan-b
 Updating plan my-policy-plan-c of the backup policy r138-0521986d-963c-4c18-992d-d6a7a99d115f under account Test Account as user test.user@ibm.com...
 
 ID                   r138-6f4f08ba-e0bb-470f-bbfb-f3a22aebbfa9
@@ -268,7 +268,7 @@ Resource type        backup_policy_plan
 To update locations of fast restore clones of backup snapshots, run the command like the following example. It specifies the backup policy and plan by their IDs. Because only `eu-de-1` is specified in the `--clone-policy-zones` option, fast restore snapshot clones are no longer retained in `eu-de-2`. The update also changes the number of backup clones to be created and stored in that zone from three to five.
 
 ```sh
-cloudshell:~$ ibmcloud is backup-policy-plan-update r138-0521986d-963c-4c18-992d-d6a7a99d115f r138-6f4f08ba-e0bb-470f-bbfb-f3a22aebbfa9  --clone-policy-max-snapshots 5 --clone-policy-zones eu-de-1
+$ ibmcloud is backup-policy-plan-update r138-0521986d-963c-4c18-992d-d6a7a99d115f r138-6f4f08ba-e0bb-470f-bbfb-f3a22aebbfa9  --clone-policy-max-snapshots 5 --clone-policy-zones eu-de-1
 Updating plan r138-6f4f08ba-e0bb-470f-bbfb-f3a22aebbfa9 of the backup policy r138-0521986d-963c-4c18-992d-d6a7a99d115f under account Test Account as user test.user@ibm.com...
 
 ID                   r138-6f4f08ba-e0bb-470f-bbfb-f3a22aebbfa9
@@ -292,7 +292,7 @@ Resource type        backup_policy_plan
 To update the backup plan to include the creation of a remote copy of the backup snapshot in a different region, run the `backup-policy-plan-update` command with `--remote-region-policies` option. The following example updates the _my-policy-plan-b_ plan that is part of the _new-policy-23_. It specifies the `us-east` region as the destination of the remote region copy. Optionally, you can add the `--encryption-key` option to provide the CRN of the root key to be used to decrypt the snapshot in the remote region.
 
 ```sh
-cloudshell:~$ ibmcloud is backup-policy-plan-update new-policy-23 my-policy-plan-b --remote-region-policies '[
+$ ibmcloud is backup-policy-plan-update new-policy-23 my-policy-plan-b --remote-region-policies '[
   {"delete_over_count": 99,"region": {"name": "us-east"}}
 ]'
 

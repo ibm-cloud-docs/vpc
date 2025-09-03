@@ -2,7 +2,7 @@
 
 copyright:
   years: 2019, 2025
-lastupdated: "2025-09-02"
+lastupdated: "2025-09-03"
 
 keywords: vsi, virtual server instances, profile, profiles, balanced, compute, memory, very high memory, ultra high memory, gpu storage optimized, confidential compute
 
@@ -563,7 +563,7 @@ For more information, see [Managing network interfaces](/docs/vpc?topic=vpc-usin
 Customers with special access can provision storage with the new `sdp` profile. For more information about the allow-listed release, such as supported features, and limitations, see [About Block Storage for VPC](/docs/vpc?topic=vpc-block-storage-about#block-storage-sdp-intro).
 {: preview}
 
-When you create the data volumes, you can select a volume profile that best meets your requirements. The second-generation volume profile (`sdp`) provides the most flexibility, as you can specify your capacity, IOPS, and throughput maximum values. For more information, see [SD defined performance profile](/docs/vpc?topic=vpc-block-storage-profiles#defined-performance-profile). First-generation volume profiles are available as three predefined [tiers](/docs/vpc?topic=vpc-block-storage-profiles#tiers) or as a [custom profile](/docs/vpc?topic=vpc-block-storage-profiles#custom). These volume profiles relate to virtual server instance profiles:
+When you create the data volumes, you can select a volume profile that best meets your requirements. The second-generation volume profile, `sdp` provides the most flexibility, as you can specify your capacity, IOPS, and throughput maximum values. For more information, see the [SSD defined performance profile](/docs/vpc?topic=vpc-block-storage-profiles#defined-performance-profile). First-generation volume profiles are available as three predefined [tiers](/docs/vpc?topic=vpc-block-storage-profiles#tiers) or as a [custom profile](/docs/vpc?topic=vpc-block-storage-profiles#custom). These volume profiles relate to virtual server instance profiles:
 
 - A [3 IOPS general-purpose tier profile](/docs/vpc?topic=vpc-block-storage-profiles#tiers) provides IOPS/GB performance that is suitable for a virtual server instance Balanced profile.
 - A [5-IOPS tier](/docs/vpc?topic=vpc-block-storage-profiles#tiers) profile provides IOPS/GB performance that is suitable for a virtual server instance Compute profile.

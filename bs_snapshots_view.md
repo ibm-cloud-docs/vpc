@@ -235,7 +235,7 @@ ibmcloud is snapshots --volume VOLUME-ID [--json]
 The following example shows all three snapshots that were taken of the volume `r010-df8ffd90-f2e5-470b-83d7-76e64995a1aa`.
 
 ```sh
-cloudshell:~$ ibmcloud is snapshots --volume  r010-df8ffd90-f2e5-470b-83d7-76e64995a1aa
+$ ibmcloud is snapshots --volume  r010-df8ffd90-f2e5-470b-83d7-76e64995a1aa
 Listing snapshots in all resource groups and region eu-de under account Test Account as user test.user@ibm.com...
 ID                                          Name                             Status   Source volume                               Bootable   Resource group   Created
 r138-7cac80af-63bb-4a1b-83dd-5f6d550a5db7   bear-peroxide-viewable-oxidant   stable   r010-df8ffd90-f2e5-470b-83d7-76e64995a1aa   false      test-snap        2023-02-17T18:49:48+00:00
@@ -259,7 +259,7 @@ ibmcloud is snapshots --volume CONSISTENCY_GROUP_ID
 The following example uses the ID of the consistency group to list the snapshots that are members of the set.
 
 ```sh
-ibmcloud is snapshots --snapshot-consistency-group r174-7c8762e2-c1b9-424e-b773-23240d1780dd
+$ ibmcloud is snapshots --snapshot-consistency-group r174-7c8762e2-c1b9-424e-b773-23240d1780dd
 
 Listing snapshots in all resource groups and region us-south under account Test Account as user test.user@ibm.com...
 ID                                          Name            Status   Source volume                               Bootable   Resource group   Created
@@ -289,12 +289,12 @@ Getting snapshot r006-e799fad8-aefa-4df5-81bd-dac6d13200a6 under account Test Ac
                                    
 ID                              r006-e799fad8-aefa-4df5-81bd-dac6d13200a6   
 Name                            my-test-snap-1   
-CRN                             crn:v1:bluemix:public:is:us-south:a/a10d63fa66daffc9b9b5286ce1533080::snapshot:r006-e799fad8-aefa-4df5-81bd-dac6d13200a6   
+CRN                             crn:v1:bluemix:public:is:us-south:a/a1234567::snapshot:r006-e799fad8-aefa-4df5-81bd-dac6d13200a6   
 Status                          stable   
 Clones                          Zone   Available   Created      
                                    
 Source volume                   ID                                          Name               Remote Region   CRN                                                                                                                        Resource type      
-                                r006-2c5f577c-8cd0-47ef-8aec-cd8d1423249f   test-volume-fast   -               crn:v1:bluemix:public:is:us-south-1:a/a10d63fa66daffc9b9b5286ce1533080::volume:r006-2c5f577c-8cd0-47ef-8aec-cd8d1423249f   volume      
+                                r006-2c5f577c-8cd0-47ef-8aec-cd8d1423249f   test-volume-fast   -               crn:v1:bluemix:public:is:us-south-1:a/a1234567::volume:r006-2c5f577c-8cd0-47ef-8aec-cd8d1423249f   volume      
                                    
 Backup policy plan              -   
 Snapshot Copies                 -   
@@ -329,7 +329,7 @@ The `allowed-used` properties are inherited from the source volume or snapshot a
 The following example shows the details of a nonbootable snapshot in the `eu-de` region, which also has a fast restore clone in the `eu-de-1` zone.
 
 ```sh
-cloudshell:~$ ibmcloud is snapshot r138-4463eb2c-4913-43b1-b9bf-62a94f74c146
+$ ibmcloud is snapshot r138-4463eb2c-4913-43b1-b9bf-62a94f74c146
 Getting snapshot r138-4463eb2c-4913-43b1-b9bf-62a94f74c146 under account Test Account as user test.user@ibm.com...
 
 ID                         r138-4463eb2c-4913-43b1-b9bf-62a94f74c146

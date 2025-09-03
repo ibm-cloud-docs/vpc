@@ -30,7 +30,7 @@ With this feature, you can:
 
 The degree to which IOPS can be increased is determined by the maximum that is allowed by the volume's profile.
 
-- [SSD defined performance profile](/docs/vpc?topic=vpc-block-storage-profiles#defined-performance-profile): [Select Availability]{: tag-green} Customers with special access to volume profiles within the defined performance family can modify the performance level of their `sdp` volumes even if the volumes are not attached to a running virtual server instance. You can specify volume performance in the range of 100 - 64,000 IOPS without capacity-based restrictions. The steps for modifying IOPS are the same as for the custom profile.
+- [SSD defined performance profile](/docs/vpc?topic=vpc-block-storage-profiles#defined-performance-profile): [Select availability]{: tag-green} Customers with special access to volume profiles within the defined performance family can modify the performance level of their `sdp` volumes even if the volumes are not attached to a running virtual server instance. You can specify volume performance in the range of 100 - 64,000 IOPS without capacity-based restrictions. The steps for modifying IOPS are the same as for the custom profile.
 
 - [Tiered profiles](/docs/vpc?topic=vpc-block-storage-profiles#tiers): you can adjust IOPS for an IOPS tier based on volume size or select the next profile that allows for increased performance. The volume must be attached to a running virtual server instance.
 

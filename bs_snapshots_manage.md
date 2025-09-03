@@ -75,7 +75,7 @@ ibmcloud is snapshot-update SNAPSHOT_ID --name SNAPSHOT_NAME
 See the following example.
 
 ```sh
-cloudshell:~$ ibmcloud is snapshot-update r138-e6664842-b370-496a-9ae7-da3fb647707c --name snappy-snap-snap
+$ ibmcloud is snapshot-update r138-e6664842-b370-496a-9ae7-da3fb647707c --name snappy-snap-snap
 Updating snapshot r138-e6664842-b370-496a-9ae7-da3fb647707c under account Test Account as user test.user@ibm.com...
 
 ID                     r138-e6664842-b370-496a-9ae7-da3fb647707c
@@ -303,7 +303,7 @@ Use the same option to add tags to a volume when you create a snapshot by using 
 The following example adds user tags `env:test` and `env:prod` to a volume that is identified by its ID.
 
 ```sh
-cloudshell:~$ ibmcloud is snapshot-update r138-e6664842-b370-496a-9ae7-da3fb647707c --name snappy-snap-snap --tags env:test,env:prod
+$ ibmcloud is snapshot-update r138-e6664842-b370-496a-9ae7-da3fb647707c --name snappy-snap-snap --tags env:test,env:prod
 Updating snapshot r138-e6664842-b370-496a-9ae7-da3fb647707c under account Test Account as user test.user@ibm.com...
 
 ID                     r138-e6664842-b370-496a-9ae7-da3fb647707c
@@ -376,7 +376,7 @@ Fast restore information is updated when you refresh. Zone information is update
 To create a zonal copy of a snapshot, issue the `ibmcloud is snapshot-clone-create` command with the snapshot ID and the zone or zones where you want to create copies. The following command example creates the fast restore clone of `r138-4463eb2c-4913-43b1-b9bf-62a94f74c146` in the `eu-de-3` zone.
 
 ```sh
-cloudshell:~$ ibmcloud is snapshot-clone-create r138-4463eb2c-4913-43b1-b9bf-62a94f74c146  --zone eu-de-3
+$ ibmcloud is snapshot-clone-create r138-4463eb2c-4913-43b1-b9bf-62a94f74c146  --zone eu-de-3
 Creating zonal clone of snapshot r138-4463eb2c-4913-43b1-b9bf-62a94f74c146 under account Test Account as user test.user@ibm.com...
 
 Zone        eu-de-3
@@ -389,7 +389,7 @@ Href        https://eu-de.iaas.cloud.ibm.com/v1/regions/eu-de/zones/eu-de-3
 The snapshot clone appears to be unavailable while the snapshot clone is created. It takes only a few seconds. Issue the `ibmcloud is snapshot-cl` command with the snapshot ID and the clone target zone to see the new snapshot clone as available.
 
 ```sh
-cloudshell:~$ ibmcloud is snapshot-cl r138-4463eb2c-4913-43b1-b9bf-62a94f74c146 eu-de-3
+$ ibmcloud is snapshot-cl r138-4463eb2c-4913-43b1-b9bf-62a94f74c146 eu-de-3
 Getting zonal clone eu-de-3 of snapshot r138-4463eb2c-4913-43b1-b9bf-62a94f74c146 under account Test Account as user test.user@ibm.com...
 
 Zone        eu-de-3
@@ -407,7 +407,7 @@ For more information about available command options, see [`ibmcloud is snapshot
 To delete a snapshot clone, issue the `ibmcloud is snapshot-clone-delete` command with the Snapshot ID and the zone where you want the snapshot copy removed. The following command example deletes the fast restore copy of the snapshot `r138-4463eb2c-4913-43b1-b9bf-62a94f74c146` in the `eu-de-3` zone.
 
 ```sh
-@cloudshell:~$ ibmcloud is snapshot-clone-delete r138-4463eb2c-4913-43b1-b9bf-62a94f74c146 eu-de-3
+@$ ibmcloud is snapshot-clone-delete r138-4463eb2c-4913-43b1-b9bf-62a94f74c146 eu-de-3
 This will delete zonal clone eu-de-3 for snapshot r138-4463eb2c-4913-43b1-b9bf-62a94f74c146 and cannot be undone. Continue [y/N] ?> y
 Deleting zonal clone eu-de-3 for snapshot r138-4463eb2c-4913-43b1-b9bf-62a94f74c146 under account Test Account as user test.user@ibm.com...
 OK
@@ -589,7 +589,7 @@ For more information about available command options, see [`ibmcloud is snapshot
 You can delete a cross-regional copy of a snapshot by using the `ibmcloud is snapshot-delete` command with the snapshot ID.
 
 ```sh
-cloudshell:~$ ibmcloud is snapshot-delete r142-bd4532c0-e73c-44f9-a017-89e5368c521a
+$ ibmcloud is snapshot-delete r142-bd4532c0-e73c-44f9-a017-89e5368c521a
 This will delete snapshot r142-bd4532c0-e73c-44f9-a017-89e5368c521a and cannot be undone. Continue [y/N] ?> y
 Deleting snapshot r142-bd4532c0-e73c-44f9-a017-89e5368c521a under account Test Account as user test.user@ibm.com...
     OK
@@ -814,7 +814,7 @@ Use the following steps to delete a single snapshot by using the CLI.
     {: pre}
 
     ```sh
-    cloudshell:~$ ibmcloud is snapshots --volume  r010-df8ffd90-f2e5-470b-83d7-76e64995a1aa
+    $ ibmcloud is snapshots --volume  r010-df8ffd90-f2e5-470b-83d7-76e64995a1aa
     Listing snapshots in all resource groups and region eu-de under account Test Account as user test.user@ibm.com...
     ID                                          Name                             Status   Source volume                               Bootable   Resource group   Created
     r138-7cac80af-63bb-4a1b-83dd-5f6d550a5db7   bear-peroxide-viewable-oxidant   stable   r010-df8ffd90-f2e5-470b-83d7-76e64995a1aa   false      test-snap        2023-02-17T18:49:48+00:00
@@ -833,7 +833,7 @@ Use the following steps to delete a single snapshot by using the CLI.
 3. Confirm the deletion of the snapshot. The response message indicates that the snapshot is deleted.
 
    ```sh
-   cloudshell:~$ ibmcloud is snapshot-delete r138-e6664842-b370-496a-9ae7-da3fb647707c
+   $ ibmcloud is snapshot-delete r138-e6664842-b370-496a-9ae7-da3fb647707c
    This will delete snapshot r138-e6664842-b370-496a-9ae7-da3fb647707c and cannot be undone. Continue [y/N] ?> y
    Deleting snapshot r138-e6664842-b370-496a-9ae7-da3fb647707c under account Test Account as user test.user@ibm.com...
    OK
@@ -865,7 +865,7 @@ Use the following steps to delete all snapshots by using the CLI.
 3. Confirm the deletion of the snapshots. The response message indicates when the snapshot deletion request is accepted and the snapshots are being deleted.
 
    ```sh
-   cloudshell:~$ ibmcloud is snapshots-delete --volume  r010-df8ffd90-f2e5-470b-83d7-76e64995a1aa
+   $ ibmcloud is snapshots-delete --volume  r010-df8ffd90-f2e5-470b-83d7-76e64995a1aa
    This will delete snapshot by volume r010-df8ffd90-f2e5-470b-83d7-76e64995a1aa and cannot be undone. Continue [y/N] ?> y
    Deleting snapshot by volume r010-df8ffd90-f2e5-470b-83d7-76e64995a1aa under account Test Account as user test.user@ibm.com...
    OK

@@ -2,7 +2,7 @@
 
 copyright:
   years: 2022, 2025
-lastupdated: "2025-07-28"
+lastupdated: "2025-09-02"
 
 keywords: Backup for VPC, backup service, backup plan, backup policy, restore, restore volume, restore data, view backup lists,
 
@@ -78,7 +78,7 @@ ibmcloud is backup-policy-jobs POLICY [--source SOURCE] [--snapshots SNAPSHOT1,S
 In the first example, the name of the backup policy is used to list the jobs of that backup policy.
 
 ```sh
-cloudshell:~$ ibmcloud is backup-policy-jobs new-policy-23
+$ ibmcloud is backup-policy-jobs new-policy-23
 Listing jobs of backup policy new-policy-23 under account Test Account as user test.user@ibm.com...
 ID                                          Auto delete   Auto delete after   Completed at                Created at                  Job type   Status
 r138-4611c14d-69bd-4522-bc5f-4d3352df9b7b   true          15                  2024-02-06T01:47:39+00:00   2024-02-06T01:45:25+00:00   deletion   succeeded   
@@ -91,7 +91,7 @@ r138-bd881c52-4f2e-4644-8072-fadcd6c8d3df   true          15                  20
 {: screen}
 
 ```sh
-cloudshell:~$ ibmcloud is backup-policy-jobs new-policy-23
+$ ibmcloud is backup-policy-jobs new-policy-23
 Listing jobs of backup policy new-policy-23 under account Test Account as user test.user@ibm.com...
 ID                                          Auto delete   Auto delete after   Completed at                Created at                  Job type   Status     Match resource type   
 r138-4611c14d-69bd-4522-bc5f-4d3352df9b7b   true          15                  2024-02-06T01:47:39+00:00   2024-02-06T01:45:25+00:00   deletion   succeeded  volume 
@@ -106,7 +106,7 @@ r138-bd881c52-4f2e-4644-8072-fadcd6c8d3df   true          15                  20
 In the second example, a different policy is identified by its ID, and the JSON output option is used.
 
 ```json
-cloudshell:~$ ibmcloud is backup-policy-jobs r006-0723c648-9a47-4d51-b1ba-349e21e715b6  -json
+$ ibmcloud is backup-policy-jobs r006-0723c648-9a47-4d51-b1ba-349e21e715b6  -json
   [
     {
         "auto_delete": true,

@@ -18,24 +18,29 @@ subcollection: vpc
 {{site.data.keyword.block_storage_is_short}} snapshot is a regional offering that is used to create a point-in-time copy of your boot or data volume. The initial snapshot that you take is a full backup of the volume. Subsequent snapshots of the same volume are incremental, so they capture only the changes that occurred after the last snapshot was taken. You can restore data to a new volume during instance provisioning, from an existing instance, and when you create an unattached volume.
 {: shortdesc}
 
+As a customer with special access to preview the new defined performance profile, you can provision second-generation storage volumes with the `sdp` profile and create snapshots of these volumes. The snapshots feature is available in Dallas (`us-south`), Frankfurt (`eu-de`), London (`eu-gb`), Madrid (`eu-es`), Osaka (`js-osa`), Sao Paulo (`br-sao`), Sydney (`au-syd`), Tokyo (`jp-tok`), Toronto (`ca-tor`), and Washington (`us-east`) regions.
+{: preview} 
+
 ## Snapshots concepts
 {: #snapshots-vpc-concepts}
 
 ### Single volume snapshots
 {: #single-volume-snapshots}
 
-A snapshot is a copy of your volume that you take manually in the console or from the CLI, or create programmatically with the API, or Terraform. You can take a snapshot of a first-generation boot or data volume that is attached to a running virtual server instance. A "bootable" snapshot is a snapshot of a boot volume. A "nonbootable" snapshot is of a data volume. You can take snapshots as often as you want. However, you can't take a snapshot of a volume that's in a degraded state.
+A snapshot is a copy of your volume that you take manually in the console or from the CLI, or create programmatically with the API, or Terraform. You can take a snapshot of a boot or data volume that is attached to a running virtual server instance. A "bootable" snapshot is a snapshot of a boot volume. A "nonbootable" snapshot is of a data volume. You can take snapshots as often as you want. However, you can't take a snapshot of a volume that's in a degraded state.
 
 Do you want to automatically create snapshots of your {{site.data.keyword.block_storage_is_short}} volumes? With Backup for VPC, you can create backup policies to schedule regular volume backups. For more information, see [About Backup for VPC](/docs/vpc?topic=vpc-backup-service-about).
 {: tip}
 
-The first time that you take a snapshot of a volume, all the volume's contents are copied. When you take a second snapshot, it captures only the changes that occurred since the last snapshot was taken. As such, the size of the snapshots can grow or shrink, depending on what is being uploaded to {{site.data.keyword.cos_full}}. The number of snapshots increases with each successive snapshot that you take. You can take up to 750 snapshots per volume in your region. Within this limit, you can take and keep an hourly snapshot for 30 days, plus some extra snapshots. Deleting snapshots from this quota frees up space for more snapshots. A snapshot of a volume can't be greater than 10 TB.
+The first time that you take a snapshot of a volume, all the volume's contents are copied. When you take a second snapshot, it captures only the changes that occurred since the last snapshot was taken. As such, the size of the snapshots can grow or shrink, depending on what is being uploaded to {{site.data.keyword.cos_full}}. The number of snapshots increases with each successive snapshot that you take. You can take up to 750 snapshots for a first-generation volume and 512 snapshots of a second-generation volume. Within these limits, you can take and keep an hourly snapshot for 30 days, plus some extra snapshots. Deleting snapshots from this quota frees up space for more snapshots. A snapshot of a first-generation volume can't be greater than 10 TB. Snapshots greater than 10 TB are supported for second generation volumes.
 
 You can create a virtual server instance with a boot volume that is initialized from a snapshot. The instance profile of the new instance is not required to match the instance that was used to create the snapshot. You can also import a snapshot of a data volume when you create and attach a data volume to the instance. You can specify user tags for these snapshots.
 
 You can create a volume from a snapshot at any time. This process is called restoring a volume, and it can be performed when you create an instance, modify an instance, or when you create a stand-alone volume. For more information, see [Restoring a volume from a snapshot](/docs/vpc?topic=vpc-snapshots-vpc-restore).
 
-Snapshots have a lifecycle that is independent from the source {{site.data.keyword.block_storage_is_short}} volume. You can delete the original volume and the snapshot persists. However, do not detach the volume from the instance during snapshot creation. You need to wait until the snapshot becomes `stable` before you detach, otherwise you can't reattach the volume to an instance. Snapshots are crash-consistent. If the virtual server stops for any reason, the snapshot data is safe on the disk.
+Snapshots have a lifecycle that is independent from the source {{site.data.keyword.block_storage_is_short}} volume. You can delete the original volume and the snapshot persists. However, do not detach the volume from the instance during snapshot creation. You need to wait until the snapshot becomes `stable` before you detach, otherwise you can't reattach the volume to an instance. 
+
+Snapshots are crash-consistent. If the virtual server stops for any reason, the snapshot data is safe on the disk.
 
 The cost for snapshots is calculated based on GB capacity that is stored per month, unless the duration is less than one month. Because the snapshot is based on the capacity that was provisioned for the original volume, the snapshot capacity does not vary.
 
@@ -52,7 +57,7 @@ For customers with special access, data isolation is provided to store snapshots
 ### Fast restore snapshot clones
 {: #snapshots_vpc_fast_restore}
 
-By using the snapshots fast restore feature, you create and keep a clone of the data in a zone within your VPC region. In other words, your data is fully available when the volume is created because it is already in the VPC region and not in {{site.data.keyword.cos_short}}. In contrast, when data is not restored from a fast restore snapshot clone, volume data is copied from {{site.data.keyword.cos_short}} when the volume is attached to an instance over time. The fast restore feature can achieve a [recovery time objective](#x3167918){: term} (RTO) quicker than restoring from a regular snapshot.
+By using the snapshots fast restore feature, you create and keep a clone of the data in a zone within your VPC region. In other words, your data is fully available when the volume is created because it is already in the VPC region and not in a separate regional storage repository. In contrast, when data is not restored from a fast restore snapshot clone, volume data is copied from the separate regional storage repository when the volume is attached to an instance over time. The fast restore feature can achieve a [recovery time objective](#x3167918){: term} (RTO) quicker than restoring from a regular snapshot.
 
 The fast restore feature can be enabled in the console, from the CLI, with the API, or Terraform. In the CLI, API, and Terraform, the responses show `clones`. The UI shows fast restore snapshot clones as fast restore snapshots, but they are the same thing.
 
@@ -65,7 +70,7 @@ For more information, see [Restoring a volume with the fast restore feature](/do
 
 You can copy a snapshot from one region to another region, and later use that snapshot to restore a volume in the new region. This feature can be used in disaster recovery scenarios when you need to start your virtual server instance and data volumes in a different region. Or you can use the remote copy to create storage volumes in a new region to expand your VPC.
 
-When you choose to create a cross-regional copy of a snapshot, you need to specify a single snapshot to be copied to the target region. The snapshot is created as normal, and stored in your regional {{site.data.keyword.cos_short}}. When the snapshot is stable, a copy of the snapshot is created in the {{site.data.keyword.cos_short}} bucket in the target region.
+When you choose to create a cross-regional copy of a snapshot, you need to specify a single snapshot to be copied to the target region. The snapshot is created as normal, and stored in a separate regional storage repository. When the snapshot is stable, a copy of the snapshot is created in the regional storage repository in the target region.
 
 When the snapshot copy in the remote region is stable, you can use and manage it independently from the parent volume or the original snapshot.
 
@@ -88,7 +93,6 @@ Only one copy of the snapshot can exist in each region. You can't create a copy 
 Creating a cross-regional copy affects billing. You're charged for the data transfer and the storage consumption in the target region separately.
 
 When you create a snapshot or list details of a snapshot, the system lists only the direct copies of the snapshot that you specified. If you create a copy of a copy, the second copy is not returned when you query the original snapshot.
-{: note}
 
 ### Snapshot consistency groups
 {: #multi-volume-snapshots}
@@ -121,7 +125,7 @@ Restoring from a snapshot of a boot volume creates a new boot volume that you ca
 
 When you restore volumes from snapshots in a consistency group, you can select some or all of the snapshots.
 
-Volume data restoration begins immediately as the volume is created, but performance is degraded until all the data is copied from {{site.data.keyword.cos_short}} and the volume is fully restored. 
+Volume data restoration begins immediately as the volume is created, but performance is degraded until all the data is copied from the regional storage repository and the volume is fully restored. 
 
 ## Limitations
 {: #snapshots-vpc-limitations}
