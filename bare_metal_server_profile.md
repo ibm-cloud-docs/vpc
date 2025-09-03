@@ -2,7 +2,7 @@
 
 copyright:
   years: 2021, 2025
-lastupdated: "2025-01-09"
+lastupdated: "2025-09-03"
 
 keywords:
 
@@ -56,7 +56,7 @@ Multiple profile generations are available with Intel Cascade Lake processors (x
 | Name | vCPU | Memory (GiB) | Local storage (GB) | Total network bandwidth (Gbps) |
 |---------|---------|---------|---------|---------|
 | cx2-metal-96x192 | 96 | 192 | 960 | 100 |
-| cx2d-metal-96x192 | 96 | 192 | 960  \n 25.6 TB secondary storage (allocation of 8 x 3200) | 100 |
+| cx2d-metal-96x192 | 96 | 192 | 2x960 SSDs in RAID1    \n 25.6 TB secondary storage (allocation of 8 x 3200) | 100 |
 {: caption="Profile families for x2 and x2d" caption-side='top"}
 {: #bare-metal-compute-profiles-x2}
 {: tab-title="Compute profiles for x2 and x2d"}
@@ -67,7 +67,7 @@ Multiple profile generations are available with Intel Cascade Lake processors (x
 | Name | vCPU | Memory (GiB) | Local storage (GB) | Total network bandwidth (Gbps) |
 |---------|---------|---------|---------|---------|
 | mx2-metal-96x768 | 96 | 768 | 960 | 100 |
-| mx2d-metal-96x768 | 96 | 768 | 960  \n 25.6 TB secondary storage (allocation of 8 x 3200) | 100 |
+| mx2d-metal-96x768 | 96 | 768 | 2x960 SSDs in RAID1    \n 25.6 TB secondary storage (allocation of 8 x 3200) | 100 |
 {: caption="Profile families for x2 and x2d" caption-side='top"}
 {: #bare-metal-memory-profiles-mx2d}
 {: tab-title="Memory profiles for x2 and x2d"}
@@ -77,7 +77,7 @@ Multiple profile generations are available with Intel Cascade Lake processors (x
 
 | Name | vCPU | Memory (GiB) | Local storage (GB) | Total network bandwidth (Gbps) |
 |---------|---------|---------|---------|---------|
-| vx2d-metal-96x1536 | 96 | 1536 | 960   \n 25.6 TB secondary storage (allocation of 8 x 3200) | 100 |
+| vx2d-metal-96x1536 | 96 | 1536 | 2x960 SSDs in RAID1   \n 25.6 TB secondary storage (allocation of 8 x 3200) | 100 |
 {: caption="Profile families for x2 and x2d" caption-side='top"}
 {: #bare-metal-memory-profiles-vx2d}
 {: tab-title="Very High Memory profile for x2d"}
@@ -85,16 +85,13 @@ Multiple profile generations are available with Intel Cascade Lake processors (x
 {: class="simple-tab-table"}
 {: summary="Use the buttons before the table to change the context of the table. The column headers identify the hardware class."}
 
-The 960 GB of available local storage is composed of 2 960 GB SSDs in RAID1 for redundancy.
-{: note}
-
 | Name | vCPU | Memory (GiB) | Local storage (GB) | Total network bandwidth (Gbps) |
 |---------|---------|---------|---------|---------|
 | bx3-metal-48x256 | 48 | 256 | 480 | 200 |
-| bx3d-metal-48x256 | 48 | 256 | 480 GB boot  \n 30.72 TB secondary storage (allocation of 4 x 7680) | 200 |
+| bx3d-metal-48x256 | 48 | 256 | 2x480 SSDs in RAID1  \n 30.72 TB secondary storage (allocation of 4 x 7680) | 200 |
 | bx3-metal-64x256 | 64 | 256 | 480 | 200 |
-| bx3d-metal-64x256 | 64 | 256 | 480 GB boot  \n 30.72 TB secondary storage (allocation of 4 x 7680) | 200 |
-| bx3d-metal-192x1024 | 192 | 1024 | 480 GB boot  \n 61.44 TB secondary storage (allocation of 8 x 7680) | 200 |
+| bx3d-metal-64x256 | 64 | 256 | 2x480 SSDs in RAID1  \n 30.72 TB secondary storage (allocation of 4 x 7680) | 200 |
+| bx3d-metal-192x1024 | 192 | 1024 | 2x480 SSDs in RAID1  \n 61.44 TB secondary storage (allocation of 8 x 7680) | 200 |
 {: caption="Profile families for x3 and x3d" caption-side='top"}
 {: #bare-metal-balanced-profiles-x3}
 {: tab-title="Balanced profiles for x3 and x3d"}
@@ -105,9 +102,9 @@ The 960 GB of available local storage is composed of 2 960 GB SSDs in RAID1 for 
 | Name | vCPU | Memory (GiB) | Local storage (GB) | Total network bandwidth (Gbps) |
 |---------|---------|---------|---------|---------|
 | cx3-metal-48x128 | 48 | 128 | 480 | 200 |
-| cx3d-metal-48x128 | 48 | 128 | 480 GB boot  \n 30.72 TB secondary storage (allocation of 4 x 7680) | 200 |
+| cx3d-metal-48x128 | 48 | 128 | 2x480 SSDs in RAID1  \n 30.72 TB secondary storage (allocation of 4 x 7680) | 200 |
 | cx3-metal-64x128 | 64 | 128 | 480 | 200 |
-| cx3d-metal-64x128 | 64 | 128 | 480 GB boot  \n 30.72 TB secondary storage (allocation of 4 x 7680) | 200 |
+| cx3d-metal-64x128 | 64 | 128 | 2x480 SSDs in RAID1  \n 30.72 TB secondary storage (allocation of 4 x 7680) | 200 |
 {: caption="Profile families for x3 and x3d" caption-side='top"}
 {: #bare-metal-compute-profiles-x3}
 {: tab-title="Compute profiles for x3 and x3d"}
@@ -118,13 +115,13 @@ The 960 GB of available local storage is composed of 2 960 GB SSDs in RAID1 for 
 | Name | vCPU | Memory (GiB) | Local storage (GB) | Total network bandwidth (Gbps) |
 |---------|---------|---------|---------|---------|
 | mx3-metal-16x128 | 16 | 128 | 480 | 200 |
-| mx3d-metal-16x128 | 16 | 128 | 480 GB boot  \n 30.72 TB secondary storage (allocation of 4 x 7680) | 200 |
+| mx3d-metal-16x128 | 16 | 128 | 2x480 SSDs in RAID1  \n 30.72 TB secondary storage (allocation of 4 x 7680) | 200 |
 | mx3-metal-48x512 | 48 | 512 | 480 | 200 |
-| mx3d-metal-48x512 | 48 | 512 | 480 GB boot  \n 30.72 TB secondary storage (allocation of 4 x 7680) | 200 |
+| mx3d-metal-48x512 | 48 | 512 | 2x480 SSDs in RAID1  \n 30.72 TB secondary storage (allocation of 4 x 7680) | 200 |
 | mx3-metal-64x512 | 64 | 512 | 480 | 200 |
-| mx3d-metal-64x512 | 64 | 512 | 480 GB boot  \n 30.72 TB secondary storage (allocation of 4 x 7680) | 200 |
+| mx3d-metal-64x512 | 64 | 512 | 2x480 SSDs in RAID1  \n 30.72 TB secondary storage (allocation of 4 x 7680) | 200 |
 | mx3d-metal-96x1024 | 96 | 1024 | 480, 8x7600 | 200 |
-| mx3d-metal-128x1024 | 128 | 1024 | 480 GB boot  \n 61.44 TB secondary storage (allocation of 8 x 7680) | 200 |
+| mx3d-metal-128x1024 | 128 | 1024 | 2x480 SSDs in RAID1  \n 61.44 TB secondary storage (allocation of 8 x 7680) | 200 |
 {: caption="Profile families for x3 and x3d" caption-side='top"}
 {: #bare-metal-memory-profiles-mx3d}
 {: tab-title="Memory profiles for x3 and x3d"}
@@ -135,7 +132,7 @@ The 960 GB of available local storage is composed of 2 960 GB SSDs in RAID1 for 
 | Name | vCPU | Memory (GiB) | Local storage (GB)  | Total network bandwidth (Gbps) |
 |---------|---------|---------|---------|---------|
 | vx3-metal-16x256 | 16 | 256 | 480	| 200 |
-| vx3d-metal-16x256 | 16 | 256 | 480 GB boot  \n 30.72 TB secondary storage (allocation of 4 x 7680) | 200 |
+| vx3d-metal-16x256 | 16 | 256 | 2x480 SSDs in RAID1  \n 30.72 TB secondary storage (allocation of 4 x 7680) | 200 |
 {: caption="Profile families for x3 and x3d" caption-side='top"}
 {: #bare-metal-memory-profiles-vx3d}
 {: tab-title="Very High Memory profiles for for x3 and x3d"}
@@ -146,16 +143,13 @@ The 960 GB of available local storage is composed of 2 960 GB SSDs in RAID1 for 
 | Name | vCPU | Memory (GiB) | Local storage (GB) | Total network bandwidth (Gbps) |
 |---------|---------|---------|---------|---------|
 | ux3-metal-16x512 | 16 | 512 | 480 | 200 |
-| ux3d-metal-16x512 | 16 | 512 | 480 GB boot  \n 30.72 TB secondary storage (allocation of 4 x 7680) | 200 |
+| ux3d-metal-16x512 | 16 | 512 | 2x480 SSDs in RAID1  \n 30.72 TB secondary storage (allocation of 4 x 7680) | 200 |
 {: caption="Profile families for x3 and x3d" caption-side="top"}
 {: #bare-metal-uhmemory-profiles-x3}
 {: tab-title="Ultra High Memory profiles for x3 and x3d"}
 {: tab-group="profile-configurations-x3"}
 {: class="simple-tab-table"}
 {: summary="Use the buttons before the table to change the context of the table. The column headers identify the hardware class."}
-
-The 480 GB of available local storage is composed of 2 480 GB SSDs in RAID1 for redundancy.
-{: note}
 
 ### Understanding the naming rule of the profiles
 {: #profile-naming-rule-bm-x86-64}
@@ -192,7 +186,6 @@ See the following table to see what Generation 3 (x3) bare metal profiles are av
 | bx3-metal-64x256   | ![Checkmark icon](../icons/checkmark-icon.svg) | ![Checkmark icon](../icons/checkmark-icon.svg) | ![Checkmark icon](../icons/checkmark-icon.svg) |
 | vx3d-metal-16x256   | ![Checkmark icon](../icons/checkmark-icon.svg) | ![Checkmark icon](../icons/checkmark-icon.svg) | ![Checkmark icon](../icons/checkmark-icon.svg) |
 | bx3d-metal-48x256   | ![Checkmark icon](../icons/checkmark-icon.svg) | ![Checkmark icon](../icons/checkmark-icon.svg) | ![Checkmark icon](../icons/checkmark-icon.svg) |
-| bx3d-metal-64x256   | ![Checkmark icon](../icons/checkmark-icon.svg) | ![Checkmark icon](../icons/checkmark-icon.svg) | ![Checkmark icon](../icons/checkmark-icon.svg) |
 | ux3-metal-16x512   | ![Checkmark icon](../icons/checkmark-icon.svg) | ![Checkmark icon](../icons/checkmark-icon.svg) | ![Checkmark icon](../icons/checkmark-icon.svg) |
 | mx3-metal-48x512   | ![Checkmark icon](../icons/checkmark-icon.svg) | ![Checkmark icon](../icons/checkmark-icon.svg) | ![Checkmark icon](../icons/checkmark-icon.svg) |
 | mx3-metal-64x512   | ![Checkmark icon](../icons/checkmark-icon.svg) | ![Checkmark icon](../icons/checkmark-icon.svg) | ![Checkmark icon](../icons/checkmark-icon.svg) |
