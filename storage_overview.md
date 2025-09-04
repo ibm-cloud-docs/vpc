@@ -2,7 +2,7 @@
 
 copyright:
   years: 2022, 2025
-lastupdated: "2025-09-02"
+lastupdated: "2025-09-04"
 
 keywords: block storage for VPC, File Storage for VPC, Snapshots for VPC, Backup for VPC, block storage, file storage, snapshots, backup, 
 
@@ -23,20 +23,19 @@ The {{site.data.keyword.vpc_full}} (VPC) provides block storage, file storage, a
 
 {{site.data.keyword.block_storage_is_full}} provides hypervisor-mounted, high-performance data storage for your virtual server instances that you can provision within a VPC. The VPC infrastructure provides rapid scaling across zones and more performance and security.
 
-By using this service, you can:
+By using this service, you can create boot volumes and data volumes for your virtual server instances. Use the IBM Cloud console, CLI, API, or Terraform to create volumes, rename volumes, attach and detach a volume of a virtual server instance, transfer volumes to a different instance, tag volumes, delete volumes, and access metrics.
 
-* Create second-generation block storage volumes with maximum storage capacity of 32 TB and a performance level of 64,000 IOPS.
-* Create first-generation block storage volumes with maximum storage capacity of 16 TB and a performance level of 48,000 IOPS.
-* You can start with a smaller volume, and increase the capacity later.
-* Specify your own performance requirement. 
-   - You can select your custom IOPS (up to 64,000) and Bandwidth limit (up to 1024 MBps) when you provision a second-generation volume. Capacity, IOPS, and throughput values of volumes that are created with the `sdp` profile can be modified even when the volume is not attached to a virtual server instance.
-   - You can create a first-generation volume with a predefined IOPS tier profile (3, 5, or 10 IOPS per GB) that best meets your storage requirements. Or you can choose the custom profile and specify your performance. IOPS per volume ranges from 100 IOPS to 48,000 IOPS, based on volume size (up to 16 TB).
-   - Adjust IOPS up or down, for greater performance or when you want to reduce costs.
-* Choose customer-managed encryption for your block storage volume, and secure your data with your own encryption keys.
-* Use the IBM Cloud console, CLI, API, or Terraform to create volumes, rename volumes, attach and detach a volume of a virtual server instance, transfer volumes to a different instance. You can access performance metrics or delete the volume.
+Pay for only the capacity that you need. You can start with a smaller volume, and increase the capacity later.
 
-Customers with special access to preview the second-generation Block Storage offering can provision block volumes with the new `sdp` profile. The `sdp` profile is available in the Dallas, Frankfurt, London, Madrid, Osaka, Sao Paulo, Sydney, Tokyo, Toronto, and Washington, DC regions in the select availability release.
-{: preview}
+You can specify your own performance limits, and adjust them later if your requirements change. You can adjust IOPS up or down, for greater performance or when you want to reduce costs.
+
+   * [Select availability]{: tag-green}You can create second-generation block storage volumes with maximum storage capacity of 32 TB, a performance level of 64,000 IOPS, and maximum througput of 1024 MBps. You can select your custom IOPS and bandwidth limit when you provision a second-generation volume. Capacity, IOPS, and throughput values of volumes that are created with the `sdp` profile can be modified even when the volume is not attached to a virtual server instance. The `sdp` profile is available in the Dallas, Frankfurt, London, Madrid, Osaka, Sao Paulo, Sydney, Tokyo, Toronto, and Washington, DC region for allow-listed customers.
+
+   * You can create first-generation block storage volumes with maximum storage capacity of 16 TB, a performance level of 48,000 IOPS, and maximum througput of 1024 MBps. You can create a first-generation volume with a predefined IOPS tier profile (3, 5, or 10 IOPS per GB) that best meets your storage requirements. Or you can choose the custom profile and specify your performance. IOPS per volume ranges from 100 IOPS to 48,000 IOPS, based on volume size (up to 16 TB).
+   
+You can choose between provider- and customer-managed encryption for your block storage volumes, and secure your data with your own encryption keys. 
+
+The following table provides a comparison between the different generations of block storage.
 
 | Features            | First-generation volumes | Second-generation volumes |
 |---------------------|--------------------------|---------------------------|
@@ -91,25 +90,24 @@ For more information, see [About Snapshots for VPC](/docs/vpc?topic=vpc-snapshot
 ## {{site.data.keyword.filestorage_vpc_short}}
 {: #vpc-file-storage-overview}
 
-{{site.data.keyword.filestorage_vpc_short}} provides NFS-based file storage services. You create file shares in an availability zone within a region. You can share them with multiple virtual server instances or bare metal servers within the same zone across multiple VPCs.
+{{site.data.keyword.filestorage_vpc_short}} provides NFS-based file storage services. You create file shares in an availability zone within a region. You can share them with multiple virtual server instances or bare metal servers within the same zone across multiple VPCs. Cross-zone mounting is available. You can share file share data with other accounts or services.
 
-By using this service, you can:
+By using this service, you can create file shares that best meet your storage requirements. Use the IBM Cloud console, CLI, API, or Terraform to create shares, rename shares, create mount targets, set up cross-zonal or cross-regional replication, tag shares, add supplemental IDs, and delete shares.
 
-* Create file shares and mount targets with maximum storage capacity of 32 TB and a performance level of 96,000 IOPS.
-* Create a file share that best meets your storage requirements by using the `dp2` profile and specifying the capacity and IOPS that you need.
-* Use the UI, CLI, API, or Terraform to create file shares and mount targets, rename or delete file shares and mount targets, add mount targets to a file share. You can mount and unmount a file share from virtual server instances, and add supplemental IDs to a file share.
-* Adjust IOPS up or down, for greater performance or when you want to reduce costs.
-* Start with a smaller file share and expand the capacity later when you need more storage.
-* Mount file shares on Red Hat, CentOS, or Ubuntu Linux distributions. Windows OS is not supported.
-* Share file shares with other accounts or services.
-* Create read-only replicas of your file shares in another zone within your VPC, or another zone in a different region if you have multiple VPCs in the same geography. The replica is updated regularly based on the replication schedule that you specify. You can schedule to replicate your data as often as every 15 minutes. You can fail over to the replica and make it active if an outage occurs at the primary site.
+You can choose between provider- and customer-managed encryption for your file shares, and secure your data with your own encryption keys.
 
-Customers with special access to preview the second-generation File Storage offering can provision file share with the new `rfs` profile. The `rfs` profile is available in the Dallas, Frankfurt, Madrid, and Washington, DC regions in the beta release.
+Pay for only the capacity that you need. You can start with a smaller file share, and increase the capacity later. You can specify your own performance limits when you create a file share, and adjust them later if your requirements change.
+
+You can create zonal file shares with the `dp2` profile. The first-generation file shares come with a maximum storage capacity of 32 TB, a performance level of 96,000 IOPS, and maximum throughput of 1024 MBps. You can adjust IOPS up or down, for greater performance or when you want to reduce costs. You can create read-only replicas of your file shares in another zone within your VPC, or another zone in a different region if you have multiple VPCs in the same geography. The replica is updated regularly based on the replication schedule that you specify. You can schedule to replicate your data as often as every 15 minutes. You can fail over to the replica and make it active if an outage occurs at the primary site.
+
+Customers with special access to preview the second-generation file storage offering can provision file shares with the new `rfs` profile. The `rfs` profile is available in the Dallas, Frankfurt, Madrid, and Washington, DC regions in the beta release.
 {: beta}
 
-Second-generation file shares can be created with capacity in the range of 1 - 32,000 GB. Customers can directly adjust their file share's bandwidth up to 8192 Mbps (1024 MBps). The preset value is 1 MBps for every 20 GB of capacity. The maximum IOPS that a share with the `rfs` profile can support is 35,000.
+[Beta]{: tag-cyan} Second-generation file shares can be created with capacity in the range of 1 - 32,000 GB. Customers can directly adjust their file share's bandwidth up to 8192 Mbps (1024 MBps). The preset value is 8 Mbps for every 20 GB of capacity. The maximum IOPS that a share with the `rfs` profile can support is 35,000. Second-generation profiles provide regional data availability across all 3 zones of an MZR. Data is regionally available, setting up replication between different zones is unnecessary.
 
-Second-generation profiles provide regional data availability across all 3 zones of an MZR. Data is regionally available, setting up replication between different zones is unnecessary.
+You can mount file shares on Red Hat, CentOS, or Ubuntu Linux distributions. Windows OS is not supported.
+
+The following table provides a comparison between the different generations of file storage.
 
 | Features            | First-generation shares | Second-generation shares |
 |---------------------|--------------------------|---------------------------|
@@ -117,7 +115,7 @@ Second-generation profiles provide regional data availability across all 3 zones
 | Data Availability   | Zonal                    | Regional  |
 | Expandable capacity | Yes, up to 16,000 GB     | Yes, up to 32,000 GB |
 | Adjustable IOPS     | Yes, up to 96,000. IOPS depends on capacity range. | No. Maximum IOPS is preset at 35,000.| 
-| Adjustable Bandwidth| No. Bandwidth can be increased by increasing capacity and IOPS, up to 8192 Mbps.| Yes, bandwidth can be increased up to 8192 Mbps, and it can be reduced to the preset value that is based on the file share capacity. No capacity increase needed.|
+| Adjustable Bandwidth| No. Bandwidth can be increased by increasing capacity and IOPS, up to 8192 Mbps.| Yes, bandwidth can be increased up to 8192 Mbps, and it can be reduced to the preset value that is based on the file share capacity. No capacity increase is needed.|
 | Customer-managed encryption at rest | Yes. | Not supported in the [beta]{: tag-cyan} release.|
 | Customer-managed encryption in transit | Yes. IPsec protocol with strongSwan. | Yes. TLS protocol with stunnel.|
 | On-demand snapshots | Yes, up to 750 per share in a region. | Not supported in the [beta]{: tag-cyan} release. |

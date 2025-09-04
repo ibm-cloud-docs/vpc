@@ -23,14 +23,14 @@ When you adopt the release version `2025-07-15` or later, the VPC Identity API w
 - Methods with `/identity` in the path can be used by both virtual server instances and bare metal servers. Methods with `/identity` in the path operate the same as `/instance_identity` methods when used in virtual server instances.
 
 ## Action needed
-{: #action-needed-metadata-identity}
+{: #action-needed-metadata-identity-beta}
 
 Before you specify the `version` query parameter of `2025-07-15` or later, follow these actions to avoid regressions in client functionality.
 
 If your clients continue to specify API version `2025-07-14` or earlier, no changes are required.
 
 ## Changed Identity API paths
-{: #changed-paths-metadata-identity}
+{: #changed-paths-metadata-identity-beta}
 
 The following table lists the methods and their changed paths for API requests that use a `version` query parameter of `2025-07-15` or later.
 
@@ -42,7 +42,7 @@ The following table lists the methods and their changed paths for API requests t
 {: caption="Methods and their changed paths for API requests that use a version query parameter of 2025-07-15 or later." caption-side="bottom"}
 
 ## Examples
-{: #examples-metadata-identity}
+{: #examples-metadata-identity-beta}
 
 These examples compare differences between before and after the `2025-07-15` versioned change.
 
