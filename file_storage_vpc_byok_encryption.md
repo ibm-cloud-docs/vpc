@@ -2,7 +2,7 @@
 
 copyright:
   years: 2022, 2025
-lastupdated: "2025-08-04"
+lastupdated: "2025-09-04"
 
 keywords: file share, customer-managed encryption, encryption, byok, KMS, Key Protect, Hyper Protect Crypto Services,
 
@@ -19,9 +19,6 @@ By default, {{site.data.keyword.filestorage_vpc_short}} shares are encrypted wit
 {: shortdesc}
 
 For more information, see [Protecting data with envelope encryption](/docs/key-protect?topic=key-protect-envelope-encryption).
-
-Customer-managed encryption is not supported during the beta release of the regional file share profile.
-{: beta}
 
 ## Before you begin
 {: #custom-managed-vol-prereqs-file}
@@ -47,7 +44,9 @@ Follow this procedure to specify customer-managed encryption when you create a f
 
    | Field | Value |
    |-------|-------|
-   | Location | Choose the geography, the region, and the zone where you want to create the file share. |
+   | **Availability** | [Beta]{: tag-cyan} If you're a customer with special access to preview the new regional file share offering, you can choose between Regional and Single zone data availability. You can't change this property after the share is created. \n If you're account is not allow-listed, this field does not appear. Select the location for your zonal file share. |
+   | **Location** | [Beta]{: tag-cyan} If you chose Single zone availability, select the geography, region, and zone for the new file share, for example, North America, Dallas (us-south), us-south-2. If you chose regional availability, select the region. For example, Dallas (us-south). |
+    | **Details** | |
    | Name  | Choose a meaningful name for your file share. The share name can be up to 63 lowercase alpha-numeric characters and include the hyphen (-), and must begin with a lowercase letter. You can later edit the name later if you want. |
    | Resource Group | Specify a [Resource group](/docs/vpc?topic=vpc-iam-getting-started&interface=ui#iam-resource-groups). Resource groups help organize your account resources for access control and billing purposes. |
    | Tags | Tags are used to organize, track, and even manage access to your file share resources. You can tag related resources and view them throughout your account by filtering by tags from your resource list. User tags are visible account-wide. Avoid including sensitive data in the tag name. For more information, see [Working with tags](/docs/account?topic=account-tag&interface=ui).|
@@ -56,28 +55,21 @@ Follow this procedure to specify customer-managed encryption when you create a f
    | Mount target access mode  | Select how you want to manage access to this file share: |
    |  | Security group: Access to the file share is based on [security group](/docs/vpc?topic=vpc-using-security-groups#sg-getting-started) rules. This option can be used to restrict access to specific virtual server instances. You can also use this option if you want to mount the file share to a virtual server instance in another zone. This option is recommended as you have more control over who can access the data that is stored on the file share. When you choose this type of access, you can also specify the allowed transit encryption modes. |
    |  | Virtual private cloud: Access to the file share is granted to any virtual server instance in the same region. Cross-zone mounting and encryption in transit are not supported. |
-   | Allowed transit encryption modes| As the share owner, you can specify how you want clients within your account and authorized accounts to connect to your file share. You can select *none* if you do not want them to use encryption in transit, and *user-managed* if you want them to use encryption in transit. If you select both, then the transit encryption type of the first mount target decides the transit encryption types of all future mount targets within the account. |
+   | Allowed transit encryption modes | As the share owner, you can specify how you want clients within your account and authorized accounts to connect to your file share. You can select *none* if you do not want them to use encryption in transit. If you want them to use encryption in transit, select *IPsec* for a zonal share or [Beta]{: tag-cyan} *stunnel* for a regional share. If you select both available options, then the transit encryption type of the first mount target decides the transit encryption types of all future mount targets within the account. |
    {: caption="Values for creating a file share and mount target." caption-side="bottom"}
 
 1. The creation of mount targets is optional. You can skip this step if you do not want to create a mount target now. Otherwise, click **Create**. You can create one mount target per VPC per file share. 
 
-   - If you selected security group as the access mode, enter the information as described in the Table 2. This action creates and attaches a [virtual network interface](/docs/vpc?topic=vpc-vni-about) to your mount target that identifies the file share with a reserved IP address and applies the rules of the selected Security group.
+   - If you selected security group as the access mode, enter the information as described in the Table 2. This action creates and attaches a [virtual network interface](/docs/vpc?topic=vpc-vni-about) to your mount target that identifies the file share with a reserved IP address and applies the rules of the selected Security group. This mount target supports encryption-in-transit and cross-zone mounting.
+      1. Provide a mount target name. The name can be up to 63 lowercase alpha-numeric characters and include the hyphen (-), and must begin with a lowercase letter. You can later edit the name if you want.
+      2. Select an available VPC. The list includes only those VPCs with a subnet in the selected location. The location selection is inherited from the file share (for example, us-south-2).
+      3. A default virtual network interface is generated. You can customize it by clicking the Edit icon ![Edit icon](/images/edit.png). You can change the name or subnet if you have multiple subnets in the zone.
+      4. Click **Next**.
+      5. **Encryption in transit** is disabled by default for zonal shares, and it is enabled by default for regional shares. Click the toggle to change the preset value. For more information about this feature, see [Encryption in transit - Securing mount connections between file share and host](/docs/vpc?topic=vpc-file-storage-vpc-eit). 
+      6. Then, click **Next**. 
+      7. Review your selection, and either click **Back** to return and update your choices or click **Create**.
 
-     | Field | Value |
-     |-------|-------|
-     | **Details** | |
-     | Mount target name | Specify a mount target name. The name can be up to 63 lowercase alpha-numeric characters and include the hyphen (-), and must begin with a lowercase letter. You can later edit the name if you want. |
-     | Zone | Zone is inherited from the file share (for example, Dallas 2). |
-     | VPC | Select an available VPC. The list includes only those VPCs with a subnet in the selected zone. |
-     | Subnet | Select a subnet from the list. |
-     | **Reserved IP address** | Required for the mount target. The IP address cannot be changed afterward. However, you can delete the mount target and create another one with a different IP address. |
-     | Reserving method | You can have the file service select an IP address for you. The reserved IP becomes visible after the mount target is created. Or, specify your own IP. |
-     | Auto-release | Releases the IP address when you delete the mount target. Enabled by default. |
-     | **Security groups** | The [security group](/docs/vpc?topic=vpc-using-security-groups#sg-getting-started) for the VPC is selected by default, or select from the list. The security groups that you associate with a mount target must allow inbound access for the TCP protocol on the NFS port from all servers where you want to mount the share. |
-     | **Encryption in transit** | Disabled by default, click the toggle to enable. For more information about this feature, see [Encryption in transit - Securing mount connections between file share and host](/docs/vpc?topic=vpc-file-storage-vpc-eit). |
-     {: caption="Values for creating a mount target." caption-side="top"}
-
-   - If you selected VPC as the access mode, provide a name for the mount target and select the VPC where the file share is to be used in.
+   - If you selected VPC as the access mode, provide a name for the mount target and select a VPC from the list. This mount target can be used to mount the file share on any virtual server instance of the selected VPC in the same zone as the file share. Cross-zone mounting is not supported.
 
 1. Update the fields in the **Encryption at rest** section. 
    1. Select the encryption type. By default, all file shares are encrypted by IBM-managed keys. You can also choose to create an envelop-encryption for your shares with your own keys. If you want to use your own keys, select one of the [key management services](/docs/vpc?topic=vpc-vpc-encryption-about#kms-for-byok): {{site.data.keyword.keymanagementserviceshort}} or {{site.data.keyword.hscrypto}}.
@@ -132,6 +124,15 @@ Before you can use the CLI, you must install the IBM Cloud CLI and the VPC CLI p
 
    If you plan to use the encryption key of another account, the previous steps must be performed on the other account. You can't list the resources of another account even if you are authorized to use them.
    {: note}
+
+1. If you are a customer with special access to preview the regional file share profile, you can use the `rfs` profile to create a file share. To be able to create and manage a regional file share from the CLI, set the appropriate environmental variable with the following command.
+
+    ```sh
+    export IBMCLOUD_IS_FEATURE_SHARE_DENALI_REGIONAL_AVAILABILITY=true
+    ```
+    {: pre}
+    
+    The CLI returns the properties for "Allowed Access Protocols", "Availability Mode", "Bandwidth", and "Storage Generation" only when this environmental variable is set to "true".
 
 1. Specify the `ibmcloud is share-create` command with the `--encryption-key` option to create a file share with customer-managed encryption. The `encryption_key` option must be followed by a valid CRN for the root key in the key management service. If you want to enable encryption in transit, too, specify that in the mount target JSON. The security groups that you associate with a mount target must allow inbound access for the TCP protocol on the NFS port from all servers where you want to mount the share.
 
@@ -224,6 +225,48 @@ Before you can use the CLI, you must install the IBM Cloud CLI and the VPC CLI p
       ```
       {: screen}
 
+   - The following example creates a regional file share with customer-managed encryption, security group access mode, and encryption-in-transit enabled.
+
+      ```sh
+      ibmcloud is share-create --name my-regional-file-share --profile rfs --size 40 --bandwidth 125 --atem stunnel,none --encryption_key crn:v1:bluemix:public::kms:us-south:a/a1234567:key:2fb8d675-bde3-4780-b127-3d0b413631c1
+      Creating file share my-file-share1 under account Test Account as user test.user@ibm.com...
+                                      
+      ID                                 r006-9ae55188-610e-4cf9-9350-d0b675026ff8   
+      Name                               my-regional-file-share
+      CRN                                crn:v1:bluemix:public:is:us-south:a/a1234567::share:r006-9ae55188-610e-4cf9-9350-d0b675026ff8   
+      Lifecycle state                    pending   
+      Access control mode                security_group   
+      Accessor binding role              none   
+      Allowed transit encryption modes   stunnel,none   
+      Zone                               -   
+      Profile                            rfs   
+      Size(GB)                           40   
+      IOPS                               35000   
+      Encryption                         user_managed   
+      Mount Targets                      ID                          Name      
+                                         No mounted targets found.      
+                                      
+      Resource group                     ID                                 Name      
+                                         11caaa983d9c4beb82690daab08717e9   Default      
+                                      
+      Created                            2025-09-22T21:17:23+05:30
+      Encryption key                     crn:v1:bluemix:public:kms:us-south:a/a1234567-c02c-4d7f-81e2-2aa867da176d:key:2fb8d675-bde3-4780-b127-3d0b413631c1      
+
+      Replication role                   none   
+      Replication status                 none   
+      Replication status reasons         Status code   Status message      
+                                         -             -      
+                                      
+      Snapshot count                     0   
+      Snapshot size                      0   
+      Source snapshot                    -   
+      Allowed Access Protocols           nsf4   
+      Availability Mode                  regional   
+      Bandwidth(Mbps)                    125   
+      Storage Generation                 2
+      ```
+      {: screen}
+
 For more information about the command options, see [`ibmcloud is share-create`](/docs/vpc?topic=vpc-vpc-reference#share-create).
 
 ## Creating file shares with customer-managed encryption with the API
@@ -273,6 +316,24 @@ curl -X POST \
 ```
 {: pre}
 
+The following example creates a regional file share without a mount target, and specifies the CRN of the root key for customer-managed encryption.
+
+```sh
+curl -X POST \
+"$vpc_api_endpoint/v1/shares?version=2025-09-02&generation=2&maturity=beta" -H "Authorization: $iam_token" \
+-d '{
+     "name": "my-encrypted-regional-share",
+     "profile": {"name": "rfs"},
+     "size": 1000,
+     "bandwidth": 60,
+     "allowed_transit_encryption_modes": ["none","stunnel"],
+     "encryption_key": {"crn": "crn:v1:bluemix:public:kms:us-south:a/a1234567-c02c-4d7f-81e2-2aa867da176d:key:2fb8d675-bde3-4780-b127-3d0b413631c1"},
+     "resource_group": {"id": "db00a952a88945a987b7be1980fdae8e"},
+     "access_control_mode": "security_group"
+   }'
+```
+{: pre}
+
 You can also specify the CRN of a root key from a different account in the `POST /shares` call. If you want to do that, contact the other account's administrator to ensure that the service-to-service authorizations are in place and to get the CRN of the encryption key.
 
 ## Creating file shares with customer-managed encryption with Terraform
@@ -302,6 +363,20 @@ resource "ibm_is_share" "share4" {
       }
    }
 }
+```
+{: screen}
+
+The following example creates a regional file share with 1000 GiB capacity and the `rfs` performance profile. The file share is encrypted by using a key that is identified by its CRN.
+
+```terraform
+resource "ibm_is_share" "regional-share" {
+   size           = "1000"
+   name           = "my-regional-share"
+   profile        = "rfs"
+   bandwidth      = "125"
+   encryption_key = "crn:v1:bluemix:public:kms:us-south:a/a1234567:key:2fb8d675-bde3-4780-b127-3d0b413631c1"
+   access_control_mode = "security_group"
+   }
 ```
 {: screen}
 

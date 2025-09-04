@@ -2,7 +2,7 @@
 
 copyright:
   years: 2021, 2025
-lastupdated: "2025-09-02"
+lastupdated: "2025-09-04"
 
 keywords: file share, file storage, virtual network interface, encryption in transit, profiles, 
 
@@ -84,9 +84,6 @@ In the {{site.data.keyword.cloud_notm}} console, you can create a file share wit
    | Key name | Select the root key within the KMS instance that you want to use for encrypting the share. |
    | Key ID | The field shows the key ID that is associated with the data encryption key that you selected. |
    {: caption="Values for customer-managed encryption for file shares." caption-side="bottom"}
-
-   Customer-managed encryption is not supported during the beta release of the regional file share profile.
-   {: beta}
 
 1. When all the required information is entered, click **Create file share**. You return to the {{site.data.keyword.filestorage_vpc_short}} page, where a message indicates that the file share is provisioning. When the transaction completes, the share status changes to **Active**.
    

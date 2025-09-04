@@ -2,7 +2,7 @@
 
 copyright:
   years: 2019, 2025
-lastupdated: "2025-09-02"
+lastupdated: "2025-09-04"
 
 keywords:
 
@@ -26,6 +26,13 @@ For more information about changes to the {{site.data.keyword.vpc_short}} comman
 
 ## September 2025
 {: #vpc-sep25}
+
+### 04 September 2025
+{: #vpc-sep0425}
+{: release-note}
+
+Customer-managed encryption keys for regional file shares
+:   Customers with special access to preview file shares with regional availability can now use customer-managed encryption keys to secure their regional file shares. For more information, see [Creating file shares with customer-managed encryption](/docs/vpc?topic=vpc-file-storage-byok-encryption) and [Key rotation for VPC resources](/docs/vpc?topic=vpc-vpc-key-rotation).
 
 ### 02 September 2025
 {: #vpc-sep0225}

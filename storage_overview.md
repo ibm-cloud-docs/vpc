@@ -115,8 +115,8 @@ The following table provides a comparison between the different generations of f
 | Data Availability   | Zonal                    | Regional  |
 | Expandable capacity | Yes, up to 16,000 GB     | Yes, up to 32,000 GB |
 | Adjustable IOPS     | Yes, up to 96,000. IOPS depends on capacity range. | No. Maximum IOPS is preset at 35,000.| 
-| Adjustable Bandwidth| No. Bandwidth can be increased by increasing capacity and IOPS, up to 8192 Mbps.| Yes, bandwidth can be increased up to 8192 Mbps, and it can be reduced to the preset value that is based on the file share capacity. No capacity increase is needed.|
-| Customer-managed encryption at rest | Yes. | Not supported in the [beta]{: tag-cyan} release.|
+| Adjustable Bandwidth| No. Bandwidth can be increased by increasing capacity and IOPS, up to 8192 Mbps.| Yes, bandwidth can be increased up to 8192 Mbps, and it can be reduced to the preset value that is based on the file share capacity. No capacity increase needed.|
+| Customer-managed encryption at rest | Yes. | Yes. |
 | Customer-managed encryption in transit | Yes. IPsec protocol with strongSwan. | Yes. TLS protocol with stunnel.|
 | On-demand snapshots | Yes, up to 750 per share in a region. | Not supported in the [beta]{: tag-cyan} release. |
 | Scheduled snapshots | Yes, up to 750 snapshots per region. |  Not supported in the [beta]{: tag-cyan} release. |

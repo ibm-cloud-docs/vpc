@@ -2,7 +2,7 @@
 
 copyright:
   years: 2021, 2025
-lastupdated: "2025-08-29"
+lastupdated: "2025-09-04"
 
 keywords: file share, mount target, virtual network interface, customer-managed encryption, encryption at rest, encryption in transit, file storage, share,
 
@@ -150,8 +150,6 @@ You can bring your own customer root key (CRK) to the cloud for customer-managed
 
 After you specified an encryption type for a file share, you can't change it.
 {: restriction}
-
-Customer-managed encryption is not supported for the regional file share profile during the beta release.
 
 ### Encryption in transit
 {: #fs-eit}
