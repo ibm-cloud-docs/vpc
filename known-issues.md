@@ -2,7 +2,7 @@
 
 copyright:
   years: 2018, 2025
-lastupdated: "2025-09-03"
+lastupdated: "2025-09-04"
 
 keywords:
 
@@ -24,7 +24,7 @@ Known issues might change over time, so check back occasionally.
 ### `vcpu.manufacturer` property returns an empty string value
 {: #vcpu-manufacturer-instance-metadata-api-known-issues}
 
-**Issue:** When [retrieving an instance](/apidocs/vpc-metadata#get-instance) the value of the `vcpu.manufacturer` property is an empty string `""`.
+**Issue:** When [retrieving an instance](/apidocs/vpc-metadata#get-instance), the value of the `vcpu.manufacturer` property is an empty string `""`.
 
 ## VPC Identity API known issues
 {: #identity-api-known-issues}
@@ -32,9 +32,9 @@ Known issues might change over time, so check back occasionally.
 ### The `/instance_identity` methods return incorrect HTTP status
 {: #identity-api-incorrect-http-status-known-issues}
 
-**Issue:** When using a `version` query parameter of `2025-08-25` or earlier from bare metal servers, an incorrect HTTP response of `404` will be returned for `/instance_identity` methods used to [create an identity token](/apidocs/vpc-identity/latest#create-identity-token), [create an identity certificate](/apidocs/vpc-identity/latest#create-identity-certificate), and [create an IAM token](/apidocs/vpc-identity/latest#create-identity-iam-token). The behavior is correct when using a `version` query parameter of `2025-08-26` or later.
+**Issue:** When using a `version` query parameter of `2025-08-25` or earlier from bare metal servers, an incorrect HTTP response of `404` is returned for `/instance_identity` methods used to [create an identity token](/apidocs/vpc-identity/latest#create-identity-token), [create an identity certificate](/apidocs/vpc-identity/latest#create-identity-certificate), and [create an IAM token](/apidocs/vpc-identity/latest#create-identity-iam-token). The behavior is correct when using a `version` query parameter of `2025-08-26` or later.
 
-When using a beta `version` query parameter of `2025-07-14` or earlier from bare metal servers, an incorrect HTTP reponse of `404` will be returned for all `/instance_identity` methods.
+When using a beta `version` query parameter of `2025-07-14` or earlier from bare metal servers, an incorrect HTTP response of `404` is returned for all `/instance_identity` methods.
 
 ## Confidential computing known issues
 {: #confidential-computing-vpc-known-issues}
@@ -220,7 +220,12 @@ When details of first-generation volume profiles are retrieved, the responses sh
 ### Block volume snapshots that are taken in Montreal are stored in {{site.data.keyword.cos_short}} in Washington, DC
 {: #snapshot-COS-upload-CA-MON-US-EAST}
 
-Due to the unavailability of a local key management service ({{site.data.keyword.keymanagementserviceshort}}) instance in Montreal, the block volume snapshots that are taken in Montreal are routed to and stored in an encrypted {{site.data.keyword.cos_short}} bucket with local KMS keys in the WDC MZR. When the KMS service becomes available in Montreal, all the snapshots will be moved back to Montreal from Washington DC. 
+Due to the unavailability of a local key management service ({{site.data.keyword.keymanagementserviceshort}}) instance in Montreal, the block volume snapshots that are taken in Montreal are routed to and stored in an encrypted {{site.data.keyword.cos_short}} bucket with local KMS keys in the WDC MZR. When the KMS service becomes available in Montreal, all the snapshots will be moved back to Montreal from Washington DC.
+
+### Private context-based restriction rules for Backups are not working in Montreal (`ca-mon`) MZR.
+{: #baas-CBR-issue-MON}
+
+Enabling private CBR rules for backup operations that create and manage automated snapshots of block volumes and file shares in Montreal is currently not supported.
 
 ### Block volume snapshot is greater in the remote region than the original snapshot
 {: #snapshot-CRC-billing}

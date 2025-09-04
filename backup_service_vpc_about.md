@@ -2,7 +2,7 @@
 
 copyright:
  years: 2022, 2025
-lastupdated: "2025-09-03"
+lastupdated: "2025-09-04"
 
 keywords: Backup, backup service, backup plan, backup policy, restore, restore volume, restore data
 
@@ -28,7 +28,7 @@ You can create up to 10 [backup policies](#backup-service-policies) in one regio
 
 You can back up individual {{site.data.keyword.block_storage_is_short}} volumes or {{site.data.keyword.filestorage_vpc_short}} shares that are identified by tags.
 
-You can create backups of all the {{site.data.keyword.block_storage_is_short}} volumes that are attached to a specific virtual server instance as members of a **consistency group**. When you configure backups for a [consistency group](/docs/vpc?topic=vpc-snapshots-vpc-about&interface=ui#multi-volume-snapshots), you can include the boot volume or leave it out. When you create multi-volume backups, you must add the tag to the virtual server instance, not the individual volumes.
+You can create backups of all the {{site.data.keyword.block_storage_is_short}} volumes that are attached to a specific virtual server instance as members of a **consistency group**. When you configure backups for a [consistency group](/docs/vpc?topic=vpc-snapshots-vpc-about&interface=ui#multi-volume-snapshots), you can include the boot volume or exclude it. When you create multi-volume backups, you must add the tag to the virtual server instance, not the individual volumes.
 
 When you request a backup snapshot of a consistency group, the system ensures that all write operations are complete before it takes the snapshots. Then, the system generates snapshots of all the selected Block Storage volumes that are attached to the virtual server instance at the same time. Depending on the number and size of the attached volumes, plus the amount of data that is to be captured, you might observe a slight IO pause. This IO pause can range from a few milliseconds up to 4 seconds. It is recommended to run your automated backup-policy during off-peak hours to minimize any impact on performance.
 
@@ -104,7 +104,7 @@ The {{site.data.keyword.cloud_notm}} Backup for VPC offers you the following ben
 
 A backup policy identifies the target resource types and lists the tags that are used to identify the resources to be backed up. The policy contains one or more backup plans that define schedules for automatic backup creation and data retention.
 
-In a backup plan, you schedule the frequency of your backups. in the [console](/docs/vpc?topic=vpc-create-backup-policy-and-plan&interface=ui), you can choose daily, weekly, or monthly. Or you can use a `cron` expression to specify the frequency.
+In a backup plan, you schedule the frequency of your backups. In the [console](/docs/vpc?topic=vpc-create-backup-policy-and-plan&interface=ui), you can choose daily, weekly, or monthly. Or you can use a `cron` expression to specify the frequency.
 {: ui}
 
 In a backup plan, you schedule the frequency of your backups. When you create a plan from the [CLI](/docs/vpc?topic=vpc-create-backup-policy-and-plan&interface=cli), you can use a `cron` expression to specify the frequency.
@@ -123,7 +123,7 @@ If you specify both the age and the number of backups, age takes priority in det
 Consider the following examples:
 - Example 1 - You create a daily plan with a retention period of 14 days, and no maximum number of snapshots to keep. You're going to keep 14 backups and the oldest is going to be 2 weeks old.
 - Example 2 - You create a weekly plan that has a retention period of 365 days, and a maximum count of 8. In practice, you're going to get a maximum of 8 snapshots in the chain, with the oldest being 8 weeks old.
-- Example 2 - You create a monthly plan and set the retention period for 80 days with a maximum count of 10. In practice, you keep a maximum of 3 snapshots always. By the time when your 4th backup is taken, the first one meets the 80-day mark and gets deleted.
+- Example 2 - You create a monthly plan and set the retention period for 80 days with a maximum count of 10. In practice, you keep a maximum of 3 snapshots always. By the time when your 4th backup is taken, the first one meets the 80-day mark, and gets deleted.
 
 You can create up to four plans per backup policy and modify the backup schedule and retention policy anytime. Your four plans can have different frequencies. For example, one can be daily. Another one can be weekly, or monthly. All plans apply to the volumes with tags that match the backup policy. Backups that are created by the backup plan inherit the parent volume resource group details. 
 
@@ -228,7 +228,7 @@ Currently, customer can create up to 512 manual and backup snapshots of their `s
 
 Second-generation storage volumes can range in size from 1 GB to 32 TB. You can back up the entire volume without any restriction of capacity. 
 
-The backup snapshots that are created for `sdp` volumes have an independent life cycle from the parent volume. You can delete the volume and the backup snapshot persists until the retention period that you set is reached.
+The backup snapshots that are created for `sdp` volumes have an independent lifecycle from the parent volume. You can delete the volume and the backup snapshot persists until the retention period that you set is reached.
 
 You can use your backup snapshots to create other second-generation volumes in the same region and create copies in other regions. However, backup policies that include cross-regional copies are not supported for volumes with customer-managed encryption. The creation of consistency group backups is not supported either.
 
@@ -248,7 +248,8 @@ Volume backups:
 * You can't take a backup of a detached volume.
 * You can't create a copy of a backup snapshot in the source (local) region. 
 * You can create a copy of a block storage backup in another region. However, only one copy of the backup snapshot can exist in each region.
-* Cross-regional copies are not supported in Montreal (`ca-mon`) MZR. 
+* Cross-regional copies are not supported in Montreal (`ca-mon`) MZR.
+* [Context-based restriction rules](#baas-cbr) are not supported in Montreal (`ca-mon`) MZR.
 * Consistency groups consist of the attached Block Storage volumes of virtual server instances, such as boot and data volumes. Instance storage volumes and virtual server instance configuration are not included.
 * The fast restore feature is not supported for multi-volume backups of consistency groups.
 * During the [select availability]{: tag-green} phase of second-generation volumes, the following limitations apply.
