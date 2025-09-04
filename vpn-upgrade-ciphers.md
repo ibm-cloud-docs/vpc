@@ -298,7 +298,7 @@ To upgrade the IKE policy by using the UI, follow these steps:
 
 1. From the VPNs for VPC page, select **Site-to-site gateways > IKE policies**.
 1. Select the IKE policy configured in the VPN connection that you want to upgrade.
-1. Highlight the row of the IKE policy in the table, then click **Edit** from the Actions menu ![Actions menu](images/overflow.png).
+1. Highlight the row of the IKE policy in the table, then click **Edit** from the Actions menu ![Actions icon](../icons/action-menu-icon.svg "Actions").
 1. Update the following algorithms to replace the weak ciphers with secure ones:
 
    * **Encryption** - Encryption algorithm to use for IKE Phase 1. One of: `aes128`, `aes192`, `aes256`.
@@ -314,7 +314,7 @@ To upgrade a custom IPsec policy by using the UI, follow these steps:
 
 1. From the VPNs for VPC page, select **Site-to-site gateways > IPsec policies**.
 1. Select the IPsec policy configured in the VPN connection that you want to upgrade.
-1. Highlight the row of the IPsec policy in the table, then click **Edit** from the Actions menu ![Actions menu](images/overflow.png).
+1. Highlight the row of the IPsec policy in the table, then click **Edit** from the Actions menu ![Actions icon](../icons/action-menu-icon.svg "Actions").
 1. Update the following algorithms to replace the weak ciphers with secure ones:
 
    * **Encryption** - Encryption algorithm to use for IKE Phase 2. One of: `aes128`, `aes192`, `aes256`, `aes128gcm16`, `aes192gcm16`, `aes256gcm16`.

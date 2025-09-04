@@ -2,7 +2,7 @@
 
 copyright:
   years: 2019, 2025
-lastupdated: "2025-04-30"
+lastupdated: "2025-09-04"
 
 keywords: Block Storage, boot volume, data volume, status, health state, monitoring, performance 
 
@@ -69,6 +69,6 @@ For more information about the health states and reason codes in the API, see th
 ## Volume performance when you restore from a snapshot
 {: #block-vol-restore-snap}
 
-Boot and data volume performance is initially degraded when you restore them from a snapshot. During the restoration, your data is copied from {{site.data.keyword.cos_full}} to {{site.data.keyword.block_storage_is_short}}. After the restoration process is complete, full IOPS can be realized on the new volume.
+Boot and data volume performance is initially degraded when you restore them from a snapshot. During the restoration, your data is copied from the regional storage repository to {{site.data.keyword.block_storage_is_short}}. After the restoration process is complete, full IOPS can be realized on the new volume.
 
 Creating a boot volume from a "bootable" snapshot and then provisioning an instance with it results in slower performance. The slower performance is caused by the ongoing hydration process. The virtual server instance's performance is temporarily slower than it would be if you created the instance with a regular boot volume.

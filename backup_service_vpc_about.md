@@ -44,7 +44,7 @@ If a volume or share has multiple tags, only one tag needs to match for a backup
 
 You must set a retention period for your backups. It can be based on the number of days that you want to keep the backups. Or it can be based on the total number of backups that you want to retain before the oldest ones are deleted. Or you can set it up by specifying both the time limit and the maximum number of backups that you want to keep. Planning for the retention and deletion of your backups can keep the costs down.
 
-When the backup is triggered at the scheduled interval, a backup copy is created of your volume by the [Snapshot for VPC](/docs/vpc?topic=vpc-snapshots-vpc-about) service. When the first backup snapshot is taken, the entire contents of the volume are copied and retained in {{site.data.keyword.cos_full}}. Subsequent backups of the same volume capture the changes that occurred since the previous backup. You can take up to 750 backups of a volume.
+When the backup is triggered at the scheduled interval, a backup copy is created of your volume by the [Snapshot for VPC](/docs/vpc?topic=vpc-snapshots-vpc-about) service. When the first backup snapshot is taken, the entire contents of the volume are copied and retained in a regional storage repository. Subsequent backups of the same volume capture the changes that occurred since the previous backup. You can take up to 750 backups of a first-generation volume. Second-generation volumes have a backup snapshot limit of 512.
 
 Backup jobs that create or delete backup snapshots run according to the backup plan and the retention policy. You can [view the status of the backup jobs](/docs/vpc?topic=vpc-backup-view-policy-jobs) in the console, from the CLI, with the API, or Terraform. If a job fails, the health status code shows the reason for the failure. You can also set up a connection to {{site.data.keyword.en_short}} and receive notifications to your preferred destinations.
 
@@ -54,7 +54,7 @@ You can copy a Block storage backup snapshot from one region to another region, 
 
 When the backup of a file share is triggered at the scheduled interval, a point-in-time snapshot is taken of your share. When the first backup snapshot is taken, the entire contents of the share are copied and retained in the same location as the share. Subsequent backups of the same volume capture the changes that occurred since the previous backup. You can take up to 750 backups of a share. If a file share has a replica in another zone, its backups are automatically copied to the replica location. However, file share backups cannot be independently copied to other zones or regions. For more information, see [About {{site.data.keyword.filestorage_vpc_short}} snapshots](/docs/vpc?topic=vpc-fs-snapshots-about).  
 
-You can [restore](#backup-service-restore-concepts) data from a backup snapshot to a new, fully provisioned volume. If the backup is of a boot volume, you can use it to provision a new instance. However, when you provision an instance by restoring a boot volume from a bootable backup snapshot, you can expect degraded performance in the beginning. During the restoration process, the data is copied from {{site.data.keyword.cos_full}} to {{site.data.keyword.block_storage_is_short}}, and thus the provisioned IOPS cannot be fully realized until that process finishes.
+You can [restore](#backup-service-restore-concepts) data from a backup snapshot to a new, fully provisioned volume. If the backup is of a boot volume, you can use it to provision a new instance. However, when you provision an instance by restoring a boot volume from a bootable backup snapshot, you can expect degraded performance in the beginning. During the restoration process, the data is copied from the regional storage repository to {{site.data.keyword.block_storage_is_short}}, and thus the provisioned IOPS cannot be fully realized until that process finishes.
 
 With the fast restore feature, you can cache snapshots in a specified zone of your choosing. This way, volumes can be restored from snapshots nearly immediately and the new volumes operate with full IOPS instantly. The fast restore feature can achieve a [recovery time objective](#x3167918){: term} (RTO) quicker than restoring from a regular backup snapshot. When you opt for fast restore, your existing regional plan is adjusted, including billing. The fast restore feature is billed at an extra hourly rate for each zone that it is enabled in regardless of the size of the snapshot. Maintaining fast restore clones is considerably more costly than keeping regular snapshots. The fast restore feature is supported only for individual volume backups, not for consistency group backups.
 
@@ -77,12 +77,14 @@ Backups are in effect, automated snapshots with a retention date. In the console
 | Back up data immediately. | No | No | ![Checkmark icon](../icons/checkmark-icon.svg)| ![Checkmark icon](../icons/checkmark-icon.svg)| No |
 | Data is copied at a specific point in time. | ![Checkmark icon](../icons/checkmark-icon.svg) | ![Checkmark icon](../icons/checkmark-icon.svg) | ![Checkmark icon](../icons/checkmark-icon.svg) | ![Checkmark icon](../icons/checkmark-icon.svg) | ![Checkmark icon](../icons/checkmark-icon.svg) |
 | Set a retention period for automatic deletion. | ![Checkmark icon](../icons/checkmark-icon.svg) | ![Checkmark icon](../icons/checkmark-icon.svg) | No | No | ![Checkmark icon](../icons/checkmark-icon.svg) |
-| Take up to 750 snapshots per volume or share. | ![Checkmark icon](../icons/checkmark-icon.svg) | ![Checkmark icon](../icons/checkmark-icon.svg) | ![Checkmark icon](../icons/checkmark-icon.svg) | ![Checkmark icon](../icons/checkmark-icon.svg) | ![Checkmark icon](../icons/checkmark-icon.svg) |
+| Take up to 750 snapshots per volume¹ or share. | ![Checkmark icon](../icons/checkmark-icon.svg) | ![Checkmark icon](../icons/checkmark-icon.svg) | ![Checkmark icon](../icons/checkmark-icon.svg) | ![Checkmark icon](../icons/checkmark-icon.svg) | ![Checkmark icon](../icons/checkmark-icon.svg) |
 | Fast restore clone | ![Checkmark icon](../icons/checkmark-icon.svg) | ![Checkmark icon](../icons/checkmark-icon.svg) | ![Checkmark icon](../icons/checkmark-icon.svg) | Not supported | Not supported |
 | Cross-regional copy | ![Checkmark icon](../icons/checkmark-icon.svg) | ![Checkmark icon](../icons/checkmark-icon.svg) | ![Checkmark icon](../icons/checkmark-icon.svg) | Not supported | Not supported |
 | Multi-volume consistency groups | ![Checkmark icon](../icons/checkmark-icon.svg) | ![Checkmark icon](../icons/checkmark-icon.svg) | ![Checkmark icon](../icons/checkmark-icon.svg) | N/A | N/A |
 | Costs are based on GBs per month. | ![Checkmark icon](../icons/checkmark-icon.svg) | ![Checkmark icon](../icons/checkmark-icon.svg) | ![Checkmark icon](../icons/checkmark-icon.svg) | ![Checkmark icon](../icons/checkmark-icon.svg) | ![Checkmark icon](../icons/checkmark-icon.svg) |
 {: caption="Comparison of backups and snapshots" caption-side="bottom"}
+
+¹ You can have 750 snapshots of first-generation storage volumes and 512 snapshots of second-generation storage volumes.
   
 ### Benefits of creating backups
 {: #backup-service-benefits}
@@ -116,7 +118,7 @@ In a backup plan, you schedule the frequency of your backups. When you create a 
 In a backup plan, you schedule the frequency of your backups. When you create a plan with [Terraform](/docs/vpc?topic=vpc-create-backup-policy-and-plan&interface=terraform), you can use a `cron` expression to specify the frequency.
 {: terraform}
 
-You can specify the retention period or the total number of backups before the oldest is deleted. The interval for creating a backup and its retention period can be the same or they can be different. The default retention period is 30 days, but you can set the retention period value anywhere between 1 and 1000 days. You can also set the total number of backups to retain up to 750 per volume. When that number is exceeded, the oldest backups are deleted.
+You can specify the retention period or the total number of backups before the oldest is deleted. The interval for creating a backup and its retention period can be the same or they can be different. The default retention period is 30 days, but you can set the retention period value anywhere between 1 and 1000 days. You can also set the total number of backups to retain up to 750 per first-generation volume. The maximum number of backup snapshots for second-generation volumes is 512. When the maximum number is exceeded, the oldest backups are deleted.
 
 If you specify both the age and the number of backups, age takes priority in determining when to delete a snapshot. The count applies only if the oldest snapshot is within the age range.
 
@@ -243,7 +245,7 @@ Backup policy:
 * You can create up to 10 backup policies per account in a region. This quota can't be increased.
 
 Volume backups:
-* You can take a total of 750 backups per volume based on your backup policy, in your account and region. If you exceed this limit, no further backups are taken.
+* You can take a total of 750 backups per Gen 1 volume based on your backup policy, in your account and region. You can take a total of 512 backups per Gen 2 volumes. If you exceed the limit, no further backups are taken.
 * The first backup and the entire volume backup cannot exceed 10 TB if the parent volume is based on a tiered or custom profile.
 * You can't take a backup of a detached volume.
 * You can't create a copy of a backup snapshot in the source (local) region. 
@@ -295,7 +297,7 @@ When you create a [context-based rule](/docs/vpc?topic=vpc-cbr&interface=ui#cbr-
 
 The backup snapshot has the same encryption type and encryption key as the parent volume or share (customer-managed or provider-managed).
 
-Volume backups are stored and retrieved from {{site.data.keyword.cos_full}}. Data is encrypted while in transit and stored in the same region as the original volume.
+Volume backups are stored and retrieved from a regional storage repository. Data is encrypted while in transit and stored in the same region as the original volume.
 
 ### Activity tracking and auditing
 {: #backup-activity-tracker}

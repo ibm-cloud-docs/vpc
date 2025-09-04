@@ -2,7 +2,7 @@
 
 copyright:
   years: 2022, 2025
-lastupdated: "2025-09-02"
+lastupdated: "2025-09-04"
 
 keywords: Block Storage, snapshots, cross-regional copy, fast restore, backup, restore volume
 
@@ -42,7 +42,7 @@ A bootable snapshot is a copy of a boot volume. You can use this snapshot to cre
 {: faq}
 {: #faq-snapshot-fr}
 
-A [fast restore snapshot](/docs/vpc?topic=vpc-snapshots-vpc-restore&interface=ui#snapshots-vpc-use-fast-restore) is a clone of a snapshot that is stored within one or more zones of a VPC region. The original snapshot is stored in {{site.data.keyword.cos_full_notm}}. When you perform a restore, data can be restored faster from a clone than from the snapshot in {{site.data.keyword.cos_short}}.
+A [fast restore snapshot](/docs/vpc?topic=vpc-snapshots-vpc-restore&interface=ui#snapshots-vpc-use-fast-restore) is a clone of a snapshot that is stored within one or more zones of a VPC region. The original snapshot is stored in the regional storage repository. When you perform a restore, data can be restored faster from a clone than from the snapshot in {{site.data.keyword.cos_short}}.
 
 Fast restore snapshot clones and consistency groups are not supported for second-generation storage volumes during the select availability phase.
 {: preview}
@@ -70,21 +70,23 @@ Manually created copies remain in the other region until you delete them.
 {: faq}
 {: #faq-snapshot-3}
 
-You can take up to 750 snapshots per volume in a region. Deleting snapshots from this quota makes space for more snapshots. A snapshot of a volume cannot be greater than 10 TB. Also, consider how your billing is affected when you increase the number of snapshots that you take and retain.
+You can take up to 750 snapshots per first-generation volume in a region. Deleting snapshots from this quota makes space for more snapshots. A snapshot of a first-generation volume cannot be greater than 10 TB. Also, consider how your billing is affected when you increase the number of snapshots that you take and retain.
 
-In the current release, you can create up to 512 manual and backup snapshots of second-generation volumes. You can even create snapshots when the `sdp` volumes are unattached.
+In the current release, you can create up to 512 manual and backup snapshots of second-generation volumes. You can even create snapshots when the `sdp` volumes are unattached.Second-generation volume snapshots can exceed 10 TB.
 
 ## Is there a limit on the size of a volume that I can take a snapshot of?
 {: faq}
 {: #faq-snapshot-4}
 
-The maximum size of a volume is 10 TB. Snapshot creation fails if the volume is over that limit.
+You can create snapshots of first-generation volumes only if they are less than 10 TB. Snapshot creation fails if the first-generation volume is over that limit.
+
+Second-generation volumes have no such limits, you can take snapshots up to 32 TB.
 
 ## How secure are snapshots?
 {: faq}
 {: #faq-snapshot-5}
 
-Snapshots are stored and retrieved from {{site.data.keyword.cos_full_notm}}. Data is encrypted while in transit and stored in the same region as the original volume.
+Snapshots are stored and retrieved from the regional storage repository. Data is encrypted while in transit and stored in the same region as the original volume.
 
 Snapshots retain the encryption from the original volume, IBM-managed or customer-managed.
 
@@ -100,7 +102,7 @@ For best performance, you can enable snapshots for fast restore. By using the fa
 {: faq}
 {: #faq-snapshot-performance}
 
-Performance of boot and data volumes is initially degraded when data is restored from a snapshot. Performance degradation occurs during the restoration because your data is copied from {{site.data.keyword.cos_full}} to {{site.data.keyword.block_storage_is_short}} in the background. After the restoration process is complete, you can realize full IOPS on the new volume.
+Performance of boot and data volumes is initially degraded when data is restored from a snapshot. Performance degradation occurs during the restoration because your data is copied from the regional storage repository to {{site.data.keyword.block_storage_is_short}} in the background. After the restoration process is complete, you can realize full IOPS on the new volume.
 
 Volumes that are restored from fast restore clones do not require hydration. The data is available as soon as the volume is created.
 

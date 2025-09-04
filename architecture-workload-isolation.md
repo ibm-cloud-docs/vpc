@@ -2,7 +2,7 @@
 
 copyright:
   years: 2020, 2025
-lastupdated: "2025-06-27"
+lastupdated: "2025-09-04"
 
 keywords: public isolation for VPC, compute isolation for VPC, VPC architecture, workload isolation in VPC
 
@@ -37,7 +37,7 @@ For more information about network traffic isolation, see [VPC behind the curtai
 | VPC control plane agent services | A small set of VPC control plane agents is deployed across hypervisor nodes in the region. For example, agents are used to create new virtual server instances on the nodes, and to forward logs, metrics, and alerts off the node for use by the broader VPC control plane services. All communication between control plane services occurs over a secure, encrypted network. |
 | VPC control plane data store | Your VPC resources are persisted in a data store that is replicated across all zones in the region. This store contains metadata about these resources only, and does not contain your data. For example, this store contains information about each VPC Image resource, such as its name, CRN, and creation date. However, it does not contain the image data itself, which is hosted on the storage devices. All communication between control plane services and the control plane data store is secure and encrypted. |
 | Block Storage | Each zone of each region contains a set of replicated storage devices, which host the data for your VPC volumes. Your data is always encrypted at rest, and is isolated to your account. In addition, you can use [Customer-managed encryption](/docs/vpc?topic=vpc-vpc-encryption-about) and your own root keys for end-to-end encryption of your boot and data volumes. Regional buckets use {{site.data.keyword.keymanagementserviceshort}} for data encryption at rest. Storage data flows between storage devices and hypervisor nodes only, and does not flow to control nodes.|
-| Snapshots | Snapshots that you create of your volumes are stored in {{site.data.keyword.cos_full}} and available for regional restoration. Your snapshots are protected by using {{site.data.keyword.keymanagementserviceshort}} for data encryption at rest. Snapshot data flows between {{site.data.keyword.cos_short}} and hypervisor nodes only, and does not flow to control nodes. |
+| Snapshots | Snapshots that you create of your first-generation volumes are stored in {{site.data.keyword.cos_full}} and available for regional restoration. Your snapshots are protected by using {{site.data.keyword.keymanagementserviceshort}} for data encryption at rest. Snapshot data flows between {{site.data.keyword.cos_short}} and hypervisor nodes only, and does not flow to control nodes. |
 {: caption="VPC components" caption-side="bottom"}
 
 ## VPC dependencies

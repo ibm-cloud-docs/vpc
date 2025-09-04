@@ -2,7 +2,7 @@
 
 copyright:
   years: 2024, 2025
-lastupdated: "2025-06-27"
+lastupdated: "2025-09-04"
 
 keywords: virtual network interfaces, hazardous change remediation, mitigation
 
@@ -101,7 +101,7 @@ Behavior change
 Behavior change
 :   Flow log collectors can target instance network attachments and virtual network interfaces. Flow logs are collected for a virtual network interface when the interface is bound to an instance network attachment, and the [Cloud Object Storage (COS) naming convention](/docs/vpc?topic=vpc-fl-analyze#flow-log-object-format) for the collected flow logs has the instance network attachment identifier in the `vnic-id` field. Over its lifetime, the virtual network interface may be attached to more than one instance.
 
-:   _Possible failure_: Tooling, audits, or troubleshooting procedures that analyze collected flow logs from COS buckets may fail to correlate the logs with a virtual network interface.
+:   _Possible failure_: Tooling, audits, or troubleshooting procedures that analyze collected flow logs from {{site.data.keyword.cos_full}} buckets may fail to correlate the logs with a virtual network interface.
 
 :   _Mitigation_: Review and update your tooling, auditing, or troubleshooting procedures that create flow log collectors and analyze flow logs. When targeting a virtual network interface with a flow log collector, make sure that your procedures to analyze flow logs take into account that the collector may collect flow logs for more than one instance over the lifetime of the virtual network interface. The identifier of the instance is in the `instance-id` section of the name of the [flow log Object Storage bucket](/docs/vpc?topic=vpc-fl-analyze#flow-log-object-format). Therefore, a new flow log Object Storage bucket is created when the `target` of a virtual network interface is updated by associating the virtual network interface with a new instance.
 

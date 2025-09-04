@@ -2,7 +2,7 @@
 
 copyright:
   years: 2021, 2025
-lastupdated: "2025-09-02"
+lastupdated: "2025-09-04"
 
 keywords: snapshots, Block Storage snapshots, manage snapshots, fast restore clone, backup snapshot, remote copy, cross-regional copy
 
@@ -511,7 +511,7 @@ Use the following steps to create cross-regional copies of snapshots from the Sn
 
 1. In the console, click the **Navigation menu** icon ![menu icon](../icons/icon_hamburger.svg) **> Infrastructure** ![VPC icon](../icons/vpc.svg) **> Storage > Block Storage snapshots**.
 2. In the list of snapshots, find the snapshot that you want to duplicate in another region. Make sure that the snapshot is in Stable status.
-3. click the Actions menu (![Actions menu](images/overflow.png)) and select **Copy snapshot**.
+3. click the Actions menu ![Actions icon](../icons/action-menu-icon.svg "Actions")and select **Copy snapshot**.
 4. Select the region where you want to create the copy.
 
    You can have only one copy per region. If no regions are available for copies, the option Copy Snapshot is disabled.

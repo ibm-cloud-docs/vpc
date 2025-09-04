@@ -2,7 +2,7 @@
 
 copyright:
   years: 2019, 2025
-lastupdated: "2025-09-03"
+lastupdated: "2025-09-04"
 
 keywords:
 
@@ -80,7 +80,7 @@ The page has 3 tabs. By default, the Overview tab is selected for volume details
 | Created date | System-generated date when the volume was created.|
 | Location | Availability zone in your region.|
 | Size | Size of the volume you specified. When the volume is attached to a virtual server instance and the volume is not at maximum capacity for its range, you can click the icon to expand the volume. For more information, see [expanding {{site.data.keyword.block_storage_is_short}} volume capacity (Beta)](/docs/vpc?topic=vpc-expanding-block-storage-volumes). |
-| Profile | [IOPS tier](/docs/vpc?topic=vpc-block-storage-profiles#tiers) or [custom IOPS](/docs/vpc?topic=vpc-block-storage-profiles#custom) profile. Click the icon to [adjust IOPS](/docs/vpc?topic=vpc-adjusting-volume-iops) by selecting a different profile. |
+| Profile | This field shows the [volume profile](/docs/vpc?topic=vpc-block-storage-profiles), [sdp](/docs/vpc?topic=vpc-block-storage-profiles&interface=ui#defined-performance-profile), one of the [IOPS tier](/docs/vpc?topic=vpc-block-storage-profiles#tiers) profiles or [custom IOPS](/docs/vpc?topic=vpc-block-storage-profiles#custom) profile.|
 | Max IOPS | The maximum IOPS value for a predefined IOPS tier or the value you specified for custom IOPS. |
 | Throughput | The field shows the allocated bandwidth of the storage volume, which is measured in Gigabits per second (Gbps). Throughput is calculated as the result of the number of IOPS the volume is provisioned for times the throughput multiplier. Depending on the [volume profile](/docs/vpc?topic=vpc-block-storage-profiles), the throughput multiplier can be 16 KB or 256 KB. For volumes that are created with the `sdp` profile, the throughput value is customizable in the range of 1000-8192 Mbps.|
 | Encryption | Encryption with IBM-managed keys is enabled by default on all volumes. You can also use your own root keys to protect your data. The Encryption field shows the name of the key management service (KMS) you provisioned (for example, {{site.data.keyword.keymanagementserviceshort}}) and **customer-managed**. For more information, see [Creating {{site.data.keyword.block_storage_is_short}} volumes with customer-managed encryption](/docs/vpc?topic=vpc-block-storage-vpc-encryption).|

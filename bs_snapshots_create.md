@@ -2,7 +2,7 @@
 
 copyright:
   years: 2021, 2025
-lastupdated: "2025-09-02"
+lastupdated: "2025-09-04"
 
 keywords: snapshots, Block Storage, snapshot clone, remote copy, fast restore, Block Storage snapshot, cross-regional snapshot
 
@@ -40,7 +40,7 @@ In the console, you can create a snapshot of a {{site.data.keyword.block_storage
    - From the **[Block Storage volumes for VPC](/infrastructure/storage/storageVolumes)** list,
       1. Click the **Navigation menu** icon ![menu icon](../icons/icon_hamburger.svg) **> Infrastructure** ![VPC icon](../icons/vpc.svg) **> Storage > Block Storage volumes**.
       2. From the list of volumes, locate a boot or data volume that is attached to an instance.
-      3. Click the Actions menu (![Actions menu](images/overflow.png)) and select **Create snapshot**.
+      3. Click the Actions menu ![Actions icon](../icons/action-menu-icon.svg "Actions") and select **Create snapshot**.
 
    - From the **Block Storage volume details** screen,
      1. Go to the volume details page in one of these ways.
@@ -90,7 +90,7 @@ In the previous section, you saw how to create a cross-regional snapshot copy wh
 
 1. In the console, click the **Navigation menu** icon ![menu icon](../icons/icon_hamburger.svg) **> Infrastructure** ![VPC icon](../icons/vpc.svg) **> Storage > Block Storage snapshots**.
 1. In the list of snapshots, locate that snapshot that you want to copy. Make sure that the snapshot is in Stable status.
-1. Click the Actions menu (![Actions menu](images/overflow.png)) and select **Copy snapshot**.
+1. Click the Actions menu ![Actions icon](../icons/action-menu-icon.svg "Actions") and select **Copy snapshot**.
 1. Select the region where you want to create the copy.
 
    In the current release, you can't create a cross-regional copy of a second-generation snapshot if it's encrypted with a customer-managed key or if its source volume exceeds 10 TB.

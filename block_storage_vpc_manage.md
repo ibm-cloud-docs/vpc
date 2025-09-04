@@ -2,7 +2,7 @@
 
 copyright:
   years: 2019, 2025
-lastupdated: "2025-09-02"
+lastupdated: "2025-09-04"
 
 keywords: Block storage for VPC, change IOPS, change auto-delete, increase volume, change name, rename volume, delete volume, renaming volume, updating volume
 
@@ -86,6 +86,7 @@ You can change the name of an existing volume to make it more meaningful.
 1. Go to the list of all block storage volumes. In the [{{site.data.keyword.cloud_notm}} console](/login){: external}, click the **Navigation menu** icon ![menu icon](../icons/icon_hamburger.svg) **> Infrastructure** ![VPC icon](../icons/vpc.svg) **> Storage > Block Storage volumes**.
 1. Locate the volume and then click the name of the volume to go to the Volume Details page.
 1. Click the **Edit icon** ![Edit icon](../icons/edit-tagging.svg "Edit") after the name of the volume to edit the name. Provide a valid volume name.
+
    Valid volume names can include a combination of lowercase alpha-numeric characters (a-z, 0-9) and the hyphen (-), up to 63 characters. Volume names must begin with a lowercase letter. Volume names must be unique across the entire VPC infrastructure. For example, if you create two volumes with the same name in the same account and region, a `volume name duplicate` error is triggered.
    {: important}
 

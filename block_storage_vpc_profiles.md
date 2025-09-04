@@ -2,7 +2,7 @@
 
 copyright:
   years: 2019, 2025
-lastupdated: "2025-09-02"
+lastupdated: "2025-09-04"
 
 keywords: Block Storage profiles, Block Storage for VPC, IOPS tiers, custom IOPS, storage performance
 
@@ -157,7 +157,7 @@ You can view available volume profiles by using the {{site.data.keyword.cloud_no
 Customers with special access can create Block Storage volumes with the `sdp` profile.
 {: preview}
 
-As an allow-listed customer, you can see a list of all the available profiles in the Create block storage page, such as the 'sdp' profile, the three `tiered`, and the `custom` profile. When you select one of the tiered profiles, you need to specify the capacity. When you select the custom profile, you need to specify the capacity and an IOPS value that's in the applicable range for your capacity ([Table 3](#custom)). When you select the `sdp` profile, you can specify the capacity and IOPS without any capacity-based range restriction. You can also specify the maximum throughput limit for your volume.
+As an allow-listed customer, you can see a list of all the available profiles in the Create block storage page, such as the `sdp` profile, the three `tiered`, and the `custom` profile. When you select one of the tiered profiles, you need to specify the capacity. When you select the custom profile, you need to specify the capacity and an IOPS value that's in the applicable range for your capacity ([Table 3](#custom)). When you select the `sdp` profile, you can specify the capacity and IOPS without any capacity-based range restriction. You can also specify the maximum throughput limit for your volume.
 
 ### From the CLI
 {: #using-cli-iops-profiles}

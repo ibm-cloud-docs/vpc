@@ -2,7 +2,7 @@
 
 copyright:
   years: 2022, 2025
-lastupdated: "2025-09-02"
+lastupdated: "2025-09-04"
 
 keywords: snapshots, Block Storage, volumes, cross-regional snapshot, restore volume, copy snapshot
 
@@ -32,7 +32,7 @@ A snapshot is a copy of your volume that you take manually in the console or fro
 Do you want to automatically create snapshots of your {{site.data.keyword.block_storage_is_short}} volumes? With Backup for VPC, you can create backup policies to schedule regular volume backups. For more information, see [About Backup for VPC](/docs/vpc?topic=vpc-backup-service-about).
 {: tip}
 
-The first time that you take a snapshot of a volume, all the volume's contents are copied. When you take a second snapshot, it captures only the changes that occurred since the last snapshot was taken. As such, the size of the snapshots can grow or shrink, depending on what is being uploaded to {{site.data.keyword.cos_full}}. The number of snapshots increases with each successive snapshot that you take. You can take up to 750 snapshots for a first-generation volume and 512 snapshots of a second-generation volume. Within these limits, you can take and keep an hourly snapshot for 30 days, plus some extra snapshots. Deleting snapshots from this quota frees up space for more snapshots. A snapshot of a first-generation volume can't be greater than 10 TB. Snapshots greater than 10 TB are supported for second generation volumes.
+The first time that you take a snapshot of a volume, all the volume's contents are copied. When you take a second snapshot, it captures only the changes that occurred since the last snapshot was taken. As such, the size of the snapshots can grow or shrink, depending on what is being uploaded to the regional storage repository. The number of snapshots increases with each successive snapshot that you take. You can take up to 750 snapshots for a first-generation volume and 512 snapshots of a second-generation volume. Within these limits, you can take and keep an hourly snapshot for 30 days, plus some extra snapshots. Deleting snapshots from this quota frees up space for more snapshots. A snapshot of a first-generation volume can't be greater than 10 TB. Snapshots greater than 10 TB are supported for second generation volumes.
 
 You can create a virtual server instance with a boot volume that is initialized from a snapshot. The instance profile of the new instance is not required to match the instance that was used to create the snapshot. You can also import a snapshot of a data volume when you create and attach a data volume to the instance. You can specify user tags for these snapshots.
 
@@ -117,7 +117,7 @@ You can use the members of the snapshot consistency group to restore volumes sep
 
 When you take a snapshot, read and write operations from your virtual server instance to the volume continue uninterrupted. After volume data is retrieved, the snapshot enters a `pending` state until the snapshot is created. When the snapshot is successfully created and in a `stable` state, you can resume volume management activities, such as deleting, resizing, or detaching a volume. You can also take more snapshots.
 
-Volume data that is captured for the requested snapshot is encrypted while in transit from the hypervisor to {{site.data.keyword.cos_full}}. The initial snapshot is the entire copy of your {{site.data.keyword.block_storage_is_short}} volume. Subsequent snapshots copy only what was changed since the last snapshot.
+Volume data that is captured for the requested snapshot is encrypted while in transit from the hypervisor to the regional storage repository. The initial snapshot is the entire copy of your {{site.data.keyword.block_storage_is_short}} volume. Subsequent snapshots copy only what was changed since the last snapshot.
 
 You can [restore](/docs/vpc?topic=vpc-snapshots-vpc-restore) a boot or data volume from a running virtual server instance in the console, CLI, API, or Terraform. Restoring a data from a snapshot creates a new, fully provisioned volume. It does not overwrite data in the snapshot's parent volume.
 
@@ -177,7 +177,7 @@ For more information, see the [best practices for assigning access](/docs/accoun
 ### Encryption at rest and in transit
 {: #bs-snapshot-encryption}
 
-The snapshot has the same encryption type and encryption key as the parent volume (customer-managed or provider-managed). Snapshots are stored and retrieved from {{site.data.keyword.cos_full}}. Data is encrypted while in transit and stored in the same region as the original volume.
+The snapshot has the same encryption type and encryption key as the parent volume (customer-managed or provider-managed). Snapshots are stored and retrieved from the regional storage repository. Data is encrypted while in transit and stored in the same region as the original volume.
 
 ### Managing security and compliance
 {: #snapshots-vpc-manage-security}

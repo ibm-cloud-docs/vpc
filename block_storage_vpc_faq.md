@@ -2,7 +2,7 @@
 
 copyright:
   years: 2019, 2025
-lastupdated: "2025-09-02"
+lastupdated: "2025-09-04"
 
 keywords: faqs, Block Storage for vpc, fast restore, multizone, instance, instance provisioning, volume management, volume deletion.
 
@@ -267,7 +267,7 @@ You can provision up to 300 {{site.data.keyword.block_storage_is_short}} volumes
 
 In the {{site.data.keyword.cloud}}, storage options are limited to an availability zone. Do not try to manage shared storage across multiple zones.
 
-Instead, use an {{site.data.keyword.cloud}} classic service option outside a VPC such as {{site.data.keyword.cos_full}} or {{site.data.keyword.cloudantfull}} if you must share your data across multiple zones and regions.
+Instead, use an {{site.data.keyword.cloud}} classic service option outside a VPC such as the regional storage repository or {{site.data.keyword.cloudantfull}} if you must share your data across multiple zones and regions.
 
 ### I have volumes on the Classic infrastructure. Can I port them to the VPC?
 {: faq}

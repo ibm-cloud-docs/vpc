@@ -2,7 +2,7 @@
 
 copyright:
   years: 2020, 2025
-lastupdated: "2025-06-09"
+lastupdated: "2025-09-04"
 
 keywords: flow logs, delete
 
@@ -19,7 +19,7 @@ You can delete a flow log collector by using the UI, the CLI, or the API.
 **Notes**:
 
 * Any logs that were collected, but weren't sent to {{site.data.keyword.cos_full}} yet, are dropped immediately on deletion. If dropping immediately is a problem, you can suspend the collector instead.
-* Flow logs that were shipped to your COS buckets are not deleted.
+* Flow logs that were shipped to your {{site.data.keyword.cos_full}} buckets are not deleted.
 
 ## Deleting a flow log collector in the console
 {: #fl-deleting-ui}

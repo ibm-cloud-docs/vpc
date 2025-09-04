@@ -2,7 +2,7 @@
 
 copyright:
   years: 2024, 2025
-lastupdated: "2025-08-04"
+lastupdated: "2025-09-04"
 
 keywords: snapshots, File Storage, File Storage snapshot
 
@@ -37,7 +37,7 @@ In the console, you can create a snapshot of a {{site.data.keyword.filestorage_v
    - From the **[File storage share for VPC](/infrastructure/storage/fileShares)** list:
       1. Click the **Navigation menu** icon ![menu icon](../icons/icon_hamburger.svg) **> Infrastructure** ![VPC icon](../icons/vpc.svg) **> Storage > File storage shares**.
       1. From the list of shares, locate the share that you want to snapshot.
-      1. Click the Actions menu (![Actions menu](images/overflow.png)) and select **Create snapshot**.
+      1. Click the Actions menu ![Actions icon](../icons/action-menu-icon.svg "Actions") and select **Create snapshot**.
 
    - From the **File storage share details** screen:
       1. Click the **Navigation menu** icon ![menu icon](../icons/icon_hamburger.svg) **> Infrastructure** ![VPC icon](../icons/vpc.svg) **> Storage > File storage shares**. From the list of File storage shares, select the share that you want to make a snapshot of.

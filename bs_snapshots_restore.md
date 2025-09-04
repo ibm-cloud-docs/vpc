@@ -2,7 +2,7 @@
 
 copyright:
   years: 2021, 2025
-lastupdated: "2025-09-02"
+lastupdated: "2025-09-04"
 
 keywords:
 
@@ -60,7 +60,7 @@ First- and second-generation volume profiles are not interchangeable. You can us
 ### Performance impact
 {: #snapshots-performance-considerations}
 
-The performance of boot and data volumes is initially degraded when data is restored from a snapshot. Performance degradation occurs during the restoration because your data is copied from {{site.data.keyword.cos_full}} to {{site.data.keyword.block_storage_is_short}} in the background.
+The performance of boot and data volumes is initially degraded when data is restored from a snapshot. Performance degradation occurs during the restoration because your data is copied from the regional storage repository to {{site.data.keyword.block_storage_is_short}} in the background.
 
 At first, the restored volume appears as _pending_ or _degraded_, and the service begins pulling data from the snapshot that is stored in {{site.data.keyword.cos_short}}. While the data is copied over, the volume's health state is monitored by the volume resource. During the hydration process, you can attach the volume to a virtual server or detach it. After the restoration process is complete, you can realize full IOPS on the new volume.
 
@@ -93,8 +93,8 @@ From the list of {{site.data.keyword.block_storage_is_short}} snapshots, you can
 
    * For a **stand-alone data volume**, leave **Attach volume to virtual server** clear.
 
-   Use this option when you're not sure which virtual server instance you want to attach the volume to.
-   {: tip}
+     Use this option when you're not sure which virtual server instance you want to attach the volume to.
+     {: tip}
 
    * To attach the volume to an existing instance, select **Attach volume to virtual server**. Click **Attach new volume to an existing virtual server**. Then, select the virtual server instance that you want to attach the volume to. You can filter the list of available servers by zone.
    * To restore a volume and use it to provision a virtual server instance, select **Attach volume to virtual server**, and click **Attach new volume to a new virtual server**. Then, click **Configure virtual server**. This action takes you to the [virtual server provisioning page](/docs/vpc?topic=vpc-creating-virtual-servers&interface=ui#creating-virtual-servers-ui).
@@ -106,7 +106,7 @@ From the list of {{site.data.keyword.block_storage_is_short}} snapshots, you can
 
     | Field | Description |
     |-------|-------------|
-    | **Volume details** | Define the new volume. |
+    | **Details** | Define the new volume. |
     | Name | Enter a name for the new volume. |
     | Resource group | Use the defaults or select from the list. |
     | Zone | Inherited from the snapshot. Change it to another zone in your region if you want to. |
