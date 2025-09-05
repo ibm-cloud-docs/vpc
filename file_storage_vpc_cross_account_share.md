@@ -2,7 +2,7 @@
 
 copyright:
   years: 2024, 2025
-lastupdated: "2025-07-28"
+lastupdated: "2025-09-05"
 
 keywords: file share, file storage, accessor share, cross-account share
 
@@ -87,7 +87,11 @@ ibmcloud is share-create --name my-accessor-share --origin-share CRN
 {: pre}
 
 ```sh
-$ ibmcloud is share-create --name my-accessor-share --origin-share crn:v1:bluemix:public:is:us-south-2:a/7654321::share:r006-d73v40a6-e08f-4d07-99e1-d28cbf2188ed
+ibmcloud is share-create --name my-accessor-share --origin-share crn:v1:bluemix:public:is:us-south-2:a/7654321::share:r006-d73v40a6-e08f-4d07-99e1-d28cbf2188ed
+```
+{: pre}
+
+```sh
 Creating file share my-file-share under account Test Account as user test.user@ibm.com...
 
 ID                               r006-b696742a-92ee-4f6a-bfd7-921d6ddf8fa6
@@ -139,7 +143,11 @@ Lastly, you must specify values for the options that are needed to create a [vir
 The following example creates a mount target with a virtual network interface for a file share that has security group access mode.
 
 ```sh
-$ ibmcloud is share-mount-target-create my-accessor-share --subnet my-subnet --name my-cli-share-mount-target-1 --vni-name my-share-vni-1  --vni-sgs my-sg --resource-group-name Default --vpc my-vpc
+ibmcloud is share-mount-target-create my-accessor-share --subnet my-subnet --name my-cli-share-mount-target-1 --vni-name my-share-vni-1  --vni-sgs my-sg --resource-group-name Default --vpc my-vpc
+```
+{: pre}
+
+```sh
 Mounting target for share r006-b696742a-92ee-4f6a-bfd7-921d6ddf8fa6 under account Test Account as user test.user@ibm.com...
 
 ID                          r006-dd497561-c7c9-4dfb-af0a-c84eeee78b61
@@ -169,8 +177,12 @@ You can create an accessor share with one or more mount targets in one step by u
 The following example shows how to create an accessor share with mount target.
 
 ```sh
-$ ibmcloud is share-create --name my-new-accessor-share --origin-share crn:v1:bluemix:public:is:us-south-2:a/7654321::share:r006-d73v40a6-e08f-4d07-99e1-d28cbf2188ed --mount-targets '
+ibmcloud is share-create --name my-new-accessor-share --origin-share crn:v1:bluemix:public:is:us-south-2:a/7654321::share:r006-d73v40a6-e08f-4d07-99e1-d28cbf2188ed --mount-targets '
 >[{"name":"my-new-mount-target","virtual_network_interface": {"name":"my-vni","subnet": {"id":"r006-298acd6c-e71e-4204-a04f-fe4a4dd89805"}}}]'
+```
+{: pre}
+
+```sh
 Creating file share my-new-file-share under account Test Account as user test.user@ibm.com...
 
 ID                               r006-925214bc-ded5-4626-9d8e-bc4e2e579232

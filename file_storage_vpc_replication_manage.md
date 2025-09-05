@@ -2,7 +2,7 @@
 
 copyright:
   years: 2022, 2025
-lastupdated: "2025-07-08"
+lastupdated: "2025-09-05"
 
 keywords: VPC File Storage, file for VPC, NSF, replica, file share, replication, schedule
 
@@ -150,7 +150,11 @@ Before you can use the CLI, you must install the IBM Cloud CLI and the VPC CLI p
 1. Locate your share from the CLI by listing your file shares in the region with the `ibmcloud is shares` command.
 
    ```sh
-   $ ibmcloud is shares
+   ibmcloud is shares
+   ```
+   {: pre}
+
+   ```sh
    Listing shares in all resource groups and region us-south under account Test Account as user test.user@ibm.com...
    ID                                          Name                    Lifecycle state   Zone         Profile   Size(GB)   Resource group  Replication role   Accessor binding role   Snapshot count   Snapshot size   
    r006-2a10af45-de9e-4894-8e9e-fd01a25ec529   my-replica-file-share   stable            us-south-1   dp2       101        Default         replica            none                    0                0   
@@ -163,7 +167,11 @@ Before you can use the CLI, you must install the IBM Cloud CLI and the VPC CLI p
 1. View the details of the file share that you want to modify with the `ibmcloud is share` command.
 
    ```sh
-   $ ibmcloud is share my-file-share
+   ibmcloud is share my-file-share
+   ```
+   {: pre}
+
+   ```sh
    Getting file share my-file-share under account Test Account as user test.user@ibm.com...
 
    ID                           r006-b696742a-92ee-4f6a-bfd7-921d6ddf8fa6
@@ -204,18 +212,26 @@ Before you can use the CLI, you must install the IBM Cloud CLI and the VPC CLI p
 1. Run the `ibmcloud is share-replica-split` command and specify the replica file share by its name or ID.
 
    ```sh
-   $ ibmcloud is share-replica-split r006-6d1719da-f790-45cc-9f68-896fd5673a1a
+   ibmcloud is share-replica-split r006-6d1719da-f790-45cc-9f68-896fd5673a1a
+   ```
+   {: pre}
+
+   ```sh
    This will disassociate a replica file share r006-6d1719da-f790-45cc-9f68-896fd5673a1a from its source file share and cannot be undone. Continue [y/N] ?> y
    The request to disassociate a replica file share r006-6d1719da-f790-45cc-9f68-896fd5673a1a from its source file share was accepted, under account Test Accouont as user test.user@ibm.com...
    OK
    Replica File share r006-6d1719da-f790-45cc-9f68-896fd5673a1a is disassociated.
    ```
-   {: codeblock}
+   {: screen}
 
 1. The result of this operation is two independent read/write file shares. When you list the file shares in the region, you can see `none` in the replication column for the two file shares.
 
    ```sh
-   $ ibmcloud is shares
+   ibmcloud is shares
+   ```
+   {: pre}
+
+   ```sh
    Listing shares in all resource groups and region us-south under account Test Account as user test.user@ibm.com...
    ID                                          Name                    Lifecycle state   Zone         Profile   Size(GB)   Resource group   Replication role
    r006-dc6a644d-c7da-4c91-acf0-d66b47fc8516   my-replica-file-share   stable            us-south-1   dp2       1500       Default          replica

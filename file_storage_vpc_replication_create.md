@@ -2,7 +2,7 @@
 
 copyright:
   years: 2022, 2025
-lastupdated: "2025-08-01"
+lastupdated: "2025-09-05"
 
 keywords: file share, file storage, source volume, replica share, 
 
@@ -117,7 +117,11 @@ When you use the `ibmcloud is share-create` command to create your share, you ca
 In the following example, a share `my-source-file-share` is created in `us-south-2` with a replica file share `my-replica-file-share` in `us-south-1`. In this example, only one mount target is created for the source file share. You could also create a mount target for the replica share by using the same JSON syntax with the `--replica-share-mount-targets` option.
 
 ```sh
-$ ibmcloud is share-create --name my-source-file-share --zone us-south-2 --profile dp2 --size 1500 --iops 2000  --user-tags env:dev --mount-targets '[{"name":"my-source-mount-target","virtual_network_interface": {"name":"my-source-vni","subnet": {"id":"0717-c66032c9-048d-4c35-aa83-c932e24afdbb"}}}]' --replica-share-name my-replica-file-share --replica-share-profile dp2 --replica-share-cron-spec '55 09 * * *' --replica-share-zone us-south-1
+ibmcloud is share-create --name my-source-file-share --zone us-south-2 --profile dp2 --size 1500 --iops 2000  --user-tags env:dev --mount-targets '[{"name":"my-source-mount-target","virtual_network_interface": {"name":"my-source-vni","subnet": {"id":"0717-c66032c9-048d-4c35-aa83-c932e24afdbb"}}}]' --replica-share-name my-replica-file-share --replica-share-profile dp2 --replica-share-cron-spec '55 09 * * *' --replica-share-zone us-south-1
+```
+{: pre}
+
+```sh
 Creating file share my-source-file-share under account Test Account as user test.user@ibm.com...
                                 
 ID                                 r006-0a3444bc-df55-4c2e-aef4-f37a9a8d8262   
@@ -159,7 +163,11 @@ Source snapshot                    -
 
 1. Locate your source file share from the CLI by listing your file shares in the region with the `ibmcloud is shares` command.
    ```sh
-   $ ibmcloud is shares
+   ibmcloud is shares
+   ```
+   {: pre}
+
+   ```sh
    Listing shares in all resource groups and region us-south under account Test Account as user test.user@ibm.com...
    ID                                          Name                    Lifecycle state   Zone         Profile   Size(GB)   Resource group   Replication role   Accessor binding role   Snapshot count   Snapshot size   
    r006-a8d6af48-0c97-4c6b-bab1-fbefdc1e1e03   my-file-share           stable            us-south-2   dp2       10         defaults         none               none                    0                0   
@@ -174,7 +182,11 @@ Source snapshot                    -
 1. View the details of the file share that you want to use as your source with the `ibmcloud is share` command. You can use the share's name or ID when you create a replica in the same region. If you create the replica in another region, take note of the CRN of the source file share.
    
    ```sh
-   $ ibmcloud is share my-file-share
+   ibmcloud is share my-file-share
+   ```
+   {: pre}
+
+   ```sh
    Getting file share my-file-share under account Test Account as user test.user@ibm.com...
                                 
    ID                           r006-b696742a-92ee-4f6a-bfd7-921d6ddf8fa6   
@@ -212,6 +224,10 @@ Source snapshot                    -
 
    ```sh
    ibmcloud is share-replica-create --name my-replica-share --zone us-south-3 --profile dp2 --replication-cron-spec '10 05 * * *' --source-share my-file-share
+   ```
+   {: pre}
+
+   ```sh
    Creating replica file share my-replica-share under account Test Account as user test.user@ibm.com...
                                 
    ID                               r006-6d1719da-f790-45cc-9f68-896fd5673a1a   
@@ -255,6 +271,10 @@ When you create a replica of a file share in another region, you must use the CR
 
    ```sh
    ibmcloud is share-replica-create --name my-replica-share --zone us-east-1 --profile dp2 --replication-cron-spec '5 * * * *' --source-share crn:v1:bluemix:public:is:us-south-1:a/a1234567::share:r006-d8c8821c-a227-451d-a9ed-0c0cd2358829 --encryption-key crn:v1:bluemix:public:kms:us-south:a/a1234567:1be45161-6dae-44ca-b248-837f98004057:key:3dd21cc5-cc20-4f7c-bc62-8ec9a8a3d1bd
+   ```
+   {: pre}
+
+   ```sh
    Creating replica file share my-cross-regional-replica-share under account Test Account as user test.user@ibm.com...
                                 
    ID                               r006-6d1719da-g687-45ac-9f68-896fd76843a1b    

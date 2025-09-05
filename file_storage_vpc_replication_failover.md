@@ -2,7 +2,7 @@
 
 copyright:
   years: 2022, 2025
-lastupdated: "2025-07-08"
+lastupdated: "2025-09-05"
 
 keywords: file storage, file share, replication, replica, source share, failover, 
 
@@ -97,7 +97,11 @@ Before you can use the CLI, you must install the IBM Cloud CLI and the VPC CLI p
 1. Locate the replica file share that you want to fail over to by listing all file shares in the region with the `ibmcloud is shares` command
 
    ```sh
-   $ ibmcloud is shares
+   ibmcloud is shares
+   ```
+   {: pre}
+
+   ```sh
    Listing shares in all resource groups and region us-south under account Test Account as user test.user@ibm.com...
    ID                                          Name                    Lifecycle state   Zone         Profile   Size(GB)   Resource group   Replication role   Accessor binding role   Snapshot count   Snapshot size   
    r006-a8d6af48-0c97-4c6b-bab1-fbefdc1e1e03   my-file-share           stable            us-south-2   dp2       10         defaults         none               none                    0                0   
@@ -115,7 +119,11 @@ Before you can use the CLI, you must install the IBM Cloud CLI and the VPC CLI p
    * The following example specifies `fail` for the `fallback-policy` property. If the failover operation fails or the timeout is reached, the failover operation is unsuccessful. The source share remains active and the replication resumes as scheduled.
 
    ```sh
-   $ ibmcloud is share-replica-failover r006-a60bfa90-a893-40ad-be34-28ab51a963f9 --fallback-policy fail
+   ibmcloud is share-replica-failover r006-a60bfa90-a893-40ad-be34-28ab51a963f9 --fallback-policy fail
+   ```
+   {: pre}
+
+   ```sh
    The file share r006-a60bfa90-a893-40ad-be34-28ab51a963f9 failover request was accepted under account Test Account as user test.user@ibm.com...
    The file share failover request was accepted.
    ```
@@ -125,6 +133,10 @@ Before you can use the CLI, you must install the IBM Cloud CLI and the VPC CLI p
 
    ```sh
    ibmcloud is share-replica-failover my-source-share-dal-2 --fallback-policy split
+   ```
+   {: pre}
+
+   ```sh
    The file share r006-4dadac27-cd17-42df-a5fe-1388705d33e0 failover request was accepted under account Test Account as user test.user@ibm.com...
    The file share failover request was accepted.
    ```

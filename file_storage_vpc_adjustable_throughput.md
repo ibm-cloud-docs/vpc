@@ -59,11 +59,11 @@ ibmcloud is share-update share_ID --bandwidth BANDWIDTH
 This example shows an increase of the bandwidth limit to 3,000 Mbps. (The preset bandwidth value of a 1000 GB file share is 400 Mbps.)
 
 ```sh
-$ ibmcloud is share-update my-file-share --bandwidth 2000
+ibmcloud is share-update my-file-share --bandwidth 2000
 ```
 {: pre}
 
-```
+```sh
 Updating file share my-file-share under account Test Account as user test.user@ibm.com...
 
    ID                                 r006-b696742a-92ee-4f6a-bfd7-921d6ddf8fa6

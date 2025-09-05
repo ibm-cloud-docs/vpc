@@ -158,7 +158,7 @@ Before you run the `ibmcloud is share-create` command, you can gather informatio
 You can use the `ibmcloud is share-create` command to provision a zonal file share in your selected zone with the `dp2` profile, with your specific capacity and IOPS values. The following example shows how to create 1000-GB file share with 1000 IOPS in the us-south-2 zone. This file share is created with the default security group access mode and with provider-managed encryption.
 
 ```sh
-$ ibmcloud is share-create --name my-file-share --zone us-south-1 --profile dp2 --size 40 --iops 100
+ibmcloud is share-create --name my-file-share --zone us-south-1 --profile dp2 --size 40 --iops 100
 ```
 {: pre}
 
@@ -200,9 +200,16 @@ Source snapshot                    -
 Then, you can use the same command to create the zonal file share. The response shows `ipsec` instead of `user_managed` as allowed value for the transit encryption. The response also shows the `Allowed Access Protocols`, `Availability Mode`, `Bandwidth`, and `Storage Generation` properties.
 
 ```sh
-$ export IBMCLOUD_IS_FEATURE_SHARE_DENALI_REGIONAL_AVAILABILITY=true
-$ ibmcloud is share-create --name my-file-share --zone us-south-1 --profile dp2 --size 40 --iops 100 --allowed-access-protocols nfs4 --atem ipsec,none
+export IBMCLOUD_IS_FEATURE_SHARE_DENALI_REGIONAL_AVAILABILITY=true
+```
+{: pre}
 
+```sh
+ibmcloud is share-create --name my-file-share --zone us-south-1 --profile dp2 --size 40 --iops 100 --allowed-access-protocols nfs4 --atem ipsec,none
+```
+{: pre}
+
+```sh
 Creating file share my-file-share under account Test Account as user test.user@ibm.com...
                                       
 ID                                 r006-a08c2505-b933-4dce-a771-efff2e1a59e1   
@@ -242,7 +249,11 @@ Storage Generation                 1
 Security group access mode is the default and recommended setting. However, you can choose to create a file share with the VPC access mode that allows every Compute host in the VPC to mount the file share. See the following example.
 
 ```sh
-$ ibmcloud is share-create --name my-vpc-file-share --zone us-south-2 --profile dp2 --size 1000 --iops 500 --access-control-mode vpc
+ibmcloud is share-create --name my-vpc-file-share --zone us-south-2 --profile dp2 --size 1000 --iops 500 --access-control-mode vpc
+```
+{: pre}
+
+```sh
 Creating file share my-vpc-file-share under account Test Account as user test.user@ibm.com...
                                 
 ID                                 r006-83100dcb-24d8-45a6-91f3-256e5c17233f       
@@ -292,9 +303,12 @@ The CLI returns the properties for "Allowed Access Protocols", "Availability Mod
 The following example shows how to create 40-GB regional file share with 125 Mbps bandwidth. This file share is created with security group access mode and with provider-managed encryption. The file share is created in the region that you selected when you logged in, no location selection is required.
 
 ```sh
-$ ibmcloud is share-create --name my-regional-file-share --profile rfs --size 40 --bandwidth 125 --allowed-access-protocols nfs4 --atem stunnel,none 
+ibmcloud is share-create --name my-regional-file-share --profile rfs --size 40 --bandwidth 125 --allowed-access-protocols nfs4 --atem stunnel,none
+```
+{: pre}
+
+```sh
 Creating file share my-regional-file-share under account Test Account as user test.user@ibm.com...
-                                
                                       
 ID                                 r006-749d05eb-9779-4414-b902-553a4fd1421d   
 Name                               my-regional-file-share   
@@ -347,7 +361,11 @@ Lastly, you must specify values for the options that are needed to create a [vir
 The following example creates a mount target with a virtual network interface for a file share that has security group access mode.
 
 ```sh
-$ ibmcloud is share-mount-target-create my-file-share --subnet my-subnet --name my-cli-share-mount-target-1 --vni-name my-share-vni-1  --resource-group-id 6edefe513d934fdd872e78ee6a8e73ef  --access-protocol nfs4 --transit-encryption none --vpc my-vpc
+ibmcloud is share-mount-target-create my-file-share --subnet my-subnet --name my-cli-share-mount-target-1 --vni-name my-share-vni-1  --resource-group-id 6edefe513d934fdd872e78ee6a8e73ef  --access-protocol nfs4 --transit-encryption none --vpc my-vpc
+```
+{: pre}
+
+```sh
 Mounting target for share r006-b696742a-92ee-4f6a-bfd7-921d6ddf8fa6 under account Test Account as user test.user@ibm.com...
                                
 ID                          r006-72c81658-35ae-40b7-abab-8480e5050857   
@@ -370,8 +388,11 @@ Created                     2025-08-01T20:28:50+00:0
 [Beta]{: tag-cyan} When the same command is used to create a mount target for a regional file share, the output looks very similar. The `Access Protocol` property is also shown.
 
 ```sh
-$ ibmcloud is share-mount-target-create my-regional-file-share --subnet my-subnet --name my-regional-share-mount-target-1 --vni-name my-share-vni-2  --resource-group-id 6edefe513d934fdd872e78ee6a8e73ef  --access-protocol nfs4 --transit-encryption none --vpc my-vpc
+ibmcloud is share-mount-target-create my-regional-file-share --subnet my-subnet --name my-regional-share-mount-target-1 --vni-name my-share-vni-2  --resource-group-id 6edefe513d934fdd872e78ee6a8e73ef  --access-protocol nfs4 --transit-encryption none --vpc my-vpc
+```
+{: pre}
 
+```sh
 Mounting target for share r006-749d05eb-9779-4414-b902-553a4fd1421d under account Test Account as user test.user@ibm.com...
 
 ID                          r006-bc95a3c2-b84b-4186-8c5a-e3dd220abefa   
@@ -395,7 +416,11 @@ Access Protocol             nfs4
 The following example creates a mount target for a zonal file share that has VPC access mode.
 
 ```sh
-$ ibmcloud is share-mount-target-create my-vpc-file-share --vpc cli-vpc-3 --name my-vpc-mount-target --access-protocol nfs4 --transit-encryption none
+ibmcloud is share-mount-target-create my-vpc-file-share --vpc cli-vpc-3 --name my-vpc-mount-target --access-protocol nfs4 --transit-encryption none
+```
+{: pre}
+
+```sh
 Mounting target for share r006-10e82e16-ff7f-4ca4-b543-d24084fc03cf under account Test Account as user test.user@ibm.com...
                          
 ID                        r006-71fd953c-8e49-48e8-ab49-5977c324a365   
@@ -423,8 +448,11 @@ You can create a file share with one or more mount targets in one step by using 
 The following example shows how to create a zonal file share with 40 GB capacity and 100 IOPS in the `us-south-1` zone. The file share is tagged with `env:dev` and has security group access control mode. The file share can be mounted on authorized virtual servers by using the mount target `my-target1`.
 
 ```sh
-$ ibmcloud is share-create --name my-new-file-share --zone us-south-2 --profile dp2 --size 500 --iops 2000 --allowed-transit-encryption-modes user_managed,none --user-tags env:dev --mount-targets '[{"name":"my-new-mount-target","virtual_network_interface": {"name":"my-vni","subnet": {"id":"0717-c66032c9-048d-4c35-aa83-c932e24afdbb"}}}]'
+ibmcloud is share-create --name my-new-file-share --zone us-south-2 --profile dp2 --size 500 --iops 2000 --allowed-transit-encryption-modes user_managed,none --user-tags env:dev --mount-targets '[{"name":"my-new-mount-target","virtual_network_interface": {"name":"my-vni","subnet": {"id":"0717-c66032c9-048d-4c35-aa83-c932e24afdbb"}}}]'
+```
+{: pre}
 
+```sh
 Creating file share my-new-file-share under account Test Account as user test.user@ibm.com...
                                 
 ID                                 r006-201487a2-cf35-4b2a-a4fe-f480803e1e80   
@@ -461,7 +489,11 @@ Source snapshot                    -
 [Beta]{: beta} The following example shows how you can create a regional file share with a mount target from the CLI. Before you run the command, make sure that you set the environmental variable to `true`. Note that while the command specifies a low bandwidth value, the system auto-corrects the configuration to provide at least 1 Mbps for every 20 GB of capacity.
 
 ```sh
-$ $ ibmcloud is share-create --name my-regional-file-share --profile rfs --size 5000 --bandwidth 125 --allowed-access-protocols nfs4 --atem stunnel --mount-targets '[{"name":"my-new-mount-target","virtual_network_interface": {"name":"my-regional-vni","subnet": {"id":"0717-c66032c9-048d-4c35-aa83-c932e24afdbb"}}}]'
+ibmcloud is share-create --name my-regional-file-share --profile rfs --size 5000 --bandwidth 125 --allowed-access-protocols nfs4 --atem stunnel --mount-targets '[{"name":"my-new-mount-target","virtual_network_interface": {"name":"my-regional-vni","subnet": {"id":"0717-c66032c9-048d-4c35-aa83-c932e24afdbb"}}}]'
+```
+{: pre}
+
+```sh
 Creating file share my-regional-file-share under account under account Test Account as user test.user@ibm.com...
                                       
 ID                                 r006-770ff2f9-3211-459d-918b-fbf0b4a4f999   
@@ -501,7 +533,11 @@ Storage Generation                 2
 The following example creates a file share with VPC access mode and a mount target that can be used by any virtual server instance within the VPC.
 
 ```sh
-$ ibmcloud is share-create --name my-file-share-8 --zone us-south-1 --profile dp2 --size 40 --iops 2000 --user-tags env:dev --mount-targets '[{"name": "my-new-mount-target","vpc": {"name": "my-vpc"}}]'
+ibmcloud is share-create --name my-file-share-8 --zone us-south-1 --profile dp2 --size 40 --iops 2000 --user-tags env:dev --mount-targets '[{"name": "my-new-mount-target","vpc": {"name": "my-vpc"}}]'
+```
+{: pre}
+
+```sh
 Creating file share my-file-share-8 under account Test Account as user test.user@ibm.com...
 
 ID                           r006-95ec87ba-c5fd-4178-a114-2a55c4d907d4   
@@ -593,7 +629,11 @@ Table 1 shows UID and GID values that you can set and values that are reserved.
 To set supplemental IDs when you create a share, run the `ibmcloud is share-create` command and specify the `--initial-owner-gid` and `--initial-owner-gid` properties with the supplemental IDs. See the following example.
 
 ```sh
-$ ibmcloud is share-create --name my-file-share --zone us-south-2 --profile dp2 --size 1000 --iops 1000 --initial-owner-gid 101 --initial-owner-uid 10001
+ibmcloud is share-create --name my-file-share --zone us-south-2 --profile dp2 --size 1000 --iops 1000 --initial-owner-gid 101 --initial-owner-uid 10001
+```
+{: pre}
+
+```sh
 Creating file share my-file-share under account Test Account as user test.user@ibm.com...
                                 
 ID                                 r006-bc73917f-b86e-4f6d-b919-6997a88c8031   
@@ -629,7 +669,11 @@ Source snapshot                    -
 [Beta]{: tag-cyan} When the `IBMCLOUD_IS_FEATURE_SHARE_DENALI_REGIONAL_AVAILABILITY` variable is set to `true`, the same command produces a slightly different response.
 
 ```sh
-$ ibmcloud is share-create --name my-file-share --zone us-south-2 --profile dp2 --size 1000 --iops 1000 --initial-owner-gid 101 --initial-owner-uid 10001
+ibmcloud is share-create --name my-file-share --zone us-south-2 --profile dp2 --size 1000 --iops 1000 --initial-owner-gid 101 --initial-owner-uid 10001
+```
+{: pre}
+
+```sh
 Creating file share my-file-share under account Test Account as user test.user@ibm.com...
 
 ID                                 r006-bc73917f-b86e-4f6d-b919-6997a88c8031   

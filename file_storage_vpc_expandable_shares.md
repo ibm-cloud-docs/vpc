@@ -2,7 +2,7 @@
 
 copyright:
   years: 2022, 2025
-lastupdated: "2025-08-18"
+lastupdated: "2025-09-05"
 
 keywords: file share, file storage, increase capacity, expand capacity, expand share size, file share size
 
@@ -95,7 +95,11 @@ To increase the capacity of a file share from the CLI, use the `share-update` co
 1. Locate your share from the CLI by listing your file shares in the region with the `ibmcloud is shares` command.
 
    ```sh
-   $ ibmcloud is shares
+   ibmcloud is shares
+   ```
+   {: pre}
+
+   ```sh
    Listing shares in all resource groups and region us-south under account Test Account as user test.user@ibm.com...
    ID                                          Name                    Lifecycle state   Zone         Profile   Size(GB)   Resource group   Replication role   Accessor binding role   Snapshot count   Snapshot size   
    r006-a8d6af48-0c97-4c6b-bab1-fbefdc1e1e03   my-file-share           stable            us-south-2   dp2       10         defaults         none               none                    0                0   
@@ -110,7 +114,11 @@ To increase the capacity of a file share from the CLI, use the `share-update` co
 1. View the details of the file share that you want to modify with the `ibmcloud is share` command.
 
   ```sh
-   $ ibmcloud is share my-file-share
+   ibmcloud is share my-file-share
+   ```
+   {: pre}
+
+   ```sh
    Getting file share my-file-share under account Test Account as user test.user@ibm.com...
                                 
    ID                           r006-b696742a-92ee-4f6a-bfd7-921d6ddf8fa6   
@@ -145,7 +153,12 @@ To increase the capacity of a file share from the CLI, use the `share-update` co
 
 1. Run the `ibmcloud is share-update` command to increase the capacity of your file share.
    
-   ```ibmcloud is share-update my-file-share --size 1500
+   ```sh
+   ibmcloud is share-update my-file-share --size 1500
+   ```
+   {: pre}
+
+   ```sh
    Updating file share my-file-share under account Test Account as user test.user@ibm.com...
                                 
    ID                           r006-b696742a-92ee-4f6a-bfd7-921d6ddf8fa6   

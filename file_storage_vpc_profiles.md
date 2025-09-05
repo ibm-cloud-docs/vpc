@@ -2,7 +2,7 @@
 
 copyright:
   years: 2021, 2025
-lastupdated: "2025-08-18"
+lastupdated: "2025-09-05"
 
 keywords: file storage, file share, performance, IOPS, block size, capacity, range
 
@@ -168,7 +168,11 @@ When you [create a file share in the console](/docs/vpc?topic=vpc-file-storage-c
 To view the list of available profiles from the CLI, run the `ibmcloud is share-profiles` command.
 
 ```sh
-$ ibmcloud is share-profiles
+ibmcloud is share-profiles
+```
+{: pre}
+
+```sh
 Listing file share profiles in region us-south under account Test Account as user test.user@ibm.com...
 Name   Family   
 dp2    defined_performance   
@@ -178,7 +182,11 @@ dp2    defined_performance
 [Beta]{: tag-cyan} Customers with special access to preview the new regional file share offering, can also list the `rfs` profile with the same command.
 
 ```sh
-$ ibmcloud is share-profiles
+ibmcloud is share-profiles
+```
+{: pre}
+
+```sh
 Listing file share profiles in region us-south under account Test Account as user test.user@ibm.com...
 Name   Family   
 dp2    defined_performance   
@@ -191,7 +199,11 @@ For more information about the command options, see [`ibmcloud is share-profiles
 To see the details of the share profile, use the `ibmcloud is share-profile` command and specify the name of the profile. See the following example.
 
 ```sh
-$ ibmcloud is share-profile dp2
+ibmcloud is share-profile dp2
+```
+{: pre}
+
+```sh
 Getting file share profile dp2 under account Test Account as user test.user@ibm.com...
 
 Name       dp2   
@@ -205,7 +217,11 @@ Capacity   Default   Max     Min   Step   Type
 {: screen}
 
 ```sh
-$ ibmcloud is share-profile rfs
+ibmcloud is share-profile rfs
+```
+{: pre}
+
+```sh
 Getting file share profile rfs in region us-south under account Test Account as user test.user@ibm.com...
 Name                               rfs   
 Family                             defined_performance   

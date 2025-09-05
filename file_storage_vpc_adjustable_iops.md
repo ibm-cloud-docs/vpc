@@ -106,7 +106,7 @@ Before you can use the CLI, you must install the IBM Cloud CLI and the VPC CLI p
 1. Locate your share from the CLI by listing your file shares in the region with the `ibmcloud is shares` command.
 
    ```sh
-   $ ibmcloud is shares
+   ibmcloud is shares
    ```
    {: pre}
 
@@ -126,11 +126,11 @@ Before you can use the CLI, you must install the IBM Cloud CLI and the VPC CLI p
 1. View the details of the file share that you want to modify with the `ibmcloud is share` command.
 
    ```sh
-   $ ibmcloud is share my-file-share
+   ibmcloud is share my-file-share
    ```
    {: pre}
 
-   ```
+   ```sh
    Getting file share my-file-share under account Test Account as user test.user@ibm.com...
                                 
    ID                           r006-b696742a-92ee-4f6a-bfd7-921d6ddf8fa6   
@@ -166,11 +166,11 @@ Before you can use the CLI, you must install the IBM Cloud CLI and the VPC CLI p
 1. Use the `ibmcloud is share-update` command to increase or decrease the IOPS of your file share.
 
    ```sh
-   $ ibmcloud is share-update my-file-share --iops 2000
+   ibmcloud is share-update my-file-share --iops 2000
    ```
    {: pre}
 
-   ```
+   ```sh
    Updating file share my-file-share under account Test Account as user test.user@ibm.com...
                                 
    ID                           r006-b696742a-92ee-4f6a-bfd7-921d6ddf8fa6   
@@ -217,6 +217,10 @@ The following example changes a 3 IOPS/GB profile to a 5 IOPS/GB profile. In thi
 
 ```sh
 ibmcloud is share-update my-file-share --profile tier-5iops
+```
+{: pre}
+
+```sh
 Updating file share my-file-share under account VPC1 as user user@mycompany.com...
 
 ID                           ba7c7c8a-c111-4f54-a7fe-bb6d3d66eb2a

@@ -94,7 +94,11 @@ Before you can use the CLI, you must install the IBM Cloud CLI and the VPC CLI p
 1. For the encryption, retrieve the ID of your key management service and the CRN of the root key in that service. 
    1. List the available KMS instances with the `ibmcloud resource service-instances` command.
       ```sh
-      $ ibmcloud resource service-instances
+      ibmcloud resource service-instances
+      ```
+      {: pre}
+
+      ```sh
       Retrieving instances with type service_instance in all resource groups in all locations under account Test Account as test.user@ibm.com... 
       OK
       Name             Location   State    Type               Resource Group ID
@@ -105,7 +109,11 @@ Before you can use the CLI, you must install the IBM Cloud CLI and the VPC CLI p
 
    1. Use the `ibmcloud resource service-instance` command to get the instance ID. The ID is the last string in the CRN after the account number.
       ```sh
-      $ ibmcloud resource service-instance KeyProtect-ki -location us-south --id
+      ibmcloud resource service-instance KeyProtect-ki -location us-south --id
+      ```
+      {: pre}
+
+      ```sh
       Retrieving service instance KeyProtect-ki in all resource groups under account Test Account as test.user@ibm.com...
       crn:v1:bluemix:public:kms:us-south:a/a1234567:: 22e573bd-c02c-4d7f-81e2-2aa867da176d
       ```
@@ -113,7 +121,11 @@ Before you can use the CLI, you must install the IBM Cloud CLI and the VPC CLI p
 
    1. Use the ID in the `ibmcloud kp keys` command to retrieve the key information.
       ```sh
-      $ ibmcloud kp keys -c --instance-id 22e573bd-c02c-4d7f-81e2-2aa867da176d
+      ibmcloud kp keys -c --instance-id 22e573bd-c02c-4d7f-81e2-2aa867da176d
+      ```
+      {: pre}
+
+      ```sh
       Targeting endpoint: https://qa.us-south.kms.test.cloud.ibm.com
       Retrieving keys...
       OK
@@ -139,7 +151,7 @@ Before you can use the CLI, you must install the IBM Cloud CLI and the VPC CLI p
    - The following example creates a file share with customer-managed encryption, security group access mode, and a mount target with a virtual network interface. Encryption in transit is not enabled.
 
        ```sh
-      $ ibmcloud is share-create --name my-encrypted-file-share --zone us-south-2 --profile dp2 --size 500 --iops 2000  --user-tags env:dev --encryption_key crn:v1:bluemix:public:kms:us-south:a/a1234567:key:2fb8d675-bde3-4780-b127-3d0b413631c1 --mount-targets '[{"name":"my-new-mount-target","virtual_network_interface": {"name":"my-vni-2","subnet": {"id":"r006-298acd6c-e71e-4204-a04f-fe4a4dd89805"},"security_groups":[{"id":"r006-7f369ca2-ca49-4053-b007-5cab79b9873b"}]}}]'
+      ibmcloud is share-create --name my-encrypted-file-share --zone us-south-2 --profile dp2 --size 500 --iops 2000  --user-tags env:dev --encryption_key crn:v1:bluemix:public:kms:us-south:a/a1234567:key:2fb8d675-bde3-4780-b127-3d0b413631c1 --mount-targets '[{"name":"my-new-mount-target","virtual_network_interface": {"name":"my-vni-2","subnet": {"id":"r006-298acd6c-e71e-4204-a04f-fe4a4dd89805"},"security_groups":[{"id":"r006-7f369ca2-ca49-4053-b007-5cab79b9873b"}]}}]'
       ```
       {: pre}
 

@@ -2,7 +2,7 @@
 
 copyright:
   years: 2021, 2025
-lastupdated: "2025-08-18"
+lastupdated: "2025-09-05"
 
 keywords: file share, file storage, rename share, increase size, adjust IOPS, mount target
 
@@ -125,7 +125,11 @@ The CLI returns the properties for "Allowed Access Protocols", "Availability Mod
 1. Locate the file share that you want to rename by listing the file shares in the region with the `ibmcloud is shares` command. Take a note of the file share's name and ID.
 
    ```sh
-   $ ibmcloud is shares
+   ibmcloud is shares
+   ```
+   {: pre}
+
+   ```sh
    Listing shares in all resource groups and region us-south under account Test Account as user test.user@ibm.com...
    ID                                          Name                    Lifecycle state   Zone         Profile    Size(GB)   Resource group   Replication role   Accessor binding role   Snapshot count   Snapshot size   
    r006-a8d6af48-0c97-4c6b-bab1-fbefdc1e1e03   my-file-share           stable            us-south-2   dp2        10         defaults         none               none                    0                0   
@@ -142,6 +146,10 @@ The CLI returns the properties for "Allowed Access Protocols", "Availability Mod
 
    ```sh
    ibmcloud is share-update r006-a8d6af48-0c97-4c6b-bab1-fbefdc1e1e03 --name my-renamed-share
+   ```
+   {: pre}
+
+   ```sh
    Updating file share r006-a8d6af48-0c97-4c6b-bab1-fbefdc1e1e03 under account Test Account as user test.user@ibm.com...
 
    ID                           r006-a8d6af48-0c97-4c6b-bab1-fbefdc1e1e03
@@ -189,7 +197,11 @@ For more information about the command options, see [`ibmcloud is share-update`]
 
 1. Use the share's name or ID to find its mount targets with the `ibmcloud is share-mount-targets` command.
    ```sh
-   $ ibmcloud is share-mount-targets r006-a8d6af48-0c97-4c6b-bab1-fbefdc1e1e03
+   ibmcloud is share-mount-targets r006-a8d6af48-0c97-4c6b-bab1-fbefdc1e1e03
+   ```
+   {: pre}
+
+   ```sh
    Listing share mount target of r006-a8d6af48-0c97-4c6b-bab1-fbefdc1e1e03 in all resource groups and region us-south under account Test Account as user test.user@ibm.com...
    ID                                          Name                     VPC      Lifecycle state   Transit Encryption
    r006-fdbffc45-618c-49f1-bb08-ec530d7be378   my-source-mount-target   my-vpc   stable            none
@@ -215,7 +227,11 @@ These instructions are for the previous generation of file share profiles (gener
 1. Locate the file share that you want to update by listing the file shares in the region with the `ibmcloud is shares` command.
 
    ```sh
-   $ ibmcloud is shares
+   ibmcloud is shares
+   ```
+   {: pre}
+
+   ```sh
    Listing shares in all resource groups and region us-south under account Test Account as user test.user@ibm.com...
    ID                                          Name                    Lifecycle state   Zone         Profile    Size(GB)   Resource group   Replication role   Accessor binding role   Snapshot count   Snapshot size   
    r006-a8d6af48-0c97-4c6b-bab1-fbefdc1e1e03   my-file-share           stable            us-south-2   dp2        10         defaults         none               none                    0                0   
@@ -231,7 +247,11 @@ These instructions are for the previous generation of file share profiles (gener
 1. Use the `share-update` command with the `--profile` parameter to indicate the new file share profile by name.
 
    ```sh
-   $ ibmcloud is share-update my-old-file-share --profile dp2 --size 1000 --iops 3000
+   ibmcloud is share-update my-old-file-share --profile dp2 --size 1000 --iops 3000
+   ```
+   {: pre}
+
+   ```sh
    Updating file share my-file-share-8 under account Test Account as user test.user@ibm.com...
 
    ID                           r006-cc7ab6a0-bb71-4e03-8ef7-dcffca43717f
@@ -278,7 +298,11 @@ However, before this property can be changed, all bindings and [mount targets mu
 {: important}
 
 ```sh
-$ ibmcloud is share-update my-origin-share --allowed-transit-encryption-modes user_managed
+ibmcloud is share-update my-origin-share --allowed-transit-encryption-modes user_managed
+```
+{: pre}
+
+```sh
 Updating file share my-file-share under account Test Account as user test.user@ibm.com...
 
 ID                               r006-b696742a-92ee-4f6a-bfd7-921d6ddf8fa6
