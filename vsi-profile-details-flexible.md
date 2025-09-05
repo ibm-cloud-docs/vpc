@@ -110,7 +110,7 @@ See the following list for VM configuration.
 
 The following Flex profiles are available when you provision a virtual server instance and are subject to change.
 
-Nano
+### Nano
 {: #nano-profiles-flexible}
 
 | Instance profile | vCPU | Memory (GiB) | Total instance bandwidth (Gbps)| % vCPU share |
@@ -123,7 +123,7 @@ Nano
 | nxf-2x2          | 2    | 2            | 2                             | 10% 25% 50% |
 {: caption="Nano flex profile options for virtual servers" caption-side="bottom"}
 
-Balanced
+### Balanced
 {: #balanced-profiles-flexible}
 
 | Instance profile | vCPU | Memory (GiB) | Total instance bandwidth (Gbps)| % vCPU share |
@@ -138,7 +138,7 @@ Balanced
 | bxf-64x256       | 64   | 256          | 64                            | - |
 {: caption="Balanced flex profile options for virtual servers" caption-side="bottom"}
 
-Compute
+### Compute
 {: #compute-profiles-flexible}
 
 | Instance profile | vCPU | Memory (GiB) | Total instance bandwidth (Gbps)| % vCPU share |
@@ -153,7 +153,7 @@ Compute
 | cxf-64x128       | 64   | 128          | 64                            | - |
 {: caption="Compute flex profile options for virtual servers" caption-side="bottom"}
 
-Memory
+### Memory
 {: #memory-profiles-flexible}
 
 | Instance profile | vCPU | Memory (GiB) | Total instance bandwidth (Gbps)| % vCPU share |
