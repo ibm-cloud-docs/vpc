@@ -23,11 +23,11 @@ Restoring data from a snapshot creates a new, fully provisioned volume that you 
 
 Restoring a volume from a snapshot creates a boot or data volume, depending on whether the snapshot is bootable or nonbootable.
 
-   * Restoring from a **bootable** snapshot creates a boot volume that you can use to start a virtual server instance. The boot volume uses either the `sdp` or the `general-purpose profile` and is limited to 250 GB at its creation. Second generation boot volumes with the `sdp` profile, can be expanded later.
+   * Restoring from a **bootable** snapshot creates a boot volume that you can use to start a virtual server instance. The boot volume uses either the `sdp` or the `general-purpose profile` and is limited to 250 GB at its creation. Second generation boot volumes with the `sdp` profile, can be expanded to 32,000 GB later.
 
    * A new data volume that was created from **nonbootable** snapshot inherits its properties from the original volume, such as [profile](/docs/vpc?topic=vpc-block-storage-profiles), capacity, storage generation, data, and metadata. If the source volume used [customer-managed encryption](/docs/vpc?topic=vpc-vpc-encryption-about#vpc-customer-managed-encryption), the volume inherits that encryption with the original customer root key (CRK). However, you can specify a larger volume size, a different profile of the same storage generation, and a different CRK if you prefer.
 
-You can restore volumes from a manually created snapshot or from a snapshot that was created by a backup policy. For more information, see [Restoring a volume from a backup snapshot](/docs/vpc?topic=vpc-baas-vpc-restore).
+You can restore volumes from an on-demand snapshot or from a snapshot that was created by a backup policy. For more information, see [Restoring a volume from a backup snapshot](/docs/vpc?topic=vpc-baas-vpc-restore).
 
 You can restore a volume in a different region by using a cross-regional copy of a snapshot. For more information, see [Cross-regional snapshots](/docs/vpc?topic=vpc-snapshots-vpc-about#snapshots_vpc_crossregion_copy).
 
@@ -84,7 +84,7 @@ You can create volumes from various pages in the {{site.data.keyword.cloud_notm}
 ### Creating a volume from the list of snapshots in the console
 {: #snapshots-vpc-restore-snaphot-list-ui}
 
-From the list of {{site.data.keyword.block_storage_is_short}} snapshots, you can create an {{site.data.keyword.block_storage_is_short}} volume and specify whether it's to be attached to a virtual server instance or unattached (stand-alone). If you choose to attach a data volume, you can select an existing virtual server instance or choose to create an instance. The new volumes are added to the [list of {{site.data.keyword.block_storage_is_short}} volumes](/docs/vpc?topic=vpc-viewing-block-storage&interface=ui#viewvols-ui).
+From the list of {{site.data.keyword.block_storage_is_short}} snapshots, you can create a {{site.data.keyword.block_storage_is_short}} volume and specify whether it's to be attached to a virtual server instance or unattached (stand-alone). If you choose to attach a data volume, you can select an existing virtual server instance or choose to create an instance. The new volumes are added to the [list of {{site.data.keyword.block_storage_is_short}} volumes](/docs/vpc?topic=vpc-viewing-block-storage&interface=ui#viewvols-ui).
 
 1. Go to the list of {{site.data.keyword.block_storage_is_short}} snapshots. In the [{{site.data.keyword.cloud_notm}} console](/login){: external}, click the **Navigation menu** icon ![menu icon](../icons/icon_hamburger.svg) **> Infrastructure** ![VPC icon](../icons/vpc.svg) **> Storage > Block Storage snapshots**.
 2. Either select a snapshot from the list or search for it by its CRN. It must be in a `stable` state.
