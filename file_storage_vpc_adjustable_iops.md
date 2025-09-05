@@ -107,11 +107,12 @@ Before you can use the CLI, you must install the IBM Cloud CLI and the VPC CLI p
 
    ```sh
    $ ibmcloud is shares
-   Listing shares in all resource groups and region us-south under account Test Account as user test.user@ibm.com...
    ```
    {: pre}
 
    ```sh
+   Listing shares in all resource groups and region us-south under account Test Account as user test.user@ibm.com...
+   
    ID                                          Name                    Lifecycle state   Zone         Profile   Size(GB)   Resource group   Replication role   
    r006-dc6a644d-c7da-4c91-acf0-d66b47fc8516   my-replica-file-share   stable            us-south-1   dp2       1500       Default          replica   
    r006-e4acfa9b-88b0-4f90-9320-537e6fa3482a   my-source-file-share    stable            us-south-2   dp2       1500       Default          source   
@@ -126,11 +127,11 @@ Before you can use the CLI, you must install the IBM Cloud CLI and the VPC CLI p
 
    ```sh
    $ ibmcloud is share my-file-share
-   Getting file share my-file-share under account Test Account as user test.user@ibm.com...
    ```
    {: pre}
 
-   ```sh
+   ```
+   Getting file share my-file-share under account Test Account as user test.user@ibm.com...
                                 
    ID                           r006-b696742a-92ee-4f6a-bfd7-921d6ddf8fa6   
    Name                         my-file-share   
@@ -166,11 +167,11 @@ Before you can use the CLI, you must install the IBM Cloud CLI and the VPC CLI p
 
    ```sh
    $ ibmcloud is share-update my-file-share --iops 2000
-   Updating file share my-file-share under account Test Account as user test.user@ibm.com...
    ```
    {: pre}
 
-   ```sh
+   ```
+   Updating file share my-file-share under account Test Account as user test.user@ibm.com...
                                 
    ID                           r006-b696742a-92ee-4f6a-bfd7-921d6ddf8fa6   
    Name                         my-file-share   
@@ -217,10 +218,7 @@ The following example changes a 3 IOPS/GB profile to a 5 IOPS/GB profile. In thi
 ```sh
 ibmcloud is share-update my-file-share --profile tier-5iops
 Updating file share my-file-share under account VPC1 as user user@mycompany.com...
-```
-{: pre}
 
-```sh
 ID                           ba7c7c8a-c111-4f54-a7fe-bb6d3d66eb2a
 Name                         my-file-share
 CRN                          crn:v1:bluemix:public:is:us-south-1:a/a1234567::share:ba7c7c8a-c111-4f54-a7fe-bb6d3d66eb2a
