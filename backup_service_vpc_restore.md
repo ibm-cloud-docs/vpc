@@ -2,7 +2,7 @@
 
 copyright:
   years: 2022, 2025
-lastupdated: "2025-09-04"
+lastupdated: "2025-09-05"
 
 keywords: Backup, backup service, backup plan, backup policy, restore, restore volume, restore data
 
@@ -21,7 +21,11 @@ Restoring data from a backup snapshot creates a fully provisioned boot or data v
 ## About restoring a volume from a backup snapshot
 {: #baas-vpc-restore-concepts}
 
-When you restore a volume from a backup, the service creates another volume. The restored volume inherits the same [profile](/docs/vpc?topic=vpc-block-storage-profiles), capacity, data, and metadata as the original volume. However, you can choose a different profile and capacity if you prefer. If the source volume used [customer-managed encryption](/docs/vpc?topic=vpc-vpc-encryption-about#vpc-customer-managed-encryption), the new volume inherits that encryption.
+Restoring a volume from a backup snapshot creates a boot or a data volume, depending on whether the snapshot is bootable or nonbootable.
+
+   * Restoring from a **bootable** snapshot creates a boot volume that you can use to start a virtual server instance. The boot volume uses either the `sdp` or the `general-purpose profile` and is limited to 250 GB at its creation. Second generation boot volumes with the `sdp` profile, can be expanded to 32,000 GB later.
+
+   * A new data volume that was created from **nonbootable** snapshot inherits its properties from the original volume, such as [profile](/docs/vpc?topic=vpc-block-storage-profiles), capacity, storage generation, data, and metadata. If the source volume used [customer-managed encryption](/docs/vpc?topic=vpc-vpc-encryption-about#vpc-customer-managed-encryption), the volume inherits that encryption with the original customer root key (CRK). However, you can specify a larger volume size, a different profile of the same storage generation, and a different CRK if you prefer.
 
 First- and second-generation volume profiles are not interchangeable. You can use a backup of a second-generation volume to create another second-generation volume, but you can't switch the volume profile to a first-generation volume profile. In the same way, you can use a backup of a first-generation volume to create another first-generation volume with the same data, and you can't switch the new volume to the `sdp` profile. In the current release of second-generation volumes, fast restore snapshot clones and consistency groups are not supported. Cross-regional snapshot copies are not supported if the source volume exceeds 10 TB or if it is encrypted with a customer-managed encryption key.
 {: important}
