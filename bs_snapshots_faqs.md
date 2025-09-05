@@ -2,7 +2,7 @@
 
 copyright:
   years: 2022, 2025
-lastupdated: "2025-09-04"
+lastupdated: "2025-09-05"
 
 keywords: Block Storage, snapshots, cross-regional copy, fast restore, backup, restore volume
 
@@ -165,5 +165,4 @@ The snapshots are loosely coupled. The snapshots can be used to create new volum
 
 For more information, see [Snapshot consistency groups](/docs/vpc?topic=vpc-snapshots-vpc-about&interface=ui#multi-volume-snapshots).
 
-Fast restore snapshot clones and consistency groups are not supported for second-generation storage volumes during the select availability phase.
-{: preview}
+In this release, consistency group snapshots of second-generation storage volumes are not supported.

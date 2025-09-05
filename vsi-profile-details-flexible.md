@@ -2,7 +2,7 @@
 
 copyright:
   years: 2025, 2025
-lastupdated: "2025-08-28"
+lastupdated: "2025-09-05"
 
 keywords: virtual server instances, flex profile, flexible profile, virtual server profile
 
@@ -23,7 +23,7 @@ Flex profiles are a beta feature and are available for evaluation and testing pu
 The general purpose Flex virtual server profiles (nano, balanced, compute, and memory) are built atop the 2nd and 4th Generation Intel® Xeon® Scalable processors and AMD’s 3rd generation EPYC processors. You can place Flex profiles on any available generation of these processors in a specified region.
 {: shortdesc}
 
-Flex profiles offer a broad set of capabilities and scale from 2 vCPUs (1 physical core) up to 64 vCPUs (64 physical cores).
+Flex profiles offer a broad set of capabilities and scale from 2 vCPUs (1 physical core) up to 64 vCPUs (32 physical cores).
 
 Virtual servers with a Flex profile are configured with a baseline CPU family regardless of hypervisor host CPU family.
 
@@ -110,6 +110,9 @@ See the following list for VM configuration.
 
 The following Flex profiles are available when you provision a virtual server instance and are subject to change.
 
+Nano
+{: #nano-profiles-flexible}
+
 | Instance profile | vCPU | Memory (GiB) | Total instance bandwidth (Gbps)| % vCPU share |
 |------------------|------|--------------|-------------------------------|--------------|
 | nxf-1x1          | 1    | 1            | 1                             | 10% 25% 50%  |
@@ -118,6 +121,13 @@ The following Flex profiles are available when you provision a virtual server in
 | nxf-1x8          | 1    | 8            | 1                             | 50%          |
 | nxf-2x1          | 2    | 1            | 2                             | 10% 25% 50%  |
 | nxf-2x2          | 2    | 2            | 2                             | 10% 25% 50% |
+{: caption="Nano flex profile options for virtual servers" caption-side="bottom"}
+
+Balanced
+{: #balanced-profiles-flexible}
+
+| Instance profile | vCPU | Memory (GiB) | Total instance bandwidth (Gbps)| % vCPU share |
+|------------------|------|--------------|-------------------------------|--------------|
 | bxf-2x8          | 2    | 8            | 2                             | 50%         |
 | bxf-4x16         | 4    | 16           | 4                             | 50% |
 | bxf-8x32         | 8    | 32           | 8                             | 50% |
@@ -126,6 +136,13 @@ The following Flex profiles are available when you provision a virtual server in
 | bxf-32x128       | 32   | 128          | 32                            | -|
 | bxf-48x192       | 48   | 192          | 48                            | - |
 | bxf-64x256       | 64   | 256          | 64                            | - |
+{: caption="Balanced flex profile options for virtual servers" caption-side="bottom"}
+
+Compute
+{: #compute-profiles-flexible}
+
+| Instance profile | vCPU | Memory (GiB) | Total instance bandwidth (Gbps)| % vCPU share |
+|------------------|------|--------------|-------------------------------|--------------|
 | cxf-2x4          | 2    | 4            | 2                             | 25% 50% |
 | cxf-4x8          | 4    | 8            | 4                             | 25% 50% |
 | cxf-8x16         | 8    | 16           | 8                             | 25% 50% |
@@ -134,6 +151,13 @@ The following Flex profiles are available when you provision a virtual server in
 | cxf-32x64        | 32   | 64           | 32                            | - |
 | cxf-48x96        | 48   | 96           | 48                            | - |
 | cxf-64x128       | 64   | 128          | 64                            | - |
+{: caption="Compute flex profile options for virtual servers" caption-side="bottom"}
+
+Memory
+{: #memory-profiles-flexible}
+
+| Instance profile | vCPU | Memory (GiB) | Total instance bandwidth (Gbps)| % vCPU share |
+|------------------|------|--------------|-------------------------------|--------------|
 | mxf-2x16         | 2    | 16           | 2                             | - |
 | mxf-4x32         | 4    | 32           | 4                             | - |
 | mxf-8x64         | 8    | 64           | 8                             | - |
@@ -141,7 +165,7 @@ The following Flex profiles are available when you provision a virtual server in
 | mxf-24x192       | 24   | 192          | 32                            | - |
 | mxf-48x384       | 48   | 384          | 48                            | - |
 | mxf-64x512       | 64   | 512          | 64                            | - |
-{: caption="Flex profile options for virtual servers" caption-side="bottom"}
+{: caption="Memory flex profile options for virtual servers" caption-side="bottom"}
 
 ## Limits
 {: #flexible-profiles-limits}

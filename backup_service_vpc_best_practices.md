@@ -2,7 +2,7 @@
 
 copyright:
   years: 2022, 2025
-lastupdated: "2025-04-10"
+lastupdated: "2025-09-05"
 
 keywords: Backup for VPC, backup service, backup plan, backup policy, restore, restore volume, restore data
 
@@ -31,7 +31,7 @@ To help ensure that you're using the VPC Backup Service most effectively and eco
 
 * For best performance, stagger your backup jobs by creating backup plans with different intervals. You can have up to four different backup plans per backup policy.
 
-* For large volumes, consider a shorter retention period so that you don't exceed the 10 TB limit for all volume backups.
+* For large Generation 1 volumes, consider a shorter retention period so that you don't exceed the 10 TB limit for all volume backups.
 
 * If you have volumes in different regions, create separate backup policies for each region. You're limited to 10 backup policies per account in a region. This quota can't be increased.
 
@@ -81,7 +81,7 @@ Create a backup policy with an hourly backup plan for the time-critical volumes:
 
 Create a weekly backup plan for archived data:
 
-   * Create another plan and define the backup frequency as 7 days. Assess the amount of data that is in the volume, and anticipated changes. The limit is 10 TB for all backups of the volume.
+   * Create another plan and define the backup frequency as 7 days. Assess the amount of data that is in the volume, and anticipated changes. The limit is 10 TB for Generation 1 volumes.
 
    * Set a longer retention period to have multiple copies of your archive volume. For weekly backups, you might want to retain the backups for a month.
 

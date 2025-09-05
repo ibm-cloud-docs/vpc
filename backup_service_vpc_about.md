@@ -2,7 +2,7 @@
 
 copyright:
  years: 2022, 2025
-lastupdated: "2025-09-04"
+lastupdated: "2025-09-05"
 
 keywords: Backup, backup service, backup plan, backup policy, restore, restore volume, restore data
 
@@ -246,7 +246,7 @@ Backup policy:
 
 Volume backups:
 * You can take a total of 750 backups per Gen 1 volume based on your backup policy, in your account and region. You can take a total of 512 backups per Gen 2 volumes. If you exceed the limit, no further backups are taken.
-* The first backup and the entire volume backup cannot exceed 10 TB if the parent volume is based on a tiered or custom profile.
+* The first backup and the entire volume backup cannot exceed 10 TB if the parent volume is based on a `tiered` or `custom` profile.
 * You can't take a backup of a detached volume.
 * You can't create a copy of a backup snapshot in the source (local) region. 
 * You can create a copy of a block storage backup in another region. However, only one copy of the backup snapshot can exist in each region.
