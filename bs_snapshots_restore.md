@@ -2,7 +2,7 @@
 
 copyright:
   years: 2021, 2025
-lastupdated: "2025-09-04"
+lastupdated: "2025-09-05"
 
 keywords:
 
@@ -62,7 +62,7 @@ First- and second-generation volume profiles are not interchangeable. You can us
 
 The performance of boot and data volumes is initially degraded when data is restored from a snapshot. Performance degradation occurs during the restoration because your data is copied from the regional storage repository to {{site.data.keyword.block_storage_is_short}} in the background.
 
-At first, the restored volume appears as _pending_ or _degraded_, and the service begins pulling data from the snapshot that is stored in {{site.data.keyword.cos_short}}. While the data is copied over, the volume's health state is monitored by the volume resource. During the hydration process, you can attach the volume to a virtual server or detach it. After the restoration process is complete, you can realize full IOPS on the new volume.
+At first, the restored volume appears as _pending_ or _degraded_, and the service begins pulling data from the snapshot that is stored in a separate regional storage repository. While the data is copied over, the volume's health state is monitored by the volume resource. During the hydration process, you can attach the volume to a virtual server or detach it. After the restoration process is complete, you can realize full IOPS on the new volume.
 
 Volumes that are restored from fast restore clones don't require hydration. The data is available as soon as the volume is created. However, to achieve the best performance and efficiency when you provision multiple instances, boot from an existing image. Custom images that you provide are better than stock images for this purpose. For more information, see [Getting started with custom images](/docs/vpc?topic=vpc-planning-custom-images).
 
@@ -71,7 +71,7 @@ Volumes that are restored from fast restore clones don't require hydration. The 
 
 Restoring a volume by using a [fast restore](/docs/vpc?topic=vpc-snapshots-vpc-faqs&interface=ui#faq-snapshot-fr) snapshot clone creates a fully provisioned volume at creation time.
 
-With fast restore, you create and keep a clone of the snapshot in a zone within your region instead of an {{site.data.keyword.cos_short}} bucket. When you restore data from a fast restore snapshot, the data is pulled from the clone within your region. Because the data is immediately available, no hydration is necessary. Performance levels are not affected. By using fast restore snapshots, you can achieve [recovery time objectives](#x3167918){: term} (RTO) quicker than by restoring from a regular snapshot.
+With fast restore, you create and keep a clone of the snapshot in a zone within your region instead of a separate regional storage repository. When you restore data from a fast restore snapshot, the data is pulled from the clone within your region. Because the data is immediately available, no hydration is necessary. Performance levels are not affected. By using fast restore snapshots, you can achieve [recovery time objectives](#x3167918){: term} (RTO) quicker than by restoring from a regular snapshot.
 
 You can also use the fast restore feature with the backup service. For more information, see [creating backup policies and plans](/docs/vpc?topic=vpc-create-backup-policy-and-plan).
 
@@ -79,7 +79,7 @@ You can also use the fast restore feature with the backup service. For more info
 {: #snapshots-vpc-restore-ui}
 {: ui}
 
-You can create volumes from various pages in the {{site.data.keyword.cloud_notm}} console. Restoring from a bootable snapshot creates a boot volume that you use to provision the virtual server instance. The boot volume uses a general-purpose profile and is limited to 250 GB. Data volumes are created and attached to the instance. You can restore volumes from a snapshot outside of instance provisioning as well, you can create stand-alone volumes and new auxiliary volumes for existing instances.
+You can create volumes from various pages in the {{site.data.keyword.cloud_notm}} console. Restoring from a bootable snapshot creates a boot volume that you use to provision the virtual server instance. The Generation 1 boot volumes use the general-purpose profile and zre limited to 250 GB. Second-generation boot volumes use the `sdp` profile and can be expanded to 32,000 GB. Data volumes are created and attached to the instance. You can restore volumes from a snapshot outside of instance provisioning as well, you can create stand-alone volumes and new auxiliary volumes for existing instances.
 
 ### Creating a volume from the list of snapshots in the console
 {: #snapshots-vpc-restore-snaphot-list-ui}
@@ -88,8 +88,8 @@ From the list of {{site.data.keyword.block_storage_is_short}} snapshots, you can
 
 1. Go to the list of {{site.data.keyword.block_storage_is_short}} snapshots. In the [{{site.data.keyword.cloud_notm}} console](/login){: external}, click the **Navigation menu** icon ![menu icon](../icons/icon_hamburger.svg) **> Infrastructure** ![VPC icon](../icons/vpc.svg) **> Storage > Block Storage snapshots**.
 2. Either select a snapshot from the list or search for it by its CRN. It must be in a `stable` state.
-3. From the Actions icon ![Actions icon](../icons/action-menu-icon.svg "Actions"), select **Create volume**.
-4. In the side panel, choose whether you want to create an unattached data volume, create and attach a volume to an existing instance, or create a volume and provision a new instance.
+3. From the Actions menu ![Actions icon](../icons/action-menu-icon.svg "Actions"), select **Create volume**.
+4. In the side panel, choose whether you want to create an unattached data volume, create and attach a volume to an existing instance, or create a volume and provision another instance.
 
    * For a **stand-alone data volume**, leave **Attach volume to virtual server** clear.
 
@@ -100,7 +100,6 @@ From the list of {{site.data.keyword.block_storage_is_short}} snapshots, you can
    * To restore a volume and use it to provision a virtual server instance, select **Attach volume to virtual server**, and click **Attach new volume to a new virtual server**. Then, click **Configure virtual server**. This action takes you to the [virtual server provisioning page](/docs/vpc?topic=vpc-creating-virtual-servers&interface=ui#creating-virtual-servers-ui).
 
    The new volume is shown in the **Boot volume** or **Data volume** section of the instance provisioning page. The placement depends on whether the volume that you created was from a bootable snapshot or a nonbootable snapshot.
-   {: note}
 
 5. Provide the required volume details.
 
@@ -129,7 +128,7 @@ Follow these steps to create a volume from the snapshot details page in the cons
 2. On the {{site.data.keyword.block_storage_is_short}} volume details page, select the **Snapshots and Backups** tab. A list of snapshots that were created manually or by backup policies is shown.
 3. From the list, click the snapshot name to go to its details page.
 4. From the **Actions** menu ![Actions icon](../icons/action-menu-icon.svg "Actions"), select **Create volume**.
-5. Define the new volume in the side panel. The information that you need to provide is the same as when you create a volume from the [list of snapshots](#snapshots-vpc-restore-snaphot-list-ui). See Table 1 for the details.
+5. Define the new volume in the side panel. The information that you need to provide is the same as when you create a volume from the [list of snapshots](#snapshots-vpc-restore-snaphot-list-ui).
 6. When you're finished, click **Save**. The new volume is created.
 
 ### Creating volumes for a virtual server instance from a consistency group
