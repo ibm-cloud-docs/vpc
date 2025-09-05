@@ -79,7 +79,7 @@ You can also use the fast restore feature with the backup service. For more info
 {: #snapshots-vpc-restore-ui}
 {: ui}
 
-You can create volumes from various pages in the {{site.data.keyword.cloud_notm}} console. Restoring from a bootable snapshot creates a boot volume that you use to provision the virtual server instance. The Generation 1 boot volumes use the general-purpose profile and zre limited to 250 GB. Second-generation boot volumes use the `sdp` profile and can be expanded to 32,000 GB. Data volumes are created and attached to the instance. You can restore volumes from a snapshot outside of instance provisioning as well, you can create stand-alone volumes and new auxiliary volumes for existing instances.
+You can create volumes from various pages in the {{site.data.keyword.cloud_notm}} console. Restoring from a bootable snapshot creates a boot volume that you use to provision the virtual server instance. The Generation 1 boot volumes use the general-purpose profile and are limited to 250 GB. Second-generation boot volumes use the `sdp` profile and can be expanded to 32,000 GB. Data volumes are created and attached to the instance. You can restore volumes from a snapshot outside of instance provisioning as well, you can create stand-alone volumes and new auxiliary volumes for existing instances.
 
 ### Creating a volume from the list of snapshots in the console
 {: #snapshots-vpc-restore-snaphot-list-ui}
