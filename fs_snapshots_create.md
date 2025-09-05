@@ -2,7 +2,7 @@
 
 copyright:
   years: 2024, 2025
-lastupdated: "2025-09-04"
+lastupdated: "2025-09-05"
 
 keywords: snapshots, File Storage, File Storage snapshot
 
@@ -92,6 +92,10 @@ The following example creates a snapshot with the name `my-first-share-snapshot`
 
 ```sh
 ibmcloud is share-snapshot-create my-file-share --name my-first-share-snapshot --user-tags env:test
+```
+{: pre}
+
+```sh
 Creating snapshot my-first-share-snapshot under account Test Account as user test.user@ibm.com...
 
 ID                     r138-4463eb2c-4913-43b1-b9bf-62a94f74c146

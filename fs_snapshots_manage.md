@@ -2,7 +2,7 @@
 
 copyright:
   years: 2024, 2025
-lastupdated: "2025-07-29"
+lastupdated: "2025-09-05"
 
 keywords: snapshots, File storage snapshots, manage snapshots, backup snapshot, remote copy, cross-regional copy
 
@@ -53,6 +53,10 @@ See the following example, which adds a user tag.
 
 ```sh
 ibmcloud is share-snapshot-update my-file-share r006-6ce54f3b-8971-4b5d-95a7-7dfa897ddfb3 --user-tags test:cli
+```
+{: pre}
+
+```sh
 Updating file share snapshot share-snapshot-cli-update for share my-file-share under account Test Account as user test.user@ibm.com...
                         
 ID                   r006-6ce54f3b-8971-4b5d-95a7-7dfa897ddfb3   

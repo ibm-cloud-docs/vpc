@@ -2,7 +2,7 @@
 
 copyright:
   years: 2024, 2025
-lastupdated: "2025-07-28"
+lastupdated: "2025-09-05"
 
 keywords: view snapshots, view snapshot, viewing snapshots, see snapshots, File storage snapshots
 
@@ -125,7 +125,11 @@ ibmcloud is share-snapshots [--share SHARE] [--backup-policy-plan BACKUP_POLICY_
 {: pre}
 
 ```sh
-ibmcloud is share-snapshots 
+ibmcloud is share-snapshots
+```
+{: pre}
+
+```sh
 Listing share snapshots in all resource groups and region au-syd under account Test Account as user test.user@ibm.com...
 ID                                          Name                                Created at                  Fingerprint                            Minimum Size   Lifecycle state   Zone       Status      User Tags   
 r026-c8fd81f8-3437-424e-8fc0-f9dd2f4766d3   demo-bkp-plan-2-02ae167865c0-44e8   2024-12-09T16:55:13+05:30   15b9509d-b6f8-461b-987a-2333be203e0e   40             stable            au-syd-1   available   dev:tags   
@@ -145,7 +149,10 @@ Run the `ibmcloud is share-snapshots` command and specify the share name or ID t
 
 ```sh
 ibmcloud is share-snapshots r026-734c173e-044f-4d09-a729-950364ea9900
-Listing share snapshot under account Test Account as user test.user@ibm.com...
+```
+{: pre}
+
+```sh
 Listing share snapshots in all resource groups and region us-south under account Test Account as user test.user@ibm.com...
 ID                                         Name                    Created at               Fingerprint                          Minimum size Lifecycle state Zone      Status    User Tags
 r138-4463eb2c-4913-43b1-b9bf-62a94f74c146  my-first-share-snapshot 024-12-18T20:15:43+00:00 7abc3aef-c2bc-4f65-a296-2928e534d498 40           stable          us-south-1 Available env:test
@@ -168,6 +175,10 @@ The following example shows the snapshots that were taken by the backup policy p
 
 ```sh
 ibmcloud is share-snapshots --backup-policy-plan r006-158e0d66-338e-4501-b756-be0732677da8 --share my-file-share
+```
+{: pre}
+
+```sh
 Listing share snapshots of share my-file-share under account Test Account as user test.user@ibm.com...
 ID                                          Name                                Created at                  Fingerprint                            Minimum Size   LifeCycle State   Zone         Status      User Tags   
 r006-b4d12d66-18de-4660-9fe7-12e667d5ed5b   demo-bkp-plan-1-d619b2fb4a68-4602   2024-11-19T11:33:27+05:30   643ce8da-bbbd-4515-b988-701aea2667df   40             stable            us-south-1   available   dev:tags   
@@ -192,6 +203,10 @@ The following example shows the details of a snapshot.
 
 ```sh
 ibmcloud is share-snapshot my-file-share r006-6c760e3e-33fc-41a4-b896-8a2c229ddccd
+```
+{: pre}
+
+```sh
 Getting share snapshot ID r006-6c760e3e-33fc-41a4-b896-8a2c229ddccd for share ID my-file-share under account Test Account as user test.user@ibm.com...
 
 ID                   r006-6c760e3e-33fc-41a4-b896-8a2c229ddccd   

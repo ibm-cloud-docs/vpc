@@ -2,7 +2,7 @@
 
 copyright:
   years: 2024, 2025
-lastupdated: "2025-07-28"
+lastupdated: "2025-09-05"
 
 keywords:
 
@@ -97,6 +97,10 @@ Run the `ibmcloud is share-create` command and specify the `--snapshot` paramete
 
 ```sh
 $ ibmcloud is share-create --name my-file-share-from-snapshot --snapshot cli-share-snapshot --share my-file-share --zone us-south-1 --profile dp2 --size 100 --iops 2000  --user-tags env:test
+```
+{: pre}
+
+```sh
 Creating file share my-file-share-from-snapshot under account Test Account as user test.user@ibm.com...
                                       
 ID                                 r006-c956e095-afb1-408c-a589-887e77afab20   
