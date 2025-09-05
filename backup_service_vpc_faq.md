@@ -2,7 +2,7 @@
 
 copyright:
   years: 2022, 2025
-lastupdated: "2025-09-04"
+lastupdated: "2025-09-05"
 
 keywords: Backup for VPC, backup service, backup plan, backup policy, restore, restore volume, restore data, faqs
 
@@ -205,7 +205,7 @@ For locations that don't currently support {{site.data.keyword.en_short}}, the n
 | Dallas (`us-south`)   | Dallas (`us-south`)  |
 | Washington (`us-east`)| Dallas (`us-south`)  |
 | Sao Paulo (`br-sao`)  | Sao Paulo (`br-sao`) |
-| Montreal (`ca-mon`)   | Montreal (`ca-mon`)  |
+| Montreal (`ca-mon`)   | Toronto (`ca-tor`)  |
 | Toronto (`ca-tor`)    | Toronto (`ca-tor`)   |
 | Frankfurt (`eu-de`)   | Frankfurt (`eu-de`)  |
 | Madrid (`eu-es`)      | Madrid (`eu-es`)     |

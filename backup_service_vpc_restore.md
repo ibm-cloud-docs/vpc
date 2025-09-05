@@ -33,13 +33,12 @@ For best performance, use backups with fast restore. You can enable fast restore
 To restore a volume, the backup snapshot must be in a _stable_ state.
 {: requirement}
 
-You can't simultaneously restore a boot and a data volume.
-{: note}
-
 ### Restoring from a bootable backup
 {: #baas-restore-concept-boot}
 
-When you restore from a bootable backup snapshot, you create a boot volume that you use to provision another instance. The boot volume uses a general-purpose profile and is limited to 250 GB. Because the bootable backup snapshot is not fully provisioned, in the beginning the performance is slower than when you use a regular boot volume. For more information, see [Performance impact](#baas-boot-perf).
+When you restore from a bootable backup snapshot, you create a boot volume that you use to provision another instance. A first-generation boot volume uses the general-purpose volume profile and is limited to 250 GB. A second-generation boot volume uses the defined performance volume profile and can be increased up to 32,000 GB. 
+
+Because the bootable backup snapshot is not fully provisioned, when you start your virtual server instance, the performance is slower than when you use a regular boot volume. For more information, see [Performance impact](#baas-boot-perf).
 
 You can restore a volume from a backup snapshot of a boot volume in multiple ways.
 
@@ -51,7 +50,7 @@ You can restore a volume from a backup snapshot of a boot volume in multiple way
 
 You can restore a volume from a backup snapshot of a data volume in multiple ways.
 
-- You can restore a data volume when you provision an instance. During provisioning, you can select a nonbootable backup snapshot to create a data volume hat is then attached to the instance as auxiliary storage.
+- You can restore a data volume when you provision an instance. During provisioning, you can select a nonbootable backup snapshot to create a data volume that is then attached to the instance as auxiliary storage.
 - You can restore a data volume when you want to add more storage to an existing instance.
 - You can restore a data volume to create a stand-alone volume, which you can attach to an instance later.
 

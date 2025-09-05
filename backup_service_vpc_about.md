@@ -37,8 +37,8 @@ As a customer with special access to preview the second-generation storage volum
 
 An individual volume or share is backed up when a user-provided [tag](#backup-service-about-tags) that is associated with a volume or share matches the tags for target resources in a backup policy. When you choose to back up all the Block Storage volumes that are attached to a virtual server instance, the user-provided tag is associated with the virtual server instance. When the scheduled backup is triggered by a backup plan, all resources with matching tags are backed up.
 
-Backups require that the volume that you're backing up is attached to a running virtual server instance. Put another way, you can't back up an unattached volume.
-{: restriction}
+When you want to create backups of first-generation block volumes, they must be attached to a running virtual server instance. You can't create backup snapshots an unattached Gen 1 volume.
+{: important}
 
 If a volume or share has multiple tags, only one tag needs to match for a backup to trigger. You can add user tags to boot and data volumes at any time, when you [create a virtual server instance](/docs/vpc?topic=vpc-creating-block-storage&interface=ui#create-from-vsi) or when you update the volume.
 
