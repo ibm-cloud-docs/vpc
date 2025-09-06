@@ -2,7 +2,7 @@
 
 copyright:
   years: 2022, 2025
-lastupdated: "2025-08-19"
+lastupdated: "2025-09-06"
 
 keywords: file storage, file share, view share details, mount targets, view targets, view share
 
@@ -46,7 +46,9 @@ You can view all file shares, their bindings and mount targets in the console, r
 | Encryption type | It shows the encryption type of the file share, either provider-managed or customer-managed. [Customer-managed encryption](/docs/vpc?topic=vpc-file-storage-byok-encryption) uses your own root keys to protect your data. The UI also identifies the key management service (KMS), either {{site.data.keyword.keymanagementserviceshort}} or {{site.data.keyword.hscrypto}}. |
 {: caption="File shares list page." caption-side="bottom"}
 
-You can access the Actions menu by clicking ![Actions icon](../icons/action-menu-icon.svg "Actions"). The Actions menu has options for managing the file share, depending on its state. For a file share in a _stable_ state, you can rename the share, edit IOPS, copy the share's CRN, create a replica, or delete a file share. **Delete** and **Create replica** are disabled if you set up replication to a replica file share already. For more information, see [Creating replica file shares](/docs/vpc?topic=vpc-file-storage-create-replication&interface=ui).
+You can access the Actions menu by clicking ![Actions icon](../icons/action-menu-icon.svg "Actions"). The Actions menu has options for managing the file share, depending on its state. 
+- For a zonal file share in a _stable_ state, you can choose to rename the share, edit IOPS, copy the share's CRN, create a replica, or delete the file share. **Delete** and **Create replica** actions are disabled if you set up replication to a replica file share already. For more information, see [Creating replica file shares](/docs/vpc?topic=vpc-file-storage-create-replication&interface=ui).
+- For a regional file share, the Actions menu contains Rename, Edit size and bandwidth, Copy CRN, Create Snapshot, and Delete actions.
 
 ### Viewing details of a file share in the console
 {: #fs-view-single-share-ui}
@@ -166,6 +168,10 @@ You can list all your file shares in a region with the `ibmcloud is shares` comm
 
 ```sh
 ibmcloud is shares
+```
+{: pre}
+
+```sh
 Listing shares in all resource groups and region us-south under account Test Account as user test.user@ibm.com...
 ID                                          Name                    Lifecycle state   Zone         Profile   Size(GB)   Resource group   Replication role   Accessor binding role   Snapshot count   Snapshot size   
 r006-a8d6af48-0c97-4c6b-bab1-fbefdc1e1e03   my-file-share           stable            us-south-2   dp2       10         defaults         none               none                    0                0   
@@ -187,11 +193,15 @@ To see the details of a file share, run the `ibmcloud is share` command and spec
 The following example identifies the file share by ID. This share is a replica that is based on the `dp2` profile, and access to the share is granted by using security groups. The output provides information about the source file share and the replication details, too.
 
 ```sh
-$ ibmcloud is share r006-455b601c-8fc1-4476-8771-4708c49c8ef7 
+ibmcloud is share r006-455b601c-8fc1-4476-8771-4708c49c8ef7
+```
+{: pre}
+
+```sh
 Getting file share r006-455b601c-8fc1-4476-8771-4708c49c8ef7 under account Test Account as user test.user@ibm.com...
                                 
 ID                                 r006-455b601c-8fc1-4476-8771-4708c49c8ef7   
-Name                               my-replica-share-dal-1   
+Name                               my-replica-file-share  
 CRN                                crn:v1:bluemix:public:is:us-south-1:a/a1234567::share:r006-455b601c-8fc1-4476-8771-4708c49c8ef7   
 Lifecycle state                    stable   
 Access control mode                security_group   
@@ -222,7 +232,7 @@ Replication status reasons         Status code   Status message
                                    -             -      
                                       
 Source share                       ID                                          Name                    Resource type      
-                                   r006-4dadac27-cd17-42df-a5fe-1388705d33e0   my-source-share-dal-2   share      
+                                   r006-e4acfa9b-88b0-4f90-9320-537e6fa3482a   my-source-file-share    share      
                                       
 Snapshot count                     0   
 Snapshot size                      0   
@@ -233,7 +243,11 @@ Source snapshot                    -
 You can use the name of the source share to retrieve its details. See the following example.
 
 ```sh
-$ ibmcloud is share my-source-file-share
+ibmcloud is share my-source-file-share
+```
+{: pre}
+
+```sh
 Getting file share my-source-file-share under account Test Account as user test.user@ibm.com...
                                 
 ID                               r006-e4acfa9b-88b0-4f90-9320-537e6fa3482a   
@@ -245,22 +259,22 @@ Accessor binding role            origin
 Allowed transit encryption modes user_managed,none 
 Zone                             us-south-2   
 Profile                          dp2   
-Size(GB)                         1500   
-IOPS                             2000   
+Size(GB)                         10   
+IOPS                             100   
 User Tags                        env:dev   
 Encryption                       provider_managed   
 Mount Targets                    ID                                          Name      
                                  r006-fdbffc45-618c-49f1-bb08-ec530d7be378   my-source-mount-target      
                                 
 Resource group                   ID                                 Name      
-                                 db8e8d865a83e0aae03f25a492c5b39e   Default      
+                                 6edefe513d934fdd872e78ee6a8e73ef   defaults      
                                 
 Created                          2024-06-25T15:42:53+00:00   
 Latest job                       Job status   Job status reasons      
                                  succeeded    -      
                                 
 Replication share                ID                                          Name                    Resource type      
-                                 r006-dc6a644d-c7da-4c91-acf0-d66b47fc8516   my-replica-file-share   share      
+                                 r006-455b601c-8fc1-4476-8771-4708c49c8ef7   my-replica-file-share   share      
                                 
 Replication role                 source   
 Replication status               active   
@@ -277,12 +291,16 @@ Source snapshot                  -
 The following example shows the information that the `ibmcloud is share` command returns when you retrieve information about a regional file share. 
 
 ```sh
-$ ibmcloud is share my-regional-file-share
+ibmcloud is share my-regional-file-share
+```
+{: pre}
+
+```sh
 Getting file share my-file-share under account Test Account as user test.user@ibm.com...
 
-ID                                 r006-9ae55188-610e-4cf9-9350-d0b675026ff8 
+ID                                 r006-6cedac18-ffe5-4a89-9e7a-5c8683d17279
 Name                               my-regional-file-share
-CRN                                crn:v1:bluemix:public:is:us-south-2:a/a1234567::share:r006-9ae55188-610e-4cf9-9350-d0b675026ff8
+CRN                                crn:v1:bluemix:public:is:us-south-2:a/a1234567::share:r006-6cedac18-ffe5-4a89-9e7a-5c8683d17279
 Lifecycle state                    stable
 Access control mode                security_group
 Accessor binding role              none
@@ -322,11 +340,16 @@ For more information about the command options, see [`ibmcloud is share`](/docs/
 To view the accessor share bindings that are linked to an origin share from the CLI, use the `ibmcloud is share-accesssor-bindings` command. See the following example.
 
 ```sh
-$ ibmcloud is share-accessor-bindings my-origin-share
+ibmcloud is share-accessor-bindings my-origin-share
+```
+{: pre}
+
+```sh
 Listing accessor bindings for the share ID my-origin-share under account Test Account as user test.user@ibm.com...
                                 
-ID                                           Lifecycle state  Created at                 Accessor CRN 
-r-006-c2e53b1b-3b15-4792-8d96-c9c035fd65c3   stable           2024-06-25T00:50:57+05:30  crn:v1:bluemix:public:is:us-south-2:a/a1234567::share:r006-925214bc-ded5-4626-9d8e-bc4e2e579232
+ID                                          Lifecycle state   Created at                  Accessor CRN                                                                                                    Accessor resource type   
+r006-b5707b7b-1ac7-48c9-8fc3-4ba65b91e36f   stable            2025-08-26T21:03:40+00:00   crn:v1:bluemix:public:is::a/a1234567::share:r006-fdd5774c-fe8a-41f4-9088-eafc89f58c09   share   
+Viktoria_Muirhead@cloudshell:~$ 
 ```
 {: screen}
 
@@ -336,17 +359,20 @@ r-006-c2e53b1b-3b15-4792-8d96-c9c035fd65c3   stable           2024-06-25T00:50:5
 To view a specific accessor share binding that is linked to an origin share from the CLI, use the `ibmcloud is share-accesssor-binding` command. See the following example.
 
 ```sh
-$ ibmcloud is share-accessor-binding my-origin-share r-006-c2e53b1b-3b15-4792-8d96-c9c035fd65c3
-Get accessor binding r-006-c2e53b1b-3b15-4792-8d96-c9c035fd65c3 for the share ID my-origin-share under account Test Account as user test.user@ibm.com...
-                                
-ID               r-006-c2e53b1b-3b15-4792-8d96-c9c035fd65c3
-Created          2024-06-25T00:50:57+05:30
-Href             https://us-south.iaas.cloud.ibm.com/v1/shares/r006-d73v40a6-e08f-4d07-99e1-d28cbf2188ed/bindings/r-006-c2e53b1b-3b15-4792-8d96-c9c035fd65c3
-Resource type    share_accessor_binding
-Lifecycle state  stable
-Accessor         Resource type  Name               CRN
-                 share          my-accessor-share  crn:v1:bluemix:public:is:us-south-2:a/a1234567::share:r006-925214bc-ded5-4626-9d8e-bc4e2e579232
+ibmcloud is share-accessor-binding my-origin-share r006-b5707b7b-1ac7-48c9-8fc3-4ba65b91e36f
+```
+{: pre}
 
+```sh
+Get accessor binding r006-b5707b7b-1ac7-48c9-8fc3-4ba65b91e36f for the share ID my-origin-share under account Test Account as user test.user@ibm.com...
+                                
+ID                r006-b5707b7b-1ac7-48c9-8fc3-4ba65b91e36f   
+Created           2025-08-26T21:03:40+00:00   
+Href              https://us-south.iaas.cloud.ibm.com/v1/shares/r006-fdd5774c-fe8a-41f4-9088-eafc89f58c09/accessor_bindings/r006-b5707b7b-1ac7-48c9-8fc3-4ba65b91e36f   
+Resource type     share_accessor_binding   
+Lifecycle state   stable   
+Accessor          Resource type   CRN                                                                                                             Name      
+                  share           crn:v1:bluemix:public:is::a/a1234567::share:r006-fdd5774c-fe8a-41f4-9088-eafc89f58c09      my-accessor-share     
 ```
 {: screen}
 
@@ -356,7 +382,11 @@ Accessor         Resource type  Name               CRN
 To see all the mount targets that are created for a file share, run the `ibmcloud is share-mount-targets` command and specify the file share ID.
 
 ```sh
-$ ibmcloud is share-mount-targets  r006-e4acfa9b-88b0-4f90-9320-537e6fa3482a 
+ibmcloud is share-mount-targets r006-e4acfa9b-88b0-4f90-9320-537e6fa3482a
+```
+{: pre}
+
+```sh
 Listing share mount target of r006-e4acfa9b-88b0-4f90-9320-537e6fa3482a in all resource groups and region us-south under account Test Account as user test.user@ibm.com...
 ID                                          Name                     VPC      Lifecycle state   Transit Encryption   
 r006-fdbffc45-618c-49f1-bb08-ec530d7be378   my-source-mount-target   my-vpc   stable            none   
@@ -372,6 +402,10 @@ To view more detailed information about a mount target, run the `ibmcloud is sha
 
 ```sh
 $ ibmcloud is share-mount-target  r006-e4acfa9b-88b0-4f90-9320-537e6fa3482a my-source-mount-target
+```
+{: pre}
+
+```sh
 Getting mount target ID my-source-mount-target for share ID r006-e4acfa9b-88b0-4f90-9320-537e6fa3482a under account Test Account as user test.user@ibm.com...
                                
 ID                          r006-fdbffc45-618c-49f1-bb08-ec530d7be378   

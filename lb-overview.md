@@ -2,7 +2,7 @@
 
 copyright:
   years: 2018, 2025
-lastupdated: "2025-08-07"
+lastupdated: "2025-09-05"
 
 keywords: listener, pool, round-robin, weighted, layer 7, datapath logging, http2, websocket
 
@@ -214,16 +214,6 @@ Application load balancers support end-to-end HTTP2 traffic, and works with list
 {: #websocket-support}
 
 WebSocket provides full-duplex communication channels over a single TCP connection. Application load balancers support WebSocket with every type of listener protocol (HTTP/HTTPS/TCP).
-
-## Architecture
-{: #nlb-architecture}
-
-Figure 1 illustrates the deployment architecture for the ALB.
-
-![Application load balancer for VPC](images/alb_arc.png "Application load balancer"){: caption="Figure 1: Application load balancer" caption-side="bottom"}
-
-In this diagram, "Client Resources" represents the resources (VPCs and subnets, for instance) that belong to the client ecosystem.
-{: note}
 
 ## High availability and application load balancers
 {: #ha-and-alb}
