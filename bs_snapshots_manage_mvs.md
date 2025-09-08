@@ -96,7 +96,8 @@ ibmcloud is snapshot-consistency-group-delete CONSISTENCY_GROUP_ID
 The following example deletes two consistency groups that are identified by their names.
 
 ```sh
-ibmcloud is snapshot-consistency-group-delete snapshot-consistency-group-1 snapshot-consistency-group-2```
+ibmcloud is snapshot-consistency-group-delete snapshot-consistency-group-1 snapshot-consistency-group-2
+```
 {: pre}
 
 ```sh
@@ -148,9 +149,9 @@ To update a snapshot consistency group, use the `ibm_is_snapshot_consistency_gro
 
 ```terraform
 resource "ibm_is_snapshot_consistency_group" "example" {
-  delete_snapshots_on_delete = true
-  name = "example-snapshot-consistency-group"
-  snapshots {
+   delete_snapshots_on_delete = true
+   name = "example-snapshot-consistency-group"
+   snapshots {
     [
       name = "snapshot-1"
       source_volume = {id = "ibm_is_instance.example.volume_attachments[0].volume_id_1"}
@@ -161,7 +162,7 @@ resource "ibm_is_snapshot_consistency_group" "example" {
       source_volume = {id = "ibm_is_instance.example.volume_attachments[0].volume_id_2"}
       user_tags = ["my-tag"]
     ]
-  }
+   }
 }
 ```
 {: codeblock}
