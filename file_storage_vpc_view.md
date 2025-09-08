@@ -2,7 +2,7 @@
 
 copyright:
   years: 2022, 2025
-lastupdated: "2025-09-06"
+lastupdated: "2025-09-08"
 
 keywords: file storage, file share, view share details, mount targets, view targets, view share
 
@@ -401,7 +401,7 @@ For more information about the command options, see [`ibmcloud is share-mount-ta
 To view more detailed information about a mount target, run the `ibmcloud is share-mount-target` command and specify the share ID or name with the mount target name or ID. See the following example.
 
 ```sh
-$ ibmcloud is share-mount-target  r006-e4acfa9b-88b0-4f90-9320-537e6fa3482a my-source-mount-target
+ibmcloud is share-mount-target  r006-e4acfa9b-88b0-4f90-9320-537e6fa3482a my-source-mount-target
 ```
 {: pre}
 

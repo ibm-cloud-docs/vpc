@@ -2,7 +2,7 @@
 
 copyright:
   years: 2021, 2025
-lastupdated: "2025-09-05"
+lastupdated: "2025-09-08"
 
 keywords: file share, file storage, rename share, increase size, adjust IOPS, mount target
 
@@ -574,7 +574,11 @@ You can add and remove tags when you update a file share with the `ibmcloud is s
 1. Locate your share from the CLI by listing your file shares in the region with the `ibmcloud is shares` command.
 
    ```sh
-   $ ibmcloud is shares
+   ibmcloud is shares
+   ```
+   {: pre}
+
+   ```sh
    Listing shares in all resource groups and region us-south under account Test Account as user test.user@ibm.com...
    ID                                          Name                    Lifecycle state   Zone         Profile   Size(GB)   Resource group   Replication role   Accessor binding role   Snapshot count   Snapshot size   
    r006-a8d6af48-0c97-4c6b-bab1-fbefdc1e1e03   my-file-share           stable            us-south-2   dp2       10         defaults         none               none                    0                0   
@@ -589,7 +593,11 @@ You can add and remove tags when you update a file share with the `ibmcloud is s
 1. Retrieve the details of the file share with the `ibmcloud is share` command.
 
    ```sh
-   $ ibmcloud is share my-file-share
+   ibmcloud is share my-file-share
+   ```
+   {: pre}
+
+   ```sh
    Getting file share my-file-share under account Test Account as user test.user@ibm.com...
 
    ID                           r006-a8d6af48-0c97-4c6b-bab1-fbefdc1e1e03
@@ -624,7 +632,11 @@ You can add and remove tags when you update a file share with the `ibmcloud is s
    The following example shows the information that the `ibmcloud is share` command returns when you retrieve information about a regional file share. 
 
    ```sh
-   $ ibmcloud is share my-regional-file-share
+   ibmcloud is share my-regional-file-share
+   ```
+   {: pre}
+
+   ```sh
    Getting file share my-file-share under account Test Account as user test.user@ibm.com...
 
    ID                                 r006-9ae55188-610e-4cf9-9350-d0b675026ff8 
@@ -667,6 +679,10 @@ The following example adds two user tags to the file share.
 
    ```sh
    ibmcloud is share-update my-file-share --user-tags daily-backup-plan,docs:test
+   ```
+   {: pre}
+
+   ```sh
    Updating file share my-file-share under account Test Account as user test.user@ibm.com...
 
    ID                           r006-b696742a-92ee-4f6a-bfd7-921d6ddf8fa6
@@ -1018,6 +1034,10 @@ The following instructions can assist you in making sure that share bindings and
 
    ```sh
    ibmcloud is shares
+   ```
+   {: pre}
+
+   ```sh
    Listing shares in all resource groups and region us-south under account Test Account as user test.user@ibm.com...
    ID                                          Name                    Lifecycle state   Zone         Profile    Size(GB)   Resource group   Replication role   Accessor binding role   Snapshot count   Snapshot size   
    r006-a8d6af48-0c97-4c6b-bab1-fbefdc1e1e03   my-file-share           stable            us-south-2   dp2        10         defaults         none               none                    0                0   
@@ -1033,7 +1053,11 @@ The following instructions can assist you in making sure that share bindings and
 1. Retrieve the file share details to see the attached mount target and replication information with the `ibmcloud is share` command.
 
    ```sh
-   $ ibmcloud is share my-file-share-2
+   ibmcloud is share my-file-share-2
+   ```
+   {: pre}
+
+   ```sh
    Getting file share my-file-share-2 under account Test Account as user test.user@ibm.com...
 
    ID                           r006-aaf4bfe9-358c-4faa-a4ec-0b955090b940
@@ -1071,7 +1095,11 @@ The following instructions can assist you in making sure that share bindings and
 Run the `share-binding-delete` command and specify the origin file share and binding by either their names or IDs. Type `y` when you're prompted. If more than one bindings are attached to the file share, repeat this step until all bindings are deleted. See the following example.
 
 ```sh
-$ ibmcloud is share-bindings-delete my-origin-share r-006-c2e53b1b-3b15-4792-8d96-c9c035fd65c3
+ibmcloud is share-bindings-delete my-origin-share r-006-c2e53b1b-3b15-4792-8d96-c9c035fd65c3
+```
+{: pre}
+
+```sh
 This will delete accessor binding r-006-c2e53b1b-3b15-4792-8d96-c9c035fd65c3 for share ID my-origin-share and cannot be undone. Continue [y/N] ?> y
 Deleting binding r-006-c2e53b1b-3b15-4792-8d96-c9c035fd65c3 for share ID my-origin-share under account Test Account as user test.user@ibm.com...
 OK
@@ -1085,7 +1113,11 @@ Binding r-006-c2e53b1b-3b15-4792-8d96-c9c035fd65c3 is deleted.
 Run the `share-mount-target-delete` command and specify the file share and mount target by either their names or IDs. Type `y` when you're prompted. If more than one mount targets are attached to the file share, repeat this step until all mount targets are deleted.
 
 ```sh
-$ ibmcloud is share-mount-target-delete my-file-share-2 my-new-mount-target
+ibmcloud is share-mount-target-delete my-file-share-2 my-new-mount-target
+```
+{: pre}
+
+```sh
 This will delete mounted target my-new-mount-target for share ID my-file-share-2 and cannot be undone. Continue [y/N] ?> y
 Deleting mounted target my-new-mount-target for share ID my-file-share-2 under account Test Account as user test.user@ibm.com...
 OK
@@ -1101,7 +1133,11 @@ For more information about the command options, see [`ibmcloud is share-mount-ta
 The file share must be in a `stable` or `failed` state. To delete the file share, run the `share_delete` command and specify the file share by its name or ID.
 
 ```sh
-$ ibmcloud is share-delete my-file-share-2
+ibmcloud is share-delete my-file-share-2
+```
+{: pre}
+
+```sh
 This will delete file share my-file-share-2 and cannot be undone. Continue [y/N] ?> y
 Deleting file share my-file-share-2 under account Test Account as user test.user@ibm.com...
 OK
