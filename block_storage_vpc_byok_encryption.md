@@ -2,7 +2,7 @@
 
 copyright:
   years: 2019, 2025
-lastupdated: "2025-09-02"
+lastupdated: "2025-09-08"
 
 keywords: Block Storage, IBM Cloud, VPC, virtual private cloud, Key Protect, encryption, key management, Hyper Protect Crypto Services, HPCS, volume, data storage, virtual server instance, instance, customer-managed encryption, Block Storage for vpc, customer-managed encryption,
 
@@ -130,7 +130,11 @@ To create a data volume with customer-managed encryption from the CLI, first gat
 The following example shows a volume that is created with customer-managed encryption.
 
 ```sh
-$ ibmcloud is volume-create my-customer-key-volume custom us-east-1 --capacity 300 --iops 1500 --encryption-key crn:v1:bluemix:public:kms:us-east:a/a1234567:3b05b403-8f51-4dac-9114-c777d0a760d4:key:7a8a2761-08e3-455f-a348-144ed604bba9
+ibmcloud is volume-create my-customer-key-volume custom us-east-1 --capacity 300 --iops 1500 --encryption-key crn:v1:bluemix:public:kms:us-east:a/a1234567:3b05b403-8f51-4dac-9114-c777d0a760d4:key:7a8a2761-08e3-455f-a348-144ed604bba9
+```
+{: pre}
+
+```sh
 Creating volume my-customer-key-volume under account Test Account as user test.user@ibm.com...
                                           
 ID                                     r014-3984600c-6f4d-4940-82de-519a867fa3c0   

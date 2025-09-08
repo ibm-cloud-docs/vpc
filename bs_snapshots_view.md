@@ -2,7 +2,7 @@
 
 copyright:
   years: 2021, 2025
-lastupdated: "2025-09-02"
+lastupdated: "2025-09-08"
 
 keywords: view snapshots, view snapshot, viewing snapshots, see snapshots, Block Storage snapshots
 
@@ -202,17 +202,14 @@ This command returns a URL and prompts for a passcode. Go to that URL in your br
 ### Viewing all snapshots of an account in a region from the CLI
 {: #snapshots-vpc-view-all-account-cli}
 
-Run the `snapshots` command to list all snapshots.
+Run the `snapshots` command to list all snapshots. The following example provides a list of all the snapshots in all the resource groups in the `us-south` region.
 
 ```sh
 ibmcloud is snapshots [--json]
 ```
 {: pre}
 
-The following example provides a list of all the snapshots in all the resource groups in the `us-south` region.
-
 ```sh
-$ ibmcloud is snapshots [--json]
 Listing snapshots in all resource groups and region us-south under account Test Account as user test.user@ibm.com...
 ID                                          Name             Status   Source volume                               Bootable   Resource group   Created                     Catalog Offering Version   Catalog Offering Plan   Storage Generation   
 r006-22db5609-69a1-4fe2-bd02-f64fb11230b3   my-test-snapshot stable   r006-ccbc5bc6-cd88-48e0-9a1d-de0f4d024324   true       defaults         2025-07-31T00:04:24+00:00   -                          -                       1   
@@ -235,7 +232,11 @@ ibmcloud is snapshots --volume VOLUME-ID [--json]
 The following example shows all three snapshots that were taken of the volume `r010-df8ffd90-f2e5-470b-83d7-76e64995a1aa`.
 
 ```sh
-$ ibmcloud is snapshots --volume  r010-df8ffd90-f2e5-470b-83d7-76e64995a1aa
+ibmcloud is snapshots --volume  r010-df8ffd90-f2e5-470b-83d7-76e64995a1aa
+```
+{: pre}
+
+```sh
 Listing snapshots in all resource groups and region eu-de under account Test Account as user test.user@ibm.com...
 ID                                          Name                             Status   Source volume                               Bootable   Resource group   Created
 r138-7cac80af-63bb-4a1b-83dd-5f6d550a5db7   bear-peroxide-viewable-oxidant   stable   r010-df8ffd90-f2e5-470b-83d7-76e64995a1aa   false      test-snap        2023-02-17T18:49:48+00:00
@@ -259,8 +260,11 @@ ibmcloud is snapshots --volume CONSISTENCY_GROUP_ID
 The following example uses the ID of the consistency group to list the snapshots that are members of the set.
 
 ```sh
-$ ibmcloud is snapshots --snapshot-consistency-group r174-7c8762e2-c1b9-424e-b773-23240d1780dd
+ibmcloud is snapshots --snapshot-consistency-group r174-7c8762e2-c1b9-424e-b773-23240d1780dd
+```
+{: pre}
 
+```sh
 Listing snapshots in all resource groups and region us-south under account Test Account as user test.user@ibm.com...
 ID                                          Name            Status   Source volume                               Bootable   Resource group   Created
 r174-b8cac978-a990-4824-a15c-604856982efe   snapshot-no-2   stable   r174-0641e516-09a1-4291-96ca-af254017123e   true       Default          2023-09-05T23:14:40+05:30
@@ -283,9 +287,12 @@ ibmcloud is snapshots SNAPSHOT_ID [--json]
 The following example shows the details of a bootable snapshot in the `us-south` region.
 
 ```sh
-$ ibmcloud is snapshot r006-e799fad8-aefa-4df5-81bd-dac6d13200a6
-Getting snapshot r006-e799fad8-aefa-4df5-81bd-dac6d13200a6 under account Test Account as user test.user@ibm.com...
+ibmcloud is snapshot r006-e799fad8-aefa-4df5-81bd-dac6d13200a6
+```
+{: pre}
 
+```sh
+Getting snapshot r006-e799fad8-aefa-4df5-81bd-dac6d13200a6 under account Test Account as user test.user@ibm.com...
                                    
 ID                              r006-e799fad8-aefa-4df5-81bd-dac6d13200a6   
 Name                            my-test-snap-1   
@@ -329,7 +336,11 @@ The `allowed-used` properties are inherited from the source volume or snapshot a
 The following example shows the details of a nonbootable snapshot in the `eu-de` region, which also has a fast restore clone in the `eu-de-1` zone.
 
 ```sh
-$ ibmcloud is snapshot r138-4463eb2c-4913-43b1-b9bf-62a94f74c146
+ibmcloud is snapshot r138-4463eb2c-4913-43b1-b9bf-62a94f74c146
+```
+{: pre}
+
+```sh
 Getting snapshot r138-4463eb2c-4913-43b1-b9bf-62a94f74c146 under account Test Account as user test.user@ibm.com...
 
 ID                         r138-4463eb2c-4913-43b1-b9bf-62a94f74c146
@@ -369,7 +380,11 @@ For more information about available command options, see [`ibmcloud is snapshot
 You can list all available fast restore clones of a snapshot by issuing the `ibmcloud is snapshot-clones` command. The following example lists the available fast restore snapshot clones of the snapshot that has the ID of `r138-4463eb2c-4913-43b1-b9bf-62a94f74c146`.
 
 ```sh
-$ ibmcloud is snapshot-clones r138-4463eb2c-4913-43b1-b9bf-62a94f74c146
+ibmcloud is snapshot-clones r138-4463eb2c-4913-43b1-b9bf-62a94f74c146
+```
+{: pre}
+
+```sh
 Listing zonal clones of snapshot r138-4463eb2c-4913-43b1-b9bf-62a94f74c146 under account Test Account as user test.user@ibm.com...
 Zone      Available   Created
 eu-de-1   true        2023-02-17T20:15:46+00:00
@@ -385,7 +400,11 @@ For more information about available command options, see [`ibmcloud is snapshot
 You can run the `ibmcloud is snapshot-clone` command to list the details of a specific fast restore snapshot clone. The following example shows how to list the details of the fast restore snapshot clone of snapshot `r138-4463eb2c-4913-43b1-b9bf-62a94f74c146` that is in the `eu-de-3` zone.
 
 ```sh
-$ ibmcloud is snapshot-clone r138-4463eb2c-4913-43b1-b9bf-62a94f74c146 eu-de-3
+ibmcloud is snapshot-clone r138-4463eb2c-4913-43b1-b9bf-62a94f74c146 eu-de-3
+```
+{: pre}
+
+```sh
 Getting zonal clone eu-de-3 of snapshot r138-4463eb2c-4913-43b1-b9bf-62a94f74c146 under account Test Account as user test.user@ibm.com...
 
 Zone        eu-de-3
@@ -404,6 +423,10 @@ You can run the `ibmcloud is snaphot` command to list the details about a specif
 
 ```sh
 ibmcloud is snapshot my-cli-snapshot-crc
+```
+{: pre}
+
+```sh
 Getting snapshot my-cli-snapshot-crc-target under account Test Account as user test.user@ibm.com...
 
 ID                     r006-8428038a-a399-4894-8c84-c8d7a4a75fae

@@ -2,7 +2,7 @@
 
 copyright:
   years: 2020, 2025
-lastupdated: "2025-09-02"
+lastupdated: "2025-09-08"
 
 keywords: Block Storage, boot volume, data volume, volume, data storage, virtual server instance, instance, expandable volume
 
@@ -79,7 +79,11 @@ ibmcloud is volume-update VOLUME_ID --capacity CAPACITY_GB
 The following example expands the capacity of a `general-purpose` volume to 8,000 MB.
 
 ```sh
-$ ibmcloud is volume-update demo-volume-update --capacity 8000
+ibmcloud is volume-update demo-volume-update --capacity 8000
+```
+{: pre}
+
+```sh
 Updating volume demo-volume-update under account Test Account as user test.user@ibm.com...
 
 ID                                     r014-dee9736d-08ee-4992-ba8d-3b64a4f0baac
@@ -109,7 +113,11 @@ Tags                                   -
 When the update operation completes, run the `ibmcloud is volume` command to see the updated properties of the volume.
 
 ```sh
-$ ibmcloud is volume demo-volume-update
+ibmcloud is volume demo-volume-update
+```
+{: pre}
+
+```sh
 Getting volume demo-volume-update under account Test Account as user test.user@ibm.com...
                                           
 ID                                     r014-dee9736d-08ee-4992-ba8d-3b64a4f0baac

@@ -2,7 +2,7 @@
 
 copyright:
   years: 2022, 2025
-lastupdated: "2025-09-02"
+lastupdated: "2025-09-08"
 
 keywords: Backup, backup snapshot, create backups, backup service, backup plan, backup policy, restore, restore volume, restore data, restore share
 
@@ -169,7 +169,11 @@ Before you can use the CLI, you must install the IBM Cloud CLI and the VPC CLI p
 Run the `ibmcloud is backup-policy-create` command to create a backup policy without a backup plan. Use the options `--match-tags` and `--name` to give your policy a name and identify the tag that you want to use for your target resources. After the policy is created, you can [add backup plans](#backup-create-plan-cli) to it later on.
 
 ```sh
-$ ibmcloud is backup-policy-create --match-tags dev:test --name my-backup-policy-v1
+ibmcloud is backup-policy-create --match-tags dev:test --name my-backup-policy-v1
+```
+{: pre}
+
+```sh
 Creating backup policy my-backup-policy-v1 under account Test Account as user test.user@ibm.com...
 
 ID                     r006-d6052504-516f-4923-938b-9e9def977428
@@ -199,7 +203,11 @@ For more information about available command options, see [`ibmcloud is backup-p
 Run the `ibmcloud is backup-policy-create` command to create a backup policy without a backup plan. Specify the enterprise CRN to create a policy for the enterprise account and its subaccount. After the policy is created, you can [add backup plans](#backup-create-plan-cli) to it later on.
 
 ```sh
-$ ibmcloud is backup-policy-create --match-tags dev:test --name backup-enterprise-scope --scope  crn:v1:bluemix:public:enterprise::a/a1234567::enterprise:7e44cb4667ba4b88b1b1f8dcc15e33b3
+ibmcloud is backup-policy-create --match-tags dev:test --name backup-enterprise-scope --scope  crn:v1:bluemix:public:enterprise::a/a1234567::enterprise:7e44cb4667ba4b88b1b1f8dcc15e33b3
+```
+{: pre}
+
+```sh
 Creating backup policy backup-scope-1 under account Enterprise Test as user test.user@ibm.com...
 
 ID                     r006-a1b46efe-12bd-403a-9f09-bede1ad3766f
@@ -233,6 +241,10 @@ The following example creates a backup policy for the boot and data volumes of t
 
 ```sh
 ibmcloud is backup-policy-create --match-tags dev:test --name my-cr-backup-policy-v1 --match-resource-type instance --included-content data_volumes,boot_volume
+```
+{: pre}
+
+```sh
 Creating backup policy my-cr-backup-policy-v1 under account Test Account as user test.user@ibm.com...
 
 ID                    r006-e0713176-37b6-4168-88ab-ad92f8a544f9
@@ -259,6 +271,10 @@ The following example creates a backup policy for the data volumes of the tagged
 
 ```sh
 ibmcloud is backup-policy-create --match-tags dev:test --name my-cr-backup-policy-v2 --match-resource-type instance --included-content data_volumes
+```
+{: pre}
+
+```sh
 Creating backup policy my-cr-backup-policy-v2 under account Test Account as user test.user@ibm.com...
 
 ID                    r006-e773722f-d61e-487a-ac88-b1800395aa92
@@ -292,6 +308,10 @@ The following example creates a backup policy for file shares of tagged instance
 
 ```sh
 ibmcloud is backup-policy-create --match-tags dev:test --name my-share-backup-policy --match-resource-type share
+```
+{: pre}
+
+```sh
 Creating backup policy my-cr-backup-policy-v1 under account Test Account as user test.user@ibm.com...
 
 ID                    r006-e0713176-37b6-4168-88ab-ad92f8a544f9
@@ -322,7 +342,11 @@ Run the `backup-policy-create` command to create a backup policy and a backup pl
 The following example uses the `--match_tags` option to match tags to volumes with the user tag `dev:test` and specifies the frequency of the backup plan as a `cron-spec` expression. The `--plan-attach-user-tags` option indicates that the backup plan's user tags are to be attached to the backup snapshot. Setting the `--plan-copy-user-tags` option to false indicates that the source volume's user tags are not copied to the backup. The `--plan-delete-after` option indicates the maximum number of days that the backups are to be kept and the `--plan-delete-over-count` option defines the maximum number of recent backups to keep. The `-plan-clone-policy-zones` option specifies that after the backup snapshot is created and stored in {{site.data.keyword.cos_short}} regionally, a full copy of the backup is stored in the `us-south-1` region of the availability zone. The `--plan-clone-policy-max-snapshots` option changes the number of cached backups that are stored in the AZ to 4. The default value is 5.
 
 ```sh
-$ ibmcloud is backup-policy-create --match-tags dev:test --name my-backup-policy-v2 --plan-name my-plan-b  --plan-attach-tags bkp:test --plan-copy-tags false --plan-delete-after 60 --plan-cron-spec '45 09 * * *' --plan-active --plan-clone-policy-max-snapshots 4 --plan-clone-policy-zones us-south-1,us-south-2 --plan-delete-over-count 2
+ibmcloud is backup-policy-create --match-tags dev:test --name my-backup-policy-v2 --plan-name my-plan-b  --plan-attach-tags bkp:test --plan-copy-tags false --plan-delete-after 60 --plan-cron-spec '45 09 * * *' --plan-active --plan-clone-policy-max-snapshots 4 --plan-clone-policy-zones us-south-1,us-south-2 --plan-delete-over-count 2
+```
+{: pre}
+
+```sh
 Creating backup policy my-backup-policy-v2 under Test Account as user test.user@ibm.com...
 
 ID                     r006-0723c648-9a47-4d51-b1ba-349e21e715b6
@@ -353,6 +377,10 @@ Run the `backup-policy-create` command to create a backup policy and a backup pl
 
 ```sh
 ibmcloud is backup-policy-create --match-tags dev:test --name backup-scope-2 --plan-name scope-plan-2 --plan-attach-tags dev:test --plan-copy-tags false --plan-delete-after 60 --plan-cron-spec '45 09 * * *' --plan-active  --plan-delete-over-count 2 --scope  crn:v1:bluemix:public:enterprise::a1234567::enterprise:7e44cb4667ba4b88b1b1f8dcc15e33b3
+```
+{: pre}
+
+```sh
 Creating backup policy backup-scope-2 under account Enterprise Test as user test.user@ibm.com...
 
 ID                     r006-0bc533ed-4796-407a-982e-693b418f3de3
@@ -458,7 +486,11 @@ ibmcloud is backup-policy-plan-create POLICY --cron-spec CRON_SPEC [--name NAME]
 The following example creates a backup plan for an existing policy, which is identified by name `my-backup-policy-v1`. It attaches backup policy tags to the backup snapshots that are created by the new plan that is called `not-just-another-plan`. The backup job runs at 01:05 every morning, and copies source volume tags to the backup snapshot. Fast restore clones are not enabled and the oldest backup is deleted after 80 backup snapshots are taken.
 
 ```sh
-$ ibmcloud is backup-policy-plan-create my-backup-policy-v1  --attach-tags dev:test --copy-tags true --cron-spec '05 01 * * *' --delete-after 80 --name not-just-another-plan
+ibmcloud is backup-policy-plan-create my-backup-policy-v1  --attach-tags dev:test --copy-tags true --cron-spec '05 01 * * *' --delete-after 80 --name not-just-another-plan
+```
+{: pre}
+
+```sh
 Creating plan not-just-another-plan of backup policy my-backup-policy-v1 under account Test Account as user test.user@ibm.com...
 
 ID                   r138-4d77d84c-929c-49e9-9f05-952be9486406
@@ -497,7 +529,11 @@ To create a backup plan for an existing policy, use the `ibmcloud is backup-poli
 The following example creates a backup plan for an existing policy that includes the fast restore option in two zones within the eu-de region. The plan includes keeping a maximum of two cached backups in each zone. The backup job starts creating backup snapshots at 7:15 PM every day.
 
 ```sh
-$ ibmcloud is backup-policy-plan-create r138-8c494618-9e4f-4b67-9a08-ee3491404f3b  --cron-spec '15 19 * * *' --active --name my-policy-plan --attach-tags my-daily-backup-plan --copy-tags true --delete-after 10 --delete-over-count 2 --clone-policy-max-snapshots 2 --clone-policy-zones eu-de-1,eu-de-3
+ibmcloud is backup-policy-plan-create r138-8c494618-9e4f-4b67-9a08-ee3491404f3b  --cron-spec '15 19 * * *' --active --name my-policy-plan --attach-tags my-daily-backup-plan --copy-tags true --delete-after 10 --delete-over-count 2 --clone-policy-max-snapshots 2 --clone-policy-zones eu-de-1,eu-de-3
+```
+{: pre}
+
+```sh
 Creating plan my-policy-plan of backup policy r138-8c494618-9e4f-4b67-9a08-ee3491404f3b under account Test Account as user ibm.user@ibm.com...
 
 ID                   r138-7734be40-e2a5-4ee6-b4bd-75763639092b
@@ -534,13 +570,16 @@ To create a backup plan that also saves a copy of the backup snapshot in another
 If the source snapshot is not encrypted with a customer key, the encryption of the copy remains provider-managed. If the source snapshot is protected by a customer-managed key, you must specify the customer-managed key that you want to use to encrypt the new copy with the `--encryption-key` option. See the following example.
 
 ```sh
-$ ibmcloud is backup-policy-plan-create my-backup-policy-v1 --cron-spec '0 0 * * *' --name my-crc-plan1 --remote-region-policies '[
+ibmcloud is backup-policy-plan-create my-backup-policy-v1 --cron-spec '0 0 * * *' --name my-crc-plan1 --remote-region-policies '[
   {
     "delete_over_count": 10,
     "region": {"name": "us-east"}
   }
 ]'
+```
+{: pre}
 
+```sh
 Creating plan my-crc-plan1 of backup policy my-backup-policy-v1 under account Test Account as user test.user@ibm.com...
 ID                       r006-f0d881c9-213e-471b-bba7-999ee2eee3ff
 Name                     my-crc-plan1

@@ -2,7 +2,7 @@
 
 copyright:
   years: 2019, 2025
-lastupdated: "2025-09-03"
+lastupdated: "2025-09-08"
 
 keywords: vpc Block Storage, provision Block Storage for vpc, bootable snapshots, create volume from snapshot, fast restore
 
@@ -176,7 +176,11 @@ ibmcloud is volume-create VOLUME_NAME PROFILE_NAME ZONE_NAME [--capacity CAPACIT
 See the following example.
 
 ```sh
-$ ibmcloud is volume-create demovolume1 custom us-east-1 --capacity 500 --iops 3000 --tags env:test,env:prod
+ibmcloud is volume-create demovolume1 custom us-east-1 --capacity 500 --iops 3000 --tags env:test,env:prod
+```
+{: pre}
+
+```sh
 Creating volume demovolume1 in resource group Default under account Test Account as user test.user@ibm.com...
 
 ID                                     r014-e45f9c8c-4655-4a3e-9d90-70c2d64d1746   
@@ -220,6 +224,10 @@ To create a stand-alone volume, run the `ibmcloud is volume-create` command and 
 
 ```sh
 ibmcloud is volume-create defined-performance-vol sdp us-east-3 --capacity 200 --iops 3000 --bandwidth 2000
+```
+{: pre}
+
+```sh
 Creating volume defined-performance-vol under account Test Account as user test.user@ibm.com...
                                           
 ID                                     r014-9b41d061-d00c-4571-92c0-f592b91f5cd0
@@ -259,7 +267,11 @@ ibmcloud is volume-create VOLUME_NAME PROFILE_NAME ZONE_NAME [--encryption-key E
 The following example shows a volume with custom IOPS and capacity that is created with customer-managed encryption.
 
 ```sh
-$ ibmcloud is volume-create demo-cli-volume custom us-east-1 --capacity 300 --iops 1500 --encryption-key crn:v1:bluemix:public:kms:us-east:a/a1234567:3b05b403-8f51-4dac-9114-c777d0a760d4:key:7a8a2761-08e3-455f-a348-144ed604bba9
+ibmcloud is volume-create demo-cli-volume custom us-east-1 --capacity 300 --iops 1500 --encryption-key crn:v1:bluemix:public:kms:us-east:a/a1234567:3b05b403-8f51-4dac-9114-c777d0a760d4:key:7a8a2761-08e3-455f-a348-144ed604bba9
+```
+{: pre}
+
+```sh
 Creating volume demo-cli-volume under account Test Account as user test.user@ibm.com...
                                           
 ID                                     r014-3984600c-6f4d-4940-82de-519a867fa3c0   
@@ -293,7 +305,11 @@ Run the `ibmcloud is volume-create` command and specify the `--snapshot` option 
 This example creates the new volume from a snapshot that is specified by name.
 
 ```sh
-$ ibmcloud is volume-create volume-4 general-purpose us-east-1 --snapshot snapshot-3
+ibmcloud is volume-create volume-4 general-purpose us-east-1 --snapshot snapshot-3
+```
+{: pre}
+
+```sh
 Creating volume volume-4 under account Test Account as user test.user@ibm.com...
 
 ID                                     r014-dee9736d-08ee-4992-ba8d-3b64a4f0baac
@@ -332,6 +348,10 @@ You can use the `instance-volume-attachment-add` command to create a volume and 
 
 ```sh
 ibmcloud is instance-volume-attachment-add acd-vol-attach1 my-instance-1 --profile custom --new-volume-name acd-vol-2 --iops 100 --capacity 100
+```
+{: pre}
+
+```sh
 Creating volume attachment acd-vol-attach1 for instance my-instance-1 under account Test Account as user test.user@ibm.com...
                      
 ID                730f-5f63eb4d-2683-4dd6-a20a-5ab06b4061c6   
@@ -360,6 +380,10 @@ To create a virtual server instance, run the `ibmcloud is instance-create` comma
 
 ```sh
 ibmcloud is instance-create my-defined-performance-instance test-vpc us-east-3 bx2-2x8 csi-subnet-cidr-3b6k-storage-v5lvug8w-380sal --boot-volume '{"name": "boot-vol-attachment-name-instance-1", "volume": {"name": "boot-vol-name-1", "profile": {"name": "sdp"},"user_tags": ["env:test4", "env:dev4"]}} --volume-attach '[{"volume": {"capacity": 1000,"iops": 32000,"bandwidth": 3000,"name": "my-data-volume-1","profile": {"name": "sdp"}}}]' --image r006-5f183c60-78a0-4d6e-9be5-84335939255a
+```
+{: pre}
+
+```sh
 Creating instance my-defined-performance instance under account Test Account as user test.user@ibm.com...
                                          
 ID                                    730f_59883a41-c943-423c-a6ab-e2b066f2f314
@@ -419,7 +443,10 @@ You can see the user tags when you look at the details of the boot or data volum
 
 ```sh
 ibmcloud is instance-create my-vsi-4 my-vpc-2 us-south-1 bx2-2x8 cli-subnet-1 --image ibm-centos-7-9-minimal-amd64-6 --keys my-keys4 --boot-volume '{"name": "boot-vol-4", "volume": {"name": "my-boot-vol-4", "profile": {"name": "general-purpose"},"user_tags": ["env:test4", "env:dev4"]}}' --volume-attach  '[{"name": "my-vol-att1", "volume": {"name":"my-vol-4", "profile": {"name": "general-purpose"}, "capacity": 10,"user_tags": ["env:test4", "env:dev4"]}}]'
+```
+{: pre}
 
+```sh
 Creating instance my-vsi-4 under account vpcdemo1 as user myuser@mycompany.com...
 
 ID                                    efd06503-f514-4ea2-ba6c-2b9c715e6269
@@ -467,7 +494,10 @@ In the following example, the command adds two user tags to the instance templat
 
 ```sh
 ibmcloud is instance-template-create my-tpl-1 my-vpc-2 us-south-1 bx2-2x8 cli-subnet-1 --image ibm-centos-7-9-minimal-amd64-6 --keys my-keys4 --boot-volume '{"name": "boot-vol-1", "volume": {"name": "my-boot-vol-1", "profile": {"name": "general-purpose"},"user_tags": ["env:test1", "env:dev1"]}}' --volume-attach  '[{"name": "my-vol-att", "volume": {"name":"my-vol-1", "profile": {"name": "general-purpose"}, "capacity": 10,"user_tags": ["env:test1", "env:dev1"] }}]'
+```
+{: pre}
 
+```sh
 Creating instance template my-tpl-1 under account vpcdemo as user myuser@mycompany.com...
 
 ID                          38ef87e9-3a4d-4d72-8450-86c16b76ae0d

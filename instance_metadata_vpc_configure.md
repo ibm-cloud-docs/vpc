@@ -2,7 +2,7 @@
 
 copyright:
   years: 2022, 2025
-lastupdated: "2025-07-31"
+lastupdated: "2025-09-08"
 
 keywords:
 
@@ -335,7 +335,7 @@ You can enable and disable features of the metadata service using the CLI.
 The following example shows an instance with the metadata service enabled.
 
 ```sh
-$ ibmcloud is instance instance-name -q
+ibmcloud is instance instance-name -q
 
 ID                                    0716_9cc6d74d-4b77-4cca-b1f4-31cc6edefe01
 Name                                  instance-name

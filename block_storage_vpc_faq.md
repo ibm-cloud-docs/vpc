@@ -2,7 +2,7 @@
 
 copyright:
   years: 2019, 2025
-lastupdated: "2025-09-04"
+lastupdated: "2025-09-08"
 
 keywords: faqs, Block Storage for vpc, fast restore, multizone, instance, instance provisioning, volume management, volume deletion.
 
@@ -170,7 +170,11 @@ Second, partitioning your Block Storage and creating a file system on it reduces
 Take the volume `docs-block-test3` as an example. We specified 1200 GB during provisioning and when you list the details in the CLI, you can see that it has the capacity of 1200.
 
 ```sh
-$ ibmcloud is volume r006-6afe1361-b592-45ab-b23b-6cca9982e371
+ibmcloud is volume r006-6afe1361-b592-45ab-b23b-6cca9982e371
+```
+{: pre}
+
+```sh
 Getting volume r006-6afe1361-b592-45ab-b23b-6cca9982e371 under account Test Account as user test.user@ibm.com...
 
 ID                                     r006-6afe1361-b592-45ab-b23b-6cca9982e371

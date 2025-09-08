@@ -2,7 +2,7 @@
 
 copyright:
   years: 2021, 2025
-lastupdated: "2025-09-04"
+lastupdated: "2025-09-08"
 
 keywords: snapshots, Block Storage, snapshot clone, remote copy, fast restore, Block Storage snapshot, cross-regional snapshot
 
@@ -145,7 +145,11 @@ For more information about available command options, see [`ibmcloud is snapshot
 The following example creates a snapshot with the name `cli-snapshot-test` of the data volume `block-test1` in the `eu-de-2` region. The snapshot is tagged with `env:test` and `env:prod`, and it has a fast restore snapshot clone in the `eu-de-1` zone.
 
 ```sh
-$ ibmcloud is snapshot-create --volume r010-df8ffd90-f2e5-470b-83d7-76e64995a1aa --name cli-snapshot-test --tags env:test,env:prod --clone-zones eu-de-1
+ibmcloud is snapshot-create --volume r010-df8ffd90-f2e5-470b-83d7-76e64995a1aa --name cli-snapshot-test --tags env:test,env:prod --clone-zones eu-de-1
+```
+{: pre}
+
+```sh
 Creating snapshot cli-snapshot-test under account Test Account as user test.user@ibm.com...
 
 ID                     r138-4463eb2c-4913-43b1-b9bf-62a94f74c146
@@ -175,7 +179,11 @@ Tags                   env:prod,env:test
 The status shows `pending` while the snapshot is created. Issue the `ibmcloud is snapshot` command with the snapshot ID to see the new snapshot in `stable` status.
 
 ```sh
-$ ibmcloud is snapshot r138-4463eb2c-4913-43b1-b9bf-62a94f74c146
+ibmcloud is snapshot r138-4463eb2c-4913-43b1-b9bf-62a94f74c146
+```
+{: pre}
+
+```sh
 Getting snapshot r138-4463eb2c-4913-43b1-b9bf-62a94f74c146 under account Test Account as user test.user@ibm.com...
 
 ID                     r138-4463eb2c-4913-43b1-b9bf-62a94f74c146
@@ -211,7 +219,11 @@ You can create a fast restore clone by using the `ibmcloud is snapshot-clc` comm
 The following example creates a fast restore snapshot clone of the snapshot `r138-4463eb2c-4913-43b1-b9bf-62a94f74c146` in the `eu-de-3` zone.
 
 ```sh
-$ ibmcloud is snapshot-clc r138-4463eb2c-4913-43b1-b9bf-62a94f74c146  --zone eu-de-3
+ibmcloud is snapshot-clc r138-4463eb2c-4913-43b1-b9bf-62a94f74c146  --zone eu-de-3
+```
+{: pre}
+
+```sh
 Creating zonal clone of snapshot r138-4463eb2c-4913-43b1-b9bf-62a94f74c146 under account Test Account as user test.user@ibm.com...
 
 Zone        eu-de-3
@@ -224,7 +236,11 @@ Href        https://eu-de.iaas.cloud.ibm.com/v1/regions/eu-de/zones/eu-de-3
 The snapshot clone appears as unavailable while the snapshot clone is created. Issue the `ibmcloud is snapshot-cl` command with the snapshot ID and the clone target zone to see the new snapshot clone as available.
 
 ```sh
-$ ibmcloud is snapshot-cl r138-4463eb2c-4913-43b1-b9bf-62a94f74c146 eu-de-3
+ibmcloud is snapshot-cl r138-4463eb2c-4913-43b1-b9bf-62a94f74c146 eu-de-3
+```
+{: pre}
+
+```sh
 Getting zonal clone eu-de-3 of snapshot r138-4463eb2c-4913-43b1-b9bf-62a94f74c146 under account Test Account as user test.user@ibm.com...
 
 Zone        eu-de-3
@@ -248,7 +264,11 @@ If the source snapshot is not encrypted with a customer key, the encryption of t
 The following example creates a snapshot in the target region (`us-south`) by using the CRN of a snapshot from the source region (`us-east`).
 
 ```sh
-$ ibmcloud is snapshot-create --name my-cli-snapshot-crc --source-snapshot-crn crn:v1:bluemix:public:is:us-east:a/a1234567::snapshot:r014-14aae86e-f03d-4978-a4da-ab02e69bb2f9
+ibmcloud is snapshot-create --name my-cli-snapshot-crc --source-snapshot-crn crn:v1:bluemix:public:is:us-east:a/a1234567::snapshot:r014-14aae86e-f03d-4978-a4da-ab02e69bb2f9
+```
+{: pre}
+
+```sh
 Creating snapshot my-cli-snapshot-crc under account Test Account as user test.user@ibm.com...
                           
 ID                     r006-daefc524-2643-4444-a22d-7c38144cc529   

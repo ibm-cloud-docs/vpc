@@ -2,7 +2,7 @@
 
 copyright:
   years: 2019, 2025
-lastupdated: "2025-09-04"
+lastupdated: "2025-09-08"
 
 keywords:
 
@@ -170,7 +170,11 @@ Specifying the resource group ID or name filters the list to volumes that belong
 The following example shows all volumes for all resource groups in your availability zone.
 
 ```sh
-$ ibmcloud is volumes
+ibmcloud is volumes
+```
+{: pre}
+
+```sh
 Listing volumes in all resource groups and region us-east under account Test Account as user test.user@ibm.com...
 
 ID                                          Name                                      Status      Capacity   IOPS   Profile           Attachment state   Attachment type   Zone        Resource group
@@ -203,7 +207,11 @@ ibmcloud is volume VOLUME_ID [--json]
 See the following example.
 
 ```sh
-$ ibmcloud is volume demo-volume-update
+ibmcloud is volume demo-volume-update
+```
+{: pre}
+
+```sh
 Getting volume demo-volume-update under account Test Account as user test.user@ibm.com...
 
 ID                                     r014-dee9736d-08ee-4992-ba8d-3b64a4f0baac
@@ -246,6 +254,10 @@ When you request to view details of boot volumes, a few extra properties are ret
 
 ```sh
 ibmcloud is volume r006-77851646-75da-4bd0-8bbd-ed86fdec0b0e
+```
+{: pre}
+
+```sh
 Getting volume r006-77851646-75da-4bd0-8bbd-ed86fdec0b0e under account Test Account as user test.user@ibm.com...
 
 ID                                     r006-77851646-75da-4bd0-8bbd-ed86fdec0b0e

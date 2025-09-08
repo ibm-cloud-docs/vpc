@@ -2,7 +2,7 @@
 
 copyright:
   years: 2021, 2025
-lastupdated: "2025-09-05"
+lastupdated: "2025-09-08"
 
 keywords:
 
@@ -287,7 +287,7 @@ ibmcloud is instance-create my-instance-restore1 ea002578-ff10-41fe-9652-e63f7e0
    }
 }'
 ```
-{: codeblock}
+{: pre}
 
 For more information about available command options, see [`ibmcloud is instance-create`](/docs/vpc?topic=vpc-vpc-reference#instance-create).
 
@@ -317,7 +317,11 @@ Run the `ibmcloud is volume-create` command and specify the `snapshot` parameter
 The following example creates a stand-alone data volume by using the CRN of a snapshot from another account.
 
 ```sh
-$ ibmcloud is volume-create my-new-volume general-purpose us-east-1 --snapshot crn:v1:bluemix:public:is:eu-east-1:a/a7654321::snapshot:r014-4463eb2c-4913-43b1-b9bf-62a94f74c146
+ibmcloud is volume-create my-new-volume general-purpose us-east-1 --snapshot crn:v1:bluemix:public:is:eu-east-1:a/a7654321::snapshot:r014-4463eb2c-4913-43b1-b9bf-62a94f74c146
+```
+{: pre}
+
+```sh
 Creating volume my-new-volume under account Test Account as user test.user@ibm.com...
 
 ID                                     r014-dee9736d-08ee-4992-ba8d-3b64a4f0baac

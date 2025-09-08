@@ -192,7 +192,7 @@ The following examples show possible column values and what they mean:
 In some contexts, you might see an Interface Type (usually `virtio_blk`) for an instance profile or for an attached instance disk. The following example shows details that were obtained from the CLI for a specific instance profile.
 
 ```sh
-$ ibmcloud is in-pr bx2d-48x192
+ibmcloud is in-pr bx2d-48x192
 Getting instance profile bx2d-48x192 under account YYYYYY as user vpc-user@myco.com...
 
 Name                     bx2d-48x192
@@ -221,7 +221,7 @@ Max NIC Count            10
 You can report instance storage information for your virtual server instance by using the following CLI example. Substitute your own instance ID or name.
 
 ```sh
-$ ibmcloud is instance-disks 0716_f8c0fd3b-cada-46c3-91f6-c271937ef488
+ibmcloud is instance-disks 0716_f8c0fd3b-cada-46c3-91f6-c271937ef488
 Listing disks of instance 0716_f8c0fd3b-cada-46c3-91f6-c271937ef488 under account YYYYYY as user vpc-user@myco.com...
 ID                                          Name                               Size   Interface Type
 0716-6ebed02f-c421-4b06-a73b-f334413e84b3   clunky-refocus-tidings-underpaid   600    virtio_blk
@@ -235,7 +235,7 @@ ID                                          Name       �
 You can update the custom names of the instance storage disks by using the following CLI command. Substitute your own instance ID and disk ID for the last two parameters, respectively.
 
 ```sh
-$ ibmcloud is instance-disk-update 0716_f8c0fd3b-cada-46c3-91f6-c271937ef488 0716-6ebed02f-c421-4b06-a73b-f334413e84b3 --name my-instance-disk1
+ibmcloud is instance-disk-update 0716_f8c0fd3b-cada-46c3-91f6-c271937ef488 0716-6ebed02f-c421-4b06-a73b-f334413e84b3 --name my-instance-disk1
 Updating instance disk 0716-6ebed02f-c421-4b06-a73b-f334413e84b3 of instance 0716_f8c0fd3b-cada-46c3-91f6-c271937ef488 under account YYYYYY as user vpc-user@myco.com...
 
 ID               0716-6ebed02f-c421-4b06-a73b-f334413e84b3

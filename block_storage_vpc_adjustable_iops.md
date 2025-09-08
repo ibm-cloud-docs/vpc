@@ -2,7 +2,7 @@
 
 copyright:
   years: 2021, 2025
-lastupdated: "2025-09-04"
+lastupdated: "2025-09-08"
 
 keywords: Block Storage for VPC, boot volume, data volume, volume, data storage, virtual server instance, instance, adjustable volume, iops
 
@@ -120,7 +120,11 @@ ibmcloud is volume-update VOLUME_ID --iops IOPS
 This example shows an increase of IOPS from 100 IOPS to 3,000 IOPS for a 100 GB volume based on a 100 - 499 custom profile. The IOPS range for this custom band is 100 - 6,000 IOPS.
 
 ```sh
-$ ibmcloud is volume-update 933c8781-f7f5-4a8f-8a2d-3bfc711788ee --iops 3000
+ibmcloud is volume-update 933c8781-f7f5-4a8f-8a2d-3bfc711788ee --iops 3000
+```
+{: pre}
+
+```sh
 Updating volume 933c8781-f7f5-4a8f-8a2d-3bfc711788ee under account Test Account as user test.user@ibm.com...
 ID                                      0738-933c8781-f7f5-4a8f-8a2d-3bfc711788ee
 Name                                    demo-volume-update
@@ -156,7 +160,11 @@ ibmcloud is volume-update {volume-id} --profile 5iops-tier
 {: pre}
 
 ```sh
-$ ibmcloud is volume-update demo-volume-update --profile 5iops-tier
+ibmcloud is volume-update demo-volume-update --profile 5iops-tier
+```
+{: pre}
+
+```sh
 Updating volume demo-volume-update under account Test Account as user test.user@ibm.com...
                                           
 ID                                     r014-dee9736d-08ee-4992-ba8d-3b64a4f0baac   

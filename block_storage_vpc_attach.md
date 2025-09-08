@@ -1,8 +1,8 @@
 ---
 
 copyright:
-  years: 2019, 2024
-lastupdated: "2024-09-23"
+  years: 2019, 2025
+lastupdated: "2025-09-08"
 
 keywords: vpc, Block Storage, Block Storage for vpc, mounting storing, attaching Block Storage, vpc instance, data volumes
 
@@ -109,7 +109,11 @@ ibmcloud is instance-volume-attachment-add NAME INSTANCE_ID VOLUME_ID [--auto-de
 To see a list of available virtual server instances, run the `ibmcloud is instances` command. Check out the following example.
 
 ```sh
-$ ibmcloud is instances
+ibmcloud is instances
+```
+{: pre}
+
+```sh
 Listing instances in all resource groups and region us-east under account Test Account as user test.user@ibm.com...
 ID                                          Name                 Status    Reserved IP   Floating IP      Profile    Image                                VPC                              Zone        Resource group   
 0757_506a787d-0672-4209-854b-3e280ec50b44    my-rhel-instance    running   10.241.0.4    169.63.96.188    bx2-2x8    ibm-redhat-9-0-minimal-amd64-2       test-pbalak1                     us-east-1   defaults   
@@ -124,7 +128,11 @@ ID                                          Name                 Status    Reser
 Then, select the virtual server instance that is in the same zone as the volume that you want to attach.
 
 ```sh
-$ ibmcloud is instance-volume-attachment-add otp1 0757_11f5db7f-35a1-4678-bcbd-c85204e09507 demo-volume-update --auto-delete true
+ibmcloud is instance-volume-attachment-add otp1 0757_11f5db7f-35a1-4678-bcbd-c85204e09507 demo-volume-update --auto-delete true
+```
+{: pre}
+
+```sh
 Creating volume attachment otp1 for instance my-test-ro under account Test Account as user test.user@ibm.com...
                      
 ID                0757-6757e676-0bf5-4b79-9a5b-29c24e17420c   
@@ -154,7 +162,11 @@ ibmcloud is instance-volume-attachment INSTANCE VOLUME_ATTACHMENT [--json]
 {: pre}
 
 ```sh
-$ ibmcloud is instance-volume-attachment my-test-ro otp1
+ibmcloud is instance-volume-attachment my-test-ro otp1
+```
+{: pre}
+
+```sh
 Getting volume attachment otp1 of instance my-test-ro under account Test Account as user test.user@ibm.com...
                      
 ID                0757-6757e676-0bf5-4b79-9a5b-29c24e17420c   
@@ -187,6 +199,10 @@ See the following example.
 
 ```sh
 ibmcloud is instance-volume-attachments my-test-ro
+```
+{: pre}
+
+```sh
 Listing volume attachments of instance my-test-ro under account Test Account as user test.user@ibm.com...
 ID                                          Name                                 Volume                          Status     Type   Device                                            Auto delete   
 0757-6757e676-0bf5-4b79-9a5b-29c24e17420c   otp1                                 demo-volume-update              attached   data   0757-6757e676-0bf5-4b79-9a5b-29c24e17420c-bxsh7   true   

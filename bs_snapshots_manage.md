@@ -2,7 +2,7 @@
 
 copyright:
   years: 2021, 2025
-lastupdated: "2025-09-04"
+lastupdated: "2025-09-08"
 
 keywords: snapshots, Block Storage snapshots, manage snapshots, fast restore clone, backup snapshot, remote copy, cross-regional copy
 
@@ -75,7 +75,11 @@ ibmcloud is snapshot-update SNAPSHOT_ID --name SNAPSHOT_NAME
 See the following example.
 
 ```sh
-$ ibmcloud is snapshot-update r138-e6664842-b370-496a-9ae7-da3fb647707c --name snappy-snap-snap
+ibmcloud is snapshot-update r138-e6664842-b370-496a-9ae7-da3fb647707c --name snappy-snap-snap
+```
+{: pre}
+
+```sh
 Updating snapshot r138-e6664842-b370-496a-9ae7-da3fb647707c under account Test Account as user test.user@ibm.com...
 
 ID                     r138-e6664842-b370-496a-9ae7-da3fb647707c
@@ -116,6 +120,10 @@ You must have the `is.volume.volume.manage-allowed-use` IAM role to change these
 
 ```sh
 ibmcloud is snapshot-update r006-b6b5e2ad-e60a-40c9-bbc2-356dad292fe3 --allowed-use-api-version "2025-03-03" --allowed-use-bare-metal-server "enable_secure_boot==true" --allowed-use-instance true
+```
+{: pre}
+
+```sh
 Updating snapshot r006-b6b5e2ad-e60a-40c9-bbc2-356dad292fe3 under account Test Account as user test.user@ibm.com...
 
 ID                              r006-b6b5e2ad-e60a-40c9-bbc2-356dad292fe3   
@@ -303,7 +311,11 @@ Use the same option to add tags to a volume when you create a snapshot by using 
 The following example adds user tags `env:test` and `env:prod` to a volume that is identified by its ID.
 
 ```sh
-$ ibmcloud is snapshot-update r138-e6664842-b370-496a-9ae7-da3fb647707c --name snappy-snap-snap --tags env:test,env:prod
+ibmcloud is snapshot-update r138-e6664842-b370-496a-9ae7-da3fb647707c --name snappy-snap-snap --tags env:test,env:prod
+```
+{: pre}
+
+```sh
 Updating snapshot r138-e6664842-b370-496a-9ae7-da3fb647707c under account Test Account as user test.user@ibm.com...
 
 ID                     r138-e6664842-b370-496a-9ae7-da3fb647707c
@@ -376,7 +388,11 @@ Fast restore information is updated when you refresh. Zone information is update
 To create a zonal copy of a snapshot, issue the `ibmcloud is snapshot-clone-create` command with the snapshot ID and the zone or zones where you want to create copies. The following command example creates the fast restore clone of `r138-4463eb2c-4913-43b1-b9bf-62a94f74c146` in the `eu-de-3` zone.
 
 ```sh
-$ ibmcloud is snapshot-clone-create r138-4463eb2c-4913-43b1-b9bf-62a94f74c146  --zone eu-de-3
+ibmcloud is snapshot-clone-create r138-4463eb2c-4913-43b1-b9bf-62a94f74c146  --zone eu-de-3
+```
+{: pre}
+
+```sh
 Creating zonal clone of snapshot r138-4463eb2c-4913-43b1-b9bf-62a94f74c146 under account Test Account as user test.user@ibm.com...
 
 Zone        eu-de-3
@@ -389,7 +405,11 @@ Href        https://eu-de.iaas.cloud.ibm.com/v1/regions/eu-de/zones/eu-de-3
 The snapshot clone appears to be unavailable while the snapshot clone is created. It takes only a few seconds. Issue the `ibmcloud is snapshot-cl` command with the snapshot ID and the clone target zone to see the new snapshot clone as available.
 
 ```sh
-$ ibmcloud is snapshot-cl r138-4463eb2c-4913-43b1-b9bf-62a94f74c146 eu-de-3
+ibmcloud is snapshot-cl r138-4463eb2c-4913-43b1-b9bf-62a94f74c146 eu-de-3
+```
+{: pre}
+
+```sh
 Getting zonal clone eu-de-3 of snapshot r138-4463eb2c-4913-43b1-b9bf-62a94f74c146 under account Test Account as user test.user@ibm.com...
 
 Zone        eu-de-3
@@ -542,7 +562,10 @@ You can create a cross-regional copy of a snapshot by using the `snapshot-create
 
 ```sh
 ibmcloud is snapshot-create --name my-cli-snapshot-crc --source-snapshot-crn crn:v1:bluemix:public:is:us-south:a/a1234567::snapshot:r006-b9590a48-63a3-445e-b819-3f2c0b82daf8
+```
+{: pre}
 
+```sh
 Creating snapshot my-cli-snapshot-crc under account Test Account as user test.user@ibm.com...
 
 ID                     r142-bd4532c0-e73c-44f9-a017-89e5368c521a
@@ -589,7 +612,11 @@ For more information about available command options, see [`ibmcloud is snapshot
 You can delete a cross-regional copy of a snapshot by using the `ibmcloud is snapshot-delete` command with the snapshot ID.
 
 ```sh
-$ ibmcloud is snapshot-delete r142-bd4532c0-e73c-44f9-a017-89e5368c521a
+ibmcloud is snapshot-delete r142-bd4532c0-e73c-44f9-a017-89e5368c521a
+```
+{: pre}
+
+```sh
 This will delete snapshot r142-bd4532c0-e73c-44f9-a017-89e5368c521a and cannot be undone. Continue [y/N] ?> y
 Deleting snapshot r142-bd4532c0-e73c-44f9-a017-89e5368c521a under account Test Account as user test.user@ibm.com...
     OK

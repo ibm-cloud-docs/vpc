@@ -2,7 +2,7 @@
 
 copyright:
   years: 2019, 2025
-lastupdated: "2025-09-04"
+lastupdated: "2025-09-08"
 
 keywords: Block storage for VPC, change IOPS, change auto-delete, increase volume, change name, rename volume, delete volume, renaming volume, updating volume
 
@@ -189,6 +189,10 @@ See the following example.
 
 ```sh
 ibmcloud is volume-update r006-5ed4006b-3dac-4c95-8eeb-4aa9a85cbd34 --name my-data-volume
+```
+{: pre}
+
+```sh
 Updating volume r006-5ed4006b-3dac-4c95-8eeb-4aa9a85cbd34 under account Test Account as user test.user@ibm.com...
                                           
 ID                                     r006-5ed4006b-3dac-4c95-8eeb-4aa9a85cbd34   
@@ -230,6 +234,10 @@ The following example adds user tags `env:test` and `bkp:test` to a volume ident
 
 ```sh
 ibmcloud is volume-update r006-5ed4006b-3dac-4c95-8eeb-4aa9a85cbd34 --tags dev:test
+```
+{: pre}
+
+```sh
 Updating volume r006-5ed4006b-3dac-4c95-8eeb-4aa9a85cbd34 under account Test Account as user test.user@ibm.com...
                                           
 ID                                     r006-5ed4006b-3dac-4c95-8eeb-4aa9a85cbd34   
@@ -272,7 +280,11 @@ ibmcloud is instance-volume-attachment-update INSTANCE_ID VOLUME_ATTACHMENT_ID [
 Use the `--name` option and specify a new name for the volume attachment. Specify `--auto-delete true` to make sure that the volume is automatically deleted when the instance is deleted. Specify `--auto-delete false`, if you want to keep the volume as a stand-alone volume after the instance is deleted.
 
 ```sh
-$ ibmcloud is instance-volume-attachment-update doc-test-ro otp1 --name one-true-pairing --auto-delete false
+ibmcloud is instance-volume-attachment-update doc-test-ro otp1 --name one-true-pairing --auto-delete false
+```
+{: pre}
+
+```sh
 Updating volume attachment otp1 of instance doc-test-ro under account Test Account as user test.user@ibm.com...
 ID                0757-6757e676-0bf5-4b79-9a5b-29c24e17420c
 Name              one-true-pairing
@@ -305,7 +317,11 @@ ibmcloud is instance-volume-attachment-detach INSTANCE (VOLUME_ATTACHMENT1 VOLUM
 {: pre}
 
 ```sh
-$ ibmcloud is instance-volume-attachment-detach kj-test-ro one-true-pairing
+ibmcloud is instance-volume-attachment-detach kj-test-ro one-true-pairing
+```
+{: pre}
+
+```sh
 This will delete volume attachment one-true-pairing and cannot be undone. Continue [y/N] ?> y
 Deleting volume attachment one-true-pairing from instance kj-test-ro under account Test Account as user test.user@ibm.com...
 OK
@@ -733,7 +749,11 @@ ibmcloud is volume-delete (VOLUME_NAME | VOLUME_ID) [-f, --force]
 See the following example.
 
 ```sh
-$ ibmcloud is volume-delete demovolume1
+ibmcloud is volume-delete demovolume1
+```
+{: pre}
+
+```sh
 This will delete volume demovolume1 and cannot be undone. Continue [y/N] ?> y
 Deleting volume demovolume1 under account Test Account as user test.user@ibm.com...
 OK

@@ -2,7 +2,7 @@
 
 copyright:
   years: 2024, 2025
-lastupdated: "2025-09-05"
+lastupdated: "2025-09-08"
 
 keywords:
 
@@ -133,7 +133,7 @@ Replication status reasons         Status code   Status message
 The following example creates a share from a snapshot by using the CRN of the snapshot. If you don't provide a name for your new share, a name is auto-generated for you. The size and IOPS values are inherited from the snapshot, and you can change them after the share is created.
 
 ```sh
-$ ibmcloud is share-create --profile dp2 --snapshot crn:v1:bluemix:public:is:us-south-1:a/a1234567::share-snapshot:r006-2ae87eb2-b26c-4126-ab34-e6e64f6f1773/r006-6ce54f3b-8971-4b5d-95a7-7dfa897ddfb3 --user-tags dev:tags
+ibmcloud is share-create --profile dp2 --snapshot crn:v1:bluemix:public:is:us-south-1:a/a1234567::share-snapshot:r006-2ae87eb2-b26c-4126-ab34-e6e64f6f1773/r006-6ce54f3b-8971-4b5d-95a7-7dfa897ddfb3 --user-tags dev:tags
 Creating file share  under account Test Account as user test.user@ibm.com...
                                       
 ID                                 r006-5fb2d6aa-544d-4469-8e59-36e0fc21d0fa   

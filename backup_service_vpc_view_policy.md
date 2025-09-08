@@ -2,7 +2,7 @@
 
 copyright:
   years: 2022, 2025
-lastupdated: "2025-09-02"
+lastupdated: "2025-09-08"
 
 keywords: Backup, backup service, backup plan, backup policy, restore, restore volume, restore data
 
@@ -170,7 +170,11 @@ ibmcloud is backup-policies [--tag TAG_NAME] [--resource-group-id RESOURCE_GROUP
 The following example shows the output that you can expect.
 
 ```sh
-$ ibmcloud is backup-policies
+ibmcloud is backup-policies
+```
+{: pre}
+
+```sh
 Listing backup policies in all resource groups and region eu-de under account Test Account as user test.user@ibm.com...
 ID                                          Name                  Status   Resource group
 r138-0521986d-963c-4c18-992d-d6a7a99d115f   backup-policy-v1      stable   defaults
@@ -195,7 +199,11 @@ ibmcloud is backup-policies --tag
 The following example produces a list of backup policies that have the `dev:test` tag.
 
 ```sh
-$ ibmcloud is backup-policies --tag dev:test
+ibmcloud is backup-policies --tag dev:test
+```
+{: pre}
+
+```sh
 Listing backup policies in all resource groups and region eu-de under account Test Account as user test.user@ibm.com...
 ID                                          Name                  Status   Resource group
 r138-0521986d-963c-4c18-992d-d6a7a99d115f   backup-policy-v1      stable   defaults
@@ -219,7 +227,11 @@ ibmcloud is backup-policy POLICY [--output JSON] [-q, --quiet]
 The following example lists the properties of a backup policy with the plan that it contains.
 
 ```sh
-$ ibmcloud is backup-policy my-backup-policy-v2
+ibmcloud is backup-policy my-backup-policy-v2
+```
+{: pre}
+
+```sh
 Getting backup policy my-backup-policy-v2 under account Test Account as user test.user@ibm.com...
 
 ID                      r006-0723c648-9a47-4d51-b1ba-349e21e715b6
@@ -242,7 +254,13 @@ Created at              2023-09-05T16:30:09+00:00
 The following example uses the policy ID and the option to receive the response in JSON format. This policy creates consistency group backups in the child accounts of an Enterprise.
 
 ```sh
-$ ibmcloud is backup-policy r006-0723c648-9a47-4d51-b1ba-349e21e715b6 --output JSON
+ibmcloud is backup-policy r006-0723c648-9a47-4d51-b1ba-349e21e715b6 --output JSON
+```
+{: pre}
+
+```sh
+Getting backup policy r006-0723c648-9a47-4d51-b1ba-349e21e715b6 under account Test Account as user test.user@ibm.com...
+
 {
     "created_at": "2023-09-05T16:30:09.000Z",
     "crn": "crn:v1:bluemix:public:is:us-south:a/a1234567::backup-policy:r006-0723c648-9a47-4d51-b1ba-349e21e715b6",
@@ -279,7 +297,11 @@ $ ibmcloud is backup-policy r006-0723c648-9a47-4d51-b1ba-349e21e715b6 --output J
 The following example uses the policy name and no other options. The policy applies to individual Block Storage volumes.
 
 ```sh
-$ ibmcloud is backup-policy my-backup-policy-v1
+ibmcloud is backup-policy my-backup-policy-v1
+```
+{: pre}
+
+```sh
 Getting backup policy my-backup-policy-v1 under account Test Account as user test.user@ibm.com...
 
 ID                      r138-8c494618-9e4f-4b67-9a08-ee3491404f3b
@@ -301,7 +323,11 @@ Created at              2023-02-21T18:37:17+00:00
 The following example lists the properties of an Enterprise backup policy. The scope shows the enterprise account's CRN.
 
 ```sh
-$ ibmcloud is backup-policy r006-0bc533ed-4796-407a-982e-693b418f3de3
+ibmcloud is backup-policy r006-0bc533ed-4796-407a-982e-693b418f3de3
+```
+{: pre}
+
+```sh
 Getting backup policy r006-0bc533ed-4796-407a-982e-693b418f3de3 under account Enterprise Test as user test.user@ibm.com...
 
 ID                     r006-0bc533ed-4796-407a-982e-693b418f3de3
@@ -341,7 +367,11 @@ ibmcloud is backup-policy-plans POLICY [--output JSON] [-q, --quiet]
 The following example specifies the policy name. The output provides basic information of the backup plans, such as ID, name, status, and the CRON expressions that define the schedules for the backups.
 
 ```sh
-$ ibmcloud is backup-policy-plans backup-policy-v1
+ibmcloud is backup-policy-plans backup-policy-v1
+```
+{: pre}
+
+```sh
 Listing plans of backup policy backup-policy-v1 under account Test Account as user test.user@ibm.com...
 ID                                          Name               Active   Lifecycle state   Cron specification
 r138-2129a79a-5629-4069-bf79-7bb0af3b0bd3   my-policy-plan-a   true     stable            05 15 * * *
@@ -435,7 +465,11 @@ ibmcloud is backup-policy-plan POLICY PLAN [--output JSON] [-q, --quiet]
 The following example specifies the policy and the plan name.
 
 ```sh
-$ ibmcloud is backup-policy-plan backup-policy-v1 my-policy-plan-a
+ibmcloud is backup-policy-plan backup-policy-v1 my-policy-plan-a
+```
+{: pre}
+
+```sh
 Getting plan my-policy-plan-a under account Test Account as user test.user@ibm.com...
 
 ID                   r138-2129a79a-5629-4069-bf79-7bb0af3b0bd3

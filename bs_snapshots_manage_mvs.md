@@ -2,7 +2,7 @@
 
 copyright:
   years: 2022, 2025
-lastupdated: "2025-09-02"
+lastupdated: "2025-09-08"
 
 keywords: consistency group, snapshots, backups, instance snapshot, instance backup,
 
@@ -58,7 +58,10 @@ The following example changes the consistency group name. It identifies the cons
 
 ```sh
 ibmcloud is snapshot-consistency-group-update multiple-snapshots-consistency-group-1 --name my-consistency-group
+```
+{: pre}
 
+```sh
 Updating snapshot consistency group multiple-snapshots-consistency-group-1 under account Test Account as user test.user@ibm.com...
 
 ID                          r174-ed7c034e-9bd1-4474-83d0-f5b050f1490a
@@ -93,8 +96,10 @@ ibmcloud is snapshot-consistency-group-delete CONSISTENCY_GROUP_ID
 The following example deletes two consistency groups that are identified by their names.
 
 ```sh
-$ ibmcloud is snapshot-consistency-group-delete snapshot-consistency-group-1 snapshot-consistency-group-2
+ibmcloud is snapshot-consistency-group-delete snapshot-consistency-group-1 snapshot-consistency-group-2```
+{: pre}
 
+```sh
 This will delete snapshot consistency group snapshot-consistency-group-1, snapshot-consistency-group-2 and cannot be undone. Continue [y/N] ?> y
 
 Deleting snapshot consistency group snapshot-consistency-group-1, snapshot-consistency-group-2 under account Test account as user test.user@ibm.com...

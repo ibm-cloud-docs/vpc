@@ -2,7 +2,7 @@
 
 copyright:
   years: 2022, 2025
-lastupdated: "2025-09-02"
+lastupdated: "2025-09-08"
 
 keywords: Backup for VPC, backup service, backup plan, backup policy, restore, restore volume, restore data, view backup lists,
 
@@ -78,7 +78,11 @@ ibmcloud is backup-policy-jobs POLICY [--source SOURCE] [--snapshots SNAPSHOT1,S
 In the first example, the name of the backup policy is used to list the jobs of that backup policy.
 
 ```sh
-$ ibmcloud is backup-policy-jobs new-policy-23
+ibmcloud is backup-policy-jobs new-policy-23
+```
+{: pre}
+
+```sh
 Listing jobs of backup policy new-policy-23 under account Test Account as user test.user@ibm.com...
 ID                                          Auto delete   Auto delete after   Completed at                Created at                  Job type   Status
 r138-4611c14d-69bd-4522-bc5f-4d3352df9b7b   true          15                  2024-02-06T01:47:39+00:00   2024-02-06T01:45:25+00:00   deletion   succeeded   
@@ -91,7 +95,11 @@ r138-bd881c52-4f2e-4644-8072-fadcd6c8d3df   true          15                  20
 {: screen}
 
 ```sh
-$ ibmcloud is backup-policy-jobs new-policy-23
+ibmcloud is backup-policy-jobs new-policy-23
+```
+{: pre}
+
+```sh
 Listing jobs of backup policy new-policy-23 under account Test Account as user test.user@ibm.com...
 ID                                          Auto delete   Auto delete after   Completed at                Created at                  Job type   Status     Match resource type   
 r138-4611c14d-69bd-4522-bc5f-4d3352df9b7b   true          15                  2024-02-06T01:47:39+00:00   2024-02-06T01:45:25+00:00   deletion   succeeded  volume 
@@ -187,6 +195,10 @@ In the third example, the backup policy is identified with its name. The Match r
 
 ```sh
 ibmcloud is backup-policy-jobs my-files-daily
+```
+{: pre}
+
+```sh
 Listing jobs of backup policy my-files-daily under account Test Account as user test.user@ibm.com...
 ID                                          Auto delete   Auto delete after   Completed at                Created at                  Job type   Status      Match resource type   
 r006-4574ede8-f502-40db-827a-0d65b6039e20   true          30                  2024-11-27T19:20:22+05:30   2024-11-27T19:20:18+05:30   creation   succeeded   share   

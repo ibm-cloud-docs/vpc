@@ -2,7 +2,7 @@
 
 copyright:
   years: 2019, 2025
-lastupdated: "2025-09-04"
+lastupdated: "2025-09-08"
 
 keywords: Block Storage profiles, Block Storage for VPC, IOPS tiers, custom IOPS, storage performance
 
@@ -164,13 +164,13 @@ As an allow-listed customer, you can see a list of all the available profiles in
 {: cli}
 
 To view the list of available profiles by using the CLI, run the following command:
+
 ```sh
 ibmcloud is volume-profiles
 ```
 {: pre}
 
 ```sh
-$ ibmcloud is volume-profiles
 Listing volume profiles in region us-east under account TEST as user test.user@ibm.com...
 Name              Family                Bandwidth(Mbps) default value   Storage Generation
 general-purpose   tiered                -                               1
@@ -186,7 +186,11 @@ To view details of the profile, run the `ibmcloud is volume-profile` command wit
 The following example shows the details of the `10iops-tier`.
 
 ```sh
-$ ibmcloud is volume-profile 10iops-tier
+ibmcloud is volume-profile 10iops-tier
+```
+{: pre}
+
+```sh
 Getting volume profile 10iops-tier under account Test Account as user test.user@ibm.com...
                                           
 Name                                   10iops-tier   
@@ -207,7 +211,11 @@ Storage Generation                     1
 The following example shows the details of the `sdp` profile when you use the `export IBMCLOUD_IS_FEATURE_VOLUME_ADJUSTABLE_CAPACITY_IOPS_STATES=true` command. When this feature flag is set to `true`, the properties `Adjustable Capacity State` and `Adjustable IOPS State` are displayed in the CLI response.
 
 ```sh
-$ ibmcloud is volume-profile sdp
+ibmcloud is volume-profile sdp
+```
+{: pre}
+
+```sh
 Getting volume profile sdp under account Test Account as user test.user@ibm.com...
                                           
 Name                                   sdp   
