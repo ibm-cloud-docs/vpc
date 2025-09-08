@@ -96,7 +96,7 @@ Before you can use the CLI, you must install the IBM Cloud CLI and the VPC CLI p
 Run the `ibmcloud is share-create` command and specify the `--snapshot` parameter and the ID or the CRN of the snapshot.
 
 ```sh
-$ ibmcloud is share-create --name my-file-share-from-snapshot --snapshot cli-share-snapshot --share my-file-share --zone us-south-1 --profile dp2 --size 100 --iops 2000  --user-tags env:test
+ibmcloud is share-create --name my-file-share-from-snapshot --snapshot cli-share-snapshot --share my-file-share --zone us-south-1 --profile dp2 --size 100 --iops 2000  --user-tags env:test
 ```
 {: pre}
 

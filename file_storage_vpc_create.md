@@ -2,7 +2,7 @@
 
 copyright:
   years: 2021, 2025
-lastupdated: "2025-09-05"
+lastupdated: "2025-09-08"
 
 keywords: file share, file storage, virtual network interface, encryption in transit, profiles, 
 
@@ -486,7 +486,7 @@ Source snapshot                    -
 ```
 {: screen}
 
-[Beta]{: beta} The following example shows how you can create a regional file share with a mount target from the CLI. Before you run the command, make sure that you set the environmental variable to `true`. Note that while the command specifies a low bandwidth value, the system auto-corrects the configuration to provide at least 1 Mbps for every 20 GB of capacity.
+[Beta]{: tag-cyan} The following example shows how you can create a regional file share with a mount target from the CLI. Before you run the command, make sure that you set the environmental variable to `true`. Note that while the command specifies a low bandwidth value, the system auto-corrects the configuration to provide at least 1 Mbps for every 20 GB of capacity.
 
 ```sh
 ibmcloud is share-create --name my-regional-file-share --profile rfs --size 5000 --bandwidth 125 --allowed-access-protocols nfs4 --atem stunnel --mount-targets '[{"name":"my-new-mount-target","virtual_network_interface": {"name":"my-regional-vni","subnet": {"id":"0717-c66032c9-048d-4c35-aa83-c932e24afdbb"}}}]'
