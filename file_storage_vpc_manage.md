@@ -1046,7 +1046,7 @@ The following instructions can assist you in making sure that share bindings and
    r006-3f21e3c3-e12d-425f-ab77-810cabfde8df   source-dal-1            stable            us-south-1   dp2        10         defaults         source             none                    0                0   
    r006-455b601c-8fc1-4476-8771-4708c49c8ef7   my-replica-share-dal-1  stable            us-south-1   dp2        10         defaults         replica            none                    0                0   
    r006-4dadac27-cd17-42df-a5fe-1388705d33e0   my-source-share-dal-2   stable            us-south-2   dp2        10         defaults         source             none                    0                0   
-   r006-cc7ab6a0-bb71-4e03-8ef7-dcffca43717f   my-old-file-share       stable            us-south-1    dp2        40         defaults         none               -                       -                -
+   r006-cc7ab6a0-bb71-4e03-8ef7-dcffca43717f   my-old-file-share       stable            us-south-1   dp2        40         defaults         none               -                       -                -
     ```
    {: screen}
 
