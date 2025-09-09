@@ -2,7 +2,7 @@
 
 copyright:
   years: 2018, 2025
-lastupdated: "2025-09-04"
+lastupdated: "2025-09-09"
 
 keywords:
 
@@ -201,6 +201,8 @@ For `dp2` profile shares, the `bandwidth` returned in the API response is incorr
 [Beta]{: tag-cyan}
 
 Creating a share mount target for a regional file share can take more than 10 minutes, during which time its `lifecycle_state` shows as `pending`. Mount targets for shares that use the `dp2` profile are not affected.
+
+
 
 ### Backup plan ID property in the API response
 {: #backup-policy-plan-fs}

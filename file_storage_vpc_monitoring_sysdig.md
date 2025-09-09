@@ -2,7 +2,7 @@
 
 copyright:
   years: 2021, 2025
-lastupdated: "2025-07-28"
+lastupdated: "2025-09-09"
 
 keywords: file share, file storage, sysdig, platform metrics
 
@@ -92,7 +92,7 @@ To open the Sysdig web UI from the Observability page, complete the following st
 When you open the file share dashboard, you can see the graphs that show the following metrics:
 
 * Share usage - available capacity, used capacity, total capacity
-* Throughput - read, write, and maximum throughput
+* Bandwidth - read, write, and maximum throughput
 * IOPS - read, write, maximum
 * Snapshot space - available and used capacity for snapshots. 
 

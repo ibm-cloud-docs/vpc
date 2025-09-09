@@ -2,7 +2,7 @@
 
 copyright:
   years: 2021, 2025
-lastupdated: "2025-09-05"
+lastupdated: "2025-09-09"
 
 keywords: file storage, file share, performance, IOPS, block size, capacity, range
 
@@ -23,10 +23,9 @@ When you provision {{site.data.keyword.filestorage_vpc_short}} file shares by us
 
 When you [create a file share](/docs/vpc?topic=vpc-file-storage-create), you select the share size and IOPS performance that is available, based on a file storage profile. Currently, all file shares are created based on the high-performance [dp2](#dp2-profile) profile.
 
-Customers with special access to preview the new regional file share offering can use the **rfs** profile to create file shares with regional availability and adjustable bandwidth values.
-{: beta}
+[Beta]{: tag-cyan} Customers with special access to preview the new regional file share offering can use the **rfs** profile to create file shares with regional availability and adjustable bandwidth values.
 
-File shares that were created during the beta and limited availability phases with either one of the [tiered](#fs-tiers) profiles or the [custom](#fs-custom) profile can continue to operate based on these profiles. You can also update these file shares to use the `dp2` profile or switch to another previous generation profile. However, you cannot use the previous profiles when you create a file share, and only the file shares with the `dp2` profile can use new features like encryption-in-transit, cross-zone mounting, cross-account sharing, and snapshots.
+File shares that were created during the beta and limited availability phases of zonal file shares, using either [tiered](#fs-tiers) profiles or the [custom](#fs-custom) profile can continue to operate based on those profiles. You can also update these file shares to use the `dp2` profile or switch to another previous generation profile. However, previous profiles are not supported when creating new file shares, and only file shares with the `dp2` profile can use new features such as encryption-in-transit, cross-zone mounting, cross-account sharing, and snapshots.
 
 The following tables show the characteristics and performance levels of the available profiles.
 
@@ -38,7 +37,7 @@ Current file share profiles:
 | `defined_performance`|`rfs`|      Regional |  1-32,000 GB |        35,000 |    8192 Mbps |
 {: caption="Comparison of file share profiles and performance levels." caption-side="top"}
 
-[^tabletext1]: For the `dp2` profile, the maximum allowable bandwidth is determined by the number of IOPS multiplied by 256 KB. For the `rfs` profile, the baseline bandwidth is 8 Mbps for every 20 GB of capacity. You can increase the bandwidth value by increasing the capacity and IOPS of the `dp2` shares, and by increasing the bandwidth value of the `rfs` profile-based shares. Maximum bandwidth is 8192 Mbps for all defined performance profiles.
+[^tabletext1]: For the `dp2` profile, the maximum allowable bandwidth is determined by the number of IOPS multiplied by 256 KB. For the `rfs` profile, the baseline bandwidth is 8 Mbps for every 20 GB of capacity. You can increase the bandwidth value by increasing the capacity and IOPS of the `dp2` shares, and by increasing the bandwidth value of the `rfs` profile-based shares. Maximum bandwidth is 8192 Mbps for all defined performance profiles. This bandwidth value represents the maximum allowed combined throughput for read and write operations.
 
 First- and second-generation profiles in the defined performance profile family are not interchangeable. You can't convert a zonal file share to a regional share, or a regional share to a zonal share.
 {: important}
@@ -53,7 +52,7 @@ Deprecated file share profiles:
 | `custom` | `custom`        |         Zonal | 10-16,000 GB |  3,000-48,000 |    8192 Mbps |
 {: caption="Comparison of file share profiles and performance levels." caption-side="top"}
 
-The maximum allowable bandwidth for zonal shares is determined by the number of IOPS multiplied by the bandwidth multiplier, which is specific to the profile. 
+The maximum allowable bandwidth for zonal shares is determined by the number of IOPS multiplied by the bandwidth multiplier, which is specific to the profile. This bandwidth value represents the maximum allowed combined throughput for read and write operations.
 
 [Beta]{: tag-cyan} The bandwidth value of regional file shares is adjustable. For the `rfs` profile, the baseline bandwidth is 8 Mbps for every 20 GB of capacity. This value can be increased up to 8192 Mbps in the console, from the CLI, and with the API.
 
@@ -179,7 +178,7 @@ dp2    defined_performance
 ```
 {: screen}
 
-[Beta]{: tag-cyan} Customers with special access to preview the new regional file share offering, can also list the `rfs` profile with the same command.
+[Beta]{: tag-cyan}<  Customers with special access to preview the new regional file share offering, can also list the `rfs` profile with the same command.
 
 ```sh
 ibmcloud is share-profiles
@@ -291,7 +290,7 @@ The response returns the following profiles and related information:
 ```
 {: codeblock}
 
-[Beta]{: tag-cyan} Customers with special access to review the new regional file share offering, can list the new profile with the following API request.
+[Beta]{: tag-cyan}Customers with special access to review the new regional file share offering, can see the `rfs` profile, too,  when using this API method.
 
 ```sh
 curl -X GET $vpc_api_endpoint/v1/share/profiles?$api_version&generation=2&maturity=beta"\

@@ -2,7 +2,7 @@
 
 copyright:
   years: 2022, 2025
-lastupdated: "2025-09-08"
+lastupdated: "2025-09-09"
 
 keywords: file storage, file share, view share details, mount targets, view targets, view share
 
@@ -72,7 +72,7 @@ You can access the Actions menu by clicking ![Actions icon](../icons/action-menu
      | Encryption | Specifies provider-managed or [customer-managed encryption](/docs/vpc?topic=vpc-file-storage-byok-encryption). When the file share is encrypted with customer-managed keys, the encryption instance, encryption key name, and encryption key CRN are also shown. |
      | Mount target access mode   | Access to the file share is granted by either a security group within a subnet or to any virtual server instance in the VPC. Click the **Edit icon** ![Edit icon](../icons/edit-tagging.svg "Edit") to switch access modes. Security group access is available only to file shares created with the [`dp2` profile](/docs/vpc?topic=vpc-file-storage-profiles&interface=ui#dp2-profile). For more information, see the [Mount target access modes](/docs/vpc?topic=vpc-file-storage-vpc-about&interface=api#fs-mount-access-mode). |
      | CRN | The copiable Cloud Resource Name of the file share.|
-     | Allowed encryption in transit mode | This value shows whether encryption in transit is required when clients access the file share. Click the **Edit icon** ![Edit icon](../icons/edit-tagging.svg "Edit") to change the allowed values. The possible values are User managed, and None. This field is not applicable for file shares with VPC access mode. \n [Beta]{: tag-cyan} Customers with special access to preview the new regional file share offering can choose from IPsec, Stunnel, and None.|
+     | Allowed encryption in transit mode | This value shows whether encryption in transit is required when clients access the file share. Click the **Edit icon** ![Edit icon](../icons/edit-tagging.svg "Edit") to change the allowed values. The possible values are User managed, and None. This field is not applicable for file shares with VPC access mode. \n [Beta]{: tag-cyan}|
      | Cross-account role | The possible values are None, Origin, Accessor. This field is not applicable for file shares with VPC access mode.|
      | Snapshot count  | This value indicates the number of snapshots that were taken of the file share. This field is not applicable for file shares with VPC access mode. |
      | Size of changed data in all the snapshots  | It represents the billable volume of data across all the snapshots. This field is not applicable for file shares with VPC access mode. |
@@ -80,7 +80,7 @@ You can access the Actions menu by clicking ![Actions icon](../icons/action-menu
      | Profile | The name of the share [profile](/docs/vpc?topic=vpc-file-storage-profiles) that defines the file share performance. In most cases, the dp2 profile.|
      | Size | File share capacity in GB. |
      | Max IOPS | Maximum IOPS for the specified share. This field is displayed for zonal shares. |
-     | Throughput [Beta]{: tag-cyan} | The maximum bandwidth limit that is specified for the share. This field is displayed for regional shares.|
+     | Bandwidth [Beta]{: tag-cyan} | The maximum bandwidth limit that is specified for the share. This field is displayed for regional shares.|
      | **Mount targets** | Number of mount targets associated with the file share. You can have one mount target per VPC per file share. You can create more mount targets for other VPCs. Click ![Actions icon](../icons/action-menu-icon.svg) to rename or delete the mount target, or to view the mount path. |
      | Name | Name of the mount target. |
      | Status | Status of the mount target on the VPC. |
@@ -206,7 +206,7 @@ CRN                                crn:v1:bluemix:public:is:us-south-1:a/a123456
 Lifecycle state                    stable   
 Access control mode                security_group   
 Accessor binding role              none   
-Allowed transit encryption modes   none,user_managed   
+Allowed transit encryption modes   none,user_managed  
 Zone                               us-south-1   
 Profile                            dp2   
 Size(GB)                           10   
@@ -237,6 +237,7 @@ Source share                       ID                                          N
 Snapshot count                     0   
 Snapshot size                      0   
 Source snapshot                    -   
+
 ```
 {: screen}
 
@@ -256,7 +257,7 @@ CRN                              crn:v1:bluemix:public:is:us-south-2:a/a1234567b
 Lifecycle state                  stable   
 Access control mode              security_group
 Accessor binding role            origin
-Allowed transit encryption modes user_managed,none 
+Allowed transit encryption modes user_managed,none  
 Zone                             us-south-2   
 Profile                          dp2   
 Size(GB)                         10   
@@ -283,10 +284,9 @@ Replication status reasons       Status code   Status message
 Snapshot count                   0
 Snapshot size                    0 
 Source snapshot                  -
+
 ```
 {: screen}
-
-[New]{: tag-new}
 
 The following example shows the information that the `ibmcloud is share` command returns when you retrieve information about a regional file share. 
 
@@ -526,6 +526,7 @@ curl -X GET \
 
 A successful response looks like the following example. In this example, the share was created with the `dp2` profile. The `access_ control_mode` property value is `security_group`, which means that access to the share is determined by the rules of a security group.
 
+
 ```json
 {
   "access_control_mode": "security_group",
@@ -583,7 +584,10 @@ A successful response looks like the following example. In this example, the sha
 ```
 {: codeblock}
 
+
+
 Customers with special access to review the regional file share offering can use the Beta VPC API to retrieve information about their regional file shares. See the following example.
+
 
 ```sh
 curl -X GET \
@@ -591,6 +595,8 @@ curl -X GET \
 -H "Authorization: $iam_token"
 ```
 {: pre}
+
+
 
 A successful response looks like the following example:
 
