@@ -2,7 +2,7 @@
 
 copyright:
   years: 2021, 2025
-lastupdated: "2025-09-09"
+lastupdated: "2025-09-08"
 
 keywords: file share, file storage, replication, replica, size increase, capacity, encryption, BYOK, security group
 
@@ -121,7 +121,7 @@ No. As a best practice, independently back up your data. When your file share da
 {: faq}
 {: #faq-fs-mgt-7}
 
-File shares are not elastic. Currently, you can provision zonal file shares with a minimum of 10 GiB to a maximum of 32,000 GiB capacity, and [Beta]{: beta} regional file shares with a minimum of 1 GiB to a maximum of 32,000 GiB capacity. For more information, see [file share profiles](/docs/vpc?topic=vpc-file-storage-profiles).
+File shares are not elastic. Currently, you can provision zonal file shares with a minimum of 10 GiB to a maximum of 32,000 GiB capacity, and [Beta]{: tag-cyan} regional file shares with a minimum of 1 GiB to a maximum of 32,000 GiB capacity. For more information, see [file share profiles](/docs/vpc?topic=vpc-file-storage-profiles).
 
 ### Can I change the size of a file share?
 {: faq}
@@ -188,7 +188,7 @@ If you want to move your data from a zonal file share to a regional file share, 
 You can take snapshots of your file shares on demand in the console, from the CLI, with the API, or Terraform. You can also automate the creation of your snapshots by using the Backup for VPC service. For more information, see [About File Storage for VPC snapshots](/docs/vpc?topic=vpc-fs-snapshots-about) and [About Backup for VPC](/docs/vpc?topic=vpc-backup-service-about).
 
 During the beta release of regional file shares, you cannot automate the creation of regional snapshots with the Backup for VPC service.
-{: beta}  
+{: beta}
 
 ### Can I create a file share from a snapshot?
 {: faq}
@@ -196,7 +196,7 @@ During the beta release of regional file shares, you cannot automate the creatio
 
 Yes. You can create a file share from a snapshot in the console, from the CLI, with the API, or Terraform. The new share is created in the same location as the snapshot. For more information, see [Restoring data from a file share snapshot](/docs/vpc?topic=vpc-fs-snapshots-restore).
 
-Snapshots inherit their storage_generation property from the parent file share. When you take a snapshot of a zonal file share, you can use that snapshot to create other zonal file shares. [Beta]{: tag-cyan}If you take a snapshot of a regional file share, you can use that snapshot to create other regional file shares. You cannot switch to another profile when you create a file share from a snapshot.
+Snapshots inherit their storage_generation property from the parent file share. When you take a snapshot of a zonal file share, you can use that snapshot to create other zonal file shares. [Beta]{: tag-cyan} If you take a snapshot of a regional file share, you can use that snapshot to create other regional file shares. You cannot switch to another profile when you create a file share from a snapshot.
 
 ### Can I restrict access to my file share to a specific virtual server instance?
 {: faq}

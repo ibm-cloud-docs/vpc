@@ -2,7 +2,7 @@
 
 copyright:
   years: 2022, 2025
-lastupdated: "2025-09-09"
+lastupdated: "2025-09-05"
 
 keywords: VPC File Storage, file for VPC, NSF, replica, file share, replication, schedule
 

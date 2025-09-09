@@ -2,7 +2,7 @@
 
 copyright:
   years: 2025, 2025
-lastupdated: "2025-09-09"
+lastupdated: "2025-09-05"
 
 keywords: file share, regional, file storage, bandwidth, bandwidth
 
@@ -18,7 +18,7 @@ subcollection: vpc
 Customers with special access to preview the new regional file share offering can use the `rfs` profile to create file shares with regional data availability and adjustable bandwidth values. The `rfs` profile is available in the Dallas, Frankfurt, Madrid, and Washington, DC regions during the beta release.
 {: beta}
 
-For regional file shares that are provisioned with the `rfs` profile, you can increase or decrease the bandwidth limit to meet your performance needs. The maximum bandwidth for any file share with the `rfs` profile is 8192 Mbps (1024 MBps). This bandwidth value represents the maximum allowed combined throughput for read and write operations. The minimum bandwidth value of the share is calculated as 8 Mbps for every 20 GB of capacity.
+For regional file shares that are provisioned with the `rfs` profile, you can increase or decrease the bandwidth limit to meet your performance needs. The maximum bandwidth for any file share with the `rfs` profile is 8192 Mbps (1024 MBps). The minimum bandwidth value of the share is calculated as 8 Mbps for every 20 GB of capacity.
 {: shortdesc}
 
 With this feature, you can increase or decrease your share's bandwidth limit in the console, from the CLI, or with the API. To change this attribute, the share must be in an _available_ state. Your user authorization is verified before the bandwidth limit is adjusted.
