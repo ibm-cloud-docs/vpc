@@ -2,7 +2,7 @@
 
 copyright:
   years: 2022, 2025
-lastupdated: "2025-09-05"
+lastupdated: "2025-09-09"
 
 keywords: file share, file storage, source volume, replica share, 
 
@@ -217,6 +217,7 @@ Source snapshot                    -
    Snapshot count               0
    Snapshot size                0
    Source snapshot              -
+   
    ```
    {: screen}
 
@@ -236,7 +237,7 @@ Source snapshot                    -
    Lifecycle state                  pending   
    Access control mode              security_group
    Accessor binding role            origin
-   Allowed transit encryption modes user_managed,none   
+   Allowed transit encryption modes user_managed,none
    Zone                             us-south-3   
    Profile                          dp2   
    Size(GB)                         1000   
@@ -263,7 +264,8 @@ Source snapshot                    -
                                     r006-b696742a-92ee-4f6a-bfd7-921d6ddf8fa6   my-file-share   share 
    Snapshot count                   0
    Snapshot size                    0         
-   Source snapshot                  -                         
+   Source snapshot                  -    
+                         
    ```
    {: screen}
 
@@ -283,7 +285,7 @@ When you create a replica of a file share in another region, you must use the CR
    Lifecycle state                  pending   
    Access control mode              security_group
    Accessor binding role            origin
-   Allowed transit encryption modes user_managed,none   
+   Allowed transit encryption modes user_managed,none  
    Zone                             us-east-1   
    Profile                          dp2   
    Size(GB)                         1000   
@@ -312,6 +314,7 @@ When you create a replica of a file share in another region, you must use the CR
    Snapshot count                   0
    Snapshot size                    0
    Source snapshot                  -
+    
    ```
    {: screen}
 

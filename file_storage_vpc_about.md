@@ -2,7 +2,7 @@
 
 copyright:
   years: 2021, 2025
-lastupdated: "2025-09-04"
+lastupdated: "2025-09-09"
 
 keywords: file share, mount target, virtual network interface, customer-managed encryption, encryption at rest, encryption in transit, file storage, share,
 
@@ -114,7 +114,9 @@ Cross-zone mounting is not applicable for regional file shares. For more informa
 
 [Beta]{: tag-cyan}
 
-When you create a mount target for a regional file share, you also need to attach a VNI. Although the VNI is linked to one zone through its IP address, the traffic between the regional file share and the server remains within the zone of the server.
+When you create a mount target for a regional file share, you must attach a VNI. Although each VNI is associated with a specific zone, it’s not restricted to that zone. Subnets and VNIs include zonal location codes in their Cloud Resource Names (CRNs), but they are designed to operate regionally. They are accessible from any availability zone within the region, even if the owning region is temporary unavailable.
+
+The storage platform uses shared IP range across multiple zones that allows your client to reach the same logical storage service regardless of which zone it is located in. The routing dynamically shifts to the nearest or best-performing instance of your regional share.
 
 ![Regional File shares can be accessed by multiple compute hosts within the region.](images/RegionalFile.svg "A regional file share can be accessed by multiple hosts within the region by using a regional mount target. Security groups provide granular access control. All traffic between the file share and the servers remains local to the zone where the server is."){: caption="Regional file shares" caption-side="bottom"}
 
@@ -228,9 +230,11 @@ The share owner can set the allowed transit encryption modes to allow either `us
 - For zonal file shares (`dp2` profile), the share owner can specify either `ipsec` or `none`, or both.
 - For regional file shares, cross-account access is not supported yet.
 
+When the `allowed transit encryption modes` of the origin share is set to `ipsec`, the share accessor accounts must create all their mount targets with the specified transit encryption type. When `none` and one of the encryption types are specified together, the accessor share can choose their transit encryption mode. All mount targets that are created for one file share must have the same transit encryption mode.
+
 For more information about sharing and mounting a file share from another {{site.data.keyword.cloud}} account or VPC, see [Sharing and mounting a file share from another account](/docs/vpc?topic=vpc-file-storage-accessor-create&interface=ui).
 
-Sharing a file share with other accounts or services is not supported for zonal file shares with VPC-wide access mode. During the beta phase, cross-account access is not supported for regional file shares with the `rfs` profile.
+Sharing a file share with other accounts or services is not supported for zonal file shares with VPC-wide access mode. In this release, cross-account access is not supported for regional file shares with the `rfs` profile.
 
 ### Managing security and compliance
 {: #fs-vpc-manage-security}
@@ -293,7 +297,7 @@ Snapshots are supported only for shares that have "security group" as their acce
 You can't create snapshots of replica or accessor shares. However, snapshots of the origin share are replicated to the read-only replica share at the next scheduled sync. Snapshots of the origin share are also available to the accessor shares.
 {: important}
 
-During the beta release of regional file shares, snapshots are not supported.
+In this release of regional file shares, snapshots are not supported.
 {: beta}
 
 ## File share data eradication

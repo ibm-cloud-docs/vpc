@@ -2,7 +2,7 @@
 
 copyright:
   years: 2024, 2025
-lastupdated: "2025-09-05"
+lastupdated: "2025-09-09"
 
 keywords: file share, file storage, accessor share, cross-account share
 
@@ -26,7 +26,7 @@ After the authorization is set in place and roles are assigned, you can create a
 
 As the accessor, you can't edit the properties of the origin share, and you can't delete the origin share. The accessors can mount the share by creating an accessor share and a mount target to the accessor share. Then, you can access and use the data of the origin share, including the snapshots that might be present.
 
-Sharing a file share with other accounts or services is not supported for zonal file shares with VPC-wide access mode. During the beta phase, cross-account access is not supported for regional file shares with the `rfs` profile.
+Sharing a file share with other accounts or services is not supported for zonal file shares with VPC-wide access mode. In this release, cross-account access is not supported for regional file shares with the `rfs` profile.
 {: note}
 
 ## Transit encryption policy
@@ -36,11 +36,12 @@ The share owner has the right to enforce the use of encryption in transit when t
 
 [Beta]{: tag-cyan} Customers with special access to preview the new regional file share offering have the following options for allowed transit encryption modes:
 - For zonal file shares (`dp2` profile), the share owner can specify either `ipsec` or `none`, or both.
-- For regional file shares, cross-account access is not supported yet.
+- For regional file shares, cross-account access is not supported yet. 
 
 When `none` is specified, encryption-in-transit is not required and cannot be used by the accessor accounts. When the `allowed transit encryption modes` of the origin share is set to `ipsec`, the share accessor accounts must create all their mount targets with the specified transit encryption type. All mount targets that are created for one file share must have the same transit encryption mode.
 
-File shares that were created before the release of this feature (18 June 2024) have an allowed transit encryption type that is based on their existing mount targets. After this date, you must specify the allowed transit encryption type when you create file shares. All mount targets that are created for one file share must have the same transit encryption type.
+File shares that were created before the release of the cross-account access feature (18 June 2024) have an allowed transit encryption type that is based on their existing mount targets. After this date, you must specify the allowed transit encryption type when you create file shares. All mount targets that are created for one file share must have the same transit encryption type.
+
 
 
 ## Creating an accessor share in the console
@@ -123,6 +124,7 @@ Replication status reasons       Status code   Status message
 Snapshot count                   0
 Snapshot size                    0
 Source snapshot                  -
+ 
 ```
 {: screen}
 
@@ -215,6 +217,7 @@ Replication status reasons       Status code   Status message
 Snapshot count                   0
 Snapshot size                    0
 Source snapshot                  -
+ 
 ```
 {: screen}
 
@@ -298,7 +301,7 @@ Make a `POST /shares/{share_id}/mount_targets` request and specify a subnet and 
 This example adds a mount target to an existing accessor share, which is identified by ID, and provides a subnet and security group to create the network interface.
 
 ```json
- curl -X POST "$vpc_api_endpoint/v1/shares/f1ab81ef-dd30-459a-85e0-9094164978b1/mount_targets/?version=2023-07-18&generation=2"\
+ curl -X POST "$vpc_api_endpoint/v1/shares/r006-201487a2-cf35-4b2a-a4fe-f480803e1e80/mount_targets/?version=2023-07-18&generation=2"\
  -d '{
      "virtual_network_interface": {
         "subnet": {"id": "1a0b3d75-8a62-4c78-9263-f9bcd25a8759"},

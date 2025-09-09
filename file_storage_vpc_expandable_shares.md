@@ -2,7 +2,7 @@
 
 copyright:
   years: 2022, 2025
-lastupdated: "2025-09-05"
+lastupdated: "2025-09-09"
 
 keywords: file share, file storage, increase capacity, expand capacity, expand share size, file share size
 
@@ -147,7 +147,8 @@ To increase the capacity of a file share from the CLI, use the `share-update` co
    
    Snapshot count               0
    Snapshot size                0  
-   Source snapshot              -               
+   Source snapshot              -        
+           
    ```
    {: screen}
 
@@ -193,6 +194,7 @@ To increase the capacity of a file share from the CLI, use the `share-update` co
    Snapshot count               0
    Snapshot size                0 
    Source snapshot              -
+    
    ```
    {: screen}
 
