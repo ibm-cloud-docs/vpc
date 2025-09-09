@@ -2,7 +2,7 @@
 
 copyright:
   years: 2022, 2025
-lastupdated: "2025-09-02"
+lastupdated: "2025-09-09"
 
 keywords: Backup for VPC, backup service, backup plan, backup policy, restore, restore volume, restore data
 
@@ -84,7 +84,11 @@ The following steps authorize the Block Storage service of one account to use a 
 Run the `ibmcloud iam authorization-policy-create` command to create authorization policies for the Block service to interact with one or both Key Management Services ({{site.data.keyword.keymanagementserviceshort}} or {{site.data.keyword.hscrypto}}). The source service is `server-protect` and the target service is either `kms` or `hs-crypto`. The role that you need to assign is `Reader`. The following example creates an authorization policy between the Block service and {{site.data.keyword.keymanagementserviceshort}}.
 
 ```sh
-$ ibmcloud iam authorization-policy-create server-protect kms Reader
+ibmcloud iam authorization-policy-create server-protect kms Reader
+```
+{: pre}
+
+```sh
 Creating authorization policy under account a1234567 as test.user@ibm.com...
 OK
 ```
@@ -93,7 +97,11 @@ OK
 To list the service authorizations that are already in place for the account, run the `ibmcloud iam authorization-policies` command. The following example shows that the Block service can be encrypted with a CRK that is stored in {{site.data.keyword.keymanagementserviceshort}} or {{site.data.keyword.hscrypto}}.
 
 ```sh
-$ ibmcloud iam authorization-policies
+ibmcloud iam authorization-policies
+```
+{: pre}
+
+```sh
 Getting authorization policies under account a1234567 as test.user@ibm.com...
 OK
                            

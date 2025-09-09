@@ -206,7 +206,6 @@ Before you can use the CLI, you must install the IBM Cloud CLI and the VPC CLI p
    Snapshot count               0
    Snapshot size                0
    Source snapshot              -
-    
    ```
    {: screen}
 

@@ -182,7 +182,6 @@ The CLI returns the properties for "Allowed Access Protocols", "Availability Mod
    Snapshot count               0
    Snapshot size                0   
    Source snapshot              -  
-  
    ```
    {: screen}
 
@@ -628,7 +627,6 @@ You can add and remove tags when you update a file share with the `ibmcloud is s
    Snapshot count               0
    Snapshot size                0   
    Source snapshot              -   
-  
    ```
    {: screen}
 
