@@ -290,7 +290,7 @@ The response returns the following profiles and related information:
 ```
 {: codeblock}
 
-[Beta]{: tag-cyan} Customers with special access to review the new regional file share offering, can see the `rfs` profile, too, when using this API method.
+[Beta]{: tag-cyan} Customers with special access to preview the new regional file share offering, can list the new profile with the following API request:
 
 ```sh
 curl -X GET $vpc_api_endpoint/v1/share/profiles?$api_version&generation=2&maturity=beta"\
