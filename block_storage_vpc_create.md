@@ -2,7 +2,7 @@
 
 copyright:
   years: 2019, 2025
-lastupdated: "2025-09-08"
+lastupdated: "2025-09-09"
 
 keywords: vpc Block Storage, provision Block Storage for vpc, bootable snapshots, create volume from snapshot, fast restore
 
@@ -528,7 +528,7 @@ Created                     2022-08-22T09:10:34+05:30
 ```
 {: screen}
 
-Use the instance template to create an instance and volumes with user tags. See the following example.
+You can use the instance template to create an instance and volumes with user tags. See the following example.
 
 ```sh
 ibmcloud is instance-template-create --template my-tpl-1 --name my-vsi-3 --boot-volume '{"name": "boot-vol-3", "volume": {"name": "my-boot-vol-3", "profile": {"name": "general-purpose"},"user_tags": ["env:test3", "env:dev3"]}}' --volume-attach  '[{"name": "my-vol-att1", "volume": {"name":"my-vol-3", "profile": {"name": "general-purpose"}, "capacity": 10,"user_tags": ["env:test3", "env:dev3"] }}]'

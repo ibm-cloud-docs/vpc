@@ -2,7 +2,7 @@
 
 copyright:
   years: 2021, 2025
-lastupdated: "2025-09-08"
+lastupdated: "2025-09-09"
 
 keywords: Block Storage for VPC, boot volume, data volume, volume, data storage, virtual server instance, instance, adjustable volume, iops
 
@@ -152,12 +152,12 @@ You can use the same command for adjusting the IOPS of a volume that was created
 
 From the CLI, use the `volume-update` command with the `--profile` parameter and indicate the name or href of the IOPS tier profile.
 
-This example changes a 3 IOPS/GB profile to a 5 IOPS/GB profile. In this case, the volume can't exceed 9,600 GB to move to the higher profile.
-
 ```sh
-ibmcloud is volume-update {volume-id} --profile 5iops-tier
+ibmcloud is volume-update VOLUME_ID --profile VOLUME_PROFILE_NAME
 ```
 {: pre}
+
+This example changes a 3 IOPS/GB profile to a 5 IOPS/GB profile. In this case, the volume can't exceed 9,600 GB to move to the higher profile.
 
 ```sh
 ibmcloud is volume-update demo-volume-update --profile 5iops-tier
