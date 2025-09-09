@@ -75,7 +75,7 @@ Setting a server weight to `0` means that no new connections are forwarded to th
 ### Least connections
 {: #least-connections-method}
 
-With this method, the back-end server instance that serves the least number of connections at a particular time receives the next client connection. 
+With this method, the back-end server instance that serves the least number of connections at a particular time receives the next client connection.
 
 A Private Path NLB does not support the least-connection method.
 {: important}
