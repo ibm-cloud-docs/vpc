@@ -2,7 +2,7 @@
 
 copyright:
   years: 2018, 2025
-lastupdated: "2025-09-08"
+lastupdated: "2025-09-09"
 
 keywords:
 
@@ -182,7 +182,6 @@ Each route has a destination property, which includes a prefix length (`/24` in 
 | IKE policies | 20 per region | Yes| Yes |
 | IPsec policies | 20 per region | Yes | Yes |
 | Peer and local subnets | 50 across all connections per gateway, 15 per connection | Yes | No |
-
 {: caption="Quotas for the site-to-site VPN gateway service" caption-side="bottom"}
 
 [^fn1]: A single VPC supports a maximum of one route-mode VPN per zone.

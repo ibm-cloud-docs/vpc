@@ -5,6 +5,7 @@
 
 ### Inter-region latency
 {: #network-latency-2025-08-31-mzr}
+
 | Average latency (ms) | Dallas | Toronto | Washington DC | Frankfurt | London | Madrid | Montreal | Osaka | Sydney | Tokyo | Sao Paulo |
 | --- | :---: | :---: | :---: | :---: | :---: | :---: | :---: | :---: | :---: | :---: | :---: |
 | **Dallas** |   | 34 | 32 | 123 | 112 | 118 | 42 | 149 | 184 | 141 | 143 |
@@ -150,6 +151,7 @@
 
 ### Inter-region latency
 {: #network-latency-2025-08-24-mzr}
+
 | Average latency (ms) | Dallas | Toronto | Washington DC | Frankfurt | London | Madrid | Montreal | Osaka | Sydney | Tokyo | Sao Paulo |
 | --- | :---: | :---: | :---: | :---: | :---: | :---: | :---: | :---: | :---: | :---: | :---: |
 | **Dallas** |   | 34 | 32 | 123 | 112 | 118 | 42 | 149 | 184 | 142 | 145 |
@@ -295,6 +297,7 @@
 
 ### Inter-region latency
 {: #network-latency-2025-08-17-mzr}
+
 | Average latency (ms) | Dallas | Toronto | Washington DC | Frankfurt | London | Madrid | Montreal | Osaka | Sydney | Tokyo | Sao Paulo |
 | --- | :---: | :---: | :---: | :---: | :---: | :---: | :---: | :---: | :---: | :---: | :---: |
 | **Dallas** |   | 34 | 32 | 123 | 112 | 117 | 42 | 149 | 184 | 142 | 145 |
@@ -440,6 +443,7 @@
 
 ### Inter-region latency
 {: #network-latency-2025-08-10-mzr}
+
 | Average latency (ms) | Dallas | Toronto | Washington DC | Frankfurt | London | Madrid | Montreal | Osaka | Sydney | Tokyo | Sao Paulo |
 | --- | :---: | :---: | :---: | :---: | :---: | :---: | :---: | :---: | :---: | :---: | :---: |
 | **Dallas** |   | 34 | 32 | 123 | 112 | 116 | 42 | 150 | 183 | 143 | 145 |
@@ -585,6 +589,7 @@
 
 ### Inter-region latency
 {: #network-latency-2025-08-03-mzr}
+
 | Average latency (ms) | Dallas | Toronto | Washington DC | Frankfurt | London | Madrid | Montreal | Osaka | Sydney | Tokyo | Sao Paulo |
 | --- | :---: | :---: | :---: | :---: | :---: | :---: | :---: | :---: | :---: | :---: | :---: |
 | **Dallas** |   | 33 | 31 | 123 | 112 | 115 | 42 | 149 | 183 | 143 | 144 |
