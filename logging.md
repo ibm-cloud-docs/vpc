@@ -2,7 +2,7 @@
 
 copyright:
   years: 2020, 2025
-lastupdated: "2025-08-20"
+lastupdated: "2025-09-10"
 
 keywords: flow logs, ordering, logging
 
@@ -211,6 +211,7 @@ The following table outlines the message IDs that are generated for instance rel
 | Message ID | Type | Description |
 |------------|------|-------------|
 | `instance.00001` | `info` | Volume `{{.volumeID}}` with a max bandwidth of `{{.volumeBandwidthMbps}}` Mbps has been attached to instance `{{.instanceID}}` with an attachment bandwidth of `{{.attachmentBandwidthMbps}}` Mbps. |
+| `instance.00002` | `warn` | Spot instance `{{.instanceID}}` has been selected for preemption |
 {: caption="Message IDs that are generated for virtual server instances" caption-side="bottom"}
 
 A log is generated when a volume is attached to the instance, and when a volume's maximum bandwidth value is changed.
