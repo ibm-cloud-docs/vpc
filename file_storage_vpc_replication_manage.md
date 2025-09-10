@@ -2,7 +2,7 @@
 
 copyright:
   years: 2022, 2025
-lastupdated: "2025-09-05"
+lastupdated: "2025-09-10"
 
 keywords: VPC File Storage, file for VPC, NSF, replica, file share, replication, schedule
 
@@ -276,13 +276,13 @@ resource "ibm_is_share_replica_operations" "test" {
 
 For more information about the arguments and attributes, see [ibm_is_share_replica_operations](https://registry.terraform.io/providers/IBM-Cloud/ibm/latest/docs/resources/ibm_is_share_replica_operations){: external}.
 
-## Deleting a replica file share
+## Deleting replica and source file shares
 {: #fs-delete-replicas}
 
-The process for deleting a replica file share is similar to deleting a source file share. For example, you need to [delete mount targets](/docs/vpc?topic=vpc-file-storage-managing&interface=api#delete-mount-target-api) for the share before you delete the share. Because the replica file share is in active replication from the source share, the replica file share must be split from the source before the deletion. You can do split the shares in two ways:
+You might want to delete your replica file share for various reasons. One of the possible reasons is to unblock the deletion of the source file share. Because the replica file share is in active replication from the source share, the replica file share must be split from the source before the source file share can be deleted. You can split the shares in two ways:
 
-* Perform a manual split, which removes the replication relationship and creates two independent, read/write file shares. Then, you can delete the mount target and the replica file share as a normal file share.
+* Perform a manual split, which removes the replication relationship and creates two independent, read/write file shares. Then, you can use or delete the replica file share as you would use or delete a normal file share.
 
-* Delete the replica file share directly after you deleted the mount targets. A `split` process is automatically initiated in the background. After the split operation is finished, the replica file share is deleted.
+* Delete the replica file share directly after you deleted its mount targets. A `split` process is automatically initiated in the background. After the split operation is finished, the replica file share is deleted, and the source share can be deleted, too.
 
 You can use the [UI](/docs/vpc?topic=vpc-file-storage-managing&interface=ui#delete-file-share-ui){: ui}[CLI](/docs/vpc?topic=vpc-file-storage-managing&interface=cli#delete-file-share-cli){: cli}[API](/docs/vpc?topic=vpc-file-storage-managing&interface=api#delete-file-share-api){: api}[Terraform](/docs/vpc?topic=vpc-file-storage-managing&interface=terraform#delete-file-share-terraform){: terraform} to delete a file share.

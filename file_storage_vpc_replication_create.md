@@ -2,7 +2,7 @@
 
 copyright:
   years: 2022, 2025
-lastupdated: "2025-09-09"
+lastupdated: "2025-09-10"
 
 keywords: file share, file storage, source volume, replica share, 
 
@@ -217,7 +217,6 @@ Source snapshot                    -
    Snapshot count               0
    Snapshot size                0
    Source snapshot              -
-   
    ```
    {: screen}
 
@@ -264,8 +263,7 @@ Source snapshot                    -
                                     r006-b696742a-92ee-4f6a-bfd7-921d6ddf8fa6   my-file-share   share 
    Snapshot count                   0
    Snapshot size                    0         
-   Source snapshot                  -    
-                         
+   Source snapshot                  -                      
    ```
    {: screen}
 
@@ -313,8 +311,7 @@ When you create a replica of a file share in another region, you must use the CR
 
    Snapshot count                   0
    Snapshot size                    0
-   Source snapshot                  -
-    
+   Source snapshot                  - 
    ```
    {: screen}
 
