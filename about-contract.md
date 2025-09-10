@@ -2,7 +2,7 @@
 
 copyright:
   years: 2022, 2025
-lastupdated: "2025-08-25"
+lastupdated: "2025-09-10"
 
 keywords: confidential computing, enclave, secure execution, hpcr, contract, customization, schema, contract schema, env, workload, encryption
 
@@ -217,8 +217,8 @@ In the `play` subsection, you can define the workload through [Pod descriptors](
 - In a template format in the `templates` subsection of `play`. This section is an array of descriptors in the YAML format. [Pods](https://kubernetes.io/docs/concepts/workloads/pods/){: external} or [ConfigMaps](https://kubernetes.io/docs/concepts/configuration/configmap/){: external} can have points of variability (POV) that are not known at the time of writing the descriptors. These POVs can be represented as [templates](https://pkg.go.dev/text/template){: external} and the values are completed at deployment time from information in the contract. We use [go templates](https://pkg.go.dev/text/template){: external} as the templating syntax, which is the same as used for [helm charts](https://helm.sh/docs/chart_template_guide/getting_started/){: external}, so templates can easily be exchanged with k8s. We support the following `Built-In` objects:
    - *Environment:* this object contains the environment variables as merged between the workload and the environment section. The object is available as `{{ .Env }}`.
 
-   Example:
-
+   Example: 
+   
    ```yaml
    workload: |
      type: workload
