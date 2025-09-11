@@ -2,7 +2,7 @@
 
 copyright:
   years: 2021, 2025
-lastupdated: "2025-09-09"
+lastupdated: "2025-09-10"
 
 keywords: file share, file storage, virtual network interface, encryption in transit, profiles, 
 
@@ -135,22 +135,19 @@ export IBMCLOUD_IS_FEATURE_SHARE_DENALI_REGIONAL_AVAILABILITY=true
 
 The CLI returns the properties for "Allowed Access Protocols", "Availability Mode", "Bandwidth", and "Storage Generation" only when this environmental variable is set to "true".
 
-### Gathering information from the CLI
+### Gathering required information from the CLI
 {: #fs-vpc-getinfo-cli}
 
 Before you run the `ibmcloud is share-create` command, you can gather information that you need for provisioning a share by viewing information about other file shares, mount targets, and file storage profiles.
 
-| Details             |  Listing options                           | What it provides                         |
-|---------------------|--------------------------------------------|------------------------------------------|
-| File shares         | `ibmcloud is shares`                       | List all shares in a region.             |
-| File share details  | `ibmcloud is share SHARE_ID`               | Review details of a share.               |
-| File share snapshots | `ibmcloud is share-snapshots` | List available snapshots in the zone. |
-| File share profiles | `ibmcloud is share-profiles` | List all file share profiles in a region. Only `dp2` can be used to create file shares.|
-| Mount targets       | `ibmcloud is share-mount-targets SHARE_ID` | List all mount targets for a file share. |
-| Subnets             | `ibmcloud is subnets`                      | List all subnets.                        |
-| Reserved IP addresses | `ibmcloud is subnet-reserved-ips`   | List all reserved IP addresses in the subnet. |
-| Security Groups     | `ibmcloud is security-groups`              | List all security groups.                | 
-{: caption="Details for creating file shares." caption-side="top"}
+* List all file shares with the `ibmcloud is shares` command.
+* List a specific file share's details with the `ibmcloud is share SHARE` command.
+* List the snapshots of a specific file share with the `ibmcloud is share-snapshots SHARE` command.
+* List all file share profiles in a region with `ibmcloud is share-profiles` command. Only the `dp2` and `rfs` share profiles can be used to create file shares.
+* List all mount targets of a specific file share with `ibmcloud is share-mount-targets SHARE` command.
+* List all subnets that are available in the region with `ibmcloud is subnets` command.
+* List all reserved IP addresses in the subnet with `ibmcloud is subnet-reserved-ips` command.
+* List all available Security Groups with `ibmcloud is security-groups` command.
 
 ### Creating a zonal file share without a mount target from the CLI
 {: #fs-create-share-cli}
@@ -725,6 +722,20 @@ You must provide the `generation` parameter and specify `generation=2`. For more
 
 A good way to learn more about the API is to click **Get sample API call** on the provisioning pages in {{site.data.keyword.cloud_notm}} console. You can view the correct sequence of API requests and better understand actions and their dependencies.
 {: tip}
+
+### Gathering required information with the API
+{: #fs-vpc-getinfo-api}
+
+Before you make the `POST /shares` request, gather the information that you need for provisioning a share by using the following API methods.
+
+* [List file shares](/apidocs/vpc/latest#list-shares) with `GET /shares` in a region.             
+* [Retrieve a file share](/apidocs/vpc/latest#get-share) with `GET /shares/{id}` to review its details.
+* [List file share snapshots](/apidocs/vpc/latest#list-share-snapshots) with `GET /shares/{share_id}/snapshots` to list the snapshots of a specific file share.
+* [List file share profiles](/apidocs/vpc/latest#list-share-profiles) with `GET /share/profiles` to see the available file share profiles in a region. Only `dp2` and `rfs` can be used to create file shares.
+* [List mount targets for a file share](/apidocs/vpc/latest#list-share-mount-targets) with `GET /shares/{share_id}/mount_targets` to see existing mount targets of a file share,
+* [List subnets](/apidocs/vpc/latest#list-subnets) with `GET /subnets` to see the available subnets in the region.
+* [List reserved IP addresses in a subnet](/apidocs/vpc/latest#list-subnet-reserved-ips) with `GET /subnets/{subnet_id}/reserved_ips`.
+* [List Security Groups](/apidocs/vpc/latest#list-security-groups) with `GET /security_groups`.
 
 ### Creating a zonal file share with the API
 {: #fs-create-file-share-api}
