@@ -2,7 +2,7 @@
 
 copyright:
   years: 2021, 2025
-lastupdated: "2025-08-29"
+lastupdated: "2025-09-11"
 
 keywords: bare metal servers, managing, operation, manage bare metal server, manage bare metal, manage server, restart bare metal, stop bare metal, delete bare metal, reboot bare metal, restart server, stop server, delete server
 
@@ -121,6 +121,21 @@ You can reinitialize the server only if the server is stopped and provisioned wi
 
 The delete action permanently removes a server and its connected vNIC, boot volume, and data from your account.
 {: important}
+
+## Adding CSPM in the console
+{: #cloud-security-posture-management-ui}
+{: ui}
+
+When you select this option, a workload protection bare metal server is created with the configurations to provide CSPM to all the resources. If a workload protection bare metal server already exists, this option is not available. For more information, see [About IBM Cloud Security Posture Management (CSPM)](/docs/workload-protection?topic=workload-protection-about&interface=ui).
+
+
+1. In the [{{site.data.keyword.cloud_notm}} console](/login){: external}, go to **Navigation Menu** icon ![menu icon](../../icons/icon_hamburger.svg) **> Infrastructure** ![VPC icon](../../icons/vpc.svg) **> Compute > Bare metal servers**.
+1. Click the name of the bare metal server that you want to add CSPM to.
+1. From the details page, go to the **Integrations** tab.
+1. In **Cloud security posture management**, click **Add CSPM**.
+1. On the **Add cloud security posture management (CSPM)**, click **Create**.
+
+This setting adds CSPM to an existing Workload Protection instance for your account. For more information, see [Implementing CSPM (Cloud Security Posture Management) for IBM Cloud](/docs/workload-protection?topic=workload-protection-cspm-implement&interface=ui).
 
 ## Managing your bare metal server by using the CLI
 {: #managing-bare-metal-servers-cli}

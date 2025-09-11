@@ -2,7 +2,7 @@
 
 copyright:
   years: 2021, 2025
-lastupdated: "2025-09-08"
+lastupdated: "2025-09-11"
 
 keywords: file share, file storage, rename share, increase size, adjust IOPS, mount target
 
@@ -161,7 +161,7 @@ The CLI returns the properties for "Allowed Access Protocols", "Availability Mod
    Profile                      dp2
    Size(GB)                     100
    IOPS                         100
-   Encryption                   user_managed   
+   Encryption                   user_managed  
    Mount Targets                ID                          Name
                                 No mounted targets found.
 
@@ -330,6 +330,7 @@ Replication role                 none
 Replication status               none
 Replication status reasons       Status code   Status message
                                  -             -
+                                  
 ```
 {: screen}
 
@@ -464,7 +465,7 @@ curl -X PATCH "$vpc_api_endpoint/v1/shares/432f1a4d-4aac-4ba1-922c-76fdbcbeb1e3?
 
 The owner of the share can change the allowed transit encryption modes type to `user_managed,none`,`user_managed` or `none`.
 
-[Beta]{: tag-cyan} Customers with special access to preview the new regional file share offering, can update the allowed transit encryption modes with the beta VPC API as follows:
+[Beta]{: tag-cyan} Customers with special access to preview the new regional file share offering, can update the allowed transit encryption modes as follows:
 - for zonal file shares, the allowed values are `ipsec,none`,`ipsec` or `none`.
 - for regional file shares, the allowed values are `stunnel,none`, `stunnel`, or `none`.
 
@@ -511,11 +512,11 @@ Valid file share and mount target names can include a combination of lowercase a
 
 Some attributes, such as profile, mount target access mode, allowed transit encryption modes, and encryption at rest, are not editable for accessor shares.
 
-The owner of the share can change the allowed transit encryption modes type to `user_managed,none`,`user_managed` or `none`. 
+The owner of the share can change the allowed transit encryption modes type to `user_managed,none`,`user_managed` or `none`.
 
-[Beta]{: tag-cyan] Customers with special access to preview the new regional file share offering can update the allowed transit encryption modes as follows:
-- for zonal file shares the allowed values are `ipsec,none`,`ipsec` or `none`.
-- for regional file shares the allowed values are `stunnel,none`, `stunnel`, or `none`.
+[Beta]{: tag-cyan} Customers with special access to preview the new regional file share offering, can update the allowed transit encryption modes as follows:
+- for zonal file shares, the allowed values are `ipsec,none`,`ipsec` or `none`.
+- for regional file shares, the allowed values are `stunnel,none`, `stunnel`, or `none`.
 
 However, before this property can be changed, all bindings and [mount targets must be deleted](/docs/vpc?topic=vpc-file-storage-managing&interface=terraform#delete-file-share-terraform). Deleting the bindings severs the network path between origin file share and accessor share, and puts the mount target that is attached to the accessor share in a failed state. For more information, see [Removing access to a file share from other accounts](/docs/vpc?topic=vpc-file-storage-accessor-delete&interface=terraform).
 {: important}
@@ -713,6 +714,7 @@ The following example adds two user tags to the file share.
    Snapshot count               0
    Snapshot size                0  
    Source snapshot              -  
+  
    ```
    {: screen}
 

@@ -2,7 +2,7 @@
 
 copyright:
   years: 2021, 2025
-lastupdated: "2025-08-29"
+lastupdated: "2025-09-11"
 
 keywords: creating bare metal servers
 
@@ -56,6 +56,7 @@ Use the following steps to create a bare metal server by using the {{site.data.k
 | Secure boot | Click the toggle to enable secure boot. For more information, see [Secure boot with Trusted Platform Module (TPM)](/docs/vpc?topic=vpc-secure-boot-tpm&interface=ui). |
 | Add to reservation (beta) | If you have an active reservation, click the toggle to add the server to that reservation. For more information about reservations, see [About Reservations for VPC](/docs/vpc?topic=vpc-about-reserved-virtual-servers-vpc). |
 | Metadata | Disabled by default. Click the toggle to enable. This setting informs the bare metal server to collect the bare metal server configuration information and user data. For more information, see [About {{site.data.keyword.vpc_full}} (VPC) Metadata on bare metal servers](/docs/vpc?topic=vpc-bare-metal-server-metadata-about). |
+| Cloud security posture management | When you select this option, a workload protection bare metal server is created with the configurations to provide CSPM to all the resources. If a workload protection bare metal server already exists, this option is not available. For more information, see [About IBM Cloud Security Posture Management (CSPM)](/docs/workload-protection?topic=workload-protection-about&interface=ui). |
 {: caption="Bare metal server advanced options" caption-side="bottom"}
 
 For x86 architecture-based bare metal servers, the DHCP response for all interfaces (PCI or VLAN) includes a gateway. So, if you create multiple interfaces on different subnets, consider a static IP configuration or use separate network namespaces to handle the different gateways.
