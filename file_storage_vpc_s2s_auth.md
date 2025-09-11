@@ -2,7 +2,7 @@
 
 copyright:
   years: 2022, 2025
-lastupdated: "2025-09-05"
+lastupdated: "2025-09-11"
 
 keywords: Backup for VPC, backup service, backup plan, backup policy, restore, restore volume, restore data
 
@@ -372,7 +372,7 @@ curl -X POST "https://iam.cloud.ibm.com/v1/policies" \
      -H 'Content-Type: application/json' \
      -d '{
         "roles": [{"role_id": "crn:v1:bluemix:public:iam::::role:ShareBroker","display_name": "Share Broker",
-                 "description": "As a share broker, you can create and delete share bindings"}],
+                   "description": "As a share broker, you can create and delete share bindings"}],
         "resources": [{"attributes": [
             {"name": "accountId","value": "<origin share owner Account ID>","operator": "stringEquals"},
             {"name": "serviceName","value": "is","operator": "share"},

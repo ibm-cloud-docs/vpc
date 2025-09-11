@@ -2,7 +2,7 @@
 
 copyright:
   years: 2019, 2025
-lastupdated: "2025-09-10"
+lastupdated: "2025-09-11"
 
 keywords:
 
@@ -26,6 +26,17 @@ For more information about changes to the {{site.data.keyword.vpc_short}} comman
 
 ## September 2025
 {: #vpc-sep25}
+  
+### 11 September 2025
+{: #vpc-sep1125}
+{: release-note}
+
+IBM Cloud Security Posture Management (CSPM) on VPC
+:   You can add CSPM to a virtual server instance or bare metal server. When this option is selected, a workload protection instance or bare metal server is created with the configurations to provide CSPM to all the resources. If a workload protection instance already exists, this option is not available. For more information, see [About IBM Cloud Security Posture Management (CSPM)](/docs/workload-protection?topic=workload-protection-about&interface=ui).
+
+    - To add CSPM to your virtual server instance, see the Advanced options in [Creating virtual server instances](/docs/vpc?topic=vpc-creating-virtual-servers&interface=ui) and [Managing virtual server instances: Adding CSPM in the console](/docs/vpc?topic=vpc-managing-virtual-server-instances&interface=ui#cloud-security-posture-management-ui).
+
+    - To add CSPM to your bare metal server, see the Advanced options in [Creating Bare Metal Servers on VPC](/docs/vpc?topic=vpc-creating-bare-metal-servers&interface=ui) and [Managing Bare Metal Servers for VPC: Adding CSPM in the console](/docs/vpc?topic=vpc-managing-bare-metal-servers&interface=ui#cloud-security-posture-management-ui)
 
 ### 04 September 2025
 {: #vpc-sep0425}

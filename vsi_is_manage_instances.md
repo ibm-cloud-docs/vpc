@@ -2,7 +2,7 @@
 
 copyright:
   years: 2019, 2025
-lastupdated: "2025-07-21"
+lastupdated: "2025-09-11"
 
 keywords: view instance details, restart virtual server, stop, details, delete
 
@@ -592,3 +592,18 @@ You can detach a virtual server from a reservation in the console.
 1. In the [{{site.data.keyword.cloud_notm}} console](/login){: external}, click **Navigation Menu** icon ![the menu icon ](../icons/icon_hamburger.svg) **> Infrastructure** ![VPC icon](../../icons/vpc.svg) **> Reservations**.
 1. From your virtual server list or in the Reservation details page, click the server that you want to detach and then click **Actions** > **Detach**.
 1. To confirm, click **Detach**.
+
+## Adding CSPM in the console
+{: #cloud-security-posture-management-ui}
+{: ui}
+
+When you select this option, a workload protection instance is created with the configurations to provide CSPM to all the resources. If a workload protection instance already exists, this option is not available. For more information, see [About IBM Cloud Security Posture Management (CSPM)](/docs/workload-protection?topic=workload-protection-about&interface=ui).
+
+You can add CSPM (Cloud Security Posture Management) on the _Virtual server instances_ page.
+
+1. From the _Virtual server instances_ page in {{site.data.keyword.cloud_notm}} console, click an individual instance name to view details.
+1. From the details page, go to the **Integrations** tab.
+1. In **Cloud security posture management**, click **Add CSPM**.
+1. On the **Add cloud security posture management (CSPM)**, click **Create**.
+
+This setting adds CSPM to an existing Workload Protection instance for your account. For more information, see [Implementing CSPM (Cloud Security Posture Management) for IBM Cloud](/docs/workload-protection?topic=workload-protection-cspm-implement&interface=ui).
