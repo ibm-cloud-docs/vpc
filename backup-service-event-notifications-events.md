@@ -2,7 +2,7 @@
 
 copyright:
   years: 2022, 2025
-lastupdated: "2025-08-06"
+lastupdated: "2025-09-12"
 
 keywords: backup for VPC, backup service, backup plan, backup policy, restore, restore volume, restore data
 
@@ -123,8 +123,6 @@ resource "ibm_en_source" "en_source" {
 }
 ```
 {: codeblock}
-
-For more information, see [Working with Terraform in {{site.data.keyword.en_short}}](/docs/event-notifications?topic=event-notifications-en-tera-workwith).
 
 ## Delivering notifications to select destinations
 {: #event-notifications-destinations}

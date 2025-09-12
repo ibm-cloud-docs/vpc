@@ -2,7 +2,7 @@
 
 copyright:
   years: 2022, 2025
-lastupdated: "2025-09-08"
+lastupdated: "2025-09-12"
 
 keywords: Backup, backup snapshot, create backups, backup service, backup plan, backup policy, restore, restore volume, restore data, restore share
 
@@ -1289,4 +1289,4 @@ After you create a backup policy, you can do the following actions.
 
 * [Apply tags to your resources for backups](/docs/vpc?topic=vpc-backup-use-policies).
 * [View a list of backup policies](/docs/vpc?topic=vpc-backup-view-policies) that you created.
-* [Manage your backup policies and plans](/vpc?topic=vpc-backup-service-manage).
+* [Manage your backup policies and plans](/docs/vpc?topic=vpc-backup-service-manage).

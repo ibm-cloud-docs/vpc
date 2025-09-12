@@ -2,7 +2,7 @@
 
 copyright:
   years: 2019, 2025
-lastupdated: "2025-09-11"
+lastupdated: "2025-09-12"
 
 keywords:
 
@@ -34,7 +34,7 @@ For more information about changes to the {{site.data.keyword.vpc_short}} comman
 IBM Cloud Security Posture Management (CSPM) on VPC
 :   You can add CSPM to a virtual server instance or bare metal server. When this option is selected, a workload protection instance or bare metal server is created with the configurations to provide CSPM to all the resources. If a workload protection instance already exists, this option is not available. For more information, see [About IBM Cloud Security Posture Management (CSPM)](/docs/workload-protection?topic=workload-protection-about&interface=ui).
 
-    - To add CSPM to your virtual server instance, see the Advanced options in [Creating virtual server instances](/docs/vpc?topic=vpc-creating-virtual-servers&interface=ui) and [Managing virtual server instances: Adding CSPM in the console](/docs/vpc?topic=vpc-managing-virtual-server-instances&interface=ui#cloud-security-posture-management-ui).
+    - To add CSPM to your virtual server instance, see the Advanced options in [Creating virtual server instances](/docs/vpc?topic=vpc-creating-virtual-servers&interface=ui) and [Managing virtual server instances: Adding CSPM in the console](/docs/vpc?topic=vpc-managing-virtual-server-instances&interface=ui#cloud-security-posture-management).
 
     - To add CSPM to your bare metal server, see the Advanced options in [Creating Bare Metal Servers on VPC](/docs/vpc?topic=vpc-creating-bare-metal-servers&interface=ui) and [Managing Bare Metal Servers for VPC: Adding CSPM in the console](/docs/vpc?topic=vpc-managing-bare-metal-servers&interface=ui#cloud-security-posture-management-ui)
 
@@ -89,7 +89,7 @@ Mount Helper utility supports mounting file shares on bare metal servers with EI
 {: release-note}
 
 Cross-regional copies of second-generation block volume snapshots (select availability)
-:   Customers with special access to preview the second-generation block storage volumes can now create cross-regional copies of their snapshots in every region where second-generation block volumes are supported. Cross-regional copies can be created in the console, from the CLI, or with the API. For more information about this feature and its limitations, see [About Block Storage for VPC snapshots](/docs/vpc?topic=vpc-snapshots-vpc-about&interface=ui#sdp-snapshots).
+:   Customers with special access to preview the second-generation block storage volumes can now create cross-regional copies of their snapshots in every region where second-generation block volumes are supported. Cross-regional copies can be created in the console, from the CLI, or with the API. For more information about this feature and its limitations, see [About Block Storage for VPC snapshots](/docs/vpc?topic=vpc-snapshots-vpc-about).
 
 ### 22 August 2025
 {: #vpc-aug2225}

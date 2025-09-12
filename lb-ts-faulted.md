@@ -1,8 +1,8 @@
 ---
 
 copyright:
-  years: 2019, 2024
-lastupdated: "2024-02-14"
+  years: 2019, 2025
+lastupdated: "2025-09-12"
 
 keywords: load balancer, network, faqs
 
@@ -35,4 +35,4 @@ Verify the following configurations:
 * Does the configured health-check have the correct protocol (TCP or HTTP), port, and URL (for HTTP) information? For HTTP, make sure that your application responds with `200 OK` for the configured health check URL.
 * Is the back-end server a virtual server with an enabled security group? If so, make sure that the security group rules allow traffic between the load balancer and the virtual server.
 
-For more information, refer to [Health Checks](/vpc?topic=vpc-nlb-health-checks&interface=ui).
+For more information, refer to [Health Checks](/docs/vpc?topic=vpc-nlb-health-checks&interface=ui).
