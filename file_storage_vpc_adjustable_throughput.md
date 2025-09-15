@@ -2,7 +2,7 @@
 
 copyright:
   years: 2025, 2025
-lastupdated: "2025-09-11"
+lastupdated: "2025-09-15"
 
 keywords: file share, regional, file storage, bandwidth, bandwidth
 
