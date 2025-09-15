@@ -2,7 +2,7 @@
 
 copyright:
   years: 2024, 2025
-lastupdated: "2025-08-04"
+lastupdated: "2025-09-15"
 
 keywords: File Storage, snapshots, cross-regional copy, backup, restore share
 

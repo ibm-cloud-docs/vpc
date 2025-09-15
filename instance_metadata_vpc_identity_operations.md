@@ -2,7 +2,7 @@
 
 copyright:
   years: 2022, 2025
-lastupdated: "2025-08-29"
+lastupdated: "2025-09-15"
 
 keywords:
 
@@ -26,7 +26,7 @@ An instance identity access token provides a security credential for accessing t
 Communication between the instance and the metadata service never leaves the host, you acquire the token from within the instance. If secure access to the metadata service is enabled on your instance, use the "https" protocol instead of the "http" protocol.
 {: important}
 
-To obtain the identity token, make a `PUT "/identity/v1/token` request to the [Metadata service API](/apidocs/vpc-metadata#create-access-token). If you currently use the `/instance_identity/v1/token` method and want to adopt the API release version 2025-08-26 or later, review the changes that are described in the migration guidance: [Updating to the `2025-08-26` version of the VPC Identity API](/docs/vpc?topic=vpc-#2025-08-26-migration-metadata-identity#changed-paths-metadata-identity).
+To obtain the identity token, make a `PUT "/identity/v1/token` request to the [Metadata service API](/apidocs/vpc-metadata#create-access-token). If you currently use the `/instance_identity/v1/token` method and want to adopt the API release version 2025-08-26 or later, review the changes that are described in the migration guidance: [Updating to the `2025-08-26` version of the VPC Identity API](/docs/vpc?topic=vpc-2025-08-26-migration-metadata-identity).
 
 ```sh
 curl -X PUT "https://api.metadata.cloud.ibm.com/identity/v1/token?version=2025-08-26" -H "Metadata-Flavor: ibm" -d '{}'

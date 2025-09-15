@@ -2,7 +2,7 @@
 
 copyright:
   years: 2025, 2025
-lastupdated: "2025-09-09"
+lastupdated: "2025-09-15"
 
 keywords:
 
@@ -33,7 +33,7 @@ With Flex profiles, you can choose the best profile that fits your workload char
 * Small to medium databases
 * Proof-of-concept environments.
 
-For burstable Flex-supported profiles, see [Burstable Flex profiles](/docs/vpc?topic=vpc-flexible-profiles-virtual-servers#burstable-flex-profiles).
+For burstable Flex-supported profiles, see [General purpose - Flex profiles](/docs/vpc?topic=vpc-flexible-profiles-virtual-servers).
 
 ## Burstable virtual server benefits
 {: #burstable-benefits}

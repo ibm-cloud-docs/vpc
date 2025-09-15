@@ -10,7 +10,7 @@ toc:
     audience: service
     href: /docs/vpc
     console-page: /infrastructure/overview
-    product-page: https://www.ibm.com/cloud/vpc
+    product-page: https://www.ibm.com/solutions/vpc
     path: vpc
     label: Virtual Private Cloud (VPC)
 #  List your getting started tutorial (getting-started.md) as the first item in the Get started nav group. See https://test.cloud.ibm.com/docs/writing?topic=writing-navigation for more details on the toc design.
@@ -21,10 +21,10 @@ toc:
        - getting-started.md
        - link:
           label: What is Virtual Private Cloud (VPC)?
-          href: https://www.ibm.com/cloud/vpc
+          href: https://www.ibm.com/solutions/vpc
        - link:
           label: Architecture Center VPC Resources
-          href: https://www.ibm.com/cloud/vpc
+          href: https://www.ibm.com/solutions/vpc
        - about-vpc.md
        - quotas.md
        - topicgroup:
