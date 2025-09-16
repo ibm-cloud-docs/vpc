@@ -2,7 +2,7 @@
 
 copyright:
   years: 2024, 2025
-lastupdated: "2025-08-28"
+lastupdated: "2025-09-16"
 
 keywords: vsi, virtual server, virtual server instances, profile, profiles, balanced, compute, memory, dedicated host, gen 3
 
@@ -81,7 +81,6 @@ for single-tenant hypervisors running workloads from a single {{site.data.keywor
 | bx3d-128x640 | 128 / 64 / 2                 | 640          | 200                  | 2x2080                      |
 | bx3d-176x880 | 176 / 88 / 2                 | 880          | 200                  | 2x2860                      |
 {: caption="Balanced instance profile options, Gen 3 Intel" caption-side="bottom"}
-
 
 ### Compute
 {: #compute-profiles-gen3-intel}

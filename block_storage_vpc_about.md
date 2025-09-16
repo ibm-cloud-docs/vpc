@@ -2,7 +2,7 @@
 
 copyright:
   years: 2019, 2025
-lastupdated: "2025-09-02"
+lastupdated: "2025-09-16"
 
 keywords:
 
@@ -88,9 +88,10 @@ Customers with special access to preview the defined performance profile can use
 
 The following limitations apply to this release:
 
-* The `sdp` profile is available for use with 2nd and 3rd generation Compute resources only. Generation 1 VPC infrastructure is not supported.
+* The `sdp` profile is available for use with 2nd and 3rd generation Compute resources only. Generation 1 VPC infrastructure is not supported. 
+* Secure boot from `sdp` boot volume is not supported. If you want to provision a virtual server instance with either [Intel Gen 3](/docs/vpc?topic=vpc-general-purpose-vsi-profiles-gen3-intel) or [Confidential Computing](/docs/vpc?topic=vpc-confidential-computing-vsi-profiles-gen3-x86) instance profiles, and an `sdp` boot volume, make sure that you do not enable secure boot.
+* No support for use as boot volume with [Accelerated instance profiles - Gen 3](/docs/vpc?topic=vpc-accelerated-profile-family).
 * No support for the IBM Z platform (s390x architecture) or {{site.data.keyword.bm_is_short}}.
-* Secure boot from SDP boot volume is not supported. If you want to provision a third-generation virtual server instance with an SDP-profile-based boot volume, make sure that you do not enable secure boot.
 * Importing custom encrypted images are not supported.
 * Creating a custom image from a boot volume with customer-managed encryption is not supported.
 * Migration between storage volume profile families is not supported.

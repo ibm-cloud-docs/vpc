@@ -2,7 +2,7 @@
 
 copyright:
   years: 2024, 2025
-lastupdated: "2025-08-28"
+lastupdated: "2025-09-16"
 
 keywords: vsi, virtual server, virtual server instances, profile, profiles, balanced, compute, gen 3, intel, confidential computing
 
@@ -80,7 +80,6 @@ computing capability.
 | bx3dc-64x320 | 64 / 32 / 2                  | 320          | 128GB EPC| 0GB EPC | 128                  | 2 x 1024                   |
 | bx3dc-96x480 | 96 / 48 / 2                  | 480          | 192GB EPC| 0GB EPC | 192                  | 2 x 1560                   |
 {: caption="Confidential computing balanced instance profile options for x86 architecture, Gen 3" caption-side="bottom"}
-
 
 ### Compute
 {: #cc-compute-profiles-gen3-intel}

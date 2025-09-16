@@ -2,7 +2,7 @@
 
 copyright:
   years: 2024, 2025
-lastupdated: "2025-08-21"
+lastupdated: "2025-09-16"
 
 keywords: vsi, virtual server, virtual server instances, profile, profiles, gpu, accelerated, h100, h200, l4, l40s
 
@@ -107,7 +107,6 @@ attached. This limit is based on the size of the instance.
 ## Intel Gaudi 3 instance profiles
 {: #gaudi-3-profiles}
 
-
 The Intel Gaudi 3 accelerated virtual server profiles are built atop 128 GB OAM-based Intel Gaudi 3 AI Accelerators. These accelerators are tuned for AI workloads, including inferencing and fine tuning. The solution is paired with the 5th Generation Intel® Xeon® Scalable processors.
 
 ### Operating systems
@@ -125,10 +124,8 @@ The Intel Gaudi 3 accelerated virtual server profiles are built atop 128 GB OAM-
 
 - Intel Gaudi 3 AI Accelerator (128 GB OAM)
 
-
 ### Availability
 {: #gaudi-3-availability}
-
 
 Status: Select Availability
 
@@ -188,7 +185,6 @@ attached. This limit is based on the size of the instance.
 | --------------- | ----------- | --------- |
 | gx3d-160x1792x8gaudi3 | 12          | 15        |
 {: caption="Accelerated Intel family limits for maximum volumes, and maximum network interfaces" caption-side="bottom"}
-
 
 ## NVIDIA Hopper HGX instance profiles
 {: #hopper-hgx-profiles}

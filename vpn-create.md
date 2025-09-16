@@ -2,7 +2,7 @@
 
 copyright:
   years: 2019, 2025
-lastupdated: "2025-08-22"
+lastupdated: "2025-09-16"
 
 keywords:
 subcollection: vpc
@@ -207,7 +207,7 @@ To create a VPN gateway with the API, follow these steps:
 
 
    ```sh
-      # For static route-based VPN, use the following command:
+      # For static route-based VPN connection, use the following command:
       curl -X POST "$vpc_api_endpoint/v1/vpn_gateways?version=$api_version&generation=2" \
         -H "Authorization: $iam_token" \
         -d '{

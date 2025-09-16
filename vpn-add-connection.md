@@ -2,7 +2,7 @@
 
 copyright:
   years: 2020, 2025
-lastupdated: "2025-08-21"
+lastupdated: "2025-09-16"
 
 keywords:
 
@@ -399,7 +399,7 @@ To create a VPN connection with the API, follow these steps:
    {: codeblock}
 
    ```sh
-      # For a static route-based VPN, use the following command
+      # For a static route-based VPN connection, use the following command
       curl -X POST "$vpc_api_endpoint/v1/vpn_gateways/$vpnGatewayId/connections?version=$api_version&generation=2" \
         -H "Authorization: $iam_token" \
         -d '{
