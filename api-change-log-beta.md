@@ -37,6 +37,8 @@ To review the change log of generally available API features, see the [VPC API c
 ## 22 July 2025
 {: #22-july-2025-beta}
 
+API changes supporting regional file shares are now generally available. See the [VPC API change log](/docs/vpc?topic=vpc-api-change-log#16-september-2025).
+
 ### For all version dates
 {: #22-july-2025-all-version-dates-beta}
 
