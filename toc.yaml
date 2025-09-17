@@ -194,6 +194,7 @@ toc:
             - metadata-identity-migration.md
             - metadata-identity-migration-beta.md
             - file_storage_vpc_api_migration.md
+            - file_storage_vpi_api_migration_ga.md
             - image_api_migration.md
             - lbaas-listener-policy-migration.md
             - vpn_advanced_configuration_api_migration.md
