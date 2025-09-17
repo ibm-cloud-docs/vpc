@@ -74,7 +74,7 @@ The following table provides a comparison of the types of load balancers.
 | Virtual IP address (VIP)| Multiple | Single | N/A |
 | Routing mode for VNFs  | No | Yes (see [About virtual network functions over VPC](/docs/vpc?topic=vpc-about-vnf))| No |
 | Virtual servers on VPC | Yes | Yes | Yes |
-| Member type | Virtual server instances, bare metal, Power Systems Virtual Server | virtual server instances | virtual server instances, application load balancer, subnet reserved IP (bare metal server, Virtual server instance secondary interface, virtual network interface) |
+| Member type | virtual server instances, bare metal, Power Systems Virtual Server | virtual server instances | virtual server instances, application load balancer, subnet reserved IP (bare metal server, virtual server instance secondary interface, virtual network interface) |
 | Power Systems Virtual Server instances connected over Direct Link | Yes (No support for instance groups) | No | No |
 | Port range | No | Public only [^footnote2] | Yes |
 | Scalable to many machines | Yes | No | Yes |
