@@ -2,7 +2,7 @@
 
 copyright:
   years: 2022, 2025
-lastupdated: "2025-09-16"
+lastupdated: "2025-09-17"
 
 keywords: Block Storage, boot volume, data volume, volume, data storage, virtual server instance, instance, expandable volume
 
@@ -43,7 +43,10 @@ For an existing instance, you can increase its boot volume capacity by selecting
 3. In the boot volume details, click the **Size** pencil icon. Alternatively, select **Expand volume** from the Actions menu ![Actions icon](../icons/action-menu-icon.svg "Actions").
 
 4. In the side panel, increase the boot volume size in the **Create size** field. The size must be more than the current size up to 250 GB if the volume has a first-generation volume profile. If the boot volume is based on the `sdp` profile, you can can expand it up to 32,000 GB.
-   
+
+   If the capacity of a boot volume is increased over 250 GB, you can no longer create a custom image from it. A boot volume that exceeds 250 GB can't be used to initialize a virtual server either.
+   {: note}
+
 5. Click **Expand boot volume size**.
 
 ## Increase boot volume capacity from the CLI
@@ -162,7 +165,7 @@ Tags                                   -
 ```
 {: screen}
 
-Customers with special access to volume profiles within the defined performance family can expand their `sdp` volumes to the maximum capacity of 32,000 GB.
+Customers with special access to volume profiles within the defined performance family can expand their `sdp` volumes to the maximum capacity of 32,000 GB. It's important to remember that if the capacity of a boot volume is increased over 250 GB, you can no longer create a custom image from it. A boot volume that exceeds 250 GB can't be used to initialize a virtual server either.
 {: preview}
 
 ## Increase boot volume capacity with the API
@@ -216,7 +219,7 @@ curl -X PATCH "$vpc_api_endpoint/v1/volumes/$volume_id/?version=2022-02-12&gener
 ```
 {: codeblock}
 
-Customers with special access to volume profiles within the defined performance family can expand their `sdp` volumes to the maximum capacity of 32,000 GB.
+Customers with special access to volume profiles within the defined performance family can expand their `sdp` volumes to the maximum capacity of 32,000 GB. It's important to remember that if the capacity of a boot volume is increased over 250 GB, you can no longer create a custom image from it. A boot volume that exceeds 250 GB can't be used to initialize a virtual server either
 {: preview}
 
 ## Increasing the capacity of an existing boot volume with Terraform

@@ -2,7 +2,7 @@
 
 copyright:
   years: 2019, 2025
-lastupdated: "2025-08-06"
+lastupdated: "2025-09-17"
 
 keywords: VPN, network, encryption, authentication, algorithm, IKE, IPsec, policies, gateway, access endpoint
 
@@ -29,6 +29,8 @@ To set up access to a service endpoint, follow these steps:
 
       * Destination - `166.8.0.0/14` for {{site.data.keyword.cloud_notm}} service endpoints, next hop: VPN tunnel interface
       * Destination - `161.26.0.0/16` for IaaS endpoints, next hop: VPN tunnel interface
+
+
 
 You can narrow the range of the destination CIDR instead of using `166.8.0.0/14` or `161.26.0.0/16`. For example, if you need to access only IBM DNS IP `161.26.0.10` and `161.26.0.11`, choose `161.26.0.10/30` as the destination instead of using `161.26.0.0/16`.
 {: tip}

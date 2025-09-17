@@ -2,7 +2,7 @@
 
 copyright:
   years: 2024, 2025
-lastupdated: "2025-09-15"
+lastupdated: "2025-09-17"
 
 keywords:
 
@@ -20,7 +20,9 @@ Restoring data from a snapshot creates a new, fully provisioned share. Shares ca
 
 Shares can be created only in the same availability zone as the origin share of the snapshot. When the new share is created, it contains only pointers to the original share, and the data copy process begins. While the data is being copied, the share is in a _pending_ state. While the new share can be mounted for read/write in _pending_ state, a few operations like creating a replica or snapshots are not permitted. After the data-copy operation is complete, the new share is split from the parent share to become independent, completing the initialization process. After the initialization process is complete, the share moves to the _stable_ state and can be used as any other share. 
 
-It is possible to change the customer-managed encryption key when the new share is created. This process registers the new share in the key management service with a new key. The new key is used to encrypt the new Share.
+It is possible to change the customer-managed encryption key when the new zonal file share is created. This process registers the new share in the key management service with a new key. The new key is used to encrypt the new Share.
+
+
 
 ## Limitations
 {: #fs-snapshots-restore-limitations}
@@ -56,7 +58,7 @@ From the list of {{site.data.keyword.filestorage_vpc_short}} snapshots, you can 
     | Resource group | Use the defaults or select from the list. |
     | User tags | Specify [user tags](/docs/vpc?topic=vpc-block-storage-about&interface=ui#storage-about-user-tags) to organize your resources and for use by [backup policies](/docs/vpc?topic=vpc-backup-service-about) | 
     | Access management tags | Specify [access management tags](/docs/vpc?topic=vpc-block-storage-about&interface=ui#storage-about-mgt-tags) that were created in IAM to help you manage access to your shares. |
-    | **Profile** | Defaults to `dp2` for zonal shares, and `rfs` for regional shares. The profile of the new share must match the profile of the snapshot. |
+    | **Profile** | Defaults to `dp2` for zonal shares. The profile of the new share must match the profile of the snapshot. |
     | Size | Enter a share size that is allowed by the profile. It must be bigger or equal to the size of the snapshot. |
     | IOPS | Select the IOPS that is within the range that the share profile allows. |
     | **Mount targets** | The creation of a mount target is optional, but you need to have a mount target if you want to connect to your file share from a virtual server instance. |
@@ -96,70 +98,84 @@ Before you can use the CLI, you must install the IBM Cloud CLI and the VPC CLI p
 Run the `ibmcloud is share-create` command and specify the `--snapshot` parameter and the ID or the CRN of the snapshot.
 
 ```sh
-ibmcloud is share-create --name my-file-share-from-snapshot --snapshot cli-share-snapshot --share my-file-share --zone us-south-1 --profile dp2 --size 100 --iops 2000  --user-tags env:test
+ibmcloud is share-create --name my-file-share-from-snapshot --snapshot r006-de41f19f-204c-4d4c-a630-1971ba85ed1d  --profile dp2 --size 100 --iops 2000  --user-tags env:test
 ```
 {: pre}
 
 ```sh
 Creating file share my-file-share-from-snapshot under account Test Account as user test.user@ibm.com...
                                       
-ID                                 r006-c956e095-afb1-408c-a589-887e77afab20   
-Name                               my-file-share-from-snapshot   
-CRN                                crn:v1:bluemix:public:is:us-south-1:a/a1234567::share:r006-c956e095-afb1-408c-a589-887e77afab20   
-Lifecycle state                    pending   
-Access control mode                security_group   
-Accessor binding role              none   
-Allowed transit encryption modes   user_managed,none   
-Zone                               us-south-1   
-Profile                            dp2   
-Size(GB)                           100   
-IOPS                               2000  
-User Tags                          env:test   
-Encryption                         provider_managed   
-Mount Targets                      ID                          Name      
-                                   No mounted targets found.      
-                                      
-Resource group                     ID                                 Name      
-                                   11caaa983d9c4beb82690daab08717e9   Default      
-                                      
-Created                            2024-12-17T11:21:57+05:30   
-Replication role                   none   
-Replication status                 none   
-Replication status reasons         Status code   Status message      
-                                   -             -   
+ID                                 r006-ef44c3ac-2cc3-49bd-8c4f-27f46936644d
+Name                               my-file-share-from-snapshot
+CRN                                crn:v1:bluemix:public:is:us-south-2:a/a1234567::share:r006-ef44c3ac-2cc3-49bd-8c4f-27f46936644d
+Lifecycle state                    pending
+Access control mode                security_group
+Accessor binding role              none
+Allowed transit encryption modes   none,user_managed
+Zone                               us-south-2
+Profile                            dp2
+Size(GB)                           100
+IOPS                               2000
+User Tags                          env:test
+Encryption                         provider_managed
+Mount Targets                      ID                          Name
+                                   No mounted targets found.
+
+Resource group                     ID                                 Name
+                                   6edefe513d934fdd872e78ee6a8e73ef   defaults
+
+Created                            2025-09-17T12:35:03-05:00
+Replication role                   none
+Replication status                 none
+Replication status reasons         Status code   Status message
+                                   -             -
+
+Snapshot count                     0
+Snapshot size                      0
+Source snapshot                    ID                                          Name
+                                   r006-de41f19f-204c-4d4c-a630-1971ba85ed1d   my-test-snap  
+
 ```
 {: screen}
 
 The following example creates a share from a snapshot by using the CRN of the snapshot. If you don't provide a name for your new share, a name is auto-generated for you. The size and IOPS values are inherited from the snapshot, and you can change them after the share is created.
 
 ```sh
-ibmcloud is share-create --profile dp2 --snapshot crn:v1:bluemix:public:is:us-south-1:a/a1234567::share-snapshot:r006-2ae87eb2-b26c-4126-ab34-e6e64f6f1773/r006-6ce54f3b-8971-4b5d-95a7-7dfa897ddfb3 --user-tags dev:tags
+ibmcloud is share-create --profile dp2 --snapshot crn:v1:bluemix:public:is:us-south-2:a/a1234567::share-snapshot:r006-ed78dc15-048f-4077-b7a2-88c213d53463/r006-de41f19f-204c-4d4c-a630-1971ba85ed1d
+```
+{: pre}
+
+```sh
 Creating file share  under account Test Account as user test.user@ibm.com...
                                       
-ID                                 r006-5fb2d6aa-544d-4469-8e59-36e0fc21d0fa   
-Name                               portion-unsafe-itinerary-oppressor   
-CRN                                crn:v1:bluemix:public:is:us-south-1:a/a123456::share:r006-5fb2d6aa-544d-4469-8e59-36e0fc21d0fa   
-Lifecycle state                    pending   
-Access control mode                security_group   
-Accessor binding role              none   
-Allowed transit encryption modes   user_managed,none   
-Zone                               us-south-1   
-Profile                            dp2   
-Size(GB)                           40   
-IOPS                               100   
-User Tags                          dev:tags   
-Encryption                         provider_managed   
-Mount Targets                      ID                          Name      
-                                   No mounted targets found.      
-                                      
-Resource group                     ID                                 Name      
-                                   11caaa983d9c4beb82690daab08717e9   Default      
-                                      
-Created                            2024-12-17T11:23:15+05:30   
-Replication role                   none   
-Replication status                 none   
-Replication status reasons         Status code   Status message      
-                                   -             -      
+ID                                 r006-683e075d-30b6-429c-aba6-1eeb44d06dc2
+Name                               giggling-maturing-remnant-unworldly
+CRN                                crn:v1:bluemix:public:is:us-south-2:a/a1234567::share:r006-683e075d-30b6-429c-aba6-1eeb44d06dc2
+Lifecycle state                    pending
+Access control mode                security_group
+Accessor binding role              none
+Allowed transit encryption modes   user_managed,none
+Zone                               us-south-2
+Profile                            dp2
+Size(GB)                           10
+IOPS                               100
+Encryption                         provider_managed
+Mount Targets                      ID                          Name
+                                   No mounted targets found.
+
+Resource group                     ID                                 Name
+                                   6edefe513d934fdd872e78ee6a8e73ef   defaults
+
+Created                            2025-09-17T12:37:01-05:00
+Replication role                   none
+Replication status                 none
+Replication status reasons         Status code   Status message
+                                   -             -
+
+Snapshot count                     0
+Snapshot size                      0
+Source snapshot                    ID                                          Name
+                                   r006-de41f19f-204c-4d4c-a630-1971ba85ed1d   my-test-snap     
 ```
 {: screen}
 

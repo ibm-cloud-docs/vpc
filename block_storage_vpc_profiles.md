@@ -2,7 +2,7 @@
 
 copyright:
   years: 2019, 2025
-lastupdated: "2025-09-08"
+lastupdated: "2025-09-17"
 
 keywords: Block Storage profiles, Block Storage for VPC, IOPS tiers, custom IOPS, storage performance
 
@@ -75,6 +75,9 @@ To achieve more than 48,000 IOPS, the volume must be attached to a virtual serve
 {: note}
 
 Certain volume operations such as increasing capacity, adjusting IOPS, and adjusting throughput can be done on an `sdp` volume even if the volume is not attached to a running instance. For more information about the allow-listed select availability release, such as billing, supported features, and limitations, see [About {{site.data.keyword.block_storage_is_short}}](/docs/vpc?topic=vpc-block-storage-about#block-storage-sdp-intro).
+
+Secure booting is not supported for boot volumes that use the `sdp` profile.
+{: note}
 
 ### Tiered volume profiles
 {: #tiers}
