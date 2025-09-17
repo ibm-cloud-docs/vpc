@@ -1,7 +1,7 @@
 ---
 copyright:
   years: 2018, 2025
-lastupdated: "2025-07-01"
+lastupdated: "2025-09-17"
 
 keywords: classic, access, classic access, VRF, peering
 
@@ -54,10 +54,10 @@ On the **New virtual private cloud** page, select **Enable access to classic res
 {: #create-a-classic-access-vpc-using-the-cli}
 {: cli}
 
-Use the flag `--classic-access` when you create the VPC, for example:
+Use the option `--classic-access` when you create the VPC, for example:
 
 ```sh
-ibmcloud is vpc-create my-access-vpc --classic-access
+ibmcloud is vpc-create my-access-vpc --classic-access true
 ```
 {: pre}
 

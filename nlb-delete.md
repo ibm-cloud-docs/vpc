@@ -2,7 +2,7 @@
 
 copyright:
   years: 2020, 2025
-lastupdated: "2025-06-18"
+lastupdated: "2025-09-17"
 
 keywords: network load balancer, public, listener, back-end, front-end, pool, round-robin, weighted, connections, methods, policies, APIs, access, ports, vpc network, delete
 
@@ -39,13 +39,13 @@ The Status for the NLB now shows **Deleting**. Refresh the page to confirm that 
 To delete a {{site.data.keyword.nlb_full}} with the CLI, run the following command:
 
 ```sh
-ibmcloud is load-balancer-delete <load_balancer_id> -f -q
+ibmcloud is load-balancer-delete LOAD_BALANCER [--vpc VPC] [--output JSON] [-f, --force] [-q, --quiet]
 ```
 {: pre}
 
 Where:
 
-* **load_balancer_id** is the ID of the load balancer (for example, `r006-99b5ab45-6357-42db-8b32-5d2c8aa62776`).
+* **LOAD_BALANCER** is the ID of the load balancer (for example, `r006-99b5ab45-6357-42db-8b32-5d2c8aa62776`).
 * **--force, -f** forces the operation without confirmation.
 * **--quiet, -q** suppresses verbose output.
 

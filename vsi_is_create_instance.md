@@ -49,7 +49,7 @@ Use the following steps to create a virtual server instance.
    | Stock image | Select from available stock images and click **Save**. \n - For more information about available stock images, see [x86 virtual server images](/docs/vpc?topic=vpc-about-images) and [s390x virtual server images](/docs/vpc?topic=vpc-vsabout-images). All operating system images use cloud-init that you can use to enter user metadata that is associated with the instance for post-provisioning scripts. Metadata isn't supported for {{site.data.keyword.cloud}} Hyper Protect Virtual Server for {{site.data.keyword.vpc_full}} instances and z/OS virtual server instances. \n - If you plan to use Windows operating systems with SQL Server, see the [About Microsoft SQL on VPC](/docs/microsoft?topic=microsoft-mssql-about).  |
    | Custom image  | Select from available custom images and click **Save**. If no custom images are available, click **Create**. \n - A custom image can be an image that you customize and upload to {{site.data.keyword.cos_full_notm}}, which you can then import into {{site.data.keyword.vpc_short}}. For more information about custom images, see [Getting started with custom images](/docs/vpc?topic=vpc-planning-custom-images). \n - You can also use a custom image that was created from a boot volume. For more information about creating an image from a volume, see [About creating an image from a volume](/docs/vpc?topic=vpc-image-from-volume-vpc). \n - You can also select either an RHEL or Windows custom image and bring your own license (BYOL). For more information about creating BYOL custom images, see [Bring your own license](/docs/vpc?topic=vpc-byol-vpc-about). |
    | Catalog image | After you select an available catalog image, click **Select version and pricing plan**, choose the version and pricing plan, and then click **Save**. \n - A catalog image is a custom image that is imported into a private catalog. For more information about catalog images, see [VPC considerations for custom images in a private catalog](/docs/vpc?topic=vpc-custom-image-cloud-private-catalog&interface=ui). \n **Note:** If you select a catalog image that belongs to a different account, you have more considerations and limitations to review. See [Using cross-account image references in a private catalog in the console](/docs/vpc?topic=vpc-custom-image-cloud-private-catalog&interface=ui#private-catalog-image-reference-vpc-ui). \n - To create a private catalog, see the tutorial [Onboarding a virtual server image for VPC](/docs/account?topic=account-catalog-vsivpc-tutorial&interface=ui).|
-   | Snapshot | Select either **Import existing snapshot** or **Import snapshot by CRN**. [Updated]{: tag-new}Then, choose a snapshot of a boot volume, and click **Save**. If no snapshots are available, click **Create**. \n - Filter the list of snapshots for [fast restore](/docs/vpc?topic=vpc-snapshots-vpc-restore&interface=ui#snapshots-vpc-use-fast-restore). With this option, you can create the boot volume quickly by using a snapshot that is cached in a different zone of your region. For more information about restoring a volume from a snapshot, see [Restoring a volume from a snapshot](/docs/vpc?topic=vpc-snapshots-vpc-restore). \n - If you're using the CRN of a snapshot from another account, make sure that the right [IAM authorizations](/docs/vpc?topic=vpc-block-s2s-auth&interface=ui#block-s2s-auth-xaccountrestore-ui) are in place. |
+   | Snapshot | Select either **Import existing snapshot** or **Import snapshot by CRN**. Then, choose a snapshot of a boot volume, and click **Save**. If no snapshots are available, click **Create**. \n - Filter the list of snapshots for [fast restore](/docs/vpc?topic=vpc-snapshots-vpc-restore&interface=ui#snapshots-vpc-use-fast-restore). With this option, you can create the boot volume quickly by using a snapshot that is cached in a different zone of your region. For more information about restoring a volume from a snapshot, see [Restoring a volume from a snapshot](/docs/vpc?topic=vpc-snapshots-vpc-restore). \n - If you're using the CRN of a snapshot from another account, make sure that the right [IAM authorizations](/docs/vpc?topic=vpc-block-s2s-auth&interface=ui#block-s2s-auth-xaccountrestore-ui) are in place. |
    | Existing volume | Select an existing boot volume that is not attached to an instance and click **Save**.  |
    {: caption="Instance provisioning image, snapshot, or volume selections" caption-side="bottom"}
    {: #table-select-image-and-profile}
@@ -58,7 +58,7 @@ Use the following steps to create a virtual server instance.
    |-------|-------|
    | Profile |  The profile families are Flexible, Balanced, Compute, Memory, Ultra High Memory, Very High Memory, GPU, and Confidential Compute. For more information, see [x86-64 instance profiles](/docs/vpc?topic=vpc-profiles). When you create an {{site.data.keyword.cloud_notm}} {{site.data.keyword.hpvs}} for {{site.data.keyword.vpc_full}} instance, make sure that you select secure execution-enabled profiles, otherwise provisioning fails. For more information, see [s390x instance profiles](/docs/vpc?topic=vpc-vs-profiles). \n \n Some profiles might not be available because the number of network interfaces in the virtual server exceed profile limits. You can remove network interfaces to select from more profiles. For more information, see [Resizing a virtual server](/docs/vpc?topic=vpc-resizing-an-instance).  \n  \n Some profiles might not be available because the image selected contains an allowed-use expression that is not compatible with the profile. In these cases, select an image with an allowed-use expression that is compatible with the desired profile. For more infomation, see [Adding allowed-use expressions to custom images](/docs/vpc?topic=vpc-custom-image-allowed-use-expressions&interface=ui). |
    | Advanced security selections |  |
-   | Secure boot | Click the toggle to enable secure boot. Secure boot is available with only compatible profiles. For more information about secure boot, see [Secure boot for Virtual Servers for VPC](/docs/vpc?topic=vpc-confidential-computing-with-secure-boot-vpc).|
+   | Secure boot | Click the toggle to enable secure boot. Secure boot is available with only compatible instance profiles. Second-generation boot volumes with the `sdp` volume profile do not support secure boot yet. For more information about secure boot, see [Secure boot for Virtual Servers for VPC](/docs/vpc?topic=vpc-confidential-computing-with-secure-boot-vpc).|
    | Confidential computing [Select availability]{: tag-green} | Confidential computing with Intel® Software Guard Extensions (SGX) and confidential computing with Intel Trusted Domain Extension (TDX) protects your data through hardware-based server security by using isolated memory regions that are known as encrypted enclaves. Both SGX and TDX are available with only compatible profiles. For more information about confidential computing, see [Confidential computing for x86 Virtual Servers for VPC](/docs/vpc?topic=vpc-about-confidential-computing-vpc). |
    {: caption="Table 3. Profile selections" caption-side="bottom"}
 
@@ -359,6 +359,9 @@ List the available boot volumes for creating your instance. If you are creating 
 ibmcloud is volumes --attachment-state unattached --operating-system-architecture amd64 --zone us-south-1
 ```
 {: pre}
+
+Second-generation boot volumes with the `sdp` volume profile do not support secure boot yet. If secure boot is needed, select an available boot volume with the `general-purpose` profile.
+{: note}
 
 ##### List available snapshots
 {: #list-snapshots-images-cli}
@@ -849,7 +852,7 @@ For example, the following `instance-create` command uses the sample values that
 
 [Select availability]{: tag-green}
 
-Confidential computing with Intel SGX for VPC is available only in the Dallas (us-south) and Frankfurt (eu-de) regions.
+Confidential computing with Intel SGX for VPC is available only in the Dallas (us-south) and Frankfurt (eu-de) regions. 
 {: note}
 
 After you know the needed values, use them to run the `ibmcloud is instance-create` command. You also need to specify a unique name for the instance.
@@ -1052,7 +1055,7 @@ Reusing an existing, bootable volume is faster than creating a new volume from a
 
 You can provision an instance with an existing volume by specifying the existing volume's `id` or `crn` subproperty as the value of the `boot_volume_attachment` property.
 
-The existing, bootable volume must be an unattached bootable volume that has the same architecture as the instance profile. Use the [list volumes](/apidocs/vpc/latest#list-volumes) filter and reference the `attachment_state` property and `operating_system` property to view a volume's eligibility.
+The existing bootable volume must be an unattached bootable volume that has the same architecture as the instance profile. Use the [list volumes](/apidocs/vpc/latest#list-volumes) filter and reference the `attachment_state` property and `operating_system` property to view a volume's eligibility.
 
 For example, to see unattached volumes in `us-south-1` with an x86 operating system.
 
@@ -1158,7 +1161,7 @@ For more information about restoring a volume with the API, see [Restore a volum
 
 [Select availability]{: tag-green}
 
-Confidential computing with Intel SGX for VPC is available only in the Dallas (us-south) and Frankfurt (eu-de) regions.
+Confidential computing with Intel SGX for VPC is available only in the Dallas (us-south) and Frankfurt (eu-de) regions. 
 {: note}
 
 To provision an instance with confidential compute, add the `confidential_compute_mode` property and set it to either `sgx` or `tdx`.

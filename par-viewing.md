@@ -90,7 +90,7 @@ ibmcloud is public-address-range $par-id
 View all public address ranges:
 
 ```sh
-ibmcloud is public address ranges
+ibmcloud is public-address-ranges
 ```
 {: pre}
 
