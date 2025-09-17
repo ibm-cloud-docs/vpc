@@ -2,7 +2,7 @@
 
 copyright:
   years: 2019, 2025
-lastupdated: "2025-09-16"
+lastupdated: "2025-09-17"
 
 keywords:
 
@@ -43,7 +43,7 @@ You can attach only one boot volume to a virtual server instance at a time, but 
 ### Boot volumes
 {: #block-storage-vpc-boot-volumes}
 
-When you create an instance from a stock image, a 100 GB, 3,000 IOPS general-purpose boot volume is created and attached to the instance by default. When you create an instance from a custom image, you can specify a boot volume capacity of 10 GB to 250 GB, depending what the image requires. This capacity can be any size between the minimum size that is supported for the selected image and the maximum supported image size. If the custom image is smaller than 10 GB, the boot volume capacity is rounded up to 10 GB. After the boot volume is created, you can expand the boot volume size to the maximum supported size, which is 250 GB.
+When you create an instance from a stock image, a 100 GB, 3,000 IOPS `general-purpose` boot volume is created and attached to the instance by default. When you create an instance from a custom image, you can specify a boot volume capacity of 10 GB to 250 GB, depending what the image requires. This capacity can be any size between the minimum size that is supported for the selected image and the maximum supported image size. If the custom image is smaller than 10 GB, the boot volume capacity is rounded up to 10 GB. After the boot volume is created, you can expand the boot volume size to the maximum supported size, which is 250 GB.
 
 You cannot create an image from a boot volume that is encrypted with customer-managed keys and is not 100 GB. Such an operation is not supported.
 {: note}
@@ -55,15 +55,12 @@ By default, boot volumes are deleted when you delete an instance. You can change
 ### Data volumes
 {: #secondary-data-volumes}
 
-{{site.data.keyword.block_storage_is_short}} data volumes are secondary volumes with total capacity range of 10 GB to 16,000 GB. Maximum IOPS for data volumes varies based on volume size. For more information, see
+{{site.data.keyword.block_storage_is_short}} data volumes are secondary volumes with total capacity range of 10 GB to 16,000 GB for first-generation volumes and 1 GB to 32,000 GB for second-generation volumes. Maximum IOPS for data volumes varies based on volume size and profile. For more information, see
 [{{site.data.keyword.block_storage_is_short}} profiles](/docs/vpc?topic=vpc-block-storage-profiles).
 
 You can create data volumes as stand-alone volumes or when you provision an instance. Stand-alone volumes exist in an unattached state until you attach the volume to an instance. When you create a data volume as part of instance provisioning, the volume is automatically attached to the instance.
 
-Data volumes are encrypted by default with IBM-managed encryption. You can also encrypt data volumes by using your own root keys.
-
-When you create an {{site.data.keyword.cloud_notm}} {{site.data.keyword.hpvs}} for {{site.data.keyword.vpc_full}} instance, the data volume that is attached to the instance during instance creation is automatically encrypted with the seed or passphrase that you provide.
-{: note}
+Data volumes are encrypted by default with IBM-managed encryption. You can also encrypt data volumes by using your own root keys. You can use {{site.data.keyword.hpvs}} or {{site.data.keyword.keymanagementservicefull_notm}} as your key management service.
 
 {{site.data.keyword.block_storage_is_short}} data volumes can be attached to any available instance in your zone, based on your customer account and permissions, and within [certain limits](/docs/vpc?topic=vpc-attaching-block-storage#vol-attach-limits). 
 
@@ -71,9 +68,7 @@ When the instance is deleted, these volumes are detached by default. Detaching b
 
 When you create volumes, you can specify whether you want the data volumes to be deleted when then instance is deleted. You can enable and disable the auto-delete feature in the console, from the CLI or with the API.
 
-You can also increase the size of an attached volume in the console, from the CLI, or with the API. You can increase the capacity in GB increments up to 16,000 GB capacity, depending on your volume profile. For more information, see [expanding {{site.data.keyword.block_storage_is_short}} volume capacity](/docs/vpc?topic=vpc-expanding-block-storage-volumes).
-
-For more information, see [Managing Block Storage for VPC volumes](/docs/vpc?topic=vpc-managing-block-storage).
+You can also increase the size of an attached volume in the console, from the CLI, or with the API. For first-generation volumes, you can increase the capacity in GB increments up to 16,000 GB capacity, depending on your volume profile. For second-generation volumes that use the `sdp` profile, you can increase the capacity up to 32,000 GB. For more information, see [expanding {{site.data.keyword.block_storage_is_short}} volume capacity](/docs/vpc?topic=vpc-expanding-block-storage-volumes) and [Managing Block Storage for VPC volumes](/docs/vpc?topic=vpc-managing-block-storage).
 
 ## {{site.data.keyword.block_storage_is_short}} volume profiles
 {: #block-storage-profiles-intro}

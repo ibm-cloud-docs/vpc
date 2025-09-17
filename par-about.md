@@ -2,7 +2,7 @@
 
 copyright:
   years: 2025
-lastupdated: "2025-08-06"
+lastupdated: "2025-09-17"
 
 keywords: vpc, public address ranges, about
 
@@ -13,10 +13,10 @@ subcollection: vpc
 {{site.data.keyword.attribute-definition-list}}
 
 # About public address ranges
-{: #about-par} 
+{: #about-par}
 
 You can now create and use public address ranges in the Frankfurt and Madrid regions, if your account has been approved for access. To request access to Public Address Ranges for VPC, contact your IBM representative.
-{: preview} 
+{: preview}
 
 A public address range is a contiguous set of public IPs that you can reserve and bind to a VPC in an availability zone. 
 {: shortdesc}
@@ -167,3 +167,4 @@ The following diagram illustrates how to configure routes and firewalls using pu
 
 * [Quotas and service limits](/docs/vpc?topic=vpc-quotas#par-quotas)
 * [FAQ for public address ranges](/docs/vpc?topic=vpc-faq-public-address-ranges)
+* [Troubleshooting](/docs/vpc?group=tbs-par)

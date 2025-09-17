@@ -2,7 +2,7 @@
 
 copyright:
   years: 2024, 2025
-lastupdated: "2025-05-19"
+lastupdated: "2025-09-17"
 
 subcollection: vpc
 
@@ -16,7 +16,7 @@ content-type: faq
 {: #faq-public-address-ranges}
 
 Public Address Ranges for VPC is only available for evaluation and testing purposes for users with special access.
-{: beta}
+{: preview}
 
 The following questions are commonly asked about public address ranges. If you have additional questions you'd like to see addressed here, open an issue by using the **Open doc issue** or **Edit topic** links at the end of this page.
 {: shortdesc} 

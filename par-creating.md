@@ -2,7 +2,7 @@
 
 copyright:
   years: 2025
-lastupdated: "2025-08-06"
+lastupdated: "2025-09-17"
 
 keywords: public address range, create, bind
 
@@ -16,7 +16,7 @@ subcollection: vpc
 {: #par-creating}
 
 You can now create and use public address ranges in the Frankfurt and Madrid regions, if your account has been approved for access. To request access to Public Address Ranges for VPC, contact your IBM representative.
-{: preview} 
+{: preview}
 
 You can create a public address range by defining its size and, optionally, specifying a VPC to associate with it in any availability zone within the account.
 {: shortdesc}
@@ -24,18 +24,18 @@ You can create a public address range by defining its size and, optionally, spec
 If the VPC is deleted while it is bound to a public address range, the address range continues to exist and can be bound later to a different VPC in any availability zone.
 {: tip}
 
-You can create public address ranges with the console, CLI, and API.
+You can create public address ranges with the console, CLI, API, and Terraform.
 
 ## Before you begin
 {: #par-before-you-begin}
 
 Make sure to review [planning considerations](/docs/vpc?topic=vpc-about-par#par-planning) for public address ranges.
 
-## Creating a public access range in the console
+## Creating public address ranges in the console
 {: #par-creating-ui}
 {: ui}
 
-To create a public access range in the {{site.data.keyword.cloud_notm}} console, follow these steps:
+To create public address ranges in the {{site.data.keyword.cloud_notm}} console, follow these steps:
 
 1. From the [{{site.data.keyword.cloud_notm}} console](/login){: external}, select the **Navigation menu** ![Menu icon](../icons/icon_hamburger.svg), then click **Infrastructure** ![VPC icon](../../icons/vpc.svg) > **Network** > **Public Address Ranges**. The Public Address Ranges for VPC page appears.
 1. Click **Create** to go to the provisioning page.
@@ -65,11 +65,11 @@ To create a public access range in the {{site.data.keyword.cloud_notm}} console,
 
 On the Public address ranges for VPC page, your address range now shows in the table. For IBM Cloud services, the status of your public address range changes from `Updating` to `Stable`.
 
-## Creating a public address range from the CLI
+## Creating public address ranges from the CLI
 {: #par-ordering-cli}
 {: cli}
 
-To create a public address range from the command line, follow these steps:
+To create public address ranges from the command line, follow these steps:
 
 1. [Set up your CLI environment](/docs/vpc?topic=vpc-set-up-environment&interface=cli).
 1. Log in to your CLI environment. After you enter the password, the system prompts which account and region that you want to use:
@@ -150,11 +150,11 @@ cli-test-vpc --zone us-south-1 --resource-group-id 72b27b5c-f4b0-48bb-b954-5becc
 ```
 {: pre}
 
-## Creating a public address range with the API
+## Creating public address ranges with the API
 {: #par-ordering-api}
 {: api}
 
-To create a public address range with the API, follow these steps:
+To create public address ranges with the API, follow these steps:
 
 1. Set up your [API environment](/docs/vpc?topic=vpc-set-up-environment&interface=cli).
 1. Store the following values in variables to be used in the API command:
@@ -201,11 +201,11 @@ To create a public address range with the API, follow these steps:
 If you need to change the size of the address range or the resource group, you must delete and recreate the address range.
 {: important}
 
+
+
 ## Related links
 {: #after-create-par}
 
 - [IAM roles and actions](/docs/vpc?topic=vpc-about-par#par-access-management)
 - [Quotas and service limits](/docs/vpc?topic=vpc-quotas#par-quotas)
-- [Binding, unbinding, and moving public address ranges](/docs/vpc?topic=vpc-par-unbinding-binding&interface=ui)
-- [Viewing public address ranges](/docs/vpc?topic=vpc-par-viewing&interface=ui)
-- [Deleting public address ranges](/docs/vpc?topic=vpc-par-deleting&interface=ui)
+- [Troubleshooting](/docs/vpc?group=tbs-par)

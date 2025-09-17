@@ -2,7 +2,7 @@
 
 copyright:
   years: 2022, 2025
-lastupdated: "2025-09-08"
+lastupdated: "2025-09-16"
 
 keywords: Block Storage, boot volume, data volume, volume, data storage, virtual server instance, instance, expandable volume
 
@@ -72,12 +72,12 @@ Run the `ibmcloud is instance-create` command and specify a boot volume capacity
 The following example creates an instance with a boot volume of 190 GB.
 
 ```sh
-ibmcloud is instance create vsi-1 vpc-1 us-south-1 bx2-2x8  subnet-1 --image ibm-ubuntu-20-04-3-minimal-amd64-1 --boot-volume '{"name": "my-boot-vol-1", "volume": {"capacity": 190, "profile": {"name": "general-purpose"}}}'
+ibmcloud is instance-create vsi-1 vpc-1 us-south-1 bx2-2x8  subnet-1 --image ibm-ubuntu-20-04-3-minimal-amd64-1 --boot-volume '{"name": "my-boot-vol-1", "volume": {"capacity": 190, "profile": {"name": "general-purpose"}}}'
 ```
 {: pre}
 
 ```sh
-Creating instance cli-vsi-1 under account VPC1 as user myuser@mycompany.com...
+Creating instance cli-vsi-1 under account Test Account as user test.user@ibm.com...
 
 ID                                    0716_84f99419-554d-4c05-bea0-7034d1c40ed3
 Name                                  vsi-1

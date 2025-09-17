@@ -2,7 +2,7 @@
 
 copyright:
   years: 2025
-lastupdated: "2025-08-06"
+lastupdated: "2025-09-17"
 
 keywords: public address range, bind, unbind
 
@@ -16,9 +16,9 @@ subcollection: vpc
 {: #par-unbinding-binding}
  
 You can now create and use public address ranges in the Frankfurt and Madrid regions, if your account has been approved for access. To request access to Public Address Ranges for VPC, contact your IBM representative.
-{: preview} 
+{: preview}
 
-You can bind, unbind, and move public address ranges to a VPC in an availability zone with the console, CLI, and API.
+You can bind, unbind, and move public address ranges to a VPC in an availability zone with the console, CLI, API, and Terraform.
 {: shortdesc}
 
 ## Before you begin
@@ -217,11 +217,11 @@ To bind, unbind, or move public address ranges with the API, follow these steps:
       ```
       {: pre}
 
+
+
 ## Related links
 {: #after-binding-par}
 
 - [IAM roles and actions](/docs/vpc?topic=vpc-about-par#par-access-management)
 - [Quotas and service limits](/docs/vpc?topic=vpc-quotas#par-quotas)
-- [Creating public address ranges](/docs/vpc?topic=vpc-par-creating&interface=ui)
-- [Viewing public address ranges](/docs/vpc?topic=vpc-par-viewing&interface=ui)
-- [Deleting public address ranges](/docs/vpc?topic=vpc-par-deleting&interface=ui)
+- [Troubleshooting](/docs/vpc?group=tbs-par)

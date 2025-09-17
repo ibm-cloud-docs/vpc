@@ -2,7 +2,7 @@
 
 copyright:
   years: 2022, 2025
-lastupdated: "2025-08-06"
+lastupdated: "2025-09-17"
 
 keywords:
 
@@ -55,14 +55,14 @@ An egress custom route was created to ensure client (`10.241.0.6`) data packets 
 ## Before you begin
 {: #vnf-before-you-begin}
 
-Ensure that you have the required IAM permissions to configure custom routing and enable IP spoofing. For more information about IAM permissions, see [Required permissions](/docs/vpc?topic=vpc-resource-authorizations-required-for-api-and-cli-calls).
+Ensure that you have the required IAM permissions to configure custom routing and enable IP spoofing. 
 
 ## Getting started
 {: #getting-started-vnf-ha}
 
 Follow these basic steps to configure high availability for supported IBM Cloud VNFs:
 
-1. [Review known issues for virtual network functions](/docs/vpc?topic=vpc-vnf-limitations).
+1. [Review known issues for virtual network functions](#vnf-limitations).
 1. [Configure VPC resources](/docs/vpc?topic=vpc-configure-vpc-resources).
 1. [Configure security groups](/docs/vpc?topic=vpc-configure-security-groups).
 1. [Deploy a VNF](/docs/vpc?topic=vpc-deploy-vnf).

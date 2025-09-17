@@ -2,7 +2,7 @@
 
 copyright:
   years: 2025
-lastupdated: "2025-09-08"
+lastupdated: "2025-09-16"
 
 keywords: Block Storage for VPC, boot volume, data volume, volume, data storage, virtual server instance, instance, adjustable volume, throughput, bandwidth
 
@@ -74,7 +74,7 @@ ibmcloud is volume-update VOLUME_ID --bandwidth BANDWIDTH
 This example shows an increase of the throughput limit from 1000 Mbps to 3,000 Mbps.
 
 ```sh
-ibmcloud is volume-update 933c8781-f7f5-4a8f-8a2d-3bfc711788ee --throughput 3000
+ibmcloud is volume-update 933c8781-f7f5-4a8f-8a2d-3bfc711788ee --bandwidth 3000
 ```
 {: pre}
 

@@ -2,7 +2,7 @@
 
 copyright:
   years: 2021, 2025
-lastupdated: "2025-09-08"
+lastupdated: "2025-09-16"
 
 keywords:
 
@@ -218,26 +218,14 @@ Run the `ibmcloud is instance-create` command with the `source_snapshot` propert
 See the following example.
 
 ```sh
-ibmcloud is instance-create my-instance-restore1 ea002578-ff10-41fe-9652-e63f7e0e3cba us-south-1 bx2-2x8 ba11a6f2-6c17-4fee-a4b5-5c016fe64376 --boot-volume
-'{
-   "name":"boot-from-snapshot1",
-   "volume":{
-      "name":"boot-from-snapshot1",
-      "profile":{
-         "name":"general-purpose"
-      },
-      "source_snapshot":{
-         "id":"d857c69f-d795-46ac-85e4-f26ca3001033"
-      }
-   }
-}'
+ibmcloud is instance-create my-instance-restore1 ea002578-ff10-41fe-9652-e63f7e0e3cba us-south-1 bx2-2x8 ba11a6f2-6c17-4fee-a4b5-5c016fe64376 --boot-volume '{"name":"boot-from-snapshot1","volume":{"name":"boot-from-snapshot1","profile":{"name":"general-purpose"},"source_snapshot":{"id":"d857c69f-d795-46ac-85e4-f26ca3001033"}}}'
 ```
-{: codeblock}
+{: pre}
 
 A successful response looks like the following example.
 
 ```sh
-Creating instance my-instance-restore1 in resource group under account VP01 as user rtuser1@mycompany.com...
+Creating instance my-instance-restore1 in resource group under account Test Account as user test.user@ibm.com...
 
 ID               r006-eded6dcd-4f3c-4e79-a0cb-00f7c72f38cd
 Name             my-instance-restore1

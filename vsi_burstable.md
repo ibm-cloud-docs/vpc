@@ -2,7 +2,7 @@
 
 copyright:
   years: 2025, 2025
-lastupdated: "2025-09-15"
+lastupdated: "2025-09-16"
 
 keywords:
 
@@ -50,7 +50,4 @@ The following are benefits of deploying Burstable Flex virtual servers.
 You can manage a virtual server instance's vCPU burst capability by configuring the following settings.
 
 * **vCPU percentage** - `vcpu.percentage` - The baseline percentage of clock cycles that are allocated to the vCPU. The acceptable values are defined on the instance profile. You can configure this allocation when you create an instance, or you can update an instance while the instance `status` is `stopped` or `stopping`.
-* **vCPU tenancy** - `vcpu.tenancy` - Specifies the level of isolation of the vCPU. You can configure the level of isolation when you create or update an instance. The instance `status` must be `stopped` or `stopping`.
-   * `dedicated` - The instance does not share physical cores with other instances.
-   * `shared` -  The instance shares physical cores with other instances.
 * vCPU burst limit - `vcpu.burst.limit` - Defines the maximum extra vCPU capacity, as a percent, that the instance can consume during a burst period. A burst limit of 200% means that the instance can use up to double the vCPU percentage. Example - a percentage baseline of 25% can consume up to 50% of the vCPU capacity.

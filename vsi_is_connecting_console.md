@@ -2,7 +2,7 @@
 
 copyright:
   years: 2020, 2025
-lastupdated: "2025-07-01"
+lastupdated: "2025-09-16"
 
 keywords: vnc console, serial console, virtual server instance
 
@@ -157,7 +157,7 @@ Make sure that you set up the CLI environment by following [CLI prerequisites](/
 1. Run the following command to connect to a console:
 
    ```sh
-   ibmcloud is instance-console $instance_id [-q, --quiet]
+   ibmcloud is instance-console $instance_id
    ```
    {: pre}
 

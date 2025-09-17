@@ -2,7 +2,7 @@
 
 copyright:
   years: 2024, 2025
-lastupdated: "2025-09-10"
+lastupdated: "2025-09-16"
 
 keywords: file share, file storage, accessor share, cross-account share
 
@@ -23,6 +23,8 @@ As a storage administrator who manages multiple accounts, you can share an NFS f
 {: requirement}
 
 After the authorization is set in place and roles are assigned, you can create an accessor share that is bound to the origin share. The accessor share inherits the profile, size, encryption type both at rest and in-transit from the origin share. The origin share's account can see the IDs of the accounts who can mount the shared NFS share.
+
+When the accessor share is created, it is linked to the origin share by an accessor binding. The accessor bindings are sub-resources that are owned by the origin share, and only the administrator of the origin share can retrieve or delete them.
 
 As the accessor, you can't edit the properties of the origin share, and you can't delete the origin share. The accessors can mount the share by creating an accessor share and a mount target to the accessor share. Then, you can access and use the data of the origin share, including the snapshots that might be present.
 

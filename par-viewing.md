@@ -2,7 +2,7 @@
 
 copyright:
   years: 2025
-lastupdated: "2025-07-09"
+lastupdated: "2025-09-17"
 
 keywords: viewing, deleting, public address range
 
@@ -13,12 +13,12 @@ subcollection: vpc
 {{site.data.keyword.attribute-definition-list}}
 
 # Viewing public address ranges
-{: #par-viewing} 
+{: #par-viewing}
 
 You can now create and use public address ranges in the Frankfurt and Madrid regions, if your account has been approved for access. To request access to Public Address Ranges for VPC, contact your IBM representative.
-{: preview} 
+{: preview}
 
-You can view public address ranges with the console, CLI, and API.
+You can view public address ranges with the console, CLI, API, and Terraform.
 {: shortdesc}
 
 ## Viewing public address ranges in the console
@@ -125,11 +125,11 @@ To view public address ranges with the API, follow these steps:
       ```
       {: pre}
 
+
+
 ## Related links
 {: #after-view-par}
 
 - [IAM roles and actions](/docs/vpc?topic=vpc-about-par#par-access-management)
 - [Quotas and service limits](/docs/vpc?topic=vpc-quotas#par-quotas)
-- [Creating public address ranges](/docs/vpc?topic=vpc-par-creating&interface=ui)
-- [Binding, unbinding, and moving public address ranges](/docs/vpc?topic=vpc-par-unbinding-binding&interface=ui)
-- [Deleting public address ranges](/docs/vpc?topic=vpc-par-deleting&interface=ui)
+- [Troubleshooting](/docs/vpc?group=tbs-par)

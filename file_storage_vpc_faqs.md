@@ -2,7 +2,7 @@
 
 copyright:
   years: 2021, 2025
-lastupdated: "2025-09-09"
+lastupdated: "2025-09-16"
 
 keywords: file share, file storage, replication, replica, size increase, capacity, encryption, BYOK, security group
 
@@ -215,6 +215,12 @@ Yes. You can use IAM authorization policies to allow another account to mount yo
 {: #faq-fs-accessor-share}
 
 Administrators with the right authorizations can configure access to a file share from virtual service instances of a VPC that belongs to another account. An accessor share is an object that is created in the accessor account that shares characteristics of the origin share such as size, profile, and encryption types. It is the representation of the origin share in the accessor account. The accessor account creates a mount target to the accessor share, which creates a network path that the virtual server can use to access the data on the origin share. The accessor share does not hold any data and cannot exist independently from the origin share. For more information, see [Sharing file share data between accounts and services](/docs/vpc?topic=vpc-file-storage-vpc-about&interface=cli#fs-cross-account-mount).
+
+### What is an accessor binding?
+{: faq}
+{: #faq-fs-accessor-binding}
+
+An accessor share binding is a cloud resource that is created when an accessor share is provisioned for an origin share. It acts as a connector between the origin share and the accessor share. The accessor binding allows the accessor share to use the origin share's data. The accessor bindings are sub-resources that are owned by the origin share, and only the owner or administrator of the origin share can retrieve or delete them.
 
 ### How many accessor shares can be set up to access my share?
 {: faq}
