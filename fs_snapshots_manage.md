@@ -2,7 +2,7 @@
 
 copyright:
   years: 2024, 2025
-lastupdated: "2025-09-05"
+lastupdated: "2025-09-18"
 
 keywords: snapshots, File storage snapshots, manage snapshots, backup snapshot, remote copy, cross-regional copy
 
@@ -84,9 +84,6 @@ Resource group       ID                                 Name
 Resource type        share_snapshot
 ```
 {: screen}
-
-
-
 
 ## Updating user tags with the API
 {: #fs-snapshots-updatetags-api}

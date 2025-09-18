@@ -2,7 +2,7 @@
 
 copyright:
   years: 2019, 2025
-lastupdated: "2025-09-17"
+lastupdated: "2025-09-18"
 
 keywords: Block Storage profiles, Block Storage for VPC, IOPS tiers, custom IOPS, storage performance
 
@@ -74,7 +74,7 @@ The SSD defined performance (`sdp`) profile is a second-generation volume profil
 To achieve more than 48,000 IOPS, the volume must be attached to a virtual server instance with a [3rd generation instance profile](/docs/vpc?topic=vpc-profiles&interface=ui#next-gen-profiles). The new generation features virtual server profile families that are hosted exclusively on Intel 4th Generation Xeon Scalable processors to provide the most powerful and performant profiles available.
 {: note}
 
-Certain volume operations such as increasing capacity, adjusting IOPS, and adjusting throughput can be done on an `sdp` volume even if the volume is not attached to a running instance. For more information about the allow-listed select availability release, such as billing, supported features, and limitations, see [About {{site.data.keyword.block_storage_is_short}}](/docs/vpc?topic=vpc-block-storage-about#block-storage-sdp-intro).
+Certain volume operations such as increasing capacity, adjusting IOPS, and adjusting throughput can be done on an `sdp` volume even if the volume is not attached to a running instance. For more information about the current release of second-generation volumes, such as billing, supported features, and limitations, see [About {{site.data.keyword.block_storage_is_short}}](/docs/vpc?topic=vpc-block-storage-about#block-storage-sdp-intro).
 
 Secure booting is not supported for boot volumes that use the `sdp` profile.
 {: note}

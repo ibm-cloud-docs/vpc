@@ -2,7 +2,7 @@
 
 copyright:
   years: 2020, 2025
-lastupdated: "2025-09-08"
+lastupdated: "2025-09-18"
 
 keywords: Block Storage, boot volume, data volume, volume, data storage, virtual server instance, instance, expandable volume
 
@@ -21,7 +21,7 @@ You can increase the capacity of data volumes after you provisioned them in the 
 
 You can't decrease volume capacity. However, if your requirements change, you can expand the same volume again up to the maximum capacity that's available for its profile.
 
-The maximum size that you can expand to is based on the selected profile. You can increase the capacity of a second-generation volume in GB increments up to 32,000. The maximum capacity of first-generation volumes can be increased up to 16,000 GB. For a custom profile, you can expand the volume based on [sizing limits](/docs/vpc?topic=vpc-about-increasing-volume-capacity#expandable-volume-limitations).
+The maximum size that you can expand to is based on the selected profile. You can increase the capacity of a second-generation volume in 1 GB increments up to 32,000 GB. The maximum capacity of first-generation volumes can be increased up to 16,000 GB. For a custom profile, you can expand the volume based on [sizing limits](/docs/vpc?topic=vpc-about-increasing-volume-capacity#expandable-volume-limitations).
 
 ## Expand Block Storage volumes in the console
 {: #expand-vpc-volumes-ui}

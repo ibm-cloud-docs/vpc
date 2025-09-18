@@ -2,7 +2,7 @@
 
 copyright:
   years: 2019, 2025
-lastupdated: "2025-09-02"
+lastupdated: "2025-09-18"
 
 keywords: volume, capacity, Block Storage
 
@@ -59,4 +59,4 @@ You're notified about the update to your limits throughout the case process.
 ## Increasing volume capacity
 {: #manage-storage-capacity}
 
-You can increase the capacity of a second-generation volume in GB increments up to 32,000. The maximum capacity of first-generation volumes can be increased up to 16,000 GB. For a custom profile, you can expand the volume based on [sizing limits](/docs/vpc?topic=vpc-about-increasing-volume-capacity#expandable-volume-limitations).
+You can increase the capacity of a second-generation volume in 1 GB increments up to 32,000 GB. The maximum capacity of first-generation volumes can be increased up to 16,000 GB. For a custom profile, you can expand the volume based on [sizing limits](/docs/vpc?topic=vpc-about-increasing-volume-capacity#expandable-volume-limitations).

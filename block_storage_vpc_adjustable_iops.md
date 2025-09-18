@@ -2,7 +2,7 @@
 
 copyright:
   years: 2021, 2025
-lastupdated: "2025-09-09"
+lastupdated: "2025-09-18"
 
 keywords: Block Storage for VPC, boot volume, data volume, volume, data storage, virtual server instance, instance, adjustable volume, iops
 
@@ -15,7 +15,7 @@ subcollection: vpc
 # Adjusting IOPS of a {{site.data.keyword.block_storage_is_short}} volume
 {: #adjusting-volume-iops}
 
-For {{site.data.keyword.block_storage_is_full}} volumes that are attached to a running virtual server instance, you can increase or decrease IOPS to meet your performance needs. Adjust IOPS by specifying a different profile from the tiered family or a different IOPS value within a custom IOPS band. You can use the UI, the CLI, the API, or Terraform to adjust IOPS. You can adjust the volume's IOPS multiple times up to its maximum limit or reduce IOPS to its minimum limit. The IOPS adjustment causes no outage or lack of access to the storage.
+You can increase or decrease the IOPS limit of second-generation boot and data volumes at any time, regardless if they are attached to a virtual server or not. First-generation boot and data volumes must be attached to a running server when you attempt to adjust the IOPS limit. For second-generation volumes, the `sdp`profile offers flexible IOPS without capacity restrictions. For first-generation volumes, you can adjust IOPS by specifying a different profile from the `tiered` family or a different IOPS value within a `custom` IOPS band. You can use the UI, the CLI, the API, or Terraform to adjust IOPS. You can adjust the volume's IOPS multiple times up to its maximum limit or reduce IOPS to its minimum limit. The IOPS adjustment causes no outage or lack of access to the storage.
 {: shortdesc}
 
 For example, you might find that an application scaled such that a lower-tier storage profile is now a performance bottleneck. Instead of ordering a new volume and migrating your data, you can change the performance characteristics of the existing volume by increasing IOPS in the next performance tier.
@@ -48,8 +48,7 @@ The following limitations apply to this release.
 ### General limitations
 {: #exp-iops-general-limitations}
 
-* Primary boot volume IOPS cannot be adjusted.
-* To adjust IOPS, the volume must be attached to a virtual server instance that is powered on and _running_.
+* To adjust IOPS, a first-generation volume must be attached to a virtual server instance that is powered on and _running_.
 * To adjust IOPS, the volume must be in an _available_ state.
 * When a volume is in transition, the volume remains in an _updating_ state until you reattach it to a running instance. For example, if the volume is detached while IOPS adjustment is in progress, the IOPS expansion resumes and completes only after the volume is reattached.
 * When you delete an instance, volumes that are marked for auto-deletion are not deleted while the IOPS adjustment is underway.

@@ -2,7 +2,7 @@
 
 copyright:
   years: 2020, 2025
-lastupdated: "2025-09-02"
+lastupdated: "2025-09-18"
 
 keywords: Block Storage, boot volume, data volume, volume, data storage, virtual server instance, instance, expandable volume
 
@@ -21,7 +21,7 @@ For {{site.data.keyword.block_storage_is_short}} boot and data volumes, you can 
 ## Expandable volume concepts
 {: #expandable-volume-concepts}
 
-You can increase the capacity of second-generation boot volumes at any time, regardless if they are attached to a virtual server or not. First-generation boot and data volumes must be attached to a running server when you attempt to increase the capacity.
+You can increase the capacity of second-generation boot and data volumes at any time, regardless if they are attached to a virtual server or not. First-generation boot and data volumes must be attached to a running server when you attempt to increase the capacity.
 
 ### Data volumes
 {: #expand-data-vols}
@@ -123,7 +123,7 @@ Limitations for resizing boot and data volumes apply in this release.
 
 * Boot volume capacity cannot be smaller than the size of the image. If the custom image is smaller than 10 GB, the boot volume capacity is rounded up to 10 GB.
 * First-generation boot volumes that are stored as unattached volumes can't be expanded.
-* Z/OS systems are not supported.
+* The use of second-generation boot volumes with Z/OS systems are not supported.
 
 ## Next steps
 {: #exp-vols-next-steps}

@@ -41,8 +41,10 @@ You can reserve ranges with the following prefix sizes:
 * `/31` = 2 IPs
 * `/32` = 1 IP
 
-After you reserve a range, you can't change the size of the range. Make sure to reserve a public address range size large enough to meet your needs.
+After reserving a range, you can't change its size. Make sure to reserve a range that’s large enough to meet your current and future needs. 
 
+If you require a prefix size larger than `/28`, [contact support](/unifiedsupport/cases/form){: external} to request a quota increase.
+  
 IPs in different public address ranges aren't guaranteed to be contiguous.
 {: note}
 
