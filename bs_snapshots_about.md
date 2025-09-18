@@ -2,7 +2,7 @@
 
 copyright:
   years: 2022, 2025
-lastupdated: "2025-09-05"
+lastupdated: "2025-09-18"
 
 keywords: snapshots, Block Storage, volumes, cross-regional snapshot, restore volume, copy snapshot
 
@@ -133,9 +133,11 @@ Volume data restoration begins immediately as the volume is created, but perform
 The following limitations apply for the second-generation block storage snapshots:
 
 * When you use second-generation block storage, you can take up to 512 snapshots.
+* You can't take a snapshot of a volume in a [degraded state](/docs/vpc?topic=vpc-block-storage-vpc-monitoring#block-storage-vpc-health-states).
 * You can't create a copy of a snapshot in the source (local) region.
 * Cross-regional copies are not supported in any region for snapshots of volumes that exceed 10 TB or that are protected by customer-managed encryption keys.
-* When you create copies of a snapshot in other regions, only one copy can exist in each region.
+* You can delete any snapshot that you take. However, snapshots must be in a `stable` or `pending` state and not actively restoring a volume.
+* You can delete a {{site.data.keyword.block_storage_is_short}} volume and all its snapshots. All snapshots must be in a `stable` or `pending` state. No snapshot can be actively restoring a volume.
 * Consistency-group snapshots are not supported.
 
 The following limitations apply for the first-generation block storage snapshots:

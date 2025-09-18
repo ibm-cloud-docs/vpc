@@ -2,7 +2,7 @@
 
 copyright:
   years: 2022, 2025
-lastupdated: "2025-09-05"
+lastupdated: "2025-09-18"
 
 keywords: Block Storage, snapshots, cross-regional copy, fast restore, backup, restore volume
 
@@ -42,7 +42,7 @@ A bootable snapshot is a copy of a boot volume. You can use this snapshot to cre
 {: faq}
 {: #faq-snapshot-fr}
 
-A [fast restore snapshot](/docs/vpc?topic=vpc-snapshots-vpc-restore&interface=ui#snapshots-vpc-use-fast-restore) is a clone of a snapshot that is stored within one or more zones of a VPC region. The original snapshot is stored in the regional storage repository. When you perform a restore, data can be restored faster from a clone than from the snapshot in {{site.data.keyword.cos_short}}.
+A [fast restore snapshot](/docs/vpc?topic=vpc-snapshots-vpc-restore&interface=ui#snapshots-vpc-use-fast-restore) is a clone of a snapshot that is stored within one or more zones of a VPC region. The original snapshot is stored in the regional storage repository. When you perform a restore, data can be restored faster from a clone than from the snapshot in a regional storage repository.
 
 Fast restore snapshot clones and consistency groups are not supported for second-generation storage volumes during the select availability phase.
 {: preview}
