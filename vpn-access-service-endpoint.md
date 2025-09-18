@@ -2,7 +2,7 @@
 
 copyright:
   years: 2019, 2025
-lastupdated: "2025-09-17"
+lastupdated: "2025-09-18"
 
 keywords: VPN, network, encryption, authentication, algorithm, IKE, IPsec, policies, gateway, access endpoint
 
