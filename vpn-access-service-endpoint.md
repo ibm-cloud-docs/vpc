@@ -2,7 +2,7 @@
 
 copyright:
   years: 2019, 2025
-lastupdated: "2025-09-17"
+lastupdated: "2025-09-18"
 
 keywords: VPN, network, encryption, authentication, algorithm, IKE, IPsec, policies, gateway, access endpoint
 
@@ -25,7 +25,7 @@ To set up access to a service endpoint, follow these steps:
 
    * **For policy-based VPN gateways** - For the VPN connection, make sure that the local subnets include the range `161.26.0.0/16` for IaaS endpoints and `166.8.0.0/14` for {{site.data.keyword.cloud_notm}} service endpoints.
 
-   * **For route-based VPN gateways** - Create a connection to connect your on-premises private network, and add the following routes on your "on-premises gateway" to make sure that the traffic is going through the tunnel. No custom VPC routes are needed in the IBM VPC custom routing table.
+   * **For route-based VPN gateways ** - Create a connection to connect your on-premises private network, and add the following routes on your "on-premises gateway" to make sure that the traffic is going through the tunnel. No custom VPC routes are needed in the IBM VPC custom routing table.
 
       * Destination - `166.8.0.0/14` for {{site.data.keyword.cloud_notm}} service endpoints, next hop: VPN tunnel interface
       * Destination - `161.26.0.0/16` for IaaS endpoints, next hop: VPN tunnel interface
