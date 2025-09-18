@@ -2,7 +2,7 @@
 
 copyright:
   years: 2025
-lastupdated: "2025-09-17"
+lastupdated: "2025-09-18"
 
 keywords:
 
@@ -37,7 +37,7 @@ To perform these tasks, you must first have either the Administrator or Editor I
 For more information, see [IAM roles and permissions](/docs/vpc?topic=vpc-about-par&interface=ui#par-access-management).
 {: note}
 
-## Related link
+## Related links
 {: #troubleshooting-related-link-par}
 
 [About public address ranges](/docs/vpc?topic=vpc-about-par)

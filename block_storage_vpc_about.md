@@ -2,7 +2,7 @@
 
 copyright:
   years: 2019, 2025
-lastupdated: "2025-09-17"
+lastupdated: "2025-09-18"
 
 keywords:
 
@@ -43,7 +43,7 @@ You can attach only one boot volume to a virtual server instance at a time, but 
 ### Boot volumes
 {: #block-storage-vpc-boot-volumes}
 
-When you create an instance from a stock image, a 100 GB, 3,000 IOPS `general-purpose` boot volume is created and attached to the instance by default. When you create an instance from a custom image, you can specify a boot volume capacity of 10 GB to 250 GB, depending what the image requires. This capacity can be any size between the minimum size that is supported for the selected image and the maximum supported image size. If the custom image is smaller than 10 GB, the boot volume capacity is rounded up to 10 GB. After the boot volume is created, you can expand the boot volume size to the maximum supported size, which is 250 GB.
+When you create an instance with a stock image, a 100 GB boot volume is created and attached to the instance by default. When you create an instance from a custom image, you can specify a boot volume capacity of 10 GB to 250 GB, depending what the image requires. The capacity can be any size between the minimum size that is supported for the selected image and the maximum supported image size. If the custom image is smaller than 10 GB, the boot volume capacity is rounded up to 10 GB.
 
 You cannot create an image from a boot volume that is encrypted with customer-managed keys and is not 100 GB. Such an operation is not supported.
 {: note}
@@ -83,7 +83,7 @@ Customers with special access to preview the defined performance profile can use
 
 The following limitations apply to this release:
 
-* The `sdp` profile is available for use with 2nd and 3rd generation Compute resources only. Generation 1 VPC infrastructure is not supported. 
+* The `sdp` profile is available for use with 2nd and 3rd generation Compute resources only.
 * Secure boot from `sdp` boot volume is not supported. If you want to provision a virtual server instance with either [Intel Gen 3](/docs/vpc?topic=vpc-general-purpose-vsi-profiles-gen3-intel) or [Confidential Computing](/docs/vpc?topic=vpc-confidential-computing-vsi-profiles-gen3-x86) instance profiles, and an `sdp` boot volume, make sure that you do not enable secure boot.
 * No support for use as boot volume with [Accelerated instance profiles - Gen 3](/docs/vpc?topic=vpc-accelerated-profile-family).
 * No support for the IBM Z platform (s390x architecture) or {{site.data.keyword.bm_is_short}}.

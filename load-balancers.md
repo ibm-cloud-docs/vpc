@@ -2,7 +2,7 @@
 
 copyright:
   years: 2020, 2025
-lastupdated: "2025-09-17"
+lastupdated: "2025-09-18"
 
 keywords:
 
@@ -26,7 +26,7 @@ Several differences exist between the various types of load balancers.
 ### Application load balancers
 {: #load-balancer-alb}
 
-{{site.data.keyword.cloud_notm}} provides public- and private-facing ALBs that support Secure Sockets Layer (SSL) offloading. An ALB provides layer 7 and layer 4 load balancing on {{site.data.keyword.cloud_notm}}, but ALBs are primarily intended for layer 7, web-based workloads. ALBs support virtual server instances, bare metal server instances, and Power Systems Virtual Server instances connected over {{site.data.keyword.dl_full_notm}} as back-end pool members. For more information, see [About application load balancers](/docs/vpc?topic=vpc-load-balancers-about&interface=ui).
+{{site.data.keyword.cloud_notm}} provides public- and private-facing ALBs that support Secure Sockets Layer (SSL) offloading. An ALB provides layer 7 and layer 4 load balancing on {{site.data.keyword.cloud_notm}}, but ALBs are primarily intended for layer 7, web-based workloads. ALBs support virtual server instances, bare metal server instances, and Power System Virtual Server instances connected over {{site.data.keyword.dl_full_notm}} as back-end pool members. For more information, see [About application load balancers](/docs/vpc?topic=vpc-load-balancers-about&interface=ui).
 
 ### Network load balancers (public and private)
 {: #load-balancer-nlb}
@@ -74,8 +74,8 @@ The following table provides a comparison of the types of load balancers.
 | Virtual IP address (VIP)| Multiple | Single | N/A |
 | Routing mode for VNFs  | No | Yes (see [About virtual network functions over VPC](/docs/vpc?topic=vpc-about-vnf))| No |
 | Virtual servers on VPC | Yes | Yes | Yes |
-| Member type | virtual server instances, bare metal, Power Systems Virtual Server | virtual server instances | virtual server instances, application load balancer, subnet reserved IP (bare metal server, virtual server instance secondary interface, virtual network interface) |
-| Power Systems Virtual Server instances connected over Direct Link | Yes (No support for instance groups) | No | No |
+| Member type | virtual server instances, bare metal servers, Power System Virtual Servers | virtual server instances | virtual server instances, application load balancer, subnet reserved IPs (bare metal servers, virtual server instance secondary interfaces, virtual network interfaces) |
+| Power System Virtual Server instances connected over Direct Link | Yes (No support for instance groups) | No | No |
 | Port range | No | Public only [^footnote2] | Yes |
 | Scalable to many machines | Yes | No | Yes |
 {: caption="Comparison of private path network, network and application load balancers" caption-side="bottom"}

@@ -2,7 +2,7 @@
 
 copyright:
   years: 2019, 2025
-lastupdated: "2025-09-09"
+lastupdated: "2025-09-18"
 
 keywords: vpc Block Storage, provision Block Storage for vpc, bootable snapshots, create volume from snapshot, fast restore
 
@@ -549,7 +549,7 @@ Define variables for the IAM token, API endpoint, and API version. For instructi
 ### Creating a data volume as part of instance provisioning with the API
 {: #block-storage-create-instance-api}
 
-Make a `POST /instances` request to create an instance, and define the volume by using the `volume_attachments` parameter. Specify a volume name, capacity, and profile. Also, specify `generation=2` in the request.
+Make a `POST /instances` request to create an instance, and define the volume by using the `volume_attachments` parameter. Specify a volume name, capacity, and profile.
 
 Valid volume names can include a combination of lowercase alpha-numeric characters (a-z, 0-9) and the hyphen (-), up to 63 characters. Volume names must begin with a lowercase letter. Volume names must be unique across the entire VPC infrastructure. For example, if you create two volumes with the same name in the same account and region, a `volume name duplicate` error is triggered.
 {: important}
@@ -762,7 +762,7 @@ For more information about volume creation with the API, see [Creating Block Sto
 ### Creating a stand-alone {{site.data.keyword.block_storage_is_short}} volume with the API
 {: #block-storage-create-vol-api}
 
-Make a `POST /volumes` request to create a volume. Specify a name, IOPS, capacity, the profile, and zone. Also, specify `generation=2` in the request.
+Make a `POST /volumes` request to create a volume. Specify a name, IOPS, capacity, the profile, and zone.
 
 The following example created a `custom` volume with 50 MB capacity and 100 IOPS in the `us-south` region. The request also specifies a customer root key for customer-managed encryption and a resource group.
 

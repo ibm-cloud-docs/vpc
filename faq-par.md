@@ -2,7 +2,7 @@
 
 copyright:
   years: 2024, 2025
-lastupdated: "2025-09-17"
+lastupdated: "2025-09-18"
 
 subcollection: vpc
 
@@ -70,4 +70,7 @@ Not by default. However, you can create separate public address ranges in differ
 ## Related link
 {: #faq-related-links-par}
 
-[About public address ranges](/docs/vpc?topic=vpc-about-par)
+- [About public address ranges](/docs/vpc?topic=vpc-about-par)
+- [IAM roles and actions](/docs/vpc?topic=vpc-about-par#par-access-management)
+- [Quotas](/docs/vpc?topic=vpc-quotas#par-quotas) and [service limits](/docs/vpc?topic=vpc-quotas#service-limits-for-vpc-services)
+- [Troubleshooting](/docs/vpc?group=tbs-par)

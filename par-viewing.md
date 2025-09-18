@@ -2,7 +2,7 @@
 
 copyright:
   years: 2025
-lastupdated: "2025-09-17"
+lastupdated: "2025-09-18"
 
 keywords: viewing, deleting, public address range
 
@@ -130,6 +130,8 @@ To view public address ranges with the API, follow these steps:
 ## Related links
 {: #after-view-par}
 
+- [About public address ranges](/docs/vpc?topic=vpc-about-par)
+- [FAQ for public address ranges](/docs/vpc?topic=vpc-faq-public-address-ranges)
 - [IAM roles and actions](/docs/vpc?topic=vpc-about-par#par-access-management)
-- [Quotas and service limits](/docs/vpc?topic=vpc-quotas#par-quotas)
+- [Quotas](/docs/vpc?topic=vpc-quotas#par-quotas) and [service limits](/docs/vpc?topic=vpc-quotas#service-limits-for-vpc-services)
 - [Troubleshooting](/docs/vpc?group=tbs-par)

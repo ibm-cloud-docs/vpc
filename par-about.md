@@ -2,7 +2,7 @@
 
 copyright:
   years: 2025
-lastupdated: "2025-09-17"
+lastupdated: "2025-09-18"
 
 keywords: vpc, public address ranges, about
 
@@ -137,7 +137,7 @@ If you're using the CLI or API to assign access, use **`is.public-address-range`
 {: tab-group="is.public-address-range"}
 {: class="simple-tab-table"}
 {: summary="Use the tab buttons to change the context of the table. This table provides the available actions for the service, descriptions of each, and the roles that each action are mapped to."}
-{: #actions-table-pr} 
+{: #actions-table-pr}
 
 ## Common use cases
 {: #par-use-cases}
@@ -165,6 +165,7 @@ The following diagram illustrates how to configure routes and firewalls using pu
 ## Related links
 {: #par-related-links}
 
-* [Quotas and service limits](/docs/vpc?topic=vpc-quotas#par-quotas)
-* [FAQ for public address ranges](/docs/vpc?topic=vpc-faq-public-address-ranges)
-* [Troubleshooting](/docs/vpc?group=tbs-par)
+- [IAM roles and actions](/docs/vpc?topic=vpc-about-par#par-access-management)
+- [Quotas](/docs/vpc?topic=vpc-quotas#par-quotas) and [service limits](/docs/vpc?topic=vpc-quotas#service-limits-for-vpc-services)
+- [FAQ for public address ranges](/docs/vpc?topic=vpc-faq-public-address-ranges)
+- [Troubleshooting](/docs/vpc?group=tbs-par)

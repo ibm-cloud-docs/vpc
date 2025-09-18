@@ -2,7 +2,7 @@
 
 copyright:
   years: 2019, 2025
-lastupdated: "2025-09-08"
+lastupdated: "2025-09-18"
 
 keywords: faqs, Block Storage for vpc, fast restore, multizone, instance, instance provisioning, volume management, volume deletion.
 
@@ -30,12 +30,6 @@ Customers with special access can provision storage with the new `sdp` profile. 
 {: #faq-sdp-release}
 
 Customers with special approval to preview the second-generation Block Storage offering can provision block volumes with the new `sdp` profile. The `sdp` profile is available in the Dallas, Frankfurt, London, Madrid, Osaka, Sao Paulo, Sydney, Tokyo, Toronto, and Washington, DC regions during this release. If you're interested in previewing the new offering, contact your assigned Account team representative or Customer Success Manager.
-
-### Does the defined performance profile support Gen 1 and Gen 2 VPCs?
-{: faq}
-{: #faq-sdp-vpc-version}
-
-The `sdp` profile is available only as a Gen 2 VPC resource.
 
 ### Which interface can I use to create Block Storage volumes with the `sdp` profile?
 {: faq}

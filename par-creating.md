@@ -2,7 +2,7 @@
 
 copyright:
   years: 2025
-lastupdated: "2025-09-17"
+lastupdated: "2025-09-18"
 
 keywords: public address range, create, bind
 
@@ -137,16 +137,14 @@ ibmcloud is public-address-range-create --name public-address-range-1 --ipv4-add
 Create a public address range named `public-address-range-2` with an address count of 4 and a resource group named `Default`:
 
 ```sh
-ibmcloud is public-address-range-create --name public-address-range-2 --ipv4-address-count 4
---resource-group-name Default
+ibmcloud is public-address-range-create --name public-address-range-2 --ipv4-address-count 4 --resource-group-name Default
 ```
 {: pre}
 
 Create a public address range named `public-address-range-3` with an address count of 8, bound to VPC `cli-test-vpc` in zone `us-south-1` with resource group ID `72b27b5c-f4b0-48bb-b954-5becc7c1dcb3`:
 
 ```sh
-ibmcloud is public-address-range-create --name public-address-range-3 --ipv4-address-count 8 --vpc
-cli-test-vpc --zone us-south-1 --resource-group-id 72b27b5c-f4b0-48bb-b954-5becc7c1dcb3
+ibmcloud is public-address-range-create --name public-address-range-3 --ipv4-address-count 8 --vpc cli-test-vpc --zone us-south-1 --resource-group-id 72b27b5c-f4b0-48bb-b954-5becc7c1dcb3
 ```
 {: pre}
 
@@ -206,6 +204,8 @@ If you need to change the size of the address range or the resource group, you m
 ## Related links
 {: #after-create-par}
 
+- [About public address ranges](/docs/vpc?topic=vpc-about-par)
+- [FAQ for public address ranges](/docs/vpc?topic=vpc-faq-public-address-ranges)
 - [IAM roles and actions](/docs/vpc?topic=vpc-about-par#par-access-management)
-- [Quotas and service limits](/docs/vpc?topic=vpc-quotas#par-quotas)
+- [Quotas](/docs/vpc?topic=vpc-quotas#par-quotas) and [service limits](/docs/vpc?topic=vpc-quotas#service-limits-for-vpc-services)
 - [Troubleshooting](/docs/vpc?group=tbs-par)

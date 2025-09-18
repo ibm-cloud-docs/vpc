@@ -2,7 +2,7 @@
 
 copyright:
   years: 2025
-lastupdated: "2025-09-17"
+lastupdated: "2025-09-18"
 
 keywords:
 
@@ -48,7 +48,7 @@ Follow these steps to troubleshoot this issue:
 1. Verify that the VNF appliance is correctly processing traffic, preserving source IPs on egress, and that firewall/security rules allow the traffic.
 1. If this issue persists, gather logs and routing details and [contact IBM Cloud support](/docs/account?topic=account-open-case&interface=ui).
 
-## Related link
+## Related links
 {: #ts-related-links-par}
 
 [About public address ranges](/docs/vpc?topic=vpc-about-par)
