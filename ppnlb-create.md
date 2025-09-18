@@ -620,6 +620,6 @@ The following example creates a Private Path network load balancer with Terrafor
       target_id = [ibm_is_lb.example_alb.id]
     }
     ```
-      {: codeblock}
+    {: codeblock}
 
 For documentation about Terraform resources, see the [Terraform Registry](https://registry.terraform.io/providers/IBM-Cloud/ibm/latest/docs/resources/is_private_path_service_gateway).{: external}
