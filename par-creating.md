@@ -2,7 +2,7 @@
 
 copyright:
   years: 2025
-lastupdated: "2025-09-18"
+lastupdated: "2025-09-19"
 
 keywords: public address range, create, bind
 
@@ -199,7 +199,31 @@ To create public address ranges with the API, follow these steps:
 If you need to change the size of the address range or the resource group, you must delete and recreate the address range.
 {: important}
 
+## Creating public address ranges with Terraform
+{: #par-create-terraform}
+{: terraform}
 
+To create a public address range with Terraform, use the follow example:
+
+```terraform
+
+resource "ibm_is_public_address_range" "public_address_range_instance" {
+	ipv4_address_count = "16"
+  name = "example-public-address-range"
+  resource_group{
+      id = "11caaa983d9c4beb82690daab08717e9"
+  }
+  target{
+    vpc {
+      id = ibm_is_vpc.testacc_vpc.id
+    }
+    zone {
+      name = "us-south-3"
+    }
+  }
+}
+``` 
+{: codeblock}
 
 ## Related links
 {: #after-create-par}

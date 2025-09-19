@@ -2,7 +2,7 @@
 
 copyright:
   years: 2025
-lastupdated: "2025-09-18"
+lastupdated: "2025-09-19"
 
 keywords: viewing, deleting, public address range
 
@@ -124,8 +124,32 @@ To view public address ranges with the API, follow these steps:
                -H "Authorization: Bearer $iam_token"
       ```
       {: pre}
+ 
+## Viewing public address ranges with Terraform
+{: #par-view-terraform}
+{: terraform}
 
+To view a public address range with Terraform, use the following example:
 
+```terraform
+
+data "ibm_is_public_address_range" "public_address_range_instance" {
+  name = "example-public-address-range"
+}
+data "ibm_is_public_address_range" "public_address_range_instance1" {
+  # name = "example-public-address-range"
+  identifier =  ibm_is_public_address_range.public_address_range_instance.id
+}
+```
+{: codeblock}
+
+To get a list of public address ranges:
+
+```terraform
+data "ibm_is_public_address_ranges" "public_address_range_instances_example_testing" {
+}
+```
+{: pre}
 
 ## Related links
 {: #after-view-par}

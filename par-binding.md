@@ -2,7 +2,7 @@
 
 copyright:
   years: 2025
-lastupdated: "2025-09-18"
+lastupdated: "2025-09-19"
 
 keywords: public address range, bind, unbind
 
@@ -217,7 +217,30 @@ To bind, unbind, or move public address ranges with the API, follow these steps:
       ```
       {: pre}
 
+## Binding, unbinding, and moving public address ranges with Terraform
+{: #par-bind-unbind-terraform}
+{: terraform}
 
+To bind, unbind, or move a public address range with Terraform, use the following example:
+
+```terraform
+resource "ibm_is_public_address_range" "public_address_range_instance" {
+	ipv4_address_count = "16"
+  name = "example-public-address-range"
+  resource_group{
+      id = "11caaa983d9c4beb82690daab08717e9"
+  }
+  target{
+    vpc {
+      id = ibm_is_vpc.testacc_vpc.id
+    }
+    zone {
+      name = "us-south-3"
+    }
+  }
+}
+```
+{: codeblock}
 
 ## Related links
 {: #after-binding-par}
