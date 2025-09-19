@@ -2,7 +2,7 @@
 
 copyright:
   years: 2022, 2025
-lastupdated: "2025-09-09"
+lastupdated: "2025-09-19"
 
 keywords: file share, file storage, IOPS, performance needs, adjust IOPS
 
@@ -15,13 +15,12 @@ subcollection: vpc
 # Adjusting IOPS for a zonal file share
 {: #file-storage-adjusting-iops}
 
-For zonal file shares, you can increase or decrease IOPS to meet your performance needs. Adjust IOPS by specifying a different IOPS tier profile (IOPS are adjusted within the selected profile), custom profile, or dp2 profile. The process of adjusting the IOPS causes no outage or lack of access to the storage.
+For zonal file shares, you can increase or decrease IOPS to meet your performance needs. Adjust IOPS by specifying a different value when you use the `dp2` or `custom` profiles, or by switching to another `tiered` share profile (IOPS are adjusted within the selected profile). The process of adjusting the IOPS causes no outage or lack of access to the storage. You can use the UI, the CLI, the API, or Terraform to adjust IOPS. You can adjust the file share's IOPS multiple times up to its maximum limit or reduce IOPS to its minimum limit.
 {: shortdesc}
 
 Billing for an updated share is automatically updated. The prorated difference of the new price is added to the current billing cycle. The new full amount is then billed in the next billing cycle.
 
-
-You can't modify the IOPS value of regional file shares that are created with the `rfs` profile. However, you can adjust the bandwidth value to finetune the share's performance.
+You can't modify the IOPS value of regional file shares that are created with the `rfs` profile. However, you can adjust the bandwidth value to fine-tune the share's performance.
 {: beta}
 
 ## Adjustable IOPS concepts
@@ -29,31 +28,34 @@ You can't modify the IOPS value of regional file shares that are created with th
 
 You can adjust IOPS for your zonal file shares to tailor performance to meet your requirements.
 
-For example, you might find that an application scaled such that a lower-tier storage profile is now a performance bottleneck. You can change the performance characteristics of the existing file share by increasing IOPS by selecting a higher IOPS tier (for example, 3 IOPS/GB tier to 5 IOPS/GB tier).
+- For example, you might find that an application scaled such that the current IOPS limit is now a performance bottleneck. You can change the performance characteristics of the existing file share by increasing IOPS.
 
-In another scenario, you might want to initially set your file storage at a higher 10 IOPS/GB performance level to expedite a data upload. After the upload completes, you can reset storage to 5 IOPS/GB for normal operations. Also, you might want to increase your file share's IOPS during peak times for your application and decrease IOPS during off-peak hours.
+- In another scenario, you might want to initially set your file storage at a higher IOPS level to expedite a data upload. After the upload completes, you can reset storage to 5 IOPS/GB for normal operations. Also, you might want to increase your file share's IOPS during peak times for your application and decrease IOPS during off-peak hours.
 
-By using this feature, you can:
+When your share uses the [dp2](/docs/vpc?topic=vpc-file-storage-profiles#dp2-profile) profile, share IOPS can range from 100 to 96,000. You can specify your IOPS value with minimal restrictions.
 
-* Adjust IOPS when you're using the [dp2](/docs/vpc?topic=vpc-file-storage-profiles#dp2-profile) or the [custom IOPS](/docs/vpc?topic=vpc-file-storage-profiles#fs-custom). The IOPS range is based on the file share size. For example, for a file share that's 25 GB, you can increase IOPS anywhere in the range 100-1,000 IOPS with a custom profile. If you later [increase the size of a file share](/docs/vpc?topic=vpc-file-storage-expand-capacity) to the next highest band, you can increase the IOPS again.
+   For the 96,000 IOPS to be realized, a single file share must be accessed by multiple virtual server instances. A single file share that is accessed by one client is limited to 48,000 IOPS.
+   {: note}
 
-* Adjust IOPS from an IOPS tier profile to the dp2 or the custom profile. In this case, the file share size restricts the IOPS range that you select. 
+When your file share uses the [Deprecated]{: tag-red} [custom](/docs/vpc/vpc?topic=vpc-file-storage-profiles&interface=ui#fs-custom) share profile, the IOPS range is based on the file share size. 
+* For example, for a file share that's 25 GB, you can increase IOPS anywhere in the range 100-1,000 IOPS with a custom profile. If you later [increase the size of a file share](/docs/vpc?topic=vpc-file-storage-expand-capacity) to the next highest band, you can increase the IOPS again. 
+* Or you can switch from a custom profile to an IOPS tier profile. The IOPS tier selection is restricted by the file share size. When you move from a custom profile to any tiered profile, billing is updated, and the IOPS is adjusted according to the profile.
+
+When your file share uses one of the [Deprecated]{: tag-red} [tiered share profiles](/docs/vpc/vpc?topic=vpc-file-storage-profiles&interface=ui#fs-v2-profiles), you can adjust your IOPS limit by:
+
+* Switching from an IOPS tier profile to the `dp2` or the `custom` profile. In this case, the file share size restricts the IOPS range that you select. 
    - For example, if you're adjusting IOPS for file share with a 3 IOPS/GB profile and it's 12,000 GB, you can adjust the IOPS by using a custom or dp2 profile. It's possible because both support a share size of 12,000 GB. 
    - If the file share size was greater than 16,000 GB, the custom profile would not support adjusting IOPS, but the dp2 profile would because it supports share sizes to 32,000 GB. The IOPS tier maximum sizes are 32,000 GB for 3 IOPS/GB, 9,600 GB for 5 IOPS/GB, and 4,800 GB for 10 IOPS/GB. 
    
    When you move from a tiered profile to a custom or dp2 profile, billing is update based on the specified IOPS.
    {: important}
 
-* Adjust IOPS up or down by selecting a different [IOPS tier](/docs/vpc?topic=vpc-file-storage-profiles#fs-tiers). IOPS is adjusted within the tier. The degree to which IOPS can be increased is determined by the maximum that is allowed by the file share's [IOPS tier profile](/docs/vpc?topic=vpc-file-storage-profiles). You can adjust IOPS for an IOPS tier based on share size or select the next profile that allows for increased performance.
+* Selecting a different [IOPS tier](/docs/vpc?topic=vpc-file-storage-profiles#fs-tiers). IOPS is adjusted within the tier. The degree to which IOPS can be increased is determined by the maximum that is allowed by the file share's [IOPS tier profile](/docs/vpc?topic=vpc-file-storage-profiles). You can adjust IOPS for an IOPS tier based on share size or select the next profile that allows for increased performance.
 
    The maximum IOPS for a file share for a 3 IOPS/GB tier profile is 96,000 IOPS. All other profiles are capped at 48,000 IOPS. For 96,000 IOPS to be realized, a single file share must be accessed by multiple virtual server instances. A single file share that is accessed by one instance is limited to 48,000 IOPS.
-   {: note}
-
-* Adjust IOPS from a custom profile to an IOPS tier profile. Again, you're restricted to which IOPS tier profile you can select by the file share size. When you move from a custom profile to any tiered profile, billing is updated, and the IOPS is adjusted according to the profile.
+   {: note}   
 
 To adjust a file share's IOPS, the file share must be in a _stable_ state. Your user authorization is verified before IOPS is adjusted.
-
-You can use the UI, the CLI, the API, or Terraform to adjust IOPS. You can adjust the file share's IOPS multiple times up to its maximum limit or reduce IOPS to its minimum limit.
 
 You can monitor the progress of your file share's IOPS change from the UI or CLI. You can also check the [Activity tracking events](/docs/vpc?topic=vpc-at_events) to verify that the IOPS were adjusted.
 
@@ -84,9 +86,10 @@ Follow these steps to adjust IOPS by selecting a new IOPS tier or custom IOPS ba
 
 4. In the side panel, adjust IOPS as follows:
 
+   * For the dp2 or custom profile, the current IOPS value is shown and file share size. Enter a new IOPS value within the allowable range for that size.
+   
    * For an IOPS tier, select a different tier from the menu. For example, you might have a 3 IOPS/GB general-purpose profile that you want to increase to a 5 IOPS/GB profile.
 
-   * For a custom IOPS or dp2 profile, the current IOPS value is shown and file share size. Enter a new IOPS value within the allowable range for that size.
 
 5. Review the estimated monthly order summary for your geography and new pricing.
 
@@ -278,7 +281,7 @@ curl -X PATCH \
 ```
 {: codeblock}
 
-The file share status shows `updating` while the IOPS is being adjusted. The current IOPS is shown until you restart the instance. In the following example, IOPS value is adjusted from 100.
+The file share status shows `updating` while the IOPS is being adjusted. The current IOPS is shown until you restart the instance. In the following example, the IOPS value is adjusted from 100.
 
 ```json
 {

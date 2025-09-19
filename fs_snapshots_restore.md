@@ -2,7 +2,7 @@
 
 copyright:
   years: 2024, 2025
-lastupdated: "2025-09-17"
+lastupdated: "2025-09-19"
 
 keywords:
 
@@ -209,7 +209,6 @@ curl -X POST \
      "iops": 2000,
      "source_snapshot:" {"id": "r006-e13ee54f-baa4-40d3-b35c-b9ec163972b4"},
      "profile": {"name": "dp2"},
-     "zone": {"name": "us-south-1"},
      "encryption_key":{"crn":"crn:[...]"},
      "mount_targets": [
         {"virtual_network_interface": {"subnet": {"id": "2302-ea5fe79f-52c3-4f05-86ae-9540a10489f5"}},

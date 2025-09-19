@@ -2,7 +2,7 @@
 
 copyright:
   years: 2024, 2025
-lastupdated: "2025-09-16"
+lastupdated: "2025-09-19"
 
 keywords: file share, file storage, accessor share, cross-account share
 
@@ -125,8 +125,7 @@ Replication status reasons       Status code   Status message
                                  -             -
 Snapshot count                   0
 Snapshot size                    0
-Source snapshot                  -
- 
+Source snapshot                  - 
 ```
 {: screen}
 

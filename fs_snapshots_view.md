@@ -2,7 +2,7 @@
 
 copyright:
   years: 2024, 2025
-lastupdated: "2025-09-05"
+lastupdated: "2025-09-19"
 
 keywords: view snapshots, view snapshot, viewing snapshots, see snapshots, File storage snapshots
 
@@ -35,7 +35,7 @@ In the console, you can view a list of all snapshots that belong to a file share
    | Field | Description |
    |-------|-------------|
    | Snapshot count  | The name that you provided when you created the snapshot. Click the name of the snapshot to see its [details](#fs-snapshots-view-snapshot-ui). |
-   | Size of changed data in all snapshots | The first snapshot is a full copy of your file share. Subsequent snapshots capture the changes that occurred since the last snapshot was taken. This field shows the combined total of capacity that is used by the snapshots. |
+   | Size of changed data in all snapshots | The first snapshot is a full copy of your file share. Subsequent snapshots capture the changes that occurred since the last snapshot was taken. This field shows the combined total of capacity that is used by the snapshots.|
    | Replication role | This role matches the replication role of the source share. |
    {: caption="Summary of the Snapshots tab." caption-side="bottom"}
 

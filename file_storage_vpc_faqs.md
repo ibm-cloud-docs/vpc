@@ -2,7 +2,7 @@
 
 copyright:
   years: 2021, 2025
-lastupdated: "2025-09-16"
+lastupdated: "2025-09-19"
 
 keywords: file share, file storage, replication, replica, size increase, capacity, encryption, BYOK, security group
 
@@ -29,7 +29,7 @@ The following questions often arise about {{site.data.keyword.filestorage_vpc_sh
 
 [Beta]{: tag-cyan}
 
-Customers with special access can create file shares with regional data resiliency. The `rfs` profile is the second-generation profile in the defined performance profile family. When you create a file share with the `rfs` profile, your data is replicated across all 3 zones within the region, offering higher availability and fault tolerance. with For more information, see [Regional availability profile](/docs/vpc?topic=vpc-file-storage-profiles&interface=ui#rfs-profile).
+Customers with special access can create file shares with regional data resiliency. The `rfs` profile is the second-generation profile in the defined performance profile family. When you create a file share with the `rfs` profile, your data is replicated across all 3 zones within the region, offering higher availability and fault tolerance. For more information, see [Regional availability profile](/docs/vpc?topic=vpc-file-storage-profiles&interface=ui#rfs-profile).
 
 If you’re interested in previewing the new offering, contact your assigned Account Team representative or Customer Success Manager.
 

@@ -2,7 +2,7 @@
 
 copyright:
   years: 2024, 2025
-lastupdated: "2025-09-15"
+lastupdated: "2025-09-19"
 
 keywords: File Storage, snapshots, cross-regional copy, backup, restore share
 
@@ -41,13 +41,14 @@ During the beta release of regional file shares, you cannot schedule the creatio
 {: faq}
 {: #faq-fs-snapshot-3}
 
-You can take up to 750 snapshots per share in a zone. Deleting snapshots from this quota makes space for more snapshots. A snapshot of a share cannot be greater than 10 TB. Also, consider how your billing is affected when you increase the number of snapshots that you take and retain.
+For zonal file shares, you can take up to 750 snapshots per share in a zone. Deleting snapshots from this quota makes space for more snapshots. A snapshot of a share cannot be greater than 10 TB for zonal file shares. Also, consider how your billing is affected when you increase the number of snapshots that you take and retain.
 
 ## Is there a limit on the size of a share that I can take a snapshot of?
 {: faq}
 {: #faq-fs-snapshot-4}
 
-The maximum size of a share is 10 TB. Snapshot creation fails if the share is over that limit.
+The maximum size of a zonal file share is 10 TB. Snapshot creation fails if the share is over that limit.
+
 
 ## How secure are snapshots?
 {: faq}
@@ -94,7 +95,7 @@ When a snapshot is deleted, only the data blocks that are no longer needed by an
 {: faq}
 {: #faq-fs-snapshot-dr}
 
-To help ensure that snapshots are able to survive the loss of an availability zone, configure replication for the file share. When a new replica share is created, all snapshots present on the source volume are transferred to the replica. When replication proceeds normally, any snapshots that are taken on the source are copied to the replica, and snapshots that are deleted from the source are also removed from the replica.
+To help ensure that snapshots are able to survive the loss of an availability zone, configure replication for the zonal file share. When a new replica share is created, all snapshots present on the source volume are transferred to the replica. When replication proceeds normally, any snapshots that are taken on the source are copied to the replica, and snapshots that are deleted from the source are also removed from the replica.
 
 ## What are the different kinds of snapshots in my `/.snapshot` directory?
 {: faq}
