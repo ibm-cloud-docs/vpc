@@ -2,7 +2,7 @@
 
 copyright:
  years: 2022, 2025
-lastupdated: "2025-09-05"
+lastupdated: "2025-09-19"
 
 keywords: Backup, backup service, backup plan, backup policy, restore, restore volume, restore data
 
@@ -30,7 +30,7 @@ You can back up individual {{site.data.keyword.block_storage_is_short}} volumes 
 
 You can create backups of all the {{site.data.keyword.block_storage_is_short}} volumes that are attached to a specific virtual server instance as members of a **consistency group**. When you configure backups for a [consistency group](/docs/vpc?topic=vpc-snapshots-vpc-about&interface=ui#multi-volume-snapshots), you can include the boot volume or exclude it. When you create multi-volume backups, you must add the tag to the virtual server instance, not the individual volumes.
 
-When you request a backup snapshot of a consistency group, the system ensures that all write operations are complete before it takes the snapshots. Then, the system generates snapshots of all the selected Block Storage volumes that are attached to the virtual server instance at the same time. Depending on the number and size of the attached volumes, plus the amount of data that is to be captured, you might observe a slight IO pause. This IO pause can range from a few milliseconds up to 4 seconds. It is recommended to run your automated backup-policy during off-peak hours to minimize any impact on performance.
+When you request a backup snapshot of a consistency group, the system ensures that all write operations are complete before it takes the snapshots. Then, the system generates snapshots of all the selected Block Storage volumes that are attached to the virtual server instance at the same time. Depending on the number and size of the attached volumes, plus the amount of data that is to be captured, you might observe a slight IO pause. This IO pause can range from a few milliseconds up to 4 seconds. It is recommended to run your automated backup job during off-peak hours to minimize any impact on performance.
 
 As a customer with special access to preview the second-generation storage volumes with the `sdp` profile, you can now also automate the creation of individual snapshots with the Backup service. Cross-regional copies are not supported in this release. For more information, see [Backups for second-generation block storage volumes](#sdp-backups).
 {: preview}

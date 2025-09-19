@@ -2,7 +2,7 @@
 
 copyright:
   years: 2024, 2025
-lastupdated: "2025-09-18"
+lastupdated: "2025-09-19"
 
 keywords: snapshots, File storage snapshots, manage snapshots, backup snapshot, remote copy, cross-regional copy
 
@@ -21,7 +21,17 @@ You can manage existing snapshots in the console, from the CLI, with the API or 
 Although you can't create a snapshot on a replica share, the snapshots of the origin share are copied from the source to the replica at the next scheduled sync. These replica snapshots are created by the file service. They do not inherit the tags or the name from the original snapshots. However, they have the same fingerprint value as the source snapshot. They can't be manually deleted from the replica share, but are removed from the replica share at the next replication sync if the source snapshot is deleted on the source share.
 {: note}
 
+## Renaming a snapshot in the console
+{: #fs-snapshots-rename-ui}
+{: ui}
 
+Use the following steps to rename a snapshot in the console.
+
+1. Go to the list of snapshots. In the [{{site.data.keyword.cloud_notm}} console](/login){: external}, click the **Navigation menu** icon ![menu icon](../icons/icon_hamburger.svg) **> Infrastructure** ![VPC icon](../icons/vpc.svg) **> Storage > File storage shares**.
+1. The file shares are listed for a specific region. If you want to see resources in another region, click the arrow to expand the list and select a different region. By default, the newest shares are displayed at the beginning of the list.
+1. Select the file share that you want to view, and click the **Snapshots** tab. 
+1. Locate the snapshot in the list, then click the ![Actions icon](../icons/action-menu-icon.svg "Actions") and select **Rename**.
+1. Enter the new name and click **Rename**.
 
 ## Updating user tags of a snapshot in the console
 {: #fs-snapshot-rename-ui}
@@ -35,6 +45,26 @@ Use the following steps to update the user tags of a snapshot in the console.
 1. Click the name of a snapshot to open the Snapshot details panel.
 1. Click the **Edit icon** ![Edit icon](../icons/edit-tagging.svg "Edit") next to the User tags.
 1. You can remove any existing tags and add new tags. Click **Save**.
+
+## Updating a snapshot's details from the CLI
+{: #fs-snapshots-rename-cli}
+{: cli}
+
+### Prerequisites for issuing commands from the CLI
+{: #fs-snapshots-rename-cli-requirement}
+{: cli}
+
+Before you can use the CLI, you must install the IBM Cloud CLI and the VPC CLI plug-in. For more information, see the [CLI prerequisites](/docs/vpc?topic=vpc-set-up-environment#cli-prerequisites-setup).
+{: requirement}
+
+Log in to {{site.data.keyword.cloud}}.
+
+```sh
+ibmcloud login --sso -a cloud.ibm.com
+```
+{: pre}
+
+This command returns a URL and prompts for a passcode. Go to that URL in your browser and log in. If successful, you get a one-time passcode. Copy this passcode and paste it as a response on the prompt. After successful authentication, you are prompted to choose your account. If you have access to multiple accounts, select the account that you want to log in as. Respond to any remaining prompts to finish logging in. 
 
 
 
@@ -84,6 +114,22 @@ Resource group       ID                                 Name
 Resource type        share_snapshot
 ```
 {: screen}
+
+## Renaming a snapshot with the API
+{: #fs-snapshots-rename-api}
+{: api}
+
+You can rename a snapshot by using the API. Make a `PATCH /shares/{share-id}/snapshots/{snapshot-id}` call and specify the snapshot ID and new name of the snapshot.
+
+```sh
+curl -X PATCH \
+"$vpc_api_endpoint/v1/shares/r006-0fe9e5d8-0a4d-4818-96ec-e99708644a58/snapshots/r006-e13ee54f-baa4-40d3-b35c-b9ec163972b4?version=2024-12-10&generation=2" \
+   -H "Authorization: Bearer ${API_TOKEN}" \
+   -d '{
+     "name": "my-snapshot-renamed"
+   }'
+```
+{: codeblock}
 
 ## Updating user tags with the API
 {: #fs-snapshots-updatetags-api}

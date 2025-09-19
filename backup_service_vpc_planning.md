@@ -2,7 +2,7 @@
 
 copyright:
   years: 2022, 2025
-lastupdated: "2025-04-10"
+lastupdated: "2025-09-19"
 
 keywords: backup planning, restore volume, restore data
 
@@ -42,7 +42,7 @@ Consider the following prerequisites before you set up the VPC Backup Service.
 |**Creating backups**: |
 | Prerequisites | Verify that the volume is attached to a virtual server instance and that the instance is in a running state. |
 | Backup frequency | Verify that the plan that you selected is creating backups at the interval that you want. Backups do not occur instaneously like manually created snapshots. Backups usually occur within an hour of being triggered by a backup plan schedule. |
-| Timing | Consistency group backups: Creating crash-consistent snapshots of multiple volumes that are attached to the same virtual server instance leads to a short-lived I/O suspension that can last from a few milliseconds to a few seconds. The duration depends on the number and size of volumes that are connected to your virtual server instance. It is recommended to run your automated backup-policy during off-peak hours to minimize any impact on performance. |
+| Timing | Consistency group backups: Creating crash-consistent snapshots of multiple volumes that are attached to the same virtual server instance leads to a short-lived I/O suspension that can last from a few milliseconds to a few seconds. The duration depends on the number and size of volumes that are connected to your virtual server instance. It is recommended to run your automated backup job during off-peak hours to minimize any impact on performance. |
 | Tags | Verify that at least one of your policy tags matches at least one tag of each resource that you want to back up. When you decide on the tags for your target resources, confirm that other policies are not using the same tags unless you want the resource to be backed up by multiple policies. |
 |**Restoring a volume from a backup snapshot**: |
 | Volume restore performance | Review these [performance considerations](/docs/vpc?topic=vpc-baas-vpc-restore#baas-performance-considerations) when you restore a volume from a backup snapshot. You might also experience different regional performance when you restore a volume. \n Evaluate when to enable [fast restore clones](/docs/vpc?topic=vpc-backup-service-about#backup-service-fastrestore). Fast restore snapshots reduce latency by restoring a volume from a snapshot clone. The new volume data is immediately restored. |
