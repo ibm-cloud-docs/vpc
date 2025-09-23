@@ -13,6 +13,7 @@ subcollection: vpc
 {{site.data.keyword.attribute-definition-list}}
 
 # About public address ranges
+{: #about-par}
 
 A public address range is a contiguous set of public IPs that you can reserve and bind to a VPC in an availability zone. 
 {: shortdesc}
@@ -143,7 +144,7 @@ Public address ranges help customers simplify the integration of network and sec
 ### Securing your workloads in VPC
 {: #secure-workloads-vpc}
 
-To secure workloads in a VPC, you can assign public address ranges to expose selected services or applications, enabling controlled ingress into the environment. Next, configure routing rules for those public endpoints to redirect incoming traffic to third-party appliances for inspection before reaching the final destination. Firewalls then enforce defined security policies, inspecting traffic and mitigating threats during the process. This approach simplifies the deployment of production-grade applications with the networking and security services required in a VPC.
+To secure workloads in a VPC, you can assign public address ranges to provide secure access to selected services or applications, enabling controlled ingress into the environment. Next, configure routing rules for those public endpoints to redirect incoming traffic to third-party appliances for inspection before reaching the final destination. Firewalls then enforce defined security policies, inspecting traffic and mitigating threats during the process. This approach simplifies the deployment of production-grade applications with the networking and security services required in a VPC.
 
 The following diagram illustrates how to secure your workloads in a VPC using public address ranges. First, traffic from the internet enters the VPC through a reserved public address range bound to the VPC. The traffic is then routed by the ingress routing table to a security appliance (for example, a firewall or third-party appliance), where it is inspected. After inspection, the traffic is forwarded to the protected applications.
 
