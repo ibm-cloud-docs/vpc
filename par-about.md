@@ -13,10 +13,6 @@ subcollection: vpc
 {{site.data.keyword.attribute-definition-list}}
 
 # About public address ranges
-{: #about-par}
-
-You can now create and use public address ranges in the Frankfurt and Madrid regions, if your account has been approved for access. To request access to Public Address Ranges for VPC, contact your IBM representative.
-{: preview}
 
 A public address range is a contiguous set of public IPs that you can reserve and bind to a VPC in an availability zone. 
 {: shortdesc}
@@ -147,7 +143,7 @@ Public address ranges help customers simplify the integration of network and sec
 ### Securing your workloads in VPC
 {: #secure-workloads-vpc}
 
-To secure workloads in a VPC, you can assign public address ranges to expose selected services or applications, enabling controlled ingress into the environment. Next, configure routing rules for those public endpoints to redirect incoming traffic to third party appliances for inspection before reaching the final destination. Firewalls then enforce defined security policies, inspecting traffic and mitigating threats during the process. This approach simplifies the deployment of production-grade applications with the networking and security services required in a VPC.
+To secure workloads in a VPC, you can assign public address ranges to expose selected services or applications, enabling controlled ingress into the environment. Next, configure routing rules for those public endpoints to redirect incoming traffic to third-party appliances for inspection before reaching the final destination. Firewalls then enforce defined security policies, inspecting traffic and mitigating threats during the process. This approach simplifies the deployment of production-grade applications with the networking and security services required in a VPC.
 
 The following diagram illustrates how to secure your workloads in a VPC using public address ranges. First, traffic from the internet enters the VPC through a reserved public address range bound to the VPC. The traffic is then routed by the ingress routing table to a security appliance (for example, a firewall or third-party appliance), where it is inspected. After inspection, the traffic is forwarded to the protected applications.
 
@@ -165,10 +161,9 @@ The public address range is attached to the zone with the Active Firewall, `us-s
 ![Deploying highly-available and resilient workloads in VPC](images/par_use_case_2.svg "Deploy highly-available and resilient workloads in VPC"){: caption="Deploy highly-available and resilient workloads in VPC" caption-side="bottom"} 
     
 ## Related links
-{: #par-related-links}
-
+{: #par-related-links} 
+ 
 - [IAM roles and actions](/docs/vpc?topic=vpc-about-par#par-access-management)
 - [Quotas](/docs/vpc?topic=vpc-quotas#par-quotas) and [service limits](/docs/vpc?topic=vpc-quotas#service-limits-for-vpc-services)
 - [FAQ](/docs/vpc?topic=vpc-faq-public-address-ranges)
-- [Known issues](/docs/vpc?topic=vpc-par-known-issues)
 - [Troubleshooting](/docs/vpc?group=tbs-par)

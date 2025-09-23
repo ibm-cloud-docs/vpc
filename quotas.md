@@ -122,9 +122,6 @@ Bare metal servers use physical cores and don't count toward your vCPU quota.
 ### Public address ranges
 {: #par-quotas}
 
-You can now create and use public address ranges in the Frankfurt and Madrid regions, if your account has been approved for access. To request access to Public Address Ranges for VPC, contact your IBM representative.
-{: preview}
-
 | Resource | Quota |
 |--------|-----|
 | Maximum number of public address ranges per account per region | 5 |
@@ -256,7 +253,7 @@ The following table displays current VPC service limits. Unlike quotas, these li
 | PCI network interfaces for bare metal servers | 8 per bare metal server |
 | Public gateways | 1 per zone per VPC |
 | Security groups | 5 per [target](/docs/vpc?topic=vpc-using-security-groups#about-security-group-targets) |
-| Public address ranges [Select availability]{: tag-green}| 10 per VPC per zone |
+| Public address ranges | 10 per VPC per zone |
 | Secondary volumes per instance | Up to 12 secondary volumes |
 | Image export jobs | 5 active jobs per image, 10 total per image, 20 active jobs per account, per region|
 | Instance groups for auto scale and more | 200 per account |

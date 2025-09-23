@@ -13,10 +13,7 @@ subcollection: vpc
 {{site.data.keyword.attribute-definition-list}}
 
 # Deleting public address ranges
-{: #par-deleting}
-
-You can now create and use public address ranges in the Frankfurt and Madrid regions, if your account has been approved for access. To request access to Public Address Ranges for VPC, contact your IBM representative.
-{: preview}
+{: #par-deleting} 
 
 You can delete public address ranges with the console, CLI, API, and Terraform.
 {: shortdesc}
@@ -130,5 +127,4 @@ terraform destroy -auto-approve
 - [IAM roles and actions](/docs/vpc?topic=vpc-about-par#par-access-management)
 - [Quotas](/docs/vpc?topic=vpc-quotas#par-quotas) and [service limits](/docs/vpc?topic=vpc-quotas#service-limits-for-vpc-services)
 - [FAQ](/docs/vpc?topic=vpc-faq-public-address-ranges)
-- [Known issues](/docs/vpc?topic=vpc-par-known-issues)
 - [Troubleshooting](/docs/vpc?group=tbs-par)

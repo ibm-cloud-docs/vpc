@@ -2,7 +2,7 @@
 
 copyright:
   years: 2025
-lastupdated: "2025-09-18"
+lastupdated: "2025-09-23"
 
 keywords:
 
@@ -17,10 +17,7 @@ content-type: troubleshoot
 # Why can't I bind a public address range at creation or delete one that's already bound?
 {: #troubleshoot-binding-public-address-ranges}
 {: troubleshoot}
-{: support}
-
-You can now create and use public address ranges in the Frankfurt and Madrid regions, if your account has been approved for access. To request access to Public Address Ranges for VPC, contact your IBM representative.
-{: preview}
+{: support} 
 
 Binding a public address range during creation or deleting a bound range fails due to insufficient permissions. 
 {: shortdesc}

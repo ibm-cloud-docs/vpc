@@ -2,7 +2,7 @@
 
 copyright:
   years: 2025
-lastupdated: "2025-09-18"
+lastupdated: "2025-09-23"
 
 keywords:
 
@@ -17,10 +17,7 @@ content-type: troubleshoot
 # Why isn’t traffic reaching my VNF appliance with a public address range?
 {: #troubleshoot-public-address-ranges-traffic}
 {: troubleshoot}
-{: support}
-
-You can now create and use public address ranges in the Frankfurt and Madrid regions, if your account has been approved for access. To request access to Public Address Ranges for VPC, contact your IBM representative.
-{: preview}
+{: support} 
 
 When using Public Address Ranges for VPC, traffic might fail to flow as expected due to issues in either the control path or the data path. These issues can manifest during the attachment of the public address range or during runtime routing of traffic to/from the VNF appliance.
 {: shortdesc}

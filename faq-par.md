@@ -2,7 +2,7 @@
 
 copyright:
   years: 2024, 2025
-lastupdated: "2025-09-18"
+lastupdated: "2025-09-23"
 
 subcollection: vpc
 
@@ -13,10 +13,7 @@ content-type: faq
 {{site.data.keyword.attribute-definition-list}}
 
 # FAQ for public address ranges
-{: #faq-public-address-ranges}
-
-Public Address Ranges for VPC is only available for evaluation and testing purposes for users with special access.
-{: preview}
+{: #faq-public-address-ranges} 
 
 The following questions are commonly asked about public address ranges. If you have additional questions you'd like to see addressed here, open an issue by using the **Open doc issue** or **Edit topic** links at the end of this page.
 {: shortdesc} 
@@ -72,7 +69,7 @@ Not by default. However, you can create separate public address ranges in differ
 ## Related link
 {: #faq-related-links-par}
 
-- [About public address ranges](/docs/vpc?topic=vpc-about-par)
+- [About public address ranges](/docs/vpc?topic=vpc-about-par) 
 - [IAM roles and actions](/docs/vpc?topic=vpc-about-par#par-access-management)
 - [Quotas](/docs/vpc?topic=vpc-quotas#par-quotas) and [service limits](/docs/vpc?topic=vpc-quotas#service-limits-for-vpc-services)
 - [Troubleshooting](/docs/vpc?group=tbs-par)

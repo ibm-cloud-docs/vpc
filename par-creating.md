@@ -13,10 +13,7 @@ subcollection: vpc
 {{site.data.keyword.attribute-definition-list}}
 
 # Creating public address ranges
-{: #par-creating}
-
-You can now create and use public address ranges in the Frankfurt and Madrid regions, if your account has been approved for access. To request access to Public Address Ranges for VPC, contact your IBM representative.
-{: preview}
+{: #par-creating} 
 
 You can create a public address range by defining its size and, optionally, specifying a VPC to associate with it in any availability zone within the account.
 {: shortdesc}
@@ -232,5 +229,4 @@ resource "ibm_is_public_address_range" "public_address_range_instance" {
 - [IAM roles and actions](/docs/vpc?topic=vpc-about-par#par-access-management)
 - [Quotas](/docs/vpc?topic=vpc-quotas#par-quotas) and [service limits](/docs/vpc?topic=vpc-quotas#service-limits-for-vpc-services)
 - [FAQ](/docs/vpc?topic=vpc-faq-public-address-ranges)
-- [Known issues](/docs/vpc?topic=vpc-par-known-issues)
 - [Troubleshooting](/docs/vpc?group=tbs-par)

@@ -13,10 +13,7 @@ subcollection: vpc
 {{site.data.keyword.attribute-definition-list}}
 
 # Viewing public address ranges
-{: #par-viewing}
-
-You can now create and use public address ranges in the Frankfurt and Madrid regions, if your account has been approved for access. To request access to Public Address Ranges for VPC, contact your IBM representative.
-{: preview}
+{: #par-viewing} 
 
 You can view public address ranges with the console, CLI, API, and Terraform.
 {: shortdesc}
@@ -158,5 +155,4 @@ data "ibm_is_public_address_ranges" "public_address_range_instances_example_test
 - [IAM roles and actions](/docs/vpc?topic=vpc-about-par#par-access-management)
 - [Quotas](/docs/vpc?topic=vpc-quotas#par-quotas) and [service limits](/docs/vpc?topic=vpc-quotas#service-limits-for-vpc-services)
 - [FAQ](/docs/vpc?topic=vpc-faq-public-address-ranges)
-- [Known issues](/docs/vpc?topic=vpc-par-known-issues)
 - [Troubleshooting](/docs/vpc?group=tbs-par)
