@@ -197,10 +197,10 @@ When performing file share operations with the CLI or API, the snapshot size fie
 
 When details of a snapshot are retrieved, the API response shows the property name `backup_plan_id` instead of `backup_policy_plan`. A fix for this issue is planned.
 
-### Multi-volume snapshot creation requests fail to complete if the consistency group contains second-generation volumes
+### Multi-volume backup creation requests create consistency group snapshots without second-generation volumes
 {: #consistency-group-with-mixed-volume-generation-fails}
 
-Multi-volume snapshots are not supported for second-generation volumes. When you try to create a consistency group of snapshots of a mix of first and second-generation volumes, the API request appears successful. However, the new snapshot consistency group ends up in a failed state or gets stuck in the pending state without an error message.
+Multi-volume snapshots are not supported for second-generation volumes. When you try to create a consistency group of snapshots of a mix of first and second-generation volumes, the API request appears successful as snapshots of Gen 1 volumes are created. However, the Gen 2, `sdp` volumes are skipped.
 
 ### The Bandwidth property of first-generation volumes profiles incorrectly displays `dependent_range`
 {: #gen1-bandwidth-property-dependent}

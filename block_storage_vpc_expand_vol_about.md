@@ -2,7 +2,7 @@
 
 copyright:
   years: 2020, 2025
-lastupdated: "2025-09-18"
+lastupdated: "2025-09-23"
 
 keywords: Block Storage, boot volume, data volume, volume, data storage, virtual server instance, instance, expandable volume
 
@@ -26,11 +26,11 @@ You can increase the capacity of second-generation boot and data volumes at any 
 ### Data volumes
 {: #expand-data-vols}
 
-After you provisioned and attached a data volume to a virtual server instance, you can increase its volume size in GB increments up to 16,000 GB capacity, depending on your volume profile. The resizing operation causes no outage or lack of access to the storage.
+After you provisioned your data volume with the `sdp` profile, you can increase its volume capacity in 1 GB increments up to 32,000 GB. If you provisioned data volumes with the first-generation profiles (tiered or custom), attach the volume to a running instance and then you can increase its volume size in GB increments up to 16,000 GB capacity, depending on your volume profile. The resizing operation causes no outage or lack of access to the storage.
 
 Billing for the volume is automatically updated to add the pro-rated difference of the new price to the current billing cycle. The new full amount is then billed in the next billing cycle.
 
-To expand a volume, it must be in an _available_ state and attached to an instance that must be running.
+To expand a first-generation volume, it must be in an _available_ state and attached to an instance that must be running. To expand a second-generation volume, it must be in an _available_ state.
 
 You can use the UI, CLI, API, or Terraform to expand volume capacity. Your user authorization is verified before the volume is expanded. 
 
@@ -39,11 +39,13 @@ You can expand the volume multiple times, up to its maximum capacity limit. Afte
 
 Expanded capacity is determined by the maximum that is allowed by the volume's profile. 
 
-Volumes that were created with one of the volume profiles from the [tiered family](/docs/vpc?topic=vpc-block-storage-profiles) can be expanded to the maximum size for its tier:
+- Volumes that were created with the `sdp` profile can be expanded up to 32,000 GB.
 
-* A general-purpose, 3 IOPS/GB profile can be expanded up to 16,000 GB.
-* A 5 IOPS/GB profile can be expanded up to 9,600 GB.
-* A 10 IOPS/GB profile can be expanded up to 4,800 GB.
+- Volumes that were created with one of the volume profiles from the [tiered family](/docs/vpc?topic=vpc-block-storage-profiles) can be expanded to the maximum size for its tier:
+
+   - A general-purpose, 3 IOPS/GB profile can be expanded up to 16,000 GB.
+   - A 5 IOPS/GB profile can be expanded up to 9,600 GB.
+   - A 10 IOPS/GB profile can be expanded up to 4,800 GB.
 
 IOPS values are automatically adjusted for tiered profiles, based on the size of the volume. For example, if you expand a volume that was created with the 5 IOPS/GB profile from 250 GB to 1,000 GB, its maximum IOPS becomes 5,000 IOPS. Because a 5 IOPS/GB volume can potentially expand to 9,600 GB, the max IOPS would adjust to 48,000 IOPS. While the volume capacity is immediately changed, to realize increased IOPS, you must restart the instance.
 
@@ -57,9 +59,6 @@ You can resize a data volume that is attached to an {{site.data.keyword.cloud_no
 _z/OS_ When you expand Block Storage volume capacity on an existing z/OS virtual server instance, a new device address is broadcasted to the users with the additional storage size.
 {: tip}
 
-Customers with special access to volume profiles within the defined performance family can expand their `sdp` volumes even if the volumes are not attached to a running virtual server instance. The maximum capacity is 32,000 GB. The steps for increasing the capacity are the same as for the other profiles.
-{: preview}
-
 ### Boot volumes
 {: #expand-boot-vols}
 
@@ -70,8 +69,8 @@ Regardless of the image type, you can increase boot volume capacity from its min
 The boot volume expansion takes effect without a restart of the virtual server. However, to use the increased boot volume space, you must expand your operating system so the increased boot volume capacity is recognized.
 {: note}
 
-Customers with special access to volume profile within the defined performance family can expand their `sdp` volumes even if the volumes are not attached to a running virtual server instance. The maximum capacity is 32,000 GB. The steps for increasing the capacity are the same as for the other profiles. However, when the boot volume capacity is increased over 250 GB, you can no longer create a custom image from that volume.
-{: preview} 
+You can increase the capacity of your second-generation boot volume up to 32,000 GB. However, when the boot volume capacity is increased over 250 GB, you can no longer create a custom image from that volume.
+{: important}
 
 ## Requirements
 {: #exp-vol-requirements}
@@ -79,12 +78,14 @@ Customers with special access to volume profile within the defined performance f
 ### Data volume requirements
 {: #exp-data-vol-reqs}
 
-You must meet the following requirements to increase a data volume's capacity.
+You must meet the following requirements to increase a first-generation data volume's capacity.
 
 * The volume is expanded based on their predefined volume profile or custom range.
 * The volume must be in an _available_ state.
 * The volume must be attached to a virtual server instance.
 * The instance must be powered on and in a _running_ state.
+
+Second-generation data volumes' capacity can be increased when the volumes are in _available_ state. They do not need to be attached to a virtual server instance.
 
 No matter what generation your data volume is, you must detach and reattach the volume to the instance to adjust the available [volume bandwidth](/docs/vpc?topic=vpc-block-storage-bandwidth).
 
@@ -93,7 +94,7 @@ No matter what generation your data volume is, you must detach and reattach the 
 
 You must meet these requirements to resize a boot volume:
 
-* When an instance is provisioned, the size of the boot volume can be larger than the existing image size but not smaller. The maximum boot volume size is 250 GB.
+* When an instance is provisioned, the size of the boot volume can be larger than the existing image size but not smaller. The maximum boot volume size with a first generation volume profile is 250 GB.
 * For an existing instance, you can increase the size of the boot volume up to the maximum size that was allowed during instance provisioning.
 * For more information about supported Operating Systems, see [x86 virtual server images](/docs/vpc?topic=vpc-about-images).
 

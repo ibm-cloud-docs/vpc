@@ -2,7 +2,7 @@
 
 copyright:
   years: 2021, 2025
-lastupdated: "2025-09-08"
+lastupdated: "2025-09-23"
 
 keywords: view snapshots, view snapshot, viewing snapshots, see snapshots, Block Storage snapshots
 
@@ -17,8 +17,6 @@ subcollection: vpc
 
 You can view a list of all snapshots and consistency groups, and drill down to see information about a particular snapshot. Choose the UI, CLI, API, or Terraform to retrieve this information.
 {: shortdesc}
-
-Fast restore snapshot clones and consistency groups are not supported for second-generation storage volumes in the current release. During the [select availability]{: tag-green} phase, you can't create a cross-regional copy of your second-generation snapshot if it is encrypted with a customer-managed key or if its source volume exceeds 10 TB.
 
 ## Listing snapshots in the console
 {: #snapshots-vpc-view-ui}
@@ -59,6 +57,7 @@ Click the settings icon ![Settings icon](../icons/settings.svg "Settings") to di
 | Resource group |The resource group that the snapshot belongs to.|
 | Bootable | Yes or No. It shows whether the snapshot was taken of a boot volume or a data volume. |
 | Created by | It shows whether the snapshot was created by the user or a [backup policy](/docs/vpc?topic=vpc-backup-service-about&interface=ui#backup-service-concepts). |
+| Generation | Gen 1 or Gen 2, this value is inherited from the parent volume based on its volume profile. |
 {: caption="List of optional informational fields for all snapshots" caption-side="bottom"}
 
 By clicking the Actions icon ![Actions icon](../icons/action-menu-icon.svg "Actions"), you can display a menu of context-specific actions.
@@ -96,6 +95,7 @@ The snapshot details panel shows the information that is described in the follow
 | Size| Size in GBs of the snapshot, inherited from the source volume. |
 | Source volume | Source volume from which the first snapshot was taken. Click the link for volume details. If the volume was deleted, the name appears without a link. |
 | Encryption | Provider-managed or customer-managed encryption. For customer-managed encryption, the KMS instance, root key name, and root key ID are shown. |
+| Generation  | This value is either Gen 1 or Gen 2 based on the volume profile of the source volume. |
 | Virtual server expression | The allowed-use expression defines and restricts which virtual server profiles the bootable snapshot is compatible with. When you provision a virtual server instance by using the snapshot, the expression is matched against the requested instance properties. For more information, see [Adding allowed-use expressions to custom images](/docs/vpc?topic=vpc-custom-image-allowed-use-expressions&interface=ui). |
 | Fast restore panel | Use [fast restore](/docs/vpc?topic=vpc-snapshots-vpc-about#snapshots_vpc_fast_restore) to create a volume from this snapshot that is fully provisioned. Click **Edit** to [enable or disable fast restore](/docs/vpc?topic=vpc-snapshots-vpc-manage&interface=ui#snapshots-edit-fast-restore) in a zone. |
 | Consistency group panel | It displays information about the consistency group that the snapshot is a member of. Click **Create virtual server** to restore volumes from the consistency group. |

@@ -2,7 +2,7 @@
 
 copyright:
   years: 2018, 2025
-lastupdated: "2025-09-18"
+lastupdated: "2025-09-23"
 
 keywords:
 
@@ -70,7 +70,7 @@ Use the following steps to create a virtual server instance.
    | Field | Value |
    |-------|-------|
    | SSH keys | You must select an existing public SSH key or click **Create an SSH key** to create one. For more information about creating an SSH key, see [Creating your SSH key by using the UI](/docs/vpc?topic=vpc-ssh-keys&interface=ui#generate-ssh-keys-ui). SSH keys are used to securely connect to the instance after it's running. \n  **Note:** Alpha-numeric combinations are limited to 100 characters. SSH keys can be either RSA or ED25519. You can create only RSA SSH keys. For an ED25519 SSH key, you must upload the key information. ED25519 can be used only if the operating system supports this key type. ED25519 can't be used with Windows or VMware images. \n For more information, see [Getting started with SSH keys](/docs/vpc?topic=vpc-ssh-keys). |
-   | Boot volume | The default boot volume size for most profiles is 100 GB. The default boot volume size for a z/OS virtual server instance is 245 GB. If you're importing a custom image, the boot volume capacity can be 10 - 250 GB, depending on what the image requires. Images that are smaller than 10 GB are rounded up to 10 GB. Click the **Edit icon** ![Edit icon](../icons/edit-tagging.svg "Edit") to modify the boot volume's attributes in the side panel. \n \n You can change the name of the boot volume by specifying a unique, meaningful name. For example, it can be a name that describes your compute or workload function. The volume name must begin with a lowercase letter. The name can be up to 63 lowercase alpha-numeric characters and include the hyphen (-). Volume names must be unique the entire VPC infrastructure. You can edit the name later if you want to. \n \n You can toggle the auto-delete option off for the boot volume. If it is enabled, then the volume is deleted when the instance is deleted. If it is disabled, then the volume persists after the instance is deleted. \n \n You can specify optional user tags and access management tags to associate with this volume. For more information about organizing resources with user tags, see [Working with tags](/docs/account?topic=account-tag&interface=ui). \n \n You can select the encryption type. Provider-managed encryption is enabled by default on all volumes. You can also choose to create an envelop encryption with your own root keys. Encryption keys are created and maintained in Key Management Services ({{site.data.keyword.keymanagementserviceshort}} or {{site.data.keyword.hscrypto}}). \n \n  \n \n You can increase the size of the boot volume up to 250 GB.|
+   | Boot volume | The default boot volume size for most profiles is 100 GB. The default boot volume size for a z/OS virtual server instance is 245 GB. If you're importing a custom image, the boot volume capacity can be 10 - 250 GB, depending on what the image requires. Images that are smaller than 10 GB are rounded up to 10 GB. Click the **Edit icon** ![Edit icon](../icons/edit-tagging.svg "Edit") to modify the boot volume's attributes in the side panel. \n \n You can change the name of the boot volume by specifying a unique, meaningful name. For example, it can be a name that describes your compute or workload function. The volume name must begin with a lowercase letter. The name can be up to 63 lowercase alpha-numeric characters and include the hyphen (-). Volume names must be unique the entire VPC infrastructure. You can edit the name later if you want to. \n \n You can toggle the auto-delete option off for the boot volume. If it is enabled, then the volume is deleted when the instance is deleted. If it is disabled, then the volume persists after the instance is deleted. \n \n You can specify optional user tags and access management tags to associate with this volume. For more information about organizing resources with user tags, see [Working with tags](/docs/account?topic=account-tag&interface=ui). \n \n You can select the encryption type. Provider-managed encryption is enabled by default on all volumes. You can also choose to create an envelop encryption with your own root keys. Encryption keys are created and maintained in Key Management Services ({{site.data.keyword.keymanagementserviceshort}} or {{site.data.keyword.hscrypto}}). \n \n You can select the [Storage profile](/docs/vpc?topic=vpc-block-storage-profiles&interface=ui) that best suits your needs for capacity, IOPS, and bandwidth. \n Note: Second-generation boot volumes with the `sdp` volume profile do not support secure boot yet. If secure-boot is needed, select one of the `tiered` profiles or the `custom` profile. \n \n You can increase the size of the boot volume up to 250 GB. \n Note: The virtual server instance fails to boot if the boot volume is larger than 250 GB. The boot volumes that use the `sdp` volume profile can be increased up to 32000 GB. However, this should be done only after the virtual server instance is created and initialized successfully.|
    | Data volumes | You can create one or more secondary data volumes to be attached when you provision the instance. Click **Create** in the Data volumes section to open the side panel where you can define the volume. \n \n  Specify a unique, meaningful name. The same specifications apply as for the boot volume. \n \n You can toggle the auto-delete option on for the data volume. If it is enabled, then the volume is deleted when the instance is deleted. If it is disabled, then the volume persists after the instance is deleted. \n \n You can specify optional user tags and access management tags to associate with this volume. For more information about organizing resources with user tags, see [Working with tags](/docs/account?topic=account-tag&interface=ui). \n \n You can select the encryption type. Provider-managed encryption is enabled by default on all volumes. You can also choose to create an envelope encryption with your own root keys that are created and maintained in Key Management Services. \n \n You can select the [Storage profile](/docs/vpc?topic=vpc-block-storage-profiles&interface=ui) that best suits your needs for capacity and IOPS. For more information, see [Create and attach a Block Storage volume when you create an instance](/docs/vpc?topic=vpc-creating-block-storage#create-from-vsi).|
    | Virtual private cloud | Specify the IBM Cloud VPC where you want to create your instance. You can use the default VPC, another existing VPC, or you can create a VPC. To create a VPC, click **New VPC**. |
    | Add to cluster network | If you select the H100 GPU profile, `gx3d-160x1792x8h100`, you see the option to **Add to cluster network**. You can set **Add to cluster network** to on to enable the virtual server to access the power of a high-performance network that supports Remote Direct Memory Access (RDMA). When **Add to cluster network** is set to on and a cluster network is available, the {{site.data.keyword.cloud_notm}} console includes default selections for configuring the virtual server for the cluster network. If no cluster network is available, you can click **Create cluster network**. When a cluster network is selected, only the VPC where the cluster network is provisioned is displayed in the **Virtual private cloud** drop-down menu. For more information, see [About cluster networks](/docs/vpc?topic=vpc-about-cluster-network&interface=ui). |
@@ -785,7 +785,7 @@ You can create a boot volume from a bootable [snapshot](/docs/vpc?topic=vpc-snap
 
 [Select availability]{: tag-green}
 
-Confidential computing with Intel SGX for VPC is available only in the US-South (Dallas) region.
+Confidential computing with Intel SGX for VPC is available only in the US-South (Dallas) region. Second-generation boot volumes with the `sdp` volume profile do not support secure boot yet. If secure-boot is required, use a boot volume with a first-generation volume profile.
 {: note}
 
 After you know the needed values, use them to run the `ibmcloud is instance-create` command. You also need to specify a unique name for the instance.
@@ -840,7 +840,7 @@ For example, the following `instance-create` command uses the sample values that
 
 [Select availability]{: tag-green}
 
-Confidential computing with Intel SGX for VPC is available only in the Dallas (us-south) and Frankfurt (eu-de) regions. 
+Confidential computing with Intel SGX for VPC is available only in the Dallas (us-south) and Frankfurt (eu-de) regions. Second-generation boot volumes with the `sdp` volume profile do not support secure boot yet. If secure-boot is required, use a boot volume with a first-generation volume profile.
 {: note}
 
 After you know the needed values, use them to run the `ibmcloud is instance-create` command. You also need to specify a unique name for the instance.
@@ -1107,6 +1107,9 @@ curl -X POST "$vpc_api_endpoint/v1/instances?version=2023-02-08&generation=2"
 ```
 {: pre}
 
+Second-generation boot volumes with the `sdp` volume profile do not support secure boot yet. If secure-boot is required, use a boot volume with a first-generation volume profile.
+{: note}
+
 For more information, see [Create an instance](/apidocs/vpc/latest#create-instance).
 
 ### Restore a boot volume from a snapshot and use it to provision a new instance
@@ -1149,7 +1152,7 @@ For more information about restoring a volume with the API, see [Restore a volum
 
 [Select availability]{: tag-green}
 
-Confidential computing with Intel SGX for VPC is available only in the Dallas (us-south) and Frankfurt (eu-de) regions. 
+Confidential computing with Intel SGX for VPC is available only in the Dallas (us-south) and Frankfurt (eu-de) regions. Second-generation boot volumes with the `sdp` volume profile do not support secure boot yet. If secure-boot is required, use a boot volume with a first-generation volume profile.
 {: note}
 
 To provision an instance with confidential compute, add the `confidential_compute_mode` property and set it to either `sgx` or `tdx`.
@@ -1215,6 +1218,9 @@ To provision an instance with secure boot, add the `enable_secure_boot` property
             }'
  ```
  {: pre}
+
+ Second-generation boot volumes with the `sdp` volume profile do not support secure boot yet. If secure-boot is required, use a boot volume with a first-generation volume profile.
+ {: note}
 
 ## Creating virtual server instances by using Terraform
 {: #create-instance-terraform}

@@ -31,6 +31,12 @@ For more information about changes to the {{site.data.keyword.vpc_short}} comman
 {: #vpc-sep2325}
 {: release-note}
 
+Second-generation block storage volumes (GA)
+:   Second-generation block storage volumes and snapshots are now generally available in Dallas, Frankfurt, London, Madrid, Osaka, Sao Paulo, Sydney, Tokyo, Toronto, and Washington, DC. All customers can use the `sdp` volume profile to create boot and data volumes for their virtual server instances. For a comparison between first and second-generation block storage features, see [VPC storage services overview](/docs/vpc?topic=vpc-storage-overview). For more information about the block storage service and the new volume profile, see [About Block Storage for VPC](/docs/vpc?topic=vpc-block-storage-about) and [Block Storage for VPC profiles](/docs/vpc?topic=vpc-block-storage-profiles).
+
+Second-generation block storage volume snapshots (GA)
+:   Customers can take and manage snapshots of their second-generation volumes in the console, from the CLI, or with API. Customers can also automate the creation and deletion of second-generation snapshots with the Backup for VPC service. Fast restore clones and cross-regional copies are available in all regions where second-generation volumes are supported. The only exception where cross-regional snapshot copies are not supported are the snapshots of volumes that exceed 10 TB. Consistency groups for Gen 2 snapshots are not supported. For more information, see [About Block Storage for VPC snapshots](/docs/vpc?topic=vpc-snapshots-vpc-about) and [About Backup for VPC](/docs/vpc?topic=vpc-backup-service-about).
+
 Regional file shares (Select availability)
 :   The new `rfs` share profile is now available for customers with special access in Dallas, Frankfurt, London, Madrid, Osaka, Sydney, Tokyo, Toronto, and Washington, DC. Shares that are created with this profile offer regional data availability and support adjustable share bandwidth. File share data can be protected with customer-managed encryption keys, and in-transit encryption is supported by the use of stunnel. Cross-account access is now supported. Transit encryption settings can be enforced by the share owner. For regional shares, the available allowed transit encryption modes are `stunnel`, `none`, or both. For more information, see [About File Storage for VPC](/docs/vpc?topic=vpc-file-storage-vpc-about).
 

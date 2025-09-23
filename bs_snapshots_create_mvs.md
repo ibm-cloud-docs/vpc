@@ -2,7 +2,7 @@
 
 copyright:
   years: 2022, 2025
-lastupdated: "2025-09-02"
+lastupdated: "2025-09-23"
 
 keywords: consistency groups, Block Storage snapshots, multi-volume snapshot, instance snapshot,
 
@@ -17,6 +17,8 @@ subcollection: vpc
 
 A snapshot consistency group contains snapshots of multiple volumes that are attached to the same virtual server instance. You can include or exclude boot volumes. You can create a consistency group in the console, CLI, API, and Terraform.
 {: shortdesc}
+
+Consistency group snapshots of multiple `sdp` volumes are not supported in the current release. Creating a multi-volume snapshot group for a mix of first and second-generation volumes results in snapshots being created of only the first-generation volumes in the group.
 
 When you request a snapshot of a consistency group, the system ensures that all write operations are complete before it takes the snapshots. Then, the system generates snapshots of all the tagged Block Storage volumes that are attached to the virtual server instance at the same time. Depending on the number and size of the attached volumes, plus the amount of data that is to be captured, you might observe a slight IO pause. This IO pause can range from a few milliseconds up to 4 seconds.
 

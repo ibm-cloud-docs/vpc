@@ -2,7 +2,7 @@
 
 copyright:
   years: 2019, 2025
-lastupdated: "2025-09-18"
+lastupdated: "2025-09-23"
 
 keywords:
 
@@ -24,10 +24,9 @@ subcollection: vpc
 
 {{site.data.keyword.block_storage_is_short}} provides primary boot volumes and secondary data volumes. Boot volumes are automatically created and attached during instance provisioning. Data volumes can be created and attached during instance provisioning, or as stand-alone volumes that you can later attach to an instance. To protect your data, you can use your own encryption keys or choose IBM-managed encryption.
 
-You pay for only the capacity that you need. {{site.data.keyword.block_storage_is_short}} capacity ranges from 10 GB up to 16,000 GB for all available [profiles](#block-storage-profiles-intro). For data volumes that are attached to a virtual server instance, you can [increase volume capacity](/docs/vpc?topic=vpc-expanding-block-storage-volumes) in GB increments up to 16,000 GB capacity, depending on your volume profile. You can also [increase or decrease IOPS](/docs/vpc?topic=vpc-adjusting-volume-iops) for a volume that is attached to an instance.
+You pay for only the capacity that you need. When you use the SSD Defined Performance (`sdp`) volume profile, you can increase the size of your data and boot volumes up to 32,000 GB. The maximum IOPS that a volume with the `sdp` profile can support is 64,000. You can also modify the throughput limit in the range of 125-1024 MBps (1000-8192 Mbps). Capacity, IOPS, and throughput values of volumes that are created with the `sdp` profile can be modified even when the volume is not attached to a virtual server instance.
 
-Customers with special access to use the volume profiles within the defined performance family can increase the size of their data and boot volumes up to 32,000 GB. The maximum IOPS that a volume with the `sdp` profile can support is 64,000. You can also modify the throughput limit in the range of 125-1024 MBps (1000-8192 Mbps). Capacity, IOPS, and throughput values of volumes that are created with the `sdp` profile can be modified even when the volume is not attached to a virtual server instance. 
-{: preview}
+The capacity of volumes that are created with the [traditional profiles](#block-storage-profiles-intro) ranges from 10 GB up to 16,000 GB. For data volumes that are attached to a virtual server instance, you can [increase volume capacity](/docs/vpc?topic=vpc-expanding-block-storage-volumes) in GB increments up to 16,000 GB capacity, depending on your volume profile. You can also [increase or decrease IOPS](/docs/vpc?topic=vpc-adjusting-volume-iops) for a volume that is attached to an instance.
 
 {{site.data.keyword.block_storage_is_short}} supports all [virtual server profiles](/docs/vpc?topic=vpc-block-storage-profiles#vsi-profiles-relate-to-storage).
 
@@ -43,10 +42,14 @@ You can attach only one boot volume to a virtual server instance at a time, but 
 ### Boot volumes
 {: #block-storage-vpc-boot-volumes}
 
-When you create an instance with a stock image, a 100 GB boot volume is created and attached to the instance by default. When you create an instance from a custom image, you can specify a boot volume capacity of 10 GB to 250 GB, depending what the image requires. The capacity can be any size between the minimum size that is supported for the selected image and the maximum supported image size. If the custom image is smaller than 10 GB, the boot volume capacity is rounded up to 10 GB.
+When you create an instance with a stock image, a 100 GB boot volume is created and attached to the instance by default. When you create an instance from a custom image, you can specify a boot volume capacity of 10 GB to 250 GB, depending what the image requires.
 
-You cannot create an image from a boot volume that is encrypted with customer-managed keys and is not 100 GB. Such an operation is not supported.
-{: note}
+When you create an instance from a custom image, you can specify a boot volume capacity of 10 GB to 250 GB, depending what the image requires. If the custom image is smaller than 10 GB, the boot volume capacity is rounded up to 10 GB. If the boot volume exceeds 250 GB, the virtual server instance fails to successfully boot.
+
+If you use the console to provision the instance, you can select between the `general-purpose` and the `sdp` profile before the instance is created. When you provision a boot volume from the CLI, with the API, or Terraform, you can specify any of the profiles from the `tiered`, `custom`, or `defined performance` volume profile families.
+
+After the boot volume is created, you can expand the boot volume size to the maximum supported size, which is 250 GB for first-generation `tiered` or `custom` volumes and 32,000 GB for the second-generation `sdp` volumes. However, if you increase your boot volume over 250 GB, it can no longer be imaged or used to boot another virtual server instance.
+{: important}
 
 By default, boot volumes are encrypted by IBM-managed encryption. Optionally, you can use your own root keys (CRKs) by choosing customer-managed encryption during instance creation (see [Customer-managed encryption](/docs/vpc?topic=vpc-vpc-encryption-about#vpc-customer-managed-encryption)).
 
@@ -78,8 +81,7 @@ Volume profiles define the capacity and performance characteristics of storage v
 ### The SSD defined performance profile
 {: #block-storage-sdp-intro}
 
-Customers with special access to preview the defined performance profile can use the `sdp` profile in the Dallas (`us-south`), Frankfurt (`eu-de`), London (`eu-gb`), Madrid (`eu-es`), Osaka (`jp-osa`), Sao Paulo (`br-sao`), Sydney (`au-syd`), Tokyo (`jp-tok`), Toronto (`ca-tor`), and Washington (`us-east`) regions to specify custom capacity, custom throughput limit, and custom IOPS for their volumes.
-{: preview}
+The SSD Defined Performance profile is available in the Dallas (`us-south`), Frankfurt (`eu-de`), London (`eu-gb`), Madrid (`eu-es`), Osaka (`jp-osa`), Sao Paulo (`br-sao`), Sydney (`au-syd`), Tokyo (`jp-tok`), Toronto (`ca-tor`), and Washington (`us-east`) regions. You can specify custom capacity, custom throughput limit, and custom IOPS for your second-generations volumes.
 
 The following limitations apply to this release:
 
@@ -125,7 +127,7 @@ You can enable context-based restrictions (CBR) for block volume operations. The
 ### Encryption at rest and in transit
 {: #vpc-storage-encryption}
 
-{{site.data.keyword.cloud_notm}} takes the need for security seriously and understands the importance of being able to encrypt data to keep it safe. All block storage volumes are encrypted at rest with IBM-managed encryption by default.
+{{site.data.keyword.cloud_notm}} takes the need for security seriously and understands the importance of being able to encrypt data to keep it safe. All block storage volumes are encrypted at rest with IBM-managed encryption by default. For more information about the industry standard protocols {{site.data.keyword.cloud}} follows for data encryption, see [IBM-managed encryption](/docs/vpc?topic=vpc-vpc-encryption-about&interface=ui&q=IBM-managed+encryption&tags=vpc#vpc-provider-managed-encryption).
 
 You can also choose to protect your volumes by creating an envelop encryption with your own root keys that are stored in one of the approved Key Management Systems (KMS). In {{site.data.keyword.cloud_notm}}, the KMS can be either located in the same or in another account as the service that is using an encryption key. This deployment pattern allows enterprises to centrally manage encryption keys for all corporate accounts.
 

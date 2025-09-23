@@ -2,7 +2,7 @@
 
 copyright:
   years: 2021, 2025
-lastupdated: "2025-09-18"
+lastupdated: "2025-09-23"
 
 keywords:
 
@@ -55,9 +55,6 @@ The following limitations apply when you restore a volume from a snapshot.
 * When the new volume is created, data restoration begins immediately, but performance is degraded until the volume is fully hydrated.
 * First- and second-generation volume profiles are not interchangeable. You can use a snapshot of a second-generation volume to create another second-generation volume, but you can't switch the volume profile to a first-generation volume profile. In the same way, you can use a snapshot of a first-generation volume to create another first-generation volume with the same data, and you can't switch the new volume to the `sdp` profile.
 
-Fast restore backup clones and consistency groups are not supported for second-generation storage volumes. Cross-regional snapshot copies of encrypted volumes or volumes that exceed 10 TB are not supported.
-{: preview}
-
 ### Performance impact
 {: #snapshots-performance-considerations}
 
@@ -90,35 +87,43 @@ From the list of {{site.data.keyword.block_storage_is_short}} snapshots, you can
 1. Go to the list of {{site.data.keyword.block_storage_is_short}} snapshots. In the [{{site.data.keyword.cloud_notm}} console](/login){: external}, click the **Navigation menu** icon ![menu icon](../icons/icon_hamburger.svg) **> Infrastructure** ![VPC icon](../icons/vpc.svg) **> Storage > Block Storage snapshots**.
 2. Either select a snapshot from the list or search for it by its CRN. It must be in a `stable` state.
 3. From the Actions menu ![Actions icon](../icons/action-menu-icon.svg "Actions"), select **Create volume**.
-4. In the side panel, choose whether you want to create an unattached data volume, create and attach a volume to an existing instance, or create a volume and provision another instance.
 
-   * For a **stand-alone data volume**, leave **Attach volume to virtual server** clear.
+4. The snapshot's details are displayed in the Create a volume from snapshot sidepanel. Select one of the three options:
+   - **Do not attach**- By selecting this option, you start to create a stand-alone volume
+   - **Attach new volume to an existing virtual server** - By choosing this option, you create a volume and select an existing server to attach it, too.
+   - **Attach new volume to a new virtual server** - By choosing this option, you create a volume and a new virtual server instance at the same time.
 
-     Use this option when you're not sure which virtual server instance you want to attach the volume to.
-     {: tip}
+5. After the selection is made, click **Configure volume**.{: #configure-volume}
+   - If you chose the **Do not attach** or the **Attach new volume to an existing virtual server** options, you are taken to the Block storage volume for VPC provisioning page. The snapshot is preselected for you, and you have to complete the rest of the volume details:
+     1. Review the **Location** information. The geography, region, and zone are inherited from the VPC (for example, North America, Dallas, Dallas-1). You can select a different location by clicking the **Edit icon** ![Edit icon](../icons/edit-tagging.svg "Edit"). 
+     1. In the **Details** section, you must specify the name of the volume and the resource group that the volume is to be added to. Optionally, you can add user and access management tags.
+        - Specify a meaningful name for your volume. For example, provide a name that describes your compute or workload function. The volume name must begin with a lowercase letter. The volume name can be up to 63 lowercase alpha-numeric characters and include the hyphen (-). Volume names must be unique across the your VPC. You can edit the name later.
+        - Specify a [Resource group](/docs/vpc?topic=vpc-iam-getting-started&interface=ui#iam-resource-groups).
+        - Specify [user tags](/docs/vpc?topic=vpc-block-storage-about&interface=ui#storage-about-user-tags) to organize your resources and for use by [backup policies](/docs/vpc?topic=vpc-backup-service-about).
+        - Specify [access management tags](/docs/vpc?topic=vpc-block-storage-about&interface=ui#storage-about-mgt-tags) that were created in IAM to help you manage access to your volumes.
 
-   * To attach the volume to an existing instance, select **Attach volume to virtual server**. Click **Attach new volume to an existing virtual server**. Then, select the virtual server instance that you want to attach the volume to. You can filter the list of available servers by zone.
-   * To restore a volume and use it to provision a virtual server instance, select **Attach volume to virtual server**, and click **Attach new volume to a new virtual server**. Then, click **Configure virtual server**. This action takes you to the [virtual server provisioning page](/docs/vpc?topic=vpc-creating-virtual-servers&interface=ui#creating-virtual-servers-ui).
+     1. In the **Optional configurations** section, the snapshot is preselected for you. 
+        - You can also apply a backup policy to the new volume if you want to. Click **Apply** to see available policies and plans.
+        - Review the Attach to existing virtual server section. If you want to create a standalone volume, verify that the Do not attach box is checked. If you want to attach the volume to an instance, remove the check from the box and select an existing virtual serverfrom the table.
 
-   The new volume is shown in the **Boot volume** or **Data volume** section of the instance provisioning page. The placement depends on whether the volume that you created was from a bootable snapshot or a nonbootable snapshot.
+     1. In the **Profile** section, you can specify the performance profile of your volume, its performance limits, and capacity. Remember that the storage generation value of the snapshot must match the storage generation value of the volume profile select.
+         - You can select the [`sdp` profile](/docs/vpc?topic=vpc-block-storage-profiles#defined-performance-profile) if your snapshot was created from a Generation 2 volume. Then, specify the capacity of your volume, the requested bandwidth limit, and the required IOPS. Volume size can range from 1 - 32,000 GB. You can specify IOPS in the range of 100 - 64,000. The throughput limit range is 1000-8192 Mbps.
+         - If your snapshot is from a Generation 1 volume, you can select one of the [_tiered_ profiles](/docs/vpc?topic=vpc-block-storage-profiles&interface=ui#tiers). After you select `general-purpose`, `5iops-tier`, or `10iops-tier`, the next step is to specify the volume capacity. Volume size can be 10 - 16,000 GB. 
+         - If your snapshot is from a Generation 1 volume and your performance requirements don't fall within any of the IOPS tiers, you can select the `custom` profile. Then, specify the size of your volume and the IOPS in the appropriate range for the volume capacity. As you type the IOPS value, the console shows the acceptable range. You can also click the **storage size** link to see the size and IOPS ranges of the [custom volume profile](/docs/vpc?topic=vpc-block-storage-profiles#custom).
 
-5. Provide the required volume details.
+     1. In the **Encryption at rest** section, you can choose to keep the encryption with IBM-managed keys that is enabled by default on all volumes. Or you can choose to use [your own encryption key](/docs/vpc?topic=vpc-block-storage-vpc-encryption) by selecting your key management service: {{site.data.keyword.keymanagementserviceshort}} or {{site.data.keyword.hscrypto}}. To locate your encryption key, select one of the following options:
+        - **Locate by Instance**:
+           1. Select the data encryption instance from the list. If you don't have an instance yet, you can click the link to create one.
+           1. Select the data encryption key that is stored within the {{site.data.keyword.keymanagementserviceshort}} instance to use for encrypting the volume.
+        - **Locate by CRN**: enter the CRN of the customer root key to be used for encrypting the volume.
+     1. When you're finished, click **Create block storage volume**. 
+        - If you're not ready to order yet or just looking for pricing information, you can add the information that you see in the side panel to an Estimate. For more information about how this feature works, see [Estimating your costs](/docs/account?topic=account-cost).
+     1. The {{site.data.keyword.block_storage_is_short}} volumes page is shown, where a message indicates that the volume is being created (volume status is _pending_). A second message displays when the volume is created (volume status is _available_).
+     1. To see details of the new volume, select the **View resource** link in the second message to go to the Volume details page.
 
-    | Field | Description |
-    |-------|-------------|
-    | **Details** | Define the new volume. |
-    | Name | Enter a name for the new volume. |
-    | Resource group | Use the defaults or select from the list. |
-    | Zone | Inherited from the snapshot. Change it to another zone in your region if you want to. |
-    | Size | Enter a volume size allowed by the profile. The default is the minimum provisioning size based on the snapshot. |
-    | **Profile** | This value defaults to the snapshot's volume profile. You can change the profile to another one in the same storage generation. For example, you can switch between Gen 1 profiles, but you can't switch from a Gen 1 profile to the Gen 2 `sdp` profile. |
-    | Size | Enter a volume capacity value that is allowed by the profile. |
-    | IOPS | For IOPS tiers, specify an IOPS tier profile. For custom IOPS, select the maximum value. |
-    | Throughput | Enter the maximum bandwidth limit. This option is available only for the `sdp` profile. Its maximum value is 1024 MBps.|
-    | **Encryption** | Inherited from the snapshot.|
-    {: caption="Create volume options." caption-side="bottom"}
+     When you refresh the list of Block Storage volumes in the console, the new volume appears at the beginning of the list of volumes. For stand-alone volumes, the Attachment Type column is blank (-). The **Actions** menu ![Actions icon](../icons/action-menu-icon.svg "Actions") at the end of a table row provides a link for [attaching a Block Storage volume to an instance](/docs/vpc?topic=vpc-attaching-block-storage).
 
-6. When finished, click **Save**. The new volume is created.
+   - If you chose the **Attach new volume to an existing virtual server** option, you are taken to the Virtual server for VPC provisioning page. The snapshot is preselected for you, if it's s bootable snapshots, its data is used to create the boot volume. If it's a nonbootable snapshot, its data is used to create a data volume. You have to complete the rest of the instance details as described in [Creating a virtual server instance with the UI](/docs/vpc?topic=vpc-creating-virtual-servers&interface=ui).
 
 ### Creating a volume from the snapshot details page in the console
 {: #snapshots-vpc-restore-vol-details-ui}
@@ -129,8 +134,11 @@ Follow these steps to create a volume from the snapshot details page in the cons
 2. On the {{site.data.keyword.block_storage_is_short}} volume details page, select the **Snapshots and Backups** tab. A list of snapshots that were created manually or by backup policies is shown.
 3. From the list, click the snapshot name to go to its details page.
 4. From the **Actions** menu ![Actions icon](../icons/action-menu-icon.svg "Actions"), select **Create volume**.
-5. Define the new volume in the side panel. The information that you need to provide is the same as when you create a volume from the [list of snapshots](#snapshots-vpc-restore-snaphot-list-ui).
-6. When you're finished, click **Save**. The new volume is created.
+5. The snapshot's details are displayed in the Create a volume from snapshot sidepanel. Select one of the three options:
+   - **Do not attach**- By selecting this option, you start to create a stand-alone volume
+   - **Attach new volume to an existing virtual server** - By choosing this option, you create a volume and select an existing server to attach it, too.
+   - **Attach new volume to a new virtual server** - By choosing this option, you create a volume and a new virtual server instance at the same time.
+6. After the selection is made, click **Configure volume**. The configuration steps are the same as when you create a volume from the [list of snapshots](#configure-volume).
 
 ### Creating volumes for a virtual server instance from a consistency group
 {: #snapshots-vpc-restore-cr-details-ui}

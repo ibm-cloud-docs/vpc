@@ -173,7 +173,6 @@ Listing file share profiles in region us-south under account Test Account as use
 Name   Family                Allowed Access Protocols   Allowed transit encryption modes   Availability Modes   Bandwidth(Mbps)
 dp2    defined_performance   nfs4                       none,ipsec                         zonal                -
 rfs    defined_performance   nfs4                       none,stunnel                       regional             1
-
 ```
 {: screen}
 

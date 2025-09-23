@@ -2,7 +2,7 @@
 
 copyright:
   years: 2021, 2025
-lastupdated: "2025-08-25"
+lastupdated: "2025-09-23"
 
 keywords: Block Storage, virtual private cloud, boot volume, data volume, volume, data storage, virtual server instance, bandwidth
 
@@ -23,15 +23,7 @@ Instance bandwidth is distributed between networking and storage resources. The 
 
 When you provision an instance, bandwidth is allocated between storage volumes (boot volume and attached data volumes) and networking. The maximum bandwidth capacity is determined by the instance profile that you select during instance provisioning. For example, a bx2-2x8 balanced server profile allows a total instance bandwidth of 4 Gbps (4,000 Mbps), while a cx3d-8x20 compute profile has an instance bandwidth cap of 16 Gbps (16,000 Mbps).
 
-The initial storage and network bandwidth allocation depends on the instance profile that you selected, and you can also specify its value when you provision the instance with the API. If you do not specify the initial volume and network bandwidth allocation, then 25% of total instance bandwidth is allocated to volume bandwidth and 75% is allocated to network bandwidth.
-
-For example, with the bx2-2x8 profile you might have the following allocations.
-   - Volumes: 1 Gbps.
-   - Network: 3 Gbps.
-
-For the cx3d-8x20 profile, you might have the following allocations.
-   - Volumes: 4 Gbps.
-   - Network: 12 Gbps.
+If you do not specify the initial volume and network bandwidth allocation, then 25% of total instance bandwidth is allocated to volume bandwidth and 75% is allocated to network bandwidth.
 
 You can adjust the storage-networking bandwidth ratio to be more favorable to storage volumes [in the console](/docs/vpc?topic=vpc-managing-virtual-server-instances&interface=ui#adjusting-bandwidth-allocation-ui){: ui}[from the CLI](/docs/vpc?topic=vpc-managing-virtual-server-instances&interface=cli#adjusting-bandwidth-allocation-cli){: cli}[with the API](/docs/vpc?topic=vpc-managing-virtual-server-instances&interface=api#adjusting-bandwidth-allocation-api){: api}, but both volume and network bandwidth must be at least 500 Mbps each.
 

@@ -2,7 +2,7 @@
 
 copyright:
   years: 2019, 2025
-lastupdated: "2025-09-18"
+lastupdated: "2025-09-23"
 
 keywords: volume, capacity, Block Storage
 
@@ -49,7 +49,7 @@ Review the following checklist items and record your answers. Provide this infor
     >*"For secondary volumes, I expect to create 50% of the secondary volumes at less than 250 GB within 30 days and secondary volumes greater than 250 GB within 60 days."*
 
 - **Which volume profiles are used: general-purpose, 5iops-tier, 10iops-tier, custom, or sdp?**
-    >*"As an allow-listed customer, we request the capacity increase for `sdp` volumes."*
+    >*We request the capacity increase for `sdp` volumes.*
 
 Respond promptly to all questions and statements in your request. They're necessary for processing and approval. If some things are unclear, the support team contacts you to clarify your answers. 
 {: important}

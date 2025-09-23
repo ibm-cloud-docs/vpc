@@ -15,7 +15,7 @@ subcollection: vpc
 # Increasing capacity of a {{site.data.keyword.block_storage_is_short}} boot volume
 {: #resize-boot-volumes}
 
-You can increase the capacity in of your boot volumes during and after instance provisioning in the console, from the CLI, with the API, or Terraform. For first-generation boot volumes, you can increase the capacity from the default 100 GB up to 250 GB when the volumes are attached to a running virtual server instance. Customers with special access to preview the `sdp` profile can expand their second-generation boot volumes even if the volumes are not attached to a running instance. The maximum capacity of a second-generation volume is 32,000 GB. The steps for increasing the capacity are the same for all volume profiles.
+You can increase the capacity in of your boot volumes during and after instance provisioning in the console, from the CLI, with the API, or Terraform. For first-generation boot volumes, you can increase the capacity from the default 100 GB up to 250 GB when the volumes are attached to a running virtual server instance. The capacity of second-generation boot volumes can be increased even if the volumes are not attached to a running instance. The maximum capacity of a second-generation volume is 32,000 GB. The steps for increasing the capacity are the same for all volume profiles.
 {: shortdesc}
 
 When the boot volume capacity is increased over 250 GB, you can no longer create a custom image from that volume, or use it to start another instance.
@@ -168,8 +168,7 @@ Tags                                   -
 ```
 {: screen}
 
-Customers with special access to volume profiles within the defined performance family can expand their `sdp` volumes to the maximum capacity of 32,000 GB. It's important to remember that if the capacity of a boot volume is increased over 250 GB, you can no longer create a custom image from it. A boot volume that exceeds 250 GB can't be used to initialize a virtual server either.
-{: preview}
+Your second-generation boot volume that's based on the `sdp` profile can be expanded up to 32,000 GB. It's important to remember that if the capacity of a boot volume is increased over 250 GB, you can no longer create a custom image from it. A boot volume that exceeds 250 GB can't be used to initialize a virtual server either.
 
 ## Increase boot volume capacity with the API
 {: #increase-vpc-volumes-api}
@@ -222,8 +221,7 @@ curl -X PATCH "$vpc_api_endpoint/v1/volumes/$volume_id/?version=2022-02-12&gener
 ```
 {: codeblock}
 
-Customers with special access to volume profiles within the defined performance family can expand their `sdp` volumes to the maximum capacity of 32,000 GB. It's important to remember that if the capacity of a boot volume is increased over 250 GB, you can no longer create a custom image from it. A boot volume that exceeds 250 GB can't be used to initialize a virtual server either
-{: preview}
+Your second-generation boot volume that's based on the `sdp` profile can be expanded up to 32,000 GB. It's important to remember that if the capacity of a boot volume is increased over 250 GB, you can no longer create a custom image from it. A boot volume that exceeds 250 GB can't be used to initialize a virtual server either.
 
 ## Increasing the capacity of an existing boot volume with Terraform
 {: #expand-existing-boot-vol-terraform}
@@ -240,6 +238,8 @@ resource "ibm_is_volume" "boot-volume-example" {
 }
 ```
 {: codeblock}
+
+Your second-generation boot volume that's based on the `sdp` profile can be expanded up to 32,000 GB. However, a boot volume that exceeds 250 GB can no longer be used to create a custom image or boot another virtual server instance.
 
 For more information about the arguments and attributes, see [ibm_is_volume](https://registry.terraform.io/providers/IBM-Cloud/ibm/latest/docs/resources/is_volume){: external}.
 

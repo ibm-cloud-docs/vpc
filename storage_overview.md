@@ -29,7 +29,7 @@ Pay for only the capacity that you need. You can start with a smaller volume, an
 
 You can specify your own performance limits, and adjust them later if your requirements change. You can adjust IOPS up or down, for greater performance or when you want to reduce costs.
 
-   * [Select availability]{: tag-green}The second-generation volume profile, sdp provides the most flexibility, as you can specify your capacity, IOPS, and throughput maximum values. You can create boot and data volumes with maximum storage capacity of 32,000 GB, a performance level of 64,000 IOPS, and maximum througput of 1024 MBps. The capacity, IOPS, and throughput values of volumes that are created with the `sdp` profile can be modified even when the volume is not attached to a virtual server instance. The `sdp` profile is available in the Dallas, Frankfurt, London, Madrid, Osaka, Sao Paulo, Sydney, Tokyo, Toronto, and Washington, DC region for allow-listed customers.
+   * The second-generation volume profile, sdp provides the most flexibility, as you can specify your capacity, IOPS, and throughput maximum values. You can create boot and data volumes with maximum storage capacity of 32,000 GB, a performance level of 64,000 IOPS, and maximum througput of 1024 MBps. The capacity, IOPS, and throughput values of volumes that are created with the `sdp` profile can be modified even when the volume is not attached to a virtual server instance. The `sdp` profile is available in the Dallas, Frankfurt, London, Madrid, Osaka, Sao Paulo, Sydney, Tokyo, Toronto, and Washington, DC region.
 
    * You can create first-generation block storage volumes with maximum storage capacity of 16,000 GB, a performance level of 48,000 IOPS, and maximum througput of 1024 MBps. You can create a first-generation volume with a predefined IOPS tier profile (3, 5, or 10 IOPS per GB) that best meets your storage requirements. Or you can choose the custom profile and specify your performance. IOPS per volume ranges from 100 IOPS to 48,000 IOPS, based on volume size.
    
@@ -39,15 +39,16 @@ The following table provides a comparison between the different generations of b
 
 | Features            | First-generation volumes | Second-generation volumes |
 |---------------------|--------------------------|---------------------------|
-| Availability        | Generally available in all VPC regions for all customers. | In the [Select availability]{: tag-green} release, available in most MZRs, except Montreal, for allow-listed customers.|
+| Availability        | Generally available in all VPC regions for all customers. | Available in most MZRs, except Montreal.|
 | Expandable capacity | Yes, up to 16,000 GB     | Yes, up to 32,000 GB |
 | Adjustable IOPS     | Yes, up to 48,000. IOPS depends on capacity range. | Yes, up to 64,000.| 
 | Adjustable Bandwidth| No. Bandwidth can be increased by increasing capacity and IOPS. The maximum is 1024 MBps.| Yes, bandwidth can be adjusted to any value between 125 and 1024 MBps.|
 | Customer-managed encryption at rest | Yes. | Yes.|
-| Importing encrypted custom image for boot volumes |  Yes.  | Not supported in the [Select availability]{: tag-green} release.|
-| Creating encrypted custom image from boot volume | Yes. | Not supported in the [Select availability]{: tag-green} release.|
-| On-demand snapshots | Yes, up to 750 snapshots per region. | Yes, up to 512 snapshots per region in the [Select availability]{: tag-green} release. |
-| Scheduled snapshots | Yes, up to 750 snapshots per region. | Yes, up to 512 snapshots per region in the [Select availability]{: tag-green} release.|
+| Importing encrypted custom image for boot volumes |  Yes.  | Not supported yet.|
+| Creating encrypted custom image from boot volume | Yes. | Not supported yet.|
+| On-demand snapshots | Yes, up to 750 snapshots per region. | Yes, up to 512 snapshots per region.|
+| Scheduled snapshots | Yes, up to 750 snapshots per region. | Yes, up to 512 snapshots per region.|
+| Secure boot supported | Yes. | Not supported yet. |
 {: caption="Block Storage volume generations comparison." caption-side="bottom"}
 
 For more information about this service, see [About {{site.data.keyword.block_storage_is_short}}](/docs/vpc?topic=vpc-block-storage-about).
@@ -67,19 +68,18 @@ Snapshots are independent of the source block storage volumes. You can delete th
 
 You can create a snapshot consistency group that contains snapshots of multiple Block Storage volumes that are attached to the same virtual server instance. You can include or exclude boot volumes. The snapshot consistency group has its own lifecycle, and it keeps references to the member snapshots. So if a member snapshot is deleted or renamed, the consistency group is also updated.
 
-Customers with special access to preview the `sdp` profile can create snapshots of their second-generation block volumes in Dallas, Frankfurt, London, Madrid, Osaka, Sao Paulo, Sydney, Tokyo, Toronto, and Washington, DC. In this release, you can create up to 512 snapshots of these volumes. You can even create snapshots when the volumes are unattached.
-{: preview}
+Second-generation snapshots are available in Dallas, Frankfurt, London, Madrid, Osaka, Sao Paulo, Sydney, Tokyo, Toronto, and Washington, DC. In this release, you can create up to 512 snapshots of these volumes. You can even create snapshots when the volumes are unattached.
 
-You can use your snapshots to create other second-generation volumes in the same region. You can't use your second-generation snapshot to create a volume with a first-generation volume profile. Similarly, you can't use first-generation volume's snapshot to create a volume with the `sdp` profile. Cross-regional copy of a second-generation snapshot is supported with limitations. You can't create a copy in another region if your snapshot is encrypted with a customer-managed key or if the snapshot's source volume exceeds 10 TB. Consistency group snapshots of multiple `sdp` volumes and fast restore snapshots are not supported either.
+You can use your snapshots to create other second-generation volumes in the same region. You can't use your second-generation snapshot to create a volume with a first-generation volume profile. Similarly, you can't use first-generation volume's snapshot to create a volume with the `sdp` profile. Cross-regional copy of a second-generation snapshot is supported with limitations. You can't create a copy in another region if the snapshot's source volume exceeds 10 TB. Consistency group snapshots of multiple `sdp` volumes are not supported.
 
 | Features            | First-generation snapshots | Second-generation snapshots |
 |---------------------|----------------------------|-----------------------------|
-| Availability        | Generally available in all VPC regions for all customers. | In the [Select availability]{: tag-green} release, available, for allow-listed customers.|
-| On-demand snapshots | Yes, up to 750 snapshots per region. | Yes, up to 512 snapshots per region in the [Select availability]{: tag-green} release. |
-| Scheduled snapshots | Yes, up to 750 snapshots per region. | Yes, up to 512 snapshots per region in the [Select availability]{: tag-green} release. |
-| Fast restore clones | Yes. You can cache a copy of your snapshot in any zone of the region. | Not supported in the [Select availability]{: tag-green} release. |
-| Cross-regional copy | Yes, one cross-regional clone per snapshot per region | In the [Select availability]{: tag-green} release, the feature is available in most regions, except Montreal. You can create one cross-regional copy per snapshot per region.|
-| Consistency group   | Multi-volume snapshots are supported. | Not supported in the [Select availability]{: tag-green} release. |
+| Availability        | Generally available in all VPC regions for all customers. | Available in most regions, except Montreal.|
+| On-demand snapshots | Yes, up to 750 snapshots per region. | Yes, up to 512 snapshots per region.|
+| Scheduled snapshots | Yes, up to 750 snapshots per region. | Yes, up to 512 snapshots per region. |
+| Fast restore clones | Yes. You can cache a copy of your snapshot in any zone of the region. |Yes, the feature is available in most regions, except Montreal. You can cache a copy of your snapshot in any zone of the region. |
+| Cross-regional copy | Yes, one cross-regional clone per snapshot per region | The feature is available in most regions, except Montreal. You can create one cross-regional copy per snapshot per region.|
+| Consistency group   | Multi-volume snapshots are supported. | Not supported in the current release. |
 {: caption="Block Storage snapshot generations comparison." caption-side="bottom"}
 
 First- and second-generation volume profiles are not interchangeable. You can't create a second-generation block volume with a snapshot that was taken of a first-generation volume. You can't use the snapshot with a second-generation volume profile to create a first-generation volume.
@@ -161,9 +161,6 @@ The {{site.data.keyword.cloud}} provides the means to create backup copies of yo
 The user-defined tags can be added to block storage volumes, file shares, and virtual server instances. When tags match, the backup policy is applied to the resources, and backup copies of the data are created based on the backup plan. You can set your own retention schedule to automatically delete older backups. This way, you can control how much space is used and how long backups are retained. By using Backup for VPC service, you can prevent data loss, manage risk, and improve data compliance.
 
 Backup jobs that create or delete backup snapshots run according to the backup plan and the retention policy. You can view the status of the backup jobs in the console, from the CLI, with the API, or Terraform. If a job fails, the health status code shows the reason for the failure. You can also set up a connection to {{site.data.keyword.en_short}} and receive notifications to your preferred destinations.
-
-Customers with special access to preview the `sdp` profile and create second-generation snapshots can use the Backup service to automate the creation of the snapshots and manage their lifecycle.
-{: preview}
 
 For more information, see [About Backup for VPC](/docs/vpc?topic=vpc-backup-service-about).
 

@@ -2,7 +2,7 @@
 
 copyright:
   years: 2021, 2025
-lastupdated: "2025-08-06"
+lastupdated: "2025-09-23"
 
 keywords:
 
@@ -21,7 +21,7 @@ content-type: troubleshoot
 A fully restored volume was not created from the snapshot. The API health status shows `degraded`, with the health reason `initializing_from_snapshot` and a message indicates that initializing from the snapshot failed.
 {: tsSymptoms}
 
-Some or all of the data wasn't downloaded from {{site.data.keyword.cos_short}} to the volume that's being created. Data blocks were not written.
+Some or all of the data wasn't downloaded from the regional storage repository to the volume that's being created. Data blocks were not written.
 {: tsCauses}
 
 Contact IBM support to determine the root cause of the failure and resolve the problem.

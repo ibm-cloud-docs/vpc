@@ -2,7 +2,7 @@
 
 copyright:
   years: 2019, 2025
-lastupdated: "2025-09-08"
+lastupdated: "2025-09-23"
 
 keywords: Block Storage, IBM Cloud, VPC, virtual private cloud, Key Protect, encryption, key management, Hyper Protect Crypto Services, HPCS, volume, data storage, virtual server instance, instance, customer-managed encryption, Block Storage for vpc, customer-managed encryption,
 
@@ -50,7 +50,7 @@ This procedure explains how to specify customer-managed encryption when you crea
     - Import from snapshot: select **Import existing snapshot** to see the list of available snapshots, or **Import snapshot by CRN** and provide the CRN of the snapshot that you want to use. You can create data volumes with Nonbootable snapshots, and boot volumes with Bootable snapshots. The new block storage volume inherits its storage generation value from the snapshot and only volume profiles of the same generation can be applied to it.
     - Apply backup policy: click **Apply** to see available policies and plans.
 1. In the **Profile** section, you can specify the performance profile of your volume, its IOPS, and capacity.
-    - [Select availability]{: tag-green} As an allow-listed customer, you can select the [`sdp` profile](/docs/vpc?topic=vpc-block-storage-profiles#defined-performance-profile). Then, specify the capacity of your volume and the required IOPS. Volume size can range from 1 - 32,000 GB. You can specify IOPS in the range of 100 - 64,000. You can also specify a custom throughput limit.
+    - You can select the [`sdp` profile](/docs/vpc?topic=vpc-block-storage-profiles#defined-performance-profile). Then, specify the capacity of your volume and the required IOPS. Volume size can range from 1 - 32,000 GB. You can specify IOPS in the range of 100 - 64,000. You can also specify a custom throughput limit.
     - You can select one of the [_tiered_ profiles](/docs/vpc?topic=vpc-block-storage-profiles&interface=ui#tiers). After you select _general-purpose_, _5iops-tier_, or _10iops-tier_, the next step is to specify the volume capacity. Volume sizes can be 10 - 16,000 GB. 
     - You can select the _custom_ profile if your application performance requirements don't fall within any of the IOPS tiers. Then, specify the size of your volume and the IOPS in the appropriate range for the volume capacity. Volume sizes can be 10 - 16,000 GB. As you type the IOPS value, the UI shows the acceptable range. You can also click the **storage size** link to see the size and IOPS ranges of the [custom volume profile](/docs/vpc?topic=vpc-block-storage-profiles#custom).
 1. In the **Encryption at rest** section, you can choose to keep the encryption with IBM-managed keys that is enabled by default on all volumes. Or you can choose to use [your own encryption key](/docs/vpc?topic=vpc-block-storage-vpc-encryption) by selecting your key management service: {{site.data.keyword.keymanagementserviceshort}} or {{site.data.keyword.hscrypto}}. To locate your encryption key, select one of the following options:

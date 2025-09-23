@@ -2,7 +2,7 @@
 
 copyright:
   years: 2019, 2025
-lastupdated: "2025-09-02"
+lastupdated: "2025-09-23"
 
 keywords:
 
@@ -23,18 +23,20 @@ Choosing the optimal Block Storage volume size and performance level for your wo
 
 {{site.data.keyword.block_storage_is_short}} offers a range of storage capacities to meet your requirements.
 
-[Select availability]{: tag-green} As an allow-listed customer with special access, you can provision second-generation data volumes up to 32,000 GB. You can also increase a second-generation boot volume's capacity to 32,000 GB after its initial creation.
+When you choose the second-generation `sdp` profile, you can provision second-generation data volumes up to 32,000 GB. You can also increase a second-generation boot volume's capacity to 32,000 GB after its initial creation.
 
-Based on the first-generation [storage profile](/docs/vpc?topic=vpc-block-storage-profiles#tiers) that you chose for your data volume, you can specify 10-16,000 GB of capacity in 1 GB increments. Boot volumes are 100 GB by default. If you provision an instance from a custom image, you can specify a boot volume capacity up to 250 GB. 
+When you select a first-generation [storage profile](/docs/vpc?topic=vpc-block-storage-profiles#tiers), you can specify 10-16,000 GB of capacity in 1 GB increments. Boot volumes are 100 GB by default. If you provision an instance from a custom image, you can specify a boot volume capacity up to 250 GB.
 
 ## Block Storage volume profiles
 {: #iops-profiles}
 
 When you provision {{site.data.keyword.block_storage_is_short}} volumes, you specify a [volume profile](/docs/vpc?topic=vpc-block-storage-profiles) that best meets your storage requirements.
 
-Three predefined tiered profiles are available, or you can choose a custom profile. [Profiles in the tiered family](/docs/vpc?topic=vpc-block-storage-profiles#tiers) provide pre-defined IOPS/GB performance for volumes up to 16,000 GB capacity. A [Custom](/docs/vpc?topic=vpc-block-storage-profiles#custom) profile defines ranges of volume capacity and IOPS that you can select. These profiles are backed by solid-state drives (SSDs).
+You can provision volumes with the [SSD defined performance profile](/docs/vpc?topic=vpc-block-storage-profiles#defined-performance-profile) with custom IOPS in the range of 3000 - 64,000 IOPS. An IOPS level of over 48,000 can be achieved when the new volume is attached to a virtual server instance with a [3rd generation instance profile](/docs/vpc?topic=vpc-profiles&interface=ui#next-gen-profiles). In addition to custom capacity and IOPS, you can also specify a custom throughput limit for a second-generation volume. The provisioned bandwidth limit can be set anywhere in the range of 125-1024 MBps (1000-8192 Mbps).
 
-[Select availability]{: tag-green} As an allow-listed customer, you can provision volumes with the [SSD defined performance profile](/docs/vpc?topic=vpc-block-storage-profiles#defined-performance-profile) with custom IOPS in the range of 3000 - 64,000 IOPS. An IOPS level of over 48,000 can be achieved when the new volume is attached to a virtual server instance with a [3rd generation instance profile](/docs/vpc?topic=vpc-profiles&interface=ui#next-gen-profiles). In addition to custom capacity and IOPS, you can also specify a custom throughput limit for a second-generation volume. The provisioned bandwidth limit can be set anywhere in the range of 125-1024 MBps (1000-8192 Mbps). 
+In the first-generation volume profiles, three predefined tiered profiles are available, or you can choose a custom profile. [Profiles in the tiered family](/docs/vpc?topic=vpc-block-storage-profiles#tiers) provide pre-defined IOPS/GB performance for volumes up to 16,000 GB capacity. A [Custom](/docs/vpc?topic=vpc-block-storage-profiles#custom) profile defines ranges of volume capacity and IOPS that you can select. 
+
+All of these profiles are backed by solid-state drives (SSDs).
 
 ## How volume bandwidth is allocated
 {: #cp-storage-bandwidth-allocate}
@@ -77,4 +79,3 @@ The following example shows how throughput decreases for smaller average I/O siz
 If you want to improve the performance of your storage volume without changing the IO size, you can adjust the IOPS value. Increasing the IOPS value might require increasing the capacity of your volume, too. For more information, see [Adjusting IOPS of a block storage volume](/docs/vpc?topic=vpc-adjusting-volume-iops&interface=ui). You can't adjust the throughput limit of a first-generation volume directly.
 
 Second-generation volumes: Understanding the relationship between the IO size, IOPS, and Throughput is especially important when you create a second-generation volume or adjust its IOPS and Throughput values. The IOPS value that you set is based on an assumed IO size of 16 KB. The preset throughput value is calculated by multiplying the specified IOPS value with the preset 16 KB IO size. If your application uses an IO size that is bigger than 16 KB, you might not be able to achieve the maximum IOPS value due to reaching the Throughput limit. In such cases, you can increase the Throughput value of the volume to get more IOPS. For more information, see [Adjusting the throughput limit of a Block Storage for VPC volume](/docs/vpc?topic=vpc-adjusting-volume-throughput)
-{: preview}

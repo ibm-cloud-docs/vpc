@@ -2,7 +2,7 @@
 
 copyright:
   years: 2022, 2025
-lastupdated: "2025-09-18"
+lastupdated: "2025-09-23"
 
 keywords: snapshots, Block Storage, volumes, cross-regional snapshot, restore volume, copy snapshot
 
@@ -18,8 +18,7 @@ subcollection: vpc
 {{site.data.keyword.block_storage_is_short}} snapshot is a regional offering that is used to create a point-in-time copy of your boot or data volume. The initial snapshot that you take is a full backup of the volume. Subsequent snapshots of the same volume are incremental, so they capture only the changes that occurred after the last snapshot was taken. You can restore data to a new volume during instance provisioning, from an existing instance, and when you create an unattached volume.
 {: shortdesc}
 
-As a customer with special access to preview the new defined performance profile, you can provision second-generation storage volumes with the `sdp` profile and create snapshots of these volumes. The snapshots feature is available in Dallas (`us-south`), Frankfurt (`eu-de`), London (`eu-gb`), Madrid (`eu-es`), Osaka (`js-osa`), Sao Paulo (`br-sao`), Sydney (`au-syd`), Tokyo (`jp-tok`), Toronto (`ca-tor`), and Washington (`us-east`) regions.
-{: preview} 
+In the current release of second-generation block volumes, snapshots are available in Dallas (`us-south`), Frankfurt (`eu-de`), London (`eu-gb`), Madrid (`eu-es`), Osaka (`js-osa`), Sao Paulo (`br-sao`), Sydney (`au-syd`), Tokyo (`jp-tok`), Toronto (`ca-tor`), and Washington (`us-east`) regions.
 
 ## Snapshots concepts
 {: #snapshots-vpc-concepts}
@@ -135,7 +134,7 @@ The following limitations apply for the second-generation block storage snapshot
 * When you use second-generation block storage, you can take up to 512 snapshots.
 * You can't take a snapshot of a volume in a [degraded state](/docs/vpc?topic=vpc-block-storage-vpc-monitoring#block-storage-vpc-health-states).
 * You can't create a copy of a snapshot in the source (local) region.
-* Cross-regional copies are not supported in any region for snapshots of volumes that exceed 10 TB or that are protected by customer-managed encryption keys.
+* Cross-regional copies are not supported in any region for snapshots of volumes that exceed 10 TB.
 * You can delete any snapshot that you take. However, snapshots must be in a `stable` or `pending` state and not actively restoring a volume.
 * You can delete a {{site.data.keyword.block_storage_is_short}} volume and all its snapshots. All snapshots must be in a `stable` or `pending` state. No snapshot can be actively restoring a volume.
 * Consistency-group snapshots are not supported.

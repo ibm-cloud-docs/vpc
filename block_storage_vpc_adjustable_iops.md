@@ -2,7 +2,7 @@
 
 copyright:
   years: 2021, 2025
-lastupdated: "2025-09-18"
+lastupdated: "2025-09-23"
 
 keywords: Block Storage for VPC, boot volume, data volume, volume, data storage, virtual server instance, instance, adjustable volume, iops
 
@@ -30,7 +30,7 @@ With this feature, you can:
 
 The degree to which IOPS can be increased is determined by the maximum that is allowed by the volume's profile.
 
-- [SSD defined performance profile](/docs/vpc?topic=vpc-block-storage-profiles#defined-performance-profile): [Select availability]{: tag-green} Customers with special access to volume profiles within the defined performance family can modify the performance level of their `sdp` volumes even if the volumes are not attached to a running virtual server instance. You can specify volume performance in the range of 100 - 64,000 IOPS without capacity-based restrictions. The steps for modifying IOPS are the same as for the custom profile.
+- [SSD defined performance profile](/docs/vpc?topic=vpc-block-storage-profiles#defined-performance-profile): You can specify volume performance in the range of 100 - 64,000 IOPS without capacity-based restrictions. The steps for modifying IOPS are the same as for the custom profile. You can modify the performance level of your second-generation volumes when they are attached to a virtual server or when they are stored stand-alone.
 
 - [Tiered profiles](/docs/vpc?topic=vpc-block-storage-profiles#tiers): you can adjust IOPS for an IOPS tier based on volume size or select the next profile that allows for increased performance. The volume must be attached to a running virtual server instance.
 
@@ -79,7 +79,7 @@ Follow these steps to adjust IOPS by selecting a new IOPS tier or custom IOPS ba
 
 1. On the volume details page, locate **Profile** and click the **Edit icon** ![Edit icon](../icons/edit-tagging.svg "Edit") or use the **Actions** menu ![Actions icon](../icons/action-menu-icon.svg "Actions"), and select **Edit IOPS profile**. Volumes must be attached to a virtual server instance for these actions.
 1. In the side panel, adjust IOPS as follows:
-   * For customers with special access to preview the defined performance profile, you can specify volume performance in the range of 100 - 64,000 IOPS without capacity-based restrictions.
+   * For the defined performance profile, you can specify volume performance in the range of 100 - 64,000 IOPS without capacity-based restrictions.
    * For an IOPS tier, select a different tier from the menu. For example, you might have a 3 IOPS/GB general-purpose profile you're increasing to a 5 IOPS/GB profile.
    * For a Custom IOPS, the current IOPS value is shown and volume size. Enter a new IOPS value in the range specified for that custom band.
 

@@ -2,7 +2,7 @@
 
 copyright:
   years: 2019, 2025
-lastupdated: "2025-09-08"
+lastupdated: "2025-09-23"
 
 keywords:
 
@@ -175,20 +175,16 @@ ibmcloud is volumes
 {: pre}
 
 ```sh
-Listing volumes in all resource groups and region us-east under account Test Account as user test.user@ibm.com...
+Listing volumes in all resource groups and region us-south under account Test Account as user test.user@ibm.com...
 
-ID                                          Name                                      Status      Capacity   IOPS   Profile           Attachment state   Attachment type   Zone        Resource group
-r014-0a7c28f3-3612-46e6-b874-51136c7f1def   concurrent-vol-09afy4vz700                unusable    20         3000   general-purpose   unattached         -                 us-east-1   defaults
-r014-faefcc1d-f899-4688-ae97-67e5079da702   concurrent-vol-1s26tgtqg70                unusable    20         3000   general-purpose   unattached         -                 us-east-1   defaults
-r014-f0e809bf-9afb-4006-b2a8-274f81f0f34e   concurrent-vol-8xif5f1tid0                unusable    20         3000   general-purpose   unattached         -                 us-east-1   defaults
-r014-b8e23307-e93e-4f7b-918f-7b2c2b14b132   concurrent-vol-gpwucqfpni0                available   20         3000   general-purpose   attached           data              us-east-1   defaults
-r014-a64beeee-be50-4c03-8cee-639106cea1e2   concurrent-vol-mh16478vln0                available   20         3000   general-purpose   attached           data              us-east-1   defaults
-r014-f14f8d39-2cf3-4f5d-b366-1d234f1c74aa   concurrent-vol-n7fcoxmb860                available   20         3000   general-purpose   attached           data              us-east-1   defaults
-r014-84ff8138-4f4f-434b-bdc3-45d1aaaa4329   csi-boot-vol-pgb1-oqpm7een                available   100        3000   general-purpose   attached           boot              us-east-1   Default
-r014-a1f6b311-6e4b-4e27-a216-a0b602471268   csi-boot-vol-qgbi-h76dy77d                available   100        3000   general-purpose   attached           boot              us-east-1   Default
-r014-158e904d-0d48-4090-b6c1-57617c1fcc20   csi-boot-vol-txmz-54wzen5m                available   100        3000   general-purpose   attached           boot              us-east-1   Default
-r014-dee9736d-08ee-4992-ba8d-3b64a4f0baac   demo-volume-update                        available   100        3000   general-purpose   attached           data              us-east-1   defaults
-r014-eef16365-17e3-4627-bc8b-c7c3dd1d6a81   test-ro-boot-1629867631000                available   100        3000   general-purpose   attached           boot              us-east-1   defaults
+ID                                          Name                                            Status      Capacity   IOPS    Profile           Attachment state   Attachment type   Zone         Resource group   Catalog Offering Version   Catalog Offering Plan   Storage Generation   
+r006-1dad641f-3a17-4117-8bb6-e30e09e64dff   my-2nd-data-volume                              available   9600       48000   5iops-tier        unattached         -                 us-south-2   Default          -                          -                       1   
+r006-f336511e-ece5-4407-9c8e-ef030c94aaa0   my-3rd-data-volume                              available   4800       48000   10iops-tier       unattached         -                 us-south-2   Default          -                          -                       1   
+r006-45ca6ddd-9942-4dd2-9ae9-d3edcb9fa076   my-data-volume-1                                available   300        3000    5iops-tier        unattached         -                 us-south-2   Default          -                          -                       1   
+r006-6a1ac889-d232-4beb-84dd-93c63cf9a156   my-data-volume-2                                available   300        3000    5iops-tier        unattached         -                 us-south-2   Default          -                          -                       1   
+r006-862ddcd3-59a6-4c69-9a10-275c894195b9   my-new-boot-volume                              available   250        3000    general-purpose   unattached         -                 us-south-2   Default          -                          -                       1   
+r006-145fb6c8-8e03-4a9f-bcd7-3bb131d30f05   my-sdp-volume                                   available   250        3000    sdp               attached.          -                 us-south-2   Default          -                          -                       2   
+r006-693f555e-fec7-4afb-b1e3-a16bf8b0d744   my-virtual-server-instance-boot-1756849222000   available   100        3000    general-purpose   attached           boot              us-south-2   Default          -                          -                       1   
 ```
 {: screen}
 
@@ -207,39 +203,37 @@ ibmcloud is volume VOLUME_ID [--json]
 See the following example.
 
 ```sh
-ibmcloud is volume demo-volume-update
+ibmcloud is volume my-sdp-volume
 ```
 {: pre}
 
 ```sh
-Getting volume demo-volume-update under account Test Account as user test.user@ibm.com...
-
-ID                                     r014-dee9736d-08ee-4992-ba8d-3b64a4f0baac
-Name                                   demo-volume-update
-CRN                                    crn:v1:bluemix:public:is:us-east-1:a/a1234567::volume:r014-dee9736d-08ee-4992-ba8d-3b64a4f0baac
+Getting volume my-sdp-volume  under account under account Test Account as user test.user@ibm.com...
+ID                                     r134-145fb6c8-8e03-4a9f-bcd7-3bb131d30f05   
+Name                                   my-sdp-volume   
+CRN                                    crn:v1:staging:public:is:us-south-2:a/a1234567::volume:r134-145fb6c8-8e03-4a9f-bcd7-3bb131d30f05   
 Status                                 available   
 Attachment state                       attached   
-Capacity                               100   
+Capacity                               250   
 IOPS                                   3000   
-Bandwidth(Mbps)                        393   
-Profile                                general-purpose   
+Bandwidth(Mbps)                        1000   
+Profile                                sdp   
 Encryption key                         -   
 Encryption                             provider_managed   
-Resource group                         defaults
-Created                                2023-06-29T16:14:59+00:00
-Zone                                   us-east-1
+Resource group                         Default   
+Created                                2025-06-23T16:35:10+00:00   
+Zone                                   us-south-2   
 Health State                           ok   
 Volume Attachment Instance Reference   Attachment type   Instance ID                                 Instance name                Auto delete   Attachment ID                               Attachment name      
-                                       data              0757_11f5db7f-35a1-4678-bcbd-c85204e09507   test-ro      false         0757-4dfc4384-c4b5-497e-bab3-6415f9c4d44b   otp
+                                       data              0726_6cf2d984-e825-458d-8048-11572b72d040   my-virtual-server-instance   false         0726-beec02ac-7edf-4b59-ab9f-7c004bf4d8fa   outpour-perm-cosmic-gander      
                                           
 Active                                 true   
-
-Adjustable Capacity States             attached   
-Adjustable IOPS States
-Adjustable Bandwidth Supported         false
+Adjustable IOPS                        true   
+Adjustable Capacity States             unattached,attached   
+Adjustable IOPS States                 unattached,attached   
 Busy                                   false   
 Tags                                   -   
-Storage Generation                     1   
+Storage Generation                     2
 ```
 {: screen}
 

@@ -2,7 +2,7 @@
 
 copyright:
   years: 2024, 2025
-lastupdated: "2025-09-16"
+lastupdated: "2025-09-23"
 
 keywords: vsi, virtual server, virtual server instances, profile, profiles, gpu, accelerated, h100, h200, l4, l40s
 
@@ -104,6 +104,11 @@ attached. This limit is based on the size of the instance.
 | gx3d-208x1792x8mi300x | 12          | 15        |
 {: caption="Accelerated AMD family limits for maximum volumes, and maximum network interfaces" caption-side="bottom"}
 
+#### Boot volume profiles
+{: #amd-mi300x-volume-profiles}
+
+In the current release of {{site.data.keyword.block_storage_is_short}} offering, only first-generation volumes from the tiered and custom volume profile families can be used as boot volumes for the MI300X instances.
+
 ## Intel Gaudi 3 instance profiles
 {: #gaudi-3-profiles}
 
@@ -185,6 +190,11 @@ attached. This limit is based on the size of the instance.
 | --------------- | ----------- | --------- |
 | gx3d-160x1792x8gaudi3 | 12          | 15        |
 {: caption="Accelerated Intel family limits for maximum volumes, and maximum network interfaces" caption-side="bottom"}
+
+#### Boot volume profiles
+{: #gaudi-3-volume-profiles}
+
+In the current release of {{site.data.keyword.block_storage_is_short}} offering, only first-generation volumes from the tiered and custom volume profile families can be used as boot volumes for the Intel Gaudi 3 instances.
 
 ## NVIDIA Hopper HGX instance profiles
 {: #hopper-hgx-profiles}
@@ -313,6 +323,11 @@ If you configure an RDMA-enabled cluster network, you must have either 8, 16 or 
 network interfaces available. Having the correct number of cluster network interfaces available helps ensure proper distribution of the network interfaces across the underlying
 physical infrastructure. Most users typically use only 8. The cluster network interfaces can be configured only when the instance is powered off.
 {: note}
+
+#### Boot volume profiles
+{: #hopper-hgx-volume-profiles}
+
+In the current release of {{site.data.keyword.block_storage_is_short}} offering, only first-generation volumes from the tiered and custom volume profile families can be used as boot volumes for the NVIDIA H100/H200 instances.
 
 ## NVIDIA L4 instance profiles
 {: #l4-profiles}

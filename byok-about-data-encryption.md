@@ -2,7 +2,7 @@
 
 copyright:
   years: 2019, 2025
-lastupdated: "2025-09-02"
+lastupdated: "2025-09-23"
 
 keywords:
 
@@ -30,7 +30,15 @@ IBM-managed encryption uses the following industry standard protocols:
 * Keys are managed in-house with Key Management Interoperability Protocol (KMIP).
 * Storage architecture is validated for Federal Information Security Management Act (FISMA), and the Health Insurance Portability and Accountability Act (HIPAA)
 * Storage architecture is also validated for Payment Card Industry (PCI), Basel II, California Security Breach Information Act (SB 1386), and EU Data Protection Directive 95/46/EC compliance.
-* The self-encrypting drives in the Storage architecture are validated for Federal Information Processing Standard (FIPS) Publication 140-2 Level 2. 
+* {{site.data.keyword.cloud}} Block and File Storage for VPC uses self-encrypting drives (SEDs) to help ensure data security and compliance with industry standards. 
+   * For Gen 1 volume and share profiles, all MZRs use SEDs that are validated for Federal Information Processing Standard (FIPS) Publication 140-2 Level 1 or 140-3 Level 1, depending on the software module, meeting federal security standards.
+   * For Gen 2 block volume profiles, such as the `sdp` profile, the storage architecture maintains FIPS 140-3 Level 1 validation across most regions.
+      * When you provision volumes in London MZR (`eu-gb`), the volumes are created on Trusted Computing Group (TCG) OPAL-compliant SED drives. 
+      * The current configuration in Washington, DC MZR (`us-east`) includes a mix of FIPS 140-2 validated and TCG OPAL-compliant drives. During provisioning, the volumes can be created on either type of drive.
+      * When you provision block volumes in any other MZRs, the volumes are created and stored on FIPS 140-3 Level 1 validated SEDs.
+   * For Gen 2 file share profiles, such as the `rfs` profile, the storage architecture maintains FIPS 140-3 Level 1 validation across all MZRs where regional file shares are available.
+
+IBM is committed to maintaining high standards of data protection and regulatory compliance. All storage drives meet recognized security benchmarks, and you can be confident in the robustness of the encryption and data protection mechanisms that are in place across all regions.
 
 ## Customer-managed encryption
 {: #vpc-customer-managed-encryption}

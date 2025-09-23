@@ -2,7 +2,7 @@
 
 copyright:
   years: 2022, 2025
-lastupdated: "2025-09-18"
+lastupdated: "2025-09-23"
 
 keywords: Block Storage, snapshots, cross-regional copy, fast restore, backup, restore volume
 
@@ -44,17 +44,13 @@ A bootable snapshot is a copy of a boot volume. You can use this snapshot to cre
 
 A [fast restore snapshot](/docs/vpc?topic=vpc-snapshots-vpc-restore&interface=ui#snapshots-vpc-use-fast-restore) is a clone of a snapshot that is stored within one or more zones of a VPC region. The original snapshot is stored in the regional storage repository. When you perform a restore, data can be restored faster from a clone than from the snapshot in a regional storage repository.
 
-Fast restore snapshot clones and consistency groups are not supported for second-generation storage volumes during the select availability phase.
-{: preview}
-
 ## What is a cross-regional copy of a snapshot?
 {: faq}
 {: #faq-snapshot-crc}
 
 You can copy a snapshot from one region to another region, and later use that snapshot to restore a volume in the new region. This feature can be used in disaster recovery scenarios when you need to start your virtual server instance and data volumes in a different region. Or you can use the remote copy to create storage volumes in a new region to expand your VPC. For more information, see [Cross-regional snapshot copies](/docs/vpc?topic=vpc-snapshots-vpc-about&interface=ui#snapshots_vpc_crossregion_copy).
 
-In the current release, you can't create cross-regional copies of second-generation snapshots if they are encrypted with customer-managed keys or if the snapshot's source volume exceeds 10 TB.
-{: preview}
+In this release of second-generation storage volumes, you can't create cross-regional copies of snapshots if their source volumes exceed 10 TB.
 
 ## What is the retention policy for cross-regional copies?
 {: faq}
@@ -97,6 +93,12 @@ Snapshots retain the encryption from the original volume, IBM-managed or custome
 Restoring a volume from a snapshot creates an entirely new boot or data volume. The new volume has the same properties of the original volume, including encryption. If you restore from a bootable snapshot, you create a boot volume. Similarly, you can create a data volume from a snapshot of a data volume. The volume that you create from the snapshot uses the same volume profile and contains the same data and metadata as the original volume. You can restore a volume when you provision an instance, update an existing instance, or create a stand-alone volume by using the UI, CLI, or the `volumes` API. For more information, see [Restoring a volume from a snapshot](/docs/vpc?topic=vpc-snapshots-vpc-restore).
 
 For best performance, you can enable snapshots for fast restore. By using the fast restore feature, you can create a volume from a snapshot that is fully provisioned when the volume is created. For more information, see [Snapshots fast restore](/docs/vpc?topic=vpc-snapshots-vpc-about#snapshots_vpc_fast_restore).
+
+## I want to migrate my first-generation volume to the new second-generation profile. Can I use its snapshot to create an `sdp` volume?
+{: faq}
+{: #faq-cross-gen-compatibility}
+
+No. First- and second-generation volume profiles are not interchangeable. You use a snapshot of a first-generation volume to create another first-generation volume with the same data, and switch to another first-generation profile from the `tiered` or `custom` family. However, you can't switch to the `sdp` profile.
 
 ## Is it normal for a volume that I restored from a snapshot to not perform at the expected level?
 {: faq}
@@ -152,8 +154,7 @@ You can use your snapshots and backups to create volumes when an emergency occur
 
 You can copy a snapshot from one region to another region, and later use that snapshot to restore a volume in the new region. Only one copy of the snapshot can exist in each region. You can't create a copy of the snapshot in the source (local) region.
 
-Fast restore snapshot clones and consistency groups are not supported for second-generation storage volumes during the select availability phase.
-{: preview}
+In this release of second-generation storage volumes, cross-regional copies of snapshots of volumes that exceed 10 TB are not supported.
 
 ## What is a consistency group?
 {: faq}

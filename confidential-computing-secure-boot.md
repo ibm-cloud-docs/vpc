@@ -1,7 +1,7 @@
 ---
 copyright:
   years: 2023, 2025
-lastupdated: "2025-07-21"
+lastupdated: "2025-09-23"
 
 keywords: secure boot, secure boot for virtual servers
 
@@ -38,6 +38,8 @@ When you use a custom kernel or a custom kernel module, you must sign it with yo
 
 After the virtual server is stopped and restarted, the MOK disappears. You must reinstall the MOK after every stop and start of a virtual server.
 {: important}
+
+In the current release of {{site.data.keyword.block_storage_is_short}} offering, only first-generation volumes from the tiered and custom volume profile families can be used as boot volumes for the Confidential Computing instances if secure boot is needed. Second-generation boot volumes with the `sdp` profile do not support secure boot.
 
 ## Disabling secure boot requirements
 {: #disabling-secure-boot-vpc}

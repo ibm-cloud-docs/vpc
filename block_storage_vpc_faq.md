@@ -2,7 +2,7 @@
 
 copyright:
   years: 2019, 2025
-lastupdated: "2025-09-18"
+lastupdated: "2025-09-23"
 
 keywords: faqs, Block Storage for vpc, fast restore, multizone, instance, instance provisioning, volume management, volume deletion.
 
@@ -19,31 +19,11 @@ content-type: faq
 The following questions often arise about the {{site.data.keyword.block_storage_is_short}} service. If you have other questions you'd like to see answered here, provide feedback by using the **Open doc issue** or **Edit topic** links.
 {: shortdesc}
 
-## Questions about the defined performance volume profile family
-{: #block-storage-sdp-questions}
-
-Customers with special access can provision storage with the new `sdp` profile. The `sdp` profile is available in the Dallas, Frankfurt, London, Madrid, Osaka, Sao Paulo, Sydney, Tokyo, Toronto, and Washington, DC regions during the select availability release. For more information about this release, see [About {{site.data.keyword.block_storage_is_short}}](/docs/vpc?topic=vpc-block-storage-about#block-storage-sdp-intro).
-{: preview}
-
-## What does Select Availability mean for the defined performance volume family?
+## Where is defined performance volume family available for provisioning?
 {: faq}
 {: #faq-sdp-release}
 
-Customers with special approval to preview the second-generation Block Storage offering can provision block volumes with the new `sdp` profile. The `sdp` profile is available in the Dallas, Frankfurt, London, Madrid, Osaka, Sao Paulo, Sydney, Tokyo, Toronto, and Washington, DC regions during this release. If you're interested in previewing the new offering, contact your assigned Account team representative or Customer Success Manager.
-
-## Which interface can I use to create Block Storage volumes with the `sdp` profile?
-{: faq}
-{: #faq-sdp-interfaces}
-
-Customers with special approval to preview the defined performance volume profile family can provision volumes with the `sdp` profile in the console, from the CLI, with the API, or Terraform.
-
-When you're provisioning in the console, select the `sdp` profile when you provision a virtual server instance or a stand-alone volume. For more information, see [Creating {{site.data.keyword.block_storage_is_short}} volumes in the console](/docs/vpc?topic=vpc-creating-block-storage&interface=ui#creating-block-storage-ui).{: ui}
-
-When you're provisioning from the CLI, you must specify the volume profile as `sdp` in your `volume-create` command. No extra options are needed. For more information, see [creating {{site.data.keyword.block_storage_is_short}} volumes from the CLI](/docs/vpc?topic=vpc-creating-block-storage&interface=cli#creating-block-storage-cli).{: cli}
-
-When you're provisioning with the VPC API, you must specify the volume profile as `sdp` in the `POST /instances` or `POST /volumes` requests. No extra options are needed. For more information, see the [Creating {{site.data.keyword.block_storage_is_short}} volumes with the API](/docs/vpc?topic=vpc-creating-block-storage&interface=api#creating-block-storage-api).{: api}
-
-When you're provisioning with Terraform, use the `ibm_is_volume` resource and specify the `sdp` profile. For more information, see [Creating stand-alone Block Storage for VPC volumes with Terraform](/docs/vpc?topic=vpc-creating-block-storage&interface=terraform#creating-vol-terraform).{: terraform}
+You can provision storage with the `sdp` profile in the Dallas, Frankfurt, London, Madrid, Osaka, Sao Paulo, Sydney, Tokyo, Toronto, and Washington, DC regions. For more information, see [About {{site.data.keyword.block_storage_is_short}}](/docs/vpc?topic=vpc-block-storage-about).
 
 ## What functions are supported in this release of the `sdp` profile?
 {: faq}
@@ -61,6 +41,18 @@ In this release, you can perform the following actions:
 * List Block Storage volumes.
 * Delete Block Storage volumes.
 
+## Can I use `sdp` profile for my boot volume if I want to use secure boot?
+{: #sdp-no-secure-boot}
+
+No. When second-generation boot volumes with the `sdp` profile are used, secure boot is not supported. 
+
+In the current release of {{site.data.keyword.block_storage_is_short}} offering, only first-generation volumes from the tiered and custom volume profile families can be used as boot volumes for virtual server instances that use a profile from one of the following instance profile families:
+- [Accelerated Gen 3](/docs/vpc?topic=vpc-accelerated-profile-family ) - Gaudi, MI-300x, H100/H200 profiles.
+- [General purpose Gen 3](/docs/vpc?topic=vpc-general-purpose-vsi-profiles-gen3-intel) profiles if secure boot option is needed.
+- [Confidential Computing - Gen 3](/docs/vpc?topic=vpc-confidential-computing-vsi-profiles-gen3-x86) profiles if secure boot option is needed.
+
+If you want to provision a virtual server instance with either [Intel Gen 3](/docs/vpc?topic=vpc-general-purpose-vsi-profiles-gen3-intel) or [Confidential Computing](/docs/vpc?topic=vpc-confidential-computing-vsi-profiles-gen3-x86) instance profiles, and an `sdp` boot volume, make sure that you do not enable secure boot.
+
 ## How is my data protected in the `sdp` profile-based storage volume?
 {: faq}
 {: #faq-sdp-encryption}
@@ -77,8 +69,7 @@ No. You can't copy the storage volume to a different zone.
 {: faq}
 {: #faq-sdp-backup}
 
-Customers with special access to preview the defined performance volume profile can create snapshots of their second-generation volumes in Dallas (`us-south`), Frankfurt (`eu-de`), London (`eu-gb`), Madrid (`eu-es`), Osaka (`js-osa`), Sao Paulo (`br-sao`), Sydney (`au-syd`), Tokyo (`jp-tok`), Toronto (`ca-tor`), and Washington (`us-east`) regions. Cross-regional copies are supported in London (`eu-gb`), Osaka (`js-osa`), Sao Paulo (`br-sao`), and Sydney (`au-syd`) with limitations. You can't create a copy in another region if your snapshot is encrypted with a customer-managed key or if the snapshot's source volume exceeds 10 TB. Fast restore clones and consistency group snapshots of multiple `sdp` volumes are not supported.
-
+Yes, with some limitations. You can't create a snapshot copy in another region if the snapshot's source volume exceeds 10 TB. Consistency group snapshots of multiple `sdp` volumes are not supported.
 
 ## How does {{site.data.keyword.block_storage_is_short}} prevent a single point of failure? What mechanism assures data durability?
 {: faq}
@@ -388,7 +379,7 @@ Volume health state defines whether a volume is performing as expected, given it
 {: #faq-block-storage-20}
 {: support}
 
-All {{site.data.keyword.block_storage_is_short}} volumes are encrypted at rest with IBM-managed encryption. IBM-managed keys are generated and securely stored in a {{site.data.keyword.block_storage_is_short}} vault that is backed by Consul and maintained by {{site.data.keyword.cloud}} operations.
+All {{site.data.keyword.block_storage_is_short}} volumes are encrypted at rest with IBM-managed encryption. IBM-managed keys are generated and securely stored in a {{site.data.keyword.block_storage_is_short}} vault that is backed by Consul and maintained by {{site.data.keyword.cloud}} operations. For more information about the industry standard protocols {{site.data.keyword.cloud}} follows for encryption, see [IBM-managed encryption](/docs/vpc?topic=vpc-vpc-encryption-about&interface=ui&q=IBM-managed+encryption&tags=vpc#vpc-provider-managed-encryption).
 
 For more security, you can protect your data by using your own customer root keys (CRKs). You can import your root keys to, or create them in, a supported key management service (KMS). Your root keys are safely managed by the supported KMS, either {{site.data.keyword.keymanagementserviceshort}} (FIPS 140-2 Level 3 compliance) or {{site.data.keyword.hscrypto}}. Both KMS solutions offer the highest level of security (FIPS 140-2 Level 4 compliance). Your key material is protected in transit and at rest.
 

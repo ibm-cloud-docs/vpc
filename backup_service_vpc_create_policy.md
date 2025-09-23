@@ -2,7 +2,7 @@
 
 copyright:
   years: 2022, 2025
-lastupdated: "2025-09-12"
+lastupdated: "2025-09-23"
 
 keywords: Backup, backup snapshot, create backups, backup service, backup plan, backup policy, restore, restore volume, restore data, restore share
 
@@ -339,7 +339,7 @@ Created at            2023-12-05T19:29:35+05:30
 
 Run the `backup-policy-create` command to create a backup policy and a backup plan in the same command.
 
-The following example uses the `--match_tags` option to match tags to volumes with the user tag `dev:test` and specifies the frequency of the backup plan as a `cron-spec` expression. The `--plan-attach-user-tags` option indicates that the backup plan's user tags are to be attached to the backup snapshot. Setting the `--plan-copy-user-tags` option to false indicates that the source volume's user tags are not copied to the backup. The `--plan-delete-after` option indicates the maximum number of days that the backups are to be kept and the `--plan-delete-over-count` option defines the maximum number of recent backups to keep. The `-plan-clone-policy-zones` option specifies that after the backup snapshot is created and stored in {{site.data.keyword.cos_short}} regionally, a full copy of the backup is stored in the `us-south-1` region of the availability zone. The `--plan-clone-policy-max-snapshots` option changes the number of cached backups that are stored in the AZ to 4. The default value is 5.
+The following example uses the `--match_tags` option to match tags to volumes with the user tag `dev:test` and specifies the frequency of the backup plan as a `cron-spec` expression. The `--plan-attach-user-tags` option indicates that the backup plan's user tags are to be attached to the backup snapshot. Setting the `--plan-copy-user-tags` option to false indicates that the source volume's user tags are not copied to the backup. The `--plan-delete-after` option indicates the maximum number of days that the backups are to be kept and the `--plan-delete-over-count` option defines the maximum number of recent backups to keep. The `-plan-clone-policy-zones` option specifies that after the backup snapshot is created and stored in a separate regional storage repository, a full copy of the backup is stored in the `us-south-1` region of the availability zone. The `--plan-clone-policy-max-snapshots` option changes the number of cached backups that are stored in the AZ to 4. The default value is 5.
 
 ```sh
 ibmcloud is backup-policy-create --match-tags dev:test --name my-backup-policy-v2 --plan-name my-plan-b  --plan-attach-tags bkp:test --plan-copy-tags false --plan-delete-after 60 --plan-cron-spec '45 09 * * *' --plan-active --plan-clone-policy-max-snapshots 4 --plan-clone-policy-zones us-south-1,us-south-2 --plan-delete-over-count 2

@@ -2,7 +2,7 @@
 
 copyright:
   years: 2022, 2025
-lastupdated: "2025-09-15"
+lastupdated: "2025-09-23"
 
 keywords: Backup for VPC, backup service, backup plan, backup policy, restore, restore volume, restore data, faqs
 
@@ -89,7 +89,7 @@ Yes. You can create 10 backup policies per account in a region. You can create u
 {: faq}
 {: #faq-baas-restore}
 
-Restoring data from a backup snapshot creates a volume with data from the snapshot. You can restore data from a backup by using the UI, the CLI, or the API. You can restore boot and data volumes during instance creation, when you modify an existing instance, or when you provision a stand-alone volume. When you restore data from a backup snapshot, the data is pulled from an {{site.data.keyword.cos_short}} bucket. For best performance, you can enable backup snapshots for fast restore. By using the fast restore feature, you can restore a volume that is fully provisioned when the volume is created. When you use fast restore, the data is pulled from a cached backup snapshot in a zone of your VPC. For more information, see [About restoring from a backup snapshot](/docs/vpc?topic=vpc-baas-vpc-restore).
+Restoring data from a backup snapshot creates a volume with data from the snapshot. You can restore data from a backup by using the UI, the CLI, or the API. You can restore boot and data volumes during instance creation, when you modify an existing instance, or when you provision a stand-alone volume. When you restore data from a backup snapshot, the data is pulled from a separate regional storage repository. For best performance, you can enable backup snapshots for fast restore. By using the fast restore feature, you can restore a volume that is fully provisioned when the volume is created. When you use fast restore, the data is pulled from a cached backup snapshot in a zone of your VPC. For more information, see [About restoring from a backup snapshot](/docs/vpc?topic=vpc-baas-vpc-restore).
 
 ## Can I restore file shares from a backup?
 {: faq}
@@ -145,7 +145,7 @@ Keep in mind, a remote snapshot copy is independent from the source volume or th
 {: faq}
 {: #crc-creation-time}
 
-When you include the creation of a cross-regional copy in your backup plan, the backup snapshot is created as normal, and stored in your regional {{site.data.keyword.cos_short}}. When the source snapshot is stable, the Backup service initiates the creation of the remote copy in the {{site.data.keyword.cos_short}} bucket in the target region. The data transfer process runs in the background and can take up to several hours to complete if your source volumes are over 500 MB in capacity. For more information, see [Cross-regional backup copies](/docs/vpc?topic=vpc-backup-service-about&interface=ui#backup-service-crc).
+When you include the creation of a cross-regional copy in your backup plan, the backup snapshot is created as normal, and stored in a separate regional storage repository. When the source snapshot is stable, the Backup service initiates the creation of the remote copy in the regional storage repository in the target region. The data transfer process runs in the background and can take up to several hours to complete if your source volumes are over 500 MB in capacity. For more information, see [Cross-regional backup copies](/docs/vpc?topic=vpc-backup-service-about&interface=ui#backup-service-crc).
 
 ### Are the cross-regional copies of my backup snapshots full copies of my source volume?
 {: faq}

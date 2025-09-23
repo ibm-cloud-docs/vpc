@@ -2,7 +2,7 @@
 
 copyright:
   years: 2019, 2025
-lastupdated: "2025-09-18"
+lastupdated: "2025-09-23"
 
 keywords: Block Storage profiles, Block Storage for VPC, IOPS tiers, custom IOPS, storage performance
 
@@ -15,21 +15,18 @@ subcollection: vpc
 # {{site.data.keyword.block_storage_is_short}} profiles
 {: #block-storage-profiles}
 
-When you provision {{site.data.keyword.block_storage_is_short}} volumes by using the {{site.data.keyword.cloud_notm}} console, CLI, API, or Terraform you specify a volume profile that best meets your storage requirements. Profiles are generally available as three predefined IOPS levels or with custom IOPS. The volume profiles from the _tiered_ family provide reliable IOPS/GB performance for volumes up to 16,000 GB capacity. With a _custom_ volume profile, you can specify your own IOPS value in a range that is appropriate for your selected volume capacity.
+When you provision {{site.data.keyword.block_storage_is_short}} volumes by using the {{site.data.keyword.cloud_notm}} console, CLI, API, or Terraform you specify a volume profile that best meets your storage requirements. The second-generation profile (`sdp`) is available in the Dallas, Frankfurt, London, Madrid, Osaka, Sao Paulo, Sydney, Tokyo, Toronto, and Washington, DC regions. You can specify custom capacity, IOPS, and Throughput with the `sdp` profile. First-generation profiles are generally available as three predefined IOPS levels or with custom IOPS. The volume profiles from the _tiered_ family provide reliable IOPS/GB performance for volumes up to 16,000 GB capacity. With a _custom_ volume profile, you can specify your own IOPS value in a range that is appropriate for your selected volume capacity.
 {: shortdesc}
-
-Customers with special access can provision storage with the new `sdp` profile. The `sdp` profile is available in the Dallas, Frankfurt, London, Madrid, Osaka, Sao Paulo, Sydney, Tokyo, Toronto, and Washington, DC regions during the select availability release. For more information about this release, such as billing, supported features, and limitations, see [About {{site.data.keyword.block_storage_is_short}}](/docs/vpc?topic=vpc-block-storage-about#block-storage-sdp-intro).
-{: preview}
 
 ## Block Storage profile families
 {: #block-storage-profile-overview}
 
 When you create a Block Storage volume, you can select from various profiles.
-- [Select availability]{: tag-green} The defined performance family profile provides even more flexibility when it comes to specifying capacity and IOPS. Volume profiles in the defined performance family can scale volume performance independent of capacity. By using the `sdp` profile, you can create a volume with up to 32 TB capacity and an IOPS value in a range of 100 - 64,000.
+- The defined performance family profile provides even more flexibility when it comes to specifying capacity and IOPS. Volume profiles in the defined performance family can scale volume performance independent of capacity. By using the `sdp` profile, you can create a volume with up to 32 TB capacity and an IOPS value in a range of 100 - 64,000.
 - Select a profile from the _tiered_ profile family when you want to pick a profile where performance scales with capacity of the volume.
 - Select the profile from the _custom_ profile family if your performance requirements don't fall within any of the predefined IOPS tiers. When you select the custom profile, you can define your IOPS within a range that depends on the capacity that you specified. 
 
-The `sdp` profile is available in the Dallas, Frankfurt, London, Madrid, Osaka, Sao Paulo, Sydney, Tokyo, Toronto, and Washington, DC regions during the select availability release for allowlisted customers. The _custom_ and _tiered_ profiles are available in every region for every customer. 
+The `sdp` profile is available in the Dallas, Frankfurt, London, Madrid, Osaka, Sao Paulo, Sydney, Tokyo, Toronto, and Washington, DC regions. The _custom_ and _tiered_ profiles are available in every region for every customer. 
 
 The following table shows the available storage profiles with their different properties.
 
@@ -157,10 +154,7 @@ You can view available volume profiles by using the {{site.data.keyword.cloud_no
 {: #using-console-iops-profile}
 {: ui}
 
-Customers with special access can create Block Storage volumes with the `sdp` profile.
-{: preview}
-
-As an allow-listed customer, you can see a list of all the available profiles in the Create block storage page, such as the `sdp` profile, the three `tiered`, and the `custom` profile. When you select one of the tiered profiles, you need to specify the capacity. When you select the custom profile, you need to specify the capacity and an IOPS value that's in the applicable range for your capacity ([Table 3](#custom)). When you select the `sdp` profile, you can specify the capacity and IOPS without any capacity-based range restriction. You can also specify the maximum throughput limit for your volume.
+On the block storage provisioning page, you can see a list of all the available profiles in the Create block storage page, such as the `sdp` profile, the three `tiered`, and the `custom` profile. When you select one of the tiered profiles, you need to specify the capacity. When you select the custom profile, you need to specify the capacity and an IOPS value that's in the applicable range for your capacity ([Table 3](#custom)). When you select the `sdp` profile, you can specify the capacity and IOPS without any capacity-based range restriction. You can also specify the maximum throughput limit for your volume.
 
 ### From the CLI
 {: #using-cli-iops-profiles}
@@ -184,34 +178,7 @@ custom            custom                -                               1
 ```
 {: codeblock}
 
-To view details of the profile, run the `ibmcloud is volume-profile` command with the name of the profile that you are interested in seeing.
-
-The following example shows the details of the `10iops-tier`.
-
-```sh
-ibmcloud is volume-profile 10iops-tier
-```
-{: pre}
-
-```sh
-Getting volume profile 10iops-tier under account Test Account as user test.user@ibm.com...
-                                          
-Name                                   10iops-tier   
-Family                                 tiered   
-Adjustable IOPS                        false   
-Boot capacity                          Max   Min      
-                                       250   10      
-                                          
-Capacity                               Max    Min   Default   Step      
-                                       4800   10    10        1      
-                                          
-IOPS                                   Max    Min   Default   Step      
-                                       48000  10    10        1     
-Storage Generation                     1
-```
-{: screen}
-
-The following example shows the details of the `sdp` profile when you use the `export IBMCLOUD_IS_FEATURE_VOLUME_ADJUSTABLE_CAPACITY_IOPS_STATES=true` command. When this feature flag is set to `true`, the properties `Adjustable Capacity State` and `Adjustable IOPS State` are displayed in the CLI response.
+To view details of the profile, run the `ibmcloud is volume-profile` command with the name of the profile that you are interested in seeing. The following example shows the details of the `sdp` profile.
 
 ```sh
 ibmcloud is volume-profile sdp

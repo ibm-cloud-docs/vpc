@@ -2,7 +2,7 @@
 
 copyright:
   years: 2025
-lastupdated: "2025-09-16"
+lastupdated: "2025-09-23"
 
 keywords: Block Storage for VPC, boot volume, data volume, volume, data storage, virtual server instance, instance, adjustable volume, throughput, bandwidth
 
@@ -15,8 +15,7 @@ subcollection: vpc
 # Adjusting throughput limit of a {{site.data.keyword.block_storage_is_short}} volume
 {: #adjusting-volume-throughput}
 
-Customers with special approval to preview the defined performance profile can use the `sdp` profile in the Dallas (`us-south`), Frankfurt (`eu-de`), London (`eu-gb`), Madrid (`eu-es`), Osaka (`jp-osa`), Sydney (`au-syd`), Tokyo (`jp-tok`), Toronto (`ca-tor`), and Washington (`us-east`) regions to specify custom capacity, custom throughput limit, and custom IOPS for their volumes.
-{: preview}
+The `sdp` profile is available in the Dallas (`us-south`), Frankfurt (`eu-de`), London (`eu-gb`), Madrid (`eu-es`), Osaka (`jp-osa`), Sydney (`au-syd`), Tokyo (`jp-tok`), Toronto (`ca-tor`), and Washington (`us-east`) regions, and you can use it to specify custom capacity, custom throughput limit, and custom IOPS for your second-generation block storage volumes.
 
 For {{site.data.keyword.block_storage_is_full}} volumes that are provisioned with the `sdp` profile, you can increase or decrease the throughput limit to meet your performance needs. The maximum throughput for any volume with the `sdp` profile is 1024 MBps (8192 Mbps). The minimum throughput value is 125 MBps (1000 Mbps). The adjustment causes no outage or lack of access to the storage.
 {: shortdesc}

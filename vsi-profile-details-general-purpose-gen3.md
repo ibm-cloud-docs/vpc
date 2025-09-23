@@ -2,7 +2,7 @@
 
 copyright:
   years: 2024, 2025
-lastupdated: "2025-09-16"
+lastupdated: "2025-09-23"
 
 keywords: vsi, virtual server, virtual server instances, profile, profiles, balanced, compute, memory, dedicated host, gen 3
 
@@ -130,6 +130,11 @@ attached. This limit is based on the size of the instance.
 | 17-48           | 12          | 10        |
 | 49+             | 12          | 15        |
 {: caption="General purpose profile family limits for vCPU, maximum volumes, and maximum network interfaces" caption-side="bottom"}
+
+### Boot volume profiles
+{: #general-purpose-volume-profiles}
+
+In the current release of {{site.data.keyword.block_storage_is_short}} offering, only first-generation volumes from the tiered and custom volume profile families can be used as boot volumes for the Intel Gen 3 instances if secure boot is needed. Second-generation boot volumes with the `sdp` profile do not support secure boot.
 
 ## Dedicated host profiles
 {: #general-purpose-dh-profiles-gen3}
