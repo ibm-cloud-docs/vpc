@@ -27,6 +27,10 @@ For more information about changes to the {{site.data.keyword.vpc_short}} comman
 ## September 2025
 {: #vpc-sep25}
 
+### 23 September 2025
+{: #vpc-sep2325}
+{: release-note}
+
 Regional file shares (Select availability)
 :   The new `rfs` share profile is now available for customers with special access in Dallas, Frankfurt, London, Madrid, Osaka, Sydney, Toronto, and Washington, DC. Shares that are created with this profile offer regional data availability and support adjustable share bandwidth. File share data can be protected with customer-managed encryption keys, and in-transit encryption is supported by the use of stunnel. Cross-account access is now supported. Transit encryption settings can be enforced by the share owner. For regional shares, the available allowed transit encryption modes are `stunnel`, `none`, or both. For more information, see [About File Storage for VPC](/docs/vpc?topic=vpc-file-storage-vpc-about).
 

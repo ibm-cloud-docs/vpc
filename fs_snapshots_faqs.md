@@ -40,14 +40,14 @@ Backup schedules can be configured only on the source side of a replication pair
 {: faq}
 {: #faq-fs-snapshot-3}
 
-For Gen1 zonal file shares, you can take up to 750 snapshots per share in a zone. In the current release of Gen2 regional file shares, you can take up to 30 snapshots per share in a region. The number of snapshots can be increased upon request/ Deleting snapshots from this quota makes space for more snapshots. A snapshot of a share cannot be greater than 10 TB for Gen1 zonal file shares. Also, consider how your billing is affected when you increase the number of snapshots that you take and retain.
-
+For zonal file shares, you can take up to 750 snapshots per share in a zone. In the current release of regional file shares, you can take up to 30 snapshots per share in a region. The number of snapshots can be increased upon request/ Deleting snapshots from this quota makes space for more snapshots. A snapshot of a share cannot be greater than 10 TB for zonal file shares. Also, consider how your billing is affected when you increase the number of snapshots that you take and retain.
 
 ## Is there a limit on the size of a share that I can take a snapshot of?
 {: faq}
 {: #faq-fs-snapshot-4}
 
-The maximum size of a Gen1 zonal file share is 10 TB. Snapshot creation fails if the share is over that limit. 
+The maximum size of a zonal file share is 10 TB. Snapshot creation fails if the share is over that limit. 
+
 [Select availability]{: tag-green} In this release of regional file shares, the maximum supported share size is 32 TB, and snapshots can be taken of the full share size with no limitations. 
 
 ## How secure are snapshots?
@@ -92,15 +92,12 @@ The cost for snapshots is calculated based on GB capacity that is used during th
 When a snapshot is deleted, only the data blocks that are no longer needed by another snapshot are freed on the storage. The size of individual snapshots is dynamic, dependent on the existence of past or future snapshots, and the current state of the file share. Due to its dynamic nature, the actual amount of space that can be reclaimed by deleting snapshots cannot be easily determined. The change in the amount of space that is used is reflected in the metrics within 15 minutes after the snapshot is deleted.
 [Select availability]{: tag-green} In this release of regional file shares, the change in used space is not reflected in the metrics within the same timeframe.
 
-
 ## Can I use share snapshots for disaster recovery?
 {: faq}
 {: #faq-fs-snapshot-dr}
 
-
 To help ensure that snapshots are able to survive the loss of an availability zone, configure replication for the file share. When a new replica share is created, all snapshots present on the source volume are transferred to the replica. When replication proceeds normally, any snapshots that are taken on the source are copied to the replica, and snapshots that are deleted from the source are also removed from the replica. 
-<[Select availability]{: tag-green} In this release of regional file shares, cross-region replication is not supported.
-
+[Select availability]{: tag-green} In this release of regional file shares, cross-region replication is not supported.
 
 ## What are the different kinds of snapshots in my `/.snapshot` directory?
 {: faq}

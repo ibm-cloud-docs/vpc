@@ -161,7 +161,7 @@ When you [create a file share in the console](/docs/vpc?topic=vpc-file-storage-c
 {: #fs-using-cli-iops-profiles}
 {: cli}
 
-To view the list of available profiles from the CLI, run the `ibmcloud is share-profiles` command.
+To view the list of available profiles from the CLI, run the `ibmcloud is share-profiles` command. [Select availability]{: tag-green} Customers with special access to preview the new regional file share offering, can also see the `rfs` profile when listing the share profiles.
 
 ```sh
 ibmcloud is share-profiles
@@ -169,24 +169,10 @@ ibmcloud is share-profiles
 {: pre}
 
 ```sh
-Listing file share profiles in region us-south under account Test Account as user test.user@ibm.com...
-Name   Family   
-dp2    defined_performance   
-```
-{: screen}
-
-[Select availability]{: tag-green} Customers with special access to preview the new regional file share offering, can also list the `rfs` profile with the same command.
-
-```sh
-ibmcloud is share-profiles
-```
-{: pre}
-
-```sh
-Listing file share profiles in region us-south under account Test Account as user test.user@ibm.com...
-Name   Family   
-dp2    defined_performance   
-rfs    defined_performance
+Listing file share profiles in region us-south under account Test Account as user test.user@ibm.com... 
+Name   Family                Allowed Access Protocols   Allowed transit encryption modes   Availability Modes   Bandwidth(Mbps)
+dp2    defined_performance   nfs4                       none,ipsec                         zonal                -
+rfs    defined_performance   nfs4                       none,stunnel                       regional             1
 ```
 {: screen}
 
@@ -202,13 +188,25 @@ ibmcloud is share-profile dp2
 ```sh
 Getting file share profile dp2 under account Test Account as user test.user@ibm.com...
 
-Name       dp2   
-Family     defined_performance   
-IOPS       Default   Max     Min   Step   Type      
-           100       96000   100   1      range      
-              
-Capacity   Default   Max     Min   Step   Type      
-           10        32000   10    1      range     
+Name                               dp2
+Family                             defined_performance
+IOPS                               Default   Max     Min   Step   Type
+                                   100       96000   100   1      range
+
+Capacity                           Default   Max     Min   Step   Type
+                                   10        32000   10    1      range
+
+Bandwidth(Mbps)                    Default   Max   Min   Step   Type
+                                   -         -     -     -      dependent
+
+Availability Modes                 Default   Type    Value   Values
+                                   -         fixed   zonal   -
+
+Allowed Access Protocols           Default   Type     Values
+                                   nfs4      subset   nfs4
+
+Allowed transit encryption modes   Default   Type     Values
+                                   none      subset   none,ipsec    
 ```
 {: screen}
 

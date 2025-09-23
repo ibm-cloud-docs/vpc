@@ -164,14 +164,12 @@ When creating, retrieving, listing, updating, or deleting file shares, `accessor
 
 When an error is reported while making share API requests, the `more_info` property does not return an error topic URL for the issue encountered. The `more_info` property currently returns information on how to resolve the issue encountered instead.
 
-
 ### File share properties missing in API response
 {: #file-share-properties-missing-in-api-response}
 
 [Select availability]{: tag-green}
 
 When using an API `version` query parameter of `2025-09-15` or earlier, the following properties might be missing or incorrect from the response:
-
 
 - `zone` might be absent in the share API response when file shares and file share snapshots with `rfs` profile from a source share are created, retrieved, listed, updated, or deleted by using an API version of `2025-09-15` or earlier. When a `version` query parameter of `2025-09-15` or earlier is used, the `zone` of an `rfs` share snapshot returns the first zone from the region and is informational only. `zone` is not affected for `dp2` share snapshots and is represented correctly for `rfs` share snapshots when an API version of `2025-09-16` or later is used.
 
