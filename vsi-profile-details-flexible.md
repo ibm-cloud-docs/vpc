@@ -2,7 +2,7 @@
 
 copyright:
   years: 2025, 2025
-lastupdated: "2025-09-05"
+lastupdated: "2025-09-23"
 
 keywords: virtual server instances, flex profile, flexible profile, virtual server profile
 
@@ -84,7 +84,8 @@ The following list shows the supported features of Flex profiles.
 
 * Resizable to and away from Flex profiles and between Flex profile types
 * Flex profiles can be placed on multiple CPU families, including Intel Cascade Lake, Intel Sapphire Rapids, and AMD Milan.
-* 1 Gbps overall bandwidth per vCPU
+* 2 Gbps network bandwidth per vCPU for compute, balanced, or memory family profiles
+* 1 Gbps network bandwidth per vCPU for nano family profiles 
 * Reservations (Burstable virtual servers not supported)
 * Instance templates
 * Autoscale

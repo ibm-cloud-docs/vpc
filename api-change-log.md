@@ -2,10 +2,11 @@
 
 copyright:
   years: 2019, 2025
-lastupdated: "2025-09-16"
+lastupdated: "2025-09-23"
 
 keywords: api, change log, new features, restrictions, migration
 
+keywords: api, change log, new features, restrictions, migrations
 subcollection: vpc
 
 ---
@@ -53,6 +54,20 @@ At this time, all instances, and therefore all instance templates, continue to r
 
 The new response code will be rolled out gradually. Each phase of the rollout will be tied to a dated API version. These changes will be announced in future change log updates.
 {: note}
+
+## 23 September 2025
+{: #23-september-2025}
+
+### For all version dates
+{: #23-september-2025-all-version-dates}
+
+**Public address ranges.** You can now [create a public address range](/apidocs/vpc/latest#create-public-address-range). A public address range is a contiguous block of public IP addresses that can be bound to a zone in a VPC. You can bind a public address range when creating it, or [update](/apidocs/vpc/latest#update-public-address-range) its binding later by setting its `target`. You can update `target.zone` to bind it to anther zone in the VPC, or update `target.vpc` to bind it to another VPC. Traffic that originates from the internet destined for addresses in a public address range must be routed to resources in the bound VPC zone by [creating VPC routes](/apidocs/vpc/latest#create-vpc-routing-table-route) in the VPC's routing table with `route_internet_ingress` set to `true`.
+
+When [retrieving](/apidocs/vpc/latest#get-vpc) or [listing](/apidocs/vpc/latest#list-vpcs) VPCs, the response now includes the `public_address_ranges` that are bound to each VPC.
+
+Learn about [public address ranges](/docs/vpc?topic=vpc-about-par), and explore the new [API methods](/apidocs/vpc/latest#list-public-address-ranges).
+
+**Reserved IPs as load balancer pool member targets.** You can now create [pool members](/apidocs/vpc/latest#list-load-balancer-pool-members) that target reserved IPs. When [creating a member in a load balancer pool](/apidocs/vpc/latest#create-load-balancer-pool-member), you can specify the identity of a reserved IP as the `target` if supported by the load balancer's profile. When [retrieving](/apidocs/vpc/latest#get-load-balancer-profile) or [listing](/apidocs/vpc/latest#list-load-balancer-profiles) load balancer profiles, use the new `targetable_resource_types` property to determine which resources that load balancer can target. For more information, see [Creating a Private Path network load balancer](/docs/vpc?topic=vpc-ppnlb-ui-creating-private-path-network-load-balancer&interface=ui).
 
 ## 16 September 2025
 {: #16-september-2025}
@@ -140,6 +155,8 @@ For more information, see [About File Storage for VPC](/docs/vpc?topic=vpc-file-
 When [retrieving](/apidocs/vpc/latest#get-vpc) or [listing](/apidocs/vpc/latest#list-vpcs) VPCs, the response now includes the `public_address_ranges` that are bound to each VPC.
 
 Learn about [public address ranges](/docs/vpc?topic=vpc-about-par), and explore the new [API methods](/apidocs/vpc/latest#list-public-address-ranges).
+
+This feature is now generally available. See the [23 September 2025](#23-september-2025) announcement.
 
 ## 30 June 2025
 {: #30-june-2025}

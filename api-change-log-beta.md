@@ -2,7 +2,7 @@
 
 copyright:
   years: 2021, 2025
-lastupdated: "2025-08-26"
+lastupdated: "2025-09-23"
 
 keywords: api, change log, beta
 
@@ -109,6 +109,8 @@ For more information, see the [Beta VPC Identity API](/apidocs/vpc-identity-beta
 When [retrieving](/apidocs/vpc-beta#get-vpc) or [listing](/apidocs/vpc-beta#list-vpcs) VPCs, the response includes the `public_address_ranges` that are bound to each VPC.
 
 Learn about [public address ranges](/docs/vpc?topic=vpc-about-par), and explore the new [API methods](/apidocs/vpc-beta#list-public-address-ranges).
+
+This feature is now generally available. See the [VPC API change log](/docs/vpc?topic=vpc-api-change-log#23-september-2025).
 
 ## 17 December 2024
 {: #17-december-2024-beta}
