@@ -2,7 +2,7 @@
 
 copyright:
   years: 2021, 2025
-lastupdated: "2025-09-19"
+lastupdated: "2025-09-23"
 
 keywords: file share, file storage, replication, replica, size increase, capacity, encryption, BYOK, security group
 
@@ -26,8 +26,6 @@ The following questions often arise about {{site.data.keyword.filestorage_vpc_sh
 ### What is the rfs profile?
 {: faq}
 {: #faq-fs-mgt-rfs}
-
-[Beta]{: tag-cyan}
 
 Customers with special access can create file shares with regional data resiliency. The `rfs` profile is the second-generation profile in the defined performance profile family. When you create a file share with the `rfs` profile, your data is replicated across all 3 zones within the region, offering higher availability and fault tolerance. For more information, see [Regional availability profile](/docs/vpc?topic=vpc-file-storage-profiles&interface=ui#rfs-profile).
 
@@ -121,7 +119,7 @@ No. As a best practice, independently back up your data. When your file share da
 {: faq}
 {: #faq-fs-mgt-7}
 
-File shares are not elastic. Currently, you can provision zonal file shares with a minimum of 10 GiB to a maximum of 32,000 GiB capacity, and [Beta]{: tag-cyan} regional file shares with a minimum of 1 GiB to a maximum of 32,000 GiB capacity. For more information, see [file share profiles](/docs/vpc?topic=vpc-file-storage-profiles).
+File shares are not elastic. Currently, you can provision zonal file shares with a minimum of 10 GiB to a maximum of 32,000 GiB capacity, and regional file shares with a minimum of 1 GiB to a maximum of 32,000 GiB capacity. For more information, see [file share profiles](/docs/vpc?topic=vpc-file-storage-profiles).
 
 ### Can I change the size of a file share?
 {: faq}
@@ -175,8 +173,6 @@ You can migrate file shares that were created by using either the IOPS tier prof
 {: faq}
 {: #faq-fs-mgt-change-profile}
 
-[Beta]{: tag-cyan}
-
 No. First- and second-generation file share profiles in the defined performance profile family are not interchangeable. You can't change the file share profile after the file share is created.
 
 If you want to move your data from a zonal file share to a regional file share, you can mount both shares on your compute host. Then, you can copy data from one share to the other.
@@ -187,8 +183,8 @@ If you want to move your data from a zonal file share to a regional file share, 
 
 You can take snapshots of your file shares on demand in the console, from the CLI, with the API, or Terraform. You can also automate the creation of your snapshots by using the Backup for VPC service. For more information, see [About File Storage for VPC snapshots](/docs/vpc?topic=vpc-fs-snapshots-about) and [About Backup for VPC](/docs/vpc?topic=vpc-backup-service-about).
 
-During the beta release of regional file shares, you cannot automate the creation of regional snapshots with the Backup for VPC service.
-{: beta}  
+During the select availability release of regional file shares, you cannot automate the creation and retention of regional snapshots with the Backup for VPC service.
+{: preview} 
 
 ### Can I create a file share from a snapshot?
 {: faq}
@@ -196,7 +192,7 @@ During the beta release of regional file shares, you cannot automate the creatio
 
 Yes. You can create a file share from a snapshot in the console, from the CLI, with the API, or Terraform. The new share is created in the same location as the snapshot. For more information, see [Restoring data from a file share snapshot](/docs/vpc?topic=vpc-fs-snapshots-restore).
 
-Snapshots inherit their storage_generation property from the parent file share. When you take a snapshot of a zonal file share, you can use that snapshot to create other zonal file shares. [Beta]{: tag-cyan} If you take a snapshot of a regional file share, you can use that snapshot to create other regional file shares. You cannot switch to another profile when you create a file share from a snapshot.
+Snapshots inherit their storage_generation property from the parent file share. When you take a snapshot of a zonal file share, you can use that snapshot to create other zonal file shares. If you take a snapshot of a regional file share, you can use that snapshot to create other regional file shares. You cannot switch to another profile when you create a file share from a snapshot.
 
 ### Can I restrict access to my file share to a specific virtual server instance?
 {: faq}
@@ -232,13 +228,9 @@ A share can have a maximum of 100 accessor bindings. This restriction is placed 
 {: faq}
 {: #faq-fs-accessor-EIT}
 
-As the share owner, you have the right to enforce the use of encryption in transit when another account accesses the file share data. When you create a file share, you can set the allowed transit encryption modes to `user_managed`.
+As the share owner, you have the right to enforce the use of encryption in transit when another account accesses the file share data. When you create a file share, you can set the allowed transit encryption modes to `ipsec` or `stunnel`.
 
-If your file share was created before 18 June 2024, its allowed transit encryption modes property is set to `user_managed,none`. This setting can be changed [in the console](/docs/vpc?topic=vpc-file-storage-managing&interface=ui#fs-update-transit-encryption-ui){: ui}[from the CLI](/docs/vpc?topic=vpc-file-storage-managing&interface=cli#fs-update-transit-encryption-cli){: cli}[with the API](/docs/vpc?topic=vpc-file-storage-managing&interface=api#fs-update-transit-encryption-api){: api}[with Terraform](/docs/vpc?topic=vpc-file-storage-managing&interface=terraform#file-storage-share-update-terraform){: terraform}. Existing mount targets must be deleted first. For more information, see [Deleting mount target of a file share in the console](/docs/vpc?topic=vpc-file-storage-managing&interface=ui#delete-mount-target-ui){: ui}[Deleting a mount target of a file share from the CLI](/docs/vpc?topic=vpc-file-storage-managing&interface=cli#delete-share-targets-cli){: cli}[Deleting mount target of a file share with the API](/docs/vpc?topic=vpc-file-storage-managing&interface=api#delete-mount-target-api){: api}[Deleting a mount target with Terraform](/docs/vpc?topic=vpc-file-storage-managing&interface=terraform#delete-file-share-terraform){: terraform}.
-
-[Beta]{: tag-cyan} Customers with special access to preview the regional file share offering in its beta release, can set the allowed transit encryption mode to `ipsec` for zonal shares instead of `user_managed`. This value is inherited by the accessor share of the accessor account, which ensures that only mount targets that support encryption in transit can be attached to the accessor share.
-
-During the beta release, cross-account access for regional share is not supported.
+This setting can be changed [in the console](/docs/vpc?topic=vpc-file-storage-managing&interface=ui#fs-update-transit-encryption-ui){: ui}[from the CLI](/docs/vpc?topic=vpc-file-storage-managing&interface=cli#fs-update-transit-encryption-cli){: cli}[with the API](/docs/vpc?topic=vpc-file-storage-managing&interface=api#fs-update-transit-encryption-api){: api}[with Terraform](/docs/vpc?topic=vpc-file-storage-managing&interface=terraform#file-storage-share-update-terraform){: terraform}. Existing mount targets must be deleted first. For more information, see [Deleting mount target of a file share in the console](/docs/vpc?topic=vpc-file-storage-managing&interface=ui#delete-mount-target-ui){: ui}[Deleting a mount target of a file share from the CLI](/docs/vpc?topic=vpc-file-storage-managing&interface=cli#delete-share-targets-cli){: cli}[Deleting mount target of a file share with the API](/docs/vpc?topic=vpc-file-storage-managing&interface=api#delete-mount-target-api){: api}[Deleting a mount target with Terraform](/docs/vpc?topic=vpc-file-storage-managing&interface=terraform#delete-file-share-terraform){: terraform}.
 
 ## Performance questions
 {: #file-storage-vpc-performance-questions}

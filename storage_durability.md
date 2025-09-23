@@ -2,7 +2,7 @@
 
 copyright:
   years: 2020, 2025
-lastupdated: "2025-09-18"
+lastupdated: "2025-09-23"
 
 keywords:
 
@@ -30,7 +30,8 @@ In today's fast-paced economy, companies rely on data in their decision-making. 
 
 | {{site.data.keyword.filestorage_vpc_short}} Storage type | Use Case | Durability | Availability | Encryption |
 |--------------|----------|------------|--------------|------------|
-| `dp2` | The most flexible zonal share profile option. Customers can specify capacity between 10 - 32,000 MB with adjustable IOPS ranging 100 - 96,000. | 99.999999999% \n (11 9's) | 99.999% \n (5 9's) | Provider-managed AES-256 encryption, Customer-managed encryption |
+| `dp2` | The most flexible zonal share profile option. Customers can specify capacity between 10 - 32,000 MB with adjustable IOPS ranging 100 - 96,000.Maximum bandwidth is 8192 Mbps. | 99.999999999% \n (11 9's) | 99.999% \n (5 9's) | Provider-managed AES-256 encryption, Customer-managed encryption |
+| `rfs` | The most flexible regional share profile option. Customers can specify capacity between 10 - 32,000 MB with adjustable bandwidth up to 8192 Mbps. Maximum IOPS is 35,000. | 99.999999999% \n (11 9's) | 99.999% \n (5 9's) | Provider-managed AES-256 encryption, Customer-managed encryption |</
 {: caption="{{site.data.keyword.filestorage_vpc_short}} Storage durability and availability chart." caption-side="bottom"}
 
 {{site.data.keyword.filestorage_vpc_short}} shares are encrypted by using provider-managed encryption or customer-managed encryption keys.

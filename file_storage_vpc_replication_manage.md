@@ -2,7 +2,7 @@
 
 copyright:
   years: 2022, 2025
-lastupdated: "2025-09-10"
+lastupdated: "2025-09-23"
 
 keywords: VPC File Storage, file for VPC, NSF, replica, file share, replication, schedule
 
@@ -206,6 +206,10 @@ Before you can use the CLI, you must install the IBM Cloud CLI and the VPC CLI p
    Snapshot count               0
    Snapshot size                0
    Source snapshot              -
+   Allowed Access Protocols     nfs4    
+   Availability Mode            zonal   
+   Bandwidth(Mbps)              1    
+   Storage Generation           1  
    ```
    {: screen}
 

@@ -1038,6 +1038,7 @@ toc:
                 label: Troubleshooting file storage snapshots
                 topics:
                 - fs_snapshots_troubleshooting.md
+                - fs_snapshots_ts_delayed_regional.md
             - topicgroup:
                 id: tbs-backup
                 label: Troubleshooting backups

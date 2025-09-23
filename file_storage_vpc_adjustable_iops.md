@@ -2,7 +2,7 @@
 
 copyright:
   years: 2022, 2025
-lastupdated: "2025-09-19"
+lastupdated: "2025-09-23"
 
 keywords: file share, file storage, IOPS, performance needs, adjust IOPS
 
@@ -20,8 +20,7 @@ For zonal file shares, you can increase or decrease IOPS to meet your performanc
 
 Billing for an updated share is automatically updated. The prorated difference of the new price is added to the current billing cycle. The new full amount is then billed in the next billing cycle.
 
-You can't modify the IOPS value of regional file shares that are created with the `rfs` profile. However, you can adjust the bandwidth value to fine-tune the share's performance.
-{: beta}
+[Select availability]{: tag-green} You can't modify the IOPS value of regional file shares that are created with the `rfs` profile. However, you can adjust the bandwidth value to fine-tune the share's performance.
 
 ## Adjustable IOPS concepts
 {: #fs-adj-iops-concepts}
@@ -203,7 +202,11 @@ Before you can use the CLI, you must install the IBM Cloud CLI and the VPC CLI p
 
    Snapshot count               0
    Snapshot size                0   
-   Source snapshot              -              
+   Source snapshot              -       
+   Allowed Access Protocols     nfs4    
+   Availability Mode            zonal   
+   Bandwidth(Mbps)              1    
+   Storage Generation           1  
    ```
    {: screen}
 

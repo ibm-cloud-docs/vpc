@@ -2,7 +2,7 @@
 
 copyright:
   years: 2024, 2025
-lastupdated: "2025-09-19"
+lastupdated: "2025-09-23"
 
 keywords: file share, file storage, accessor share, cross-account share
 
@@ -28,21 +28,25 @@ When the accessor share is created, it is linked to the origin share by an acces
 
 As the accessor, you can't edit the properties of the origin share, and you can't delete the origin share. The accessors can mount the share by creating an accessor share and a mount target to the accessor share. Then, you can access and use the data of the origin share, including the snapshots that might be present.
 
-Sharing a file share with other accounts or services is not supported for zonal file shares with VPC-wide access mode. In this release, cross-account access is not supported for regional file shares with the `rfs` profile.
+Sharing a file share with other accounts or services is not supported for file shares with VPC-wide access mode. 
 {: note}
 
 ## Transit encryption policy
 {: #file-storage-transit-encryption-policy}
 
-The share owner has the right to enforce the use of encryption in transit when the accessor accesses the file share data. The share owner can set the allowed transit encryption modes to allow either `user_managed` or `none`, or both. When the `allowed transit encryption modes` of the origin share is set to `user_managed`, the share accessor accounts must create all their mount targets with `user_managed` transit encryption. If the accessor account has more than one mount targets, these mount targets must have the same type of encryption in transit.
+The share owner can control how data is encrypted during transit by setting allowed transit encryption modes. If this field is not provided, the system uses the default allowed encryption modes defined in the selected share profile. When an accessor creates a mount target, they must choose an encryption mode that matches one of the share’s allowed modes. For example, if ipsec is selected, all mount targets for that share must use ipsec for consistency.
 
-[Beta]{: tag-cyan} Customers with special access to preview the new regional file share offering have the following options for allowed transit encryption modes:
-- For zonal file shares (`dp2` profile), the share owner can specify either `ipsec` or `none`, or both.
-- For regional file shares, cross-account access is not supported yet. 
+For zonal file shares, the share owner can choose from the following transit encryption modes: ipsec, none, or both.
+- If ipsec is enforced, all accessor mount targets must use ipsec.
+- If none is enforced, encryption-in-transit is not allowed.
+- If both are allowed, accessor accounts can choose which one to use.
 
-When `none` is specified, encryption-in-transit is not required and cannot be used by the accessor accounts. When the `allowed transit encryption modes` of the origin share is set to `ipsec`, the share accessor accounts must create all their mount targets with the specified transit encryption type. All mount targets that are created for one file share must have the same transit encryption mode.
+[Select availability]{: tag-green} For regional file shares, the share owner can choose from the following transit encryption modes: stunnel, none, or both.
+- If stunnel is enforced, all accessor mount targets must use stunnel.
+- If none is enforced, encryption-in-transit is not allowed.
+- If both are allowed, accessor accounts can choose which one to use.
 
-File shares that were created before the release of the cross-account access feature (18 June 2024) have an allowed transit encryption type that is based on their existing mount targets. After this date, you must specify the allowed transit encryption type when you create file shares. All mount targets that are created for one file share must have the same transit encryption type.
+File shares that were created before the release of the cross-account access feature (18 June 2024) have an allowed transit encryption type that is based on their existing mount targets. After that date, you must specify the allowed transit encryption type when you create file shares. All mount targets that are created for one file share must have the same transit encryption type.
 
 
 
@@ -103,7 +107,7 @@ CRN                              crn:v1:bluemix:public:is:us-south-2:a/1234567::
 Lifecycle state                  stable
 Access control mode              security_group
 Accessor binding role            accessor
-Allowed transit encryption modes user_managed,none
+Allowed transit encryption modes ipsec,none
 Origin share                     CRN                                                                                             Name            Remote account  Remote region
                                  crn:v1:bluemix:public:is:us-south-2:a/7654321::share:r006-d73v40a6-e08f-4d07-99e1-d28cbf2188ed  my-origin-share a7654321        -
 Zone                             us-south-2
@@ -125,11 +129,15 @@ Replication status reasons       Status code   Status message
                                  -             -
 Snapshot count                   0
 Snapshot size                    0
-Source snapshot                  - 
+Source snapshot                  -
+Allowed Access Protocols           nfs4    
+Availability Mode                  zonal   
+Bandwidth(Mbps)                    1    
+Storage Generation                 1  
 ```
 {: screen}
 
-The accessor share inherits the following characteristics from its origin share: profile, size, encryption type both at rest and in-transit. If you try to use this command with the property `--origin-share` with other properties such as `--iops`, `--profile`, and `--replica-share`, the request fails.
+The accessor share inherits the following characteristics from its origin share: profile, size, encryption type both at rest and in-transit. If you try to use this command with the property `--origin-share` with other properties such as `--iops`, `--profile`, `--bandwidth` and `--replica-share`, the request fails.
 {: important}
 
 For more information about the command options, see [`ibmcloud is share-create`](/docs/vpc?topic=vpc-vpc-reference#share-create).
@@ -194,7 +202,7 @@ CRN                              crn:v1:bluemix:public:is:us-south-2:a/a1234567:
 Lifecycle state                  pending
 Access control mode              security_group
 Accessor binding role            accessor
-Allowed transit encryption modes user_managed,none
+Allowed transit encryption modes ipsec,none
 Origin share                     CRN                                                                                             Name            Remote account  Remote region
                                  crn:v1:bluemix:public:is:us-south-2:a/7654321::share:r006-d73v40a6-e08f-4d07-99e1-d28cbf2188ed  my-origin-share a7654321        -
 
@@ -218,6 +226,10 @@ Replication status reasons       Status code   Status message
 Snapshot count                   0
 Snapshot size                    0
 Source snapshot                  - 
+Allowed Access Protocols         nfs4    
+Availability Mode                zonal   
+Bandwidth(Mbps)                  1    
+Storage Generation               1  
 ```
 {: screen}
 
@@ -256,7 +268,7 @@ A successful response looks like the following example.
 ```json
   {
   "access_control_mode": "security-group",
-  "allowed_transit_encryption_modes": ["none", "user-managed"],
+  "allowed_transit_encryption_modes": ["none", "ipsec"],
   "created_at": "2024-05-06T23:31:59Z",
   "crn": "crn:[...]",
   "encryption": "provider_managed",
@@ -294,7 +306,7 @@ A successful response looks like the following example.
 ### Creating a mount target for a file share with the API
 {: #fs-create-accessor-mount-target-api}
 
-If the share's access control mode is `security_group`, then the mount target must be created with a [virtual network interface](/docs/vpc?topic=vpc-vni-about). When the share's allowed transit encryption mode is `user-managed`, the mount target's `transit_encryption` value must be `user-managed`, too.
+If the share's access control mode is `security_group`, then the mount target must be created with a [virtual network interface](/docs/vpc?topic=vpc-vni-about). When the share's allowed transit encryption mode is `ipsec`, the mount target's `transit_encryption` value must be `ipsec`, too.
 
 Make a `POST /shares/{share_id}/mount_targets` request and specify a subnet and security group for the mount target network interface. The security groups that you associate with a mount target must allow inbound access for the TCP protocol on the NFS port from all servers where you want to mount the share.
 
@@ -339,7 +351,7 @@ To create an accessor share, use the `ibm_is_share` resource. The accessor share
 
 ```terraform
 resource "ibm_is_share" "example-origin" {
-  allowed_transit_encryption_modes = ["user_managed", "none"]
+  allowed_transit_encryption_modes = ["ipsec", "none"]
   access_control_mode = "security_group"
   name    = "my-share"
   size    = 200
@@ -373,7 +385,7 @@ resource "ibm_is_share_mount_target" "target-with-vni" {
      }
      resource_group = <resource_group_id>
      security_groups = [<security_group_ids>]
-     transit_encryption = user_managed
+     transit_encryption = ipsec
    }
 }
 ```

@@ -2,7 +2,7 @@
 
 copyright:
   years: 2024, 2025
-lastupdated: "2025-09-19"
+lastupdated: "2025-09-23"
 
 keywords: view snapshots, view snapshot, viewing snapshots, see snapshots, File storage snapshots
 
@@ -35,7 +35,7 @@ In the console, you can view a list of all snapshots that belong to a file share
    | Field | Description |
    |-------|-------------|
    | Snapshot count  | The number of snapshots that were taken for the file share. |
-   | Size of changed data in all snapshots | The first snapshot is a full copy of your file share. Subsequent snapshots capture the changes that occurred since the last snapshot was taken. This field shows the combined total of capacity that is used by the snapshots.|
+   | Size of changed data in all snapshots | The first snapshot is a full copy of your file share. Subsequent snapshots capture the changes that occurred since the last snapshot was taken. This field shows the combined total of capacity that is used by the snapshots.\n [Select availability]{: tag-green} In this release of regional file shares, when performing file share operations with the CLI or API, the snapshot size field defaults to 1 in the response when a snapshot is created and to 0 otherwise. This value does not represent the actual size of the snapshot.|
    | Replication role | This role matches the replication role of the source share. |
    {: caption="Summary of the Snapshots tab." caption-side="bottom"}
 
@@ -140,6 +140,9 @@ r026-bee1b285-adc3-43e6-b8dd-5645efbe5732   demo-bkp-plan-2-4a90deb0778a-4f1a   
 ```
 {: screen}
 
+For snapshots of regional file shares, the zone value is blank in both the CLI and API responses.
+{: note}
+
 For more information about available command options, see [`ibmcloud is share-snapshots`](/docs/vpc?topic=vpc-vpc-reference#share-snapshots-list).
 
 #### Viewing all snapshots of a share from the CLI
@@ -158,6 +161,9 @@ ID                                         Name                    Created at   
 r138-4463eb2c-4913-43b1-b9bf-62a94f74c146  my-first-share-snapshot 024-12-18T20:15:43+00:00 7abc3aef-c2bc-4f65-a296-2928e534d498 40           stable          us-south-1 Available env:test
 ```
 {: screen}
+
+For snapshots of regional file shares, the zone value is blank in both the CLI and API responses.
+{: note}
 
 For more information about available command options, see [`ibmcloud is share-snapshots`](/docs/vpc?topic=vpc-vpc-reference#share-snapshots-list).
 
@@ -334,6 +340,9 @@ A successful response looks like the following example.
 ```
 {: codeblock}
 
+For snapshots of regional file shares, the zone value is blank in both the CLI and API responses.
+{: note}
+
 ### Listing details of a snapshot with the API
 {: #fs-snapshots-view-api}
 
@@ -375,6 +384,9 @@ A successful response looks like the following example.
     },
 ```
 {: codeblock}
+
+For snapshots of regional file shares, the zone value is blank in both the CLI and API responses.
+{: note}
 
 ## Viewing snapshots with Terraform
 {: #fs-snapshots-view-terraform}

@@ -2,7 +2,7 @@
 
 copyright:
   years: 2021, 2025
-lastupdated: "2025-09-11"
+lastupdated: "2025-09-23"
 
 keywords: file share, file storage, rename share, increase size, adjust IOPS, mount target
 
@@ -110,15 +110,6 @@ By using the CLI, you can:
 Snapshots are supported only for shares that have *security group* as their access control mode. You can't change access control mode to VPC unless all the snapshots of the share are deleted.
 {: note}
 
-If you are a customer with special access to preview the regional file share profile, you can use the `rfs` profile to create a file share. To be able to create and manage a regional file share from the CLI, set the appropriate environmental variable with the following command.
-
-```sh
-export IBMCLOUD_IS_FEATURE_SHARE_DENALI_REGIONAL_AVAILABILITY=true
-```
-{: pre}
-
-The CLI returns the properties for "Allowed Access Protocols", "Availability Mode", "Bandwidth", and "Storage Generation" only when this environmental variable is set to "true".
-
 ### Renaming a file share from the CLI
 {: #rename-file-share-cli}
 
@@ -161,7 +152,7 @@ The CLI returns the properties for "Allowed Access Protocols", "Availability Mod
    Profile                      dp2
    Size(GB)                     100
    IOPS                         100
-   Encryption                   user_managed  
+   Encryption                   ipsec 
    Mount Targets                ID                          Name
                                 No mounted targets found.
 
@@ -182,6 +173,10 @@ The CLI returns the properties for "Allowed Access Protocols", "Availability Mod
    Snapshot count               0
    Snapshot size                0   
    Source snapshot              -  
+   Allowed Access Protocols     nfs4    
+   Availability Mode            zonal   
+   Bandwidth(Mbps)              1    
+   Storage Generation           1  
    ```
    {: screen}
 
@@ -280,6 +275,10 @@ These instructions are for the previous generation of file share profiles (gener
    Snapshot count               0
    Snapshot size                0   
    Source snapshot              - 
+   Allowed Access Protocols     nfs4    
+   Availability Mode            zonal   
+   Bandwidth(Mbps)              1    
+   Storage Generation           1
    ```
    {: screen}
 
@@ -288,9 +287,7 @@ For more information about the command options, see [`ibmcloud is share-update`]
 ### Updating allowed transit encryption modes from the CLI
 {: #fs-update-transit-encryption-cli}
 
-The owner of the share can change the allowed transit encryption modes type to `user_managed,none`,`user_managed` or `none`.
-
-[Beta]{: tag-cyan} Customers with special access to preview the new regional file share offering, can update the allowed transit encryption modes as follows:
+The owner of the share can update the allowed transit encryption modes as follows:
 - for zonal file shares, the allowed values are `ipsec,none`,`ipsec` or `none`.
 - for regional file shares, the allowed values are `stunnel,none`, `stunnel`, or `none`.
 
@@ -298,7 +295,7 @@ However, before this property can be changed, all bindings and [mount targets mu
 {: important}
 
 ```sh
-ibmcloud is share-update my-origin-share --allowed-transit-encryption-modes user_managed
+ibmcloud is share-update my-origin-share --allowed-transit-encryption-modes ipsec
 ```
 {: pre}
 
@@ -311,7 +308,7 @@ CRN                              crn:v1:bluemix:public:is:us-south-2:a/1234567::
 Lifecycle state                  stable
 Access control mode              security_group
 Accessor binding role            origin
-Allowed transit encryption modes user_managed
+Allowed transit encryption modes ipsec
 Origin share CRN                                                                                             Name            Remote account  Remote region
                                  crn:v1:bluemix:public:is:us-south-2:a/7654321::share:r006-d73v40a6-e08f-4d07-99e1-d28cbf2188ed  my-origin-share a7654321        -
 Zone                             us-south-2
@@ -330,7 +327,10 @@ Replication role                 none
 Replication status               none
 Replication status reasons       Status code   Status message
                                  -             -
-                                  
+ Allowed Access Protocols        nfs4    
+ Availability Mode               zonal   
+ Bandwidth(Mbps)                 1    
+ Storage Generation              1                                  
 ```
 {: screen}
 
@@ -463,9 +463,7 @@ curl -X PATCH "$vpc_api_endpoint/v1/shares/432f1a4d-4aac-4ba1-922c-76fdbcbeb1e3?
 ### Updating allowed transit encryption modes with the API
 {: #fs-update-transit-encryption-api}
 
-The owner of the share can change the allowed transit encryption modes type to `user_managed,none`,`user_managed` or `none`.
-
-[Beta]{: tag-cyan} Customers with special access to preview the new regional file share offering, can update the allowed transit encryption modes as follows:
+The owner of the share can update the allowed transit encryption modes as follows:
 - for zonal file shares, the allowed values are `ipsec,none`,`ipsec` or `none`.
 - for regional file shares, the allowed values are `stunnel,none`, `stunnel`, or `none`.
 
@@ -476,7 +474,7 @@ However, before this property can be changed, all bindings and mount targets mus
 curl -X PATCH \
 "$vpc_api_endpoint/v1/shares/$share_id?version=2023-08-08&generation=2"\
   -H "Authorization: Bearer ${API_TOKEN}"
-  -d '{"allowed_transit_encryption_modes": "user-managed"}'
+  -d '{"allowed_transit_encryption_modes": "ipsec"}'
 ```
 {: codeblock}
 
@@ -512,9 +510,7 @@ Valid file share and mount target names can include a combination of lowercase a
 
 Some attributes, such as profile, mount target access mode, allowed transit encryption modes, and encryption at rest, are not editable for accessor shares.
 
-The owner of the share can change the allowed transit encryption modes type to `user_managed,none`,`user_managed` or `none`.
-
-[Beta]{: tag-cyan} Customers with special access to preview the new regional file share offering, can update the allowed transit encryption modes as follows:
+The owner of the share can update the allowed transit encryption modes as follows:
 - for zonal file shares, the allowed values are `ipsec,none`,`ipsec` or `none`.
 - for regional file shares, the allowed values are `stunnel,none`, `stunnel`, or `none`.
 
@@ -627,6 +623,10 @@ You can add and remove tags when you update a file share with the `ibmcloud is s
    Snapshot count               0
    Snapshot size                0   
    Source snapshot              -   
+   Allowed Access Protocols     nfs4    
+   Availability Mode            zonal   
+   Bandwidth(Mbps)              1    
+   Storage Generation           1  
    ```
    {: screen}
 
@@ -714,7 +714,10 @@ The following example adds two user tags to the file share.
    Snapshot count               0
    Snapshot size                0  
    Source snapshot              -  
-  
+   Allowed Access Protocols     nfs4    
+   Availability Mode            zonal   
+   Bandwidth(Mbps)              1    
+   Storage Generation           1  
    ```
    {: screen}
 
@@ -984,9 +987,6 @@ Mounting is a process by which a server's operating system makes files and direc
 {: #fs-manage-monitor}
 
 You can check the status and health states of your file share by using the console, the CLI, or the API. You can monitor the total bandwidth, the total IOPS, the number of mount targets, and capacity usage of your share over time in the {{site.data.keyword.cloud_notm}} console. You can use {{site.data.keyword.atracker_full}} to configure how to route auditing events for file shares. You can also configure {{site.data.keyword.logs_routing_full_notm}} for handling logs. For more information, see [Monitoring file share health states, lifecycle status, and events](/docs/vpc?topic=vpc-fs-vpc-monitoring).
-
-During the beta release of regional shares, these metrics are not available in the Monitoring tab of the console.
-{: beta}
 
 File shares can be integrated with {{site.data.keyword.mon_full}} to gain operational visibility into the performance and health of your shares. In the Sysdig web UI you can view the bandwidth, IOPS, and capacity metrics in more detail, customize your dashboards, and set up alerts. For more information, see [Monitoring metrics for {{site.data.keyword.filestorage_vpc_short}}](/docs/vpc?topic=vpc-fs-vpc-monitoring-sysdig).
 

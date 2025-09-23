@@ -2,7 +2,7 @@
 
 copyright:
   years: 2024, 2025
-lastupdated: "2025-09-05"
+lastupdated: "2025-09-23"
 
 keywords: snapshots, File Storage, File Storage snapshot
 
@@ -23,8 +23,7 @@ Although you can't create a snapshot on a replica share, the snapshots of the or
 
 The creation of a share snapshot is quick. You can expect to have the snapshot stable and available within seconds. However, you can take only 1 snapshot in a minute. If you take too many snapshots too quickly, you can encounter errors.
 
-During the beta release of regional file shares, snapshots are not supported.
-{: beta}
+[Select availability]{: tag-green} During the select availabiity release of regional file shares, you cannot automate the creation of regional snapshots with the Backup for VPC service. For snapshots of regional file shares, the zone value is blank in both the CLI and API responses.
 
 ## Creating a snapshot in the console
 {: #fs-snapshots-create-ui}
@@ -126,6 +125,9 @@ Resource type          share_snapshot
 
 The status shows `pending` while the snapshot is created. If you want to, you can issue a second `ibmcloud is share-snapshot` command with the snapshot ID to see the new snapshot in `stable` status.
 
+For snapshots of regional file shares, the zone value is blank in both the CLI and API responses. 
+{: preview}
+
 For more information about available command options, see [`ibmcloud is share-snapshot-create`](/docs/cli?topic=cli-vpc-reference#share-snapshot-create).
 
 ## Creating a snapshot with the API
@@ -191,6 +193,9 @@ A successful response looks like the following example. The snapshot lifecycle s
 }
 ```
 {: codeblock}
+
+For snapshots of regional file shares, the zone value is blank in both the CLI and API responses.
+{: preview}
 
 ## Creating a snapshot with Terraform
 {: #fs-snapshots-create-terraform}

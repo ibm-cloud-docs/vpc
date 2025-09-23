@@ -2,7 +2,7 @@
 
 copyright:
   years: 2024, 2025
-lastupdated: "2025-07-28"
+lastupdated: "2025-09-23"
 
 keywords: file share, file storage, virtual network interface, accessor share, de-auth
 
@@ -20,8 +20,6 @@ When you no longer want to allow another account or service to have access to yo
 A failed accessor share and its associated mount targets can't become stable again and can't be reused. The accessor account can and must delete these resources.
 {: note}
 
-During the beta phase of the regional file share offering, sharing access to a share with other accounts is not supported.
-{: beta}
 
 ## Removing authorization
 {: #file-storage-xaccount-deauth}

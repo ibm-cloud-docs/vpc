@@ -2,7 +2,7 @@
 
 copyright:
   years: 2024, 2025
-lastupdated: "2025-09-19"
+lastupdated: "2025-09-23"
 
 keywords:
 
@@ -18,11 +18,11 @@ subcollection: vpc
 Restoring data from a snapshot creates a new, fully provisioned share. Shares can be restored from snapshots that were created manually or by a backup policy. You can create shares from snapshots in the console, from the CLI, with the API, or Terraform. The share that you create by using a snapshot must have the same file share profile as the snapshot. You can also restore single files from snapshots of your file share. 
 {: shortdesc}
 
-Shares can be created only in the same availability zone as the origin share of the snapshot. When the new share is created, it contains only pointers to the original share, and the data copy process begins. While the data is being copied, the share is in a _pending_ state. While the new share can be mounted for read/write in _pending_ state, a few operations like creating a replica or snapshots are not permitted. After the data-copy operation is complete, the new share is split from the parent share to become independent, completing the initialization process. After the initialization process is complete, the share moves to the _stable_ state and can be used as any other share. 
+Shares can be created only in the same location as the origin share of the snapshot. When the new share is created, it contains only pointers to the original share, and the data copy process begins. While the data is being copied, the share is in a _pending_ state. While the new share can be mounted for read/write in _pending_ state, a few operations like creating a replica or snapshots are not permitted. After the data-copy operation is complete, the new share is split from the parent share to become independent, completing the initialization process. After the initialization process is complete, the share moves to the _stable_ state and can be used as any other share. 
 
 It is possible to change the customer-managed encryption key when the new zonal file share is created. This process registers the new share in the key management service with a new key. The new key is used to encrypt the new Share.
 
-
+[Select availability]{: tag-green} In this release of regional file shares, it is not possible to change the customer-managed encryption key when the new regional file share is created.
 
 ## Limitations
 {: #fs-snapshots-restore-limitations}
@@ -58,7 +58,7 @@ From the list of {{site.data.keyword.filestorage_vpc_short}} snapshots, you can 
     | Resource group | Use the defaults or select from the list. |
     | User tags | Specify [user tags](/docs/vpc?topic=vpc-block-storage-about&interface=ui#storage-about-user-tags) to organize your resources and for use by [backup policies](/docs/vpc?topic=vpc-backup-service-about) | 
     | Access management tags | Specify [access management tags](/docs/vpc?topic=vpc-block-storage-about&interface=ui#storage-about-mgt-tags) that were created in IAM to help you manage access to your shares. |
-    | **Profile** | Defaults to `dp2` for zonal shares. The profile of the new share must match the profile of the snapshot. |
+    | **Profile** | Defaults to `dp2` for zonal shares, and `rfs` for regional shares. The profile and storage generation value of the new share must match the profile and storage generation value of the snapshot. |
     | Size | Enter a share size that is allowed by the profile. It must be bigger or equal to the size of the snapshot. |
     | IOPS | Select the IOPS that is within the range that the share profile allows. |
     | **Mount targets** | The creation of a mount target is optional, but you need to have a mount target if you want to connect to your file share from a virtual server instance. |
@@ -133,7 +133,11 @@ Replication status reasons         Status code   Status message
 Snapshot count                     0
 Snapshot size                      0
 Source snapshot                    ID                                          Name
-                                   r006-de41f19f-204c-4d4c-a630-1971ba85ed1d   my-test-snap  
+                                   r006-de41f19f-204c-4d4c-a630-1971ba85ed1d   my-test-snap 
+Allowed Access Protocols           nfs4    
+Availability Mode                  zonal   
+Bandwidth(Mbps)                    1    
+Storage Generation                 1  
 
 ```
 {: screen}
@@ -175,9 +179,16 @@ Replication status reasons         Status code   Status message
 Snapshot count                     0
 Snapshot size                      0
 Source snapshot                    ID                                          Name
-                                   r006-de41f19f-204c-4d4c-a630-1971ba85ed1d   my-test-snap     
+                                   r006-de41f19f-204c-4d4c-a630-1971ba85ed1d   my-test-snap 
+Allowed Access Protocols           nfs4    
+Availability Mode                  zonal   
+Bandwidth(Mbps)                    1    
+Storage Generation                 1     
 ```
 {: screen}
+
+First- and second-generation file share profiles in the defined performance profile family are not interchangeable. You can't use your second-generation snapshot to create a zonal file share. Similarly, you can't use first-generation file share's snapshot to create a share with the `rfs` profile.
+{: important}
 
 For more information about available command options, see [`ibmcloud is share-create`](/docs/vpc?topic=vpc-vpc-reference#share-create).
 
@@ -220,6 +231,9 @@ curl -X POST \
 ```
 {: codeblock}
 
+First- and second-generation file share profiles in the defined performance profile family are not interchangeable. You can't use your second-generation snapshot to create a zonal file share. Similarly, you can't use first-generation file share's snapshot to create a share with the `rfs` profile.
+{: important}
+
 ## Restoring a share from a snapshot with Terraform
 {: #fs-snapshots-restore-terraform}
 {: terraform}
@@ -258,9 +272,9 @@ For more information about the arguments and attributes, see [ibm_is_share](http
 ## Restoring files from a snapshot
 {: #fs-snapshots-restore-single-file}
 
-To perform single-file restoration, you can use native OS functions. You can browse to the share's NFS mount target to open the hidden `/.snapshot` directory and access the data that is contained within each snapshot of your share. Then, you can copy the selected file to a different location.
+To perform single-file restoration, you can use native OS functions. You can browse to the share's NFS mount target and open the hidden snapshot directory (typically named either `/.snapshot` or `.snap`, depending on the file share type). Inside this directory, you’ll find subdirectories representing each snapshot of your share. You can open these to locate and then, you can copy the selected file to a different location.
 
-Although the snapshot directory is hidden, it is accessible and viewable when it is addressed directly with commands such as `cd .snapshot` or `ls .snapshot/`. All the snapshots that are present in the share are visible as subdirectories inside that hidden `/.snapshot` directory, and each snapshot directory is named with the snapshot's fingerprint that you see in the console, from the CLI, or with the API. See the following example.
+Although the snapshot directory is hidden, it is accessible when directly addressed by using commands like `cd .snapshot` or `ls .snapshot/`. Each snapshot appears as a subdirectory named with its unique fingerprint, which matches what you see in the console, CLI, or API.
 
 ```sh
 [root@server .snapshot]# ls -lah

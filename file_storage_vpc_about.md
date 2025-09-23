@@ -2,7 +2,7 @@
 
 copyright:
   years: 2021, 2025
-lastupdated: "2025-09-16"
+lastupdated: "2025-09-23"
 
 keywords: file share, mount target, virtual network interface, customer-managed encryption, encryption at rest, encryption in transit, file storage, share,
 
@@ -28,7 +28,7 @@ When you create a file share in your availability zone, you use the **dp2** prof
 If you have existing file shares that are based on either the IOPS tier profiles or custom IOPS profile; you can update those shares to use the **dp2** profile.
 
 Customers with special access to preview the new regional file share offering can use the **rfs** profile to create file shares with regional availability and adjustable bandwidth values.
-{: beta}
+{: preview}
 
 First- and second-generation profiles in the defined performance profile family are not interchangeable. You can't change the file share profile after the file share is created. You can't convert a zonal file share to a regional share, or a regional share to a zonal share.
 
@@ -52,8 +52,7 @@ You can view and manage your zonal file shares in the console, from the CLI, wit
 ## Regional file shares overview
 {: #regional-file-storage-overview}
 
-As a customer with special access to preview the regional file share profile, you can create file shares with the `rfs` profile with regional availability in the Dallas, Frankfurt, Madrid, and Washington, DC regions.
-{: beta}
+As a customer with special access to preview the regional file share profile, you can create file shares with the `rfs` profile with regional availability in Dallas, Frankfurt, London, Madrid, Osaka, Sydney, Toronto, Tokyo, and Washington, DC.
 
 You create a file share within the region and create the mount target for the share in the VPC. File shares are identified by name and associated with a resource group in your {{site.data.keyword.cloud_notm}} customer account. You can control how the file share is accessed by using security groups. The regional file can be accessed from all three zones of the region when the compute clients are in the correct security group. For more information, see [regional mount targets](#fs-regional-mount)
 
@@ -111,8 +110,6 @@ Cross-zone mounting is not applicable for regional file shares. For more informa
 
 ### Regional mount targets
 {: #fs-regional-mount}
-
-[Beta]{: tag-cyan}
 
 When you create a mount target for a regional file share, you must attach a VNI. Although each VNI is associated with a specific zone, it’s not restricted to that zone. Subnets and VNIs include zonal location codes in their Cloud Resource Names (CRNs), but they are designed to operate regionally. They are accessible from any availability zone within the region, even if the owning region is temporary unavailable.
 
@@ -224,19 +221,23 @@ For more information, see [Sharing and mounting a file share from another accoun
 #### Allowed transit encryption modes
 {: #fs-allowed-eit-modes}
 
-The share owner has the right to enforce the use of encryption in transit when the accessor accesses the file share data. The share owner can require no encryption in transit, mandate the use of encryption, or leave it up to the accessor account to choose the transit encryption mode for their mount targets.
+The share owner can enforce the transit encryption settings for a file share's data. They can choose to allow encryption, allow no encryption, or leave it up to the accessor account to choose the transit encryption mode for their mount targets. All mount targets created for a single file share must use the same transit encryption mode for consistency.
 
-The share owner can set the allowed transit encryption modes to allow either `user_managed` or `none`, or both. When the `allowed transit encryption modes` of the origin share is set to `user_managed`, the share accessor accounts must create all their mount targets with `user_managed` transit encryption. When `none` is specified, encryption-in-transit is not required and cannot be used by the accessor accounts. All mount targets that are created for one file share must have the same transit encryption mode.
+For zonal file shares, the share owner can choose from the following transit encryption modes: `ipsec`, `none`, or both.
+- If `ipsec` is enforced, all accessor mount targets must use IPsec.
+- If `none` is enforced, encryption-in-transit is not allowed.
+- If both are allowed, accessor accounts can choose which one to use.
 
-[Beta]{: tag-cyan} Customers with special access to preview the new regional file share offering have the following options for allowed transit encryption modes:
-- For zonal file shares (`dp2` profile), the share owner can specify either `ipsec` or `none`, or both.
-- For regional file shares, cross-account access is not supported yet.
+[Select availability]{: tag-green} For regional file shares, the share owner can choose from the following transit encryption modes: `stunnel`, `none`, or both.
+- If `stunnel` is enforced, all accessor mount targets must use stunnel.
+- If `none` is enforced, encryption-in-transit is not allowed.
+- If both are allowed, accessor accounts can choose which one to use. 
 
-When the `allowed transit encryption modes` of the origin share is set to `ipsec`, the share accessor accounts must create all their mount targets with the specified transit encryption type. When `none` and one of the encryption types are specified together, the accessor share can choose their transit encryption mode. All mount targets that are created for one file share must have the same transit encryption mode.
+All mount targets created for a single file share must use the same transit encryption mode for consistency.
 
 For more information about sharing and mounting a file share from another {{site.data.keyword.cloud}} account or VPC, see [Sharing and mounting a file share from another account](/docs/vpc?topic=vpc-file-storage-accessor-create&interface=ui).
 
-Sharing a file share with other accounts or services is not supported for zonal file shares with VPC-wide access mode. In this release, cross-account access is not supported for regional file shares with the `rfs` profile.
+Sharing a file share with other accounts or services is not supported for zonal file shares with VPC-wide access mode.
 
 ### Managing security and compliance
 {: #fs-vpc-manage-security}
@@ -286,8 +287,8 @@ You can create read-only replicas of your file shares in another zone within you
 For cross-region replication, you must configure [service to service authorizations](/docs/vpc?topic=vpc-file-s2s-auth) before you create your replica file share.
 {: requirement}
 
-Cross-regional replication is not supported for regional file shares with the `rfs` profile during the Beta phase.
-{: beta}
+In this release, cross-regional replication is not supported yet for regional file shares with the `rfs` profile.
+{: preview}
 
 ## File share snapshots
 {: #fs-about-snapshots}
@@ -299,8 +300,8 @@ Snapshots are supported only for shares that have "security group" as their acce
 You can't create snapshots of replica or accessor shares. However, snapshots of the origin share are replicated to the read-only replica share at the next scheduled sync. Snapshots of the origin share are also available to the accessor shares.
 {: important}
 
-In this release of regional file shares, snapshots are not supported.
-{: beta}
+In this release, the snapshots for regional file shares are supported but you cannot automate the creation of regional snapshots with the Backup for VPC service. For snapshots of regional file shares, the zone value is blank in both the CLI and API responses.
+{: preview}
 
 ## File share data eradication
 {: #file-storage-data-eradication}
@@ -315,9 +316,6 @@ Further, when IBM decommissions a physical drive, the drive is destroyed before 
 {: #fs-mon-sysdig}
 
 {{site.data.keyword.mon_full}} is a third-party cloud-native, and container-intelligence management system that you can include as part of your {{site.data.keyword.cloud_notm}} architecture. {{site.data.keyword.mon_full_notm}} is operated by Sysdig in partnership with {{site.data.keyword.IBM_notm}}. You can access File share dashboards in the {{site.data.keyword.cloud_notm}} console and view metrics such as current read and write bandwidth, and maximum bandwidth. For more information, see [Monitoring metrics for File Storage for VPC](/docs/vpc?topic=vpc-fs-vpc-monitoring-sysdig&interface=ui).
-
-During the beta release of regional shares, these metrics are not available in the Monitoring tab for the `rfs` shares.
-{: beta}
 
 ## Limitations in this release
 {: #fs-limitations}
@@ -338,7 +336,7 @@ The following limitations apply to this release of {{site.data.keyword.filestora
 * Encryption in transit is not supported between {{site.data.keyword.filestorage_vpc_short}} and {{site.data.keyword.bm_is_short}}.
 * A file share cannot be split from its replica by using a `DELETE /shares/<id>/source` API request, if the `lifecycle_state` of the file share is `updating` or if replica operations are in progress.
 * Cross-regional replication is supported within the same geography when both source and replica shares belong to the same account. Cross-geography replication is not supported.
-* Cross-regional replication is not supported for regional files shares in the beta phase.
+* Cross-regional replication is not supported for regional files shares in the [Select availability]{: tag-green} phase.
 
 ## Next steps
 {: #file-storage-vpc-next-steps}

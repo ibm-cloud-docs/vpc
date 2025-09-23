@@ -2,7 +2,7 @@
 
 copyright:
   years: 2022, 2025
-lastupdated: "2025-09-10"
+lastupdated: "2025-09-23"
 
 keywords: file share, file storage, source volume, replica share, 
 
@@ -31,8 +31,7 @@ The specified source file share must not have another replica already, and must 
 If you want to create a replica in another region, you need to establish service-to-service authorizations first. Both file service instances must belong to the same account. Cross-account replication is not supported. For more information, see [Establishing service-to-service authorizations for {{site.data.keyword.filestorage_vpc_short}}](/docs/vpc?topic=vpc-file-s2s-auth).
 {: requirement}
 
-Customers with special access to preview the new regional file share offering can use the **rfs** profile to create file shares with regional availability. When you create file shares with regional availability, data is automatically replicated throughout the region, so you don't need to set up replication pairs. Cross-regional replication of regional file shares is not supported in this release.
-{: beta}
+[Select availability]{: tag-green} Customers with special access to preview the new regional file share offering can use the **rfs** profile to create file shares with regional availability. When you create file shares with regional availability, data is automatically replicated throughout the region, so you don't need to set up replication pairs. Cross-regional replication of regional file shares is not supported in this release.
 
 ## Adding replication to a file share in the console
 {: #fs-create-replica-ui}
@@ -100,15 +99,6 @@ You can use the CLI to create a file share with a replica share in another zone,
 
 Before you can use the CLI, you must install the IBM Cloud CLI and the VPC CLI plug-in. For more information, see the [CLI prerequisites](/docs/vpc?topic=vpc-set-up-environment#cli-prerequisites-setup).
 
-Customers with special access to preview the regional file share offering must set the appropriate environmental variable with the following command.
-
-```sh
-export IBMCLOUD_IS_FEATURE_SHARE_DENALI_REGIONAL_AVAILABILITY=true
-```
-{: pre}
-
-The CLI returns the properties for "Allowed Access Protocols", "Availability Mode", "Bandwidth", and "Storage Generation" only when this environmental variable is set to "true".
-
 ### Creating a file share with a replica from the CLI
 {: #fs-create-new-share-replica-cli}
 
@@ -155,6 +145,10 @@ Replication status reasons         Status code   Status message
 Snapshot count                     0   
 Snapshot size                      0   
 Source snapshot                    -   
+Allowed Access Protocols           nfs4    
+Availability Mode                  zonal   
+Bandwidth(Mbps)                    1    
+Storage Generation                 1  
 ```
 {: screen}
 
@@ -217,6 +211,10 @@ Source snapshot                    -
    Snapshot count               0
    Snapshot size                0
    Source snapshot              -
+   Allowed Access Protocols     nfs4    
+   Availability Mode            zonal   
+   Bandwidth(Mbps)              1    
+   Storage Generation           1  
    ```
    {: screen}
 
@@ -236,7 +234,7 @@ Source snapshot                    -
    Lifecycle state                  pending   
    Access control mode              security_group
    Accessor binding role            origin
-   Allowed transit encryption modes user_managed,none
+   Allowed transit encryption modes ipsec,none
    Zone                             us-south-3   
    Profile                          dp2   
    Size(GB)                         1000   
@@ -263,7 +261,11 @@ Source snapshot                    -
                                     r006-b696742a-92ee-4f6a-bfd7-921d6ddf8fa6   my-file-share   share 
    Snapshot count                   0
    Snapshot size                    0         
-   Source snapshot                  -                      
+   Source snapshot                  - 
+   Allowed Access Protocols         nfs4    
+   Availability Mode                zonal   
+   Bandwidth(Mbps)                  1    
+   Storage Generation               1                   
    ```
    {: screen}
 
@@ -283,7 +285,7 @@ When you create a replica of a file share in another region, you must use the CR
    Lifecycle state                  pending   
    Access control mode              security_group
    Accessor binding role            origin
-   Allowed transit encryption modes user_managed,none  
+   Allowed transit encryption modes ipsec,none
    Zone                             us-east-1   
    Profile                          dp2   
    Size(GB)                         1000   
@@ -312,6 +314,10 @@ When you create a replica of a file share in another region, you must use the CR
    Snapshot count                   0
    Snapshot size                    0
    Source snapshot                  - 
+   Allowed Access Protocols         nfs4    
+   Availability Mode                zonal   
+   Bandwidth(Mbps)                  1    
+   Storage Generation               1  
    ```
    {: screen}
 
@@ -352,11 +358,11 @@ curl -X POST\
         {"virtual_network_interface": {"subnet": {"id": "2302-ea5fe79f-52c3-4f05-86ae-9540a10489f5"}}},
         {"vpc": {"id": "7ec86020-1c6e-4889-b3f0-a15f2e50f87e"}}],
       "resource_group": {},
-      "allowed_transit_encryption_modes": "user_managed",
+      "allowed_transit_encryption_modes": "ipsec",
       "user_tags": ["string"]}}]
       }
     "resource_group": {},
-    "allowed_transit_encryption_modes": "user_managed",
+    "allowed_transit_encryption_modes": "ipsec",
     "user_tags": ["string"]
    }'
 ```
@@ -384,7 +390,7 @@ curl -X POST \
   "replication_cron_spec": "00 05 * * 0",
   "resource_group": {"id": "6edefe513d934fdd872e78ee6a8e73ef"},
   "access_control_mode": "security_group",
-  "allowed_transit_encryption_modes": "user_managed,none"
+  "allowed_transit_encryption_modes": "ipsec,none"
 }'
 ```
 {: pre}

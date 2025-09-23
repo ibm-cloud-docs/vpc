@@ -2,7 +2,7 @@
 
 copyright:
   years: 2024, 2025
-lastupdated: "2025-09-19"
+lastupdated: "2025-09-23"
 
 keywords: snapshots, File storage snapshots, manage snapshots, backup snapshot, remote copy, cross-regional copy
 
@@ -114,6 +114,9 @@ Resource group       ID                                 Name
 Resource type        share_snapshot
 ```
 {: screen}
+
+For snapshots of regional file shares, the zone value is blank in both the CLI and API responses.
+{: note}
 
 ## Renaming a snapshot with the API
 {: #fs-snapshots-rename-api}

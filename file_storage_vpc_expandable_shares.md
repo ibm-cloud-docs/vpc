@@ -2,7 +2,7 @@
 
 copyright:
   years: 2022, 2025
-lastupdated: "2025-09-09"
+lastupdated: "2025-09-23"
 
 keywords: file share, file storage, increase capacity, expand capacity, expand share size, file share size
 
@@ -57,7 +57,7 @@ The following limitations apply to this release.
 * IOPS increase to the maximum allowed by the profile.
 * You can't independently modify IOPS for a file share that was created from an IOPS tier profile. IOPS is adjusted when you expand capacity.
 * When you expand a file share that was created from a custom or dp2 profile, the capacity is increased, but the IOPS remains the same unless you choose to [adjust the IOPS](/docs/vpc?topic=vpc-file-storage-adjusting-iops).
-* [Beta]{: tag-cyan} When you expand a file share that was created with the `rfs` profile, the capacity and minimum bandwidth are increased.
+* [Select availability]{: tag-green} When you expand a file share that was created with the `rfs` profile, the capacity and minimum bandwidth are increased. 
 * The maximum IOPS for a zonal file share is capped at 48,000 IOPS if it is accessed by a single host. For a zonal file share that is accessed by multiple hosts, IOPS can reach up to 96,000 IOPS.
 * After a file share is expanded, you can't reduce its size.
 
@@ -148,7 +148,10 @@ To increase the capacity of a file share from the CLI, use the `share-update` co
    Snapshot count               0
    Snapshot size                0  
    Source snapshot              -        
-           
+   Allowed Access Protocols     nfs4    
+   Availability Mode            zonal   
+   Bandwidth(Mbps)              1    
+   Storage Generation           1      
    ```
    {: screen}
 
@@ -194,7 +197,10 @@ To increase the capacity of a file share from the CLI, use the `share-update` co
    Snapshot count               0
    Snapshot size                0 
    Source snapshot              -
-    
+   Allowed Access Protocols     nfs4    
+   Availability Mode            zonal   
+   Bandwidth(Mbps)              1    
+   Storage Generation           1  
    ```
    {: screen}
 
@@ -269,18 +275,6 @@ When the file share expansion completes, the new value displays, and the status 
   .
   .
 }
-```
-{: codeblock}
-
-Customers with special access to review the regional file share offering can use the Beta VPC API to expand their regional file shares. See the following example.
-
-```sh
-curl -X PATCH \
- "$vpc_api_endpoint/v1/shares/$share_id?version=2025-07-22&generation=2&maturity=beta" \
- -H "Authorization: $iam_token" \
- -d '{
-      "size": 2500
-    }'
 ```
 {: codeblock}
 

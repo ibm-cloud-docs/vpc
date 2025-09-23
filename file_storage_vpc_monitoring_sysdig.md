@@ -2,7 +2,7 @@
 
 copyright:
   years: 2021, 2025
-lastupdated: "2025-09-11"
+lastupdated: "2025-09-23"
 
 keywords: file share, file storage, sysdig, platform metrics
 
@@ -20,8 +20,6 @@ subcollection: vpc
 
 With {{site.data.keyword.mon_full}}, you can view utilization metrics that measure the amount of transmitted data (throughput) and the number of read and write operations (IOPS) that are performed on the share. It can help you to determine how much work is done by your application or workload. You can use this information to determine whether the IOPS value needs to be adjusted. Monitoring the available capacity of your share can help you identify the need for more storage before insufficient space can become a problem with writing data to the share or replication. Seeing these metrics can help you anticipate any changes in charges at the end of the billing period.
 
-During the beta release of regional shares, these metrics are not available for the file shares with the `rfs` profile.
-{: beta}
 
 ## Platform metrics overview
 {: #sysdig-ov}

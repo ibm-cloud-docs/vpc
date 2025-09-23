@@ -2,7 +2,7 @@
 
 copyright:
   years: 2018, 2025
-lastupdated: "2025-09-17"
+lastupdated: "2025-09-23"
 
 keywords:
 
@@ -153,6 +153,46 @@ When you specify a resource group explicitly in your API request to create an ac
 {: #cross-regional-replica-incorrect-href-source-snapshot}
 
 When you retrieve information about your cross-regional replica share, the source snapshot's href value is incorrect in the API response. Refer to the source snapshot ID or source snapshot CRN instead.
+
+### File share `accessor_bindings` missing in share API response
+{: #fs-missing-accessor-info-api}
+
+When creating, retrieving, listing, updating, or deleting file shares, `accessor_bindings` may be absent from the share API response.
+
+### File share `more_info` does not return URL of issue
+{: #fs-missing-more-info-url}
+
+When an error is reported while making share API requests, the `more_info` property does not return an error topic URL for the issue encountered. The `more_info` property currently returns information on how to resolve the issue encountered instead.
+
+
+### File share properties missing in API response
+{: #file-share-properties-missing-in-api-response}
+
+[Select availability]{: tag-green}
+
+When using an API `version` query parameter of `2025-09-15` or earlier, the following properties might be missing or incorrect from the response:
+
+
+- `zone` might be absent in the share API response when file shares and file share snapshots with `rfs` profile from a source share are created, retrieved, listed, updated, or deleted by using an API version of `2025-09-15` or earlier. When a `version` query parameter of `2025-09-15` or earlier is used, the `zone` of an `rfs` share snapshot returns the first zone from the region and is informational only. `zone` is not affected for `dp2` share snapshots and is represented correctly for `rfs` share snapshots when an API version of `2025-09-16` or later is used.
+
+### Creating replica file shares with `allowed_transit_encryption_modes` or mount targets with `transit_encryption`
+{: #replica-file-share-transit-encryption} 
+
+[Select availability]{: tag-green}
+
+When you try to create a replica file share with the `allowed_transit_encryption_modes` option specified, the request fails. Additionally, creating a replica file share with a mount target without a `transit_encryption` value in the source share's `allowed_transit_encryption_modes` property fails. This behavior is incorrect. To work around this issue, do not specify `allowed_transit_encryption_modes` in requests to create a replica file share. The replica's `allowed_transit_encryption_modes` are inherited from the source share. When you want to create a mount target for a replica file share, use only the `transit_encryption` values that are specified in the source share's `allowed_transit_encryption_modes` property.
+
+### Regional file share mount target provisioning delays
+{: #regional-file-share-mount-target-provisioning}
+
+[Select availability]{: tag-green}
+
+Creating a share mount target for a regional file share can take more than 10 minutes, during which time its `lifecycle_state` shows as `pending`. Mount targets for shares that use the `dp2` profile are not affected.
+
+### Regional file share snapshot size not reported accurately in API and CLI responses
+{: #regional-file-share-snapshot-size-incorrect}
+
+When performing file share operations with the CLI or API, the snapshot size field defaults to 1 in the response when a snapshot is created and to 0 otherwise. This value does not represent the actual size of the snapshot for regional shares.
 
 ### Backup plan ID property in the API response
 {: #backup-policy-plan-fs}

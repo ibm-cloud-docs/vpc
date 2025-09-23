@@ -2,7 +2,7 @@
 
 copyright:
   years: 2022, 2025
-lastupdated: "2025-09-09"
+lastupdated: "2025-09-23"
 
 keywords: file storage, file share, view share details, mount targets, view targets, view share
 
@@ -72,7 +72,7 @@ You can access the Actions menu by clicking ![Actions icon](../icons/action-menu
      | Encryption | Specifies provider-managed or [customer-managed encryption](/docs/vpc?topic=vpc-file-storage-byok-encryption). When the file share is encrypted with customer-managed keys, the encryption instance, encryption key name, and encryption key CRN are also shown. |
      | Mount target access mode   | Access to the file share is granted by either a security group within a subnet or to any virtual server instance in the VPC. Click the **Edit icon** ![Edit icon](../icons/edit-tagging.svg "Edit") to switch access modes. Security group access is available only to file shares created with the [`dp2` profile](/docs/vpc?topic=vpc-file-storage-profiles&interface=ui#dp2-profile). For more information, see the [Mount target access modes](/docs/vpc?topic=vpc-file-storage-vpc-about&interface=api#fs-mount-access-mode). |
      | CRN | The copiable Cloud Resource Name of the file share.|
-     | Allowed encryption in transit mode | This value shows whether encryption in transit is required when clients access the file share. Click the **Edit icon** ![Edit icon](../icons/edit-tagging.svg "Edit") to change the allowed values. The possible values are User managed, and None. This field is not applicable for file shares with VPC access mode. \n [Beta]{: tag-cyan} Customers with special access to preview the new regional file share offering can choose from IPsec, Stunnel, and None.|
+     | Allowed encryption in transit mode | This value shows whether encryption in transit is required when clients access the file share. Click the **Edit icon** ![Edit icon](../icons/edit-tagging.svg "Edit") to change the allowed values. The possible values are User managed, and None. This field is not applicable for file shares with VPC access mode. \n [Select availability]{: tag-green} Customers with special access to preview the new regional file share offering can choose from IPsec, Stunnel, and None.|
      | Cross-account role | The possible values are None, Origin, Accessor. This field is not applicable for file shares with VPC access mode.|
      | Snapshot count  | This value indicates the number of snapshots that were taken of the file share. This field is not applicable for file shares with VPC access mode. |
      | Size of changed data in all the snapshots  | It represents the billable volume of data across all the snapshots. This field is not applicable for file shares with VPC access mode. |
@@ -80,7 +80,7 @@ You can access the Actions menu by clicking ![Actions icon](../icons/action-menu
      | Profile | The name of the share [profile](/docs/vpc?topic=vpc-file-storage-profiles) that defines the file share performance. In most cases, the dp2 profile.|
      | Size | File share capacity in GB. |
      | Max IOPS | Maximum IOPS for the specified share. This field is displayed for zonal shares. |
-     | Bandwidth [Beta]{: tag-cyan} | The maximum bandwidth limit that is specified for the share. This field is displayed for regional shares.|
+     | Bandwidth | The maximum bandwidth limit that is specified for the share. This field is displayed for regional shares.|
      | **Mount targets** | Number of mount targets associated with the file share. You can have one mount target per VPC per file share. You can create more mount targets for other VPCs. Click ![Actions icon](../icons/action-menu-icon.svg) to rename or delete the mount target, or to view the mount path. |
      | Name | Name of the mount target. |
      | Status | Status of the mount target on the VPC. |
@@ -119,9 +119,7 @@ You can access the Actions menu by clicking ![Actions icon](../icons/action-menu
      These metrics are not updated in real time. Data for new file shares can take up to an hour or an hour and 15 minutes to appear in the dashboard. Changes in usage can take from 15 to 30 minutes to be reflected in the graphs.
      {: note}
 
-     During the beta release of regional shares, these metrics are not available in the Monitoring tab for the `rfs` shares.
-     {: beta}
-
+    
      If you have an instance of the {{site.data.keyword.mon_full_notm}} service, click **Launch monitoring** to open the Sysdig web UI to work with the metrics dashboards there. For more information about how to set up the {{site.data.keyword.mon_full_notm}} instance, see [Monitoring metrics for File Storage for VPC](/docs/vpc?topic=vpc-fs-vpc-monitoring-sysdig).
 
 ### Viewing all file shares for a VPC in the console
@@ -152,15 +150,6 @@ You can see all file shares that have a mount target to a VPC by viewing the VPC
 Before you can use the CLI, you must install the IBM Cloud CLI and the VPC CLI plug-in. For more information, see the [CLI prerequisites](/docs/vpc?topic=vpc-set-up-environment#cli-prerequisites-setup).
 {: requirement}
 
-If you are a customer with special access to preview the regional file share profile, you can use the `rfs` profile to create a file share. To be able to create and manage a regional file share from the CLI, set the appropriate environmental variable with the following command.
-
-```sh
-export IBMCLOUD_IS_FEATURE_SHARE_DENALI_REGIONAL_AVAILABILITY=true
-```
-{: pre}
-
-The CLI returns the properties for "Allowed Access Protocols", "Availability Mode", "Bandwidth", and "Storage Generation" only when this environmental variable is set to "true".
-
 ### Viewing all file shares from the CLI
 {: #fs-view-all-shares-cli}
 
@@ -173,13 +162,12 @@ ibmcloud is shares
 
 ```sh
 Listing shares in all resource groups and region us-south under account Test Account as user test.user@ibm.com...
-ID                                          Name                    Lifecycle state   Zone         Profile   Size(GB)   Resource group   Replication role   Accessor binding role   Snapshot count   Snapshot size   
-r006-a8d6af48-0c97-4c6b-bab1-fbefdc1e1e03   my-file-share           stable            us-south-2   dp2       10         defaults         none               none                    0                0   
-r006-aaf4bfe9-358c-4faa-a4ec-0b955090b940   my-file-share-2         stable            us-south-2   dp2       10         defaults         none               none                    0                0   
-r006-a60bfa90-a893-40ad-be34-28ab51a963f9   replica-dal-2           stable            us-south-2   dp2       10         defaults         replica            none                    0                0   
-r006-3f21e3c3-e12d-425f-ab77-810cabfde8df   source-dal-1            stable            us-south-1   dp2       10         defaults         source             none                    0                0   
-r006-455b601c-8fc1-4476-8771-4708c49c8ef7   my-replica-share-dal-1  stable            us-south-1   dp2       10         defaults         replica            none                    0                0   
-r006-4dadac27-cd17-42df-a5fe-1388705d33e0   my-source-share-dal-2   stable            us-south-2   dp2       10         defaults         source             none                    0                0 
+ID                                          Name                     Lifecycle state   Zone         Profile   Size(GB)   Resource group   Replication role   Accessor binding role   Snapshot count   Snapshot size   Allowed Access Protocols   Availability Mode   Bandwidth(Mbps)   Storage Generation   
+r006-6cedac18-ffe5-4a89-9e7a-5c8683d17279   my-regional-file-share   stable            -            rfs       1000        defaults         none               none                    0                0               -                          regional            1500              2   
+r006-e4acfa9b-88b0-4f90-9320-537e6fa3482a   my-source-file-share     stable            us-south-2   dp2       10         defaults         source             none                    2                1               -                          zonal               -                 1   
+r006-455b601c-8fc1-4476-8771-4708c49c8ef7   my-replica-file-share    stable            us-south-1   dp2       10         defaults         replica            none                    2                1               -                          zonal               -                 1   
+r006-ee1f6fc0-6fa3-4821-ad70-f6589e30c566   my-accessor-share        stable            -           rfs        3000         defaults         none               accessor                0                0               -                          regional            1                 2   
+r006-fdd5774c-fe8a-41f4-9088-eafc89f58c09   my-origin-share          stable            -           rfs        3000        defaults         none               origin                  0                0               -                          regional            1                 2  
 ```
 {: screen}
 
@@ -206,7 +194,7 @@ CRN                                crn:v1:bluemix:public:is:us-south-1:a/a123456
 Lifecycle state                    stable   
 Access control mode                security_group   
 Accessor binding role              none   
-Allowed transit encryption modes   none,user_managed  
+Allowed transit encryption modes   none,ipsec
 Zone                               us-south-1   
 Profile                            dp2   
 Size(GB)                           10   
@@ -237,7 +225,10 @@ Source share                       ID                                          N
 Snapshot count                     0   
 Snapshot size                      0   
 Source snapshot                    -   
-
+Allowed Access Protocols           nfs4    
+Availability Mode                  zonal   
+Bandwidth(Mbps)                    1    
+Storage Generation                 1  
 ```
 {: screen}
 
@@ -257,7 +248,7 @@ CRN                              crn:v1:bluemix:public:is:us-south-2:a/a1234567b
 Lifecycle state                  stable   
 Access control mode              security_group
 Accessor binding role            origin
-Allowed transit encryption modes user_managed,none  
+Allowed transit encryption modes ipsec,none
 Zone                             us-south-2   
 Profile                          dp2   
 Size(GB)                         10   
@@ -284,7 +275,10 @@ Replication status reasons       Status code   Status message
 Snapshot count                   0
 Snapshot size                    0 
 Source snapshot                  -
-
+Allowed Access Protocols         nfs4    
+Availability Mode                zonal   
+Bandwidth(Mbps)                  1    
+Storage Generation               1  
 ```
 {: screen}
 
@@ -532,10 +526,13 @@ A successful response looks like the following example. In this example, the sha
   "access_control_mode": "security_group",
   "accessor_binding_role": "none",
   "accessor_bindings": [],
+  "allowed_access_protocol": "nsf4",
   "allowed_transit_encryption_modes": [
       "none",
-      "user_managed"
+      "ipsec"
   ],
+  "availability_mode": "zonal",
+  "bandwidth": 100,
   "created_at": "2025-04-04T09:17:14.000Z",
   "crn": "crn:v1:bluemix:public:is:us-south-2:a/a1234567::share:r006-4dadac27-cd17-42df-a5fe-1388705d33e0",
   "encryption": "provider_managed",
@@ -575,6 +572,7 @@ A successful response looks like the following example. In this example, the sha
   "size": 10,
   "snapshot_count": 0,
   "snapshot_size": 0,
+  "storage_generation": 1,
   "user_tags": [],
   "zone": {
       "href": "https://us-south.iaas.cloud.ibm.com/v1/regions/us-south/zones/us-south-2",
@@ -584,19 +582,14 @@ A successful response looks like the following example. In this example, the sha
 ```
 {: codeblock}
 
-
-
-Customers with special access to review the regional file share offering can use the Beta VPC API to retrieve information about their regional file shares. See the following example.
-
+The following example shows the response that is returned when you retrieve information of a regional file with the API.
 
 ```sh
 curl -X GET \
-"$vpc_api_endpoint/v1/shares/$share_id?version=2025-04-01&generation=2&maturity=beta"\
+"$vpc_api_endpoint/v1/shares/$share_id?version=2025-07-23&generation=2"\
 -H "Authorization: $iam_token"
 ```
 {: pre}
-
-
 
 A successful response looks like the following example:
 
@@ -823,7 +816,7 @@ curl -X GET \
 ```
 {: pre}
 
-A successful response looks like the following example. In this example, [data encryption in transit](/docs/vpc?topic=vpc-file-storage-vpc-eit) is enabled. The `transit_encryption` property value is `provider_managed`. 
+A successful response looks like the following example. In this example, [data encryption in transit](/docs/vpc?topic=vpc-file-storage-vpc-eit) is enabled. 
 
 ```json
 {
@@ -859,7 +852,7 @@ A successful response looks like the following example. In this example, [data e
       "name": "my-subnet",
       "resource_type": "subnet"
     },
-    "transit_encryption": "provider_managed",
+    "transit_encryption": "ipsec",
     "virtual_network_interface": {
       "crn": "crn:[...]",
       "href": "https://us-south.iaas.cloud.ibm.com/v1/virtual_network_interfaces/4551a68d-b45d-4443-b6b3-aba7a4a18c98",
@@ -897,7 +890,7 @@ A successful response provides details of the source file share. Notice that the
     "access_control_mode": "security_group",
     "created_at": "2023-07-18T22:58:49.000Z",
     "crn": "crn:[...]",
-    "encryption": "provider_managed",
+    "encryption": "none",
     "href": "https://us-south.iaas.cloud.ibm.com/v1/shares/207721a9-aff9-4b16-9823-fe68096aeac3",
     "id": "207721a9-aff9-4b16-9823-fe68096aeac3",
     "iops": 14400,

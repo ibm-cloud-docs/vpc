@@ -2,7 +2,7 @@
 
 copyright:
  years: 2022, 2025
-lastupdated: "2025-09-19"
+lastupdated: "2025-09-23"
 
 keywords: Backup, backup service, backup plan, backup policy, restore, restore volume, restore data
 
@@ -265,7 +265,7 @@ File share backups:
 * You can't create a copy of a file storage backup in another region. File share snapshots and backups are tied to their source shares. If the share is deleted, the backups are deleted as well. 
 * Backup snapshots are not supported for shares that have "VPC" access control mode.
 * The fast restore feature is not supported for file share backups.
-* [Beta]{: tag-cyan} Backup snapshots of second-generation file shares with regional availability are not supported.
+* [Select availability]{: tag-green} Backup snapshots of second-generation file shares with regional availability are not supported.
 
 ## Securing your data
 {: #backuo-data-security}

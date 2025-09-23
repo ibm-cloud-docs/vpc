@@ -2,7 +2,7 @@
 
 copyright:
   years: 2019, 2025
-lastupdated: "2025-09-22"
+lastupdated: "2025-09-23"
 
 keywords:
 
@@ -26,6 +26,15 @@ For more information about changes to the {{site.data.keyword.vpc_short}} comman
 
 ## September 2025
 {: #vpc-sep25}
+
+Regional file shares (Select availability)
+:   The new `rfs` share profile is now available for customers with special access in Dallas, Frankfurt, London, Madrid, Osaka, Sydney, Toronto, and Washington, DC. Shares that are created with this profile offer regional data availability and support adjustable share bandwidth. File share data can be protected with customer-managed encryption keys, and in-transit encryption is supported by the use of stunnel. Cross-account access is now supported. Transit encryption settings can be enforced by the share owner. For regional shares, the available allowed transit encryption modes are `stunnel`, `none`, or both. For more information, see [About File Storage for VPC](/docs/vpc?topic=vpc-file-storage-vpc-about).
+
+Regional file share snapshots (Select availability)
+:   On-demand snapshots are now available for regional file shares. You can create snapshots in the console, from the CLI, and with the API. You can use the snapshots to create other regional file shares in the same region. When you create a file share from a snapshot, the share profile of the new file share must match the share profile of the snapshot's parent file share. You can use the snapshots to restore individual files, the regional snapshots can be accessed in the `.snap` directory. For more information, see [About File Storage for VPC snapshots](/docs/vpc?topic=vpc-fs-snapshots-about).
+
+Change in allowed transit encryption mode value of zonal file shares
+:   Previously, when you created a file share with the `dp2` profile, you could select `customer-managed` and `none` as the allowed transit encryption modes. When a mount target is created for the file share, its transit encryption value must match one of the values that the file share allows. For zonal file shares and mount targets, the `user-managed` value is now changed to `ipsec` in all user interfaces. Before you adopt the release version `2025-09-23` or later, review the changes in the migration guidance that might require you to update your client or scripts. For more information, see [Updating to the latest API code](/docs/vpc?group=updating-api) and [Creating file shares and mount targets](/docs/vpc?topic=vpc-file-storage-create).
 
 ### 11 September 2025
 {: #vpc-sep1125}

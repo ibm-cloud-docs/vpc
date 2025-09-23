@@ -2,7 +2,7 @@
 
 copyright:
   years: 2025, 2025
-lastupdated: "2025-09-15"
+lastupdated: "2025-09-23"
 
 keywords: file share, regional, file storage, bandwidth, bandwidth
 
@@ -15,8 +15,7 @@ subcollection: vpc
 # Adjusting bandwidth limit for a regional file share
 {: #file-storage-adjusting-bandwidth}
 
-Customers with special access to preview the new regional file share offering can use the `rfs` profile to create file shares with regional data availability and adjustable bandwidth values. The `rfs` profile is available in the Dallas, Frankfurt, Madrid, and Washington, DC regions during the beta release.
-{: beta}
+[Select availability]{: tag-green} Customers with special access to preview the new regional file share offering can use the `rfs` profile to create file shares with regional data availability and adjustable bandwidth values.
 
 For regional file shares that are provisioned with the `rfs` profile, you can increase or decrease the bandwidth limit to meet your performance needs. The maximum bandwidth for any file share with the `rfs` profile is 8192 Mbps (1024 MBps). This bandwidth value represents the maximum allowed combined throughput for read and write operations. The minimum bandwidth value of the share is calculated as 8 Mbps for every 20 GB of capacity.
 {: shortdesc}
@@ -39,15 +38,6 @@ Billing for an updated file share is automatically updated. The prorated differe
 ## Adjusting bandwidth from the CLI
 {: #adjust-fs-bandwidth-cli-block}
 {: cli}
-
-To be able to create and manage a regional file share from the CLI, set the appropriate environmental variable with the following command.
-
-```sh
-export IBMCLOUD_IS_FEATURE_SHARE_DENALI_REGIONAL_AVAILABILITY=true
-```
-{: pre}
-
-The CLI returns the properties for "Allowed Access Protocols", "Availability Mode", "Bandwidth", and "Storage Generation" only when this environmental variable is set to "true".
 
 From the CLI, use the `ibmcloud is share-update` command with the `--bandwidth` option to indicate the new bandwidth value for a custom profile.
 
@@ -86,7 +76,7 @@ Updating file share my-file-share under account Test Account as user test.user@i
    Resource group                     ID                                 Name
                                       db8e8d865a83e0aae03f25a492c5b39e   Default
 
-   Created                            2025-07-22T22:15:15+00:00
+   Created                            2025-09-23T22:15:15+00:00
    Replication role                   none
    Replication status                 none
    Replication status reasons         Status code   Status message
@@ -117,7 +107,7 @@ This example shows the bandwidth value increased to 3,000 Mbps. The preset bandw
 
 ```sh
 curl -X PATCH \
- "$vpc_api_endpoint/v1/shares/$share_id?version=2025-07-22&generation=2&maturity=beta" \
+ "$vpc_api_endpoint/v1/shares/$share_id?version=2025-09-23&generation=2" \
  -H "Authorization: $iam_token" \
  -d '{
       "bandwidth": 3000
@@ -130,7 +120,7 @@ The file share status shows `updating` while the bandwidth is being adjusted. Th
 ```json
 {
 	"bandwidth": 400,
-	"created_at": "2025-06-24T09:46:43.000Z",
+	"created_at": "2025-09-23T09:46:43.000Z",
 	"crn": "crn:v1:bluemix:public:is:us-east-1:a/<Acc id>::share:<file shareID>",
     .
     .
