@@ -2,7 +2,7 @@
 
 copyright:
   years: 2020, 2025
-lastupdated: "2025-09-17"
+lastupdated: "2025-09-23"
 
 keywords: load balancer, public, listener, back-end, front-end, pool, round-robin, weighted, connections, methods, policies, APIs, access, ports
 
@@ -147,7 +147,7 @@ Unlike other NLBs, the Private Path load balancer provides regional availability
 You can only use Private Path NLBs with a Private Path service. For more information, see [About Private Path services](/docs/vpc?topic=vpc-private-path-service-intro).
 {: important}
 
-Figure 5 illustrates how a Private Path NLB works to support a Private Path service. The Private Path NLB registers with the DNS server. The Consumer optionally queries the DNS server. The Consumer then sends a TCP request for data to the Private Path NLB through a VPE gateway, and the Private Path NLB forwards the request to the targets. In turn, the targets generate a response, and that response is sent to the Consumer through DSR.
+Figure 5 illustrates how a Private Path NLB works to support a Private Path service. The Private Path NLB registers with the DNS server. The Consumer optionally queries the DNS server. The Consumer then sends a TCP request for data to the Private Path NLB through a VPE gateway, and the Private Path NLB forwards the request to the targets. In turn the targets generate a response, that response is sent by direct-server-return to the VPE, and then is sent to the Consumer.
 
 ![Private path network load balancer](images/lb_use_case_4.svg "Private path network balancer"){: caption="Public load balancer" caption-side="bottom"}
 

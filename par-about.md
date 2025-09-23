@@ -2,7 +2,7 @@
 
 copyright:
   years: 2025
-lastupdated: "2025-09-18"
+lastupdated: "2025-09-23"
 
 keywords: vpc, public address ranges, about
 
@@ -57,7 +57,7 @@ Review the following considerations before creating a public address range:
    {: note}
 
 * You can limit the use of a public address range to specific resources within the VPC by configuring network ACLs, security groups, or a combination of both.
-* You can reserve a public address range with the following prefix sizes. For more information, review public address range [quotas and service limits](/docs/vpc?topic=vpc-quotas&interface=ui#par-quotas). 
+* You can reserve a public address range with the following prefix sizes. For more information, review public address range [quotas](/docs/vpc?topic=vpc-quotas&interface=ui#par-quotas) and [service limits](/docs/vpc?topic=vpc-quotas#service-limits-for-vpc-services). 
    * `/28` = 16 addresses
    * `/29`  = 8 addresses
    * `/30` = 4 addresses
@@ -147,9 +147,9 @@ Public address ranges help customers simplify the integration of network and sec
 ### Securing your workloads in VPC
 {: #secure-workloads-vpc}
 
-To manage access to sensitive data effectively, firewalls automatically detect and handle threats using policy-based routing for enhanced security. You can define public address ranges to expose specific services or applications, enabling controlled ingress into the VPC. Define routing rules for public endpoints to redirect ingress traffic to third-party appliances before it reaches the final destination. This approach simplifies the deployment of production-grade applications with the networking and security services required in a VPC.
+To secure your workloads in a VPC, you can define public address ranges to expose specific services or applications, enabling controlled ingress into the VPC. Define routing rules for public endpoints to redirect ingress traffic to third-party appliances before it reaches the final destination. Firewalls then enforce security policies to detect and mitigate threats during inspection. This approach simplifies the deployment of production-grade applications with the networking and security services required in a VPC.
 
-The following diagram illustrates how to secure your workloads in a VPC using public address ranges. First, traffic from the internet enters the VPC through a public address range. It is then routed through a routing table, redirected through a firewall or third-party appliance, and finally forwarded to the protected applications.
+The following diagram illustrates how to secure your workloads in a VPC using public address ranges. First, traffic from the internet enters the VPC through a reserved public address range bound to the VPC. The traffic is then routed by the ingress routing table to a security appliance (for example, a firewall or third-party appliance), where it is inspected. After inspection, the traffic is forwarded to the protected applications.
 
 ![Secure your workloads in VPC](images/par_use_case_1.svg "Secure your workloads in VPC"){: caption="Secure your workloads in VPC" caption-side="bottom"} 
 
@@ -158,7 +158,9 @@ The following diagram illustrates how to secure your workloads in a VPC using pu
 
 To ensure workload resilience, you can use public address ranges to maintain consistent access to services during zonal failures. In the event of a zonal failure, internet traffic is rerouted to a virtual network function (VNF) appliance deployed in another zone for monitoring and inspection, maintaining high availability within the VPC. 
 
-The following diagram illustrates how to configure routes and firewalls using public address ranges to enable cross-zone failover and support highly available, resilient workloads in your VPC. Set up two routes, Route 1 for the internet traffic reaching the Active Firewall in Zone 1 (us-south-1), and Route 2 for the Passive Firewall in Zone 2 (us-south-2). The routes are created with Public Address Range as the Destination and the next-hop as the Firewall in each zone. The Public Address Range is attached to the zone with Active Firewall, us-south-1. The internet traffic incoming through Public Address Ranges is routed to the Active Firewall per Route 1 in us-south-1 for traffic inspection and filtering. When the Active Firewall is down, the zone of Public Address Range is updated to us-south-2, and the traffic incoming through Public Address Range is now routed through Route 2 to the Passive Firewall, making the Firewall highly-available for internet traffic inspection and securing workloads in VPC, even during zonal failures.
+The following diagram illustrates how to configure routes and firewalls using public address ranges to enable cross-zone failover and support highly available, resilient workloads in your VPC. Set up two routes: Route 1 for the internet traffic reaching the Active Firewall in Zone 1 (`us-south-1`), and Route 2 for the Passive Firewall in Zone 2 (`us-south-2`). The routes use the public address range as the destination, with the next hop set to the firewall in each zone. 
+
+The public address range is attached to the zone with the Active Firewall, `us-south-1`. Internet traffic incoming through the public address range is routed to the Active Firewall per Route 1 in `us-south-1` for inspection and filtering. When the Active Firewall is down, the zone attachment of the public address range is updated to `us-south-2`, and incoming traffic through the public address range is now routed through Route 2 to the Passive Firewall. This setup makes the firewall highly available for internet traffic inspection, securing workloads in the VPC even during zonal failures.
 
 ![Deploying highly-available and resilient workloads in VPC](images/par_use_case_2.svg "Deploy highly-available and resilient workloads in VPC"){: caption="Deploy highly-available and resilient workloads in VPC" caption-side="bottom"} 
     
@@ -167,5 +169,6 @@ The following diagram illustrates how to configure routes and firewalls using pu
 
 - [IAM roles and actions](/docs/vpc?topic=vpc-about-par#par-access-management)
 - [Quotas](/docs/vpc?topic=vpc-quotas#par-quotas) and [service limits](/docs/vpc?topic=vpc-quotas#service-limits-for-vpc-services)
-- [FAQ for public address ranges](/docs/vpc?topic=vpc-faq-public-address-ranges)
+- [FAQ](/docs/vpc?topic=vpc-faq-public-address-ranges)
+- [Known issues](/docs/vpc?topic=vpc-par-known-issues)
 - [Troubleshooting](/docs/vpc?group=tbs-par)
