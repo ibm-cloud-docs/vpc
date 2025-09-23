@@ -111,7 +111,7 @@ The following table provides a comparison between the different generations of f
 
 | Features            | First-generation shares | Second-generation shares |
 |---------------------|--------------------------|---------------------------|
-| Availability        | Generally available in all VPC regions for all customers. | Available in the Dallas, Frankfurt, London, Madrid, Osaka, Sydney, Toronto, Tokyo, and Washington, DC regions for allowlisted customers.|
+| Availability        | Generally available in all VPC regions for all customers. | Available in the Dallas, Frankfurt, London, Madrid, Osaka, Sydney, Tokyo, Toronto, and Washington, DC regions for allowlisted customers.|
 | Data Availability   | Zonal                    | Regional  |
 | Expandable capacity | Yes, up to 16,000 GB     | Yes, up to 32,000 GB |
 | Adjustable IOPS     | Yes, up to 96,000. IOPS depends on capacity range. | No. Maximum IOPS is preset at 35,000.| 

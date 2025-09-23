@@ -2,7 +2,7 @@
 
 copyright:
   years: 2022, 2025
-lastupdated: "2025-09-18"
+lastupdated: "2025-09-23"
 
 keywords: Block Storage, boot volume, data volume, volume, data storage, virtual server instance, instance, expandable volume
 
@@ -252,7 +252,7 @@ For more information about expanding the file system, see your OS Documentation.
 - [RHEL 9 - Modifying Logical Volume](https://docs.redhat.com/en/documentation/red_hat_enterprise_linux/9/html/configuring_and_managing_logical_volumes/basic-logical-volume-management_configuring-and-managing-logical-volumes#resizing-logical-volumes_basic-logical-volume-management){: external}
 - [Microsoft&reg; - Extend a basic volume](https://learn.microsoft.com/en-us/windows-server/storage/disk-management/extend-a-basic-volume){: external}.
 
-### Modifying a Linux OS for expanded boot volumes
+### Modifying the expanded boot volume in Linux
 {: #modifying-the-linux-os-expanded-boot-volume}
 
 The following example is based on CentOS Linux 7. Instructions for other Linux distributions can vary. After you increased the volume capacity from 100 GB to 250 GB, you can log in to the virtual server instance to validate the increase. Then, increase the partition and then expand the file system on the volume.
@@ -361,7 +361,6 @@ Extending a file system is a moderately risky operation. Consider taking a snaps
    tmpfs           783M     0  783M   0% /run/user/0
    ```
    {: screen}
-
 
 ## Next steps
 {: #next-steps-resize-boot-vols}
