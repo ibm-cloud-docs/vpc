@@ -2,7 +2,7 @@
 
 copyright:
   years: 2025
-lastupdated: "2025-09-18"
+lastupdated: "2025-09-23"
 
 keywords: vpc, public address ranges, about
 
@@ -57,7 +57,7 @@ Review the following considerations before creating a public address range:
    {: note}
 
 * You can limit the use of a public address range to specific resources within the VPC by configuring network ACLs, security groups, or a combination of both.
-* You can reserve a public address range with the following prefix sizes. For more information, review public address range [quotas and service limits](/docs/vpc?topic=vpc-quotas&interface=ui#par-quotas). 
+* You can reserve a public address range with the following prefix sizes. For more information, review public address range [quotas](/docs/vpc?topic=vpc-quotas&interface=ui#par-quotas) and [service limits](/docs/vpc?topic=vpc-quotas#service-limits-for-vpc-services). 
    * `/28` = 16 addresses
    * `/29`  = 8 addresses
    * `/30` = 4 addresses
@@ -147,9 +147,9 @@ Public address ranges help customers simplify the integration of network and sec
 ### Securing your workloads in VPC
 {: #secure-workloads-vpc}
 
-To manage access to sensitive data effectively, firewalls automatically detect and handle threats using policy-based routing for enhanced security. You can define public address ranges to expose specific services or applications, enabling controlled ingress into the VPC. Define routing rules for public endpoints to redirect ingress traffic to third-party appliances before it reaches the final destination. This approach simplifies the deployment of production-grade applications with the networking and security services required in a VPC.
+To manage access to sensitive data effectively, you can define public address ranges to expose specific services or applications, enabling controlled ingress into the VPC. Define routing rules for public endpoints to redirect ingress traffic to third-party appliances before it reaches the final destination. Firewalls then enforce security policies to detect and mitigate threats during inspection. This approach simplifies the deployment of production-grade applications with the networking and security services required in a VPC.
 
-The following diagram illustrates how to secure your workloads in a VPC using public address ranges. First, traffic from the internet enters the VPC through a public address range. It is then routed through a routing table, redirected through a firewall or third-party appliance, and finally forwarded to the protected applications.
+The following diagram illustrates how to secure your workloads in a VPC using public address ranges. First, traffic from the internet enters the VPC through a reserved public address range bound to the VPC. The traffic is then routed by the ingress routing table to a security appliance (for example, a firewall or third-party appliance), where it is inspected. After inspection, the traffic is forwarded to the protected applications.
 
 ![Secure your workloads in VPC](images/par_use_case_1.svg "Secure your workloads in VPC"){: caption="Secure your workloads in VPC" caption-side="bottom"} 
 
