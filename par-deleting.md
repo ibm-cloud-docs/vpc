@@ -2,7 +2,7 @@
 
 copyright:
   years: 2025
-lastupdated: "2025-09-18"
+lastupdated: "2025-09-23"
 
 keywords: viewing, deleting, public address range
 
@@ -105,13 +105,30 @@ To delete a public address range with the API, follow these steps:
    ```
    {: pre}
 
+## Deleting public address ranges with Terraform
+{: #par-delete-terraform}
+{: terraform}
 
+To delete a specific public address range with Terraform, run the following command. Replace `ibm_is_public_address_range.here` with the resource name that you defined in your Terraform configuration:
+ 
+```terraform
+terraform destroy --target ibm_is_public_address_range.here
+```
+{: pre}
+
+To delete all resources that are defined in your .tf file:
+
+```terraform
+terraform destroy -auto-approve
+```
+{: pre}
 
 ## Related links
 {: #after-delete-par}
 
 - [About public address ranges](/docs/vpc?topic=vpc-about-par)
-- [FAQ for public address ranges](/docs/vpc?topic=vpc-faq-public-address-ranges)
 - [IAM roles and actions](/docs/vpc?topic=vpc-about-par#par-access-management)
 - [Quotas](/docs/vpc?topic=vpc-quotas#par-quotas) and [service limits](/docs/vpc?topic=vpc-quotas#service-limits-for-vpc-services)
+- [FAQ](/docs/vpc?topic=vpc-faq-public-address-ranges)
+- [Known issues](/docs/vpc?topic=vpc-par-known-issues)
 - [Troubleshooting](/docs/vpc?group=tbs-par)
