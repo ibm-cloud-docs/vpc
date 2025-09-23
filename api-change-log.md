@@ -65,9 +65,9 @@ The new response code will be rolled out gradually. Each phase of the rollout wi
 
 When [retrieving](/apidocs/vpc/latest#get-vpc) or [listing](/apidocs/vpc/latest#list-vpcs) VPCs, the response now includes the `public_address_ranges` that are bound to each VPC.
 
-Learn about [public address ranges](/docs/vpc?topic=vpc-about-par), and explore the new [API methods](/apidocs/vpc/latest#list-public-address-ranges).
+Learn about [public address ranges](/docs/vpc?topic=vpc-about-public-address-ranges), and explore the new [API methods](/apidocs/vpc/latest#list-public-address-ranges).
 
-**Reserved IPs as load balancer pool member targets.** You can now create [pool members](/apidocs/vpc/latest#list-load-balancer-pool-members) that target reserved IPs. When [creating a member in a load balancer pool](/apidocs/vpc/latest#create-load-balancer-pool-member), you can specify the identity of a reserved IP as the `target` if supported by the load balancer's profile. When [retrieving](/apidocs/vpc/latest#get-load-balancer-profile) or [listing](/apidocs/vpc/latest#list-load-balancer-profiles) load balancer profiles, use the new `targetable_resource_types` property to determine which resources that load balancer can target. For more information, see [Creating a Private Path network load balancer](/docs/vpc?topic=vpc-ppnlb-ui-creating-private-path-network-load-balancer&interface=ui).
+**Reserved IPs as load balancer pool member targets.** You can now create [pool members](/apidocs/vpc/latest#list-load-balancer-pool-members) that target reserved IPs. When [creating a member in a load balancer pool](/apidocs/vpc/latest#create-load-balancer-pool-member), you can specify the identity of a reserved IP as the `target` if supported by the load balancer's profile. When [retrieving](/apidocs/vpc/latest#get-load-balancer-profile) or [listing](/apidocs/vpc/latest#list-load-balancer-profiles) load balancer profiles, use the new `targetable_resource_types` property to determine which resources that load balancer can target. For more information, see [Creating a Private Path network load balancer](/docs/vpc?topic=vpc-ppnlb-ui-creating-private-path-network-load-balancer&interface=api).
 
 ## 16 September 2025
 {: #16-september-2025}
