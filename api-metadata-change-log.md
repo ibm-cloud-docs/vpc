@@ -34,7 +34,7 @@ Some changes, such as new response properties or new optional request parameters
 ### For all version dates
 {: #26-august-2025-all-version-dates-metadata}
 
-**Access tokens and Certificates methods.** The existing access tokens and certificates methods in the [VPC Metadata API](/apidocs/vpc-metadata) are documented in the new [VPC Identity API](/apidocs/vpc-identity). For details, see the [VPC Identity change log](/docs/vpc?topic=vpc-#identity-api-change-log#26-august-2025-identity).
+**Access tokens and Certificates methods.** The existing access tokens and certificates methods in the [VPC Metadata API](/apidocs/vpc-metadata) are documented in the new [VPC Identity API](/apidocs/vpc-identity). For details, see the [VPC Identity change log](/docs/vpc?topic=vpc-identity-api-change-log#26-august-2025-identity).
 
 ## 1 April 2025
 {: #1-april-2025-metadata}
