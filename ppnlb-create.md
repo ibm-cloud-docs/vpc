@@ -77,7 +77,7 @@ To create and configure {{site.data.keyword.nlb_full}} in the {{site.data.keywor
 
 1. You can attach members to your back-end pool now, or after you create your Private Path NLB. Click **Attach** on the table row of your back-end pool. Specify the following information, then click **Attach**.
 
-   * **Member type**: Add virtual server instances, Reserved IPs, or an application load balancer as a member. For virtual server instances, attach each type individually. A Reserved IP member may be bound to a bare metal server, primary or secondary interface of a virtual server instance, or a Virtual Network Interface.
+   * **Member type**: Add virtual server instances, reserved IPs, or an application load balancer as a member. For virtual server instances, attach each type individually. A reserved IP member may be bound to a bare metal server, primary or secondary interface of a virtual server instance, or a virtual network interface.
 
       If you attach an ALB as a member target to a Private Path NLB pool, no other members can be added to that pool.
       {: note}
@@ -199,7 +199,7 @@ To create a Private Path NLB by from the CLI, follow these steps:
    ```
    {: pre}
 
-   A User can create a PPNLB targeting a virtual server instance, reserved IP, or an application load balancer (ALB). Create a member with `my-target` as `my-instance` or `my-alb`.
+   A user can create a Private Path NLB targeting a virtual server instance, reserved IP, or an application load balancer (ALB). Create a member with `my-target` as `my-instance` or `my-alb`.
    {: note}
 
    Sample output:
@@ -622,7 +622,7 @@ The following example creates a Private Path network load balancer with Terrafor
     ```
     {: codeblock}
 
-1. Optionally, target a Reserved IP as a pool member for your Private Path NLB:
+1. Optionally, target a reserved IP as a pool member for your Private Path NLB:
 
 
     ```terraform
