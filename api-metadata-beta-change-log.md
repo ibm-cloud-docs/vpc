@@ -34,7 +34,7 @@ This feature is now generally available. See the [VPC API change log](/docs/vpc?
 ### For all version dates
 {: #15-july-2025-all-version-dates-metadata-beta}
 
-**Access tokens and Certificates methods.** The existing access tokens and certificates methods in the [Beta VPC Metadata API](/apidocs/vpc-metadata-beta) are documented in the new [Beta VPC Identity API](/apidocs/vpc-identity-beta). For details, see the [Beta VPC Identity change log](/docs/vpc?topic=vpc-#identity-beta-api-change-log#15-july-2025-identity-beta).
+**Access tokens and Certificates methods.** The existing access tokens and certificates methods in the [Beta VPC Metadata API](/apidocs/vpc-metadata-beta) are documented in the new [Beta VPC Identity API](/apidocs/vpc-identity-beta). For details, see the [Beta VPC Identity change log](/docs/vpc?topic=vpc-identity-beta-api-change-log#15-july-2025-identity-beta).
 
 ## 17 December 2024
 {: #17-december-2024-metadata-beta}
