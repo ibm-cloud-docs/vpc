@@ -2,7 +2,7 @@
 
 copyright:
   years: 2022, 2025
-lastupdated: "2025-09-18"
+lastupdated: "2025-09-24"
 
 keywords: load balancer, public, listener, back-end, front-end, pool, round-robin, weighted, connections, methods, policies, APIs, access, ports
 
@@ -77,7 +77,7 @@ To create and configure {{site.data.keyword.nlb_full}} in the {{site.data.keywor
 
 1. You can attach members to your back-end pool now, or after you create your Private Path NLB. Click **Attach** on the table row of your back-end pool. Specify the following information, then click **Attach**.
 
-   * **Member type**: Add virtual server instances, or an application load balancer as a member. For virtual server instances, attach each type individually.
+   * **Member type**: Add virtual server instances, Reserved IPs, or an application load balancer as a member. For virtual server instances, attach each type individually. A Reserved IP member may be bound to a bare metal server, primary or secondary interface of a virtual server instance, or a Virtual Network Interface.
 
       If you attach an ALB as a member target to a Private Path NLB pool, no other members can be added to that pool.
       {: note}
@@ -199,7 +199,7 @@ To create a Private Path NLB by from the CLI, follow these steps:
    ```
    {: pre}
 
-   A User can create a PPNLB targeting a virtual server instance or an application load balancer (ALB). Create a member with `my-target` as `my-instance` or `my-alb`.
+   A User can create a PPNLB targeting a virtual server instance, reserved IP, or an application load balancer (ALB). Create a member with `my-target` as `my-instance` or `my-alb`.
    {: note}
 
    Sample output:
@@ -307,7 +307,7 @@ To create a Private Path NLB with the API, follow these steps:
     ```
     {: pre}
 
-   * `targetId` - Second, get the virtual server instance or application load balancer (ALB) that is in the same VPC as the subnet's:
+   * `targetId` - Second, get the virtual server instance, reserved IP, or application load balancer (ALB) that is in the same VPC as the subnet's:
 
     ```bash
     export targetId=<your_target_id>
@@ -618,6 +618,27 @@ The following example creates a Private Path network load balancer with Terrafor
       port      = 8080
       weight    = 20
       target_id = [ibm_is_lb.example_alb.id]
+    }
+    ```
+    {: codeblock}
+
+1. Optionally, target a Reserved IP as a pool member for your Private Path NLB:
+
+
+    ```terraform
+    resource "ibm_is_subnet_reserved_ip" "example" {
+    subnet = ibm_is_subnet.example.id
+    }
+    ```
+    {: codeblock}
+
+    ```terraform
+    resource "ibm_is_lb_pool_member" "example" {
+      lb        = ibm_is_lb.example_ppnlb.id
+      pool      = element(split("/", ibm_is_lb_pool.example.id), 1)
+      port      = 8080
+      weight    = 20
+      target_id = ibm_is_subnet_reserved_ip.example.id
     }
     ```
     {: codeblock}
