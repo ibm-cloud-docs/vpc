@@ -37,7 +37,7 @@ The following table lists the methods and their changed paths for API requests t
 | Method   | Old path                            | New path                   |
 |----------|-------------------------------------|----------------------------|
 | `PUT`    | `/instance_identity/v1/token`       | `/identity/v1/token`       |
-| `POST`   | `/instance_identity/v1/iam_token`   | `/identity/v1/iam_tokens`  |
+| `POST`   | `/instance_identity/v1/iam_token`   | `/identity/v1/iam_token`  |
 | `POST`   | `/instance_identity/v1/certificates`| `/identity/v1/certificates`|
 {: caption="Methods and their changed paths for API requests that use a version query parameter of 2025-08-26 or later." caption-side="bottom"}
 
@@ -64,7 +64,7 @@ The response includes the identity token:
 ```
 {: codeblock}
 
-The following example uses API version `2025-08-26` or later to create an identity token.  
+The following example uses API version `2025-08-26` or later to create an identity token.
 
 ```sh
 curl -X PUT "http://api.metadata.cloud.ibm.com/identity/v1/token?version=2025-08-26"

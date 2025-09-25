@@ -2,7 +2,7 @@
 
 copyright:
   years: 2019, 2025
-lastupdated: "2025-09-23"
+lastupdated: "2025-09-25"
 
 keywords: vsi, virtual server instances, profile, profiles, balanced, compute, memory, very high memory, ultra high memory, gpu storage optimized, confidential compute
 
@@ -442,29 +442,29 @@ The following flex profiles are available.
 |------------------|------|--------------|---------------------|
 | nxf-2x1          | 2    | 1            | 2   |
 | nxf-2x2          | 2    | 2            | 2   |
-| bxf-2x8          | 2    | 8            | 2   |
-| bxf-4x16         | 4    | 16           | 4   |
-| bxf-8x32         | 8    | 32           |  8  |
-| bxf-16x64        | 16   | 64           | 16  |
-| bxf-24x96        | 24   | 96           | 24  |
-| bxf-32x128       | 32   | 128          | 32  |
-| bxf-48x192       | 48   | 192          | 48  |
-| bxf-64x256       | 64   | 256          | 64  |
-| cxf-2x4          | 2    | 4            | 2   |
-| cxf-4x8          | 4    | 8            | 4   |
-| cxf-8x16         | 8    | 16           | 8   |
-| cxf-16x32        | 16   | 32           | 16  |
-| cxf-24x48        | 24   | 48           | 24  |
-| cxf-32x64        | 32   | 64           | 32  |
-| cxf-48x96        | 48   | 96           | 48  |
-| cxf-64x128       | 64   | 128          | 64  |
-| mxf-2x16         | 2    | 16           | 2   |
-| mxf-4x32         | 4    | 32           | 4   |
-| mxf-8x64         | 8    | 64           | 8   |
-| mxf-16x128       | 16   | 128          | 16  |
-| mxf-24x192       | 24   | 192          | 32  |
-| mxf-48x384       | 48   | 384          | 48  |
-| mxf-64x512       | 64   | 512          | 64  |
+| bxf-2x8          | 2    | 8            | 4   |
+| bxf-4x16         | 4    | 16           | 8   |
+| bxf-8x32         | 8    | 32           |  16  |
+| bxf-16x64        | 16   | 64           | 32  |
+| bxf-24x96        | 24   | 96           | 48  |
+| bxf-32x128       | 32   | 128          | 64  |
+| bxf-48x192       | 48   | 192          | 80  |
+| bxf-64x256       | 64   | 256          | 80  |
+| cxf-2x4          | 2    | 4            | 4   |
+| cxf-4x8          | 4    | 8            | 8   |
+| cxf-8x16         | 8    | 16           | 16   |
+| cxf-16x32        | 16   | 32           | 32  |
+| cxf-24x48        | 24   | 48           | 48  |
+| cxf-32x64        | 32   | 64           | 64  |
+| cxf-48x96        | 48   | 96           | 80  |
+| cxf-64x128       | 64   | 128          | 80  |
+| mxf-2x16         | 2    | 16           | 4   |
+| mxf-4x32         | 4    | 32           | 8   |
+| mxf-8x64         | 8    | 64           | 16   |
+| mxf-16x128       | 16   | 128          | 32  |
+| mxf-24x192       | 24   | 192          | 64  |
+| mxf-48x384       | 48   | 384          | 80  |
+| mxf-64x512       | 64   | 512          | 80  |
 {: caption="Flex profile options for virtual servers" caption-side="bottom"}
 
 ### Burstable-supported Flex profiles
