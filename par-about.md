@@ -45,7 +45,7 @@ High Availability
 
 Review the following considerations before creating a public address range:
 
-* Make sure that you have the appropriate [IAM permissions](/docs/vpc?topic=vpc-about-par#par-access-management). 
+* Make sure that you have the appropriate [IAM permissions](/docs/account?topic=account-iam-service-roles-actions#is.public-address-range-roles).
 * You can bind multiple public address ranges to a VPC.
 * You can't divide public address ranges into subranges and bind it to multiple VPCs or zones.
 * You can't change the size of the address range after it is reserved. Make sure to reserve a public address range size large enough to meet your needs.
@@ -99,43 +99,6 @@ To get started with using public address ranges, follow these steps:
    The next-hop IP must be an IP address that is bound to a network interface on a subnet in the route's zone for ingress routing.
    {: note}
 
-## IAM roles and actions
-{: #par-access-management}
-
-{{site.data.keyword.iamlong}} (IAM) controls access to public address ranges for users in your account. Every user that accesses this service in your account must be assigned an access policy with an IAM role. Review the following available platform and service roles and the actions mapped to each to help you assign access.
-
-If you're using the CLI or API to assign access, use **`is.public-address-range`** for the service name.
-{: note}
-
-| Role | Description |
-| ----- | :----- |
-| Administrator | As an administrator, you can perform all platform actions based on the resource this role is being assigned, including assigning access policies to other users. |
-| Editor | As an editor, you can perform all platform actions except for managing the account and assigning access policies. |
-| Operator | As an operator, you can perform platform actions required to configure and operate service instances, such as viewing a service's dashboard. |
-| Viewer | As a viewer, you can view service instances, but you can't modify them. |
-{: row-headers}
-{: caption="Platform roles - Public Address Ranges for VPC" caption-side="top"}
-{: tab-title="Platform roles"}
-{: tab-group="is.public-address-range"}
-{: class="simple-tab-table"}
-{: summary="Use the tab buttons to change the context of the table. This table has row and column headers. The row headers provide the platform role name and the column headers identify the specific information available about each role."}
-{: #platform-roles-table-pr}
-
-| Action | Description | Roles |
-| ----- | :----- | :----- |
-| `is.public-address-range.public-address-range.read` | Read a public address range | Administrator, Editor, Operator, Viewer |
-| `is.public-address-range.public-address-range.list` | List a public address range | Administrator, Editor, Operator, Viewer |
-| `is.public-address-range.public-address-range.create`| Create a public address range | Administrator, Editor|
-| `is.public-address-range.public-address-range.update`| Modify a public address range | Administrator, Editor|
-| `is.public-address-range.public-address-range.operate` | Bind, unbind, or move a public address range | Administrator, Editor |
-| `is.public-address-range.public-address-range.delete` | Delete a public address range | Administrator, Editor |
-{: caption="Service actions - Public Address Ranges for VPC" caption-side="top"}
-{: tab-title="Actions"}
-{: tab-group="is.public-address-range"}
-{: class="simple-tab-table"}
-{: summary="Use the tab buttons to change the context of the table. This table provides the available actions for the service, descriptions of each, and the roles that each action are mapped to."}
-{: #actions-table-pr}
-
 ## Common use cases
 {: #par-use-cases}
 
@@ -164,7 +127,7 @@ The public address range is attached to the zone with the Active Firewall, `us-s
 ## Related links
 {: #par-related-links} 
  
-- [IAM roles and actions](/docs/vpc?topic=vpc-about-par#par-access-management)
+- [IAM roles and actions](/docs/account?topic=account-iam-service-roles-actions#is.public-address-range-roles)
 - [Quotas](/docs/vpc?topic=vpc-quotas#par-quotas) and [service limits](/docs/vpc?topic=vpc-quotas#service-limits-for-vpc-services)
 - [FAQ](/docs/vpc?topic=vpc-faq-public-address-ranges)
 - [Known issues](/docs/vpc?topic=vpc-par-known-issues)
