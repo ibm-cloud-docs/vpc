@@ -1312,7 +1312,7 @@ IBM Cloud Hyper Protect Virtual Server for {{site.data.keyword.vpc_full}}
 LinuxONE (s390x processor architecture)
 :   You can now create virtual server instances on LinuxONE (s390x processor architecture) in IBM Cloud in the Madrid (`eu-es`) region, in addition to Tokyo (`jp-tok`), São Paulo (`br-sao`), Toronto (`ca-tor`), and London (`eu-gb`) regions. For more information about available LinuxONE (s390x processor architecture) profiles, see [s390x instance profiles](/docs/vpc?topic=vpc-vs-profiles). To create instances on LinuxONE (s390x processor architecture), see [Creating virtual server instances by using the UI](/docs/vpc?topic=vpc-creating-virtual-servers).
 
-## 14 September 2023
+### 14 September 2023
 {: #vpc-september2623}
 {: release-note}
 
@@ -1849,8 +1849,9 @@ Windows BYOL for multi-tenant hosts
 :   You can now bring your own license for Windows operating systems with a custom image to provision virtual server instances on multi-tenant hosts. Previously Windows BYOL was limited to dedicated hosts. For more information, see [Bring your Own License](/docs/vpc?topic=vpc-byol-vpc-about) and [Getting started with custom images](/docs/vpc?topic=vpc-planning-custom-images).
 
 
-## 03October 2022
+## 03 October 2022
 {: #vpc-oct0322}
+{: release-note}
 
 VPC Public Ingress Routing
 :   You can now route public internet ingress traffic (destined to a floating IP) to a VPC next-hop IP. For more information, see [Creating a routing table](/docs/vpc?topic=vpc-create-vpc-routing-table) and limitations and guidelines for [Ingress routes](/docs/vpc?topic=vpc-about-custom-routes&interface=ui#routes-ingress).
