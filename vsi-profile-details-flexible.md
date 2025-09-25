@@ -23,7 +23,7 @@ Flex profiles are a beta feature and are available for evaluation and testing pu
 The general purpose Flex virtual server profiles (nano, balanced, compute, and memory) are built atop the 2nd and 4th Generation Intel® Xeon® Scalable processors and AMD’s 3rd generation EPYC processors. You can place Flex profiles on any available generation of these processors in a specified region.
 {: shortdesc}
 
-Flex profiles offer a broad set of capabilities and scale from 2 vCPUs (1 physical core) up to 64 vCPUs (32 physical cores).
+Flex profiles offer a broad set of capabilities and scale from 2 vCPUs up to 64 vCPUs.
 
 Virtual servers with a Flex profile are configured with a baseline CPU family regardless of hypervisor host CPU family.
 
@@ -77,23 +77,6 @@ The following list shows the capabilities of Flex profiles.
 * Counts toward compute quota: Yes
 * Bandwidth pooling: No
 
-### Features
-{: #flexible-profiles-features}
-
-The following list shows the supported features of Flex profiles.
-
-* Resizable to and away from Flex profiles and between Flex profile types
-* Flex profiles can be placed on multiple CPU families, including Intel Cascade Lake, Intel Sapphire Rapids, and AMD Milan.
-* 2 Gbps network bandwidth per vCPU for compute, balanced, or memory family profiles
-* 1 Gbps network bandwidth per vCPU for nano family profiles 
-* Reservations (Burstable virtual servers not supported)
-* Instance templates
-* Autoscale
-* Placement groups
-* Metadata
-* Lost node remediation (LNR). LNR is supported according to the server's host failure availability policy (stop or restart)
-* Live migration
-
 ## VM configuration
 {: #flexible-profiles-vm-configuration}
 
@@ -113,6 +96,8 @@ The following Flex profiles are available when you provision a virtual server in
 
 ### Nano
 {: #nano-profiles-flexible}
+
+[Beta]{: tag-blue}
 
 | Instance profile | vCPU | Memory (GiB) | Total instance bandwidth (Gbps)| % vCPU share (beta) |
 |------------------|------|--------------|-------------------------------|--------------|
