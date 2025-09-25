@@ -2,7 +2,7 @@
 
 copyright:
   years: 2021, 2025
-lastupdated: "2025-09-23"
+lastupdated: "2025-09-25"
 
 keywords: file share, file storage, virtual network interface, encryption in transit, profiles, 
 
@@ -15,7 +15,7 @@ subcollection: vpc
 # Creating file shares and mount targets
 {: #file-storage-create}
 
-Create file shares and mount targets in the console, CLI, API, or Terraform.
+Create zonal and regional file shares and mount targets in the console, CLI, API, or Terraform. You can select their data availability, location, custom capacity, and performance level. You can assign the file share and mount target to a security group, apply tags, and enabled customer-managed encryption at rest and in-transit.
 {: shortdesc}
 
 Before you get started, and try to create mount targets for file shares, make sure that you created a [VPC](/docs/vpc?topic=vpc-creating-a-vpc-using-the-ibm-cloud-console).
@@ -48,8 +48,8 @@ In the {{site.data.keyword.cloud_notm}} console, you can create a file share wit
 
    | Field | Value |
    |-------|-------|
-   | **Availability** | [Select availability]{: tag-green} If you're a customer with special access to preview the new regional file share offering, you can choose between Regional and Single zone data availability. You can't change this property after the share is created. \n If your account is not allow-listed, this field does not appear. Select the location for your zonal file share. |
-   | **Location** | [Select availability]{: tag-green} If you chose Single zone availability, select the geography, region, and zone for the new file share, for example, North America, Dallas (us-south), us-south-2. If you chose regional availability, select the region. For example, Dallas (us-south). |
+   | **Availability** | - [Select availability]{: tag-green} If you're a customer with special access to preview the new regional file share offering, you can choose between Regional and Single zone data availability. You can't change this property after the share is created. \n - If your account is not allow-listed, this field does not appear. Select the location for your zonal file share. |
+   | **Location** | - [Select availability]{: tag-green} If you chose Single zone availability, select the geography, region, and zone for the new file share, for example, North America, Dallas (us-south), us-south-2. \n - If you chose regional availability, select the region. For example, Dallas (us-south). |
    | **Details** | |
    | Name  | Specify a meaningful name for your file share. The file share name can be up to 63 lowercase alpha-numeric characters and include the hyphen (-), and must begin with a lowercase letter. You can later edit the name if you want.
    | Resource Group | Use the default resource group or specify a [Resource group](/docs/vpc?topic=vpc-iam-getting-started&interface=ui#iam-resource-groups). Resource groups help organize your account resources for access control and billing purposes. |
@@ -64,7 +64,7 @@ In the {{site.data.keyword.cloud_notm}} console, you can create a file share wit
 
 1. The creation of mount targets is optional. You can skip this step if you do not want to create a mount target now. Otherwise, click **Create**. You can create one mount target per VPC per file share. 
 
-   - If you selected security group as the access mode, enter the information as described in the Table 2. This action creates and attaches a [virtual network interface](/docs/vpc?topic=vpc-vni-about) to your mount target that identifies the file share with a reserved IP address and applies the rules of the selected Security group. This mount target supports encryption-in-transit and cross-zone mounting.
+   - If you selected security group as the access mode, the mount target must be created with a [virtual network interface](/docs/vpc?topic=vpc-vni-about) (VNI). The VNI provides the file share with a reserved IP address and applies the rules of the selected [security group](/docs/vpc?topic=vpc-using-security-groups#sg-getting-started). This mount target supports encryption-in-transit and cross-zone mounting. Define the mount target by providing the following information:
       1. Provide a mount target name. The name can be up to 63 lowercase alpha-numeric characters and include the hyphen (-), and must begin with a lowercase letter. You can later edit the name if you want.
       2. Select an available VPC. The list includes only those VPCs with a subnet in the selected location. The location selection is inherited from the file share (for example, us-south-2).
       3. A default virtual network interface is generated. You can customize it by clicking the Edit icon ![Edit icon](/images/edit.png). You can change the name or subnet if you have multiple subnets in the zone.
@@ -104,10 +104,10 @@ If you're not ready to order yet or just looking for pricing information, you ca
 
 4. Depending on the [mount target access mode](/docs/vpc?topic=vpc-file-storage-vpc-about&interface=ui#fs-mount-access-mode) of the share, the **Create mount target** form looks different.
 
-   - If the share has security group access mode, enter the following information. This action creates and attaches a [virtual network interface](/docs/vpc?topic=vpc-vni-about) to your mount target that identifies the file share with a reserved IP address and applies the rules of the selected [security group](/docs/vpc?topic=vpc-using-security-groups#sg-getting-started). This mount target supports encryption-in-transit and cross-zone mounting.
+   - If the share has security group access mode, the mount target must be created with a [virtual network interface](/docs/vpc?topic=vpc-vni-about) (VNI). The VNI provides the file share with a reserved IP address and applies the rules of the selected [security group](/docs/vpc?topic=vpc-using-security-groups#sg-getting-started). This mount target supports encryption-in-transit and cross-zone mounting. Define the mount target by providing the following information:
      1. Provide a mount target name. The name can be up to 63 lowercase alpha-numeric characters and include the hyphen (-), and must begin with a lowercase letter. You can later edit the name if you want.
      2. Select an available VPC. The list includes only those VPCs with a subnet in the selected location. The location selection is inherited from the file share (for example, us-south-2).
-     3. A default virtual network interface is generated. You can customize it by clicking the Edit icon ![Edit icon](/images/edit.png). You can change the name or subnet if you have multiple subnets in the location.
+     3. A default virtual network interface is generated. You can customize it by clicking the Edit icon ![Edit icon](/images/edit.png). You can change the name or subnet if you have multiple subnets in the location. You can also select an existing VNI to attach to the mount target. The list of available VNIs in the VPC and location are displayed. As VNIs secondary IP addresses attached cannot be accepted as a file share mount target, they are filtered out of the list.
      4. Click **Next**.
      5. **Encryption in transit** is disabled by default for zonal shares, and it is enabled by default for regional shares. Click the toggle to change the preset value. For more information about this feature, see [Encryption in transit - Securing mount connections between file share and host](/docs/vpc?topic=vpc-file-storage-vpc-eit).
      6. Then, click **Next**. 
@@ -293,6 +293,9 @@ To create a mount target for the file share, run the `share-mount-target-create`
 When you create a mount target, you must specify the file share that it is for. You can use the file share's name or ID. You must specify the VPC, too, either with its ID or name. The VPC must be unique to each mount target. You must also specify the security access group that's going to be used to manage access to the share. The security groups that you associate with a mount target must allow inbound access for the TCP protocol on the NFS port from all servers where you want to mount the share.
 
 Lastly, you must specify values for the options that are needed to create a [virtual network interface](/docs/vpc?topic=vpc-vni-about) for the mount target. Use the appropriate CLI commands to list the available [subnets](/docs/vpc?topic=vpc-vpc-reference#subnets-list), [reserved IP addresses in a subnet](/docs/vpc?topic=vpc-vpc-reference#subnet-reserved-ips-list), [security groups](/docs/vpc?topic=vpc-vpc-reference#security-groups-list) to get the information that you need.
+
+A virtual network interface with secondary IPs attached cannot be accepted as a file share mount target.
+{: note}
 
 The following example creates a mount target with a virtual network interface for a file share that has security group access mode.
 
@@ -1114,7 +1117,7 @@ The following response shows that access control mode is `security_group`, which
 ### Creating a file share and mount target by specifying a virtual network interface
 {: #fs-create-file-share-vni-api}
 
-To perform this operation, you must already have a [virtual network interface](/docs/vpc?topic=vpc-vni-create&interface=api) and that virtual network interface must not be attached to another resource.
+To perform this operation, you must already have a [virtual network interface](/docs/vpc?topic=vpc-vni-create&interface=api) and that virtual network interface must not be attached to another resource. A virtual network interface with secondary IP address attached cannot be accepted as a file share mount target.
 {: requirement}
 
 Make a `POST /shares` request and create a mount target with a virtual network interface. Specify the ID of an unattached virtual network interface in the mount target's `virtual_network_interface` property.
