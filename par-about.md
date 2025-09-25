@@ -45,7 +45,7 @@ High Availability
 
 Review the following considerations before creating a public address range:
 
-* Make sure that you have the appropriate [IAM permissions](/docs/vpc?topic=vpc-about-par#par-access-management). 
+* Make sure that you have the appropriate [IAM permissions](/docs/account?topic=account-iam-service-roles-actions#is.public-address-range-roles).
 * You can bind multiple public address ranges to a VPC.
 * You can't divide public address ranges into subranges and bind it to multiple VPCs or zones.
 * You can't change the size of the address range after it is reserved. Make sure to reserve a public address range size large enough to meet your needs.
@@ -127,7 +127,7 @@ The public address range is attached to the zone with the Active Firewall, `us-s
 ## Related links
 {: #par-related-links} 
  
-- [IAM roles and actions](/docs/vpc?topic=vpc-about-par#par-access-management)
+- [IAM roles and actions](/docs/account?topic=account-iam-service-roles-actions#is.public-address-range-roles)
 - [Quotas](/docs/vpc?topic=vpc-quotas#par-quotas) and [service limits](/docs/vpc?topic=vpc-quotas#service-limits-for-vpc-services)
 - [FAQ](/docs/vpc?topic=vpc-faq-public-address-ranges)
 - [Known issues](/docs/vpc?topic=vpc-par-known-issues)

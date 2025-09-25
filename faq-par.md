@@ -70,7 +70,7 @@ Not by default. However, you can create separate public address ranges in differ
 {: #faq-related-links-par}
 
 - [About public address ranges](/docs/vpc?topic=vpc-about-par) 
-- [IAM roles and actions](/docs/vpc?topic=vpc-about-par#par-access-management)
+- [IAM roles and actions](/docs/account?topic=account-iam-service-roles-actions#is.public-address-range-roles)
 - [Quotas](/docs/vpc?topic=vpc-quotas#par-quotas) and [service limits](/docs/vpc?topic=vpc-quotas#service-limits-for-vpc-services)
 - [FAQ](/docs/vpc?topic=vpc-faq-public-address-ranges)
 - [Known issues](/docs/vpc?topic=vpc-par-known-issues)
