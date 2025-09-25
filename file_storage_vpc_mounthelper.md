@@ -2,7 +2,7 @@
 
 copyright:
   years: 2023, 2025
-lastupdated: "2025-08-29"
+lastupdated: "2025-09-25"
 
 keywords: file share, file storage, encryption in transit, Mount Helper, IPsec, secure connection, mount share
 
@@ -32,14 +32,12 @@ You can use the utility for encrypted or unencrypted connections. For encrypted 
 ## Stunnel secure connection for regional shares
 {: #fs-eit-stunnel-requirements}
 
-[New]{: tag-new}
-
 The utility installs stunnel on the compute host that's running a Linux OS. Stunnel needs a pem file. Because stunnel is used in client mode, you can use the pem that that comes with the distribution.
 
 ## Requirements
 {: #fs-eit-requirements}
 
-* For setting up secure connection with zonal file share, the [Metadata service](/docs/vpc?topic=vpc-imd-about) must be enabled on the virtual server instance. If it is not enabled yet, follow the instructions for [enabling metadata in the console](/docs/vpc?topic=vpc-imd-configure-service&interface=ui#imd-enable-service-ui){: ui}[enabling metadata from the CLI](/docs/vpc?topic=vpc-imd-configure-service&interface=cli#imd-metadata-service-enable-cli){: cli}[enabling metadata from the API](/docs/vpc?topic=vpc-imd-configure-service&interface=api#imd-metadata-service-enable-api){: api} for virtual server instances or [enabling metadata in the console](/docs/vpc?topic=vpc-configure-metadata-service-bare-metal&interface=ui#metadata-enable-service-ui-bare-metal){: ui}[enabling metadata from the CLI](/docs/vpc?topic=vpc-configure-metadata-service-bare-metal&interface=cli#metadata-service-enable-cli-bare-metal){: cli}[enabling metadata from the API](/docs/vpc?topic=vpc-configure-metadata-service-bare-metal&interface=api#metadata-service-enable-api-bare-metal){: api} for bare metal servers.
+* For setting up a secure connection with zonal file share, the [Metadata service](/docs/vpc?topic=vpc-imd-about) must be enabled on the virtual server instance. If it is not enabled yet, follow the instructions for [enabling metadata in the console](/docs/vpc?topic=vpc-imd-configure-service&interface=ui#imd-enable-service-ui){: ui}[enabling metadata from the CLI](/docs/vpc?topic=vpc-imd-configure-service&interface=cli#imd-metadata-service-enable-cli){: cli}[enabling metadata from the API](/docs/vpc?topic=vpc-imd-configure-service&interface=api#imd-metadata-service-enable-api){: api} for virtual server instances or [enabling metadata in the console](/docs/vpc?topic=vpc-configure-metadata-service-bare-metal&interface=ui#metadata-enable-service-ui-bare-metal){: ui}[enabling metadata from the CLI](/docs/vpc?topic=vpc-configure-metadata-service-bare-metal&interface=cli#metadata-service-enable-cli-bare-metal){: cli}[enabling metadata from the API](/docs/vpc?topic=vpc-configure-metadata-service-bare-metal&interface=api#metadata-service-enable-api-bare-metal){: api} for bare metal servers.
 * The file share must have [security group access mode](/docs/vpc?topic=vpc-file-storage-vpc-about&interface=ui#fs-mount-access-mode), so the VPC's security access groups can be used to define which compute host can mount the share.
 * Data encryption in transit must be enabled for the mount target.
 * The compute host and the mount target must be members of the same [security group](/docs/vpc?topic=vpc-using-security-groups).
@@ -65,12 +63,12 @@ The utility installs stunnel on the compute host that's running a Linux OS. Stun
 ## Installation and configuration of the Mount Helper
 {: #fs-eit-installation}
 
-Log in to the compute host where you want to mount the file share.
-- [Connect to your virtual server instance](/docs/vpc?topic=vpc-creating-virtual-servers&interface=ui#next-steps-after-creating-virtual-servers-ui).
-- [Connect to your bare metal server](/docs/vpc?topic=vpc-connect-to-ESXi-bare-metal-servers).
-
-Then, you can download the package directly from GitHub, or build the utility from the source code
-
+1. Log in to the compute host where you want to mount the file share.
+   - [Connect to your virtual server instance](/docs/vpc?topic=vpc-creating-virtual-servers&interface=ui#next-steps-after-creating-virtual-servers-ui).
+   - [Connect to your bare metal server](/docs/vpc?topic=vpc-connect-to-ESXi-bare-metal-servers).
+   
+1. Then, you can download the package directly from GitHub, or build the utility from the source code   
+   
 To establish an encrypted connection between a bare metal server and a file share, download Mount Helper version 0.2.1.
 {: important}
 
@@ -138,7 +136,7 @@ To establish an encrypted connection between a bare metal server and a file shar
    ```
    {: screen}
 
-1. Optional - By default, a certificate lasts 1 hour, and new certificates are fetched every 45 minutes. However, you can modify the `certificate_duration_seconds` option in the configuration file `/etc/ibmcloud/share.conf` to a different time interval. The new value must be between 5 minutes and 1 hour, and expressed in seconds.
+1. Optional - By default, a certificate lasts 1 hour, and new certificates are fetched in every 45 minutes. However, you can modify the `certificate_duration_seconds` option in the configuration file `/etc/ibmcloud/share.conf` to a different time interval. The new value must be between 5 minutes and 1 hour, and expressed in seconds.
    ```sh
    certificate_duration_seconds = 600
    ```
@@ -247,7 +245,7 @@ Adding the mount details to the `/etc/fstab` is not recommended. The IPsec conne
 
 [Beta]{: tag-cyan}
 
-Use the following command syntax to mount the share. Replace the mountpath with the information that is specific to your file share.
+Use the following command syntax to mount the share. Replace the mount path with the information that is specific to your file share.
 
 ```sh
 mount -t ibmshare -o stunnel 10.0.0.1:/MOUNT_PATH /mnt/MOUNT_POINT
@@ -327,7 +325,7 @@ The following command uninstalls the utility.
    ```
    {: codeblock}
 
-- To list active connections with ipsec encryption, use one of the following commands.
+- To list active connections with IPsec encryption, use one of the following commands.
    ```sh
    ipsec status
    ```
