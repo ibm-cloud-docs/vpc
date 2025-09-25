@@ -2,7 +2,7 @@
 
 copyright:
   years: 2025, 2025
-lastupdated: "2025-08-29"
+lastupdated: "2025-09-25"
 
 keywords:
 
@@ -90,15 +90,15 @@ The following JSON response shows the bare metal server identity access token ch
 
 To access {{site.data.keyword.cloud_notm}} IAM-enabled services in the account, you can generate an IAM token from the bare metal server identity access token by using trusted profile information. After you generate the IAM token, you can use it to access IAM-enabled services, such as {{site.data.keyword.cos_full_notm}}, Cloud Database Service, and the VPC APIs. You can reuse the token multiple times.
 
-Make a `POST /identity/v1/iam_tokens` call and specify the ID of the trusted profile. This request uses the bare metal server identity access token and a trusted profile that is linked to a bare metal server to generate an IAM access token. The trusted profile can be linked either when you create the bare metal server or provided in the request body.
+Make a `POST /identity/v1/iam_token` call and specify the ID of the trusted profile. This request uses the bare metal server identity access token and a trusted profile that is linked to a bare metal server to generate an IAM access token. The trusted profile can be linked either when you create the bare metal server or provided in the request body.
 
-The IAM API used to pass the bare metal server identity access token and generate an IAM token is being deprecated. Beta users must migrate to the metadata service API to generate an IAM token by using `POST /identity/v1/iam_tokens`.
+The IAM API used to pass the bare metal server identity access token and generate an IAM token is being deprecated. Beta users must migrate to the metadata service API to generate an IAM token by using `POST /identity/v1/iam_token`.
 {: note}
 
 Example request:
 
 ```json
-iam_token=`curl -X POST "http://api.metadata.cloud.ibm.com/identity/v1/iam_tokens?version=2025-06-30"\
+iam_token=`curl -X POST "http://api.metadata.cloud.ibm.com/identity/v1/iam_token?version=2025-06-30"\
    -H "Authorization: Bearer $identity_token"\
    -d '{
        "trusted_profile": {
