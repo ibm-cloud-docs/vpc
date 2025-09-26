@@ -2,7 +2,7 @@
 
 copyright:
   years: 2019, 2025
-lastupdated: "2025-07-08"
+lastupdated: "2025-09-26"
 
 keywords: load balancer, network, faqs
 
@@ -99,6 +99,13 @@ Approved Scanning Vendor (ASV) quarterly scanning is a requirement of the Paymen
 {: faq}
 
 Make sure that the security group rules that are attached to your load balancer allow ingress and egress traffic on your listener's port. Security groups attached to your load balancer can be found on the load balancer overview page. Locate the **Attached security groups** tab in the overview, then select the security groups whose rules you want to view and modify them if necessary.
+
+### Can I attach the same backend member with the same port on two different NLBs?
+{: #backend-member-same-port--nlb}
+{: faq}
+{: support}
+
+No, it is not possible to attach the same backend member with the same port on two different NLBs, because of the NLB's Direct Server Return (DSR) feature. 
 
 ## FAQs for Private Path network load balancers
 {: #ppnlb-faqs}
