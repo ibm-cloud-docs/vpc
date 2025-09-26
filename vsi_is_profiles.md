@@ -2,7 +2,7 @@
 
 copyright:
   years: 2019, 2025
-lastupdated: "2025-09-25"
+lastupdated: "2025-09-26"
 
 keywords: vsi, virtual server instances, profile, profiles, balanced, compute, memory, very high memory, ultra high memory, gpu storage optimized, confidential compute
 
@@ -476,34 +476,34 @@ With supported Flex profiles, you can enable Burstable CPU capability. Burstable
 
 The following Burstable profiles are available.
 
-| Name      | vCPU | Memory (GiB) | Full Ratio     | %vCPU share | Total vCPU |
-|:----------|:-----|:-------------|:---------------|:------------|:-----------|
-| nxf-1x1   | 1    | 1            | 1:1 (small)    | 10%         | 0.10       |
-|           |      |              |                | 25%         | 0.25       |
-|           |      |              |                | 50%         | 0.50       |
-| nxf-1x2   | 1    | 2            | 1:2 (compute)  | 10%         | 0.10       |
-|           |      |              |                | 25%         | 0.25       |
-|           |      |              |                | 50%         | 0.50       |
-| nxf-1x4   | 1    | 4            | 1:4 (balanced) | 25%         | 0.25       |
-|           |      |              |                | 50%         | 0.50       |
-| nxf-2x1   | 2    | 1            | 1:0.5 (nano)   | 10%         | 0.20       |
-|           |      |              |                | 25%         | 0.50       |
-|           |      |              |                | 50%         | 1          |
-| nxf-2x2   | 2    | 2            | 1:1 (small)    | 10%         | 0.20       |
-|           |      |              |                | 25%         | 0.50       |
-|           |      |              |                | 50%         | 1          |
-| cxf-2x4   | 2    | 4            | 1:2 (compute)  | 25%         | 0.50       |
-|           |      |              |                | 50%         | 1          |
-| bxf-2x8   | 2    | 8            | 1:1 (balanced) | 50%         | 1          |
-| cxf-4x8   | 4    | 8            | 1:2 (compute)  | 25%         | 1          |
-|           |      |              |                | 50%         | 2          |
-| bxf-4x16  | 4    | 16           | 1:4 (balanced) | 50%         | 2          |
-| cxf-8x16  | 8    | 16           | 1:2 (compute)  | 25%         | 2          |
-|           |      |              |                | 50%         | 4          |
-| bxf-8x32  | 8    | 32           | 1:4 (balanced) | 50%         | 4          |
-| cxf-16x32 | 16   | 32           | 1:2 (compute)  | 25%         | 4          |
-|           |      |              |                | 50%         | 8          |
-| bxf-16x64 | 16   | 64           | 1:4 (balanced) | 50%         | 8          |
+| Name      | vCPU | Memory (GiB) | %vCPU share | 
+|:----------|:-----|:-------------|:------------|
+| nxf-1x1   | 1    | 1            |  10%         |
+|           |      |              |  25%         |
+|           |      |              |  50%         |
+| nxf-1x2   | 1    | 2            |  10%         |
+|           |      |              |  25%         |
+|           |      |              |  50%         |
+| nxf-1x4   | 1    | 4            |  25%         |
+|           |      |              |  50%         |
+| nxf-2x1   | 2    | 1            |  10%         |
+|           |      |              |  25%         |
+|           |      |              |  50%         |
+| nxf-2x2   | 2    | 2            |  10%         |
+|           |      |              |  25%         |
+|           |      |              |  50%         |
+| cxf-2x4   | 2    | 4            |  25%         |
+|           |      |              |  50%         |
+| bxf-2x8   | 2    | 8            |  50%         |
+| cxf-4x8   | 4    | 8            |  25%         |
+|           |      |              |  50%         |
+| bxf-4x16  | 4    | 16           |  50%         |
+| cxf-8x16  | 8    | 16           |  25%         |
+|           |      |              |  50%         |
+| bxf-8x32  | 8    | 32           |  50%         |
+| cxf-16x32 | 16   | 32           |  25%         |
+|           |      |              |  50%         |
+| bxf-16x64 | 16   | 64           |  50%         |
 {: caption="Burstable-supported Flex profile options for virtual servers" caption-side="bottom"}
 
 ## Bandwidth allocation
