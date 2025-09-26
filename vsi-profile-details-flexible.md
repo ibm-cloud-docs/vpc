@@ -2,7 +2,7 @@
 
 copyright:
   years: 2025, 2025
-lastupdated: "2025-09-25"
+lastupdated: "2025-09-26"
 
 keywords: virtual server instances, flex profile, flexible profile, virtual server profile
 
@@ -23,7 +23,7 @@ Flex profiles are a beta feature and are available for evaluation and testing pu
 The general purpose Flex virtual server profiles (nano, balanced, compute, and memory) are built atop the 2nd and 4th Generation Intel® Xeon® Scalable processors and AMD’s 3rd generation EPYC processors. You can place Flex profiles on any available generation of these processors in a specified region.
 {: shortdesc}
 
-Flex profiles offer a broad set of capabilities and scale from 2 vCPUs up to 64 vCPUs.
+Flex profiles offer a broad set of capabilities and scale from 1 vCPU up to 64 vCPUs.
 
 Virtual servers with a Flex profile are configured with a baseline CPU family regardless of hypervisor host CPU family.
 
@@ -53,28 +53,20 @@ Keep in mind that you don't have control over which hardware that a Flex profile
 * Status: Beta
 * Regions: All
 
-## Features and capabilities
+## Capabilities
 {: #flexible-profiles-features-capabilities}
 
-See the following features and capabilities for Flex profiles.
-
-### Capabilities and limitations
-{: #flexible-profiles-capabilities-limitations}
-
-The following list shows the capabilities of Flex profiles.
+See the following capabilities for Flex profiles.
 
 * Core type: Flex
+* Burtable: Yes (select profiles)
 * Dedicated host: No
 * Hyperthreading: Yes (SMT-2)
 * Secure boot: No
 * Confidential computing: No
-* TDX: No
 * Live migration: Yes
 * Instance storage: No
 * NUMA Pinning: Yes
-* SAP certified: No
-* LinunONE (s390x): No
-* Counts toward compute quota: Yes
 * Bandwidth pooling: No
 
 ## VM configuration
@@ -115,8 +107,8 @@ The following Flex profiles are available when you provision a virtual server in
 | Instance profile | vCPU | Memory (GiB) | Total instance bandwidth (Gbps)| % vCPU share (beta) |
 |------------------|------|--------------|-------------------------------|--------------|
 | bxf-2x8          | 2    | 8            | 4                             | 50%         |
-| bxf-4x16         | 4    | 16           | 8                             | 50% |
-| bxf-8x32         | 8    | 32           | 16                             | 50% |
+| bxf-4x16         | 4    | 16           | 8                             | 50%         |
+| bxf-8x32         | 8    | 32           | 16                            | 50% |
 | bxf-16x64        | 16   | 64           | 32                            | 50% |
 | bxf-24x96        | 24   | 96           | 48                            | - |
 | bxf-32x128       | 32   | 128          | 64                            | -|
@@ -131,7 +123,7 @@ The following Flex profiles are available when you provision a virtual server in
 |------------------|------|--------------|-------------------------------|--------------|
 | cxf-2x4          | 2    | 4            | 4                             | 25% 50% |
 | cxf-4x8          | 4    | 8            | 8                             | 25% 50% |
-| cxf-8x16         | 8    | 16           | 16                             | 25% 50% |
+| cxf-8x16         | 8    | 16           | 16                            | 25% 50% |
 | cxf-16x32        | 16   | 32           | 32                            | 25% 50% |
 | cxf-24x48        | 24   | 48           | 48                            | - |
 | cxf-32x64        | 32   | 64           | 64                            | - |
