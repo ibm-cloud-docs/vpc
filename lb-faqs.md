@@ -2,7 +2,7 @@
 
 copyright:
   years: 2018, 2025
-lastupdated: "2025-07-20"
+lastupdated: "2025-09-26"
 
 
 keywords: load balancer, public, listener, back-end, front-end, pool, round-robin, weighted, connections, methods, policies, APIs, access, ports, vpc network, layer 7, auto scale, managed pool, instance group
@@ -159,3 +159,15 @@ When a load balancer appliance undergoes a scale down due to horizontal scaling 
 {: faq}
 
 If you receive a notification that your load balancer has been suspended, then any load balancers on your account will be deleted. If the suspension on your account is removed, your previous load balancers will be restored only if their pre-requisite resources are still active, such as VPCs, subnets, and security groups. If these resources are no longer available, then you need to provision a new load balancer.
+
+## Can I attach the same backend member with same port on two different ALBs?
+{: #backend-member-same-port-two-albs}
+{: faq}
+
+Yes, it is possible to attach the same backend member with the same port on two different ALBs.
+
+## Can I attach the same backend member with the same port more than once to the same ALB?
+{: #backend-member-same-port-one-albs}
+{: faq}
+
+No, it is not possible to attach the same backend member with the same port on a single ALB, even if you try to attach via different pools on that ALB. You can attach the same backend member with different ports, or you can attach different backemd members with the same ports.
