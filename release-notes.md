@@ -27,13 +27,6 @@ For more information about changes to the {{site.data.keyword.vpc_short}} comman
 ## September 2025
 {: #vpc-sep25}
 
-### 26 September 2025
-{: #vpc-sep2625}
-{: release-note}
-
-Flex profiles (GA)
-:   The general-purpose flex virtual server profiles (nano, balanced, compute, and memory) are built atop the 2nd and 4th Generation Intel® Xeon® Scalable processors and AMD’s 3rd generation EPYC processors. Flex profiles may be placed on any available generation of these processors in a specified region. Customers with special access can preview flex virtual server profiles on any supported processor in a supported region. For more information, see [Flex profiles](/docs/vpc?topic=vpc-flexible-profiles-virtual-servers).
-
 ### 25 September 2025
 {: #vpc-sep2525}
 {: release-note}
