@@ -2,7 +2,7 @@
 
 copyright:
   years: 2023, 2025
-lastupdated: "2025-07-28"
+lastupdated: "2025-09-26"
 
 keywords: file share, file storage, encryption in transit, Mount Helper, IPsec, secure connection, mount share
 
@@ -26,4 +26,4 @@ Even without EIT, the data moves through a secure data center network. For more 
 
 IBM Cloud provides two options for in-transit encryption for file shares. 
 - You can establish an encrypted mount connection between the compute host and a zonal file share by using the Internet Security Protocol (IPsec) security profile and X.509 certificate. For more information, see [Encryption in transit - IPsec encryption](/docs/vpc?topic=vpc-file-storage-vpc-eit-ipsec).
-- [Beta]{: tag-cyan} You can establish an encrypted mount connection between the compute host and a regional file share by creating a stunnel connection (TLS 1.2+) between the client VSI and NFS server. For more information, see [Encryption in transit - TLS encryption](/docs/vpc?topic=vpc-file-storage-vpc-eit-tls).
+- You can establish an encrypted mount connection between the compute host and a regional file share by creating a stunnel connection (TLS 1.2+) between the client VSI and NFS server. For more information, see [Encryption in transit - TLS encryption](/docs/vpc?topic=vpc-file-storage-vpc-eit-tls).

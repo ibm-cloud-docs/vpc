@@ -246,8 +246,6 @@ Adding the mount details to the `/etc/fstab` is not recommended. The IPsec conne
 ### Mounting regional file share
 {: #fs-eit-mount-share-stunnel}
 
-[Beta]{: tag-cyan}
-
 Use the following command syntax to mount the share. Replace the mount path with the information that is specific to your file share.
 
 ```sh

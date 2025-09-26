@@ -2,7 +2,7 @@
 
 copyright:
   years: 2025, 2025
-lastupdated: "2025-07-28"
+lastupdated: "2025-09-26"
 
 keywords: file share, file storage, encryption in transit, Mount Helper, TLS, NFS over TLS, secure connection, mount share
 
@@ -14,8 +14,6 @@ subcollection: vpc
 
 # Establishing encryption in transit for regional file shares
 {: #file-storage-vpc-eit-tls}
-
-[Beta]{: tag-cyan}
 
 You can establish an encrypted mount connection between the compute host and a regional file share by creating a Transport Layer Security (TLS) 1.2+ connection with stunnel. You can enable secure end-to-end encryption when you use file shares with security-group-based access control mode and mount targets with virtual network interfaces (VNI). When such a mount target is attached and the share is mounted, the VNI checks the security group policy to make sure that only authorized instances can communicate with the share.
 {: shortdesc}
