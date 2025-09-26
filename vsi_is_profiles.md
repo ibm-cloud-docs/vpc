@@ -34,7 +34,7 @@ The following profile families are available when you provision a virtual server
 | [GPU](#gpu) | GPU-enabled profiles provide on-demand access to GPUs and accelerators to facilitate AI, high-performance computing, data science, and graphics workloads.|
 | [Storage Optimized](#storageopt) | Storage Optimized profiles offer temporary SSD instance storage disks at a ratio of 1 vCPU to 300 GB instance storage with a smaller price point per GB. These profiles are designed for storage-dense workloads and offer `virtio` interface type for attached disks. |
 | [Confidential Compute](#confidential-computing-profiles) | Confidential Compute-supported profiles use processor reserved memory called EPC (Enclave Page Cache) to encrypt application data. Processor reserved memory EPC maintains confidentiality and integrity. |
-| [Flex profiles](#flexible-profiles) (beta) | Flex profiles offer a cost-effective option to help improve and mainstream capacity and scalability where and when you need it. |
+| [Flex profiles](#flexible-profiles) | Flex profiles offer a cost-effective option to help improve and mainstream capacity and scalability where and when you need it. |
 | [Burstable Flex profiles](#burstable-supported-flex-profiles) (beta) | Burstable profiles are designed to provide flexible CPU performance so workloads can operate at a smaller baseline level and burst to higher performance when needed. |
 {: caption="Virtual server family selections" caption-side="bottom"}
 
@@ -431,8 +431,6 @@ For more information about confidential computing, see [Confidential computing f
 
 ## Flex profiles
 {: #flexible-profiles}
-
-[Beta]{: tag-blue}
 
 Flex profiles are a cost-effective option to help improve mainstream capacity where and when its needed. As a dedicated core offering, you have cpu-to-memory ratio options for compute, balanced, memory, and two low-memory variants (small and nano). The Flex profile family doesn't include instance storage.
 
