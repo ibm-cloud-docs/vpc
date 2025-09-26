@@ -12,13 +12,8 @@ subcollection: vpc
 
 {{site.data.keyword.attribute-definition-list}}
 
-# General purpose - Flex (beta)
+# General purpose - Flex
 {: #flexible-profiles-virtual-servers}
-
-[Beta]{: tag-blue}
-
-Flex profiles are a beta feature and are available for evaluation and testing purposes. Contact [IBM support](/docs/account?topic=account-using-avatar#getting-support) if you're interested in getting access.
-{: beta}
 
 The general purpose Flex virtual server profiles (nano, balanced, compute, and memory) are built atop the 2nd and 4th Generation Intel® Xeon® Scalable processors and AMD’s 3rd generation EPYC processors. You can place Flex profiles on any available generation of these processors in a specified region.
 {: shortdesc}
@@ -50,7 +45,7 @@ Keep in mind that you don't have control over which hardware that a Flex profile
 ## Availability
 {: #flexible-profiles-availability}
 
-* Status: Beta
+* Status: GA
 * Regions: All
 
 ## Capabilities
@@ -59,7 +54,8 @@ Keep in mind that you don't have control over which hardware that a Flex profile
 See the following capabilities for Flex profiles.
 
 * Core type: Flex
-* Burtable: Yes (select profiles)
+
+* Burtable: Yes (with select profiles)
 * Dedicated host: No
 * Hyperthreading: Yes (SMT-2)
 * Secure boot: No

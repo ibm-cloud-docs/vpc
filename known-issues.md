@@ -2,7 +2,7 @@
 
 copyright:
   years: 2018, 2025
-lastupdated: "2025-09-23"
+lastupdated: "2025-09-26"
 
 keywords:
 
@@ -68,6 +68,14 @@ When using a beta `version` query parameter of `2025-07-14` or earlier from bare
 {: #custom-images-private-catalog-known-issues}
 
 **Issue:** If you imported one or more images into a virtual server image for VPC catalog product offering version and you edit that version, an extra version ending in "draft" is created. You can't provision an instance from this draft version. Draft versions might appear on the Virtual server instance creation page in the console or in the output of the CLI command `ibmcloud is catalog-image-offering`.
+
+## Instance known issues and limitations
+{: #instance-known-issues-limitations}
+
+### Default profile on `POST /instances`
+{: #default-profile-post-instances}
+
+**Issue:** When an instance is created without a `profile` specified by the user, it defaults to the `bx2-2x8` profile instead of `bxf-2x8`.
 
 ## Bare metal servers known issues and limitations
 {: #bare-metal-servers-known-issues-limitations}
