@@ -2,7 +2,7 @@
 
 copyright:
   years: 2022, 2025
-lastupdated: "2025-09-23"
+lastupdated: "2025-09-29"
 
 keywords: Block Storage, boot volume, data volume, volume, data storage, virtual server instance, instance, expandable volume
 
@@ -45,7 +45,7 @@ For an existing instance, you can increase its boot volume capacity by selecting
 
 3. In the boot volume details, click the **Size** pencil icon. Alternatively, select **Expand volume** from the Actions menu ![Actions icon](../icons/action-menu-icon.svg "Actions").
 
-4. In the side panel, increase the boot volume size in the **Create size** field. The size must be more than the current size up to 250 GB if the volume has a first-generation volume profile. If the boot volume is based on the `sdp` profile, you can can expand it up to 32,000 GB.
+4. In the side panel, increase the boot volume size in the **Create size** field. The size must be more than the current size up to 250 GB if the volume has a first-generation volume profile. If the boot volume is based on the `sdp` profile, you can expand it up to 32,000 GB.
 
    If the capacity of a boot volume is increased over 250 GB, you can no longer create a custom image from it. A boot volume that exceeds 250 GB can't be used to initialize a virtual server either.
    {: note}
@@ -221,7 +221,7 @@ curl -X PATCH "$vpc_api_endpoint/v1/volumes/$volume_id/?version=2022-02-12&gener
 ```
 {: codeblock}
 
-Your second-generation boot volume that's based on the `sdp` profile can be expanded up to 32,000 GB. It's important to remember that if the capacity of a boot volume is increased over 250 GB, you can no longer create a custom image from it. A boot volume that exceeds 250 GB can't be used to initialize a virtual server either.
+Your second-generation boot volume that's based on the `sdp` profile can be expanded up to 32,000 GB. However, if the capacity of a boot volume is increased over 250 GB, you can no longer create a custom image from it. A boot volume that exceeds 250 GB can't be used to initialize a virtual server either.
 
 ## Increasing the capacity of an existing boot volume with Terraform
 {: #expand-existing-boot-vol-terraform}
@@ -361,6 +361,13 @@ Extending a file system is a moderately risky operation. Consider taking a snaps
    tmpfs           783M     0  783M   0% /run/user/0
    ```
    {: screen}
+
+### Modifying the expanded boot volume in Windows
+{: #modifying-the-windows-os-expanded-boot-volume}
+
+You can extend your boot partition with the DiskPart utility from the Command Prompt or PowerShell as an administrator.
+
+If you used a stock image of Windows Server 2022 Standard Edition or Windows Server 2025 Standard Edition to create your virtual server, you might find that the Recovery partition (D: drive) is preventing you from extending the C: drive. To resolve this issue, see the troubleshooting topic: [Why can't I expand my C: drive on Windows Server?](/docs/vpc?topic=vpc-troubleshooting-unexpandable-c-drive)
 
 ## Next steps
 {: #next-steps-resize-boot-vols}
