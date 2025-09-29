@@ -2,7 +2,7 @@
 
 copyright:
   years: 2019, 2025
-lastupdated: "2025-09-23"
+lastupdated: "2025-09-29"
 
 keywords: vpc Block Storage, provision Block Storage for vpc, bootable snapshots, create volume from snapshot, fast restore
 
@@ -727,7 +727,7 @@ curl -X POST "$vpc_api_endpoint/v1/instances?version=2024-09-24&generation=2"\
       "profile": {"name": "sdp"},
       "boot_capacity": 250,
       "iops": 3000,
-      "bandwidth": 1000>
+      "bandwidth": 1000
       "storage_generation": 2,
       "user_tags": {"env:test","env:prod"}},
   "image": {"id": "9aaf3bcb-dcd7-4de7-bb60-24e39ff9d366"},
@@ -899,7 +899,7 @@ Valid volume names can include a combination of lowercase alpha-numeric characte
 ### Creating stand-alone {{site.data.keyword.block_storage_is_short}} volumes with Terraform
 {: #creating-standalone-vol-terraform}
 
-To create a {{site.data.keyword.block_storage_is_short}} volume, use the `ibm_is_volume` resource. The following example creates a volume with 4 TB capacity and the `10iops-tier` performance profile.
+To create a {{site.data.keyword.block_storage_is_short}} volume, use the `ibm_is_volume` resource. The following example creates a first-generation volume with 4 TB capacity and the `10iops-tier` performance profile.
 
 ```terraform
 resource "ibm_is_volume" "example" {
@@ -911,7 +911,7 @@ resource "ibm_is_volume" "example" {
 ```
 {: codeblock}
 
-The following example creates a volume with a `custom` profile. The volume that is created has 200 MB capacity and can perform 1000 IOPS.
+The following example creates a first-generation volume with a `custom` profile. The volume that is created has 200 MB capacity and can perform 1000 IOPS.
 
 ```terraform
 resource "ibm_is_volume" "example" {
@@ -920,6 +920,21 @@ resource "ibm_is_volume" "example" {
   zone           = "us-south-1"
   iops           = 1000
   capacity       = 200
+  encryption_key = "crn:v1:bluemix:public:kms:us-south:a/a1234567:e4a29d1a-2ef0-42a6-8fd2-350deb1c647e:key:5437653b-c4b1-447f-9646-b2a2a4cd6179"
+}
+```
+{: codeblock}
+
+The following example creates a second-generation volume with the `sdp` profile. The volume that is created has 250 MB capacity, can perform 3000 IOPS with the maximum bandwidth limit of 1000 Mbps.
+
+```terraform
+resource "ibm_is_volume" "example" {
+  name           = "example-volume"
+  profile        = "sdp"
+  zone           = "us-south-1"
+  iops           = 3000
+  capacity       = 250
+  bandwidth      = 1000
   encryption_key = "crn:v1:bluemix:public:kms:us-south:a/a1234567:e4a29d1a-2ef0-42a6-8fd2-350deb1c647e:key:5437653b-c4b1-447f-9646-b2a2a4cd6179"
 }
 ```

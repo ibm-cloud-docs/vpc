@@ -2,7 +2,7 @@
 
 copyright:
   years: 2023, 2025
-lastupdated: "2025-09-26"
+lastupdated: "2025-09-29"
 
 keywords: file share, file storage, encryption in transit, Mount Helper, IPsec, secure connection, mount share
 
@@ -69,8 +69,12 @@ The utility installs stunnel on the compute host that's running a Linux OS. Stun
 1. Log in to the compute host where you want to mount the file share.
    - [Connect to your virtual server instance](/docs/vpc?topic=vpc-creating-virtual-servers&interface=ui#next-steps-after-creating-virtual-servers-ui).
    - [Connect to your bare metal server](/docs/vpc?topic=vpc-connect-to-ESXi-bare-metal-servers).
+   - If you want to access the file shares from IBM Power Virtual Server instances, you must use a network path through a load balancer. For more information, see the following tutorial: [Accessing File Storage for VPC with zonal availability from IBM Power Virtual Server instances](/docs/sap?topic=sap-ha-nlb-rt-nfs-intro) and make sure that you completed Steps 1-3. Step 4 can be performed by the Mount Helper after it is installed on the Power VSI.
    
-1. Then, you can download the package directly from GitHub, or build the utility from the source code. 
+1. Then, you can download the package directly from GitHub, or build the utility from the source code.
+   
+   If you want to mount a regional file share on an IBM Power VSI, download the installation package, and follow the steps of [Installing the Mount Helper to mount regional file shares](#install-MH-for-regional).
+   {: note}
 
 ### Downloading the installation package
 {: #download-from-github}
