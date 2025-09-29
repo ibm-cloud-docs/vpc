@@ -2,7 +2,7 @@
 
 copyright:
   years: 2025, 2025
-lastupdated: "2025-09-25"
+lastupdated: "2025-09-29"
 
 keywords:
 
@@ -164,6 +164,8 @@ Trusted profiles for compute resource identities help you assign an {{site.data.
 
 ## Enabling or disabling the bare metal server metadata service
 {: #metadata-service-enable-bare-metal}
+
+The bare metal server metadata service is disabled by default. To retrieve metadata from a bare metal server, enable the service on new bare metal servers or existing bare metal servers by using the VPC UI, CLI, API, or Terraform.
 
 The bare metal server metadata service is disabled by default. To retrieve metadata from a bare metal server, enable the service on new bare metal servers or existing bare metal servers by using the VPC UI, CLI, API, or Terraform.
 
@@ -331,6 +333,127 @@ curl -X PATCH "$vpc_api_endpoint/v1/bare_metal_servers/$id?version=2025-06-30&ge
 {: codeblock}
 
 The response shows that the metadata parameter set to `true` when you enable the service. You can also verify the metadata service setting by making a `GET /bare_metal_servers/{id}` call.
+
+### Enabling bare metal server metadata from Terraform
+{: #metadata-enable-service-terraform-bare-metal}
+{: terraform}
+
+From the {{site.data.keyword.cloud}} console, you can enable or disable the bare metal server metadata service.
+
+To use Terraform, download the Terraform CLI and configure the {{site.data.keyword.cloud_notm}} Provider plug-in. For more information, see [Getting started with Terraform](/docs/ibm-cloud-provider-for-terraform?topic=ibm-cloud-provider-for-terraform-getting-started).
+{: requirement}
+
+#### Enable the metadata service for an existing bare metal server from Terraform
+{: #metadata-enable-on-bare-metal-server-terraform-bare-metal}
+
+Use Terraform to enable the metadata service on an existing bare metal server.
+
+The following example enables the metadata service on an existing bare metal server. By default, the `enabled` property is set to `false`. To enable the service, set it to `true`.
+
+```terraform
+resource "ibm_is_bare_metal_server" "example" {
+  profile = "bx2-metal-192x768"
+  name    = "example-bms1"
+  image   = "r134-cdc7b64f-8d86-4412-ac96-7765b1e9253f"
+  zone    = "us-south-2"
+  keys    = [ibm_is_ssh_key.example.id]
+  primary_network_interface {
+    subnet = ibm_is_subnet.example.id
+  }
+  vpc = ibm_is_vpc.example.id
+  default_trusted_profile {
+      auto_link = false
+      target {
+          id = "Profile-a2075c9d-c69f-404f-8488-7962a383059c"
+      }
+    }
+  metadata_service {
+    enabled  = true
+    protocol = "https"
+  }
+}
+```
+{: codeblock}
+
+#### Enable the metadata service when you create a new bare metal server from Terraform
+{: #metadata-enable-new-bare-metal-server-terraform-bare-metal}
+
+Use Terraform to enable the metadata service on a new bare metal server.
+
+The following example enables the metadata service on a new bare metal server. By default, the `enabled` property is set to `false`. To enable the service, set it to `true`.
+
+```terraform
+resource "ibm_is_vpc" "example" {
+  name = "example-vpc"
+}
+
+resource "ibm_is_subnet" "example" {
+  name            = "example-subnet"
+  vpc             = ibm_is_vpc.vpc.id
+  zone            = "us-south-3"
+  ipv4_cidr_block = "10.240.129.0/24"
+}
+
+resource "ibm_is_ssh_key" "example" {
+  name       = "example-ssh"
+  public_key = "ssh-rsa AAAAB3NzaC1yc2EAAAADAQABAAABAQCKVmnMOlHKcZK8tpt3MP1lqOLAcqcJzhsvJcjscgVERRN7/9484SOBJ3HSKxxNG5JN8owAjy5f9yYwcUg+JaUVuytn5Pv3aeYROHGGg+5G346xaq3DAwX6Y5ykr2fvjObgncQBnuU5KHWCECO/4h8uWuwh/kfniXPVjFToc+gnkqA+3RKpAecZhFXwfalQ9mMuYGFxn+fwn8cYEApsJbsEmb0iJwPiZ5hjFC8wREuiTlhPHDgkBLOiycd20op2nXzDbHfCHInquEe/gYxEitALONxm0swBOwJZwlTDOB7C6y2dzlrtxr1L59m7pCkWI4EtTRLvleehBoj3u7jB4usR"
+}
+
+resource "ibm_is_bare_metal_server" "example" {
+  profile = "bx2-metal-192x768"
+  name    = "example-bms1"
+  image   = "r134-cdc7b64f-8d86-4412-ac96-7765b1e9253f"
+  zone    = "us-south-2"
+  keys    = [ibm_is_ssh_key.example.id]
+  primary_network_interface {
+    subnet = ibm_is_subnet.example.id
+  }
+  vpc = ibm_is_vpc.example.id
+  default_trusted_profile {
+      auto_link = true
+      target {
+          id = "Profile-a2075c9d-c69f-404f-8488-7962a383059c"
+      }
+    }
+  metadata_service {
+    enabled  = true
+    protocol = "https"
+  }
+}
+```
+{: codeblock}
+
+### Disable the metadata service from Terraform
+{: #metadata-disable-new--terraform-bare-metal-server}
+
+Use Terraform to disable the metadata service on a new bare metal server.
+
+The following example disables the metadata service on an existing bare metal server.
+
+```terraform
+resource "ibm_is_bare_metal_server" "example" {
+  profile = "bx2-metal-192x768"
+  name    = "example-bms1"
+  image   = "r134-cdc7b64f-8d86-4412-ac96-7765b1e9253f"
+  zone    = "us-south-2"
+  keys    = [ibm_is_ssh_key.example.id]
+  primary_network_interface {
+    subnet = ibm_is_subnet.example.id
+  }
+  vpc = ibm_is_vpc.example.id
+  default_trusted_profile {
+      auto_link = true
+      target {
+          id = "Profile-a2075c9d-c69f-404f-8488-7962a383059c"
+      }
+    }
+  metadata_service {
+    enabled  = false
+    protocol = "https"
+  }
+}
+```
+{: codeblock}
 
 ## Configure metadata settings by using the UI
 {: #metadata-config-ui-bare-metal}
@@ -540,6 +663,67 @@ To enable secure access, when you provision a bare metal server with the [POST /
 {: api}
 
 To enable secure access on an existing bare metal server, use the [PATCH /bare_metal_servers/{id}](/apidocs/vpc/latest#update-bare-metal-server) method to update the bare metal server. Specify a value for the `metadata_service.protocol` property for your bare metal server. For secure access, specify `https`. The default setting is unencrypted `http`. 
+
+## Configure metadata settings by using Terraform
+{: #metadata-config-terraform-bare-metal}
+{: terraform}
+
+You can enable and disable features of the metadata service by using the Terraform
+
+### Select a trusted profile by using Terraform
+{: #select-trusted-profile-terraform-bare-metal}
+{: terraform}
+
+You can select an existing trusted profile for the bare metal server metadata service. Use the `GET /bare_metal_servers/{id}/initialization` call and include the `"default_trusted_profile"`.
+
+For more information, see [Create a trusted profile for the bare metal server](/docs/vpc?topic=vpc-configure-metadata-service-bare-metal&interface=api#metadata-create-trusted-profile-config).
+
+You can link a bare metal server to more than one trusted profile, but the properties of a bare metal server support only one default trusted profile setting.
+
+After a server is provisioned, you can't add or remove a default trusted profile or its autolink
+{: note}
+
+For more information, see [Create a trusted profile for the bare metal server](/docs/vpc?topic=vpc-get-metadata-bare-metal&interface=api#metadata-token-exchange-usemd-bare-metal).
+
+### Disable auto link by using Terraform
+{: #auto-link-terraform-bare-metal}
+{: terraform}
+
+You can disable auto link for the bare metal server metadata service when you provision a bare metal server. Auto link is enabled automatically when a trusted profile is selected. When autolink is enabled, the specified trusted profile is automatically linked to the bare metal server when the bare metal server is provisioned. The trusted profile that is associated with a bare metal server that is provisioned with auto link is available to the bare metal server immediately at startup. When auto link is disabled, the specified trusted profile must be linked to the bare metal server for it to be used by the bare metal server.
+
+To disable auto link by using the API, the `auto_link` value for the `default_trusted_profile` property must be set to `false`. The following example shows the `default_trusted_profile` property with the `auto_link` option disabled.
+
+```json
+"default_trusted_profile": {
+      "auto_link": false,
+      "target": {
+           "id": "Profile-9fd84246-7df4-4667-94e4-8ecde51d5ac5"
+   }
+  },
+```
+{: codeblock}
+
+### Enable secure access by using Terraform
+{: #secure-access-terraform-bare-metal}
+{: terraform}
+
+You can enable secure access to the bare metal server metadata service. When secure access is enabled, the metadata service is accessible only to the bare metal server by encrypted HTTP Secure protocol (HTTPS). When secure access is disabled, the metadata service is accessible only to the bare metal server by unencrypted HTTP protocol. Secure access is disabled by default.
+Certain properties might be required in the following scenarios:
+
+- You are using the IBM Cloud CLI Virtual Server Instance for VPC compute resource identity login method. For more information, see [Logging in as a Virtual Server Instance Compute Resource Identity](/docs/cli?topic=cli-vsi-cri-login).
+- You are using the IBM Cloud SDK with [VPC Instance Authentication](https://github.com/IBM/ibm-cloud-sdk-common#authentication){: external} inside a bare metal server with secure access to the bare metal server metadata service enabled. For more information, see [IBM Cloud Go SDK](https://github.com/IBM/go-sdk-core/blob/main/Authentication.md#vpc-instance-authentication){: external}.
+
+#### Enable secure access when you provision a bare metal server by using Terraform
+{: #secure-access-terraform-provisioning-bare-metal}
+{: terraform}
+
+To enable secure access, when you provision a bare metal server with the [POST /bare_metal_servers](/apidocs/vpc/latest#create-bare-metal-server) method, specify a value for the `metadata_service.protocol` property for your bare metal server. For secure access, specify `https`. The default setting is unencrypted `http`.
+
+#### Enable secure access on an existing bare metal server
+{: #secure-access-terraform-existing-bare-metal}
+{: terraform}
+
+To enable secure access on an existing bare metal server, use the [PATCH /bare_metal_servers/{id}](/apidocs/vpc/latest#update-bare-metal-server) method to update the bare metal server. Specify a value for the `metadata_service.protocol` property for your bare metal server. For secure access, specify `https`. The default setting is unencrypted `http`.
 
 ## Activity tracking events for bare metal server metadata
 {: #metadata-at-events-bare-metal}
