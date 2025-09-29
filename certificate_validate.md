@@ -2,7 +2,7 @@
 
 copyright:
   years: 2022, 2025
-lastupdated: "2025-08-25"
+lastupdated: "2025-09-29"
 
 keywords: confidential computing, secure execution, hpcr, contract, customization, env, workload, encryption, attestation, validating
 
@@ -259,6 +259,7 @@ The certificates contain **Certificate Revocation List (CRL) Distribution Points
       serial=D81F1467D9C543F6688960B8C6BDB578  # (example)
       ```
       {: pre}
+
 
 
    2. Export the value of 'serial' by running the following command:
