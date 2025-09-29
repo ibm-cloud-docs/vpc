@@ -2,7 +2,7 @@
 
 copyright:
   years: 2021, 2025
-lastupdated: "2025-09-11"
+lastupdated: "2025-09-29"
 
 keywords: bare metal servers, managing, operation, manage bare metal server, manage bare metal, manage server, restart bare metal, stop bare metal, delete bare metal, reboot bare metal, restart server, stop server, delete server
 
@@ -554,6 +554,12 @@ resource "ibm_is_bare_metal_server_initialization" "reinitialize" {
   user_data         = DATA
   keys              = KEYS
   image             = "IMAGE"
+  default_trusted_profile {
+      auto_link = true
+      target {
+          id = "Profile-a2075c9d-c69f-404f-8488-7962a383059c"
+      }
+  }
 }
 ```
 {: codeblock}
@@ -563,6 +569,7 @@ Specify the following variables to use when you reinitialize the bare metal serv
 - `DATA` specifies any optional user data
 - `KEYS` specifies the SSH keys
 - `IMAGE` specifies the operating system image
+- `Default Trusted Profile` specified if auto link is enable
 
 While you can retain the same physical node, interfaces, IP addresses, and resource IDs, you can also select to avoid these changes by using the `lifecycle` property.
 
