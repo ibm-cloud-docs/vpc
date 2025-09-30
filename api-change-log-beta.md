@@ -94,6 +94,8 @@ For more information, see the [Beta VPC Identity API](/apidocs/vpc-identity-beta
 ### For all version dates
 {: #24-june-2025-all-version-dates-beta}
 
+Flex instance profiles are now generally available. See the [VPC API change log](/docs/vpc?topic=vpc-api-change-log#30-september-2025).
+
 **Flex instance profiles.** Accounts that have been granted special approval to preview this feature can now use [flex instance profiles](/docs/vpc?topic=vpc-flexible-profiles-virtual-servers) when [creating](/apidocs/vpc-beta#create-instance) or [updating](/apidocs/vpc-beta#update-instance) an instance, or when [creating](/apidocs/vpc-beta#create-instance-template) an instance template.
 
 **Default instance profile change.** When [creating](/apidocs/vpc-beta#create-instance) a new instance, the `profile` property will now default to `bxf-2x8` for accounts that have been granted special approval to preview [flex instance profiles](/docs/vpc?topic=vpc-flexible-profiles-virtual-servers).
