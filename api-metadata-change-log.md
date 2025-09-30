@@ -2,7 +2,7 @@
 
 copyright:
   years: 2019, 2025
-lastupdated: "2025-08-26"
+lastupdated: "2025-09-30"
 
 keywords: api, change log, metadata, new features, restrictions, migration, versioned change
 
@@ -27,6 +27,14 @@ Some changes, such as new response properties or new optional request parameters
 - Follow HTTP redirect rules for any `3xx` HTTP status code
 - Consume only the resources and properties your application needs to function
 - Avoid depending on behavior that is not explicitly documented
+
+## 30 September 2025
+{: #23-september-2025-metadata}
+
+### For all version dates
+{: #30-september-2025-all-version-dates-metadata}
+
+**Dynamic volume bandwidth allocation.** When [retrieving an instance](/apidocs/vpc-metadata#get-instance), the `volume_bandwidth_qos_mode` property is now included in the response. This property indicates which volume bandwidth QoS mode is enabled for this virtual server instance, its value can be either `weighted` or `pooled`. For more information, see the [VPC API change log](/docs/vpc?topic=vpc-api-change-log#30-september-2025) and [volume bandwidth QoS mode](/docs/vpc?topic=vpc-block-storage-bandwidth).
 
 ## 26 August 2025
 {: #26-august-2025-metadata}
