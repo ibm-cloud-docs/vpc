@@ -2,7 +2,7 @@
 
 copyright:
   years: 2021, 2025
-lastupdated: "2025-05-28"
+lastupdated: "2025-09-30"
 
 keywords: file share, file storage, mount helper, mount target, mount path, secure connection, NFS
 
@@ -42,7 +42,7 @@ Mount a file share on a CentOS host by following these steps. The examples are b
 1. Install the required tools.
 
    ```sh
-   yum install nfs-utils
+   dnf install nfs-utils
    ```
    {: pre}
 
@@ -118,7 +118,7 @@ Mount a file share on a CentOS host by following these steps. The examples are b
        ```
        {: screen}
 
-       If you get a command not found error when you run `host` command, use `yum install bind-utils` to install it.
+       If you get a command not found error when you run `host` command, use `dnf install bind-utils` to install it.
        {: tip}
 
     2. Edit `/etc/hosts` and add an IP to the hostname entry.

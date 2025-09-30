@@ -2,7 +2,7 @@
 
 copyright:
   years: 2020, 2025
-lastupdated: "2025-09-23"
+lastupdated: "2025-09-30"
 
 keywords: Block Storage, boot volume, data volume, volume, data storage, virtual server instance, instance, expandable volume
 
@@ -300,7 +300,7 @@ Extending a file system is a moderately risky operation. Consider taking a snaps
    ```
    {: screen}
 
-   If the command returns `pvresize: command not found`, install the logical volume manager by running the command `yum install lvm2`.
+   If the command returns `pvresize: command not found`, install the logical volume manager by running the command `dnf install lvm2`.
    {: tip}
 
 1. Confirm the new file system size. The example shows 722352120 blocks.

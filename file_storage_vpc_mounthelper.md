@@ -2,7 +2,7 @@
 
 copyright:
   years: 2023, 2025
-lastupdated: "2025-09-29"
+lastupdated: "2025-09-30"
 
 keywords: file share, file storage, encryption in transit, Mount Helper, IPsec, secure connection, mount share
 
@@ -200,7 +200,7 @@ The utility installs stunnel on the compute host that's running a Linux OS. Stun
 - On RPM-based instances, run the following commands:
    ```sh
    yum update -y
-   yum install git make python3 rpm-build -y
+   dnf install git make python3 rpm-build -y
    git clone https://github.com/IBM/vpc-file-storage-mount-helper.git
    cd vpc-file-storage-mount-helper
    make build-rpm

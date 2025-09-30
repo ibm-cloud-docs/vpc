@@ -2,7 +2,7 @@
 
 copyright:
   years: 2019, 2025
-lastupdated: "2025-09-29"
+lastupdated: "2025-09-30"
 
 keywords: vpc Block Storage, provision Block Storage for vpc, bootable snapshots, create volume from snapshot, fast restore
 
@@ -1002,8 +1002,7 @@ For more information about the arguments and attributes, see [ibm_is_instance](h
 ### Creating a data volume to add to an existing instance with Terraform
 {: #create-vol-for-instance-terraform}
 
-To create a data volume and attach it to a virtual server instance, use the `ibm_is_instance_volume_attachment` resource.
-The following example creates a 20 MB data volume with a `general-purpose` volume profile and attaches it to the `ibm_is_instance.example.id` instance.
+To create a data volume and attach it to a virtual server instance, use the `ibm_is_instance_volume_attachment` resource. The following example creates a 20 MB data volume with a `general-purpose` volume profile and attaches it to the `ibm_is_instance.example.id` instance.
 
 ```terraform
 rresource "ibm_is_instance_volume_attachment" "example" {
