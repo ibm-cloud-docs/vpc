@@ -2,7 +2,7 @@
 
 copyright:
   years: 2019, 2025
-lastupdated: "2025-09-23"
+lastupdated: "2025-09-30"
 
 keywords: api, change log, new features, restrictions, migration
 
@@ -54,6 +54,18 @@ At this time, all instances, and therefore all instance templates, continue to r
 
 The new response code will be rolled out gradually. Each phase of the rollout will be tied to a dated API version. These changes will be announced in future change log updates.
 {: note}
+
+## 30 September 2025
+{: #30-september-2025}
+
+### For all version dates
+{: #30-september-2025-all-version-dates}
+
+**Flex instance profiles.** When [creating](/apidocs/vpc/latest#create-instance) or [updating](/apidocs/vpc/latest#update-instance) an instance, or when [creating](/apidocs/vpc/latest#create-instance-template) an instance template, you can now use [flex instance profiles](/docs/vpc?topic=vpc-flexible-profiles-virtual-servers).
+
+**Default instance profile change.** When [creating](/apidocs/vpc/latest#create-instance) a new instance, the `profile` property will now default to `bxf-2x8`.
+
+**Dynamic bandwidth allocation.** For [select instance profiles](/docs/vpc?group=profile-details), you can now specify the QoS mode for [Pooled bandwidth allocation for data volumes](/docs/vpc?topic=vpc-block-storage-bandwidth&interface=ui#pooled-vol-bandwidth). When [creating](/apidocs/vpc/latest#create-instance) or [updating](/apidocs/vpc/latest#update-instance) an instance, or when [creating](/apidocs/vpc/latest#create-instance-template) or [updating](/apidocs/vpc/latest#update-instance-template) an instance template, you can specify the `volume_bandwidth_qos_mode` (`pooled` or `weighted`) to use for a virtual server instance. The new `volume_bandwidth_qos_modes` instance profile property indicates which modes are supported for the instance profile. If you do not specify the QoS mode when creating an instance or instance template, the default volume bandwidth QoS mode from the profile is used. For more information, see [Bandwidth allocation for attached volumes](/docs/vpc?topic=vpc-block-storage-bandwidth).
 
 ## 23 September 2025
 {: #23-september-2025}
