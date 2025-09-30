@@ -35,9 +35,12 @@ Use these instructions to connect a Red Hat Enterprise Linux&reg;-based {{site.d
 ## Mounting the file share
 {: #fs-RHEL-mount-share}
 
-Follow these steps to mount a file share on an RHEL host. Examples are based on RHEL 8.
+Follow these steps to mount a file share on an RHEL host. Examples were tested on RHEL 8 and RHEL 9. If you use a different version, review your OS documentation.
 
-[SSH into the Compute instance](/docs/vpc?topic=vpc-creating-virtual-servers&interface=ui#next-steps-after-creating-virtual-servers-ui) where you want to mount the file share, then continue with these steps:
+1. Establish an [SSH connection to the Compute instance](/docs/vpc?topic=vpc-creating-virtual-servers&interface=ui#next-steps-after-creating-virtual-servers-ui) where you want to mount the file share, then continue with the following steps.
+
+   If you want to mount the file shares from IBM {{site.data.keyword.powerSys_notm}} instances, you must use a network path through a load balancer. For more information, see the following tutorial: [Accessing File Storage for VPC with zonal availability from IBM Power Virtual Server instances](/docs/sap?topic=sap-ha-nlb-rt-nfs-intro).
+   {: note}
 
 1. Install the required tools.
 
@@ -47,14 +50,14 @@ Follow these steps to mount a file share on an RHEL host. Examples are based on 
    {: pre}
 
 
-2. Create a directory in your instance.
+1. Create a directory in your instance.
 
    ```sh
    mkdir /mnt/test
    ```
    {: pre}
 
-3. Mount the remote file share.
+1. Mount the remote file share.
 
    ```sh
    mount -t nfs4 -o <options> <host:/mount_target> /mnt
@@ -67,7 +70,7 @@ Follow these steps to mount a file share on an RHEL host. Examples are based on 
    mount -t nfs4 -o sec=sys,nfsvers=4.1 10.240.64.11:/384f711c_0684_4643_b1c3_dc7acb36d04a /mnt/test
    ```
 
-4. Verify that the mount was successful with the disk file system command.
+1. Verify that the mount was successful with the disk file system command.
 
    ```sh
    $ df -h
@@ -84,7 +87,7 @@ Follow these steps to mount a file share on an RHEL host. Examples are based on 
    ```
    {: screen}
 
-5. Go to the mount point to create a test file and list all files to verify that the share is mounted as read/write.
+1. Go to the mount point to create a test file and list all files to verify that the share is mounted as read/write.
 
    ```sh
    touch /mnt/test/test.txt
@@ -104,7 +107,7 @@ Follow these steps to mount a file share on an RHEL host. Examples are based on 
 
    The files are created by root and have an ownership of `nobody:nobody`. To display the ownership correctly, update `idmapd.conf` with the correct domain settings. For more information, see [How to implement no_root_squash for NFS](#fs-RHEL-norootsquash).
 
-6. Mount the remote file share on start. To complete the setup, you must edit the file systems table (`/etc/fstab`) and add the remote file share to the list of entries that are automatically mounted on startup. Before you create an entry in the `fstab`, take the following steps to add the mount path hostname to `/etc/hosts`.
+1. Mount the remote file share on start. To complete the setup, you must edit the file systems table (`/etc/fstab`) and add the remote file share to the list of entries that are automatically mounted on startup. Before you create an entry in the `fstab`, take the following steps to add the mount path hostname to `/etc/hosts`.
 
     1. Get the `hostname.com` portion of the mount path, for example `fsf-dal2433a-dz.adn.networklayer.com` and get the IP address. Run the following command from the instance to get the IP address.
 
@@ -149,7 +152,7 @@ Follow these steps to mount a file share on an RHEL host. Examples are based on 
        ```
        {: screen}
 
-7. Verify that the configuration file has no errors.
+1. Verify that the configuration file has no errors.
 
    ```sh
    mount -fav

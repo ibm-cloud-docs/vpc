@@ -2,7 +2,7 @@
 
 copyright:
   years: 2024, 2025
-lastupdated: "2025-08-08"
+lastupdated: "2025-09-30"
 
 keywords:
 
@@ -40,7 +40,7 @@ To attach interfaces to an instance in the CLI, follow these steps:
     ```
     {: pre}
 
-1. To attach an interface to an instance, enter the following command:
+1. To attach an interface to an instance, enter the following command: 
 
    ```bash
    ibmcloud is instance-cluster-network-attachments INSTANCE --cnac CLUSTER_NETWORK_ATTACHMENT
@@ -61,7 +61,7 @@ To attach interfaces to an instance in the CLI, follow these steps:
 ### Command examples
 {: #command-examples-cluster-network-attach-interfaces}
 
-To create instance `my-ins-1` with cluster network atttachments:
+To create instance `my-ins-1` with cluster network attachments:
 
 ```sh
 ibmcloud is instance-create my-ins-1 cli-vpc us-south-2 fx3d-160c1792x9h100 cli-subnet --image ibm-ubuntu-20-04-6-minimal-amd64-5 --cluster-network-attachments '[{"name":"instance-cnac-1","cluster_network_interface":{"id":"7208-18204195-be40-4f12-aaaa-2649e19acb91"}},{"name":"instance-cnac-2","cluster_network_interface":{"id":"7208-cf6023a3-86c7-459f-84b8-536b4f812541"}},{"name":"instance-cnac-3","cluster_network_interface":{"id":"7208-2d55d27c-835c-4566-acbc-da36bcf49da7"}},{"name":"instance-cnac-4","cluster_network_interface":{"id":"7208-161e2919-c505-4e6d-bd49-88e7e0c0f1f3"}},{"name":"instance-cnac-5","cluster_network_interface":{"id":"7208-d700a40e-af61-45ee-b71a-a09203db76bd"}},{"name":"instance-cnac-6","cluster_network_interface":{"id":"7208-c7dbc8b9-6b47-4b83-8649-512e4e8f0a81"}},{"name":"instance-cnac-7","cluster_network_interface":{"id":"7208-f4773e40-49b5-4d44-8c68-7a75513bbf16"}},{"name":"instance-cnac-8","cluster_network_interface":{"id":"7208-46e097b5-c1ea-4669-aafd-7a4cc82d0e02"}}]'
