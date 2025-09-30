@@ -962,6 +962,52 @@ For more information about the arguments and attributes, see [ibm_is_volume](htt
 First- and second-generation volume profiles are not interchangeable. You can use a snapshot of a second-generation volume to create another second-generation volume, but you can't switch the volume profile to a first-generation volume profile. In the same way, you can use a snapshot of a first-generation volume to create another first-generation volume with the same data, and you can't switch the new volume to the `sdp` profile.
 {: important}
 
+### Creating a boot volume as part of instance provisioning with Terraform
+{: #block-storage-create-sdp-instance-terraform}
+
+To create a data volume from a snapshot when you create a virtual server instance, use the `ibm_is_instance` resource. The following example creates a virtual server instance with a boot volume that uses the `sdp` volume profile and is protected by a customer-managed encryption key.  When you specify the `sdp` profile for the boot volume, you can specify custom capacity, IOPS, and bandwidth limits.
+
+```terraform
+   resource "ibm_is_instance" "example_instance" {
+     name    = "example-instance-reserved-ip"
+     image   = data.ibm_is_image.example_image.id
+     profile = data.ibm_is_instance_profile.example_profile.name
+
+     primary_network_interface {
+       name   = "eth0"
+       subnet = ibm_is_subnet.example_subnet.id
+       primary_ip {
+         reserved_ip = ibm_is_subnet_reserved_ip.example_reserved_ip.reserved_ip
+       }
+     }
+     network_interfaces {
+       name   = "eth1"
+       subnet = ibm_is_subnet.example_subnet.id
+       primary_ip {
+         name = "example-reserved-ip1"
+         auto_delete = true
+         address = "${replace(ibm_is_subnet.example_subnet.ipv4_cidr_block, "0/24", "14")}"
+       }
+     }
+
+     vpc  = ibm_is_vpc.example_vpc.id
+     zone = "us-south-1"
+     keys = [ibm_is_ssh_key.example_sshkey.id]
+
+     boot_volume {
+       name           = "example-boot-volume"
+       profile        = "sdp"
+       size           = 250
+       iops           = 3000
+       bandwidth      = 1000
+       encryption_key = "crn:v1:bluemix:public:kms:us-south:a/a1234567:e4a29d1a-2ef0-42a6-8fd2-350deb1c647e:key:5437653b-c4b1-447f-9646-b2a2a4cd6179"
+      }
+   }
+   ```
+   {: codeblock}
+
+For more information about the arguments and attributes, see [ibm_is_instance](https://registry.terraform.io/providers/IBM-Cloud/ibm/latest/docs/resources/is_instance){: external}.
+
 ### Creating a boot volume from a snapshot as part of instance provisioning with Terraform
 {: #block-storage-create-instance-terraform}
 

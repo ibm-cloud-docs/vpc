@@ -65,7 +65,7 @@ The new response code will be rolled out gradually. Each phase of the rollout wi
 
 When [retrieving](/apidocs/vpc/latest#get-vpc) or [listing](/apidocs/vpc/latest#list-vpcs) VPCs, the response now includes the `public_address_ranges` that are bound to each VPC.
 
-Learn about [public address ranges](/docs/vpc?topic=vpc-about-public-address-ranges), and explore the new [API methods](/apidocs/vpc/latest#list-public-address-ranges).
+Learn about [public address ranges](/docs/vpc?topic=vpc-about-par), and explore the new [API methods](/apidocs/vpc/latest#list-public-address-ranges).
 
 **Reserved IPs as load balancer pool member targets.** You can now create [pool members](/apidocs/vpc/latest#list-load-balancer-pool-members) that target reserved IPs. When [creating a member in a load balancer pool](/apidocs/vpc/latest#create-load-balancer-pool-member), you can specify the identity of a reserved IP as the `target` if supported by the load balancer's profile. When [retrieving](/apidocs/vpc/latest#get-load-balancer-profile) or [listing](/apidocs/vpc/latest#list-load-balancer-profiles) load balancer profiles, use the new `targetable_resource_types` property to determine which resources that load balancer can target. For more information, see [Creating a Private Path network load balancer](/docs/vpc?topic=vpc-ppnlb-ui-creating-private-path-network-load-balancer&interface=api).
 
@@ -284,7 +284,7 @@ When [creating an instance](/apidocs/vpc/latest#create-instance) using a support
 - `cluster_network_attachment_count` specifies the number of cluster network attachments supported for that instance profile.
 - `supported_cluster_network_profiles` indicates the cluster network profiles that are supported for that instance profile.
 
-Learn [about cluster networks](/docs/vpc?topic=vpc-about-cluster-network), cluster network subnets, cluster network interfaces, and explore the new [API methods](/apidocs/vpc/latest#list-cluster-networks). See also [Known issues and limitations for cluster networks](/docs/vpc?topic=vpc-limitations-cluster-network) for information about Activity Tracker events.
+Learn [about cluster networks](/docs/vpc?topic=vpc-about-cluster-network), cluster network subnets, cluster network interfaces, and explore the new [API methods](/apidocs/vpc/latest#list-cluster-networks). See also [Known issues and limitations for cluster networks](/docs/vpc?topic=vpc-known-issues-cluster-networks) for information about Activity Tracker events.
 
 ## 19 November 2024
 {: #19-november-2024}
@@ -349,7 +349,7 @@ When [creating an instance](/apidocs/vpc/latest#create-instance) using a support
 - `cluster_network_attachment_count` specifies the number of cluster network attachments supported for that instance profile.
 - `supported_cluster_network_profiles` indicates the cluster network profiles that are supported for that instance profile.
 
-Learn [about cluster networks](/docs/vpc?topic=vpc-about-cluster-network), cluster network subnets, cluster network interfaces, and explore the new [API methods](/apidocs/vpc/latest#list-cluster-networks). See also [Known issues and limitations for cluster networks](/docs/vpc?topic=vpc-limitations-cluster-network) for information about Activity Tracker events and setting a cluster network reserved IP's `auto_delete` property.
+Learn [about cluster networks](/docs/vpc?topic=vpc-about-cluster-network), cluster network subnets, cluster network interfaces, and explore the new [API methods](/apidocs/vpc/latest#list-cluster-networks). See also [Known issues and limitations for cluster networks](/docs/vpc?topic=vpc-known-issues-cluster-networks) for information about Activity Tracker events and setting a cluster network reserved IP's `auto_delete` property.
 
 The H100 profiles and cluster networks features are now generally available. See the announcement on [10 December 2024](#10-december-2024).
 

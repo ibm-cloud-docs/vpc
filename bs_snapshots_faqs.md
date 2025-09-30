@@ -2,7 +2,7 @@
 
 copyright:
   years: 2022, 2025
-lastupdated: "2025-09-23"
+lastupdated: "2025-09-30"
 
 keywords: Block Storage, snapshots, cross-regional copy, fast restore, backup, restore volume
 
@@ -146,7 +146,7 @@ Depending on the action that you're performing, you can add user tags and access
 {: faq}
 {: #faq-snapshot-dr}
 
-You can use your snapshots and backups to create volumes when an emergency occurs. You can also create copies of your snapshot in other regions and use them to create volumes there. However, the snapshot and backup services do not provide continual backup with automatic failover. Restoring a volume from a backup or snapshot is a manual operation that takes time. If you require a higher level of service for automatic disaster recovery, see IBM's [Cloud disaster recovery solutions](https://www.ibm.com/cloud/disaster-recovery).
+You can use your snapshots and backups to create volumes when an emergency occurs. You can also create copies of your snapshot in other regions and use them to create volumes there. However, the snapshot and backup services do not provide continual backup with automatic failover. Restoring a volume from a backup or snapshot is a manual operation that takes time. If you require a higher level of service for automatic disaster recovery, see IBM's [Cloud disaster recovery solutions](https://www.ibm.com/solutions/disaster-recovery).
 
 ## How many copies of my snapshot can I create in other regions?
 {: faq}

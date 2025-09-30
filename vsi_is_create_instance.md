@@ -2,7 +2,7 @@
 
 copyright:
   years: 2018, 2025
-lastupdated: "2025-09-23"
+lastupdated: "2025-09-30"
 
 keywords:
 
@@ -1408,7 +1408,7 @@ Run one of the following Terraform commands based on the image that you plan to 
    ```
    {: codeblock}
 
-* Create an instance that uses a private catalog-managed image.
+* Create an instance that uses a private catalog-managed image. When you specify the second-generation volume profile for the boot volume, you can specify custom capacity, IOPS, and bandwidth limits.
 
    ```terraform
    resource "ibm_is_instance" "example_instance" {
@@ -1436,11 +1436,20 @@ Run one of the following Terraform commands based on the image that you plan to 
      vpc  = ibm_is_vpc.example_vpc.id
      zone = "us-south-1"
      keys = [ibm_is_ssh_key.example_sshkey.id]
+
+     boot_volume {
+       name           = "example-boot-volume"
+       profile        = "sdp"
+       size           = 250
+       iops           = 3000
+       bandwidth      = 1000
+       encryption_key = "crn:v1:bluemix:public:kms:us-south:a/a1234567:e4a29d1a-2ef0-42a6-8fd2-350deb1c647e:key:5437653b-c4b1-447f-9646-b2a2a4cd6179"
+      }
    }
    ```
    {: codeblock}
 
-   * Create an instance by using an image with an allowed-use expression from your account for your instance.
+   * Create an instance by using a snapshot with an allowed-use expression from your account for your instance.
 
    ```terraform
    resource "ibm_is_instance" "testacc_instance" {

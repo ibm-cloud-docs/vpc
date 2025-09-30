@@ -2,7 +2,7 @@
 
 copyright:
   years: 2019, 2025
-lastupdated: "2025-09-26"
+lastupdated: "2025-09-30"
 
 keywords:
 
@@ -112,7 +112,7 @@ VPC Metadata on bare metal servers (GA)
    - [API Metadata change log](/docs/vpc?topic=vpc-metadata-api-change-log#26-august-2025-metadata)
    - [VPC Identity API](/apidocs/vpc-identity)
 
-   If you currently use the `/instance_identity/v1/token` method and want to adopt the API release version 2025-08-26 or later, review the changes that are described in the migration guidance: [Updating to the `2025-08-26` version of the VPC Identity API](/docs/vpc?topic=vpc-#2025-08-26-migration-metadata-identity#changed-paths-metadata-identity).
+   If you currently use the `/instance_identity/v1/token` method and want to adopt the API release version 2025-08-26 or later, review the changes that are described in the migration guidance: [Updating to the `2025-08-26` version of the VPC Identity API](/docs/vpc?topic=vpc-2025-08-26-migration-metadata-identity#changed-paths-metadata-identity).
 
 Encryption-in-transit support for bare metal servers
 :   Customers can use the VPC Identity API to obtain bare metal server identity certificates. The bare metal server identity certificate can be used to establish an encrypted connection between the bare metal server and the file share that is mounted on it. For more information, see [Encryption in transit](/docs/vpc?topic=vpc-file-storage-vpc-eit).
@@ -688,7 +688,7 @@ Select availability for {{site.data.keyword.hpvs}} for VPC profiles
 {: release-note}
 
 IBM Wazi as a Service available in Frankfurt (`eu-de`) region
-:   {{site.data.keyword.waziaas_full_notm}} (Wazi aaS) is now available in the Frankfurt (`eu-de`) region in {{site.data.keyword.cloud_notm}}. For more information, see [{{site.data.keyword.waziaas_full_notm}} product page](https://www.ibm.com/cloud/wazi-as-a-service){: external}.
+:   {{site.data.keyword.waziaas_full_notm}} (Wazi aaS) is now available in the Frankfurt (`eu-de`) region in {{site.data.keyword.cloud_notm}}. For more information, see [{{site.data.keyword.waziaas_full_notm}} product page](https://www.ibm.com/products/wazi-as-a-service){: external}.
 
 ### 07 August 2024
 {: #vpc-aug0724}
@@ -1243,7 +1243,7 @@ Updated `workload` section for Hyper Protect Secure Build
 {: release-note}
 
 IBM Wazi as a Service available in Dallas (`us-south`) region
-:   {{site.data.keyword.waziaas_full_notm}} (Wazi aaS) is now available in the Dallas (`us-south`) region in {{site.data.keyword.cloud_notm}}. For more information, see [{{site.data.keyword.waziaas_full_notm}} product page](https://www.ibm.com/cloud/wazi-as-a-service){: external}.
+:   {{site.data.keyword.waziaas_full_notm}} (Wazi aaS) is now available in the Dallas (`us-south`) region in {{site.data.keyword.cloud_notm}}. For more information, see [{{site.data.keyword.waziaas_full_notm}} product page](https://www.ibm.com/products/wazi-as-a-service){: external}.
 
 Dallas (`us-south`) region is now available for IBM Cloud Hyper Protect Virtual Server for {{site.data.keyword.vpc_full}}
 :   You can create IBM Cloud Hyper Protect Virtual Server for {{site.data.keyword.vpc_short}} instances on LinuxONE (s390x processor architecture) in the Dallas (`us-south`) region, in addition to Tokyo (`jp-tok`), São Paulo (`br-sao`), Madrid (`eu-es`), Toronto (`ca-tor`), London (`eu-gb`), and Washington DC (`us-east`) regions. To create IBM Cloud Hyper Protect Virtual Server for {{site.data.keyword.vpc_short}} instances on LinuxONE (s390x processor architecture), see [Creating virtual server instances](/docs/vpc?topic=vpc-creating-virtual-servers), and [IBM Hyper Protect Container Runtime image](/docs/vpc?topic=vpc-vsabout-images#hyper-protect-runtime). A valid contract is required for creating an instance. For more information, see [About the contract](/docs/vpc?topic=vpc-about-contract_se&interface=ui).
@@ -1307,7 +1307,7 @@ Backup as a Service Enterprise enablement
 {: release-note}
 
 IBM Wazi as a Service available in Madrid (`eu-es`) region
-:   {{site.data.keyword.waziaas_full_notm}} (Wazi aaS) is now available in the Madrid (`eu-es`) region in IBM Cloud. For more information, see [{{site.data.keyword.waziaas_full_notm}} product page](https://www.ibm.com/cloud/wazi-as-a-service){: external}.
+:   {{site.data.keyword.waziaas_full_notm}} (Wazi aaS) is now available in the Madrid (`eu-es`) region in IBM Cloud. For more information, see [{{site.data.keyword.waziaas_full_notm}} product page](https://www.ibm.com/products/wazi-as-a-service){: external}.
 
 ### 21 September 2023
 {: #vpc-sep2123}
@@ -1882,7 +1882,7 @@ Flow Logs for VPC
 {: #vpc-september2322}
 
 IBM Wazi as a Service
-:   {{site.data.keyword.waziaas_full_notm}} (Wazi aaS) is now generally available in IBM Cloud in Tokyo (`jp-tok`), São Paulo (`br-sao`), Toronto (`ca-tor`), London (`eu-gb`), and Washington DC (`us-east`) regions. For more information, see [{{site.data.keyword.waziaas_full_notm}} product page](https://www.ibm.com/cloud/wazi-as-a-service){: external}.
+:   {{site.data.keyword.waziaas_full_notm}} (Wazi aaS) is now generally available in IBM Cloud in Tokyo (`jp-tok`), São Paulo (`br-sao`), Toronto (`ca-tor`), London (`eu-gb`), and Washington DC (`us-east`) regions. For more information, see [{{site.data.keyword.waziaas_full_notm}} product page](https://www.ibm.com/products/wazi-as-a-service){: external}.
 * For the latest updates of z/OS dev and test stock images, see [Change log for z/OS stock images](https://www.ibm.com/docs/en/wazi-aas/1.1.0?topic=vpc-change-log-zos-stock-images){: external}.
 * For instructions on creating z/OS virtual server instances, see [Creating virtual server instances](/docs/vpc?topic=vpc-creating-virtual-servers).
 

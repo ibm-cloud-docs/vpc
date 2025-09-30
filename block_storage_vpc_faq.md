@@ -2,7 +2,7 @@
 
 copyright:
   years: 2019, 2025
-lastupdated: "2025-09-23"
+lastupdated: "2025-09-30"
 
 keywords: faqs, Block Storage for vpc, fast restore, multizone, instance, instance provisioning, volume management, volume deletion.
 
@@ -328,7 +328,7 @@ Backup snapshots, simply called "backups", are snapshots that are automatically 
 {: faq}
 {: #faq-block-storage-dr}
 
-{{site.data.keyword.block_storage_is_short}} secures your data across redundant fault zones in your region. By using the [backup service](/docs/vpc?topic=vpc-backup-service-about), you can regularly back up your volume data based on a schedule that you set up. You can create backup snapshots as frequently as 1 hour. However, the backup service does not provide continual backup with automatic failover, and restoring a volume from a backup or snapshot is a manual operation that takes time. If you require a higher level of service for automatic disaster recovery, see IBM's [Cloud disaster recovery solutions](https://www.ibm.com/cloud/disaster-recovery).
+{{site.data.keyword.block_storage_is_short}} secures your data across redundant fault zones in your region. By using the [backup service](/docs/vpc?topic=vpc-backup-service-about), you can regularly back up your volume data based on a schedule that you set up. You can create backup snapshots as frequently as 1 hour. However, the backup service does not provide continual backup with automatic failover, and restoring a volume from a backup or snapshot is a manual operation that takes time. If you require a higher level of service for automatic disaster recovery, see IBM's [Cloud disaster recovery solutions](https://www.ibm.com/solutions/disaster-recovery).
 
 ## Can I restore a volume from a snapshot?
 {: faq}

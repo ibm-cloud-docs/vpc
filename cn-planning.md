@@ -2,7 +2,7 @@
 
 copyright:
   years: 2024, 2025
-lastupdated: "2025-08-06"
+lastupdated: "2025-09-30"
 
 keywords:
 
@@ -76,4 +76,4 @@ You can only apply the following considerations through the API and CLI.
 ## Related link
 {: #related-link-cluster-networks}
 
-[Known issues for cluster networks](/docs/vpc?topic=vpc-limitations-cluster-network)
+[Known issues for cluster networks](/docs/vpc?topic=vpc-known-issues-cluster-networks)

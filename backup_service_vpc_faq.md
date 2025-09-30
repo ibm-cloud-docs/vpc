@@ -2,7 +2,7 @@
 
 copyright:
   years: 2022, 2025
-lastupdated: "2025-09-23"
+lastupdated: "2025-09-30"
 
 keywords: Backup for VPC, backup service, backup plan, backup policy, restore, restore volume, restore data, faqs
 
@@ -115,7 +115,7 @@ You can use the Cost estimator ![Cost estimator icon](../icons/calculator.svg "C
 
 Using the [backup service](/docs/vpc?topic=vpc-backup-service-about), you can regularly back up your data based on a schedule that you set up. You can create backup snapshots as frequently as 1 hour. 
 
-You can also create copies of your volume backup snapshot in other regions. However, the backup service does not provide continual backup with automatic failover. Restoring a volume from a backup or snapshot is a manual operation that takes time. If you require a higher level of service for automatic disaster recovery, see IBM's [Cloud disaster recovery solutions](https://www.ibm.com/cloud/disaster-recovery).
+You can also create copies of your volume backup snapshot in other regions. However, the backup service does not provide continual backup with automatic failover. Restoring a volume from a backup or snapshot is a manual operation that takes time. If you require a higher level of service for automatic disaster recovery, see IBM's [Cloud disaster recovery solutions](https://www.ibm.com/solutions/disaster-recovery).
 
 Backups of a file share are automatically replicated to the other zone if the file share has a replica. You can't create independent copies of file share backups in another region.
 

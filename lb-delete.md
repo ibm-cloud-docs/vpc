@@ -2,7 +2,7 @@
 
 copyright:
   years: 2020, 2025
-lastupdated: "2025-09-25"
+lastupdated: "2025-09-30"
 
 keywords: application load balancer, public, listener, back-end, front-end, pool, round-robin, weighted, connections, methods, policies, APIs, access, ports, vpc network, delete
 
@@ -31,7 +31,7 @@ To delete an ALB by in the IBM Cloud console, perform the following procedure:
 
 The Status for the load balancer now shows **Deleting**. Refresh the page to confirm that the load balancer was deleted.
 
-If you get the error "dns_service_not_authorized" while trying to delete the load balancer, you may have a PDNS instance that was previously associated with the load balancer. If the PDNS instance was already deleted, you still need to create [Service-to-Service Authorization](https://cloud.ibm.com/docs/account?topic=account-serviceauth&interface=ui) to delete the required load balancer. 
+If you get the error "dns_service_not_authorized" while trying to delete the load balancer, you may have a PDNS instance that was previously associated with the load balancer. If the PDNS instance was already deleted, you still need to create [Service-to-Service Authorization](/docs/account?topic=account-serviceauth&interface=ui) to delete the required load balancer. 
 {: note}
 
 ## Deleting an application load balancer from the CLI
@@ -63,7 +63,7 @@ Deletion request for load balancer r006-99b5ab45-6357-42db-8b32-5d2c8aa62776 was
 ```
 {: screen}
 
-If you get the error "dns_service_not_authorized" while trying to delete the load balancer, you may have a PDNS instance that was previously associated with the load balancer. If the PDNS instance was already deleted, you still need to create [Service-to-Service Authorization](https://cloud.ibm.com/docs/account?topic=account-serviceauth&interface=ui) to delete the required load balancer. 
+If you get the error "dns_service_not_authorized" while trying to delete the load balancer, you may have a PDNS instance that was previously associated with the load balancer. If the PDNS instance was already deleted, you still need to create [Service-to-Service Authorization](/docs/account?topic=account-serviceauth&interface=ui) to delete the required load balancer. 
 {: note}
 
 ## Deleting an application load balancer with the API
@@ -81,5 +81,5 @@ To delete an ALB with the API, perform the following procedure:
     ```
     {: codeblock}
 
-If you get the error "dns_service_not_authorized" while trying to delete the load balancer, you may have a PDNS instance that was previously associated with the load balancer. If the PDNS instance was already deleted, you still need to create [Service-to-Service Authorization](https://cloud.ibm.com/docs/account?topic=account-serviceauth&interface=ui) to delete the required load balancer. 
+If you get the error "dns_service_not_authorized" while trying to delete the load balancer, you may have a PDNS instance that was previously associated with the load balancer. If the PDNS instance was already deleted, you still need to create [Service-to-Service Authorization](/docs/account?topic=account-serviceauth&interface=ui) to delete the required load balancer. 
 {: note}
