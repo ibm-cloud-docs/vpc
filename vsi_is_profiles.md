@@ -2,7 +2,7 @@
 
 copyright:
   years: 2019, 2025
-lastupdated: "2025-09-26"
+lastupdated: "2025-09-30"
 
 keywords: vsi, virtual server instances, profile, profiles, balanced, compute, memory, very high memory, ultra high memory, gpu storage optimized, confidential compute
 
@@ -535,7 +535,11 @@ For more information, see [Bandwidth allocation for instance profiles](/docs/vpc
 ### Bandwidth allocation with multiple data volumes
 {: #bandwidth-multi-volumes}
 
-The bandwidth for volumes is divided between all the attached volumes. To help ensure reasonable boot times, a minimum of 393 MBps is allocated to the primary boot volume. The remaining bandwidth is divided between the data volumes. You can attach up to 12 data volumes to your instance. The data volumes are assigned bandwidth that is proportional to their maximum bandwidth. For example, if you have an instance with four identical data volumes, the overall volumes bandwidth is divided equally among them. If you are using only one volume at a time, then that volume still gets only the bandwidth that is assigned to it, one-fourth of the overall volumes bandwidth. For more information, see [Bandwidth allocation for Block Storage volumes](/docs/vpc?topic=vpc-block-storage-bandwidth).
+By default, the storage bandwidth is divided between all attached volumes. To help ensure reasonable boot times, a minimum of 393 MBps is allocated to the primary boot volume. The remaining volume bandwidth can be divided between the attached data volumes proportionally (weighted bandwidth allocation) or shared between the attached data volumes (pooled bandwidth allocation).
+
+When weighted bandwidth allocation is used, the data volumes are assigned bandwidth that is proportional to their maximum bandwidth. The weights are based on the size, IOPS, and bandwidth values of the storage volumes. Each volume can use only the bandwidth that is assigned to it at the time of attachment.
+
+Review the [compute profiles details](/docs/vpc?group=profile-details) to see the volume bandwidth allocation capabilities available. For more information about the bandwidth allocation, see the [Bandwith allocation for Data Volumes](/docs/vpc?topic=vpc-block-storage-bandwidth&interface=ui#attached-block-vol-bandwidth).
 
 ### Bandwidth allocation with multiple network interfaces
 {: #bandwidth-multi-vnic}
@@ -643,6 +647,7 @@ The 3rd generation of {{site.data.keyword.cloud_notm}} {{site.data.keyword.vsi_i
 - Enhanced integrated accelerators that feature AMX-512, AVX, and enhanced crypto acceleration.
 - Instances are started by default with Open Virtual Machine Format (OVMF), and run in Unified Extensible Firmware Interface (UEFI) mode for enhanced security.
 - Local instance storage is included with all profiles for ease of access to temporary storage and swap space. For more information about the temporary nature of instance storage, see [Lifecycle of instance storage](/docs/vpc?topic=vpc-instance-storage#instance-storage-lifecycle).
+- Optional dynamic bandwidth allocation for volume attachments.
 - A 3rd generation profile can be resized to a 2nd generation profile. A 2nd generation profile can be resized to a 3rd generation profile. For more information, see [Resizing between Gen 2 and Gen 3 profiles](/docs/vpc?topic=vpc-resizing-an-instance&interface=ui#resizing-instance-generations).
 
 ## Intel Hyper-Threading Technology

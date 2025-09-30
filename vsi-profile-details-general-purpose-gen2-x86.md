@@ -2,7 +2,7 @@
 
 copyright:
   years: 2024, 2025
-lastupdated: "2025-08-28"
+lastupdated: "2025-09-30"
 
 keywords: vsi, virtual server, virtual server instances, profile, profiles, balanced, compute, memory, dedicated host, gen 2, intel, amd
 
@@ -55,6 +55,7 @@ for single-tenant hypervisors running workloads from a single {{site.data.keywor
 - Confidential computing: No
 - Live migration: Yes
 - Instance storage: Select profiles
+- [Volume bandwidth allocation method](/docs/vpc?topic=vpc-block-storage-bandwidth#attached-block-vol-bandwidth): `weighted` by default, `pooled` is not supported.
 
 ### VM Configuration
 {: #general-purpose-vm-config-gen2-intel}

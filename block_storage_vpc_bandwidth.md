@@ -2,7 +2,7 @@
 
 copyright:
   years: 2021, 2025
-lastupdated: "2025-09-23"
+lastupdated: "2025-09-30"
 
 keywords: Block Storage, virtual private cloud, boot volume, data volume, volume, data storage, virtual server instance, bandwidth
 
@@ -114,27 +114,16 @@ Volumes that have the same volume profile can have different IOPS and Throughput
 ## Bandwidth allocation for attached volumes
 {: #attached-block-vol-bandwidth}
 
-To help ensure reasonable boot times, the primary boot volume receives priority IOPS and a minimum of 393 Mbps bandwidth. Boot volume IOPS and bandwidth are never reduced to be less than 3000 IOPS and 393 Mbps. 
+To help ensure reasonable boot times, a minimum of 393 Mbps is allocated to the primary boot volume. The remaining volume bandwidth can be divided proportionally between the attached data volumes (weighted bandwidth allocation) or shared between the attached data volumes (pooled bandwidth allocation). If the [instance profile](/docs/vpc?group=profile-details) supports it, you can select the mode of Storage QoS directly when you create or modify the virtual server instance.
 
-The remaining volume bandwidth is proportionally allocated between the attached data volumes. All attached volumes are assigned instance bandwidth proportional to their maximum throughput limit.
+### Weighted bandwidth allocation for data volumes
+{: #weighted-bandwidth-allocation}
 
-1. In the first example, the bx2-2x8 instance's total instance bandwidth of the bx2-2x8 profile is 4 Gbps. The storage bandwidth is 1000 Mbps, and the boot volume is allocated 393 Mbps. The remaining 607 Mbps is divided among to the data volumes that you attach. The bandwidth allocation is proportional to the provisioned throughput limit of each data volume.
+By default, most virtual server instances are provisioned with the `weighted` volume QoS setting. Each volume can use the bandwidth that was allocated to it based on its provisioned throughput limit.
 
-   ![Weighted bandwidth allocation with 3 data volumes](images/VolumeBandwidthAllocation-VSI_BlockVolume1.svg "Weighted bandwidth allocation with 3 data volumes"){: caption="Weighted bandwidth allocation with 3 data volumes" caption-side="bottom"}
+If one of the volumes is detached, the volume bandwidth allocation is updated and the individual volumes' allocated bandwidths are increased. Conversely, if more volumes are attached, the allocated bandwidths of individual volumes decrease. To see what volume bandwidth allocation methods your virtual server supports, see the capabilities section in the [compute profiles](/docs/vpc?group=profile-details) topics.
 
-   In Table 1, you can see the 3 attached data volumes and their provisioned throughput limits. The percentage column shows the proportion of each volume's bandwidth compared to the combined provisioned throughput value. To calculate how the available instance volume bandwidth is allocated to each volume, multiply the available instance volume bandwidth with the volume's percentage. The results are shown in the allocated volume bandwidth column.
-
-   In this example, the combined provisioned value equals 4,324 Mbps. The throughput limit value of `volume-a` and `volume-c` is 27% of the combined throughput value. To see how much of the available instance volume bandwidth is allocated to them, you must multiply 607 Mbps with 0.27. The result is 166 Mbps.
-
-   | Volumes | Maximum IOPS | Provisioned max throughput limit | Percentage | Allocated volume bandwidth |
-   |---------|-------------:|----------------------------------|-----------:|---------------------------:|
-   | `volume-a`|  9,000 | 1,179 Mbps |  27% | 166 Mbps |
-   | `volume-b`| 15,000 | 1,966 Mbps |  45% | 275 Mbps |
-   | `volume-c`|  9,000 | 1,179 Mbps |  27% | 166 Mbps |
-   | All data volumes | N/A | 4,324 Mbps | 100% | 607 Mbps |
-   {: caption="Volume bandwidth allocation with 3 data volumes." caption-side="bottom"}
-
-2. In the second example, the cx3d-8x20 instance's total volume bandwidth is 4,000 Mbps. The available bandwidth that can be divided among the data volumes is 3607 Mbps. If you attach _`volume-a`_ and _`volume-b`_, their combined maximum throughput limit is 3145 Mbps. That value is less than the available 3607 Mbps, which means that the volume with more capacity (_`volume-b`_) is allocated 1966 Mbps and the volume with less capacity (_`volume-a`_) is allocated 1179 Mbps. These values are the volumes' provisioned throughput limit, which is the most bandwidth that can be allocated to the volumes, even if more bandwidth is available.
+In the following examples, the cx3d-8x20 instance's total volume bandwidth is 4,000 Mbps. The available bandwidth that can be divided among the data volumes is 3607 Mbps. If you attach _`volume-a`_ and _`volume-b`_, their combined maximum throughput limit is 3145 Mbps. That value is less than the available 3607 Mbps, which means that the volume with more capacity (_`volume-b`_) is allocated 1966 Mbps and the volume with less capacity (_`volume-a`_) is allocated 1179 Mbps. These values are the volumes' provisioned throughput limit, which is the most bandwidth that can be allocated to the volumes, even if more bandwidth is available.
 
    ![Weighted bandwidth allocation with 2 data volumes](images/VolumeBandwidthAllocation-VSI_BlockVolume2.svg "Weighted bandwidth allocation with 2 data volumes"){: caption="Weighted bandwidth allocation with 2 data volumes" caption-side="bottom"}
 
@@ -178,6 +167,24 @@ Increasing volume size, adjusting IOPS, or throughput limit (of second-generatio
 {: important}
 
 In most cases, the unattached provisioned volume bandwidth value is not the same as the bandwidth value that you see after the volume is attached to an instance.
+
+### Pooled bandwidth allocation for data volumes
+{: #pooled-vol-bandwidth}
+
+Select [compute profiles](/docs/vpc?group=profile-details) support pooled bandwidth allocation for data volumes. With dynamic bandwidth allocation, a volume that's operating at peak I/O capacity can utilize unused bandwidth from other volume attachments.
+
+Look at the second example again. The instance bandwidth cap is 16,000 Mbps. Initially, 4,000 Mbps is allocated to volume bandwidth and 12,000 Mbps is allocated to network bandwidth. The boot volume minimum allocation is 393 Mbps, and the attached data volumes are allocated portions of the remaining 3,607 Mbps.
+
+You can change the default volume QoS setting [in the console](/docs/vpc?topic=vpc-managing-virtual-server-instances&interface=ui#updating-qos-mode-ui), [from the CLI](/docs/vpc?topic=vpc-managing-virtual-server-instances&interface=cli#updating-qos-mode-cli), or [with the API](/docs/vpc?topic=vpc-managing-virtual-server-instances&interface=api#updating-qos-mode-api). First, you must stop the virtual server instance. Then, you can change the volume QoS setting to `pooled`, and start the virtual server instance.
+
+The data volumes share the overall 3,607 Mbps bandwidth. The bandwidth that is used by each volume is limited by the volume's IOPS and throughput limits and the overall volume bandwidth limit of the instance. In the example of 3 data volumes, if _`volume-c`_ is not actively used, _`volume-a`_ and _`volume-b`_ can use its free bandwidth and are limited by their own provisioned IOPS and Throughput limits. When all data volumes are accessed for IO, their combined bandwidth can't exceed the 3,607 Mbps volume bandwidth.
+
+![Data volumes share the available volume bandwidth dynamically based on usage.](images/PooledBWDiagramAnimationShort.mp4){: video controls loop autoplay}
+
+Detaching and reattaching volumes does not change the volume QoS behavior.
+{: note}   
+
+Generally available second-generation profiles do not support pooled bandwidth allocation.
 
 ## Next steps
 {: #volume-bandwidth-next-steps}

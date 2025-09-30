@@ -2,7 +2,7 @@
 
 copyright:
   years: 2015, 2025
-lastupdated: "2025-08-15"
+lastupdated: "2025-09-30"
 
 keywords:
 
@@ -71,6 +71,7 @@ When you want to delete an {{site.data.keyword.vpc_short}} custom image that is 
 | Metadata | Disabled by default, lets the instance that is created from this template gather metadata about itself. Click the toggle to turn on the metadata service. For more information, see [About Metadata for VPC](/docs/vpc?topic=vpc-imd-about). |
 | Add to dedicated host | You can add the virtual server instance to a dedicated host, creating the instance in a single-tenant space. To provision a dedicated instance, you must have a dedicated host available or [create one](/docs/vpc?topic=vpc-creating-dedicated-hosts-instances).  |
 | Add to placement group | You can select a placement group for the instance. To enable placement groups, click the toggle. Then, select or create a placement group for the instance. If you add a placement group, the instance is placed according to the placement group strategy. For more information, see [About placement groups](/docs/vpc?topic=vpc-about-placement-groups-for-vpc). |
+| Dynamic volume bandwidth allocation [New]{: tag-new} | Click the toggle to enable [Pooled volume bandwidth allocation](/docs/vpc?topic=vpc-block-storage-bandwidth#pooled-vol-bandwidth) for attached data volumes. This feature is supported for select [compute profiles](/docs/vpc?group=profile-details). |
 | Host failure auto restart | This setting is enabled by default. To disable host failure auto restart, click the toggle. For more information, see [Host failure recovery policies](/docs/vpc?topic=vpc-host-failure-recovery-policies&interface=ui). |
 {: caption="Instance template selections" caption-side="bottom"}
 {: #create-instance-template-table}

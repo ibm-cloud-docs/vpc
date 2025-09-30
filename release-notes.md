@@ -27,6 +27,13 @@ For more information about changes to the {{site.data.keyword.vpc_short}} comman
 ## September 2025
 {: #vpc-sep25}
 
+### 30 September 2025
+{: #vpc-sep3025}
+{: release-note}
+
+Pooled bandwidth allocation for block storage data volumes
+:   [Select compute profiles](/docs/vpc?group=profile-details) now support pooled bandwidth allocation for attached data volumes that improves bandwidth sharing between volumes. You can enable and disable pooled bandwidth allocation in the console, from the CLI, and with the API. For more information about the new storage QoS setting, see [Bandwidth Allocation for Data Volumes](/docs/vpc?topic=vpc-block-storage-bandwidth&interface=ui#attached-block-vol-bandwidth).
+
 ### 26 September 2025
 {: #vpc-sep2625}
 {: release-note}

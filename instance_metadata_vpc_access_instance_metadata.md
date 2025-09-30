@@ -2,7 +2,7 @@
 
 copyright:
   years: 2022, 2023
-lastupdated: "2025-07-31"
+lastupdated: "2025-09-30"
 
 keywords:
 
@@ -408,6 +408,7 @@ The response lists all details for an instance, including network interfaces, co
       }
     }
   ],
+  "volume_bandwidth_qos_mode": "weighted",
   "vpc": {
     "crn": "crn:[...]",
     "id": "f0aae929-7047-46d1-92e1-9102b07a7f6f",
@@ -419,7 +420,7 @@ The response lists all details for an instance, including network interfaces, co
   }
 }
 ```
-{: codeblock}   
+{: codeblock}
 
 1. Use other API methods to retrieve more information about the instance, such as volume and network attachments, or gather information about SSH keys, placement groups, or virtual network interfaces. For more information, see the [Metadata service API](/apidocs/vpc-metadata) reference and the [Summary of metadata service information](/docs/vpc?topic=vpc-imd-metadata-summary).
 

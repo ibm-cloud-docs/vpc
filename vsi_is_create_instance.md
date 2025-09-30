@@ -86,6 +86,7 @@ Use the following steps to create a virtual server instance.
    | Trusted profile (optional) | If you enable the metadata service, you can select a trusted profile and link it to this instance. Click **Select a trusted profile**. In the side panel, select a trusted profile and click **Select trusted profile** to link it to the instance. A message displays if none exist or if you don't have access to link it. For more information, see [Create a trusted profile](/docs/account?topic=account-trustedprofile-compute-tutorial#trusted-profile-compute-create). For more information about acquiring access, see [IAM authorizations for linking trusted profiles](/docs/vpc?topic=vpc-imd-trusted-profile-metadata&interface=ui#imd-iam-auth). |
    | Add to dedicated host | This selection is disabled by default. To create the virtual server instance in a single-tenant space, click the toggle to enable the dedicated host. To provision a dedicated instance, you must have a dedicated host available or [create one](/docs/vpc?topic=vpc-creating-dedicated-hosts-instances). |
    | Add to placement group | Placement groups are disabled by default. Click the toggle to enable placement groups. Then, select or create a placement group for the instance. If you add a placement group, the instance is placed according to the placement group policy. For more information, see [About placement groups](/docs/vpc?topic=vpc-about-placement-groups-for-vpc). |
+   | Dynamic volume bandwidth allocation [New]{: tag-new} | Click the toggle to enable [Pooled volume bandwidth allocation](/docs/vpc?topic=vpc-block-storage-bandwidth#pooled-vol-bandwidth) for attached data volumes. This feature is supported for select [compute profiles](/docs/vpc?group=profile-details).|
    | Add to reservation | If you have an active reservation, click the toggle to add the virtual server instance to that reservation. For more information, see [About Reservations for VPC](/docs/vpc?topic=vpc-about-reserved-virtual-servers-vpc). |
    | Host failure auto restart | This setting is enabled by default. To disable host failure auto restart, click the toggle. For more information, see [Host failure recovery policies](/docs/vpc?topic=vpc-host-failure-recovery-policies&interface=ui) |
    | Cloud security posture management | When you select this option, a workload protection instance is created with the configurations to provide CSPM to all the resources. If a workload protection instance already exists, this option is not available. For more information, see [About IBM Cloud Security Posture Management (CSPM)](/docs/workload-protection?topic=workload-protection-about&interface=ui). |
@@ -779,6 +780,45 @@ Use the following steps to create a virtual server instance from a bootable volu
 
 You can create a boot volume from a bootable [snapshot](/docs/vpc?topic=vpc-snapshots-vpc-restore&interface=ui#snapshots-vpc-restore-concepts) and use that for your image. When you run the `ibmcloud is instance-create` command, specify the `source_snapshot` subproperty in the boot volume JSON and the ID, name, or CRN of a bootable snapshot. For an example, see [Create a boot volume from a snapshot for a new instance from the CLI](/docs/vpc?topic=vpc-snapshots-vpc-restore&interface=cli#snapshots-vpc-restore-boot-CLI).
 
+### Creating an instance with multiple data volumes and dynamic volume bandwidth allocation from the CLI
+{: #create-instance-with-dynamic-storage-qos-cli}
+{: clii}
+
+Select [compute profiles](/docs/vpc?group=profile-details) support pooled bandwidth allocation for data volumes. For most compute profiles, the `--storage_qos_modes` property defaults to `weighted`. When `weighted` is used, the volume bandwidth is proportionally allocated between the data volumes. By specifying the `pooled` value, you enable dynamic bandwidth allocation. 
+
+The following example uses the `ibmcloud is instance-create` command to create the virtual server instance and specifies the option `--storage_qos_modes` with the value `pooled`. 
+
+```sh
+ibmcloud is instance-create my-virtual-server my-vpc us-south-2 cx3d-8x20 my-subnet --image r006-534ef2ac-6158-45b3-9657-57629fa85305 --keys r006-68f8333a-1169-42da-ba01-75268bac8362 --volume-attach @/Users/myname/myvolume-attachment.json --storage_qos_modes pooled
+```
+{: pre}
+
+The `myvolume-attachments.json` file can include up to 12 data volumes that are to be attached to the virtual server. See the following example:
+
+```json
+[
+  {"volume": {
+        "name": "my-data-volume-1",
+        "capacity": 3000,
+        "profile": {"name": "5iops-tier"},
+        "user_tags": []},
+   "delete_volume_on_instance_delete": false},
+  {"volume": {
+        "name": "my-data-volume-2",
+        "capacity": 3000,
+        "profile": {"name": "5iops-tier"},
+        "user_tags": []},
+   "delete_volume_on_instance_delete": false},
+  {"volume": {
+        "name": "my-data-volume-3",
+        "capacity": 3000,
+        "profile": {"name": "5iops-tier"},
+        "user_tags": []},
+   "delete_volume_on_instance_delete": false}
+]
+```
+{: codeblock}
+
 ### Create an instance with confidential compute
 {: #create-instance-confidential-compute-cli}
 {: cli}
@@ -1145,6 +1185,73 @@ curl -X POST \
 {: codeblock}
 
 For more information about restoring a volume with the API, see [Restore a volume from a snapshot with the API](/docs/vpc?topic=vpc-snapshots-vpc-restore&interface=api#snapshots-vpc-restore-API).
+
+### Creating an instance with multiple data volumes and dynamic volume bandwidth allocation with the API
+{: #create-instance-with-dynamic-storage-qos}
+{: api}
+
+Select [compute profiles](/docs/vpc?group=profile-details) support pooled bandwidth allocation for data volumes. You can programmatically provision a virtual server instance with multiple data volumes by calling the `instances` method as shown in the following sample request. The example creates a virtual server in *us-south-2* zone with a 250-GB boot volume and three 3-TB data volumes. The `storage_qos_mode` is set to `pooled` to enable dynamic volume bandwidth allocation.
+
+```sh
+curl -X POST "$vpc_api_endpoint/v1/instances?version=2024-07-12&generation=2" \
+-H "Authorization: $iam_token" \
+-H "Content-Type: application/json" \
+-d '{
+  "zone": {"name": "us-south-2"},
+  "resource_group": {"id": "db8e8d865a83e0aae03f25a492c5b39e"},
+  "name": "my-gen3-instance",
+  "vpc": {"id": "r006-6e8fb140-5668-45b8-b98a-d5cb0e0bf39b"},
+  "user_data": "",
+  "profile": {"name": "cx3d-8x20"},
+  "keys": [{"id": "r006-68f8333a-1169-42da-ba01-75268bac8362"}],
+  "volume_attachments": [
+    {"volume": {
+        "name": "my-data-volume-a",
+        "capacity": 3000,
+        "profile": {"name": "5iops-tier"},
+        "user_tags": []},
+      "delete_volume_on_instance_delete": false},
+    {"volume": {
+        "name": "my-data-volume-b",
+        "capacity": 3000,
+        "profile": {"name": "5iops-tier"},
+        "user_tags": []},
+      "delete_volume_on_instance_delete": false
+    },
+    {"volume": {
+        "name": "my-data-volume-c",
+        "capacity": 3000,
+        "profile": {"name": "5iops-tier"},
+        "user_tags": []},
+      "delete_volume_on_instance_delete": false
+      }],
+  "boot_volume_attachment": {
+    "volume": {
+      "name": "my-gen3-instance-boot-1720810915000",
+      "capacity": 250,
+      "profile": {"name": "general-purpose"},
+      "user_tags": []},
+    "delete_volume_on_instance_delete": true
+  },
+  "metadata_service": {"enabled": false},
+  "primary_network_attachment": {
+    "name": "eth0",
+    "virtual_network_interface": {
+      "allow_ip_spoofing": false,
+      "auto_delete": true,
+      "enable_infrastructure_nat": true,
+      "primary_ip": {"auto_delete": true},
+      "subnet": {"id": "0726-298acd6c-e71e-4204-a04f-fe4a4dd89805"},
+      "security_groups": [{"id": "r006-ccdd1f58-f0f2-4ea0-8774-a24bbe61b5d9"}],
+      "protocol_state_filtering_mode": "auto"}
+  },
+  "network_attachments": [],
+  "image": {"id": "r006-534ef2ac-6158-45b3-9657-57629fa85305"},
+  "enable_secure_boot": false
+  "storage_qos_mode": pooled
+}'
+```
+{: codeblock}
 
 ### Creating an instance with confidential compute
 {: #create-instance-confidential-compute-api}

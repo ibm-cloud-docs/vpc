@@ -2,7 +2,7 @@
 
 copyright:
   years: 2021, 2025
-lastupdated: "2025-09-23"
+lastupdated: "2025-09-30"
 
 keywords:
 
@@ -429,7 +429,8 @@ curl -X POST \
   "network_attachments": [],
   "reservation_affinity": {
     "policy": "automatic"
-  }
+  },
+  "volume_bandwidth_qos_mode": "weighted"
 }'
 
 ```

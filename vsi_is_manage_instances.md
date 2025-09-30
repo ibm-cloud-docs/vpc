@@ -2,7 +2,7 @@
 
 copyright:
   years: 2019, 2025
-lastupdated: "2025-09-12"
+lastupdated: "2025-09-30"
 
 keywords: view instance details, restart virtual server, stop, details, delete
 
@@ -349,6 +349,8 @@ You can change this setting by specifying the `delete_volume_on_instance_delete`
 
 You can view a summary of all instances on the _Virtual server instances_ page. You can access the details page for an instance by clicking an individual instance name to view details and make changes. From the instance details page, you can also view the associated network interface, access its subnet, toggle the auto-delete setting, and reserve or release a floating IP address.
 
+Select [compute profiles](/docs/vpc?group=profile-details) support dynamic bandwidth allocation for data volumes. You can see whether the feature is enabled or disabled on the instance details page.
+
 ## Viewing instance details from the CLI
 {: #viewing-virtual-server-instances-cli}
 {: cli}
@@ -424,6 +426,70 @@ curl -X PATCH "$vpc_api_endpoint/v1/instances/$instance_id?version=2021-06-22&ge
 {: pre}
 
 To see the new bandwidth allocation, you must either stop and start the instance, or detach and reattach data volumes. Bandwidth allocation for individual volumes is updated when you add a data volume by using the `POST / volume_attachments` method or delete a volume by using the `DELETE volume_attachments` method.
+
+## Adjusting storage QoS mode in the console
+{: #updating-qos-mode-ui}
+{: ui}
+
+You can change the Storage QoS mode of a virtual server instance that uses one of the [General purpose - Flex](/docs/vpc?topic=vpc-flexible-profiles-virtual-servers), [General purpose Gen 3](/docs/vpc?topic=vpc-general-purpose-vsi-profiles-gen3-intel), [Accelerated Gen 3](/docs/vpc?topic=vpc-accelerated-profile-family ), or [Confidential Computing - Gen 3](/docs/vpc?topic=vpc-confidential-computing-vsi-profiles-gen3-x86) profiles to enable dynamic bandwidth allocation for attached data volumes.
+
+1. Go to a virtual service instance.
+2. On the virtual server instance details page, click the toggle to switch the QoS mode from _weighted_ to _pooled_.
+
+For the QoS mode change to take effect, you must stop and start the virtual server instance.
+{: important}
+
+## Adjusting storage QoS mode from the CLI
+{: #updating-qos-mode-cli}
+{: cli}
+
+You can change the Storage QoS mode of a virtual server instance that uses one of the [General purpose - Flex](/docs/vpc?topic=vpc-flexible-profiles-virtual-servers), [General purpose Gen 3](/docs/vpc?topic=vpc-general-purpose-vsi-profiles-gen3-intel), [Accelerated Gen 3](/docs/vpc?topic=vpc-accelerated-profile-family ), or [Confidential Computing - Gen 3](/docs/vpc?topic=vpc-confidential-computing-vsi-profiles-gen3-x86) profiles to enable dynamic bandwidth allocation for attached data volumes by using the `ibmcloud is instance-update` command.
+
+```sh
+ibmcloud is instance-update INSTANCE --storage_qos_modes pooled
+```
+{: pre}
+
+You can use the same command to revert to the weighted QoS mode.
+
+```sh
+ibmcloud is instance-update INSTANCE --storage_qos_modes weighted
+```
+{: pre}
+
+For the QoS mode change to take effect, you must first stop the virtual server instance. Run the `instance-update` command. Then, start the instance.
+{: important}
+
+## Adjusting storage QoS mode with the API
+{: #updating-qos-mode-api}
+{: api}
+
+You can programmatically change the storage QoS mode of a virtual server instance that uses one of the [General purpose - Flex](/docs/vpc?topic=vpc-flexible-profiles-virtual-servers), [General purpose Gen 3](/docs/vpc?topic=vpc-general-purpose-vsi-profiles-gen3-intel), [Accelerated Gen 3](/docs/vpc?topic=vpc-accelerated-profile-family ), or [Confidential Computing - Gen 3](/docs/vpc?topic=vpc-confidential-computing-vsi-profiles-gen3-x86) profiles by calling the `/instances/{id}` method in the [VPC API](/apidocs/vpc/latest#update-instance){: external} as shown in the following sample request.
+
+The following example request enables dynamic bandwidth allocation for data volumes that are attached to a 3rd generation virtual server.
+
+```sh
+curl -X PATCH "$vpc_api_endpoint/v1/instances/$instance_id?version=2024-07-11&generation=2" \
+  -H "Authorization: $iam_token" \
+  -d '{
+      "storage_qos_mode": "pooled"
+      }'
+```
+{: pre}
+
+The following example request reverts the storage QoS mode back to weighted.
+
+```sh
+curl -X PATCH "$vpc_api_endpoint/v1/instances/$instance_id?version=2024-07-11&generation=2" \
+  -H "Authorization: $iam_token" \
+  -d '{
+      "storage_qos_mode": "weighted"
+      }'
+```
+{: pre}
+
+For the QoS mode change to take effect, you must first stop the virtual server instance. Make the PATCH request. Then, start the instance.
+{: important}
 
 ## Retrieving the virtual server instance identifier
 {: #retrieve-VSI-instance-identifer}

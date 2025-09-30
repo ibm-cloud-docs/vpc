@@ -2,7 +2,7 @@
 
 copyright:
   years: 2024, 2025
-lastupdated: "2025-09-23"
+lastupdated: "2025-09-30"
 
 keywords: vsi, virtual server, virtual server instances, profile, profiles, balanced, compute, gen 3, intel, confidential computing
 
@@ -52,6 +52,7 @@ computing capability.
 - Confidential computing: SGX, TDX
 - Live migration: No
 - Instance storage: Yes
+- [Volume bandwidth allocation method](/docs/vpc?topic=vpc-block-storage-bandwidth#attached-block-vol-bandwidth): `weighted` by default, can be updated to `pooled`.
 
 ## VM configuration
 {: #cc-vm-config-gen3-intel}

@@ -2,7 +2,7 @@
 
 copyright:
   years: 2020, 2025
-lastupdated: "2025-07-28"
+lastupdated: "2025-09-30"
 
 keywords:
 
@@ -247,32 +247,15 @@ ibmcloud is instance-template-create INSTANCE_TEMPLATE_NAME VPC ZONE_NAME PROFIL
 ```
 {: pre}
 
-For example, if you create an instance template that is named _my-instance-template_ in _us-south-3_ and use the _bx2-2x8_ profile, your `instance-template-create` command would look similar to the following sample.
+The following example command creates an instance template that is named _my-instance-template_ in the VPC that is specified by the ID _r006-6e8fb140-5668-45b8-b98a-d5cb0e0bf39b_. The template is created in the _us-south-3_ ZONE and uses the _bx2-2x8_ PROFILE. The SUBNET is defined by its ID _0726-298acd6c-e71e-4204-a04f-fe4a4dd89805_. The IMAGE is specified by its ID _r006-534ef2ac-6158-45b3-9657-57629fa85305_.
 
 ```sh
-ibmcloud is instance-template-create my-instance-template 0738-xxx1xx23-4xx5-6789-12x3-456xx7xx123x us-south-3 bx2-2x8 0076-2249dabc-8c71-4a54-bxy7-953701ca3999 --image r008-54e9238a-feaa-4f90-9742-7424cb2b9ff1 --placement-group r006-953db18c-068c-4a11-9b07-645684b444b2
-```
-{: pre}
+ibmcloud is instance-template-create my-instance-template r006-6e8fb140-5668-45b8-b98a-d5cb0e0bf39b us-south-3 bx2-2x8 0076-2249dabc-8c71-4a54-bxy7-953701ca3999 --image r006-534ef2ac-6158-45b3-9657-57629fa85305 --placement-group r006-953db18c-068c-4a11-9b07-645684b444b2
+Creating instance template my-instance-template under account Test Account as user test-user@ibm.com...
 
-Where
-
-- `INSTANCE_TEMPLATE_NAME` is _my-instance-template_
-- `VPC` is _0738-xxx1xx23-4xx5-6789-12x3-456xx7xx123x_
-- `ZONE_NAME` is _us-south-3_
-- `PROFILE_NAME` is _bx2-2x8_
-- `SUBNET_ID` is _0076-2249dabc-8c71-4a54-bxy7-953701ca3999_
-- `IMAGE` is _r008-54e9238a-feaa-4f90-9742-7424cb2b9ff1_
-- `PLACEMENT_GROUP_ID` is _r006-953db18c-068c-4a11-9b07-645684b444b2
-
-For this example, you see a response similar to the following output.
-
-The following response varies depending on what values that you use.
-{: note}
-
-```sh
 ID                          0727-0fdac0fb-ad59-4d7b-9f03-604ddc1db002
 Name                        my-instance-template
-CRN                         crn:v1:bluemix:public:is:us-south-2:a/7f75c7b025e54bc5635f754b2f888665::instance-template:0727-0fdac0fb-ad59-4d7b-9f03-604ddc1db002
+CRN                         crn:v1:bluemix:public:is:us-south-2:a/a1234567::instance-template:0727-0fdac0fb-ad59-4d7b-9f03-604ddc1db002
 Resource group              Default
 Image                       r006-3fa3bea4-7f9c-4eeb-8248-ab1f6e03185b
 VPC                         r006-212def4b-93f0-4b9a-a331-94178b99d474
@@ -290,6 +273,14 @@ Placement                   ID
 Created                     2023-03-29T22:02:59+05:30
 ```
 {: screen}
+
+
+The following example creates an instance template that is named _my-gen3-instance-template_ in the VPC that is specified by the ID _r006-6e8fb140-5668-45b8-b98a-d5cb0e0bf39b_. The template is created in the us-south-3_ ZONE and uses the _cx3d-8x20_ PROFILE. The SUBNET is defined by its ID _00726-298acd6c-e71e-4204-a04f-fe4a4dd89805_. The IMAGE is specified by its ID _r006-534ef2ac-6158-45b3-9657-57629fa85305_. When the selected [compute profile](/docs/vpc?group=profile-details) supports pooled bandwidth allocation for data volumes, the option `--storage_qos_modes` can also be included.
+
+```sh
+ibmcloud is instance-template-create my-gen3-instance-template r006-6e8fb140-5668-45b8-b98a-d5cb0e0bf39b us-south-3 cx3d-8x20 00726-298acd6c-e71e-4204-a04f-fe4a4dd89805 --image r006-534ef2ac-6158-45b3-9657-57629fa85305 --storage_qos_modes pooled
+```
+{: pre}
 
 For more examples of the `ibmcloud is instance-template-create` command, see the [VPC CLI reference](/docs/vpc?topic=vpc-vpc-reference#instance-template-create).
 
@@ -408,50 +399,109 @@ Use the following commands to determine the required information for creating a 
 
 After you know these values, use them to make a `POST` request with the `/instance/templates` method. In addition to the information that you gathered, you must specify a name for the instance.
 
-For example, if you create an instance template that is named _my-instance-template_ in _us-south-1_ and use the _bx2-2x8_ profile, your `POST /instance/templates` command would look similar to the following sample.
+The following example creates an instance template that is named _my-instance-template_ in _us-south-1_ and uses the _bx2-2x8_ profile.
 
 ```sh
-curl -X POST "$vpc_api_endpoint/v1/instance/templates?version=2023-07-13&generation=2" -H "Authorization: Bearer $iam_token" -d '{
-      "primary_network_interface": {
-        "subnet": {
-          "id": "0d933c75-492a-4756-9832-1200585dfa79"
-        }
-      },
-      "name": "my-instance-template",
-      "zone": {
-        "name": "us-south-1"
-      },
-      "vpc": {
-        "id": "dc201ab2-8536-4904-86a8-084d84582133"
-      },
-      "profile": {
-        "name": "bx2-2x8"
-      },
-      "image": {
-        "id": "3f9a2d96-830e-4100-9b4c-663225a3f872"
-      },
-      "placement_group": {
-          "id": "363f6d70-0000-0001-0000-00000013b96c"
-      },
-      "keys": [
-        {
-          "id": "363f6d70-0000-0001-0000-00000013b96c"
-         }
-      ]
-    }'
+curl -X POST "$vpc_api_endpoint/v1/instance/templates?version=2023-07-13&generation=2" 
+  -H "Authorization: Bearer $iam_token" 
+  -d '{
+    "zone": {"name": "us-south-1"},
+    "resource_group": {"id": "db8e8d865a83e0aae03f25a492c5b39e"},
+    "name": "my-instance-template",
+    "vpc": {"id": "r006-6e8fb140-5668-45b8-b98a-d5cb0e0bf39b"},
+    "user_data": "",
+    "profile": {"name": "bx2-2x8"},
+    "keys": [{"id": "r006-68f8333a-1169-42da-ba01-75268bac8362"}],
+    "volume_attachments": [],
+    "boot_volume_attachment": {
+      "volume": {
+        "name": "my-instance-template-boot-1720804230000",
+        "capacity": 100,
+        "profile": {"name": "general-purpose"}},
+      "delete_volume_on_instance_delete": true
+    },
+    "metadata_service": {
+      "enabled": true,
+      "protocol": "https",
+      "response_hop_limit": 1},
+    "primary_network_attachment": {
+      "name": "eth0",
+      "virtual_network_interface": {
+        "allow_ip_spoofing": false,
+        "auto_delete": true,
+        "enable_infrastructure_nat": true,
+        "primary_ip": {"auto_delete": true,
+        "subnet": {"id": "0726-298acd6c-e71e-4204-a04f-fe4a4dd89805"},
+        "security_groups": [{"id": "r006-ccdd1f58-f0f2-4ea0-8774-a24bbe61b5d9"}],
+        "protocol_state_filtering_mode": "auto"}
+    },
+    "network_attachments": [],
+    "image": {"id": "r006-534ef2ac-6158-45b3-9657-57629fa85305"}}`
 ```
 {: pre}
 
-Where
+The following example creates an instance template that is named _my-gen3-instance-template_ in _us-south-3_ and uses the _cx3d-8x20_ profile. When the selected [compute profile](/docs/vpc?group=profile-details) supports pooled bandwidth allocation for data volumes, the property `--storage_qos_modes` can also be included.
 
-- `instance_template_name` is _my-instance-template_
-- `vpc` is _dc201ab2-8536-4904-86a8-084d84582133_
-- `zone_name` is _us-south-1_
-- `profile_name` is _bx2-2x8_
-- `subnet_id` is _0d933c75-492a-4756-9832-1200585dfa79_
-- `image` is 3f9a2d96-830e-4100-9b4c-663225a3f872
-- `keys` is _363f6d70-0000-0001-0000-00000013b96c_
-- `placement_group` is _363f6d70-0000-0001-0000-00000013b96c_
+```sh
+curl -X POST "$vpc_api_endpoint/v1/instance/templates?version=2024-07-12&generation=2" 
+  -H "Authorization: Bearer $iam_token" 
+  -H "Content-Type: application/json" \
+  -H "accept: application/json" \
+  -d '{
+  "zone": {"name": "us-south-3"},
+  "resource_group": {"id": "db8e8d865a83e0aae03f25a492c5b39e"},
+  "name": "my-gen3-instance-template",
+  "vpc": {"id": "r006-6e8fb140-5668-45b8-b98a-d5cb0e0bf39b"},
+  "user_data": "",
+  "profile": {"name": "cx3d-8x20"},
+  "keys": [{"id": "r006-68f8333a-1169-42da-ba01-75268bac8362"},
+  "volume_attachments": [
+    {"volume": {
+        "name": "my-data-volume-1",
+        "capacity": 3000,
+        "profile": {"name": "5iops-tier"}},
+      "delete_volume_on_instance_delete": false},
+    {"volume": {
+        "name": "my-data-volume-2",
+        "capacity": 3000,
+        "profile": {"name": "5iops-tier"}},
+      "delete_volume_on_instance_delete": false},
+    {"volume": {
+        "name": "my-data-volume-3",
+        "capacity": 3000,
+        "profile": {"name": "5iops-tier"}},
+      "delete_volume_on_instance_delete": false}
+  ],
+  "boot_volume_attachment": {
+    "volume": {
+      "name": "my-gen3-instance-template-boot-1720803726000",
+      "capacity": 100,
+      "profile": {"name": "general-purpose"}
+    },
+    "delete_volume_on_instance_delete": true
+  },
+  "metadata_service": {
+    "enabled": false,
+    "response_hop_limit": 1},
+  "primary_network_attachment": {
+    "name": "eth0",
+    "virtual_network_interface": {
+      "allow_ip_spoofing": false,
+      "auto_delete": true,
+      "enable_infrastructure_nat": true,
+      "primary_ip": {"auto_delete": true},
+      "subnet": {"id": "0726-298acd6c-e71e-4204-a04f-fe4a4dd89805"},
+      "security_groups": [
+        {"id": "r006-ccdd1f58-f0f2-4ea0-8774-a24bbe61b5d9"}],
+      "protocol_state_filtering_mode": "auto"}
+  },
+  "network_attachments": [],
+  "image": {"id": "r006-534ef2ac-6158-45b3-9657-57629fa85305"},
+  "enable_secure_boot": false
+  "storage_qos_modes": "pooled"
+}'
+```
+{: pre}
 
 For more examples of the `/instance/templates` method, see the [Create an instance template](/apidocs/vpc/latest#create-instance-template) API documentation.
 
@@ -557,27 +607,73 @@ Gather the following information by using `DataSource` block.
    ```
    {: codeblock}
 
-### Example of creating an instance template by using Terraform
+### Creating the instance template with Terraform
 {: #create-instance-template-using-terraform}
 {: terraform}
 
 After you know these values, use them to write the `ibm_is_instance_template` resource block. In addition to the information that you gathered, you must specify a name for the instance.
 
-```terraform
+The following example creates an instance template that is named _my-instance-template_ in the _us-south-1_ region and uses the _bx2-8x32_ profile.
 
-resource "ibm_is_instance_template" "my-template" {
-  name    = "my-template"
-  image   = ibm_is_image.example_image.id
+```terraform
+resource "ibm_is_instance_template" "my-instance-template" {
+  name    = "my-instance-template"
+  image   = r006-3fa3bea4-7f9c-4eeb-8248-ab1f6e03185b
   profile = "bx2-8x32"
 
   primary_network_interface {
-    subnet            = ibm_is_subnet.example_subnet.id
+    subnet            = 0727-944126da-e46d-4104-8ba4-ab5a5832864b
+    allow_ip_spoofing = true
   }
 
-  vpc                  = ibm_is_vpc.example_vpc.id
-  zone                 = "us-south-2"
-  keys                 = [ibm_is_ssh_key.example_sshkey.id]
+  placement_group = r006-9994e3ab-18ae-49a7-95cf-25c77e
+  vpc             = r006-212def4b-93f0-4b9a-a331-94178b99d474
+  zone            = "us-south-1"
+  keys            = [363f6d70-0000-0001-0000-00000013b96c]
 
+  boot_volume {
+    name                             = "example-boot-volume"
+    delete_volume_on_instance_delete = true
+  }
+}
+```
+{: codeblock}
+
+The following example creates an instance template that is named _my-gen3-instance-template_ in _us-south-3_ and uses the _cx3d-8x20_ profile. When the selected [compute profile](/docs/vpc?group=profile-details) supports pooled bandwidth allocation for data volumes, the `storage_qos_modes` option can also be included.
+
+```terraform
+resource "ibm_is_instance_template" "example" {
+  name                = "my-gen3-instance-template"
+  image               = r006-534ef2ac-6158-45b3-9657-57629fa85305
+  profile             = "cx3d-8x20"
+  primary_network_interface {
+    subnet            = 0d933c75-492a-4756-9832-1200585dfa79
+    allow_ip_spoofing = true
+  }
+  vpc                 = r006-6e8fb140-5668-45b8-b98a-d5cb0e0bf39b
+  zone                = "us-south-3"
+  keys                = [363f6d70-0000-0001-0000-00000013b96c]
+  storage_qos_modes   = [pooled]
+  boot_volume {
+    name                             = "example-boot-volume"
+    delete_volume_on_instance_delete = true
+  }
+  volume_attachments {
+    delete_volume_on_instance_delete = false
+    name                             = "example-data-vol-01"
+    volume_prototype {
+      profile = "5iops-tier"
+      capacity = 3000
+    }
+  }
+  volume_attachments {
+    delete_volume_on_instance_delete = false
+    name                             = "example-data-vol-02"
+    volume_prototype {
+      profile = "5iops-tier"
+      capacity = 3000
+    }
+  }
 }
 ```
 {: codeblock}
