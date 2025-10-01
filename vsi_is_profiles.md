@@ -2,7 +2,7 @@
 
 copyright:
   years: 2019, 2025
-lastupdated: "2025-09-30"
+lastupdated: "2025-10-01"
 
 keywords: vsi, virtual server instances, profile, profiles, balanced, compute, memory, very high memory, ultra high memory, gpu storage optimized, confidential compute
 
@@ -302,9 +302,10 @@ The GPU and accelerated profile family includes profiles with and without [insta
 - GPU `-l4` profiles include NVIDIA L4 24 GB GPUs.
 - GPU `-l40S` profiles include NVIDIA L40S 48 GB GPUs.
 - [Select availability]{: tag-green} GPU `-a100p` profiles include NVIDIA A100 Tensor Core 80 GB GPUs.
-- GPU `-h100` and `-h200` profiles include [NVIDIA](https://www.nvidia.com/en-us/data-center/hgx/){: external} GPUs. The system is an HGX design. The H100 offering is available in the following regions and zones: London (eu-gb-2), Sydney (au-syd-2), Toronto (ca-tor-3), Madrid (eu-es-3), Washington DC (us-east-3), Tokyo (jp-tok-3), Sao Paulo (br-sao-1), Dallas (us-south-1), and Frankfurt (eu-de-2). [Select availability]{: tag-green} The H200 offering is available in Washington DC (us-east-3), Toronto (ca-tor-3), Frankfurt (eu-de-2), London (eu-gb-2), and Sydney (au-syd-3).
-- GPU `-gaudi3` profiles include the [Intel® Gaudi® 3 AI Accelerator](https://www.intel.com/content/www/us/en/products/details/processors/ai-accelerators/gaudi.html). [Select availability]{: tag-green} The Intel Gaudi 3 offering is available in Dallas (us-south-dal12-a), Washington DC (us-east-wdc06-a, us-east-wdc07-a) and Frankfurt (eu-de-fra02-a).
-- GPU `mi300x` profiles include the [AMD Instinct™ MI300X Accelerator](https://www.amd.com/en/products/accelerators/instinct/mi300/mi300x.html). [Select availability]{: tag-green} The AMD Instinct MI300X offering is available for select customers in Washington DC (us-east-wdc06-a, us-east-wdc07-a) and Frankfurt (eu-de-fra02-a, eu-de-fra05-a). Create a [support case](/docs/account?topic=account-open-case&interface=ui) if you are interested in purchasing and using this offering.
+- GPU `-h100` profiles include [NVIDIA](https://www.nvidia.com/en-us/data-center/hgx/){: external} GPUs. The system is an HGX design. The H100 offering is available in the following regions and zones: London (eu-gb-2), Sydney (au-syd-2), Toronto (ca-tor-3), Madrid (eu-es-3), Washington DC (us-east-3), Tokyo (jp-tok-3), Sao Paulo (br-sao-1), Dallas (us-south-1), and Frankfurt (eu-de-2).
+- [Select availability]{: tag-green} GPU `-h200` profiles include [NVIDIA](https://www.nvidia.com/en-us/data-center/hgx/){: external} GPUs. The system is an HGX design. The H200 offering is available in Washington DC (us-east-3), Toronto (ca-tor-3), Frankfurt (eu-de-2), London (eu-gb-2), and Sydney (au-syd-3).
+- [Select availability]{: tag-green} GPU `-gaudi3` profiles include the [Intel® Gaudi® 3 AI Accelerator](https://www.intel.com/content/www/us/en/products/details/processors/ai-accelerators/gaudi.html). The Intel Gaudi 3 offering is available in Dallas (us-south-dal12-a), Washington DC (us-east-wdc06-a, us-east-wdc07-a) and Frankfurt (eu-de-fra02-a).
+- [Select availability]{: tag-green} GPU `mi300x` profiles include the [AMD Instinct™ MI300X Accelerator](https://www.amd.com/en/products/accelerators/instinct/mi300/mi300x.html).  The AMD Instinct MI300X offering is available for select customers in Washington DC (us-east-wdc06-a, us-east-wdc07-a) and Frankfurt (eu-de-fra02-a, eu-de-fra05-a). Create a [support case](/docs/account?topic=account-open-case&interface=ui) if you are interested in purchasing and using this offering.
 
 Make sure to install the appropriate driver and software for the profile you select:
 - [NVIDIA Drivers](https://www.nvidia.com/en-us/drivers/){: external}
@@ -474,34 +475,21 @@ With supported Flex profiles, you can enable Burstable CPU capability. Burstable
 
 The following Burstable profiles are available.
 
-| Name      | vCPU | Memory (GiB) | %vCPU share | 
+| Name      | vCPU | Memory (GiB) | % vCPU share | 
 |:----------|:-----|:-------------|:------------|
-| nxf-1x1   | 1    | 1            |  10%         |
-|           |      |              |  25%         |
-|           |      |              |  50%         |
-| nxf-1x2   | 1    | 2            |  10%         |
-|           |      |              |  25%         |
-|           |      |              |  50%         |
-| nxf-1x4   | 1    | 4            |  25%         |
-|           |      |              |  50%         |
-| nxf-2x1   | 2    | 1            |  10%         |
-|           |      |              |  25%         |
-|           |      |              |  50%         |
-| nxf-2x2   | 2    | 2            |  10%         |
-|           |      |              |  25%         |
-|           |      |              |  50%         |
-| cxf-2x4   | 2    | 4            |  25%         |
-|           |      |              |  50%         |
-| bxf-2x8   | 2    | 8            |  50%         |
-| cxf-4x8   | 4    | 8            |  25%         |
-|           |      |              |  50%         |
-| bxf-4x16  | 4    | 16           |  50%         |
-| cxf-8x16  | 8    | 16           |  25%         |
-|           |      |              |  50%         |
-| bxf-8x32  | 8    | 32           |  50%         |
-| cxf-16x32 | 16   | 32           |  25%         |
-|           |      |              |  50%         |
-| bxf-16x64 | 16   | 64           |  50%         |
+| nxf-1x1   | 1    | 1            | 10% 25% 50% |
+| nxf-1x2   | 1    | 2            | 10% 25% 50% |
+| nxf-1x4   | 1    | 4            | 25% 50%     |
+| nxf-2x1   | 2    | 1            | 10% 25% 50% |
+| nxf-2x2   | 2    | 2            | 10% 25% 50% |
+| cxf-2x4   | 2    | 4            | 25% 50%     |
+| bxf-2x8   | 2    | 8            | 50%         |
+| cxf-4x8   | 4    | 8            | 25% 50%     |
+| bxf-4x16  | 4    | 16           |  50%        |
+| cxf-8x16  | 8    | 16           | 25% 50%     |
+| bxf-8x32  | 8    | 32           |  50%        |
+| cxf-16x32 | 16   | 32           | 25% 50%     |
+| bxf-16x64 | 16   | 64           |  50%        |
 {: caption="Burstable-supported Flex profile options for virtual servers" caption-side="bottom"}
 
 ## Bandwidth allocation
