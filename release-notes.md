@@ -2,7 +2,7 @@
 
 copyright:
   years: 2019, 2025
-lastupdated: "2025-09-30"
+lastupdated: "2025-10-01"
 
 keywords:
 
@@ -23,6 +23,16 @@ Use the release notes to learn the latest updates to {{site.data.keyword.vpc_ful
 For more information about changes to the {{site.data.keyword.vpc_short}} API, see [{{site.data.keyword.vpc_short}} API change log](/docs/vpc?topic=vpc-api-change-log).
 
 For more information about changes to the {{site.data.keyword.vpc_short}} command-line interface (CLI), see [{{site.data.keyword.vpc_short}} CLI release notes](/docs/vpc?topic=vpc-vpc-cli-rn).
+
+## October 2025
+{: #vpc-oct25}
+
+### 01 October 2025
+{: #vpc-oct0125}
+{: release-note}
+
+Confidential computing with Intel Trusted Domain Extension (TDX) for Virtual Servers for VPC is available in Frankfurt (select availability)
+:   Confidential computing with Intel&reg; Trusted Domain Extension (TDX) for VPC is now available in the Frankfurt (eu-de) region. This region is in addition to the existing Washington DC (us-east) region. Confidential computing with Intel TDX offers confidentiality to virtual machines by providing CPU enhancements that are leveraged by the firmware and hardware to provide confidentiality and integrity. For more information, see [Confidential computing for x86 Virtual Servers for VPC](/docs/vpc?topic=vpc-about-confidential-computing-vpc). When you create a virtual server instance with a confidential computing profile and Intel Trusted Domain Extension (TDX), you can create that virtual server instance only in the Frankfurt (eu-de) or Washington DC (us-east) regions. You can’t create a virtual server instance with TDX in any other region, including Dallas (us-south). For more information, see [Confidential computing known issues](/docs/vpc?topic=vpc-known-issues#confidential-computing-vpc-known-issues).
 
 ## September 2025
 {: #vpc-sep25}

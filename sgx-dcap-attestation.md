@@ -2,7 +2,7 @@
 
 copyright:
   years: 2023, 2025
-lastupdated: "2025-07-14"
+lastupdated: "2025-10-01"
 
 keywords: sgx, intel sgx, software guard extension, confidential computing, attestation, DCAP, data center attestation primitives
 
@@ -20,7 +20,7 @@ subcollection: vpc
 Attestation is a validation process that that makes sure that a runtime environment is instantiated in an encrypted SGX or TDX enclave on a system with a known security configuration. Data Center Attestation Primitives (DCAP) from Intel facilitates Attestation.
 {: shortdesc}
 
-Confidential computing profiles are available in the Dallas (us-south), Washington DC (us-east), and Frankfurt (eu-de) regions. Confidential computing with Intel SGX for VPC is Dallas (us-south), Washington DC (us-east), and Frankfurt (eu-de). Confidential computing with Intel TDX for VPC is available only in the Washington DC (us-east) region. If you want to create a virtual server instance with a confidential computing profile and TDX, you can create that virtual server instance only in the Washington DC (us-east) region. You can’t create a virtual server instance with TDX in any other region, including Dallas (us-south) and Frankfurt (eu-de). For more information, see [Confidential computing known issues](/docs/vpc?topic=vpc-known-issues#confidential-computing-vpc-known-issues). Confidential computing is only available with select profiles. For more information, see [Confidential computing profiles](/docs/vpc?topic=vpc-profiles&interface=ui#confidential-computing-profiles).
+Confidential computing profiles are available in the Dallas (us-south), Washington DC (us-east), and Frankfurt (eu-de) regions. Confidential computing with Intel SGX for VPC is Dallas (us-south), Washington DC (us-east), and Frankfurt (eu-de). Confidential computing with Intel TDX for VPC is available only in the Washington DC (us-east) and Frankfurt (eu-de) regions. If you want to create a virtual server instance with a confidential computing profile and TDX, you can create that virtual server instance only in the Washington DC (us-east) Frankfurt (eu-de) regions. You can’t create a virtual server instance with TDX in any other region, including Dallas (us-south). For more information, see [Confidential computing known issues](/docs/vpc?topic=vpc-known-issues#confidential-computing-vpc-known-issues). Confidential computing is only available with select profiles. For more information, see [Confidential computing profiles](/docs/vpc?topic=vpc-profiles&interface=ui#confidential-computing-profiles).
 {: preview}
 
 Intel SGX helps protect data that is in use through application isolation technology. Intel TDX helps protect data that is in use through virtual machine isolation technology. By using these features, developers can protect the integrity and confidentiality of their code and data.

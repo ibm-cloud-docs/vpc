@@ -2,7 +2,7 @@
 
 copyright:
   years: 2018, 2025
-lastupdated: "2025-09-26"
+lastupdated: "2025-10-01"
 
 keywords:
 
@@ -44,7 +44,7 @@ When using a beta `version` query parameter of `2025-07-14` or earlier from bare
 ### TDX virtual servers are supported in Washington DC (us-east) region only
 {: #tdx-wdc-confidential-computing-vpc-known-issues}
 
-**Issue:** All confidential computing profiles support both Intel&reg; Software Guard Extensions (SGX) and Intel&reg; Trusted Domain Extensions (TDX). When you use the API to list instance profiles, such as with `GET /instance/profiles` or `GET /instance/profiles/{name}`, the response indicates that all confidential computing profiles support SGX and TDX. However, TDX is currently available in the Washington DC (us-east) region only. If you want to create a virtual server instance with a confidential computing profile and TDX, you can create that virtual server instance only in the Washington DC (us-east) region. You can’t create a virtual server instance with TDX in any other region, including Dallas (us-south) and Frankfurt (eu-de).
+**Issue:** All confidential computing profiles support both Intel&reg; Software Guard Extensions (SGX) and Intel&reg; Trusted Domain Extensions (TDX). When you use the API to list instance profiles, such as with `GET /instance/profiles` or `GET /instance/profiles/{name}`, the response indicates that all confidential computing profiles support SGX and TDX. However, TDX is currently available in the Washington DC (us-east) and Frankfurt (eu-de) regions only. If you want to create a virtual server instance with a confidential computing profile and TDX, you can create that virtual server instance only in the Washington DC (us-east) and Frankfurt (eu-de) regions. You can’t create a virtual server instance with TDX in any other region, including Dallas (us-south).
 
 ### s390x profiles don't include 'values' property
 {: #s390x-confidential-computing-vpc-known-issues}
@@ -182,7 +182,7 @@ When using an API `version` query parameter of `2025-09-15` or earlier, the foll
 - `zone` might be absent in the share API response when file shares and file share snapshots with `rfs` profile from a source share are created, retrieved, listed, updated, or deleted by using an API version of `2025-09-15` or earlier. When a `version` query parameter of `2025-09-15` or earlier is used, the `zone` of an `rfs` share snapshot returns the first zone from the region and is informational only. `zone` is not affected for `dp2` share snapshots and is represented correctly for `rfs` share snapshots when an API version of `2025-09-16` or later is used.
 
 ### Creating replica file shares with `allowed_transit_encryption_modes` or mount targets with `transit_encryption`
-{: #replica-file-share-transit-encryption} 
+{: #replica-file-share-transit-encryption}
 
 [Select availability]{: tag-green}
 
