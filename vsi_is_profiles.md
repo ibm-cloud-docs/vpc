@@ -576,7 +576,7 @@ The first character represents the profile families. Different profile families 
 - "v": very high memory family of profiles, 1 vCPU to 14 GiB of memory ratio
 - "g": GPU profiles, which is a 1:8 or 1:16 ratio
 - "o": storage optimized family of profiles, 1 vCPU to 8 GiB memory ratio and 1 vCPU to 300 GB instance storage ratio
-- "f": flex profiles offer a broad set of capabilities and scale from 2 vCPUs (1 physical core) up to 64 vCPUs (64 physical cores).
+- "f": flex profiles
 
 The second character represents the CPU architecture.
 
