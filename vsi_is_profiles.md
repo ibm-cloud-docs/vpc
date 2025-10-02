@@ -2,7 +2,7 @@
 
 copyright:
   years: 2019, 2025
-lastupdated: "2025-10-01"
+lastupdated: "2025-10-02"
 
 keywords: vsi, virtual server instances, profile, profiles, balanced, compute, memory, very high memory, ultra high memory, gpu storage optimized, confidential compute
 
@@ -583,7 +583,7 @@ The second character represents the CPU architecture.
 - "x": x86_64
 - "z": s390x
 
-The third character represents the generation of the IBM Cloud infrastructure where the profile is provisioned.
+The third character represents the generation of the IBM Cloud infrastructure where the profile is provisioned, such as a "2" or "3". A value of "f" indicates that the profile is flexible and can provision on any infrastructure generation
 
 If the fourth character is a "d", such as bx2d, then a defined quantity of instance storage is provisioned with the virtual server.
 
