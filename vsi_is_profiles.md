@@ -2,7 +2,7 @@
 
 copyright:
   years: 2019, 2025
-lastupdated: "2025-10-01"
+lastupdated: "2025-10-02"
 
 keywords: vsi, virtual server instances, profile, profiles, balanced, compute, memory, very high memory, ultra high memory, gpu storage optimized, confidential compute
 
@@ -576,14 +576,14 @@ The first character represents the profile families. Different profile families 
 - "v": very high memory family of profiles, 1 vCPU to 14 GiB of memory ratio
 - "g": GPU profiles, which is a 1:8 or 1:16 ratio
 - "o": storage optimized family of profiles, 1 vCPU to 8 GiB memory ratio and 1 vCPU to 300 GB instance storage ratio
-- "f": flex profiles offer a broad set of capabilities and scale from 2 vCPUs (1 physical core) up to 64 vCPUs (64 physical cores).
+- "f": flex profiles
 
 The second character represents the CPU architecture.
 
 - "x": x86_64
 - "z": s390x
 
-The third character represents the generation of the IBM Cloud infrastructure where the profile is provisioned.
+The third character represents the generation of the IBM Cloud infrastructure where the profile is provisioned, such as a "2" or "3". A value of "f" indicates that the profile is flexible and can provision on any infrastructure generation
 
 If the fourth character is a "d", such as bx2d, then a defined quantity of instance storage is provisioned with the virtual server.
 
