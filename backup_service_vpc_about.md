@@ -136,7 +136,7 @@ You can create up to four plans per backup policy and modify the backup schedule
 
 You can [view backup job status](/docs/vpc?topic=vpc-backup-view-policy-jobs) while backups are being created, modified, or deleted.
 
-You can delete your backup plans or the backup policy when you no longer need them. When you delete a backup policy, you also delete all the plans that are associated with it. When you delete or disable a backup plan, it can no longer initiate any backup jobs. It does not create or delete any backup snapshot anymore. The existing backups remain intact as their lifecycle is independent from the policy. Existing backups must be deleted separately [in the console](/docs/vpc?topic=vpc-snapshots-vpc-manage&interface=ui#snapshots-vpc-delete-snapshot-ui){: ui}[from the CLI](/docs/vpc?topic=vpc-snapshots-vpc-manage&interface=cli#snapshots-vpc-delete-snapshot-cli){: cli}[with the API](/docs/vpc?topic=vpc-snapshots-vpc-manage&interface=api#snapshots-vpc-delete-snapshot-api){: api}[with Terraform](/docs/vpc?topic=vpc-snapshots-vpc-manage&interface=terraform#snapshots-vpc-delete-snapshot-terraform){: terraform}.
+You can delete your backup plans or the backup policy when you no longer need them. When you delete a backup policy, you also delete all the plans that are associated with it. When you delete or disable a backup plan, it can no longer initiate any backup jobs. It does not create or delete any backup snapshot anymore. The existing backups remain intact as their lifecycle is independent from the policy. Existing backups must be deleted separately.
 
 ### Scope of the backup policies
 {: #backup-service-about-scope}
