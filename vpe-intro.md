@@ -2,7 +2,7 @@
 
 copyright:
   years: 2020, 2025
-lastupdated: "2025-06-27"
+lastupdated: "2025-10-06"
 
 keywords: virtual private endpoints, endpoint gateway, VPE
 subcollection: vpc
@@ -44,6 +44,20 @@ The features of VPE for VPC include:
 
 For supported {{site.data.keyword.cloud_notm}} services, see [VPE supported services](/docs/vpc?topic=vpc-vpe-supported-services).
 
+## Getting started
+{: #vpe-getting-started}
+
+To configure a virtual private endpoint, follow these steps:
+
+1. List the available services, including {{site.data.keyword.cloud_notm}} infrastructure services available (by default) for all VPC users.
+1. Review planning considerations. See [Planning for virtual private endpoint gateways](/docs/vpc?topic=vpc-planning-considerations) for details.
+1. Create an endpoint gateway for each service that you want to be privately available to the VPC.
+   See [Creating an endpoint gateway](/docs/vpc?topic=vpc-ordering-endpoint-gateway) for details.
+1. Bind a reserved IP address to the endpoint gateway.
+   See [Binding and unbinding a reserved IP address](/docs/vpc?topic=vpc-bind-unbind-reserved-ip) for details.
+
+After you create the endpoint gateway, virtual server instances in the VPC can access the {{site.data.keyword.cloud_notm}} service privately through it.
+
 ## VPE connectivity patterns
 {: #vpe-connectivity-patterns}
 
@@ -60,20 +74,6 @@ As more {{site.data.keyword.cloud_notm}} services are enabled for VPE for VPC, e
 {: #multi-zone-topology}
 
 ![VPE multi-zone topology](images/vpe-multi-zone.png){: caption="VPE multi-zone topology" caption-side="bottom}
-
-## Getting started
-{: #vpe-getting-started}
-
-To configure a virtual private endpoint, follow these steps:
-
-1. List the available services, including {{site.data.keyword.cloud_notm}} infrastructure services available (by default) for all VPC users.
-1. Review planning considerations. See [Planning for virtual private endpoint gateways](/docs/vpc?topic=vpc-planning-considerations) for details.
-1. Create an endpoint gateway for each service that you want to be privately available to the VPC.
-   See [Creating an endpoint gateway](/docs/vpc?topic=vpc-ordering-endpoint-gateway) for details.
-1. Bind a reserved IP address to the endpoint gateway.
-   See [Binding and unbinding a reserved IP address](/docs/vpc?topic=vpc-bind-unbind-reserved-ip) for details.
-
-After you create the endpoint gateway, virtual server instances in the VPC can access the {{site.data.keyword.cloud_notm}} service privately through it.
 
 ## Related links
 {: #vpe-related}

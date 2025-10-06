@@ -141,11 +141,11 @@ How long the copy is kept depends on how often your backup plan generates backup
 
 Keep in mind, a remote snapshot copy is independent from the source volume or the parent snapshot. If those resources are inaccessible or deleted, the snapshot copy in the remote region is not affected. If a backup snapshot is deleted due to reaching the end of its retention period, its remote copy is not deleted automatically.
 
-## What happens to my backup snapshots when the backup plan or policy is deleted?
+### What happens to my backup snapshots when the backup plan or policy is deleted?
 {: faq}
 {: #faq-baas-policy-deletion}
 
-When you delete a backup policy, you also delete all the plans that are associated with it. When you delete a backup policy, it can no longer initiate any backup jobs. It does not create or delete any backup snapshot anymore. The existing backups that it created remain intact as their lifecycle is independent from the policy. Existing backups must be deleted separately [in the console](/docs/vpc?topic=vpc-snapshots-vpc-manage&interface=ui#snapshots-vpc-delete-snapshot-ui){: ui}[from the CLI](/docs/vpc?topic=vpc-snapshots-vpc-manage&interface=cli#snapshots-vpc-delete-snapshot-cli){: cli}[with the API](/docs/vpc?topic=vpc-snapshots-vpc-manage&interface=api#snapshots-vpc-delete-snapshot-api){: api}[with Terraform](/docs/vpc?topic=vpc-snapshots-vpc-manage&interface=terraform#snapshots-vpc-delete-snapshot-terraform){: terraform}.
+When you delete a backup policy, you also delete all the plans that are associated with it. When you delete or disable a backup plan, it can no longer initiate any backup jobs. It does not create or delete any backup snapshot anymore. The existing backups that it created remain intact as their lifecycle is independent from the policy. Existing backups must be deleted separately [in the console](/docs/vpc?topic=vpc-snapshots-vpc-manage&interface=ui#snapshots-vpc-delete-snapshot-ui){: ui}[from the CLI](/docs/vpc?topic=vpc-snapshots-vpc-manage&interface=cli#snapshots-vpc-delete-snapshot-cli){: cli}[with the API](/docs/vpc?topic=vpc-snapshots-vpc-manage&interface=api#snapshots-vpc-delete-snapshot-api){: api}[with Terraform](/docs/vpc?topic=vpc-snapshots-vpc-manage&interface=terraform#snapshots-vpc-delete-snapshot-terraform){: terraform}.
 
 ### Why do my backup copies show up in the remote region later than my backups in my source region?
 {: faq}

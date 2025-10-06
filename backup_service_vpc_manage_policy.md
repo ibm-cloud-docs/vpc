@@ -64,7 +64,7 @@ After you provisioned a backup policy and created a backup plan, you can edit th
 
 1. From the [backup plan details](/docs/vpc?topic=vpc-backup-view-policies&interface=ui#backup-view-policy) page, expand the Actions menu for the plan.
 
-2. Select **Edit**. The plan details appear in the side panel. By switching the Plan status toggle you can enable or disable the plan. You can also modify the plan's details, such as the name and backup frequency. For individual volume backups, you can enable or disable fast restore, or change which regions fast restore is available in. You can also enable or disable the creation and retention of copies in other regions. Fast restore and cross-region copy features are not supported for multi-volume or file share backups.
+2. Select **Edit**. The plan details appear in the side panel. By switching the Plan status toggle, you can enable or disable the plan. You can also modify the plan's details, such as the name and backup frequency. For individual volume backups, you can enable or disable fast restore, or change which regions fast restore is available in. You can also enable or disable the creation and retention of copies in other regions. Fast restore and cross-region copy features are not supported for multi-volume or file share backups.
 
 3. Confirm your selections when you're finished.
 
