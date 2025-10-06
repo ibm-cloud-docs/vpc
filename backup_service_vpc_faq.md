@@ -141,19 +141,19 @@ How long the copy is kept depends on how often your backup plan generates backup
 
 Keep in mind, a remote snapshot copy is independent from the source volume or the parent snapshot. If those resources are inaccessible or deleted, the snapshot copy in the remote region is not affected. If a backup snapshot is deleted due to reaching the end of its retention period, its remote copy is not deleted automatically.
 
-### What happens to my backup snapshots when the backup plan or policy is deleted?
+## What happens to my backup snapshots when the backup plan or policy is deleted?
 {: faq}
 {: #faq-baas-policy-deletion}
 
 When you delete a backup policy, you also delete all the plans that are associated with it. When you delete or disable a backup plan, it can no longer initiate any backup jobs. It does not create or delete any backup snapshot anymore. The existing backups that it created remain intact as their lifecycle is independent from the policy. Existing backups must be deleted separately [in the console](/docs/vpc?topic=vpc-snapshots-vpc-manage&interface=ui#snapshots-vpc-delete-snapshot-ui){: ui}[from the CLI](/docs/vpc?topic=vpc-snapshots-vpc-manage&interface=cli#snapshots-vpc-delete-snapshot-cli){: cli}[with the API](/docs/vpc?topic=vpc-snapshots-vpc-manage&interface=api#snapshots-vpc-delete-snapshot-api){: api}[with Terraform](/docs/vpc?topic=vpc-snapshots-vpc-manage&interface=terraform#snapshots-vpc-delete-snapshot-terraform){: terraform}.
 
-### Why do my backup copies show up in the remote region later than my backups in my source region?
+## Why do my backup copies show up in the remote region later than my backups in my source region?
 {: faq}
 {: #crc-creation-time}
 
 When you include the creation of a cross-regional copy in your backup plan, the backup snapshot is created as normal, and stored in a separate regional storage repository. When the source snapshot is stable, the Backup service initiates the creation of the remote copy in the regional storage repository in the target region. The data transfer process runs in the background and can take up to several hours to complete if your source volumes are over 500 MB in capacity. For more information, see [Cross-regional backup copies](/docs/vpc?topic=vpc-backup-service-about&interface=ui#backup-service-crc).
 
-### Are the cross-regional copies of my backup snapshots full copies of my source volume?
+## Are the cross-regional copies of my backup snapshots full copies of my source volume?
 {: faq}
 {: #crc-full-copy}
 
