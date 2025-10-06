@@ -77,12 +77,15 @@ Input parameters to be provided in the `env` section are:
 - `hostname`: Hostname of the service instance. Use the endpoint under the ICL instance's Endpoint Section.
 
    - For public network ICL access: Select the **Public ingress endpoint** section as the hostname in the contract.
-   - For private network ICL access: Select **Private ingress endpoint** section as the hostname in the contract.
+
+   - For private network ICL access: Select the **Private ingress endpoint** section as the hostname in the contract.
+
 
    You must create a virtual private endpoint (VPE) gateway for ICL to access {{site.data.keyword.logs_full_notm}} privately. For more information, see [Using virtual private endpoints for VPC to privately connect to {{site.data.keyword.logs_full_notm}}](/docs/cloud-logs?topic=cloud-logs-vpe-connection&interface=cli).
    {: note}
 
 - `iamApiKey`: The IAM API key for the service ID. Generate and retrieve the API key from the service ID in IAM.
+
 - `port`: (Optional) The port of the service instance that is 443.
 
 For more information, see the [logging subsection](/docs/vpc?topic=vpc-about-contract_se#hpcr_contract_icl).
@@ -133,11 +136,11 @@ You can also configure logging with a generic [syslog backend](https://datatrack
 
 - Syslog hostname
 - [Optional] port and it defaults to 514
-- Certificate Authority (CA) - the certificate used to verify the certificate chain both for client and server authentication. Note that the same CA has to be used for both the client and server certificates.
+- Certificate Authority (CA) - the certificate used to verify the certificate chain both for client and server authentication. Note that the same CA must be used for both the client and server certificates.
 - Client certificate - used to prove the client to the server, signed by the CA
 - Client key - private key used by the virtual server instance to establish trust
 
-Fill in the following parts of the contract with the information. The certificates and the key have to be in PEM format.
+Fill in the following parts of the contract with the information. The certificates and the key must be in PEM format.
 
 ```yaml
 env:
@@ -345,7 +348,7 @@ Use the content of the following files in preparation to fill in the placeholder
 
 ${Base64 encoded CA} - Get ca.crt from preparation step 1 and run cat ca.crt | Base64 -w0 ${CLIENT_CERTIFICATE} - Get client.crt from preparation step 3 and run cat client.crt | Base64 -w0 ${CLIENT_PRIVATE_KEY} - Get client-key-pkcs8.pem from preparation step 3 and run cat client-key-pkcs8.pem | Base64 -w0
 
-For example:
+For example,:
 
 ```yaml
    "server": LS0tLS1CRUdJTiBDRVJUSUZJQ0FURS0tLS0tCk1JSUZVVENDQXprQ0ZESkM2Mm4rUWFaZWRyQjF4K0JCSzVQMmF0ZVZNQTBHQ1NxR1NJYjNEUUVCQ3dVQU1HVXgKQ3pBSkJnTlZCQVlUQWtSRk1SSXdFQVlEVlFRSURBbFRkSFYwZEdkaGNuUXhFakFRQmdOVkJBY01DVk4wZFhSMApaMkZ5ZERFTU1Bb0dBMVVFQ2d3RFNVSk5NUXd3Q2dZRFZRUUxEQU5KUWsweEVqQVFCZ05WQkFNTUNXeHZZMkZzCmFHOXpkREFlRncweU1qQTRNVFV3T0RRMU1UQmFGdzB5TXpBNE1UVXdPRFExTVRCYU1HVXhDekFKQmdOVkJBWVQKQWtSRk1SSXdFQVlEVlFRSURBbFRkSFYwZEdkaGNuUXhFakFRQmdOVkJBY01DVk4wZFhSMFoyRnlkREVNTUFvRwpBMVVFQ2d3RFNVSk5NUXd3Q2dZRFZRUUxEQU5KUWsweEVqQVFCZ05WQkFNTUNXeHZZMkZzYUc5emREQ0NBaUl3CkRRWUpLb1pJaHZjTkFRRUJCUUFEZ2dJUEFEQ0NBZ29DZ2dJQkFKZFMyS3ZwMEo3ZGlXNytSbWh2ZFIxbjNNa0kKTXVnbldrQjJMM1RpNm1aNUZhcGhlQlZYS3EwV2RMRCt0Rm0ydFhXcUxmb09henFQSmpYSkVwR1BFNUk4Mk9nNwovNndMbmJla3RFRExpT2hleGZ0Smpkb0NtQ1RwMEhwWVhqV3RIMzl0cWdCTHNLVmZ6aEoySFByWlA1RUpDOHQ5CnVFdjQ2dzBaaVJ6d2tRYjdhZ3pZdWNpK0RFVXhjc2dvTHB6Z3R6VC9yWFlxOGlwNUhLb2ZQYyszSnBaeGRXZ00KSDE4MVFHalduZ1FRSXVrZTR0cXAyc3FjZTZWNkZLWktLTk9NeVZsczgvcEYrTlZzck1na2VZSFpzaUU1Um4wQgpiU2RXSTh1VWx6YjhoZnBxcXBNeDhhclYxNnRoT1JHZ0NrOVZ1RndiL0k4cVU3OVY0ZTVQcjB3SXgxTG9qV1BzCnUxM1Z3RnFka1c1TlVuV2lPNlBXN00yM0cvWVZUQ1Q1WFF5dC9XQWFOQmtSRlZ6SCtVV1o1ZTVsME1MTW5ibDkKWmc3ZFdBZWgxckNiTnIzS1NCa2MzdXJEQmtCelhJUXpiSWY3ZkUwT2Uxam9pVXlsRUk1dlVlK0g2K2JQcHFuawpQa3hKWW5ER3Y4QkVwWUZSRHg0emNQLzVtaGFQNHB2MHBTNGJaVjdrdExnQUVrUmxLT0M4blZ4YjBrdDJFMXZ2CjBLN2ZSZjc0OVdPdGM3cjdQQ2dvUXBNd21DNzNtZmhsaFRJVXk5VDB5UkJ6M1c5c0xqbFZ4ZVEzNHpnb2pmeXYKV2ZGRzcwZWxrZ3N3Zdjndfdk1lPL0JhaDNJYzBYa2NxQWhkRnhtbFJrYldwaVpPMXJKWk9OVnJWQ2RZZ0NtWEVTcTZyZwowRTA1RGF2eDlSZU9XcTZQQWdNQkFBRXdEUVlKS29aSWh2Y05BUUVMQlFBRGdnSUJBQ3hGNy9YV0NpMHdTa3VPCmJjRHhWQ2NEQVRPeEdlYzlNU1duaUw4ajlleFY3Wm1tWW1ETjVBUytiMERQd0ExMlBCL2FLMTh4S0MxQzV0T0YKNW1lY2VEL0dNKzZTY1RYS0EwajZidmh0amw3UmdUdStVbSsrVkFnbk13MnkrTEVVbVQwRG5qdy9zYWlXa1hEVgpMeGI3cytodWdQSTZra1lWNElHMVJjTHZCa2M5UkFyZWxLVlNqbVFOblZTYVZIcVg4NlpBeEl1eGR0RHdRcFh3CjJycStLM09qSCtSa0FXWGtHbGo3ZUNxZGNyYzVjRks3a1gvbTcxdGVSM0pQdWpLYmp0SlYxNzA4WTV4UUhPVjcKUGF3L3dvYXoycmRITkMwMXI4Z2pkODhvNXFoaURxd2JsNU1RVHNPb2N4MjdSYU4yUFV2QVg0SlpvS0NnMVVIUgo4TzZyNVhvZXNvY1pkRGhUYy9xU3J3YU42VGxDb2JhKzhJSjZqSE9KMW9DWjA5ZHJUS29RdEJyVlFlYnhMY2dOCjMyWEpKd01ub2RyS3hqN0tLdnNTaDNGV0ZYQU82UlJGUGV6M2hSSU9PTU56dk5mejdpb0xaeHppWis2TWYyVzYKSHBrdlg2QjNzcnh5SGN1M3hOb0VpOS81V255UlJHZ2hMZzcrc0VpbllkaURmWk52b1RUY0xYUDZPVmxCQWl4bgpzTWN3anVIeUdVc2RaTTZlSTJ5UUF1TVBaQ3NZRWRXVDFmMjN4ZWhjUWpnL0dFSml2d3VVbEFjK3VuNTAzOVNnCjRrQWNCZFZQc3FXV0o2dXZQS01zWUFZdGRWUkdNZ1FHY1VvbE1YNCtTcENoUzRkcEZhOG4xNlUvdE9vVEpqSSsKSU1ncEt3Z0VWRGpubFAzcXB0T2xrUm9wallWVgotLS0tLUVORCBDRVJUSUZJQ0FURS0tLS0t,
@@ -420,7 +423,8 @@ There are many ways to set up a compatible server endpoint. The following exampl
    The `gnutls` package poses [requirements on the signatures](https://www.gnutls.org/manual/html_node/Digital-signatures.html) for the client certificate. Make sure to meet them.
    {: note}
 
-   In this configuration, we accept any client certificate that is signed by the certificate authority via the `x509/certvalid` mode. This might change depending on the `StreamDriver.Authmode` setting. See [StreamDriver.Authmode](https://www.rsyslog.com/doc/configuration/modules/imtcp.html#streamdriver-authmode).
+
+   In this configuration, we accept any client certificate that is signed by the certificate authority via the `x509/certvalid` mode. This can change depending on the `StreamDriver.Authmode` setting. See [StreamDriver.Authmode](https://www.rsyslog.com/doc/configuration/modules/imtcp.html#streamdriver-authmode).
    {: note}
 
 4. Restart the syslog service.

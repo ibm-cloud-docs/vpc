@@ -2,7 +2,7 @@
 
 copyright:
   years: 2022, 2025
-lastupdated: "2025-09-30"
+lastupdated: "2025-10-06"
 
 keywords: Backup for VPC, backup service, backup plan, backup policy, restore, restore volume, restore data, faqs
 
@@ -140,6 +140,12 @@ No. If you update your backup policy plan to create copies of your automated bac
 How long the copy is kept depends on how often your backup plan generates backup snapshots and the number you chose to keep. For example, if your plan takes snapshots daily and you specified 5 remote copies to keep, then at any time the oldest remote copy is less than 5 days old. If you already have 5 remote copies in a region, then the system deletes the oldest one to make space for the new snapshot copy.
 
 Keep in mind, a remote snapshot copy is independent from the source volume or the parent snapshot. If those resources are inaccessible or deleted, the snapshot copy in the remote region is not affected. If a backup snapshot is deleted due to reaching the end of its retention period, its remote copy is not deleted automatically.
+
+## What happens to my backup snapshots when the backup plan or policy is deleted?
+{: faq}
+{: #faq-baas-policy-deletion}
+
+When you delete a backup policy, you also delete all the plans that are associated with it. When you delete a backup policy, it can no longer initiate any backup jobs. It does not create or delete any backup snapshot anymore. The existing backups that it created remain intact as their lifecycle is independent from the policy. Existing backups must be deleted separately [in the console](/docs/vpc?topic=vpc-snapshots-vpc-manage&interface=ui#snapshots-vpc-delete-snapshot-ui){: ui}[from the CLI](/docs/vpc?topic=vpc-snapshots-vpc-manage&interface=cli#snapshots-vpc-delete-snapshot-cli){: cli}[with the API](/docs/vpc?topic=vpc-snapshots-vpc-manage&interface=api#snapshots-vpc-delete-snapshot-api){: api}[with Terraform](/docs/vpc?topic=vpc-snapshots-vpc-manage&interface=terraform#snapshots-vpc-delete-snapshot-terraform){: terraform}.
 
 ### Why do my backup copies show up in the remote region later than my backups in my source region?
 {: faq}
