@@ -2,7 +2,7 @@
 
 copyright:
   years: 2022, 2025
-lastupdated: "2025-08-26"
+lastupdated: "2025-10-06"
 
 keywords: confidential computing, secure execution, logging for hyper protect virtual server for vpc
 
@@ -30,14 +30,14 @@ The following logging services are supported.
 
 {{site.data.keyword.logs_full}} is a scalable logging service that persists logs and provides users with capabilities for querying, tailing, and visualizing logs.
 
-Logs are comprised of events that are typically human-readable and have different formats, for example, unstructured text, JSON, delimiter-separated values, key-value pairs, and so on. The {{site.data.keyword.logs_full_notm}} service can manage general purpose application logs, platform logs, or structured audit events. {{site.data.keyword.logs_full_notm}} can be used with logs from both IBM Cloud services and customer applications.
+Logs are comprised of events that are typically human-readable and have different formats, for example, unstructured text, JSON, delimiter-separated values, key-value pairs, and so on. The {{site.data.keyword.logs_full_notm}} service can manage general-purpose application logs, platform logs, or structured audit events. {{site.data.keyword.logs_full_notm}} can be used with logs from both IBM Cloud services and customer applications.
 
 For information about {{site.data.keyword.logs_full_notm}}, see [{{site.data.keyword.logs_full_notm}}](/docs/cloud-logs).
 
 ### Access to IBM Cloud Logs:
 {: #cloud-logs-access}
 
-Access to {{site.data.keyword.logs_full_notm}} instances for users in vpc account is controlled by {{site.data.keyword.iamlong}} (IAM). Every user that accesses the {{site.data.keyword.logs_full_notm}} in vpc account must be assigned an access policy with an IAM role.
+Access to {{site.data.keyword.logs_full_notm}} instances for users in VPC account is controlled by {{site.data.keyword.iamlong}} (IAM). Every user that accesses the {{site.data.keyword.logs_full_notm}} in VPC account must be assigned an access policy with an IAM role.
 
 #### Access policies to be added:
 {: #cloud-logs-accesspolicies}
@@ -76,14 +76,14 @@ Input parameters to be provided in the `env` section are:
 
 - `hostname`: Hostname of the service instance. Use the endpoint under the ICL instance's Endpoint Section.
 
-   - For public network ICL access: Select **Public ingress endpoint** section as hostname in the contract.
-   - For private network ICL access: Select **Private ingress endpoint** section as hostname in the contract.
+   - For public network ICL access: Select the **Public ingress endpoint** section as the hostname in the contract.
+   - For private network ICL access: Select **Private ingress endpoint** section as the hostname in the contract.
 
    You must create a virtual private endpoint (VPE) gateway for ICL to access {{site.data.keyword.logs_full_notm}} privately. For more information, see [Using virtual private endpoints for VPC to privately connect to {{site.data.keyword.logs_full_notm}}](/docs/cloud-logs?topic=cloud-logs-vpe-connection&interface=cli).
    {: note}
 
-- `iamApiKey`: The IAM API key for the service id. Generate and retrieve the API key from the service ID in IAM.
-- `port`: (Optional) The port of the service instance, that is 443.
+- `iamApiKey`: The IAM API key for the service ID. Generate and retrieve the API key from the service ID in IAM.
+- `port`: (Optional) The port of the service instance that is 443.
 
 For more information, see the [logging subsection](/docs/vpc?topic=vpc-about-contract_se#hpcr_contract_icl).
 
@@ -132,7 +132,7 @@ For more information, see [Managing {{site.data.keyword.logs_full_notm}} logging
 You can also configure logging with a generic [syslog backend](https://datatracker.ietf.org/doc/html/rfc5424) such as an [rsyslog](https://www.rsyslog.com/) server or a [Logstash](https://www.elastic.co/logstash/) server. The {{site.data.keyword.hpvs}} for VPC instance uses TLS with [mutual authentication](https://en.wikipedia.org/wiki/Mutual_authentication) to connect to the logging backend. Find the following pieces of information to configure logging:
 
 - Syslog hostname
-- [optional] port and it defaults to 514
+- [Optional] port and it defaults to 514
 - Certificate Authority (CA) - the certificate used to verify the certificate chain both for client and server authentication. Note that the same CA has to be used for both the client and server certificates.
 - Client certificate - used to prove the client to the server, signed by the CA
 - Client key - private key used by the virtual server instance to establish trust
@@ -308,7 +308,7 @@ Use the content of the following files in preparation to fill in the placeholder
 - `${CLIENT_CERTIFICATE}` - `client.crt` from preparation step 3
 - `${CLIENT_PRIVATE_KEY}` - `client-key-pkcs8.pem` from preparation step 3
 
-`${HOSTNAME}`, `${CA}`, `${CLIENT_CERTIFICATE}`, and `${CLIENT_PRIVATE_KEY}` are strings without extra encoding or escaping. Regardless of the way you format them, make sure you use **valid YAML** (see [Scalars](https://yaml.org/spec/1.2.2/#scalars){: external}). In the following example, the new lines are replaced with `\n` and carriage returns are deleted to make sure the content fits in one line between the inverted commas (see [scalars in double-quoted style](https://yaml.org/spec/1.2.2/#double-quoted-style){: external}). You can also use other valid YAML variations.
+`${HOSTNAME}`, `${CA}`, `${CLIENT_CERTIFICATE}`, and `${CLIENT_PRIVATE_KEY}` are strings without extra encoding or escaping. Regardless of the way you format them, make sure that you use **valid YAML** (see [Scalars](https://yaml.org/spec/1.2.2/#scalars){: external}). In the following example, the new lines are replaced with `\n` and carriage returns are deleted to make sure the content fits in one line between the inverted commas (see [scalars in double-quoted style](https://yaml.org/spec/1.2.2/#double-quoted-style){: external}). You can also use other valid YAML variations.
 
 Example:
 ```yaml
@@ -322,14 +322,14 @@ env:
       key: "-----BEGIN PRIVATE KEY-----\n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\nhJITxResgCTR2aD0nMzF8egEKJoY\n-----END PRIVATE KEY-----\n"
 ```
 
-You can give the syslog certificates and the key in base64 format as well.
-To generate it in base64, use the following command:
+You can give the syslog certificates and the key in Base64 format as well.
+To generate it in Base64, use the following command:
 
 ```sh
 cat ${CLIENT_PRIVATE_KEY} | base64 -w0
 ```
 
-Configure the contract with base64 encoded certificates:
+Configure the contract with Base64 encoded certificates:
 ```yaml
 env:
   logging:
@@ -343,7 +343,7 @@ env:
 
 Use the content of the following files in preparation to fill in the placeholders:
 
-${Base64 encoded CA} - Get ca.crt from preparation step 1 and run cat ca.crt | base64 -w0 ${CLIENT_CERTIFICATE} - Get client.crt from preparation step 3 and run cat client.crt | base64 -w0 ${CLIENT_PRIVATE_KEY} - Get client-key-pkcs8.pem from preparation step 3 and run cat client-key-pkcs8.pem | base64 -w0
+${Base64 encoded CA} - Get ca.crt from preparation step 1 and run cat ca.crt | Base64 -w0 ${CLIENT_CERTIFICATE} - Get client.crt from preparation step 3 and run cat client.crt | Base64 -w0 ${CLIENT_PRIVATE_KEY} - Get client-key-pkcs8.pem from preparation step 3 and run cat client-key-pkcs8.pem | Base64 -w0
 
 For example:
 
@@ -415,12 +415,12 @@ There are many ways to set up a compatible server endpoint. The following exampl
 
    Make sure to fill in the `${PORT}` placeholder. It must match the `${PORT}` setting in the contract.
 
-   The example config will log the received logs to its own journal. In a production setup, you might want to forward the logs to a database, but this is outside of the scope of this documentation.
+   The example config logs the received logs to its own journal. In a production setup, you might want to forward the logs to a database, but this is outside of the scope of this documentation.
 
    The `gnutls` package poses [requirements on the signatures](https://www.gnutls.org/manual/html_node/Digital-signatures.html) for the client certificate. Make sure to meet them.
    {: note}
 
-   In this configuration, we accept any client certificate that is signed by the certificate authority via the `x509/certvalid` mode. This may change depending on the `StreamDriver.Authmode` setting. See [StreamDriver.Authmode](https://www.rsyslog.com/doc/configuration/modules/imtcp.html#streamdriver-authmode).
+   In this configuration, we accept any client certificate that is signed by the certificate authority via the `x509/certvalid` mode. This might change depending on the `StreamDriver.Authmode` setting. See [StreamDriver.Authmode](https://www.rsyslog.com/doc/configuration/modules/imtcp.html#streamdriver-authmode).
    {: note}
 
 4. Restart the syslog service.
