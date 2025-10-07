@@ -2,7 +2,7 @@
 
 copyright:
   years: 2022, 2025
-lastupdated: "2025-09-10"
+lastupdated: "2025-10-07"
 
 keywords: confidential computing, enclave, secure execution, hpcr, contract, customization, schema, contract schema, env, workload, encryption
 
@@ -968,7 +968,7 @@ Complete the following steps on an Ubuntu system to create the contract signatur
    ```
    {: pre}
 
-9. Use the following command to encrypt password with `ibm-hyper-protect-container-runtime-1-0-s390x-23-encrypt.crt.`:
+9. Use the following command to encrypt password with `ibm-hyper-protect-container-runtime-1-0-s390x-23-encrypt.crt`:
 
    ```yaml
    ENCRYPTED_PASSWORD="$(echo -n "$PASSWORD" | base64 -d | openssl rsautl -encrypt -inkey $CONTRACT_KEY  -certin | base64 -w0)"
