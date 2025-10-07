@@ -2,7 +2,7 @@
 
 copyright:
   years: 2021, 2025
-lastupdated: "2024-06-13"
+lastupdated: "2025-10-07"
 
 keywords: image, virtual private cloud, boot volume, virtual server instance, instance
 
@@ -15,8 +15,11 @@ subcollection: vpc
 # Creating an image from a volume
 {: #create-ifv}
 
-You can create an image from a volume that is attached to an available virtual server instance as a boot volume in the console, from the CLI, or with the API.
+You can create an image from a volume that is attached to a stopped virtual server instance as a boot volume in the console, from the CLI, with the API, or Terraform.
 {: shortdesc}
+
+In the current release of second-generation block storage volumes, the creation of a custom image from an `sdp` boot volume with customer-managed encryption is not supported.
+{: note}
 
 ## Scenarios for creating an image from a volume
 {: #ifv-scenarios}
@@ -32,11 +35,13 @@ You can create an image from a volume in several ways.
 Depending on the size of the image that you're creating, the job might take from 5 minutes to 1.5 hours. You can cancel a job that's taking too long to queue. For more information, see [Performance considerations](/docs/vpc?topic=vpc-image-from-volume-vpc-manage#ifv-performance).
 {: note}
 
+When you select a name for the customer image, remember that the name can't be used by another image in the region and names that start with `ibm-` are reserved for system-provided images.
+
 ## Creating an image from a volume in the console
 {: #create-image-from-volume-vpc-ui}
 {: ui}
 
-You can create an image from a volume that is attached to an available virtual server instance as a boot volume in the console.
+You can create an image from a volume that is attached to a virtual server instance as a boot volume in the console.
 
 To create an image of the boot volume, the associated virtual server instance must be stopped.
 {: requirement}
@@ -79,7 +84,9 @@ To create an image of the boot volume, the associated virtual server instance mu
       * **Locate by CRN**
         1. Enter the CRN of your encryption key.
 
-6. **Advanced options**: You can use the toggle to activate Image lifecycle Management. By selecting this option, you can manage when your image becomes `deprecated` and `obsolete`. You can schedule a single status change or schedule the complete lifecycle of the images. You can schedule status changes by using calendar date and time or number of days. The obsolescence date must always be after the deprecation date. For more information, see [Custom image lifecycle](/docs/vpc?topic=vpc-planning-custom-images&interface=ui#custom-image-lifecycle).
+6. **Advanced options**: You can set allowed-use expressions and activate the Image lifecycle management.
+   - Allowed-use expressions define the capabilities and restrictions of an image to help you find compatible image and profile combinations during server creation. You can enter [allowed-use expressions](/docs/vpc?topic=vpc-custom-image-allowed-use-expressions) for virtual server instances and bare metal servers.
+   - You can use the toggle to activate Image lifecycle Management. By selecting this option, you can manage when your image becomes `deprecated` and `obsolete`. You can schedule a single status change or schedule the complete lifecycle of the images. You can schedule status changes by using calendar date and time or number of days. The obsolescence date must always be after the deprecation date. For more information, see [Custom image lifecycle](/docs/vpc?topic=vpc-planning-custom-images&interface=ui#custom-image-lifecycle).
 
 6. On the right-side panel, click **Create custom image**.
 
@@ -103,7 +110,7 @@ To use this image when you create an instance, select it as the operating system
 {: #image-from-volume-vpc-cli}
 {: cli}
 
-Use the CLI to create an image from a volume that is attached to an available virtual server instance as the primary boot volume or as a secondary boot volume.
+Use the command-line interface (CLI) to create an image from a volume that is attached to a virtual server instance as a boot volume.
 
 ### Before you begin
 {: #before-creating-ifv-cli}
@@ -167,9 +174,7 @@ Use the CLI to create an image from a volume that is attached to an available vi
 ### Schedule custom image lifecycle status changes by using the CLI
 {: #ifv-import-schedule-ilm-status-change-cli}
 
-When you import a custom image by using the command-line interface (CLI), you can also schedule the lifecycle status changes of the {{site.data.keyword.vpc_short}} custom image at the same time by using options of the **`ibmcloud is image-create`** command.
-
-Specify the name of the custom image to be created by using the `IMAGE_NAME` variable and the source by using the `--source-volume` option to indicate that the source is an existing boot volume.
+When you create a custom image, you can also schedule the lifecycle status changes of the {{site.data.keyword.vpc_short}} custom image at the same time by using the  `--deprecate-at` or `--obsolete-at` options of the `ibmcloud is image-create` command.
 
 To schedule the `deprecate-at` or `obsolete-at` properties, specify a date in the ISO 8601 (`YYYY-MM-DDThh:mm:ss+hh:mm`) date and time format.
 
@@ -181,9 +186,9 @@ To schedule the `deprecate-at` or `obsolete-at` properties, specify a date in th
 * `mm` is the two-digit minutes.
 * `+hh:mm` or `-hh:mm` is the Coordinated Universal Time time zone.
 
-Thus, the date of 30 September 2023 at 8:00 PM in the North American Central Standard time zone (CST) would be `2023-09-30T20:00:00-06:00`
+For example, the date of 30 September 2025 at 8:00 PM in the North American Central Standard time zone (CST) is `2025-09-30T20:00:00-06:00`
 
-When you're scheduling the date and time, you can't use your current date and time. For example, if it is 8:00 AM on 12 June 2024, then the scheduled date and time must be after 8:00 AM on 12 June 2024. If you define both the `deprecate-at` and `obsolete-at` dates and times, the `deprecate-at` date must be after the `obsolete-at` date and time.
+When you schedule the date and time, you can't use your current date and time. The scheduled date and time must be in the future. If you define both the `deprecate-at` and `obsolete-at` dates and times, the `deprecate-at` date must be after the `obsolete-at` date and time.
 
 ```sh
 ibmcloud is image-create IMAGE_NAME [--source-volume VOLUME_ID] [--deprecate-at YYYY-MM-DDThh:mm:ss+hh:mm] [--obsolete-at YYYY-MM-DDThh:mm:ss+hh:mm]
@@ -258,7 +263,7 @@ Before you begin, make sure that you [set up your API environment](/docs/vpc?top
       ```
       {: pre}
 
-      In the example response, `source_volume` indicates the boot volume that is used to create the image. Also, notice that the image encryption appears as `none` because the source volume used the default IBM-managed encryption. If you [used you own root key](#ifv-use-crk), the response would show `user-managed` instead.
+      In the example response, `source_volume` indicates the boot volume that is used to create the image. Also, notice that the image encryption appears as `none` because the source volume used the default IBM-managed encryption. If you [use you own root key](#ifv-use-crk), the response  shows `user-managed` instead.
 
       ```json
       {
@@ -304,7 +309,7 @@ Before you begin, make sure that you [set up your API environment](/docs/vpc?top
    - [{{site.data.keyword.keymanagementserviceshort}} - Retrieving your instance ID and cloud resource name (CRN)](/docs/key-protect?topic=key-protect-retrieve-instance-ID&interface=api).
    - [{{site.data.keyword.hscrypto}} - Retrieving your instance ID](/docs/hs-crypto?topic=hs-crypto-retrieve-instance-ID&interface=api).
 
-1. Make an API request to [create an image](/apidocs/vpc/latest#create-image). Specify the volume ID the CRN of the root key as shown in the following example.
+1. Make an API request to [create an image](/apidocs/vpc/latest#create-image). Specify the volume ID and the CRN of the root key as shown in the following example.
    ```sh
    curl -X POST "$vpc_api_endpoint/v1/images?version=2024-06-11&generation=2"
    -H "Authorization: Bearer $iam_token"
@@ -360,9 +365,7 @@ Before you begin, make sure that you [set up your API environment](/docs/vpc?top
 ### Scheduling custom image lifecycle status changes with the API
 {: #ifv-import-schedule-ilm-status-change-API}
 
-When you create an image from a volume by using the application programming interface (API), you can schedule the lifecycle status changes of the custom image at the same time.
-
-The `name` can't be used by another image in the region and names that start with `ibm-` are reserved for system-provided images. Specify the `source.volume` subproperty to indicate the source of the image from volume.
+When you create an image from a volume, you can schedule the lifecycle status changes of the custom image at the same time. 
 
 To schedule the `deprecation_at` or `obsolescence_at` properties, specify a date in the ISO 8601 (`YYYY-MM-DDThh:mm:ss+hh:mm`) date and time format.
 
@@ -374,9 +377,9 @@ To schedule the `deprecation_at` or `obsolescence_at` properties, specify a date
 * `mm` is the two-digit minutes
 * `+hh:mm` or `-hh:mm` is the Coordinated Universal Time time zone
 
-Thus, the date of 30 September 2023 at 8:00 PM in the North American Central Standard time zone (CST) would be `2023-09-30T20:00:00-06:00`
+For example, the date of 30 September 2023 at 8:00 PM in the North American Central Standard time zone (CST) is `2023-09-30T20:00:00-06:00`
 
-When you're scheduling the date and time, you can't use your current date and time. For example, if it is 8:00 AM on 12 June 2024, then the scheduled date and time must be after 8:00 AM on 12 June 2024. If you define both the `deprecation_at` and `obsolescence_at` dates and times, the `obsolescence_at` date must be after the `deprecation_at` date and time.
+When you schedule the date and time, you can't use your current date and time. The scheduled date and time must be in the future. If you define both the `deprecation_at` and `obsolescence_at` dates and times, the `obsolescence_at` date must be after the `deprecation_at` date and time.
 
 ```sh
 curl -X POST "$vpc_api_endpoint/v1/images?version=2023-02-21&generation=2"\
@@ -386,11 +389,79 @@ curl -X POST "$vpc_api_endpoint/v1/images?version=2023-02-21&generation=2"\
       "source_volume": {
     	  "id": "4fec84ef-baf9-405d-bf3b-9d5a60e068f7"
       },
-      "deprecation_at": "2023-03-01T06:11:28+05:30",
-      "obsolescence_at": "2023-12-31T06:11:28+05:30"
+      "deprecation_at": "2025-11-28T06:11:28+05:30",
+      "obsolescence_at": "2025-12-28T06:11:28+05:30"
     }'
 ```
 {: pre}
+
+## Creating an image from a volume with Terraform
+{: #image-from-volume-vpc-terraform}
+{: terraform}
+
+Create custom images from {{site.data.keyword.block_storage_is_short}} boot volumes with Terraform by using [ibm_is_image](https://registry.terraform.io/providers/IBM-Cloud/ibm/latest/docs/resources/is_image){: external} resource. After specifying the name of the image, specify the source volume ID. 
+
+Optionally, you can also specify the CRN of your customer root key to be used to encrypt the custom image, and set [allowed-use expressions](/docs/vpc?topic=vpc-custom-image-allowed-use-expressions&interface=terraform#custom-image-allowed-use-expressions-terraform). See the following example:
+
+```terraform
+resource "ibm_is_image" "example" {
+  name               = "example-image"
+  source_volume      = "xxxx-xxxx-xxxxxxx"
+  encrypted_data_key = "eJxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx0="
+  encryption_key     = "crn:v1:bluemix:public:kms:us-south:a/6xxxxxxxxxxxxxxx:xxxxxxx-xxxx-xxxx-xxxxxxx:key:dxxxxxx-fxxx-4xxx-9xxx-7xxxxxxxx"
+  allowed_use {
+    api_version       = "2025-04-03"
+    bare_metal_server = "enable_secure_boot == true"
+    instance          = "enable_secure_boot == true"
+  }  
+
+  //increase timeouts as per volume size
+  timeouts {
+    create = "45m"
+  }
+}
+```
+{: codeblock}
+
+You can also schedule the lifecycle status changes of an {{site.data.keyword.vpc_short}} custom image at the same time by using the `deprecation_at` or `obsolescence_at` attributes. Specify a date in the ISO 8601 (`YYYY-MM-DDThh:mm:ss+hh:mm`) date and time format.
+
+* `YYYY` is the four-digit year
+* `MM` is the two-digit month
+* `DD` is the two-digit day
+* `T` separates the date and time information
+* `hh` is the two-digit hours
+* `mm` is the two-digit minutes
+* `+hh:mm` or `-hh:mm` is the Coordinated Universal Time time zone
+
+For example, the date of 30 September 2025 at 8:00 PM in the North American Central Standard time zone (CST) is `2025-09-30T20:00:00-06:00`
+
+When you schedule the date and time, you can't use your current date and time. The scheduled date and time must be in the future. If you define both the `deprecation_at` and `obsolescence_at` dates and times, the `obsolescence_at` date must be after the `deprecation_at` date and time.
+
+* Schedule a status change to `deprecated`.
+
+   ```terraform
+   resource "ibm_is_image" "example" {
+     name               = "example-image"
+     source_volume      = "xxxx-xxxx-xxxxxxx"
+     encrypted_data_key = "eJxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx0="
+     encryption_key     = "crn:v1:bluemix:public:kms:us-south:a/6xxxxxxxxxxxxxxx:xxxxxxx-xxxx-xxxx-xxxxxxx:key:dxxxxxx-fxxx-4xxx-9xxx-7xxxxxxxx"
+     deprecated_at      = "2025-11-28T15:10:00.000Z"
+   }
+   ```
+   {: pre}
+
+* Schedule a status change to `obsolete`.
+
+   ```terraform
+   resource "ibm_is_image" "example" {
+     name               = "example-image"
+     source_volume      = "xxxx-xxxx-xxxxxxx"
+     encrypted_data_key = "eJxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx0="
+     encryption_key     = "crn:v1:bluemix:public:kms:us-south:a/6xxxxxxxxxxxxxxx:xxxxxxx-xxxx-xxxx-xxxxxxx:key:dxxxxxx-fxxx-4xxx-9xxx-7xxxxxxxx"
+     obsolescence_at    = "2025-12-28T15:10:00.000Z"
+   }
+   ```
+   {: pre}
 
 ## Next steps
 {: #ifv-next-steps-api}

@@ -2,7 +2,7 @@
 
 copyright:
   years: 2020, 2025
-lastupdated: "2025-03-13"
+lastupdated: "2025-10-07"
 
 keywords: region, zone, deploy, datacenter, data, center, federated, CLI, API, account, failover, disaster, recovery, DR, data center
 
@@ -151,6 +151,8 @@ ibmcloud is regions
 ```
 {: pre}
 
+
+
 To switch to a different region, run the `ibmcloud target -r <region>` command. For example, to switch to the Washington DC region, run the following command:
 
 ```sh
@@ -177,9 +179,10 @@ ibmcloud is regions
 {: pre}
 
 
+
 For example, to get the list of VPCs in the `us-south` region, run the following command:
 
-```curl
+```sh
 curl "https://us-south.iaas.cloud.ibm.com/v1/vpcs?version=$api_version&generation=2" -H "Authorization: $iam_token"
 ```
 {: pre}
@@ -210,5 +213,7 @@ us-south-2   us-south-dal14-a    DAL14          us-south    available
 us-south-3   us-south-dal10-a    DAL10          us-south    available
 ```
 {: pre}
+
+
 
 For more information about available command options, see [`ibmcloud is zones`](/docs/vpc?topic=vpc-vpc-reference&interface=cli#zones-list){: external}.
