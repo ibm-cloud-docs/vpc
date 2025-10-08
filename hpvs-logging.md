@@ -2,7 +2,7 @@
 
 copyright:
   years: 2022, 2025
-lastupdated: "2025-10-06"
+lastupdated: "2025-10-08"
 
 keywords: confidential computing, secure execution, logging for hyper protect virtual server for vpc
 
@@ -424,7 +424,7 @@ There are many ways to set up a compatible server endpoint. The following exampl
    {: note}
 
 
-   In this configuration, we accept any client certificate that is signed by the certificate authority via the `x509/certvalid` mode. This can change depending on the `StreamDriver.Authmode` setting. See [StreamDriver.Authmode](https://www.rsyslog.com/doc/configuration/modules/imtcp.html#streamdriver-authmode).
+   In this configuration, we accept any client certificate that is signed by the certificate authority via the `x509/certvalid` mode. This can change depending on the `StreamDriver.Authmode` setting. See [StreamDriver.Authmode](https://www.rsyslog.com/doc/configuration/modules/imtcp.html#streamdriver-authmode){: external}.
    {: note}
 
 4. Restart the syslog service.
