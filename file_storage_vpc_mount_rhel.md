@@ -2,7 +2,7 @@
 
 copyright:
   years: 2021, 2025
-lastupdated: "2025-09-30"
+lastupdated: "2025-10-08"
 
 keywords: file share, file storage, mount helper, mount target, mount path, secure connection, NFS
 
@@ -39,7 +39,7 @@ Follow these steps to mount a file share on an RHEL host. Examples were tested o
 
 1. Establish an [SSH connection to the Compute instance](/docs/vpc?topic=vpc-creating-virtual-servers&interface=ui#next-steps-after-creating-virtual-servers-ui) where you want to mount the file share, then continue with the following steps.
 
-   If you want to mount the file shares from IBM {{site.data.keyword.powerSys_notm}} instances, you must use a network path through a load balancer. For more information, see the following tutorial: [Accessing File Storage for VPC with zonal availability from IBM Power Virtual Server instances](/docs/sap?topic=sap-ha-nlb-rt-nfs-intro).
+   If you want to mount the file shares from IBM {{site.data.keyword.powerSys_notm}} instances, you must use a network path through a load balancer. For more information, see the following tutorial: [Accessing File Storage for VPC shares from IBM Power Virtual Server instances](/docs/sap?group=file-storage-shares-for-vpc).
    {: note}
 
 1. Install the required tools.
