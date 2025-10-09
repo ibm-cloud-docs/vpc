@@ -2,7 +2,7 @@
 
 copyright:
   years: 2019, 2025
-lastupdated: "2025-09-23"
+lastupdated: "2025-10-09"
 
 keywords: Block storage for VPC, change IOPS, change auto-delete, increase volume, change name, rename volume, delete volume, renaming volume, updating volume
 
@@ -180,17 +180,27 @@ Before you can use the CLI, you must install the IBM Cloud CLI and the VPC CLI p
 
 To change a volume name, specify either the volume name or ID and then indicate the new name. The volume name can be up to 63 alpha-numeric characters and include special characters, and must begin with a lowercase letter. The volume name must be unique across the VPC infrastructure.
 
+
 ```sh
 ibmcloud is volume-update VOLUME_ID [--name NEW_NAME] [--json]
 ```
 {: pre}
 
+
+
+
 See the following example.
+
 
 ```sh
 ibmcloud is volume-update r006-5ed4006b-3dac-4c95-8eeb-4aa9a85cbd34 --name my-data-volume
 ```
 {: pre}
+
+
+
+
+
 
 ```sh
 Updating volume r006-5ed4006b-3dac-4c95-8eeb-4aa9a85cbd34 under account Test Account as user test.user@ibm.com...
@@ -222,20 +232,43 @@ Storage Generation                     1
 ```
 {: screen}
 
+
+
+
 ### Adding user tags to a {{site.data.keyword.block_storage_is_short}} volume in from the CLI
 {: #add-user-tags-volumes-cli}
 
+
+
 Issue the `ibmcloud is volume-update VOLUME` command with the `--tags` option to update the user tags of a volume. The volume argument can be defined by either the volume ID or the volume name.
+
+
+
+
+
+
 
 Use the same option to add tags to a volume when you create a volume by using `ibmcloud is volume-create`.
 {: tip}
 
+
+
+
+
 The following example adds user tags `env:test` and `bkp:test` to a volume identified by ID. The output shows information such as name, status, capacity, performance profile, and location. The updated tags appear at the end of the response.
+
+
 
 ```sh
 ibmcloud is volume-update r006-5ed4006b-3dac-4c95-8eeb-4aa9a85cbd34 --tags dev:test
 ```
 {: pre}
+
+
+
+
+
+
 
 ```sh
 Updating volume r006-5ed4006b-3dac-4c95-8eeb-4aa9a85cbd34 under account Test Account as user test.user@ibm.com...
@@ -267,15 +300,25 @@ Storage Generation                     1
 ```
 {: screen}
 
+
+
+
+
 ### Updating a volume attachment from the CLI
 {: #update-vol-attachment-cli}
 
 You can update the volume attachment name and change the default auto-delete setting with the `instance-volume-attachment-update` command.
 
+
+
 ```sh
 ibmcloud is instance-volume-attachment-update INSTANCE_ID VOLUME_ATTACHMENT_ID [--name NEW_NAME] [--auto-delete true | false] [--json]
 ```
 {: pre}
+
+
+
+
 
 Use the `--name` option and specify a new name for the volume attachment. Specify `--auto-delete true` to make sure that the volume is automatically deleted when the instance is deleted. Specify `--auto-delete false`, if you want to keep the volume as a stand-alone volume after the instance is deleted.
 
@@ -283,6 +326,11 @@ Use the `--name` option and specify a new name for the volume attachment. Specif
 ibmcloud is instance-volume-attachment-update doc-test-ro otp1 --name one-true-pairing --auto-delete false
 ```
 {: pre}
+
+
+
+
+
 
 ```sh
 Updating volume attachment otp1 of instance doc-test-ro under account Test Account as user test.user@ibm.com...
@@ -300,6 +348,9 @@ Created           2023-06-29T18:14:57+00:00
 ```
 {: screen}
 
+
+
+
 For more information about available command options, see [`ibmcloud is instance-volume-attachment-update`](/docs/cli?topic=cli-vpc-reference#instance-volume-attachment-update).
 
 ### Detaching a volume from the CLI
@@ -311,15 +362,29 @@ Use the `instance-volume-attachment-detach` command to detach a volume from an i
 
 In the syntax for this command, INSTANCE is the ID or name of the instance. VOLUME_ATTACHMENT is the ID or name of the volume attachment. You can specify multiple volume attachments. For more information about volume attachments, see the CLI reference for [creating a volume attachment](/docs/vpc?topic=vpc-vpc-reference&interface=cli#instance-volume-attachment-add).
 
+
+
 ```sh
 ibmcloud is instance-volume-attachment-detach INSTANCE (VOLUME_ATTACHMENT1 VOLUME_ATTACHMENT2 ...) [--output JSON] [-f, --force] [-q, --quiet]
 ```
 {: pre}
 
+
+
+
+
+
+
 ```sh
 ibmcloud is instance-volume-attachment-detach kj-test-ro one-true-pairing
 ```
 {: pre}
+
+
+
+
+
+
 
 ```sh
 This will delete volume attachment one-true-pairing and cannot be undone. Continue [y/N] ?> y
@@ -330,7 +395,17 @@ Volume attachment one-true-pairing is deleted.
 ```
 {: screen}
 
+
+
+
+
+
+
 For more information about available command options, see [`ibmcloud is instance-volume-attachment-detach`](/docs/cli?topic=cli-vpc-reference#instance-volume-attachment-detach).
+
+
+
+
 
 A boot volume cannot be detached from an instance while the instance exists. If you want to keep the boot volume after the instance is deleted, make sure that the `auto-delete` option in the volume attachment is set to `false`.
 {: note}
@@ -741,17 +816,30 @@ Use the `volume-delete` command and specify the volume ID to delete a block stor
 You cannot delete an active block storage volume. You must first [detach it from the virtual server](#detach-vol-attachment-cli).
 {: note}
 
+
+
 ```sh
 ibmcloud is volume-delete (VOLUME_NAME | VOLUME_ID) [-f, --force]
 ```
 {: pre}
 
+
+
+
+
 See the following example.
+
 
 ```sh
 ibmcloud is volume-delete demovolume1
 ```
 {: pre}
+
+
+
+
+
+
 
 ```sh
 This will delete volume demovolume1 and cannot be undone. Continue [y/N] ?> y
@@ -760,6 +848,12 @@ OK
 Volume demovolume1 is deleted.
 ```
 {: screen}
+
+
+
+
+
+
 
 ### Deleting a {{site.data.keyword.block_storage_is_short}} volume with the API
 {: #delete-vol-api}

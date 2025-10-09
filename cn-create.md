@@ -2,7 +2,7 @@
 
 copyright:
   years: 2024, 2025
-lastupdated: "2025-08-08"
+lastupdated: "2025-10-09"
 
 keywords:
 
@@ -74,10 +74,15 @@ To create a cluster network from the CLI, follow these steps:
 
 1. To create a cluster network, enter the following command:
 
-   ```bash
+
+```bash
    ibmcloud is cluster-network-create --vpc VPC --zone ZONE --profile PROFILE [--name NAME] [--subnet-prefixes-cidr SUBNET_PREFIXES_CIDR] [--resource-group-id RESOURCE_GROUP_ID | --resource-group-name RESOURCE_GROUP_NAME] [--output JSON] [-q, --quiet]
    ```
    {: pre}
+
+
+
+
 
    Where:
 
@@ -108,8 +113,13 @@ To create a cluster network from the CLI, follow these steps:
    `-q, --quiet`
    :    Suppress verbose output.
 
+
+
+
 ### Command examples
 {: #cli-command-examples-cluster-network-create}
+
+
 
 * `ibmcloud is cluster-network-create --vpc my-vpc --zone us-south-1 --profile profile-name`
 * `ibmcloud is cluster-network-create --vpc my-vpc --zone us-south-1 --profile profile-name --name my-cl-net`
@@ -117,6 +127,9 @@ To create a cluster network from the CLI, follow these steps:
 * `ibmcloud is cluster-network-create --vpc my-vpc --zone us-south-1 --profile profile-name`
 * `ibmcloud is cluster-network-create --vpc my-vpc --zone us-south-1 --profile profile-name --name my-cl-net`
 * `ibmcloud is cluster-network-create --vpc my-vpc --zone us-south-1 --profile profile-name --name my-cl-net --subnet-prefixes-cidr 10.0.0.24/24 --output JSON`
+
+
+
 
 ## Creating a cluster network with the API
 {: #cn-api-create}

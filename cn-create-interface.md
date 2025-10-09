@@ -2,7 +2,7 @@
 
 copyright:
   years: 2024, 2025
-lastupdated: "2025-08-08"
+lastupdated: "2025-10-09"
 
 keywords:
 
@@ -62,11 +62,15 @@ To create a cluster network interface in the CLI, follow these steps:
 
 1. To create a cluster network interface, enter the following command:
 
+   
    ```bash
    ibmcloud is cluster-network-interface-create CLUSTER_NETWORK (--rip RIP | (--rip-address RIP_ADDRESS --rip-auto-delete true | false --rip-name RIP_NAME)) [--subnet SUBNET] [--vpc VPC] [--name NAME] [--output JSON] [-q, --quiet]
    ```
    {: pre}
 
+   
+   
+   
    Where:
 
    `CLUSTER_NETWORK`
@@ -99,11 +103,19 @@ To create a cluster network interface in the CLI, follow these steps:
    `-q`, `--quiet`
    :    Suppress verbose output.
 
+   
+   
+
 ### Command examples
 {: #command-examples-create-cluster-network-interface}
 
+
+
 * `ibmcloud is cluster-network-interface-create my-cluster-network --name my-cluster-network-interface --subnet my-cluster-network-subnet --rip-name my-cluster-network-interface-reserved-ip` - Create reserved IP as part of interface creation
 * `ibmcloud is cluster-network-interface-create my-cluster-network --name my-cluster-network-interface --rip my-cluster-network-interface-reserved-ip` - Use existing cluster network subnet reserved IP
+
+
+
 
 ## Creating a cluster network interface with the API
 {: #create-cluster-network-interface-api}

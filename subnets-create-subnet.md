@@ -2,7 +2,7 @@
 
 copyright:
   years: 2022, 2025
-lastupdated: "2025-06-18"
+lastupdated: "2025-10-09"
 
 keywords:
 
@@ -93,10 +93,15 @@ The **Reserved IPs** tab is a list of all reserved IPs associated with the subne
 
 To create a subnet by using the CLI, run the following command:
 
+
 ```sh
-ibmcloud is subnet-create SUBNET_NAME VPC ((--zone ZONE_NAME --ipv4-address-count ADDR_COUNT) | --ipv4-cidr-block CIDR_BLOCK) [--acl ACL] [--pgw PGW] [--rt RT] [--resource-group-id RESOURCE_GROUP_ID | --resource-group-name RESOURCE_GROUP_NAME] [--output JSON] [-q, --quiet]
+ibmcloud is subnet-create SUBNET_NAME VPC ((--zone ZONE_NAME --ipv4-address-count ADDR_COUNT) | --ipv4-cidr-block CIDR_BLOCK) [--acl ACL] [--pgw PGW] [--rt RT] [--resource-group-id RESOURCE_GROUP_ID | --resource-group-name RESOURCE_GROUP_NAME] {} [--output JSON] [-q, --quiet]
 ```
 {: codeblock}
+
+
+
+
 
 Where:
 
@@ -135,6 +140,7 @@ Where:
 
 `-q, --quiet`
 :    Suppress verbose output.
+
 
 
 ### Creating subnets in VPC using the API
@@ -231,10 +237,15 @@ To view the details about a subnet in the list using the console, CLIck the link
 
 To view the details about a subnets in VPC by using the CLI, run the following command:
 
+
 ```sh
 ibmcloud is subnet SUBNET [--vpc VPC] [--show-attached] [--output JSON] [-q, --quiet]
 ```
 {: codeblock}
+
+
+
+
 
 Where:
 
@@ -252,6 +263,9 @@ Where:
 
 `-q, --quiet`
 :    Suppress verbose output.
+
+
+
 
 ### Viewing subnets in VPC using the API
 {: #subnets-view-api}
