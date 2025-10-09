@@ -652,7 +652,7 @@ From the command line, enter the `ibmcloud resource tag-create` command to creat
 ```sh
 ibmcloud resource tag-create --tag-names project:myproject
 ```
-{: codeblock}
+{: pre}
 
 For more information, see the [`ibmcloud resource` command reference](/docs/cli?topic=cli-ibmcloud_commands_resource).
 
