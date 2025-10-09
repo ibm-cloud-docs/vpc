@@ -311,8 +311,6 @@ Use the `instance-volume-attachment-detach` command to detach a volume from an i
 
 In the syntax for this command, INSTANCE is the ID or name of the instance. VOLUME_ATTACHMENT is the ID or name of the volume attachment. You can specify multiple volume attachments. For more information about volume attachments, see the CLI reference for [creating a volume attachment](/docs/vpc?topic=vpc-vpc-reference&interface=cli#instance-volume-attachment-add).
 
-
-
 ```sh
 ibmcloud is instance-volume-attachment-detach INSTANCE (VOLUME_ATTACHMENT1 VOLUME_ATTACHMENT2 ...) [--output JSON] [-f, --force] [-q, --quiet]
 ```
@@ -333,8 +331,6 @@ Volume attachment one-true-pairing is deleted.
 {: screen}
 
 For more information about available command options, see [`ibmcloud is instance-volume-attachment-detach`](/docs/cli?topic=cli-vpc-reference#instance-volume-attachment-detach).
-
-
 
 A boot volume cannot be detached from an instance while the instance exists. If you want to keep the boot volume after the instance is deleted, make sure that the `auto-delete` option in the volume attachment is set to `false`.
 {: note}
