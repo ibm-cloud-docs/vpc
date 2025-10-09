@@ -2,7 +2,7 @@
 
 copyright:
   years: 2018, 2025
-lastupdated: "2025-09-30"
+lastupdated: "2025-10-08"
 
 keywords:
 
@@ -260,8 +260,8 @@ You can use various image options with {{site.data.keyword.vpc_short}} included 
 
 - [List all the available stock or custom images](/docs/vpc?topic=vpc-creating-virtual-servers&interface=cli#list-available-stock-custom-images-cli)
 - [List all available images shared from a private catalog](/docs/vpc?topic=vpc-creating-virtual-servers&interface=cli#list-available-shared-private-catalog-images-cli)
-- [List all available boot volume images](/docs/vpc?topic=vpc-creating-virtual-servers&interface=cli#list-available-boot-volumes-images-cli)
-- [List all available snapshot images](/docs/vpc?topic=vpc-creating-virtual-servers&interface=cli#list-snapshots-images-cli)
+- [List all available boot volumes](/docs/vpc?topic=vpc-creating-virtual-servers&interface=cli#list-available-boot-volumes-images-cli)
+- [List all available snapshots](/docs/vpc?topic=vpc-creating-virtual-servers&interface=cli#list-snapshots-images-cli)
 
 You can use allowed-use expressions with images source resources to define the capabilities and restrictions with stock images, custom images, images that are shared with your account from a private catalog, boot volumes, and snapshots and help you find compatible image and profile combinations during server creation. During the creation of a virtual server instance with images that have an allowed-use expression, the information that is provided in the allowed-use properties is then evaluated against a potential virtual server instance to determine whether that image can be used to create the virtual server instance. Allowed-used expressions are already set for stock images. You must define them for custom images. For more information, see [Adding allowed-use expressions to custom images](/docs/vpc?topic=vpc-custom-image-allowed-use-expressions&interface=ui).
 
@@ -1339,7 +1339,7 @@ You can create instances by using Terraform. If you would like to use user tags 
 {: #before-you-begin-create-instance-terraform}
 {: terraform}
 
-Make sure that you set up [Terraform for VPC](https://registry.terraform.io/providers/IBM-Cloud/ibm/latest).
+Make sure that you set up [Terraform for VPC](https://registry.terraform.io/providers/IBM-Cloud/ibm/latest){: external}.
 
 ### Creating a private catalog
 {: #terraform-create-private-catalog}
@@ -1355,7 +1355,7 @@ Ready to create an instance? Before you can run the `ibm_is_instance` command, y
 
 Gather the following information by using `DataSource` command.
 
-1. Gather instance profile details. Run the following command for the profile that you select. See [x86 instance profiles](/docs/vpc?topic=vpc-profiles&interface=ui#profiles) for a list of available profiles. For more information, see the Terraform documentation on [ibm_is_instance_profiles](https://registry.terraform.io/providers/IBM-Cloud/ibm/latest/docs/data-sources/is_instance_profiles). Use an instance profile by referring to the instance profile data source. For more information, see the Terraform documentation on [ibm_is_instance_profile](https://registry.terraform.io/providers/IBM-Cloud/ibm/latest/docs/data-sources/is_instance_profile).
+1. Gather instance profile details. Run the following command for the profile that you select. See [x86 instance profiles](/docs/vpc?topic=vpc-profiles&interface=ui#profiles) for a list of available profiles. For more information, see the Terraform documentation on [ibm_is_instance_profiles](https://registry.terraform.io/providers/IBM-Cloud/ibm/latest/docs/data-sources/is_instance_profiles){: external}. Use an instance profile by referring to the instance profile data source. For more information, see the Terraform documentation on [ibm_is_instance_profile](https://registry.terraform.io/providers/IBM-Cloud/ibm/latest/docs/data-sources/is_instance_profile){: external}.
 
    * Gather instance profile details for a specific profile
 
@@ -1366,7 +1366,7 @@ Gather the following information by using `DataSource` command.
    ```
    {: codeblock}
 
-1. List the available images for creating your instance. The command depends on what image that you want to use. You can use a stock image, a custom image from your account, or an image that was shared with your account from a private catalog. For more information, see the Terraform documentation on [ibm_is_image](https://registry.terraform.io/providers/IBM-Cloud/ibm/latest/docs/data-sources/is_image). If you plan to use an image that was shared from a private catalog, see the Terraform documentation on [ibm_cm_version](https://registry.terraform.io/providers/IBM-Cloud/ibm/latest/docs/resources/cm_version) or [ibm_cm_offering_instance](https://registry.terraform.io/providers/IBM-Cloud/ibm/latest/docs/resources/cm_offering_instance).
+1. List the available images for creating your instance. You can use a stock image, a custom image from your account, or an image that was shared with your account from a private catalog. For more information, see the Terraform documentation on [ibm_is_image](https://registry.terraform.io/providers/IBM-Cloud/ibm/latest/docs/data-sources/is_image){: external}. If you plan to use an image that was shared from a private catalog, see the Terraform documentation on [ibm_cm_version](https://registry.terraform.io/providers/IBM-Cloud/ibm/latest/docs/resources/cm_version){: external} or [ibm_cm_offering_instance](https://registry.terraform.io/providers/IBM-Cloud/ibm/latest/docs/resources/cm_offering_instance){: external}.
 
     Allowed-use expressions: The image that you select determines the profiles that are available to create the virtual server instance. During the creation of a virtual server instance with images that use an allowed-use expression, the information that is provided in the allowed-use properties is then evaluated against a potential virtual server instance to determine whether that image can be used to create the virtual server instance. Stock images use defined allowed-use expressions. You must define any allowed-use expressions for custom images. For more information, see [Adding allowed-use expressions to custom images](/docs/vpc?topic=vpc-custom-image-allowed-use-expressions&interface=ui).
     {: note}
@@ -1380,7 +1380,7 @@ Gather the following information by using `DataSource` command.
        ```
        {: codeblock}
 
-   * Select an image that is shared from a private catalog for the instance. For more information, see the Terraform documentation on [ibm_is_images](https://registry.terraform.io/providers/IBM-Cloud/ibm/latest/docs/data-sources/is_images). You can select an image from the list to create the instance as shown in the section [Go to Creating an instance by using Terraform section](/docs/vpc?topic=vpc-creating-virtual-servers&interface=terraform#create-instance-terraform).
+   * Select an image that is shared from a private catalog for the instance. For more information, see the Terraform documentation on [ibm_is_images](https://registry.terraform.io/providers/IBM-Cloud/ibm/latest/docs/data-sources/is_images){: external}. You can select an image from the list to create the instance as shown in the section [Go to Creating an instance by using Terraform section](/docs/vpc?topic=vpc-creating-virtual-servers&interface=terraform#create-instance-terraform).
 
    If you select a catalog image that belongs to a different account, you have more considerations and limitations to review. See [Using cross-account image references in a private catalog in Terraform](/docs/vpc?topic=vpc-custom-image-cloud-private-catalog&interface=terraform#private-catalog-image-reference-vpc-terraform).
      {: note}
@@ -1423,7 +1423,7 @@ Gather the following information by using `DataSource` command.
           ```
           {: codeblock}
 
-1. Create a VPC resource or use an existing VPC by referring to the VPC data source. For more information, see the Terraform documentation on [ibm_is_vpc](https://registry.terraform.io/providers/IBM-Cloud/ibm/latest/docs/data-sources/is_vpc).
+1. Create a VPC resource or use an existing VPC by referring to the VPC data source. For more information, see the Terraform documentation on [ibm_is_vpc](https://registry.terraform.io/providers/IBM-Cloud/ibm/latest/docs/data-sources/is_vpc){: external}.
 
    ```terraform
    resource "ibm_is_vpc" "example_vpc" {
@@ -1432,7 +1432,7 @@ Gather the following information by using `DataSource` command.
    ```
    {: codeblock}
 
-1. Create a subnet resource or use an existing subnet by referring to the subnet data source. For more information, see the Terraform documentation on [ibm_is_subnet](https://registry.terraform.io/providers/IBM-Cloud/ibm/latest/docs/data-sources/is_subnet).
+1. Create a subnet resource or use an existing subnet by referring to the subnet data source. For more information, see the Terraform documentation on [ibm_is_subnet](https://registry.terraform.io/providers/IBM-Cloud/ibm/latest/docs/data-sources/is_subnet){: external}.
 
    ```terraform
    resource "ibm_is_subnet" "example_subnet" {
@@ -1458,7 +1458,7 @@ Gather the following information by using `DataSource` command.
    SSH keys can be either RSA or ED25519. You can generate new RSA key pairs by using the UI. Pre-existing RSA and ED25519 SSH keys can be uploaded. ED25519 can be used only if the operating system supports this key type. ED25519 can't be used with Windows or VMware images.
    {: note}
 
-1. Create a subnet_reserved_ip resource or use an existing subnet_reserved_ip by referring to the subnet_reserved_ip data source. For more information, see the Terraform documentation on [ibm_is_subnet_reserved_ip](https://registry.terraform.io/providers/IBM-Cloud/ibm/latest/docs/data-sources/is_subnet_reserved_ip)
+1. Create a subnet_reserved_ip resource or use an existing subnet_reserved_ip by referring to the subnet_reserved_ip data source. For more information, see the Terraform documentation on [ibm_is_subnet_reserved_ip](https://registry.terraform.io/providers/IBM-Cloud/ibm/latest/docs/data-sources/is_subnet_reserved_ip){: external}.
 
    ```terraform
    resource "ibm_is_subnet_reserved_ip" "example_reserved_ip" {
@@ -1476,7 +1476,7 @@ Gather the following information by using `DataSource` command.
 To use Terraform, download the Terraform CLI and configure the {{site.data.keyword.cloud_notm}} Provider plug-in. For more information, see [Getting started with Terraform](/docs/ibm-cloud-provider-for-terraform?topic=ibm-cloud-provider-for-terraform-getting-started).
 {: requirement}
 
-Create the instance by using one of the following examples. For more information, see the Terraform documentation on [ibm_is_instance](https://registry.terraform.io/providers/IBM-Cloud/ibm/latest/docs/resources/is_instance).
+Create the instance by using one of the following examples. For more information, see the Terraform documentation on [ibm_is_instance](https://registry.terraform.io/providers/IBM-Cloud/ibm/latest/docs/resources/is_instance){: external}.
 
 Allowed-use expressions: The image that you select determines the profiles that are available to create the virtual server instance. During the creation of a virtual server instance with images that use an allowed-use expression, the information that is provided in the allowed-use properties is then evaluated against a potential virtual server instance to determine whether that image can be used to create the virtual server instance. Stock images use defined allowed-use expressions. You must define any allowed-use expressions for custom images. For more information, see [Adding allowed-use expressions to custom images](/docs/vpc?topic=vpc-custom-image-allowed-use-expressions&interface=ui).
 {: note}

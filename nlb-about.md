@@ -2,7 +2,7 @@
 
 copyright:
   years: 2020, 2025
-lastupdated: "2025-09-23"
+lastupdated: "2025-10-09"
 
 keywords: load balancer, public, listener, back-end, front-end, pool, round-robin, weighted, connections, methods, policies, APIs, access, ports
 
@@ -133,7 +133,7 @@ Figure 3 illustrates how a private NLB works. The Consumer queries DNS for the l
 NLBs with `route_mode` set to `true` are private load balancers that support only virtual network function (VNF) appliances, such as a firewall, as back-end targets.
 {: important}
 
-Figure 4 illustrates how a private NLB with routing mode works. The Consumer queries DNS for the load balancer’s IP address using the load balancer’s FQDN. The Consumer optionally queries the DNS server. DNS responds with the load balancer’s IP address. The Consumer sends a TCP request to the load balancer for data through a direct link or transit gateway. The load balancer forwards the request to VNF devices then to back-end targets. Typically, targets are in a separate VPC. The target generates a response and that response is sent back to the NLB, then again to VNF devices before returning to the client.
+Figure 4 illustrates how a private NLB with routing mode works. The Consumer queries DNS for the load balancer’s IP address using the load balancer’s FQDN. The Consumer optionally queries the DNS server. DNS responds with the load balancer’s IP address. The Consumer sends a TCP request to the load balancer for data through a direct link or transit gateway. The load balancer forwards the request to VNF devices then to back-end targets. The target generates a response and that response is sent back to the NLB, then again to VNF devices before returning to the client.
 
 ![Private load balancer with routing mode enabled](images/lb_use_case_3.svg "Private load balancer with routing mode enabled"){: caption="Private load balancer with route mode enabled" caption-side="bottom"}
 

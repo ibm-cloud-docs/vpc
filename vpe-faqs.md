@@ -2,7 +2,7 @@
 
 copyright:
   years: 2020, 2025
-lastupdated: "2025-04-01"
+lastupdated: "2025-10-08"
 
 keywords: virtual private endpoint, FAQs, VPE, endpoint gateway
 
@@ -73,3 +73,8 @@ When the reserved IP address that is bound to the endpoint gateway is source NAT
 {: faq}
 
 A finite pool of IP addresses is used for NAT operations on the VPC gateway. One IP address is required per VPC per zone.
+
+## Related links
+{: #vpe-faq-related-links}
+
+[Planning for virtual private endpoint gateways](/docs/vpc?topic=vpc-vpe-planning-considerations)

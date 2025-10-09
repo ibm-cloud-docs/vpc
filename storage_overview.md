@@ -2,7 +2,7 @@
 
 copyright:
   years: 2022, 2025
-lastupdated: "2025-09-23"
+lastupdated: "2025-10-08"
 
 keywords: block storage for VPC, File Storage for VPC, Snapshots for VPC, Backup for VPC, block storage, file storage, snapshots, backup, 
 
@@ -23,15 +23,15 @@ The {{site.data.keyword.vpc_full}} (VPC) provides block storage, file storage, a
 
 {{site.data.keyword.block_storage_is_full}} provides hypervisor-mounted, high-performance data storage for your virtual server instances that you can provision within a VPC. The VPC infrastructure provides rapid scaling across zones and more performance and security.
 
-By using this service, you can create boot volumes and data volumes for your virtual server instances. Use the IBM Cloud console, CLI, API, or Terraform to create volumes, rename volumes, attach and detach a volume of a virtual server instance, transfer volumes to a different instance, tag volumes, delete volumes, and access metrics.
+By using this service, you can create boot volumes and data volumes for your virtual server instances. Use the IBM Cloud console, CLI, API, or Terraform to create volumes, rename volumes, attach, and detach a volume of a virtual server instance, transfer volumes to a different instance, tag volumes, delete volumes, and access metrics.
 
 Pay for only the capacity that you need. You can start with a smaller volume, and increase the capacity later.
 
 You can specify your own performance limits, and adjust them later if your requirements change. You can adjust IOPS up or down, for greater performance or when you want to reduce costs.
 
-   * The second-generation volume profile, sdp provides the most flexibility, as you can specify your capacity, IOPS, and throughput maximum values. You can create boot and data volumes with maximum storage capacity of 32,000 GB, a performance level of 64,000 IOPS, and maximum througput of 1024 MBps. The capacity, IOPS, and throughput values of volumes that are created with the `sdp` profile can be modified even when the volume is not attached to a virtual server instance. The `sdp` profile is available in the Dallas, Frankfurt, London, Madrid, Osaka, Sao Paulo, Sydney, Tokyo, Toronto, and Washington, DC region.
+   * The second-generation volume profile, `sdp` provides the most flexibility, as you can specify your capacity, IOPS, and throughput maximum values. You can create boot and data volumes with maximum storage capacity of 32,000 GB, a performance level of 64,000 IOPS, and maximum throughput of 1024 MBps. The capacity, IOPS, and throughput values of volumes that are created with the `sdp` profile can be modified even when the volume is not attached to a virtual server instance. The `sdp` profile is available in the Dallas, Frankfurt, London, Madrid, Osaka, Sao Paulo, Sydney, Tokyo, Toronto, and Washington, DC region.
 
-   * You can create first-generation block storage volumes with maximum storage capacity of 16,000 GB, a performance level of 48,000 IOPS, and maximum througput of 1024 MBps. You can create a first-generation volume with a predefined IOPS tier profile (3, 5, or 10 IOPS per GB) that best meets your storage requirements. Or you can choose the custom profile and specify your performance. IOPS per volume ranges from 100 IOPS to 48,000 IOPS, based on volume size.
+   * You can create first-generation block storage volumes with maximum storage capacity of 16,000 GB, a performance level of 48,000 IOPS, and maximum throughput of 1024 MBps. You can create a first-generation volume with a predefined IOPS tier profile (3, 5, or 10 IOPS per GB) that best meets your storage requirements. Or you can choose the custom profile and specify your performance. IOPS value per volume ranges from 100 IOPS to 48,000 IOPS, based on volume size.
    
 You can choose between provider- and customer-managed encryption for your block storage volumes, and secure your data with your own encryption keys. 
 
@@ -147,7 +147,7 @@ Customers with special access to preview the second-generation File Storage offe
 | Features            | First-generation shares | Second-generation shares |
 |---------------------|--------------------------|---------------------------|
 | Availability        | Generally available in all VPC regions for all customers. | Available in most regions, except for Montreal, for allowlisted customers.|
-| On-demand snapshots | Yes, Up to 750 per share in a region. | Up to 30 per share in a region. This quote can be increased upon request. |
+| On-demand snapshots | Yes, Up to 750 per share in a region. | Up to 30 per share in a region. This quota can be increased upon request. |
 | Scheduled snapshots | Yes, up to 750 snapshots per region. | Not supported in the [Select availability]{: tag-green} release.|
 {: caption="File share snapshot generations comparison." caption-side="bottom"}
 
@@ -156,9 +156,9 @@ For more information, see [About {{site.data.keyword.filestorage_vpc_short}} sna
 ## Backup for VPC
 {: #vpc-backup-serv-overview}
 
-The {{site.data.keyword.cloud}} provides the means to create backup copies of your block storage volumes and file shares automatically. You can create a backup policy with one or more plans, and associate tags to the policy in the console, from the CLI, with the API or Terraform. 
+The {{site.data.keyword.cloud}} provides the means to create backup copies of your block storage volumes and file shares automatically. You can create a backup policy with up to 4 plans, and associate tags to the policy in the console, from the CLI, with the API or Terraform. 
 
-The user-defined tags can be added to block storage volumes, file shares, and virtual server instances. When tags match, the backup policy is applied to the resources, and backup copies of the data are created based on the backup plan. You can set your own retention schedule to automatically delete older backups. This way, you can control how much space is used and how long backups are retained. By using Backup for VPC service, you can prevent data loss, manage risk, and improve data compliance.
+The user-defined tags can be added to block storage volumes, file shares, and virtual server instances. When tags match, the backup policy is applied to the resources, and backup snapshots of the data are created based on the backup plan. You can set your own retention schedule to automatically delete older backups. This way, you can control how much space is used and how long backup snapshots are retained. By using Backup for VPC service, you can prevent data loss, manage risk, and improve data compliance.
 
 Backup jobs that create or delete backup snapshots run according to the backup plan and the retention policy. You can view the status of the backup jobs in the console, from the CLI, with the API, or Terraform. If a job fails, the health status code shows the reason for the failure. You can also set up a connection to {{site.data.keyword.en_short}} and receive notifications to your preferred destinations.
 
@@ -182,6 +182,11 @@ All profiles of {{site.data.keyword.bm_is_short}} provide one 0.96 TB SATA M.2 m
 {{site.data.keyword.cos_full}} is a web-scale platform that stores unstructured data. It provides reliability, security, availability, and disaster recovery without replication. Information that is stored in {{site.data.keyword.cos_short}} is encrypted and dispersed across multiple geographic locations. It is accessible through the {{site.data.keyword.cloud}} console, {{site.data.keyword.cos_full_notm}} CLI, and API. For more information, see [About IBM Cloud Object Storage](/docs/cloud-object-storage?topic=cloud-object-storage-about-cloud-object-storage). 
 
 Within the VPC environment, {{site.data.keyword.cos_short}} has many uses. For example, you can import and store [custom images](/docs/vpc?topic=vpc-custom-image-using-COS) for your compute instances. In addition, you need {{site.data.keyword.cos_short}} to collect and store [flow logs](/docs/vpc?topic=vpc-flow-logs) that summarize the network traffic between two virtual network interface cards (vNICs) within a certain time window.
+
+## {{site.data.keyword.baas_full_notm}}
+{: #vpc-backup-recovery-overview}
+
+{{site.data.keyword.baas_full}} is a fully managed, agent-based, and application-consistent backup service that provides backup solutions for various {{site.data.keyword.cloud_notm}} services and customer workloads, which include {{site.data.keyword.vsi_is_short}}. For more information about the service, see [Getting started with Backup and Recovery](/docs/backup-recovery?topic=backup-recovery-getting-started-backup-recovery). To learn more about the differences between {{site.data.keyword.baas_full_notm}} and Backup for VPC, see the [Offering comparison chart](/docs/backup-recovery?topic=backup-recovery-baas_comp_chart).
 
 ## Next steps
 {: #vpc-storage-next-steps}
