@@ -56,10 +56,9 @@ You must abide to the following:
 ​​​​​​
    - ​​​​​​You must keep the private key to decrypt the downloaded logs later.
    - ​The public key must be embedded into the contract, which is a special approach for our case. The public key ​​​​​`​logging.pub​​​​` is stored under the `​​​​​​/log-encryption/pods`​​​​ folder for Podman approach and ​​​​​​`/log-encryption/compose`​​​​ folder for Docker Compose along with the `​​​​​​pods.yaml`​​​​ file and ​​​​​​`docker-compose.yaml​​​`​ respectively. As mentioned in the preparation of the [`workload` section](/docs/vpc?topic=vpc-about-contract_se#hpcr_contract_workload)​ of the contract, the `archive` subsection contains the `​​​​​​base64​​​`​ encoded TGZ file archive of ​​​​​`​podman-play`​​​​. The ​​​​​`​logging.pub​​​`​ file in our example undergoes the same encoding and compression, since it is stored in the same folder. As a result, the created instance acquires the public key for subsequent log encryption.​​​​
-​​​​
-   ​ 
+
 ​​​​​​This tutorial also provides sample files such as ​​​​​`​env.yaml​​​`​, ​​​​​`​workload.compose.yaml​​​`​ (for Docker Compose), ​​​​​`​workload.pods.yaml​​​​`(for Podman Play), and ​​​​​`​user-data.yaml`​​​​. They are only meant as references for correct schema.​​​
-​
+
 ## Before you begin
 {: #hpvs-prereq}
 
