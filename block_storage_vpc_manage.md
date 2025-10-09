@@ -180,27 +180,17 @@ Before you can use the CLI, you must install the IBM Cloud CLI and the VPC CLI p
 
 To change a volume name, specify either the volume name or ID and then indicate the new name. The volume name can be up to 63 alpha-numeric characters and include special characters, and must begin with a lowercase letter. The volume name must be unique across the VPC infrastructure.
 
-
 ```sh
 ibmcloud is volume-update VOLUME_ID [--name NEW_NAME] [--json]
 ```
 {: pre}
 
-
-
-
 See the following example.
-
 
 ```sh
 ibmcloud is volume-update r006-5ed4006b-3dac-4c95-8eeb-4aa9a85cbd34 --name my-data-volume
 ```
 {: pre}
-
-
-
-
-
 
 ```sh
 Updating volume r006-5ed4006b-3dac-4c95-8eeb-4aa9a85cbd34 under account Test Account as user test.user@ibm.com...
@@ -231,9 +221,6 @@ Tags                                   -
 Storage Generation                     1
 ```
 {: screen}
-
-
-
 
 ### Adding user tags to a {{site.data.keyword.block_storage_is_short}} volume in from the CLI
 {: #add-user-tags-volumes-cli}
