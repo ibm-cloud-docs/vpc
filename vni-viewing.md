@@ -2,7 +2,7 @@
 
 copyright:
   years: 2023, 2025
-lastupdated: "2025-06-27"
+lastupdated: "2025-10-10"
 
 keywords:
 
@@ -51,6 +51,7 @@ ibmcloud is virtual-network-interface VIRTUAL_NETWORK_INTERFACE [--output JSON] 
 ```
 {: pre}
 
+
 Where:
 
 `VIRTUAL_NETWORK_INTERFACE`
@@ -62,11 +63,15 @@ Where:
 `-q, --quiet`
 :   Suppress verbose output.
 
+
 ### Command examples
 {: #cli-command-examples-virtual-network-interface}
 
 - `ibmcloud is virtual-network-interface r006-81222eee-b3e0-4dc3-b429-aee9e5c0abf2`
 - `ibmcloud is virtual-network-interface new-share-vni`
+
+
+
 
 ## Viewing details of a virtual network interface with API
 {: #virtual-network-interface-view-api}
