@@ -21,7 +21,7 @@ Before you create a virtual private endpoint gateway, review the following consi
 {: #vpe-creation-configuration-limits}
 
 * You can create only one VPE per service within a single VPC.
-* You can bind only one IP address to a VPE gateway, and the IP must be in the same zone as the VPE gateway.
+* You can bind only one IP address per VPC zone to a VPE gateway.
 * A reserved IP address that is bound to a VPE gateway can receive traffic from other zones within the same VPC, as long as your Network ACL (NACL) rules allow it.
 
 ## Security groups

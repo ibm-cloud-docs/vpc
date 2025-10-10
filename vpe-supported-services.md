@@ -2,9 +2,10 @@
 
 copyright:
   years: 2020, 2025
-lastupdated: "2025-07-28"
+lastupdated: "2025-10-10"
 
 keywords: virtual private endpoints, endpoint gateway, VPE services
+
 subcollection: vpc
 
 ---
