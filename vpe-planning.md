@@ -2,7 +2,7 @@
 
 copyright:
   years: 2020, 2025
-lastupdated: "2025-10-10"b
+lastupdated: "2025-10-10"
 
 keywords: VPE, virtual private endpoint, endpoint gateway, planning
 
