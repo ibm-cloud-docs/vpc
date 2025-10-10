@@ -57,7 +57,7 @@ Before you create a virtual private endpoint gateway, review the following consi
    * UDP traffic to a VPE is not supported over {{site.data.keyword.cloud_notm}} Direct Link or Transit Gateway (for example, when connecting from a virtual server instance or bare metal server outside the VPE’s VPC). This includes UDP-based services, such as Network Time Protocol (NTP).
 
 ## Architectural restrictions
-{: #vpe-architectural restrictions}
+{: #vpe-architectural-restrictions}
 
 * Virtual private endpoints support only IPv4 addressing.
 * Each endpoint gateway is bound to a single VPC.
