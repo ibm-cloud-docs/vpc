@@ -2,9 +2,11 @@
 
 copyright:
   years: 2020, 2025
-lastupdated: "2025-10-08"
+lastupdated: "2025-10-10"b
 
 keywords: VPE, virtual private endpoint, endpoint gateway, planning
+
+subcollection: vpc
 
 ---
 
@@ -19,7 +21,7 @@ Before you create a virtual private endpoint gateway, review the following consi
 {: #vpe-creation-configuration-limits}
 
 * You can create only one VPE per service within a single VPC.
-* You can bind only one IP address to a VPE gateway, and the IP must be in the same zone as the VPE gateway.
+* You can bind only one IP address per VPC zone to a VPE gateway.
 * A reserved IP address that is bound to a VPE gateway can receive traffic from other zones within the same VPC, as long as your Network ACL (NACL) rules allow it.
 
 ## Security groups
@@ -50,8 +52,7 @@ Before you create a virtual private endpoint gateway, review the following consi
 * The following items are not supported:
 
    * Services that are deployed in zones and regions that are not part of [IBM Cloud Multi-Zone Regions (MZRs)](/docs/overview?topic=overview-locations#table-mzr)
-   * {{site.data.keyword.cloud_notm}} Flow Logs for VPC
-   * {{site.data.keyword.cloud_notm}} Bare Metal Servers for VPC
+   * {{site.data.keyword.cloud_notm}} Flow Logs for VPC 
    * Egress custom routes 
    * UDP traffic to a VPE is not supported over {{site.data.keyword.cloud_notm}} Direct Link or Transit Gateway (for example, when connecting from a virtual server instance or bare metal server outside the VPE’s VPC). This includes UDP-based services, such as Network Time Protocol (NTP).
 
