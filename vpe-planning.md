@@ -6,6 +6,8 @@ lastupdated: "2025-10-10"b
 
 keywords: VPE, virtual private endpoint, endpoint gateway, planning
 
+subcollection: vpc
+
 ---
 
 {{site.data.keyword.attribute-definition-list}}
