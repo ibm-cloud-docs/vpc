@@ -2,7 +2,7 @@
 
 copyright:
   years: 2024, 2025
-lastupdated: "2025-08-08"
+lastupdated: "2025-10-09"
 
 keywords:
 
@@ -60,12 +60,17 @@ To create a cluster network subnet in the CLI, follow these steps:
     ```
     {: pre}
 
+
 1. To create a cluster network subnet, enter the following command:
 
    ```bash
    ibmcloud is cluster-network-subnet-create CLUSTER_NETWORK (--total-ipv4-address-count TOTAL_IPV4_ADDRESS_COUNT | --ipv4-cidr-block IPV4_CIDR_BLOCK) [--name NAME] [--ip-version IP_VERSION] [--output JSON] [-q, --quiet]
    ```
    {: pre}
+
+
+
+
 
    Where:
 
@@ -87,6 +92,8 @@ To create a cluster network subnet in the CLI, follow these steps:
    `-q`, `--quiet`
    :    Suppress verbose output.
 
+
+
 ### Command example
 {: #command-example-create-cluster-network-subnets}
 
@@ -96,6 +103,9 @@ To create a cluster network subnet with name `cli-cn-sub-1` for cluster network 
 ibmcloud is cluster-network-subnet-create cli-cn-1 --name cli-cn-sub-1 --total-ipv4-address-count 32
 ```
 {: codeblock}
+
+
+
 
 ## Creating a cluster network subnet with the API
 {: #create-cluster-network-subnet-api}

@@ -2,7 +2,7 @@
 
 copyright:
   years: 2019, 2025
-lastupdated: "2025-09-23"
+lastupdated: "2025-10-09"
 
 keywords: Block storage for VPC, change IOPS, change auto-delete, increase volume, change name, rename volume, delete volume, renaming volume, updating volume
 
@@ -649,10 +649,10 @@ In the console, complete the following steps.
 
 From the command line, enter the `ibmcloud resource tag-create` command to create an access management tag in your account. The following example creates a tag that is called `project:myproject`:
 
-    ```sh
-    ibmcloud resource tag-create --tag-names project:myproject
-    ```
-    {: codeblock}
+```sh
+ibmcloud resource tag-create --tag-names project:myproject
+```
+{: pre}
 
 For more information, see the [`ibmcloud resource` command reference](/docs/cli?topic=cli-ibmcloud_commands_resource).
 
@@ -668,13 +668,13 @@ With the [Global Search and Tagging API](/docs/account?topic=account-tag&interfa
 
 Create an argument in your `main.tf` file. The following example creates the access management tag `ibm_tag` that is added to the `ibm` resource for the resource ID `ibm_is_volume.example.crn`.
 
-   ```terraform
-   resource "ibm_resource" "ibm" {
+```terraform
+resource "ibm_resource" "ibm" {
    resource_id = ibm_is_volume.example.crn
-   tags        = [ "ibm_tag" ]
+   tags        = ["ibm_tag"]
    }
-   ```
-    {: codeblock}
+```
+{: codeblock}
 
 ### Step 2 - Adding an access management tag to a volume
 {: #storage-add-access-mgt-tag}

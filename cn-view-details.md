@@ -2,7 +2,7 @@
 
 copyright:
   years: 2024, 2025
-lastupdated: "2025-09-30"
+lastupdated: "2025-10-09"
 
 keywords:
 
@@ -53,10 +53,16 @@ To view the details of a cluster network in the CLI, follow these steps:
 
 1. To view details of a cluster network, enter the following command:
 
+
+
    ```bash
    ibmcloud is cluster-network CLUSTER_NETWORK [--output JSON] [-q, --quiet]
    ```
    {: pre}
+   
+
+
+
 
    Where:
 
@@ -69,8 +75,12 @@ To view the details of a cluster network in the CLI, follow these steps:
    `-q, --quiet`
    :    Suppress verbose output.
 
+
+
 ### Command examples
 {: #command-examples-cluster-network-view}
+
+
 
 To view cluster network `my-cl-net-2` by name:
 
@@ -79,12 +89,19 @@ ibmcloud is cl-net my-cl-net-2
 ```
 {: codeblock}
 
+
+
 To view cluster network `my-cl-net-2` by ID:
 
+
+
 ```sh
-ibmcloud is cl-net 7208-353ec740-c1b1-4778-b7a1-8c77a365e435
+ibmcloud is cl-net 0716-24d53c60-489e-4480-a9c1-9b5ecdbf5ef0
 ```
 {: codeblock}
+
+
+
 
 ## Viewing details of a cluster network with the API
 {: #view-details-cluster-network-api}

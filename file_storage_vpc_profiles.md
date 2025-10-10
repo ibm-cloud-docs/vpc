@@ -2,7 +2,7 @@
 
 copyright:
   years: 2021, 2025
-lastupdated: "2025-09-23"
+lastupdated: "2025-10-09"
 
 keywords: file storage, file share, performance, IOPS, block size, capacity, range
 
@@ -102,6 +102,7 @@ Table 2 shows the available IOPS ranges, based on share size.
 Regional data availability means that data is replicated across all 3 zones within the region, offering higher availability and fault tolerance. Due to the synchronous replication between the zones and the need to ensure data durability, you might experience increased latency during write operations. For workloads where latency performance is less critical than durability, or higher and more consistent IOPS is preferred over low latency, the regional shares can be a better choice.
 
 When you create a regional file share, you can specify its capacity between 1 GiB to 32,000 GiB. For every 20 GiB of capacity, 8 Mbps of bandwidth is included. For example, the preset bandwidth value of a 500 GB file share is 200 Mbps and the preset value of a 16,000 GB file share is 6400 Mbps. You can increase the bandwidth from the preset value up to 8192 Mbps for extra cost. After the file share is created, you can adjust the bandwidth between the preset and the maximum values anytime.
+
 In the select availability release, cross-region asynchronous replication and scheduled backups are not supported. Cross-account access within the same region is supported.
 
 ## Tiered and custom file storage profiles

@@ -2,7 +2,7 @@
 
 copyright:
   years: 2024, 2025
-lastupdated: "2025-09-30"
+lastupdated: "2025-10-09"
 
 keywords:
 
@@ -54,18 +54,25 @@ To delete a cluster network in the CLI, follow these steps:
 
 1. To delete one or more cluster networks, enter the following command:
 
-   ```bash
+
+
+   ```sh
    ibmcloud is cluster-network-delete (CLUSTER_NETWORK1 CLUSTER_NETWORK2...) [--output JSON]  [-f, --force] [-q, --quiet]
    ```
-   {: pre}
+   {: codeblock}
+   
+
+
+
+
 
    Where:
 
    `CLUSTER_NETWORK1 CLUSTER_NETWORK2`
-   :    IDs or names of the cluster networks, separated by a space.
+   :    IDs or names of the cluster networks, which are separated by a space.
 
    `-output`
-   :    Specify output format, only JSON is supported. One of: `JSON`.
+   :    Specify the output format. Only JSON is supported. One of: `JSON`.
 
    `-force, -f`
    :    Force the operation without confirmation.
@@ -73,15 +80,24 @@ To delete a cluster network in the CLI, follow these steps:
    `-q, --quiet`
    :    Suppress verbose output.
 
+
+
+
 ### Command example
 {: #command-examples-cluster-network-delete}
 
-To delete cluster network `cli-cn-1`. You are prompted for confirmation. This action cannot be undone.
+To delete the cluster network `cli-cn-1`. You are prompted for confirmation. This action can't be undone.
+
+
 
 ```sh
 ibmcloud is cluster-network-delete cli-cn-1
 ```
 {: codeblock}
+
+
+
+
 
 ## Deleting a cluster network with the API
 {: #delete-cluster-network-api}

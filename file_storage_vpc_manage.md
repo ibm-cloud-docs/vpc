@@ -2,7 +2,7 @@
 
 copyright:
   years: 2021, 2025
-lastupdated: "2025-09-23"
+lastupdated: "2025-10-09"
 
 keywords: file share, file storage, rename share, increase size, adjust IOPS, mount target
 
@@ -915,10 +915,10 @@ In the console:
 
 From the command line, enter the `ibmcloud resource tag-create` command to create an access management tag in your account. The following example creates a tag that is called `project:myproject`:
 
-    ```sh
-    ibmcloud resource tag-create --tag-names project:myproject
-    ```
-    {: codeblock}
+```sh
+ibmcloud resource tag-create --tag-names project:myproject
+```
+{: pre}
 
 For more information, see the [`ibmcloud resource` command reference](/docs/cli?topic=cli-ibmcloud_commands_resource).
 

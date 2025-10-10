@@ -2,7 +2,7 @@
 
 copyright:
   years: 2023, 2025
-lastupdated: "2025-06-27"
+lastupdated: "2025-10-09"
 
 keywords:
 
@@ -107,10 +107,16 @@ export IBMCLOUD_IS_FEATURE_VNI_ENABLE_PROTOCOL_STATE_FILTERING=true
 
 To create a virtual network interface from the CLI, enter the following command:
 
+
 ```sh
 ibmcloud is virtual-network-interface-create [--name NAME] [--allow-ip-spoofing false | true] [--auto-delete false | true] [--enable-infrastructure-nat false | true] [--protocol-state-filtering-mode auto | disabled | enabled] [[--rip RIP | [--rip-address RIP_ADDRESS --rip-auto-delete RIP_AUTO_DELETE --rip-name RIP_NAME]]] [--subnet SUBNET] [--ips RESERVED_IPS_JSON | @RESERVED_IPS_JSON_FILE] [--sgs SGS] [--resource-group-id RESOURCE_GROUP_ID | --resource-group-name RESOURCE_GROUP_NAME] [--vpc VPC] [--output JSON] [-q, --quiet]
 ```
 {: pre}
+
+
+
+
+
 
 Where:
 
@@ -170,6 +176,9 @@ Where:
 
 `-q, --quiet`
 :   Suppress verbose output.
+
+
+
 
 ### Command examples
 {: #cli-command-examples-virtual-network-interface-create}
