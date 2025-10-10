@@ -2,7 +2,7 @@
 
 copyright:
   years: 2019, 2025
-lastupdated: "2025-09-16"
+lastupdated: "2025-10-10"
 
 keywords:
 subcollection: vpc
@@ -204,7 +204,6 @@ To create a VPN gateway with the API, follow these steps:
          }'
    ```
    {: codeblock}
-
 
    ```sh
       # For static route-based VPN connection, use the following command:
