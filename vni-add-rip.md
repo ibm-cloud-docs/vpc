@@ -2,7 +2,7 @@
 
 copyright:
   years: 2023, 2025
-lastupdated: "2025-04-29"
+lastupdated: "2025-10-10"
 
 keywords:
 
@@ -76,11 +76,16 @@ Where:
 `-q, --quiet`
 :   Suppress verbose output.
 
+
 ### Command examples
 {: #vni-add-rip-cli-command-examples}
 
+
+
 * `ibmcloud is subnet-reserved-ip-create my-subnet --name my-reserved-ip --address 10.240.64.10 --target my-vpe --trt endpoint_gateway`
 * `ibmcloud is subnet-reserved-ip-create my-subnet --name my-reserved-ip --address 10.240.64.10 --target my-vni --trt virtual_network_interface`
+
+
 
 ## Determining the primary reserved IP for a virtual network interface from the API
 {: #vni-add-rip-api}
