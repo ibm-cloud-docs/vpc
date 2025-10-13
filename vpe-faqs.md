@@ -2,7 +2,7 @@
 
 copyright:
   years: 2020, 2025
-lastupdated: "2025-10-08"
+lastupdated: "2025-10-13"
 
 keywords: virtual private endpoint, FAQs, VPE, endpoint gateway
 
@@ -62,11 +62,13 @@ a public endpoint, you can still access the public endpoint after the service is
 
 Controlling access to an IP address on a VPC network that is mapped to an {{site.data.keyword.cloud_notm}} service does not control the access to the mapped service itself.
 
-## Is there a limit to the number of IP addresses I can bind to an endpoint gateway?
+## Is there a limit to the total number of concurrent active connections to an endpoint gateway?
 {: #faq-reserved-ips-and-number-ports}
 {: faq}
 
-When the reserved IP address that is bound to the endpoint gateway is source NATed on the VPC gateway, it is done by using IP masquerading on the port. As the number of IP addresses bound to the endpoint gateway grows, the number of available ports to masquerade might become a concern.
+Connections to a reserved IP address that is bound to the endpoint gateway are source NATed at the VPE gateway. The source IP becomes the reserved IP bound to the endpoint gateway, and a UDP/TCP source port is allocated for each connection. The total number of TCP/UDP ports is limited, and since every active TCP/UDP connection might consume a source port, the total number of active connections through a VPE gateway is limited.
+
+To avoid port exhaustion, consider techniques such as long-running connections and connection-pooling to reduce the total number of active connections to a VPE.
 
 ## How many IP addresses can I use for NAT operations on the VPC gateway?
 {: #faq-ip-nat-operations}
