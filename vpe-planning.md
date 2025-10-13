@@ -62,8 +62,7 @@ Before you create a virtual private endpoint gateway, review the following consi
 * Virtual private endpoints support only IPv4 addressing.
 * Each endpoint gateway is bound to a single VPC.
 * The way an endpoint gateway maps to a service depends on the specific {{site.data.keyword.cloud_notm}} service that you are enabling. For best practices, refer to the documentation for the specific {{site.data.keyword.cloud_notm}} service.
-* The total number of active connections through a VPE gateway is limited. For more information, see [Is there a limit to the total number of concurrent active connections to an endpoint gateway?](/docs/vpc?topic=vpc-faqs-vpe#faq-reserved-ips-and-number-ports
-).
+* The total number of active connections through a VPE gateway is limited. For more information, see [Is there a limit to the total number of concurrent active connections to an endpoint gateway?](/docs/vpc?topic=vpc-faqs-vpe#faq-reserved-ips-and-number-ports).
 
 ## Related links
 {: #vpe-faq-related-links}
