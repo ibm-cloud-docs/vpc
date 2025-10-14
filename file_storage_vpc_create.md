@@ -26,7 +26,7 @@ You can create file shares and mount targets either of the following ways:
 * Create a file share and mount target together,
 * Create a file share and add mount target later.
 
-When you create a mount target, its transit encryption type must reflect the share's allowed transit encryption modes. You can create multiple mount targets for the share if it's to be used by resources in different VPCs. You can create one mount target per VPC for the file share.
+When you create a mount target, its transit encryption type must reflect the allowed transit encryption modes of the share. You can create multiple mount targets for the share if it's to be used by resources in different VPCs. You can create one mount target per VPC for the file share.
 
 Customers with special access to preview the new regional file share offering can use the **rfs** profile to create file shares with regional availability and adjustable bandwidth values.
 {: preview}
@@ -115,6 +115,11 @@ If you're not ready to order yet or just looking for pricing information, you ca
    - If the zonal share has VPC as the access mode, provide a name for the mount target and select a VPC from the list. This mount target can be used to mount the file share on any virtual server instance of the selected VPC in the same zone as the file share. Cross-zone mounting is not supported.
 
 5. Click **Create**.
+
+### Adding supplemental IDs when you create a file share
+{: #fs-add-supplemental-id-ui}
+
+When you mount a file share in Linux, the user ID (UID) and group ID (GID) can be used to assign ownership of all the files and folders on that share. You can specify the initial owner user and group IDs only from the CLI, or with the API. To see the steps, switch to the CLI or API instructions.
 
 ## Creating a file share from the CLI
 {: #file-storage-create-cli}
@@ -540,7 +545,9 @@ For more information about how to create a file share from a snapshot with other
 ### Adding supplemental IDs when you create a file share with the CLI
 {: #fs-add-supplemental-id-cli}
 
-With the CLI, you can set `UID` and `GID` values for the `--initial-owner-uid` and `--initial-owner-gid` property to control access to your file shares. Wherever you mount the file share, the root folder uses that user ID and group ID owner. You can set the `UID` or `GID`, or both when you create a share.
+When you mount a file share in Linux, the user ID (UID) and group ID (GID) can be used to assign ownership of all the files and folders on that share.
+
+With the CLI, you can set `UID` and `GID` values for the `--initial-owner-uid` and `--initial-owner-gid` property to control access to your file shares. Wherever you mount the file share, the root folder must use that user ID and group ID. You can set the `UID` or `GID`, or both when you create a share.
 
 If you change the supplemental IDs (UID or GID) from the virtual server instance, it is not possible to determine that it was changed. As a result, `initial_owner` changes only in the file storage system, but the change isn't reflected in the CLI or API responses.
 {: note}
@@ -1162,7 +1169,9 @@ For more information about how to create a file share from a snapshot, see [Rest
 ### Adding supplemental IDs when you create a file share with the API
 {: #fs-add-supplemental-id-api}
 
-With the API, you can set `UID` and `GID` values for the `initial_owner` property to control access to your file shares. Wherever you mount the file share, the root folder uses that user ID and group ID owner. You set the `UID` or `GID`, or both when you create a share in a `POST /shares` call.
+When you mount a file share in Linux, the user ID (UID) and group ID (GID) can be used to assign ownership of all the files and folders on that share.
+
+With the API, you can set `UID` and `GID` values for the `initial_owner` property to control access to your file shares. Wherever you mount the file share, the root folder must use that user ID and group ID. You can set the `UID` or `GID`, or both when you create a share in a `POST /shares` call.
 
 If you change the supplemental IDs (UID or GID) from the virtual server instance, it is not possible to determine that it was changed. As a result, `initial_owner` does not change in the API database but changes only in the file storage system.
 {: note}
