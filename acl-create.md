@@ -2,7 +2,7 @@
 
 copyright:
   years: 2019, 2025
-lastupdated: "2025-06-30"
+lastupdated: "2025-10-14"
 
 keywords:
 
@@ -90,10 +90,14 @@ Where:
 * `--output` specifies output in JSON format.
 * `-q, --quiet` suppresses verbose output.
 
+
+
 For example:
 
 - `ibmcloud is network-acl-create my-acl 72251a2e-d6c5-42b4-97b0-b5f8e8d1f479`
 - `ibmcloud is network-acl-create my-acl 72251a2e-d6c5-42b4-97b0-b5f8e8d1f479 --source-acl-id 72b27b5c-f4b0-48bb-b954-5becc7c1dcb3`
+
+
 
 ## Creating a network ACL with the API
 {: #cr-using-the-api-acl}

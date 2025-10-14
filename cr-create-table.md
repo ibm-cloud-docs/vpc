@@ -2,7 +2,7 @@
 
 copyright:
   years: 2020, 2025
-lastupdated: "2025-06-18"
+lastupdated: "2025-10-14"
 
 keywords: custom routes
 
@@ -98,6 +98,7 @@ Where:
 `-q, --quiet`
 :   Suppresses verbose output.
 
+
 Routes with an action of *deliver* are treated as *drop* unless the next-hop is an IP address that is bound to a network interface on a subnet in the route’s zone. Hence, if an incoming packet matches a route with a next-hop of an internet-bound IP address or a VPN gateway connection, the packet is dropped.
 {: important}
 
@@ -114,6 +115,7 @@ You can set an ingress option to `true` on only one routing table per VPC, and t
 `ibmcloud is vpc-routing-table-create my-vpc --name my-vpc-routing-table --advertise-routes-to direct_link, transit_gateway  --direct-link-ingress true —transit-gateway-ingress true -—output JSON`
 
 `ibmcloud is vpc-routing-table-create 979b4bc6-f018-40a2-92f5-0b1cf777b55d --name test-vpc-cli-routing-tb1 --direct-link-ingress false --internet-ingress false   --transit-gateway-ingress false  --vpc-zone-ingress true`
+
 
 ## Creating a routing table with the API
 {: #cr-using-the-api-ct}
