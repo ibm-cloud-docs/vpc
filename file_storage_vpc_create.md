@@ -126,6 +126,8 @@ If you're not ready to order yet or just looking for pricing information, you ca
 Before you can use the CLI, you must install the IBM Cloud CLI and the VPC CLI plug-in. For more information, see the [CLI prerequisites](/docs/vpc?topic=vpc-set-up-environment#cli-prerequisites-setup).
 {: requirement}
 
+For more information about the command options, see [VPC CLI Reference: `ibmcloud is share-create`](/docs/vpc?topic=vpc-vpc-reference#share-create).
+
 ### Gathering required information from the CLI
 {: #fs-vpc-getinfo-cli}
 
@@ -283,8 +285,6 @@ Storage Generation                 2
 Security group access mode is the default setting. The VPC access mode is not supported for the file shares with regional availability.
 {: note}
 
-For more information about the command options, see [`ibmcloud is share-create`](/docs/vpc?topic=vpc-vpc-reference#share-create).
-
 ### Creating a mount target for a file share from the CLI
 {: #fs-create-mount-target-cli}
 
@@ -293,6 +293,8 @@ To create a mount target for the file share, run the `share-mount-target-create`
 When you create a mount target, you must specify the file share that it is for. You can use the file share's name or ID. You must specify the VPC, too, either with its ID or name. The VPC must be unique to each mount target. You must also specify the security access group that's going to be used to manage access to the share. The security groups that you associate with a mount target must allow inbound access for the TCP protocol on the NFS port from all servers where you want to mount the share.
 
 Lastly, you must specify values for the options that are needed to create a [virtual network interface](/docs/vpc?topic=vpc-vni-about) for the mount target. Use the appropriate CLI commands to list the available [subnets](/docs/vpc?topic=vpc-vpc-reference#subnets-list), [reserved IP addresses in a subnet](/docs/vpc?topic=vpc-vpc-reference#subnet-reserved-ips-list), [security groups](/docs/vpc?topic=vpc-vpc-reference#security-groups-list) to get the information that you need.
+
+For more information about the command options, see [VPC CLI Reference: `ibmcloud is share-mount-target-create`](/docs/vpc?topic=vpc-vpc-reference#share-mount-target-create).
 
 A virtual network interface with secondary IP addresses attached cannot be accepted as a file share mount target.
 {: note}
@@ -355,8 +357,6 @@ Mount path                -
 Transit Encryption        none 
 ```
 {: screen}
-
-For more information about the command options, see [`ibmcloud is share-mount-target-create`](/docs/vpc?topic=vpc-vpc-reference#share-mount-target-create).
 
 ### Creating a file share with a mount target from the CLI
 {: #fs-create-share-target-cli}

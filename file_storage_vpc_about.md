@@ -15,10 +15,10 @@ subcollection: vpc
 # About {{site.data.keyword.filestorage_vpc_short}}
 {: #file-storage-vpc-about}
 
-{{site.data.keyword.filestorage_vpc_full}} provides NFS-based file storage services within the VPC Infrastructure. A file share is a type of file storage that is made accessible over the network to allow multiple clients to access and use the same folder and files simultaneously. You can create file shares with zonal and regional data availability. You can share them with multiple virtual server instances within the same zone or other zones in your region, across multiple VPCs. You can also limit access to a file share to a specific virtual server instance or group of instances within a VPC. You can choose to encrypt your file shares at rest with IBM-managed encryption keys or use your own customer keys. You can choose to encrypt the data in transit between the file share and the compute hosts. You can create replicas of your file shares in other regions, and take snapshots of your data. You can create and manage your file shares in the console, from the CLI, with the API, or Terraform.
+{{site.data.keyword.filestorage_vpc_full}} provides NFS-based file storage services within the VPC Infrastructure. A file share is a type of file storage that is made accessible over the network to allow multiple clients to access the same folders and files simultaneously. You can create file shares with zonal and regional data availability. You can share them with multiple virtual server instances within the same zone or other zones in your region, across multiple VPCs. You can also limit access to a file share to a specific virtual server instance or group of instances within a VPC. You can choose to encrypt your file shares at rest with IBM-managed encryption keys or use your own customer keys. You can choose to encrypt the data in transit between the file share and the compute hosts. You can create replicas of your file shares in other regions, and take snapshots of your data. You can create and manage your file shares in the console, from the CLI, with the API, or Terraform.
 {: shortdesc}
 
-Creating file shares with regional availability requires special access. If you’re interested in previewing the new offering, contact your assigned Account Team representative or Customer Success Manager.
+Creating file shares with regional availability requires special access. If you’re interested in previewing the new offering, contact your assigned Account team representative or Customer Success Manager.
 {: preview}
 
 ## File storage profiles
@@ -114,7 +114,7 @@ Cross-zone mounting is not applicable for regional file shares. For more informa
 ### Regional mount targets
 {: #fs-regional-mount}
 
-When you create a mount target for a regional file share, you must attach a VNI. Although each VNI is associated with a specific zone, it’s not restricted to that zone. Subnets and VNIs include zonal location codes in their Cloud Resource Names (CRNs), but they are designed to operate regionally. They are accessible from any availability zone within the region, even if the owning region is temporary unavailable.
+When you create a mount target for a regional file share, you must attach a VNI. Although each VNI is associated with a specific zone, it is not restricted to that zone. Subnets and VNIs include zonal location codes in their Cloud Resource Names (CRNs), but they are designed to operate regionally. They are accessible from any availability zone within the region, even if the owning region is temporary unavailable.
 
 The storage platform uses shared IP range across multiple zones that allows your client to reach the same logical storage service regardless of which zone it is located in. The routing dynamically shifts to the nearest or best-performing instance of your regional share.
 
@@ -186,8 +186,8 @@ You can select a specific security group or use the VPC's default security group
 
 To enable traffic between a virtual server instance and a mount target, you must configure the following rules in the security groups:
 
-- The security group that you attach to a mount target must allow inbound access for the TCP protocol on the NFS port from all the servers where you want to mount the file share.
-- Each virtual server instance that you want the file share to be mounted on must have a security group that allows outbound access to the mount target on the NFS port.
+- For the mount target: the security group must allow inbound access for the TCP protocol on the NFS port from all the servers where you want to mount the file share.
+- For the virtual servers: the security group must allow outbound access to the mount target on the NFS port.
 
 You can configure your security group in a more dynamic way by allowing all traffic between members of the security group. Then, attach this security group to the network interface of the virtual server instance and the virtual network interface of the mount target. For more information, see [Allow traffic between members of a security group](/docs/vpc?topic=vpc-using-security-groups#sg-use-case-3).
 
@@ -201,7 +201,7 @@ When you create the mount target with a virtual network interface, its IP addres
 
 * By subnet and IP address - You specify the IP address in the subnet. Then, the network interface is created and attached to the mount target.
 
-When the mount target is attached and the share is mounted, the VNI performs security group policy check to ensure that only authorized virtual server instances can communicate with the share.
+When the mount target is attached and the share is mounted, the VNI performs security group policy check to make sure that only authorized virtual server instances can communicate with the share.
 
 ![File share mount target](images/vni-fs-arch.svg "File share with a mount target"){: caption="Diagram of a file share mount target connected to a virtual network interface" caption-side="bottom"}
 
