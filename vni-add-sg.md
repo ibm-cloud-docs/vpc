@@ -2,7 +2,7 @@
 
 copyright:
   years: 2023, 2025
-lastupdated: "2025-06-18"
+lastupdated: "2025-10-14"
 
 keywords:
 
@@ -58,10 +58,15 @@ Where:
 `--trt value`
 :   The bound target resource type, this option is only required if you use the target name instead of ID. One of: `load_balancer`, `endpoint_gateway`, `vpn_server`, `virtual_network_interface`.
 
+
+
 ### Command example
 {: #vni-add-sg-cli-command-examples}
 
+
+
 `ibmcloud is security-group-target-add my-sg my-vni --trt virtual_network_interface`
+
 
 ## Attaching a security group to a virtual network interface from the API
 {: #vni-add-sg-api}

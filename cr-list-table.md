@@ -2,7 +2,7 @@
 
 copyright:
   years: 2020, 2025
-lastupdated: "2025-06-18"
+lastupdated: "2025-10-14"
 
 keywords: custom routes
 
@@ -64,6 +64,7 @@ Where:
 
 `--json`
 :   Formats output in JSON.
+
 
 ## Listing routing tables for a VPC with the API
 {: #cr-list-tables-using-the-api}

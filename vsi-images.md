@@ -2,7 +2,7 @@
 
 copyright:
   years: 2019, 2025
-lastupdated: "2025-08-27"
+lastupdated: "2025-10-14"
 
 subcollection: vpc
 
@@ -54,6 +54,9 @@ When using a RHEL AI 1.x image, ensure you are using the correct RHEL AI image f
 |---------|---------|
 | Windows Server 2019 Standard Edition with SQL Server 2019 Web Edition | x86-64
 {: caption="Supported x86_64 virtual server operating system bundle stock image" caption-side="bottom"}
+
+If you plan to use Windows operating systems with SQL Server, see the [About Microsoft SQL on VPC](/docs/microsoft?topic=microsoft-mssql-about).
+{: note}
 
 For more information about images for IBM Z (s390x processor architecture), see [s390x virtual server images](/docs/vpc?topic=vpc-vsabout-images).
 

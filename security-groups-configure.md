@@ -2,7 +2,7 @@
 
 copyright:
   years: 2018, 2025
-lastupdated: "2025-06-18"
+lastupdated: "2025-10-14"
 
 keywords:
 
@@ -85,6 +85,7 @@ You can copy and paste commands from this example CLI code to begin creating an 
    ```
    {: pre}
 
+
    Save the ID in a variable so you can use it later; for example, in a variable named `sg`:
 
    ```sh
@@ -100,6 +101,7 @@ You can copy and paste commands from this example CLI code to begin creating an 
    ibmcloud is security-group-rule-add $sg outbound tcp
    ```
    {: codeblock}
+
 
 3. Finally, create an instance with the security group:
 
@@ -125,6 +127,7 @@ To see your security group and its metadata, including rules, you can enter (for
 ibmcloud is sg $sg
 ```
 {: pre}
+
 
 To add a security group rule, here's an example command for adding a PING inbound rule to a security group:
 
