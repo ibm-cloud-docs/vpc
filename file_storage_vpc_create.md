@@ -2,7 +2,7 @@
 
 copyright:
   years: 2021, 2025
-lastupdated: "2025-09-25"
+lastupdated: "2025-10-14"
 
 keywords: file share, file storage, virtual network interface, encryption in transit, profiles, 
 
@@ -15,7 +15,7 @@ subcollection: vpc
 # Creating file shares and mount targets
 {: #file-storage-create}
 
-Create zonal and regional file shares and mount targets in the console, CLI, API, or Terraform. You can select their data availability, location, custom capacity, and performance level. You can assign the file share and mount target to a security group, apply tags, and enabled customer-managed encryption at rest and in-transit.
+Create [zonal and regional file shares](/docs/vpc?topic=vpc-file-storage-vpc-about) and [mount targets](/docs/vpc?topic=vpc-file-storage-vpc-about#fs-share-mount-targets) in the console, CLI, API, or Terraform. You can select their data availability, location, custom capacity, and performance level. You can assign the file share and mount target to a [security group](/docs/vpc?topic=vpc-using-security-groups), apply tags, and enable customer-managed encryption at [rest](/docs/vpc?topic=vpc-vpc-encryption-about) and [in-transit](/docs/vpc?topic=vpc-file-storage-vpc-eit).
 {: shortdesc}
 
 Before you get started, and try to create mount targets for file shares, make sure that you created a [VPC](/docs/vpc?topic=vpc-creating-a-vpc-using-the-ibm-cloud-console).
@@ -100,7 +100,7 @@ If you're not ready to order yet or just looking for pricing information, you ca
 3. On the File shares details page, under Mount targets, click **Create**.
 
    You must have at least one VPC to create a mount target. If you don't have one, first [create a VPC](/docs/vpc?topic=vpc-getting-started#create-and-configure-vpc).
-   {: requirement}
+   {: important}
 
 4. Depending on the [mount target access mode](/docs/vpc?topic=vpc-file-storage-vpc-about&interface=ui#fs-mount-access-mode) of the share, the **Create mount target** form looks different.
 
@@ -187,7 +187,7 @@ Storage Generation                 1
 ```
 {: screen}
 
-Security group access mode is the default and recommended setting. However, you can choose to create a file share with the VPC access mode that allows every Compute host in the VPC to mount the file share. See the following example.
+Security group access mode is the default and recommended setting. However, you can choose to create a zonal file share with the VPC access mode that allows every Compute host in the VPC to mount the file share. See the following example.
 
 ```sh
 ibmcloud is share-create --name my-vpc-file-share --zone us-south-2 --profile dp2 --size 1000 --iops 500 --access-control-mode vpc
@@ -236,7 +236,7 @@ Storage Generation                 1
 
 Customers with special access to preview the new regional file share offering can use the **rfs** profile to create file shares with regional availability and adjustable bandwidth values.
 
-The following example shows how to create 40-GB regional file share with 125 Mbps bandwidth. This file share is created with security group access mode and with provider-managed encryption. The file share is created in the region that you selected when you logged in, no location selection is required.
+The following example shows how to create 40-GB regional file share with 125 Mbps bandwidth. This file share is created with provider-managed encryption. The file share is created in the region that you selected when you logged in, no location selection is required.
 
 ```sh
 ibmcloud is share-create --name my-regional-file-share --profile rfs --size 40 --bandwidth 125 --allowed-access-protocols nfs4 --atem stunnel,none
@@ -294,8 +294,11 @@ When you create a mount target, you must specify the file share that it is for. 
 
 Lastly, you must specify values for the options that are needed to create a [virtual network interface](/docs/vpc?topic=vpc-vni-about) for the mount target. Use the appropriate CLI commands to list the available [subnets](/docs/vpc?topic=vpc-vpc-reference#subnets-list), [reserved IP addresses in a subnet](/docs/vpc?topic=vpc-vpc-reference#subnet-reserved-ips-list), [security groups](/docs/vpc?topic=vpc-vpc-reference#security-groups-list) to get the information that you need.
 
-A virtual network interface with secondary IPs attached cannot be accepted as a file share mount target.
+A virtual network interface with secondary IP addresses attached cannot be accepted as a file share mount target.
 {: note}
+
+#### Creating a mount target with security group access mode
+{: #fs-create-mount-target-sg-cli}
 
 The following example creates a mount target with a virtual network interface for a file share that has security group access mode.
 
@@ -324,6 +327,9 @@ Created                     2025-09-23T20:45:14+00:00
 Access Protocol             nfs4   
 ```
 {: screen}
+
+#### Creating a mount target with VPC access mode
+{: #fs-create-mount-target-vpc-cli}
 
 The following example creates a mount target for a zonal file share that has VPC access mode.
 
@@ -356,6 +362,9 @@ For more information about the command options, see [`ibmcloud is share-mount-ta
 {: #fs-create-share-target-cli}
 
 You can create a file share with one or more mount targets in one step by using the `ibmcloud is share-create` command. You need to provide the zone name, the [file share profile](/docs/vpc?topic=vpc-file-storage-profiles), the file share size, and the IOPS. You can also specify a name, user tags, and even the initial owner UID. To create the mount target, you need to provide the mount target information in JSON format.
+
+#### Creating a zonal file share with a mount target with security group access mode
+{: #fs-create-zonal-share-target-sg-cli}
 
 The following example shows how to create a zonal file share with 500 GB capacity and 2000 IOPS in the `us-south-1` zone. The file share is tagged with `env:dev` and has security group access control mode. The file share can be mounted on authorized virtual servers by using the mount target `my-new-mount-target`.
 
@@ -402,6 +411,9 @@ Storage Generation                 1
 ```
 {: screen}
 
+#### Creating a regional file share with a mount target with security group access mode
+{: #fs-create-regional-share-target-sg-cli}
+
 The following example shows how you can create a regional file share with a mount target from the CLI. Note that while the command specifies a low bandwidth value, the system auto-corrects the configuration to provide at least 8 Mbps for every 20 GB of capacity.
 
 ```sh
@@ -445,6 +457,9 @@ Bandwidth(Mbps)                    250
 Storage Generation                 2
 ```
 {: screen}
+
+#### Creating a zonal file share with a mount target with VPC access mode
+{: #fs-create-zonal-share-target-vpc-cli}
 
 The following example creates a file share with VPC access mode and a mount target that can be used by any virtual server instance within the VPC.
 
@@ -530,7 +545,7 @@ With the CLI, you can set `UID` and `GID` values for the `--initial-owner-uid` a
 If you change the supplemental IDs (UID or GID) from the virtual server instance, it is not possible to determine that it was changed. As a result, `initial_owner` changes only in the file storage system, but the change isn't reflected in the CLI or API responses.
 {: note}
 
-Table 1 shows UID and GID values that you can set and values that are reserved.
+The following table shows UID and GID values that you can set, and values that are reserved.
 
 | ID value | Description |
 |----------|-------------|
@@ -917,7 +932,7 @@ curl -X POST "$vpc_api_endpoint/v1/shares?version=2023-08-08&generation=2"\
 ```
 {: codeblock}
 
-When the `transit_encryption` property is set to `ipsec`, encryption in transit with an instance identity certificate is enabled. The default value for the `transit_encryption` property is `none`, which disables encryption in transit. However, if the `allowed_transit_encryption_modes` is specified as `ipsec`, then the mount target must be created with 'ipsec' as the transit_encryption value.
+When the `transit_encryption` property is set to `ipsec`, encryption in transit with an instance identity certificate is enabled. The default value for the `transit_encryption` property is `none`, which disables encryption in transit. However, if the `allowed_transit_encryption_modes` is specified as `ipsec`, then the mount target must be created with `ipsec` as the transit_encryption value.
 
 A successful response looks like the following example.
 
@@ -980,7 +995,7 @@ curl -X POST "$vpc_api_endpoint/v1/shares?version=2025-09-23&generation=2"\
 ```
 {: codeblock}
 
-When the `transit_encryption` property is set to `stunnel`, encryption in transit is enabled, and you must complete a few configuration steps on the compute host to mount the file share securely. In the example the `allowed_transit_encryption_modes` is specified as `stunnel,none`, then the mount target can have either one of those values as the value of `transit_encryption`.
+When the `transit_encryption` property is set to `stunnel`, encryption in transit is enabled, and you must complete a few configuration steps on the compute host to mount the file share securely. In the example, the `allowed_transit_encryption_modes` is specified as `stunnel,none`, then the mount target can have either one of those values as the value of `transit_encryption`.
 
 A successful response looks like the following example.
 
@@ -1118,7 +1133,6 @@ The following response shows that access control mode is `security_group`, which
 {: #fs-create-file-share-vni-api}
 
 To perform this operation, you must already have a [virtual network interface](/docs/vpc?topic=vpc-vni-create&interface=api) and that virtual network interface must not be attached to another resource. A virtual network interface with secondary IP address attached cannot be accepted as a file share mount target.
-{: requirement}
 
 Make a `POST /shares` request and create a mount target with a virtual network interface. Specify the ID of an unattached virtual network interface in the mount target's `virtual_network_interface` property.
 
@@ -1153,7 +1167,7 @@ With the API, you can set `UID` and `GID` values for the `initial_owner` propert
 If you change the supplemental IDs (UID or GID) from the virtual server instance, it is not possible to determine that it was changed. As a result, `initial_owner` does not change in the API database but changes only in the file storage system.
 {: note}
 
-Table 1 shows UID and GID values that you can set and values that are reserved.
+The following table shows UID and GID values that you can set, and values that are reserved.
 
 | ID value | Description |
 |----------|-------------|

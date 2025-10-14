@@ -2,7 +2,7 @@
 
 copyright:
   years: 2020, 2025
-lastupdated: "2025-07-21"
+lastupdated: "2025-10-14"
 
 keywords: flow logs, ordering, getting started
 
@@ -183,13 +183,20 @@ To create a flow log collector by using the CLI, run the following command:
 
 Where:
 
-* **--bucket** is the name of the {{site.data.keyword.cos_short}} bucket.
-* **--target** is the target for the flow log.
-* **--name** is the new name for the flow log.
-* **--active** indicates whether this collector is active.
-* **--resource-group-id** is the ID of the resource group. This option is mutually exclusive with **--resource-group-name**.
-* **--resource-group-name** is the name of the resource group. This option is mutually exclusive with **--resource-group-id**.
-* **--json** formats the output in JSON.
+`--bucket`
+:   Name of the {{site.data.keyword.cos_short}} bucket.
+`--target`
+:   Target for the flow log.
+`--name`
+:   New name for the flow log.
+`--active`
+:   Indicates whether this collector is active.
+`--resource-group-id`
+:   ID of the resource group. This option is mutually exclusive with **--resource-group-name**.
+`--resource-group-name`
+:   Name of the resource group. This option is mutually exclusive with **--resource-group-id**.
+`--json`
+:   Formats the output in JSON.
 
 ## Creating a flow log collector with the API
 {: #fl-ordering-api}

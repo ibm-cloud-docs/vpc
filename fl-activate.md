@@ -2,7 +2,7 @@
 
 copyright:
   years: 2019, 2025
-lastupdated: "2025-06-09"
+lastupdated: "2025-10-14"
 
 keywords: flow logs, activate, deactivate, suspend, resume
 
@@ -48,9 +48,12 @@ ibmcloud is flow-log-update FLOW_LOG --active (true|false) [--json]
 
 Where:
 
-* **FLOW_LOG** is the ID of the flow log instance.
-* **--active** is the intended `active` status after the update. Set to **true** to resume or **false** to suspend.
-* **--json** formats the output in JSON.
+`FLOW_LOG`
+:   ID of the flow log instance.
+`--active`
+:   The intended `active` status after the update. Set to `true` to resume or `false` to suspend.
+`--json`
+:   Formats the output in JSON.
 
 ## Suspending and resuming a flow log collector with the API
 {: #fl-managing-api}

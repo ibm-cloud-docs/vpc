@@ -2,7 +2,7 @@
 
 copyright:
   years: 2020, 2025
-lastupdated: "2025-09-04"
+lastupdated: "2025-10-14"
 
 keywords: flow logs, delete
 
@@ -42,8 +42,10 @@ ibmcloud is flow-log-delete FLOW_LOG [-f, --force]
 
 Where:
 
-- **FLOW_LOG** is the ID of the flow log instance.
-- **--force, -f** forces the operation without confirmation.
+`FLOW_LOG`
+:   ID of the flow log instance.
+`--force, -f`
+:   Forces the operation without confirmation.
 
 ## Deleting a flow log collector with the API
 {: #fl-deleting-api}

@@ -81,14 +81,22 @@ ibmcloud is network-acl-create ACL_NAME VPC \
 
 Where:
 
-* `ACL_NAME` is the name of the network ACL.
-* `VPC` is the ID of the VPC.
-* `--rules` are the rules for the ACL in JSON or JSON file.
-* `--source-acl-id` is the ID of the network ACL to copy rules from.
-* `--resource-group-id` is the ID of the resource group. This option is mutually exclusive with `--resource-group-name`.
-* `--resource-group-name` is the name of the resource group. This option is mutually exclusive with `--resource-group-id`.
-* `--output` specifies output in JSON format.
-* `-q, --quiet` suppresses verbose output.
+`ACL_NAME` 
+:   Name of the network ACL.
+`VPC` 
+:   ID of the VPC.
+`--rules`
+:   Rules for the ACL in JSON or JSON file.
+`--source-acl-id`
+:   ID of the network ACL to copy rules from.
+`--resource-group-id`
+:   ID of the resource group. This option is mutually exclusive with `--resource-group-name`.
+`--resource-group-name` 
+:   Name of the resource group. This option is mutually exclusive with `--resource-group-id`.
+`--output`
+:   Output in JSON format.
+`-q, --quiet`
+:   Suppresses verbose output.
 
 
 

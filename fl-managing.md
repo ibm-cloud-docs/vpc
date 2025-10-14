@@ -2,7 +2,7 @@
 
 copyright:
   years: 2020, 2025
-lastupdated: "2025-06-18"
+lastupdated: "2025-10-14"
 
 keywords:
 
@@ -51,9 +51,12 @@ ibmcloud is flow-logs \
 
 Where:
 
-- **--resource-group-id** is the ID of the resource group. This option is mutually exclusive with **--resource-group-name**.
-- **--resource-group-name** is the name of the resource group. This option is mutually exclusive with **--resource-group-id**.
-- **--json** formats the output in JSON.
+`--resource-group-id`
+:   ID of the resource group. This option is mutually exclusive with `--resource-group-name`.
+`--resource-group-name`
+:   Name of the resource group. This option is mutually exclusive with `--resource-group-id`.
+`--json`
+:   Formats the output in JSON.
 
 ## Listing flow log collectors with the API
 {: #fl-list-api}
