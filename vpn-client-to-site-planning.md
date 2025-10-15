@@ -24,6 +24,7 @@ Review the following considerations before creating a VPN server.
 * The aggregation bandwidth is 600 Mbps for a stand-alone VPN and 1200 Mbps for a high availability VPN server. The maximum number of active clients is 2000. If you require more bandwidth, or have more clients that need to connect with the VPN server, you can create multiple VPN servers in the same VPC, or in different VPCs in different regions.
 * Currently, a maximum of 2000 active client connections are supported per server.
 
+
 * MFA support is provided by IAM.
 * Features not supported:
    * Integration with other identity providers, such as Active Directory and RADIUS

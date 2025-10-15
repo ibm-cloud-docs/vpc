@@ -234,7 +234,7 @@ To create a client-to-site VPN server with the API, follow these steps:
 
 To set up a VPN server with Terraform, follow these steps:
 
-1. Create an IBM Cloud Secrets Manager instance with a trial plan.
+1. Create an IBM Cloud Secrets Manager instance.
 
 1. Generate the server certificate/key and client certificate/key locally and import it to the Secrets Manager instance, or generate the certificate/keys using the private certificate capability in the Secrets Manager service.
 
