@@ -2,7 +2,7 @@
 
 copyright:
   years: 2022, 2025
-lastupdated: "2025-10-07"
+lastupdated: "2025-10-15"
 
 keywords: confidential computing, enclave, secure execution, hpcr, contract, customization, schema, contract schema, env, workload, encryption
 
@@ -685,11 +685,11 @@ The encryption and attestation certificates are signed by the IBM intermediate c
 
    | Image version| Certificate link | Encryption cert expiry date | Deprecation date | Obsolete Date |
    | -------- | ----------- | ----------- | ----------- | ----------- |
-   | `ibm-hyper-protect-container-runtime-1-0-s390x-23` | [Certificate](https://hpvsvpcubuntu.s3.us.cloud-object-storage.appdomain.cloud/s390x-23/ibm-hyper-protect-container-runtime-1-0-s390x-23-encrypt.crt){: external} | 26 February 2026 |   |   |
-   | `ibm-hyper-protect-container-runtime-1-0-s390x-22` | [Certificate](https://hpvsvpcubuntu.s3.us.cloud-object-storage.appdomain.cloud/s390x-22/ibm-hyper-protect-container-runtime-1-0-s390x-22-encrypt.crt){: external} | 26 February 2026 |   |   |
-   | `ibm-hyper-protect-container-runtime-1-0-s390x-21` | [Certificate](https://hpvsvpcubuntu.s3.us.cloud-object-storage.appdomain.cloud/s390x-21/ibm-hyper-protect-container-runtime-1-0-s390x-21-encrypt.crt){: external} | 26 February 2026 |   |   |
-   | `ibm-hyper-protect-container-runtime-1-0-s390x-20` | [Certificate](https://hpvsvpcubuntu.s3.us.cloud-object-storage.appdomain.cloud/s390x-20/ibm-hyper-protect-container-runtime-1-0-s390x-20-encrypt.crt){: external} | 02 September 2025 |   |   |
-   | `ibm-hyper-protect-container-runtime-1-0-s390x-19` | [Certificate](https://hpvsvpcubuntu.s3.us.cloud-object-storage.appdomain.cloud/s390x-19/ibm-hyper-protect-container-runtime-1-0-s390x-19-encrypt.crt){: external} | 02 September 2025 |   |   |
+   | `ibm-hyper-protect-container-runtime-1-0-s390x-23` | [Certificate](https://hpvsvpcubuntu.s3.us.cloud-object-storage.appdomain.cloud/s390x-23/ibm-hyper-protect-container-runtime-1-0-s390x-23-encrypt.crt){: external} | 26 February 2026 | 15 December 2025   | 27 February 2026   |
+   | `ibm-hyper-protect-container-runtime-1-0-s390x-22` | [Certificate](https://hpvsvpcubuntu.s3.us.cloud-object-storage.appdomain.cloud/s390x-22/ibm-hyper-protect-container-runtime-1-0-s390x-22-encrypt.crt){: external} | 26 February 2026 | 15 December 2025   | 27 February 2026   |
+   | `ibm-hyper-protect-container-runtime-1-0-s390x-21` | [Certificate](https://hpvsvpcubuntu.s3.us.cloud-object-storage.appdomain.cloud/s390x-21/ibm-hyper-protect-container-runtime-1-0-s390x-21-encrypt.crt){: external} | 26 February 2026 |  10 October 2025  | 27 February 2026  |
+   | `ibm-hyper-protect-container-runtime-1-0-s390x-20` | [Certificate](https://hpvsvpcubuntu.s3.us.cloud-object-storage.appdomain.cloud/s390x-20/ibm-hyper-protect-container-runtime-1-0-s390x-20-encrypt.crt){: external} | 02 September 2025 |   | 10 October 2025   |
+   | `ibm-hyper-protect-container-runtime-1-0-s390x-19` | [Certificate](https://hpvsvpcubuntu.s3.us.cloud-object-storage.appdomain.cloud/s390x-19/ibm-hyper-protect-container-runtime-1-0-s390x-19-encrypt.crt){: external} | 02 September 2025 |   | 10 October 2025  |
    {: caption="Encryption certificate expiry dates and image deprecation/ obsolete dates" caption-side="bottom"}
 
    **Note:**
