@@ -28,7 +28,7 @@ You can create file shares and mount targets either of the following ways:
 
 When you create a mount target, its transit encryption type must reflect the allowed transit encryption modes of the share. You can create multiple mount targets for the share if it's to be used by resources in different VPCs. You can create one mount target per VPC for the file share.
 
-Customers with special access to preview the new regional file share offering can use the **rfs** profile to create file shares with regional availability and adjustable bandwidth values.
+Customers with special access to preview the new regional file share offering can use the **rfs** profile to create file shares with regional availability and adjustable bandwidth values. The `VPC` access mode is not supported for regional shares.
 {: preview}
 
 ## Creating a file share in the console
@@ -58,7 +58,7 @@ In the {{site.data.keyword.cloud_notm}} console, you can create a file share wit
    | Profile | The profile is auto-populated based on your data availability selection. For more information, see [file Storage profiles](/docs/vpc?topic=vpc-file-storage-profiles). \n - If you chose Single zone availability, your file share uses the `dp2` profile. Select the size and IOPS for your file share. You can increase the capacity later, and you can also adjust the IOPS as needed. \n - [Select availability]{: tag-green} If you chose regional availability, your file share uses the `rfs` profile. Select the size and bandwidth for your file share. You can increase the capacity later, and you can also adjust the bandwidth as needed.|
    | Mount target access mode  | Select how you want to manage access to this file share: |
    |  | Security group: Access to the file share is based on [security group](/docs/vpc?topic=vpc-using-security-groups#sg-getting-started) rules. This option can be used to restrict access to specific virtual server instances. You can also use this option if you want to mount the file share to a virtual server instance in another zone. This option is recommended as you have more control over who can access the data that is stored on the file share. When you choose this type of access, you can also specify the allowed transit encryption modes. |
-   |  | Virtual private cloud: Access to the file share is granted to any virtual server instance in the same region. Cross-zone mounting, encryption in transit, cross-zone mounting, and snapshots are not supported when this access mode is selected. [Select availability]{: tag-green} This legacy access mode is not supported for regional shares. |
+   |  | Virtual private cloud: Access to the file share is granted to any virtual server instance in the same region. Cross-zone mounting, encryption in transit, cross-zone mounting, and snapshots are not supported when this access mode is selected. [Select availability]{: tag-green} This less-secure access mode is not supported for regional shares. |
    | Allowed transit encryption modes | As the share owner, you can specify how you want clients within your account and authorized accounts to connect to your file share. You can select *none* if you do not want them to use encryption in transit. If you want them to use encryption in transit, select *IPsec* for a zonal share or [Select availability]{: tag-green} *stunnel* for a regional share. If you select both available options, then the transit encryption type of the first mount target decides the transit encryption types of all future mount targets within the account. |
    {: caption="Values for creating a file share" caption-side="bottom"}
 
@@ -90,8 +90,9 @@ In the {{site.data.keyword.cloud_notm}} console, you can create a file share wit
 If you're not ready to order yet or just looking for pricing information, you can add the information that you see in the side panel to an Estimate. For more information about how this feature works, see [Estimating your costs](/docs/account?topic=account-cost).    
 {: tip}
 
-### Creating a mount target in the console
+## Creating a mount target in the console
 {: #fs-create-mount-target-ui}
+{: ui}
 
 1. In the [{{site.data.keyword.cloud_notm}} console](/login){: external}, click the **Navigation menu** icon ![menu icon](../icons/icon_hamburger.svg) **> Infrastructure** ![VPC icon](../icons/vpc.svg) **> Storage > File storage shares**.
 
@@ -116,8 +117,9 @@ If you're not ready to order yet or just looking for pricing information, you ca
 
 5. Click **Create**.
 
-### Adding supplemental IDs when you create a file share
+## Adding supplemental IDs when you create a file share
 {: #fs-add-supplemental-id-ui}
+{: ui}
 
 When you mount a file share in Linux, the user ID (UID) and group ID (GID) can be used to assign ownership of all the files and folders on that share. You can specify the initial owner user and group IDs only from the CLI, or with the API. To see the steps, switch to the CLI or API instructions.
 
@@ -131,9 +133,9 @@ When you mount a file share in Linux, the user ID (UID) and group ID (GID) can b
 Before you can use the CLI, you must install the IBM Cloud CLI and the VPC CLI plug-in. For more information, see the [CLI prerequisites](/docs/vpc?topic=vpc-set-up-environment#cli-prerequisites-setup).
 {: requirement}
 
-For more information about the command options, see [VPC CLI Reference: `ibmcloud is share-create`](/docs/vpc?topic=vpc-vpc-reference#share-create).
+The following examples illustrate how to create zonal and regional shares with or without mount target and different access modes. For more information about command options and syntax, see [VPC CLI Reference: `ibmcloud is share-create`](/docs/vpc?topic=vpc-vpc-reference#share-create).
 
-### Gathering required information from the CLI
+### Gathering required information for file share creation
 {: #fs-vpc-getinfo-cli}
 
 Before you run the `ibmcloud is share-create` command, you can gather information that you need for provisioning a share by viewing information about other file shares, mount targets, and file storage profiles.
@@ -149,6 +151,9 @@ Before you run the `ibmcloud is share-create` command, you can gather informatio
 
 ### Creating a zonal file share without a mount target from the CLI
 {: #fs-create-share-cli}
+
+#### Creating a zonal file share without a mount target with security group access mode
+{: #fs-create-share-sg-cli}
 
 You can use the `ibmcloud is share-create` command to provision a zonal file share in your selected zone with the `dp2` profile, with your specific capacity and IOPS values. The following example shows how to create 40-GB file share with 100 IOPS in the us-south-1 zone. This file share is created with the default security group access mode and with provider-managed encryption.
 
@@ -193,6 +198,9 @@ Bandwidth(Mbps)                    1
 Storage Generation                 1  
 ```
 {: screen}
+
+#### Creating a zonal file share without a mount target with VPC access mode
+{: #fs-create-share-vpc-cli}
 
 Security group access mode is the default and recommended setting. However, you can choose to create a zonal file share with the VPC access mode that allows every Compute host in the VPC to mount the file share. See the following example.
 
@@ -241,8 +249,6 @@ Storage Generation                 1
 ### Creating a regional file share without a mount target from the CLI
 {: #fs-create-regional-share-cli}
 
-Customers with special access to preview the new regional file share offering can use the **rfs** profile to create file shares with regional availability and adjustable bandwidth values.
-
 The following example shows how to create 40-GB regional file share with 125 Mbps bandwidth. This file share is created with provider-managed encryption. The file share is created in the region that you selected when you logged in, no location selection is required.
 
 ```sh
@@ -287,24 +293,28 @@ Storage Generation                 2
 ```
 {: screen}
 
-Security group access mode is the default setting. The VPC access mode is not supported for the file shares with regional availability.
+Security group access mode is the default setting. The VPC access mode is not supported for the file shares with regional data availability.
 {: note}
 
-### Creating a mount target for a file share from the CLI
+## Creating a mount target for a file share from the CLI
 {: #fs-create-mount-target-cli}
+{: cli}
 
 To create a mount target for the file share, run the `share-mount-target-create` command. Before you begin, gather some necessary information.
+
+### Gathering required information for mount target creation
+{: #fs-vpc-getinfo-mt-cli}
 
 When you create a mount target, you must specify the file share that it is for. You can use the file share's name or ID. You must specify the VPC, too, either with its ID or name. The VPC must be unique to each mount target. You must also specify the security access group that's going to be used to manage access to the share. The security groups that you associate with a mount target must allow inbound access for the TCP protocol on the NFS port from all servers where you want to mount the share.
 
 Lastly, you must specify values for the options that are needed to create a [virtual network interface](/docs/vpc?topic=vpc-vni-about) for the mount target. Use the appropriate CLI commands to list the available [subnets](/docs/vpc?topic=vpc-vpc-reference#subnets-list), [reserved IP addresses in a subnet](/docs/vpc?topic=vpc-vpc-reference#subnet-reserved-ips-list), [security groups](/docs/vpc?topic=vpc-vpc-reference#security-groups-list) to get the information that you need.
 
-For more information about the command options, see [VPC CLI Reference: `ibmcloud is share-mount-target-create`](/docs/vpc?topic=vpc-vpc-reference#share-mount-target-create).
+The following examples illustrate how to create mount targets with different access modes. For more information about the command options and syntax, see [VPC CLI Reference: `ibmcloud is share-mount-target-create`](/docs/vpc?topic=vpc-vpc-reference#share-mount-target-create).
 
 A virtual network interface with secondary IP addresses attached cannot be accepted as a file share mount target.
 {: note}
 
-#### Creating a mount target with security group access mode
+### Creating a mount target with security group access mode
 {: #fs-create-mount-target-sg-cli}
 
 The following example creates a mount target with a virtual network interface for a file share that has security group access mode.
@@ -335,7 +345,7 @@ Access Protocol             nfs4
 ```
 {: screen}
 
-#### Creating a mount target with VPC access mode
+### Creating a mount target with VPC access mode
 {: #fs-create-mount-target-vpc-cli}
 
 The following example creates a mount target for a zonal file share that has VPC access mode.
@@ -363,12 +373,13 @@ Transit Encryption        none
 ```
 {: screen}
 
-### Creating a file share with a mount target from the CLI
+## Creating a file share with a mount target from the CLI
 {: #fs-create-share-target-cli}
+{: cli}
 
 You can create a file share with one or more mount targets in one step by using the `ibmcloud is share-create` command. You need to provide the zone name, the [file share profile](/docs/vpc?topic=vpc-file-storage-profiles), the file share size, and the IOPS. You can also specify a name, user tags, and even the initial owner UID. To create the mount target, you need to provide the mount target information in JSON format.
 
-#### Creating a zonal file share with a mount target with security group access mode
+### Creating a zonal file share with a mount target with security group access mode
 {: #fs-create-zonal-share-target-sg-cli}
 
 The following example shows how to create a zonal file share with 500 GB capacity and 2000 IOPS in the `us-south-1` zone. The file share is tagged with `env:dev` and has security group access control mode. The file share can be mounted on authorized virtual servers by using the mount target `my-new-mount-target`.
@@ -416,7 +427,7 @@ Storage Generation                 1
 ```
 {: screen}
 
-#### Creating a regional file share with a mount target with security group access mode
+### Creating a regional file share with a mount target with security group access mode
 {: #fs-create-regional-share-target-sg-cli}
 
 The following example shows how you can create a regional file share with a mount target from the CLI. Note that while the command specifies a low bandwidth value, the system auto-corrects the configuration to provide at least 8 Mbps for every 20 GB of capacity.
@@ -463,7 +474,7 @@ Storage Generation                 2
 ```
 {: screen}
 
-#### Creating a zonal file share with a mount target with VPC access mode
+### Creating a zonal file share with a mount target with VPC access mode
 {: #fs-create-zonal-share-target-vpc-cli}
 
 The following example creates a file share with VPC access mode and a mount target that can be used by any virtual server instance within the VPC.
@@ -511,23 +522,26 @@ Storage Generation           1
 ```
 {: screen}
 
-### Creating a file share with customer-managed encryption from the CLI
+## Creating a file share with customer-managed encryption from the CLI
 {: #fs-create-encrypted-share-cli}
+{: cli}
 
 By default, {{site.data.keyword.filestorage_vpc_short}} shares are encrypted with IBM-managed encryption. However, you can also create an envelop-encryption for your file shares by using one of the supported key management services to create or import your own root keys. For more information, see [Protecting data with envelope encryption](/docs/key-protect?topic=key-protect-envelope-encryption)
 
 For more information about how to create a file share with customer-managed encryption, see [Creating file shares with customer-managed encryption](/docs/vpc?topic=vpc-file-storage-byok-encryption&interface=cli#fs-byok-cli).
 
-### Creating a file share with a replica in another zone from the CLI
+## Creating a file share with a replica in another zone from the CLI
 {: #fs-create-share-with-replica-cli}
+{: cli}
 
 For more information about how to create a file share with a replica simultaneously, see [Create a file share with replication from the CLI](/docs/vpc?topic=vpc-file-storage-create-replication&interface=cli#fs-create-new-share-replica-cli).
 
 File shares with regional availability serve data in every zone of the region. Async replication within a region is not applicable to these shares.
 {: preview}
 
-### Creating a file share from a snapshot from the CLI
+## Creating a file share from a snapshot from the CLI
 {: #fs-create-share-from-snapshot-cli}
+{: cli}
 
 You can use a snapshot of a file share to create another file share in the same zone. To create a file share based on a snapshot, run the `ibmcloud is share-create` command.
 
@@ -542,14 +556,15 @@ For more information about how to create a file share from a snapshot with other
 
 [Select availability]{: tag-green} First- and second-generation file share profiles in the defined performance profile family are not interchangeable. You can't use first-generation file share's snapshot to create a share with the `rfs` profile. Similarly, you can't use your second-generation snapshot to create a zonal file share.
 
-### Adding supplemental IDs when you create a file share with the CLI
+## Adding supplemental IDs when you create a file share with the CLI
 {: #fs-add-supplemental-id-cli}
+{: cli}
 
 When you mount a file share in Linux, the user ID (UID) and group ID (GID) can be used to assign ownership of all the files and folders on that share.
 
 With the CLI, you can set `UID` and `GID` values for the `--initial-owner-uid` and `--initial-owner-gid` property to control access to your file shares. Wherever you mount the file share, the root folder must use that user ID and group ID. You can set the `UID` or `GID`, or both when you create a share.
 
-If you change the supplemental IDs (UID or GID) from the virtual server instance, it is not possible to determine that it was changed. As a result, `initial_owner` changes only in the file storage system, but the change isn't reflected in the CLI or API responses.
+If you change local user and group permissions from the virtual server instance, it is not possible to determine that it was changed from the Cloud. As a result, `initial_owner` value does not change in the CLI responses.
 {: note}
 
 The following table shows UID and GID values that you can set, and values that are reserved.
@@ -726,8 +741,6 @@ A successful response looks like the following example.
 ### Creating a regional file share with the API
 {: #fs-create-rfs-file-share-api}
 
-Customers with special access to preview the new regional file share offering can use the **rfs** profile to create file shares with regional availability and adjustable bandwidth values.
-
 The following example shows how to create 1000-GB regional file share with 60 Mbps bandwidth. This file share is created with the default security group access mode and with provider-managed encryption. The file share is created in the region that you selected when you logged in, no location selection is required.
 
 ```sh
@@ -748,8 +761,9 @@ curl -X POST "$vpc_api_endpoint/v1/shares?version=2025-09-23&generation=2"\
 
 For more information, see the [Create a file share method in the Beta VPC API spec](/apidocs/vpc-beta/latest#create-share).
 
-### Creating a mount target for a file share with the API
+## Creating a mount target for a file share with the API
 {: #fs-create-mount-target-api}
+{: api}
 
 This request creates or adds a mount target to an existing file share. In this example, the `vpc` property is specified because the file share's access control mode is `vpc`. Data encryption in transit cannot be enabled.
 
@@ -826,8 +840,9 @@ The following example shows how to add a mount target to a regional file share. 
 ```
 {: codeblock}
 
-### Creating a file share and mount target together with the API
+## Creating a file share and mount target together with the API
 {: #fs-create-share-target-api}
+{: api}
 
 The following example request creates a file share that has the VPC-wide access mode and a mount target that can be used by every virtual server instance in the specified VPC. It also adds [user tags](/docs/vpc?topic=vpc-file-storage-managing&interface=api#fs-add-user-tags) to the share. 
 
@@ -1161,19 +1176,21 @@ curl -X POST "$vpc_api_endpoint/v1/shares?version=2023-08-08&generation=2" \
  ```
  {: codeblock}
 
-### Creating a file share from a snapshot with the API
+## Creating a file share from a snapshot with the API
 {: #fs-create-share-from-snapshot-api}
+{: api}
 
 For more information about how to create a file share from a snapshot, see [Restoring data from a file share snapshot](/docs/vpc?topic=vpc-fs-snapshots-restore&interface=api#fs-snapshots-restore-API).
 
-### Adding supplemental IDs when you create a file share with the API
+## Adding supplemental IDs when you create a file share with the API
 {: #fs-add-supplemental-id-api}
+{: api}
 
 When you mount a file share in Linux, the user ID (UID) and group ID (GID) can be used to assign ownership of all the files and folders on that share.
 
 With the API, you can set `UID` and `GID` values for the `initial_owner` property to control access to your file shares. Wherever you mount the file share, the root folder must use that user ID and group ID. You can set the `UID` or `GID`, or both when you create a share in a `POST /shares` call.
 
-If you change the supplemental IDs (UID or GID) from the virtual server instance, it is not possible to determine that it was changed. As a result, `initial_owner` does not change in the API database but changes only in the file storage system.
+If you change local user and group permissions from the virtual server instance, it is not possible to determine that it was changed from the Cloud. As a result, `initial_owner` value does not change in the API responses.
 {: note}
 
 The following table shows UID and GID values that you can set, and values that are reserved.
@@ -1211,7 +1228,7 @@ curl -X POST \
 ```
 {: codeblock}
 
-## Creating a file share and mount target with Terraform
+## Creating a file share with Terraform
 {: #file-storage-create-terraform}
 {: terraform}
 
@@ -1229,7 +1246,7 @@ provider "ibm" {
 ```
 {: screen}
 
-### Creating a file share with Terraform
+### Creating a zonal file share with Terraform
 {: #file-share-create-terraform}
 
 To create a file share, use the `ibm_is_share` resource. The following example creates a share with 200 GB capacity and the `dp2` performance profile.
@@ -1246,7 +1263,7 @@ resource "ibm_is_share" "example" {
 ```
 {: codeblock}
 
-### Creating a file share with a replica with Terraform
+### Creating a zonal file share with a replica with Terraform
 {: #file-share-create-with-replica-terraform}
 
 To create a file share, use the `ibm_is_share` resource. To add a replica, define the replica share similarly to the following example. It creates a share with 220 GB capacity and the `dp2` performance profile. The `replica_share` argument defines the replica share's name, the frequency of replication (in cron spec), the performance profile, and the zone where the replica share is to be created.
@@ -1268,13 +1285,15 @@ resource "ibm_is_share" "example-2" {
 ```
 {: codeblock}
 
-### Creating a file share from a snapshot with Terraform
+## Creating a file share from a snapshot with Terraform
 {: #fs-create-share-from-snapshot-terraform}
+{: terraform}
 
 For more information about how to create a file share from a snapshot, see [Restoring data from a file share snapshot](/docs/vpc?topic=vpc-fs-snapshots-restore&interface=terraform#fs-snapshots-restore-terraform).
 
-### Creating a mount target with Terraform
+## Creating a mount target with Terraform
 {: #file-share-mount-create-terraform}
+{: terraform}
 
 To create a mount target for a file share that provides granular authentication with the use of Security groups, use the `is_share_mount_target` resource. The following example creates a mount target with `security_group` access control mode. First, specify the share for which the mount target is created. Then, you specify the name of the mount target and define the new virtual network interface by providing an IP address and a name. You must also specify the security group that you want to use to manage access to the file share that the mount target is associated to. The security groups that you associate with a mount target must allow inbound access for the TCP protocol on the NFS port from all servers where you want to mount the share. The attribute `auto_delete = true` means that the virtual network interface is to be deleted if the mount target is deleted.
 
@@ -1310,10 +1329,16 @@ resource "ibm_is_share_mount_target" "target-without-vni" {
 
 For more information about the arguments and attributes, see [ibm_is_share_mount_target](https://registry.terraform.io/providers/IBM-Cloud/ibm/latest/docs/resources/is_share_mount_target){: external}.
 
+## Creating a file share with a mount target with Terraform
+{: #file-share-create-with-target-terraform}
+{: terraform}
+
+You don't need to create the file share and the mount target separately. 
+
 ### Creating a file share with a mount target with security group access mode
 {: #file-share-create-with-target-sg-terraform}
 
-You don't need to create the file share and the mount target separately. To create a file share with a mount target that allows for security group-based authentication within a VPC, use the `ibm_is_share` resource. Specify the access control mode as `security_group`, and define the mount target by providing a name for it, details of the virtual network interface such as name, subnet, or IP address. Also, specify the security groups that you want to use to control access to the file share. The security groups that you associate with a mount target must allow inbound access for the TCP protocol on the NFS port from all servers where you want to mount the share.
+To create a file share with a mount target that allows for security group-based authentication within a VPC, use the `ibm_is_share` resource. Specify the access control mode as `security_group`, and define the mount target by providing a name for it, details of the virtual network interface such as name, subnet, or IP address. Also, specify the security groups that you want to use to control access to the file share. The security groups that you associate with a mount target must allow inbound access for the TCP protocol on the NFS port from all servers where you want to mount the share.
 
 ```terraform
 resource "ibm_is_share" "share4" {
@@ -1364,8 +1389,48 @@ resource "ibm_is_share" "share3" {
 
 Cross-zone mounting and encryption in transit are not supported for this type of file share.
 
-The legacy `VPC` access mode is not supported for regional shares.
-{: preview}
+## Adding supplemental IDs when you create a file share with Terraform
+{: #fs-add-supplemental-id-terraform}
+{: terraform}
+
+When you mount a file share in Linux, the user ID (UID) and group ID (GID) can be used to assign ownership of all the files and folders on that share. You can specify the `UID` and `GID` values for the `initial_owner` property to control access to your file shares. Wherever you mount the file share, the root folder must use that user ID and group ID.
+
+If you change local user and group permissions from the virtual server instance, it is not possible to determine that it was changed from the Cloud. As a result, `initial_owner` value does not change.
+{: note}
+
+The following table shows UID and GID values that you can set, and values that are reserved.
+
+| ID value | Description |
+|----------|-------------|
+| **UID** | |
+| UID 0 | Reserved for root. |
+| UID 1–99 | Reserved for predefined accounts. |
+| UID 100–999 | Reserved by the system for administrative system accounts and groups. |
+| UID 1000–10000 | Used by applications account. |
+| UID 10000+ | Available for user accounts. |
+| **GID** | |
+| GID 0 | Reserved for root. |
+| GID 1–99 | Reserved for the system and application use. |
+| GID 100+ | Allocated for the user’s group. |
+{: caption="Unix/Linux&reg; supplemental ID values." caption-side="top"}
+
+By using the `ibm_is_share` resource, specify the UID, GID, or both in the `initial_owner` argument. See the following example.
+
+```terraform
+resource "ibm_is_share" "example" {
+  allowed_transit_encryption_modes = "none"
+  name                             = "my-new-share"
+  size                             = "200"
+  iops                             = "500"
+  profile                          = "dp2"
+  zone                             = "us-south-2"
+  initial_owner {
+        gid = "10042"
+        uid = "123"
+  }
+}
+```
+{: codeblock}
 
 ## Next steps
 {: #fs-create-next-steps}
