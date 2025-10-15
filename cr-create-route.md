@@ -2,7 +2,7 @@
 
 copyright:
   years: 2020, 2025
-lastupdated: "2025-06-18"
+lastupdated: "2025-10-15"
 
 keywords: custom routes
 
@@ -136,6 +136,8 @@ Where:
 `--q, quiet`
 :   Causes the command to run silently and does not generate any output.
 
+
+
 ### CLI examples
 {: #examples-priority}
 {: cli}
@@ -143,6 +145,8 @@ Where:
 `ibmcloud is vpc-routing-table-route-update 72b27b5c-f4b0-48bb-b954-5becc7c1dcb3 72b27b5c-f4b0-48bb-b954-5becc7c1d456 72b27b5c-f4b0-48bb-b954-5becc7c1d4ef --name my-vpc-route --priority 1`
 
 `ibmcloud is vpc-routing-table-route-update 72b27b5c-f4b0-48bb-b954-5becc7c1dcb3 72b27b5c-f4b0-48bb-b954-5becc7c1d456 72b27b5c-f4b0-48bb-b954-5becc7c1d4ef --name my-vpc-route --next-hop 10.0.0.2`
+
+
 
 ## Creating a route with the API
 {: #cr-route-using-the-api}

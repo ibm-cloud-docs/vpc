@@ -2,7 +2,7 @@
 
 copyright:
   years: 2020, 2025
-lastupdated: "2025-06-18"
+lastupdated: "2025-10-15"
 
 keywords: custom routes
 
@@ -53,6 +53,7 @@ Where:
 
 `-f, --force`
 :   Forces the operation without confirmation.
+
 
 ## Deleting a routing table with the API
 {: #cr-delete-table-using-the-api}

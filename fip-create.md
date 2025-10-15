@@ -2,7 +2,7 @@
 
 copyright:
   years: 2022, 2025
-lastupdated: "2025-08-26"
+lastupdated: "2025-10-15"
 
 keywords: floating ip, reserving, bare metal, vnic, public gateways
 
@@ -102,12 +102,14 @@ First get the instance, in order to retrieve the NIC name:
    ```
    {: pre}
 
+
 Next, create a floating IP that targets that instance and the NIC:
 
    ```sh
    ibmcloud is floating-ip-reserve my-ip --nic eth0 --in my-instance
    ```
    {: pre}
+
 
 ### Adding a floating IP address to a Bare Metal server with the CLI
 {: #fip-add-bare-metal-cli}

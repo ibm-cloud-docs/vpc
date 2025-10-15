@@ -20,7 +20,7 @@ subcollection: vpc
 Create a VPN server to allow clients from the internet to connect to the VPC network while maintaining secure connectivity.
 {: shortdesc}
 
-You can create a VPN server by using the console, CLI, or API.
+You can create a VPN server by using the console, CLI, API, or Terraform.
 
 ## Before you begin
 {: #vpn-client-to-site-prerequisites}
@@ -44,7 +44,7 @@ Before you provision a VPN server, complete the following prerequisites in the f
 {: #creating-vpn-server-ui}
 {: ui}
 
-To create a client-to-site VPN server in the console:
+To create a VPN server in the console:
 
 1. Complete all prerequisites in the "Before you begin" section.
 1. From your browser, open the [{{site.data.keyword.cloud_notm}} console](/login){: external} and log in to your account.
@@ -232,7 +232,7 @@ To create a client-to-site VPN server with the API, follow these steps:
 {: #vpn-server-setup-terraform}
 {: terraform}
 
-To set up a VPN server using Terraform, follow these steps:
+To set up a VPN server with Terraform, follow these steps:
 
 1. Create an IBM Cloud Secrets Manager instance with a trial plan.
 

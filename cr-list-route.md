@@ -2,7 +2,7 @@
 
 copyright:
   years: 2020, 2025
-lastupdated: "2025-06-18"
+lastupdated: "2025-10-15"
 
 keywords: custom routes
 
@@ -68,6 +68,7 @@ Where:
 
 `--q, --quiet`
 :   Specify verbose output.
+
 
 ## Listing routes of a routing table with the API
 {: #cr-view-details-route-using-the-api}
