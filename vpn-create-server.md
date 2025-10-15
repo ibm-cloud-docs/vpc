@@ -2,7 +2,7 @@
 
 copyright:
   years: 2021, 2025
-lastupdated: "2025-06-18"
+lastupdated: "2025-10-15"
 
 keywords:
 
@@ -227,6 +227,138 @@ To create a client-to-site VPN server with the API, follow these steps:
          }'
    ```
    {: codeblock}
+
+## Creating a VPN server with Terraform
+{: #vpn-server-setup-terraform}
+{: terraform}
+
+To set up a VPN server using Terraform, follow these steps:
+
+1. Create an IBM Cloud Secrets Manager instance with a trial plan.
+
+1. Generate the server certificate/key and client certificate/key locally and import it to the Secrets Manager instance, or generate the certificate/keys using the private certificate capability in the Secrets Manager service.
+
+   ```terraform
+   resource "ibm_resource_instance" "sec_mgr" {
+     name              = "vpc-secmgr"
+     service           = "secrets-manager"
+     plan              = var.service_plan
+     location          = var.region_name
+     resource_group_id = data.ibm_resource_group.group.id
+
+     timeouts {
+      create = "30m"
+      update = "30m"
+      delete = "30m"
+     }
+   }
+
+   resource "ibm_sm_secret_group" "sm_secret_group" {
+     instance_id = ibm_resource_instance.sec_mgr[0].guid
+     region      = var.region_name
+     name        = "vpc-sec-group"
+     description = "default secret group"
+   }
+
+   output "import_cert_server_crn" {
+     value = ibm_sm_imported_certificate.sm_imported_certificate_server.crn
+   }
+
+   output "import_cert_client_crn" {
+     value = ibm_sm_imported_certificate.sm_imported_certificate_client.crn
+   }
+   ```
+   {: codeblock}
+
+1. Create one VPC with one subnet.
+
+   ```terraform
+   resource "ibm_is_vpc" "vpc" {
+     name = "vpc-vpnserver"
+    }
+
+   resource "ibm_is_subnet" "subnet" {
+     name                     = "mysubnet-tf"
+     vpc                      = ibm_is_vpc.vpc.id
+     zone                     = var.zone_name
+     total_ipv4_address_count = 256
+    }
+   ```
+   {: codeblock}
+
+1. Create a security group with inbound and outbound rules to allow all traffic.
+
+   ```terraform
+   resource "ibm_is_security_group" "sg_all" {
+     name = "vpc-sg-all"
+     vpc  = ibm_is_vpc.vpc.id
+   }
+
+   resource "ibm_is_security_group_rule" "sg_rule1" {
+     group     = ibm_is_security_group.sg_all.id
+     direction = "inbound"
+     remote    = "0.0.0.0/0"
+   }
+
+   resource "ibm_is_security_group_rule" "sg_rule2" {
+     group     = ibm_is_security_group.sg_all.id
+     direction = "outbound"
+     remote    = "0.0.0.0/0"
+   }
+   ```
+   {: codeblock}
+
+1. Create the VPN server within the subnet, security group, and server/client certificates in the Secrets Manager instance.
+
+   ```terraform
+   resource "ibm_is_vpn_server" "example" {
+     certificate_crn = ibm_sm_imported_certificate.sm_imported_certificate_server.crn
+   client_authentication {
+     method        = "certificate"
+   client_ca_crn = ibm_sm_imported_certificate.sm_imported_certificate_client.crn
+   }
+    client_ip_pool         = "198.168.0.0/16"
+    enable_split_tunneling = true
+    name                   = "terry-vpn-server"
+    port                   = 443
+    protocol               = "tcp"
+    subnets                = [ibm_is_subnet.subnet.id]
+    security_groups        = [ibm_is_security_group.sg_all.id]
+    }
+
+   resource "ibm_is_vpn_server_route" "cse1" {
+     vpn_server  = ibm_is_vpn_server.example.id
+     destination = "166.8.0.0/14"
+     name        = "vpn-server-route-cse1"
+    }
+
+   resource "ibm_is_vpn_server_route" "cse2" {
+     vpn_server  = ibm_is_vpn_server.example.id
+     destination = "161.26.0.0/16"
+     name        = "vpn-server-route-cse2"
+    }
+
+   ```
+   {: codeblock}
+
+1. Download the VPN client profile and configure the client certificate and key in the client profile.
+
+   ```terraform
+   data "ibm_is_vpn_server_client_configuration" "my_vpn_client_conf" {
+     vpn_server = ibm_is_vpn_server.example.id
+   }
+
+   resource "local_file" "my_vpn_client_conf" {
+     content  = "${data.ibm_is_vpn_server_client_configuration.my_vpn_client_conf.vpn_server_client_configuration}\ncert ${path.cwd}/import_certs/client_cert.pem\nkey ${path.cwd}/import_certs/client_key.pem"
+     filename = "my_vpn_server.ovpn"
+   }
+   ```
+   {: codeblock}
+
+   Then, a user can use the VPN client profile with OpenVPN client to connect their client system to the created VPN server.
+
+For more information, see the [IBM Terraform Registry](https://registry.terraform.io/providers/IBM-Cloud/ibm/latest/docs/resources/is_vpn_server).{: external}
+{: note}
 
 ## Next steps
 {: #next-steps-after-provisioning-vpn-server}
