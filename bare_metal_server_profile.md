@@ -2,7 +2,7 @@
 
 copyright:
   years: 2021, 2025
-lastupdated: "2025-09-03"
+lastupdated: "2025-10-16"
 
 keywords:
 
@@ -231,6 +231,8 @@ See the following table to see what Generation 3 (x3) bare metal profiles are av
 {: tab-group="profile-regions-gen3"}
 {: class="simple-tab-table"}
 {: summary="Use the buttons before the table to change the context of the table. The column headers identify the hardware class."}
+
+
 
 ## Generation 2 (x2) bare metal profiles availability by region
 {: #bare-metal-profile-availability-by-region}
