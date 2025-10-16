@@ -2,7 +2,7 @@
 
 copyright:
   years: 2022, 2025
-lastupdated: "2025-09-09"
+lastupdated: "2025-10-16"
 
 keywords: Backup for VPC, backup service, backup plan, backup policy, restore, restore volume, restore data
 
@@ -37,10 +37,10 @@ When the authorization is needed for cross-account encryption, the authorization
 {: important}
 
 1. In the {{site.data.keyword.cloud_notm}} console, go to **Manage > Access (IAM)**.
-1. From the side panel, select **Authorizations**.
+1. From the side panel, click **Manage access**, and select **Authorizations**.
 1. On the **Manage authorizations** page, click **Create**. 
 1. In the **Source** section, select the **Source account**. The source account is where the block storage volumes are to be created.
-   - If the goal is to allow the use of a CRK by another account, select **Specific account** and enter the 32-character-long account ID. Then, click **Next**.
+   - If the goal is to allow another account to use a CRK of the target account, select **Specific account** and enter the 32-character-long account ID. Then, click **Next**.
    - Otherwise, select **This account**. Then, click **Next**.
 1. For the source service, select **Cloud Block Storage** from the list. Click **Next**.
    1. Select the scope by clicking **All resources**.
@@ -62,8 +62,9 @@ The following steps authorize the Block Storage service of one account to use a 
    1. Because the goal is to allow the use of a snapshot from another account, select a **Specific account**.
    1. Enter the 32-character account ID.
    1. Click **Next**.
-1. For the source service, select **Cloud Block Storage** from the list. Click **Next**.
-   1. Select the scope by clicking **All resources**.
+1. For the source service, select **VPC Infrastructure Services** from the list. Click **Next**.
+   1. Select the scope by clicking **Specific resources**.
+   1. Select **Resource type**, and **Block Storage for VPC**.
    1. Click **Next**.
 1. For the target service, select **VPC Infrastructure Services** from the list.
    1. Select the scope by clicking **Specific resources**.
