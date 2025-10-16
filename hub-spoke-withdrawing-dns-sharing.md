@@ -2,7 +2,7 @@
 
 copyright:
   years: 2023, 2025
-lastupdated: "2025-06-18"
+lastupdated: "2025-10-16"
 
 keywords:
 
@@ -66,6 +66,7 @@ To disconnect DNS sharing to a DNS hub VPC with the CLI, follow these steps:
    ```
    {: pre}
 
+
    Where:
 
    `VPC`
@@ -85,6 +86,7 @@ To disconnect DNS sharing to a DNS hub VPC with the CLI, follow these steps:
 
    `-q, --quiet`
    :    Suppresses verbose output.
+   
 
 ## Disconnecting DNS sharing to a hub VPC with the API
 {: #hub-dns_shared-disconnect-from-hub-api}
