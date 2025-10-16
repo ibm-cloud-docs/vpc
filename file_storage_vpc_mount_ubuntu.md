@@ -2,7 +2,7 @@
 
 copyright:
   years: 2021, 2025
-lastupdated: "2025-07-08"
+lastupdated: "2025-10-16"
 
 keywords: file share, file storage, mount helper, mount target, mount path, secure connection, NFS, mounting share
 
@@ -72,7 +72,7 @@ Follow these steps to mount a file share on an Ubuntu host.
    See the following example.
 
    ```sh
-   mount -t nfs4 -o sec=sys,nfsvers=4.1 10.240.64.11:/384f711c_0684_4643_b1c3_dc7acb36d04a /mnt/nfs
+   mount -t nfs4 -o sec=sys 10.240.64.11:/384f711c_0684_4643_b1c3_dc7acb36d04a /mnt/nfs
    ```
    {: pre}
 

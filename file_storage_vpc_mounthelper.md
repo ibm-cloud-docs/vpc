@@ -2,7 +2,7 @@
 
 copyright:
   years: 2023, 2025
-lastupdated: "2025-10-15"
+lastupdated: "2025-10-16"
 
 keywords: file share, file storage, encryption in transit, Mount Helper, IPsec, secure connection, mount share
 
@@ -237,15 +237,15 @@ When the command is sent, the utility creates the certificate signing request(cs
    Debug - StrongSwan cleanup config files Total(1) Mounted(0) Deleted(0) Recent(1)
    Debug - RunCmd: ReloadConfig (/usr/sbin/swanctl --load-all)
    Debug - File unlocked:/var/lock/ibm_mount_helper.lck
-   Debug - RunCmd: MountCmd (mount -t nfs4 -o sec=sys,nfsvers=4.1,rw 10.240.64.5:/0c937ac3_814e_4a7c_99b8_719ec3cad7fd /mnt/share-test)
+   Debug - RunCmd: MountCmd (mount -t nfs4 -o sec=sys,nfsvers=4.2,rw 10.240.64.5:/0c937ac3_814e_4a7c_99b8_719ec3cad7fd /mnt/share-test)
    Debug - RunCmd: LoadCert (openssl x509 -in /etc/strongswan/swanctl/x509ca/type_ibmshare_int.crt -noout -dates -subject -issuer)
    Debug - RunCmd: LoadCert (openssl x509 -in /etc/strongswan/swanctl/x509ca/type_ibmshare_root_dal.crt -noout -dates -subject -issuer)
    Share successfully mounted:
 ```
 {: screen}
 
-Adding the mount details to the `/etc/fstab` is not recommended. The encrypted connection might not be established in time for the automated `fstab` mount requests.
-{: note} 
+Adding the mount details to the `/etc/fstab` is not advised due to risk of the compute host getting hung in the mounting process at boot time. 
+{: important}
 
 ### Mounting regional file share
 {: #fs-eit-mount-share-stunnel}
@@ -276,14 +276,23 @@ Debug - Starting stunnel for mounting /EAD9B8582BC84FDAB57B7A315BCA1210
 Debug - Stunnel conf file created /etc/stunnel/ibmshare_EAD9B8582BC84FDAB57B7A315BCA1210.conf
 Debug - Attempting to start stunnel using /etc/stunnel/ibmshare_EAD9B8582BC84FDAB57B7A315BCA1210.conf
 Debug - Attempting mount of /EAD9B8582BC84FDAB57B7A315BCA1210 on the local host
-Debug - RunCmd: Mount using stunnel  (mount -t nfs4 -o sec=sys,nfsvers=4.1,rw,port=10001 127.0.0.1:/EAD9B8582BC84FDAB57B7A315BCA1210 /mnt/EAD9B8582BC84FDAB57B7A315BCA1210 -v)
+Debug - RunCmd: Mount using stunnel  (mount -t nfs4 -o sec=sys,nfsvers=4.2,rw,port=10001 127.0.0.1:/EAD9B8582BC84FDAB57B7A315BCA1210 /mnt/EAD9B8582BC84FDAB57B7A315BCA1210 -v)
 Debug - Stunnel mount was successful
 Debug - File unlocked:/var/lock/ibm_mount_helper.lck
 ```
 {: pre} 
 
-Adding the mount details to the `/etc/fstab` is not recommended. The encrypted connection might not be established in time for the automated `fstab` mount requests.
-{: note}
+Adding the mount details to the `/etc/fstab` is not advised due to risk of the compute host getting hung in the mounting process at boot time. 
+{: important}
+
+If you need to add the mount details to `/etc/fstab`, make sure that you use the `_netdev` option. See the following example:
+
+```sh
+10.241.128.15:/6FFBA4A900EA41AF8A9323EDCFDC2E68 /mnt/6FFBA4A900EA41AF8A9323EDCFDC2E68 ibmshare stunnel,_netdev 0 0
+```
+{: pre}
+
+Then, after the virtual server is started, you can mount the file share with the `mount /mnt/MOUNT_POINT` command.
 
 ## Updating the Mount Helper
 {: #fs-eit-mount-helper-update}
@@ -366,6 +375,6 @@ The following command uninstalls the utility.
 ## Next steps
 {: #next-steps-eit}
 
-By default, NFS downgrades any files that were created with the root permissions to the `nobody` user. This security feature prevents privileges from being shared unless they are requested. By configuring `no_root_squash`, root clients can retain root permissions on the remote NFS file share. For NFSv4.1, set the nfsv4 domain to: `slnfsv4.com` and start `rpcidmapd` or a similar service that is used by your OS. For more information, see [Implementing `no_root_squash` for NFS (optional)](/docs/vpc?topic=vpc-file-storage-mount-RHEL&interface=ui#fs-RHEL-norootsquash).
+By default, NFS downgrades any files that were created with the root permissions to the `nobody` user. This security feature prevents privileges from being shared unless they are requested. By configuring `no_root_squash`, root clients can retain root permissions on the remote NFS file share. For NFSv4.2, set the nfsv4 domain to: `slnfsv4.com` and start `rpcidmapd` or a similar service that is used by your OS. For more information, see [Implementing `no_root_squash` for NFS (optional)](/docs/vpc?topic=vpc-file-storage-mount-RHEL&interface=ui#fs-RHEL-norootsquash).
 
 Learn about [Managing file shares](/docs/vpc?topic=vpc-file-storage-managing).
