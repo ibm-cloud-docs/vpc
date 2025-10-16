@@ -2,7 +2,7 @@
 
 copyright:
   years: 2019, 2025
-lastupdated: "2025-10-03"
+lastupdated: "2025-10-16"
 
 keywords: vsi, virtual server instances, profile, profiles, balanced, compute, memory, very high memory, ultra high memory, gpu storage optimized, confidential compute
 
@@ -475,7 +475,7 @@ With supported Flex profiles, you can enable Burstable CPU capability. Burstable
 
 The following Burstable profiles are available.
 
-| Name      | vCPU | Memory (GiB) | % vCPU share | 
+| Name      | vCPU | Memory (GiB) | % vCPU share |
 |:----------|:-----|:-------------|:------------|
 | nxf-1x1   | 1    | 1            | 10% 25% 50% |
 | nxf-1x2   | 1    | 2            | 10% 25% 50% |
