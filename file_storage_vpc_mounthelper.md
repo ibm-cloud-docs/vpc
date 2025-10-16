@@ -2,7 +2,7 @@
 
 copyright:
   years: 2023, 2025
-lastupdated: "2025-10-08"
+lastupdated: "2025-10-15"
 
 keywords: file share, file storage, encryption in transit, Mount Helper, IPsec, secure connection, mount share
 
@@ -244,7 +244,7 @@ When the command is sent, the utility creates the certificate signing request(cs
 ```
 {: screen}
 
-Adding the mount details to the `/etc/fstab` is not recommended. The IPsec connection might not be established in time for the automated `fstab` mount requests.
+Adding the mount details to the `/etc/fstab` is not recommended. The encrypted connection might not be established in time for the automated `fstab` mount requests.
 {: note} 
 
 ### Mounting regional file share
@@ -281,6 +281,9 @@ Debug - Stunnel mount was successful
 Debug - File unlocked:/var/lock/ibm_mount_helper.lck
 ```
 {: pre} 
+
+Adding the mount details to the `/etc/fstab` is not recommended. The encrypted connection might not be established in time for the automated `fstab` mount requests.
+{: note}
 
 ## Updating the Mount Helper
 {: #fs-eit-mount-helper-update}
