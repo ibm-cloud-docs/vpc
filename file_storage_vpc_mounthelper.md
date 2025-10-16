@@ -8,6 +8,8 @@ keywords: file share, file storage, encryption in transit, Mount Helper, IPsec, 
 
 subcollection: vpc
 
+ai-gen-assist: granite
+
 ---
 
 {{site.data.keyword.attribute-definition-list}}
@@ -35,7 +37,7 @@ You can use the utility for encrypted or unencrypted connections. For encrypted 
 ### Stunnel secure connection for regional shares
 {: #fs-eit-stunnel-requirements}
 
-The utility installs stunnel on the compute host that's running a Linux OS. Stunnel needs a pem file. Because stunnel is used in client mode, you can use the pem that that comes with the distribution.
+The Mount Helper utility installs stunnel on the compute host that's running a Linux OS. Stunnel is an application that creates encrypted TLS tunnels between clients and servers for secure communication. In client mode, Stunnel initiates a connection from your virtual server instance of bare metal server to the file share, and tunnels data over a secure connection. Stunnel requires a PEM file, which typically contains a private key and a certificate. When stunnel operates in client mode, it relies on the system-wide SSL/TLS configuration and certificates. It can use the default PEM file provided by the Linux distribution rather than generating a custom certificate. The PEM file is often located in `/etc/ssl/private` or `/etc/pki/tls/private` folder.
 
 ## Requirements
 {: #fs-eit-requirements}
@@ -197,7 +199,7 @@ The utility installs stunnel on the compute host that's running a Linux OS. Stun
     make build-deb
     ```
 
-- On RPM-based instances, run the following commands:
+- On rpm-based instances, run the following commands:
    ```sh
    yum update -y
    dnf install git make python3 rpm-build -y
@@ -220,7 +222,7 @@ The utility installs stunnel on the compute host that's running a Linux OS. Stun
 ### Mounting zonal file share
 {: #fs-eit-mount-share-ipsec} 
 
-Use the following command syntax to mount the share. Replace the mountpath with the information that is specific to your file share.
+Use the following command syntax to mount the share. Replace the mount path with the information that is specific to your file share.
 
 ```sh
 mount -t ibmshare -o secure=true 10.0.0.1:/MOUNT_PATH /mnt/MOUNT_POINT
@@ -244,7 +246,7 @@ When the command is sent, the utility creates the certificate signing request(cs
 ```
 {: screen}
 
-Adding the mount details to the `/etc/fstab` is not advised due to risk of the compute host getting hung in the mounting process at boot time. 
+You're advised not to add the mount details to the `/etc/fstab` because it can cause the compute host to hang during boot. 
 {: important}
 
 ### Mounting regional file share
@@ -282,7 +284,7 @@ Debug - File unlocked:/var/lock/ibm_mount_helper.lck
 ```
 {: pre} 
 
-Adding the mount details to the `/etc/fstab` is not advised due to risk of the compute host getting hung in the mounting process at boot time. 
+You're advised not to add the mount details to the `/etc/fstab` because it can cause the compute host to hang during boot. 
 {: important}
 
 If you need to add the mount details to `/etc/fstab`, make sure that you use the `_netdev` option. See the following example:
