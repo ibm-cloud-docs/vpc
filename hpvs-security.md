@@ -2,7 +2,7 @@
 
 copyright:
   years: 2023, 2025
-lastupdated: "2025-02-28"
+lastupdated: "2025-10-16"
 
 keywords: confidential computing, enclave, secure execution, hpcr, contract, security requirement, additional security, env, workload, encryption
 
@@ -19,6 +19,7 @@ subcollection: vpc
 Learn about the security related responsibilities that you must observe when you use {{site.data.keyword.cloud_notm}} {{site.data.keyword.hpvs}} for VPC.
 
 You must observe the following security best practices that help in maintaining a more secure environment:
+* When the current HPVS image is deprecated, you must upgrade to the latest version as soon as possible to ensure continued support and compatibility.
 * Ensure that you update the environment regularly to the latest available images when they are made available.
 * Take the required actions on regular security notifications from IBM.
 * Ensure that only required ports are opened and the ports are secured (TLS enabled). If you want to open up any port on the virtual server instance, ensure that you follow the security best practices. IBM is not responsible for any security incidents that arise from the usage of the port.
