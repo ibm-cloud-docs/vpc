@@ -2,7 +2,7 @@
 
 copyright:
   years: 2020, 2025
-lastupdated: "2025-10-10"
+lastupdated: "2025-10-16"
 
 keywords: virtual private endpoints, VPE, endpoint gateway
 
@@ -108,6 +108,7 @@ To create an endpoint gateway from the CLI, follow these steps:
 
    `--target`
    :   Indicates the name, or CRN, of a provider cloud service instance.
+   
 
 1. Create an endpoint gateway by attaching the target type for a Private Path service:
 
@@ -156,6 +157,7 @@ To create an endpoint gateway from the CLI, follow these steps:
 
    `-q, --quiet`:
    :   Suppresses verbose output.
+   
 
 ## Creating an endpoint gateway with the API
 {: #vpe-ordering-api}
@@ -180,7 +182,7 @@ To create an endpoint gateway with the API, follow these steps:
       ```
       {: pre}
 
-   * **TargetCrn** - The name, or CRN, of the instance of the IBM Cloud service where you want to set the endpoint gateway. You can use the command `ibmcloud is endpoint-gateway-targets` to list the IBM Cloud service instances that are qualified to be set as endpoint gateway targets.
+   * **TargetCrn** - The name, or CRN, of the instance of the IBM Cloud service where you want to set the endpoint gateway. You can use the command `ibmcloud is endpoint-gateway-targets` to list the IBM Cloud service instances that are qualified to be set as endpoint gateway targets. 
 
       ```sh
       export TargetCrn=<CRN of a target service>

@@ -2,7 +2,7 @@
 
 copyright:
   years: 2018, 2025
-lastupdated: "2025-04-30"
+lastupdated: "2025-10-16"
 
 keywords:
 
@@ -257,7 +257,7 @@ Run one of the following CLI commands based on the image that you plan to use.
 * Create an instance by using a stock image or custom image from your account for your instance.
 
     ```sh
-    ibmcloud is instance-create my-instance $vpc us-south-3 bx2-2x8 $subnet --image-id $image --key-ids $key
+    ibmcloud is instance-create my-instance $vpc us-south-3 bx2-2x8 $subnet --image-id $image --keys $key
     ```
     {: pre}
 
@@ -314,7 +314,7 @@ ibmcloud is volume-profiles
 Run this command to create a Block Storage data volume. Specify a name for your volume, volume profile, and the zone where you are creating the volume. To attach a Block Storage data volume to an instance, the instance and the Block Storage data volume must be created in the same zone.
 
 ```sh
-ibmcloud is volume-create my-volume custom us-south-3 --iops 1000 --size 500
+ibmcloud is volume-create my-volume custom us-south-3 --iops 1000 --capacity 500
 ```
 {: pre}
 

@@ -2,7 +2,7 @@
 
 copyright:
   years: 2023, 2025
-lastupdated: "2025-06-18"
+lastupdated: "2025-10-16"
 
 keywords:
 
@@ -69,6 +69,7 @@ To enable a VPC as a DNS hub with the CLI, follow these steps:
 
    `--dns-resolver-manual-servers`
    :    Valid when the resolver type is `manual`. Configure manual DNS server addresses for the VPC. `MANUAL_SERVERS|@MANUAL_SERVERS` manual servers in JSON or a JSON file.
+   
 
 ## Enabling a VPC as a DNS hub with the API
 {: #vpe-dns-sharing-api}

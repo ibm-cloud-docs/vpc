@@ -2,7 +2,7 @@
 
 copyright:
   years: 2025
-lastupdated: "2025-09-25"
+lastupdated: "2025-10-16"
 
 keywords: viewing, deleting, public address range
 
@@ -57,6 +57,7 @@ To delete public address ranges from the command line, follow these steps:
    ```sh
    ibmcloud is public-address-range-delete [PUBLIC_ADDRESS_RANGE1…, PUBLIC_ADDRESS_RANGE2…] [-f, --force][--output JSON] [-q, --quiet]
    ```
+   
 
    Where:
 
@@ -71,6 +72,7 @@ To delete public address ranges from the command line, follow these steps:
 
    `-q, --quiet`
    :   Suppress verbose output.
+   
 
 ### Command example
 {: #par-delete-cli-examples}

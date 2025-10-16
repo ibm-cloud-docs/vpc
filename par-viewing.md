@@ -2,7 +2,7 @@
 
 copyright:
   years: 2025
-lastupdated: "2025-09-25"
+lastupdated: "2025-10-16"
 
 keywords: viewing, deleting, public address range
 
@@ -62,6 +62,7 @@ To view public address ranges from the command line, follow these steps:
    ```sh
    ibmcloud is public-address-range PUBLIC_ADDRESS_RANGE [--output JSON] [-q, --quiet]
    ```
+   
 
    Where:
 
@@ -73,6 +74,7 @@ To view public address ranges from the command line, follow these steps:
 
    `-q, --quiet`
    :   Suppress verbose output.
+   
 
 ### Command examples
 {: #par-cli-view-examples}
@@ -90,6 +92,7 @@ View all public address ranges:
 ibmcloud is public-address-ranges
 ```
 {: pre}
+
 
 ## Viewing public address ranges with the API
 {: #par-view-api}

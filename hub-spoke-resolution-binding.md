@@ -2,7 +2,7 @@
 
 copyright:
   years: 2023, 2025
-lastupdated: "2025-06-30"
+lastupdated: "2025-10-16"
 
 keywords:
 
@@ -76,6 +76,7 @@ To create a DNS resolution binding, enter the following command:
    ```bash
    ibmcloud is vpc-dns-resolution-binding-create VPC --target-vpc TARGET_VPC [--name NAME] [--output JSON] [-q, --quiet]
    ```
+   
 
    Where:
 
@@ -93,13 +94,16 @@ To create a DNS resolution binding, enter the following command:
 
     `--q, --quiet`
    :    Suppresses verbose output.
+   
 
 ### Command examples
 {: #command-examples-resolution-binding1}
 {: cli}
 
 * `ibmcloud is vpc-dns-resolution-binding-create my-vpc --name my-dns-res-binding --target-vpc my-dns-binding-vpc --output JSON`
-* `ibmcloud is vpc-dns-resolution-binding-create 72251a2e-d6c5-42b4-97b0-b5f8e8d1f479 --name my-dns-res-binding --target-vpc my-dns-binding-vpc --output JSON`
+* `ibmcloud is vpc-dns-resolution-binding-create 72251a2e-d6c5-42b4-97b0-b5f8e8d1f479 --name my-dns-res-binding --target-vpc my-dns-binding-vpc --output JSON` 
+
+
 
 ## Deleting a DNS resolution binding from the CLI
 {: #delete-dns-resolution-binding-cli}
@@ -110,6 +114,7 @@ To delete one or more resolution bindings with the CLI, follow these steps:
 ```bash
 ibmcloud is vpc-dns-resolution-binding-delete VPC (DNS_RESOLUTION_BINDING1 DNS_RESOLUTION_BINDING2 ...) [--output JSON] [-f, --force] [-q, --quiet]
 ```
+
 
 Where:
 
@@ -131,11 +136,14 @@ Where:
 `--q, --quiet`
 :    Suppresses verbose output.
 
+
 ### Command example
 {: #command-examples-delete-binding2}
 {: cli}
 
 `ibmcloud is vpc-dns-resolution-binding-delete r006-e5b9726b-c975-46bd-b713-c8aea55d51d8 r006-75ccea7b-c705-4b50-934d-2152f9eab4ec --name my-dns-resolution --output JSON`
+
+
 
 ##  Creating a DNS resolution binding with the API
 {: #create-dns-resolution-binding-api}
