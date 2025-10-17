@@ -2,7 +2,7 @@
 
 copyright:
   years: 2018, 2025
-lastupdated: "2025-10-08"
+lastupdated: "2025-10-17"
 
 keywords:
 
@@ -1345,7 +1345,7 @@ Make sure that you set up [Terraform for VPC](https://registry.terraform.io/prov
 {: #terraform-create-private-catalog}
 {: terraform}
 
-This step is optional. If you plan to share images from a private catalog, the private catalog must be created first. If you select a catalog image that belongs to a different account, review [Using cross-account image references in a private catalog in Terraform](/docs/vpc?topic=vpc-custom-image-cloud-private-catalog&interface=terraform#private-catalog-image-reference-vpc-terraform) for more considerations and limitations. To create a private catalog, see the tutorial [Onboarding a virtual server image with Terraform](/docs/account?topic=account-catalog-vsi-tutorial&interface=ui).
+This step is optional. If you plan to share images from a private catalog, the private catalog must be created first. If you select a catalog image that belongs to a different account, review [Using cross-account image references in a private catalog in Terraform](/docs/vpc?topic=vpc-custom-image-cloud-private-catalog&interface=terraform#private-catalog-image-reference-vpc-terraform) for more considerations and limitations.
 
 ### Gathering information to create an instance by using Terraform
 {: #gather-info-to-create-virtual-servers-terraform}

@@ -2,7 +2,7 @@
 
 copyright:
   years: 2020, 2025
-lastupdated: "2025-10-06"
+lastupdated: "2025-10-17"
 
 keywords: virtual private endpoints, endpoint gateway, VPE
 subcollection: vpc
@@ -50,7 +50,7 @@ For supported {{site.data.keyword.cloud_notm}} services, see [VPE supported serv
 To configure a virtual private endpoint, follow these steps:
 
 1. List the available services, including {{site.data.keyword.cloud_notm}} infrastructure services available (by default) for all VPC users.
-1. Review planning considerations. See [Planning for virtual private endpoint gateways](/docs/vpc?topic=vpc-planning-considerations) for details.
+1. Review planning considerations. See [Planning for virtual private endpoint gateways](/docs/vpc?topic=vpc-vpe-planning-considerations) for details.
 1. Create an endpoint gateway for each service that you want to be privately available to the VPC.
    See [Creating an endpoint gateway](/docs/vpc?topic=vpc-ordering-endpoint-gateway) for details.
 1. Bind a reserved IP address to the endpoint gateway.

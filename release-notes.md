@@ -2,7 +2,7 @@
 
 copyright:
   years: 2019, 2025
-lastupdated: "2025-10-01"
+lastupdated: "2025-10-17"
 
 keywords:
 
@@ -206,7 +206,7 @@ Allowed-use expressions now available for custom images (GA)
 :   You can use allowed-use expressions to configure which profiles, images, and server settings can be used together when you provision a virtual server instance or bare metal server. When you make selections to create a virtual server instance or bare metal server, if you use a custom image with defined allowed-use expressions, you can then determine which profiles are compatible with those expressions. For more information, see [Adding allowed-use expressions to custom images](/docs/vpc?topic=vpc-custom-image-allowed-use-expressions&interface=ui).
 
 Backup for VPC support for second-generation block volumes (select availability)
-:   Customers with special access to preview the second-generation block storage volumes can automate the creation and deletion of snapshots for these volumes with the Backup for VPC service. You can manage your backup policies for second-generation volumes in the console, from the CLI, or with the API. For more information, see [Backups for second-generation block storage volumes](/docs/vpc?topic=vpc-backup-service-about&interface=ui#sdp-backups).
+:   Customers with special access to preview the second-generation block storage volumes can automate the creation and deletion of snapshots for these volumes with the Backup for VPC service. You can manage your backup policies for second-generation volumes in the console, from the CLI, or with the API. For more information, see [Backups for second-generation block storage volumes](/docs/vpc?topic=vpc-backup-service-about).
 
 ### 11 July 2025
 {: #vpc-jul1125}
@@ -1856,7 +1856,7 @@ Backup policy jobs
 {: release-note}
 
 Terraform is now available for sharing images across an enterprise account
-:    You can now share or publish custom images by using Terraform to other accounts within your enterprise by using a private catalog. If you select a catalog image that belongs to a different account, review [Using cross-account image references in a private catalog in Terraform](/docs/vpc?topic=vpc-custom-image-cloud-private-catalog&interface=terraform#private-catalog-image-reference-vpc-terraform) for additional considerations and limitations. To create a private catalog, see the tutorial [Onboarding a virtual server image with Terraform](/docs/account?topic=account-catalog-vsi-tutorial&interface=ui). To create an instance from a catalog image using Terraform, see [Creating virtual server instances by using Terraform](/docs/vpc?topic=vpc-creating-virtual-servers&interface=terraform#create-instance-terraform).
+:    You can now share or publish custom images by using Terraform to other accounts within your enterprise by using a private catalog. If you select a catalog image that belongs to a different account, review [Using cross-account image references in a private catalog in Terraform](/docs/vpc?topic=vpc-custom-image-cloud-private-catalog&interface=terraform#private-catalog-image-reference-vpc-terraform) for additional considerations and limitations. To create an instance from a catalog image using Terraform, see [Creating virtual server instances by using Terraform](/docs/vpc?topic=vpc-creating-virtual-servers&interface=terraform#create-instance-terraform).
 
 ### 21 October 2022
 {: #vpc-oct2122}

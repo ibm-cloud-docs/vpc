@@ -50,7 +50,7 @@ This tutorial explains how to deploy Docker Compose or Podman Play as a Hyper Pr
 - A public key `logging.pub` is required for encrypting the log message. This file must exist in the `/pods` folder. This tutorial shows an example of generating a key pair encrypted through AES with a passphrase by using `openssl`.
 - The `volumes:` instruction tells Podman to mount the Podman volume with the public key and the simple logging application to `/var/logging` inside the container. The Ubuntu image starts as a container later and run `example.sh` as its main application.
 
-The [contract](./about-contract.md) is a YAML file to specify the Hyper Protect Virtual Server instance that you want to create. In this tutorial, a dedicated public and private key pair is used to encrypt and decrypt the selected log messages.
+The [contract](/docs/vpc?topic=vpc-about-contract_se) is a YAML file to specify the Hyper Protect Virtual Server instance that you want to create. In this tutorial, a dedicated public and private key pair is used to encrypt and decrypt the selected log messages.
 
 You must abide to the following:
 ​​​​​​
