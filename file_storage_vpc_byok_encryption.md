@@ -2,7 +2,7 @@
 
 copyright:
   years: 2022, 2025
-lastupdated: "2025-09-23"
+lastupdated: "2025-10-17"
 
 keywords: file share, customer-managed encryption, encryption, byok, KMS, Key Protect, Hyper Protect Crypto Services,
 
@@ -257,7 +257,7 @@ Before you can use the CLI, you must install the IBM Cloud CLI and the VPC CLI p
    - The following example creates a regional file share with customer-managed encryption, security group access mode, and encryption-in-transit enabled.
 
       ```sh
-      ibmcloud is share-create --name my-regional-file-share --profile rfs --size 40 --bandwidth 125 --atem stunnel,none --encryption_key crn:v1:bluemix:public::kms:us-south:a/a1234567:key:2fb8d675-bde3-4780-b127-3d0b413631c1
+      ibmcloud is share-create --name my-regional-file-share --profile rfs --size 40 --bandwidth 800 --atem stunnel,none --encryption_key crn:v1:bluemix:public::kms:us-south:a/a1234567:key:2fb8d675-bde3-4780-b127-3d0b413631c1
       ```
       {: pre}
 
@@ -295,7 +295,7 @@ Before you can use the CLI, you must install the IBM Cloud CLI and the VPC CLI p
       Source snapshot                    -   
       Allowed Access Protocols           nsf4   
       Availability Mode                  regional   
-      Bandwidth(Mbps)                    125   
+      Bandwidth(Mbps)                    800   
       Storage Generation                 2
       ```
       {: screen}
@@ -358,7 +358,7 @@ curl -X POST \
      "name": "my-encrypted-regional-share",
      "profile": {"name": "rfs"},
      "size": 1000,
-     "bandwidth": 60,
+     "bandwidth": 800,
      "allowed_transit_encryption_modes": ["none","stunnel"],
      "encryption_key": {"crn": "crn:v1:bluemix:public:kms:us-south:a/a1234567-c02c-4d7f-81e2-2aa867da176d:key:2fb8d675-bde3-4780-b127-3d0b413631c1"},
      "resource_group": {"id": "db00a952a88945a987b7be1980fdae8e"},
@@ -406,7 +406,7 @@ resource "ibm_is_share" "regional-share" {
    size           = "1000"
    name           = "my-regional-share"
    profile        = "rfs"
-   bandwidth      = "125"
+   bandwidth      = "800"
    encryption_key = "crn:v1:bluemix:public:kms:us-south:a/a1234567:key:2fb8d675-bde3-4780-b127-3d0b413631c1"
    access_control_mode = "security_group"
    }

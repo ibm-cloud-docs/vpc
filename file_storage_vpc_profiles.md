@@ -2,7 +2,7 @@
 
 copyright:
   years: 2021, 2025
-lastupdated: "2025-10-09"
+lastupdated: "2025-10-17"
 
 keywords: file storage, file share, performance, IOPS, block size, capacity, range
 
@@ -25,7 +25,7 @@ When you [create a file share](/docs/vpc?topic=vpc-file-storage-create), you sel
 
 [Select availability]{: tag-green} Customers with special access to preview the new regional file share offering can use the **rfs** profile to create file shares with regional availability and adjustable bandwidth values.
 
-File shares that were created during the beta and limited availability phases of zonal file shares, using either [tiered](#fs-tiers) profiles or the [custom](#fs-custom) profile can continue to operate based on those profiles. You can also update these file shares to use the `dp2` profile or switch to another previous generation profile. However, previous profiles are not supported when creating new file shares, and only file shares with the `dp2` profile can use new features such as encryption-in-transit, cross-zone mounting, cross-account sharing, and snapshots.
+File shares that were created during the beta and limited availability phases of zonal file shares, with either [tiered](#fs-tiers) profiles or the [custom](#fs-custom) profile can continue to operate based on those profiles. You can also update these file shares to use the `dp2` profile or switch to another previous generation profile. However, previous profiles are not supported for creating new file shares. These profiles do not support newer features such as encryption-in-transit, cross-zone mounting, cross-account sharing, and snapshots.
 
 The following tables show the characteristics and performance levels of the available profiles.
 
@@ -101,7 +101,7 @@ Table 2 shows the available IOPS ranges, based on share size.
 
 Regional data availability means that data is replicated across all 3 zones within the region, offering higher availability and fault tolerance. Due to the synchronous replication between the zones and the need to ensure data durability, you might experience increased latency during write operations. For workloads where latency performance is less critical than durability, or higher and more consistent IOPS is preferred over low latency, the regional shares can be a better choice.
 
-When you create a regional file share, you can specify its capacity between 1 GiB to 32,000 GiB. For every 20 GiB of capacity, 8 Mbps of bandwidth is included. For example, the preset bandwidth value of a 500 GB file share is 200 Mbps and the preset value of a 16,000 GB file share is 6400 Mbps. You can increase the bandwidth from the preset value up to 8192 Mbps for extra cost. After the file share is created, you can adjust the bandwidth between the preset and the maximum values anytime.
+When you create a regional file share, you can specify its capacity between 1 GiB to 32,000 GiB. For every 20 GiB of capacity, 8 Mbps of bandwidth is included. For example, the preset bandwidth value of a 500 GB file share is 200 Mbps and the preset value of a 16,000 GB file share is 6400 Mbps. You can increase the bandwidth from the preset value up to 8192 Mbps for extra cost. After the file share is created, you can adjust the bandwidth between the preset and the maximum values anytime. 
 
 In the select availability release, cross-region asynchronous replication and scheduled backups are not supported. Cross-account access within the same region is supported.
 
@@ -227,7 +227,7 @@ Capacity                           Default   Max     Min   Step   Type
                                    1         32000   1     1      range      
                                       
 Bandwidth(Mbps)                    Default   Max    Min   Step   Type      
-                                   1         1024   1     1      range      
+                                   1         8096   1     1      range      
                                       
 Availability Modes                 Default   Type    Value      Values      
                                    -         fixed   regional   -      

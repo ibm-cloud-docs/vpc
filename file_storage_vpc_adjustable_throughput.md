@@ -2,7 +2,7 @@
 
 copyright:
   years: 2025, 2025
-lastupdated: "2025-09-23"
+lastupdated: "2025-10-17"
 
 keywords: file share, regional, file storage, bandwidth, bandwidth
 
@@ -67,7 +67,7 @@ Updating file share my-file-share under account Test Account as user test.user@i
    Profile                            rfs
    Size(GB)                           1000
    IOPS                               35000
-   Bandwidth                          2000
+   Bandwidth                          3000
    User Tags                          docs:test
    Encryption                         provider_managed   
    Mount Targets                      ID                                          Name

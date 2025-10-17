@@ -2,7 +2,7 @@
 
 copyright:
   years: 2021, 2025
-lastupdated: "2025-10-14"
+lastupdated: "2025-10-17"
 
 keywords: file share, file storage, virtual network interface, encryption in transit, profiles, 
 
@@ -249,10 +249,10 @@ Storage Generation                 1
 ### Creating a regional file share without a mount target from the CLI
 {: #fs-create-regional-share-cli}
 
-The following example shows how to create 40-GB regional file share with 125 Mbps bandwidth. This file share is created with provider-managed encryption. The file share is created in the region that you selected when you logged in, no location selection is required.
+The following example shows how to create 40-GB regional file share with 1000 Mbps bandwidth. This file share is created with provider-managed encryption. The file share is created in the region that you selected when you logged in, no location selection is required.
 
 ```sh
-ibmcloud is share-create --name my-regional-file-share --profile rfs --size 40 --bandwidth 125 --allowed-access-protocols nfs4 --atem stunnel,none
+ibmcloud is share-create --name my-regional-file-share --profile rfs --size 40 --bandwidth 1000 --allowed-access-protocols nfs4 --atem stunnel,none
 ```
 {: pre}
 
@@ -288,7 +288,7 @@ Snapshot size                      -
 Source snapshot                    -   
 Allowed Access Protocols           nfs4   
 Availability Mode                  regional   
-Bandwidth(Mbps)                    125   
+Bandwidth(Mbps)                    1000  
 Storage Generation                 2
 ```
 {: screen}
@@ -433,7 +433,7 @@ Storage Generation                 1
 The following example shows how you can create a regional file share with a mount target from the CLI. Note that while the command specifies a low bandwidth value, the system auto-corrects the configuration to provide at least 8 Mbps for every 20 GB of capacity.
 
 ```sh
-ibmcloud is share-create --name my-regional-file-share --profile rfs --size 5000 --bandwidth 125 --allowed-access-protocols nfs4 --atem stunnel --mount-targets '[{"name":"my-new-mount-target","virtual_network_interface": {"name":"my-regional-vni","subnet": {"id":"0717-c66032c9-048d-4c35-aa83-c932e24afdbb"}}}]'
+ibmcloud is share-create --name my-regional-file-share --profile rfs --size 5000 --bandwidth 800 --allowed-access-protocols nfs4 --atem stunnel --mount-targets '[{"name":"my-new-mount-target","virtual_network_interface": {"name":"my-regional-vni","subnet": {"id":"0717-c66032c9-048d-4c35-aa83-c932e24afdbb"}}}]'
 ```
 {: pre}
 
@@ -469,7 +469,7 @@ Snapshot size                      -
 Source snapshot                    -   
 Allowed Access Protocols           nfs4   
 Availability Mode                  regional   
-Bandwidth(Mbps)                    250   
+Bandwidth(Mbps)                    800  
 Storage Generation                 2
 ```
 {: screen}
@@ -741,7 +741,7 @@ A successful response looks like the following example.
 ### Creating a regional file share with the API
 {: #fs-create-rfs-file-share-api}
 
-The following example shows how to create 1000-GB regional file share with 60 Mbps bandwidth. This file share is created with the default security group access mode and with provider-managed encryption. The file share is created in the region that you selected when you logged in, no location selection is required.
+The following example shows how to create 1000-GB regional file share with 8000 Mbps bandwidth. This file share is created with the default security group access mode and with provider-managed encryption. The file share is created in the region that you selected when you logged in, no location selection is required.
 
 ```sh
 curl -X POST "$vpc_api_endpoint/v1/shares?version=2025-09-23&generation=2"\
@@ -751,7 +751,7 @@ curl -X POST "$vpc_api_endpoint/v1/shares?version=2025-09-23&generation=2"\
   "mount_targets": [],
   "profile": {"name": "rfs"},
   "size": 1000,
-  "bandwidth": 400,
+  "bandwidth": 8000,
   "allowed_transit_encryption_modes": ["none","stunnel"],
   "resource_group": {"id": "db8e8d865a83e0aae03f25a492c5b39e"},
   "access_control_mode": "security_group"
