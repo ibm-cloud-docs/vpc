@@ -2,7 +2,7 @@
 
 copyright:
   years: 2020, 2025
-lastupdated: "2025-06-18"
+lastupdated: "2025-10-17"
 
 keywords: virtual private endpoints, delete, VPE, endpoint gateway
 
@@ -50,6 +50,8 @@ Where:
 
 * **ENDPOINT_GATEWAY** is the ID of the endpoint gateway.
 * **-f, --force** forces the operation without confirmation.
+
+
 
 ## Deleting an endpoint gateway with the API
 {: #vpe-deleting-api}

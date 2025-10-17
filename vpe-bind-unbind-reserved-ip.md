@@ -2,7 +2,7 @@
 
 copyright:
   years: 2020, 2025
-lastupdated: "2025-06-18"
+lastupdated: "2025-10-17"
 
 keywords: virtual private endpoints, bind, unbind, reserved IP, VPE, endpoint gateways
 
@@ -80,6 +80,8 @@ Where:
 * **--reserved-ip-id** is the reserved IP identity to be used as the primary IP for the network interface. If not specified, an available address on the subnet is selected and reserved automatically.
 * **--json** forces the operation without confirmation.
 
+
+
 ### Unbinding a reserved IP to an endpoint gateway by using the CLI
 {: #vpe-unbinding-endpoint-gateway-cli}
 
@@ -97,6 +99,9 @@ Where:
 * **--address** is the reserved IP address to be unbound.
 * **--reserved-ip-id** is the ID of the reserved IP address to be unbound.
 * **-f, --force** forces the operation without confirmation.
+
+
+
 
 ## Binding and unbinding a reserved IP address with the API
 {: #vpe-bind-unbind-api}

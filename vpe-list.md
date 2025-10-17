@@ -2,7 +2,7 @@
 
 copyright:
   years: 2020, 2025
-lastupdated: "2025-06-18"
+lastupdated: "2025-10-17"
 
 keywords: virtual private endpoints, list, VPE, endpoint gateway
 
@@ -47,6 +47,10 @@ Where:
 * **--resource-group-id** is the ID of the resource group. This option is mutually exclusive with **--resource-group-name**.
 * **--resource-group-name** is the name of the resource group. This option is mutually exclusive with **--resource-group-id**.
 * **--json** formats output in JSON.
+
+
+
+
 
 ## Listing endpoint gateways with the API
 {: #vpe-listing-endpoint-gateways-api}

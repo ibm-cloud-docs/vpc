@@ -2,7 +2,7 @@
 
 copyright:
   years: 2020, 2025
-lastupdated: "2025-10-10"
+lastupdated: "2025-10-17"
 
 keywords: virtual private endpoints, view details, VPE, endpoint gateway
 
@@ -85,6 +85,9 @@ Where:
 
 * **ENDPOINT_GATEWAY** is the ID of the endpoint gateway.
 * **--json** formats the output in JSON format.
+
+
+
 
 ## Viewing details of an endpoint gateway using the API
 {: #vpe-viewing-details-api}

@@ -2,7 +2,7 @@
 
 copyright:
   years: 2023, 2025
-lastupdated: "2025-09-24"
+lastupdated: "2025-10-17"
 
 keywords:
 
@@ -163,6 +163,7 @@ Where:
 `-q, --quiet`
 :   suppress verbose output.
 
+
 ### Command examples
 {: #cli-cmd-examples-creating-private-path-service}
 {: cli}
@@ -170,8 +171,12 @@ Where:
 - Create a policy-based Private Path service with a permit policy and zonal affinity:
    `ibmcloud is private-path-service-gateway-create --load-balancer my-cli-nlb --service-endpoints cli.domain.com --default-access-policy permit --name cli-ppsg-1 --zonal-affinity true`
 
+   
+
 - Create a policy-based Private Path service with a deny policy and zonal affinity:
    `ibmcloud is private-path-service-gateway-create --load-balancer r006-d-439744e1-81d7-43fb-95d5-2356774240bb --service-endpoints clidemo.domain.com --default-access-policy deny --name cli-ppsg-2 --zonal-affinity true`
+
+   
 
 ## Creating a Private Path service with the API
 {: #pps-api-creating-private-path-service}

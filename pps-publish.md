@@ -2,7 +2,7 @@
 
 copyright:
   years: 2024, 2025
-lastupdated: "2025-07-28"
+lastupdated: "2025-10-17"
 
 keywords:
 
@@ -85,6 +85,7 @@ Where:
 `-q, --quiet`
 :   Suppresses verbose output.
 
+
 ### Command examples
 {: #cli-cmd-examples-activating-private-path-service}
 {: cli}
@@ -92,6 +93,7 @@ Where:
 - Publish a Private Path service:
    `ibmcloud is ppsgp r006-01cd30f7-e6f2-432f-9520-76247b1fbbe1`
    `ibmcloud is private-path-service-gateway-publish cli-ppsg-0`
+
 
 ## Unpublishing a Private Path service from the CLI
 {: #pps-cli-unpublish-private-path-service}
@@ -123,6 +125,7 @@ Where:
 
 `-q, --quiet`
 :   Suppresses verbose output.
+
 
 ## Publishing a Private Path service with the API
 {: #pps-api-publishing-private-path-service}
@@ -183,6 +186,8 @@ To unpublish a Private Path service with the API, follow these steps:
 - Publish a Private Path service:
    `ibmcloud is ppsgunp r006-01cd30f7-e6f2-432f-9520-76247b1fbbe1`
    `ibmcloud is private-path-service-gateway-unpublish cli-ppsg-0`
+
+   
 
 ## Publishing a Private Path service with Terraform
 {: #publishing-private-path-service-terraform}
