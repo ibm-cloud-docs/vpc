@@ -2,7 +2,7 @@
 
 copyright:
  years: 2022, 2025
-lastupdated: "2025-10-06"
+lastupdated: "2025-10-17"
 
 keywords: Backup, backup service, backup plan, backup policy, restore, restore volume, restore data
 
@@ -264,7 +264,7 @@ File share backups:
 * [Select availability]{: tag-green} Backup snapshots of second-generation file shares with regional availability are not supported.
 
 ## Securing your data
-{: #backuo-data-security}
+{: #backup-data-security}
 
 {{site.data.keyword.cloud}} offers security-specific tools and features to help you securely manage your data when you use {{site.data.keyword.vpc_full}}. The following section provides information about access control, data encryption, configuration management, and auditing options that are available for you when you use the Backup service.
 

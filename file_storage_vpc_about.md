@@ -2,7 +2,7 @@
 
 copyright:
   years: 2021, 2025
-lastupdated: "2025-10-14"
+lastupdated: "2025-10-17"
 
 keywords: file share, mount target, virtual network interface, customer-managed encryption, encryption at rest, encryption in transit, file storage, share,
 
@@ -156,7 +156,7 @@ After you specified an encryption type for a file share, you can't change it.
 ### Encryption in transit
 {: #fs-eit}
 
-You can [establish an encrypted mount connection](/docs/vpc?topic=vpc-file-storage-vpc-eit) between the authorized virtual server instance and the storage system. For file shares based on the `dp2` or `rfs`  profile, mount targets that are created with a virtual network interface can support the encryption in transit.
+You can [establish an encrypted mount connection](/docs/vpc?topic=vpc-file-storage-vpc-eit) between the authorized virtual server instance and the storage system. For file shares based on the `dp2` or `rfs` profile, mount targets that are created with a virtual network interface can support the encryption in transit.
 
 If you want to connect a file share to instances that are running in different VPCs in a zone, you can create multiple mount targets. You can create one mount target for each VPC.
 {: important}
