@@ -2,7 +2,7 @@
 
 copyright:
   years: 2020, 2025
-lastupdated: "2025-10-09"
+lastupdated: "2025-10-20"
 
 keywords: load balancer, public, listener, back-end, front-end, pool, round-robin, weighted, connections, methods, policies, APIs, access, ports
 
@@ -137,24 +137,10 @@ Figure 4 illustrates how a private NLB with routing mode works. The Consumer que
 
 ![Private load balancer with routing mode enabled](images/lb_use_case_3.svg "Private load balancer with routing mode enabled"){: caption="Private load balancer with route mode enabled" caption-side="bottom"}
 
-## Use case 4: Private Path network load balancer
+## Use case 4: Multi-zone, high availability using a network load balancer
 {: #nlb-use-case-4}
 
-A Private Path NLB helps keep all the traffic checkpoints between the Provider and the Consumer within the IBM Cloud infrastructure. Data does not exit to the public backbone.
-
-Unlike other NLBs, the Private Path load balancer provides regional availability and is resilient to zone failure even if a single subnet is selected. You do not need to create multiple Private Path load balancers or specify more than a single subnet to ensure resiliency to zone failure. Your subnet selection only impacts the IP-addresses associated with the load balancer.
-
-You can only use Private Path NLBs with a Private Path service. For more information, see [About Private Path services](/docs/vpc?topic=vpc-private-path-service-intro).
-{: important}
-
-Figure 5 illustrates how a Private Path NLB works to support a Private Path service. The Private Path NLB registers with the DNS server. The Consumer optionally queries the DNS server. The Consumer then sends a TCP request for data to the Private Path NLB through a VPE gateway, and the Private Path NLB forwards the request to the targets. In turn the targets generate a response, that response is sent by direct-server-return to the VPE, and then is sent to the Consumer.
-
-![Private path network load balancer](images/lb_use_case_4.svg "Private path network balancer"){: caption="Public load balancer" caption-side="bottom"}
-
-## Use case 5: Multi-zone, high availability using a network load balancer
-{: #nlb-use-case-5}
-
-Figure 6 illustrates how you can deploy an NLB to support multiple zones. This deployment scenario often requires the use of the global load balancer (GLB) option in [IBM Cloud Internet Services (CIS)](/docs/cis?topic=cis-configure-glb).
+Figure 5 illustrates how you can deploy an NLB to support multiple zones. This deployment scenario often requires the use of the global load balancer (GLB) option in [IBM Cloud Internet Services (CIS)](/docs/cis?topic=cis-configure-glb).
 
 Be aware that a [known limitation](/docs/vpc?topic=vpc-nlb-limitations#limitations-network-load-balancers) applies to this scenario: Two members with the same instance and port cannot exist at the same time, so use a different port with the same instance.
 {: important}
@@ -164,6 +150,23 @@ You might want to leverage the high throughput performance (and low latency) the
 You can use this deployment scenario to obtain high availability and ensure workloads are available across multiple availability zones in case there is a load balancer failure. If a failure condition happens to a load balancer in one availability zone, then the GLB no longer sends traffic to that availability zone. For example, if a failure happens in availability zone 1, the GLB sends traffic to availability zone 2 or availability zone 3. Examples scenarios can include a large of failures, everything from a single NLB, all the way to an entire availability zone.
 
 ![Multi-zone public network load balancer](images/lb_use_case_5.svg){: caption="Multi-zone network load balancer" caption-side="bottom}
+
+The requirement of one NLB per zone is only needed for Public and Private NLB. Private Path NLB is regional by nature, so there is no need to define one per zone. 
+{: note}
+
+## Use case 5: Private Path network load balancer
+{: #nlb-use-case-5}
+
+A Private Path NLB helps keep all the traffic checkpoints between the Provider and the Consumer within the IBM Cloud infrastructure. Data does not exit to the public backbone.
+
+Unlike other NLBs, the Private Path load balancer provides regional availability and is resilient to zone failure even if a single subnet is selected. You do not need to create multiple Private Path load balancers or specify more than a single subnet to ensure resiliency to zone failure. Your subnet selection only impacts the IP-addresses associated with the load balancer.
+
+You can only use Private Path NLBs with a Private Path service. For more information, see [About Private Path services](/docs/vpc?topic=vpc-private-path-service-intro).
+{: important}
+
+Figure 6 illustrates how a Private Path NLB works to support a Private Path service. The Private Path NLB registers with the DNS server. The Consumer optionally queries the DNS server. The Consumer then sends a TCP request for data to the Private Path NLB through a VPE gateway, and the Private Path NLB forwards the request to the targets. In turn the targets generate a response, that response is sent by direct-server-return to the VPE, and then is sent to the Consumer.
+
+![Private path network load balancer](images/lb_use_case_4.svg "Private path network balancer"){: caption="Public load balancer" caption-side="bottom"}
 
 ## Related links
 {: #nlb-permissions-related-links}
