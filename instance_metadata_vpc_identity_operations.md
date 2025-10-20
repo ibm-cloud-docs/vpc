@@ -2,7 +2,7 @@
 
 copyright:
   years: 2022, 2025
-lastupdated: "2025-10-02"
+lastupdated: "2025-10-20"
 
 keywords:
 
@@ -26,7 +26,7 @@ An instance identity access token provides a security credential for accessing t
 Communication between the instance and the metadata service never leaves the host, you acquire the token from within the instance. If secure access to the metadata service is enabled on your instance, use the "https" protocol instead of the "http" protocol.
 {: important}
 
-To obtain the identity token, make a `PUT /identity/v1/token` request to the [Metadata service API](/apidocs/vpc-metadata#create-access-token). If you currently use the `/instance_identity/v1/token` method and want to adopt the API release version 2025-08-26 or later, review the changes that are described in the migration guidance: [Updating to the `2025-08-26` version of the VPC Identity API](/docs/vpc?topic=vpc-2025-08-26-migration-metadata-identity).
+To obtain the identity token, make a `PUT /identity/v1/token` request to the [Virtual Private Cloud Identity API](/apidocs/vpc-identity/latest). If you currently use the `/instance_identity/v1/token` method and want to adopt the API release version 2025-08-26 or later, review the changes that are described in the migration guidance: [Updating to the `2025-08-26` version of the VPC Identity API](/docs/vpc?topic=vpc-2025-08-26-migration-metadata-identity).
 
 ```sh
 curl -X PUT "https://api.metadata.cloud.ibm.com/identity/v1/token?version=2025-08-26" -H "Metadata-Flavor: ibm" -d '{}'
@@ -54,17 +54,6 @@ The following JSON response shows an instance identity access token character st
 ```
 {: codeblock}
 
-Or you can also use the following command:
-
-```json
-identity_token=`curl -X PUT "https://api.metadata.cloud.ibm.com/identity/v1/token?version=2025-08-26"\
-  -H "Metadata-Flavor: ibm"\
-  -d '{
-        "expires_in": 3600
-      }' | jq -r '(.access_token)'`
-```
-{: pre}
-
 In the following example, the return value of the cURL command is the instance identity access token. The token is extracted by `jq` and placed in the `identity_token` environment variable.
 
 ```json
@@ -91,32 +80,19 @@ To access IBM Cloud IAM-enabled services in the account, you can generate an IAM
 
 Make a `POST /identity/v1/iam_token` request and specify the ID of the trusted profile. This request uses the instance identity access token and a trusted profile that is linked to a virtual server instance to generate an IAM access token. The trusted profile can be linked either when you create the instance or provided in the request body.
 
-The IAM API used to pass the instance identity access token and generate an IAM token is being deprecated. Beta users must migrate to the metadata service API to generate an IAM token by using `POST /identity/v1/iam_token`.
+The Metadata Instance Identity API that was used to pass the instance identity access token and generate an IAM token is being deprecated. Users must migrate to the [Virtual Private Cloud Identity API](/apidocs/vpc-identity/latest). For more information, see [Updating to the `2025-08-26` version of the VPC Identity API](/docs/vpc?topic=vpc-2025-08-26-migration-metadata-identity).
 {: note}
 
 Example request:
 
 ```json
-iam_token=`curl -X POST "$vpc_metadata_api_endpoint/identity/v1/iam_token?version=2024-11-12"\
-   -H "Authorization: Bearer $identity_token"\
-   -d '{
-       "trusted_profile": {
-          "id": "Profile-8dd84246-7df4-4667-94e4-8cede51d5ac5"
-       }
-      }' | jq -r '(.access_token)'`
-```
-{: pre}
-
-Or you can also use the following command:
-
-```json
-iam_token=`curl -X POST "$vpc_metadata_api_endpoint/identity/v1/iam_token?version=2025-08-26"\
-   -H "Authorization: Bearer $identity_token"\
-   -d '{
-       "trusted_profile": {
-          "id": "Profile-8dd84246-7df4-4667-94e4-8cede51d5ac5"
-       }
-      }' | jq -r '(.access_token)'`
+iam_token=`curl -X POST "$vpc_metadata_api_endpoint/identity/v1/iam_tokens?version=2025-10-14" \
+-H "Authorization: Bearer $identity_token" \
+-d '{
+      "trusted_profile": {
+        "id": "Profile-8dd84246-7df4-4667-94e4-8cede51d5ac5"
+      }
+    }'| jq -r '(.access_token)'`
 ```
 {: pre}
 
@@ -137,7 +113,7 @@ For more information about trusted profiles, see [Using a trusted profile to cal
 ## Generating an instance identity certificate by using an instance identity access token
 {: #imd-acquire-certificate}
 
-Instance identity certificates are required to successfully enable and use encryption in transit between virtual server instances and {{site.data.keyword.filestorage_vpc_full}} shares. To generate an instance identity certificate for the instance, make a `POST /identity/v1/certificates` call with the instance identity access token and a certificate signing request (CSR).
+Instance identity certificates are required to successfully enable and use encryption in transit between virtual server instances and {{site.data.keyword.filestorage_vpc_full}} shares. To generate an instance identity certificate for the instance, make a `POST /identity/v1/certificates` request with the instance identity access token and a certificate signing request (CSR).
 
 You can obtain the certificate signing requests (CSRs) from the open-source command-line toolkit, [OpenSSL](https://docs.openssl.org/){: external}.
 
