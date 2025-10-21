@@ -115,7 +115,7 @@ Where:
 :   ID of the VPE gateway binding for the Private Path service.
 
 `--set-account-policy`
-:   Indicates whether this will become the access policy for any 'pending' and future endpoint gateway bindings from the same account.
+:   Indicates whether this becomes the access policy for any pending and future VPE gateway bindings from the same account. One of `true`, `false`.
 
 `--output`
 :   Specify output format, only `JSON` is supported.
