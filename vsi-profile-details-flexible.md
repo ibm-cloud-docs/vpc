@@ -2,7 +2,7 @@
 
 copyright:
   years: 2025, 2025
-lastupdated: "2025-09-30"
+lastupdated: "2025-10-21"
 
 keywords: virtual server instances, flex profile, flexible profile, virtual server profile
 
@@ -88,58 +88,58 @@ The following Flex profiles are available when you provision a virtual server in
 
 [Beta]{: tag-blue}
 
-| Instance profile | vCPU | Memory (GiB) | Total instance bandwidth (Gbps)| % vCPU share (beta) |
+| Instance profile | vCPU | Memory (GiB) | Total instance bandwidth (Gbps)| % vCPU share options (default 100%) [Beta]{: tag-blue} |
 |------------------|------|--------------|-------------------------------|--------------|
 | nxf-1x1          | 1    | 1            | 1                             | 10% 25% 50%  |
 | nxf-1x2          | 1    | 2            | 1                             | 10% 25% 50%  |
 | nxf-1x4          | 1    | 4            | 1                             | 25% 50%      |
 | nxf-1x8          | 1    | 8            | 1                             | 50%          |
 | nxf-2x1          | 2    | 1            | 2                             | 10% 25% 50%  |
-| nxf-2x2          | 2    | 2            | 2                             | 10% 25% 50% |
+| nxf-2x2          | 2    | 2            | 2                             | 10% 25% 50%  |
 {: caption="Nano flex profile options for virtual servers" caption-side="bottom"}
 
 ### Balanced
 {: #balanced-profiles-flexible}
 
-| Instance profile | vCPU | Memory (GiB) | Total instance bandwidth (Gbps)| % vCPU share (beta) |
+| Instance profile | vCPU | Memory (GiB) | Total instance bandwidth (Gbps)| % vCPU share options (default 100%) [Beta]{: tag-blue} |
 |------------------|------|--------------|-------------------------------|--------------|
-| bxf-2x8          | 2    | 8            | 4                             | 50%         |
-| bxf-4x16         | 4    | 16           | 8                             | 50%         |
+| bxf-2x8          | 2    | 8            | 4                             | 50% |
+| bxf-4x16         | 4    | 16           | 8                             | 50% |
 | bxf-8x32         | 8    | 32           | 16                            | 50% |
 | bxf-16x64        | 16   | 64           | 32                            | 50% |
-| bxf-24x96        | 24   | 96           | 48                            | - |
-| bxf-32x128       | 32   | 128          | 64                            | -|
-| bxf-48x192       | 48   | 192          | 80                            | - |
-| bxf-64x256       | 64   | 256          | 80                            | - |
+| bxf-24x96        | 24   | 96           | 48                            | N/A |
+| bxf-32x128       | 32   | 128          | 64                            | N/A |
+| bxf-48x192       | 48   | 192          | 80                            | N/A |
+| bxf-64x256       | 64   | 256          | 80                            | N/A |
 {: caption="Balanced flex profile options for virtual servers" caption-side="bottom"}
 
 ### Compute
 {: #compute-profiles-flexible}
 
-| Instance profile | vCPU | Memory (GiB) | Total instance bandwidth (Gbps)| % vCPU share (beta) |
+| Instance profile | vCPU | Memory (GiB) | Total instance bandwidth (Gbps)| % vCPU share options (default 100%) [Beta]{: tag-blue} |
 |------------------|------|--------------|-------------------------------|--------------|
 | cxf-2x4          | 2    | 4            | 4                             | 25% 50% |
 | cxf-4x8          | 4    | 8            | 8                             | 25% 50% |
 | cxf-8x16         | 8    | 16           | 16                            | 25% 50% |
 | cxf-16x32        | 16   | 32           | 32                            | 25% 50% |
-| cxf-24x48        | 24   | 48           | 48                            | - |
-| cxf-32x64        | 32   | 64           | 64                            | - |
-| cxf-48x96        | 48   | 96           | 80                            | - |
-| cxf-64x128       | 64   | 128          | 80                            | - |
+| cxf-24x48        | 24   | 48           | 48                            | N/A |
+| cxf-32x64        | 32   | 64           | 64                            | N/A |
+| cxf-48x96        | 48   | 96           | 80                            | N/A |
+| cxf-64x128       | 64   | 128          | 80                            | N/A |
 {: caption="Compute flex profile options for virtual servers" caption-side="bottom"}
 
 ### Memory
 {: #memory-profiles-flexible}
 
-| Instance profile | vCPU | Memory (GiB) | Total instance bandwidth (Gbps)| % vCPU share (beta) |
+| Instance profile | vCPU | Memory (GiB) | Total instance bandwidth (Gbps)| % vCPU share options (default 100%) [Beta]{: tag-blue} |
 |------------------|------|--------------|-------------------------------|--------------|
-| mxf-2x16         | 2    | 16           | 4                             | - |
-| mxf-4x32         | 4    | 32           | 8                             | - |
-| mxf-8x64         | 8    | 64           | 16                            | - |
-| mxf-16x128       | 16   | 128          | 32                            | - |
-| mxf-24x192       | 24   | 192          | 48                            | - |
-| mxf-48x384       | 48   | 384          | 80                            | - |
-| mxf-64x512       | 64   | 512          | 80                            | - |
+| mxf-2x16         | 2    | 16           | 4                             | N/A |
+| mxf-4x32         | 4    | 32           | 8                             | N/A |
+| mxf-8x64         | 8    | 64           | 16                            | N/A |
+| mxf-16x128       | 16   | 128          | 32                            | N/A |
+| mxf-24x192       | 24   | 192          | 48                            | N/A |
+| mxf-48x384       | 48   | 384          | 80                            | N/A |
+| mxf-64x512       | 64   | 512          | 80                            | N/A |
 {: caption="Memory flex profile options for virtual servers" caption-side="bottom"}
 
 ## Limits

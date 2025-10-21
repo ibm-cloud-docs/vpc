@@ -2,7 +2,7 @@
 
 copyright:
   years: 2023, 2025
-lastupdated: "2025-10-17"
+lastupdated: "2025-10-21"
 
 keywords: file share, file storage, encryption in transit, Mount Helper, IPsec, secure connection, mount share
 
@@ -287,7 +287,7 @@ Debug - File unlocked:/var/lock/ibm_mount_helper.lck
 You're advised not to add the mount details to the `/etc/fstab` because it can cause the compute host to hang during boot. 
 {: important}
 
-If you need to add the mount details to `/etc/fstab`, make sure that you use the `_netdev` and `nofail ` options. See the following example:
+If you need to add the mount details to `/etc/fstab`, make sure that you use the `_netdev` and `nofail` options. See the following example:
 
 ```sh
 10.241.128.16:/1F8943459151408E83CB4AC35FE22734  /mnt/1F8943459151408E83CB4AC35FE22734 ibmshare  _netdev,stunnel,nofail  0  0
