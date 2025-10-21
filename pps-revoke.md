@@ -2,7 +2,7 @@
 
 copyright:
   years: 2024, 2025
-lastupdated: "2025-06-18"
+lastupdated: "2025-10-21"
 
 keywords:
 
@@ -68,15 +68,18 @@ Where:
 `-q, --quiet`
 :   Suppresses verbose output.
 
+
 ### Command examples
 {: #cli-cmd-examples-revoke-account-private-path-service}
 {: cli}
 
 - Revoke access to a Private Path service for an account:
    `ibmcloud is ppsg-ar r006-e64dab2d-8fd2-43bd-8390-229ba66e53c4 --account-id efe5afc483594adaa8325e2b4d1290df`
+   
 
 - Revoke access to a Private Path service for an account:
    `ibmcloud is ppsg-ar cli-ppsg --account-id efe5afc483594adaa8325e2b4d1290df`
+   
 
 ## Deleting a Private Path service with the API
 {: #pps-api-revoking-private-path-service}

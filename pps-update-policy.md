@@ -2,7 +2,7 @@
 
 copyright:
   years: 2024, 2025
-lastupdated: "2025-06-18"
+lastupdated: "2025-10-21"
 
 keywords: private path
 
@@ -110,6 +110,7 @@ Where:
 `-q, --quiet`
 :   Suppresses verbose output.
 
+
 ### Command examples
 {: #cli-cmd-examples-update-delete-account-policy}
 {: cli}
@@ -122,9 +123,12 @@ Where:
 
 - Delete an account policy:
    `ibmcloud is ppsg-apd r006-2e671f14-19fc-4089-9ad3-973176711259 efe5afc483594adaa8325e2b4d1290df`
+ 
 
 - Delete an account policy:
    `ibmcloud is private-path-service-gateway-account-policy-delete cli-ppsg-0 2d1bace7b46e4815a81e52c6ffeba5cf e13b4574db1743b1b7897bebca551db1`
+   
+
 
 ## Updating an account policy with the API
 {: #pps-api-update-account-policy}
