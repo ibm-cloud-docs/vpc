@@ -90,6 +90,7 @@ Where:
 `-q, --quiet`
 :   Suppresses verbose output.
 
+
 ### Denying connection requests from the CLI
 {: #pps-cli-deny-consumer-request}
 {: cli}
@@ -114,7 +115,7 @@ Where:
 :   ID of the VPE gateway binding for the Private Path service.
 
 `--set-account-policy`
-:   Indicates whether this becomes the access policy for any pending and future VPE gateway bindings from the same account. One of: `true`, `false`.
+:   Indicates whether this will become the access policy for any 'pending' and future endpoint gateway bindings from the same account.
 
 `--output`
 :   Specify output format, only `JSON` is supported.
@@ -122,21 +123,26 @@ Where:
 `-q, --quiet`
 :   Suppress verbose output.
 
+
 ### Command examples
 {: #cli-cmd-examples-consumer-requests-private-path-service}
 {: cli}
 
 - Deny a consumer connection request:
    `ibmcloud is private-path-service-gateway-endpoint-gateway-binding-deny r006-2e671f14-19fc-4089-9ad3-973176711259 r006-17635273-0702-4a31-b406-a0014c291fbb --set-account-policy true`
+   
 
 - Deny a consumer connection request:
    `ibmcloud is ppsg-egb-deny cli-ppsg r006-f7e2b651-0d02-46e1-8811-16ea2157b547 --set-account-policy true`
+   
 
 - Permit a consumer connection request:
    `ibmcloud is ppsg-egb-permit r006-e64dab2d-8fd2-43bd-8390-229ba66e53c4 r006-0dcc2105-14a1-4501-9b43-29632e910e4b --set-account-policy true`
+   
 
 - Permit a consumer connection request:
    `ibmcloud is ppsg-egb-permit cli-ppsg r006-3a30c0b3-8c4b-4a64-bb93-3f3e17459363 --set-account-policy true`
+   
 
 ## Reviewing connection requests with the API
 {: #pps-api-review-consumer-request}

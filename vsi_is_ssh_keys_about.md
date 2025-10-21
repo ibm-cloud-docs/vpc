@@ -2,7 +2,7 @@
 
 copyright:
   years: 2018, 2025
-lastupdated: "2025-07-29"
+lastupdated: "2025-10-21"
 
 keywords: ssh public keys, OpenSSH, add ssh key, ssh key, manage ssh key, generate ssh key, locate ssh key
 
@@ -243,7 +243,7 @@ To import an SSH key by using the CLI, use the **ibmcloud is key-create** comman
 ibmcloud is key-create KEY_NAME (KEY | @KEY_FILE) [--resource-group-id RESOURCE_GROUP_ID | --resource-group-name RESOURCE_GROUP_NAME]
 ```
 {: pre}
-
+ 
 ## Importing your SSH key by using the API
 {: #import-ssh-keys-api}
 {: api}

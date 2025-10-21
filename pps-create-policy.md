@@ -2,7 +2,7 @@
 
 copyright:
   years: 2024, 2025
-lastupdated: "2025-06-18"
+lastupdated: "2025-10-21"
 
 keywords: private path
 
@@ -77,15 +77,18 @@ Where:
 `-q, --quiet`
 :   Suppresses verbose output.
 
+
 ### Command examples
 {: #cli-cmd-examples-create-account-policy}
 {: cli}
 
 - Create a deny policy:
    `ibmcloud is private-path-service-gateway-account-policy-create r006-f5926633-81d0-429e-bcf8-91151ade00bf --account-id e13b4574db1743b1b7897bebca551db1 --access-policy deny`
+   
 
 - Create a review policy:
    `ibmcloud is private-path-service-gateway-account-policy-create cli-ppsg-0 --account-id 2d1bace7b46e4815a81e52c6ffeba5cf --access-policy review`
+   
 
 ## Creating an account policy with the API
 {: #pps-api-create-account-policy}

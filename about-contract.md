@@ -2,7 +2,7 @@
 
 copyright:
   years: 2022, 2025
-lastupdated: "2025-10-15"
+lastupdated: "2025-10-21"
 
 keywords: confidential computing, enclave, secure execution, hpcr, contract, customization, schema, contract schema, env, workload, encryption
 
@@ -693,7 +693,8 @@ The encryption and attestation certificates are signed by the IBM intermediate c
    {: caption="Encryption certificate expiry dates and image deprecation/ obsolete dates" caption-side="bottom"}
 
    **Note:**
-   * Deprecated: You can use the image to create an instance from the IBM Cloud CLI. Using the deprecated status can discourage the use of the image before its status is changed to obsolete.
+
+   * Deprecated: You can use the image to create an instance from the IBM Cloud CLI. When an image enters a deprecated state, it is important to note that newer versions are available. Users are encouraged to plan and upgrade to the latest supported image before the deprecated image becomes obsolete.
    * Obsolete: You cannot use the image to create an instance. If you try to use an obsolete image to create an instance, you receive a message that states that you cannot use the image to create an instance.
    * Always download the encryption certs corresponding to the image and encrypt the contracts.
 

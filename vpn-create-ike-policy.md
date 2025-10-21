@@ -2,7 +2,7 @@
 
 copyright:
   years: 2021, 2025
-lastupdated: "2025-08-22"
+lastupdated: "2025-10-21"
 
 keywords: ike policy
 
@@ -68,6 +68,8 @@ Where:
 - **--resource-group-name value** - Name of the resource group. This option is mutually exclusive with **--resource-group-id**.
 - **--output value** - Specify output in JSON format.
 - **-q, --quiet** - Suppress verbose output.
+
+
 
 ### Command examples
 {: #command-examples-vpn-create-ike-policy}
