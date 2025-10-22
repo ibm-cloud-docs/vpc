@@ -1,8 +1,8 @@
 ---
 
 copyright:
-  years: 2017, 2024
-lastupdated: "2024-06-20"
+  years: 2017, 2025
+lastupdated: "2025-10-22"
 
 keywords: vpc network, VRF, router, hypervisor, address prefixes, classic access, implicit router, packet flows, NAT, data flows, Cloud Service Endpoint source addresses, source addresses
 
@@ -44,7 +44,7 @@ Cloud service endpoint source addresses are the IP addresses that identify a VPC
 
 ![Address translation example](./images/cse-addr-translation.png){: caption="Address translation example" caption-side="bottom"}
 
-The Cloud service endpoint source address in the diagram is labeled "VPC Address". This address is scoped outside of the customer VPC and so does not collide with customer VSI addresses.
+The Cloud service endpoint source address in the diagram is labeled "VPC Address". This address is scoped outside of the customer VPC and so does not collide with customer VSI addresses. Each VPC has at least one Cloud service endpoint source address per zone.
 
 ## Data packet flows and the implicit router
 {: #data-packet-flows-and-the-implicit-router}
