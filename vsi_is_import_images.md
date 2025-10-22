@@ -97,6 +97,7 @@ For more information, see [ibmcloud is image-create](/docs/vpc?topic=vpc-vpc-ref
 ### Schedule custom image lifecycle status changes by using the CLI
 {: #import-schedule-ilm-status-change-cli}
 
+
 When you import a custom image by using the command-line interface (CLI), you can also schedule the lifecycle status changes of an {{site.data.keyword.vpc_short}} custom image at the same time by using options of the **`ibmcloud is image-create`** command.
 
 Specify the name of the custom image to be created by using the `IMAGE_NAME` variable. The name can't be used by another image in the region and names that start with `ibm-` are reserved for system-provided images. You must also specify the source; for example, specify the `--file` option with the image file location. Specify the `--os-name` option with the name of the operating system for the image.
@@ -128,6 +129,7 @@ ibmcloud is image-create my-ubuntu-16-amd64 --file cos://us-south/custom-image-v
 {: pre}
 
 For more information, see [ibmcloud is image-create](/docs/vpc?topic=vpc-vpc-reference#image-create) in the VPC CLI reference page.
+
 
 ## Importing a custom image by using the API
 {: #import-custom-image-cloud-object-storage-api}
