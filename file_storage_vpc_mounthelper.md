@@ -2,7 +2,7 @@
 
 copyright:
   years: 2023, 2025
-lastupdated: "2025-10-21"
+lastupdated: "2025-10-22"
 
 keywords: file share, file storage, encryption in transit, Mount Helper, IPsec, secure connection, mount share
 
@@ -121,7 +121,7 @@ The Mount Helper utility installs stunnel on the compute host that's running a L
    | Germany - Frankfurt | `eu-de`     | `fra` | 
    | Japan - Osaka       | `jp-osa`    | `osa` | 
    | Japan - Tokyo       | `jp-tok`    | `tok` |   
-   | Spain - Madrid      | `eu-mad`    | `mad` |
+   | Spain - Madrid      | `eu-es`    | `mad` |
    | United Kingdom - London | `eu-gb` | `lon` | 
    | United States - Washington, DC | `us-east`| `wdc` |
    | United States - Dallas, TX | `us-south`  | `dal` |
