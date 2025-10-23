@@ -2,7 +2,7 @@
 
 copyright:
   years: 2022, 2025
-lastupdated: "2025-09-23"
+lastupdated: "2025-10-22"
 
 keywords: file storage, file share, view share details, mount targets, view targets, view share
 
@@ -116,9 +116,8 @@ You can access the Actions menu by clicking ![Actions icon](../icons/action-menu
 
      Monitoring these utilization metrics can help you to determine how much work is done by your application or workload. You can use this information to determine whether the IOPS value needs to be adjusted. Monitoring the available capacity of your share can help you identify the need for more storage before insufficient space can become a problem with writing data to the share or replication. Seeing these metrics can help you anticipate any changes in charges at the end of the billing period.
      
-     These metrics are not updated in real time. Data for new file shares can take up to an hour or an hour and 15 minutes to appear in the dashboard. Changes in usage can take from 15 to 30 minutes to be reflected in the graphs.
+     These metrics are not updated in real time. Data for new file shares can take up to an hour or an hour and 15 minutes to appear in the console. Changes in usage can take from 15 to 30 minutes to be reflected in the graphs.
      {: note}
-
     
      If you have an instance of the {{site.data.keyword.mon_full_notm}} service, click **Launch monitoring** to open the Sysdig web UI to work with the metrics dashboards there. For more information about how to set up the {{site.data.keyword.mon_full_notm}} instance, see [Monitoring metrics for File Storage for VPC](/docs/vpc?topic=vpc-fs-vpc-monitoring-sysdig).
 
