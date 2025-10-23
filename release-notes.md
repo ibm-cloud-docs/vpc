@@ -558,6 +558,13 @@ Cluster networks for VPC (select availability)
 ## October 2024
 {: #vpc-oct24}
 
+### 31 October 2024
+{: #vpc-oct3124}
+{: release-note}
+
+End of Market (EOM) announcement for deprecation of Classic access VPC
+:   Starting 31 October 2024, the “Classic access” option is no longer available in the IBM Cloud console (UI). If your account doesn't have any classic-access-enabled VPCs, as of 31 December 2024, you can't create VPCs with “Classic access” enabled (including through the CLI, Terraform, and the API). Instead, you can use [Transit Gateway](/docs/transit-gateway?topic=transit-gateway-getting-started) to connect your VPCs to the Classic network. If your account has existing classic-access-enabled VPCs, those VPCs can still access the Classic network and you can continue to create classic-access-enabled VPCs in that account through the API and CLI.
+
 ### 29 October 2024
 {: #vpc-oct2924}
 {: release-note}
