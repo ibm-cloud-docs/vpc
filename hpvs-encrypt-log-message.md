@@ -71,11 +71,11 @@ You must abide to the following:
 
 This tutorial gets you started with a simple Hyper Protect Virtual Server for VPC contract that only has an [`env` section](/docs/vpc?topic=vpc-about-contract_se#hpcr_contract_env) and a [`workload` section](/docs/vpc?topic=vpc-about-contract_se#hpcr_contract_workload).
 
-As recommended in [contract encryption](/docs/vpc?topic=vpc-about-contract_se#hpcr_contract_encrypt), we encrypt both sections. When the instance boots, the bootloader decrypts the contract if it's encrypted. Follow the instructions at [Downloading the encryption certificate and extracting the public key](/docs/vpc?topic=vpc-about-contract_se#encrypt_downloadcert). This tutorial uses the [certificate](/media/docs/downloads/hyper-protect-container-runtime/ibm-hyper-protect-container-runtime-1-0-s390x-14-encrypt.crt){: external} for the IBM Hyper Protect Container Runtime image version `ibm-hyper-protect-container-runtime-1-0-s390x-14`. The file `hpcr.crt` is already available inside `example-files`. Follow the steps to obtain the simple contract:
+As recommended in [contract encryption](/docs/vpc?topic=vpc-about-contract_se#hpcr_contract_encrypt), we encrypt both sections. When the instance boots, the bootloader decrypts the contract if it's encrypted. Follow the instructions at [Downloading the encryption certificate and extracting the public key](/docs/vpc?topic=vpc-about-contract_se#encrypt_downloadcert). This tutorial uses the [certificate](https://hpvsvpcubuntu.s3.us.cloud-object-storage.appdomain.cloud/s390x-24/ibm-hyper-protect-container-runtime-1-0-s390x-24-encrypt.crt){: external} for the IBM Hyper Protect Container Runtime image version `ibm-hyper-protect-container-runtime-1-0-s390x-24`. Downloaded the encryption certificate and rename it to `hpcr.crt`. Follow the steps to obtain the simple contract:
 
-1. Get the hostname and the ingestion key of your Log Analysis instance. See [Logging for Hyper Protect Virtual Servers for VPC](/docs/vpc?topic=vpc-logging-for-hyper-protect-virtual-servers-for-vpc).
+1. Get the hostname and the API key of your IBM Cloud Logs instance. For more information, see [Logging for Hyper Protect Virtual Servers for VPC](/docs/vpc?topic=vpc-logging-for-hyper-protect-virtual-servers-for-vpc).
 
-1. Create and encrypt the `env` section. Refer to the `env.yaml` file in the `example-files` folder for the correct schema. Replace the content with your logging hostname and ingestion key. Run the `encrypt-basic.sh` script to obtain the encrypted `env` section of the contract.
+1. Create and encrypt the `env` section. Refer to the `env.yaml` file in the `log-encryption` folder for the correct schema. Replace the content with your logging hostname and API keys. Run the `encrypt-basic.sh` script to obtain the encrypted `env` section of the contract.
    ```sh
    cat env.yaml | ./encrypt-basic.sh hpcr.crt
    ```
@@ -144,10 +144,10 @@ The quickest way is to use the [UI](/docs/vpc?topic=vpc-about-se&interface=ui#cr
 ## Decrypt log messages
 {: #decrypt-log-messages}
 
-Monitor the serial console. When the virtual server instance is up and running, go to the Log Analysis instance that you provisioned. Open the dashboard and find the ciphertext, which is your encrypted log message.
+Monitor the serial console. When the virtual server instance is up and running, go to the IBM Cloud Log instance that you provisioned. Open the dashboard and find the ciphertext, which is your encrypted log message.
 
 Use `decrypt-basic.sh` along with the private key that you generated to decipher the encrypted log message.
 ```sh
-echo hyper-protect-basic.rdf...EqM | decrypt-basic.sh logging
+echo hyper-protect-basic.rdf...EqM | ./decrypt-basic.sh logging
 ```
 {: codeblock}

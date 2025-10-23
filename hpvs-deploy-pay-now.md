@@ -2,7 +2,7 @@
 
 copyright:
   years: 2022, 2025
-lastupdated: "2025-10-17"
+lastupdated: "2025-10-23"
 
 keywords: confidential computing, secure execution, hyper protect virtual server for vpc, terraform, tutorial, financial transaction
 
@@ -34,7 +34,7 @@ To complete this tutorial, you need to meet the following prerequisites:
 2.	[Create an API key](/docs/account?topic=account-userapikey) for your user identity.
 3.	[Install IBM Cloud CLI](/docs/cli?topic=cli-install-ibmcloud-cli) and the [container registry CLI plug-in](/docs/cli?topic=cli-containerregcli).
 4.	Create a [VPC and a subnet](/docs/vpc?topic=vpc-creating-a-vpc-using-the-ibm-cloud-console#creating-a-vpc-and-subnet) with a [public gateway](/docs/vpc?topic=vpc-create-public-gateways) and a [security group](https://cloud.ibm.com/infrastructure/network/securityGroups){: external} with rules that allow at least inbound IP connections on port 8443 and all outbound IP connections.
-5.	Create a [Log Analysis instance](https://cloud.ibm.com/catalog/services/cloud-logs?callback=%252Fobservability%252Fapi%252Flogging%252Fcreate){: external} on IBM Cloud. Make a note of the ingestion host and the ingestion key.
+5.	Create an [IBM Cloud Logs instance](https://cloud.ibm.com/catalog/services/cloud-logs?callback=%252Fobservability%252Fapi%252Flogging%252Fcreate){: external} on IBM Cloud. Make a note of hostname and API key.
 6.	Install [Git](https://github.com/git-guides/install-git){: external}.
 
 ## Estimated time
@@ -156,7 +156,7 @@ Completing this tutorial takes approximately 60 minutes.
 4.	Paste the created contract information into **User data**.
 5.	Under the **Networking**, select your VPC and subnet.
 6.	Click **Create virtual server**.
-7.	View the logs in the Log Analysis instance dashboard.
+7.	View the logs in the ICL instance dashboard.
 8.	Assign a floating IP address to the Hyper Protect Virtual Server for VPC instance and click Save.
 9.	To open the PayNow website, copy and paste the floating IP address and use your browser to open the PayNow website under the URL `https://<floatingip>:8443/index.html`.
 

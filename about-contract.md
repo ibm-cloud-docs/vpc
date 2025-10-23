@@ -2,7 +2,7 @@
 
 copyright:
   years: 2022, 2025
-lastupdated: "2025-10-21"
+lastupdated: "2025-10-23"
 
 keywords: confidential computing, enclave, secure execution, hpcr, contract, customization, schema, contract schema, env, workload, encryption
 
@@ -194,6 +194,36 @@ In the `play` subsection, you can define the workload through [Pod descriptors](
    ```
    {: codeblock}
 
+   The following example illustrates how to use the `initcontainers` with the `resources` section:
+
+   ```yaml
+   workload: |
+     type: workload
+     play:
+       resources:
+         - apiVersion: v1
+           kind: Pod
+           metadata:
+             name: busybox
+           spec:
+             initContainers:
+             - name: attest
+               image: ...
+               volumeMounts:
+               - mountPath: /var/hyperprotect
+                 name: datavolume
+             containers:
+             - name: main
+               image: ...
+               command:
+               - printenv
+               envFrom:
+               - configMapRef:
+                   name: contract.config.map
+                   optional: false
+             restartPolicy: Never
+    ```
+    {: codeblock}
 - In the `archive` subsection of `play`, the archive is a Base64 encoded, gzipped tar file. The Pods or ConfigMaps are represented as YAML files, at the top level in this tar file. The file might also contain extra files and all the files are extracted to the host file system before the Pods are started. The *current working directory* is the directory in which the files were extracted, so it's possible to use a volume mount with a relative path to mount the files or directories from the YAML file.
 
    Example:
@@ -210,15 +240,15 @@ In the `play` subsection, you can define the workload through [Pod descriptors](
      volumes:
        test-volume:
          mount: /var/hyperprotect
-         seed: "workload phrase"
+         seed: "workload_phrase"
          filesystem: ext4
    ```
 
 - In a template format in the `templates` subsection of `play`. This section is an array of descriptors in the YAML format. [Pods](https://kubernetes.io/docs/concepts/workloads/pods/){: external} or [ConfigMaps](https://kubernetes.io/docs/concepts/configuration/configmap/){: external} can have points of variability (POV) that are not known at the time of writing the descriptors. These POVs can be represented as [templates](https://pkg.go.dev/text/template){: external} and the values are completed at deployment time from information in the contract. We use [go templates](https://pkg.go.dev/text/template){: external} as the templating syntax, which is the same as used for [helm charts](https://helm.sh/docs/chart_template_guide/getting_started/){: external}, so templates can easily be exchanged with k8s. We support the following `Built-In` objects:
    - *Environment:* this object contains the environment variables as merged between the workload and the environment section. The object is available as `{{ .Env }}`.
 
-   Example: 
-   
+   Example:
+
    ```yaml
    workload: |
      type: workload
@@ -233,6 +263,9 @@ In the `play` subsection, you can define the workload through [Pod descriptors](
            metadata:
              name: busybox
            spec:
+             initContainers:
+             - name: initcontainer
+               image: docker.io/library/init-config@sha256:b1306efee704017b0e02efadc011d374063a4e9c47b86bdc57744fc3f0666383
              containers:
              - name: main
                image: "{{ .Env.REGISTRY }}/hpse-docker-busybox-s390x@sha256:732efa374f1e6c964caeacab0bcb370385ee386041a14d4a32176462e3f75c7b"
@@ -468,6 +501,18 @@ The `volumes` section needs to be provided in the contract only if a data volume
 
 The `volumes` subsection has support for auto encryption of the data volume with user-provided seeds. If a data volume is attached to the {{site.data.keyword.hpvs}} instance, it is encrypted automatically with the seeds that are provided through the "seed" field in the `volumes` subsections of the contract. Thus two seeds must be provided, one through the `workload` section (by the workload persona) and the other through the `env` section (by the deployer persona). These two seeds are internally converted to UTF8 sequences and then concatenated. Later, the hash (SHA256) of the concatenated sequence is computed as a hexdigest, which is used as the LUKS passphrase to encrypt the data volume.
 
+Currently, the `env` and `workload` seeds require a **minimum length of 3 characters**. Starting from **March 2026**, this minimum will be **increased to 15 characters**. Any seed values shorter than 15 characters **after March 2026** may result in errors or failed deployments. To avoid disruptions, **update all seed values** to a length of at least **15 characters** as soon as possible. The rules are defined below.
+{: important}
+
+Following are the rules for creating seeds. Starting from **March 2026**, you must follow these rules to create seeds:
+
+- No spaces allowed.
+- Must have at least `15` characters. Following are the allowed characters:
+  - Lowercase letters `(a-z)`
+  - Uppercase letters `(A-Z)`
+  - Numbers `(0-9)`
+  - Special characters `!@#$%^&*(),.?":{}|<>_-`
+
 You can use the following command to validate the hexdigest:
 
 ```buildoutcfg
@@ -486,7 +531,7 @@ volumes:
   test:
     filesystem: ext4
     mount: /mnt/data
-    seed: "workload phrase"
+    seed: "workload_phrase"
 ```
 {: codeblock}
 
@@ -501,7 +546,7 @@ volumes:
   test:
     filesystem: ext4
     mount: /mnt/data
-    seed: "workload phrase1"
+    seed: "workload_phrase1"
     previousSeed: "workload phrase"
 ```
 {: codeblock}
@@ -514,15 +559,15 @@ volumes:
   test1:
     filesystem: "ext4"
     mount: "/mnt/data"
-    seed: "seed1"
+    seed: "seed_value_with_minimum_15_characters"
   test2:
     filesystem: "ext4"
     mount: "/mnt/test2"
-    seed: "seed2"
+    seed: "seed_value_with_minimum_15_characters"
   test3:
     filesystem: "ext4"
     mount: "/mnt/test3"
-    seed: "seed3"
+    seed: "seed_value_with_minimum_15_characters"
 ```
 {: codeblock}
 
@@ -568,7 +613,7 @@ See the following example of the `env` - `volumes` subsection:
 ```yaml
 volumes:
   test:
-    seed: "env phrase"
+    seed: "seed_value_with_minimum_15_characters"
 ```
 {: codeblock}
 
@@ -577,7 +622,7 @@ When you are using the "rolling of seeds" feature, you can use the following sni
 ```yaml
 volumes:
   test:
-    seed: "env phrase1"
+    seed: "seed_value_with_minimum_15_characters"
     previousSeed: "env phrase"
 ```
 {: codeblock}
@@ -595,14 +640,14 @@ When you use multiple volumes, the deployer must ensure that the volumes are cre
      test1:
        apiKey: "L4SsSE32xxxxxjAgfHCVkdW8xl_CiqMn4Lpc1dzTD"
        volumeID: "r006-f7b44467-01af-xxx-xxxx-xxxxxxx"
-       seed: "seed1"
+       seed: "seed_value_with_minimum_15_characters"
      test2:
        apiKey: "L4SsSE32xxxxxjAgfHCVkdW8xl_CiqMn4Lpc1dzTD"
        volumeName: "volume2"
-       seed: "seed2"
+       seed: "seed_value_with_minimum_15_characters"
      test3:
        apiKey: "L4SsSE32xxxxxjAgfHCVkdW8xl_CiqMn4Lpc1dzTD"
-       seed: "seed3"
+       seed: "seed_value_with_minimum_15_characters"
 ```
 {: codeblock}
 
@@ -627,7 +672,7 @@ volumes:
      - apiKey: "L4SsSE32xxxxxjAgfHCVkdW8xl_CiqMn4Lpc1dzTD"
        crn: "crn:v1:bluemix:public:hs-crypto:us-south:a/xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx:xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx:key:xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx"
        type: "private"
-   seed: "seed1"
+   seed: "seed_value_with_minimum_15_characters"
    apiKey: "**********************"
    kmsTimeout: 10
 ```
@@ -683,20 +728,22 @@ The encryption and attestation certificates are signed by the IBM intermediate c
    From 25 March 2025, the certificate links are changed.
    {: note}
 
-   | Image version| Certificate link | Encryption cert expiry date | Deprecation date | Obsolete Date |
-   | -------- | ----------- | ----------- | ----------- | ----------- |
-   | `ibm-hyper-protect-container-runtime-1-0-s390x-23` | [Certificate](https://hpvsvpcubuntu.s3.us.cloud-object-storage.appdomain.cloud/s390x-23/ibm-hyper-protect-container-runtime-1-0-s390x-23-encrypt.crt){: external} | 26 February 2026 | 15 December 2025   | 27 February 2026   |
-   | `ibm-hyper-protect-container-runtime-1-0-s390x-22` | [Certificate](https://hpvsvpcubuntu.s3.us.cloud-object-storage.appdomain.cloud/s390x-22/ibm-hyper-protect-container-runtime-1-0-s390x-22-encrypt.crt){: external} | 26 February 2026 | 15 December 2025   | 27 February 2026   |
-   | `ibm-hyper-protect-container-runtime-1-0-s390x-21` | [Certificate](https://hpvsvpcubuntu.s3.us.cloud-object-storage.appdomain.cloud/s390x-21/ibm-hyper-protect-container-runtime-1-0-s390x-21-encrypt.crt){: external} | 26 February 2026 |  10 October 2025  | 27 February 2026  |
-   | `ibm-hyper-protect-container-runtime-1-0-s390x-20` | [Certificate](https://hpvsvpcubuntu.s3.us.cloud-object-storage.appdomain.cloud/s390x-20/ibm-hyper-protect-container-runtime-1-0-s390x-20-encrypt.crt){: external} | 02 September 2025 |   | 10 October 2025   |
-   | `ibm-hyper-protect-container-runtime-1-0-s390x-19` | [Certificate](https://hpvsvpcubuntu.s3.us.cloud-object-storage.appdomain.cloud/s390x-19/ibm-hyper-protect-container-runtime-1-0-s390x-19-encrypt.crt){: external} | 02 September 2025 |   | 10 October 2025  |
+   | Image version| Certificate link | Encryption cert expiry date | Deprecation date |
+   | -------- | ----------- | ----------- | ----------- |
+   | `ibm-hyper-protect-container-runtime-1-0-s390x-24` | [Certificate](https://hpvsvpcubuntu.s3.us.cloud-object-storage.appdomain.cloud/s390x-24/ibm-hyper-protect-container-runtime-1-0-s390x-24-encrypt.crt){: external} | 06 August 2026  | 31 March 2026 |
+   | `ibm-hyper-protect-container-runtime-1-0-s390x-23` | [Certificate](https://hpvsvpcubuntu.s3.us.cloud-object-storage.appdomain.cloud/s390x-23/ibm-hyper-protect-container-runtime-1-0-s390x-23-encrypt.crt){: external} | 26 February 2026 | 15 December 2025 |
+   | `ibm-hyper-protect-container-runtime-1-0-s390x-22` | [Certificate](https://hpvsvpcubuntu.s3.us.cloud-object-storage.appdomain.cloud/s390x-22/ibm-hyper-protect-container-runtime-1-0-s390x-22-encrypt.crt){: external} | 26 February 2026 | 15 December 2025   |
+   | `ibm-hyper-protect-container-runtime-1-0-s390x-21` | [Certificate](https://hpvsvpcubuntu.s3.us.cloud-object-storage.appdomain.cloud/s390x-21/ibm-hyper-protect-container-runtime-1-0-s390x-21-encrypt.crt){: external} | 26 February 2026 |  10 October 2025  | 
+   | `ibm-hyper-protect-container-runtime-1-0-s390x-20` | [Certificate](https://hpvsvpcubuntu.s3.us.cloud-object-storage.appdomain.cloud/s390x-20/ibm-hyper-protect-container-runtime-1-0-s390x-20-encrypt.crt){: external} | 02 September 2025 |   | 
+   | `ibm-hyper-protect-container-runtime-1-0-s390x-19` | [Certificate](https://hpvsvpcubuntu.s3.us.cloud-object-storage.appdomain.cloud/s390x-19/ibm-hyper-protect-container-runtime-1-0-s390x-19-encrypt.crt){: external} | 02 September 2025 |   |
    {: caption="Encryption certificate expiry dates and image deprecation/ obsolete dates" caption-side="bottom"}
 
    **Note:**
-
-   * Deprecated: You can use the image to create an instance from the IBM Cloud CLI. When an image enters a deprecated state, it is important to note that newer versions are available. Users are encouraged to plan and upgrade to the latest supported image before the deprecated image becomes obsolete.
-   * Obsolete: You cannot use the image to create an instance. If you try to use an obsolete image to create an instance, you receive a message that states that you cannot use the image to create an instance.
+   * **Deprecated**: You can use the image to create an instance from the IBM Cloud CLI. Using the deprecated status can discourage the use of the image before its status is changed to obsolete. The image catalog always maintains the two most recent image versions: n and n-1. When a new version (n+1) becomes available, the system deprecates the oldest version (n-1).
+   * **Obsolete**: After the certificate associated with the image is expired, the image will no longer be available to provision new instance.
    * Always download the encryption certs corresponding to the image and encrypt the contracts.
+
+   For information about security responsibilities, see [Additional security responsibilities for {{site.data.keyword.cloud_notm}} {{site.data.keyword.hpvs}} for VPC](/docs/vpc?topic=vpc-hpvs-security-req&interface=ui).
 
    To check the image deprecation or obsolete status, you can also use the IBM Cloud image list command.
 
@@ -724,11 +771,11 @@ Complete the following steps on an Ubuntu system to encrypt the workload section
 
 2. Create the [workload section](#hpcr_contract_workload) of the contract and add the contents in the `workload.yaml` file.
 
-3. Export the complete path of the `workload.yaml` file and `ibm-hyper-protect-container-runtime-1-0-s390x-23-encrypt.crt`:
+3. Export the complete path of the `workload.yaml` file and `ibm-hyper-protect-container-runtime-1-0-s390x-24-encrypt.crt`:
 
    ```yaml
    WORKLOAD="<PATH to workload.yaml>"
-   CONTRACT_KEY="<PATH to ibm-hyper-protect-container-runtime-1-0-s390x-23-encrypt.crt>"
+   CONTRACT_KEY="<PATH to ibm-hyper-protect-container-runtime-1-0-s390x-24-encrypt.crt>"
    ```
    {: pre}
 
@@ -738,7 +785,7 @@ Complete the following steps on an Ubuntu system to encrypt the workload section
    ```
    {: pre}
 
-5. Use the following command to encrypt password with `ibm-hyper-protect-container-runtime-1-0-s390x-23-encrypt.crt`:
+5. Use the following command to encrypt password with `ibm-hyper-protect-container-runtime-1-0-s390x-24-encrypt.crt`:
 
    ```yaml
    ENCRYPTED_PASSWORD="$(echo -n "$PASSWORD" | base64 -d | openssl rsautl -encrypt -inkey $CONTRACT_KEY -certin | base64 -w0 )"
@@ -773,11 +820,11 @@ Complete the following steps on an Ubuntu system to encrypt the `env` section us
 
 1. Create the [`env` section](#hpcr_contract_env) of the contract and add the contents in the `env.yaml` file.
 
-2. Export the complete path of the `env.yaml` file and `ibm-hyper-protect-container-runtime-1-0-s390x-23-encrypt.crt`:
+2. Export the complete path of the `env.yaml` file and `ibm-hyper-protect-container-runtime-1-0-s390x-24-encrypt.crt`:
 
    ```yaml
    ENV="<PATH to env.yaml>"
-   CONTRACT_KEY="<PATH to ibm-hyper-protect-container-runtime-1-0-s390x-23-encrypt.crt>"
+   CONTRACT_KEY="<PATH to ibm-hyper-protect-container-runtime-1-0-s390x-24-encrypt.crt>"
    ```
    {: pre}
 
@@ -788,7 +835,7 @@ Complete the following steps on an Ubuntu system to encrypt the `env` section us
    ```
    {: pre}
 
-4. Use the following command to encrypt password with `ibm-hyper-protect-container-runtime-1-0-s390x-23-encrypt.crt`:
+4. Use the following command to encrypt password with `ibm-hyper-protect-container-runtime-1-0-s390x-24-encrypt.crt`:
 
    ```yaml
    ENCRYPTED_PASSWORD="$(echo -n "$PASSWORD" | base64 -d | openssl rsautl -encrypt -inkey $CONTRACT_KEY  -certin | base64 -w0)"
@@ -898,7 +945,7 @@ Complete the following steps on an Ubuntu system to create the contract signatur
             port: 443
         volumes:
           test:
-          seed: "hogwarts"
+          seed: "seed_value_with_minimum_15_characters"
         signingKey: "-----BEGIN PUBLIC KEY-----\nMIICIjANBgkqhkiG9w0BAQEFAAOCAg8AMIICCgKCAgEAvLaeSA8Nc3p99HNUMwon\n5lMMALAsIxRRpWUaEZ5IcUky2sgCi/rSmxU2sm6FK/BmCftk33f5W2BsYHdY9R/0\nELZ9A4POQcJsPF3ronU2QHwnRjcqYuUFXmf1VqfPPLpELriFNoCb2FN2zCa+VUmu\n+fGhroZ3Fr9kBPwJhGr917E5jeCQ+MzsGkulcTvr0SfvThiZQQ/KlU0R35ThamF3\n8C0F5IQBpqDUwDFmWvD5lF2SmprpluDBFEj8LLfLxvW9M2Qwku6nGUnnFReg3vNH\n7IF0SRr1K1AdO5hEmevCdyG9hgTdUY6dXcjntiN/kbqXErILknvzDnb4jyPZZRdK\ndrOzVt8hjbdmkS396SrMFtA++QrV3GNZl5zCscpn6d8S7BEA8mDzroo2UAbrypVP\n9l9AmzUnmnPCpZQySUUHoY0xG2vgMSA50CWH7Uwjmpixr02Td4/LU8fE7NWCO6ci\nx4++ANSaxu+uuZ2Pe1OjjgV98r06ZUs38eaxptLZqLpn3N6w8WAJxGwSLapZwNtP\ng2spUXu2Eh/TN5t4/ly5iXOsyIy8IPtTrUPX7rpaaqFZ72P6BJLj3WLEvOG/eF/8\nBTjrsZAjb8YjkO1uGk10IPa63sniZWe5vlm9w9UKy2uGuy6RhWxwoVHRRbfhboQF\nsO20dsVwgTZn8c46HMD2PoMCAwEAAQ==\n-----END PUBLIC KEY----"
       ```
       {: codeblock}
@@ -915,12 +962,12 @@ Complete the following steps on an Ubuntu system to create the contract signatur
               port: 443
           volumes:
             test:
-            seed: "hogwarts"
+            seed: "seed_value_with_minimum_15_characters"
           signingKey: "-----BEGIN CERTIFICATE-----\nMIIFETCCAvkCFBAMxyO6Cl7BNKBGxtlAzHpI2oiNMA0GCSqGSIb3DQEBCwUAMEUx\nCzAJBgNVBAYTAkFVMRMwEQYDVQQIDApTb21lLVN0YXRlMSEwHwYDVQQKDBhJbnRl\ncm5ldCBXaWRnaXRzIFB0eSBMdGQwHhcNMjQwMTMwMDM1ODMzWhcNMjQwNTA5MDM1\nODMzWjBFMQswCQYDVQQGEwJBVTETMBEGA1UECAwKU29tZS1TdGF0ZTEhMB8GA1UE\nCgwYSW50ZXJuZXQgV2lkZ2l0cyBQdHkgTHRkMIICIjANBgkqhkiG9w0BAQEFAAOC\nAg8AMIICCgKCAgEAv5h6i7Fn1DMUM+3AnPPZUNMe1ss3KL/AmUmptwlAPErVoH1k\naiqTUsSNjXctj+nk95I+e2nugw/HlaVT1eRgEtvjssheXKboFn+zW/i31Nq9USgQ\nZA325VtchYlgJLXMPaH/ukBUr0UI4LnjC/dNdAQzKwWPNF2Jlv5wKX8OBVOQO9Df\nExVmcEkKDoh0nZk5eOA8vzJGhfr8TvQx9FQFsP4OXTwQgcdZV26mLm0bMkqEt3o5\n8OSpisqNGY1XnMHjOWNqSbErkpbIKEFAQSnWmzEvJdHsQX+7eTF7CisHJREseT4s\nUSuIFBZKXbS3qq6EL/EYviu0EGnY/rkJJcIRb8hycqHRgoITT2bWT7PSMUyXoX3G\nVKfp/xKFhkYzoRDSb5S0lh8sugmoRkioAkw6G56CP2hablPZRUMmUKceFfOG/k4L\nei8qJtbfQJ9BlCNRPpjqY3sGSdeXI4zefyQ8xxcus9Sl5wXZV86lz2lO/fz3Cvpd\n0eKvfv5uXyvF3O36lrlEERmSukaZYaEJECjxOUeafc7E1DVyIaMpc2SOum1crwMG\nRKhnU1JShDON0yClnKOlACfjFIpdpEMpE4lLps1x+PXV+x21zGBMUvXYa4xpbyWR\nK1gfMWmuvGOivl9y0mPSIeyJ9R/7bSRAbcYJR4N99TrtWxZU1yQi7HSRV5cCAwEA\nATANBgkqhkiG9w0BAQsFAAOCAgEAg006zJ4ZKwT8moOOl3PdThFUcf8rrIlec9Iy\nqPcWSqt5UTeYLIe58oGhhQmcaIRUOQaib5JqH2ukzqpo+gsJ3zZb3eIn4FB7cKef\nLqaiemOveEe1/qSwAGqMZyZELssiOflhnJdzuYSRWO8DO6Q6JMqQthDcw20budjO\nzP4nhXQqT+s8ljzqSJW77hDbrNAezTz/0SJFDtaMBs5UweX//7/4sXtJ8kBIBSxd\n7y4w8tuuxUaXOtYMjNrJAYLwFVeeO8CFURpbEuv7ABT0k8U4E8C6j4U4Jysx4XVP\nZj36rIAtvctchh0yAhHz8whXe1tvaFw9wzRDATnThFAuJG4Z07K2/rlDP9kO9wmn\ng8hHxKeqQMJDp29e0sGkz8oDi6Mz24k9CqFJJ0CUz1ntz7rrDkA3QwQbFRzk938y\n3rSfePO5qXlUQ9mm05hYr1EKKceTLEowc4XOouNLlUWGiRshRR1szMw5C29prFJ2\nyYuV9tBaFYkq7dnh8JnmrreEvAnsKyyECxMmtV/W701OSUYBcThwgAo+hkEeOJ+/\nwrOS7yoJqDF1y+5LLQJmUlrLCPXem3ZTa4UMe1p2g7ge7Dg6Zud9NDBcMigdHByt\nJP/i9PcJSEWrccWJ1ajToUCZ0wqfJ3Z4KqoEd0fadQhb32AuDUbu7E12EUFNPGIH\n8rQKbDU=\n-----END CERTIFICATE-----"
       ```
       {: codeblock}
 
-   3. If `singingkey` is a Base64 encoded signing key or certificate:
+   3. If `signingkey` is a Base64 encoded signing key or certificate:
 
       ```yaml
         env: |
@@ -932,7 +979,7 @@ Complete the following steps on an Ubuntu system to create the contract signatur
               port: 443
           volumes:
             test:
-            seed: "hogwarts"
+            seed: "seed_value_with_minimum_15_characters"
           signingKey: LS0tLS1CRUdJTiBDRVJUSUZJQ0FURS0tLS0tXG5NSUlGRVRDQ0F2a0NGQkFNeHlPNkNsN0JOS0JHeHRsQXpIcEkyb2lOTUEwR0NTcUdTSWIzRFFFQkN3VUFNRVV4XG5DekFKQmdOVkJBWVRBa0ZWTVJNd0VRWURWUVFJREFwVGIyMWxMVk4wWVhSbE1TRXdId1lEVlFRS0RCaEpiblJsXG5jbTVsZENCWGFXUm5hWFJ6SUZCMGVTQk1kR1F3SGhjTk1qUXdNVE13TURNMU9ETXpXaGNOTWpRd05UQTVNRE0xXG5PRE16V2pCRk1Rc3dDUVlEVlFRR0V3SkJWVEVUTUJFR0ExVUVDQXdLVTI5dFpTMVRkR0YwWlRFaE1COEdBMVVFXG5DZ3dZU1c1MFpYSnVaWFFnVjJsa1oybDBjeUJRZEhrZ1RIUmtNSUlDSWpBTkJna3Foa2lHOXcwQkFRRUZBQU9DXG5BZzhBTUlJQ0NnS0NBZ0VBdjVoNmk3Rm4xRE1VTSszQW5QUFpVTk1lMXNzM0tML0FtVW1wdHdsQVBFclZvSDFrXG5haXFUVXNTTmpYY3RqK25rOTVJK2UybnVndy9IbGFWVDFlUmdFdHZqc3NoZVhLYm9Gbit6Vy9pMzFOcTlVU2dRXG5aQTMyNVZ0Y2hZbGdKTFhNUGFIL3VrQlVyMFVJNExuakMvZE5kQVF6S3dXUE5GMkpsdjV3S1g4T0JWT1FPOURmXG5FeFZtY0VrS0RvaDBuWms1ZU9BOHZ6SkdoZnI4VHZReDlGUUZzUDRPWFR3UWdjZFpWMjZtTG0wYk1rcUV0M281XG44T1NwaXNxTkdZMVhuTUhqT1dOcVNiRXJrcGJJS0VGQVFTbldtekV2SmRIc1FYKzdlVEY3Q2lzSEpSRXNlVDRzXG5VU3VJRkJaS1hiUzNxcTZFTC9FWXZpdTBFR25ZL3JrSkpjSVJiOGh5Y3FIUmdvSVRUMmJXVDdQU01VeVhvWDNHXG5WS2ZwL3hLRmhrWXpvUkRTYjVTMGxoOHN1Z21vUmtpb0FrdzZHNTZDUDJoYWJsUFpSVU1tVUtjZUZmT0cvazRMXG5laThxSnRiZlFKOUJsQ05SUHBqcVkzc0dTZGVYSTR6ZWZ5UTh4eGN1czlTbDV3WFpWODZsejJsTy9mejNDdnBkXG4wZUt2ZnY1dVh5dkYzTzM2bHJsRUVSbVN1a2FaWWFFSkVDanhPVWVhZmM3RTFEVnlJYU1wYzJTT3VtMWNyd01HXG5SS2huVTFKU2hET04weUNsbktPbEFDZmpGSXBkcEVNcEU0bExwczF4K1BYVit4MjF6R0JNVXZYWWE0eHBieVdSXG5LMWdmTVdtdXZHT2l2bDl5MG1QU0lleUo5Ui83YlNSQWJjWUpSNE45OVRydFd4WlUxeVFpN0hTUlY1Y0NBd0VBXG5BVEFOQmdrcWhraUc5dzBCQVFzRkFBT0NBZ0VBZzAwNnpKNFpLd1Q4bW9PT2wzUGRUaEZVY2Y4cnJJbGVjOUl5XG5xUGNXU3F0NVVUZVlMSWU1OG9HaGhRbWNhSVJVT1FhaWI1SnFIMnVrenFwbytnc0ozelpiM2VJbjRGQjdjS2VmXG5McWFpZW1PdmVFZTEvcVN3QUdxTVp5WkVMc3NpT2ZsaG5KZHp1WVNSV084RE82UTZKTXFRdGhEY3cyMGJ1ZGpPXG56UDRuaFhRcVQrczhsanpxU0pXNzdoRGJyTkFlelR6LzBTSkZEdGFNQnM1VXdlWC8vNy80c1h0SjhrQklCU3hkXG43eTR3OHR1dXhVYVhPdFlNak5ySkFZTHdGVmVlTzhDRlVScGJFdXY3QUJUMGs4VTRFOEM2ajRVNEp5c3g0WFZQXG5aajM2cklBdHZjdGNoaDB5QWhIejh3aFhlMXR2YUZ3OXd6UkRBVG5UaEZBdUpHNFowN0syL3JsRFA5a085d21uXG5nOGhIeEtlcVFNSkRwMjllMHNHa3o4b0RpNk16MjRrOUNxRkpKMENVejFudHo3cnJEa0EzUXdRYkZSems5Mzh5XG4zclNmZVBPNXFYbFVROW1tMDVoWXIxRUtLY2VUTEVvd2M0WE9vdU5MbFVXR2lSc2hSUjFzek13NUMyOXByRkoyXG55WXVWOXRCYUZZa3E3ZG5oOEpubXJyZUV2QW5zS3l5RUN4TW10Vi9XNzAxT1NVWUJjVGh3Z0FvK2hrRWVPSisvXG53ck9TN3lvSnFERjF5KzVMTFFKbVVsckxDUFhlbTNaVGE0VU1lMXAyZzdnZTdEZzZadWQ5TkRCY01pZ2RIQnl0XG5KUC9pOVBjSlNFV3JjY1dKMWFqVG9VQ1owd3FmSjNaNEtxb0VkMGZhZFFoYjMyQXVEVWJ1N0UxMkVVRk5QR0lIXG44clFLYkRVPVxuLS0tLS1FTkQgQ0VSVElGSUNBVEUtLS0tLVxu
       ```
       {: codeblock}
@@ -949,16 +996,16 @@ Complete the following steps on an Ubuntu system to create the contract signatur
           port: 443
       volumes:
         test:
-        seed: "hogwarts"
+        seed: "seed_value_with_minimum_15_characters"
       signingKey: "-----BEGIN PUBLIC KEY-----\nMIICIjANBgkqhkiG9w0BAQEFAAOCAg8AMIICCgKCAgEAvLaeSA8Nc3p99HNUMwon\n5lMMALAsIxRRpWUaEZ5IcUky2sgCi/rSmxU2sm6FK/BmCftk33f5W2BsYHdY9R/0\nELZ9A4POQcJsPF3ronU2QHwnRjcqYuUFXmf1VqfPPLpELriFNoCb2FN2zCa+VUmu\n+fGhroZ3Fr9kBPwJhGr917E5jeCQ+MzsGkulcTvr0SfvThiZQQ/KlU0R35ThamF3\n8C0F5IQBpqDUwDFmWvD5lF2SmprpluDBFEj8LLfLxvW9M2Qwku6nGUnnFReg3vNH\n7IF0SRr1K1AdO5hEmevCdyG9hgTdUY6dXcjntiN/kbqXErILknvzDnb4jyPZZRdK\ndrOzVt8hjbdmkS396SrMFtA++QrV3GNZl5zCscpn6d8S7BEA8mDzroo2UAbrypVP\n9l9AmzUnmnPCpZQySUUHoY0xG2vgMSA50CWH7Uwjmpixr02Td4/LU8fE7NWCO6ci\nx4++ANSaxu+uuZ2Pe1OjjgV98r06ZUs38eaxptLZqLpn3N6w8WAJxGwSLapZwNtP\ng2spUXu2Eh/TN5t4/ly5iXOsyIy8IPtTrUPX7rpaaqFZ72P6BJLj3WLEvOG/eF/8\nBTjrsZAjb8YjkO1uGk10IPa63sniZWe5vlm9w9UKy2uGuy6RhWxwoVHRRbfhboQF\nsO20dsVwgTZn8c46HMD2PoMCAwEAAQ==\n-----END PUBLIC KEY----"
    ```
    {: codeblock}
 
-7. Use the following command to export complete path of `env.yaml` and `ibm-hyper-protect-container-runtime-1-0-s390x-23-encrypt.crt`:
+7. Use the following command to export complete path of `env.yaml` and `ibm-hyper-protect-container-runtime-1-0-s390x-24-encrypt.crt`:
 
    ```sh
    ENV="<PATH to env.yaml>"
-   CONTRACT_KEY="<PATH to ibm-hyper-protect-container-runtime-1-0-s390x-23-encrypt.crt>"
+   CONTRACT_KEY="<PATH to ibm-hyper-protect-container-runtime-1-0-s390x-24-encrypt.crt>"
    ```
    {: pre}
 
@@ -969,7 +1016,7 @@ Complete the following steps on an Ubuntu system to create the contract signatur
    ```
    {: pre}
 
-9. Use the following command to encrypt password with `ibm-hyper-protect-container-runtime-1-0-s390x-23-encrypt.crt`:
+9. Use the following command to encrypt password with `ibm-hyper-protect-container-runtime-1-0-s390x-24-encrypt.crt`:
 
    ```yaml
    ENCRYPTED_PASSWORD="$(echo -n "$PASSWORD" | base64 -d | openssl rsautl -encrypt -inkey $CONTRACT_KEY  -certin | base64 -w0)"
@@ -990,7 +1037,7 @@ Complete the following steps on an Ubuntu system to create the contract signatur
     ```
     {: pre}
 
-Steps 4 - 8 are used to encrypt the `env` section. If you choose to not encrypt this section, skip these steps.
+Steps 7 - 11 are used to encrypt the `env` section. If you choose to not encrypt this section, skip these steps.
 {: note}
 
 A notification about the expiry of the contract is sent to your logging service.

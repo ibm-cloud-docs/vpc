@@ -2,7 +2,7 @@
 
 copyright:
   years: 2023, 2025
-lastupdated: "2025-07-07"
+lastupdated: "2025-10-23"
 
 keywords: hyper protect container runtime, error messages, troubleshooting
 
@@ -454,12 +454,6 @@ The following list shows the error messages from Hyper Protect Container Runtime
    - Name: NO_LOG_CONFIG
    - Message: No log config, logging will be sent to local journald only.
    - Explanation: The contract file does not contain remote logging config.
-   - System Action: Startup continues but logging is not setup.
-   - User Action: Adjust the contract according to the schema.
-- **HPL01003E**:
-   - Name: INVALID_INGESTION_HOSTNAME
-   - Message: The ingestion hostname [{HOSTNAME}] is invalid.
-   - Explanation: The ingestion hostname needs to be of the form ^(syslog[^.]*)\.(.+)$.
    - System Action: Startup continues but logging is not setup.
    - User Action: Adjust the contract according to the schema.
 - **HPL01005E**:
