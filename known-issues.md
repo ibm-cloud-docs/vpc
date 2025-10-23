@@ -2,7 +2,7 @@
 
 copyright:
   years: 2018, 2025
-lastupdated: "2025-10-01"
+lastupdated: "2025-10-23"
 
 keywords:
 
@@ -214,11 +214,6 @@ Multi-volume snapshots are not supported for second-generation volumes. When you
 {: #gen1-bandwidth-property-dependent}
 
 When details of first-generation volume profiles are retrieved, the responses show the bandwidth type incorrectly as `dependent_range`. The correct value is `dependent` because the bandwidth value is automatically assigned by the system, and that value can't be changed manually or programmatically.
-
-### Block volume snapshots that are taken in Montreal are stored in {{site.data.keyword.cos_short}} in Washington, DC
-{: #snapshot-COS-upload-CA-MON-US-EAST}
-
-Due to the unavailability of a local key management service ({{site.data.keyword.keymanagementserviceshort}}) instance in Montreal, the first-generation block volume snapshots that are taken in Montreal are routed to and stored in an encrypted {{site.data.keyword.cos_short}} bucket with local KMS keys in the WDC MZR. When the KMS service becomes available in Montreal, all the snapshots will be moved back to Montreal from Washington DC.
 
 ### Private context-based restriction rules for Backups are not working in Montreal (`ca-mon`) MZR.
 {: #baas-CBR-issue-MON}

@@ -2,7 +2,7 @@
 
 copyright:
   years: 2022, 2025
-lastupdated: "2025-10-22"
+lastupdated: "2025-10-23"
 
 keywords: file storage, file share, view share details, mount targets, view targets, view share
 
@@ -40,7 +40,7 @@ You can view all file shares, their bindings and mount targets in the console, r
 | Mount targets | Number of mount targets that are associated with the file share. You can have one mount target per VPC per file share. |
 | Snapshots | This field shows the number of snapshots that were taken of the file share. This column is hidden by default. Click the ![Settings icon](../icons/settings.svg "Settings") to select which columns you want to see. |
 | Size | Size of the file share, in GBs. |
-| Cross-account role | The values in this column can be _None_, _Origin share_, or _Accessor share_. If the value is _None_, the share is not shared with another account or external service. If the value is _Origin share_, the share is shared with another account or external service and is bound to an accessor share in the other account. If the value is _Accessor share_, then this share is bound to an origin share with the purpose of accessing the origin share's data.|
+| Cross-account role | The values in this column can be `None`, `Origin share`, or `Accessor share`. If the value is `None`, the share is not shared with another account or external service. If the value is `Origin share`, the share is shared with another account or external service and is bound to an accessor share in the other account. If the value is `Accessor share`, then this share is bound to an origin share with the purpose of accessing the origin share's data.|
 | Replication role | Relationship between the source and the replica file share. "Replica of" indicates that the file share a replica of the source share, which is linked. "Source of" indicates that the share the source of the replica, which is linked. "None" indicates that the file share does not replicate with another share. |
 | Replication status | This column is hidden by default. Click the ![Settings icon](../icons/settings.svg "Settings") to select which columns you want to see.  |
 | Encryption type | It shows the encryption type of the file share, either provider-managed or customer-managed. [Customer-managed encryption](/docs/vpc?topic=vpc-file-storage-byok-encryption) uses your own root keys to protect your data. The UI also identifies the key management service (KMS), either {{site.data.keyword.keymanagementserviceshort}} or {{site.data.keyword.hscrypto}}. |
@@ -72,7 +72,7 @@ You can access the Actions menu by clicking ![Actions icon](../icons/action-menu
      | Encryption | Specifies provider-managed or [customer-managed encryption](/docs/vpc?topic=vpc-file-storage-byok-encryption). When the file share is encrypted with customer-managed keys, the encryption instance, encryption key name, and encryption key CRN are also shown. |
      | Mount target access mode   | Access to the file share is granted by either a security group within a subnet or to any virtual server instance in the VPC. Click the **Edit icon** ![Edit icon](../icons/edit-tagging.svg "Edit") to switch access modes. Security group access is available only to file shares created with the [`dp2` profile](/docs/vpc?topic=vpc-file-storage-profiles&interface=ui#dp2-profile). For more information, see the [Mount target access modes](/docs/vpc?topic=vpc-file-storage-vpc-about&interface=api#fs-mount-access-mode). |
      | CRN | The copiable Cloud Resource Name of the file share.|
-     | Allowed encryption in transit mode | This value shows whether encryption in transit is required when clients access the file share. Click the **Edit icon** ![Edit icon](../icons/edit-tagging.svg "Edit") to change the allowed values. The possible values are User managed, and None. This field is not applicable for file shares with VPC access mode. \n [Select availability]{: tag-green} Customers with special access to preview the new regional file share offering can choose from IPsec, Stunnel, and None.|
+     | Allowed encryption in transit mode | This value shows whether encryption in transit is required when clients access the file share. Click the **Edit icon** ![Edit icon](../icons/edit-tagging.svg "Edit") to change the allowed values. The possible values are `User managed`, and `None`. This field is not applicable for file shares with VPC access mode. \n [Select availability]{: tag-green} Customers with special access to preview the new regional file share offering can choose from IPsec, Stunnel, and None.|
      | Cross-account role | The possible values are None, Origin, Accessor. This field is not applicable for file shares with VPC access mode.|
      | Snapshot count  | This value indicates the number of snapshots that were taken of the file share. This field is not applicable for file shares with VPC access mode. |
      | Size of changed data in all the snapshots  | It represents the billable volume of data across all the snapshots. This field is not applicable for file shares with VPC access mode. |
@@ -116,7 +116,7 @@ You can access the Actions menu by clicking ![Actions icon](../icons/action-menu
 
      Monitoring these utilization metrics can help you to determine how much work is done by your application or workload. You can use this information to determine whether the IOPS value needs to be adjusted. Monitoring the available capacity of your share can help you identify the need for more storage before insufficient space can become a problem with writing data to the share or replication. Seeing these metrics can help you anticipate any changes in charges at the end of the billing period.
      
-     These metrics are not updated in real time. Data for new file shares can take up to an hour or an hour and 15 minutes to appear in the console. Changes in usage can take from 15 to 30 minutes to be reflected in the graphs.
+     These metrics are not updated in real time. Data for new file shares can take up to an hour or an hour and 15 minutes to appear in the graphs in the console. Changes in usage can take from 15 to 30 minutes to be reflected in the graphs.
      {: note}
     
      If you have an instance of the {{site.data.keyword.mon_full_notm}} service, click **Launch monitoring** to open the Sysdig web UI to work with the metrics dashboards there. For more information about how to set up the {{site.data.keyword.mon_full_notm}} instance, see [Monitoring metrics for File Storage for VPC](/docs/vpc?topic=vpc-fs-vpc-monitoring-sysdig).
