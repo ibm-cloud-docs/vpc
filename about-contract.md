@@ -243,6 +243,7 @@ In the `play` subsection, you can define the workload through [Pod descriptors](
          seed: "workload_phrase"
          filesystem: ext4
    ```
+   {: codeblock}
 
 - In a template format in the `templates` subsection of `play`. This section is an array of descriptors in the YAML format. [Pods](https://kubernetes.io/docs/concepts/workloads/pods/){: external} or [ConfigMaps](https://kubernetes.io/docs/concepts/configuration/configmap/){: external} can have points of variability (POV) that are not known at the time of writing the descriptors. These POVs can be represented as [templates](https://pkg.go.dev/text/template){: external} and the values are completed at deployment time from information in the contract. We use [go templates](https://pkg.go.dev/text/template){: external} as the templating syntax, which is the same as used for [helm charts](https://helm.sh/docs/chart_template_guide/getting_started/){: external}, so templates can easily be exchanged with k8s. We support the following `Built-In` objects:
    - *Environment:* this object contains the environment variables as merged between the workload and the environment section. The object is available as `{{ .Env }}`.
@@ -508,10 +509,10 @@ Following are the rules for creating seeds. Starting from **March 2026**, you mu
 
 - No spaces allowed.
 - Must have at least `15` characters. Following are the allowed characters:
-  - Lowercase letters `(a-z)`
-  - Uppercase letters `(A-Z)`
-  - Numbers `(0-9)`
-  - Special characters `!@#$%^&*(),.?":{}|<>_-`
+   - Lowercase letters `(a-z)`
+   - Uppercase letters `(A-Z)`
+   - Numbers `(0-9)`
+   - Special characters `!@#$%^&*(),.?":{}|<>_-`
 
 You can use the following command to validate the hexdigest:
 
