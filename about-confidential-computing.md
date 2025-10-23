@@ -2,7 +2,7 @@
 
 copyright:
   years: 2022, 2025
-lastupdated: "2025-10-16"
+lastupdated: "2025-10-23"
 
 keywords: confidential computing, enclave, secure execution, hpcr, hyper protect virtual server for vpc
 
@@ -99,7 +99,7 @@ It's important to read the following information and complete the required prepa
 
 - Data volume
 
-   The instance supports multiple data volumes that is [encrypted by default with the seed or passphrase that you provide](/docs/vpc?topic=vpc-about-contract_se#hpcr_contract_volumes), which helps ensure that your workload data is protected. It is recommended that you attach all the required data volumes to the instance during the instance creation so that data from the container is stored in the data volumes. It is also recommended that you take a snapshot of the data volumes so that you can revert to it in case you face any issues in future.
+   The instance supports multiple data volumes that are [encrypted by default with the seed or passphrase that you provide](/docs/vpc?topic=vpc-about-contract_se#hpcr_contract_volumes), which helps ensure that your workload data is protected. It is recommended that you attach all the required data volumes to the instance during the instance creation so that data from the container is stored in the data volumes. It is also recommended that you take a snapshot of the data volumes so that you can revert to it in case you face any issues in future.
 
    Starting from the HPCR image version `ibm-hyper-protect-container-runtime-1-0-s390x-9`, for new {{site.data.keyword.hpvs}} for VPC instances, the data volume is partitioned into two parts. The first partition (100Mib) is reserved for internal metadata; the second partition remains as the data volume for workload. Only new volumes are partitioned, and you can't use the partitioned volume with an older version of the HPCR image. Provisioning with an existing encrypted volume also works. The difference is that the existing volume does not get partitioned, and you can also go back to an older image with this volume.
 
