@@ -27,6 +27,11 @@ For more information about changes to the {{site.data.keyword.vpc_short}} comman
 ## October 2025
 {: #vpc-oct25}
 
+
+### 23 October 2025
+{: #vpc-oct2325}
+{: release-note}
+
 IBM z17 support
 :   IBM z17 support is now available with HPVS revision 24. For more information, see [Confidential computing with LinuxONE](/docs/vpc?topic=vpc-about-se).
 
