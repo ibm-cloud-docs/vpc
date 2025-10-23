@@ -15,7 +15,7 @@ subcollection: vpc
 # Confidential computing with LinuxONE
 {: #about-se}
 
-Confidential computing is enabled on LinuxONE (s390x processor architecture) by using the [IBM Secure Execution for Linux](https://www.ibm.com/docs/en/linux-on-systems?topic=management-secure-execution){: external} technology. This technology is part of the hardware of IBM z15, z16 (z15, z16), and IBM LinuxONE III generation systems. With IBM Secure Execution for Linux, you can securely deploy workloads in the cloud. It helps ensure the integrity and confidentiality of boot images, and server authenticity. Applications are isolated from the operating system, thus providing more privacy and security for the workload.
+Confidential computing is enabled on LinuxONE (s390x processor architecture) by using the [IBM Secure Execution for Linux](https://www.ibm.com/docs/en/linux-on-systems?topic=management-secure-execution){: external} technology. This technology is part of the hardware of IBMz17, IBM z16, IBM z15, IBM LinuxONE Emperor 4,IBM LinuxONE Emperor 5, and IBM LinuxONE III systems. With IBM Secure Execution for Linux, you can securely deploy workloads in the cloud. It helps ensure the integrity and confidentiality of boot images, and server authenticity. Applications are isolated from the operating system, thus providing more privacy and security for the workload.
 {: shortdesc}
 
 By using IBM Secure Execution for Linux, you can create encrypted Linux images that can run on a public, private, or hybrid cloud with their in-use memory protected. The workload or data is protected from external and insider threats.
@@ -43,7 +43,7 @@ The {{site.data.keyword.hpvs}} for VPC takes advantage of the IBM Secure Executi
 
 - Multiparty contract and attestation of deployment
 
-   Apply zero trust principles from workload development through deployment. As multiple personas and legal entities collaborate, it’s essential to separate duty and access. {{site.data.keyword.hpvs}} for VPC is based on a newly introduced [encrypted contract](/docs/vpc?topic=vpc-about-contract_se) concept. It enables each persona to provide its contribution and be ensured through encryption that none of the other personas can access this data or intellectual property. The deployment can be validated by an auditor persona through an [attestation record](/docs/vpc?topic=vpc-about-attestation), which is signed and encrypted to ensure that only the auditor has this level of insight.
+   Apply zero trust principles from workload development through deployment. As multiple personas and legal entities collaborate, it’s essential to separate duty and access. {{site.data.keyword.hpvs}} for VPC is based on a newly introduced [encrypted contract](/docs/vpc?topic=vpc-about-contract_se#hpcr_contract_encrypt) concept. It enables each persona to provide its contribution and be ensured through encryption that none of the other personas can access this data or intellectual property. The deployment can be validated by an auditor persona through an [attestation record](/docs/vpc?topic=vpc-about-attestation), which is signed and encrypted to ensure that only the auditor has this level of insight.
 
 - Malware protections
 

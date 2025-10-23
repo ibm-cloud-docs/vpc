@@ -27,6 +27,21 @@ For more information about changes to the {{site.data.keyword.vpc_short}} comman
 ## October 2025
 {: #vpc-oct25}
 
+IBM z17 support
+:   IBM z17 support is now available with HPVS revision 24. For more information, see [Confidential computing with LinuxONE](/docs/vpc?topic=vpc-about-se).
+
+`initcontainer` in contract
+:   The contract now supports `initcontainer` under the `play` section with SHA256 based reference format. For more information, see [The `play` subsection](/docs/vpc?topic=vpc-about-contract_se#hpcr_contract_play).
+
+Certificate chain support for Syslog
+:   Certificate chain support for Syslog is now available. For more information, see [Certificate chain support for Syslog](/docs/vpc?topic=vpc-logging-for-hyper-protect-virtual-servers-for-vpc#syslog-chainsupport).
+
+Workload update for Hyper Protect Secure Build
+:   The `workload` section of the Hyper Protect Secure Build is updated based on the IBM Hyper Protect Container Runtime image `ibm-hyper-protect-container-runtime-1-0-s390x-24`. For more information, see [Configuring and using Hyper Protect Secure Build in {{site.data.keyword.hpvs}} for VPC](/docs/vpc?topic=vpc-about-hpsb#hpvs_hpsb). Clone the latest Secure-Build-Cli to create a Hyper Protect Secure Build server.
+
+Updated seed policies
+:   The `env` and `workload` seed policies are updated. For more information, see [The workload - volumes subsection](/docs/vpc?topic=vpc-about-contract_se#hpcr_contract_volumes).
+
 ### 01 October 2025
 {: #vpc-oct0125}
 {: release-note}

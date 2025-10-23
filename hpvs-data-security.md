@@ -76,7 +76,7 @@ Whether you can enable the feature depends on the history of the Hyper Protect V
 |2|Has an encrypted seed|No `kms` details| |The instance shuts down. You need to provide `kms` details in the contract.|
 {: caption="Scenarios" caption-side="top"}
 
-Check logs in Log Analysis if your instance shuts down.
+Check logs in IBM Cloud Logs if your instance shuts down.
 {: note}
 
 #### Steps
@@ -104,7 +104,7 @@ Check logs in Log Analysis if your instance shuts down.
             - apiKey: "xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx"
               crn: "crn:v1:bluemix:public:hs-crypto:us-south:a/xxxxxxxxxxxxx:xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxx:key:xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxx"
               type: "private"
-          seed:"seed1"
+          seed:"workload_phrase1"
           kmsTimeout: 10
           apiKey: "L4SsSE32xxxxxjAgfHCVkdW8xl_CiqMn4Lpc1dzTD"
       signingKey: "xxxxxxxxx"
@@ -113,7 +113,7 @@ Check logs in Log Analysis if your instance shuts down.
       volumes:
         test:
           mount: "/mnt/data"
-          seed: "seed2"
+          seed: "workload_phrase2"
           filesystem: "ext4"
     ```
     {: codeblock}

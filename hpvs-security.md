@@ -2,7 +2,7 @@
 
 copyright:
   years: 2023, 2025
-lastupdated: "2025-10-16"
+lastupdated: "2025-10-23"
 
 keywords: confidential computing, enclave, secure execution, hpcr, contract, security requirement, additional security, env, workload, encryption
 
@@ -26,6 +26,7 @@ You must observe the following security best practices that help in maintaining 
 * Ensure only trusted or known users are allowed access to the environment and virtual servers.
 * Employ the principle of least privilege where it is essential for minimizing security risks in your Docker environment. Avoid running containers as non-root users, or as privileged containers.
 * The AppArmor Linux kernel security module is enabled on virtual server instance. For more information, see [Using AppArmor](https://documentation.ubuntu.com/server/apparmor/){: external}.
+* If an image is deprecated, it is recommended to upgrade to the latest available version. Once the image is obsolete, the vsi creation or start will fail with error as image is no longer valid.
 * You must observe the following best practices for the contract:
    - It is recommended that all sections of contract are encrypted. For more information, see [Contract encryption](/docs/vpc?topic=vpc-about-contract_se#hpcr_contract_encrypt).
    - To ensure the integrity of the contract, it is recommended that you sign the contract. For more information, see [Contract signature](/docs/vpc?topic=vpc-about-contract_se#hpcr_contract_sign).
