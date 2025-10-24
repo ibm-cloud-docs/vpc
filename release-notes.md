@@ -2,7 +2,7 @@
 
 copyright:
   years: 2019, 2025
-lastupdated: "2025-10-23"
+lastupdated: "2025-10-24"
 
 keywords:
 
@@ -32,8 +32,11 @@ For more information about changes to the {{site.data.keyword.vpc_short}} comman
 {: #vpc-oct2325}
 {: release-note}
 
-IBM z17 support
-:   IBM z17 support is now available with HPVS revision 24. For more information, see [Confidential computing with LinuxONE](/docs/vpc?topic=vpc-about-se).
+IBM Hyper Protect Container Runtime image `ibm-hyper-protect-container-runtime-1-0-s390x-24` updates
+:   For the IBM Hyper Protect Container Runtime image version `ibm-hyper-protect-container-runtime-1-0-s390x-24`, new certificates are available.
+   - [Attestation certificate](/docs/vpc?topic=vpc-about-attestation)
+   - [Encryption certificate](/docs/vpc?topic=vpc-about-contract_se#hpcr_contract_encrypt)
+   - [Intermediate certificate](/docs/vpc?topic=vpc-cert_validate#download_cert)
 
 `initcontainer` in contract
 :   The contract now supports `initcontainer` under the `play` section with SHA256 based reference format. For more information, see [The `play` subsection](/docs/vpc?topic=vpc-about-contract_se#hpcr_contract_play).

@@ -2,7 +2,7 @@
 
 copyright:
   years: 2022, 2025
-lastupdated: "2025-10-23"
+lastupdated: "2025-10-24"
 
 keywords: confidential computing, enclave, secure execution, hpcr, contract, customization, schema, contract schema, env, workload, encryption
 
@@ -735,16 +735,12 @@ The encryption and attestation certificates are signed by the IBM intermediate c
    | `ibm-hyper-protect-container-runtime-1-0-s390x-23` | [Certificate](https://hpvsvpcubuntu.s3.us.cloud-object-storage.appdomain.cloud/s390x-23/ibm-hyper-protect-container-runtime-1-0-s390x-23-encrypt.crt){: external} | 26 February 2026 | 15 December 2025 |
    | `ibm-hyper-protect-container-runtime-1-0-s390x-22` | [Certificate](https://hpvsvpcubuntu.s3.us.cloud-object-storage.appdomain.cloud/s390x-22/ibm-hyper-protect-container-runtime-1-0-s390x-22-encrypt.crt){: external} | 26 February 2026 | 15 December 2025   |
    | `ibm-hyper-protect-container-runtime-1-0-s390x-21` | [Certificate](https://hpvsvpcubuntu.s3.us.cloud-object-storage.appdomain.cloud/s390x-21/ibm-hyper-protect-container-runtime-1-0-s390x-21-encrypt.crt){: external} | 26 February 2026 |  10 October 2025  | 
-   | `ibm-hyper-protect-container-runtime-1-0-s390x-20` | [Certificate](https://hpvsvpcubuntu.s3.us.cloud-object-storage.appdomain.cloud/s390x-20/ibm-hyper-protect-container-runtime-1-0-s390x-20-encrypt.crt){: external} | 02 September 2025 |   | 
-   | `ibm-hyper-protect-container-runtime-1-0-s390x-19` | [Certificate](https://hpvsvpcubuntu.s3.us.cloud-object-storage.appdomain.cloud/s390x-19/ibm-hyper-protect-container-runtime-1-0-s390x-19-encrypt.crt){: external} | 02 September 2025 |   |
    {: caption="Encryption certificate expiry dates and image deprecation/ obsolete dates" caption-side="bottom"}
 
    **Note:**
    * **Deprecated**: You can use the image to create an instance from the IBM Cloud CLI. Using the deprecated status can discourage the use of the image before its status is changed to obsolete. The image catalog always maintains the two most recent image versions: n and n-1. When a new version (n+1) becomes available, the system deprecates the oldest version (n-1).
    * **Obsolete**: After the certificate associated with the image is expired, the image will no longer be available to provision new instance.
    * Always download the encryption certs corresponding to the image and encrypt the contracts.
-
-   For information about security responsibilities, see [Additional security responsibilities for {{site.data.keyword.cloud_notm}} {{site.data.keyword.hpvs}} for VPC](/docs/vpc?topic=vpc-hpvs-security-req&interface=ui).
 
    To check the image deprecation or obsolete status, you can also use the IBM Cloud image list command.
 
