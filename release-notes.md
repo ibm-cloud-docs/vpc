@@ -27,7 +27,6 @@ For more information about changes to the {{site.data.keyword.vpc_short}} comman
 ## October 2025
 {: #vpc-oct25}
 
-
 ### 23 October 2025
 {: #vpc-oct2325}
 {: release-note}
@@ -82,7 +81,7 @@ Public address ranges (GA)
 :   You can now create and manage public address ranges. A public address range is a contiguous block of public IP addresses that can be bound to a specific zone in a VPC. Ranges can be bound at creation or updated later to associate with a different zone or VPC. To enable inbound traffic from the internet, you must configure VPC routes to direct traffic to resources in the bound zone. For more information, see [About public address ranges](/docs/vpc?topic=vpc-about-par).
 
 New targets for Private Path network load balancer pools
-:   You can now add reserved IPs as members of a back-end pool attached to a Private Path Network Load Balancer. A reserved IP member can be bound to a bare metal server, primary or secondary interface of a virtual server instance, or a virtual network interface. You still have the options to add an application load balancer or virtual server instances as members of a back-end pool. For more information, see [Creating a Private Path network load balancer](/docs/vpc?topic=vpc-ppnlb-ui-creating-private-path-network-load-balancer&interface=ui).
+:   You can now add reserved IP addresses as members of a back-end pool attached to a Private Path Network Load Balancer. A reserved IP member can be bound to a bare metal server, primary or secondary interface of a virtual server instance, or a virtual network interface. You still have the options to add an application load balancer or virtual server instances as members of a back-end pool. For more information, see [Creating a Private Path network load balancer](/docs/vpc?topic=vpc-ppnlb-ui-creating-private-path-network-load-balancer&interface=ui).
 
 ### 23 September 2025
 {: #vpc-sep2325}

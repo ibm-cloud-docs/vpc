@@ -2,7 +2,7 @@
 
 copyright:
   years: 2022, 2025
-lastupdated: "2025-10-16"
+lastupdated: "2025-10-24"
 
 keywords: file share, file storage, replication, replica, 
 

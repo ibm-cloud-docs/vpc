@@ -2,7 +2,7 @@
 
 copyright:
   years: 2023, 2025
-lastupdated: "2025-10-22"
+lastupdated: "2025-10-24"
 
 keywords: file share, file storage, encryption in transit, Mount Helper, IPsec, secure connection, mount share
 
@@ -110,7 +110,7 @@ The Mount Helper utility installs stunnel on the compute host that's running a L
    ```
    {: pre}
 
-    The `region` argument is used to copy region-specific root CA cert. If no region is specified, then the utility copies all the root CA certs. The following table shows the values that you can use to specify the region.
+   The `region` argument is used to copy region-specific root CA cert. If no region is specified, then the utility copies all the root CA certs. The following table shows the values that you can use to specify the region.
 
    | Location            | New value | Previous Value |
    |---------------------|-------------|-------|
