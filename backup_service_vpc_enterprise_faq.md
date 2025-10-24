@@ -2,7 +2,7 @@
 
 copyright:
   years: 2022, 2025
-lastupdated: "2025-04-30"
+lastupdated: "2025-10-24"
 
 keywords: Backup for VPC, backup service, backup plan, backup policy, restore, restore volume, restore data, faqs
 
@@ -59,7 +59,7 @@ curl -X GET "$vpc_api_endpoint/v1/volumes?version=2023-08-04&generation=2&user_t
 
 For more information, see [Viewing all Block Storage for VPC volumes with the API](/docs/vpc?topic=vpc-viewing-block-storage&interface=api#viewall-vol-api).
 
-From the CLI, you can run the `ibmcloud is backup-policies` command with the `--tag` option to list all the volumes that have the user tag that associates the volumes to the backup policy. See the following example.
+From the CLI, you can run the `ibmcloud is backup-policies`command with the `--tag` option to list all the volumes that have the user tag that associates the volumes to the backup policy. See the following example.
 
 ```sh
 ibmcloud is backup-policies --tag dev:test
