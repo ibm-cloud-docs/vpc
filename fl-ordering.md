@@ -2,7 +2,7 @@
 
 copyright:
   years: 2020, 2025
-lastupdated: "2025-10-14"
+lastupdated: "2025-10-24"
 
 keywords: flow logs, ordering, getting started
 
@@ -197,6 +197,8 @@ Where:
 :   Name of the resource group. This option is mutually exclusive with **--resource-group-id**.
 `--json`
 :   Formats the output in JSON.
+
+
 
 ## Creating a flow log collector with the API
 {: #fl-ordering-api}

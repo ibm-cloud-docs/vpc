@@ -2,7 +2,7 @@
 
 copyright:
   years: 2021, 2025
-lastupdated: "2025-10-17"
+lastupdated: "2025-10-24"
 
 keywords: file share, file storage, virtual network interface, encryption in transit, profiles, 
 
@@ -430,7 +430,7 @@ Storage Generation                 1
 ### Creating a regional file share with a mount target with security group access mode
 {: #fs-create-regional-share-target-sg-cli}
 
-The following example shows how you can create a regional file share with a mount target from the CLI. Note that while the command specifies a low bandwidth value, the system auto-corrects the configuration to provide at least 8 Mbps for every 20 GB of capacity.
+The following example shows how you can create a regional file share with a mount target from the CLI. Note that if the command specifies a low bandwidth value, the system auto-corrects the configuration to provide at least 8 Mbps for every 20 GB of capacity.
 
 ```sh
 ibmcloud is share-create --name my-regional-file-share --profile rfs --size 5000 --bandwidth 800 --allowed-access-protocols nfs4 --atem stunnel --mount-targets '[{"name":"my-new-mount-target","virtual_network_interface": {"name":"my-regional-vni","subnet": {"id":"0717-c66032c9-048d-4c35-aa83-c932e24afdbb"}}}]'

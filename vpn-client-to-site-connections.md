@@ -2,7 +2,7 @@
 
 copyright:
   years: 2021, 2025
-lastupdated: "2025-06-09"
+lastupdated: "2025-10-24"
 
 keywords:
 
@@ -56,6 +56,8 @@ Where:
 - **CLIENT_ID2**: is the ID of the VPN route.
 - **--force, -f**: is the force operation without confirmation.
 - **--quiet, -q**: suppresses verbose output.
+
+
 
 For example:
 

@@ -2,7 +2,7 @@
 
 copyright:
   years: 2020, 2025
-lastupdated: "2025-10-14"
+lastupdated: "2025-10-24"
 
 keywords: flow logs, delete
 
@@ -46,6 +46,7 @@ Where:
 :   ID of the flow log instance.
 `--force, -f`
 :   Forces the operation without confirmation.
+
 
 ## Deleting a flow log collector with the API
 {: #fl-deleting-api}

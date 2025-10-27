@@ -224,6 +224,7 @@ In the `play` subsection, you can define the workload through [Pod descriptors](
              restartPolicy: Never
     ```
     {: codeblock}
+    
 - In the `archive` subsection of `play`, the archive is a Base64 encoded, gzipped tar file. The Pods or ConfigMaps are represented as YAML files, at the top level in this tar file. The file might also contain extra files and all the files are extracted to the host file system before the Pods are started. The *current working directory* is the directory in which the files were extracted, so it's possible to use a volume mount with a relative path to mount the files or directories from the YAML file.
 
    Example:

@@ -2,7 +2,7 @@
 
 copyright:
   years: 2019, 2025
-lastupdated: "2025-10-14"
+lastupdated: "2025-10-24"
 
 keywords: flow logs, activate, deactivate, suspend, resume
 
@@ -41,6 +41,7 @@ Before you begin, [set up your CLI environment](/docs/vpc?topic=vpc-set-up-envir
 
 To suspend or resume a flow log collector by using the CLI, you must pass a **true** or **false** value to the **--active** flag on the **flow-log-update** command.
 
+
 ```sh
 ibmcloud is flow-log-update FLOW_LOG --active (true|false) [--json]
 ```
@@ -54,6 +55,8 @@ Where:
 :   The intended `active` status after the update. Set to `true` to resume or `false` to suspend.
 `--json`
 :   Formats the output in JSON.
+
+
 
 ## Suspending and resuming a flow log collector with the API
 {: #fl-managing-api}

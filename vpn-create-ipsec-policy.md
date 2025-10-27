@@ -2,7 +2,7 @@
 
 copyright:
   years: 2021, 2025
-lastupdated: "2025-08-22"
+lastupdated: "2025-10-24"
 
 keywords: vpn, ipsec policy
 
@@ -68,13 +68,14 @@ Where:
 - **--output value** - Specify output in JSON format.
 - **-q, --quiet** - Suppress verbose output.
 
+
+
 The `AUTHENTICATION_ALGORITHM` must be `disabled` if and only if `ENCRYPTION_ALGORITHM` is `aes128gcm16`, `aes192gcm16`, or `aes256gcm16`.
 {: note}
 
 ### Command examples
 {: #command-examples-vpn-create-ipsec-policy}
 
-- Create an IPsec policy by using SHA 256 authentication, AES 128 encryption, and PFS with DH Group 14:
 
    ```sh
    ibmcloud is ipsec-policy-create my-ipsec-policy sha256 aes128 group_14

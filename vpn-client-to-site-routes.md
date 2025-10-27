@@ -2,7 +2,7 @@
 
 copyright:
   years: 2021, 2025
-lastupdated: "2025-06-18"
+lastupdated: "2025-10-24"
 
 keywords:
 
@@ -90,6 +90,8 @@ Where:
 - **--output**:  Specifies the output format, only JSON is supported. One of: **JSON**.
 - **-q, --quiet**: Suppresses verbose output.
 
+
+
 For example:
 
 - `ibmcloud is vpn-server-route-create r006-77e21079-7291-44c2-866a-8f1848bc10f0 --name myroute --action deliver --destination 10.0.0.0/24`
@@ -140,6 +142,8 @@ Where:
 - **--output**: Specifies the output format, only JSON is supported. One of: **JSON**.
 - **-q, --quiet**: Suppresses verbose output.
 
+
+
 ## Viewing all routes by using the CLI
 {: #view-routes-cli}
 {: cli}
@@ -162,6 +166,8 @@ Where:
 - **--output**: Specifies the output format, only JSON is supported. One of: **JSON**.
 - **-q, --quiet**: Suppresses verbose output.
 
+
+
 ## Deleting a route by using the CLI
 {: #delete-route-cli-c2s}
 {: cli}
@@ -181,6 +187,8 @@ Where:
 - **--output**: Specifies the output format, only JSON is supported. One of: **JSON**.
 - **--force, -f**: Forces the operation without confirmation.
 - **-q, --quiet**: Suppresses verbose output.
+
+
 
 ## Creating a route by using the API
 {: #create-route-api-c2s}
