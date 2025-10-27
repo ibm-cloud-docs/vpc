@@ -2,7 +2,7 @@
 
 copyright:
   years: 2022, 2023
-lastupdated: "2025-09-30"
+lastupdated: "2025-10-27"
 
 keywords:
 
@@ -15,7 +15,7 @@ subcollection: vpc
 # Retrieving metadata from an instance
 {: #imd-access-instance-metadata}
 
-Most often, you want to collect metadata from a running instance and use it to bootstrap another virtual server instance. Other times, you might need to collect information about network attachments or volume attachments. Review the general procedure and step-by-step instructions for enabling the metadata service, creating an instance identity access token, and retrieving the metadata.
+Most often, you want to collect metadata from a running instance and use it to bootstrap another virtual server instance. Other times, you might need to collect information about network attachments or volume attachments. Review the general procedure and step-by-step instructions for enabling access to the metadata service, creating an identity access token, and retrieving the metadata.
 {: shortdesc}
 
 ## General procedure to access the instance's metadata
@@ -25,9 +25,9 @@ Table 1 describes the steps that are involved in accessing metadata. The informa
 
 | Step | Context | Service Called | User Action |
 |------|---------|----------------|-------------|
-| 1    | IBM Cloud | VPC UI, CLI, API | The metadata service is disabled by default. You can enable the metadata service on an existing instance in the console, from the CLI, or with the API. Customer user data is specified on instance creation. |
+| 1    | IBM Cloud | VPC UI, CLI, API | Access to the metadata service is disabled by default. You can enable access to the metadata service on an existing instance in the console, from the CLI, or with the API. |
 | 2    | IBM Cloud | - | Sign on to the instance by using normal startup operations. |
-| 3    | VPC instance | Metadata service | Run a `curl` command to call the metadata token service to [acquire an instance identity access token](/apidocs/vpc-metadata#create-access-token). |
+| 3    | VPC instance | Metadata service | Run a `curl` command to call the metadata token service to [acquire an identity access token](/apidocs/vpc-metadata#create-access-token). |
 | 4    | VPC instance | Metadata service | Run a `curl` command to call the metadata service to [retrieve instance information](/apidocs/vpc-metadata#get-instance). The token from the previous step is passed and the metadata is returned.|
 | 5    | VPC instance | - | Parse the JSON returned in the previous step to acquire the user data. |
 {: caption="General procedure for accessing metadata" caption-side="bottom"}
@@ -35,17 +35,17 @@ Table 1 describes the steps that are involved in accessing metadata. The informa
 ## End-to-end procedure for accessing metadata from an instance
 {: #imd-access-md-ex}
 
-### Locating the running instance and enabling the metadata service in the console
+### Locating the running instance and enabling access to the metadata service in the console
 {: #imd-access-md-locate-vsi-ui}
 {: ui}
 
 1. In the [{{site.data.keyword.cloud_notm}} console](/login){: external}, click the **Navigation menu** icon ![menu icon](../icons/icon_hamburger.svg) **> Infrastructure** ![VPC icon](../icons/vpc.svg) **> Compute > Virtual server instances**.
 
-1. Locate the running instance in the list. Click the name of the instance to display its details. On the Overview tab, scroll to the **Advanced configuration details**, and click the toggle to enable the metadata service.
+1. Locate the running instance in the list. Click the name of the instance to display its details. On the Overview tab, scroll to the **Advanced configuration details**, and click the toggle to allow access to the metadata service.
 
 1. If the instance has a floating IP address already (shown on the Networking tab), use that address to establish a secure connection to the server. If it does not have a floating IP address, assign one to it. For more information, see the [Next steps](/docs/vpc?topic=vpc-creating-virtual-servers&interface=ui#next-steps-after-creating-virtual-servers-ui) in the Creating virtual server instances topic.
 
-### Locating the running instance and enabling the metadata service from the CLI
+### Locating the running instance and enabling access to the metadata service from the CLI
 {: #imd-access-md-locate-vsi-cli}
 {: cli}
 
@@ -55,127 +55,127 @@ Table 1 describes the steps that are involved in accessing metadata. The informa
     ```sh
     $ ibmcloud is instances
     Listing instances in all resource groups and region us-south under account Test Account as user test.user@ibm.com...
-    ID                                          Name                    Status    Reserved IP    Floating IP      Profile    Image                                VPC                         Zone         Confidential Compute Mode   Enable Secure Boot   Resource group   Reservation Name   Cluster Network ID   Cluster Network Name   Cluster Network Attachments   
-    0717_9c55d9d2-0685-4300-b475-49eb1b8c1faf   my-virtual-server-1     running   10.240.0.6     -                bx2-2x8    ibm-ubuntu-24-04-2-minimal-amd64-1   my-test-vpc                 us-south-1   disabled                    false                defaults         -                  -                    -                      -   
-    0727_ed12480a-40a4-41a0-98e3-6dfac8b25ad6   my-virtual-server-2     running   10.240.64.11   169.47.94.48     bx2-2x8    ibm-ubuntu-24-04-6-minimal-amd64-3   my-test-vpc                 us-south-2   disabled                    false                defaults         -                  -                    -                      -   
-    0727_d7ff31ef-75ed-42c6-b0fb-a5837a63d722   my-virtual-server-3     running   10.240.64.12   52.116.204.232   bx2-2x8    ibm-redhat-9-2-minimal-amd64-5       my-test-vpc                 us-south-2   disabled                    false                defaults         -                  -                    -                      -   
+    ID                                          Name                    Status    Reserved IP    Floating IP      Profile    Image                                VPC                         Zone         Confidential Compute Mode   Enable Secure Boot   Resource group   Reservation Name   Cluster Network ID   Cluster Network Name   Cluster Network Attachments
+    0717_9c55d9d2-0685-4300-b475-49eb1b8c1faf   my-virtual-server-1     running   10.240.0.6     -                bx2-2x8    ibm-ubuntu-24-04-2-minimal-amd64-1   my-test-vpc                 us-south-1   disabled                    false                defaults         -                  -                    -                      -
+    0727_ed12480a-40a4-41a0-98e3-6dfac8b25ad6   my-virtual-server-2     running   10.240.64.11   169.47.94.48     bx2-2x8    ibm-ubuntu-24-04-6-minimal-amd64-3   my-test-vpc                 us-south-2   disabled                    false                defaults         -                  -                    -                      -
+    0727_d7ff31ef-75ed-42c6-b0fb-a5837a63d722   my-virtual-server-3     running   10.240.64.12   52.116.204.232   bx2-2x8    ibm-redhat-9-2-minimal-amd64-5       my-test-vpc                 us-south-2   disabled                    false                defaults         -                  -                    -                      -
     ```
     {: screen}
 
     The metadata service is supported on all stock and custom images, and CPU profiles.
     {: note}
 
-1. Run `ibmcloud is instance` command to confirm if the metadata service is enabled. The following example shows the value `false`.
+1. Run `ibmcloud is instance` command to confirm if access to the metadata service is enabled. The following example shows the value `false`.
 
     ```sh
     $ ibmcloud is instance 0727_ed12480a-40a4-41a0-98e3-6dfac8b25ad6
     Getting instance 0727_ed12480a-40a4-41a0-98e3-6dfac8b25ad6 under account Test Account as user test.user@ibm.com...
-                                         
-    ID                                    0727_ed12480a-40a4-41a0-98e3-6dfac8b25ad6   
-    Name                                  my-virtual-server-2   
-    CRN                                   crn:v1:bluemix:public:is:us-south-2:a/a1234567::instance:0727_ed12480a-40a4-41a0-98e3-6dfac8b25ad6   
-    Status                                running   
-    Availability policy on host failure   restart   
-    Confidential Compute Mode             disabled   
-    Enable Secure Boot                    false   
-    Startable                             true   
-    Profile                               bx2-2x8   
-    Architecture                          amd64   
-    vCPU Manufacturer                     intel   
-    vCPUs                                 2   
-    Memory(GiB)                           8   
-    Bandwidth(Mbps)                       4000   
-    Volume bandwidth(Mbps)                1000   
-    Network bandwidth(Mbps)               3000   
-    Lifecycle Reasons                     Code   Message      
-                                          -      -      
-                                         
-    Lifecycle State                       stable   
-    Metadata service                      Enabled   Protocol   Response hop limit      
-                                          false     http       1      
-                                         
-    Image                                 ID                                          Name      
-                                          r006-aa2af291-45b3-4f18-801c-8b7985e928f7   ibm-ubuntu-24-04-6-minimal-amd64-3      
-                                         
-    Numa Count                            1   
-    VPC                                   ID                                          Name      
-                                          r006-01030e3c-2663-4f7d-ac55-651929dafe37   my-test-vpc      
-                                         
-    Zone                                  us-south-2   
-    Resource group                        ID                                 Name      
-                                          6edefe513d934fdd872e78ee6a8e73ef   defaults      
-                                         
-    Created                               2025-03-06T19:24:02+00:00   
-    Network Attachments                   Interface   Name   ID                                          Subnet         Subnet ID                                   Floating IP    VNI                                         Reserved IP      
-                                          Primary     eth0   0727-a3ff4d3e-be95-4a52-8025-b55b3c3285ea   my-subnet-01   0727-f24237f5-bdf0-4b94-ab4c-167a44b8bcb5   169.47.94.48   0727-dda9244a-64b9-421b-87e9-70549a70b4c3   10.240.64.11      
-                                         
-    Boot volume                           ID                                          Name                                Attachment ID                               Attachment name      
-                                          r006-9afd6e01-0466-4e7b-a38b-75bf39469a42   eat-client-poc-boot-1741289020000   0727-241f39a8-3573-4ebc-b512-33508eb970c9   undaunted-starved-slander-galleria      
-                                             
-    Reservation Affinity Policy           automatic   
-    Reservation Affinity Pool             -   
-    Reservation                           -   
-    Health State                          ok   
+
+    ID                                    0727_ed12480a-40a4-41a0-98e3-6dfac8b25ad6
+    Name                                  my-virtual-server-2
+    CRN                                   crn:v1:bluemix:public:is:us-south-2:a/a1234567::instance:0727_ed12480a-40a4-41a0-98e3-6dfac8b25ad6
+    Status                                running
+    Availability policy on host failure   restart
+    Confidential Compute Mode             disabled
+    Enable Secure Boot                    false
+    Startable                             true
+    Profile                               bx2-2x8
+    Architecture                          amd64
+    vCPU Manufacturer                     intel
+    vCPUs                                 2
+    Memory(GiB)                           8
+    Bandwidth(Mbps)                       4000
+    Volume bandwidth(Mbps)                1000
+    Network bandwidth(Mbps)               3000
+    Lifecycle Reasons                     Code   Message
+                                          -      -
+
+    Lifecycle State                       stable
+    Metadata service                      Enabled   Protocol   Response hop limit
+                                          false     http       1
+
+    Image                                 ID                                          Name
+                                          r006-aa2af291-45b3-4f18-801c-8b7985e928f7   ibm-ubuntu-24-04-6-minimal-amd64-3
+
+    Numa Count                            1
+    VPC                                   ID                                          Name
+                                          r006-01030e3c-2663-4f7d-ac55-651929dafe37   my-test-vpc
+
+    Zone                                  us-south-2
+    Resource group                        ID                                 Name
+                                          6edefe513d934fdd872e78ee6a8e73ef   defaults
+
+    Created                               2025-03-06T19:24:02+00:00
+    Network Attachments                   Interface   Name   ID                                          Subnet         Subnet ID                                   Floating IP    VNI                                         Reserved IP
+                                          Primary     eth0   0727-a3ff4d3e-be95-4a52-8025-b55b3c3285ea   my-subnet-01   0727-f24237f5-bdf0-4b94-ab4c-167a44b8bcb5   169.47.94.48   0727-dda9244a-64b9-421b-87e9-70549a70b4c3   10.240.64.11
+
+    Boot volume                           ID                                          Name                                Attachment ID                               Attachment name
+                                          r006-9afd6e01-0466-4e7b-a38b-75bf39469a42   eat-client-poc-boot-1741289020000   0727-241f39a8-3573-4ebc-b512-33508eb970c9   undaunted-starved-slander-galleria
+
+    Reservation Affinity Policy           automatic
+    Reservation Affinity Pool             -
+    Reservation                           -
+    Health State                          ok
     ```
     {: screen}
 
-1. Enable the metadata service by running the `ibmcloud is instance-update` command with the option `--metadata-service true`.  
+1. Enable access to the metadata service by running the `ibmcloud is instance-update` command with the option `--metadata-service true`.
 
     ```sh
     $ ibmcloud is instance-update  0727_ed12480a-40a4-41a0-98e3-6dfac8b25ad6 --metadata-service true
     Updating instance 0727_ed12480a-40a4-41a0-98e3-6dfac8b25ad6 under account Test Account as user test.user@ibm.com...
-                                         
-    ID                                    0727_ed12480a-40a4-41a0-98e3-6dfac8b25ad6   
-    Name                                  my-virtual-server-2   
-    CRN                                   crn:v1:bluemix:public:is:us-south-2:a/a1234567::instance:0727_ed12480a-40a4-41a0-98e3-6dfac8b25ad6   
-    Status                                running   
-    Availability policy on host failure   restart   
-    Confidential Compute Mode             disabled   
-    Enable Secure Boot                    false   
-    Startable                             true   
-    Profile                               bx2-2x8   
-    Architecture                          amd64   
-    vCPU Manufacturer                     intel   
-    vCPUs                                 2   
-    Memory(GiB)                           8   
-    Bandwidth(Mbps)                       4000   
-    Volume bandwidth(Mbps)                1000   
-    Network bandwidth(Mbps)               3000   
-    Lifecycle Reasons                     Code   Message      
-                                          -      -      
-                                         
-    Lifecycle State                       stable   
-    Metadata service                      Enabled   Protocol   Response hop limit      
-                                          true      http       1      
-                                         
-    Image                                 ID                                          Name      
-                                          r006-aa2af291-45b3-4f18-801c-8b7985e928f7   ibm-ubuntu-24-04-6-minimal-amd64-3      
-                                         
-    Numa Count                            1   
-    VPC                                   ID                                          Name      
-                                          r006-01030e3c-2663-4f7d-ac55-651929dafe37   my-test-vpc      
-                                         
-    Zone                                  us-south-2   
-    Resource group                        ID                                 Name      
-                                          6edefe513d934fdd872e78ee6a8e73ef   defaults      
-                                         
-    Created                               2025-03-06T19:24:02+00:00   
-    Network Attachments                   Interface   Name   ID                                          Subnet              Subnet ID                                   Floating IP    VNI                                         Reserved IP      
-                                          Primary     eth0   0727-a3ff4d3e-be95-4a52-8025-b55b3c3285ea   my-subnet-01   0727-f24237f5-bdf0-4b94-ab4c-167a44b8bcb5   169.47.94.48   0727-dda9244a-64b9-421b-87e9-70549a70b4c3   10.240.64.11      
-                                         
-    Boot volume                           ID                                          Name                                Attachment ID                               Attachment name      
-                                          r006-9afd6e01-0466-4e7b-a38b-75bf39469a42   eat-client-poc-boot-1741289020000   0727-241f39a8-3573-4ebc-b512-33508eb970c9   undaunted-starved-slander-galleria      
-                                             
-    Reservation Affinity Policy           automatic   
-    Reservation Affinity Pool             -   
-    Reservation                           -   
+
+    ID                                    0727_ed12480a-40a4-41a0-98e3-6dfac8b25ad6
+    Name                                  my-virtual-server-2
+    CRN                                   crn:v1:bluemix:public:is:us-south-2:a/a1234567::instance:0727_ed12480a-40a4-41a0-98e3-6dfac8b25ad6
+    Status                                running
+    Availability policy on host failure   restart
+    Confidential Compute Mode             disabled
+    Enable Secure Boot                    false
+    Startable                             true
+    Profile                               bx2-2x8
+    Architecture                          amd64
+    vCPU Manufacturer                     intel
+    vCPUs                                 2
+    Memory(GiB)                           8
+    Bandwidth(Mbps)                       4000
+    Volume bandwidth(Mbps)                1000
+    Network bandwidth(Mbps)               3000
+    Lifecycle Reasons                     Code   Message
+                                          -      -
+
+    Lifecycle State                       stable
+    Metadata service                      Enabled   Protocol   Response hop limit
+                                          true      http       1
+
+    Image                                 ID                                          Name
+                                          r006-aa2af291-45b3-4f18-801c-8b7985e928f7   ibm-ubuntu-24-04-6-minimal-amd64-3
+
+    Numa Count                            1
+    VPC                                   ID                                          Name
+                                          r006-01030e3c-2663-4f7d-ac55-651929dafe37   my-test-vpc
+
+    Zone                                  us-south-2
+    Resource group                        ID                                 Name
+                                          6edefe513d934fdd872e78ee6a8e73ef   defaults
+
+    Created                               2025-03-06T19:24:02+00:00
+    Network Attachments                   Interface   Name   ID                                          Subnet              Subnet ID                                   Floating IP    VNI                                         Reserved IP
+                                          Primary     eth0   0727-a3ff4d3e-be95-4a52-8025-b55b3c3285ea   my-subnet-01   0727-f24237f5-bdf0-4b94-ab4c-167a44b8bcb5   169.47.94.48   0727-dda9244a-64b9-421b-87e9-70549a70b4c3   10.240.64.11
+
+    Boot volume                           ID                                          Name                                Attachment ID                               Attachment name
+                                          r006-9afd6e01-0466-4e7b-a38b-75bf39469a42   eat-client-poc-boot-1741289020000   0727-241f39a8-3573-4ebc-b512-33508eb970c9   undaunted-starved-slander-galleria
+
+    Reservation Affinity Policy           automatic
+    Reservation Affinity Pool             -
+    Reservation                           -
     Health State                          ok
     ```
     {: screen}
 
 1. If the instance has a floating IP address already, use that address to establish a secure connection to the server. If it does not have a floating IP address, assign one to it. For more information, see the [Next steps](/docs/vpc?topic=vpc-creating-virtual-servers&interface=cli#next-step-after-creating-virtual-servers-cli) in the Creating virtual server instances topic.
 
-### Locating the running instance and enabling the metadata service with the API
+### Locating the running instance and enabling access to the metadata service with the API
 {: #imd-access-md-locate-vsi-api}
 {: api}
 
@@ -186,7 +186,7 @@ Table 1 describes the steps that are involved in accessing metadata. The informa
    ```
    {: pre}
 
-1. [Retrieve the information of the selected instance](/apidocs/vpc/latest#get-instance) to confirm if the metadata service is enabled.
+1. [Retrieve the information of the selected instance](/apidocs/vpc/latest#get-instance) to confirm if access to the metadata service is enabled.
 
    ```sh
    curl -X GET "$vpc_api_endpoint/v1/instances/0727_ed12480a-40a4-41a0-98e3-6dfac8b25ad6?version=2025-05-13&generation=2" -H "Authorization: Bearer $iam_token"
@@ -248,7 +248,7 @@ Table 1 describes the steps that are involved in accessing metadata. The informa
    ```
    {: codeblock}
 
-1. Enable the metadata service by making a [`PATCH /instances`](/apidocs/vpc/latest#update-instance) request for the instance.
+1. Enable access to the metadata service by making a [`PATCH /instances`](/apidocs/vpc/latest#update-instance) request for the instance.
 
    ```json
    curl -X PATCH "$vpc_api_endpoint/v1/instances/0727_ed12480a-40a4-41a0-98e3-6dfac8b25ad6?version=2025-05-13&generation=2" \
@@ -259,7 +259,7 @@ Table 1 describes the steps that are involved in accessing metadata. The informa
            "protocol": "http",
            "response_hop_limit": 1
            }
-       }`    
+       }`
    ```
    {: pre}
 
@@ -281,17 +281,17 @@ ssh -i <path to your private key file> <default-user-account>@<floating ip addre
 
 Windows users have extra requirements to access and use the metadata service. For more information, see [Setting up windows servers for using the metadata service](/docs/vpc?topic=vpc-imd-windows-configuration).
 
-If your server is running a Windows OS, use an RDP client to connect to it.  
+If your server is running a Windows OS, use an RDP client to connect to it.
 
 For more information, see [Connecting to your Linux instance](/docs/vpc?topic=vpc-vsi_is_connecting_linux) or [Connecting to your Windows instance](/docs/vpc?topic=vpc-vsi_is_connecting_windows).
 
 ### Collecting information from the metadata service
 {: #imd-access-md-use}
 
-From the virtual server instance, make a request to the identity API to retrieve an instance identity token. Specify how long you want the token to remain valid. For example, you can specify 3600 seconds (1 hour).
+From the virtual server instance, make a request to the identity API to retrieve an identity token. Specify how long you want the token to remain valid. For example, you can specify 3600 seconds (1 hour).
 
    ```json
-   export instance_identity_token=`curl -X PUT "http://api.metadata.cloud.ibm.com/instance_identity/v1/token?version=2022-03-01"\
+   export identity_token=`curl -X PUT "http://api.metadata.cloud.ibm.com/identity/v1/token?version=2022-03-01"\
      -H "Metadata-Flavor: ibm"\
      -H "Accept: application/json"\
      -d '{
@@ -300,7 +300,7 @@ From the virtual server instance, make a request to the identity API to retrieve
    ```
    {: codeblock}
 
-   The response provides the instance identity access token. The parser saves it into the `.access_token` file.
+   The response provides the identity access token. The parser saves it into the `.access_token` file.
 
    The example uses `jq` as a parser, a third-party tool licensed under the [MIT license](https://stedolan.github.io/jq/download/). `jq` might not come preinstalled on all VPC images available when you create an instance. You might need to install `jq` before use or use another parser of your choice.
    {: note}
@@ -313,7 +313,7 @@ After you obtained your identity token, you can now make an API request to the m
    ```sh
    curl -X GET "http://api.metadata.cloud.ibm.com/metadata/v1/instance/initialization?version=2024-11-12"\
       -H "Accept: application/json"\
-      -H "Authorization: Bearer $instance_identity_token"\
+      -H "Authorization: Bearer $identity_token"\
       | jq -r
    ```
    {: codeblock}
@@ -326,7 +326,7 @@ After you obtained your identity token, you can now make an API request to the m
 Make a `GET "/metadata/v1/instance"` request to retrieve detailed information about the instance.
 
 ```sh
-curl -X GET "$vpc_metadata_api_endpoint/metadata/v1/instance?version=2025-04-22" -H "Authorization: Bearer $instance_identity_token"
+curl -X GET "$vpc_metadata_api_endpoint/metadata/v1/instance?version=2025-04-22" -H "Authorization: Bearer $identity_token"
 ```
 {: codeblock}
 
@@ -441,4 +441,4 @@ The following table shows more methods for API GET requests that you can make to
 ## Next steps
 {: #imd-access-md-next-steps}
 
-Use the trusted profile for the instance and generate an IAM token from the instance identity access token to other IAM-enabled services. See [Using a trusted profile to call IAM-enabled services](/docs/vpc?topic=vpc-imd-trusted-profile-metadata).
+Use the trusted profile for the instance and generate an IAM token from the identity access token to other IAM-enabled services. See [Using a trusted profile to call IAM-enabled services](/docs/vpc?topic=vpc-imd-trusted-profile-metadata).

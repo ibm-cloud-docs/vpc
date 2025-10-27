@@ -270,7 +270,7 @@ toc:
           label: Metadata service
           topics:
           - topicgroup:
-              label: Instance metadata service
+              label: Virtual server metadata
               topics:
               - instance_metadata_vpc_about.md
               - instance_metadata_vpc_configure.md
@@ -281,7 +281,7 @@ toc:
               - instance_metadata_vpc_use_trusted_profiles.md
               - instance_metadata_vpc_security_bp.md
           - topicgroup:
-              label: Bare metal metadata service
+              label: Bare metal metadata
               topics:
               - bare_metal_server_metadata_about.md
               - bare_metal_server_metadata_configure.md

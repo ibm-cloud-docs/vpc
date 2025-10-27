@@ -2,7 +2,7 @@
 
 copyright:
   years: 2022, 2025
-lastupdated: "2025-09-16"
+lastupdated: "2025-10-27"
 
 keywords:
 
@@ -15,24 +15,24 @@ subcollection: vpc
 # Configure the metadata service
 {: #imd-configure-service}
 
-Configure the metadata service by obtaining an instance identity access token from the metadata service. Optionally, generate an IAM access token from this token to access IAM-enabled services in the account.
+Configure the metadata service by obtaining an identity access token from the metadata service. Optionally, generate an IAM access token from this token to access IAM-enabled services in the account.
 {: shortdesc}
 
-## Enabling or disabling the metadata service
+## Enabling or disabling access to the metadata service
 {: #imd-metadata-service-enable}
 
-The metadata service is disabled by default. To retrieve metadata from an instance, enable the service on new instances or existing instances by using the VPC UI, CLI, or API.
+Access to the metadata service is disabled by default. To retrieve metadata from an instance, enable access to the service on new instances or existing instances by using the VPC UI, CLI, or API.
 
-### Enabling metadata service in the console
+### Enabling access to metadata service in the console
 {: #imd-enable-service-ui}
 {: ui}
 
-From the {{site.data.keyword.cloud}} console, you can enable or disable the metadata service.
+From the {{site.data.keyword.cloud}} console, you can enable or disable access to the metadata service.
 
-#### Enabling the metadata service for an existing instance in the console
+#### Enabling access to the metadata service for an existing instance in the console
 {: #imd-enable-on-instance-ui}
 
-Use the UI to enable the metadata service on an existing instance.
+Use the UI to enable access to the metadata service on an existing instance.
 
 1. Go to the list of instances. In the [{{site.data.keyword.cloud_notm}} console](/login){: external}, click the **Navigation Menu** icon ![menu icon](../icons/icon_hamburger.svg) **> Infrastructure** ![VPC icon](../../icons/vpc.svg) **> Compute > Virtual server instances**.
 
@@ -42,10 +42,10 @@ Use the UI to enable the metadata service on an existing instance.
 
 4. Click the toggle (appears green).
 
-#### Enabling the metadata service when you create an instance in the console
+#### Enabling access to the metadata service when you create an instance in the console
 {: #imd-enable-new-instance-ui}
 
-The following procedure shows how to enable the metadata service when you create a virtual server instance.
+The following procedure shows how to enable access to the metadata service when you create a virtual server instance.
 
 1. In the [{{site.data.keyword.cloud_notm}} console](/login){: external}, click the **Navigation Menu** icon ![menu icon](../icons/icon_hamburger.svg) **> Infrastructure** ![VPC icon](../../icons/vpc.svg) **> Compute > Virtual server instances**.
 
@@ -57,11 +57,11 @@ The following procedure shows how to enable the metadata service when you create
 
  For more information about creating virtual server instances, see [Creating virtual server instances in the console](/docs/vpc?topic=vpc-creating-virtual-servers).
 
-### Disabling the metadata service in the console
+### Disabling access to the metadata service in the console
 {: #imd-disable-new-instance}
 {: ui}
 
-This procedure shows how to disable the metadata service for an instance on which it is enabled. By default, the metadata service is disabled when you create a new instance.
+This procedure shows how to disable access to the metadata service for an instance on which it is enabled. By default, access to the metadata service is disabled when you create a new instance.
 
 1. In the [{{site.data.keyword.cloud_notm}} console](/login){: external}, click the **Navigation Menu** icon ![menu icon](../icons/icon_hamburger.svg) **> Infrastructure** ![VPC icon](../../icons/vpc.svg) **> Compute > Virtual server instances**.
 
@@ -69,18 +69,18 @@ This procedure shows how to disable the metadata service for an instance on whic
 
 3. Under **Metadata**, the click the toggle button off (appears gray).
 
-#### Enabling or disabling the metadata service on instance templates in the console
+#### Enabling or disabling access to the metadata service on instance templates in the console
 {: #imd-enable-instance-template-ui}
 
-When you create an [instance template](/docs/vpc?topic=vpc-creating-auto-scale-instance-group&interface=ui#creating-instance-template), the enable metadata service toggle is disabled by default. Click the toggle to enable the service.
+When you create an [instance template](/docs/vpc?topic=vpc-creating-auto-scale-instance-group&interface=ui#creating-instance-template), the metadata service toggle is disabled by default. Click the toggle to enable access to the service.
 
-When you view the details of an existing instance template, the page indicates whether metadata was enabled or not for the template. You can't change the instance template metadata setting after you create the template.
+When you view the details of an existing instance template, the page indicates whether the metadata service was enabled or not for the template. You can't change the instance template metadata setting after you create the template.
 
-### Enabling or disabling metadata from the CLI
+### Enabling or disabling access to the metadata service from the CLI
 {: #imd-metadata-service-enable-cli}
 {: cli}
 
-Use the CLI to enable the metadata service when you create a new instance or on an existing instance.
+Use the CLI to enable access to the metadata service when you create a new instance or on an existing instance.
 
 Before you begin:
 
@@ -88,10 +88,10 @@ Before you begin:
 
 1. Make sure that you [created an {{site.data.keyword.vpc_short}}](/docs/vpc?topic=vpc-creating-vpc-resources-with-cli-and-api&interface=cli#create-a-vpc-cli).
 
-#### Enabling or disabling the metadata service when you create an instance from the CLI
+#### Enabling or disabling access to the metadata service when you create an instance from the CLI
 {: #imd-enable-on-instance-cli}
 
-Run the `ibmcloud is instance-create` command and set the `metadata-service` property to `true`. The metadata service is disabled by default. In the response, you see `Metadata service enabled` set to `true`.
+Run the `ibmcloud is instance-create` command and set the `metadata-service` property to `true`. Access to the metadata service is disabled by default. In the response, you see `Metadata service enabled` set to `true`.
 
 ```json
 ibmcloud is instance-create test-instance-1 7002c1cd-9b0b-43ee-8112-5124dedbe84b us-south-1  bx2-2x8  0711-08206578-d749-49ea-86c9-1014622d1c6f --image-id 9f0050d0-636b-4fe6-82ea-931664fd9d91 --metadata-service true
@@ -125,53 +125,53 @@ Boot volume                ID   Name           Attachment ID                    
 ```
 {: codeblock}
 
-#### Enabling or disabling the metadata service for an existing instance from the CLI
+#### Enabling or disabling access to the metadata service for an existing instance from the CLI
 {: #imd-enable-on-existing-instance-cli}
 
-Run the `ibmcloud is instance-update` command and specify the instance ID. To enable the metadata service, set the `metadata-service` parameter to `true`; to disable, set it to `false`. An example command for enabling the service looks like this:
+Run the `ibmcloud is instance-update` command and specify the instance ID. To enable access to the metadata service, set the `metadata-service` parameter to `true`; to disable, set it to `false`. An example command for enabling access to the service looks like this:
 
 ```sh
 ibmcloud is instance-update e219a883-41f2-4680-810e-ee63ade35f98 --metadata-service true
 ```
 {: codeblock}
 
-#### Enabling or disabling the metadata service when you create new instance templates from the CLI
+#### Enabling or disabling access to the metadata service when you create new instance templates from the CLI
 {: #imd-enable-instance-template-cli}
 
 When you create an [instance template](/docs/vpc?topic=vpc-creating-auto-scale-instance-group&interface=cli#creating-instance-template-cli) from the CLI, you can indicate whether metadata is collected for instances created based on this template.
 
 Use the `ibmcloud is instance-create-from-template` command and specify `--metadata-service true` option to enable or `--metadata-service false` option to disable. After you set the template value, you can't change it.
 
-For example, to create an instance template with the metadata service enabled, run this command:
+For example, to create an instance template with access to the metadata service enabled, run this command:
 
 ```sh
 ibmcloud is instance-template-create my-template-name {template_id} us-south-1 mx2-2x16 {subnet_id} --image-id {image_id} --metadata-service true
 ```
 {: pre}
 
-When you create an instance from this template, specify the `--metadata-service true` option again to enable the service on the new instance:
+When you create an instance from this template, specify the `--metadata-service true` option again to enable access to the service on the new instance:
 
 ```sh
 ibmcloud is instance-create-from-template --template-id {template_id} --name my-instance --metadata-service true
 ```
 {: pre}
 
-If you override the instance template by running the `ibmcloud is instance-template-create-override-source-template` command, you can enable or disable the metadata service by specifying the `--metadata-service` option with `true` or `false`.
+If you override the instance template by running the `ibmcloud is instance-template-create-override-source-template` command, you can enable or disable access to the metadata service by specifying the `--metadata-service` option with `true` or `false`.
 
 For more information about these commands, see the [VPC CLI Reference](/docs/vpc?topic=vpc-set-up-environment&interface=cli). For more information about creating an instance template from the CLI, see [Creating an instance template](/docs/vpc?topic=vpc-creating-auto-scale-instance-group&interface=cli#creating-instance-template-cli).
 
-### Enabling or disabling metadata with the API
+### Enabling or disabling access to the metadata service with the API
 {: #imd-metadata-service-enable-api}
 {: api}
 
-#### Enabling or disabling the metadata service when you create a new instance with the API
+#### Enabling or disabling access to the metadata service when you create a new instance with the API
 {: #imd-disable-on-instance-api}
 
-The metadata service is disabled by default when you create an instance by making a `POST /instances` call.
+Access to the metadata service is disabled by default when you create an instance by making a `POST /instances` call.
 
-You can enable the service by specifying the `metadata_service` parameter and setting `enabled` to `true`.
+You can enable access to the metadata service by specifying the `metadata_service` parameter and setting `enabled` to `true`.
 
-This example shows enabling the metadata service at instance creation:
+This example shows enabling access to the metadata service at instance creation:
 
 ```sh
 curl -X POST "$vpc_api_endpoint/v1/instances?version=2024-11-12&generation=2"\
@@ -196,14 +196,14 @@ curl -X POST "$vpc_api_endpoint/v1/instances?version=2024-11-12&generation=2"\
 ```
 {: codeblock}
 
-The response shows that the metadata parameter is set to `true` when you enable the service. You can also verify the metadata service setting by making a `GET /instance/{id}` call.
+The response shows that the metadata parameter is set to `true` when you enable access to the service. You can also verify the metadata service setting by making a `GET /instance/{id}` call.
 
-#### Enabling or disabling the metadata service for an existing instance with the API
+#### Enabling or disabling access to the metadata service for an existing instance with the API
 {: #imd-enable-on-instance-api}
 
-To enable or disable the service from an existing instance, make a `PATCH /instance/{instance_id}` request and specify the `metadata_service` parameter. By default, the `enabled` property is set to `false`. To enable the service, set it to `true`.
+To enable or disable access to the service from an existing instance, make a `PATCH /instance/{instance_id}` request and specify the `metadata_service` parameter. By default, the `enabled` property is set to `false`. To enable access to the service, set it to `true`.
 
-This example call shows enabling the metadata service for an instance:
+This example call shows enabling access to the metadata service for an instance:
 
 ```sh
 curl -X PATCH "$vpc_api_endpoint/v1/instances/$instance_id?version=2024-11-12&generation=2"\
@@ -216,9 +216,9 @@ curl -X PATCH "$vpc_api_endpoint/v1/instances/$instance_id?version=2024-11-12&ge
 ```
 {: codeblock}
 
-The response shows that the metadata parameter is set to `true` when you enable the service. You can also verify the metadata service setting by making a `GET /instance/{id}` call.
+The response shows that the metadata parameter is set to `true` when you enable access to the service. You can also verify the metadata service setting by making a `GET /instance/{id}` call.
 
-#### Enabling or disabling the metadata service when you create new instance templates by using the API
+#### Enabling or disabling access to the metadata service when you create new instance templates by using the API
 {: #imd-enable-instance-template-api}
 
 When you create an instance template, you can set this value by making a `POST /instance/templates` request. By default, the `enabled` property is set to `false`. To enable it, set it to `true`.
@@ -259,13 +259,13 @@ curl -X POST "$vpc_api_endpoint/v1/instance/templates?version=2024-11-12&generat
 ```
 {: pre}
 
-You can't use the API to change the `metadata-service` setting after the instance template is created. If you disabled it for a template, create a new instance template with the `metadata-service` enabled set to `true`.
+You can't use the API to change the `metadata-service` setting after the instance template is created. If you disabled access to the service for a template, create a new instance template with the `metadata-service` enabled set to `true`.
 
 ## Configure metadata settings in the console
 {: #metadata-config-ui}
 {: ui}
 
-You can configure features of the metadata service in the console. When the metadata service is enabled, expand the metadata window to access the metadata service settings.
+You can configure features of the metadata service in the console. When access to the metadata service is enabled, expand the metadata window to access the metadata service settings.
 
 ### Select a trusted profile in the console
 {: #select-trusted-profile-ui}
@@ -312,7 +312,7 @@ To enable secure access on an existing instance, navigate to the Secure access s
 {: #set-hop-limit-ui}
 {: ui}
 
-You can set the hop limit for IP response packets from the metadata service. The hop limit can be any value from 1 (default) to 64. The metadata service must be enabled.
+You can set the hop limit for IP response packets from the metadata service. The hop limit can be any value from 1 (default) to 64. Access to the metadata service must be enabled.
 
 #### Set the metadata hop limit when you provision an instance
 {: #set-hop-limit-ui-provisioning}
@@ -332,7 +332,7 @@ To set the hop limit on an existing instance, go to the Hop limit setting on the
 
 You can enable and disable features of the metadata service using the CLI.
 
-The following example shows an instance with the metadata service enabled.
+The following example shows an instance with access to the metadata service enabled.
 
 ```sh
 ibmcloud is instance instance-name
@@ -481,7 +481,7 @@ To enable secure access on an existing instance, use the [PATCH /instances/{id}]
 
 You can set the hop limit for IP response packets from the metadata service using the `metadata_service.response_hop_limit` property
 
-This property applies only when the metadata service is enabled by setting `metadata_service.enabled` to `true`. The default is `false`.
+This property applies only when access to the metadata service is enabled by setting `metadata_service.enabled` to `true`. The default is `false`.
 
 #### Set the metadata hop limit when you provision an instance
 {: #set-hop-limit-api-when-provisioning}
@@ -489,7 +489,7 @@ This property applies only when the metadata service is enabled by setting `meta
 
 To set the response when you provision an instance, call the [POST /instances method](/apidocs/vpc/latest#create-instance) method, and specify the `metadata_service.response_hop_limit` property value between `1` (default) and `64`.
 
-This property applies only when the metadata service is enabled by setting `metadata_service.enabled` to `true`. The default is `false`.
+This property applies only when access to the metadata service is enabled by setting `metadata_service.enabled` to `true`. The default is `false`.
 
 #### Set the metadata hop limit on an existing instance
 {: #set-hop-limit-api-on-existing-instance}
@@ -500,4 +500,4 @@ To set the response hop limit on an existing instance, call the [PATCH /instance
 ## Next steps
 {: #imd-token-next}
 
-After you create an instance identity access token and enable the metadata service, you can retrieve metadata for the instance, SSH keys, and placement groups. For more information, see [Use the metadata service](/docs/vpc?topic=vpc-imd-access-instance-metadata).
+After you create an identity access token and enable access to the metadata service, you can retrieve metadata for the instance, SSH keys, and placement groups. For more information, see [Use the metadata service](/docs/vpc?topic=vpc-imd-access-instance-metadata).
