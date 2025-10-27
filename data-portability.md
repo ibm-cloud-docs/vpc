@@ -2,7 +2,7 @@
 
 copyright:
   years: 2024, 2025
-lastupdated: "2025-10-21"
+lastupdated: "2025-10-27"
 
 keywords: data portability, DORA, vpc, Block storage for VPC, File storage for VPC
 
@@ -103,7 +103,6 @@ The following table provides mechanisms to export the settings and configuration
 |----------------|-------------------------|-------------------------|
 | Floating IP addresses | [`ibmcloud is floating-ips`](/docs/vpc?topic=vpc-vpc-reference#floating-ips-list) | [List floating ips](/apidocs/vpc/latest#list-floating-ips) |
 | Flow logs | [`ibmcloud is flow-logs`](/docs/vpc?topic=vpc-vpc-reference#flow-logs-list) | [List flow log collectors](/apidocs/vpc/latest#list-flow-log-collectors) |
-| Load balancers | [`ibmcloud is load-balancers`](/docs/vpc?topic=vpc-vpc-reference#load-balancers-list) \n [`ibmcloud is load-balancer-listener-policies`](/docs/vpc?topic=vpc-vpc-reference#load-balancer-listener-policies-list) \n [`ibmcloud is load-balancer-listener-policy-rules`](/docs/vpc?topic=vpc-vpc-reference#load-balancer-listener-policy-rules-list) \n [`ibmcloud is load-balancer-listeners`](/docs/vpc?topic=vpc-vpc-reference#load-balancer-listeners-list) \n [`ibmcloud is load-balancer-pool-members`](/docs/vpc?topic=vpc-vpc-reference#load-balancer-pool-members-list) \n [`ibmcloud is load-balancer-pools`](/docs/vpc?topic=vpc-vpc-reference#load-balancer-pools-list)| [List load balancers](/apidocs/vpc/latest#list-load-balancers) \n [List load balancer listener policies](/apidocs/vpc/latest#list-load-balancer-listener-policies) \n [List load balancer listener policy rules](/apidocs/vpc/latest#list-load-balancer-listener-policy-rules) \n [List load balancer listeners](/apidocs/vpc/latest#list-load-balancer-listeners) \n [List load balancer pool members](/apidocs/vpc/latest#list-load-balancer-pool-members) \n [List load balancer pools](/apidocs/vpc/latest#list-load-balancer-pools) \n [List load balancer profiles](/apidocs/vpc/latest#list-load-balancer-profiles) |
 | Network ACLs | [`ibmcloud is network-acls`](/docs/vpc?topic=vpc-vpc-reference#network-acls-list) \n [`ibmcloud is network-acl-rules`](/docs/vpc?topic=vpc-vpc-reference#network-acl-rules-list)| [List network acls](/apidocs/vpc/latest#list-network-acls) \n [List network acl rules](/apidocs/vpc/latest#list-network-acl-rules) |
 | Private Path services | [`ibmcloud is private-path-service-gateways`](/docs/vpc?topic=vpc-vpc-reference#private-path-service-gateways-list) | [List private path service gateways](/apidocs/vpc/latest#list-private-path-service-gateways)  |
 | Public gateways| [`ibmcloud is public-gateways`](/docs/vpc?topic=vpc-vpc-reference#public-gateways-list) | [List public gateways](/apidocs/vpc/latest#list-public-gateways)  |
