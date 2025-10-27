@@ -2,7 +2,7 @@
 
 copyright:
   years: 2019, 2025
-lastupdated: "2025-10-10"
+lastupdated: "2025-10-27"
 
 keywords:
 subcollection: vpc
@@ -136,6 +136,8 @@ Where:
 
 `-q, --quiet`
     : An option that suppresses verbose output.
+
+
 
 ### Command examples
 {: #cli-cmd-examples-vpn-gateway-create}
