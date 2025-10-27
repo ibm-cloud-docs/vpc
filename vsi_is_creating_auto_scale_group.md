@@ -2,7 +2,7 @@
 
 copyright:
   years: 2020, 2025
-lastupdated: "2025-06-27"
+lastupdated: "2025-10-27"
 
 keywords: auto scale, autoscale, virtual server instance, creating, UI, console, instance group
 
@@ -185,6 +185,7 @@ Gather the following required instance template details.
 | Image | `ibmcloud is images` |
 {: caption="Required instance template details" caption-side="bottom"}
 
+
 Use the following commands to determine the required information for creating a new instance template.
 
 1. List the regions associated with your account.
@@ -319,7 +320,7 @@ Use the following commands to determine the required information for creating a 
     Deprecated images do not include the most current support.
     {: tip}
 
-    Now select image `ibm-debian-11-3-minimal-amd64-1`. To get the image ID, run the following command:
+    Now select image `ibm-debian-11-11-minimal-amd64-4`. To get the image ID, run the following command:
 
     ```sh
     image=$(ibmcloud is images | grep -i "debian.*available.*amd64.*public" | cut -d" " -f1)
