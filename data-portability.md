@@ -52,7 +52,7 @@ In addition to the boot volume image of the virtual server, you can find additio
 
 | Service | {{site.data.keyword.cloud_notm}} console | CLI command | API method|
 |----------------|-------------------------|-------------------------|---------------|
-| Virtual servers | View details for the virtual server | [`[ibmcloud is instance`](/docs/vpc?topic=vpc-vpc-reference&interface=ui#instance-view) \n [`ibmcloud is instance-profile`](/docs/vpc?topic=vpc-vpc-reference&interface=ui#instance-profile-view)  | [Retrieve an instance](/apidocs/vpc/latest#get-instance) \n [Retrieve an instance profile](/apidocs/vpc/latest#get-instance-profile) |
+| Virtual servers | View details for the virtual server | [`ibmcloud is instance`](/docs/vpc?topic=vpc-vpc-reference&interface=ui#instance-view) \n [`ibmcloud is instance-profile`](/docs/vpc?topic=vpc-vpc-reference&interface=ui#instance-profile-view)  | [Retrieve an instance](/apidocs/vpc/latest#get-instance) \n [Retrieve an instance profile](/apidocs/vpc/latest#get-instance-profile) |
 {: caption="How to view details of a virtual server" caption-side="bottom"}
 
 
