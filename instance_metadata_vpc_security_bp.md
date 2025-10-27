@@ -2,7 +2,7 @@
 
 copyright:
   years: 2022, 2025
-lastupdated: "2025-07-31"
+lastupdated: "2025-10-27"
 
 keywords:
 
@@ -23,14 +23,14 @@ IBM takes data security seriously and recommends you follow these best practices
 
 This topic describes how to configure security safeguards to protect your metadata by:
 
-* Disabling the metadata service for an instance or an account when it's not needed.
+* Disabling access to the metadata service for an instance or an account when it's not needed.
 * Limiting or not assigning trusted profiles for compute resource identities as necessary.
 * Enhancing network security.
 
-## Disable the metadata service for an instance or account
+## Disable access to the metadata service for an instance or account
 {: #imd-disable-instance-acct}
 
-You can disable the service on an existing instance where it is enabled. See [Enable or disable the metadata service](/docs/vpc?topic=vpc-imd-configure-service).
+You can disable access to the service on an existing instance where it is enabled. See [Enable or disable access to the metadata service](/docs/vpc?topic=vpc-imd-configure-service).
 
 ## Use `iptables` firewall to limit access on Linux
 {: #imd-iptables}
