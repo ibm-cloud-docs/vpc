@@ -117,6 +117,7 @@ The following table provides mechanisms to export the settings and configuration
 {: caption="Exporting network services data with the CLI and API" caption-side="bottom"}
 
 
+
 ### Exporting customer data in storage volumes and shares
 {: #data-portability-customer-data}
 
