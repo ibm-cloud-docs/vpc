@@ -2,7 +2,7 @@
 
 copyright:
   years: 2019, 2025
-lastupdated: "2025-06-27"
+lastupdated: "2025-10-28"
 
 keywords:
 
@@ -70,9 +70,9 @@ When you create a new security group, initially all inbound traffic is restricte
 Because a resource can have multiple security groups associated with it, all the rules from each security group associated with the resource are combined to form a single set of rules. This set of rules is used to determine whether the traffic should be denied or allowed into and out from the resource. For every security rule that you add to the security group, you must specify the values for the following fields:
 
 * Direction - The direction of traffic to enforce, either inbound or outbound.
-* Protocol - Indicates the protocol that this rule applies for. Values are `tcp`, `udp`, `icmp`, or `all`.
+* Protocol - Indicates the protocol that this rule applies for. Values are `tcp`, `udp`, `icmp`, or `ALL`.
 
-   * If its value is `all`, it means that this rule applies to all protocols. Then, it's invalid to specify the port range (PortMin, PortMax).
+   * If its value is `ALL`, it means that this rule applies to all protocols. Then, it's invalid to specify the port range (PortMin, PortMax).
    * If protocol is either `tcp` or `udp`, then the rule can also contain the port range (PortMin, PortMax). Set either both ports, or neither. When neither is set, then traffic is allowed on all ports. For a single port, you must set both ports to the same value.
    * When protocol is `icmp`, you can optionally specify the `type` property. If specified, then ICMP traffic is allowed for only the specified ICMP type. Further, if you specify `type`, you can optionally specify the code property to allow traffic for only the specified ICMP code.
 
