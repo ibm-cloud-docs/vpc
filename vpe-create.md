@@ -2,7 +2,7 @@
 
 copyright:
   years: 2020, 2025
-lastupdated: "2025-10-16"
+lastupdated: "2025-10-28"
 
 keywords: virtual private endpoints, VPE, endpoint gateway
 
@@ -61,10 +61,10 @@ To create an endpoint gateway in the {{site.data.keyword.cloud_notm}} console, f
    * For IBM Cloud services, select an available IBM Cloud service offering from the menu, then select its region. A region is pre-selected to optimize performance.
    * For non-IBM Cloud services, enter the cloud resource name (CRN) of the Private Path service (obtained from your service provider).
 
-Your connection request is sent to the service provider for review.
+   Your connection request is sent to the service provider for review.
 
-The review might be automated based on the provider's chosen account policy, or it could take days if the provider has chosen to manually review their requests. If your request is permitted, you will receive notification and can then access the service. If your request is denied, contact the service provider.
-{: note}
+   The review might be automated based on the provider's chosen account policy, or it could take days if the provider has chosen to manually review their requests. If your request is permitted, you will receive notification and can then access the service. If your request is denied, contact the service provider.
+   {: note}
 
 1. In the Reserved IP section, select a reserved IP address. You can choose:
 
