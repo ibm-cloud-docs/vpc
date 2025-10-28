@@ -2,7 +2,7 @@
 
 copyright:
   years: 2021, 2025
-lastupdated: "2025-07-28"
+lastupdated: "2025-10-27"
 
 keywords:
 
@@ -220,7 +220,7 @@ To create an application load balancer from the CLI, follow these steps:
     Created            2020-08-27T14:34:34.732-05:00
     ```
     {: screen}
-
+    
 1. Create a pool:
 
     ```sh

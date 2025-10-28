@@ -2,7 +2,7 @@
 
 copyright:
   years: 2019, 2025
-lastupdated: "2025-10-14"
+lastupdated: "2025-10-28"
 
 keywords:
 
@@ -51,7 +51,7 @@ To configure an ACL in the {{site.data.keyword.cloud_notm}} console, follow thes
 
 1. Under Rules, click **Create +** to configure inbound and outbound rules that define what traffic is allowed in or out of the subnet. For each rule, specify the following information:
       * Select whether to allow or deny the specified traffic.
-      * Select the protocol to which the rule applies.
+      * Select the protocol to which the rule applies. For more information about using ICMP, TCP, and UDP protocols in your ACL rules, see [Understanding internet communication protocols](/docs/vpc?topic=vpc-understanding-icp#understanding-icp).
       * For the source and destination of the rule, specify the IP range and ports for which the rule applies. For example, if you want all inbound traffic to be allowed to the IP range `192.168.0.0/24` in your subnet, specify **Any** as the source and `192.168.0.0/24` as the destination. However, if you want to allow inbound traffic only from `169.168.0.0/24` to your entire subnet, specify `169.168.0.0/24` as the source and **Any** as the destination for the rule.
       * Specify the rule's priority. Rules with lower numbers are evaluated first and override rules with higher numbers. For example, if a rule with priority `2` allows HTTP traffic and a rule with priority `5` denies all traffic, HTTP traffic is still allowed.
       * Click **Create**.
