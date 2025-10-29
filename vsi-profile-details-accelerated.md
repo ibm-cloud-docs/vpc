@@ -2,7 +2,7 @@
 
 copyright:
   years: 2024, 2025
-lastupdated: "2025-10-22"
+lastupdated: "2025-10-29"
 
 keywords: vsi, virtual server, virtual server instances, profile, profiles, gpu, accelerated, h100, h200, l4, l40s
 
@@ -12,10 +12,10 @@ subcollection: vpc
 
 {{site.data.keyword.attribute-definition-list}}
 
-# Accelerated instance profiles - Gen 3
+# Accelerated (GPU) instance profiles - Gen 3
 {: #accelerated-profile-family}
 
-The accelerated family of profiles provides on-demand, cost-effective access to accelerators and GPUs. GPUs and accelerators help to accelerate the processing time that is required for compute intensive workloads such as AI, machine learning, inferencing, and more.
+The accelerated (GPU) family of profiles provides on-demand, cost-effective access to accelerators and GPUs for {{site.data.keyword.vsi_is_full}}. GPUs and accelerators help to accelerate the processing time that is required for compute intensive workloads such as AI, machine learning, inferencing, and more.
 {: shortdesc}
 
 ## AMD MI300X instance profiles
@@ -45,6 +45,8 @@ AMD MI300X accelerated virtual server profiles are available for select customer
 {: #amd-mi300x-availability}
 
 Status: Select Availability
+
+The following table lists the available regions and universal zones for the AMD MI300X profiles.
 
 | Region                    | Universal zone    |
 | ------------------------  | -------------     |
@@ -82,6 +84,8 @@ For more information about regions and universal zones, see [Regions](/docs/over
 
 ### Instance profiles
 {: #amd-mi300x-vsi-profiles}
+
+The following table lists the AMD MI300X profiles.
 
 | Instance profile | vCPU / Cores | Memory (GiB)  | Bandwidth cap (Gbps) | Accelerators | Instance storage (GB) |
 |---------|---------|---------|---------|---------|--------- |
@@ -135,6 +139,8 @@ The Intel Gaudi 3 accelerated virtual server profiles are built atop 128 GB OAM-
 
 Status: Select Availability
 
+The following table lists the available regions and universal zones for the Intel Gaudi 3 accelerated virtual server profiles.
+
 | Region                    | Universal zone    |
 | ------------------------  | -------------     |
 | us-south | `us-south-dal12-a`                 |
@@ -169,6 +175,8 @@ For more information about regions and universal zones, see [Regions](/docs/over
 
 ### Instance profiles
 {: #gaudi-3-vsi-profiles}
+
+The following tables lists the Intel Gaudi 3 accelerated virtual server profile.
 
 | Instance profile | vCPU / Cores | Memory (GiB)  | Bandwidth cap (Gbps) | Accelerators | Instance storage (GB) |
 |---------|---------|---------|---------|---------|--------- |
@@ -232,6 +240,8 @@ cluster throughput of 3.2 Tbps. The solution also provides RoCEv2 to support RDM
 
 Status: Select Availability
 
+The following table lists the available regions and universal zones for the Hopper-based Accelerated virtual server profiles are built atop NVIDIA H100 accelerators.
+
 | Region                    | Universal zone    | Cluster network |
 | ------------------------  | -------------     | --------------- |
 | Dallas (`us-south`)       | `us-south-dal10-a` | No             |
@@ -252,6 +262,8 @@ For more information about regions and universal zones, see [Regions](/docs/over
 {: #hopper-hgx-availability-H200}
 
 Status: Select Availability
+
+The following table lists the available regions and universal zones for the Hopper-based Accelerated virtual server profiles are built atop NVIDIA H200 accelerators.
 
 | Region                    | Universal zone    | Cluster network |
 | ------------------------  | -------------     | --------------- |
@@ -294,6 +306,8 @@ For more information about regions and universal zones, see [Regions](/docs/over
 
 ### Instance profiles
 {: #hopper-hgx-vsi-profiles}
+
+The following table lists the Hopper-based Accelerated virtual server profiles that are built atop NVIDIA H100 and H200 accelerators.
 
 | Instance profile | vCPU / Cores | Memory (GiB)  | Bandwidth cap (Gbps) | Dedicated cluster network bandwidth | Accelerators | Instance storage (GB) |
 |---------|---------|---------|---------|---------|--------- | ---------|
@@ -357,6 +371,8 @@ workloads. The solution is paired with the 4th Generation Intel® Xeon® Scalabl
 
 Status: Generally Available
 
+The following list is the available regions and universal zones for the virtual server profiles are built atop NVIDIA L4 accelerators.
+
 Regions:
 - Americas
    - Sao Paulo (`br-sao`)
@@ -394,6 +410,8 @@ Regions:
 
 ### Instance profiles
 {: #l4-vsi-profiles}
+
+The following table lists the virtual server profiles that are built atop NVIDIA L4 accelerators.
 
 |                | vCPUs / Cores | Memory (GiB) | Bandwidth Cap (Gbps) | Accelerators         |
 | -------------- | ------------- | ------------ | -------------------- | -------------------- |
@@ -443,6 +461,8 @@ Scalable processors.
 
 Status: Generally Available
 
+The following list is the available regions and universal zones for the L40s profiles are built atop NVIDIA L40s accelerators.
+
 Regions:
 - Americas
    - Sao Paulo (`br-sao`)
@@ -481,6 +501,8 @@ Regions:
 ### Instance profiles
 {: #l40s-vsi-profiles}
 
+The following list is the L40s profiles that are built atop NVIDIA L40s accelerators.
+
 | Instance profile  | vCPUs / Cores | Memory (GiB) | Bandwidth Cap (Gbps) | Accelerators           |
 | ----------------- | ------------- | ------------ | -------------------- | ---------------------- |
 | gx3-24x120x1l40s  | 24 / 12       | 120          | 48                   | 1x NVIDIA L40s (48 GB) |
@@ -500,7 +522,7 @@ attached. This limit is based on the size of the instance.
 | 49+             | 12          | 15        |
 {: caption="Accelerated L40s limits for vCPU, maximum volumes, and maximum network interfaces" caption-side="bottom"}
 
-## NVIDIA A100 instance profiles
+## NVIDIA A100 (GPU) instance profiles
 {: #a100-profiles}
 
 The A100 profiles are built atop NVIDIA A100 80 GB accelerators. These accelerators are tuned for
@@ -528,6 +550,8 @@ Scalable processors.
 {: #a100-availability}
 
 Status: Select Availability
+
+The following list is the available regions for the A100 profiles are built atop NVIDIA A100 80 GB accelerators.
 
 Regions:
 - Americas
@@ -561,6 +585,8 @@ Regions:
 
 ### Instance profiles
 {: #a100-vsi-profiles}
+
+The following list is the A100 profiles that are built atop NVIDIA A100 80 GB accelerators.
 
 | Instance profile  | vCPUs / Cores | Memory (GiB) | Bandwidth Cap (Gbps) | Accelerators           |Instance storage (GB) |
 | ----------------- | ------------- | ------------ | -------------------- | ---------------------- | -------------------- |
