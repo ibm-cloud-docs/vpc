@@ -2,7 +2,7 @@
 
 copyright:
   years: 2021, 2025
-lastupdated: "2025-10-07"
+lastupdated: "2025-10-29"
 
 keywords: image, virtual private cloud, boot volume, virtual server instance, instance
 
@@ -173,6 +173,8 @@ Use the command-line interface (CLI) to create an image from a volume that is at
 
 ### Schedule custom image lifecycle status changes by using the CLI
 {: #ifv-import-schedule-ilm-status-change-cli}
+
+
 
 When you create a custom image, you can also schedule the lifecycle status changes of the {{site.data.keyword.vpc_short}} custom image at the same time by using the  `--deprecate-at` or `--obsolete-at` options of the `ibmcloud is image-create` command.
 

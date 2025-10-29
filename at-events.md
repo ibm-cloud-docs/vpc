@@ -2,7 +2,7 @@
 
 copyright:
   years: 2019, 2025
-lastupdated: "2025-09-04"
+lastupdated: "2025-10-28"
 
 keywords:
 
@@ -42,7 +42,7 @@ You can use {{site.data.keyword.logs_full_notm}} to visualize and alert on event
 {: class="simple-tab-table"}
 {: row-headers}
 
-| Tokyo (`jp-tok`)    | Sydney (`au-syd`) |  Osaka (`jp-osa`) |
+| Tokyo (`jp-tok`)    | Sydney (`au-syd`) | Osaka (`jp-osa`) |
 |---------------------|------------------|------------------|
 | [Yes]{: tag-green} | [Yes]{: tag-green} | [Yes]{: tag-green} |
 {: caption="Regions where activity tracking events are sent in Asia Pacific locations" caption-side="top"}

@@ -1,8 +1,8 @@
 ---
 
 copyright:
-  years: 2018, 2024
-lastupdated: "2024-10-10"
+  years: 2018, 2025
+lastupdated: "2025-10-29"
 
 keywords:
 
@@ -67,6 +67,8 @@ Make sure that the {{site.data.keyword.cloud_notm}} CLI `vpc-infrastructure` plu
 | Update key.       | [`ibmcloud is key-update`](/docs/vpc?topic=vpc-vpc-reference&interface=cli#key-update) | After you update an existing key, the key is renamed immediately. |
 | Delete key.       | [`ibmcloud is key-delete`](/docs/vpc?topic=vpc-vpc-reference&interface=cli#key-delete) | After you remove an SSH key, it can no longer be used when you provision an instance or when you perform an OS reload on an existing instance. However, the key is still available on any instances that you previously provisioned with it, and you can use it to log in. |
 {: caption="SSH key actions" caption-side="bottom"}
+
+
 
 ## Managing SSH keys by using the API
 {: #managing-ssh-keys-by-using-the-api}

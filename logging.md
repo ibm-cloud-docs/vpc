@@ -2,7 +2,7 @@
 
 copyright:
   years: 2020, 2025
-lastupdated: "2025-09-10"
+lastupdated: "2025-10-28"
 
 keywords: flow logs, ordering, logging
 
@@ -25,9 +25,6 @@ You can use {{site.data.keyword.logs_full_notm}} to visualize and alert on platf
 ## Locations where platform logs are generated
 {: #log-locations}
 
-Until the {{site.data.keyword.logs_routing_full_notm}} service is available in Montreal, platform logs are delivered to the {{site.data.keyword.logs_full_notm}} instance configured for the Washington DC (`us-east`) region. Logs sent from Montreal include a `logSourceCRN` field such as `ca-mon`, `mon01`, `mon02`, or `mon03`. If an {{site.data.keyword.logs_routing_full_notm}} tenant is not configured in `us-east`, then you must [create a tenant in `us-east`](/docs/logs-router?topic=logs-router-tenant-create&interface=ui) to receive platform logs for the Montreal region.
-{: attention}
-
 ### Locations where logs are sent by {{site.data.keyword.logs_routing_full_notm}}
 {: #lr-locations}
 
@@ -45,9 +42,9 @@ Until the {{site.data.keyword.logs_routing_full_notm}} service is available in M
 {: class="simple-tab-table"}
 {: row-headers}
 
-| Tokyo (`jp-tok`)    | Sydney (`au-syd`) |  Osaka (`jp-osa`) |
-|---------------------|------------------|------------------|
-| [Yes]{: tag-green} | [Yes]{: tag-green} | [Yes]{: tag-green} |
+| Tokyo (`jp-tok`)    | Sydney (`au-syd`) | Osaka (`jp-osa`) | 
+|---------------------|------------------|------------------| 
+| [Yes]{: tag-green} | [Yes]{: tag-green} | [Yes]{: tag-green} | 
 {: caption="Regions where platform logs are sent in Asia Pacific locations" caption-side="top"}
 {: #lr-table-2}
 {: tab-title="Asia Pacific"}
