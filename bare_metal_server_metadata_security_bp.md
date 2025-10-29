@@ -2,7 +2,7 @@
 
 copyright:
   years: 2025, 2025
-lastupdated: "2025-08-29"
+lastupdated: "2025-10-29"
 
 keywords:
 
@@ -88,3 +88,6 @@ Consider the following options for controlling network traffic to your bare meta
 {: #metadata-compliance-bare-metal}
 
 [{{site.data.keyword.compliance_short}}](/docs/security-compliance?topic=security-compliance-getting-started) can help you monitor your VPC infrastructure to validate resource configurations in your account against a profile and identify potential issues as they arise.
+
+On 15 Dec 2025, {{site.data.keyword.compliance_short}} reaches end of support. The existing service instances become non-functional on that date. Start your transition now to {{site.data.keyword.compliance_short}} {{site.data.keyword.sysdigsecure_short}}, which is readily available and offers advanced cloud security posture management (CSPM). For more information, see [Transitioning to {{site.data.keyword.compliance_short}} {{site.data.keyword.sysdigsecure_short}}](/docs/security-compliance?topic=security-compliance-scc-transition).
+{: deprecated}

@@ -2,7 +2,7 @@
 
 copyright:
   years: 2019, 2025
-lastupdated: "2025-09-23"
+lastupdated: "2025-10-29"
 
 keywords:
 
@@ -141,6 +141,9 @@ For more information about data encryption, see [About data encryption for VPC](
 {{site.data.keyword.block_storage_is_short}} is integrated with the {{site.data.keyword.compliance_short}} to help you manage security and compliance for your organization. You can set up goals that check whether volumes are encrypted by using customer-managed keys. By using the {{site.data.keyword.compliance_short}} to validate the {{site.data.keyword.block_storage_is_short}} configurations in your account against a profile, you can identify potential issues as they arise.
 
 For more information about monitoring security and compliance for VPC, see [Getting started with Security and Compliance Center](/docs/security-compliance?topic=security-compliance-getting-started). For more information about creating security and compliance goals, see [Defining rules](/docs/security-compliance?topic=security-compliance-rules-define&interface=ui) in the Security and Compliance documentation.
+
+On 15 Dec 2025, {{site.data.keyword.compliance_short}} reaches end of support. The existing service instances become non-functional on that date. Start your transition now to {{site.data.keyword.compliance_short}} {{site.data.keyword.sysdigsecure_short}}, which is readily available and offers advanced cloud security posture management (CSPM). For more information, see [Transitioning to {{site.data.keyword.compliance_short}} {{site.data.keyword.sysdigsecure_short}}](/docs/security-compliance?topic=security-compliance-scc-transition).
+{: deprecated}
 
 ### Activity tracking events
 {: #bs-activity-tracking-events}

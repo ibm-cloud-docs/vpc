@@ -2,7 +2,7 @@
 
 copyright:
   years: 2024, 2025
-lastupdated: "2025-09-23"
+lastupdated: "2025-10-29"
 
 keywords: snapshots, File Storage, shares, restore share
 
@@ -78,6 +78,9 @@ You cannot schedule the creation of snapshots in this release.
 {: #fs-snapshots-manage-security}
 
 Because snapshots are created from {{site.data.keyword.filestorage_vpc_short}} shares, they share the encryption key. When a share is created from a Snapshot, your SCC-registered preference of allowing only Customer-Managed encryption is applicable. For more information, see [Getting started with Security and Compliance Center](/docs/security-compliance?topic=security-compliance-getting-started).
+
+On 15 Dec 2025, {{site.data.keyword.compliance_short}} reaches end of support. The existing service instances become non-functional on that date. Start your transition now to {{site.data.keyword.compliance_short}} {{site.data.keyword.sysdigsecure_short}}, which is readily available and offers advanced cloud security posture management (CSPM). For more information, see [Transitioning to {{site.data.keyword.compliance_short}} {{site.data.keyword.sysdigsecure_short}}](/docs/security-compliance?topic=security-compliance-scc-transition).
+{: deprecated}
 
 ### Activity tracking and auditing
 {: #fs-snapshots-at-events}
