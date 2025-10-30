@@ -37,7 +37,7 @@ The following table lists the methods and their changed paths for API requests t
 | Method   | Old path                            | New path                   |
 |----------|-------------------------------------|----------------------------|
 | `PUT`    | `/instance_identity/v1/token`       | `/identity/v1/token`       |
-| `POST`   | `/instance_identity/v1/iam_token`   | `/identity/v1/iam_token`  |
+| `POST`   | `/instance_identity/v1/iam_token`   | `/identity/v1/iam_tokens`  |
 | `POST`   | `/instance_identity/v1/certificates`| `/identity/v1/certificates`|
 {: caption="Methods and their changed paths for API requests that use a version query parameter of 2025-07-15 or later." caption-side="bottom"}
 

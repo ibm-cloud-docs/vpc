@@ -2,7 +2,7 @@
 
 copyright:
   years: 2022, 2025
-lastupdated: "2025-10-27"
+lastupdated: "2025-10-30"
 
 keywords:
 
@@ -106,7 +106,7 @@ Create or retrieve a trusted profile. You need either its ID or CRN.
 1. Use the identity token to [generate an IAM token](/docs/vpc?topic=vpc-imd-identity-operations#imd-token-exchange).
 
        ```sh
-       curl -X POST "$vpc_metadata_api_endpoint/identity/v1/iam_token?version=2025-06-10" -H "Authorization: Bearer $identity_token" -d '{"trusted_profile": {"id": "Profile-8dd84246-7df4-4667-94e4-8cede51d5ac5"}}'
+       curl -X POST "$vpc_metadata_api_endpoint/identity/v1/iam_tokens?version=2025-06-10" -H "Authorization: Bearer $identity_token" -d '{"trusted_profile": {"id": "Profile-8dd84246-7df4-4667-94e4-8cede51d5ac5"}}'
        ```
        {: pre}
 
