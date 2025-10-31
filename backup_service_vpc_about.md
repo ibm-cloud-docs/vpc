@@ -2,7 +2,7 @@
 
 copyright:
  years: 2022, 2025
-lastupdated: "2025-10-24"
+lastupdated: "2025-10-31"
 
 keywords: Backup, backup service, backup plan, backup policy, restore, restore volume, restore data
 
@@ -198,6 +198,9 @@ You can copy a Block storage backup from one region to another region, and later
 In the current release, cross regional copies of `sdp` volume snapshots are not supported if the source volume of the snapshot exceeds 10 TB.
 {: restriction}
 
+Currently, cross-regional copy of block storage snapshots is not supported in the Chennai region. It can't be selected as a source or target region.
+{: restriction}
+
 When a backup policy creates a job that includes a cross-regional copy, the service waits to initiate the request to create the copies in the target regions. The service start to create the copies after the source snapshot reached the _stable_ state.
 
 When you create a remote copy of the backup snapshot for the first time, that remote copy contains all the data of the parent volume. Subsequent copies can be incremental or full copies. 
@@ -247,8 +250,8 @@ Volume backups:
 * You can't take a backup of a detached volume.
 * You can't create a copy of a backup snapshot in the source (local) region. 
 * You can create a copy of a block storage backup in another region. However, only one copy of the backup snapshot can exist in each region.
-* Cross-regional copies are not supported in Montreal (`ca-mon`) MZR.
-* [Context-based restriction rules](#baas-cbr) are not supported in Montreal (`ca-mon`) MZR.
+* Cross-regional copies are not supported in Montreal (`ca-mon`) and Chennai (`in-che`) MZR.
+* [Context-based restriction rules](#baas-cbr) are not supported in Montreal (`ca-mon`) and Chennai (`in-che`) MZR.
 * Consistency groups consist of the attached Block Storage volumes of virtual server instances, such as boot and data volumes. Instance storage volumes and virtual server instance configuration are not included.
 * The fast restore feature is not supported for multi-volume backups of consistency groups.
 * In the current release of second-generation volumes, the following limitations apply.

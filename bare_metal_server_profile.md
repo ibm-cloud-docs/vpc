@@ -2,7 +2,7 @@
 
 copyright:
   years: 2021, 2025
-lastupdated: "2025-10-16"
+lastupdated: "2025-10-31"
 
 keywords:
 
@@ -232,6 +232,36 @@ See the following table to see what Generation 3 (x3) bare metal profiles are av
 {: class="simple-tab-table"}
 {: summary="Use the buttons before the table to change the context of the table. The column headers identify the hardware class."}
 
+
+| Profile |  in-che-che02-a | in-che-che02-b  | in-che-che02-c  |
+| ------- | ----------- | ---------- | ---------- |
+| mx3-metal-16x128   |   |   |   |
+| cx3-metal-48x128   |   |   |   |
+| cx3-metal-64x128   |   |   |   |
+| mx3d-metal-16x128   |   |   |   |
+| cx3d-metal-48x128   |   |   |   |
+| cx3d-metal-64x128   |   |   |   |
+| vx3-metal-16x256   |   |   |   |
+| bx3-metal-48x256   |   |   |   |
+| bx3-metal-64x256   |   |   |   |
+| vx3d-metal-16x256   | ![Checkmark icon](../icons/checkmark-icon.svg) | ![Checkmark icon](../icons/checkmark-icon.svg) | ![Checkmark icon](../icons/checkmark-icon.svg) |
+| bx3d-metal-48x256   | ![Checkmark icon](../icons/checkmark-icon.svg) | ![Checkmark icon](../icons/checkmark-icon.svg) | ![Checkmark icon](../icons/checkmark-icon.svg) |
+| bx3d-metal-64x256   | ![Checkmark icon](../icons/checkmark-icon.svg) | ![Checkmark icon](../icons/checkmark-icon.svg) | ![Checkmark icon](../icons/checkmark-icon.svg) |
+| ux3-metal-16x512   |   |   |   |
+| mx3-metal-48x512   |   |   |   |
+| mx3-metal-64x512   |   |   |   |
+| ux3d-metal-16x512   | ![Checkmark icon](../icons/checkmark-icon.svg) | ![Checkmark icon](../icons/checkmark-icon.svg) | ![Checkmark icon](../icons/checkmark-icon.svg) |
+| mx3d-metal-48x512   | ![Checkmark icon](../icons/checkmark-icon.svg) | ![Checkmark icon](../icons/checkmark-icon.svg) | ![Checkmark icon](../icons/checkmark-icon.svg) |
+| mx3d-metal-64x512   | ![Checkmark icon](../icons/checkmark-icon.svg) | ![Checkmark icon](../icons/checkmark-icon.svg) | ![Checkmark icon](../icons/checkmark-icon.svg) |
+| mx3d-metal-96x1024  |   |   |   |
+| mx3d-metal-128x1024   |   |   |   |
+| bx3d-metal-192x1024   |   |   |   |
+{: caption="Bare metal profiles availability by region" caption-side='top"}
+{: #bare-metal-profiles-ap-gen3}
+{: tab-title="Asia Pacific"}
+{: tab-group="profile-regions-gen3"}
+{: class="simple-tab-table"}
+{: summary="Use the buttons before the table to change the context of the table. The column headers identify the hardware class."}
 
 
 ## Generation 2 (x2) bare metal profiles availability by region

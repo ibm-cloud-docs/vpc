@@ -2,7 +2,7 @@
 
 copyright:
   years: 2024, 2025
-lastupdated: "2025-09-30"
+lastupdated: "2025-10-31"
 
 keywords: vsi, virtual server, virtual server instances, profile, profiles, gpu, very high memory, ultra high memory, high memory
 
@@ -43,7 +43,7 @@ single tenant hypervisors running workloads from a single {{site.data.keyword.cl
 {: #vhm-2-availability}
 
 - Status: Generally Available
-- Regions: All
+- Regions: All, except for Montreal and Chennai
 
 ### Capabilities
 {: #vhm-2-capabilities}

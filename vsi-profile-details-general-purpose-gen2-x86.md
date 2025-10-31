@@ -2,7 +2,7 @@
 
 copyright:
   years: 2024, 2025
-lastupdated: "2025-10-16"
+lastupdated: "2025-10-31"
 
 keywords: vsi, virtual server, virtual server instances, profile, profiles, balanced, compute, memory, dedicated host, gen 2, intel, amd
 
@@ -43,7 +43,7 @@ for single-tenant hypervisors running workloads from a single {{site.data.keywor
 {: #general-purpose-availability-gen2-intel}
 
 - Status: Generally available
-- Regions: All, except for Montreal 
+- Regions: All, except for Montreal and Chennai
 
 ### Capabilities
 {: #general-purpose-capabilities-gen2-intel}
