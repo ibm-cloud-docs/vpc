@@ -1,7 +1,7 @@
 ---
 copyright:
   years: 2021, 2025
-lastupdated: "2025-05-27"
+lastupdated: "2025-10-31"
 
 keywords: virtual private cloud, private cloud network, placement group, placement group strategy, host spread, power spread, generation 2, gen 2
 
@@ -91,6 +91,8 @@ Gather the following required information:
 | **Resource group ID** | The ID of the resource group |
 | **Resource group name** | The name of the resource group |
 {: caption="Information required to create a placement group using the CLI" caption-side="bottom"}
+
+
 
 ## Creating the placement group from the CLI
 {: #creating-placement-group-cli-a}

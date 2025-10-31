@@ -2,7 +2,7 @@
 
 copyright:
   years: 2020, 2025
-lastupdated: "2025-09-30"
+lastupdated: "2025-10-31"
 
 keywords:
 
@@ -52,6 +52,8 @@ and your [{{site.data.keyword.vpc_short}}](/docs/vpc?topic=vpc-creating-vpc-reso
 
 ### Gathering information to create an instance template
 {: #cli-options-instance-template-create}
+
+
 
 Ready to create an instance template? Before you can run the `ibmcloud is instance-template-create` command, you must gather the details that you need to include for your instance template and command options. For example, you need the ID or name of the VPC, and the name of the zone where the instance template is to be created. You also need the name of the instance profile that you want to use, and the ID or name of the subnet where the template is to be created.
 
