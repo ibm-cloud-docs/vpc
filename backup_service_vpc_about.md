@@ -250,8 +250,8 @@ Volume backups:
 * You can't take a backup of a detached volume.
 * You can't create a copy of a backup snapshot in the source (local) region. 
 * You can create a copy of a block storage backup in another region. However, only one copy of the backup snapshot can exist in each region.
-* Cross-regional copies are not supported in Montreal (`ca-mon`) and Chennai (`in-che`) MZR.
-* [Context-based restriction rules](#baas-cbr) are not supported in Montreal (`ca-mon`) and Chennai (`in-che`) MZR.
+* Cross-regional copies are not supported in Montreal (`ca-mon`) and Chennai (`in-che`) MZRs.
+* [Context-based restriction rules](#baas-cbr) are not supported in Montreal (`ca-mon`) and Chennai (`in-che`) MZRs.
 * Consistency groups consist of the attached Block Storage volumes of virtual server instances, such as boot and data volumes. Instance storage volumes and virtual server instance configuration are not included.
 * The fast restore feature is not supported for multi-volume backups of consistency groups.
 * In the current release of second-generation volumes, the following limitations apply.
