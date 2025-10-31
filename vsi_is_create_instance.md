@@ -2,7 +2,7 @@
 
 copyright:
   years: 2018, 2025
-lastupdated: "2025-10-17"
+lastupdated: "2025-10-31"
 
 keywords:
 
@@ -720,7 +720,7 @@ Use the following steps to create a virtual server instance from a bootable volu
        ZONE_NAME \
        PROFILE_NAME \
        SUBNET \
-       --boot-volume VOLUME_ID \
+       --boot-volume BOOT_VOLUME_JSON | @BOOT_VOLUME_JSON_FILE \
        --keys KEYS \
        --volume-attach VOLUME_ATTACH_JSON \
    ```
@@ -735,7 +735,7 @@ Use the following steps to create a virtual server instance from a bootable volu
        us-south-1\
        bx2-2x8\
        0717-198db988-3b9b-4cfa-9dec-0206420d37d0\
-       --boot-volume r006-feec3e99-995e-4e8f-896b-48b42c7d05a7\
+       --boot-volume '{"name": "boot-vol-attachment-name", "volume": {"id": "r006-feec3e99-995e-4e8f-896b-48b42c7d05a7"}}'\
        --keys r006-89ec781c-9630-4f76-b9c4-a7d204828d61\
        --volume-attach @/Users/myname/myvolume-attachment_create.json\
    ```
@@ -784,12 +784,12 @@ You can create a boot volume from a bootable [snapshot](/docs/vpc?topic=vpc-snap
 {: #create-instance-with-dynamic-storage-qos-cli}
 {: clii}
 
-Select [compute profiles](/docs/vpc?group=profile-details) support pooled bandwidth allocation for data volumes. For most compute profiles, the `--storage_qos_modes` property defaults to `weighted`. When `weighted` is used, the volume bandwidth is proportionally allocated between the data volumes. By specifying the `pooled` value, you enable dynamic bandwidth allocation. 
+Select [compute profiles](/docs/vpc?group=profile-details) support pooled bandwidth allocation for data volumes. For most compute profiles, the `--volume-bandwidth-qos-mode` property defaults to `weighted`. When `weighted` is used, the volume bandwidth is proportionally allocated between the data volumes. By specifying the `pooled` value, you enable dynamic bandwidth allocation. 
 
-The following example uses the `ibmcloud is instance-create` command to create the virtual server instance and specifies the option `--storage_qos_modes` with the value `pooled`. 
+The following example uses the `ibmcloud is instance-create` command to create the virtual server instance and specifies the option `--volume-bandwidth-qos-mode` with the value `pooled`. 
 
 ```sh
-ibmcloud is instance-create my-virtual-server my-vpc us-south-2 cx3d-8x20 my-subnet --image r006-534ef2ac-6158-45b3-9657-57629fa85305 --keys r006-68f8333a-1169-42da-ba01-75268bac8362 --volume-attach @/Users/myname/myvolume-attachment.json --storage_qos_modes pooled
+ibmcloud is instance-create my-virtual-server my-vpc us-south-2 cx3d-8x20 my-subnet --image r006-534ef2ac-6158-45b3-9657-57629fa85305 --keys r006-68f8333a-1169-42da-ba01-75268bac8362 --volume-attach @/Users/myname/myvolume-attachment.json --volume-bandwidth-qos-mode pooled
 ```
 {: pre}
 
@@ -874,6 +874,8 @@ For example, the following `instance-create` command uses the sample values that
       * IMAGE: Debian 11 image `r006-f83ce520-00b5-40c5-9938-a5c82a273f91`
       * KEYS: `r006-89ec781c-9630-4f76-b9c4-a7d204828d61`
 
+
+
 ### Create an instance with secure boot
 {: #create-instance-secure-boot-cli}
 {: cli}
@@ -928,6 +930,8 @@ For example, the following `instance-create` command uses the sample values that
       * SUBNET: `0717-198db988-3b9b-4cfa-9dec-0206420d37d0`
       * IMAGE: Debian 11 image `r006-f83ce520-00b5-40c5-9938-a5c82a273f91`
       * KEYS: `r006-89ec781c-9630-4f76-b9c4-a7d204828d61`
+
+
 
 ## Next steps after an instance is created from the CLI
 {: #next-step-after-creating-virtual-servers-cli}

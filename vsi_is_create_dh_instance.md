@@ -1,8 +1,8 @@
 ---
 
 copyright:
-  years: 2020, 2024
-lastupdated: "2024-10-10"
+  years: 2020, 2025
+lastupdated: "2025-10-31"
 
 keywords: dedicated host instance, instance on vpc dedicated host, create instance on dedicated host
 
@@ -89,11 +89,12 @@ The following example command creates a dedicated host with the following parame
 * Dedicated group `0076-edf611ff-0fd6-44bf-b5f3-102eeb3cf928`
 
 ```sh
-ibmcloud is instance-create my-instance-name r006-e49dbfc6-03b5-4609-b680-684311be5457 us-south-1 mx2-2x16 0076-2249dabc-8c71-4a54-bxy7-953701ca3999 --image-id r006-72b27b5c-f4b0-48bb-b954-5becc7c1dcb8 --key-ids r006-c23faac2-5983-428c-91b8-2959620e1b96 --dedicated-host-group 0076-edf611ff-0fd6-44bf-b5f3-102eeb3cf928
+ibmcloud is instance-create my-instance-name r006-e49dbfc6-03b5-4609-b680-684311be5457 us-south-1 mx2-2x16 0076-2249dabc-8c71-4a54-bxy7-953701ca3999 --image-id r006-72b27b5c-f4b0-48bb-b954-5becc7c1dcb8 --keys r006-c23faac2-5983-428c-91b8-2959620e1b96 --dedicated-host-group 0076-edf611ff-0fd6-44bf-b5f3-102eeb3cf928
 ```
 {: pre}
 
 For a full list of command options, see [ibmcloud is instance-create](/docs/vpc?topic=vpc-vpc-reference#instance-create).
+
 
 ## Creating instances on dedicated hosts by using the API
 {: #creating-dedicated-instance-api}
