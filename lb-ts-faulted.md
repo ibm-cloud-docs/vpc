@@ -2,7 +2,7 @@
 
 copyright:
   years: 2019, 2025
-lastupdated: "2025-09-12"
+lastupdated: "2025-11-01"
 
 keywords: load balancer, network, faqs
 
@@ -25,7 +25,7 @@ Use the information in this topic to troubleshoot a back-end member in your pool
 The back-end member under your pool displays a status of `faulted`.
 {: tsSymptoms}
 
-The `faulted` status suually results from a misconfigured back-end pool.
+The `faulted` status usually results from a misconfigured back-end pool.
 {: tsCauses}
 
 Verify the following configurations:

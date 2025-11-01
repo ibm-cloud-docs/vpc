@@ -2,7 +2,7 @@
 
 copyright:
   years: 2018, 2025
-lastupdated: "2025-07-13"
+lastupdated: "2025-11-01"
 
 subcollection: vpc
 
@@ -64,7 +64,20 @@ This system is not registered with an entitlement server.
 ```
 {: pre}
 
-Your REHL virtual server instance was unregistered from the capsule server. To resolve this issue, run the `reregister-ng-rhel-vsi.sh` script to reregister the virtual server instance.
+Your REHL virtual server instance was unregistered from the capsule server. To resolve this issue:
+
+1. Create an empty file in `/tmp` folder of your server: `touch reregister-ng-rhel-vsi.sh`.
+Copy and Paste the code in the following section [Script to reregister an RHEL virtual server instance](link TBD). 
+1. Edit the script and add to the file: `vi reregister-ng-rhel-vsi.sh`.
+1. Run the script: `chmod +x reregister-ng-rhel-vsi.sh` and `./reregister-ng-rhel-vsi.sh`.
+1. If the script fails, provide the following parameters to support:
+    *	capsule hostname
+    *	organization
+    *	activation key
+    *	profile name
+
+### Script to reregister an RHEL virtual server instance
+{: #script-reregister-RHEL-VSI}
 
 ```sh
 #!/bin/bash
@@ -124,17 +137,6 @@ echo "Registering system..."
 subscription-manager register --org="${organization}" --activationkey="${activationKey}" --force
 ```
 {: screen}
-
-
-To run the script:
-1. chmod +x reregister-ng-rhel-vsi.sh
-2. ./reregister-ng-rhel-vsi.sh
-
-If the script fails, provide the following parameters:
-*	capsule hostname
-*	organization
-*	activation key
-*	profile name
 
 
 
