@@ -20,7 +20,7 @@ Known issues are identified bugs or unexpected behaviors that were not fixed bef
 
 Known issues for {{site.data.keyword.alb_full}} (ALB) are as follows: 
 
-* Two members with the same instance X and same port Y cannot exist at the same time for an ALB. This means that adding two members with the same server port to an NLB is not allowed. This case is not supported and your traffic might not be routed correctly.
+* Two members with the same instance X and same port Y cannot exist at the same time for an ALB. This means that adding two members with the same server port to an ALB is not allowed. This case is not supported and your traffic might not be routed correctly.
 
 * The default load balancer quota is 50 per region. To increase the number, you must [create a support case](/docs/account?topic=account-open-case).
 
