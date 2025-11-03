@@ -2,7 +2,7 @@
 
 copyright:
   years: 2018, 2025
-lastupdated: "2025-11-01"
+lastupdated: "2025-11-03"
 
 subcollection: vpc
 
@@ -195,10 +195,26 @@ To troubleshoot and resolve the issue by using the SysRq key from the serial con
    {: pre}
 
 1. Send a SysRq command from the serial console. The following example starts a kernel crash dump (kdump).
-  
+
+   Before you begin:
+
+      To trigger a crash dump, make sure that the `crashkernel` is configured on the Linux virtual server instance. For instructions, see the [Kernel crash dump mechanism](https://documentation.ubuntu.com/server/kernel-crash-dump/).
+
    1. Press the **Enter** key.
-   1. Press `~B` (tilde key followed by uppercase B key).
-   1. Press `c` (lowercase c) starts a kernel crash dump (kdump).
+   1. Press the `~` (tilde) key.
+
+      For AZERTY Keyboards: Press the `Alt Gr` key + the `2` key to type the `~` key.
+      {: note}
+
+   1. Press `B` (uppercase B key).
+   1. Press `c` (lowercase c), which starts a kernel crash dump (kdump).
+
+   Notes about using SysRq commands:
+
+   - Press and release each key individually. Don't hold any of the keys down.
+   - The entire sequence must be completed within 5 seconds, otherwise the SysRq commands aren't detected on the serial console.
+   - When typing this sequence, the characters you type won't appear on the serial console. The system treats them as break sequence characters. Normal console typing resumes after the sequence is completed or if the sequence times out or encounters an invalid character.
+   - If the sequence times out (takes longer than 5 seconds) or an invalid break sequence character is pressed, restart the process from step 1.
 
    Example:
 
@@ -206,8 +222,6 @@ To troubleshoot and resolve the issue by using the SysRq key from the serial con
    ENTER + ~ + B + c
    ```
    {: pre}
-
-   To trigger a crash dump, make sure that the `crashkernel` is configured on the Linux virtual server instance. For instructions, see the [Kernel crash dump mechanism](https://documentation.ubuntu.com/server/kernel-crash-dump/).
 
 1. Analyze diagnostic output. For example, the previous SysRq kernel crash dump generates crucial diagnostic data that you can analyze. By sending relevant SysRq commands, you can collect valuable diagnostic data for troubleshooting and regaining control of the system.
 
