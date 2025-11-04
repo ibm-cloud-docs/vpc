@@ -2,7 +2,7 @@
 
 copyright:
   years: 2019, 2025
-lastupdated: "2025-10-28"
+lastupdated: "2025-11-04"
 
 keywords:
 subcollection: vpc
@@ -14,7 +14,7 @@ subcollection: vpc
 # Planning considerations for VPN gateways
 {: #planning-considerations-vpn}
 
-Before creating a VPN gateway, review applicable planning considerations, configuration requirements, and other guidelines. 
+Before creating a VPN gateway, review applicable planning considerations, configuration requirements, and other guidelines.
 
 ## General considerations
 {: #general-considerations-vpn}
