@@ -2,7 +2,7 @@
 
 copyright:
   years: 2020, 2025
-lastupdated: "2025-06-27"
+lastupdated: "2025-11-04"
 
 keywords: pricing, billing, suspended billing, suspended virtual server, suspend billing
 
@@ -38,7 +38,7 @@ Review the following table for details on how suspended billing impacts various 
 | Storage                       |                   |         Persists        |
 {: caption="Resource billing details" caption-side="bottom"}
 
-Usage times are calculated per second, for both the in use time and suspended time of your virtual server instance. Even if you never initiate the suspend billing feature by powering off your instance, the billing is calculated per second of the instance's lifecycle. No minimum usage requirement exists for an instance.
+Usage times are calculated per second, for both the in-use time and suspended time of your virtual server instance. Even if you never initiate the suspend billing feature by powering off your instance, the billing is calculated per second of the instance's lifecycle. No minimum usage requirement exists for an instance.
 {: note}
 
 ### Suspend billing and sustained usage discounts

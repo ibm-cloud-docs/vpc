@@ -2,7 +2,7 @@
 
 copyright:
   years: 2019, 2025
-lastupdated: "2025-09-30"
+lastupdated: "2025-11-04"
 
 keywords: api, change log, new features, restrictions, migrations
 
@@ -53,6 +53,38 @@ At this time, all instances, and therefore all instance templates, continue to r
 
 The new response code will be rolled out gradually. Each phase of the rollout will be tied to a dated API version. These changes will be announced in future change log updates.
 {: note}
+
+## 4 November 2025
+{: #4-November-2025}
+
+### For all version dates
+{: #4-november-2025-all-version-dates}
+
+**Dynamic routing for route-mode VPN gateway connections.** Route-mode VPN gateways now support connections with dynamic routing by learning from BGP. When [creating a connection](/apidocs/vpc/latest#create-vpn-gateway-connection) for a VPN gateway with `mode` set to `route`, you can now specify the `routing_protocol` property as `bgp` to enable dynamic exchange of routes over the connection. When creating a dynamic route-mode connection with `routing_protocol` set to `bgp`:
+
+- Use the `peer.asn` property to specify the peer ASN for the VPN gateway connection.
+- Use the `tunnels` property to configure the tunnels for the VPN gateway connection.
+
+You can also [update a VPN connection](/apidocs/vpc/latest#update-vpn-gateway-connection), to switch between static and dynamic routing by changing the `routing_protocol` value to `none` (static) or `bgp` (dynamic).
+
+Existing route-mode VPN gateway connections will have `routing_protocol` set to `none`.
+{: note}
+
+For more information, see [Adding connections to a VPN gateway](/docs/vpc?topic=vpc-vpn-adding-connections&interface=api).
+
+When [creating a VPN gateway](/apidocs/vpc/latest#create-vpn-gateway) with `mode` set to `route`, you can now specify:
+
+- `local_asn` to set the local autonomous system number for this VPN gateway and its connections. If unspecified, `64520` is used.
+- `advertised_cidrs` to add CIDRs advertised as route destinations through BGP.
+
+You can [update a VPN gateway](/apidocs/vpc/latest#update-vpn-gateway) to modify its `local_asn`. To update the `advertised_cidrs`, use the new [add](/apidocs/vpc/latest#add-vpn-gateway-advertised-cidrs) and [remove](/apidocs/vpc/latest#remove-vpn-gateway-advertised-cidrs) methods.
+
+Existing route-mode VPN gateways will have the `local_asn` property set to `64520`, and the `advertised_cidrs` array will be empty.
+{: note}
+
+For more information, see [Creating a VPN gateway](/docs/vpc?topic=vpc-vpn-create-gateway).
+
+**VPN gateway service connections.** You can now [retrieve](/apidocs/vpc/latest#get-vpn-gateway-service-connection) or [list](/apidocs/vpc/latest#list-vpn-gateway-service-connections) service connections for a VPN gateway. Service connections are created by services, such as Transit Gateway, and facilitate the propagation of routes learned from VPN gateway peer connections to the connected service.
 
 ## 30 September 2025
 {: #30-september-2025}
