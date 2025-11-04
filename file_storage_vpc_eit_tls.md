@@ -2,7 +2,7 @@
 
 copyright:
   years: 2025, 2025
-lastupdated: "2025-09-26"
+lastupdated: "2025-11-04"
 
 keywords: file share, file storage, encryption in transit, Mount Helper, TLS, NFS over TLS, secure connection, mount share
 
@@ -45,7 +45,7 @@ To use the feature, the following requirements need to be met:
 ## Mounting the file share with stunnel
 {: #file-storage-vpc-eit-stunnel-manual-setup-mount}
 
-1. Use the following command syntax to mount the share. Replace the mountpath with the information that is specific to your file share.
+1. Use the following command syntax to mount the share. Replace the mount path with the information that is specific to your file share.
 
    ```sh
    mount -t ibmshare -o stunnel 10.0.0.1:/MOUNT_PATH /mnt/MOUNT_PATH

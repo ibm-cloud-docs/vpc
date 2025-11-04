@@ -2,7 +2,7 @@
 
 copyright:
   years: 2025, 2025
-lastupdated: "2025-09-25"
+lastupdated: "2025-11-04"
 
 keywords: load balancer, network, faqs
 
@@ -14,7 +14,7 @@ content-type: troubleshoot
 
 {{site.data.keyword.attribute-definition-list}}
 
-# Why can't I create a HTTPS listener on a load balancer using a public certificate stored in IBM Cloud Secrets Manager?
+# Why can't I create an HTTPS listener on a load balancer using a public certificate stored in IBM Cloud Secrets Manager?
 {: #troubleshoot-lb-https-listener}
 {: troubleshoot}
 {: support}
@@ -65,4 +65,3 @@ Follow these steps to resolve this issue:
 1. Provision a new Secrets Manager instance. During provisioning, select **Public and private** for the Endpoints option.
 1. Migrate the certificate to the new instance if needed.
 1. Retry the HTTPS listener creation with the new Secrets Manager CRN.
-

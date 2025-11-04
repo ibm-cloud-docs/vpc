@@ -62,7 +62,7 @@ To verify connectivity to a Private Path service from the CLI, follow these step
 
 To verify connectivity to a Private Path service with the API, follow these steps:
 
-1. Follow [these instructions](/docs/vpc?topic=vpc-ordering-endpoint-gateway&interface=api)to create a VPE with `TargetCrn` specified with your Private Path service CRN.
+1. Follow [these instructions](/docs/vpc?topic=vpc-ordering-endpoint-gateway&interface=api) to create a VPE with `TargetCrn` specified with your Private Path service CRN.
 1. Ensure that at least one of your load balancer's members health is shown as `ok`.
 1. From a VSI in the same VPE's VPC, initiate a request to the VPE's `private IP` or `service_endpoint` and expect to get a reply. For example, SSH into a VSI in the same VPE's VPC with image `ibm-ubuntu-18-04-6-minimal-s390x-3`. Then run this command:
 

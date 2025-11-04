@@ -157,7 +157,7 @@ The instance storage disks can be partitioned, formatted with a file system, and
 * For instructions for Linux&reg;, see [Set up your {{site.data.keyword.block_storage_is_short}} data volume for use (Linux)](/docs/vpc?topic=vpc-start-using-your-block-storage-data-volume-lin) or [Configuring a single disk instance storage by using the cloud-config script](/docs/vpc?topic=vpc-user-data#configure-instance-storage-cloud-config).
 * For Windows&reg;, use the Computer Management UI to bring a block volume online, partition, and format it. For more information, see [Set up your {{site.data.keyword.block_storage_is_short}} data volume for use (Windows)](/docs/vpc?topic=vpc-start-using-your-block-storage-data-volume-win).
 
-The following `lsblk` example shows the output after logging into a `bx3d-48x240` instance and partitioning `vdc` into two primary partitions, formatting them with separate file systems, and mounting them. The `grep` command with reqular expression is used to filter the output to just the vdb and vdc devices obtained through the Metadata service (refer to the prior section).
+The following `lsblk` example shows the output after logging into a `bx3d-48x240` instance and partitioning `vdc` into two primary partitions, formatting them with separate file systems, and mounting them. The `grep` command with regular expression is used to filter the output to just the vdb and vdc devices obtained through the Metadata service (refer to the prior section).
 
 ```sh
 $ lsblk | grep -E "NAME|vd[b|c]"

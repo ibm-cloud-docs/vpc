@@ -2,7 +2,7 @@
 
 copyright:
   years: 2019, 2025
-lastupdated: "2025-09-08"
+lastupdated: "2025-11-04"
 
 keywords: vpc, Block Storage, Block Storage for vpc, mounting storing, attaching Block Storage, vpc instance, data volumes
 
@@ -106,7 +106,7 @@ ibmcloud is instance-volume-attachment-add NAME INSTANCE_ID VOLUME_ID [--auto-de
 
 `NAME` is the name that you provide for the volume attachment and INSTANCE_ID is the ID of the virtual server instance. The `VOLUME_ID` specifies the volume that you are attaching. If you want the volume to automatically delete when the virtual server instance is deleted, specify `--auto-delete true`.
 
-To see a list of available virtual server instances, run the `ibmcloud is instances` command. Check out the following example.
+To see a list of available virtual server instances, run the `ibmcloud is instances`command. Check out the following example.
 
 ```sh
 ibmcloud is instances

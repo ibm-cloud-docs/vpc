@@ -2,7 +2,7 @@
 
 copyright:
   years: 2024, 2025
-lastupdated: "2025-09-23"
+lastupdated: "2025-11-04"
 
 keywords: snapshots, File storage snapshots, manage snapshots, backup snapshot, remote copy, cross-regional copy
 
@@ -245,7 +245,7 @@ Use the following steps to delete a single snapshot by using the CLI.
    ```
    {: screen}
 
-For more information about available command options, [`ibmcloud is snaphot-delete`](/docs/vpc?topic=vpc-vpc-reference#snapshot-delete).
+For more information about available command options, [`ibmcloud is snapshot-delete`](/docs/vpc?topic=vpc-vpc-reference#snapshot-delete).
 
 ## Deleting snapshots with the API
 {: #fs-snapshots-delete-snapshot-api}

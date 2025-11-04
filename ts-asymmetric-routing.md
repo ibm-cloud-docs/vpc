@@ -2,7 +2,7 @@
 
 copyright:
   years: 2023, 2025
-lastupdated: "2025-06-12"
+lastupdated: "2025-11-04"
 
 keywords: asymmetric routing, troubleshooting
 
@@ -39,4 +39,4 @@ Packets are dropped when the return path takes a route that is different then th
 Force traffic in both directions through the same firewall-router.
 {: tsResolve}
 
-For more information about asymemtric routing solutions, see [Centralize communication through a VPC Transit Hub and Spoke architecture - Part one](/docs/solution-tutorials?topic=solution-tutorials-vpc-transit1) and [Centralize communication through a VPC Transit Hub and Spoke architecture - Part two](/docs/solution-tutorials?topic=solution-tutorials-vpc-transit2).
+For more information about asymmetric routing solutions, see [Centralize communication through a VPC Transit Hub and Spoke architecture - Part one](/docs/solution-tutorials?topic=solution-tutorials-vpc-transit1) and [Centralize communication through a VPC Transit Hub and Spoke architecture - Part two](/docs/solution-tutorials?topic=solution-tutorials-vpc-transit2).

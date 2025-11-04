@@ -2,7 +2,7 @@
 
 copyright:
   years: 2024, 2025
-lastupdated: "2025-07-30"
+lastupdated: "2025-11-04"
 
 keywords: cluster profiles, cluster network, cluster-network, cluster network profile, cluster network profiles, gpu, nvidia, hopper-1, rdma, roce, accelerated, rocev2, accelerated network
 
@@ -39,7 +39,7 @@ Currently, use of the Hopper-1 cluster network profile is available to select cu
 | Frankfurt (`eu-de`)       | eu-de-2       | Yes             |
 | London (`eu-gb`)          | Not available | No              |
 | Madrid (`eu-es`)          | Not available | No              |
-| Montreal (`ca-mon`)       | Not availabe  | No              |
+| Montreal (`ca-mon`)       | Not available  | No              |
 | Osaka (`jp-osa`)          | Not available | No              |
 | Sao Paulo (`br-sao`)      | Not available | No              |
 | Sydney (`au-syd`)         | Not available | No              |

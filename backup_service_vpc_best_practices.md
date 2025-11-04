@@ -2,7 +2,7 @@
 
 copyright:
   years: 2022, 2025
-lastupdated: "2025-09-19"
+lastupdated: "2025-11-04"
 
 keywords: Backup for VPC, backup service, backup plan, backup policy, restore, restore volume, restore data
 
@@ -85,7 +85,7 @@ Create a weekly backup plan for archived data:
 
    * Set a longer retention period to have multiple copies of your archive volume. For weekly backups, you might want to retain the backups for a month.
 
-   * Add a remote region copy to keep data in separate location. Even if the volume is over 3 TB, your next snaphot copy is an incremental snapshot that contains the changes from the previous week.
+   * Add a remote region copy to keep data in separate location. Even if the volume is over 3 TB, your next snapshot copy is an incremental snapshot that contains the changes from the previous week.
 
 If you specify both age and the number of backups in your retention policy, age takes priority in determining when to delete a snapshot. The count applies only if the oldest snapshot is within the age range.
 

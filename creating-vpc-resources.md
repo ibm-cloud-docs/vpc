@@ -2,7 +2,7 @@
 
 copyright:
   years: 2018, 2025
-lastupdated: "2025-10-16"
+lastupdated: "2025-11-04"
 
 keywords:
 
@@ -828,7 +828,7 @@ You can't get the ID of the primary network interface until you query the specif
 ### (Optional) Creating and attaching a Block Storage data volume
 {: #create-and-attach-storage-api-tutorial}
 
-You can create a Block Storage data volume and attach it to your virtual server instance as auxiliary storage. Create a data volume with a request similar to this example. This procedure shows the volume profiles, crreates a volume, saves the volume ID in a variable, checks the status of the volume, and then creates the volume attachment.
+You can create a Block Storage data volume and attach it to your virtual server instance as auxiliary storage. Create a data volume with a request similar to this example. This procedure shows the volume profiles, creates a volume, saves the volume ID in a variable, checks the status of the volume, and then creates the volume attachment.
 
 Show a list of volume profiles:
 

@@ -556,7 +556,7 @@ Images that are used to create virtual server instances or to [create instance t
 
 When [retrieving an instance](/apidocs/vpc/latest#get-instance) that was provisioned with a billed catalog offering, the new `catalog_offering.plan.crn` property provides the associated billing plan.
 
-**Enhancements to volumes and shapshots in support of catalog offering plans.** When [retrieving a volume](/apidocs/vpc/latest#get-volume) that was originally provisioned as a boot volume from an instance with a [billed catalog offering](/docs/vpc?topic=vpc-getting-started-images-on-vpc-catalog&interface=ui#images-on-vpc-catalog-images), the response now includes both `catalog_offering.version.crn` and `catalog_offering.plan.crn` properties. The response includes the same properties when [retrieving a snapshot](/apidocs/vpc/latest#get-snapshot) with a `source_volume` that had those properties.
+**Enhancements to volumes and snapshots in support of catalog offering plans.** When [retrieving a volume](/apidocs/vpc/latest#get-volume) that was originally provisioned as a boot volume from an instance with a [billed catalog offering](/docs/vpc?topic=vpc-getting-started-images-on-vpc-catalog&interface=ui#images-on-vpc-catalog-images), the response now includes both `catalog_offering.version.crn` and `catalog_offering.plan.crn` properties. The response includes the same properties when [retrieving a snapshot](/apidocs/vpc/latest#get-snapshot) with a `source_volume` that had those properties.
 
 ## 28 May 2024
 {: #28-may-2024}
@@ -1349,7 +1349,7 @@ For more information about this feature, see [Bandwidth allocation for instance 
 
 **Block storage volumes:**
 
-- **Adjustable IOPS.** To manage the performance the your data volumes attached to running virtual server instances, use the [update volume](/apidocs/vpc/latest#update-volume) method to specify a different tiered `profile` value, or a different `iops` value within the [custom IOPS](/docs/vpc?topic=vpc-block-storage-profiles&interface=api#custom) tier. For more information, see [Adjusting IOPS for block storage volumes](/docs/vpc?topic=vpc-adjusting-volume-iops&interface=api).
+- **Adjustable IOPS.** To manage the performance of the data volumes attached to running virtual server instances, use the [update volume](/apidocs/vpc/latest#update-volume) method to specify a different tiered `profile` value, or a different `iops` value within the [custom IOPS](/docs/vpc?topic=vpc-block-storage-profiles&interface=api#custom) tier. For more information, see [Adjusting IOPS for block storage volumes](/docs/vpc?topic=vpc-adjusting-volume-iops&interface=api).
 
 - **Expandable volumes.** You can now expand a secondary volume attached to a running virtual server instance. Use the `capacity` property in the [update volume](/apidocs/vpc/latest#update-volume) method to request a new volume capacity, up to 16 TB (depending on the volume's profile).  While the volume's capacity is being updated, the volume will remain available for use, but will have a `status` value of `updating`. For more information, see [Expanding block storage volume capacity](/docs/vpc?topic=vpc-expanding-block-storage-volumes).
 

@@ -2,7 +2,7 @@
 
 copyright:
   years: 2018, 2025
-lastupdated: "2025-09-26"
+lastupdated: "2025-11-04"
 
 
 keywords: load balancer, public, listener, back-end, front-end, pool, round-robin, weighted, connections, methods, policies, APIs, access, ports, vpc network, layer 7, auto scale, managed pool, instance group
@@ -107,7 +107,7 @@ Yes, the load balancer supports layer 7 switching.
 {: #timeout-value-alb}
 {: faq}
 
-Yes, a customer can modify their ALB's client and server timeout value by modifying the front-end-listener's timeout value from the portal. The timeout value range is between 50 to 7200 seconds. To modify an ALB in the IBM Cloud console, log in to the [{{site.data.keyword.cloud_notm}} console](/login){: external}. Select the **Navigation menu** ![Menu icon](../icons/icon_hamburger.svg), then click **Infrastructure** ![VPC icon](../../icons/vpc.svg) > **Network** > **Load balancers** from the Network section. Click the name of the load balancer that you want to edit, then select the Front-end listener tab. Click the Actions menu ![Actions menu](../icons/action-menu-icon.svg "Actions") next to the Front-end listener that you want to dedit, then select **Edit**. Set the desired Timeout value (range from 50 to 7200 seconds).
+Yes, a customer can modify their ALB's client and server timeout value by modifying the front-end-listener's timeout value from the portal. The timeout value range is between 50 to 7200 seconds. To modify an ALB in the IBM Cloud console, log in to the [{{site.data.keyword.cloud_notm}} console](/login){: external}. Select the **Navigation menu** ![Menu icon](../icons/icon_hamburger.svg), then click **Infrastructure** ![VPC icon](../../icons/vpc.svg) > **Network** > **Load balancers** from the Network section. Click the name of the load balancer that you want to edit, then select the Front-end listener tab. Click the Actions menu ![Actions menu](../icons/action-menu-icon.svg "Actions") next to the Front-end listener that you want to edit, then select **Edit**. Set the desired Timeout value (range from 50 to 7200 seconds).
 
 ## Why does HTTPS listener creation or update tell me that my certificate is invalid?
 {: #why-does-https-listener-creation-or-update-tell-me-that-my-certificate-is-invalid}
@@ -170,4 +170,4 @@ Yes, it is possible to attach the same backend member with the same port on two 
 {: #backend-member-same-port-one-albs}
 {: faq}
 
-No, it is not possible to attach the same backend member with the same port on a single ALB, even if you try to attach via different pools on that ALB. You can attach the same backend member with different ports, or you can attach different backemd members with the same ports.
+No, it is not possible to attach the same backend member with the same port on a single ALB, even if you try to attach via different pools on that ALB. You can attach the same backend member with different ports, or you can attach different backend members with the same ports.

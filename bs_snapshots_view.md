@@ -2,7 +2,7 @@
 
 copyright:
   years: 2021, 2025
-lastupdated: "2025-10-09"
+lastupdated: "2025-11-04"
 
 keywords: view snapshots, view snapshot, viewing snapshots, see snapshots, Block Storage snapshots
 
@@ -421,7 +421,7 @@ For more information about available command options, see [`ibmcloud is snapshot
 ### Viewing details of a remote region snapshot copy from the CLI
 {: #snapshots-regional-copy-details-cli}
 
-You can run the `ibmcloud is snaphot` command to list the details about a specific remote region snapshot copy. The following example shows how to list the details of the remote region snapshot (`my-cli-snapshot-crc`) that is in the `us-south` region. The response provides information about the parent snapshot (`cli-snap-crc-test`), the parent volume, and the backup policy that created the snapshot as well.
+You can run the `ibmcloud is snapshot` command to list the details about a specific remote region snapshot copy. The following example shows how to list the details of the remote region snapshot (`my-cli-snapshot-crc`) that is in the `us-south` region. The response provides information about the parent snapshot (`cli-snap-crc-test`), the parent volume, and the backup policy that created the snapshot as well.
 
 ```sh
 ibmcloud is snapshot my-cli-snapshot-crc

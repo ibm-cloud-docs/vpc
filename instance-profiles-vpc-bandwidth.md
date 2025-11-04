@@ -2,7 +2,7 @@
 
 copyright:
   years: 2021, 2023
-lastupdated: "2025-09-30"
+lastupdated: "2025-11-04"
 
 keywords: compute, virtual private cloud, virtual server instance, instance, bandwidth
 
@@ -46,7 +46,7 @@ For example, to allow more volume bandwidth, you might apportion the previous ex
 
 By default, most virtual server instances are provisioned with the _weighted_ QoS setting. The volume bandwidth available to the instance is apportioned per volume. The bandwidth is assigned to each volume, not shared between volumes. For example, if four identical volumes are attached to an instance, then each volume is allocated one fourth of the overall volume bandwidth. A volume can use the bandwidth that is allocated to it, even if it is the only volume that is being used. The volume in use can't access the bandwidth that is assigned to the unused volumes.
 
-Select [compute profiles](/docs/vpc?group=profile-details) support dynamic bandwidth allocation for data volumes. By using dynamic bandwidth allocation, a volume that's maximizing its I/O capability can use unused bandwidth from the other volume attachments. You can can change the _weighted_ storage QoS setting to _pooled_ [in the console](/docs/vpc?topic=vpc-managing-virtual-server-instances&interface=ui#updating-qos-mode-ui), [from the CLI](/docs/vpc?topic=vpc-managing-virtual-server-instances&interface=cli#updating-qos-mode-cli), or [with the API](/docs/vpc?topic=vpc-managing-virtual-server-instances&interface=api#updating-qos-mode-api). For more information, see [Pooled volume bandwidth allocation](/docs/vpc?topic=vpc-block-storage-bandwidth#pooled-vol-bandwidth).
+Select [compute profiles](/docs/vpc?group=profile-details) support dynamic bandwidth allocation for data volumes. By using dynamic bandwidth allocation, a volume that's maximizing its I/O capability can use unused bandwidth from the other volume attachments. You can change the _weighted_ storage QoS setting to _pooled_ [in the console](/docs/vpc?topic=vpc-managing-virtual-server-instances&interface=ui#updating-qos-mode-ui), [from the CLI](/docs/vpc?topic=vpc-managing-virtual-server-instances&interface=cli#updating-qos-mode-cli), or [with the API](/docs/vpc?topic=vpc-managing-virtual-server-instances&interface=api#updating-qos-mode-api). For more information, see [Pooled volume bandwidth allocation](/docs/vpc?topic=vpc-block-storage-bandwidth#pooled-vol-bandwidth).
 To see what volume bandwidth allocation methods your virtual server supports, see the capabilities section in the [compute profiles](/docs/vpc?group=profile-details) topics.
 
 ## Optimizing network bandwidth allocation for profiles

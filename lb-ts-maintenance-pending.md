@@ -1,8 +1,8 @@
 ---
 
 copyright:
-  years: 2019, 2021
-lastupdated: "2023-02-23"
+  years: 2019, 2025
+lastupdated: "2025-11-04"
 
 keywords: load balancer, network, maintence pending
 
@@ -30,7 +30,7 @@ An NLB enters a `maintenance_pending` state during various maintenance activitie
 
 * Recovery activities
 * Load balancer failover
-* Upgrades to address vulnerabilities and appllication of security patches
+* Upgrades to address vulnerabilities and application of security patches
 
 The `maintenance_pending` state will resolve once the associated maintenance activity completes.
 {: tsResolve}

@@ -2,7 +2,7 @@
 
 copyright:
   years:  2020, 2023
-lastupdated: "2025-03-18"
+lastupdated: "2025-11-04"
 
 keywords: monitoring metrics, platform metrics, metrics, vpc metrics, vpc monitoring metrics
 
@@ -305,7 +305,7 @@ These attributes are available for segmenting all of the previously listed metri
 
 | Attribute | Attribute Name | Attribute Description |
 |-----------|----------------|-----------------------|
-| `Cloud type` | `ibm_ctype` | Coud type is a value of public, dedicated, or local |
+| `Cloud type` | `ibm_ctype` | Cloud type is a value of public, dedicated, or local |
 | `Location` | `ibm_location` | Location of the monitored resource - this can be a region, data center, or global |
 | `Resource` | `ibm_resource` | Resource being measured by the service - typically an identifying name or GUID |
 | `Resource type` | `ibm_resource_type` | Type of resource measured by the service |

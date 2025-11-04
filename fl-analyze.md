@@ -2,7 +2,7 @@
 
 copyright:
   years: 2020, 2025
-lastupdated: "2025-02-03"
+lastupdated: "2025-11-04"
 
 keywords: flow logs, viewing objects, analyze
 
@@ -22,9 +22,9 @@ Flow logs are periodically written to {{site.data.keyword.cos_full}} about every
 Currently, flow logs collect Transmission Control Protocol (TCP) and User Datagram Protocol (UDP) traffic, but not Internet Control Message Protocol (ICMP) traffic.
 {: note}
 
-Each flow log object contains individual flow logs. To view or analyze the flow logs, use the IBM Analytics Engine. For more information, see the IBM Analytics Engine [Getting started tutoral](/docs/AnalyticsEngine?topic=AnalyticsEngine-getting-started).
+Each flow log object contains individual flow logs. To view or analyze the flow logs, use the IBM Analytics Engine. For more information, see the IBM Analytics Engine [Getting started tutorial](/docs/AnalyticsEngine?topic=AnalyticsEngine-getting-started).
 
-IBM Cloud Data Engine is depreciated and will no longer be supported after 19 January 2025. If you currently use existing instances of Data Engine, it is recommended that you migrate your worloads to [IBM Analytics Engine](/docs/AnalyticsEngine?topic=AnalyticsEngine-getting-started).
+IBM Cloud Data Engine is depreciated and will no longer be supported after 19 January 2025. If you currently use existing instances of Data Engine, it is recommended that you migrate your workloads to [IBM Analytics Engine](/docs/AnalyticsEngine?topic=AnalyticsEngine-getting-started).
 {: deprecated}
 
 ## Flow log data format
@@ -51,7 +51,7 @@ The `start_time` and `end_time` in a flow log reflects:
 
 It's possible that the flow log does not reflect all traffic (for example, in the data path) between a flow log `start_time` and `end_time`. In other words, it might be that packets sent and received by the vNIC toward the end of the capture window are reflected only in a flow log with the later `start_time` window.
 
-**Flow logs reflect actual traffic on connections**: If traffic does not occur on a connection in a capture window, no flow log appears for it in the {{site.data.keyword.cos_short}} object for that window. Meaning that the sequence of flow logs for a connection might be mapped to a sequence of non-consecutive {{site.data.keyword.cos_short}}objects.
+**Flow logs reflect actual traffic on connections**: If traffic does not occur on a connection in a capture window, no flow log appears for it in the {{site.data.keyword.cos_short}} object for that window. Meaning that the sequence of flow logs for a connection might be mapped to a sequence of non-consecutive {{site.data.keyword.cos_short}} objects.
 
 The flow logs array within an object does not need to be sorted in any specific order.
 {: note}

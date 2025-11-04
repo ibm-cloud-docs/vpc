@@ -2,7 +2,7 @@
 
 copyright:
   years: 2021, 2025
-lastupdated: "2025-09-23"
+lastupdated: "2025-11-04"
 
 keywords: snapshots, Block Storage snapshots, manage snapshots, fast restore clone, backup snapshot, remote copy, cross-regional copy
 
@@ -865,7 +865,7 @@ Use the following steps to delete a single snapshot by using the CLI.
    ```
    {: screen}
 
-For more information about available command options, [`ibmcloud is snaphot-delete`](/docs/vpc?topic=vpc-vpc-reference#snapshot-delete).
+For more information about available command options, [`ibmcloud is snapshot-delete`](/docs/vpc?topic=vpc-vpc-reference#snapshot-delete).
 
 ### Deleting all snapshots from the CLI
 {: #snapshots-vpc-delete-all-snapshot-cli}
@@ -897,7 +897,7 @@ Use the following steps to delete all snapshots by using the CLI.
    ```
    {: screen}
 
-For more information about available command options, [`ibmcloud is snaphot-delete`](/docs/vpc?topic=vpc-vpc-reference#snapshot-delete).
+For more information about available command options, [`ibmcloud is snapshot-delete`](/docs/vpc?topic=vpc-vpc-reference#snapshot-delete).
 
 ## Deleting snapshots with the API
 {: #snapshots-vpc-delete-snapshot-api}
@@ -955,7 +955,7 @@ terraform destroy --target ibm_is_snapshot.my-snapshot
 For more information, see [terraform destroy](https://developer.hashicorp.com/terraform/cli/commands/destroy){: external}.
 
 ### Deleting all snapshots for a volume with Terraform
-{: #snapshots-vpc-delete-all-snaphots-terraform}
+{: #snapshots-vpc-delete-all-snapshots-terraform}
 {: terraform}
 
 To delete all snapshots of a volume with terraform, use the `ibm_is_volume` resource.

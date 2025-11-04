@@ -2,7 +2,7 @@
 
 copyright:
   years: 2020, 2025
-lastupdated: "2025-10-31"
+lastupdated: "2025-11-04"
 
 keywords:
 
@@ -323,7 +323,7 @@ Gather the following required instance template details by making the following 
 | Image                 | `GET /images`                   | [List all images](/apidocs/vpc/latest#list-images) |
 | Key                   | `GET /keys`                     | [List all keys](/apidocs/vpc/latest#list-keys) |
 | Placement groups      | `GET /placement_groups`         | [List all placement groups](/apidocs/vpc/latest#list-placement-groups) |
-{: caption="Required API instance template detals" caption-side="bottom"}
+{: caption="Required API instance template details" caption-side="bottom"}
 
 Use the following commands to determine the required information for creating a new instance template.
 

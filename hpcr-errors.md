@@ -2,7 +2,7 @@
 
 copyright:
   years: 2023, 2025
-lastupdated: "2025-10-23"
+lastupdated: "2025-11-04"
 
 keywords: hyper protect container runtime, error messages, troubleshooting
 
@@ -129,8 +129,8 @@ The following list shows the error messages from Hyper Protect Container Runtime
 - **HPL18001E**:
    - Name: RECOVER_BACKUP_KEY_FILE
    - Message: unable to recover backup file.
-   - Explanation: Backedup wrappedkey is not recoverable.
-   - System Action: Key in the metadatapartition is not rolledback.
+   - Explanation: Backed up wrappedkey is not recoverable.
+   - System Action: Key in the metadatapartition is not rolled back.
    - User Action: Consult console logs for root cause.
 - **HPL18002E**:
    - Name: REWRAP_FAILED_ERROR
@@ -177,7 +177,7 @@ The following list shows the error messages from Hyper Protect Container Runtime
 - **HPL18003I**:
    - Name: KEY_DAEMON_STARTED_NOTIFY
    - Message: {datavolume}: Started the KeyDaemon successfully.
-   - Explanation: Keydaemon started successsfully
+   - Explanation: Keydaemon started successfully
    - System Action: KeyDaemon continues to poll for key state
    - User Action: check logs for more information
 - **HPL18001W**:
@@ -338,7 +338,7 @@ The following list shows the error messages from Hyper Protect Container Runtime
    - User Action: Make sure to configure a DNS server
 - **HPL14002E**:
    - Name: DNS_LOOKUP_TIMEOUT
-   - Message: Network connectivity check timeoud out.
+   - Message: Network connectivity check timed out.
    - Explanation: The network connectivity check done at system startup, as a prerequisite to the hps-init target timed out.
    - System Action: System startup stops.
    - User Action: Make sure to configure a DNS server
@@ -428,7 +428,7 @@ The following list shows the error messages from Hyper Protect Container Runtime
    - User Action: Consult console logs for root cause.
 - **HPL16002E**:
    - Name: PROCESSING_FAILED
-   - Message: Unable to process k8s policy fromthe contract.
+   - Message: Unable to process k8s policy from the contract.
    - Explanation: An error occurred while setting up the k8s policy json.
    - System Action: Podman play fails to setup.
    - User Action: Consult console logs for root cause.
@@ -596,7 +596,7 @@ The following list shows the error messages from Hyper Protect Container Runtime
    - User Action: Please look into the logs
 - **HPL07005E**:
    - Name: TWO_PARTITIONS_NOT_AVAILABLE
-   - Message: Two paritions are not available on [{volume}]
+   - Message: Two partitions are not available on [{volume}]
    - Explanation: Second partition not available
    - System Action: Disk encryption fails to setup. System startup continues.
    - User Action: Please look into the logs
@@ -645,7 +645,7 @@ The following list shows the error messages from Hyper Protect Container Runtime
 - **HPL07013E**:
    - Name: LUKSKEY_GENRN_ERROR
    - Message: Generating LUKS key from env seed, workload seed and KMS generated seed failed
-   - Explanation: There are issues while generating the new luks key
+   - Explanation: There are issues while generating the new LUKS key
    - System Action: Disk encryption fails to setup. System startup continues.
    - User Action: Please look into the logs
 - **HPL07004I**:

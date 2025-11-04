@@ -2,7 +2,7 @@
 
 copyright:
   years: 2022, 2025
-lastupdated: "2025-10-24"
+lastupdated: "2025-11-04"
 
 keywords: confidential computing, enclave, secure execution, hpcr, contract, customization, schema, contract schema, env, workload, encryption
 
@@ -81,7 +81,7 @@ workload: |
   volumes:
     <volume key>:
       mount: "<data volume mount path>"
-      seed: "<Passphrase of the luks encryption>"
+      seed: "<Passphrase of the LUKS encryption>"
       filesystem: "ext4"
 ```
 {: codeblock}

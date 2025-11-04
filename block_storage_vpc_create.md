@@ -2,7 +2,7 @@
 
 copyright:
   years: 2019, 2025
-lastupdated: "2025-10-14"
+lastupdated: "2025-11-04"
 
 keywords: vpc Block Storage, provision Block Storage for vpc, bootable snapshots, create volume from snapshot, fast restore
 
@@ -299,7 +299,7 @@ Run the `ibmcloud is volume-create` command and specify the `--snapshot` option 
 This example creates the new volume from a snapshot that is specified by name.
 
 ```sh
-ibmcloud is volume-create volume-4 general-purpose us-east-1 --snapshot snapshot-3
+ibmcloud is volume-create volume-4 general-purpose us-south-1 --snapshot r006-4602b3de-3885-4b49-8d46-65aacb72a1d6
 ```
 {: pre}
 
@@ -369,7 +369,7 @@ For more information, see [ibmcloud is instance-volume-attachment-add](/docs/vpc
 To create a virtual server instance, run the `ibmcloud is instance-create` command and specify the details of your instance and the details of the volumes that you want to attach. The following example creates a virtual server instance with an `sdp` boot volume and also attaches an `sdp` data volume.
 
 ```sh
-ibmcloud is instance-create my-defined-performance-instance test-vpc us-east-3 bx2-2x8 csi-subnet-cidr-3b6k-storage-v5lvug8w-380sal --boot-volume '{"name": "boot-vol-attachment-name-instance-1", "volume": {"name": "boot-vol-name-1", "profile": {"name": "sdp"},"user_tags": ["env:test4", "env:dev4"]}} --volume-attach '[{"volume": {"capacity": 1000,"iops": 32000,"bandwidth": 3000,"name": "my-data-volume-1","profile": {"name": "sdp"}}}]' --image r006-5f183c60-78a0-4d6e-9be5-84335939255a
+ibmcloud is instance-create my-defined-performance-instance test-vpc us-east-3 bx2-2x8 csi-subnet-cidr-3b6k-storage-v5lvug8w-380sal --boot-volume '{"name": "boot-vol-attachment-name-instance-1", "volume": {"name": "boot-vol-name-1", "profile": {"name": "sdp"},"user_tags": ["env:test4", "env:dev4"]}}' --volume-attach '[{"volume": {"capacity": 1000,"iops": 32000,"bandwidth": 3000,"name": "my-data-volume-1","profile": {"name": "sdp"}}}]' --image r006-5f183c60-78a0-4d6e-9be5-84335939255a
 ```
 {: pre}
 
@@ -414,7 +414,7 @@ Boot volume                           ID   Name   Attachment ID                 
 Data volumes                          ID   Name   Attachment ID                               Attachment name
                                       -    -      730f-78f2db0a-57df-4b5f-9f1e-f800e91e89af   upscale-embargo-oops-overeager
 ```
-{: screen}   
+{: screen}
 
 For more information, see [ibmcloud is instance-create](/docs/vpc?topic=vpc-vpc-reference&interface=cli#instance-create) in the CLI reference.
 

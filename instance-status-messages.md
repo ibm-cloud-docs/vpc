@@ -1,8 +1,8 @@
 ---
 
 copyright:
-  years: 2021, 2024
-lastupdated: "2022-03-10"
+  years: 2021, 2025
+lastupdated: "2025-11-04"
 
 keywords: instance status message, instance status, VPC error message, error message, virtual server error
 
@@ -165,4 +165,4 @@ Delete the instance and try again.
 
 If you still need help with the error, contact [support](/docs/vpc?topic=vpc-getting-help-and-support-for-vpc).
 
-For morre information about unexpected host failures, see [Host Failure Recovery Policies](/docs/vpc?topic=vpc-host-failure-recovery-policies&interface=ui).
+For more information about unexpected host failures, see [Host Failure Recovery Policies](/docs/vpc?topic=vpc-host-failure-recovery-policies&interface=ui).

@@ -2,7 +2,7 @@
 
 copyright:
   years: 2019, 2025
-lastupdated: "2025-10-28"
+lastupdated: "2025-11-04"
 
 keywords:
 
@@ -126,7 +126,7 @@ The more conventional way to set up your security group is to control traffic to
 
 A more dynamic way you can set up your security group is to allow all inbound traffic from other targets that are also part of the security group. When you permit traffic between members of a security group, as resources are added or deleted from the security group, you don't have to set up individual permissions between each current member and each new member of a security group.
 
-For example, say you have host A and host B in a security group, and you add a new host C. Normally, you would have to perform maintainance to allow host A and host B to send traffic to and from host C after you add host C to the security group.
+For example, say you have host A and host B in a security group, and you add a new host C. Normally, you would have to perform maintenance to allow host A and host B to send traffic to and from host C after you add host C to the security group.
 
 To make this process easier, you can define a rule in which you allow all traffic as long as it's from another member of your group. Then as you add or remove members from a group, the rule automatically changes to allow members of the group to send traffic between each other.
 

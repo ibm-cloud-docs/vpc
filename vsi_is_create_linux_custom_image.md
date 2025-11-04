@@ -2,7 +2,7 @@
 
 copyright:
   years: 2019, 2025
-lastupdated: "2025-04-22"
+lastupdated: "2025-11-04"
 
 keywords: creating a linux custom image, cloud-init, qcow2
 
@@ -112,7 +112,7 @@ Make sure that your image is cloud-init enabled. Cloud-init version 0.7.9 or gre
 
 5. Make sure that you configure your image to use SSH for logging in to your virtual server.
 
-The default user for a RHEL-based custom images is `cloud-user`. For more information about enabling cloud-init, see [Setting up cloud-init](https://docs.redhat.com/en/documentation/red_hat_enterprise_linux_atomic_host/7/html/installation_and_configuration_guide/setting_up_cloud_init){: external}.
+The default user for an RHEL-based custom images is `cloud-user`. For more information about enabling cloud-init, see [Setting up cloud-init](https://docs.redhat.com/en/documentation/red_hat_enterprise_linux_atomic_host/7/html/installation_and_configuration_guide/setting_up_cloud_init){: external}.
 
 ## Step 5 - Boot disk size
 {: #boot-disk}

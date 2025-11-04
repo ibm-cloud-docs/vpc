@@ -2,7 +2,7 @@
 
 copyright:
   years: 2019, 2025
-lastupdated: "2025-10-31"
+lastupdated: "2025-11-04"
 
 keywords: vsi, virtual server instances, profile, profiles, balanced, compute, memory, very high memory, ultra high memory, gpu storage optimized, confidential compute
 
@@ -527,7 +527,7 @@ By default, the storage bandwidth is divided between all attached volumes. To he
 
 When weighted bandwidth allocation is used, the data volumes are assigned bandwidth that is proportional to their maximum bandwidth. The weights are based on the size, IOPS, and bandwidth values of the storage volumes. Each volume can use only the bandwidth that is assigned to it at the time of attachment.
 
-Review the [compute profiles details](/docs/vpc?group=profile-details) to see the volume bandwidth allocation capabilities available. For more information about the bandwidth allocation, see the [Bandwith allocation for Data Volumes](/docs/vpc?topic=vpc-block-storage-bandwidth&interface=ui#attached-block-vol-bandwidth).
+Review the [compute profiles details](/docs/vpc?group=profile-details) to see the volume bandwidth allocation capabilities available. For more information about the bandwidth allocation, see the [Bandwidth allocation for Data Volumes](/docs/vpc?topic=vpc-block-storage-bandwidth&interface=ui#attached-block-vol-bandwidth).
 
 ### Bandwidth allocation with multiple network interfaces
 {: #bandwidth-multi-vnic}

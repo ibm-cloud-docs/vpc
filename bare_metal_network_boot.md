@@ -63,7 +63,7 @@ For the image, you must specify the ID of a stock image that has the `user_data_
 ## Example of using the CentOS installer to network boot a bare metal server
 {: #generic-os-network-boot-centos-installer}
 
-This example is just one example of how to network boot an operating system. In this example, a bare metal server is created which boots to the Centos installer. You provide the script as the user data when you create the server.
+This example is just one example of how to network boot an operating system. In this example, a bare metal server is created which boots to the CentOS installer. You provide the script as the user data when you create the server.
 
 ```screen
 #!ipxe

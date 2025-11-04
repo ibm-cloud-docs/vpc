@@ -2,7 +2,7 @@
 
 copyright:
   years: 2022, 2025
-lastupdated: "2025-10-09"
+lastupdated: "2025-11-04"
 
 keywords: Backup, backup service, backup plan, backup policy, restore, restore volume, restore data
 
@@ -70,11 +70,11 @@ You can restore a volume from a backup snapshot in the following ways.
 
 - When you [provision an instance](#baas-vpc-restore-vol-ui), specify a snapshot of a boot or data volume. Data volumes are automatically attached to the instance as auxiliary storage. Use the restored boot volume to start the new instance.
 - From a snapshot of a [previously created volume](#baas-vpc-create-from-vol-ui). The created volume from snapshot is automatically attached to the instance as auxiliary storage.
-- From the [list of {{site.data.keyword.block_storage_is_short}} snapshots](#baas-vpc-restore-snaphot-list-ui), or [snapshot details page](#baas-vpc-restore-vol-details-ui).
+- From the [list of {{site.data.keyword.block_storage_is_short}} snapshots](#baas-vpc-restore-snapshot-list-ui), or [snapshot details page](#baas-vpc-restore-vol-details-ui).
 - When you [create a stand-alone {{site.data.keyword.block_storage_is_short}} volume](/docs/vpc?topic=vpc-creating-block-storage&interface=ui#create-standalone-vol-from-snapshot), you can attach the volume to an instance later.
 
 ### Creating a volume from the list of snapshots
-{: #baas-vpc-restore-snaphot-list-ui}
+{: #baas-vpc-restore-snapshot-list-ui}
 
 From the list of {{site.data.keyword.block_storage_is_short}} snapshots, you can create a {{site.data.keyword.block_storage_is_short}} volume and specify whether it is attached to a virtual server instance or unattached (stand-alone). If you choose to attach a volume, you can select an existing virtual server instance or choose to create an instance. The new volumes are added to the [list of {{site.data.keyword.block_storage_is_short}} volumes](/docs/vpc?topic=vpc-viewing-block-storage&interface=ui#viewvols-ui).
 
@@ -93,7 +93,7 @@ From the list of {{site.data.keyword.block_storage_is_short}} snapshots, you can
    - If you chose the **Do not attach** or the **Attach new volume to an existing virtual server** options, you are taken to the Block storage volume for VPC provisioning page. The snapshot is preselected for you, and you have to complete the rest of the volume details:
      1. Review the **Location** information. The geography, region, and zone are inherited from the VPC (for example, North America, Dallas, Dallas-1). You can select a different location by clicking the **Edit icon** ![Edit icon](../icons/edit-tagging.svg "Edit"). 
      1. In the **Details** section, you must specify the name of the volume and the resource group that the volume is to be added to. Optionally, you can add user and access management tags.
-        - Specify a meaningful name for your volume. For example, provide a name that describes your compute or workload function. The volume name must begin with a lowercase letter. The volume name can be up to 63 lowercase alpha-numeric characters and include the hyphen (-). Volume names must be unique across the your VPC. You can edit the name later.
+        - Specify a meaningful name for your volume. For example, provide a name that describes your compute or workload function. The volume name must begin with a lowercase letter. The volume name can be up to 63 lowercase alpha-numeric characters and include the hyphen (-). Volume names must be unique across the VPC. You can edit the name later.
         - Specify a [Resource group](/docs/vpc?topic=vpc-iam-getting-started&interface=ui#iam-resource-groups).
         - Specify [user tags](/docs/vpc?topic=vpc-block-storage-about&interface=ui#storage-about-user-tags) to organize your resources and for use by [backup policies](/docs/vpc?topic=vpc-backup-service-about).
         - Specify [access management tags](/docs/vpc?topic=vpc-block-storage-about&interface=ui#storage-about-mgt-tags) that were created in IAM to help you manage access to your volumes.

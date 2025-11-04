@@ -2,7 +2,7 @@
 
 copyright:
   years: 2022, 2025
-lastupdated: "2025-05-15"
+lastupdated: "2025-11-04"
 
 keywords: context-based restrictions for VPC Infrastructure Services
 
@@ -280,7 +280,7 @@ ibmcloud cbr rule-create --context-attributes 'endpointType=private' --zone-id a
 1. Go to **Manage** > **Context-based restrictions** in the {{site.data.keyword.cloud}} console.
 1. Select **Rules** and click **Create**.
 1. Select **VPC Infrastructure Services** and click **Next**.
-1. Scope the rule to **All resources** or **Specific resources**. For more information, see [Protecting VPC Infrasturcture Services resources](/docs/vpc?topic=vpc-cbr). Click **Continue**.
+1. Scope the rule to **All resources** or **Specific resources**. For more information, see [Protecting VPC Infrastructure Services resources](/docs/vpc?topic=vpc-cbr). Click **Continue**.
 1. Define the allowed endpoint types.
    - Keep the toggle set to **No** to allow all endpoint types.
    - Set the toggle to **Yes** to allow only specific endpoint types, then choose from the list.

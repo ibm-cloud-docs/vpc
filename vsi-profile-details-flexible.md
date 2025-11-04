@@ -2,7 +2,7 @@
 
 copyright:
   years: 2025, 2025
-lastupdated: "2025-10-21"
+lastupdated: "2025-11-04"
 
 keywords: virtual server instances, flex profile, flexible profile, virtual server profile
 
@@ -55,7 +55,7 @@ See the following capabilities for Flex profiles.
 
 * Core type: Flex
 
-* Burtable: Yes (with select profiles)
+* Burstable: Yes (with select profiles)
 * Dedicated host: No
 * Hyperthreading: Yes (SMT-2)
 * Secure boot: No

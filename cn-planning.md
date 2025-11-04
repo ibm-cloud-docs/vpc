@@ -2,7 +2,7 @@
 
 copyright:
   years: 2024, 2025
-lastupdated: "2025-09-30"
+lastupdated: "2025-11-04"
 
 keywords:
 
@@ -65,7 +65,7 @@ Review the following planning considerations before creating a cluster network.
 You can only apply the following considerations through the API and CLI.
 {: note}
 
-   * Cluster networks are isolated from the VPC network. You are allowed to specify cluster nework `subnet_prefixes` that overlap with the VPC's [default](/docs/vpc?topic=vpc-configuring-address-prefixes) or [custom](/docs/vpc?topic=vpc-vpc-addressing-plan-design) address prefixes. However, this may result in instances having two network interfaces (one on the VPC network, and one on the cluster network) with the same IP address. In such a scenario you must be careful to isolate the network interfaces in the guest operating system. For example, Linux guests can use [network namespaces](https://www.man7.org/linux/man-pages/man8/ip-netns.8.html).
+   * Cluster networks are isolated from the VPC network. You are allowed to specify cluster network `subnet_prefixes` that overlap with the VPC's [default](/docs/vpc?topic=vpc-configuring-address-prefixes) or [custom](/docs/vpc?topic=vpc-vpc-addressing-plan-design) address prefixes. However, this may result in instances having two network interfaces (one on the VPC network, and one on the cluster network) with the same IP address. In such a scenario you must be careful to isolate the network interfaces in the guest operating system. For example, Linux guests can use [network namespaces](https://www.man7.org/linux/man-pages/man8/ip-netns.8.html).
 
    * The default `subnet_prefixes` for cluster networks (`["cidr": "10.0.0.0/9"]`) do not overlap with the [default address prefixes for VPCs](/docs/vpc?topic=vpc-configuring-address-prefixes). To simplify the guest operating system configurations, either use the defaults, or plan your custom address ranges to avoid overlap.
    * If you need to plan for statically-configured IP addresses, especially for a large number (such as 1000), it’s important to approach the task methodically. First, you should determine the total number of required IP addresses. Then consider how these addresses will be assigned to various instances. To manage this efficiently, implement a clear naming scheme that helps you organize and connect the IP addresses to their respective instances. For example, you might use a naming convention that reflects the function or location of each instance, making it easier to identify and manage them.

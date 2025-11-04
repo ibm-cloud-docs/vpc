@@ -2,7 +2,7 @@
 
 copyright:
   years: 2019, 2025
-lastupdated: "2025-10-31"
+lastupdated: "2025-11-04"
 
 keywords:
 
@@ -270,14 +270,14 @@ Flex profiles (beta release)
 {: release-note}
 
 New Intel RHEL AI operating system images for GPU types
-:  The new Red Hat Enterprise Linux&reg; (RHEL) operating system images are each tailored for their respective GPU type. RHEL AI for Intel is now available. When using a RHEL AI 1.x image, ensure you are using the correct RHEL AI image for the profile you are using. If you are using the Intel GPU profile, you must use the RHEL AI for Intel image. For more information about the GPU profiles you can use with RHEL AI images, see [Accelerated instance profiles - Gen 3](/docs/vpc?topic=vpc-accelerated-profile-family). For information about RHEL AI, including information such as the supported use cases for RHEL AI, see [Red Hat Enterprise Linux AI](https://docs.redhat.com/en/documentation/red_hat_enterprise_linux_ai/1.5){: external}
+:  The new Red Hat Enterprise Linux&reg; (RHEL) operating system images are each tailored for their respective GPU type. RHEL AI for Intel is now available. When using an RHEL AI 1.x image, ensure you are using the correct RHEL AI image for the profile you are using. If you are using the Intel GPU profile, you must use the RHEL AI for Intel image. For more information about the GPU profiles you can use with RHEL AI images, see [Accelerated instance profiles - Gen 3](/docs/vpc?topic=vpc-accelerated-profile-family). For information about RHEL AI, including information such as the supported use cases for RHEL AI, see [Red Hat Enterprise Linux AI](https://docs.redhat.com/en/documentation/red_hat_enterprise_linux_ai/1.5){: external}
 
 ### 05 June 2025
 {: #vpc-jun0525}
 {: release-note}
 
 New Nvidia and AMD RHEL AI operating system images for GPU types
-:  The new Red Hat Enterprise Linux&reg; (RHEL) operating system images are each tailored for their respective GPU type. RHEL AI for Nvidia and RHEL AI for AMD are now available. When using a RHEL AI 1.x image, ensure you are using the correct RHEL AI image for the profile you are using. If you are using the Nvidia GPU profile, you must use the RHEL AI for Nvidia image. If you are using the AMD GPU profile, you must use the RHEL AI for AMD image.  For more information about the GPU profiles you can use with RHEL AI images, see [[Accelerated instance profiles - Gen 3](/docs/vpc?topic=vpc-accelerated-profile-family). For information about RHEL AI, including information such as the supported use cases for RHEL AI, see [Red Hat Enterprise Linux AI](https://docs.redhat.com/en/documentation/red_hat_enterprise_linux_ai/1.5){: external}.
+:  The new Red Hat Enterprise Linux&reg; (RHEL) operating system images are each tailored for their respective GPU type. RHEL AI for Nvidia and RHEL AI for AMD are now available. When using an RHEL AI 1.x image, ensure you are using the correct RHEL AI image for the profile you are using. If you are using the Nvidia GPU profile, you must use the RHEL AI for Nvidia image. If you are using the AMD GPU profile, you must use the RHEL AI for AMD image.  For more information about the GPU profiles you can use with RHEL AI images, see [[Accelerated instance profiles - Gen 3](/docs/vpc?topic=vpc-accelerated-profile-family). For information about RHEL AI, including information such as the supported use cases for RHEL AI, see [Red Hat Enterprise Linux AI](https://docs.redhat.com/en/documentation/red_hat_enterprise_linux_ai/1.5){: external}.
 
 
 ### 03 June 2025
@@ -363,7 +363,7 @@ Private path connectivity from IBM Cloud to on-premises locations
 {: release-note}
 
 Intel Gaudi 3 accelerated virtual server profile now available in Washington DC (`us-east-wdc07-a`) and Dallas (`us-south-dal12-a`) regions (select availability)
-:   The Intel Gaudi 3 accelerated virtual server profile is now available in the in Washington DC (`us-east-wdc07-a`) and Dallas (`us-south-dal12-a`) regions, in addition to the Washington DC (`us-east-wdc06-a`) and Frankfurt (`eu-de-fra02-a`) regions. The Intel Gaudi 3 profile runs on an [Intel Gaudi 3 AI Accelerator](https://www.intel.com/content/www/us/en/products/details/processors/ai-accelerators/gaudi.html){: external} that is tuned for AI workloads, including inferencing and fine-tuning. For more information about the `gx3d-160x1792x8gaudi3` profile, see [GPU](/docs/vpc?topic=vpc-profiles&interface=ui#gpu) profiles and [Intel Gaudi 3 instance profiles](/docs/vpc?topic=vpc-accelerated-profile-family&interface=ui#gaudi-3-profiles).
+:   The Intel Gaudi 3 accelerated virtual server profile is now available in the Washington DC (`us-east-wdc07-a`) and Dallas (`us-south-dal12-a`) regions, in addition to the Washington DC (`us-east-wdc06-a`) and Frankfurt (`eu-de-fra02-a`) regions. The Intel Gaudi 3 profile runs on an [Intel Gaudi 3 AI Accelerator](https://www.intel.com/content/www/us/en/products/details/processors/ai-accelerators/gaudi.html){: external} that is tuned for AI workloads, including inferencing and fine-tuning. For more information about the `gx3d-160x1792x8gaudi3` profile, see [GPU](/docs/vpc?topic=vpc-profiles&interface=ui#gpu) profiles and [Intel Gaudi 3 instance profiles](/docs/vpc?topic=vpc-accelerated-profile-family&interface=ui#gaudi-3-profiles).
 
 ### 17 April 2025
 {: #vpc-apr1725}
@@ -715,7 +715,7 @@ Zone Maps and Universal Names for Zones
 {: release-note}
 
 Red Hat Enterprise Linux AI BYOL custom images (GA)
-:   The Red Hat Enterprise AI (RHEL AI) operating system can be imported as a bring your own license (BYOL). An RHEL AI qcow2 file is available directly from Red Hat. For more information, see [Red Hat Enteprise Linux AI BYOL custom images](/docs/vpc?topic=vpc-planning-custom-images#rhel-ai-byol-custom-images).
+:   The Red Hat Enterprise AI (RHEL AI) operating system can be imported as a bring your own license (BYOL). An RHEL AI qcow2 file is available directly from Red Hat. For more information, see [Red Hat Enterprise Linux AI BYOL custom images](/docs/vpc?topic=vpc-planning-custom-images#rhel-ai-byol-custom-images).
 
 ### 03 September 2024
 {: #vpc-sep0324}
@@ -1278,7 +1278,7 @@ Encryption in transit is now available in Madrid (`eu-es`) region
 {: release-note}
 
 GPU A100 profile available on Intel Ice Lake hardware in Washington DC (`us-east`) region (select availability)
-:   The GPU `a100` profile is now availableon the Intel&reg;'s quad processor Xeon® Gold 6342 Ice Lake with 96 cores that are running at a base speed of 2.8 GHz and an all-core turbo frequency of 3.5 GHz. The Ice Lake processor is available only in the Washington DC (`us-east`) region. For more information, see the [GPU profile family](/docs/vpc?topic=vpc-profiles&interface=ui#gpu) documentation.
+:   The GPU `a100` profile is now available on the Intel&reg;'s quad processor Xeon® Gold 6342 Ice Lake with 96 cores that are running at a base speed of 2.8 GHz and an all-core turbo frequency of 3.5 GHz. The Ice Lake processor is available only in the Washington DC (`us-east`) region. For more information, see the [GPU profile family](/docs/vpc?topic=vpc-profiles&interface=ui#gpu) documentation.
 
 ### 13 November 2023
 {: #vpc-nov1323}
@@ -1396,7 +1396,7 @@ IBM Hyper Protect Container Runtime image `ibm-hyper-protect-container-runtime-1
 :   You can now roll or rotate the seeds that are used in the contract to improve the security posture or if the seed is compromised. For more information, see [The workload - volumes subsection](/docs/vpc?topic=vpc-about-contract_se#hpcr_contract_volumes), and [The env - volumes subsection](/docs/vpc?topic=vpc-about-contract_se#hpcr_contract_env_vol).
 
 Ultra High Memory profiles are now available in the London (`eu-gb`) region
-:   The Ultra High Memory profile family (`ux2d`) is now available in the United Kingdome (London) region. For more information about this profile family, see [Ultra High Memory](/docs/vpc?topic=vpc-profiles&interface=ui#uhmemory). For more information about the Multizone regions, see [Region and data center locations for resource deployment](/docs/overview?topic=overview-locations).
+:   The Ultra High Memory profile family (`ux2d`) is now available in the United Kingdom (London) region. For more information about this profile family, see [Ultra High Memory](/docs/vpc?topic=vpc-profiles&interface=ui#uhmemory). For more information about the Multizone regions, see [Region and data center locations for resource deployment](/docs/overview?topic=overview-locations).
 
 
 ## August 2023
@@ -1424,7 +1424,7 @@ Next generation instance profiles (beta release)
 {: release-note}
 
 VPC Status History
-:   You can now customize notification settings for your VPC dashboard. When status history is enabled, your notification history is retained to help you find old error messages or track down when the creation or deletion of a resource occurred. To enable Status History, make sure that your browser alllows local storage access. For more information, see [Enabling local storage in your browser](/docs/vpc?topic=vpc-enable-local-browser-storage).
+:   You can now customize notification settings for your VPC dashboard. When status history is enabled, your notification history is retained to help you find old error messages or track down when the creation or deletion of a resource occurred. To enable Status History, make sure that your browser allows local storage access. For more information, see [Enabling local storage in your browser](/docs/vpc?topic=vpc-enable-local-browser-storage).
 
 ### 15 August 2023
 {: #vpc-august1523}
@@ -1591,7 +1591,7 @@ IBM Hyper Protect Container Runtime image `ibm-hyper-protect-container-runtime-1
 {: release-note}
 
 New `-a100` GPU profile is available (select availability)
-:   There is a new profile available for customers with special approval to preview this service that is for provisioning instances based on NVIDIA's A100 Amperere GPU attached to a single virtual server instance. The `gx2-80x1280x8a100` profile supports artificial intelligence and machine language frameworks and includes instance storage. Only Redhat and Ubuntu are supported for this profile. This profile is currently only available in the Washington DC (`us-east`) region. For more information, see [GPU profiles](/docs/vpc?topic=vpc-profiles&interface=ui#gpu). To request access to this profile, you must open a [support case](https://cloud.ibm.com/unifiedsupport/supportcenter).
+:   There is a new profile available for customers with special approval to preview this service that is for provisioning instances based on NVIDIA's A100 Ampere GPU attached to a single virtual server instance. The `gx2-80x1280x8a100` profile supports artificial intelligence and machine language frameworks and includes instance storage. Only Redhat and Ubuntu are supported for this profile. This profile is currently only available in the Washington DC (`us-east`) region. For more information, see [GPU profiles](/docs/vpc?topic=vpc-profiles&interface=ui#gpu). To request access to this profile, you must open a [support case](https://cloud.ibm.com/unifiedsupport/supportcenter).
 
 ## April 2023
 {: #vpc-apr23}
@@ -1747,7 +1747,7 @@ Block Storage fast restore snapshots
 Extra security for VPC snapshots (closed beta)
 :    For customers with special access to this security beta feature, data isolation is provided to store snapshots created from your dedicated hosts. With data isolation extra security, your data is encrypted at rest with a unique key and access to your data is protected by a private firewall.
 
-### 03February 2023
+### 03 February 2023
 {: #vpc-feb0323}
 {: release-note}
 
@@ -1764,7 +1764,7 @@ Images for VPC UI Updates
 {: #vpc-jan3123}
 {: release-note}
 
-Secure boot with Trusted Plaform Module (TPM) (select availability)
+Secure boot with Trusted Platform Module (TPM) (select availability)
 :   Secure boot makes sure that your server starts with trusted software by verifying the signatures for all code in the boot process. Trusted Platform Module (TPM) provides hardware-based security functions. With supporting software, TPM helps maintain platform integrity and generates cryptographic keys. For more information, see [Secure boot with Trusted Platform Module (TPM)](/docs/vpc?topic=vpc-secure-boot-tpm).
 
 ### 30 January 2023

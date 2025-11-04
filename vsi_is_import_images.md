@@ -33,7 +33,7 @@ Keep the following considerations in mind when you import a custom image:
 
 * When you use a custom image, you are responsible for any updates to the image.
 * Support for any custom image software must be obtained directly from the vendor who provided the image.
-* You can restrict which types of servers that you can can provision from your custom image by setting allowed-use expressions on the image. For more information about allowed-use expressions, see [Adding allowed-use expressions to custom images](/docs/vpc?topic=vpc-custom-image-allowed-use-expressions&interface=ui)
+* You can restrict which types of servers that you can provision from your custom image by setting allowed-use expressions on the image. For more information about allowed-use expressions, see [Adding allowed-use expressions to custom images](/docs/vpc?topic=vpc-custom-image-allowed-use-expressions&interface=ui)
 * When you import a custom image, it's private to the account where you import it.
 * The region where you choose to import the image is the region where you can create virtual servers from that image.
 * For custom images with Red Hat Enterprise Linux&reg; or Windows&reg; operating systems, you must select the appropriate version of the operating system. Depending on how you configured the image, select either bring your own license `byol`, or if you plan to license the OS through {{site.data.keyword.cloud_notm}}, select the version without `byol` appended.

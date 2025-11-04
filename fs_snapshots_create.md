@@ -2,7 +2,7 @@
 
 copyright:
   years: 2024, 2025
-lastupdated: "2025-09-23"
+lastupdated: "2025-11-04"
 
 keywords: snapshots, File Storage, File Storage snapshot
 
@@ -23,7 +23,7 @@ Although you can't create a snapshot on a replica share, the snapshots of the or
 
 The creation of a share snapshot is quick. You can expect to have the snapshot stable and available within seconds. However, you can take only 1 snapshot in a minute. If you take too many snapshots too quickly, you can encounter errors.
 
-[Select availability]{: tag-green} During the select availabiity release of regional file shares, you cannot automate the creation of regional snapshots with the Backup for VPC service. For snapshots of regional file shares, the zone value is blank in both the CLI and API responses.
+[Select availability]{: tag-green} During the select availability release of regional file shares, you cannot automate the creation of regional snapshots with the Backup for VPC service. For snapshots of regional file shares, the zone value is blank in both the CLI and API responses.
 
 ## Creating a snapshot in the console
 {: #fs-snapshots-create-ui}
@@ -146,7 +146,7 @@ You can create a snapshot by calling the [VPC API](/apidocs/vpc). Before you sta
 - Any tags that you want to attach to the snapshot.
 
 ### Creating a snapshot with the API
-{: #fs-snapshots-create-snaphot-api}
+{: #fs-snapshots-create-snapshot-api}
 
 You can programmatically create a snapshot of a file share by calling the `shares/{share-id}/snapshots` API method. The following example creates a snapshot of a share by using the share ID, and specifies user tags that can be associated with a [backup policy](/docs/vpc?topic=vpc-backup-service-about).
 

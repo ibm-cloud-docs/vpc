@@ -2,7 +2,7 @@
 
 copyright:
   years: 2022, 2025
-lastupdated: "2025-10-27"
+lastupdated: "2025-11-04"
 
 keywords:
 
@@ -281,7 +281,7 @@ For more information, see [Create a trusted profile for the instance](/docs/vpc?
 {: #auto-link-ui}
 {: ui}
 
-You can toggle auto link for the metadata service. When autolink is enabled, the specified trusted profile is automatically linked to the virtual server instance when the instance is provisioned. On instances provisioned with auto link, the trusted profile is available to the instance immediatley at startup. When auto link is disabled, the specified trusted profile must be linked to the instance for it to be used by the instance.
+You can toggle auto link for the metadata service. When autolink is enabled, the specified trusted profile is automatically linked to the virtual server instance when the instance is provisioned. On instances provisioned with auto link, the trusted profile is available to the instance immediately at startup. When auto link is disabled, the specified trusted profile must be linked to the instance for it to be used by the instance.
 
 **Toggle auto link when you provision an instance** To toggle auto link when you provision an instance, navigate to the Secure access setting in the Metadata window on the instance provision page. Toggle the secure access switch so that it displays `Enabled`.
 
@@ -377,7 +377,7 @@ VPC                                   ID                                        
 {: #auto-link-cli}
 {: cli}
 
-You can disable auto link for the metadata service when provisioning an instance. Auto link is enabled by default when a trusted profile is selected. When autolink is enabled, the specified trusted profile is automatically linked to the virtual server instance when the instance is provisioned. An instance provisioned with auto link the trusted profile is available to the instance immediatley at startup. When auto link is disabled, the specified trusted profile must be linked to the instance for it to be used by the instance.
+You can disable auto link for the metadata service when provisioning an instance. Auto link is enabled by default when a trusted profile is selected. When autolink is enabled, the specified trusted profile is automatically linked to the virtual server instance when the instance is provisioned. An instance provisioned with auto link the trusted profile is available to the instance immediately at startup. When auto link is disabled, the specified trusted profile must be linked to the instance for it to be used by the instance.
 
 To disable auto link, set the `--default-trusted-profile-auto-link` option to `true` when provisioning an instance. The following example shows instance the provision command with auto link set to `false`.
 

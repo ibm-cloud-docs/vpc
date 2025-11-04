@@ -2,7 +2,7 @@
 
 copyright:
   years: 2019, 2025
-lastupdated: "2025-09-23"
+lastupdated: "2025-11-04"
 
 keywords:
 
@@ -168,6 +168,7 @@ ibmcloud is volumes [--json]
 Specifying the resource group ID or name filters the list to volumes that belong to a resource group. When you omit this argument, it defaults to all resource groups. You can also view all volumes in a particular availability zone. By default, the first 25 volumes are displayed per page.
 
 The following example shows all volumes for all resource groups in your availability zone.
+
 
 ```sh
 ibmcloud is volumes

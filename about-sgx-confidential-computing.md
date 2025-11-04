@@ -2,7 +2,7 @@
 
 copyright:
   years: 2023, 2025
-lastupdated: "2025-10-01"
+lastupdated: "2025-11-04"
 
 keywords: sgx, intel sgx, software guard extension, confidential computing, trusted execution environment, TEE, data protection
 
@@ -31,7 +31,7 @@ Confidential computing with Intel Trust Domain Extensions(TDX) offers confidenti
 ## Confidential computing with Intel Software Guard Extensions (SGX)
 {: #confidential-computing-vpc-with-sgx}
 
-Confidential computing with Intel&reg; Software Guard Extensions (SGX) protects your data through hardware-based server security by using isolated memory regions that are known as encrypted enclaves. This hardware-based computation helps protect your data from disclosure or modification. Which means that your sensitive data is encrypted while it is in virtual server instance memory by allowing applications to run in private memory space. To use SGX, you must install the platform software on SGX-capable worker nodes. Then, design your app to run in an SGX environment. While your sensitive data is inside an encrypted enclave, your data is split into trusted and untrusted parts. While the trusted parts are used in the encrypted enclave, the CPU denies all other access to the enclave regardless of access privileges. The data is guarded from internal and external threats and can't be stolen or sabottaged.
+Confidential computing with Intel&reg; Software Guard Extensions (SGX) protects your data through hardware-based server security by using isolated memory regions that are known as encrypted enclaves. This hardware-based computation helps protect your data from disclosure or modification. Which means that your sensitive data is encrypted while it is in virtual server instance memory by allowing applications to run in private memory space. To use SGX, you must install the platform software on SGX-capable worker nodes. Then, design your app to run in an SGX environment. While your sensitive data is inside an encrypted enclave, your data is split into trusted and untrusted parts. While the trusted parts are used in the encrypted enclave, the CPU denies all other access to the enclave regardless of access privileges. The data is guarded from internal and external threats and can't be stolen or sabotaged.
 
 When you use confidential computing with SGX, your data is protected through the entire compute lifecycle. Which means that your data is accessible only to authorized code and is invisible to anyone or anything else, including the operating system and {{site.data.keyword.cloud}}.
 

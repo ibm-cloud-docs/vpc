@@ -2,7 +2,7 @@
 
 copyright:
   years: 2024, 2025
-lastupdated: "2025-09-23"
+lastupdated: "2025-11-04"
 
 keywords:
 
@@ -40,7 +40,7 @@ The following limitations apply when you restore a share from a snapshot.
 You can create shares from various pages in the {{site.data.keyword.cloud_notm}} console.
 
 ### Creating a share from a snapshot in the console
-{: #fs-snapshots-restore-snaphot-list-ui}
+{: #fs-snapshots-restore-snapshot-list-ui}
 
 From the list of {{site.data.keyword.filestorage_vpc_short}} snapshots, you can create a {{site.data.keyword.filestorage_vpc_short}} share. The new shares are added to the [list of {{site.data.keyword.filestorage_vpc_short}} shares](/vpc-ext/storage/fileShares).
 

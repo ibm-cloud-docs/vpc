@@ -2,7 +2,7 @@
 
 copyright:
   years: 2021, 2025
-lastupdated: "2025-09-23"
+lastupdated: "2025-11-04"
 
 keywords: snapshots, Block Storage, snapshot clone, remote copy, fast restore, Block Storage snapshot, cross-regional snapshot
 
@@ -325,7 +325,7 @@ You can create a snapshot by calling the [VPC API](/apidocs/vpc). Before you sta
 - Any tags that you want to attach to the snapshot.
 
 ### Creating a snapshot with the API
-{: #snapshots-vpc-create-snaphot-api}
+{: #snapshots-vpc-create-snapshot-api}
 
 To create a snapshot of a boot or data volume, make a `POST /snapshots`. The following example creates a snapshot of a boot volume by using the volume ID, and specifies user tags that can be associated with a [backup policy](/docs/vpc?topic=vpc-backup-service-about).
 
@@ -400,7 +400,7 @@ A successful response looks like the following example. The snapshot lifecycle s
 {: codeblock}
 
 ## Creating a snapshot and a fast restore snapshot clone with the API
-{: #snapshots-vpc-create-snaphot-clone-api}
+{: #snapshots-vpc-create-snapshot-clone-api}
 {: api}
  
 When you create a snapshot, you can also create a fast restore snapshot clone in another zone. By cloning a snapshot and keeping it in another zone, you can later use the fast restore feature to quickly provision a new volume with data from a snapshot. For more information, see [Snapshots fast restore feature](/docs/vpc?topic=vpc-snapshots-vpc-about&interface=api#snapshots_vpc_fast_restore).
@@ -457,7 +457,7 @@ The fast restore feature is billed at an extra hourly rate for each zone that it
 {: note}
 
 ## Creating a cross-regional copy of a snapshot with the API
-{: #snapshots-vpc-create-snaphot-copy-api}
+{: #snapshots-vpc-create-snapshot-copy-api}
 {: api}
 
 When you create a snapshot, you can also copy the snapshot to another region. By creating a snapshot copy in another region and create new instances with the help of that snapshot, you can expand your VPC to a different region. This feature can be used in disaster recovery scenarios, as well. For more information, see [Cross-regional snapshot copies](/docs/vpc?topic=vpc-snapshots-vpc-about&interface=api#snapshots_vpc_crossregion_copy).
@@ -605,7 +605,7 @@ resource "ibm_is_snapshot" "example" {
 For more information about the arguments and attributes, see [ibm_is_snapshot](https://registry.terraform.io/providers/IBM-Cloud/ibm/latest/docs/resources/is_snapshot){: external}.
 
 ## Creating a snapshot and a fast restore snapshot clone with Terraform
-{: #snapshots-vpc-create-snaphot-clone-terraform}
+{: #snapshots-vpc-create-snapshot-clone-terraform}
 {: terraform}
 
 To create a snapshot with fast restore clones, use the `ibm_is_snapshot` resource. The following example creates a snapshot of the volume with the ID `r010-bdb8fc70-8afb-4622-826a-d65a9fc477a4`. The snapshot is named `example-snapshot`. In addition, two fast restore clones of the snapshot are created in `eu-de-1` and `eu-de-3` regions.
@@ -625,7 +625,7 @@ The fast restore feature is billed at an extra hourly rate for each zone that it
 {: note}
 
 ## Create a cross-regional copy of a snapshot with Terraform
-{: #snapshots-vpc-create-snaphot-copy-terraform}
+{: #snapshots-vpc-create-snapshot-copy-terraform}
 {: terraform}
 
 To create a copy of the snapshot in a remote region, use the `ibm_is_snapshot` resource. The following example creates a copy in the target region by using the CRN of the source snapshot. The copy is going to be encrypted by the encryption key that is specified by its CRN.

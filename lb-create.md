@@ -2,7 +2,7 @@
 
 copyright:
   years: 2021, 2025
-lastupdated: "2025-10-27"
+lastupdated: "2025-11-04"
 
 keywords:
 
@@ -27,7 +27,7 @@ To create an ALB:
 1. From your browser, open the [{{site.data.keyword.cloud_notm}} console](/login){: external} and log in to your account.
 1. Select the **Navigation menu** ![Menu icon](../icons/icon_hamburger.svg), then click **Infrastructure** ![VPC icon](../../icons/vpc.svg) > **Network** > **Load balancers**.
 1. On the Load balancers page, click **Create +**.
-1. For Load balancer type, select the Applicatoin Load Balancer (ALB) tile.
+1. For Load balancer type, select the Application Load Balancer (ALB) tile.
 1. In the Location section, edit the following fields, if necessary.
    * **Geography**: Indicates the geography where you want the load balancer created.
    * **Region**: Indicates the region where you want the load balancer created.

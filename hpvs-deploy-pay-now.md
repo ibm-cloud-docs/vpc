@@ -2,7 +2,7 @@
 
 copyright:
   years: 2022, 2025
-lastupdated: "2025-10-23"
+lastupdated: "2025-11-04"
 
 keywords: confidential computing, secure execution, hyper protect virtual server for vpc, terraform, tutorial, financial transaction
 
@@ -151,7 +151,7 @@ Completing this tutorial takes approximately 60 minutes.
 {: #hpvs-ftcc-step3}
 
 1.	Log in to [IBM Cloud](/login){: external}.
-2.	Go to the [provisoning page](/infrastructure/provision/vs?architecture=s390x&secureExecution=true){: external} for Hyper Protect Virtual Server for VPC on the IBM Cloud catalog.
+2.	Go to the [provisioning page](/infrastructure/provision/vs?architecture=s390x&secureExecution=true){: external} for Hyper Protect Virtual Server for VPC on the IBM Cloud catalog.
 3.	Name the virtual server instance.
 4.	Paste the created contract information into **User data**.
 5.	Under the **Networking**, select your VPC and subnet.
@@ -165,6 +165,6 @@ Now, by using Confidential Computing with IBM Cloud Hyper Protect Virtual Server
 ## Next steps
 {: #hpvs-ftcc-next-steps}
 
-Check out the [demo video](https://mediacenter.ibm.com/media/IBM+Cloud+Show+Me-+Hyper+Protect+Services+for+Confidential+Computing+Demo/1_f7e970ig){: external} that demonstrates the data protection that is provided by Confidential Computing by comparision between two servers:
+Check out the [demo video](https://mediacenter.ibm.com/media/IBM+Cloud+Show+Me-+Hyper+Protect+Services+for+Confidential+Computing+Demo/1_f7e970ig){: external} that demonstrates the data protection that is provided by Confidential Computing by comparison between two servers:
 - One **without** Confidential Computing, where a malicious root user can dump contents of the server memory that's not protected to steal PII and credit card data.
 - One **with** Confidential Computing, where even the root user can’t access the server memory as it's protected by the Hyper Protect platform.
