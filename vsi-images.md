@@ -2,7 +2,7 @@
 
 copyright:
   years: 2019, 2025
-lastupdated: "2025-11-04"
+lastupdated: "2025-11-05"
 
 subcollection: vpc
 
@@ -82,7 +82,7 @@ ibm-centos-7-6-minimal-amd64-2
 
 The following list explains the variables that make up the components of the image name:
 * The leading prefix of `ibm-` is used for IBM-provided images. Custom images cannot be named with this prefix.
-* The `family` component provides the operating system family, such as *redhat*, *debian, or *windows-server*.
+* The `family` component provides the operating system family, such as *redhat*, *debian*, or *windows-server*.
 * The `version` component provides the operating system version, such as *18-04* for Ubuntu 18.04, or *2012-r2* for Windows 2012 R2.
 * The `type` component provides the minimization level of the operating system image, such as *minimal* or *full*.
 * The `architecture` component provides the vCPU architecture that is supported by the operating system image, such as *amd64*.

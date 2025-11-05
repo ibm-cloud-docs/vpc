@@ -2,7 +2,7 @@
 
 copyright:
   years: 2023, 2025
-lastupdated: "2025-11-04"
+lastupdated: "2025-11-05"
 
 keywords: hyper protect container runtime, error messages, troubleshooting
 
@@ -148,7 +148,7 @@ The following list shows the error messages from Hyper Protect Container Runtime
    - Name: KEY_DAEMON_FAILED
    - Message: Key daemon With Error
    - Explanation: Key daemon failed with Error.
-   - System Action: Close the Luks Layer of DataVolume
+   - System Action: Close the LUKS Layer of DataVolume
    - User Action: Consult console logs for root cause.
 - **HPL18006E**:
    - Name: MISSING_CONFIG_ERROR

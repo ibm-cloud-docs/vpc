@@ -2,7 +2,7 @@
 
 copyright:
   years: 2021, 2025
-lastupdated: "2025-09-11"
+lastupdated: "2025-11-05"
 
 keywords: creating bare metal servers
 
@@ -85,6 +85,7 @@ Before you use the API to create bare metal server, see the following table for 
 
 | Server detail | Listing options |
 |---------|---------|
+| Image | [List all images](/apidocs/vpc/latest#list-images) |
 | Image | [List all images](/apidocs/vpc/latest#list-images) |
 | Keys | [List all keys](/apidocs/vpc/latest#list-keys)  \n  \n If you don't have any available SSH keys, use [Create a key](/apidocs/vpc/latest#create-key) to create one. For more information, see [SSH keys](/docs/vpc?topic=vpc-ssh-keys).  \n  \n **Note:**  SSH keys can be either RSA or Ed25519. You can generate new RSA key pairs by using the UI. Pre-existing RSA and Ed25519 SSH keys can be uploaded. Ed25519 can be used only if the operating system supports this key type. Ed25519 can't be used with Windows or VMware images. |
 | Subnet | [List all subnets](/apidocs/vpc/latest#list-subnets) |
@@ -350,6 +351,7 @@ Before you can use the CLI to create bare metal server, you need to gather the i
 
 | Server details | Listing options |
 |---------|---------|
+| Image | [List all images](/docs/vpc?topic=vpc-vpc-reference#images-list) |
 | Image | [List all images](/docs/vpc?topic=vpc-vpc-reference#images-list) |
 | Keys | [List all keys](/docs/vpc?topic=vpc-vpc-reference#keys)  \n  \n If you don't have any available SSH keys, use [Create a key](/docs/vpc?topic=vpc-vpc-reference#key-create) to create one.  \n  \n **Note:**  SSH keys can be either RSA or Ed25519. You can generate new RSA key pairs by using the UI. Pre-existing RSA and Ed25519 SSH keys can be uploaded. Ed25519 can be used only if the operating system supports this key type. Ed25519 can't be used with Windows or VMware images.  \n For more information, see [SSH keys](/docs/vpc?topic=vpc-ssh-keys). |
 | Subnet | [List all subnets](/docs/vpc?topic=vpc-vpc-reference#subnets-list) |
