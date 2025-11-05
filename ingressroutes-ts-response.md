@@ -1,7 +1,7 @@
 ---
 copyright:
   years: 2022
-lastupdated: "2024-06-20"
+lastupdated: "2025-11-05"
 
 keywords:
 
@@ -29,10 +29,10 @@ This troubleshooting error can occur with the following conditions:
 - the packet source is not `internet`
 - the custom routing table **Traffic source** is not `INTERNET_FIP`
 - the route **Destination** is not the public IP
-- the nexthop IP is not VSI private IP
-- the nexthop IP is not for a VSI running in the Floating IP VSI zone
--	the nexthop VSI does not belong to the same VPC as the Floating IP VSI
-- the nexthop VSI has no setting `antispoofing disable`=`true`
+- the next hop IP is not VSI private IP
+- the next hop IP is not for a VSI running in the Floating IP VSI zone
+-	the next hop VSI does not belong to the same VPC as the Floating IP VSI
+- the next hop VSI has no setting `antispoofing disable`=`true`
 - the next_hop virtual server instance is not defined, or its **State** is not `Running`
 
 No response message was sent back from the destination floating-IP. If the next hop is not the original floating-IP, the packet is dropped.

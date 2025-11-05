@@ -2,7 +2,7 @@
 
 copyright:
   years: 2020, 2025
-lastupdated: "2025-06-27"
+lastupdated: "2025-11-05"
 
 keywords: strongswan peer
 
@@ -183,7 +183,7 @@ The following example configuration shows how to set up two route-based tunnels 
 1. Add a route on the strongSwan server. In this example, `10.240.0.0/24` is the subnet of the VPN gateway to connect to and the VTI names are the VTI names from step 5.
 
    ```sh
-   sudo ip route add 10.240.0.0/24 proto static nexthop dev vti1 nexthop dev vti2
+   sudo ip route add 10.240.0.0/24 proto static next hop dev vti1 next hop dev vti2
    ```
    {: pre}
 
