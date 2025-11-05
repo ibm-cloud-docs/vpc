@@ -383,6 +383,6 @@ After you validate the Checksum (SHA256), use the image to create a virtual serv
 ## Next steps
 {: #next-validate-custom-image}
 
-After you validate the custom images, you can deploy and manage your custom images. For more information, see [Managing custom images](/docs/vpc?topic=vpc-managing-custom-images&interface=ui).
+After you validate the custom images, you can deploy and manage your custom images. For more information, see [Managing custom images](/docs/vpc?topic=vpc-managing-custom-images&interface=ui). 
 
 If you plan to manage your custom images with a private catalog, see [Onboarding a virtual server image for VPC](/docs/account?topic=account-catalog-vsivpc-tutorial&interface=ui). If you plan to publish your images through the Global Catalog and bill users by using a software plan, see [Onboarding a virtual server for VPC with a plan](/docs/account?topic=account-working-catalog-vsivpc-tutorial&interface=ui).

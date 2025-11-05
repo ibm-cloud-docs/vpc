@@ -2,7 +2,7 @@
 
 copyright:
   years: 2018, 2025
-lastupdated: "2025-11-04"
+lastupdated: "2025-11-05"
 
 keywords:
 
@@ -782,11 +782,11 @@ You can create a boot volume from a bootable [snapshot](/docs/vpc?topic=vpc-snap
 
 ### Creating an instance with multiple data volumes and dynamic volume bandwidth allocation from the CLI
 {: #create-instance-with-dynamic-storage-qos-cli}
-{: clii}
+{: cli}
 
-Select [compute profiles](/docs/vpc?group=profile-details) support pooled bandwidth allocation for data volumes. For most compute profiles, the `--volume-bandwidth-qos-mode` property defaults to `weighted`. When `weighted` is used, the volume bandwidth is proportionally allocated between the data volumes. By specifying the `pooled` value, you enable dynamic bandwidth allocation. 
+Select [compute profiles](/docs/vpc?group=profile-details) support pooled bandwidth allocation for data volumes. For most compute profiles, the `--volume-bandwidth-qos-mode` property defaults to `weighted`. When `weighted` is used, the volume bandwidth is proportionally allocated between the data volumes. By specifying the `pooled` value, you enable dynamic bandwidth allocation.
 
-The following example uses the `ibmcloud is instance-create` command to create the virtual server instance and specifies the option `--volume-bandwidth-qos-mode` with the value `pooled`. 
+The following example uses the `ibmcloud is instance-create` command to create the virtual server instance and specifies the option `--volume-bandwidth-qos-mode` with the value `pooled`.
 
 ```sh
 ibmcloud is instance-create my-virtual-server my-vpc us-south-2 cx3d-8x20 my-subnet --image r006-534ef2ac-6158-45b3-9657-57629fa85305 --keys r006-68f8333a-1169-42da-ba01-75268bac8362 --volume-attach @/Users/myname/myvolume-attachment.json --volume-bandwidth-qos-mode pooled
@@ -964,7 +964,7 @@ Before you can create an instance, you need to know the details about the instan
 |    Instance details   |  Listing options                | API spec documentation |
 |-----------------------|---------------------------------| --------------------------------------------|
 | Image                 | `GET /images`                   | [List all images](/apidocs/vpc/latest#list-images)|
-| Profile               | `GET /instance/profiles`  \n  \n `GET /images/<id>/instance_profiles` | [List all instance profiles](/apidocs/vpc/latest#list-instance-profiles) \n  \n [List all instance profiles compatible with a specific image](/apidocs/vpc/latest#list-image-instance-profiles)|
+| Profile               | `GET /instance/profiles`  \n  \n `GET /images/<id>/instance_profiles` | [List all instance profiles](/apidocs/vpc/latest#list-instance-profiles)  \n  \n [List all instance profiles compatible with a specific image](/apidocs/vpc/latest#list-image-instance-profiles)|
 | Key                   | `GET /keys`                     | [List all keys](/apidocs/vpc/latest#list-keys)|
 | VPC                   | `GET /vpcs`                     | [List all VPCs](/apidocs/vpc/latest#list-vpcs)|
 | Subnet                | `GET /subnets`                  | [List all subnets](/apidocs/vpc/latest#list-subnets) |
