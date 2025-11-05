@@ -68,7 +68,6 @@ The security group must contain all of the following inbound and outbound rules:
 
 You can adjust these rules depending on the region.
 
-
 ## How do I reregister an RHEL virtual server instance?
 {: #troubleshooting-reregister-RHEL-VSI}
 
@@ -80,8 +79,7 @@ This system is not registered with an entitlement server.
 
 Your REHL virtual server instance was unregistered from the capsule server. To resolve this issue:
 
-1. Create an empty file in `/tmp` folder of your server: `touch reregister-ng-rhel-vsi.sh`.
-Copy and Paste the code in the following section [Script to reregister an RHEL virtual server instance](link TBD). 
+1. Create an empty file in `/tmp` folder of your server: `touch reregister-ng-rhel-vsi.sh`. Copy and Paste the code in the following section [Script to reregister an RHEL virtual server instance](#script-reregister-RHEL-VSI). 
 1. Edit the script and add to the file: `vi reregister-ng-rhel-vsi.sh`.
 1. Run the script: `chmod +x reregister-ng-rhel-vsi.sh` and `./reregister-ng-rhel-vsi.sh`.
 1. If the script fails, provide the following parameters to support:
@@ -151,10 +149,6 @@ echo "Registering system..."
 subscription-manager register --org="${organization}" --activationkey="${activationKey}" --force
 ```
 {: screen}
-
-
-
-
 
 ## Can I configure nested virtualization on a virtual server instance?
 {: #troubleshoot-enable-nested-virtualization}

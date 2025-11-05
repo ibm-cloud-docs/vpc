@@ -2,7 +2,7 @@
 
 copyright:
   years: 2019, 2025
-lastupdated: "2025-10-31"
+lastupdated: "2025-11-05"
 
 keywords:
 
@@ -18,9 +18,9 @@ subcollection: vpc
 {{site.data.keyword.cloud_notm}} services, such as {{site.data.keyword.vpc_short}}, generate activity tracking events.
 {: shortdesc}
 
-Activity tracking events report on activities that change the state of resources in {{site.data.keyword.cloud_notm}} and also report on certain activities that do not change any state, such as attempts to access and update resources. You can use the events to investigate abnormal activity and critical actions and to comply with regulatory audit requirements.
+Activity tracking events report on activities that change the state of resources in {{site.data.keyword.cloud_notm}}. Activity tracking events also report on certain activities that do not change any state, such as attempts to access and update resources. You can use the events to investigate abnormal activity and critical actions and to comply with regulatory audit requirements.
 
-You can use {{site.data.keyword.atracker_full_notm}}, a platform service, to route auditing events in your account to destinations of your choice by configuring targets and routes that define where activity tracking events are sent. For more information, see [About {{site.data.keyword.atracker_full_notm}}](/docs/atracker?topic=atracker-about).
+You can use {{site.data.keyword.atracker_full_notm}}, a platform service to route auditing events in your account to destinations of your choice by configuring targets and routes that define where activity tracking events are sent. For more information, see [About {{site.data.keyword.atracker_full_notm}}](/docs/atracker?topic=atracker-about).
 
 You can use {{site.data.keyword.logs_full_notm}} to visualize and alert on events that are generated in your account and routed by {{site.data.keyword.atracker_full_notm}} to an {{site.data.keyword.logs_full_notm}} instance.
 
@@ -33,7 +33,7 @@ You can use {{site.data.keyword.logs_full_notm}} to visualize and alert on event
 {{site.data.keyword.vpc_short}} sends activity tracking events by {{site.data.keyword.atracker_full_notm}} in the regions that are indicated in the following table.
 
 | Dallas (`us-south`) | Washington (`us-east`) | Montreal (`ca-mon`) | Toronto (`ca-tor`) | Sao Paulo (`br-sao`) |
-|---------------------|-------------------------|-------------------|-------------------|----------------------|
+|---------------------|------------------------|---------------------|-------------------|----------------------|
 | [Yes]{: tag-green} | [Yes]{: tag-green} | [Yes]{: tag-green} | [Yes]{: tag-green} | [Yes]{: tag-green} |
 {: caption="Regions where activity tracking events are sent in Americas locations" caption-side="top"}
 {: #atracker-table-1}
@@ -43,7 +43,7 @@ You can use {{site.data.keyword.logs_full_notm}} to visualize and alert on event
 {: row-headers}
 
 | Tokyo (`jp-tok`)    | Sydney (`au-syd`) | Osaka (`jp-osa`) | Chennai (`in-che`) |
-|---------------------|------------------|------------------|------------------|
+|---------------------|-------------------|------------------|--------------------|
 | [Yes]{: tag-green} | [Yes]{: tag-green} | [Yes]{: tag-green} | [Yes]{: tag-green} |
 {: caption="Regions where activity tracking events are sent in Asia Pacific locations" caption-side="top"}
 {: #atracker-table-2}
@@ -72,7 +72,7 @@ You can use {{site.data.keyword.logs_full_notm}} to visualize and alert on event
 
 
 
-For information on launching the {{site.data.keyword.logs_full_notm}} UI, see [Launching the UI in the {{site.data.keyword.logs_full_notm}} documentation.](/docs/cloud-logs?topic=cloud-logs-instance-launch)
+For information on starting the {{site.data.keyword.logs_full_notm}} UI, see [Launching the UI in the {{site.data.keyword.logs_full_notm}} documentation.](/docs/cloud-logs?topic=cloud-logs-instance-launch)
 
 ## Network resources
 {: #events-network}
@@ -88,7 +88,7 @@ The following tables list the actions that are related to network resources and 
 | network-acl  | is.network-acl.network-acl.update   | Network ACL was updated  |
 | network-acl  | is.network-acl.network-acl.delete   | Network ACL was deleted  |
 | network-acl  | is.network-acl.network-acl.read | One or more network ACL was retrieved |
-| network-acl  | is.network-acl.rule.create  | Rule was added to Network ACL  |
+| network-acl  | is.network-acl.rule.create  | Rule was added to the Network ACL  |
 | network-acl  | is.network-acl.rule.update  | Network ACL Rule was updated   |
 | network-acl  | is.network-acl.rule.delete  | Rule was removed from Network ACL  |
 | network-acl  | is.network-acl.rule.read | One or more network ACL rules was retrieved |
@@ -373,6 +373,7 @@ Starting 30 September 2024, VPC routing tables support tagging, which requires r
 {: #events-vni}
 
 The following table lists the actions that are related to virtual network interfaces and the generation of events.
+
 | Resource | Action | Description |
 |---|---|---|
 | virtual-network-interface | is.virtual-network-interface.virtual-network-interface.list   | Virtual network interface was listed  |
@@ -714,14 +715,14 @@ The following table lists the actions that are related to volume resources and t
 
 | Resource  | Action  | Description  |
 |:----------------|:-----------------------|:-----------------------|
-| `volume`  | `is.volume.volume.create`  | Volume was created  |
-| `volume`  | `is.volume.volume.update`  | Volume was updated  |
-| `volume`  | `is.volume.volume.delete`  | Volume was deleted  |
+| `volume`  | `is.volume.volume.create`  | The volume was created  |
+| `volume`  | `is.volume.volume.update`  | The volume was updated  |
+| `volume`  | `is.volume.volume.delete`  | The volume was deleted  |
 | `volume`  | `is.volume.volume.read`    | One or more volumes were retrieved  |
 | volume | is.volume.volume.operate | Volume ID was specified |
 {: caption="Actions that generate events for Block Storage resources" caption-side="bottom"}
 
-An event does not contain a volume name if no information is available at the time of the event. For example, when you make a request to create a volume but do not provide a volume name, the information is not available and does not appear in the event.
+An event does not contain a volume name if no information is available at the time of the event. For example, when you make a request to create a volume but do not provide a volume name, the information is not available and does not appear in the event's description.
 {: note}
 
 ### Block storage snapshot events
@@ -734,7 +735,7 @@ The following table lists the actions that are related to snapshots resources an
 | `snapshot`  | `is.snapshot.snapshot.create`  | Snapshot creation process started |
 | `snapshot`  | `is.snapshot.snapshot.capture` | Volume data was captured  |
 | `snapshot`  | `is.snapshot.snapshot.update`  | Snapshot was updated  |
-| `snapshot`  | `is.snapshot.snapshot.delete`  | Snapshot was deleted  |
+| `snapshot`  | `is.snapshot.snapshot.delete`  | The snapshot was deleted  |
 | `snapshot`  | `is.snapshot.snapshot.read`    | One or more snapshots were retrieved  |
 | `snapshot`  | `is.snapshot.snapshot.restore` | Volume was restored from a snapshot |
 | `snapshot`  | `is.snapshot.snapshot.operate` | Source snapshot ID was specified |
@@ -747,10 +748,10 @@ The following table lists the actions that are related to snapshot consistency g
 
 | Resource |  Action | Description  |
 |---|---|---|
-| `snapshot-consistency-group` | `is.snapshot-consistency-group.snapshot-consistency-group.create`   | snapshot-consistency-group was created  |
-| `snapshot-consistency-group` | `is.snapshot-consistency-group.snapshot-consistency-group.update`   | snapshot-consistency-group was updated  |
-| `snapshot-consistency-group` | `is.snapshot-consistency-group.snapshot-consistency-group.delete`   | snapshot-consistency-group was deleted  |
-| `snapshot-consistency-group` | `is.snapshot-consistency-group.snapshot-consistency-group.read`     | One or more snapshot-consistency-group were retrieved |
+| `snapshot-consistency-group` | `is.snapshot-consistency-group.snapshot-consistency-group.create`   | Snapshot-consistency-group was created  |
+| `snapshot-consistency-group` | `is.snapshot-consistency-group.snapshot-consistency-group.update`   | Snapshot-consistency-group was updated  |
+| `snapshot-consistency-group` | `is.snapshot-consistency-group.snapshot-consistency-group.delete`   | Snapshot-consistency-group was deleted  |
+| `snapshot-consistency-group` | `is.snapshot-consistency-group.snapshot-consistency-group.read`     | One or more snapshot-consistency-groups were retrieved |
 {: caption="Actions that generate events for snapshot consistency group resources" caption-side="bottom"}
 
 ### File Storage events
@@ -772,12 +773,12 @@ The following table lists the actions that are related to file share resources a
 | `shares`  | `is.share.share.failover`| Replication Failover status |
 | `shares`  | `is.share.share.split`   | Replication Split status |
 | `shares`  | `is.share.accessor-binding.create` | File share binding with accessor share was created.|
-| `shares`  | `is.share.accessor-binding.delete` | File share binding  deletion.|
-| `shares`  | `is.share.accessor-binding.list` | List of all bindings for a file share was retrieved.|
+| `shares`  | `is.share.accessor-binding.delete` | File share binding deletion.|
+| `shares`  | `is.share.accessor-binding.list` | A list of all bindings for a file share was retrieved.|
 | `shares`  | `is.share.accessor-binding.read` | One share binding for a file share was retrieved. |
 | `share mount targets` | `is.share.mount-target.create`| Mount target for a file share was created  |
 | `share mount targets` | `is.share.mount-target.read`  | One mount target for a file share was retrieved  |
-| `share mount targets` | `is.share.mount-target.list`  | List of all mount targets for a file share was retrieved  |
+| `share mount targets` | `is.share.mount-target.list`  | A list of all mount targets for a file share was retrieved  |
 | `share mount targets` | `is.share.mount-target.update`| Mount target for a file share was modified  |
 | `share mount targets` | `is.share.mount-target.delete`| Mount target for a file share was deleted  |
 {: caption="Actions that generate events for file storage resources" caption-side="bottom"}
@@ -788,12 +789,12 @@ The following table lists the actions that are related to file share resources a
 | Resource | Action | Description |
 |:---------|:-------|:------------|
 | `share/snapshot` | `is.share.snapshot.create` | Snapshot creation of a file share is pending. |
-| `share/snapshot` | `is.share.snapshot.create` | Snapshot of a file share was created.  |
+| `share/snapshot` | `is.share.snapshot.create` | A snapshot of a file share was created.  |
 | `share/snapshot` | `is.share.snapshot.create` | Snapshot creation of a file share failed. |
 | `share/snapshot` | `is.share.snapshot.read`   | One snapshot of a file share was retrieved. |
 | `share/snapshot` | `is.share.snapshot.list`   | A list of all snapshots for a file share was retrieved. |
 | `share/snapshot` | `is.share.snapshot.update` | A snapshot of a file share was modified. |
-| `share/snapshot` | `is.share.snapshot.delete` | The deletion of snapshot of a file share is pending.|
+| `share/snapshot` | `is.share.snapshot.delete` | The deletion of a snapshot of a file share is pending.|
 | `share/snapshot` | `is.share.snapshot.delete` | A snapshot of a file share was deleted. |
 | `share/snapshot` | `is.share.snapshot.delet`e | A snapshot deletion for a file share failed. |
 {: caption="Actions that generate events for file share snapshots resources" caption-side="bottom"}

@@ -2,7 +2,7 @@
 
 copyright:
   years: 2019, 2025
-lastupdated: "2025-11-04"
+lastupdated: "2025-11-05"
 
 keywords:
 
@@ -27,7 +27,7 @@ Known issues for site-to-site VPN gateways are as follows:
 
 * When multiple networks, subnets, or both are associated with either an {{site.data.keyword.cloud_notm}} VPN gateway or an on-premises device, avoid mixing policy-based and route-based VPNs. Policy-based VPNs create a tunnel for each target network range. However, route-based VPNs route everything to a peer device through a single tunnel. Therefore, when multiple network ranges are configured, only a single tunnel that is associated with a single network range can be established. Combining contiguous subnets into a single superset CIDR is a valid workaround.
 * Peer subnets of a VPN gateway connection cannot overlap.
-* Prefix filtering is currently not supported for VPN gateway.
+* Transit Gateway prefix filtering is currently not supported for VPN gateways.
 * When you connect a policy-based VPN with a route-based peer (or static, route-based VPN with a policy-based peer), use only a single network range for both sides. A policy-based VPN uses one tunnel for each associated network, while a route-based VPN only requires a single tunnel. Connections between different types of VPNs associated with multiple network ranges on either side might only work for one network range.
 
    ![Mixed VPN types use case](images/vpn-mixed-types.svg){: caption="Mixed VPN Types use case" caption-side="bottom"}
