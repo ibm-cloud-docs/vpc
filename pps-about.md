@@ -2,7 +2,7 @@
 
 copyright:
   years: 2023, 2025
-lastupdated: "2025-06-27"
+lastupdated: "2025-11-05"
 
 keywords:
 
@@ -37,15 +37,15 @@ Your ability to complete the following actions depends on the level of IAM permi
 As a service provider, follow these steps to get started:
 
 1. Make sure that you have a Virtual Private Cloud (VPC) and at least one subnet in the selected VPC.
-1. Create a Private Path NLB.
-
-   * You can create a Private Path NLB when you create your Private Path service, or you can use the [Load balancer for VPC](/infrastructure/provision/loadBalancer) provisioning page to create one. To create a Private Path load balancer separate from the Private Path service, see [Creating a Private Path network load balancer](/docs/vpc?topic=vpc-ppnlb-ui-creating-private-path-network-load-balancer&interface=ui).
-   * You must use the same account within the same VPC region for your Private Path NLB and Private Path service.
-
 1. [Create a Private Path service](/docs/vpc?topic=vpc-private-path-service-about&interface=ui).
 
    * Set the default policy for when an account doesn’t have a specific policy that is assigned to it. The default policy (**Review**) allows you to permit or deny each request, whereas **Permit** and **Deny** automate the process for connection requests without specific account policies.
    * Create account policies for specific account IDs now or later. These policies determine what action to take when the provider receives a request from a specific account, and take precedence over the default policy.
+
+1. Create a Private Path NLB.
+
+   * You can create a Private Path NLB when you create your Private Path service, or you can use the [Load balancer for VPC](/infrastructure/provision/loadBalancer) provisioning page to create one. To create a Private Path load balancer separate from the Private Path service, see [Creating a Private Path network load balancer](/docs/vpc?topic=vpc-ppnlb-ui-creating-private-path-network-load-balancer&interface=ui).
+   * You must use the same account within the same VPC region for your Private Path NLB and Private Path service.
 
 ## Private Path service use cases
 {: #pps-use-cases}
