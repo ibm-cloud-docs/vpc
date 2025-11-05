@@ -2,7 +2,7 @@
 
 copyright:
   years: 2022, 2025
-lastupdated: "2025-11-04"
+lastupdated: "2025-11-05"
 
 keywords: context-based restrictions for VPC Infrastructure Services
 
@@ -193,7 +193,7 @@ After you create a rule, it might take up to 10 minutes before you can update th
 {: note}
 
 The following example payload creates a rule that protects the Virtual Server Instances and allows
-access only from the specified network zone via a private endpoint.
+access only from the specified network zone through a private endpoint.
 
 ```json
 {

@@ -21,7 +21,7 @@ This tutorial walks you through how to encrypt log messages that are generated b
 ## Objective
 {: #objective}
 
-Every Hyper Protect Virtual Server for VPC instance is created with a valid [contract](/docs/vpc?topic=vpc-about-contract_se). One section of the contract stores your [logging configuration](/docs/vpc?topic=vpc-logging-for-hyper-protect-virtual-servers-for-vpc). The logs that are produced by your deployed workload are sent via TLS to your designated logging service and are later displayed on the logging dashboard.
+Every Hyper Protect Virtual Server for VPC instance is created with a valid [contract](/docs/vpc?topic=vpc-about-contract_se). One section of the contract stores your [logging configuration](/docs/vpc?topic=vpc-logging-for-hyper-protect-virtual-servers-for-vpc). The logs that are produced by your deployed workload are sent through TLS to your designated logging service and are later displayed on the logging dashboard.
 
 If your workload produces sensitive information, you can take similar steps as in this tutorial to make selected log messages display as ciphertext on the logging dashboard. To retrieve the deciphered messages, you can download the logs from your Log Analysis instance and decrypt them locally.
 
@@ -39,7 +39,7 @@ This tutorial explains how to deploy Docker Compose or Podman Play as a Hyper Pr
 
 - In the [`log-encryption`](https://github.com/ibm-hyper-protect/samples/tree/main/log-encryption) folder, you have a `docker-compose.yaml` file under `/compose` directory, which deploys and manages the Docker Compose application. The image that we use is the official Ubuntu image from [DockerHub](https://hub.docker.com/_/ubuntu).
 - Within the `docker-compose.yaml` file, there is a command that asks Docker Compose to run a shell script (`example.sh`) that prints a line of plain text and a line of encrypted message to the standard output. This `example.sh` file exists in the `/compose/bin` directory.
-- A public key `logging.pub` is required for encrypting the log message. This file must exist in the `/compose` folder. This tutorial shows an example of generating a key pair encrypted via AES with a passphrase by using `openssl`.
+- A public key `logging.pub` is required for encrypting the log message. This file must exist in the `/compose` folder. This tutorial shows an example of generating a key pair encrypted through AES with a passphrase by using `openssl`.
 - The `volumes:` instruction tells Docker Compose to mount the Docker Compose volume with the public key and the simple logging application to `/var/logging` inside the container. The Ubuntu image starts as a container later and run `example.sh` as its main application.
 
 ### Podman Play approach

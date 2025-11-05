@@ -1,9 +1,9 @@
 ---
 
 copyright:
-  years: 2019, 2023
+  years: 2019, 2025
 
-lastupdated: "2025-10-31"
+lastupdated: "2025-11-05"
 
 keywords: CSE, endpoint, service, DNS, resolver, mirror, object, storage, bandwidth, charges
 
@@ -82,6 +82,8 @@ Traffic to and from service endpoints are subject to ACL and security group rule
 VPCs are automatically able to reach service endpoints. For more information about service endpoints, see [Services that support service endpoints](/docs/account?topic=account-vrf-service-endpoint#use-service-endpoint). After you provision a service as a private endpoint, ping the endpoint from your virtual server instance to verify that the endpoint is reachable.
 
 You can also use {{site.data.keyword.vpn_vpc_short}} to access service endpoints. For more information, see [Access service endpoints through VPN](/docs/vpc?topic=vpc-using-vpn).
+
+
 
 ## IaaS endpoints
 {: #infrastructure-as-a-service-iaas-endpoints}

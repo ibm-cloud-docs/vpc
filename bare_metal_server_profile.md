@@ -2,7 +2,7 @@
 
 copyright:
   years: 2021, 2025
-lastupdated: "2025-10-31"
+lastupdated: "2025-11-05"
 
 keywords:
 
@@ -166,7 +166,7 @@ The following information describes the naming rule of the profiles.
 
 Using “bx2d-metal-96x384” as an example, it's a _Balanced_ bare metal profile with _96 vCPUs and 384 GiB memory_, has Cascade Lake processors, and NVMe U.2 SSDs.
 
-Bare metal profiles are dedicated servers that provide physical cores. vCPU measurements are used in profile naming only. vCPU to physical cores are a 2:1 ratio (e.g 96 vCPU = 48 physical cores).
+Bare metal profiles are dedicated servers that provide physical cores. vCPU measurements are used in profile naming only. vCPU to physical cores are a 2:1 ratio (for example, 96 vCPU = 48 physical cores).
 
 ## Generation 3 (x3) bare metal profiles availability by region
 {: #bare-metal-profile-availability-by-region-gen3}

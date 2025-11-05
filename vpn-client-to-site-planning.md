@@ -2,7 +2,7 @@
 
 copyright:
   years: 2021, 2025
-lastupdated: "2025-10-15"
+lastupdated: "2025-11-05"
 
 keywords:
 
@@ -99,12 +99,12 @@ If you plan to use the client certificate, the user must edit the client profile
 When a private certificate is used for client authentication, the administrator does not need to modify the client profile. Instead, the administrator can download the client profile with the merged private certificate and key for all certificates, or select private certificates and download the client profile with the merged private certificate and key for the selected certificates. For more information, see [Setting up a client VPN environment and connecting to a VPN server](/docs/vpc?topic=vpc-vpn-client-environment-setup&interface=ui).
 {: note}
 
-VPN users don't use their password directly to connect to the VPN server. They get the passcode from the IBM Access Manager (IAM) via a browser, and if the MFA is enabled, the MFA enforcement is always done via the browser. The user must configure the MFA properly to make sure the MFA enforcement can be done on the browser. After a user gets the passcode, they input the passcode on the OpenVPN client and initiate the connection.
+VPN users don't use their password directly to connect to the VPN server. They get the passcode from the IBM Access Manager (IAM) through a browser, and if the MFA is enabled, the MFA enforcement is always done through the browser. The user must configure the MFA properly to make sure the MFA enforcement can be done on the browser. After a user gets the passcode, they input the passcode on the OpenVPN client and initiate the connection.
 
 The VPN server receives the username and passcode from the VPN client and makes an IAM call to verify the passcode and permission with IAM policy.
 
 * The passcode is a one-time password. The user MUST re-generate the passcode for re-connection, even if the re-connection is initiated by the VPN server.
-* The SoftLayer MFA is not supported because SoftLayer MFA enforcement is not done via the browser.
+* The SoftLayer MFA is not supported because SoftLayer MFA enforcement is not done through the browser.
 
 If you use user ID/passcode authentication, maintenance activities force users to re-authenticate by fetching and re-entering the code. The connection is restored only after the new code is entered. This is applicable using stand-alone or HA mode.
 {: important}

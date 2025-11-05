@@ -2,7 +2,7 @@
 
 copyright:
   years: 2018, 2025
-lastupdated: "2025-11-04"
+lastupdated: "2025-11-05"
 
 
 keywords: load balancer, public, listener, back-end, front-end, pool, round-robin, weighted, connections, methods, policies, APIs, access, ports, vpc network, layer 7, auto scale, managed pool, instance group
@@ -170,4 +170,4 @@ Yes, it is possible to attach the same backend member with the same port on two 
 {: #backend-member-same-port-one-albs}
 {: faq}
 
-No, it is not possible to attach the same backend member with the same port on a single ALB, even if you try to attach via different pools on that ALB. You can attach the same backend member with different ports, or you can attach different backend members with the same ports.
+No, it is not possible to attach the same backend member with the same port on a single ALB, even if you try to attach through different pools on that ALB. You can attach the same backend member with different ports, or you can attach different backend members with the same ports.

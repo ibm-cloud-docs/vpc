@@ -2,7 +2,7 @@
 
 copyright:
   years: 2018, 2025
-lastupdated: "2025-11-03"
+lastupdated: "2025-11-05"
 
 subcollection: vpc
 
@@ -53,6 +53,20 @@ If your instance is not responding to an `instance-reboot` request, you can try 
 {: #troubleshooting-cant-add-ssh-key}
 
 If you try to add an SSH key to your account and get an error that the key can't be parsed, ensure there are no line breaks in the string. An SSH key is a continuous string of characters; sometimes line breaks are introduced when the SSH key is copied from a terminal. To avoid this issue, first paste your SSH key into a text editor and remove any line breaks. Then, copy the SSH key from the text editor and paste it into the VPC UI, CLI, or API.
+
+## How do I deploy an RHEL virtual server instance on a new account that has never deployed an RHEL virtual server instance?
+{: #troubleshooting-deploying-RHEL-VSI-new-account}
+
+Deploying an RHEL virtual server instance on a new account that has not deployed a RHEL instance hides an issue. Before deploying the RHEL instance, the customers need to make security group adjustments, so that the RHEL instance can register.
+{; important}
+
+The security group must contain all of the following inbound and outbound rules:
+
+   - Any/Any TCP - 22, 53, 80, 443
+   - Any/Any UDP - 53
+   - Any/Any ICMP
+
+You can adjust these rules depending on the region.
 
 
 ## How do I reregister an RHEL virtual server instance?

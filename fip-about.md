@@ -2,7 +2,7 @@
 
 copyright:
   years: 2022, 2025
-lastupdated: "2025-11-04"
+lastupdated: "2025-11-05"
 
 keywords: floating ip, about, public gateway
 
@@ -15,7 +15,7 @@ subcollection: vpc
 # About floating IPs
 {: #fip-about}
 
-Floating IP addresses are IP addresses that are provided by the system and are reachable from the public internet. They are allocated an IPv4 address which can be used for external connectivity in a number of ways.
+Floating IP addresses are IP addresses that are provided by the system and are reachable from the public internet. They are allocated an IPv4 address, which can be used for external connectivity in a number of ways.
 
 You can reserve a floating IP address from the pool of available addresses that are provided by IBM, and you can associate it with a network interface of any instance in the same zone. That interface also will have a private IP address. Each floating IP address can be associated with only one interface or public gateway. 
 

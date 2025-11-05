@@ -2,7 +2,7 @@
 
 copyright:
   years: 2022, 2025
-lastupdated: "2025-09-23"
+lastupdated: "2025-11-05"
 
 keywords: Backup, backup snapshot, create backups, backup service, backup plan, backup policy, restore, restore volume, restore data, restore share
 
@@ -1056,7 +1056,7 @@ A successful response shows that the clone policy is created.
 
 You can also set up the fast restore option when you create a backup policy and plan. Specify `clone_policy` as a subproperty of the `plans` property. For more information, see the [Create a backup policy](/apidocs/vpc/latest#create-backup-policy) in the API reference.
 
-The fast restore feature is billed at an extra rate per hour for each zone in which it is enabled. Maintaining fast restore clones is considerably more costly than keeping regular backup snapshots.
+The fast restore feature is billed at an extra rate per hour for each zone where it is enabled. Maintaining fast restore clones is considerably more costly than keeping regular backup snapshots.
 {: note}
 
 The fast restore feature is not applicable for multi-volume or share backups.

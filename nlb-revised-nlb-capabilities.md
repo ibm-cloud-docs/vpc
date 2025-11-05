@@ -1,8 +1,8 @@
 ---
 
 copyright:
-  years: 2024
-lastupdated: "2024-10-14"
+  years: 2024, 2025
+lastupdated: "2025-11-05"
 
 keywords:
 
@@ -18,7 +18,7 @@ subcollection: vpc
 ## What are we changing?
 {: #nlb-what-changed}
 
-In an upcoming release, the Load Balancer for VPC service will make generally available the Private Path network load balancer using a new network-private-path load balancer profile. This load balancer has a couple of differences from existing network load balancers which may affect automation that provisions or manages network load balancer pools:
+In an upcoming release, the Load Balancer for VPC service will make generally available the Private Path network load balancer using a new network-private-path load balancer profile. This load balancer has a couple of differences from existing network load balancers, which may affect automation that provisions or manages network load balancer pools:
 
 * The "least connections" pool load balancing algorithm will not be supported.
 * Pool source IP session persistence will not be supported.

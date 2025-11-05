@@ -2,7 +2,7 @@
 
 copyright:
   years: 2025
-lastupdated: "2025-08-04"
+lastupdated: "2025-11-05"
 
 keywords:
 
@@ -270,10 +270,9 @@ First you must initialize ilab, the environment for running and fine-tuning LLMs
 
 1. Configure `ilab` as shown in the following example:
 
-
-   ```sh
-   # ilab config init
-   ```
+    ```sh
+    # ilab config init
+    ```
 
     ```sh
     Welcome to InstructLab CLI. This guide will help you to setup your environment.

@@ -2,7 +2,7 @@
 
 copyright:
   years: 2019, 2025
-lastupdated: "2025-11-04"
+lastupdated: "2025-11-05"
 
 keywords:
 
@@ -33,9 +33,9 @@ For more information about changes to the {{site.data.keyword.vpc_short}} comman
 
 Chennai region now available
 :   The Chennai region is now available for provisioning the 3rd generation of [virtual servers](/docs/vpc?topic=vpc-profiles), [dedicated hosts](/docs/vpc?topic=vpc-dh-profiles), and [bare metal servers](/docs/vpc?topic=vpc-bare-metal-servers-profile).
-   - You can provision virtual servers in the Chennai region from the Balanced, Compute, Memory, Very High Memory, and Flex profile families. For more information see [General purpose - Gen 3 profile details](/docs/vpc?topic=vpc-general-purpose-vsi-profiles-gen3-intel) and [General purpose - Flex profile details](/docs/vpc?topic=vpc-flexible-profiles-virtual-servers).
+   - You can provision virtual servers in the Chennai region from the Balanced, Compute, Memory, Very High Memory, and Flex profile families. For more information, see [General purpose - Gen 3 profile details](/docs/vpc?topic=vpc-general-purpose-vsi-profiles-gen3-intel) and [General purpose - Flex profile details](/docs/vpc?topic=vpc-flexible-profiles-virtual-servers).
    - You can provision select bare metal server profiles in the Chennai region. For more information, see [Generation 3 (x3) bare metal profiles availability by region](/docs/vpc?topic=vpc-bare-metal-servers-profile&interface=ui#bare-metal-profile-availability-by-region-gen3).
-   - First-generation storage services are also available, except for the cross-regional replication feature for file shares and cross-regional copy feature for block volume snapshots. Block volume snapshots that are taken in the Chennai region are encrypted by using a {{site.data.keyword.keymanagementserviceshort}} instance from the London (`eu-gb`) region temporarily. For more information see, [Known issues](/docs/vpc?topic=vpc-known-issues#snapshot-COS-upload-IN-CHE-EU-GB).
+   - First-generation storage services are also available, except for the cross-regional replication feature for file shares and cross-regional copy feature for block volume snapshots. Block volume snapshots that are taken in the Chennai region are encrypted by using a {{site.data.keyword.keymanagementserviceshort}} instance from the London (`eu-gb`) region temporarily. For more information, see [Known issues](/docs/vpc?topic=vpc-known-issues#snapshot-COS-upload-IN-CHE-EU-GB).
    - For more information about the Chennai region and zones, see [IBM Cloud region and data center locations for resource deployment](/docs/overview?topic=overview-locations).
 
 ### 23 October 2025
@@ -373,7 +373,7 @@ NVIDIA Hopper-1 cluster network profile
 :   The Hopper-1 cluster network profile is now available for IBM Cloud cluster networks. It provides isolated networks for Hopper HGX instances running workloads that require high-bandwidth, low-latency interconnectivity, such as AI training and large-scale simulations. The Hopper-1 network profile supports both H100 and H200 instance profiles. For more information, see the [NVIDIA Hopper-1 cluster network profile](/docs/vpc?topic=vpc-cluster-network-hopper-1-profile).
 
 Public address ranges (beta release)
-:   Accounts that have been granted special approval to preview this feature can now [create a public address range](/docs/vpc?topic=vpc-par-creating&interface=cli). A public address range is a contiguous set of public IP addresses that you can reserve and bind to a VPC in an availability zone. For more information, see [About public address ranges](/docs/vpc?topic=vpc-about-par&interface=cli).
+:   Accounts that have special approval to preview this feature can now [create a public address range](/docs/vpc?topic=vpc-par-creating&interface=cli). A public address range is a contiguous set of public IP addresses that you can reserve and bind to a VPC in an availability zone. For more information, see [About public address ranges](/docs/vpc?topic=vpc-about-par&interface=cli).
 
 ### 10 April 2025
 {: #vpc-apr1025}
@@ -593,7 +593,7 @@ Hyper Protect Secure Build
 {: release-note}
 
 Allow SSH and Allow ping are not selected by default when creating a VPC in {{site.data.keyword.cloud_notm}} console
-:   When you create a virtual private cloud by using {{site.data.keyword.cloud_notm}} console, the default security group settings for **Allow SSH** and **Allow ping** are now not selected by default, ensuring the most secure option by default. During VPC creation, you can select **Allow SSH** and **Allow ping** as needed for your VPC configuration. For more information see, [Creating a VPC and subnet](/docs/vpc?topic=vpc-creating-a-vpc-using-the-ibm-cloud-console&interface=ui#creating-a-vpc-and-subnet).
+:   When you create a virtual private cloud by using {{site.data.keyword.cloud_notm}} console, the default security group settings for **Allow SSH** and **Allow ping** are now not selected by default, ensuring the most secure option by default. During VPC creation, you can select **Allow SSH** and **Allow ping** as needed for your VPC configuration. For more information, see [Creating a VPC and subnet](/docs/vpc?topic=vpc-creating-a-vpc-using-the-ibm-cloud-console&interface=ui#creating-a-vpc-and-subnet).
 
 ### 18 October 2024
 {: #vpc-oct1824}
@@ -1113,7 +1113,7 @@ London 1 AZ for bare metal servers
 {: release-note}
 
 Virtual Network Interfaces for VPC (Select availability)
-:   Accounts that have been granted special approval can preview a new feature in the Virtual Private Cloud (VPC) service that expands the support for [virtual network interfaces](/docs/vpc?topic=vpc-vni-about). The following features are available.
+:   Accounts that have special approval can preview a new feature in the Virtual Private Cloud (VPC) service that expands the support for [virtual network interfaces](/docs/vpc?topic=vpc-vni-about). The following features are available.
    - Virtual network interfaces have an independent lifecycle, which means that when you delete a resource to which the virtual network interface is attached, the virtual network interface persists and retains its IP address.
    - New instances and bare metal servers can be created with virtual network interfaces attached to new child resources called network attachments.
    - Virtual network interfaces support secondary IP addresses.
@@ -1506,13 +1506,13 @@ IBM Hyper Protect Container Runtime image `ibm-hyper-protect-container-runtime-1
    - **Without** the feature, the data volume that you attach to your instance is encrypted automatically with a LUKS passphrase generated by using the **two** seeds from the `workload` - `volumes` and `env` - `volumes` sections of the contract. **Starting from the IBM Hyper Protect Container Runtime image version `ibm-hyper-protect-container-runtime-1-0-s390x-11`**, Hyper Protect Virtual Servers support integration with the key management service (KMS) Hyper Protect Crypto Services. You can enable the integration by providing KMS configurations in the contract. Your Hyper Protect Virtual Server instance calls Hyper Protect Crypto Services to generate a random value as the third seed and wrap it with your root key. The wrapped seed is stored in the metadata partition of your data volume. The LUKS passphrase is generated by using **three** seeds - the seed in the metadata partition (unwrapped first) and the two seeds from the contract. For more information about how the integration works and detailed instructions, see [Securing your data](/docs/vpc?topic=vpc-hyper-protect-virtual-server-mng-data).
 
    Deploying multiple containers
-   - In the `workload` section of the contract, you can define the workload via Pod descriptors. Each pod can contain one or more container definitions. Previously, only one container described by docker compose was supported. For more information about using Pod descriptors, see the [`play` subsection](/docs/vpc?topic=vpc-about-contract_se#hpcr_contract_play). Container images described by Pod descriptors can be [validated by RedHat Simple Signing](/docs/vpc?topic=vpc-about-contract_se#container-image-by-pod-descriptors).
+   - In the `workload` section of the contract, you can define the workload through Pod descriptors. Each pod can contain one or more container definitions. Previously, only one container described by docker compose was supported. For more information about using Pod descriptors, see the [`play` subsection](/docs/vpc?topic=vpc-about-contract_se#hpcr_contract_play). Container images described by Pod descriptors can be [validated by RedHat Simple Signing](/docs/vpc?topic=vpc-about-contract_se#container-image-by-pod-descriptors).
 
    Changes to the attestation document
    - In the attestation document **se-checksums.txt**, `user-data.decrypted` is removed, and `Machine Type/Plant/Serial` (the information required to identify the host machine) is added. For more information, see [Attestation](/docs/vpc?topic=vpc-about-attestation).
 
 Instance group integration with network load balancers (GA)
-:  Network Load Balancer for VPC is now integrated with instance groups to improve pool member scaling. When you create or update an instance group for auto scaling, you can now specify the Network Load Balancer pool for the instance group to manage. For more information see [Creating an instance group for auto scaling](/docs/vpc?topic=vpc-creating-auto-scale-instance-group).
+:  Network Load Balancer for VPC is now integrated with instance groups to improve pool member scaling. When you create or update an instance group for auto scaling, you can now specify the Network Load Balancer pool for the instance group to manage. For more information, see [Creating an instance group for auto scaling](/docs/vpc?topic=vpc-creating-auto-scale-instance-group).
 
 Access control modes and granular authorization for File Storage for VPC file shares (beta release)
 :   For users with accounts that have access to file shares, you can now specify an access control mode to either restrict mounting a file share to a specific virtual server instance in the VPC or allow VPC-wide file share mounting. File share mount targets that were created before `20-June-2023` have a default of VPC-wide file share mounting. File shares that are created after that date can specify security group access control mode to restrict access to a specific instance. For this option, file shares must be based on the [`dp2` profile](/docs/vpc?topic=vpc-file-storage-profiles&interface=ui#dp2-profile). From the UI, CLI, or API, you set the access control mode when you create or update file shares, and can see the setting when you list file shares and in the file share details. When you create a mount target for a file share with security group access mode, you can specify a [virtual network interface](/docs/vpc?topic=vpc-vni-about) to be created and attached to the mount target with a [security group](/docs/vpc?topic=vpc-using-security-groups). For the virtual network interface, you can specify an existing reserved IP, or specify a subnet and allow the system to assign an IP address. When the mount target is attached and the share is mounted, the virtual network interface performs security group policy check to ensure only authorized virtual server instances can communicate with the share. For more information, see [Mount targets for file shares](/docs/vpc?topic=vpc-file-storage-vpc-about#fs-share-mount-targets).
@@ -1521,7 +1521,7 @@ Data encryption in transit for file shares (beta release)
 :  For users with accounts that have access to file shares, you can enable secure end-to-end encryption of your data when using security group based access control on file shares and mount targets with virtual network interfaces. The traffic between the authorized virtual server and the file share can optionally be IPsec encapsulated by the client. By using an Internet Security Protocol (IPsec), you can establish an encrypted mount connection between the virtual server instance and a file share with the `dp2` profile. The {{site.data.keyword.cloud}} file service provides a [mount helper utility](/docs/vpc?topic=vpc-fs-mount-helper-utility) to automate the complex tasks of configuring and maintaining the connection. For more information, see [Encryption in transit - Securing mount connections between file share and host](/docs/vpc?topic=vpc-file-storage-vpc-eit).
 
 Virtual network interface (beta release)
-:  Virtual network interfaces are now available in a beta release for use with file share mount targets. For more information see [About virtual network interfaces](/docs/vpc?topic=vpc-vni-about).
+:  Virtual network interfaces are now available in a beta release for use with file share mount targets. For more information, see [About virtual network interfaces](/docs/vpc?topic=vpc-vni-about).
 
 ### 16 June 2023
 {: #vpc-jun1623}

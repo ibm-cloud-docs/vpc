@@ -2,7 +2,7 @@
 
 copyright:
   years: 2025, 2025
-lastupdated: "2025-08-04"
+lastupdated: "2025-11-05"
 
 keywords:
 
@@ -154,7 +154,7 @@ See the following tables for the allowed-use expression details for virtual serv
 {: class="simple-tab-table"}
 {: summary="Bare metal server API allowed-use expression options"}
 
-To create a new custom image with allowed-use expressions, use the `POST /images` API command. The following example creates a new custom image with an allowed-use expression for a virtual server instance for GPU count that is greater than one with Nvidia as the GPU manufacturer. Secure boot is required. The bare metal server allowed-use expression is set to false which prevents the image from being used to provision a bare metal server.
+To create a new custom image with allowed-use expressions, use the `POST /images` API command. The following example creates a new custom image with an allowed-use expression for a virtual server instance for GPU count that is greater than one with Nvidia as the GPU manufacturer. Secure boot is required. The bare metal server allowed-use expression is set to false, which prevents the image from being used to provision a bare metal server.
 
 ```sh
 curl -X POST "$vpc_api_endpoint/v1/images?version=$today&generation=2" -H "Authorization: Bearer $iam_token" -d '{
@@ -173,7 +173,7 @@ curl -X POST "$vpc_api_endpoint/v1/images?version=$today&generation=2" -H "Autho
 ```
 {: pre}
 
-To update an existing custom image with an allowed-use expression, use the `PATCH /images` API command. The following example updates an existing custom image with an allowed-use expression for a virtual server instance for GPU count that is greater than one with Nvidia as the GPU manufacturer. Secure boot is required. The bare metal server allowed-use expression is set to false which prevents the image from being used to provision a bare metal server.
+To update an existing custom image with an allowed-use expression, use the `PATCH /images` API command. The following example updates an existing custom image with an allowed-use expression for a virtual server instance for GPU count that is greater than one with Nvidia as the GPU manufacturer. Secure boot is required. The bare metal server allowed-use expression is set to false, which prevents the image from being used to provision a bare metal server.
 
 ```sh
 curl -X PATCH "$vpc_api_endpoint/v1/images/$image_id?version=$today&generation=2" -H 'Content-Type: application/json' -H "Authorization: Bearer $iam_token"  -d '{
@@ -217,7 +217,7 @@ See the following tables for the allowed-use expression details for virtual serv
 {: class="simple-tab-table"}
 {: summary="Bare metal server Terraform allowed-use expression options"}
 
-To create a new custom image with allowed-use expressions or update an existing image, update the `ibm_is_image` resource. The following example creates a new custom image with an allowed-use expression for a virtual server instance for GPU count that is greater than one with Nvidia as the GPU manufacturer. Secure boot is required. The bare metal server allowed-use expression is set to false which prevents the image from being used to provision a bare metal server.
+To create a new custom image with allowed-use expressions or update an existing image, update the `ibm_is_image` resource. The following example creates a new custom image with an allowed-use expression for a virtual server instance for GPU count that is greater than one with Nvidia as the GPU manufacturer. Secure boot is required. The bare metal server allowed-use expression is set to false, which prevents the image from being used to provision a bare metal server.
 
 ```sh
 resource "ibm_is_image" "example" {

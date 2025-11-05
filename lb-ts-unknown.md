@@ -1,8 +1,8 @@
 ---
 
 copyright:
-  years: 2019, 2024
-lastupdated: "2024-06-25"
+  years: 2019, 2025
+lastupdated: "2025-11-05"
 
 keywords: load balancer, network, unknown
 
@@ -28,5 +28,5 @@ A load balancer back-end member lists as unknown.
 The pool might not be associated with any listeners, or configuration changes were made to the pool or its associated listener.
 {: tsCauses}
 
-Verify and resolve any of the above causes.
+Verify and resolve any of the aforementioned causes.
 {: tsResolve}

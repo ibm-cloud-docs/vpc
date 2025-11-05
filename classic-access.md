@@ -1,7 +1,7 @@
 ---
 copyright:
   years: 2018, 2025
-lastupdated: "2025-09-17"
+lastupdated: "2025-11-05"
 
 keywords: classic, access, classic access, VRF, peering
 
@@ -105,4 +105,4 @@ curl -H "Authorization:$iam_token" "$iaas_endpoint/v1/vpcs?generation=2&version=
 * Only subnets allocated to your classic infrastructure with {{site.data.keyword.cloud_notm}} provisioning systems can be connected to your VPC.
 * Only one VPC per region can be enabled for classic access.
 * All classic access VPCs must have globally unique address prefixes that do not overlap.
-* If your classic infrastructure includes an imported default route from Direct Link, the imported default route is used by your Classic Access VPC. In this scenario, the public gateway and floating IPs in your Classic Access VPC do not provide internet access. When the default route is no longer imported via Direct Link, then public gateways and floating IPs once again provide internet access.
+* If your classic infrastructure includes an imported default route from Direct Link, the imported default route is used by your Classic Access VPC. In this scenario, the public gateway and floating IPs in your Classic Access VPC do not provide internet access. When the default route is no longer imported through Direct Link, then public gateways and floating IPs once again provide internet access.

@@ -2,7 +2,7 @@
 
 copyright:
   years: 2022, 2025
-lastupdated: "2025-11-04"
+lastupdated: "2025-11-05"
 
 keywords: confidential computing, enclave, secure execution, hpcr, contract, customization, schema, contract schema, env, workload, encryption
 
@@ -503,7 +503,7 @@ The `volumes` section needs to be provided in the contract only if a data volume
 
 The `volumes` subsection has support for auto encryption of the data volume with user-provided seeds. If a data volume is attached to the {{site.data.keyword.hpvs}} instance, it is encrypted automatically with the seeds that are provided through the "seed" field in the `volumes` subsections of the contract. Thus two seeds must be provided, one through the `workload` section (by the workload persona) and the other through the `env` section (by the deployer persona). These two seeds are internally converted to UTF8 sequences and then concatenated. Later, the hash (SHA256) of the concatenated sequence is computed as a hexdigest, which is used as the LUKS passphrase to encrypt the data volume.
 
-Currently, the `env` and `workload` seeds require a **minimum length of 3 characters**. Starting from **March 2026**, this minimum will be **increased to 15 characters**. Any seed values shorter than 15 characters **after March 2026** may result in errors or failed deployments. To avoid disruptions, **update all seed values** to a length of at least **15 characters** as soon as possible. The rules are defined below.
+Currently, the `env` and `workload` seeds require a **minimum length of 3 characters**. Starting from **March 2026**, this minimum will be **increased to 15 characters**. Any seed values shorter than 15 characters **after March 2026** may result in errors or failed deployments. To avoid disruptions, **update all seed values** to a length of at least **15 characters** as soon as possible. The rules are defined in the following section.
 {: important}
 
 Following are the rules for creating seeds. Starting from **March 2026**, you must follow these rules to create seeds:

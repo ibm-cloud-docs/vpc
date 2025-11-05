@@ -2,7 +2,7 @@
 
 copyright:
   years: 2022, 2025
-lastupdated: "2025-10-23"
+lastupdated: "2025-11-05"
 
 keywords: confidential computing, secure execution, logging for hyper protect virtual server for vpc
 
@@ -243,7 +243,7 @@ You can follow the following procedure to create the required certificates and k
    ```
    {: codeblock}
 
-   Create the key and certificate. Make sure the server certificate `server.crt` contains a SAN for the IP or the hostname, depending on whether the server is accessed via IP or hostname.
+   Create the key and certificate. Make sure the server certificate `server.crt` contains a SAN for the IP or the hostname, depending on whether the server is accessed through IP or hostname.
 
    ```bash
    # create private key
@@ -424,7 +424,7 @@ There are many ways to set up a compatible server endpoint. The following exampl
    {: note}
 
 
-   In this configuration, we accept any client certificate that is signed by the certificate authority via the `x509/certvalid` mode. This can change depending on the `StreamDriver.Authmode` setting. See [StreamDriver.Authmode](https://www.rsyslog.com/doc/configuration/modules/imtcp.html#streamdriver-authmode){: external}.
+   In this configuration, we accept any client certificate that is signed by the certificate authority through the `x509/certvalid` mode. This can change depending on the `StreamDriver.Authmode` setting. See [StreamDriver.Authmode](https://www.rsyslog.com/doc/configuration/modules/imtcp.html#streamdriver-authmode){: external}.
    {: note}
 
 4. Restart the syslog service.

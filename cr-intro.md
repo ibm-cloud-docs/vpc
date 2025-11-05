@@ -2,7 +2,7 @@
 
 copyright:
   years: 2020, 2025
-lastupdated: "2025-06-27"
+lastupdated: "2025-11-05"
 
 keywords: custom routes
 
@@ -183,7 +183,7 @@ For example:
 * Subnet A is used to host the virtual servers and is associated with the default routing table. There is a route `0.0.0.0/0`, and the next hop is a VPN connection.
 * Subnet B is used to host the VPN gateway and creates a new routing table (routing table B). It associates subnet B with routing table B. By default, you do not need any routes in routing table B.
 
-To have connectivity between subnets when having route `0.0.0.0/0` and the next hop is a VPN connection, as above, you can add the following delegate routes:
+To have connectivity between subnets when having route `0.0.0.0/0` and the next hop is a VPN connection, you can add the following delegate routes:
 
 ```sh
 destination CIDR==zone3 VPC prefix, action==delegate, location==zone1

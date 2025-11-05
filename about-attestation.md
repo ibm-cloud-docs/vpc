@@ -2,7 +2,7 @@
 
 copyright:
   years: 2022, 2025
-lastupdated: "2025-10-23"
+lastupdated: "2025-11-05"
 
 keywords: confidential computing, enclave, secure execution, hpcr, hyper protect virtual server for vpc
 
@@ -271,7 +271,7 @@ acd5838e2b3a3b12fe63d278c51844cc5f6399f6f7576e46f9e3afe5e1e33492 cidata/meta-dat
 ### `attestationPublicKey`
 {: #attest_pubkey}
 
-The `attestationPublicKey` is the public key that you provide which is used to encrypt the attestation document. The `attestationPublicKey` is part of the user-data file. Encrypting the attestation document is optional.
+The `attestationPublicKey` is the public key that you provide that is used to encrypt the attestation document. The `attestationPublicKey` is part of the user-data file. Encrypting the attestation document is optional.
 
 ```sh
 07c4973257aa450c17993544e01e55686ac845af8b6cc5b833f8934bfc140706 contract:attestationPublicKey

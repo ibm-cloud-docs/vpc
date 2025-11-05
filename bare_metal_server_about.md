@@ -52,7 +52,7 @@ Configure enhanced network throughput up to 200 Gbps.
 ### BYOL
 {: #bare-metal-byol-benefit}
 
-Maximize the value of your own licensing. Bring your own license with {{site.data.keyword.Bluemix_notm}} {{site.data.keyword.bm_is_short}} for VPC with iPXE. For more information see [Network booting your own operating system with Bare Metal Servers on VPC](/docs/vpc?topic=vpc-network-boot-bare-metal-servers&interface=ui).
+Maximize the value of your own licensing. Bring your own license with {{site.data.keyword.Bluemix_notm}} {{site.data.keyword.bm_is_short}} for VPC with iPXE. For more information, see [Network booting your own operating system with Bare Metal Servers on VPC](/docs/vpc?topic=vpc-network-boot-bare-metal-servers&interface=ui).
 
 ### Rapid scaling
 {: #bare-metal-rapid-scaling-benefit}
