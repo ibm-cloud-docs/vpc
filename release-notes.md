@@ -26,6 +26,7 @@ For more information about changes to the {{site.data.keyword.vpc_short}} comman
 
 ## November 2025
 {: #vpc-nov25}
+{: release-note}
 
 ### 06 November 2025
 {: #vpc-nov0625}
@@ -33,6 +34,9 @@ For more information about changes to the {{site.data.keyword.vpc_short}} comman
 
 Site-to-site dynamic route-based VPN connections (GA)
 :   You can now configure dynamic route-based VPN connections for site-to-site VPNs. This configuration learns routes dynamically and establishes connections between your on-premises peer network and the IBM Cloud VPN gateway. Dynamic routing improves network management and provides high availability allowing services like Power Virtual Server to seamlessly connect through VPN gateway connections. For more information, see [Creating a VPN gateway](/docs/vpc?topic=vpc-vpn-create-gateway&interface=ui)
+
+Regional file shares - Base bandwidth and pricing changes (Select availability)
+:   Customers with special access can now provision regional file shares with the baseline bandwidth of 800 Mbps. The bandwidth value can be adjusted between the preset value and the maximum of 8192 Mbps in the console, from the CLI, or with the API. You pay extra only for the bandwidth that exceeds the preset 800 Mbps.
 
 ## October 2025
 {: #vpc-oct25}

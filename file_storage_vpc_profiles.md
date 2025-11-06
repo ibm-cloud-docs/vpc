@@ -2,7 +2,7 @@
 
 copyright:
   years: 2021, 2025
-lastupdated: "2025-10-24"
+lastupdated: "2025-11-06"
 
 keywords: file storage, file share, performance, IOPS, block size, capacity, range
 
@@ -37,7 +37,7 @@ Current file share profiles:
 | `defined_performance`|`rfs`|      Regional |  1-32,000 GB |        35,000 |    8192 Mbps |
 {: caption="Comparison of file share profiles and performance levels." caption-side="top"}
 
-[^tabletext1]: For the `dp2` profile, the maximum allowable bandwidth is determined by the number of IOPS multiplied by 256 KB. For the `rfs` profile, the baseline bandwidth is 8 Mbps for every 20 GB of capacity. You can increase the bandwidth value by increasing the capacity and IOPS of the `dp2` shares, and by increasing the bandwidth value of the `rfs` profile-based shares. Maximum bandwidth is 8192 Mbps for all defined performance profiles. This bandwidth value represents the maximum allowed combined throughput for read and write operations.
+[^tabletext1]: For the `dp2` profile, the maximum allowable bandwidth is determined by the number of IOPS multiplied by 256 KB. For the `rfs` profile, the baseline bandwidth is 800 Mbps. You can increase the bandwidth value by increasing the capacity and IOPS of the `dp2` shares, and by increasing the bandwidth value of the `rfs` profile-based shares. Maximum bandwidth is 8192 Mbps for all defined performance profiles. This bandwidth value represents the maximum allowed combined throughput for read and write operations.
 
 First- and second-generation profiles in the defined performance profile family are not interchangeable. You can't convert a zonal file share to a regional share, or a regional share to a zonal share.
 {: important}
@@ -54,7 +54,7 @@ Deprecated file share profiles:
 
 The maximum allowable bandwidth for zonal shares is determined by the number of IOPS multiplied by the bandwidth multiplier, which is specific to the profile. This bandwidth value represents the maximum allowed combined throughput for read and write operations.
 
-[Select availability]{: tag-green} The bandwidth value of regional file shares is adjustable. For the `rfs` profile, the baseline bandwidth is 8 Mbps for every 20 GB of capacity. This value can be increased up to 8192 Mbps in the console, from the CLI, and with the API.
+[Select availability]{: tag-green} The bandwidth value of regional file shares is adjustable. For the `rfs` profile, the baseline bandwidth is 800 Mbps. This value can be increased up to 8192 Mbps in the console, from the CLI, and with the API.
 
 The application I/O size directly impacts storage performance. If the application I/O size is smaller than the bandwidth multiplier that is used by the profile to calculate the bandwidth, the IOPS limit is reached before the bandwidth limit. Conversely, if the application I/O size is larger, the bandwidth limit is reached before the IOPS limit.
 
@@ -101,7 +101,7 @@ Table 2 shows the available IOPS ranges, based on share size.
 
 Regional data availability means that data is replicated across all 3 zones within the region, offering higher availability and fault tolerance. Due to the synchronous replication between the zones and the need to ensure data durability, you might experience increased latency during write operations. For workloads where latency performance is less critical than durability, or higher and more consistent IOPS is preferred over low latency, the regional shares can be a better choice.
 
-When you create a regional file share, you can specify its capacity between 1 GiB to 32,000 GiB. For every 20 GiB of capacity, 8 Mbps of bandwidth is included. For example, the preset bandwidth value of a 500 GB file share is 200 Mbps and the preset value of a 16,000 GB file share is 6400 Mbps. You can increase the bandwidth from the preset value up to 8192 Mbps for extra cost. After the file share is created, you can adjust the bandwidth between the preset and the maximum values anytime.
+When you create a regional file share, you can specify its capacity between 1 GiB to 32,000 GiB. 800 Mbps is the default allocation for all regional file shares. You can increase the bandwidth from 800 Mbps up to 8192 Mbps for extra cost. After the file share is created, you can adjust the bandwidth between the minimum and the maximum values anytime.
 
 In the select availability release, cross-region asynchronous replication and scheduled backups are not supported. Cross-account access within the same region is supported.
 
@@ -227,7 +227,7 @@ Capacity                           Default   Max     Min   Step   Type
                                    1         32000   1     1      range      
                                       
 Bandwidth(Mbps)                    Default   Max    Min   Step   Type      
-                                   1         8096   1     1      range      
+                                   800       8096   1     1      range      
                                       
 Availability Modes                 Default   Type    Value      Values      
                                    -         fixed   regional   -      
@@ -336,7 +336,7 @@ The response looks like the following example.
       },
       "bandwidth": {
         "max": 8192,
-        "min": 1,
+        "min": 800,
         "step": 1,
         "type": "dependent_range"
       },
@@ -368,7 +368,7 @@ The 2025-09-16 version of the API is enhanced to include the following fields:
     - The `rfs` profile supports regional data availability.
 - `bandwidth` denotes the available maximum bandwidth value that the file share can handle.
     - For the `dp2` profile, the bandwidth is calculated by multiplying the number of IOPS by 256 KB.
-    - For the `rfs` profile, the preset value is calculated as 8 Mbps for every 20 GB of capacity. However, you can increase this value up to 8192 Mbps.
+    - For the `rfs` profile, the preset value is 800 Mbps. However, you can increase this value up to 8192 Mbps.
 - `storage_generation` denotes the generation of the file share profile within the Defined performance profile family. 
     - For the `dp2` profile, the value is `1`.
     - For the `rfs` profile, the value is `2`.
@@ -405,7 +405,7 @@ IOPS values are based on a 16 KB block size for all profiles, with a 50-50 read/
 
 Maximum bandwidth for a file share is calculated by taking the file share's IOPS and multiplying it by the bandwidth multiplier. The bandwidth multiplier is 16 KB for 3 IOPS/GB or 5 IOPS/GB tiers, or 256 KB for 10 IOPS/GB, custom IOPS, and `dp2` profiles. The higher the IOPS that you specify, the higher the bandwidth. Maximum bandwidth is 8192 Mbps.
 
-[Select availability]{: tag-green} For the `rfs` profile, the bandwidth is directly [adjustable](/docs/vpc?topic=vpc-file-storage-adjusting-bandwidth). The preset value is calculated as 8 Mbps for every 20 GB of capacity. You can increase this value up to 8192 Mbps, or reduce it back to the preset value. The IOPS value for a regional file share is 35000. 
+[Select availability]{: tag-green} For the `rfs` profile, the bandwidth is directly [adjustable](/docs/vpc?topic=vpc-file-storage-adjusting-bandwidth). The preset value is 800 Mbps. You can increase this value up to 8192 Mbps, or reduce it back to the preset value. The IOPS value for a regional file share is 35000. 
 
 The application I/O size directly impacts storage performance. If the application I/O size is smaller than the bandwidth multiplier that is used by the profile to calculate the bandwidth, the IOPS limit is reached before the bandwidth limit. Conversely, if the application I/O size is larger, the bandwidth limit is reached before the IOPS limit.
 

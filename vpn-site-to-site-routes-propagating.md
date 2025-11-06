@@ -37,7 +37,7 @@ Understand how route propagation works across VPN gateways:
 
 * **Route-based VPN** - Route-based VPN supports two connection types. In a *static route-based connection*, the routes are defined by the VPN tunnel interface and route propagation must be configured in the routing table. This connection type doesn't support route advertisement with Transit Gateway.
 
-   In a *dynamic route-based connection*, the routes are automatically learned and propagated by using BGP. This connection type doesn't require manual route configuration in the routing table but it supports automatic route advertisement with Transit Gateway. See [planning considerations](/docs/vpc?topic=vpc-planning-considerations-vpn&interface=ui#dynamic-route-based-considerations) for dynamic route-based VPN connection.
+   In a *dynamic route-based connection*, the routes are automatically learned and propagated by using BGP. This connection type doesn't require manual route configuration in the routing table but it supports automatic route advertisement with Transit Gateway. See [planning considerations](/docs/vpc?topic=vpc-planning-considerations-vpn&interface=ui#dynamic-route-based-connection-considerations) for dynamic route-based VPN connection.
 
 ## Setting up a transit gateway with policy-based VPN for VPC
 {: #setup-tg-with-vpn-vpc}

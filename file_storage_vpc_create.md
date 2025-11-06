@@ -2,7 +2,7 @@
 
 copyright:
   years: 2021, 2025
-lastupdated: "2025-10-24"
+lastupdated: "2025-11-06"
 
 keywords: file share, file storage, virtual network interface, encryption in transit, profiles, 
 
@@ -55,7 +55,7 @@ In the {{site.data.keyword.cloud_notm}} console, you can create a file share wit
    | Resource Group | Use the default resource group or specify a [Resource group](/docs/vpc?topic=vpc-iam-getting-started&interface=ui#iam-resource-groups). Resource groups help organize your account resources for access control and billing purposes. |
    | Tags (optional) | Enter any user tags to apply to this file share. As you type, existing tags appear that you can select. For more information about tags, see [Add user tags to a file share](/docs/vpc?topic=vpc-file-storage-managing&interface=ui#fs-add-user-tags). |
    | Access Management Tags (optional) | Enter access management tags that you created in IAM to apply them to this file share. For more information about access management tags, see [Access management tags for file shares](/docs/vpc?topic=vpc-file-storage-vpc-about&interface=ui#fs-about-mgt-tags). |
-   | Profile | The profile is auto-populated based on your data availability selection. For more information, see [file Storage profiles](/docs/vpc?topic=vpc-file-storage-profiles). \n - If you chose Single zone availability, your file share uses the `dp2` profile. Select the size and IOPS for your file share. You can increase the capacity later, and you can also adjust the IOPS as needed. \n - [Select availability]{: tag-green} If you chose regional availability, your file share uses the `rfs` profile. Select the size and bandwidth for your file share. You can increase the capacity later, and you can also adjust the bandwidth as needed.|
+   | Profile | The profile is auto-populated based on your data availability selection. For more information, see [file Storage profiles](/docs/vpc?topic=vpc-file-storage-profiles). \n - If you chose Single zone availability, your file share uses the `dp2` profile. Select the size and IOPS for your file share. You can increase the capacity later, and you can also adjust the IOPS as needed. \n - [Select availability]{: tag-green} If you chose regional availability, your file share uses the `rfs` profile. Select the size and bandwidth for your file share. 800 Mbps is the default bandwidth allocation for all file shares at no extra cost. You can increase the capacity later, and you can also adjust the bandwidth as needed.|
    | Mount target access mode  | Select how you want to manage access to this file share: |
    |  | Security group: Access to the file share is based on [security group](/docs/vpc?topic=vpc-using-security-groups#sg-getting-started) rules. This option can be used to restrict access to specific virtual server instances. You can also use this option if you want to mount the file share to a virtual server instance in another zone. This option is recommended as you have more control over who can access the data that is stored on the file share. When you choose this type of access, you can also specify the allowed transit encryption modes. |
    |  | Virtual private cloud: Access to the file share is granted to any virtual server instance in the same region. Cross-zone mounting, encryption in transit, cross-zone mounting, and snapshots are not supported when this access mode is selected. [Select availability]{: tag-green} This less-secure access mode is not supported for regional shares. |
@@ -430,7 +430,7 @@ Storage Generation                 1
 ### Creating a regional file share with a mount target with security group access mode
 {: #fs-create-regional-share-target-sg-cli}
 
-The following example shows how you can create a regional file share with a mount target from the CLI. Note that if the command specifies a low bandwidth value, the system auto-corrects the configuration to provide at least 8 Mbps for every 20 GB of capacity.
+The following example shows how you can create a regional file share with a mount target from the CLI. Note that if the command specifies a low bandwidth value, the system auto-corrects the configuration to provide at least 800 Mbps.
 
 ```sh
 ibmcloud is share-create --name my-regional-file-share --profile rfs --size 5000 --bandwidth 800 --allowed-access-protocols nfs4 --atem stunnel --mount-targets '[{"name":"my-new-mount-target","virtual_network_interface": {"name":"my-regional-vni","subnet": {"id":"0717-c66032c9-048d-4c35-aa83-c932e24afdbb"}}}]'

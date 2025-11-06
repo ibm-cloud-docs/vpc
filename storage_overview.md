@@ -2,7 +2,7 @@
 
 copyright:
   years: 2022, 2025
-lastupdated: "2025-10-31"
+lastupdated: "2025-11-06"
 
 keywords: block storage for VPC, File Storage for VPC, Snapshots for VPC, Backup for VPC, block storage, file storage, snapshots, backup, 
 
@@ -103,7 +103,7 @@ You can create zonal file shares with the `dp2` profile. The first-generation fi
 Customers with special access to preview the second-generation file storage offering can provision file shares with the new `rfs` profile. The `rfs` profile is available in the Dallas, Frankfurt, London, Madrid, Osaka, Sydney, Toronto, Tokyo, and Washington, DC regions in this release.
 {: preview}
 
-Second-generation file shares can be created with capacity in the range of 1 - 32,000 GB. Customers can directly adjust their file share's bandwidth up to 8192 Mbps (1024 MBps). The preset value is 8 Mbps for every 20 GB of capacity. The maximum IOPS that a share with the `rfs` profile can support is 35,000. Second-generation profiles provide regional data availability across all 3 zones of an MZR. Data is regionally available, setting up replication between different zones is unnecessary.
+Second-generation file shares can be created with capacity in the range of 1 - 32,000 GB. Customers can directly adjust their file share's bandwidth up to 8192 Mbps (1024 MBps). The preset value is 800 Mbps. The maximum IOPS that a share with the `rfs` profile can support is 35,000. Second-generation profiles provide regional data availability across all 3 zones of an MZR. Data is regionally available, setting up replication between different zones is unnecessary.
 
 You can mount file shares on Red Hat, CentOS, or Ubuntu Linux distributions. Windows OS is not supported.
 

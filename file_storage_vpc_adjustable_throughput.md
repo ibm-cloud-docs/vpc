@@ -2,7 +2,7 @@
 
 copyright:
   years: 2025, 2025
-lastupdated: "2025-10-17"
+lastupdated: "2025-11-06"
 
 keywords: file share, regional, file storage, bandwidth, bandwidth
 
@@ -17,7 +17,7 @@ subcollection: vpc
 
 [Select availability]{: tag-green} Customers with special access to preview the new regional file share offering can use the `rfs` profile to create file shares with regional data availability and adjustable bandwidth values.
 
-For regional file shares that are provisioned with the `rfs` profile, you can increase or decrease the bandwidth limit to meet your performance needs. The maximum bandwidth for any file share with the `rfs` profile is 8192 Mbps (1024 MBps). This bandwidth value represents the maximum allowed combined throughput for read and write operations. The minimum bandwidth value of the share is calculated as 8 Mbps for every 20 GB of capacity.
+For regional file shares that are provisioned with the `rfs` profile, you can increase or decrease the bandwidth limit to meet your performance needs. The maximum bandwidth for any file share with the `rfs` profile is 8192 Mbps (1024 MBps). This bandwidth value represents the maximum allowed combined throughput for read and write operations. The minimum bandwidth value of the share is 800 Mbps.
 {: shortdesc}
 
 With this feature, you can increase or decrease your share's bandwidth limit in the console, from the CLI, or with the API. To change this attribute, the share must be in an _available_ state. Your user authorization is verified before the bandwidth limit is adjusted.
@@ -31,7 +31,7 @@ Billing for an updated file share is automatically updated. The prorated differe
 1. Go to the list of all file shares. From the [{{site.data.keyword.cloud_notm}} console](/login){: external}, click the **Navigation menu** icon ![menu icon](../icons/icon_hamburger.svg) **> Infrastructure** ![VPC icon](../icons/vpc.svg) **> Storage > File storage shares**.
 1. Click the name of a file share to see the details page.
 1. Locate the **Profile** section, and click the **Edit icon** ![Edit icon](../icons/edit-tagging.svg "Edit"), or use the **Actions** menu ![Actions icon](../icons/action-menu-icon.svg "Actions") and select **Edit bandwidth**.
-1. In the side panel, you can specify a file share bandwidth limit between the file share's preset value and the maximum of 8192 Mbps.
+1. In the side panel, you can specify a file share bandwidth limit between the minimum value of 800 and the maximum of 8192 Mbps.
 1. Review the estimated monthly order summary.
 1. If you're satisfied, click **Save and continue**.
 
