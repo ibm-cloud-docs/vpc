@@ -40,6 +40,21 @@ Identifies the health of VPN gateway connections, provides reasons for being dow
 | `internal_error` | `Internal error. Contact IBM Support.` | Contact IBM Support to analyze and resolve internal errors. |
 {: caption="VPN gateway connection status reasons" caption-side="bottom"}
 
+## BGP connection states
+{: #bgp-connection-states}
+
+The following table shows the possible BGP connection statuses and a description of what each status means.
+
+|BGP status|Description|
+|----------------|-----------|
+|Idle            | Configuration of a new BGP session or reseting the existing one.|
+|Connect         | TCP 3-way handshake and TCP connection establishment.|
+|Active          | Actively listening for a TCP response when TCP timeout occurs.|
+|Open sent       | After TCP session, originating router has generated an open message (Intial BGP handshake before advertisement).|
+|Open confirm    | Upon receipt of open messages, neighbours generate keep alive.|
+|Established     | Receipt of the response keep alive and estasblishing point-to-point connection.|
+{: caption="BGP connection status descriptions" caption-side="bottom"}
+
 ## Diagnosing VPN gateway service connection health
 {: #vpn-service-connection-health}
 
