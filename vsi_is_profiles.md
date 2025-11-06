@@ -2,7 +2,7 @@
 
 copyright:
   years: 2019, 2025
-lastupdated: "2025-11-04"
+lastupdated: "2025-11-06"
 
 keywords: vsi, virtual server instances, profile, profiles, balanced, compute, memory, very high memory, ultra high memory, gpu storage optimized, confidential compute
 
@@ -556,15 +556,10 @@ When you create the data volumes, you can select a volume profile that best meet
 - A [5-IOPS tier](/docs/vpc?topic=vpc-block-storage-profiles#tiers) profile provides IOPS/GB performance that is suitable for a virtual server instance Compute profile.
 - A [10-IOPS tier](/docs/vpc?topic=vpc-block-storage-profiles#tiers) profile provides IOPS/GB performance that is suitable for a virtual server instance Memory profile.
 
-## Viewing profile configurations
-{: #popular-profiles}
-
-You can view available profile configurations by using the {{site.data.keyword.cloud_notm}} console or the CLI. In the {{site.data.keyword.cloud_notm}} console, you can select from popular profile configurations that support the most common use cases.
-
-### Understanding the naming rule of the profiles
+## Understanding profile naming 
 {: #profiles-naming-rule}
 
-The following information describes the profile naming rule.
+The following information describes the profile naming rules. 
 
 The first character represents the profile families. Different profile families have different ratios of vCPU to memory and other characteristics that are designed for different workloads.
 
@@ -581,15 +576,20 @@ The first character represents the profile families. Different profile families 
 The second character represents the CPU architecture.
 
 - "x": x86_64
-- "z": s390x
+- "z": s390x 
 
-The third character represents the generation of the IBM Cloud infrastructure where the profile is provisioned, such as a "2" or "3". A value of "f" indicates that the profile is flexible and can provision on any infrastructure generation
+The third character represents the generation of the IBM Cloud infrastructure where the profile is provisioned, such as a "2" or "3". A value of "f" indicates that the profile is flexible and can provision on any infrastructure generation. 
 
-If the fourth character is a "d", such as bx2d, then a defined quantity of instance storage is provisioned with the virtual server.
+If the fourth character is a "d", such as bx3d, then a defined quantity of instance storage is provisioned with the virtual server.
 
-The characters after "-" represents the number of vCPUs and the size of RAM (GiB). For example, "2x8" means that this profile has 2 vCPU and 8 GiB of RAM.
+The characters after "-" represents the number of vCPUs and the size of RAM (GiB). For example, "2x4" means that this profile has 2 vCPU and 4 GiB of RAM.
 
-Using “bx2-4x16” as an example, you can know from the name that it is a balanced profile that provides 4 vCPUs of compute and 16 GiB of memory. The profile is deployed on an x86-based host and is for the second-generation VPC.
+Using “bx2-4x16” as an example, you can know from the name that it is a balanced profile that provides 4 vCPUs of compute and 16 GiB of memory. The profile is deployed on an x86-based host and is for the second-generation VPC.  
+
+## Viewing profile configurations
+{: #popular-profiles}
+
+You can view available profile configurations by using the {{site.data.keyword.cloud_notm}} console, CLI, or the API. In the {{site.data.keyword.cloud_notm}} console, you can select from popular profile configurations that support the most common use cases.
 
 ### Viewing instance profiles in the console
 {: #profiles-using-console}
