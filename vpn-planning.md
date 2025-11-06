@@ -2,7 +2,7 @@
 
 copyright:
   years: 2019, 2025
-lastupdated: "2025-11-04"
+lastupdated: "2025-11-06"
 
 keywords:
 subcollection: vpc
@@ -49,7 +49,20 @@ Review the following considerations before you create a static route-based VPN c
 * If you plan to set a default route (`0.0.0.0/0`) in a VPC routing table to let egress traffic from your VPC resources pass through a VPN gateway, and you plan to use a route-based VPN, create your VPN gateway in a subnet different from the one associated with the routing table. Otherwise, this default route causes a routing conflict for the VPN gateway and can bring the VPN connection down.
 * IBM Cloud VPN for VPC supports only one route-based VPN per zone per VPC.
 
+### Dynamic route-based VPN connection considerations
+{: #dynamic-route-based-connection-considerations}
 
+Review the following considerations before you create a dynamic route-based VPN connection:
+
+* To enable dynamic routing between your VPN gateway and on-premises devices, you must create a transit gateway and attach it to the VPN gateway. In this setup, the transit gateway automatically manages and distributes traffic between your devices. See [VPN gateway connection considerations](/docs/transit-gateway?topic=transit-gateway-helpful-tips#vpn-connection-considerations) with Transit Gateway. Keep in mind that static routing doesn't support this type of attachment.
+* You can create dynamic VPN connections at any time, even before the VPN gateway is attached to the transit gateway. However, traffic flows only when the VPN gateway is attached to the transit gateway.
+* A local and peer ASN value is required for dynamic route-based VPN. The local ASN identifies your local network for BGP peering whereas the peer ASN identifies the remote peer network with which the VPN exchanges routes. If you don't specify the local ASN value, the VPN gateway is created with the default ASN of `64520`.
+* Certain ASN values are restricted when you create a VPN gateway and can't be used as local or peer ASNs, which include `0`, `13884`, `36351`, `64512`, `64513`, `65100`, `65200–‍65234`, `65402‍–‍65433`, `65500`, or `4201065000‍–‍4201065999`. These values are either reserved or part of private ASN ranges, and can cause routing conflicts.
+* When you connect a transit gateway to a VPN, you can't change the ASN value until you remove the service connection.
+* Multiple VPN gateways can connect to the same transit gateway, but each VPN gateway can attach to only one transit gateway.
+* If you plan to use a non-RFC 1918 CIDR for your transit gateway connection that is not within the standard private IP ranges (`10.0.0.0/8`, `172.16.0.0/12`, or `192.168.0.0/16`), you must add a delegate-VPC route in your VPC's egress routing table. This route must point to the CIDR that you've chosen and must be associated with the VPN subnet in the same zone. See [VPN gateway connection considerations](/docs/transit-gateway?topic=transit-gateway-helpful-tips#vpn-connection-considerations) for transit gateway.
+* Each IBM VPN supports a maximum of 120 routes per VPN peer. If this limit exceeds, the BGP session automatically shuts down for that peer. To restore the BGP connection, your peer network must reduce the number of advertised routes to less than or equal to 120. Then, you must toggle the connection in the IBM Cloud to reinitiate the session.
+* Each IBM VPN appliance supports up to 120 routes in total, regardless of how many peers are connected. If the appliance receives more than 120 routes from a combination of peers, it propagates only the first 120 routes to the transit gateway.
 
 ## IBM Power Virtual Servers: Automate the deployment of your workspace
 {: #vpn-s2s-automate-deployment-powervs-workspace}
@@ -58,3 +71,8 @@ A site-to-site VPN automation project is available that provides a Terraform mod
 
 The GitHub repository for this automation project is located in the [IBM /
 power-vpn-gateway GitHub repository](https://github.com/IBM/power-vpn-gateway/){: external}. The project's [README file](https://github.com/IBM/power-vpn-gateway/blob/master/README.md){: external} creates a VPN gateway and attaches it to a new or existing Power Virtual Server workspace, providing secure access to the IBM Cloud Power infrastructure.
+
+## Related link
+{: #related-link-vpn-gateways}
+
+[Known issues for VPN gateways](/docs/vpc?topic=vpc-vpn-limitations)

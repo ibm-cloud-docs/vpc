@@ -2,7 +2,7 @@
 
 copyright:
   years: 2019, 2025
-lastupdated: "2025-10-27"
+lastupdated: "2025-11-06"
 
 keywords:
 subcollection: vpc
@@ -38,13 +38,23 @@ To create a VPN gateway in the console:
    * **Region** - Shows the region where the VPC is located and where the VPN gateway is going to be provisioned.
    * **Virtual Private Cloud** - Select the VPC for the VPN gateway.
    * **Subnet** - Select the subnet where you want to create the VPN gateway. See [Planning considerations](/docs/vpc?topic=vpc-planning-considerations-vpn) for important subnet information.
-
-   
    * **Mode** - Select either a policy-based or route-based VPN. For more information about VPN types, see [VPN features](/docs/vpc?topic=vpc-using-vpn#vpn-features).
+   * **ASN** - This value identifies your local network for BGP peering and is used during the BGP session setup with your on-premises device.
+   * **Advertised CIDRs (optional)** - The CIDR range values that advertise the IPv4 network ranges to remote VPN peers.
+
+      The ASN value is required for dynamic routing. If you don't specify an ASN, the VPN gateway is created with the default ASN of `64520`. You can't change the local ASN value after you connect the VPN gateway to the transit gateway.
+      {: note}
+
 1. In the **VPN connection for VPC** section, toggle the switch on to establish connectivity between this gateway and the network outside your VPN. You can also add a VPN connection after you provision the gateway. In the Connection details section, specify the following information:
 
     * **VPN connection name** - Enter a name for the connection, such as `my-connection`.
+    * **Connection type** - Select static or dynamic connection type.
     * **Peer gateway address** - Specify the peer device through a public IP address or FQDN of the VPN gateway for the network outside your VPC.
+    * **Peer ASN (Dynamic route-based only)** - If you select **Dynamic** as the connection type, you must specify the peer ASN. This value identifies the remote peer network with which the VPN exchanges routes.
+
+       Certain ASN values are restricted and can't be used as peer ASNs, which include `0`, `13884`, `36351`, `64512`, `64513`, `65100`, `65200–‍65234`, `65402‍–‍65433`, `65500`, or `4201065000‍–‍4201065999`. These values are either reserved or part of private ASN ranges, and can cause routing conflicts.
+       {: note}
+
     * **Establish mode** - Select either **Bidirectional** or **Peer only**.
 
        - **Bidirectional** mode initiates IKE protocol negotiations (or rekeying processes) from either side of the VPN gateway.
@@ -65,7 +75,12 @@ To create a VPN gateway in the console:
         Subnet range overlap between local and peer subnets is not allowed.
         {: important}
 
+1. In the **Tunnel details** section (Dynamic route-based only), specify the tunnel and peer interface IPs required for dynamic routing with BGP.
+    * **Tunnel interface IP** - Specify the IP address that is assigned to the VPN gateway side of the VPN tunnel.
+    * **Peer interface IP** - Specify the IP address that is assigned to the remote network side of the VPN tunnel. This address is your on-premises device or peer VPN gateway.
 
+        The tunnel and peer interface IPs must be continuous and belong to the same `/30` subnet. This subnet provides four IP addresses, but the first (network address) and last (broadcast address) are reserved. For example, in the subnet `192.168.0.0/30`, usable IPs are `192.168.0.1` and `192.168.0.2`. If you assign `192.168.0.1` to the tunnel 1 interface, then you must assign `192.168.0.2` to peer 1 interface. Similarly, for Tunnel 2, use a different `/30` subnet, such as `192.168.0.4/30`. In this case, assign `192.168.0.5` to the tunnel 2 interface and `192.168.0.6` to the peer 2 interface. Also, the tunnel IPs used for setting up IPsec connections can't overlap with the CIDR range that is chosen for Transit Gateway connection.
+        {: note}
 
 1. In the **Dead peer detection** section, configure how the VPN gateway sends messages to check that the peer gateway is active. Specify the following information:
 
@@ -107,6 +122,8 @@ To create a VPN gateway from the CLI, enter the following command:
 ```sh
 ibmcloud is vpn-gateway-create VPN_GATEWAY_NAME SUBNET
     [--mode policy | route]
+    [--advertised-cidrs IPv4_NETWORK_RANGE]
+    [--local-asn ASN_NUMBER]
     [--resource-group-id RESOURCE_GROUP_ID | --resource-group-name RESOURCE_GROUP_NAME]
     [--output JSON] [-q, --quiet]
 ```
@@ -123,7 +140,11 @@ Where:
 `--mode`
     : The mode of the VPN gateway. One of: `policy`, `route`.
 
+`--advertised-cidrs`
+    : IPv4 network range to advertise the address to the remote VPN peer.
 
+`--local-asn`
+    : Identifies your local network for BGP peering.
 
 `--resource-group-id`
     : The ID of the resource group. This option is mutually exclusive with `--resource-group-name`.
@@ -163,7 +184,76 @@ Where:
    ```
    {: pre}
 
+- Create a route-based VPN gateway for dynamic connection with advertised CIDRs and local ASN:
 
+   ```sh
+   ibmcloud is vpn-gateway-create my-vpc-gateway fee82deba12e4c0fb69c3b09d1f12345 --mode route --advertised-cidrs 192.168.3.0/24 --local-asn 64520
+   ```
+   {: pre}
+
+- List all VPN gateways:
+
+   ```sh
+   ibmcloud is vpn-gateways
+   ic vpn-gateways
+   ```
+   {: pre}
+
+- Get details of a specifc VPN gateway:
+
+   ```sh
+   ic vpn-gateway my-vpc-gateway
+   ```
+   {: pre}
+
+- Update VPN gateway with local ASN:
+
+   ```sh
+   ic vpn-gateway-update my-vpc-gateway --name my-vpc-gateway --local-asn 64521
+   ```
+   
+
+- List advertised CIDRs for a VPN gateway:
+
+   ```sh
+   ibmcloud is vpn-gateway-advertised-cidrs my-vpc-gateway
+   ```
+   {: pre}
+
+- Check if the specified advertised CIDR exists on the VPN gateway:
+
+   ```sh
+   ibmcloud is vpn-gateway-advertised-cidr  my-vpc-gateway --cidr 10.45.0.0/26
+   ```
+   {: pre}
+
+- Add an advertised CIDR to the VPN gateway:
+
+   ```sh
+   ibmcloud is vpn-gateway-advertised-cidr-add my-vpc-gateway --cidr 10.45.0.0/26
+   ```
+   {: pre}
+
+- Delete an advertised CIDR from the VPN gateway:
+
+   ```sh
+   ibmcloud is vpn-gateway-advertised-cidr-delete my-vpc-gateway 10.45.0.0/26
+   ```
+   {: pre}
+
+- List all service connections for a VPN gateway:
+
+   ```sh
+   ibmcloud is vpn-gateway-service-connections my-vpc-gateway
+   ```
+   {: pre}
+
+- Get the service connection details of a specifc VPN gateway:
+
+   ```sh
+   ibmcloud is vpn-gateway-service-connection my-vpc-gateway --service-connection-id 72fd9e00-3117-4b2e-984d-9361a9a97801
+   ```
+   {: pre}
 
 ## Creating a VPN gateway with the API
 {: #vpn-create-api}
@@ -224,7 +314,50 @@ To create a VPN gateway with the API, follow these steps:
    ```
    {: codeblock}
 
-   
+   ```sh
+      # To create VPN gateway for dynamic route-based VPN connection, use the following command:
+      curl -X POST "$vpc_api_endpoint/v1/vpn_gateways?version=$api_version&generation=2" \
+        -H "Authorization: Bearer $iam_token" \
+        -H "Content-Type: application/json" \
+        -H "Accept: application/json" \
+        -H "X-Correlation-ID: 9852c2ff-c20a-4082-98da-cd689bcd5a11" \
+        -d '{
+            "name": "my-new-vpn-gateway",
+            "subnet": {
+            "id": "'"$SubnetId"'"
+            },
+            "mode": "route",
+            "local_asn": 64520,
+            "advertised_cidrs": [
+            "192.168.0.0/24"
+            ],
+            "resource_group": {
+            "id": "'"$ResourceGroupId"'"
+            }
+        }'
+   ```
+   {: codeblock}
+
+   ```sh
+      # To list all the advertised CIDRs for a VPN gateway, use the following command:
+      curl -X GET "$vpc_api_endpoint/v1/vpn_gateways?version=$api_version&generation=2/$vpn_gateway_id/advertised_cidrs/$cidr?__QUERY__" \
+        -H "Authorization: Bearer $iam_token"
+   ```
+   {: codeblock}
+
+   ```sh
+      # To remove an advertised CIDR from a VPN gateway, use the following command:
+      curl -X DELETE "$vpc_api_endpoint/v1/vpn_gateways?version=$api_version&generation=2/$vpn_gateway_id/advertised_cidrs/$cidr?__QUERY__" \
+        -H "Authorization: Bearer $iam_token" \
+   ```
+   {: codeblock}
+
+   ```sh
+      # To set an advertised CIDR on a VPN gateway, use the following command:
+      curl -X PUT "$vpc_api_endpoint/v1/vpn_gateways?version=$api_version&generation=2/$vpn_gateway_id/advertised_cidrs/$cidr?__QUERY__" \
+        -H "Authorization: Bearer $iam_token"
+   ```
+   {: codeblock}
 
 ## Creating a VPN gateway with Terraform
 {: #vpn-create-terraform}

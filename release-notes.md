@@ -2,7 +2,7 @@
 
 copyright:
   years: 2019, 2025
-lastupdated: "2025-11-05"
+lastupdated: "2025-11-06"
 
 keywords:
 
@@ -23,6 +23,16 @@ Use the release notes to learn the latest updates to {{site.data.keyword.vpc_ful
 For more information about changes to the {{site.data.keyword.vpc_short}} API, see [{{site.data.keyword.vpc_short}} API change log](/docs/vpc?topic=vpc-api-change-log).
 
 For more information about changes to the {{site.data.keyword.vpc_short}} command-line interface (CLI), see [{{site.data.keyword.vpc_short}} CLI release notes](/docs/vpc?topic=vpc-vpc-cli-rn).
+
+## November 2025
+{: #vpc-nov25}
+
+### 06 November 2025
+{: #vpc-nov0625}
+{: release-note}
+
+Site-to-site dynamic route-based VPN connections (GA)
+:   You can now configure dynamic route-based VPN connections for site-to-site VPNs. This configuration learns routes dynamically and establishes connections between your on-premises peer network and the IBM Cloud VPN gateway. Dynamic routing improves network management and provides high availability allowing services like Power Virtual Server to seamlessly connect through VPN gateway connections. For more information, see [Creating a VPN gateway](/docs/vpc?topic=vpc-vpn-create-gateway&interface=ui)
 
 ## October 2025
 {: #vpc-oct25}
