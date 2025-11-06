@@ -171,3 +171,9 @@ Yes, it is possible to attach the same backend member with the same port on two 
 {: faq}
 
 No, it is not possible to attach the same backend member with the same port on a single ALB, even if you try to attach through different pools on that ALB. You can attach the same backend member with different ports, or you can attach different backend members with the same ports.
+
+## Is gRPC supported on ALB?
+{: #grpc-supported-albs}
+{: faq}
+
+GRPC relies on HTTP/2 as its underlying transport protocol. IBM Cloud ALBs support HTTP/2 protocol end-to-end for gRPC traffic. However, IBM Cloud ALBs do not offer native support for gRPC as of now. You can configure TCP protocol instead, as ALBs do not recognize gRPC traffic. Instead, they treat gRPC traffic as TCP traffic. 

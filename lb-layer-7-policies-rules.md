@@ -2,7 +2,7 @@
 
 copyright:
   years: 2018, 2025
-lastupdated: "2025-07-28"
+lastupdated: "2025-11-05"
 
 keywords: application load balancer, alb, polices, rules
 
@@ -376,6 +376,20 @@ The following actions are supported for layer 4 policies:
 {: #layer-4-rules}
 
 A layer 4 rule defines how requests are matched, the same as a layer 7 rule. However, only the `sni_hostname` type is supported, where `field` is not applicable and the `condition` and `value` properties are the same as for layer 7 rules.
+
+The "SNI Hostname" rule only works with a TCP Listener.
+{: note}
+
+SNI in an IBM Cloud ALB is attached to the listener and lets you route traffic to different backend pools based on the hostname. Within a pool, traffic is always load-balanced across all members using the chosen algorithm (round-robin, least connections, etc). You cannot use SNI to pick a specific member inside a pool. 
+
+If you are using a backend pool with Protocol HTTP or HTTPs, then the ALB will not set the SNI when forwarding the client request to the backend pool. This is because the ALB only uses the SNI to make a forwarding decision (if layer 7 rules are configured), and the ALB does a separate TLS handshake with the backend (which is different from the consumer's handshake).
+
+If you are using TCP protocol for the backend, instead of HTTP/HTTPs, then the ALB will set the SNI sent by the consumer. This is because the TLS handshake will be between the consumer and the backend directly, rather than between the ALB and the backend. 
+
+Use one of the following workarounds if you use HTTP/HTTPS Listener with an SNI: 
+
+1. Use a wildcard certificate on a virtual host. Then configure only a single host name on separate backend ports. For example, if you want per hostname routing to individual servers, you may create separate pools for each hostname and use the SNI to route to the correct pool.
+1. Use TCP mode for the backend protocol instead of HTTPs. TCP mode will forward SNI correctly, and still allow for load balancing based on SNI hostname rules if you configure it. 
 
 ### Example: Create a TCP listener with the `sni_hostname` rule
 {: #layer4-example-1}

@@ -2,7 +2,7 @@
 
 copyright:
   years: 2020, 2025
-lastupdated: "2025-10-16"
+lastupdated: "2025-11-06"
 
 keywords:
 
@@ -32,16 +32,15 @@ To add a VPN connection to an existing VPN gateway, follow these steps:
    Alternatively, on the gateway's details page, you can click **Create** in the VPN connections section.
    {: note}
 
-
-
 1. Define a connection between this gateway and a network outside your VPC by specifying the following information:
    * **VPN connection name** - Enter a name for the connection, such as `my-connection`.
+   * **Connection type** - Select static or dynamic connection type.
    * **Peer gateway address** - Specify the IP address of the VPN gateway for the network outside your VPC.
 
       After you provision the VPN connection, you cannot change the peer gateway address type from IP address to FQDN, or from FQDN to IP address.
       {: note}
 
-   
+   * **Peer ASN (Dynamic route-based only)** - If you select **Dynamic** as the connection type, you must specify the peer ASN. This value identifies the external peer network with which the VPN exchanges routes.
 
    * **Establish mode** - Select either **Bidirectional** or **Peer only**.
 
@@ -61,7 +60,12 @@ To add a VPN connection to an existing VPN gateway, follow these steps:
    * **Local IBM CIDRs (Policy-based VPN only)** - Specify one or more CIDRs in the VPC that you want to connect through the VPN tunnel.
    * **Peer CIDRs (Policy-based VPN only)** - Specify one or more CIDRs in the other network that you want to connect through the VPN tunnel. Subnet range overlap between local and peer subnets is not allowed.
 
+1. In the **Tunnel details** section (Dynamic route-based only), specify the tunnel and peer interface IPs required for dynamic routing with BGP.
+    * **Tunnel interface IP** - Specify the IP address that is assigned to the VPN gateway side of the VPN tunnel.
+    * **Peer interface IP** - Specify the IP address that is assigned to the remote network side of the VPN tunnel. This address is your on-premises device or peer VPN gateway.
 
+        The tunnel and peer interface IPs must be continuous and belong to the same `/30` subnet. This subnet provides four IP addresses, but the first (network address) and last (broadcast address) are reserved. For example, in the subnet `192.168.0.0/30`, usable IPs are `192.168.0.1` and `192.168.0.2`. If you assign `192.168.0.1` to the tunnel 1 interface, the peer 1 interface must be `192.168.0.2`. Similarly, for Tunnel 2, use a different `/30` subnet, such as `192.168.0.4/30`. In this case, assign `192.168.0.5` to the tunnel 2 interface and `192.168.0.6` to the peer 2 interface.
+        {: note}
 
 1. To configure how the VPN gateway sends messages to check that the peer gateway is active, specify the following information in the **Dead peer detection** section.
    * **Action** - The action to take if a peer gateway stops responding. For example, select **Restart** if you want the gateway to immediately renegotiate the connection.
@@ -101,13 +105,16 @@ To create a VPN connection from the CLI, enter the following command:
 
 ```sh
 ibmcloud is vpn-gateway-connection-create CONNECTION_NAME VPN_GATEWAY PEER PRESHARED_KEY
-[--vpc VPC] [--admin-state-up true | false] 
+[--vpc VPC] [--admin-state-up true | false]
+[--routing-protocol bgp | none]
 [--dead-peer-detection-action restart | clear | hold | none]
 [--distribute-traffic true | false]
 [--dead-peer-detection-interval INTERVAL] [--dead-peer-detection-timeout TIMEOUT] [--ike-policy IKE_POLICY_ID]
 [--ipsec-policy IPSEC_POLICY_ID] [--peer-cidr CIDR1 --peer-cidr CIDR2 ... --local-cidr CIDR1 --local-cidr CIDR2 ...]
 [[--local-ike-identity-type fqdn | hostname | ipv4_address | key_id --local-ike-identity-value VALUE] |
 [--local-ike-identities LISTENER_POLICIES_JSON | @LISTENER_POLICIES_JSON_FILE]]
+[--peer-asn]
+[--tunnels NEIGHBOR_IP TUNNEL_INTERFACE_IP]
 [--peer-ike-identity-type fqdn | hostname | ipv4_address | key_id --peer-ike-identity-value VALUE]
 [--establish-mode bidirectional | peer_only] [--output JSON] [-q, --quiet]
 ibmcloud is vpn-gateway-connection-create CONNECTION_NAME VPN_GATEWAY PEER PRESHARED_KEY
@@ -134,7 +141,8 @@ Where:
 `--admin-state-up`
     : If set to `false`, the VPN gateway connection is shut down. This field value can be either `true` or `false`.
 
-
+`--routing-protocol`
+    : Determines if the mode is static or dynamic. This field value can either be `bgp` or `none`. Set the value to `bgp` for dynamic route-based VPN.
 
 `--dead-peer-detection-action`
     : The dead peer detection action. This field value can be either `restart`, `clear`, `hold`, or `none`. (Default: `restart`).
@@ -163,7 +171,11 @@ Where:
 `--local-ike-identities`
     : The ID of the local IKE identity. `LOCAL_IKE_IDENTITIES_JSON  | @LOCAL_IKE_IDENTITIES_JSON_FILE` in JSON or a JSON file.
 
+`--peer-asn`
+    : Identifies the external peer network in dynamic routing with which the VPN exchanges routes.
 
+`--tunnels`
+    : Specifies the tunnel and peer interface IPs required for dynamic routing with BGP. This field takes the IP address value of the local (tunnel) and remote (peer) interfaces. The tunnel and peer interface IPs must be continuous and belong to the same /30 subnet.
 
 `-peer-cidr`
     : The peer CIDRs for the resource.
@@ -242,7 +254,33 @@ Where:
    ```
    {: pre}
 
+- Create a dynamic route-based VPN connection with peer ASN and tunnels:
 
+   ```sh
+   ibmcloud is vpn-gateway-connection-create my-connection --routing-protocol bgp my-vpc-gateway 169.21.50.5 lkj14b1oi0alcniejkso --distribute-traffic true --local-ike-identities '[{"type":"fqdn","value":"example.com"},{"type":"fqdn","value":"example_1.com"}]' --peer-asn 65534 --tunnels '[{"neighbor_ip":{"address":"192.168.0.2"},"tunnel_interface_ip":{"address":"192.168.0.1"}},{"neighbor_ip":{"address":"192.168.0.6"},"tunnel_interface_ip":{"address":"192.168.0.5"}}]' --peer-ike-identity-type ipv4_address --peer-ike-identity-value 192.168.0.1
+   ```
+   {: pre}
+
+- Get a list of VPN gateway connections:
+
+   ```sh
+   ibmcloud is vpn-gateway-connection  my-vpc-gateway my-connection
+   ```
+   {: pre}
+
+- List all service connections for a VPN gateway:
+
+   ```sh
+   ibmcloud is vpn-gateway-service-connections my-vpc-gateway
+   ```
+   {: pre}
+
+- Get the service connection details of a specifc VPN gateway:
+
+   ```sh
+   ibmcloud is vpn-gateway-service-connection my-vpc-gateway --service-connection-id 72fd9e00-3117-4b2e-984d-9361a9a97801
+   ```
+   {: pre}
 
 ## Adding a local CIDR to a VPN gateway connection from the CLI
 {: #vpn-using-cli-vpn-gateway-connection-local-cidr-add}
@@ -422,7 +460,41 @@ To create a VPN connection with the API, follow these steps:
    ```
    {: codeblock}
 
-   
+   ```sh
+     # For a dynamic route-based VPN connection, use the following command:
+    curl -X POST "$vpc_api_endpoint/v1/vpn_gateways/$vpnGatewayId/connections?version=$api_version&generation=2" \
+        -H "Authorization: Bearer $iam_token" \
+        -H "Content-Type: application/json" \
+        -H "Accept: application/json" \
+        -H "X-Correlation-ID: 0ba2d683-cce9-404f-9b8e-463543888ff9" \
+        -d '{
+            "name": "vpn-new-connection",
+            "psk": "'$psk'",
+            "dead_peer_detection": {
+                "action": "restart",
+                "interval": 2,
+                "timeout": 10
+            },
+            "distribute_traffic": true,
+            "establish_mode": "bidirectional",
+            "peer": {
+                "address": "9.168.3.4",
+                "asn": 64543
+            },
+            "routing_protocol": "bgp",
+            "tunnels": [
+            {
+                "neighbor_ip": { "address": "192.168.0.2" },
+                "tunnel_interface_ip": { "address": "192.168.0.1" }
+            },
+            {
+                "neighbor_ip": { "address": "192.168.0.6" },
+                "tunnel_interface_ip": { "address": "192.168.0.5" }
+            }
+            ]
+        }'
+   ```
+   {: codeblock}
 
 1. (Optional) To create a connection by using advanced configuration options:
 

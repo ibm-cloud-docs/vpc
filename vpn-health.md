@@ -2,7 +2,7 @@
 
 copyright:
   years: 2023, 2025
-lastupdated: "2025-08-05"
+lastupdated: "2025-11-06"
 
 keywords: vpn, health
 
@@ -39,3 +39,14 @@ Identifies the health of VPN gateway connections, provides reasons for being dow
 | `peer_not_responding` | `No response from peer (check network ACL configuration, peer availability, and on-premises firewall configuration).` | No response is received from the peer. Check the network ACL configuration, peer availability, and on-premises firewall configuration. |
 | `internal_error` | `Internal error. Contact IBM Support.` | Contact IBM Support to analyze and resolve internal errors. |
 {: caption="VPN gateway connection status reasons" caption-side="bottom"}
+
+## Diagnosing VPN gateway service connection health
+{: #vpn-service-connection-health}
+
+Identifies the health of VPN gateway service connection, provides reasons for being down, and suggests solutions to recover.
+
+| Code | Message | Information |
+| --------- | -------------- | ---------------- |
+| `peer_not_responding` | `No response from peer (check network ACL configuration, peer availability, and on-premises firewall configuration).` | No response is received from the peer. Check the network ACL configuration, peer availability, and on-premises firewall configuration. |
+| `internal_error` | `Internal error. Contact IBM Support.` | Contact IBM Support to analyze and resolve internal errors. |
+{: caption="VPN gateway service connection status reasons" caption-side="bottom"}

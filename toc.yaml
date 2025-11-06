@@ -1159,6 +1159,9 @@ toc:
               - vpn-ts-advertise-route-not-work.md
               - vpn-ts-s2s-over-quota.md
               - vpn-ts-s2s-cannot-access-classic-vsi.md
+              - vpn-ts-ipsec-ip-bgp-not-established.md
+              - vpn-ts-service-connection-down.md
+              - vpn-ts-connections-established-packets-not-flowing.md
           - topicgroup:
               id: tbs-client-to-site-vpn
               label: Troubleshooting client-to-site VPN servers
