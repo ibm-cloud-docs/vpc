@@ -2,7 +2,7 @@
 
 copyright:
   years: 2020, 2025
-lastupdated: "2025-11-05"
+lastupdated: "2025-11-07"
 
 keywords:
 
@@ -43,7 +43,7 @@ This gives network load balancers an advantage over ALBs by enhancing performanc
 
 Use Figure 1 to help you (the User) choose the right load balancer for your requirements.
 
-![Load balancer decision tree](images/loadbalancer_decision_tree.svg "Choosing a load balancer"){: caption="Figure 1: Choosing a network load balancer" caption-side="bottom"}
+![Load balancer decision tree](images/loadbalancer_decision_tree.svg "Choosing a load balancer"){: caption="Choosing a network load balancer" caption-side="bottom"}
 
 ### Private Path network load balancers
 {: #load-balancer-pplb}

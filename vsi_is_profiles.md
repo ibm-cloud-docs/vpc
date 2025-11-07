@@ -2,7 +2,7 @@
 
 copyright:
   years: 2019, 2025
-lastupdated: "2025-11-06"
+lastupdated: "2025-11-07"
 
 keywords: vsi, virtual server instances, profile, profiles, balanced, compute, memory, very high memory, ultra high memory, gpu storage optimized, confidential compute
 
@@ -404,7 +404,7 @@ For more information about confidential computing, see [Confidential computing f
 | bx3dc-48x240 | 48 / 24 | 240 | 96 | 96 | 2x780 |
 | bx3dc-64x320 | 64 / 32 | 320 | 128 | 128 | 2x1024 |
 | bx3dc-96x480 | 96 / 48 | 480 | 192 | 480 | 2x1560 |
-{: caption="Table 9. Balanced profile options for confidential computing compatible virtual server instances" caption-side="bottom"}
+{: caption="Balanced profile options for confidential computing compatible virtual server instances" caption-side="bottom"}
 {: #balanced-cc-x86-64}
 {: tab-title="bx3"}
 {: tab-group="Confidential compute"}
@@ -423,7 +423,7 @@ For more information about confidential computing, see [Confidential computing f
 | cx3dc-64x160 | 64 / 32 | 160 | 64 | 128 | 2x1024 |
 | cx3dc-96x240 | 96 / 48 | 240 | 96 | 192 | 2x1560 |
 | cx3dc-128x320 | 128 / 64 | 320| 128 | 200 | 2x2860|
-{: caption="Table 9. Compute profile options for confidential computing compatible virtual server instances" caption-side="bottom"}
+{: caption="Compute profile options for confidential computing compatible virtual server instances" caption-side="bottom"}
 {: #compute-cc-x86-64}
 {: tab-title="cx3"}
 {: tab-group="Confidential compute"}

@@ -2,7 +2,7 @@
 
 copyright:
   years: 2020, 2025
-lastupdated: "2025-06-27"
+lastupdated: "2025-11-07"
 
 keywords: firepower, firepower peer, vpn
 
@@ -60,9 +60,9 @@ To connect to a Cisco Firepower Thread Defense peer, follow these steps:
 
       ![Add IKE v2 Policy](images/vpn-add-ike-v2-policy2.png){: caption="Add IKE v2 Policy" caption-side="bottom"}
 
-   * Configure the **IPSec Proposal** settings, which define the combination of security protocols and algorithms that secure traffic in an IPsec tunnel.
+   * Configure the **IPsec Proposal** settings, which define the combination of security protocols and algorithms that secure traffic in an IPsec tunnel.
 
-      ![Add IKE v2 IPSec Proposal](images/vpn-add-ike-v2-ipsec-proposal2.png){: caption="Add IKE v2 IPSec Proposal" caption-side="bottom"}
+      ![Add IKE v2 IPsec Proposal](images/vpn-add-ike-v2-ipsec-proposal2.png){: caption="Add IKE v2 IPsec Proposal" caption-side="bottom"}
 
    * Specify the **Pre-shared Key** that is defined on both the local and remote device. The key can be 1-127 alphanumeric characters. Then, click **NEXT**.
 
@@ -92,7 +92,7 @@ To connect to a Cisco Firepower Thread Defense peer, follow these steps:
 
    ![Deploy Changes](images/vpn-pending-changes2.png){: caption="Deploy Changes" caption-side="bottom"}
 
-1. To verify that the IPSec VPN is working, run the `show crypto ikev2 sa` command from the CLI console, and make sure that hosts from both subnets can reach one another.
+1. To verify that the IPsec VPN is working, run the `show crypto ikev2 sa` command from the CLI console, and make sure that hosts from both subnets can reach one another.
 
    ![CLI command](images/vpn-cli-console-policy.png){: caption="CLI command" caption-side="bottom"}
 

@@ -2,7 +2,7 @@
 
 copyright:
   years: 2021, 2025
-lastupdated: "2025-09-23"
+lastupdated: "2025-11-07"
 
 keywords: file share, file storage, sysdig, platform metrics
 
@@ -203,7 +203,7 @@ The following attributes are available for segmenting one or more attributes as 
 | Attribute             | Attribute Name      | Attribute Description |
 |-----------------------|---------------------|-----------------------|
 | `IBM IS Generation 2` | `ibm_is_generation` | IBM IS Generation ( `2` for Gen. 2) |
-{: caption="Table 4: Additional attributes" caption-side="bottom"}
+{: caption="Additional attributes" caption-side="bottom"}
 
 ## Monitoring alerts
 {: #monitoring-alerts}

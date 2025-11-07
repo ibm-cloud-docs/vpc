@@ -2,7 +2,7 @@
 
 copyright:
   years: 2019, 2025
-lastupdated: "2025-11-04"
+lastupdated: "2025-11-07"
 
 keywords:
 
@@ -58,7 +58,7 @@ NACLs are _stateless_.
 Because NACLs are not _stateful_, if you want to permit traffic both ways on a target you must set up two rules.
 {: important}
 
-![Security groups across instances and zones](images/security-groups-across-zones.svg){: caption="Figure 1: Security groups across instances and zones" caption-side="bottom"}
+![Security groups across instances and zones](images/security-groups-across-zones.svg){: caption="Security groups across instances and zones" caption-side="bottom"}
 
 ## Defining security group rules
 {: #defining-security-group-rules}

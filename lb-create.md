@@ -2,7 +2,7 @@
 
 copyright:
   years: 2021, 2025
-lastupdated: "2025-11-04"
+lastupdated: "2025-11-07"
 
 keywords:
 
@@ -224,7 +224,7 @@ To create an application load balancer from the CLI, follow these steps:
 1. Create a pool:
 
     ```sh
-    ibmcloud is load-balancer-pool-create alb-pool r006-99b5ab45-6357-42db-8b32-5d2c8aa62776  weighted_round_robin tcp 10  --failsafe-policy-action forward --failsafe-policy-target pool2
+    ibmcloud is load-balancer-pool-create alb-pool r134-1b3d2967-d395-4023-8705-829454081e23  weighted_round_robin tcp 10  --failsafe-policy-action forward --failsafe-policy-target pool2
     ```
     {: pre}
 

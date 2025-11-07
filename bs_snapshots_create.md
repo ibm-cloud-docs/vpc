@@ -2,7 +2,7 @@
 
 copyright:
   years: 2021, 2025
-lastupdated: "2025-11-04"
+lastupdated: "2025-11-07"
 
 keywords: snapshots, Block Storage, snapshot clone, remote copy, fast restore, Block Storage snapshot, cross-regional snapshot
 
@@ -126,14 +126,14 @@ Before you start, gather the following information:
 
 Use the following CLI commands to collect the information that you need.
 
-- `ibmcloud is volumes` - The command lists all available volumes in the region that you selected. Locate the volume in the list, verify the status (`available`), the attachment type (`boot` or `data`), and the resource group.
-- `ibmcloud is volume VOLUME_ID` - Use this command with the volume ID from the output of the previous command to review the details of the volume. If the output shows that the volume is available, attached to an instance and not busy, you can create a snapshot.
+-`ibmcloud is volumes` - The command lists all available volumes in the region that you selected. Locate the volume in the list, verify the status (`available`), the attachment type (`boot` or `data`), and the resource group.
+-`ibmcloud is volume VOLUME_ID` - Use this command with the volume ID from the output of the previous command to review the details of the volume. If the output shows that the volume is available, attached to an instance and not busy, you can create a snapshot.
 
 ### Creating a snapshot from the CLI
 {: #snapshot-create-cli}
 {: cli}
 
-To create a snapshot, run the `imbcloud is snapshot-create` command.
+To create a snapshot, run the `ibmcloud is snapshot-create` command.
 
 ```sh
 ibmcloud is snapshot-create --volume VOLUME [--name NAME] [--clone-zones CLONE_ZONES] [--resource-group-id RESOURCE_GROUP_ID | --resource-group-name RESOURCE_GROUP_NAME] [--tags  TAG_NAME1,TAG_NAME2,...] [--output JSON] [-q, --quiet]
@@ -241,11 +241,12 @@ ibmcloud is snapshot-cl r138-4463eb2c-4913-43b1-b9bf-62a94f74c146 eu-de-3
 {: pre}
 
 ```sh
-Getting zonal clone eu-de-3 of snapshot r138-4463eb2c-4913-43b1-b9bf-62a94f74c146 under account Test Account as user test.user@ibm.com...
+Creating zonal clone of snapshot r138-4463eb2c-4913-43b1-b9bf-62a94f74c146 under account Test Account as user test.user@ibm.com...
 
 Zone        eu-de-3
-Available   true
+Available   false
 Created     2023-02-17T20:29:21+00:00
+Href        https://eu-de.iaas.cloud.ibm.com/v1/regions/eu-de/zones/eu-de-3
 ```
 {: screen}
 

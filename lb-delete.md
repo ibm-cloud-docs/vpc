@@ -2,7 +2,7 @@
 
 copyright:
   years: 2020, 2025
-lastupdated: "2025-09-30"
+lastupdated: "2025-11-07"
 
 keywords: application load balancer, public, listener, back-end, front-end, pool, round-robin, weighted, connections, methods, policies, APIs, access, ports, vpc network, delete
 
@@ -52,6 +52,8 @@ Where:
 * **LOAD_BALANCER** is the ID of the load balancer (for example, `r006-99b5ab45-6357-42db-8b32-5d2c8aa62776`).
 * **--force, -f** forces the operation without confirmation.
 * **--quiet, -q** suppresses verbose output.
+
+
 
 The following example is sample output:
 

@@ -2,7 +2,7 @@
 
 copyright:
   years: 2020, 2025
-lastupdated: "2025-11-04"
+lastupdated: "2025-11-07"
 
 keywords: network load balancer, public, listener, pool, round-robin
 
@@ -188,7 +188,7 @@ To create a network load balancer with the CLI, follow these steps:
 1. Add a pool.
 
    ```sh
-   ibmcloud is load-balancer-pool-create example-pool r014-c7cadd8e-9e8b-4965-bee3-5d9ff95b3512 round_robin tcp 20 2 5 tcp  
+   ibmcloud is load-balancer-pool-create example-pool r006-df4c0e10-e882-4ade-a668-b2e518325d6a round_robin tcp 20 2 5 tcp  
    ```
    {: pre}
 

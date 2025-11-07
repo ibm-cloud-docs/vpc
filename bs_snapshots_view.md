@@ -2,7 +2,7 @@
 
 copyright:
   years: 2021, 2025
-lastupdated: "2025-11-04"
+lastupdated: "2025-11-07"
 
 keywords: view snapshots, view snapshot, viewing snapshots, see snapshots, Block Storage snapshots
 
@@ -486,7 +486,8 @@ ibmcloud is snapshot-consistency-group CONSISTENCY_GROUP_ID
 ```
 {: pre}
 
-For more information about available command options, see [`ibmcloud is snapshot-consistency-group`](/docs/vpc?topic=vpc-vpc-reference#snapshots-cli).
+
+For more information about available command options, see  [`ibmcloud is snapshot-consistency-group`](/docs/vpc?topic=vpc-vpc-reference#snapshots-cli).
 
 ## Listing snapshots with the API
 {: #snapshots-vpc-view-all-api}

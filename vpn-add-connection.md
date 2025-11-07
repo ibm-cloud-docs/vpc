@@ -2,7 +2,7 @@
 
 copyright:
   years: 2020, 2025
-lastupdated: "2025-11-06"
+lastupdated: "2025-11-07"
 
 keywords:
 
@@ -202,6 +202,7 @@ Where:
 `-q, --quiet`
     : Suppresses verbose output.
 
+
 ### Command examples
 {: #command-examples-vpn-connection-create}
 
@@ -247,6 +248,7 @@ Where:
    ```
    {: pre}
 
+
 - Create a VPN connection by using advanced configuration options:
 
    ```sh
@@ -271,7 +273,7 @@ Where:
 - List all service connections for a VPN gateway:
 
    ```sh
-   ibmcloud is vpn-gateway-service-connections my-vpc-gateway
+   ibmcloud is vpn-gateway-service-connections 0727-bc813695-d777-4ceb-acfb-bd68f4828358
    ```
    {: pre}
 
@@ -318,6 +320,8 @@ Where:
 `-q, --quiet`
     : Suppresses verbose output.
 
+
+
 ### Command example
 {: #command-examples-for-vpn-gateway-connection-local-cidr-add}
 
@@ -363,6 +367,7 @@ Where:
 
 `-q, --quiet`
     : Suppress verbose output.
+
 
 ### Command example
 {: #command-examples-for-vpn-gateway-connection-peer-cidr-add}

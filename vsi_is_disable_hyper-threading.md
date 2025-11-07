@@ -37,7 +37,7 @@ If you determine that disabling Hyper-Threading Technology is right for your con
 ## Checking Hyper-Threading Technology status and changing it in my guest VM: Basics
 {: #checking-ht-status-guest-vm}
 
-When a virtual machine is up and running, you can check the Hyper-Threading Technology status by using the `lscpu` command on Linux operating systems. You see output similar to the following:
+When a virtual machine is up and running, you can check the Hyper-Threading Technology status by using the `lscpu` command on Linux operating systems. You see output similar to the following example:
 
 ```text
 Architecture:        x86_64
@@ -51,7 +51,7 @@ Core(s) per socket:  4
 ```
 {: screen}
 
-In this example, notice that the Thread(s) per core displays *2*, indicating that Hyper-Threading Technology is enabled. The VM has 4 physical cores and 8 virtual CPUs. Modern versions of the Linux kernel allow users to disable Hyper-Threading Technology on a per core basis. You can run some cores with Hyper-Threading Technology enabled and other cores with Hyper-Threading Technology disabled. To see this on a per core basis, you can use the command `lscpu --extended`. You see output similar to the following: 
+In this example, notice that the Thread(s) per core displays *2*, indicating that Hyper-Threading Technology is enabled. The VM has 4 physical cores and 8 virtual CPUs. Modern versions of the Linux kernel allow users to disable Hyper-Threading Technology on a per core basis. You can run some cores with Hyper-Threading Technology enabled and other cores with Hyper-Threading Technology disabled. To see this on a per core basis, you can use the command `lscpu --extended`. You see output similar to the following example: 
 
 ```text
 CPU     NODE          SOCKET      CORE             L1d:L1i:L2:L3 ONLINE

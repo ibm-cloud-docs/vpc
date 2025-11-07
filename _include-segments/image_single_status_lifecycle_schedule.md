@@ -8,7 +8,7 @@ You can schedule a single status change for an image.
 1. Select **Schedule lifecycle**.
 1. In **Image status**, select the status change for the image.
 1. In **Deprecation details**, select whether to change status **Immediately** or to **Schedule future date**.
-1. If you selected **Schedule future date**, you need to fill out the following:
+1. If you selected **Schedule future date**, you need to fill out the following fields:
    - Select either **By calendar date** or **By number of days**.
       - If you selected **By calendar date**, enter the date and time information. This is the date and time when the status change will occur.
       - If you selected **By number of days**, put in the number of days that will pass before the status is changed.

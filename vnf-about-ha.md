@@ -2,7 +2,7 @@
 
 copyright:
   years: 2022, 2025
-lastupdated: "2025-09-17"
+lastupdated: "2025-11-07"
 
 keywords:
 
@@ -38,7 +38,7 @@ A workload in **VPC-spoke#1 zone1** that needs to communicate with a workload in
 
 Finally, because the NLB might fail over and require an update to the next hop, an ingress route is created with the source as the transit gateway to ensure that the NLB IP is updated on failover. The NLB can update custom routes only within its VPC (**VPC-hub**) and can't automatically update routes in the spoke VPCs.
 
-![Private hub and spoke with transparent VNF and spoke-to-spoke traffic.](images/vnf-hub-spoke-scenario.png){: caption="Figure 1: Private hub and spoke with transparent VNF and spoke-to-spoke traffic." caption-side="bottom"}
+![Private hub and spoke with transparent VNF and spoke-to-spoke traffic.](images/vnf-hub-spoke-scenario.png){: caption="Private hub and spoke with transparent VNF and spoke-to-spoke traffic." caption-side="bottom"}
 
 ## Use case 2: Active/Active HA transparent VNF (single, multi-zone region VPC)
 {: #use-case-active-active-vnf}
@@ -50,7 +50,7 @@ Because this VNF is transparent, the client (source) makes a TCP request to the 
 
 An egress custom route was created to ensure client (`10.241.0.6`) data packets destined for the target (`10.241.66.5`) will hop through the NLB. Because the NLB is configured with routing mode enabled, TCP requests on all ports are forwarded automatically to their destination. Because the VNFs are in the NLB pool, they are the next hop after the NLB. In this Active/Active single region example, an egress route is also required to ensure that the return packet from the target will hop through the NLB on the return trip, then through the same VNF it was sent through, and finally back to the client. In this use case, the client is in a different zone than the target, but the target is in the same zone as the NLB and VNF.
 
-![Active/Active HA transparent VNF topology](images/vnf-single-multi-zone.png){: caption="Figure 2: Active/Active HA transparent VNF topology" caption-side="bottom"}
+![Active/Active HA transparent VNF topology](images/vnf-single-multi-zone.png){: caption="Active/Active HA transparent VNF topology" caption-side="bottom"}
 
 ## Before you begin
 {: #vnf-before-you-begin}

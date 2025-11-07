@@ -2,7 +2,7 @@
 
 copyright:
   years: 2022, 2025
-lastupdated: "2025-09-23"
+lastupdated: "2025-11-07"
 
 keywords: file share, file storage, increase capacity, expand capacity, expand share size, file share size
 

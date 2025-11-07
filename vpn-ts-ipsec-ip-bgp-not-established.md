@@ -2,7 +2,7 @@
 
 copyright:
   years: 2023, 2025
-lastupdated: "2025-11-06"
+lastupdated: "2025-11-07"
 
 keywords: virtual private network, VPN, VPN server, troubleshooting
 
@@ -14,7 +14,7 @@ content-type: troubleshoot
 
 {{site.data.keyword.attribute-definition-list}}
 
-# Why is my IPSec connection status showing up but BGP state isn't established?
+# Why is my IPsec connection status showing up but BGP state isn't established?
 {: #troubleshoot-ipsec-up-bgp-not-established}
 {: troubleshoot}
 {: support}

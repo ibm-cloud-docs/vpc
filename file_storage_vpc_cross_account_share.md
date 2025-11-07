@@ -2,7 +2,7 @@
 
 copyright:
   years: 2024, 2025
-lastupdated: "2025-09-23"
+lastupdated: "2025-11-07"
 
 keywords: file share, file storage, accessor share, cross-account share
 
@@ -130,10 +130,10 @@ Replication status reasons       Status code   Status message
 Snapshot count                   0
 Snapshot size                    0
 Source snapshot                  -
-Allowed Access Protocols           nfs4    
-Availability Mode                  zonal   
-Bandwidth(Mbps)                    1    
-Storage Generation                 1  
+Allowed Access Protocols         nfs4    
+Availability Mode                zonal   
+Bandwidth(Mbps)                  1    
+Storage Generation               1  
 ```
 {: screen}
 

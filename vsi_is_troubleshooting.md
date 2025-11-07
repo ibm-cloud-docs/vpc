@@ -2,7 +2,7 @@
 
 copyright:
   years: 2018, 2025
-lastupdated: "2025-11-05"
+lastupdated: "2025-11-07"
 
 subcollection: vpc
 
@@ -42,7 +42,7 @@ You can't create certain instance actions if the status of your instance is in c
 | Not running | reboot     | yes      |
 | Not paused  | resume     | yes      |
 | Paused      | Any action other than resume | yes      |
-{: caption="Table 1.Instance status conflicts" caption-side="bottom"}
+{: caption="Instance status conflicts" caption-side="bottom"}
 
 ## Instance not responding to `instance-reboot` request
 {: #troubleshooting-instance-not-responding}

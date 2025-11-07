@@ -2,7 +2,7 @@
 
 copyright:
   years: 2020, 2025
-lastupdated: "2025-06-27"
+lastupdated: "2025-11-07"
 
 keywords: firepower, firepower peer, vpn
 
@@ -62,9 +62,9 @@ To connect to a Cisco Firepower Thread Defense peer, follow these steps:
 
       ![Add IKE v2 Policy](images/vpn-add-ike-v2-policy.png){: caption="Add IKE v2 Policy" caption-side="bottom"}
 
-   * Configure the **IPSec Proposal** settings, which define the combination of security protocols and algorithms that secure traffic in an IPsec tunnel.
+   * Configure the **IPsec Proposal** settings, which define the combination of security protocols and algorithms that secure traffic in an IPsec tunnel.
 
-      ![Add IKE v2 IPSec Proposal](images/vpn-add-ike-v2-ipsec-proposal.png){: caption="Add IKE v2 IPSec Proposal" caption-side="bottom"}
+      ![Add IKE v2 IPsec Proposal](images/vpn-add-ike-v2-ipsec-proposal.png){: caption="Add IKE v2 IPsec Proposal" caption-side="bottom"}
 
    * Specify the **Pre-shared Key** that is defined on both the local and remote device. The key can be 1-127 alphanumeric characters. Then, click **NEXT**.
 
@@ -77,7 +77,7 @@ To connect to a Cisco Firepower Thread Defense peer, follow these steps:
    1. Repeat steps 3 through 5 with the following exceptions:
 
       * For the Remote IP Address, use the greater IBM Gateway members public IP for the secondary IPsec tunnel.
-      * Use the same **IKE VERSION 2** configuration and IPSec Proposals as the primary tunnel.
+      * Use the same **IKE VERSION 2** configuration and IPsec Proposals as the primary tunnel.
 
 1. Create an access control policy to permit traffic across the VPN. To do so, follow these steps:
 
@@ -126,6 +126,6 @@ To connect to a Cisco Firepower Thread Defense peer, follow these steps:
 
 1. To verify that the IPsec VPN is working, run the `show crypto ikev2 sa` command from the CLI console, and make sure that the hosts from both subnets can reach one another.
 
-   ![`show crypto ikev2 sa` command](images/vpn-cli-command.png){: caption="The `show crypto ikev2 sa` command" caption-side="bottom"}
+   ![show crypto ikev2 sa command](images/vpn-cli-command.png){: caption="The show crypto ikev2 sa command" caption-side="bottom"}
 
    ![Command output](images/vpn-command-output.png){: caption="Command output" caption-side="bottom"}

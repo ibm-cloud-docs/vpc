@@ -2,7 +2,7 @@
 
 copyright:
   years: 2022, 2025
-lastupdated: "2025-07-01"
+lastupdated: "2025-11-07"
 
 keywords:
 
@@ -118,7 +118,7 @@ To access the VPC API private endpoint by using the CLI, follow these steps:
    ```
    {: pre}
 
-   The output appears similar to the following:
+   The output appears similar to the following example:
 
    ```json
    [
@@ -172,7 +172,7 @@ To access the VPC API private endpoint by using the API, follow these steps:
    ```
    {: pre}
 
-   The output appears similar to the following:
+   The output appears similar to the following example:
 
    ```json
    {

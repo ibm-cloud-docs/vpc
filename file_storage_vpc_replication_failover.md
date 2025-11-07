@@ -2,7 +2,7 @@
 
 copyright:
   years: 2022, 2025
-lastupdated: "2025-09-05"
+lastupdated: "2025-11-07"
 
 keywords: file storage, file share, replication, replica, source share, failover, 
 
@@ -122,7 +122,7 @@ Before you can use the CLI, you must install the IBM Cloud CLI and the VPC CLI p
    ibmcloud is share-replica-failover r006-a60bfa90-a893-40ad-be34-28ab51a963f9 --fallback-policy fail
    ```
    {: pre}
-
+   
    ```sh
    The file share r006-a60bfa90-a893-40ad-be34-28ab51a963f9 failover request was accepted under account Test Account as user test.user@ibm.com...
    The file share failover request was accepted.

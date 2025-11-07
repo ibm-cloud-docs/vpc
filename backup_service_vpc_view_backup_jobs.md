@@ -2,7 +2,7 @@
 
 copyright:
   years: 2022, 2025
-lastupdated: "2025-09-23"
+lastupdated: "2025-11-07"
 
 keywords: Backup for VPC, backup service, backup plan, backup policy, restore, restore volume, restore data, view backup lists,
 
@@ -74,6 +74,7 @@ Run the `backup-policy-jobs` command to view the backup jobs for your backup sna
 ibmcloud is backup-policy-jobs POLICY [--source SOURCE] [--snapshots SNAPSHOT1,SNAPSHOT2, ...] [--status failed | running | succeeded] [--plan PLAN] [--output JSON] [-q, --quiet]
 ```
 {: pre}
+
 
 In the first example, the name of the backup policy is used to list the jobs of that backup policy.
 
@@ -198,7 +199,7 @@ For more information about available command options, see [`ibmcloud is backup-p
 
 Run the `backup-policy-jobs` command and specify the ID of the backup policy and backup job to see the job details. Alternatively, you can specify the backup policy name.
 
-```text
+```sh
 ibmcloud is backup-policy-job POLICY JOB_ID [--output JSON] [-q, --quiet]
 ```
 {: pre}

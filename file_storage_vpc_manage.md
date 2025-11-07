@@ -2,7 +2,7 @@
 
 copyright:
   years: 2021, 2025
-lastupdated: "2025-10-09"
+lastupdated: "2025-11-07"
 
 keywords: file share, file storage, rename share, increase size, adjust IOPS, mount target
 
@@ -287,9 +287,9 @@ For more information about the command options, see [`ibmcloud is share-update`]
 ### Updating allowed transit encryption modes from the CLI
 {: #fs-update-transit-encryption-cli}
 
-The owner of the share can update the allowed transit encryption modes as follows:
-- for zonal file shares, the allowed values are `ipsec,none`,`ipsec` or `none`.
-- for regional file shares, the allowed values are `stunnel,none`, `stunnel`, or `none`.
+The owner of the share can update the allowed transit encryption modes with the following values.
+- For zonal file shares, the allowed values are `ipsec,none`,`ipsec`, or `none`.
+- For regional file shares, the allowed values are `stunnel,none`, `stunnel`, or `none`.
 
 However, before this property can be changed, all bindings and [mount targets must be deleted](#delete-mount-target-cli). Deleting the bindings severs the network path between origin file share and accessor share, and puts the mount target that is attached to the accessor share in a failed state. For more information, see [Removing access to a file share from other accounts](/docs/vpc?topic=vpc-file-storage-accessor-delete&interface=cli).
 {: important}
@@ -463,9 +463,9 @@ curl -X PATCH "$vpc_api_endpoint/v1/shares/432f1a4d-4aac-4ba1-922c-76fdbcbeb1e3?
 ### Updating allowed transit encryption modes with the API
 {: #fs-update-transit-encryption-api}
 
-The owner of the share can update the allowed transit encryption modes as follows:
-- for zonal file shares, the allowed values are `ipsec,none`,`ipsec` or `none`.
-- for regional file shares, the allowed values are `stunnel,none`, `stunnel`, or `none`.
+The owner of the share can update the allowed transit encryption modes with the following values.
+- For zonal file shares, the allowed values are `ipsec,none`,`ipsec`, or `none`.
+- For regional file shares, the allowed values are `stunnel,none`, `stunnel`, or `none`.
 
 However, before this property can be changed, all bindings and mount targets must be deleted. Deleting the bindings severs the network path between origin file share and accessor share, and puts the mount target that is attached to the accessor share in a failed state. For more information, see [Removing access to a file share from other accounts](/docs/vpc?topic=vpc-file-storage-accessor-delete&interface=api).
 {: important}
@@ -510,9 +510,9 @@ Valid file share and mount target names can include a combination of lowercase a
 
 Some attributes, such as profile, mount target access mode, allowed transit encryption modes, and encryption at rest, are not editable for accessor shares.
 
-The owner of the share can update the allowed transit encryption modes as follows:
-- for zonal file shares, the allowed values are `ipsec,none`,`ipsec` or `none`.
-- for regional file shares, the allowed values are `stunnel,none`, `stunnel`, or `none`.
+The owner of the share can update the allowed transit encryption modes with the following values.
+- For zonal file shares, the allowed values are `ipsec,none`,`ipsec`, or `none`.
+- For regional file shares, the allowed values are `stunnel,none`, `stunnel`, or `none`.
 
 However, before this property can be changed, all bindings and [mount targets must be deleted](/docs/vpc?topic=vpc-file-storage-managing&interface=terraform#delete-file-share-terraform). Deleting the bindings severs the network path between origin file share and accessor share, and puts the mount target that is attached to the accessor share in a failed state. For more information, see [Removing access to a file share from other accounts](/docs/vpc?topic=vpc-file-storage-accessor-delete&interface=terraform).
 {: important}

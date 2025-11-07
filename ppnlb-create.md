@@ -2,7 +2,7 @@
 
 copyright:
   years: 2022, 2025
-lastupdated: "2025-09-24"
+lastupdated: "2025-11-07"
 
 keywords: load balancer, public, listener, back-end, front-end, pool, round-robin, weighted, connections, methods, policies, APIs, access, ports
 
@@ -161,6 +161,7 @@ To create a Private Path NLB by from the CLI, follow these steps:
     {: screen}
 
 
+
 1. Create a pool:
 
    ```sh
@@ -216,6 +217,7 @@ To create a Private Path NLB by from the CLI, follow these steps:
    Provision status   create_pending
    ```
    {: screen}
+
 
 1. Create a listener:
 
