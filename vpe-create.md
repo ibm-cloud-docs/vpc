@@ -2,7 +2,7 @@
 
 copyright:
   years: 2020, 2025
-lastupdated: "2025-10-28"
+lastupdated: "2025-11-07"
 
 keywords: virtual private endpoints, VPE, endpoint gateway
 
@@ -59,6 +59,7 @@ To create an endpoint gateway in the {{site.data.keyword.cloud_notm}} console, f
 1. In the **Request connection to a service** section, select either an {{site.data.keyword.cloud_notm}} or non-{{site.data.keyword.cloud_notm}} service to access using this endpoint gateway.
 
    * For IBM Cloud services, select an available IBM Cloud service offering from the menu, then select its region. A region is pre-selected to optimize performance.
+      
    * For non-IBM Cloud services, enter the cloud resource name (CRN) of the Private Path service (obtained from your service provider).
 
    Your connection request is sent to the service provider for review.
