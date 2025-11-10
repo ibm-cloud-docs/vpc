@@ -2,7 +2,7 @@
 
 copyright:
   years: 2022, 2025
-lastupdated: "2025-11-06"
+lastupdated: "2025-11-10"
 
 keywords: block storage for VPC, File Storage for VPC, Snapshots for VPC, Backup for VPC, block storage, file storage, snapshots, backup, 
 
@@ -112,7 +112,7 @@ The following table provides a comparison between the different generations of f
 | Features            | First-generation shares | Second-generation shares |
 |---------------------|--------------------------|---------------------------|
 | Availability        | Generally available in all VPC regions for all customers. | Available in the Dallas, Frankfurt, London, Madrid, Osaka, Sydney, Tokyo, Toronto, and Washington, DC regions for allowlisted customers.|
-| Data Availability   | Zonal                    | Regional  |
+| Data Availability   | Zonal. While the share can be accessed from multiple zones across the region, if the share becomes unavailable, data access is lost. Operations can be recovered by setting up replicas in advance and failover to the replica during an outage. Cross-zone mounting of a file share can also introduce latency as data traverses zonal boundaries. | Regional. The file share exists in all 3 zones simultaneously, the clients connect to the closest instance of the share. When one zone becomes unavailable, data is still accessible. Storage traffic remains within the zone of the compute host. |
 | Expandable capacity | Yes, up to 16,000 GB     | Yes, up to 32,000 GB |
 | Adjustable IOPS     | Yes, up to 96,000. IOPS depends on capacity range. | No. Maximum IOPS is preset at 35,000.| 
 | Adjustable Bandwidth| No. Bandwidth can be increased by increasing capacity and IOPS, up to 8192 Mbps.| Yes, bandwidth can be increased up to 8192 Mbps, and it can be reduced to the preset value that is based on the file share capacity. No capacity increase needed.|
