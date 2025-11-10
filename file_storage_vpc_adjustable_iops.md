@@ -2,7 +2,7 @@
 
 copyright:
   years: 2022, 2025
-lastupdated: "2025-09-30"
+lastupdated: "2025-11-10"
 
 keywords: file share, file storage, IOPS, performance needs, adjust IOPS
 
@@ -127,6 +127,7 @@ Before you can use the CLI, you must install the IBM Cloud CLI and the VPC CLI p
    {: screen}
 
 1. View the details of the file share that you want to modify with the `ibmcloud is share` command.
+   
 
    ```sh
    ibmcloud is share my-file-share
@@ -254,7 +255,7 @@ Snapshot count               0
 Snapshot size                0        
 Source snapshot              -
 ```
-{: screen}               
+{: screen}                    
 
 For more information about the command options, see [`ibmcloud is share-update my-file-share`](/docs/vpc?topic=vpc-vpc-reference#share-update).
 
