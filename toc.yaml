@@ -556,7 +556,6 @@ toc:
               - hub-spoke-s2s-auth.md
               - hub-spoke-configure-dns-resolver.md
               - hub-spoke-withdrawing-dns-sharing.md
-              - hub-spoke-limitations.md
           - vpe-bind-unbind-reserved-ip.md
           - vpe-accessing-after-setup.md
           - vpe-view-details.md
