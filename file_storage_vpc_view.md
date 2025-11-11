@@ -2,7 +2,7 @@
 
 copyright:
   years: 2022, 2025
-lastupdated: "2025-11-10"
+lastupdated: "2025-11-11"
 
 keywords: file storage, file share, view share details, mount targets, view targets, view share
 
@@ -386,7 +386,7 @@ r006-fdbffc45-618c-49f1-bb08-ec530d7be378   my-source-mount-target   my-vpc   st
 ```
 {: screen}
 
-For more information about the command options, see  [`ibmcloud is share-mount-targets`](/docs/vpc?topic=vpc-vpc-reference#share-mount-targets-list).
+For more information about the command options, see [`ibmcloud is share-mount-targets`](/docs/vpc?topic=vpc-vpc-reference#share-mount-targets-list).
 
 ### Viewing mount target details from the CLI
 {: #fs-get-mountpath-cli}
