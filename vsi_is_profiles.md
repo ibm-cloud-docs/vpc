@@ -2,7 +2,7 @@
 
 copyright:
   years: 2019, 2025
-lastupdated: "2025-11-10"
+lastupdated: "2025-11-11"
 
 keywords: vsi, virtual server instances, profile, profiles, balanced, compute, memory, very high memory, ultra high memory, gpu storage optimized, confidential compute
 
@@ -379,7 +379,24 @@ The following Storage Optimized profiles are available for x86-64 processors:
 {: tab-title="ox2"}
 {: tab-group="Storage Optimized"}
 {: class="simple-tab-table"}
-{: summary="Storage Optimized profiles options for Intel x86-64 virtual server instances."}
+{: summary="Storage Optimized profiles options for Intel x86-64 virtual server instances."}<cfd-7152-update-x86-tabbed-table>
+
+| Instance profile | vCPU / Cores | GiB RAM | Bandwidth cap (Gbps) | Instance storage (GB) | Interface type |
+|---------|---------|---------|---------|---------|---------|
+| ox2-2x16     | 2 / 1 | 16    | 4     | 1x600   | virtio_blk   |
+| ox2-4x32     | 4 / 2  | 32    | 8     | 1x1200  | virtio_blk   |
+| ox2-8x64     | 8 / 4  | 64    | 16    | 2x1200  | virtio_blk   |
+| ox2-16x128   | 16 / 8  | 128   | 32    | 2x2400  | virtio_blk   |
+| ox2-32x256   | 32 / 16 | 256   | 64    | 3x3200  | virtio_blk   |
+| ox2-64x512   | 64 / 32 | 512   | 80    | 6x3200  | virtio_blk   |
+| ox2-96x768   | 96 / 48 | 768   | 80    | 9x3200  | virtio_blk   |
+| ox2-128x1024 | 128 / 64 | 1024  | 80    | 12x3200 | virtio_blk   |
+{: caption="Storage Optimized profiles options for x86-64 instances" caption-side="bottom"}
+{: #storageopt-intel-x86-64-cfd7152}
+{: tab-title="ox2-cfd7152"}
+{: tab-group="Storage Optimized-cfd7152"}
+{: class="simple-tab-table"}
+{: summary="Storage Optimized profiles options for Intel x86-64 virtual server instances."}</cfd-7152-update-x86-tabbed-table>
 
 ## Confidential computing profiles
 {: #confidential-computing-profiles}

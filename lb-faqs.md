@@ -2,7 +2,7 @@
 
 copyright:
   years: 2018, 2025
-lastupdated: "2025-11-05"
+lastupdated: "2025-11-11"
 
 
 keywords: load balancer, public, listener, back-end, front-end, pool, round-robin, weighted, connections, methods, policies, APIs, access, ports, vpc network, layer 7, auto scale, managed pool, instance group
@@ -170,10 +170,25 @@ Yes, it is possible to attach the same backend member with the same port on two 
 {: #backend-member-same-port-one-albs}
 {: faq}
 
-No, it is not possible to attach the same backend member with the same port on a single ALB, even if you try to attach through different pools on that ALB. You can attach the same backend member with different ports, or you can attach different backend members with the same ports.
+No, it is not possible to attach the same backend member with the same port on a single ALB within same pool. However, you can try to attach the same backend member with the same port on a single ALB through different pools on that ALB. 
+
+You may also attach the same backend member with different ports, or you can attach different backend members with the same ports.
 
 ## Is gRPC supported on ALB?
 {: #grpc-supported-albs}
 {: faq}
 
 GRPC relies on HTTP/2 as its underlying transport protocol. IBM Cloud ALBs support HTTP/2 protocol end-to-end for gRPC traffic. However, IBM Cloud ALBs do not offer native support for gRPC as of now. You can configure TCP protocol instead, as ALBs do not recognize gRPC traffic. Instead, they treat gRPC traffic as TCP traffic. 
+
+## Can I know the address pool for appliance public IPs?
+{: #address-pool-appliance-public-ips}
+{: faq}
+
+Public IP addresses are random. They get assigned automatically. Address ranges cannot be confirmed. However,
+Private IPs are taken from the subnets you choose while provisioning a load balancer.
+
+## What happens to session stickiness behavior when the appliance is auto-scaled down?
+{: #session-stickiness-appliance-auto-scale-down}
+{: faq}
+
+The persistence will be moved to the one of the available backend members.
