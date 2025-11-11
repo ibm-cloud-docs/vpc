@@ -2,7 +2,7 @@
 
 copyright:
   years: 2021, 2025
-lastupdated: "2025-11-10"
+lastupdated: "2025-11-11"
 
 keywords: file share, file storage, rename share, increase size, adjust IOPS, mount target
 
@@ -564,7 +564,7 @@ You can add user tags to a file share in the console.
 Before you can use the CLI, you must install the IBM Cloud CLI and the VPC CLI plug-in. For more information, see the [CLI prerequisites](/docs/vpc?topic=vpc-set-up-environment#cli-prerequisites-setup).
 {: requirement}
 
-You can add tags when you provision a file share with the `ibmcloud is share-create`command. The `--user-tags` option specifies tags for the file share. For more information, see [Creating a file share with a mount target from the CLI](/docs/vpc?topic=vpc-file-storage-create&interface=cli#fs-create-share-target-cli).
+You can add tags when you provision a file share with the `ibmcloud is share-create` command. The `--user-tags` option specifies tags for the file share. For more information, see [Creating a file share with a mount target from the CLI](/docs/vpc?topic=vpc-file-storage-create&interface=cli#fs-create-share-target-cli).
 
 You can add and remove tags when you update a file share with the `ibmcloud is share-update` command.
 
