@@ -2,7 +2,7 @@
 
 copyright:
   years: 2018, 2025
-lastupdated: "2025-11-01"
+lastupdated: "2025-11-11"
 
 keywords:
 
@@ -29,7 +29,7 @@ The following lists contain known issues for network load balancers (NLBs), incl
 * There is a one-to-one mapping between listener and pool.
 * An NLB uses the primary network interfaces of its associated members for data traffic. Non-primary network interfaces aren't supported.
 * To ensure service availability, use a dedicated subnet with your NLBs. Clients and members should reside in an alternate subnet.
-* Two members with the same instance X and same port Y cannot exist at the same time for an NLB. This means that adding two members with the same server port to an NLB is not allowed. This case is not supported and your traffic might not be routed correctly. 
+* Two members with the same instance X and same port Y cannot exist at the same time for an NLB. This means that adding two members with the same server port to an NLB is not allowed. This case is not supported and your traffic might not be routed correctly. To learn more, see [Why can't I add members with the same server port to my NLB?](/docs/vpc?topic=vpc-troubleshoot-lb-nlb-members-same-port)
 * For an NLB with routing mode enabled:
    * The only supported back-end targets are Virtual Network Function (VNF) instances. When APIs are used, the listener `port_min` and `port_max` is to be set to `1` and `65535` respectively; `port` is to be left empty.
    * Only one listener is supported.
