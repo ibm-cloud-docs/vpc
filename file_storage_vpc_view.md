@@ -2,7 +2,7 @@
 
 copyright:
   years: 2022, 2025
-lastupdated: "2025-10-23"
+lastupdated: "2025-11-10"
 
 keywords: file storage, file share, view share details, mount targets, view targets, view share
 
@@ -375,7 +375,7 @@ Accessor          Resource type   CRN                                           
 To see all the mount targets that are created for a file share, run the `ibmcloud is share-mount-targets` command and specify the file share ID.
 
 ```sh
-ibmcloud is share-mount-targets r006-e4acfa9b-88b0-4f90-9320-537e6fa3482a
+ibmcloud is share-mount-targets r006-e1a89008-f23b-42f8-8e44-5b31ddf0aac7
 ```
 {: pre}
 
@@ -386,7 +386,7 @@ r006-fdbffc45-618c-49f1-bb08-ec530d7be378   my-source-mount-target   my-vpc   st
 ```
 {: screen}
 
-For more information about the command options, see [`ibmcloud is share-mount-targets`](/docs/vpc?topic=vpc-vpc-reference#share-mount-targets-list).
+For more information about the command options, see  [`ibmcloud is share-mount-targets`](/docs/vpc?topic=vpc-vpc-reference#share-mount-targets-list).
 
 ### Viewing mount target details from the CLI
 {: #fs-get-mountpath-cli}

@@ -2,7 +2,7 @@
 
 copyright:
   years: 2021, 2025
-lastupdated: "2025-11-07"
+lastupdated: "2025-11-11"
 
 keywords: file share, file storage, rename share, increase size, adjust IOPS, mount target
 

@@ -2,7 +2,7 @@
 
 copyright:
   years: 2020, 2025
-lastupdated: "2025-11-10"
+lastupdated: "2025-11-11"
 
 keywords: virtual private endpoints, VPE, endpoint gateway
 
@@ -67,10 +67,11 @@ To create an endpoint gateway in the {{site.data.keyword.cloud_notm}} console, f
    The review might be automated based on the provider's chosen account policy, or it could take days if the provider has chosen to manually review their requests. If your request is permitted, you will receive notification and can then access the service. If your request is denied, contact the service provider.
    {: note}
 
-1. In the Reserved IP section, select a reserved IP address. You can choose:
+1. In the Reserved IP section, select a reserved IP address. You can choose:[ER-435]{: tag-red} 
 
    * **Select one for me** - Enter a name for the IP address, or one is chosen for you. Select a subnet from the list and enable the Auto-delete toggle if you want this reserved IP to be deleted automatically if the endpoint gateway is deleted.
    * **Select from existing IPs** - Choose from the list of existing IP addresses. 
+      
    * **Select one later** - Select an IP address at some point after creating the endpoint gateway.
 
 1. Review the **Order summary**, then click **Create virtual private endpoint gateway**. The endpoint gateway is requested for use.
