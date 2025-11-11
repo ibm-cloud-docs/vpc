@@ -59,7 +59,7 @@ Review the following planning considerations for the DNS-shared VPCs:
 You are responsible for designing and managing your own architecture among multiple VPCs and accounts. IBM Cloud does not manage or control on-prem DNS servers.
 {: note}
 
-# Limitations when configuring DNS sharing for VPE gateways
+## Limitations when configuring DNS sharing for VPE gateways
 {: #vpe-dns-sharing-limitation}
 
 Review the following limitations before you configure DNS sharing for VPE gateways:
