@@ -1,8 +1,8 @@
 ---
 
 copyright:
-  years: 2023, 2024
-lastupdated: "2024-03-29"
+  years: 2023, 2025
+lastupdated: "2025-11-11"
 
 keywords:
 
@@ -12,7 +12,7 @@ subcollection: vpc
 
 {{site.data.keyword.attribute-definition-list}}
 
-# Planning considerations
+# DNS Sharing planning considerations
 {: #vpe-dns-sharing-planning-considerations}
 
 Before you configure DNS sharing for VPE gateways, make sure that you review the following considerations.
