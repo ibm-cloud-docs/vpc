@@ -2,7 +2,7 @@
 
 copyright:
   years: 2022, 2025
-lastupdated: "2025-11-10"
+lastupdated: "2025-11-11"
 
 keywords: Backup, backup snapshot, create backups, backup service, backup plan, backup policy, restore, restore volume, restore data, restore share
 
@@ -166,7 +166,7 @@ Before you can use the CLI, you must install the IBM Cloud CLI and the VPC CLI p
 ### Creating a backup policy for individual volumes from the CLI for an account
 {: #backup-create-policy-noplan}
 
-Run the  `ibmcloud is backup-policy-create` command to create a backup policy without a backup plan. Use the options `--match-tags` and `--name` to give your policy a name and identify the tag that you want to use for your target resources. After the policy is created, you can [add backup plans](#backup-create-plan-cli) to it later on.
+Run the `ibmcloud is backup-policy-create` command to create a backup policy without a backup plan. Use the options `--match-tags` and `--name` to give your policy a name and identify the tag that you want to use for your target resources. After the policy is created, you can [add backup plans](#backup-create-plan-cli) to it later on.
 
 ```sh
 ibmcloud is backup-policy-create --match-tags dev:test --name my-backup-policy-v1
@@ -565,7 +565,7 @@ The fast restore feature is not available for multi-volume or share backups.
 ### Creating a backup plan with cross-regional copy option from the CLI
 {: #backup-create-plan-with-crc-cli}
 
-To create a backup plan that also saves a copy of the backup snapshot in another region, run the  `ibmcloud is backup-policy-plan-create` command with the `--remote-region-policies` option.
+To create a backup plan that also saves a copy of the backup snapshot in another region, run the `ibmcloud is backup-policy-plan-create` command with the `--remote-region-policies` option.
 
 If the source snapshot is not encrypted with a customer key, the encryption of the copy remains provider-managed. If the source snapshot is protected by a customer-managed key, you must specify the customer-managed key that you want to use to encrypt the new copy with the `--encryption-key` option. See the following example.
 
