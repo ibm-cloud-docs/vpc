@@ -2,7 +2,7 @@
 
 copyright:
   years: 2022, 2025
-lastupdated: "2025-11-10"
+lastupdated: "2025-11-11"
 
 keywords: Backup, backup service, backup plan, backup policy, restore, restore volume, restore data
 
@@ -455,7 +455,7 @@ For more information about available command options, see [`ibmcloud is backup-p
 ### Viewing backup plan details from the CLI
 {: #backup-view-plan-details-cli}
 
-Run the `ibmcloud is backup-policy-plans` command and specify the policy ID or policy name, and plan ID or plan name.
+Run the `ibmcloud is backup-policy-plan` command and specify the policy ID or policy name, and plan ID or plan name.
 
 ```sh
 ibmcloud is backup-policy-plan POLICY PLAN [--output JSON] [-q, --quiet]
