@@ -379,7 +379,7 @@ The following Storage Optimized profiles are available for x86-64 processors:
 {: tab-title="ox2"}
 {: tab-group="Storage Optimized"}
 {: class="simple-tab-table"}
-{: summary="Storage Optimized profiles options for Intel x86-64 virtual server instances."}<cfd-7152-update-x86-tabbed-table>
+{: summary="Storage Optimized profiles options for Intel x86-64 virtual server instances."}
 
 | Instance profile | vCPU / Cores | GiB RAM | Bandwidth cap (Gbps) | Instance storage (GB) | Interface type |
 |---------|---------|---------|---------|---------|---------|
@@ -396,7 +396,7 @@ The following Storage Optimized profiles are available for x86-64 processors:
 {: tab-title="ox2-cfd7152"}
 {: tab-group="Storage Optimized-cfd7152"}
 {: class="simple-tab-table"}
-{: summary="Storage Optimized profiles options for Intel x86-64 virtual server instances."}</cfd-7152-update-x86-tabbed-table>
+{: summary="Storage Optimized profiles options for Intel x86-64 virtual server instances."}
 
 ## Confidential computing profiles
 {: #confidential-computing-profiles}
