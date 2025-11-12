@@ -2,7 +2,7 @@
 
 copyright:
   years: 2022, 2025
-lastupdated: "2025-09-23"
+lastupdated: "2025-11-12"
 
 keywords: VPC File Storage, file for VPC, NSF, replica, file share, replication, schedule
 
@@ -278,7 +278,7 @@ resource "ibm_is_share_replica_operations" "test" {
 ```
 {: codeblock}
 
-For more information about the arguments and attributes, see [ibm_is_share_replica_operations](https://registry.terraform.io/providers/IBM-Cloud/ibm/latest/docs/resources/ibm_is_share_replica_operations){: external}.
+For more information about the arguments and attributes, see [ibm_is_share_replica_operations](https://registry.terraform.io/providers/IBM-Cloud/ibm/latest/docs/resources/is_share_replica_operations){: external}.
 
 ## Deleting replica and source file shares
 {: #fs-delete-replicas}
