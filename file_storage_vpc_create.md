@@ -1249,7 +1249,7 @@ provider "ibm" {
 ### Creating a zonal file share with Terraform
 {: #file-share-create-terraform}
 
-To create a file share, use the `ibm_is_share` resource. The following example creates a share with 200 GB capacity and the `dp2` performance profile.
+To create a file share, use the `ibm_is_share` resource. The following example creates a zonal filw share with 200 GB capacity and the `dp2` performance profile.
 
 ```terraform
 resource "ibm_is_share" "example" {
@@ -1307,12 +1307,12 @@ resource "ibm_is_share_mount_target" "target-with-vni" {
              address = “10.240.64.5”
              auto_delete = true
              name = <reserved_ip_name>
+             }
      }
      resource_group = <resource_group_id>
      security_groups = [<security_group_ids>]
-     transit_encryption = none
+     transit_encryption = "none"
    }
-}
 ```
 {: codeblock}
 
@@ -1351,15 +1351,15 @@ resource "ibm_is_share" "share4" {
    mount_target {
        name = "target"
        virtual_network_interface {
-       primary_ip {
+          primary_ip {
                address = "10.240.64.5"
                auto_delete = true
                name = <reserved_ip_name>
-       }
-      resource_group = <resource_group_id>
-      security_groups = [<security_group_ids>]
-      transit_encryption = ipsec
-      }
+          }
+       }   
+       resource_group = <resource_group_id>
+       security_groups = [<security_group_ids>]
+       transit_encryption = "ipsec"
    }
 }
 ```
