@@ -2,7 +2,7 @@
 
 copyright:
   years: 2021, 2025
-lastupdated: "2025-11-06"
+lastupdated: "2025-11-12"
 
 keywords: file share, file storage, virtual network interface, encryption in transit, profiles, 
 
@@ -1352,7 +1352,7 @@ resource "ibm_is_share" "share4" {
        name = "target"
        virtual_network_interface {
        primary_ip {
-               address = 10.240.64.5
+               address = "10.240.64.5"
                auto_delete = true
                name = <reserved_ip_name>
        }
