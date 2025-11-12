@@ -198,8 +198,6 @@ For more information about available command options, see [`ibmcloud is share-sn
 ### Viewing details of a snapshot from the CLI
 {: #fs-snapshots-view-details-cli}
 
-
-
 Run the `ibmcloud is share-snapshot` command with the snapshot ID, or the snapshot name and the share name or ID. Snapshot IDs are unique across the account. However, snapshot names are only unique at the snapshot level.
 
 ```sh
