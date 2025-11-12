@@ -2,7 +2,7 @@
 
 copyright:
   years: 2019, 2025
-lastupdated: "2025-07-17"
+lastupdated: "2025-11-12"
 
 keywords:
 
@@ -81,14 +81,18 @@ For two-way protocols such as TCP, it is essential to define both inbound and ou
 #### ACL-1 example rules
 {: #acl1-example-rules}
 
-| Inbound/Outbound| Allow/Deny | Source IP | Source Port | Destination IP | Destination Port | Protocol | Description|
+| Direction| Allow/Deny | Source IP | Source Port | Destination IP | Destination Port | Protocol | Description|
 |--------------|-----------|------|------|------|------------------|-------|----------|
 | Inbound | Allow | `10.10.20.0/24`| Any | `10.10.10.0/24` | Any | Any| Allow all inbound traffic from the subnet `10.10.20.0/24` where the back-end servers are placed|
-| Inbound | Allow | `0.0.0.0/0` | Any | `10.10.10.0/24` | 80 | TCP | Allow HTTP traffic from the internet|
-| Inbound | Allow | `0.0.0.0/0` | Any | `10.10.10.0/24` | 443 | TCP | Allow HTTPS traffic from the internet|
+| Inbound | Allow | `0.0.0.0/0` | Any | `10.10.10.0/24` | 80 | TCP | Allow HTTP traffic from the internet to the web server|
+| Inbound | Allow | `0.0.0.0/0` | Any | `10.10.10.0/24` | 443 | TCP | Allow HTTPS traffic from the internet to the web server|
+| Inbound | Allow | `0.0.0.0/0` | 80 | `10.10.10.0/24` | Any | TCP | Allow HTTP return traffic from the internet to the web server|
+| Inbound | Allow | `0.0.0.0/0` | 443 | `10.10.10.0/24` | Any | TCP | Allow HTTPS return traffic from the internet to the web server|
 | Inbound | Deny| `0.0.0.0/0`| Any | `0.0.0.0/0`| Any | Any | Deny all other traffic inbound|
-| Outbound | Allow | `10.10.10.0/24` | 80 | `0.0.0.0/0`| Any | TCP | Allow HTTP traffic to the internet|
-| Outbound | Allow | `10.10.10.0/24` | 443 |`0.0.0.0/0` | Any | TCP | Allow HTTPS traffic to the internet|
+| Outbound | Allow | `10.10.10.0/24` | Any | `0.0.0.0/0`| 80 | TCP | Allow HTTP traffic from the web server to the internet|
+| Outbound | Allow | `10.10.10.0/24` | Any |`0.0.0.0/0` | 443 | TCP | Allow HTTPS traffic from the web server to the internet|
+| Outbound | Allow | `10.10.10.0/24` | 80 | `0.0.0.0/0`| Any | TCP | Allow HTTP return traffic from the web server to the internet|
+| Outbound | Allow | `10.10.10.0/24` | 443 |`0.0.0.0/0` | Any | TCP | Allow HTTPS return traffic traffic from the web server to the internet|
 | Outbound | Allow | `10.10.10.0/24` | Any |`10.10.20.0/24` | Any | Any | Allow all outbound traffic to the subnet `10.10.20.0/24` where the back-end servers are placed|
 | Outbound | Deny | `0.0.0.0/0` | Any | `0.0.0.0/0`| Any | Any | Deny all other traffic outbound |
 {: caption="Example rules for ACL-1" caption-side="bottom"}
@@ -96,13 +100,13 @@ For two-way protocols such as TCP, it is essential to define both inbound and ou
 #### ACL-2 example rules
 {: #acl2-example-rules}
 
-| Inbound/Outbound| Allow/Deny | Source IP | Source Port | Destination IP | Destination Port | Protocol | Description|
+| Direction| Allow/Deny | Source IP | Source Port | Destination IP | Destination Port | Protocol | Description|
 |--------------|-----------|------|------|------|------------------|-------|----------|
 | Inbound | Allow| `10.10.10.0/24` | Any |`10.10.20.0/24`| Any | Any | Allow all inbound traffic from the subnet `10.10.10.0/24` where the web servers are placed|
-| Inbound | Allow | `0.0.0.0/0` | 80 | `10.10.20.0/24` | Any | TCP | Allow HTTP traffic from the internet |
-| Inbound | Allow | `0.0.0.0/0` | 443 |`10.10.20.0/24` | Any | TCP | Allow HTTPS traffic from the internet |
 | Inbound | Deny | `0.0.0.0/0` | Any | `0.0.0.0/0` | Any | Any | Deny all other traffic inbound|
-| Outbound | Allow | `10.10.20.0/24` | Any | `0.0.0.0/0` | 80  | TCP | Allow HTTP traffic to the internet |
+| Inbound | Deny | `0.0.0.0/0` | 80 | `10.0.20.0/24` | Any | Any | Allow HTTP return traffic from the internet|
+| Inbound | Deny | `0.0.0.0/0` | 443 | `10.0.20.0/24` | Any | Any | Allow HTTPS return traffic from the internet|
+| Outbound | Allow | `10.10.20.0/24` | Any | `0.0.0.0/0` | 80 | TCP | Allow HTTP traffic to the internet |
 | Outbound | Allow | `10.10.20.0/24` | Any | `0.0.0.0/0` | 443 | TCP | Allow HTTPS traffic to the internet |
 | Outbound | Allow | `10.10.20.0/24` | Any | `10.10.10.0/24` | Any | Any | Allow all outbound traffic to the subnet `10.10.10.0/24` where the web servers are placed|
 | Outbound | Deny | `0.0.0.0/0`| Any | `0.0.0.0/0`| Any | Any | Deny all other traffic outbound |

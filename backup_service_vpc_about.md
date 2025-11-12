@@ -2,7 +2,7 @@
 
 copyright:
  years: 2022, 2025
-lastupdated: "2025-10-31"
+lastupdated: "2025-11-12"
 
 keywords: Backup, backup service, backup plan, backup policy, restore, restore volume, restore data
 
@@ -260,7 +260,7 @@ Volume backups:
    - You can't create cross-regional copies of your second-generation volume backups if the source volume exceeds 10 TB.
 
 File share backups:
-* You can take a total of 750 backups per file share. 
+* You can take a total of 750 backups per zonal file share.
 * You can't create a copy of a file storage backup in another region. File share snapshots and backups are tied to their source shares. If the share is deleted, the backups are deleted as well. 
 * Backup snapshots are not supported for shares that have "VPC" access control mode.
 * The fast restore feature is not supported for file share backups.

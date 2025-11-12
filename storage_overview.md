@@ -2,7 +2,7 @@
 
 copyright:
   years: 2022, 2025
-lastupdated: "2025-11-10"
+lastupdated: "2025-11-12"
 
 keywords: block storage for VPC, File Storage for VPC, Snapshots for VPC, Backup for VPC, block storage, file storage, snapshots, backup, 
 
@@ -143,11 +143,10 @@ Snapshots are tied to their source share. If you delete the original share and t
 
 Customers with special access to preview the second-generation File Storage offering can take snapshots of their regional file shares. The `rfs` profile is available in the Dallas, Frankfurt, London, Madrid, Osaka, Sydney, Toronto, Tokyo, and Washington, DC regions in this release. Backup for VPC service cannot be used to create second-generation snapshots in this release.
 
-
 | Features            | First-generation shares | Second-generation shares |
 |---------------------|--------------------------|---------------------------|
 | Availability        | Generally available in all VPC regions for all customers. | Available in most regions, except for Montreal, for allowlisted customers.|
-| On-demand snapshots | Yes, Up to 750 per share in a region. | Up to 30 per share in a region. This quota can be increased upon request. |
+| On-demand snapshots | Yes, Up to 750 per share in a region. | Yes, Up to 30 per share in a region. This quota can be increased upon request. |
 | Scheduled snapshots | Yes, up to 750 snapshots per region. | Not supported in the [Select availability]{: tag-green} release.|
 {: caption="File share snapshot generations comparison." caption-side="bottom"}
 

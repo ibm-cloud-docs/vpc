@@ -2,7 +2,7 @@
 
 copyright:
   years: 2022, 2025
-lastupdated: "2025-11-11"
+lastupdated: "2025-11-12"
 
 keywords: confidential computing, enclave, secure execution, hpcr, hyper protect virtual server for vpc
 
@@ -313,7 +313,7 @@ The result is a secure execution image that is seen at the end of the diagram, w
 
 During boot several hashes of components and measures of code are taken and added to the attestation record. To further protect this attestation record, the record is encrypted with the public key that the auditor provided. By doing so, only the auditor is in the position to decrypt the attestation record and can validate that the workload that is deployed in the enclave is the expected and untampered version of the workload that is expected to be deployed into the {{site.data.keyword.hpvs}} for VPC instance.
 
-![Figure showing the attestation process](images/vsi_se_attestationrecord.png "Figure showing the attestation process"){: caption="Attestation process" caption-side="bottom"}
+![Figure showing the attestation process](images/hpvs_att.svg "Figure showing the attestation process"){: caption="Attestation process" caption-side="bottom"}
 
 ## Next steps
 {: #next-steps-attestation}

@@ -2,7 +2,7 @@
 
 copyright:
   years: 2024, 2025
-lastupdated: "2025-09-23"
+lastupdated: "2025-11-12"
 
 keywords: view snapshots, view snapshot, viewing snapshots, see snapshots, File storage snapshots
 
@@ -145,7 +145,7 @@ For snapshots of regional file shares, the zone value is blank in both the CLI a
 
 For more information about available command options, see [`ibmcloud is share-snapshots`](/docs/vpc?topic=vpc-vpc-reference#share-snapshots-list).
 
-#### Viewing all snapshots of a share from the CLI
+#### Viewing all snapshots of a share from the CLI 
 {: #fs-snapshots-view-all-share-snapshots-cli}
 
 Run the `ibmcloud is share-snapshots` command and specify the share name or ID to filter the snapshot results. The following example shows the snapshots that were taken of the share `r026-734c173e-044f-4d09-a729-950364ea9900`.
@@ -197,6 +197,8 @@ For more information about available command options, see [`ibmcloud is share-sn
 
 ### Viewing details of a snapshot from the CLI
 {: #fs-snapshots-view-details-cli}
+
+
 
 Run the `ibmcloud is share-snapshot` command with the snapshot ID, or the snapshot name and the share name or ID. Snapshot IDs are unique across the account. However, snapshot names are only unique at the snapshot level.
 

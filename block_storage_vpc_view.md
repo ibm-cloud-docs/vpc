@@ -2,7 +2,7 @@
 
 copyright:
   years: 2019, 2025
-lastupdated: "2025-11-04"
+lastupdated: "2025-11-12"
 
 keywords:
 
@@ -212,7 +212,7 @@ ibmcloud is volume my-sdp-volume
 Getting volume my-sdp-volume  under account under account Test Account as user test.user@ibm.com...
 ID                                     r134-145fb6c8-8e03-4a9f-bcd7-3bb131d30f05   
 Name                                   my-sdp-volume   
-CRN                                    crn:v1:staging:public:is:us-south-2:a/a1234567::volume:r134-145fb6c8-8e03-4a9f-bcd7-3bb131d30f05   
+CRN                                    crn:v1:bluemix:public:is:us-south-2:a/a1234567::volume:r134-145fb6c8-8e03-4a9f-bcd7-3bb131d30f05   
 Status                                 available   
 Attachment state                       attached   
 Capacity                               250   

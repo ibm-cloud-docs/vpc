@@ -2,7 +2,7 @@
 
 copyright:
   years: 2020, 2025
-lastupdated: "2025-11-11"
+lastupdated: "2025-11-12"
 
 keywords: VPN, network, encryption, authentication, algorithm, IKE, IPsec, policies, gateway
 
@@ -51,27 +51,27 @@ When the VPN gateway and virtual server instance are in the shared subnet and yo
 
 | Inbound and Outbound Rules | Protocol | Source IP | Source Port | Destination IP | Destination Port |
 |--------------|------|------|------|------|------------------|
-| Inbound | All | Your on-premises gateway public IP | N/A | VPN gateway's subnet | N/A |
-| Outbound | All  | VPN gateway's subnet | N/A | On-premises gateway public IP | N/A |
+| Inbound | All | Your on-premises gateway public IP | N/A | VPN gateway IP | N/A |
+| Outbound | All  | VPN gateway IP| N/A | On-premises gateway public IP | N/A |
 | Inbound | All | On-premises, private CIDR | N/A | VPC CIDR | N/A |
 | Outbound | All | VPC CIDR | N/A | On-premises, private CIDR | N/A |
 | Inbound (optional) | ICMP | Any | N/A | Any | N/A |
 {: caption="Inbound and outbound rules on the shared NACL and shared subnet" caption-side="bottom"}
 
-For example, the following table shows the source and destination IP addresses for inbound and outbound rules. In this example, both the VPN gateway and the virtual server instance are in the shared subnet CIDR `192.168.1.0/24`.
+For example, the following table shows the source and destination IP addresses for inbound and outbound rules. In this example, both the VPN gateway and the virtual server instance are in the shared subnet CIDR `10.240.0.0/24`. The CIDR IP address of the VPN gateway is `10.240.0.4/32`.
 
 | Inbound and Outbound Rules | Protocol | Source IP | Source Port | Destination IP | Destination Port |
 |--------------|------|------|------|------|------------------|
-| Inbound | All | `1.2.3.4`[^IP] | N/A | `192.168.1.0/24`| N/A |
-| Outbound | All | `192.168.1.0/24` | N/A | `1.2.3.4`[^IP2] | N/A |
-| Inbound | All | `10.0.0.0/8`[^IP3]| N/A | `192.168.1.0/24` | N/A |
-| Outbound | All | `192.168.1.0/24` | N/A | `10.0.0.0/8`[^IP4] | N/A |
+| Inbound | All | `3.213.120.56`[^IP] | N/A | `10.240.0.4/32`| N/A |
+| Outbound | All | `10.240.0.4/32` | N/A | `3.213.120.56`[^IP2] | N/A |
+| Inbound | All | `192.168.100.0/24`[^IP3]| N/A | `10.240.0.0/24` | N/A |
+| Outbound | All | `10.240.0.0/24` | N/A | `192.168.100.0/24`[^IP4] | N/A |
 | Inbound (optional) | ICMP | Any | N/A | Any | N/A |
 {: caption="Inbound and outbound rules on the shared NACL and shared subnet example" caption-side="bottom"}
 
-[^IP]: This address is your on-premises gateway public IP for the inbound rule. This setting allows traffic from the on-premises subnet to the VPC.
+[^IP]: This address is your on-premises gateway public IP for the inbound rule. This setting allows traffic from the on-premises subnet to the VPN gateway.
 
-[^IP2]: Set the destination IP to your on-premises gateway public IP address for the outbound rule. This setting allows traffic from the VPC to the on-premises subnet.
+[^IP2]: Set the destination IP to your on-premises gateway public IP address for the outbound rule. This setting allows traffic from the VPN gateway to the on-premises subnet.
 
 [^IP3]: This address is your on-premises, private CIDR.
 
@@ -102,20 +102,20 @@ When the VPN gateway and virtual server instance are in different subnets and yo
 | Inbound (optional) | ICMP | Any | N/A | Any | N/A |
 {: caption="Inbound and outbound rules on the shared NACL and different subnet" caption-side="bottom"}
 
-For example, the following table shows the source and destination IP addresses for inbound and outbound rules. In this example, the VPN gateway is in the subnet CIDR `192.168.1.0/24` and the virtual server instance is in the subnet CIDR `192.168.2.0/24`.
+For example, the following table shows the source and destination IP addresses for inbound and outbound rules. In this example, the VPN gateway is in the subnet CIDR `10.240.0.0/24` and the virtual server instance is in the subnet CIDR `10.240.2.0/24`.
 
 | Inbound and Outbound Rules | Protocol | Source IP | Source Port | Destination IP | Destination Port |
 |--------------|------|------|------|------|------------------|
-| Inbound | All | `1.2.3.4`[^IP5] | N/A | `192.168.1.0/24` | N/A |
-| Outbound | All | `192.168.1.0/24` | N/A | `1.2.3.4`[^IP6] | N/A |
-| Inbound | All | `10.0.0.0/8`[^IP7] | N/A | `192.168.2.0/24` | N/A |
-| Outbound | All | `192.168.2.0/24` | N/A | `10.0.0.0/8`[^IP8] | N/A |
+| Inbound | All | `3.213.120.56`[^IP5] | N/A | `10.240.0.4/32` | N/A |
+| Outbound | All | `10.240.0.4/32` | N/A | `3.213.120.56`[^IP6] | N/A |
+| Inbound | All | `192.168.100.0/24`[^IP7] | N/A | `10.240.2.0/24` | N/A |
+| Outbound | All | `10.240.2.0/24` | N/A | `192.168.100.0/24`[^IP8] | N/A |
 | Inbound (optional) | ICMP | Any | N/A | Any | N/A |
 {: caption="Inbound and outbound rules on the shared NACL and different subnet example" caption-side="bottom"}
 
-[^IP5]: This address is your on-premises gateway public IP for the inbound rule. This setting allows traffic from the on-premises subnet to the VPC.
+[^IP5]: This address is your on-premises gateway public IP for the inbound rule. This setting allows traffic from the on-premises subnet to the VPN gateway.
 
-[^IP6]: Set the destination IP to your on-premises gateway public IP address for the outbound rule. This setting allows traffic from the VPC to the on-premises subnet.
+[^IP6]: Set the destination IP to your on-premises gateway public IP address for the outbound rule. This setting allows traffic from the VPN gateway to the on-premises subnet.
 
 [^IP7]: This address is your on-premises, private CIDR.
 
@@ -143,8 +143,8 @@ This NACL is attached to the VPN gateway subnet. The traffic rules for the VPN g
 | Inbound and Outbound Rules | Protocol | Source IP | Source Port | Destination IP | Destination Port |
 |--------------|------|------|------|------|------------------|
 | Inbound | All | Your on-premises gateway public IP | N/A | VPN gateway's subnet | N/A |
-| Outbound | All  | VPN gateway's subnet | N/A | On-premises gateway public IP | N/A |
-| Inbound| All  | On-premises private CIDR | N/A | VPC CIDR | N/A |
+| Outbound | All | VPN gateway's subnet | N/A | On-premises gateway public IP | N/A |
+| Inbound| All | On-premises private CIDR | N/A | VPC CIDR | N/A |
 | Outbound | All | VPC CIDR | N/A | On-premises, private CIDR | N/A |
 | Inbound (optional) | ICMP | Any | N/A | Any | N/A |
 {: caption="Inbound and outbound rules on VPN gateway's subnet" caption-side="bottom"}
@@ -170,25 +170,25 @@ Optional: This rule allows traffic for connectivity tests, such as pinging the V
 | Inbound (optional) | ICMP | Any | N/A | Any | N/A |
 {: caption="Rules for traffic troubleshooting" caption-side="bottom"}
 
-#### Examples: Configuring VPN gateway and virtual server subnets in a shared VPC
+#### Examples: Configuring VPN gateway and virtual server subnets in seperate ACLs
 {: #configure-vpn-gateway-virtual-server-subnets}
 
 The following examples illustrate the specific NACL rules that are applied to both the VPN gateway and virtual server instance subnets. These examples help you to set up your NACLs correctly according to your specific subnet CIDRs and traffic requirements.
 
-This table shows the source and destination IP addresses for inbound and outbound rules. In this example, the VPN gateway is in subnet CIDR `192.168.1.0/24`, and the virtual server is in subnet CIDR `192.168.2.0/24`.
+In this example, the VPN gateway is in subnet CIDR `10.240.0.0/24`, and the virtual server is in subnet CIDR `10.240.2.0/24`. Additionally, the VPN gateway and virtual server reside in seperate NACLs, which means you need to configure seperate rules for each NACL. The following table illustrates the NACL inbound and outbound rules for the VPN gateway subnet.
 
 | Inbound and Outbound Rules | Protocol | Source IP | Source Port | Destination IP | Destination Port |
 |--------------|------|------|------|------|------------------|
-| Inbound | All | `1.2.3.4`[^IP9] | N/A | `192.168.1.0/24` | N/A |
-| Outbound | All | `192.168.1.0/24` | N/A | `1.2.3.4`[^IP10] | N/A |
-| Inbound | All | `10.0.0.0/8`[^IP11] | N/A | `192.168.2.0/24` | N/A |
-| Outbound | All | `192.168.2.0/24`| N/A | `10.0.0.0/8`[^IP12] | N/A |
+| Inbound | All | `3.213.120.56`[^IP9] | N/A | `10.240.0.4/32` | N/A |
+| Outbound | All | `10.240.0.4/32` | N/A | `3.213.120.56`[^IP10] | N/A |
+| Inbound | All | `192.168.100.0/24`[^IP11] | N/A | `10.240.2.0/24` | N/A |
+| Outbound | All | `10.240.2.0/24`| N/A | `192.168.100.0/24`[^IP12] | N/A |
 | Inbound (optional) | ICMP | Any | N/A | Any | N/A |
 {: caption="Inbound and outbound rules on VPN gateway's subnet example" caption-side="bottom"}
 
-[^IP9]: This address is your on-premises gateway public IP for the inbound rule. This setting allows traffic from the on-premises subnet to the VPC.
+[^IP9]: This address is your on-premises gateway public IP for the inbound rule. This setting allows traffic from the on-premises subnet to the VPN gateway.
 
-[^IP10]: Set the destination IP to your on-premises gateway public IP address for the outbound rule. This setting allows traffic from the VPC to the on-premises subnet.
+[^IP10]: Set the destination IP to your on-premises gateway public IP address for the outbound rule. This setting allows traffic from the VPN gateway to the on-premises subnet.
 
 [^IP11]: This address is your on-premises, private CIDR.
 
@@ -198,8 +198,8 @@ This table illustrates the NACL rules for the virtual server subnet, showing the
 
 | Inbound and Outbound Rules | Protocol | Source IP | Source Port | Destination IP | Destination Port |
 |--------------|------|------|------|------|------------------|
-| Inbound | All | `10.0.0.0/8` | N/A | `192.168.2.0/24` | N/A |
-| Outbound | All | `192.168.2.0/24` | N/A | `10.0.0.0/8` | N/A |
+| Inbound | All | `192.168.100.0/24` | N/A | `10.240.2.0/24` | N/A |
+| Outbound | All | `10.240.2.0/24` | N/A | `192.168.100.0/24` | N/A |
 {: caption="Inbound and outbound rules on virtual server subnet example" caption-side="bottom"}
 
 ### Scenario 2: VPN gateway and virtual server instance in different VPCs connected through a transit gateway
@@ -210,6 +210,7 @@ In this scenario, the VPN gateway and the virtual server instance reside in diff
 1. Encrypted traffic flows between your on-premises gateway and the VPN gateway subnet.
 1. After the packet reaches the VPC VPN gateway, it is decrypted and forwarded to the VPC virtual server subnet.
 1. The response packets are then sent back through the VPN subnet, where they are encrypted again and returned to the on-premises gateway.
+1. The transit gateway is responsible for interconnecting the two VPCs and forwarding packets between them.
 
 ![Packet flow through different VPC NACLs](images/vpc-traffic-flow-diff-vpc-acls-subnets.svg){: caption="Packet flow through different VPCs with different NACLs and subnets" caption-side="bottom"}
 
@@ -255,20 +256,20 @@ Optional: This rule allows traffic for connectivity tests, such as pinging the V
 
 The following examples illustrate the specific NACL rules that are applied to both the VPN gateway and virtual server instance subnets in different VPC. These examples help you to set up your NACLs correctly according to your specific subnet CIDRs and traffic requirements.
 
-The following table shows the source and destination IP addresses for inbound and outbound rules. In this example, the VPN gateway in VPC A is in subnet CIDR `192.168.1.0/24`, and the virtual server in VPC B is in subnet CIDR `192.168.2.0/24`.
+In this example, the VPN gateway in VPC A is in subnet CIDR `10.240.0.0/24`, and the virtual server in VPC B is in subnet CIDR `10.240.2.0/24`. Additionally, the VPN gateway and virtual server reside in seperate NACLs, which means you need to configure seperate rules for each NACL. The following table illustrates the NACL inbound and outbound rules for the VPN gateway subnet.
 
 | Inbound and Outbound Rules | Protocol | Source IP | Source Port | Destination IP | Destination Port |
 |--------------|------|------|------|------|------------------|
-| Inbound | All | `1.2.3.4`[^IP13] | N/A | `192.168.1.0/24` | N/A |
-| Outbound | All  | `192.168.1.0/24` | N/A | `1.2.3.4`[^IP14] | N/A |
-| Inbound | All | `10.0.0.0/8`[^IP15] | N/A | `192.168.2.0/24` | N/A |
-| Outbound | All | `192.168.2.0/24`| N/A | `10.0.0.0/8`[^IP16] | N/A |
+| Inbound | All | `3.213.120.56`[^IP13] | N/A | `10.240.0.4/32` | N/A |
+| Outbound | All  | `10.240.0.4/32` | N/A | `3.213.120.56`[^IP14] | N/A |
+| Inbound | All | `192.168.100.0/24`[^IP15] | N/A | `10.240.2.0/24` | N/A |
+| Outbound | All | `10.240.2.0/24`| N/A | `192.168.100.0/24`[^IP16] | N/A |
 | Inbound (optional) | ICMP | Any | N/A | Any | N/A |
 {: caption="Inbound and outbound rules on VPN gateway's subnet example" caption-side="bottom"}
 
-[^IP13]: This address is your on-premises gateway public IP for the inbound rule. This setting allows traffic from the on-premises subnet to the VPC.
+[^IP13]: This address is your on-premises gateway public IP for the inbound rule. This setting allows traffic from the on-premises subnet to the VPN gateway.
 
-[^IP14]: Set the destination IP to your on-premises gateway public IP address for the outbound rule. This setting allows traffic from the VPC to the on-premises subnet.
+[^IP14]: Set the destination IP to your on-premises gateway public IP address for the outbound rule. This setting allows traffic from the VPN gateway to the on-premises subnet.
 
 [^IP15]: This address is your on-premises, private CIDR.
 
@@ -278,6 +279,6 @@ This table illustrates the NACL rules for the virtual server subnet in VPC B, sh
 
 | Inbound and Outbound Rules | Protocol | Source IP | Source Port | Destination IP | Destination Port |
 |--------------|------|------|------|------|------------------|
-| Inbound | All | `10.0.0.0/8` | N/A | `192.168.2.0/24` | N/A |
-| Outbound | All | `192.168.2.0/24` | N/A |`10.0.0.0/8`| N/A |
+| Inbound | All | `192.168.100.0/24` | N/A | `10.240.2.0/24` | N/A |
+| Outbound | All | `10.240.2.0/24` | N/A |`192.168.100.0/24`| N/A |
 {: caption="Inbound and outbound rules on virtual server subnet example" caption-side="bottom"}

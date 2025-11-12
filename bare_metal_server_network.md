@@ -2,7 +2,7 @@
 
 copyright:
   years: 2021, 2025
-lastupdated: "2025-06-11"
+lastupdated: "2025-11-11"
 
 keywords: bare metal server network, bare metal network, nics, pci, vlan, network overview
 
@@ -39,11 +39,11 @@ You can create two types of network interfaces on a bare metal server:
 ### PCI and VLAN interface characteristics
 {: #bare-metal-servers-interface-characteristics}
 
-The following list highlights characteristics of the PCI and VLAN interfaces.
+The following list highlights the characteristics of the PCI and VLAN interfaces.
 
 * You can create up to 8 PCI interfaces on a bare metal server. To add or remove PCI interfaces, the bare metal server must be **STOPPED**.
 
-* You don't have limitations on the maximum number of VLAN interfaces that can you can create.
+* The maximum number of network interfaces per bare metal server (both PCI and VLAN) is 25. However, you can create up to 128 by using the CLI or API, but doing so can affect the performance of vMotion. It is recommended that you use NSX-T for environments that require large numbers of network interfaces.
 
 * You can attach security groups to both PCI and VLAN interfaces to handle incoming and outgoing traffic to the network interface. The VLAN interface maintains its own security group rules that might be different from its associated PCI interface rules.
 
@@ -112,7 +112,7 @@ Before you create a server and vmKernel in vSphere, you must create the VLAN int
 ### Example vSphere network topology
 {: #bare-metal-servers-example-vmotion-topology}
 
-To create a simple topology use the following steps:
+To create a simple topology, use the following steps:
 
 1. On each bare metal server, check that you did the following actions.
 

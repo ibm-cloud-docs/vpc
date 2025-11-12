@@ -4,7 +4,7 @@ copyright:
 
   years: 2022, 2025
 
-lastupdated: "2025-11-04"
+lastupdated: "2025-11-11"
 
 keywords: operating system end of support (eos)
 
@@ -41,6 +41,7 @@ The following table describes the end of support date and license model for Cent
 | CentOS 7.9 minimal | 30 June 2024  | Free |
 | CentOS Stream 8 | 31 May 2024 | Free |
 | CentOS Stream 9 | 31 May 2027 | Free |
+| CentOS Stream 10 | 01 Jan 2030 | Free |
 {: caption="Lifecycle for CentOS operating systems" caption-side="bottom"}
 
 ## Debian
@@ -50,6 +51,7 @@ The following table describes the end of support date and license model for Debi
 
 | Operating system | End of support | License model |
 |-----------------|----------------|---------------|
+| Debian 13 minimal | 30 June 2030 | Free |
 | Debian 12 minimal | 10 June 2028 | Free |
 | Debian 11 minimal | 31 August 2026 | Free |
 | Debian 10 minimal | 30 June 2024 | Free |
@@ -77,6 +79,8 @@ When using an RHEL AI 1.x image, ensure you are using the correct RHEL AI image 
 
 | Operating system | End of support | License model |
 |-----------------|----------------|---------------|
+| RHEL 9.6 minimal | 31 May 2029    | Pay-as-you-Go  |
+| RHEL 9.6 (SAP HANA and SAP applications) | 31 May 2029    | Pay-as-you-Go |
 | RHEL 9.4 minimal | 30 April 2026    | Pay-as-you-Go  |
 | RHEL 9.4 (SAP HANA and SAP applications) | 31 May 2028    | Pay-as-you-Go |
 | RHEL 9.2 minimal | 31 May 2025    | Pay-as-you-Go  |
@@ -115,6 +119,7 @@ The version of Rocky Linux is updated regularly, with the previous release depre
 |-----------------|----------------|---------------|
 | Rocky Linux 8.x | 31 May 2029 | Free |
 | Rocky Linux 9.x | 31 May 2032 | Free |
+| Rocky Linux 10.x | 31 May 2035 | Free |
 {: caption="Lifecycle for Rocky Linux operating systems" caption-side="bottom"}
 
 ## SUSE Linux Enterprise Server (SLES)
@@ -124,6 +129,7 @@ The following table describes the end of support date and license model for SUSE
 
 | Operating system | End of support | License model |
 |-----------------|----------------|---------------|
+| SLES 15 SP7 | 31 July 2031 | Pay-as-you-Go |
 | SLES 15 SP6 | 31 December 2025 | Pay-as-you-Go |
 | SLES 15 SP5 | 31 December 2024 | Pay-as-you-Go |
 | SLES 15 SP4 | 31 December 2023 | Pay-as-you-Go |
@@ -163,6 +169,7 @@ The following table describes the end of support date and license model for Wind
 
 | Operating system | End of support | License model |
 |-----------------|----------------|---------------|
+| Windows Server 2025 full standard | 10 October 2034 | Pay-as-you-Go / BYOL|
 | Windows Server 2022 full standard | 14 October 2031 | Pay-as-you-Go / BYOL|
 | Windows Server 2019 core | 09 January 2029 | Pay-as-you-Go / BYOL|
 | Windows Server 2019 full standard | 09 January 2029 | Pay-as-you-Go / BYOL |

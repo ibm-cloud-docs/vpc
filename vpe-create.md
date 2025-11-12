@@ -2,7 +2,7 @@
 
 copyright:
   years: 2020, 2025
-lastupdated: "2025-11-11"
+lastupdated: "2025-11-12"
 
 keywords: virtual private endpoints, VPE, endpoint gateway
 
@@ -89,38 +89,17 @@ To create an endpoint gateway from the CLI, follow these steps:
    ```sh
    ibmcloud is endpoint-gateway-targets
    ```
-   {: pre}
+   {: pre} 
 
-1. Create an endpoint gateway by running the following command:
-
-   ```sh
-   ibmcloud is endpoint-gateway-create \
-    --vpc VPC_ID \
-    --target TARGET [--name NAME] [(--reserved-ip-id RESERVED_IP_ID1 --reserved-ip-id RESERVED_IP_ID2 ...) \
-    | (--new-reserved-ip NEW_RESERVED_IP1 --new-reserved-ip NEW_RESERVED_IP2 ...)] \
-    [--resource-group-id RESOURCE_GROUP_ID | --resource-group-name RESOURCE_GROUP_NAME] \
-    [--json]
-   ```
-   {: codeblock}
-
-   Where:
-
-   `--vpc`
-   :   Indicates the ID of the VPC.
-
-   `--target`
-   :   Indicates the name, or CRN, of a provider cloud service instance.
-   
-
-1. Create an endpoint gateway by attaching the target type for a Private Path service:
+1. Create an endpoint gateway by running the following command:< 
 
    ```sh
-   ibmcloud is endpoint-gateway-create (--target-type private_path_service_gateway | provider_cloud_service | provider_infrastructure_service) --target TARGET [--vpc VPC] [--name NAME] [--rip RIP --subnet SUBNET | (--new-reserved-ip NEW_RESERVED_IP1 --new-reserved-ip NEW_RESERVED_IP2 ...)] [--sg SG] [--resource-group-id RESOURCE_GROUP_ID | --resource-group-name  RESOURCE_GROUP_NAME] [--output JSON] [-q, --quiet]
+   ibmcloud is endpoint-gateway-create --target TARGET [--target-type private_path_service_gateway | provider_cloud_service | provider_infrastructure_service] [--vpc VPC] [--name NAME] [--rip RIP --subnet SUBNET | (--new-reserved-ip NEW_RESERVED_IP1 --new-reserved-ip NEW_RESERVED_IP2 ...)] [--allow-dns-resolution-binding false | true] [--sg SG] [--resource-group-id RESOURCE_GROUP_ID | --resource-group-name RESOURCE_GROUP_NAME] [--output JSON] [-q, --quiet]
    ```
    {: codeblock}
-
-   Where:
-
+ 
+   Where: 
+  
    `--target-type`:
    :   Indicates the type of target for this endpoint gateway, and one of the following: `private_path_service_gateway`, `provider_cloud_service`, or `provider_infrastructure_service`.
 
@@ -136,16 +115,19 @@ To create an endpoint gateway from the CLI, follow these steps:
    `--name`:
    :   Indicates the new name of the endpoint gateway.
 
-   `--reserved-ip-id`:
+   `--rip`:
    :   Indicates the ID of the reserved IP to be bound to the endpoint gateway.
+
+   `--subnet`:
+   :   ID or name of the subnet. This name is required only if the supplied reserved IP is in name format.
 
    `--new-reserved-ip`:
    :   Indicates the new reserved IP configuration in JSON format or a JSON file, `RESERVED_IP_JSON|@RESERVED_IP_JSON_FILE`.
 
-   `--security-group`:
+   `--sg`:
    :   Indicates the ID of the security group.
 
-    If you do not specify `-security-group`, the VPC default security group is bound to the endpoint gateway.
+    If you do not specify `-sg`, the VPC default security group is bound to the endpoint gateway.
     {: note}
 
    `--resource-group-id`:
@@ -159,7 +141,8 @@ To create an endpoint gateway from the CLI, follow these steps:
 
    `-q, --quiet`:
    :   Suppresses verbose output.
-   
+
+   For more information and command examples, see the [VPC CLI reference](/docs/vpc?topic=vpc-vpc-reference&interface=cli#endpoint-gateway-create).
 
 ## Creating an endpoint gateway with the API
 {: #vpe-ordering-api}
@@ -263,6 +246,9 @@ To use Terraform, download the Terraform CLI and configure the {{site.data.keywo
 {: requirement}
 
 The following example creates a VPE gateway:
+
+
+
 
 ```terraform
 resource "ibm_is_virtual_endpoint_gateway" "example" {

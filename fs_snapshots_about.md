@@ -2,7 +2,7 @@
 
 copyright:
   years: 2024, 2025
-lastupdated: "2025-10-29"
+lastupdated: "2025-11-12"
 
 keywords: snapshots, File Storage, shares, restore share
 
@@ -57,7 +57,6 @@ The following limitations apply to this release:
 * File share snapshots cannot be copied to another zone or region. They are stored in the same location as the file share. If you want the snapshots to survive the loss of the availability zone, you need to configure replication for the file share. When a replica share is created, all snapshots that are present on the source volume are also copied to the replica.
 * Snapshots are not supported on shares with Access control mode "VPC". 
 * Taking snapshots are also not supported on replica shares or Accessor shares. However, the `/.snapshot` and `.snap` directory is accessible both on replica and Accessor shares.
-
 
 ## Snapshots for second-generation file shares
 {: #rfs-snapshots}

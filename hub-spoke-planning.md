@@ -52,7 +52,7 @@ Review the following planning considerations for the DNS-shared VPCs:
 
       When the DNS hub and DNS-shared VPCs are in different accounts, a delegation process is required to create a service-to-service policy, allowing the DNSBinding service role from the DNS-shared VPC to the DNS-hub VPC.
 
-   * To change a DNS-shared VPC's DNS resolver to the custom resolver,  the authorized user must have an Operator role (minimum) on the DNS-shared VPC, and viewer role on the DNS-Hub VPC.
+   * To change a DNS-shared VPC's DNS resolver to the custom resolver,  the authorized user must have an Operator role (minimum) on the DNS-shared VPC, and viewer role on the DNS hub VPC.
 
 * Custom resolver authorized users on the hub VPC can operate the custom resolver independently. As a result, if the IP addresses of the custom resolver are updated, this automatically propagates to all delegated DNS-shared VPCs.
 
@@ -65,7 +65,7 @@ You are responsible for designing and managing your own architecture among multi
 Review the following limitations before you configure DNS sharing for VPE gateways:
 {: shortdesc}
 
-* The DNS-Hub VPC and DNS-Shared VPCs must be in the same region. There is no support for DNS-Shared VPCs in a remote region.
+* The DNS hub VPC and DNS-shared VPCs must be in the same region. There is no support for DNS-shared VPCs in a remote region.
 * VPEs on the DNS hub VPC will always be shared with their associated DNS-shared VPCs. You must configure all VPEs on the DNS hub with `allow_dns_resolution` enabled before the VPC can be enabled as a DNS hub. 
 * IBM does not manage or control on-prem DNS servers. It is the customer's responsibility to configure them to point at the hub and spoke custom resolver appropriately. 
 * When the hub VPC has DNS resolution bindings to DNS-shared VPCs, you cannot disable it as a DNS hub or delete the VPC.
