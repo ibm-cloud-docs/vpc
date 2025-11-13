@@ -2,7 +2,7 @@
 
 copyright:
   years: 2024, 2025
-lastupdated: "2025-11-12"
+lastupdated: "2025-11-13"
 
 keywords: view snapshots, view snapshot, viewing snapshots, see snapshots, File storage snapshots
 
@@ -437,7 +437,7 @@ data "ibm_is_share_snapshot" "example" {
 ```
 {: codeblock}
 
-For more information, see [ibm_is_snapshot](https://registry.terraform.io/providers/IBM-Cloud/ibm/latest/docs/data-sources/is_snapshot){: external}.
+For more information, see [ibm_is_share_snapshot](https://registry.terraform.io/providers/IBM-Cloud/ibm/latest/docs/data-sources/is_share_snapshot){: external}.
 
 ## Next steps
 {: #fs-snapshots-view-next-steps}

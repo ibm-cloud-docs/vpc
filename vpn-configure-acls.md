@@ -185,7 +185,7 @@ Optional: This rule allows traffic for connectivity tests, such as pinging the V
 
 The following examples illustrate the specific NACL rules that are applied to both the VPN gateway and virtual server instance subnets. These examples help you to set up your NACLs correctly according to your specific subnet CIDRs and traffic requirements.
 
-In this example, the VPN gateway is in subnet CIDR `10.240.0.0/24`, and the virtual server is in subnet CIDR `10.240.2.0/24`. Additionally, the VPN gateway and virtual server reside in separate NACLs, which means you need to configure seperate rules for each NACL. The following table illustrates the NACL inbound and outbound rules for the VPN gateway subnet.
+In this example, the VPN gateway is in subnet CIDR `10.240.0.0/24`, and the virtual server is in subnet CIDR `10.240.2.0/24`. Additionally, the VPN gateway and virtual server reside in separate NACLs, which means you need to configure separate rules for each NACL. The following table illustrates the NACL inbound and outbound rules for the VPN gateway subnet.
 
 | Inbound and Outbound Rules | Protocol | Source IP | Source Port | Destination IP | Destination Port |
 |--------------|------|------|------|------|------------------|
@@ -270,7 +270,7 @@ Optional: This rule allows traffic for connectivity tests, such as pinging the V
 
 The following examples illustrate the specific NACL rules that are applied to both the VPN gateway and virtual server instance subnets in different VPC. These examples help you to set up your NACLs correctly according to your specific subnet CIDRs and traffic requirements.
 
-In this example, the VPN gateway in VPC A is in subnet CIDR `10.240.0.0/24`, and the virtual server in VPC B is in subnet CIDR `10.240.2.0/24`. Additionally, the VPN gateway and virtual server reside in seperate NACLs, which means you need to configure seperate rules for each NACL. The following table illustrates the NACL inbound and outbound rules for the VPN gateway subnet.
+In this example, the VPN gateway in VPC A is in subnet CIDR `10.240.0.0/24`, and the virtual server in VPC B is in subnet CIDR `10.240.2.0/24`. Additionally, the VPN gateway and virtual server reside in separate NACLs, which means you need to configure separate rules for each NACL. The following table illustrates the NACL inbound and outbound rules for the VPN gateway subnet.
 
 | Inbound and Outbound Rules | Protocol | Source IP | Source Port | Destination IP | Destination Port |
 |--------------|------|------|------|------|------------------|

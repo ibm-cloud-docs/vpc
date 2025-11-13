@@ -2,7 +2,7 @@
 
 copyright:
   years: 2021, 2025
-lastupdated: "2025-11-11"
+lastupdated: "2025-11-13"
 
 keywords: file share, file storage, rename share, increase size, adjust IOPS, mount target
 
@@ -522,18 +522,19 @@ For more information about the arguments and attributes, see [ibm_is_share](http
 ### Updating attributes of a mount target with Terraform
 {: #file-storage-mount-target-update-terraform}
 
-Update the `is_share_target` resource to change the name of the mount target. When applied, the following resource changes the name of the mount target to `my-new-share-target`.
+Update the `ibm_is_share_mount_target` resource to change the name of the mount target. When applied, the following resource changes the name of the mount target to `my-new-share-target`.
 
 ```terraform
-resource "is_share_target" "is_share_target" {
-  share = is_share.is_share.id
-  subnet = ibm_is_subnet.example.id
-  name = "my-new-share-target"
+resource "ibm_is_share_mount_target" "is_share_target" {
+  access_protocol    = "nfs4"
+  name               = "my-new-share-target"
+  share              = is_share.is_share.id
+  subnet             = ibm_is_subnet.example.id
 }`
 ```
 {: codeblock}
 
-For more information about the arguments and attributes, see [ibm_is_share_target](https://registry.terraform.io/providers/IBM-Cloud/ibm/latest/docs/resources/is_share_target){: external}.
+For more information about the arguments and attributes, see [ibm_is_share_target](https://registry.terraform.io/providers/IBM-Cloud/ibm/latest/docs/resources/is_share_mount_target){: external}.
 
 ## Adding user tags to a file share
 {: #fs-add-user-tags}

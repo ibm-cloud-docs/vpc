@@ -192,7 +192,7 @@ When both VPN tunnels are `Up`, the private IP addresses `10.254.0.2` and `10.25
 To use this feature, the on-premises device must support asymmetric routing to get higher network performance. Also, keep in mind that not all on-premises VPN gateways support this use case. For example, if the VPN traffic egress and ingress are from different tunnels, the traffic might be blocked by on-premises VPN devices or firewalls.
 {: note}
 
-The behavior of the active-active mode for a dynamic route-based VPN connection is similar to that of a static connection. When you enable the **Distribute traffic** checkbox when adding connections to a VPN gateway, traffic flows through both tunnels simultaneously. The transit gateway handles route discovery, learning and management. The following diagram depicts the default configuration for a dynamic route-based connection.
+The behavior of the active-active mode for a dynamic route-based VPN connection is similar to that of a static connection. When you enable the **Distribute traffic** checkbox when adding connections to a VPN gateway, traffic flows through both tunnels simultaneously. The transit gateway handles route discovery, learning, and management. The following diagram depicts the default configuration for a dynamic route-based connection.
 
 ![Distributed traffic enabled: active-active VPN route](images/vpn-distribute-traffic-enabled-dynamic.svg){: caption="Distributed traffic feature is enabled for dynamic connection" caption-side="bottom"}
 
@@ -213,7 +213,7 @@ To achieve full regional high availability for VPN connectivity, you can provisi
 ### Use case 7: VPN connection as a backup of direct link
 {: #use-case-7-vpn}
 
-You can attach both direct link and VPN connections to a transit gateway to enable high availability and flexible routing. When you add routes to the VPN gateway, traffic prefers the direct link path over the VPN path in normal conditions. If the direct link connection fails, traffic automatically switches over to the VPN connection, which helps maintain uninterrupted connectivity between networks. You must configure BGP routing preferences on your end so that the direct link is prioritized over VPN. You can configure this routing preference by setting a shorter AS path for the direct link and a longer AS path for the VPN, so that the direct link is preferred.
+You can attach both direct link and VPN connections to a transit gateway to enable high availability and flexible routing. When you add routes to the VPN gateway, traffic prefers the direct link path over the VPN path in normal conditions. If the direct link connection fails, traffic automatically switches over to the VPN connection, which helps maintain uninterrupted connectivity between networks. You must configure BGP routing preferences on your end so that the direct link is prioritized over VPN. You can configure this routing preference by setting a shorter AS path for the direct link and a longer AS path for the VPN so that the direct link is preferred.
 
 ![VPN connection as a backup of direct link](images/vpn-tgw-dl.svg){: caption="VPN connection as a backup of direct link" caption-side="bottom"}
 

@@ -30,7 +30,7 @@ Site-to-site VPN in IBM Cloud provides you with the following options to connect
 ### Policy-based VPN
 {: #policy-based-vpn-gateway}
 
-This VPN mode uses defined security policies to determine which traffic is encrypted and sent through the VPN tunnel. Administrators can specify the source, destination, and services for which the traffic will be tunneled, enabling fine-grained control over what is transmitted.
+This VPN mode uses defined security policies to determine which traffic is encrypted and sent through the VPN tunnel. Administrators can specify the source, destination, and services for which the traffic is tunneled, enabling fine-grained control over what is transmitted.
 
 ### Route-based VPN
 {: #route-based-vpn-gateway}

@@ -2,7 +2,7 @@
 
 copyright:
   years: 2022, 2025
-lastupdated: "2025-11-12"
+lastupdated: "2025-11-13"
 
 keywords:
 
@@ -198,24 +198,26 @@ To create a file share, use the `ibm_is_share` resource. The following example c
 
 ```terraform
 resource "ibm_is_share" "share4" {
-   zone           = "us-south-2"
-   size           = "800"
-   name           = "my-share4"
-   profile        = "dp2"
-   encryption_key = "crn:bluemix:public:kms:us-south:a/a1234567:key:0cb88b98-9261-4d07-8329-8f594b6641b5"
+   zone                = "us-south-2"
+   name                = "my-share4"
+   size                = "800"
+   iops                = 
+   profile             = "dp2"
+   encryption_key      = "crn:bluemix:public:kms:us-south:a/a1234567:key:0cb88b98-9261-4d07-8329-8f594b6641b5"
    access_control_mode = "security_group"
    mount_target {
-       name = "target"
+       access_protocol = "nfs4"
+       name            = "target"
+       resource_group  = <resource_group_id>
+       security_groups = [<security_group_ids>]
        virtual_network_interface {
-       primary_ip {
-               address = "10.240.64.5"
-               auto_delete = true
-               name = "<reserved_ip_name>
-       }
-      resource_group = <resource_group_id>
-      security_groups = [<security_group_ids>]
-      }
-   }
+        primary_ip {
+           address     = "10.240.64.5"
+           auto_delete = true
+           name        = "<reserved_ip_name>
+          }
+       }  
+    }
 }
 ```
 {: codeblock}

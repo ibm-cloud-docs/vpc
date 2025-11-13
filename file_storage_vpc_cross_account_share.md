@@ -2,7 +2,7 @@
 
 copyright:
   years: 2024, 2025
-lastupdated: "2025-11-12"
+lastupdated: "2025-11-13"
 
 keywords: file share, file storage, accessor share, cross-account share
 
@@ -370,26 +370,28 @@ resource "ibm_is_share" "example-accessor" {
 ### Creating a mount target with Terraform
 {: #file-accessor-share-mount-create-terraform}
 
-To create a mount target for a file share, use the `is_share_mount_target` resource. The following example creates a mount target with `security_group` access control mode. First, specify the share for which the mount target is created. Then, you specify the name of the mount target and define the new virtual network interface by providing an IP address and a name. You must also specify the security group that you want to use to manage access to the file share that the mount target is associated to. The security groups that you associate with a mount target must allow inbound access for the TCP protocol on the NFS port from all servers where you want to mount the share. The attribute `auto_delete = true` means that the virtual network interface is to be deleted if the mount target is deleted.
+To create a mount target for a file share, use the `ibm_is_share_mount_target` resource. The following example creates a mount target with `security_group` access control mode. First, specify the share for which the mount target is created. Then, you specify the name of the mount target and define the new virtual network interface by providing an IP address and a name. You must also specify the security group that you want to use to manage access to the file share that the mount target is associated to. The security groups that you associate with a mount target must allow inbound access for the TCP protocol on the NFS port from all servers where you want to mount the share. The attribute `auto_delete = true` means that the virtual network interface is to be deleted if the mount target is deleted.
 
 ```terraform
 resource "ibm_is_share_mount_target" "target-with-vni" {
-     share=ibm_is_share.is_share.ID
-     name = <share_target_name>
+     access_protocol    = "nfs4"
+     name               = <share_target_name>
+     share              = ibm_is_share.is_share.ID
+     security_groups    = [<security_group_ids>]
+     transit_encryption = "ipsec"
      virtual_network_interface {
-       name = <virtual_network_interface_name>
+       name             = "my-example-vni"
        primary_ip {
-         address = “10.240.64.5”
-         auto_delete = true
-         name = <reserved_ip_name>
+          address       = “10.240.64.5”
+          auto_delete   = true
+          name          = "my-example-pip"
          }
      }    
-     resource_group = <resource_group_id>
-     security_groups = [<security_group_ids>]
-     transit_encryption = "ipsec"
    }
 ```
 {: codeblock}
+
+The previous example enables encryption in transit for a zonal file share. When you want to protect your data with transit encryption for a reginal share, specify the `transit_encryption` argument as `stunnel`.
 
 For more information about the arguments and attributes, see [ibm_is_share_mount_target](https://registry.terraform.io/providers/IBM-Cloud/ibm/latest/docs/resources/is_share_mount_target){: external}.
 
@@ -400,24 +402,24 @@ You don't need to create the file share and the mount target separately. To crea
 
 ```terraform
 resource "ibm_is_share" "share4" {
-   zone    = "us-south-2"
-   name    = "my-share4"
+   zone                   = "us-south-2"
+   name                   = "my-share4"
    origin_share {
-    id    = ibm_is_share.example-origin.id
-  }
-   access_control_mode = "security_group"
-   mount_target {
-       name = "target"
-       virtual_network_interface {
-       primary_ip {
-               address = "10.240.64.5"
-               auto_delete = true
-               name = "<reserved_ip_name>
+       id                 = ibm_is_share.example-origin.id
        }
-      resource_group = <resource_group_id>
-      security_groups = [<security_group_ids>]
-      transit_encryption = "none"
-      }
+   access_control_mode    = "security_group"
+   mount_target {
+       access_protocol    = "nfs4"
+       name               = "my-mount-target"
+       security_groups    = [<security_group_ids>]
+       transit_encryption = "ipsec"
+       virtual_network_interface {
+           primary_ip {
+              address.    = "10.240.64.5"
+              auto_delete = true
+              name        = "my-example-pip"
+           }
+    }
    }
 }
 ```

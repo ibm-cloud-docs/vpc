@@ -2,7 +2,7 @@
 
 copyright:
   years: 2022, 2025
-lastupdated: "2025-11-11"
+lastupdated: "2025-11-13"
 
 keywords: file storage, file share, view share details, mount targets, view targets, view share
 
@@ -1003,7 +1003,7 @@ For more information, see [ibm_is_share](https://registry.terraform.io/providers
 Import the list of mount targets that are associated with a file share as a read-only data source. Identify the file share by its ID.
 
 ```terraform
-data "ibm_is_share_targets" "example" {
+data "ibm_is_share_mount_targets" "example" {
   share = ibm_is_share.example.id
 }
 ```
@@ -1011,7 +1011,7 @@ data "ibm_is_share_targets" "example" {
 
 The attributes that are exported include the list of mount targets and their IDs, names, creation dates, mount paths, subnet information, and so on.
 
-For more information, see [ibm_is_share_targets](https://registry.terraform.io/providers/IBM-Cloud/ibm/latest/docs/data-sources/is_share_targets){: external}.
+For more information, see [ibm_is_share_mount_targets](https://registry.terraform.io/providers/IBM-Cloud/ibm/latest/docs/data-sources/is_share_mount_targets){: external}.
 
 ### Viewing mount target information with Terraform
 {: #fs-view-mount-target-terraform}
@@ -1019,16 +1019,16 @@ For more information, see [ibm_is_share_targets](https://registry.terraform.io/p
 Import the details of a mount target as a read-only data source. Identify the mount target by specifying the share ID and the mount target ID. Both arguments are required.
 
 ```terraform
-data "ibm_is_share_target" "example" {
+data "ibm_is_share_mount_target" "example" {
   share        = ibm_is_share.example.id
-  share_target = ibm_is_share_target.example.share_target
+  mount_target = ibm_is_share_mount_target.example.share_target
 }
 ```
 {: codeblock}
 
 The attributes that are exported include ID, name, creation date, mount path, subnet information, and other attributes.
 
-For more information, see [ibm_is_share_target](https://registry.terraform.io/providers/IBM-Cloud/ibm/latest/docs/data-sources/is_share_target){: external}.
+For more information, see [ibm_is_share_mount_target](https://registry.terraform.io/providers/IBM-Cloud/ibm/latest/docs/data-sources/is_share_target){: external}.
 
 ## Next steps
 {: #fs-view-next-steps}

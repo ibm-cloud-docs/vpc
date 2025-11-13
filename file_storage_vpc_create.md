@@ -2,7 +2,7 @@
 
 copyright:
   years: 2021, 2025
-lastupdated: "2025-11-12"
+lastupdated: "2025-11-13"
 
 keywords: file share, file storage, virtual network interface, encryption in transit, profiles, 
 
@@ -1249,7 +1249,7 @@ provider "ibm" {
 ### Creating a zonal file share with Terraform
 {: #file-share-create-terraform}
 
-To create a file share, use the `ibm_is_share` resource. The following example creates a zonal filw share with 200 GB capacity and the `dp2` performance profile.
+To create a file share, use the `ibm_is_share` resource. The following example creates a zonal file share with 200 GB capacity and the `dp2` performance profile.
 
 ```terraform
 resource "ibm_is_share" "example" {
@@ -1295,34 +1295,51 @@ For more information about how to create a file share from a snapshot, see [Rest
 {: #file-share-mount-create-terraform}
 {: terraform}
 
-To create a mount target for a file share that provides granular authentication with the use of Security groups, use the `is_share_mount_target` resource. The following example creates a mount target with `security_group` access control mode. First, specify the share for which the mount target is created. Then, you specify the name of the mount target and define the new virtual network interface by providing an IP address and a name. You must also specify the security group that you want to use to manage access to the file share that the mount target is associated to. The security groups that you associate with a mount target must allow inbound access for the TCP protocol on the NFS port from all servers where you want to mount the share. The attribute `auto_delete = true` means that the virtual network interface is to be deleted if the mount target is deleted.
+To create a mount target for a file share that provides granular authentication with the use of Security groups, use the `ibm_is_share_mount_target` resource. The following example creates a mount target with `security_group` access control mode. First, specify the share for which the mount target is created. Then, you specify the name of the mount target and define the new virtual network interface by providing an IP address and a name. You must also specify the security group that you want to use to manage access to the file share that the mount target is associated to. The security groups that you associate with a mount target must allow inbound access for the TCP protocol on the NFS port from all servers where you want to mount the share. The attribute `auto_delete = true` means that the virtual network interface is to be deleted if the mount target is deleted.
 
 ```terraform
-resource "ibm_is_share_mount_target" "target-with-vni" {
-     share    = ibm_is_share.is_share.ID
-     name     = <share_target_name>
-     virtual_network_interface {
-             name = <virtual_network_interface_name>
-             primary_ip {
-             address = “10.240.64.5”
-             auto_delete = true
-             name = <reserved_ip_name>
-             }
-     }
-     resource_group = <resource_group_id>
-     security_groups = [<security_group_ids>]
+resource "ibm_is_share_mount_target" "zonal-target-with-vni" {
+     access_protocol    = "nfs4"
+     share              = ibm_is_share.is_share.ID
+     name               = <share_target_name>
+     resource_group     = <resource_group_id>
+     security_groups    = [<security_group_ids>]
      transit_encryption = "none"
-   }
+     virtual_network_interface {
+         name = "my-example-vni"
+         primary_ip {
+            address     = “10.240.64.5”
+            auto_delete = true
+            name        = "my-example-pip"
+         }
+     } 
+}
 ```
 {: codeblock}
 
-You can also create a mount target for a file share with the VPC access mode by using the `is_share_mount_target` resource. The following example creates a mount target with the name `my-share-target` for the file share that is specified by its ID. When the mount target is created, all virtual server instances in the VPC can mount the share by using it.
+The previous example does not enable encryption in transit. When you want to protect your data during transit with encryption, specify the value of the `transit_encryption` attribute as `ipsec` for zonal file shares, or `stunnel` for regional file shares. You can also create a VNI for the mount target by specifying the subnet, and letting the system pick an IP address from that subnet. See the following example:
 
 ```terraform
-resource "ibm_is_share_mount_target" "target-without-vni" {
-     share=ibm_is_share.is_share.ID
-     name = <share_target_name>
-     vpc = <vpc_id>
+resource "ibm_is_share_mount_target" "regional-mount-target-with-vni" {
+  access_protocol    = "nfs4"
+  name               = "my-example-mount-target"
+  share              = ibm_is_share.example.id
+  transit_encryption = "stunnel"
+  virtual_network_interface {
+       subnet        = ibm_is_subnet.example.id
+       name          = "my-example-vni"
+  }
+}
+```
+{: codeblock}
+
+You can also create a mount target for a zonal file share with the VPC access mode by using the `is_share_mount_target` resource. The following example creates a mount target with the name `my-share-target` for the file share that is specified by its ID. When the mount target is created, all virtual server instances in the VPC can mount the share by using it. Encryption in transit is not supported.
+
+```terraform
+resource "ibm_is_share_mount_target" "mount-target-without-vni" {
+     name   = <share_target_name>
+     share  = ibm_is_share.is_share.ID
+     vpc    = <vpc_id>
 }
 ```
 {: codeblock}
@@ -1342,46 +1359,50 @@ To create a file share with a mount target that allows for security group-based 
 
 ```terraform
 resource "ibm_is_share" "share4" {
-   zone    = "us-south-2"
-   size    = "800"
-   name    = "my-share4"
-   profile = "dp2"
+   zone                             = "us-south-2"
+   size                             = "800"
+   name                             = "my-share4"
+   profile                          = "dp2"
    allowed_transit_encryption_modes = "ipsec"
-   access_control_mode = "security_group"
+   access_control_mode              = "security_group"
    mount_target {
-       name = "target"
+       access_protocol              = "nfs4"
+       name                         = "my-mount-target"
+       resource_group               = <resource_group_id>
+       security_groups.             = [<security_group_ids>]
+       transit_encryption           = "ipsec"
        virtual_network_interface {
           primary_ip {
-               address = "10.240.64.5"
-               auto_delete = true
-               name = <reserved_ip_name>
+              address               = "10.240.64.5"
+              auto_delete           = true
+              name                  = "my-example-pip"
           }
        }   
-       resource_group = <resource_group_id>
-       security_groups = [<security_group_ids>]
-       transit_encryption = "ipsec"
    }
 }
 ```
 {: codeblock}
+
+The previous example enables encryption in transit for a zonal file share. When you want to protect your data with transit encryption for a reginal share, specify the `transit_encryption` argument as `stunnel`.
 
 For more information about the arguments and attributes, see [ibm_is_share](https://registry.terraform.io/providers/IBM-Cloud/ibm/latest/docs/resources/is_share){: external}.
 
 ### Creating a file share with a mount target with VPC-wide access mode
 {: #file-share-create-with-target-vpc-terraform}
 
-To create a file share with a mount target that is accessible to all virtual server instances within a VPC, use the `ibm_is_share` resource. Specify the access control mode as `vpc`, and define the mount target by providing a name for it and the VPC where it's going to be used in.
+To create a zonal file share with a mount target that is accessible to all virtual server instances within a VPC, use the `ibm_is_share` resource. Specify the access control mode as `vpc`, and define the mount target by providing a name for it and the VPC where it's going to be used in.
 
 ```terraform
 resource "ibm_is_share" "share3" {
-    zone    = "us-south-2"
-    size    = "700"
-    name    = "my-share3"
-    profile = "dp2"
-    access_control_mode = "vpc" 
+    zone                  = "us-south-2"
+    size                  = "700"
+    name                  = "my-share3"
+    profile               = "dp2"
+    access_control_mode   = "vpc" 
     mount_target {
-          name = "target"
-          vpc = <vpc_id>
+          access_protocol = "nfs4"
+          name            = "my-mount-target"
+          vpc             = <vpc_id>
     }
 }
 ```

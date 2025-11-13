@@ -2,7 +2,7 @@
 
 copyright:
   years: 2024, 2025
-lastupdated: "2025-10-14"
+lastupdated: "2025-11-13"
 
 keywords:
 
@@ -67,14 +67,14 @@ You can create inbound and outbound rules during or after the provisioning of a 
 
    * To create an inbound rule, select **Create** on the Inbound rules table, and complete the following fields. Then, click **Create**.
 
-      * Protocol - Specify the protocol to enforce (**TCP**, **UDP**, **ICMP**, or **ALL**).
+      * Protocol - Specify the protocol to enforce (**TCP**, **UDP**, **ICMP**, or **ANY**).
       * Port- Specify the ports to which the rule applies. Select **Any** or specify a **Port range** (min and max port values). Port values for **TCP** and **UDP** must be numbers between 1 and 65535. Valid port values for **ICMP** are from 0 to 254.
       * Source type - Select the set of network interfaces from which this rule allows traffic. You can select **Any**, **IP address**, or **CIDR block** for inbound, permitted traffic. Alternatively, you can specify a security group in the same VPC to allow traffic to or from all instances that are attached to the selected security group.
       * Destination type - Select **Any**, **IP address**, or **CIDR block**.
 
    * To create an outbound rule, select **Create** on the Outbound rules table, and complete the following fields. Then, click **Create**.
 
-      * Protocol - Specify the protocol to enforce (**TCP**, **UDP**, **ICMP**, or **ALL**).
+      * Protocol - Specify the protocol to enforce (**TCP**, **UDP**, **ICMP**, or **ANY**).
       * Port - Specify the ports to which the rule applies. Select **Any** or specify a **Port range** (min and max port values). Port values for **TCP** and **UDP** must be numbers between 1 and 65535. Valid port values for **ICMP** are from 0 to 254.
       * Destination type - Select **Any**, **IP address**, **CIDR block**, or **Security group**.
       * Source type - Select **Any**, **IP address**, or **CIDR block**.

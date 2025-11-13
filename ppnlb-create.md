@@ -2,7 +2,7 @@
 
 copyright:
   years: 2022, 2025
-lastupdated: "2025-11-07"
+lastupdated: "2025-11-13"
 
 keywords: load balancer, public, listener, back-end, front-end, pool, round-robin, weighted, connections, methods, policies, APIs, access, ports
 
@@ -85,7 +85,7 @@ To create and configure {{site.data.keyword.nlb_full}} in the {{site.data.keywor
    * **Subnet**: Choose a subnet.
    * From the list of servers, select the servers that you want to attach to the back-end pool. Ensure that you specify valid values for each server port.
 
-      Although you can attach more than one virtual server instance to a back-end pool, your Private Path load balancer provides regional availability and is resilient to zone failure even if a single subnet is selected.
+      Your Private Path load balancer provides regional availability and is resilient to zone failure even if a single subnet is selected.
       {: note}
 
     You do not need to create multiple Private Path load balancers or specify more than a single subnet to ensure resiliency to zone failure. Your subnet selection only impacts the IP-addresses that are associated with the load balancer. For more information on how many virtual server instances you can attach to a back-end pool, see [Quotas and service limits for Private Path network load balancers](/docs/vpc?topic=vpc-quotas#ppnlb-quotas).

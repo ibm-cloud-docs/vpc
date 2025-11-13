@@ -2,7 +2,7 @@
 
 copyright:
   years: 2022, 2025
-lastupdated: "2025-11-12"
+lastupdated: "2025-11-13"
 
 keywords: file share, customer-managed encryption, encryption, byok, KMS, Key Protect, Hyper Protect Crypto Services,
 
@@ -377,23 +377,23 @@ To create a file share, use the `ibm_is_share` resource. The following example c
 
 ```terraform
 resource "ibm_is_share" "share4" {
-   zone           = "us-south-2"
-   size           = "800"
-   name           = "my-share4"
-   profile        = "dp2"
-   encryption_key = "crn:v1:bluemix:public:kms:us-south:a/a1234567:key:2fb8d675-bde3-4780-b127-3d0b413631c1"
+   zone                = "us-south-2"
+   size                = "800"
+   iops                = "3000"
+   name                = "my-share4"
+   profile             = "dp2"
+   encryption_key      = "crn:v1:bluemix:public:kms:us-south:a/a1234567:key:2fb8d675-bde3-4780-b127-3d0b413631c1"
    access_control_mode = "security_group"
    mount_target {
        name = "target"
+       security_groups = [<security_group_ids>]
        virtual_network_interface {
-       primary_ip {
-               address = "10.240.64.5"
-               auto_delete = true
-               name = "<reserved_ip_name>
+         primary_ip {
+           address     = "10.240.64.5"
+           auto_delete = true
+           name        = "my-example-pip"
+         }
        }
-      resource_group = <resource_group_id>
-      security_groups = [<security_group_ids>]
-      }
    }
 }
 ```
@@ -403,11 +403,11 @@ The following example creates a regional file share with 1000 GiB capacity and t
 
 ```terraform
 resource "ibm_is_share" "regional-share" {
-   size           = "1000"
-   name           = "my-regional-share"
-   profile        = "rfs"
-   bandwidth      = "800"
-   encryption_key = "crn:v1:bluemix:public:kms:us-south:a/a1234567:key:2fb8d675-bde3-4780-b127-3d0b413631c1"
+   size                = "1000"
+   name                = "my-regional-share"
+   profile             = "rfs"
+   bandwidth           = "800"
+   encryption_key      = "crn:v1:bluemix:public:kms:us-south:a/a1234567:key:2fb8d675-bde3-4780-b127-3d0b413631c1"
    access_control_mode = "security_group"
    }
 ```

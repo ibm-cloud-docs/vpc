@@ -2,7 +2,7 @@
 
 copyright:
   years: 2023, 2025
-lastupdated: "2025-11-11"
+lastupdated: "2025-11-13"
 
 keywords:
 
@@ -25,17 +25,20 @@ VPC private DNS resolution works within the same VPC, but it requires you to man
 ## Getting started
 {: #vpe-dns-sharing-process}
 
-When multiple VPCs are connected by using transit gateways, direct links, or other connectivity options, a VPC in the connected topology can be enabled as a hub to centralize the DNS resolution for VPCs, including resolution for all endpoint gateways from all VPCs in the topology.
+When multiple VPCs are connected by using Transit Gateway, Direct Link, or other connectivity options, one of the VPCs in the connected topology can be enabled as a hub to centralize DNS resolution.
+The hub VPC provides DNS resolution for all endpoint gateways across the connected VPCs in the topology, simplifying name resolution and reducing the need to manually replicate DNS records.
 
 Before you begin, review [DNS sharing planning considerations](/docs/vpc?topic=vpc-vpe-dns-sharing-planning-considerations&interface=ui).
 {: important}
+
+
 
 General steps to configure DNS sharing for VPE gateways are as follows:
 
 1. Make sure that you create or have existing VPCs to use for your hub VPC and DNS-shared VPCs. These VPCs can be in multiple accounts. These VPCs must already be configured using a transit gateway or other datapath connectivity.
 
    For more information about creating a VPC, see [Using the IBM Cloud console to create VPC resources](/docs/vpc?topic=vpc-creating-a-vpc-using-the-ibm-cloud-console) or [Creating VPC resources with CLI and API](/docs/vpc?topic=vpc-creating-vpc-resources-with-cli-and-api&interface=api).
-{: note}
+   {: note}
 
 1. [Enable a VPC as the hub VPC](/docs/vpc?topic=vpc-vpe-dns-sharing-configure-hub).
 1. [Create endpoint gateways](/docs/vpc?topic=vpc-ordering-endpoint-gateway) for multi-tenant services in the hub VPC and enable DNS sharing for each endpoint gateway.
@@ -45,6 +48,7 @@ General steps to configure DNS sharing for VPE gateways are as follows:
 1. [Configure a DNS custom resolver](/docs/dns-svcs?topic=dns-svcs-ui-create-cr) on the hub VPC to be responsible for resolving DNS queries from hub and DNS-shared VPCs, as well as those from on-prem networks.
 1. The DNS-shared VPC user [sets its DNS resolver type](/docs/vpc?topic=vpc-configure-dns-resolver&interface=ui) to `Delegated` to point to the hub VPC's custom resolver.
 1. The DNS-shared VPC user [creates endpoint gateways](/docs/vpc?topic=vpc-ordering-endpoint-gateway) for single-tenant services in the DNS-shared VPC.
+
 1. For each DNS-shared VPC, the DNS-shared VPC user must repeat steps 4-9.
 
 ## Use case: DNS sharing in a hub and spoke network topology
