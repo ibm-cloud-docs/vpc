@@ -2,7 +2,7 @@
 
 copyright:
   years: 2024, 2025
-lastupdated: "2025-11-07"
+lastupdated: "2025-11-12"
 
 keywords: file share, file storage, accessor share, cross-account share
 
@@ -377,17 +377,17 @@ resource "ibm_is_share_mount_target" "target-with-vni" {
      share=ibm_is_share.is_share.ID
      name = <share_target_name>
      virtual_network_interface {
-     name = <virtual_network_interface_name>
-     primary_ip {
+       name = <virtual_network_interface_name>
+       primary_ip {
          address = “10.240.64.5”
          auto_delete = true
          name = <reserved_ip_name>
-     }
+         }
+     }    
      resource_group = <resource_group_id>
      security_groups = [<security_group_ids>]
-     transit_encryption = ipsec
+     transit_encryption = "ipsec"
    }
-}
 ```
 {: codeblock}
 
@@ -410,13 +410,13 @@ resource "ibm_is_share" "share4" {
        name = "target"
        virtual_network_interface {
        primary_ip {
-               address = 10.240.64.5
+               address = "10.240.64.5"
                auto_delete = true
                name = "<reserved_ip_name>
        }
       resource_group = <resource_group_id>
       security_groups = [<security_group_ids>]
-      transit_encryption = none
+      transit_encryption = "none"
       }
    }
 }

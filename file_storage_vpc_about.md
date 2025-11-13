@@ -97,7 +97,7 @@ When you create or update a mount target, you can specify the manner in which yo
 
 * Use the **VPC access** mode to allow access to the file share to a bare metal server or any virtual server instances in the same zone of a VPC. This option is available for all [file share profiles](/docs/vpc?topic=vpc-file-storage-profiles). Cross-zone mounting and encryption of data in transit are not supported for shares with VPC access mode. Snapshots are also not supported for shares with VPC access mode. This type of access mode is not available for regional file shares with the `rfs` profile.
 
-    VPC access mode is not supported in newer MZRs, such as Montreal (ca-mon).
+    VPC access mode is not supported in newer MZRs, such as Montreal (ca-mon) and Chennai (in-che).
     {: note}
 
 ### Cross-zone mount targets
