@@ -27,10 +27,27 @@ This service provides a mixture of industry-standard security and encryption opt
 
 Site-to-site VPN in IBM Cloud provides you with the following options to connect your on-premises network to the IBM Cloud VPC network:
 
-* Policy-based VPN - This VPN mode uses defined security policies to determine which traffic is encrypted and sent through the VPN tunnel.
-* Route-based VPN - This VPN mode relies on routing tables to direct traffic through the VPN tunnel. Route-based VPN further supports the following connection types:
-   * Static route-based VPN connection - In the static route-based connection, the routes are manually specified and configured in the routing table. This option is best for stable environments with fixed network topologies.
-   * Dynamic route-based VPN connection - In the dynamic route-based connection, the routes are automatically discovered and route information is exchanged between networks with protocols such as BGP. This option simplifies management and adapts to network changes, which makes it ideal for large or evolving environments.
+### Policy-based VPN
+{: #policy-based-vpn-gateway}
+
+This VPN mode uses defined security policies to determine which traffic is encrypted and sent through the VPN tunnel. Administrators can specify the source, destination, and services for which the traffic will be tunneled, enabling fine-grained control over what is transmitted.
+
+### Route-based VPN
+{: #route-based-vpn-gateway}
+
+This VPN mode relies on routing tables to direct traffic through the VPN tunnel. In a route-based configuration, traffic is sent through the tunnel based on available routes, rather than specific policies. This approach is beneficial for larger, complex networks where dynamic routing is required, allowing for better scalability and adapting to changes in network topology.
+
+Route-based VPN further supports the following connection types:
+
+#### Static route-based VPN connection
+{: #static-route-based-connection}
+
+In the static route-based connection, the routes are manually specified and configured in the routing table. This option is best for stable environments with fixed network topologies.
+
+#### Dynamic route-based VPN connection
+{: #dynamic-route-based-connection}
+
+In the dynamic route-based connection, the routes are automatically discovered and route information is exchanged between networks with protocols such as BGP. This option simplifies management and adapts to network changes, which makes it ideal for large or evolving environments.
 
 The following features are included:
 

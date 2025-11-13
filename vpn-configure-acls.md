@@ -18,7 +18,7 @@ subcollection: vpc
 You can set up network access control lists (NACLs) on the VPN gateway subnet and other VPC subnets that communicate over the VPN tunnel.
 {: shortdesc}
 
-A NACL is a stateless set of rules that controls incoming and outgoing traffic at the subnet level. Unlike security groups, which filter traffic to and from individual virtual server instances, NACLs manage traffic that flows to and from entire subnets. You can apply network ACL rules to restrict traffic to VPN gateways and virtual server instances placed in specifc subnets. These rules help you control which network entities can establish IPsec tunnel with your on-premises network.
+A NACL is a stateless set of rules that controls incoming and outgoing traffic at the subnet level. Unlike security groups, which filter traffic to and from individual virtual server instances, NACLs manage traffic that flows to and from entire subnets. You can apply network ACL rules to restrict traffic to VPN gateways and virtual server instances that are placed in specific subnets. These rules help you control which network entities can establish IPsec tunnel with your on-premises network.
 
 A VPN gateway and a VPC virtual server instance can share the same or different NACLs, and can reside in the same or different subnet CIDR blocks.
 {: note}
@@ -51,10 +51,12 @@ When the VPN gateway and virtual server instance are in the shared subnet and yo
 
 | Inbound and Outbound Rules | Protocol | Source IP | Source Port | Destination IP | Destination Port |
 |--------------|------|------|------|------|------------------|
-| Inbound | All | Your on-premises gateway public IP | N/A | VPN gateway IP | N/A |
-| Outbound | All  | VPN gateway IP| N/A | On-premises gateway public IP | N/A |
-| Inbound | All | On-premises, private CIDR | N/A | VPC CIDR | N/A |
-| Outbound | All | VPC CIDR | N/A | On-premises, private CIDR | N/A |
+| Inbound | UDP | Your on-premises gateway public IP | 500 | VPN gateway IP | 500 |
+| Inbound | UDP | Your on-premises gateway public IP | 4500 | VPN gateway IP | 4500 |
+| Outbound | UDP | VPN gateway IP| 500 | On-premises gateway public IP | 500 |
+| Outbound | UDP | VPN gateway IP| 4500 | On-premises gateway public IP | 4500 |
+| Inbound | ICMP-TCP-UDP | On-premises, private CIDR | N/A | VPC CIDR | N/A |
+| Outbound | ICMP-TCP-UDP| VPC CIDR | N/A | On-premises, private CIDR | N/A |
 | Inbound (optional) | ICMP | Any | N/A | Any | N/A |
 {: caption="Inbound and outbound rules on the shared NACL and shared subnet" caption-side="bottom"}
 
@@ -62,10 +64,12 @@ For example, the following table shows the source and destination IP addresses f
 
 | Inbound and Outbound Rules | Protocol | Source IP | Source Port | Destination IP | Destination Port |
 |--------------|------|------|------|------|------------------|
-| Inbound | All | `203.0.113.5`[^IP] | N/A | `10.240.0.4/32`| N/A |
-| Outbound | All | `10.240.0.4/32` | N/A | `203.0.113.5`[^IP2] | N/A |
-| Inbound | All | `192.168.100.0/24`[^IP3]| N/A | `10.240.0.0/24` | N/A |
-| Outbound | All | `10.240.0.0/24` | N/A | `192.168.100.0/24`[^IP4] | N/A |
+| Inbound | UDP | `203.0.113.5`[^IP] | 500 | `10.240.0.4/32`| 500 |
+| Inbound | UDP | `203.0.113.5` | 4500 | `10.240.0.4/32`| 4500 |
+| Outbound | UDP | `10.240.0.4/32` | 500 | `203.0.113.5`[^IP2] | 500 |
+| Outbound | UDP | `10.240.0.4/32` | 4500 | `203.0.113.5`| 4500 |
+| Inbound | ICMP-TCP-UDP | `192.168.100.0/24`[^IP3]| N/A | `10.240.0.0/24` | N/A |
+| Outbound |ICMP-TCP-UDP | `10.240.0.0/24` | N/A | `192.168.100.0/24`[^IP4] | N/A |
 | Inbound (optional) | ICMP | Any | N/A | Any | N/A |
 {: caption="Inbound and outbound rules on the shared NACL and shared subnet example" caption-side="bottom"}
 
@@ -95,10 +99,12 @@ When the VPN gateway and virtual server instance are in different subnets and yo
 
 | Inbound and Outbound Rules | Protocol | Source IP | Source Port | Destination IP | Destination Port |
 |--------------|------|------|------|------|------------------|
-| Inbound | All | Your on-premises gateway public IP | N/A | VPN gateway's subnet | N/A |
-| Outbound | All  | VPN gateway's subnet | N/A | On-premises gateway public IP | N/A |
-| Inbound | All | On-premises, private CIDR | N/A | VPC CIDR | N/A |
-| Outbound | All | VPC CIDR | N/A | On-premises, private CIDR | N/A |
+| Inbound | UDP | Your on-premises gateway public IP | 500 | VPN gateway IP | 500 |
+| Inbound | UDP | Your on-premises gateway public IP | 4500 | VPN gateway IP| 4500 |
+| Outbound | UDP | VPN gateway IP| 500 | On-premises gateway public IP | 500 |
+| Outbound | UDP | VPN gateway IP| 4500 | On-premises gateway public IP | 4500 |
+| Inbound | ICMP-TCP-UDP | On-premises, private CIDR | N/A | VPC CIDR | N/A |
+| Outbound | ICMP-TCP-UDP | VPC CIDR | N/A | On-premises, private CIDR | N/A |
 | Inbound (optional) | ICMP | Any | N/A | Any | N/A |
 {: caption="Inbound and outbound rules on the shared NACL and different subnet" caption-side="bottom"}
 
@@ -106,10 +112,12 @@ For example, the following table shows the source and destination IP addresses f
 
 | Inbound and Outbound Rules | Protocol | Source IP | Source Port | Destination IP | Destination Port |
 |--------------|------|------|------|------|------------------|
-| Inbound | All | `203.0.113.5`[^IP5] | N/A | `10.240.0.4/32` | N/A |
-| Outbound | All | `10.240.0.4/32` | N/A | `203.0.113.5`[^IP6] | N/A |
-| Inbound | All | `192.168.100.0/24`[^IP7] | N/A | `10.240.2.0/24` | N/A |
-| Outbound | All | `10.240.2.0/24` | N/A | `192.168.100.0/24`[^IP8] | N/A |
+| Inbound | UDP | `203.0.113.5`[^IP5] | 500 | `10.240.0.4/32` | 500 |
+| Inbound | UDP | `203.0.113.5` | 4500 | `10.240.0.4/32` | 4500 |
+| Outbound | UDP | `10.240.0.4/32` | 500 | `203.0.113.5`[^IP6] | 500 |
+| Outbound | UDP | `10.240.0.4/32` | 4500 | `203.0.113.5` | 4500 |
+| Inbound | ICMP-TCP-UDP | `192.168.100.0/24`[^IP7] | N/A | `10.240.2.0/24` | N/A |
+| Outbound | ICMP-TCP-UDP | `10.240.2.0/24` | N/A | `192.168.100.0/24`[^IP8] | N/A |
 | Inbound (optional) | ICMP | Any | N/A | Any | N/A |
 {: caption="Inbound and outbound rules on the shared NACL and different subnet example" caption-side="bottom"}
 
@@ -142,10 +150,12 @@ This NACL is attached to the VPN gateway subnet. The traffic rules for the VPN g
 
 | Inbound and Outbound Rules | Protocol | Source IP | Source Port | Destination IP | Destination Port |
 |--------------|------|------|------|------|------------------|
-| Inbound | All | Your on-premises gateway public IP | N/A | VPN gateway's subnet | N/A |
-| Outbound | All | VPN gateway's subnet | N/A | On-premises gateway public IP | N/A |
-| Inbound| All | On-premises private CIDR | N/A | VPC CIDR | N/A |
-| Outbound | All | VPC CIDR | N/A | On-premises, private CIDR | N/A |
+| Inbound | UDP | Your on-premises gateway public IP | 500 | VPN gateway IP | 500 |
+| Inbound | UDP | Your on-premises gateway public IP | 4500 | VPN gateway IP | 4500 |
+| Outbound | UDP | VPN gateway IP| 500 | On-premises gateway public IP | 500 |
+| Outbound | UDP | VPN gateway IP| 4500 | On-premises gateway public IP | 4500 |
+| Inbound| ICMP-TCP-UDP | On-premises private CIDR | N/A | VPC CIDR | N/A |
+| Outbound | ICMP-TCP-UDP | VPC CIDR | N/A | On-premises, private CIDR | N/A |
 | Inbound (optional) | ICMP | Any | N/A | Any | N/A |
 {: caption="Inbound and outbound rules on VPN gateway's subnet" caption-side="bottom"}
 
@@ -156,8 +166,8 @@ This NACL is attached to the virtual server subnet. The traffic rules for the vi
 
 | Inbound and Outbound Rules | Protocol | Source IP | Source Port | Destination IP | Destination Port |
 |--------------|------|------|------|------|------------------|
-| Inbound | All | On-premises, private CIDR | N/A | VPC CIDR | N/A |
-| Outbound | All | VPC CIDR | N/A | On-premises, private CIDR | N/A |
+| Inbound | ICMP-TCP-UDP | On-premises, private CIDR | N/A | VPC CIDR | N/A |
+| Outbound | ICMP-TCP-UDP | VPC CIDR | N/A | On-premises, private CIDR | N/A |
 {: caption="Inbound and outbound rules on virtual server subnets" caption-side="bottom"}
 
 #### Troubleshooting traffic
@@ -170,19 +180,21 @@ Optional: This rule allows traffic for connectivity tests, such as pinging the V
 | Inbound (optional) | ICMP | Any | N/A | Any | N/A |
 {: caption="Rules for traffic troubleshooting" caption-side="bottom"}
 
-#### Examples: Configuring VPN gateway and virtual server subnets in seperate ACLs
+#### Examples: Configuring VPN gateway and virtual server subnets in separate ACLs
 {: #configure-vpn-gateway-virtual-server-subnets}
 
 The following examples illustrate the specific NACL rules that are applied to both the VPN gateway and virtual server instance subnets. These examples help you to set up your NACLs correctly according to your specific subnet CIDRs and traffic requirements.
 
-In this example, the VPN gateway is in subnet CIDR `10.240.0.0/24`, and the virtual server is in subnet CIDR `10.240.2.0/24`. Additionally, the VPN gateway and virtual server reside in seperate NACLs, which means you need to configure seperate rules for each NACL. The following table illustrates the NACL inbound and outbound rules for the VPN gateway subnet.
+In this example, the VPN gateway is in subnet CIDR `10.240.0.0/24`, and the virtual server is in subnet CIDR `10.240.2.0/24`. Additionally, the VPN gateway and virtual server reside in separate NACLs, which means you need to configure seperate rules for each NACL. The following table illustrates the NACL inbound and outbound rules for the VPN gateway subnet.
 
 | Inbound and Outbound Rules | Protocol | Source IP | Source Port | Destination IP | Destination Port |
 |--------------|------|------|------|------|------------------|
-| Inbound | All | `203.0.113.5`[^IP9] | N/A | `10.240.0.4/32` | N/A |
-| Outbound | All | `10.240.0.4/32` | N/A | `203.0.113.5`[^IP10] | N/A |
-| Inbound | All | `192.168.100.0/24`[^IP11] | N/A | `10.240.2.0/24` | N/A |
-| Outbound | All | `10.240.2.0/24`| N/A | `192.168.100.0/24`[^IP12] | N/A |
+| Inbound | UDP | `203.0.113.5`[^IP9] | 500 | `10.240.0.4/32` | 500 |
+| Inbound | UDP | `203.0.113.5` | 4500 | `10.240.0.4/32` | 4500 |
+| Outbound | UDP| `10.240.0.4/32` | 500 | `203.0.113.5`[^IP10] | 500 |
+| Outbound | UDP| `10.240.0.4/32` | 4500 | `203.0.113.5` | 4500 |
+| Inbound | ICMP-TCP-UDP | `192.168.100.0/24`[^IP11] | N/A | `10.240.2.0/24` | N/A |
+| Outbound | ICMP-TCP-UDP  | `10.240.2.0/24`| N/A | `192.168.100.0/24`[^IP12] | N/A |
 | Inbound (optional) | ICMP | Any | N/A | Any | N/A |
 {: caption="Inbound and outbound rules on VPN gateway's subnet example" caption-side="bottom"}
 
@@ -198,8 +210,8 @@ This table illustrates the NACL rules for the virtual server subnet, showing the
 
 | Inbound and Outbound Rules | Protocol | Source IP | Source Port | Destination IP | Destination Port |
 |--------------|------|------|------|------|------------------|
-| Inbound | All | `192.168.100.0/24` | N/A | `10.240.2.0/24` | N/A |
-| Outbound | All | `10.240.2.0/24` | N/A | `192.168.100.0/24` | N/A |
+| Inbound | ICMP-TCP-UDP | `192.168.100.0/24` | N/A | `10.240.2.0/24` | N/A |
+| Outbound | ICMP-TCP-UDP | `10.240.2.0/24` | N/A | `192.168.100.0/24` | N/A |
 {: caption="Inbound and outbound rules on virtual server subnet example" caption-side="bottom"}
 
 ### Scenario 2: VPN gateway and virtual server instance in different VPCs connected through a transit gateway
@@ -223,10 +235,12 @@ This NACL is attached to the VPN gateway subnet. The traffic rules for the VPN g
 
 | Inbound and Outbound Rules | Protocol | Source IP | Source Port | Destination IP | Destination Port |
 |--------------|------|------|------|------|------------------|
-| Inbound | All | Your on-premises gateway public IP | N/A | VPN gateway's subnet | N/A |
-| Outbound | All  | VPN gateway's subnet | N/A | On-premises gateway public IP | N/A |
-| Inbound| All  | On-premises private CIDR | N/A | VPC CIDR | N/A |
-| Outbound | All | VPC CIDR | N/A | On-premises, private CIDR | N/A |
+| Inbound | UDP | Your on-premises gateway public IP | 500 | VPN gateway IP | 500 |
+| Inbound | UDP | Your on-premises gateway public IP | 4500 | VPN gateway IP | 4500 |
+| Outbound | UDP | VPN gateway IP | 500 | On-premises gateway public IP | 500 |
+| Outbound | UDP | VPN gateway IP | 4500 | On-premises gateway public IP | 4500 |
+| Inbound| ICMP-TCP-UDP | On-premises private CIDR | N/A | VPC CIDR | N/A |
+| Outbound | ICMP-TCP-UDP | VPC CIDR | N/A | On-premises, private CIDR | N/A |
 | Inbound (optional) | ICMP | Any | N/A | Any | N/A |
 {: caption="Inbound and outbound rules on VPN gateway's subnet" caption-side="bottom"}
 
@@ -237,8 +251,8 @@ This NACL is attached to the virtual server subnet. The traffic rules for the vi
 
 | Inbound and Outbound Rules | Protocol | Source IP | Source Port | Destination IP | Destination Port |
 |--------------|------|------|------|------|------------------|
-| Inbound | All | On-premises, private CIDR | N/A | VPC CIDR | N/A |
-| Outbound | All | VPC CIDR | N/A | On-premises, private CIDR | N/A |
+| Inbound | ICMP-TCP-UDP | On-premises, private CIDR | N/A | VPC CIDR | N/A |
+| Outbound | ICMP-TCP-UDP | VPC CIDR | N/A | On-premises, private CIDR | N/A |
 {: caption="Inbound and outbound rules on virtual server subnets" caption-side="bottom"}
 
 #### Troubleshooting traffic
@@ -260,10 +274,12 @@ In this example, the VPN gateway in VPC A is in subnet CIDR `10.240.0.0/24`, and
 
 | Inbound and Outbound Rules | Protocol | Source IP | Source Port | Destination IP | Destination Port |
 |--------------|------|------|------|------|------------------|
-| Inbound | All | `203.0.113.5`[^IP13] | N/A | `10.240.0.4/32` | N/A |
-| Outbound | All  | `10.240.0.4/32` | N/A | `203.0.113.5`[^IP14] | N/A |
-| Inbound | All | `192.168.100.0/24`[^IP15] | N/A | `10.240.2.0/24` | N/A |
-| Outbound | All | `10.240.2.0/24`| N/A | `192.168.100.0/24`[^IP16] | N/A |
+| Inbound | UDP | `203.0.113.5`[^IP13] | 500 | `10.240.0.4/32` | 500 |
+| Inbound | UDP | `203.0.113.5` | 4500 | `10.240.0.4/32` | 4500 |
+| Outbound | UDP | `10.240.0.4/32` | 500 | `203.0.113.5`[^IP14] | 500 |
+| Outbound | UDP | `10.240.0.4/32` | 4500 | `203.0.113.5` | 4500 |
+| Inbound | ICMP-TCP-UDP | `192.168.100.0/24`[^IP15] | N/A | `10.240.2.0/24` | N/A |
+| Outbound | ICMP-TCP-UDP | `10.240.2.0/24`| N/A | `192.168.100.0/24`[^IP16] | N/A |
 | Inbound (optional) | ICMP | Any | N/A | Any | N/A |
 {: caption="Inbound and outbound rules on VPN gateway's subnet example" caption-side="bottom"}
 
@@ -279,6 +295,6 @@ This table illustrates the NACL rules for the virtual server subnet in VPC B, sh
 
 | Inbound and Outbound Rules | Protocol | Source IP | Source Port | Destination IP | Destination Port |
 |--------------|------|------|------|------|------------------|
-| Inbound | All | `192.168.100.0/24` | N/A | `10.240.2.0/24` | N/A |
-| Outbound | All | `10.240.2.0/24` | N/A |`192.168.100.0/24`| N/A |
+| Inbound | ICMP-TCP-UDP | `192.168.100.0/24` | N/A | `10.240.2.0/24` | N/A |
+| Outbound | ICMP-TCP-UDP | `10.240.2.0/24` | N/A |`192.168.100.0/24`| N/A |
 {: caption="Inbound and outbound rules on virtual server subnet example" caption-side="bottom"}
