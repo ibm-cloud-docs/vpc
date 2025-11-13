@@ -2,7 +2,7 @@
 
 copyright:
   years: 2020, 2025
-lastupdated: "2025-11-12"
+lastupdated: "2025-11-13"
 
 keywords: VPN, network, encryption, authentication, algorithm, IKE, IPsec, policies, gateway
 
@@ -62,8 +62,8 @@ For example, the following table shows the source and destination IP addresses f
 
 | Inbound and Outbound Rules | Protocol | Source IP | Source Port | Destination IP | Destination Port |
 |--------------|------|------|------|------|------------------|
-| Inbound | All | `3.213.120.56`[^IP] | N/A | `10.240.0.4/32`| N/A |
-| Outbound | All | `10.240.0.4/32` | N/A | `3.213.120.56`[^IP2] | N/A |
+| Inbound | All | `203.0.113.5`[^IP] | N/A | `10.240.0.4/32`| N/A |
+| Outbound | All | `10.240.0.4/32` | N/A | `203.0.113.5`[^IP2] | N/A |
 | Inbound | All | `192.168.100.0/24`[^IP3]| N/A | `10.240.0.0/24` | N/A |
 | Outbound | All | `10.240.0.0/24` | N/A | `192.168.100.0/24`[^IP4] | N/A |
 | Inbound (optional) | ICMP | Any | N/A | Any | N/A |
@@ -106,8 +106,8 @@ For example, the following table shows the source and destination IP addresses f
 
 | Inbound and Outbound Rules | Protocol | Source IP | Source Port | Destination IP | Destination Port |
 |--------------|------|------|------|------|------------------|
-| Inbound | All | `3.213.120.56`[^IP5] | N/A | `10.240.0.4/32` | N/A |
-| Outbound | All | `10.240.0.4/32` | N/A | `3.213.120.56`[^IP6] | N/A |
+| Inbound | All | `203.0.113.5`[^IP5] | N/A | `10.240.0.4/32` | N/A |
+| Outbound | All | `10.240.0.4/32` | N/A | `203.0.113.5`[^IP6] | N/A |
 | Inbound | All | `192.168.100.0/24`[^IP7] | N/A | `10.240.2.0/24` | N/A |
 | Outbound | All | `10.240.2.0/24` | N/A | `192.168.100.0/24`[^IP8] | N/A |
 | Inbound (optional) | ICMP | Any | N/A | Any | N/A |
@@ -179,8 +179,8 @@ In this example, the VPN gateway is in subnet CIDR `10.240.0.0/24`, and the virt
 
 | Inbound and Outbound Rules | Protocol | Source IP | Source Port | Destination IP | Destination Port |
 |--------------|------|------|------|------|------------------|
-| Inbound | All | `3.213.120.56`[^IP9] | N/A | `10.240.0.4/32` | N/A |
-| Outbound | All | `10.240.0.4/32` | N/A | `3.213.120.56`[^IP10] | N/A |
+| Inbound | All | `203.0.113.5`[^IP9] | N/A | `10.240.0.4/32` | N/A |
+| Outbound | All | `10.240.0.4/32` | N/A | `203.0.113.5`[^IP10] | N/A |
 | Inbound | All | `192.168.100.0/24`[^IP11] | N/A | `10.240.2.0/24` | N/A |
 | Outbound | All | `10.240.2.0/24`| N/A | `192.168.100.0/24`[^IP12] | N/A |
 | Inbound (optional) | ICMP | Any | N/A | Any | N/A |
@@ -260,8 +260,8 @@ In this example, the VPN gateway in VPC A is in subnet CIDR `10.240.0.0/24`, and
 
 | Inbound and Outbound Rules | Protocol | Source IP | Source Port | Destination IP | Destination Port |
 |--------------|------|------|------|------|------------------|
-| Inbound | All | `3.213.120.56`[^IP13] | N/A | `10.240.0.4/32` | N/A |
-| Outbound | All  | `10.240.0.4/32` | N/A | `3.213.120.56`[^IP14] | N/A |
+| Inbound | All | `203.0.113.5`[^IP13] | N/A | `10.240.0.4/32` | N/A |
+| Outbound | All  | `10.240.0.4/32` | N/A | `203.0.113.5`[^IP14] | N/A |
 | Inbound | All | `192.168.100.0/24`[^IP15] | N/A | `10.240.2.0/24` | N/A |
 | Outbound | All | `10.240.2.0/24`| N/A | `192.168.100.0/24`[^IP16] | N/A |
 | Inbound (optional) | ICMP | Any | N/A | Any | N/A |
