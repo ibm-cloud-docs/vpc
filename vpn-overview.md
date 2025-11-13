@@ -2,7 +2,7 @@
 
 copyright:
   years: 2021, 2025
-lastupdated: "2025-11-07"
+lastupdated: "2025-11-13"
 
 keywords:
 
@@ -21,15 +21,22 @@ IBM Cloud has two VPN services. _VPN for VPC_ offers site-to-site gateways, whic
 ## Site-to-site gateways
 {: #site-to-site-vpn-gateway}
 
-IBM Cloud VPN for VPC provides a simple, yet powerful solution for highly scalable and robust site-to-site VPN gateways. With this service, you can create site-to-site VPN tunnels for secure, encrypted connectivity. Connect from on-premises sites to IBM Cloud through a VPN gateway on an IBM Cloud VPC, and a peer gateway on-premises. 
+IBM Cloud VPN for VPC provides a simple, yet powerful solution for highly scalable, and robust site-to-site VPN gateways. With this service, you can create site-to-site VPN tunnels for secure, encrypted connectivity. Connect from on-premises sites to IBM Cloud through a VPN gateway on an IBM Cloud VPC, and a peer gateway on-premises. 
 
-This service provides a mixture of industry-standard security and encryption options as well as support for Pre-Shared Key (PSK) authentication. This service also provides the ability to quickly add and remove VPN connections with the option to use pre-defined configurations. For more information, see [About site-to-site VPN gateways](/docs/vpc?topic=vpc-using-vpn).
+This service provides a mixture of industry-standard security and encryption options as well as support for Pre-Shared Key (PSK) authentication. With this service, you can quickly add and remove VPN connections with the option to use pre-defined configurations. For more information, see [About site-to-site VPN gateways](/docs/vpc?topic=vpc-using-vpn).
+
+Site-to-site VPN in IBM Cloud provides you with the following options to connect your on-premises network to the IBM Cloud VPC network:
+
+* Policy-based VPN - This VPN mode uses defined security policies to determine which traffic is encrypted and sent through the VPN tunnel.
+* Route-based VPN - This VPN mode relies on routing tables to direct traffic through the VPN tunnel. Route-based VPN further supports the following connection types:
+   * Static route-based VPN connection - In the static route-based connection, the routes are manually specified and configured in the routing table. This option is best for stable environments with fixed network topologies.
+   * Dynamic route-based VPN connection - In the dynamic route-based connection, the routes are automatically discovered and route information is exchanged between networks with protocols such as BGP. This option simplifies management and adapts to network changes, which makes it ideal for large or evolving environments.
 
 The following features are included:
 
 * Secure tunnels - Create a VPN in route-based or policy-based mode to set up IPsec site-to-site tunnels between your VPC and your on-premises private network, or another VPC.
 * High availability - Built on two VPN devices, provides appliance-level redundancy. 
-* Pre-defined and custom encryption proposals - Choose from multiple pre-defined proposals for a quick, secure VPN configuration with completely customizable Internet Key Exchange (IKE) Phase 1 and Phase 2 encryption settings.
+* Pre-defined and custom encryption proposals - Choose from multiple pre-defined proposals for a quick, secure VPN configuration with customizable Internet Key Exchange (IKE) Phase 1 and Phase 2 encryption settings.
 * Monitoring - View the monitoring dashboard to see the current status of all tunnels and connections. You can also suspend and restart your individual VPN connections at any time.
 
 ## Client-to-site servers
