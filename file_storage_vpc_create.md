@@ -2,7 +2,7 @@
 
 copyright:
   years: 2021, 2025
-lastupdated: "2025-11-13"
+lastupdated: "2025-11-14"
 
 keywords: file share, file storage, virtual network interface, encryption in transit, profiles, 
 
@@ -1249,11 +1249,11 @@ provider "ibm" {
 ### Creating a zonal file share with Terraform
 {: #file-share-create-terraform}
 
-To create a file share, use the `ibm_is_share` resource. The following example creates a zonal file share with 200 GB capacity and the `dp2` performance profile.
+To create a file share, use the `ibm_is_share` resource. The following example creates a share with zonal availability, 200 GB capacity, 500 IOPS, and the `dp2` performance profile.
 
 ```terraform
-resource "ibm_is_share" "example" {
-  allowed_transit_encryption_modes = "none"
+resource "ibm_is_share" "zonalexample" {
+  allowed_transit_encryption_modes = ["ipsec", "none"]
   name                             = "my-new-share"
   size                             = "200"
   iops                             = "500"
@@ -1301,7 +1301,7 @@ To create a mount target for a file share that provides granular authentication 
 resource "ibm_is_share_mount_target" "zonal-target-with-vni" {
      access_protocol    = "nfs4"
      share              = ibm_is_share.is_share.ID
-     name               = <share_target_name>
+     name               = "my-example-mount-target"
      resource_group     = <resource_group_id>
      security_groups    = [<security_group_ids>]
      transit_encryption = "none"
@@ -1379,7 +1379,7 @@ resource "ibm_is_share" "share4" {
           }
        }   
    }
-}
+}    
 ```
 {: codeblock}
 
