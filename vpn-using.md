@@ -2,7 +2,7 @@
 
 copyright:
   years: 2019, 2025
-lastupdated: "2025-11-13"
+lastupdated: "2025-11-14"
 
 keywords: VPN, VPN gateways, encryption, IKE, IPsec, gateway, auto-negotiation, Diffie-Hellman, dead peer detection, PFS
 
@@ -61,7 +61,7 @@ To create a VPN gateway, follow these general steps:
 
 1. Make sure that the [network ACLs](/docs/vpc?topic=vpc-configuring-acls-vpn) are configured to allow VPN traffic to flow.
 1. Make sure that your peer device supports NAT traversal and that it is enabled on the peer device. For more information, see [Known issues for VPN gateways](/docs/vpc?topic=vpc-vpn-limitations).
-1. Review planning considerations and [create your VPN gateway](/docs/vpc?topic=vpc-vpn-create-gateway).
+1. Review [planning considerations](/docs/vpc?topic=vpc-planning-considerations-vpn) and [create your VPN gateway](/docs/vpc?topic=vpc-vpn-create-gateway).
 1. [Create VPN connections](/docs/vpc?topic=vpc-vpn-adding-connections) to establish a connection between your VPN gateway and your on-premises network.
 
    IBM Cloud VPN for VPC supports only one route-based VPN per zone per VPC.
