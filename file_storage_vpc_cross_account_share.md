@@ -2,7 +2,7 @@
 
 copyright:
   years: 2024, 2025
-lastupdated: "2025-11-13"
+lastupdated: "2025-11-14"
 
 keywords: file share, file storage, accessor share, cross-account share
 
@@ -373,9 +373,9 @@ resource "ibm_is_share" "example-accessor" {
 To create a mount target for a file share, use the `ibm_is_share_mount_target` resource. The following example creates a mount target with `security_group` access control mode. First, specify the share for which the mount target is created. Then, you specify the name of the mount target and define the new virtual network interface by providing an IP address and a name. You must also specify the security group that you want to use to manage access to the file share that the mount target is associated to. The security groups that you associate with a mount target must allow inbound access for the TCP protocol on the NFS port from all servers where you want to mount the share. The attribute `auto_delete = true` means that the virtual network interface is to be deleted if the mount target is deleted.
 
 ```terraform
-resource "ibm_is_share_mount_target" "target-with-vni" {
+resource "ibm_is_share_mount_target" "zonal-mount-target-with-vni" {
      access_protocol    = "nfs4"
-     name               = <share_target_name>
+     name               = "my-zonal-mount-target"
      share              = ibm_is_share.is_share.ID
      security_groups    = [<security_group_ids>]
      transit_encryption = "ipsec"

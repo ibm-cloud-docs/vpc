@@ -2,7 +2,7 @@
 
 copyright:
   years: 2024, 2025
-lastupdated: "2025-09-23"
+lastupdated: "2025-11-14"
 
 keywords: file share, file storage, virtual network interface, accessor share, de-auth
 
@@ -52,11 +52,16 @@ curl -X DELETE "$vpc_api_endpoint/v1/shares/v1/shares/$share_id/bindings/$bindin
 {: pre}
 {: api}
 
-If you want to remove a binding by using Terraform, you need to delete the `ibm_is_share_binding` resource. You can use the `terraform destroy` command to conveniently delete a remote object such as a single binding resource.
-{: terraform}
+If you want to remove a binding by using Terraform, you need to use the `ibm_is_share_delete_accessor_binding` resource.
 
 ```terraform
-terraform destroy --target ibm_is_share_binding.example.id
+resource "ibm_is_share_delete_accessor_binding" "example" {
+    share = ibm_is_share.example.id
+    accessor_binding = data.ibm_is_share_accessor_bindings.example.accessor_bindings.0.id
+}
 ```
 {: pre}
+{: terraform}
+
+For more information about the arguments and attributes, see [ibm_is_share_delete_accessor_binding](https://registry.terraform.io/providers/IBM-Cloud/ibm/latest/docs/resources/is_share_delete_accessor_binding){: external}.
 {: terraform}

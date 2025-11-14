@@ -1263,6 +1263,23 @@ resource "ibm_is_share" "zonalexample" {
 ```
 {: codeblock}
 
+### Creating a regional file share with Terraform
+{: #file-share-create-regional-terraform}
+
+The following example creates a share with regional availability, 200 GB capacity, 800 Mbps bandwidth, and the `rfs` performance profile.
+
+```terraform
+resource "ibm_is_share" "regionalexample" {
+  access_control_mode              = "security_group"
+  allowed_transit_encryption_modes = ["stunnel", "none"]
+  bandwidth                        = "800"
+  name                             = "my-share"
+  profile                          = "rfs"
+  size                             = "200"
+}
+```
+{: codeblock}
+
 ### Creating a zonal file share with a replica with Terraform
 {: #file-share-create-with-replica-terraform}
 
@@ -1271,10 +1288,11 @@ To create a file share, use the `ibm_is_share` resource. To add a replica, defin
 ```terraform
 resource "ibm_is_share" "example-2" {
   allowed_transit_encryption_modes = "none"
-  zone                             = "us-south-1"
-  size                             = "220"
+  iops                             = "800"
   name                             = "my-share"
   profile                          = "dp2"
+  size                             = "220"
+  zone                             = "us-south-1"
   replica_share {
     name                           = "my-replica"
     replication_cron_spec          = "0 */5 * * *"
@@ -1300,17 +1318,14 @@ To create a mount target for a file share that provides granular authentication 
 ```terraform
 resource "ibm_is_share_mount_target" "zonal-target-with-vni" {
      access_protocol    = "nfs4"
-     share              = ibm_is_share.is_share.ID
      name               = "my-example-mount-target"
-     resource_group     = <resource_group_id>
      security_groups    = [<security_group_ids>]
+     share              = ibm_is_share.is_share.ID
      transit_encryption = "none"
      virtual_network_interface {
          name = "my-example-vni"
          primary_ip {
-            address     = “10.240.64.5”
-            auto_delete = true
-            name        = "my-example-pip"
+            reserved_ip = ibm_is_subnet_reserved_ip.example.reserved_ip.id
          }
      } 
 }
@@ -1359,12 +1374,13 @@ To create a file share with a mount target that allows for security group-based 
 
 ```terraform
 resource "ibm_is_share" "share4" {
-   zone                             = "us-south-2"
-   size                             = "800"
+   access_control_mode              = "security_group"
+   allowed_transit_encryption_modes = "ipsec"
+   iops                             = "3000"
    name                             = "my-share4"
    profile                          = "dp2"
-   allowed_transit_encryption_modes = "ipsec"
-   access_control_mode              = "security_group"
+   size                             = "800"
+   zone                             = "us-south-2"
    mount_target {
        access_protocol              = "nfs4"
        name                         = "my-mount-target"
@@ -1394,11 +1410,12 @@ To create a zonal file share with a mount target that is accessible to all virtu
 
 ```terraform
 resource "ibm_is_share" "share3" {
-    zone                  = "us-south-2"
-    size                  = "700"
+    access_control_mode   = "vpc"
+    iops                  = "800"
     name                  = "my-share3"
     profile               = "dp2"
-    access_control_mode   = "vpc" 
+    size                  = "700"
+    zone                  = "us-south-2"
     mount_target {
           access_protocol = "nfs4"
           name            = "my-mount-target"

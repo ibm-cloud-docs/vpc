@@ -2,7 +2,7 @@
 
 copyright:
   years: 2020, 2025
-lastupdated: "2025-10-13"
+lastupdated: "2025-11-14"
 
 keywords: VPE, virtual private endpoint, endpoint gateway, planning
 
@@ -67,4 +67,5 @@ Before you create a virtual private endpoint gateway, review the following consi
 ## Related links
 {: #vpe-faq-related-links}
 
+[DNS sharing planning considerations](/docs/vpc?topic=vpc-vpe-dns-sharing-planning-considerations)
 [FAQ for virtual private endpoint gateways](/docs/vpc?topic=vpc-faqs-vpe)

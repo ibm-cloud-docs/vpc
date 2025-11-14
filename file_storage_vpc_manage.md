@@ -2,7 +2,7 @@
 
 copyright:
   years: 2021, 2025
-lastupdated: "2025-11-13"
+lastupdated: "2025-11-14"
 
 keywords: file share, file storage, rename share, increase size, adjust IOPS, mount target
 
@@ -1302,11 +1302,11 @@ The file share is deleted in the background. Confirm the deletion by trying to v
 A `DELETE /shares/$share_id` call can optionally include an `If-Match` header that specifies an `ETag` hash string. Make a `GET /shares/{share_id}` call and copy the `ETag` hash string from the response header. For more information, see [User tags for file shares](/docs/vpc?topic=vpc-file-storage-vpc-about#fs-about-user-tags).
 {: note}
 
-### Deleting file shares, accessor share bindings, or mount targets with Terraform
+### Deleting file shares or mount targets with Terraform
 {: #delete-file-share-terraform}
 {: terraform}
 
-Use the `terraform destroy` command to conveniently delete a remote object such as a file share. The following example shows the syntax for deleting a share. Substitute the actual ID of the share in for `ibm_is_share.example.id`. To delete a mount target or a share binding, use their IDs with the same command.
+Use the `terraform destroy` command to conveniently delete a remote object such as a file share. The following example shows the syntax for deleting a share. Substitute the actual ID of the share in for `ibm_is_share.example.id`. To delete a mount target, use their IDs with the same command.
 
 ```terraform
 terraform destroy --target ibm_is_share.example.id
@@ -1316,3 +1316,17 @@ terraform destroy --target ibm_is_share.example.id
 If the file share has snapshots, those snapshots are deleted along with the file share.
 
 For more information, see [terraform destroy](https://developer.hashicorp.com/terraform/cli/commands/destroy){: external}.
+
+If you want to remove an accessor share binding by using Terraform, you can use the `ibm_is_share_delete_accessor_binding` resource.
+
+```terraform
+resource "ibm_is_share_delete_accessor_binding" "example" {
+    share = ibm_is_share.example.id
+    accessor_binding = data.ibm_is_share_accessor_bindings.example.accessor_bindings.0.id
+}
+```
+{: pre}
+{: terraform}
+
+For more information about the arguments and attributes, see [ibm_is_share_delete_accessor_binding](https://registry.terraform.io/providers/IBM-Cloud/ibm/latest/docs/resources/is_share_delete_accessor_binding){: external}.
+{: terraform}
