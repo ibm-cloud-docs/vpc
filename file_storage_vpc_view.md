@@ -2,7 +2,7 @@
 
 copyright:
   years: 2022, 2025
-lastupdated: "2025-11-13"
+lastupdated: "2025-11-14"
 
 keywords: file storage, file share, view share details, mount targets, view targets, view share
 
@@ -987,7 +987,7 @@ data "ibm_is_share" "example" {
 {: codeblock}
 
 ```terraform
-data "ibm_is_share" "example1" {
+data "ibm_is_share" "example" {
   name = ibm_is_share.example.name
 }
 ```
@@ -1021,7 +1021,7 @@ Import the details of a mount target as a read-only data source. Identify the mo
 ```terraform
 data "ibm_is_share_mount_target" "example" {
   share        = ibm_is_share.example.id
-  mount_target = ibm_is_share_mount_target.example.share_target
+  mount_target = ibm_is_share_mount_target.example.mount_target
 }
 ```
 {: codeblock}
