@@ -2,7 +2,7 @@
 
 copyright:
   years: 2022, 2025
-lastupdated: "2025-11-13"
+lastupdated: "2025-11-14"
 
 keywords: file share, customer-managed encryption, encryption, byok, KMS, Key Protect, Hyper Protect Crypto Services,
 
@@ -353,7 +353,7 @@ The following example creates a regional file share without a mount target, and 
 
 ```sh
 curl -X POST \
-"$vpc_api_endpoint/v1/shares?version=2025-09-02&generation=2&maturity=beta" -H "Authorization: $iam_token" \
+"$vpc_api_endpoint/v1/shares?version=2025-09-02&generation=2" -H "Authorization: $iam_token" \
 -d '{
      "name": "my-encrypted-regional-share",
      "profile": {"name": "rfs"},

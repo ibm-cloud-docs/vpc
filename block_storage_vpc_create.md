@@ -2,7 +2,7 @@
 
 copyright:
   years: 2019, 2025
-lastupdated: "2025-11-04"
+lastupdated: "2025-11-14"
 
 keywords: vpc Block Storage, provision Block Storage for vpc, bootable snapshots, create volume from snapshot, fast restore
 
@@ -902,8 +902,8 @@ Valid volume names can include a combination of lowercase alpha-numeric characte
 To create a {{site.data.keyword.block_storage_is_short}} volume, use the `ibm_is_volume` resource. The following example creates a first-generation volume with 4 TB capacity and the `10iops-tier` performance profile.
 
 ```terraform
-resource "ibm_is_volume" "example" {
-  name     = "example-volume"
+resource "ibm_is_volume" "10iops_volume_example" {
+  name     = "example-volume-10iops"
   profile  = "10iops-tier"
   zone     = "us-south-1"
   capacity = 4000
@@ -914,8 +914,8 @@ resource "ibm_is_volume" "example" {
 The following example creates a first-generation volume with a `custom` profile. The volume that is created has 200 MB capacity and can perform 1000 IOPS.
 
 ```terraform
-resource "ibm_is_volume" "example" {
-  name           = "example-volume"
+resource "ibm_is_volume" "custom_volume_example" {
+  name           = "example-volume-custom"
   profile        = "custom"
   zone           = "us-south-1"
   iops           = 1000
@@ -928,8 +928,8 @@ resource "ibm_is_volume" "example" {
 The following example creates a second-generation volume with the `sdp` profile. The volume that is created has 250 MB capacity, can perform 3000 IOPS with the maximum bandwidth limit of 1000 Mbps.
 
 ```terraform
-resource "ibm_is_volume" "example" {
-  name           = "example-volume"
+resource "ibm_is_volume" "sdp_volume_example" {
+  name           = "example-volume-sdp"
   profile        = "sdp"
   zone           = "us-south-1"
   iops           = 3000
@@ -948,7 +948,7 @@ For more information about the arguments and attributes, see [ibm_is_volume](htt
 To create a {{site.data.keyword.block_storage_is_short}} volume from a snapshot, use the `ibm_is_volume` resource. The following example creates a volume based on a snapshot that is identified by its ID. You can also use the name or the CRN to identify the snapshot.
 
 ```terraform
-resource "ibm_is_volume" "storage" {
+resource "ibm_is_volume" "example-volume-from-snapshot" {
   name            = "example-volume"
   profile         = "general-purpose"
   zone            = "us-south-1"
