@@ -2,7 +2,7 @@
 
 copyright:
   years: 2019, 2025
-lastupdated: "2025-11-11"
+lastupdated: "2025-11-17"
 
 keywords: vsi, virtual server instances, profile, profiles, balanced, compute, memory, very high memory, ultra high memory, gpu storage optimized, confidential compute
 
@@ -21,6 +21,18 @@ A profile is a combination of instance attributes, such as the number of vCPUs, 
 {: shortdesc}
 
 For more information about SAP profiles, see [Intel Virtual Server certified profiles on VPC infrastructure for SAP HANA](/docs/sap?topic=sap-hana-iaas-offerings-profiles-intel-vs-vpc) and [Intel Virtual Server certified profiles on VPC infrastructure for SAP NetWeaver](/docs/sap?topic=sap-nw-iaas-offerings-profiles-intel-vs-vpc).
+
+## Before you begin
+{: #x86-64-instance-profiles-before-you-begin}
+
+Verify the profile you use is available in the zone where you plan to create the instance.
+
+Some profiles might not be available because of one of the following reasons:
+   - The number of network interfaces in the virtual server exceeds profile limits. You can remove network interfaces to select from more profiles. For more information, see [Resizing a virtual server](/docs/vpc?topic=vpc-resizing-an-instance).
+   - The image selected contains an allowed-use expression that is not compatible with the profile. In these cases, select an image with an allowed-use expression that is compatible with the desired profile. For more infomation, see [Adding allowed-use expressions to custom images](/docs/vpc?topic=vpc-custom-image-allowed-use-expressions&interface=ui).
+
+## Profile families
+{: #x86-64-instance-profile-families}
 
 The following profile families are available when you provision a virtual server instance.
 
