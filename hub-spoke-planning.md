@@ -78,6 +78,5 @@ Review the following limitations before you configure DNS sharing for VPE gatewa
 ## Related links
 {: #vpe-related-links-dns-sharing}
 
-[Planning for virtual private endpoint gateways](/docs/vpc?topic=vpc-vpe-planning-considerations)
-
-[FAQ for virtual private endpoint gateways](/docs/vpc?topic=vpc-faqs-vpe)
+* [Planning for virtual private endpoint gateways](/docs/vpc?topic=vpc-vpe-planning-considerations)
+* [FAQ for virtual private endpoint gateways](/docs/vpc?topic=vpc-faqs-vpe)

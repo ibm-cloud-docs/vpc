@@ -2,7 +2,7 @@
 
 copyright:
   years: 2022, 2025
-lastupdated: "2025-11-14"
+lastupdated: "2025-11-17"
 
 keywords:
 
@@ -96,7 +96,7 @@ For more information, see [Using authorizations to grant access between services
    ```
    {: screen}
 
-   For more information about the arguments and attributes, see [IBM Cloud provider](https://registry.terraform.io/providers/IBM-Cloud/ibm/latest/docs#example-usage-of-provider){: external}. For more information about [Creating multiple provider configurations](https://cloud.ibm.com/docs/ibm-cloud-provider-for-terraform?topic=ibm-cloud-provider-for-terraform-provider-reference#multiple-providers), see [Terraform on IBM Cloud](https://cloud.ibm.com/docs/ibm-cloud-provider-for-terraform).
+   For more information about the arguments and attributes, see [IBM Cloud provider](https://registry.terraform.io/providers/IBM-Cloud/ibm/latest/docs#example-usage-of-provider){: external}. For more information about [Creating multiple provider configurations](/docs/ibm-cloud-provider-for-terraform?topic=ibm-cloud-provider-for-terraform-provider-reference#multiple-providers), see [Terraform on IBM Cloud](/docs/ibm-cloud-provider-for-terraform).
 
 1. To create the IAM authorization between the key management service from one account to the file share service in a different account, use the resource `ibm_iam_authorization_policy`. The following example creates an authorization between {{site.data.keyword.keymanagementserviceshort}} service and the file service of two accounts. To create authorization to access {{site.data.keyword.hscrypto}}, specify `hs-crypto` as the value for `target_service_name`.
 
