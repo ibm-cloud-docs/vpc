@@ -150,32 +150,6 @@ Gather the following information by using the associated commands.
 
 Use the following commands to determine the required information for creating a new instance.
 
-Gather the following information by using the associated commands.
-
-|    Instance details   |  Listing options                | VPC CLI reference documentation |
-| --------------------- | --------------------------------|----------------------------|
-| Image | `ibmcloud vpc-iaas image` | [List all images](/docs/vpc?topic=vpc-vpc-reference#images-list)|
-| Boot volume | `ibmcloud vpc-iaas volumes` | [List all volumes](/docs/vpc?topic=vpc-vpc-reference#volumes-list) |
-| Profile | `ibmcloud vpc-iaas instances` | [List all virtual server instances](/docs/vpc?topic=vpc-vpc-reference#instance-profiles-list) |
-| Profile | `ibmcloud vpc-iaas image-instance-profiles` | [List instance profiles that are compatible with an image](/docs/vpc?topic=vpc-vpc-reference#image-instance-profiles-list)|
-| Profile | `ibmcloud vpc-iaas volume-instance-profiles` | [List instance profiles that are compatible with a volume.](/docs/vpc?topic=vpc-vpc-reference#volume-instance-profiles-list) |
-| Profile | `ibmcloud vpc-iaas snapshot-instance-profiles` | [List instance profiles that are compatible with a snapshot](/docs/vpc?topic=vpc-vpc-reference#snapshot-instance-profiles-list) |
-| Keys | `ibmcloud vpc-iaas keys` | [List all keys](/docs/vpc?topic=vpc-vpc-reference#keys) \n \n If you don't have any available SSH keys, use [Create a key](/docs/vpc?topic=vpc-vpc-reference#key-create) to create one. \n \n **Note:** RSA and ED25519 are the two types of SSH keys that you can use. However, you can't use the ED25519 SSH key type with Windows or VMware images. You can use only RSA SSH keys for these images. \n For more information, see [Getting started with SSH keys](/docs/vpc?topic=vpc-ssh-keys). |
-| VPC | `ibmcloud vpc-iaas vpcs` | [List all VPCs](/docs/vpc?topic=vpc-vpc-reference#vpcs-list) |
-| Subnet | `ibmcloud vpc-iaas subnets` | [List all subnets](/docs/vpc?topic=vpc-vpc-reference#subnets-list) |
-| Zone | `ibmcloud vpc-iaas zones` | [List all regions](/docs/vpc?topic=vpc-vpc-reference#zones-list) |
-| Placement groups | `ibmcloud vpc-iaas placement-groups` | [List all placement groups](/docs/vpc?topic=vpc-vpc-reference#placement-groups-list) |
-{: caption="Required instance details" caption-side="bottom"}
-
-
-Verify the profile you use is available in the zone where you plan to create the instance.
-
-Some profiles might not be available because of one of the following reasons:
-   - The number of network interfaces in the virtual server exceeds profile limits. You can remove network interfaces to select from more profiles. For more information, see [Resizing a virtual server](/docs/vpc?topic=vpc-resizing-an-instance).
-   - The image selected contains an allowed-use expression that is not compatible with the profile. In these cases, select an image with an allowed-use expression that is compatible with the desired profile. For more infomation, see [Adding allowed-use expressions to custom images](/docs/vpc?topic=vpc-custom-image-allowed-use-expressions&interface=ui).
-
-Use the following commands to determine the required information for creating a new instance.
-
 #### 1. List the regions associated with your account
 {: #list-regions-associated-account-cli}
 
