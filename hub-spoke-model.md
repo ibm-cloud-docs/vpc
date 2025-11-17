@@ -2,7 +2,7 @@
 
 copyright:
   years: 2023, 2025
-lastupdated: "2025-11-13"
+lastupdated: "2025-11-17"
 
 keywords:
 
@@ -20,7 +20,7 @@ Large-scale enterprise customers might need network-level isolation of resources
 
 With this type of network, your VPCs can be in different accounts in the enterprise. The Virtual Private Endpoint (VPE) gateways in the DNS hub and DNS-shared VPCs must be accessible to each other and from on-prem networks. Connecting a VPC hub to the DNS-shared VPCs through a transit gateway is straight forward, but without additional configuration, there will be no DNS resolution for the VPE services.
 
-VPC private DNS resolution works within the same VPC, but it requires you to manually copy complex scripts to other VPCs or on-prem environments. Configuring DNS sharing for VPEs simplifies this scenario by allowing the DNS resolution of services regardless of location. Complex scripts are not required to maintain copies of DNS records and it is easier to use the fine-grain data access control that is provided by a VPC to protect access to catalog services.
+VPC private DNS resolution works within the same VPC, but it requires you to manually copy complex scripts to other VPCs or on-prem environments. Configuring DNS sharing for VPEs simplifies this scenario by allowing the DNS resolution of services regardless of location. Complex scripts are not required to maintain copies of DNS records, and it is easier to use the fine-grain data access control that is provided by a VPC to protect access to catalog services.
 
 ## Getting started
 {: #vpe-dns-sharing-process}
