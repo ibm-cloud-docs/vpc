@@ -67,9 +67,6 @@ The following section contain known issues for public and private network load b
 * Autoscaler integration is not supported.
 * The maximal MTU for Private Path NLB traffic is `8500`.
 * For quotas and service limits, see [Quotas and service limits for Private Path network load balancers](/docs/vpc?topic=vpc-quotas#ppnlb-quotas). To increase the quota for your Private Path network load balancer, you must [create a support case](/docs/account?topic=account-open-case).
-* When you create a pool for a Private Path network load balancer and set the `failsafe_policy.action` value to `drop`, the request incorrectly fails with `400` (Bad Request).
-   * Workaround: Do not specify the drop value, as drop is the default behavior.
-* The `failsafe_policy.action` value included in any response from a Private Path load balancer pool shows `fail` instead of `drop`. Likewise, the `failsafe_policy.actions` value included in any response from a Private Path load balancer profile shows `fail` instead of `drop`.
 
 ### Related link
 {: #nlb-limitations-related-links}
