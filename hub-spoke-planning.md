@@ -2,7 +2,7 @@
 
 copyright:
   years: 2023, 2025
-lastupdated: "2025-11-14"
+lastupdated: "2025-11-17"
 
 keywords:
 
@@ -77,4 +77,5 @@ Review the following limitations before you configure DNS sharing for VPE gatewa
 {: #vpe-related-links-dns-sharing}
 
 [Planning for virtual private endpoint gateways](/docs/vpc?topic=vpc-vpe-planning-considerations)
+
 [FAQ for virtual private endpoint gateways](/docs/vpc?topic=vpc-faqs-vpe)
