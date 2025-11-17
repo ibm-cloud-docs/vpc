@@ -2,7 +2,7 @@
 
 copyright:
   years: 2021, 2025
-lastupdated: "2025-11-13"
+lastupdated: "2025-11-17"
 
 keywords:
 
@@ -49,7 +49,7 @@ In the static route-based connection, the routes are manually specified and conf
 
 In the dynamic route-based connection, the routes are automatically discovered and route information is exchanged between networks with protocols such as BGP. This option simplifies management and adapts to network changes, which makes it ideal for large or evolving environments.
 
-The following features are included:
+The following features are included in a site-to-site VPN gateway:
 
 * Secure tunnels - Create a VPN in route-based or policy-based mode to set up IPsec site-to-site tunnels between your VPC and your on-premises private network, or another VPC.
 * High availability - Built on two VPN devices, provides appliance-level redundancy. 
@@ -63,7 +63,7 @@ IBM Cloud Client VPN for VPC provides an open-source compatible client-to-site V
 
 When your users are working remotely, traveling, or at a location without a site-to-site VPN connection, they can use an OpenVPN client to connect to VPN servers on your IBM Cloud VPC. For more information, see [About client-to-site VPN servers](/docs/vpc?topic=vpc-vpn-client-to-site-overview).
 
-The following features are included:
+The following features are included in client-to-site VPN:
 
 * Secure, encrypted connectivity - A TLS 1.2/1.3-based secure, encrypted way for your employees (or individuals) to access IBM Cloud VPC remotely. With VPN servers set up for client connections and support of Transit Gateway, you can also privately interconnect to Classic IaaS and other VPCs on IBM Cloud.
 * High availability - Spans multiple availability zones for high throughput and resiliency.

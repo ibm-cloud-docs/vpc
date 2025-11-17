@@ -2,7 +2,7 @@
 
 copyright:
   years: 2019, 2025
-lastupdated: "2025-11-14"
+lastupdated: "2025-11-17"
 
 keywords: VPN, VPN gateways, encryption, IKE, IPsec, gateway, auto-negotiation, Diffie-Hellman, dead peer detection, PFS
 
@@ -37,7 +37,7 @@ MD-5 and SHA-1 authentication algorithms, 2 and 5 DH groups, and the 3-DES encry
    {: important}
 
 * **Dead peer detection** - Configurable mechanism to detect the availability of an IPsec peer.
-* **Diffie-Hellman (DH)** - Key exchange protocol used in Phase 1 to generate a shared secret key between VPN peers. Optionally, users can enable Perfect Forward Secrecy (PFS) and a DH group for Phase 2 IPsec negotiation. IBM Cloud VPN for VPC supports DH groups 14-24 and 31.
+* **Diffie-Hellman (DH)** - Key exchange protocol used in Phase 1 to generate a shared secret key between VPN peers. Optionally, users can enable Perfect Forward Secrecy (PFS) and a DH group for Phase 2 IPsec negotiation. IBM Cloud VPN for VPC supports DH groups `14-24` and `31`.
 * **Encryption** - IBM Cloud VPN for VPC supports `AES-128`, `AES-192`, and `AES-256` for data encryption during both IKE Phase 1 and Phase 2.
 * **Internet Key Exchange (IKE)** - IKE is a part of the IPsec protocol that is used to establish VPN connections. In IKE Phase 1, VPN peers use Diffie-Hellman (DH) key exchange to create a secure, authenticated communication channel. In IKE Phase 2, the peers use the secure channel from Phase 1 to negotiate parameters for IPsec tunnels. IBM Cloud VPN for VPC supports both IKEv1 (main mode) and IKEv2. See [About policy negotiation](/docs/vpc?topic=vpc-using-vpn#policy-negotiation) for the supported combinations.
 * **IPsec** - Protocol suite that provides secure communication between devices. IBM Cloud VPN for VPC uses UDP Encapsulation of IPsec Encapsulating Security Protocol (ESP) Packets in tunnel mode, which offers authentication and entire packet encryption.
@@ -59,7 +59,7 @@ Although not required, it is recommended to dedicate a subnet of at least 16 IPs
 
 To create a VPN gateway, follow these general steps:
 
-1. Make sure that the [network ACLs](/docs/vpc?topic=vpc-configuring-acls-vpn) are configured to allow VPN traffic to flow.
+1. Make sure that the [network ACLs](/docs/vpc?topic=vpc-configuring-acls-vpn) are configured to allow VPN traffic to flow between your on-premises network and IBM Cloud VPN gateway.
 1. Make sure that your peer device supports NAT traversal and that it is enabled on the peer device. For more information, see [Known issues for VPN gateways](/docs/vpc?topic=vpc-vpn-limitations).
 1. Review [planning considerations](/docs/vpc?topic=vpc-planning-considerations-vpn) and [create your VPN gateway](/docs/vpc?topic=vpc-vpn-create-gateway).
 1. [Create VPN connections](/docs/vpc?topic=vpc-vpn-adding-connections) to establish a connection between your VPN gateway and your on-premises network.
@@ -153,7 +153,7 @@ Both policy-based and route-based VPNs allow users to connect to multiple remote
 ### Use case 3: VPN advanced configuration using an FQDN
 {: #use-case-3-vpn}
 
-The following use case illustrates a customer that has one VPC in IBM Cloud and wants to connect their on-prem site with a single VPN gateway. The on-premises site VPN gateway is behind a NAT device and has no public IP address. The local IKE identity of the on-premises VPN gateway is the private IP address it owns. One FQDN is associated with the public IP address of the NAT device.
+The following use case illustrates a customer that has one VPC in IBM Cloud and wants to connect their on-prem site with a single VPN gateway. The on-premises site VPN gateway is behind a NAT device and has no public IP address. In this case, you can associate an FQDN with the NATed IP address. You can then use this FQDN instead of an IP address when you create a VPN connection. The local IKE identity of the on-premises VPN gateway is the private IP address it owns. One FQDN is associated with the public IP address of the NAT device.
 
 ![VPN advanced configuration with FQDN](images/vpn-advanced-configuration.svg){: caption="VPN advanced configuration with FQDN" caption-side="bottom"}
 
@@ -169,14 +169,14 @@ In this mode, only 1 tunnel is used at any time to route the VPN traffic over th
 
 The VPN always uses the tunnel with the smaller public IP as the primary egress path. When the primary egress path is disabled, traffic flows through the secondary path. The reason for using only one tunnel to route the traffic is to avoid the asymmetric routing problem.
 
-For a static route-based VPN connection, when both `tunnel 1` and `tunnel 2` are up, and you create a route with destination `10.1.0.0/24` and VPN connection as the next hop, the private IP `10.254.0.2` of the VPN appliance is returned for route creation. In this mode, **Distribute traffic** isn't enabled. The following diagram depicts the default configuration for a static route-based connection.
+For example, when both `tunnel 1` and `tunnel 2` are up in a static route-based VPN connection, and you create a route with destination `10.1.0.0/24` and VPN connection as the next hop, the private IP `10.254.0.2` of the VPN appliance is returned for route creation. In this mode, **Distribute traffic** isn't enabled. The following diagram depicts the default configuration for a static route-based connection.
 
 Protocol state filtering on a virtual network interface provides options to address the asymmetric routing problem. For more information, see [Protocol state filtering mode](/docs/vpc?topic=vpc-vni-about&interface=ui#protocol-state-filtering).
 {: note}
 
 ![Distributed traffic disabled: ](images/vpn-distribute-traffic-disabled.svg){: caption="Distributed traffic feature is disabled for static connection" caption-side="bottom"}
 
-The behavior of active-backup mode for a dynamic route-based VPN connection is similar to a static connection. However, you don't have to create routes because they are automatically discovered by the transit gateway. In this case, only 1 tunnel is used to route the VPN traffic over the tunnel at any time. The VPN always uses the tunnel with the smaller public IP as the primary egress path. When the primary egress path is disabled, traffic flows through the secondary path. The following diagram depicts the default configuration for a dynamic route-based connection.
+The behavior of active-backup mode for a dynamic route-based VPN connection is similar to a static connection. However, you don't have to create routes because they are automatically discovered by the transit gateway. In this case, only 1 tunnel is used to route the VPN traffic over the tunnel at any time. The VPN always uses the tunnel with the smaller public IP as the primary egress path. When the primary egress path is disabled, traffic flows through the secondary path. The subnet in which the virtual server instance is placed `10.255.0.0/24` must be different from the VPN gateway subnet `10.254.0.0/24` for the transit gateway to route traffic between them. The following diagram depicts the default configuration for a dynamic route-based connection.
 
 ![Distributed traffic disabled: ](images/vpn-distribute-traffic-disabled-dynamic.svg){: caption="Distributed traffic feature is disabled for dynamic connection" caption-side="bottom"}
 
@@ -185,14 +185,14 @@ The behavior of active-backup mode for a dynamic route-based VPN connection is s
 
 In this mode, the traffic egress is routed to the 2 tunnels dynamically.
 
-When both VPN tunnels are `Up`, the private IP addresses `10.254.0.2` and `10.254.0.3` are returned and the VPC network service creates 2 routes. Because these routes have the same priority, traffic flows to `tunnel 1` and `tunnel 2` dynamically when a VPC route's next hop is the VPN connection. To accomplish this active-active redundancy mode, you must enable the **Distribute traffic** checkbox when [creating](/docs/vpc?topic=vpc-vpn-create-gateway&interface=ui) or [adding](/docs/vpc?topic=vpc-vpn-adding-connections&interface=ui) connections to a VPN gateway. The following diagram depicts this configuration for a static route-based connection.
+For example, when both `tunnel 1` and `tunnel 2` are up and you create a route with destination `10.1.0.0/24` and VPN connection as the next hop, the private IP addresses `10.254.0.2` and `10.254.0.3` are returned and the VPC network service creates 2 routes. Because these routes have the same priority, traffic flows to `tunnel 1` and `tunnel 2` dynamically when a VPC route's next hop is the VPN connection. To accomplish this active-active redundancy mode, you must enable the **Distribute traffic** checkbox when [creating](/docs/vpc?topic=vpc-vpn-create-gateway&interface=ui) or [adding](/docs/vpc?topic=vpc-vpn-adding-connections&interface=ui) connections to a VPN gateway. The following diagram depicts this configuration for a static route-based connection.
 
 ![Distributed traffic enabled: active-active VPN route](images/vpn-distribute-traffic-enabled.svg){: caption="Distributed traffic feature is enabled for static connection" caption-side="bottom"}
 
-To use this feature, the on-premises device must support asymmetric routing to get higher network performance. Also, keep in mind that not all on-premises VPN gateways support this use case. For example, if the VPN traffic egress and ingress are from different tunnels, the traffic might be blocked by on-premises VPN devices or firewalls.
+To use this feature and get higher network performance, the on-premises device must support asymmetric routing. Also, keep in mind that not all on-premises VPN gateways support this use case. For example, if the VPN traffic egress and ingress are from different tunnels, the traffic might be blocked by on-premises VPN devices or firewalls.
 {: note}
 
-The behavior of the active-active mode for a dynamic route-based VPN connection is similar to that of a static connection. When you enable the **Distribute traffic** checkbox when adding connections to a VPN gateway, traffic flows through both tunnels simultaneously. The transit gateway handles route discovery, learning, and management. The following diagram depicts the default configuration for a dynamic route-based connection.
+The behavior of the active-active mode for a dynamic route-based VPN connection is similar to that of a static route-based connection. When you enable the **Distribute traffic** checkbox when adding connections to a VPN gateway, traffic flows through both tunnels simultaneously. The transit gateway handles route discovery, learning, and management. The following diagram depicts the default configuration for a dynamic route-based connection.
 
 ![Distributed traffic enabled: active-active VPN route](images/vpn-distribute-traffic-enabled-dynamic.svg){: caption="Distributed traffic feature is enabled for dynamic connection" caption-side="bottom"}
 
