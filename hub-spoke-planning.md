@@ -13,13 +13,13 @@ subcollection: vpc
 {{site.data.keyword.attribute-definition-list}}
 
  
-# DNS sharing: VPC planning considerations
+# DNS sharing planning considerations
 {: #vpe-dns-sharing-planning-considerations}
 
 Before you configure DNS sharing for VPE gateways, make sure that you review the following considerations.
 {: shortdesc}
 
-## Hub considerations
+## VPC Hub considerations
 {: #hub-considerations}
 
 Review the following planning considerations for the hub VPC:

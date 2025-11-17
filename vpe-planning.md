@@ -67,6 +67,6 @@ Before you create a virtual private endpoint gateway, review the following consi
 ## Related links
 {: #vpe-faq-related-links}
 
-[DNS sharing: VPC planning considerations](/docs/vpc?topic=vpc-vpe-dns-sharing-planning-considerations)
+[DNS sharing planning considerations](/docs/vpc?topic=vpc-vpe-dns-sharing-planning-considerations)
 
 [FAQ for virtual private endpoint gateways](/docs/vpc?topic=vpc-faqs-vpe)
