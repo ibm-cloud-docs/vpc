@@ -2,7 +2,7 @@
 
 copyright:
   years: 2019, 2025
-lastupdated: "2025-11-11"
+lastupdated: "2025-11-17"
 
 keywords: vsi, virtual server instances, profile, profiles, balanced, compute, memory, very high memory, ultra high memory, gpu storage optimized, confidential compute
 
@@ -21,6 +21,16 @@ A profile is a combination of instance attributes, such as the number of vCPUs, 
 {: shortdesc}
 
 For more information about SAP profiles, see [Intel Virtual Server certified profiles on VPC infrastructure for SAP HANA](/docs/sap?topic=sap-hana-iaas-offerings-profiles-intel-vs-vpc) and [Intel Virtual Server certified profiles on VPC infrastructure for SAP NetWeaver](/docs/sap?topic=sap-nw-iaas-offerings-profiles-intel-vs-vpc).
+
+## Before you begin
+{: #x86-64-instance-profiles-before-you-begin}
+
+Some profiles might not be available because of one of the following reasons:
+   - The number of network interfaces in the virtual server exceeds profile limits. You can remove network interfaces to select from more profiles. For more information, see [Resizing a virtual server](/docs/vpc?topic=vpc-resizing-an-instance).
+   - The image selected contains an allowed-use expression that is not compatible with the profile. In these cases, select an image with an allowed-use expression that is compatible with the desired profile. For more infomation, see [Adding allowed-use expressions to custom images](/docs/vpc?topic=vpc-custom-image-allowed-use-expressions&interface=ui).
+
+## Profile families
+{: #x86-64-instance-profile-families}
 
 The following profile families are available when you provision a virtual server instance.
 
@@ -556,10 +566,10 @@ When you create the data volumes, you can select a volume profile that best meet
 - A [5-IOPS tier](/docs/vpc?topic=vpc-block-storage-profiles#tiers) profile provides IOPS/GB performance that is suitable for a virtual server instance Compute profile.
 - A [10-IOPS tier](/docs/vpc?topic=vpc-block-storage-profiles#tiers) profile provides IOPS/GB performance that is suitable for a virtual server instance Memory profile.
 
-## Understanding profile naming 
+## Understanding profile naming
 {: #profiles-naming-rule}
 
-The following information describes the profile naming rules. 
+The following information describes the profile naming rules.
 
 The first character represents the profile families. Different profile families have different ratios of vCPU to memory and other characteristics that are designed for different workloads.
 
@@ -576,7 +586,7 @@ The first character represents the profile families. Different profile families 
 The second character represents the CPU architecture.
 
 - "x": x86_64
-- "z": s390x 
+- "z": s390x
 
 The third character represents the generation of the IBM Cloud infrastructure where the profile is provisioned, such as a "2" or "3". A value of "f" indicates that the profile is flexible and can provision on any infrastructure generation.
 
@@ -584,7 +594,7 @@ If the fourth character is a "d", such as bx3d, then a defined quantity of insta
 
 The characters after "-" represents the number of vCPUs and the size of RAM (GiB). For example, "2x4" means that this profile has 2 vCPU and 4 GiB of RAM.
 
-Using “bx2-4x16” as an example, you can know from the name that it is a balanced profile that provides 4 vCPUs of compute and 16 GiB of memory. The profile is deployed on an x86-based host and is for the second-generation VPC.  
+Using “bx2-4x16” as an example, you can know from the name that it is a balanced profile that provides 4 vCPUs of compute and 16 GiB of memory. The profile is deployed on an x86-based host and is for the second-generation VPC.
 
 ## Viewing profile configurations
 {: #popular-profiles}

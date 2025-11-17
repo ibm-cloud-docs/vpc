@@ -2,7 +2,7 @@
 
 copyright:
   years: 2020, 2025
-lastupdated: "2025-11-04"
+lastupdated: "2025-11-17"
 
 keywords:
 
@@ -404,8 +404,8 @@ After you know these values, use them to make a `POST` request with the `/instan
 The following example creates an instance template that is named _my-instance-template_ in _us-south-1_ and uses the _bx2-2x8_ profile.
 
 ```sh
-curl -X POST "$vpc_api_endpoint/v1/instance/templates?version=2023-07-13&generation=2" 
-  -H "Authorization: Bearer $iam_token" 
+curl -X POST "$vpc_api_endpoint/v1/instance/templates?version=2023-07-13&generation=2"
+  -H "Authorization: Bearer $iam_token"
   -d '{
     "zone": {"name": "us-south-1"},
     "resource_group": {"id": "db8e8d865a83e0aae03f25a492c5b39e"},
@@ -445,8 +445,8 @@ curl -X POST "$vpc_api_endpoint/v1/instance/templates?version=2023-07-13&generat
 The following example creates an instance template that is named _my-gen3-instance-template_ in _us-south-3_ and uses the _cx3d-8x20_ profile. When the selected [compute profile](/docs/vpc?group=profile-details) supports pooled bandwidth allocation for data volumes, the property `--storage_qos_modes` can also be included.
 
 ```sh
-curl -X POST "$vpc_api_endpoint/v1/instance/templates?version=2024-07-12&generation=2" 
-  -H "Authorization: Bearer $iam_token" 
+curl -X POST "$vpc_api_endpoint/v1/instance/templates?version=2024-07-12&generation=2"
+  -H "Authorization: Bearer $iam_token"
   -H "Content-Type: application/json" \
   -H "accept: application/json" \
   -d '{
