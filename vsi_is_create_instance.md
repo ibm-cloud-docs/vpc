@@ -131,7 +131,7 @@ You can create instances by using the command-line interface (CLI). If you would
 
 Ready to create an instance? Before you can run the `ibmcloud is instance-create` command, you need to know the details about the instance, such as what profile or image that you want to use.
 
-Gather the following information by using the associated commands. Verify the profile you use is available in the zone where you plan to create the instance.
+Gather the following information by using the associated commands.
 
 |    Instance details   |  Listing options                | VPC CLI reference documentation |
 | --------------------- | --------------------------------|----------------------------|
