@@ -551,10 +551,10 @@ toc:
               topics:
               - hub-spoke-model.md
               - hub-spoke-planning.md
+              - hub-spoke-configure-dns-resolver.md
               - hub-spoke-configure-hub.md
               - hub-spoke-resolution-binding.md
               - hub-spoke-s2s-auth.md
-              - hub-spoke-configure-dns-resolver.md
               - hub-spoke-withdrawing-dns-sharing.md
           - vpe-bind-unbind-reserved-ip.md
           - vpe-accessing-after-setup.md
