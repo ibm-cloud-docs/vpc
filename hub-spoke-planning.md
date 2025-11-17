@@ -13,7 +13,7 @@ subcollection: vpc
 {{site.data.keyword.attribute-definition-list}}
 
  
-# DNS sharing planning considerations
+# DNS sharing: VPC planning considerations
 {: #vpe-dns-sharing-planning-considerations}
 
 Before you configure DNS sharing for VPE gateways, make sure that you review the following considerations.
