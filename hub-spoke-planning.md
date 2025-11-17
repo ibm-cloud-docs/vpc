@@ -73,6 +73,8 @@ Review the following limitations before you configure DNS sharing for VPE gatewa
 * Timing requirement for binding operations: creating, deleting, enabling, or disabling DNS resolution bindings, including endpoint gateway binding changes, might fail if the operation completes in under 5 minutes. To avoid failure, ensure these operations take longer than 6 minutes. 
 * If you remove and recreate the same VPE on any combination of hub or DNS-shared VPCs within a span of 5 minutes, the creation of the VPE might fail.
 
+
+
 ## Related links
 {: #vpe-related-links-dns-sharing}
 
