@@ -2,7 +2,7 @@
 
 copyright:
   years: 2020, 2025
-lastupdated: "2025-11-16"
+lastupdated: "2025-11-17"
 
 keywords: virtual private endpoints, VPE, endpoint gateway
 
@@ -19,6 +19,8 @@ subcollection: vpc
 
 You can create an endpoint gateway for an {{site.data.keyword.cloud}} or third-party service or application that you want to access on your private VPC network. You can use the console, CLI, API, or Terraform.
 {: shortdesc}
+
+
 
 ## Before you begin
 {: #vpe-before-you-begin}
