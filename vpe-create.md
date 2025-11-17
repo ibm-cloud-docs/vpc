@@ -2,7 +2,7 @@
 
 copyright:
   years: 2020, 2025
-lastupdated: "2025-11-14"
+lastupdated: "2025-11-16"
 
 keywords: virtual private endpoints, VPE, endpoint gateway
 
@@ -23,7 +23,7 @@ You can create an endpoint gateway for an {{site.data.keyword.cloud}} or third-p
 ## Before you begin
 {: #vpe-before-you-begin}
 
-Before creating an endpoint gateway, ensure that you review [Planning for virtual private endpoint gateways](/docs/vpc?topic=vpc-vpe-planning-considerations) and have the following prerequisites:
+Before creating an endpoint gateway, ensure that you review [Planning for virtual private endpoint gateways](/docs/vpc?topic=vpc-vpe-planning-considerations) and have met the following prerequisites:
 
 * A VPC
 * A subnet in at least one availability zone if you intend on binding an IP address at the same time you provision the endpoint gateway
