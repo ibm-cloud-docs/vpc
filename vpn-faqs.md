@@ -2,7 +2,7 @@
 
 copyright:
   years: 2020, 2025
-lastupdated: "2025-11-06"
+lastupdated: "2025-11-18"
 
 keywords: virtual private network, faq, faqs, frequently asked questions, vpn, vpn gateway
 
@@ -133,7 +133,7 @@ No, each VPN gateway can be connected to only one Transit Gateway.
 {: #faq-vpn-18}
 {: faq}
 
-Yes, dynamic VPN connection is supported by route-based VPN gateway. See [Creating a VPN gateway](/docs/vpc?topic=vpc-vpn-create-gateway&interface=ui) to create route-based VPN and select **dynamic** for the connection type.
+Yes, dynamic VPN connection is supported by a route-based VPN gateway. See [Creating a VPN gateway](/docs/vpc?topic=vpc-vpn-create-gateway&interface=ui) to create route-based VPN and select **dynamic** for the connection type.
 
 ## What is ASN and why do I need it for dynamic routing?
 {: #faq-vpn-19}
