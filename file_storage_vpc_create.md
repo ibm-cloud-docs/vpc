@@ -2,7 +2,7 @@
 
 copyright:
   years: 2021, 2025
-lastupdated: "2025-11-14"
+lastupdated: "2025-11-18"
 
 keywords: file share, file storage, virtual network interface, encryption in transit, profiles, 
 
@@ -62,7 +62,7 @@ In the {{site.data.keyword.cloud_notm}} console, you can create a file share wit
    | Allowed transit encryption modes | As the share owner, you can specify how you want clients within your account and authorized accounts to connect to your file share. You can select *none* if you do not want them to use encryption in transit. If you want them to use encryption in transit, select *IPsec* for a zonal share or [Select availability]{: tag-green} *stunnel* for a regional share. If you select both available options, then the transit encryption type of the first mount target decides the transit encryption types of all future mount targets within the account. |
    {: caption="Values for creating a file share" caption-side="bottom"}
 
-1. The creation of mount targets is optional. You can skip this step if you do not want to create a mount target now. Otherwise, click **Create**. You can create one mount target per VPC per file share. 
+1. The creation of [mount targets](/docs/vpc?topic=vpc-file-storage-vpc-about#fs-share-mount-targets) is optional. You can skip this step if you do not want to create a mount target now. However, you need one to mount your file share on a compute host. A file share can have multiple mount targets so you can access it from multiple VPCs. You can create one mount target per VPC per file share. To create it, click **Create**. 
 
    - If you selected security group as the access mode, the mount target must be created with a [virtual network interface](/docs/vpc?topic=vpc-vni-about) (VNI). The VNI provides the file share with a reserved IP address and applies the rules of the selected [security group](/docs/vpc?topic=vpc-using-security-groups#sg-getting-started). This mount target supports encryption-in-transit and cross-zone mounting. Define the mount target by providing the following information:
       1. Provide a mount target name. The name can be up to 63 lowercase alpha-numeric characters and include the hyphen (-), and must begin with a lowercase letter. You can later edit the name if you want.
