@@ -2,7 +2,7 @@
 
 copyright:
   years: 2022, 2025
-lastupdated: "2025-09-29"
+lastupdated: "2025-11-19"
 
 keywords: Block Storage, boot volume, data volume, volume, data storage, virtual server instance, instance, expandable volume
 
@@ -368,6 +368,7 @@ Extending a file system is a moderately risky operation. Consider taking a snaps
 You can extend your boot partition with the DiskPart utility from the Command Prompt or PowerShell as an administrator.
 
 If you used a stock image of Windows Server 2022 Standard Edition or Windows Server 2025 Standard Edition to create your virtual server, you might find that the Recovery partition (D: drive) is preventing you from extending the C: drive. To resolve this issue, see the troubleshooting topic: [Why can't I expand my C: drive on Windows Server?](/docs/vpc?topic=vpc-troubleshooting-unexpandable-c-drive)
+
 
 ## Next steps
 {: #next-steps-resize-boot-vols}

@@ -2,7 +2,7 @@
 
 copyright:
   years: 2019, 2025
-lastupdated: "2025-11-07"
+lastupdated: "2025-11-19"
 
 keywords:
 
@@ -26,6 +26,13 @@ For more information about changes to the {{site.data.keyword.vpc_short}} comman
 
 ## November 2025
 {: #vpc-nov25}
+
+### 19 November 2025
+{: #vpc-nov1925}
+{: release-note}
+
+Backup for VPC support for regional file shares (Select availability)
+:   Customers with special access to preview the regional file share offering can automate the creation and deletion of snapshots for these file shares with the Backup for VPC service. You can manage your backup policies for second-generation shares in the console, from the CLI, or with the API. For more information, see [About Backup for VPC](/docs/vpc?topic=vpc-backup-service-about).
 
 ### 06 November 2025
 {: #vpc-nov0625}

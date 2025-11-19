@@ -2,7 +2,7 @@
 
 copyright:
   years: 2021, 2025
-lastupdated: "2025-11-06"
+lastupdated: "2025-11-19"
 
 keywords: file storage, file share, performance, IOPS, block size, capacity, range
 
@@ -103,7 +103,7 @@ Regional data availability means that data is replicated across all 3 zones with
 
 When you create a regional file share, you can specify its capacity between 1 GiB to 32,000 GiB. 800 Mbps is the default allocation for all regional file shares. You can increase the bandwidth from 800 Mbps up to 8192 Mbps for extra cost. After the file share is created, you can adjust the bandwidth between the minimum and the maximum values anytime.
 
-In the select availability release, cross-region asynchronous replication and scheduled backups are not supported. Cross-account access within the same region is supported.
+In the select availability release, cross-region asynchronous replication is not supported.
 
 ## Tiered and custom file storage profiles
 {: #fs-v2-profiles}
