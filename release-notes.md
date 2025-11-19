@@ -27,10 +27,6 @@ For more information about changes to the {{site.data.keyword.vpc_short}} comman
 ## November 2025
 {: #vpc-nov25}
 
-### 24 November 2025
-{: #vpc-nov2425}
-{: release-note}
-
 ### 19 November 2025
 {: #vpc-nov1925}
 {: release-note}
