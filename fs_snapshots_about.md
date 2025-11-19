@@ -2,7 +2,7 @@
 
 copyright:
   years: 2024, 2025
-lastupdated: "2025-11-12"
+lastupdated: "2025-11-19"
 
 keywords: snapshots, File Storage, shares, restore share
 
@@ -65,8 +65,6 @@ Customers with special access, you can provision second-generation file shares w
 {: preview}
 
 You can use your snapshots to create other second-generation file shares in the same region. You can't use your second-generation snapshot to create a zonal file share. Similarly, you can't use first-generation file share's snapshot to create a share with the `rfs` profile.
-
-You cannot schedule the creation of snapshots in this release.
 
 ## Securing your data
 {: #fs-snapshot-data-security}

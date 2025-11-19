@@ -2,7 +2,7 @@
 
 copyright:
   years: 2022, 2025
-lastupdated: "2025-11-12"
+lastupdated: "2025-11-19"
 
 keywords: block storage for VPC, File Storage for VPC, Snapshots for VPC, Backup for VPC, block storage, file storage, snapshots, backup, 
 
@@ -77,7 +77,7 @@ You can use your snapshots to create other second-generation volumes in the same
 | Availability        | Generally available in all VPC regions for all customers. | Available in most regions, except Chennai and Montreal.|
 | On-demand snapshots | Yes, up to 750 snapshots per region. | Yes, up to 512 snapshots per region.|
 | Scheduled snapshots | Yes, up to 750 snapshots per region. | Yes, up to 512 snapshots per region. |
-| Fast restore clones | Yes. You can cache a copy of your snapshot in any zone of the region. |Yes, the feature is available in most regions, except Montreal. You can cache a copy of your snapshot in any zone of the region. |
+| Fast restore clones | Yes. You can cache a copy of your snapshot in any zone of the region. |Yes, the feature is available in most regions, except Chennai and Montreal. You can cache a copy of your snapshot in any zone of the region. |
 | Cross-regional copy | The feature is available in most regions, except Chennai and Montreal. You can create one cross-regional copy per snapshot per region. | The feature is available in most regions, except Chennai and Montreal. You can create one cross-regional copy per snapshot per region.|
 | Consistency group   | Multi-volume snapshots are supported. | Not supported in the current release. |
 {: caption="Block Storage snapshot generations comparison." caption-side="bottom"}
@@ -119,7 +119,7 @@ The following table provides a comparison between the different generations of f
 | Customer-managed encryption at rest | Yes. | Yes. |
 | Customer-managed encryption in transit | Yes. IPsec protocol with strongSwan. | Yes. TLS protocol with stunnel.|
 | On-demand snapshots | Yes, up to 750 per share in a region. | Yes, up to 30 per share in a region. This quota can be increased upon request. |
-| Scheduled snapshots | Yes, up to 750 snapshots per region. |  Not supported in the current release. |
+| Scheduled snapshots | Yes, up to 750 snapshots per region. | Yes, Up to 30 per share in a region. This quota can be increased upon request. |
 | Cross-zonal replication| Yes, as often as every 15 minutes. | Not applicable. Data is synchronously available in all zones of the region. |
 | Cross-regional replication | Yes, as often as every 15 minutes. Cross-regional replication is not supported in Chennai. |  Not supported in the [Select availability]{: tag-green} release. |
 | Cross-zonal mounting | Yes. | Not applicable. Data is synchronously available in all zones of the region. Storage traffic does not cross zone-boundaries. |
@@ -147,7 +147,7 @@ Customers with special access to preview the second-generation File Storage offe
 |---------------------|--------------------------|---------------------------|
 | Availability        | Generally available in all VPC regions for all customers. | Available in most regions, except for Montreal, for allowlisted customers.|
 | On-demand snapshots | Yes, Up to 750 per share in a region. | Yes, Up to 30 per share in a region. This quota can be increased upon request. |
-| Scheduled snapshots | Yes, up to 750 snapshots per region. | Not supported in the [Select availability]{: tag-green} release.|
+| Scheduled snapshots | Yes, up to 750 snapshots per region. | Yes, Up to 30 per share in a region. This quota can be increased upon request.|
 {: caption="File share snapshot generations comparison." caption-side="bottom"}
 
 For more information, see [About {{site.data.keyword.filestorage_vpc_short}} snapshots](/docs/vpc?topic=vpc-fs-snapshots-about).

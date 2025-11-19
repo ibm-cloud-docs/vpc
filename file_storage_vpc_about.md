@@ -2,7 +2,7 @@
 
 copyright:
   years: 2021, 2025
-lastupdated: "2025-11-12"
+lastupdated: "2025-11-19"
 
 keywords: file share, mount target, virtual network interface, customer-managed encryption, encryption at rest, encryption in transit, file storage, share,
 
@@ -274,7 +274,7 @@ You can create new user tags or add existing tags when you provision a new file 
 
 User tags are uniquely identified by a Cloud Resource Name (CRN) identifier. When you create a user tag, you provide a unique name within your billing account. You can define user tags in label or key-value format. Behind the scenes, the file service sends and receives tags directly to the GhoST service. GhoST stores its key attributes and the array of tags. GhoST also stores user resource information, so you can view, tag, and search for resources that you own.
 
-User tags can also be used by [backup policies](/docs/vpc?topic=vpc-backup-service-about) to create snapshots of the share automatically. Although tags can be attached to regional file shares as well, the automated creation of snapshots is not supported for regional file shares yet.
+User tags can also be used by [backup policies](/docs/vpc?topic=vpc-backup-service-about) to create snapshots of the share automatically.
 
 For more information, see [Add user tags to file shares](/docs/vpc?topic=vpc-file-storage-managing&interface=ui#fs-add-user-tags) and [Working with tags](/docs/account?topic=account-tag&interface=ui).
 
@@ -305,9 +305,6 @@ Snapshots are supported only for shares that have "security group" as their acce
 
 You can't create snapshots of replica or accessor shares. However, snapshots of the origin share are replicated to the read-only replica share at the next scheduled sync. Snapshots of the origin share are also available to the accessor shares.
 {: important}
-
-In this release, the snapshots for regional file shares are supported but you cannot automate the creation of regional snapshots with the Backup for VPC service. For snapshots of regional file shares, the zone value is blank in both the CLI and API responses.
-{: preview}
 
 ## File share data eradication
 {: #file-storage-data-eradication}

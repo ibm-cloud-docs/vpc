@@ -2,7 +2,7 @@
 
 copyright:
   years: 2021, 2025
-lastupdated: "2025-11-12"
+lastupdated: "2025-11-19"
 
 keywords: file share, file storage, replication, replica, size increase, capacity, encryption, BYOK, security group
 
@@ -182,9 +182,6 @@ If you want to move your data from a zonal file share to a regional file share, 
 {: #faq-fs-mgt-snapshot}
 
 You can take snapshots of your file shares on demand in the console, from the CLI, with the API, or Terraform. You can also automate the creation of your snapshots by using the Backup for VPC service. For more information, see [About File Storage for VPC snapshots](/docs/vpc?topic=vpc-fs-snapshots-about) and [About Backup for VPC](/docs/vpc?topic=vpc-backup-service-about).
-
-During the select availability release of regional file shares, you cannot automate the creation and retention of regional snapshots with the Backup for VPC service.
-{: preview}
 
 ### Can I create a file share from a snapshot?
 {: faq}

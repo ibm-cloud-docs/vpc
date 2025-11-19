@@ -2,7 +2,7 @@
 
 copyright:
   years: 2024, 2025
-lastupdated: "2025-11-12"
+lastupdated: "2025-11-19"
 
 keywords: snapshots, File Storage, File Storage snapshot
 
@@ -23,7 +23,7 @@ Although you can't create a snapshot on a replica share, the snapshots of the or
 
 The creation of a share snapshot is quick. You can expect to have the snapshot stable and available within seconds. However, you can take only 1 snapshot in a minute. If you take too many snapshots too quickly, you can encounter errors.
 
-[Select availability]{: tag-green} During the select availability release of regional file shares, you cannot automate the creation of regional snapshots with the Backup for VPC service. For snapshots of regional file shares, the zone value is blank in both the CLI and API responses.
+[Select availability]{: tag-green} During the select availability release of regional file shares, the zone value of regional file share snapshots is blank in both the CLI and API responses.
 
 ## Creating a snapshot in the console
 {: #fs-snapshots-create-ui}

@@ -2,7 +2,7 @@
 
 copyright:
   years: 2024, 2025
-lastupdated: "2025-11-06"
+lastupdated: "2025-11-19"
 
 keywords: network, VPN, VPN gateways, encryption
 
@@ -15,7 +15,7 @@ subcollection: vpc
 # Configuring route propagation for VPN gateways
 {: #advertise-routes-s2s}
 
-The VPC routing table attribute **Accepts routes from** controls whether a routing table accepts routes that are added by a VPN gateway. Additionally, if you select **VPN gateway** for this attribute, the VPN gateway propagates routes to this routing table. The **Advertise to** switch controls route advertisement to a transit gateway.
+The VPC routing table attribute ***Accepts routes from*** controls whether a routing table accepts routes that are added by a VPN gateway. Additionally, if you select **VPN gateway** for this attribute, the VPN gateway propagates routes to this routing table. The **Advertise to** switch controls route advertisement to a transit gateway.
 {: shortdesc}
 
 The following sections explain how to configure route propagation for VPN gateways in IBM Cloud VPC routing tables.
@@ -35,9 +35,11 @@ Understand how route propagation works across VPN gateways:
 
 * **Policy-based VPN** - In a policy-based VPN, the routes are manually defined by using address prefixes and route propagation must be explicitly configured in the routing table. This mode supports manual route advertisement with Transit Gateway. See [setting up transit gateway with policy-based VPN](/docs/vpc?topic=vpc-advertise-routes-s2s&interface=ui#setup-tg-with-vpn-vpc).
 
-* **Route-based VPN** - Route-based VPN supports two connection types. In a *static route-based connection*, the routes are defined by the VPN tunnel interface and route propagation must be configured in the routing table. This connection type doesn't support route advertisement with Transit Gateway.
+* **Route-based VPN** - Route-based VPN supports two connection types.
 
-   In a *dynamic route-based connection*, the routes are automatically learned and propagated by using BGP. This connection type doesn't require manual route configuration in the routing table but it supports automatic route advertisement with Transit Gateway. See [planning considerations](/docs/vpc?topic=vpc-planning-considerations-vpn&interface=ui#dynamic-route-based-connection-considerations) for dynamic route-based VPN connection.
+   * In a *static route-based connection*, the routes are defined by the VPN tunnel interface and route propagation must be configured in the routing table. This connection type doesn't support route advertisement with Transit Gateway.
+
+   * In a *dynamic route-based connection*, the routes are automatically learned and propagated by using BGP. This connection type doesn't require manual route configuration in the routing table but it supports automatic route advertisement with Transit Gateway. See [planning considerations](/docs/vpc?topic=vpc-planning-considerations-vpn&interface=ui#dynamic-route-based-connection-considerations) for dynamic route-based VPN connection.
 
 ## Setting up a transit gateway with policy-based VPN for VPC
 {: #setup-tg-with-vpn-vpc}

@@ -2,7 +2,7 @@
 
 copyright:
   years: 2019, 2025
-lastupdated: "2025-11-06"
+lastupdated: "2025-11-19"
 
 keywords:
 subcollection: vpc
@@ -31,16 +31,16 @@ To create a VPN gateway in the console:
 1. Ensure that you select the **Site-to-site gateways > VPN gateways** tabs.
 1. On the VPNs for VPC page, click **Create** and then select the **Site-to-site** gateway tile.
 1. Specify the following information:
+   * **Region** - Select the region where the VPN gateway is going to be provisioned.
    * **VPN gateway name** - Enter a name for the VPN gateway, such as `my-vpn-gateway`.
    * **Resource group** - Select a resource group for the VPN gateway.
    * **Tags** - Optionally, add tags to identify this VPN gateway.
    * **Access management tags** - Optionally, add access management tags to resources to help organize access control relationships. The only supported format for access management tags is `key:value`. For more information, see [Controlling access to resources by using tags](/docs/account?topic=account-access-tags-tutorial).
-   * **Region** - Shows the region where the VPC is located and where the VPN gateway is going to be provisioned.
    * **Virtual Private Cloud** - Select the VPC for the VPN gateway.
    * **Subnet** - Select the subnet where you want to create the VPN gateway. See [Planning considerations](/docs/vpc?topic=vpc-planning-considerations-vpn) for important subnet information.
    * **Mode** - Select either a policy-based or route-based VPN. For more information about VPN types, see [VPN features](/docs/vpc?topic=vpc-using-vpn#vpn-features).
-   * **ASN** - This value identifies your local network for BGP peering and is used during the BGP session setup with your on-premises device.
-   * **Advertised CIDRs (optional)** - The CIDR range values that advertise the IPv4 network ranges to remote VPN peers.
+   * **ASN** - It is the numeric identifier for the VPN gateway. This value identifies your local network for BGP peering and is used during the BGP session setup with your on-premises device.
+   * **Advertised CIDRs (optional)** - The CIDR range values that advertise the IPv4 network ranges to the remote VPN peers.
 
       The ASN value is required for dynamic routing. If you don't specify an ASN, the VPN gateway is created with the default ASN of `64520`. You can't change the local ASN value after you connect the VPN gateway to the transit gateway.
       {: note}
@@ -70,7 +70,7 @@ To create a VPN gateway in the console:
 
     * **Distribute traffic (Route-based VPN only)** - Enable this option to automatically distribute traffic between the active tunnels of the VPN gateway when a VPC route's next hop is the VPN connection. This option is useful to maximize throughput wherein two VPN tunnels connect to your remote peer network. If this option isn't enabled, the VPN gateway chooses the tunnel with the smaller public IP as the primary path, and switches to the secondary tunnel only if the primary goes down. For more information, see [Use case 4: Distributing traffic for a route-based VPN](/docs/vpc?topic=vpc-using-vpn&interface=ui#use-case-4-vpn).
     * **Local subnets (Policy-based VPN only)** - Specify one or more subnets in the VPC that you want to connect through the VPN tunnel.
-    * **Peer subnets (Policy-based VPN only)** - Specify one or more subnets in the other network that you want to connect through the VPN tunnel.
+    * **Peer subnets (Policy-based VPN only)** - Specify one or more subnets in the peer network that you want to connect through the VPN tunnel.
 
         Subnet range overlap between local and peer subnets is not allowed.
         {: important}
@@ -386,3 +386,4 @@ After you create a VPN gateway, you can:
 * Create a VPN connection if you haven't already created one when provisioning your VPN gateway. For more information, see [Adding connections to a VPN gateway](/docs/vpc?topic=vpc-vpn-adding-connections).
 * [Configure route-propagation](/docs/vpc?topic=vpc-advertise-routes-s2s) for VPN gateways in policy-based mode.
 * To create a route-based VPN, first [create a routing table](/docs/vpc?topic=vpc-create-vpc-routing-table), then [create a route by using the VPN connection type](/docs/vpc?topic=vpc-create-vpc-route).
+* For a dynamic route-based VPN connection, attach a transit gateway to the VPN gateway. See [Creating a transit gateway](/docs/transit-gateway?topic=transit-gateway-ordering-transit-gateway&interface=ui).
