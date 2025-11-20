@@ -98,7 +98,7 @@ For more information about available command options, see [`ibmcloud is share-up
 {: #adjust-fs-bandwidth-api-block}
 {: api}
 
-You can adjust bandwidth for existing data shares by calling the beta VPC API. Make a `PATCH /shares` request and specify the `bandwidth` parameter to adjust the bandwidth limit.
+You can adjust bandwidth for existing data shares by calling the VPC API. Make a `PATCH /shares` request and specify the `bandwidth` parameter to adjust the bandwidth limit.
 
 You can't update the name of the share, increase the size, adjust IOPS, and adjust bandwidth limit in the same `PATCH /shares` request. Make separate `PATCH /shares` requests.
 {: important}
@@ -132,3 +132,20 @@ The file share status shows `updating` while the bandwidth is being adjusted. Th
 }
 ```
 {: screen}
+
+## Adjusting bandwidth limit with Terraform
+{: #adjust-vpc-bandwidth-terraform-block}
+{: terraform}
+
+To modify the IOPS of a share, use the `ibm_is_share` resource. When applied, the following example updates the file share bandwidth limit to 4,000 Mbps.
+
+```terraform
+resource "ibm_is_share" "storage" {
+   name         = "demo-share-update"
+   size         = 8000
+   bandwidth    = 4000
+}
+```
+{: codeblock}
+
+For more information about the arguments and attributes, see [ibm_is_share](https://registry.terraform.io/providers/IBM-Cloud/ibm/latest/docs/resources/is_share){: external}.
