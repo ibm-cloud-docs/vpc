@@ -2,7 +2,7 @@
 
 copyright:
   years: 2019, 2025
-lastupdated: "2025-11-17"
+lastupdated: "2025-11-20"
 
 keywords:
 subcollection: vpc
@@ -61,8 +61,8 @@ Review the following considerations before you create a dynamic route-based VPN 
 * When you connect a transit gateway to a VPN, you can't change the ASN value until you remove the service connection.
 * Multiple VPN gateways can connect to the same transit gateway, but each VPN gateway can attach to only one transit gateway.
 * If you plan to use a non-RFC 1918 CIDR for your transit gateway connection that is not within the standard private IP ranges (`10.0.0.0/8`, `172.16.0.0/12`, or `192.168.0.0/16`), you must add a delegate-VPC route in your VPC's egress routing table. This route must point to the CIDR that you've chosen and must be associated with the VPN subnet in the same zone. See [VPN gateway connection considerations](/docs/transit-gateway?topic=transit-gateway-helpful-tips#vpn-connection-considerations) for transit gateway.
-* Each IBM VPN supports a maximum of 120 routes per VPN peer for dynamic connection. If this limit exceeds, the BGP session automatically shuts down for that peer. To restore the BGP connection, your on-premises peer network must reduce the number of advertised routes to less than or equal to 120. Then, you must toggle the connection in the IBM Cloud to reinitiate the session.
-* Each IBM VPN appliance supports up to 120 routes in total, regardless of how many peers are connected. If the appliance receives more than 120 routes across a combination of peers, it propagates only the first 120 routes to the transit gateway. For example, if the VPN appliance receives 70 routes each from two peers, only the first 120 routes are propagated to the transit gateway.
+* Each IBM VPN supports a maximum of 120 routes for each VPN peer in a dynamic routing setup. If this limit is exceeded, the BGP session for that peer automatically shuts down. To restore the session, reduce the number of routes advertised from your on-premises peer network to 120 or less, then toggle the connection in the IBM Cloud to reestablish the BGP session.
+* Each VPN appliance supports a total of 120 routes, regardless of the number of connected peers. If more than 120 routes are received across a combination of peers, the appliance forwards only the first 120 routes to the transit gateway. For example, if two peers each send 70 routes to the VPN appliance, only the first 120 routes are propagated to the transit gateway.
 
 ## IBM Power Virtual Servers: Automate the deployment of your workspace
 {: #vpn-s2s-automate-deployment-powervs-workspace}
