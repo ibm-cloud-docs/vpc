@@ -2,7 +2,7 @@
 
 copyright:
   years: 2021, 2025
-lastupdated: "2025-09-11"
+lastupdated: "2025-11-20"
 
 keywords: file share, file storage, rename share, increase size, adjust IOPS, mount target
 
@@ -17,10 +17,6 @@ subcollection: vpc
 
 By using the console, the CLI, or the API, you can check on the status and health states of the file shares.
 {: shortdesc}
-
-During the beta release of regional shares, these metrics are not available for the file shares with the `rfs` profile.
-{: beta}
-
 
 ## File share statuses
 {: #file-share-statuses}

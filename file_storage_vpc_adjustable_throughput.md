@@ -2,7 +2,7 @@
 
 copyright:
   years: 2025, 2025
-lastupdated: "2025-11-06"
+lastupdated: "2025-11-20"
 
 keywords: file share, regional, file storage, bandwidth, bandwidth
 
@@ -46,7 +46,7 @@ ibmcloud is share-update share_ID --bandwidth BANDWIDTH
 ```
 {: pre}
 
-This example shows an increase of the bandwidth limit to 3,000 Mbps. (The preset bandwidth value of a 1000 GB file share is 400 Mbps.)
+This example shows an increase of the bandwidth limit to 3,000 Mbps.
 
 ```sh
 ibmcloud is share-update my-file-share --bandwidth 2000
@@ -103,7 +103,7 @@ You can adjust bandwidth for existing data shares by calling the beta VPC API. M
 You can't update the name of the share, increase the size, adjust IOPS, and adjust bandwidth limit in the same `PATCH /shares` request. Make separate `PATCH /shares` requests.
 {: important}
 
-This example shows the bandwidth value increased to 3,000 Mbps. The preset bandwidth of a 1000 GB file share is 400 Mbps.
+This example shows the bandwidth value increased to 3,000 Mbps.
 
 ```sh
 curl -X PATCH \

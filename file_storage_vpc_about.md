@@ -2,7 +2,7 @@
 
 copyright:
   years: 2021, 2025
-lastupdated: "2025-11-19"
+lastupdated: "2025-11-20"
 
 keywords: file share, mount target, virtual network interface, customer-managed encryption, encryption at rest, encryption in transit, file storage, share,
 
@@ -55,7 +55,7 @@ You can view and manage your zonal file shares in the console, from the CLI, wit
 ## Regional file shares overview
 {: #regional-file-storage-overview}
 
-As a customer with special access to preview the regional file share profile, you can create file shares with the `rfs` profile with regional availability in Dallas, Frankfurt, London, Madrid, Osaka, Sydney, Toronto, Tokyo, and Washington, DC.
+As a customer with special access to preview the regional file share profile, you can create file shares with the `rfs` profile with regional availability in Dallas, Frankfurt, London, Madrid, Osaka, Sao Paulo, Sydney, Toronto, Tokyo, and Washington, DC.
 
 You create a file share within the region and create the mount target for the share in the VPC. File shares are identified by name and associated with a resource group in your {{site.data.keyword.cloud_notm}} customer account. You can control how the file share is accessed by using security groups. The regional file can be accessed from all three zones of the region when the compute clients are in the correct security group. For more information, see [regional mount targets](#fs-regional-mount)
 

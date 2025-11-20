@@ -2,7 +2,7 @@
 
 copyright:
   years: 2022, 2025
-lastupdated: "2025-11-19"
+lastupdated: "2025-11-20"
 
 keywords: block storage for VPC, File Storage for VPC, Snapshots for VPC, Backup for VPC, block storage, file storage, snapshots, backup, 
 
@@ -100,7 +100,7 @@ Pay for only the capacity that you need. You can start with a smaller file share
 
 You can create zonal file shares with the `dp2` profile. The first-generation file shares come with a maximum storage capacity of 32 TB, a performance level of 96,000 IOPS, and maximum throughput of 1024 MBps. You can adjust IOPS up or down, for greater performance or when you want to reduce costs. You can create read-only replicas of your file shares in another zone within your VPC, or another zone in a different region if you have multiple VPCs in the same geography. The replica is updated regularly based on the replication schedule that you specify. You can schedule to replicate your data as often as every 15 minutes. You can fail over to the replica and make it active if an outage occurs at the primary site.
 
-Customers with special access to preview the second-generation file storage offering can provision file shares with the new `rfs` profile. The `rfs` profile is available in the Dallas, Frankfurt, London, Madrid, Osaka, Sydney, Toronto, Tokyo, and Washington, DC regions in this release.
+Customers with special access to preview the second-generation file storage offering can provision file shares with the new `rfs` profile. The `rfs` profile is available in the Dallas, Frankfurt, London, Madrid, Osaka, Sao Paulo, Sydney, Toronto, Tokyo, and Washington, DC regions in this release.
 {: preview}
 
 Second-generation file shares can be created with capacity in the range of 1 - 32,000 GB. Customers can directly adjust their file share's bandwidth up to 8192 Mbps (1024 MBps). The preset value is 800 Mbps. The maximum IOPS that a share with the `rfs` profile can support is 35,000. Second-generation profiles provide regional data availability across all 3 zones of an MZR. Data is regionally available, setting up replication between different zones is unnecessary.
@@ -141,7 +141,7 @@ You can create, list, view details, and manage snapshots in the console, from th
 
 Snapshots are tied to their source share. If you delete the original share and the snapshot is also deleted. However, you cannot delete a snapshot that is being used to hydrate a newly restored file.
 
-Customers with special access to preview the second-generation File Storage offering can take snapshots of their regional file shares. The `rfs` profile is available in the Dallas, Frankfurt, London, Madrid, Osaka, Sydney, Toronto, Tokyo, and Washington, DC regions in this release. Backup for VPC service cannot be used to create second-generation snapshots in this release.
+Customers with special access to preview the second-generation File Storage offering can take snapshots of their regional file shares. The `rfs` profile is available in the Dallas, Frankfurt, London, Madrid, Osaka, Sao Paulo, Sydney, Toronto, Tokyo, and Washington, DC regions in this release.
 
 | Features            | First-generation shares | Second-generation shares |
 |---------------------|--------------------------|---------------------------|

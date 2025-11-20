@@ -2,7 +2,7 @@
 
 copyright:
   years: 2023, 2025
-lastupdated: "2025-08-29"
+lastupdated: "2025-11-20"
 
 keywords: file share, file storage, encryption in transit, Mount Helper, IPsec, secure connection, mount share
 
@@ -23,10 +23,6 @@ IPsec is a group of protocols that together set up encrypted connections betwee
 The IPsec connection requires that you have an X.509 certificate for authentication. X.509 is an international standard format for public key certificates, digital documents that securely associate cryptographic key pairs with identities such as websites, individuals, or organizations. The metadata service is used to create the certificates.
 
 A Certificate Signing Request (CSR) is a block of encoded texts that are forwarded to a certificate authority (CA) when users apply for a certificate. CSR is created on the server where the certificate is to be installed. CSR includes information such as domain name, organization name, locality, and country. The request also contains the public key, which is associated with the certificate that is generated, and the private key. The CA uses only the public key when the certificate is created. The private key must be saved and kept secret. As the private key is part of the key pair with the public key, and the certificate does not work if the private key is lost.
-
-
-Encryption in transit is not supported on {{site.data.keyword.bm_is_short}}.
-{: restriction}
 
 ## Before you begin configuring encryption in transit with IPsec
 {: #file-storage-eit-ipsec-prereq}
