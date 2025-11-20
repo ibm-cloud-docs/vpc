@@ -2,7 +2,7 @@
 
 copyright:
   years: 2025, 2025
-lastupdated: "2025-08-29"
+lastupdated: "2025-11-20"
 
 keywords:
 
@@ -45,21 +45,17 @@ The bare metal server inherits the access rights that are defined in the default
 
 To link a trusted profile to a bare metal server, you must have sufficient authorization. With the correct IAM permissions, you can see all trusted profiles that are linked to a bare metal server in the console.
 
-Verify that your access permissions are assigned as Administrator or Editor:
+Verify that your access permissions are assigned as Administrator or Editor for the IAM Identity Service:
 
 In the console,
 
-1. Go to [Manage access and users](/iam/users){: external}.
-2. Click **Users**, select your name, and click **Access policies**.
+1. Go to **Manage** > **Access** > **Manage identities** > [Users](/iam/users){: external}.
+1. Click **Users**, select your name to display your details.
+1. Click **Access**, and scroll to **Access policies**.
 
-From the API, make a `GET /iam-identity.profile.get` call.
+To create a link to a trusted profile, you need the following IAM access roles: `iam-identity.profile.update` and `iam-identity.profile.linkToResource`.
 
-If you need to update your profile, make these calls:
-
-* `POST /iam-identity.profile.update`
-* `POST /iam-identity.profile.linkToResource`
-
-For more information, see the [IAM API reference](/apidocs/iam-identity-token-api#create-link-permissions).
+For more information, see the [IAM API reference](/apidocs/iam-identity-token-api#create-link).
 
 ## Using trusted profiles for compute resource identities
 {: #metadata-procedure-trusted-profile-bare-metal}

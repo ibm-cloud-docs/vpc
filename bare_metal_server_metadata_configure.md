@@ -2,7 +2,7 @@
 
 copyright:
   years: 2025, 2025
-lastupdated: "2025-10-30"
+lastupdated: "2025-11-20"
 
 keywords:
 
@@ -30,7 +30,7 @@ Windows users have extra requirements to set up the metadata service. For more i
 
 A bare metal server identity access token provides a security credential for accessing the metadata service. It's a signed token with a set of claims based on information about the bare metal server and information that is passed in the token request. The minimum version date to use the bare metal server identity access token feature is 1 March 2022.
 
-To access the bare metal server identity, make a `PUT "https://api.metadata.cloud.ibm.com/i /identity/v1/token` call by using the [Metadata service API](/apidocs/vpc-identity-beta#create-access-token) that invokes the bare metal server hostname. Communication between the bare metal server and metadata service never stops with the host. You acquire the token from within the bare metal server. If `https` secure protocol is not enabled on your bare metal server, you can use your bare metal server IP address instead of the hostname.
+To access the bare metal server identity, make a `PUT "https://api.metadata.cloud.ibm.com/i /identity/v1/token` call by using the [Metadata service API](/apidocs/vpc-identity-beta/initial#create-access-token) that invokes the bare metal server hostname. Communication between the bare metal server and metadata service never stops with the host. You acquire the token from within the bare metal server. If `https` secure protocol is not enabled on your bare metal server, you can use your bare metal server IP address instead of the hostname.
 
 In the request, you specify an expiration time for the token. The default is 5 minutes, but you can specify that it expires sooner or later (5 seconds to 1 hour).
 
