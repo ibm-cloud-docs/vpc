@@ -2,7 +2,7 @@
 
 copyright:
   years: 2018, 2025
-lastupdated: "2025-11-17"
+lastupdated: "2025-11-20"
 
 keywords:
 
@@ -18,10 +18,10 @@ subcollection: vpc
 Known issues are identified bugs or unexpected behaviors that were not fixed before release, but weren’t critical enough to delay it. These issues are communicated to you, often with workarounds, and are prioritized for resolution in the near term by the development team.
 {: shortdesc} 
 
-The following section contain known issues for public and private network load balancers (NLBs). The next section contains known issues for Private Path network load balancers.
+The following section contains known issues for public and private network load balancers (NLBs). The next section contains known issues for Private Path network load balancers.
 {: shortdesc}
 
-## Known issues for Private and Public network load balancers
+## Known issues for private and public network load balancers
 {: #limitations-network-load-balancers}
 
 * An NLB requires the member and port combination to be unique.
@@ -58,7 +58,7 @@ The following section contain known issues for public and private network load b
 * When you configure an ALB as a Private Path NLB member, the Private Path NLB's TCP health check status will always show OK, even if the ALB pool members are faulty. Health check status of ALB should be considered to determine the system health.
 * Access to a Virtual Private Endpoint gateway associated with Private Path Network load balancer from Direct Link or Transit Gateway is not supported.
    * Workaround: Access an ALB that has the VPE as a member. Contact IBM Support for assistance with the details.
-* Private Path network load balancer pool members must be VPC virtual server instances or Reserved IPs in same VPC as the load balancer. If there is a need to reach members outside the VPC (such as on-premises members), an ALB can be defined as member of the Private Path NLB pool and the remote destinations can be defined as ALB members. For more information, see [Connecting an on-premises service to a consumer using an ALB in a Private Path NLB pool](/docs/vpc?topic=vpc-private-path-service-intro&interface=ui#pps-use-case-5).
+* Private Path network load balancer pool members must be VPC virtual server instances or reserved IPs in same VPC as the load balancer. If there is a need to reach members outside the VPC (such as on-premises members), an ALB can be defined as member of the Private Path NLB pool and the remote destinations can be defined as ALB members. For more information, see [Connecting an on-premises service to a consumer using an ALB in a Private Path NLB pool](/docs/vpc?topic=vpc-private-path-service-intro&interface=ui#pps-use-case-5).
 * Access to a Private Path network load balancer from remote regions is not supported. The consumer Virtual Private Endpoint gateway and the Private Path network load balancer instance must reside in same region. 
    * Workaround: Access an ALB in the remote region that has the VPE as member. Contact IBM Support for assistance with the details.
 * Access to Private Path network load balancers from CSE (classic) is not supported.

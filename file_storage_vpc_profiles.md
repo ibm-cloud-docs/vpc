@@ -65,6 +65,17 @@ A single session can achieve up to 64 KB block size transfer. To use the max all
 
 Both profiles in the defined performance family provide resilient file storage with flexible performance characteristics and different data availability.
 
+### Regional availability profile
+{: #rfs-profile}
+
+[Select availability]{: tag-green} The `rfs` profile is the second-generation profile in the defined performance profile family. With this profile, you can create file shares with regional availability. 
+
+Regional data availability means that data is replicated across all 3 zones within the region, offering higher availability and fault tolerance. Due to the synchronous replication between the zones and the need to ensure data durability, you might experience increased latency during write operations. For workloads where latency performance is less critical than durability, or higher and more consistent IOPS is preferred over low latency, the regional shares can be a better choice.
+
+When you create a regional file share, you can specify its capacity between 1 GiB to 32,000 GiB. 800 Mbps is the default allocation for all regional file shares. You can increase the bandwidth from 800 Mbps up to 8192 Mbps for extra cost. After the file share is created, you can adjust the bandwidth between the minimum and the maximum values anytime.
+
+In the select availability release, cross-region asynchronous replication is not supported.
+
 ### Zonal availability profile
 {: #dp2-profile}
 
@@ -93,17 +104,6 @@ Table 2 shows the available IOPS ranges, based on share size.
 {: caption="dp2 file share profile IOPS and capacity ranges." caption-side="top"}
 
 ¹ For the 96,000 IOPS to be realized, a single file share must be accessed by multiple virtual server instances. A single file share that is accessed by one client is limited to 48,000 IOPS.
-
-### Regional availability profile
-{: #rfs-profile}
-
-[Select availability]{: tag-green} The `rfs` profile is the second-generation profile in the defined performance profile family. With this profile, you can create file shares with regional availability. 
-
-Regional data availability means that data is replicated across all 3 zones within the region, offering higher availability and fault tolerance. Due to the synchronous replication between the zones and the need to ensure data durability, you might experience increased latency during write operations. For workloads where latency performance is less critical than durability, or higher and more consistent IOPS is preferred over low latency, the regional shares can be a better choice.
-
-When you create a regional file share, you can specify its capacity between 1 GiB to 32,000 GiB. 800 Mbps is the default allocation for all regional file shares. You can increase the bandwidth from 800 Mbps up to 8192 Mbps for extra cost. After the file share is created, you can adjust the bandwidth between the minimum and the maximum values anytime.
-
-In the select availability release, cross-region asynchronous replication is not supported.
 
 ## Tiered and custom file storage profiles
 {: #fs-v2-profiles}
