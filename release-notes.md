@@ -2,7 +2,7 @@
 
 copyright:
   years: 2019, 2025
-lastupdated: "2025-11-20"
+lastupdated: "2025-11-21"
 
 keywords:
 
@@ -31,7 +31,7 @@ For more information about changes to the {{site.data.keyword.vpc_short}} comman
 {: #vpc-nov2025}
 
 Regional file shares now available in Sao Paulo (Select availability)
-:   Customers with special access can now provision regional file shares can now create and use file shares with regional data availability in Sao Paulo (`br-sao`) MZR.
+:   Customers with special access can now create and use file shares with regional data availability in Sao Paulo (`br-sao`) MZR.
 
 ### 19 November 2025
 {: #vpc-nov1925}
