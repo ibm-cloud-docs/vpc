@@ -2,7 +2,7 @@
 
 copyright:
   years: 2023, 2025
-lastupdated: "2025-11-17"
+lastupdated: "2025-11-21"
 
 keywords:
 
@@ -37,7 +37,7 @@ Review the following planning considerations for the hub VPC:
 Review the following planning considerations for the DNS-shared VPCs:
 
 * You can assign a DNS resolution binding to a hub VPC either by selecting it from a list of VPCs (if the hub VPC exists in the same account), or by entering the hub VPC cloud resource name (CRN) (if the hub VPC exists in another account).
-* If DNS-shared VPCs contain VPE gateways that conflict with the DNS hub VPEs or any of the VPEs shared with its existing DNS-shared VPCs, the DNS-shared VPC must disable the DNS resolution binding for that VPE, before it is created. Similar issues occur if you try to create a conflicting VPE after the DNS resolution binding is created.
+* If DNS-shared VPCs contain VPE gateways that conflict with the hub VPC VPEs or any of the VPEs shared with its existing DNS-shared VPCs, the DNS-shared VPC must disable the DNS resolution binding for that VPE, before it is created. Similar issues occur if you try to create a conflicting VPE after the DNS resolution binding is created.
 * You can enable or disable DNS sharing on each individual endpoint gateway in the DNS-shared VPC.
 * You can view the DNS resolution binding details to get information about the hub VPC, as well as which endpoint gateways in the DNS-shared VPC have DNS sharing enabled. 
 * You cannot create more than one DNS resolution binding for a DNS-shared VPC.
