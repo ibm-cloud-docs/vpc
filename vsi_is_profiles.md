@@ -2,9 +2,9 @@
 
 copyright:
   years: 2019, 2025
-lastupdated: "2025-11-17"
+lastupdated: "2025-11-24"
 
-keywords: vsi, virtual server instances, profile, profiles, balanced, compute, memory, very high memory, ultra high memory, gpu storage optimized, confidential compute
+keywords: vsi, virtual server instances, profile, profiles, balanced, compute, memory, very high memory, ultra high memory, gpu, storage optimized, confidential compute, flex, high frequency
 
 subcollection: vpc
 
@@ -15,7 +15,7 @@ subcollection: vpc
 # x86-64 instance profiles
 {: #profiles}
 
-When you provision {{site.data.keyword.vsi_is_full}}, you can select from seven families of profiles: Balanced, Compute, Memory, Ultra High Memory, Very High Memory, Storage Optimized, and GPU.
+When you provision {{site.data.keyword.vsi_is_full}}, you can select from nine families of profiles: Balanced, Compute, Memory, Very High Memory, Ultra High Memory, GPU, Storage Optimized, Confidential Computing, and Flex.
 
 A profile is a combination of instance attributes, such as the number of vCPUs, amount of RAM, network bandwidth, and default bandwidth allocation. The attributes define the size and capabilities of the virtual server instance that is provisioned. In the {{site.data.keyword.Bluemix_notm}} console, you can select the most recently used profile or click **View All Profiles** to choose the profile that best fits your needs.
 {: shortdesc}

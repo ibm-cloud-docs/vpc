@@ -1,8 +1,8 @@
 ---
 
 copyright:
-  years: 2021, 2023
-lastupdated: "2025-11-04"
+  years: 2021, 2025
+lastupdated: "2025-11-24"
 
 keywords: compute, virtual private cloud, virtual server instance, instance, bandwidth
 
@@ -21,7 +21,7 @@ Instance profiles inform the available instance bandwidth of an instance. The nu
 ## Bandwidth allocation for resources that are attached to an instance
 {: #attached-resources}
 
-When you provision an instance, the total instance bandwidth is allocated between attached storage and networking. The maximum bandwidth capacity is determined by the [x86-64 instance profile](/docs/vpc?topic=vpc-profiles&interface=ui) that you select during instance provisioning. For example, a bx2-2x8 balanced server profile allows a total instance bandwidth of 4 Gbps. 
+When you provision an instance, the total instance bandwidth is allocated between attached storage and networking. The maximum bandwidth capacity is determined by the [x86-64 instance profile](/docs/vpc?topic=vpc-profiles&interface=ui) that you select during instance provisioning. For example, a bx2-2x8 balanced server profile allows a total instance bandwidth of 4 Gbps.
 
 The initial volume and network bandwidth allocation depends on the bandwidth that you set by using the API or by the instance profile you selected. If you do not specify the initial volume and network bandwidth allocation, then 25% of total instance bandwidth is allocated to volume bandwidth and 75% is allocated to network bandwidth. See the following example:
 * Instance bandwidth: 4 Gbps
@@ -56,7 +56,7 @@ Profiles can have a total maximum bandwidth of up to 80 Gbps. That bandwidth is 
 
 For example, if you choose the bx2-32x128 profile, the total bandwidth that is assigned for the instance is 64 Gbps. The default network cap is 48 Gbps for network and 16 Gbps for storage, but this amount can be adjusted. If you use the default bandwidth allocation and a single network interface on the instance, that vNIC has a port speed of 25 Gbps. If two network interfaces are on the system, each network interface has a port speed of 24 Gbps, for a total aggregate network bandwidth for 48 Gbps. The remaining bandwidth (16 Gbps) is allocated to your storage volumes.
 
-The following table illustrates this allocation for three different profile examples. If you are using the same default values that were used for these calculations, you can match other instance profiles to the following table by matching the bandwidth cap value to the overall bandwidth in the table. For more information about instance profiles, including network performance information, see [x86-64 instance profiles](/docs/vpc?topic=vpc-profiles&interface=ui).
+The following table illustrates this allocation for three different Gen 2 profile examples. If you are using the same default values that were used for these calculations, you can match other instance profiles to the following table by matching the bandwidth cap value to the overall bandwidth in the table. For more information about instance profiles, including network performance information, see [x86-64 instance profiles](/docs/vpc?topic=vpc-profiles&interface=ui).
 
 | Profile names | bx2-16x64 | bx2-32x128 | bx2-48-192 |
 |-----|-----|-----|-----|
@@ -66,7 +66,7 @@ The following table illustrates this allocation for three different profile exam
 | vNIC speed with 1 vNIC attached | 24 Gbps | 25 Gbps | 25 Gbps |
 | vNIC speed with 2 vNICs attached | 2x12 Gbps | 2x24 Gbps | 2x25 Gbps |
 | vNIC speed with 3 vNICs attached | 3x8 Gbps | 3x16 Gbps | 3x20 Gbps |
-{: caption="Example profile bandwidth" caption-side="bottom"}
+{: caption="Example profile bandwidth for Gen 2 profiles" caption-side="bottom"}
 
 The network bandwidth cap applies separately to egress (transmitted) and ingress (received) traffic. That is, even if an instance that is capped at 4 Gbps reaches its transmit cap of 4 Gbps it can still receive up to its ingress cap of 4 Gbps.
 
