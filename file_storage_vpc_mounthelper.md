@@ -2,7 +2,7 @@
 
 copyright:
   years: 2023, 2025
-lastupdated: "2025-10-31"
+lastupdated: "2025-12-01"
 
 keywords: file share, file storage, encryption in transit, Mount Helper, IPsec, secure connection, mount share
 
@@ -32,7 +32,7 @@ The utility uses strongSwan and [`swanctl`](https://docs.strongswan.org/docs/5.9
 
 The Mount Helper makes new certificate requests every 45 minutes, as the lifetime of the certificate is 1 hour. The new certificate is generated before the old certificate expires to ensure seamless connection. The certificates are generated with the shorter life span for security reasons.
 
-You can use the utility for encrypted or unencrypted connections. For encrypted connections, the Mount Helper uses the metadata service protocol option that is set to either `http` or `https`. For more information, see the API reference for `metadata_service` option of [instance provisioning](/apidocs/vpc/latest#create-instance) and [bare metal server provisioning](/apidocs/latest#create-bare-metal-server).
+You can use the utility for encrypted or unencrypted connections. For encrypted connections, the Mount Helper uses the metadata service protocol option that is set to either `http` or `https`. For more information, see the API reference for `metadata_service` option of [instance provisioning](/apidocs/vpc/latest#create-instance) and [bare metal server provisioning](/apidocs/vpc/latest#create-bare-metal-server).
 
 ### Stunnel secure connection for regional shares
 {: #fs-eit-stunnel-requirements}
