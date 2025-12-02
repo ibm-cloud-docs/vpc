@@ -54,6 +54,14 @@ At this time, all instances, and therefore all instance templates, continue to r
 The new response code will be rolled out gradually. Each phase of the rollout will be tied to a dated API version. These changes will be announced in future change log updates.
 {: note}
 
+## 2 December 2025
+{: #2-December-2025}
+
+### For all version dates
+{: #2-december-2025-all-version-dates}
+
+**New filters for instance collections.** When [listing instances](/apidocs/vpc/latest#list-instances), you can now filter the collection to instances with a specified  `instance_group_membership.instance_group.id` or `instance_group_membership.instance_group.crn`.
+
 ## 18 November 2025
 {: #18-november-2025}
 
