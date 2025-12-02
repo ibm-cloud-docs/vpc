@@ -2,7 +2,7 @@
 
 copyright:
   years: 2020, 2025
-lastupdated: "2025-11-19"
+lastupdated: "2025-12-02"
 
 keywords:
 
@@ -717,6 +717,8 @@ resource "ibm_is_vpn_gateway_connection" "is_vpn_gateway_connection" {
 }
 ```
 {: codeblock}
+
+
 
 
 For more information, see the [Terraform registry](https://registry.terraform.io/providers/IBM-Cloud/ibm/latest/docs/resources/is_vpn_gateway_connection){: external}.
