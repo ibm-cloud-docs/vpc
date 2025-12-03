@@ -2,7 +2,7 @@
 
 copyright:
   years: 2022, 2025
-lastupdated: "2025-10-23"
+lastupdated: "2025-12-03"
 
 keywords: confidential computing, secure execution, hpcr, contract, customization, env, workload, encryption, attestation, validating
 
@@ -65,7 +65,7 @@ Complete the following steps on an Ubuntu system to validate the encryption cert
    ```
    {: pre}
 
-3. Complete the following steps to verify the signature of the attestation certificate document:
+3. Complete the following steps to verify the signature of the encryption certificate document:
 
    1. Extract the public signing key into a file. In the following example, the file is called `pubkey.pem`:
 
@@ -74,7 +74,7 @@ Complete the following steps on an Ubuntu system to validate the encryption cert
       ```
       {: pre}
 
-   2. Extract the encryption key signature from the encryption certificate document.
+   2. Extract the encryption key signature from the encryption certificate document. To download the encryption certificate, visit [Downloading the encryption certificate and extracting the public key](/docs/vpc?topic=vpc-about-contract_se#encrypt_downloadcert).
       The following command returns the offset value of the signature:
 
       ```sh
@@ -136,7 +136,14 @@ Complete the following steps on an Ubuntu system to validate the attestation cer
    ```
    {: pre}
 
-3. Complete the following steps to verify the signature of the encrypted certificate document:
+   If the `OpenSSL` command fails to execute, download the [CRL](http://crl3.digicert.com/DigiCertTrustedG4CodeSigningRSA4096SHA3842021CA1.crl) and verify certificate manually by using the following command:
+
+   ```sh
+   openssl verify -untrusted DigiCertTrustedG4CodeSigningRSA4096SHA3842021CA1.crt.pem -CRLfile DigiCertTrustedG4CodeSigningRSA4096SHA3842021CA1.crl ibm-hyper-protect-container-runtime-1-0-s390x-24-intermediate.crt
+   ```
+   {: pre}
+
+3. Complete the following steps to verify the signature of the attestation certificate document:
    1. Extract the public signing key into a file. In the following example, the file is called `pubkey.pem`:
 
       ```sh
@@ -144,7 +151,7 @@ Complete the following steps on an Ubuntu system to validate the attestation cer
       ```
       {: pre}
 
-   2. Extract the attestation key signature from the attestation certificate document.
+   2. Extract the attestation key signature from the attestation certificate document. For downloading the attestation certificate, visit [Attestation](/docs/vpc?topic=vpc-about-attestation).
       The following command returns the offset value of the signature:
 
       ```sh
@@ -196,7 +203,7 @@ The certificates contain **Certificate Revocation List (CRL) Distribution Points
 
    ```Sh
    openssl x509 -in "ibm-hyper-protect-container-runtime-1-0-s390x-24-encrypt.crt" -noout -ext crlDistributionPoints
-   crl_url= https://ibm.biz/hyper-protect-container-runtime-0b8907-crl-1 # (example)
+   crl_url=https://ibm.biz/hyper-protect-container-runtime-0b8907-crl-1 # (example)
    curl --location --silent "$crl_url" --output "ibm-hyper-protect-container-runtime.crl"
    ```
    {: pre}
