@@ -8,6 +8,7 @@ keywords: backup planning, restore volume, restore data
 
 subcollection: vpc
 
+ai-gen-assist: wca
 ---
 
 {{site.data.keyword.attribute-definition-list}}
