@@ -2,7 +2,7 @@
 
 copyright:
   years: 2022, 2025
-lastupdated: "2025-09-19"
+lastupdated: "2025-12-03"
 
 keywords: backup planning, restore volume, restore data
 
@@ -29,7 +29,7 @@ Consider the following prerequisites before you set up the VPC Backup Service.
 | Enterprise-level backups | Make sure that all [Service-to-service authorizations](/docs/vpc?topic=vpc-backup-s2s-auth) are in place for the services in the child account and the enterprise account. If the authorization is missing in any one of the child accounts, the backup service generates an {{site.data.keyword.at_full}} event and marks the policy health degraded.|
 | Volumes | Evaluate which volumes are most important to back up. You can create backups of boot and data volumes. A volume with numerous changes and a lengthy retention period requires more attention than a volume with moderate changes. Also, the cumulative size of all backups for a volume can't exceed 10 TB. |
 | Shares  | Evaluate which shares are most important to back up. A file share with numerous changes and a lengthy retention period requires more attention than a share with moderate changes. Also, the cumulative size of all snapshots and backups for a share can't exceed 100 TB. Snapshots are not supported for shares that have "VPC" access control mode. |
-| Multi-volume consistency groups | You can create backups of multiple Block Storage volumes that are attached to the same virtual server. When you create backups this way, you tag the virtual server instance. You can choose to include the boot volume in the backup or leave it out. |
+| Multi-volume consistency groups | You can create backups of multiple Block Storage volumes that are attached to the same virtual server. When you create backups this way, you tag the virtual server instance. You can choose to include the boot volume in the backup or exclude it. |
 | Backup schedule | Determine a backup schedule based on the type of resources that you're backing up. For example, you might want to back up critical data that changes frequently more often than static data. |
 | Retention | Determine a retention policy for backups in the backup plan. As subsequent backups are created, you incur costs for each backup that you retain. Deleting older backups keeps costs down. \n The interval for creating a backup and its retention period can be the same or they can be different. The default retention period is 30 days. The maximum retention period is 1000 days. You can also set the total number of backups to retain up to 750 per volume or share. When that number is exceeded, the oldest backups are deleted. If you specify both the age and the number of backups, age takes priority in determining when to delete a snapshot. The count applies only if the oldest snapshot is within the age range. For more information, see [Backup policies and backup plans](/docs/vpc?topic=vpc-backup-service-about&interface=ui#backup-service-policies).|
 | Backup plans | Decide on the number of backup plans that you need for a policy. For example, you can have separate plans for daily backups, weekly, and monthly. |
