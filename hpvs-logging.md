@@ -2,7 +2,7 @@
 
 copyright:
   years: 2022, 2025
-lastupdated: "2025-11-05"
+lastupdated: "2025-12-03"
 
 keywords: confidential computing, secure execution, logging for hyper protect virtual server for vpc
 
@@ -135,7 +135,7 @@ For more information, see [Managing {{site.data.keyword.logs_full_notm}} logging
 You can also configure logging with a generic [syslog backend](https://datatracker.ietf.org/doc/html/rfc5424) such as an [rsyslog](https://www.rsyslog.com/) server or a [Logstash](https://www.elastic.co/logstash/) server. The {{site.data.keyword.hpvs}} for VPC instance uses TLS with [mutual authentication](https://en.wikipedia.org/wiki/Mutual_authentication) to connect to the logging backend. Find the following pieces of information to configure logging:
 
 - Syslog hostname
-- [Optional] port and it defaults to 514
+- [Optional] port and it defaults to 6514
 - Certificate Authority (CA) - the certificate used to verify the certificate chain both for client and server authentication. Note that the same CA must be used for both the client and server certificates.
 - Client certificate - used to prove the client to the server, signed by the CA
 - Client key - private key used by the virtual server instance to establish trust
@@ -346,7 +346,26 @@ env:
 
 Use the content of the following files in preparation to fill in the placeholders:
 
-${Base64 encoded CA} - Get ca.crt from preparation step 1 and run cat ca.crt | Base64 -w0 ${CLIENT_CERTIFICATE} - Get client.crt from preparation step 3 and run cat client.crt | Base64 -w0 ${CLIENT_PRIVATE_KEY} - Get client-key-pkcs8.pem from preparation step 3 and run cat client-key-pkcs8.pem | Base64 -w0
+- ${Base64 encoded CA} - Get ca.crt from preparation step 1 and run:
+
+   ```bash
+   cat ca.crt | Base64 -w0 
+   ```
+   {: codeblock}
+
+- ${CLIENT_CERTIFICATE} - Get client.crt from preparation step 3 and run:
+
+   ```bash
+   cat client.crt | Base64 -w0 
+   ```
+   {: codeblock}
+
+- ${CLIENT_PRIVATE_KEY} - Get client-key-pkcs8.pem from preparation step 3 and run:
+
+   ```bash
+   cat client-key-pkcs8.pem | Base64 -w0
+   ```
+   {: codeblock}
 
 For example:
 
