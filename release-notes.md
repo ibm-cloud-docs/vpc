@@ -32,7 +32,6 @@ For more information about changes to the {{site.data.keyword.vpc_short}} comman
 {: release-note}
 
 IBM Hyper Protect Container Runtime image `ibm-hyper-protect-container-runtime-1-0-s390x-25` updates
-
 :   For the IBM Hyper Protect Container Runtime image version `ibm-hyper-protect-container-runtime-1-0-s390x-25`, new attestation certificate is available. For more information, see [Attestation certificate](/docs/vpc?topic=vpc-about-attestation).
 
 ## November 2025
