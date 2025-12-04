@@ -2,7 +2,7 @@
 
 copyright:
   years: 2022, 2025
-lastupdated: "2025-10-29"
+lastupdated: "2025-12-04"
 
 keywords:
 
@@ -85,11 +85,3 @@ Consider the following options for controlling network traffic to your virtual s
 * Use IBM Cloud [flow Logs](/docs/vpc?topic=vpc-flow-logs) on the VPC to monitor the traffic that reaches your instances.
 
 * [Enable secure access](/docs/vpc?topic=vpc-imd-configure-service&interface=ui#secure-access-ui) to the metadata service. When secure access is enabled, the metadata service is accessible only to the virtual server instance by encrypted HTTP secure protocol (HTTPS).
-
-## Manage security and compliance with VPC Infrastructure Services
-{: #imd-compliance}
-
-[{{site.data.keyword.compliance_short}}](/docs/security-compliance?topic=security-compliance-getting-started) can help you monitor your VPC infrastructure to validate resource configurations in your account against a profile and identify potential issues as they arise.
-
-On 15 Dec 2025, {{site.data.keyword.compliance_short}} reaches end of support. The existing service instances become non-functional on that date. Start your transition now to {{site.data.keyword.compliance_short}} {{site.data.keyword.sysdigsecure_short}}, which is readily available and offers advanced cloud security posture management (CSPM). For more information, see [Transitioning to {{site.data.keyword.compliance_short}} {{site.data.keyword.sysdigsecure_short}}](/docs/security-compliance?topic=security-compliance-scc-transition).
-{: deprecated}

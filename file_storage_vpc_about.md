@@ -2,7 +2,7 @@
 
 copyright:
   years: 2021, 2025
-lastupdated: "2025-11-20"
+lastupdated: "2025-12-04"
 
 keywords: file share, mount target, virtual network interface, customer-managed encryption, encryption at rest, encryption in transit, file storage, share,
 
@@ -241,16 +241,6 @@ All mount targets created for a single file share must use the same transit encr
 For more information about sharing and mounting a file share from another {{site.data.keyword.cloud}} account or VPC, see [Sharing and mounting a file share from another account](/docs/vpc?topic=vpc-file-storage-accessor-create&interface=ui).
 
 Sharing a file share with other accounts or services is not supported for zonal file shares with VPC-wide access mode.
-
-### Managing security and compliance
-{: #fs-vpc-manage-security}
-
-{{site.data.keyword.filestorage_vpc_short}} is integrated with the {{site.data.keyword.compliance_short}} to help you manage security and compliance for your organization. You can set up goals that check whether file shares are encrypted by using customer-managed keys. By using the {{site.data.keyword.compliance_short}} to validate the file service configurations in your account against a profile, you can identify potential issues as they arise.
-
-For more information, see [Getting started with Security and Compliance Center](/docs/security-compliance?topic=security-compliance-getting-started). For more information about creating security and compliance goals, see [Defining rules](/docs/security-compliance?topic=security-compliance-rules-define&interface=ui) in the Security and Compliance documentation.
-
-On 15 Dec 2025, {{site.data.keyword.compliance_short}} reaches end of support. The existing service instances become non-functional on that date. Start your transition now to {{site.data.keyword.compliance_short}} {{site.data.keyword.sysdigsecure_short}}, which is readily available and offers advanced cloud security posture management (CSPM). For more information, see [Transitioning to {{site.data.keyword.compliance_short}} {{site.data.keyword.sysdigsecure_short}}](/docs/security-compliance?topic=security-compliance-scc-transition).
-{: deprecated}
 
 ### Activity tracking events
 {: #fs-activity-tracking-events}

@@ -2,7 +2,7 @@
 
 copyright:
   years: 2022, 2025
-lastupdated: "2025-10-31"
+lastupdated: "2025-12-04"
 
 keywords: snapshots, Block Storage, volumes, cross-regional snapshot, restore volume, copy snapshot
 
@@ -179,16 +179,6 @@ For more information, see the [best practices for assigning access](/docs/accoun
 {: #bs-snapshot-encryption}
 
 The snapshot has the same encryption type and encryption key as the parent volume (customer-managed or provider-managed). Snapshots are stored and retrieved from the regional storage repository. Data is encrypted while in transit and stored in the same region as the original volume.
-
-### Managing security and compliance
-{: #snapshots-vpc-manage-security}
-
-The Snapshot for VPC service is integrated with the {{site.data.keyword.compliance_full}} to help you manage security and compliance for your organization. For snapshots, you can set up a goal that checks whether snapshots are encrypted by using customer-managed keys. By using the {{site.data.keyword.compliance_short}} to validate the snapshot resource configurations in your account against a profile, you can identify potential issues as they arise.
-
-Because snapshots are created from {{site.data.keyword.block_storage_is_short}} volumes, {{site.data.keyword.block_storage_is_short}} goals provide an extra level of security. For more information, see [Getting started with Security and Compliance Center](/docs/security-compliance?topic=security-compliance-getting-started). For more information about creating security and compliance goals, see [Defining rules](/docs/security-compliance?topic=security-compliance-rules-define&interface=ui) in the Security and Compliance Documentation.
-
-On 15 Dec 2025, {{site.data.keyword.compliance_short}} reaches end of support. The existing service instances become non-functional on that date. Start your transition now to {{site.data.keyword.compliance_short}} {{site.data.keyword.sysdigsecure_short}}, which is readily available and offers advanced cloud security posture management (CSPM). For more information, see [Transitioning to {{site.data.keyword.compliance_short}} {{site.data.keyword.sysdigsecure_short}}](/docs/security-compliance?topic=security-compliance-scc-transition).
-{: deprecated}
 
 ### Activity tracking events
 {: #bs-snapshot-activity-tracking-events}

@@ -2,7 +2,7 @@
 
 copyright:
   years: 2022, 2025
-lastupdated: "2025-09-30"
+lastupdated: "2025-12-04"
 
 keywords: Block Storage, snapshots, cross-regional copy, fast restore, backup, restore volume
 
@@ -50,7 +50,7 @@ A [fast restore snapshot](/docs/vpc?topic=vpc-snapshots-vpc-restore&interface=ui
 
 You can copy a snapshot from one region to another region, and later use that snapshot to restore a volume in the new region. This feature can be used in disaster recovery scenarios when you need to start your virtual server instance and data volumes in a different region. Or you can use the remote copy to create storage volumes in a new region to expand your VPC. For more information, see [Cross-regional snapshot copies](/docs/vpc?topic=vpc-snapshots-vpc-about&interface=ui#snapshots_vpc_crossregion_copy).
 
-In this release of second-generation storage volumes, you can't create cross-regional copies of snapshots if their source volumes exceed 10 TB.
+[Beta]{: tag-cyan} Customers with special access can create cross-regional copies of the second-generation volume backups if the source volume exceeds 10 TB. This feature is not generally available yet.
 
 ## What is the retention policy for cross-regional copies?
 {: faq}

@@ -2,7 +2,7 @@
 
 copyright:
   years: 2019, 2025
-lastupdated: "2025-10-29"
+lastupdated: "2025-12-04"
 
 keywords:
 
@@ -134,16 +134,6 @@ You can also choose to protect your volumes by creating an envelop encryption wi
 Your data is protected while at rest, and also in transit from the storage to the hypervisor and host. After you set up the encryption type for a boot or data volume, you can't change it.
 
 For more information about data encryption, see [About data encryption for VPC](/docs/vpc?topic=vpc-vpc-encryption-about).
-
-### Managing security and compliance
-{: #block-storage-vpc-manage-security}
-
-{{site.data.keyword.block_storage_is_short}} is integrated with the {{site.data.keyword.compliance_short}} to help you manage security and compliance for your organization. You can set up goals that check whether volumes are encrypted by using customer-managed keys. By using the {{site.data.keyword.compliance_short}} to validate the {{site.data.keyword.block_storage_is_short}} configurations in your account against a profile, you can identify potential issues as they arise.
-
-For more information about monitoring security and compliance for VPC, see [Getting started with Security and Compliance Center](/docs/security-compliance?topic=security-compliance-getting-started). For more information about creating security and compliance goals, see [Defining rules](/docs/security-compliance?topic=security-compliance-rules-define&interface=ui) in the Security and Compliance documentation.
-
-On 15 Dec 2025, {{site.data.keyword.compliance_short}} reaches end of support. The existing service instances become non-functional on that date. Start your transition now to {{site.data.keyword.compliance_short}} {{site.data.keyword.sysdigsecure_short}}, which is readily available and offers advanced cloud security posture management (CSPM). For more information, see [Transitioning to {{site.data.keyword.compliance_short}} {{site.data.keyword.sysdigsecure_short}}](/docs/security-compliance?topic=security-compliance-scc-transition).
-{: deprecated}
 
 ### Activity tracking events
 {: #bs-activity-tracking-events}

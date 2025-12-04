@@ -34,6 +34,9 @@ For more information about changes to the {{site.data.keyword.vpc_short}} comman
 IBM Hyper Protect Container Runtime image `ibm-hyper-protect-container-runtime-1-0-s390x-25` updates
 :   For the IBM Hyper Protect Container Runtime image version `ibm-hyper-protect-container-runtime-1-0-s390x-25`, new attestation certificate is available. For more information, see [Attestation certificate](/docs/vpc?topic=vpc-about-attestation).
 
+Cross-regional copy of snapshots 10 TB+ (beta)
+:   Customers with special access can now create cross-regional copies of snapshots of second-generation storage volumes that exceed 10 TB. Such cross-regional copies can be created on-demand in the console, from the CLI, with the API, or Terraform or on-schedule with the Backup for VPC service. For more information, see [About Block Storage for VPC snapshots](/docs/vpc?topic=vpc-snapshots-vpc-about&interface=ui#snapshots_vpc_crossregion_copy).
+
 ## November 2025
 {: #vpc-nov25}
 

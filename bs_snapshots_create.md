@@ -2,7 +2,7 @@
 
 copyright:
   years: 2021, 2025
-lastupdated: "2025-11-07"
+lastupdated: "2025-12-04"
 
 keywords: snapshots, Block Storage, snapshot clone, remote copy, fast restore, Block Storage snapshot, cross-regional snapshot
 
@@ -18,7 +18,9 @@ subcollection: vpc
 With the UI, CLI, API, or Terraform, you can create a snapshot of a first-generation {{site.data.keyword.block_storage_is_short}} volume that is attached to a running virtual server instance. You can create a snapshot of a boot or a data volume. If the volume is not attached to a server instance, you can't create a snapshot of it.
 {: shortdesc}
 
-In the current release of second-generation block storage volumes, you can take a snapshot of a second-generation storage volume even if it is not attached to a running virtual server instance. The feature is available in Dallas (`us-south`), Frankfurt (`eu-de`), London (`eu-gb`), Madrid (`eu-es`), Osaka (`js-osa`), Sao Paulo (`br-sao`), Sydney (`au-syd`), Tokyo (`jp-tok`), Toronto (`ca-tor`), and Washington (`us-east`) regions. Consistency group snapshots, and cross-regional snapshot copies of volumes that exceed 10 TB are not supported.
+In the current release of second-generation block storage volumes, you can take a snapshot of a second-generation storage volume even if it is not attached to a running virtual server instance. The feature is available in Dallas (`us-south`), Frankfurt (`eu-de`), London (`eu-gb`), Madrid (`eu-es`), Osaka (`js-osa`), Sao Paulo (`br-sao`), Sydney (`au-syd`), Tokyo (`jp-tok`), Toronto (`ca-tor`), and Washington (`us-east`) regions. Consistency group snapshots are not supported. 
+
+[Beta]{: tag-cyan} Customers with special access can create cross-regional copies of the second-generation volume backups if the source volume exceeds 10 TB.
 
 Before you take a snapshot, make sure that all cached data is present on disk, especially when you're taking a snapshot of instances with Windows and Linux&reg; operating systems. For example, on Linux&reg; operating systems, run the `sync` command to force an immediate write of all cached data to disk.
 {: note}
@@ -93,7 +95,7 @@ In the previous section, you saw how to create a cross-regional snapshot copy wh
 1. Click the Actions menu ![Actions icon](../icons/action-menu-icon.svg "Actions") and select **Copy snapshot**.
 1. Select the region where you want to create the copy.
 
-   In the current release, you can't create a cross-regional copy of a second-generation snapshot if the source volume exceeds 10 TB.
+   In the current release, only accounts with special access can create a cross-regional copy of a second-generation snapshot if the source volume exceeds 10 TB.
    {: restriction}
 
 1. Click **Create**.
