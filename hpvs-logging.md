@@ -2,7 +2,7 @@
 
 copyright:
   years: 2022, 2025
-lastupdated: "2025-12-03"
+lastupdated: "2025-12-04"
 
 keywords: confidential computing, secure execution, logging for hyper protect virtual server for vpc
 
@@ -346,21 +346,21 @@ env:
 
 Use the content of the following files in preparation to fill in the placeholders:
 
-- ${Base64 encoded CA} - Get ca.crt from preparation step 1 and run:
+- `${Base64 encoded CA}` - Get `ca.crt` from preparation step 1 and run:
 
    ```bash
    cat ca.crt | Base64 -w0 
    ```
    {: codeblock}
 
-- ${CLIENT_CERTIFICATE} - Get client.crt from preparation step 3 and run:
+- `${CLIENT_CERTIFICATE}` - Get `client.crt` from preparation step 3 and run:
 
    ```bash
    cat client.crt | Base64 -w0 
    ```
    {: codeblock}
 
-- ${CLIENT_PRIVATE_KEY} - Get client-key-pkcs8.pem from preparation step 3 and run:
+- `${CLIENT_PRIVATE_KEY}` - Get `client-key-pkcs8.pem` from preparation step 3 and run:
 
    ```bash
    cat client-key-pkcs8.pem | Base64 -w0
