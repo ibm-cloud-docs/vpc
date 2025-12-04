@@ -3,7 +3,7 @@
 copyright:
   years: 2018, 2022
 
-lastupdated: "2025-10-28"
+lastupdated: "2025-12-03"
 
 keywords:
 
@@ -20,7 +20,8 @@ subcollection: vpc
 The default security group is similar to any other security group, with the exception that it cannot be deleted.
 {: shortdesc}
 
-When you create a VPC, the system creates a default security group for the VPC with two rules:
+
+When you create a VPC, the system creates a default security group for the VPC, with two rules:
 
 * A rule to allow inbound ICMP, TCP and UDP traffic from any member of this security group (that is, all other resources that are attached to this security group)
 * A rule to allow outbound ICMP, TCP and UDP traffic to any destination
