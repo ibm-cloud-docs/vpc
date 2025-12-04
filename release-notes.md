@@ -2,7 +2,7 @@
 
 copyright:
   years: 2019, 2025
-lastupdated: "2025-11-21"
+lastupdated: "2025-12-04"
 
 keywords:
 
@@ -23,6 +23,17 @@ Use the release notes to learn the latest updates to {{site.data.keyword.vpc_ful
 For more information about changes to the {{site.data.keyword.vpc_short}} API, see [{{site.data.keyword.vpc_short}} API change log](/docs/vpc?topic=vpc-api-change-log).
 
 For more information about changes to the {{site.data.keyword.vpc_short}} command-line interface (CLI), see [{{site.data.keyword.vpc_short}} CLI release notes](/docs/vpc?topic=vpc-vpc-cli-rn).
+
+## December 2025
+{: #vpc-dec25}
+
+### 04 December 2025
+{: #vpc-dec0425}
+{: release-note}
+
+IBM Hyper Protect Container Runtime image `ibm-hyper-protect-container-runtime-1-0-s390x-25` updates
+
+:   For the IBM Hyper Protect Container Runtime image version `ibm-hyper-protect-container-runtime-1-0-s390x-25`, new attestation certificate is available. For more information, see [Attestation certificate](/docs/vpc?topic=vpc-about-attestation).
 
 ## November 2025
 {: #vpc-nov25}
