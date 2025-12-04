@@ -154,7 +154,7 @@ You can use your snapshots and backups to create volumes when an emergency occur
 
 You can copy a snapshot from one region to another region, and later use that snapshot to restore a volume in the new region. Only one copy of the snapshot can exist in each region. You can't create a copy of the snapshot in the source (local) region.
 
-In this release of second-generation storage volumes, cross-regional copies of snapshots of volumes that exceed 10 TB are not supported.
+In this release of second-generation storage volumes, cross-regional copies of snapshots of volumes that exceed 10 TB are supported only for allow-listed [beta]{: tag-cyan} customers.
 
 ## What is a consistency group?
 {: faq}
