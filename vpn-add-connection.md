@@ -2,7 +2,7 @@
 
 copyright:
   years: 2020, 2025
-lastupdated: "2025-12-02"
+lastupdated: "2025-12-04"
 
 keywords:
 
@@ -718,8 +718,51 @@ resource "ibm_is_vpn_gateway_connection" "is_vpn_gateway_connection" {
 ```
 {: codeblock}
 
+The following Terraform example creates a dynamic VPN connection for a route-based VPN gateway with BGP:
 
+```terraform
+resource "ibm_is_vpn_gateway" "example" {
+  name      = "example-vpn-gateway"
+  subnet    = ibm_is_subnet.example.id
+  mode      = "route"
+  local_asn = 64522
+}
+resource "ibm_is_vpn_gateway_connection" "example" {
+  name               = "example-vpn-gateway-connection"
+  vpn_gateway        = ibm_is_vpn_gateway.example.id
+  preshared_key      = "VPNDemoPassword"
+  distribute_traffic = true
+  routing_protocol   = "bgp"
+  local {
+    ike_identities {
+      type  = "fqdn"
+      value = "fqdn.example.com"
+    }
+    ike_identities {
+      type  = "fqdn"
+      value = "fqdn.example.com"
+    }
+  }
+  peer {
+    ike_identity {
+      type  = "fqdn"
+      value = "example.fqdn.com"
+    }
+    fqdn = "peer-vpn.example.com"
+    asn  = 65534
+  }
+  tunnel {
+    neighbor_ip         = "192.168.1.8"
+    tunnel_interface_ip = "10.0.0.8"
+  }
+  tunnel {
+    neighbor_ip         = "192.168.1.6"
+    tunnel_interface_ip = "10.0.0.6"
+  }
+}
 
+```
+{: codeblock}
 
 For more information, see the [Terraform registry](https://registry.terraform.io/providers/IBM-Cloud/ibm/latest/docs/resources/is_vpn_gateway_connection){: external}.
 
