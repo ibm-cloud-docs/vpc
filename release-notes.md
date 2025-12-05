@@ -2,7 +2,7 @@
 
 copyright:
   years: 2019, 2025
-lastupdated: "2025-12-04"
+lastupdated: "2025-12-05"
 
 keywords:
 
@@ -26,6 +26,13 @@ For more information about changes to the {{site.data.keyword.vpc_short}} comman
 
 ## December 2025
 {: #vpc-dec25}
+
+### 05 December 2025
+{: #vpc-dec0525}
+{: release-note}
+
+Names for security group rules
+:   You can now assign a name to a security group rule. Each rule must have a name that is unique within its security group. If you don’t provide one, the system generates a default name that you can update later. Existing rules (and the default rules created with a new VPC) now have system-assigned names. For more information, see [Defining security group rules](/docs/vpc?topic=vpc-using-security-groups#defining-security-group-rules).
 
 ### 04 December 2025
 {: #vpc-dec0425}
