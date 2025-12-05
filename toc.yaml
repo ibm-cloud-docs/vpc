@@ -544,7 +544,7 @@ toc:
           - vpe-planning.md
           - vpe-configure-acls.md
           - topicgroup:
-              id: managing-access-policies
+              id: create-endpoint-gateway
               label: Creating an endpoint gateway
               topics:
               - vpe-create.md
