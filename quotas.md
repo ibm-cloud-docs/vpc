@@ -2,7 +2,7 @@
 
 copyright:
   years: 2018, 2025
-lastupdated: "2025-11-06"
+lastupdated: "2025-12-05"
 
 keywords:
 
@@ -40,9 +40,6 @@ To increase a quota for a particular resource, [contact support](/unifiedsupport
 | Dedicated host groups | 100 per region |
 | Storage optimized (ox2) instance storage | 96 TB per region |
 {: caption="Quotas for virtual server instances" caption-side="bottom"}
-
-
-
 
 When you provision virtual server instances dedicated hosts, the vCPU, RAM, and solid-state drives, which are associated with the instances count toward the vCPU, RAM, and instance storage quotas per region. Instances that are provisioned on dedicated hosts do not count against the vCPU quota. For more information, see [About instance storage](/docs/vpc?topic=vpc-instance-storage).
 
@@ -93,6 +90,14 @@ Bare metal servers use physical cores and don't count toward your vCPU quota.
 | Maximum number of cluster network subnets per cluster network | 32 |
 | Maximum number of cluster network subnet reserved IP addresses per account | 5000 |
 {: caption="Quotas for cluster networks" caption-side="bottom"}
+
+### Floating IPs
+{: #fips-quotas}
+
+| Resource | Quota |
+|--------|-----|
+| Floating IP addresses | 40 per zone |
+{: caption="Quotas for floating IPs" caption-side="bottom"}
 
 ### Network load balancers
 {: #nlb-quotas}
