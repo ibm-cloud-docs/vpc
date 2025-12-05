@@ -56,7 +56,7 @@ Bare metal servers use physical cores and don't count toward your vCPU quota.
 | Virtual private clouds | 10 per region|
 | Subnets | 100 per VPC |
 | Address prefixes | 25 per VPC |
-| Service IP | 1 per zone per VPC |
+| Service IPs | 1 per zone per VPC |
 {: caption="Quotas for the VPC service" caption-side="bottom"}
 
 ### Access control lists
