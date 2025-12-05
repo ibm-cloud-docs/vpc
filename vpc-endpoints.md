@@ -102,7 +102,7 @@ To allocate additional SNAT IPs for a service gateway, follow these steps:
 1. After the new SNAT IP is allocated, you are notified through the support case response. Add this address to any required allowlists so that traffic from that SNAT IP is accepted by your backend.
 1. Open another support case to activate the SNAT IP. After activation, the new SNAT IP becomes available for use with the service gateway.
 
-You can request up to 10 secondary SNAT IPs per account. This limit includes both active and inactive SNAT IPs. 
+You can request up to 10 secondary SNAT IPs per account. This limit includes both active and inactive SNAT IPs. [Quotas and service limits](/docs/vpc?topic=vpc-quotas&q=service+gateway&tags=vpc#vpc-quotas)
 {: attention}
 
 ## IaaS endpoints
