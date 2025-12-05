@@ -3,7 +3,7 @@
 copyright:
   years: 2019, 2025
 
-lastupdated: "2025-11-05"
+lastupdated: "2025-12-05"
 
 keywords: CSE, endpoint, service, DNS, resolver, mirror, object, storage, bandwidth, charges
 
@@ -73,17 +73,37 @@ After resources are created and accessible in your VPC, you're ready to run work
 Although the addresses for these endpoints look as if they communicate through the public internet, traffic to and from these endpoints doesn't leave {{site.data.keyword.cloud_notm}}. Therefore, this traffic avoids the bandwidth charges associated with traffic that exits the cloud and goes onto the public internet.
 
 ## Service endpoints
-{: #cloud-service-endpoints}
+{: #service-endpoints}
+ 
+Use service endpoints to securely connect to IBM Cloud services over the IBM Cloud private network.
+{: shortdesc}
 
-Use service endpoints to securely connect to {{site.data.keyword.cloud_notm}} services over the {{site.data.keyword.cloud_notm}} private network. These endpoints are available through DNS (Domain Name System) names in the `cloud.ibm.com` domain and resolve to `166.8.0.0/14` addresses.
+Service endpoints are DNS host names in the `cloud.ibm.com` domain that resolve to IP addresses in the `166.8.0.0/14` range. These endpoints enable private network connectivity between resources in your VPC and supported IBM Cloud services, without using the internet.
 
-Traffic to and from service endpoints are subject to ACL and security group rules. In other words, these mechanisms can be used in cases where you want to limit what virtual server instances use a particular service endpoint.
+Each VPC automatically includes a service gateway in every zone. The service gateway provides the network path for private service endpoint traffic by using a source network address translation (SNAT) IP that is allowlisted to access the IBM Cloud service backend. When a virtual server instance connects to a service endpoint, the gateway translates the virtual server's private IP address to this SNAT IP, ensuring that the communication remains on the IBM Cloud private network.
 
-VPCs are automatically able to reach service endpoints. For more information about service endpoints, see [Services that support service endpoints](/docs/account?topic=account-vrf-service-endpoint#use-service-endpoint). After you provision a service as a private endpoint, ping the endpoint from your virtual server instance to verify that the endpoint is reachable.
+Traffic to and from service endpoints is subject to access control list (ACL) and security group rules. You can use these controls to limit which virtual servers in your VPC are allowed to connect to specific service endpoints.
 
-You can also use {{site.data.keyword.vpn_vpc_short}} to access service endpoints. For more information, see [Access service endpoints through VPN](/docs/vpc?topic=vpc-using-vpn).
+VPCs are automatically able to reach service endpoints. After you provision a service as a private endpoint, you can **ping** or test the endpoint from a virtual server to verify that it is reachable.
 
+You can also access service endpoints over VPN for VPC connections. For more information, see [Access service endpoints through VPN](/docs/vpc?topic=vpc-service-endpoints-for-vpc).
 
+### Allocating additional service gateway connections
+{: #allocating-additional-service-gateway-connections}
+
+Each VPC automatically includes a service gateway in every zone. A service gateway provides private network access to IBM Cloud services by using a source network address translation (SNAT) IP that is allowlisted with the IBM Cloud services backend. The SNAT IP translates the private IP address of resources in your VPC to the allowlisted address so they can securely communicate with IBM Cloud services over the private network.
+{: shortdesc}
+
+You can allocate additional service gateway connections when your workloads require more than the default number of concurrent connections supported by a single service gateway.
+ 
+To allocate additional SNAT IPs for a service gateway, follow these steps:
+
+1. [Open a support case](/docs/account?topic=account-open-case&interface=ui) requesting an additional SNAT IP for the specific VPC and zone.
+1. After the new SNAT IP is allocated, you are notified through the support case response. Add this address to any required allowlists so that traffic from that SNAT IP is accepted by your backend.
+1. Open another support case to activate the SNAT IP. After activation, the new SNAT IP becomes available for use with the service gateway.
+
+You can request up to 10 secondary SNAT IPs per account. This limit includes both active and inactive SNAT IPs. 
+{: attention}
 
 ## IaaS endpoints
 {: #infrastructure-as-a-service-iaas-endpoints}
