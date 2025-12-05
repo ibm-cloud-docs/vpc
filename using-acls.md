@@ -35,11 +35,6 @@ To make your ACLs effective, create rules that determine how to handle your inbo
 
 For more information about using ICMP, TCP, and UDP protocols in your ACL rules, see [Understanding internet communication protocols](/docs/vpc?topic=vpc-understanding-icp#understanding-icp).
 
-## Limitations
-{: #limitations-acl}
-
-* ESP protocol is currently not supported on gen3 profiles. You can configure ESP protocol using the API on gen2. However, to avoid confusion between profiles, ESP protocol is not shown in the UI options. Support for ESP protocol on gen3 profiles is planned to be available in the future.
-
 ## Updating a VPC's default ACL rules
 {: #updating-the-default-acl}
 
@@ -188,7 +183,7 @@ In this example, first add inbound rules and then add outbound rules.
 Insert new inbound rules before the default inbound rule.
 
 ```sh
-ibmcloud is network-acl-rule-add my_web_acl_rule200 $webacl deny inbound any 0.0.0.0/0 0.0.0.0/0 \
+ibmcloud is network-acl-rule-add my_web_acl_rule200 $webacl deny inbound all 0.0.0.0/0 0.0.0.0/0 \
 --before-rule-id $in-rule
 ```
 {: pre}
@@ -203,7 +198,7 @@ acl200="0738-90930627-1a1d-447b-859f-ac9431986b6f"
 Now add the rule to `acl200`:
 
 ```sh
-ibmcloud is network-acl-rule-add my_web_acl_rule100 $webacl allow inbound any 10.10.20.0/24 0.0.0.0/0 \
+ibmcloud is network-acl-rule-add my_web_acl_rule100 $webacl allow inbound all 10.10.20.0/24 0.0.0.0/0 \
 --before-rule-id $acl200
 ```
 {: pre}
@@ -223,10 +218,10 @@ ibmcloud is network-acl-rule-add my_web_acl_rule10 $webacl allow inbound tcp 0.0
 Insert new outbound rules before the default outbound rule.
 
 ```sh
-ibmcloud is network-acl-rule-add my_web_acl_rule200e $webacl deny outbound any 0.0.0.0/0 0.0.0.0/0 \
+ibmcloud is network-acl-rule-add my_web_acl_rule200e $webacl deny outbound all 0.0.0.0/0 0.0.0.0/0 \
 --before-rule-id $outrule
 acl200e="11110627-1a1d-447b-859f-ac9431986b6f"
-ibmcloud is network-acl-rule-add my_web_acl_rule100e $webacl allow outbound any 0.0.0.0/0 10.10.20.0/24 \
+ibmcloud is network-acl-rule-add my_web_acl_rule100e $webacl allow outbound all 0.0.0.0/0 10.10.20.0/24 \
 --before-rule-id $acl200e
 acl100e="22220627-1a1d-447b-859f-ac9431986b6f"
 ibmcloud is network-acl-rule-add my_web_acl_rule20e $webacl allow outbound tcp 0.0.0.0/0 0.0.0.0/0 \

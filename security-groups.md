@@ -81,11 +81,6 @@ Because a resource can have multiple security groups associated with it, all the
 
 For more information about setting up security group rules using the CLI, see the [Command list cheat sheet](/docs/vpc?topic=vpc-configuring-the-security-group&interface=cli#command-list-cheat-sheet). For more information about setting up security group rules using the API, see [Setting up the security group for your virtual server instance by using the API](/docs/vpc?topic=vpc-configuring-the-security-group&interface=api#sg-using-api).
 
-## Limitations
-{: #limitations-security-groups}
-
-* ESP protocol is currently not supported on gen3 profiles. You can configure ESP protocol using the API on gen2. However, to avoid confusion between profiles, ESP protocol is not shown in the UI options. Support for ESP protocol on gen3 profiles is planned to be available in the future.
-
 ## Getting started
 {: #sg-getting-started}
 

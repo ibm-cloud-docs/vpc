@@ -127,15 +127,18 @@ Where:
 
 `--q, --quiet`
 :   Suppress verbose output.
-* `ibmcloud is security-group-rule-add 72b27b5c-f4b0-48aa-b954-5becc7c1dcb3 inbound any`
-* `ibmcloud is security-group-rule-add my-sg inbound any`
-* `ibmcloud is security-group-rule-add my-sg inbound any --vpc my-vpc`
+
+### CLI examples
+{: #rule-cli-create-examples}
+* `ibmcloud is security-group-rule-add 72b27b5c-f4b0-48aa-b954-5becc7c1dcb3 inbound all`
+* `ibmcloud is security-group-rule-add my-sg inbound all`
+* `ibmcloud is security-group-rule-add my-sg inbound all --vpc my-vpc`
 * `ibmcloud is security-group-rule-add 72b27b5c-f4b0-48aa-b954-5becc7c1dcb3 inbound icmp --icmp-type 8 --icmp-code 0`
-* `ibmcloud is security-group-rule-add 72b27b5c-f4b0-48aa-b954-5becc7c1dcb3 inbound any --remote 12.3.2.4`
-* `ibmcloud is security-group-rule-add 72b27b5c-f4b0-48aa-b954-5becc7c1dcb3 inbound any --remote 72b27b5c-f4b0-48aa-b954-5becc7c1dcb3`
-* `ibmcloud is security-group-rule-add my-sg inbound any --remote my-sg`
+* `ibmcloud is security-group-rule-add 72b27b5c-f4b0-48aa-b954-5becc7c1dcb3 inbound all --remote 12.3.2.4`
+* `ibmcloud is security-group-rule-add 72b27b5c-f4b0-48aa-b954-5becc7c1dcb3 inbound all --remote 72b27b5c-f4b0-48aa-b954-5becc7c1dcb3`
+* `ibmcloud is security-group-rule-add my-sg inbound all --remote my-sg`
 * `ibmcloud is security-group-rule-add 72b27b5c-f4b0-48aa-b954-5beaa7c1dcb3 inbound tcp --port-min 4 --port-max 22 --output JSON`
-* `ibmcloud is security-group-rule-add --sg 72b27b5c-f4b0-48bb-b954-5beaa7c1dcb3 --direction inbound --protocol any --local 192.176.3.0`
+* `ibmcloud is security-group-rule-add --sg 72b27b5c-f4b0-48bb-b954-5beaa7c1dcb3 --direction inbound --protocol all --local 192.176.3.0`
 
 ## Creating security group rules with the API
 {: #security-groups-secondary-ip-api}
