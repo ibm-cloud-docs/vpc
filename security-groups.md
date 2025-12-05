@@ -79,6 +79,8 @@ Because a resource can have multiple security groups associated with it, all the
 *	Remote - Describes the set of network interfaces to which this rule allows traffic (or from which, for outbound rules).
     You can specify this value as either an IP address, a CIDR block, or all the identifiers of a single security group (ID, CRN, and name). If this value is omitted, a CIDR block of `0.0.0.0/0` is used to allow traffic from any source (or to any source, for outbound rules).
 
+You can name security group rules. However, the system makes no correlation between the name and the configuration of the rule. For example, if you name a rule `inbound-https-from-my-subnet`, the system does not verify that the rule functions as its name implies. It is your responsibility to manage the names and configurations of your security group rules for consistency if needed.
+
 For more information about setting up security group rules using the CLI, see the [Command list cheat sheet](/docs/vpc?topic=vpc-configuring-the-security-group&interface=cli#command-list-cheat-sheet). For more information about setting up security group rules using the API, see [Setting up the security group for your virtual server instance by using the API](/docs/vpc?topic=vpc-configuring-the-security-group&interface=api#sg-using-api).
 
 ## Getting started
