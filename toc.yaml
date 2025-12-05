@@ -543,7 +543,11 @@ toc:
           - vpe-intro.md
           - vpe-planning.md
           - vpe-configure-acls.md
-          - vpe-create.md
+          - topicgroup:
+              id: managing-access-policies
+              label: Creating an endpoint gateway
+              topics:
+              - vpe-create.md
           - vpe-supported-services.md
           - topicgroup:
               id: configuring-dns-sharing
