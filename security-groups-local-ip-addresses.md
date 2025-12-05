@@ -2,7 +2,7 @@
 
 copyright:
   years: 2024, 2025
-lastupdated: "2025-11-13"
+lastupdated: "2025-12-05"
 
 keywords:
 
@@ -130,7 +130,6 @@ Where:
 
 ### CLI examples
 {: #rule-cli-create-examples}
-
 * `ibmcloud is security-group-rule-add 72b27b5c-f4b0-48aa-b954-5becc7c1dcb3 inbound all`
 * `ibmcloud is security-group-rule-add my-sg inbound all`
 * `ibmcloud is security-group-rule-add my-sg inbound all --vpc my-vpc`
@@ -140,8 +139,6 @@ Where:
 * `ibmcloud is security-group-rule-add my-sg inbound all --remote my-sg`
 * `ibmcloud is security-group-rule-add 72b27b5c-f4b0-48aa-b954-5beaa7c1dcb3 inbound tcp --port-min 4 --port-max 22 --output JSON`
 * `ibmcloud is security-group-rule-add --sg 72b27b5c-f4b0-48bb-b954-5beaa7c1dcb3 --direction inbound --protocol all --local 192.176.3.0`
-
-
 
 ## Creating security group rules with the API
 {: #security-groups-secondary-ip-api}

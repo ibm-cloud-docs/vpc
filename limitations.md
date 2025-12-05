@@ -2,7 +2,7 @@
 
 copyright:
   years: 2018, 2025
-lastupdated: "2025-08-15"
+lastupdated: "2025-12-04"
 
 keywords: limitations, restrictions
 
@@ -58,7 +58,6 @@ An {{site.data.keyword.vpc_short}} cannot be peered with other VPCs natively. It
 
 * Start and Stop actions are not registered under virtual server instance activity in the console.
 * The placement group of the instance can't be changed after an instance is provisioned with a placement group. You must delete the instance to remove it from the placement group.
-* API support for creating new instances from an existing boot volume is temporarily suspended. For more information, see the [API change log](/docs/vpc?topic=vpc-api-change-log).
 
 ## Storage restrictions
 {: #storage-restrictions}
@@ -71,9 +70,7 @@ Block Storage volume names must be unique across the entire VPC infrastructure. 
 The following feature is not supported:
 
 * Dedicated hosts
-* VPC Metadata service.
-
-
+* VPC Metadata service
 
 ## z/OS virtual server instance restrictions
 {: #zos-vsi-restrictions}

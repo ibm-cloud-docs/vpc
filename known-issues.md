@@ -2,7 +2,7 @@
 
 copyright:
   years: 2018, 2025
-lastupdated: "2025-10-31"
+lastupdated: "2025-12-04"
 
 keywords:
 
@@ -32,19 +32,19 @@ Known issues might change over time, so check back occasionally.
 ### The `/instance_identity` methods return incorrect HTTP status
 {: #identity-api-incorrect-http-status-known-issues}
 
-**Issue:** When using a `version` query parameter of `2025-08-25` or earlier from bare metal servers, an incorrect HTTP response of `404` is returned for `/instance_identity` methods used to [create an identity token](/apidocs/vpc-identity/latest#create-identity-token), [create an identity certificate](/apidocs/vpc-identity/latest#create-identity-certificate), and [create an IAM token](/apidocs/vpc-identity/latest#create-identity-iam-token). The behavior is correct when using a `version` query parameter of `2025-08-26` or later.
+**Issue:** When a `version` query parameter of `2025-08-25` or earlier is used from bare metal servers, an incorrect HTTP response of `404` is returned for `/instance_identity` methods that are used to [create an identity token](/apidocs/vpc-identity/latest#create-identity-token), [create an identity certificate](/apidocs/vpc-identity/latest#create-identity-certificate), and [create an IAM token](/apidocs/vpc-identity/latest#create-identity-iam-token). The behavior is correct when a `version` query parameter of `2025-08-26` or later is used.
 
-When using a beta `version` query parameter of `2025-07-14` or earlier from bare metal servers, an incorrect HTTP response of `404` is returned for all `/instance_identity` methods.
+When a beta `version` query parameter of `2025-07-14` or earlier from bare metal servers is used, an incorrect HTTP response of `404` is returned for all `/instance_identity` methods.
 
 ## Confidential computing known issues
 {: #confidential-computing-vpc-known-issues}
 
 [Select availability]{: tag-green}
 
-### TDX virtual servers are supported in Washington DC (us-east) region only
+### TDX virtual servers are supported in Washington DC (us-east) and Frankfurt (eu-de) regions only
 {: #tdx-wdc-confidential-computing-vpc-known-issues}
 
-**Issue:** All confidential computing profiles support both Intel&reg; Software Guard Extensions (SGX) and Intel&reg; Trusted Domain Extensions (TDX). When you use the API to list instance profiles, such as with `GET /instance/profiles` or `GET /instance/profiles/{name}`, the response indicates that all confidential computing profiles support SGX and TDX. However, TDX is currently available in the Washington DC (us-east) and Frankfurt (eu-de) regions only. If you want to create a virtual server instance with a confidential computing profile and TDX, you can create that virtual server instance only in the Washington DC (us-east) and Frankfurt (eu-de) regions. You can’t create a virtual server instance with TDX in any other region, including Dallas (us-south).
+**Issue:** All confidential computing profiles support both Intel&reg; Software Guard Extensions (SGX) and Intel&reg; Trusted Domain Extensions (TDX). When you use the API to list instance profiles, such as with `GET /instance/profiles` or `GET /instance/profiles/{name}`, the response indicates that all confidential computing profiles support SGX and TDX. However, TDX is available in the Washington DC (us-east) and Frankfurt (eu-de) regions only. If you want to create a virtual server instance with a confidential computing profile and TDX, you can create that virtual server instance in only the Washington DC (us-east) and Frankfurt (eu-de) regions. You can’t create a virtual server instance with TDX in any other region, including Dallas (us-south).
 
 ### s390x profiles don't include 'values' property
 {: #s390x-confidential-computing-vpc-known-issues}
@@ -67,7 +67,7 @@ When using a beta `version` query parameter of `2025-07-14` or earlier from bare
 ### Custom images in a private catalog known issue
 {: #custom-images-private-catalog-known-issues}
 
-**Issue:** If you imported one or more images into a virtual server image for VPC catalog product offering version and you edit that version, an extra version ending in "draft" is created. You can't provision an instance from this draft version. Draft versions might appear on the Virtual server instance creation page in the console or in the output of the CLI command `ibmcloud is catalog-image-offering`.
+**Issue:** If you imported one or more images into a virtual server image for VPC catalog product offering version and you edit that version, an extra version that ends in "draft" is created. You can't provision an instance from this draft version. Draft versions might appear on the virtual server instance creation page in the console or in the output of the CLI command `ibmcloud is catalog-image-offering`.
 
 ## Instance known issues and limitations
 {: #instance-known-issues-limitations}
@@ -83,9 +83,9 @@ When using a beta `version` query parameter of `2025-07-14` or earlier from bare
 ### iPXE network boot known timing issue
 {: #ipxe-network-boot-known-issue}
 
-**Issue:** When you use the iPXE network boot on a Bare Metal Server on VPC, the network configuration process might still be incomplete when the iPXE script starts running. When this issue occurs, the DHCP command might fail or you might seem a timeout error. A fix for this issue is planned.
+**Issue:** When you use the iPXE network boot on a Bare Metal Server on VPC, the network configuration process might still be incomplete when the iPXE script starts running. When this issue occurs, the DHCP command might fail or you might see a timeout error. A fix for this issue is planned.
 
-**Workaround:** From the VNC console, manually run the iPXE commands. Or, add the following to your iPXE script instead of the DHCP command.
+**Workaround:** From the VNC console, manually run the iPXE commands. Or, add the following content to your iPXE script instead of the DHCP command.
 
 ```sh
   :retry_dhcp
@@ -100,13 +100,13 @@ When using a beta `version` query parameter of `2025-07-14` or earlier from bare
 
 **Issue:** You can't delete a subnet when you delete a bare metal server. Wait ~2 minutes after bare metal deletion before you delete the subnet.
 
-Because all bare metal profiles are VMware&reg; certified, the `supported_image_flags` image property and `required_image_flags` profile property that expressed this ability during the beta period are discontinued. These properties might still be visible to API and CLI consumers, but they aren't supported and must not be used. These properties will be removed entirely in a future release.
+Because all bare metal profiles are VMware&reg; certified, the `supported_image_flags` image property and `required_image_flags` profile property that expressed this ability during the beta period are discontinued. These properties might still be visible to API and CLI consumers, but they aren't supported and must not be used. These properties are planned to be removed in a future release.
 {: note}
 
 ## Extra authorizations beyond the authorizations defined in the API specification
 {: #api-spec-auth-known-issue}
 
-**Issue:** Some API implementations required authorizations that are different from the authorizations requirements that are defined in the [API specification](/apidocs/vpc/latest). The following table lists such APIs and the extra permissions that are required in addition to what is already defined in the specification. This table is updated as these issues are resolved.
+**Issue:** Some API implementations require authorizations that are different from the authorization requirements that are defined in the [API specification](/apidocs/vpc/latest). The following table lists these APIs and the extra permissions that are required that are in addition to what are defined in the specification. This table is updated as these issues are resolved.
 
 | API | Additional access requirements | Action name|
 | ----------- | ---------------------------------- | -----------------------------------------|
@@ -170,7 +170,7 @@ When creating, retrieving, listing, updating, or deleting file shares, `accessor
 ### File share `more_info` does not return URL of issue
 {: #fs-missing-more-info-url}
 
-When an error is reported while making share API requests, the `more_info` property does not return an error topic URL for the issue encountered. The `more_info` property currently returns information on how to resolve the issue encountered instead.
+When an error is reported while making share API requests, the `more_info` property does not return an error topic URL for the issue encountered. The `more_info` property returns information on how to resolve the issue encountered instead.
 
 ### File share properties missing in API response
 {: #file-share-properties-missing-in-api-response}
@@ -218,7 +218,7 @@ When details of first-generation volume profiles are retrieved, the responses sh
 ### Private context-based restriction rules for Backups are not working in Montreal (`ca-mon`) and Chennai (`in-che`) MZRs.
 {: #baas-CBR-issue-MON}
 
-Enabling private CBR rules for backup operations that create and manage automated snapshots of block volumes and file shares in Montreal and Chennai is currently not supported.
+Enabling private CBR rules for backup operations that create and manage automated snapshots of block volumes and file shares in Montreal and Chennai is not supported.
 
 ### Block volume snapshot is greater in the remote region than the original snapshot
 {: #snapshot-CRC-billing}
@@ -228,14 +228,14 @@ The first time that you create a cross-regional copy, that snapshot is a full co
 ### Snapshot encryption in regional {{site.data.keyword.cos_short}} in Chennai region
 {: #snapshot-COS-upload-IN-CHE-EU-GB}
 
-Currently, a local {{site.data.keyword.keymanagementserviceshort}} instance is not available in Chennai. First-generation block volume snapshots that are taken in Chennai are routed to a regional {{site.data.keyword.cos_short}} bucket that is encrypted by using a {{site.data.keyword.keymanagementserviceshort}} instance from the London (`eu-gb`) region temporarily. When the KMS service becomes available in Chennai, the snapshots service will switch to use the Chennai-based {{site.data.keyword.keymanagementserviceshort}} instance for encryption, so both storage and key management are handled within the same region.
+A local {{site.data.keyword.keymanagementserviceshort}} instance is not available in Chennai. First-generation block volume snapshots that are taken in Chennai are routed to a regional {{site.data.keyword.cos_short}} bucket that is encrypted by using a {{site.data.keyword.keymanagementserviceshort}} instance from the London (`eu-gb`) region temporarily. When the KMS service becomes available in Chennai, the snapshots service will switch to use the Chennai-based {{site.data.keyword.keymanagementserviceshort}} instance for encryption, so both storage and key management are handled within the same region.
 
-### Cross-regional replication for zonal file shares in Chennai 
+### Cross-regional replication for zonal file shares in Chennai
 {: #zonalfileshare-CRR-IN-CHE}
 
-Currently, cross-regional replication for zonal file shares is not supported in the Chennai region. 
+Cross-regional replication for zonal file shares is not supported in the Chennai region.
 
 ### Cross-regional copy of block storage snapshots in Chennai
 {: #snapshot-CRC-IN-CHE}
 
-Currently, cross-regional copy of block storage volume snapshots is not supported in the Chennai region. It can't be selected as a source or target region.
+A cross-regional copy of block storage volume snapshots is not supported in the Chennai region. It can't be selected as a source or target region.
