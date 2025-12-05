@@ -2,7 +2,7 @@
 
 copyright:
   years: 2019, 2025
-lastupdated: "2025-11-07"
+lastupdated: "2025-12-05"
 
 keywords:
 
@@ -80,6 +80,11 @@ Because a resource can have multiple security groups associated with it, all the
     You can specify this value as either an IP address, a CIDR block, or all the identifiers of a single security group (ID, CRN, and name). If this value is omitted, a CIDR block of `0.0.0.0/0` is used to allow traffic from any source (or to any source, for outbound rules).
 
 For more information about setting up security group rules using the CLI, see the [Command list cheat sheet](/docs/vpc?topic=vpc-configuring-the-security-group&interface=cli#command-list-cheat-sheet). For more information about setting up security group rules using the API, see [Setting up the security group for your virtual server instance by using the API](/docs/vpc?topic=vpc-configuring-the-security-group&interface=api#sg-using-api).
+
+## Limitations
+{: #limitations-security-groups}
+
+* ESP protocol is currently not supported on gen3 profiles. You can configure ESP protocol using the API on gen2. However, to avoid confusion between profiles, ESP protocol is not shown in the UI options. Support for ESP protocol on gen3 profiles is planned to be available in the future.
 
 ## Getting started
 {: #sg-getting-started}
