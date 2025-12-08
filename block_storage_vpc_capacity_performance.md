@@ -2,7 +2,7 @@
 
 copyright:
   years: 2019, 2025
-lastupdated: "2025-09-23"
+lastupdated: "2025-12-08"
 
 keywords:
 
@@ -25,7 +25,9 @@ Choosing the optimal Block Storage volume size and performance level for your wo
 
 When you choose the second-generation `sdp` profile, you can provision second-generation data volumes up to 32,000 GB. You can also increase a second-generation boot volume's capacity to 32,000 GB after its initial creation.
 
-When you select a first-generation [storage profile](/docs/vpc?topic=vpc-block-storage-profiles#tiers), you can specify 10-16,000 GB of capacity in 1 GB increments. Boot volumes are 100 GB by default. If you provision an instance from a custom image, you can specify a boot volume capacity up to 250 GB.
+When you select a first-generation [storage profile](/docs/vpc?topic=vpc-block-storage-profiles#tiers), you can specify 10-16,000 GB of capacity in 1 GB increments. 
+
+Boot volumes are 100 GB by default. If you provision an instance with a custom image or a snapshot, you can specify a boot volume capacity up to 250 GB.
 
 ## Block Storage volume profiles
 {: #iops-profiles}
