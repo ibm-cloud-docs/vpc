@@ -2,7 +2,7 @@
 
 copyright:
   years: 2019, 2025
-lastupdated: "2025-11-24"
+lastupdated: "2025-12-08"
 
 keywords: vsi, virtual server instances, profile, profiles, balanced, compute, memory, very high memory, ultra high memory, gpu, storage optimized, confidential compute, flex, high frequency
 
@@ -113,7 +113,7 @@ The following table shows all balance profiles that are available for x86-64.
 | bx2a-96x384 | 96 / 48 | 384 | 80 | - |
 | bx2a-128x512 | 128 / 64 | 512 | 80 | - |
 | bx2a-228x912 | 228 / 114 | 912 | 80 | - |
-{: caption="Balance profiles options for Intel x86-64 instances" caption-side="bottom"}
+{: caption="Balanced bx2 profile options for Intel x86-64 instances" caption-side="bottom"}
 {: #balanced-intel-x86-64}
 {: tab-title="bx2"}
 {: tab-group="Balanced"}
