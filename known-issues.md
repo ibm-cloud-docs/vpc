@@ -248,7 +248,6 @@ A cross-regional copy of block storage volume snapshots is not supported in the 
 
 Network traffic with the ESP protocol is currently supported by instances with [generation 2 profiles](/docs/vpc?topic=vpc-profiles&interface=api#profiles-generation). Instances with newer generation profiles, and all bare metal servers, do not currently support ESP traffic.
 
-
 Configuring a security group rule with a `protocol` value of `esp` or `any` will not allow ESP traffic when the security group targets a network interface for an instance with a newer generation profile or a bare metal server.
 
 To avoid confusion about where ESP traffic is supported, the ESP protocol is not shown in the IBM Cloud console options for security group and network ACL rules. Support for ESP traffic on newer generation instance profiles and on bare metal servers may be available in a future release.
