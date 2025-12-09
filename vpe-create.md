@@ -2,7 +2,7 @@
 
 copyright:
   years: 2020, 2025
-lastupdated: "2025-11-18"
+lastupdated: "2025-12-09"
 
 keywords: virtual private endpoints, VPE, endpoint gateway
 
@@ -245,9 +245,6 @@ To use Terraform, download the Terraform CLI and configure the {{site.data.keywo
 {: requirement}
 
 The following example creates a VPE gateway:
-
-
-
 
 ```terraform
 resource "ibm_is_virtual_endpoint_gateway" "example" {
