@@ -2,7 +2,7 @@
 
 copyright:
   years: 2019, 2025
-lastupdated: "2025-04-22"
+lastupdated: "2025-12-09"
 
 keywords: Block Storage, virtual private cloud, Key Protect, encryption, key management, Hyper Protect Crypto Services, HPCS, volume, data storage, virtual server instance, instance, customer-managed encryption, fihe share
 
@@ -34,13 +34,13 @@ For any root keys that you import to the KMS instance because you're providing n
 ### How key rotation works
 {: #vpc-key-rotation-function}
 
-Key rotation works by securely transitioning root key material, shortening the cryptoperiod of the root keys that protect your resources. New resources are encrypted with the latest root keys.
+Key rotation works by securely transitioning root key material, shortening the cryptoperiod of the root keys that protect your resources. New resources are encrypted with the most recent root keys.
 
 When you rotate a root key, the service identifies all resources that are protected by that key and automatically reencrypts the resource. This encryption process wraps (encrypts) a LUKS passphrase that protects a data encryption key (DEK). The system-generated DEK encrypts the data in the virtual disk. This process is called [envelope encryption](/docs/key-protect?topic=key-protect-envelope-encryption), which creates a wrapped DEK, or WDEK. The WDEK _does not_ refer to the data encryption key that is protecting data in the virtual disk. Rather, it encrypts the LUKS passphrase.
 
 The new version of the root key is used to unwrap the newly rewrapped LUKS passphrase the next time the resource is decrypted. For example, it is used when you decrypt a volume upon restarting an instance.
 
-The service retires the old root key version but it remains available for decrypting existing resources. You can list the key versions to see how many times the key was rotated and see the latest version. Older versions of the root key continue to work until they expire or until no resources are available to decrypt. If you manually [disable](/docs/vpc?topic=vpc-vpc-encryption-managing#byok-disable-root-keys) or [delete](/docs/vpc?topic=vpc-vpc-encryption-managing#byok-delete-root-keys) the root key or restart the instance, the old key no longer functions.
+The service retires the old root key version but it remains available for decrypting existing resources. You can list the key versions to see how many times the key was rotated and see the most recent version. Older versions of the root key continue to work until they expire or until no resources are available to decrypt. If you manually [disable](/docs/vpc?topic=vpc-vpc-encryption-managing#byok-disable-root-keys) or [delete](/docs/vpc?topic=vpc-vpc-encryption-managing#byok-delete-root-keys) the root key or restart the instance, the old key no longer functions.
 
 After your root keys are rotated, the new root key version becomes available for encrypting new resources.
 

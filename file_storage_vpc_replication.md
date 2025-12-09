@@ -2,7 +2,7 @@
 
 copyright:
   years: 2022, 2025
-lastupdated: "2025-10-31"
+lastupdated: "2025-12-09"
 
 keywords: file share, file storage, replication, replica, 
 
@@ -63,7 +63,7 @@ Data on the replica share is read-only. You can obtain read/write access to the 
    When you initiate the failover, you can specify what happens to the replication relationship if the failover process times out or fails. This option is commonly used when you have a time requirement for how long your file share can be offline. You must specify what you want to happen if the operation times out or if the replication fails due to the original site, which is degraded or unavailable.
 
    - If the source site is not available due to a planned maintenance, you can choose to keep the replication relationship. The replication resumes as scheduled when the original source site is operational again.
-   - In a disaster recovery situation, you can choose to split the volumes to bring the replica share online as soon as possible. However, in this case, you might not have the latest data set available and you might need to manually reconcile the state in your application. Because the replication relationship is severed, you need to set up replication anew when the original site becomes operational again.
+   - In a disaster recovery situation, you can choose to split the volumes to bring the replica share online as soon as possible. However, in this case, you might not have the most recent data set available and you might need to manually reconcile the state in your application. Because the replication relationship is severed, you need to set up replication anew when the original site becomes operational again.
 
 * [Remove the replication relationship](/docs/vpc?topic=vpc-file-storage-manage-replication) - In this case, you split the two shares apart and create two independent file shares. Both shares are read/write accessible and data is no longer synchronized between the two. In the [API](/docs/vpc?topic=vpc-file-storage-failover&interface=ui#fs-failover-concepts), this operation is called a replica `split` operation. Removing the replica relationship is permanent, you cannot reestablish it between the two shares. However, you can create new replicas in the same zone or other zones of the same region.
 
