@@ -2,7 +2,7 @@
 
 copyright:
   years: 2018, 2025
-lastupdated: "2025-12-04"
+lastupdated: "2025-12-09"
 
 keywords:
 
@@ -239,3 +239,16 @@ Cross-regional replication for zonal file shares is not supported in the Chennai
 {: #snapshot-CRC-IN-CHE}
 
 A cross-regional copy of block storage volume snapshots is not supported in the Chennai region. It can't be selected as a source or target region.
+
+## Networking known issues
+{: #networking-vpc-known-issues}
+
+### Security Group and Network ACL rules with ESP protocol issue
+{: #security-groups-network-acls-protocol-esp-known-issue}
+
+Network traffic with the ESP protocol is currently supported by instances with [generation 2 profiles](/docs/vpc?topic=vpc-profiles&interface=api#profiles-generation). Instances with newer generation profiles, and all bare metal servers, do not currently support ESP traffic.
+
+
+Configuring a security group rule with a `protocol` value of `esp` or `any` will not allow ESP traffic when the security group targets a network interface for an instance with a newer generation profile or a bare metal server.
+
+To avoid confusion about where ESP traffic is supported, the ESP protocol is not shown in the IBM Cloud console options for security group and network ACL rules. Support for ESP traffic on newer generation instance profiles and on bare metal servers may be available in a future release.

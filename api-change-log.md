@@ -2,7 +2,7 @@
 
 copyright:
   years: 2019, 2025
-lastupdated: "2025-11-18"
+lastupdated: "2025-12-09"
 
 keywords: api, change log, new features, restrictions, migrations
 
@@ -53,6 +53,74 @@ At this time, all instances, and therefore all instance templates, continue to r
 
 The new response code will be rolled out gradually. Each phase of the rollout will be tied to a dated API version. These changes will be announced in future change log updates.
 {: note}
+
+## 9 December 2025
+{: #9-december-2025}
+
+### For all version dates
+{: #9-december-2025-all-version-dates}
+
+**Names for security group rules.** Security group rules now have a `name` property. When [creating a security group rule](/apidocs/vpc/latest#create-security-group-rule), you can specify a `name` for it. If not specified, a default name is assigned using a hyphenated list of randomly selected words. You can [update](/apidocs/vpc/latest#update-security-group-rule) the `name` later.
+
+Existing security group rules will have system assigned names. When creating a VPC, the [VPC default security group](/apidocs/vpc/latest#get-vpc-default-security-group) includes inbound and outbound security group rules with system assigned names.
+
+**Any protocol in security group and network ACL rules.** Security group and network ACL rules now support [any protocol](https://www.iana.org/assignments/protocol-numbers/protocol-numbers.xhtml){: external}. The `protocol` property for these rules can now have one of these values:
+
+- `any` for traffic with any protocol (number 0 to 255)
+- `icmp_tcp_udp` for ICMP, TCP, and UDP traffic (for API version `2025-12-08` or earlier, the value `all` is used instead of `icmp_tcp_udp`)
+- `icmp` for ICMP traffic (protocol number 1)
+- `ip_in_ip` for IP-in-IP (also known as IPv4 encapsulation) traffic (protocol number 4)
+- `tcp` for TCP traffic (protocol number 6)
+- `udp` for UDP traffic (protocol number 17)
+- `rsvp` for Reservation Protocol traffic (protocol number 46)
+- `gre` for Generic Routing Encapsulation traffic (protocol number 47)
+- `esp` for IP Encapsulating Security Payload traffic (number 50), however see [Networking known issues](/docs/vpc?topic=vpc-known-issues#networking-vpc-known-issues).
+- `ah` for Authentication Header traffic (protocol number 51)
+- `vrrp` for Virtual Router Redundancy Protocol traffic (protocol number 112)
+- `l2tp` for Layer Two Tunneling Protocol traffic (protocol number 115)
+- `sctp` for Stream Control Transmission Protocol traffic (protocol number 132)
+- `number_<N>` for traffic with any other individual protocol (replace `<N>` with the decimal protocol number, such as `number_108` for [IP Payload Compression Protocol](https://www.rfc-editor.org/rfc/rfc2393.html#section-3.1){: external} traffic)
+
+When [creating a rule for a security group](/apidocs/vpc/latest#create-security-group-rule), you can now specify one of these values for the `protocol` property.
+
+The `protocol` property in the `SecurityGroupRule` response schema can now have one of these values. This response schema is used for:
+
+- [Security group methods](/apidocs/vpc/latest#list-security-groups)
+- [Retrieving the default security group for a VPC](/apidocs/vpc/latest#get-vpc-default-security-group)
+
+When [creating a rule for a network ACL](/apidocs/vpc/latest#create-network-acl-rule), you can now specify one of these values for the `protocol` property.
+
+The `protocol` property in the `NetworkACLRule` and `NetworkACLRuleItem` response schemas can now have one of these values. These response schemas are used for:
+
+- [Network ACL methods](/apidocs/vpc/latest#list-network-acls)
+- [Retrieving the attached network ACL for a subnet](/apidocs/vpc/latest#replace-subnet-network-acl)
+- [Retrieving the default network ACL for a VPC](/apidocs/vpc/latest#get-vpc-default-network-acl)
+
+### For version `2025-12-09` or later
+{: #version-2025-12-09}
+
+When [creating a security group rule](/apidocs/vpc/latest#create-security-group-rule) to allow ICMP, TCP, and UDP traffic, set the rule's `protocol` to `icmp_tcp_udp`. The `protocol` property in the `SecurityGroupRule` response schema will have the value `icmp_tcp_udp` for this rule.
+
+To [create a network ACL rule](/apidocs/vpc/latest#create-network-acl-rule) for allowing ICMP, TCP, and UDP traffic, set the rule's `action` to `allow` and the `protocol` to `icmp_tcp_udp`. The `protocol` property in the `NetworkACLRule` and `NetworkACLRuleItem` response schemas will have the value `icmp_tcp_udp` for this rule. After a network ACL rule is created with a `protocol` of `icmp_tcp_udp`, it cannot be updated to an `action` value of `deny`.
+
+The value `icmp_tcp_udp` is not allowed for the `protocol` property in a network ACL rule when the `action` is `deny`. Denying traffic for these three protocols requires three separate rules.
+{: note}
+
+To deny traffic for protocols from number 0 to number 255, set the network ACL rule's `action` to `deny` and the `protocol` to `any`.
+
+For migration guidance, see [Updating to the `2025-12-09` version (security group and network ACL rules)](/docs/vpc?topic=vpc-2025-12-09-migration-security-group-network-acl-rules).
+
+### For version `2025-12-08` or earlier
+{: #version-2025-12-08}
+
+When [creating a security group rule](/apidocs/vpc/latest#create-security-group-rule) to allow ICMP, TCP, and UDP traffic, set the `protocol` to `all`. The `protocol` property in the `SecurityGroupRule` response schema will have the value `all` for this rule.
+
+To [create a network ACL rule](/apidocs/vpc/latest#create-network-acl-rule) for allowing ICMP, TCP, and UDP traffic, set the rule's `action` to `allow` and the `protocol` to `all`. The `protocol` property in the `NetworkACLRule` and `NetworkACLRuleItem` response schemas will have the value `all` for this rule.
+
+The value `any` is not allowed for the `protocol` property in a network ACL rule when the `action` is `deny`. To deny traffic for protocols from number 0 to number 255, set the network ACL rule's `action` to `deny` and the `protocol` to `all`.
+{: note}
+
+For migration guidance, see [Updating to the `2025-12-09` version (security group and network ACL rules)](/docs/vpc?topic=vpc-2025-12-09-migration-security-group-network-acl-rules).
 
 ## 2 December 2025
 {: #2-December-2025}

@@ -2,7 +2,7 @@
 
 copyright:
   years: 2021, 2025
-lastupdated: "2025-11-24"
+lastupdated: "2025-12-09"
 
 keywords: compute, virtual private cloud, virtual server instance, instance, bandwidth
 
@@ -23,28 +23,29 @@ Instance profiles inform the available instance bandwidth of an instance. The nu
 
 When you provision an instance, the total instance bandwidth is allocated between attached storage and networking. The maximum bandwidth capacity is determined by the [x86-64 instance profile](/docs/vpc?topic=vpc-profiles&interface=ui) that you select during instance provisioning. For example, a bx2-2x8 balanced server profile allows a total instance bandwidth of 4 Gbps.
 
-The initial volume and network bandwidth allocation depends on the bandwidth that you set by using the API or by the instance profile you selected. If you do not specify the initial volume and network bandwidth allocation, then 25% of total instance bandwidth is allocated to volume bandwidth and 75% is allocated to network bandwidth. See the following example:
+The initial volume and network bandwidth allocation depends on the bandwidth that you set by using the API or by the instance profile you selected. If you don't specify the initial volume and network bandwidth allocation, then 25% of total instance bandwidth is allocated to volume bandwidth and 75% is allocated to network bandwidth. See the following example:
+
 * Instance bandwidth: 4 Gbps
 * Volumes bandwidth: 1 Gbps
 * Network bandwidth: 3 Gbps
 
 The maximum bandwidth of a volume is the highest potential bandwidth that can be allocated to the volume when attached to an instance. If the total maximum bandwidth of attached volumes exceeds the amount available on the instance, the bandwidth for each attached volume is set proportionally based on each volume's maximum bandwidth.
 
-To ensure reasonable boot times, a minimum of 393 Mbps of volume bandwidth is allocated to the boot volume. In the example that has the instance's total volume bandwidth of 1,000 Mbps, the remaining 607 Mbps is allocated to any data volumes that you attach, up to the maximum bandwidth of the volume. For example, if you attach one data volume with 500 Mbps bandwidth, you can expect to get 500 Mbps throughput.
+To help ensure reasonable boot times, a minimum of 393 Mbps of volume bandwidth is allocated to the boot volume. In the example that has the instance's total volume bandwidth of 1,000 Mbps, the remaining 607 Mbps is allocated to any data volumes that you attach, up to the maximum bandwidth of the volume. For example, if you attach one data volume with 500 Mbps bandwidth, you can expect 500 Mbps of throughput.
 
 You can see bandwidth allocations with the `/instance/profiles` endpoint in the API. You can also see the bandwidth allocations in the profile information during instance creation in the console.
 
 ## Adjusting bandwidth allocation
 {: #adjusting-bandwidth-allocation}
 
-The allocation of the instance's total bandwidth can be adjusted, balancing between network bandwidth and volume bandwidth. Both volume and network bandwidth must be at least 500 Mbps each. Before you change the bandwidth ratio, make sure that you evaluate your instance's network bandwidth requirements. Make sure that the new bandwidth allocation does not have negative effects on your instance’s network performance.
+You can adjust the allocation of the instance's total bandwidth, balancing between network bandwidth and volume bandwidth. Both volume and network bandwidth must be at least 500 Mbps each. Before you change the bandwidth ratio, make sure that you evaluate your instance's network bandwidth requirements. Make sure that the new bandwidth allocation doesn't have negative effects on your instance’s network performance.
 
 For example, to allow more volume bandwidth, you might apportion the previous example in equal allocations:
 
 * Volumes: 2,000 MBps
 * Network: 2,000 MBps
 
-By default, most virtual server instances are provisioned with the _weighted_ QoS setting. The volume bandwidth available to the instance is apportioned per volume. The bandwidth is assigned to each volume, not shared between volumes. For example, if four identical volumes are attached to an instance, then each volume is allocated one fourth of the overall volume bandwidth. A volume can use the bandwidth that is allocated to it, even if it is the only volume that is being used. The volume in use can't access the bandwidth that is assigned to the unused volumes.
+By default, most virtual server instances are provisioned with the _weighted_ QoS setting. The volume bandwidth that is available to the instance is apportioned per volume. The bandwidth is assigned to each volume, not shared between volumes. For example, if four identical volumes are attached to an instance, then each volume is allocated one fourth of the overall volume bandwidth. A volume can use the bandwidth that is allocated to it, even if it is the only volume that is used. The volume that is in use can't access the bandwidth that is assigned to the unused volumes.
 
 Select [compute profiles](/docs/vpc?group=profile-details) support dynamic bandwidth allocation for data volumes. By using dynamic bandwidth allocation, a volume that's maximizing its I/O capability can use unused bandwidth from the other volume attachments. You can change the _weighted_ storage QoS setting to _pooled_ [in the console](/docs/vpc?topic=vpc-managing-virtual-server-instances&interface=ui#updating-qos-mode-ui), [from the CLI](/docs/vpc?topic=vpc-managing-virtual-server-instances&interface=cli#updating-qos-mode-cli), or [with the API](/docs/vpc?topic=vpc-managing-virtual-server-instances&interface=api#updating-qos-mode-api). For more information, see [Pooled volume bandwidth allocation](/docs/vpc?topic=vpc-block-storage-bandwidth#pooled-vol-bandwidth).
 To see what volume bandwidth allocation methods your virtual server supports, see the capabilities section in the [compute profiles](/docs/vpc?group=profile-details) topics.
@@ -52,11 +53,11 @@ To see what volume bandwidth allocation methods your virtual server supports, se
 ## Optimizing network bandwidth allocation for profiles
 {: #network-perf-notes-for-profiles}
 
-Profiles can have a total maximum bandwidth of up to 80 Gbps. That bandwidth is split between Network and Storage traffic. The network bandwidth allocation is distributed evenly across network interfaces, and each network interface has a cap of 25 Gbps. You might need to attach multiple network interfaces to your virtual server instance to optimize network performance.
+Profiles can have a total maximum bandwidth of up to 80 Gbps. That bandwidth is split between network and storage traffic. The network bandwidth allocation is distributed evenly across network interfaces. Each network interface has a capacity of 25 Gbps. You might need to attach multiple network interfaces to your virtual server instance to optimize network performance.
 
-For example, if you choose the bx2-32x128 profile, the total bandwidth that is assigned for the instance is 64 Gbps. The default network cap is 48 Gbps for network and 16 Gbps for storage, but this amount can be adjusted. If you use the default bandwidth allocation and a single network interface on the instance, that vNIC has a port speed of 25 Gbps. If two network interfaces are on the system, each network interface has a port speed of 24 Gbps, for a total aggregate network bandwidth for 48 Gbps. The remaining bandwidth (16 Gbps) is allocated to your storage volumes.
+For example, if you choose the bx2-32x128 profile, the total bandwidth that is assigned for the instance is 64 Gbps. The default network capacity is 48 Gbps for network and 16 Gbps for storage, but this amount can be adjusted. If you use the default bandwidth allocation and a single network interface on the instance, that vNIC has a port speed of 25 Gbps. If two network interfaces are on the system, each network interface has a port speed of 24 Gbps, for a total aggregate network bandwidth for 48 Gbps. The remaining bandwidth (16 Gbps) is allocated to your storage volumes.
 
-The following table illustrates this allocation for three different Gen 2 profile examples. If you are using the same default values that were used for these calculations, you can match other instance profiles to the following table by matching the bandwidth cap value to the overall bandwidth in the table. For more information about instance profiles, including network performance information, see [x86-64 instance profiles](/docs/vpc?topic=vpc-profiles&interface=ui).
+The following table illustrates this allocation for three different Gen 2 profile examples. If you use the same default values that were used for these calculations, you can match other instance profiles to the following table by matching the bandwidth capacity value to the overall bandwidth in the table. For more information about instance profiles, including network performance information, see [x86-64 instance profiles](/docs/vpc?topic=vpc-profiles&interface=ui).
 
 | Profile names | bx2-16x64 | bx2-32x128 | bx2-48-192 |
 |-----|-----|-----|-----|
