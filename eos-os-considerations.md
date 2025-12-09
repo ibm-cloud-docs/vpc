@@ -155,9 +155,9 @@ Ubuntu 20.04 EOS date is 31 May 2025. Support for this software discontinues on 
 Debian 11 EOS date is 31 August 2026. Support for this software discontinues on 31 August 2026. Debian 11 reaches its End of Marketing (EOM) on 31 July 2026. After 31 July 2026, you can't download the software. For existing customers, upgrade to the most recent version. For more information, see the [Debian documentation](https://www.debian.org/releases/bookworm/amd64/release-notes/ch-upgrading.en.html){: external}.
 
 ### Windows Server 2016
-{: #windows-server-2016-eos-vpc}
+{: #windows-server-2016-eom-eos-vpc}
 
-Windows Server 2016 EOS date is 12 January 2027. For more information, see [Overview of Windows Server upgrades](https://learn.microsoft.com/en-us/windows-server/get-started/upgrade-overview){: external}.
+Windows Server 2016 EOS date is 12 January 2027. Support for this software discontinues on 12 January 2027. Windows Server 2016 reaches its End of Marketing (EOM) on 12 February 2026. After 12 February 2026 you can't download the software. For more information, see [Overview of Windows Server upgrades](https://learn.microsoft.com/en-us/windows-server/get-started/upgrade-overview){: external}.
 
 No extra licensing costs are incurred to move to a newer software version when you use an {{site.data.keyword.cloud_notm}} License-Included option. {{site.data.keyword.cloud_notm}} is governed by the Service Provider License Agreement (SPLA) with Microsoft. For more information, see [License Mobility Deployment Process](/docs/microsoft?topic=microsoft-microsoft-license-mobility-process).
 
