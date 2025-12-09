@@ -130,6 +130,8 @@ Where:
 
 ### CLI examples
 {: #rule-cli-create-examples}
+
+
 * `ibmcloud is security-group-rule-add 72b27b5c-f4b0-48aa-b954-5becc7c1dcb3 inbound all`
 * `ibmcloud is security-group-rule-add my-sg inbound all`
 * `ibmcloud is security-group-rule-add my-sg inbound all --vpc my-vpc`

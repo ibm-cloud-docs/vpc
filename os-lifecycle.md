@@ -4,7 +4,7 @@ copyright:
 
   years: 2022, 2025
 
-lastupdated: "2025-11-11"
+lastupdated: "2025-12-05"
 
 keywords: operating system end of support (eos)
 
@@ -79,7 +79,7 @@ When using an RHEL AI 1.x image, ensure you are using the correct RHEL AI image 
 
 | Operating system | End of support | License model |
 |-----------------|----------------|---------------|
-| RHEL 9.6 minimal | 31 May 2029    | Pay-as-you-Go  |
+| RHEL 9.6 minimal | 31 May 2027    | Pay-as-you-Go  |
 | RHEL 9.6 (SAP HANA and SAP applications) | 31 May 2029    | Pay-as-you-Go |
 | RHEL 9.4 minimal | 30 April 2026    | Pay-as-you-Go  |
 | RHEL 9.4 (SAP HANA and SAP applications) | 31 May 2028    | Pay-as-you-Go |
