@@ -2,7 +2,7 @@
 
 copyright:
   years: 2020, 2025
-lastupdated: "2025-12-08"
+lastupdated: "2025-12-10"
 
 keywords: Block Storage, boot volume, data volume, volume, data storage, virtual server instance, instance, expandable volume
 
@@ -69,9 +69,6 @@ Regardless of the image type, you can increase boot volume capacity from its min
 The boot volume expansion takes effect without a restart of the virtual server. However, to use the increased boot volume space, you must expand your operating system so the increased boot volume capacity is recognized.
 {: note}
 
-You can increase the capacity of your second-generation boot volume up to 32,000 GB. However, when the boot volume capacity is increased over 250 GB, you can no longer create a custom image from that volume.
-{: important}
-
 ## Requirements
 {: #exp-vol-requirements}
 
@@ -94,7 +91,7 @@ No matter what generation your data volume is, you must detach and reattach the 
 
 You must meet these requirements to resize a boot volume:
 
-* When an instance is provisioned, the size of the boot volume can be larger than the existing image size but not smaller. The maximum boot volume size with a first generation volume profile is 250 GB.
+* When an instance is provisioned, the size of the boot volume can be larger than the existing image size but not smaller. The maximum boot volume capacity is 250 GB.
 * For an existing instance, you can increase the size of the boot volume up to the maximum size that was allowed during instance provisioning.
 * For more information about supported Operating Systems, see [x86 virtual server images](/docs/vpc?topic=vpc-about-images).
 

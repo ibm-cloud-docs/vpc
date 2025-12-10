@@ -2,7 +2,7 @@
 
 copyright:
   years: 2022, 2025
-lastupdated: "2025-12-04"
+lastupdated: "2025-12-10"
 
 keywords: Backup, backup service, backup plan, backup policy, restore, restore volume, restore data
 
@@ -23,7 +23,7 @@ Restoring data from a backup snapshot creates a fully provisioned boot or data v
 
 Restoring a volume from a backup snapshot creates a boot or a data volume, depending on whether the snapshot is bootable or nonbootable.
 
-   * Restoring from a **bootable** snapshot creates a boot volume that you can use to start a virtual server instance. The boot volume is limited to 10-250 GB at its creation. Second generation boot volumes with the `sdp` profile can be expanded to 32,000 GB later. However, a boot volume that exceeds 250 GB can no longer be used to create a custom image or to start another virtual server instance.
+   * Restoring from a **bootable** snapshot creates a boot volume that you can use to start a virtual server instance. The boot volume capacity is limited to 10-250 GB.
 
    * A new data volume that was created from **nonbootable** snapshot inherits its properties from the original volume, such as [profile](/docs/vpc?topic=vpc-block-storage-profiles), capacity, storage generation, data, and metadata. If the source volume used [customer-managed encryption](/docs/vpc?topic=vpc-vpc-encryption-about#vpc-customer-managed-encryption), the volume inherits that encryption with the original customer root key (CRK). However, you can specify a larger volume size, a different profile of the same storage generation, and a different CRK if you prefer.
 
@@ -42,7 +42,7 @@ To restore a volume, the backup snapshot must be in a _stable_ state.
 ### Restoring from a bootable backup
 {: #baas-restore-concept-boot}
 
-When you restore from a bootable backup snapshot, you create a boot volume that you use to provision another instance. A first-generation boot volume uses the general-purpose volume profile and is limited to 250 GB. A second-generation boot volume uses the defined performance volume profile and can be increased up to 32,000 GB. 
+When you restore from a bootable backup snapshot, you create a boot volume that you use to provision another instance.
 
 Because the bootable backup snapshot is not fully provisioned, when you start your virtual server instance, the performance is slower than when you use a regular boot volume. For more information, see [Performance impact](#baas-boot-perf).
 

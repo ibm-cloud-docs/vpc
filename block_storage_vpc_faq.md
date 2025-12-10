@@ -2,7 +2,7 @@
 
 copyright:
   years: 2019, 2025
-lastupdated: "2025-12-08"
+lastupdated: "2025-12-10"
 
 keywords: faqs, Block Storage for vpc, fast restore, multizone, instance, instance provisioning, volume management, volume deletion.
 
@@ -233,7 +233,7 @@ You can increase the capacity of data volumes that are attached to a virtual ser
 {: faq}
 {: #faq-block-storge-rbv}
 
-Boot volume capacity can be increased during instance provisioning or later, by directly modifying the boot volume. This feature applies to instances that are created from stock or custom images. You can also specify a larger boot volume capacity when you create an instance template. For more information, see [Increasing boot volume capacity](/docs/vpc?topic=vpc-resize-boot-volumes).
+Boot volume capacity can be increased up to 250 GB during instance provisioning or later, by directly modifying the boot volume. This feature applies to instances that are created from stock or custom images. You can also specify a larger boot volume capacity when you create an instance template. For more information, see [Increasing boot volume capacity](/docs/vpc?topic=vpc-resize-boot-volumes).
 
 ## Can I change boot volume capacity for an existing instance?
 {: faq}

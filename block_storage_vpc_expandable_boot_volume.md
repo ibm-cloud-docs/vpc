@@ -2,7 +2,7 @@
 
 copyright:
   years: 2022, 2025
-lastupdated: "2025-11-19"
+lastupdated: "2025-12-10"
 
 keywords: Block Storage, boot volume, data volume, volume, data storage, virtual server instance, instance, expandable volume
 
@@ -15,11 +15,8 @@ subcollection: vpc
 # Increasing capacity of a {{site.data.keyword.block_storage_is_short}} boot volume
 {: #resize-boot-volumes}
 
-You can increase the capacity in of your boot volumes during and after instance provisioning in the console, from the CLI, with the API, or Terraform. For first-generation boot volumes, you can increase the capacity from the default 100 GB up to 250 GB when the volumes are attached to a running virtual server instance. The capacity of second-generation boot volumes can be increased even if the volumes are not attached to a running instance. The maximum capacity of a second-generation volume is 32,000 GB. The steps for increasing the capacity are the same for all volume profiles.
+You can increase the capacity in of your boot volumes up to 250 GB during and after instance provisioning in the console, from the CLI, with the API, or Terraform. For first-generation boot volumes, you can increase the capacity when the volumes are attached to a running virtual server instance. The capacity of second-generation boot volumes can be increased even if the volumes are not attached to a running instance. The steps for increasing the capacity are the same for all volume profiles.
 {: shortdesc}
-
-When the boot volume capacity is increased over 250 GB, you can no longer create a custom image from that volume, or use it to start another instance.
-{: important}
 
 ## Increase boot volume capacity in the console
 {: #resize-vpc-boot-volumes-ui}
@@ -45,10 +42,7 @@ For an existing instance, you can increase its boot volume capacity by selecting
 
 3. In the boot volume details, click the **Size** pencil icon. Alternatively, select **Expand volume** from the Actions menu ![Actions icon](../icons/action-menu-icon.svg "Actions").
 
-4. In the side panel, increase the boot volume size in the **Create size** field. The size must be more than the current size up to 250 GB if the volume has a first-generation volume profile. If the boot volume is based on the `sdp` profile, you can expand it up to 32,000 GB.
-
-   If the capacity of a boot volume is increased over 250 GB, you can no longer create a custom image from it. A boot volume that exceeds 250 GB can't be used to initialize a virtual server either.
-   {: note}
+4. In the side panel, increase the boot volume size in the **Create size** field. The size must be more than the current size up to 250 GB.
 
 5. Click **Expand boot volume size**.
 
@@ -168,8 +162,6 @@ Tags                                   -
 ```
 {: screen}
 
-Your second-generation boot volume that's based on the `sdp` profile can be expanded up to 32,000 GB. It's important to remember that if the capacity of a boot volume is increased over 250 GB, you can no longer create a custom image from it. A boot volume that exceeds 250 GB can't be used to initialize a virtual server either.
-
 ## Increase boot volume capacity with the API
 {: #increase-vpc-volumes-api}
 {: api}
@@ -221,8 +213,6 @@ curl -X PATCH "$vpc_api_endpoint/v1/volumes/$volume_id/?version=2022-02-12&gener
 ```
 {: codeblock}
 
-Your second-generation boot volume that's based on the `sdp` profile can be expanded up to 32,000 GB. However, if the capacity of a boot volume is increased over 250 GB, you can no longer create a custom image from it. A boot volume that exceeds 250 GB can't be used to initialize a virtual server either.
-
 ## Increasing the capacity of an existing boot volume with Terraform
 {: #expand-existing-boot-vol-terraform}
 {: terraform}
@@ -238,8 +228,6 @@ resource "ibm_is_volume" "boot-volume-example" {
 }
 ```
 {: codeblock}
-
-Your second-generation boot volume that's based on the `sdp` profile can be expanded up to 32,000 GB. However, a boot volume that exceeds 250 GB can no longer be used to create a custom image or boot another virtual server instance.
 
 For more information about the arguments and attributes, see [ibm_is_volume](https://registry.terraform.io/providers/IBM-Cloud/ibm/latest/docs/resources/is_volume){: external}.
 
