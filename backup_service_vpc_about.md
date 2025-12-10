@@ -2,7 +2,7 @@
 
 copyright:
  years: 2022, 2025
-lastupdated: "2025-12-04"
+lastupdated: "2025-12-10"
 
 keywords: Backup, backup service, backup plan, backup policy, restore, restore volume, restore data
 
@@ -53,9 +53,6 @@ Backup jobs that create or delete backup snapshots run according to the backup p
 Block storage backups, like block storage snapshots, have a lifecycle that is independent from the source {{site.data.keyword.block_storage_is_short}} volume. File storage backups, like file share snapshots, coexist with their parent file shares and their lifecycles are tied together. If a file share is deleted, its snapshots and backups are automatically deleted, too.
 
 You can copy a Block storage backup snapshot from one region to another region, and later use that snapshot to restore a volume in the new region. The [cross-regional copy](#backup-service-crc) can be used in disaster recovery scenarios when you need to turn on your virtual server instance and data volumes in a different region. The remote copy can be created automatically as part of a backup plan, or manually later.
-
-In the current release, you can't create a remote copy of a second-generation block volume backup snapshot if the snapshot is protected by customer-managed encryption keys or if the source volume is larger than 10 TB.
-{: restriction}
 
 When the backup of a file share is triggered at the scheduled interval, a point-in-time snapshot is taken of your share. When the first backup snapshot is taken, the entire contents of the share are copied and retained in the same location as the share. Subsequent backups of the same volume capture the changes that occurred since the previous backup. You can take up to 750 backups of a share. If a file share has a replica in another zone, its backups are automatically copied to the replica location. However, file share backups cannot be independently copied to other zones or regions. For more information, see [About {{site.data.keyword.filestorage_vpc_short}} snapshots](/docs/vpc?topic=vpc-fs-snapshots-about).  
 
