@@ -22,12 +22,12 @@ Before you adopt the release version `2025-12-09` or later, review the changes d
 ## Changed values for the `protocol` property in security group and network ACL rules
 {: #changed-property-values-security-group-network-acl-api-version-2025-12-09}
 
-The values for the `protocol` property in security group rules and network ACL rules have changed for API requests that use a version query parameter of `2025-12-09` or later. 
+The values for the `protocol` property in security group rules and network ACL rules have changed for API requests that use a version query parameter of `2025-12-09` or later.
 
 | Old value | New value      |
 |-----------|----------------|
 | `all`     | `icmp_tcp_udp` |
-{: caption="Old and new values for the `protocol` property in security group and network ACL rules." caption-side="bottom"}
+{: caption="Old and new values for the protocol property in security group and network ACL rules" caption-side="bottom"}
 
 Note that only one of the allowed values for `protocol` differs between the old and new API versions:
 
@@ -35,7 +35,7 @@ Note that only one of the allowed values for `protocol` differs between the old 
 |-------------------------|-------------------------------------------------------------|
 | `2025-12-08` or earlier | `any`, **`all`**, `icmp`, `tcp`, `udp`, `gre`, ...          |
 | `2025-12-09` or later   | `any`, **`icmp_tcp_udp`**, `icmp`, `tcp`, `udp`, `gre`, ... |
-{: caption="Old and new allowed values for the `protocol` property in security group and network ACL rules." caption-side="bottom"}
+{: caption="Old and new allowed values for the protocol property in security group and network ACL rules" caption-side="bottom"}
 
 When security groups and network ACLs were first introduced, they supported the ICMP, TCP, and UDP protocols only. At that time, the value `all` signified "all supported protocols". Now that [any protocol number](https://www.iana.org/assignments/protocol-numbers/protocol-numbers.xhtml){: external} is supported, the value `all` is misleading, but is kept in earlier versions of the API for client compatibility. In later versions of the API, the value `all` is replaced with `icmp_tcp_udp`.
 {: note}
@@ -79,7 +79,7 @@ Review your code for the following security group and network ACL methods that l
 
 Update your client code to look for the `protocol` property value `icmp_tcp_udp` instead of the value `all`.
 
-Review the changes that were announced in the `[API change log](/docs/vpc?topic=vpc-api-change-log#9-december-2025)`, and verify that your code adopts these changes in a manner that is appropriate for your programming language.
+Review the changes that were announced in the [API change log](/docs/vpc?topic=vpc-api-change-log#9-december-2025), and verify that your code adopts these changes in a manner that is appropriate for your programming language.
 
 ## Hazardous migration considerations for updating the `action` property of network ACL rules
 {: #changed-property-values-hazardous-network-acl-deny-api-version-2025-12-09}
@@ -88,7 +88,7 @@ Check your API client code for logic that updates the `action` property of netwo
 
 - `PATCH /network_acls/{network-acl-id}/rules/{id}`
 
-If your existing API client code, using an API version of `2025-12-08` or earlier, updates a network ACL rule to change the `action` property from `allow` to `deny`, the carefully evaluate the following scenarios.
+If your existing API client code, using an API version of `2025-12-08` or earlier, updates a network ACL rule to change the `action` property from `allow` to `deny`, then carefully evaluate the following scenarios.
 
 ### 1. Updating a network ACL rule from "allow all" to "deny all"
 {: #updating-action-to-deny-hazardous-network-acl-deny-api-version-2025-12-09}
