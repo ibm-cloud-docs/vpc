@@ -2,7 +2,7 @@
 
 copyright:
   years: 2022, 2025
-lastupdated: "2025-10-09"
+lastupdated: "2025-12-11"
 
 keywords:
 
@@ -235,7 +235,7 @@ To view the details about a subnet in the list using the console, CLIck the link
 {: #subnets-view-cli}
 {: cli}
 
-To view the details about a subnets in VPC by using the CLI, run the following command:
+To view the details about a subnet in VPC from the CLI, run the following command:
 
 
 ```sh

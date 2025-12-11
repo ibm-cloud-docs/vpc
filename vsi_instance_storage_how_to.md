@@ -218,7 +218,7 @@ Max NIC Count            10
 ### Reporting instance storage information
 {: #instance-storage-reporting}
 
-You can report instance storage information for your virtual server instance by using the following CLI example. Substitute your own instance ID or name .
+You can report instance storage information for your virtual server instance by using the following CLI example. Substitute your own instance ID or name.
 
 ```sh
 ibmcloud is instance-disks 0716_f8c0fd3b-cada-46c3-91f6-c271937ef488
