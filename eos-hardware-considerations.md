@@ -43,7 +43,7 @@ When you plan for hardware EOS, keep the following information in mind:
 **Best practices for upgrades:**
 
 - Read your hardware vendor's documentation to understand the differences between the old and new hardware.
-- Consider the instance downtime that is required for the upgrade.
+- Consider the downtime that is required for the upgrade.
 - Create a backup of your original instance. For more information, see [Best practices for backups](/docs/vpc?topic=vpc-backups-vpc-best-practices&interface=ui).
 - Test that the new instance with the updated hardware works properly before you migrate data or delete your original instance.
 
@@ -53,14 +53,13 @@ When you plan for hardware EOS, keep the following information in mind:
 If you choose to continue with an EOS hardware, consider the following information:
 
 - The EOS hardware can't receive security updates.
-- After the EOS date, you can no longer deploy new instances on that hardware.
-- The hardware isn't tested for hardware, drivers, or firmware.
+- After the EOS date, you can't deploy new instances on that hardware.
+- The hardware isn't tested for hardware, drivers, or firmware issues.
 - Support isn't available for performance or operational issues on the server with an EOS hardware.
-   - Vendor support is unavailable for an EOS hardware.
+   - Vendor support is not available for an EOS hardware.
    - EOS hardware is not supported by {{site.data.keyword.Bluemix_notm}} Technical Support.
 
 ## Troubleshooting
 {: #troubleshooting-upgrading-your-hardware}
 
-If you encounter problems after your hardware is upgrade is complete, open a support ticket. IBM Support investigates each issue on a
-case-by-case basis. You can open a support ticket in the customer portal.
+If you need help after your hardware upgrade is complete, create [support case](/docs/account?topic=account-open-case). {{site.data.keyword.cloud_notm}}  support investigates each issue on a case-by-case basis. You can open a support case in the customer portal.
