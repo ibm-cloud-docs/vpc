@@ -155,8 +155,8 @@ Follow these instructions to create a subnet in your VPC by using the API:
 |**generation \n Required \n int32 |The infrastructure generation. \n **Possible values:** `2`|
 |**Request Body** \n Required |The subnet prototype object.|
 |**vpc** \n Required \n `string`|The VPC the subnet will reside in. \n One of: `VPCIdentityById`, `VPCIdentityByCRN`, `VPCIdentityByHref`|
-|**ip_version** \n `string`|The IP versions to support for this subnet. **Allowable values:** `[ipv4]`|
-|**name** \n Required \n `string` | The name for this subnet. The name must not be used by another subnet in the VPC. If unspecified, the name is going to be a hyphenated list of randomly selected words. \n **Possible values:** 1 ≤ length ≤ 63, Value must match regular expression `^([a-z]&verbar;[a-z][-a-z0-9]*[a-z0-9])$` \n **Example:** `my-subnet`|
+|**ip_version** \n `string`|The IP versions to support for this subnet. **Allowable values:** [`ipv4`]|
+|**name** \n Required \n `string` | The name for this subnet. The name must not be used by another subnet in the VPC. If unspecified, the name is going to be a hyphenated list of randomly selected words. \n **Possible values:** 1 ≤ length ≤ 63, Value must match regular expression `([a-z]&verbar;[a-z][-a-z0-9]*[a-z0-9])$` \n **Example:** `my-subnet`|
 |**network_acl** \n `string` | The network ACL to use for this subnet. If unspecified, the default network ACL for the VPC is used. \n One of: `NetworkACLIdentityById`, `NetworkACLIdentityByCRN`, `NetworkACLIdentityHref`|
 |**public_gateway** \n `string` |The public gateway to use for internet-bound traffic for this subnet. If unspecified, the subnet is not going to be attached to a public gateway. \n One of: `PublicGatewayIdentityById`, `PublicGatewayIdentityByCRN`, `PublicGatewayIdentityByHref`|
 |**resource_group** \n ResourceGroupIdentityById | The resource group to use. If unspecified, the account’s [default resource group](/apidocs/resource-manager#introduction) is used.|
