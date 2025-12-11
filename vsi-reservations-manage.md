@@ -2,7 +2,7 @@
 
 copyright:
   years: 2023, 2025
-lastupdated: "2025-07-28"
+lastupdated: "2025-12-11"
 
 subcollection: vpc
 
@@ -45,7 +45,7 @@ You can use the UI to manage your reservation and the serversnthat are attached.
 
 You can attach a virtual server to a reservation.
 
-1. In the [{{site.data.keyword.cloud_notm}} console](/login){: external}, click **Navigation Menu** icon ![the menu icon ](../icons/icon_hamburger.svg) **> Infrastructure** ![VPC icon](../../icons/vpc.svg) **> Reservations**.
+1. In the [{{site.data.keyword.cloud_notm}} console](/login){: external}, click **Navigation Menu** icon ![the menu icon](../icons/icon_hamburger.svg) **> Infrastructure** ![VPC icon](../../icons/vpc.svg) **> Reservations**.
 1. Select a reservation in the Reservation details page.
 1. From the virtual servers list, click **Actions** > **Attach**.
 1. Select the server that you want to attach to the reservation and click **Attach**.
@@ -56,7 +56,7 @@ You can attach a virtual server to a reservation.
 
 You can detach a virtual server from your reservation.
 
-1. In the [{{site.data.keyword.cloud_notm}} console](/login){: external}, click **Navigation Menu** icon ![the menu icon ](../icons/icon_hamburger.svg) **> Infrastructure** ![VPC icon](../../icons/vpc.svg) **> Reservations**.
+1. In the [{{site.data.keyword.cloud_notm}} console](/login){: external}, click **Navigation Menu** icon ![the menu icon](../icons/icon_hamburger.svg) **> Infrastructure** ![VPC icon](../../icons/vpc.svg) **> Reservations**.
 1. From your virtual server list or in the Reservation details page, click the server that you want to detach and then click **Actions** > **Detach**.
 1. To confirm, click **Detach**.
 
@@ -85,7 +85,7 @@ However, after a reservation is activated and is `active`, many aspects of the r
 
 You can delete a reservation.
 
-1. In the [{{site.data.keyword.cloud_notm}} console](/login){: external}, click **Navigation Menu** icon ![the menu icon ](../icons/icon_hamburger.svg) **> Infrastructure** ![VPC icon](../../icons/vpc.svg) **> Reservations**.
+1. In the [{{site.data.keyword.cloud_notm}} console](/login){: external}, click **Navigation Menu** icon ![the menu icon](../icons/icon_hamburger.svg) **> Infrastructure** ![VPC icon](../../icons/vpc.svg) **> Reservations**.
 1. From your Reservations list, click **Actions** > **Delete reservation**.
 1. To confirm, click **Delete**.
 

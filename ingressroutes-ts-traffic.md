@@ -1,7 +1,7 @@
 ---
 copyright:
   years: 2022
-lastupdated: "2024-06-20"
+lastupdated: "2025-12-11"
 
 keywords:
 
@@ -30,7 +30,7 @@ Your traffic routing error was most likely caused by a public ingress route conf
 Follow these steps to fix public ingress traffic routing issues:
 {: tsResolve}
 
-1. Verify that the route destination includes the floating-IP external IP, that the routing table has a **INTERNET-FIP** traffic source, and that the routing table is defined correctly. For more information, see [How do I fix my public ingress route configuration problem?](/docs/vpc?topic=vpc-troubleshoot-pi-configuration-problem&interface=cli)
+1. Verify that the route destination includes the floating-IP external IP, that the routing table has an **INTERNET-FIP** traffic source, and that the routing table is defined correctly. For more information, see [How do I fix my public ingress route configuration problem?](/docs/vpc?topic=vpc-troubleshoot-pi-configuration-problem&interface=cli)
 
 1. Verify that the floating IP is defined correctly.
 

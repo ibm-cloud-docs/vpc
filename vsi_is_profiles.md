@@ -2,7 +2,7 @@
 
 copyright:
   years: 2019, 2025
-lastupdated: "2025-12-09"
+lastupdated: "2025-12-11"
 
 keywords: vsi, virtual server instances, profile, profiles, balanced, compute, memory, very high memory, ultra high memory, gpu, storage optimized, confidential compute, flex, high frequency
 
@@ -443,7 +443,7 @@ For more information about confidential computing, see [Confidential computing f
 ## Flex profiles
 {: #flexible-profiles}
 
-Flex profiles are a cost-effective option to help improve mainstream capacity where and when its needed. As a dedicated core offering, you have cpu-to-memory ratio options for compute, balanced, memory, and two low-memory variants (small and nano). The Flex profile family doesn't include instance storage.
+Flex profiles are a cost-effective option to help improve mainstream capacity where and when it's needed. As a dedicated core offering, you have cpu-to-memory ratio options for compute, balanced, memory, and two low-memory variants (small and nano). The Flex profile family doesn't include instance storage.
 
 The following flex profiles are available.
 
@@ -472,6 +472,7 @@ The following flex profiles are available.
 | mxf-8x64         | 8    | 64           | 16   |
 | mxf-16x128       | 16   | 128          | 32  |
 | mxf-24x192       | 24   | 192          | 64  |
+| mxf-32x256       | 32   | 256          | 64  |
 | mxf-48x384       | 48   | 384          | 80  |
 | mxf-64x512       | 64   | 512          | 80  |
 {: caption="Flex profile options for virtual servers" caption-side="bottom"}

@@ -2,7 +2,7 @@
 
 copyright:
   years: 2022, 2025
-lastupdated: "2025-11-05"
+lastupdated: "2025-12-11"
 
 keywords: context-based restrictions for VPC Infrastructure Services
 
@@ -448,7 +448,7 @@ crn:v1:bluemix:public:is:au-syd:a/67db3d7ff3f34220b40e2d81480754c9::vpc:<resourc
 
 Requests for provisioning resources do not contain a resource ID.
 
-If you do not find a context-based restriction event in the {{site.data.keyword.logs_full_notm}}, it's possible access was denied due to IAM access policies. For more information, see
+If you do not find a context-based restriction event in the {{site.data.keyword.logs_full_notm}}, it's possible that access was denied due to IAM access policies. For more information, see
 [VPC IAM getting started guide](/docs/vpc?topic=vpc-iam-getting-started).
 
 ### Client-to-site VPN data plane impact with context-based restrictions

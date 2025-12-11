@@ -2,7 +2,7 @@
 
 copyright:
   years: 2019, 2025
-lastupdated: "2025-09-30"
+lastupdated: "2025-12-11"
 
 keywords: view instance details, restart virtual server, stop, details, delete
 
@@ -655,7 +655,7 @@ For more information, see the [update an instance action](/apidocs/vpc/latest#up
 
 You can detach a virtual server from a reservation in the console.
 
-1. In the [{{site.data.keyword.cloud_notm}} console](/login){: external}, click **Navigation Menu** icon ![the menu icon ](../icons/icon_hamburger.svg) **> Infrastructure** ![VPC icon](../../icons/vpc.svg) **> Reservations**.
+1. In the [{{site.data.keyword.cloud_notm}} console](/login){: external}, click **Navigation Menu** icon ![the menu icon](../icons/icon_hamburger.svg) **> Infrastructure** ![VPC icon](../../icons/vpc.svg) **> Reservations**.
 1. From your virtual server list or in the Reservation details page, click the server that you want to detach and then click **Actions** > **Detach**.
 1. To confirm, click **Detach**.
 

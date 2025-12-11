@@ -2,7 +2,7 @@
 
 copyright:
   years: 2018, 2025
-lastupdated: "2025-11-07"
+lastupdated: "2025-12-11"
 
 subcollection: vpc
 
@@ -57,7 +57,7 @@ If you try to add an SSH key to your account and get an error that the key can't
 ## How do I deploy an RHEL virtual server instance on a new account that has never deployed an RHEL virtual server instance?
 {: #troubleshooting-deploying-RHEL-VSI-new-account}
 
-Deploying an RHEL virtual server instance on a new account that has not deployed a RHEL instance hides an issue. Before deploying the RHEL instance, the customers need to make security group adjustments, so that the RHEL instance can register.
+Deploying an RHEL virtual server instance on a new account that has not deployed an RHEL instance hides an issue. Before deploying the RHEL instance, the customers need to make security group adjustments, so that the RHEL instance can register.
 {; important}
 
 The security group must contain all of the following inbound and outbound rules:

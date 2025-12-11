@@ -2,7 +2,7 @@
 
 copyright:
   years: 2023, 2025
-lastupdated: "2025-07-28"
+lastupdated: "2025-12-11"
 
 subcollection: vpc
 
@@ -31,7 +31,7 @@ When you create a reservation, the reservation resource is created, but it isn't
 
 In the {{site.data.keyword.cloud_notm}}, complete the following steps to provision your reservation.
 
-1. In the [{{site.data.keyword.cloud_notm}} console](/login){: external}, click **Navigation Menu** icon ![the menu icon ](../icons/icon_hamburger.svg) **> Infrastructure** ![VPC icon](../../icons/vpc.svg) **> Reservations**.
+1. In the [{{site.data.keyword.cloud_notm}} console](/login){: external}, click **Navigation Menu** icon ![the menu icon](../icons/icon_hamburger.svg) **> Infrastructure** ![VPC icon](../../icons/vpc.svg) **> Reservations**.
 2. To create a new reservation, click **Create**.
 3. From the **New reservation for VPC** page, enter or select the following information:
 
