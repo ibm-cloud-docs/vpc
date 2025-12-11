@@ -33,7 +33,7 @@ Before you begin, you must be assigned one or more IAM access roles that include
 
 You can create a subnet in VPC by using the console, CLI, or API.
 
-If you use an IP range outside of the ranges [RFC 1918](https://datatracker.ietf.org/doc/html/rfc1918){: external} defines (`10.0.0.0/8`, `172.16.0.0/12`, or `192.168.0.0/16`) for a subnet, the instances that are attached to that subnet might be unable to reach parts of the public internet. If you plan to configure VPCs that use both non-RFC-1918 addresses and also have public connectivity (floating IP addresses or public gateways), make sure to use a custom route that contains the Delegate-VPC action.
+If you use an IP range outside of the ranges that [RFC 1918](https://datatracker.ietf.org/doc/html/rfc1918){: external} defines (`10.0.0.0/8`, `172.16.0.0/12`, or `192.168.0.0/16`) for a subnet, the instances that are attached to that subnet might be unable to reach parts of the public internet. If you plan to configure VPCs that use both non-RFC-1918 addresses and also have public connectivity (floating IP addresses or public gateways), make sure to use a custom route that contains the Delegate-VPC action.
 {: tip}
 
 ### Creating subnets in VPC in the console
@@ -223,7 +223,7 @@ You can view the details of a subnet in your VPC by using the UI, API, or CLI.
 {: #subnets-view-ui}
 {: ui}
 
-After you have created a subnet, it appears in the Subnets for VPC list.
+After the subnet is created, it appears in the Subnets for VPC list.
 
 To view the details about a subnet in the list in the console, click the link of the subnet in the **Name** column. The **Overview** tab shows the information that you used during the subnet creation.
 
@@ -275,13 +275,13 @@ Follow these instructions to retrieve a subnet in your VPC by using the API:
 |Query parameters|Information|
 |----------------|-----------|
 |**id** \n Required \n `string` |The subnet identifier. \n **Possible values:**  1 ≤ length ≤ 64, Value must match regular expression `^[-0-9a-z_]+$` |
-|**version** \n Required \n `string` | Requests the version of the API as of a date in the format `YYYY-MM-DD`. Any date up to the current date may be provided. Specify the current date to request the most recent version. \n **Possible values:** Value must match regular expression `^[0-9]{4}-[0-9]{2}-[0-9]{2}$`|
+|**version** \n Required \n `string` | Requests the version of the API as of a date in the format `YYYY-MM-DD`. Any date up to the current date can be provided. Specify the current date to request the most recent version. \n **Possible values:** Value must match regular expression `^[0-9]{4}-[0-9]{2}-[0-9]{2}$`|
 |**generation** \n Required \n `int32` |The infrastructure generation. \n **Allowable values:** `2`|
 {: caption="Parameters for retrieving a subnet" caption-side="bottom"}
 
 1. When all variables are initiated, run the command.
 
-For example:
+See the following example:
 
 ```sh
 curl -X GET "$vpc_api_endpoint/v1/subnets/$subnet_id?version=2022-10-31&generation=2"
@@ -293,13 +293,13 @@ The following response shows after you initiate the request:
 
 |Response Body |Details|
 |--------------|-------|
-|**available_ipv4_address_count** \n Always included \n `int64`| The number of IPv4 addresses in this subnet that are not in-use, and have not been reserved by the user or the provider. \n **Example:** `15`|
+|**available_ipv4_address_count** \n Always included \n `int64`| The number of IPv4 addresses in this subnet that are not in-use, and are not reserved by the user or the provider. \n **Example:** `15`|
 |**created_at** \n Always included \n date-time|The date and time that the subnet was created|
 |**crn** \n Always included \n `string`|The CRN for this subnet \n **Possible values:** 9 ≤ length ≤ 512 \n **Example:** `crn:v1:bluemix:public:is:us-south-1:a/123456::subnet:7ec86020-1c6e-4889-b3f0-a15f2e50f87e`|
 |- **href** \n Always included* \n `string`|The URL for this subnet \n **Possible values:** 10 ≤ length ≤ 8000, Value must match regular expression `^http(s)?:\/\/([^\/?#]*)([^?#]*)(\?([^#]*))?(#(.*))?$` \n **Example:** `https://us-south.iaas.cloud.ibm.com/v1/subnets/7ec86020-1c6e-4889-b3f0-a15f2e50f87e`|
 |- **id** \n Always included \n `string`|The unique identifier for this subnet \n **Possible values:** 1 ≤ length ≤ 64, Value must match regular expression `^[-0-9a-z_]+$` \n **Example:** `7ec86020-1c6e-4889-b3f0-a15f2e50f87e`|
 |**ip_version** \n Always included \n `string`|The IP versions supported by this subnet. \n **Possible values:** `[ipv4]`|
-|**ipv4_cidr_block** \n Always included \n `string`&verbar;The IPv4 range of the subnet, expressed in CIDR format. \n **Possible values:** 9 ≤ length ≤ 18, Value must match regular expression `^(([0-9]&verbar;[1-9][0-9]&verbar;1[0-9]{2}&verbar;2[0-4][0-9]&verbar;25[0-5])\.){3}([0-9]&verbar;[1-9][0-9]&verbar;1[0-9]{2}&verbar;2[0-4][0-9]&verbar;25[0-5])(\/(3[0-2]&verbar;[1-2][0-9]&verbar;[0-9]))$` \n **Example:** `10.0.0.0/24`|
+|**ipv4_cidr_block** \n Always included \n `string` | The IPv4 range of the subnet, expressed in CIDR format. \n **Possible values:** 9 ≤ length ≤ 18, Value must match regular expression `^(([0-9]&verbar;[1-9][0-9]&verbar;1[0-9]{2}&verbar;2[0-4][0-9]&verbar;25[0-5])\.){3}([0-9]&verbar;[1-9][0-9]&verbar;1[0-9]{2}&verbar;2[0-4][0-9]&verbar;25[0-5])(\/(3[0-2]&verbar;[1-2][0-9]&verbar;[0-9]))$` \n **Example:** `10.0.0.0/24`|
 |**name** \n Always included \n `string`|The name for this subnet. The name is unique across all subnets in the VPC. \n **Possible values:** 1 ≤ length ≤ 63, Value must match regular expression `^-?([a-z]&verbar;[a-z][-a-z0-9]*[a-z0-9]&verbar;[0-9][-a-z0-9]*([a-z]&verbar;[-a-z][-a-z0-9]*[a-z0-9]))$` \n **Example:** `my-subnet`|
 |**network_acl**| \n Always included \n NetworkACLReference|The network ACL for this subnet.|
 |**resource_group** \n Always included \n ResourceGroupReference|The resource group for this subnet.|
