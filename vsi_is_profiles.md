@@ -472,6 +472,7 @@ The following flex profiles are available.
 | mxf-8x64         | 8    | 64           | 16   |
 | mxf-16x128       | 16   | 128          | 32  |
 | mxf-24x192       | 24   | 192          | 64  |
+| mxf-32x256       | 32   | 256          | 64  |
 | mxf-48x384       | 48   | 384          | 80  |
 | mxf-64x512       | 64   | 512          | 80  |
 {: caption="Flex profile options for virtual servers" caption-side="bottom"}

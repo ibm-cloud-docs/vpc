@@ -2,7 +2,7 @@
 
 copyright:
   years: 2025, 2025
-lastupdated: "2025-11-04"
+lastupdated: "2025-12-11"
 
 keywords: virtual server instances, flex profile, flexible profile, virtual server profile
 
@@ -138,6 +138,7 @@ The following Flex profiles are available when you provision a virtual server in
 | mxf-8x64         | 8    | 64           | 16                            | N/A |
 | mxf-16x128       | 16   | 128          | 32                            | N/A |
 | mxf-24x192       | 24   | 192          | 48                            | N/A |
+| mxf-32x256       | 32   | 256          | 64                            | N/A |
 | mxf-48x384       | 48   | 384          | 80                            | N/A |
 | mxf-64x512       | 64   | 512          | 80                            | N/A |
 {: caption="Memory flex profile options for virtual servers" caption-side="bottom"}
