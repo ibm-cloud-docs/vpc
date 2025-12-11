@@ -30,7 +30,7 @@ When you plan for hardware EOS, keep the following information in mind:
 * Continue with your EOS hardware (at your own risk).
 
 ### Wanclouds partnership
-{: #partner-hardware}
+{: #wanclouds-partner-hardware}
 
 {{site.data.keyword.IBM_notm}} has a partnership with Wanclouds. Contact [Wanclouds](https://wanclouds.net/){: external} for more information.
 
@@ -48,7 +48,7 @@ When you plan for hardware EOS, keep the following information in mind:
 - Test that the new instance with the updated hardware works properly before you migrate data or delete your original instance.
 
 ### Continue with your EOS hardware at your own risk
-{: #continue-using-your-eos-os}
+{: #continue-using-your-eos-hardware}
 
 If you choose to continue with an EOS hardware, consider the following information:
 
@@ -60,7 +60,7 @@ If you choose to continue with an EOS hardware, consider the following informati
    - EOS hardware is not supported by {{site.data.keyword.Bluemix_notm}} Technical Support.
 
 ## Troubleshooting
-{: #troubleshooting-upgrading-your-os}
+{: #troubleshooting-upgrading-your-hardware}
 
 If you encounter problems after your hardware is upgrade is complete, open a support ticket. IBM Support investigates each issue on a
 case-by-case basis. You can open a support ticket in the customer portal.
