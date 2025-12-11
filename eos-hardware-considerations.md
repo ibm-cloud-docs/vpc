@@ -2,7 +2,7 @@
 
 copyright:
   years: 2023
-lastupdated: "2024-07-16"
+lastupdated: "2025-12-11"
 
 keywords:
 
@@ -15,7 +15,7 @@ subcollection: vpc
 # End of support hardware considerations
 {: #eos-hardware-considerations-intro}
 
-If you use hardware that is at or past its end-of-support (EOS) date, security and stability risks are possible. The vendor no longer provides updates or security fixes for deprecated hardware. Hardware that reaches its end of life (EoL) date is discontinued.
+If you use hardware that is at or past its end-of-support (EOS) date, security and stability risks are possible. The vendor no longer provides updates or security fixes for deprecated hardware.
 {: short-desc}
 
 Follow the guidance from your hardware vendor on when to upgrade. {{site.data.keyword.IBM}} doesn't require you to migrate your active instances to supported hardware, but you assume the risks that are associated with using outdated hardware. Unsupported hardware doesn't receive security updates or fixes and can't be used to deploy new instances. Plan to modernize the instances' hardware before the EOS date.
