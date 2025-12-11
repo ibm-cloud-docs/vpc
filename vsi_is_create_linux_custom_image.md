@@ -2,7 +2,7 @@
 
 copyright:
   years: 2019, 2025
-lastupdated: "2025-11-04"
+lastupdated: "2025-12-10"
 
 keywords: creating a linux custom image, cloud-init, qcow2
 
@@ -28,7 +28,7 @@ To create secure execution-based custom images by using the {{site.data.keyword.
 
 {{_include-segments/linux-ed25519-ssh-key-type-note.md}}
 
-Complete the following steps to make sure that you can successfully deploy your own Linux custom image in the {{site.data.keyword.vpc_short}} infrastructure environment. Keep in mind that you can't create an image from an encrypted boot volume (image from a volume) that is not 100 GB. The operation is blocked.
+Complete the following steps to make sure that you can successfully deploy your own Linux custom image in the {{site.data.keyword.vpc_short}} infrastructure environment. Keep in mind that you can't create an image from an encrypted boot volume that is not 100 GB. The operation is blocked.
 
 ## Step 1 - Start with a single image file in qcow2 or VHD format
 {: #single-image-qcow2}

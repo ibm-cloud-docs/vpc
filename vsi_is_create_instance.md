@@ -329,7 +329,7 @@ If you select a catalog image that belongs to a different account, you have extr
       ```
       {: pre}
 
-   When you provision an instance, you can either provision the instance from the private catalog-managed image in the latest version in a catalog product offering by using the `offering_crn` value or from the specific version in the catalog product offering by using the `offering_version_crn` value.
+   When you provision an instance, you can either provision the instance from the private catalog-managed image in the most recent version in a catalog product offering by using the `offering_crn` value or from the specific version in the catalog product offering by using the `offering_version_crn` value.
 
       Save the `offering_crn` and `offering_version_crn`in variables, which are used later to provision an instance.
 
@@ -976,7 +976,7 @@ If you plan to use a snapshot from another account, make sure that the right [IA
 
 Some profiles might not be available because of one of the following reasons:
    - The number of network interfaces in the virtual server exceeds profile limits. You can remove network interfaces to select from more profiles. For more information, see [Resizing a virtual server](/docs/vpc?topic=vpc-resizing-an-instance).
-   - The image selected contains an allowed-use expression that is not compatible with the profile. In these cases, select an image with an allowed-use expression that is compatible with the desired profile. For more infomation, see [Adding allowed-use expressions to custom images](/docs/vpc?topic=vpc-custom-image-allowed-use-expressions&interface=ui).
+   - The selected image contains an allowed-use expression that is not compatible with the profile. In these cases, select an image with an allowed-use expression that is compatible with the wanted profile. For more information, see [Adding allowed-use expressions to custom images](/docs/vpc?topic=vpc-custom-image-allowed-use-expressions&interface=ui).
 
 
 ### Creating an instance by using the API
@@ -1024,7 +1024,7 @@ You can provision an instance with a stock or custom image by specifying the ima
 
 You can provision an instance with a private catalog image by specifying the image's `offering_crn` or the `version_crn` subproperty as the value of the `catalog_offering` property.
 
-* Create an instance by using a private catalog image from the latest version of a catalog product offering.
+* Create an instance by using a private catalog image from the most recent version of a catalog product offering.
 
     ```bash
     curl -X POST "$vpc_api_endpoint/v1/instances?version=$api_version&generation=2" \

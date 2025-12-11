@@ -2,7 +2,7 @@
 
 copyright:
   years: 2020, 2025
-lastupdated: "2025-11-17"
+lastupdated: "2025-12-11"
 
 keywords:
 
@@ -15,7 +15,7 @@ subcollection: vpc
 # Creating an instance template
 {: #create-instance-template}
 
-You can create an instance template to define instance details for provisioning one or more virtual servers. When your instance template is created, you can use it to provision single virtual server instances, or you can provision multiple instances at the same time as part of an instance group.
+You can create an instance template to define instance details to provision one or more virtual servers. When your instance template is created, you can use it to provision single virtual server instances, or you can provision multiple instances at the same time as part of an instance group.
 
 ## Creating an instance template with the UI
 {: #instance-template-ui}
@@ -70,7 +70,7 @@ Gather the following required instance template details.
 | Placement groups | `ibmcloud is placement-groups` | [List all placement groups](/docs/vpc?topic=vpc-vpc-reference#placement-groups-list) |
 {: caption="Required instance template details" caption-side="bottom"}
 
-Use the following commands to determine the required information for creating an instance template.
+Use the following commands to determine the required information to create an instance template.
 
 1. List the regions that are associated with your account.
 
@@ -112,7 +112,7 @@ Use the following commands to determine the required information for creating an
    ```
    {: pre}
 
-   In the following example, the command is run in the `us-south` region and the output shows the available zones that are in the region.
+   In the following example, the command runs in the `us-south` region and the output shows the available zones that are in the region.
 
    ```sh
    $ ibmcloud is zones
@@ -131,7 +131,7 @@ Use the following commands to determine the required information for creating an
    ```
    {: pre}
 
-   For this example, you see a response similar to the following output.
+   For this example, you see a response that is similar to the following output.
 
    ```sh
    ID                                          Name                         Status      Classic access   Default network ACL                   Default security group                 Resource group
@@ -242,7 +242,7 @@ Use the following commands to determine the required information for creating an
 ### Creating an instance template from the CLI
 {: #creating-instance-template-example-cli}
 
-After you know these values, use them to run the `instance-template-create` command. In addition to the information that you gathered, you must specify a name for the instance.
+After you know these values, use them to run the `instance-template-create` command. You must also specify a name for the instance.
 
 ```sh
 ibmcloud is instance-template-create INSTANCE_TEMPLATE_NAME VPC ZONE_NAME PROFILE_NAME SUBNET --image IMAGE
@@ -277,7 +277,7 @@ Created                     2023-03-29T22:02:59+05:30
 {: screen}
 
 
-The following example creates an instance template that is named _my-gen3-instance-template_ in the VPC that is specified by the ID _r006-6e8fb140-5668-45b8-b98a-d5cb0e0bf39b_. The template is created in the us-south-3_ ZONE and uses the _cx3d-8x20_ PROFILE. The SUBNET is defined by its ID _00726-298acd6c-e71e-4204-a04f-fe4a4dd89805_. The IMAGE is specified by its ID _r006-534ef2ac-6158-45b3-9657-57629fa85305_. When the selected [compute profile](/docs/vpc?group=profile-details) supports pooled bandwidth allocation for data volumes, the option `--storage_qos_modes` can also be included.
+The following example creates an instance template that is named _my-gen3-instance-template_ in the VPC that is specified by the ID _r006-6e8fb140-5668-45b8-b98a-d5cb0e0bf39b_. The template is created in the us-south-3_ ZONE and uses the _cx3d-8x20_ PROFILE. The SUBNET is defined by its ID _00726-298acd6c-e71e-4204-a04f-fe4a4dd89805_. The IMAGE is specified by its ID _r006-534ef2ac-6158-45b3-9657-57629fa85305_. When the selected [compute profile](/docs/vpc?group=profile-details) supports pooled bandwidth allocation for data volumes, you can also include the `--storage_qos_modes` option.
 
 ```sh
 ibmcloud is instance-template-create my-gen3-instance-template r006-6e8fb140-5668-45b8-b98a-d5cb0e0bf39b us-south-3 cx3d-8x20 00726-298acd6c-e71e-4204-a04f-fe4a4dd89805 --image r006-534ef2ac-6158-45b3-9657-57629fa85305 --storage_qos_modes pooled
@@ -286,7 +286,7 @@ ibmcloud is instance-template-create my-gen3-instance-template r006-6e8fb140-566
 
 For more examples of the `ibmcloud is instance-template-create` command, see the [VPC CLI reference](/docs/vpc?topic=vpc-vpc-reference#instance-template-create).
 
-When you create an instance template, validation steps are performed to make sure that you can use your template to provision a virtual server instance. Need more help? You can always run `ibmcloud is help instance-template-create` to display help for creating an instance template.
+When you create an instance template, validation steps are performed to make sure that you can use your template to provision a virtual server instance. Need more help? You can run the `ibmcloud is help instance-template-create` command to display help.
 {: tip}
 
 ## Creating an instance template with the API
@@ -310,8 +310,7 @@ A good way to learn more about the API is to click **Get sample API call** on th
 ### Gathering information to create an instance template
 {: #api-options-instance-template-create}
 
-Ready to create an instance template? Before you can make the `POST` request with the `/instance/templates` method, you need to know the details that you want to include for your instance template. For example, you need the ID or name of the VPC, and the name of the zone where the instance template is to be created. You also need the name of the instance profile that you want to use, and the ID or name of the subnet where the template is to be created.
-
+Ready to create an instance template? Before you can make the `POST` request with the `/instance/templates` method, you need to know the details that you want to include for your instance template. For example, you need the ID or name of the VPC, and the name of the zone where you want to create the instance. You also need the name of the instance profile that you want to use, and the ID or name of the subnet where you want to create the template.
 Gather the following required instance template details by making the following API calls:
 
 |    Instance details   |  Listing methods                | API spec documentation |
@@ -325,7 +324,7 @@ Gather the following required instance template details by making the following 
 | Placement groups      | `GET /placement_groups`         | [List all placement groups](/apidocs/vpc/latest#list-placement-groups) |
 {: caption="Required API instance template details" caption-side="bottom"}
 
-Use the following commands to determine the required information for creating a new instance template.
+Use the following commands to determine the required information to create an instance template.
 
 1. List the {{site.data.keyword.vpc_short}}s that are associated with your account.
 
@@ -336,7 +335,7 @@ Use the following commands to determine the required information for creating a 
 
    If you don't have one available, you can create an {{site.data.keyword.vpc_short}} by using the `POST /vpcs` method. For more information about creating an {{site.data.keyword.vpc_short}}, see [IBM Cloud API Docs - Create a VPC](/apidocs/vpc/latest#create-vpc).
 
-1. List the regions associated with your account.
+1. List the regions that are associated with your account.
 
    ```sh
    curl -X GET "$vpc_api_endpoint/v1/regions?version=2023-07-13&generation=2" -H "Authorization: Bearer $iam_token"
@@ -350,7 +349,7 @@ Use the following commands to determine the required information for creating a 
    ```
    {: pre}
 
-1. List the available profiles for creating your instance template.
+1. List the profiles that are available to create your instance template.
 
    ```sh
    curl -X GET "$vpc_api_endpoint/v1/instance/profiles?version=2023-07-13&generation=2" -H "Authorization: Bearer $iam_token"
@@ -368,7 +367,7 @@ Use the following commands to determine the required information for creating a 
 
    If you don't have a subnet available, you can create one by using the `POST /subnets` method. For more information about creating an {{site.data.keyword.vpc_short}}, see [IBM Cloud API Docs - Create a subnet](/apidocs/vpc/latest#create-subnet).
 
-1. List the available images for creating your instance template.
+1. List the images that are available to create your instance template.
 
    ```sh
    curl -X GET "$vpc_api_endpoint/v1/images?version=2023-07-13&generation=2" -H "Authorization: Bearer $iam_token"
@@ -399,7 +398,7 @@ Use the following commands to determine the required information for creating a 
 ### Creating the instance template with the API
 {: #creating-instance-template-example-api}
 
-After you know these values, use them to make a `POST` request with the `/instance/templates` method. In addition to the information that you gathered, you must specify a name for the instance.
+After you know these values, use them to make a `POST` request with the `/instance/templates` method. You must also specify a name for the instance.
 
 The following example creates an instance template that is named _my-instance-template_ in _us-south-1_ and uses the _bx2-2x8_ profile.
 
@@ -523,7 +522,7 @@ Make sure that you set up [Terraform for VPC](https://registry.terraform.io/prov
 ### Gathering information to create an instance template
 {: #terraform-options-instance-template-create}
 
-Ready to create an instance template? Before you include the [`ibm_is_instance_template`](https://registry.terraform.io/providers/IBM-Cloud/ibm/latest/docs/resources/is_instance_template){: external} resource in your configuration, you need to know the details that you want to include in your instance template. For example, you need the ID or name of the VPC, and the name of the zone where the instance template is to be created. You also need the name of the instance profile that you want to use, and the ID or name of the subnet where the template is to be created.
+Ready to create an instance template? Before you include the [`ibm_is_instance_template`](https://registry.terraform.io/providers/IBM-Cloud/ibm/latest/docs/resources/is_instance_template){: external} resource in your configuration, you need to know the details that you want to include in your instance template. For example, you need the ID or name of the VPC, and the name of the zone where you want to create the instance template. You also need the name of the instance profile that you want to use, and the ID or name of the subnet where you want to create the template.
 
 Gather the following required Terraform instance template details.
 
@@ -538,11 +537,11 @@ Gather the following required Terraform instance template details.
 | Placement groups | `ibm_is_placement_groups` | [ibm_is_placement_groups](https://registry.terraform.io/providers/IBM-Cloud/ibm/latest/docs/data-sources/is_placement_groups){: external} |
 {: caption="Required Terraform instance template details" caption-side="bottom"}
 
-Use the following guide to determine the required information for creating a new instance template.
+Use the following guide to determine the required information to create an instance template.
 
 Gather the following information by using `DataSource` block.
 
-1. Gather instance profile details. Run the following block for the profile that you select. See [x86 instance profiles](/docs/vpc?topic=vpc-profiles&interface=ui#profiles) for a list of available profiles. For more information, see the Terraform documentation on [ibm_is_instance_profiles](https://registry.terraform.io/providers/IBM-Cloud/ibm/latest/docs/data-sources/is_instance_profiles). Use an instance profile by referring to the instance profile data source. For more information, see the Terraform documentation on [ibm_is_instance_profile](https://registry.terraform.io/providers/IBM-Cloud/ibm/latest/docs/data-sources/is_instance_profile).
+1. Gather instance profile details. Run the following block for the profile that you selected. See [x86 instance profiles](/docs/vpc?topic=vpc-profiles&interface=ui#profiles) for a list of available profiles. For more information, see the Terraform documentation on [ibm_is_instance_profiles](https://registry.terraform.io/providers/IBM-Cloud/ibm/latest/docs/data-sources/is_instance_profiles). To use an instance profile, refer to the instance profile data source. For more information, see the Terraform documentation on [ibm_is_instance_profile](https://registry.terraform.io/providers/IBM-Cloud/ibm/latest/docs/data-sources/is_instance_profile).
 
    ```terraform
    data "ibm_is_instance_profile" "example_profile" {
@@ -596,7 +595,7 @@ Gather the following information by using `DataSource` block.
    ```
    {: codeblock}
 
-1. Use an existing ssh-key by referring to the ssh-key data source [ibm_is_ssh_key](https://registry.terraform.io/providers/IBM-Cloud/ibm/latest/docs/data-sources/is_ssh_key){: external}. If you don't have any available SSH keys, use the resource [ibm_is_ssh_key](https://registry.terraform.io/providers/IBM-Cloud/ibm/latest/docs/resources/is_ssh_key){: external} to create one.
+1. To use an existing ssh-key, refer to the ssh-key data source [ibm_is_ssh_key](https://registry.terraform.io/providers/IBM-Cloud/ibm/latest/docs/data-sources/is_ssh_key){: external}. If you don't have any available SSH keys, use the resource [ibm_is_ssh_key](https://registry.terraform.io/providers/IBM-Cloud/ibm/latest/docs/resources/is_ssh_key){: external} to create one.
 
    RSA and ED25519 are the two types of SSH keys that you can use. However, you can't use the ED25519 SSH key type with Windows or VMware images. You can use only RSA SSH keys for these images. For more information, see [Getting started with SSH keys](/docs/vpc?topic=vpc-ssh-keys).
    {: note}
@@ -613,7 +612,7 @@ Gather the following information by using `DataSource` block.
 {: #create-instance-template-using-terraform}
 {: terraform}
 
-After you know these values, use them to write the `ibm_is_instance_template` resource block. In addition to the information that you gathered, you must specify a name for the instance.
+After you know these values, use them to write the `ibm_is_instance_template` resource block. You must also specify a name for the instance.
 
 The following example creates an instance template that is named _my-instance-template_ in the _us-south-1_ region and uses the _bx2-8x32_ profile.
 

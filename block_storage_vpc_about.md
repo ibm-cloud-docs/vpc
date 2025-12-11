@@ -57,8 +57,7 @@ By default, boot volumes are deleted when you delete an instance. You can change
 ### Data volumes
 {: #secondary-data-volumes}
 
-{{site.data.keyword.block_storage_is_short}} data volumes are secondary volumes with total capacity range of 10 GB to 16,000 GB for first-generation volumes and 1 GB to 32,000 GB for second-generation volumes. Maximum IOPS for data volumes varies based on volume size and profile. For more information, see
-[{{site.data.keyword.block_storage_is_short}} profiles](/docs/vpc?topic=vpc-block-storage-profiles).
+{{site.data.keyword.block_storage_is_short}} data volumes are secondary volumes with total capacity range of 1 GB to 32,000 GB for second-generation volumes, and 10 GB to 16,000 GB for first-generation volumes. Maximum IOPS for data volumes varies based on volume size and profile. For more information, see [{{site.data.keyword.block_storage_is_short}} profiles](/docs/vpc?topic=vpc-block-storage-profiles).
 
 You can create data volumes as stand-alone volumes or when you provision an instance. Stand-alone volumes exist in an unattached state until you attach the volume to an instance. When you create a data volume as part of instance provisioning, the volume is automatically attached to the instance.
 

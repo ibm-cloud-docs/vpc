@@ -2,7 +2,7 @@
 
 copyright:
   years: 2022, 2025
-lastupdated: "2025-12-10"
+lastupdated: "2025-12-11"
 
 keywords: Backup, backup service, backup plan, backup policy, restore, restore volume, restore data
 
@@ -29,7 +29,7 @@ Restoring a volume from a backup snapshot creates a boot or a data volume, depen
 
 First- and second-generation volume profiles are not interchangeable. You can use a backup of a second-generation volume to create another second-generation volume, but you can't switch the volume profile to a first-generation volume profile. In the same way, you can use a backup of a first-generation volume to create another first-generation volume with the same data, and you can't switch the new volume to the `sdp` profile.
 
-In this release of second-generation storage volumes, consistency group snapshots are not supported. [Beta]{: tag-cyan} Customers with special access can create cross-regional copies of the second-generation volume backups if the source volume exceeds 10 TB. This feature is not generally available yet.
+In this release of second-generation storage volumes, consistency group snapshots are not supported.
 {: note}
 
 Restoring a volume from a backup snapshot creates a boot or data volume, depending on whether the snapshot is bootable or nonbootable. The volume appears first as _pending_ while it's being created. During the restoration, your data is copied from a regional storage repository to {{site.data.keyword.block_storage_is_short}}. After the volume is hydrated (fully provisioned), you can use the new boot or data volume. For more information about how performance is affected during restoration, see [Performance impact when backup snapshots are used](#baas-performance-considerations).
@@ -242,6 +242,7 @@ Before you select a backup snapshot of a boot volume to provision an instance, c
 - Because the bootable backup snapshot is not fully hydrated, initial performance is slower than compared to a regular boot volume. Volumes that are restored from fast restore clones do not require hydration. The data is available when the volume is created.
 
 - To achieve the best performance and efficiency when multiple instances are provisioned, boot from an existing image. Custom images that you provide are better than stock images for this purpose. Images can have a maximum size of 250 GB.
+
 
 ## Next steps
 {: #baas_vpc_restore_next_steps}

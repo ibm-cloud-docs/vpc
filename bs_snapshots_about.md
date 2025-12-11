@@ -2,7 +2,7 @@
 
 copyright:
   years: 2022, 2025
-lastupdated: "2025-12-04"
+lastupdated: "2025-12-11"
 
 keywords: snapshots, Block Storage, volumes, cross-regional snapshot, restore volume, copy snapshot
 
@@ -81,9 +81,6 @@ If the source snapshot is not encrypted with a customer key, the encryption of t
 
 If the source snapshot is protected by a customer-managed key, you must specify the customer-managed key that you want to use to encrypt the new copy.
 
-You can't create cross-regional copies of second-generation snapshots for volumes that are bigger than 10 TB.
-{: note}
-
 If you change the encryption type or the encryption key of the parent volume, the next remote copy must be a full copy of the parent snapshot, not an incremental copy.
 
 Only one copy of the snapshot can exist in each region. You can't create a copy in the local (source) region.
@@ -134,7 +131,6 @@ The following limitations apply for the second-generation block storage snapshot
 * When you use second-generation block storage, you can take up to 512 snapshots.
 * You can't take a snapshot of a volume in a [degraded state](/docs/vpc?topic=vpc-block-storage-vpc-monitoring#block-storage-vpc-health-states).
 * You can't create a copy of a snapshot in the source (local) region.
-* Cross-regional copies are supported for snapshots of volumes that exceed 10 TB only for allow-listed [beta]{: tag-cyan} customers.
 * You can delete any snapshot that you take. However, snapshots must be in a `stable` or `pending` state and not actively restoring a volume.
 * You can delete a {{site.data.keyword.block_storage_is_short}} volume and all its snapshots. All snapshots must be in a `stable` or `pending` state. No snapshot can be actively restoring a volume.
 * Consistency-group snapshots are not supported.

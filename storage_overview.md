@@ -2,7 +2,7 @@
 
 copyright:
   years: 2022, 2025
-lastupdated: "2025-12-04"
+lastupdated: "2025-12-10"
 
 keywords: block storage for VPC, File Storage for VPC, Snapshots for VPC, Backup for VPC, block storage, file storage, snapshots, backup, 
 
@@ -70,7 +70,7 @@ You can create a snapshot consistency group that contains snapshots of multiple 
 
 Second-generation snapshots are available in Dallas, Frankfurt, London, Madrid, Osaka, Sao Paulo, Sydney, Tokyo, Toronto, and Washington, DC. In this release, you can create up to 512 snapshots of these volumes. You can even create snapshots when the volumes are unattached.
 
-You can use your snapshots to create other second-generation volumes in the same region. You can't use your second-generation snapshot to create a volume with a first-generation volume profile. Similarly, you can't use first-generation volume's snapshot to create a volume with the `sdp` profile. Consistency group snapshots of multiple `sdp` volumes are not supported. Cross-regional copy of a second-generation snapshot is supported with limitations. [Beta]{: tag-cyan} Customers with special access can create a copy in another region if the snapshot's source volume exceeds 10 TB.
+You can use your snapshots to create other second-generation volumes in the same region. You can't use your second-generation snapshot to create a volume with a first-generation volume profile. Similarly, you can't use first-generation volume's snapshot to create a volume with the `sdp` profile. Consistency group snapshots of multiple `sdp` volumes are not supported.
 
 | Features            | First-generation snapshots | Second-generation snapshots |
 |---------------------|----------------------------|-----------------------------|

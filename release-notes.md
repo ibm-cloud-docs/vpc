@@ -2,7 +2,7 @@
 
 copyright:
   years: 2019, 2025
-lastupdated: "2025-12-05"
+lastupdated: "2025-12-11"
 
 keywords:
 
@@ -26,6 +26,13 @@ For more information about changes to the {{site.data.keyword.vpc_short}} comman
 
 ## December 2025
 {: #vpc-dec25}
+
+### 11 December 2025
+{: #vpc-dec1125}
+{: release-note}
+
+Cross-regional copy of snapshots that are larger than 10 TB (GA)
+:   Customers can now create cross-regional copies of snapshots of second-generation storage volumes that exceed 10 TB. Such cross-regional copies can be created on-demand in the console, from the CLI, with the API, or Terraform or on-schedule with the Backup for VPC service. For more information, see [About Block Storage for VPC snapshots](/docs/vpc?topic=vpc-snapshots-vpc-about&interface=ui#snapshots_vpc_crossregion_copy).
 
 ### 05 December 2025
 {: #vpc-dec0525}

@@ -2,7 +2,7 @@
 
 copyright:
   years: 2019, 2025
-lastupdated: "2025-10-09"
+lastupdated: "2025-12-10"
 
 keywords: creating a Windows custom image, cloudbase-init, qcow2
 
@@ -25,7 +25,7 @@ You can begin with an image template from the {{site.data.keyword.cloud_notm}} C
 
 {{site.data.content.custom-image-requirements-list}}
 
-You can't create an image from an encrypted boot volume (image from a volume) that is not 100 GB.
+You can't create an image from an encrypted boot volume that is not 100 GB.
 {: note}
 
 Use the following steps to create a Windows&reg; custom image to deploy in the {{site.data.keyword.vpc_short}} infrastructure environment. The procedure encompasses the following high-level tasks.

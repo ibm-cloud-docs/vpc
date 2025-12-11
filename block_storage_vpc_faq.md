@@ -2,7 +2,7 @@
 
 copyright:
   years: 2019, 2025
-lastupdated: "2025-12-10"
+lastupdated: "2025-12-11"
 
 keywords: faqs, Block Storage for vpc, fast restore, multizone, instance, instance provisioning, volume management, volume deletion.
 
@@ -69,7 +69,7 @@ No. You can't copy the storage volume to a different zone.
 {: faq}
 {: #faq-sdp-backup}
 
-Yes, with some limitations. [Beta]{: tag-cyan} Customers with special access can create cross-regional copies of the second-generation volume backups if the source volume exceeds 10 TB. This feature is not generally available yet. Consistency group snapshots are not supported.
+Yes, you can take snapshots of individual volumes. Consistency group snapshots of multiple `sdp` volumes are not supported.
 
 ## How does {{site.data.keyword.block_storage_is_short}} prevent a single point of failure? What mechanism assures data durability?
 {: faq}
@@ -455,6 +455,7 @@ You are not charged extra for creating volumes with customer-managed encryption.
 {: #faq-block-storage-28}
 
 Both key management systems provide you with complete control over your data, managed by your root keys. {{site.data.keyword.keymanagementserviceshort}} is a multi-tenant KMS where you can import or create your root keys and securely manage them. {{site.data.keyword.hscrypto}} is a single-tenant KMS and [hardware security module (HSM)](#x6704988){: term} that is controlled by you, which offers the highest level of security. For more information about these key management services, see [Supported key management services for customer-managed encryption](/docs/vpc?topic=vpc-vpc-encryption-about#kms-for-byok).
+
 
 ## Can I convert my volume from provider-managed encryption to customer-managed encryption?
 {: faq}

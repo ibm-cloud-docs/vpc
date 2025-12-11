@@ -2,7 +2,7 @@
 
 copyright:
   years: 2021, 2025
-lastupdated: "2025-12-04"
+lastupdated: "2025-12-11"
 
 keywords: snapshots, Block Storage, snapshot clone, remote copy, fast restore, Block Storage snapshot, cross-regional snapshot
 
@@ -18,9 +18,7 @@ subcollection: vpc
 With the UI, CLI, API, or Terraform, you can create a snapshot of a first-generation {{site.data.keyword.block_storage_is_short}} volume that is attached to a running virtual server instance. You can create a snapshot of a boot or a data volume. If the volume is not attached to a server instance, you can't create a snapshot of it.
 {: shortdesc}
 
-In the current release of second-generation block storage volumes, you can take a snapshot of a second-generation storage volume even if it is not attached to a running virtual server instance. The feature is available in Dallas (`us-south`), Frankfurt (`eu-de`), London (`eu-gb`), Madrid (`eu-es`), Osaka (`js-osa`), Sao Paulo (`br-sao`), Sydney (`au-syd`), Tokyo (`jp-tok`), Toronto (`ca-tor`), and Washington (`us-east`) regions. Consistency group snapshots are not supported. 
-
-[Beta]{: tag-cyan} Customers with special access can create cross-regional copies of the second-generation volume backups if the source volume exceeds 10 TB.
+In the current release of second-generation block storage volumes, you can take a snapshot of a second-generation storage volume even if it is not attached to a running virtual server instance. The feature is available in Dallas (`us-south`), Frankfurt (`eu-de`), London (`eu-gb`), Madrid (`eu-es`), Osaka (`js-osa`), Sao Paulo (`br-sao`), Sydney (`au-syd`), Tokyo (`jp-tok`), Toronto (`ca-tor`), and Washington (`us-east`) regions. Consistency group snapshots are not supported.
 
 Before you take a snapshot, make sure that all cached data is present on disk, especially when you're taking a snapshot of instances with Windows and Linux&reg; operating systems. For example, on Linux&reg; operating systems, run the `sync` command to force an immediate write of all cached data to disk.
 {: note}
@@ -64,7 +62,7 @@ In the console, you can create a snapshot of a {{site.data.keyword.block_storage
    | Access management tags | Specify any [access management tags](/docs/vpc?topic=vpc-managing-block-storage&interface=ui#storage-add-access-mgt-tags) for this resource. |
    | Volume | Select a volume from the list. The boot or data volume must be attached to a running virtual server instance. |
    | Encryption | Encryption information for the volume that you selected, either [provider-managed encryption](/docs/vpc?topic=vpc-vpc-encryption-about&interface=ui#vpc-provider-managed-encryption) or [customer-managed encryption](/docs/vpc?topic=vpc-vpc-encryption-about&interface=ui#vpc-customer-managed-encryption). The snapshot inherits the encryption of the source volume. You can't change the encryption type. |
-   | Optional configurations | Cross-region snapshot copy. Select Copy Snapshot to a different region. Click **Create**. \n  This feature is not supported for snapshots with source volumes larger than 10 TB.|
+   | Optional configurations | Cross-region snapshot copy. Select Copy Snapshot to a different region. Click **Create**.|
    {: caption="Selections for creating a snapshot" caption-side="bottom"}
 
 3. Click **Create**. You're returned to the screen that you started from. Messages are displayed while the snapshot is being created and when it's ready, the snapshot is displayed in the list of snapshots. For more information, see [View snapshot details in the console](/docs/vpc?topic=vpc-snapshots-vpc-view&interface=ui#snapshots-vpc-view-snapshot-ui).
@@ -94,10 +92,6 @@ In the previous section, you saw how to create a cross-regional snapshot copy wh
 1. In the list of snapshots, locate that snapshot that you want to copy. Make sure that the snapshot is in Stable status.
 1. Click the Actions menu ![Actions icon](../icons/action-menu-icon.svg "Actions") and select **Copy snapshot**.
 1. Select the region where you want to create the copy.
-
-   In the current release, only accounts with special access can create a cross-regional copy of a second-generation snapshot if the source volume exceeds 10 TB.
-   {: restriction}
-
 1. Click **Create**.
 
 ## Creating a snapshot from the CLI

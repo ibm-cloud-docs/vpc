@@ -2,7 +2,7 @@
 
 copyright:
   years: 2021, 2025
-lastupdated: "2025-12-04"
+lastupdated: "2025-12-11"
 
 keywords: view snapshots, view snapshot, viewing snapshots, see snapshots, Block Storage snapshots
 
@@ -16,9 +16,10 @@ subcollection: vpc
 {: #snapshots-vpc-view}
 
 You can view a list of all snapshots and consistency groups, and drill down to see information about a particular snapshot. Choose the UI, CLI, API, or Terraform to retrieve this information.
-{: shortdesc} 
+{: shortdesc}
 
-Consistency groups are not supported for second-generation storage volumes in the current release. [Beta]{: tag-cyan} Customers with special access can create cross-regional copies of the second-generation volume backups if the source volume exceeds 10 TB. This feature is not generally available yet.
+Consistency groups are not supported for second-generation storage volumes in the current release.
+{: note}
 
 ## Listing snapshots in the console
 {: #snapshots-vpc-view-ui}

@@ -2,7 +2,7 @@
 
 copyright:
   years: 2022, 2025
-lastupdated: "2025-12-04"
+lastupdated: "2025-12-11"
 
 keywords: Block Storage, snapshots, cross-regional copy, fast restore, backup, restore volume
 
@@ -50,8 +50,6 @@ A [fast restore snapshot](/docs/vpc?topic=vpc-snapshots-vpc-restore&interface=ui
 
 You can copy a snapshot from one region to another region, and later use that snapshot to restore a volume in the new region. This feature can be used in disaster recovery scenarios when you need to start your virtual server instance and data volumes in a different region. Or you can use the remote copy to create storage volumes in a new region to expand your VPC. For more information, see [Cross-regional snapshot copies](/docs/vpc?topic=vpc-snapshots-vpc-about&interface=ui#snapshots_vpc_crossregion_copy).
 
-[Beta]{: tag-cyan} Customers with special access can create cross-regional copies of the second-generation volume backups if the source volume exceeds 10 TB. This feature is not generally available yet.
-
 ## What is the retention policy for cross-regional copies?
 {: faq}
 {: #faq-snapshot-crc-retention}
@@ -68,7 +66,7 @@ Manually created copies remain in the other region until you delete them.
 
 You can take up to 750 snapshots per first-generation volume in a region. Deleting snapshots from this quota makes space for more snapshots. A snapshot of a first-generation volume cannot be greater than 10 TB. Also, consider how your billing is affected when you increase the number of snapshots that you take and retain.
 
-In the current release, you can create up to 512 manual and backup snapshots of second-generation volumes. You can even create snapshots when the `sdp` volumes are unattached.Second-generation volume snapshots can exceed 10 TB.
+In the current release, you can create up to 512 manual and backup snapshots of second-generation volumes. You can even create snapshots when the `sdp` volumes are unattached. Second-generation volume snapshots can exceed 10 TB.
 
 ## Is there a limit on the size of a volume that I can take a snapshot of?
 {: faq}
@@ -153,8 +151,6 @@ You can use your snapshots and backups to create volumes when an emergency occur
 {: #faq-snapshot-cross-regional-limits}
 
 You can copy a snapshot from one region to another region, and later use that snapshot to restore a volume in the new region. Only one copy of the snapshot can exist in each region. You can't create a copy of the snapshot in the source (local) region.
-
-In this release of second-generation storage volumes, cross-regional copies of snapshots of volumes that exceed 10 TB are supported only for allow-listed [beta]{: tag-cyan} customers.
 
 ## What is a consistency group?
 {: faq}

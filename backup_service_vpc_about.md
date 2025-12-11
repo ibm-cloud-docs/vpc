@@ -2,7 +2,7 @@
 
 copyright:
  years: 2022, 2025
-lastupdated: "2025-12-10"
+lastupdated: "2025-12-11"
 
 keywords: Backup, backup service, backup plan, backup policy, restore, restore volume, restore data
 
@@ -192,9 +192,6 @@ For more information, see [Restoring a volume from a backup snapshot](/docs/vpc?
 
 You can copy a Block storage backup from one region to another region, and later use that snapshot to restore a volume in the new region. You can use and manage the cross-regional snapshot in the target region independently from the parent volume or the original snapshot.
 
-In the current release, only customers with special access can create cross regional copies of `sdp` volume snapshots if the source volume of the snapshot exceeds 10 TB.
-{: beta}
-
 Currently, cross-regional copy of block storage snapshots is not supported in the Chennai region. It can't be selected as a source or target region.
 {: restriction}
 
@@ -254,7 +251,6 @@ Volume backups:
 * In the current release of second-generation volumes, the following limitations apply.
    - You can take up to 512 backup snapshots of your `sdp` volume.
    - You can't create consistency group backups that contain `sdp` volumes.
-   - [Beta]{: tag-cyan} Only customers with special access can create cross-regional copies of the second-generation volume backups if the source volume exceeds 10 TB. This feature is not generally available yet.
 
 File share backups:
 * You can take a total of 750 backups per zonal file share, and 30 backups for regional file shares.
@@ -298,6 +294,7 @@ Volume backups are stored and retrieved from a regional storage repository. Data
 {: #backup-activity-tracker}
 
 When a backup is created, an event is triggered for the [Backup service](/docs/vpc?topic=vpc-at_events&interface=ui#events-backup-service) and [Snapshots service](/docs/vpc?topic=vpc-at_events&interface=ui#events-snapshots). Similarly, when the service fails to create a backup due to missing authorization, an event is triggered to notify you. Event logs are also created when backup policies or plans are created or deleted. For more information, see [Activity tracking events for IBM Cloud VPC](/docs/vpc?topic=vpc-at_events).
+
 
 ## Next steps
 {: #backup-next-steps}
