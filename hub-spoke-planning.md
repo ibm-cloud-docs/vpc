@@ -2,7 +2,7 @@
 
 copyright:
   years: 2023, 2025
-lastupdated: "2025-11-21"
+lastupdated: "2025-12-12"
 
 keywords:
 
@@ -73,7 +73,46 @@ Review the following limitations before you configure DNS sharing for VPE gatewa
 * Timing requirement for binding operations: creating, deleting, enabling, or disabling DNS resolution bindings, including endpoint gateway binding changes, might fail if the operation completes in under 5 minutes. To avoid failure, ensure these operations take longer than 6 minutes. 
 * If you remove and recreate the same VPE on any combination of hub or DNS-shared VPCs within a span of 5 minutes, the creation of the VPE might fail.
 
+## Local-access VPE planning considerations
+{: #local-access-vpe-considerations} 
 
+[Select availability]{: tag-green}
+
+When deploying local-access VPEs in a DNS-shared VPC:
+
+* Configure DNS sharing before you create a local-access endpoint gateway. If you already have DNS sharing configured, no changes or migration are required to begin using a local-access endpoint gateway.
+* Verify the service supports VPE. Currently, only Cloud Object Storage is supported. 
+* Ensure that a VPE in the hub VPC exists for the service before creating a local-access VPE in the DNS-shared VPC.
+* Check that the DNS-shared VPC has a DNS resolution binding to the hub.  
+* Each local-access VPE can be created with specific resource bindings, which must be unique across the overall topology.
+* Each DNS-shared VPC can contain only one local-access VPE per resource within the service endpoint.
+* Ensure resource bindings for the DNS-shared VPC VPE are configured on the target service.
+* Traffic for a resource (for example, an Object Storage bucket) bound to the local-access VPE is routed directly between the shared VPC and resource, bypassing the DNS hub VPC.
+* The hub-VPC VPE is required to remain in place as long as any local-access VPEs exist for the same service endpoint.
+* If `allow_dns_resolution_binding` is disabled on a VPE, DNS records are not propagated between the hub and DNS-shared VPCs.
+* Make sure to update your CBR and security group rules to allow traffic from the appropriate DNS-shared VPC.
+
+### VPE mode and resource-binding rules
+{: #vpe-mode-resource-binding-rules}
+
+[Select availability]{: tag-green}
+
+This section outlines the different VPE modes and the rules for resource binding across various VPC configurations. Each VPE type has specific requirements regarding the VPE mode and whether resource binding is allowed. Understanding these rules is critical to ensuring proper network architecture and compliance with DNS-sharing policies. The following rules clarify which modes are permissible for each VPE type and the conditions under which resource bindings can be applied. 
+
+**Note**: A “standalone VPC VPE” is a VPE in a VPC that is not part of the DNS hub and shared VPC topology.
+
+* Hub VPC VPE
+   * Hub VPC VPE should always be `primary` mode only; `per_resource_binding` and `disabled` modes are not allowed.
+   * A hub-VPC VPE must exist for the service before creating any local-access VPE in a DNS-shared VPC.
+   * The hub-VPC VPE is required to remain in place as long as any local-access VPEs exist for the same service endpoint.
+* Standalone VPC VPE
+   * Standalone VPC VPE can have `disabled` as the mode and have resource bindings.
+   * Standalone VPC VPE can have `primary` as the mode and no resource bindings.
+   * Standalone VPC VPE can have `per_resource_binding` as the mode and resource binding allowed.
+* DNS-shared VPC VPE
+   * DNS-shared VPC VPE can have `primary` as the mode and no resource bindings.
+   * DNS-shared VPC VPE can have `disabled` as the mode and still have resource bindings.
+   * DNS-shared VPC VPE can have `per_resource_binding` as the mode and resource binding allowed.
 
 ## Related links
 {: #vpe-related-links-dns-sharing}

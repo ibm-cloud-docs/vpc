@@ -2,7 +2,7 @@
 
 copyright:
   years: 2019, 2025
-lastupdated: "2025-12-05"
+lastupdated: "2025-12-12"
 
 keywords:
 
@@ -33,7 +33,12 @@ To make your ACLs effective, create rules that determine how to handle your inbo
 * Inbound rules are separated from outbound rules.
 * If no rules are specified, then **implicit deny** is the default behavior.
 
-For more information about using ICMP, TCP, and UDP protocols in your ACL rules, see [Understanding internet communication protocols](/docs/vpc?topic=vpc-understanding-icp#understanding-icp).
+For more information about using ICMP, TCP, UDP, and all other protocols in your ACL rules, see [Understanding internet communication protocols](/docs/vpc?topic=vpc-understanding-icp#understanding-icp).
+
+## Limitations
+{: #limitations-acl}
+
+* Currently, ESP protocol packets are supported only on instances with Gen2 profiles. On instances with other profiles, and on all bare metal servers, inbound and outbound ESP packets are always dropped. Although network ACL rules can be configured for ESP traffic with the VPC API, such rules affect only instances with Gen2 profiles. ESP protocol is not supported on other types of profiles that are attached to the same network as a Gen2 profile. The ESP protocol not displayed as a choice in the IBM Cloud console to avoid confusion between instance profile generations. For more information, see [Profile generation](/docs/vpc?topic=vpc-profiles&interface=ui#profiles-generation).
 
 ## Updating a VPC's default ACL rules
 {: #updating-the-default-acl}

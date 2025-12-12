@@ -2,7 +2,7 @@
 
 copyright:
   years: 2020, 2025
-lastupdated: "2025-11-17"
+lastupdated: "2025-12-12"
 
 keywords: VPE, virtual private endpoint, endpoint gateway, planning
 
@@ -38,6 +38,14 @@ Before you create a virtual private endpoint gateway, review the following consi
       * Specify a CIDR block or IP address for the permitted inbound traffic. Alternatively, you can specify a security group in the same VPC to allow traffic to all sources that are attached to the selected security group.
       * Select the protocols and ports that the rule applies to.
 
+## Cross-account VPE considerations
+{: #cross-account-vpe-considerations} 
+
+* Cross-account VPEs require specifying the target resource CRN, as resources from other accounts are not discoverable through the UI or CLI.
+* Both accounts must be within the same IBM Cloud region for connectivity; cross-region connections are supported only between regions participating in a multizone region (MZR).
+* Cross-account VPEs connecting to IBM services are subject to CBR enforcement and require appropriate policy configuration on both accounts.
+* The target service instance must have cross-account access enabled by the service team, as not all IBM Cloud services support delegated VPE connectivity. Verify service documentation for specific support and access models.
+
 ## Accessing IBM Cloud services
 {: #vpe-accessing-cloud-services}
 
@@ -61,6 +69,7 @@ Before you create a virtual private endpoint gateway, review the following consi
 
 * Virtual private endpoints support only IPv4 addressing.
 * Each endpoint gateway is bound to a single VPC.
+* When a cross-account VPE is created, the account that owns the target resource receives notifications about VPE creation and deletion through Activity Tracker events. This is important because the resource owner must have Activity Tracker enabled to be aware of these actions, and it is the only way to see whether anyone has connected to the resource.
 * The way an endpoint gateway maps to a service depends on the specific {{site.data.keyword.cloud_notm}} service that you are enabling. For best practices, refer to the documentation for the specific {{site.data.keyword.cloud_notm}} service.
 * The total number of active connections through a VPE gateway is limited. For more information, see [Is there a limit to the total number of concurrent active connections to an endpoint gateway?](/docs/vpc?topic=vpc-faqs-vpe#faq-reserved-ips-and-number-ports).
 

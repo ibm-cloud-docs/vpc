@@ -549,6 +549,8 @@ toc:
               label: Creating an endpoint gateway
               topics:
               - vpe-create.md
+              - vpe-create-with-local-access-vpe.md
+              - vpe-cross-account.md
           - vpe-supported-services.md
           - topicgroup:
               id: configuring-dns-sharing
@@ -558,6 +560,7 @@ toc:
               - hub-spoke-planning.md
               - hub-spoke-configure-dns-resolver.md
               - hub-spoke-configure-hub.md
+              - vpe-create-resource-binding.md
               - hub-spoke-resolution-binding.md
               - hub-spoke-s2s-auth.md
               - hub-spoke-withdrawing-dns-sharing.md

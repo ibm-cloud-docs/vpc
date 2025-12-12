@@ -2,7 +2,7 @@
 
 copyright:
   years: 2024, 2025
-lastupdated: "2025-06-27"
+lastupdated: "2025-12-12"
 
 keywords: custom routes
 
@@ -15,8 +15,7 @@ subcollection: vpc
 # Activity tracking event changes for routing tables
 {: #at-changes-announcement-routing-table}
 
-Starting 30 Sep 2024, VPC routing tables support tagging, which requires routing tables to be identified by a Cloud Resource Name (CRN).
-As a result of this new feature, the field values of the following {{site.data.keyword.atracker_full_notm}} events were updated:
+As of 30 September 2024, VPC routing tables support tagging, which requires routing tables to be identified by a Cloud Resource Name (CRN). As part of this change, the field values of the following {{site.data.keyword.atracker_full_notm}} events were updated:
 {: shortdesc}
 
 * `is.vpc.routing-table.create`
@@ -26,15 +25,15 @@ As a result of this new feature, the field values of the following {{site.data.k
 * `is.vpc.routing-table.update`
 * `is.vpc.routing-table.delete`
 
-Changed values:
+The following fields' contain changed values:
 
 * Field: `logSourceCRN`
    * Old value: VPC's CRN
    * New value: VPC routing table's CRN
 
 * Field: `message`
-   * Old value: contains VPC's name
-   * New value: contains VPC routing table's name
+   * Old value: contains the VPC's name
+   * New value: contains the VPC routing table's name
 
 * Field: `target.id`
    * Old value: VPC's CRN
@@ -44,5 +43,5 @@ Changed values:
    * Old value: VPC's name
    * New value: VPC routing table's name
 
-If the responseData field contains a `routingTable` object, the `routingTable` includes a CRN field.
+If the `responseData` field contains a `routingTable` object, the `routingTable` includes a CRN field.
 {: note}

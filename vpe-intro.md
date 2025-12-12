@@ -2,7 +2,7 @@
 
 copyright:
   years: 2020, 2025
-lastupdated: "2025-11-17"
+lastupdated: "2025-12-12"
 
 keywords: virtual private endpoints, endpoint gateway, VPE
 subcollection: vpc
@@ -34,8 +34,11 @@ The features of VPE for VPC include:
 * The endpoint IP deploys in a customer-defined, virtual network.
 * Includes platform integration to VPC - Identity and Access Management (IAM), network ACLs, security groups, and tagging. 
 * Access to new endpoints is achieved through the console, CLI, and API.
+* [Select availability]{: tag-green} Local-access VPE gateway for supported IBM Cloud services within a DNS-sharing VPC topology. This allows local, private connectivity between a shared-VPC VPE gateway and the cloud service, eliminating the need to route traffic through the hub VPC. Currently supported only for IBM Cloud Object Storage.
 * Integrates with DNS Services.
+* Access to new endpoints is achieved through the console, CLI, and API.
 * Integrates with DNS Services.
+* Connect services and resources across different IBM Cloud accounts while keeping traffic on the IBM Cloud private network.
 
    When creating an endpoint gateway, a DNS zone and records are created. The VPE service automatically upgrades your virtual server instances to use the private DNS as the default DNS resolver. For more information, see [DNS Services](/docs/dns-svcs?topic=dns-svcs-getting-started).
    {: note}
@@ -75,6 +78,24 @@ As more {{site.data.keyword.cloud_notm}} services are enabled for VPE for VPC, e
 {: #multi-zone-topology}
 
 ![VPE multi-zone topology](images/vpe-multi-zone.png){: caption="VPE multi-zone topology" caption-side="bottom}
+
+## Connecting across accounts and regions
+{: #connecting-across-accounts-regions} 
+
+VPE gateways support connectivity across IBM Cloud accounts and regions. This enables you to privately and securely connect your VPC resources to IBM Cloud service instances hosted in other accounts or regions.
+
+Use this capability to connect workloads running in your VPC to IBM Cloud services, regardless of which account hosts those services. Platform services also use VPE to enable private, cross-account access for automation and service integration.
+
+To create a cross-account VPE gateway, see [Creating an endpoint gateway](/docs/vpc?topic=vpc-ordering-endpoint-gateway&interface=ui).
+
+## Local-access VPE gateway support
+{: #multi-tenant-endpoint-support}
+
+[Select availability]{: tag-green}
+ 
+You can create local-access VPEs in DNS-shared VPCs that are part of a DNS-sharing VPC topology. Each local-access VPE can handle traffic for specific service resources (for example, individual Object Storage buckets), while the hub VPC VPE continues to manage requests for the rest of the service resources (for example, all other Object Storage buckets).
+
+This capability enables granular access control to service resources through Context-Based Restrictions (CBR), security groups, and network ACLs. It also helps ensure that data traffic from local-access VPEs does not traverse the hub VPC.
 
 ## Related links
 {: #vpe-related}
