@@ -2,7 +2,7 @@
 
 copyright:
   years: 2020, 2025
-lastupdated: "2025-11-12"
+lastupdated: "2025-12-12"
 
 keywords: virtual private endpoints, delete, VPE, endpoint gateway
 
@@ -30,7 +30,9 @@ To delete an endpoint gateway, follow these steps:
 
 1. Click the Actions menu ![Actions menu](../icons/action-menu-icon.svg "Actions") next to the endpoint gateway that you want to delete, then click **Delete**. Click **Delete** again to confirm the deletion.
 
-If you previously selected the auto-delete option for attached IP addresses, any attached reserved IPs are also deleted.
+[Select availability]{: tag-green}
+
+If you previously selected the auto-release option for attached IP addresses, any attached reserved IPs are also released.
 {: note}
 
 ## Deleting an endpoint gateway from the CLI

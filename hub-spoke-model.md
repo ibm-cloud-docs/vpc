@@ -2,7 +2,7 @@
 
 copyright:
   years: 2023, 2025
-lastupdated: "2025-11-17"
+lastupdated: "2025-12-12"
 
 keywords:
 
@@ -31,7 +31,10 @@ The hub VPC provides DNS resolution for all endpoint gateways across the connect
 Before you begin, review [DNS sharing planning considerations](/docs/vpc?topic=vpc-vpe-dns-sharing-planning-considerations&interface=ui).
 {: important}
 
+[Select availability]{: tag-green}
 
+In addition to the hub-based DNS sharing model, you can now [create local-access VPEs in DNS-shared VPCs](/docs/vpc?topic=vpc-create-local-access-vpe&interface=ui). Local-access VPEs provide private, local connectivity to supported IBM Cloud services without routing traffic through the hub VPC. Currently, this capability is supported only for IBM Cloud Object Storage.
+{: attention}
 
 General steps to configure DNS sharing for VPE gateways are as follows:
 
@@ -48,6 +51,11 @@ General steps to configure DNS sharing for VPE gateways are as follows:
 1. [Configure a DNS custom resolver](/docs/dns-svcs?topic=dns-svcs-ui-create-cr) on the hub VPC to be responsible for resolving DNS queries from hub and DNS-shared VPCs, as well as those from on-prem networks.
 1. The DNS-shared VPC user [sets its DNS resolver type](/docs/vpc?topic=vpc-configure-dns-resolver&interface=ui) to `Delegated` to point to the hub VPC's custom resolver.
 1. The DNS-shared VPC user [creates endpoint gateways](/docs/vpc?topic=vpc-ordering-endpoint-gateway) for single-tenant services in the DNS-shared VPC.
+
+[Select availability]{: tag-green}
+
+   For IBM Cloud Object Storage, you can create a local-access VPE in a DNS-shared VPC by selecting **Per-resource binding** when creating the endpoint gateway. This setup allows private access to specific Object Storage buckets while keeping other traffic routed through the hub VPC.
+   {: note}
 
 1. For each DNS-shared VPC, the DNS-shared VPC user must repeat steps 4-9.
 

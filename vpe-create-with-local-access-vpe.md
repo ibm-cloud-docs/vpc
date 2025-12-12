@@ -1,7 +1,7 @@
 ---
 
 copyright:
-  years: 2020, 2025
+  years: 2025
 lastupdated: "2025-12-12"
 
 keywords: virtual private endpoints, VPE, endpoint gateway
@@ -12,32 +12,35 @@ subcollection: vpc
 
 {{site.data.keyword.attribute-definition-list}}
 
-# Creating an endpoint gateway
-{: #ordering-endpoint-gateway}
+# Creating a local-access endpoint gateway
+{: #create-local-access-vpe}
 {: help}
 {: support}
 
-You can create an endpoint gateway for an {{site.data.keyword.cloud}} or third-party service or application that you want to access on your private VPC network. You can use the console, CLI, API, or Terraform.
+[Select availability]{: tag-green}
+
+In addition to the hub-based DNS sharing model, you can create local-access virtual private endpoint gateways in DNS-shared VPCs. Local-access VPEs provide private, local connectivity to supported IBM Cloud services without routing traffic through the hub VPC.
 {: shortdesc}
 
-
+Currently, this capability is supported only for IBM Cloud Object Storage and is available to select allowlisted customers.
+{: attention}
 
 ## Before you begin
-{: #vpe-before-you-begin}
+{: #local-access-vpe-before-you-begin}
 
-Before creating an endpoint gateway, ensure that you review [Planning for virtual private endpoint gateways](/docs/vpc?topic=vpc-vpe-planning-considerations) and have met the following prerequisites:
+[Select availability]{: tag-green}
 
-* A VPC
-* A subnet in at least one availability zone if you intend on binding an IP address at the same time you provision the endpoint gateway
-* An instance of the service
-* Appropriate [IAM permissions](/docs/vpc?topic=vpc-vpe-iam) to create an endpoint gateway, create or bind a reserved IP, and view or list the target service
-* Verification that the service you are configuring is enabled for VPE
+* Local-access endpoint gateways use the [DNS sharing model](/docs/vpc?topic=vpc-vpe-dns-sharing&interface=ui), which is based on a hub-and-spoke architecture. You must configure DNS sharing before you create a local-access endpoint gateway. If you already have DNS sharing configured, no changes or migration are required to begin using a local-access endpoint gateway.
+* Review [general planning considerations](/docs/vpc?topic=vpc-vpe-planning-considerations) before creating a VPE, including creation limits, security groups, cross-account access, and supported features.
+* For prerequisites specific to local-access VPEs in a DNS hub and shared VPC topology, see [DNS sharing planning considerations](/docs/vpc?topic=vpc-vpe-dns-sharing-planning-considerations&interface=ui).
 
-## Creating an endpoint gateway in the console
-{: #vpe-creating-ui}
+## Creating a local-access endpoint gateway in the console
+{: #local-access-vpe-creating-ui}
 {: ui}
 
-To create an endpoint gateway in the {{site.data.keyword.cloud_notm}} console, follow these steps:
+[Select availability]{: tag-green}
+
+To create a local-access endpoint gateway in the {{site.data.keyword.cloud_notm}} console, follow these steps:
 
 1. From the [{{site.data.keyword.cloud_notm}} console](/login){: external}, select the **Navigation menu** ![Navigation menu icon](../icons/icon_hamburger.svg), then click **Infrastructure** ![VPC icon](../../icons/vpc.svg) > **Network** > **Virtual private endpoint gateways**. The Virtual private endpoint gateways for VPC page appears.
 1. Click **Create** to go to the provisioning page.
@@ -58,45 +61,46 @@ To create an endpoint gateway in the {{site.data.keyword.cloud_notm}} console, f
    Endpoint gateways created prior to the support for security groups do not have an attached security group. They also allow all inbound traffic. If you attach a security group to a VPE that does not have any attached security groups, you cannot revert that VPE back to a state where is has no security groups. You can revert to the previous "allow all inbound traffic" behavior by attaching a security group with rules for allowing all inbound traffic. However, this  rule is inherently less secure than having a more restrictive security group in place and is not recommended.
    {: important}
 
-1. In the **Request connection to a service** section, select either an {{site.data.keyword.cloud_notm}} or non-{{site.data.keyword.cloud_notm}} service to access using this endpoint gateway.
+1. In the **Request connection to a service** section, select {{site.data.keyword.cloud_notm}}, then select **cloud-object-storage** from the menu. 
 
-   * For IBM Cloud services, select an available IBM Cloud service offering from the menu, then select its region. A region is pre-selected to optimize performance. 
-   * For non-IBM Cloud services, enter the cloud resource name (CRN) of the Private Path service (obtained from your service provider).
+   * Select the region for your service. A region is pre-selected to optimize performance.
 
-      Your connection request is sent to the service provider for review.
+   * Keep in mind that all service endpoint types except for configuration service endpoints (**config** endpoint type) support resource bindings, which allow VPE bindings to Object Storage buckets or resources.
+      
+1. In the Share DNS section, select one of the following DNS resolution binding modes:
 
-      The review might be automated based on the provider's chosen account policy, or it could take days if the provider has chosen to manually review their requests. If your request is permitted, you will receive notification and can then access the service. If your request is denied, contact the service provider.
-      {: note}
-
-
-1. [Select availability]{: tag-green} In the Share DNS section, select one of the following DNS resolution binding modes:
-
-   * **Primary** allows the VPE gateway's service endpoints in the DNS-shared VPC to be shared with the DNS hub VPC for name resolution. 
+   * **Primary** allows the VPE gateway's service endpoint to be shared with the hub VPC's DNS resolver for name resolution. 
+   * **Per-resource binding** allows the VPE gateway to have resource bindings to **cloud-object-storage** buckets and share the service resource endpoint with hub VPC's DNS resolver for name resolution.
    * **Disabled** does not allow the VPE gateway's service endpoints to be shared for name resolution.
 
    When the VPC is a DNS hub, DNS sharing is always set to **Primary** and the mode can't be changed.
    {: note}
+      
+   If you select **Per-resource binding** or **Disabled**, you can create optional resource bindings, which allow you to enable granular access from the selected VPC to specific Object Storage buckets. For more information, see [Creating resource bindings](/docs/vpc?topic=vpc-vpe-create-resource-binding&interface=ui). 
 
-1. [Select availability]{: tag-green} In the Reserved IP section, select reserved IP addresses. You can choose:
+   During provisioning, you can bind a maximum of 10 buckets, with the option to add more later.
+   {: note}
 
-   * **Select one for me** - Enter a name prefix for the IP addresses, or one is chosen for you. Select one or more subnets (one subnet per zone is recommended) and enable the Auto-release toggle if you want this reserved IP to be deleted automatically if the endpoint gateway is deleted.
+1. In the Reserved IP section, select reserved IP addresses. You can choose:
+
+   * **Select one for me** - Enter a name prefix for the IP addresses, or one is chosen for you. Select one or more subnets (one subnet per zone is recommended) and enable the Auto-release toggle if you want this reserved IP to be deleted automatically if the endpoint gateway is deleted. 
 
    * **Select from existing IPs** - Choose from the list of existing IP addresses. If no IPs exist, click **Reserve IP** to reserve one.
 
       Only one reserved IP can be bound to a VPE gateway per AZ in a VPC. Ensure that no other bindings exist in the same AZ across all subnets within the VPC.
       {: note}
       
-   * **Select one later** [Select availability]{: tag-green} - Select IP addresses at some point after creating the endpoint gateway.
+   * **Select one later** - Select IP addresses at some point after creating the endpoint gateway.
 
 1. Review the **Order summary**, then click **Create virtual private endpoint gateway**. The endpoint gateway is requested for use.
 
-## Creating an endpoint gateway from the CLI
-{: #vpe-ordering-cli}
+## Creating a local-access endpoint gateway from the CLI
+{: #local-access-vpe-ordering-cli}
 {: cli}
 
 Before you begin, [set up your CLI environment](/docs/vpc?topic=vpc-set-up-environment&interface=cli).
 
-To create an endpoint gateway from the CLI, follow these steps:
+To create a local-access endpoint gateway from the CLI, follow these steps:
 
 1. List the IBM Cloud service instances that are qualified to be set as endpoint gateway targets:
 
@@ -105,7 +109,7 @@ To create an endpoint gateway from the CLI, follow these steps:
    ```
    {: pre} 
 
-1. Create an endpoint gateway by running the following command:< 
+1. Create an endpoint gateway by running the following command:
 
    ```sh
    ibmcloud is endpoint-gateway-create --target TARGET [--target-type private_path_service_gateway | provider_cloud_service | provider_infrastructure_service] [--vpc VPC] [--name NAME] [--rip RIP --subnet SUBNET | (--new-reserved-ip NEW_RESERVED_IP1 --new-reserved-ip NEW_RESERVED_IP2 ...)] [--allow-dns-resolution-binding false | true] [--sg SG] [--resource-group-id RESOURCE_GROUP_ID | --resource-group-name RESOURCE_GROUP_NAME] [--output JSON] [-q, --quiet]
@@ -121,7 +125,7 @@ To create an endpoint gateway from the CLI, follow these steps:
    :   Indicates ID or name of the VPC.
 
    `--target`:
-   :   Indicates the name of the provider infrastructure service or the CRN for a provider cloud service instance. You can use the command `ibmcloud is endpoint-gateway-targets` to list the provider cloud and infrastructure services that are qualified to be set as the endpoint gateway target.
+   :   Indicates the name of the provider infrastructure service or the CRN for a provider cloud service instance. You can use the command `ibmcloud is endpoint-gateway-targets` to list the provider cloud and infrastructure services that are qualified to be set as the endpoint gateway target. 
 
    `--name`:
    :   Indicates the new name of the endpoint gateway.
@@ -155,11 +159,13 @@ To create an endpoint gateway from the CLI, follow these steps:
 
    For more information and command examples, see the [VPC CLI reference](/docs/vpc?topic=vpc-vpc-reference&interface=cli#endpoint-gateway-create).
 
-## Creating an endpoint gateway with the API
-{: #vpe-ordering-api}
+## Creating a local-access endpoint gateway with the API
+{: #local-access-vpe-ordering-api}
 {: api}
 
-To create an endpoint gateway with the API, follow these steps:
+[Select availability]{: tag-green}
+
+To create a local-access endpoint gateway with the API, follow these steps:
 
 1. Set up your [API environment](/docs/vpc?topic=vpc-set-up-environment&interface=cli).
 1. Store the following values in variables to be used in the API command:
@@ -247,9 +253,11 @@ To create an endpoint gateway with the API, follow these steps:
 After an endpoint gateway is created for an {{site.data.keyword.cloud_notm}} service, it presents the endpoints associated with it. You can edit the endpoint gateway in various ways, such as binding/unbinding IPs, changing the resource group, and updating tags. If you need to change the service endpoints for any reason, you must delete and recreate the endpoint gateway.
 {: important}
 
-## Creating an endpoint gateway with Terraform
-{: #creating-endpoint-gateway-terraform}
+## Creating a local-access endpoint gateway with Terraform
+{: #create-local-access-vpe-terraform}
 {: terraform}
+
+[Select availability]{: tag-green}
 
 You can use Terraform to create an endpoint gateway.
 
@@ -259,75 +267,48 @@ To use Terraform, download the Terraform CLI and configure the {{site.data.keywo
 The following example creates a VPE gateway:
 
 ```terraform
-resource "ibm_is_virtual_endpoint_gateway" "example" {
+resource "ibm_is_virtual_endpoint_gateway" "vpe_iam" {
+  name = "${var.name}-iam-vpe"
+  vpc  = ibm_is_vpc.testacc_vpc.id
 
-  name = "example-endpoint-gateway"
   target {
-    name          = "ibm-ntp-server"
-    resource_type = "provider_infrastructure_service"
+    resource_type = var.vpe_target_type
+    crn           = var.vpe_target_crn
   }
-  vpc            = ibm_is_vpc.example.id
-  resource_group = data.ibm_resource_group.example.id
-  security_groups = [ibm_is_security_group.example.id]
+  dns_resolution_binding_mode = "disabled"
 }
+resource "ibm_is_virtual_endpoint_gateway_resource_binding" "vpe_rb" {
+  name = "${var.name}-rb-vpe"
+  endpoint_gateway_id  = ibm_is_virtual_endpoint_gateway.vpe_iam.id
 
-resource "ibm_is_virtual_endpoint_gateway" "example1" {
-  name = "example-endpoint-gateway-1"
   target {
-    name          = "ibm-ntp-server"
-    resource_type = "provider_infrastructure_service"
+    crn           = var.vpe_rb_target
   }
-  vpc = ibm_is_vpc.example.id
-  ips {
-    subnet = ibm_is_subnet.example.id
-    name   = "example-reserved-ip"
-  }
-  resource_group = data.ibm_resource_group.example.id
-  security_groups = [ibm_is_security_group.example.id]
 }
-
-resource "ibm_is_virtual_endpoint_gateway" "example3" {
-  name = "example-endpoint-gateway-2"
-  target {
-    name          = "ibm-ntp-server"
-    resource_type = "provider_infrastructure_service"
-  }
-  vpc = ibm_is_vpc.example.id
-  ips {
-    subnet = ibm_is_subnet.example.id
-    name   = "example-reserved-ip"
-  }
-  resource_group = data.ibm_resource_group.example.id
-  security_groups = [ibm_is_security_group.example.id]
+data "ibm_is_virtual_endpoint_gateway" "vpe_iam" {
+  name = ibm_is_virtual_endpoint_gateway.vpe_iam.name
 }
-
-resource "ibm_is_virtual_endpoint_gateway" "example4" {
-  name = "example-endpoint-gateway-3"
-  target {
-    crn           = "crn:v1:bluemix:public:cloud-object-storage:global:::endpoint:s3.direct.mil01.cloud-object-storage.appdomain.cloud"
-    resource_type = "provider_cloud_service"
-  }
-  vpc            = ibm_is_vpc.example.id
-  resource_group = data.ibm_resource_group.example.id
-  security_groups = [ibm_is_security_group.example.id]
+data "ibm_is_virtual_endpoint_gateways" "vpe_iam" {
+}
+data ibm_is_virtual_endpoint_gateway_resource_bindings bindings {
+  endpoint_gateway_id = ibm_is_virtual_endpoint_gateway.vpe_iam.id
+}
+data ibm_is_virtual_endpoint_gateway_resource_binding binding {
+  endpoint_gateway_id = ibm_is_virtual_endpoint_gateway.vpe_iam.id
+  endpoint_gateway_resource_binding_id = ibm_is_virtual_endpoint_gateway_resource_binding.vpe_rb.endpoint_gateway_resource_binding_id
 }
 ```
-{: codeblock}
+{: codeblock} 
 
-## After creating a VPE gateway
+## After creating a local-access endpoint gateway
 {: #after-create-vpe-gateway}
-
-If you return to the Virtual private endpoint gateways for VPC page, your endpoint gateway shows in the table.
-
-* For IBM Cloud services, the status of your endpoint gateway changes from `Updating` to `Stable`. You can click the Actions menu ![Actions menu](../icons/action-menu-icon.svg "Actions") to rename, reserve or bind an IP, unbind an IP, or delete an endpoint gateway.
-* For non-IBM Cloud (third party) services, your endpoint gateway status is `Pending` until the service provider either permits or denies your connect request. The status changes to `Stable` when connectivity is established. You can click **Track** or expand the table row of the endpoint gateway to view the progress of your request.
-* Optionally, there is a DNS resolution binding switch in the table row of the VPE gateway that allows you to enable or disable DNS sharing for this endpoint gateway. For more information, see [About DNS sharing for VPE gateways](/docs/vpc?topic=vpc-vpe-dns-sharing).
-
-## Related links
-{: #vpe-create-related-links}
 
 [Select availability]{: tag-green}
 
-* [Creating a local-access endpoint gateway](/docs/vpc?topic=vpc-create-local-access-vpe)
-* [Creating a cross-account endpoint gateway](/docs/vpc?topic=vpc-ordering-cross-account-endpoint-gateway&interface=terraform)
-* [Planning for virtual private endpoint gateways](/docs/vpc?topic=vpc-vpe-planning-considerations) 
+If you return to the Virtual private endpoint gateways for VPC page, your endpoint gateway shows in the table. For IBM Cloud services, the status of your endpoint gateway changes from `Updating` to `Stable`. You can click the Actions menu ![Actions menu](../icons/action-menu-icon.svg "Actions") to rename, reserve or bind an IP, unbind an IP, or delete an endpoint gateway.
+
+## Related links
+{: #vpe-create-local-access-vpe-related-links} 
+
+* [Creating resource bindings](/docs/vpc?topic=vpc-vpe-create-resource-binding&interface=ui)
+* [DNS sharing planning considerations](/docs/vpc?topic=vpc-vpe-dns-sharing-planning-considerations) 
