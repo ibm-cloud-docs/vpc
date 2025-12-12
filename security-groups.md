@@ -2,7 +2,7 @@
 
 copyright:
   years: 2019, 2025
-lastupdated: "2025-12-05"
+lastupdated: "2025-12-12"
 
 keywords:
 
@@ -70,9 +70,9 @@ When you create a new security group, initially all inbound traffic is restricte
 Because a resource can have multiple security groups associated with it, all the rules from each security group associated with the resource are combined to form a single set of rules. This set of rules is used to determine whether the traffic should be denied or allowed into and out from the resource. For every security rule that you add to the security group, you must specify the values for the following fields:
 
 * Direction - The direction of traffic to enforce, either inbound or outbound.
-* Protocol - Indicates the protocol that this rule applies for. Values are `tcp`, `udp`, `icmp`, or `all`.
+* Protocol - Indicates the protocol that this rule applies for. Values are `ICMP_TCP_UDP`, or `ANY`, or one of the `IPv4 protocols`.
 
-   * If its value is `all`, it means that this rule applies to all protocols. Then, it's invalid to specify the port range (PortMin, PortMax).
+   * If its value is `ANY`, it means that this rule applies to `ANY` protocol. Then, it's invalid to specify the port range (PortMin, PortMax).
    * If protocol is either `tcp` or `udp`, then the rule can also contain the port range (PortMin, PortMax). Set either both ports, or neither. When neither is set, then traffic is allowed on all ports. For a single port, you must set both ports to the same value.
    * When protocol is `icmp`, you can optionally specify the `type` property. If specified, then ICMP traffic is allowed for only the specified ICMP type. Further, if you specify `type`, you can optionally specify the code property to allow traffic for only the specified ICMP code.
 
@@ -82,6 +82,11 @@ Because a resource can have multiple security groups associated with it, all the
 You can name security group rules. However, the system makes no correlation between the name and the configuration of the rule. For example, if you name a rule `inbound-https-from-my-subnet`, the system does not verify that the rule functions as its name implies. It is your responsibility to manage the names and configurations of your security group rules for consistency if needed.
 
 For more information about setting up security group rules using the CLI, see the [Command list cheat sheet](/docs/vpc?topic=vpc-configuring-the-security-group&interface=cli#command-list-cheat-sheet). For more information about setting up security group rules using the API, see [Setting up the security group for your virtual server instance by using the API](/docs/vpc?topic=vpc-configuring-the-security-group&interface=api#sg-using-api).
+
+## Limitations
+{: #limitations-security-groups}
+
+* Currently, ESP protocol packets are supported only on instances with Gen2 profiles. On instances with other profiles, and on all bare metal servers, inbound and outbound ESP packets are always dropped. Although security group rules can be configured for ESP traffic with the VPC API, such rules affect only instances with Gen2 profiles. The ESP protocol is not displayed as a choice in the IBM Cloud console to avoid confusion between instance profile generations. For more information, see [Profile generation](/docs/vpc?topic=vpc-profiles&interface=ui#profiles-generation).
 
 ## Getting started
 {: #sg-getting-started}
@@ -138,7 +143,7 @@ The following are UI instructions for defining rules in a security group to allo
 1. Select the **Navigation menu** ![Navigation menu icon](../icons/icon_hamburger.svg), then click **Infrastructure** ![VPC icon](../../icons/vpc.svg) > **Network** > **Security groups**.
 1. In the Security groups, select the security group object that you want to modify.
 1. Click the **Create +** button in the upper right of the **Inbound rules** table. A **Create inbound rule** window appears.
-1. In the **Protocol** section, select **ALL**.
+1. In the **Protocol** section, select **TCP-UDP-ICMP**.
 1. In the **Source type** section, select **Security group**.
 1. Click **Create** to apply these changes.
 

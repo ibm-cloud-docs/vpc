@@ -2,7 +2,7 @@
 
 copyright:
   years: 2019, 2025
-lastupdated: "2025-12-11"
+lastupdated: "2025-12-12"
 
 keywords:
 
@@ -33,6 +33,13 @@ For more information about changes to the {{site.data.keyword.vpc_short}} comman
 
 Cross-regional copy of snapshots that are larger than 10 TB (GA)
 :   Customers can now create cross-regional copies of snapshots of second-generation storage volumes that exceed 10 TB. Such cross-regional copies can be created on-demand in the console, from the CLI, with the API, or Terraform or on-schedule with the Backup for VPC service. For more information, see [About Block Storage for VPC snapshots](/docs/vpc?topic=vpc-snapshots-vpc-about&interface=ui#snapshots_vpc_crossregion_copy).
+
+### 12 December 2025
+{: #vpc-dec1225}
+{: release-note}
+
+Support for all IPv4 protocols for ACL and Security Group rules
+:   You can now apply all [IPv4 protocols listed in IANA](https://www.iana.org/assignments/protocol-numbers/protocol-numbers.xhtml) to Network Access Control list rules and Security Group rules. This allows you to bring custom topologies and use cases from on-prem, multi-cloud and Classic infrastructure that leverage protocols outside of TCP, UDP, ICMP. For more information, see [Understanding Internet Communication Protocols](/docs/vpc?topic=vpc-understanding-icp&interface=ui).
 
 ### 05 December 2025
 {: #vpc-dec0525}

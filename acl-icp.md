@@ -1,8 +1,8 @@
 ---
 
 copyright:
-  years: 2019, 2024
-lastupdated: "2024-06-20"
+  years: 2019, 2025
+lastupdated: "2025-12-12"
 
 keywords:
 
@@ -40,3 +40,8 @@ TCP is a connection-oriented protocol, it guarantees that all sent packets reach
 Alternatively, UDP is a connection-less protocol. Communication is datagram-oriented, so the integrity is guaranteed only on the single datagram. Datagrams reach a destination and can arrive out of order, or possibly they don't arrive at all.
 
 Typically, UDP is used for real-time communication, where a little percentage of the packet loss rate is preferable to the overhead of a TCP connection.
+
+## ANY
+{: #network-infrastructure-any-ipv4}
+
+You can now apply all [IPv4 protocols listed in IANA](https://www.iana.org/assignments/protocol-numbers/protocol-numbers.xhtml) to Network Access Control list rules and Security Group rules. This allows you to bring custom topologies and use cases from on-prem, multi-cloud and Classic infrastructure that leverage protocols outside of TCP, UDP, ICMP.

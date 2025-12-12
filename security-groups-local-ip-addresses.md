@@ -2,7 +2,7 @@
 
 copyright:
   years: 2024, 2025
-lastupdated: "2025-12-05"
+lastupdated: "2025-12-12"
 
 keywords:
 
@@ -67,14 +67,14 @@ You can create inbound and outbound rules during or after the provisioning of a 
 
    * To create an inbound rule, select **Create** on the Inbound rules table, and complete the following fields. Then, click **Create**.
 
-      * Protocol - Specify the protocol to enforce (**TCP**, **UDP**, **ICMP**, or **ANY**).
+      * Protocol - Specify the protocol to enforce (**ICMP_TCP_UDP**, **ANY**, or one of other **IPv4 protocols**).
       * Port- Specify the ports to which the rule applies. Select **Any** or specify a **Port range** (min and max port values). Port values for **TCP** and **UDP** must be numbers between 1 and 65535. Valid port values for **ICMP** are from 0 to 254.
       * Source type - Select the set of network interfaces from which this rule allows traffic. You can select **Any**, **IP address**, or **CIDR block** for inbound, permitted traffic. Alternatively, you can specify a security group in the same VPC to allow traffic to or from all instances that are attached to the selected security group.
       * Destination type - Select **Any**, **IP address**, or **CIDR block**.
 
    * To create an outbound rule, select **Create** on the Outbound rules table, and complete the following fields. Then, click **Create**.
 
-      * Protocol - Specify the protocol to enforce (**TCP**, **UDP**, **ICMP**, or **ANY**).
+      * Protocol - Specify the protocol to enforce (**TCP**, **UDP**, **ICMP**, or **TCP-UDP-ICMP**).
       * Port - Specify the ports to which the rule applies. Select **Any** or specify a **Port range** (min and max port values). Port values for **TCP** and **UDP** must be numbers between 1 and 65535. Valid port values for **ICMP** are from 0 to 254.
       * Destination type - Select **Any**, **IP address**, **CIDR block**, or **Security group**.
       * Source type - Select **Any**, **IP address**, or **CIDR block**.
@@ -99,7 +99,7 @@ Where:
 :   Direction of traffic to enforce. One of: `inbound`, `outbound`.
 
 `PROTOCOL`
-:   Protocol to which the rule applies. One of: `tcp`, `udp`, `icmp`, or `all`.
+:   Protocol to which the rule applies. One of: `tcp`, `udp`, `icmp`, `icmp`, `icmp_tcp_udp`, `gre`, `ip_in_ip`, `ah`, `esp`, `l2tp`, `rsvp`, `sctp`, `vrrp`, or `number_<N>`.
 
 `--vpc`
 :   ID or name of the VPC. This option is required only to specify the unique resource by name inside this VPC.
@@ -132,15 +132,18 @@ Where:
 {: #rule-cli-create-examples}
 
 
-* `ibmcloud is security-group-rule-add 72b27b5c-f4b0-48aa-b954-5becc7c1dcb3 inbound all`
-* `ibmcloud is security-group-rule-add my-sg inbound all`
-* `ibmcloud is security-group-rule-add my-sg inbound all --vpc my-vpc`
+* `ibmcloud is security-group-rule-add 72b27b5c-f4b0-48aa-b954-5becc7c1dcb3 inbound any`
+* `ibmcloud is security-group-rule-add my-sg inbound any`
+* `ibmcloud is security-group-rule-add my-sg inbound any --vpc my-vpc`
 * `ibmcloud is security-group-rule-add 72b27b5c-f4b0-48aa-b954-5becc7c1dcb3 inbound icmp --icmp-type 8 --icmp-code 0`
-* `ibmcloud is security-group-rule-add 72b27b5c-f4b0-48aa-b954-5becc7c1dcb3 inbound all --remote 12.3.2.4`
-* `ibmcloud is security-group-rule-add 72b27b5c-f4b0-48aa-b954-5becc7c1dcb3 inbound all --remote 72b27b5c-f4b0-48aa-b954-5becc7c1dcb3`
-* `ibmcloud is security-group-rule-add my-sg inbound all --remote my-sg`
+* `ibmcloud is security-group-rule-add 72b27b5c-f4b0-48aa-b954-5becc7c1dcb3 inbound any --remote 12.3.2.4`
+* `ibmcloud is security-group-rule-add 72b27b5c-f4b0-48aa-b954-5becc7c1dcb3 inbound any --remote 72b27b5c-f4b0-48aa-b954-5becc7c1dcb3`
+* `ibmcloud is security-group-rule-add my-sg inbound any --remote my-sg`
 * `ibmcloud is security-group-rule-add 72b27b5c-f4b0-48aa-b954-5beaa7c1dcb3 inbound tcp --port-min 4 --port-max 22 --output JSON`
-* `ibmcloud is security-group-rule-add --sg 72b27b5c-f4b0-48bb-b954-5beaa7c1dcb3 --direction inbound --protocol all --local 192.176.3.0`
+* `ibmcloud is security-group-rule-add --sg 72b27b5c-f4b0-48bb-b954-5beaa7c1dcb3 --direction inbound --protocol any --local 192.176.3.0`
+* `ibmcloud vpc-iaas security-group-rule-add --sg-id r134-028d1f0b-9648-41d1-b862-45d9b85b12b7 --direction inbound --protocol gre --local-address 192.176.3.0`
+* `ibmcloud vpc-iaas security-group-rule-add --sg-id r134-028d1f0b-9648-41d1-b862-45d9b85b12b7 --direction inbound --protocol any --remote-address 12.3.2.4`
+* `ibmcloud vpc-iaas security-group-rule-add --sg-id r134-028d1f0b-9648-41d1-b862-45d9b85b12b7 --direction inbound --protocol icmp_tcp_udp`
 
 ## Creating security group rules with the API
 {: #security-groups-secondary-ip-api}
