@@ -2,7 +2,7 @@
 
 copyright:
  years: 2022, 2025
-lastupdated: "2025-12-11"
+lastupdated: "2025-12-12"
 
 keywords: Backup, backup service, backup plan, backup policy, restore, restore volume, restore data
 
@@ -32,14 +32,14 @@ In the current release of the defined performance volume profile, you can automa
 
 You can create backups of all the {{site.data.keyword.block_storage_is_short}} volumes that are attached to a specific virtual server instance as members of a **consistency group**. When you configure backups for a [consistency group](/docs/vpc?topic=vpc-snapshots-vpc-about&interface=ui#multi-volume-snapshots), you can include the boot volume or exclude it. When you create multi-volume backups, you must add the tag to the virtual server instance, not the individual volumes.
 
-In the current release of the defined performance volume profile, multi-volume backups are not supported. When you try to create consistency group snapshots with a mix of different volume generations, only the first-generation volumes are included in the backup snapshots. Second-generation, `sdp` volumes are skipped.
+In the current release of the defined performance volume profile, multi-volume backups are not supported. When you try to create consistency group snapshots with a mix of different volume generations, only the first-generation volumes are included in the backup snapshots. Second-generation `sdp` volumes are skipped.
 {: restriction}
 
 When you request a backup snapshot of a consistency group, the system ensures that all write operations are complete before it takes the snapshots. Then, the system generates snapshots of all the selected Block Storage volumes that are attached to the virtual server instance at the same time. Depending on the number and size of the attached volumes, plus the amount of data that is to be captured, you might observe a slight IO pause. This IO pause can range from a few milliseconds up to 4 seconds. It is recommended to run your automated backup job during off-peak hours to minimize any impact on performance.
 
 An individual volume or share is backed up when a user-provided [tag](#backup-service-about-tags) that is associated with a volume or share matches the tags for target resources in a backup policy. When you choose to back up all the Block Storage volumes that are attached to a virtual server instance, the user-provided tag is associated with the virtual server instance. When the scheduled backup is triggered by a backup plan, all resources with matching tags are backed up.
 
-When you want to create backups of first-generation block volumes, they must be attached to a running virtual server instance. You can't create backup snapshots an unattached Gen 1 volume.
+When you want to create backups of first-generation block volumes, they must be attached to a running virtual server instance. You can't create backup snapshots of an unattached Gen 1 volume.
 {: important}
 
 If a volume or share has multiple tags, only one tag needs to match for a backup to trigger. You can add user tags to boot and data volumes at any time, when you [create a virtual server instance](/docs/vpc?topic=vpc-creating-block-storage&interface=ui#create-from-vsi) or when you update the volume.
@@ -195,13 +195,17 @@ You can copy a Block storage backup from one region to another region, and later
 Currently, cross-regional copy of block storage snapshots is not supported in the Chennai region. It can't be selected as a source or target region.
 {: restriction}
 
-When a backup policy creates a job that includes a cross-regional copy, the service waits to initiate the request to create the copies in the target regions. The service start to create the copies after the source snapshot reached the _stable_ state.
+If the source snapshot is not encrypted with a customer key, the encryption of the copy remains provider-managed. If the source snapshot is protected by a customer-managed key, you must specify the customer-managed key that you want to use to encrypt the new copy in the target region.
 
-When you create a remote copy of the backup snapshot for the first time, that remote copy contains all the data of the parent volume. Subsequent copies can be incremental or full copies. 
+When a backup policy creates a job that includes a cross-regional copy, the service initiates the creation of the backup snapshot first. The snapshot creation is asynchronous. The snapshot is created immediately, but it remains in the _pending_ state until all of the data is transferred to the regional storage repository. When the snapshot reaches the _stable_ state in the source region, the service creates the copies in the target regions and starts transferring the data.
 
-Whether the remote copy is incremental depends on the immediately preceding backup snapshot in the chain. If the immediately preceding snapshot exists in the destination region, the copy can be incremental. If the immediately preceding snapshot does not exist or is not stable, the new copy must be a full snapshot of the parent volume.
+The more capacity that a volume has, the longer it takes to create the snapshot copy in another region. For example, creating a copy of a 3-TB storage volume in a remote region can take over 12.5 hours.
 
-If your backup plan calls for the creation of a remote copy before the previous backup copy becomes stable, the Backup service initiates a full copy, not an incremental one.
+When you create a remote copy of the backup snapshot for the first time, that remote copy contains all the data of the parent volume. Subsequent copies can be incremental or full copies. Whether the remote copy is incremental depends on the immediately preceding backup snapshot in the chain. If the immediately preceding snapshot exists in the destination region, the copy can be incremental. If the immediately preceding snapshot does not exist or is not stable, the new copy must be a full snapshot of the parent volume.
+
+If your backup plan calls for the creation of a remote copy before the previous backup copy becomes stable, the Backup service initiates a full copy, not an incremental one. For the 3-TB storage volume, this means that when your schedule specifies the creation of a snapshot with a remote copy every 12 hours, the system initiates a full copy because the previous copy is not complete and fully stable yet.
+
+The following table shows whether or not you can expect the remote copy to be incremental based on the volume capacity (snapshot size) and backup frequency.
 
 | Volume capacity | Backup plan schedule | Incremental copies |
 |-----------------|----------------------|--------------------|
@@ -220,10 +224,6 @@ If your backup plan calls for the creation of a remote copy before the previous 
 | 3000 GB         | 12-hour              | Disabled           |
 | 3000 GB         | Daily                | Enabled            |
 {: caption="How storage volume capacity and backup schedules affect the creation of remote snapshot copies." caption-side="bottom"}
-
-The more capacity that a volume has, the longer it takes to create the snapshot copy in another region. For example, creating a copy of a 3-TB storage volume in a remote region can take over 12.5 hours. Therefore, when your schedule specifies the creation of a snapshot with a remote copy every 12 hours, the system initiates a full copy because the previous copy is not complete and fully stable yet.
-
-If the source snapshot is not encrypted with a customer key, the encryption of the copy remains provider-managed. If the source snapshot is protected by a customer-managed key, you must specify the customer-managed key that you want to use to encrypt the new copy.
 
 Only one copy of the backup snapshot can exist in each region. You can't create a copy of the backup snapshot in the source (local) region.
 {: restriction}
