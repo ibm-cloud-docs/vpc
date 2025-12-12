@@ -2,7 +2,7 @@
 
 copyright:
   years: 2025, 2025
-lastupdated: "2025-12-11"
+lastupdated: "2025-12-12"
 
 keywords: virtual server instances, flex profile, flexible profile, virtual server profile
 
@@ -86,9 +86,7 @@ The following Flex profiles are available when you provision a virtual server in
 ### Nano
 {: #nano-profiles-flexible}
 
-[Beta]{: tag-blue}
-
-| Instance profile | vCPU | Memory (GiB) | Total instance bandwidth (Gbps)| % vCPU share options (default 100%) [Beta]{: tag-blue} |
+| Instance profile | vCPU | Memory (GiB) | Total instance bandwidth (Gbps)| % vCPU share options (default 100%) |
 |------------------|------|--------------|-------------------------------|--------------|
 | nxf-1x1          | 1    | 1            | 1                             | 10% 25% 50%  |
 | nxf-1x2          | 1    | 2            | 1                             | 10% 25% 50%  |
@@ -101,7 +99,7 @@ The following Flex profiles are available when you provision a virtual server in
 ### Balanced
 {: #balanced-profiles-flexible}
 
-| Instance profile | vCPU | Memory (GiB) | Total instance bandwidth (Gbps)| % vCPU share options (default 100%) [Beta]{: tag-blue} |
+| Instance profile | vCPU | Memory (GiB) | Total instance bandwidth (Gbps)| % vCPU share options (default 100%) |
 |------------------|------|--------------|-------------------------------|--------------|
 | bxf-2x8          | 2    | 8            | 4                             | 50% |
 | bxf-4x16         | 4    | 16           | 8                             | 50% |
@@ -116,7 +114,7 @@ The following Flex profiles are available when you provision a virtual server in
 ### Compute
 {: #compute-profiles-flexible}
 
-| Instance profile | vCPU | Memory (GiB) | Total instance bandwidth (Gbps)| % vCPU share options (default 100%) [Beta]{: tag-blue} |
+| Instance profile | vCPU | Memory (GiB) | Total instance bandwidth (Gbps)| % vCPU share options (default 100%) |
 |------------------|------|--------------|-------------------------------|--------------|
 | cxf-2x4          | 2    | 4            | 4                             | 25% 50% |
 | cxf-4x8          | 4    | 8            | 8                             | 25% 50% |
@@ -131,7 +129,7 @@ The following Flex profiles are available when you provision a virtual server in
 ### Memory
 {: #memory-profiles-flexible}
 
-| Instance profile | vCPU | Memory (GiB) | Total instance bandwidth (Gbps)| % vCPU share options (default 100%) [Beta]{: tag-blue} |
+| Instance profile | vCPU | Memory (GiB) | Total instance bandwidth (Gbps)| % vCPU share options (default 100%) |
 |------------------|------|--------------|-------------------------------|--------------|
 | mxf-2x16         | 2    | 16           | 4                             | N/A |
 | mxf-4x32         | 4    | 32           | 8                             | N/A |

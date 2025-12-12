@@ -2,7 +2,7 @@
 
 copyright:
   years: 2025, 2025
-lastupdated: "2025-09-16"
+lastupdated: "2025-12-12"
 
 keywords:
 
@@ -12,10 +12,8 @@ subcollection: vpc
 
 {{site.data.keyword.attribute-definition-list}}
 
-# Burstable virtual servers (beta)
+# Burstable virtual servers
 {: #burstable-virtual-servers}
-
-[Beta]{: tag-blue}
 
 Burstable Flex virtual servers are a beta feature and are available for evaluation and testing purposes. Contact [IBM support](/docs/account?topic=account-using-avatar#getting-support) if you're interested in getting access. {: beta}
 

@@ -2,7 +2,7 @@
 
 copyright:
   years: 2022, 2025
-lastupdated: "2025-12-11"
+lastupdated: "2025-12-12"
 
 keywords: snapshots, Block Storage, volumes, cross-regional snapshot, restore volume, copy snapshot
 
@@ -31,7 +31,11 @@ A snapshot is a copy of your volume that you take manually in the console or fro
 Do you want to automatically create snapshots of your {{site.data.keyword.block_storage_is_short}} volumes? With Backup for VPC, you can create backup policies to schedule regular volume backups. For more information, see [About Backup for VPC](/docs/vpc?topic=vpc-backup-service-about).
 {: tip}
 
-The first time that you take a snapshot of a volume, all the volume's contents are copied. When you take a second snapshot, it captures only the changes that occurred since the last snapshot was taken. As such, the size of the snapshots can grow or shrink, depending on what is being uploaded to the regional storage repository. The number of snapshots increases with each successive snapshot that you take. You can take up to 750 snapshots for a first-generation volume and 512 snapshots of a second-generation volume. Within these limits, you can take and keep an hourly snapshot for 30 days, plus some extra snapshots. Deleting snapshots from this quota frees up space for more snapshots. A snapshot of a first-generation volume can't be greater than 10 TB. Snapshots greater than 10 TB are supported for second generation volumes.
+The first time that you take a snapshot of a volume, all the volume's contents are copied. When you take a second snapshot, it captures only the changes that occurred since the last snapshot was taken. As such, the size of the snapshots can grow or shrink, depending on what is being uploaded to the regional storage repository.
+
+Snapshot creation is asynchronous. The snapshot is created immediately, but it remains in the pending state until all of data is transferred to the regional storage repository.
+
+The number of snapshots increases with each successive snapshot that you take. You can take up to 750 snapshots for a first-generation volume and 512 snapshots of a second-generation volume. Within these limits, you can take and keep an hourly snapshot for 30 days, plus some extra snapshots. Deleting snapshots from this quota frees up space for more snapshots. A snapshot of a first-generation volume can't be greater than 10 TB. Snapshots greater than 10 TB are supported for second generation volumes.
 
 You can create a virtual server instance with a boot volume that is initialized from a snapshot. The instance profile of the new instance is not required to match the instance that was used to create the snapshot. You can also import a snapshot of a data volume when you create and attach a data volume to the instance. You can specify user tags for these snapshots.
 
@@ -69,11 +73,11 @@ For more information, see [Restoring a volume with the fast restore feature](/do
 
 You can copy a snapshot from one region to another region, and later use that snapshot to restore a volume in the new region. This feature can be used in disaster recovery scenarios when you need to start your virtual server instance and data volumes in a different region. Or you can use the remote copy to create storage volumes in a new region to expand your VPC.
 
-When you choose to create a cross-regional copy of a snapshot, you need to specify a single snapshot to be copied to the target region. The snapshot is created as normal, and stored in a separate regional storage repository. When the snapshot is stable, a copy of the snapshot is created in the regional storage repository in the target region.
+When you choose to create a cross-regional copy of a snapshot, you need to specify a single snapshot to be copied to the target region. The snapshot is created as normal, and stored in a separate regional storage repository. When the snapshot is stable, a copy of the snapshot is created in the regional storage repository in the target region. 
 
 When the snapshot copy in the remote region is stable, you can use and manage it independently from the parent volume or the original snapshot.
 
-The creation of the copy in the remote region takes time. The more capacity a volume has the longer it takes for the copy in the remote region to become stable. For example, the creation of a full snapshot of a 3 TB volume in a remote region can take up to 12.5 hours.
+The creation of the copy in the remote region takes time. The more capacity a volume has the longer it takes for the copy in the remote region to become complete and stable. For example, the creation of a full snapshot of a 3 TB volume in a remote region can take up to 12.5 hours.
 
 The first time that you create a cross-regional copy, that snapshot is a full copy of the parent volume's data. Subsequent copies can be incremental or full copies. Whether the remote copy is incremental depends on the immediately preceding snapshot in the chain. If the immediately preceding snapshot exists in the destination region, the copy can be incremental. If the immediately preceding snapshot does not exist, the copy must be a full snapshot of the parent volume.
 
