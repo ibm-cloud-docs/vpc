@@ -2,7 +2,7 @@
 
 copyright:
   years: 2019, 2025
-lastupdated: "2025-12-11"
+lastupdated: "2025-12-12"
 
 keywords: vsi, virtual server instances, profile, profiles, balanced, compute, memory, very high memory, ultra high memory, gpu, storage optimized, confidential compute, flex, high frequency
 
@@ -45,7 +45,7 @@ The following profile families are available when you provision a virtual server
 | [Storage Optimized](#storageopt) | Storage Optimized profiles offer temporary SSD instance storage disks at a ratio of 1 vCPU to 300 GB instance storage with a smaller price point per GB. These profiles are designed for storage-dense workloads and offer `virtio` interface type for attached disks. |
 | [Confidential Compute](#confidential-computing-profiles) | Confidential Compute-supported profiles use processor reserved memory called EPC (Enclave Page Cache) to encrypt application data. Processor reserved memory EPC maintains confidentiality and integrity. |
 | [Flex profiles](#flexible-profiles) | Flex profiles offer a cost-effective option to help improve and mainstream capacity and scalability where and when you need it. |
-| [Burstable Flex profiles](#burstable-supported-flex-profiles) (beta) | Burstable profiles are designed to provide flexible CPU performance so workloads can operate at a smaller baseline level and burst to higher performance when needed. |
+| [Burstable Flex profiles](#burstable-supported-flex-profiles) | Burstable profiles are designed to provide flexible CPU performance so workloads can operate at a smaller baseline level and burst to higher performance when needed. |
 {: caption="Virtual server family selections" caption-side="bottom"}
 
 2nd generation profiles with instance storage and 2nd generation profiles with 64 or more vCPUs are deployed exclusively on the Intel&reg; second-generation quad processor Xeon&reg; Platinum 8260 Cascade Lake with 96 cores that are running at a base speed of 2.4 GHz and an all-core turbo frequency of 3.1 GHz or an Intel quad processor Xeon Gold 6248 Cascade Lake with 80 cores that are running at a base speed of 2.5 GHz and an all-core turbo frequency of 3.1 GHz.
@@ -480,8 +480,6 @@ The following flex profiles are available.
 ### Burstable-supported Flex profiles
 {: #burstable-supported-flex-profiles}
 
-[Beta]{: tag-blue}
-
 With supported Flex profiles, you can enable Burstable CPU capability. Burstable means that Flex virtual server CPUs are configured with the baseline CPUs and can "burst" beyond the baseline when idle host CPU capacity is available. For more information, see [Burstable virtual servers](/docs/vpc?topic=vpc-burstable-virtual-servers).
 
 The following Burstable profiles are available.
@@ -538,7 +536,7 @@ By default, the storage bandwidth is divided between all attached volumes. To he
 
 When weighted bandwidth allocation is used, the data volumes are assigned bandwidth that is proportional to their maximum bandwidth. The weights are based on the size, IOPS, and bandwidth values of the storage volumes. Each volume can use only the bandwidth that is assigned to it at the time of attachment.
 
-Review the [compute profiles details](/docs/vpc?group=profile-details) to see the volume bandwidth allocation capabilities available. For more information about the bandwidth allocation, see the [Bandwidth allocation for Data Volumes](/docs/vpc?topic=vpc-block-storage-bandwidth&interface=ui#attached-block-vol-bandwidth).
+Review the [compute profiles details](/docs/vpc?group=profile-details) to see the volume bandwidth allocation capabilities available. For more information about the bandwidth allocation, see the [Bandwidth allocation for Data Volumes](/docs/vpc?topic=vpc-block-storage-bandwidth&interface=ui#attached-block-vol-bandwidth).
 
 ### Bandwidth allocation with multiple network interfaces
 {: #bandwidth-multi-vnic}

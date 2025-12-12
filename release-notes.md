@@ -27,6 +27,9 @@ For more information about changes to the {{site.data.keyword.vpc_short}} comman
 ## December 2025
 {: #vpc-dec25}
 
+Burstable Flex virtual servers (GA)
+:   Burstable Flex virtual servers are designed to provide flexible CPU performance so workloads can operate at a smaller baseline level and opportunistically burst to higher performance when needed. Flex virtual servers are ideal for applications that require a baseline of CPU performance and experience intermittent spikes in CPU demand but don't require sustained high performance. For more information, see [Burstable virtual servers](/docs/vpc?topic=vpc-burstable-virtual-servers).
+
 ### 11 December 2025
 {: #vpc-dec1125}
 {: release-note}
