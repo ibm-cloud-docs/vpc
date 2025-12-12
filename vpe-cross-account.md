@@ -1,10 +1,10 @@
 ---
 
 copyright:
-  years: 2020, 2025
+  years: 2025
 lastupdated: "2025-12-12"
 
-keywords: virtual private endpoints, VPE, endpoint gateway
+keywords: virtual private endpoints, VPE, endpoint gateway, cross account
 
 subcollection: vpc
 
@@ -12,36 +12,195 @@ subcollection: vpc
 
 {{site.data.keyword.attribute-definition-list}}
 
-# Creating an endpoint gateway
-{: #ordering-endpoint-gateway}
+# Creating a cross-account endpoint gateway
+{: #ordering-cross-account-endpoint-gateway}
 {: help}
 {: support}
 
-You can create an endpoint gateway for an {{site.data.keyword.cloud}} or third-party service or application that you want to access on your private VPC network. You can use the console, CLI, API, or Terraform.
+You can create an endpoint gateway for a supported {{site.data.keyword.cloud}} or third-party service or application that you want to access on your private VPC network. You can use the console, CLI, API, or Terraform.
 {: shortdesc}
-
-To create a local-access endpoint gateway (currently supported only for Cloud Object Storage), follow the instructions in [Creating a local-access virtual private endpoint gateway](/docs/vpc?topic=vpc-create-local-access-vpe). To set up a cross-account endpoint gateway to access a supported IBM Cloud or third-party service or application, see [Creating a cross-account endpoint gateway](/docs/vpc?topic=vpc-ordering-cross-account-endpoint-gateway&interface=ui) for details.
-{: attention}
 
 ## Before you begin
 {: #vpe-before-you-begin}
 
 Before creating an endpoint gateway, ensure that you review [Planning for virtual private endpoint gateways](/docs/vpc?topic=vpc-vpe-planning-considerations) and have met the following prerequisites:
-
+* Make sure that your target service supports cross-account VPEs. Check the service's documentation for details. 
 * A VPC
 * A subnet in at least one availability zone if you intend on binding an IP address at the same time you provision the endpoint gateway
 * An instance of the service
-* Appropriate [IAM permissions](/docs/vpc?topic=vpc-vpe-iam) to create an endpoint gateway, create or bind a reserved IP, and view or list the target service
-* Verification that the service you are configuring is enabled for VPE
-* If you plan to create a cross-account VPE, make sure that you have met the following requirements:
+* Appropriate [IAM permissions](/docs/vpc?topic=vpc-vpe-iam) to create an endpoint gateway, create or bind a reserved IP, and view or list the target service.
+* Make sure that you have the necessary IAM permissions and Context-Based Restriction (CBR) policies to authorize access.
+* You must obtain the Cloud Resource Name (CRN) of the target service instance. 
+* To authorize a VPE in your accessor account to use the target service instance that resides in a different IBM Cloud account, you must create a service-to-service authorization policy as described in the next section.
 
-   * Make sure that you have the necessary IAM permissions and Context-Based Restriction (CBR) policies to authorize access. 
-   * Make sure that your target service supports cross-account VPEs. Check the service's documentation for details. 
-   * You must obtain the Cloud Resource Name (CRN) of the target service instance. 
-   * To authorize a VPE in your accessor account to use the target service instance that resides in a different IBM Cloud account, you must create a service-to-service authorization policy as described in the next section.
+### Creating service authorization for cross-account VPE in the console
+{: #cross-account-vpe-prerequisite-console}
+{: ui}
+
+Before you create a cross-account VPE, you must create a service-to-service authorization policy as follows:
+
+1. In the IBM Cloud console, click **Manage > Access (IAM)**, then select **Authorizations**.
+1. Click **Create**.
+1. Select a Source account:
+
+   * If you're setting up authorization in your account, select **This account**.
+   * If you're setting up authorization in the enterprise account, select **Other account**.
+
+1. For the source Service, select **VPC Infrastructure Services**.
+1. For source Resources, select **Specific resources**. Then, select **Resource type** as the attribute and **Virtual Private Endpoint for VPC** as the value.
+1. For the target Service, select the service that hosts the target resource.
+1. For target Resources, select **All instances**.
+1. For target Roles, select the **Viewer** role to grant the VPE service read access to the target resource. Then, click **Review**.
+1. Click **Authorize**.
+
+### Creating service authorization for cross-account VPE from the CLI
+{: #cross-account-vpe-prerequisite-cli}
+{: cli}
+
+Before you create a cross-account VPE, you must create a service-to-service authorization policy as follows:
+
+```bash
+ibmcloud iam authorization-policy-create is endpoint-gateway TARGET_SERVICE_NAME TARGET_RESOURCE_TYPE \
+  --source-account ACCESSOR_ACCOUNT_ID \
+  --target-account TARGET_ACCOUNT_ID \
+  --roles Viewer
+```
+{: pre}
+
+Where:
+
+`endpoint-gateway`
+   :   Identifies the VPE gateway resource type that will access the target service.
+
+`TARGET_SERVICE_NAME`
+   :   The name of the IBM Cloud service that owns the target resource, such as `cloud-object-storage`.
+
+`TARGET_RESOURCE_TYPE`
+   :   The type of resource within the target service. Common values include `service-instance`.
+
+`--source-account ACCESSOR_ACCOUNT_ID`
+   :   The account ID that will create and own the VPE connection (the accessor account).
+
+`--target-account TARGET_ACCOUNT_ID`
+   :   The account ID that owns the target resource (the target account).
+
+The following example allows VPE (`is.endpoint-gateway`) in account `1234567890` to read Cloud Object Storage resources in account `0987654321`:
+
+```bash
+  ibmcloud iam authorization-policy-create \
+  is endpoint-gateway \
+  cloud-object-storage service-instance \
+  --source-account 1234567890 \
+  --target-account 0987654321 \
+  --roles Viewer
+```
+{: pre}
+
+This policy allows VPEs created in the accessor account to target service instances in the specified target account by CRN.
+
+### Creating service authorization for cross-account VPE with the API
+{: #cross-account-vpe-prerequisite-api}
+{: api}
+ 
+To allow VPEs in one account to access service instances in another account, you must create a service-to-service (S2S) IAM authorization policy using the IBM Cloud IAM API.
+
+1. Set up your [API environment](/docs/vpc?topic=vpc-set-up-environment#api-prerequisites-setup) with the required variables, including your IAM token:
+
+   ```sh
+   export iam_token=<your_IAM_token>
+   export iam_api_endpoint="https://iam.cloud.ibm.com/v1"
+   ```
+   {: pre}
+
+1. Store any additional variables for the target and accessor accounts:
+
+   * `AccessorAccountId` - IBM Cloud account ID where the VPE will be created.
+   * `TargetAccountId` - IBM Cloud account ID that owns the service instance.
+   * `TargetServiceName` - Name of the target service (for example, `cloud-object-storage`).
+   * `TargetResourceType` - Resource type of the service instance (for example, `service-instance`).
+
+   ```sh
+   export AccessorAccountId=1234567890
+   export TargetAccountId=0987654321
+   export TargetServiceName=cloud-object-storage
+   export TargetResourceType=service-instance
+   ```
+
+1. Create the authorization policy:
+
+   ```sh
+   curl -X POST "$iam_api_endpoint/authorization-policies" \
+     -H "Authorization: Bearer $iam_token" \
+     -H "Content-Type: application/json" \
+     -d '{
+       "type": "authorization",
+       "subjects": [
+         {
+           "attributes": [
+             { "name": "accountId", "value": "'$AccessorAccountId'" },
+             { "name": "serviceName", "value": "is" },
+             { "name": "resourceType", "value": "endpoint-gateway" }
+           ]
+         }
+       ],
+       "roles": [
+         { "role_id": "crn:v1:bluemix:public:iam::::role:Viewer" }
+       ],
+       "resources": [
+         {
+           "attributes": [
+             { "name": "accountId", "operator": "stringEquals", "value": "'$TargetAccountId'" },
+             { "name": "serviceName", "operator": "stringEquals", "value": "'$TargetServiceName'" },
+             { "name": "resource", "operator": "stringEquals", "value": "'$TargetResourceType'" }
+           ]
+         }
+       ]
+     }'
+     ```
+    {: codeblock}
+
+This API call creates a policy that allows the VPE service in the accessor account to read the target service instance in the target account, which is required before creating a cross-account VPE. 
+
+### Creating service authorization for cross-account VPE with Terraform
+{: #cross-account-vpe-prerequisite-terraform}
+{: terraform}
+
+The following Terraform configuration demonstrates how to create a service-to-service (S2S) IAM authorization policy that allows VPEs in one IBM Cloud account to access service instances in another account. 
+
+This policy must be created before creating the cross-account VPE. The `Viewer` role grants the VPE service read access to the target resource metadata, enabling secure connectivity between accounts.
+
+```terraform
+provider "ibm" {
+  ibmcloud_api_key = var.ibmcloud_api_key
+}
+
+# Create a cross-account IAM authorization policy
+resource "ibm_iam_authorization_policy" "cross_account_vpe" {
+  # The source is the VPE service in the accessor account
+  source_service_name  = "is"
+  source_resource_type = "endpoint-gateway"
+  source_account       = var.accessor_account_id
+
+  # The target is the service instance in another account
+  target_service_name  = "cloud-object-storage"
+  target_resource_type = "service-instance"
+  target_account       = var.target_account_id
+
+  # The Viewer role allows the VPE service to read target resource metadata
+  roles = ["Viewer"]
+}
+
+# Optional: Output the policy ID
+output "authorization_policy_id" {
+  value = ibm_iam_authorization_policy.cross_account_vpe.id
+}
+```
+{: codeblock}
+
+For more information, see the [Terraform registry](https://registry.terraform.io/providers/IBM-Cloud/ibm/latest/docs/resources/iam_authorization_policy){: external}.
 
 ## Creating an endpoint gateway in the console
-{: #vpe-creating-ui}
+{: #vpe-cross-account-creating-ui}
 {: ui}
 
 To create an endpoint gateway in the {{site.data.keyword.cloud_notm}} console, follow these steps:
@@ -75,8 +234,7 @@ To create an endpoint gateway in the {{site.data.keyword.cloud_notm}} console, f
       The review might be automated based on the provider's chosen account policy, or it could take days if the provider has chosen to manually review their requests. If your request is permitted, you will receive notification and can then access the service. If your request is denied, contact the service provider.
       {: note}
 
-
-1. [Select availability]{: tag-green} In the Share DNS section, select one of the following DNS resolution binding modes:
+1. In the Share DNS section, select one of the following DNS resolution binding modes:
 
    * **Primary** allows the VPE gateway's service endpoints in the DNS-shared VPC to be shared with the DNS hub VPC for name resolution. 
    * **Disabled** does not allow the VPE gateway's service endpoints to be shared for name resolution.
@@ -84,7 +242,7 @@ To create an endpoint gateway in the {{site.data.keyword.cloud_notm}} console, f
    When the VPC is a DNS hub, DNS sharing is always set to **Primary** and the mode can't be changed.
    {: note}
 
-1. [Select availability]{: tag-green} In the Reserved IP section, select reserved IP addresses. You can choose:
+1. In the Reserved IP section, select reserved IP addresses. You can choose:
 
    * **Select one for me** - Enter a name prefix for the IP addresses, or one is chosen for you. Select one or more subnets (one subnet per zone is recommended) and enable the Auto-release toggle if you want this reserved IP to be deleted automatically if the endpoint gateway is deleted.
 
@@ -93,12 +251,12 @@ To create an endpoint gateway in the {{site.data.keyword.cloud_notm}} console, f
       Only one reserved IP can be bound to a VPE gateway per AZ in a VPC. Ensure that no other bindings exist in the same AZ across all subnets within the VPC.
       {: note}
       
-   * **Select one later** [Select availability]{: tag-green} - Select IP addresses at some point after creating the endpoint gateway.
+   * **Select one later** - Select IP addresses at some point after creating the endpoint gateway.
 
 1. Review the **Order summary**, then click **Create virtual private endpoint gateway**. The endpoint gateway is requested for use.
 
 ## Creating an endpoint gateway from the CLI
-{: #vpe-ordering-cli}
+{: #vpe-cross-account-ordering-cli}
 {: cli}
 
 Before you begin, [set up your CLI environment](/docs/vpc?topic=vpc-set-up-environment&interface=cli).
@@ -163,7 +321,7 @@ To create an endpoint gateway from the CLI, follow these steps:
    For more information and command examples, see the [VPC CLI reference](/docs/vpc?topic=vpc-vpc-reference&interface=cli#endpoint-gateway-create).
 
 ## Creating an endpoint gateway with the API
-{: #vpe-ordering-api}
+{: #vpe-cross-account-ordering-api}
 {: api}
 
 To create an endpoint gateway with the API, follow these steps:
@@ -185,7 +343,9 @@ To create an endpoint gateway with the API, follow these steps:
       ```
       {: pre}
 
-   * **TargetCrn** - The name, or CRN, of the instance of the IBM Cloud service where you want to set the endpoint gateway. You can use the command `ibmcloud is endpoint-gateway-targets` to list the IBM Cloud service instances that are qualified to be set as endpoint gateway targets. 
+   * **TargetCrn** - The name, or CRN, of the instance of the IBM Cloud service where you want to set the endpoint gateway. 
+   
+   You can use the command `ibmcloud is endpoint-gateway-targets` to list the IBM Cloud service instances that are qualified to be set as endpoint gateway targets.
 
       ```sh
       export TargetCrn=<CRN of a target service>
@@ -255,7 +415,7 @@ After an endpoint gateway is created for an {{site.data.keyword.cloud_notm}} ser
 {: important}
 
 ## Creating an endpoint gateway with Terraform
-{: #creating-endpoint-gateway-terraform}
+{: #creating-cross-account-endpoint-gateway-terraform}
 {: terraform}
 
 You can use Terraform to create an endpoint gateway.
@@ -322,7 +482,7 @@ resource "ibm_is_virtual_endpoint_gateway" "example4" {
 {: codeblock}
 
 ## After creating a VPE gateway
-{: #after-create-vpe-gateway}
+{: #after-create-cross-account-vpe-gateway}
 
 If you return to the Virtual private endpoint gateways for VPC page, your endpoint gateway shows in the table.
 
@@ -331,10 +491,8 @@ If you return to the Virtual private endpoint gateways for VPC page, your endpoi
 * Optionally, there is a DNS resolution binding switch in the table row of the VPE gateway that allows you to enable or disable DNS sharing for this endpoint gateway. For more information, see [About DNS sharing for VPE gateways](/docs/vpc?topic=vpc-vpe-dns-sharing).
 
 ## Related links
-{: #vpe-create-related-links}
+{: #vpe-create-cross-account-related-links}
 
-[Select availability]{: tag-green}
-
+* [Creating an endpoint gateway](/docs/vpc?topic=vpc-ordering-endpoint-gateway&interface=ui)
 * [Creating a local-access endpoint gateway](/docs/vpc?topic=vpc-create-local-access-vpe)
-* [Creating a cross-account endpoint gateway](/docs/vpc?topic=vpc-ordering-cross-account-endpoint-gateway&interface=terraform)
 * [Planning for virtual private endpoint gateways](/docs/vpc?topic=vpc-vpe-planning-considerations) 

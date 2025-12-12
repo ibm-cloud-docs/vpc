@@ -550,6 +550,7 @@ toc:
               topics:
               - vpe-create.md
               - vpe-create-with-local-access-vpe.md
+              - vpe-cross-account.md
           - vpe-supported-services.md
           - topicgroup:
               id: configuring-dns-sharing
