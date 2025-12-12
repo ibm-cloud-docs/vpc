@@ -15,8 +15,6 @@ subcollection: vpc
 # Burstable virtual servers
 {: #burstable-virtual-servers}
 
-Burstable Flex virtual servers are a beta feature and are available for evaluation and testing purposes. Contact [IBM support](/docs/account?topic=account-using-avatar#getting-support) if you're interested in getting access. {: beta}
-
 Burstable Flex virtual servers are designed to provide flexible CPU performance so workloads can operate at a smaller baseline level and opportunistically burst to higher performance when needed. Flex virtual servers are ideal for applications that require a baseline of CPU performance and experience intermittent spikes in CPU demand but don't require sustained high performance.
 
 Burstable Flex virtual servers are used to balance performance and reduces costs by offering configurable CPU baselines of 10%, 25%, and 50%. These baselines give your virtual servers the ability to burst up to twice the provisioned baseline, at no additional charge. For example, a burstable instance with a 25% baseline instance can burst up to 50% of the configured vCPUs when idle CPU time is available on the host.
