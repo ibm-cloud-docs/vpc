@@ -2,7 +2,7 @@
 
 copyright:
   years: 2022, 2025
-lastupdated: "2025-12-04"
+lastupdated: "2025-12-15"
 
 keywords: confidential computing, enclave, secure execution, hpcr, contract, customization, schema, contract schema, env, workload, encryption
 
@@ -770,6 +770,7 @@ Complete the following steps on an Ubuntu system to encrypt the workload section
 
 2. Create the [workload section](#hpcr_contract_workload) of the contract and add the contents in the `workload.yaml` file.
 
+
 3. Export the complete path of the `workload.yaml` file and `ibm-hyper-protect-container-runtime-1-0-s390x-25-encrypt.crt`:
 
    ```yaml
@@ -818,6 +819,23 @@ Complete the following steps on an Ubuntu system to encrypt the workload section
 Complete the following steps on an Ubuntu system to encrypt the `env` section used in a contract:
 
 1. Create the [`env` section](#hpcr_contract_env) of the contract and add the contents in the `env.yaml` file.
+   
+   Following is an example of `env.yaml`:
+
+   ```yaml
+   type: env
+     logging:
+     syslog:
+       hostname: ${RSYSLOG_SERVER_IP}
+       port: 6514
+       server: "${RSYSLOG_SERVER_ROOT_CA}"
+       cert: "${RSYSLOG_CLIENT_CA}"
+       key: "${RSYSLOG_CLIENT_KEY}"
+     volumes:
+       test0:
+         seed: "stsolutiontest1"
+   ```
+   {: codeblock}
 
 2. Export the complete path of the `env.yaml` file and `ibm-hyper-protect-container-runtime-1-0-s390x-25-encrypt.crt`:
 
