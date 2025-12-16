@@ -187,6 +187,7 @@ toc:
           id: updating-api
           label: Updating to the latest API code
           topics:
+          - endpoint-gateway-migration-dns_resolution_binding_mode.md
           - security-groups-network-acls-rule-migration-any-protocol.md
           - metadata-identity-migration.md
           - metadata-identity-migration-beta.md

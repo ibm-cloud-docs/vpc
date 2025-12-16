@@ -55,7 +55,7 @@ The new response code will be rolled out gradually. Each phase of the rollout wi
 {: note}
 
 ## 16 December 2025
- {: #16-december-2025}
+{: #16-december-2025}
 
 ### For all version dates
 {: #16-december-2025-all-version-dates}
@@ -65,6 +65,32 @@ The new response code will be rolled out gradually. Each phase of the rollout wi
 When [retrieving](/apidocs/vpc/latest#get-instance) and [listing](/apidocs/vpc/latest#list-instances) instances the `vcpu.burst.limit` property is included in the response. This property indicates the percentage limit that the instance can burst.
 
 When [listing instance profiles](/apidocs/vpc/latest#list-instance-profiles) that support burstable instances, the response now includes the supported percentage shares of the VCPUs in the `vcpu_percentage` property. For more information, see [Burstable virtual servers](/docs/vpc?topic=vpc-burstable-virtual-servers).
+
+**Local-access endpoint gateways with DNS sharing for VPE gateways.** You can now bind resources to an endpoint gateway that resides in a VPC that is bound to a DNS sharing hub VPC. In such a configuration, the resources bound to the endpoint gateway are accessed from the endpoint gateway's VPC without having to traverse the hub VPC.
+
+For more information, see [About DNS sharing for VPE gateways](/docs/vpc?topic=vpc-vpe-dns-sharing).
+
+A new child resource collection, `resource_bindings`, has been added to endpoint gateways. To [create a resource binding](/apidocs/vpc/latest#create-endpoint-gateway-resource-binding) for an endpoint gateway, the endpoint gateway must reside in a VPC that is participating in a DNS sharing VPC topology and the VPC must have `dns.enable_hub` set to `false`. You can [delete](/apidocs/vpc/latest#delete-endpoint-gateway-resource-binding) or [update](/apidocs/vpc/latest#update-endpoint-gateway-resource-binding) a resource binding as needed. You can [retrieve](/apidocs/vpc/latest#get-endpoint-gateway-resource-binding) or [list](/apidocs/vpc/latest#list-endpoint-gateway-resource-bindings) resource bindings to view the `target` resource and its associated `service_endpoints`.
+
+### For version `2025-11-18` or later
+{: #version-2025-11-18}
+
+**Local-access endpoint gateways with DNS sharing for VPE gateways.** When using a `version` query parameter of `2025-11-18` or later, a new property, `dns_resolution_binding_mode`, has been added to endpoint gateways. This property replaces the `allow_dns_resolution_binding` and `allow_resource_binding` properties in older API versions.
+
+In a DNS sharing VPC topology, when [creating](/apidocs/vpc/latest#create-endpoint-gateway) or [updating](/apidocs/vpc/latest#update-endpoint-gateway) an endpoint gateway, you can set `dns_resolution_binding_mode` to one of the following values:
+- `disabled` - This endpoint gateway will not participate in DNS sharing for VPE gateways with other VPCs in the topology.
+- `primary` – This endpoint gateway will be the primary endpoint gateway in the topology for accessing the `target` service.
+- `per_resource_binding` – This endpoint gateway can be used for local access to resources in the endpoint gateway's `target` service.
+
+### For version `2025-11-17` or earlier
+{: #version-2025-11-17}
+
+**Local-access endpoint gateways with DNS sharing for VPE gateways.** When using a `version` query parameter of `2025-11-17` or earlier, a new property, `allow_resource_binding` has been added to endpoint gateways. This property can be used together with `allow_dns_resolution_binding` to allow local access to resources in an endpoint gateway's target service.
+
+In a DNS sharing VPC topology, when [creating](/apidocs/vpc/latest#create-endpoint-gateway) or [updating](/apidocs/vpc/latest#update-endpoint-gateway) an endpoint gateway, you can:
+- Set `allow_dns_resolution_binding` to `false` and set `allow_resource_binding` to `false` - This endpoint gateway will not participate in DNS sharing for VPE gateways with other VPCs in the topology.
+- Set `allow_dns_resolution_binding` to `true` and set `allow_resource_binding` to `false` – This endpoint gateway will be the primary endpoint gateway in the topology for accessing the `target` service.
+- Set `allow_dns_resolution_binding` to `true` and set `allow_resource_binding` to `true` – This endpoint gateway can be used for local access to resources in the endpoint gateway's `target` service. 
 
 ## 9 December 2025
 {: #9-december-2025}
@@ -170,6 +196,8 @@ In a DNS sharing VPC topology, when [creating](/apidocs/vpc/latest#create-endpoi
 - Set `allow_dns_resolution_binding` to `false` and set `allow_resource_binding` to `false` - This endpoint gateway will not participate in DNS sharing for VPE gateways with other VPCs in the topology.
 - Set `allow_dns_resolution_binding` to `true` and set `allow_resource_binding` to `false` – This endpoint gateway will be the primary endpoint gateway in the topology for accessing the `target` service.
 - Set `allow_dns_resolution_binding` to `true` and set `allow_resource_binding` to `true` – This endpoint gateway can be used for local access to resources in the endpoint gateway's `target` service.
+
+This feature is now generally available. See the [16 December 2025](#16-december-2025) announcement.
 
 ## 4 November 2025
 {: #4-November-2025}
