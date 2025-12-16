@@ -2,11 +2,13 @@
 
 copyright:
   years: 2022, 2025
-lastupdated: "2025-12-09"
+lastupdated: "2025-12-16"
 
 keywords: file share, file storage, replication, replica, 
 
 subcollection: vpc
+
+ai-gen-assist: wca
 
 ---
 
@@ -15,7 +17,7 @@ subcollection: vpc
 # About file share replication
 {: #file-storage-replication}
 
-You can create replicas of your file shares in another zone of the same geography. With the replication feature, you can keep a read-only copy of your file share in another zone. The replica share is updated from the source share on a schedule that you specify. Replication provides a way to recover from an incident at the primary site, when data becomes inaccessible or an application fails. Replication can also be used for geographical expansion.
+You can create replicas of your file shares in another zone of the same geography. With the replication feature, you can keep a read-only copy of your file share in another zone. The replica share is updated from the source share on a schedule that you specify. The read-only replica can help provide low-latency access to distributed teams and applications by placing the data closer to the consumers. Replication can improve content distribution for global teams by creating regional hubs for faster downloads of installers, documentation, and media. Replicas can burst capacity for peak events like product launches or global campaigns. You can use replicas for maintenance, testing changes, and migration trials without disrupting primary workloads. You can use them as isolated copies for audits and legal holds without impacting production. Replication also provides a way to recover from an incident at the primary site, when data becomes inaccessible or an application fails.
 {: shortdesc}
 
 [Select availability]{: tag-green} Customers with special access to preview the new regional file share offering can use the **rfs** profile to create file shares with regional availability. When you create file shares with regional availability, data is automatically replicated throughout the region, so you don't need to set up replication pairs. Cross-regional replication of regional file shares is not supported in this release.
@@ -57,7 +59,7 @@ Data on the replica share is read-only. You can obtain read/write access to the 
 
 * [Fail over to the replication site](/docs/vpc?topic=vpc-file-storage-failover&interface=ui) - The read/writes from the source file share are paused and a final copy of the file share data is pulled into the replica share. The replica share becomes read/write accessible, and a reverse replication relationship is established. The original source file share now becomes the replica share and set to read-only. The service then begins pulling data from the new source file share.
 
-   If a source file share is compromised, replica shares are a good way to recover operations. A [failover](/docs/vpc?topic=vpc-file-storage-failover) to a replica share ensures no disruption to your services.
+   If a source file share is compromised, replica shares are a good way to recover operations. A [failover](/docs/vpc?topic=vpc-file-storage-failover) to a replica share helps to ensure no disruption to your services.
    {: tip}
 
    When you initiate the failover, you can specify what happens to the replication relationship if the failover process times out or fails. This option is commonly used when you have a time requirement for how long your file share can be offline. You must specify what you want to happen if the operation times out or if the replication fails due to the original site, which is degraded or unavailable.
@@ -65,7 +67,7 @@ Data on the replica share is read-only. You can obtain read/write access to the 
    - If the source site is not available due to a planned maintenance, you can choose to keep the replication relationship. The replication resumes as scheduled when the original source site is operational again.
    - In a disaster recovery situation, you can choose to split the volumes to bring the replica share online as soon as possible. However, in this case, you might not have the most recent data set available and you might need to manually reconcile the state in your application. Because the replication relationship is severed, you need to set up replication anew when the original site becomes operational again.
 
-* [Remove the replication relationship](/docs/vpc?topic=vpc-file-storage-manage-replication) - In this case, you split the two shares apart and create two independent file shares. Both shares are read/write accessible and data is no longer synchronized between the two. In the [API](/docs/vpc?topic=vpc-file-storage-failover&interface=ui#fs-failover-concepts), this operation is called a replica `split` operation. Removing the replica relationship is permanent, you cannot reestablish it between the two shares. However, you can create new replicas in the same zone or other zones of the same region.
+* [Remove the replication relationship](/docs/vpc?topic=vpc-file-storage-manage-replication) - In this case, you split the two shares apart and create two independent file shares. Both shares are read/write accessible and data is no longer synchronized between the two. In the [API](/docs/vpc?topic=vpc-file-storage-failover&interface=ui#fs-failover-concepts), this operation is known as the replica `split` operation. Removing the replica relationship is permanent, you cannot reestablish it between the two shares. However, you can create new replicas in the same zone or other zones of the same region.
 
 Removing the replication relationship or failing over to the replica does not occur when another operation is being performed on the source or replica file share. (An example of such an operation is expanding the file share size.) The split or failover operation remains in pending status until the other operation completes.
 {: note}
