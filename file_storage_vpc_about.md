@@ -288,7 +288,7 @@ For cross-region replication, you must configure [service to service authorizati
 In this release, cross-regional replication is not supported yet for regional file shares with the `rfs` profile.
 {: preview}
 
-File share replication can deliver significant operational and performance benefits, beyond disaster-recovery. One major use case is low-latency access for distributed teams and applications. By placing read-only replicas closer to the users in a different region, you can reduce file access times and improve productivity for workloads like design files, media assets, or code repositories. Similarly, content distribution becomes easier when you create replicas in regional hubs, ensuring faster downloads for installers, documentation, or training materials without overloading a single source.
+File share replication can deliver significant operational and performance benefits, beyond disaster-recovery. One major use case is low-latency access for distributed teams and applications. By placing read-only replicas closer to the users in a different region, you can reduce file access times and improve productivity for workloads like design files, media assets, or code repositories. Similarly, content distribution becomes easier when you create replicas in regional hubs, as it can ensure faster downloads for installers, documentation, or training materials without overloading a single source.
 
 Replicas enable compliance and legal workflows, staged migrations, and operational isolation for maintenance, so you can test changes or perform audits without impacting production. Replicas can help with bursting capacity during peak events, developer experience optimization, and even data residency routing for regulatory needs.
 
