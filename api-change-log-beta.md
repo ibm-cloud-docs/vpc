@@ -27,7 +27,10 @@ There are no backward-compatibility guarantees as a feature progresses through i
 To review the change log of generally available API features, see the [VPC API change log](/docs/vpc?topic=vpc-api-change-log).
 
 ## 16 December 2025
- {: #16-december-2025}
+{: #16-december-2025-beta}
+
+### For all version dates
+{: #16-december-2025-all-version-dates-beta}
 
 **Burstable (shared core) instances.** Burstable instances are now generally available. The following updates have been made since the 26 August 2025 beta release:
 
@@ -37,6 +40,8 @@ To review the change log of generally available API features, see the [VPC API c
 - The `vcpu.tenancy` property for instances and instance profiles has been removed.
 
 See the [VPC API change log](/docs/vpc?topic=vpc-api-change-log#16-december-2025).
+
+**Network bandwidth pooling for instances.** When [retrieving](/apidocs/vpc-beta#get-instance-profile) or [listing](/apidocs/vpc-beta#list-instance-profiles) instance profiles, the response now includes a `network_bandwidth_mode` property. This property denotes the supported network bandwidth modes for an instance with this profile. An instance profile with a `network_bandwidth_mode.value` of `divided` divides the network bandwidth equally across the network attachments or network interfaces for the instance. An instance profile with a `network_bandwidth_mode.value` of `pooled` pools the network bandwidth among the network attachments or network interfaces for the instance.
 
 ## 26 August 2025
 {: #26-august-2025-beta}
