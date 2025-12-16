@@ -26,10 +26,10 @@ You can't delete an active reservation. You can delete only an _inactive_ or _ex
 
 Use the following steps to delete an inactive or expired reservation.
 
-1. In the [{{site.data.keyword.cloud_notm}} console](/login){: external}, click **Navigation Menu** icon ![menu icon](../icons/icon_hamburger.svg) **> Infrastructure** ![VPC icon](../../icons/vpc.svg) **> Reservations**.
-2. In the reservation list, select the vertical action button to delete the reservation. You can also select the reservation first, then delete the reservation by using the **Actions** menu.
+1. In the [{{site.data.keyword.cloud_notm}} console](/login){: external}, click **Navigation menu** icon ![menu icon](../icons/icon_hamburger.svg) **> Infrastructure** ![VPC icon](../../icons/vpc.svg) **> Reservations**.
+2. In the reservation list, click the vertical ellipsis ![More Actions icon](../icons/action-menu-icon.svg) to delete the reservation. You can also select the reservation first, then delete the reservation by using the **Actions** menu.
 
-Virtual servers that are attached to a reservation are charged the on-demand rates when the reservation is deleted.
+Virtual servers that are attached to a reservation are billed at the on-demand rates when the reservation is deleted.
 {: important}
 
 Reservations can be deleted for cases such as degraded capacity. All deletion requests are reviewed on a case-by-case basis. To delete an active reservation, [contact support](/docs/account?topic=account-using-avatar).
@@ -57,11 +57,11 @@ ibmcloud is reservation-delete r006-81222eee-b3e0-4dc3-b429-aee9e5c0abf2 r106-81
 
 Where the following argument and option values are used
 
-* RESERVATION1: ID or name of the reservation.
-* RESERVATION2: ID or name of the reservation.
-* --force, -f: Force the operation without confirmation
-* --output: Specify output format, only JSON is supported. One of: JSON.
-* -q, --quiet: Suppress verbose output.
+* `RESERVATION1`: ID or name of the reservation.
+* `RESERVATION2`: ID or name of the reservation.
+* `--force, -f`: Force the operation without confirmation
+* `--output`: Specify output format, only JSON is supported. One of: JSON.
+* `-q, --quiet`: Suppress verbose output.
 
 ## Deleting an inactive or expired reservation with the API
 {: #delete-inactive-expired-reservation-api-vpc}

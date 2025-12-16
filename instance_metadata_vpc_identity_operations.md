@@ -2,7 +2,7 @@
 
 copyright:
   years: 2022, 2025
-lastupdated: "2025-10-30"
+lastupdated: "2025-12-15"
 
 keywords:
 
@@ -15,20 +15,20 @@ subcollection: vpc
 # Identity operations
 {: #imd-identity-operations}
 
-You can use the metadata service to obtain an identity access token from the metadata service, generate an IAM access token, and to create identity certificate. These tokens and certificates can be used to access the metadata services, to call IAM-enabled services, and the establish encrypted connections between file shares and virtual server instances.
+You can use the metadata service to obtain an identity access token from the metadata service, generate an IAM access token, and to create identity certificate. These tokens and certificates can be used to access the metadata services to call IAM-enabled services, and to establish encrypted connections between file shares and virtual server instances.
 {: shortdesc}
 
 ## Identity access token
 {: #imd-json-token}
 
-An identity access token provides a security credential for accessing the Metadata and VPC Identity services. It's a signed token with a set of claims based on information about the instance and information that is passed in the token request. The minimum version date to use the identity access token feature is 2022-03-01.
+An identity access token provides a security credential for accessing the Metadata and VPC Identity services. It's a signed token with a set of claims based on information about the instance and information that is passed in the token request. The minimum version date to use the identity access token feature is `2022-03-01`.
 
-Communication between the instance and the metadata service never leaves the host, you acquire the token from within the instance. If secure access to the metadata service is enabled on your instance, use the "https" protocol instead of the "http" protocol.
+Communication between the instance and the metadata service stays within the host. You acquire the token from within the instance. If secure access to the metadata service is enabled on your instance, use the "https" protocol instead of the "http" protocol.
 {: important}
 
 To obtain the identity token, make a `PUT /identity/v1/token` request to the [Metadata service API](/apidocs/vpc-metadata#create-access-token).
 
-If you currently use the `/instance_identity/v1/token` method and want to adopt the API release version 2025-08-26 or later, review the changes that are described in the migration guidance: [Updating to the `2025-08-26` version of the VPC Identity API](/docs/vpc?topic=vpc-2025-08-26-migration-metadata-identity).
+If you currently use the `/instance_identity/v1/token` method and want to adopt the API release version `2025-08-26` or later, review the changes that are described in the migration guidance: [Updating to the `2025-08-26` version of the VPC Identity API](/docs/vpc?topic=vpc-2025-08-26-migration-metadata-identity).
 {: note}
 
 ```sh
@@ -130,7 +130,7 @@ For more information about trusted profiles, see [Using a trusted profile to cal
 
 Identity certificates are required to successfully enable and use encryption in transit between virtual server instances and {{site.data.keyword.filestorage_vpc_full}} shares. To generate an identity certificate for the instance, make a `POST /identity/v1/certificates` call with the identity access token and a certificate signing request (CSR).
 
-You can obtain the certificate signing requests (CSRs) from the open-source command-line toolkit, [OpenSSL](https://docs.openssl.org/){: external}.
+You can obtain the certificate signing requests (CSRs) from the open source command-line toolkit, [OpenSSL](https://docs.openssl.org/){: external}.
 
    1. The following command generates a *Certificate Signing Request* (CSR) and *RSA Key Pair* by using openssl. When you run the command, replace the country code `US` with your two-digit country code in `'/C=US'`.
       ```sh
@@ -138,16 +138,16 @@ You can obtain the certificate signing requests (CSRs) from the open-source comm
       ```
       {: pre}
 
-       If you're using a different software to create the CSR, you might be prompted to enter information about your location such as country code (C), state (ST), locality (L), your organization name (O), and organization unit (OU). Any one of these naming attributes can be used. Any other naming attributes, such as common name for example are rejected. CSRs with Common Name specified are rejected because when you make the request to the Metadata API, the system applies instance ID values to the subject Common Name for the identity certificates. CSRs with extensions are also rejected.
+       If you're using a different software to create the CSR, you might be prompted to enter information about your location such as country code (C), state (ST), locality (L), your organization name (O), and organization unit (OU). Any one of these naming attributes can be used. Any other naming attributes, such as common names are rejected. CSRs with Common Name specified are rejected because when you make the request to the Metadata API, the system applies instance ID values to the subject Common Name for the identity certificates. CSRs with extensions are also rejected.
       {: important}
 
-   2. Format the csr before you make an API call to metadata service by using the following command.
+   2. Format the csr before you make an API call to the metadata service by using the following command.
       ```sh
       awk 'NF {sub(/\r/, ""); printf "%s\\n",$0;}' sslcert.csr
       ```
       {: pre}
 
-Then, you can make the API request to the Metadata service. See the following example. The `csr` value is required, the `expires_in` value is optional. The default value for expiration is 3600, which equals 1 hour.
+Then, you can make the API request to the Metadata service. See the following example. The `csr` value is required. The `expires_in` value is optional. The default value for expiration is 3600, which equals 1 hour.
 
 ```sh
 curl -X POST "$vpc_metadata_api_endpoint/identity/v1/certificates?version=2024-11-12" \
