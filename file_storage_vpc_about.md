@@ -276,13 +276,19 @@ You can create access management tags and then apply them to new or existing fil
 ## Replication and failover
 {: #fs-repl-failover-overview}
 
-You can create read-only replicas of your file shares in another zone within your VPC, or another zone in a different region if you have multiple VPCs in the same geography. The replica is updated regularly based on the replication schedule that you specify. You can schedule to replicate your data as often as every 15 minutes. Using replication is a good way to recover from incidents at the primary site when data becomes inaccessible or applications fail. The [failover](/docs/vpc?topic=vpc-file-storage-failover) to the replica share makes it the new, writeable primary share. For more information, see [About file share replication](/docs/vpc?topic=vpc-file-storage-replication).
+You can create read-only replicas of your file shares in another zone within your VPC, or another zone in a different region if you have multiple VPCs in the same geography. The replica is updated regularly based on the replication schedule that you specify. You can schedule to replicate your data as often as every 15 minutes. 
+
+Using replication is a good way to recover from incidents at the primary site when data becomes inaccessible or applications fail. The [failover](/docs/vpc?topic=vpc-file-storage-failover) to the replica share makes it the new, writeable primary share. For more information, see [About file share replication](/docs/vpc?topic=vpc-file-storage-replication).
 
 For cross-region replication, you must configure [service to service authorizations](/docs/vpc?topic=vpc-file-s2s-auth) before you create your replica file share.
 {: requirement}
 
 In this release, cross-regional replication is not supported yet for regional file shares with the `rfs` profile.
 {: preview}
+
+File share replication can deliver significant operational and performance benefits, outside of disaster-recovery. One major use case is low-latency access for distributed teams and applications. By placing a read-only replica closer to the users in a different region, you can reduce file access times and improve productivity for workloads like design files, media assets, or code repositories. Similarly, content distribution becomes easier when you create replicas in regional hubs, ensuring faster downloads for installers, documentation, or training materials without overloading a single source.
+
+Replicas enable compliance and legal workflows, staged migrations, and operational isolation for maintenance, so you can test changes or perform audits without impacting production. Cross-regional replicas can help with burst capacity during peak events, developer experience optimization, and even data residency routing for regulatory needs.
 
 ## File share snapshots
 {: #fs-about-snapshots}
