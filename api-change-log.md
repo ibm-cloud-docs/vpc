@@ -2,7 +2,7 @@
 
 copyright:
   years: 2019, 2025
-lastupdated: "2025-12-09"
+lastupdated: "2025-12-16"
 
 keywords: api, change log, new features, restrictions, migrations
 
@@ -53,6 +53,18 @@ At this time, all instances, and therefore all instance templates, continue to r
 
 The new response code will be rolled out gradually. Each phase of the rollout will be tied to a dated API version. These changes will be announced in future change log updates.
 {: note}
+
+## 16 December 2025
+ {: #16-december-2025}
+
+### For all version dates
+{: #16-december-2025-all-version-dates}
+
+**Burstable (shared core) instances.** When [creating](/apidocs/vpc/latest#create-instance) or [updating](/apidocs/vpc/latest#update-instance) an instance or when [creating an instance template](/apidocs/vpc/latest#create-instance-template), you can now enable [burstable virtual server instances](/docs/vpc?topic=vpc-burstable-virtual-servers) by setting the `vcpu.percentage` property value to `10`, `25`, or `50`.
+
+When [retrieving](/apidocs/vpc/latest#get-instance) and [listing](/apidocs/vpc/latest#list-instances) instances the `vcpu.burst.limit` property is included in the response. This property indicates the percentage limit that the instance can burst.
+
+When [listing instance profiles](/apidocs/vpc/latest#list-instance-profiles) that support burstable instances, the response now includes the supported percentage shares of the VCPUs in the `vcpu_percentage` property. For more information, see [Burstable virtual servers](/docs/vpc?topic=vpc-burstable-virtual-servers).
 
 ## 9 December 2025
 {: #9-december-2025}
