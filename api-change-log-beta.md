@@ -2,7 +2,7 @@
 
 copyright:
   years: 2021, 2025
-lastupdated: "2025-09-23"
+lastupdated: "2025-12-16"
 
 keywords: api, change log, beta
 
@@ -26,11 +26,30 @@ There are no backward-compatibility guarantees as a feature progresses through i
 
 To review the change log of generally available API features, see the [VPC API change log](/docs/vpc?topic=vpc-api-change-log).
 
+## 16 December 2025
+{: #16-december-2025-beta}
+
+### For all version dates
+{: #16-december-2025-all-version-dates-beta}
+
+**Burstable (shared core) instances.** Burstable instances are now generally available. The following updates have been made since the 26 August 2025 beta release:
+
+- When [creating](/apidocs/vpc-beta#create-instance) or [updating](/apidocs/vpc-beta#update-instance) an instance or when [creating an instance template](/apidocs/vpc-beta#create-instance-template), you can now enable [burstable virtual server instances](/docs/vpc?topic=vpc-burstable-virtual-servers) by setting the `vcpu.percentage` property value to `10`, `25`, or `50`.
+- When [retrieving](/apidocs/vpc-beta#get-instance) and [listing](/apidocs/vpc-beta#list-instances) instances the `vcpu.burst.limit` property is included in the response. This property indicates the percentage limit that the instance can burst.
+- When [listing instance profiles](/apidocs/vpc-beta#list-instance-profiles) that support burstable instances, the response now includes the supported percentage shares of the VCPUs in the `vcpu_percentage` property.
+- The `vcpu.tenancy` property for instances and instance profiles has been removed.
+
+See the [VPC API change log](/docs/vpc?topic=vpc-api-change-log#16-december-2025).
+
+**Network bandwidth pooling for instances.** When [retrieving](/apidocs/vpc-beta#get-instance-profile) or [listing](/apidocs/vpc-beta#list-instance-profiles) instance profiles, the response now includes a `network_bandwidth_mode` property. This property denotes the supported network bandwidth modes for an instance with this profile. An instance profile with a `network_bandwidth_mode.value` of `divided` divides the network bandwidth equally across the network attachments or network interfaces for the instance. An instance profile with a `network_bandwidth_mode.value` of `pooled` pools the network bandwidth among the network attachments or network interfaces for the instance.
+
 ## 26 August 2025
 {: #26-august-2025-beta}
 
 ### For all version dates
 {: #26-august-2025-all-version-dates-beta}
+
+API changes supporting burstable (shared core) instances are now generally available. See the [VPC API change log](/docs/vpc?topic=vpc-api-change-log#16-december-2025).
 
 **Burstable (shared core) instances.** Accounts that have special approval to preview this feature can now enable [burstable virtual server instances](/docs/vpc?topic=vpc-burstable-virtual-servers) by setting the `vcpu.tenancy` property to `shared` when [creating an instance](/apidocs/vpc-beta#create-instance) or when [creating an instance template](/apidocs/vpc-beta#create-instance-template). You can also set the `vcpu.tenancy` to `shared` or `dedicated` when [updating an instance](/apidocs/vpc-beta#update-instance). Additionally, [instance profiles](/apidocs/vpc-beta#list-instance-profiles) that support the burstable instances feature will have `shared` included in their `vcpu_tenancy` property as well as the supported percentage shares of the VCPUs in the `vcpu_percentage` property.
 

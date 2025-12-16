@@ -2,7 +2,7 @@
 
 copyright:
   years: 2019, 2025
-lastupdated: "2025-09-30"
+lastupdated: "2025-12-16"
 
 keywords: api, change log, metadata, new features, restrictions, migration, versioned change
 
@@ -27,6 +27,11 @@ Some changes, such as new response properties or new optional request parameters
 - Follow HTTP redirect rules for any `3xx` HTTP status code
 - Consume only the resources and properties your application needs to function
 - Avoid depending on behavior that is not explicitly documented
+
+## 16 December 2025
+ {: #16-december-2025-metadata}
+
+ **Burstable (shared core) instances.** When [retrieving an instance](/apidocs/vpc-metadata#get-instance), the `vcpu.percentage` property is now included in the response. This property indicates the percentage of vcpu time available to your instance. Additionally, the `vcpu.burst.limit` property is included in the response. This property indicates the percentage limit that the instance can burst. For more information see [burstable virtual server instances](/docs/vpc?topic=vpc-burstable-virtual-servers).
 
 ## 30 September 2025
 {: #23-september-2025-metadata}
