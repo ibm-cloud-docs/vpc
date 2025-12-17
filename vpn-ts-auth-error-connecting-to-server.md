@@ -1,8 +1,8 @@
 ---
 
 copyright:
-  years: 2021, 2023
-lastupdated: "2023-01-31"
+  years: 2021, 2025
+lastupdated: "2025-12-17"
 
 keywords: virtual private network, VPN, VPN server, troubleshooting
 
@@ -14,7 +14,7 @@ content-type: troubleshoot
 
 {{site.data.keyword.attribute-definition-list}}
 
-# Why do I get an authentication error "User authentication failed" when I try connecting to VPN server?
+# Why do I get an authentication error "User authentication failed" when I try connecting to the VPN server?
 {: #troubleshooting-authentication-error}
 {: troubleshoot}
 

@@ -2,7 +2,7 @@
 
 copyright:
   years: 2025, 2025
-lastupdated: "2025-12-16"
+lastupdated: "2025-12-17"
 
 keywords: endpoint gateway migration
 
@@ -20,7 +20,7 @@ As described in the VPC API reference [versioning](/apidocs/vpc/latest#api-versi
 Before you adopt the release version `2025-11-18` or later, review the changes described in this migration guidance that might require you to update your client.
 
 ## Changed endpoint gateway properties
-{: changed-properties-endpoint-gateway-api-version-2025-11-18}
+{: #changed-properties-endpoint-gateway-api-version-2025-11-18}
 
 The following properties have changed for API requests that use a version query parameter of `2025-11-18` or later.
 

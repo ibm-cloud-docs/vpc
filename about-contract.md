@@ -42,7 +42,7 @@ The workload persona provides information about the container (or workload) that
 If you use a docker compose file, only one container is supported. Pod descriptors support one or multiple containers.
 {: note}
 
-The deployer persona works closely with IBM Cloud. This persona receives the workload information (preferably an encrypted workload section) from the workload persona. The deployer then creates the `env` section of the contract. The `env` section has information that is specific to the IBM Cloud environment. Usually, it is information that the workload persona does not have and does not need to know. An example is information about the IBM Cloud Logging instance, which the deployer persona creates, before adding information to the `env` section of the contract.
+The deployer persona works closely with {{site.data.keyword.cloud_notm}}. This persona receives the workload information (preferably an encrypted workload section) from the workload persona. The deployer then creates the `env` section of the contract. The `env` section has information that is specific to the {{site.data.keyword.cloud_notm}} environment. Usually, it is information that the workload persona does not have and does not need to know. An example is information about the IBM Cloud Logging instance, which the deployer persona creates, before adding information to the `env` section of the contract.
 
 ## The workload section
 {: #hpcr_contract_workload}

@@ -2,7 +2,7 @@
 
 copyright:
   years: 2023, 2025
-lastupdated: "2025-06-18"
+lastupdated: "2025-12-17"
 
 keywords: virtual private network, VPN, VPN gateway, troubleshooting
 
@@ -14,12 +14,12 @@ content-type: troubleshoot
 
 {{site.data.keyword.attribute-definition-list}}
 
-# Why isn't the service route for my VPN gateway correct?
+# Why is the service route for my VPN gateway incorrect?
 {: #troubleshoot-gateway-unable-to-establish-vpn-connection}
 {: troubleshoot}
 {: support}
 
-For a policy-based VPN gateway, service routes are propagated to routing tables that have `VPN gateway` selected for the `Accepts routes from` attribute. These routes have names that are prefixed with `ibm-vpn-gateway-`.
+For a policy-based VPN gateway, service routes are propagated to routing tables that contain the `VPN gateway` value as the `Accepts routes from` attribute. These routes have names that are prefixed with `ibm-vpn-gateway-`.
 {: shortdesc}
 
 You might find that these service routes are not correct. For example, the `Next hop` is not the same as the private IP of your active gateway member. In this case, traffic is broken even if the VPN connection is `Active`.
@@ -37,4 +37,4 @@ Follow these steps to fix the service routes:
 1. Click the routing table to open its details page, then click **Edit**.
 1. Clear the **VPN gateway** checkbox in the Accepts routes from (optional) section and click **Save**. Service routes propagated by the VPN gateway are removed.
 1. Click **Edit** again.
-1. Select **VPN gateway** in the Accepts routes from (optional) section and click **Save**. Service routes propagated by the VPN gateway are generated.
+1. Select the **VPN gateway** option in the Accepts routes from (optional) section and click **Save**. Service routes propagated by the VPN gateway are generated.

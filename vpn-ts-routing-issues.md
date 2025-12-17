@@ -1,8 +1,8 @@
 ---
 
 copyright:
-  years: 2022
-lastupdated: "2022-03-09"
+  years: 2022, 2025
+lastupdated: "2025-12-17"
 
 keywords: VPE, virtual private endpoint, troubleshooting
 
@@ -14,7 +14,7 @@ content-type: troubleshoot
 
 {{site.data.keyword.attribute-definition-list}}
 
-# Why aren't my VPN gateways or virtual server instances communicating?
+# Why are my VPN gateways or virtual server instances not communicating?
 {: #troubleshoot-routing-issues}
 {: troubleshoot}
 {: support}

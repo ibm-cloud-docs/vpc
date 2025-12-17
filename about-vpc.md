@@ -1,7 +1,7 @@
 ---
 copyright:
-  years: 2017, 2024
-lastupdated: "2024-09-10"
+  years: 2017, 2025
+lastupdated: "2025-12-17"
 
 keywords: vpc, virtual private cloud, private cloud network, quick provisioning, logical isolation, security, cloud-native, workloads, BYOIP, high availability, ACL, Access control list, Block Storage volumes, File shares, snapshots
 
@@ -20,7 +20,7 @@ Use {{site.data.keyword.vpc_full}} to create your own space in {{site.data.keywo
 ## Logical isolation
 {: #about-vpc-logical-isolation}
 
-VPC gives your applications logical isolation from other networks, while providing scalability and security. To make this logical isolation possible, the VPC is divided into subnets that use a range of private IP addresses. You can create subnets in suggested prefix ranges, or bring your own public IP address range (BYOIP) to your IBM Cloud account. By default, all resources within the same VPC can communicate with each other over the private network, regardless of their subnet.
+VPC gives your applications logical isolation from other networks, while providing scalability and security. To make this logical isolation possible, the VPC is divided into subnets that use a range of private IP addresses. You can create subnets in suggested prefix ranges, or bring your own public IP address range (BYOIP) to your {{site.data.keyword.cloud_notm}} account. By default, all resources within the same VPC can communicate with each other over the private network, regardless of their subnet.
 
 ## Quick instance provisioning with high network performance
 {: #about-vpc-quick-instance-provisioning}

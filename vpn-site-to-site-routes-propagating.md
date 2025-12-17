@@ -2,7 +2,7 @@
 
 copyright:
   years: 2024, 2025
-lastupdated: "2025-11-19"
+lastupdated: "2025-12-17"
 
 keywords: network, VPN, VPN gateways, encryption
 
@@ -15,7 +15,7 @@ subcollection: vpc
 # Configuring route propagation for VPN gateways
 {: #advertise-routes-s2s}
 
-The VPC routing table attribute ***Accepts routes from*** controls whether a routing table accepts routes that are added by a VPN gateway. Additionally, if you select **VPN gateway** for this attribute, the VPN gateway propagates routes to this routing table. The **Advertise to** switch controls route advertisement to a transit gateway.
+The VPC routing table attribute ***Accepts routes from*** controls whether a routing table accepts routes that are added by a VPN gateway. Additionally, if you select **VPN gateway** as the value for this attribute, the VPN gateway propagates routes to this routing table. The **Advertise to** switch controls route advertisement to a transit gateway.
 {: shortdesc}
 
 The following sections explain how to configure route propagation for VPN gateways in IBM Cloud VPC routing tables.
@@ -26,14 +26,14 @@ When you configure route propagation, select the **VPN gateway** option in the f
 
 1. You are using policy-based VPN and want the routes to be propagated to the routing table.
 
-VPN gateway route propagation supports both the default routing table and custom routing tables. For the default routing table, **VPN gateway** is selected by default. For the custom routing table, you must manually select **VPN gateway** if you want the routes to be propagated to the routing table.
+VPN gateway route propagation supports both the default routing table and custom routing tables. For the default routing table, the default selection is **VPN gateway**. For the custom routing table, you must manually select **VPN gateway** if you want the routes to be propagated to the routing table.
 
 ## VPN gateway modes and route propagation
 {: #vpn-gateway-modes-and-routes}
 
 Understand how route propagation works across VPN gateways:
 
-* **Policy-based VPN** - In a policy-based VPN, the routes are manually defined by using address prefixes and route propagation must be explicitly configured in the routing table. This mode supports manual route advertisement with Transit Gateway. See [setting up transit gateway with policy-based VPN](/docs/vpc?topic=vpc-advertise-routes-s2s&interface=ui#setup-tg-with-vpn-vpc).
+* **Policy-based VPN** - In a policy-based VPN, the routes are manually defined by using address prefixes and route propagation must be explicitly configured in the routing table. This mode supports manual route advertisement with Transit Gateway. See [setting up a transit gateway with policy-based VPN](/docs/vpc?topic=vpc-advertise-routes-s2s&interface=ui#setup-tg-with-vpn-vpc).
 
 * **Route-based VPN** - Route-based VPN supports two connection types.
 
@@ -44,18 +44,18 @@ Understand how route propagation works across VPN gateways:
 ## Setting up a transit gateway with policy-based VPN for VPC
 {: #setup-tg-with-vpn-vpc}
 
-This configuration is applicable only for a policy-based VPN. Dynamic route-based VPN automatically propagates routes and doesn't require manual configuration with Transit Gateway.
+This configuration is applicable only for a policy-based VPN. A dynamic route-based VPN automatically propagates routes and doesn't require manual configuration with Transit Gateway.
 {: note}
 
 Follow the steps to set up a transit gateway with policy-based VPN for VPC:
 
 1. When you [create a transit gateway](/docs/transit-gateway?topic=transit-gateway-ordering-transit-gateway&interface=ui) to connect VPCs, [create an ingress routing table](/docs/vpc?topic=vpc-create-vpc-routing-table&interface=ui) in the VPC where the VPN gateway exists.
 1. Select **VPN gateway** if you want VPN gateway routes to be propagated to the routing table.
-1. Turn the **Advertise to** switch to **On** when you select **Transit gateway** so that the on-premises routes learned from the VPN gateway are advertised to the Transit Gateway.
+1. Turn the **Advertise to** switch to **On** when you select **Transit gateway** so that the on-premises routes that are learned from the VPN gateway are advertised to the Transit Gateway.
 
 After the connection with the transit gateway is established, the route displays **On** in the Advertise column of the routing table. The on-premises routes are automatically advertised through the transit gateway after the ingress routing table accepts routes from the VPN gateway.
 
-Both VPN gateway subnet and the virtual server instance subnet are set as remote CIDRs if they are configured as local CIDRs.
+Both the VPN gateway subnet and the virtual server instance subnet are set as remote CIDRs if they are configured as local CIDRs.
 
 For troubleshooting purposes, you can select or deselect **VPN gateway** to check routes that were added by the VPN gateway.
 {: tip}

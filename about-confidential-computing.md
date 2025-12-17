@@ -2,7 +2,7 @@
 
 copyright:
   years: 2022, 2025
-lastupdated: "2025-10-23"
+lastupdated: "2025-12-17"
 
 keywords: confidential computing, enclave, secure execution, hpcr, hyper protect virtual server for vpc
 
@@ -39,7 +39,7 @@ The {{site.data.keyword.hpvs}} for VPC takes advantage of the IBM Secure Executi
 
 - Secure Execution boundary for protection from internal and external threats
 
-   {{site.data.keyword.hpvs}} for VPC provides technical assurance that unauthorized users, including IBM Cloud admins, do not have access to the application. Workloads are locked down by individual, instance-level secure boundaries.
+   {{site.data.keyword.hpvs}} for VPC provides technical assurance that unauthorized users, including {{site.data.keyword.cloud_notm}} admins, do not have access to the application. Workloads are locked down by individual, instance-level secure boundaries.
 
 - Multiparty contract and attestation of deployment
 

@@ -2,7 +2,7 @@
 
 copyright:
   years: 2023, 2025
-lastupdated: "2025-11-06"
+lastupdated: "2025-12-17"
 
 keywords: virtual private network, VPN, VPN server, troubleshooting
 
@@ -19,7 +19,7 @@ content-type: troubleshoot
 {: troubleshoot}
 {: support}
 
-A site-to-site dynamic route-based VPN connection in IBM Cloud might display a "down" status despite being attached to the Transit Gateway. This situation typically arises from network issues, incorrect routing configurations, or unstable lifecycle states of the VPN Gateway or service connection.
+A site-to-site dynamic route-based VPN connection in {{site.data.keyword.cloud_notm}} might display a "down" status despite being attached to the Transit Gateway. This situation typically arises from network issues, incorrect routing configurations, or unstable lifecycle states of the VPN Gateway or service connection.
 {: shortdesc}
 
 The service connection shows a "down" status even when it appears attached to the Transit Gateway.
