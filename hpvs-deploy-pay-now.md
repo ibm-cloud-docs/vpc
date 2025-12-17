@@ -2,7 +2,7 @@
 
 copyright:
   years: 2022, 2025
-lastupdated: "2025-11-04"
+lastupdated: "2025-12-17"
 
 keywords: confidential computing, secure execution, hyper protect virtual server for vpc, terraform, tutorial, financial transaction
 
@@ -22,7 +22,7 @@ This tutorial walks you through the steps to deploy a sample application on Hype
 
 Confidential Computing is the protection of data-in-use through a hardware-based technique. The sample application "PayNow" obtains and processes PII and credit card information for a financial transaction.
 
-You can provision {{site.data.keyword.hpvs}} with the advantage of [IBM Secure Execution for Linux](https://www.ibm.com/docs/en/linux-on-systems?topic=linuxonibm/com.ibm.linux.z.ldva/ldva_c_secex.htm){: external} on IBM Cloud Virtual Private Cloud (VPC) or On-Premises. In this tutorial, we use Hyper Protect Virtual Servers for VPC.
+You can provision {{site.data.keyword.hpvs}} with the advantage of [IBM Secure Execution for Linux](https://www.ibm.com/docs/en/linux-on-systems?topic=concepts-secure-execution){: external} on IBM Cloud Virtual Private Cloud (VPC) or On-Premises. In this tutorial, we use Hyper Protect Virtual Servers for VPC.
 
 ![Data in financial transactions are protected by Confidential Computing on Hyper Protect Virtual Server for VPC.](images/paynow-code-pattern.svg "Data in financial transactions are protected by Confidential Computing on Hyper Protect Virtual Server for VPC."){: caption="Data in financial transactions are protected by Confidential Computing on Hyper Protect Virtual Server for VPC" caption-side="bottom"}
 
