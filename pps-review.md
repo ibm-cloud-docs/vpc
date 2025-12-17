@@ -2,7 +2,7 @@
 
 copyright:
   years: 2024, 2025
-lastupdated: "2024-1-16"
+lastupdated: "2025-12-17"
 
 keywords:
 
@@ -18,12 +18,12 @@ subcollection: vpc
 As a service provider, you are responsible for managing your consumer account IDs. Currently, the tracking or validating of account IDs is not supported. For more information, see [Responsibilities for managing consumer account IDs](/docs/vpc?topic=vpc-pps-consumer-account-id-responsibilities&interface=ui).
 {: attention}
 
-If your default policy is set to **Review**, or if you have account policies set to **Review**, you are notified of incoming connection requests. You can choose to **Permit**, **Deny**, or **Revoke** these requests. On the Private Path service's Details page, you can also view connection requests that were permitted, denied, or expired.
+If your default policy is set to **Review**, or if you have the account policies set to **Review**, you are notified of incoming connection requests. You can choose to **Permit**, **Deny**, or **Revoke** these requests. On the Private Path service's Details page, you can also view connection requests that were permitted, denied, or expired.
 {: shortdesc}
 
-You can choose from three options when working with connection requests:
+You can choose from three options when you're working with connection requests:
 
-* **Permit** - Permits the account's request to connect to the service. Examine the originating account ID to ensure the connection request is legitimate. You should only accept requests from known sources. If you do not recognize this request, you can deny it or let it expire automatically.
+* **Permit** - Permits the account's request to connect to the service. Examine the originating account ID to make sure that the connection request is legitimate. You should accept requests only from known sources. If you do not recognize this request, you can deny it or let it expire automatically.
 
 * **Deny** - Denies the account's request to connect to the service. If you deny a request and later want to permit it, the consumer must create a new connection request by creating a Virtual Private Endpoint (VPE) gateway.
 
@@ -32,7 +32,7 @@ You can choose from three options when working with connection requests:
 If you don't want to review every connection request, you can streamline the process by changing the default policy or creating account-specific policies. For more information, see [About account policies](/docs/vpc?topic=vpc-pps-about-account-policies).
 {: fast-path}
 
-As the service provider, you can review and triage (permit, deny, or revoke) connection requests to your service using the console, CLI, API, or Terraform.
+As the service provider, you can review and triage (permit, deny, or revoke) connection requests to your service by using the console, CLI, API, or Terraform.
 
 ## Reviewing connection requests in the console
 {: #pps-ui-review-requests}
@@ -45,7 +45,7 @@ To triage incoming connection requests in the {{site.data.keyword.cloud_notm}} c
 1. In the Private Path services for VPC table, click the name of a Private Path service to show its details page.
 1. Scroll to the **Connections** section to review connection requests. Click the Actions menu ![Actions menu](../icons/action-menu-icon.svg "Actions") and select an option to permit, deny, or revoke the connection request. After you select an option, you are prompted to confirm your choice, and optionally create an account policy for the account ID.
 
-The consumer associated with the account ID is notified of your action. If permitted, the consumer can now access your service.
+The consumer that is associated with the account ID is notified of your action. If permitted, the consumer can now access your service.
 
 Connection requests expire after 30 days.
 {: note}
@@ -82,7 +82,7 @@ Where:
 :   Indicates ID of the VPE gateway binding for the Private Path service.
 
 `--set-account-policy`
-:   Indicates whether this becomes the access policy for any pending and future VPE gateway bindings from the same account. One of: `true`, `false`.
+:   Indicates whether this action becomes the access policy for any pending and future VPE gateway bindings from the same account. One of: `true`, `false`.
 
 `--output`
 :   Specifies output format, only JSON is supported. One of: `JSON`.
@@ -115,7 +115,7 @@ Where:
 :   ID of the VPE gateway binding for the Private Path service.
 
 `--set-account-policy`
-:   Indicates whether this becomes the access policy for any pending and future VPE gateway bindings from the same account. One of `true`, `false`.
+:   Indicates whether this action becomes the access policy for any pending and future VPE gateway bindings from the same account. One of `true`, `false`.
 
 `--output`
 :   Specify output format, only `JSON` is supported.

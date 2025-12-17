@@ -2,7 +2,7 @@
 
 copyright:
   years: 2024, 2025
-lastupdated: "2024-1-16"
+lastupdated: "2025-12-17"
 
 keywords:
 
@@ -15,7 +15,7 @@ subcollection: vpc
 # Updating and deleting a Private Path service
 {: #pps-ui-updating-deleting}
 
-You can migrate to a newer version of Private Path service without deleting or disrupting the service you provide to your current customers. You can delete a Private Path service using the console, CLI, API, or Terraform.
+You can migrate to a newer version of Private Path service without deleting or disrupting the service that you provide to your current customers. You can delete a Private Path service by using the console, CLI, API, or Terraform.
 {: shortdesc}
 
 ## Update a Private Path service in the console
@@ -27,16 +27,16 @@ To update a Private Path provider service the {{site.data.keyword.cloud_notm}} c
 1. From your browser, open the [{{site.data.keyword.cloud_notm}} console](/login) and log in to your account.
 1. Select the **Navigation menu** ![Navigation menu icon](../icons/icon_hamburger.svg), then click **Infrastructure** ![VPC icon](../../icons/vpc.svg) > **Network** > **Private Path services**.
 1. In the Private Path services for VPC table, locate and click the name of the Private Path service that you want to update.
-1. On the Private Path details page, click the Edit icon ![Edit icon](images/edit.png) beside the details that you want to update.
+1. On the Private Path details page, click the Edit icon ![Edit icon](images/edit.png) next to the details that you want to update.
 
-You can also update the members attached to a Private Path NLB in your Private Path service. For more information, see [Updating a network load balancer in the console](/docs/vpc?topic=vpc-nlb-updating&interface=ui).
+You can also update the members that are attached to a Private Path NLB in your Private Path service. For more information, see [Updating a network load balancer in the console](/docs/vpc?topic=vpc-nlb-updating&interface=ui).
 {: note}
 
 ### Update the target service of a Private Path service in the console
 {: #pps-ui-update-target-private-path-service}
 {: ui}
 
-If you’re updating the actual target service without changing the load balancer, you don’t need to take any actions in Private Path service. Instead, you need to update the Private Path network load balancer. For more information, see [Reviewing connection requests](/docs/private-path?topic=private-path-pps-ui-reviewing&interface=ui).
+If you’re updating the actual target service without changing the load balancer, you don’t need to take any actions in the Private Path service. Instead, you need to update the Private Path network load balancer. For more information, see [Reviewing connection requests](/docs/private-path?topic=private-path-pps-ui-reviewing&interface=ui).
 
 To update the target service of a Private Path provider service the {{site.data.keyword.cloud_notm}} console, follow these steps:
 
@@ -52,8 +52,8 @@ To update the target service of a Private Path provider service the {{site.data.
    * **Method**: The load-balancing algorithm for the pool.
    * **Session stickiness**: Whether all requests during a user's session are sent to the same instance.
    * **Health check**: For more information about configuring health checks, see [Working with health checks](/docs/vpc?topic=vpc-nlb-health-checks#nlb-health-checks).
-1. Make sure to configure these servers for your new provider service by setting the **Method** to Weighted round robin for your old pool and your new pool. Set the **Weight** of the new pool to a non-zero value, and the **Weight** of the old pool to a zero value. This will redirect traffic from your old server pool to your new server pool.
-1. Update your existing front-end listener to finish attaching your load balancer to this new pool. On your load balancer details page, Click the **Front-end listeners** tab. In the table, click the **Navigation menu** ![navigation menu](../icons/icon_hamburger.svg) at the end of the row of your existing listener, then click **Edit**.
+1. Make sure to configure these servers for your new provider service by setting the **Method** to Weighted round-robin for your old pool and your new pool. Set the **Weight** of the new pool to a nonzero value, and the **Weight** of the old pool to a zero value. This action redirects traffic from your old server pool to your new server pool.
+1. Update your existing front-end listener to finish attaching your load balancer to this new pool. On your load balancer details page, click the **Front-end listeners** tab. In the table, click the **Navigation menu** ![navigation menu](../icons/icon_hamburger.svg) at the end of the row of your existing listener, then click **Edit**.
 1. In the menu that appears, click **Edit**. Under Default Back-end pool, type in the ID of your new pool. Click **Save**.
 
 ### Deleting a Private Path service in the console
@@ -98,7 +98,7 @@ Where:
 :   Indicates ID or name of load balancer for this Private Path service.
 
 `--published`
-:   Indicates the availability of this Private Path service. If passed, value is set to `true`. A `true` value means account can request access to this Private Path service.
+:   Indicates the availability of this Private Path service. If passed, value is set to `true`. A `true` value means that account can request access to this Private Path service.
 
 `--zonal-affinity`
 :   Indicates whether this Private Path service has zonal affinity. One of: `false`, `true`.
@@ -171,7 +171,7 @@ Where:
 {: #pps-api-update-provider-service}
 {: api}
 
-To update a Private Path provider service  with the API, follow these steps:
+To update a Private Path provider service with the API, follow these steps:
 
 1. Set up your [API environment](/docs/vpc?topic=vpc-set-up-environment&interface=cli).
 1. Store the following values in variables to be used in the API command:
@@ -184,9 +184,7 @@ To update a Private Path provider service  with the API, follow these steps:
       {: pre}
 
 
-1. When all variables are initiated, do one of the following:
-
-   * To update a Private Path service:
+1. When all variables are initiated, update the Private Path service:
 
       ```sh
       curl -X PATCH -sH "Authorization:${iam_token}" \
@@ -197,7 +195,7 @@ To update a Private Path provider service  with the API, follow these steps:
       ```
       {: codeblock}
 
-      The above example updates the Private Path service zonal affinity to `true`.
+      The example request updates the Private Path service zonal affinity to `true`.
 
 
 ### Deleting a Private Path service with the API
