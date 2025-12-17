@@ -2,7 +2,7 @@
 
 copyright:
   years: 2022, 2025
-lastupdated: "2025-12-15"
+lastupdated: "2025-12-17"
 
 keywords: confidential computing, enclave, secure execution, hpcr, contract, customization, schema, contract schema, env, workload, encryption
 
@@ -328,7 +328,7 @@ spec:
 
 - Pod to host
 
-   Usually a Pod needs to expose at least one of its containers to the host so that the container is accessible through the IP address on the host through a mapped port. For this use case, use the `hostPort` feature on a container. Note that this is **not** [best practice](https://kubernetes.io/docs/concepts/configuration/overview/#services){: external} in the Kubernetes world, in which a service would be used instead.
+   Usually a Pod needs to expose at least one of its containers to the host so that the container is accessible through the IP address on the host through a mapped port. For this use case, use the `hostPort` feature on a container. Note that this is **not** [good practice](https://kubernetes.io/blog/2025/11/25/configuration-good-practices/#services){: external} in the Kubernetes world, in which a service would be used instead.
 
    Specify both `hostPort` and `containerPort` explicitly. If you specify only `containerPort`, ports are not bound.
    {: important}
