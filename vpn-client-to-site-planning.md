@@ -2,7 +2,7 @@
 
 copyright:
   years: 2021, 2025
-lastupdated: "2025-11-05"
+lastupdated: "2025-12-19"
 
 keywords:
 
@@ -38,7 +38,7 @@ Review the following considerations before creating a VPN server.
 ## Existing VPC configuration considerations
 {: #existing-vpc-configuration-considerations}
 
-Decide if you need to access service endpoints and IaaS endpoints from your client. These endpoints securely connect to {{site.data.keyword.cloud_notm}} services over the {{site.data.keyword.cloud_notm}} private network. If you need to access these endpoints, you must specify the DNS server addresses `161.26.0.10` and `161.26.0.11` when you provision the VPN server. See [Service endpoints](/docs/vpc?topic=vpc-service-endpoints-for-vpc#cloud-service-endpoints) and [IaaS endpoints](/docs/vpc?topic=vpc-service-endpoints-for-vpc#infrastructure-as-a-service-iaas-endpoints) for details.
+Decide if you need to access service endpoints and IaaS endpoints from your client. These endpoints securely connect to {{site.data.keyword.cloud_notm}} services over the {{site.data.keyword.cloud_notm}} private network. If you need to access these endpoints, you must specify the DNS server addresses `161.26.0.10` and `161.26.0.11` when you provision the VPN server. See [Service endpoints](/docs/vpc?topic=vpc-service-endpoints-for-vpc#service-endpoints) and [IaaS endpoints](/docs/vpc?topic=vpc-service-endpoints-for-vpc#infrastructure-as-a-service-iaas-endpoints) for details.
 
 You must also decide whether you need to resolve private DNS names from your client. {{site.data.keyword.cloud_notm}} DNS Services provides private DNS to VPC users. If you need to access these endpoints, you must specify the DNS server addresses `161.26.0.7` and `161.26.0.8` when you provision the VPN server. See [About DNS Services](/docs/dns-svcs?topic=dns-svcs-about-dns-services) for details.
 

@@ -2,7 +2,7 @@
 
 copyright:
   years: 2023, 2025
-lastupdated: "2025-12-18"
+lastupdated: "2025-12-19"
 
 keywords:
 
@@ -19,7 +19,7 @@ content-type: troubleshoot
 {: troubleshoot}
 {: support}
 
-Three configurations (`default`,`private_resolver`,`custom_resolver) exist with the "system" DNS resolver. These configurations are automatically updated by the system. However, if you run into the issue where the configuration fails to automatically update, follow these steps for the update to be successful.
+Three configurations (`default`,`private_resolver`,`custom_resolver`) exist with the "system" DNS resolver. These configurations are automatically updated by the system. However, if you run into the issue where the configuration fails to automatically update, follow these steps for the update to be successful.
 {: shortdesc}
 
 * If there is a custom resolver for the DNS hub VPC, the configuration of the DNS resolver is automatically updated to "custom_resolver".

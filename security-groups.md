@@ -2,7 +2,7 @@
 
 copyright:
   years: 2019, 2025
-lastupdated: "2025-12-12"
+lastupdated: "2025-12-19"
 
 keywords:
 
@@ -86,7 +86,7 @@ For more information about setting up security group rules using the CLI, see th
 ## Limitations
 {: #limitations-security-groups}
 
-* Currently, ESP protocol packets are supported only on instances with Gen2 profiles. On instances with other profiles, and on all bare metal servers, inbound and outbound ESP packets are always dropped. Although security group rules can be configured for ESP traffic with the VPC API, such rules affect only instances with Gen2 profiles. The ESP protocol is not displayed as a choice in the IBM Cloud console to avoid confusion between instance profile generations. For more information, see [Profile generation](/docs/vpc?topic=vpc-profiles&interface=ui#profiles-generation).
+* Currently, ESP protocol packets are supported only on instances with Gen2 profiles. On instances with other profiles, and on all bare metal servers, inbound and outbound ESP packets are always dropped. Although security group rules can be configured for ESP traffic with the VPC API, such rules affect only instances with Gen2 profiles. The ESP protocol is not displayed as a choice in the IBM Cloud console to avoid confusion between instance profile generations. For more information, see [x86-64 instance profiles](/docs/vpc?topic=vpc-profiles).
 
 ## Getting started
 {: #sg-getting-started}

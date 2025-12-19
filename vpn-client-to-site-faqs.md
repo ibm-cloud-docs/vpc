@@ -2,7 +2,7 @@
 
 copyright:
   years: 2022, 2025
-lastupdated: "2025-04-16"
+lastupdated: "2025-12-19"
 
 keywords: VPN server, faq, faqs, frequently asked questions, vpn, VPN
 
@@ -160,7 +160,7 @@ The action of the VPN route depends on the route destination:
 {: faq}
 {: support}
 
-DNS server IP addresses are optional when you provision a VPN server. You should use `161.26.0.10` and `161.26.0.11` IP addresses if you want to access service endpoints and IaaS endpoints from your client. See [Service endpoints](/docs/vpc?topic=vpc-service-endpoints-for-vpc#cloud-service-endpoints) and [IaaS endpoints](/docs/vpc?topic=vpc-service-endpoints-for-vpc#infrastructure-as-a-service-iaas-endpoints) for details.
+DNS server IP addresses are optional when you provision a VPN server. You should use `161.26.0.10` and `161.26.0.11` IP addresses if you want to access service endpoints and IaaS endpoints from your client. See [Service endpoints](/docs/vpc?topic=vpc-service-endpoints-for-vpc#service-endpoints) and [IaaS endpoints](/docs/vpc?topic=vpc-service-endpoints-for-vpc#infrastructure-as-a-service-iaas-endpoints) for details.
 
    Use `161.26.0.7` and `161.26.0.8` if you need to resolve private DNS names from your client. See [About DNS Services](/docs/dns-svcs?topic=dns-svcs-about-dns-services) for details.
    {: note}
