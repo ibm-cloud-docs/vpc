@@ -2,7 +2,7 @@
 
 copyright:
   years: 2019, 2025
-lastupdated: "2025-11-04"
+lastupdated: "2025-12-19"
 
 keywords: load balancer, network, maintence pending
 
@@ -19,7 +19,7 @@ content-type: troubleshoot
 {: troubleshoot}
 {: support}
 
-Use the information in this topic to troubleshoot your load balancer if it is in a `maintenance_pending` state.
+Use the following information to troubleshoot your load balancer if it is in a `maintenance_pending` state.
 {: shortdesc}
 
 Your load balancer displays it is in a `maintenance_pending` state.
@@ -32,5 +32,5 @@ An NLB enters a `maintenance_pending` state during various maintenance activitie
 * Load balancer failover
 * Upgrades to address vulnerabilities and application of security patches
 
-The `maintenance_pending` state will resolve once the associated maintenance activity completes.
+The `maintenance_pending` state resolves when the associated maintenance activity completes.
 {: tsResolve}

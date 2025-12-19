@@ -2,7 +2,7 @@
 
 copyright:
   years: 2024, 2025
-lastupdated: "2025-09-30"
+lastupdated: "2025-12-19"
 
 keywords: vsi, virtual server, virtual server instances, profile, profiles, balanced, compute, memory, dedicated host, gen 3
 
@@ -49,7 +49,7 @@ for single-tenant hypervisors running workloads from a single {{site.data.keywor
 - Live migration: Yes
 - Instance storage: Yes
 - NUMA Pinning: Yes
-- [Volume bandwidth allocation method](/docs/vpc?topic=vpc-block-storage-bandwidth#attached-block-vol-bandwidth): `weighted` by default, can be updated to `pooled`.
+- [Volume bandwidth allocation method](/docs/vpc?topic=vpc-block-storage-bandwidth#attached-block-vol-bandwidth): `weighted` by default, it can be updated to `pooled`.
 
 ## VM Configuration
 {: #general-purpose-vm-config-gen3}

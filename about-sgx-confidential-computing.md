@@ -2,7 +2,7 @@
 
 copyright:
   years: 2023, 2025
-lastupdated: "2025-11-04"
+lastupdated: "2025-12-19"
 
 keywords: sgx, intel sgx, software guard extension, confidential computing, trusted execution environment, TEE, data protection
 
@@ -17,7 +17,7 @@ subcollection: vpc
 
 [Select availability]{: tag-green}
 
-Confidential computing is a new technology that offers technical assurances that workloads and data are confidential and protected from everyone including the Cloud Service Provider (CSP).
+Confidential computing is a new technology that offers technical assurances that workloads and data are confidential and protected from everyone, including the Cloud Service Provider (CSP).
 {: shortdesc}
 
 Confidential computing profiles are available in the Dallas (us-south), Washington DC (us-east), and Frankfurt (eu-de) regions. Confidential computing with Intel SGX for VPC is Dallas (us-south), Washington DC (us-east), and Frankfurt (eu-de). Confidential computing with Intel TDX for VPC is available only in the Washington DC (us-east) and Frankfurt (eu-de) regions. If you want to create a virtual server instance with a confidential computing profile and TDX, you can create that virtual server instance only in the Washington DC (us-east) Frankfurt (eu-de) regions. You can’t create a virtual server instance with TDX in any other region, including Dallas (us-south). For more information, see [Confidential computing known issues](/docs/vpc?topic=vpc-known-issues#confidential-computing-vpc-known-issues). Confidential computing is only available with select profiles. For more information, see [Confidential computing profiles](/docs/vpc?topic=vpc-profiles&interface=ui#confidential-computing-profiles).
@@ -56,7 +56,7 @@ The following are some of the use cases for confidential computing with SGX and 
 
 * **Confidentiality and Privacy of Workloads and Applications** within a Confidential Computing environment make sure that data privacy and security applications are always protected.
 
-* **Confidential AI and Analytics** enable data and business analytics applications, machine learning models, and applications within secure enclaves. Includes SMPC applications that also help gain data insights.
+* **Confidential AI and Analytics** enable data and business analytics applications, machine learning models, and applications within secure enclaves. It includes SMPC applications that also help gain data insights.
 
 * **Secure Multi-party Compute** enables distributed SMPC that helps make sure that participant data and insights are protected even when calculated outside their direct control.
 
@@ -72,8 +72,8 @@ The following profiles support SGX.
 
 The following profiles support TDX.
 
-* All Balanced _bx3dc_ profiles with less than 160GB memory
-* All Compute _cx3dc_ profiles with less than 160GB memory
+* All Balanced _bx3dc_ profiles with less than 160 GB memory
+* All Compute _cx3dc_ profiles with less than 160 GB memory
 
 SGX and TDX profiles might experience slightly longer start times, approximately in the range of 180-240 seconds, depending on profile memory size.
 {: note}

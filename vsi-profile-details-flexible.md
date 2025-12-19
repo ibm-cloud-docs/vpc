@@ -2,7 +2,7 @@
 
 copyright:
   years: 2025, 2025
-lastupdated: "2025-12-12"
+lastupdated: "2025-12-19"
 
 keywords: virtual server instances, flex profile, flexible profile, virtual server profile
 
@@ -64,7 +64,7 @@ See the following capabilities for Flex profiles.
 * Instance storage: No
 * NUMA Pinning: Yes
 * Bandwidth pooling: No
-* [Volume bandwidth allocation method](/docs/vpc?topic=vpc-block-storage-bandwidth#attached-block-vol-bandwidth): `pooled` by default, can be updated to `weighted`.
+* [Volume bandwidth allocation method](/docs/vpc?topic=vpc-block-storage-bandwidth#attached-block-vol-bandwidth): `pooled` by default, it can be updated to `weighted`.
 
 ## VM configuration
 {: #flexible-profiles-vm-configuration}

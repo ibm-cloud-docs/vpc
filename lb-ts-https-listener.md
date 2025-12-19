@@ -2,7 +2,7 @@
 
 copyright:
   years: 2025, 2025
-lastupdated: "2025-11-04"
+lastupdated: "2025-12-19"
 
 keywords: load balancer, network, faqs
 
@@ -14,15 +14,15 @@ content-type: troubleshoot
 
 {{site.data.keyword.attribute-definition-list}}
 
-# Why can't I create an HTTPS listener on a load balancer using a public certificate stored in IBM Cloud Secrets Manager?
+# Why can't I create an HTTPS listener on a load balancer with a public certificate that is stored in IBM Cloud Secrets Manager?
 {: #troubleshoot-lb-https-listener}
 {: troubleshoot}
 {: support}
 
-Use the information in this topic to troubleshoot issues with setting up an HTTPS listener on an IBM Cloud load balancer using a public SSL certificate that was stored in Secrets Manager.
+Use the following information to troubleshoot issues with setting up an HTTPS listener on an IBM Cloud load balancer by using a public SSL certificate that is stored in Secrets Manager.
 {: shortdesc}
 
-Error encountered when using the console:
+Error encountered in the console:
 {: tsSymptoms}
 
        ```sh
@@ -42,7 +42,7 @@ Error encountered when using the console:
        ```
        {: codeblock}
 
-Error encountered when using the CLI:
+Error encountered from the CLI:
 
        ```sh
        FAILED
@@ -54,7 +54,7 @@ Error encountered when using the CLI:
        ```
        {: codeblock}
 
-The Secrets Manager instance used by the customer is configured with **Private only** endpoint access. As a result, the load balancer (which requires access to Secrets Manager to retrieve the certificate) can't validate or retrieve the public certificate because it operates outside the private VPC. This results in a 500 internal error when trying to add the HTTPS listener.
+The Secrets Manager instance that is used by the customer is configured with **Private only** endpoint access. Hence, the load balancer (which requires access to Secrets Manager to retrieve the certificate) can't validate or retrieve the public certificate because it operates outside the private VPC. The result is a 500 internal error when you try to add the HTTPS listener.
 {: tsCauses}
 
 To resolve this issue, use a Secrets Manager instance that supports both public and private endpoints.

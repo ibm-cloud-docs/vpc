@@ -1,8 +1,8 @@
 ---
 
 copyright:
-  years: 2019, 2021
-lastupdated: "2023-02-23"
+  years: 2019, 2025
+lastupdated: "2025-12-19"
 
 keywords: load balancer, network, faqs
 
@@ -19,7 +19,7 @@ content-type: troubleshoot
 {: troubleshoot}
 {: support}
 
-Use the information in this topic to resolve 409 conflict error codes when updating or deleting a load balancer.
+Use the following information to resolve 409 conflict error codes when updating or deleting a load balancer.
 {: shortdesc}
 
 You receive a 409 error code when updating or deleting a load balancer.

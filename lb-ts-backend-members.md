@@ -1,8 +1,8 @@
 ---
 
 copyright:
-  years: 2019, 2021
-lastupdated: "2023-02-23"
+  years: 2019, 2025
+lastupdated: "2025-12-19"
 
 keywords: load balancer, network, traffic, members
 
@@ -19,13 +19,13 @@ content-type: troubleshoot
 {: troubleshoot}
 {: support}
 
-Use the information in this topic to help troubleshoot issue where traffic is not reaching your back-end member.
+Use the following information to help troubleshoot issue where traffic is not reaching your back-end member.
 {: shortdesc}
 
 Incoming traffic fails to reach your back end members.
 {: tsSymptoms}
 
-This could be caused by any of the following issues:
+This issue might be caused by any of the following issues:
 {: tsCauses}
 
 * Your back-end pool health checks are failing.

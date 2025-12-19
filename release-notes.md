@@ -2,7 +2,7 @@
 
 copyright:
   years: 2019, 2025
-lastupdated: "2025-12-12"
+lastupdated: "2025-12-19"
 
 keywords:
 
@@ -26,6 +26,13 @@ For more information about changes to the {{site.data.keyword.vpc_short}} comman
 
 ## December 2025
 {: #vpc-dec25}
+
+### 18 December 2025
+{: #vpc-dec1825}
+{: release-note}
+
+Accelerated l4 profile now available in Chennai region (GA)
+:   The l4 GPU profile is now available in zone 1 (`in-che-1`) of the Chennai (`in-che`) region. For more information, see [NVIDIA L4 instance profiles](/docs/vpc?topic=vpc-accelerated-profile-family#l4-profiles). For more information about regions, see [IBM Cloud region and data center locations for resource deployment](/docs/overview?topic=overview-locations).
 
 ### 12 December 2025
 {: #vpc-dec1225}
@@ -1159,10 +1166,10 @@ UI navigation change to Auto scale
 {: release-note}
 
 GPU l40S profiles with PCIe now available
-:   New `l40S` GPU profiles that include NVIDIA's L40S 48GB GPU are now available in the Frankfurt (`eu-de`), Madrid (`eu-es`), Sydney (`au-syd`), and Tokyo (`jp-tok`) regions. For more information, see [GPU x86-64 instance profiles](/docs/vpc?topic=vpc-profiles&interface=ui#gpu). For more information about the Multizone regions, see [Region and data center locations for resource deployment](/docs/overview?topic=overview-locations).
+:   New `l40S` GPU profiles that include NVIDIA's L40S 48-GB GPU are now available in the Frankfurt (`eu-de`), Madrid (`eu-es`), Sydney (`au-syd`), and Tokyo (`jp-tok`) regions. For more information, see [GPU x86-64 instance profiles](/docs/vpc?topic=vpc-profiles&interface=ui#gpu). For more information about the Multizone regions, see [Region and data center locations for resource deployment](/docs/overview?topic=overview-locations).
 
 GPU l4 profiles now available
-:   New `l4` GPU profiles that include NVIDIA's L4 24GB GPU are now available in the Toronto (`ca-tor`), London (`eu-gb`), Frankfurt (`eu-de`), Madrid (`eu-es`),  Sydney (`au-syd`), and Tokyo (`jp-tok`) regions. For more information, see [GPU x86-64 instance profiles](/docs/vpc?topic=vpc-profiles&interface=ui#gpu). For more information about the Multizone regions, see [Region and data center locations for resource deployment](/docs/overview?topic=overview-locations).
+:   New `l4` GPU profiles that include NVIDIA's L4 24-GB GPU are now available in the Toronto (`ca-tor`), London (`eu-gb`), Frankfurt (`eu-de`), Madrid (`eu-es`),  Sydney (`au-syd`), and Tokyo (`jp-tok`) regions. For more information, see [GPU x86-64 instance profiles](/docs/vpc?topic=vpc-profiles&interface=ui#gpu). For more information about the Multizone regions, see [Region and data center locations for resource deployment](/docs/overview?topic=overview-locations).
 
 ### 23 February 2024
 {: #vpc-feb2324}
