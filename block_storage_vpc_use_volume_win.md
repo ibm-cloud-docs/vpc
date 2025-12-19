@@ -1,10 +1,10 @@
 ---
 
 copyright:
-  years: 2023
-lastupdated: "2024-06-14"
+  years: 2023, 2025
+lastupdated: "2025-12-18"
 
-keywords: Block Storage for VPC, iscsi for VPC, SAN for VPC
+keywords: Block Storage for VPC, iscsi for VPC, SAN for VPC, format windows storage disk
 
 subcollection: vpc
 

@@ -1,9 +1,8 @@
 ---
 
 copyright:
-  years: 2023
-
-lastupdated: "2023-09-21"
+  years: 2023, 2025
+lastupdated: "2025-12-18"
 
 keywords: connecting, windows, bare metal, bare metal server
 

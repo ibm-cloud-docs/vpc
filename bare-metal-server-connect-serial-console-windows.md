@@ -2,7 +2,7 @@
 
 copyright:
   years: 2021, 2025
-lastupdated: "2024-02-21"
+lastupdated: "2025-12-18"
 
 keywords: windows serial console, connect to windows console, connect to windows serial console, serial console, connect to serial console
 
@@ -15,7 +15,6 @@ subcollection: vpc
 
 # Connecting to the serial console with Windows
 {: #connect-to-serial-console-with-windows}
-
 
 Serial console isn't enabled by default on Windows&reg;. You need to enable it by using the following script.
 

@@ -1,10 +1,10 @@
 ---
 
 copyright:
-  years: 2022, 2024
-lastupdated: "2024-10-10"
+  years: 2022, 2025
+lastupdated: "2025-12-18"
 
-keywords:
+keywords: block storage, snapshots, planning, backups, consistency group
 
 subcollection: vpc
 

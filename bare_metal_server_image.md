@@ -2,7 +2,7 @@
 
 copyright:
   years: 2021, 2025
-lastupdated: "2025-01-03"
+lastupdated: "2025-12-18"
 
 keywords:
 
@@ -126,7 +126,7 @@ To install the most recent driver on a Linux distribution:
 
    `./install.sh`
 
-   If you are running something other than RHEL or SUSE, you need to build the drivers. Make sure you have the 'git', 'make' and 'gcc' packages installed. Inspect any error messages that are returned from the 'make' command, some distributions require more packages. The error messages help to determine whether more packages are required.
+   If you are running something other than RHEL or SUSE, you need to build the drivers. Make sure that you have the 'git', 'make' and 'gcc' packages installed. Inspect any error messages that are returned from the 'make' command, some distributions require more packages. The error messages help to determine whether more packages are required.
 
    ```sh
    cd drivers
