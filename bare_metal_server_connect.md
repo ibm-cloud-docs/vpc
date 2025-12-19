@@ -2,7 +2,7 @@
 
 copyright:
   years: 2021, 2025
-lastupdated: "2024-04-24"
+lastupdated: "2025-12-19"
 
 keywords: bare metal server connect esxi, connect to esxi, connect to esxi, bare metal connect esxi, bare metal esxi, windows serial console, connect to windows console, connect to windows serial console, serial console, connect to serial console
 
@@ -18,7 +18,7 @@ subcollection: vpc
 After your bare metal server is running, you can connect to the ESXi direct console user interface (DCUI) and the ESXi web client. You can use the VNC or serial console to access ESXi DCUI. You can access the ESXi web client through a floating IP.
 {: shortdesc}
 
-For more information about VMWare deployments, see [VMware Cloud Foundation overview](/docs/vmwaresolutions?topic=vmwaresolutions-vpc-vcf-ovw).
+For more information about VMWare deployments, see the [VMware Cloud Foundation overview](/docs/vmwaresolutions?topic=vmwaresolutions-vpc-vcf-ovw).
 
 ## Obtaining your ESXi account name and password
 {: #prereq}
@@ -124,7 +124,7 @@ You can reset the password in the **Configure Password** section.
 ## Enabling SSH for the bare metal server (optional)
 {: #enable-ssh}
 
-By default, you don't have SSH access to the ESXi bare metal server. You can enable SSH access in DCUI with one the following options.
+By default, you don't have SSH access to the ESXi bare metal server. You can enable SSH access in DCUI with one of the following options.
 
 ### Enabling SSH from the DCUI
 {: #enable-shh-dcui-option-1}
@@ -219,7 +219,7 @@ You need the following information to attach a floating IP to a network interfac
 * Network interface ID
 * Floating IP ID
 
-Use the [List all network interfaces](/apidocs/vpc/latest#list-bare-metal-server-network-interfaces) command to find the ID of the network interface. Use the [List all floating IP](/apidocs/vpc/latest#list-floating-ips) command to find the reserved floating IP IDs, or, use the [Reserve a floating IP](/apidocs/vpc/latest#create-floating-ip) command to reserve a new one.
+Use the [List all network interfaces](/apidocs/vpc/latest#list-bare-metal-server-network-interfaces) command to find the ID of the network interface. Use the [List all floating IP](/apidocs/vpc/latest#list-floating-ips) command to find the reserved floating IP IDs, or use the [Reserve a floating IP](/apidocs/vpc/latest#create-floating-ip) command to reserve a new one.
 {: tip}
 
 After you collect all the required information, use the following API request to attach the floating IP to the bare metal server:

@@ -1,8 +1,8 @@
 ---
 
 copyright:
-  years: 2021, 2023
-lastupdated: "2025-04-01"
+  years: 2021, 2025
+lastupdated: "2025-12-19"
 
 keywords: virtual private cloud, private cloud network, placement group, placement group strategy, host spread, power spread, faq, faqs
 
@@ -38,7 +38,7 @@ If more instances are needed, you can request a quota increase through IBM [cust
 
 No, the placement group strategy can't be modified after the placement group is created. Also, to remove an instance from a placement group, the instance must be deleted first.
 
-## Can I use an instance that has placement group strategy within an instance group?
+## Can I use an instance that has a placement group strategy within an instance group?
 {: #faq-placement-groups-3}
 {: faq}
 
@@ -50,7 +50,7 @@ Yes, you can use instances that are provisioned with a placement group strategy 
 
 Yes, you can resize an instance that is part of a placement group. When an instance is resized, the instance is stopped, the profile is updated, and the instance is restarted. When the instance is restarted, the instance is placed according to the placement group strategy.
 
-## Can I provision an instance with both a placement group strategy and a dedicate host placement at the same time?
+## Can I provision an instance with both a placement group strategy and a dedicated host placement at the same time?
 {: #faq-placement-groups-5}
 {: faq}
 

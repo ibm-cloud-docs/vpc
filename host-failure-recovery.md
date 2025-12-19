@@ -1,8 +1,8 @@
 ---
 
 copyright:
-  years: 2021, 2023
-lastupdated: "2024-10-10"
+  years: 2021, 2025
+lastupdated: "2025-12-19"
 
 keywords: host failure recovery, recovery
 
@@ -15,48 +15,48 @@ subcollection: vpc
 # Host failure recovery policies
 {: #host-failure-recovery-policies}
 
-If a host fails unexpectedly and cannot be recovered, virtual server instances on the failed host will be automatically restarted on a healthy host.  The restart policy can be configured to not restart the virtual server instance when you create an instance or on an existing instance.
+If a host fails unexpectedly and cannot be recovered, virtual server instances on the failed host are automatically restarted on a healthy host. The restart policy can be configured to not restart the virtual server instance when you create an instance or on an existing instance.
 {: shortdesc}
 
-{{site.data.keyword.cloud}} uses continual monitoring procedures and operations that help prevent disruption to your workloads during unplanned host failures. {{site.data.keyword.cloud}} continuously monitors your infrastructure to ensure that all hosts are healthy and responsive. Detection of a host issue occurs within 30 seconds of occurrence. In cases where a host failure is detected and the host cannot be immediately recovered, {{site.data.keyword.cloud}} initiates the selected failure recovery policy within 5 minutes for all virtual servers on the affected host.
+{{site.data.keyword.cloud}} uses continual monitoring procedures and operations that help prevent disruption to your workloads during unplanned host failures. {{site.data.keyword.cloud}} continuously monitors your infrastructure to make sure that all hosts are healthy and responsive. Detection of a host issue occurs within 30 seconds of occurrence. When a host failure is detected and the host cannot be immediately recovered, {{site.data.keyword.cloud}} initiates the selected failure recovery policy within 5 minutes for all virtual servers on the affected host.
 
 ## Available recovery policies
 {: #available-policies}
 
-The default setting for the host failure policy of an instance is 'restart'. The policy can be changed at any time without disrupting the instance and is only used when recovering from a host failure event.
+The default setting for the host failure policy of an instance is 'restart'. The policy can be changed at any time without disrupting the instance and is only used when during recovery from a host failure event.
 
 | Host failure policy | Policy description |
 |---------|---------|
 | restart | The instance is automatically restarted on another compute host |
-| stop | The instance will not be restarted on another compute host |
+| stop | The instance is not to be restarted on another compute host |
 {: caption="Host failure recovery policies" caption-side="bottom"}
 
 ### Restart
 {: #restart}
 
 When the host failure policy is set to restart and the host fails, the instance is relocated to another available host and restarted.
-The restarted instance uses the same boot volume and the same data volumes as the original instance. The restarted instance is assigned the same floating IP, static IPs, and dynamic IP addresses on the new host.
+The restarted instance uses the same boot volume and the same data volumes as the original instance. The restarted instance is assigned the same floating IP, static and dynamic IP addresses on the new host.
 
 ### Stop
 {: #stop}
 
 When the host failure policy is set to stop when the host fails, the instance is not restarted. The status of the instance is changed to stopped. The user can choose to restart the stopped instance by issuing an instance start action. When restarted, the instance is placed on an available host.
 
-## Setting the recovery policy using the UI
+## Setting the recovery policy in the console
 {: #set-policy-ui}
 {: ui}
 
--  To set the failure recovery policy using the UI when provisioning an instance, find Advanced options on the provisioning page.
-   1. In Advanced options, find 'Host failure auto restart'. This can be toggled on or off.
+-  To set the failure recovery policy in the console during instance provisioning, find the Advanced options on the provisioning page.
+   1. In the Advanced options, find 'Host failure auto restart'. This option can be toggled or off.
 
 - To set the failure recovery policy for an existing instance, complete the following steps.
-   1. In [{{site.data.keyword.cloud_notm}} console](https://console.cloud.ibm.com){: external}, navigate to **Navigation Menu** icon ![menu icon](../icons/icon_hamburger.svg) **> Infrastructure** ![VPC icon](../../icons/vpc.svg) **> Compute > Virtual server instances**.
+   1. In [{{site.data.keyword.cloud_notm}} console](https://console.cloud.ibm.com){: external}, click the **Navigation Menu** icon ![menu icon](../icons/icon_hamburger.svg) **> Infrastructure** ![VPC icon](../../icons/vpc.svg) **> Compute > Virtual server instances**.
    2. On the **Virtual server instances** page, click the Actions icon ![More Actions icon](../icons/action-menu-icon.svg) for the instance that you want to manage.
    3. From the instance details page, locate 'Host failure auto restart'. Click the pencil icon and choose Enabled or Disabled to toggle the status of the host recovery policy on or off.
 
 For more information, see [Creating virtual server instances by using the UI](/docs/vpc?topic=vpc-creating-virtual-servers) and [Managing virtual server instances](/docs/vpc?topic=vpc-managing-virtual-server-instances&interface=ui).
 
-## Setting the recovery policy by using the CLI
+## Setting the recovery policy from the CLI
 {: #set-policy-cli}
 {: cli}
 
@@ -66,11 +66,11 @@ For more information, see [Creating virtual server instances by using the CLI](/
 
 | Host failure policy | Policy attribute |
 |---------|---------|
-| restart | '--host-failure-policy restart' |
-| stop | '--host-failure-policy stop' |
+| restart | `--host-failure-policy restart` |
+| stop | `--host-failure-policy stop` |
 {: caption="Recovery policy attributes" caption-side="bottom"}
 
-### Create an instance with host failure policy
+### Creating an instance with host failure policy
 {: #create-instance-policy}
 
 You can create an instance in your IBM Cloud VPC and change the availability policy on host failure by using the command-line interface (CLI). Run the ibmcloud is instance-create command and set the `--host-failure-policy` property to `restart` or `stop`. The host failure policy service is set to `restart` by default.
@@ -107,7 +107,7 @@ Boot volume                           ID   Name           Attachment ID         
 ```
 {: screen}
 
-### Update an instance with host failure policy
+### Updating an instance with host failure policy
 {: #update-instance-policy}
 
 You can update an instance in your IBM Cloud VPC with and change the availability policy on host failure by using the command-line interface (CLI). Run the ibmcloud is instance-update command and set the `--host-failure-policy` property to `start` or `stop`. The host failure policy service is set to `restart` by default.
@@ -144,11 +144,11 @@ Boot volume                           ID                                        
 ```
 {: screen}
 
-## Setting the recovery policy by using the API
+## Setting the recovery policy with the API
 {: #set-recovery-policy-api}
 {: api}
 
-During instance [create](/apidocs/vpc/latest#create-instance) or [update](/apidocs/vpc/latest#update-instance) operations, the `host_failure` sub-property can be used to set the host failure `availability_policy` of the virtual server instance. If the compute host experiences a failure, specify `restart` or `stop` to set the policy.
+During the instance [create](/apidocs/vpc/latest#create-instance) or [update](/apidocs/vpc/latest#update-instance) operations, the `host_failure` subproperty can be used to set the host failure `availability_policy` of the virtual server instance. If the compute host experiences a failure, specify `restart` or `stop` to set the policy.
 
 | Host failure policy | Attribute  |
 |---------|---------|
@@ -161,4 +161,4 @@ For more information, see [Create an instance](/apidocs/vpc/latest#create-instan
 ## Next steps
 {: #host-fail-next-steps}
 
-For more information about planned and unplanned host outages, see the FAQ [In what cases is my virtual server migrated to a different host?](/docs/vpc?topic=vpc-faqs-for-vsis#faq-vsi-13).
+For more information about planned and unplanned host outages, see the FAQ [In what cases is my virtual server migrated to a different host?](/docs/vpc?topic=vpc-faqs-for-vsis#faq-vsi-13)

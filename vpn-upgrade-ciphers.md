@@ -1,8 +1,8 @@
 ---
 
 copyright:
-  years: 2022, 2023
-lastupdated: "2023-01-17"
+  years: 2022, 2025
+lastupdated: "2025-12-19"
 
 keywords: auto-negotiation, ciphers, upgrading ciphers, migrating ciphers
 
@@ -15,7 +15,7 @@ subcollection: vpc
 # Upgrading weak cipher suites on a VPN gateway
 {: #upgrading-weak-ciphers}
 
-To maintain security best practices and minimize security vulnerabilities, VPN for VPC now supports an enhanced cipher suite, providing new algorithms and removing weak algorithms to meet customer compliance requirements. VPN gateways that use weak ciphers put networks and data at risk and compromise compliance, requiring an upgrade to the secure cipher suite.
+To maintain security best practices and minimize security vulnerabilities, VPN for VPC supports an enhanced cipher suite, providing new algorithms and removing weak algorithms to meet customer compliance requirements. VPN gateways that use weak ciphers put networks and data at risk and compromise compliance, requiring an upgrade to the secure cipher suite.
 {: shortdesc}
 
 As of 20 September 2022, the following VPN IKE and IPsec ciphers are deprecated:
@@ -24,7 +24,7 @@ As of 20 September 2022, the following VPN IKE and IPsec ciphers are deprecated:
 - Encryption algorithm `triple_des`
 - Diffie-Hellman groups `2` and `5`
 
-Effective 17 January 2023, these ciphers are no longer supported in the UI. You must transition to more secure ciphers as soon as possible; otherwise:
+Effective 17 January 2023, these ciphers are no longer supported in the console. You must change to more secure ciphers as soon as possible; otherwise:
 
 * VPN connections that use deprecated ciphers stop working.
 * VPN connections that use an auto-negotiation policy are forced to upgrade to the [enhanced auto-negotiation policy](/docs/vpc?topic=vpc-using-vpn#policy-negotiation).
@@ -41,14 +41,14 @@ Complete the following procedure to upgrade your VPN to the enhanced auto-negoti
 ### Before you begin
 {: #upgrade-vpn-old-auto-before-begin}
 
-You will experience a network outage during the upgrade. The duration of the outage depends on the interval between the disable and re-enable actions to reestablish the VPN connection. It is recommended that you plan a maintenance window for this upgrade.
+Expect a network outage during the upgrade. The duration of the outage depends on the interval between the disable and re-enable actions to reestablish the VPN connection. It is recommended that you plan a maintenance window for this upgrade.
 {: important}
 
 Before you upgrade, review the following information:
 
 * By default, the new auto-negotiation policy is used for newly created VPN connections. For more information, see [About policy negotiation](/docs/vpc?topic=vpc-using-vpn#policy-negotiation).
-* Because IBM Cloud auto-negotiation uses IKEv2, the on-prem device must also use IKEv2. If your on-prem device does not support IKEv2, see [upgrading VPN from a custom IKE or IPsec policy](/docs/vpc?topic=vpc-upgrading-weak-ciphers#upgrade-vpn-with-custom-policy).
-* It is a good idea to first configure your on-prem VPN gateway peer to replace the weak ciphers for Phase 1 and Phase 2 negotiation with the secure ciphers that are described in [policy negotiation](/docs/vpc?topic=vpc-using-vpn#policy-negotiation). Then, upgrade the VPN gateway to use the enhanced auto-negotiation policy. This step might also reduce the outage time.
+* Because IBM Cloud auto-negotiation uses IKEv2, the on-premises device must also use IKEv2. If your on-premises device does not support IKEv2, see [upgrading VPN from a custom IKE or IPsec policy](/docs/vpc?topic=vpc-upgrading-weak-ciphers#upgrade-vpn-with-custom-policy).
+* It's a good idea to first configure your on-premises VPN gateway peer to replace the weak ciphers for Phase 1 and Phase 2 negotiation with the secure ciphers that are described in [policy negotiation](/docs/vpc?topic=vpc-using-vpn#policy-negotiation). Then, upgrade the VPN gateway to use the enhanced auto-negotiation policy. This step might also reduce the outage time.
 
 For an existing VPN connection that uses the old auto-negotiation policy (created before 20 September 2022), complete the following steps to upgrade to the new auto-negotiation policy.
 
@@ -283,12 +283,12 @@ Complete the following procedure to upgrade a VPN from a custom IKE or IPsec pol
 ### Before you begin
 {: #upgrade-vpn-custom-policy-before-begin}
 
-On 20 September 2022, VPN for VPC IKE and IPsec weak ciphers were deprecated. To upgrade a VPN connection that was created using a custom IKE or IPsec policy that contains weak ciphers, complete the following steps.
+On 20 September 2022, VPN for VPC IKE and IPsec weak ciphers were deprecated. To upgrade a VPN connection that was created by using a custom IKE or IPsec policy that contains weak ciphers, complete the following steps.
 
-You will experience a network outage during the upgrade. The duration of the outage depends on the time that it takes to update the weak ciphers and to reestablish the VPN connection. It is recommended that you plan a maintenance window for this upgrade.
+Expect a network outage during the upgrade. The duration of the outage depends on the time that it takes to update the weak ciphers and to reestablish the VPN connection. It is recommended that you plan a maintenance window for this upgrade.
 {: important}
 
-Before you begin, it is a good idea to first configure your on-prem VPN gateway peer to contain both the weak and secure ciphers for Phase 1 and Phase 2 negotiation. Then, change the IBM VPN gateway to remove the use of the weak ciphers by following these steps. Afterward, remove the weak ciphers from the on-prem VPN gateway. This step might also reduce the outage time.
+Before you begin, it is a good idea to first configure your on-prem VPN gateway peer to contain both the weak and secure ciphers for Phase 1 and Phase 2 negotiation. Then, change the IBM VPN gateway to remove the use of the weak ciphers by following these steps. Afterward, remove the weak ciphers from the on-premises VPN gateway. This step might also reduce the outage time.
 
 ### Upgrading a VPN from a custom IKE policy in the UI
 {: #upgrade-vpn-custom-ike-policy-procedure-ui}
@@ -678,7 +678,7 @@ To upgrade the IPsec policy by using the SDK, follow these Go language example s
     ```
     {: codeblock}
 
-1. Find and replace the IPsec policy **authenticationAlgorithm**, **pfs** and **encryptionAlgorithm** to use the following secure ciphers in your SDK.
+1. Find and replace the IPsec policy **authenticationAlgorithm**, **pfs**, and **encryptionAlgorithm** to use the following secure ciphers in your SDK.
 
    `authenticationAlgorithm` - The authentication algorithm. One of: `disabled`, `sha256`, `sha384`, `sha512`.
 

@@ -1,14 +1,12 @@
 ---
 
 copyright:
-  years: 2018, 2022
-
-lastupdated: "2025-12-05"
+  years: 2018, 2025
+lastupdated: "2025-12-19"
 
 keywords:
 
 subcollection: vpc
-
 
 ---
 
@@ -20,11 +18,10 @@ subcollection: vpc
 The default security group is similar to any other security group, with the exception that it cannot be deleted.
 {: shortdesc}
 
-
 When you create a VPC, the system creates a default security group for the VPC, with two rules:
 
-* A rule named `inbound-icmp-tcp-udp-from-this-security-group` to allow inbound ICMP, TCP and UDP traffic from any member of this security group (that is, all other resources that are attached to this security group)
-* A rule named `outbound-icmp-tcp-udp` to allow outbound ICMP, TCP and UDP traffic to any destination
+* A rule named `inbound-icmp-tcp-udp-from-this-security-group` to allow inbound ICMP, TCP, and UDP traffic from any member of this security group (that is, all other resources that are attached to this security group)
+* A rule named `outbound-icmp-tcp-udp` to allow outbound ICMP, TCP, and UDP traffic to any destination
 
 Rules to allow inbound pinging and SSH from resources outside the security group are not automatically added to the default security group.
 
@@ -44,7 +41,7 @@ If you edit the rules of the default security group, those edited rules then app
 1. Modify the rules as necessary:
       - To edit a rule, click the Actions menu ![Actions menu](../icons/action-menu-icon.svg "Actions"), click **Edit**, make your changes, then click **Save**.
       - To delete a rule, click the Actions menu ![Actions menu](../icons/action-menu-icon.svg "Actions"), click **Delete**, then click **Delete** again.
-      - To create a rule, click the **Create** button.
+      - To create a rule, click **Create**.
 
       For each rule, specify the following information:
 
@@ -53,11 +50,11 @@ If you edit the rules of the default security group, those edited rules then app
 
       **Tips:**
       * All rules are evaluated, regardless of the order in which they're added.
-      * Rules are stateful, which means that return traffic in response to allowed traffic is automatically permitted. For example, you created a rule that allows inbound TCP traffic on port 80. That rule also allows replying outbound TCP traffic on port 80 back to the originating host, without the need for another rule.
+      * The rules are stateful, which means that return traffic in response to allowed traffic is automatically permitted. For example, you created a rule that allows inbound TCP traffic on port 80. That rule also allows replying outbound TCP traffic on port 80 back to the originating host, without the need for another rule.
       * For Windows images, make sure that the security group that is associated with the instance allows inbound and outbound Remote Desktop Protocol traffic (TCP port 3389).
 
 1. _Optional:_ To view interfaces that are attached to the security group, click the **Attached resources** tab and review the Attached interfaces section.
-1. When you finish creating rules, click the **Security groups** breadcrumb at the top of the page to return to your list of Security groups for VPC.
+1. When you finish creating rules, click the **Security groups** breadcrumb to return to your list of Security groups for VPC.
 
 
 ## Updating the default security group from the CLI
@@ -125,7 +122,7 @@ Complete the following steps to update the default security group by using the C
 
 3. Update the default security group to add rules that allow SSH and PING.
 
-   Disabling SSH connections prohibits the license registration for RedHat Enterprise Linux. This can result in provisioning failures.
+   Disabling SSH connections prohibits the license registration for Red Hat Enterprise Linux. It can result in provisioning failures.
    {: important}
 
    To add rules in your default security group, run the following command:
@@ -164,7 +161,7 @@ Complete the following steps to update the default security group by using the A
    ```
    {: pre}
 
-   The default security group details are shown in the output following `default_security_group`. Note the name of the default security group so that you can find the `id` when you list the security groups (next). Note the default security group `id`, and save it in a variable so that you can use it later. For example, use the variable name `id`:
+   Locate `default_security_group` in the API response to see the details of the default security group. Note the name of the default security group so that you can find the `id` when you list the security groups (next). Note the default security group `id`, and save it in a variable so that you can use it later. For example, use the variable name `id`:
 
    ```sh
    "sg" = "r006-a937009e-5da5-4e7b-9072-d44e1095327b"
@@ -173,7 +170,7 @@ Complete the following steps to update the default security group by using the A
 
 1. Update the default security group to add rules that allow SSH and PING.
 
-Disabling SSH connections prohibits the license registration for RedHat Enterprise Linux. This can result in provisioning failures.
+Disabling SSH connections prohibits the license registration for Red Hat Enterprise Linux. It can result in provisioning failures.
 {: important}
 
 Run the following two commands to add default security group rules that allow SSH and PING for the security group with the security group `id` you set as the variable `sg`:

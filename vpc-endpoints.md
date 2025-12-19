@@ -2,8 +2,7 @@
 
 copyright:
   years: 2019, 2025
-
-lastupdated: "2025-12-05"
+lastupdated: "2025-12-19"
 
 keywords: CSE, endpoint, service, DNS, resolver, mirror, object, storage, bandwidth, charges
 

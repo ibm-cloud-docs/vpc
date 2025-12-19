@@ -1,8 +1,8 @@
 ---
 
 copyright:
-  years: 2021, 2023
-lastupdated: "2025-09-30"
+  years: 2021, 2025
+lastupdated: "2025-12-19"
 
 keywords:
 
@@ -15,7 +15,7 @@ subcollection: vpc
 # Summary of data returned by the metadata service
 {: #imd-metadata-summary}
 
-Use the metadata service to access information about the instance, SSH keys, and placement groups. This topic provides a summary of this data by URI path and metadata key, and describes the metadata.
+Use the metadata service to access information about the instance, SSH keys, and placement groups. The following summary contains the URI paths and metadata keys, and describes the metadata.
 {: shortdesc}
 
 The API response for each metadata type is presented in JSON format that contains metadata key:value pairs.
@@ -28,9 +28,9 @@ Use the information in the Table 1 to understand the type of metadata returned f
 | Instance URI path | Metadata key | Description of the metadata |
 |-------------------|--------------|-----------------------------|
 | `/instance` | `availability_policy` | The availability policy for this virtual server instance. |
-| `/instance`	| `bandwidth` | The total bandwidth in megabits per second that are shared across the virtual server instance's network interfaces and Block Storage volumes. |
+| `/instance`	| `bandwidth` | The total bandwidth in megabits per second that is shared across the virtual server instance's network interfaces and Block Storage volumes. |
 | `/instance` | `boot_volume_attachment` | Boot volume attachment, with volume name, CRN, and ID. |
-| `/instance` | `catalog_offering` | This is displayed if the virtual server instance was provisioned with a custom image in a private catalog. |
+| `/instance` | `catalog_offering` | This information is displayed if the virtual server instance was provisioned with a custom image in a private catalog. |
 | `/instance`	| `created_at` | The date and time that the virtual server instance was created. |
 | `/instance`	| `crn` | The Cloud Resource Name for this virtual server instance. |
 | `/instance`	| `dedicated_host` | Collection of the dedicated host references, which includes the CRN, deleted hosts, ID, name, and resource_type. |
@@ -52,7 +52,7 @@ Use the information in the Table 1 to understand the type of metadata returned f
 | `/instance`	| `status_reasons` | The reasons for the current status. |
 | `/instance`	| `total_network_bandwidth` | The amount of bandwidth in megabits per second that is allocated exclusively to instance network interfaces. |
 | `/instance`	| `total_volume_bandwidth` | The amount of bandwidth in megabits per second allocated exclusively to the instance's Block Storage volumes. Increasing this value results in a corresponding decrease to total_network_bandwidth. |
-| `/instance`	| `vcpu` | The number of VCPUs assigned by way of a structure that includes count and architecture properties. |
+| `/instance`	| `vcpu` | The number of VCPUs that are assigned by way of a structure that includes count and architecture properties. |
 | `/instance`	| `volume_attachments` | A list of the virtual server instance's volume attachments. |
 | `/instance` | `boot_volume_attachment` | Instance's boot volume attachment. |
 | `/instance` | `volume_bandwidth_qos_mode` | [New]{: tag-new} The volume bandwidth QoS mode for this virtual server instance. Either pooled or weighted. |
@@ -60,7 +60,7 @@ Use the information in the Table 1 to understand the type of metadata returned f
 | `/instance`	| `zone` | The globally unique name for the zone. |
 | `/instance/initialization` | `default_trusted_profile` | The default trusted profile configuration that was specified at virtual server instance creation. |
 | `/instance/initialization` | `keys` |	A list of references to public SSH keys that were used at instance initialization. |
-| `/instance/initialization` | `password` |The administrator password at initialization, encrypted using `encryption_key`, and returned base64-encoded. |
+| `/instance/initialization` | `password` |The administrator password at initialization, encrypted using `encryption_key`, and returned Base64-encoded. |
 | `/instance/initialization` | `user_data` | User data that is made available when you set up a new virtual server instance. |
 | `/instance/network_interfaces` | `network_interfaces`	| A list of network interfaces. See /instance/network_interfaces/{id} for details. |
 | `/instance/network_interfaces/{id}`	| `allow_ip_spoofing` | Indicates whether source IP spoofing is allowed on this interface. If false, source IP spoofing is prevented on this interface. If true, source IP spoofing is allowed on this interface. |
@@ -75,7 +75,7 @@ Use the information in the Table 1 to understand the type of metadata returned f
 | `/instance/network_interfaces/{id}`	| `status` | The status of the network interface. |
 | `/instance/network_interfaces/{id}`	| `subnet` | The subnet associated with the instance. |
 | `/instance/network_interfaces/{id}`	| `type` | The type of this network interface as it relates to an instance. |
-| `/instance/volume_attachments/{id}` | `bandwidth` | The maximum bandwidth in megabits per second for the volume when attached to this instance. This might be lower than the volume bandwidth depending on the configuration of the instance. |
+| `/instance/volume_attachments/{id}` | `bandwidth` | The maximum bandwidth in megabits per second for the volume when it's attached to this instance. This value might be less than the volume bandwidth depending on the configuration of the instance. |
 | `/instance/volume_attachments/{id}`	| `created_at` | The date and time that the volume was attached. |
 | `/instance/volume_attachments/{id}`	| `delete_volume_on_instance_delete` | If set to `true`, then when you delete the instance, the volume is also deleted. |
 | `/instance/volume_attachments/{id}`	| `device` | Information about how the volume is exposed to the instance operating system. |
@@ -96,7 +96,7 @@ Use the information in the Table 2 to understand the type of metadata returned f
 | `/keys`	| `keys` | A collection of keys. See `keys/{id}` for details. |
 | `/keys/{id}` | `created_at` |	The date and time that the key was created. |
 | `/keys/{id}` | `crn` | The Cloud Resource Name for the key. |
-| `/keys/{id}` | `fingerprint` | The fingerprint for the key. The value is returned base64-encoded and prefixed with the hash algorithm (always SHA256). |
+| `/keys/{id}` | `fingerprint` | The fingerprint for the key. The value is returned Base64-encoded and prefixed with the hash algorithm (always SHA256). |
 | `/keys/{id}` | `id` | The unique identifier for the key. |
 | `/keys/{id}` | `length` | The length of the key, in bits. |
 | `/keys/{id}` | `name` | The unique user-defined name for the key. If unspecified, the name is a hyphenated list of randomly selected words (for example, `elderly-mountain-troop-opponent`.) |

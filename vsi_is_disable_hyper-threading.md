@@ -1,8 +1,8 @@
 ---
 
 copyright:
-  years: 2021, 2022
-lastupdated: "2022-11-04"
+  years: 2021, 2025
+lastupdated: "2025-12-19"
 
 keywords: disable hyper-threading, vsi, virtual server
 
@@ -18,17 +18,17 @@ subcollection: vpc
 If your infrastructure configuration and application setup requires it, you can disable Intel Hyper-Threading Technology (Intel HT Technology) on your guest virtual machine. 
 {: shortdesc}
 
-The instructions in this topic for disabling Intel Hyper-Threading Technology on guest VMs apply only to virtual servers that are provisioned on hosts that use Intel-based processors.
+The instructions for disabling Intel Hyper-Threading Technology on guest VMs apply only to virtual servers that are provisioned on hosts that use Intel-based processors.
 {: note}
 
 ## Understanding reasons to disable Intel Hyper-Threading Technology
 {: #understanding-why-to-disable-HT}
 
-Intel Hyper-Threading Technology is a term that describes simultaneous multithreading (SMT). Hyper-Threading Technology splits each physical core into two virtual processors. Hyper-Threading Technology is like taking a wide road with a single lane and making it into two relatively narrower lanes. The two-lane highway provides better service over the single lane road if there is slow and fast moving traffic. Hyper-Threading Technology provides better application performance when there is File I/O, Network I/O and other slower operations mixed with CPU intensive operations. The performance advantage of Hyper-Threading Technology typically ranges from 0 - 30% over a single-thread mode. Some applications might also see a drop in performance.
+Intel Hyper-Threading Technology is a term that describes simultaneous multithreading (SMT). Hyper-Threading Technology splits each physical core into two virtual processors. Hyper-Threading Technology is like taking a wide road with a single lane and making it into two relatively narrower lanes. The two-lane highway provides better service over the single-lane road if there is slow and fast-moving traffic. Hyper-Threading Technology provides better application performance when there is File I/O, Network I/O, and other slower operations mixed with CPU-intensive operations. The performance advantage of Hyper-Threading Technology typically ranges from 0 - 30% over a single-thread mode. Some applications might also see a drop in performance.
 
 Hyper-Threading Technology is not always desirable. In this case, you might prefer to disable it and run the cores in single-threaded mode. Three main reasons exist to consider disabling Hyper-Threading Technology. The first reason is related to software licensing. Many legacy software vendors such as electronic design automation (EDA) tool providers, require a license for each CPU, regardless of whether they use Hyper-Threading Technology or single-threaded mode. When the core is in Hyper-Threading Technology mode, you need twice as many licenses as you do in single-threaded mode, even though the application is not getting two times better performance over single-threaded mode. As a result, EDA and other practitioners disable Hyper-Threading Technology and prefer to run their software in single-threaded mode.
 
-The second reason for disabling Hyper-Threading Technology is to avoid load balancing issues and operating system overhead that comes with Hyper-Threading Technology. High performance computing (HPC) applications typically create as many message passing interface (MPI) tasks as the number of physical cores and let the operating system manage each MPI task on a distinct physical core. When Hyper-Threading Technology is enabled, the operating system sees twice as many CPUs. While the operating system usually does a great job at mapping the MPI tasks to one of the two threads of a core, the OS occasionally might place both tasks on a physical core and leave other cores free. Having both tasks on a physical core with other cores free results in sub-optimal system utilization and variable application performance. In addition, the OS kernel allocates data structures for each of the active CPUs and updates them continuously so that more kernel space is allocated in Hyper-Threading Technology mode and management overhead is alleviated. Alleviating operating system overhead by disabling Hyper-Threading Technology helps many HPC applications achieve optimal performance. 
+The second reason for disabling Hyper-Threading Technology is to avoid load balancing issues and operating system overhead that comes with Hyper-Threading Technology. High performance computing (HPC) applications typically create as many message passing interface (MPI) tasks as the number of physical cores and let the operating system manage each MPI task on a distinct physical core. When Hyper-Threading Technology is enabled, the operating system sees twice as many CPUs. While the operating system usually does a great job at mapping the MPI tasks to one of the two threads of a core, the OS occasionally might place both tasks on a physical core and keep other cores free. Having both tasks on a physical core with other cores free results in suboptimal system utilization and variable application performance. In addition, the OS kernel allocates data structures for each of the active CPUs and updates them continuously so that more kernel space is allocated in Hyper-Threading Technology mode and management overhead is alleviated. Alleviating operating system overhead by disabling Hyper-Threading Technology helps many HPC applications achieve optimal performance. 
 
 The third reason for disabling Hyper-Threading Technology is security. Some users prefer to disable Hyper-Threading Technology to avoid any side channel attack possibilities that are associated with Hyper-Threading Technology execution. {{site.data.keyword.cloud_notm}} does not share a physical core between two customer's virtual machines so this kind of attack is not possible.
 
@@ -66,7 +66,7 @@ CPU     NODE          SOCKET      CORE             L1d:L1i:L2:L3 ONLINE
 ```
 {: screen}
 
-The preceding example output shows that each core has 2 CPUs and both CPUs are online. Core 0 has siblings: *CPU 0* and *CPU 1*.  To get the sibling list, you can find the data in `thread_sibling_list` in the devices file system as shown in the following example:
+The preceding example output shows that each core has 2 CPUs and both CPUs are online. Core 0 has siblings: *CPU 0* and *CPU 1*. To get the sibling list, you can find the data in `thread_sibling_list` in the devices file system as shown in the following example:
 
 ```sh
 cat /sys/devices/system/cpu/cpu*/topology/thread_siblings_list
@@ -85,17 +85,17 @@ cat /sys/devices/system/cpu/cpu*/topology/thread_siblings_list
 ```
 {: screen}
 
-Some kernels and CPU architectures use a comma ( *,* ) instead of a hyphen (*-*) in the thread sibling list.
+Some kernels and CPU architectures use a comma (`,` ) instead of a hyphen (`-`) in the thread sibling list.
 {: note}
 
-You can disable Hyper-Threading Technology for a single core by writing a zero (*0*)into the online field in the device file system for the corresponding CPU. For example, to disable Hyper-Threading Technology on core 2 (CPU 5 in the previous example), run the following command:
+You can disable Hyper-Threading Technology for a single core by writing a zero (*0*) into the online field in the device file system for the corresponding CPU. For example, to disable Hyper-Threading Technology on core 2 (CPU 5 in the previous example), run the following command:
 
 ```sh
 echo 0 > /sys/devices/system/cpu/cpu5/online
 ```
 {: pre}
 
-This command flips CPU 5 off-line, disabling Hyper-Threading Technology on core 2 but keeps the other cores in Hyper-Threading Technology mode as shown in the following example when you run the `lscpu --extended` command:
+This command flips CPU 5 offline, disabling Hyper-Threading Technology on core 2 but keeps the other cores in Hyper-Threading Technology mode as shown in the following example when you run the `lscpu --extended` command:
 
 ```text
 CPU     NODE          SOCKET      CORE             L1d:L1i:L2:L3 ONLINE
@@ -110,7 +110,7 @@ CPU     NODE          SOCKET      CORE             L1d:L1i:L2:L3 ONLINE
 ```
 {: screen}
 
-You can repeat the previous process for each core to disable Hyper-Threading Technology for the VM. When the VM has a lot of CPUs, this can be difficult. The following script is a very simple bash script to disable Hyper-Threading Technology on each core:
+You can repeat the previous process for each core to disable Hyper-Threading Technology for the VM. When the VM has many CPUs, this can be difficult. The following script is a very simple bash script to disable Hyper-Threading Technology on each core:
 
 ```sh
 #!/bin/bash

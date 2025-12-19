@@ -1,8 +1,7 @@
 ---
 copyright:
   years: 2020, 2025
-
-lastupdated: "2025-10-31"
+lastupdated: "2025-12-19"
 
 keywords: dedicated host profiles, balanced, compute, memory, ultra high memory, generation 2, gen 2
 
@@ -15,10 +14,10 @@ subcollection: vpc
 # x86-64 dedicated host profiles
 {: #dh-profiles}
 
- A dedicated host profile is a combination of attributes, such as the number of vCPUs, amount of RAM, and optional instance storage that define the amount of compute capacity that is provided in a host that is provisioned exclusively for your use.
+A dedicated host profile is a combination of attributes, such as the number of vCPUs, amount of RAM, and optional instance storage that define the amount of compute capacity that is provided in a host that is provisioned exclusively for your use.
 {: shortdesc}
 
-Dedicated hosts are available in various profile sizes to best suit the size and scale of your workloads: Balanced, Compute, Memory, Very High Memory, and Ultra High Memory. All virtual server instances that are provisioned on the dedicated host are provisioned from the same family and class of profiles. For example, if you choose a Memory profile for your dedicated host, all instances that are provisioned on the host must also be created with a Memory virtual server profile. If you choose a Compute with instance storage dedicated host, all instances that are provisioned on the host must also be created with Compute with instance storage virtual server profiles. This set up helps make sure that you can always use the entire dedicated host resource.
+Dedicated hosts are available in various profile sizes to best suit the size and scale of your workloads: Balanced, Compute, Memory, Very High Memory, and Ultra High Memory. All virtual server instances that are provisioned on the dedicated host are provisioned from the same family and class of profiles. For example, if you choose a Memory profile for your dedicated host, all instances that are provisioned on the host must also be created with a Memory virtual server profile. If you choose a Compute with instance storage dedicated host, all instances that are provisioned on the host must also be created with Compute with instance storage virtual server profiles. This setup helps make sure that you can always use the entire dedicated host resource.
 
 For more information about dedicated host profiles for IBM Z (s390x processor architecture), see [s390x dedicated host profiles](/docs/vpc?topic=vpc-s390x-dh-profiles).
 
@@ -133,7 +132,7 @@ The following Compute profiles are available for dedicated hosts.
 {: class="simple-tab-table"}
 {: summary="Dedicated Host Compute 3rd generation profile option for Intel&reg; x86-64 virtual server instances."}
 
-For supported instance profiles in the Compute family, see [compute profiles](/docs/vpc?topic=vpc-profiles#compute). Instance profiles that are provisioned on a dedicated host in the Compute family must include a *cx* prefix in the instance profile name. Profiles with instance storage include *d* in the profile name, for example *cx2d* or *cx3d*.
+For instance supported profiles in the Compute family, see [compute profiles](/docs/vpc?topic=vpc-profiles#compute). Instance profiles that are provisioned on a dedicated host in the Compute family must include a *cx* prefix in the instance profile name. Profiles with instance storage include *d* in the profile name, for example *cx2d* or *cx3d*.
 
 Dedicated hosts have a network performance cap of 80 Gbps. Instances provisioned on the host share bandwidth across the
 instances.
@@ -263,7 +262,7 @@ The following example describes the individual parts that make up a dedicated ho
 
 | Family | Architecture | Generation | Specialty | Offering | vCPU | RAM |
 | ------ | ------------ | ---------- | ----------| -------- | ---- | --- |
-| b      | x            | 2         | d-        | host-    | 152x | 608  |
+| b      | x            | 2          | d-        | host-    | 152x | 608  |
 {: caption="Individual parts that comprise the dedicated host profile" caption-side="bottom"}
 
 
@@ -295,7 +294,7 @@ For the “bx2d-host-152x608” profile, you can know from the name that it is a
 {: #dh-profiles-using-console}
 {: ui}
 
-1. In the {{site.data.keyword.cloud_notm}} console, go to **Navigation Menu** icon ![menu icon](../icons/icon_hamburger.svg) **> Infrastructure** ![VPC icon](../../icons/vpc.svg) **> Compute > Dedicated hosts**.
+1. In the {{site.data.keyword.cloud_notm}} console, go to the **Navigation Menu** ![menu icon](../icons/icon_hamburger.svg) **> Infrastructure** ![VPC icon](../../icons/vpc.svg) **> Compute > Dedicated hosts**.
 2. From the Dedicated host page, click **Create**.
 3. You can select from available profile configurations.
 

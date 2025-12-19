@@ -1,8 +1,8 @@
 ---
 
 copyright:
-  years: 2020, 2023
-lastupdated: "2025-04-01"
+  years: 2020, 2025
+lastupdated: "2025-12-19"
 
 subcollection: vpc
 
@@ -19,10 +19,7 @@ content-type: faq
 {: #faq-dedicated-host-0}
 {: faq}
 
-Dedicated hosts in {{site.data.keyword.vpc_short}} are created as part of a dedicated group. When you use {{site.data.keyword.cloud_notm}}
-console to create a dedicated host, you create an initial dedicated group as part of the dedicated host provisioning process.
-If you are using the {{site.data.keyword.cloud_notm}} CLI to create a dedicated host, you must first create a dedicated group.
-For more information, see [Creating dedicated hosts and groups](/docs/vpc?topic=vpc-creating-dedicated-hosts-instances).
+Dedicated hosts in {{site.data.keyword.vpc_short}} are created as part of a dedicated group. When you use {{site.data.keyword.cloud_notm}} console to create a dedicated host, you create an initial dedicated group as part of the dedicated host provisioning process. If you are using the {{site.data.keyword.cloud_notm}} CLI to create a dedicated host, you must first create a dedicated group. For more information, see [Creating dedicated hosts and groups](/docs/vpc?topic=vpc-creating-dedicated-hosts-instances).
 
 ## How much am I charged for a dedicated host?
 {: #faq-dedicated-host-1}
@@ -42,7 +39,7 @@ To increase your vCPU quota, [contact Support](/docs/account?topic=account-using
 {: #faq-dedicated-host-3}
 {: faq}
 
-Provisioning instances on a dedicated group allows your instances to move between hosts if the need ever occurs. For example, if you want to decrease the size of your dedicated host group, you can stop instances on one of the hosts and disable placement for the host that you want to decommission. Then, when you restart the instances they are started on another host in the group if capacity is available.
+Provisioning instances on a dedicated group allows your instances to move between hosts if the need ever arises. For example, if you want to decrease the size of your dedicated host group, you can stop instances on one of the hosts, disable placement for that host. Then, when you restart the instances, they are started on another host in the group if capacity is available.
 
 ## How much instance storage is available on my dedicated host?
 {: #faq-dedicated-host-4}
@@ -54,8 +51,6 @@ In IBM Cloud console, if you look at the details page of a dedicated host that w
 {: #faq-dedicated-host-5}
 {: faq}
 
-In case of a hardware failure, the dedicated host and the instances that are running on it are migrated to a new hardware node.
-
-If a host hardware failure occurs, the instances that you initially provisioned to a dedicate host group might be migrated to another existing dedicated host in the group if capacity is available.
+If hardware failure occurs, the dedicated host and the instances that are running on it are migrated to a new hardware node. The instances that you initially provisioned in a dedicated host group might be migrated to another existing dedicated host in the group if capacity is available.
 
 For more information, see [Viewing notifications](/docs/account?topic=account-viewing-cloud-status#view-notifications) and [Host failure recovery policies](/docs/vpc?topic=vpc-host-failure-recovery-policies&interface=ui).

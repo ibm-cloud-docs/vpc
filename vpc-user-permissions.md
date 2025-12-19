@@ -1,9 +1,8 @@
 ---
 
 copyright:
-  years: 2019, 2024
-
-lastupdated: "2024-10-10"
+  years: 2019, 2025
+lastupdated: "2025-12-19"
 
 keywords: resource, access, role, role-based, authorization, policy, access group, resource group, permission, assign, administrator, operator, editor, viewer, user, team, scenario, manage, create, IAM
 

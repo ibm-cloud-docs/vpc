@@ -2,7 +2,7 @@
 
 copyright:
   years: 2019, 2025
-lastupdated: "2024-02-22"
+lastupdated: "2025-12-19"
 
 keywords: creating an encrypted custom image, qcow2
 
@@ -42,7 +42,7 @@ The following steps summarize the high-level process that you need to complete t
 1. Create an encrypted image by using QEMU and a passphrase of your choice to encrypt a qcow2 file with LUKS encryption. 
 2. Upload the encrypted image file to {{site.data.keyword.cos_full_notm}}. 
 3. Provision a key management service, create a customer root key (CRK), and then wrap your passphrase with the CRK to generate a wrapped data encryption key (WDEK).  
-4. Ensure that you have the required IBM {{site.data.keyword.iamshort}} authorizations so that you can import the image from {{site.data.keyword.cos_full_notm}} and so that your WDEK can be used for data encryption.
+4. Make sure that you have the required IBM {{site.data.keyword.iamshort}} authorizations so that you can import the image from {{site.data.keyword.cos_full_notm}} and so that your WDEK can be used for data encryption.
 5. Import the image to {{site.data.keyword.vpc_short}}. You must specify {{site.data.keyword.cos_full_notm}} location, the CRK that is stored in your KMS, and your WDEK ciphertext.
 
 ## Encrypting the image
@@ -58,7 +58,7 @@ The custom image that you plan to encrypt must meet the custom image requirement
 
 To complete the encryption task, you must have [QEMU](https://www.qemu.org/){: external} version 2.12 or later installed. 
 
-You must use a Linux or Windows operating system to complete the QEMU encryption instructions. Mac operating system is not supported. 
+You must use a Linux or Windows operating system to complete the QEMU encryption instructions. The Mac operating system is not supported. 
 {: important}
 
 Complete the following steps by using QEMU to create a second encrypted qcow2 file of your custom image. 
@@ -159,7 +159,7 @@ When your image file is encrypted with LUKS encryption and your unique passphras
 ## Setting up your key management service and keys
 {: #kms-prereqs}
 
-To import an encrypted custom image to {{site.data.keyword.vpc_short}}, you need a key management service provisioned. You also need a customer root key (CRK) and a wrapped data encryption key (WDEK). The WDEK is the passphrase that you used to encrypt your image wrapped with your CRK so that your passphrase remains known only to you. The WDEK is used to access the encrypted image when a virtual server instance that uses the encrypted image is started. 
+To import an encrypted custom image to {{site.data.keyword.vpc_short}}, you need a key management service. You also need a customer root key (CRK) and a wrapped data encryption key (WDEK). The WDEK is the passphrase that you used to encrypt your image wrapped with your CRK, so that your passphrase remains known only to you. The WDEK is used to access the encrypted image when a virtual server instance that uses the encrypted image is started. 
 
 The following list is a summary of the key management prerequisites:
 * Provision a supported key management service, either [{{site.data.keyword.keymanagementserviceshort}}](/docs/key-protect?topic=key-protect-getting-started-tutorial) or [{{site.data.keyword.hscrypto}}](/docs/hs-crypto?topic=hs-crypto-get-started).
@@ -171,7 +171,7 @@ The following example steps are specific to {{site.data.keyword.keymanagementser
 
 1. Provision the [{{site.data.keyword.keymanagementserviceshort}}](/docs/key-protect?topic=key-protect-provision) service.
    
-   Provisioning a new {{site.data.keyword.keymanagementserviceshort}} service instance ensures that it includes the most recent updates that are required for customer-managed encryption.
+   Provisioning a {{site.data.keyword.keymanagementserviceshort}} service instance makes sure that it includes the most recent updates that are required for customer-managed encryption.
    {: tip}
    
 2. [Create](/docs/key-protect?topic=key-protect-create-root-keys) or [import](/docs/key-protect?topic=key-protect-import-root-keys) a customer root key (CRK) in {{site.data.keyword.keymanagementservicelong_notm}}.

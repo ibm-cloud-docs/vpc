@@ -1,7 +1,7 @@
 ---
 copyright:
-  years: 2022
-lastupdated: "2025-12-11"
+  years: 2022, 2025
+lastupdated: "2025-12-19"
 
 keywords:
 
@@ -34,4 +34,4 @@ Follow these steps to fix public ingress traffic routing issues:
 
 1. Verify that the floating IP is defined correctly.
 
-For more information, see [Why am I not getting a response from the destination floating-IP?](/docs/vpc?topic=vpc-troubleshoot-pi-floatingip-response&interface=cli).
+For more information, see [Why am I not getting a response from the destination floating-IP?](/docs/vpc?topic=vpc-troubleshoot-pi-floatingip-response&interface=cli)

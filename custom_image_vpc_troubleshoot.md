@@ -1,8 +1,8 @@
 ---
 
 copyright:
-  years: 2021, 2023
-lastupdated: "2023-01-26"
+  years: 2021, 2025
+lastupdated: "2025-12-19"
 
 keywords: custom image, image from volume, troubleshooting, troubleshoot
 
@@ -25,7 +25,7 @@ When you create or manage custom images, you might encounter issues. Issues, sym
 {: troubleshoot}
 {: support}
 
-You are trying to create a custom image from a volume that does not have 100 GB capacity. When you try to select a volume that is not the right capacity to create your image, the system cannot retrieve it.
+You are trying to create a custom image from a volume that is not 100 GB. When you try to select a volume that is not the right capacity to create your image, the system cannot retrieve it.
 {: tsSymptoms}
 
 When you create a customer image from an existing boot volume, the image inherits the encryption from the originating volume. If the boot volume was encrypted by a customer-managed root key, the new customer image is also encrypted with the same key. If the volume had the default, IBM-managed encryption, and you specify a new customer key, the new custom is encrypted by the customer-managed key. The volumes that are to be used as the source for new encrypted images with customer keys must have 100 GB capacity. Custom images can be between 10 - 250 GB but volumes that are intended to be the source for new encrypted images must be 100 GB capacity.

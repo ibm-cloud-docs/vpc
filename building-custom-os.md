@@ -1,13 +1,12 @@
 ---
 
 copyright:
-  years: 2021, 2023
-lastupdated: "2025-07-30"
+  years: 2021, 2025
+lastupdated: "2025-12-19"
 
 keywords: custom os, creating a custom os, custom operating system, creating a custom operating system, kernel, custom kernel
 
 subcollection: vpc
-
 
 ---
 
@@ -16,7 +15,7 @@ subcollection: vpc
 # Configuration requirements for custom Linux kernels
 {: #configuration-requirements-for-custom-linux-kernels}
 
-Custom Linux kernels can be used in {{site.data.keyword.vpc_full}} VPC. You can build a custom kernel locally on your virtual server instance or on-premises. Use Image from Volume to capture an image by using your custom kernel, or use [Custom Image Import](/docs/vpc?topic=vpc-importing-custom-images-vpc) to bring your on-premises image into the account's image catalog.
+Custom Linux kernels can be used in {{site.data.keyword.vpc_full}} VPC. You can build a custom kernel locally on your virtual server instance or on-premises. Then, [create a custom image by using your boot volume](/docs/vpc?topic=vpc-image-from-volume-vpc), or use [Custom Image Import](/docs/vpc?topic=vpc-importing-custom-images-vpc) to bring your on-premises image into the account's image catalog.
 
 When you build your own custom Linux kernel for use in the {{site.data.keyword.vpc_full}}, refer to these requirements. It is also recommended that you [enable virtual server instance console access](/docs/vpc?topic=vpc-vsi_is_connecting_console) when you build your own custom kernel. Doing so helps facilitate debugging any potential boot issues.
 {: shortdesc}
@@ -86,7 +85,7 @@ The following kernel options are required when you build a Linux operating syste
 - CONFIG_SCSI = y
    - To use a SCSI hard disk, SCSI tape drive, SCSI CD-ROM, or any other SCSI device under Linux
 - CONFIG_VIRTIO_PCI = y
-   - This driver adds support for virtio-based para virtual device drivers over PCI
+   - This driver adds support for virtio-based para-virtual device drivers over PCI
 - CONFIG_SCSI_VIRTIO = y
    - The virtual HBA driver for virtio
 - CONFIG_VIRTIO_NET = y
