@@ -61,6 +61,9 @@ Profiles with AMD-manufactured processors are available in the Toronto region.
 
 Balanced profiles provide a mix of performance and scalability for more common workloads. The Balanced profile family includes profiles with and without [instance storage](/docs/vpc?topic=vpc-instance-storage). The following table shows all Balanced profiles that are available for Intel&reg; x86-64, and AMD x86-64 processors.
 
+The 4th generation balanced profiles (bx4) are available in the Dallas (us-south) region for customers with special access. For more information about the capabilities of the new profiles, see [General purpose instance profiles - Intel Gen 4](/docs/vpc?topic=vpc-general-purpose-vsi-profiles-gen4-intel&interface=ui).
+{: preview}
+
 The following table shows all balance profiles that are available for x86-64.
 
 | Instance profile | vCPU / Cores | NUMA count | GiB RAM | Bandwidth cap (Gbps) | Instance storage (GB) |
@@ -146,7 +149,7 @@ The following table shows all balance profiles that are available for x86-64.
 | bx4d-176x704 | 176 / 88 | 704 | 200 | 2x780 |
 {: caption="Balanced bx4 profile options for Intel x86-64 instances" caption-side="bottom"}
 {: #balanced-intel-x86-64-gen4}
-{: tab-title="bx4 (Beta)"}
+{: tab-title="bx4 (Select availability)"}
 {: tab-group="Balanced"}
 {: class="simple-tab-table"}
 {: summary="Balanced bx4 profile options for Intel x86-64 virtual server instances."}
@@ -158,6 +161,9 @@ AMD-based virtual machines use AMD EPYC Milan processors. Compute capabilities a
 {: #compute}
 
 Compute profiles are best for workloads with intensive CPU demands, such as high web traffic workloads, production batch processing, and front-end web servers. The Compute profile family includes profiles with and without [instance storage](/docs/vpc?topic=vpc-instance-storage). The following table shows all Compute profiles that are available for &reg; x86-64.
+
+The 4th generation compute profiles (cx4) are available in the Dallas (us-south) region for customers with special access. For more information about the capabilities of the new profiles, see [General purpose instance profiles - Intel Gen 4](/docs/vpc?topic=vpc-general-purpose-vsi-profiles-gen4-intel&interface=ui).
+{: preview}
 
 The following table shows all compute profiles that are available for x86-64.
 
@@ -234,7 +240,7 @@ The following table shows all compute profiles that are available for x86-64.
 | cx4d-176x352 | 176 / 88 | 352 | 200 | 2x780 |
 {: caption="Compute cx4 profile options for x86-64 instances" caption-side="bottom"}
 {: #compute-intel-x86-64-gen4}
-{: tab-title="cx4 (Beta)"}
+{: tab-title="cx4 (Select availability)"}
 {: tab-group="Compute"}
 {: class="simple-tab-table"}
 {: summary="Compute cx4 profile options for Intel x86-64 virtual server instances."}
@@ -243,6 +249,9 @@ The following table shows all compute profiles that are available for x86-64.
 {: #memory}
 
 Memory profiles are best for memory intensive workloads, such as large caching workloads, intensive database applications, or in-memory analytics workloads. The Memory profile family includes profiles with and without [instance storage](/docs/vpc?topic=vpc-instance-storage). The following table shows all Memory profiles that are available for Intel&reg; x86-64.
+
+The 4th generation memory profiles (mx4) are available in the Dallas (us-south) region for customers with special access. For more information about the capabilities of the new profiles, see [General purpose instance profiles - Intel Gen 4](/docs/vpc?topic=vpc-general-purpose-vsi-profiles-gen4-intel&interface=ui).
+{: preview}
 
 | Instance profile | vCPU / Cores | NUMA count | GiB RAM | Bandwidth cap (Gbps) | Instance storage (GB) |
 |---------|-------|-------|---------|---------|---------|
@@ -317,7 +326,7 @@ Memory profiles are best for memory intensive workloads, such as large caching w
 | mx4d-176x1408| 176 / 88 | 1408 | 200 | 2x780 |
 {: caption="Memory mx4 profile options for x86-64 instances " caption-side="bottom"}
 {: #memory-intel-x86-64-gen4}
-{: tab-title="mx4 (Beta)"}
+{: tab-title="mx4 (Select availability)"}
 {: tab-group="Memory"}
 {: class="simple-tab-table"}
 {: summary="Memory mx4 profile options for Intel x86-64 virtual server instances."}

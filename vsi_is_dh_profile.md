@@ -55,6 +55,9 @@ The Balanced profile family of dedicated hosts on Intel&reg; x86-64 systems are 
 New 3rd generation profiles are available in the Dallas, London, Frankfurt, Toronto, Montreal, Chennai, and Madrid regions to create dedicated hosts on hardware that uses 4th Generation Intel&reg; Xeon&reg; Scalable processors, the Intel 8474C processor (previously code named Sapphire Rapids).
 {: preview}
 
+The 4th generation dedicated host profile is available in the Dallas (us-south) region for customers with special access. For more information about the capabilities of the new profiles, see [General purpose instance profiles - Intel Gen 4](/docs/vpc?topic=vpc-general-purpose-vsi-profiles-gen4-intel&interface=ui).
+{: preview}
+
 The following Balanced profiles are available for dedicated hosts.
 
 | Dedicated host profile | vCPU | Cores | GiB RAM | Instance storage |
@@ -93,7 +96,7 @@ The following Balanced profiles are available for dedicated hosts.
 | bx4d-host-372x1442 | 372 | 186 | 1442 | 2x 2.7 TB |
 {: caption="Intel Balanced bx4d profile options for dedicated hosts" caption-side="bottom"}
 {: #dh-balanced-intel-x86-64-bx4d}
-{: tab-title="bx4 (Beta)"}
+{: tab-title="bx4 (Select availability)"}
 {: tab-group="DH Balanced"}
 {: class="simple-tab-table"}
 {: summary="Dedicated Host Balanced 4th generation profile option for Intel&reg; x86-64 virtual server instances."}

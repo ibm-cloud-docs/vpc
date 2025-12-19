@@ -15,10 +15,11 @@ subcollection: vpc
 # General purpose instance profiles - Intel Gen 4
 {: #general-purpose-vsi-profiles-gen4-intel}
 
-[Beta]{: tag-blue}
-
 The general purpose 4th generation virtual server profiles (balanced, compute, and memory) are built atop the 6th Generation Intel® Xeon® Scalable processors. This generation offers an increased networking speed, larger cache sizes, and improved workload performance.
 {: shortdesc}
+
+The 4th generation general purpose profiles are available in the Dallas (us-south) region for customers with special access.
+{: preview}
 
 The general purpose profiles can also be paired with a corresponding dedicated host. This solution allows
 for single-tenant hypervisors running workloads from a single {{site.data.keyword.cloud}} account.
@@ -57,7 +58,7 @@ for single-tenant hypervisors running workloads from a single {{site.data.keywor
 - Volume bandwidth:
    - Default: `pooled`
    - Options: `pooled` or `weighted`
- 
+
 For more information about networking bandwidth allocation for profiles, see [Optimizing network bandwidth allocation for profiles](/docs/vpc?topic=vpc-bandwidth-allocation-profiles#network-perf-notes-for-profiles). For more information about volume bandwidth, see [Volume bandwidth allocation method](/docs/vpc?topic=vpc-block-storage-bandwidth#attached-block-vol-bandwidth).
 
 ## VM Configuration
