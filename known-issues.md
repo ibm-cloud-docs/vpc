@@ -246,7 +246,7 @@ A cross-regional copy of block storage volume snapshots is not supported in the 
 ### Security Group and Network ACL rules support for any protocol including issues with older SDKs, CLIs and Terraform providers
 {: #security-groups-network-acls-protocol-old-sdk-cli-tf-issue}
 
-When a security group or network ACL rule is created with the `protocol` value that was previously unsupported, there is an issue with old versions of some tools that use the API. The following tools may experience an error (crash) when retrieving or listing rules with a previously unsupported `protocol` value:
+When a security group or network ACL rule is created with a `protocol` value that was previously unsupported, there is an issue with old versions of some tools that use the API. The following tools may experience an error (crash) when retrieving or listing rules with a previously unsupported `protocol` value:
 - The [IBM Cloud VPC Go SDK](https://github.com/IBM/vpc-go-sdk). For troubleshooting information, see the [known issues](https://github.com/IBM/vpc-go-sdk/blob/master/known-issues.md).
 - The `vpc-infrastructure` plugin for the [IBM Cloud CLI](https://cloud.ibm.com/docs/cli). To prevent errors, update to the latest version of the `vpc-infrastructure` plugin.
 
