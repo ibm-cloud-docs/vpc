@@ -386,6 +386,7 @@ Regions:
 - Asia Pacific
    - Sydney (`au-syd`)
    - Tokyo (`jp-tok`)
+   - Chennai (`in-che`), only in zone 1 (`in-che-1`)
 
 ### Capabilities
 {: #l4-capabilities}

@@ -27,6 +27,13 @@ For more information about changes to the {{site.data.keyword.vpc_short}} comman
 ## December 2025
 {: #vpc-dec25}
 
+### 18 December 2025
+{: #vpc-dec1825}
+{: release-note}
+
+Accelerated l4 profile now available in Chennai region (GA)
+:   The l4 GPU profile is now available in zone 1 (`in-che-1`) of the Chennai (`in-che`) region. For more information, see [NVIDIA L4 instance profiles](/docs/vpc?topic=vpc-accelerated-profile-family#l4-profiles). For more information about regions, see [IBM Cloud region and data center locations for resource deployment](/docs/overview?topic=overview-locations).
+
 ### 12 December 2025
 {: #vpc-dec1225}
 {: release-note}
