@@ -2,7 +2,7 @@
 
 copyright:
   years: 2024, 2025
-lastupdated: "2025-11-05"
+lastupdated: "2025-12-19"
 
 keywords: vsi, virtual server, virtual server instances, profile, profiles, gpu, accelerated, h100, h200, l4, l40s
 
@@ -71,7 +71,7 @@ For more information about regions and universal zones, see [Regions](/docs/over
 - Internal AI Fabric: Yes
 - Infinity Fabric™ (XGMI) 128 GB/s GPU-to-GPU connections
 - Cluster network capable: No
-- [Volume bandwidth allocation method](/docs/vpc?topic=vpc-block-storage-bandwidth#attached-block-vol-bandwidth): `weighted` by default, can be updated to `pooled`.
+- [Volume bandwidth allocation method](/docs/vpc?topic=vpc-block-storage-bandwidth#attached-block-vol-bandwidth): `weighted` by default, it can be updated to `pooled`.
 
 ### VM configuration
 {: #amd-mi300x-vm-config}

@@ -2,7 +2,7 @@
 
 copyright:
   years: 2019, 2025
-lastupdated: "2025-12-12"
+lastupdated: "2025-12-19"
 
 keywords:
 
@@ -1159,10 +1159,10 @@ UI navigation change to Auto scale
 {: release-note}
 
 GPU l40S profiles with PCIe now available
-:   New `l40S` GPU profiles that include NVIDIA's L40S 48GB GPU are now available in the Frankfurt (`eu-de`), Madrid (`eu-es`), Sydney (`au-syd`), and Tokyo (`jp-tok`) regions. For more information, see [GPU x86-64 instance profiles](/docs/vpc?topic=vpc-profiles&interface=ui#gpu). For more information about the Multizone regions, see [Region and data center locations for resource deployment](/docs/overview?topic=overview-locations).
+:   New `l40S` GPU profiles that include NVIDIA's L40S 48-GB GPU are now available in the Frankfurt (`eu-de`), Madrid (`eu-es`), Sydney (`au-syd`), and Tokyo (`jp-tok`) regions. For more information, see [GPU x86-64 instance profiles](/docs/vpc?topic=vpc-profiles&interface=ui#gpu). For more information about the Multizone regions, see [Region and data center locations for resource deployment](/docs/overview?topic=overview-locations).
 
 GPU l4 profiles now available
-:   New `l4` GPU profiles that include NVIDIA's L4 24GB GPU are now available in the Toronto (`ca-tor`), London (`eu-gb`), Frankfurt (`eu-de`), Madrid (`eu-es`),  Sydney (`au-syd`), and Tokyo (`jp-tok`) regions. For more information, see [GPU x86-64 instance profiles](/docs/vpc?topic=vpc-profiles&interface=ui#gpu). For more information about the Multizone regions, see [Region and data center locations for resource deployment](/docs/overview?topic=overview-locations).
+:   New `l4` GPU profiles that include NVIDIA's L4 24-GB GPU are now available in the Toronto (`ca-tor`), London (`eu-gb`), Frankfurt (`eu-de`), Madrid (`eu-es`),  Sydney (`au-syd`), and Tokyo (`jp-tok`) regions. For more information, see [GPU x86-64 instance profiles](/docs/vpc?topic=vpc-profiles&interface=ui#gpu). For more information about the Multizone regions, see [Region and data center locations for resource deployment](/docs/overview?topic=overview-locations).
 
 ### 23 February 2024
 {: #vpc-feb2324}
