@@ -2,7 +2,7 @@
 
 copyright:
   years: 2019, 2025
-lastupdated: "2025-11-05"
+lastupdated: "2025-12-19"
 
 keywords: load balancer, network, unknown
 
@@ -19,7 +19,7 @@ content-type: troubleshoot
 {: troubleshoot}
 {: support}
 
-Use the information in this topic to troubleshoot a back-end member for a load balancer that lists as `unknown`.
+Use the following information to troubleshoot a back-end member for a load balancer that lists as `unknown`.
 {: shortdesc}
 
 A load balancer back-end member lists as unknown.
@@ -28,5 +28,5 @@ A load balancer back-end member lists as unknown.
 The pool might not be associated with any listeners, or configuration changes were made to the pool or its associated listener.
 {: tsCauses}
 
-Verify and resolve any of the aforementioned causes.
+Verify the configuration and resolve any issues.
 {: tsResolve}

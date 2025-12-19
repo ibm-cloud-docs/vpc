@@ -2,7 +2,7 @@
 
 copyright:
   years: 2019, 2025
-lastupdated: "2025-11-01"
+lastupdated: "2025-12-19"
 
 keywords: load balancer, network, faqs
 
@@ -19,7 +19,7 @@ content-type: troubleshoot
 {: troubleshoot}
 {: support}
 
-Use the information in this topic to troubleshoot a back-end member in your pool with a status of `faulted`.
+Use the following information to troubleshoot a back-end member in your pool with a status of `faulted`.
 {: shortdesc}
 
 The back-end member under your pool displays a status of `faulted`.

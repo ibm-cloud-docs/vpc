@@ -1,8 +1,8 @@
 ---
 
 copyright:
-  years: 2019, 2024
-lastupdated: "2024-07-19"
+  years: 2019, 2025
+lastupdated: "2025-12-19"
 
 keywords: load balancer, network, 401
 
@@ -19,7 +19,7 @@ content-type: troubleshoot
 {: troubleshoot}
 {: support}
 
-Use the information in this topic to troubleshoot 401 error codes.
+Use the following information to troubleshoot 401 error codes.
 {: shortdesc}
 
 You receive a `401` error code for your load balancer.
