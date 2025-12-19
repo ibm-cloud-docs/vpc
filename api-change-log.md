@@ -102,7 +102,7 @@ In a DNS sharing VPC topology, when [creating](/apidocs/vpc/latest#create-endpoi
 
 Existing security group rules will have system assigned names. When creating a VPC, the [VPC default security group](/apidocs/vpc/latest#get-vpc-default-security-group) includes inbound and outbound security group rules with system assigned names.
 
-**Any protocol in security group and network ACL rules.** Security group and network ACL rules now support [any protocol](https://www.iana.org/assignments/protocol-numbers/protocol-numbers.xhtml){: external}. The `protocol` property for these rules can now have one of these values:
+**Any protocol in security group and network ACL rules.** For accounts that have special approval to preview and use this feature, security group and network ACL rules now support [any protocol](https://www.iana.org/assignments/protocol-numbers/protocol-numbers.xhtml){: external}. The `protocol` property for these rules can now have one of these values:
 
 - `any` for traffic with any protocol (number 0 to 255)
 - `icmp_tcp_udp` for ICMP, TCP, and UDP traffic (for API version `2025-12-08` or earlier, the value `all` is used instead of `icmp_tcp_udp`)
@@ -118,6 +118,9 @@ Existing security group rules will have system assigned names. When creating a V
 - `l2tp` for Layer Two Tunneling Protocol traffic (protocol number 115)
 - `sctp` for Stream Control Transmission Protocol traffic (protocol number 132)
 - `number_<N>` for traffic with any other individual protocol (replace `<N>` with the decimal protocol number, such as `number_108` for [IP Payload Compression Protocol](https://www.rfc-editor.org/rfc/rfc2393.html#section-3.1){: external} traffic)
+
+See [Networking known issues](/docs/vpc?topic=vpc-known-issues#networking-vpc-known-issues) before creating a rule with a previously unsupported `protocol` value.
+{: note}
 
 When [creating a rule for a security group](/apidocs/vpc/latest#create-security-group-rule), you can now specify one of these values for the `protocol` property.
 
