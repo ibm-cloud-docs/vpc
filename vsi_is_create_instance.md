@@ -2,7 +2,7 @@
 
 copyright:
   years: 2018, 2025
-lastupdated: "2025-12-10"
+lastupdated: "2025-12-20"
 
 keywords:
 
@@ -20,7 +20,7 @@ You can create one or more virtual server instances in your {{site.data.keyword.
 
 When you create a virtual server, you specify information such as the location and name for your virtual server. You specify an operating system image, a profile that defines the combination of vCPU and RAM, and SSH keys to securely connect to your virtual server. You can add data volumes in addition to the boot volume. You can also specify the type of network interface that is created for your virtual server. Finally, you can select from advanced options for your virtual server configuration.
 
-## Creating a virtual server instance with the UI
+## Creating a virtual server instance in the console
 {: #creating-virtual-servers-ui}
 {: ui}
 
@@ -104,7 +104,7 @@ After the instance is created, you need to [associate a floating IP address to t
 
 If you have an existing instance with a floating IP address, it isn't necessary to assign a second floating IP to another instance. You can connect to the first instance with a floating IP, then SSH to the second instance by using the private subnet IP address that is automatically assigned to it.
 
-## Creating a virtual server instance by using the CLI
+## Creating a virtual server instance from the CLI
 {: #creating-virtual-servers-cli}
 {: cli}
 
@@ -125,7 +125,7 @@ You can create instances by using the command-line interface (CLI). If you would
 
 * Make sure that you [created a VPC](/docs/vpc?topic=vpc-creating-vpc-resources-with-cli-and-api&interface=cli).
 
-### Gathering information to create an instance by using the CLI
+### Gathering information to create an instance from the CLI
 {: #gather-info-to-create-virtual-servers-cli}
 {: cli}
 
@@ -435,7 +435,7 @@ c5f1f366-b92a-4080-991a-aa5c2e33d96b          placement-group-region-us-south   
 ```
 {: screen}
 
-### Creating an instance by using the CLI
+### Creating an instance from the CLI
 {: #create-instance-cli}
 {: cli}
 
@@ -447,7 +447,7 @@ Use the following information to create an instance with the CLI.
 
 After you know the needed values, use them to run the **`ibmcloud is instance-create`** command. You also need to specify a unique name for the instance.
 
-Use the following steps to create a basic virtual server instance from a stock image by using the CLI. By default, a boot volume is attached to the instance when the instance is created. For most virtual server instances, the default boot volume size is 100 GB. The default boot volume size for a z/OS virtual server instance is 250 GB.
+Use the following steps to create a basic virtual server instance from a stock image from the CLI. By default, a boot volume is attached to the instance when the instance is created. For most virtual server instances, the default boot volume size is 100 GB. The default boot volume size for a z/OS virtual server instance is 250 GB.
 
 1. Create an instance by using the following command.
 
@@ -628,7 +628,7 @@ Need more help? You can always run `ibmcloud is instance-create --help` to displ
 
 After you know the needed values, use them to run the **`ibmcloud is instance-create`** command. You also need to specify a unique name for the instance.
 
-Use the following steps to create a virtual server instance from a private catalog offering or a catalog offering version by using the CLI.
+Use the following steps to create a virtual server instance from a private catalog offering or a catalog offering version from the CLI.
 
 1. Create an instance by using the following command.
 
@@ -943,11 +943,11 @@ If you choose a GPU profile, see [Managing GPUs](/docs/vpc?topic=vpc-managing-gp
 
 After the instance is created, associate a floating IP address to the instance. Then, you can connect to your instance. For more information, see [Connecting to your Linux instance](/docs/vpc?topic=vpc-vsi_is_connecting_linux) or [Connecting to your Windows instance](/docs/vpc?topic=vpc-vsi_is_connecting_windows).
 
-## Creating a virtual server instance by using the API
+## Creating a virtual server instance with the API
 {: #create-instance-api}
 {: api}
 
-You can create instances by using the API.
+You can create instances with the API.
 
 ### Before you begin
 {: #before-you-begin-create-instance-api}
@@ -955,7 +955,7 @@ You can create instances by using the API.
 
 Make sure that you have the required access. To call these methods, you must be assigned one or more IAM access roles that include the following actions, depending on any listed conditions. You can check your access by going to the **Users** page of [{{site.data.keyword.iamshort}} dashboard](https://cloud.ibm.com/iam/overview){: external}.
 
-### Gathering information to create an instance by using the API
+### Gathering information to create an instance with the API
 {: #gather-info-to-create-virtual-servers-api}
 {: api}
 
@@ -979,13 +979,13 @@ Some profiles might not be available because of one of the following reasons:
    - The selected image contains an allowed-use expression that is not compatible with the profile. In these cases, select an image with an allowed-use expression that is compatible with the wanted profile. For more information, see [Adding allowed-use expressions to custom images](/docs/vpc?topic=vpc-custom-image-allowed-use-expressions&interface=ui).
 
 
-### Creating an instance by using the API
+### Creating an instance with the API
 {: #create-vsi-api}
 {: api}
 
 After you retrieved the information that you need, you can run the [`POST /instances`](/apidocs/vpc/latest#create-instance) method to create an instance.
 
-### Provision an instance from a stock or custom image by using the API
+### Provision an instance from a stock or custom image with the API
 {: #create-instance-stock-custom-image-api}
 {: api}
 
@@ -1018,7 +1018,7 @@ You can provision an instance with a stock or custom image by specifying the ima
  ```
  {: pre}
 
-### Provision an instance from a private catalog image by using the API
+### Provision an instance from a private catalog image with the API
 {: #create-instance-private-catalog-image-api}
 {: api}
 
