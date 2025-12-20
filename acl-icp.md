@@ -2,7 +2,7 @@
 
 copyright:
   years: 2019, 2025
-lastupdated: "2025-12-12"
+lastupdated: "2025-12-20"
 
 keywords:
 
@@ -44,4 +44,4 @@ Typically, UDP is used for real-time communication, where a little percentage of
 ## ANY
 {: #network-infrastructure-any-ipv4}
 
-You can now apply all [IPv4 protocols listed in IANA](https://www.iana.org/assignments/protocol-numbers/protocol-numbers.xhtml) to Network Access Control list rules and Security Group rules. This allows you to bring custom topologies and use cases from on-prem, multi-cloud and Classic infrastructure that leverage protocols outside of TCP, UDP, ICMP.
+You can now apply any [IPv4 protocol listed in IANA](https://www.iana.org/assignments/protocol-numbers/protocol-numbers.xhtml) to Network Access Control list rules and Security Group rules. This allows you to bring custom topologies and use cases from on-prem, multi-cloud and Classic infrastructure that leverage protocols outside of TCP, UDP, and ICMP.

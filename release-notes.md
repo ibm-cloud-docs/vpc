@@ -2,7 +2,7 @@
 
 copyright:
   years: 2019, 2025
-lastupdated: "2025-12-19"
+lastupdated: "2025-12-20"
 
 keywords:
 
@@ -48,8 +48,8 @@ Accelerated l4 profile now available in Chennai region (GA)
 Burstable Flex virtual servers (GA)
 :   Burstable Flex virtual servers are designed to provide flexible CPU performance so workloads can operate at a smaller baseline level and opportunistically burst to higher performance when needed. Flex virtual servers are ideal for applications that require a baseline of CPU performance and experience intermittent spikes in CPU demand but don't require sustained high performance. For more information, see [Burstable virtual servers](/docs/vpc?topic=vpc-burstable-virtual-servers).
 
-Support for all IPv4 protocols for ACL and Security Group rules (GA)
-:   You can now apply all [IPv4 protocols listed in IANA](https://www.iana.org/assignments/protocol-numbers/protocol-numbers.xhtml) to Network Access Control list rules and Security Group rules. This allows you to bring custom topologies and use cases from on-prem, multi-cloud and Classic infrastructure that leverage protocols outside of TCP, UDP, ICMP. For more information, see [Understanding Internet Communication Protocols](/docs/vpc?topic=vpc-understanding-icp&interface=ui).
+Support for all IPv4 protocols for Network ACL and Security Group rules (GA)
+:   You can now apply any [IPv4 protocol listed in IANA](https://www.iana.org/assignments/protocol-numbers/protocol-numbers.xhtml) to Network Access Control List rules and Security Group rules. This allows you to bring custom topologies and use cases from on-prem, multi-cloud and Classic infrastructure that leverage protocols outside of TCP, UDP, and ICMP. For more information, see [Understanding Internet Communication Protocols](/docs/vpc?topic=vpc-understanding-icp&interface=ui).
 
 ### 11 December 2025
 {: #vpc-dec1125}
