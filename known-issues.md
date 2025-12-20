@@ -2,7 +2,7 @@
 
 copyright:
   years: 2018, 2025
-lastupdated: "2025-12-19"
+lastupdated: "2025-12-20"
 
 keywords:
 
@@ -258,3 +258,37 @@ Network traffic with the ESP protocol is currently supported by instances with [
 Configuring a security group rule with a `protocol` value of `esp` or `any` will not allow ESP traffic when the security group targets a network interface for an instance with a newer generation profile or a bare metal server.
 
 To avoid confusion about where ESP traffic is supported, the ESP protocol is not shown in the IBM Cloud console options for security group and network ACL rules. Support for ESP traffic on newer generation instance profiles and on bare metal servers may be available in a future release.
+
+## Known Issues for vpc-go-sdk
+{: #vpc-go-sdk-known-issues}
+
+### Security Group Rules and Network ACL Rules discriminator issue
+{: #security-groups-network-acls-rule-descriminator-issue}
+
+**Publication date:** 2025-12-18
+
+**Patch fix versions available in the following versions:** 
+[v0.76](https://github.com/IBM/vpc-go-sdk/releases/tag/v0.76.5)
+[v0.75](https://github.com/IBM/vpc-go-sdk/releases/tag/v0.75.1)
+[v0.74](https://github.com/IBM/vpc-go-sdk/releases/tag/v0.74.2)
+[v0.73](https://github.com/IBM/vpc-go-sdk/releases/tag/v0.73.1)
+[v0.72](https://github.com/IBM/vpc-go-sdk/releases/tag/v0.72.1)
+[v0.71](https://github.com/IBM/vpc-go-sdk/releases/tag/v0.71.2)
+[v0.70](https://github.com/IBM/vpc-go-sdk/releases/tag/v0.70.2)
+[v0.69](https://github.com/IBM/vpc-go-sdk/releases/tag/v0.69.2)
+[v0.68](https://github.com/IBM/vpc-go-sdk/releases/tag/v0.68.1)
+and later versions
+
+**Affected component:** vpc-go-sdk
+
+**Affected operations:** Security group rules and Network ACL rules 
+
+**Issue Summary:** Security Group rules and Network ACL rules now support the new protocol value `any`. Earlier versions of SDK could result in following error from reading a rule with an unsupported protocol value. 
+
+```
+error unmarshalling vpcv1.SecurityGroupCollection: error unmarshalling property 'security_groups' as []vpcv1.SecurityGroup: error unmarshalling property 'rules' as []vpcv1.SecurityGroupRuleIntf: unrecognized value for discriminator property 'protocol': any
+```
+
+This fix aligns fallback behavior and error identifiers with the correct model name (for example, NetworkACLRule instead of NetworkACLRuleItem).
+
+**Migration and mitigation:** Migrate to one of the patched versions, or update the SDK to the [latest version](https://github.com/IBM/vpc-go-sdk/releases).
