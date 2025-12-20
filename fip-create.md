@@ -2,7 +2,7 @@
 
 copyright:
   years: 2022, 2025
-lastupdated: "2025-10-15"
+lastupdated: "2025-12-20"
 
 keywords: floating ip, reserving, bare metal, vnic, public gateways
 
@@ -79,7 +79,7 @@ To associate multiple floating IPs to a network interface, make sure that both *
 
    * If a floating IP is already attached, the virtual network interface will not be accepted as a file share mount target.
    * If infrastructure NAT is enabled, at most one floating IP can be attached.
-1. In the Attach floating IP side panel, do one of the following:
+1. In the Attach floating IP side panel, choose one of the following options:
 
    * Click **Reserve new floating IP** to create floating IP, complete the information, and then click **Reserve**.
    * Select an existing floating IP address from the menu, then click **Attach**.

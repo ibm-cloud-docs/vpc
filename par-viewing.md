@@ -2,7 +2,7 @@
 
 copyright:
   years: 2025
-lastupdated: "2025-10-16"
+lastupdated: "2025-12-20"
 
 keywords: viewing, deleting, public address range
 
@@ -105,7 +105,7 @@ To view public address ranges with the API, follow these steps:
 
    For example: `version` (string): The API version, in format `YYYY-MM-DD`.
 
-1. When all variables are initiated, do one of the following:
+1. When all variables are initiated, choose one of the following options to do:
 
    * View all public address ranges for an account:
 

@@ -2,7 +2,7 @@
 
 copyright:
   years: 2024, 2025
-lastupdated: "2025-12-17"
+lastupdated: "2025-12-20"
 
 keywords:
 
@@ -215,7 +215,7 @@ To delete a Private Path service with the API, follow these steps:
       {: pre}
 
 
-1. When all variables are initiated, do one of the following:
+1. When all variables are initiated, choose one of the following options to do:
 
    * To delete a Private Path service:
 

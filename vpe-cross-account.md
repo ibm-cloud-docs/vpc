@@ -2,7 +2,7 @@
 
 copyright:
   years: 2025
-lastupdated: "2025-12-12"
+lastupdated: "2025-12-20"
 
 keywords: virtual private endpoints, VPE, endpoint gateway, cross account
 
@@ -359,7 +359,7 @@ To create an endpoint gateway with the API, follow these steps:
       ```
       {: pre}
 
-1. When all variables are initiated, do one of the following:
+1. When all variables are initiated, choose one of the following options to do:
 
    * Create an endpoint gateway for the specific VPC:
 
