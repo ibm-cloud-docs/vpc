@@ -2,7 +2,7 @@
 
 copyright:
   years: 2019, 2025
-lastupdated: "2025-12-17"
+lastupdated: "2025-12-19"
 
 keywords: vsi, virtual server instances, profile, profiles, balanced, compute, memory, very high memory, ultra high memory, gpu, storage optimized, confidential compute, flex, high frequency
 
@@ -60,6 +60,9 @@ Profiles with AMD-manufactured processors are available in the Toronto region.
 {: #balanced}
 
 Balanced profiles provide a mix of performance and scalability for more common workloads. The Balanced profile family includes profiles with and without [instance storage](/docs/vpc?topic=vpc-instance-storage). The following table shows all Balanced profiles that are available for Intel&reg; x86-64, and AMD x86-64 processors.
+
+The 4th generation balanced profiles (bx4) are available in the Dallas (us-south) region for customers with special access. For more information about the capabilities of the new profiles, see [General purpose instance profiles - Intel Gen 4](/docs/vpc?topic=vpc-general-purpose-vsi-profiles-gen4-intel&interface=ui).
+{: preview}
 
 The following table shows all balance profiles that are available for x86-64.
 
@@ -120,6 +123,37 @@ The following table shows all balance profiles that are available for x86-64.
 {: class="simple-tab-table"}
 {: summary="Balanced bx2 profile options for Intel x86-64 virtual server instances."}
 
+| Instance profile | vCPU / Cores | GiB RAM | Bandwidth cap (Gbps) | Instance storage (GB) |
+|---------|---------|---------|---------|---------|
+| bx4-2x8 | 2 / 1 | 8 | 4 | - |
+| bx4d-2x8 | 2 / 1 | 8 | 4 | 1x65 |
+| bx4-4x16 | 4 / 2 | 16 | 8 | - |
+| bx4d-4x16 | 4 / 2 | 16 | 8 | 1x130 |
+| bx4-8x32 | 8 / 4 | 32 | 16 | - |
+| bx4d-8x32 | 8 / 4 | 32 | 16 | 1x260 |
+| bx4-16x64 | 16 / 8 | 64 | 32 | - |
+| bx4d-16x64 | 16 / 8 | 64 | 32 | 1x520 |
+| bx4-24x96 | 24 / 12 | 96 | 48 | - |
+| bx4d-24x96 | 24 / 12 | 96 | 48 | 1x780 |
+| bx4-32x128 | 32 / 16 | 128 | 64 | - |
+| bx4d-32x128 | 32 / 16 | 128 | 64 | 2x520 |
+| bx4-48x192 | 48 / 24 | 192 | 96 | - |
+| bx4d-48x192 | 48 / 24 | 192 | 96 | 2x780 |
+| bx4-64x256 | 64 / 32 | 256| 128 | - |
+| bx4d-64x256 | 64 / 32 | 256 | 128 | 2x780 |
+| bx4-96x384 | 96 / 48 | 384 | 192 | - |
+| bx4d-96x384 | 96 / 48 | 384 | 192 | 2x780 |
+| bx4-128x512 | 128 / 64 | 512 | 200 | - |
+| bx4d-128x512 | 128 / 64 | 512 | 200 | 2x780 |
+| bx4-176x704 | 176 / 88 | 704 | 200 | - |
+| bx4d-176x704 | 176 / 88 | 704 | 200 | 2x780 |
+{: caption="Balanced bx4 profile options for Intel x86-64 instances" caption-side="bottom"}
+{: #balanced-intel-x86-64-gen4}
+{: tab-title="bx4 (Select availability)"}
+{: tab-group="Balanced"}
+{: class="simple-tab-table"}
+{: summary="Balanced bx4 profile options for Intel x86-64 virtual server instances."}
+
 AMD-based virtual machines use AMD EPYC Milan processors. Compute capabilities are limited to AMD EPYC Rome capabilities.
 {: important}
 
@@ -127,6 +161,9 @@ AMD-based virtual machines use AMD EPYC Milan processors. Compute capabilities a
 {: #compute}
 
 Compute profiles are best for workloads with intensive CPU demands, such as high web traffic workloads, production batch processing, and front-end web servers. The Compute profile family includes profiles with and without [instance storage](/docs/vpc?topic=vpc-instance-storage). The following table shows all Compute profiles that are available for &reg; x86-64.
+
+The 4th generation compute profiles (cx4) are available in the Dallas (us-south) region for customers with special access. For more information about the capabilities of the new profiles, see [General purpose instance profiles - Intel Gen 4](/docs/vpc?topic=vpc-general-purpose-vsi-profiles-gen4-intel&interface=ui).
+{: preview}
 
 The following table shows all compute profiles that are available for x86-64.
 
@@ -177,10 +214,44 @@ The following table shows all compute profiles that are available for x86-64.
 {: class="simple-tab-table"}
 {: summary="Compute profile options for Intel x86-64 virtual server instances."}
 
+| Instance profile | vCPU / Cores | GiB RAM | Bandwidth cap (Gbps) | Instance storage (GB) |
+|---------|---------|---------|---------|---------|
+| cx4-2x4 | 2 / 1 | 4 | 4 | - |
+| cx4d-2x4 | 2 / 1 | 4 | 4 | 1x65 |
+| cx4-4x8 | 4 / 2 | 8 | 8 | - |
+| cx4d-4x8 | 4 / 2 | 8 | 8 | 1x130 |
+| cx4-8x16 | 8 / 4 | 16 | 16 | - |
+| cx4d-8x16 | 8 / 4 | 16 | 16 | 1x260 |
+| cx4-16x32 | 16 / 8 |  32 | 32 | - |
+| cx4d-16x32 | 16 / 8 | 32 | 32 | 1x520 |
+| cx4-24x48 | 24 / 12 |  48 | 48 | - |
+| cx4d-24x48 | 24 / 12 | 48 | 48 | 1x780 |
+| cx4-32x64 | 32 / 16 | 64 | 64 | - |
+| cx4d-32x64 | 32 / 16 | 64 | 64 | 2x520 |
+| cx4-48x96 | 48 / 24 | 96 | 96 | - |
+| cx4d-48x96 | 48 / 24 | 96 | 96 | 2x780 |
+| cx4-64x128 | 64 / 32 | 128 | 128 | - |
+| cx4d-64x128 | 64 / 32 | 128 | 128 | 2x780 |
+| cx4-96x192 | 96 / 48 | 192 | 192 | - |
+| cx4d-96x192 | 96 / 48 | 192 | 192 | 2x780 |
+| cx4-128x256 | 128 / 64 | 256 | 200 | - |
+| cx4d-128x256 | 128 / 64 | 256 | 200 | 2x780 |
+| cx4-176x352 | 176 / 88 | 352 | 200 | - |
+| cx4d-176x352 | 176 / 88 | 352 | 200 | 2x780 |
+{: caption="Compute cx4 profile options for x86-64 instances" caption-side="bottom"}
+{: #compute-intel-x86-64-gen4}
+{: tab-title="cx4 (Select availability)"}
+{: tab-group="Compute"}
+{: class="simple-tab-table"}
+{: summary="Compute cx4 profile options for Intel x86-64 virtual server instances."}
+
 ## Memory
 {: #memory}
 
 Memory profiles are best for memory intensive workloads, such as large caching workloads, intensive database applications, or in-memory analytics workloads. The Memory profile family includes profiles with and without [instance storage](/docs/vpc?topic=vpc-instance-storage). The following table shows all Memory profiles that are available for Intel&reg; x86-64.
+
+The 4th generation memory profiles (mx4) are available in the Dallas (us-south) region for customers with special access. For more information about the capabilities of the new profiles, see [General purpose instance profiles - Intel Gen 4](/docs/vpc?topic=vpc-general-purpose-vsi-profiles-gen4-intel&interface=ui).
+{: preview}
 
 | Instance profile | vCPU / Cores | NUMA count | GiB RAM | Bandwidth cap (Gbps) | Instance storage (GB) |
 |---------|-------|-------|---------|---------|---------|
@@ -228,6 +299,37 @@ Memory profiles are best for memory intensive workloads, such as large caching w
 {: tab-group="Memory"}
 {: class="simple-tab-table"}
 {: summary="Memory mx2 profile options for Intel x86-64 virtual server instances."}
+
+| Instance profile | vCPU / Cores | GiB RAM | Bandwidth cap (Gbps) | Instance storage (GB) |
+|---------|---------|---------|---------|---------|
+| mx4-2x16 | 2 / 1 | 16 | 4 | - |
+| mx4d-2x16 | 2 / 1 | 16 | 4 | 1x65 |
+| mx4-4x32 | 4 / 2 | 32 | 8 | - |
+| mx4d-4x32 | 4 / 2 | 32 | 8 | 1x130 |
+| mx4-8x64 | 8 / 4 | 64 | 16 | - |
+| mx4d-8x64 | 8 / 4 | 64 | 16 | 1x260 |
+| mx4-16x128 | 16 / 8 | 128 | 32 | - |
+| mx4d-16x128 | 16 / 8 | 128 | 32 | 1x520 |
+| mx4-24x192 | 24 / 12 | 192 | 48 | - |
+| mx4d-24x192 | 24 / 12 | 192 | 48 | 1x780 |
+| mx4-32x256 | 32 / 16 | 256 | 64 | - |
+| mx4d-32x256 | 32 / 16 | 256 | 64 | 2x520 |
+| mx4-48x384 | 48 / 24 | 384 | 96 | - |
+| mx4d-48x384 | 48 / 24 | 384 | 96 | 2x780 |
+| mx4-64x512| 64 / 32 | 512 | 128 | - |
+| mx4d-64x512| 64 / 32 | 512 | 128 | 2x780 |
+| mx4-96x768| 96 / 48 | 768 | 192 | - |
+| mx4d-96x768| 96 / 48 | 768 | 192 | 2x780 |
+| mx4-128x1024| 128 / 64 | 1024 | 200 | - |
+| mx4d-128x1024| 128 / 64 | 1024 | 200 | 2x780 |
+| mx4-176x1408| 176 / 88 | 1408 | 200 | - |
+| mx4d-176x1408| 176 / 88 | 1408 | 200 | 2x780 |
+{: caption="Memory mx4 profile options for x86-64 instances " caption-side="bottom"}
+{: #memory-intel-x86-64-gen4}
+{: tab-title="mx4 (Select availability)"}
+{: tab-group="Memory"}
+{: class="simple-tab-table"}
+{: summary="Memory mx4 profile options for Intel x86-64 virtual server instances."}
 
 ## Very High Memory
 {: #vhmemory}

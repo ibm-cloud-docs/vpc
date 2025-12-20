@@ -2,7 +2,7 @@
 
 copyright:
   years: 2025
-lastupdated: "2025-09-25"
+lastupdated: "2025-12-20"
 
 keywords: public address range, bind, unbind
 
@@ -158,7 +158,7 @@ To bind, unbind, or move public address ranges with the API, follow these steps:
 
    `version` (string): The API version, in format `YYYY-MM-DD`.
 
-1. When all variables are initiated, do one of the following:
+1. When all variables are initiated, choose one of the following options to do:
 
    * Bind a public address range to a specific VPC:
 

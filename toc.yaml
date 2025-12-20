@@ -72,6 +72,8 @@ toc:
                 navtitle: General purpose - Flex profile
               - topic: vsi-profile-details-accelerated.md
                 navtitle: Accelerated - Gen 3
+              - topic: vsi-profile-details-general-purpose-gen4.md
+                navtitle: General purpose - Gen 4 (x86)
               - topic: vsi-profile-details-general-purpose-gen3.md
                 navtitle: General purpose - Gen 3 (x86)
               - topic: vsi-profile-details-general-purpose-gen2-x86.md

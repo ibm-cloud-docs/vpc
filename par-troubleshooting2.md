@@ -2,7 +2,7 @@
 
 copyright:
   years: 2025
-lastupdated: "2025-09-25"
+lastupdated: "2025-12-20"
 
 keywords:
 
@@ -14,15 +14,15 @@ content-type: troubleshoot
 
 {{site.data.keyword.attribute-definition-list}}
 
-# Why can't I bind a public address range at creation or delete one that's already bound?
+# Why can't I bind a public address range at creation or delete one that is already bound?
 {: #troubleshoot-binding-public-address-ranges}
 {: troubleshoot}
 {: support} 
 
-Binding a public address range during creation or deleting a bound range fails due to insufficient permissions. 
+Binding a public address range during creation, or deleting a bound range fails due to insufficient permissions. 
 {: shortdesc}
 
-You won't be able to create or delete the public address range.
+You can't create or delete the public address range.
 {: tsSymptoms}
 
 Insufficient IAM role or required IAM actions.
@@ -37,4 +37,4 @@ For more information, see [IAM roles and actions](/docs/account?topic=account-ia
 ## Related links
 {: #troubleshooting-related-link-par}
 
-[About public address ranges](/docs/vpc?topic=vpc-about-par)
+For more information, see [About public address ranges](/docs/vpc?topic=vpc-about-par).

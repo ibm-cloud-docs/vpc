@@ -31,10 +31,10 @@ The values for the `protocol` property in security group rules and network ACL r
 
 Note that only one of the allowed values for `protocol` differs between the old and new API versions:
 
-| API version             | Allowed values for the `protocol` property                  |
-|-------------------------|-------------------------------------------------------------|
-| `2025-12-08` or earlier | `any`, **`all`**, `icmp`, `tcp`, `udp`, `gre`, ...          |
-| `2025-12-09` or later   | `any`, **`icmp_tcp_udp`**, `icmp`, `tcp`, `udp`, `gre`, ... |
+| API version             | Allowed values for the `protocol` property              |
+|-------------------------|---------------------------------------------------------|
+| `2025-12-08` or earlier | `any`, `all`, `icmp`, `tcp`, `udp`, `gre`, ...          |
+| `2025-12-09` or later   | `any`, `icmp_tcp_udp`, `icmp`, `tcp`, `udp`, `gre`, ... |
 {: caption="Old and new allowed values for the protocol property in security group and network ACL rules" caption-side="bottom"}
 
 When security groups and network ACLs were first introduced, they supported the ICMP, TCP, and UDP protocols only. At that time, the value `all` signified "all supported protocols". Now that [any protocol number](https://www.iana.org/assignments/protocol-numbers/protocol-numbers.xhtml){: external} is supported, the value `all` is misleading, but is kept in earlier versions of the API for client compatibility. In later versions of the API, the value `all` is replaced with `icmp_tcp_udp`.

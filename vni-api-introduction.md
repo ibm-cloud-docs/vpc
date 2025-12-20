@@ -2,7 +2,7 @@
 
 copyright:
   years: 2024, 2025
-lastupdated: "2025-09-04"
+lastupdated: "2025-12-20"
 
 keywords: virtual network interfaces, hazardous change remediation, mitigation
 
@@ -149,7 +149,7 @@ Behavior change
 
 :   _Possible failure_: Workflows that delete file share mount targets, and then delete subnets, may fail. Failure occurs when the subnets contain virtual network interfaces that were not automatically deleted.
 
-:   _Mitigation_: Review client code for any assumptions that `auto_delete` is always `true`, and update the client's deletion logic, as needed, to look up the `virtual_network_interface` associated with share mount target. Then do one of the following:
+:   _Mitigation_: Review client code for any assumptions that `auto_delete` is always `true`, and update the client's deletion logic, as needed, to look up the `virtual_network_interface` associated with share mount target. Then choose one of the following options to do:
 
     - Set the `auto_delete` property of the virtual network interface to `true` before deleting the share mount target
     - Delete the virtual network interface in a follow-up step

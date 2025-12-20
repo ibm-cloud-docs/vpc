@@ -1,8 +1,8 @@
 ---
 
 copyright:
-  years: 2021, 2024
-lastupdated: "2024-09-23"
+  years: 2021, 2025
+lastupdated: "2025-12-20"
 
 keywords: scheduled scaling, instance scaling, virtual server instance scaling, scheduled actions, scaling actions
 
@@ -44,7 +44,7 @@ For more information about auto scale, see [Auto scale for VPC](/docs/vpc?topic=
 
 To create a one-time scheduled action, use the following steps.
 
-1. In the [{{site.data.keyword.cloud_notm}} console](/login){: external}, go to **Navigation Menu** icon ![menu icon](../icons/icon_hamburger.svg) **> Infrastructure** ![VPC icon](../../icons/vpc.svg) **> Compute > Instance groups**.
+1. In the [{{site.data.keyword.cloud_notm}} console](/login){: external}, go to the **Navigation menu** ![menu icon](../icons/icon_hamburger.svg) **> Infrastructure** ![VPC icon](../../icons/vpc.svg) **> Compute > Instance groups**.
 1. Select the instance group that you want to create a scheduled action for by clicking its name.
 1. Click **Scheduled actions**.
 1. In the new screen, click **Create**
@@ -58,7 +58,7 @@ To create a one-time scheduled action, use the following steps.
 
 To create a recurring scheduled action, use the following steps.
 
-1. In the [{{site.data.keyword.cloud_notm}} console](/login){: external}, go to **Navigation Menu** icon ![menu icon](../icons/icon_hamburger.svg) **> Infrastructure** ![VPC icon](../../icons/vpc.svg) **> Compute > Instance groups**.
+1. In the [{{site.data.keyword.cloud_notm}} console](/login){: external}, go to the **Navigation menu** ![menu icon](../icons/icon_hamburger.svg) **> Infrastructure** ![VPC icon](../../icons/vpc.svg) **> Compute > Instance groups**.
 1. Select the instance group that you want to create a scheduled action for by clicking its name.
 1. Click **Scheduled actions**.
 1. In the new screen, click **Create**
@@ -129,13 +129,13 @@ Where:
 - `INSTANCE_GROUP`: is the ID of the instance group.
 - `MANAGER` is the ID of the manager.
 - `ACTION`is the ID of the action.
-- `--run-at`is the date and time that is specified for the scheduled action. The format is in ISO 8601 format. Example: 2024-03-05T15:31:50.701Z or 2024-03-05T15:31:50.701+8:00.
+- `--run-at`is the date and time that is specified for the scheduled action. The format is in ISO 8601 format. Example: `2024-03-05T15:31:50.701Z` or `2024-03-05T15:31:50.701+8:00`.
 - `--cron` is the cron specification for a recurring scheduled action.
 - `--membership-count` is the number of members in the instance group that you want at the scheduled time.
 - `--min-members` is the minimum number of members in the instance group that you want at the scheduled time. Range 1-100.
 - `--max-members`: The maximum number of members in the instance group that you want at the scheduled time. Range 1-100.
 - `--name` is the new name of the instance group manager action.
-- `--output` specifies output format, only JSON is supported. One of: JSON.
+- `--output` specifies output format. Only JSON is supported. One of: JSON.
 - `-q, --quiet`suppresses verbose output.
 
 
@@ -157,7 +157,7 @@ Where:
 - `INSTANCE_GROUP`: is the ID of the instance group.
 - `MANAGER` is the ID of the manager.
 - `ACTION`is the ID of the action.
-- `--output` specifies output format, only JSON is supported. One of: JSON.
+- `--output` specifies output format. Only JSON is supported. One of: JSON.
 - `--force, -f` forces the operation without confirmation.
 - `-q, --quiet`suppresses verbose output.
 

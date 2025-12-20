@@ -2,7 +2,7 @@
 
 copyright:
   years: 2018, 2025
-lastupdated: "2025-12-10"
+lastupdated: "2025-12-20"
 
 keywords:
 
@@ -20,7 +20,7 @@ You can create one or more virtual server instances in your {{site.data.keyword.
 
 When you create a virtual server, you specify information such as the location and name for your virtual server. You specify an operating system image, a profile that defines the combination of vCPU and RAM, and SSH keys to securely connect to your virtual server. You can add data volumes in addition to the boot volume. You can also specify the type of network interface that is created for your virtual server. Finally, you can select from advanced options for your virtual server configuration.
 
-## Creating a virtual server instance with the UI
+## Creating a virtual server instance in the console
 {: #creating-virtual-servers-ui}
 {: ui}
 
@@ -69,7 +69,7 @@ Use the following steps to create a virtual server instance.
 
    | Field | Value |
    |-------|-------|
-   | SSH keys | You must select an existing public SSH key or click **Create an SSH key** to create one. For more information about creating an SSH key, see [Creating your SSH key by using the UI](/docs/vpc?topic=vpc-ssh-keys&interface=ui#generate-ssh-keys-ui). SSH keys are used to securely connect to the instance after it's running. \n **Note:** Alpha-numeric combinations are limited to 100 characters. SSH keys can be either RSA or ED25519. You can create only RSA SSH keys. For an ED25519 SSH key, you must upload the key information. ED25519 can be used only if the operating system supports this key type. ED25519 can't be used with Windows or VMware images. \n For more information, see [Getting started with SSH keys](/docs/vpc?topic=vpc-ssh-keys). |
+   | SSH keys | You must select an existing public SSH key or click **Create an SSH key** to create one. For more information about creating an SSH key, see [Creating your SSH key by using the UI](/docs/vpc?topic=vpc-ssh-keys&interface=ui#generate-ssh-keys-ui). SSH keys are used to securely connect to the instance after it's running. \n **Note:** Alpha-numeric combinations are limited to 100 characters. SSH keys can be either RSA or ED25519. You can create only RSA SSH keys. For an ED25519 SSH key, you must upload the key information. ED25519 can be used only if the operating system supports this key type. ED25519 can't be used with Windows or VMware images. \n For more information, see the [Getting started with SSH keys](/docs/vpc?topic=vpc-ssh-keys) topic. |
    | Boot volume | The default boot volume size for most profiles is 100 GB. The default boot volume size for a z/OS virtual server instance is 245 GB. If you're importing a custom image, the boot volume capacity can be 10 - 250 GB, depending on what the image requires. Images that are smaller than 10 GB are rounded up to 10 GB. Click the **Edit icon** ![Edit icon](../icons/edit-tagging.svg "Edit") to modify the boot volume's attributes in the side panel. \n \n You can change the name of the boot volume by specifying a unique, meaningful name. For example, it can be a name that describes your compute or workload function. The volume name must begin with a lowercase letter. The name can be up to 63 lowercase alpha-numeric characters and include the hyphen (-). Volume names must be unique to the entire VPC infrastructure. You can edit the name later if you want to. \n \n You can toggle the auto-delete option off for the boot volume. If it is enabled, then the volume is deleted when the instance is deleted. If it is disabled, then the volume persists after the instance is deleted. \n \n You can specify optional user tags and access management tags to associate with this volume. For more information about organizing resources with user tags, see [Working with tags](/docs/account?topic=account-tag&interface=ui). \n \n You can select the encryption type. Provider-managed encryption is enabled by default on all volumes. You can also choose to create an envelop encryption with your own root keys. Encryption keys are created and maintained in Key Management Services ({{site.data.keyword.keymanagementserviceshort}} or {{site.data.keyword.hscrypto}}). \n \n You can select the [Storage profile](/docs/vpc?topic=vpc-block-storage-profiles&interface=ui) that best suits your needs for capacity, IOPS, and bandwidth. \n Note: Second-generation boot volumes with the `sdp` volume profile do not support secure boot yet. If secure-boot is needed, select one of the `tiered` profiles or the `custom` profile. |
    | Data volumes | You can create one or more secondary data volumes to be attached when you provision the instance. Click **Create** in the Data volumes section to open the side panel where you can define the volume. \n \n Specify a unique, meaningful name. The same specifications apply as for the boot volume. \n \n You can toggle the auto-delete option on for the data volume. If it is enabled, then the volume is deleted when the instance is deleted. If it is disabled, then the volume persists after the instance is deleted. \n \n You can specify optional user tags and access management tags to associate with this volume. For more information about organizing resources with user tags, see [Working with tags](/docs/account?topic=account-tag&interface=ui). \n \n You can select the encryption type. Provider-managed encryption is enabled by default on all volumes. You can also choose to create an envelope encryption with your own root keys that are created and maintained in Key Management Services. \n \n You can select the [Storage profile](/docs/vpc?topic=vpc-block-storage-profiles&interface=ui) that best suits your needs for capacity and IOPS. For more information, see [Create and attach a Block Storage volume when you create an instance](/docs/vpc?topic=vpc-creating-block-storage#create-from-vsi).|
    | Virtual private cloud | Specify the IBM Cloud VPC where you want to create your instance. You can use the default VPC, another existing VPC, or you can create a VPC. To create a VPC, click **New VPC**. |
@@ -104,7 +104,7 @@ After the instance is created, you need to [associate a floating IP address to t
 
 If you have an existing instance with a floating IP address, it isn't necessary to assign a second floating IP to another instance. You can connect to the first instance with a floating IP, then SSH to the second instance by using the private subnet IP address that is automatically assigned to it.
 
-## Creating a virtual server instance by using the CLI
+## Creating a virtual server instance from the CLI
 {: #creating-virtual-servers-cli}
 {: cli}
 
@@ -125,7 +125,7 @@ You can create instances by using the command-line interface (CLI). If you would
 
 * Make sure that you [created a VPC](/docs/vpc?topic=vpc-creating-vpc-resources-with-cli-and-api&interface=cli).
 
-### Gathering information to create an instance by using the CLI
+### Gathering information to create an instance from the CLI
 {: #gather-info-to-create-virtual-servers-cli}
 {: cli}
 
@@ -229,7 +229,7 @@ r006-35b9cf35-616e-462e-a145-cf8db4062fcf my-vpc     available  false           
 ```
 {: screen}
 
-If you do not have an available VPC, you can create one by using the **`ibmcloud is vpc-create`** command. For more information about creating a VPC, see [ibmcloud is vpc-create](/docs/vpc?topic=vpc-vpc-reference#vpc-create).
+If you do not have an available VPC, you can create one by using the **`ibmcloud is vpc-create`** command. For more information about creating a VPC, see the [ibmcloud is vpc-create](/docs/vpc?topic=vpc-vpc-reference#vpc-create).
 
 #### 5. List the subnets that are associated with the {{site.data.keyword.vpc_short}}
 {: #list-subnets-associated-vpc-cli}
@@ -435,7 +435,7 @@ c5f1f366-b92a-4080-991a-aa5c2e33d96b          placement-group-region-us-south   
 ```
 {: screen}
 
-### Creating an instance by using the CLI
+### Creating an instance from the CLI
 {: #create-instance-cli}
 {: cli}
 
@@ -447,7 +447,7 @@ Use the following information to create an instance with the CLI.
 
 After you know the needed values, use them to run the **`ibmcloud is instance-create`** command. You also need to specify a unique name for the instance.
 
-Use the following steps to create a basic virtual server instance from a stock image by using the CLI. By default, a boot volume is attached to the instance when the instance is created. For most virtual server instances, the default boot volume size is 100 GB. The default boot volume size for a z/OS virtual server instance is 250 GB.
+Use the following steps to create a basic virtual server instance from a stock image from the CLI. By default, a boot volume is attached to the instance when the instance is created. For most virtual server instances, the default boot volume size is 100 GB. The default boot volume size for a z/OS virtual server instance is 250 GB.
 
 1. Create an instance by using the following command.
 
@@ -628,7 +628,7 @@ Need more help? You can always run `ibmcloud is instance-create --help` to displ
 
 After you know the needed values, use them to run the **`ibmcloud is instance-create`** command. You also need to specify a unique name for the instance.
 
-Use the following steps to create a virtual server instance from a private catalog offering or a catalog offering version by using the CLI.
+Use the following steps to create a virtual server instance from a private catalog offering or a catalog offering version from the CLI.
 
 1. Create an instance by using the following command.
 
@@ -943,11 +943,11 @@ If you choose a GPU profile, see [Managing GPUs](/docs/vpc?topic=vpc-managing-gp
 
 After the instance is created, associate a floating IP address to the instance. Then, you can connect to your instance. For more information, see [Connecting to your Linux instance](/docs/vpc?topic=vpc-vsi_is_connecting_linux) or [Connecting to your Windows instance](/docs/vpc?topic=vpc-vsi_is_connecting_windows).
 
-## Creating a virtual server instance by using the API
+## Creating a virtual server instance with the API
 {: #create-instance-api}
 {: api}
 
-You can create instances by using the API.
+You can create instances with the API.
 
 ### Before you begin
 {: #before-you-begin-create-instance-api}
@@ -955,7 +955,7 @@ You can create instances by using the API.
 
 Make sure that you have the required access. To call these methods, you must be assigned one or more IAM access roles that include the following actions, depending on any listed conditions. You can check your access by going to the **Users** page of [{{site.data.keyword.iamshort}} dashboard](https://cloud.ibm.com/iam/overview){: external}.
 
-### Gathering information to create an instance by using the API
+### Gathering information to create an instance with the API
 {: #gather-info-to-create-virtual-servers-api}
 {: api}
 
@@ -979,13 +979,13 @@ Some profiles might not be available because of one of the following reasons:
    - The selected image contains an allowed-use expression that is not compatible with the profile. In these cases, select an image with an allowed-use expression that is compatible with the wanted profile. For more information, see [Adding allowed-use expressions to custom images](/docs/vpc?topic=vpc-custom-image-allowed-use-expressions&interface=ui).
 
 
-### Creating an instance by using the API
+### Creating an instance with the API
 {: #create-vsi-api}
 {: api}
 
 After you retrieved the information that you need, you can run the [`POST /instances`](/apidocs/vpc/latest#create-instance) method to create an instance.
 
-### Provision an instance from a stock or custom image by using the API
+### Provision an instance from a stock or custom image with the API
 {: #create-instance-stock-custom-image-api}
 {: api}
 
@@ -1018,7 +1018,7 @@ You can provision an instance with a stock or custom image by specifying the ima
  ```
  {: pre}
 
-### Provision an instance from a private catalog image by using the API
+### Provision an instance from a private catalog image with the API
 {: #create-instance-private-catalog-image-api}
 {: api}
 
