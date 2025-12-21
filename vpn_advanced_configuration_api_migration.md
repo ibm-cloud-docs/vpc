@@ -2,7 +2,7 @@
 
 copyright:
   years: 2024, 2025
-lastupdated: "2025-02-24"
+lastupdated: "2025-12-21"
 
 keywords: VPN migration, api migration, versioned change
 
@@ -49,16 +49,16 @@ When making the following requests for policy-based VPN gateways, the properties
 - [Listing](/apidocs/vpc/latest#list-ike-policy-connections) all VPN gateway connections that use a specified IKE policy (`GET /ike_policies/{id}/connections`)
 - [Listing](/apidocs/vpc/latest#list-ipsec-policy-connections) all VPN gateway connections that use a specified IPsec policy (`GET /ipsec_policies/{id}/connections`)
 
-| Old property    | New property                                    |
-|-----------------|-------------------------------------------------|
-| `local_cidrs`   | `local.cidrs`                                   |
-| `peer_cidrs`    | `peer.cidrs`                                    |
-| `peer_address`  | `peer.address` or `peer.fqdn` (described below) |
+| Old property    | New property                   |
+|-----------------|--------------------------------|
+| `local_cidrs`   | `local.cidrs`                  |
+| `peer_cidrs`    | `peer.cidrs`                   |
+| `peer_address`  | `peer.address` or `peer.fqdn`  |
 {: caption="Old and new properties for policy-based VPN gateways." caption-side="bottom"}
 
 Property `peer_address` is replaced by `peer.address` or `peer.fqdn`, depending on whether an IPv4 address or an FQDN was used to specify the peer when the connection was created. Update your code to check `peer.type` in the response. If `peer.type` is `address`, then the response has `peer.address`. If `peer.type` is `fqdn`, then the response has `peer.fqdn`.
 
-If `peer.fqdn` was specified when the connection was created, and a `version` query parameter of `2024-04-29` or earlier is specified, `peer_address` will have the IP address associated with `peer.fqdn`.
+If `peer.fqdn` was specified when the connection was created, and a `version` query parameter of `2024-04-29` or earlier is specified, `peer_address` has the IP address associated with `peer.fqdn`.
 
 Old VPN gateway connection properties and methods remain supported for API requests that use a `version` query parameter of `2024-04-29` or earlier.
 {: note}

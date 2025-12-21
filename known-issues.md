@@ -2,7 +2,7 @@
 
 copyright:
   years: 2018, 2025
-lastupdated: "2025-12-20"
+lastupdated: "2025-12-21"
 
 keywords:
 
@@ -279,15 +279,15 @@ error unmarshalling vpcv1.SecurityGroupCollection: error unmarshalling property 
 
 The patched SDKs implement the correct fallback behavior and error identifiers with the correct model name (for example, NetworkACLRule instead of NetworkACLRuleItem).
 
-**Migration and mitigation:** To mitigate this issue, migrate the `vpc-go-sdk` to the latest version ([v0.78.0](https://github.com/IBM/vpc-go-sdk/releases/tag/v0.78.0)) or any of the patched versions below:
+**Migration and mitigation:** To mitigate this issue, migrate the `vpc-go-sdk` to the latest version ([v0.78.0](https://github.com/IBM/vpc-go-sdk/releases/tag/v0.78.0)) or any of the following patched versions:
 
-[v0.77](https://github.com/IBM/vpc-go-sdk/releases/tag/v0.77.0)
-[v0.76](https://github.com/IBM/vpc-go-sdk/releases/tag/v0.76.5)
-[v0.75](https://github.com/IBM/vpc-go-sdk/releases/tag/v0.75.1)
-[v0.74](https://github.com/IBM/vpc-go-sdk/releases/tag/v0.74.2)
-[v0.73](https://github.com/IBM/vpc-go-sdk/releases/tag/v0.73.1)
-[v0.72](https://github.com/IBM/vpc-go-sdk/releases/tag/v0.72.1)
-[v0.71](https://github.com/IBM/vpc-go-sdk/releases/tag/v0.71.2)
-[v0.70](https://github.com/IBM/vpc-go-sdk/releases/tag/v0.70.2)
-[v0.69](https://github.com/IBM/vpc-go-sdk/releases/tag/v0.69.2)
-[v0.68](https://github.com/IBM/vpc-go-sdk/releases/tag/v0.68.1)
+[v0.77](https://github.com/IBM/vpc-go-sdk/releases/tag/v0.77.0),
+[v0.76](https://github.com/IBM/vpc-go-sdk/releases/tag/v0.76.5),
+[v0.75](https://github.com/IBM/vpc-go-sdk/releases/tag/v0.75.1),
+[v0.74](https://github.com/IBM/vpc-go-sdk/releases/tag/v0.74.2),
+[v0.73](https://github.com/IBM/vpc-go-sdk/releases/tag/v0.73.1),
+[v0.72](https://github.com/IBM/vpc-go-sdk/releases/tag/v0.72.1),
+[v0.71](https://github.com/IBM/vpc-go-sdk/releases/tag/v0.71.2),
+[v0.70](https://github.com/IBM/vpc-go-sdk/releases/tag/v0.70.2),
+[v0.69](https://github.com/IBM/vpc-go-sdk/releases/tag/v0.69.2), or
+[v0.68](https://github.com/IBM/vpc-go-sdk/releases/tag/v0.68.1).

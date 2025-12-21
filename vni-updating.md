@@ -2,7 +2,7 @@
 
 copyright:
   years: 2023, 2025
-lastupdated: "2025-06-18"
+lastupdated: "2025-12-21"
 
 keywords:
 
@@ -15,7 +15,7 @@ subcollection: vpc
 # Updating a virtual network interface
 {: #vni-updating}
 
-If you need to make changes to a virtual network interface, you can update it by using the console, CLI, API, or Terraform.
+If you need to change attributes of a virtual network interface, you can update it by using the console, CLI, API, or Terraform. You can change its name, allow or disallow IP spoofing, enable or disable Auto-deletion, Infrastructure NAT, and protocol state filtering.
 {: shortdesc}
 
 ## Updating a virtual network interface in the console
@@ -37,14 +37,14 @@ To update an existing virtual network interface, follow these steps.
     Auto release cannot be enabled without a target device.
     {: note}
 
-1. Click the Edit icon ![Edit icon](images/edit.png) to edit the [protocol state filtering mode](/docs/vpc?topic=vpc-vni-about&interface=ui#protocol-state-filtering), then select a radio button to change the mode.
+1. Click **Edit** ![Edit icon](images/edit.png) to change the [protocol state filtering mode](/docs/vpc?topic=vpc-vni-about&interface=ui#protocol-state-filtering), then select one of the following options.
 
    * **Auto** (default): Filtering is enabled or disabled based on the virtual network interface's target resource:
       * Bare metal server (Disabled)
       * Virtual server instance (Enabled)
    * **Enabled**: Forces TCP connections to align with the [RFC793](https://www.ietf.org/rfc/rfc793.txt){: external} standard and any packets to be allowed by corresponding security group rules and network ACLs.
    * **Disabled**: Permits packets to be allowed only by corresponding security group rules and network ACLs.
-1. In the Attached resources section, use the Display resource list menu to view the security groups or secondary IPs attached to the virtual network interface.
+1. In the Attached resources section, use the Display resource list menu to view the security groups or secondary IP addresses attached to the virtual network interface.
     * Clicking **Manage attached resources** in the Attached resources section takes you to the Attached resources tab.
 1. To create devices or attach existing devices, follow the links in the Target device details section.
 1. In the Floating IPs section, click **Attach** to reserve a new floating IP or attach an existing floating IP.
@@ -52,7 +52,7 @@ To update an existing virtual network interface, follow these steps.
     If a floating IP is attached, the virtual network interface is accepted as a file share mount target. If infrastructure NAT is enabled, at most one floating IP can be attached.
     {: note}
 
-1. In the Attached resources tab, view secondary IPs and security groups that are already attached, or create secondary IPs or security groups to attach to your virtual network interface.
+1. In the Attached resources tab, you can view secondary IP addresses and security groups that are already attached. You can also create more secondary IP addresses or security groups to attach to your virtual network interface.
 
 ## Updating a virtual network interface from the CLI
 {: #virtual-network-interface-update-cli}
@@ -84,10 +84,10 @@ Where:
 :   Indicates whether source IP spoofing is allowed on this interface. If `false`, source IP spoofing is prevented on this interface. If `true`, source IP spoofing is allowed on this interface. One of: `false`, `true`.
 
 `--auto-delete`
-:   Indicates whether this virtual network interface will be automatically deleted when target is deleted. Must be `false` if the virtual network interface is unbound. One of: `false`, `true`.
+:   Indicates whether this virtual network interface is to be automatically deleted when target is deleted. Must be `false` if the virtual network interface is unbound. One of: `false`, `true`.
 
 `--enable-infrastructure-nat`
-:   If `true`, the VPC infrastructure performs any needed NAT operations. If `false`, packets are passed unchanged to/from the network interface, allowing the workload to perform any needed NAT operations. One of: `false`, `true`.
+:   If `true`, the VPC infrastructure performs any needed NAT operations. If `false`, packets are passed unchanged through the network interface, allowing the workload to perform any needed NAT operations. One of: `false`, `true`.
 
 `--protocol-state-filtering-mode`
 :   The status of the protocol state filtering mode. One of `auto`, `enabled`, `disabled`.
@@ -119,7 +119,7 @@ Where:
 To update a virtual network interface with the API, follow these steps:
 
 1. Set up your API environment [with the right variables](/docs/vpc?topic=vpc-set-up-environment#api-prerequisites-setup).
-1. Store any additional variables to be used in the API commands; for example:
+1. Store any additional variables to be used in the API commands. See the following examples:
 
     * `version` (string): The API version, in format `YYYY-MM-DD`.
     * `virtual_network_interface_id` (string): The virtual network interface identifier.

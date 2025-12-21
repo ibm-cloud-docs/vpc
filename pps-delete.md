@@ -2,7 +2,7 @@
 
 copyright:
   years: 2024, 2025
-lastupdated: "2025-12-20"
+lastupdated: "2025-12-21"
 
 keywords:
 
@@ -36,7 +36,7 @@ You can also update the members that are attached to a Private Path NLB in your 
 {: #pps-ui-update-target-private-path-service}
 {: ui}
 
-If you’re updating the actual target service without changing the load balancer, you don’t need to take any actions in the Private Path service. Instead, you need to update the Private Path network load balancer. For more information, see [Reviewing connection requests](/docs/private-path?topic=private-path-pps-ui-reviewing&interface=ui).
+If you’re updating the actual target service without changing the load balancer, you don’t need to modify the Private Path service. Instead, you need to update the Private Path network load balancer. For more information, see [Reviewing connection requests](/docs/private-path?topic=private-path-pps-ui-reviewing&interface=ui).
 
 To update the target service of a Private Path provider service the {{site.data.keyword.cloud_notm}} console, follow these steps:
 

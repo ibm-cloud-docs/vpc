@@ -2,7 +2,7 @@
 
 copyright:
   years: 2024, 2025
-lastupdated: "2025-11-05"
+lastupdated: "2025-12-21"
 
 keywords:
 
@@ -31,7 +31,7 @@ The distributed architecture of the Private Path network load balancer is at odd
 ## Who will be affected by this change?
 {: #nlb-those-affected-by-change}
 
-Any code or automation that expects to make use of session persistence or the "least connections" algorithm when provisioning or managing network load balancer pools will be affected.
+Any code or automation that expects to use session persistence or the "least connections" algorithm when provisioning or managing network load balancer pools will be affected.
 
 ## What actions can you take to avoid a disruption?
 {: #nlb-actions-to-avoid-disruption}
