@@ -2,7 +2,7 @@
 
 copyright:
   years: 2020, 2025
-lastupdated: "2025-10-31"
+lastupdated: "2025-12-21"
 
 keywords: region, zone, deploy, datacenter, data, center, federated, CLI, API, account, failover, disaster, recovery, DR, data center
 
@@ -22,13 +22,13 @@ The {{site.data.keyword.cloud}} VPC service is regional. To allow for disaster r
 
 Virtual Private Cloud is available in the following {{site.data.keyword.cloud}} regions.
 
-|   Location     | Region | API Endpoint |
-| ------- | :------: | :------: |
-| US South (Dallas) | us-south | `us-south.iaas.cloud.ibm.com`|
-| US East (Washington DC) | us-east | `us-east.iaas.cloud.ibm.com`|
-| Brazil (São Paulo) | br-sao | `br-sao.iaas.cloud.ibm.com` |
-| Canada (Toronto) | ca-tor | `ca-tor.iaas.cloud.ibm.com` |
-| Canada (Montreal) | ca-mon | `ca-mon.iaas.cloud.ibm.com` |
+|   Location              | Region     | API Endpoint |
+|-------------------------|:----------:|:------------:|
+| US South (Dallas)       | `us-south` | `us-south.iaas.cloud.ibm.com`|
+| US East (Washington DC) | `us-east`  | `us-east.iaas.cloud.ibm.com`|
+| Brazil (São Paulo)      | `br-sao`   | `br-sao.iaas.cloud.ibm.com` |
+| Canada (Toronto)        | `ca-tor`   | `ca-tor.iaas.cloud.ibm.com` |
+| Canada (Montreal)       | `ca-mon`   | `ca-mon.iaas.cloud.ibm.com` |
 {: class="simple-tab-table"}
 {: tab-title="Americas"}
 {: caption="IBM Cloud regions for North and South America" caption-side="bottom"}
@@ -36,11 +36,11 @@ Virtual Private Cloud is available in the following {{site.data.keyword.cloud}} 
 {: tab-group="vpc-regions-api-endpoint"}
 {: #vpc-north-america-regions}
 
-|   Location     | Region | API Endpoint |
-| ------- | :------: | :------: |
-| United Kingdom (London) | eu-gb | `eu-gb.iaas.cloud.ibm.com`|
-| Germany (Frankfurt) | eu-de | `eu-de.iaas.cloud.ibm.com`|
-| Spain (Madrid) | eu-es | `eu-es.iaas.cloud.ibm.com` |
+|   Location              | Region  | API Endpoint |
+|-------------------------|:-------:|:------------:|
+| United Kingdom (London) | `eu-gb` | `eu-gb.iaas.cloud.ibm.com`|
+| Germany (Frankfurt)     | `eu-de` | `eu-de.iaas.cloud.ibm.com`|
+| Spain (Madrid)          | `eu-es` | `eu-es.iaas.cloud.ibm.com` |
 {: class="simple-tab-table"}
 {: tab-title="Europe"}
 {: caption="IBM Cloud regions for Europe" caption-side="bottom"}
@@ -48,15 +48,15 @@ Virtual Private Cloud is available in the following {{site.data.keyword.cloud}} 
 {: tab-group="vpc-regions-api-endpoint"}
 {: #vpc-europe-regions}
 
-For x86-64 dedicated host profiles, the Madrid region only supports dedicated host profiles with instance storage. For more information, see [Dedicated host profiles](/docs/vpc?topic=vpc-dh-profiles&interface=ui).
+For x86-64 dedicated host profiles, the Madrid region supports only dedicated host profiles with instance storage. For more information, see [Dedicated host profiles](/docs/vpc?topic=vpc-dh-profiles&interface=ui).
 {: important}
 
-|   Location     | Region | API Endpoint |
-| ------- | :------: | :------: |
-| India (Chennai) | in-che | `in-che.iaas.cloud.ibm.com` |
-| Japan (Tokyo) | jp-tok | `jp-tok.iaas.cloud.ibm.com` |
-| Japan (Osaka) | jp-osa | `jp-osa.iaas.cloud.ibm.com` |
-| Australia (Sydney) | au-syd | `au-syd.iaas.cloud.ibm.com` |
+|   Location         | Region   | API Endpoint |
+|--------------------|:--------:|:------------:|
+| India (Chennai)    | `in-che` | `in-che.iaas.cloud.ibm.com` |
+| Japan (Tokyo)      | `jp-tok` | `jp-tok.iaas.cloud.ibm.com` |
+| Japan (Osaka)      | `jp-osa` | `jp-osa.iaas.cloud.ibm.com` |
+| Australia (Sydney) | `au-syd` | `au-syd.iaas.cloud.ibm.com` |
 {: class="simple-tab-table"}
 {: tab-title="Asia Pacific"}
 {: caption="IBM Cloud regions for Asia Pacific" caption-side="bottom"}
@@ -71,7 +71,7 @@ The Regional API (VPC) endpoint is automatically set by the {{site.data.keyword.
 {: #log-in-to-a-specific-region-using-the-cli}
 {: cli}
 
-When you log in to {{site.data.keyword.cloud}}, you can specify a region or choose it later. For example, to log in to the global API endpoint in the Dallas (`us-south`) region directly, run the following commands. These commands vary according to whether you have a federated account (SSO) or a non-federated account.
+When you log in to {{site.data.keyword.cloud}}, you can specify a region or choose it later. For example, to log in to the global API endpoint in the Dallas (`us-south`) region directly, run the following commands. These commands vary according to whether you have a federated account (SSO) or a nonfederated account.
 
 For a federated account,
 
@@ -80,14 +80,14 @@ ibmcloud login -a https://cloud.ibm.com -r us-south --sso
 ```
 {: pre}
 
-For a non-federated account,
+For a nonfederated account,
 
 ```sh
 ibmcloud login -a https://cloud.ibm.com -r us-south
 ```
 {: pre}
 
-To choose the region later, do not specify the `-r <region>` parameter and the CLI prompts you to choose a region.
+If you do not specify the `-r <region>` parameter, the CLI prompts you to choose a region.
 
 Example output:
 
@@ -145,7 +145,7 @@ Space:
 {: #switch-regions-using-the-cli}
 {: cli}
 
-To get the latest status of the VPC regions, run the following command:
+To get the most recent status of the VPC regions, run the following command:
 
 ```sh
 ibmcloud is regions
@@ -172,7 +172,7 @@ ibmcloud target
 {: #switch-regions-using-the-api}
 {: api}
 
-To interact with the Regional VPC API by using REST, direct your request to the API endpoint that is associated with the region in which you want to create resources. The region's API endpoint is shown in the previous table. You also can find the endpoints that are associated with the regions by running the following command:
+To interact with the Regional VPC API by using REST, direct your request to the API endpoint that is associated with the region in which you want to create resources. The region's API endpoint is shown in the previous table. You can also find the endpoints that are associated with the regions by running the following command:
 
 ```sh
 ibmcloud is regions
