@@ -15,6 +15,9 @@ subcollection: vpc
 # Updating to the `2025-12-09` version (security group and network ACL rules)
 {: #2025-12-09-migration-security-group-network-acl-rules}
 
+**Warning**: See [Networking known issues](/docs/vpc?topic=vpc-known-issues#networking-vpc-known-issues) before creating a rule with a previously unsupported `protocol` value. Do NOT use these new `protocol` values in your production environments until further notice. Creating a rule with these new protocol values anywhere in your VPC can break your existing Kubernetes and OpenShift clusters. They can also break any other components that make security group or network ACL API requests via an SDK, or via a custom API client that does not handle these new protocol values properly. Work is ongoing to resolve these issues. Until the known issues have been resolved, the UI and the current latest version of CLI will not allow rules with previously unsupported `protocol` values to be created.
+{: important}
+
 As described in the VPC API reference [versioning](/apidocs/vpc/latest#api-versioning) policy, most changes to the VPC APIs are fully backward compatible and are made available to all clients, regardless of the API version the client requests. However, the `2025-12-09` release of the VPC API necessitated incompatible changes in support of any protocol in security group and network ACL rules.
 
 Before you adopt the release version `2025-12-09` or later, review the changes described in this migration guidance that might require you to update your client.
