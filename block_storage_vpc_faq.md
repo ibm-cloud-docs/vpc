@@ -2,7 +2,7 @@
 
 copyright:
   years: 2019, 2025
-lastupdated: "2025-12-11"
+lastupdated: "2025-12-22"
 
 keywords: faqs, Block Storage for vpc, fast restore, multizone, instance, instance provisioning, volume management, volume deletion.
 
@@ -372,7 +372,7 @@ IOPS is measured based on a load profile of 16-KB blocks with random 50% read an
 {: faq}
 {: #faq-block-storage-healthstate}
 
-Volume health state defines whether a volume is performing as expected, given its status. Volume health can be OK, degraded, inapplicable, or faulted, depending on what is happening. For example, a degraded status is displayed when a volume is being restored from a snapshot and the volume is not yet fully restored. For more information about volume health states, see [{{site.data.keyword.block_storage_is_short}} volume health states](/docs/vpc?topic=vpc-block-storage-vpc-monitoring#block-storage-vpc-health-states).
+Volume health state defines whether a volume is performing as expected, according to its status. Volume health can be OK, degraded, inapplicable, or faulted, depending on what is happening. For example, a degraded status is displayed when a volume is being restored from a snapshot and the volume is not yet fully restored. For more information about volume health states, see [{{site.data.keyword.block_storage_is_short}} volume health states](/docs/vpc?topic=vpc-block-storage-vpc-monitoring#block-storage-vpc-health-states).
 
 ## How secure is data in a {{site.data.keyword.block_storage_is_short}} volume?
 {: faq}

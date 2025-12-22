@@ -2,7 +2,7 @@
 
 copyright:
   years: 2022, 2025
-lastupdated: "2025-12-19"
+lastupdated: "2025-12-22"
 
 keywords: terraform for hyper protect virtual servers for vpc, hyper protect virtual server automation
 
@@ -32,5 +32,5 @@ To explore the Terraform samples for {{site.data.keyword.hpvs}} for VPC, go to t
 - `nginx-hello` - deploys the nginx-hello example as a Hyper Protect Virtual Server for VPC.
 - `mongodb` - deploys three MongoDB instances on Hyper Protect Virtual Servers for VPC in three availability zones.
 - `postgresql` - deploys a PostgreSQL instance on a Hyper Protect Virtual Server for VPC in a region.
-- `postgresql-cluster` - deploys a PostgreSQL cluster on Hyper Protect Virtual Servers for VPC in given regions.
+- `postgresql-cluster` - deploys a PostgreSQL cluster on Hyper Protect Virtual Servers for VPC in the specified regions.
 - `log-encryption` - encrypts selected log messages.

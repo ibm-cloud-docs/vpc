@@ -2,7 +2,7 @@
 
 copyright:
   years: 2023, 2025
-lastupdated: "2025-11-05"
+lastupdated: "2025-12-22"
 
 keywords: hyper protect container runtime, error messages, troubleshooting
 
@@ -519,7 +519,7 @@ The following list shows the error messages from Hyper Protect Container Runtime
 - **HPL12001E**:
    - Name: VALIDATE_CONTRACT_SIGNATURE
    - Message: Unable to validate the contract signature semantically.
-   - Explanation: The contract file envWorkload signature verification failed with given signingKey.
+   - Explanation: The contract file envWorkload signature verification failed with the provided signingKey.
    - System Action: Contract Signature Validation failed.
    - User Action: Adjust the contract according to the schema.
 - **HPL12002E**:

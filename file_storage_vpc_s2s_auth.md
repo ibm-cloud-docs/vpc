@@ -2,7 +2,7 @@
 
 copyright:
   years: 2022, 2025
-lastupdated: "2025-09-11"
+lastupdated: "2025-12-22"
 
 keywords: Backup for VPC, backup service, backup plan, backup policy, restore, restore volume, restore data
 
@@ -421,7 +421,7 @@ For more information about the arguments and attributes, see the [Terraform docu
 {: #file-s2s-xaccount-encryption-terraform}
 {: terraform}
 
-1. Terraform supports configuring two different accounts for IBM provider. The provider without an alias is considered the default provider. See the following example, where two IBM accounts are specified, and the second is given the alias `team_account`. That configuration is referred to as `ibm.team_account` later. 
+1. Terraform supports configuring two different accounts for IBM provider. The provider without an alias is considered the default provider. See the following example, where two IBM accounts are specified, and the second uses the alias `team_account`. That configuration is referred to as `ibm.team_account` later. 
 
    ```terraform 
    terraform {
@@ -520,7 +520,7 @@ For more information about the arguments and attributes, see the [Terraform docu
 {: #file-s2s-auth-xaccount-terraform}
 {: terraform}
 
-1. Terraform supports configuring two different accounts for IBM provider. The provider without an alias is considered the default provider. See the following example, where two IBM accounts are specified, and the second is given the alias `team_account`. That configuration must be referred to as `ibm.team_account` later. 
+1. Terraform supports configuring two different accounts for IBM provider. The provider without an alias is considered the default provider. See the following example, where two IBM accounts are specified, and the second uses the alias `team_account`. That configuration must be referred to as `ibm.team_account` later. 
 
    ```terraform 
    terraform {

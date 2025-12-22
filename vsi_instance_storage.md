@@ -34,7 +34,7 @@ The instance storage space is allocated and attached to the virtual server insta
 
 However, when an instance is stopped or shut down, the instance storage that is attached to the virtual server instance is cryptographically erased and the instance storage is no longer available. The instance's boot volume is not affected. For auditing purposes, when an instance that has one or more storage disks is shut down, an {{site.data.keyword.atracker_full_notm}} event is published for each disk indicating it was "wiped". The event action is `is.instance.disk.wipe`. Refer to the Compute Events table on the [Activity tracking page](/docs/vpc?topic=vpc-at_events#events-compute) for listing of such events.
 
-When a virtual server is powered off and then powered back on to complete a host or zone maintenance, the instance storage ephemeral data is not restored. However, advanced notice is given for maintenance windows. For more information, see [Understanding cloud maintenance operations](/docs/vpc?topic=vpc-about-cloud-maintenance).
+When a virtual server is powered off and then powered back on to complete a host or zone maintenance, the instance storage ephemeral data is not restored. However, advanced notice is provided for maintenance windows. For more information, see [Understanding cloud maintenance operations](/docs/vpc?topic=vpc-about-cloud-maintenance).
 
 If a Host Failure occurs, the data on the instance storage disk is lost. The instance is restarted on another host automatically unless `Host failure auto restart` is set to stop. The provisioned disks are now empty.
 

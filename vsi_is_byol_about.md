@@ -1,8 +1,8 @@
 ---
 
 copyright:
-  years: 2020, 2024
-lastupdated: "2024-12-13"
+  years: 2020, 2025
+lastupdated: "2025-12-22"
 
 keywords: license, virtual private cloud, BYOL, virtual server instance, instance, custom image, encryption, RHEL, SUSE
 subcollection: vpc
@@ -91,7 +91,7 @@ To see all of the operating system versions from the API, make a `GET /operating
 
 You can create a Windows BYOL custom image by using your own license, uploading the image to {{site.data.keyword.cos_full_notm}}, and importing the image to the VPC. Privileged users within your account can use the Windows BYOL custom image to provision an instance on a single-tenant dedicated host or on a shared, multi-tenant host.
 
-Depending on the {{site.data.keyword.cloud_notm}} solution, Microsoft software is purchased pay-as-you-go (hourly, monthly) on shared or dedicated resources. For BYOL, as of October 19th 2022, you can provision BYOL Microsoft licenses on dedicated and shared hosts which are priced on a monthly and yearly basis.
+Depending on the {{site.data.keyword.cloud_notm}} solution, Microsoft software is purchased pay-as-you-go (hourly, monthly) on shared or dedicated resources. For BYOL, as of October 19th 2022, you can provision BYOL Microsoft licenses on dedicated and shared hosts, which are priced on a monthly and yearly basis.
 {: important}
 
 When you import your BYOL custom image, you must select a _BYOL_ operating system from the list of operating system versions. The following are supported Windows versions:
