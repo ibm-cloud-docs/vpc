@@ -1,7 +1,7 @@
 ---
 copyright:
   years: 2022, 2025
-lastupdated: "2025-05-27"
+lastupdated: "2025-12-22"
 
 
 keywords: vsi, virtual server instances, profile, profiles, balanced, compute, memory, ultra high memory, storage optimized
@@ -21,7 +21,7 @@ You can use s390x instance profiles to provision virtual server instances and yo
 
 A profile is a combination of instance attributes, such as the number of vCPUs, amount of RAM, network bandwidth, and default bandwidth allocation. The attributes define the size and capabilities of the virtual server instance that is provisioned. In the {{site.data.keyword.Bluemix_notm}} console, you can select the most recently used profile or click **View All Profiles** to choose the profile that best fits your needs.
 
-The secure execution profiles that become available when you enable confidential computing and select IBM Hyper Protect as the operating system for your virtual instance, can be identified by the fourth character of the profile name which is an "e", such as bz2e.
+The secure execution profiles that become available when you enable confidential computing and select IBM Hyper Protect as the operating system for your virtual instance, can be identified by the fourth character of the profile name, which is an "e", such as bz2e.
 
 For more information about profiles for x86 processor architecture, see [x86 instance profiles](/docs/vpc?topic=vpc-profiles).
 For more information about confidential computing, see [Confidential computing with LinuxONE](/docs/vpc?topic=vpc-about-se).

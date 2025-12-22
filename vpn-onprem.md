@@ -2,7 +2,7 @@
 
 copyright:
   years: 2019, 2025
-lastupdated: "2025-11-19"
+lastupdated: "2025-12-22"
 
 keywords:
 
@@ -25,7 +25,7 @@ Create a VPN gateway in your VPC and create a VPN connection between the VPC and
 * **Preshared key** - Specify the authentication key of the VPN gateway for the on-prem network.
 * **Local subnets (Policy-based VPN only)** - Specify one or more subnets in the VPC that you want to connect through the VPN tunnel.
 * **Peer subnets (Policy-based VPN only)** - Specify one or more subnets in the on-premises network that you want to connect through the VPN tunnel.
-* **Peer ASN (Dynamic route-based VPN connection only)** - Specify the peer ASN which identifies the remote peer network with which the VPN exchanges routes.
+* **Peer ASN (Dynamic route-based VPN connection only)** - Specify the peer ASN, which identifies the remote peer network with which the VPN exchanges routes.
 * **Tunnel interface IP (Dynamic route-based VPN connection only)** - Specify the IP address that is assigned to the VPN gateway side of the VPN tunnel.
 * **Peer interface IP (Dynamic route-based VPN connection only)** - Specify the IP address that is assigned to the remote network side of the VPN tunnel. This address is your on-premises device or peer VPN gateway.
 
