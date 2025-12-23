@@ -2,7 +2,7 @@
 
 copyright:
   years: 2019, 2025
-lastupdated: "2025-12-20"
+lastupdated: "2025-12-23"
 
 keywords:
 
@@ -59,6 +59,30 @@ Because NACLs are not _stateful_, if you want to permit traffic both ways on a t
 {: important}
 
 ![Security groups across instances and zones](images/security-groups-across-zones.svg){: caption="Security groups across instances and zones" caption-side="bottom"}
+
+## Security group guidelines
+{: #security-group-guidelines}
+
+The following guidelines explain how security groups function, how rules are applied, and best practices for attaching them to network interfaces.
+
+### Rules
+{: #security-group-guidelines-rules}
+
+* Each security group defines different sets of network rules that define the incoming and outgoing traffic for a virtual network interface.
+* To allow inbound traffic, outbound traffic, or both, you must add at least one security group that includes security group rules that allow traffic.
+* Security group rules can only be permissive. Traffic is blocked by default.
+* Changes to security group rules are automatically applied and can be modified at any time.
+* The order of rules within a security group doesn't matter. The priority always falls to the least restrictive rule.
+* Rules are stateful. Connections established prior to a security group change are not altered. New connections abide by rules that exist at the time connectivity is established.
+* Security groups do not override operating system firewalls on the virtual server. Even if a more restrictive firewall exists on the operating system than what is applied by the security group, the operating system rules will still be enforced.
+* If your virtual server needs access to internal services, such as an update server, network-attached storage (NAS), or advanced monitoring, ensure that the security group rules accommodate traffic for those internal services.
+
+### Interfaces
+{: #security-group-guidelines-interfaces}
+
+* One or more security groups can be attached to a network interface.
+* All rules from attached security groups collectively apply to the interface.
+* If multiple security groups are attached, traffic is allowed or blocked based on the least restrictive rule across all groups.
 
 ## Defining security group rules
 {: #defining-security-group-rules}
