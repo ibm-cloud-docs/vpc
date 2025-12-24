@@ -2,7 +2,7 @@
 
 copyright:
   years: 2020, 2025
-lastupdated: "2025-10-17"
+lastupdated: "2025-12-24"
 
 keywords: virtual private endpoints, view details, VPE, endpoint gateway
 
@@ -21,7 +21,7 @@ You can view details about a specific endpoint gateway, or see a summary of endp
 Only services that support Virtual Private Endpoints for VPC show up in the list of endpoint gateway targets.
 {: note}
 
-## Viewing details of an endpoint gateway using the UI
+## Viewing details of an endpoint gateway in the UI
 {: #viewing-details-of-an-endpoint-gateway-using-the-ui}
 {: ui}
 
@@ -33,7 +33,7 @@ To view details of an endpoint gateway by using the {{site.data.keyword.cloud}} 
 
 1. To view the details of a specific gateway, click an individual gateway name.
 
-   From the details page, you can view additional information about the endpoint gateway, view its bound reserved IPs and their subnets, delete an endpoint gateway, attach a security group, and more.
+   From the details page, you can view additional information about the endpoint gateway, view its bound reserved IP addresses and their subnets, delete an endpoint gateway, attach a security group, and more.
 
 Descriptions of the fields for the virtual endpoint gateway details page are:
 
@@ -51,7 +51,7 @@ Descriptions of the fields for the virtual endpoint gateway details page are:
 
 From the Attached resources section, you can select to view either Reserved IP or Security groups. Click **Manage attached resources** to switch to the Attached resources view.
 
-The Reserved IPs table shows all bound, reserved IPs to this endpoint gateway. Descriptions of the fields in the Reserved IPs table are:
+The Reserved IPs table shows all bound, reserved IP addresses to this endpoint gateway. Descriptions of the fields in the Reserved IPs table are:
 
 | Field | Description |
 |-------|-------------|
@@ -60,7 +60,7 @@ The Reserved IPs table shows all bound, reserved IPs to this endpoint gateway. D
 | Location | The reserved IP's location and subnet. |
 | IP address | The IP address value of the reserved IP. Click to copy it. |
 | Auto delete | Move the **Auto Delete** switch to enable or disable deletion for the reserved IP. If it is enabled (green), this reserved IP is deleted automatically when the target is deleted. |
-| Actions | Click the Actions menu ![Actions menu](../icons/action-menu-icon.svg "Actions") to display a menu of context-specific actions that you can take. There are 4 actions in the menu (Rename, Release, Unbind and Copy UUID for this reserved IP). |
+| Actions | Click the Actions icon ![Actions menu](../icons/action-menu-icon.svg "Actions") to display a menu of context-specific actions that you can take. The menu contains 4 actions: Rename, Release, Unbind, and Copy UUID for this reserved IP. |
 {: caption="Details about your endpoint gateway bound reserved IPs" caption-side="bottom"}
 
 Scroll to the Security groups section to view attached security groups. You can click **Attach** to attach a security group, or click the Actions menu ![Actions menu](../icons/action-menu-icon.svg "Actions") to edit rules, or detach a security group.
@@ -68,7 +68,7 @@ Scroll to the Security groups section to view attached security groups. You can 
    At least one security group must be attached.
    {: note}
 
-## Viewing details of an endpoint gateway using the CLI
+## Viewing details of an endpoint gateway from the CLI
 {: #vpe-viewing-details-cli}
 {: cli}
 
@@ -83,13 +83,13 @@ To view details of an endpoint gateway from the CLI, enter the following command
 
 Where:
 
-* **ENDPOINT_GATEWAY** is the ID of the endpoint gateway.
-* **--json** formats the output in JSON format.
+* `ENDPOINT_GATEWAY` is the ID of the endpoint gateway.
+* `--json` formats the output in JSON format.
 
 
 
 
-## Viewing details of an endpoint gateway using the API
+## Viewing details of an endpoint gateway with the API
 {: #vpe-viewing-details-api}
 {: api}
 
