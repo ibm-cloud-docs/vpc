@@ -15,13 +15,13 @@ subcollection: vpc
 # Beta VPC Identity API change log
 {: #identity-beta-api-change-log}
 
-Read the API change log to learn about updates and improvements to the Beta {{site.data.keyword.vpc_full}} (VPC) [Identity API](/apidocs/vpc-identity-beta). The change log lists changes that are ordered by the date they were released.
+Read the API change log to learn about updates and improvements to the Beta {{site.data.keyword.vpc_full}} (VPC) [Identity API](/apidocs/vpc-identity-beta). The change log lists changes that are ordered by the date that they were released.
 {: shortdesc}
 
 Some beta features are for accounts that have special approval to preview a particular beta feature. Contact your IBM sales representative if you are interested in getting access.
 {: beta}
 
-There are no backward-compatibility guarantees as a feature progresses through its beta phase or from the final beta release to its initial GA release. Using non-GA-mature features could introduce the risk of corrupting resources in your account. IBM strongly recommends that you do not use non-GA-mature features on production accounts.
+Compatibility with earlier versions is not guaranteed as a feature progresses through its beta phase or from the final beta release to its initial GA release. Using non-GA-mature features might introduce the risk of corrupting resources in your account. IBM strongly recommends that you do not use non-GA-mature features on production accounts.
 {: important}
 
 ## 15 July 2025
@@ -37,6 +37,6 @@ This feature is now generally available. See the [VPC Identity API change log](/
 ### For version `2025-07-15` or later
 {: #version-2025-07-15}
 
-**Instance identity methods.** When using a beta `version` query parameter of `2025-07-15` or later, the `/instance_identity` methods have been removed, and requests will fail with an HTTP response of `404`. Clients will need to migrate to the new `/identity` methods. For more information, see the [`2025-07-15` API version migration guide](/docs/vpc?topic=vpc-2025-07-15-migration-metadata-identity). The behavior remains unchanged when using a beta version query parameter of `2025-07-14` or earlier.
+**Instance identity methods.** When a beta `version` query parameter of `2025-07-15` or later is used, the request fails with an HTTP response of `404` because the `/instance_identity` methods were removed. Clients need to migrate to the new `/identity` methods. For more information, see the [`2025-07-15` API version migration guide](/docs/vpc?topic=vpc-2025-07-15-migration-metadata-identity). The behavior remains unchanged when a beta version query parameter of `2025-07-14` or earlier is used.
 
 For more information, see [VPC Identity API known issues](/docs/vpc?topic=vpc-known-issues#identity-api-known-issues).

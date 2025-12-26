@@ -15,13 +15,13 @@ subcollection: vpc
 # Beta VPC API change log
 {: #api-change-log-beta}
 
-Read this change log to learn about updates and improvements to the beta {{site.data.keyword.vpc_full}} (VPC) [API](/apidocs/vpc-beta). Change log announcements are ordered by the date they were released.
+Read this change log to learn about updates and improvements to the beta {{site.data.keyword.vpc_full}} (VPC) [API](/apidocs/vpc-beta). Change log announcements are ordered by the date that they were released.
 {: shortdesc}
 
 Some beta features are for accounts that have special approval to preview a particular beta feature. Contact your IBM sales representative if you are interested in getting access.
 {: beta}
 
-There are no backward-compatibility guarantees as a feature progresses through its beta phase or from the final beta release to its initial GA release. Using non-GA-mature features could introduce the risk of corrupting resources in your account. IBM strongly recommends that you do not use non-GA-mature features on production accounts.
+Compatibility with earlier versions is not guaranteed as a feature progresses through its beta phase or from the final beta release to its initial GA release. Using non-GA-mature features might introduce the risk of corrupting resources in your account. IBM strongly recommends that you do not use non-GA-mature features on production accounts.
 {: important}
 
 To review the change log of generally available API features, see the [VPC API change log](/docs/vpc?topic=vpc-api-change-log).
@@ -32,7 +32,7 @@ To review the change log of generally available API features, see the [VPC API c
 ### For all version dates
 {: #16-december-2025-all-version-dates-beta}
 
-**Burstable (shared core) instances.** Burstable instances are now generally available. The following updates have been made since the 26 August 2025 beta release:
+**Burstable (shared core) instances.** Burstable instances are now generally available. The following updates were made since the 26 August 2025 beta release:
 
 - When [creating](/apidocs/vpc-beta#create-instance) or [updating](/apidocs/vpc-beta#update-instance) an instance or when [creating an instance template](/apidocs/vpc-beta#create-instance-template), you can now enable [burstable virtual server instances](/docs/vpc?topic=vpc-burstable-virtual-servers) by setting the `vcpu.percentage` property value to `10`, `25`, or `50`.
 - When [retrieving](/apidocs/vpc-beta#get-instance) and [listing](/apidocs/vpc-beta#list-instances) instances the `vcpu.burst.limit` property is included in the response. This property indicates the percentage limit that the instance can burst.
@@ -61,7 +61,7 @@ API changes supporting regional file shares are now generally available. See the
 ### For all version dates
 {: #22-july-2025-all-version-dates-beta}
 
-This release introduces the following updates for accounts that have special approval to preview and use these features. Although usage of these features is restricted, changes to schemas (such as new properties) will be visible to all accounts.
+This release introduces the following updates for accounts that have special approval to preview and use these features. Although usage of these features is restricted, changes to schemas (such as new properties) are visible to all accounts.
 
 **File shares with regional availability.** You can now [create file shares](/apidocs/vpc-beta#create-share) with regional availability by specifying the `rfs` profile. When creating file shares with regional availability, the `zone` property must not be specified. For more information, see [About File Storage for VPC](/docs/vpc?topic=vpc-file-storage-vpc-about). See also [Storage known issues](/docs/vpc?topic=vpc-known-issues#storage-vpc-known-issues).
 
@@ -70,7 +70,7 @@ Snapshots, accessor shares, cross-region replication, and encryption at rest for
 
 **Enhanced transit encryption support for file shares.** When [creating a file share](/apidocs/vpc-beta#create-share) with `storage_generation` of `2`, you can include the new [`stunnel`](/docs/vpc?topic=vpc-file-storage-vpc-eit-tls) value when specifying the `allowed_transit_encryption_modes` property for this share. Subsequently, you can also specify the `stunnel` value for the `transit_encryption` property when [creating a mount target](/apidocs/vpc-beta#create-share-mount-target) for the file share. The `stunnel` transit encryption mode is supported only for file shares that are created with a `storage_generation` of `2`.
 
-When [retrieving](/apidocs/vpc-beta#get-share-profile) or [listing](/apidocs/vpc-beta#list-share-profiles) file share profiles, a new `allowed_transit_encryption_modes` property is provided in the response. The `allowed_transit_encryption_modes.default` property denotes the allowed transit encryption modes for a share with this profile, which will be used if `allowed_transit_encryption_modes` is not specified when [creating a file share](/apidocs/vpc-beta#create-share). 
+When [retrieving](/apidocs/vpc-beta#get-share-profile) or [listing](/apidocs/vpc-beta#list-share-profiles) file share profiles, a new `allowed_transit_encryption_modes` property is provided in the response. The `allowed_transit_encryption_modes.default` property denotes the allowed transit encryption modes for a share with this profile, which is used if `allowed_transit_encryption_modes` is not specified when [creating a file share](/apidocs/vpc-beta#create-share). 
 
 **Allowed access protocols for file shares.** When [creating a file share](/apidocs/vpc-beta#create-share), a set of [`allowed_access_protocols`](/docs/vpc?topic=vpc-file-storage-vpc-about&interface=api#fs-allowed-access-protocols) may now be specified to denote which access protocols to use when [creating mount targets for that file share](/apidocs/vpc-beta#create-share-mount-target). The `allowed_access_protocols` properties are also included in the `Share` and `ShareProfile` response schemas.
 
@@ -117,7 +117,7 @@ Flex instance profiles are now generally available. See the [VPC API change log]
 
 **Flex instance profiles.** Accounts that have special approval to preview this feature can now use [flex instance profiles](/docs/vpc?topic=vpc-flexible-profiles-virtual-servers) when [creating](/apidocs/vpc-beta#create-instance) or [updating](/apidocs/vpc-beta#update-instance) an instance, or when [creating](/apidocs/vpc-beta#create-instance-template) an instance template.
 
-**Default instance profile change.** When [creating](/apidocs/vpc-beta#create-instance) a new instance, the `profile` property will now default to `bxf-2x8` for accounts that have special approval to preview [flex instance profiles](/docs/vpc?topic=vpc-flexible-profiles-virtual-servers).
+**Default instance profile change.** When [creating](/apidocs/vpc-beta#create-instance) a new instance, the `profile` property now defaults to `bxf-2x8` for accounts that have special approval to preview [flex instance profiles](/docs/vpc?topic=vpc-flexible-profiles-virtual-servers).
 
 ## 15 April 2025
 {: #15-april-2025-beta}
@@ -139,7 +139,7 @@ This feature is now generally available. See the [VPC API change log](/docs/vpc?
 ### For all version dates
 {: #17-december-2024-all-version-dates-beta}
 
-**Enhanced confidential computing capabilities.** Accounts that have special approval to preview this feature can now enable [Intel&reg; Trust Domain Extensions (TDX)](/docs/vpc?topic=vpc-about-confidential-computing-vpc). [Instance profiles](/apidocs/vpc-beta#list-instance-profiles) that support TDX will have `tdx` included in their `confidential_compute_modes.values` property. To use TDX, you can specify that profile along with the `confidential_compute_mode` value of `tdx` when [creating](/apidocs/vpc-beta#create-instance) or [updating](/apidocs/vpc-beta#update-instance) an instance, or when [creating](/apidocs/vpc-beta#create-instance-template) an instance template. For more information, see [Confidential computing with Intel Trust Domain Extensions (TDX) for Virtual Servers for VPC](/docs/vpc?topic=vpc-about-confidential-computing-vpc).
+**Enhanced confidential computing capabilities.** Accounts that have special approval to preview this feature can now enable [Intel&reg; Trust Domain Extensions (TDX)](/docs/vpc?topic=vpc-about-confidential-computing-vpc). [Instance profiles](/apidocs/vpc-beta#list-instance-profiles) that support TDX  have `tdx` included in their `confidential_compute_modes.values` property. To use TDX, you can specify that profile along with the `confidential_compute_mode` value of `tdx` when [creating](/apidocs/vpc-beta#create-instance) or [updating](/apidocs/vpc-beta#update-instance) an instance, or when [creating](/apidocs/vpc-beta#create-instance-template) an instance template. For more information, see [Confidential computing with Intel Trust Domain Extensions (TDX) for Virtual Servers for VPC](/docs/vpc?topic=vpc-about-confidential-computing-vpc).
 
 ## 22 October 2024
 {: #22-october-2024-beta}
@@ -168,7 +168,7 @@ Reservation affinity policy default is now generally available. See the [VPC API
 ### For all version dates
 {: #15-october-2024-all-version-dates-beta}
 
-This release introduces the following updates for accounts that have special approval to preview and use these features. Although usage of these features is restricted, changes to schemas (such as new properties) will be visible to all accounts.
+This release introduces the following updates for accounts that have special approval to preview and use these features. Although usage of these features is restricted, changes to schemas (such as new properties) are visible to all accounts.
 
 **NVIDIA Hopper HGX H100 instance profiles.** When [creating an instance](/apidocs/vpc-beta#create-instance), a new `gx3d-160x1792x8h100` instance profile is available in select zones. This profile provides 8 NVIDIA H100 GPUs that are tuned for AI workloads, such as inferencing, fine tuning, and large-scale training. For details, see [Accelerated profile family - Gen 3](/docs/vpc?topic=vpc-accelerated-profile-family#hopper-hgx-profiles).
 
@@ -295,7 +295,7 @@ The `value` for load balancer profiles properties `route_mode_supported`, `secur
 
 - [Account policies](/apidocs/vpc-beta#list-private-path-service-gateway-account-policies) provide per-account access policies that supersede the private path service gateway's default access policy.  You can [create](/apidocs/vpc-beta#create-private-path-service-gateway-account-policy), [update](/apidocs/vpc-beta#update-private-path-service-gateway-account-policy), and [delete](/apidocs/vpc-beta#delete-private-path-service-gateway-account-policy) policies to `permit`, `deny`, or manually `review` requests from any account. You can also [revoke](/apidocs/vpc-beta#revoke-account-for-private-path-service-gateway) current and future access for an account. For more information, see [About account policies](/docs/vpc?topic=vpc-pps-about-account-policies).
 
-- [Endpoint gateway bindings](/apidocs/vpc-beta#list-private-path-service-gateway-endpoint-gateway) represent each request to access to the private path service gateway. The associated account policy is applied to all `pending` endpoint gateway bindings. If an associated account policy doesn't exist, the private path service gateway's `default_access_policy` is used.  If the resulting policy is `review`, you will be able to explicitly approve or deny the request, and optionally set a new policy for future requests from the account.
+- [Endpoint gateway bindings](/apidocs/vpc-beta#list-private-path-service-gateway-endpoint-gateway) represent each request to access to the private path service gateway. The associated account policy is applied to all `pending` endpoint gateway bindings. If an associated account policy doesn't exist, the private path service gateway's `default_access_policy` is used.  If the resulting policy is `review`, you are able to explicitly approve or deny the request, and optionally set a new policy for future requests from the account.
 
 Learn about [creating private path service gateways](/docs/vpc?topic=vpc-private-path-service-about), and explore the new [API methods](/apidocs/vpc-beta#list-private-path-service-gateways).
 
@@ -307,9 +307,9 @@ Learn about [creating private path service gateways](/docs/vpc?topic=vpc-private
 
 This release introduces the following updates for accounts that have special approval to preview these features:
 
-**Confidential computing capabilities.** On select instance profiles, you can now enable [Intel&reg; Software Guard Extensions](/docs/vpc?topic=vpc-about-confidential-computing-vpc). When [creating](/apidocs/vpc-beta#create-instance) or [updating](/apidocs/vpc-beta#update-instance) an instance or when [creating](/apidocs/vpc-beta#create-instance-template) or [updating](/apidocs/vpc-beta#update-instance-template) an instance template, you can specify the new `confidential_compute_modes` property value (`disabled` or `sgx`) to use for a virtual server instance. The new `confidential_compute_modes` instance profile property indicates which profiles will support which modes. If you do not specify the `confidential_compute_modes` property when creating an instance or instance template, the default confidential compute mode from the profile will be used.
+**Confidential computing capabilities.** On select instance profiles, you can now enable [Intel&reg; Software Guard Extensions](/docs/vpc?topic=vpc-about-confidential-computing-vpc). When [creating](/apidocs/vpc-beta#create-instance) or [updating](/apidocs/vpc-beta#update-instance) an instance or when [creating](/apidocs/vpc-beta#create-instance-template) or [updating](/apidocs/vpc-beta#update-instance-template) an instance template, you can specify the new `confidential_compute_modes` property value (`disabled` or `sgx`) to use for a virtual server instance. The new `confidential_compute_modes` instance profile property indicates which profiles will support which modes. If you do not specify the `confidential_compute_modes` property when creating an instance or instance template, the default confidential compute mode from the profile are used.
 
-**Secure boot capabilities.** When [creating](/apidocs/vpc-beta#create-instance) or [updating](/apidocs/vpc-beta#update-instance) an instance or when [creating](/apidocs/vpc-beta#create-instance-template) or [updating](/apidocs/vpc-beta#update-instance-template) an instance template, you can set the new `enable_secure_boot` property to `true` to enable secure boot on the virtual server instance. The new `secure_boot_modes` instance profile property indicates the secure boot modes supported by the profile. If you do not specify the `enable_secure_boot` property when creating an instance or instance template, the default secure boot mode from the profile will be used. To use secure boot, the image must support secure boot or the instance will fail to boot.
+**Secure boot capabilities.** When [creating](/apidocs/vpc-beta#create-instance) or [updating](/apidocs/vpc-beta#update-instance) an instance or when [creating](/apidocs/vpc-beta#create-instance-template) or [updating](/apidocs/vpc-beta#update-instance-template) an instance template, you can set the new `enable_secure_boot` property to `true` to enable secure boot on the virtual server instance. The new `secure_boot_modes` instance profile property indicates the secure boot modes supported by the profile. If you do not specify the `enable_secure_boot` property when creating an instance or instance template, the default secure boot mode from the profile are used. To use secure boot, the image must support secure boot or the instance will fail to boot.
 
 To update the `enable_secure_boot` and `confidential_compute_mode` properties, the virtual server instance `status` must be `stopping` or `stopped`.
 {: note}
@@ -366,7 +366,7 @@ When [creating a mount target](/apidocs/vpc-beta#create-share-mount-target) for 
 ### For all version dates
 {: #13-june-2023-all-version-dates-beta}
 
-**Image lifecycle management property name changes.** For accounts that have special approval to preview the image lifecycle management feature, the `deprecated_at` and `obsoleted_at` properties for [images](/apidocs/vpc-beta#create-image) requests have been renamed `deprecation_at` and `obsolescence_at`, respectively. Original property names `deprecated_at` and `obsoleted_at` will continue to be supported until the feature becomes generally available. Requests that specify the original and revised property names simultaneously will be rejected.
+**Image lifecycle management property name changes.** For accounts that have special approval to preview the image lifecycle management feature, the `deprecated_at` and `obsoleted_at` properties for [images](/apidocs/vpc-beta#create-image) requests have been renamed `deprecation_at` and `obsolescence_at`, respectively. Original property names `deprecated_at` and `obsoleted_at` will continue to be supported until the feature becomes generally available. Requests that specify the original and revised property names simultaneously are rejected.
 
 This feature is now generally available. Support for property names `deprecated_at` and `obsoleted_at` has been removed. See the [VPC API change log](/docs/vpc?topic=vpc-api-change-log#11-july-2023).
 
@@ -376,7 +376,7 @@ This feature is now generally available. Support for property names `deprecated_
 ### For all version dates
 {: #30-may-2023-all-version-dates-beta}
 
-**Enforcement of file shares beta API requests.** Starting with API version `2023-05-30`, all requests made for [shares methods](/apidocs/vpc-beta#list-shares) must include the [`maturity=beta`](/apidocs/vpc-beta#maturity-query-parameter-beta) query parameter. Requests that omit the `maturity=beta` query parameter will be regarded as requests against the [VPC GA API](/apidocs/vpc), which does not yet support shares. As a result, those requests will fail.
+**Enforcement of file shares beta API requests.** Starting with API version `2023-05-30`, all requests made for [shares methods](/apidocs/vpc-beta#list-shares) must include the [`maturity=beta`](/apidocs/vpc-beta#maturity-query-parameter-beta) query parameter. Requests that omit the `maturity=beta` query parameter are regarded as requests against the [VPC GA API](/apidocs/vpc), which does not yet support shares. As a result, those requests will fail.
 
 ### For version `2023-05-30` or later
 {: #version-2023-05-30-beta}
@@ -422,7 +422,7 @@ This feature is now generally available. See the [VPC API change log](/docs/vpc?
 ### For all version dates
 {: #14-february-2023-all-version-dates-beta}
 
-**Exporting custom images.** Accounts that have special approval to preview this feature can now [export custom images](/apidocs/vpc-beta#create-image-export-job) to an authorized IBM Cloud Object Storage bucket. Specify the target `storage_bucket` to export the image to. The image will be exported as `qcow2` unless you specify another value using the `format` property.
+**Exporting custom images.** Accounts that have special approval to preview this feature can now [export custom images](/apidocs/vpc-beta#create-image-export-job) to an authorized IBM Cloud Object Storage bucket. Specify the target `storage_bucket` to export the image to. The image is exported as `qcow2` unless you specify another value using the `format` property.
 
 For more information, see [Exporting a custom image to IBM Cloud Object Storage](/docs/vpc?topic=vpc-managing-custom-images&interface=api#custom-image-export-to-cos-api), or start using the new [export jobs](/apidocs/vpc-beta#list-image-export-jobs) methods.
 
@@ -445,7 +445,7 @@ See the [VPC API change log](/docs/vpc?topic=vpc-api-change-log#20-december-2022
 
 By default, a boot volume attached to a virtual server instance is deleted when the instance is deleted. To preserve the boot volume when deleting a virtual server instance, change the `delete_volume_on_instance_delete` property to `false` by updating the [boot volume attachment](/apidocs/vpc-beta#update-instance-volume-attachment). See [Creating virtual server instances](/docs/vpc?topic=vpc-creating-virtual-servers&interface=ui), [Creating VPC resources with CLI and API](/docs/vpc?topic=vpc-creating-vpc-resources-with-cli-and-api&interface=cli) for more information.
 
-This feature is now generally available. Since the beta release, by default, only a boot volume created as part of provisioning a virtual server instance will be deleted when the instance is deleted. See the [VPC API change log](/docs/vpc?topic=vpc-api-change-log#21-march-2023).
+This feature is now generally available. Since the beta release, by default, only a boot volume that was created as part of provisioning a virtual server instance is deleted when the instance is deleted. See the [VPC API change log](/docs/vpc?topic=vpc-api-change-log#21-march-2023).
 
 ## 16 August 2022
 {: #16-august-2022-beta}

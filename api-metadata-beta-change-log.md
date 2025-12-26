@@ -15,13 +15,13 @@ subcollection: vpc
 # Beta VPC Metadata API change log
 {: #metadata-beta-api-change-log}
 
-Read the API change log to learn about updates and improvements to the {{site.data.keyword.vpc_full}} (VPC) [Beta Metadata API](/apidocs/vpc-metadata-beta). Change log announcements are ordered by the date they were released.
+Read the API change log to learn about updates and improvements to the {{site.data.keyword.vpc_full}} (VPC) [Beta Metadata API](/apidocs/vpc-metadata-beta). Change log announcements are ordered by the date that they were released.
 {: shortdesc}
 
 Some beta features are for accounts that have special approval to preview a particular beta feature. Contact your IBM sales representative if you are interested in getting access.
 {: beta}
 
-There are no backward-compatibility guarantees as a feature progresses through its beta phase or from the final beta release to its initial GA release. Using non-GA-mature features could introduce the risk of corrupting resources in your account. IBM strongly recommends that you do not use non-GA-mature features on production accounts.
+Compatibility with earlier versions is not guaranteed as a feature progresses through its beta phase or from the final beta release to its initial GA release. Using non-GA-mature features might introduce the risk of corrupting resources in your account. IBM strongly recommends that you do not use non-GA-mature features on production accounts.
 {: important}
 
 To review the change log of generally available metadata API features, see the [VPC Metadata API change log](/docs/vpc?topic=vpc-metadata-api-change-log).
