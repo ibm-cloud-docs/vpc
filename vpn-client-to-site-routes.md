@@ -2,7 +2,7 @@
 
 copyright:
   years: 2021, 2025
-lastupdated: "2025-10-24"
+lastupdated: "2025-12-26"
 
 keywords:
 
@@ -25,7 +25,7 @@ Private IPs are not static and can change at any time. Do not create routes and 
 
 When the VPN is established in split-tunnel configuration, all routes in the client-to-site VPN server routing tables are added to the client routing table. You must reset the connection if you add routes later, to ensure that the new route is delivered to the client.
 
-To avoid running out of routes, make note of the client device's route capacity before modifying the client-to-site VPN server routing table.
+To avoid running out of routes, make note of the client device's route capacity before the client-to-site VPN server routing table is modified.
 {: tip}
 
 ## Creating a route in the console
@@ -48,8 +48,8 @@ Add `0.0.0.0/0` as a route to enable clients access to the internet.
    * For an on-premises network, enter the IPv4 CIDR range of the site-to-site gateway connection.
    * For the VPC subnet, enter the VPC subnet CIDR.
 1. Choose an action:
-   * **Deliver** - Use when the route destination is in the VPC, or an on-premises private subnet connected using VPN gateway. When VPN routes use the Deliver action, the client IP is preserved.
-   * **Drop** - Use when you want to block traffic from the client, to forward unwanted or undesirable network traffic to a null or "black hole" route.
+   * **Deliver** - Use when the route destination is in the VPC, or an on-premises private subnet connected by using VPN gateway. When VPN routes use the Deliver action, the client IP is preserved.
+   * **Drop** - Use when you want to block traffic from the client to forward unwanted or undesirable network traffic to a null or "black hole" route.
    * **Translate** - Use to translate the source IP to the VPN server private IP before it is sent out from the VPN server, making your VPN client IP invisible to the destination devices.
 1. Click **Create**.
 
@@ -60,11 +60,11 @@ You can select **Edit** from the Actions menu of the VPN server route to change 
 {: #delete-route-ui-c2s}
 {: ui}
 
-To delete a route using the UI, follow these steps:
+To delete a route by using the UI, follow these steps:
 
 1. From your browser, open the [{{site.data.keyword.cloud_notm}} console](/login){: external} and log in to your account.
 1. Select the **Navigation menu** ![Navigation menu icon](../icons/icon_hamburger.svg), then click **Infrastructure** ![VPC icon](../../icons/vpc.svg) > **Network** > **VPNs**.
-1. Select **Client-to-site servers** tab.
+1. Select the **Client-to-site servers** tab.
 1. Select the VPN server where you want to delete a route. Then, from the Actions menu, select **Delete**.
 1. Select **Delete** again to confirm deletion.
 
