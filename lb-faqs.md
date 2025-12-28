@@ -2,7 +2,7 @@
 
 copyright:
   years: 2018, 2025
-lastupdated: "2025-11-11"
+lastupdated: "2025-12-28"
 
 
 keywords: load balancer, public, listener, back-end, front-end, pool, round-robin, weighted, connections, methods, policies, APIs, access, ports, vpc network, layer 7, auto scale, managed pool, instance group
@@ -192,3 +192,9 @@ Private IPs are taken from the subnets you choose while provisioning a load bala
 {: faq}
 
 The persistence will be moved to the one of the available backend members.
+
+## If certificates attached to load balancers are auto-rotated after getting renewed, why do I have to manually update my certificate this time?
+{: #load-balancer-certificate-manual-update}
+{: faq}
+
+Note that Secrets Manager supports a maximum of 50 rotation versions for a secret. Within this limit, when a secret is rotated, the ALB automatically refreshes and uses the updated certificate. However, once the rotation count exceeds 50, a new certificate must be manually updated in the ALB’s front-end listener. Before reaching this limit, no manual update of the front-end listener is required.
