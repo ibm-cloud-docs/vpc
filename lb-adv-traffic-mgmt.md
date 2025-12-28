@@ -1,8 +1,8 @@
 ---
 
 copyright:
-  years: 2018, 2024
-lastupdated: "2024-10-29"
+  years: 2018, 2025
+lastupdated: "2025-12-28"
 
 keywords: application load balancer, public, listener, back-end, front-end, pool, round-robin, weighted, connections, methods, policies, APIs, access, ports, layer 7, compression
 subcollection: vpc
@@ -64,15 +64,22 @@ In addition to HTTP cookie persistence, you can also define your own application
 ## HTTP keep alive
 {: #http-keep-alive}
 
-{{site.data.keyword.alb_full}} supports `HTTP keep alive` when it is enabled on both the client and back-end servers. The load balancer attempts to reuse the server-side HTTP connections to increase connection efficiency and reduce latency.
+`HTTP keep alive` enables an HTTP client and a server to exchange multiple request-response pairs over a single TCP connection. This reduces latency for subsequent requests, minimizes network overhead, and improves overall efficiency.
+
+Application Load Balancer for VPC supports `HTTP keep alive` when it is enabled on both the consumer and back-end servers. If the consumer supports `HTTP keep alive`, the ALB keeps the connection open for multiple requests. The ALB attempts to reuse server-side HTTP connections to back-end servers to minimize connection overhead.
+
+HTTP keep alive is a setting which needs to be enabled on both customer and back-end server sides of the connection. 
+{: note}
 
 ## TCP keep alive
 {: #tcp-keep-alive}
 
-{{site.data.keyword.alb_full}} supports `TCP keep alive`. With this setting, the load balancer sends TCP-keep-alive packets to both client and back-end servers every 5 seconds.
+`TCP keep alive` is a mechanism at the transport layer (TCP) that helps maintain long-lived idle connections by periodically sending small packets (called keep alive probes) to check if the other end of the connection is still reachable.
 
-   This is a socket-level packet with no data that is sent to the peer to notify it that the host is alive. As such, it is seen only at the network layer, and not at the application level. This setting also helps to prevent the disconnection of TCP connections by an intermediate proxy or firewall that might have policies that discard connections after a certain period of inactivity.
-   {: note}
+Application Load Balancer for VPC supports TCP keep alive. With this setting, the load balancer sends `TCP keep alive` packets to both consumer and back-end servers every 5 seconds. After a connection becomes idle for a specified time (called keep alive time, often a default of 2 hours), the TCP stack sends a keep alive probe. If the peer responds, the connection stays alive. If there is no response after several probes, the connection is considered dead and closed.
+
+TCP keep alive is a socket-level packet with no data that is sent to the peer to notify it that the host is alive. As such, it is seen only at the network layer, and not at the application level. This setting also helps to prevent the disconnection of TCP connections by an intermediate proxy or firewall that might have policies that discard connections after a certain period of inactivity.
+{: note}
 
 ## Connection timeouts
 {: #connection-timeouts}
