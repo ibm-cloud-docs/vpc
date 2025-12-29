@@ -2,7 +2,7 @@
 
 copyright:
   years: 2018, 2025
-lastupdated: "2025-12-28"
+lastupdated: "2025-12-29"
 
 keywords: application load balancer, public, listener, back-end, front-end, pool, round-robin, weighted, connections, methods, policies, APIs, access, ports, layer 7, compression
 subcollection: vpc
@@ -68,7 +68,7 @@ In addition to HTTP cookie persistence, you can also define your own application
 
 Application Load Balancer for VPC supports `HTTP keep alive` when it is enabled on both the consumer and back-end servers. If the consumer supports `HTTP keep alive`, the ALB keeps the connection open for multiple requests. The ALB attempts to reuse server-side HTTP connections to back-end servers to minimize connection overhead.
 
-HTTP keep alive is a setting which needs to be enabled on both customer and back-end server sides of the connection. 
+`HTTP keep alive` must be enabled on both customer and back-end server sides of the connection. 
 {: note}
 
 ## TCP keep alive
