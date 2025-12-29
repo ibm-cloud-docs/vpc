@@ -2,7 +2,7 @@
 
 copyright:
   years: 2020, 2025
-lastupdated: "2025-11-04"
+lastupdated: "2025-12-29"
 
 keywords: flow logs, viewing objects, analyze
 
@@ -24,7 +24,7 @@ Currently, flow logs collect Transmission Control Protocol (TCP) and User Datagr
 
 Each flow log object contains individual flow logs. To view or analyze the flow logs, use the IBM Analytics Engine. For more information, see the IBM Analytics Engine [Getting started tutorial](/docs/AnalyticsEngine?topic=AnalyticsEngine-getting-started).
 
-IBM Cloud Data Engine is depreciated and will no longer be supported after 19 January 2025. If you currently use existing instances of Data Engine, it is recommended that you migrate your workloads to [IBM Analytics Engine](/docs/AnalyticsEngine?topic=AnalyticsEngine-getting-started).
+IBM Cloud Data Engine is depreciated and is no longer supported. If you currently use existing instances of Data Engine, it is recommended that you migrate your workloads to [IBM Analytics Engine](/docs/AnalyticsEngine?topic=AnalyticsEngine-getting-started).
 {: deprecated}
 
 ## Flow log data format
@@ -42,7 +42,7 @@ The `initiator_ip` in a flow log is defined to be the `source_ip` that appears i
 If both the connection initiator vNIC and connection target vNIC enable flow logs, the initiator and target IP and ports fields are identical in the flow logs on both vNICs.
 {: note}
 
-**Example**: Consider a client that is sending an HTTP request to a web server. The flow log for this HTTP request on the client-side vNIC has the client’s IP address as `initiator_ip`. The corresponding flow log on the server-side vNIC has the same `initiator_ip`.
+Example: Consider a client that is sending an HTTP request to a web server. The flow log for this HTTP request on the client-side vNIC has the client’s IP address as `initiator_ip`. The corresponding flow log on the server-side vNIC has the same `initiator_ip`.
 
 The `start_time` and `end_time` in a flow log reflects:
 
@@ -51,7 +51,7 @@ The `start_time` and `end_time` in a flow log reflects:
 
 It's possible that the flow log does not reflect all traffic (for example, in the data path) between a flow log `start_time` and `end_time`. In other words, it might be that packets sent and received by the vNIC toward the end of the capture window are reflected only in a flow log with the later `start_time` window.
 
-**Flow logs reflect actual traffic on connections**: If traffic does not occur on a connection in a capture window, no flow log appears for it in the {{site.data.keyword.cos_short}} object for that window. Meaning that the sequence of flow logs for a connection might be mapped to a sequence of non-consecutive {{site.data.keyword.cos_short}} objects.
+Flow logs reflect actual traffic on connections: If traffic does not occur on a connection in a capture window, no flow log appears for it in the {{site.data.keyword.cos_short}} object for that window. Meaning that the sequence of flow logs for a connection might be mapped to a sequence of non-consecutive {{site.data.keyword.cos_short}} objects.
 
 The flow logs array within an object does not need to be sorted in any specific order.
 {: note}
