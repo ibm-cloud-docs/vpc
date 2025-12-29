@@ -2,7 +2,7 @@
 
 copyright:
   years: 2024, 2025
-lastupdated: "2025-12-12"
+lastupdated: "2025-12-29"
 
 keywords:
 
@@ -99,7 +99,7 @@ Where:
 :   Direction of traffic to enforce. One of: `inbound`, `outbound`.
 
 `PROTOCOL`
-:   Protocol to which the rule applies. One of: `tcp`, `udp`, `icmp`, `icmp`, `icmp_tcp_udp`, `gre`, `ip_in_ip`, `ah`, `esp`, `l2tp`, `rsvp`, `sctp`, `vrrp`, or `number_<N>`.
+:   Protocol to which the rule applies. One of: `tcp`, `udp`, `icmp`, `icmp_tcp_udp`, `gre`, `ip_in_ip`, `ah`, `esp`, `l2tp`, `rsvp`, `sctp`, `vrrp`, or `number_<N>`.
 
 `--vpc`
 :   ID or name of the VPC. This option is required only to specify the unique resource by name inside this VPC.
