@@ -2,7 +2,7 @@
 
 copyright:
   years: 2019, 2025
-lastupdated: "2025-12-23"
+lastupdated: "2025-12-29"
 
 keywords:
 
@@ -69,19 +69,25 @@ The following guidelines explain how security groups function, how rules are app
 {: #security-group-guidelines-rules}
 
 * Each security group defines different sets of network rules that define the incoming and outgoing traffic for a virtual network interface.
-* To allow inbound traffic, outbound traffic, or both, you must add at least one security group that includes security group rules that allow traffic.
 * Security group rules can only be permissive. Traffic is blocked by default.
 * Changes to security group rules are automatically applied and can be modified at any time.
 * The order of rules within a security group doesn't matter. The priority always falls to the least restrictive rule.
 * Rules are stateful. Connections established prior to a security group change are not altered. New connections abide by rules that exist at the time connectivity is established.
-* Security groups do not override operating system firewalls on the virtual server. Even if a more restrictive firewall exists on the operating system than what is applied by the security group, the operating system rules will still be enforced.
-* If your virtual server needs access to internal services, such as an update server, network-attached storage (NAS), or advanced monitoring, ensure that the security group rules accommodate traffic for those internal services.
+* Security groups do not override operating system firewalls on a virtual server instance or bare metal server. Even if a more restrictive firewall exists on the operating system than what is applied by the security group, the operating system rules will still be enforced.
+* If your virtual server instance or bare metal server needs access to internal services, such as an update server, network-attached storage (NAS), or advanced monitoring, ensure that the security group rules accommodate traffic for those internal services.
 
-### Interfaces
+### Targets
 {: #security-group-guidelines-interfaces}
 
-* One or more security groups can be attached to a network interface.
-* All rules from attached security groups collectively apply to the interface.
+* A security group can be attached to multiple targets.
+* One or more security groups can be attached to:
+  - a virtual network interface
+  - an instance network interface
+  - a bare metal server network interface
+  - an endpoint gateway
+  - a load balancer
+  - a VPN server.
+* All rules from attached security groups collectively apply to the target.
 * If multiple security groups are attached, traffic is allowed or blocked based on the least restrictive rule across all groups.
 
 ## Defining security group rules

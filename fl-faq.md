@@ -2,7 +2,7 @@
 
 copyright:
   years: 2019, 2025
-lastupdated: "2025-04-01"
+lastupdated: "2025-12-29"
 
 keywords: flow logs, FAQs
 
@@ -26,8 +26,9 @@ You might encounter the following questions when you use {{site.data.keyword.clo
 
 The most likely reasons why you might not see your {{site.data.keyword.cos_short}} buckets when you order a flow log collector:
 
-* an {{site.data.keyword.cos_full}} service instance isn't provisioned or a destination bucket to collect flow logs.
+* An {{site.data.keyword.cos_full}} service instance isn't provisioned or a destination bucket to collect flow logs.
 * An IAM authorization that grants the flow logs service permission to write flow logs to their bucket isn't configured.
+
    In this case, you receive prompts to create an {{site.data.keyword.cos_short}} service instance and bucket, and add the required Identity and Access Management (IAM) authorization when you are creating a flow log collector.
    See [Creating flow log collectors](/docs/vpc?topic=vpc-ordering-flow-log-collector) for information on how to remedy this issue.
 

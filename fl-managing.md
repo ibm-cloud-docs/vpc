@@ -2,7 +2,7 @@
 
 copyright:
   years: 2020, 2025
-lastupdated: "2025-10-24"
+lastupdated: "2025-12-29"
 
 keywords:
 
@@ -67,7 +67,7 @@ Where:
 To list flow log collectors by using the API, follow these steps:
 
 1. Set up your [API environment](/docs/vpc?topic=vpc-set-up-environment#api-prerequisites-setup) with the right variables.
-2. When all variables are initiated, list your flow log collectors:
+1. When all variables are initiated, list your flow log collectors:
 
 ```curl
 curl -sS -X GET \
@@ -77,4 +77,4 @@ curl -sS -X GET \
 {: pre}
 
 The example uses `jq` as a parser, a third-party tool licensed under the [MIT license](https://stedolan.github.io/jq/download/). `jq` might not come preinstalled on all VPC images available when you create an instance. You might need to install `jq` before use or use another parser of your choice.
-      {: note}
+{: note}
