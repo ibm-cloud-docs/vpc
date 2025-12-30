@@ -2,7 +2,7 @@
 
 copyright:
   years: 2024, 2025
-lastupdated: "2025-10-09"
+lastupdated: "2025-12-30"
 
 keywords:
 
@@ -15,17 +15,16 @@ subcollection: vpc
 # Creating a cluster network
 {: #create-cluster-network}
 
-Cluster networks allow you to interconnect and define sets of performance criteria for multiple virtual networks. These networks are designed to support tasks that require high-speed data transfer and low latency, such as high-performance computing (HPC) and large-scale data processing.
+Cluster networks help you interconnect and define sets of performance criteria for multiple virtual networks. These networks are designed to support tasks that require high-speed data transfer and low latency, such as high-performance computing (HPC) and large-scale data processing.
 {: shortdesc}
 
 ## Before you begin
 {: #create-interface-prerequisites}
 
-* Review [planning considerations](/docs/vpc?topic=vpc-planning-cluster-network&interface=ui) and [known issues](/docs/vpc?topic=vpc-known-issues-cluster-networks).
-* Ensure that you have an existing VPC in a region that has capacity for NVIDIA H100 or H200 profiles with clustering support.
+Before you create a cluster network, review the following prerequisites:
 
-   Currently, the only supported zone is `us-east-wdc07-a`. For more information about zones, see [zone mapping](/docs/overview?topic=overview-locations#zone-mapping).
-   {: note}
+* Review [planning considerations](/docs/vpc?topic=vpc-planning-cluster-network&interface=ui) and [known issues](/docs/vpc?topic=vpc-known-issues-cluster-networks).
+* Make sure that you have an existing VPC in a region that has capacity for cluster network profiles with clustering support. For more information, see [Getting started with Virtual Private Cloud (VPC)](/docs/vpc?topic=vpc-getting-started) and [Creating a VPC in a different region](/docs/vpc?topic=vpc-creating-a-vpc-in-a-different-region&interface=cli).
 
 You can create a cluster network with the console, API, CLI, and Terraform.
 
@@ -36,25 +35,30 @@ You can create a cluster network with the console, API, CLI, and Terraform.
 To create a cluster network in the console, follow these steps:
 
 1. From your browser, open the [{{site.data.keyword.cloud_notm}} console](/login) and log in to your account.
-1. Select the **Navigation menu** ![Navigation menu icon](../../icons/icon_hamburger.svg), then click  **Infrastructure** ![VPC icon](../../icons/vpc.svg)  > **Network** > **Cluster networks**.
-1. On the Cluster networks for VPC page, click **Create +**.
+1. Select the **Navigation menu** ![Navigation menu icon](../../icons/icon_hamburger.svg), then click  **Infrastructure** ![VPC icon](../../icons/vpc.svg) > **Network** > **Cluster networks**.
+1. On the Cluster networks for VPC page, click **Create**.
 1. In the Location section, edit the following fields, if necessary.
-    * **Geography**: Indicates the geography where you want the cluster network created.
-    * **Region**: Indicates the region where you want the cluster network created.
-    * **Zone**: Indicates the region where you want the cluster network created.
+    * **Geography**: The geographic area for the cluster network.
+    * **Region**: The specific region within the geography.
+    * **Zone**: The availability zone within the selected region.
+
+    You must create the cluster network and the virtual server instances in the same region as the VPC. For more information, see [supported regions and zones](/docs/vpc?topic=vpc-planning-cluster-network#cn-supported-regions) for cluster networks and instances.
+    {: note}
+
 1. In the Details section, complete the following information:
    * **Name**: Enter a unique name for the virtual network interface, such as `my-virtual-network-interface`.
    * **Resource group**: Select a resource group for the virtual network interface.
-   * **Tags**: (optional) Add tags to help you organize and find your resources. You can add more tags later. For more information, see [Working with tags](/docs/account?topic=account-tag).
+   * **Tags**: (Optional) Add tags to help you organize and find your resources. You can add more tags later. For more information, see [Working with tags](/docs/account?topic=account-tag).
    * **Virtual private cloud**: Choose the VPC to associate the cluster network with.
-1. Choose the profile for your cluster network.
+1. Choose the required profile for your cluster network. Available profile is Hopper 1 (`hopper-1`).
 
-   Currently, cluster networking supports both H100 and Hopper-1 profiles for NVIDIA Hopper HGX instances. However, the H100 cluster network profile will be deprecated and replaced by the Hopper-1 cluster network profile, as it supports both NVIDIA H100 and H200 instance profiles.
+1. To add cluster subnets to your cluster network, enable the **Cluster network subnets** section. You can add cluster subnets now, or after you create your cluster network.
+   * For Hopper 1, select the total number of cluster subnets that you want to create (8, 16, or 32).
+   * Add a subnet prefix to your cluster subnets.
+
+   Certain scenarios might use a larger number of subnets.
    {: note}
 
-1. If you want to add cluster subnets to your cluster network, ensure that the Cluster network subnets section is switched On. Then:
-   * Select the total number of cluster subnets you want to create (8, 16, or 32).
-   * Add a subnet prefix to your cluster subnets.
 1. Review the information in the Summary panel, and click **Create cluster network**.
 
 ## Creating a cluster network from the CLI
@@ -75,14 +79,11 @@ To create a cluster network from the CLI, follow these steps:
 1. To create a cluster network, enter the following command:
 
 
-```bash
+
+```sh
    ibmcloud is cluster-network-create --vpc VPC --zone ZONE --profile PROFILE [--name NAME] [--subnet-prefixes-cidr SUBNET_PREFIXES_CIDR] [--resource-group-id RESOURCE_GROUP_ID | --resource-group-name RESOURCE_GROUP_NAME] [--output JSON] [-q, --quiet]
    ```
-   {: pre}
-
-
-
-
+   {: codeblock}
 
    Where:
 
@@ -90,16 +91,16 @@ To create a cluster network from the CLI, follow these steps:
     :    The ID or name of the VPC.
 
    `--zone`
-   :    The zone this cluster network will reside in. The zone must be listed as supported on the specified cluster network profile.
+   :    The zone this cluster network resides in. The zone must be listed as supported on the specified cluster network profile. For more information, see [Cluster network supported regions and zones](/docs/vpc?topic=vpc-planning-cluster-network&interface=ui#cn-supported-regions).
 
    `--profile`
-   :    Name of the profile to use for this cluster network. Currently, cluster networking supports both H100 and Hopper-1 profiles for NVIDIA Hopper HGX instances. However, the H100 cluster network profile will be deprecated and replaced by the Hopper-1 cluster network profile, as it supports both NVIDIA H100 and H200 instance profiles.
+   :    Name of the profile to use for this cluster network. Available profiles are `hopper-1` for Hopper 1 cluster network.
 
    `--name`
    :    Name for the cluster network.
 
    `--subnet-prefixes-cidr`
-   :    The IPv4 range of the cluster network's subnet prefix, expressed in CIDR format.
+   :    The IPv4 range of the cluster network's subnet prefix expressed in CIDR format.
 
    `--resource-group-id value`
    :    ID of the resource group. This ID is mutually exclusive with `--resource-group-name`.
@@ -116,17 +117,43 @@ To create a cluster network from the CLI, follow these steps:
 
 
 
+
 ### Command examples
 {: #cli-command-examples-cluster-network-create}
 
+* Create a new cluster network in the specified VPC and zone with a specific profile:
 
 
-* `ibmcloud is cluster-network-create --vpc my-vpc --zone us-south-1 --profile profile-name`
-* `ibmcloud is cluster-network-create --vpc my-vpc --zone us-south-1 --profile profile-name --name my-cl-net`
-* `ibmcloud is cluster-network-create --vpc my-vpc --zone us-south-1 --profile profile-name --name my-cl-net --subnet-prefixes-cidr 10.0.0.24/24`
-* `ibmcloud is cluster-network-create --vpc my-vpc --zone us-south-1 --profile profile-name`
-* `ibmcloud is cluster-network-create --vpc my-vpc --zone us-south-1 --profile profile-name --name my-cl-net`
-* `ibmcloud is cluster-network-create --vpc my-vpc --zone us-south-1 --profile profile-name --name my-cl-net --subnet-prefixes-cidr 10.0.0.24/24 --output JSON`
+   ```sh
+   ibmcloud is cluster-network-create --vpc my-vpc --zone us-south-1 --profile profile-name
+   ```
+ {: pre}
+
+
+
+
+* Create a cluster network in the specified VPC and zone with a specific profile and custom name (`my-cl-net`):
+
+
+   ```sh
+   ibmcloud is cluster-network-create --vpc my-vpc --zone us-south-1 --profile profile-name --name my-cl-net
+   ```
+ {: pre}
+
+
+
+
+
+* Create a cluster network with a custom name and a specified CIDR block for the subnet prefix. The output is formatted in JSON:
+
+
+   ```sh
+   ibmcloud is cluster-network-create --vpc my-vpc --zone us-south-1 --profile profile-name --name my-cl-net --subnet-prefixes-cidr 10.0.0.24/24 --output JSON
+   ```
+ {: pre}
+
+
+
 
 
 
@@ -138,7 +165,7 @@ To create a cluster network from the CLI, follow these steps:
 To create a cluster network with the API, follow these steps:
 
 1. Set up your API environment [with the right variables](/docs/vpc?topic=vpc-set-up-environment#api-prerequisites-setup).
-1. Store any additional variables to be used in the API commands; for example:
+1. Store any additional variables to be used in the API commands. For example:
 
    `version` (string): The API version, in format `YYYY-MM-DD`.
 
@@ -148,22 +175,25 @@ To create a cluster network with the API, follow these steps:
    curl -X POST   "$vpc_api_endpoint/v1/cluster_networks?version=$api_version&generation=2" -H "Authorization: Bearer $iam_token" -d '{
       "name": "my-cluster-network",
       "profile": {
-          "name": "h100"
+          "name": "hopper-1"
       },
       "vpc": {
           "id": "r006-4727d842-f94f-4a2d-824a-9bc9b02c523b"
       },
       "zone": {
-          "name": "us-south-1"
+          "name": "us-east-3"
       }
     }'
    ```
    {: codeblock}
 
-   To view the complete set of cluster network APIs, see the [VPC API reference](/apidocs/vpc/latest#list-cluster-network-profiles).
+   Available cluster network profiles name is `hopper-1`.
+   {: note}
+
+To view the complete set of cluster network APIs, see the [VPC API reference](/apidocs/vpc/latest#list-cluster-network-profiles).
 
 ## Creating a cluster network interface with Terraform
-{: #ccreate-cluster-network-terraform}
+{: #create-cluster-network-terraform}
 {: terraform}
 
 The following example provisions a cluster network instance by using Terraform:
@@ -171,13 +201,18 @@ The following example provisions a cluster network instance by using Terraform:
 ```terraform
 resource "ibm_is_cluster_network" "is_cluster_network_instance" {
   name            = var.is_cluster_network_name  // change to update
-  profile         = "h100"
+  profile         = "hopper-1"
   resource_group  = "fee82deba12e4c0fb69c3b09d1f12345"
   subnet_prefixes {
     cidr = "10.0.0.0/24"
   }
   vpc             = "r006-4727d842-f94f-4a2d-824a-9bc9b02c523b"
-  zone            = "us-south-1"
+  zone            = "us-east-3"
 }
 ```
 {: codeblock}
+
+## Next steps
+{: #next-steps-create-cluster-network}
+
+If you didn't create cluster network subnets when you created your cluster network, see [Creating a cluster network subnet](/docs/vpc?topic=vpc-create-cluster-network-subnet).

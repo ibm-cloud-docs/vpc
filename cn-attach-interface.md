@@ -2,7 +2,7 @@
 
 copyright:
   years: 2024, 2025
-lastupdated: "2025-10-09"
+lastupdated: "2025-12-30"
 
 keywords:
 
@@ -12,50 +12,53 @@ subcollection: vpc
 
 {{site.data.keyword.attribute-definition-list}}
 
-# Attaching cluster network interfaces to an instance
+# Attaching a cluster network interface to an instance
 {: #attach-interfaces-cluster-network}
 
-After you create an instance, you can attach it to a cluster network instance subnet. Alternatively, you can plan out your network by creating your interfaces up front before attaching your instances.
+After you create an instance, you can attach it to an existing cluster network instance subnet. Alternatively, you can plan out your network by creating the cluster network instances first, before you create subnet instances to attach.
 {: shortdesc}
 
 ## Before you begin
 {: #attach-interfaces-prerequisites}
 
-Review [planning considerations](/docs/vpc?topic=vpc-planning-cluster-network&interface=ui) and [known issues](/docs/vpc?topic=vpc-known-issues-cluster-networks).
+* Review [planning considerations](/docs/vpc?topic=vpc-planning-cluster-network&interface=ui) and [known issues](/docs/vpc?topic=vpc-known-issues-cluster-networks).
+* Make sure that you complete the following steps:
+   * Check whether a cluster network exists. For more information, see [creating a cluster network](/docs/vpc?topic=vpc-create-cluster-network&interface=ui).
+   * [Create a cluster network subnet](/docs/vpc?topic=vpc-create-cluster-network-subnet&interface=ui).
+   * [Create a virtual server instance](/docs/vpc?topic=vpc-creating-virtual-servers&interface=ui).
+   * [Create a cluster network interface](/docs/vpc?topic=vpc-create-cluster-network-interface&interface=ui).
 
 You can attach cluster network interfaces to an instance with the CLI, API, or Terraform.
 
-## Attaching cluster network interfaces to an instance in the CLI
+## Attaching a cluster network interface to an instance from the CLI
 {: #attach-interfaces-cluster-network-cli}
 {: cli}
 
-To attach interfaces to an instance in the CLI, follow these steps:
+To attach an interface to an instance from the CLI, follow these steps:
 
 1. [Set up your CLI environment](/docs/vpc?topic=vpc-set-up-environment&interface=cli).
 
-1. Log in to your account with the CLI. After you enter the password, the system prompts for the account and region that you want to use:
+1. Log in to your account from the CLI. After you enter the password, the system prompts for the account and region:
 
     ```sh
     ibmcloud login --sso
     ```
     {: pre}
 
-1. To attach an interface to an instance, enter the following command: 
+1. To attach an interface to an instance, enter the following command:
 
    
-   ```bash
+   ```sh
    ibmcloud is instance-cluster-network-attachments INSTANCE --cnac CLUSTER_NETWORK_ATTACHMENT
    ```
-   {: pre}
+   {: codeblock}
+
    
    
 
    
-   
-   
-   
-   
 
+   
    Where:
 
    `INSTANCE`
@@ -69,45 +72,42 @@ To attach interfaces to an instance in the CLI, follow these steps:
    
 
    
+
 ### Command examples
 {: #command-examples-cluster-network-attach-interfaces}
 
-To create instance `my-ins-1` with cluster network atttachments:
+* To create instance `my-ins-1` with cluster network atttachments:
 
+   
+   ```sh
+   ibmcloud is instance-create my-ins-1 cli-vpc us-south-2 fx3d-160c1792x9h100 cli-subnet --image ibm-ubuntu-20-04-6-minimal-amd64-5 --cluster-network-attachments '[{"name":"instance-cnac-1","cluster_network_interface":{"id":"7208-18204195-be40-4f12-aaaa-2649e19acb91"}},{"name":"instance-cnac-2","cluster_network_interface":{"id":"7208-cf6023a3-86c7-459f-84b8-536b4f812541"}},{"name":"instance-cnac-3","cluster_network_interface":{"id":"7208-2d55d27c-835c-4566-acbc-da36bcf49da7"}},{"name":"instance-cnac-4","cluster_network_interface":{"id":"7208-161e2919-c505-4e6d-bd49-88e7e0c0f1f3"}},{"name":"instance-cnac-5","cluster_network_interface":{"id":"7208-d700a40e-af61-45ee-b71a-a09203db76bd"}},{"name":"instance-cnac-6","cluster_network_interface":{"id":"7208-c7dbc8b9-6b47-4b83-8649-512e4e8f0a81"}},{"name":"instance-cnac-7","cluster_network_interface":{"id":"7208-f4773e40-49b5-4d44-8c68-7a75513bbf16"}},{"name":"instance-cnac-8","cluster_network_interface":{"id":"7208-46e097b5-c1ea-4669-aafd-7a4cc82d0e02"}}]'
+   ```
+   {: pre}
 
-```sh
-ibmcloud is instance-create my-ins-1 cli-vpc us-south-2 fx3d-160c1792x9h100 cli-subnet --image ibm-ubuntu-20-04-6-minimal-amd64-5 --cluster-network-attachments '[{"name":"instance-cnac-1","cluster_network_interface":{"id":"7208-18204195-be40-4f12-aaaa-2649e19acb91"}},{"name":"instance-cnac-2","cluster_network_interface":{"id":"7208-cf6023a3-86c7-459f-84b8-536b4f812541"}},{"name":"instance-cnac-3","cluster_network_interface":{"id":"7208-2d55d27c-835c-4566-acbc-da36bcf49da7"}},{"name":"instance-cnac-4","cluster_network_interface":{"id":"7208-161e2919-c505-4e6d-bd49-88e7e0c0f1f3"}},{"name":"instance-cnac-5","cluster_network_interface":{"id":"7208-d700a40e-af61-45ee-b71a-a09203db76bd"}},{"name":"instance-cnac-6","cluster_network_interface":{"id":"7208-c7dbc8b9-6b47-4b83-8649-512e4e8f0a81"}},{"name":"instance-cnac-7","cluster_network_interface":{"id":"7208-f4773e40-49b5-4d44-8c68-7a75513bbf16"}},{"name":"instance-cnac-8","cluster_network_interface":{"id":"7208-46e097b5-c1ea-4669-aafd-7a4cc82d0e02"}}]'
-```
-{: codeblock}
+   
 
+   
 
+* To create instance `my-ins-2` with a cluster network attachments JSON file:
 
+   
+   ```sh
+   ibmcloud is instance-create my-ins-2 deceiving-strode-dimly-undesirable us-south-2 hx3d-160x1002x8h100 test-subnet --image ibm-ubuntu-20-04-6-minimal-amd64-5 --cluster-network-attachments @~/cnac.json
+   ```
+   {: pre}
 
+   
 
-To create instance `my-ins-2` with a cluster network attachments JSON file:
+   
 
-
-
-```sh
-ibmcloud is instance-create my-ins-2 deceiving-strode-dimly-undesirable us-south-2 hx3d-160x1002x8h100 test-subnet --image ibm-ubuntu-20-04-6-minimal-amd64-5 --cluster-network-attachments @~/cnac.json
-```
-{: codeblock}
-
-
-
-
-
-
-
-
-## Attaching cluster network interfaces to an instance with the API
+## Attaching a cluster network interface to an instance with the API
 {: #attach-interfaces-cluster-network-api}
 {: api}
 
-To attach cluster network interfaces to an instance with the API, follow these steps:
+To attach a cluster network interface to an instance by using the API, follow these steps:
 
 1. Set up your API environment [with the right variables](/docs/vpc?topic=vpc-set-up-environment#api-prerequisites-setup).
-1. Store any additional variables to be used in the API commands; for example:
+1. Store any additional variables to be used in the API commands. For example:
 
    `version` (string): The API version, in format `YYYY-MM-DD`.
 
@@ -125,7 +125,7 @@ To attach cluster network interfaces to an instance with the API, follow these s
 
 To view the complete set of cluster network APIs, see the [VPC API reference](/apidocs/vpc/latest#list-cluster-network-profiles).
 
-## Attaching cluster network interfaces to an instance with Terraform
+## Attaching a cluster network interface to an instance with Terraform
 {: #attach-interfaces-cluster-network-terraform}
 {: terraform}
 

@@ -2,7 +2,7 @@
 
 copyright:
   years: 2024, 2025
-lastupdated: "2025-10-09"
+lastupdated: "2025-12-30"
 
 keywords:
 
@@ -21,7 +21,8 @@ View details of your cluster network, such as its name, creation date, and CRN. 
 ## Before you begin
 {: #view-details-cluster-network-prerequisites}
 
-Review [planning considerations](/docs/vpc?topic=vpc-planning-cluster-network&interface=ui) and [known issues](/docs/vpc?topic=vpc-known-issues-cluster-networks&interface=ui).
+* Review [planning considerations](/docs/vpc?topic=vpc-planning-cluster-network&interface=ui) and [known issues and limitations](/docs/vpc?topic=vpc-known-issues-cluster-networks&interface=ui).
+* Make sure that a cluster network exists. For more information, see [Creating a cluster network](/docs/vpc?topic=vpc-create-cluster-network&interface=ui).
 
 You can view details of a cluster network with the console, CLI, API, or Terraform.
 
@@ -32,19 +33,19 @@ You can view details of a cluster network with the console, CLI, API, or Terrafo
 To view details of a cluster network interface in the {{site.data.keyword.cloud_notm}} console, follow these steps:
 
 1. From your browser, open the [{{site.data.keyword.cloud_notm}} console](/login){: external} and log in to your account.
-1. Select the **Navigation menu** ![Navigation menu icon](../../icons/icon_hamburger.svg), then click **Infrastructure** ![VPC icon](../../icons/vpc.svg)  > **Network** > **Cluster networks**.
-1. In the Cluster networks for VPC table, locate the cluster network for which you want to view details, then click the name of that cluster network.
+1. Select the **Navigation menu** ![Navigation menu icon](../../icons/icon_hamburger.svg), then click **Infrastructure** ![VPC icon](../../icons/vpc.svg) > **Network** > **Cluster networks**.
+1. In the Cluster networks for VPC table, locate the cluster network for which you want to view details, then click its name.
 1. View the details of your cluster network in the **Cluster network details** section.
 
-## Viewing details of a cluster network in the CLI
+## Viewing details of a cluster network from the CLI
 {: #view-details-cluster-network-cli}
 {: cli}
 
-To view the details of a cluster network in the CLI, follow these steps:
+To view the details of a cluster network from the CLI, follow these steps:
 
 1. [Set up your CLI environment](/docs/vpc?topic=vpc-set-up-environment&interface=cli).
 
-1. Log in to your account with the CLI. After you enter the password, the system prompts for the account and region that you want to use:
+1. Log in to your account from the CLI. After you enter the password, the system prompts for the account and region:
 
     ```sh
     ibmcloud login --sso
@@ -55,11 +56,11 @@ To view the details of a cluster network in the CLI, follow these steps:
 
 
 
-   ```bash
+   ```sh
    ibmcloud is cluster-network CLUSTER_NETWORK [--output JSON] [-q, --quiet]
    ```
-   {: pre}
-   
+   {: codeblock}
+
 
 
 
@@ -77,28 +78,31 @@ To view the details of a cluster network in the CLI, follow these steps:
 
 
 
+
+
 ### Command examples
 {: #command-examples-cluster-network-view}
 
-
-
-To view cluster network `my-cl-net-2` by name:
-
-```sh
-ibmcloud is cl-net my-cl-net-2
-```
-{: codeblock}
+* To view the cluster network `my-cl-net-2` by name:
 
 
 
-To view cluster network `my-cl-net-2` by ID:
+   ```sh
+   ibmcloud is cl-net my-cl-net-2
+   ```
+   {: pre}
 
 
 
-```sh
-ibmcloud is cl-net 0716-24d53c60-489e-4480-a9c1-9b5ecdbf5ef0
-```
-{: codeblock}
+
+* To view the cluster network `my-cl-net-2` by ID:
+
+
+
+   ```sh
+   ibmcloud is cl-net 7208-353ec740-c1b1-4778-b7a1-8c77a365e435
+   ```
+   {: pre}
 
 
 
@@ -110,7 +114,7 @@ ibmcloud is cl-net 0716-24d53c60-489e-4480-a9c1-9b5ecdbf5ef0
 To view details of a cluster network with the API, follow these steps:
 
 1. Set up your API environment [with the right variables](/docs/vpc?topic=vpc-set-up-environment#api-prerequisites-setup).
-1. Store any additional variables to be used in the API commands; for example:
+1. Store any additional variables to be used in the API commands. For example:
 
    `version` (string): The API version, in format `YYYY-MM-DD`.
 
