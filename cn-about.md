@@ -79,7 +79,7 @@ Review the use case that aligns with your selected instance profile to guide you
 
 The following diagram illustrates how to connect H100/H200 instances to a Hopper 1 cluster network to enable RDMA on {{site.data.keyword.cloud_notm}}.
 
-First, make sure that you have a [cluster network]((/docs/vpc?topic=vpc-create-cluster-network&interface=ui)) set up with [cluster network subnets]((/docs/vpc?topic=vpc-create-cluster-network-subnet&interface=ui)) as shown. Then, connect H100 or H200 instances to both the cluster network and the VPC networks. VPC networks connect your cloud resources and can provide external routing. Cluster networks add interfaces within your instance to enable direct connectivity between nodes.
+First, make sure that you have a [cluster network](/docs/vpc?topic=vpc-create-cluster-network&interface=ui) set up with [cluster network subnets](/docs/vpc?topic=vpc-create-cluster-network-subnet&interface=ui) as shown. Then, connect H100 or H200 instances to both the cluster network and the VPC networks. VPC networks connect your cloud resources and can provide external routing. Cluster networks add interfaces within your instance to enable direct connectivity between nodes.
 
 ![Networking H100 and H200 instances to use RDMA on IBM Cloud](images/cn-config-hopper-1.svg "Networking H100-enabled instances to use RDMA on IBM Cloud"){: caption="Networking Hopper 1 enabled instances to use RDMA on IBM Cloud" caption-side="bottom"}
 
