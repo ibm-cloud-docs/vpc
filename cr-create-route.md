@@ -2,7 +2,7 @@
 
 copyright:
   years: 2020, 2025
-lastupdated: "2025-10-15"
+lastupdated: "2025-12-30"
 
 keywords: custom routes
 
@@ -147,7 +147,6 @@ Where:
 `ibmcloud is vpc-routing-table-route-update 72b27b5c-f4b0-48bb-b954-5becc7c1dcb3 72b27b5c-f4b0-48bb-b954-5becc7c1d456 72b27b5c-f4b0-48bb-b954-5becc7c1d4ef --name my-vpc-route --next-hop 10.0.0.2`
 
 
-
 ## Creating a route with the API
 {: #cr-route-using-the-api}
 {: api}
@@ -155,7 +154,7 @@ Where:
 To create a destination route with the API, follow these steps:
 
 1. Set up your [API environment](/docs/vpc?topic=vpc-set-up-environment#api-prerequisites-setup).
-2. Store values for the following variables to be used in the API command:
+1. Store values for the following variables to be used in the API command:
 
     ```sh
     export VpcId=<your_vpc_id>
@@ -163,7 +162,7 @@ To create a destination route with the API, follow these steps:
     ```
     {: codeblock}
 
-3. Create a route:
+1. Create a route:
 
    ```sh
    curl -X POST "$vpc_api_endpoint/v1/vpcs/$VpcId/routing_tables/$RoutingTableId/routes?version=$api_version&generation=2" \
@@ -177,6 +176,8 @@ To create a destination route with the API, follow these steps:
       }'
    ```
    {: codeblock}
+
+For more information and optional parameters, see [Create a route in a VPC routing table](/apidocs/vpc/latest#create-vpc-routing-table-route) in the VPC API Reference.
 
 ## Creating a route with Terraform
 {: #cr-create-route-terraform}
