@@ -2,7 +2,7 @@
 
 copyright:
   years: 2024, 2025
-lastupdated: "2025-10-09"
+lastupdated: "2025-12-30"
 
 keywords:
 
@@ -15,13 +15,14 @@ subcollection: vpc
 # Creating a cluster network interface
 {: #create-cluster-network-interface}
 
-You can create a cluster network interface either during the creation of a cluster network, or after the network has been provisioned.
+A cluster network interface is a virtual NIC that connects your instance to a cluster network subnet. You can create a cluster network interface either during the creation of a cluster network, or after the network is provisioned.
 {: shortdesc}
 
 ## Before you begin
 {: #create-cluster-prerequisites}
 
-Review [planning considerations](/docs/vpc?topic=vpc-planning-cluster-network&interface=ui) and [known issues](/docs/vpc?topic=vpc-known-issues-cluster-networks).
+* If you don't have a cluster network, review [planning considerations](/docs/vpc?topic=vpc-planning-cluster-network&interface=ui) and [known issues](/docs/vpc?topic=vpc-known-issues-cluster-networks).
+* See [creating a cluster network](/docs/vpc?topic=vpc-create-cluster-network&interface=ui).
 
 You can create a cluster network interface with the console, CLI, API, or Terraform.
 
@@ -29,13 +30,13 @@ You can create a cluster network interface with the console, CLI, API, or Terraf
 {: #create-cluster-network-interface-ui}
 {: ui}
 
-To create a cluster network interface within a network cluster in the console, follow these steps:
+To create a cluster network interface in the console, follow these steps:
 
 1. From your browser, open the [{{site.data.keyword.cloud_notm}} console](/login){: external} and log in to your account.
 1. Select the **Navigation menu** ![menu icon](../../icons/icon_hamburger.svg), then click **Infrastructure** ![VPC icon](../../icons/vpc.svg) > **Network** > **Cluster networks**.
-1. On the Cluster networks for VPC page, click the link of the cluster network name where you want to create an interface. The Overview page displays.
-1. Click the Interfaces tab to show the Cluster network interfaces table, then click **Create +**.
-1. Complete the information in the Create interface side panel, then click **Create**.
+1. On the Cluster networks for VPC page, click the link of the cluster network name where you want to create an interface. The Overview page is displayed.
+1. Click the Interfaces tab to show the Cluster network interfaces table, then click **Create**.
+1. In the Create interface side panel, complete the following information:
 
    * Enter an interface name.
    * Select the cluster network subnet.
@@ -43,17 +44,17 @@ To create a cluster network interface within a network cluster in the console, f
       A primary IP address is selected for you and is available to view after creation.
       {: note}
 
-The cluster network interface is requested for use.
+1. Click **Create**. The cluster network interface is requested for use.
 
-## Creating a cluster network interface in the CLI
+## Creating a cluster network interface from the CLI
 {: #create-cluster-network-interface-cli}
 {: cli}
 
-To create a cluster network interface in the CLI, follow these steps:
+To create a cluster network interface from the CLI, follow these steps:
 
 1. [Set up your CLI environment](/docs/vpc?topic=vpc-set-up-environment&interface=cli).
 
-1. Log in to your account with the CLI. After you enter the password, the system prompts for the account and region that you want to use:
+1. Log in to your account with the CLI. After you enter the password, the system prompts for the account and region:
 
     ```sh
     ibmcloud login --sso
@@ -63,27 +64,30 @@ To create a cluster network interface in the CLI, follow these steps:
 1. To create a cluster network interface, enter the following command:
 
    
-   ```bash
+   ```sh
    ibmcloud is cluster-network-interface-create CLUSTER_NETWORK (--rip RIP | (--rip-address RIP_ADDRESS --rip-auto-delete true | false --rip-name RIP_NAME)) [--subnet SUBNET] [--vpc VPC] [--name NAME] [--output JSON] [-q, --quiet]
    ```
-   {: pre}
+   {: codeblock}
 
    
+
    
+
    
+
    Where:
 
    `CLUSTER_NETWORK`
    :    ID or name for the cluster network.
 
    `--rip`
-   :    ID or name of the reserved IP to bind primary IP address to the cluster network interface.
+   :    ID or name of the reserved IP to bind the primary IP address to the cluster network interface.
 
    `--rip-address`
    :    The IP address of the reserved IP to bind to the cluster network interface, which must not already be reserved on the subnet.
 
    `--rip-auto-delete`
-   :    Indicates whether this cluster network subnet reserved IP member will be automatically deleted when either target is deleted, or the cluster network subnet reserved IP is unbound. One of: `true`, `false`. (default: `true`).
+   :    Indicates whether this cluster network subnet reserved IP member is automatically deleted when either target is deleted, or the cluster network subnet reserved IP is unbound. One of: `true`, `false` (default: `true`).
 
    `--rip-name`
    :    The name of this cluster network subnet reserved IP.
@@ -102,20 +106,34 @@ To create a cluster network interface in the CLI, follow these steps:
 
    `-q`, `--quiet`
    :    Suppress verbose output.
-
    
+
    
 
 ### Command examples
 {: #command-examples-create-cluster-network-interface}
 
+* To create a cluster network interface with reserved IP:
+   
+   ```sh
+   ibmcloud is cluster-network-interface-create my-cluster-network --name my-cluster-network-interface --subnet my-cluster-network-subnet --rip-name my-cluster-network-interface-reserved-ip
+   ```
+   {: pre}
+
+   
+
+   
 
 
-* `ibmcloud is cluster-network-interface-create my-cluster-network --name my-cluster-network-interface --subnet my-cluster-network-subnet --rip-name my-cluster-network-interface-reserved-ip` - Create reserved IP as part of interface creation
-* `ibmcloud is cluster-network-interface-create my-cluster-network --name my-cluster-network-interface --rip my-cluster-network-interface-reserved-ip` - Use existing cluster network subnet reserved IP
+* To create a cluster network interface by using a reserved IP from an existing cluster network subnet:
+   
+   ```sh
+   ibmcloud is cluster-network-interface-create my-cluster-network --name my-cluster-network-interface --rip my-cluster-network-interface-reserved-ip
+   ```
+   {: pre}
 
-
-
+   
+   
 
 ## Creating a cluster network interface with the API
 {: #create-cluster-network-interface-api}
@@ -124,7 +142,7 @@ To create a cluster network interface in the CLI, follow these steps:
 To create a cluster network interface with the API, follow these steps:
 
 1. Set up your API environment [with the right variables](/docs/vpc?topic=vpc-set-up-environment#api-prerequisites-setup).
-1. Store any additional variables to be used in the API commands; for example:
+1. Store any additional variables to be used in the API commands. For example:
 
    `version` (string): The API version, in format `YYYY-MM-DD`.
 
@@ -160,3 +178,8 @@ resource "ibm_is_cluster_network_interface" "is_cluster_network_interface_instan
 }
 ```
 {: codeblock}
+
+## Next steps
+{: #next-steps-create-interface}
+
+To create virtual server instances and attach them to interfaces in your cluster network, see [Creating virtual server instances](/docs/vpc?topic=vpc-creating-virtual-servers) and [Attaching a cluster network interface to an instance](/docs/vpc?topic=vpc-attach-interfaces-cluster-network).

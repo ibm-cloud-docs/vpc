@@ -2,7 +2,7 @@
 
 copyright:
   years: 2024, 2025
-lastupdated: "2025-12-20"
+lastupdated: "2025-12-30"
 
 keywords:
 
@@ -15,12 +15,11 @@ subcollection: vpc
 # Planning considerations for cluster networks
 {: #planning-cluster-network}
 
-Review the following planning considerations before you start creating a cluster network.
+Review the following planning considerations before you create a cluster network.
 {: shortdesc}
 
 ## General considerations
 {: #cn-general-considerations}
-
 
 - Cluster network attachments can be set only when the instance is stopped or created.
 - Cluster network traffic is isolated and can't be routed outside. Any access to a cluster network must be through an attached instance. As a result, without connectivity between the cluster network and the VPC network, the following resources cannot connect with cluster networks:
@@ -39,39 +38,75 @@ Review the following planning considerations before you start creating a cluster
    * [Secondary IPs](/docs/vpc?topic=vpc-vni-about-secondary-ip)
    * [Security groups](/docs/vpc?topic=vpc-using-security-groups)
 
-## Considerations for cluster subnets
-{: #cn-considerations-cluster-subnets}
+## Cluster network considerations
+{: #cn-considerations-cluster-network}
 
-* Instance profiles have a recommended number of cluster subnets. The {{site.data.keyword.cloud}} recommendation for cluster subnets for a specific instance type is:
+* You must create the cluster network and the virtual server instances in the same region as the VPC.
 
-   | Instance Profile Type | Recommended Cluster Subnets to Cluster vNICs |
-   | --------------------- | -------------------------------------------- |
-   | gx3d-160x1792x8h100   | 1:1                                          |
-   {: caption="Recommended number of cluster subnets for instance profiles." caption-side="bottom"}
+* Currently, the only supported VPC regions for Hopper 1 cluster networks are Washington DC (`us-east`) and Frankfurt (`eu-de`). For more information, see [cluster network supported regions and zones](/docs/vpc?topic=vpc-planning-cluster-network&interface=ui#cn-supported-regions).
 
-   * `gx3d-160x1792x8h100` supports either 8, 16 or 32 cluster vNICs. As a result, you should have a corresponding number of cluster subnets.
-   * If you are unsure about the correct number of cluster vNICs for your workload, IBM Cloud recommends the use of 8 for the `gx3d-160x1792x8h100` profile.
-
-   Make sure that the IP address ranges used for your cluster network subnets do not overlap with the IP addresses of your cloud subnets. Overlapping ranges can lead to networking issues.
+   The H100 cluster network profile is deprecated. To create a cluster network with NVIDIA Hopper HGX instances, use the Hopper 1 cluster network profile, which supports both NVIDIA H100 and H200 instance types.
    {: note}
 
-* Start by setting up your cluster network and subnets, then define instance templates to scale your training cluster with the number of nodes that you want. For more information, see [Getting started with cluster networks](/docs/vpc?topic=vpc-about-cluster-network#cluster-network-getting-started).
-   * You can [create an instance template](/docs/vpc?topic=vpc-create-instance-template&interface=ui) to define instance details for provisioning one or more virtual servers. When you create your instance template, you can use it to provision single virtual server instances, or to provision multiple instances at the same time as part of an instance group.
-   * Optionally, when you provision an instance, you can include the cluster network configuration within the instance provision request.
+## Cluster network subnet considerations
+{: #cn-considerations-cluster-network-subnets}
 
-## Considerations for IP address ranges (prefixes)
+* Plan your cluster network subnets based on the recommended number for the instance profile.
+
+   | Cluster network profile | Instance profile | Subnet-to-vNIC ratio | Supported cluster vNICs | Recommended subnets |
+   |-------------------------|------------------|----------------------|-----------------------------------------------|
+   | `hopper-1` | `gx3d-160x1792x8h100`  | 1:1                  | 8, 16, or 32            | Match vNIC count      |
+   | `hopper-1` | `gx3d-160x1792x8h200`  | 1:1                  | 8, 16, or 32            | Match vNIC count      |
+   {: caption="Recommended cluster subnet configuration per instance profile." caption-side="bottom"}
+
+   If you're unsure how many vNICs to use with Hopper 1 instance profiles, start with 8.
+   {: tip}
+
+* Make sure that the IP address ranges used for your cluster network subnets don't overlap with the address ranges of your cloud subnets. Overlapping ranges can lead to networking issues. For more information, see [IP address range and prefix considerations](/docs/vpc?topic=vpc-planning-cluster-network#cn-considerations-static-IP-address).
+
+In the Hopper 1 cluster network, subnets are routable to each other, but not externally.
+{: note}
+
+## Virtual server instance considerations
+{: #cn-considerations-vsi}
+
+* Determine the total resources that are required for your cluster by multiplying the number of instances you intend to create by the resources defined in the corresponding [instance profile](/docs/vpc?topic=vpc-profiles&interface=ui#gpu).
+* Check the calculated total resources required for your cluster against the [default quotas](/docs/vpc?topic=vpc-quotas&q=service+limits&tags=vpc#cluster-networks-quotas) to determine whether a quota increase is necessary.
+
+## IP address range and prefix considerations
 {: #cn-considerations-static-IP-address}
 
 You can apply the following considerations only through the API and CLI.
 {: note}
 
-   * Cluster networks are isolated from the VPC network. You are allowed to specify cluster network `subnet_prefixes` that overlap with the VPC's [default](/docs/vpc?topic=vpc-configuring-address-prefixes) or [custom](/docs/vpc?topic=vpc-vpc-addressing-plan-design) address prefixes. However, this configuration can result in instances that have two network interfaces (one on the VPC network, and one on the cluster network) with the same IP address. In such a scenario, you must be careful to isolate the network interfaces in the guest operating system. For example, Linux guests can use [network namespaces](https://www.man7.org/linux/man-pages/man8/ip-netns.8.html).
+   * Cluster networks operate independently from the VPC network, with their own IP address ranges. You can define cluster network `subnet_prefixes` that overlap with the VPC's [default](/docs/vpc?topic=vpc-configuring-address-prefixes) or [custom](/docs/vpc?topic=vpc-vpc-addressing-plan-design) address prefixes. However, this action might result in IP address conflicts, wherein the instances have two different interfaces with the same IP address.
 
-   * The default `subnet_prefixes` for cluster networks (`["cidr": "10.0.0.0/9"]`) do not overlap with the [default address prefixes for VPCs](/docs/vpc?topic=vpc-configuring-address-prefixes). To simplify the guest operating system configurations, either use the defaults, or plan your custom address ranges to avoid overlap.
-   * If you need to plan for statically-configured IP addresses, especially for a large number (such as 1000), it’s important to approach the task methodically. First, determine the total number of required IP addresses. Then, consider how these addresses are to be assigned to various instances. To manage IP address assignments efficiently, implement a clear naming scheme that helps you organize and connect the IP addresses to their respective instances. For example, you might use a naming convention that reflects the function or location of each instance, making it simpler to identify and manage them.
-   * When statically configuring IP addresses for network interfaces in a guest OS:
-      * Make sure that the IP addresses for cluster network interfaces are in the address range of one of the `subnet_prefixes` in the cluster network. Cluster network interfaces with an IP address outside the address range of one of the `subnet_prefixes` do not receive packets.
-      * If a statically configured IP address does not match the cluster network interface's primary reserved IP or one of its secondary reserved IP addresses, you must create a VPC routing table route to redirect traffic for the statically configured IP to one of the reserved IP addresses. Additionally, you must set `allow_ip_spoofing` to `true` on the associated cluster network interface to allow outbound packets with the statically configured IP as the source address.
+   * To prevent such conflicts, you must isolate the network interfaces in the guest operating system. For example, Linux systems can use [network namespaces](https://www.man7.org/linux/man-pages/man8/ip-netns.8.html){: external}.
+
+   * The default `subnet_prefixes` for cluster networks is `["cidr": "10.0.0.0/9"]`, which doesn't overlap with the [default address prefixes for VPCs](/docs/vpc?topic=vpc-configuring-address-prefixes). To simplify the guest operating system configurations, either use the defaults or choose custom ranges that don’t overlap with your VPC.
+
+   * If you are planning to assign static IP addresses, especially at a large scale (such as 1,000), you must plan the task carefully.
+      * First, determine the total number of required IP addresses.
+      * Then, consider how these addresses are assigned to various instances.
+      * Use a clear naming convention to organize and connect the IP addresses to their respective instances. For example, you might use a naming convention that includes the role or location of each instance, helping you easily identify and manage them.
+   * When you configure static IP addresses for network interfaces in a guest OS:
+      * Make sure that the IP address of each interface is in the address range of one of the cluster network `subnet_prefixes`. Addresses outside these ranges can't receive packets.
+      * If a static IP address does not match the interface's primary or secondary reserved IPs, you must create a VPC routing table to redirect traffic to one of the reserved IPs.
+      * Additionally, you must set `allow_ip_spoofing` to `true` on the associated cluster network interface. This action uses the static IP as the source address for the outbound traffic flow.
+
+## Cluster network supported regions and zones
+{: #cn-supported-regions}
+
+The following table provides an overview of the supported regions and zones for cluster networks.
+
+| Cluster network profile | Instance profile | Region | Zone | Universal zone name |
+|------------------------ |------------------|--------|----------------------------|
+| `hopper-1` | `gx3d-160x1792x8h100` \n `gx3d-160x1792x8h200`| Frankfurt (`eu-de`) | `eu-de-2` | `eu-de-fra02-a` |
+| `hopper-1` | `gx3d-160x1792x8h100` \n `gx3d-160x1792x8h200`| Washington DC (`us-east`) |`us-east-3`| `us-east-wdc07-a`|
+{: caption="Zone availability for cluster networks and instances." caption-side="bottom"}
+
+To understand how various regions correspond to zones, see [zone mapping per account](/docs/overview?topic=overview-locations#zone-mapping).
+{: note}
 
 ## Related link
 {: #related-link-cluster-networks}
