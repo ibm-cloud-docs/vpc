@@ -53,10 +53,10 @@ Review the following planning considerations before you create a cluster network
 
 * Plan your cluster network subnets based on the recommended number for the instance profile.
 
-   | Cluster network profile | Instance profile | Subnet-to-vNIC ratio | Supported cluster vNICs | Recommended subnets |
-   |-------------------------|------------------|----------------------|-----------------------------------------------|
-   | `hopper-1` | `gx3d-160x1792x8h100`  | 1:1                  | 8, 16, or 32            | Match vNIC count      |
-   | `hopper-1` | `gx3d-160x1792x8h200`  | 1:1                  | 8, 16, or 32            | Match vNIC count      |
+   | Cluster network profile | Instance profile       | Subnet-to-vNIC ratio | Supported cluster vNICs | Recommended subnets |
+   |-------------------------|------------------------|----------------------|-------------------------|---------------------|
+   | `hopper-1`              | `gx3d-160x1792x8h100`  | 1:1                  | 8, 16, or 32            | Match vNIC count    |
+   | `hopper-1`              | `gx3d-160x1792x8h200`  | 1:1                  | 8, 16, or 32            | Match vNIC count    |
    {: caption="Recommended cluster subnet configuration per instance profile." caption-side="bottom"}
 
    If you're unsure how many vNICs to use with Hopper 1 instance profiles, start with 8.
@@ -79,7 +79,7 @@ In the Hopper 1 cluster network, subnets are routable to each other, but not ext
 You can apply the following considerations only through the API and CLI.
 {: note}
 
-   * Cluster networks operate independently from the VPC network, with their own IP address ranges. You can define cluster network `subnet_prefixes` that overlap with the VPC's [default](/docs/vpc?topic=vpc-configuring-address-prefixes) or [custom](/docs/vpc?topic=vpc-vpc-addressing-plan-design) address prefixes. However, this action might result in IP address conflicts, wherein the instances have two different interfaces with the same IP address.
+   * Cluster networks are isolated from the VPC network, with their own IP address ranges. You can define cluster network `subnet_prefixes` that overlap with the VPC's [default](/docs/vpc?topic=vpc-configuring-address-prefixes) or [custom](/docs/vpc?topic=vpc-vpc-addressing-plan-design) address prefixes. However, this configuration might result in IP address conflicts, wherein the instances have two different interfaces with the same IP address.
 
    * To prevent such conflicts, you must isolate the network interfaces in the guest operating system. For example, Linux systems can use [network namespaces](https://www.man7.org/linux/man-pages/man8/ip-netns.8.html){: external}.
 
@@ -91,7 +91,7 @@ You can apply the following considerations only through the API and CLI.
       * Use a clear naming convention to organize and connect the IP addresses to their respective instances. For example, you might use a naming convention that includes the role or location of each instance, helping you easily identify and manage them.
    * When you configure static IP addresses for network interfaces in a guest OS:
       * Make sure that the IP address of each interface is in the address range of one of the cluster network `subnet_prefixes`. Addresses outside these ranges can't receive packets.
-      * If a static IP address does not match the interface's primary or secondary reserved IPs, you must create a VPC routing table to redirect traffic to one of the reserved IPs.
+      * If a static IP address does not match the interface's primary or secondary reserved IP addresses, you must create a VPC routing table to redirect traffic to one of the reserved IP addresses.
       * Additionally, you must set `allow_ip_spoofing` to `true` on the associated cluster network interface. This action uses the static IP as the source address for the outbound traffic flow.
 
 ## Cluster network supported regions and zones
@@ -99,10 +99,10 @@ You can apply the following considerations only through the API and CLI.
 
 The following table provides an overview of the supported regions and zones for cluster networks.
 
-| Cluster network profile | Instance profile | Region | Zone | Universal zone name |
-|------------------------ |------------------|--------|----------------------------|
-| `hopper-1` | `gx3d-160x1792x8h100` \n `gx3d-160x1792x8h200`| Frankfurt (`eu-de`) | `eu-de-2` | `eu-de-fra02-a` |
-| `hopper-1` | `gx3d-160x1792x8h100` \n `gx3d-160x1792x8h200`| Washington DC (`us-east`) |`us-east-3`| `us-east-wdc07-a`|
+| Cluster network profile | Instance profile                                          | Region                       |Zone                 | Universal zone name   |
+|------------------------ |-----------------------------------------------------------|------------------------------|---------------------|-----------------------|
+| `hopper-1`              | `gx3d-160x1792x8h100` \n `gx3d-160x1792x8h200`            | Frankfurt (`eu-de`)          |`eu-de-2`            | `eu-de-fra02-a`       |
+| `hopper-1`              | `gx3d-160x1792x8h100` \n `gx3d-160x1792x8h200`            | Washington DC (`us-east`)    |`us-east-3`          | `us-east-wdc07-a`     |
 {: caption="Zone availability for cluster networks and instances." caption-side="bottom"}
 
 To understand how various regions correspond to zones, see [zone mapping per account](/docs/overview?topic=overview-locations#zone-mapping).
