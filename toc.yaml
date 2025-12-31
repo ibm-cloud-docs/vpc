@@ -1151,6 +1151,7 @@ toc:
               - lb-ts-409.md
               - lb-ts-backend-members.md
               - lb-ts-https-listener.md
+              - lb-ts-internal-error.md
               - ppnlb-ts.md
           - topicgroup:
               id: tbs-pps
