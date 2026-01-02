@@ -1,7 +1,7 @@
 ---
 
 copyright:
-  years: 2025
+  years: 2025, 2026
 lastupdated: "2025-08-26"
 
 keywords: Metadata, identity, api migration, versioned change

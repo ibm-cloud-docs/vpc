@@ -1,8 +1,8 @@
 ---
 
 copyright:
-  years: 2022, 2025
-lastupdated: "2024-06-11"
+  years: 2022, 2026
+lastupdated: "2026-01-02"
 
 keywords:
 
@@ -18,7 +18,7 @@ subcollection: vpc
 If you plan to share or publish a custom image to other accounts within your enterprise, you need to create a private catalog. A private catalog provides a way for you to manage access to products for multiple accounts while those accounts are within the same enterprise. You can share any existing x86 virtual server custom image with a private catalog, except for an encrypted image.
 {: shortdesc}
 
-On the console, you can find custom images in a private catalog by clicking **Navigation Menu** icon ![Menu icon](../icons/icon_hamburger.svg) **> Infrastructure** ![VPC icon](../../icons/vpc.svg) **> Compute > Images > Catalog images**.
+On the console, you can find custom images in a private catalog by clicking the **Navigation Menu** icon ![Menu icon](../icons/icon_hamburger.svg) **> Infrastructure** ![VPC icon](../../icons/vpc.svg) **> Compute > Images > Catalog images**.
 
 For more information about private catalogs, see the tutorial [Onboarding a virtual server image for VPC](/docs/account?topic=account-catalog-vsivpc-tutorial&interface=ui).
 

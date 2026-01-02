@@ -1,7 +1,7 @@
 ---
 
 copyright:
-    years: 2025
+    years: 2025, 2026
 lastupdated: "2025-09-16"
 
 keywords: storage, File Storage, VPC, API, virtual private cloud, support 
