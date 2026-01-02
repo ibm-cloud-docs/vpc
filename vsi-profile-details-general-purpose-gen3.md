@@ -1,8 +1,8 @@
 ---
 
 copyright:
-  years: 2024, 2025
-lastupdated: "2025-12-19"
+  years: 2024, 2026
+lastupdated: "2026-01-02"
 
 keywords: vsi, virtual server, virtual server instances, profile, profiles, balanced, compute, memory, dedicated host, gen 3
 
@@ -18,8 +18,8 @@ subcollection: vpc
 The general purpose 3rd generation virtual server profiles (balanced, compute, and memory) are built atop the 4th Generation Intel® Xeon® Scalable processors. This generation provides NUMA pinning and increased overall instance throughput up to 200 Gbps. These profiles also include secure boot virtual servers as an option.
 {: shortdesc}
 
-The general purpose profiles can also be paired with a corresponding dedicated host. This solution allows
-for single-tenant hypervisors running workloads from a single {{site.data.keyword.cloud}} account.
+The general-purpose profiles can also be paired with a corresponding dedicated host. This solution allows
+for single-tenant hypervisors that run workloads from a single {{site.data.keyword.cloud}} account.
 
 ## Operating Systems
 {: #general-purpose-os-gen3}
@@ -55,7 +55,7 @@ for single-tenant hypervisors running workloads from a single {{site.data.keywor
 {: #general-purpose-vm-config-gen3}
 
 - Hardware type: i440fx
-   - Utilizes Q35 hardware type when running in secure boot mode
+   - Utilizes Q35 hardware type when it's running in secure boot mode
 - Cloud networking: virtio
 - Block boot volume: virtio
    - Exception: vscsi for Windows-based virtual server instances
@@ -135,7 +135,7 @@ attached. This limit is based on the size of the instance.
 ### Boot volume profiles
 {: #general-purpose-volume-profiles}
 
-In the current release of {{site.data.keyword.block_storage_is_short}} offering, only first-generation volumes from the tiered and custom volume profile families can be used as boot volumes for the Intel Gen 3 instances if secure boot is needed. Second-generation boot volumes with the `sdp` profile do not support secure boot.
+Only first-generation volumes from the tiered and custom volume profile families can be used as boot volumes for the Intel Gen 3 instances if secure boot is needed. Second-generation boot volumes with the `sdp` profile do not support secure boot.
 
 ## Dedicated host profiles
 {: #general-purpose-dh-profiles-gen3}

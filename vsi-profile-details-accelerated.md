@@ -1,8 +1,8 @@
 ---
 
 copyright:
-  years: 2024, 2025
-lastupdated: "2025-12-19"
+  years: 2024, 2026
+lastupdated: "2026-01-02"
 
 keywords: vsi, virtual server, virtual server instances, profile, profiles, gpu, accelerated, h100, h200, l4, l40s
 
@@ -21,7 +21,7 @@ The accelerated (GPU) family of profiles provides on-demand, cost-effective acce
 ## AMD MI300X instance profiles
 {: #amd-mi300x-profiles}
 
-The AMD MI300X accelerated virtual server profiles are built atop 192 GB OAM-based AMD Instinct™ MI300X Accelerators. These accelerators are tuned for AI workloads, including inferencing and fine tuning. The solution is paired with the 5th Generation Intel® Xeon® Scalable processors.
+The AMD MI300X accelerated virtual server profiles are built atop 192 GB OAM-based AMD Instinct™ MI300X Accelerators. These accelerators are tuned for AI workloads, including inferencing and fine-tuning. The solution is paired with the 5th Generation Intel® Xeon® Scalable processors.
 
 AMD MI300X accelerated virtual server profiles are available for select customers. Create a [support case](/docs/account?topic=account-open-case&interface=ui) if you are interested in purchasing and using this offering.
 {: preview}
@@ -48,12 +48,12 @@ Status: Select Availability
 
 The following table lists the available regions and universal zones for the AMD MI300X profiles.
 
-| Region                    | Universal zone    |
-| ------------------------  | -------------     |
-| us-east  | `us-east-wdc06-a` |
-| us-east  | `us-east-wdc07-a` |
-| eu-de    | `eu-de-fra02-a` |
-| eu-de    | `eu-de-fra05-a` |
+| Region    | Universal zone    |
+|-----------|-------------------|
+| `us-east` | `us-east-wdc06-a` |
+| `us-east` | `us-east-wdc07-a` |
+| `eu-de`   | `eu-de-fra02-a`   |
+| `eu-de`   | `eu-de-fra05-a`   |
 {: caption="Supported regions and zones" caption-side="bottom"}
 
 For more information about regions and universal zones, see [Regions](/docs/overview?topic=overview-locations#regions). You can review the assigned zone mapping for an account on the [VPC Infrastructure Overview](/infrastructure/overview#endpoints) page in the Endpoint section. The zone mapping shows how the zone corresponds to the universal zone name that represents the physical location.
@@ -88,14 +88,11 @@ For more information about regions and universal zones, see [Regions](/docs/over
 The following table lists the AMD MI300X profiles.
 
 | Instance profile | vCPU / Cores | Memory (GiB)  | Bandwidth cap (Gbps) | Accelerators | Instance storage (GB) |
-|---------|---------|---------|---------|---------|--------- |
+|---------|---------|---------|---------|---------|---------|
 | gx3d-208x1792x8mi300x | 208 / 104 | 1792 | 200 | 8x AMD MI300X (192 GB) | 8 x 3.2 TB |
 {: caption="Accelerated AMD profile options" caption-side="bottom"}
 
-This large profile likely requires that you open a support ticket to request a
-[quota increase](/docs/vpc?topic=vpc-quotas). Please review your quota levels,
-and determine if the account provisioning the resource requires a change to the quotas. Note that
-this server utilizes vCPU, RAM, instance storage and GPU quotas.
+This large profile likely requires that you open a support ticket to request a [quota increase](/docs/vpc?topic=vpc-quotas). Review your quota levels, and determine whether the account that's provisioning the resource requires a change to the quotas. This server uses vCPU, RAM, instance storage, and GPU quotas.
 {: important}
 
 ### Limits
@@ -117,7 +114,7 @@ In the current release of {{site.data.keyword.block_storage_is_short}} offering,
 ## Intel Gaudi 3 instance profiles
 {: #gaudi-3-profiles}
 
-The Intel Gaudi 3 accelerated virtual server profiles are built atop 128 GB OAM-based Intel Gaudi 3 AI Accelerators. These accelerators are tuned for AI workloads, including inferencing and fine tuning. The solution is paired with the 5th Generation Intel® Xeon® Scalable processors.
+The Intel Gaudi 3 accelerated virtual server profiles are built atop 128 GB OAM-based Intel Gaudi 3 AI Accelerators. These accelerators are tuned for AI workloads, including inferencing and fine-tuning. The solution is paired with the 5th Generation Intel® Xeon® Scalable processors.
 
 ### Operating systems
 {: #gaudi-3-os}
@@ -141,11 +138,11 @@ Status: Select Availability
 
 The following table lists the available regions and universal zones for the Intel Gaudi 3 accelerated virtual server profiles.
 
-| Region                    | Universal zone    |
-| ------------------------  | -------------     |
-| us-south | `us-south-dal12-a`                 |
-| us-east  | `us-east-wdc06-a`, `us-east-wdc07-a` |
-| eu-de    | `eu-de-fra02-a`                    |
+| Region     | Universal zone    |
+|------------|-------------------|
+| `us-south` | `us-south-dal12-a`                 |
+| `us-east`  | `us-east-wdc06-a`, `us-east-wdc07-a` |
+| `eu-de`    | `eu-de-fra02-a`                    |
 {: caption="Supported regions and zones" caption-side="bottom"}
 
 For more information about regions and universal zones, see [Regions](/docs/overview?topic=overview-locations#regions). You can review the assigned zone mapping for an account on the [VPC Infrastructure Overview](/infrastructure/overview#endpoints) page in the Endpoint section. The zone mapping shows how the zone corresponds to the universal zone name that represents the physical location.
@@ -176,17 +173,14 @@ For more information about regions and universal zones, see [Regions](/docs/over
 ### Instance profiles
 {: #gaudi-3-vsi-profiles}
 
-The following tables lists the Intel Gaudi 3 accelerated virtual server profile.
+The following table lists the Intel Gaudi 3 accelerated virtual server profile.
 
 | Instance profile | vCPU / Cores | Memory (GiB)  | Bandwidth cap (Gbps) | Accelerators | Instance storage (GB) |
 |---------|---------|---------|---------|---------|--------- |
 | gx3d-160x1792x8gaudi3 | 160 / 80 | 1792 | 200 | 8x Intel Gaudi-3 (128 GB) | 8 x 3.2 TB |
 {: caption="Accelerated Intel profile options" caption-side="bottom"}
 
-This large profile likely requires that you open a support ticket to request a
-[quota increase](/docs/vpc?topic=vpc-quotas). Please review your quota levels,
-and determine if the account provisioning the resource requires a change to the quotas. Note that
-this server utilizes vCPU, RAM, instance storage and GPU quotas.
+This large profile likely requires that you open a support ticket to request a [quota increase](/docs/vpc?topic=vpc-quotas). Review your quota levels, and determine whether the account that's provisioning the resource requires a change to the quotas. This server uses vCPU, RAM, instance storage, and GPU quotas.
 {: important}
 
 ### Limits
@@ -315,10 +309,7 @@ The following table lists the Hopper-based Accelerated virtual server profiles t
 | gx3d-160x1792x8h200 | 160 / 80 | 1792 | 200 | N/A | 8x NVIDIA H200 (141 GB) | 8 x 7.68 TB |
 {: caption="Accelerated NVIDIA Hopper HGX profile options" caption-side="bottom"}
 
-The large profiles likely require that you open a support ticket to request a
-[quota increase](/docs/vpc?topic=vpc-quotas). Please review your quota levels,
-and determine if the account provisioning the resource requires a change to the quotas. Note that
-this server utilizes vCPU, RAM, instance storage and GPU quotas.
+The large profiles likely require that you open a support ticket to request a [quota increase](/docs/vpc?topic=vpc-quotas). Review your quota levels, and determine whether the account that's provisioning the resource requires a change to the quotas. This server uses vCPU, RAM, instance storage, and GPU quotas.
 {: important}
 
 ### Limits
@@ -334,9 +325,7 @@ attached. This limit is based on the size of the instance.
 | 49+             | 12          | 15        |
 {: caption="Accelerated NVIDIA Hopper HGX limits for vCPU, maximum volumes, and maximum network interfaces" caption-side="bottom"}
 
-If you configure an RDMA-enabled cluster network, you must have either 8, 16 or 32 cluster
-network interfaces available. Having the correct number of cluster network interfaces available helps ensure proper distribution of the network interfaces across the underlying
-physical infrastructure. Most users typically use only 8. The cluster network interfaces can be configured only when the instance is powered off.
+If you configure an RDMA-enabled cluster network, you must have either 8, 16 or 32 cluster network interfaces available. Having the correct number of cluster network interfaces available helps ensure proper distribution of the network interfaces across the underlying physical infrastructure. Most users typically use only 8. The cluster network interfaces can be configured only when the instance is powered off.
 {: note}
 
 #### Boot volume profiles

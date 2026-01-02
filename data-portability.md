@@ -1,8 +1,8 @@
 ---
 
 copyright:
-  years: 2024, 2025
-lastupdated: "2025-10-27"
+  years: 2024, 2026
+lastupdated: "2026-01-02"
 
 keywords: data portability, DORA, vpc, Block storage for VPC, File storage for VPC
 
@@ -29,7 +29,7 @@ You're responsible for the use of the exported data and configuration for data p
 - The planning and execution for the porting of the required application code on the alternative infrastructure, including the adaptation of your application code, deployment automation, and so on.
 - The conversion of the exported data and configuration to the format that is required by the alternative infrastructure and adapted applications.
 
-For more information about your responsibilities when using {{site.data.keyword.vpc_full}}, see [Understanding your responsibilities when you use Virtual Private Cloud](/docs/vpc?topic=vpc-responsibilities-vpc).
+For more information about your responsibilities while using {{site.data.keyword.vpc_full}}, see [Understanding your responsibilities when you use Virtual Private Cloud](/docs/vpc?topic=vpc-responsibilities-vpc).
 
 ## Data export procedures
 {: #data-portability-procedures}
@@ -48,7 +48,7 @@ Complete the following steps to export customer data for your virtual server to 
 1. If you have data volumes for your virtual server in addition to the boot volume, see [Customer data in storage volumes and shares](#data-portability-customer-data).
 
 
-In addition to the boot volume image of the virtual server, you can find additional details about your virtual server configuration with the following resources.
+In addition to the boot volume image of the virtual server, you can find other details about your virtual server configuration with the following resources.
 
 | Service | {{site.data.keyword.cloud_notm}} console | CLI command | API method|
 |----------------|-------------------------|-------------------------|---------------|
@@ -60,7 +60,7 @@ In addition to the boot volume image of the virtual server, you can find additio
 ### Exporting customer data for bare metal servers
 {: #data-portability-bare-metal-servers}
 
-Bare metal servers are positioned as a fully customer-managed service. You are responsible to determine your own data export solution.
+Bare metal servers are positioned as a fully customer-managed service. You are responsible for determining your own data export solution.
 
 ### Exporting customer data for custom images
 {: #data-portability-custom-images}
@@ -76,16 +76,16 @@ Complete the following steps to export customer data for your custom image to {{
 ### Exporting customer data for networking services
 {: #networking-services-data-exporting}
 
-There is no direct "export" feature for networking configurations, but you can gather details manually. Depending on your needs, you can use the IBM Cloud CLI to retrieve configurations for resources, or interact programmatically with the IBM Cloud API to pull configurations.
+No direct "export" feature exists for networking configurations, but you can gather details manually. Depending on your needs, you can use the IBM Cloud CLI to retrieve configurations for resources, or interact programmatically with the IBM Cloud API to pull configurations.
 {: important}
 
-Exporting an IBM Cloud networking service configuration to another cloud platform involves a series of steps, each requiring careful attention to ensure that the configurations are replicated properly on the destination platform. Here's a general outline of the process and what you need to know:
+Exporting an IBM Cloud networking service configuration to another cloud platform involves a series of steps, each requiring careful attention to ensure that the configurations are replicated properly on the destination platform. The following section is a general outline of the process and what you need to know:
 
-1. Assess the IBM Cloud networking service configurations. First, identify the services that you want to migrate. This can include services like Virtual Private Cloud (VPC), load balancers, VPNs, flow logs, subnets, and so on.
+1. Assess the IBM Cloud networking service configurations. First, identify the services that you want to migrate. These services can include Virtual Private Cloud (VPC), load balancers, VPNs, flow logs, subnets, and so on.
 1. Prepare the target cloud platform. Each cloud provider has its own set of networking features. Before starting the migration, you must understand the network setup of the destination platform by researching equivalent services in the target cloud. Then, check compatibility. Some feature might need to be reconfigured due to differences in cloud architectures.
 1. Replicate the configuration manually or by using tools. For example, use the UI, CLI, or API of the destination cloud provider to re-create the network configuration. Automation tools can be used to script out infrastructure and export configurations between cloud environments, assuming the network services are comparable.
-1. Migrate your network services by exporting your DNS records and setting them up in the DNS service of the new platform. You'll also need to manually recreate firewall configurations and security groups, ensuring the same security rules are applied. For load balancers, transfer the necessary configurations and ensure that behaviors like port forwarding and SSL settings are replicated in the target platform’s service. Additionally, establish any private network connections, such as VPNs or equivalents on the new platform.
-1. Test the configuration. To verify connectivity, ensure all network resources, including VPC, subnets, security groups, and routing tables, are properly set up and communicate as expected. Test DNS resolution, if applicable, to ensure that your domain names are pointing correctly. Also, check load balancer and VPN connections to make sure traffic flows as expected and that you have secure access to your services.
+1. Migrate your network services by exporting your DNS records and setting them up in the DNS service of the new platform. You also need to manually re-create firewall configurations and security groups, ensuring the same security rules are applied. For load balancers, transfer the necessary configurations and ensure that behaviors like port forwarding and SSL settings are replicated in the target platform’s service. Additionally, establish any private network connections, such as VPNs or equivalents on the new platform.
+1. Test the configuration. To verify connectivity, make sure that all network resources, including VPC, subnets, security groups, and routing tables, are properly set up and communicate as expected. Test DNS resolution, if applicable, to make sure that your domain names are pointing correctly. Also, check load balancer and VPN connections to make sure traffic flows as expected and that you have secure access to your services.
 
 #### Exporting network services data by using the console
 {: #networking-services-ui-data-export}
@@ -97,7 +97,7 @@ Each networking service has a Download icon on its main console page, which you 
 #### Exporting network services data with the CLI and API
 {: #networking-service-export-cli-api}
 
-The following table provides mechanisms to export the settings and configurations that are used to process the customer's content through the means of the IBM Cloud VPC [CLI](/docs/vpc?topic=vpc-vpc-reference) and [API](/apidocs/vpc/latest). The procedures that are described in the linked documentation should be followed and the output stored to ensure all necessary configuration data is available.
+The following table provides mechanisms to export the settings and configurations that are used to process the customer's content through the means of the IBM Cloud VPC [CLI](/docs/vpc?topic=vpc-vpc-reference) and [API](/apidocs/vpc/latest). Follow the procedures that are described in the linked documentation and store the output to make sure all necessary configuration data is available.
 
 | Service | CLI command | API method|
 |----------------|-------------------------|-------------------------|
@@ -135,7 +135,7 @@ Each migration scenario is different. Capture the requirements and any special c
 1. Consider the data availability and downtime requirements of your services.
    - Identify any specific requirements around data availability and outage windows.
    - Consider the strategies that you can incorporate to help ensure data consistency and accessibility across your workloads during the migration process.
-   - Think about how long the migration can take. If you have a large data estate, you must develop a detailed migration plan that defines the timeline for migration execution. You must evaluate the size of the data sets to be transferred and consider expected data transfer speeds between the source and target environments.
+   - Think about how long the migration can take. If you have a large data estate, you must develop a detailed migration plan that defines the timeline for migration execution. You must evaluate the size of the datasets to be transferred and consider expected data transfer speeds between the source and target environments.
 
 1. Select the right tool. When you consider specific tools for data migration, it’s important to pick the right solution for the job.
    - Block storage – Select a block volume migration tool that maintains the native block format. Make sure that the data is transferred as raw blocks or chunks, maintaining the original file system structure and volume layout upon ingest into the target storage system. The specific tools that you choose depend on your unique migration requirements. Some important considerations to keep in mind during the evaluation process include the capacities that the provider has for data integrity, data monitoring, and data security during the migration process. In addition, it is important to evaluate any requirements that are dictated by the target storage vendor you are migrating data to. It is recommended that you review the target storage environment documentation to understand if they recommend processes or tools to simplify the migration.

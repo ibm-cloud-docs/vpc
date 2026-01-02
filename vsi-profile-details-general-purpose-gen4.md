@@ -1,8 +1,8 @@
 ---
 
 copyright:
-  years: 2024, 2025
-lastupdated: "2025-12-19"
+  years: 2024, 2026
+lastupdated: "2026-01-02"
 
 keywords: vsi, virtual server, virtual server instances, profile, profiles, balanced, compute, memory, dedicated host, gen 4
 
@@ -15,14 +15,14 @@ subcollection: vpc
 # General purpose instance profiles - Intel Gen 4
 {: #general-purpose-vsi-profiles-gen4-intel}
 
-The general purpose 4th generation virtual server profiles (balanced, compute, and memory) are built atop the 6th Generation Intel® Xeon® Scalable processors. This generation offers an increased networking speed, larger cache sizes, and improved workload performance.
+The general-purpose 4th generation virtual server profiles (balanced, compute, and memory) are built atop the 6th Generation Intel® Xeon® Scalable processors. This generation offers an increased networking speed, larger cache sizes, and improved workload performance.
 {: shortdesc}
 
-The 4th generation general purpose profiles are available in the Dallas (us-south) region for customers with special access.
+The 4th generation general-purpose profiles are available in the Dallas (us-south) region for customers with special access.
 {: preview}
 
-The general purpose profiles can also be paired with a corresponding dedicated host. This solution allows
-for single-tenant hypervisors running workloads from a single {{site.data.keyword.cloud}} account.
+The general-purpose profiles can also be paired with a corresponding dedicated host. This solution allows
+for single-tenant hypervisors that run workloads from a single {{site.data.keyword.cloud}} account.
 
 ## Operating Systems
 {: #general-purpose-os-gen4}
@@ -65,7 +65,7 @@ For more information about networking bandwidth allocation for profiles, see [Op
 {: #general-purpose-vm-config-gen4}
 
 - Hardware type: i440fx
-   - Utilizes Q35 hardware type when running in secure boot mode
+   - Utilizes Q35 hardware type when it's running in secure boot mode
 - Cloud networking: virtio
 - Block boot volume: virtio
    - Exception: vscsi for Windows-based virtual server instances

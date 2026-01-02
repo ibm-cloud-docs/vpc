@@ -1,8 +1,8 @@
 ---
 
 copyright:
-  years: 2024, 2025
-lastupdated: "2025-10-31"
+  years: 2024, 2026
+lastupdated: "2026-01-02"
 
 keywords: vsi, virtual server, virtual server instances, profile, profiles, balanced, compute, memory, dedicated host, gen 2, intel, amd
 
@@ -15,16 +15,16 @@ subcollection: vpc
 # General purpose instance profiles - Gen 2
 {: #general-purpose-vsi-profiles-gen2-x86}
 
-The general purpose 2nd generation virtual server profiles (balanced, compute, and memory) are available to provision virtual servers on both Intel and AMD processor architectures.
+The general-purpose 2nd generation virtual server profiles (balanced, compute, and memory) are available to provision virtual servers on both Intel and AMD processor architectures.
 {: shortdesc}
 
 ## Intel profiles
 {: #general-purpose-gen2-intel}
 
-The general purpose 2nd generation virtual server profiles (balanced, compute, and memory) are built atop the 2nd Generation Intel® Xeon® Scalable processors. They provide a broad set of capabilities and scale from 2 vCPUs (1 physical core) up to 128 vCPUs (64 physical cores).
+The general-purpose 2nd generation virtual server profiles (balanced, compute, and memory) are built atop the 2nd Generation Intel® Xeon® Scalable processors. They provide a broad set of capabilities and scale from 2 vCPUs (1 physical core) up to 128 vCPUs (64 physical cores).
 
-The general purpose profiles can also be paired with a corresponding dedicated host. This solution allows
-for single-tenant hypervisors running workloads from a single {{site.data.keyword.cloud}} account.
+The general-purpose profiles can also be paired with a corresponding dedicated host. This solution allows
+for single-tenant hypervisors that run workloads from a single {{site.data.keyword.cloud}} account.
 
 ### Operating systems
 {: #general-purpose-os-gen2-intel}
@@ -177,10 +177,10 @@ Dedicated hosts allow users to provision a single-tenant host server and then pr
 ## AMD profiles
 {: #general-purpose-gen2-amd}
 
-The general purpose 2nd generation virtual server profiles are built atop the AMD’s 3rd generation EPYC processors. They provide a broad set of capabilities and scale from 2 vCPUs (1 physical core) up to 228 vCPUs (114 physical cores).
+The general-purpose 2nd generation virtual server profiles are built atop the AMD’s 3rd generation EPYC processors. They provide a broad set of capabilities and scale from 2 vCPUs (1 physical core) up to 228 vCPUs (114 physical cores).
 
-The general purpose profiles can also be paired with a corresponding dedicated host. This solution allows
-for single-tenant hypervisors running workloads from a single {{site.data.keyword.cloud}} account.
+The general-purpose profiles can also be paired with a corresponding dedicated host. This solution allows
+for single-tenant hypervisors that run workloads from a single {{site.data.keyword.cloud}} account.
 
 ### Operating systems
 {: #general-purpose-os-gen2-amd}
@@ -197,7 +197,7 @@ for single-tenant hypervisors running workloads from a single {{site.data.keywor
 {: #general-purpose-availability-gen2-amd}
 
 - Status: Generally available
-- Regions: Toronto (ca-tor)
+- Regions: Toronto (`ca-tor`)
 
 ### Capabilities
 {: #general-purpose-capabilities-gen2-amd}

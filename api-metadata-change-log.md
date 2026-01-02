@@ -1,7 +1,7 @@
 ---
 
 copyright:
-  years: 2019, 2025
+  years: 2019, 2026
 lastupdated: "2025-12-16"
 
 keywords: api, change log, metadata, new features, restrictions, migration, versioned change
@@ -31,7 +31,7 @@ Some changes, such as new response properties or new optional request parameters
 ## 16 December 2025
  {: #16-december-2025-metadata}
 
- **Burstable (shared core) instances.** When [retrieving an instance](/apidocs/vpc-metadata#get-instance), the `vcpu.percentage` property is now included in the response. This property indicates the percentage of vcpu time available to your instance. Additionally, the `vcpu.burst.limit` property is included in the response. This property indicates the percentage limit that the instance can burst. For more information see [burstable virtual server instances](/docs/vpc?topic=vpc-burstable-virtual-servers).
+ **Burstable (shared core) instances.** When [retrieving an instance](/apidocs/vpc-metadata#get-instance), the `vcpu.percentage` property is now included in the response. This property indicates the percentage of vcpu time available to your instance. Additionally, the `vcpu.burst.limit` property is included in the response. This property indicates the percentage limit that the instance can burst. For more information, see [burstable virtual server instances](/docs/vpc?topic=vpc-burstable-virtual-servers).
 
 ## 30 September 2025
 {: #23-september-2025-metadata}
@@ -39,7 +39,7 @@ Some changes, such as new response properties or new optional request parameters
 ### For all version dates
 {: #30-september-2025-all-version-dates-metadata}
 
-**Dynamic volume bandwidth allocation.** When [retrieving an instance](/apidocs/vpc-metadata#get-instance), the `volume_bandwidth_qos_mode` property is now included in the response. This property indicates which volume bandwidth QoS mode is enabled for this virtual server instance, its value can be either `weighted` or `pooled`. For more information, see the [VPC API change log](/docs/vpc?topic=vpc-api-change-log#30-september-2025) and [volume bandwidth QoS mode](/docs/vpc?topic=vpc-block-storage-bandwidth).
+**Dynamic volume bandwidth allocation.** When [retrieving an instance](/apidocs/vpc-metadata#get-instance), the `volume_bandwidth_qos_mode` property is now included in the response. This property indicates which volume bandwidth QoS mode is enabled for this virtual server instance. Its value can be either `weighted` or `pooled`. For more information, see the [VPC API change log](/docs/vpc?topic=vpc-api-change-log#30-september-2025) and [volume bandwidth QoS mode](/docs/vpc?topic=vpc-block-storage-bandwidth).
 
 ## 26 August 2025
 {: #26-august-2025-metadata}
@@ -55,7 +55,7 @@ Some changes, such as new response properties or new optional request parameters
 ### For all version dates
 {: #1-april-2025-all-version-dates-metadata}
 
-**Trust Domain Extensions for confidential computing.** In select regions, you can now enable [Intel&reg; Trust Domain Extensions (TDX)](/docs/vpc?topic=vpc-about-confidential-computing-vpc#confidential-computing-vpc-with-tdx). When [retrieving an instance](/apidocs/vpc-metadata#get-instance), the `confidential_compute_mode` property will have the value `tdx` if it is enabled for this virtual server instance. For more information, see the [VPC API change log](/docs/vpc?topic=vpc-api-change-log#1-april-2025).
+**Trust Domain Extensions for confidential computing.** In select regions, you can now enable [Intel&reg; Trust Domain Extensions (TDX)](/docs/vpc?topic=vpc-about-confidential-computing-vpc#confidential-computing-vpc-with-tdx). If it is enabled for this virtual server instance, then when [retrieving an instance](/apidocs/vpc-metadata#get-instance), the `confidential_compute_mode` property has the value `tdx`. For more information, see the [VPC API change log](/docs/vpc?topic=vpc-api-change-log#1-april-2025).
 
 ## 12 November 2024
 {: #12-november-2024-metadata}
@@ -63,7 +63,7 @@ Some changes, such as new response properties or new optional request parameters
 ### For all version dates
 {: #12-november-2024-all-version-dates-metadata}
 
-**Instance cluster network attachments.** If a virtual server instance has cluster network attachments, [retrieving the instance](/apidocs/vpc-metadata#get-instance) now includes a `cluster_network_attachments` property in the response. Additionally, you can [retrieve an instance cluster network attachment](/apidocs/vpc-metadata#get-instance-cluster-network-attachment) for additional details on the instance's cluster network attachments. For more information, see the [VPC API change log](/docs/vpc?topic=vpc-api-change-log#12-november-2024).
+**Instance cluster network attachments.** If a virtual server instance has cluster network attachments, [retrieving the instance](/apidocs/vpc-metadata#get-instance) now includes a `cluster_network_attachments` property in the response. Additionally, you can [retrieve an instance cluster network attachment](/apidocs/vpc-metadata#get-instance-cluster-network-attachment) for more details on the instance's cluster network attachments. For more information, see the [VPC API change log](/docs/vpc?topic=vpc-api-change-log#12-november-2024).
 
 ## 4 June 2024
 {: #4-june-2024-metadata}
@@ -79,13 +79,13 @@ Some changes, such as new response properties or new optional request parameters
 ### For all version dates
 {: #28-may-2024-all-version-dates-metadata}
 
-**Virtual network interface protocol state filtering mode.** When [retrieving](/apidocs/vpc-metadata#get-virtual-network-interface) or [listing](/apidocs/vpc-metadata#list-virtual-network-interfaces) virtual network interfaces, the new `protocol_state_filtering_mode` property denotes the protocol state filtering mode used for this virtual network interface. If the value is `auto`, protocol state packet filtering is enabled or disabled based on the virtual network interface's `target` resource type. For more information, see [Virtual network interfaces protocol state filtering](/docs/vpc?topic=vpc-api-change-log#28-may-2024) in the VPC API change log.
+**Virtual network interface protocol state filtering mode.** When [retrieving](/apidocs/vpc-metadata#get-virtual-network-interface) or [listing](/apidocs/vpc-metadata#list-virtual-network-interfaces) virtual network interfaces, the new `protocol_state_filtering_mode` property denotes the protocol state filtering mode that is used for this virtual network interface. If the value is `auto`, protocol state packet filtering is enabled or disabled based on the virtual network interface's `target` resource type. For more information, see [Virtual network interfaces protocol state filtering](/docs/vpc?topic=vpc-api-change-log#28-may-2024) in the VPC API change log.
 
 This release introduces the following updates for accounts that have special approval to preview these features:
 
 **Confidential computing capabilities.** If [Intel&reg; Software Guard Extensions](/docs/vpc?topic=vpc-about-confidential-computing-vpc) are enabled on an instance or instance template, you can view the new `confidential_compute_mode` property, which indicates that confidential compute mode is enabled for this virtual server instance. For more information, see the [VPC API change log](/docs/vpc?topic=vpc-api-change-log#28-may-2024).
 
-**Secure boot capabilities.** If [secure boot](/docs/vpc?topic=vpc-confidential-computing-with-secure-boot-vpc) is enabled on an instance or instance template, you can view the new `enable_secure_boot` property when [retrieving an instance](/apidocs/vpc-metadata#get-instance). This property indicates if secure boot is enabled for this virtual server instance. For more information, see the [VPC API change log](/docs/vpc?topic=vpc-api-change-log#28-may-2024).
+**Secure boot capabilities.** If [secure boot](/docs/vpc?topic=vpc-confidential-computing-with-secure-boot-vpc) is enabled on an instance or instance template, you can view the new `enable_secure_boot` property when [retrieving an instance](/apidocs/vpc-metadata#get-instance). This property indicates whether secure boot is enabled for this virtual server instance. For more information, see the [VPC API change log](/docs/vpc?topic=vpc-api-change-log#28-may-2024).
 
 ## 26 March 2024
 {: #26-march-2024-metadata}
@@ -93,7 +93,7 @@ This release introduces the following updates for accounts that have special app
 ### For all version dates
 {: #26-march-2024-all-version-dates-metadata}
 
-**Reservations for Virtual Servers for VPC.** You can now purchase a [capacity reservation](/docs/vpc?topic=vpc-about-reserved-virtual-servers-vpc) for a specified instance profile in a specified zone. When [retrieving an instance](/apidocs/vpc-metadata#get-instance), the new `reservation` and  `reservation_affinity` properties indicate the reservation and reservation affinity policy in effect for the virtual server instance. The new `health_state` property indicates the instance's overall health state, while an accompanying `health_reasons` property indicates the reason for any unhealthy health states, such as a failed reservation.
+**Reservations for Virtual Servers for VPC.** You can now purchase a [capacity reservation](/docs/vpc?topic=vpc-about-reserved-virtual-servers-vpc) for a specified instance profile in a specified zone. When [retrieving an instance](/apidocs/vpc-metadata#get-instance), the new `reservation` and `reservation_affinity` properties indicate the reservation and reservation affinity policy in effect for the virtual server instance. The new `health_state` property indicates the instance's overall health state, while an accompanying `health_reasons` property indicates the reason for any unhealthy health states, such as a failed reservation.
 
 For more information, see the [API change log](/docs/vpc?topic=vpc-api-change-log#26-march-2024) and [Provisioning reserved capacity for VPC](/docs/vpc?topic=vpc-provisioning-reserved-capacity-vpc).
 
@@ -103,7 +103,7 @@ For more information, see the [API change log](/docs/vpc?topic=vpc-api-change-lo
 ### For all version dates
 {: #30-january-2024-all-version-dates-metadata}
 
-**Reservations for Virtual Servers for VPC.** Accounts that have special approval to preview this feature can now purchase a [capacity reservation](/docs/vpc?topic=vpc-about-reserved-virtual-servers-vpc) for a specified instance profile in a specified zone. When [retrieving an instance](/apidocs/vpc-metadata#get-instance), the new `reservation` and  `reservation_affinity` properties indicate the reservation and reservation affinity policy in effect for the virtual server instance. The new `health_state` property indicates the instance's overall health state, while an accompanying `health_reasons` property indicates the reason for any unhealthy health states, such as a failed reservation.
+**Reservations for Virtual Servers for VPC.** Accounts that have special approval to preview this feature can now purchase a [capacity reservation](/docs/vpc?topic=vpc-about-reserved-virtual-servers-vpc) for a specified instance profile in a specified zone. When [retrieving an instance](/apidocs/vpc-metadata#get-instance), the new `reservation` and `reservation_affinity` properties indicate the reservation and reservation affinity policy in effect for the virtual server instance. The new `health_state` property indicates the instance's overall health state, while an accompanying `health_reasons` property indicates the reason for any unhealthy health states, such as a failed reservation.
 
 For more information, see the [API change log](/docs/vpc?topic=vpc-api-change-log#30-january-2024) and [Provisioning reserved capacity for VPC](/docs/vpc?topic=vpc-provisioning-reserved-capacity-vpc).
 
@@ -123,7 +123,7 @@ This feature is now generally available. See the [26 March 2024](#26-march-2024-
 ### For all version dates
 {: #17-october-all-version-dates-metadata}
 
-**Non-uniform memory access (NUMA) awareness on instances.**  When [retrieving an instance](/apidocs/vpc-metadata#get-instance), the new `numa_count` property indicates the number of NUMA nodes on which a virtual server instance is provisioned. For more information, see [Next generation instance profiles](/docs/vpc?topic=vpc-profiles&interface=api#next-gen-profiles). See also [Non-uniform memory access (NUMA) awareness on dedicated hosts and instances](/docs/vpc?topic=vpc-api-change-log#17-october-2023) in the VPC API change log.
+**Non-uniform memory access (NUMA) awareness on instances.** When [retrieving an instance](/apidocs/vpc-metadata#get-instance), the new `numa_count` property indicates the number of NUMA nodes on which a virtual server instance is provisioned. For more information, see [Next generation instance profiles](/docs/vpc?topic=vpc-profiles&interface=api#next-gen-profiles). See also [Non-uniform memory access (NUMA) awareness on dedicated hosts and instances](/docs/vpc?topic=vpc-api-change-log#17-october-2023) in the VPC API change log.
 
 ## 15 August 2023
 {: #15-august-2023-metadata}
@@ -149,7 +149,7 @@ This feature is now generally available. See the [26 March 2024](#26-march-2024-
 
 **VPC Metadata new endpoint URL.** You can now use the fully qualified domain name (FQDN) `api.metadata.cloud.ibm.com` for the VPC Metadata service endpoint. The FQDN resolves to the link-local IP address `169.254.169.254` without requiring the application of special configurations. For more information, see [Endpoint URLs](/apidocs/vpc-metadata#endpoint-url-metadata) in the VPC Metadata API.
 
-**VPC Metadata communication protocol and hop limit.** You can now view the communication protocol and hop limit for IP response packets used by the [VPC Metadata service](/docs/vpc?topic=vpc-imd-about). When [retrieving the instance](/apidocs/vpc-metadata#get-instance), the new `protocol` and `response_hop_limit` properties will be shown. For more information, see [Configure the Metadata service](/docs/vpc?topic=vpc-imd-configure-service&interface=api).
+**VPC Metadata communication protocol and hop limit.** You can now view the communication protocol and hop limit for IP response packets that are used by the [VPC Metadata service](/docs/vpc?topic=vpc-imd-about). When [retrieving the instance](/apidocs/vpc-metadata#get-instance), the new `protocol` and `response_hop_limit` properties are shown. For more information, see [Configure the Metadata service](/docs/vpc?topic=vpc-imd-configure-service&interface=api).
 
 ## 27 September 2022
 {: #27-september-2022-metadata}
@@ -157,6 +157,6 @@ This feature is now generally available. See the [26 March 2024](#26-march-2024-
 ### For all version dates
 {: #27-september-2022-all-version-dates-metadata}
 
-**Sharing images across an enterprise account.** If a virtual server instance was provisioned from a catalog offering, [retrieving the metadata](/apidocs/vpc-metadata#get-instance) will now include a `catalog_offering` property in the response. For more information, see the [Virtual Private Cloud Metadata API](/apidocs/vpc-metadata).
+**Sharing images across an enterprise account.** If a virtual server instance was provisioned from a catalog offering, [retrieving the metadata](/apidocs/vpc-metadata#get-instance) now includes a `catalog_offering` property in the response. For more information, see the [Virtual Private Cloud Metadata API](/apidocs/vpc-metadata).
 
 See also the tutorial [Onboarding a virtual server image for VPC](/docs/account?topic=account-catalog-vsivpc-tutorial) and the [Import offering](/apidocs/resource-catalog/private-catalog#import-offering){: external} method in the Catalog Management API.
