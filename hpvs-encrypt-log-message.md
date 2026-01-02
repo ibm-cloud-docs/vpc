@@ -1,8 +1,8 @@
 ---
 
 copyright:
-  years: 2023
-lastupdated: "2023-12-04"
+  years: 2023, 2026
+lastupdated: "2026-01-02"
 
 keywords: logging for hyper protect virtual server for vpc, encrypt log messages for hyper protect virtual server for vpc
 
@@ -38,7 +38,7 @@ This tutorial explains how to deploy Docker Compose or Podman Play as a Hyper Pr
 {: #doccomp}
 
 - In the [`log-encryption`](https://github.com/ibm-hyper-protect/samples/tree/main/log-encryption) folder, you have a `docker-compose.yaml` file under `/compose` directory, which deploys and manages the Docker Compose application. The image that we use is the official Ubuntu image from [DockerHub](https://hub.docker.com/_/ubuntu).
-- Within the `docker-compose.yaml` file, there is a command that asks Docker Compose to run a shell script (`example.sh`) that prints a line of plain text and a line of encrypted message to the standard output. This `example.sh` file exists in the `/compose/bin` directory.
+- The `docker-compose.yaml` file contains a command that asks Docker Compose to run a shell script (`example.sh`) that prints a line of plain text and a line of encrypted message to the standard output. This `example.sh` file exists in the `/compose/bin` directory.
 - A public key `logging.pub` is required for encrypting the log message. This file must exist in the `/compose` folder. This tutorial shows an example of generating a key pair encrypted through AES with a passphrase by using `openssl`.
 - The `volumes:` instruction tells Docker Compose to mount the Docker Compose volume with the public key and the simple logging application to `/var/logging` inside the container. The Ubuntu image starts as a container later and run `example.sh` as its main application.
 
@@ -46,13 +46,13 @@ This tutorial explains how to deploy Docker Compose or Podman Play as a Hyper Pr
 {: #podplay}
 
 - In the [`log-encryption`](https://github.com/ibm-hyper-protect/samples/tree/main/log-encryption) folder, you have `pods.yaml` file under `/pods` directory, which deploys and manages the container application to be used in this tutorial. The image that we use is the official Ubuntu image from [DockerHub](https://hub.docker.com/_/ubuntu).
-- Within the Podman Play file, there is a command that asks Podman to run a shell script (`example.sh`) that prints a line of plain text and a line of encrypted message to the standard output. This `example.sh` file exists in the `/pods/bin` directory.
+- The Podman Play file contains a command that asks Podman to run a shell script (`example.sh`) that prints a line of plain text and a line of encrypted message to the standard output. This `example.sh` file exists in the `/pods/bin` directory.
 - A public key `logging.pub` is required for encrypting the log message. This file must exist in the `/pods` folder. This tutorial shows an example of generating a key pair encrypted through AES with a passphrase by using `openssl`.
 - The `volumes:` instruction tells Podman to mount the Podman volume with the public key and the simple logging application to `/var/logging` inside the container. The Ubuntu image starts as a container later and run `example.sh` as its main application.
 
 The [contract](/docs/vpc?topic=vpc-about-contract_se) is a YAML file to specify the Hyper Protect Virtual Server instance that you want to create. In this tutorial, a dedicated public and private key pair is used to encrypt and decrypt the selected log messages.
 
-You must abide to the following:
+You must abide to the following rules:
 ​​​​​​
    - ​​​​​​You must keep the private key to decrypt the downloaded logs later.
    - ​The public key must be embedded into the contract, which is a special approach for our case. The public key ​​​​​`​logging.pub​​​​` is stored under the `​​​​​​/log-encryption/pods`​​​​ folder for Podman approach and ​​​​​​`/log-encryption/compose`​​​​ folder for Docker Compose along with the `​​​​​​pods.yaml`​​​​ file and ​​​​​​`docker-compose.yaml​​​`​ respectively. As mentioned in the preparation of the [`workload` section](/docs/vpc?topic=vpc-about-contract_se#hpcr_contract_workload)​ of the contract, the `archive` subsection contains the `​​​​​​base64​​​`​ encoded TGZ file archive of ​​​​​`​podman-play`​​​​. The ​​​​​`​logging.pub​​​`​ file in our example undergoes the same encoding and compression, since it is stored in the same folder. As a result, the created instance acquires the public key for subsequent log encryption.​​​​
@@ -69,7 +69,7 @@ You must abide to the following:
 ## Prepare your contract
 {: #prepare-your-contract}
 
-This tutorial gets you started with a simple Hyper Protect Virtual Server for VPC contract that only has an [`env` section](/docs/vpc?topic=vpc-about-contract_se#hpcr_contract_env) and a [`workload` section](/docs/vpc?topic=vpc-about-contract_se#hpcr_contract_workload).
+This tutorial gets you started with a simple Hyper Protect Virtual Server for VPC contract that has only an [`env` section](/docs/vpc?topic=vpc-about-contract_se#hpcr_contract_env) and a [`workload` section](/docs/vpc?topic=vpc-about-contract_se#hpcr_contract_workload).
 
 As recommended in [contract encryption](/docs/vpc?topic=vpc-about-contract_se#hpcr_contract_encrypt), we encrypt both sections. When the instance boots, the bootloader decrypts the contract if it's encrypted. Follow the instructions at [Downloading the encryption certificate and extracting the public key](/docs/vpc?topic=vpc-about-contract_se#encrypt_downloadcert). This tutorial uses the [certificate](https://hpvsvpcubuntu.s3.us.cloud-object-storage.appdomain.cloud/s390x-24/ibm-hyper-protect-container-runtime-1-0-s390x-24-encrypt.crt){: external} for the IBM Hyper Protect Container Runtime image version `ibm-hyper-protect-container-runtime-1-0-s390x-24`. Downloaded the encryption certificate and rename it to `hpcr.crt`. Follow the steps to obtain the simple contract:
 
@@ -81,7 +81,7 @@ As recommended in [contract encryption](/docs/vpc?topic=vpc-about-contract_se#hp
    ```
    {: codeblock}
 
-1. Create the workload section. Refer to the `workload.pods.yaml` (for Podman Play) or `workload.compose.yaml` (for Docker Compose) sample file in the `log-encryption` folder for the correct schema. In this example, the Podman play file in the `log-encryption` folder will be used for the `podman` subsection and Docker Compose uses the `compose` subsection..
+1. Create the workload section. Refer to the `workload.pods.yaml` (for Podman Play) or `workload.compose.yaml` (for Docker Compose) sample file in the `log-encryption` folder for the correct schema. In this example, the Podman play file in the `log-encryption` folder is used for the `podman` subsection and Docker Compose uses the `compose` subsection.
 
    In addition, provide the public key for encrypting the log messages. Run the following commands to generate a key pair. We proceed with the public key. Note that `logEncrypt` is the passphrase to generate keys, you can use your own.
 
