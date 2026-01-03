@@ -65,7 +65,7 @@ The IAM **IP Spoofing Operator** is disabled by default for all users. For more 
 {: #ip-spoofing-enable-check-ui}
 {: ui}
 
-To enable IP spoofing in the {{site.data.keyword.cloud_notm} console, follow these steps:
+To enable IP spoofing in the {{site.data.keyword.cloud_notm}} console, follow these steps:
 
 1. Go to **Manage** > **Access** > **Manage identities** > [Users](/iam/users){: external}.
 2. Click **Users** and choose the user that you want to grant the IP spoofing role.
