@@ -1,7 +1,7 @@
 ---
 
 copyright:
-  years: 2023, 2025
+  years: 2023, 2026
 lastupdated: "2025-12-29"
 
 keywords: data center latency, latency dashboard, network latency, inter-AZ latency, Inter-region latency

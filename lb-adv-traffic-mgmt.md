@@ -1,8 +1,8 @@
 ---
 
 copyright:
-  years: 2018, 2025
-lastupdated: "2025-12-29"
+  years: 2018, 2026
+lastupdated: "2026-01-03"
 
 keywords: application load balancer, public, listener, back-end, front-end, pool, round-robin, weighted, connections, methods, policies, APIs, access, ports, layer 7, compression
 subcollection: vpc
@@ -22,44 +22,44 @@ The following advanced traffic management features are available in {{site.data.
 
 Use the `max connections` configuration to limit the maximum number of concurrent connections for a given front-end virtual port. If you do not configure a value, the system uses a default of `2000` concurrent connections. The maximum concurrent connections for a given front-end virtual port, or system-wide across all front-end virtual ports, is `15000`.
 
-## Session persistence
-{: #session-persistence}
+## Session stickiness
+{: #session-stickiness}
 
-By default, an ALB forwards received requests to a back-end server based on the configured load-balancing method. You can enable session persistence to ensure that a client remains connected to the same back-end server throughout a session.
+By default, an ALB forwards received requests to a back-end server based on the configured load-balancing method. You can enable session stickiness to ensure that a client remains connected to the same back-end server throughout a session.
 
 ### Source IP
 {: #source-ip}
 
-With this option, an ALB creates the affinity between a client and a back-end server based on the source IP of the connection. As an example, if you enable source IP type session persistence for port 80 (HTTP), then any subsequent HTTP connection attempts from the same source IP client are persistent on the same back-end server. This feature is available for all supported protocols (HTTP, HTTPS, and TCP).
+With this option, an ALB creates the affinity between a client and a back-end server based on the source IP of the connection. As an example, if you enable source IP type session stickiness for port 80 (HTTP), then any subsequent HTTP connection attempts from the same source IP client are persistent on the same back-end server. This feature is available for all supported protocols (HTTP, HTTPS, and TCP).
 
-### Cookie-based session persistence
+### Cookie-based session stickiness
 {: #cookie}
 
-With this option, an ALB creates the affinity between a client and a back-end server based on cookies. ALBs support two modes of cookie-based session persistence:
+With this option, an ALB creates the affinity between a client and a back-end server based on cookies. ALBs support two modes of cookie-based session stickiness:
 
-* HTTP cookie persistence
-* Application-cookie persistence
+* HTTP cookie stickiness
+* Application-cookie stickiness
 
-For HTTP cookie persistence, a load balancer inserts a cookie with a predefined prefix, while application cookie persistence allows you to define your own cookie name. This feature supports only HTTP and HTTPS protocols.
+For HTTP cookie stickiness, a load balancer inserts a cookie with a predefined prefix, while application cookie stickiness allows you to define your own cookie name. This feature supports only HTTP and HTTPS protocols.
 
-#### HTTP cookie persistence
+#### HTTP cookie stickiness
 {: #http-cookie}
 
 When an ALB receives the first request, it forwards the request to a back-end server based on the configured load-balancing method. The load balancer inserts a cookie with a name prefixed by `IBMVPCALB` in the response from the back-end server sent to the client. If the client includes the cookie in subsequent requests, the load balancer forwards the requests to the same back-end server.
 
-#### Application cookie persistence
+#### Application cookie stickiness
 {: #application-cookie}
 
-In addition to HTTP cookie persistence, you can also define your own application cookie to achieve session persistence. Your application is expected to generate a cookie and its name will match the application cookie name that is configured by the ALB. When an ALB receives the first request, it forwards the request to a back-end server based on the configured load-balancing method. The load balancer inserts a cookie with a name prefixed by `IBMVPCALB` in the response from the back-end server containing your application cookie. The client must include both the load-balancer-inserted cookie and your application cookie in subsequent requests for the ALB to maintain persistence to the same back-end server.
+In addition to HTTP cookie stickiness, you can also define your own application cookie to achieve session stickiness. Your application is expected to generate a cookie and its name will match the application cookie name that is configured by the ALB. When an ALB receives the first request, it forwards the request to a back-end server based on the configured load-balancing method. The load balancer inserts a cookie with a name prefixed by `IBMVPCALB` in the response from the back-end server containing your application cookie. The client must include both the load-balancer-inserted cookie and your application cookie in subsequent requests for the ALB to maintain stickiness to the same back-end server.
 
-#### Additional considerations for cookie-based session persistence
+#### Additional considerations for cookie-based session stickiness
 {: #cookie-additional-considerations}
 
 * The `cookie name` value does not contain separator characters, such as `( ) < > @ , ; : \ " / [ ] ? = { }`. It can contain US-ASCII characters, except control characters, spaces, and tabs.
 * A user-defined application cookie name cannot start with the prefix `IBM`.
 * A user-defined cookie name is case-sensitive.
 * A secure cookie with the `SameSite=None` attribute is only sent to the client through the HTTPS protocol from the load balancer.
-* A client must accept cookies for cookie-based session persistence to work.
+* A client must accept cookies for cookie-based session stickiness to work.
 
 ## HTTP keep alive
 {: #http-keep-alive}
