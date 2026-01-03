@@ -1,8 +1,8 @@
 ---
 
 copyright:
-  years: 2018, 2025
-lastupdated: "2025-12-11"
+  years: 2018, 2026
+lastupdated: "2026-01-02"
 
 subcollection: vpc
 
@@ -27,7 +27,7 @@ Before you can create {{site.data.keyword.vsi_is_short}}, you need to set up the
 
 Most likely you do not have adequate permissions to view the server status. Make sure that you have the correct [permissions](/docs/vpc?topic=vpc-managing-user-permissions-for-vpc-resources#managing-user-permissions-for-vpc-resources).
 
-The Unknown status also might be caused by an expired IMS token. Run `bx sl init` again and rebuild the `ims_subject` with the new token. Make sure that you are passing in the `X-Subject-Token:$ims_subject` parameter in the request header.
+The Unknown status might also be caused by an expired IMS token. Run `bx sl init` again and rebuild the `ims_subject` with the new token. Make sure that you are passing in the `X-Subject-Token:$ims_subject` parameter in the request header.
 
 ## Error: 409 Conflict when you create an instance action
 {: #troubleshooting-conflict-create-instance}
@@ -36,12 +36,12 @@ You can't create certain instance actions if the status of your instance is in c
 
 | Status      | Action     | Conflict |
 | ----------- | ---------- | -------- |
-| Running     | start      | yes      |
-| Stopped     | Any action other than start  | yes      |
-| Not running | pause      | yes      |
-| Not running | reboot     | yes      |
-| Not paused  | resume     | yes      |
-| Paused      | Any action other than resume | yes      |
+| Running     | start      | Yes      |
+| Stopped     | Any action other than start  | Yes      |
+| Not running | pause      | Yes      |
+| Not running | reboot     | Yes      |
+| Not paused  | resume     | Yes      |
+| Paused      | Any action other than resume | Yes      |
 {: caption="Instance status conflicts" caption-side="bottom"}
 
 ## Instance not responding to `instance-reboot` request
@@ -52,7 +52,7 @@ If your instance is not responding to an `instance-reboot` request, you can try 
 ## Why can't I add my SSH key?
 {: #troubleshooting-cant-add-ssh-key}
 
-If you try to add an SSH key to your account and get an error that the key can't be parsed, ensure there are no line breaks in the string. An SSH key is a continuous string of characters; sometimes line breaks are introduced when the SSH key is copied from a terminal. To avoid this issue, first paste your SSH key into a text editor and remove any line breaks. Then, copy the SSH key from the text editor and paste it into the VPC UI, CLI, or API.
+If you try to add an SSH key to your account and get an error that the key can't be parsed, make sure that the string contains no line breaks. An SSH key is a continuous string of characters; sometimes line breaks are introduced when the SSH key is copied from a terminal. To avoid this issue, first paste your SSH key into a text editor and remove any line breaks. Then, copy the SSH key from the text editor and paste it into the VPC UI, CLI, or API.
 
 ## How do I deploy an RHEL virtual server instance on a new account that has never deployed an RHEL virtual server instance?
 {: #troubleshooting-deploying-RHEL-VSI-new-account}
@@ -221,7 +221,7 @@ To troubleshoot and resolve the issue by using the SysRq key from the serial con
 
    - Press and release each key individually. Don't hold any of the keys down.
    - The entire sequence must be completed within 5 seconds, otherwise the SysRq commands aren't detected on the serial console.
-   - When typing this sequence, the characters you type won't appear on the serial console. The system treats them as break sequence characters. Normal console typing resumes after the sequence is completed or if the sequence times out or encounters an invalid character.
+   - When you're typing this sequence, the characters you type don't appear on the serial console. The system treats them as break sequence characters. Normal console typing resumes after the sequence is completed or if the sequence times out or encounters an invalid character.
    - If the sequence times out (takes longer than 5 seconds) or an invalid break sequence character is pressed, restart the process from step 1.
 
    Example:
