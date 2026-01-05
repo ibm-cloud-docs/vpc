@@ -1,8 +1,8 @@
 ---
 
 copyright:
-  years: 2020, 2025
-lastupdated: "2025-11-05"
+  years: 2020, 2026
+lastupdated: "2026-01-05"
 
 keywords: custom routes
 
@@ -101,6 +101,11 @@ Be aware of the following considerations when advertising routes:
 * If you advertise two different routes, such as `172.16.0.0/31` through `10.1.1.0` and `172.16.0.0/32` through `10.1.2.0`, the route with a `/32` prefix always takes precedence over the route with a `/31` prefix. This is consistent with the "Longest Prefix Match" ruleset. A longer prefix to a host destination is always preferred over a narrower prefix.
 
 * Currently, there is no mechanism to flag duplicate routes from a Transit Gateway or Direct Link. The Transit Gateway selects the best path by using the most specific prefix and shortest AS path, as preferred. Otherwise, the Transit Gateway selects the route that it received first. This route might not be the oldest route at the VPC side, and it can change if routes to the Transit Gateway are refreshed internally.
+
+* Routes advertised from a VPN gateway depend on the VPN type. Policy-based VPN gateways do not dynamically advertise routes. Only the CIDR prefixes defined in the VPN policy are propagated, and the routing table must be configured to accept routes from the VPN gateway. Route-based VPN gateways with BGP advertise routes dynamically.
+
+   When advertising routes from a routing table that includes VPN connectivity, ensure that the VPN gateway type supports the intended route propagation behavior.
+   {: note}
 
 ## Use cases
 {: #use-cases}

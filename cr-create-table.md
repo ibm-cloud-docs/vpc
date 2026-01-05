@@ -1,8 +1,8 @@
 ---
 
 copyright:
-  years: 2020, 2025
-lastupdated: "2025-12-30"
+  years: 2020, 2026
+lastupdated: "2026-01-05"
 
 keywords: custom routes
 
@@ -43,6 +43,11 @@ To create a routing table in the console, follow these steps:
    * In the Traffic section, you can select from these optional features:
 
       * **Accepts routes from** (optional) -  Choose which resources can create routes in the routing table. You can select the switch for **VPN server**, **VPN gateway**, or both.
+
+         For policy-based VPN gateways, routes are not automatically discovered. The routing table must be configured to accept routes from the VPN gateway, and propagated routes are limited to the CIDR prefixes defined in the VPN policy. Route-based VPN gateways with BGP dynamically advertise learned routes. For more information about defining CIDR prefixes for policy-based VPNs, see [Adding connections to a VPN gateway](/docs/vpc?topic=vpc-vpn-adding-connections).
+
+         VPN server routes are derived from the client address pool and any configured client routes and are propagated when the routing table is configured to accept routes from the VPN server.
+         {: note}
 
       * **Traffic source** (optional) - Select the traffic source to use this routing table to route its traffic to the VPC.
 
