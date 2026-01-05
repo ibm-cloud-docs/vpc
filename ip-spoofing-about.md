@@ -32,7 +32,7 @@ If you are using a virtual server instance or a bare metal server as the next ho
 
 The following diagram illustrates the location of an IP spoofing check in the traffic flow to and from a virtual server instance (or bare metal server):
 
-![Figure showing traffic flow to and from a virtual server instance](images/ip-spoofing-check.svg "Figure showing traffic flow to and from a virtual server instance"){: caption="IP spoofing check" caption-side="bottom"}
+![Figure showing an IP spoofing check in a traffic flow to and from a virtual server instance or bare metal server](images/ip-spoofing-check.svg "Figure showing an IP spoofing check in a traffic flow to and from a virtual server instance or bare metal server"){: caption="Figure showing an IP spoofing check in a traffic flow to and from a virtual server instance or bare metal server" caption-side="bottom"}
 
 Only operators granted the **IP Spoofing Operator** permission in Identity and Access Management (IAM) are authorized to enable or disable IP spoofing checks on interfaces within a VPC. By default, IP spoofing checks are enforced on both incoming and outgoing traffic.
 
