@@ -2,7 +2,7 @@
 
 copyright:
   years: 2018, 2026
-lastupdated: "2026-01-04"
+lastupdated: "2026-01-05"
 
 keywords: application load balancer, public, listener, back-end, front-end, pool, round-robin, weighted, connections, methods, policies, APIs, access, ports, layer 7, compression
 subcollection: vpc
@@ -25,7 +25,7 @@ Use the `max connections` configuration to limit the maximum number of concurren
 ## Session stickiness
 {: #session-stickiness}
 
-By default, an ALB forwards received requests to a back-end server based on the configured load-balancing method. You can enable session stickiness to ensure that a client remains connected to the same back-end server throughout a session. For more information, see [Update Session stickiness for application load balancers](/docs/vpc?topic=vpc-alb-updating-session-stickiness&interface=ui).
+By default, an ALB forwards received requests to a back-end server based on the configured load-balancing method. You can enable session stickiness to ensure that a client remains connected to the same back-end server throughout a session. For more information, see [Updating session stickiness for application load balancers](/docs/vpc?topic=vpc-alb-updating-session-stickiness&interface=ui).
 
 ### Source IP
 {: #source-ip}

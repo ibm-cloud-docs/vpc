@@ -1,8 +1,8 @@
 ---
 
 copyright:
-  years: 2019, 2025
-lastupdated: "2025-12-29"
+  years: 2019, 2026
+lastupdated: "2026-01-05"
 
 keywords:
 
@@ -81,12 +81,12 @@ The following guidelines explain how security groups function, how rules are app
 
 * A security group can be attached to multiple targets.
 * One or more security groups can be attached to:
-  - a virtual network interface
-  - an instance network interface
-  - a bare metal server network interface
-  - an endpoint gateway
-  - a load balancer
-  - a VPN server.
+   - a virtual network interface
+   - an instance network interface
+   - a bare metal server network interface
+   - an endpoint gateway
+   - a load balancer
+   - a VPN server.
 * All rules from attached security groups collectively apply to the target.
 * If multiple security groups are attached, traffic is allowed or blocked based on the least restrictive rule across all groups.
 
@@ -107,7 +107,7 @@ Because a resource can be associated with multiple security groups, all the rule
    * When protocol is `icmp`, you can optionally specify the `type` property. If specified, then ICMP traffic is allowed for only the specified ICMP type. Further, if you specify `type`, you can optionally specify the code property to allow traffic for only the specified ICMP code.
 
 *	Remote - Describes the set of network interfaces to which this rule allows traffic (or from which, for outbound rules).
-    You can specify this value as either an IP address, a CIDR block, or all the identifiers of a single security group (ID, CRN, and name). If this value is omitted, a CIDR block of `0.0.0.0/0` is used to allow traffic from any source (or to any source, for outbound rules).
+   You can specify this value as either an IP address, a CIDR block, or all the identifiers of a single security group (ID, CRN, and name). If this value is omitted, a CIDR block of `0.0.0.0/0` is used to allow traffic from any source (or to any source, for outbound rules).
 
 You can name security group rules. However, the system makes no correlation between the name and the configuration of the rule. For example, if you name a rule `inbound-https-from-my-subnet`, the system does not verify that the rule functions as its name implies. It is your responsibility to manage the names and configurations of your security group rules for consistency if needed.
 

@@ -1,8 +1,8 @@
 ---
 
 copyright:
-  years: 2018, 2025
-lastupdated: "2025-12-22"
+  years: 2018, 2026
+lastupdated: "2026-01-05"
 
 keywords:
 
@@ -276,7 +276,7 @@ To avoid confusion about where ESP traffic is supported, the ESP protocol is not
 
 **Issue Summary:** Following the new support for [all IPv4 protocols for ACL and Security Group rules](https://cloud.ibm.com/docs/vpc?topic=vpc-release-notes#vpc-dec1225), earlier versions of the Golang SDK must be updated to avoid the following parsing error when handling rules with the new protocols:
 
-```
+```text
 error unmarshalling vpcv1.SecurityGroupCollection: error unmarshalling property 'security_groups' as []vpcv1.SecurityGroup: error unmarshalling property 'rules' as []vpcv1.SecurityGroupRuleIntf: unrecognized value for discriminator property 'protocol': any
 ```
 

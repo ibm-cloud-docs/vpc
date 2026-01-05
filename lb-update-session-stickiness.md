@@ -2,7 +2,7 @@
 
 copyright:
   years: 2019, 2026
-lastupdated: "2026-01-03"
+lastupdated: "2026-01-05"
 
 keywords: application load balancer, session stickiness, vpc network, update
 
@@ -74,9 +74,9 @@ To update session stickiness for an application load balancer with the API, perf
       export ResourceGroupId=<your_resourcegroup_id>
       ```
       {: pre}
+
 1. Alternatively, you can find your resource group ID by using IBM Cloud console. From your browser, open the IBM Cloud console and log in to your account. Select Manage > Account > Resource Groups.
 1. Use the following example to update session stickiness for your application load balancer:
-
 
    ```bash
    curl -X PATCH 
@@ -92,4 +92,3 @@ To update session stickiness for an application load balancer with the API, perf
    {: codeblock}
 
    There are multiple ways to update your ALB from the API. For other options, see [VPC API reference for load balancers](/apidocs/vpc/latest#update-load-balancer-pool).
-
