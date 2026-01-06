@@ -30,7 +30,7 @@ Compatibility with earlier versions is not guaranteed as a feature progresses th
 ### For all version dates
 {: #15-july-2025-all-version-dates-identity-beta}
 
-This feature is now generally available. See the [VPC Identity API change log](/docs/vpc?topic=vpc-identity-api-change-log#26-august-2025).
+This feature is now generally available. See the [VPC Identity API change log](/docs/vpc?topic=vpc-identity-api-change-log#26-august-2025-identity).
 
 **Bare metal server support.** Accounts that have special approval to preview this feature can now access the identity service from bare metal servers. You can use the new [create identity access token](/apidocs/vpc-identity-beta/initial#create-access-token) method to create an access token for your bare metal server, and pass that token to the new [create identity certificate](/apidocs/vpc-identity-beta/initial#create-identity-certificate) method. Alternatively, you can pass that token to the [create IAM access token](/apidocs/vpc-identity-beta/initial#create-iam-token) method, and then use that token to access IAM-enabled services. You can also use these new methods from virtual server instances. For more information, see the Beta VPC [Identity API](/apidocs/vpc-identity-beta).
 
