@@ -1,8 +1,8 @@
 ---
 
 copyright:
-  years: 2020, 2025
-lastupdated: "2025-11-05"
+  years: 2020, 2026
+lastupdated: "2026-01-06"
 
 keywords: custom routes
 
@@ -15,7 +15,7 @@ subcollection: vpc
 # About routing tables and routes
 {: #about-custom-routes}
 
-{{site.data.keyword.cloud}} Virtual Private Cloud (VPC) automatically generates a default routing table for the VPC to manage traffic in the zone. By default, this routing table is empty. You can add routes to the default routing table, or create one or more custom routing tables and then add routes. For example, if you want a specialized routing policy for a specific subnet, you can create a routing table and associate it with one or more subnets. However, if you want to change the default routing policy that affects all subnets that use the default routing table, then you should add routes to the default routing table.
+{{site.data.keyword.cloud}} Virtual Private Cloud (VPC) automatically generates a default routing table for the VPC to manage traffic in the zone. By default, this routing table is empty. You can add routes to the default routing table, or create one or more custom routing tables and then add routes. For example, if you want a specialized routing policy for a specific subnet, you can create a routing table and associate it with one or more subnets. However, if you want to change the default routing policy that affects all subnets that use the default routing table, then you must add routes to the default routing table.
 {: shortdesc}
 
 The default routing table functions the same as other routing tables, except that it is created automatically, and is used when you create a subnet without specifying a routing table.
@@ -102,6 +102,11 @@ Be aware of the following considerations when advertising routes:
 
 * Currently, there is no mechanism to flag duplicate routes from a Transit Gateway or Direct Link. The Transit Gateway selects the best path by using the most specific prefix and shortest AS path, as preferred. Otherwise, the Transit Gateway selects the route that it received first. This route might not be the oldest route at the VPC side, and it can change if routes to the Transit Gateway are refreshed internally.
 
+* Routes advertised from a VPN gateway depend on the VPN type. Policy-based VPN gateways do not dynamically advertise routes. Only the CIDR prefixes defined in the VPN policy are propagated, and the routing table must be configured to accept routes from the VPN gateway. Route-based VPN gateways with BGP advertise routes dynamically.
+
+   When advertising routes from a routing table that includes VPN connectivity, ensure that the VPN gateway type supports the intended route propagation behavior.
+   {: note}
+
 ## Use cases
 {: #use-cases}
 
@@ -112,11 +117,11 @@ The following use cases illustrate different routing scenarios.
 
 ![Edge proxy firewall use case](images/cr_use_case_1.png){: caption="Edge proxy firewall use case" caption-side="bottom}
 
-| Destination | Action | Next hop | Location|
-|-------------|--------|----------|---------|
-| `10.10.0.0/16` | Delegate |  | Dallas DC 1|
-| `10.11.0.0/16` | Delegate |  | Dallas DC 1|
-| `0.0.0.0/0` | Deliver | `10.10.1.5` | Dallas DC 1|
+| Destination    | Action   | Next hop    | Location   |
+|----------------|----------|-------------|------------|
+| `10.10.0.0/16` | Delegate |             | Dallas DC 1|
+| `10.11.0.0/16` | Delegate |             | Dallas DC 1|
+| `0.0.0.0/0`    | Deliver  | `10.10.1.5` | Dallas DC 1|
 {: caption="Edge proxy firewall egress routing table" caption-side="bottom"}
 
 #### Objective: Edge proxy firewall
@@ -145,13 +150,13 @@ This use case uses the following functions of Edge proxy firewalls:
 
 ![Public load balancer use case](images/cr_use_case_2.png){: caption="Public load balancer use case" caption-side="bottom}
 
-| Destination | Action | Next hop | Location|
-|-------------|--------|----------|---------|
-| `10.10.0.0/16` | Delegate |  | Dallas DC 1|
-| `10.11.0.0/16` | Delegate |  | Dallas DC 1|
-| `161.26.0.0/16` * | Delegate |  | Dallas DC 1|
-| `166.8.0.0/14` * | Delegate |  | Dallas DC 1|
-| `0.0.0.0/0` | Deliver | `10.10.1.5` | Dallas DC 1|
+| Destination       | Action   | Next hop   | Location   |
+|-------------------|--------  |------------|------------|
+| `10.10.0.0/16`    | Delegate |            | Dallas DC 1|
+| `10.11.0.0/16`    | Delegate |            | Dallas DC 1|
+| `161.26.0.0/16` * | Delegate |            | Dallas DC 1|
+| `166.8.0.0/14` *  | Delegate |            | Dallas DC 1|
+| `0.0.0.0/0`       | Deliver  |`10.10.1.5` | Dallas DC 1|
 {: caption="Public load balancer Web egress routing table" caption-side="bottom"}
 
 #### Objective: public load balancer
@@ -202,7 +207,7 @@ The following limitations and guidelines apply to {{site.data.keyword.cloud_notm
 * Currently, you cannot use a custom routing table for both ingress (attached to a traffic source) and egress (attached to a subnet) traffic. In addition, the default custom routing table cannot be associated with an ingress traffic source.
 * Currently, return traffic might fail due to asymmetric routing. This issue impacts all services that depend on ECMP static routes. For example, suppose you create two ECMP routes in VPC A with the destination being `10.134.39.64/26`, and the next hops are `192.168.2.4` and `192.168.2.5` respectively. These next hops are NFV device IP addresses. When you send traffic from instance A in the VPC, the packet is randomly routed to one of the next hops, and there is no guarantee that the return traffic follows the same path as the forwarding traffic due to the ECMP hash algorithm on the other side. This phenomenon is known as _asymmetric routing_. When asymmetric routing occurs, the problem is not with the routing itself, but the security group drops the traffic even if the security group rules allow this traffic because the security group sees the traffic in one path only. In general, it is advisable to avoid the use of ECMP routes.
 * The ability to reach a next hop IP address in a custom route is not a determining factor in whether the route is used for forward traffic. This can cause issues when multiple routes with the same prefix (but different next hop IP addresses) are used, as traffic to unreachable next hop IP addresses might not be delivered.
-* {{site.data.keyword.cloud_notm}} VPC permits the use of RFC-1918 and IANA-registered IPv4 address spaces privately within your VPC, with some exceptions in the IANA special-purpose ranges, and select ranges assigned to {{site.data.keyword.cloud_notm}} services. When using IANA-registered ranges within your enterprise, and within VPCs in conjunction with {{site.data.keyword.cloud_notm}} Transit Gateway or {{site.data.keyword.cloud_notm}} Direct Link, you must install custom routes in each zone. For more information, see [Routing considerations for IANA-registered IP assignments](/docs/vpc?topic=vpc-interconnectivity#routing-considerations-iana).
+* {{site.data.keyword.cloud_notm}} VPC permits the use of RFC-1918 and IANA-registered IPv4 address spaces privately within your VPC, with some exceptions in the IANA special-purpose ranges, and select ranges that are assigned to {{site.data.keyword.cloud_notm}} services. When using IANA-registered ranges within your enterprise, and within VPCs in conjunction with {{site.data.keyword.cloud_notm}} Transit Gateway or {{site.data.keyword.cloud_notm}} Direct Link, you must install custom routes in each zone. For more information, see [Routing considerations for IANA-registered IP assignments](/docs/vpc?topic=vpc-interconnectivity#routing-considerations-iana).
 * In the case where 2 different advertised routes exist to the same destination, the following limitations apply:
    - When the next-hop for both routes is in the same zone, the route with the higher priority (that is, a lesser value for `priority`) is used as the primary path and the route with the lesser priority (that is, a higher value for `priority`) is used as the backup path. If the priority for both routes is the same, ECMP is used to route the traffic equally across the 2 routes.
    - When the next-hop for both routes is in different zones, the Transit Gateway or Direct Link router chooses the best route. In this case, that is the oldest advertised route.
@@ -241,12 +246,13 @@ The implicit router performs ECMP routing (multiple routes with the same destina
 ### Unique prefix lengths
 {: #routes-unique-prefix-lengths}
 
-You can use a maximum of 14 unique prefix lengths per custom routing table. You can have multiple routes with the same prefix that count as only one unique prefix. For example, you might have multiple routes with a `/28` prefix. This counts as one unique prefix.
+You can use a maximum of 14 unique prefix lengths per custom routing table. You can have multiple routes with the same prefix that count as only one unique prefix. For example, you might have multiple routes with a `/28` prefix. This prefix length counts as one unique prefix.
 
 ### VPN
 {: #routes-vpn}
 
 * When you're creating a route for a static, route-based VPN connection, you must enter the VPN connection ID for the next hop. The VPN gateway must be in the same zone as the subnet to which the routing table is associated. It is not recommended that you define a VPN gateway as the next hop in a zone that is different than the subnet that is associated with the routing table.
+* Avoid using a private IP address as the next hop for VPN routes. If the VPN restarts or its IP changes, routes pointing to an IP might break and connectivity might fail. Always use the VPN connection name (ID) as the next hop so that routes automatically update when the VPN reconnects.
 * A route with a VPN connection as the next-hop takes effect only when the VPN connection is active. This route is skipped during the routing lookup if the VPN connection is down.
 * A custom routing table that contains custom routes with a next hop that is associated with a VPN connection cannot be associated with an ingress traffic source.
 * Custom routes are only supported on route-based VPNs. If you are using policy-based VPNs, the routes are created automatically by the VPN service in the default routing table.
@@ -263,4 +269,4 @@ These links provide additional information about {{site.data.keyword.cloud_notm}
 * [Managing IAM access for VPC Infrastructure Services](/docs/vpc?topic=vpc-iam-getting-started&interface=ui) (see Actions tab for [VPC roles and actions](/docs/account?topic=account-iam-service-roles-actions#is.vpc-roles))
 * [Quotas and service limits](/docs/vpc?topic=vpc-quotas#routing-tables-routes-quotas)
 * Ingress traffic sources: IBM Cloud [Direct Link](/docs/dl?topic=dl-get-started-with-ibm-cloud-dl) and [Transit Gateway](/docs/transit-gateway?topic=transit-gateway-getting-started)
-* Centralizing communication through a VPC transit hub and spoke architecture, [Part one](/docs/solution-tutorials?topic=solution-tutorials-vpc-transit1) and [Part two](/docs/solution-tutorials?topic=solution-tutorials-vpc-transit2).
+* Centralizing communication through a VPC transit hub and spoke architecture, [Part one](/docs/solution-tutorials?topic=solution-tutorials-vpc-transit1) and, [Part two](/docs/solution-tutorials?topic=solution-tutorials-vpc-transit2).

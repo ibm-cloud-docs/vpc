@@ -1,8 +1,8 @@
 ---
 
 copyright:
-  years: 2022, 2025
-lastupdated: "2025-07-13"
+  years: 2022, 2026
+lastupdated: "2026-01-06"
 
 keywords: connecting, zos, s390x, zosmf, virtual server instance
 
@@ -226,7 +226,7 @@ To allow others to access your z/OS virtual server instance by using their own z
 
     * Log in to the z/OS virtual server instance, use the z/OS Unix System shell command such as `cat <new-ssh-public-key-file> >> ~/.ssh/authorized_keys` to concatenate the new SSH public key into the `authorized_keys` file. For more information, see [cat - Concatenate or display files](https://www.ibm.com/docs/en/zos/2.5.0?topic=descriptions-cat-concatenate-display-files){: external}.
 
-    * Use the [Zowe CLI](https://docs.zowe.org/stable/user-guide/cli-installcli.html){: external} to connect to the z/OS virtual server instance, then create a CLI profile and add new SSH public keys into the `authorized_keys` file. For more information about the Zowe CLI profiles, see [Creating Zowe CLI profiles](https://ibm.github.io/zowe-cli-cics-deploy-plugin/cdp-Creating-Zowe-CLI-profiles){: external}.
+    * Use the [Zowe CLI](https://docs.zowe.org/stable/user-guide/cli-installcli/){: external} to connect to the z/OS virtual server instance, then create a CLI profile and add new SSH public keys into the `authorized_keys` file. For more information about the Zowe CLI profiles, see [Creating Zowe CLI profiles](https://ibm.github.io/zowe-cli-cics-deploy-plugin/cdp-Creating-Zowe-CLI-profiles){: external}.
 
 
 For more information about the `authorized_keys` file and z/OS user profiles, see [Format of the authorized_keys file](https://www.ibm.com/docs/en/zos/2.5.0?topic=daemon-format-authorized-keys-file){: external} and [Summary of steps for defining users](https://www.ibm.com/docs/en/zos/2.5.0?topic=users-summary-steps-defining){: external}.

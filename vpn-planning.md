@@ -1,8 +1,8 @@
 ---
 
 copyright:
-  years: 2019, 2025
-lastupdated: "2025-11-20"
+  years: 2019, 2026
+lastupdated: "2026-01-06"
 
 keywords:
 subcollection: vpc
@@ -35,6 +35,7 @@ Review the following general considerations before you create a VPN gateway:
 Review the following consideration before you create a policy-based VPN gateway:
 
 * The policy-based VPN gateway is created in the zone that is associated with the subnet that you select. The VPN gateway can connect to virtual server instances in this zone only. As a result, instances in other zones can't use this VPN gateway to communicate with the other network. For zone fault tolerance, deploy one VPN gateway per zone.
+* For policy-based VPN gateways, routes are not automatically discovered. The routing table must be configured to accept routes from the VPN gateway, and propagated routes are limited to the CIDR prefixes defined in the VPN policy. See [Advertising routes](/docs/vpc?topic=vpc-about-custom-routes&interface=ui#rt-advertising-routes).
 
 ## Route-based VPN gateway considerations
 {: #route-based-vpn-considerations}

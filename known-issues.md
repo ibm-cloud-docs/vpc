@@ -2,7 +2,7 @@
 
 copyright:
   years: 2018, 2026
-lastupdated: "2026-01-05"
+lastupdated: "2026-01-06"
 
 keywords:
 
@@ -251,12 +251,12 @@ A cross-regional copy of block storage volume snapshots is not supported in the 
 
 When a security group or network ACL rule is created with a `protocol` value that was previously unsupported, there is an issue with old versions of some tools that use the API. The following tools may experience an error (crash) when retrieving or listing rules with a previously unsupported `protocol` value:
 - The [IBM Cloud VPC Go SDK](https://github.com/IBM/vpc-go-sdk). For troubleshooting information, see the [known issues](https://github.com/IBM/vpc-go-sdk/blob/master/known-issues.md).
-- The `vpc-infrastructure` plugin for the [IBM Cloud CLI](https://cloud.ibm.com/docs/cli). To prevent errors, update to the latest version of the `vpc-infrastructure` plugin.
+- The `vpc-infrastructure` plugin for the [IBM Cloud CLI](/docs/cli). To prevent errors, update to the latest version of the `vpc-infrastructure` plugin.
 
 ### Security Group and Network ACL rules with ESP protocol issue
 {: #security-groups-network-acls-protocol-esp-known-issue}
 
-Network traffic with the ESP protocol is currently supported by instances with [generation 2 profiles](/docs/vpc?topic=vpc-profiles&interface=api#profiles-generation). Instances with newer generation profiles, and all bare metal servers, do not currently support ESP traffic.
+Network traffic with the ESP protocol is currently supported by instances with [generation 2 profiles](/docs/vpc?topic=vpc-profiles#x86-64-instance-profile-families). Instances with newer generation profiles, and all bare metal servers, do not currently support ESP traffic.
 
 Configuring a security group rule with a `protocol` value of `esp` or `any` will not allow ESP traffic when the security group targets a network interface for an instance with a newer generation profile or a bare metal server.
 
