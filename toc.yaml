@@ -996,6 +996,7 @@ toc:
           - vni-known-issues.md
           - vpn-limitations.md
           - vpn-client-to-site-limitations.md
+          - storage-known-issues.md
       - topicgroup:
           id: troubleshooting
           label: Troubleshooting

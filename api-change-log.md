@@ -268,7 +268,7 @@ Learn about [public address ranges](/docs/vpc?topic=vpc-about-par), and explore 
 
 This release introduces the following updates for accounts that have special approval to preview and use these features. Although usage of these features is restricted, changes to schemas (such as new properties) will be visible to all accounts.
 
-**File shares with regional availability.** You can now [create file shares](/apidocs/vpc/latest#create-share) with regional availability by specifying the `rfs` profile. When creating file shares with regional availability, the `zone` property must not be specified. For more information, see [About File Storage for VPC](/docs/vpc?topic=vpc-file-storage-vpc-about). See also [Storage known issues](/docs/vpc?topic=vpc-known-issues#storage-vpc-known-issues).
+**File shares with regional availability.** You can now [create file shares](/apidocs/vpc/latest#create-share) with regional availability by specifying the `rfs` profile. When creating file shares with regional availability, the `zone` property must not be specified. For more information, see [About File Storage for VPC](/docs/vpc?topic=vpc-file-storage-vpc-about). See also [Storage known issues](/docs/vpc?topic=vpc-storage-known-issues).
 
 Cross-region replication for regional file shares is not currently supported.
 {: note}
@@ -283,7 +283,7 @@ When [retrieving](/apidocs/vpc/latest#get-share-profile) or [listing](/apidocs/v
 
 **Bandwidth for file shares.** When [creating](/apidocs/vpc/latest#create-share), [retrieving](/apidocs/vpc/latest#get-share), or [listing](/apidocs/vpc/latest#list-shares) file shares, and when [retrieving](/apidocs/vpc/latest#get-share-profile) or [listing](/apidocs/vpc/latest#list-share-profiles) file share profiles, the response now includes a `bandwidth` property that denotes the [available bandwidth](/docs/vpc?topic=vpc-file-storage-profiles&interface=api) that is provided when that profile is specified during file share [creation](/apidocs/vpc/latest#create-share).
 
-For more information, see [About File Storage for VPC](/docs/vpc?topic=vpc-file-storage-vpc-about) and [Securing mount connections between a file share and virtual server instance](/docs/vpc?topic=vpc-file-storage-vpc-eit). See also [Storage known issues](/docs/vpc?topic=vpc-known-issues#storage-vpc-known-issues).
+For more information, see [About File Storage for VPC](/docs/vpc?topic=vpc-file-storage-vpc-about) and [Securing mount connections between a file share and virtual server instance](/docs/vpc?topic=vpc-file-storage-vpc-eit). See also [Storage known issues](/docs/vpc?topic=vpc-storage-known-issues).
 
 ### For version `2025-09-16` or later
 {: #version-2025-09-16}
@@ -294,7 +294,7 @@ For more information, see [About File Storage for VPC](/docs/vpc?topic=vpc-file-
 
 **File share mount target access protocol and transit encryption.** When using a `version` query parameter of `2025-09-16` or later, [access protocol](/docs/vpc?topic=vpc-file-storage-vpc-about&interface=api#fs-allowed-access-protocols) and [transit encryption modes](/docs/vpc?topic=vpc-file-storage-vpc-about&interface=api#fs-allowed-eit-modes) must be specified when [creating a mount target for a file share](/apidocs/vpc/latest#create-share-mount-target). The specified value for the `access_protocol` must be included in the share's `allowed_access_protocols` property. The specified value for `transit_encryption` must be included in the share's `allowed_transit_encryption_modes` property. Requests using a `version` query parameter of `2025-09-16` or earlier are unchanged.
 
-For more information, see [About File Storage for VPC snapshots](/docs/vpc?topic=vpc-file-storage-vpc-about). See also [Storage known issues](/docs/vpc?topic=vpc-known-issues#storage-vpc-known-issues).
+For more information, see [About File Storage for VPC snapshots](/docs/vpc?topic=vpc-file-storage-vpc-about). See also [Storage known issues](/docs/vpc?topic=vpc-storage-known-issues).
 
 For migration guidance, see [Updating to the `2025-09-16` version (file shares, file share profiles, and file share mount targets)](/docs/vpc?topic=vpc-2025-09-16-migration-file-shares).
 
@@ -325,7 +325,7 @@ Bandwidth provided for file shares created with the `dp2` profile is solely info
 
 **Storage generation for file shares.** When [retrieving](/apidocs/vpc/latest#get-share-profile) or [listing](/apidocs/vpc/latest#list-share-profiles) file share profiles, the response now includes a `storage_generation` property that denotes which [generation](/docs/vpc?topic=vpc-file-storage-profiles&interface=api#fs-using-api-iops-profiles) of file storage will be created when [creating a file share](/apidocs/vpc/latest#create-share) using that profile. Consequently, when [retrieving](/apidocs/vpc/latest#get-share) or [listing](/apidocs/vpc/latest#list-shares) file shares, the response now includes a `storage_generation` property.
 
-For more information, see [About File Storage for VPC](/docs/vpc?topic=vpc-file-storage-vpc-about). See also [Storage known issues](/docs/vpc?topic=vpc-known-issues#storage-vpc-known-issues).
+For more information, see [About File Storage for VPC](/docs/vpc?topic=vpc-file-storage-vpc-about). See also [Storage known issues](/docs/vpc?topic=vpc-storage-known-issues).
 
 ## 15 July 2025
 {: #15-july-2025}
@@ -418,7 +418,7 @@ See [Confidential computing known issues](/docs/vpc?topic=vpc-known-issues#confi
 
 **Adjustable bandwidth for block storage volumes.** You can now specify the `bandwidth` property when [creating a volume](/apidocs/vpc/latest#create-volume) with a profile that supports adjustable bandwidth. The specified `bandwidth` will set the maximum bandwidth for a volume. You can also specify the `bandwidth` property when [creating an instance](/apidocs/vpc/latest#create-instance) with volume attachments. Additionally, you can [update a volume](/apidocs/vpc/latest#update-volume) to change the `bandwidth` property after volume creation.
 
-When [retrieving](/apidocs/vpc/latest#get-volume-profile) or [listing](/apidocs/vpc/latest#list-volume-profiles) volume profiles, the response now includes a `bandwidth` property, which indicates whether the profile supports adjustable bandwidth, and the range of supported values. Presently, only volume profiles with a `storage_generation` of `2` support adjustable bandwidth. For more information, see [Storage known issues](/docs/vpc?topic=vpc-known-issues#gen1-bandwidth-property-dependent).
+When [retrieving](/apidocs/vpc/latest#get-volume-profile) or [listing](/apidocs/vpc/latest#list-volume-profiles) volume profiles, the response now includes a `bandwidth` property, which indicates whether the profile supports adjustable bandwidth, and the range of supported values. Presently, only volume profiles with a `storage_generation` of `2` support adjustable bandwidth. For more information, see [Storage known issues](/docs/vpc?topic=vpc-storage-known-issues#gen1-bandwidth-property-dependent).
 
 ## 4 March 2025
 {: #4-march-2025}
@@ -454,7 +454,7 @@ or [list](/apidocs/vpc/latest#list-snapshots) snapshots, the `storage_generation
 
 When you [create a share](/apidocs/vpc/latest#create-share), you can now specify the `source_snapshot` property to create the new share with the data from that snapshot. When you [create a replica file share](/docs/vpc?topic=vpc-file-storage-create-replication&interface=api), snapshots of the source file share are automatically copied to the replica, and as snapshots are created and deleted on the source, corresponding snapshots will be created and deleted on the replica.
 
-For more information, see [About File Storage for VPC snapshots](/docs/vpc?topic=vpc-fs-snapshots-about&interface=api). See also [Storage known issues](/docs/vpc?topic=vpc-known-issues#storage-vpc-known-issues).
+For more information, see [About File Storage for VPC snapshots](/docs/vpc?topic=vpc-fs-snapshots-about&interface=api). See also [Storage known issues](/docs/vpc?topic=vpc-storage-known-issues).
 
 **File share snapshot automation.** You can now automate the creation of file share snapshots by applying backup policies to file shares. When [creating a backup policy](/apidocs/vpc/latest#create-backup-policy) specify the `match_resource_type` property value as `share` to target file shares. File shares that have both a matching type and a matching user tag are subject to the backup policy. For more information, see [Backup service concepts](/docs/vpc?topic=vpc-backup-service-about&interface=api#backup-service-concepts).
 

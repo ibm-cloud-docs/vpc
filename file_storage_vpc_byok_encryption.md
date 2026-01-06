@@ -1,8 +1,8 @@
 ---
 
 copyright:
-  years: 2022, 2025
-lastupdated: "2025-12-11"
+  years: 2022, 2026
+lastupdated: "2026-01-06"
 
 keywords: file share, customer-managed encryption, encryption, byok, KMS, Key Protect, Hyper Protect Crypto Services,
 
@@ -126,7 +126,7 @@ Before you can use the CLI, you must install the IBM Cloud CLI and the VPC CLI p
       {: pre}
 
       ```sh
-      Targeting endpoint: https://qa.us-south.kms.test.cloud.ibm.com
+      Targeting endpoint: https://qa.us-south.kms.cloud.ibm.com
       Retrieving keys...
       OK
       Key ID                                 Key Name      CRN   

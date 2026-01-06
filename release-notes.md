@@ -1,8 +1,8 @@
 ---
 
 copyright:
-  years: 2019, 2025
-lastupdated: "2025-12-23"
+  years: 2019, 2026
+lastupdated: "2026-01-06"
 
 keywords:
 
@@ -112,7 +112,7 @@ Chennai region now available
 :   The Chennai region is now available for provisioning the 3rd generation of [virtual servers](/docs/vpc?topic=vpc-profiles), [dedicated hosts](/docs/vpc?topic=vpc-dh-profiles), and [bare metal servers](/docs/vpc?topic=vpc-bare-metal-servers-profile).
    - You can provision virtual servers in the Chennai region from the Balanced, Compute, Memory, Very High Memory, and Flex profile families. For more information, see [General purpose - Gen 3 profile details](/docs/vpc?topic=vpc-general-purpose-vsi-profiles-gen3-intel) and [General purpose - Flex profile details](/docs/vpc?topic=vpc-flexible-profiles-virtual-servers).
    - You can provision select bare metal server profiles in the Chennai region. For more information, see [Generation 3 (x3) bare metal profiles availability by region](/docs/vpc?topic=vpc-bare-metal-servers-profile&interface=ui#bare-metal-profile-availability-by-region-gen3).
-   - First-generation storage services are also available, except for the cross-regional replication feature for file shares and cross-regional copy feature for block volume snapshots. Block volume snapshots that are taken in the Chennai region are encrypted by using a {{site.data.keyword.keymanagementserviceshort}} instance from the London (`eu-gb`) region temporarily. For more information, see [Known issues](/docs/vpc?topic=vpc-known-issues#snapshot-COS-upload-IN-CHE-EU-GB).
+   - First-generation storage services are also available, except for the cross-regional replication feature for file shares and cross-regional copy feature for block volume snapshots. Block volume snapshots that are taken in the Chennai region are encrypted by using a {{site.data.keyword.keymanagementserviceshort}} instance from the London (`eu-gb`) region temporarily. For more information, see [Known issues](/docs/vpc?topic=vpc-storage-known-issues#snapshot-COS-upload-IN-CHE-EU-GB).
    - For more information about the Chennai region and zones, see [IBM Cloud region and data center locations for resource deployment](/docs/overview?topic=overview-locations).
 
 ### 23 October 2025

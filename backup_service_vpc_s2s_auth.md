@@ -1,8 +1,8 @@
 ---
 
 copyright:
-  years: 2022, 2025
-lastupdated: "2025-09-04"
+  years: 2022, 2026
+lastupdated: "2026-01-06"
 
 keywords: Backup for VPC, backup service, backup plan, backup policy, restore, restore volume, restore data
 
@@ -718,7 +718,7 @@ To allow an Enterprise administrator to manage backups centrally, the subaccount
    * Authorize `is.backup-policy` (source) to interact with `is.snapshot` (target) with the _editor_ role.
 
    ```json
-   curl -X POST 'https://iam.test.cloud.ibm.com/v1/policies' -H 
+   curl -X POST 'https://iam.cloud.ibm.com/v1/policies' -H 
    'Authorization: Bearer $TOKEN' -H 
    'Content-Type: application/json' -d 
     '{
