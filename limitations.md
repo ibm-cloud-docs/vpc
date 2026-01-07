@@ -1,8 +1,8 @@
 ---
 
 copyright:
-  years: 2018, 2025
-lastupdated: "2025-12-04"
+  years: 2018, 2026
+lastupdated: "2026-01-07"
 
 keywords: limitations, restrictions
 
@@ -26,7 +26,6 @@ The following features are not supported, including all properties associated wi
 
 * The following concepts are not supported:
     * IPV6
-    * Multiple IP addresses on the same network interface
 
 * Virtual server instance name change: If you update the name of a virtual server, the name change might not appear consistently in different areas of the {{site.data.keyword.cloud}} console. For example, the virtual server name change might not be reflected in the {{site.data.keyword.cloud_notm}} console, or on the billing invoice, yet it appears correctly in the user's list of running instances.
 
