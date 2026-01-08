@@ -1,8 +1,8 @@
 ---
 
 copyright:
-  years: 2023, 2025
-lastupdated: "2025-12-01"
+  years: 2023, 2026
+lastupdated: "2026-01-08"
 
 keywords: file share, file storage, encryption in transit, Mount Helper, IPsec, secure connection, mount share
 
@@ -47,6 +47,9 @@ The Mount Helper utility installs stunnel on the compute host that's running a L
 * Data encryption in transit must be enabled for the mount target.
 * The compute host and the mount target must be members of the same [security group](/docs/vpc?topic=vpc-using-security-groups).
 * The mount target must be created with a [virtual network interface](/docs/vpc?topic=vpc-vni-about), so it has an IP address within the VPC that represents the virtual NFS server.
+
+Do not add the Mount Helper installer script to your `cloud-init` configuration. The utility requires a running and stable VSI to operate, as the script makes Metadata API requests for host identity verification.
+{: note}
 
 ## Restrictions
 {: #fs-eit-restrictions}

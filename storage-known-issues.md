@@ -2,7 +2,7 @@
 
 copyright:
   years: 2018, 2026
-lastupdated: "2026-01-06"
+lastupdated: "2026-01-08"
 
 keywords:
 
@@ -20,13 +20,6 @@ These issues are temporary and are scheduled to be addressed in upcoming release
 
 ## Block Storage volumes and snapshots
 {: #block-storage-known-issue}
-
-### Fast restore snapshots with customer-managed encryption issue
-{: #snapshots-fast-restore-known-issue}
-
-**Issue:** When you restore a volume from a snapshot by using the fast restore feature, you can use a different encryption key for the snapshot and for the new volume. If you delete the snapshot encryption key from the key management service, the volume might still become inaccessible when it is attached or reattached to a virtual server instance.
-
-**Workaround:** To recover the snapshot encryption key, use [the key recovery procedure](/docs/key-protect?topic=key-protect-restore-keys). When the key is recovered, the volume becomes accessible.
 
 ### Volumes and snapshots omit the catalog offering information for unbilled catalog offering versions
 {: #volumes-catalog-managed-known-issue}
