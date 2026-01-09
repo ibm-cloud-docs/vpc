@@ -1,8 +1,8 @@
 ---
 
 copyright:
-  years: 2020, 2025
-lastupdated: "2025-12-12"
+  years: 2020, 2026
+lastupdated: "2026-01-09"
 
 keywords: virtual private endpoints, delete, VPE, endpoint gateway
 
@@ -29,8 +29,6 @@ To delete an endpoint gateway, follow these steps:
    The Virtual private endpoint gateways for VPC page shows all endpoint gateways for all VPCs in the region.
 
 1. Click the Actions menu ![Actions menu](../icons/action-menu-icon.svg "Actions") next to the endpoint gateway that you want to delete, then click **Delete**. Click **Delete** again to confirm the deletion.
-
-[Select availability]{: tag-green}
 
 If you previously selected the auto-release option for attached IP addresses, any attached reserved IPs are also released.
 {: note}

@@ -1,8 +1,8 @@
 ---
 
 copyright:
-  years: 2020, 2025
-lastupdated: "2025-12-12"
+  years: 2020, 2026
+lastupdated: "2026-01-09"
 
 keywords: virtual private endpoints, endpoint gateway, VPE
 subcollection: vpc
@@ -34,7 +34,7 @@ The features of VPE for VPC include:
 * The endpoint IP deploys in a customer-defined, virtual network.
 * Includes platform integration to VPC - Identity and Access Management (IAM), network ACLs, security groups, and tagging. 
 * Access to new endpoints is achieved through the console, CLI, and API.
-* [Select availability]{: tag-green} Local-access VPE gateway for supported IBM Cloud services within a DNS-sharing VPC topology. This allows local, private connectivity between a shared-VPC VPE gateway and the cloud service, eliminating the need to route traffic through the hub VPC. Currently supported only for IBM Cloud Object Storage.
+* Local-access VPE gateway for supported IBM Cloud services within a DNS-sharing VPC topology. This allows local, private connectivity between a shared-VPC VPE gateway and the cloud service, eliminating the need to route traffic through the hub VPC. Currently supported only for IBM Cloud Object Storage.
 * Integrates with DNS Services.
 * Access to new endpoints is achieved through the console, CLI, and API.
 * Integrates with DNS Services.
@@ -90,8 +90,6 @@ To create a cross-account VPE gateway, see [Creating an endpoint gateway](/docs/
 
 ## Local-access VPE gateway support
 {: #multi-tenant-endpoint-support}
-
-[Select availability]{: tag-green}
  
 You can create local-access VPEs in DNS-shared VPCs that are part of a DNS-sharing VPC topology. Each local-access VPE can handle traffic for specific service resources (for example, individual Object Storage buckets), while the hub VPC VPE continues to manage requests for the rest of the service resources (for example, all other Object Storage buckets).
 
