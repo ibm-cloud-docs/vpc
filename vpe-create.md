@@ -1,8 +1,8 @@
 ---
 
 copyright:
-  years: 2020, 2025
-lastupdated: "2025-12-20"
+  years: 2020, 2026
+lastupdated: "2026-01-09"
 
 keywords: virtual private endpoints, VPE, endpoint gateway
 
@@ -76,7 +76,7 @@ To create an endpoint gateway in the {{site.data.keyword.cloud_notm}} console, f
       {: note}
 
 
-1. [Select availability]{: tag-green} In the Share DNS section, select one of the following DNS resolution binding modes:
+1. In the Share DNS section, select one of the following DNS resolution binding modes:
 
    * **Primary** allows the VPE gateway's service endpoints in the DNS-shared VPC to be shared with the DNS hub VPC for name resolution. 
    * **Disabled** does not allow the VPE gateway's service endpoints to be shared for name resolution.
@@ -84,7 +84,7 @@ To create an endpoint gateway in the {{site.data.keyword.cloud_notm}} console, f
    When the VPC is a DNS hub, DNS sharing is always set to **Primary** and the mode can't be changed.
    {: note}
 
-1. [Select availability]{: tag-green} In the Reserved IP section, select reserved IP addresses. You can choose:
+1. In the Reserved IP section, select reserved IP addresses. You can choose:
 
    * **Select one for me** - Enter a name prefix for the IP addresses, or one is chosen for you. Select one or more subnets (one subnet per zone is recommended) and enable the Auto-release toggle if you want this reserved IP to be deleted automatically if the endpoint gateway is deleted.
 
@@ -93,7 +93,7 @@ To create an endpoint gateway in the {{site.data.keyword.cloud_notm}} console, f
       Only one reserved IP can be bound to a VPE gateway per AZ in a VPC. Ensure that no other bindings exist in the same AZ across all subnets within the VPC.
       {: note}
       
-   * **Select one later** [Select availability]{: tag-green} - Select IP addresses at some point after creating the endpoint gateway.
+   * **Select one later** - Select IP addresses at some point after creating the endpoint gateway.
 
 1. Review the **Order summary**, then click **Create virtual private endpoint gateway**. The endpoint gateway is requested for use.
 
@@ -332,9 +332,7 @@ If you return to the Virtual private endpoint gateways for VPC page, your endpoi
 
 ## Related links
 {: #vpe-create-related-links}
-
-[Select availability]{: tag-green}
-
+ 
 * [Creating a local-access endpoint gateway](/docs/vpc?topic=vpc-create-local-access-vpe)
 * [Creating a cross-account endpoint gateway](/docs/vpc?topic=vpc-ordering-cross-account-endpoint-gateway&interface=terraform)
 * [Planning for virtual private endpoint gateways](/docs/vpc?topic=vpc-vpe-planning-considerations) 

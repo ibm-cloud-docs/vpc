@@ -1,8 +1,8 @@
 ---
 
 copyright:
-  years: 2025
-lastupdated: "2025-12-20"
+  years: 2026
+lastupdated: "2026-01-09"
 
 keywords: virtual private endpoints, VPE, endpoint gateway
 
@@ -15,9 +15,7 @@ subcollection: vpc
 # Creating a local-access endpoint gateway
 {: #create-local-access-vpe}
 {: help}
-{: support}
-
-[Select availability]{: tag-green}
+{: support} 
 
 In addition to the hub-based DNS sharing model, you can create local-access virtual private endpoint gateways in DNS-shared VPCs. Local-access VPEs provide private, local connectivity to supported IBM Cloud services without routing traffic through the hub VPC.
 {: shortdesc}
@@ -28,8 +26,6 @@ Currently, this capability is supported only for IBM Cloud Object Storage and is
 ## Before you begin
 {: #local-access-vpe-before-you-begin}
 
-[Select availability]{: tag-green}
-
 * Local-access endpoint gateways use the [DNS sharing model](/docs/vpc?topic=vpc-vpe-dns-sharing&interface=ui), which is based on a hub-and-spoke architecture. You must configure DNS sharing before you create a local-access endpoint gateway. If you already have DNS sharing configured, no changes or migration are required to begin using a local-access endpoint gateway.
 * Review [general planning considerations](/docs/vpc?topic=vpc-vpe-planning-considerations) before creating a VPE, including creation limits, security groups, cross-account access, and supported features.
 * For prerequisites specific to local-access VPEs in a DNS hub and shared VPC topology, see [DNS sharing planning considerations](/docs/vpc?topic=vpc-vpe-dns-sharing-planning-considerations&interface=ui).
@@ -37,8 +33,6 @@ Currently, this capability is supported only for IBM Cloud Object Storage and is
 ## Creating a local-access endpoint gateway in the console
 {: #local-access-vpe-creating-ui}
 {: ui}
-
-[Select availability]{: tag-green}
 
 To create a local-access endpoint gateway in the {{site.data.keyword.cloud_notm}} console, follow these steps:
 
@@ -163,8 +157,6 @@ To create a local-access endpoint gateway from the CLI, follow these steps:
 {: #local-access-vpe-ordering-api}
 {: api}
 
-[Select availability]{: tag-green}
-
 To create a local-access endpoint gateway with the API, follow these steps:
 
 1. Set up your [API environment](/docs/vpc?topic=vpc-set-up-environment&interface=cli).
@@ -256,9 +248,7 @@ After an endpoint gateway is created for an {{site.data.keyword.cloud_notm}} ser
 ## Creating a local-access endpoint gateway with Terraform
 {: #create-local-access-vpe-terraform}
 {: terraform}
-
-[Select availability]{: tag-green}
-
+ 
 You can use Terraform to create an endpoint gateway.
 
 To use Terraform, download the Terraform CLI and configure the {{site.data.keyword.cloud_notm}} Provider plug-in. For more information, see [Getting started with Terraform](/docs/ibm-cloud-provider-for-terraform?topic=ibm-cloud-provider-for-terraform-getting-started).
@@ -302,8 +292,6 @@ data ibm_is_virtual_endpoint_gateway_resource_binding binding {
 
 ## After creating a local-access endpoint gateway
 {: #after-create-vpe-gateway}
-
-[Select availability]{: tag-green}
 
 If you return to the Virtual private endpoint gateways for VPC page, your endpoint gateway shows in the table. For IBM Cloud services, the status of your endpoint gateway changes from `Updating` to `Stable`. You can click the Actions menu ![Actions menu](../icons/action-menu-icon.svg "Actions") to rename, reserve or bind an IP, unbind an IP, or delete an endpoint gateway.
 

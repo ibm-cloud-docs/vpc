@@ -2,7 +2,7 @@
 
 copyright:
   years: 2019, 2026
-lastupdated: "2026-01-06"
+lastupdated: "2026-01-09"
 
 keywords:
 
@@ -23,6 +23,16 @@ Use the release notes to learn the latest updates to {{site.data.keyword.vpc_ful
 For more information about changes to the {{site.data.keyword.vpc_short}} API, see [{{site.data.keyword.vpc_short}} API change log](/docs/vpc?topic=vpc-api-change-log).
 
 For more information about changes to the {{site.data.keyword.vpc_short}} command-line interface (CLI), see [{{site.data.keyword.vpc_short}} CLI release notes](/docs/vpc?topic=vpc-vpc-cli-rn).
+
+## January 2026
+{: #vpc-jan26}
+
+### 09 January 2026
+{: #vpc-jan0926}
+{: release-note}
+
+Local-access virtual private endpoint gateway support for DNS sharing VPC topology
+:   You can now create local-access Virtual Private Endpoints (VPEs) in DNS-shared VPCs when using a DNS sharing VPC topology for Cloud Object Storage. This feature lets you send network traffic locally between the DNS-shared VPC where the local-access VPE gateway is created and the service endpoint, improving performance and allowing finer control of Context-Based Restrictions (CBR) and security rules. For more information, see [Local-access VPE gateway support](/docs/vpc?topic=vpc-about-vpe#multi-tenant-endpoint-support).
 
 ## December 2025
 {: #vpc-dec25}

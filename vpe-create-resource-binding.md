@@ -1,8 +1,8 @@
 ---
 
 copyright:
-  years: 2025
-lastupdated: "2025-12-12"
+  years: 2026
+lastupdated: "2026-01-09"
 
 keywords: VPE, virtual private endpoint, endpoint gateway, resource binding
 
@@ -15,8 +15,6 @@ subcollection: vpc
 # Creating resource bindings
 {: #vpe-create-resource-binding} 
 
-[Select availability]{: tag-green}
-
 You can create a resource binding to enable granular access control to specific Object Storage buckets from a specific VPC. Creating a resource binding is optional, but it lets you define security group and Context-Based Restriction (CBR) rules that precisely control which buckets are accessible through a VPE in a DNS-sharing VPC topology.
 {: shortdesc}
 
@@ -24,8 +22,6 @@ A resource binding associates one or more Object Storage buckets with a VPE, ens
 
 ## Before you begin
 {: #resource-bindings-before-you-begin}
-
-[Select availability]{: tag-green}
 
 Before you create a resource binding, review the following considerations:
 
@@ -39,9 +35,7 @@ Before you create a resource binding, review the following considerations:
 ## Creating resource bindings in the console 
 {: #creating-resource-binding-console}
 {: ui}
-
-[Select availability]{: tag-green}
-
+ 
 To create resource bindings for the Cloud Object Storage service in the IBM Cloud console, follow these steps:
 
 1. In the [{{site.data.keyword.cloud_notm}} console](/login){: external}, click the **Navigation menu** icon ![menu icon](../icons/icon_hamburger.svg) **> Infrastructure** ![VPC icon](../icons/vpc.svg) **> Network > Virtual private endpoint gateways**.  
@@ -66,9 +60,7 @@ You can modify or remove bindings at any time to adjust access.
 
 ## Creating resource bindings from the CLI
 {: #creating-resource-binding-cli}
-{: cli}
-
-[Select availability]{: tag-green}
+{: cli} 
 
 To create resource bindings for the Cloud Object Storage service from the CLI, follow these steps:
 
@@ -100,8 +92,6 @@ Where:
 ### Command example
 {: #resource-binding-command-example}
 
-[Select availability]{: tag-green}
-
 To create resource binding `my-resource-binding` to the endpoint gateway `cli-egw-1`:
 
 ```sh
@@ -111,9 +101,7 @@ ibmcloud is endpoint-gateway-resource-binding-create cli-egw-1 --name my-resourc
 ## Creating resource bindings with the API 
 {: #creating-resource-binding-api}
 {: api}
-
-[Select availability]{: tag-green}
-
+ 
 To create resource bindings for the Cloud Object Storage with the API, follow these steps:
  
 1. Set up your [API environment](/docs/vpc?topic=vpc-set-up-environment#api-prerequisites-setup).
@@ -135,8 +123,6 @@ To create resource bindings for the Cloud Object Storage with the API, follow th
 ## Creating resource bindings with Terraform
 {: #creating-resource-binding-terraform}
 {: terraform}
-
-[Select availability]{: tag-green}
 
 To use Terraform, download the Terraform CLI and configure the {{site.data.keyword.cloud_notm}} Provider plug-in. For more information, see [Getting started with Terraform](/docs/ibm-cloud-provider-for-terraform?topic=ibm-cloud-provider-for-terraform-getting-started){: external}.
 {: requirement}
