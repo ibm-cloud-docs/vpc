@@ -2,7 +2,7 @@
 
 copyright:
   years: 2020, 2026
-lastupdated: "2026-01-06"
+lastupdated: "2026-01-13"
 
 keywords: custom routes
 
@@ -252,7 +252,7 @@ You can use a maximum of 14 unique prefix lengths per custom routing table. You 
 {: #routes-vpn}
 
 * When you're creating a route for a static, route-based VPN connection, you must enter the VPN connection ID for the next hop. The VPN gateway must be in the same zone as the subnet to which the routing table is associated. It is not recommended that you define a VPN gateway as the next hop in a zone that is different than the subnet that is associated with the routing table.
-* Avoid using a private IP address as the next hop for VPN routes. If the VPN restarts or its IP changes, routes pointing to an IP might break and connectivity might fail. Always use the VPN connection name (ID) as the next hop so that routes automatically update when the VPN reconnects.
+* For route-based VPN, avoid using a private IP address as the next hop for VPN routes. If the VPN restarts or its IP changes, routes pointing to an IP might break and connectivity might fail. Always use the VPN connection name (ID) as the next hop so that routes automatically update when the VPN reconnects.
 * A route with a VPN connection as the next-hop takes effect only when the VPN connection is active. This route is skipped during the routing lookup if the VPN connection is down.
 * A custom routing table that contains custom routes with a next hop that is associated with a VPN connection cannot be associated with an ingress traffic source.
 * Custom routes are only supported on route-based VPNs. If you are using policy-based VPNs, the routes are created automatically by the VPN service in the default routing table.
