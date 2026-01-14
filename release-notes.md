@@ -2,7 +2,7 @@
 
 copyright:
   years: 2019, 2026
-lastupdated: "2026-01-09"
+lastupdated: "2026-01-14"
 
 keywords:
 
@@ -25,7 +25,13 @@ For more information about changes to the {{site.data.keyword.vpc_short}} API, s
 For more information about changes to the {{site.data.keyword.vpc_short}} command-line interface (CLI), see [{{site.data.keyword.vpc_short}} CLI release notes](/docs/vpc?topic=vpc-vpc-cli-rn).
 
 ## January 2026
-{: #vpc-jan26}
+{: vpc-jan26}
+
+### 14 January 2025
+{: #vpc-jan1426}
+
+Confidential computing with Intel Trusted Domain Extension (TDX) for Virtual Servers for VPC is available in Dallas (select availability)
+:   Confidential computing with Intel&reg; Trusted Domain Extension (TDX) for VPC is now available in the Dallas (us-south) region. This region is in addition to the existing Washington DC (us-east) and Frankfurt (eu-de) regions. Confidential computing with Intel TDX offers confidentiality to virtual machines by providing CPU enhancements that are leveraged by the firmware and hardware to provide confidentiality and integrity. For more information, see [Confidential computing for x86 Virtual Servers for VPC](/docs/vpc?topic=vpc-about-confidential-computing-vpc).
 
 ### 09 January 2026
 {: #vpc-jan0926}
@@ -152,7 +158,7 @@ Updated seed policies
 {: release-note}
 
 Confidential computing with Intel Trusted Domain Extension (TDX) for Virtual Servers for VPC is available in Frankfurt (select availability)
-:   Confidential computing with Intel&reg; Trusted Domain Extension (TDX) for VPC is now available in the Frankfurt (eu-de) region. This region is in addition to the existing Washington DC (us-east) region. Confidential computing with Intel TDX offers confidentiality to virtual machines by providing CPU enhancements that are leveraged by the firmware and hardware to provide confidentiality and integrity. For more information, see [Confidential computing for x86 Virtual Servers for VPC](/docs/vpc?topic=vpc-about-confidential-computing-vpc). When you create a virtual server instance with a confidential computing profile and Intel Trusted Domain Extension (TDX), you can create that virtual server instance only in the Frankfurt (eu-de) or Washington DC (us-east) regions. You can’t create a virtual server instance with TDX in any other region, including Dallas (us-south). For more information, see [Confidential computing known issues](/docs/vpc?topic=vpc-known-issues#confidential-computing-vpc-known-issues).
+:   Confidential computing with Intel&reg; Trusted Domain Extension (TDX) for VPC is now available in the Frankfurt (eu-de) region. This region is in addition to the existing Washington DC (us-east) region. Confidential computing with Intel TDX offers confidentiality to virtual machines by providing CPU enhancements that are leveraged by the firmware and hardware to provide confidentiality and integrity. For more information, see [Confidential computing for x86 Virtual Servers for VPC](/docs/vpc?topic=vpc-about-confidential-computing-vpc). When you create a virtual server instance with a confidential computing profile and Intel Trusted Domain Extension (TDX), you can create that virtual server instance only in the Frankfurt (eu-de) or Washington DC (us-east) regions. You can’t create a virtual server instance with TDX in any other region, including Dallas (us-south).
 
 ## September 2025
 {: #vpc-sep25}
@@ -492,7 +498,7 @@ Policy based layer-4 load balancing for application load balancers
 {: release-note}
 
 Confidential computing with Intel Trusted Domain Extension (TDX) for Virtual Servers for VPC (select availability)
-:   Confidential computing with Intel&reg; Trusted Domain Extension (TDX) for VPC is available only in the Washington DC (us-east) region. Confidential computing with Intel TDX offers confidentiality to virtual machines by providing CPU enhancements that are leveraged by the firmware and hardware to provide confidentiality and integrity. For more information, see [Confidential computing for x86 Virtual Servers for VPC](/docs/vpc?topic=vpc-about-confidential-computing-vpc). When you create a virtual server instance with a confidential computing profile and Intel Trusted Domain Extension (TDX), you can create that virtual server instance only in the Washington DC (us-east) region. You can’t create a virtual server instance with TDX in any other region, including Dallas (us-south) and Frankfurt (eu-de). For more information, see [Confidential computing known issues](/docs/vpc?topic=vpc-known-issues#confidential-computing-vpc-known-issues).
+:   Confidential computing with Intel&reg; Trusted Domain Extension (TDX) for VPC is available only in the Washington DC (us-east) region. Confidential computing with Intel TDX offers confidentiality to virtual machines by providing CPU enhancements that are leveraged by the firmware and hardware to provide confidentiality and integrity. For more information, see [Confidential computing for x86 Virtual Servers for VPC](/docs/vpc?topic=vpc-about-confidential-computing-vpc). When you create a virtual server instance with a confidential computing profile and Intel Trusted Domain Extension (TDX), you can create that virtual server instance only in the Washington DC (us-east) region. You can’t create a virtual server instance with TDX in any other region, including Dallas (us-south) and Frankfurt (eu-de).
 
 ### 25 March 2025
 {: #vpc-mar2525}
