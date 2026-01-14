@@ -1,8 +1,8 @@
 ---
 
 copyright:
-  years: 2025
-lastupdated: "2025-12-20"
+  years: 2026
+lastupdated: "2026-01-14"
 
 keywords: virtual private endpoints, VPE, endpoint gateway, cross account
 
@@ -60,34 +60,63 @@ Before you create a cross-account VPE, you must create a service-to-service auth
 Before you create a cross-account VPE, you must create a service-to-service authorization policy as follows:
 
 ```bash
-ibmcloud iam authorization-policy-create is endpoint-gateway TARGET_SERVICE_NAME TARGET_RESOURCE_TYPE \
-  --source-account ACCESSOR_ACCOUNT_ID \
-  --target-account TARGET_ACCOUNT_ID \
-  --roles Viewer
+ibmcloud iam authorization-policy-create \
+    --file ./s2s-policy.json
 ```
 {: pre}
 
-Where:
+You must also create a policy.json file with the following content: 
 
-`endpoint-gateway`
-   :   Identifies the VPE gateway resource type that will access the target service.
-
-`TARGET_SERVICE_NAME`
-   :   The name of the IBM Cloud service that owns the target resource, such as `cloud-object-storage`.
-
-`TARGET_RESOURCE_TYPE`
-   :   The type of resource within the target service. Common values include `service-instance`.
-
-`--source-account ACCESSOR_ACCOUNT_ID`
-   :   The account ID that will create and own the VPE connection (the accessor account).
-
-`--target-account TARGET_ACCOUNT_ID`
-   :   The account ID that owns the target resource (the target account).
+```bash
+{
+	"subjects": [
+		{
+			"attributes": [
+				{
+					"name": "accountId",
+					"value": "<source-account-id>"
+				},
+				{
+					"name": "serviceName",
+					"value": "is"
+				},
+				{
+					"name": "resourceType",
+					"value": "endpoint-gateway"
+				}
+			]
+		}
+	],
+	"type": "authorization",
+	"roles": [
+		{
+			"role_id": "crn:v1:bluemix:public:iam::::role:Viewer"
+		}
+	],
+	"resources": [
+		{
+			"attributes": [
+				{
+					"name": "accountId",
+					"value": "<target-account-id>"
+				},
+				{
+					"name": "serviceName",
+					"value": "<service-name, such as eventstreams-cdp-dev>"
+				}
+			]
+		}
+	]
+}
+```
+{: pre}
 
 The following example allows VPE (`is.endpoint-gateway`) in account `1234567890` to read Cloud Object Storage resources in account `0987654321`:
 
 ```bash
   ibmcloud iam authorization-policy-create \
+  --file ./s2s-policy.json \
+  Creating authorization policy under account target-account as example-user...
   is endpoint-gateway \
   cloud-object-storage service-instance \
   --source-account 1234567890 \
@@ -96,68 +125,70 @@ The following example allows VPE (`is.endpoint-gateway`) in account `1234567890`
 ```
 {: pre}
 
-This policy allows VPEs created in the accessor account to target service instances in the specified target account by CRN.
+Where:
 
-### Creating service authorization for cross-account VPE with the API
-{: #cross-account-vpe-prerequisite-api}
-{: api}
- 
-To allow VPEs in one account to access service instances in another account, you must create a service-to-service (S2S) IAM authorization policy using the IBM Cloud IAM API.
+`accountId`
+   :   Identifies the account ID of the user creating the account policy. 
 
-1. Set up your [API environment](/docs/vpc?topic=vpc-set-up-environment#api-prerequisites-setup) with the required variables, including your IAM token:
+`endpoint-gateway`
+   :   Identifies the VPE gateway resource type that will access the target service.
 
-   ```sh
-   export iam_token=<your_IAM_token>
-   export iam_api_endpoint="https://iam.cloud.ibm.com/v1"
-   ```
-   {: pre}
+`serviceName`
+   :   The name of the IBM Cloud service that owns the target resource, such as `cloud-object-storage`.
 
-1. Store any additional variables for the target and accessor accounts:
+`resourceType`
+   :   The type of resource within the target service. Common values include `service-instance`.
 
-   * `AccessorAccountId` - IBM Cloud account ID where the VPE will be created.
-   * `TargetAccountId` - IBM Cloud account ID that owns the service instance.
-   * `TargetServiceName` - Name of the target service (for example, `cloud-object-storage`).
-   * `TargetResourceType` - Resource type of the service instance (for example, `service-instance`).
+`source-account-id`
+   :   The account ID that will create and own the VPE connection (the accessor account).
 
-   ```sh
-   export AccessorAccountId=1234567890
-   export TargetAccountId=0987654321
-   export TargetServiceName=cloud-object-storage
-   export TargetResourceType=service-instance
-   ```
+`target-account-id`
+   :   The account ID that owns the target resource (the target account).
 
-1. Create the authorization policy:
+Example of the policy.json file you must create to allow VPE (`is.endpoint-gateway`) in account `1234567890` to read Cloud Object Storage resources in account `0987654321`:
 
-   ```sh
-   curl -X POST "$iam_api_endpoint/authorization-policies" \
-     -H "Authorization: Bearer $iam_token" \
-     -H "Content-Type: application/json" \
-     -d '{
-       "type": "authorization",
-       "subjects": [
-         {
-           "attributes": [
-             { "name": "accountId", "value": "'$AccessorAccountId'" },
-             { "name": "serviceName", "value": "is" },
-             { "name": "resourceType", "value": "endpoint-gateway" }
-           ]
-         }
-       ],
-       "roles": [
-         { "role_id": "crn:v1:bluemix:public:iam::::role:Viewer" }
-       ],
-       "resources": [
-         {
-           "attributes": [
-             { "name": "accountId", "operator": "stringEquals", "value": "'$TargetAccountId'" },
-             { "name": "serviceName", "operator": "stringEquals", "value": "'$TargetServiceName'" },
-             { "name": "resource", "operator": "stringEquals", "value": "'$TargetResourceType'" }
-           ]
-         }
-       ]
-     }'
-     ```
-    {: codeblock}
+{
+	"subjects": [
+		{
+			"attributes": [
+				{
+					"name": "accountId",
+					"value": "1234567890 "
+				},
+				{
+					"name": "serviceName",
+					"value": "is"
+				},
+				{
+					"name": "resourceType",
+					"value": "endpoint-gateway"
+				}
+			]
+		}
+	],
+	"type": "authorization",
+	"roles": [
+		{
+			"role_id": "crn:v1:bluemix:public:iam::::role:Viewer"
+		}
+	],
+	"resources": [
+		{
+			"attributes": [
+				{
+					"name": "accountId",
+					"value": "0987654321"
+				},
+				{
+					"name": "serviceName",
+					"value": "eventstreams-cdp-dev"
+				}
+			]
+		}
+	]
+}
+```
+{: pre}
 
 This API call creates a policy that allows the VPE service in the accessor account to read the target service instance in the target account, which is required before creating a cross-account VPE. 
 
