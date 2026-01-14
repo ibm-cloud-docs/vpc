@@ -1,8 +1,8 @@
 ---
 
 copyright:
-  years: 2018, 2025
-lastupdated: "2025-12-20"
+  years: 2018, 2026
+lastupdated: "2026-01-14"
 
 keywords:
 
@@ -825,7 +825,10 @@ The `myvolume-attachments.json` file can include up to 12 data volumes that are 
 
 [Select availability]{: tag-green}
 
-Confidential computing with Intel SGX for VPC is available only in the US-South (Dallas) region. Second-generation boot volumes with the `sdp` volume profile do not support secure boot yet. If secure-boot is required, use a boot volume with a first-generation volume profile.
+Confidential computing with Intel SGX for VPC and Confidential computing with Intel TDX for VPC are available in the Dallas (us-south), Washington DC (us-east), and Frankfurt (eu-de) regions.
+{: preview}
+
+Second-generation boot volumes with the `sdp` volume profile do not support secure boot yet. If secure-boot is required, use a boot volume with a first-generation volume profile.
 {: note}
 
 After you know the needed values, use them to run the `ibmcloud is instance-create` command. You also need to specify a unique name for the instance.
@@ -1268,7 +1271,10 @@ curl -X POST "$vpc_api_endpoint/v1/instances?version=2024-07-12&generation=2" \
 
 [Select availability]{: tag-green}
 
-Confidential computing with Intel SGX for VPC is available only in the Dallas (us-south) and Frankfurt (eu-de) regions. Second-generation boot volumes with the `sdp` volume profile do not support secure boot yet. If secure-boot is required, use a boot volume with a first-generation volume profile.
+Confidential computing with Intel SGX for VPC and Confidential computing with Intel TDX for VPC are available in the Dallas (us-south), Washington DC (us-east), and Frankfurt (eu-de) regions.
+{: preview}
+
+Second-generation boot volumes with the `sdp` volume profile do not support secure boot yet. If secure-boot is required, use a boot volume with a first-generation volume profile.
 {: note}
 
 To provision an instance with confidential compute, add the `confidential_compute_mode` property and set it to either `sgx` or `tdx`.

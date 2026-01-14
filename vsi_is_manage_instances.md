@@ -1,8 +1,8 @@
 ---
 
 copyright:
-  years: 2019, 2025
-lastupdated: "2025-12-17"
+  years: 2019, 2026
+lastupdated: "2026-01-14"
 
 keywords: view instance details, restart virtual server, stop, details, delete
 
@@ -576,7 +576,7 @@ During an instance [update](/apidocs/vpc/latest#update-instance), the `host_fail
 
 [Select availability]{: tag-green}
 
-Confidential computing with Intel SGX for VPC is available only in the Dallas (us-south) and Frankfurt (eu-de) regions. Confidential computing with Intel TDX for VPC is available only in the Washington DC (us-east) region.
+Confidential computing with Intel SGX for VPC and Confidential computing with Intel TDX for VPC are available in the Dallas (us-south), Washington DC (us-east), and Frankfurt (eu-de) regions.
 {: preview}
 
 You can update an instance and change the `confidential-compute-mode` by using the command-line interface (CLI). Use the `ibmcloud is instance-update` command. For INSTANCE, specify the ID or name of the instance and set the `--confidential-compute-mode` property to `sgx` or `tdx`.
@@ -592,7 +592,7 @@ ibmcloud is instance-update INSTANCE --confidential-compute-mode sgx
 
 [Select availability]{: tag-green}
 
-Confidential computing with Intel SGX for VPC is available only in the Dallas (us-south) and Frankfurt (eu-de) regions. Confidential computing with Intel TDX for VPC is available only in the Washington DC (us-east) region.
+Confidential computing with Intel SGX for VPC and Confidential computing with Intel TDX for VPC are available in the Dallas (us-south), Washington DC (us-east), and Frankfurt (eu-de) regions.
 {: preview}
 
 You can update a virtual server instance and change the `confidential_compute_mode` property by using the API. Use the ibmcloud `update-instance` command. Make a `PATCH /instances` request and specify a new value for the `confidential_compute_mode` property. To enable confidential computing, change this value to `sgx` or `tdx`.

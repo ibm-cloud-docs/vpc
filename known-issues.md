@@ -2,7 +2,7 @@
 
 copyright:
   years: 2018, 2026
-lastupdated: "2026-01-06"
+lastupdated: "2026-01-14"
 
 keywords:
 
@@ -35,16 +35,6 @@ Known issues might change over time, so check back occasionally.
 **Issue:** When a `version` query parameter of `2025-08-25` or earlier is used from bare metal servers, an incorrect HTTP response of `404` is returned for `/instance_identity` methods that are used to [create an identity token](/apidocs/vpc-identity/latest#create-identity-token), [create an identity certificate](/apidocs/vpc-identity/latest#create-identity-certificate), and [create an IAM token](/apidocs/vpc-identity/latest#create-identity-iam-token). The behavior is correct when a `version` query parameter of `2025-08-26` or later is used.
 
 When a beta `version` query parameter of `2025-07-14` or earlier from bare metal servers is used, an incorrect HTTP response of `404` is returned for all `/instance_identity` methods.
-
-## Confidential computing known issues
-{: #confidential-computing-vpc-known-issues}
-
-[Select availability]{: tag-green}
-
-### TDX virtual servers are supported in Washington DC (us-east) and Frankfurt (eu-de) regions only
-{: #tdx-wdc-confidential-computing-vpc-known-issues}
-
-**Issue:** All confidential computing profiles support both Intel&reg; Software Guard Extensions (SGX) and Intel&reg; Trusted Domain Extensions (TDX). When you use the API to list instance profiles, such as with `GET /instance/profiles` or `GET /instance/profiles/{name}`, the response indicates that all confidential computing profiles support SGX and TDX. However, TDX is available in the Washington DC (us-east) and Frankfurt (eu-de) regions only. If you want to create a virtual server instance with a confidential computing profile and TDX, you can create that virtual server instance in only the Washington DC (us-east) and Frankfurt (eu-de) regions. You can’t create a virtual server instance with TDX in any other region, including Dallas (us-south).
 
 ### s390x profiles don't include 'values' property
 {: #s390x-confidential-computing-vpc-known-issues}
