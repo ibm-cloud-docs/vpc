@@ -1,8 +1,8 @@
 ---
 
 copyright:
-  years: 2022, 2025
-lastupdated: "2025-12-17"
+  years: 2022, 2026
+lastupdated: "2026-01-15"
 
 keywords: confidential computing, enclave, secure execution, hpcr, contract, customization, schema, contract schema, env, workload, encryption
 
@@ -769,6 +769,26 @@ Complete the following steps on an Ubuntu system to encrypt the workload section
    For more information, see [Overview of Docker Compose](https://docs.docker.com/compose/).
 
 2. Create the [workload section](#hpcr_contract_workload) of the contract and add the contents in the `workload.yaml` file.
+   
+   Following is an example of ​​​​​`​workload.yaml`​​​​:
+   
+   ```yaml
+   type: workload
+   auths:
+     us.icr.io:
+     password: ${API_KEY}
+     username: iamapikey
+   compose:
+   archive: ${COMPOSE_VALUE}
+   volumes:
+   test0:
+     mount: "/mnt/data"
+     seed: "workload_seed12"
+     filesystem: "ext4"
+   env:
+     key: "value"
+   ```
+   {: codeblock}
 
 
 3. Export the complete path of the `workload.yaml` file and `ibm-hyper-protect-container-runtime-1-0-s390x-25-encrypt.crt`:
@@ -788,7 +808,7 @@ Complete the following steps on an Ubuntu system to encrypt the workload section
 5. Use the following command to encrypt password with `ibm-hyper-protect-container-runtime-1-0-s390x-25-encrypt.crt`:
 
    ```yaml
-   ENCRYPTED_PASSWORD="$(echo -n "$PASSWORD" | base64 -d | openssl rsautl -encrypt -inkey $CONTRACT_KEY -certin | base64 -w0 )"
+   ENCRYPTED_PASSWORD="$(echo -n "$PASSWORD" | base64 -d | openssl rsautl -encrypt -inkey $CONTRACT_KEY -certin | base64 -w0)"
    ```
    {: pre}
 
@@ -1033,7 +1053,7 @@ Complete the following steps on an Ubuntu system to create the contract signatur
    ```
    {: pre}
 
-9. Use the following command to encrypt password with `ibm-hyper-protect-container-runtime-1-0-s390x-25-encrypt.crt`:
+9. Use the following command to encrypt password with `ibm-hyper-protect-container-runtime-1-0--encrypt.crt`:
 
    ```yaml
    ENCRYPTED_PASSWORD="$(echo -n "$PASSWORD" | base64 -d | openssl rsautl -encrypt -inkey $CONTRACT_KEY  -certin | base64 -w0)"
