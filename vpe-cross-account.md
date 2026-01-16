@@ -2,7 +2,7 @@
 
 copyright:
   years: 2026
-lastupdated: "2026-01-14"
+lastupdated: "2026-01-16"
 
 keywords: virtual private endpoints, VPE, endpoint gateway, cross account
 
@@ -147,6 +147,7 @@ Where:
 
 Example of the policy.json file you must create to allow VPE (`is.endpoint-gateway`) in account `1234567890` to read Cloud Object Storage resources in account `0987654321`:
 
+```json
 {
 	"subjects": [
 		{
