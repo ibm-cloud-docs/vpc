@@ -39,6 +39,9 @@ Before creating an endpoint gateway, make sure that you review [Planning for vir
 
 Before you create a cross-account VPE, you must create a service-to-service authorization policy as follows:
 
+When you create cross-account authorization between accounts that are not part of the same enterprise, you must enter the required IDs manually.
+{: note}
+
 1. In the IBM Cloud console, click **Manage > Access (IAM)**, then select **Authorizations**.
 1. Click **Create**.
 1. Select a Source account:
