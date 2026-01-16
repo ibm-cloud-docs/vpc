@@ -119,6 +119,40 @@ Create the s2s-policy.json file with the following content:
 ```
 {: pre}
 
+Where:
+
+`accountId`
+   :   Identifies the account ID of the user creating the account policy. 
+
+`endpoint-gateway`
+   :   Identifies the VPE gateway resource type that will access the target service.
+
+`serviceName`
+   :   The name of the IBM Cloud service that owns the target resource, such as `cloud-object-storage`.
+
+`resourceType`
+   :   The type of resource within the target service. Common values include `service-instance`.
+
+`source-account-id`
+   :   The account ID that will create and own the VPE connection (the accessor account).
+
+`target-account-id`
+   :   The account ID that owns the target resource (the target account).
+
+The following example allows VPE (`is.endpoint-gateway`) in account `1234567890` to read Cloud Object Storage resources in account `0987654321`:
+
+```sh
+  ibmcloud iam authorization-policy-create \
+  --file ./s2s-policy.json \
+  Creating authorization policy under account target-account as example-user...
+  is endpoint-gateway \
+  cloud-object-storage service-instance \
+  --source-account 1234567890 \
+  --target-account 0987654321 \
+  --roles Viewer
+```
+{: pre}
+
 Example of the s2s-policy.json file that you must create to allow VPE (`is.endpoint-gateway`) in account `1234567890` to read Cloud Object Storage resources in account `0987654321`:
 
 ```json
