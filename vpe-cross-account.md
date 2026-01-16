@@ -59,7 +59,7 @@ Before you create a cross-account VPE, you must create a service-to-service auth
 
 Before you create a cross-account VPE, you must create a service-to-service authorization policy as follows:
 
-```bash
+```sh
 ibmcloud iam authorization-policy-create \
     --file ./s2s-policy.json
 ```
@@ -67,7 +67,7 @@ ibmcloud iam authorization-policy-create \
 
 You must also create a policy.json file with the following content: 
 
-```bash
+```sh
 {
 	"subjects": [
 		{
@@ -113,7 +113,7 @@ You must also create a policy.json file with the following content:
 
 The following example allows VPE (`is.endpoint-gateway`) in account `1234567890` to read Cloud Object Storage resources in account `0987654321`:
 
-```bash
+```sh
   ibmcloud iam authorization-policy-create \
   --file ./s2s-policy.json \
   Creating authorization policy under account target-account as example-user...
@@ -440,7 +440,7 @@ To create an endpoint gateway with the API, follow these steps:
       ```
       {: codeblock}
 
-      When creating an endpoint gateway to connect to a Private Path service, make sure that '"resource type" is set to `private_path_service_gateway`.
+      When creating an endpoint gateway to connect to a Private Path service, make sure that "resource type" is set to `private_path_service_gateway`.
       {: note}
 
 After an endpoint gateway is created for an {{site.data.keyword.cloud_notm}} service, it presents the endpoints associated with it. You can edit the endpoint gateway in various ways, such as binding/unbinding IPs, changing the resource group, and updating tags. If you need to change the service endpoints for any reason, you must delete and recreate the endpoint gateway.
