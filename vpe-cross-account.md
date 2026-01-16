@@ -1,7 +1,7 @@
 ---
 
 copyright:
-  years: 2026
+  years: 2025, 2026
 lastupdated: "2026-01-16"
 
 keywords: virtual private endpoints, VPE, endpoint gateway, cross account
@@ -23,7 +23,7 @@ You can create an endpoint gateway for a supported {{site.data.keyword.cloud}} o
 ## Before you begin
 {: #vpe-before-you-begin}
 
-Before creating an endpoint gateway, ensure that you review [Planning for virtual private endpoint gateways](/docs/vpc?topic=vpc-vpe-planning-considerations) and have met the following prerequisites:
+Before creating an endpoint gateway, make sure that you review [Planning for virtual private endpoint gateways](/docs/vpc?topic=vpc-vpe-planning-considerations) and have met the following prerequisites:
 * Make sure that your target service supports cross-account VPEs. Check the service's documentation for details. 
 * A VPC
 * A subnet in at least one availability zone if you intend on binding an IP address at the same time you provision the endpoint gateway
@@ -57,15 +57,23 @@ Before you create a cross-account VPE, you must create a service-to-service auth
 {: #cross-account-vpe-prerequisite-cli}
 {: cli}
 
-Before you create a cross-account VPE, you must create a service-to-service authorization policy as follows:
+Before you create a cross-account VPE, you must create a service-to-service authorization policy between the Virtual Private Endpoint service and the target service in the other account.
+
+The following examples create authorization for VPE (`is.endpoint-gateway`) in account `1234567890` to read Cloud Object Storage resources in account `0987654321`:
 
 ```sh
-ibmcloud iam authorization-policy-create \
-    --file ./s2s-policy.json
+  ibmcloud iam authorization-policy-create is endpoint-gateway cloud-object-storage service-instance --source-account 1234567890 --target-account 0987654321 --roles Viewer
 ```
 {: pre}
 
-You must also create a policy.json file with the following content: 
+Or you can create a s2s-policy.json file to specify the target and source services, and use it with the following command:
+
+```sh
+ibmcloud iam authorization-policy-create --file ./s2s-policy.json
+```
+{: pre}
+
+Create the s2s-policy.json file with the following content: 
 
 ```sh
 {
@@ -102,7 +110,7 @@ You must also create a policy.json file with the following content:
 				},
 				{
 					"name": "serviceName",
-					"value": "<service-name, such as eventstreams-cdp-dev>"
+					"value": "<service-name, such as cloud-object-storage>"
 				}
 			]
 		}
@@ -111,41 +119,7 @@ You must also create a policy.json file with the following content:
 ```
 {: pre}
 
-The following example allows VPE (`is.endpoint-gateway`) in account `1234567890` to read Cloud Object Storage resources in account `0987654321`:
-
-```sh
-  ibmcloud iam authorization-policy-create \
-  --file ./s2s-policy.json \
-  Creating authorization policy under account target-account as example-user...
-  is endpoint-gateway \
-  cloud-object-storage service-instance \
-  --source-account 1234567890 \
-  --target-account 0987654321 \
-  --roles Viewer
-```
-{: pre}
-
-Where:
-
-`accountId`
-   :   Identifies the account ID of the user creating the account policy. 
-
-`endpoint-gateway`
-   :   Identifies the VPE gateway resource type that will access the target service.
-
-`serviceName`
-   :   The name of the IBM Cloud service that owns the target resource, such as `cloud-object-storage`.
-
-`resourceType`
-   :   The type of resource within the target service. Common values include `service-instance`.
-
-`source-account-id`
-   :   The account ID that will create and own the VPE connection (the accessor account).
-
-`target-account-id`
-   :   The account ID that owns the target resource (the target account).
-
-Example of the policy.json file you must create to allow VPE (`is.endpoint-gateway`) in account `1234567890` to read Cloud Object Storage resources in account `0987654321`:
+Example of the s2s-policy.json file that you must create to allow VPE (`is.endpoint-gateway`) in account `1234567890` to read Cloud Object Storage resources in account `0987654321`:
 
 ```json
 {
@@ -182,16 +156,78 @@ Example of the policy.json file you must create to allow VPE (`is.endpoint-gatew
 				},
 				{
 					"name": "serviceName",
-					"value": "eventstreams-cdp-dev"
+					"value": "cloud-object-storage"
 				}
 			]
 		}
 	]
 }
 ```
-{: pre}
+{: pre} 
 
-This API call creates a policy that allows the VPE service in the accessor account to read the target service instance in the target account, which is required before creating a cross-account VPE. 
+### Creating service authorization for cross-account VPE with the API
+{: #cross-account-vpe-prerequisite-api}
+{: api}
+
+To allow VPEs in one account to access service instances in another account, you must create a service-to-service (S2S) IAM authorization policy by using the IBM Cloud IAM API.
+
+1. Set up your [API environment](/docs/vpc?topic=vpc-set-up-environment#api-prerequisites-setup) with the required variables, including your IAM token:
+
+   ```sh
+   export iam_token=<your_IAM_token>
+   export iam_api_endpoint="https://iam.cloud.ibm.com/v1"
+   ```
+   {: pre}
+
+1. Create the authorization policy:
+
+   ```sh
+   curl -X POST "$iam_api_endpoint/authorization-policies" \
+     -H "Authorization: Bearer $iam_token" \
+     -H "Content-Type: application/json" \
+     -d '{
+     {
+	   "subjects": [
+		  {
+			"attributes": [
+				{
+					"name": "accountId",
+					"value": "1234567890 "
+				},
+				{
+					"name": "serviceName",
+					"value": "is"
+				},
+				{
+					"name": "resourceType",
+					"value": "endpoint-gateway"
+				}
+			]
+		  }
+	   ],
+	   "type": "authorization",
+	   "roles": [
+		   {
+			"role_id": "crn:v1:bluemix:public:iam::::role:Viewer"
+		   } 
+	   ],
+	   "resources": [
+		{
+			"attributes": [
+				{
+					"name": "accountId",
+					"value": "0987654321"
+				},
+				{
+					"name": "serviceName",
+					"value": "cloud-object-storage"
+				}
+			]
+		}
+	   ]
+   }
+```
+{: pre}
 
 ### Creating service authorization for cross-account VPE with Terraform
 {: #cross-account-vpe-prerequisite-terraform}
@@ -253,17 +289,17 @@ To create an endpoint gateway in the {{site.data.keyword.cloud_notm}} console, f
 
     When you create an endpoint gateway without specifying a security group, the VPC default security group is attached to the endpoint gateway. For more information, see [Configuring ACLs and security groups for use with endpoint gateways](/docs/vpc?topic=vpc-configure-acls-sgs-endpoint-gateways).
 
-   Endpoint gateways created prior to the support for security groups do not have an attached security group. They also allow all inbound traffic. If you attach a security group to a VPE that does not have any attached security groups, you cannot revert that VPE back to a state where is has no security groups. You can revert to the previous "allow all inbound traffic" behavior by attaching a security group with rules for allowing all inbound traffic. However, this  rule is inherently less secure than having a more restrictive security group in place and is not recommended.
+   Endpoint gateways created before the support for security groups do not have an attached security group. They also allow all inbound traffic. If you attach a security group to a VPE that does not have any attached security groups, you cannot revert that VPE back to a state where is has no security groups. You can revert to the previous "allow all inbound traffic" behavior by attaching a security group with rules for allowing all inbound traffic. However, this rule is inherently less secure than having a more restrictive security group in place and is not recommended.
    {: important}
 
-1. In the **Request connection to a service** section, select either an {{site.data.keyword.cloud_notm}} or non-{{site.data.keyword.cloud_notm}} service to access using this endpoint gateway.
+1. In the **Request connection to a service** section, select either an {{site.data.keyword.cloud_notm}} or non-{{site.data.keyword.cloud_notm}} service to access by using this endpoint gateway.
 
    * For IBM Cloud services, select an available IBM Cloud service offering from the menu, then select its region. A region is pre-selected to optimize performance. 
    * For non-IBM Cloud services, enter the cloud resource name (CRN) of the Private Path service (obtained from your service provider).
 
       Your connection request is sent to the service provider for review.
 
-      The review might be automated based on the provider's chosen account policy, or it could take days if the provider has chosen to manually review their requests. If your request is permitted, you will receive notification and can then access the service. If your request is denied, contact the service provider.
+      The review might be automated based on the provider's chosen account policy, or it could take days if the provider has chosen to manually review their requests. If your request is permitted, you will receive a notification and can then access the service. If your request is denied, contact the service provider.
       {: note}
 
 1. In the Share DNS section, select one of the following DNS resolution binding modes:
@@ -278,7 +314,7 @@ To create an endpoint gateway in the {{site.data.keyword.cloud_notm}} console, f
 
    * **Select one for me** - Enter a name prefix for the IP addresses, or one is chosen for you. Select one or more subnets (one subnet per zone is recommended) and enable the Auto-release toggle if you want this reserved IP to be deleted automatically if the endpoint gateway is deleted.
 
-   * **Select from existing IPs** - Choose from the list of existing IP addresses. If no IPs exist, click **Reserve IP** to reserve one.
+   * **Select from existing IPs** - Choose from the list of existing IP addresses. If no IP exists, click **Reserve IP** to reserve one.
 
       Only one reserved IP can be bound to a VPE gateway per AZ in a VPC. Ensure that no other bindings exist in the same AZ across all subnets within the VPC.
       {: note}
@@ -312,7 +348,7 @@ To create an endpoint gateway from the CLI, follow these steps:
    Where: 
   
    `--target-type`:
-   :   Indicates the type of target for this endpoint gateway, and one of the following: `private_path_service_gateway`, `provider_cloud_service`, or `provider_infrastructure_service`.
+   :   Indicates the type of target for this endpoint gateway, and has one of the following values: `private_path_service_gateway`, `provider_cloud_service`, or `provider_infrastructure_service`.
 
    `--vpc`:
    :   Indicates ID or name of the VPC.
@@ -398,24 +434,24 @@ To create an endpoint gateway with the API, follow these steps:
       ```sh
       curl -X POST -sH "Authorization:${iam_token}" \
       "$vpc_api_endpoint/v1/endpoint_gateways?version=$api_version&generation=2" \
-      -d {
-      "name": endpoint-gateway-1",
-      "vpc": {"id":"'$VpcId'"},
-      "target": {
-      "crn": "$TargetCrn",
-      "resource_type": "provider_cloud_service"
-      },
-      "security_groups": [
-      {"id": "'$sg'"}
-      ]
+      -d '{
+        "name": endpoint-gateway-1",
+        "vpc": {"id":"'$VpcId'"},
+        "target": {
+            "crn": "$TargetCrn",
+            "resource_type": "provider_cloud_service"
+        },
+        "security_groups": [
+           {"id": "'$sg'"}
+        ]
       }'
       ```
       {: codeblock}
 
-      When creating an endpoint gateway to connect to a Private Path service, make sure '"resource type" = "private_path_service_gateway"'.
+      When creating an endpoint gateway to connect to a Private Path service, make sure that "resource type" equals "private_path_service_gateway".
       {: note}
 
-      After you create an endpoint gateway for your service instance and assign a reserved IP address, you must bind the IP addresses from your VPC network to the endpoint gateway. See [Binding and unbinding a reserved IP address](/docs/vpc?topic=vpc-bind-unbind-reserved-ip) for details. These bound IP addresses become the VPE to access the service mapped to the endpoint gateway.
+      After you create an endpoint gateway for your service instance and assign a reserved IP address, you must bind the IP addresses from your VPC network to the endpoint gateway. For more information, eee [Binding and unbinding a reserved IP address](/docs/vpc?topic=vpc-bind-unbind-reserved-ip). These bound IP addresses become the VPE to access the service that is mapped to the endpoint gateway.
       {: important}
 
    * Create an endpoint gateway with an associated reserved IP address:
@@ -423,7 +459,7 @@ To create an endpoint gateway with the API, follow these steps:
       ```sh
       curl -X POST -sH "Authorization:${iam_token}" \
       "$vpc_api_endpoint/v1/endpoint_gateways?version=$api_version&generation=2" \
-      -d {
+      -d '{
       "name": endpoint-gateway-1",
       "vpc": {"id":"'$VpcId'"},
       "target": {
@@ -435,7 +471,7 @@ To create an endpoint gateway with the API, follow these steps:
       ],
       "ips": [
       {"subnet": { "id": "$SubnetId" } }
-      ],
+      ]
       }'
       ```
       {: codeblock}
@@ -443,7 +479,7 @@ To create an endpoint gateway with the API, follow these steps:
       When creating an endpoint gateway to connect to a Private Path service, make sure that "resource type" is set to `private_path_service_gateway`.
       {: note}
 
-After an endpoint gateway is created for an {{site.data.keyword.cloud_notm}} service, it presents the endpoints associated with it. You can edit the endpoint gateway in various ways, such as binding/unbinding IPs, changing the resource group, and updating tags. If you need to change the service endpoints for any reason, you must delete and recreate the endpoint gateway.
+After an endpoint gateway is created for an {{site.data.keyword.cloud_notm}} service, it presents the endpoints that are associated with it. You can edit the endpoint gateway in various ways, such as binding or unbinding IP addresses, changing the resource group, and updating tags. If you need to change the service endpoints for any reason, you must delete and re-create the endpoint gateway.
 {: important}
 
 ## Creating an endpoint gateway with Terraform
@@ -513,14 +549,14 @@ resource "ibm_is_virtual_endpoint_gateway" "example4" {
 ```
 {: codeblock}
 
-## After creating a VPE gateway
+## Next steps after a VPE gateway is created
 {: #after-create-cross-account-vpe-gateway}
 
 If you return to the Virtual private endpoint gateways for VPC page, your endpoint gateway shows in the table.
 
 * For IBM Cloud services, the status of your endpoint gateway changes from `Updating` to `Stable`. You can click the Actions menu ![Actions menu](../icons/action-menu-icon.svg "Actions") to rename, reserve or bind an IP, unbind an IP, or delete an endpoint gateway.
 * For non-IBM Cloud (third party) services, your endpoint gateway status is `Pending` until the service provider either permits or denies your connect request. The status changes to `Stable` when connectivity is established. You can click **Track** or expand the table row of the endpoint gateway to view the progress of your request.
-* Optionally, there is a DNS resolution binding switch in the table row of the VPE gateway that allows you to enable or disable DNS sharing for this endpoint gateway. For more information, see [About DNS sharing for VPE gateways](/docs/vpc?topic=vpc-vpe-dns-sharing).
+* Optionally, you can enable or disable DNS sharing for this endpoint gateway by using the DNS resolution binding switch that is in the table row of the VPE gateway. For more information, see [About DNS sharing for VPE gateways](/docs/vpc?topic=vpc-vpe-dns-sharing).
 
 ## Related links
 {: #vpe-create-cross-account-related-links}
