@@ -451,7 +451,7 @@ To create an endpoint gateway with the API, follow these steps:
       When creating an endpoint gateway to connect to a Private Path service, make sure that "resource type" equals "private_path_service_gateway".
       {: note}
 
-      After you create an endpoint gateway for your service instance and assign a reserved IP address, you must bind the IP addresses from your VPC network to the endpoint gateway. For more information, eee [Binding and unbinding a reserved IP address](/docs/vpc?topic=vpc-bind-unbind-reserved-ip). These bound IP addresses become the VPE to access the service that is mapped to the endpoint gateway.
+      After you create an endpoint gateway for your service instance and assign a reserved IP address, you must bind the IP addresses from your VPC network to the endpoint gateway. For more information, see [Binding and unbinding a reserved IP address](/docs/vpc?topic=vpc-bind-unbind-reserved-ip). These bound IP addresses become the VPE to access the service that is mapped to the endpoint gateway.
       {: important}
 
    * Create an endpoint gateway with an associated reserved IP address:
