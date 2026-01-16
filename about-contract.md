@@ -2,7 +2,7 @@
 
 copyright:
   years: 2022, 2026
-lastupdated: "2026-01-15"
+lastupdated: "2026-01-16"
 
 keywords: confidential computing, enclave, secure execution, hpcr, contract, customization, schema, contract schema, env, workload, encryption
 
@@ -805,7 +805,7 @@ Complete the following steps on an Ubuntu system to encrypt the workload section
    ```
    {: pre}
 
-5. Use the following command to encrypt password with `ibm-hyper-protect-container-runtime-1-0-s390x-25-encrypt.crt`:
+5.  Use the following command to encrypt password with `ibm-hyper-protect-container-runtime-1-0-s390x-25-encrypt.crt`:
 
    ```yaml
    ENCRYPTED_PASSWORD="$(echo -n "$PASSWORD" | base64 -d | openssl rsautl -encrypt -inkey $CONTRACT_KEY -certin | base64 -w0)"
@@ -1084,6 +1084,16 @@ Timelines for the notification are as follows:
 - Once in every 4 hours if the contract is about to expire in 7 days
 - Every hour if the contract has already expired or is about to expire in a day
 
+### Encryption and Attestation certificate expiry warning logs
+{: #hpcr_contract_sign_wlogs}
+
+HPVS logs warning messages to the configured logging service about upcoming and expired encryption and attestation certificates.
+
+Following is the notification schedule:
+
+- **30 days before expiry**: A warning message is generated once **every 24 hours**, notifying that the certificate will expire in one month.
+- **7 days before expiry**: Warning messages are logged **every 12 hours** as the expiry date nears, highlighting the need for action.
+- **After certificate expiry**: If the certificate has expired, HPVS logs warning messages **every 4 hours** until the HPVS image is upgraded.
 
 ## Preparing the Attestation section
 {: #hpcr_attestation_prepare}
