@@ -302,7 +302,7 @@ To create an endpoint gateway from the CLI, follow these steps:
    ```
    {: pre} 
 
-1. Create an endpoint gateway by running the following command:< 
+1. Create an endpoint gateway by running the following command:
 
    ```sh
    ibmcloud is endpoint-gateway-create --target TARGET [--target-type private_path_service_gateway | provider_cloud_service | provider_infrastructure_service] [--vpc VPC] [--name NAME] [--rip RIP --subnet SUBNET | (--new-reserved-ip NEW_RESERVED_IP1 --new-reserved-ip NEW_RESERVED_IP2 ...)] [--allow-dns-resolution-binding false | true] [--sg SG] [--resource-group-id RESOURCE_GROUP_ID | --resource-group-name RESOURCE_GROUP_NAME] [--output JSON] [-q, --quiet]
