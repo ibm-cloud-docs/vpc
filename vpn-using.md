@@ -1,8 +1,8 @@
 ---
 
 copyright:
-  years: 2019, 2025
-lastupdated: "2025-11-17"
+  years: 2019, 2026
+lastupdated: "2026-01-19"
 
 keywords: VPN, VPN gateways, encryption, IKE, IPsec, gateway, auto-negotiation, Diffie-Hellman, dead peer detection, PFS
 
@@ -101,11 +101,11 @@ Because {{site.data.keyword.cloud_notm}} auto-negotiation uses **IKEv2**, the on
 
 You can use the following encryption, authentication, and Diffie-Hellman Group options in any combination:
 
-|    | Encryption | Authentication | DH group |
-|----|------------|----------------|----------|
-| 1   | aes128 | sha256 | 14-24, 31 |
-| 2   | aes192 | sha384 | 14-24, 31 |
-| 3   | aes256 | sha512 | 14-24, 31 |
+|    | Encryption | Authentication | DH group  |
+|----|------------|----------------|-----------|
+| 1  | aes128     | sha256         | 14-24, 31 |
+| 2  | aes192     | sha384         | 14-24, 31 |
+| 3  | aes256     | sha512         | 14-24, 31 |
 {: caption="Encryption, authentication, and DH group options for IPsec auto-negotiation Phase 1" caption-side="bottom"}
 
 ### IPsec auto-negotiation (Phase 2)
@@ -116,18 +116,18 @@ You can use the following encryption and authentication options in any combinati
 By default, PFS is disabled for IBM Cloud VPN for VPC. Some vendors require PFS enablement for Phase 2. Check your vendor instructions and use custom policies if PFS is required.
 {: important}
 
-|    | Encryption | Authentication | DH group |
-|----|------------|----------------|----------|
-| 1  | aes128      | sha256   | Disabled  |
-| 2  | aes192      | sha384   | Disabled  |
-| 3  | aes256      | sha512   | Disabled  |
+|    | Encryption | Authentication | DH group  |
+|----|------------|----------------|-----------|
+| 1  | aes128     | sha256         | Disabled  |
+| 2  | aes192     | sha384         | Disabled  |
+| 3  | aes256     | sha512         | Disabled  |
 {: caption="Encryption and authentication options for IPsec auto-negotiation Phase 2" caption-side="bottom"}
 
-|    | Encryption | Authentication | DH group |
-|----|------------|----------------|----------|
-| 1  | aes128gcm16 | Disabled | Disabled  |
-| 2  | aes192gcm16 | Disabled | Disabled  |
-| 3  | aes256gcm16 | Disabled | Disabled  |
+|    | Encryption  | Authentication | DH group  |
+|----|-------------|----------------|-----------|
+| 1  | aes128gcm16 | Disabled       | Disabled  |
+| 2  | aes192gcm16 | Disabled       | Disabled  |
+| 3  | aes256gcm16 | Disabled       | Disabled  |
 {: caption="Combined-mode encryption options for IPsec auto-negotiation Phase 2" caption-side="bottom"}
 
 ## {{site.data.keyword.vpn_vpc_short}} use cases
@@ -153,7 +153,7 @@ Both policy-based and route-based VPNs allow users to connect to multiple remote
 ### Use case 3: VPN advanced configuration using an FQDN
 {: #use-case-3-vpn}
 
-The following use case illustrates a customer that has one VPC in IBM Cloud and wants to connect their on-prem site with a single VPN gateway. The on-premises site VPN gateway is behind a NAT device and has no public IP address. In this case, you can associate an FQDN with the NATed IP address. You can then use this FQDN instead of an IP address when you create a VPN connection. The local IKE identity of the on-premises VPN gateway is the private IP address it owns. One FQDN is associated with the public IP address of the NAT device.
+The following use case illustrates a customer that has one VPC in IBM Cloud and wants to connect their on-prem site with a single VPN gateway. The on-premises site VPN gateway is behind a NAT device and has no public IP address. In this case, you can associate an FQDN (fully qualified domain name) with the NATed IP address. You can then use this FQDN instead of an IP address when you create a VPN connection. The local IKE identity of the on-premises VPN gateway is the private IP address it owns. One FQDN is associated with the public IP address of the NAT device.
 
 ![VPN advanced configuration with FQDN](images/vpn-advanced-configuration.svg){: caption="VPN advanced configuration with FQDN" caption-side="bottom"}
 
