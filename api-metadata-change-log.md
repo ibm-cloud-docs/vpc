@@ -2,7 +2,7 @@
 
 copyright:
   years: 2019, 2026
-lastupdated: "2025-12-16"
+lastupdated: "2026-01-20"
 
 keywords: api, change log, metadata, new features, restrictions, migration, versioned change
 
@@ -27,6 +27,14 @@ Some changes, such as new response properties or new optional request parameters
 - Follow HTTP redirect rules for any `3xx` HTTP status code
 - Consume only the resources and properties that your application needs to function
 - Avoid depending on behavior that is not explicitly documented
+
+## 20 January 2026
+{: #20-january-2026-metadata}
+
+### For all version dates
+{: #20-january-2026-all-version-dates-metadata}
+
+**Spot instances.** Accounts that have special approval to preview this feature now see the `availability.class` and `availability_policy.preemption` properties included in the response when [retrieving an instance](/apidocs/vpc-metadata#get-instance). The `availability.class` property indicates the availability class of the instance as `spot` or `standard`. The `availability_policy.preemption` property indicates the behavior as `stop` or `delete` when the instance is preempted. For more information, see the [VPC API change log](/docs/vpc?topic=vpc-api-change-log#20-january-2026) and [Spot instances](/docs/vpc?topic=vpc-spot-instances-virtual-servers).
 
 ## 16 December 2025
  {: #16-december-2025-metadata}
