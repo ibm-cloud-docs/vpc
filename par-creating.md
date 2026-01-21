@@ -1,8 +1,8 @@
 ---
 
 copyright:
-  years: 2025
-lastupdated: "2025-12-20"
+  years: 2026
+lastupdated: "2026-01-21"
 
 keywords: public address range, create, bind
 
@@ -13,7 +13,7 @@ subcollection: vpc
 {{site.data.keyword.attribute-definition-list}}
 
 # Creating public address ranges
-{: #par-creating} 
+{: #par-creating}
 
 You can create a public address range by defining its size and, optionally, specifying a VPC to associate with it in any availability zone within the account.
 {: shortdesc}
@@ -159,7 +159,7 @@ To create public address ranges with the API, follow these steps:
 
    For example: `version` (string): The API version, in format `YYYY-MM-DD`.
 
-1. When all variables are initiated, choose one of the following options to do:
+1. When all variables are initiated, choose one of the following actions:
 
    * Create a public address range bound to a VPC:
 
@@ -222,7 +222,7 @@ resource "ibm_is_public_address_range" "public_address_range_instance" {
     }
   }
 }
-``` 
+```
 {: codeblock}
 
 ## Related links
