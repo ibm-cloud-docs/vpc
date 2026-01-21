@@ -1,8 +1,8 @@
 ---
 
 copyright:
-  years: 2025
-lastupdated: "2025-12-20"
+  years: 2026
+lastupdated: "2026-01-21"
 
 keywords: viewing, deleting, public address range
 
@@ -13,7 +13,7 @@ subcollection: vpc
 {{site.data.keyword.attribute-definition-list}}
 
 # Viewing public address ranges
-{: #par-viewing} 
+{: #par-viewing}
 
 You can view public address ranges with the console, CLI, API, and Terraform.
 {: shortdesc}
@@ -105,7 +105,7 @@ To view public address ranges with the API, follow these steps:
 
    For example: `version` (string): The API version, in format `YYYY-MM-DD`.
 
-1. When all variables are initiated, choose one of the following options to do:
+1. When all variables are initiated, choose one of the following actions:
 
    * View all public address ranges for an account:
 
@@ -124,7 +124,7 @@ To view public address ranges with the API, follow these steps:
                -H "Authorization: Bearer $iam_token"
       ```
       {: pre}
- 
+
 ## Viewing public address ranges with Terraform
 {: #par-view-terraform}
 {: terraform}

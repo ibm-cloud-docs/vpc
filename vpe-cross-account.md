@@ -2,7 +2,7 @@
 
 copyright:
   years: 2025, 2026
-lastupdated: "2026-01-16"
+lastupdated: "2026-01-21"
 
 keywords: virtual private endpoints, VPE, endpoint gateway, cross account
 
@@ -24,13 +24,13 @@ You can create an endpoint gateway for a supported {{site.data.keyword.cloud}} o
 {: #vpe-before-you-begin}
 
 Before creating an endpoint gateway, make sure that you review [Planning for virtual private endpoint gateways](/docs/vpc?topic=vpc-vpe-planning-considerations) and have met the following prerequisites:
-* Make sure that your target service supports cross-account VPEs. Check the service's documentation for details. 
+* Make sure that your target service supports cross-account VPEs. Check the service's documentation for details.
 * A VPC
 * A subnet in at least one availability zone if you intend on binding an IP address at the same time you provision the endpoint gateway
 * An instance of the service
 * Appropriate [IAM permissions](/docs/vpc?topic=vpc-vpe-iam) to create an endpoint gateway, create or bind a reserved IP, and view or list the target service.
 * Make sure that you have the necessary IAM permissions and Context-Based Restriction (CBR) policies to authorize access.
-* You must obtain the Cloud Resource Name (CRN) of the target service instance. 
+* You must obtain the Cloud Resource Name (CRN) of the target service instance.
 * To authorize a VPE in your accessor account to use the target service instance that resides in a different IBM Cloud account, you must create a service-to-service authorization policy as described in the next section.
 
 ### Creating service authorization for cross-account VPE in the console
@@ -76,7 +76,7 @@ ibmcloud iam authorization-policy-create --file ./s2s-policy.json
 ```
 {: pre}
 
-Create the s2s-policy.json file with the following content: 
+Create the s2s-policy.json file with the following content:
 
 ```sh
 {
@@ -125,7 +125,7 @@ Create the s2s-policy.json file with the following content:
 Where:
 
 `accountId`
-   :   Identifies the account ID of the user creating the account policy. 
+   :   Identifies the account ID of the user creating the account policy.
 
 `endpoint-gateway`
    :   Identifies the VPE gateway resource type that will access the target service.
@@ -200,7 +200,7 @@ Example of the s2s-policy.json file that you must create to allow VPE (`is.endpo
 	]
 }
 ```
-{: pre} 
+{: pre}
 
 ### Creating service authorization for cross-account VPE with the API
 {: #cross-account-vpe-prerequisite-api}
@@ -246,7 +246,7 @@ To allow VPEs in one account to access service instances in another account, you
 	   "roles": [
 		   {
 			"role_id": "crn:v1:bluemix:public:iam::::role:Viewer"
-		   } 
+		   }
 	   ],
 	   "resources": [
 		{
@@ -270,7 +270,7 @@ To allow VPEs in one account to access service instances in another account, you
 {: #cross-account-vpe-prerequisite-terraform}
 {: terraform}
 
-The following Terraform configuration demonstrates how to create a service-to-service (S2S) IAM authorization policy that allows VPEs in one IBM Cloud account to access service instances in another account. 
+The following Terraform configuration demonstrates how to create a service-to-service (S2S) IAM authorization policy that allows VPEs in one IBM Cloud account to access service instances in another account.
 
 This policy must be created before creating the cross-account VPE. The `Viewer` role grants the VPE service read access to the target resource metadata, enabling secure connectivity between accounts.
 
@@ -331,7 +331,7 @@ To create an endpoint gateway in the {{site.data.keyword.cloud_notm}} console, f
 
 1. In the **Request connection to a service** section, select either an {{site.data.keyword.cloud_notm}} or non-{{site.data.keyword.cloud_notm}} service to access by using this endpoint gateway.
 
-   * For IBM Cloud services, select an available IBM Cloud service offering from the menu, then select its region. A region is pre-selected to optimize performance. 
+   * For IBM Cloud services, select an available IBM Cloud service offering from the menu, then select its region. A region is pre-selected to optimize performance.
    * For non-IBM Cloud services, enter the cloud resource name (CRN) of the Private Path service (obtained from your service provider).
 
       Your connection request is sent to the service provider for review.
@@ -341,7 +341,7 @@ To create an endpoint gateway in the {{site.data.keyword.cloud_notm}} console, f
 
 1. In the Share DNS section, select one of the following DNS resolution binding modes:
 
-   * **Primary** allows the VPE gateway's service endpoints in the DNS-shared VPC to be shared with the DNS hub VPC for name resolution. 
+   * **Primary** allows the VPE gateway's service endpoints in the DNS-shared VPC to be shared with the DNS hub VPC for name resolution.
    * **Disabled** does not allow the VPE gateway's service endpoints to be shared for name resolution.
 
    When the VPC is a DNS hub, DNS sharing is always set to **Primary** and the mode can't be changed.
@@ -355,7 +355,7 @@ To create an endpoint gateway in the {{site.data.keyword.cloud_notm}} console, f
 
       Only one reserved IP can be bound to a VPE gateway per AZ in a VPC. Ensure that no other bindings exist in the same AZ across all subnets within the VPC.
       {: note}
-      
+
    * **Select one later** - Select IP addresses at some point after creating the endpoint gateway.
 
 1. Review the **Order summary**, then click **Create virtual private endpoint gateway**. The endpoint gateway is requested for use.
@@ -373,7 +373,7 @@ To create an endpoint gateway from the CLI, follow these steps:
    ```sh
    ibmcloud is endpoint-gateway-targets
    ```
-   {: pre} 
+   {: pre}
 
 1. Create an endpoint gateway by running the following command:
 
@@ -381,9 +381,9 @@ To create an endpoint gateway from the CLI, follow these steps:
    ibmcloud is endpoint-gateway-create --target TARGET [--target-type private_path_service_gateway | provider_cloud_service | provider_infrastructure_service] [--vpc VPC] [--name NAME] [--rip RIP --subnet SUBNET | (--new-reserved-ip NEW_RESERVED_IP1 --new-reserved-ip NEW_RESERVED_IP2 ...)] [--allow-dns-resolution-binding false | true] [--sg SG] [--resource-group-id RESOURCE_GROUP_ID | --resource-group-name RESOURCE_GROUP_NAME] [--output JSON] [-q, --quiet]
    ```
    {: codeblock}
- 
-   Where: 
-  
+
+   Where:
+
    `--target-type`:
    :   Indicates the type of target for this endpoint gateway, and has one of the following values: `private_path_service_gateway`, `provider_cloud_service`, or `provider_infrastructure_service`.
 
@@ -448,8 +448,8 @@ To create an endpoint gateway with the API, follow these steps:
       ```
       {: pre}
 
-   * **TargetCrn** - The name, or CRN, of the instance of the IBM Cloud service where you want to set the endpoint gateway. 
-   
+   * **TargetCrn** - The name, or CRN, of the instance of the IBM Cloud service where you want to set the endpoint gateway.
+
    You can use the command `ibmcloud is endpoint-gateway-targets` to list the IBM Cloud service instances that are qualified to be set as endpoint gateway targets.
 
       ```sh
@@ -464,7 +464,7 @@ To create an endpoint gateway with the API, follow these steps:
       ```
       {: pre}
 
-1. When all variables are initiated, choose one of the following options to do:
+1. When all variables are initiated, choose one of the following actions:
 
    * Create an endpoint gateway for the specific VPC:
 
@@ -600,4 +600,4 @@ If you return to the Virtual private endpoint gateways for VPC page, your endpoi
 
 * [Creating an endpoint gateway](/docs/vpc?topic=vpc-ordering-endpoint-gateway&interface=ui)
 * [Creating a local-access endpoint gateway](/docs/vpc?topic=vpc-create-local-access-vpe)
-* [Planning for virtual private endpoint gateways](/docs/vpc?topic=vpc-vpe-planning-considerations) 
+* [Planning for virtual private endpoint gateways](/docs/vpc?topic=vpc-vpe-planning-considerations)
