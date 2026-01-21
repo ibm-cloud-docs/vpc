@@ -213,7 +213,7 @@ To access the VPC API private endpoint by using the API, follow these steps:
 {: #vpe-api-private-endpoint-terraform}
 {: terraform}
 
-To access the VPC API private endpoint using Terraform, choose one of the following actions:
+To access the VPC API private endpoint using Terraform, do one of the following actions:
 
 * Set an environment variable for the region that you want to access. For example, for `us-south`, enter:
 
