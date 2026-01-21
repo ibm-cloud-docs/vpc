@@ -215,7 +215,7 @@ To delete a Private Path service with the API, follow these steps:
       {: pre}
 
 
-1. When all variables are initiated, choose one of the following actions:
+1. When all variables are initiated, do one of the following actions:
 
    * To delete a Private Path service:
 

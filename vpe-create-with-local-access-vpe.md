@@ -190,7 +190,7 @@ To create a local-access endpoint gateway with the API, follow these steps:
       ```
       {: pre}
 
-1. When all variables are initiated, choose one of the following actions:
+1. When all variables are initiated, do one of the following actions:
 
    * Create an endpoint gateway for the specific VPC:
 
