@@ -12,13 +12,13 @@ subcollection: vpc
 
 {{site.data.keyword.attribute-definition-list}}
 
-# Spot instances (beta)
+# Spot instances (Select availability)
 {: #spot-instances-virtual-servers}
 
-[Beta]{: tag-blue}
+[Select availability]{: tag-green}
 
-Spot instances are a beta feature and are available for evaluation and testing purposes. Contact IBM support if you're interested in getting access.
-{: beta}
+Spot instances are available in select regions. Contact IBM support if you're interested in getting access.
+{: preview}
 
 Spot instances are highly discounted versions of the standard instances. They are designed to use available compute resources for interruptible or stateless workloads. Spot instances can be preempted (or evicted) at any time.
 {: shortdesc}
@@ -117,4 +117,4 @@ If you want to automatically re-create a spot instance after preemption, you can
    To increase the likelihood of finding capacity for your spot instance (if capacity is constrained in one zone), specify multiple subnets that are spread across zones in the region for high-availability.
    { :tip}
 
-To keep your preempted instances in a stopped state, then you need to specify `stop` for the availability_polciy.preemption_ configuration. After the spot instance is created by the instance group, you need to submit a [PATCH /instance_groups/{instance_group_id}/memberships/{id}](/apidocs/vpc/latest#update-instance-group-membership) and specify `false`for the [delete_instance_on_membership_delete](/apidocs/vpc/latest#delete-instance-group-memberships) property.
+To keep your preempted instances in a stopped state, then you need to specify `stop` for the availability_policy.preemption_ configuration. After the spot instance is created by the instance group, you need to submit a [PATCH /instance_groups/{instance_group_id}/memberships/{id}](/apidocs/vpc/latest#update-instance-group-membership) and specify `false`for the [delete_instance_on_membership_delete](/apidocs/vpc/latest#delete-instance-group-memberships) property.
