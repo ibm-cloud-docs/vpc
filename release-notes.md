@@ -27,13 +27,13 @@ For more information about changes to the {{site.data.keyword.vpc_short}} comman
 ## January 2026
 {: #vpc-jan26}
 
-### 22 January 2025
+### 22 January 2026
 {: #vpc-jan2526}
 
-Spot instances (beta)
+Spot instances (Select availability)
 :   [Spot instances](/docs/vpc?topic=vpc-spot-instances-virtual-servers) are highly discounted versions of the standard instances. They are designed to use available compute resources for interruptible or stateless workloads. Spot instances can be preempted (or evicted) at any time.
 
-### 14 January 2025
+### 14 January 2026
 {: #vpc-jan1426}
 
 Confidential computing with Intel Trusted Domain Extension (TDX) for Virtual Servers for VPC is available in Dallas (select availability)
