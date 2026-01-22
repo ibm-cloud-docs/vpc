@@ -998,6 +998,7 @@ toc:
           - vpn-limitations.md
           - vpn-client-to-site-limitations.md
           - storage-known-issues.md
+          - sg-acl-known-issues.md
       - topicgroup:
           id: troubleshooting
           label: Troubleshooting
