@@ -2,7 +2,7 @@
 
 copyright:
   years: 2019, 2026
-lastupdated: "2026-01-15"
+lastupdated: "2026-01-22"
 
 keywords:
 
@@ -26,6 +26,12 @@ For more information about changes to the {{site.data.keyword.vpc_short}} comman
 
 ## January 2026
 {: #vpc-jan26}
+
+### 22 January 2025
+{: #vpc-jan2526}
+
+Spot instances (beta)
+:   [Spot instances](/docs/vpc?topic=vpc-spot-instances-virtual-servers) are highly discounted versions of the standard instances. They are designed to use available compute resources for interruptible or stateless workloads. Spot instances can be preempted (or evicted) at any time.
 
 ### 14 January 2025
 {: #vpc-jan1426}
