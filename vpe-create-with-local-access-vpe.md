@@ -2,7 +2,7 @@
 
 copyright:
   years: 2026
-lastupdated: "2026-01-21"
+lastupdated: "2026-01-22"
 
 keywords: virtual private endpoints, VPE, endpoint gateway
 
@@ -190,7 +190,7 @@ To create a local-access endpoint gateway with the API, follow these steps:
       ```
       {: pre}
 
-1. When all variables are initiated, do one of the following actions:
+1. When all variables are initiated, select one of the following actions:
 
    * Create an endpoint gateway for the specific VPC:
 
