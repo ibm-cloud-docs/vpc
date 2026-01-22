@@ -263,8 +263,8 @@ To allow VPEs in one account to access service instances in another account, you
 		}
 	   ]
    }
-```
-{: pre}
+   ```
+   {: pre}
 
 ### Creating service authorization for cross-account VPE with Terraform
 {: #cross-account-vpe-prerequisite-terraform}
