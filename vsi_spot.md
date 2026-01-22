@@ -17,7 +17,7 @@ subcollection: vpc
 
 [Select availability]{: tag-green}
 
-Spot instances are available in select regions. Contact IBM support if you're interested in getting access.
+Spot instances are available for select customers. Contact IBM support if you're interested in getting access.
 {: preview}
 
 Spot instances are highly discounted versions of the standard instances. They are designed to use available compute resources for interruptible or stateless workloads. Spot instances can be preempted (or evicted) at any time.
