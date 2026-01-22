@@ -51,6 +51,7 @@ toc:
           label: Compute
           topics:
           - vsi_is_about_vpc.md
+          - vsi_spot.md
           - vsi_burstable.md
           - bare_metal_server_about.md
           - suspend-billing.md
