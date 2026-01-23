@@ -2,7 +2,7 @@
 
 copyright:
   years: 2023, 2026
-lastupdated: "2026-01-22"
+lastupdated: "2026-01-23"
 
 keywords:
 
@@ -13,7 +13,7 @@ subcollection: vpc
 {{site.data.keyword.attribute-definition-list}}
 
 # Known issues for security groups and network ACLs
-{: #vni-known-issues}
+{: #sg-acl-known-issues}
 
 Known issues are identified bugs or unexpected behaviors that were not fixed before release, but weren’t critical enough to delay it. These issues are communicated to you, often with workarounds, and are prioritized for resolution in the near term by the development team.
 {: shortdesc}

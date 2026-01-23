@@ -2,7 +2,7 @@
 
 copyright:
   years: 2018, 2026
-lastupdated: "2026-01-14"
+lastupdated: "2026-01-23"
 
 keywords:
 
@@ -35,6 +35,11 @@ Known issues might change over time, so check back occasionally.
 **Issue:** When a `version` query parameter of `2025-08-25` or earlier is used from bare metal servers, an incorrect HTTP response of `404` is returned for `/instance_identity` methods that are used to [create an identity token](/apidocs/vpc-identity/latest#create-identity-token), [create an identity certificate](/apidocs/vpc-identity/latest#create-identity-certificate), and [create an IAM token](/apidocs/vpc-identity/latest#create-identity-iam-token). The behavior is correct when a `version` query parameter of `2025-08-26` or later is used.
 
 When a beta `version` query parameter of `2025-07-14` or earlier from bare metal servers is used, an incorrect HTTP response of `404` is returned for all `/instance_identity` methods.
+
+## Confidential computing known issues
+{: #confidential-computing-vpc-known-issues}
+
+[Select availability]{: tag-green}
 
 ### s390x profiles don't include 'values' property
 {: #s390x-confidential-computing-vpc-known-issues}

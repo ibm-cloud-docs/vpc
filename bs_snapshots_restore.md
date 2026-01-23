@@ -2,7 +2,7 @@
 
 copyright:
   years: 2021, 2026
-lastupdated: "2026-01-06"
+lastupdated: "2026-01-23"
 
 keywords:
 
@@ -607,5 +607,3 @@ For more information about the arguments and attributes, see [ibm_is_volume](htt
 {: #bs_snapshots_restore_next_steps}
 
 You can [create](/docs/vpc?topic=vpc-snapshots-vpc-create) more snapshots or [manage](/docs/vpc?topic=vpc-snapshots-vpc-manage) existing snapshots.
-
-When you restore a volume from a snapshot by using the fast restore feature, you can change the encryption key. So the encryption key that is used for the new volume differs from the encryption key that was used for the snapshot. However, if you delete the snapshot encryption key from the key management service, the volume might still become inaccessible when it is attached to a virtual server instance. For more information, see [Known issues](/docs/vpc?topic=vpc-storage-known-issues&interface=ui#snapshots-fast-restore-known-issue).
