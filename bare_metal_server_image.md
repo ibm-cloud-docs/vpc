@@ -1,8 +1,8 @@
 ---
 
 copyright:
-  years: 2021, 2025
-lastupdated: "2025-12-18"
+  years: 2021, 2026
+lastupdated: "2026-01-23"
 
 keywords:
 
@@ -60,7 +60,7 @@ By default, the release lock feature for RHEL 8.4 is disabled. To prevent the RH
 
 * ESXi on Bare Metal Servers for VPC is charged monthly and is calculated per CPU based on the selected profile. If you choose to rent VMware ESXi with your server, you are subject to a prorated monthly cost for the license instead of an hourly rate. The proration amount is variable based on your billing anniversary date.
 
-For more information about how to license ESXi, see [License and Subscription Management](https://techdocs.broadcom.com/us/en/vmware-cis/vsphere/vsphere/7-0/vcenter-and-host-management-7-0/license-management-host-management.html){: external}.
+For more information about how to license ESXi, see [License and Subscription Management](https://techdocs.broadcom.com/us/en/vmware-cis/vsphere/vsphere/7-0/vcenter-and-host-management/license-management-host-management.html){: external}.
 
 ### Special considerations for Ubuntu images
 {: #bare-metal-images-ubuntu-considerations}

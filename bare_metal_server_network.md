@@ -1,8 +1,8 @@
 ---
 
 copyright:
-  years: 2021, 2025
-lastupdated: "2025-11-11"
+  years: 2021, 2026
+lastupdated: "2026-01-23"
 
 keywords: bare metal server network, bare metal network, nics, pci, vlan, network overview
 
@@ -24,7 +24,7 @@ The following information is an overview of the networking features of {{site.da
 
 * For more information about managing network interfaces, see [Managing network interfaces for a bare metal server](/docs/vpc?topic=vpc-managing-nic-for-bare-metal-servers).
 
-* If you're using VMWare vSphere networking, see [Introduction to vSphere Networking](https://techdocs.broadcom.com/us/en/vmware-cis/vsphere/vsphere/7-0/vsphere-networking-7-0.html){: external}.
+* If you're using VMWare vSphere networking, see [Introduction to vSphere Networking](https://techdocs.broadcom.com/us/en/vmware-cis/vsphere/vsphere/7-0/vsphere-networking.html){: external}.
 
 ## Bare metal server network interfaces
 {: #bare-metal-servers-nics-intro}
