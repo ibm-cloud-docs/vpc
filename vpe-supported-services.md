@@ -1,8 +1,8 @@
 ---
 
 copyright:
-  years: 2020, 2025
-lastupdated: "2025-12-04"
+  years: 2020, 2026
+lastupdated: "2026-01-23"
 
 keywords: virtual private endpoints, endpoint gateway, VPE services
 
@@ -68,7 +68,7 @@ The following IBM Cloud services are enabled for Virtual Private Endpoints (VPE)
 * Resource Manager ([Endpoint URLs](/apidocs/resource-controller/resource-manager#endpoint-urls))
 * Schematics ([Instructions](/docs/schematics?topic=schematics-private-endpoints#endpoint-setup))
 * {{site.data.keyword.secrets-manager_short}} ([Instructions](/docs/secrets-manager?topic=secrets-manager-endpoints))
-* Transit Gateway
+* Transit Gateway ([Instructions](/docs/transit-gateway?topic=transit-gateway-vpe-connection)) 
 * Usage Metering ([Endpoint URLs](/apidocs/usage-metering#endpoint))
 * Usage Reports ([Endpoint URLs](/apidocs/metering-reporting#endpoint))
 * User Management ([Endpoint URLs](/apidocs/user-management#endpoint-url))
