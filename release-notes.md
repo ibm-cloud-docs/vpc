@@ -2,7 +2,7 @@
 
 copyright:
   years: 2019, 2026
-lastupdated: "2026-01-22"
+lastupdated: "2026-01-23"
 
 keywords:
 
@@ -29,12 +29,14 @@ For more information about changes to the {{site.data.keyword.vpc_short}} comman
 
 ### 22 January 2026
 {: #vpc-jan2226}
+{: release-note}
 
 Spot instances (Select availability)
 :   [Spot instances](/docs/vpc?topic=vpc-spot-instances-virtual-servers) are highly discounted versions of the standard instances. They are designed to use available compute resources for interruptible or stateless workloads. Spot instances can be preempted (or evicted) at any time.
 
 ### 14 January 2026
 {: #vpc-jan1426}
+{: release-note}
 
 Confidential computing with Intel Trusted Domain Extension (TDX) for Virtual Servers for VPC is available in Dallas (select availability)
 :   Confidential computing with Intel&reg; Trusted Domain Extension (TDX) for VPC is now available in the Dallas (us-south) region. This region is in addition to the existing Washington DC (us-east) and Frankfurt (eu-de) regions. Confidential computing with Intel TDX offers confidentiality to virtual machines by providing CPU enhancements that are leveraged by the firmware and hardware to provide confidentiality and integrity. For more information, see [Confidential computing for x86 Virtual Servers for VPC](/docs/vpc?topic=vpc-about-confidential-computing-vpc).
