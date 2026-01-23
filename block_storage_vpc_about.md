@@ -1,8 +1,8 @@
 ---
 
 copyright:
-  years: 2019, 2025
-lastupdated: "2025-12-10"
+  years: 2019, 2026
+lastupdated: "2026-01-22"
 
 keywords:
 
@@ -42,7 +42,7 @@ You can attach only one boot volume to a virtual server instance at a time, but 
 ### Boot volumes
 {: #block-storage-vpc-boot-volumes}
 
-When you create an instance with a stock image, a 100 GB boot volume is created and attached to the instance by default. When you create an instance from a custom image, you can specify a boot volume capacity of 10 GB to 250 GB, depending what the image requires.
+When you create an instance with a stock image, a 100 GB boot volume is created and attached to the instance by default.
 
 When you create an instance from a custom image, you can specify a boot volume capacity of 10 GB to 250 GB, depending what the image requires. If the custom image is smaller than 10 GB, the boot volume capacity is rounded up to 10 GB. If the boot volume exceeds 250 GB, the virtual server instance fails to successfully boot.
 
