@@ -2,7 +2,7 @@
 
 copyright:
   years: 2020, 2026
-lastupdated: "2026-01-23"
+lastupdated: "2026-01-26"
 
 keywords: virtual private endpoints, endpoint gateway, VPE services
 
@@ -62,7 +62,7 @@ The following IBM Cloud services are enabled for Virtual Private Endpoints (VPE)
 * IAM Policy Management ([Endpoint URLs](/apidocs/iam-policy-management#endpoint-urls))
 * {{site.data.keyword.logs_full_notm}} ([Instructions](/docs/cloud-logs?topic=cloud-logs-vpe-connection&interface=cli))
 * Key Protect ([Instructions](/docs/key-protect?topic=key-protect-virtual-private-endpoints))
-* MQ ([Instructions](/docs/mqcloud?topic=mqcloud-virtual-private-endpoints-vpe))
+* MQ ([Instructions](https://www.ibm.com/docs/en/mq-as-a-service?topic=api-virtual-private-endpoints){: external})
 * Network Time Protocol
 * Resource Controller ([Endpoint URLs](/apidocs/resource-controller/resource-controller#endpoint-url))
 * Resource Manager ([Endpoint URLs](/apidocs/resource-controller/resource-manager#endpoint-urls))
