@@ -1,8 +1,8 @@
 ---
 
 copyright:
-  years: 2025
-lastupdated: "2025-09-30"
+  years: 2026
+lastupdated: "2026-01-26"
 
 keywords: HA for VPC, DR for VPC, VPC recovery time objective, VPC recovery point objective
 
@@ -127,8 +127,8 @@ You can learn more about using IBM Cloud Object Storage, IBM Cloud Schematics th
 | [File share replication](/docs/vpc?topic=vpc-file-storage-replication) | If the source share becomes unavailable, you can initiate a [replication failover](/docs/vpc?topic=vpc-file-storage-failover&interface=ui) to the replica share. | You can create a replica share in another zone of the same region. You can also create a replica in another region in the same geography. You can replicate your data every 15 minutes. |
 {: caption="DR features for {{site.data.keyword.vpc_short}}" caption-side="bottom"}
 
-Restoring a volume or a share from a snapshot is a manual operation that takes time. If you require a higher level of service for disaster recovery, see IBM's [Cloud disaster recovery solutions](https://www.ibm.com/solutions/disaster-recovery).
-{: important}
+Restoring a volume or a share from a snapshot is a manual operation that takes time. If you require a higher level of service for disaster recovery, see IBM Cloud's [Backup and recovery services](/docs/backup-recovery).
+{: tip}
 
 
 
