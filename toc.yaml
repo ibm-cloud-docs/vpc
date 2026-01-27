@@ -81,6 +81,8 @@ toc:
                 navtitle: General purpose - Gen 2 (x86)
               - topic: vsi-profile-details-general-purpose-gen2-z.md
                 navtitle: General purpose - Gen 2 (s390x)
+              - topic: vsi-profile-details-high-memory-gen3.md
+                navtitle: High memory - Gen 3
               - topic: vsi-profile-details-high-memory-gen2.md
                 navtitle: High Memory - Gen 2
               - topic: vsi-profile-details-storage-optimized-gen2.md
