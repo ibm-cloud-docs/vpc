@@ -27,8 +27,8 @@ You might encounter these frequently asked questions when you use {{site.data.ke
 
 IBM Cloud supports the following types of VPNs for VPC:
 
-• **Site-to-site VPN**: Used for network-to-network connectivity.
-• **Client-to-site VPN**: Used for secure remote access for individual users.
+* **Site-to-site VPN**: Used for network-to-network connectivity.
+* **Client-to-site VPN**: Used for secure remote access for individual users.
 
 ## What is IBM Cloud Client VPN for VPC (client-to-site)?
 {: #faq-vpn-1}
