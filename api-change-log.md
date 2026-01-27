@@ -2,7 +2,7 @@
 
 copyright:
   years: 2019, 2026
-lastupdated: "2026-01-26"
+lastupdated: "2026-01-27"
 
 keywords: api, change log, new features, restrictions, migrations
 
@@ -53,6 +53,14 @@ At this time, all instances, and therefore all instance templates, continue to r
 
 The new response code will be rolled out gradually. Each phase of the rollout will be tied to a dated API version. These changes will be announced in future change log updates.
 {: note}
+
+## 27 January 2026
+ {: #27-january-2026}
+
+ ### For all version dates
+ {: #27-january-2026-all-version-dates}
+
+ **Network bandwidth pooling for instances.** When [retrieving](/apidocs/vpc/latest#get-instance-profile) or [listing](/apidocs/vpc/latest#list-instance-profiles) instance profiles, the response now includes a `network_bandwidth_mode` property. This property denotes the supported network bandwidth modes for an instance with this profile. An instance profile with a `network_bandwidth_mode.value` of `divided` divides the network bandwidth equally across the network attachments or network interfaces for the instance. An instance profile with a `network_bandwidth_mode.value` of `pooled` pools the network bandwidth among the network attachments or network interfaces for the instance.
 
 ## 20 January 2026
 {: #20-january-2026}

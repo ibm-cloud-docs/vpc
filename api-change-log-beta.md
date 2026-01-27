@@ -32,6 +32,8 @@ To review the change log of generally available API features, see the [VPC API c
 ### For all version dates
 {: #16-december-2025-all-version-dates-beta}
 
+Network bandwidth pooling for instances is now generally available. See the [VPC API change log](/docs/vpc?topic=vpc-api-change-log#27-january-2026)
+
 **Burstable (shared core) instances.** Burstable instances are now generally available. The following updates were made since the 26 August 2025 beta release:
 
 - When [creating](/apidocs/vpc-beta#create-instance) or [updating](/apidocs/vpc-beta#update-instance) an instance or when [creating an instance template](/apidocs/vpc-beta#create-instance-template), you can now enable [burstable virtual server instances](/docs/vpc?topic=vpc-burstable-virtual-servers) by setting the `vcpu.percentage` property value to `10`, `25`, or `50`.
