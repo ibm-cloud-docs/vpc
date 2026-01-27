@@ -1,8 +1,8 @@
 ---
 
 copyright:
-  years: 2022, 2025
-lastupdated: "2025-12-22"
+  years: 2022, 2026
+lastupdated: "2026-01-27"
 
 keywords: confidential computing, enclave, secure execution, hpcr, hyper protect virtual server for vpc
 
@@ -196,6 +196,12 @@ f73df7d02327896fbda67f6e7368c3e27fe5e15b580cdfdb60e7310afeed5b75 baseimage
 ```
 {: pre}
 
+Following is the shasum of the ibm-hyper-protect-container-runtime-1-0-s390x-24 `baseimage`:
+
+```sh
+14d2a725746bf9a6cbf9847e09422f5a97609d03f15b373519a16015619f227d baseimage
+```
+{: pre}
 
 Following is the shasum of the ibm-hyper-protect-container-runtime-1-0-s390x-23 `baseimage`:
 
@@ -229,6 +235,13 @@ Following is the shasum of the ibm-hyper-protect-container-runtime-1-0-s390x-25 
 
 ```sh
 3c5866a25d0e64c47e56ba29238b96435c6a81933d4e19bf3bc0704c0504d16b root.tar.gz
+```
+{: pre}
+
+Following is the shasum of the ibm-hyper-protect-container-runtime-1-0-s390x-24 `root.tar.gz`.
+
+```sh
+a93839d82b98323665740a12ca2b30107bd8488e02eb411a6db6c17703b9b5cf root.tar.gz
 ```
 {: pre}
 

@@ -1,8 +1,8 @@
 ---
 
 copyright:
-  years: 2022, 2025
-lastupdated: "2025-12-19"
+  years: 2022, 2026
+lastupdated: "2026-01-27"
 
 keywords: VPN server, faq, faqs, frequently asked questions, vpn, VPN
 
@@ -21,6 +21,59 @@ You might encounter these frequently asked questions when you use {{site.data.ke
 {: shortdesc}
 {: #vpn-faq}
 
+## What types of VPN connections does IBM Cloud support for VPCs?
+{: #faq-vpn-0}
+{: faq}
+
+IBM Cloud supports the following types of VPNs for VPC:
+
+* **Site-to-site VPN**: Used for network-to-network connectivity.
+* **Client-to-site VPN**: Used for secure remote access for individual users.
+
+## What is IBM Cloud Client VPN for VPC (client-to-site)?
+{: #faq-vpn-1}
+{: faq}
+{: support}
+
+Client VPN for VPC enables individual users to securely connect to your VPC from remote locations by using VPN client software, such as OpenVPN. This setup is ideal for remote employees or contractors who need encrypted access to VPC resources. To learn more, see [client-to-site VPN gateway](/docs/vpc?topic=vpc-vpn-overview#client-to-site-vpn-server) and [IBM Cloud VPN for VPC Product Page](https://www.ibm.com/products/vpn-for-vpc){: external}.
+
+## Why should I use a client-to-site VPN over a site-to-site VPN?
+{: #faq-vpn-2}
+{: faq}
+
+Use a client-to-site VPN when individual users need secure, encrypted access from remote locations, which is ideal for remote work scenarios or third-party contractors. Use a site-to-site VPN to secure data transfer between your IBM Cloud VPC and other private networks, supporting hybrid cloud architectures and inter-network communication.
+
+## What are typical IBM Cloud client-to-site VPN use cases?
+{: #faq-vpn-3}
+{: faq}
+{: support}
+
+IBM Cloud client-to-site VPN for VPC helps in remote workforce access and for providing secure connections to contractors. See [client-to-site VPN use cases](/docs/vpc?topic=vpc-vpn-client-to-site-overview#vpn-client-to-site-use-cases).
+
+## What's the starting point to set up client-to-site VPN for my VPC?
+{: #faq-vpn-4}
+{: faq}
+
+To get started with setting up a client-to-site VPN for your VPC, you must create a VPN server. See [Creating a VPN server](/docs/vpc?topic=vpc-vpn-create-server&interface=ui).
+
+## How many client-to-site VPN connections can I set up per IBM Cloud VPC?
+{: #faq-vpn-5}
+{: faq}
+
+To determine the number of connections for your client-to-site VPN, see [VPN Server Quotas](/docs/vpc?topic=vpc-quotas#vpn-server-quotas).
+
+## How can I monitor my VPN servers?
+{: #faq-vpn-6}
+{: faq}
+
+You can monitor the status and activity of your VPN servers by using IBM Cloud Monitoring. See [Monitoring VPN servers](/docs/vpc?topic=vpc-vpn-client-to-site-monitoring&interface=ui).
+
+## Where can I find pricing details for IBM Cloud client-to-site VPN for VPC?
+{: #faq-vpn-7}
+{: faq}
+
+To find pricing details for IBM Cloud client-to-site VPN for VPC, see the [Pricing tab](/infrastructure/provision/vpnserver).
+
 ## What does a VPN health status indicate?
 {: #faq-vpn-server-health-status}
 {: faq}
@@ -30,7 +83,7 @@ Status descriptions are as follows:
 
 * `Healthy` - Indicates that your VPN server is operating correctly.
 * `Degraded` - Indicates that your VPN server has compromised performance, capacity, or connectivity.
-* `Faulted` - Indicates that your VPN server is completely unreachable and inoperative.
+* `Faulted` - Indicates that your VPN server is unreachable and inoperative.
 * `Inapplicable` - Indicates that the health state does not apply because of the current lifecycle state. A resource with a lifecycle state of `failed` or `deleting` will have a health state of inapplicable. A `Pending` resource might also have this state.
 
 ## Why can't I save the password/passcode in the VPN client?
@@ -38,14 +91,14 @@ Status descriptions are as follows:
 {: faq}
 {: support}
 
-The passcode generated from [IBM IAM](https://iam.cloud.ibm.com/identity/passcode){: external} is a Time-based One-Time Passcode (TOTP), which cannot be reused. You must regenerate it each time.
+The passcode that is generated from [IBM IAM](https://iam.cloud.ibm.com/identity/passcode){: external} is a Time-based One-Time Passcode (TOTP), which cannot be reused. You must regenerate it each time.
 
 ## If I update a VPN server with connected VPN clients, what happens to the VPN clients?
 {: #faq-vpn-server-update-VPN-server}
 {: faq}
 {: support}
 
-The VPN clients are disconnected along with the VPN server. All VPN clients need to re-connect with the VPN server again. When you use the user ID and passcode authentication, you have to retrieve the passcode and initiate the connection from your VPN client.
+The VPN clients are disconnected along with the VPN server. All VPN clients need to reconnect with the VPN server again. When you use the user ID and passcode authentication, you must retrieve the passcode and initiate the connection from your VPN client.
 
 ## Why is the VPN client disconnected?
 {: #faq-vpn-server-client-disconnected}
@@ -73,13 +126,13 @@ You cannot delete the subnet if any VPN servers are present.
 {: faq}
 {: support}
 
-1. In the navigation pane, click **VPNs > Client-to-site servers**, and select the VPN server you want to update.
-1. Click **Attached security groups > Attach**, and select the security group you want to attach.
+1. In the navigation pane, click **VPNs > Client-to-site servers**, and select the VPN server that you want to update.
+1. Click **Attached security groups > Attach**, and select the security group that you want to attach.
 
-## Can I create routes and use the private IPs of the VPN server as next hop?
+## Can I create routes and use the private IPs of the VPN server as the next hop?
 {: #create-routes-and-use-private-ips}
 
-No, you cannot create routes and use the private IPs. The private IPs are not static and can change at any time. The VPN for VPC service updates routes in the VPC routing table automatically. If you create a VPC routing table and you want the VPN for VPC service to inject routes into the new routing table, you have to add the VPN server to the `accept routes from` flag. You must also remove the VPN server from the `accept routes from` flag if you do not want the VPN server to inject routes into the routing table. For more information, see [Configuring route propagation for VPN servers](/docs/vpc?topic=vpc-vpn-client-to-site-route-propagation).
+No, you cannot create routes and use the private IP addresses. The private IP addresses are not static and can change at any time. The VPN for VPC service updates routes in the VPC routing table automatically. If you create a VPC routing table and you want the VPN for VPC service to inject routes into the new routing table, you must add the VPN server to the `accept routes from` flag. You must also remove the VPN server from the `accept routes from` flag if you do not want the VPN server to inject routes into the routing table. For more information, see [Configuring route propagation for VPN servers](/docs/vpc?topic=vpc-vpn-client-to-site-route-propagation).
 
 ## What happens to a VPN server if I try to delete the security group that the VPN server is attached to?
 {: #faq-vpn-server-delete-sg}
@@ -121,7 +174,7 @@ Yes, it supports high availability in an Active/Active configuration. You must c
 {: faq}
 {: support}
 
-Up to 600 Mbps of aggregation throughput is supported with a stand-alone VPN server. A maximum of 1200 Mbps of aggregation throughput is supported with a high availability VPN server. Up to 150 Mbps of throughput for a single client connection (applicable for both stand-alone and high availability VPN servers).
+Up to 600 Mbps of aggregation throughput is supported by a stand-alone VPN server. A maximum of 1200 Mbps of aggregation throughput is supported by a high availability VPN server. Up to 150 Mbps of throughput for a single client connection (applicable for both stand-alone and high availability VPN servers).
 
 ## Can I use a VPN server for IBM Cloud classic infrastructure?
 {: #faq-vpn-server-with-classic}
@@ -151,9 +204,9 @@ You can use UDP or TCP and any port number to run the VPN server. UDP is recomme
 
 The action of the VPN route depends on the route destination:
 
-* If the route destination is in the VPC, or an on-premises private subnet connected using VPN gateway, the route action can be `deliver`; otherwise, it is `translate`.
+* If the route destination is in the VPC, or an on-premises private subnet that is connected by using VPN gateway, the route action can be `deliver`; otherwise, it is `translate`.
 * If you want to block traffic from the client, use the `drop` route action to forward unwanted or undesirable network traffic to a null or "black hole" route.
-* When the route action is `translate`, the source IP is translated to the VPN server private IP before it is sent out from the VPN server. This means that your VPN client IP is invisible from the destination devices.
+* When the route action is `translate`, the source IP is translated to the VPN server private IP before it is sent out from the VPN server. This action means that your VPN client IP is invisible from the destination devices.
 
 ## What DNS server IP addresses should I use?
 {: #faq-vpn-server-dns-server-ip}
@@ -170,7 +223,7 @@ DNS server IP addresses are optional when you provision a VPN server. You should
 {: faq}
 {: support}
 
-The VPN server is not aware of updates made to a certificate in Secrets Manager. You must re-import the certificate with a different CRN, and then update the VPN server with the new certificate CRN.
+The VPN server is not aware of updates that are made to a certificate in Secrets Manager. You must reimport the certificate with a different CRN, and then update the VPN server with the new certificate CRN.
 
 ## Can I use a customized hostname for the VPN server?
 {: #faq-vpn-server-customized-hostname}
@@ -202,9 +255,9 @@ Supply the following content in your [IBM Support case](/docs/account?topic=acco
    To view the common name of your client certificate, use the OpenSSL command `openssl x509 -noout -text -in your_client_certificate_file` in the `subject` section.
    {: tip}
 
-## How do I assign the `VPN client` role using IAM access management tags in the API?
+## How do I assign the `VPN client` role by using IAM access management tags in the API?
 {: #faq-vpn-server-access-tag-mgmt}
 {: faq}
 {: support}
 
-When you manage user access using access management tags on a client-to-site VPN and enable the `UserId and Passcode` mode for `Client Authentication`, you must attach the `VPN Client` role with an access tag. Otherwise, the VPN client cannot connect to the VPN server. For more information, see [Granting users access to tag IAM-enabled resources by using the API](/docs/account?topic=account-access&interface=api#iam-managed-api) and set the `role_id` to `crn:v1:bluemix:public:is::::serviceRole:VPNClient` to grant access.
+When you manage user access by using access management tags on a client-to-site VPN and enable the `UserId and Passcode` mode for `Client Authentication`, you must attach the `VPN Client` role with an access tag. Otherwise, the VPN client cannot connect to the VPN server. For more information, see [Granting users access to tag IAM-enabled resources by using the API](/docs/account?topic=account-access&interface=api#iam-managed-api) and set the `role_id` to `crn:v1:bluemix:public:is::::serviceRole:VPNClient` to grant access.
