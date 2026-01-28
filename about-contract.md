@@ -2,7 +2,7 @@
 
 copyright:
   years: 2022, 2026
-lastupdated: "2026-01-16"
+lastupdated: "2026-01-28"
 
 keywords: confidential computing, enclave, secure execution, hpcr, contract, customization, schema, contract schema, env, workload, encryption
 
@@ -549,7 +549,7 @@ volumes:
     filesystem: ext4
     mount: /mnt/data
     seed: "workload_phrase1"
-    previousSeed: "workload phrase"
+    previousSeed: "workload_phrase"
 ```
 {: codeblock}
 
@@ -625,7 +625,7 @@ When you are using the "rolling of seeds" feature, you can use the following sni
 volumes:
   test:
     seed: "seed_value_with_minimum_15_characters"
-    previousSeed: "env phrase"
+    previousSeed: "env_phrase12345"
 ```
 {: codeblock}
 
@@ -872,10 +872,10 @@ Complete the following steps on an Ubuntu system to encrypt the `env` section us
    ```
    {: pre}
 
-4. Use the following command to encrypt password with `ibm-hyper-protect-container-runtime-1-0-s390x-25-encrypt.crt`:
+4.  Use the following command to encrypt password with `ibm-hyper-protect-container-runtime-1-0-s390x-25-encrypt.crt`:
 
    ```yaml
-   ENCRYPTED_PASSWORD="$(echo -n "$PASSWORD" | base64 -d | openssl rsautl -encrypt -inkey $CONTRACT_KEY  -certin | base64 -w0)"
+   ENCRYPTED_PASSWORD="$(echo -n "$PASSWORD" | base64 -d | openssl rsautl -encrypt -inkey $CONTRACT_KEY -certin | base64 -w0)"
    ```
    {: pre}
 
