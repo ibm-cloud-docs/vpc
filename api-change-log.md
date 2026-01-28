@@ -2,7 +2,7 @@
 
 copyright:
   years: 2019, 2026
-lastupdated: "2026-01-27"
+lastupdated: "2026-01-28"
 
 keywords: api, change log, new features, restrictions, migrations
 
@@ -55,12 +55,12 @@ The new response code will be rolled out gradually. Each phase of the rollout wi
 {: note}
 
 ## 27 January 2026
- {: #27-january-2026}
+{: #27-january-2026}
 
- ### For all version dates
- {: #27-january-2026-all-version-dates}
+### For all version dates
+{: #27-january-2026-all-version-dates}
 
- **Network bandwidth pooling for instances.** When [retrieving](/apidocs/vpc/latest#get-instance-profile) or [listing](/apidocs/vpc/latest#list-instance-profiles) instance profiles, the response now includes a `network_bandwidth_mode` property. This property denotes the supported network bandwidth modes for an instance with this profile. An instance profile with a `network_bandwidth_mode.value` of `divided` divides the network bandwidth equally across the network attachments or network interfaces for the instance. An instance profile with a `network_bandwidth_mode.value` of `pooled` pools the network bandwidth among the network attachments or network interfaces for the instance.
+**Network bandwidth pooling for instances.** When [retrieving](/apidocs/vpc/latest#get-instance-profile) or [listing](/apidocs/vpc/latest#list-instance-profiles) instance profiles, the response now includes a `network_bandwidth_mode` property. This property denotes the supported network bandwidth modes for an instance with this profile. An instance profile with a `network_bandwidth_mode.value` of `divided` divides the network bandwidth equally across the network attachments or network interfaces for the instance. An instance profile with a `network_bandwidth_mode.value` of `pooled` pools the network bandwidth among the network attachments or network interfaces for the instance.
 
 ## 20 January 2026
 {: #20-january-2026}
