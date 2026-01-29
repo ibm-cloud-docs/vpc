@@ -2,7 +2,7 @@
 
 copyright:
   years: 2019, 2026
-lastupdated: "2026-01-23"
+lastupdated: "2026-01-29"
 
 keywords:
 
@@ -33,6 +33,13 @@ For more information about changes to the {{site.data.keyword.vpc_short}} comman
 
 Spot instances (Select availability)
 :   [Spot instances](/docs/vpc?topic=vpc-spot-instances-virtual-servers) are highly discounted versions of the standard instances. They are designed to use available compute resources for interruptible or stateless workloads. Spot instances can be preempted (or evicted) at any time.
+
+### 16 January 2026
+{: #vpc-jan1626}
+{: release-note}
+
+BYOL available for x86 SUSE Linux Enterprise Server (SLES) versions 15 and 16
+:   Bring your own license (BYOL) is now supported for x86 SUSE Linux Enterprise Server (SLES), versions 15 and 16. For more information, see [Bring your own license](/docs/vpc?topic=vpc-byol-vpc-about&interface=ui).
 
 ### 14 January 2026
 {: #vpc-jan1426}

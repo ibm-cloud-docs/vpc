@@ -1,8 +1,8 @@
 ---
 
 copyright:
-  years: 2019, 2025
-lastupdated: "2025-12-21"
+  years: 2019, 2026
+lastupdated: "2026-01-29"
 
 subcollection: vpc
 
@@ -35,11 +35,11 @@ The following operating systems are available as stock images when you create a 
 | RHEL AI 1.x for Nvidia | x86-64 |
 | RHEL AI 1.x for AMD| x86-64 |
 | RHEL AI 1.x for Intel | x86-64 |
-| Rocky Linux 8.x, 9.x | x86-64 |
-| SUSE Linux Enterprise Server 12.x, 15.x | x86-64 |
+| Rocky Linux 8.x, 9.x, 10.x | x86-64 |
+| SUSE Linux Enterprise Server 12.x, 15.x, 16.x | x86-64 |
 | SUSE Linux Enterprise Server for SAP 12.x, 15.x | x86-64 |
 | Ubuntu 20.04.x, 22.04.x, 24.04.x | x86-64 |
-| Windows 2016, 2019, 2022 | x86-64 |
+| Windows 2016, 2019, 2022, 2025 | x86-64 |
 {: caption="Supported x86_64 stock image operating systems" caption-side="top"}
 
 For more information about support for Red Hat, see [FAQs about Red Hat and IBM Cloud® infrastructure](/docs/infrastructure-hub?topic=infrastructure-hub-faqs-for-red-hat-ibm-cloud).

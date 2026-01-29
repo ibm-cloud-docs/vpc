@@ -1,8 +1,8 @@
 ---
 
 copyright:
-  years: 2020, 2025
-lastupdated: "2025-12-22"
+  years: 2020, 2026
+lastupdated: "2026-01-29"
 
 keywords: license, virtual private cloud, BYOL, virtual server instance, instance, custom image, encryption, RHEL, SUSE
 subcollection: vpc
@@ -14,17 +14,17 @@ subcollection: vpc
 # Bring your own license
 {: #byol-vpc-about}
 
-For Red Hat Enterprise Linux&reg; and Windows operating systems, you can bring your own license (BYOL) to the {{site.data.keyword.cloud}} VPC when you import a custom image. These images are registered and licensed by you. You maintain control over your license and incur no additional costs by using your license. Acquisition and activation of the license is between you and the OS vendor.
+For Red Hat Enterprise Linux&reg;, SUSE Linux Enterprise Server, and Windows operating systems, you can bring your own license (BYOL) to the {{site.data.keyword.cloud}} VPC when you import a custom image. These images are registered and licensed by you. You maintain control over your license and incur no additional costs by using your license. Acquisition and activation of the license is between you and the OS vendor.
 {: shortdesc}
 
 ## BYOL concepts
 {: #byol-vpc-concepts}
 
-With the BYOL feature, you can use your own license for a custom image that you create at your site and then upload to {{site.data.keyword.cos_full_notm}}. When you import your custom image from {{site.data.keyword.cos_full_notm}} to the VPC, {{site.data.keyword.cloud_notm}} provides Red Hat Enterprise Linux and Windows _BYOL_ operating system options that you must select to indicate that you are using a BYOL operating system. You use your BYOL custom images to create virtual server instances, just as you would from a stock image.
+With the BYOL feature, you can use your own license for a custom image that you create at your site and then upload to {{site.data.keyword.cos_full_notm}}. When you import your custom image from {{site.data.keyword.cos_full_notm}} to the VPC, {{site.data.keyword.cloud_notm}} provides Red Hat Enterprise Linux, SUSE Linux Enterprise Server, and Windows _BYOL_ operating system options that you must select to indicate that you are using a BYOL operating system. You use your BYOL custom images to create virtual server instances, just as you would from a stock image.
 
 The BYOL feature on LinuxONE (s390x processor architecture) only supports SUSE Linux Enterprise Server (SLES) operating systems currently.
 
-Images with a Red Hat Enterprise Linux BYOL or a Windows BYOL operating system can be used to provision an instance on a public or dedicated host.
+Images with a Red Hat Enterprise Linux BYOL, SUSE Linux Enterprise Server BYOL, or a Windows BYOL operating system can be used to provision an instance on a public or dedicated host.
 
 You don't have extra licensing charges for any virtual server instances that you create by using your BYOL custom image. For auditing and reporting purposes, {{site.data.keyword.cloud_notm}} retains information for virtual server instances that you create from BYOL custom images.
 
@@ -60,7 +60,7 @@ For more information about creating and importing Linux custom images, see:
 ## BYOL for SUSE Linux Enterprise Server (SLES)
 {: #byol-vpc-suse}
 
-You can use your own license for a [custom Linux image](/docs/vpc?topic=vpc-create-linux-custom-image) that you create on premises. This BYOL custom image is a single qcow2 or vhd file that you upload to {{site.data.keyword.cos_full_notm}} and then import to the VPC. When you import your BYOL custom image, you must select a _BYOL_ operating system from the list of OS versions. Supported Linux version is SLES 15.
+You can use your own license for a [custom Linux image](/docs/vpc?topic=vpc-create-linux-custom-image) that you create on premises. This BYOL custom image is a single qcow2 or vhd file that you upload to {{site.data.keyword.cos_full_notm}} and then import to the VPC. When you import your BYOL custom image, you must select a _BYOL_ operating system from the list of OS versions. Supported Linux version is SLES 15and SLES 16.
 
 To see all of the operating system versions from the API, make a `GET /operating_systems` call. In the response, you see SUSE Linux Enterprise Server BYOL OS versions among the list of operating systems. This example response shows information that is returned for SLES 15:
 
