@@ -2,7 +2,7 @@
 
 copyright:
   years: 2019, 2026
-lastupdated: "2026-01-28"
+lastupdated: "2026-01-29"
 
 keywords: api, change log, new features, restrictions, migrations
 
@@ -37,8 +37,6 @@ SDK changes are based on API changes. For more information about the latest chan
 
 ## Upcoming changes
 {: #upcoming-changes}
-
-**Change to the default profile for instances.** In an upcoming release, the default instance profile will change from `bx2-2x8` to `bxf-2x8` when [creating an instance](/apidocs/vpc/latest#create-instance).
 
 **Deprecated `classic_access` for VPCs.** When [creating a VPC](/apidocs/vpc/latest#create-vpc), the `classic_access` property is now deprecated. Instead, use a [Transit Gateway](/docs/transit-gateway) to connect VPCs to Classic Infrastructure.
 

@@ -1,8 +1,8 @@
 ---
 
 copyright:
-  years: 2019, 2025
-lastupdated: "2025-09-04"
+  years: 2019, 2026
+lastupdated: "2026-01-29"
 
 keywords: Block Storage, boot volume, data volume, status, health state, monitoring, performance 
 
@@ -47,7 +47,7 @@ The following table shows the statuses that you might see when you create, view,
 | Failed  | A volume creation failed. | Inapplicable |
 | Pending | A volume is being created. | Inapplicable |
 | Pending deletion | A volume is being deleted. When you're unsure if the volume is deleted, verify this state. Attempting to delete a volume again while in this state results in a conflict error. | Inapplicable |
-| Updating | A volume's capacity is [expanding](/docs/vpc?topic=vpc-expanding-block-storage-volumes) or the volume IOPS is getting [adjusted](/docs/vpc?topic=vpc-adjusting-volume-iops). | OK |
+| Updating | A volume's capacity is [expanding](/docs/vpc?topic=vpc-expanding-block-storage-volumes) or the volume IOPS is getting [adjusted](/docs/vpc?topic=vpc-adjusting-volume-iops).  | OK |
 | Unusable | A volume is unusable because the customer root key (CRK) was [deleted](/docs/vpc?topic=vpc-vpc-encryption-managing#byok-delete-root-keys) or [disabled](/docs/vpc?topic=vpc-vpc-encryption-managing#byok-disable-root-keys). | Inapplicable |
 {: caption="Block Storage statuses" caption-side="bottom"}
 
