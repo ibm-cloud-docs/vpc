@@ -2,7 +2,7 @@
 
 copyright:
   years: 2026, 2026
-lastupdated: "2026-01-27"
+lastupdated: "2026-01-29"
 
 keywords: vsi, virtual server, virtual server instances, profile, profiles, gpu, very high memory, high memory, gen 3
 
@@ -19,18 +19,18 @@ The very high memory family of 3rd generation virtual server profiles are built 
 
 The very high memory profiles can also be paired with a corresponding dedicated host. This solution allows for single tenant hypervisors running workloads from a single {{site.data.keyword.cloud}} account.
 
-### Operating systems
+## Operating systems
 {: #vhm-3-os}
 
 - Linux
 - Windows
 
-### Processor generation
+## Processor generation
 {: #vhm-3-processor}
 
 - Intel 8474C - 4th Generation Xeon Scalable processor
 
-### Availability
+## Availability
 {: #vhm-3-availability}
 
 - Status: Select availability
@@ -38,7 +38,7 @@ The very high memory profiles can also be paired with a corresponding dedicated 
    - Washington DC (`us-east`)
    - Toronto (`ca-tor`)
 
-### Capabilities
+## Capabilities
 {: #vhm-3-capabilities}
 
 - Core type: Dedicated
@@ -54,7 +54,7 @@ The very high memory profiles can also be paired with a corresponding dedicated 
    - Bandwidth Pooling: No
 - [Volume bandwidth allocation method](/docs/vpc?topic=vpc-block-storage-bandwidth#attached-block-vol-bandwidth): `weighted` by default, it can be updated to `pooled`.
 
-### VM configuration
+## VM configuration
 {: #vhm-3-vm-config}
 
 - Hardware type: i440fx
@@ -65,7 +65,7 @@ The very high memory profiles can also be paired with a corresponding dedicated 
 - Block data volumes: virtio
 - Instance storage: virtio
 
-### Instance profiles
+## Instance profiles
 {: #vhm-3-vsi-profiles}
 
 | Instance profile | vCPU / Cores | Memory (GiB)  | Bandwidth cap (Gbps) | Instance storage (Quantity x GB) |
@@ -84,7 +84,7 @@ The very high memory profiles can also be paired with a corresponding dedicated 
 | vx3d-176x2816 | 176 / 88 | 2816 | 200 | 2x2860 |
 {: caption="Very high memory profile options" caption-side="bottom"}
 
-### Limits
+## Limits
 {: #vhm-3-limits}
 
 An instance has a limit for the number of volumes and virtual network interfaces that can be
@@ -97,7 +97,7 @@ attached. This limit is based on the size of the instance.
 | 49+             | 12          | 15        |
 {: caption="Very high memory family limits for maximum volumes, and maximum network interfaces" caption-side="bottom"}
 
-### Dedicated host profiles
+## Dedicated host profiles
 {: #vhm-3-dh-profiles}
 
 Dedicated hosts allow users to provision a single-tenant host server and then provision virtual server instances of the corresponding family on the dedicated host.
