@@ -507,6 +507,7 @@ toc:
               - lb-update.md
               - lb-delete.md
               - lb-health-checks.md
+              - alb-pools.md
               - lb-adv-traffic-mgmt.md
               - lb-update-session-stickiness.md
               - lb-layer-7-policies-rules.md
