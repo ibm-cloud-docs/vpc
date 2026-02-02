@@ -78,26 +78,6 @@ You can provision virtual servers on Compute hosts with Broadwell, Skylake, or C
 {: tab-title="x2 Windows"}
 {: tab-group="x2-instance-profiles-benchmark"}
 
-| Profile | CPU | CPU MHz | vCPUs | Score | Standard Deviation (%) | Sample Count |
-|-------------|-------------|-------------|-------------|-------------|-------------|-------------|
-|  |  |  |   |   |  |  |
-|  |  |  |   |   |  |  |
-{: class="simple-tab-table"}
-{: caption="Linux benchmark for x3 Compute profile family" caption-side="bottom"}
-{: #linux-x3-instance-profiles}
-{: tab-title="x3 Linux"}
-{: tab-group="x3-instance-profiles-benchmark"}
-
-| Profile | CPU | CPU MHz | vCPUs | Score | Standard Deviation (%) | Sample Count |
-|-------------|-------------|-------------|-------------|-------------|-------------|-------------|
-|  |  |  |   |   |  |  |
-|  |  |  |   |   |  |  |
-{: class="simple-tab-table"}
-{: caption="Windows benchmark for x3 Compute profile family" caption-side="bottom"}
-{: #windows-x3-instance-profiles}
-{: tab-title="x3 Windows"}
-{: tab-group="x3-instance-profiles-benchmark"}
-
 ## How IBM Cloud measures performance
 {: #how_ibm_cloud_measures_performance}
 
