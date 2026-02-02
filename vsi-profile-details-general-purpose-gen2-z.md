@@ -2,7 +2,7 @@
 
 copyright:
   years: 2024, 2026
-lastupdated: "2026-01-02"
+lastupdated: "2026-02-02"
 
 keywords: vsi, virtual server, virtual server instances, profile, profiles, balanced, compute, memory, dedicated host, gen 2, s390x architecture, LinuxONE, IBM z, mainframe
 
@@ -15,7 +15,7 @@ subcollection: vpc
 # General purpose instance profiles - s390x Gen 2
 {: #general-purpose-profiles-gen2-s390x}
 
-The IBM Z or LinuxONE general-purpose instance profiles (balanced, compute, and memory) are built atop the s390x processor architecture, with native integration into {{site.data.keyword.cloud}} VPC. The profiles fit a wide variety of purposes for workloads that require IBM Z resilience, performance, and platform.
+ The IBM Z or LinuxONE general-purpose instance profiles (balanced, compute, and memory) are built atop the s390x processor architecture, with native integration into {{site.data.keyword.cloud}} VPC. The profiles fit a wide variety of purposes for workloads that require IBM Z resilience, performance, and platform.
 {: shortdesc}
 
 The general-purpose profiles can also be paired with a corresponding dedicated host. This solution allows

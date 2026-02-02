@@ -1,8 +1,8 @@
 ---
 
 copyright:
-  years: 2018, 2024
-lastupdated: "2024-10-10"
+  years: 2018, 2026
+lastupdated: "2026-02-02"
 
 keywords: connecting, windows
 
@@ -18,7 +18,7 @@ subcollection: vpc
 After you created your Windows virtual server instance, you can connect to it by completing these steps.
 {: shortdesc}
 
-Windows instances are not supported for LinuxONE (s390x processor architecture).
+ Windows instances are not supported for LinuxONE (s390x processor architecture).
 {: note}
 
 ## Before you begin
