@@ -1,7 +1,7 @@
 ---
 copyright:
-  years: 2022, 2023
-lastupdated: "2024-10-10"
+  years: 2022, 2026
+lastupdated: "2026-02-02"
 
 keywords: benchmark, benchmark scores
 
@@ -47,10 +47,10 @@ You can provision virtual servers on Compute hosts with Broadwell, Skylake, or C
 | cx2-32x64 | Cascade Lake | 2593.938 | 32 | 491829.84 | 2.61 | 2270 |
 | cx2-48x96 | Cascade Lake | 2593.948 | 48 | 740440.18 | 2.35 | 1720 |
 {: class="simple-tab-table"}
-{: caption="Linux benchmark for Compute profile family" caption-side="bottom"}
-{: #linux-instance-profiles}
-{: tab-title="Linux"}
-{: tab-group="instance-profiles-benchmark"}
+{: caption="Linux benchmark for x2 Compute profile family" caption-side="bottom"}
+{: #linux-x2-instance-profiles}
+{: tab-title="x2 Linux"}
+{: tab-group="x2-instance-profiles-benchmark"}
 
 | Profile | CPU | CPU MHz | vCPUs | Score | Standard Deviation (%) | Sample Count |
 |-------------|-------------|-------------|-------------|-------------|-------------|-------------|
@@ -73,10 +73,30 @@ You can provision virtual servers on Compute hosts with Broadwell, Skylake, or C
 | cx2-32x64 | Cascade Lake | 2594 | 32 | 495187.22 | 2.49 | 2000 |
 | cx2-48x96 | Cascade Lake | 2594 | 48 | 735378.48 | 1.75 | 1990 |
 {: class="simple-tab-table"}
-{: caption="Windows benchmark for Compute profile family" caption-side="bottom"}
-{: #windows-instance-profiles}
-{: tab-title="Windows"}
-{: tab-group="instance-profiles-benchmark"}
+{: caption="Windows benchmark for x2 Compute profile family" caption-side="bottom"}
+{: #windows-x2-instance-profiles}
+{: tab-title="x2 Windows"}
+{: tab-group="x2-instance-profiles-benchmark"}
+
+| Profile | CPU | CPU MHz | vCPUs | Score | Standard Deviation (%) | Sample Count |
+|-------------|-------------|-------------|-------------|-------------|-------------|-------------|
+|  |  |  |   |   |  |  |
+|  |  |  |   |   |  |  |
+{: class="simple-tab-table"}
+{: caption="Linux benchmark for x3 Compute profile family" caption-side="bottom"}
+{: #linux-x3-instance-profiles}
+{: tab-title="x3 Linux"}
+{: tab-group="x3-instance-profiles-benchmark"}
+
+| Profile | CPU | CPU MHz | vCPUs | Score | Standard Deviation (%) | Sample Count |
+|-------------|-------------|-------------|-------------|-------------|-------------|-------------|
+|  |  |  |   |   |  |  |
+|  |  |  |   |   |  |  |
+{: class="simple-tab-table"}
+{: caption="Windows benchmark for x3 Compute profile family" caption-side="bottom"}
+{: #windows-x3-instance-profiles}
+{: tab-title="x3 Windows"}
+{: tab-group="x3-instance-profiles-benchmark"}
 
 ## How IBM Cloud measures performance
 {: #how_ibm_cloud_measures_performance}

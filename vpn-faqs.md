@@ -2,7 +2,7 @@
 
 copyright:
   years: 2020, 2026
-lastupdated: "2026-01-27"
+lastupdated: "2026-02-02"
 
 keywords: virtual private network, faq, faqs, frequently asked questions, vpn, vpn gateway
 
@@ -286,19 +286,7 @@ Static routing connection doesn't use BGP for route advertisements, and can't ad
 {: #faq-vpn-39}
 {: faq}
 
-Each IBM VPN supports a maximum of 120 routes for each VPN peer in a dynamic routing setup. If this limit is exceeded, the BGP session for that peer automatically shuts down. To restore the session, reduce the number of routes that are advertised from your on-premises peer network to 120 or less, then toggle the connection in the IBM Cloud to reestablish the BGP session.
-
-## How many routes does a VPN appliance support for a dynamic, route-based connection?
-{: #faq-vpn-40}
-{: faq}
-
-Each VPN appliance supports a total of 120 routes, regardless of the number of connected peers. If more than 120 routes are received across a combination of peers, the appliance forwards only the first 120 routes to the transit gateway. For example, if two peers each send 70 routes to the VPN appliance, only the first 120 routes are propagated to the transit gateway.
-
-## Can I use more than 120 routes for a VPN in a dynamic, route-based connection?
-{: #faq-vpn-41}
-{: faq}
-
-A VPN gateway supports up to 120 routes. If you require more than 120 routes, you can connect the VPN appliance to different on-premises devices. However, keep in mind that this configuration does not guarantee high availability or disaster recovery for the VPN appliance when it is connected to different on-premises devices.
+Each IBM VPN gateway supports up to a maximum of 120 routes for **each VPN peer** in a dynamic routing setup. If this limit is exceeded, the BGP session for that peer automatically shuts down. To restore the session, you must reduce the number of routes that are advertised from your on-premises peer network to 120 or less, then toggle the connection in the IBM Cloud to reestablish the BGP session. Additionally, if the VPN appliance receives more than 120 routes across a combination of peers, then the appliance forwards only the first 120 routes to the transit gateway. For example, if two peers each send 70 routes to the VPN appliance, only the first 120 routes are propagated to the transit gateway. If you require more than 120 routes, you can connect the VPN appliance to different on-premises devices. However, keep in mind that this configuration does not guarantee high availability or disaster recovery for the VPN appliance when it is connected to different on-premises devices.
 
 ## Does IBM complete quarterly ASV scans of data-plane VPN appliances?
 {: #vpn-asv}
