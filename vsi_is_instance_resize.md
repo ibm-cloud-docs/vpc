@@ -1,8 +1,8 @@
 ---
 
 copyright:
-  years: 2021, 2025
-lastupdated: "2024-05-20"
+  years: 2021, 2026
+lastupdated: "2026-02-02"
 
 subcollection: vpc
 
@@ -36,7 +36,7 @@ When you resize an instance, keep the following information in mind:
 
 Virtual servers that run on dedicated hosts can be resized only to profiles that are supported by the dedicated host that the instance is hosted on. For example, a virtual server that is provisioned with a profile from the Memory family can resize to other profiles that belong to the Memory family.
 
-Resizing virtual servers on dedicated hosts is not supported for LinuxONE (s390x processor architecture).
+ Resizing virtual servers on dedicated hosts is not supported for LinuxONE (s390x processor architecture).
 {: note}
 
 ## Resizing virtual servers with instance storage

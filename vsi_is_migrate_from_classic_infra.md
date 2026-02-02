@@ -1,8 +1,8 @@
 ---
 
 copyright:
-  years: 2020, 2025
-lastupdated: "2025-06-27"
+  years: 2020, 2026
+lastupdated: "2026-02-02"
 
 keywords: migrate virtual server from classic infrastructure, migrate to vpc, migrate image template, image template, import image to vpc infrastructure, migrate virtual server, migrate instance
 
@@ -18,7 +18,7 @@ subcollection: vpc
 You can migrate a virtual server instance from the Classic infrastructure to meet the {{site.data.keyword.vpc_short}} infrastructure requirements. Then, you can create an image template from the instance and deploy it in the VPC environment.
 {: shortdesc}
 
-Migrating a virtual server instance from the Classic infrastructure isn't supported for LinuxONE (s390x processor architecture).
+ Migrating a virtual server instance from the Classic infrastructure isn't supported for LinuxONE (s390x processor architecture).
 {: note}
 
 ## Before you begin
