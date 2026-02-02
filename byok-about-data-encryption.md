@@ -1,8 +1,8 @@
 ---
 
 copyright:
-  years: 2019, 2025
-lastupdated: "2025-09-23"
+  years: 2019, 2026
+lastupdated: "2026-02-02"
 
 keywords:
 
@@ -47,7 +47,7 @@ For end-to-end encryption in the {{site.data.keyword.cloud_notm}}, you can use c
 
 With customer-managed encryption, you can bring your own customer root key (CRK) to the cloud or have a [key management service](#kms-for-byok) (KMS) generate a key for you. Root keys are used to encrypt volume, file share, and custom image passphrases with [envelope encryption](#vpc-envelope-encryption-byok), a process that wraps a key with another key.
 
-Supported key management services are {{site.data.keyword.keymanagementserviceshort}} and {{site.data.keyword.hscrypto}} ({{site.data.keyword.hscrypto}}). After the key management service is provisioned, you must authorize access between the source service (for example, Cloud Block Storage, Cloud File Storage) and the KMS. For custom images, authorize between Image Service for VPC (source service) and {{site.data.keyword.cos_full_notm}} (target service). This authorization is required so that the image service has authority to import custom images from the {{site.data.keyword.cos_short}} bucket that contains your custom image.
+Supported key management services are {{site.data.keyword.keymanagementserviceshort}} and {{site.data.keyword.hscrypto}}. After the key management service is provisioned, you must authorize access between the source service (for example, Cloud Block Storage, Cloud File Storage) and the KMS. For custom images, authorize between Image Service for VPC (source service) and {{site.data.keyword.cos_full_notm}} (target service). This authorization is required so that the image service has authority to import custom images from the {{site.data.keyword.cos_short}} bucket that contains your custom image.
 
 When you use customer-managed encryption, you can use root keys to encrypt resources across regions. You can encrypt resources with a key that is stored in your regional KMS instance, and you can use root keys from another region. For best performance and security, colocate your KMS instance, root keys, and your encrypted resources in the same region. For more information, see [Root key regional and cross-regional considerations](#byok-cross-region-keys).
 
@@ -161,8 +161,8 @@ A unique master encryption key is assigned to block storage volumes and file sha
 Custom images are encrypted by your own LUKS passphrase that you create by using QEMU. After the image is encrypted, you wrap the passphrase with your root key that is stored in the KMS.
 
 For more information about envelope encryption, see the following documentation:
-* {{site.data.keyword.keymanagementserviceshort}} - [Protecting data with envelope encryption](/docs/key-protect?topic=key-protect-envelope-encryption)
-* {{site.data.keyword.hscrypto}} - [Protecting your data with envelope encryption](/docs/hs-crypto?topic=hs-crypto-envelope-encryption)
+* {{site.data.keyword.keymanagementserviceshort}} - [Protecting data with envelope encryption](/docs/key-protect?topic=key-protect-envelope-encryption).
+* {{site.data.keyword.hscrypto}} - [Protecting your data with envelope encryption](/docs/hs-crypto?topic=hs-crypto-envelope-encryption).
 
 ### Root key regional and cross-regional considerations
 {: #byok-cross-region-keys}
@@ -209,7 +209,7 @@ Figure 2 shows the procedure for creating a stand-alone volume and attaching it 
 
 You can create a QCOW2 custom image that meets the requirements for {{site.data.keyword.vpc_short}} infrastructure and [encrypt it](/docs/vpc?topic=vpc-create-encrypted-custom-image#manually-encrypt-image) by using your own LUKS passphrase and root key. After you encrypt the custom image with your own passphrase, you upload it to {{site.data.keyword.cos_full_notm}}.
 
-To import an encrypted custom image to {{site.data.keyword.vpc_short}}, begin by setting up a key management service (KMS) instance, either {{site.data.keyword.keymanagementserviceshort}} or {{site.data.keyword.hscrypto}}. In the KMS instance, you create a root key for wrapping (encrypting) the passphrase. Wrapping the passphrase produces a wrapped DEK (WDEK). The WDEK protects the passphrase at import time, keeping your data secure. (The passphrase is stored encrypted in the image service and unwrapped only when a virtual server that uses the encrypted image is started.)
+To import an encrypted custom image to {{site.data.keyword.vpc_short}}, begin by setting up a key management service (KMS) instance, either {{site.data.keyword.keymanagementserviceshort}} or {{site.data.keyword.hscrypto}}. In the KMS instance, create a root key for wrapping (encrypting) the passphrase. Wrapping the passphrase produces a wrapped DEK (WDEK). The WDEK protects the passphrase at import time, keeping your data secure. The passphrase is stored encrypted in the image service and unwrapped only when a virtual server that uses the encrypted image is started.
 
 With the required IAM authorizations in place, you can import the encrypted image from {{site.data.keyword.cos_full_notm}}. You import the image to the VPC and specify the cloud resource name (CRN) for your root key that is stored in the KMS. You also specify the ciphertext for your WDEK, which is the passphrase that you use to encrypt your image, wrapped by the root key.
 

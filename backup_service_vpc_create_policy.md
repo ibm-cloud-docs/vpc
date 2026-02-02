@@ -1,8 +1,8 @@
 ---
 
 copyright:
-  years: 2022, 2025
-lastupdated: "2025-11-11"
+  years: 2022, 2026
+lastupdated: "2026-02-02"
 
 keywords: Backup, backup snapshot, create backups, backup service, backup plan, backup policy, restore, restore volume, restore data, restore share
 
@@ -109,8 +109,8 @@ You can schedule backups in your plan on a daily, weekly, or monthly basis by us
    1. To create cross-regional copies of your backup, select the geography and regions where you want to have a copy. Remember, you can have only one copy per region.
    1. Click the toggle to enable remote copy in the selected region.
    1. If the source snapshot is encrypted by using a customer-managed key, you must select the encryption service instance and provide the key name. If you prefer, you can create a service instance or encryption key by following the links.
-      * {{site.data.keyword.keymanagementserviceshort}} - it can be used when the original back is encrypted by using the {{site.data.keyword.keymanagementserviceshort}} service.
-      * {{site.data.keyword.hscrypto}} - it can be used when the original back is encrypted by using the {{site.data.keyword.hscrypto}} service.
+      * {{site.data.keyword.keymanagementserviceshort}} - it can be used when the original volume is encrypted by using the {{site.data.keyword.keymanagementserviceshort}} service.
+      * {{site.data.keyword.hscrypto}} - it can be used when the original volume is encrypted by using the {{site.data.keyword.hscrypto}} service.
    1. Click **Apply changes** to save the new plan. The list of plans is updated in the policy details page.
 
 1. If you want to make any changes, click the **Edit icon** ![Edit icon](../icons/edit-tagging.svg "Edit") for that plan. If you want to delete the plan, click the delete icon.

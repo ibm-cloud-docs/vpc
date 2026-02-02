@@ -1,8 +1,8 @@
 ---
 
 copyright:
-  years: 2021, 2025
-lastupdated: "2025-10-29"
+  years: 2021, 2026
+lastupdated: "2026-02-02"
 
 keywords: image, virtual private cloud, boot volume, virtual server instance, instance
 

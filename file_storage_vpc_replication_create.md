@@ -1,8 +1,8 @@
 ---
 
 copyright:
-  years: 2022, 2025
-lastupdated: "2025-11-07"
+  years: 2022, 2026
+lastupdated: "2026-02-02"
 
 keywords: file share, file storage, source volume, replica share, 
 
@@ -106,7 +106,6 @@ Before you can use the CLI, you must install the IBM Cloud CLI and the VPC CLI p
 {: #fs-create-new-share-replica-cli}
 
 When you use the `ibmcloud is share-create` command to create your share, you can create a replica share at the same time by specifying values for the options `--replica-share-name`, `--replica-share-profile`, `--replica-share-cron-spec`,`--replica-share-zone`. The cron-spec specifies the replication frequency, and you can schedule to replicate your data as often as 15 minutes. For more information about the command options, see [`ibmcloud is share-create`](/docs/vpc?topic=vpc-vpc-reference#share-create).
-
 
 In the following example, a share `my-source-file-share` is created in `us-south-2` with a replica file share `my-replica-file-share` in `us-south-1`. In this example, only one mount target is created for the source file share. You could also create a mount target for the replica share by using the same JSON syntax with the `--replica-share-mount-targets` option.
 

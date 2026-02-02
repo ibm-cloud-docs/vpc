@@ -2,7 +2,7 @@
 
 copyright:
   years: 2022, 2026
-lastupdated: "2026-01-06"
+lastupdated: "2026-02-02"
 
 keywords: file share, customer-managed encryption, encryption, byok, KMS, Key Protect, Hyper Protect Crypto Services,
 
@@ -189,12 +189,12 @@ Before you can use the CLI, you must install the IBM Cloud CLI and the VPC CLI p
       {: screen}
 
       ```sh
-      $ ibmcloud is share-mount-targets my-encrypted-file-share 
-      Listing share mount target of my-encrypted-file-share in all resource groups and region us-south under account Test Account as user test.user@ibm.com...
+      ibmcloud is share-mount-targets my-encrypted-file-share 
       ```
       {: pre}
 
       ```json
+      Listing share mount target of my-encrypted-file-share in all resource groups and region us-south under account Test Account as user test.user@ibm.com...
       ID                                          Name                  VPC      Lifecycle state   Transit Encryption   
       r006-00432317-436e-4940-ab7d-8b26c186b00f   my-new-mount-target   my-vpc   stable            none 
       ```
@@ -206,6 +206,8 @@ Before you can use the CLI, you must install the IBM Cloud CLI and the VPC CLI p
       ibmcloud is share-create --name my-encrypted-eit-file-share --zone us-south-2 --profile dp2 --size 500 --iops 2000  --user-tags env:dev --encryption_key crn:v1:bluemix:public::kms:us-south:a/a1234567:key:2fb8d675-bde3-4780-b127-3d0b413631c1 --mount-targets '[{"name":"my-new-mount-target","transit_encryption": "user_managed","virtual_network_interface": {"name":"my-vni-3","subnet": {"id":"r006-298acd6c-e71e-4204-a04f-fe4a4dd89805"},"security_groups":[{"id":"r006-7f369ca2-ca49-4053-b007-5cab79b9873b"}]}}]'
       ```
       {: pre}
+
+      The response looks similar to the following example.
 
       ```json
       Creating file share my-encrypted-eit-file-share under account Test Account as user test.user@ibm.com...
@@ -246,6 +248,8 @@ Before you can use the CLI, you must install the IBM Cloud CLI and the VPC CLI p
       ```
       {: pre}
 
+      The response looks similar to the following example.
+
       ```json
       Listing share mount target of my-encrypted-eit-file-share in all resource groups and region us-south under account Test Account as user test.user@ibm.com...
 
@@ -260,6 +264,8 @@ Before you can use the CLI, you must install the IBM Cloud CLI and the VPC CLI p
       ibmcloud is share-create --name my-regional-file-share --profile rfs --size 40 --bandwidth 800 --atem stunnel,none --encryption-key crn:v1:bluemix:public::kms:us-south:a/a1234567:key:2fb8d675-bde3-4780-b127-3d0b413631c1
       ```
       {: pre}
+
+      The response looks similar to the following example.
 
       ```json  
       Creating file share my-file-share1 under account Test Account as user test.user@ibm.com...

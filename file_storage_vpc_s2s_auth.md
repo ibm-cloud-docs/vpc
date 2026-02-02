@@ -1,8 +1,8 @@
 ---
 
 copyright:
-  years: 2022, 2025
-lastupdated: "2025-12-22"
+  years: 2022, 2026
+lastupdated: "2026-02-02"
 
 keywords: Backup for VPC, backup service, backup plan, backup policy, restore, restore volume, restore data
 
@@ -196,10 +196,10 @@ Log in to the account that holds the instance of a Key Management Service ({{sit
 1. Create a JSON file with the following information for the authorization policies in your local Documents folder.
    ```json
    '{
-      "description":"Reader and Delegator role for HPCS service instance",
+      "description":"Reader and Delegator role for KeyProtect service instance",
       "resources": [{"attributes": [
             {"name": "KeyOwnerAccountID","value": "a/a1234567","operator": "stringEquals"},
-            {"name":"Hyper-Protect-Crypto-Services","operator":"stringEquals","value":"hs-crypto"}]}],   
+            {"name":"Hyper-Protect-Crypto-Services","operator":"stringEquals","value":"kms"}]}],   
       "roles": [
          {"role_id":"crn:v1:bluemix:public:iam::::role:AuthorizationDelegator"},
          {"role_id":"crn:v1:bluemix:public:iam::::serviceRole:Reader"}],
@@ -213,6 +213,7 @@ Log in to the account that holds the instance of a Key Management Service ({{sit
    {: codeblock}
 
 1. Then, run the following CLI command with the JSON file to create the authorization policy.
+
    ```sh
    ibmcloud iam authorization-policy-create --file ~/Documents/policy.json
    ```
@@ -280,6 +281,7 @@ As the share owner, create a JSON file and use it with the `ibmcloud iam authori
    {: pre}
 
 1. Then, run the CLI command with the JSON file to create the authorization policy.
+
    ```sh
    ibmcloud iam authorization-policy-create --file ~/Documents/policy.json
    ```
@@ -294,18 +296,24 @@ To authorize the file service to access your Key Management Service instance ({{
 * The following example shows how you can authorize the File service `is.share` (source) to interact with the {{site.data.keyword.keymanagementserviceshort}} service `kms` (target) with the _Reader_ role.
 
    ```sh
-   curl -X POST 'https://iam.cloud.ibm.com/v1/policies' -H 
-   'Authorization: Bearer $TOKEN' -H 
-   'Content-Type: application/json' -d 
-   '{
-     "type": "access",
-     "description": "Reader role for the file service to interact with the KeyProtect service.",
-     "subjects": [{"attributes": [{"name": "serviceName","value": "is"},{"name": "resourceType","value": "share"}]}],
-     "roles":[{"role_id": "crn:v1:bluemix:public:iam::::role:Reader"}],
-     "resources":[{"attributes": [{"name": "serviceName","value": "kms"}]}]
+   curl -X POST 'https://iam.cloud.ibm.com/v1/policies'\ 
+     -H 'Authorization: Bearer $TOKEN'\ 
+     -H 'Content-Type: application/json'\ 
+     -d '{
+        "type": "access",
+        "description": "Reader role for the file service to interact with the KeyProtect service.",
+        "subjects": [
+          {"attributes": [
+            {"name": "serviceName","value": "is"},
+            {"name": "resourceType","value": "share"}]}],
+     "roles":[
+        {"role_id": "crn:v1:bluemix:public:iam::::role:Reader"}],
+     "resources":[
+        {"attributes": [
+            {"name": "serviceName","value": "kms"}]}]
      }'
-     ```
-     {: pre}
+   ```
+   {: pre}
 
 * To create an authorization policy for {{site.data.keyword.hscrypto}}, replace `kms` with `hs-crypto` in the previous example.
 
@@ -320,13 +328,13 @@ curl -X POST "https://iam.cloud.ibm.com/v1/policies" \
      -H "Authorization: <Auth Token>" \
      -H 'Content-Type: application/json' \
      -d '{
-      "description":"Reader and Delegator role for HPCS service instance",
+      "description":"Reader and Delegator role for KeyProtect service instance",
       "resources": [{"attributes": [
             {"name": "KeyOwnerAccountID","value": "a/a1234567","operator": "stringEquals"},
-            {"name":"Hyper-Protect-Crypto-Services","operator":"stringEquals","value":"hs-crypto"}]}],   
+            {"name": "KeyProtect","operator":"stringEquals","value":"kms"}]}],   
       "roles": [
-         {"role_id":"crn:v1:bluemix:public:iam::::role:AuthorizationDelegator"},
-         {"role_id":"crn:v1:bluemix:public:iam::::serviceRole:Reader"}],
+         {"role_id": "crn:v1:bluemix:public:iam::::role:AuthorizationDelegator"},
+         {"role_id": "crn:v1:bluemix:public:iam::::serviceRole:Reader"}],
       "subjects": [
          {"name": "serviceName","value": "is"},
             {"name": "resourceType","value": "share"},
@@ -351,9 +359,16 @@ Make a request to the [IAM Policy Management API](/apidocs/iam-policy-management
      '{
        "type": "access",
        "description": "Editor role for the source share's regional file service to interact with replica share's regional file service.",
-       "subjects": [{"attributes": [{"name": "serviceName","value": "is"},{"name": "resourceType","value": "share"}]}],
-       "roles":[{"role_id": "crn:v1:bluemix:public:iam::::role:Editor"}],
-       "resources":[{"attributes": [{"name": "serviceName","value": "is"},{"name": "resourceType","value": "share"}]}]
+       "subjects": [
+         {"attributes": [
+           {"name": "serviceName","value": "is"},
+           {"name": "resourceType","value": "share"}]}],
+       "roles":[
+           {"role_id": "crn:v1:bluemix:public:iam::::role:Editor"}],
+       "resources":[
+           {"attributes": [{
+            "name": "serviceName","value": "is"},
+            "name": "resourceType","value": "share"}]}]
        }'
      ```
      {: pre}
@@ -370,13 +385,18 @@ As the share owner, make an API request to the [IAM Policy Management API](/apid
 curl -X POST "https://iam.cloud.ibm.com/v1/policies" \
      -H "Authorization: <Auth Token>" \
      -H 'Content-Type: application/json' \
-     -d '{
-        "roles": [{"role_id": "crn:v1:bluemix:public:iam::::role:ShareBroker","display_name": "Share Broker",
-                   "description": "As a share broker, you can create and delete share bindings"}],
-        "resources": [{"attributes": [
-            {"name": "accountId","value": "<origin share owner Account ID>","operator": "stringEquals"},
-            {"name": "serviceName","value": "is","operator": "share"},
-            {"name": "shareId","value": "<OriginShareId>","operator": "stringEquals"}]}],
+     -d '
+       {"roles": [
+          {"role_id": "crn:v1:bluemix:public:iam::::role:ShareBroker",
+           "display_name": "Share Broker",
+           "description": "As a share broker, you can create and delete share bindings"}
+           ],
+        "resources": [
+            {"attributes": [
+              {"name": "accountId","value": "<origin share owner Account ID>","operator": "stringEquals"},
+              {"name": "serviceName","value": "is","operator": "share"},
+              {"name": "shareId","value": "<OriginShareId>","operator": "stringEquals"}
+              ]}],
         "type": "authorization",
         "description": "ShareBroker role for File Storage for VPC cross-account share access",
         "subjects": [{"attributes": [
@@ -394,6 +414,7 @@ curl -X POST "https://iam.cloud.ibm.com/v1/policies" \
 Create an authorization policy between the file service and the key management services by using the `ibm_iam_authorization_policy` resource argument in your `main.tf` file.
 
 The following example creates an authorization policy between the file service and {{site.data.keyword.keymanagementserviceshort}} when applied. 
+
 ```terraform 
 resource "ibm_iam_authorization_policy" "mypolicy4keyprotect" {
   source_service_name  = "is"
@@ -405,6 +426,7 @@ resource "ibm_iam_authorization_policy" "mypolicy4keyprotect" {
 {: codeblock}
 
 The following example creates an authorization policy between the file service and {{site.data.keyword.hscrypto}} when applied.
+
 ```terraform 
 resource "ibm_iam_authorization_policy" "mypolicy4HPCS" {
   source_service_name  = "is"

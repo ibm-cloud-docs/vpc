@@ -1,8 +1,8 @@
 ---
 
 copyright:
-  years: 2022, 2025
-lastupdated: "2025-12-22"
+  years: 2022, 2026
+lastupdated: "2026-02-02"
 
 keywords:
 
@@ -54,11 +54,16 @@ curl -X POST "https://iam.cloud.ibm.com/v1/policies" \
      -H "Authorization: <Auth Token>" \
      -H 'Content-Type: application/json' \
      -d '{
-        "roles": [{"role_id": "crn:v1:bluemix:public:iam::::role:AuthorizationDelegator"},{"role_id": "crn:v1:bluemix:public:iam::::serviceRole:Reader"}],
-        "resources": [{"attributes":[{"name":"Account-A","operator":"stringEquals","value":"<CRK-Account-A-ID>"},{"name":"Key-Protect","operator":"stringEquals","value":"kms"}]}],
+        "roles": [
+           {"role_id": "crn:v1:bluemix:public:iam::::role:AuthorizationDelegator"},
+           {"role_id": "crn:v1:bluemix:public:iam::::serviceRole:Reader"}],
+        "resources": [
+           {"attributes":[{"name":"Account-A","operator":"stringEquals","value":"<CRK-Account-A-ID>"},
+           {"name":"Key-Protect","operator":"stringEquals","value":"kms"}]}],
         "type": "authorization",
         "description": "Reader and Delegator role for KeyProtect Service instance",
-        "subjects": [{"attributes": [{"name": "serviceName","value": "is"},{"name": "resourceType","value": "share"},{"name": "Account-B","value": "<Account-B-ID>"}]}]
+        "subjects": [
+           {"attributes": [{"name": "serviceName","value": "is"},{"name": "resourceType","value": "share"},{"name": "Account-B","value": "<Account-B-ID>"}]}]
         }'
 ```
 {: screen}

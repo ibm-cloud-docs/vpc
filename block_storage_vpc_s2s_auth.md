@@ -1,8 +1,8 @@
 ---
 
 copyright:
-  years: 2022, 2025
-lastupdated: "2025-12-22"
+  years: 2022, 2026
+lastupdated: "2026-02-02"
 
 keywords: Backup for VPC, backup service, backup plan, backup policy, restore, restore volume, restore data
 
@@ -111,7 +111,7 @@ Source service name:       server-protect
 Source service instance:   All instances
 Target service name:       kms
 Target service instance:   51042d7f-f0df-4915-bd39-6a49957c9175
-Roles:                     Reader
+Roles:                     Reader 
                            
 ID:                        605cb9b9-ba0d-456b-8c22-180abee66c47
 Source service name:       server-protect
@@ -133,11 +133,11 @@ When the authorization is needed for cross-account encryption, the authorization
 1. Create a JSON file with the following information for the authorization policies in your local Documents folder.
    ```json
    '{
-      "description":"Reader and Delegator role for HPCS service instance",
+      "description":"Reader and Delegator role for KeyProtect service instance",
       "resources": [
          {"attributes":[
             {"name":"Account-A-CRK","operator":"stringEquals","value":"<CRK-Account-A-ID>"},
-            {"name":"Hyper-Protect-Crypto-Services","operator":"stringEquals","value":"hs-crypto"}]}],
+            {"name":"Hyper-Protect-Crypto-Services","operator":"stringEquals","value":"kms"}]}],
       "roles": [
          {"role_id":"crn:v1:bluemix:public:iam::::role:AuthorizationDelegator"},
          {"role_id":"crn:v1:bluemix:public:iam::::serviceRole:Reader"}],
@@ -225,7 +225,7 @@ Make a request to the [IAM Policy Management API](/apidocs/iam-policy-management
      -H 'Content-Type: application/json' \
      -d '{
         "type":"authorization",
-        "description":"Reader and Delegator access to HPCS service instance",
+        "description":"Reader and Delegator access to KeyProtect service instance",
         "subjects": [
           {"attributes": 
             {"name":"Cloud Block Storage","value":"server-protect"},
@@ -234,12 +234,12 @@ Make a request to the [IAM Policy Management API](/apidocs/iam-policy-management
         "resources": [
           {"attributes":[
             {"name":"Account-A-CRK","operator":"stringEquals","value":"<CRK-Account-A-ID>"},
-            {"name":"Hyper-Protect-Crypto-Services","operator":"stringEquals","value":"hs-crypto"}]}],
+            {"name":"Hyper-Protect-Crypto-Services","operator":"stringEquals","value":"kms"}]}],
         }'
     ```
     {: codeblock}
 
-* To create an authorization policy for {{site.data.keyword.keymanagementserviceshort}}, replace `hs-crypto` with `kms` in the previous example.
+* To create an authorization policy for {{site.data.keyword.hscrypto}}, replace `kms` with `hs-crypto` in the previous example.
 
 The cross-account authorization is one-way and specific to key and service. When Account A authorizes their key to be used by Account B's file service, Account B can use Account A's CRK to encrypt Account B's shares. However, Account A cannot use Account B's root keys to encrypt Account A's shares.
 {: note}

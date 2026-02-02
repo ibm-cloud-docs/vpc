@@ -1,8 +1,8 @@
 ---
 
 copyright:
-  years: 2019, 2025
-lastupdated: "2025-12-19"
+  years: 2019, 2026
+lastupdated: "2026-02-02"
 
 keywords: creating an encrypted custom image, qcow2
 
@@ -164,7 +164,7 @@ To import an encrypted custom image to {{site.data.keyword.vpc_short}}, you need
 The following list is a summary of the key management prerequisites:
 * Provision a supported key management service, either [{{site.data.keyword.keymanagementserviceshort}}](/docs/key-protect?topic=key-protect-getting-started-tutorial) or [{{site.data.keyword.hscrypto}}](/docs/hs-crypto?topic=hs-crypto-get-started).
 * Import a customer root key (CRK) to the key management service or create one in the key management service.
-* Wrap (protect) the passphrase that you used to encrypt your image with your customer root key to create a wrapped data encryption key (WDEK). 
+* Wrap (protect) the passphrase that you used to encrypt your image with your customer root key to create a wrapped data encryption key (WDEK).
 
 The following example steps are specific to {{site.data.keyword.keymanagementserviceshort}}, but the general flow also applies to {{site.data.keyword.hscrypto}}. If you're using {{site.data.keyword.hscrypto}}, see the [{{site.data.keyword.hscrypto}} information](/docs/hs-crypto?topic=hs-crypto-get-started) for corresponding instructions.
 {: note}
