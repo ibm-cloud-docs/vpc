@@ -2,7 +2,7 @@
 
 copyright:
   years: 2025, 2026
-lastupdated: "2026-01-22"
+lastupdated: "2026-02-03"
 
 keywords: spot virtual server, spot virtual server instance, spot instance
 
@@ -89,7 +89,7 @@ See the following example of the properties in an API request.
 
 Preemption of a Spot instance is when the platform determines it is necessary to evict the spot instance. At the start of preemption, the preemption policy is applied and a best-effort preemption grace period of 30 seconds begins. At the end of this grace period, the spot instance is forcefully shut down.
 
-The preemption policy determines the behavior of the Spot instance when the instance is preempted. The `availability_policy.preemption` property when added to supported instances has a value of "stop" or "delete".
+The preemption policy determines the behavior of the Spot instance when the instance is preempted. The `availability_policy.preemption` property when added to supported instances has a value of "stop" or "delete". This property applies only to spot instances where `availability.class = spot`.
 
 * "stop" - the instance goes into the stopped state when the preemption completes. You can start the instance again or delete it.
 * "delete" - the instance is deleted when after preemption.
