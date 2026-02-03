@@ -1,8 +1,8 @@
 ---
 
 copyright:
-  years: 2022, 2025
-lastupdated: "2025-11-05"
+  years: 2022, 2026
+lastupdated: "2026-02-03"
 
 keywords: floating ip, about, public gateway
 
@@ -49,7 +49,7 @@ Creating a floating IP is a standard way for you to acquire external connectivit
 ### Use case: External connectivity
 {: #fip-use-case-external-connectivity}
 
-You can create and assign a floating IP to a virtual server instance to provide your service with outbound connectivity to a third-party vendor service or external service. One floating IP can be assigned to multiple virtual server instances and subnets.
+A floating IP can be assigned to a virtual server instance or subnet at a time. The same floating IP can be unassigned and reassigned to different virtual server instances or subnets, but it can be bound to only one network interface at any given time.
 
 The following diagram demonstrates the difference in applying external connectivity to a service through a public gateway and a floating IP address. In this scenario, three virtual server instances are connecting to services and customers through a public gateway and floating IP address.
 
