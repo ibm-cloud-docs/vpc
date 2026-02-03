@@ -2,7 +2,7 @@
 
 copyright:
   years: 2019, 2026
-lastupdated: "2026-01-29"
+lastupdated: "2026-02-02"
 
 keywords: api, change log, new features, restrictions, migrations
 
