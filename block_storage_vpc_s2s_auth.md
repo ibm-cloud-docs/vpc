@@ -45,7 +45,7 @@ When the authorization is needed for cross-account encryption, the authorization
 1. For the source service, select **Cloud Block Storage** from the list. Click **Next**.
    1. Select the scope by clicking **All resources**.
    1. Click **Next**.
-1. For the target service, select **Hyper Protect Crypto Services** or  **KeyProtect** from the list.
+1. For the target service, select **Hyper Protect Crypto Services** or **KeyProtect** from the list.
 1. Select the role `Reader`.
 1. Check the box to enable authorization to be delegated by source and dependent services.
 1. Click **Review** and inspect your choices.
