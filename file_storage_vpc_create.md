@@ -1,8 +1,8 @@
 ---
 
 copyright:
-  years: 2021, 2025
-lastupdated: "2025-11-20"
+  years: 2021, 2026
+lastupdated: "2026-02-03"
 
 keywords: file share, file storage, virtual network interface, encryption in transit, profiles, 
 
@@ -17,9 +17,6 @@ subcollection: vpc
 
 Create [zonal and regional file shares](/docs/vpc?topic=vpc-file-storage-vpc-about) and [mount targets](/docs/vpc?topic=vpc-file-storage-vpc-about#fs-share-mount-targets) in the console, CLI, API, or Terraform. You can select their data availability, location, custom capacity, and performance level. You can assign the file share and mount target to a [security group](/docs/vpc?topic=vpc-using-security-groups), apply tags, and enable customer-managed encryption at [rest](/docs/vpc?topic=vpc-vpc-encryption-about) and [in-transit](/docs/vpc?topic=vpc-file-storage-vpc-eit).
 {: shortdesc}
-
-Before you get started, and try to create mount targets for file shares, make sure that you created a [VPC](/docs/vpc?topic=vpc-creating-a-vpc-using-the-ibm-cloud-console).
-{: important}
 
 You can create file shares and mount targets either of the following ways:
 

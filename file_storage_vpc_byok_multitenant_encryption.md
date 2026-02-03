@@ -2,7 +2,7 @@
 
 copyright:
   years: 2022, 2026
-lastupdated: "2026-02-02"
+lastupdated: "2026-02-03"
 
 keywords:
 
@@ -16,7 +16,7 @@ subcollection: vpc
 {: #file-storage-byok-cross-acct}
 
 {{site.data.keyword.filestorage_vpc_short}} supports cross-account customer-managed encryption. {{site.data.keyword.vpc_full}} customers can authorize access to a customer root key (CRK) for users of another account. Then, those users can use the CRK to encrypt a new file share in their own account.
-{: shortdesc} 
+{: shortdesc}
 
 ## About cross-account key access and use
 {: #byok-cross-acct-about}
