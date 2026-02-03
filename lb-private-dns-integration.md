@@ -1,8 +1,8 @@
 ---
 
 copyright:
-  years: 2022, 2025
-lastupdated: "2025-08-04"
+  years: 2022, 2026
+lastupdated: "2026-02-03"
 
 keywords:
 
@@ -15,15 +15,15 @@ subcollection: vpc
 # Integrating an application load balancer with IBM Cloud DNS Services
 {: #lb-dns}
 
-{{site.data.keyword.cloud}} Application Load Balancer for VPC allows you to bind a DNS zone from [IBM Cloud DNS Services](/docs/dns-svcs?topic=dns-svcs-getting-started) to move all DNS resolutions into private networks.
+With {{site.data.keyword.cloud}} Application Load Balancer for VPC, you can bind a DNS zone from [IBM Cloud DNS Services](/docs/dns-svcs?topic=dns-svcs-getting-started) to move all DNS resolutions into private networks.
 {: shortdesc}
 
-{{site.data.keyword.cloud_notm}} DNS Services provides private DNS to VPC users. Private DNS zones are resolvable only on {{site.data.keyword.cloud_notm}}, and only from explicitly permitted networks in an account or with cross-account access.
+{{site.data.keyword.cloud_notm}} DNS Services provides private DNS to VPC users. Private DNS zones are resolvable only on {{site.data.keyword.cloud_notm}}, and only from networks that are explicitly permitted in an account or networks with cross-account access.
 
-Do not remove or modify the DNS records created by the load balancer. Doing so can result in your private DNS and load balancer configurations becoming out of sync, which can cause data path issues.
+Do not remove or modify the DNS records created by the load balancer. Doing so can cause your private DNS and load balancer configurations to be out of sync, resulting in data path issues.
 {: attention}
 
-For more information about linking your own private DNS record name to a load balancer, refer to the solution tutorial [Team based privacy using IAM, VPC, Transit Gateway and DNS](/docs/vpc?topic=vpc-vpc-tg-dns-iam&interface=ui).
+For more information about linking a private DNS record name to a load balancer, see [Team-based privacy using IAM, VPC, Transit Gateway, and DNS](/docs/vpc?topic=vpc-vpc-tg-dns-iam&interface=ui).
 {: tip}
 
 ## Before you begin
@@ -31,31 +31,52 @@ For more information about linking your own private DNS record name to a load ba
 
 Before binding DNS zones to load balancers, you must first create DNS zones and grant load balancer access.
 
-1. DNS zones must be created before they can be bound to a load balancer. For more information, see [Managing DNS zones](/docs/dns-svcs?topic=dns-svcs-managing-dns-zones).
+1. Create DNS zones to bind to a load balancer. For more information, see [Managing DNS zones](/docs/dns-svcs?topic=dns-svcs-managing-dns-zones).
 
-1. To give a load balancer access to your DNS zone, you must enable service-to-service authorization. This grants your load balancer access to the DNS zone. For more information, see [Granting access between services](/docs/account?topic=account-serviceauth&interface=ui#create-auth). Make sure to choose **VPC Infrastructure Services** as the source service, **Load Balancer for VPC** as the resource type, **DNS Services** as the target service, and assign the **Manager** service access role.
+1. To give a load balancer access to your DNS zone, enable service-to-service authorization, which grants your load balancer access to the DNS zone. For more information, see [Granting access between services](/docs/account?topic=account-serviceauth&interface=ui#create-auth). Make sure to choose **VPC Infrastructure Services** as the source service, **Load Balancer for VPC** as the resource type, **DNS Services** as the target service, and assign the **Manager** service access role.
+
+
+You can use DNS zones in the same account or across different accounts. When binding DNS zones across different accounts, enable service-to-service authorization in the target account where the DNS zone is hosted, mentioning the source account where the load balancer exists. 
+{: note}
+
+For example, if you have a load balancer in Account A and a DNS zone in Account B, you must create service-to-service authorization in account B mentioning the source as Account A. Then, as indicated in step 2, choose **VPC Infrastructure Services** as the source service. Select **Load Balancer for VPC** as the resource type, **DNS Services** as the target service, and assign the **Manager** service access role.
 
 ## Working with DNS zones in the console
 {: #dns-zones-ui}
 {: ui}
 
-You can bind and unbind DNS zones to an application load balancer during provisioning, or to an existing load balancer.
+You can bind and unbind DNS zones to a new application load balancer during provisioning, or to an existing load balancer.
 
 ### Binding DNS zones when creating a load balancer in the console
 {: #create-lb-with-dns-zone-ui}
 
 You can bind a DNS zone to a load balancer when you create a load balancer. If you do not specify a DNS zone during load balancer creation, the default zone is used. By default, the load balancer hostname is a subdomain of `lb.appdomain.cloud` and is publicly visible.
 
-To bind a DNS zone when [creating a load balancer](/docs/vpc?topic=vpc-load-balancers), follow these steps:
+To bind a DNS zone when you [create a load balancer](/docs/vpc?topic=vpc-load-balancers), follow these steps:
 
 1. From your browser, open the [{{site.data.keyword.cloud_notm}} console](/login){: external} and log in to your account.
 1. Select the **Navigation menu** ![Menu icon](../icons/icon_hamburger.svg), then click **Infrastructure** ![VPC icon](../../icons/vpc.svg) > **Network** > **Load balancers**.
 1. Click **Create**.
 1. Configure the VPC, type, subnet, listeners, and pools as needed.
 1. Under the DNS type section, choose **Private**.
-2. Click **Bind+** to enter DNS instance, and DNS zone information.
-3. Click **Create** to provision the load balancer.
+1. Click **Bind** to enter DNS instance, and DNS zone information.
+1. Click **Create** to provision the load balancer.
 
+### Binding a DNS zone when creating a load balancer in the console (Cross-Account)
+{: #create-lb-with-dns-zone-ui-cross-account}
+
+To bind a DNS zone when you [create a load balancer](/docs/vpc?topic=vpc-load-balancers) cross-account, follow these steps:
+
+1. Make sure that service-to-service authorization is provided.
+2. From your browser, open the [{{site.data.keyword.cloud_notm}} console](/login){: external} and log in to your account.
+1. Select the **Navigation menu** ![Menu icon](../icons/icon_hamburger.svg), then click **Infrastructure** ![VPC icon](../../icons/vpc.svg) > **Network** > **Load balancers**.
+1. Click **Create**.
+1. Configure the VPC, type, subnet, listeners, and pools as needed.
+1. Under the DNS type section, choose **Private**.
+1. Select **Specify instance option** and provide the DNS CRN and Zone ID.
+1. Click **Bind** to bind the DNS zone to your load balancer.
+1. Click **Create** to provision the load balancer.
+   
 ### Binding a DNS zone to an existing load balancer in the console
 {: #binding-dns-zone-to-lb-ui}
 
@@ -63,15 +84,26 @@ To bind a DNS zone to an existing load balancer, follow these steps:
 
 1. From your browser, open the [{{site.data.keyword.cloud_notm}} console](/login){: external} and log in to your account.
 1. Select the **Navigation menu** ![Menu icon](../icons/icon_hamburger.svg), then click **Infrastructure** ![VPC icon](../../icons/vpc.svg) > **Network** > **Load balancers**.
-1. From the list of load balancers, select the load balancer to view its details page.
-1. Click **Bind private DNS** in the Private DNS section.
-1. Enter the DNS instance, and DNS zone information.
-1. Click **Bind private DNS** to bind the DNS zone to your load balancer.
+1. From the list of load balancers, select the load balancer to view its details page. Navigate to the Attached resources section and scroll to the end of the page.
+1. Click **Bind** in the Private DNS section.
+1. Select the DNS instance, and DNS zone information. 
+1. Click **Bind** to bind the DNS zone to your load balancer.
 
-When migrating to a private DNS zone for an existing load balancer, the default A records in `lb.appdomain.cloud` are removed. To prepare your client devices, create a CNAME record with the default hostname under the wanted private DNS zone before the migration. After configuring all client devices to use the new private DNS zone, you can then delete the CNAME record and begin the migration. This allows the client devices to cache the private DNS hostname until the A records are created.
+When you migrate to a private DNS zone for an existing load balancer, the default A records in `lb.appdomain.cloud` are removed. To prepare your client devices, create a CNAME record with the default hostname under the wanted private DNS zone before the migration. After you configure all client devices to use the new private DNS zone, you can then delete the CNAME record and begin the migration. This CNAME record, created before the migration, allows the client devices to cache the private DNS hostname until the A records are created.
 {: tip}
 
-### Unbinding a DNS zone to an existing load balancer in the console
+### Binding a DNS zone to an existing load balancer in the console (cross-account)
+{: #binding-dns-zone-to-lb-ui-cross-account}
+
+To bind a DNS zone to an existing load balancer cross-account, follow these steps:
+
+1. After ensuring that service-to-service authorization is provided, from your browser, open the [{{site.data.keyword.cloud_notm}} console](/login){: external} and log in to your account.
+1. Select the **Navigation menu** ![Menu icon](../icons/icon_hamburger.svg), then click **Infrastructure** ![VPC icon](../../icons/vpc.svg) > **Network** > **Load balancers**.
+1. From the list of load balancers, select the load balancer to view its details page. Navigate to the "Attached resources" section and scroll to the end of the page.
+1. Select "Specify instance" option and provide DNS CRN and Zone ID. 
+1. Click **Bind** to bind the DNS zone to your load balancer.
+
+### Unbinding a DNS zone from an existing load balancer in the console
 {: #unbinding-dns-zone-to-lb-ui}
 
 To unbind a DNS zone from a load balancer, follow these steps:
@@ -79,7 +111,7 @@ To unbind a DNS zone from a load balancer, follow these steps:
 1. From your browser, open the [{{site.data.keyword.cloud_notm}} console](/login){: external} and log in to your account.
 1. Select the **Navigation menu** ![Menu icon](../icons/icon_hamburger.svg), then click **Infrastructure** ![VPC icon](../../icons/vpc.svg) > **Network** > **Load balancers**.
 1. From the list of load balancers, select the load balancer to view its details page.
-1. Click the **Unbind** button in the Private DNS section
+1. Click **Unbind** in the Private DNS section
 1. Verify the action by clicking **Unbind** again.
 
 ## Working with DNS zones from the CLI
@@ -88,11 +120,14 @@ To unbind a DNS zone from a load balancer, follow these steps:
 
 You can bind and unbind DNS zones to an application load balancer during provisioning, or to an existing load balancer.
 
-### Creating a load balancer bound to a private DNS zone from the CLI
+You can use DNS zones in the same account or across different accounts. When binding DNS zones across different accounts, enable service-to-service authorization in the target account where the DNS zone is hosted, mentioning the source account where the load balancer exists. 
+{: note}
+
+### Creating a load balancer that is bound to a private DNS zone from the CLI
 {: #create-lb-with-dns-zone-cli}
 
-You need the CRN of the private DNS that you want to bind to your load balancer. To find it, click **Navigation menu** ![Menu icon](../../icons/icon_hamburger.svg) > **Resource List** from the {{site.data.keyword.cloud_notm}} console. Click the table row of the DNS whose CRN you want to find. The CRN is shown in the side panel that appears.
-{: tip}
+You need the CRN of the DNS Services instance that you want to bind to your load balancer. To find it, click **Navigation menu** ![Menu icon](../../icons/icon_hamburger.svg) > **Resource List** from the {{site.data.keyword.cloud_notm}} console. Click the table row of the DNS whose CRN you want to find. The CRN is shown in the side window that appears.
+{: attention}
 
 To create an application load balancer with a private DNS zone, follow these steps:
 
@@ -150,13 +185,13 @@ UDP Supported                false
 ### Binding an existing load balancer to a private DNS zone from the CLI
 {: #binding-dns-zone-to-lb-cli}
 
-You need the CRN of the private DNS that you want to bind to your load balancer. To find it, click **Navigation Menu** ![Navigation Menu icon](../../icons/icon_hamburger.svg) > **Resource List** from the {{site.data.keyword.cloud_notm}} console. Click the table row of the DNS whose CRN you want to find. The CRN is shown in the side panel that appears.
-{: tip}
+You need the CRN of the DNS Services instance that you want to bind to your load balancer. To find it, click **Navigation Menu** ![Navigation Menu icon](../../icons/icon_hamburger.svg) > **Resource List** from the {{site.data.keyword.cloud_notm}} console. Click the table row of the DNS whose CRN you want to find. The CRN is shown in the side window that appears.
+{: attention}
 
 To use the CLI to update an application load balancer with a private DNS zone, follow these steps:
 
 1. Set up your CLI environment.
-1. Log in to your account using the CLI. After you enter the password, the system prompts which account and region that you want to use:
+1. Log in to your account by using the CLI. After you enter the password, the system prompts which account and region that you want to use:
 
    ```sh
    ibmcloud login --sso
@@ -270,11 +305,14 @@ UDP Supported                false
 
 You can bind and unbind DNS zones to an application load balancer during provisioning, or to an existing load balancer.
 
-### Creating a load balancer bound to a private DNS zone with the API
+You can use DNS zones in the same account or across different accounts. When binding DNS zones across different accounts, enable service-to-service authorization in the target account where the DNS zone is hosted, mentioning the source account where the load balancer exists. 
+{: note}
+
+### Creating a load balancer that is bound to a private DNS zone with the API
 {: #create-lb-with-dns-zone-api}
 
-You need the CRN of the private DNS that you want to bind to your load balancer. To find it, click **Navigation Menu** ![Navigation Menu icon](../../icons/icon_hamburger.svg) > **Resource List** from the {{site.data.keyword.cloud_notm}} console. Click the table row of the DNS whose CRN you want to find. The CRN is shown in the side panel that appears.
-{: tip}
+You need the CRN of the DNS Services instance that you want to bind to your load balancer. To find it, click **Navigation Menu** ![Navigation Menu icon](../../icons/icon_hamburger.svg) > **Resource List** from the {{site.data.keyword.cloud_notm}} console. Click the table row of the DNS whose CRN you want to find. The CRN is shown in the side window that appears.
+{: attention}
 
 To specify a private DNS zone during creation:
 
@@ -369,13 +407,12 @@ Sample output:
 ### Binding an existing load balancer to a private DNS zone with the API
 {: #binding-dns-zone-to-lb-api}
 
-You need the CRN of the private DNS that you want to bind to your load balancer. To find it, click **Navigation Menu** ![Navigation Menu icon](../../icons/icon_hamburger.svg) > **Resource List** from the {{site.data.keyword.cloud_notm}} console. Click the table row of the DNS whose CRN you want to find. The CRN is shown in the side panel that appears.
-{: tip}
-
+You need the CRN of the DNS Services instance that you want to bind to your load balancer. To find it, click **Navigation Menu** ![Navigation Menu icon](../../icons/icon_hamburger.svg) > **Resource List** from the {{site.data.keyword.cloud_notm}} console. Click the table row of the DNS whose CRN you want to find. Locate the CRN in the side window that appears.
+{: attention}
 
 To use the API to bind an existing load balancer to a private DNS zone:
 
-Specify the `dns` information in the `PATCH /load_balancers` call. For more information about this `PATCH` payload, see [Creating an application load balancer with the API](/docs/vpc?topic=vpc-load-balancers&interface=api#lb-api-creating-application-load-balancer).
+Specify the `dns` information in the `PATCH /load_balancers` call. For more information about this `PATCH` payload, see [Updating an application load balancer with the API](/docs/vpc?topic=vpc-alb-updating&interface=api#alb-updating-frontend-listener-port-api).
 {: note}
 
 ```sh
@@ -476,7 +513,7 @@ Sample output:
 
 To use the API to unbind an existing load balancer to a private DNS zone:
 
-Specify null `dns` information in the `PATCH /load_balancers call`. For more information about this `PATCH` payload, see [Creating an application load balancer with the API](/docs/vpc?topic=vpc-load-balancers&interface=api#lb-api-creating-application-load-balancer).
+Specify null `dns` information in the `PATCH /load_balancers call`. For more information about this `PATCH` payload, see [Updating an application load balancer with the API](/docs/vpc?topic=vpc-alb-updating&interface=api#alb-updating-frontend-listener-port-api).
 {: note}
 
 ```sh
