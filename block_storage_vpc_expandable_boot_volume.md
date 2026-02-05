@@ -1,8 +1,8 @@
 ---
 
 copyright:
-  years: 2022, 2025
-lastupdated: "2025-12-10"
+  years: 2022, 2026
+lastupdated: "2026-02-05"
 
 keywords: Block Storage, boot volume, data volume, volume, data storage, virtual server instance, instance, expandable volume
 
@@ -15,7 +15,7 @@ subcollection: vpc
 # Increasing capacity of a {{site.data.keyword.block_storage_is_short}} boot volume
 {: #resize-boot-volumes}
 
-You can increase the capacity in of your boot volumes up to 250 GB during and after instance provisioning in the console, from the CLI, with the API, or Terraform. For first-generation boot volumes, you can increase the capacity when the volumes are attached to a running virtual server instance. The capacity of second-generation boot volumes can be increased even if the volumes are not attached to a running instance. The steps for increasing the capacity are the same for all volume profiles.
+You can increase the capacity of your boot volumes up to 250 GB during and after instance provisioning in the console, from the CLI, with the API, or Terraform. For first-generation boot volumes, you can increase the capacity when the volumes are attached to a running virtual server instance. The capacity of second-generation boot volumes can be increased even if the volumes are not attached to a running instance. The steps for increasing the capacity are the same for all volume profiles.
 {: shortdesc}
 
 ## Increase boot volume capacity in the console
@@ -27,7 +27,7 @@ Increase boot volume capacity for new or existing instances in the console. For 
 ### Increase boot volume capacity during instance provisioning in the console
 {: #resize-boot-vol-new-instance-ui}
 
-When you create an instance from either a stock or custom image, you can increase the size of the boot volume. For example, a stock image would show 100 GB by default. You can modify the size up to 250 GB. For more information about creating virtual server instances, see [Creating virtual server instances in the console](/docs/vpc?topic=vpc-creating-virtual-servers&interface=ui).
+When you create an instance with a stock or custom image, the boot volume capacity must be equal to or larger than the minimum provisioned size of the image. For example, a stock image would show 100 GB by default. You can increase the boot volume size up to 250 GB while using that image. For more information about creating virtual server instances, see [Creating virtual server instances in the console](/docs/vpc?topic=vpc-creating-virtual-servers&interface=ui).
 
 You can also specify a larger boot volume capacity when you create an instance template. For more information, see [Creating an instance template](/docs/vpc?topic=vpc-creating-auto-scale-instance-group&interface=ui#creating-instance-template).
 

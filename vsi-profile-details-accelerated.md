@@ -2,7 +2,7 @@
 
 copyright:
   years: 2024, 2026
-lastupdated: "2026-01-02"
+lastupdated: "2026-02-05"
 
 keywords: vsi, virtual server, virtual server instances, profile, profiles, gpu, accelerated, h100, h200, l4, l40s
 
@@ -266,6 +266,7 @@ The following table lists the available regions and universal zones for the Hopp
 | Frankfurt (`eu-de`)       | `eu-de-fra04-a`   | Yes             |
 | London (`eu-gb`)          | `eu-gb-lon05-a`   | No              |
 | Sydney (`au-syd`)         | `au-syd-syd05-a`  | No              |
+| Chennai (`in-che`)        | `in‑che‑che02‑a`  | No              |
 {: caption="Supported regions and zones" caption-side="bottom"}
 
 For more information about regions and universal zones, see [Regions](/docs/overview?topic=overview-locations#regions). You can review the assigned zone mapping for an account on the [VPC Infrastructure Overview](/infrastructure/overview#endpoints) page in the Endpoint section. The zone mapping shows how the zone corresponds to the universal zone name that represents the physical location.

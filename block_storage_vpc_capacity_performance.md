@@ -1,8 +1,8 @@
 ---
 
 copyright:
-  years: 2019, 2025
-lastupdated: "2025-12-10"
+  years: 2019, 2026
+lastupdated: "2026-02-05"
 
 keywords:
 
@@ -25,7 +25,7 @@ Choosing the optimal Block Storage volume size and performance level for your wo
 
 When you choose the second-generation `sdp` profile, you can provision second-generation data volumes up to 32,000 GB.
 
-When you select a first-generation [storage profile](/docs/vpc?topic=vpc-block-storage-profiles#tiers), you can specify 10-16,000 GB of capacity in 1 GB increments. 
+When you select a first-generation [storage profile](/docs/vpc?topic=vpc-block-storage-profiles#tiers), you can specify 10-16,000 GB of capacity in 1 GB increments.
 
 Boot volumes are 100 GB by default. If you provision an instance with a custom image or a snapshot, you can specify a boot volume capacity up to 250 GB.
 
@@ -36,7 +36,7 @@ When you provision {{site.data.keyword.block_storage_is_short}} volumes, you spe
 
 You can provision volumes with the [SSD defined performance profile](/docs/vpc?topic=vpc-block-storage-profiles#defined-performance-profile) with custom IOPS in the range of 3000 - 64,000 IOPS. An IOPS level of over 48,000 can be achieved when the new volume is attached to a virtual server instance with a [3rd generation instance profile](/docs/vpc?topic=vpc-profiles&interface=ui#next-gen-profiles). In addition to custom capacity and IOPS, you can also specify a custom throughput limit for a second-generation volume. The provisioned bandwidth limit can be set anywhere in the range of 125-1024 MBps (1000-8192 Mbps).
 
-In the first-generation volume profiles, three predefined tiered profiles are available, or you can choose a custom profile. [Profiles in the tiered family](/docs/vpc?topic=vpc-block-storage-profiles#tiers) provide pre-defined IOPS/GB performance for volumes up to 16,000 GB capacity. A [Custom](/docs/vpc?topic=vpc-block-storage-profiles#custom) profile defines ranges of volume capacity and IOPS that you can select. 
+In the first-generation volume profiles, three predefined tiered profiles are available, or you can choose a custom profile. [Profiles in the tiered family](/docs/vpc?topic=vpc-block-storage-profiles#tiers) provide pre-defined IOPS/GB performance for volumes up to 16,000 GB capacity. A [Custom](/docs/vpc?topic=vpc-block-storage-profiles#custom) profile defines ranges of volume capacity and IOPS that you can select.
 
 All of these profiles are backed by solid-state drives (SSDs).
 

@@ -2,7 +2,7 @@
 
 copyright:
   years: 2018, 2026
-lastupdated: "2026-02-02"
+lastupdated: "2026-02-05"
 
 keywords: virtual server instances, VSI, compute, virtual machines, planning, best practices, instances, virtual servers, virtual server instance, Virtual servers for VPC, gen 2, generation 2, infrastructure, infrastructure as a service, IaaS, vsi
 
@@ -20,7 +20,7 @@ subcollection: vpc
 With virtual server instances for {{site.data.keyword.vpc_short}}, you can quickly provision instances with high network performance. When you provision an instance, you select a profile that matches the amount of memory and compute power that you need for the application that you plan to run on the instance. Instances are available on:
 
 -  x86 architecture
--   s390x architecture 
+-   s390x architecture
 
 After you provision an instance, you control and manage those infrastructure resources.
 

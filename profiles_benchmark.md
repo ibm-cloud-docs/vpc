@@ -1,7 +1,7 @@
 ---
 copyright:
   years: 2022, 2026
-lastupdated: "2026-02-02"
+lastupdated: "2026-02-05"
 
 keywords: benchmark, benchmark scores
 
@@ -19,20 +19,20 @@ Linux&reg; and Windows&reg; benchmark scores are measured on high-performance vi
 
 While the current benchmark results are for Compute instance profiles, we expect the CoreMark scores to be similar for Balanced and Memory instance profiles with the same CPU count.
 
-## Compute virtual server profiles
+## Compute x2 profiles
 {: #compute_virutal_server_profiles_benchmark}
 
-Compute profiles offer a core to RAM ratio of 1 vCPU to 2 GiB of RAM ratio and are best for moderate to high web traffic workloads. Compute profiles are best for workloads with intensive CPU demands, such as high web traffic workloads, production batch processing, and front-end web servers.
+Compute x2 profiles offers core to RAM ratio of 1 vCPU to 2 GiB. Compute cx2 profiles are best for workloads with intensive CPU demands, such as high web traffic workloads, production batch processing, and front-end web servers.
 
-You can provision virtual servers on Compute hosts with Broadwell, Skylake, or Cascade Lake processor types. The benchmark tests are run on all CPU types. The following tables show the benchmark scores for Linux and Windows virtual server Compute instance profiles.
+You can provision virtual servers on Compute hosts with Broadwell, Skylake, Cascade Lake and Sapphire Rapid processor types. The benchmark tests are run on all CPU types. The following tables show the benchmark scores for Linux and Windows virtual server Compute instance profiles.
 
 | Profile | CPU | CPU MHz | vCPUs | Score | Standard Deviation (%) | Sample Count |
-|-------------|-------------|-------------|-------------|-------------|-------------|-------------|
+| ------------- | ------------- | ------------- | ------------- | ------------- | ------------- | ------------- |
 | cx2-2x4 | Broadwell | 2095.170 | 2 | 24690.74 | 3.76 | 2160 |
 | cx2-4x8 | Broadwell | 2095.148 | 4 | 49126.78 | 2.08 | 1560 |
 | cx2-8x16 | Broadwell | 2095.148 | 8 | 99210.04 | 1.47 | 1070 |
 | cx2-16x32 | Broadwell | 2095.148 | 16 | 197633.25 | 1.38 | 735 |
-| cx2-32x64 |  Broadwell |2095.148  | 32 | 389354.87 | 1.01 | 2600 |
+| cx2-32x64 | Broadwell | 2095.148 | 32 | 389354.87 | 1.01 | 2600 |
 | cx2-48x96 | Broadwell | 2095.148 | 48 | 579164.89 | 1.81 | 3150 |
 | cx2-2x4 | Skylake | 2593.910 | 2 | 33762.35 | 3.05 | 1180 |
 | cx2-4x8 | Skylake | 2593.910 | 4 | 64204.93 | 1.86 | 1010 |
@@ -53,7 +53,7 @@ You can provision virtual servers on Compute hosts with Broadwell, Skylake, or C
 {: tab-group="x2-instance-profiles-benchmark"}
 
 | Profile | CPU | CPU MHz | vCPUs | Score | Standard Deviation (%) | Sample Count |
-|-------------|-------------|-------------|-------------|-------------|-------------|-------------|
+| ------------- | ------------- | ------------- | ------------- | ------------- | ------------- | ------------- |
 | cx2-2x4 | Broadwell | 2095 | 2 | 24856.04 | 1.13 | 2980 |
 | cx2-4x8 | Broadwell | 2095 | 4 | 49812.16 | 1.18 | 1980 |
 | cx2-8x16 | Broadwell | 2095 | 8 | 99004.92 | 1.74 | 1619 |
@@ -83,4 +83,4 @@ You can provision virtual servers on Compute hosts with Broadwell, Skylake, or C
 
 The CoreMark benchmark is created in [PerforKitBenchmarker](https://github.com/GoogleCloudPlatform/PerfKitBenchmarker), an open source cloud benchmarking framework with [ibmcloud provider](https://github.com/GoogleCloudPlatform/PerfKitBenchmarker/tree/master/perfkitbenchmarker/providers/ibmcloud), which is contributed by {{site.data.keyword.cloud}} engineers.
 
-For Linux measurements, virtual servers are created with the Red Hat version 8.4 image in the {{site.data.keyword.cloud}} public catalog. For Windows measurements, servers are created with the Windows Server 2019 image.
+For the cx2 profile Linux measurements, virtual servers are created with the Red Hat version 8.4 image in the {{site.data.keyword.cloud}} public catalog and for Windows measurements, servers are created with the Windows Server 2019 image.
