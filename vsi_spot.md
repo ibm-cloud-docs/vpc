@@ -2,7 +2,7 @@
 
 copyright:
   years: 2025, 2026
-lastupdated: "2026-02-03"
+lastupdated: "2026-02-05"
 
 keywords: spot virtual server, spot virtual server instance, spot instance
 
@@ -103,6 +103,43 @@ You are notified of a preemption in two ways.
 
 Spot instances that are deleted due to scaling down with an instance group aren't considered preempted so the preemption policy is ignored.
 {: note}
+
+When a spot instance is preempted, a graceful shutdown command is sent to the spot instance operating system. This shutdown request can be intercepted and a shutdown script can run by creating the shutdown script and adding it to a `systemd` service file. An example script is at `usr/local/bin/ibm-cloud-shutdown-script.sh`.
+
+```bash
+#!/bin/bash
+OUTPUT_FILE="/tmp/counter.out"
+counter=0
+while true; do
+    echo "$counter" > "$OUTPUT_FILE"
+    ((counter++))
+    sleep 1
+done
+```
+{: codeblock}
+
+This script is a placeholder for running a shutdown. To run the script from the `systemd` service file, add the path to your script in the **ExecStop** field of the service file as shown in the following example.
+
+Example `systemd` service file that is at `/etc/systemd/system/ibm-cloud-shutdown-script.service`:
+
+```text
+[Unit]
+Description=IBM Cloud Shutdown Script
+Wants=network-online.target rsyslog.service
+After=network-online.target rsyslog.service
+[Service]
+Type=oneshot
+ExecStart=/bin/true
+RemainAfterExit=true
+ExecStop=/usr/local/bin/ibm-cloud-shutdown-script.sh
+TimeoutStopSec=0
+KillMode=process
+[Install]
+WantedBy=multi-user.target
+```
+{: codeblock}
+
+The time between the graceful shutdown command and the subsequent force stop command is 30 seconds. Therefore, if a shutdown script is still running after the 30 seconds, it is interrupted by the force stop. This 30-second grace period is a best-effort attempt and can vary depending on circumstances.
 
 ## Re-creating a spot instance by using an instance group
 {: #recreate-spot-instance}
