@@ -2,7 +2,7 @@
 
 copyright:
   years: 2023, 2026
-lastupdated: "2026-01-31"
+lastupdated: "2026-02-09"
 
 keywords:
 
@@ -20,7 +20,7 @@ Private Path services provide private connectivity for {{site.data.keyword.cloud
 
 The following video provides an overview of the benefits, uses, and steps required to create a Private Path service:
 
-![Creating a Private Path service](https://mediacenter.ibm.com/media/IBM%20Cloud%20%E2%80%93%20Access%20your%20on-premise%20services%20privately%20and%20securely%20from%20IBM%20Cloud%20with%20the%20IBM%20Cloud%20Private%20Path%20service/1_qcgiwgpx){: video output="iframe" data-script="none" id="mediacenterplayer" frameborder="0" width="560" height="315" allowfullscreen webkitallowfullscreen mozAllowFullScreen}
+![Creating a Private Path service](https://mediacenter.ibm.com/media/IBM Cloud â Access your on-premise services privately and securely from IBM Cloud with the IBM Cloud Private Path service/1_qcgiwgpx){: video output="iframe" data-script="none" id="mediacenterplayer" frameborder="0" width="560" height="315" allowfullscreen webkitallowfullscreen mozAllowFullScreen}
 
 The typical process for creating private connectivity between providers and consumers is as follows:
 
