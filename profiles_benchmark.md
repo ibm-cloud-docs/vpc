@@ -1,7 +1,7 @@
 ---
 copyright:
   years: 2022, 2026
-lastupdated: "2026-02-05"
+lastupdated: "2026-02-09"
 
 keywords: benchmark, benchmark scores
 
@@ -14,13 +14,13 @@ subcollection: vpc
 # Linux and Windows benchmark scores
 {: #profiles_benchmark}
 
-Linux&reg; and Windows&reg; benchmark scores are measured on high-performance virtual servers for {{site.data.keyword.vpc_full}} (VPC) by using [CoreMark](https://www.eembc.org/coremark/faq.php). CoreMark is an industry standard benchmark that measures the performance of CPUs on physical machines and virtual servers that are offered by Infrastructure-as-a-Service (IaaS) providers like {{site.data.keyword.vpc_short}}.
+Linux&reg; and Windows&reg; benchmark scores are measured on virtual servers for {{site.data.keyword.vpc_full}} (VPC) by using [CoreMark](https://www.eembc.org/coremark/faq.php). CoreMark is an industry standard benchmark that measures the performance of CPUs on physical machines and virtual servers that are offered by Infrastructure-as-a-Service (IaaS) providers like {{site.data.keyword.vpc_short}}.
 {: shortdesc}
 
 While the current benchmark results are for Compute instance profiles, we expect the CoreMark scores to be similar for Balanced and Memory instance profiles with the same CPU count.
 
 ## Compute x2 profiles
-{: #compute_virutal_server_profiles_benchmark}
+{: #compute_virtual_server_profiles_benchmark}
 
 Compute x2 profiles offers core to RAM ratio of 1 vCPU to 2 GiB. Compute cx2 profiles are best for workloads with intensive CPU demands, such as high web traffic workloads, production batch processing, and front-end web servers.
 
