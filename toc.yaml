@@ -908,6 +908,8 @@ toc:
               label: Reference
               href: https://{DomainName}/apidocs/vpc-metadata-beta
           - api-metadata-beta-change-log.md
+      - topic: service-dependency.md
+        navtitle: Service dependencies
       - topicgroup:
           id: ha-dr
           label: High availability and disaster recovery

@@ -1,9 +1,7 @@
 ---
 copyright:
   years: 2017, 2026
-
-lastupdated: "2026-02-05"
-
+lastupdated: "2026-02-09"
 
 keywords: vpc, virtual private cloud, private cloud network, quick provisioning, logical isolation, security, cloud-native, workloads, BYOIP, high availability, ACL, Access control list, Block Storage volumes, File shares, snapshots
 
