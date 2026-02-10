@@ -2,7 +2,7 @@
 
 copyright:
   years: 2023, 2026
-lastupdated: "2026-02-09"
+lastupdated: "2026-02-10"
 
 keywords:
 
@@ -11,16 +11,13 @@ subcollection: vpc
 ---
 
 {{site.data.keyword.attribute-definition-list}}
+{:video: .video}
 
 # About Private Path services
 {: #private-path-service-intro}
 
 Private Path services provide private connectivity for {{site.data.keyword.cloud_notm}} and third-party services. A Private Path service requires a Private Path network load balancer (NLB) to deploy a service on IBM Cloud and a Virtual Private Endpoint (VPE) gateway for consumers to connect to the service. Traffic stays on the IBM backbone without traversing the internet.
 {: shortdesc}
-
-The following video provides an overview of the benefits, uses, and steps required to create a Private Path service:
-
-![Creating a Private Path service](https://mediacenter.ibm.com/media/IBM Cloud â Access your on-premise services privately and securely from IBM Cloud with the IBM Cloud Private Path service/1_qcgiwgpx){: video output="iframe" data-script="none" id="mediacenterplayer" frameborder="0" width="560" height="315" allowfullscreen webkitallowfullscreen mozAllowFullScreen}
 
 The typical process for creating private connectivity between providers and consumers is as follows:
 
