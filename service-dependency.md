@@ -2,11 +2,12 @@
 
 copyright:
   years: 2024, 2026
-lastupdated: "2026-02-09"
+lastupdated: "2026-02-10"
 
 keywords:
 
 subcollection: vpc
+
 
 ---
 
@@ -208,13 +209,11 @@ The following dependencies apply to the following deployment locations: Dallas (
 | IBM Cloud Business Support Services | Availability, Change management | No | Both |  Same region  |
 | {{site.data.keyword.monitoringlong}} | Availability, Instance control, Operations, Security compliance | No | Both |  Same region  |
 | OSS Platform | Availability, Operations | No | Both |  [Global](/docs/resiliency?topic=resiliency-ha-redundancy#global-platform)  |
-| IBM Cloud Console | Availability, Instance control, Operations | No | Both |  Same region  |
 | {{site.data.keyword.atracker_full}} | Availability, Operations, Security compliance | No | Both |  Same region  |
 | IBM Cloud Classic NTP Servers | Availability, Operations | No | Both |  Same data center  |
 | IBM Cloud Global Search and Tagging | Availability | No | Both |  Same region  |
 | IBM Cloud Global Resource Catalog | Availability, Change management, Instance control, Security compliance | No | Both |  Same region  |
-| {{site.data.keyword.messagehub_full}} | Availability, Change management, Disaster recovery, Instance control | No | Both |  Same region  |
-| IBM Log Analysis and IBM Cloud Activity Tracker | Access management, Availability, Instance control, Operations, Security compliance | No | Both |  Same region  |
+| {{site.data.keyword.logs_full}} | Access management, Availability, Instance control, Operations, Security compliance | No | Both |  Same region  |
 {: row-headers}
 {: caption="IBM Cloud Bare Metal Servers for VPC - Data and Control plane deployment service dependency information - Significant dependencies" caption-side="top"}
 {: tab-title="Significant dependencies"}
@@ -352,6 +351,17 @@ The following dependencies apply to the following deployment locations: Chennai 
 {: #critical-service-dependencies-for-is-flow-log-collector-Data-and-Control-plane-deployment}
 {: summary="Use the buttons for the dependency level to change the context of the table. This table has row and column headers. The row headers detail the specific dependent service. The column headers identify the details about the dependency and its impact. To understand the details about each dependency, navigate to the row to find the dependency that you need more information about interested in."}
 
+|Dependencies|Dependency impacts|Customer provided|Control or data plane|Location of dependency|
+|:---|:---|:---|:---|:---|
+| IBM Cloud Global Resource Catalog | Availability, Change management, Instance control | No | Both |  Same data center  |
+{: row-headers}
+{: caption="IBM Cloud Flow Logs for VPC - Data and Control plane deployment service dependency information - Significant dependencies" caption-side="top"}
+{: tab-title="Significant dependencies"}
+{: tab-group="service-dependency-data-for-is-flow-log-collector-Data-and-Control-plane-deployment"}
+{: class="comparison-tab-table"}
+{: #significant-service-dependencies-for-is-flow-log-collector-Data-and-Control-plane-deployment}
+{: summary="Use the buttons for the dependency level to change the context of the table. This table has row and column headers. The row headers detail the specific dependent service. The column headers identify the details about the dependency and its impact. To understand the details about each dependency, navigate to the row to find the dependency that you need more information about interested in."}
+
 ## IBM Cloud Virtual Server for VPC
 {: #service-dependencies-for-is-instance}
 
@@ -483,6 +493,17 @@ The following dependencies apply to the following deployment locations: Chennai 
 {: tab-group="service-dependency-data-for-is-share-Data-and-Control-plane-deployment"}
 {: class="comparison-tab-table"}
 {: #critical-service-dependencies-for-is-share-Data-and-Control-plane-deployment}
+{: summary="Use the buttons for the dependency level to change the context of the table. This table has row and column headers. The row headers detail the specific dependent service. The column headers identify the details about the dependency and its impact. To understand the details about each dependency, navigate to the row to find the dependency that you need more information about interested in."}
+
+|Dependencies|Dependency impacts|Customer provided|Control or data plane|Location of dependency|
+|:---|:---|:---|:---|:---|
+| {{site.data.keyword.atracker_full}} | Availability, Operations, Security compliance | No | Both |  Same region  |
+{: row-headers}
+{: caption="IBM Cloud File Storage for Virtual Private Cloud - Data and Control plane deployment service dependency information - Significant dependencies" caption-side="top"}
+{: tab-title="Significant dependencies"}
+{: tab-group="service-dependency-data-for-is-share-Data-and-Control-plane-deployment"}
+{: class="comparison-tab-table"}
+{: #significant-service-dependencies-for-is-share-Data-and-Control-plane-deployment}
 {: summary="Use the buttons for the dependency level to change the context of the table. This table has row and column headers. The row headers detail the specific dependent service. The column headers identify the details about the dependency and its impact. To understand the details about each dependency, navigate to the row to find the dependency that you need more information about interested in."}
 
 |Dependencies|Dependency impacts|Customer provided|Control or data plane|Location of dependency|
@@ -847,6 +868,17 @@ The following dependencies apply to the following deployment locations: Dallas (
 
 |Dependencies|Dependency impacts|Customer provided|Control or data plane|Location of dependency|
 |:---|:---|:---|:---|:---|
+| {{site.data.keyword.atracker_full}}| Change management, Operations, Security compliance | No | control-plane |  Same region  |
+{: row-headers}
+{: caption="IBM Cloud VPN for VPC Site to Site Gateway - Control plane deployment service dependency information - Medium dependencies" caption-side="top"}
+{: tab-title="Medium dependencies"}
+{: tab-group="service-dependency-data-for-is-vpn-Control-plane-deployment"}
+{: class="comparison-tab-table"}
+{: #medium-service-dependencies-for-is-vpn-Control-plane-deployment}
+{: summary="Use the buttons for the dependency level to change the context of the table. This table has row and column headers. The row headers detail the specific dependent service. The column headers identify the details about the dependency and its impact. To understand the details about each dependency, navigate to the row to find the dependency that you need more information about interested in."}
+
+|Dependencies|Dependency impacts|Customer provided|Control or data plane|Location of dependency|
+|:---|:---|:---|:---|:---|
 | IBM Cloud Service Endpoints| none | No | control-plane |  Same region  |
 | {{site.data.keyword.metrics_router_full}}| Operations | No | control-plane |  Same region  |
 | PagerDuty| Operations | No | control-plane |  [Global](/docs/resiliency?topic=resiliency-ha-redundancy#global-platform)  |
@@ -1027,6 +1059,17 @@ The following dependencies apply to the following deployment locations: Dallas (
 {: #significant-service-dependencies-for-is-image-Data-and-Control-plane-deployment}
 {: summary="Use the buttons for the dependency level to change the context of the table. This table has row and column headers. The row headers detail the specific dependent service. The column headers identify the details about the dependency and its impact. To understand the details about each dependency, navigate to the row to find the dependency that you need more information about interested in."}
 
+|Dependencies|Dependency impacts|Customer provided|Control or data plane|Location of dependency|
+|:---|:---|:---|:---|:---|
+| {{site.data.keyword.atracker_full}}| Security compliance | No | Both |  Same region  |
+{: row-headers}
+{: caption="IBM Cloud Image Service for VPC - Data and Control plane deployment service dependency information - Minimal dependencies" caption-side="top"}
+{: tab-title="Minimal dependencies"}
+{: tab-group="service-dependency-data-for-is-image-Data-and-Control-plane-deployment"}
+{: class="comparison-tab-table"}
+{: #minimal-service-dependencies-for-is-image-Data-and-Control-plane-deployment}
+{: summary="Use the buttons for the dependency level to change the context of the table. This table has row and column headers. The row headers detail the specific dependent service. The column headers identify the details about the dependency and its impact. To understand the details about each dependency, navigate to the row to find the dependency that you need more information about interested in."}
+
 ## IBM Cloud Private Paths for VPC
 {: #service-dependencies-for-is-private-path-service-gateway}
 
@@ -1037,9 +1080,44 @@ The following dependencies apply to the following deployment locations: Dallas (
 The following dependencies apply to the following deployment locations: Dallas (us-south), Frankfurt (eu-de), London (eu-gb), Madrid (eu-es), Osaka (jp-osa), Sao Paulo (br-sao), Tokyo (jp-tok), Toronto (ca-tor), Washington DC (us-east).
 
 
+|Dependencies|Dependency impacts|Customer provided|Control or data plane|Location of dependency|
+|:---|:---|:---|:---|:---|
+| {{site.data.keyword.iamlong}} | Access management, Availability, Instance control | No | Both |  Sydney (au-syd)  |
+{: row-headers}
+{: caption="IBM Cloud Private Paths for VPC - Data and Control plane deployment service dependency information - Critical dependencies" caption-side="top"}
+{: tab-title="Critical dependencies"}
+{: tab-group="service-dependency-data-for-is-private-path-service-gateway-Data-and-Control-plane-deployment"}
+{: class="comparison-tab-table"}
+{: #critical-service-dependencies-for-is-private-path-service-gateway-Data-and-Control-plane-deployment}
+{: summary="Use the buttons for the dependency level to change the context of the table. This table has row and column headers. The row headers detail the specific dependent service. The column headers identify the details about the dependency and its impact. To understand the details about each dependency, navigate to the row to find the dependency that you need more information about interested in."}
+
+|Dependencies|Dependency impacts|Customer provided|Control or data plane|Location of dependency|
+|:---|:---|:---|:---|:---|
+| {{site.data.keyword.cis_full}} | Access management, Availability, Security compliance | No | Both |  [Global](/docs/resiliency?topic=resiliency-ha-redundancy#global-platform)  |
+{: row-headers}
+{: caption="IBM Cloud Private Paths for VPC - Data and Control plane deployment service dependency information - Significant dependencies" caption-side="top"}
+{: tab-title="Significant dependencies"}
+{: tab-group="service-dependency-data-for-is-private-path-service-gateway-Data-and-Control-plane-deployment"}
+{: class="comparison-tab-table"}
+{: #significant-service-dependencies-for-is-private-path-service-gateway-Data-and-Control-plane-deployment}
+{: summary="Use the buttons for the dependency level to change the context of the table. This table has row and column headers. The row headers detail the specific dependent service. The column headers identify the details about the dependency and its impact. To understand the details about each dependency, navigate to the row to find the dependency that you need more information about interested in."}
+
+|Dependencies|Dependency impacts|Customer provided|Control or data plane|Location of dependency|
+|:---|:---|:---|:---|:---|
+| {{site.data.keyword.atracker_full}}| Security compliance | No | Both |  Dallas (us-south)  |
+{: row-headers}
+{: caption="IBM Cloud Private Paths for VPC - Data and Control plane deployment service dependency information - Minimal dependencies" caption-side="top"}
+{: tab-title="Minimal dependencies"}
+{: tab-group="service-dependency-data-for-is-private-path-service-gateway-Data-and-Control-plane-deployment"}
+{: class="comparison-tab-table"}
+{: #minimal-service-dependencies-for-is-private-path-service-gateway-Data-and-Control-plane-deployment}
+{: summary="Use the buttons for the dependency level to change the context of the table. This table has row and column headers. The row headers detail the specific dependent service. The column headers identify the details about the dependency and its impact. To understand the details about each dependency, navigate to the row to find the dependency that you need more information about interested in."}
+
 
 ## Understanding service dependency data
 {: #understand-dependency-data}
+
+
 
 If you have any questions about the service dependency data as you review the service dependency information in the tables, you can refer to the following FAQ:
 
