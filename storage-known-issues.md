@@ -2,7 +2,7 @@
 
 copyright:
   years: 2018, 2026
-lastupdated: "2026-01-08"
+lastupdated: "2026-02-10"
 
 keywords:
 
@@ -36,10 +36,10 @@ When details of first-generation volume profiles are retrieved, the responses sh
 
 The first time that you create a cross-regional copy, that snapshot is a full copy of the parent volume's data. Subsequent copies can be incremental or full copies. Whether the remote copy is incremental depends on the immediately preceding snapshot in the chain. If the immediately preceding snapshot exists in the destination region, the copy can be incremental. If the immediately preceding snapshot is not found or it's not stable in the remote region, a new full-copy is created. When a full remote copy is generated from an incremental snapshot, it creates a discrepancy in the billing.
 
-### Snapshot encryption in regional {{site.data.keyword.cos_short}} in Chennai region
+### Snapshot encryption in regional {{site.data.keyword.cos_short}} in Indian MZRs
 {: #snapshot-COS-upload-IN-CHE-EU-GB}
 
-A local {{site.data.keyword.keymanagementserviceshort}} instance is not available in Chennai. First-generation block volume snapshots that are taken in Chennai are routed to a regional {{site.data.keyword.cos_short}} bucket that is encrypted by using a {{site.data.keyword.keymanagementserviceshort}} instance from the London (`eu-gb`) region temporarily. When the KMS service becomes available in Chennai, the snapshots service will switch to use the Chennai-based {{site.data.keyword.keymanagementserviceshort}} instance for encryption, so both storage and key management are handled within the same region.
+A local {{site.data.keyword.keymanagementserviceshort}} instance is not available in Chennai. First-generation block volume snapshots that are taken in Chennai are routed to a regional {{site.data.keyword.cos_short}} bucket that is encrypted by using a {{site.data.keyword.keymanagementserviceshort}} instance from the London (`eu-gb`) region temporarily. When the KMS service becomes available in Chennai, the snapshots service will switch to use the local {{site.data.keyword.keymanagementserviceshort}} instance for encryption, so both storage and key management are handled within the same region.
 
 ### Cross-regional copy of block storage snapshots in Chennai
 {: #snapshot-CRC-IN-CHE}
@@ -113,9 +113,9 @@ Creating a share mount target for a regional file share can take more than 10 mi
 When performing file share operations with the CLI or API, the snapshot size field defaults to 1 in the response when a snapshot is created and to 0 otherwise. This value does not represent the actual size of the snapshot for regional shares.
 
 ### Cross-regional replication for zonal file shares in Chennai
-{: #zonalfileshare-CRR-IN-CHE}
+{: #zonalfileshare-CRR-IN}
 
-Cross-regional replication for zonal file shares is not supported in the Chennai region.
+Cross-regional replication for zonal file shares is not supported in the Chennai  region.
 
 ## Backup for VPC service
 {: #backup-service-known-issue}
@@ -133,4 +133,4 @@ Multi-volume snapshots are not supported for second-generation volumes. When you
 ### Private context-based restriction rules for Backups are not working in Montreal (`ca-mon`) and Chennai (`in-che`) MZRs.
 {: #baas-CBR-issue-MON}
 
-Enabling private CBR rules for backup operations that create and manage automated snapshots of block volumes and file shares in Montreal and Chennai is not supported.
+Enabling private CBR rules for backup operations that create and manage automated snapshots of block volumes and file shares in Chennai and Montreal is not supported.

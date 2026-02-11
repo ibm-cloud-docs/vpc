@@ -195,7 +195,6 @@ toc:
           - endpoint-gateway-migration-dns_resolution_binding_mode.md
           - security-groups-network-acls-rule-migration-any-protocol.md
           - metadata-identity-migration.md
-          - metadata-identity-migration-beta.md
           - file_storage_vpc_api_migration.md
           - file_storage_vpc_api_migration_ga.md
           - image_api_migration.md
