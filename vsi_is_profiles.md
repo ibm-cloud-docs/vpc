@@ -2,7 +2,7 @@
 
 copyright:
   years: 2019, 2026
-lastupdated: "2026-02-05"
+lastupdated: "2026-02-11"
 
 keywords: vsi, virtual server instances, profile, profiles, balanced, compute, memory, very high memory, ultra high memory, gpu, storage optimized, confidential compute, flex, high frequency
 
@@ -61,7 +61,7 @@ Profiles with AMD-manufactured processors are available in the Toronto region.
 
 Balanced profiles provide a mix of performance and scalability for more common workloads. The Balanced profile family includes profiles with and without [instance storage](/docs/vpc?topic=vpc-instance-storage). The following table shows all Balanced profiles that are available for Intel&reg; x86-64, and AMD x86-64 processors.
 
-The 4th generation balanced profiles (bx4) are available in the Dallas (us-south) region for customers with special access. For more information about the capabilities of the new profiles, see [General purpose instance profiles - Intel Gen 4](/docs/vpc?topic=vpc-general-purpose-vsi-profiles-gen4-intel&interface=ui).
+The 4th generation balanced profiles (bx4) are available in the Dallas (us-south) region. For more information about the capabilities of the new profiles, see [General purpose instance profiles - Intel Gen 4](/docs/vpc?topic=vpc-general-purpose-vsi-profiles-gen4-intel&interface=ui).
 {: preview}
 
 The following table shows all balance profiles that are available for x86-64.
@@ -162,7 +162,7 @@ AMD-based virtual machines use AMD EPYC Milan processors. Compute capabilities a
 
 Compute profiles are best for workloads with intensive CPU demands, such as high web traffic workloads, production batch processing, and front-end web servers. The Compute profile family includes profiles with and without [instance storage](/docs/vpc?topic=vpc-instance-storage). The following table shows all Compute profiles that are available for &reg; x86-64.
 
-The 4th generation compute profiles (cx4) are available in the Dallas (us-south) region for customers with special access. For more information about the capabilities of the new profiles, see [General purpose instance profiles - Intel Gen 4](/docs/vpc?topic=vpc-general-purpose-vsi-profiles-gen4-intel&interface=ui).
+The 4th generation compute profiles (cx4) are available in the Dallas (us-south) region. For more information about the capabilities of the new profiles, see [General purpose instance profiles - Intel Gen 4](/docs/vpc?topic=vpc-general-purpose-vsi-profiles-gen4-intel&interface=ui).
 {: preview}
 
 The following table shows all compute profiles that are available for x86-64.
@@ -250,7 +250,7 @@ The following table shows all compute profiles that are available for x86-64.
 
 Memory profiles are best for memory intensive workloads, such as large caching workloads, intensive database applications, or in-memory analytics workloads. The Memory profile family includes profiles with and without [instance storage](/docs/vpc?topic=vpc-instance-storage). The following table shows all Memory profiles that are available for Intel&reg; x86-64.
 
-The 4th generation memory profiles (mx4) are available in the Dallas (us-south) region for customers with special access. For more information about the capabilities of the new profiles, see [General purpose instance profiles - Intel Gen 4](/docs/vpc?topic=vpc-general-purpose-vsi-profiles-gen4-intel&interface=ui).
+The 4th generation memory profiles (mx4) are available in the Dallas (us-south) region. For more information about the capabilities of the new profiles, see [General purpose instance profiles - Intel Gen 4](/docs/vpc?topic=vpc-general-purpose-vsi-profiles-gen4-intel&interface=ui).
 {: preview}
 
 | Instance profile | vCPU / Cores | NUMA count | GiB RAM | Bandwidth cap (Gbps) | Instance storage (GB) |

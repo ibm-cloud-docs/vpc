@@ -2,7 +2,7 @@
 
 copyright:
   years: 2024, 2026
-lastupdated: "2026-01-02"
+lastupdated: "2026-02-11"
 
 keywords: vsi, virtual server, virtual server instances, profile, profiles, balanced, compute, memory, dedicated host, gen 4
 
@@ -18,7 +18,7 @@ subcollection: vpc
 The general-purpose 4th generation virtual server profiles (balanced, compute, and memory) are built atop the 6th Generation Intel® Xeon® Scalable processors. This generation offers an increased networking speed, larger cache sizes, and improved workload performance.
 {: shortdesc}
 
-The 4th generation general-purpose profiles are available in the Dallas (us-south) region for customers with special access.
+The 4th generation general-purpose profiles are available in the Dallas (us-south) region.
 {: preview}
 
 The general-purpose profiles can also be paired with a corresponding dedicated host. This solution allows
