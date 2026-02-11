@@ -1,8 +1,8 @@
 ---
 
 copyright:
-  years: 2021, 2025
-lastupdated: "2025-12-09"
+  years: 2021, 2026
+lastupdated: "2026-02-11"
 
 keywords: compute, virtual private cloud, virtual server instance, instance, bandwidth
 
@@ -70,6 +70,18 @@ The following table illustrates this allocation for three different Gen 2 profil
 {: caption="Example profile bandwidth for Gen 2 profiles" caption-side="bottom"}
 
 The network bandwidth cap applies separately to egress (transmitted) and ingress (received) traffic. That is, even if an instance that is capped at 4 Gbps reaches its transmit cap of 4 Gbps it can still receive up to its ingress cap of 4 Gbps.
+
+For Gen 4 profiles, instead of dividing the total network bandwidth across the attached vNICs, the bandwidth is pooled which allows each vNIC to use its full capability. The virtual server instance can never exceed its overall bandwidth, but each individual vNIC can achieve a full 100 Gbps if the aggregated bandwidth doesn't exceed the overall bandwidth.
+
+| Profile names | bx4-16x64 | bx4-32x128 | bx4-48-192 |
+|-----|-----|-----|-----|
+| Overall bandwidth | 32 Gbps | 64 Gbps | 80 Gbps |
+| Default storage bandwidth allocation (25%) | 8 Gbps | 16 Gbps | 20 Gbps |
+| Default total network bandwidth allocation (75%) | 24 Gbps | 48 Gbps | 60 Gbps |
+| vNIC speed with 1 vNIC attached | 24 Gbps | 48 Gbps | 60 Gbps |
+| vNIC speed with 2 vNICs attached | 2x24 Gbps | 2x48 Gbps | 2x60 Gbps |
+| vNIC speed with 3 vNICs attached | 3x24 Gbps | 3x48 Gbps | 3x60 Gbps |
+{: caption="Example profile bandwidth for Gen 4 profiles" caption-side="bottom"}
 
 
 
