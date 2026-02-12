@@ -2,7 +2,7 @@
 
 copyright:
   years: 2019, 2026
-lastupdated: "2026-02-11"
+lastupdated: "2026-02-12"
 
 keywords:
 
@@ -26,6 +26,13 @@ For more information about changes to the {{site.data.keyword.vpc_short}} comman
 
 ## February 2026
 {: #vpc-feb26}
+
+### 12 February 2026
+{: #vpc-feb1226}
+{: release-note}
+
+Spot instances (GA)
+:   [Spot instances](/docs/vpc?topic=vpc-spot-instances-virtual-servers) are highly discounted versions of the standard instances. They are designed to use available compute resources for interruptible or stateless workloads. Spot instances can be preempted (or evicted) at any time.
 
 ### 11 February 2026
 {: #vpc-feb1126}

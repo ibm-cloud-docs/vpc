@@ -2,7 +2,7 @@
 
 copyright:
   years: 2018, 2026
-lastupdated: "2026-02-09"
+lastupdated: "2026-02-12"
 
 keywords:
 
@@ -61,7 +61,7 @@ Use the following steps to create a virtual server instance.
    | Field | Value |
    |-------|-------|
    | Profile |  The profile families are Balanced, Compute, Memory, Very High Memory, Ultra High Memory, GPU, Storage Optimized, Confidential Computing, and Flex. For more information, see [x86-64 instance profiles](/docs/vpc?topic=vpc-profiles).  \n  \n  When you create an {{site.data.keyword.cloud_notm}} {{site.data.keyword.hpvs}} for {{site.data.keyword.vpc_full}} instance, make sure that you select secure execution-enabled profiles, otherwise provisioning fails. For more information, see [s390x instance profiles](/docs/vpc?topic=vpc-vs-profiles). \n \n Some profiles might not be available because the number of network interfaces in the virtual server exceed profile limits. You can remove network interfaces to select from more profiles. For more information, see [Resizing a virtual server](/docs/vpc?topic=vpc-resizing-an-instance).  \n  \n Some profiles might not be available because the image selected contains an allowed-use expression that is not compatible with the profile. In these cases, select an image with an allowed-use expression that is compatible with the wanted profile. For more information, see [Adding allowed-use expressions to custom images](/docs/vpc?topic=vpc-custom-image-allowed-use-expressions&interface=ui). |
-   | Spot instances [Select availability]{: tag-green} | Spot instances are highly discounted versions of the standard instances. They are designed to use available compute resources for interruptible or stateless workloads.  \n To convert an instance to a Spot instance, make sure that you select a supported profile and click the **Convert to spot instance** toggle under **Deployment configurations**.|
+   | Spot instances | Spot instances are highly discounted versions of the standard instances. They are designed to use available compute resources for interruptible or stateless workloads.  \n To convert an instance to a Spot instance, make sure that you select a supported profile and click the **Convert to spot instance** toggle under **Deployment configurations**.|
    | Advanced security selections |  |
    | Secure boot | Click the toggle to enable secure boot. Secure boot is available with only compatible instance profiles. Second-generation boot volumes with the `sdp` volume profile do not support secure boot yet. For more information about secure boot, see [Secure boot for Virtual Servers for VPC](/docs/vpc?topic=vpc-confidential-computing-with-secure-boot-vpc).|
    | Confidential computing [Select availability]{: tag-green} | Confidential computing with Intel® Software Guard Extensions (SGX) and confidential computing with Intel Trusted Domain Extension (TDX) protects your data through hardware-based server security. Your data is protected by using isolated memory regions that are known as encrypted enclaves. Both SGX and TDX are available with only compatible profiles. For more information about confidential computing, see [Confidential computing for x86 Virtual Servers for VPC](/docs/vpc?topic=vpc-about-confidential-computing-vpc). |

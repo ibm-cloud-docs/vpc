@@ -2,7 +2,7 @@
 
 copyright:
   years: 2025, 2026
-lastupdated: "2026-02-05"
+lastupdated: "2026-02-12"
 
 keywords: spot virtual server, spot virtual server instance, spot instance
 
@@ -12,13 +12,8 @@ subcollection: vpc
 
 {{site.data.keyword.attribute-definition-list}}
 
-# Spot instances (Select availability)
+# Spot instances
 {: #spot-instances-virtual-servers}
-
-[Select availability]{: tag-green}
-
-Spot instances are available for select customers. Contact IBM support if you're interested in getting access.
-{: preview}
 
 Spot instances are highly discounted versions of the standard instances. They are designed to use available compute resources for interruptible or stateless workloads. Spot instances can be preempted (or evicted) at any time.
 {: shortdesc}
