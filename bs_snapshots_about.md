@@ -145,7 +145,7 @@ The following limitations apply for the first-generation block storage snapshots
 * You can't take a snapshot of a volume in a [degraded state](/docs/vpc?topic=vpc-block-storage-vpc-monitoring#block-storage-vpc-health-states).
 * A first-generation volume must be attached to a running virtual server instance for you to take a snapshot of its data.
 * You can't create a copy of a snapshot in the source (local) region.
-* Cross-regional copies are not supported in Chennai  region.
+* Cross-regional copies are not supported in the Chennai region.
 * When you create copies of a snapshot in other regions, only one copy can exist in each region.
 * Taking a snapshot of a Generation 1 volume that exceeds 10 TB is not supported.
 * You can delete any snapshot that you take. However, snapshots must be in a `stable` or `pending` state and not actively restoring a volume.
