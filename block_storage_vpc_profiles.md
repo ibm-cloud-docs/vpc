@@ -116,8 +116,6 @@ If your application needs more IOPS and throughput, you can increase the volume 
 ## Profiles for boot volumes
 {: #vsi-profiles-boot}
 
-
-
 By default, boot volumes are created with the `general-purpose` volume profile with 100 GB capacity during instance provisioning. When you provision an instance in the console, from the CLI, with the API, or Terraform, you can specify the `sdp` volume profile to create second-generation volumes. [Boot volume capacity](/docs/vpc?topic=vpc-resize-boot-volumes) can be increased by modifying the boot volume, up to 250 GB.. Boot volume IOPS and bandwidth are never reduced to be less than 3000 IOPS or 393 Mbps.
 
 ## How virtual server profiles relate to volume profiles
