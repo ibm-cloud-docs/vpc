@@ -78,7 +78,7 @@ You can use your snapshots to create other second-generation volumes in the same
 | On-demand snapshots | Yes, up to 750 snapshots per region. | Yes, up to 512 snapshots per region.|
 | Scheduled snapshots | Yes, up to 750 snapshots per region. | Yes, up to 512 snapshots per region. |
 | Fast restore clones | Yes. You can cache a copy of your snapshot in any zone of the region. |Yes, the feature is available in most regions, except Chennai and Montreal. You can cache a copy of your snapshot in any zone of the region. |
-| Cross-regional copy | The feature is available in most regions, except Chennai . You can create one cross-regional copy per snapshot per region. | The feature is available in most regions, except Chennai and Montreal. You can create one cross-regional copy per snapshot per region.|
+| Cross-regional copy | The feature is available in most regions, except Chennai. You can create one cross-regional copy per snapshot per region. | The feature is available in most regions, except Chennai and Montreal. You can create one cross-regional copy per snapshot per region.|
 | Consistency group   | Multi-volume snapshots are supported. | Not supported in the current release. |
 {: caption="Block Storage snapshot generations comparison." caption-side="bottom"}
 
