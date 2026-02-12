@@ -27,7 +27,7 @@ When you choose the second-generation `sdp` profile, you can provision second-ge
 
 When you select a first-generation [storage profile](/docs/vpc?topic=vpc-block-storage-profiles#tiers), you can specify 10-16,000 GB of capacity in 1 GB increments.
 
-Boot volumes are 100 GB by default. If you provision an instance with a custom image or a snapshot, you can specify a boot volume capacity up to 250 GB .
+Boot volumes are 100 GB by default. If you provision an instance with a custom image or a snapshot, you can specify a boot volume capacity up to 250 GB.
 
 ## Block Storage volume profiles
 {: #iops-profiles}
