@@ -273,7 +273,7 @@ Yes, you can create a custom image directly from a {{site.data.keyword.block_sto
 {: faq}
 {: #faq-block-storage-14}
 
-The boot volume is created when you provision a virtual server instance. The boot disk of an instance is a exact copy (clone) of the virtual machine image that was selected. The boot disk contains the operating system and any additional software required for the instance to start. The virtual machine image is a template that can be used to create multiple instances.  For stock images, the boot volume capacity is 100 GB. If you are importing a custom image by using the CLI, API, or Terraform, the boot volume capacity can be 10-250 GB, depending on what the image requires. Images smaller than 10 GB are rounded up to 10 GB.
+The boot volume is created when you provision a virtual server instance. The boot disk of an instance is an exact copy (clone) of the virtual machine image that was selected. The boot disk contains the operating system and any additional software required for the instance to start. The virtual machine image is a template that can be used to create multiple instances.  For stock images, the boot volume capacity is 100 GB. If you are importing a custom image by using the CLI, API, or Terraform, the boot volume capacity can be 10-250 GB, depending on what the image requires. Images smaller than 10 GB are rounded up to 10 GB.
 
 ## When can I delete a {{site.data.keyword.block_storage_is_short}} volume?
 {: faq}
