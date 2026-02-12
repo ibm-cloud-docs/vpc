@@ -2,7 +2,7 @@
 
 copyright:
   years: 2018, 2026
-lastupdated: "2026-02-09"
+lastupdated: "2026-02-12"
 
 keywords:
 
@@ -38,7 +38,7 @@ The default VPC is selected automatically. If another VPC is not selected, the d
 | Naming | Make sure that you have a unique name for the instance. The instance name must be unique within an account and region. If you have a method to naming virtual server instances, it's much easier to filter and search on them later. |
 | Network interfaces | Determine how many [network interfaces](/docs/vpc?topic=vpc-using-instance-vnics#about-network-interfaces) that you need and which [security group](/docs/vpc?topic=vpc-using-security-groups) to attach to each interface. |
 | Placement groups | Determine whether you want to use placement groups. If you add an instance to an existing placement group, the instance is placed according to the placement group strategy. For more information, see [About placement groups](/docs/vpc?topic=vpc-about-placement-groups-for-vpc). |
-| Boot volume size | Specify the size of the boot volume. The default boot volume size for most profiles is 100 GB. The boot volume size can be increased up to 250 GB. |
+| Boot volume size | Specify the size of the boot volume. The default boot volume size for most profiles is 100 GB. The boot volume size can be increased up to 250 GB.|
 | Auxiliary storage | Determine the number of auxiliary storage [volumes](/docs/vpc?topic=vpc-block-storage-about#secondary-data-volumes) that you need and their capacity. You can attach up to 12 data volumes to your instance. |
 | Bandwidth allocation | Instance bandwidth is distributed between networking and storage resources. If you do not specify the initial volume and network bandwidth allocation, then 25% of total instance bandwidth is allocated to volume bandwidth and 75% is allocated to network bandwidth. The network bandwidth allocation is distributed evenly across network interfaces, and each network interface has a cap of 25 Gbps. The storage bandwidth is divided between the boot volume and the attached data volumes. To help ensure reasonable boot times, a minimum of 393 MBps is allocated to the primary boot volume. The remaining bandwidth is divided proportionally between the attached data volumes based on their provisioned size and IOPS setting. The storage bandwidth allocation changes only if and when a data volume is attached or detached. \n [New]{: tag-new} Select [compute profiles](/docs/vpc?group=profile-details) support dynamic bandwidth allocation for data volumes, so a volume that is maximizing its I/O capability can use unused capacity from other volume attachments. For more information, see [Pooled volume bandwidth allocation](/docs/vpc?topic=vpc-block-storage-bandwidth#pooled-vol-bandwidth). |
 | User tags | Decide what [user tags](/docs/account?topic=account-tag&interface=ui) you might want to add during instance provisioning. You can add user tags to help identify the instance, the boot volume, and any data volumes you create and attach during instance provisioning. |

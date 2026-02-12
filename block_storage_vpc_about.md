@@ -2,7 +2,7 @@
 
 copyright:
   years: 2019, 2026
-lastupdated: "2026-02-05"
+lastupdated: "2026-02-12"
 
 keywords:
 
@@ -47,8 +47,6 @@ When you create an instance with a stock image, a 100 GB boot volume is created 
 When you create an instance from a custom image, you can specify a boot volume capacity of 10 GB to 250 GB, depending what the image requires. If the custom image is smaller than 10 GB, the boot volume capacity is rounded up to 10 GB. If the boot volume exceeds 250 GB, the virtual server instance fails to successfully boot.
 
 If you use the console to provision the instance, you can select between the `general-purpose` and the `sdp` profile before the instance is created. When you provision a boot volume from the CLI, with the API, or Terraform, you can specify any of the profiles from the `tiered`, `custom`, or `defined performance` volume profile families.
-
-After the boot volume is created, you can expand the boot volume size to the maximum 250 GB.
 
 By default, boot volumes are encrypted by IBM-managed encryption. Optionally, you can use your own root keys (CRKs) by choosing customer-managed encryption during instance creation (see [Customer-managed encryption](/docs/vpc?topic=vpc-vpc-encryption-about#vpc-customer-managed-encryption)).
 

@@ -1,8 +1,8 @@
 ---
 
 copyright:
-  years: 2019, 2025
-lastupdated: "2025-12-10"
+  years: 2019, 2026
+lastupdated: "2026-02-12"
 
 keywords: Block Storage profiles, Block Storage for VPC, IOPS tiers, custom IOPS, storage performance
 
@@ -116,9 +116,9 @@ If your application needs more IOPS and throughput, you can increase the volume 
 ## Profiles for boot volumes
 {: #vsi-profiles-boot}
 
-By default, boot volumes are created with the `general-purpose` volume profile with 100 GB capacity during instance provisioning. [Boot volume capacity](/docs/vpc?topic=vpc-resize-boot-volumes) can be increased by modifying the boot volume, up to 250 GB. Boot volume IOPS and bandwidth are never reduced to be less than 3000 IOPS or 393 Mbps.
 
-You can use the console, the CLI, the API, or Terraform to create boot volumes with the `sdp` profile up to 250-GB capacity, and specify 3000 or more IOPS for better performance.
+
+By default, boot volumes are created with the `general-purpose` volume profile with 100 GB capacity during instance provisioning. When you provision an instance in the console, from the CLI, with the API, or Terraform, you can specify the `sdp` volume profile to create second-generation volumes. [Boot volume capacity](/docs/vpc?topic=vpc-resize-boot-volumes) can be increased by modifying the boot volume, up to 250 GB.. Boot volume IOPS and bandwidth are never reduced to be less than 3000 IOPS or 393 Mbps.
 
 ## How virtual server profiles relate to volume profiles
 {: #vsi-profiles-relate-to-storage}

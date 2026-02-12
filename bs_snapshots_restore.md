@@ -2,7 +2,7 @@
 
 copyright:
   years: 2021, 2026
-lastupdated: "2026-01-23"
+lastupdated: "2026-02-12"
 
 keywords:
 
@@ -212,7 +212,7 @@ Before you can use the CLI, you must install the IBM Cloud CLI and the VPC CLI p
 
 1. Gather information about the snapshot or snapshots that you want to use to restore a volume.
    - If you want to restore a volume from a single snapshot, locate the snapshot first and view its details. You can use the CLI to [view all the snapshots of an account in a region](/docs/vpc?topic=vpc-snapshots-vpc-view&interface=cli#snapshots-vpc-view-all-account-cli) and select from the list. Alternatively, you can also [list all the snapshots of a specific volume](/docs/vpc?topic=vpc-snapshots-vpc-view&interface=cli#snapshots-vpc-view-all-snapshots-cli) and choose one from the output. Then, use the `ibmcloud is snapshots SNAPSHOT_ID` command to list the details of the chosen snapshot. If you want to restore a volume from a snapshot of another account, contact the snapshot's owner for the CRN of the snapshot.
-   - If you want to restore an instance by restoring multiple volumes from a consistency group, you need to gather information about the snapshots in the consistency group. [List all the consistency groups in the region](/docs/vpc?topic=vpc-snapshots-vpc-view&interface=cli#snapshots-vpc-view-all-consistency-groups-cli). Then, take the ID of the consistency group and use it the `ibmcloud is snapshots` command to filter the output to the snapshots in the specified consistency group. See the following example.
+   - If you want to restore an instance by restoring multiple volumes from a consistency group, you need to gather information about the snapshots in the consistency group. [List all the consistency groups in the region](/docs/vpc?topic=vpc-snapshots-vpc-view&interface=cli#snapshots-vpc-view-all-consistency-groups-cli). Then, take the ID of the consistency group and use it with the `ibmcloud is snapshots` command to filter the output to the snapshots in the specified consistency group. See the following example.
 
    ```sh
    ibmcloud is snapshots --snapshot-consistency-group CONSISTENCY_GROUP_ID
