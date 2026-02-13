@@ -1,8 +1,8 @@
 ---
 
 copyright:
-  years: 2024
-lastupdated: "2024-04-11"
+  years: 2024, 2026
+lastupdated: "2026-02-13"
 
 keywords: instance lifecycle status reasons, lifecycle status, status reasons
 
@@ -35,3 +35,10 @@ If you still need help, contact [support](/docs/vpc?topic=vpc-getting-help-and-s
 Delete the instance and provision a new one.
 
 If you still need help, contact [support](/docs/vpc?topic=vpc-getting-help-and-support-for-vpc). Make sure that you provide the CRN.
+
+## Status: `stopped_by_preemption`
+{: #stopped-by-preemption}
+
+**Status message**: _The virtual server instance was stopped due to preemption._
+
+Restart the instance or delete it if no longer needed.
