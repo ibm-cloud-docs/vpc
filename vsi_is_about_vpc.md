@@ -2,7 +2,7 @@
 
 copyright:
   years: 2018, 2026
-lastupdated: "2026-02-05"
+lastupdated: "2026-02-12"
 
 keywords: virtual server instances, VSI, compute, virtual machines, planning, best practices, instances, virtual servers, virtual server instance, Virtual servers for VPC, gen 2, generation 2, infrastructure, infrastructure as a service, IaaS, vsi
 
@@ -38,7 +38,8 @@ To review and start deploying compute resources, see the following topics:
 | --------------------------------------------------------- | --------------------------------------------------- |
 |[Virtual Servers for VPC profiles](/docs/vpc?topic=vpc-profiles#profiles) | IBM Cloud Virtual Servers for VPC provide the advanced security of a private cloud with the agility and ease of a public cloud. Virtual servers for VPC offer the best network performance (up to 80 Gbps), best security, and fastest provisioning times.|
 |[Dedicated hosts for VPC](/docs/vpc?topic=vpc-creating-dedicated-hosts-instances) | With dedicated host availability, you can choose to create a single-tenancy environment where you can provision virtual server instances according to your needs.|
-| [Burstable (shared core) virtual servers for VPC](/docs/vpc?topic=vpc-burstable-virtual-servers) [Beta]{: tag-blue}  | When Burstable is enabled, the virtual server is configured to share CPU cores on the host. Which means that multiple virtual servers can use the same CPU resources simultaneously. |
+| [Burstable virtual servers for VPC](/docs/vpc?topic=vpc-burstable-virtual-servers) | When Burstable is enabled, the virtual server is configured to share CPU cores on the host. Which means that multiple virtual servers can use the same CPU resources simultaneously. |
+| [Spot instances]() | Spot instances are highly discounted versions of the standard instances. They are designed to use available compute resources for interruptible or stateless workloads.  |
 |[Virtual Servers for Classic](/docs/virtual-servers?topic=virtual-servers-getting-started-tutorial)| When you create an x86-based virtual server in classic infrastructure, you have several options. You can choose between a public (multi-tenancy) environment or a dedicated (single-tenancy) environment. Then, depending on the chosen environment, you select hourly, monthly, or transient virtual servers. For public virtual servers, you also choose to use either SAN-based storage or local storage. |
 {: caption="Deployment options" caption-side="bottom"}
 

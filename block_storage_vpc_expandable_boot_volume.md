@@ -2,7 +2,7 @@
 
 copyright:
   years: 2022, 2026
-lastupdated: "2026-02-05"
+lastupdated: "2026-02-12"
 
 keywords: Block Storage, boot volume, data volume, volume, data storage, virtual server instance, instance, expandable volume
 
@@ -110,7 +110,7 @@ Boot volume                           ID   Name           Attachment ID         
 ```
 {: screen}
 
-You can also specify a larger boot volume capacity when you create an instance template from an image or snapshot. See the following example.
+You can also specify a larger boot volume capacity when you create an instance template from an image or a snapshot. See the following example.
 
 ```sh
 ibmcloud is instance template create tpl-1 vpc-1 us-south-1 bx2-2x8  cli-subnet-1 --image ubuntu-20-04-3-minimal-amd64-1 --boot-volume '{"name": "my-boot-vol1", "volume": {"capacity": 190, "profile": {"name": "general-purpose"}}}'
@@ -126,7 +126,7 @@ From the CLI, locate the boot volume that you want to expand. You can use the `i
 
 After you located the volume, use the `volume-update` command and provide the ID or name of the boot volume. Use the `--capacity` parameter to indicate the new size of the boot volume in GBs.
 
-For example, this example increases the capacity of my-boot-vol1 to 200 GB. The existing capacity displays as the boot volume capacity is being expanded. Run the `ibmcloud is volume` command and specify the volume name to see the new capacity.
+For example, this example increases the capacity of my-boot-vol-1 to 200 GB. The existing capacity displays as the boot volume capacity is being expanded. Run the `ibmcloud is volume update` command and specify the volume name to see the new capacity.
 
 ```sh
 ibmcloud is volume update my-boot-vol-1 --capacity 200

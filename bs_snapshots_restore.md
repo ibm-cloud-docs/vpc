@@ -2,7 +2,7 @@
 
 copyright:
   years: 2021, 2026
-lastupdated: "2026-01-23"
+lastupdated: "2026-02-13"
 
 keywords:
 
@@ -42,6 +42,8 @@ You can restore volumes at various stages of the VPC lifecycle.
    * When you create an unattached (stand-alone) {{site.data.keyword.block_storage_is_short}} volume from a snapshot, you can still attach the volume to an instance later.
 
 Restoring an instance directly from snapshot consistency group identifier is not supported. However, you can restore a virtual server instance by restoring all of its boot and data volumes from the snapshots that are part of a consistency group.
+
+
 
 ## Limitations
 {: #snapshots-vpc-restore-limitations}
@@ -115,7 +117,8 @@ From the list of {{site.data.keyword.block_storage_is_short}} snapshots, you can
         - **Locate by Instance**:
            1. Select the data encryption instance from the list. If you don't have an instance yet, you can click the link to create one.
            1. Select the data encryption key that is stored within the {{site.data.keyword.keymanagementserviceshort}} instance to use for encrypting the volume.
-        - **Locate by CRN**: enter the CRN of the customer root key to be used for encrypting the volume.
+        - **Locate by CRN**: Enter the CRN of the customer root key to be used for encrypting the volume.
+
      1. When you're finished, click **Create block storage volume**. 
         - If you're not ready to order yet or just looking for pricing information, you can add the information that you see in the side panel to an Estimate. For more information about how this feature works, see [Estimating your costs](/docs/account?topic=account-cost).
      1. The {{site.data.keyword.block_storage_is_short}} volumes page is shown, where a message indicates that the volume is being created (volume status is _pending_). A second message displays when the volume is created (volume status is _available_).
@@ -212,7 +215,7 @@ Before you can use the CLI, you must install the IBM Cloud CLI and the VPC CLI p
 
 1. Gather information about the snapshot or snapshots that you want to use to restore a volume.
    - If you want to restore a volume from a single snapshot, locate the snapshot first and view its details. You can use the CLI to [view all the snapshots of an account in a region](/docs/vpc?topic=vpc-snapshots-vpc-view&interface=cli#snapshots-vpc-view-all-account-cli) and select from the list. Alternatively, you can also [list all the snapshots of a specific volume](/docs/vpc?topic=vpc-snapshots-vpc-view&interface=cli#snapshots-vpc-view-all-snapshots-cli) and choose one from the output. Then, use the `ibmcloud is snapshots SNAPSHOT_ID` command to list the details of the chosen snapshot. If you want to restore a volume from a snapshot of another account, contact the snapshot's owner for the CRN of the snapshot.
-   - If you want to restore an instance by restoring multiple volumes from a consistency group, you need to gather information about the snapshots in the consistency group. [List all the consistency groups in the region](/docs/vpc?topic=vpc-snapshots-vpc-view&interface=cli#snapshots-vpc-view-all-consistency-groups-cli). Then, take the ID of the consistency group and use it the `ibmcloud is snapshots` command to filter the output to the snapshots in the specified consistency group. See the following example.
+   - If you want to restore an instance by restoring multiple volumes from a consistency group, you need to gather information about the snapshots in the consistency group. [List all the consistency groups in the region](/docs/vpc?topic=vpc-snapshots-vpc-view&interface=cli#snapshots-vpc-view-all-consistency-groups-cli). Then, take the ID of the consistency group and use it with the `ibmcloud is snapshots` command to filter the output to the snapshots in the specified consistency group. See the following example.
 
    ```sh
    ibmcloud is snapshots --snapshot-consistency-group CONSISTENCY_GROUP_ID

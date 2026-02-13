@@ -1,8 +1,8 @@
 ---
 
 copyright:
-  years: 2022, 2025
-lastupdated: "2025-12-11"
+  years: 2022, 2026
+lastupdated: "2026-02-13"
 
 keywords: Backup, backup service, backup plan, backup policy, restore, restore volume, restore data
 
@@ -38,6 +38,8 @@ For best performance, use backups with fast restore. You can enable fast restore
 
 To restore a volume, the backup snapshot must be in a _stable_ state.
 {: requirement}
+
+
 
 ### Restoring from a bootable backup
 {: #baas-restore-concept-boot}
@@ -111,7 +113,8 @@ From the list of {{site.data.keyword.block_storage_is_short}} snapshots, you can
         - **Locate by Instance**:
            1. Select the data encryption instance from the list. If you don't have an instance yet, you can click the link to create one.
            1. Select the data encryption key that is stored within the {{site.data.keyword.keymanagementserviceshort}} instance to use for encrypting the volume.
-        - **Locate by CRN**: enter the CRN of the customer root key to be used for encrypting the volume.
+        - **Locate by CRN**: Enter the CRN of the customer root key to be used for encrypting the volume.
+
      1. When you're finished, click **Create block storage volume**. 
         - If you're not ready to order yet or just looking for pricing information, you can add the information that you see in the side panel to an Estimate. For more information about how this feature works, see [Estimating your costs](/docs/account?topic=account-cost).
      1. The {{site.data.keyword.block_storage_is_short}} volumes page is shown, where a message indicates that the volume is being created (volume status is _pending_). A second message displays when the volume is created (volume status is _available_).

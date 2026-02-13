@@ -1,8 +1,8 @@
 ---
 
 copyright:
-  years: 2019, 2025
-lastupdated: "2025-09-23"
+  years: 2019, 2026
+lastupdated: "2026-02-13"
 
 keywords: Block Storage, IBM Cloud, VPC, virtual private cloud, Key Protect, encryption, key management, Hyper Protect Crypto Services, HPCS, volume, data storage, virtual server instance, instance, customer-managed encryption, Block Storage for vpc, customer-managed encryption,
 
@@ -57,7 +57,8 @@ This procedure explains how to specify customer-managed encryption when you crea
     - **Locate by Instance**:
        1. Select the data encryption instance from the list. If you don't have an instance yet, you can click the link to create one.
        1. Select the data encryption key that is stored within the KMS instance to use for encrypting the volume.
-    - **Locate by CRN**: enter the CRN of the customer root key to be used for encrypting the volume. Choose this option if you're using the CRK of another account.
+    - **Locate by CRN**: Enter the CRN of the customer root key to be used for encrypting the volume. Choose this option if you're using the CRK of another account.
+
 1. When your changes are complete, click **Create block storage volume**.
 
 When you refresh the list of Block Storage volumes in the console, the new volume appears at the beginning of the list of volumes with the _customer-managed_ encryption type. When the volume is created, it shows a status of _Available_. For stand-alone volumes, the Attachment Type column is blank (-). The **Actions** menu ![Actions icon](../icons/action-menu-icon.svg "Actions") at the end of a table row provides a link for [attaching a Block Storage volume to an instance](/docs/vpc?topic=vpc-attaching-block-storage).
@@ -241,7 +242,8 @@ Follow these steps to create an instance with a new Block Storage volume.
     - **Locate by Instance**:
        1. Select the data encryption instance from the list. If you don't have an instance yet, you can click the link to create one.
        1. Select the data encryption key that is stored within the {{site.data.keyword.keymanagementserviceshort}} instance to use for encrypting the volume.
-    - **Locate by CRN**: enter the CRN of the customer root key to be used for encrypting the volume. Choose this option if you're using a CRK from another account.
+    - **Locate by CRN**: Enter the CRN of the customer root key to be used for encrypting the volume. Choose this option if you're using a CRK from another account.
+
 1. When your changes are complete, click **Apply**.
 1. In the **Attached Block Storage volume** section, you can click **New Block Storage volume** to add a data volume and specify customer-managed encryption. On the **New Block Storage volume** page, update the fields in the **Encryption** section. See Table 1 for more information. When your changes are complete, click **Attach**.
 
