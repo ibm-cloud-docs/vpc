@@ -1,8 +1,8 @@
 ---
 
 copyright:
-  years: 2024, 2025
-lastupdated: "2025-12-04"
+  years: 2024, 2026
+lastupdated: "2026-02-13"
 
 keywords: snapshots, File Storage, shares, restore share
 
@@ -61,7 +61,7 @@ The following limitations apply to this release:
 ## Snapshots for second-generation file shares
 {: #rfs-snapshots}
 
-Customers with special access, you can provision second-generation file shares with the `rfs` profile and create snapshots of these shares. During the [select availability]{: tag-green} phase, second-generation storage volumes can range in size from 1 GB to 32 TB. You can create snapshots of the entire volume as needed. You can take up to 30 snapshots per share in a region. If needed, this limit can be increased upon request.
+As a customer with special access, you can provision second-generation file shares with the `rfs` profile and create snapshots of these shares. During the [select availability]{: tag-green} phase, second-generation file share can range in size from 1 GB to 32 TB. You can create snapshots of the entire volume as needed. You can take up to 30 snapshots per share in a region. If needed, this limit can be increased upon request.
 {: preview}
 
 You can use your snapshots to create other second-generation file shares in the same region. You can't use your second-generation snapshot to create a zonal file share. Similarly, you can't use first-generation file share's snapshot to create a share with the `rfs` profile.

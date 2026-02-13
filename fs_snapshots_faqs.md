@@ -38,19 +38,11 @@ Backup schedules can be configured only on the source side of a replication pair
 {: faq}
 {: #faq-fs-snapshot-3}
 
-For zonal file shares, you can take up to 750 snapshots per share in a zone. A snapshot of a zonal share cannot exceed 10 TB. 
+For zonal file shares, you can take up to 750 snapshots per share in a zone.
 
-In the current release of regional file shares, you can take up to 30 snapshots per share in a region. The snapshot limit can be increased upon request. The snapshot of regional file shares can exceed 10 TB, up to 32 TB. 
+In the current release of regional file shares, you can take up to 30 snapshots per share in a region. The snapshot limit can be increased upon request.
 
 Deleting snapshots from this quota makes space for more snapshots. Taking more snapshots affects billing, consider the financial impach when you increase the number of snapshots that you take and retain.
-
-## Is there a limit on the size of a share that I can take a snapshot of?
-{: faq}
-{: #faq-fs-snapshot-4}
-
-The maximum size of a zonal file share is 10 TB. Snapshot creation fails if the share is over that limit.
-
-[Select availability]{: tag-green} In this release of regional file shares, the maximum supported share size is 32 TB, and snapshots can be taken of the full share size with no limitations. 
 
 ## How secure are snapshots?
 {: faq}
