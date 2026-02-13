@@ -2,7 +2,7 @@
 
 copyright:
   years: 2018, 2026
-lastupdated: "2026-02-10"
+lastupdated: "2026-02-13"
 
 keywords:
 
@@ -133,4 +133,4 @@ Multi-volume snapshots are not supported for second-generation volumes. When you
 ### Private context-based restriction rules for Backups are not working in Montreal (`ca-mon`) and Chennai (`in-che`) MZRs.
 {: #baas-CBR-issue-MON}
 
-Enabling private CBR rules for backup operations that create and manage automated snapshots of block volumes and file shares in Chennai and Montreal is not supported.
+Enabling private CBR rules for backup operations that create and manage automated snapshots of block volumes and file shares in Montreal and Chennai is not supported.

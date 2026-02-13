@@ -2,7 +2,7 @@
 
 copyright:
   years: 2021, 2026
-lastupdated: "2026-02-12"
+lastupdated: "2026-02-13"
 
 keywords:
 
@@ -42,6 +42,8 @@ You can restore volumes at various stages of the VPC lifecycle.
    * When you create an unattached (stand-alone) {{site.data.keyword.block_storage_is_short}} volume from a snapshot, you can still attach the volume to an instance later.
 
 Restoring an instance directly from snapshot consistency group identifier is not supported. However, you can restore a virtual server instance by restoring all of its boot and data volumes from the snapshots that are part of a consistency group.
+
+
 
 ## Limitations
 {: #snapshots-vpc-restore-limitations}
@@ -115,7 +117,8 @@ From the list of {{site.data.keyword.block_storage_is_short}} snapshots, you can
         - **Locate by Instance**:
            1. Select the data encryption instance from the list. If you don't have an instance yet, you can click the link to create one.
            1. Select the data encryption key that is stored within the {{site.data.keyword.keymanagementserviceshort}} instance to use for encrypting the volume.
-        - **Locate by CRN**: enter the CRN of the customer root key to be used for encrypting the volume.
+        - **Locate by CRN**: Enter the CRN of the customer root key to be used for encrypting the volume.
+
      1. When you're finished, click **Create block storage volume**. 
         - If you're not ready to order yet or just looking for pricing information, you can add the information that you see in the side panel to an Estimate. For more information about how this feature works, see [Estimating your costs](/docs/account?topic=account-cost).
      1. The {{site.data.keyword.block_storage_is_short}} volumes page is shown, where a message indicates that the volume is being created (volume status is _pending_). A second message displays when the volume is created (volume status is _available_).
