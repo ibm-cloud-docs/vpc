@@ -2,7 +2,7 @@
 
 copyright:
   years: 2019, 2026
-lastupdated: "2026-02-13"
+lastupdated: "2026-02-16"
 
 keywords: vpc Block Storage, provision Block Storage for vpc, bootable snapshots, create volume from snapshot, fast restore
 
@@ -107,6 +107,9 @@ You can create a {{site.data.keyword.block_storage_is_short}} volume independent
        1. Select the data encryption instance from the list. If you don't have an instance yet, you can click the link to create one.
        1. Select the data encryption key that is stored within the {{site.data.keyword.keymanagementserviceshort}} instance to use for encrypting the volume.
     - **Locate by CRN**: Enter the CRN of the customer root key to be used for encrypting the volume.
+
+   If you selected a second-generation snapshot to create the volume, your volume's encryption type must match the snapshot's encryption type. If the snapshot has provider-managed keys, do not specify a key from a key management service.
+    {: note}
 
 1. When you're finished, click **Create block storage volume**. 
     - If you're not ready to order yet or just looking for pricing information, you can add the information that you see in the side panel to an Estimate. For more information about how this feature works, see [Estimating your costs](/docs/account?topic=account-cost).

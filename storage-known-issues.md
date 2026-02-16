@@ -2,7 +2,7 @@
 
 copyright:
   years: 2018, 2026
-lastupdated: "2026-02-13"
+lastupdated: "2026-02-16"
 
 keywords:
 
@@ -45,6 +45,11 @@ A local {{site.data.keyword.keymanagementserviceshort}} instance is not availabl
 {: #snapshot-CRC-IN-CHE}
 
 A cross-regional copy of block storage volume snapshots is not supported in the Chennai region. It can't be selected as a source or target region.
+
+### Creating a volume from a second-generation snapshot that has provider-managed encryption fails when customer-managed encryption is specified for the volume
+{: #gen2-volume-from-snapshot-fail}
+
+When a second-generation snapshot with provider-managed encryption is selected to create a volume with customer-managed keys, the volume provisioning gets stuck in `pending` status. When you restore a volume from a second-generation snapshot, make sure that the encryption type of the new volume matches the encryption type of the snapshot.
 
 ## File Storage shares and snapshots
 {: #file-storage-known-issue}
