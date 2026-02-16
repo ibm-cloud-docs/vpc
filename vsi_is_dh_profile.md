@@ -1,7 +1,7 @@
 ---
 copyright:
   years: 2020, 2026
-lastupdated: "2026-02-11"
+lastupdated: "2026-02-16"
 
 keywords: dedicated host profiles, balanced, compute, memory, ultra high memory, generation 2, gen 2
 
@@ -52,8 +52,9 @@ The Balanced profile family of dedicated hosts on Intel&reg; x86-64 systems are 
 - *bx2* and *bx2d* profiles can be deployed on an Intel&reg; Xeon&reg; Gold 6248 Cascade Lake processor with 80 cores in a 4-socket configuration.
 - *bx3d* profiles are deployed on a custom Intel&reg; Xeon&reg; Platinum 8474C Sapphire Rapids processor with 96 cores in a 2-socket configuration.
 
-New 3rd generation profiles are available in the Dallas, London, Frankfurt, Toronto, Montreal, Chennai, and Madrid regions to create dedicated hosts on hardware that uses 4th Generation Intel&reg; Xeon&reg; Scalable processors, the Intel 8474C processor (previously code named Sapphire Rapids).
+New 3rd generation profiles are available in the Chennai, Dallas, Frankfurt, London, Madrid, Montreal, and Toronto regions to create dedicated hosts on hardware that uses 4th Generation Intel&reg; Xeon&reg; Scalable processors, the Intel 8474C processor (previously code named Sapphire Rapids).
 {: preview}
+
 
 The 4th generation dedicated host profile is available in the Dallas (us-south) region. For more information about the capabilities of the new profiles, see [General purpose instance profiles - Intel Gen 4](/docs/vpc?topic=vpc-general-purpose-vsi-profiles-gen4-intel&interface=ui).
 {: preview}
@@ -119,7 +120,7 @@ The Compute profile family of dedicated hosts on Intel&reg; x86-64 systems are d
 - *cx2* and *cx2d* profiles can be deployed on an Intel&reg; Xeon&reg; Gold 6248 Cascade Lake processor with 80 cores in a 4-socket configuration.
 - *cx3d* profiles are deployed on a custom Intel&reg; Xeon&reg; Platinum 8474C Sapphire Rapids processor with 96 cores in a 2-socket configuration.
 
-New 3rd generation profiles are available in the Dallas, London, Toronto, Montreal, Chennai, and Madrid regions to create dedicated hosts on hardware that uses 4th Generation Intel&reg; Xeon&reg; Scalable processors, the Intel 8474C processor (previously code named Sapphire Rapids).
+New 3rd generation profiles are available in the Chennai, Dallas, London, Madrid, Montreal, and Toronto regions to create dedicated hosts on hardware that uses 4th Generation Intel&reg; Xeon&reg; Scalable processors, the Intel 8474C processor (previously code named Sapphire Rapids).
 {: preview}
 
 The following Compute profiles are available for dedicated hosts.
@@ -163,7 +164,7 @@ The Memory profile family of dedicated hosts on Intel&reg; x86-64 systems are de
 - *mx2* and *mx2d* profiles can be deployed on an Intel&reg; Xeon&reg; Gold 6248 Cascade Lake processor with 80 cores in a 4-socket configuration.
 - *mx3d* profiles are deployed on a custom Intel&reg; Xeon&reg; Platinum 8474C Sapphire Rapids processor with 96 cores in a 2-socket configuration.
 
-New 3rd generation profiles are available in the Dallas, London, Toronto, Montreal, Chennai, and Madrid regions to create dedicated hosts on hardware that uses 4th Generation Intel&reg; Xeon&reg; Scalable processors, the Intel 8474C processor (previously code named Sapphire Rapids).
+New 3rd generation profiles are available in the Chennai, Dallas, London, Madrid, Montreal, and Toronto regions to create dedicated hosts on hardware that uses 4th Generation Intel&reg; Xeon&reg; Scalable processors, the Intel 8474C processor (previously code named Sapphire Rapids).
 {: preview}
 
 The following Memory profiles are available for dedicated hosts.
@@ -205,7 +206,7 @@ The Very High Memory with instance storage profile with a high memory ratio of 1
 
 If you provision a dedicated host with a Very High Memory profile, any virtual server instances that are provisioned on the dedicated host must also be provisioned with a Very High Memory profile. All Very High Memory profiles include instance storage that is designated by the *d* in the profile name, for example *vx2d*.
 
-The 3rd generation profile with the vx3d prefix is available in theChennai, Toronto (`ca-tor`) and Washington DC (`us-east`) regions to provision virtual server instances on 4th Generation Intel&reg; Xeon&reg; Scalable processors, the Intel 8474C processor (previously code named Sapphire Rapids). For more information about the capabilities of the new profiles, see [Next generation instance profiles](#next-gen-profiles).
+The 3rd generation profile with the vx3d prefix is available in the Chennai (`in-che`), Toronto (`ca-tor`), and Washington DC (`us-east`) regions to provision virtual server instances on 4th Generation Intel&reg; Xeon&reg; Scalable processors, the Intel 8474C processor (previously code named Sapphire Rapids). For more information about the capabilities of the new profiles, see [Next generation instance profiles](#next-gen-profiles).
 {: preview}
 
 The following Very High Memory profile is available for dedicated hosts.
