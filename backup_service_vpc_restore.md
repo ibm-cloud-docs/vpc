@@ -41,9 +41,6 @@ To restore a volume, the backup snapshot must be in a _stable_ state.
 
 All snapshots inherit their encryption type and key from the parent volume. When you create a volume from a first generation snapshot, you can either keep the encryption the same as the snapshot or change your keys. When the first-generation snapshot is protected with provider-managed keys, you can also opt to add customer managed keys. If your snapshot was protected with customer-managed keys, your new volume must also have customer-managed keys. When you create a volume from a second-generation snapshot, your volume must have the same encryption type (provider-managed or customer-managed) as the snapshot.
 
-If you selected a second-generation snapshot to create the volume, your volume's encryption type must match the snapshot's encryption type. If the snapshot has provider-managed keys, do not specify a key from a key management service.
-{: note}
-
 ### Restoring from a bootable backup
 {: #baas-restore-concept-boot}
 
@@ -117,6 +114,9 @@ From the list of {{site.data.keyword.block_storage_is_short}} snapshots, you can
            1. Select the data encryption instance from the list. If you don't have an instance yet, you can click the link to create one.
            1. Select the data encryption key that is stored within the {{site.data.keyword.keymanagementserviceshort}} instance to use for encrypting the volume.
         - **Locate by CRN**: Enter the CRN of the customer root key to be used for encrypting the volume.
+
+        If you selected a second-generation snapshot to create the volume, your volume's encryption type must match the snapshot's encryption type. If the snapshot has provider-managed keys, do not specify a key from a key management service.
+        {: note}
 
      1. When you're finished, click **Create block storage volume**. 
         - If you're not ready to order yet or just looking for pricing information, you can add the information that you see in the side panel to an Estimate. For more information about how this feature works, see [Estimating your costs](/docs/account?topic=account-cost).
@@ -238,7 +238,7 @@ For more information, see [Creating volumes for a virtual server instance from a
 ## Performance impact
 {: #baas-performance-considerations}
 
-The performance of boot and data volumes is initially degraded when data is restored from a snapshot. Performance degradation occurs during the restoration because your data is copied from the regional storage repository to {{site.data.keyword.block_storage_is_short}} in the background. After the restoration process is complete, you can realize full IOPS on the new volume.
+The performance of boot and data volumes is initially degraded when data is restored from a Gen 1 snapshot. Performance degradation occurs during the restoration because your data is copied from the regional storage repository to {{site.data.keyword.block_storage_is_short}} in the background. After the restoration process is complete, you can realize full IOPS on the new volume.
 
 ### Performance impact when a bootable backup snapshot is used to provision an instance
 {: #baas-boot-perf}

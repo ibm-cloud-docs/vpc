@@ -45,9 +45,6 @@ Restoring an instance directly from snapshot consistency group identifier is not
 
 All snapshots inherit their encryption type and key from the parent volume. When you create a volume from a first generation snapshot, you can either keep the encryption the same as the snapshot or change your keys. When the first-generation snapshot is protected with provider-managed keys, you can also opt to add customer managed keys. If your snapshot was protected with customer-managed keys, your new volume must also have customer-managed keys. When you create a volume from a second-generation snapshot, your volume must have the same encryption type (provider-managed or customer-managed) as the snapshot.
 
-If you selected a second-generation snapshot to create the volume, your volume's encryption type must match the snapshot's encryption type. If the snapshot has provider-managed keys, do not specify a key from a key management service.
-{: note}
-
 ## Limitations
 {: #snapshots-vpc-restore-limitations}
 
@@ -122,6 +119,9 @@ From the list of {{site.data.keyword.block_storage_is_short}} snapshots, you can
            1. Select the data encryption key that is stored within the {{site.data.keyword.keymanagementserviceshort}} instance to use for encrypting the volume.
         - **Locate by CRN**: Enter the CRN of the customer root key to be used for encrypting the volume.
 
+        If you selected a second-generation snapshot to create the volume, your volume's encryption type must match the snapshot's encryption type. If the snapshot has provider-managed keys, do not specify a key from a key management service.
+        {: note}
+
      1. When you're finished, click **Create block storage volume**. 
         - If you're not ready to order yet or just looking for pricing information, you can add the information that you see in the side panel to an Estimate. For more information about how this feature works, see [Estimating your costs](/docs/account?topic=account-cost).
      1. The {{site.data.keyword.block_storage_is_short}} volumes page is shown, where a message indicates that the volume is being created (volume status is _pending_). A second message displays when the volume is created (volume status is _available_).
@@ -192,6 +192,10 @@ You can also create a data volume from a snapshot for an existing instance. Choo
 4. From the Attach storage volume panel, expand the list of Block Volumes, and select **Create a data volume**.
 5. You can expand the list and select a snapshot, or search for a specific snapshot by its CRN.
 6. The snapshot contains the properties of the original source volume, including the auto-delete status, tags, profile, and encryption. You can change all these properties. Keep in mind that you can change the volume name, profile, size, and IOPS later, but you cannot change the encryption type or CRK after the volume is created.
+   
+   If you selected a second-generation snapshot to create the volume, your volume's encryption type must match the snapshot's encryption type. If the snapshot has provider-managed keys, do not specify a key from a key management service.
+   {: note}
+
 7. Select a unique name, specify the size, and click **Save**. The data volume information is added in the Data volume list.
 8. Click **Save**. The side panel closes and messages indicate that the restored volume is being attached to the instance. The new volume appears in the list of Storage volumes. Hover over the camera icon to see the name of the snapshot from which it was created.
 
@@ -362,6 +366,8 @@ Before you begin, gather information about the snapshot or snapshots that you wa
    - If you want to restore an instance by restoring multiple volumes from a consistency group, you need to gather information about the snapshots in the consistency group. [List all the consistency groups in the region](/apidocs/vpc/latest#list-snapshot-consistency-groups){: external}. Then, take the ID of the consistency group that you want to restore and use it to [retrieve the snapshot consistency group](/apidocs/vpc/latest#get-snapshot-consistency-group){: external} details.
 
 A snapshot whose `storage_generation` property value is 1 can be used only to create a block storage volume with the same `storage_generation` value. When you create a volume from a snapshot, the `storage_generation` values of the snapshot and the selected volume profile must match.
+
+If you selected a snapshot that has the `storage_generation` property value as 2, your volume's encryption type must match the snapshot's encryption type. If the snapshot has provider-managed keys, do not specify a key from a key management service.
 
 ### Creating a boot volume when you provision an instance with the API
 {: #snapshots-vpc-restore-boot-api}
