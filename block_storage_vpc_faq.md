@@ -2,7 +2,7 @@
 
 copyright:
   years: 2019, 2026
-lastupdated: "2026-02-12"
+lastupdated: "2026-02-16"
 
 keywords: faqs, Block Storage for vpc, fast restore, multizone, instance, instance provisioning, volume management, volume deletion.
 
@@ -310,7 +310,8 @@ You can change the name of an existing volume in the console. For more informati
 {: #faq-block-storage-10}
 
 You do not have to pre-warm a volume. You can see the specified throughput immediately upon provisioning the volume when you create the volume from an image.
-You can experience degraded performance when you provision the volume by restoring a snapshot.
+
+You can experience degraded performance when you provision the volume by restoring from a Gen 1 snapshot. A Gen 1 volume that is restored from a fast-restore snapshot clone is available for operation immediately.
 
 ## What is a {{site.data.keyword.block_storage_is_short}} snapshot?
 {: faq}

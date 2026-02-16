@@ -2,7 +2,7 @@
 
 copyright:
  years: 2022, 2026
-lastupdated: "2026-02-12"
+lastupdated: "2026-02-16"
 
 keywords: Backup, backup service, backup plan, backup policy, restore, restore volume, restore data
 
@@ -56,7 +56,7 @@ You can copy a Block storage backup snapshot from one region to another region, 
 
 When the backup of a file share is triggered at the scheduled interval, a point-in-time snapshot is taken of your share. When the first backup snapshot is taken, the entire contents of the share are copied and retained in the same location as the share. Subsequent backups of the same volume capture the changes that occurred since the previous backup. You can take up to 750 backups of a share. If a file share has a replica in another zone, its backups are automatically copied to the replica location. However, file share backups cannot be independently copied to other zones or regions. For more information, see [About {{site.data.keyword.filestorage_vpc_short}} snapshots](/docs/vpc?topic=vpc-fs-snapshots-about).  
 
-You can [restore](#backup-service-restore-concepts) data from a backup snapshot to a new, fully provisioned volume. If the backup is of a boot volume, you can use it to provision a new instance. However, when you provision an instance by restoring a boot volume from a bootable backup snapshot, you can expect degraded performance in the beginning. During the restoration process, the data is copied from the regional storage repository to {{site.data.keyword.block_storage_is_short}}, and thus the provisioned IOPS cannot be fully realized until that process finishes.
+You can [restore](#backup-service-restore-concepts) data from a backup snapshot to a new, fully provisioned volume. If the backup is of a boot volume, you can use it to provision a new instance. However, when you provision an instance by restoring a boot volume from a Gen 1 bootable backup snapshot, you can expect degraded performance in the beginning. During the restoration process, the data is copied from the regional storage repository to {{site.data.keyword.block_storage_is_short}}, and thus the provisioned IOPS cannot be fully realized until that process finishes.
 
 With the fast restore feature, you can cache snapshots in a specified zone of your choosing. This way, volumes can be restored from snapshots nearly immediately and the new volumes operate with full IOPS instantly. The fast restore feature can achieve a [recovery time objective](#x3167918){: term} (RTO) quicker than restoring from a regular backup snapshot. When you opt for fast restore, your existing regional plan is adjusted, including billing. The fast restore feature is billed at an extra hourly rate for each zone that it is enabled in regardless of the size of the snapshot. Maintaining fast restore clones is considerably more costly than keeping regular snapshots. The fast restore feature is supported only for individual volume backups, not for consistency group backups.
 
