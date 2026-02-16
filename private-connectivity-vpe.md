@@ -2,7 +2,7 @@
 
 copyright:
   years: 2022, 2026
-lastupdated: "2026-01-22"
+lastupdated: "2026-02-16"
 
 keywords:
 
@@ -15,11 +15,20 @@ subcollection: vpc
 # Accessing VPEs from an on-premises network using Direct Link or from another VPC by using Transit Gateway
 {: #end-to-end-private-connectivity-vpe}
 
-For Virtual Private Endpoint (VPE) enabled services, you can access IBM Cloud resources over a private network from your on-premises location through IBM Cloud Direct Link, or from another VPC by using IBM Cloud Transit Gateway. By using an endpoint gateway, traffic between your VPC and IBM Cloud services does not leave the private network.
+For Virtual Private Endpoint (VPE) enabled services, you can access cloud services hosted in IBM Cloud over a private network from your on-premises location through IBM Cloud Direct Link, or from another VPC by using IBM Cloud Transit Gateway. When you use an endpoint gateway, traffic between your VPC and the target service remains on the IBM Cloud private network and does not traverse the internet.
+{: shortdesc}
 
-IBM Cloud Virtual Private Endpoint (VPE) for VPC enables you to access supported IBM Cloud services remotely by using the IP addresses of your choice, which are allocated from a subnet within your VPC.
+VPE-enabled services can include:
 
-You should put VPEs in a separate, dedicated subnet that is not associated with your workloads. If you want to access a VPE from another subnet, ensure that you configure your network ACLs or security groups to allow for cross-subnet access. For example, make sure that you open the proper ports within your ACLs or security groups to allow access.
+* IBM-owned IBM Cloud services
+* Private Path services that are published within IBM Cloud, including services offered by third-party independent software vendors (ISVs)
+
+Unless otherwise specified, references to “IBM Cloud services” in this topic apply to both IBM-owned services and Private Path services.
+{: note}
+
+VPE for VPC enables private connectivity to supported services by using IP addresses that you select from a subnet within your VPC.
+
+Deploy VPEs in a separate, dedicated subnet that is not associated with application workloads. To access a VPE from another subnet, configure your network ACLs or security groups to allow cross-subnet traffic. Ensure that the required ports are opened in your ACLs or security groups to permit access.
 
 Only TCP services are supported.
 {: important}
@@ -27,9 +36,13 @@ Only TCP services are supported.
 ## Architecture
 {: #vpe-arch}
 
-The following topology illustrates remote, direct access to a VPE in a VPC through Direct Link and Transit Gateway. The VPEs are created in a central place and custom resolvers are used to resolve the VPE.
+The following topology illustrates remote, direct access to a VPE in a VPC through Direct Link and Transit Gateway. In this model, VPEs are deployed in a centralized VPC, and custom DNS resolvers are used for hostname resolution.
 
-The topology demonstrates that you can access a VPE from a remote client that is connected through Direct Link or through Transit Gateway. You must provision a custom resolver in the VPC where you created VPE gateways for the Domain Name Server (DNS) resolution. When accessing VPE from a remote client through Direct Link, you must configure DNS forwarding rules for the private endpoints that you want to access through VPE, to the custom resolver provisioned in the VPC where VPE gateways are created. When accessing VPE from a remote client through Transit Gateway, you must also provision a custom resolver in the VPC where the client is running, and configure DNS forwarding rules to the custom resolver provisioned in the VPC where VPE gateways are created.
+A remote client can access the VPE when connected through Direct Link or Transit Gateway. To support Domain Name Server (DNS) resolution, provision a custom resolver in the VPC where the VPE gateways are deployed.
+
+For access over Direct Link, configure DNS forwarding rules for the required private endpoints so that DNS queries are forwarded to the custom resolver in the VPC that hosts the VPE gateways.
+
+For access over Transit Gateway, provision a custom resolver in the client VPC and configure DNS forwarding rules to forward queries to the custom resolver in the VPE-hosting VPC.
 
 ![Direct access to the VPE](images/dl.twg.vpe.access.png "Direct access to the VPE"){: caption="Direct access to the VPE" caption-side="bottom"}
 
