@@ -2,7 +2,7 @@
 
 copyright:
   years: 2022, 2026
-lastupdated: "2026-02-13"
+lastupdated: "2026-02-16"
 
 keywords: Backup, backup service, backup plan, backup policy, restore, restore volume, restore data
 
@@ -39,7 +39,10 @@ For best performance, use backups with fast restore. You can enable fast restore
 To restore a volume, the backup snapshot must be in a _stable_ state.
 {: requirement}
 
+All snapshots inherit their encryption type and key from the parent volume. When you create a volume from a first generation snapshot, you can either keep the encryption the same as the snapshot or change your keys. When the first-generation snapshot is protected with provider-managed keys, you can also opt to add customer managed keys. If your snapshot was protected with customer-managed keys, your new volume must also have customer-managed keys. When you create a volume from a second-generation snapshot, your volume must have the same encryption type (provider-managed or customer-managed) as the snapshot.
 
+If you selected a second-generation snapshot to create the volume, your volume's encryption type must match the snapshot's encryption type. If the snapshot has provider-managed keys, do not specify a key from a key management service.
+{: note}
 
 ### Restoring from a bootable backup
 {: #baas-restore-concept-boot}

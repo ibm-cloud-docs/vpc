@@ -2,7 +2,7 @@
 
 copyright:
   years: 2019, 2026
-lastupdated: "2026-02-13"
+lastupdated: "2026-02-16"
 
 keywords: Block Storage, IBM Cloud, VPC, virtual private cloud, Key Protect, encryption, key management, Hyper Protect Crypto Services, HPCS, volume, data storage, virtual server instance, instance, customer-managed encryption, Block Storage for vpc, customer-managed encryption,
 
@@ -243,6 +243,9 @@ Follow these steps to create an instance with a new Block Storage volume.
        1. Select the data encryption instance from the list. If you don't have an instance yet, you can click the link to create one.
        1. Select the data encryption key that is stored within the {{site.data.keyword.keymanagementserviceshort}} instance to use for encrypting the volume.
     - **Locate by CRN**: Enter the CRN of the customer root key to be used for encrypting the volume. Choose this option if you're using a CRK from another account.
+
+    If you selected a second-generation snapshot to create the volume, your volume's encryption type must match the snapshot's encryption type. If the snapshot has provider-managed keys, do not specify a key from a key management service.
+    {: note}
 
 1. When your changes are complete, click **Apply**.
 1. In the **Attached Block Storage volume** section, you can click **New Block Storage volume** to add a data volume and specify customer-managed encryption. On the **New Block Storage volume** page, update the fields in the **Encryption** section. See Table 1 for more information. When your changes are complete, click **Attach**.
