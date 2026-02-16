@@ -2,7 +2,7 @@
 
 copyright:
   years: 2018, 2026
-lastupdated: "2026-02-12"
+lastupdated: "2026-02-16"
 
 keywords:
 
@@ -27,12 +27,12 @@ The default VPC is selected automatically. If another VPC is not selected, the d
 {: tip}
 
 | Item | Considerations |
-| ------ | ----- |
-| Required IAM permissions | Make sure that your account has the required user permissions. To create and manage a virtual server instance in a VPC, your account must have the required IAM access across multiple VPC infrastructure resourses. Permissions on the VPC resource alone are not sufficient, as virtual server instance creation also requires access to dependent resources such as subnets, virtual network interfaces, security groups, and the instance itself. For more information, see [Managing IAM access for VPC Infrastructure Services](/docs/vpc?topic=vpc-iam-getting-started&interface=ui) and the [Authorization](/apidocs/vpc#create-instance) section in the Create an instance method of the VPC API reference, which provides the authoritative list of required permissions. |
-| Account limits | Check your [account limits](/docs/vpc?topic=vpc-quotas) for concurrent instances. |
-| SSH key | Make sure that your [SSH key](/docs/vpc?topic=vpc-ssh-keys#ssh-keys) is available. |
-| Location | Determine what region and zone to select. |
-| Subnet | Determine which subnets that you want the instance to connect to. |
+|------| ----- |
+| Required IAM permissions | Make sure that your account has the required user permissions. If you have authorization as an editor or admin on a VPC resource, then you also inherit authorization to create, delete, and modify virtual server instances within that virtual private cloud.|
+| Account limits | Check your [account limits](/docs/vpc?topic=vpc-quotas) for concurrent instances.|
+| SSH key | Make sure that your [SSH key](/docs/vpc?topic=vpc-ssh-keys#ssh-keys) is available.|
+| Location | Determine what region and zone to select.|
+| Subnet | Determine which subnets that you want the instance to connect to.|
 | Profile | Consider the popular [profile options](/docs/vpc?topic=vpc-profiles#profiles) of vCPU and RAM combinations for your workload. Profiles contain preconfigured instances that are ready to use in a matter of minutes. It's important to make sure that your instances have the necessary resources to keep your workloads and your environment up and running.  \n  \n  For {{site.data.keyword.cloud}} Hyper Protect Virtual Server for {{site.data.keyword.vpc_full}} instances and z/OS virtual server instances, see [s390x instance profiles](/docs/vpc?topic=vpc-vs-profiles).Some profiles might not be available because of one of the following reasons:  \n  \n - The number of network interfaces in the virtual server exceeds profile limits. You can remove network interfaces to select from more profiles. For more information, see [Resizing a virtual server](/docs/vpc?topic=vpc-resizing-an-instance). \n  \n - The image selected contains an allowed-use expression that is not compatible with the profile. In these cases, select an image with an allowed-use expression that is compatible with the desired profile. For more infomation, see [Adding allowed-use expressions to custom images](/docs/vpc?topic=vpc-custom-image-allowed-use-expressions&interface=ui).  \n  \n  |
 | Operating system | Determine what operating system image to select for your instance. You can select a stock image, custom image, catalog image, snapshot, or an existing volume.  \n * **Stock images**: You can select from available stock images. For more information, see: \n   * [x86 virtual server images](/docs/vpc?topic=vpc-about-images&interface=ui) \n   *  [s390x virtual server images](/docs/vpc?topic=vpc-vsabout-images). \n * **Custom images**: A custom image can be an image that you customize and upload to {{site.data.keyword.cos_full_notm}}, which you can then import into {{site.data.keyword.vpc_short}}. You can also use a custom image that was created from a boot volume. For more information about custom images, see [Getting started with custom images](/docs/vpc?topic=vpc-planning-custom-images). \n * **Catalog images**: A catalog image is a custom image that is imported into a private catalog. For more information about catalog images, see [VPC considerations when using custom images in a private catalog](/docs/vpc?topic=vpc-custom-image-cloud-private-catalog&interface=ui). \n * **Snapshot**: You can select from available snapshots. For more information, see [About Block Storage Snapshots for VPC](/docs/vpc?topic=vpc-snapshots-vpc-about). \n * **Existing volume**: You can select from existing volumes. The specified volume must be unattached, and must have an operating system with the same architecture as the instance profile.  \n  \n  |
 | Naming | Make sure that you have a unique name for the instance. The instance name must be unique within an account and region. If you have a method to naming virtual server instances, it's much easier to filter and search on them later. |
