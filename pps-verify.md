@@ -1,8 +1,8 @@
 ---
 
 copyright:
-  years: 2024, 2025
-lastupdated: "2025-12-17"
+  years: 2024, 2026
+lastupdated: "2026-02-17"
 
 keywords:
 
@@ -15,13 +15,11 @@ subcollection: vpc
 # Verifying connectivity to a Private Path service
 {: #pps-verify}
 
-After you create a Private Path service, the service's status is `Stable`. At this time, it's a good idea to test the connection to your service by creating a VPE gateway with the cloud resource name (CRN) associated with your Private Path service.
+After you create a Private Path service and its status shows `Stable`, it's a good idea to test the connection to your service before making the service available to other clients.
 {: shortdesc}
 
-To verify that the Private Path service is fully functional before it is published for consumer use, you must use the same account to create the VPE gateway as the account used to create the Private Path service. After you publish your Private Path service, any account can be used to create the VPE gateway.
-{: important}
-
-You can verify connectivity to a Private Path service by using SSH to log in to a virtual server instance that is running in the VPC that contains the endpoint gateway. Then, initiate traffic to the VPE service endpoint or private IP.
+You don't need to **Publish** the service to verify that it works.
+{: attention}
 
 ## Verifying connectivity to a Private Path service in the console
 {: #pps-ui-verify-private-path-service}
@@ -33,8 +31,12 @@ To verify connectivity to a Private Path service from the IBM Cloud console, fol
 1. Select the **Navigation menu** ![Navigation menu icon](../icons/icon_hamburger.svg), then click **Infrastructure** ![VPC icon](../../icons/vpc.svg) > **Network** > **Private Path services**.
 1. Locate your new Private Path in the table and click the name of the service to show its Details page.
 1. Copy the CRN to your clipboard.
-1. Click **Infrastructure**, then click **Virtual private endpoint gateways** in the Network section.
-1. Create a VPE gateway to connect to your Private Path service by using your Private Path CRN. For instructions, see [Creating a VPE gateway](/docs/vpc?topic=vpc-ordering-endpoint-gateway).
+1. From the **Navigation menu** ![Navigation menu icon](../icons/icon_hamburger.svg), click **Infrastructure** ![VPC icon](../../icons/vpc.svg) > **Network** > **Virtual private endpoint gateways**.
+1. Create a VPE gateway using the Cloud Resource Name (CRN) of your Private Path service. For instructions, see [Creating a VPE gateway](/docs/vpc?topic=vpc-ordering-endpoint-gateway).
+
+   Create the VPE gateway in the same account that created the Private Path service. After the service is published, VPE gateways can be created from any account that is authorized to use the service.
+   {: important}
+
 1. Go back to the Private Path services for VPC list page and click the name of your Private Path service in the table.
 1. In the Connections section:
 
@@ -42,6 +44,11 @@ To verify connectivity to a Private Path service from the IBM Cloud console, fol
    * If your default policy is set to **Review all requests**, your request shows in the **Requests to review** view. Permit your connection request.
 
 1. Connect to your service.
+1. Verify connectivity to your Private Path service:
+
+   1. Use SSH to log in to a virtual server instance that is running in the VPC that contains the endpoint gateway.
+   1. Initiate traffic to the VPE service endpoint DNS name or private IP address.
+   1. Confirm that the connection is successful.
 
 ## Verifying connectivity to a Private Path service from the CLI
 {: #pps-cli-verify-private-path-service}
@@ -54,7 +61,16 @@ Before you begin, make sure to [set up your CLI environment](/docs/vpc?topic=vpc
 To verify connectivity to a Private Path service from the CLI, follow these steps:
 
 1. Create a VPE gateway to connect to your Private Path service by using your Private Path CRN. For instructions, see [Creating a VPE gateway from the CLI](/docs/vpc?topic=vpc-ordering-endpoint-gateway&interface=cli).
+
+   Create the VPE gateway in the same account that created the Private Path service. After the service is published, VPE gateways can be created from any account that is authorized to use the service.
+   {: important}
+
 1. Connect to your service.
+1. Verify connectivity to your Private Path service:
+
+   1. Use SSH to log in to a virtual server instance that is running in the VPC that contains the endpoint gateway.
+   1. Initiate traffic to the VPE service endpoint DNS name or private IP address.
+   1. Confirm that the connection is successful.
 
 ## Verifying connectivity to a Private Path service with the API
 {: #pps-api-verify-private-path-service}
@@ -64,7 +80,7 @@ To verify connectivity to a Private Path service with the API, follow these step
 
 1. Follow [these instructions](/docs/vpc?topic=vpc-ordering-endpoint-gateway&interface=api) to create a VPE with `TargetCrn` specified with your Private Path service CRN.
 1. Make sure that at least one of your load balancer's members health is shown as `ok`.
-1. From a VSI in the same VPE's VPC, initiate a request to the VPE's `private IP` or `service_endpoint` and expect to get a reply. For example, SSH into a VSI in the same VPE's VPC with image `ibm-ubuntu-18-04-6-minimal-s390x-3`. Then, run this command:
+1. From a virtual server instance in the same VPE's VPC, initiate a request to the VPE's `private IP` or `service_endpoint` and expect to get a reply. For example, SSH into a VSI in the same VPE's VPC with image `ibm-ubuntu-18-04-6-minimal-s390x-3`. Then, run this command:
 
 ```sh
   export ip=<VPE-private-ip>
