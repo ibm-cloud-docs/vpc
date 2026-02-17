@@ -54,6 +54,14 @@ At this time, all instances, and therefore all instance templates, continue to r
 The new response code will be rolled out gradually. Each phase of the rollout will be tied to a dated API version. These changes will be announced in future change log updates.
 {: note}
 
+## 17 February 2026
+{: #17-february-2026}
+
+### For all version dates
+{: #17-february-2026-all-version-dates}
+
+**Spot instances.** You can now use [Spot instance](/docs/vpc?topic=vpc-spot-instances-virtual-servers) by setting the `availability.class` property to `spot` when creating an [instance](/apidocs/vpc/latest#create-instance) or [instance template](/apidocs/vpc/latest#create-instance-template). When creating an instance or instance template you can now set the `availability_policy.preemption` to `stop` or `delete` to specify the behavior you want upon instance preemption. You can [update an instance](/apidocs/vpc/latest#update-instance) to set or change the `availability.class` and `availability_policy.preemption`. Additionally, [instance profiles](/apidocs/vpc/latest#list-instance-profiles) that support spot capabilities now include `spot` in the `availability_class` property response.
+
 ## 27 January 2026
 {: #27-january-2026}
 
@@ -69,6 +77,8 @@ The new response code will be rolled out gradually. Each phase of the rollout wi
 {: #20-january-2026-all-version-dates}
 
 **Spot instances.** Accounts that have been granted special approval to preview this feature can now use [Spot instance](/docs/vpc?topic=vpc-spot-instances-virtual-servers) by setting the `availability.class` property to `spot` when [creating an instance](/apidocs/vpc/latest#create-instance) or when [creating an instance template](/apidocs/vpc/latest#create-instance-template). When [creating an instance](/apidocs/vpc/latest#create-instance) or when [creating an instance template](/apidocs/vpc/latest#create-instance-template) you can set the `availability_policy.preemption` to `stop` or `delete` to specify the behavior you want upon instance preemption. You can [update an instance](/apidocs/vpc/latest#update-instance) to set or change the `availability.class` and `availability_policy.preemption`. Additionally, [instance profiles](/apidocs/vpc/latest#list-instance-profiles) that support spot capabilities now include `spot` in the `availability_class` property response.
+
+This feature is now generally available. See the [17 February 2026](#17-february-2026) announcement.
 
 ## 16 December 2025
 {: #16-december-2025}
