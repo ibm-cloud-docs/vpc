@@ -2,7 +2,7 @@
 
 copyright:
   years: 2019, 2026
-lastupdated: "2026-02-02"
+lastupdated: "2026-02-16"
 
 keywords: CSE, endpoint, service, DNS, resolver, mirror, object, storage, bandwidth, charges
 
@@ -73,7 +73,7 @@ Although the addresses for these endpoints look as if they communicate through t
 
 ## Service endpoints
 {: #service-endpoints}
- 
+
 Use service endpoints to securely connect to IBM Cloud services over the IBM Cloud private network.
 {: shortdesc}
 
@@ -94,7 +94,7 @@ Each VPC automatically includes a service gateway in every zone. A service gatew
 {: shortdesc}
 
 You can allocate additional service gateway connections when your workloads require more than the default number of concurrent connections supported by a single service gateway.
- 
+
 To allocate additional SNAT IPs for a service gateway, follow these steps:
 
 1. [Open a support case](/docs/account?topic=account-open-case&interface=ui) requesting an additional SNAT IP for the specific VPC and zone.

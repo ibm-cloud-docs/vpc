@@ -2,7 +2,7 @@
 
 copyright:
   years: 2025, 2026
-lastupdated: "2026-02-12"
+lastupdated: "2026-02-16"
 
 keywords: spot virtual server, spot virtual server instance, spot instance
 
@@ -36,7 +36,7 @@ Spot instances have the following benefits.
 * Cost-efficient
 * Scalable - you can add or remove Spot instances through [Auto scale for VPC](/docs/vpc?topic=vpc-creating-auto-scale-instance-group&interface=ui#auto-scale-vpc)]
 * Spot instances don't use the standard instance quota. Spot instances have their own quotas (the default is 100).
-* No minimum or maximum runtime
+* No minimum runtime
 * Resizable (instance must be stopped to resize)
 
 ## Spot instance limitations
