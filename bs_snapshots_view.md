@@ -1,8 +1,8 @@
 ---
 
 copyright:
-  years: 2021, 2025
-lastupdated: "2025-12-11"
+  years: 2021, 2026
+lastupdated: "2026-02-18"
 
 keywords: view snapshots, view snapshot, viewing snapshots, see snapshots, Block Storage snapshots
 
@@ -893,7 +893,8 @@ A successful response shows information that is similar to the following example
 You can programmatically list all consistency groups by calling the `/snapshot_consistency_groups` method in the [VPC API](/apidocs/vpc/latest#list-snapshot-consistency-groups){: external} as shown in the following sample request.
 
 ```sh
-GET /snapshot_consistency_groups
+curl -X GET "$vpc_api_endpoint/v1/snapshot_consistency_groups?version=2023-12-05&generation=2" \
+-H "Authorization: $iam_token"
 ```
 {: pre}
 
@@ -903,7 +904,8 @@ GET /snapshot_consistency_groups
 You can programmatically retrieve details of a consistency group by calling the `/snapshot_consistency_groups` method in the [VPC API](/apidocs/vpc/latest#get-snapshot-consistency-group){: external} as shown in the following sample request.
 
 ```sh
-GET /snapshot_consistency_groups/r006-e8707243-96b3-4c27-be1f-57eff0196207
+curl -X GET "$vpc_api_endpoint/v1/snapshot_consistency_groups/006-e8707243-96b3-4c27-be1f-57eff0196207?version=2023-12-05&generation=2" \
+-H "Authorization: $iam_token"
 ```
 {: pre}
 

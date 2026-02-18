@@ -1,8 +1,8 @@
 ---
 
 copyright:
-  years: 2019, 2025
-lastupdated: "2025-11-05"
+  years: 2019, 2026
+lastupdated: "2026-02-18"
 
 keywords:
 
@@ -22,7 +22,7 @@ Known issues for site-to-site VPN gateways are as follows:
 
 * A VPN gateway for VPC accepts only VPN packets with [UDP encapsulation of IPsec ESP packets](https://datatracker.ietf.org/doc/html/rfc3948){: external}. [Encapsulating Security Payload (ESP)](https://datatracker.ietf.org/doc/html/rfc4303){: external} packets are not accepted. Make sure that the NAT-T feature is enabled on your on-premises VPN device. Also, make sure that UDP ports `500` and `4500` are allowed for both IBM VPC NACL and peer networks.
 
-   NAT-T allows VPN traffic to pass through NAT devices by encapsulating IPsec packets in UDP. Without NAT-T, IPsec packets might be dropped by NAT devices because they can't properly handle ESP traffic. To achieve reliable VPN connectivity across NAT devices, NAT-T must be enabled on your VPN gateway.
+   NAT-T allows VPN traffic to pass through NAT devices by encapsulating IPsec packets in UDP. Without NAT-T, IPsec packets might be dropped by NAT devices because they can't properly handle ESP traffic. To achieve reliable VPN connectivity across NAT devices, NAT-T must be enabled on your on-premises device.
    {: note}
 
 * When multiple networks, subnets, or both are associated with either an {{site.data.keyword.cloud_notm}} VPN gateway or an on-premises device, avoid mixing policy-based and route-based VPNs. Policy-based VPNs create a tunnel for each target network range. However, route-based VPNs route everything to a peer device through a single tunnel. Therefore, when multiple network ranges are configured, only a single tunnel that is associated with a single network range can be established. Combining contiguous subnets into a single superset CIDR is a valid workaround.
