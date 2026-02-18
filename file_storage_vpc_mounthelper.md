@@ -122,7 +122,7 @@ Do not add the Mount Helper installer script to your `cloud-init` configuration.
    | Canada - Montreal   | `ca-mon`    |       |
    | Canada - Toronto    | `ca-tor`    | `tor` |
    | Germany - Frankfurt | `eu-de`     | `fra` |
-   | India - Chennai-Airtel     | `in-che`    |       | 
+   | India - Chennai-Airtel | `in-che` |       |
    | Japan - Osaka       | `jp-osa`    | `osa` | 
    | Japan - Tokyo       | `jp-tok`    | `tok` |   
    | Spain - Madrid      | `eu-es`    | `mad` |
