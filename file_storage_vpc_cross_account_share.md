@@ -1,8 +1,8 @@
 ---
 
 copyright:
-  years: 2024, 2025
-lastupdated: "2025-11-14"
+  years: 2024, 2026
+lastupdated: "2026-02-20"
 
 keywords: file share, file storage, accessor share, cross-account share
 
@@ -47,8 +47,6 @@ For zonal file shares, the share owner can choose from the following transit enc
 - If both are allowed, accessor accounts can choose which one to use.
 
 File shares that were created before the release of the cross-account access feature (18 June 2024) have an allowed transit encryption type that is based on their existing mount targets. After that date, you must specify the allowed transit encryption type when you create file shares. All mount targets that are created for one file share must have the same transit encryption type.
-
-
 
 ## Creating an accessor share in the console
 {: #file-storage-create-accessor-ui}
