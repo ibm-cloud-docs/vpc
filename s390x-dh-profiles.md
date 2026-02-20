@@ -1,7 +1,7 @@
 ---
 copyright:
-  years: 2023
-lastupdated: "2024-10-10"
+  years: 2023, 2026
+lastupdated: "2026-02-20"
 
 keywords: dedicated host profiles, s390x
 
@@ -13,6 +13,9 @@ subcollection: vpc
 
 # s390x dedicated host profiles
 {: #s390x-dh-profiles}
+
+The IBM dedicated host for VPC (s390x architecture) is deprecated. As of 28 February 2026, you can't create new instances. Existing instances are supported until 20 February 2027. Any instances that still exist on that date will be deleted. You can migrate to an on-premises deployment model. For more information, see [Linux on IBM Z and LinuxONE](https://www.ibm.com/docs/en/linux-on-systems?topic=linux-z-linuxone). For more information, see the [Service deprecation announcement](/docs/vpc?topic=vpc-ichpcs_deprecated_anmt).
+{: deprecated}
 
 A dedicated host profile is a combination of attributes, such as the number of vCPUs, amount of RAM, and optionally instance storage that define the amount of compute capacity that is provided in a host that is provisioned exclusively for your use.
 {: shortdesc}

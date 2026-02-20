@@ -1,7 +1,7 @@
 ---
 copyright:
-  years: 2022, 2025
-lastupdated: "2025-12-22"
+  years: 2022, 2026
+lastupdated: "2026-02-20"
 
 
 keywords: vsi, virtual server instances, profile, profiles, balanced, compute, memory, ultra high memory, storage optimized
@@ -15,6 +15,9 @@ subcollection: vpc
 
 # s390x instance profiles
 {: #vs-profiles}
+
+The IBM Cloud LinuxONE Virtual Server for VPC (s390x architecture) is deprecated. As of 28 February 2026, you can't create new instances. Existing instances are supported until 20 February 2027. Any instances that still exist on that date will be deleted. You can migrate to an on-premises deployment model. For more information, see [Linux on IBM Z and LinuxONE](https://www.ibm.com/docs/en/linux-on-systems?topic=linux-z-linuxone). For more information, see the [Service deprecation announcement](/docs/vpc?topic=vpc-ichpcs_deprecated_anmt).
+{: deprecated}
 
 You can use s390x instance profiles to provision virtual server instances and you can select from three families of profiles: Balanced, Compute, and Memory. IBM Z or LinuxONE (s390x processor architecture) is a uniquely secure and scalable architecture that provides dedicated CPU core, memory, and I/O channel to better manage your high-performance workloads.
 {: shortdesc}
