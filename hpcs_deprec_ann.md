@@ -15,7 +15,9 @@ subcollection: vpc
 # Service deprecation: IBM Cloud LinuxONE and Hyper Protect Virtual Server offerings
 {: #ichpcs_deprecated_anmt}
 
-IBM announces the deprecation of the following services:
+As part of our efforts to modernize offerings, IBM is announcing the deprecation of IBM Cloud LinuxONE Virtual Server for VPC (s390x architecture), IBM Cloud Hyper Protect Virtual Server for VPC, IBM Wazi as a Service, and IBM Dedicated Host for VPC (s390x architecture). This topic covers guidance on the transition options, key dates, and next steps. This decision stems from our ongoing client conversations on their preferences for on-premises deployment models. IBM will work closely with you to ensure that migrations are successful before the End of Service date.
+
+The following services are deprecated:
 
    - [IBM Cloud LinuxONE Virtual Server for VPC (s390x architecture)](/docs/vpc?group=virtual-servers)
    - [IBM Cloud Dedicated Host for VPC (s390x architecture)](/docs/vpc?group=dedicated-hosts)
@@ -38,13 +40,18 @@ Migrate all active instances to the recommended alternatives.
 
 | Deprecated Service | Recommended Alternative |
 |--------------------|-------------------------|
-| IBM Cloud LinuxONE Virtual Server for VPC (s390x architecture) | Redeploy workloads on-premises using SUSE Linux Enterprise Server or Ubuntu Linux. For more information, see [Virtual server instances](/docs/vpc?topic=vpc-creating-virtual-servers&interface=ui). |
-| IBM Cloud Dedicated Host for VPC (s390x architecture) | Migrate to an on-premises deployment model. For more information, see [Creating dedicated hosts and groups](/docs/vpc?group=dedicated-hosts). |
-| IBM Cloud Hyper Protect Virtual Servers for VPC | Redeploy workloads by using Hyper Protect Virtual Servers (SLES or Ubuntu) or Hyper Protect Container Runtime for Red Hat Virtualization. For more information, see [Confidential computing with LinuxONE](/docs/vpc?topic=vpc-about-se). |
-| IBM Cloud Wazi as a Service | The On-Demand Environment capability in [IBM Test Accelerator for Z](https://www.ibm.com/products/test-accelerator-z) provides replacement software that lets enterprises host z/OS on virtualized or emulated IBM® Z hardware. It runs on Linux on x86-64 or s390x systems and supports mainframe application demonstration, development, testing, and education use cases. For more information, see [Release notes](https://www.ibm.com/docs/en/wazi-aas/1.1.0?topic=release-notes).|
+| IBM Cloud LinuxONE Virtual Server for VPC (s390x architecture) | Redeploy workloads on-premises using [SUSE Linux Enterprise Server or Ubuntu Linux](https://www.ibm.com/docs/en/linux-on-systems?topic=linux-z-linuxone). For more deprecation-related information, see [Virtual server instances](/docs/vpc?topic=vpc-creating-virtual-servers&interface=ui). |
+| IBM Cloud Dedicated Host for VPC (s390x architecture) | Migrate to an on-premises deployment model. For more information, see [Linux on IBM Z and LinuxONE](https://www.ibm.com/docs/en/linux-on-systems?topic=linux-z-linuxone). For more deprecation-related information, see [Creating dedicated hosts and groups](/docs/vpc?group=dedicated-hosts). |
+| IBM Cloud Hyper Protect Virtual Servers-for VPC | Redeploy your workloads by using [IBM Confidential Computing Container Runtime (formerly known as Hyper Protect Virtual Servers)](https://www.ibm.com/docs/en/hpvs) or [IBM Confidential Computing Container Runtime for Red Hat Virtualization Solutions (formerly known as Hyper Protect Container Runtime for Red Hat Virtualization Solutions)](https://www.ibm.com/docs/en/hpcr/1.1.x). For more deprecation-related information, see [Confidential computing with LinuxONE](/docs/vpc?topic=vpc-about-se). |
+| IBM Cloud Wazi as a Service | The On-Demand Environment capability in [IBM Test Accelerator for Z](https://www.ibm.com/products/test-accelerator-z) provides replacement software that lets enterprises host z/OS on virtualized or emulated IBM® Z hardware. It runs on Linux on x86-64 or s390x systems and supports mainframe application demonstration, development, testing, and education use cases. For more information, see the [Release notes](https://www.ibm.com/docs/en/wazi-aas/1.1.0?topic=release-notes).|
 {: caption="Migration information" caption-side="bottom"}
 
 ## Support and assistance
 {: #ichpcs_deprecated_support}
 
-Contact your **IBM representative** or **Customer Service Manager** for migration planning or technical support. They will coordinate with IBM Cloud Support or the **Z Client Acceleration Team** as needed.
+For assistance, Contact your **IBM representative** or **Customer Service Manager**. They will coordinate with the Z Client Acceleration team for technical assistance.
+
+If the appropriate point of contact is unknown, open an IBM Cloud Support ticket:
+
+1. Go to https://cloud.ibm.com/unifiedsupport/supportcenter.
+2. Create a case and provide title and description: “Help with [*insert product name(s)*] migration" and include your instance ID, if you have it.
