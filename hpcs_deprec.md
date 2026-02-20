@@ -53,7 +53,7 @@ Make sure that you have the following:
      {: codeblock}
 
 ## Procedure
-{: #migration_guide}
+{: #migration_guide_procedure}
 
 ### Step 1: Taking the snapshot of the encrypted disk volume
 {: #step1_snapshot_volume}
