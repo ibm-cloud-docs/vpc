@@ -2,7 +2,7 @@
 
 copyright:
   years: 2022, 2026
-lastupdated: "2026-01-14"
+lastupdated: "2026-02-20"
 
 keywords: image, stock image, linuxone image, hpcr, container runtime, virtual private cloud, virtual server, generation 2, gen 2
 
@@ -15,6 +15,9 @@ subcollection: vpc
 
 # s390x virtual server images
 {: #vsabout-images}
+
+The IBM Cloud LinuxONE Virtual Server for VPC (s390x architecture) is deprecated. As of 28 February 2026, you can't create new instances. Existing instances are supported until 20 February 2027. Any instances that still exist on that date will be deleted. You can migrate to an on-premises deployment model. For more information, see [Linux on IBM Z and LinuxONE](https://www.ibm.com/docs/en/linux-on-systems?topic=linux-z-linuxone). For more information, see the [Service deprecation announcement](/docs/vpc?topic=vpc-ichpcs_deprecated_anmt).
+{: deprecated}
 
 When you provision {{site.data.keyword.vsi_is_full}} on IBM Z (s390x processor architecture) in IBM Cloud, you can select from the supported stock images. Now, *IBM Hyper Protect* is also supported as an operating system and the associated *IBM Hyper Protect Container Runtime* image can be provisioned for your {{site.data.keyword.cloud_notm}} {{site.data.keyword.hpvs}} for {{site.data.keyword.vpc_full}} instance.
 {: shortdesc}
