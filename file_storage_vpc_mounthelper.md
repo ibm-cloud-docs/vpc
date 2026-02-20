@@ -2,7 +2,7 @@
 
 copyright:
   years: 2023, 2026
-lastupdated: "2026-01-08"
+lastupdated: "2026-02-18"
 
 keywords: file share, file storage, encryption in transit, Mount Helper, IPsec, secure connection, mount share
 
@@ -122,7 +122,7 @@ Do not add the Mount Helper installer script to your `cloud-init` configuration.
    | Canada - Montreal   | `ca-mon`    |       |
    | Canada - Toronto    | `ca-tor`    | `tor` |
    | Germany - Frankfurt | `eu-de`     | `fra` |
-   | India - Chennai     | `in-che`    |       | 
+   | India - Chennai-Airtel | `in-che` |       |
    | Japan - Osaka       | `jp-osa`    | `osa` | 
    | Japan - Tokyo       | `jp-tok`    | `tok` |   
    | Spain - Madrid      | `eu-es`    | `mad` |

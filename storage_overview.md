@@ -2,7 +2,7 @@
 
 copyright:
   years: 2022, 2026
-lastupdated: "2026-02-12"
+lastupdated: "2026-02-18"
 
 keywords: block storage for VPC, File Storage for VPC, Snapshots for VPC, Backup for VPC, block storage, file storage, snapshots, backup, 
 
@@ -39,7 +39,7 @@ The following table provides a comparison between the different generations of b
 
 | Features            | First-generation volumes | Second-generation volumes |
 |---------------------|--------------------------|---------------------------|
-| Availability        | Generally available in all VPC regions for all customers. | Available in most MZRs, except Chennai and Montreal.|
+| Availability        | Generally available in all VPC regions for all customers. | Available in most MZRs, except Chennai-Airtel and Montreal.|
 | Expandable capacity | Yes, up to 16,000 GB     | Yes, up to 32,000 GB |
 | Adjustable IOPS     | Yes, up to 48,000. IOPS depends on capacity range. | Yes, up to 64,000.| 
 | Adjustable Bandwidth| No. Bandwidth can be increased by increasing capacity and IOPS. The maximum is 1024 MBps.| Yes, bandwidth can be adjusted to any value between 125 and 1024 MBps.|
@@ -74,11 +74,11 @@ You can use your snapshots to create other second-generation volumes in the same
 
 | Features            | First-generation snapshots | Second-generation snapshots |
 |---------------------|----------------------------|-----------------------------|
-| Availability        | Generally available in all VPC regions for all customers. | Available in most regions, except Chennai and Montreal.|
+| Availability        | Generally available in all VPC regions for all customers. | Available in most regions, except Chennai-Airtel and Montreal.|
 | On-demand snapshots | Yes, up to 750 snapshots per region. | Yes, up to 512 snapshots per region.|
 | Scheduled snapshots | Yes, up to 750 snapshots per region. | Yes, up to 512 snapshots per region. |
-| Fast restore clones | Yes. You can cache a copy of your snapshot in any zone of the region. |Yes, the feature is available in most regions, except Chennai and Montreal. You can cache a copy of your snapshot in any zone of the region. |
-| Cross-regional copy | The feature is available in most regions, except Chennai. You can create one cross-regional copy per snapshot per region. | The feature is available in most regions, except Chennai and Montreal. You can create one cross-regional copy per snapshot per region.|
+| Fast restore clones | Yes. You can cache a copy of your snapshot in any zone of the region. |Yes, the feature is available in most regions, except Chennai-Airtel and Montreal. You can cache a copy of your snapshot in any zone of the region. |
+| Cross-regional copy | The feature is available in most regions, except Chennai-Airtel. You can create one cross-regional copy per snapshot per region. | The feature is available in most regions, except Chennai-Airtel and Montreal. You can create one cross-regional copy per snapshot per region.|
 | Consistency group   | Multi-volume snapshots are supported. | Not supported in the current release. |
 {: caption="Block Storage snapshot generations comparison." caption-side="bottom"}
 
@@ -121,7 +121,7 @@ The following table provides a comparison between the different generations of f
 | On-demand snapshots | Yes, up to 750 per share in a region. | Yes, up to 30 per share in a region. This quota can be increased upon request. |
 | Scheduled snapshots | Yes, up to 750 snapshots per region. | Yes, Up to 30 per share in a region. This quota can be increased upon request. |
 | Cross-zonal replication| Yes, as often as every 15 minutes. | Not applicable. Data is synchronously available in all zones of the region. |
-| Cross-regional replication | Yes, as often as every 15 minutes. Cross-regional replication is not supported in Chennai. |  Not supported in the [Select availability]{: tag-green} release. |
+| Cross-regional replication | Yes, as often as every 15 minutes. Cross-regional replication is not supported in Chennai-Airtel. |  Not supported in the [Select availability]{: tag-green} release. |
 | Cross-zonal mounting | Yes. | Not applicable. Data is synchronously available in all zones of the region. Storage traffic does not cross zone-boundaries. |
 | Cross-account access | Yes. A share can have up to 100 accessor bindings. | Yes.|
 | Monitoring integration with Sysdig | Yes. | Yes.|
