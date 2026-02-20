@@ -2,7 +2,7 @@
 
 copyright:
   years: 2019, 2026
-lastupdated: "2026-02-16"
+lastupdated: "2026-02-20"
 
 keywords: CSE, endpoint, service, DNS, resolver, mirror, object, storage, bandwidth, charges
 
@@ -64,7 +64,7 @@ For x86-64 dedicated host profiles, the Madrid region supports only dedicated ho
 {: tab-group="vpc-api-endpoints"}
 {: #vpc-asia-pacific-endpoints}
 
- LinuxONE (s390x processor architecture) profiles are supported on virtual server instances in the US South (Dallas), Japan (Tokyo), Brazil (São Paulo), Spain (Madrid), Canada (Toronto), United Kingdom (London), and US East (Washington DC) regions.    
+[Deprecated]{: tag-deprecated} LinuxONE (s390x processor architecture) profiles are supported on virtual server instances in the US South (Dallas), Japan (Tokyo), Brazil (São Paulo), Spain (Madrid), Canada (Toronto), United Kingdom (London), and US East (Washington DC) regions.    
 {: preview}
 
 After resources are created and accessible in your VPC, you're ready to run workloads. From inside the VPC infrastructure, you can access two types of {{site.data.keyword.cloud_notm}} endpoints: platform as a service (PaaS) endpoints, also known as service endpoints, and infrastructure as a service (IaaS) endpoints.

@@ -2,7 +2,7 @@
 
 copyright:
   years: 2024, 2026
-lastupdated: "2026-02-02"
+lastupdated: "2026-02-20"
 
 keywords: vsi, virtual server, virtual server instances, profile, profiles, balanced, compute, memory, gen 2, confidential computing, Hyper Protect, s390x architecture
 
@@ -15,7 +15,7 @@ subcollection: vpc
 # Confidential Computing instance profiles - s390x Gen 2
 {: #confidential-computing-profiles-gen2-z}
 
- The IBM Z or LinuxONE confidential computing family of 2nd generation virtual server profiles (balanced, compute, and memory) are built atop the s390x processor architecture, with native integration into {{site.data.keyword.cloud}} VPC.
+[Deprecated]{: tag-deprecated} The IBM Z or LinuxONE confidential computing family of 2nd generation virtual server profiles (balanced, compute, and memory) are built atop the s390x processor architecture, with native integration into {{site.data.keyword.cloud}} VPC.
 {: shortdesc}
 
 The confidential computing profiles enable [IBM Secure Execution for Linux](https://www.ibm.com/docs/en/linux-on-systems?topic=management-secure-execution){: external}. The profiles support the
@@ -25,7 +25,7 @@ The confidential computing profiles enable [IBM Secure Execution for Linux](http
 ## Operating systems
 {: #cc-os-gen2-z}
 
--  Linux (s390x)
+- [Deprecated]{: tag-deprecated} Linux (s390x)
 
 ## Processor generation
 {: #cc-processor-gen2-z}

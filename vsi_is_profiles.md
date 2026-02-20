@@ -2,7 +2,7 @@
 
 copyright:
   years: 2019, 2026
-lastupdated: "2026-02-16"
+lastupdated: "2026-02-20"
 
 keywords: vsi, virtual server instances, profile, profiles, balanced, compute, memory, very high memory, ultra high memory, gpu, storage optimized, confidential compute, flex, high frequency
 
@@ -51,7 +51,7 @@ The following profile families are available when you provision a virtual server
 2nd generation profiles with instance storage and 2nd generation profiles with 64 or more vCPUs are deployed exclusively on the Intel&reg; second-generation quad processor Xeon&reg; Platinum 8260 Cascade Lake with 96 cores that are running at a base speed of 2.4 GHz and an all-core turbo frequency of 3.1 GHz or an Intel quad processor Xeon Gold 6248 Cascade Lake with 80 cores that are running at a base speed of 2.5 GHz and an all-core turbo frequency of 3.1 GHz.
 {: note}
 
- For more information about LinuxONE (s390x processor architecture) profiles, see [s390x instance profiles](/docs/vpc?topic=vpc-vs-profiles&interface=ui).
+[Deprecated]{: tag-deprecated} For more information about LinuxONE (s390x processor architecture) profiles, see [s390x instance profiles](/docs/vpc?topic=vpc-vs-profiles&interface=ui).
 
 Profiles with AMD-manufactured processors are available in the Toronto region.
 {: preview}
@@ -687,7 +687,7 @@ The first character represents the profile families. Different profile families 
 The second character represents the CPU architecture.
 
 - "x": x86_64
--  "z": s390x
+- [Deprecated]{: tag-deprecated} "z": s390x
 
 The third character represents the generation of the IBM Cloud infrastructure where the profile is provisioned, such as a "2" or "3". A value of "f" indicates that the profile is flexible and can provision on any infrastructure generation.
 

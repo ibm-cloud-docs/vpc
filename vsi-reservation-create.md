@@ -2,7 +2,7 @@
 
 copyright:
   years: 2023, 2026
-lastupdated: "2026-02-02"
+lastupdated: "2026-02-20"
 
 subcollection: vpc
 
@@ -89,7 +89,7 @@ Use the following steps to acctach an existing bare metal server to a reservatio
 
 You can provision a reservation by using the command-line interface (CLI). If you want to use user tags or access management tags to manage your resources, see [Working with tags](/docs/account?topic=account-tag&interface=cli).
 
- {{site.data.keyword.cloud_notm}} CLI is not supported on LinuxONE (s390x processor architecture). However, you can install the CLI on another supported platform and use it with LinuxONE (s390x processor architecture) virtual server instances.
+[Deprecated]{: tag-deprecated} {{site.data.keyword.cloud_notm}} CLI is not supported on LinuxONE (s390x processor architecture). However, you can install the CLI on another supported platform and use it with LinuxONE (s390x processor architecture) virtual server instances.
 {: note}
 
 ### Before you begin

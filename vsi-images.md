@@ -2,7 +2,7 @@
 
 copyright:
   years: 2019, 2026
-lastupdated: "2026-02-05"
+lastupdated: "2026-02-20"
 
 subcollection: vpc
 
@@ -58,7 +58,7 @@ When you select an RHEL AI 1.x image, make sure that you are using the correct R
 If you plan to use Windows operating systems with SQL Server, see the [About Microsoft SQL on VPC](/docs/microsoft?topic=microsoft-mssql-about).
 {: note}
 
- For more information about images for IBM Z (s390x processor architecture), see [s390x virtual server images](/docs/vpc?topic=vpc-vsabout-images). 
+[Deprecated]{: tag-deprecated} For more information about images for IBM Z (s390x processor architecture), see [s390x virtual server images](/docs/vpc?topic=vpc-vsabout-images). 
 
 When you order an instance, the images are cloud-init enabled to optimize creation times. With a cloud-init enabled image, you can provide user data. In the **User Data** field on the order form, you can enter optional cloud-init user data for the server. For more information about user data and automation, see [User data](/docs/vpc?topic=vpc-user-data).
 

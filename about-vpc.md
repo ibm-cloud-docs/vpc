@@ -1,7 +1,7 @@
 ---
 copyright:
   years: 2017, 2026
-lastupdated: "2026-02-09"
+lastupdated: "2026-02-20"
 
 keywords: vpc, virtual private cloud, private cloud network, quick provisioning, logical isolation, security, cloud-native, workloads, BYOIP, high availability, ACL, Access control list, Block Storage volumes, File shares, snapshots
 
@@ -36,7 +36,7 @@ You can create instances with up to 80 Gbps network bandwidth per instance. Each
 You can choose to create *virtual server instances* with different operating systems on:
 
    - x86_64 processor architecture
-   -  s390x processor architecture 
+   - [Deprecated]{: tag-deprecated} s390x processor architecture 
   
 For more information, see [Images](/docs/vpc?topic=vpc-about-images).
 

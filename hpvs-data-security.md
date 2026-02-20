@@ -1,8 +1,8 @@
 ---
 
 copyright:
-  years: 2023, 2025
-lastupdated: "2025-12-17"
+  years: 2023, 2026
+lastupdated: "2026-02-20"
 
 keywords: data security for {{site.data.keyword.hpvs}} for VPC, bring your own key, keep your own key, key management service, kms, {{site.data.keyword.hscrypto}}
 
@@ -14,6 +14,9 @@ subcollection: vpc
 
 # Securing your data on {{site.data.keyword.hpvs}} for VPC
 {: #hyper-protect-virtual-server-mng-data}
+
+The {{site.data.keyword.cloud_notm}} {{site.data.keyword.hpvs}} for VPC is deprecated. As of 28 February 2026, you can't create new instances. Existing instances are supported until 20 February 2027. Any instances that still exist on that date will be deleted. You can redeploy your workloads by using [IBM Confidential Computing Container Runtime (formerly known as Hyper Protect Virtual Servers)](https://www.ibm.com/docs/en/hpvs) or [IBM Confidential Computing Container Runtime for Red Hat Virtualization Solutions (formerly known as Hyper Protect Container Runtime for Red Hat Virtualization Solutions)](https://www.ibm.com/docs/en/hpcr/1.1.x). For information about data migration, see the [Migration guide](/docs/vpc?topic=vpc-migration_guide). For more information, see the [Service deprecation announcement](/docs/vpc?topic=vpc-ichpcs_deprecated_anmt).
+{: deprecated}
 
 The data volume that you attach to your {{site.data.keyword.hpvs}} for VPC instance is protected by a Linux Unified Key Setup (LUKS) encryption passphrase. The passphrase is derived from seeds that were provided during deployment. You can add a higher level of encryption protection and control to your data at rest by using your own key from {{site.data.keyword.hscrypto}}.
 
