@@ -2,7 +2,7 @@
 
 copyright:
   years: 2020, 2026
-lastupdated: "2026-02-09"
+lastupdated: "2026-02-20"
 
 keywords: dedicated host, dedicated host group
 
@@ -19,8 +19,10 @@ subcollection: vpc
 You can create one or more dedicated hosts with associated dedicated host groups in your {{site.data.keyword.cloud}} VPC by using the {{site.data.keyword.cloud_notm}} console, the CLI, or the API. Dedicated Host for VPC is fully integrated into {{site.data.keyword.cloud_notm}}.
 {: shortdesc}
 
- For IBM Z or LinuxONE (s390x processor architecture), dedicated hosts are only supported in the Spain (Madrid) and US South (Dallas) region for {{site.data.keyword.waziaas_full_notm}}.
+[Deprecated]{: tag-deprecated} For IBM Z or LinuxONE (s390x processor architecture), dedicated hosts are only supported in the Spain (Madrid) and US South (Dallas) region for {{site.data.keyword.waziaas_full_notm}}.
 {: note}
+
+The s390x architecture is deprecated. You can migrate to an on-premises deployment model. For more information, see [Linux on IBM Z and LinuxONE](https://www.ibm.com/docs/en/linux-on-systems?topic=linux-z-linuxone). For more information about deprecation, see the [Service deprecation announcement](/docs/vpc?topic=vpc-ichpcs_deprecated_anmt).
 
 
 ## Dedicated hosts

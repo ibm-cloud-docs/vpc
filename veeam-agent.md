@@ -2,7 +2,7 @@
 
 copyright:
   years: 2020, 2026
-lastupdated: "2026-02-02"
+lastupdated: "2026-02-20"
 
 keywords: instance backup, veeam, veeam license, order license, virtual private cloud
 
@@ -18,7 +18,7 @@ subcollection: vpc
 The [Veeam Agent for Linux](https://www.veeam.com/products/physical/linux-backup-recovery.html){: external} is supported on Linux&reg; operating systems. Supported distributions include CentOS, RHEL, Ubuntu, and Debian. Similarly, the [Veeam Agent for Windows](https://www.veeam.com/products/physical/windows-backup-recovery.html){: external} is available for use on Windows instances for {{site.data.keyword.vpc_short}}.
 {: shortdesc}
 
- The Veeam Agent is not supported for LinuxONE (s390x processor architecture).
+[Deprecated]{: tag-deprecated} The Veeam Agent is not supported for LinuxONE (s390x processor architecture).
 {: note}
 
 The following example provides information on installing, configuring, and operating the Linux Agent on a virtual server instance that is provisioned with CentOS. Similar instructions apply to the other operating system types, although you need to replace any OS-specific commands. The example provides instructions for completing a volume backup and restoration. If you prefer to do a file and folder backup and restoration operations, you use a similar procedure. The wanted restore point is mounted, and the wanted backup files are copied to the virtual server instance.

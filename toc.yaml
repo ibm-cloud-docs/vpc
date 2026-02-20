@@ -184,6 +184,7 @@ toc:
           - include: ../solution-tutorials/vpc-tg-dns-iam.md
           - include: ../solution-tutorials/vpc-pps-basics.md
           - host-rhel-au-tutorial.md
+      - hpcs_deprec.md
   - navgroup:
       id: howto
       topics:
@@ -930,6 +931,7 @@ toc:
       - vsi_is_disable_hyper-threading.md
       - security-best-practices-zos.md
       - vpc-endpoints.md
+      - hpcs_deprec_ann.md
       - topicgroup:
           id: terraform
           label: Terraform

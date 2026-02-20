@@ -2,7 +2,7 @@
 
 copyright:
   years: 2022, 2026
-lastupdated: "2026-02-18"
+lastupdated: "2026-02-20"
 
 keywords:
 
@@ -26,7 +26,7 @@ The image that you select determines the operating system that is provisioned fo
 When you provision a virtual server on your VPC, you need to select an image to determine the operating system for the server. The following groups of operating system stock images are available:
 
 * [x86 virtual server images](/docs/vpc?topic=vpc-about-images)
-*  [s390x virtual server images](/docs/vpc?topic=vpc-vsabout-images)
+* [Deprecated]{: tag-deprecated} [s390x virtual server images](/docs/vpc?topic=vpc-vsabout-images)
 * [Bare metal server images](/docs/vpc?topic=vpc-bare-metal-image)
 
 All available stock images can be found in the [{{site.data.keyword.cloud_notm}} console](/login){: external}. Go to the **Navigation menu** ![Navigation menu icon](../icons/icon_hamburger.svg) **> Infrastructure** ![VPC icon](../../icons/vpc.svg) **> Compute** **> Images** **> Stock images**. 
