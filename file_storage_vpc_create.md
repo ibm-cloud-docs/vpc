@@ -2,7 +2,7 @@
 
 copyright:
   years: 2021, 2026
-lastupdated: "2026-02-03"
+lastupdated: "2026-02-21"
 
 keywords: file share, file storage, virtual network interface, encryption in transit, profiles, 
 

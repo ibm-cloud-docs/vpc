@@ -1,8 +1,8 @@
 ---
 
 copyright:
-  years: 2020, 2025
-lastupdated: "2025-11-05"
+  years: 2020, 2026
+lastupdated: "2026-02-21"
 
 keywords:
 
