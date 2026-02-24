@@ -2,7 +2,7 @@
 
 copyright:
   years: 2021, 2026
-lastupdated: "2026-02-10"
+lastupdated: "2026-02-24"
 
 keywords: file share, mount target, virtual network interface, customer-managed encryption, encryption at rest, encryption in transit, file storage, share,
 
@@ -97,7 +97,7 @@ When you create or update a mount target, you can specify the manner in which yo
 
 * Use the **VPC access** mode to allow access to the file share to a bare metal server or any virtual server instances in the same zone of a VPC. This option is available for all [file share profiles](/docs/vpc?topic=vpc-file-storage-profiles). Cross-zone mounting and encryption of data in transit are not supported for shares with VPC access mode. Snapshots are also not supported for shares with VPC access mode. This type of access mode is not available for regional file shares with the `rfs` profile.
 
-    VPC access mode is not supported in newer MZRs, such as Montreal (ca-mon) and Chennai (in-che).
+    VPC access mode is not supported in newer MZRs, such as Montreal (ca-mon) and Chennai-Airtel (in-che).
     {: note}
 
 ### Cross-zone mount targets
@@ -335,9 +335,9 @@ The following limitations apply to this release of {{site.data.keyword.filestora
 * Encryption in transit is not supported between {{site.data.keyword.filestorage_vpc_short}} and {{site.data.keyword.bm_is_short}}.
 * A file share cannot be split from its replica by using a `DELETE /shares/<id>/source` API request, if the `lifecycle_state` of the file share is `updating` or if replica operations are in progress.
 * Cross-regional replication is supported within the same geography when both source and replica shares belong to the same account. Cross-geography replication is not supported.
-* Cross-regional replication for zonal file shares is not supported in the Chennai region currently.
+* Cross-regional replication for zonal file shares is not supported in the Chennai-Airtel region currently.
 * Cross-regional replication is not supported for regional files shares in the [Select availability]{: tag-green} phase.
-* Regional file shares are not available in Chennai and Montreal currently.
+* Regional file shares are not available in Chennai, and Montreal currently.
 
 ## Next steps
 {: #file-storage-vpc-next-steps}
