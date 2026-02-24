@@ -2,7 +2,7 @@
 
 copyright:
   years: 2022, 2026
-lastupdated: "2026-02-18"
+lastupdated: "2026-02-24"
 
 keywords: file share, file storage, source volume, replica share, 
 
@@ -33,7 +33,7 @@ If you want to create a replica in another region, you need to establish service
 
 [Select availability]{: tag-green} Customers with special access to preview the new regional file share offering can use the **rfs** profile to create file shares with regional availability. When you create file shares with regional availability, data is automatically replicated throughout the region, so you don't need to set up replication pairs. Cross-regional replication of regional file shares is not supported in this release.
 
-Currently, cross-regional replication for zonal file shares is not supported in the Chennai-Airtel region.
+Currently, cross-regional replication for zonal file shares is not supported in the Chennai - Airtel region.
 {: restriction}
 
 ## Adding replication to a file share in the console

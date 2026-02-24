@@ -1,8 +1,8 @@
 ---
 
 copyright:
-  years: 2025, 2025
-lastupdated: "2025-11-20"
+  years: 2025, 2026
+lastupdated: "2026-02-24"
 
 keywords:
 
@@ -550,7 +550,6 @@ VPC                                   ID                                        
 .
 ```
 {: codeblock}
-
 
 ### Select a trusted profile by using the CLI
 {: #select-trusted-profile-cli-bare-metal}

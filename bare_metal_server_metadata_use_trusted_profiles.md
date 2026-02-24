@@ -1,8 +1,8 @@
 ---
 
 copyright:
-  years: 2025, 2025
-lastupdated: "2025-11-20"
+  years: 2025, 2026
+lastupdated: "2026-02-24"
 
 keywords:
 
@@ -71,7 +71,7 @@ The IAM token is obtained by exchanging the bare metal server identity access to
 | 1    | IBM Cloud | IAM | [Create an IAM trusted profile](/docs/account?topic=account-trustedprofile-compute-tutorial). |
 | 2    | IBM Cloud | IAM | Assign access rights to the IAM trusted profile. |
 | 3    | IBM Cloud | VPC API or UI| With the API, make a request to create a new bare metal server, which is configured with the [metadata service](/docs/vpc?topic=vpc-configure-metadata-service-bare-metal) enabled. Specify any user data and the default trusted profile. Specify to link the trusted profile in the same call. \n In the console, [create a bare metal server](/docs/vpc?topic=vpc-creating-bare-metal-servers&interface=ui) and select a trusted profile and link it to the bare metal server. You can also [Enable the metadata service for an existing bare metal server](/docs/vpc?topic=vpc-configure-metadata-service-bare-metal#metadata-enable-on-bare-metal-server-ui-bare-metal). |
-| 4    | Bare metal server | VPC API | Make an API request to the metadata token service and get a bare metal server identity access token](/docs/vpc?topic=vpc-configure-metadata-service-bare-metal#metadata-json-token-bare-metal). |
+| 4    | Bare metal server | VPC API | Make an API request to the metadata token service and [get a bare metal server identity access token](/docs/vpc?topic=vpc-configure-metadata-service-bare-metal#metadata-json-token-bare-metal). |
 | 5    | Bare metal server | Metadata service API |  Make an API request to [generate an IAM token from the bare metal server identity access token](/docs/vpc?topic=vpc-configure-metadata-service-bare-metal#metadata-token-exchange-bare-metal). The IAM token allows access to all IAM-enabled services. |
 | 6    | Bare metal server | IAM-enabled service | Pass the IAM token to call an IAM-enabled service API. The required access rights to the service exist in the trusted profile. |
 {: caption="Procedure for using a trusted profile" caption-side="bottom"}
