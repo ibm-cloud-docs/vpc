@@ -89,7 +89,7 @@ The following limitations apply to this release:
 * Creating a custom image from a boot volume with customer-managed encryption is not supported.
 * Migration between storage volume profile families is not supported.
 * Migration of volumes across zones is not supported.
-* The `sdp` profile is not available in Chennai - Airtel (`in-che`), , and Montreal (`ca-mon`) regions.
+* The `sdp` profile is not available in Chennai - Airtel (`in-che`),  and Montreal (`ca-mon`) regions.
 
 ### Traditional volume profiles
 {: #block-storage-gen1-profiles}

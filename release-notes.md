@@ -2,7 +2,7 @@
 
 copyright:
   years: 2019, 2026
-lastupdated: "2026-02-24"
+lastupdated: "2026-02-25"
 
 keywords:
 
@@ -33,7 +33,7 @@ For more information about changes to the {{site.data.keyword.vpc_short}} comman
 
 Service deprecation: IBM Cloud LinuxONE and Hyper Protect Virtual Server offerings
 :   IBM announces the deprecation of the following services:
-  
+
    - [IBM Cloud LinuxONE Virtual Server for VPC (s390x architecture)](/docs/vpc?group=virtual-servers)
    - [IBM Cloud Dedicated Host for VPC (s390x architecture)](/docs/vpc?group=dedicated-hosts)
    - [IBM Cloud Hyper Protect Virtual Server for VPC](https://www.ibm.com/products/hyper-protect-virtual-servers/cloud)

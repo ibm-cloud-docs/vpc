@@ -2,7 +2,7 @@
 
 copyright:
   years: 2019, 2026
-lastupdated: "2026-02-20"
+lastupdated: "2026-02-25"
 
 keywords: vsi, virtual server instances, profile, profiles, balanced, compute, memory, very high memory, ultra high memory, gpu, storage optimized, confidential compute, flex, high frequency
 
@@ -336,7 +336,7 @@ The 4th generation memory profiles (mx4) are available in the Dallas (us-south) 
 
 Very High Memory profiles offer 1 vCPU to 14 GiB of RAM to host small to medium-sized in-memory databases, OLAP services such as SAP NetWeaver, and other memory intensive applications. All Very High Memory profiles are provisioned with temporary SSD-backed [instance storage](/docs/vpc?topic=vpc-instance-storage) at no additional charge. The following Very High Memory profiles are available on Intel&reg; x86 processors.
 
-The 3rd generation profile with the vx3d prefix is available in the Chennai (`in-che`), Toronto (`ca-tor`), and Washington DC (`us-east`) regions to provision virtual server instances on 4th Generation Intel&reg; Xeon&reg; Scalable processors, the Intel 8474C processor (previously code named Sapphire Rapids). For more information about the capabilities of the new profiles, see [Next generation instance profiles](#next-gen-profiles).
+The 3rd generation profile with the vx3d prefix is available in the Chennai - Airtel (`in-che`), Toronto (`ca-tor`), and Washington DC (`us-east`) regions to provision virtual server instances on 4th Generation Intel&reg; Xeon&reg; Scalable processors, the Intel 8474C processor (previously code named Sapphire Rapids). For more information about the capabilities of the new profiles, see [Next generation instance profiles](#next-gen-profiles).
 {: preview}
 
 - The vx2d profiles are on the Cascade Lake processors.

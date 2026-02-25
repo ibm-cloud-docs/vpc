@@ -2,7 +2,7 @@
 
 copyright:
   years: 2023, 2026
-lastupdated: "2026-02-16"
+lastupdated: "2026-02-25"
 
 keywords:
 
@@ -35,7 +35,7 @@ A reservation cannot be used for a container service discount such as IBM Kubern
 ## Supported virtual server profiles
 {: #reserved-virtual-servers-vpc-supported-profiles}
 
-The following x86 profiles for virtual servers are available when you provision a reservation in all [available locations](/docs/overview?topic=overview-locations) except Montreal and Chennai.
+The following x86 profiles for virtual servers are available when you provision a reservation in all [available locations](/docs/overview?topic=overview-locations) except Montreal and Chennai - Airtel.
 
 * bx2 profiles
 * bx2d profiles
@@ -46,12 +46,12 @@ The following x86 profiles for virtual servers are available when you provision 
 * ux2d profiles
 * vx2d profiles
 
-The following virtual server profiles are available in specific MZRs and SC-MZRs. Chennai, Montreal and Osaka are SC-MZRs.
+The following virtual server profiles are available in specific MZRs and SC-MZRs. Chennai - Airtel, Montreal,  and Osaka are SC-MZRs.
 
 * bx2a profiles are available in Toronto only.
-* bx3d, cx3d, and mx3d profiles are available in Chennai, Dallas, Frankfurt, London, Madrid, Montreal, Osaka, Sydney, Toronto, and Washington DC.
+* bx3d, cx3d, and mx3d profiles are available in Chennai - Airtel, Dallas, Frankfurt, London, Madrid, Montreal, Osaka, Sydney, Toronto, and Washington DC.
 * gx2 profiles are available in all regions except Madrid.
-* gx3d profiles are available in Chennai, Frankfurt, London, Madrid, Sao Paulo, Sydney, Tokyo, Toronto, Montreal, and Washington DC.
+* gx3d profiles are available in Chennai - Airtel, Frankfurt, London, Madrid, Sao Paulo, Sydney, Tokyo, Toronto, Montreal, and Washington DC.
 * ox2 profiles are available in Dallas, Frankfurt, London, Osaka, Tokyo, and Washington DC.
 
 For more information about profiles, see [x86-64 instance profiles](/docs/vpc?topic=vpc-profiles).

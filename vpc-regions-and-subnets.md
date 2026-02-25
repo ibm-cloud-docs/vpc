@@ -1,8 +1,8 @@
 ---
 
 copyright:
-  years: 2019, 2025
-lastupdated: "2025-10-31"
+  years: 2019, 2026
+lastupdated: "2026-02-25"
 
 keywords: address prefixes, regions, subnets, zones, IP, ranges, CIDR
 
@@ -49,9 +49,9 @@ Sydney        |`au-syd-3`     | `10.245.128.0/18`
 Osaka         |`jp-osa-1`     | `10.248.0.0/18`
 Osaka         |`jp-osa-2`     | `10.248.64.0/18`
 Osaka         |`jp-osa-3`     | `10.248.128.0/18`
-Chennai       |`in-che-1`     | `10.254.0.0/18`
-Chennai       |`in-che-2`     | `10.254.64.0/18`
-Chennai       |`in-che-3`     | `10.254.128.0/18`
+Chennai - Airtel |`in-che-1`     | `10.254.0.0/18`
+Chennai - Airtel |`in-che-2`     | `10.254.64.0/18`
+Chennai - Airtel |`in-che-3`     | `10.254.128.0/18`
 Montreal      |`ca-mon-1`     | `10.253.0.0/18`
 Montreal      |`ca-mon-2`     | `10.253.64.0/18`
 Montreal      |`ca-mon-3`     | `10.253.128.0/18`
