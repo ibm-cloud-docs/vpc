@@ -2,7 +2,7 @@
 
 copyright:
   years: 2019, 2026
-lastupdated: "2026-02-20"
+lastupdated: "2026-02-25"
 
 keywords:
 
@@ -17,7 +17,7 @@ subcollection: vpc
 
 This comprehensive guide walks you through the process of securely migrating data from your {{site.data.keyword.hpvs}} instance that is running on {{site.data.keyword.cloud_notm}} VPC to an on-premises environment.
 
-{{site.data.keyword.hpvs}} cloud data volumes are fully encrypted using user‑provided seed values, ensuring that the data can be decrypted only by the originating user. These encrypted volumes can be transferred to an on‑premises environment preserving complete confidentiality. Decryption of the transferred volumes is only possible within a [{{site.data.keyword.hpvs}}](https://www.ibm.com/docs/en/hpvs) or [Hyper Protect Container Runtime](https://www.ibm.com/docs/en/hpcr/1.1.x) on‑premises deployment, because the [LUKS decryption passphrase](/docs/vpc?topic=vpc-hyper-protect-virtual-server-mng-data) is generated exclusively inside the Secure Execution boundary of the HPVS instance.
+{{site.data.keyword.hpvs}} cloud data volumes are fully encrypted using user‑provided seed values, ensuring that the data can be decrypted only by the originating user. These encrypted volumes can be transferred to an on‑premises environment preserving complete confidentiality. Decryption of the transferred volumes is only possible within a [IBM Confidential Computing Container Runtime](https://www.ibm.com/docs/en/hpvs) or [IBM Confidential Computing Container Runtime for Red Hat Virtualization Solutions](https://www.ibm.com/docs/en/hpcr/1.1.x) on‑premises deployment, because the [LUKS decryption passphrase](/docs/vpc?topic=vpc-hyper-protect-virtual-server-mng-data) is generated exclusively inside the Secure Execution boundary of the HPVS instance.
 The Secure Execution boundary is designed to protect in‑memory secrets from tampering and inspection, including memory dumping or access attempts by system administrators or the hypervisor. As a result, encryption keys and passphrases remain isolated and protected throughout the lifecycle of the HPVS instance.
 
 The migration steps that are described in this guide are valid only until the End of Service (EOS) window. For more information, see the [Service deprecation announcement](/docs/vpc?topic=vpc-ichpcs_deprecated_anmt).
