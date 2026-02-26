@@ -2,7 +2,7 @@
 
 copyright:
   years: 2019, 2026
-lastupdated: "2026-02-25"
+lastupdated: "2026-02-26"
 
 keywords: CSE, endpoint, service, DNS, resolver, mirror, object, storage, bandwidth, charges
 
@@ -57,6 +57,7 @@ For x86-64 dedicated host profiles, the Madrid region supports only dedicated ho
 | Japan (Osaka) | `jp-osa`| `https://jp-osa.iaas.cloud.ibm.com`   | `https://jp-osa.private.iaas.cloud.ibm.com` |
 | Australia (Sydney) | `au-syd` | `https://au-syd.iaas.cloud.ibm.com`   | `https://au-syd.private.iaas.cloud.ibm.com` |
 | India (Chennai - Airtel) | `in-che` | `https://in-che.iaas.cloud.ibm.com`   | `https://in-che.private.iaas.cloud.ibm.com` |
+| India (Mumbai - Airtel) | `in-mum` | `https://in-mum.iaas.cloud.ibm.com`   | `https://in-mum.private.iaas.cloud.ibm.com` |
 {: class="simple-tab-table"}
 {: tab-title="Asia Pacific"}
 {: caption="VPC API Regional Endpoints for Asia Pacific" caption-side="bottom"}

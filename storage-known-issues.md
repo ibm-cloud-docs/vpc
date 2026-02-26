@@ -2,7 +2,7 @@
 
 copyright:
   years: 2018, 2026
-lastupdated: "2026-02-24"
+lastupdated: "2026-02-26"
 
 keywords:
 
@@ -39,9 +39,9 @@ The first time that you create a cross-regional copy, that snapshot is a full co
 ### Snapshot encryption in regional {{site.data.keyword.cos_short}} in Indian MZRs
 {: #snapshot-COS-upload-IN-CHE-EU-GB}
 
-A local {{site.data.keyword.keymanagementserviceshort}} instance is not available in Chennai - Airtel. First-generation block volume snapshots that are taken in Chennai - Airtel are routed to a regional {{site.data.keyword.cos_short}} bucket that is encrypted by using a {{site.data.keyword.keymanagementserviceshort}} instance from the London (`eu-gb`) region temporarily. When the KMS service becomes available in Chennai - Airtel, the snapshots service will switch to use the local {{site.data.keyword.keymanagementserviceshort}} instance for encryption, so both storage and key management are handled within the same region.
+A local {{site.data.keyword.keymanagementserviceshort}} instance is not available in Chennai - Airtel and Mumbai - Airtel. First-generation block volume snapshots that are taken in Chennai - Airtel are routed to a regional {{site.data.keyword.cos_short}} bucket that is encrypted by using a {{site.data.keyword.keymanagementserviceshort}} instance from the London (`eu-gb`) region temporarily. When the KMS service becomes available in Chennai - Airtel and Mumbai - Airtel, the snapshots service will switch to use the local {{site.data.keyword.keymanagementserviceshort}} instance for encryption, so both storage and key management are handled within the same region.
 
-### Cross-regional copy of block storage snapshots in Chennai - Airtel
+### Cross-regional copy of block storage snapshots in Chennai - Airtel and Mumbai - Airtel
 {: #snapshot-CRC-IN-CHE}
 
 A cross-regional copy of block storage volume snapshots is not supported in the Chennai - Airtel region. It can't be selected as a source or target region.
@@ -117,10 +117,10 @@ Creating a share mount target for a regional file share can take more than 10 mi
 
 When performing file share operations with the CLI or API, the snapshot size field defaults to 1 in the response when a snapshot is created and to 0 otherwise. This value does not represent the actual size of the snapshot for regional shares.
 
-### Cross-regional replication for zonal file shares in Chennai - Airtel
+### Cross-regional replication for zonal file shares in Chennai - Airtel and Mumbai - Airtel
 {: #zonalfileshare-CRR-IN}
 
-Cross-regional replication for zonal file shares is not supported in the Chennai - Airtel  region.
+Cross-regional replication for zonal file shares is not supported in the Chennai - Airtel and Mumbai - Airtel  regions.
 
 ## Backup for VPC service
 {: #backup-service-known-issue}

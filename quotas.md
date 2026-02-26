@@ -2,7 +2,7 @@
 
 copyright:
   years: 2018, 2026
-lastupdated: "2026-02-13"
+lastupdated: "2026-02-26"
 
 keywords:
 
@@ -165,8 +165,10 @@ Each route has a destination property, which includes a prefix length (`/24` in 
 |--------|-----|
 | Security groups | 100 per VPC |
 | Rules | 250 per security group |
-| [Targets](/docs/vpc?topic=vpc-using-security-groups#about-security-group-targets) | 1000 per security group |
+| [Targets](/docs/vpc?topic=vpc-using-security-groups#about-security-group-targets) | 1000 per security group[^fn8] |
 {: caption="Quotas for security groups" caption-side="bottom"}
+
+[^fn8]: Applies to user-created security groups only. The default security group is not subject to this limit.
 
 ### Virtual network interfaces
 {: #virtual-network-interfaces-quotas}

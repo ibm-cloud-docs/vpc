@@ -2,7 +2,7 @@
 
 copyright:
   years: 2019, 2026
-lastupdated: "2026-02-25"
+lastupdated: "2026-02-26"
 
 keywords: address prefixes, regions, subnets, zones, IP, ranges, CIDR
 
@@ -52,6 +52,9 @@ Osaka         |`jp-osa-3`     | `10.248.128.0/18`
 Chennai - Airtel |`in-che-1`     | `10.254.0.0/18`
 Chennai - Airtel |`in-che-2`     | `10.254.64.0/18`
 Chennai - Airtel |`in-che-3`     | `10.254.128.0/18`
+Mumbai - Airtel |`in-mum-1`     | `10.255.0.0/18`
+Mumbai - Airtel |`in-mum-2`     | `10.255.64.0/18`
+Mumbai - Airtel |`in-mum-3`     | `10.255.128.0/18`
 Montreal      |`ca-mon-1`     | `10.253.0.0/18`
 Montreal      |`ca-mon-2`     | `10.253.64.0/18`
 Montreal      |`ca-mon-3`     | `10.253.128.0/18`

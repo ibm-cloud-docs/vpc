@@ -2,7 +2,7 @@
 
 copyright:
   years: 2020, 2026
-lastupdated: "2026-01-22"
+lastupdated: "2026-02-26"
 
 keywords: flow logs, ordering, logging
 
@@ -42,9 +42,9 @@ You can use {{site.data.keyword.logs_full_notm}} to visualize and alert on platf
 {: class="simple-tab-table"}
 {: row-headers}
 
-| Tokyo (`jp-tok`)    | Sydney (`au-syd`) | Osaka (`jp-osa`) | Chennai (`in-che`) |
-|---------------------|------------------|------------------|------------------|
-| [Yes]{: tag-green} | [Yes]{: tag-green} | [Yes]{: tag-green} | [Yes]{: tag-green} |
+| Tokyo (`jp-tok`)    | Sydney (`au-syd`) | Osaka (`jp-osa`) | Chennai - Airtel (`in-che`) | Mumbai - Airtel (`in-mum`) |
+|---------------------|------------------|------------------|------------------|------------------|
+| [Yes]{: tag-green} | [Yes]{: tag-green} | [Yes]{: tag-green} | [Yes]{: tag-green} | [Yes]{: tag-green} |
 {: caption="Regions where platform logs are sent in Asia Pacific locations" caption-side="top"}
 {: #lr-table-2}
 {: tab-title="Asia Pacific"}

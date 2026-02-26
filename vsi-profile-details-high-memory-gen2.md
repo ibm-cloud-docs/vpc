@@ -2,7 +2,7 @@
 
 copyright:
   years: 2024, 2026
-lastupdated: "2026-02-25"
+lastupdated: "2026-02-26"
 
 keywords: vsi, virtual server, virtual server instances, profile, profiles, gpu, very high memory, ultra high memory, high memory
 
@@ -43,7 +43,7 @@ single tenant hypervisors running workloads from a single {{site.data.keyword.cl
 {: #vhm-2-availability}
 
 - Status: Generally Available
-- Regions: All, except for Montreal and Chennai - Airtel
+- Regions: All, except for Montreal, Mumbai - Airtel, and Chennai - Airtel
 
 ### Capabilities
 {: #vhm-2-capabilities}

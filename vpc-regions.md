@@ -2,7 +2,7 @@
 
 copyright:
   years: 2020, 2026
-lastupdated: "2026-02-25"
+lastupdated: "2026-02-26"
 
 keywords: region, zone, deploy, datacenter, data, center, federated, CLI, API, account, failover, disaster, recovery, DR, data center
 
@@ -54,6 +54,7 @@ For x86-64 dedicated host profiles, the Madrid region supports only dedicated ho
 |   Location         | Region   | API Endpoint |
 |--------------------|:--------:|:------------:|
 | India (Chennai - Airtel) | `in-che` | `in-che.iaas.cloud.ibm.com` |
+| India (Mumbai - Airtel)  | `in-mum` | `in-mum.iaas.cloud.ibm.com` |
 | Japan (Tokyo)      | `jp-tok` | `jp-tok.iaas.cloud.ibm.com` |
 | Japan (Osaka)      | `jp-osa` | `jp-osa.iaas.cloud.ibm.com` |
 | Australia (Sydney) | `au-syd` | `au-syd.iaas.cloud.ibm.com` |

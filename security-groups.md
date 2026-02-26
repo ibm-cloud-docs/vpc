@@ -2,7 +2,7 @@
 
 copyright:
   years: 2019, 2026
-lastupdated: "2026-01-05"
+lastupdated: "2026-02-26"
 
 keywords:
 
@@ -45,6 +45,11 @@ Each resource that can send and receive traffic can have a security group that i
 
 You can associate a security group with any resource along your data path.
 {: important}
+
+### Quota considerations:
+{: #quota-considerations-security-groups}
+
+Each user-created security group supports up to 1,000 targets. The default security group, which is automatically applied to all targets in a VPC, is not subject to this 1,000-target limit. This behavior ensures that automatic assignment to the default security group does not restrict provisioning.
 
 ## Security groups versus network ACLs
 {: #security-groups-vs-network-acls}
