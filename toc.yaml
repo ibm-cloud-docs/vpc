@@ -1192,6 +1192,7 @@ toc:
               - vpn-ts-auth-error-connecting-to-server.md
               - vpn-ts-auth-failure-error.md
               - vpn-ts-cannot-access-vpc-resources.md
+              - vpn-ts-c2s-cannot-connect-vpe.md
               - vpn-ts-certificate-warning-openvpn.md
               - vpn-ts-client-restart-message.md
               - vpn-ts-connection-failure.md
