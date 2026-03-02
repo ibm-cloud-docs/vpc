@@ -2,7 +2,7 @@
 
 copyright:
   years: 2024, 2026
-lastupdated: "2026-02-10"
+lastupdated: "2026-03-02"
 
 keywords:
 
@@ -419,7 +419,7 @@ The following dependencies apply to the following deployment locations: Chennai 
 | {{site.data.keyword.monitoringlong}}| Operations | No | Both |  Same region  |
 | {{site.data.keyword.vpc_full}}| none | Yes | Both |  Same region  |
 | {{site.data.keyword.atracker_full}}| Operations, Security compliance | No | Both |  Same region  |
-| {{site.data.keyword.compliance_full}}| Security compliance | No | Both |  Same region  |
+| IBM Cloud Security and Compliance Center| Security compliance | No | Both |  Same region  |
 | IBM Cloud CLI | Operations | No | Both |  [Global](/docs/resiliency?topic=resiliency-ha-redundancy#global-platform)  |
 | None| Security compliance | No | Both |  [Global](/docs/resiliency?topic=resiliency-ha-redundancy#global-platform)  |
 | IBM Log Analysis and IBM Cloud Activity Tracker| Access management, Operations, Security compliance | Yes | Both |  Same region  |
@@ -1010,7 +1010,7 @@ The following dependencies apply to the following deployment locations: Dallas (
 
 |Dependencies|Dependency impacts|Customer provided|Control or data plane|Location of dependency|
 |:---|:---|:---|:---|:---|
-| {{site.data.keyword.compliance_full}}| Change management, Instance control, Security compliance | No | Both |  Same region  |
+| IBM Cloud Security and Compliance Center| Change management, Instance control, Security compliance | No | Both |  Same region  |
 | SOS Vault| Change management, Instance control, Security compliance | No | Both |  Same region  |
 | SOS SIEM| Change management, Security compliance | No | Both |  Same region  |
 {: row-headers}
