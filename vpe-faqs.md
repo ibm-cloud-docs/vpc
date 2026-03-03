@@ -1,8 +1,8 @@
 ---
 
 copyright:
-  years: 2020, 2025
-lastupdated: "2025-10-13"
+  years: 2020, 2026
+lastupdated: "2026-03-03"
 
 keywords: virtual private endpoint, FAQs, VPE, endpoint gateway
 
@@ -75,6 +75,12 @@ To avoid port exhaustion, consider techniques such as long-running connections a
 {: faq}
 
 A finite pool of IP addresses is used for NAT operations on the VPC gateway. One IP address is required per VPC per zone.
+
+## Can you ping a VPE-hosted private IP?
+{: #faq-ping-private-ip}
+{: faq}
+
+No. VPE-hosted private IPs do not respond to ping (ICMP). These IPs are internal service mappings created by a VPE, not traditional network interfaces, so ICMP isn't supported. To test connectivity, use the service’s TCP port (for example, port 443 for HTTPS services) with tools such as **traceroute**, **telnet** or **curl** to verify the connection.
 
 ## Related links
 {: #vpe-faq-related-links}

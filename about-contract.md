@@ -2,7 +2,7 @@
 
 copyright:
   years: 2022, 2026
-lastupdated: "2026-02-20"
+lastupdated: "2026-03-03"
 
 keywords: confidential computing, enclave, secure execution, hpcr, contract, customization, schema, contract schema, env, workload, encryption
 
@@ -285,7 +285,7 @@ In the `play` subsection, you can define the workload through [Pod descriptors](
      type: env
      logging:
        logRouter:
-         hostname: 34be57c7-6ff2-4685-8839-903921e90ab9.ingress.jp-tok.logs.cloud.ibm.com
+         hostname: 34be57c7-6ff2-903921e90ab9.ingress.jp-tok.logs.cloud.ibm.com
          iamApiKey: <iamApiKey of the service instance> / xxxx
          port: 443
      env:
@@ -638,7 +638,7 @@ When you use multiple volumes, the deployer must ensure that the volumes are cre
  env: |
    logging:
      logRouter:
-       hostname: 34be57c7-6ff2-4685-8839-903921e90ab9.ingress.jp-tok.logs.cloud.ibm.com
+       hostname: 34be57c7-6ff2-903921e90ab9.ingress.jp-tok.logs.cloud.ibm.com
        iamApiKey: xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx
        port: 443
    volumes:
@@ -779,17 +779,17 @@ Complete the following steps on an Ubuntu system to encrypt the workload section
    type: workload
    auths:
      us.icr.io:
-     password: ${API_KEY}
-     username: iamapikey
+      password: ${API_KEY}
+      username: iamapikey
    compose:
-   archive: ${COMPOSE_VALUE}
+    archive: ${COMPOSE_VALUE}
    volumes:
-   test0:
-     mount: "/mnt/data"
-     seed: "workload_seed12"
-     filesystem: "ext4"
-   env:
-     key: "value"
+    test0:
+      mount: "/mnt/data"
+      seed: "workload_seed12"
+      filesystem: "ext4"
+    env:
+      key: "value"
    ```
    {: codeblock}
 
@@ -980,7 +980,7 @@ Complete the following steps on an Ubuntu system to create the contract signatur
         type: env
         logging:
           logRouter:
-            hostname: 34be57c7-6ff2-4685-8839-903921e90ab9.ingress.jp-tok.logs.cloud.ibm.com
+            hostname: 34be57c7-6ff2-903921e90ab9.ingress.jp-tok.logs.cloud.ibm.com
             iamApiKey: <iamApiKey of the service instance> / xxxx
             port: 443
         volumes:
@@ -997,7 +997,7 @@ Complete the following steps on an Ubuntu system to create the contract signatur
           type: env
           logging:
             logRouter:
-              hostname: 34be57c7-6ff2-4685-8839-903921e90ab9.ingress.jp-tok.logs.cloud.ibm.com
+              hostname: 34be57c7-6ff2-903921e90ab9.ingress.jp-tok.logs.cloud.ibm.com
               iamApiKey: <iamApiKey of the service instance> / xxxx
               port: 443
           volumes:
@@ -1014,7 +1014,7 @@ Complete the following steps on an Ubuntu system to create the contract signatur
           type: env
           logging:
             logRouter:
-              hostname: 34be57c7-6ff2-4685-8839-903921e90ab9.ingress.jp-tok.logs.cloud.ibm.com
+              hostname: 34be57c7-6ff2-903921e90ab9.ingress.jp-tok.logs.cloud.ibm.com
               iamApiKey: <iamApiKey of the service instance> / xxxx
               port: 443
           volumes:
@@ -1031,7 +1031,7 @@ Complete the following steps on an Ubuntu system to create the contract signatur
       type: env
       logging:
         logRouter:
-          hostname: 34be57c7-6ff2-4685-8839-903921e90ab9.ingress.jp-tok.logs.cloud.ibm.com
+          hostname: 34be57c7-6ff2-903921e90ab9.ingress.jp-tok.logs.cloud.ibm.com
           iamApiKey: <iamApiKey of the service instance> / xxxx
           port: 443
       volumes:
@@ -1056,10 +1056,10 @@ Complete the following steps on an Ubuntu system to create the contract signatur
    ```
    {: pre}
 
-9. Use the following command to encrypt password with `ibm-hyper-protect-container-runtime-1-0--encrypt.crt`:
+9.  Use the following command to encrypt password with `ibm-hyper-protect-container-runtime-1-0-s390x-25-encrypt.crt`:
 
    ```yaml
-   ENCRYPTED_PASSWORD="$(echo -n "$PASSWORD" | base64 -d | openssl rsautl -encrypt -inkey $CONTRACT_KEY  -certin | base64 -w0)"
+   ENCRYPTED_PASSWORD="$(echo -n "$PASSWORD" | base64 -d | openssl rsautl -encrypt -inkey $CONTRACT_KEY -certin | base64 -w0)"
    ```
    {: pre}
 
@@ -1181,7 +1181,7 @@ env: |
   type: env
   logging:
     logRouter:
-      hostname: 34be57c7-6ff2-4685-8839-903921e90ab9.ingress.jp-tok.logs.cloud.ibm.com
+      hostname: 34be57c7-6ff2-903921e90ab9.ingress.jp-tok.logs.cloud.ibm.com
       iamApiKey: xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx
       port: 443
 ```
@@ -1245,7 +1245,7 @@ env: |
   type: env
   logging:
     logRouter:
-      hostname: 34be57c7-6ff2-4685-8839-903921e90ab9.ingress.jp-tok.logs.cloud.ibm.com
+      hostname: 34be57c7-6ff2-903921e90ab9.ingress.jp-tok.logs.cloud.ibm.com
       iamApiKey: xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx
       port: 443
 workload: |
