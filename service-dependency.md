@@ -2,7 +2,7 @@
 
 copyright:
   years: 2024, 2026
-lastupdated: "2026-03-02"
+lastupdated: "2026-03-03"
 
 keywords:
 
@@ -130,6 +130,18 @@ The following dependencies apply to the following deployment locations: Dallas (
 {: tab-group="service-dependency-data-for-is-backup-policy-Data-and-Control-plane-deployment"}
 {: class="comparison-tab-table"}
 {: #significant-service-dependencies-for-is-backup-policy-Data-and-Control-plane-deployment}
+{: summary="Use the buttons for the dependency level to change the context of the table. This table has row and column headers. The row headers detail the specific dependent service. The column headers identify the details about the dependency and its impact. To understand the details about each dependency, navigate to the row to find the dependency that you need more information about interested in."}
+
+|Dependencies|Dependency impacts|Customer provided|Control or data plane|Location of dependency|
+|:---|:---|:---|:---|:---|
+| None| Security compliance | No | Both |  [Global](/docs/resiliency?topic=resiliency-ha-redundancy#global-platform)  |
+| None| Security compliance | No | Both |  [Global](/docs/resiliency?topic=resiliency-ha-redundancy#global-platform)  |
+{: row-headers}
+{: caption="IBM Cloud Backup for VPC - Data and Control plane deployment service dependency information - Minimal dependencies" caption-side="top"}
+{: tab-title="Minimal dependencies"}
+{: tab-group="service-dependency-data-for-is-backup-policy-Data-and-Control-plane-deployment"}
+{: class="comparison-tab-table"}
+{: #minimal-service-dependencies-for-is-backup-policy-Data-and-Control-plane-deployment}
 {: summary="Use the buttons for the dependency level to change the context of the table. This table has row and column headers. The row headers detail the specific dependent service. The column headers identify the details about the dependency and its impact. To understand the details about each dependency, navigate to the row to find the dependency that you need more information about interested in."}
 
 ## Data plane deployment for NGDC
