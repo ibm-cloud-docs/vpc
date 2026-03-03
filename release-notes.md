@@ -2,7 +2,7 @@
 
 copyright:
   years: 2019, 2026
-lastupdated: "2026-02-26"
+lastupdated: "2026-03-03"
 
 keywords:
 
@@ -23,6 +23,13 @@ Use the release notes to learn the latest updates to {{site.data.keyword.vpc_ful
 For more information about changes to the {{site.data.keyword.vpc_short}} API, see [{{site.data.keyword.vpc_short}} API change log](/docs/vpc?topic=vpc-api-change-log).
 
 For more information about changes to the {{site.data.keyword.vpc_short}} command-line interface (CLI), see [{{site.data.keyword.vpc_short}} CLI release notes](/docs/vpc?topic=vpc-vpc-cli-rn).
+
+### 03 March 2026
+{: #vpc-mar0326}
+{: release-note}  
+
+Regional file shares are now available in Chennai - Airtel MZR (Select availability)
+:   The new `rfs` share profile is now available for customers with special access in Dallas, Chennai - Airtel, Frankfurt, London, Madrid, Osaka, Sydney, Tokyo, Toronto, and Washington, DC. For more information, see [About File Storage for VPC](/docs/vpc?topic=vpc-file-storage-vpc-about).
 
 ## February 2026
 {: #vpc-feb26}

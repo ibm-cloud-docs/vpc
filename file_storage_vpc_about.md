@@ -2,7 +2,7 @@
 
 copyright:
   years: 2021, 2026
-lastupdated: "2026-02-26"
+lastupdated: "2026-03-03"
 
 keywords: file share, mount target, virtual network interface, customer-managed encryption, encryption at rest, encryption in transit, file storage, share,
 
@@ -337,7 +337,7 @@ The following limitations apply to this release of {{site.data.keyword.filestora
 * Cross-regional replication is supported within the same geography when both source and replica shares belong to the same account. Cross-geography replication is not supported.
 * Cross-regional replication for zonal file shares is not supported in the Chennai - Airtel region currently.
 * Cross-regional replication is not supported for regional files shares in the [Select availability]{: tag-green} phase.
-* Regional file shares are not available in Chennai, Mumbai - Airtel, and Montreal currently.
+* Regional file shares are not available in  Mumbai - Airtel, and Montreal currently.[Updated]{: tag-cyan}
 
 ## Next steps
 {: #file-storage-vpc-next-steps}
