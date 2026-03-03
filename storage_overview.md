@@ -23,7 +23,7 @@ The {{site.data.keyword.vpc_full}} (VPC) provides block storage, file storage, a
 
 {{site.data.keyword.block_storage_is_full}} provides hypervisor-mounted, high-performance data storage for your virtual server instances that you can provision within a VPC. The VPC infrastructure provides rapid scaling across zones and more performance and security.
 
-By using this service, you can create boot volumes and data volumes for your virtual server instances. Use the IBM Cloud console, CLI, API, or Terraform to create volumes, rename volumes, attach, and detach a volume of a virtual server instance, transfer volumes to a different instance, tag volumes, delete volumes, and access metrics.
+By using this service, you can create boot volumes and data volumes for your virtual server instances. Use the IBM Cloud console, CLI, API, or Terraform to create volumes, rename volumes, attach, and detach a volume, transfer volumes to a different instance, tag volumes, delete volumes, and access metrics.
 
 Pay for only the capacity that you need. You can start with a smaller volume, and increase the capacity later.
 
@@ -39,7 +39,7 @@ The following table provides a comparison between the different generations of b
 
 | Features            | First-generation volumes | Second-generation volumes |
 |---------------------|--------------------------|---------------------------|
-| Availability        | Generally available in all VPC regions for all customers. | Available in most MZRs, except Mumbai - Airtel, and Montreal.|
+| Availability        | Generally available in all VPC regions for all customers. | Available in most MZRs, except Mumbai - Airtel and Montreal.|
 | Expandable capacity | Yes, up to 16,000 GB     | Yes, up to 32,000 GB |
 | Adjustable IOPS     | Yes, up to 48,000. IOPS depends on capacity range. | Yes, up to 64,000.| 
 | Adjustable Bandwidth| No. Bandwidth can be increased by increasing capacity and IOPS. The maximum is 1024 MBps.| Yes, bandwidth can be adjusted to any value between 125 and 1024 MBps.|
