@@ -40,6 +40,7 @@ Follow the steps to resolve any timing issues:
 
 1. Make sure that NAT-Traversal is enabled on the peer, if it is a configurable option.
 1. To avoid simultaneous rekeying, make sure that only one side consistently initiates the rekey.
+
    If you're using IKEv2, configure your peer device's Phase 1 (IKE) lifetime shorter than IBM Cloud lifetime, which ensures that rekeying is always initiated by the peer and not both sides.
    {: tip}
 
