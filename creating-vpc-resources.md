@@ -1,8 +1,8 @@
 ---
 
 copyright:
-  years: 2018, 2025
-lastupdated: "2025-11-04"
+  years: 2018, 2026
+lastupdated: "2026-03-04"
 
 keywords:
 
@@ -292,10 +292,10 @@ ibmcloud is instance $instance
 ```
 {: pre}
 
-From the returned output, save the ID of the primary network interface (`Primary Interface`) in a variable so you can use it later, for example:
+From the returned output, save the ID of the VNI (Virtual Network Interface) in a variable so you can use it later, for example:
 
 ```sh
-nic="0738-4d9b3a58-f796-4e6a-b5ac-84f4216e9b68-glhvl"
+vni="0717-0b45c763-fada-4d44-8f46-e71154ec11e0"
 ```
 {: pre}
 
@@ -386,14 +386,34 @@ For Windows images, make sure the security group that is associated with the ins
 Create a floating IP address if you want your instance to be reachable from the internet.
 
 ```sh
-ibmcloud is floating-ip-reserve my-fip --nic $nic
+ibmcloud is floating-ip-reserve my-fip --vni $vni
 ```
 {: pre}
+
+For example:
+
+```sh
+ibmcloud is floating-ip-reserve my-fip --vni $vni
+Creating floating IP my-fip under account rnos's Account as user bob@ibm.com...
+
+ID               r006-a398f234-7785-4e28-8861-02a96c928fa3
+Address          52.118.151.163
+Name             my-fip
+CRN              crn:v1:bluemix:public:is:us-south-1:a/b21af5a9874242b7851e780943d795a9::floating-ip:r006-a398f234-7785-4e28-8861-02a96c928fa3
+Status           pending
+Zone             us-south-1
+Created          2026-03-04T10:48:37+05:30
+Target           ID                                          Target type                 Name
+                 0717-0b45c763-fada-4d44-8f46-e71154ec11e0   virtual_network_interface   alto-uncrushed-disliking-dismiss
+
+Resource group   Default
+```
+{: codeblock}
 
 From the returned output, save the `Address` in a variable so you can use it later:
 
 ```sh
-address=169.48.88.0
+address=52.118.151.163
 ```
 {: pre}
 
