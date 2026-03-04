@@ -2,7 +2,7 @@
 
 copyright:
   years: 2022, 2026
-lastupdated: "2026-03-03"
+lastupdated: "2026-03-04"
 
 keywords: confidential computing, enclave, secure execution, hpcr, contract, customization, schema, contract schema, env, workload, encryption
 
@@ -1086,17 +1086,6 @@ Timelines for the notification are as follows:
 - Everyday for 30 days before the expiry
 - Once in every 4 hours if the contract is about to expire in 7 days
 - Every hour if the contract has already expired or is about to expire in a day
-
-### Encryption and Attestation certificate expiry warning logs
-{: #hpcr_contract_sign_wlogs}
-
-HPVS logs warning messages to the configured logging service about upcoming and expired encryption and attestation certificates.
-
-Following is the notification schedule:
-
-- **30 days before expiry**: A warning message is generated once **every 24 hours**, notifying that the certificate will expire in one month.
-- **7 days before expiry**: Warning messages are logged **every 12 hours** as the expiry date nears, highlighting the need for action.
-- **After certificate expiry**: If the certificate has expired, HPVS logs warning messages **every 4 hours** until the HPVS image is upgraded.
 
 ## Preparing the Attestation section
 {: #hpcr_attestation_prepare}
