@@ -1,8 +1,8 @@
 ---
 
 copyright:
-  years: 2023, 2025
-lastupdated: "2025-12-17"
+  years: 2023, 2026
+lastupdated: "2026-03-04"
 
 keywords: virtual private network, VPN, VPN server, troubleshooting
 
@@ -26,11 +26,11 @@ Connections are established between IBM Cloud and an on-premises network but pac
 {: tsSymptoms}
 
 The following factors are some of the common causes for packet not flowing:
+{: tsCauses}
 
 * Absence of a Transit Gateway connection for dynamic routing.
 * Missing routes in the Transit Gateway for the source and destination IP addresses.
 * Misconfigured ACLs and security groups that block the necessary traffic.
-{: tsCauses}
 
 Follow these steps to fix the issue of packets not flowing:
 {: tsResolve}
