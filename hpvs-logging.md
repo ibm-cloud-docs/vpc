@@ -2,7 +2,7 @@
 
 copyright:
   years: 2022, 2026
-lastupdated: "2026-02-20"
+lastupdated: "2026-03-05"
 
 keywords: confidential computing, secure execution, logging for hyper protect virtual server for vpc
 
@@ -15,7 +15,7 @@ subcollection: vpc
 # Logging for {{site.data.keyword.hpvs}} for VPC
 {: #logging-for-hyper-protect-virtual-servers-for-vpc}
 
-The {{site.data.keyword.cloud_notm}} {{site.data.keyword.hpvs}} for VPC is deprecated. As of 28 February 2026, you can't create new instances. Existing instances are supported until 20 February 2027. Any instances that still exist on that date will be deleted. You can redeploy your workloads by using [IBM Confidential Computing Container Runtime (formerly known as Hyper Protect Virtual Servers)](https://www.ibm.com/docs/en/hpvs) or [IBM Confidential Computing Container Runtime for Red Hat Virtualization Solutions (formerly known as Hyper Protect Container Runtime for Red Hat Virtualization Solutions)](https://www.ibm.com/docs/en/hpcr/1.1.x). For information about data migration, see the [Migration guide](/docs/vpc?topic=vpc-migration_guide). For more information, see the [Service deprecation announcement](/docs/vpc?topic=vpc-ichpcs_deprecated_anmt).
+The {{site.data.keyword.cloud_notm}} {{site.data.keyword.hpvs}} for VPC is deprecated. As of 28 February 2026, you can't create new instances. Existing instances are supported until 20 February 2027. Any instances that still exist on that date will be deleted. You can redeploy your workloads by using [IBM Confidential Computing Container Runtime (formerly known as Hyper Protect Virtual Servers)](https://www.ibm.com/docs/en/cccr) or [IBM Confidential Computing Container Runtime for Red Hat Virtualization Solutions (formerly known as Hyper Protect Container Runtime for Red Hat Virtualization Solutions)](https://www.ibm.com/docs/en/ccrv/1.1.x). For information about data migration, see the [Migration guide](/docs/vpc?topic=vpc-migration_guide). For more information, see the [Service deprecation announcement](/docs/vpc?topic=vpc-ichpcs_deprecated_anmt).
 {: deprecated}
 
 To launch a {{site.data.keyword.hpvs}} for VPC instance, you (as the deployer) need to set up logging first by adding the logging configuration in the `env` section of the [contract](/docs/vpc?topic=vpc-about-contract_se#hpcr_contract_env). The instance reads the configuration and configures logging accordingly. All other services start only after logging is configured. If the logging configuration is incorrect, the instance will not start and an error message will be displayed in the serial console.
@@ -276,7 +276,7 @@ You can follow the following procedure to create the required certificates and k
    CN = client.example.org
    ```
 
-   Make sure to update `dn` with your values. Whether the actual values play a role depends on the `StreamDriver.Authmode` setting (which appears in the following documentation). In this example, we use the setting `StreamDriver.Authmode="x509/certvalid"` and in this case, the value of `dn` does **not** play a role (since all valid client certificates are accepted). Adjust this according to your needs. For more information, see [StreamDriver.Authmode](https://www.rsyslog.com/doc/configuration/modules/imtcp.html#streamdriver-authmode){: external}.
+   Make sure to update `dn` with your values. Whether the actual values play a role depends on the `StreamDriver.Authmode` setting (which appears in the following documentation). In this example, we use the setting `StreamDriver.Authmode="x509/certvalid"` and in this case, the value of `dn` does **not** play a role (since all valid client certificates are accepted). Adjust this according to your needs. For more information, see [StreamDriver.Authmode](https://docs.rsyslog.com/doc//configuration/modules/imtcp.html#streamdriver-authmode){: external}.
    {: note}
 
    Create the key and certificate:
@@ -446,7 +446,7 @@ There are many ways to set up a compatible server endpoint. The following exampl
    {: note}
 
 
-   In this configuration, we accept any client certificate that is signed by the certificate authority through the `x509/certvalid` mode. This can change depending on the `StreamDriver.Authmode` setting. See [StreamDriver.Authmode](https://www.rsyslog.com/doc/configuration/modules/imtcp.html#streamdriver-authmode){: external}.
+   In this configuration, we accept any client certificate that is signed by the certificate authority through the `x509/certvalid` mode. This can change depending on the `StreamDriver.Authmode` setting. See [StreamDriver.Authmode](https://docs.rsyslog.com/doc//configuration/modules/imtcp.html#streamdriver-authmode){: external}.
    {: note}
 
 4. Restart the syslog service.
@@ -641,7 +641,7 @@ Perform the following steps to create the required certificates and keys. This e
 
       Update `dn` with your values. Whether these values matter depends on the `StreamDriver.Authmode` setting.
       In this example, `StreamDriver.Authmode="x509/certvalid"`, so all valid client certificates are accepted.
-      For details, see [StreamDriver.Authmode](https://www.rsyslog.com/doc/configuration/modules/imtcp.html#streamdriver-authmode){: external}.
+      For details, see [StreamDriver.Authmode](https://docs.rsyslog.com/doc//configuration/modules/imtcp.html#streamdriver-authmode){: external}.
       {: note}
 
    1. Create the key and certificate:
@@ -817,7 +817,7 @@ There are many ways to set up a compatible server endpoint. The following exampl
 
    In this configuration, any client certificate that is signed by the certificate authority is accepted through the `x509/certvalid` mode.
    This behavior can vary depending on the `StreamDriver.Authmode` setting.
-   See [StreamDriver.Authmode](https://www.rsyslog.com/doc/configuration/modules/imtcp.html#streamdriver-authmode){: external}.
+   See [StreamDriver.Authmode](https://docs.rsyslog.com/doc//configuration/modules/imtcp.html#streamdriver-authmode){: external}.
 
 1. Restart the syslog service:
 

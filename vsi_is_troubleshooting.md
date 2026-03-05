@@ -2,7 +2,7 @@
 
 copyright:
   years: 2018, 2026
-lastupdated: "2026-01-02"
+lastupdated: "2026-03-05"
 
 subcollection: vpc
 
@@ -206,7 +206,7 @@ To troubleshoot and resolve the issue by using the SysRq key from the serial con
 
    Before you begin:
 
-      To trigger a crash dump, make sure that the `crashkernel` is configured on the Linux virtual server instance. For instructions, see the [Kernel crash dump mechanism](https://documentation.ubuntu.com/server/kernel-crash-dump/).
+      To trigger a crash dump, make sure that the `crashkernel` is configured on the Linux virtual server instance. For instructions, see the [Kernel crash dump mechanism](https://ubuntu.com/server/docs/how-to/software/kernel-crash-dump/).
 
    1. Press the **Enter** key.
    1. Press the `~` (tilde) key.

@@ -1,8 +1,8 @@
 ---
 
 copyright:
-  years: 2021, 2025
-lastupdated: "2025-10-16"
+  years: 2021, 2026
+lastupdated: "2026-03-05"
 
 keywords: file share, file storage, mount helper, mount target, mount path, secure connection, NFS, mounting share
 
@@ -32,7 +32,7 @@ Use these instructions to connect a Network File System (NFS) file share to an U
 {{site.data.keyword.filestorage_vpc_short}} service requires NFS versions v4.1 or higher.
 {: requirement}
 
-For more information about how NFS works on Ubuntu, see the [Ubuntu Server Documentation](https://documentation.ubuntu.com/server/how-to/networking/install-nfs/){: external}.
+For more information about how NFS works on Ubuntu, see the [Ubuntu Server Documentation](https://ubuntu.com/server/docs/how-to/networking/install-nfs/){: external}.
 
 ## Mounting the file share
 {: #fs-Ubuntu-mount}

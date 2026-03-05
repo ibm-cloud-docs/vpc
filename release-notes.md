@@ -2,7 +2,7 @@
 
 copyright:
   years: 2019, 2026
-lastupdated: "2026-03-03"
+lastupdated: "2026-03-05"
 
 keywords:
 
@@ -54,7 +54,7 @@ Service deprecation: IBM Cloud LinuxONE and Hyper Protect Virtual Server offerin
 
    - [IBM Cloud LinuxONE Virtual Server for VPC (s390x architecture)](/docs/vpc?group=virtual-servers)
    - [IBM Cloud Dedicated Host for VPC (s390x architecture)](/docs/vpc?group=dedicated-hosts)
-   - [IBM Cloud Hyper Protect Virtual Server for VPC](https://www.ibm.com/products/hyper-protect-virtual-servers/cloud)
+   - [IBM Cloud Hyper Protect Virtual Server for VPC](https://www.ibm.com/products/confidential-computing-container-runtime)
    - [IBM Cloud Wazi as a Service](https://www.ibm.com/products/wazi-as-a-service)
 
    The End of Marketing (EOM) date is 28 February 2026. From EOM, IBM will disable the provisioning of new instances; however, any instances that were provisioned before this date will continue to be supported until the End of Service date.

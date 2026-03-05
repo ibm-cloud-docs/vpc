@@ -1,8 +1,8 @@
 ---
 
 copyright:
-  years: 2022, 2023
-lastupdated: "2025-10-27"
+  years: 2022, 2026
+lastupdated: "2026-03-05"
 
 keywords:
 
@@ -27,7 +27,7 @@ Table 1 describes the steps that are involved in accessing metadata. The informa
 |------|---------|----------------|-------------|
 | 1    | IBM Cloud | VPC UI, CLI, API | Access to the metadata service is disabled by default. You can enable access to the metadata service on an existing instance in the console, from the CLI, or with the API. |
 | 2    | IBM Cloud | - | Sign on to the instance by using normal startup operations. |
-| 3    | VPC instance | Metadata service | Run a `curl` command to call the metadata token service to [acquire an identity access token](/apidocs/vpc-metadata#create-access-token). |
+| 3    | VPC instance | Metadata service | Run a `curl` command to call the metadata token service to [acquire an identity access token](/apidocs/vpc-identity/latest#create-identity-token). |
 | 4    | VPC instance | Metadata service | Run a `curl` command to call the metadata service to [retrieve instance information](/apidocs/vpc-metadata#get-instance). The token from the previous step is passed and the metadata is returned.|
 | 5    | VPC instance | - | Parse the JSON returned in the previous step to acquire the user data. |
 {: caption="General procedure for accessing metadata" caption-side="bottom"}

@@ -1,8 +1,8 @@
 ---
 
 copyright:
-  years: 2019, 2025
-lastupdated: "2025-12-10"
+  years: 2019, 2026
+lastupdated: "2026-03-05"
 
 keywords: creating a linux custom image, cloud-init, qcow2
 
@@ -86,7 +86,7 @@ Make sure that your image is cloud-init enabled. Cloud-init version 0.7.9 or gre
     * For Ubuntu or Debian, run the following command: `apt-get install cloud-init`
     * For CentOS or Red Hat, run the following command: `yum install cloud-init`
 
-3. If the `datasources_list` property exists in */etc/cloud/cloud.cfg*, verify that it only contains `NoCloud` or remove the `datasources_list` property entirely. `ConfigDrive` is not supported. For more information about data sources, see [data sources](https://cloudinit.readthedocs.io/en/latest/reference/datasources.html){: external}. {{site.data.keyword.cloud_notm}} cloud-init images are created for the environment by using the [NoCloud](https://cloudinit.readthedocs.io/en/latest/reference/datasources/nocloud.html){: external} data source to supply the metadata.
+3. If the `datasources_list` property exists in */etc/cloud/cloud.cfg*, verify that it only contains `NoCloud` or remove the `datasources_list` property entirely. `ConfigDrive` is not supported. For more information about data sources, see [data sources](https://docs.cloud-init.io/en/latest/reference/datasources.html){: external}. {{site.data.keyword.cloud_notm}} cloud-init images are created for the environment by using the [NoCloud](https://docs.cloud-init.io/en/latest/reference/datasources/nocloud.html){: external} data source to supply the metadata.
 
    A block device is provided. See the following example.
 

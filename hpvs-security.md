@@ -2,7 +2,7 @@
 
 copyright:
   years: 2023, 2026
-lastupdated: "2026-02-20"
+lastupdated: "2026-03-05"
 
 keywords: confidential computing, enclave, secure execution, hpcr, contract, security requirement, additional security, env, workload, encryption
 
@@ -16,7 +16,7 @@ subcollection: vpc
 # Additional security responsibilities for {{site.data.keyword.cloud_notm}} {{site.data.keyword.hpvs}} for VPC
 {: #hpvs-security-req}
 
-The {{site.data.keyword.cloud_notm}} {{site.data.keyword.hpvs}} for VPC is deprecated. As of 28 February 2026, you can't create new instances. Existing instances are supported until 20 February 2027. Any instances that still exist on that date will be deleted. You can redeploy your workloads by using [IBM Confidential Computing Container Runtime (formerly known as Hyper Protect Virtual Servers)](https://www.ibm.com/docs/en/hpvs) or [IBM Confidential Computing Container Runtime for Red Hat Virtualization Solutions (formerly known as Hyper Protect Container Runtime for Red Hat Virtualization Solutions)](https://www.ibm.com/docs/en/hpcr/1.1.x). For information about data migration, see the [Migration guide](/docs/vpc?topic=vpc-migration_guide). For more information, see the [Service deprecation announcement](/docs/vpc?topic=vpc-ichpcs_deprecated_anmt).
+The {{site.data.keyword.cloud_notm}} {{site.data.keyword.hpvs}} for VPC is deprecated. As of 28 February 2026, you can't create new instances. Existing instances are supported until 20 February 2027. Any instances that still exist on that date will be deleted. You can redeploy your workloads by using [IBM Confidential Computing Container Runtime (formerly known as Hyper Protect Virtual Servers)](https://www.ibm.com/docs/en/cccr) or [IBM Confidential Computing Container Runtime for Red Hat Virtualization Solutions (formerly known as Hyper Protect Container Runtime for Red Hat Virtualization Solutions)](https://www.ibm.com/docs/en/ccrv/1.1.x). For information about data migration, see the [Migration guide](/docs/vpc?topic=vpc-migration_guide). For more information, see the [Service deprecation announcement](/docs/vpc?topic=vpc-ichpcs_deprecated_anmt).
 {: deprecated}
 
 Learn about the security related responsibilities that you must observe when you use {{site.data.keyword.cloud_notm}} {{site.data.keyword.hpvs}} for VPC.
@@ -28,7 +28,7 @@ You must observe the following security best practices that help in maintaining 
 * Ensure that only required ports are opened and the ports are secured (TLS enabled). If you want to open up any port on the virtual server instance, ensure that you follow the security best practices. IBM is not responsible for any security incidents that arise from the usage of the port.
 * Ensure only trusted or known users are allowed access to the environment and virtual servers.
 * Employ the principle of least privilege where it is essential for minimizing security risks in your Docker environment. Avoid running containers as non-root users, or as privileged containers.
-* The AppArmor Linux kernel security module is enabled on virtual server instance. For more information, see [Using AppArmor](https://documentation.ubuntu.com/server/apparmor/){: external}.
+* The AppArmor Linux kernel security module is enabled on virtual server instance. For more information, see [Using AppArmor](https://ubuntu.com/server/docs/how-to/security/apparmor/){: external}.
 * If an image is deprecated, it is recommended to upgrade to the latest available version. Once the image is obsolete, the vsi creation or start will fail with error as image is no longer valid.
 * You must observe the following best practices for the contract:
    - It is recommended that all sections of contract are encrypted. For more information, see [Contract encryption](/docs/vpc?topic=vpc-about-contract_se#hpcr_contract_encrypt).

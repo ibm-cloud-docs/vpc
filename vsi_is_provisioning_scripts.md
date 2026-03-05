@@ -1,8 +1,8 @@
 ---
 
 copyright:
-  years: 2019, 2025
-lastupdated: "2025-05-28"
+  years: 2019, 2026
+lastupdated: "2026-03-05"
 
 keywords: user data, virtual server username
 
@@ -69,7 +69,7 @@ You can paste one of these examples directly into the **User Data** field. The u
 If you specify to include a file and have spaces that precede the file name, the data isn't interpreted correctly. Verify that `#!/bin/sh` or `#!/bin/bash` are the first characters on the line that immediately follows the end of file designation (`<<EOF`). The characters can't be indented.
 {: tip}
 
-For more Linux user data examples and information, see [Cloud config examples)](https://cloudinit.readthedocs.io/en/latest/reference/examples.html){: external}.
+For more Linux user data examples and information, see [Cloud config examples)](https://docs.cloud-init.io/en/latest/reference/examples.html){: external}.
 
 ### Configuring a single disk instance storage by using cloud-config script
 {: #configure-instance-storage-cloud-config}

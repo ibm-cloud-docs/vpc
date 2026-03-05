@@ -1,8 +1,8 @@
 ---
 
 copyright:
-  years: 2022, 2025
-lastupdated: "2025-10-30"
+  years: 2022, 2026
+lastupdated: "2026-03-05"
 
 keywords:
 
@@ -101,7 +101,7 @@ Create or retrieve a trusted profile. You need either its ID or CRN.
       ```
       {: pre}
 
-      The response is the access token payload. For more information, see the Metadata API reference: [Create an identity access token](/apidocs/vpc-metadata#create-access-token).
+      The response is the access token payload. For more information, see the Metadata API reference: [Create an identity access token](/apidocs/vpc-identity/latest#create-identity-token).
 
 1. Use the identity token to [generate an IAM token](/docs/vpc?topic=vpc-imd-identity-operations#imd-token-exchange).
 
