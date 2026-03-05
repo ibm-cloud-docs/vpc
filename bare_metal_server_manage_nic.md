@@ -1,8 +1,8 @@
 ---
 
 copyright:
-  years: 2021, 2024
-lastupdated: "2024-06-14"
+  years: 2021, 2026
+lastupdated: "2026-03-05"
 
 subcollection: vpc
 
@@ -42,13 +42,13 @@ If you want to control the flow of network traffic in your VPC, you can configur
 You can specify the following configurations for PCI and VLAN interfaces. For VLAN interfaces on x86 architecture-based bare metal servers, you need to specify the **VLAN ID**.
 
 | Field | Value |
-|-----|-----|
+| --- | --- |
 | Name | Name of the interface. |
 | Subnet | Specify the subnet that the network interface is associated with. |
 | Floating IP | After you create the network interface, you can associate one floating IP for external connectivity. |
 | Primary IPv4 address | The primary IPv4 address of the network interface. If specified, it must be an available address on the network interface's subnet. If unspecified, an available address on the subnet is automatically selected. |
 | Allow IP spoofing | Turning IP spoofing _off_ prevents source IP spoofing on an interface. Turning IP spoofing _on_ allows source IP spoofing. The default option is _off_. You must have the **Advanced Network Operator** IAM role to modify this configuration. |
-| Enable infrastructure NAT | Turning on infrastructure NAT allows the VPC infrastructure to perform any needed NAT operations. If infrastructure NAT is off, the packet passes unmodified to and from the network interface, allowing the workload to perform NAT operations. The default option is _on_. You must have the **Advanced Network Operator** IAM role to modify this configuration. **Allow IP spoofing** must be turned off if **Enable infrastructure NAT** is turned _off_.|
+| Enable infrastructure NAT | Controls whether the VPC performs network address translation (NAT) for traffic associated with the network interface. When enabled (default), the VPC translates floating IP traffic to the private IP address before delivering it to the server. In this mode, the server operates as a standard workload and receives packets with the private IP address as the destination. Only one floating IP can be associated with the interface in this configuration. \n When disabled, the VPC forwards packets without modifying the destination IP address. This allows the server to operate as a network appliance, directly process traffic addressed to its public floating IPs, and perform NAT on its own if required. In this mode, the interface can support multiple floating IPs.\n Modifying infrastructure NAT requires the **Advanced Network Operator** IAM role. **Allow IP spoofing** must be turned off when **Enable infrastructure NAT** is turned off. |
 | Security groups | You can select the security groups that are used to control the traffic for the network interface. |
 | Allow interfaces to float (VLAN interface only) | You can associate one floating IP with your interface for external connectivity, server migration, or use of a virtual IP. If enabled, the interface automatically floats to any other server within the same resource group if the network detects a GARP or RARP on another bare metal server within the resource group. The default option is _off_. You can't change this configuration after the VLAN interface is created. |
 | VLAN ID (VLAN interface only) | You must specify the VLAN ID tag to use for all traffic on this VLAN interface. The VLAN ID range is between 1 and 4094. |
@@ -166,7 +166,7 @@ From the API perspective, you create a VIP the same way that you create a primar
    ```
    {: pre}
 
-2. Set `allow-interfaces-to-float`to _true_.
+2. Set `allow-interfaces-to-float` to _true_.
 
 ## Creating a custom route
 {: #bare-metal-create-custom-route}
