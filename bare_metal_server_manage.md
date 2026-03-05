@@ -2,7 +2,7 @@
 
 copyright:
   years: 2021, 2026
-lastupdated: "2026-02-24"
+lastupdated: "2026-03-05"
 
 keywords: bare metal servers, managing, operation, manage bare metal server, manage bare metal, manage server, restart bare metal, stop bare metal, delete bare metal, reboot bare metal, restart server, stop server, delete server
 
@@ -427,7 +427,7 @@ When using a `default_trusted_profile`, reinitializing the bare metal server inc
 ### Updating the firmware for a bare metal server by using the API
 {: #update-firmware-bare-metal-servers-API}
 
-You can update the firmware on only a bare metal server that is stopped and has firmware updates available. It is recommended that you back up your server before you update the firmware. To update the firmware by using the API, use [Update firmware for a bare metal server](/apidocs/vpc-beta/initial#update-firmware-for-bare-metal-server).
+You can update the firmware on only a bare metal server that is stopped and has firmware updates available. It is recommended that you back up your server before you update the firmware. To update the firmware by using the API, use [Update firmware for a bare metal server](/apidocs/vpc-beta/latest#update-firmware-for-bare-metal-server).
 
 Specify a `POST /bare_metal_servers/{id}/firmware/update` request to update the firmware for a specific bare metal server where `id` is the identifier of the bare metal server that you are updating.
 

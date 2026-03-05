@@ -2,7 +2,7 @@
 
 copyright:
   years: 2019, 2026
-lastupdated: "2026-02-26"
+lastupdated: "2026-03-05"
 
 keywords: vsi, virtual server instances, profile, profiles, balanced, compute, memory, very high memory, ultra high memory, gpu, storage optimized, confidential compute, flex, high frequency
 
@@ -20,7 +20,7 @@ When you provision {{site.data.keyword.vsi_is_full}}, you can select from nine f
 A profile is a combination of instance attributes, such as the number of vCPUs, amount of RAM, network bandwidth, and default bandwidth allocation. The attributes define the size and capabilities of the virtual server instance that is provisioned. In the {{site.data.keyword.Bluemix_notm}} console, you can select the most recently used profile or click **View All Profiles** to choose the profile that best fits your needs.
 {: shortdesc}
 
-For more information about SAP profiles, see [Intel Virtual Server certified profiles on VPC infrastructure for SAP HANA](/docs/sap?topic=sap-hana-iaas-offerings-profiles-intel-vs-vpc) and [Intel Virtual Server certified profiles on VPC infrastructure for SAP NetWeaver](/docs/sap?topic=sap-nw-iaas-offerings-profiles-intel-vs-vpc).
+For more information about SAP profiles, see [SAP HANA certified instances on Intel-powered virtual servers on VPC Infrastructure](/docs/sap?topic=sap-hana-iaas-offerings-profiles-vpc-intel-vsi) and [SAP Application Server certified instances on Intel-powered virtual servers on VPC Infrastructure](/docs/sap?topic=sap-nw-iaas-offerings-profiles-vpc-vsi).
 
 ## Before you begin
 {: #x86-64-instance-profiles-before-you-begin}
