@@ -1,8 +1,8 @@
 ---
 
 copyright:
-  years: 2024, 2025
-lastupdated: "2025-12-30"
+  years: 2024, 2026
+lastupdated: "2026-03-05"
 
 keywords:
 
@@ -57,8 +57,6 @@ To attach an interface to an instance from the CLI, follow these steps:
    
 
    
-
-   
    Where:
 
    `INSTANCE`
@@ -76,7 +74,7 @@ To attach an interface to an instance from the CLI, follow these steps:
 ### Command examples
 {: #command-examples-cluster-network-attach-interfaces}
 
-* To create instance `my-ins-1` with cluster network atttachments:
+* To create instance `my-ins-1` with cluster network attachments:
 
    
    ```sh
