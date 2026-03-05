@@ -2,7 +2,7 @@
 
 copyright:
   years: 2018, 2026
-lastupdated: "2026-02-26"
+lastupdated: "2026-03-05"
 
 keywords:
 
@@ -59,6 +59,8 @@ Bare metal servers use physical cores and don't count toward your vCPU quota.
 | Service IPs | 1 per zone per VPC |
 {: caption="Quotas for the VPC service" caption-side="bottom"}
 
+The combined total of the address prefixes quota and the [advertised routes quota](#routing-tables-routes-quotas) cannot exceed 120 per VPC.
+{: note}
 
 ### Access control lists
 {: #acl-quotas}
@@ -150,13 +152,14 @@ Bare metal servers use physical cores and don't count toward your vCPU quota.
 |--------|-----|
 | Routing tables per VPC | 50 |
 | Routes per routing table | 200 |
-| Advertise routes per VPC | 30|
+| Advertised routes per VPC | 70 |
 {: caption="Quotas for routing tables and routes" caption-side="bottom"}
 
 Each route has a destination property, which includes a prefix length (`/24` in `10.2.0.0/24`). The number of unique prefix lengths that are supported per custom routing table is 14. Multiple routes with the same prefix count as only one unique prefix.
 {: note}
 
-
+The combined total of the advertised routes quota and the [address prefixes quota](#vpc-quotas) cannot exceed 120 per VPC.
+{: note}
 
 ### Security groups
 {: #security-group-quotas}

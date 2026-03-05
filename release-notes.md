@@ -24,9 +24,17 @@ For more information about changes to the {{site.data.keyword.vpc_short}} API, s
 
 For more information about changes to the {{site.data.keyword.vpc_short}} command-line interface (CLI), see [{{site.data.keyword.vpc_short}} CLI release notes](/docs/vpc?topic=vpc-vpc-cli-rn).
 
+### 05 March 2026
+{: #vpc-mar0526}
+{: release-note}
+
+Advertised routes per VPC quota increased (combined total limit applies)
+
+:   The advertised routes per VPC quota has increased from 30 to 70. The quota of advertised routes per VPC and address prefixes per VPC cannot exceed 120.
+
 ### 03 March 2026
 {: #vpc-mar0326}
-{: release-note}  
+{: release-note}
 
 Regional file shares are now available in Chennai - Airtel MZR (Select availability)
 :   The new `rfs` share profile is now available for customers with special access in Dallas, Chennai - Airtel, Frankfurt, London, Madrid, Osaka, Sydney, Tokyo, Toronto, and Washington, DC. For more information, see [About File Storage for VPC](/docs/vpc?topic=vpc-file-storage-vpc-about).
