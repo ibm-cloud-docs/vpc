@@ -2,7 +2,7 @@
 
 copyright:
   years: 2019, 2026
-lastupdated: "2026-02-25"
+lastupdated: "2026-03-05"
 
 keywords:
 
@@ -29,13 +29,13 @@ The migration steps that are described in this guide are valid only until the En
 Make sure that you have the following:
 
 - Active {{site.data.keyword.cloud_notm}} account with HPVS instance
-- A Virtual Server Instance (VSI) with `qemu-utils` package installed
-- Sufficient storage space for volume snapshots
+- A Virtual Server Instance (VSI) running on {{site.data.keyword.cloud_notm}} with `qemu-utils` package installed
+- Sufficient storage space to accomodate the volume snapshots in the machine from which you do `ssh` to the VSI
 - Administrative access to both cloud and on-premises environments
-- Original contract and seed files that are used for HPVS deployment
-- Backup verification: Confirm that you have recent backups of your data
+- Original contract and seed files that are used for HPVS deployment on {{site.data.keyword.cloud_notm}}
+- Backup verification: Confirm that you have recent backups of your data on the HPVS instance ({{site.data.keyword.cloud_notm}} deployment)
 - Downtime planning: It is recommended to schedule a maintenance window and avoid modification to the volume during migration.
-- Network connectivity: Ensure secure transfer mechanism (VPN, direct Link, or secure file transfer)
+- Network connectivity: Ensure secure transfer mechanism (VPN, direct Link, or secure file transfer) between the machine for volume snapshot to the on-prem machine
 - Required tools: Install `qemu-utils` on your VSI:
 
    - For Ubuntu or Debian:
