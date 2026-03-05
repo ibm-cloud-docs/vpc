@@ -30,7 +30,7 @@ For more information about changes to the {{site.data.keyword.vpc_short}} comman
 
 Advertised routes per VPC quota increased (combined total limit applies)
 
-:   The advertised routes per VPC quota has increased from 30 to 70. If you increase the maximum number of advertised routes per VPC (70) or address prefixes per VPC (25) through a support request, keep in mind that the sum of these quotas cannot exceed 120 per VPC.
+:   The advertised routes per VPC quota has increased from 30 to 70. The quota of advertised routes per VPC and address prefixes per VPC cannot exceed 120.
 
 ### 03 March 2026
 {: #vpc-mar0326}
