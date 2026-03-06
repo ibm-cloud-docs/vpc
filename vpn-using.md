@@ -2,7 +2,7 @@
 
 copyright:
   years: 2019, 2026
-lastupdated: "2026-01-19"
+lastupdated: "2026-03-06"
 
 keywords: VPN, VPN gateways, encryption, IKE, IPsec, gateway, auto-negotiation, Diffie-Hellman, dead peer detection, PFS
 
@@ -244,5 +244,5 @@ These links provide additional information about IBM Cloud VPN for VPC:
 * [Activity tracking events](/docs/vpc?topic=vpc-at_events#events-vpns)
 * [Logging for VPC](/docs/vpc?topic=vpc-logging)
 * [FAQs for VPN gateways](/docs/vpc?topic=vpc-faqs-vpn)
-* [Troubleshooting VPN gateways](/docs/vpc?topic=vpc-troubleshoot-gateway-unable-to-establish-vpn-connection)
+* [Troubleshooting VPN gateways](/docs/vpc?group=tbs-site-to-site-vpn-gateways)
 * [VPN gateway quotas](/docs/vpc?topic=vpc-quotas#vpn-quotas)
