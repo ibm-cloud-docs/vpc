@@ -2,7 +2,7 @@
 
 copyright:
   years: 2024, 2026
-lastupdated: "2026-02-20"
+lastupdated: "2026-03-06"
 
 keywords: vsi, virtual server, virtual server instances, profile, profiles, balanced, compute, memory, gen 2, confidential computing, Hyper Protect, s390x architecture
 
@@ -58,6 +58,10 @@ Regions:
 - Confidential computing: IBM Secure Execution
 - Live migration: No
 - Instance storage: No
+- NIC capabilities:
+  - Max single NIC throughput: up to 25 Gbps
+  - Bandwidth pooling: No
+- [Volume bandwidth allocation method](/docs/vpc?topic=vpc-block-storage-bandwidth#attached-block-vol-bandwidth): `weighted` by default; `pooled` is not supported.
 
 ## VM Configuration
 {: #cc-vm-config-gen2-z}

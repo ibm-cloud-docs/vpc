@@ -603,7 +603,7 @@ This feature is now generally available. See the [VPC API change log](/docs/vpc?
 ### For all version dates
 {: #10-august-2021-all-version-dates-beta}
 
-**Beta VPC Metadata API.** Accounts that have special approval to preview this feature can now preview the new beta {{site.data.keyword.vpc_full}} (VPC) [Metadata API](/apidocs/vpc-metadata-beta/initial). This API provides access to VPC metadata, including instance initialization data, network interfaces, volume attachments, public SSH keys, and placement groups. Use the [VPC create instance](/apidocs/vpc-beta#create-instance) or [VPC update instance](/apidocs/vpc-beta#update-instance) methods to enable or disable the VPC Metadata service endpoint for a particular instance. For more information, see [About VPC Metadata](/docs/vpc?topic=vpc-imd-about).
+**Beta VPC Metadata API.** Accounts that have special approval to preview this feature can now preview the new beta {{site.data.keyword.vpc_full}} (VPC) [Metadata API](/apidocs/vpc-metadata-beta/latest). This API provides access to VPC metadata, including instance initialization data, network interfaces, volume attachments, public SSH keys, and placement groups. Use the [VPC create instance](/apidocs/vpc-beta#create-instance) or [VPC update instance](/apidocs/vpc-beta#update-instance) methods to enable or disable the VPC Metadata service endpoint for a particular instance. For more information, see [About VPC Metadata](/docs/vpc?topic=vpc-imd-about).
 
 ## 27 July 2021
 {: #27-july-2021-beta}

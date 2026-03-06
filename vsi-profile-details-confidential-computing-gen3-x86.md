@@ -1,8 +1,8 @@
 ---
 
 copyright:
-  years: 2024, 2025
-lastupdated: "2025-12-19"
+  years: 2024, 2026
+lastupdated: "2026-03-06"
 
 keywords: vsi, virtual server, virtual server instances, profile, profiles, balanced, compute, gen 3, intel, confidential computing
 
@@ -48,11 +48,14 @@ computing capability.
 - Core type: Dedicated
 - Dedicated host: No
 - Hyperthreading: Yes (SMT-2)
-- Secure boot: Yes
+- Secure boot: Yes (Optional)
 - Confidential computing: SGX, TDX
 - Live migration: No
 - Instance storage: Yes
-- [Volume bandwidth allocation method](/docs/vpc?topic=vpc-block-storage-bandwidth#attached-block-vol-bandwidth): `weighted` by default, it can be updated to `pooled`.
+- NIC Capabilities:
+  - Max single NIC throughput: up to 32 Gbps
+  - Bandwidth pooling: No
+- [Volume bandwidth allocation method](/docs/vpc?topic=vpc-block-storage-bandwidth#attached-block-vol-bandwidth): `weighted` by default; it can be updated to `pooled`.
 
 ## VM configuration
 {: #cc-vm-config-gen3-intel}

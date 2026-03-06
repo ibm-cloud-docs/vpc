@@ -2,7 +2,7 @@
 
 copyright:
   years: 2026, 2026
-lastupdated: "2026-01-29"
+lastupdated: "2026-03-06"
 
 keywords: vsi, virtual server, virtual server instances, profile, profiles, gpu, very high memory, high memory, gen 3
 
@@ -50,9 +50,9 @@ The very high memory profiles can also be paired with a corresponding dedicated 
 - Instance storage: Yes
 - NUMA pinning: Yes
 - NIC Capabilities:
-   - Max Single NIC throughput: up to 32 Gbps
-   - Bandwidth Pooling: No
-- [Volume bandwidth allocation method](/docs/vpc?topic=vpc-block-storage-bandwidth#attached-block-vol-bandwidth): `weighted` by default, it can be updated to `pooled`.
+   - Max single NIC throughput: up to 32 Gbps
+   - Bandwidth pooling: No
+- [Volume bandwidth allocation method](/docs/vpc?topic=vpc-block-storage-bandwidth#attached-block-vol-bandwidth): `weighted` by default; it can be updated to `pooled`.
 
 ## VM configuration
 {: #vhm-3-vm-config}

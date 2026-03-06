@@ -2,7 +2,7 @@
 
 copyright:
   years: 2024, 2026
-lastupdated: "2026-02-11"
+lastupdated: "2026-03-06"
 
 keywords: vsi, virtual server, virtual server instances, profile, profiles, balanced, compute, memory, dedicated host, gen 4
 
@@ -15,7 +15,7 @@ subcollection: vpc
 # General purpose instance profiles - Intel Gen 4
 {: #general-purpose-vsi-profiles-gen4-intel}
 
-The general-purpose 4th generation virtual server profiles (balanced, compute, and memory) are built atop the 6th Generation Intel® Xeon® Scalable processors. This generation offers an increased networking speed, larger cache sizes, and improved workload performance.
+The general-purpose 4th generation virtual server profiles (balanced, compute, and memory) are built atop the 6th Generation Intel® Xeon® Scalable processors. This generation offers larger NUMA domains, an increased networking speed, larger cache sizes, and improved workload performance.
 {: shortdesc}
 
 The 4th generation general-purpose profiles are available in the Dallas (us-south) region.
@@ -33,7 +33,7 @@ for single-tenant hypervisors that run workloads from a single {{site.data.keywo
 ## Processor Generation
 {: #general-purpose-processor-gen4}
 
-- Intel 6952P - 6th Generation Xeon® Scalable processor
+- Intel 6952P - Xeon® 6 processor
 
 ## Availability
 {: #general-purpose-availability-gen4}
@@ -55,9 +55,7 @@ for single-tenant hypervisors that run workloads from a single {{site.data.keywo
 - NIC Capabilities:
    - Max single NIC throughput: up to 100 Gbps VPC traffic and 32 Gbps external traffic
    - Bandwidth Pooling: Yes
-- Volume bandwidth:
-   - Default: `pooled`
-   - Options: `pooled` or `weighted`
+- [Volume bandwidth allocation method](/docs/vpc?topic=vpc-block-storage-bandwidth#attached-block-vol-bandwidth): `pooled` by default; it can be updated to `weighted`.
 
 For more information about networking bandwidth allocation for profiles, see [Optimizing network bandwidth allocation for profiles](/docs/vpc?topic=vpc-bandwidth-allocation-profiles#network-perf-notes-for-profiles). For more information about volume bandwidth, see [Volume bandwidth allocation method](/docs/vpc?topic=vpc-block-storage-bandwidth#attached-block-vol-bandwidth).
 
@@ -90,10 +88,10 @@ For more information about networking bandwidth allocation for profiles, see [Op
 | bx4d-16x64   | 16 / 8 / 1   | 64  | 32  | 1x520 |
 | bx4-24x96    | 24 / 12 / 1  | 96  | 48  | - |
 | bx4d-24x96   | 24 / 12 / 1  | 96  | 48  | 1x780 |
-| bx4-32x128   | 32 / 16 / 2  | 128 | 64  | - |
-| bx4d-32x128  | 32 / 16 / 2  | 128 | 64  | 2x520 |
-| bx4-48x192   | 48 / 24 / 2  | 192 | 96  | - |
-| bx4d-48x192  | 48 / 24 / 2  | 192 | 96  | 2x780 |
+| bx4-32x128   | 32 / 16 / 1  | 128 | 64  | - |
+| bx4d-32x128  | 32 / 16 / 1  | 128 | 64  | 2x520 |
+| bx4-48x192   | 48 / 24 / 1  | 192 | 96  | - |
+| bx4d-48x192  | 48 / 24 / 1  | 192 | 96  | 2x780 |
 | bx4-64x256   | 64 / 32 / 2  | 256 | 128 | - |
 | bx4d-64x256  | 64 / 32 / 2  | 256 | 128 | 2x780 |
 | bx4-96x384   | 96 / 48 / 2  | 384 | 192 | - |
@@ -119,10 +117,10 @@ For more information about networking bandwidth allocation for profiles, see [Op
 | cx4d-16x32   | 16 / 8 / 1 | 32 | 32 | 1x520 |
 | cx4-24x48    | 24 / 12 / 1 |  48 | 48 | - |
 | cx4d-24x48   | 24 / 12 / 1 | 48 | 48 | 1x780 |
-| cx4-32x64    | 32 / 16 / 2 | 64 | 64 | - |
-| cx4d-32x64   | 32 / 16 / 2 | 64 | 64 | 2x520 |
-| cx4-48x96    | 48 / 24 / 2 | 96 | 96 | - |
-| cx4d-48x96   | 48 / 24 / 2 | 96 | 96 | 2x780 |
+| cx4-32x64    | 32 / 16 / 1 | 64 | 64 | - |
+| cx4d-32x64   | 32 / 16 / 1 | 64 | 64 | 2x520 |
+| cx4-48x96    | 48 / 24 / 1 | 96 | 96 | - |
+| cx4d-48x96   | 48 / 24 / 1 | 96 | 96 | 2x780 |
 | cx4-64x128   | 64 / 32 / 2 | 128 | 128 | - |
 | cx4d-64x128  | 64 / 32 / 2 | 128 | 128 | 2x780 |
 | cx4-96x192   | 96 / 48 / 2 | 192 | 192 | - |
@@ -148,10 +146,10 @@ For more information about networking bandwidth allocation for profiles, see [Op
 | mx4d-16x128   | 16 / 8 / 1   | 128  | 32  | 1x520 |
 | mx4-24x192    | 24 / 12 / 1  | 192  | 48  | - |
 | mx4d-24x192   | 24 / 12 / 1  | 192  | 48  | 1x780 |
-| mx4-32x256    | 32 / 16 / 2  | 256  | 64  | - |
-| mx4d-32x256   | 32 / 16 / 2  | 256  | 64  | 2x520 |
-| mx4-48x384    | 48 / 24 / 2  | 384  | 96  | - |
-| mx4d-48x384   | 48 / 24 / 2  | 384  | 96  | 2x780 |
+| mx4-32x256    | 32 / 16 / 1  | 256  | 64  | - |
+| mx4d-32x256   | 32 / 16 / 1  | 256  | 64  | 2x520 |
+| mx4-48x384    | 48 / 24 / 1  | 384  | 96  | - |
+| mx4d-48x384   | 48 / 24 / 1  | 384  | 96  | 2x780 |
 | mx4-64x512    | 64 / 32 / 2  | 512  | 128 | - |
 | mx4d-64x512   | 64 / 32 / 2  | 512  | 128 | 2x780 |
 | mx4-96x768    | 96 / 48 / 2  | 768  | 192 | - |

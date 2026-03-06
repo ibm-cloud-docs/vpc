@@ -2,7 +2,7 @@
 
 copyright:
   years: 2024, 2026
-lastupdated: "2026-02-26"
+lastupdated: "2026-03-06"
 
 keywords: vsi, virtual server, virtual server instances, profile, profiles, balanced, compute, memory, dedicated host, gen 2, intel, amd
 
@@ -55,6 +55,9 @@ for single-tenant hypervisors that run workloads from a single {{site.data.keywo
 - Confidential computing: No
 - Live migration: Yes
 - Instance storage: Select profiles
+- NIC Capabilities:
+  - Max single NIC throughput: up to 25 Gbps
+  - Bandwidth pooling: No
 - [Volume bandwidth allocation method](/docs/vpc?topic=vpc-block-storage-bandwidth#attached-block-vol-bandwidth): `weighted` by default, `pooled` is not supported.
 
 ### VM Configuration
@@ -191,7 +194,7 @@ for single-tenant hypervisors that run workloads from a single {{site.data.keywo
 ### Processor generation
 {: #general-purpose-processor-gen2-amd}
 
-- AMD EPYC 7763
+- AMD 7763 - 3rd Generation EPYC® processor
 
 ### Availability
 {: #general-purpose-availability-gen2-amd}
@@ -209,6 +212,10 @@ for single-tenant hypervisors that run workloads from a single {{site.data.keywo
 - Confidential computing: No
 - Live migration: Yes
 - Instance storage: No
+- NIC capabilities:
+  - Max single NIC throughput: up to 25 Gbps
+  - Bandwidth pooling: No
+- [Volume bandwidth allocation method](/docs/vpc?topic=vpc-block-storage-bandwidth#attached-block-vol-bandwidth): `weighted` by default; `pooled` is not supported.
 
 ### VM configuration
 {: #general-purpose-vm-config-gen2-amd}

@@ -2,7 +2,7 @@
 
 copyright:
   years: 2024, 2026
-lastupdated: "2026-02-26"
+lastupdated: "2026-03-06"
 
 keywords: vsi, virtual server, virtual server instances, profile, profiles, gpu, very high memory, ultra high memory, high memory
 
@@ -55,7 +55,10 @@ single tenant hypervisors running workloads from a single {{site.data.keyword.cl
 - Confidential computing: No
 - Live migration: Yes
 - Instance storage: Yes
-- [Volume bandwidth allocation method](/docs/vpc?topic=vpc-block-storage-bandwidth#attached-block-vol-bandwidth): `weighted` by default, `pooled` is not supported.
+- NIC Capabilities:
+  - Max single NIC throughput: up to 25 Gbps
+  - Bandwidth pooling: No
+- [Volume bandwidth allocation method](/docs/vpc?topic=vpc-block-storage-bandwidth#attached-block-vol-bandwidth): `weighted` by default; `pooled` is not supported.
 
 ### VM configuration
 {: #vhm-2-vm-config}
@@ -140,6 +143,10 @@ single tenant hypervisors running workloads from a single {{site.data.keyword.cl
 - Confidential computing: No
 - Live migration: Yes
 - Instance storage: Yes
+- NIC capabilities:
+  - Max single NIC throughput: up to 25 Gbps
+  - Bandwidth pooling: No
+- [Volume bandwidth allocation method](/docs/vpc?topic=vpc-block-storage-bandwidth#attached-block-vol-bandwidth): `weighted` by default; `pooled` is not supported.
 
 ### VM configuration
 {: #uhm-2-vm-config}

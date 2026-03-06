@@ -2,7 +2,7 @@
 
 copyright:
   years: 2024, 2026
-lastupdated: "2026-01-02"
+lastupdated: "2026-03-06"
 
 keywords: vsi, virtual server, virtual server instances, profile, profiles, balanced, compute, memory, dedicated host, gen 3
 
@@ -49,7 +49,10 @@ for single-tenant hypervisors that run workloads from a single {{site.data.keywo
 - Live migration: Yes
 - Instance storage: Yes
 - NUMA Pinning: Yes
-- [Volume bandwidth allocation method](/docs/vpc?topic=vpc-block-storage-bandwidth#attached-block-vol-bandwidth): `weighted` by default, it can be updated to `pooled`.
+- NIC capabilities:
+  - Max single NIC throughput: up to 32 Gbps
+  - Bandwidth pooling: No
+- [Volume bandwidth allocation method](/docs/vpc?topic=vpc-block-storage-bandwidth#attached-block-vol-bandwidth): `weighted` by default; it can be updated to `pooled`.
 
 ## VM Configuration
 {: #general-purpose-vm-config-gen3}

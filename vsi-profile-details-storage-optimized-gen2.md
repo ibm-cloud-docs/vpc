@@ -1,8 +1,8 @@
 ---
 
 copyright:
-  years: 2024, 2025
-lastupdated: "2025-09-30"
+  years: 2024, 2026
+lastupdated: "2026-03-06"
 
 keywords: vsi, virtual server, virtual server instances, profile, profiles, storage optimized, gen 2
 
@@ -60,7 +60,10 @@ Regions:
 - Confidential computing: No
 - Live migration: Yes
 - Instance storage: Yes
-- [Volume bandwidth allocation method](/docs/vpc?topic=vpc-block-storage-bandwidth#attached-block-vol-bandwidth): `weighted` by default, `pooled` is not supported.
+- NIC capabilities:
+  - Max single NIC throughput: up to 25 Gbps
+  - Bandwidth pooling: No
+- [Volume bandwidth allocation method](/docs/vpc?topic=vpc-block-storage-bandwidth#attached-block-vol-bandwidth): `weighted` by default; `pooled` is not supported.
 
 ## VM configuration
 {: #storage-optimized-vm-config-gen2}

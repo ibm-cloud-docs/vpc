@@ -2,7 +2,7 @@
 
 copyright:
   years: 2024, 2026
-lastupdated: "2026-02-05"
+lastupdated: "2026-03-06"
 
 keywords: vsi, virtual server, virtual server instances, profile, profiles, gpu, accelerated, h100, h200, l4, l40s
 
@@ -71,7 +71,7 @@ For more information about regions and universal zones, see [Regions](/docs/over
 - Internal AI Fabric: Yes
 - Infinity Fabric™ (XGMI) 128 GB/s GPU-to-GPU connections
 - Cluster network capable: No
-- [Volume bandwidth allocation method](/docs/vpc?topic=vpc-block-storage-bandwidth#attached-block-vol-bandwidth): `weighted` by default, it can be updated to `pooled`.
+- [Volume bandwidth allocation method](/docs/vpc?topic=vpc-block-storage-bandwidth#attached-block-vol-bandwidth): `weighted` by default; it can be updated to `pooled`.
 
 ### VM configuration
 {: #amd-mi300x-vm-config}
@@ -160,6 +160,10 @@ For more information about regions and universal zones, see [Regions](/docs/over
 - Internal AI Fabric: Yes
    - 21 x 200 GbE for OAM-to-OAM connections
 - Cluster network capable: No
+- NIC capabilities:
+   - Max single NIC throughput: up to 32 Gbps
+   - Bandwidth Pooling: No
+- [Volume bandwidth allocation method](/docs/vpc?topic=vpc-block-storage-bandwidth#attached-block-vol-bandwidth): `weighted` by default; it can be updated to `pooled`.
 
 ### VM configuration
 {: #gaudi-3-vm-config}
@@ -286,6 +290,10 @@ For more information about regions and universal zones, see [Regions](/docs/over
 - Cluster network capable: Yes (limited regions)
    - Bandwidth: 3.2 Tbps (8x 400 Gbps)
    - Type: Dedicated
+- NIC capabilities:
+   - Max single NIC throughput: up to 32 Gbps
+   - Bandwidth Pooling: No
+- [Volume bandwidth allocation method](/docs/vpc?topic=vpc-block-storage-bandwidth#attached-block-vol-bandwidth): `weighted` by default; it can be updated to `pooled`.
 
 ### VM configuration
 {: #hopper-hgx-vm-config}
@@ -389,6 +397,10 @@ Regions:
 - Live migration: No
 - Instance storage: No
 - NVLink: No
+- NIC capabilities:
+   - Max single NIC throughput: up to 32 Gbps
+   - Bandwidth Pooling: No
+- [Volume bandwidth allocation method](/docs/vpc?topic=vpc-block-storage-bandwidth#attached-block-vol-bandwidth): `weighted` by default; it can be updated to `pooled`.
 
 ### VM configuration
 {: #l4-vm-config}
@@ -479,6 +491,10 @@ Regions:
 - Live migration: No
 - Instance storage: No
 - NVLink: No
+- NIC capabilities:
+   - Max single NIC throughput: up to 32 Gbps
+   - Bandwidth Pooling: No
+- [Volume bandwidth allocation method](/docs/vpc?topic=vpc-block-storage-bandwidth#attached-block-vol-bandwidth): `weighted` by default; it can be updated to `pooled`.
 
 ### VM configuration
 {: #l40s-vm-config}
