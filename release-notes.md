@@ -2,7 +2,7 @@
 
 copyright:
   years: 2019, 2026
-lastupdated: "2026-03-05"
+lastupdated: "2026-03-09"
 
 keywords:
 
@@ -26,6 +26,25 @@ For more information about changes to the {{site.data.keyword.vpc_short}} comman
 
 ## March 2026
 {: #vpc-mar26}
+
+### 09 March 2026
+{: #vpc-mar0926}
+{: release-note}
+
+Introducing the `pkeyutl` encryption command
+:   Starting with OpenSSL 3.0, the OpenSSL `rsautl` sub command is deprecated, and might be removed in a future release. As a replacement, OpenSSL recommends that you use the `pkeyutl` sub command. For more information, see [Creating the encrypted workload section of a contract](/docs/vpc?topic=vpc-about-contract_se#hpcr_contract_encrypt_workload) and [Creating the encrypted env section of a contract](/docs/vpc?topic=vpc-about-contract_se#hpcr_contract_encrypt_env).
+
+Seed policy update
+:   The minimum length of seed value must be 15 characters from now. For more information, see [The workload - volumes subsection](/docs/vpc?topic=vpc-about-contract_se#hpcr_contract_volumes).
+
+Encryption and Attestation certificate expiry warning logs
+:   HPVS now logs warning messages to the configured logging service to alert users about upcoming and expired encryption and attestation certificates. For more information, see [Encryption and Attestation certificate expiry warning logs](/docs/vpc?topic=vpc-about-contract_se#hpcr_contract_sign_wlogs).
+
+IBM Hyper Protect Container Runtime image `ibm-hyper-protect-container-runtime-1-0-s390x-26` updates
+:   For the IBM Hyper Protect Container Runtime image version `ibm-hyper-protect-container-runtime-1-0-s390x-26`, new certificates are available.
+   - [Attestation certificate](/docs/vpc?topic=vpc-about-attestation)
+   - [Encryption certificate](/docs/vpc?topic=vpc-about-contract_se#hpcr_contract_encrypt)
+   - [Intermediate certificate](/docs/vpc?topic=vpc-cert_validate#download_cert)
 
 ### 05 March 2026
 {: #vpc-mar0526}

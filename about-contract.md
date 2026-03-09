@@ -2,7 +2,7 @@
 
 copyright:
   years: 2022, 2026
-lastupdated: "2026-03-05"
+lastupdated: "2026-03-09"
 
 keywords: confidential computing, enclave, secure execution, hpcr, contract, customization, schema, contract schema, env, workload, encryption
 
@@ -509,7 +509,7 @@ The `volumes` subsection has support for auto encryption of the data volume with
 Currently, the `env` and `workload` seeds require a **minimum length of 3 characters**. Starting from **March 2026**, this minimum will be **increased to 15 characters**. Any seed values shorter than 15 characters **after March 2026** may result in errors or failed deployments. To avoid disruptions, **update all seed values** to a length of at least **15 characters** as soon as possible. The rules are defined in the following section.
 {: important}
 
-Following are the rules for creating seeds. Starting from **March 2026**, you must follow these rules to create seeds:
+Starting from **March 2026**, you must follow these rules to create seeds:
 
 - No spaces allowed.
 - Must have at least `15` characters. Following are the allowed characters:
@@ -730,11 +730,9 @@ The encryption and attestation certificates are signed by the IBM intermediate c
 
 1. Download the certificate. The following table lists the encryption certificate expiry dates and image deprecation/obsolete date based on the version of the image.
 
-   From 25 March 2025, the certificate links are changed.
-   {: note}
-
    | Image version| Certificate link | Encryption cert expiry date | Deprecation date |
    | -------- | ----------- | ----------- | ----------- |
+   | `ibm-hyper-protect-container-runtime-1-0-s390x-26` | [Certificate](https://hpvsvpcubuntu.s3.us.cloud-object-storage.appdomain.cloud/s390x-26/ibm-hyper-protect-container-runtime-1-0-s390x-26-encrypt.crt){: external} | 24 February 2027 | 24 September 2026 |
    | `ibm-hyper-protect-container-runtime-1-0-s390x-25` | [Certificate](https://hpvsvpcubuntu.s3.us.cloud-object-storage.appdomain.cloud/s390x-25/ibm-hyper-protect-container-runtime-1-0-s390x-25-encrypt.crt){: external} | 06 August 2026  | 31 March 2026 |
    | `ibm-hyper-protect-container-runtime-1-0-s390x-24` | [Certificate](https://hpvsvpcubuntu.s3.us.cloud-object-storage.appdomain.cloud/s390x-24/ibm-hyper-protect-container-runtime-1-0-s390x-24-encrypt.crt){: external} | 06 August 2026  | 31 March 2026 |
    | `ibm-hyper-protect-container-runtime-1-0-s390x-23` | [Certificate](https://hpvsvpcubuntu.s3.us.cloud-object-storage.appdomain.cloud/s390x-23/ibm-hyper-protect-container-runtime-1-0-s390x-23-encrypt.crt){: external} | 26 February 2026 | 15 December 2025 |
@@ -794,11 +792,12 @@ Complete the following steps on an Ubuntu system to encrypt the workload section
    {: codeblock}
 
 
-3. Export the complete path of the `workload.yaml` file and `ibm-hyper-protect-container-runtime-1-0-s390x-25-encrypt.crt`:
-   
+
+3. Export the complete path of the `workload.yaml` file and `ibm-hyper-protect-container-runtime-1-0-s390x-26-encrypt.crt`:
+
    ```yaml
    WORKLOAD="<PATH to workload.yaml>"
-   CONTRACT_KEY="<PATH to ibm-hyper-protect-container-runtime-1-0-s390x-25-encrypt.crt>"
+   CONTRACT_KEY="<PATH to ibm-hyper-protect-container-runtime-1-0-s390x-26-encrypt.crt>"
    ```
    {: pre}
 
@@ -808,12 +807,22 @@ Complete the following steps on an Ubuntu system to encrypt the workload section
    ```
    {: pre}
 
-5. Use the following command to encrypt password with `ibm-hyper-protect-container-runtime-1-0-s390x-25-encrypt.crt`:
+5. Starting with OpenSSL 3.0, the OpenSSL rsautl sub command is deprecated, and might be removed in a future release. As a replacement, OpenSSL recommends using the `pkeyutl` sub command. Use one of the following commands to encrypt password with `ibm-hyper-protect-container-runtime-1-0-s390x-26-encrypt.crt`:
 
-   ```yaml
-   ENCRYPTED_PASSWORD="$(echo -n "$PASSWORD" | base64 -d | openssl rsautl -encrypt -inkey $CONTRACT_KEY -certin | base64 -w0)"
-   ```
-   {: pre}
+   
+   - Using `rsautl` (deprecated):
+
+      ```yaml
+      ENCRYPTED_PASSWORD="$(echo -n "$PASSWORD" | base64 -d | openssl rsautl -encrypt -inkey $CONTRACT_KEY -certin | base64 -w0)"
+      ```
+      {: pre}
+
+   - Using `pkeyutl` (recommended):
+
+     ```yaml
+     ENCRYPTED_PASSWORD="$(echo -n "$PASSWORD" | base64 -d | openssl pkeyutl -encrypt -inkey $CONTRACT_KEY -certin -pkeyopt rsa_padding_mode:pkcs1 | base64 -w0)"
+     ```
+     {: pre}
 
 6. Use the following command to encrypt the `workload.yaml` file with a random password:
    ```sh
@@ -860,11 +869,11 @@ Complete the following steps on an Ubuntu system to encrypt the `env` section us
    ```
    {: codeblock}
 
-2. Export the complete path of the `env.yaml` file and `ibm-hyper-protect-container-runtime-1-0-s390x-25-encrypt.crt`:
+2. Export the complete path of the `env.yaml` file and `ibm-hyper-protect-container-runtime-1-0-s390x-26-encrypt.crt`:
 
    ```yaml
    ENV="<PATH to env.yaml>"
-   CONTRACT_KEY="<PATH to ibm-hyper-protect-container-runtime-1-0-s390x-25-encrypt.crt>"
+   CONTRACT_KEY="<PATH to ibm-hyper-protect-container-runtime-1-0-s390x-26-encrypt.crt>"
    ```
    {: pre}
 
@@ -875,12 +884,21 @@ Complete the following steps on an Ubuntu system to encrypt the `env` section us
    ```
    {: pre}
 
-4.  Use the following command to encrypt password with `ibm-hyper-protect-container-runtime-1-0-s390x-25-encrypt.crt`:
+4. Starting with OpenSSL 3.0, the OpenSSL rsautl sub command is deprecated, and might be removed in a future release. As a replacement, OpenSSL recommends using the `pkeyutl` sub command. Use one of the following commands to encrypt password with `ibm-hyper-protect-container-runtime-1-0-s390x-26-encrypt.crt`:
+   
+   - Using `rsautl` (deprecated):
 
-   ```yaml
-   ENCRYPTED_PASSWORD="$(echo -n "$PASSWORD" | base64 -d | openssl rsautl -encrypt -inkey $CONTRACT_KEY -certin | base64 -w0)"
-   ```
-   {: pre}
+      ```yaml
+      ENCRYPTED_PASSWORD="$(echo -n "$PASSWORD" | base64 -d | openssl rsautl -encrypt -inkey $CONTRACT_KEY -certin | base64 -w0)"
+      ```
+      {: pre}
+
+   - Using `pkeyutl` (recommended):
+
+     ```yaml
+     ENCRYPTED_PASSWORD="$(echo -n "$PASSWORD" | base64 -d | openssl pkeyutl -encrypt -inkey $CONTRACT_KEY -certin -pkeyopt rsa_padding_mode:pkcs1 | base64 -w0)"
+     ```
+     {: pre}
 
 5. Use the following command to encrypt `env.yaml` with a random password:
    ```yaml
@@ -1041,11 +1059,11 @@ Complete the following steps on an Ubuntu system to create the contract signatur
    ```
    {: codeblock}
 
-7. Use the following command to export complete path of `env.yaml` and `ibm-hyper-protect-container-runtime-1-0-s390x-25-encrypt.crt`:
+7. Use the following command to export complete path of `env.yaml` and `ibm-hyper-protect-container-runtime-1-0-s390x-26-encrypt.crt`:
 
    ```sh
    ENV="<PATH to env.yaml>"
-   CONTRACT_KEY="<PATH to ibm-hyper-protect-container-runtime-1-0-s390x-25-encrypt.crt>"
+   CONTRACT_KEY="<PATH to ibm-hyper-protect-container-runtime-1-0-s390x-26-encrypt.crt>"
    ```
    {: pre}
 
@@ -1056,12 +1074,21 @@ Complete the following steps on an Ubuntu system to create the contract signatur
    ```
    {: pre}
 
-9.  Use the following command to encrypt password with `ibm-hyper-protect-container-runtime-1-0-s390x-25-encrypt.crt`:
+9. Starting with OpenSSL 3.0, the OpenSSL rsautl sub command is deprecated, and might be removed in a future release. As a replacement, OpenSSL recommends that you use the pkeyutl sub command. Use one of the following commands to encrypt password with `ibm-hyper-protect-container-runtime-1-0-s390x-26-encrypt.crt`:
+   
+  - Using `rsautl` (deprecated):
 
-   ```yaml
-   ENCRYPTED_PASSWORD="$(echo -n "$PASSWORD" | base64 -d | openssl rsautl -encrypt -inkey $CONTRACT_KEY -certin | base64 -w0)"
-   ```
-   {: pre}
+      ```yaml
+      ENCRYPTED_PASSWORD="$(echo -n "$PASSWORD" | base64 -d | openssl rsautl -encrypt -inkey $CONTRACT_KEY -certin | base64 -w0)"
+      ```
+      {: pre}
+
+  - Using `pkeyutl` (recommended):
+
+     ```yaml
+     ENCRYPTED_PASSWORD="$(echo -n "$PASSWORD" | base64 -d | openssl pkeyutl -encrypt -inkey $CONTRACT_KEY -certin -pkeyopt rsa_padding_mode:pkcs1 | base64 -w0)"
+     ```
+     {: pre}
 
 10. Use the following command to encrypt `env.yaml` with a random password:
 
@@ -1085,12 +1112,46 @@ Timelines for the notification are as follows:
 - On the first of every month
 - Everyday for 30 days before the expiry
 - Once in every 4 hours if the contract is about to expire in 7 days
-- Every hour if the contract has already expired or is about to expire in a day
+- Every hour if the contract expired or is about to expire in 1 day
+
+### Encryption and Attestation certificate expiry warning logs
+{: #hpcr_contract_sign_wlogs}
+
+HPVS logs warning messages to the configured logging service about upcoming and expired encryption and attestation certificates.
+
+Following is the notification schedule:
+
+- **30 days before expiry**: A warning message is generated once **every 24 hours**, notifying that the certificate will expire in one month.
+
+  Example:
+
+  ```text
+  HPL12011W: The Encryption certificate is going to expire -> Warning: The encryption certificate will expire on 12 February 2026 at 16:17:41 UTC, over 20 days. Upgrade to the latest image to unlock the latest features and avoid potential security vulnerabilities!!!
+  ```
+  {: screen}
+
+- **7 days before expiry**: Warning messages are logged **every 12 hours** as the expiry date nears, highlighting the need for action.
+
+  Example:
+
+  ```text
+  HPL12011W: The Encryption certificate is going to expire -> Warning: The encryption certificate will expire on 27 January 2026 at 16:17:41 UTC, over 4 days. Upgrade to the latest image to unlock the latest features and avoid potential security vulnerabilities!!!
+  ```
+  {: screen}
+
+- **After certificate expiry**: If the certificate has expired, HPVS logs warning messages **every 4 hours** until the HPVS image is upgraded.
+
+  Example:
+
+  ```text
+  HPL12013W: The Encryption certificate expired -> Urgent: The encryption certificate expired on 15 June 2025 at 17:15:59 UTC, over 7 months. Immediate upgrade to the latest image is required to unlock the latest features and prevent serious security breaches.
+  ```
+  {: screen}
 
 ## Preparing the Attestation section
 {: #hpcr_attestation_prepare}
 
-Attestation is the optional feature that can be used with contract. The `attestationPublicKey` is the user provided public key that is used to encrypt the attestation document. This can be provided as a public RSA key or Base64 encoded of the public RSA key as a part of the contract.
+Attestation is the optional feature that you can use with contract. The `attestationPublicKey` is the user provided public key that is used to encrypt the attestation document. This can be provided as a public RSA key or Base64 encoded of the public RSA key as a part of the contract.
 
 *  If you use the plain text public RSA key for the `attestationPublicKey` in the yaml file, use the following example:
    ```text
