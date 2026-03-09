@@ -1,8 +1,8 @@
 ---
 
 copyright:
-  years: 2019, 2025
-lastupdated: "2025-12-02"
+  years: 2019, 2026
+lastupdated: "2026-03-09"
 
 keywords:
 
@@ -79,7 +79,7 @@ The page has 3 tabs. By default, the Overview tab is selected for volume details
 | Attachment type | Data, for a secondary volume attached to an instance, boot when attached as a boot volume, or blank for an unattached volume.|
 | Created date | System-generated date when the volume was created.|
 | Location | Availability zone in your region.|
-| Size | Size of the volume you specified. When the volume is attached to a virtual server instance and the volume is not at maximum capacity for its range, you can click the icon to expand the volume. For more information, see [expanding {{site.data.keyword.block_storage_is_short}} volume capacity (Beta)](/docs/vpc?topic=vpc-expanding-block-storage-volumes). |
+| Size | Size of the volume you specified. When the volume is attached to a virtual server instance and the volume is not at maximum capacity for its range, you can click the icon to expand the volume. For more information, see [expanding {{site.data.keyword.block_storage_is_short}} volume capacity](/docs/vpc?topic=vpc-expanding-block-storage-volumes). |
 | Profile | This field shows the [volume profile](/docs/vpc?topic=vpc-block-storage-profiles): [sdp](/docs/vpc?topic=vpc-block-storage-profiles&interface=ui#defined-performance-profile), [custom IOPS](/docs/vpc?topic=vpc-block-storage-profiles#custom), or one of the [IOPS tier](/docs/vpc?topic=vpc-block-storage-profiles#tiers) profiles.|
 | Max IOPS | The maximum IOPS value for a predefined IOPS tier or the value you specified for custom IOPS. |
 | Throughput | The field shows the allocated bandwidth of the storage volume, which is measured in Gigabits per second (Gbps). Throughput is calculated as the result of the number of IOPS the volume is provisioned for times the throughput multiplier. Depending on the [volume profile](/docs/vpc?topic=vpc-block-storage-profiles), the throughput multiplier can be 16 KB or 256 KB. For volumes that are created with the `sdp` profile, the throughput value is customizable in the range of 1000-8192 Mbps.|
@@ -178,14 +178,14 @@ ibmcloud is volumes
 ```sh
 Listing volumes in all resource groups and region us-south under account Test Account as user test.user@ibm.com...
 
-ID                                          Name                                            Status      Capacity   IOPS    Profile           Attachment state   Attachment type   Zone         Resource group   Catalog Offering Version   Catalog Offering Plan   Storage Generation   
-r006-1dad641f-3a17-4117-8bb6-e30e09e64dff   my-2nd-data-volume                              available   9600       48000   5iops-tier        unattached         -                 us-south-2   Default          -                          -                       1   
-r006-f336511e-ece5-4407-9c8e-ef030c94aaa0   my-3rd-data-volume                              available   4800       48000   10iops-tier       unattached         -                 us-south-2   Default          -                          -                       1   
-r006-45ca6ddd-9942-4dd2-9ae9-d3edcb9fa076   my-data-volume-1                                available   300        3000    5iops-tier        unattached         -                 us-south-2   Default          -                          -                       1   
-r006-6a1ac889-d232-4beb-84dd-93c63cf9a156   my-data-volume-2                                available   300        3000    5iops-tier        unattached         -                 us-south-2   Default          -                          -                       1   
-r006-862ddcd3-59a6-4c69-9a10-275c894195b9   my-new-boot-volume                              available   250        3000    general-purpose   unattached         -                 us-south-2   Default          -                          -                       1   
-r006-145fb6c8-8e03-4a9f-bcd7-3bb131d30f05   my-sdp-volume                                   available   250        3000    sdp               attached.          -                 us-south-2   Default          -                          -                       2   
-r006-693f555e-fec7-4afb-b1e3-a16bf8b0d744   my-virtual-server-instance-boot-1756849222000   available   100        3000    general-purpose   attached           boot              us-south-2   Default          -                          -                       1   
+ID                                          Name                                            Status      Capacity   IOPS    Profile           Attachment state   Attachment type   Zone         Resource group   Catalog Offering Version   Catalog Offering Plan   Storage Generation
+r006-1dad641f-3a17-4117-8bb6-e30e09e64dff   my-2nd-data-volume                              available   9600       48000   5iops-tier        unattached         -                 us-south-2   Default          -                          -                       1
+r006-f336511e-ece5-4407-9c8e-ef030c94aaa0   my-3rd-data-volume                              available   4800       48000   10iops-tier       unattached         -                 us-south-2   Default          -                          -                       1
+r006-45ca6ddd-9942-4dd2-9ae9-d3edcb9fa076   my-data-volume-1                                available   300        3000    5iops-tier        unattached         -                 us-south-2   Default          -                          -                       1
+r006-6a1ac889-d232-4beb-84dd-93c63cf9a156   my-data-volume-2                                available   300        3000    5iops-tier        unattached         -                 us-south-2   Default          -                          -                       1
+r006-862ddcd3-59a6-4c69-9a10-275c894195b9   my-new-boot-volume                              available   250        3000    general-purpose   unattached         -                 us-south-2   Default          -                          -                       1
+r006-145fb6c8-8e03-4a9f-bcd7-3bb131d30f05   my-sdp-volume                                   available   250        3000    sdp               attached.          -                 us-south-2   Default          -                          -                       2
+r006-693f555e-fec7-4afb-b1e3-a16bf8b0d744   my-virtual-server-instance-boot-1756849222000   available   100        3000    general-purpose   attached           boot              us-south-2   Default          -                          -                       1
 ```
 {: screen}
 
@@ -210,30 +210,30 @@ ibmcloud is volume my-sdp-volume
 
 ```sh
 Getting volume my-sdp-volume  under account under account Test Account as user test.user@ibm.com...
-ID                                     r006-145fb6c8-8e03-4a9f-bcd7-3bb131d30f05   
-Name                                   my-sdp-volume   
-CRN                                    crn:v1:bluemix:public:is:us-south-2:a/a1234567::volume:r006-145fb6c8-8e03-4a9f-bcd7-3bb131d30f05   
-Status                                 available   
-Attachment state                       attached   
-Capacity                               250   
-IOPS                                   3000   
-Bandwidth(Mbps)                        1000   
-Profile                                sdp   
-Encryption key                         -   
-Encryption                             provider_managed   
-Resource group                         Default   
-Created                                2025-06-23T16:35:10+00:00   
-Zone                                   us-south-2   
-Health State                           ok   
-Volume Attachment Instance Reference   Attachment type   Instance ID                                 Instance name                Auto delete   Attachment ID                               Attachment name      
-                                       data              0726_6cf2d984-e825-458d-8048-11572b72d040   my-virtual-server-instance   false         0726-beec02ac-7edf-4b59-ab9f-7c004bf4d8fa   outpour-perm-cosmic-gander      
-                                          
-Active                                 true   
-Adjustable IOPS                        true   
-Adjustable Capacity States             unattached,attached   
-Adjustable IOPS States                 unattached,attached   
-Busy                                   false   
-Tags                                   -   
+ID                                     r006-145fb6c8-8e03-4a9f-bcd7-3bb131d30f05
+Name                                   my-sdp-volume
+CRN                                    crn:v1:bluemix:public:is:us-south-2:a/a1234567::volume:r006-145fb6c8-8e03-4a9f-bcd7-3bb131d30f05
+Status                                 available
+Attachment state                       attached
+Capacity                               250
+IOPS                                   3000
+Bandwidth(Mbps)                        1000
+Profile                                sdp
+Encryption key                         -
+Encryption                             provider_managed
+Resource group                         Default
+Created                                2025-06-23T16:35:10+00:00
+Zone                                   us-south-2
+Health State                           ok
+Volume Attachment Instance Reference   Attachment type   Instance ID                                 Instance name                Auto delete   Attachment ID                               Attachment name
+                                       data              0726_6cf2d984-e825-458d-8048-11572b72d040   my-virtual-server-instance   false         0726-beec02ac-7edf-4b59-ab9f-7c004bf4d8fa   outpour-perm-cosmic-gander
+
+Active                                 true
+Adjustable IOPS                        true
+Adjustable Capacity States             unattached,attached
+Adjustable IOPS States                 unattached,attached
+Busy                                   false
+Tags                                   -
 Storage Generation                     2
 ```
 {: screen}
