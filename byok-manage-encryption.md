@@ -2,7 +2,7 @@
 
 copyright:
   years: 2019, 2026
-lastupdated: "2026-02-21"
+lastupdated: "2026-03-09"
 
 keywords:
 
@@ -111,7 +111,7 @@ For more information about disabling a root key, see the following topics.
 ### Enabling root keys
 {: #byok-enable-root-keys}
 
-You can enable a root key that's in a _suspended_ state, which returns the key to an _active_ state. 
+You can enable a root key that's in a _suspended_ state, which returns the key to an _active_ state.
 
 The following table shows the statuses of the encrypted resources when the root key is active. The CRK is available to unwrap passphrases that are protecting existing resources, and to encrypt new resources.
 
@@ -133,7 +133,7 @@ For more information about enabling a disabled root key, see the following topic
 ### Deleting root keys
 {: #byok-delete-root-keys}
 
-When you delete a root key, the key is no longer available to decrypt passphrases that are used to protect your resources. Volume, snapshot, and image resources that are protected by the deleted root key have an _unusable_ status and can't be used for normal operations. {{site.data.keyword.filestorage_vpc_short}} shares show a _suspended_ status. The storage system is offline, and data cannot be accessed. Your data still exists. 
+When you delete a root key, the key is no longer available to decrypt passphrases that are used to protect your resources. Volume, snapshot, and image resources that are protected by the deleted root key have an _unusable_ status and can't be used for normal operations. {{site.data.keyword.filestorage_vpc_short}} shares show a _suspended_ status. The storage system is offline, and data cannot be accessed. Your data still exists.
 
 | Resource type | Resource status | Result |
 |---------------|-----------------| -------|
@@ -145,7 +145,7 @@ When you delete a root key, the key is no longer available to decrypt passphrase
 | Instance | _unusable_ | Instances with a deleted boot volume that were automatically stopped cannot restart. |
 {: caption="Deleted root key" caption-side="bottom"}
 
-A root key can be deleted from three states: _active_, _suspended_, or _deactivated_. The _deactivated_ state occurs automatically when a key's expiration date is reached. Regardless of the state before deletion, keys can be restored. 
+A root key can be deleted from three states: _active_, _suspended_, or _deactivated_. The _deactivated_ state occurs automatically when a key's expiration date is reached. Regardless of the state before deletion, keys can be restored.
 
 You have a 30-day grace period to [restore the deleted key](#byok-restore-root-key). Otherwise, your encrypted resources become inaccessible. After 30 days, your root key can't be restored, and your resources are unrecoverable.
 {: important}
@@ -191,16 +191,9 @@ For more information about restoring root keys, see the following topics.
 ### Rotating customer root keys
 {: #byok-rotate-root-key}
 
-Rotating the customer root keys does not change the status of the encrypted resources. When you rotate the keys, the former key remains active, and is still used to decrypt existing resources.
+You can rotate your root keys for enhanced security. Rotating keys does not change the status of encrypted resources. The former key remains active and is still used to decrypt existing resources, while new resources are encrypted with the new key version.
 
-You can rotate your root keys in your KMS instance by setting a rotation policy or by manually rotating your keys. A rotation policy automatically rotates your keys based on a schedule; manual rotation rotates keys on demand.
-
-You can also manually rotate your imported or KMS-generated root keys at any time. {{site.data.keyword.keymanagementserviceshort}} and {{site.data.keyword.hscrypto}} allow one rotation per hour for each root key. The KMS replaces the key immediately upon your request. Use this option when you import a new root key to the KMS instance and want to rotate the key immediately.
-
-For more information about these options, see the following topics: 
-
-* {{site.data.keyword.keymanagementserviceshort}} - [Managing rotation policies](/docs/key-protect?topic=key-protect-set-rotation-policy) and [Manually rotating keys](/docs/key-protect?topic=key-protect-rotate-keys).
-* {{site.data.keyword.hscrypto}} - [Setting a rotation policy for root key](/docs/hs-crypto?topic=hs-crypto-set-rotation-policy) and [Rotating root keys manually](/docs/hs-crypto?topic=hs-crypto-rotate-keys).
+For detailed information about key rotation, including rotation policies, manual rotation procedures, and benefits, see [Key rotation for VPC resources](/docs/vpc?topic=vpc-vpc-key-rotation).
 
 ## Removing IAM service authorization to a root key
 {: #instance-byok-inaccessible-data}

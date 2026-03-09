@@ -2,7 +2,7 @@
 
 copyright:
   years: 2020, 2026
-lastupdated: "2026-02-21"
+lastupdated: "2026-03-09"
 
 keywords: data encryption, data storage, bring your own keys, BYOK, key management, key encryption, personal data, data deletion, data security
 
@@ -31,9 +31,7 @@ The KMS stores your key and makes it available during volume and custom image en
 
 Customer-managed encryption is available for custom images, boot volumes, and data volumes. When an instance is provisioned from an encrypted custom image, its boot volume is encrypted by using the image’s root key. You can also choose a different root key. Data volumes are encrypted by using root keys when you provision a virtual server instance or when you create a stand-alone volume.
 
-Images and volumes are often referred to as being encrypted with a root key when, in fact, [envelope encryption](#x9860393){: term} is used. Internally, each image or volume is encrypted with a [data encryption key (DEK)](#x4791827){: term}, which is an open source QEMU technology that is used by the {{site.data.keyword.vpc_short}} Generation 2 infrastructure. A LUKS passphrase, also called a _key encryption key_, encrypts the DEK. The LUKS passphrase is then encrypted with a root key, creating what is called a wrapped DEK (WDEK). For more information about {{site.data.keyword.vpc_short}} key encryption technology, see [IBM Cloud VPC Generation 2 encryption technology](/docs/vpc?topic=vpc-vpc-encryption-about#byok-technologies).
-
-For example, if you provision two volumes by using the same root key, unique passphrases are generated for each volume, which are then encrypted with the root key. Envelope encryption provides more protection for your data, and ensures that the root key can be rotated without having to reencrypt the data. For more information about envelope encryption, see [Protecting your sensitive data in VPC](#data-encryption).
+Images and volumes are encrypted by using [envelope encryption](#x9860393){: term}, where your data is protected by multiple layers of encryption keys. For more information about the encryption technology and key hierarchy, see [About data encryption for VPC](/docs/vpc?topic=vpc-vpc-encryption-about).
 
 All your interaction with {{site.data.keyword.vpn_vpc_short}} is encrypted. For example, when you use an API or interact with the service through the console to configure VPN gateways and VPN connections, all such interactions are encrypted end-to-end. Likewise, data elements that are related to your configuration are encrypted in transit and at rest. No personal or sensitive data is stored, processed, or transmitted. Data at rest is stored in an encrypted database.
 
@@ -51,22 +49,20 @@ Data is automatically encrypted on the physical media at the drive level. Howeve
 ## Protecting your sensitive data in VPC
 {: #data-encryption}
 
-{{site.data.keyword.keymanagementserviceshort}} or {{site.data.keyword.hscrypto}} provide a higher level of protection called envelope encryption.
+{{site.data.keyword.keymanagementserviceshort}} or {{site.data.keyword.hscrypto}} provide a higher level of protection called [envelope encryption](/docs/vpc?topic=vpc-vpc-encryption-about#vpc-envelope-encryption-byok), which encrypts one encryption key with another encryption key. This multi-layered approach ensures that your data is protected by multiple keys, and only you control access to the root keys.
 
-[Envelope encryption](/docs/vpc?topic=vpc-vpc-encryption-about#vpc-envelope-encryption-byok) encrypts one encryption key with another encryption key. A DEK encrypts your actual data. The DEK is never stored. Rather, it's encrypted by a key encryption key. The LUKS passphrase is then encrypted by a root key, which creates a WDEK. To decrypt data, the WDEK is unwrapped so you can access the data that's stored on the volume. This process is possible only by accessing the root key that is stored in your KMS instance. Root keys in {{site.data.keyword.hscrypto}} instances are also protected by a [hardware security module (HSM)](#x6704988){: term} master key.
-
-You control access to your root keys stored in KMS instances within {{site.data.keyword.cloud}} by using {{site.data.keyword.iamlong}} (IAM). You grant access to a service to use your keys. You can also revoke access at any time, for example, if you suspect your keys might be compromised, or [delete your root keys](#delete-root-keys).
+You control access to your root keys stored in KMS instances within {{site.data.keyword.cloud}} by using {{site.data.keyword.iamlong}} (IAM). You grant access to a service to use your keys. You can also revoke access at any time, for example, if you suspect your keys might be compromised. For more information about managing your encryption keys, see [Managing data encryption](/docs/vpc?topic=vpc-vpc-encryption-managing).
 
 {{site.data.keyword.vpn_vpc_short}}: Customer-provided preshared keys are encrypted before they are stored in database. All other data VPN gateway and VPN policy configuration is encrypted at rest at the database level.
 
 ### About customer-managed keys
 {: #about-encryption}
 
-For Block Storage volumes and encrypted images, you can rotate the root keys for more security. When you rotate a root key by schedule or on demand, the original key material is replaced. The old key remains active to decrypt existing resources but can't be used to encrypt new ones. For more information, see [Key rotation for VPC resources](/docs/vpc?topic=vpc-vpc-key-rotation).
+With {{site.data.keyword.keymanagementserviceshort}} or {{site.data.keyword.hscrypto}} you can create, import, and manage your root keys. You can assign access policies to the keys, assign users or service IDs to the keys, or give the key access only to a specific service. The first 20 keys are without cost.
+
+You can rotate your root keys for enhanced security. For more information, see [Key rotation for VPC resources](/docs/vpc?topic=vpc-vpc-key-rotation).
 
 Consider regional and cross-regional implications when you choose to use customer-managed encryption. For more information, see [Regional and cross regional considerations](/docs/vpc?topic=vpc-vpc-encryption-about#byok-cross-region-keys).
-
-With {{site.data.keyword.keymanagementserviceshort}} or {{site.data.keyword.hscrypto}} you can create, import, and manage your root keys. You can assign access policies to the keys, assign users or service IDs to the keys, or give the key access only to a specific service. The first 20 keys are without cost.
 
 ### About customer-managed encrypted volumes and images
 {: #about-encryption_volumes-images}
@@ -98,14 +94,14 @@ Encryption of the link between a customer's workload that's outside of {{site.da
 ### Deleting root keys
 {: #delete-root-keys}
 
-For more information about deleting root keys, see [Deleting root keys](/docs/vpc?topic=vpc-vpc-encryption-managing#byok-delete-root-keys).
+When you delete a root key, all resources that are protected by it become unusable. You have a 30-day grace period to restore imported root keys. For more information, see [Managing data encryption](/docs/vpc?topic=vpc-vpc-encryption-managing).
 
-### Deleting a Block Storage volume
+### Deleting Block Storage volumes
 {: #data-delete-volume}
 
 For more information about deleting Block Storage volumes, see the [FAQs for {{site.data.keyword.block_storage_is_short}}](/docs/vpc?topic=vpc-block-storage-vpc-faq#faq-block-storage-16).
 
-### Deleting a custom image
+### Deleting custom images
 {: #delete-custom-images}
 
 For more information about deleting custom images from {{site.data.keyword.vpc_short}}, see [Managing custom images](/docs/vpc?topic=vpc-managing-custom-images&interface=ui). Be aware of any virtual server instances that you provisioned with a custom image. To remove all data associated with a specific custom image, make sure that you also delete any instances provisioned from the custom image, along with associated boot volumes.
@@ -124,8 +120,7 @@ The VPN and VPN policy configurations are deleted on request through the API or 
 ### Restoring deleted data for VPC
 {: #data-restore}
 
-You can restore deleted root keys that you imported to the KMS within 30 days of deletion. For more information, see
-[Restoring deleted root keys](/docs/vpc?topic=vpc-vpc-encryption-managing#byok-restore-root-key).
+You can restore deleted root keys that you imported to the KMS within 30 days of deletion. For more information, see [Restoring deleted root keys](/docs/vpc?topic=vpc-vpc-encryption-managing#byok-restore-root-key).
 
 {{site.data.keyword.vpn_vpc_short}} does not support the restoration of deleted data.
 

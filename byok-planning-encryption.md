@@ -2,7 +2,7 @@
 
 copyright:
   years: 2019, 2026
-lastupdated: "2026-02-21"
+lastupdated: "2026-03-09"
 
 keywords:
 
@@ -38,6 +38,26 @@ Consider the following prerequisites before you set up data encryption for your 
 {: #byok-encryption-prereqs}
 
 Complete the following prerequisites to configure customer-managed encryption for your VPC resources.
+
+### General setup procedure
+{: #byok-setup-procedure}
+
+Setting up customer-managed encryption for your VPC resources involves the following steps:
+
+1. **Generate or create your root key** - You can use your on-premises HSM to generate a root key, or create one by using an {{site.data.keyword.cloud_notm}} key management service.
+
+   {{site.data.keyword.cloud_notm}} data centers provide a dedicated HSM to create and protect your keys. By using {{site.data.keyword.hscrypto}}, you can take control of your cloud data encryption keys and cloud hardware security module.
+   {: tip}
+
+2. **Provision a key management service (KMS)** - Choose the KMS that best meets your needs and provision an instance.
+
+3. **Import your root key** - Use your KMS to securely import your root key to the cloud service. For added security, create an import token in your KMS to encrypt and import root keys to the service.
+
+4. **Authorize service access** - From {{site.data.keyword.iamlong}} (IAM), authorize service between your VPC resource service (such as Cloud Block Storage or Cloud File Storage) and your KMS. For custom images, also authorize between Image Service for VPC (source service) and {{site.data.keyword.cos_full_notm}} (target service).
+
+5. **Create encrypted resources** - When you create volumes, file shares, or import custom images, specify your root key. The {{site.data.keyword.cloud_notm}} VPC infrastructure uses your root key to secure the data by wrapping the passphrases.
+
+6. **Manage your keys** - After setup, you can manage your keys by disabling, enabling, rotating, or deleting them. For more information, see [Managing data encryption](/docs/vpc?topic=vpc-vpc-encryption-managing).
 
 ### Block and file storage prerequisites
 {: #byok-volumes-prereqs}

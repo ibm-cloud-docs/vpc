@@ -2,7 +2,7 @@
 
 copyright:
   years: 2019, 2026
-lastupdated: "2026-02-21"
+lastupdated: "2026-03-09"
 
 keywords:
 
@@ -30,10 +30,10 @@ IBM-managed encryption uses the following industry standard protocols:
 * Keys are managed in-house with Key Management Interoperability Protocol (KMIP).
 * Storage architecture is validated for Federal Information Security Management Act (FISMA), and the Health Insurance Portability and Accountability Act (HIPAA)
 * Storage architecture is also validated for Payment Card Industry (PCI), Basel II, California Security Breach Information Act (SB 1386), and EU Data Protection Directive 95/46/EC compliance.
-* {{site.data.keyword.cloud}} Block and File Storage for VPC uses self-encrypting drives (SEDs) to help ensure data security and compliance with industry standards. 
+* {{site.data.keyword.cloud}} Block and File Storage for VPC uses self-encrypting drives (SEDs) to help ensure data security and compliance with industry standards.
    * For Gen 1 volume and share profiles, all MZRs use SEDs that are validated for Federal Information Processing Standard (FIPS) Publication 140-2 Level 1 or 140-3 Level 1, depending on the software module, meeting federal security standards.
    * For Gen 2 block volume profiles, such as the `sdp` profile, the storage architecture maintains FIPS 140-3 Level 1 validation across most regions.
-      * When you provision volumes in London MZR (`eu-gb`), the volumes are created on Trusted Computing Group (TCG) OPAL-compliant SED drives. 
+      * When you provision volumes in London MZR (`eu-gb`), the volumes are created on Trusted Computing Group (TCG) OPAL-compliant SED drives.
       * The current configuration in Washington, DC MZR (`us-east`) includes a mix of FIPS 140-2 validated and TCG OPAL-compliant drives. During provisioning, the volumes can be created on either type of drive.
       * When you provision block volumes in any other MZRs, the volumes are created and stored on FIPS 140-3 Level 1 validated SEDs.
    * For Gen 2 file share profiles, such as the `rfs` profile, the storage architecture maintains FIPS 140-3 Level 1 validation across all MZRs where regional file shares are available.
@@ -53,10 +53,10 @@ When you use customer-managed encryption, you can use root keys to encrypt resou
 
 You can share root keys across accounts. Root keys in a primary account can be accessed and used to encrypt new volumes and file shares that are created in a secondary account. In {{site.data.keyword.cloud_notm}}, the KMS can be either located in the same or in another account as the service that is using an encryption key. This deployment pattern allows enterprises to centrally manage encryption keys for all corporate accounts. For more information, see [Encryption key management](/docs/solution-tutorials?topic=solution-tutorials-resource-sharing#resource-sharing-security-kms).
 
-Customer-managed encryption is available for custom images, boot volumes, data volumes, snapshots, and file shares. 
+Customer-managed encryption is available for custom images, boot volumes, data volumes, snapshots, and file shares.
 - Data in the instance's boot volume is encrypted by using the [custom image encryption](#byok-about-encrypted-images). You can also encrypt the boot volume with a different root key.
 - [Data volumes](/docs/vpc?topic=vpc-block-storage-about#secondary-data-volumes) can be encrypted by using their own root keys when you provision a virtual server instance or when you create a stand-alone volume. Or, you can use the same root key that you specified for the boot volume.
-- Snapshots that are taken of a source volume inherit the encryption from the volume. 
+- Snapshots that are taken of a source volume inherit the encryption from the volume.
 - [File shares](/docs/vpc?topic=vpc-file-storage-byok-encryption) provide a customer-managed encryption option similar to {{site.data.keyword.block_storage_is_short}} volumes.
 
 ### Advantages of customer-managed encryption
@@ -150,7 +150,7 @@ You might see {{site.data.keyword.keymanagementserviceshort}} being described as
 ### Envelope encryption
 {: #vpc-envelope-encryption-byok}
 
-Root keys serve as key-wrapping keys and are an important part of envelope encryption. With envelope encryption, root keys encrypt LUKS passphrases (also called _key encryption keys_) which, in turn, secure _data encryption keys_ (DEKs) that encrypt your data on the virtual disk. Figure 1 illustrates this process.
+Root keys serve as key-wrapping keys and are an important part of envelope encryption. With envelope encryption, root keys encrypt LUKS passphrases (also called _key encryption keys_) which, in turn, secure _data encryption keys_ (DEKs) that encrypt your data on the virtual disk.
 
 ![Figure showing envelope encryption.](/images/envelope-encryption.png "Contextual view of envelope encryption"){: caption="Contextual view of envelope encryption" caption-side="bottom"}
 
@@ -160,9 +160,7 @@ A unique master encryption key is assigned to block storage volumes and file sha
 
 Custom images are encrypted by your own LUKS passphrase that you create by using QEMU. After the image is encrypted, you wrap the passphrase with your root key that is stored in the KMS.
 
-For more information about envelope encryption, see the following documentation:
-* {{site.data.keyword.keymanagementserviceshort}} - [Protecting data with envelope encryption](/docs/key-protect?topic=key-protect-envelope-encryption).
-* {{site.data.keyword.hscrypto}} - [Protecting your data with envelope encryption](/docs/hs-crypto?topic=hs-crypto-envelope-encryption).
+For more information about envelope encryption, see {{site.data.keyword.keymanagementserviceshort}} - [Protecting data with envelope encryption](/docs/key-protect?topic=key-protect-envelope-encryption). For {{site.data.keyword.hscrypto}}, see [Protecting your data with envelope encryption](/docs/hs-crypto?topic=hs-crypto-envelope-encryption).
 
 ### Root key regional and cross-regional considerations
 {: #byok-cross-region-keys}
@@ -175,21 +173,12 @@ For optimal performance and security, use root keys in the same region as your e
 
 When you use root keys regionally or cross-regionally, all network traffic is directed to a private endpoint. In other words, your keys encrypt and decrypt resources over a private network that's inaccessible to the internet. For more information about private endpoints, see [Secure access to services by using service endpoints](/docs/account?topic=account-service-endpoints-overview). You can see a list of private endpoints in the console by going to the Resource List > Security and clicking a {{site.data.keyword.keymanagementserviceshort}} or {{site.data.keyword.hscrypto}} instance. In the left menu, select **Endpoints**.
 
-### General procedure for setting up customer-managed encryption
+### Setting up customer-managed encryption
 {: #byok-general-prodedure}
 
-Setting up customer-managed encryption for your {{site.data.keyword.block_storage_is_short}} volumes involves several steps.
+To set up customer-managed encryption for your VPC resources, you need to provision a key management service, create or import root keys, and authorize service access. For detailed setup instructions and prerequisites, see [Planning data encryption](/docs/vpc?topic=vpc-vpc-encryption-planning).
 
-1. Generate your own root key. You can use your on-premises HSM. Or you can create your root key by using an {{site.data.keyword.cloud_notm}} HSM or {{site.data.keyword.hscrypto}}.
-
-   {{site.data.keyword.cloud_notm}} data centers provide a dedicated HSM to create and protect your keys. By using {{site.data.keyword.hscrypto}}, you can take control of your cloud data encryption keys and cloud hardware security module.
-   {: tip}
-
-1. Provision the key management service (KMS) that best meets your needs.
-1. Use your KMS to securely import your root key to the cloud service. For added security, create an import token in your KMS to encrypt and import root keys to the service.
-1. From {{site.data.keyword.iamlong}} (IAM), authorize service between Cloud Block Storage (source service) and your KMS (target service). For custom images, also authorize between Image Service for VPC (source service) and {{site.data.keyword.cos_full_notm}} (target service).
-1. The {{site.data.keyword.cloud_notm}} VPC infrastructure uses your root key to secure the data by wrapping the passphrases for volumes or custom images. For custom images, the root key wraps the passphrase before you import the custom image file to the cloud. For more information, see [About encrypted custom images](#byok-about-encrypted-images).
-1. Manage your keys in your KMS. For example, you can [disable](/docs/vpc?topic=vpc-vpc-encryption-managing#byok-disable-root-keys) your root key to suspend its encryption and decryption operations. You can also [rotate your customer-managed root keys](/docs/vpc?topic=vpc-vpc-key-rotation). By rotating your root keys, you can roll out a new key across the resources that were protected by the old key.
+After setup is complete, you can manage your keys by disabling, enabling, rotating, or deleting them as needed. For more information, see [Managing data encryption](/docs/vpc?topic=vpc-vpc-encryption-managing).
 
 #### Flow diagrams for specifying customer-managed encryption for volumes
 {: #byok-flow-diagrams-volumes}
