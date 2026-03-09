@@ -1,14 +1,13 @@
 ---
 
 copyright:
-  years: 2022, 2025
-lastupdated: "2025-12-03"
+  years: 2022, 2026
+lastupdated: "2026-03-09"
 
 keywords: backup planning, restore volume, restore data
 
 subcollection: vpc
 
-ai-gen-assist: wca
 ---
 
 {{site.data.keyword.attribute-definition-list}}

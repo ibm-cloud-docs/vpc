@@ -2,13 +2,11 @@
 
 copyright:
   years: 2021, 2026
-lastupdated: "2026-03-03"
+lastupdated: "2026-03-09"
 
 keywords: file share, mount target, virtual network interface, customer-managed encryption, encryption at rest, encryption in transit, file storage, share,
 
 subcollection: vpc
-
-ai-gen-assist: wca
 
 ---
 
@@ -234,7 +232,7 @@ For zonal file shares, the share owner can choose from the following transit enc
 [Select availability]{: tag-green} For regional file shares, the share owner can choose from the following transit encryption modes: `stunnel`, `none`, or both.
 - If `stunnel` is enforced, all accessor mount targets must use stunnel.
 - If `none` is enforced, encryption-in-transit is not allowed.
-- If both are allowed, accessor accounts can choose which one to use. 
+- If both are allowed, accessor accounts can choose which one to use.
 
 All mount targets created for a single file share must use the same transit encryption mode for consistency.
 
@@ -278,7 +276,7 @@ You can create access management tags and then apply them to new or existing fil
 ## Replication and failover
 {: #fs-repl-failover-overview}
 
-You can create read-only replicas of your file shares in another zone within your VPC, or another zone in a different region if you have multiple VPCs in the same geography. The replica is updated regularly based on the replication schedule that you specify. You can schedule to replicate your data as often as every 15 minutes. 
+You can create read-only replicas of your file shares in another zone within your VPC, or another zone in a different region if you have multiple VPCs in the same geography. The replica is updated regularly based on the replication schedule that you specify. You can schedule to replicate your data as often as every 15 minutes.
 
 Using replication is a good way to recover from incidents at the primary site when data becomes inaccessible or applications fail. The [failover](/docs/vpc?topic=vpc-file-storage-failover) to the replica share makes it the new, writeable primary share. For more information, see [About file share replication](/docs/vpc?topic=vpc-file-storage-replication).
 

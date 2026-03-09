@@ -2,13 +2,11 @@
 
 copyright:
   years: 2022, 2026
-lastupdated: "2026-02-26"
+lastupdated: "2026-03-09"
 
-keywords: file share, file storage, replication, replica, 
+keywords: file share, file storage, replication, replica,
 
 subcollection: vpc
-
-ai-gen-assist: wca
 
 ---
 
@@ -28,7 +26,7 @@ Currently, cross-regional replication for zonal file shares is not supported in 
 ## Replication overview
 {: #fs-replication-overview}
 
-After you created a file share, you can set up replication. 
+After you created a file share, you can set up replication.
 
 When a replica share is created, the first replica contains the data of the entire share. Thereafter, only the changes that occurred after the previous replication are added.
 
@@ -90,7 +88,7 @@ You can use replication to address disaster recovery concerns. The replication a
    Use replication to facilitate certain administrative tasks such as upgrades with greater availability. Migrate data between two zones that might be running different levels of application code. Running in two environments independently can allow greater flexibility in your deployment process.
 
 * Data migration or geographic expansion.
- 
+
    You can use replication to migrate data between two MZR regions easily. After your data is replicated, you can [remove the replication relationship](/docs/vpc?topic=vpc-file-storage-manage-replication#fs-remove-replication) and your replica file share becomes available with your data ready to use independently in the new region.
 
 ## Next steps
@@ -98,7 +96,7 @@ You can use replication to address disaster recovery concerns. The replication a
 
 1. [Create a replica file share](/docs/vpc?topic=vpc-file-storage-create-replication) in the console, from the CLI, with the API or Terraform.
 
-   If you want to set up replication between different regions, you need to [establish service-to-service authorizations](/docs/vpc?topic=vpc-file-s2s-auth) between the file services of the two VPCs first. 
+   If you want to set up replication between different regions, you need to [establish service-to-service authorizations](/docs/vpc?topic=vpc-file-s2s-auth) between the file services of the two VPCs first.
    {: requirement}
 
    If you want to create a replica share in a different region where you use a different KMS solution, [establish service-to-service authorizations](/docs/vpc?topic=vpc-file-s2s-auth) between the file service and the target KMS.
@@ -107,5 +105,5 @@ You can use replication to address disaster recovery concerns. The replication a
 2. Verify that the replication is working by checking the replication status and the [replication sync information](/docs/vpc?topic=vpc-file-storage-manage-replication#fs-repl-syncinfo). The system queries the last sync status every 15 minutes.
 
 3. Use the replica file share - If the primary file share fails or becomes unavailable for any reason, you can fail over to the replica file share. When you perform the failover, the replica share becomes the new primary file share, with read and write capability.
-   
+
 4. Restart the replication with the original file share as scheduled when it's back online. In this case, you can continue to use the replica site as primary, or fail back to the original site.
