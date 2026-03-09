@@ -1175,6 +1175,8 @@ toc:
               - vpn-ts-unable-establish-connection.md
               - vpn-ts-traffic-not-getting-through.md
               - vpn-ts-unstable-connection.md
+              - vpn-ts-check-point-connection-issues.md
+              - vpn-ts-cisco-connection-issues.md
               - vpn-ts-routing-issues.md
               - vpn-ts-vpn-gateway-fix-bad-service-routes.md
               - vpn-ts-advertise-route-not-work.md

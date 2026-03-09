@@ -2,13 +2,11 @@
 
 copyright:
   years: 2023, 2026
-lastupdated: "2026-02-26"
+lastupdated: "2026-03-09"
 
 keywords: file share, file storage, encryption in transit, Mount Helper, IPsec, secure connection, mount share
 
 subcollection: vpc
-
-ai-gen-assist: granite
 
 ---
 
@@ -67,7 +65,7 @@ Do not add the Mount Helper installer script to your `cloud-init` configuration.
    {: caption="This table shows the supported host OS distributions." caption-side="bottom"}
 
 * Installing the Mount Helper on Red Hat Enterprise Linux CoreOS is not supported.
-   
+
 ## Installation and configuration of the Mount Helper
 {: #fs-eit-installation}
 
@@ -75,18 +73,18 @@ Do not add the Mount Helper installer script to your `cloud-init` configuration.
    - [Connect to your virtual server instance](/docs/vpc?topic=vpc-creating-virtual-servers&interface=ui#next-steps-after-creating-virtual-servers-ui).
    - [Connect to your bare metal server](/docs/vpc?topic=vpc-connect-to-ESXi-bare-metal-servers).
    - If you want to access the file shares from IBM {{site.data.keyword.powerSys_notm}} instances, you must use a network path through a load balancer. For more information, see the following tutorial: [Accessing File Storage for VPC shares from IBM Power Virtual Server instances](/docs/sap?group=file-storage-shares-for-vpc) and make sure that you completed Steps 1-3. Step 4 can be performed by the Mount Helper after it is installed on the Power VSI.
-   
+
 1. Then, you can download the package directly from GitHub, or build the utility from the source code.
-   
+
    If you want to mount a regional file share on an IBM Power VSI, download the installation package, and follow the steps of [Installing the Mount Helper to mount regional file shares](#install-MH-for-regional).
    {: note}
 
 ### Downloading the installation package
 {: #download-from-github}
 
-1. Download the Mount Helper package from GitHub. 
+1. Download the Mount Helper package from GitHub.
     ```sh
-    curl -LO https://github.com/IBM/vpc-file-storage-mount-helper/releases/download/latest/mount.ibmshare-latest.tar.gz 
+    curl -LO https://github.com/IBM/vpc-file-storage-mount-helper/releases/download/latest/mount.ibmshare-latest.tar.gz
     ```
     {: codeblock}
 
@@ -98,7 +96,7 @@ Do not add the Mount Helper installer script to your `cloud-init` configuration.
    tar -xvf mount.ibmshare-latest.tar.gz
    ```
    {: pre}
-   
+
    The file contains the following items: installation and uninstallation scripts, `rpm` and `deb` packages, root CA certificates, and the configuration file.
 
    Closed environments: To install Mount Helper on a virtual server instance without internet connection, create or update a local repository on the VSI based on the OS. Copy the Mount Helper package along with its dependencies to the local directory.
@@ -124,10 +122,10 @@ Do not add the Mount Helper installer script to your `cloud-init` configuration.
    | Germany - Frankfurt | `eu-de`     | `fra` |
    | India - Chennai - Airtel | `in-che` |       |
    | India - Mumbai - Airtel | `in-mum`  |       |
-   | Japan - Osaka       | `jp-osa`    | `osa` | 
-   | Japan - Tokyo       | `jp-tok`    | `tok` |   
+   | Japan - Osaka       | `jp-osa`    | `osa` |
+   | Japan - Tokyo       | `jp-tok`    | `tok` |
    | Spain - Madrid      | `eu-es`    | `mad` |
-   | United Kingdom - London | `eu-gb` | `lon` | 
+   | United Kingdom - London | `eu-gb` | `lon` |
    | United States - Washington, DC | `us-east`| `wdc` |
    | United States - Dallas, TX | `us-south`  | `dal` |
    {: caption="This table shows the region values that the script accepts." caption-side="bottom"}
@@ -137,7 +135,7 @@ Do not add the Mount Helper installer script to your `cloud-init` configuration.
    curl -LO https://github.com/IBM/vpc-file-storage-mount-helper/releases/download/latest/mount.ibmshare-latest.tar.gz.sha256
    ```
    {: pre}
-   
+
    ```sh
    sha256sum -c mount.ibmshare-latest.tar.gz.sha256
    ```
@@ -155,7 +153,7 @@ Do not add the Mount Helper installer script to your `cloud-init` configuration.
    certificate_duration_seconds = 600
    ```
    {: pre}
-   
+
    The valid range for `certificate_duration_seconds` value is 300 - 3600 seconds. The certificates are renewed when the current certs reach 70% of their lifetime.
    {: note}
 
@@ -179,7 +177,7 @@ Do not add the Mount Helper installer script to your `cloud-init` configuration.
    curl -LO https://github.com/IBM/vpc-file-storage-mount-helper/releases/download/latest/mount.ibmshare-latest.tar.gz.sha256
    ```
    {: pre}
-   
+
    ```sh
    sha256sum -c mount.ibmshare-latest.tar.gz.sha256
    ```
@@ -221,11 +219,11 @@ Do not add the Mount Helper installer script to your `cloud-init` configuration.
    mkdir /mnt/share-test
    ```
    {: pre}
-   
-1. Run the `mount` command with the following syntax. 
+
+1. Run the `mount` command with the following syntax.
 
 ### Mounting zonal file share
-{: #fs-eit-mount-share-ipsec} 
+{: #fs-eit-mount-share-ipsec}
 
 Use the following command syntax to mount the share. Replace the mount path with the information that is specific to your file share.
 
@@ -233,13 +231,13 @@ Use the following command syntax to mount the share. Replace the mount path with
 mount -t ibmshare -o secure=true 10.0.0.1:/MOUNT_PATH /mnt/MOUNT_POINT
 ```
 {: pre}
-   
+
 When the command is sent, the utility creates the certificate signing request(csr) and calls the Metadata service to get the intermediate cert and end peer certificate. It parses the mount command-line arguments and creates `/etc/swanctl/conf.d/type_ibmshare_.conf`. The strongSwan service uses this configuration file to establish the IPsec connection. Then, the script loads the IPsec connection and calls the NFS `mount` command. A successful response looks like the following example.
 
-```sh 
+```sh
    [root@my-eit-instance ~]# mount -t ibmshare -o secure=true 10.240.64.5:/0c937ac3_814e_4a7c_99b8_719ec3cad7fd  /mnt/share-test
    Info  - IpSec using StrongSwan(5.7.2)
-   Debug - RunCmd: /usr/sbin/swanctl --list-conns 
+   Debug - RunCmd: /usr/sbin/swanctl --list-conns
    Debug - Config data unchanged:/etc/strongswan/swanctl/conf.d/type_ibmshare_10.240.64.5.conf
    Debug - StrongSwan cleanup config files Total(1) Mounted(0) Deleted(0) Recent(1)
    Debug - RunCmd: ReloadConfig (/usr/sbin/swanctl --load-all)
@@ -251,7 +249,7 @@ When the command is sent, the utility creates the certificate signing request(cs
 ```
 {: screen}
 
-You're advised not to add the mount details to the `/etc/fstab` because it can cause the compute host to hang during boot. 
+You're advised not to add the mount details to the `/etc/fstab` because it can cause the compute host to hang during boot.
 {: important}
 
 ### Mounting regional file share
@@ -287,9 +285,9 @@ Debug - RunCmd: Mount using stunnel  (mount -t nfs4 -o sec=sys,nfsvers=4.2,rw,po
 Debug - Stunnel mount was successful
 Debug - File unlocked:/var/lock/ibm_mount_helper.lck
 ```
-{: pre} 
+{: pre}
 
-You're advised not to add the mount details to the `/etc/fstab` because it can cause the compute host to hang during boot. 
+You're advised not to add the mount details to the `/etc/fstab` because it can cause the compute host to hang during boot.
 {: important}
 
 If you need to add the mount details to `/etc/fstab`, make sure that you use the `_netdev` and `nofail` options. See the following example:
@@ -308,7 +306,7 @@ To update the installation package, run the `install.sh` script again.
 ```sh
 ./install.sh
 ```
-{: pre} 
+{: pre}
 
 Use the `--stunnel` option when you want to upgrade the stunnel package, too.
 
@@ -354,7 +352,7 @@ The following command uninstalls the utility.
    ipsec status
    ```
    {: pre}
-   
+
    Or
    ```sh
    swanctl -l
@@ -371,13 +369,13 @@ The following command uninstalls the utility.
    ```sh
    /opt/ibm/mount-ibmshare/mount-ibmshare.log
    ```
-   {: pre} 
+   {: pre}
 
 - Location of the stunnel logs:
    ```sh
    /var/log/stunnel/ibmshare_[MOUNT_PATH].log
    ```
-   {: pre} 
+   {: pre}
 
 ## Next steps
 {: #next-steps-eit}
