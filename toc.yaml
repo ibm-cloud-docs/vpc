@@ -626,6 +626,7 @@ toc:
               - vpn-onprem-vyatta.md
               - vpn-access-service-endpoint.md
               - vpn-ha.md
+              - vpn-performance.md
               - vpn-configure-acls.md
               - vpn-gateway-status.md
               - vpn-health.md
