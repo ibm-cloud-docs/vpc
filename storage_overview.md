@@ -2,9 +2,9 @@
 
 copyright:
   years: 2022, 2026
-lastupdated: "2026-03-03"
+lastupdated: "2026-03-10"
 
-keywords: block storage for VPC, File Storage for VPC, Snapshots for VPC, Backup for VPC, block storage, file storage, snapshots, backup, 
+keywords: block storage for VPC, File Storage for VPC, Snapshots for VPC, Backup for VPC, block storage, file storage, snapshots, backup,
 
 subcollection: vpc
 
@@ -32,8 +32,8 @@ You can specify your own performance limits, and adjust them later if your requi
    * The second-generation volume profile, `sdp` provides the most flexibility, as you can specify your capacity, IOPS, and throughput maximum values. You can create boot and data volumes with maximum storage capacity of 32,000 GB, a performance level of 64,000 IOPS, and maximum throughput of 1024 MBps. The capacity, IOPS, and throughput values of volumes that are created with the `sdp` profile can be modified even when the volume is not attached to a virtual server instance. The `sdp` profile is available in the Dallas, Frankfurt, London, Madrid, Osaka, Sao Paulo, Sydney, Tokyo, Toronto, and Washington, DC region.
 
    * You can create first-generation block storage volumes with maximum storage capacity of 16,000 GB, a performance level of 48,000 IOPS, and maximum throughput of 1024 MBps. You can create a first-generation volume with a predefined IOPS tier profile (3, 5, or 10 IOPS per GB) that best meets your storage requirements. Or you can choose the custom profile and specify your performance. IOPS value per volume ranges from 100 IOPS to 48,000 IOPS, based on volume size.
-   
-You can choose between provider- and customer-managed encryption for your block storage volumes, and secure your data with your own encryption keys. 
+
+You can choose between provider- and customer-managed encryption for your block storage volumes, and secure your data with your own encryption keys.
 
 The following table provides a comparison between the different generations of block storage.
 
@@ -41,7 +41,7 @@ The following table provides a comparison between the different generations of b
 |---------------------|--------------------------|---------------------------|
 | Availability        | Generally available in all VPC regions for all customers. | Available in most MZRs, except Mumbai - Airtel and Montreal.|
 | Expandable capacity | Yes, up to 16,000 GB     | Yes, up to 32,000 GB |
-| Adjustable IOPS     | Yes, up to 48,000. IOPS depends on capacity range. | Yes, up to 64,000.| 
+| Adjustable IOPS     | Yes, up to 48,000. IOPS depends on capacity range. | Yes, up to 64,000.|
 | Adjustable Bandwidth| No. Bandwidth can be increased by increasing capacity and IOPS. The maximum is 1024 MBps.| Yes, bandwidth can be adjusted to any value between 125 and 1024 MBps.|
 | Customer-managed encryption at rest | Yes. | Yes.|
 | Importing encrypted custom image for boot volumes |  Yes.  | Not supported yet.|
@@ -100,7 +100,7 @@ Pay for only the capacity that you need. You can start with a smaller file share
 
 You can create zonal file shares with the `dp2` profile. The first-generation file shares come with a maximum storage capacity of 32 TB, a performance level of 96,000 IOPS, and maximum throughput of 1024 MBps. You can adjust IOPS up or down, for greater performance or when you want to reduce costs. You can create read-only replicas of your file shares in another zone within your VPC, or another zone in a different region if you have multiple VPCs in the same geography. The replica is updated regularly based on the replication schedule that you specify. You can schedule to replicate your data as often as every 15 minutes. You can fail over to the replica and make it active if an outage occurs at the primary site.
 
-Customers with special access to preview the second-generation file storage offering can provision file shares with the new `rfs` profile. The `rfs` profile is available in the Dallas, Frankfurt, London, Madrid, Osaka, Sao Paulo, Sydney, Toronto, Tokyo, and Washington, DC regions in this release.
+Customers with special access to preview the second-generation file storage offering can provision file shares with the new `rfs` profile. The `rfs` profile is available in the Dallas, Chennai - Airtel, Frankfurt, London, Madrid, Osaka, Sao Paulo, Sydney, Toronto, Tokyo, and Washington, DC regions in this release.
 {: preview}
 
 Second-generation file shares can be created with capacity in the range of 1 - 32,000 GB. Customers can directly adjust their file share's bandwidth up to 8192 Mbps (1024 MBps). The preset value is 800 Mbps. The maximum IOPS that a share with the `rfs` profile can support is 35,000. Second-generation profiles provide regional data availability across all 3 zones of an MZR. Data is regionally available, setting up replication between different zones is unnecessary.
@@ -111,10 +111,10 @@ The following table provides a comparison between the different generations of f
 
 | Features            | First-generation shares | Second-generation shares |
 |---------------------|--------------------------|---------------------------|
-| Availability        | Generally available in all VPC regions for all customers. | Available in the Dallas, Frankfurt, London, Madrid, Osaka, Sydney, Tokyo, Toronto, and Washington, DC regions for allowlisted customers.|
+| Availability        | Generally available in all VPC regions for all customers. | Available for allowlisted customers in the Dallas, Chennai - Airtel, Frankfurt, London, Madrid, Osaka, Sydney, Tokyo, Toronto, and Washington, DC regions.|
 | Data Availability   | Zonal. While the share can be accessed from multiple zones across the region, if the share becomes unavailable, data access is lost. Operations can be recovered by setting up replicas in advance and failover to the replica during an outage. Cross-zone mounting of a file share can also introduce latency as data traverses zonal boundaries. | Regional. The file share exists in all 3 zones simultaneously, the clients connect to the closest instance of the share. When one zone becomes unavailable, data is still accessible. Storage traffic remains within the zone of the compute host. |
 | Expandable capacity | Yes, up to 16,000 GB     | Yes, up to 32,000 GB |
-| Adjustable IOPS     | Yes, up to 96,000. IOPS depends on capacity range. | No. Maximum IOPS is preset at 35,000.| 
+| Adjustable IOPS     | Yes, up to 96,000. IOPS depends on capacity range. | No. Maximum IOPS is preset at 35,000.|
 | Adjustable Bandwidth| No. Bandwidth can be increased by increasing capacity and IOPS, up to 8192 Mbps.| Yes, bandwidth can be increased up to 8192 Mbps, and it can be reduced to the preset value that is based on the file share capacity. No capacity increase needed.|
 | Customer-managed encryption at rest | Yes. | Yes. |
 | Customer-managed encryption in transit | Yes. IPsec protocol with strongSwan. | Yes. TLS protocol with stunnel.|
@@ -122,7 +122,7 @@ The following table provides a comparison between the different generations of f
 | Scheduled snapshots | Yes, up to 750 snapshots per region. | Yes, Up to 30 per share in a region. This quota can be increased upon request. |
 | Cross-zonal replication| Yes, as often as every 15 minutes. | Not applicable. Data is synchronously available in all zones of the region. |
 | Cross-regional replication | Yes, as often as every 15 minutes. Cross-regional replication is not supported in Chennai - Airtel. |  Not supported in the [Select availability]{: tag-green} release. |
-| Cross-zonal mounting | Yes. | Not applicable. Data is synchronously available in all zones of the region. Storage traffic does not cross zone-boundaries. |
+| Cross-zonal mounting | Yes. | Not applicable. Data is synchronously available in all zones of the region. Storage traffic doesn't cross zone-boundaries. |
 | Cross-account access | Yes. A share can have up to 100 accessor bindings. | Yes.|
 | Monitoring integration with Sysdig | Yes. | Yes.|
 {: caption="File share generations comparison." caption-side="bottom"}
@@ -139,13 +139,13 @@ For more information, see [About {{site.data.keyword.filestorage_vpc_short}}](/d
 
 You can create, list, view details, and manage snapshots in the console, from the CLI, and with the API or Terraform. You can use the snapshot to create another file share or to retrieve previous versions of files that are stored in the share.
 
-Snapshots are tied to their source share. If you delete the original share and the snapshot is also deleted. However, you cannot delete a snapshot that is being used to hydrate a newly restored file.
+Snapshots are tied to their source share. If you delete the original share and the snapshot is also deleted. However, you can't delete a snapshot that is being used to hydrate a newly restored file.
 
-Customers with special access to preview the second-generation File Storage offering can take snapshots of their regional file shares. The `rfs` profile is available in the Dallas, Frankfurt, London, Madrid, Osaka, Sao Paulo, Sydney, Toronto, Tokyo, and Washington, DC regions in this release.
+Customers with special access to preview the second-generation File Storage offering can take snapshots of their regional file shares. The `rfs` profile is available in the Dallas, Chennai - Airtel, Frankfurt, London, Madrid, Osaka, Sao Paulo, Sydney, Toronto, Tokyo, and Washington, DC regions in this release.
 
 | Features            | First-generation shares | Second-generation shares |
 |---------------------|--------------------------|---------------------------|
-| Availability        | Generally available in all VPC regions for all customers. | Available in most regions, except for Montreal, for allowlisted customers.|
+| Availability        | Generally available in all VPC regions for all customers. | Available for allowlisted customers in most regions, except for Montreal and Mumbai - Airtel.|
 | On-demand snapshots | Yes, Up to 750 per share in a region. | Yes, Up to 30 per share in a region. This quota can be increased upon request. |
 | Scheduled snapshots | Yes, up to 750 snapshots per region. | Yes, Up to 30 per share in a region. This quota can be increased upon request.|
 {: caption="File share snapshot generations comparison." caption-side="bottom"}
@@ -155,7 +155,7 @@ For more information, see [About {{site.data.keyword.filestorage_vpc_short}} sna
 ## Backup for VPC
 {: #vpc-backup-serv-overview}
 
-The {{site.data.keyword.cloud}} provides the means to create backup copies of your block storage volumes and file shares automatically. You can create a backup policy with up to 4 plans, and associate tags to the policy in the console, from the CLI, with the API or Terraform. 
+The {{site.data.keyword.cloud}} provides the means to create backup copies of your block storage volumes and file shares automatically. You can create a backup policy with up to 4 plans, and associate tags to the policy in the console, from the CLI, with the API or Terraform.
 
 The user-defined tags can be added to block storage volumes, file shares, and virtual server instances. When tags match, the backup policy is applied to the resources, and backup snapshots of the data are created based on the backup plan. You can set your own retention schedule to automatically delete older backups. This way, you can control how much space is used and how long backup snapshots are retained. By using Backup for VPC service, you can prevent data loss, manage risk, and improve data compliance.
 
@@ -178,7 +178,7 @@ All profiles of {{site.data.keyword.bm_is_short}} provide one 0.96 TB SATA M.2 m
 ## {{site.data.keyword.cos_full_notm}}
 {: #intro-cos}
 
-{{site.data.keyword.cos_full}} is a web-scale platform that stores unstructured data. It provides reliability, security, availability, and disaster recovery without replication. Information that is stored in {{site.data.keyword.cos_short}} is encrypted and dispersed across multiple geographic locations. It is accessible through the {{site.data.keyword.cloud}} console, {{site.data.keyword.cos_full_notm}} CLI, and API. For more information, see [About IBM Cloud Object Storage](/docs/cloud-object-storage?topic=cloud-object-storage-about-cloud-object-storage). 
+{{site.data.keyword.cos_full}} is a web-scale platform that stores unstructured data. It provides reliability, security, availability, and disaster recovery without replication. Information that is stored in {{site.data.keyword.cos_short}} is encrypted and dispersed across multiple geographic locations. It is accessible through the {{site.data.keyword.cloud}} console, {{site.data.keyword.cos_full_notm}} CLI, and API. For more information, see [About IBM Cloud Object Storage](/docs/cloud-object-storage?topic=cloud-object-storage-about-cloud-object-storage).
 
 Within the VPC environment, {{site.data.keyword.cos_short}} has many uses. For example, you can import and store [custom images](/docs/vpc?topic=vpc-custom-image-using-COS) for your compute instances. In addition, you need {{site.data.keyword.cos_short}} to collect and store [flow logs](/docs/vpc?topic=vpc-flow-logs) that summarize the network traffic between two virtual network interface cards (vNICs) within a certain time window.
 
