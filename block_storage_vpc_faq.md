@@ -2,7 +2,7 @@
 
 copyright:
   years: 2019, 2026
-lastupdated: "2026-02-16"
+lastupdated: "2026-03-11"
 
 keywords: faqs, Block Storage for vpc, fast restore, multizone, instance, instance provisioning, volume management, volume deletion.
 
@@ -44,7 +44,7 @@ In this release, you can perform the following actions:
 ## Can I use `sdp` profile for my boot volume if I want to use secure boot?
 {: #sdp-no-secure-boot}
 
-No. When second-generation boot volumes with the `sdp` profile are used, secure boot is not supported. 
+No. When second-generation boot volumes with the `sdp` profile are used, secure boot is not supported.
 
 In the current release of {{site.data.keyword.block_storage_is_short}} offering, only first-generation volumes from the tiered and custom volume profile families can be used as boot volumes for virtual server instances that use a profile from one of the following instance profile families:
 - [Accelerated Gen 3](/docs/vpc?topic=vpc-accelerated-profile-family ) - Gaudi, MI-300x, H100/H200 profiles.
@@ -279,7 +279,7 @@ The boot volume is created when you provision a virtual server instance. The boo
 {: faq}
 {: #faq-block-storage-15}
 
-You can delete a {{site.data.keyword.block_storage_is_short}} volume only when it isn't attached to a virtual server instance. 
+You can delete a {{site.data.keyword.block_storage_is_short}} volume only when it isn't attached to a virtual server instance.
 
 You must [detach the data volume](/docs/vpc?topic=vpc-managing-block-storage#detach) before you can delete it. You can also enable the auto-delete feature in the console, from the CLI, or with the API. When auto-delete is enabled, the data volume is deleted along with the instance.
 

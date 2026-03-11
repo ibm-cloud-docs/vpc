@@ -2,7 +2,7 @@
 
 copyright:
   years: 2022, 2026
-lastupdated: "2026-02-26"
+lastupdated: "2026-03-11"
 
 keywords: snapshots, Block Storage, volumes, cross-regional snapshot, restore volume, copy snapshot
 
@@ -41,7 +41,7 @@ You can create a virtual server instance with a boot volume that is initialized 
 
 You can create a volume from a snapshot at any time. This process is called restoring a volume, and it can be performed when you create an instance, modify an instance, or when you create a stand-alone volume. For more information, see [Restoring a volume from a snapshot](/docs/vpc?topic=vpc-snapshots-vpc-restore).
 
-Snapshots have a lifecycle that is independent from the source {{site.data.keyword.block_storage_is_short}} volume. You can delete the original volume and the snapshot persists. However, do not detach the volume from the instance during snapshot creation. You need to wait until the snapshot becomes `stable` before you detach, otherwise you can't reattach the volume to an instance. 
+Snapshots have a lifecycle that is independent from the source {{site.data.keyword.block_storage_is_short}} volume. You can delete the original volume and the snapshot persists. However, do not detach the volume from the instance during snapshot creation. You need to wait until the snapshot becomes `stable` before you detach, otherwise you can't reattach the volume to an instance.
 
 Snapshots are crash-consistent. If the virtual server stops for any reason, the snapshot data is safe on the disk.
 
@@ -73,7 +73,7 @@ For more information, see [Restoring a volume with the fast restore feature](/do
 
 You can copy a snapshot from one region to another region, and later use that snapshot to restore a volume in the new region. This feature can be used in disaster recovery scenarios when you need to start your virtual server instance and data volumes in a different region. Or you can use the remote copy to create storage volumes in a new region to expand your VPC.
 
-When you choose to create a cross-regional copy of a snapshot, you need to specify a single snapshot to be copied to the target region. The snapshot is created as normal, and stored in a separate regional storage repository. When the snapshot is stable, a copy of the snapshot is created in the regional storage repository in the target region. 
+When you choose to create a cross-regional copy of a snapshot, you need to specify a single snapshot to be copied to the target region. The snapshot is created as normal, and stored in a separate regional storage repository. When the snapshot is stable, a copy of the snapshot is created in the regional storage repository in the target region.
 
 When the snapshot copy in the remote region is stable, you can use and manage it independently from the parent volume or the original snapshot.
 
@@ -81,7 +81,7 @@ The creation of the copy in the remote region takes time. The more capacity a vo
 
 The first time that you create a cross-regional copy, that snapshot is a full copy of the parent volume's data. Subsequent copies can be incremental or full copies. Whether the remote copy is incremental depends on the immediately preceding snapshot in the chain. If the immediately preceding snapshot exists in the destination region, the copy can be incremental. If the immediately preceding snapshot does not exist, the copy must be a full snapshot of the parent volume.
 
-If the source snapshot is not encrypted with a customer key, the encryption of the copy remains provider-managed. 
+If the source snapshot is not encrypted with a customer key, the encryption of the copy remains provider-managed.
 
 If the source snapshot is protected by a customer-managed key, you must specify the customer-managed key that you want to use to encrypt the new copy.
 
@@ -110,7 +110,9 @@ The snapshot consistency group has its own lifecycle, and it keeps references to
 
 The snapshots in the group are loosely coupled. You can manage the snapshots within a consistency group the same way you manage any other snapshot. You can delete individual snapshots from the consistency group if you want to. You can keep individual snapshots after you decide to delete the consistency group.
 
-You can use the members of the snapshot consistency group to restore volumes separately. Restoring an instance directly from snapshot consistency group identifier is not supported. You can create cross-regional copies of the members of the snapshot set separately, but you can't create a copy of a consistency group in another zone or region.
+You can use the members of the snapshot consistency group to restore volumes separately. Restoring an instance directly from snapshot consistency group identifier is not supported.
+
+You can create cross-regional copies of the members of the snapshot set separately, but you can't create a copy of a consistency group in another zone or region.
 
 ## How snapshots work
 {: #snapshots-vpc-operation}
@@ -125,7 +127,7 @@ Restoring from a snapshot of a boot volume creates a new boot volume that you ca
 
 When you restore volumes from snapshots in a consistency group, you can select some or all of the snapshots.
 
-Volume data restoration begins immediately as the volume is created, but performance is degraded until all the data is copied from the regional storage repository and the volume is fully restored. 
+Volume data restoration begins immediately as the volume is created, but performance is degraded until all the data is copied from the regional storage repository and the volume is fully restored.
 
 ## Limitations
 {: #snapshots-vpc-limitations}

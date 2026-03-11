@@ -2,7 +2,7 @@
 
 copyright:
   years: 2021, 2026
-lastupdated: "2026-02-18"
+lastupdated: "2026-03-11"
 
 keywords: view snapshots, view snapshot, viewing snapshots, see snapshots, Block Storage snapshots
 
@@ -1054,14 +1054,14 @@ For more information, see [ibm_is_consistency_groups](https://registry.terraform
 Import the details of a snapshot consistency group as a read-only data source. You can specify the consistency group by either the ID or the name of the consistency group.
 
 ```terraform
-data "ibm_is_snapshot_consistency_group" "example" {
+data "ibm_is_snapshot_consistency_group" "example 1" {
   identifier = ibm_is_snapshot_consistency_group.is_snapshot_consistency_group.id
 }
 ```
 {: codeblock}
 
 ```terraform
-data "ibm_is_snapshot_consistency_group" "example" {
+data "ibm_is_snapshot_consistency_group" "example 2" {
   name = "my-data-consistency-group"
 }
 ```

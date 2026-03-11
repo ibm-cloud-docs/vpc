@@ -2,7 +2,7 @@
 
 copyright:
   years: 2021, 2026
-lastupdated: "2026-03-05"
+lastupdated: "2026-03-11"
 
 keywords:
 
@@ -97,20 +97,20 @@ From the list of {{site.data.keyword.block_storage_is_short}} snapshots, you can
 
 5. After the selection is made, click **Configure volume**.{: #configure-volume}
    - If you chose the **Do not attach** or the **Attach new volume to an existing virtual server** options, you are taken to the Block storage volume for VPC provisioning page. The snapshot is preselected for you, and you must complete the rest of the volume details:
-     1. Review the **Location** information. The geography, region, and zone are inherited from the VPC (for example, North America, Dallas, Dallas-1). You can select a different location by clicking the **Edit icon** ![Edit icon](../icons/edit-tagging.svg "Edit"). 
+     1. Review the **Location** information. The geography, region, and zone are inherited from the VPC (for example, North America, Dallas, Dallas-1). You can select a different location by clicking the **Edit icon** ![Edit icon](../icons/edit-tagging.svg "Edit").
      1. In the **Details** section, you must specify the name of the volume and the resource group that the volume is to be added to. Optionally, you can add user and access management tags.
         - Specify a meaningful name for your volume. For example, provide a name that describes your compute or workload function. The volume name must begin with a lowercase letter. The volume name can be up to 63 lowercase alpha-numeric characters and include the hyphen (-). Volume names must be unique across the VPC. You can edit the name later.
         - Specify a [Resource group](/docs/vpc?topic=vpc-iam-getting-started&interface=ui#iam-resource-groups).
         - Specify [user tags](/docs/vpc?topic=vpc-block-storage-about&interface=ui#storage-about-user-tags) to organize your resources and for use by [backup policies](/docs/vpc?topic=vpc-backup-service-about).
         - Specify [access management tags](/docs/vpc?topic=vpc-block-storage-about&interface=ui#storage-about-mgt-tags) that were created in IAM to help you manage access to your volumes.
 
-     1. In the **Optional configurations** section, the snapshot is preselected for you. 
+     1. In the **Optional configurations** section, the snapshot is preselected for you.
         - You can also apply a backup policy to the new volume if you want to. Click **Apply** to see available policies and plans.
         - Review the Attach to existing virtual server section. If you want to create a stand-alone volume, verify that the Do not attach box is checked. If you want to attach the volume to an instance, remove the check from the box and select an existing virtual server from the table.
 
-     1. In the **Profile** section, you can specify the performance profile of your volume, its performance limits, and capacity. Remember that the storage generation value of the snapshot must match the storage generation value of the volume profile select.
+     1. In the **Profile** section, you can specify the performance profile of your volume, its performance limits, and capacity. The storage generation value of the snapshot must match the storage generation value of the selected volume profile.
          - You can select the [`sdp` profile](/docs/vpc?topic=vpc-block-storage-profiles#defined-performance-profile) if your snapshot was created from a Generation 2 volume. Then, specify the capacity of your volume, the requested bandwidth limit, and the required IOPS. Volume size can range from 1 - 32,000 GB. You can specify IOPS in the range of 100 - 64,000. The throughput limit range is 1000-8192 Mbps.
-         - If your snapshot is from a Generation 1 volume, you can select one of the [_tiered_ profiles](/docs/vpc?topic=vpc-block-storage-profiles&interface=ui#tiers). After you select `general-purpose`, `5iops-tier`, or `10iops-tier`, the next step is to specify the volume capacity. Volume size can be 10 - 16,000 GB. 
+         - If your snapshot is from a Generation 1 volume, you can select one of the [_tiered_ profiles](/docs/vpc?topic=vpc-block-storage-profiles&interface=ui#tiers). After you select `general-purpose`, `5iops-tier`, or `10iops-tier`, the next step is to specify the volume capacity. Volume size can be 10 - 16,000 GB.
          - If your snapshot is from a Generation 1 volume and your performance requirements don't fall within any of the IOPS tiers, you can select the `custom` profile. Then, specify the size of your volume and the IOPS in the appropriate range for the volume capacity. As you type the IOPS value, the console shows the acceptable range. You can also click the **storage size** link to see the size and IOPS ranges of the [custom volume profile](/docs/vpc?topic=vpc-block-storage-profiles#custom).
 
      1. In the **Encryption at rest** section, you can choose to keep the encryption with IBM-managed keys that is enabled by default on all volumes. Or you can choose to use [your own encryption key](/docs/vpc?topic=vpc-block-storage-vpc-encryption) by selecting your key management service: {{site.data.keyword.keymanagementserviceshort}} or {{site.data.keyword.hscrypto}}. To locate your encryption key, select one of the following options:
@@ -122,7 +122,7 @@ From the list of {{site.data.keyword.block_storage_is_short}} snapshots, you can
         If you selected a second-generation snapshot to create the volume, your volume's encryption type must match the snapshot's encryption type. If the snapshot has provider-managed keys, do not specify a key from a key management service.
         {: note}
 
-     1. When you're finished, click **Create block storage volume**. 
+     1. When you're finished, click **Create block storage volume**.
         - If you're not ready to order yet or just looking for pricing information, you can add the information that you see in the side panel to an Estimate. For more information about how this feature works, see [Estimating your costs](/docs/account?topic=account-cost).
      1. The {{site.data.keyword.block_storage_is_short}} volumes page is shown, where a message indicates that the volume is being created (volume status is _pending_). A second message displays when the volume is created (volume status is _available_).
      1. To see details of the new volume, select the **View resource** link in the second message to go to the Volume details page.
@@ -192,7 +192,7 @@ You can also create a data volume from a snapshot for an existing instance. Choo
 4. From the Attach storage volume panel, expand the list of Block Volumes, and select **Create a data volume**.
 5. You can expand the list and select a snapshot, or search for a specific snapshot by its CRN.
 6. The snapshot contains the properties of the original source volume, including the auto-delete status, tags, profile, and encryption. You can change all these properties. Keep in mind that you can change the volume name, profile, size, and IOPS later, but you cannot change the encryption type or CRK after the volume is created.
-   
+
    If you selected a second-generation snapshot to create the volume, your volume's encryption type must match the snapshot's encryption type. If the snapshot has provider-managed keys, do not specify a key from a key management service.
    {: note}
 
@@ -203,7 +203,7 @@ You can also create a data volume from a snapshot for an existing instance. Choo
 {: #snapshots-vpc-restore-CLI}
 {: cli}
 
-Restoring from a bootable snapshot creates a boot volume that you can use to provision a virtual server instance. The boot volume uses a general-purpose profile and is limited to 250 GB. Data volumes are created and can be attached to the instance. You can restore volumes from a snapshot outside of instance provisioning as well, you can create stand-alone volumes and new auxiliary volumes for existing instances.
+Restoring from a bootable snapshot creates a boot volume that you can use to provision a virtual server instance. The boot volume can't exceed 250 GB. Data volumes are created and can be attached to the instance. You can restore volumes from a snapshot outside of instance provisioning as well, you can create stand-alone volumes and new auxiliary volumes for existing instances.
 
 ### Before you begin
 {: #snapshots-vpc-restore-prereq-CLI}
@@ -221,13 +221,15 @@ Before you can use the CLI, you must install the IBM Cloud CLI and the VPC CLI p
    This command returns a URL and prompts for a passcode. Go to that URL in your browser and log in. If successful, you get a one-time passcode. Copy this passcode and paste it as a response on the prompt. After successful authentication, you are prompted to choose your account. If you have access to multiple accounts, select the account that you want to log in as. Respond to any remaining prompts to finish logging in.
 
 1. Gather information about the snapshot or snapshots that you want to use to restore a volume.
-   - If you want to restore a volume from a single snapshot, locate the snapshot first and view its details. You can use the CLI to [view all the snapshots of an account in a region](/docs/vpc?topic=vpc-snapshots-vpc-view&interface=cli#snapshots-vpc-view-all-account-cli) and select from the list. Alternatively, you can also [list all the snapshots of a specific volume](/docs/vpc?topic=vpc-snapshots-vpc-view&interface=cli#snapshots-vpc-view-all-snapshots-cli) and choose one from the output. Then, use the `ibmcloud is snapshots SNAPSHOT_ID` command to list the details of the chosen snapshot. If you want to restore a volume from a snapshot of another account, contact the snapshot's owner for the CRN of the snapshot.
-   - If you want to restore an instance by restoring multiple volumes from a consistency group, you need to gather information about the snapshots in the consistency group. [List all the consistency groups in the region](/docs/vpc?topic=vpc-snapshots-vpc-view&interface=cli#snapshots-vpc-view-all-consistency-groups-cli). Then, take the ID of the consistency group and use it with the `ibmcloud is snapshots` command to filter the output to the snapshots in the specified consistency group. See the following example.
 
-   ```sh
-   ibmcloud is snapshots --snapshot-consistency-group CONSISTENCY_GROUP_ID
-   ```
-   {: pre}
+   - If you want to restore a volume from a single snapshot, locate the snapshot first and view its details. You can use the CLI to [view all the snapshots of an account in a region](/docs/vpc?topic=vpc-snapshots-vpc-view&interface=cli#snapshots-vpc-view-all-account-cli) and select from the list. Alternatively, you can also [list all the snapshots of a specific volume](/docs/vpc?topic=vpc-snapshots-vpc-view&interface=cli#snapshots-vpc-view-all-snapshots-cli) and choose one from the output. Then, use the `ibmcloud is snapshots SNAPSHOT_ID` command to list the details of the chosen snapshot. If you want to restore a volume from a snapshot of another account, contact the snapshot's owner for the CRN of the snapshot.
+
+   - If you want to restore an instance by restoring multiple volumes from a consistency group, you need to gather information about the snapshots in the consistency group. [List all the consistency groups in the region](/docs/vpc?topic=vpc-snapshots-vpc-view&interface=cli#snapshots-vpc-view-all-consistency-groups-cli).Then, take the ID of the consistency group and use it with the `ibmcloud is snapshots` command to filter the output to the snapshots in the specified consistency group. See the following example.
+
+       ```sh
+       ibmcloud is snapshots --snapshot-consistency-group CONSISTENCY_GROUP_ID
+       ```
+       {: pre}
 
 ### Creating a boot volume from a snapshot for a new instance from the CLI
 {: #snapshots-vpc-restore-boot-CLI}
@@ -362,8 +364,10 @@ For more information about available command options, see [`ibmcloud is volume-c
 You can programmatically restore a volume during instance provisioning by calling the `/instances` method in the [VPC API](/apidocs/vpc/latest#create-instance){: external} as shown in the following sample request. You can also create a stand-alone volume by calling the `/volumes` method in the [VPC API](/apidocs/vpc/latest#create-volume){: external}.
 
 Before you begin, gather information about the snapshot or snapshots that you want to use to restore a volume or volumes.
+
    - If you want to restore a volume from a single snapshot, locate the snapshot first and view its details. You can use the API to [list all the snapshots of an account in a region](/apidocs/vpc/latest#list-snapshots){: external} and select from the list. Then, [retrieve the snapshot](/apidocs/vpc/latest#get-snapshot){: external} details. If you want to restore a volume from a snapshot of another account, contact the snapshot's owner for the CRN of the snapshot.
-   - If you want to restore an instance by restoring multiple volumes from a consistency group, you need to gather information about the snapshots in the consistency group. [List all the consistency groups in the region](/apidocs/vpc/latest#list-snapshot-consistency-groups){: external}. Then, take the ID of the consistency group that you want to restore and use it to [retrieve the snapshot consistency group](/apidocs/vpc/latest#get-snapshot-consistency-group){: external} details.
+
+   - If you want to restore an instance by restoring multiple volumes from a consistency group, you need to gather information about the snapshots in the consistency group. [List all the consistency groups in the region](/apidocs/vpc/latest#list-snapshot-consistency-groups){: external}.  Then, take the ID of the consistency group that you want to restore and use it to [retrieve the snapshot consistency group](/apidocs/vpc/latest#get-snapshot-consistency-group){: external} details.
 
 A snapshot whose `storage_generation` property value is 1 can be used only to create a block storage volume with the same `storage_generation` value. When you create a volume from a snapshot, the `storage_generation` values of the snapshot and the selected volume profile must match.
 
