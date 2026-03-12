@@ -2,7 +2,7 @@
 
 copyright:
   years: 2020, 2026
-lastupdated: "2026-02-10"
+lastupdated: "2026-03-12"
 
 keywords: virtual private network, faq, faqs, frequently asked questions, vpn, vpn gateway
 
@@ -94,7 +94,7 @@ VPN encryption adds minimal overhead. IBM Cloud optimizes VPN for reliable perfo
 {: #faq-vpn-9}
 {: faq}
 
-To troubleshoot IBM Cloud VPN connection issues, check the VPN dashboard tunnel status, validate routes, review access and firewall rules. See [site-to-site troubleshooting](/docs/vpc?group=tbs-site-to-site-vpn-gateways).
+To troubleshoot IBM Cloud VPN connection issues, check the VPN dashboard tunnel status, validate routes, review access, and firewall rules. See [site-to-site troubleshooting](/docs/vpc?group=tbs-site-to-site-vpn-gateways).
 
 ## Are there notifications for VPN service unavailability?
 {: #faq-vpn-10}
@@ -197,7 +197,7 @@ No, only IPsec site-to-site is supported.
 {: #faq-vpn-25}
 {: faq}
 
-Up to 650 Mbps of throughput is supported.
+Yes, the throughput depends on various factors such as VPN mode, traffic distribution, cryptographic settings, compute capacity, network conditions, and peer device capacity. Under optimal conditions, a route‑based VPN deployed in active‑active mode with distribute traffic enabled can support up to ~2 Gbps aggregate throughput across both tunnels (based on IBM internal benchmark testing, not a guaranteed limit in your environment). For more information on the VPN throughput, see [Improving site-to-site VPN throughput and performance](docs/vpc?topic=vpc-vpn-performance&interface=ui)
 
 ## Is Pre-Shared Key (PSK) and certificate-based IKE authentication supported for VPNaaS?
 {: #faq-vpn-26}
@@ -215,7 +215,7 @@ Yes. The recommended method to connect your classic network to a VPC is to use a
 {: #faq-vpn-28}
 {: faq}
 
-A rekey collision occurs when both VPN peers attempt to initiate a rekey at the same time, which can lead to conflicting negotiations, tunnel instability or dropped connections. This issue is commonly observed in IKEv1, because both sides must use matching key lifetimes, and the protocol lacks collision-handling mechanisms, which makes it unreliable. IKEv1 is also old and should be avoided if possible. However, IKEv2 supports asymmetric key lifetimes to gracefully handle simultaneous rekey attempts. If you use IKEv1, rekey collision deletes the IKE/IPsec security association (SA). To re-create the IKE/IPsec SA, set the connection admin state to `down` and then `up` again. To minimize rekey collisions and maintain stable performance, use IKEv2.
+A rekey collision occurs when both VPN peers attempt to initiate a rekey at the same time, which can lead to conflicting negotiations, tunnel instability or dropped connections. This issue is commonly observed in IKEv1 because both sides must use matching key lifetimes, and the protocol lacks collision-handling mechanisms, which makes it unreliable. IKEv1 is also old and should be avoided if possible. However, IKEv2 supports asymmetric key lifetimes to gracefully handle simultaneous rekey attempts. If you use IKEv1, rekey collision deletes the IKE/IPsec security association (SA). To re-create the IKE/IPsec SA, set the connection admin state to `down` and then `up` again. To minimize rekey collisions and maintain stable performance, use IKEv2.
 
 ## How can I send all traffic from the VPC side to the on-premises side in a policy-based VPN?
 {: #faq-vpn-29}
@@ -228,59 +228,59 @@ When a connection is created successfully, the VPN service adds a CIDR `0.0.0.0/
 
    To troubleshoot routing issues, see [Why aren't my VPN gateways or virtual server instances communicating?](/docs/vpc?topic=vpc-troubleshoot-routing-issues).
 
-## Can I connect my VPN to multiple Transit Gateways in a dynamic route-based VPN connection?
+## What is the difference between static and dynamic route-based VPN connection types?
 {: #faq-vpn-30}
+{: faq}
+
+Static routing connection doesn't use BGP for route advertisements, and can't advertise routes to Transit Gateway or on-premises network. For this connection, all routes need to be manually created and managed, whereas for dynamic connection, no manual configuration is required after the initial provisioning and attachment.
+
+## Can I connect my VPN to multiple Transit Gateways in a dynamic route-based VPN connection?
+{: #faq-vpn-31}
 {: faq}
 
 No, each VPN gateway can be connected to only one Transit Gateway.
 
 ## Is dynamic routing supported when creating a route-based VPN gateway?
-{: #faq-vpn-31}
+{: #faq-vpn-32}
 {: faq}
 
 Yes, dynamic VPN connection is supported by a route-based VPN gateway. See [Creating a VPN gateway](/docs/vpc?topic=vpc-vpn-create-gateway&interface=ui) to create route-based VPN and select **dynamic** for the connection type.
 
 ## What is ASN and why do I need it for dynamic routing?
-{: #faq-vpn-32}
+{: #faq-vpn-33}
 {: faq}
 
 An Autonomous System Number (ASN) is a unique identifier that is used in Border Gateway Protocol (BGP) to represent an Autonomous System (AS). It functions similarly to a public IP address in an IPsec connection and serves as a key attribute for identifying devices within a network. Each device within the network is assigned to a specific ASN, and without a valid ASN, a VPN gateway cannot successfully establish a BGP session with other devices in the network.
 
 ## Do I need to attach a Transit Gateway for the dynamic routing connection to work?
-{: #faq-vpn-33}
+{: #faq-vpn-34}
 {: faq}
 
 Yes, you need to attach a Transit Gateway for the dynamic routing connection to function properly. Without a Transit Gateway, communication between the VPN gateway and your on-premises network doesn't work, even if the IPsec connection is established.
 
 ## Can I attach an existing Transit Gateway to the route-based VPN for dynamic routing?
-{: #faq-vpn-34}
+{: #faq-vpn-35}
 {: faq}
 
 Yes, you can attach an existing Transit Gateway to the route-based VPN for dynamic routing. You don't need to create a new Transit Gateway.
 
 ## Why do I need a Transit Gateway for dynamic route-based connection?
-{: #faq-vpn-35}
+{: #faq-vpn-36}
 {: faq}
 
 A Transit Gateway is essential for dynamic routing because it acts as a central hub for all connections within your network. The Transit Gateway manages the routing for all spokes, including VPN connections. Without the Transit Gateway the spokes would be unable to communicate with each other, as they rely on the hub Transit Gateway to facilitate and route traffic between them.
 
 ## What is the use of advertised CIDRs?
-{: #faq-vpn-36}
+{: #faq-vpn-37}
 {: faq}
 
 Advertised CIDRs are static IP address ranges that are reachable from the VPN and advertised to your on-premises network. These CIDRs are useful for private endpoints that can't be connected directly to a Transit Gateway, such Secrets Manager endpoints or Cloud Object Storage endpoints. By advertising these CIDRs from the IBM VPN to your on-premises network, any resource within your on-premises environment can connect to these endpoints.
 
 ## Do I need to configure routes when I create a dynamic route-based VPN connection?
-{: #faq-vpn-37}
-{: faq}
-
-No, you don't need to manually configure routes when you create a dynamic route-based VPN connection. All spokes connected to the Transit Gateway automatically connect to your on-premises network.
-
-## What is the difference between static and dynamic route-based VPN connection types?
 {: #faq-vpn-38}
 {: faq}
 
-Static routing connection doesn't use BGP for route advertisements, and can't advertise routes to Transit Gateway or on-premises network. For this connection, all routes need to be manually created and managed, whereas for dynamic connection, no manual configuration is required after the initial provisioning and attachment.
+No, you don't need to manually configure routes when you create a dynamic route-based VPN connection. All spokes connected to the Transit Gateway automatically connect to your on-premises network.
 
 ## How many routes does VPN for VPC support per VPN peer for a dynamic, route-based connection?
 {: #faq-vpn-39}
