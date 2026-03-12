@@ -197,7 +197,7 @@ No, only IPsec site-to-site is supported.
 {: #faq-vpn-25}
 {: faq}
 
-Yes, the throughput depends on various factors such as VPN mode, traffic distribution, cryptographic settings, compute capacity, network conditions, and peer device capacity. Under optimal conditions, a route‑based VPN deployed in active‑active mode with distribute traffic enabled can support up to ~2 Gbps aggregate throughput across both tunnels (based on IBM internal benchmark testing, not a guaranteed limit in your environment). For more information on the VPN throughput, see [Improving site-to-site VPN throughput and performance](docs/vpc?topic=vpc-vpn-performance&interface=ui)
+Yes, the throughput depends on various factors such as VPN mode, traffic distribution, cryptographic settings, compute capacity, network conditions, and peer device capacity. Under optimal conditions, a route‑based VPN deployed in active‑active mode with distribute traffic enabled can support up to ~2 Gbps aggregate throughput across both tunnels (based on IBM internal benchmark testing, not a guaranteed limit in your environment). For more information on the VPN throughput, see [Improving site-to-site VPN throughput and performance](docs/vpc?topic=vpc-vpn-performance&interface=ui).
 
 ## Is Pre-Shared Key (PSK) and certificate-based IKE authentication supported for VPNaaS?
 {: #faq-vpn-26}
