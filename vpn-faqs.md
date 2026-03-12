@@ -2,7 +2,7 @@
 
 copyright:
   years: 2020, 2026
-lastupdated: "2026-02-10"
+lastupdated: "2026-03-12"
 
 keywords: virtual private network, faq, faqs, frequently asked questions, vpn, vpn gateway
 
@@ -94,7 +94,7 @@ VPN encryption adds minimal overhead. IBM Cloud optimizes VPN for reliable perfo
 {: #faq-vpn-9}
 {: faq}
 
-To troubleshoot IBM Cloud VPN connection issues, check the VPN dashboard tunnel status, validate routes, review access and firewall rules. See [site-to-site troubleshooting](/docs/vpc?group=tbs-site-to-site-vpn-gateways).
+To troubleshoot IBM Cloud VPN connection issues, check the VPN dashboard tunnel status, validate routes, review access, and firewall rules. See [site-to-site troubleshooting](/docs/vpc?group=tbs-site-to-site-vpn-gateways).
 
 ## Are there notifications for VPN service unavailability?
 {: #faq-vpn-10}
@@ -197,7 +197,7 @@ No, only IPsec site-to-site is supported.
 {: #faq-vpn-25}
 {: faq}
 
-Up to 650 Mbps of throughput is supported.
+Yes, the throughput depends on various factors such as VPN mode, traffic distribution, cryptographic settings, compute capacity, network conditions, and peer device capacity. Under optimal conditions, a route‑based VPN deployed in active‑active mode with distribute traffic enabled can support up to ~2 Gbps aggregate throughput across both tunnels (based on IBM internal benchmark testing, not a guaranteed limit in your environment). For more information on the VPN throughput, see [Improving site-to-site VPN throughput and performance](docs/vpc?topic=vpc-vpn-performance&interface=ui)
 
 ## Is Pre-Shared Key (PSK) and certificate-based IKE authentication supported for VPNaaS?
 {: #faq-vpn-26}
@@ -215,7 +215,7 @@ Yes. The recommended method to connect your classic network to a VPC is to use a
 {: #faq-vpn-28}
 {: faq}
 
-A rekey collision occurs when both VPN peers attempt to initiate a rekey at the same time, which can lead to conflicting negotiations, tunnel instability or dropped connections. This issue is commonly observed in IKEv1, because both sides must use matching key lifetimes, and the protocol lacks collision-handling mechanisms, which makes it unreliable. IKEv1 is also old and should be avoided if possible. However, IKEv2 supports asymmetric key lifetimes to gracefully handle simultaneous rekey attempts. If you use IKEv1, rekey collision deletes the IKE/IPsec security association (SA). To re-create the IKE/IPsec SA, set the connection admin state to `down` and then `up` again. To minimize rekey collisions and maintain stable performance, use IKEv2.
+A rekey collision occurs when both VPN peers attempt to initiate a rekey at the same time, which can lead to conflicting negotiations, tunnel instability or dropped connections. This issue is commonly observed in IKEv1 because both sides must use matching key lifetimes, and the protocol lacks collision-handling mechanisms, which makes it unreliable. IKEv1 is also old and should be avoided if possible. However, IKEv2 supports asymmetric key lifetimes to gracefully handle simultaneous rekey attempts. If you use IKEv1, rekey collision deletes the IKE/IPsec security association (SA). To re-create the IKE/IPsec SA, set the connection admin state to `down` and then `up` again. To minimize rekey collisions and maintain stable performance, use IKEv2.
 
 ## How can I send all traffic from the VPC side to the on-premises side in a policy-based VPN?
 {: #faq-vpn-29}
