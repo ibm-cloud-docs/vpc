@@ -2,7 +2,7 @@
 
 copyright:
   years: 2019, 2026
-lastupdated: "2026-02-12"
+lastupdated: "2026-03-12"
 
 keywords: Block Storage profiles, Block Storage for VPC, IOPS tiers, custom IOPS, storage performance
 
@@ -24,18 +24,18 @@ When you provision {{site.data.keyword.block_storage_is_short}} volumes by using
 When you create a Block Storage volume, you can select from various profiles.
 - The defined performance family profile provides even more flexibility when it comes to specifying capacity and IOPS. Volume profiles in the defined performance family can scale volume performance independent of capacity. By using the `sdp` profile, you can create a volume with up to 32 TB capacity and an IOPS value in a range of 100 - 64,000.
 - Select a profile from the _tiered_ profile family when you want to pick a profile where performance scales with capacity of the volume.
-- Select the profile from the _custom_ profile family if your performance requirements don't fall within any of the predefined IOPS tiers. When you select the custom profile, you can define your IOPS within a range that depends on the capacity that you specified. 
+- Select the profile from the _custom_ profile family if your performance requirements don't fall within any of the predefined IOPS tiers. When you select the custom profile, you can define your IOPS within a range that depends on the capacity that you specified.
 
-The `sdp` profile is available in the Dallas, Frankfurt, London, Madrid, Osaka, Sao Paulo, Sydney, Tokyo, Toronto, and Washington, DC regions. The _custom_ and _tiered_ profiles are available in every region for every customer. 
+The `sdp` profile is available in the Dallas, Frankfurt, London, Madrid, Osaka, Sao Paulo, Sydney, Tokyo, Toronto, and Washington, DC regions. The _custom_ and _tiered_ profiles are available in every region for every customer.
 
 The following table shows the available storage profiles with their different properties.
 
 | Family name  | Profile name      | Capacity range \n (GB) | IOPS rate \n (IOPS/GB)  | IOPS range [^ttext1] \n (IOPS)| Max throughput[^ttext2]|
 |--------------|-------------------|---------------:|----------------------:|------------------:|-----------------------:|
 | defined performance | `sdp`      |     1 - 32,000 | 100 - 64k | 100 - 64,000[^ttext4] | 1024 MBps \n (8192 Mbps)|
-| tiered       | `general-purpose` |    10 - 16,000 |  3        | 3,000 - 48,000 |  670 MBps \n (5360 Mbps)| 
+| tiered       | `general-purpose` |    10 - 16,000 |  3        | 3,000 - 48,000 |  670 MBps \n (5360 Mbps)|
 | tiered       | `5iops-tier`      |    10 -  9,600 |  5        | 3,000 - 48,000 |  768 MBps \n (6144 Mbps) |
-| tiered       | `10iops-tier`     |    10 -  4,800 | 10        | 3,000 - 48,000 | 1024 MBps \n (8192 Mbps)| 
+| tiered       | `10iops-tier`     |    10 -  4,800 | 10        | 3,000 - 48,000 | 1024 MBps \n (8192 Mbps)|
 | custom       | `custom`          |    10 - 16,000 | 10 - 100  | 100 - 48,000[^ttext3] | 1024 MBps \n (8192 Mbps)|
 {: caption="Block Storage profiles and performance levels." caption-side="bottom"}
 
@@ -85,7 +85,7 @@ When you create your storage volume, you can select from three predefined IOPS t
 |------------------|------------:|----------------:|-------------:|----------------------:|
 | `general-purpose` - Workloads that host small databases for web applications or store virtual machine disk images for a hypervisor. |  10 - 16,000 | 3 IOPS/GB  | 3,000	- 48,000 | 16  |
 | `5iops-tier` - High I/O intensity workloads - Workloads characterized by a large percentage of active data, such as transactional and other performance-sensitive databases.|  10 - 9,600 | 5 IOPS/GB | 3,000 - 48,000 | 16  |
-| `10iops-tier` - Demanding storage workloads - Data intensive workloads created by NoSQL databases, data processing for video, machine learning, and analytics.| 10 - 4,800 | 10 IOPS/GB | 3,000 - 48,000 | 256  | 
+| `10iops-tier` - Demanding storage workloads - Data intensive workloads created by NoSQL databases, data processing for video, machine learning, and analytics.| 10 - 4,800 | 10 IOPS/GB | 3,000 - 48,000 | 256  |
 {: caption="IOPS tier profiles and performance levels for each tier" caption-side="bottom"}
 
 Max IOPS for all volume profiles from the _tiered_ family starts at 3,000 IOPS. Max IOPS then increases, based on the storage tier and volume size, up to the Max IOPS in Table 2. While you can't customize the IOPS value of a volume with a tiered profile, you can change the volume to another tiered profile and adjust the IOPS that way.
@@ -95,9 +95,9 @@ Max IOPS for all volume profiles from the _tiered_ family starts at 3,000 IOPS. 
 
 Custom IOPS is a good option when you have well-defined performance requirements that do not fall within a predefined IOPS tier. You can customize the IOPS by specifying the total IOPS for the volume within the range for its volume size. You can provision volumes with IOPS performance from 100 IOPS to 48,000 IOPS, based on volume size.
 
-The following table shows the available IOPS ranges based on volume capacity for the custom profile. 
+The following table shows the available IOPS ranges based on volume capacity for the custom profile.
 
-| Intended workload | Capacity range (GB)	| IOPS range    | Throughput multiplier (KB)| 
+| Intended workload | Capacity range (GB)	| IOPS range    | Throughput multiplier (KB)|
 |-------------------|--------------------:|--------------:|--------------------------:|
 | Custom            | 10 - 39             | 100 - 1,000   |                       256 |
 |                   | 40 - 79             | 100 - 2,000   |                       256 |
@@ -116,7 +116,7 @@ If your application needs more IOPS and throughput, you can increase the volume 
 ## Profiles for boot volumes
 {: #vsi-profiles-boot}
 
-By default, boot volumes are created with the `general-purpose` volume profile with 100 GB capacity during instance provisioning. When you provision an instance in the console, from the CLI, with the API, or Terraform, you can specify the `sdp` volume profile to create second-generation volumes. [Boot volume capacity](/docs/vpc?topic=vpc-resize-boot-volumes) can be increased by modifying the boot volume, up to 250 GB.. Boot volume IOPS and bandwidth are never reduced to be less than 3000 IOPS or 393 Mbps.
+By default, boot volumes are created with the `general-purpose` volume profile with 100 GB capacity during instance provisioning. When you provision an instance in the console, from the CLI, with the API, or Terraform, you can specify the `sdp` volume profile to create second-generation volumes. [Boot volume capacity](/docs/vpc?topic=vpc-expanding-block-storage-volumes#resize-boot-volumes) can be increased by modifying the boot volume, up to 250 GB.. Boot volume IOPS and bandwidth are never reduced to be less than 3000 IOPS or 393 Mbps.
 
 ## How virtual server profiles relate to volume profiles
 {: #vsi-profiles-relate-to-storage}
@@ -185,9 +185,9 @@ ibmcloud is volume-profile sdp
 
 ```sh
 Getting volume profile sdp under account Test Account as user test.user@ibm.com...
-                                          
-Name                                   sdp   
-Family                                 defined_performance   
+
+Name                                   sdp
+Family                                 defined_performance
 Adjustable IOPS                        true
 Boot capacity                          Max     Min
                                        32000   1
@@ -200,10 +200,10 @@ IOPS                                   Max     Min    Default   Step
 
 Bandwidth(Mbps)                        Max    Min    Default   Step   Value
                                        8192   1000   1000      1      -
-                                          
+
 Storage Generation                     2
 Adjustable Bandwidth Supported         true
-Adjustable Capacity States             attached, unattached 
+Adjustable Capacity States             attached, unattached
 Adjustable IOPS State                  attached, unattached
 ```
 {: screen}
@@ -312,14 +312,14 @@ For more information about this method, see the API reference for [listing all v
 
 2. VPC infrastructure services use a specific regional endpoint, which targets to `us-south` by default. If your VPC is created in another region, make sure to target the appropriate region in the provider block in the `provider.tf` file. See the following example of targeting a region other than the default `us-south`.
 
-   ```terraform 
+   ```terraform
    provider "ibm" {
       region = "eu-de"
    }
    ```
    {: codeblock}
 
-3. Import the list of available volume profiles as a read-only data source. 
+3. Import the list of available volume profiles as a read-only data source.
 
    ```terraform
    data "ibm_is_volume_profiles" "example" {
@@ -334,7 +334,7 @@ For more information about this method, see the API reference for [listing all v
 
 For more information about the pricing of the volume profiles, see the [FAQs](/docs/vpc?topic=vpc-block-storage-vpc-faq#faq-bs-pricing).
 
-For more information about how to expand volume capacity, see [expanding Block Storage volume capacity](/docs/vpc?topic=vpc-expanding-block-storage-volumes).
+For more information about how to expand volume capacity, see [expanding Block Storage volume capacity](/docs/vpc?topic=vpc-expanding-block-storage-volumes#expanding-data-volumes).
 
 For more information about how to change the IOPS tier or Custom IOPS for an existing volume, see [Adjusting IOPS of a Block Storage for VPC volume](/docs/vpc?topic=vpc-adjusting-volume-iops).
 

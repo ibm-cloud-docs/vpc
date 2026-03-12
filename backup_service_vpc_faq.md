@@ -2,7 +2,7 @@
 
 copyright:
   years: 2022, 2026
-lastupdated: "2026-02-24"
+lastupdated: "2026-03-12"
 
 keywords: Backup for VPC, backup service, backup plan, backup policy, restore, restore volume, restore data, faqs
 
@@ -36,7 +36,7 @@ Before you can create backup policies, you need to grant [service-to-service aut
 {: faq}
 {: #faq-baas-function}
 
-You can add [user tags](/docs/vpc?topic=vpc-backup-service-about&interface=ui#backup-service-about-tags) to your volumes, shares, or virtual server instances, and specify the same tags in a backup policy. When the tags match, a backup is triggered based on the backup plan schedule. You can [view backup jobs](/docs/vpc?topic=vpc-backup-view-policy-jobs) to see the progress of the operation. The Snapshot for VPC service is used to create the backup. The entire contents of the volume or share are copied and retained for the number of days or total number of backups that are specified in the backup plan. When the retention period is reached, the older backups are deleted. 
+You can add [user tags](/docs/vpc?topic=vpc-backup-service-about&interface=ui#backup-service-about-tags) to your volumes, shares, or virtual server instances, and specify the same tags in a backup policy. When the tags match, a backup is triggered based on the backup plan schedule. You can [view backup jobs](/docs/vpc?topic=vpc-backup-view-policy-jobs) to see the progress of the operation. The Snapshot for VPC service is used to create the backup. The entire contents of the volume or share are copied and retained for the number of days or total number of backups that are specified in the backup plan. When the retention period is reached, the older backups are deleted.
 
 ## What resources are backed up?
 {: faq}
@@ -44,7 +44,7 @@ You can add [user tags](/docs/vpc?topic=vpc-backup-service-about&interface=ui#ba
 
 {{site.data.keyword.block_storage_is_short}} data and boot volumes with user tags that match the tags in a [backup policy](/docs/vpc?topic=vpc-backup-service-about&interface=ui#backup-service-policies) are backed up. You can also tag virtual server instances, in that case, the attached Block Storage volumes are backed up as a consistency group. Similarly, you can tag and backup file shares.
 
-You can't take a backup snapshot of a replica share. When you create a backup snapshot of the origin share, then that backup snapshot is copied to the replica at the next replication cycle. 
+You can't take a backup snapshot of a replica share. When you create a backup snapshot of the origin share, then that backup snapshot is copied to the replica at the next replication cycle.
 {: note}
 
 ## How do I enable my volumes or shares to be backed up?
@@ -107,13 +107,13 @@ Pricing of subsequent backups can also increase or decrease when you [increase s
 
 The fast restore feature is billed at an extra hourly rate for each zone that it is enabled in regardless of the size of the snapshot. Maintaining fast restore clones is considerably more costly than keeping regular snapshots.
 
-You can use the Cost estimator ![Cost estimator icon](../icons/calculator.svg "Cost estimator") in the console to see how the changes in the stored volume affect the cost. For more information, see [Estimating your costs](/docs/account?topic=account-cost).     
+You can use the Cost estimator ![Cost estimator icon](../icons/calculator.svg "Cost estimator") in the console to see how the changes in the stored volume affect the cost. For more information, see [Estimating your costs](/docs/account?topic=account-cost).
 
 ## Can I use data backups for disaster recovery?
 {: faq}
 {: #faq-baas-dr}
 
-Using the [backup service](/docs/vpc?topic=vpc-backup-service-about), you can regularly back up your data based on a schedule that you set up. You can create backup snapshots as frequently as 1 hour. 
+Using the [backup service](/docs/vpc?topic=vpc-backup-service-about), you can regularly back up your data based on a schedule that you set up. You can create backup snapshots as frequently as 1 hour.
 
 You can also create copies of your volume backup snapshot in other regions. However, the backup service does not provide continual backup with automatic failover. Restoring a volume from a backup or snapshot is a manual operation that takes time. If you require a higher level of service for automatic disaster recovery, see IBM's [Cloud disaster recovery solutions](https://www.ibm.com/solutions/disaster-recovery).
 
@@ -157,9 +157,9 @@ When you include the creation of a cross-regional copy in your backup plan, the 
 {: faq}
 {: #crc-full-copy}
 
-The first time that you create a cross-regional copy, that snapshot is a full copy of the parent volume's data. Subsequent copies can be incremental or full copies. 
+The first time that you create a cross-regional copy, that snapshot is a full copy of the parent volume's data. Subsequent copies can be incremental or full copies.
 
-Whether the remote copy is incremental depends on the immediately preceding snapshot in the chain. If the immediately preceding snapshot exists in the destination region, the copy can be incremental. If the immediately preceding snapshot does not exist or is not stable, the copy must be a full snapshot of the parent volume. 
+Whether the remote copy is incremental depends on the immediately preceding snapshot in the chain. If the immediately preceding snapshot exists in the destination region, the copy can be incremental. If the immediately preceding snapshot does not exist or is not stable, the copy must be a full snapshot of the parent volume.
 
 Your backup schedule's frequency also plays a role. If your backup plan initiates the creation of a remote copy before the previous backup copy becomes stable, the system is unable to treat the newly initiated copy as incremental. For more information, see [Cross-regional backup copies](/docs/vpc?topic=vpc-backup-service-about&interface=ui#backup-service-crc).
 
@@ -167,7 +167,7 @@ Your backup schedule's frequency also plays a role. If your backup plan initiate
 {: faq}
 {: #faq-snapshot-consistency-group-backups}
 
-A consistency group is a collection of backup snapshots that are created together at the same time. It is used to create backup snapshots of multiple volumes that are attached to the same virtual server instance simultaneously to preserve data consistency. 
+A consistency group is a collection of backup snapshots that are created together at the same time. It is used to create backup snapshots of multiple volumes that are attached to the same virtual server instance simultaneously to preserve data consistency.
 
 The created snapshots are loosely coupled. The snapshots can be used to create new volumes. They can be copied to another region individually, and can be preserved after the consistency group is deleted. However, you can't copy a consistency group to another region or use the ID of the consistency group to create a virtual server instance.
 
@@ -201,8 +201,7 @@ You need to create a service-to-service authorization between the Backup for VPC
 {: faq}
 {: #faq-baas-en-location}
 
-{{site.data.keyword.en_short}} are supported in Dallas (`us-south`), London (`eu-gb`), Frankfurt (`eu-de`), Sydney (`au-syd`), Madrid (`eu-es`), Toronto (`ca-tor`), Osaka (`jp-osa`), and 
-Tokyo (`jp-tok`). For more information, see [Getting started with {{site.data.keyword.en_short}}](/docs/event-notifications?topic=event-notifications-getting-started). 
+{{site.data.keyword.en_short}} are supported in Dallas (`us-south`), London (`eu-gb`), Frankfurt (`eu-de`), Sydney (`au-syd`), Madrid (`eu-es`), Toronto (`ca-tor`), Osaka (`jp-osa`), and Tokyo (`jp-tok`). For more information, see [Getting started with {{site.data.keyword.en_short}}](/docs/event-notifications?topic=event-notifications-getting-started).
 
 For locations that don't currently support {{site.data.keyword.en_short}}, the notifications can be routed to another region. For more details, see the following table.
 

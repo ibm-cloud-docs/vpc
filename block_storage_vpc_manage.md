@@ -1,8 +1,8 @@
 ---
 
 copyright:
-  years: 2019, 2025
-lastupdated: "2025-10-09"
+  years: 2019, 2026
+lastupdated: "2026-03-12"
 
 keywords: Block storage for VPC, change IOPS, change auto-delete, increase volume, change name, rename volume, delete volume, renaming volume, updating volume
 
@@ -31,7 +31,7 @@ Use the UI to manage your block storage volumes. In the console, you can complet
 * Add user tags to a block storage volume.
 * Update the auto-delete setting of the volume.
 * Adjust the IOPS of a data volume. For more information, see [Adjusting IOPS](/docs/vpc?topic=vpc-adjusting-volume-iops).
-* Increase the capacity of a volume. For more information, see [Increasing capacity of a data volume](/docs/vpc?topic=vpc-expanding-block-storage-volumes) and [Increasing capacity of a boot volume](/docs/vpc?topic=vpc-resize-boot-volumes). 
+* Increase the capacity of a volume. For more information, see [Expanding block storage volume capacity](/docs/vpc?topic=vpc-expanding-block-storage-volumes).
 * For `sdp` volumes, adjust the throughput limit. For more information, see [Adjusting throughput limit](/docs/vpc?topic=vpc-adjusting-volume-throughput).
 * Delete a block storage data volume.
 
@@ -135,7 +135,7 @@ For more information about creating backups, see [Creating a backup policy](/doc
 {: #auto-delete-ui}
 {: ui}
 
-By using the Auto Delete feature, you can specify that a block storage volume is to be deleted when you delete the instance to which it is attached. For data volumes, this option is disabled by default. 
+By using the Auto Delete feature, you can specify that a block storage volume is to be deleted when you delete the instance to which it is attached. For data volumes, this option is disabled by default.
 
 When boot volumes are created during instance creation and automatic deletion is enabled for them. When you delete the instance, the boot volume is also deleted unless you disable this feature.
 
@@ -153,14 +153,14 @@ You can also enable or disable the Auto-delete option on the volumes when you cr
 {: #managing-block-storage-cli}
 {: cli}
 
-Manage your block storage from the command-line interface (CLI). From the CLI, you can: 
+Manage your block storage from the command-line interface (CLI). From the CLI, you can:
 
 * Rename a block storage volume.
 * Add user tags to a block storage volume.
 * Update the volume attachment by changing its name or changing the auto-delete setting.
 * Detach a volume from a virtual server instance.
 * Adjust the IOPS of a data volume. For more information, see [Adjusting IOPS](/docs/vpc?topic=vpc-adjusting-volume-iops).
-* Increase the capacity of a volume. For more information, see [Increasing capacity of a data volume](/docs/vpc?topic=vpc-expanding-block-storage-volumes) and [Increasing capacity of a boot volume](/docs/vpc?topic=vpc-resize-boot-volumes). 
+* Increase the capacity of a volume. For more information, see [Expanding block storage volume capacity](/docs/vpc?topic=vpc-expanding-block-storage-volumes).
 * For `sdp` volumes, adjust the throughput limit. For more information, see [Adjusting throughput limit](/docs/vpc?topic=vpc-adjusting-volume-throughput).
 * Delete a block storage data volume.
 
@@ -194,29 +194,29 @@ ibmcloud is volume-update r006-5ed4006b-3dac-4c95-8eeb-4aa9a85cbd34 --name my-da
 
 ```sh
 Updating volume r006-5ed4006b-3dac-4c95-8eeb-4aa9a85cbd34 under account Test Account as user test.user@ibm.com...
-                                          
-ID                                     r006-5ed4006b-3dac-4c95-8eeb-4aa9a85cbd34   
-Name                                   my-data-volume   
-CRN                                    crn:v1:bluemix:public:is:us-south-2:a/a1234567::volume:r006-5ed4006b-3dac-4c95-8eeb-4aa9a85cbd34   
-Status                                 available   
-Attachment state                       unattached   
-Capacity                               100   
-IOPS                                   3000   
-Bandwidth(Mbps)                        393   
-Profile                                general-purpose   
-Encryption key                         -   
-Encryption                             provider_managed   
-Resource group                         defaults   
-Created                                2025-01-22T00:54:01+00:00   
-Zone                                   us-south-2   
-Health State                              
-Volume Attachment Instance Reference   -   
-Source snapshot                        ID                                          Name      
-                                       r006-8428038a-a399-4894-8c84-c8d7a4a75fae   wdc-fst-rstore-c6a092f34118-4505      
-                                          
-Active                                 false   
-Adjustable IOPS                        false   
-Busy                                   false   
+
+ID                                     r006-5ed4006b-3dac-4c95-8eeb-4aa9a85cbd34
+Name                                   my-data-volume
+CRN                                    crn:v1:bluemix:public:is:us-south-2:a/a1234567::volume:r006-5ed4006b-3dac-4c95-8eeb-4aa9a85cbd34
+Status                                 available
+Attachment state                       unattached
+Capacity                               100
+IOPS                                   3000
+Bandwidth(Mbps)                        393
+Profile                                general-purpose
+Encryption key                         -
+Encryption                             provider_managed
+Resource group                         defaults
+Created                                2025-01-22T00:54:01+00:00
+Zone                                   us-south-2
+Health State
+Volume Attachment Instance Reference   -
+Source snapshot                        ID                                          Name
+                                       r006-8428038a-a399-4894-8c84-c8d7a4a75fae   wdc-fst-rstore-c6a092f34118-4505
+
+Active                                 false
+Adjustable IOPS                        false
+Busy                                   false
 Tags                                   -
 Storage Generation                     1
 ```
@@ -239,31 +239,31 @@ ibmcloud is volume-update r006-5ed4006b-3dac-4c95-8eeb-4aa9a85cbd34 --tags dev:t
 
 ```sh
 Updating volume r006-5ed4006b-3dac-4c95-8eeb-4aa9a85cbd34 under account Test Account as user test.user@ibm.com...
-                                          
-ID                                     r006-5ed4006b-3dac-4c95-8eeb-4aa9a85cbd34   
-Name                                   my-data-volume   
-CRN                                    crn:v1:bluemix:public:is:us-south-2:a/a1234567::volume:r006-5ed4006b-3dac-4c95-8eeb-4aa9a85cbd34   
-Status                                 available   
-Attachment state                       unattached   
-Capacity                               100   
-IOPS                                   3000   
-Bandwidth(Mbps)                        393   
-Profile                                general-purpose   
-Encryption key                         -   
-Encryption                             provider_managed   
-Resource group                         defaults   
-Created                                2025-01-22T00:54:01+00:00   
-Zone                                   us-south-2   
-Health State                              
-Volume Attachment Instance Reference   -   
-Source snapshot                        ID                                          Name      
-                                       r006-8428038a-a399-4894-8c84-c8d7a4a75fae   wdc-fst-rstore-c6a092f34118-4505      
-                                          
-Active                                 false   
-Adjustable IOPS                        false   
-Busy                                   false   
-Tags                                   dev:test  
-Storage Generation                     1 
+
+ID                                     r006-5ed4006b-3dac-4c95-8eeb-4aa9a85cbd34
+Name                                   my-data-volume
+CRN                                    crn:v1:bluemix:public:is:us-south-2:a/a1234567::volume:r006-5ed4006b-3dac-4c95-8eeb-4aa9a85cbd34
+Status                                 available
+Attachment state                       unattached
+Capacity                               100
+IOPS                                   3000
+Bandwidth(Mbps)                        393
+Profile                                general-purpose
+Encryption key                         -
+Encryption                             provider_managed
+Resource group                         defaults
+Created                                2025-01-22T00:54:01+00:00
+Zone                                   us-south-2
+Health State
+Volume Attachment Instance Reference   -
+Source snapshot                        ID                                          Name
+                                       r006-8428038a-a399-4894-8c84-c8d7a4a75fae   wdc-fst-rstore-c6a092f34118-4505
+
+Active                                 false
+Adjustable IOPS                        false
+Busy                                   false
+Tags                                   dev:test
+Storage Generation                     1
 ```
 {: screen}
 
@@ -290,7 +290,7 @@ ID                0757-6757e676-0bf5-4b79-9a5b-29c24e17420c
 Name              one-true-pairing
 Volume            ID                                          Name
                   r014-dee9736d-08ee-4992-ba8d-3b64a4f0baac   demo-volume-update
- 
+
 Status            attached
 Bandwidth(Mbps)   393
 Type              data
@@ -346,7 +346,7 @@ Manage your block storage programmatically by making requests to the [VPC REST A
 * Update the volume attachment by changing its name or changing the auto-delete setting.
 * Detach a volume from a virtual server instance.
 * Adjust the IOPS of a data volume. For more information, see [Adjusting IOPS](/docs/vpc?topic=vpc-adjusting-volume-iops).
-* Increase the capacity of a volume. For more information, see [Increasing capacity of a data volume](/docs/vpc?topic=vpc-expanding-block-storage-volumes) and [Increasing capacity of a boot volume](/docs/vpc?topic=vpc-resize-boot-volumes). 
+* Increase the capacity of a volume. For more information, see [Expanding block storage volume capacity](/docs/vpc?topic=vpc-expanding-block-storage-volumes).
 * For `sdp` volumes, adjust the throughput limit. For more information, see [Adjusting throughput limit](/docs/vpc?topic=vpc-adjusting-volume-throughput).
 * Delete a block storage data volume.
 
@@ -573,7 +573,7 @@ Manage your block storage as a code with Terraform. With the Terraform, you can:
 * Rename a block storage volume.
 * Add user tags to a block storage volume.
 * Adjust the IOPS of a data volume. For more information, see [Adjusting IOPS](/docs/vpc?topic=vpc-adjusting-volume-iops).
-* Increase the capacity of a volume. For more information, see [Increasing capacity of a data volume](/docs/vpc?topic=vpc-expanding-block-storage-volumes) and [Increasing capacity of a boot volume](/docs/vpc?topic=vpc-resize-boot-volumes). 
+* Increase the capacity of a volume. For more information, see [Expanding block storage volume capacity](/docs/vpc?topic=vpc-expanding-block-storage-volumes).
 * For `sdp` volumes, adjust the throughput limit. For more information, see [Adjusting throughput limit](/docs/vpc?topic=vpc-adjusting-volume-throughput).
 * Delete a block storage data volume.
 

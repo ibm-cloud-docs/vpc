@@ -2,7 +2,7 @@
 
 copyright:
   years: 2019, 2026
-lastupdated: "2026-03-11"
+lastupdated: "2026-03-12"
 
 keywords: faqs, Block Storage for vpc, fast restore, multizone, instance, instance provisioning, volume management, volume deletion.
 
@@ -227,19 +227,19 @@ You can create up to 300 total {{site.data.keyword.block_storage_is_short}} volu
 {: #faq-block-storage-8}
 {: support}
 
-You can increase the capacity of data volumes that are attached to a virtual server instance. You can indicate capacity in GB increments up to 16,000 GB capacity, depending on your volume profile. For more information, see [Increasing {{site.data.keyword.block_storage_is_short}} volume capacity](/docs/vpc?topic=vpc-expanding-block-storage-volumes).
+You can increase the capacity of data volumes that are attached to a virtual server instance. You can indicate capacity in GB increments up to 16,000 GB capacity, depending on your volume profile. For more information, see [Increasing {{site.data.keyword.block_storage_is_short}} volume capacity](/docs/vpc?topic=vpc-expanding-block-storage-volumes#expanding-data-volumes).
 
 ## Can I increase the capacity of a boot volume?
 {: faq}
 {: #faq-block-storge-rbv}
 
-Boot volume capacity can be increased up to 250 GB during instance provisioning or later, by directly modifying the boot volume. This feature applies to instances that are created from stock or custom images. You can also specify a larger boot volume capacity when you create an instance template. For more information, see [Increasing boot volume capacity](/docs/vpc?topic=vpc-resize-boot-volumes).
+Boot volume capacity can be increased up to 250 GB during instance provisioning or later, by directly modifying the boot volume. This feature applies to instances that are created from stock or custom images. You can also specify a larger boot volume capacity when you create an instance template. For more information, see [Increasing boot volume capacity](/docs/vpc?topic=vpc-expanding-block-storage-volumes#resize-boot-volumes).
 
 ## Can I change boot volume capacity for an existing instance?
 {: faq}
 {: #faq-block-storge-rbv-instance}
 
-Yes, boot volume capacity can be increased for an existing instance. For example, in the console, select a boot volume from the list of {{site.data.keyword.block_storage_is_short}} volumes and then resize the volume from the volume details page. For more information, see [Increase boot volume capacity from the list of {{site.data.keyword.block_storage_is_short}} volumes in the console](/docs/vpc?topic=vpc-resize-boot-volumes&interface=ui#resize-boot-vol-list-ui). You can also use the [CLI](/docs/vpc?topic=vpc-resize-boot-volumes&interface=cli#expand-existing-boot-vol-cli) or the [API](/docs/vpc?topic=vpc-resize-boot-volumes&interface=api#expand-existing-boot-vol-api).
+Yes, boot volume capacity can be increased for an existing instance. For example, in the console, select a boot volume from the list of {{site.data.keyword.block_storage_is_short}} volumes and then resize the volume from the volume details page. For more information, see [Increase boot volume capacity from the list of {{site.data.keyword.block_storage_is_short}} volumes in the console](/docs/vpc?topic=vpc-expanding-block-storage-volumes&interface=ui#resize-boot-vol-list-ui). You can also use the [CLI](/docs/vpc?topic=vpc-expanding-block-storage-volumes&interface=cli#expand-existing-boot-vol-cli) or the [API](/docs/vpc?topic=vpc-expanding-block-storage-volumes&interface=api#expand-existing-boot-vol-api).
 
 ## How many volumes can I provision on my account?
 {: faq}

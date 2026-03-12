@@ -2,7 +2,7 @@
 
 copyright:
   years: 2019, 2026
-lastupdated: "2026-02-26"
+lastupdated: "2026-03-12"
 
 keywords:
 
@@ -26,7 +26,7 @@ subcollection: vpc
 
 You pay for only the capacity that you need. When you use the SSD Defined Performance (`sdp`) volume profile, you can increase the size of your data volumes up to 32,000 GB, and your boot volumes to 250 GB. The maximum IOPS that a volume with the `sdp` profile can support is 64,000. You can also modify the throughput limit in the range of 125-1024 MBps (1000-8192 Mbps). Capacity, IOPS, and throughput values of volumes that are created with the `sdp` profile can be modified even when the volume is not attached to a virtual server instance.
 
-The capacity of volumes that are created with the [traditional profiles](#block-storage-profiles-intro) ranges from 10 GB up to 16,000 GB. For data volumes that are attached to a virtual server instance, you can [increase volume capacity](/docs/vpc?topic=vpc-expanding-block-storage-volumes) in GB increments, the maximum value depends on your volume profile. You can also [increase or decrease IOPS](/docs/vpc?topic=vpc-adjusting-volume-iops) for a volume that is attached to an instance.
+The capacity of volumes that are created with the [traditional profiles](#block-storage-profiles-intro) ranges from 10 GB up to 16,000 GB. For data volumes that are attached to a virtual server instance, you can [increase volume capacity](/docs/vpc?topic=vpc-expanding-block-storage-volumes#expanding-data-volumes) in GB increments, the maximum value depends on your volume profile. You can also [increase or decrease IOPS](/docs/vpc?topic=vpc-adjusting-volume-iops) for a volume that is attached to an instance.
 
 {{site.data.keyword.block_storage_is_short}} supports all [virtual server profiles](/docs/vpc?topic=vpc-block-storage-profiles#vsi-profiles-relate-to-storage).
 
@@ -61,7 +61,7 @@ You can create data volumes as stand-alone volumes or when you provision an inst
 
 Data volumes are encrypted by default with IBM-managed encryption. You can also encrypt data volumes by using your own root keys. You can use {{site.data.keyword.hpvs}} or {{site.data.keyword.keymanagementservicefull_notm}} as your key management service.
 
-{{site.data.keyword.block_storage_is_short}} data volumes can be attached to any available instance in your zone, based on your customer account and permissions, and within [certain limits](/docs/vpc?topic=vpc-attaching-block-storage#vol-attach-limits). 
+{{site.data.keyword.block_storage_is_short}} data volumes can be attached to any available instance in your zone, based on your customer account and permissions, and within [certain limits](/docs/vpc?topic=vpc-attaching-block-storage#vol-attach-limits).
 
 When the instance is deleted, these volumes are detached by default. Detaching by default allows your data to persist beyond the virtual server instance lifecycle. Only the volume's association with the instance is removed. Detached volumes can be attached to an available, running instance without reprovisioning the volume or the instance. Or you can delete data volumes manually after they are detached.
 
@@ -140,7 +140,7 @@ You can use {{site.data.keyword.atracker_full}} to configure how to route auditi
 ## Tags for {{site.data.keyword.block_storage_is_short}} volumes
 {: #storage-about-tags}
 
-{{site.data.keyword.block_storage_is_short}} is enabled for Global Searching and Tagging (GhoST). You can create and apply user tags and access management tags to volumes to better control and organize your {{site.data.keyword.block_storage_is_short}} resources across the VPC. 
+{{site.data.keyword.block_storage_is_short}} is enabled for Global Searching and Tagging (GhoST). You can create and apply user tags and access management tags to volumes to better control and organize your {{site.data.keyword.block_storage_is_short}} resources across the VPC.
 
 You can also apply tags to your boot and data volumes anytime in the console, from the CLI, with the API, and Terraform. Each resource can have up to 1000 user tags, and no more than 250 access tags. However, only 100 tags can be attached or detached in the same operation.
 
@@ -168,11 +168,11 @@ Block Storage Snapshots for VPC are point-in-time copies of your {{site.data.key
 ## {{site.data.keyword.block_storage_is_short}} data eradication
 {: #vpc-cancel-storage}
 
-If you no longer need a volume, you can delete it at any time. {{site.data.keyword.IBM_notm}} guarantees that data that you deleted cannot be accessed, and that deleted data is eventually overwritten and eradicated. 
+If you no longer need a volume, you can delete it at any time. {{site.data.keyword.IBM_notm}} guarantees that data that you deleted cannot be accessed, and that deleted data is eventually overwritten and eradicated.
 
 When you delete a {{site.data.keyword.block_storage_is_short}} volume, those blocks must be overwritten before that {{site.data.keyword.block_storage_is_short}} is made available again, either to you or to another customer.
 
-Further, when {{site.data.keyword.IBM_notm}} decommissions a physical drive, the drive is destroyed before disposal. Decommissioned drives are unusable and any data on them is inaccessible. For more information, see [Deleting a {{site.data.keyword.block_storage_is_short}} volume](/docs/vpc?topic=vpc-managing-block-storage#block-storage-data-eradication). 
+Further, when {{site.data.keyword.IBM_notm}} decommissions a physical drive, the drive is destroyed before disposal. Decommissioned drives are unusable and any data on them is inaccessible. For more information, see [Deleting a {{site.data.keyword.block_storage_is_short}} volume](/docs/vpc?topic=vpc-managing-block-storage#block-storage-data-eradication).
 
 If you have extra compliance requirements such as NIST 800-88 Guidelines for Media Sanitization, you must perform data sanitation procedures before you delete your volumes. For more information, see [Sanitize your data before you delete a volume](/docs/vpc?topic=vpc-managing-block-storage#block-storage-sanitization).
 
