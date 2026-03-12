@@ -1,8 +1,8 @@
 ---
 
 copyright:
-  years: 2021, 2025
-lastupdated: "2025-12-19"
+  years: 2021, 2026
+lastupdated: "2026-03-12"
 
 keywords: custom image, image from volume, troubleshooting, troubleshoot
 
@@ -12,7 +12,7 @@ content-type: troubleshoot
 
 ---
 
-{site.data.keyword.attribute-definition-list}}
+{{site.data.keyword.attribute-definition-list}}
 
 # Troubleshooting custom images
 {: #ifv-troubleshooting-custom-images}
