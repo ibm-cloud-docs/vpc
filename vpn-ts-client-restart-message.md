@@ -1,8 +1,8 @@
 ---
 
 copyright:
-  years: 2021, 2023
-lastupdated: "2023-01-31"
+  years: 2021, 2026
+lastupdated: "2026-03-12"
 
 keywords: virtual private network, VPN, VPN server, troubleshooting
 
@@ -22,8 +22,12 @@ content-type: troubleshoot
 When certificate authentication is enabled on the VPN server, and the certificate that is presented by the VPN client cannot be verified, the VPN server directs the VPN client to restart.
 {: shortdesc}
 
-The VPN client logs the following message `Connection reset, restarting`.
+The VPN client logs the following message:
 {: tsSymptoms}
+
+   ```sh
+   Connection reset, restarting
+   ```
 
 The client certificate cannot pass verification.
 {: tsCauses}
