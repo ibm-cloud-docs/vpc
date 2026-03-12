@@ -2,7 +2,7 @@
 
 copyright:
  years: 2022, 2026
-lastupdated: "2026-02-24"
+lastupdated: "2026-03-11"
 
 keywords: Backup, backup service, backup plan, backup policy, restore, restore volume, restore data
 
@@ -24,7 +24,7 @@ Backups and snapshot services are different than a [disaster recovery (DR)](#x21
 ## Backup service concepts
 {: #backup-service-concepts}
 
-You can create up to 10 [backup policies](#backup-service-policies) in one region with the {{site.data.keyword.cloud_notm}} Backup for VPC service. You can create up to four plans per policy, and edit and delete them as needed. If you're undecided on the backup schedule or retention requirements, you can create a backup policy without a plan and add one later. 
+You can create up to 10 [backup policies](#backup-service-policies) in one region with the {{site.data.keyword.cloud_notm}} Backup for VPC service. You can create up to four plans per policy, and edit and delete them as needed. If you're undecided on the backup schedule or retention requirements, you can create a backup policy without a plan and add one later.
 
 You can back up individual {{site.data.keyword.block_storage_is_short}} volumes or {{site.data.keyword.filestorage_vpc_short}} shares that are identified by tags.
 
@@ -54,13 +54,13 @@ Block storage backups, like block storage snapshots, have a lifecycle that is in
 
 You can copy a Block storage backup snapshot from one region to another region, and later use that snapshot to restore a volume in the new region. The [cross-regional copy](#backup-service-crc) can be used in disaster recovery scenarios when you need to turn on your virtual server instance and data volumes in a different region. The remote copy can be created automatically as part of a backup plan, or manually later.
 
-When the backup of a file share is triggered at the scheduled interval, a point-in-time snapshot is taken of your share. When the first backup snapshot is taken, the entire contents of the share are copied and retained in the same location as the share. Subsequent backups of the same volume capture the changes that occurred since the previous backup. You can take up to 750 backups of a share. If a file share has a replica in another zone, its backups are automatically copied to the replica location. However, file share backups cannot be independently copied to other zones or regions. For more information, see [About {{site.data.keyword.filestorage_vpc_short}} snapshots](/docs/vpc?topic=vpc-fs-snapshots-about).  
+When the backup of a file share is triggered at the scheduled interval, a point-in-time snapshot is taken of your share. When the first backup snapshot is taken, the entire contents of the share are copied and retained in the same location as the share. Subsequent backups of the same volume capture the changes that occurred since the previous backup. You can take up to 750 backups of a share. If a file share has a replica in another zone, its backups are automatically copied to the replica location. However, file share backups cannot be independently copied to other zones or regions. For more information, see [About {{site.data.keyword.filestorage_vpc_short}} snapshots](/docs/vpc?topic=vpc-fs-snapshots-about).
 
 You can [restore](#backup-service-restore-concepts) data from a backup snapshot to a new, fully provisioned volume. If the backup is of a boot volume, you can use it to provision a new instance. However, when you provision an instance by restoring a boot volume from a Gen 1 bootable backup snapshot, you can expect degraded performance in the beginning. During the restoration process, the data is copied from the regional storage repository to {{site.data.keyword.block_storage_is_short}}, and thus the provisioned IOPS cannot be fully realized until that process finishes.
 
 With the fast restore feature, you can cache snapshots in a specified zone of your choosing. This way, volumes can be restored from snapshots nearly immediately and the new volumes operate with full IOPS instantly. The fast restore feature can achieve a [recovery time objective](#x3167918){: term} (RTO) quicker than restoring from a regular backup snapshot. When you opt for fast restore, your existing regional plan is adjusted, including billing. The fast restore feature is billed at an extra hourly rate for each zone that it is enabled in regardless of the size of the snapshot. Maintaining fast restore clones is considerably more costly than keeping regular snapshots. The fast restore feature is supported only for individual volume backups, not for consistency group backups.
 
-You can also restore data from a backup snapshot of a file share. You can either create a file share or restore a single file by accessing the backup snapshot directly through the mount target. A new share that is created from a backup is fully available for read and write operations immediately. 
+You can also restore data from a backup snapshot of a file share. You can either create a file share or restore a single file by accessing the backup snapshot directly through the mount target. A new share that is created from a backup is fully available for read and write operations immediately.
 
 As an enterprise account administrator, you can view and manage the backup policies and plans for the subaccounts for compliance reporting and billing from one place. For more information, see the [Scope of backup policy](#backup-service-about-scope) section.
 
@@ -70,7 +70,7 @@ As an enterprise account administrator, you can view and manage the backup polic
 Backups are in effect, automated snapshots with a retention date. In the console, backups appear in the same lists as the snapshots. Block storage snapshots and backups are listed on the Block storage snapshots for VPC page. File share snapshots and backups can be found on the Snapshots tab of each file share. Backups are identified by how they were created, by backup policy instead of a user. The terms snapshots and backups are used interchangeably in the documentation, depending on the context. Many similarities exist between snapshots and backups, and some differences, too. The following table compares backups and snapshots:
 
 | Feature | Account-level block volume backup | Enterprise-level block volume backup | Block volume snapshot | File share snapshot | File share backup |
-|---------|----------------------|-------------------------|----------|--------|---------| 
+|---------|----------------------|-------------------------|----------|--------|---------|
 | Backs up {{site.data.keyword.block_storage_is_short}} boot and data volumes. | ![Checkmark icon](../icons/checkmark-icon.svg) | ![Checkmark icon](../icons/checkmark-icon.svg) | ![Checkmark icon](../icons/checkmark-icon.svg) | N/A | N/A |
 | Backs up {{site.data.keyword.filestorage_vpc_short}} shares | N/A | N/A | N/A | ![Checkmark icon](../icons/checkmark-icon.svg) | ![Checkmark icon](../icons/checkmark-icon.svg) |
 | Manually restore an entire volume or share from a snapshot. | ![Checkmark icon](../icons/checkmark-icon.svg) | ![Checkmark icon](../icons/checkmark-icon.svg) | ![Checkmark icon](../icons/checkmark-icon.svg) | ![Checkmark icon](../icons/checkmark-icon.svg) | ![Checkmark icon](../icons/checkmark-icon.svg) |
@@ -87,7 +87,7 @@ Backups are in effect, automated snapshots with a retention date. In the console
 {: caption="Comparison of backups and snapshots" caption-side="bottom"}
 
 ¹ You can have 750 snapshots of first-generation storage volumes and 512 snapshots of second-generation storage volumes.
-  
+
 ### Benefits of creating backups
 {: #backup-service-benefits}
 
@@ -129,7 +129,7 @@ Consider the following examples:
 - Example 2 - You create a weekly plan that has a retention period of 365 days, and a maximum count of 8. In practice, you're going to get a maximum of 8 snapshots in the chain, with the oldest being 8 weeks old.
 - Example 2 - You create a monthly plan and set the retention period for 80 days with a maximum count of 10. In practice, you keep a maximum of 3 snapshots always. By the time when your 4th backup is taken, the first one meets the 80-day mark, and gets deleted.
 
-You can create up to four plans per backup policy and modify the backup schedule and retention policy anytime. Your four plans can have different frequencies. For example, one can be daily. Another one can be weekly, or monthly. All plans apply to the volumes with tags that match the backup policy. Backups that are created by the backup plan inherit the parent volume resource group details. 
+You can create up to four plans per backup policy and modify the backup schedule and retention policy anytime. Your four plans can have different frequencies. For example, one can be daily. Another one can be weekly, or monthly. All plans apply to the volumes with tags that match the backup policy. Backups that are created by the backup plan inherit the parent volume resource group details.
 
 You can [view backup job status](/docs/vpc?topic=vpc-backup-view-policy-jobs) while backups are being created, modified, or deleted.
 
@@ -205,7 +205,7 @@ When you create a remote copy of the backup snapshot for the first time, that re
 
 If your backup plan calls for the creation of a remote copy before the previous backup copy becomes stable, the Backup service initiates a full copy, not an incremental one. For the 3-TB storage volume, this means that when your schedule specifies the creation of a snapshot with a remote copy every 12 hours, the system initiates a full copy because the previous copy is not complete and fully stable yet.
 
-The following table shows whether or not you can expect the remote copy to be incremental based on the volume capacity (snapshot size) and backup frequency.
+The following table shows whether you can expect the remote copy to be incremental based on the volume capacity (snapshot size) and backup frequency.
 
 | Volume capacity | Backup plan schedule | Incremental copies |
 |-----------------|----------------------|--------------------|
@@ -242,19 +242,16 @@ Volume backups:
 * You can take a total of 750 backups per Gen 1 volume based on your backup policy, in your account and region. You can take a total of 512 backups per Gen 2 volumes. If you exceed the limit, no further backups are taken.
 * The first backup and the entire volume backup cannot exceed 10 TB if the parent volume is based on a `tiered` or `custom` profile.
 * You can't take a backup of a detached volume.
-* You can't create a copy of a backup snapshot in the source (local) region. 
+* You can't create a copy of a backup snapshot in the source (local) region.
 * You can create a copy of a block storage backup in another region. However, only one copy of the backup snapshot can exist in each region.
 * Cross-regional copies are not supported in the Chennai (`in-che`) region.
 * [Context-based restriction rules](#baas-cbr) are not supported in Montreal (`ca-mon`) and Chennai - Airtel (`in-che`) MZRs.
 * Consistency groups consist of the attached Block Storage volumes of virtual server instances, such as boot and data volumes. Instance storage volumes and virtual server instance configuration are not included.
 * The fast restore feature is not supported for multi-volume backups of consistency groups.
-* In the current release of second-generation volumes, the following limitations apply.
-   - You can take up to 512 backup snapshots of your `sdp` volume.
-   - You can't create consistency group backups that contain `sdp` volumes.
 
 File share backups:
 * You can take a total of 750 backups per zonal file share, and 30 backups for regional file shares.
-* You can't create a copy of a file storage backup in another region. File share snapshots and backups are tied to their source shares. Backups remain available even if the source share is deleted. 
+* You can't create a copy of a file storage backup in another region. File share snapshots and backups are tied to their source shares. Backups remain available even if the source share is deleted.
 * Backup snapshots are not supported for shares that have "VPC" access control mode.
 * The fast restore feature is not supported for file share backups.
 
@@ -279,7 +276,7 @@ Specific IAM user roles are required to grant service-to-service authorizations.
 ### Context-based restrictions
 {: #baas-cbr}
 
-You can enable context-based restrictions (CBR) for all block volume and file share operations. These restrictions work with traditional IAM policies, which are based on identity, to provide an extra layer of protection. For more information, see [Protecting Virtual Private Cloud (VPC) Infrastructure Services with context-based restrictions](/docs/vpc?topic=vpc-cbr). 
+You can enable context-based restrictions (CBR) for all block volume and file share operations. These restrictions work with traditional IAM policies, which are based on identity, to provide an extra layer of protection. For more information, see [Protecting Virtual Private Cloud (VPC) Infrastructure Services with context-based restrictions](/docs/vpc?topic=vpc-cbr).
 
 When you create a [context-based rule](/docs/vpc?topic=vpc-cbr&interface=ui#cbr-rules), make sure that it allows private endpoints. All the inter-service connections that the Backup service needs to work are private.
 
@@ -293,7 +290,7 @@ Volume backups are stored and retrieved from a regional storage repository. Data
 ### Activity tracking and auditing
 {: #backup-activity-tracker}
 
-When a backup is created, an event is triggered for the [Backup service](/docs/vpc?topic=vpc-at_events&interface=ui#events-backup-service) and [Snapshots service](/docs/vpc?topic=vpc-at_events&interface=ui#events-snapshots). Similarly, when the service fails to create a backup due to missing authorization, an event is triggered to notify you. Event logs are also created when backup policies or plans are created or deleted. For more information, see [Activity tracking events for IBM Cloud VPC](/docs/vpc?topic=vpc-at_events).
+When a backup is created, it triggers an event for the [Backup service](/docs/vpc?topic=vpc-at_events&interface=ui#events-backup-service) and [Snapshots service](/docs/vpc?topic=vpc-at_events&interface=ui#events-snapshots). Similarly, when the service fails to create a backup due to missing authorization, an event is triggered to notify you. Event logs are also created when backup policies or plans are created or deleted. For more information, see [Activity tracking events for IBM Cloud VPC](/docs/vpc?topic=vpc-at_events).
 
 
 ## Next steps

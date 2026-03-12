@@ -143,7 +143,6 @@ toc:
               - block_storage_vpc_capacity_performance.md
               - block_storage_vpc_profiles.md
               - block_storage_vpc_bandwidth.md
-              - block_storage_vpc_expand_vol_about.md
           - bs_snapshots_about.md
           - topicgroup:
               id: about-file-storage
@@ -707,8 +706,7 @@ toc:
               topics:
               - block_storage_vpc_view.md
               - block_storage_vpc_manage.md
-              - block_storage_vpc_expandable_boot_volume.md
-              - block_storage_vpc_expandable_data_volumes.md
+              - block_storage_vpc_expand_volumes.md
               - block_storage_vpc_adjustable_iops.md
               - block_storage_vpc_adjustable_throughput.md
               - block_storage_vpc_monitoring.md

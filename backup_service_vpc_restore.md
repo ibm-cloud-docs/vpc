@@ -2,7 +2,7 @@
 
 copyright:
   years: 2022, 2026
-lastupdated: "2026-02-21"
+lastupdated: "2026-03-11"
 
 keywords: Backup, backup service, backup plan, backup policy, restore, restore volume, restore data
 
@@ -27,7 +27,7 @@ Restoring a volume from a backup snapshot creates a boot or a data volume, depen
 
    * A new data volume that was created from **nonbootable** snapshot inherits its properties from the original volume, such as [profile](/docs/vpc?topic=vpc-block-storage-profiles), capacity, storage generation, data, and metadata. If the source volume used [customer-managed encryption](/docs/vpc?topic=vpc-vpc-encryption-about#vpc-customer-managed-encryption), the volume inherits that encryption with the original customer root key (CRK). However, you can specify a larger volume size, a different profile of the same storage generation, and a different CRK if you prefer.
 
-First- and second-generation volume profiles are not interchangeable. You can use a backup of a second-generation volume to create another second-generation volume, but you can't switch the volume profile to a first-generation volume profile. In the same way, you can use a backup of a first-generation volume to create another first-generation volume with the same data, and you can't switch the new volume to the `sdp` profile.
+First‑ and second‑generation volume profiles are not interchangeable. A backup of a second‑generation volume can be used only to create another second‑generation volume, it cannot be used to create a first‑generation volume. Similarly, a backup of a first‑generation volume can be used only to create another first‑generation volume with the same data, and the new volume cannot be switched to the `sdp` profile.
 
 In this release of second-generation storage volumes, consistency group snapshots are not supported.
 {: note}
@@ -93,20 +93,20 @@ From the list of {{site.data.keyword.block_storage_is_short}} snapshots, you can
 
 5. After the selection is made, click **Configure volume**.{: #configure-volume}
    - If you chose the **Do not attach** or the **Attach new volume to an existing virtual server** options, you are taken to the Block storage volume for VPC provisioning page. The snapshot is preselected for you, and you must complete the rest of the volume details:
-     1. Review the **Location** information. The geography, region, and zone are inherited from the VPC (for example, North America, Dallas, Dallas-1). You can select a different location by clicking the **Edit icon** ![Edit icon](../icons/edit-tagging.svg "Edit"). 
+     1. Review the **Location** information. The geography, region, and zone are inherited from the VPC (for example, North America, Dallas, Dallas-1). You can select a different location by clicking the **Edit icon** ![Edit icon](../icons/edit-tagging.svg "Edit").
      1. In the **Details** section, you must specify the name of the volume and the resource group that the volume is to be added to. Optionally, you can add user and access management tags.
         - Specify a meaningful name for your volume. For example, provide a name that describes your compute or workload function. The volume name must begin with a lowercase letter. The volume name can be up to 63 lowercase alpha-numeric characters and include the hyphen (-). Volume names must be unique across the VPC. You can edit the name later.
         - Specify a [Resource group](/docs/vpc?topic=vpc-iam-getting-started&interface=ui#iam-resource-groups).
         - Specify [user tags](/docs/vpc?topic=vpc-block-storage-about&interface=ui#storage-about-user-tags) to organize your resources and for use by [backup policies](/docs/vpc?topic=vpc-backup-service-about).
         - Specify [access management tags](/docs/vpc?topic=vpc-block-storage-about&interface=ui#storage-about-mgt-tags) that were created in IAM to help you manage access to your volumes.
 
-     1. In the **Optional configurations** section, the snapshot is preselected for you. 
+     1. In the **Optional configurations** section, the snapshot is preselected for you.
         - You can also apply a backup policy to the new volume if you want to. Click **Apply** to see available policies and plans.
         - Review the Attach to existing virtual server section. If you want to create a stand-alone volume, verify that the Do not attach box is checked. If you want to attach the volume to an instance, remove the check from the box and select an existing virtual server from the table.
 
-     1. In the **Profile** section, you can specify the performance profile of your volume, its performance limits, and capacity. The storage generation value of the snapshot must match the storage generation value of the volume profile select.
+     1. In the **Profile** section, you can specify the performance profile of your volume, its performance limits, and capacity. The storage generation value of the snapshot must match the storage generation value of the selected volume profile.
          - You can select the [`sdp` profile](/docs/vpc?topic=vpc-block-storage-profiles#defined-performance-profile) if your snapshot was created from a Generation 2 volume. Then, specify the capacity of your volume, the requested bandwidth limit, and the required IOPS. Volume size can range from 1 - 32,000 GB. You can specify IOPS in the range of 100 - 64,000. The throughput limit range is 1000-8192 Mbps.
-         - If your snapshot is from a Generation 1 volume, you can select one of the [_tiered_ profiles](/docs/vpc?topic=vpc-block-storage-profiles&interface=ui#tiers). After you select `general-purpose`, `5iops-tier`, or `10iops-tier`, the next step is to specify the volume capacity. Volume size can be 10 - 16,000 GB. 
+         - If your snapshot is from a Generation 1 volume, you can select one of the [_tiered_ profiles](/docs/vpc?topic=vpc-block-storage-profiles&interface=ui#tiers). After you select `general-purpose`, `5iops-tier`, or `10iops-tier`, the next step is to specify the volume capacity. Volume size can be 10 - 16,000 GB.
          - If your snapshot is from a Generation 1 volume and your performance requirements don't fall within any of the IOPS tiers, you can select the `custom` profile. Then, specify the size of your volume and the IOPS in the appropriate range for the volume capacity. As you type the IOPS value, the console shows the acceptable range. You can also click the **storage size** link to see the size and IOPS ranges of the [custom volume profile](/docs/vpc?topic=vpc-block-storage-profiles#custom).
 
      1. In the **Encryption at rest** section, you can choose to keep the encryption with IBM-managed keys that is enabled by default on all volumes. Or you can choose to use [your own encryption key](/docs/vpc?topic=vpc-block-storage-vpc-encryption) by selecting your key management service: {{site.data.keyword.keymanagementserviceshort}} or {{site.data.keyword.hscrypto}}. To locate your encryption key, select one of the following options:
@@ -118,7 +118,7 @@ From the list of {{site.data.keyword.block_storage_is_short}} snapshots, you can
         If you selected a second-generation snapshot to create the volume, your volume's encryption type must match the snapshot's encryption type. If the snapshot has provider-managed keys, do not specify a key from a key management service.
         {: note}
 
-     1. When you're finished, click **Create block storage volume**. 
+     1. When you're finished, click **Create block storage volume**.
         - If you're not ready to order yet or just looking for pricing information, you can add the information that you see in the side panel to an Estimate. For more information about how this feature works, see [Estimating your costs](/docs/account?topic=account-cost).
      1. The {{site.data.keyword.block_storage_is_short}} volumes page is shown, where a message indicates that the volume is being created (volume status is _pending_). A second message displays when the volume is created (volume status is _available_).
      1. To see details of the new volume, select the **View resource** link in the second message to go to the Volume details page.

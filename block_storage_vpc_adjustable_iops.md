@@ -1,8 +1,8 @@
 ---
 
 copyright:
-  years: 2021, 2025
-lastupdated: "2025-09-23"
+  years: 2021, 2026
+lastupdated: "2026-03-12"
 
 keywords: Block Storage for VPC, boot volume, data volume, volume, data storage, virtual server instance, instance, adjustable volume, iops
 
@@ -165,27 +165,27 @@ ibmcloud is volume-update demo-volume-update --profile 5iops-tier
 
 ```sh
 Updating volume demo-volume-update under account Test Account as user test.user@ibm.com...
-                                          
-ID                                     r014-dee9736d-08ee-4992-ba8d-3b64a4f0baac   
-Name                                   demo-volume-update   
-CRN                                    crn:v1:bluemix:public:is:us-east-1:a/a1234567::volume:r014-dee9736d-08ee-4992-ba8d-3b64a4f0baac    
-Status                                 available   
-Attachment state                       attached   
-Capacity                               100   
-IOPS                                   3000   
-Bandwidth(Mbps)                        393   
-Profile                                5iops-tier   
-Encryption key                         -   
-Encryption                             provider_managed   
-Resource group                         defaults   
-Created                                2023-06-29T16:14:59+00:00   
-Zone                                   us-east-1   
-Health State                           ok   
-Volume Attachment Instance Reference   Attachment type   Instance ID                                 Instance name   Auto delete   Attachment ID                               Attachment name      
-                                       data              0757_11f5db7f-35a1-4678-bcbd-c85204e09507   kj-test-ro      false         0757-4dfc4384-c4b5-497e-bab3-6415f9c4d44b   otp      
-                                          
-Active                                 true 
-Busy                                   false   
+
+ID                                     r014-dee9736d-08ee-4992-ba8d-3b64a4f0baac
+Name                                   demo-volume-update
+CRN                                    crn:v1:bluemix:public:is:us-east-1:a/a1234567::volume:r014-dee9736d-08ee-4992-ba8d-3b64a4f0baac
+Status                                 available
+Attachment state                       attached
+Capacity                               100
+IOPS                                   3000
+Bandwidth(Mbps)                        393
+Profile                                5iops-tier
+Encryption key                         -
+Encryption                             provider_managed
+Resource group                         defaults
+Created                                2023-06-29T16:14:59+00:00
+Zone                                   us-east-1
+Health State                           ok
+Volume Attachment Instance Reference   Attachment type   Instance ID                                 Instance name   Auto delete   Attachment ID                               Attachment name
+                                       data              0757_11f5db7f-35a1-4678-bcbd-c85204e09507   kj-test-ro      false         0757-4dfc4384-c4b5-497e-bab3-6415f9c4d44b   otp
+
+Active                                 true
+Busy                                   false
 Tags                                   -
 ```
 {: screen}
@@ -196,12 +196,12 @@ For more information about available command options, see [`ibmcloud is volume-u
 {: #adjust-vpc-iops-api-block}
 {: api}
 
-You can adjust IOPS for existing data volumes by calling the Virtual Private Cloud (VPC) API. 
+You can adjust IOPS for existing data volumes by calling the Virtual Private Cloud (VPC) API.
 
 ### Adjust IOPS for a volume with the Custom or Defined performance profile
 {: #adjust-iops-api-block}
 
-Make a `PATCH /volumes` request and specify the `iops` parameter to adjust the IOPS within a custom volume profile band. 
+Make a `PATCH /volumes` request and specify the `iops` parameter to adjust the IOPS within a custom volume profile band.
 
 You can't update the name of the volume and adjust IOPS in the same `PATCH /volumes` request. Make two `PATCH /volumes` requests.
 {: note}

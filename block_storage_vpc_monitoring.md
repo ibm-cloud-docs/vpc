@@ -2,9 +2,9 @@
 
 copyright:
   years: 2019, 2026
-lastupdated: "2026-01-29"
+lastupdated: "2026-03-12"
 
-keywords: Block Storage, boot volume, data volume, status, health state, monitoring, performance 
+keywords: Block Storage, boot volume, data volume, status, health state, monitoring, performance
 
 subcollection: vpc
 
