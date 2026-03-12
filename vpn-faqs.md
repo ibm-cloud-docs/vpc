@@ -228,59 +228,59 @@ When a connection is created successfully, the VPN service adds a CIDR `0.0.0.0/
 
    To troubleshoot routing issues, see [Why aren't my VPN gateways or virtual server instances communicating?](/docs/vpc?topic=vpc-troubleshoot-routing-issues).
 
-## Can I connect my VPN to multiple Transit Gateways in a dynamic route-based VPN connection?
+## What is the difference between static and dynamic route-based VPN connection types?
 {: #faq-vpn-30}
+{: faq}
+
+Static routing connection doesn't use BGP for route advertisements, and can't advertise routes to Transit Gateway or on-premises network. For this connection, all routes need to be manually created and managed, whereas for dynamic connection, no manual configuration is required after the initial provisioning and attachment.
+
+## Can I connect my VPN to multiple Transit Gateways in a dynamic route-based VPN connection?
+{: #faq-vpn-31}
 {: faq}
 
 No, each VPN gateway can be connected to only one Transit Gateway.
 
 ## Is dynamic routing supported when creating a route-based VPN gateway?
-{: #faq-vpn-31}
+{: #faq-vpn-32}
 {: faq}
 
 Yes, dynamic VPN connection is supported by a route-based VPN gateway. See [Creating a VPN gateway](/docs/vpc?topic=vpc-vpn-create-gateway&interface=ui) to create route-based VPN and select **dynamic** for the connection type.
 
 ## What is ASN and why do I need it for dynamic routing?
-{: #faq-vpn-32}
+{: #faq-vpn-33}
 {: faq}
 
 An Autonomous System Number (ASN) is a unique identifier that is used in Border Gateway Protocol (BGP) to represent an Autonomous System (AS). It functions similarly to a public IP address in an IPsec connection and serves as a key attribute for identifying devices within a network. Each device within the network is assigned to a specific ASN, and without a valid ASN, a VPN gateway cannot successfully establish a BGP session with other devices in the network.
 
 ## Do I need to attach a Transit Gateway for the dynamic routing connection to work?
-{: #faq-vpn-33}
+{: #faq-vpn-34}
 {: faq}
 
 Yes, you need to attach a Transit Gateway for the dynamic routing connection to function properly. Without a Transit Gateway, communication between the VPN gateway and your on-premises network doesn't work, even if the IPsec connection is established.
 
 ## Can I attach an existing Transit Gateway to the route-based VPN for dynamic routing?
-{: #faq-vpn-34}
+{: #faq-vpn-35}
 {: faq}
 
 Yes, you can attach an existing Transit Gateway to the route-based VPN for dynamic routing. You don't need to create a new Transit Gateway.
 
 ## Why do I need a Transit Gateway for dynamic route-based connection?
-{: #faq-vpn-35}
+{: #faq-vpn-36}
 {: faq}
 
 A Transit Gateway is essential for dynamic routing because it acts as a central hub for all connections within your network. The Transit Gateway manages the routing for all spokes, including VPN connections. Without the Transit Gateway the spokes would be unable to communicate with each other, as they rely on the hub Transit Gateway to facilitate and route traffic between them.
 
 ## What is the use of advertised CIDRs?
-{: #faq-vpn-36}
+{: #faq-vpn-37}
 {: faq}
 
 Advertised CIDRs are static IP address ranges that are reachable from the VPN and advertised to your on-premises network. These CIDRs are useful for private endpoints that can't be connected directly to a Transit Gateway, such Secrets Manager endpoints or Cloud Object Storage endpoints. By advertising these CIDRs from the IBM VPN to your on-premises network, any resource within your on-premises environment can connect to these endpoints.
 
 ## Do I need to configure routes when I create a dynamic route-based VPN connection?
-{: #faq-vpn-37}
-{: faq}
-
-No, you don't need to manually configure routes when you create a dynamic route-based VPN connection. All spokes connected to the Transit Gateway automatically connect to your on-premises network.
-
-## What is the difference between static and dynamic route-based VPN connection types?
 {: #faq-vpn-38}
 {: faq}
 
-Static routing connection doesn't use BGP for route advertisements, and can't advertise routes to Transit Gateway or on-premises network. For this connection, all routes need to be manually created and managed, whereas for dynamic connection, no manual configuration is required after the initial provisioning and attachment.
+No, you don't need to manually configure routes when you create a dynamic route-based VPN connection. All spokes connected to the Transit Gateway automatically connect to your on-premises network.
 
 ## How many routes does VPN for VPC support per VPN peer for a dynamic, route-based connection?
 {: #faq-vpn-39}
