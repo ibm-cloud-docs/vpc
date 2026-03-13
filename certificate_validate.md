@@ -2,7 +2,7 @@
 
 copyright:
   years: 2022, 2026
-lastupdated: "2026-03-09"
+lastupdated: "2026-03-13"
 
 keywords: confidential computing, secure execution, hpcr, contract, customization, env, workload, encryption, attestation, validating
 
@@ -36,9 +36,6 @@ From 25 March 2025, the certificate links are changed.
    | `ibm-hyper-protect-container-runtime-1-0-s390x-26` | [certificate](https://hpvsvpcubuntu.s3.us.cloud-object-storage.appdomain.cloud/s390x-26/ibm-hyper-protect-container-runtime-1-0-s390x-26-intermediate.crt){: external} | 03 August 2027 |
    | `ibm-hyper-protect-container-runtime-1-0-s390x-25` | [certificate](https://hpvsvpcubuntu.s3.us.cloud-object-storage.appdomain.cloud/s390x-25/ibm-hyper-protect-container-runtime-1-0-s390x-25-intermediate.crt){: external} | 03 August 2027 |
    | `ibm-hyper-protect-container-runtime-1-0-s390x-24` | [certificate](https://hpvsvpcubuntu.s3.us.cloud-object-storage.appdomain.cloud/s390x-24/ibm-hyper-protect-container-runtime-1-0-s390x-24-intermediate.crt){: external} | 03 August 2027 |
-   | `ibm-hyper-protect-container-runtime-1-0-s390x-23` | [certificate](https://hpvsvpcubuntu.s3.us.cloud-object-storage.appdomain.cloud/s390x-23/ibm-hyper-protect-container-runtime-1-0-s390x-23-intermediate.crt){: external} | 01 September 2026 |
-   | `ibm-hyper-protect-container-runtime-1-0-s390x-22` | [certificate](https://hpvsvpcubuntu.s3.us.cloud-object-storage.appdomain.cloud/s390x-22/ibm-hyper-protect-container-runtime-1-0-s390x-22-intermediate.crt){: external} | 01 September 2026 |
-   | `ibm-hyper-protect-container-runtime-1-0-s390x-21` | [certificate](https://hpvsvpcubuntu.s3.us.cloud-object-storage.appdomain.cloud/s390x-21/ibm-hyper-protect-container-runtime-1-0-s390x-21-intermediate.crt){: external} | 01 September 2026 |
    {: caption="Intermediate certificate expiry dates" caption-side="bottom"}
 
 
