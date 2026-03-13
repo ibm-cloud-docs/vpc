@@ -1,8 +1,8 @@
 ---
 
 copyright:
-  years: 2021, 2025
-lastupdated: "2025-11-12"
+  years: 2021, 2026
+lastupdated: "2026-03-13"
 
 keywords: creating bare metal servers
 
@@ -35,13 +35,13 @@ Use the following steps to create a bare metal server by using the {{site.data.k
 1. Review the configuration **Summary** and click **Create bare metal server**.
 
 | Field | Value |
-|---|---|
+| --- | --- |
 | Location | Locations are composed of regions (specific geographic areas) and zones (fault tolerant data centers within a region). Select the location where you want your bare metal server. |
 | Name | A name is required for your bare metal server. |
 | Resource group | Select a resource group for the server. |
 | Tags | You can assign labels to your server so that you can easily filter resources in your resource list. |
 | Access management tags | Access management tags help you apply flexible access policies on specific resources. |
-| Image | Click **Change image** to select an image. On the Select an image page, you can select from all available stock images and custom images. After you select your image, click **Save**. For more information, see [x86-64 bare metal server images](/docs/vpc?topic=vpc-bare-metal-image). For information about using custom images with your bare metal server, see [Getting started with custom images](/docs/vpc?topic=vpc-planning-custom-images&interface=ui). The allowed-use expression for the selected image might affect which settings and profiles that you can use to create a bare metal server by using that image. For information on using allowed-use expressions with your bare metal server custom images, see [Adding allowed-use expressions to custom images](/docs/vpc?topic=vpc-custom-image-allowed-use-expressions&interface=ui). |
+| Image | Click **Change image** to select an image. On the Select an image page, you can select from all eligible stock and custom images. After you select your image, click **Save**.   \n  \n For more information, see [Bare metal server images](/docs/vpc?topic=vpc-bare-metal-image). For information about using custom images with your bare metal server, see [Getting started with custom images](/docs/vpc?topic=vpc-planning-custom-images&interface=ui). The allowed-use expression for the selected image might affect which settings and profiles that you can use to create a bare metal server by using that image. For information on using allowed-use expressions with your bare metal server custom images, see [Adding allowed-use expressions to custom images](/docs/vpc?topic=vpc-custom-image-allowed-use-expressions&interface=ui). |
 | Profile | Click **Change profile** to select from all available vCPU and RAM combinations. The profile families are Balanced, Compute, and Memory. For more information, see [x86-64 bare metal server profiles](/docs/vpc?topic=vpc-bare-metal-servers-profile). |
 | SSH key | Select an existing public SSH key or click **Create an SSH key** to create a new one. For more information about creating an SSH key, see [Creating your SSH key by using the UI](/docs/vpc?topic=vpc-ssh-keys&interface=ui#generate-ssh-keys-ui). You must specify at least one SSH key.  \n - For x86 architecture, the SSH key is used to automatically generate a password that is required for accessing VMware&reg; ESXi Direct Console User Interface (DCUI) and the ESXi web client.  \n  \n **Note:**  SSH keys can be either RSA or Ed25519. You can generate new RSA key pairs by using the UI. Pre-existing RSA and Ed25519 SSH keys can be uploaded. Ed25519 can be used only if the operating system supports this key type. Ed25519 can't be used with Windows or VMware images. |
 | Virtual private cloud | Specify the VPC where you want to create your server. You can use the default VPC, another existing VPC, or you can create a new VPC. |
@@ -50,7 +50,7 @@ Use the following steps to create a bare metal server by using the {{site.data.k
 {: caption="Bare metal server provisioning selections" caption-side="bottom"}
 
 | Advanced option | Value |
-|---|---|
+| --- | --- |
 | User data | Paste your user data to the **User data (optional)** field or click **Import user data** to upload from your user data. For example, you can enable SSH by adding the following script to the **User data (optional)** field. For more information about user data, see [User data](/docs/vpc?topic=vpc-user-data).|
 | Trusted Platform Module (TPM) | Click the toggle to enable Trusted Platform Module capabilities. Then, select the mode that you want to use. For more information, see [Secure boot with Trusted Platform Module (TPM)](/docs/vpc?topic=vpc-secure-boot-tpm&interface=ui). |
 | Secure boot | Click the toggle to enable secure boot. For more information, see [Secure boot with Trusted Platform Module (TPM)](/docs/vpc?topic=vpc-secure-boot-tpm&interface=ui). |
@@ -84,9 +84,8 @@ You can create a bare metal server by using the API. Use the following steps to 
 Before you use the API to create bare metal server, see the following table for the required information.
 
 | Server detail | Listing options |
-|---------|---------|
-| Image | [List all images](/apidocs/vpc/latest#list-images) |
-| Image | [List all images](/apidocs/vpc/latest#list-images) |
+| --------- | --------- |
+| Image | [List all images](/apidocs/vpc/latest#list-images) \n  \n For more information, see [Bare metal server images](/docs/vpc?topic=vpc-bare-metal-image). For information about using custom images with your bare metal server, see [Getting started with custom images](/docs/vpc?topic=vpc-planning-custom-images&interface=ui). The allowed-use expression for the selected image might affect which settings and profiles that you can use to create a bare metal server by using that image. For information on using allowed-use expressions with your bare metal server custom images, see [Adding allowed-use expressions to custom images](/docs/vpc?topic=vpc-custom-image-allowed-use-expressions&interface=ui). |
 | Keys | [List all keys](/apidocs/vpc/latest#list-keys)  \n  \n If you don't have any available SSH keys, use [Create a key](/apidocs/vpc/latest#create-key) to create one. For more information, see [SSH keys](/docs/vpc?topic=vpc-ssh-keys).  \n  \n **Note:**  SSH keys can be either RSA or Ed25519. You can generate new RSA key pairs by using the UI. Pre-existing RSA and Ed25519 SSH keys can be uploaded. Ed25519 can be used only if the operating system supports this key type. Ed25519 can't be used with Windows or VMware images. |
 | Subnet | [List all subnets](/apidocs/vpc/latest#list-subnets) |
 | Security groups (optional) | [List all security groups](/apidocs/vpc/latest#list-security-groups) |
@@ -350,9 +349,8 @@ For more information, see [Using the CLI to create VPC resources](/docs/vpc?topi
 Before you can use the CLI to create bare metal server, you need to gather the information that is needed.
 
 | Server details | Listing options |
-|---------|---------|
-| Image | [List all images](/docs/vpc?topic=vpc-vpc-reference#images-list) |
-| Image | [List all images](/docs/vpc?topic=vpc-vpc-reference#images-list) |
+| --------- | --------- |
+| Image | [List all images](/docs/vpc?topic=vpc-vpc-reference#images-list) \n  \n For more information, see [Bare metal server images](/docs/vpc?topic=vpc-bare-metal-image). For information about using custom images with your bare metal server, see [Getting started with custom images](/docs/vpc?topic=vpc-planning-custom-images&interface=ui). The allowed-use expression for the selected image might affect which settings and profiles that you can use to create a bare metal server by using that image. For information on using allowed-use expressions with your bare metal server custom images, see [Adding allowed-use expressions to custom images](/docs/vpc?topic=vpc-custom-image-allowed-use-expressions&interface=ui). |
 | Keys | [List all keys](/docs/vpc?topic=vpc-vpc-reference#keys)  \n  \n If you don't have any available SSH keys, use [Create a key](/docs/vpc?topic=vpc-vpc-reference#key-create) to create one.  \n  \n **Note:**  SSH keys can be either RSA or Ed25519. You can generate new RSA key pairs by using the UI. Pre-existing RSA and Ed25519 SSH keys can be uploaded. Ed25519 can be used only if the operating system supports this key type. Ed25519 can't be used with Windows or VMware images.  \n For more information, see [SSH keys](/docs/vpc?topic=vpc-ssh-keys). |
 | Subnet | [List all subnets](/docs/vpc?topic=vpc-vpc-reference#subnets-list) |
 | Security groups (optional) | [List all security groups](/docs/vpc?topic=vpc-vpc-reference#security-groups-list) |
