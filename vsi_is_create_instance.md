@@ -2,7 +2,7 @@
 
 copyright:
   years: 2018, 2026
-lastupdated: "2026-02-21"
+lastupdated: "2026-03-13"
 
 keywords:
 
@@ -40,11 +40,11 @@ Use the following steps to create a virtual server instance.
    {: caption="Selections to begin instance provisioning" caption-side="bottom"}
 
 1. Select an image and profile for the instance. To select from all available images, click **Change image**. You can select an image, a snapshot of a boot volume, or an existing boot volume. If the geographic location where you are provisioning an instance supports it, you can select either of the following:
-   * x86 architecture 
+   * x86 architecture
    * [Deprecated]{: tag-deprecated} s390x architecture
-  
+
     The s390x architecture is deprecated. You can migrate to an on-premises deployment model. For more information, see [Linux on IBM Z and LinuxONE](https://www.ibm.com/docs/en/linux-on-systems?topic=linux-z-linuxone). For more information about deprecation, see the [Service deprecation announcement](/docs/vpc?topic=vpc-ichpcs_deprecated_anmt).
-  
+
    Table 2 describes image, snapshot, and existing volume options. Then, select a profile. To select from all available vCPU and RAM combinations, click **Change profile**. Table 3 describes profile selection. {: #select-image-and-profile}
 
      Allowed-use expressions: The image that you select determines the profiles that are available to create the virtual server instance. During the creation of a virtual server instance with images that use an allowed-use expression, the information that is provided in the allowed-use properties is then evaluated against a potential virtual server instance to determine whether that image can be used to create the virtual server instance. Stock images use defined allowed-use expressions. You must define any allowed-use expressions for custom images. For more information, see [Adding allowed-use expressions to custom images](/docs/vpc?topic=vpc-custom-image-allowed-use-expressions&interface=ui).
@@ -140,9 +140,9 @@ Ready to create an instance? Before you can run the `ibmcloud is instance-create
 
 Gather the following information by using the associated commands.
 
-|    Instance details   |  Listing options                | VPC CLI reference documentation |
-| --------------------- | --------------------------------|----------------------------|
-| Image | `ibmcloud is image` | [List all images](/docs/vpc?topic=vpc-vpc-reference#images-list)|
+| Instance details | Listing options | VPC CLI reference documentation |
+| --------------------- | -------------------------------- | ---------------------------- |
+| Image | `ibmcloud is image` | [List all images](/docs/vpc?topic=vpc-vpc-reference#images-list) |
 | Boot volume | `ibmcloud is volumes` | [List all volumes](/docs/vpc?topic=vpc-vpc-reference#volumes-list) |
 | Profile | `ibmcloud is instances` | [List all virtual server instances](/docs/vpc?topic=vpc-vpc-reference#instance-profiles-list) |
 | Profile | `ibmcloud is image-instance-profiles` | [List instance profiles that are compatible with an image](/docs/vpc?topic=vpc-vpc-reference#image-instance-profiles-list)|
@@ -1391,6 +1391,7 @@ Gather the following information by using `DataSource` command.
    {: codeblock}
 
 1. List the available images for creating your instance. You can use a stock image, a custom image from your account, or an image that was shared with your account from a private catalog. For more information, see the Terraform documentation on [ibm_is_image](https://registry.terraform.io/providers/IBM-Cloud/ibm/latest/docs/data-sources/is_image){: external}. If you plan to use an image that was shared from a private catalog, see the Terraform documentation on [ibm_cm_version](https://registry.terraform.io/providers/IBM-Cloud/ibm/latest/docs/resources/cm_version){: external} or [ibm_cm_offering_instance](https://registry.terraform.io/providers/IBM-Cloud/ibm/latest/docs/resources/cm_offering_instance){: external}.
+
 
     Allowed-use expressions: The image that you select determines the profiles that are available to create the virtual server instance. During the creation of a virtual server instance with images that use an allowed-use expression, the information that is provided in the allowed-use properties is then evaluated against a potential virtual server instance to determine whether that image can be used to create the virtual server instance. Stock images use defined allowed-use expressions. You must define any allowed-use expressions for custom images. For more information, see [Adding allowed-use expressions to custom images](/docs/vpc?topic=vpc-custom-image-allowed-use-expressions&interface=ui).
     {: note}
