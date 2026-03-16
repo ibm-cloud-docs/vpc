@@ -1,8 +1,8 @@
 ---
 
 copyright:
-  years: 2018, 2025
-lastupdated: "2025-12-19"
+  years: 2018, 2026
+lastupdated: "2026-03-16"
 
 keywords:
 
@@ -45,7 +45,7 @@ If you edit the rules of the default security group, those edited rules then app
 
       For each rule, specify the following information:
 
-      * Select the protocols and ports to which the rule applies. For more information about using ICMP, TCP, and UDP protocols in your ACL rules, see [Understanding internet communication protocols](/docs/vpc?topic=vpc-understanding-icp#understanding-icp).
+      * Select the protocols and ports to which the rule applies. For more information about using ICMP, TCP, UDP, and all other protocols in your ACL rules, see [Understanding internet communication protocols](/docs/vpc?topic=vpc-understanding-icp#understanding-icp).
       * Specify a CIDR block or IP address for the permitted traffic. Alternatively, you can specify a security group in the same VPC to allow traffic to or from all instances that are attached to the selected security group.
 
       **Tips:**

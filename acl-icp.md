@@ -1,8 +1,8 @@
 ---
 
 copyright:
-  years: 2019, 2025
-lastupdated: "2025-12-29"
+  years: 2019, 2026
+lastupdated: "2026-03-16"
 
 keywords:
 
@@ -20,6 +20,7 @@ Generally speaking, a _communication protocol_ is a system of rules that allow t
 * ICMP, Internet Control Message Protocol, part of the internet protocol suite defined in RFC 792.
 * TCP, Transmission Control Protocol
 * UDP, User Datagram Protocol
+* TCP-UDP-ICMP, all [IPv4 protocols listed in IANA](https://www.iana.org/assignments/protocol-numbers/protocol-numbers.xhtml)
 
 The protocols that are used for a particular implementation of, say, an API call, can influence the overall behavior of your network. So it is worthwhile to understand the basic differences between them. If you need more information, many good articles are available on the internet with detailed descriptions of the protocols.
 

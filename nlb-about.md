@@ -1,8 +1,8 @@
 ---
 
 copyright:
-  years: 2020, 2025
-lastupdated: "2025-10-25"
+  years: 2020, 2026
+lastupdated: "2026-03-16"
 
 keywords: load balancer, public, listener, back-end, front-end, pool, round-robin, weighted, connections, methods, policies, APIs, access, ports
 
@@ -86,6 +86,41 @@ A Private Path NLB does not support the least-connection method.
 Front-end listeners are application ports for load balancers to receive incoming requests while back-end pools are the application servers behind the load balancers. You can define up to 10 front-end listeners and map them to back-end pools on the back-end application servers. For a public NLB, the FQDN assigned to your load balancer and the front-end listener ports are exposed to the public internet. Incoming user requests are received on these ports. TCP and UDP are the supported protocols for front-end listeners and back-end pools.
 
 You can attach up to 50 virtual server instances to a back-end pool. Traffic is sent to each instance on its specified data port. This data port does not need to be the same as the front-end listener port.
+
+### Back-end pool failsafe policies 
+{: #nlb-back-end-pool-failsafe-policies}
+
+When editing a back-end pool in a load balancer, you can specify one of the following failsafe policy actions: 
+
+You can add failsafe policies after provisioning a load balancer. To add failsafe policies:
+
+1. Log in to the [{{site.data.keyword.cloud_notm}} console](/login){: external}.
+1. Select the **Navigation menu** ![Menu icon](../icons/icon_hamburger.svg), then click **Infrastructure** ![VPC icon](../../icons/vpc.svg) > **Network** > **Load balancers** from the Network section.
+1. Select the Region of your load balancer.
+1. Select the load balancer that you want to update.
+1. Select **Back-end pools**. When you create or edit a pool, you can specify or update a failsafe policy. 
+
+When editing a back-end pool in a load balancer, you can specify one of the following failsafe policy actions: 
+
+* **Forward:** - The load balancer forwards requests to the target pool. If specified, the pool protocol must be http or https.
+* **Bypass:** - The load balancer bypasses the members and sends requests directly to their destination IPs. If specified, this load balancer must have route_mode enabled.
+* **Drop:** -  The load balancer drops all incoming requests, and the client receives no response. If specified, the pool protocol must be tcp.
+* **Fail:** - The load balancer fails requests with an HTTP 503 status code. If specified, the pool protocol must be http or https.
+
+The following failsafe actions are available depending on the protocol of the pool: 
+
+- **HTTP or HTTPS** : fail, foward
+- **TCP or UDP** : drop, forward, bypass (only if LB is a private NLB with routing mode enabled)
+
+You can choose a failsafe target from a list of applicable backup pools:
+
+* **Target:** - The failsafe target pool to forward to. The specified pool must:
+
+   * Belong to te same load balancer as this pool
+   * Have the same protocol as this pool, or have a compatible protocol. At present, the compatible protocols are http and https
+   * Not be a backup pool for another pool
+   * Not have a failsafe_policy.action of forward or bypass
+   * If specified, action must be forward
 
 ## Maximum connections
 {: #nlb-maximum-connections}
