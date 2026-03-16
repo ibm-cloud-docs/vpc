@@ -2,7 +2,7 @@
 
 copyright:
   years: 2022, 2026
-lastupdated: "2026-03-11"
+lastupdated: "2026-03-16"
 
 keywords: block storage for VPC, File Storage for VPC, Snapshots for VPC, Backup for VPC, block storage, file storage, snapshots, backup,
 
@@ -113,7 +113,7 @@ The following table provides a comparison between the different generations of f
 
 | Features            | First-generation shares | Second-generation shares |
 |---------------------|--------------------------|---------------------------|
-| Availability        | Generally available in all VPC regions for all customers. | Available for allowlisted customers in the Dallas, Chennai - Airtel, Frankfurt, London, Madrid, Osaka, Sydney, Tokyo, Toronto, and Washington, DC regions.|
+| Availability | Generally available in all VPC regions for all customers. | Available for allowlisted customers in the Dallas, Chennai - Airtel, Frankfurt, London, Madrid, Osaka, Sydney, Tokyo, Toronto, and Washington, DC regions. |
 | Data Availability   | Zonal. While the share can be accessed from multiple zones across the region, if the share becomes unavailable, data access is lost. Operations can be recovered by setting up replicas in advance and failover to the replica during an outage. Cross-zone mounting of a file share can also introduce latency as data traverses zonal boundaries. | Regional. The file share exists in all 3 zones simultaneously, the clients connect to the closest instance of the share. When one zone becomes unavailable, data is still accessible. Storage traffic remains within the zone of the compute host. |
 | Expandable capacity | Yes, up to 16,000 GB     | Yes, up to 32,000 GB |
 | Adjustable IOPS     | Yes, up to 96,000. IOPS depends on capacity range. | No. Maximum IOPS is preset at 35,000.|
@@ -147,7 +147,7 @@ Customers with special access to preview the second-generation File Storage offe
 
 | Features            | First-generation shares | Second-generation shares |
 |---------------------|--------------------------|---------------------------|
-| Availability        | Generally available in all VPC regions for all customers. | Available for allowlisted customers in most regions, except for Montreal and Mumbai - Airtel.|
+| Availability        | Generally available in all VPC regions for all customers. | Available for allowlisted customers in most regions, except for Montreal and Mumbai - Airtel. |
 | On-demand snapshots | Yes, Up to 750 per share in a region. | Yes, Up to 30 per share in a region. This quota can be increased upon request. |
 | Scheduled snapshots | Yes, up to 750 snapshots per region. | Yes, Up to 30 per share in a region. This quota can be increased upon request.|
 {: caption="File share snapshot generations comparison." caption-side="bottom"}

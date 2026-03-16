@@ -2,7 +2,7 @@
 
 copyright:
   years: 2024, 2026
-lastupdated: "2026-02-13"
+lastupdated: "2026-03-16"
 
 keywords: snapshots, File Storage, shares, restore share
 

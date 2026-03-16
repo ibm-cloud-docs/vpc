@@ -1,8 +1,8 @@
 ---
 
 copyright:
-  years: 2022, 2025
-lastupdated: "2025-11-07"
+  years: 2022, 2026
+lastupdated: "2026-03-16"
 
 keywords: file share, file storage, increase capacity, expand capacity, expand share size, file share size
 

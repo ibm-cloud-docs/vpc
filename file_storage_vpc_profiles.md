@@ -1,8 +1,8 @@
 ---
 
 copyright:
-  years: 2021, 2025
-lastupdated: "2025-11-19"
+  years: 2021, 2026
+lastupdated: "2026-03-16"
 
 keywords: file storage, file share, performance, IOPS, block size, capacity, range
 
@@ -31,7 +31,7 @@ The following tables show the characteristics and performance levels of the avai
 
 Current file share profiles:
 
-| Family   | Profile         | Availability  | Share size   |IOPS per share | Max bandwidth[^tabletext1]| 
+| Family   | Profile         | Availability  | Share size   |IOPS per share | Max bandwidth[^tabletext1]|
 |----------|-----------------|--------------:|-------------:|---------------|-------------:|
 | `defined_performance`|`dp2`|         Zonal | 10-32,000 GB |    100-96,000 |    8192 Mbps |
 | `defined_performance`|`rfs`|      Regional |  1-32,000 GB |        35,000 |    8192 Mbps |
@@ -44,7 +44,7 @@ First- and second-generation profiles in the defined performance profile family 
 
 Deprecated file share profiles:
 
-| Family   | Profile         | Availability  | Share size   |IOPS per share | Max bandwidth| 
+| Family   | Profile         | Availability  | Share size   |IOPS per share | Max bandwidth|
 |----------|-----------------|--------------:|-------------:|---------------|-------------:|
 | `tiered` | `tier-3iops`    |         Zonal | 10-32,000 GB |  3,000-96,000 |    5360 Mbps |
 | `tiered` | `tier-5iops`    |         Zonal |  10-9,600 GB |  3,000-48,000 |    6144 Mbps |
@@ -68,7 +68,7 @@ Both profiles in the defined performance family provide resilient file storage w
 ### Regional availability profile
 {: #rfs-profile}
 
-[Select availability]{: tag-green} The `rfs` profile is the second-generation profile in the defined performance profile family. With this profile, you can create file shares with regional availability. 
+[Select availability]{: tag-green} The `rfs` profile is the second-generation profile in the defined performance profile family. With this profile, you can create file shares with regional availability.
 
 Regional data availability means that data is replicated across all 3 zones within the region, offering higher availability and fault tolerance. Due to the synchronous replication between the zones and the need to ensure data durability, you might experience increased latency during write operations. For workloads where latency performance is less critical than durability, or higher and more consistent IOPS is preferred over low latency, the regional shares can be a better choice.
 
@@ -81,9 +81,9 @@ In the select availability release, cross-region asynchronous replication is not
 
 With the `dp2` profile, you can provision zonal file shares, and specify your capacity and total IOPS values.
 
-Zonal data availability means that data is available within a single availability zone, offering faster responses with less delays, but less resilience. For latency-sensitive applications that can tolerate a 1-hour RPO for replication, zonal shares can be a better choice. 
+Zonal data availability means that data is available within a single availability zone, offering faster responses with less delays, but less resilience. For latency-sensitive applications that can tolerate a 1-hour RPO for replication, zonal shares can be a better choice.
 
-File shares can be created with capacity in the range of 10 GB (preset minimum) to 32,000 GB. You can start small, and if you need more storage capacity later, you can increase the size of the file share. When you create a file share, you can select an IOPS value between 100 IOPS (the preset minimum) to 96,000 IOPS, based on share size. You can also adjust the IOPS later. 
+File shares can be created with capacity in the range of 10 GB (preset minimum) to 32,000 GB. You can start small, and if you need more storage capacity later, you can increase the size of the file share. When you create a file share, you can select an IOPS value between 100 IOPS (the preset minimum) to 96,000 IOPS, based on share size. You can also adjust the IOPS later.
 
 For the `dp2` profile, the baseline bandwidth is determined by the number of IOPS multiplied by 256 KB. So when you increase the capacity and the IOPS, you also increase the bandwidth limit. The maximum bandwidth value for this profile is 8192 Mbps.
 
@@ -96,10 +96,10 @@ Table 2 shows the available IOPS ranges, based on share size.
 | 80 - 99         | 100 - 4,000 |
 | 100 - 499       | 100 - 6,000 |
 | 500 - 999       | 100 - 10,000 |
-| 1,000 - 1,999   | 100 - 20,000 | 
+| 1,000 - 1,999   | 100 - 20,000 |
 | 2,000 - 3,999   | 200 - 40,000 |
 | 4,000 - 7,999   | 300 - 40,000 |
-| 8,000 - 15,999  | 500 - 64,000 | 
+| 8,000 - 15,999  | 500 - 64,000 |
 | 16,000 - 32,000  | 2,000 - 96,000¹|
 {: caption="dp2 file share profile IOPS and capacity ranges." caption-side="top"}
 
@@ -170,7 +170,7 @@ ibmcloud is share-profiles
 {: pre}
 
 ```sh
-Listing file share profiles in region us-south under account Test Account as user test.user@ibm.com... 
+Listing file share profiles in region us-south under account Test Account as user test.user@ibm.com...
 Name   Family                Allowed Access Protocols   Allowed transit encryption modes   Availability Modes   Bandwidth(Mbps)
 dp2    defined_performance   nfs4                       none,ipsec                         zonal                -
 rfs    defined_performance   nfs4                       none,stunnel                       regional             1
@@ -207,7 +207,7 @@ Allowed Access Protocols           Default   Type     Values
                                    nfs4      subset   nfs4
 
 Allowed transit encryption modes   Default   Type     Values
-                                   none      subset   none,ipsec    
+                                   none      subset   none,ipsec
 ```
 {: screen}
 
@@ -218,25 +218,25 @@ ibmcloud is share-profile rfs
 
 ```sh
 Getting file share profile rfs in region us-south under account Test Account as user test.user@ibm.com...
-Name                               rfs   
-Family                             defined_performance   
-IOPS                               Default   Max   Min   Step   Type      
-                                   -         -     -     -      fixed      
-                                      
-Capacity                           Default   Max     Min   Step   Type      
-                                   1         32000   1     1      range      
-                                      
-Bandwidth(Mbps)                    Default   Max    Min   Step   Type      
-                                   800       8096   1     1      range      
-                                      
-Availability Modes                 Default   Type    Value      Values      
-                                   -         fixed   regional   -      
-                                      
-Allowed Access Protocols           Default   Type     Values      
-                                   nfs4      subset   nfs4      
-                                      
-Allowed transit encryption modes   Default   Type     Values      
-                                   stunnel   subset   none,stunnel      
+Name                               rfs
+Family                             defined_performance
+IOPS                               Default   Max   Min   Step   Type
+                                   -         -     -     -      fixed
+
+Capacity                           Default   Max     Min   Step   Type
+                                   1         32000   1     1      range
+
+Bandwidth(Mbps)                    Default   Max    Min   Step   Type
+                                   800       8096   1     1      range
+
+Availability Modes                 Default   Type    Value      Values
+                                   -         fixed   regional   -
+
+Allowed Access Protocols           Default   Type     Values
+                                   nfs4      subset   nfs4
+
+Allowed transit encryption modes   Default   Type     Values
+                                   stunnel   subset   none,stunnel
 ```
 {: screen}
 
@@ -265,7 +265,7 @@ The response looks like the following example.
   },
   "limit": 50,
   "profiles": [
-    {    
+    {
     "allowed_access_protocols": {
       "default": [
         "nfs4"
@@ -363,13 +363,13 @@ The response looks like the following example.
 The 2025-09-16 version of the API is enhanced to include the following fields:
 
 - `allowed_access_protocols` denotes which access protocol is allowed for use with the file share. The current default value is `nsf4`.
-- `availability_modes` denotes the data availability. 
+- `availability_modes` denotes the data availability.
     - The `dp2` profile supports zonal data availability.
     - The `rfs` profile supports regional data availability.
 - `bandwidth` denotes the available maximum bandwidth value that the file share can handle.
     - For the `dp2` profile, the bandwidth is calculated by multiplying the number of IOPS by 256 KB.
     - For the `rfs` profile, the preset value is 800 Mbps. However, you can increase this value up to 8192 Mbps.
-- `storage_generation` denotes the generation of the file share profile within the Defined performance profile family. 
+- `storage_generation` denotes the generation of the file share profile within the Defined performance profile family.
     - For the `dp2` profile, the value is `1`.
     - For the `rfs` profile, the value is `2`.
 
@@ -381,14 +381,14 @@ The 2025-09-16 version of the API is enhanced to include the following fields:
 
 2. VPC infrastructure services use a specific regional endpoint, which targets to `us-south` by default. If your VPC is created in another region, make sure to target the appropriate region in the provider block in the `provider.tf` file. See the following example of targeting a region other than the default `us-south`.
 
-   ```terraform 
+   ```terraform
    provider "ibm" {
       region = "eu-de"
    }
    ```
    {: codeblock}
 
-3. Import the list of available volume profiles as a read-only data source. 
+3. Import the list of available volume profiles as a read-only data source.
 
    ```terraform
    data "ibm_is_share_profiles" "example" {
@@ -397,7 +397,7 @@ The 2025-09-16 version of the API is enhanced to include the following fields:
    {: codeblock}
 
    For more information, see [ibm_is_share_profiles](https://registry.terraform.io/providers/IBM-Cloud/ibm/latest/docs/data-sources/is_share_profiles){: external}.
-   
+
 ## How I/O size affects file share performance
 {: #fs-profiles-block-size}
 
@@ -405,7 +405,7 @@ IOPS values are based on a 16 KB block size for all profiles, with a 50-50 read/
 
 Maximum bandwidth for a file share is calculated by taking the file share's IOPS and multiplying it by the bandwidth multiplier. The bandwidth multiplier is 16 KB for 3 IOPS/GB or 5 IOPS/GB tiers, or 256 KB for 10 IOPS/GB, custom IOPS, and `dp2` profiles. The higher the IOPS that you specify, the higher the bandwidth. Maximum bandwidth is 8192 Mbps.
 
-[Select availability]{: tag-green} For the `rfs` profile, the bandwidth is directly [adjustable](/docs/vpc?topic=vpc-file-storage-adjusting-bandwidth). The preset value is 800 Mbps. You can increase this value up to 8192 Mbps, or reduce it back to the preset value. The IOPS value for a regional file share is 35000. 
+[Select availability]{: tag-green} For the `rfs` profile, the bandwidth is directly [adjustable](/docs/vpc?topic=vpc-file-storage-adjusting-bandwidth). The preset value is 800 Mbps. You can increase this value up to 8192 Mbps, or reduce it back to the preset value. The IOPS value for a regional file share is 35000.
 
 The application I/O size directly impacts storage performance. If the application I/O size is smaller than the bandwidth multiplier that is used by the profile to calculate the bandwidth, the IOPS limit is reached before the bandwidth limit. Conversely, if the application I/O size is larger, the bandwidth limit is reached before the IOPS limit.
 
