@@ -234,29 +234,29 @@ When a connection is created successfully, the VPN service adds a CIDR `0.0.0.0/
 
 Static routing connection doesn't use BGP for route advertisements, and can't advertise routes to Transit Gateway or on-premises network. For this connection, all routes need to be manually created and managed, whereas for dynamic connection, no manual configuration is required after the initial provisioning and attachment.
 
-## Can I connect my VPN to multiple Transit Gateways in a dynamic route-based VPN connection?
-{: #faq-vpn-31}
-{: faq}
-
-No, each VPN gateway can be connected to only one Transit Gateway.
-
 ## Is dynamic routing supported when creating a route-based VPN gateway?
-{: #faq-vpn-32}
+{: #faq-vpn-31}
 {: faq}
 
 Yes, dynamic VPN connection is supported by a route-based VPN gateway. See [Creating a VPN gateway](/docs/vpc?topic=vpc-vpn-create-gateway&interface=ui) to create route-based VPN and select **dynamic** for the connection type.
 
-## What is ASN and why do I need it for dynamic routing?
-{: #faq-vpn-33}
-{: faq}
-
-An Autonomous System Number (ASN) is a unique identifier that is used in Border Gateway Protocol (BGP) to represent an Autonomous System (AS). It functions similarly to a public IP address in an IPsec connection and serves as a key attribute for identifying devices within a network. Each device within the network is assigned to a specific ASN, and without a valid ASN, a VPN gateway cannot successfully establish a BGP session with other devices in the network.
-
 ## Do I need to attach a Transit Gateway for the dynamic routing connection to work?
-{: #faq-vpn-34}
+{: #faq-vpn-32}
 {: faq}
 
 Yes, you need to attach a Transit Gateway for the dynamic routing connection to function properly. Without a Transit Gateway, communication between the VPN gateway and your on-premises network doesn't work, even if the IPsec connection is established.
+
+## Why do I need a Transit Gateway for dynamic route-based connection?
+{: #faq-vpn-33}
+{: faq}
+
+A Transit Gateway is essential for dynamic routing because it acts as a central hub for all connections within your network. The Transit Gateway manages the routing for all spokes, including VPN connections. Without the Transit Gateway the spokes would be unable to communicate with each other, as they rely on the hub Transit Gateway to facilitate and route traffic between them.
+
+## Can I connect my VPN to multiple Transit Gateways in a dynamic route-based VPN connection?
+{: #faq-vpn-34}
+{: faq}
+
+No, each VPN gateway can be connected to only one Transit Gateway.
 
 ## Can I attach an existing Transit Gateway to the route-based VPN for dynamic routing?
 {: #faq-vpn-35}
@@ -264,11 +264,11 @@ Yes, you need to attach a Transit Gateway for the dynamic routing connection to 
 
 Yes, you can attach an existing Transit Gateway to the route-based VPN for dynamic routing. You don't need to create a new Transit Gateway.
 
-## Why do I need a Transit Gateway for dynamic route-based connection?
+## What is ASN and why do I need it for dynamic routing?
 {: #faq-vpn-36}
 {: faq}
 
-A Transit Gateway is essential for dynamic routing because it acts as a central hub for all connections within your network. The Transit Gateway manages the routing for all spokes, including VPN connections. Without the Transit Gateway the spokes would be unable to communicate with each other, as they rely on the hub Transit Gateway to facilitate and route traffic between them.
+An Autonomous System Number (ASN) is a unique identifier that is used in Border Gateway Protocol (BGP) to represent an Autonomous System (AS). It functions similarly to a public IP address in an IPsec connection and serves as a key attribute for identifying devices within a network. Each device within the network is assigned to a specific ASN, and without a valid ASN, a VPN gateway cannot successfully establish a BGP session with other devices in the network.
 
 ## What is the use of advertised CIDRs?
 {: #faq-vpn-37}

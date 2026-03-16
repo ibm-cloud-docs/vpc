@@ -129,7 +129,7 @@ Because all bare metal profiles are VMware&reg; certified, the `supported_image_
 When a security group or network ACL rule is created with a `protocol` value that was previously unsupported, there is an issue with old versions of some tools that use the API. The following tools may experience an error (crash) when retrieving or listing rules with a previously unsupported `protocol` value:
 - The [IBM Cloud VPC Go SDK](https://github.com/IBM/vpc-go-sdk). For troubleshooting information, see the [known issues](https://github.com/IBM/vpc-go-sdk/blob/master/known-issues.md).
 - The `vpc-infrastructure` plugin for the [IBM Cloud CLI](/docs/cli). To prevent errors, update to the latest version of the `vpc-infrastructure` plugin.
-- The [Terraform provider](https://registry.terraform.io/providers/IBM-Cloud/ibm/latest/docs) for VPC. For troubleshooting, see [Terraform on IBM Cloud FAQs](/docs/ibm-cloud-provider-for-terraform?topic=ibm-cloud-provider-for-terraform-faqs&interface=cli).
+- The [Terraform provider](https://registry.terraform.io/providers/IBM-Cloud/ibm/latest/docs){: external} for VPC. For troubleshooting, see [Terraform on IBM Cloud FAQs](/docs/ibm-cloud-provider-for-terraform?topic=ibm-cloud-provider-for-terraform-faqs&interface=cli).
 
 ### Security Group and Network ACL rules with ESP protocol issue
 {: #security-groups-network-acls-protocol-esp-known-issue}
@@ -140,7 +140,7 @@ Configuring a security group rule with a `protocol` value of `esp` or `any` will
 
 To avoid confusion about where ESP traffic is supported, the ESP protocol is not shown in the IBM Cloud console options for security group and network ACL rules. Support for ESP traffic on newer generation instance profiles and on bare metal servers may be available in a future release.
 
-## Known Issues for vpc-go-sdk
+## Known issues for vpc-go-sdk
 {: #vpc-go-sdk-known-issues}
 
 ### Security Group rules and Network ACL rules backward compatibility issue
@@ -150,7 +150,7 @@ To avoid confusion about where ESP traffic is supported, the ESP protocol is not
 
 **Affected component:** vpc-go-sdk
 
-**Affected operations:** Security group rules and Network ACL rules 
+**Affected operations:** Security group rules and Network ACL rules
 
 **Issue Summary:** Following the new support for [all IPv4 protocols for ACL and Security Group rules](https://cloud.ibm.com/docs/vpc?topic=vpc-release-notes#vpc-dec1225), earlier versions of the Golang SDK must be updated to avoid the following parsing error when handling rules with the new protocols:
 
