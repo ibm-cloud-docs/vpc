@@ -2,7 +2,7 @@
 
 copyright:
   years: 2018, 2026
-lastupdated: "2026-03-09"
+lastupdated: "2026-03-16"
 
 keywords: virtual private network, VPN, VPN gateway, troubleshooting
 
@@ -19,7 +19,7 @@ content-type: troubleshoot
 {: troubleshoot}
 {: support}
 
-If your VPN tunnel fails to come up consistently, or establishes only when the Check Point peer initiates traffic, the issue is commonly related to Check Point tunnel settings or its policy‑based VPN configuration.
+If your VPN tunnel fails to come up, or establishes only when the Check Point peer initiates traffic, the issue is related to Check Point tunnel settings or its policy‑based VPN configuration.
 {: shortdesc}
 
 My VPN tunnel doesn't establish, or it establishes only when the Check Point side sends traffic.
@@ -27,10 +27,10 @@ My VPN tunnel doesn't establish, or it establishes only when the Check Point sid
 
 You might observe:
 
-1. The tunnel stays down when IBM Cloud initiates traffic but comes up immediately when the Check Point peer sends traffic.
-1. IBM‑initiated pings, SSH, or cURL don't bring up the tunnel.
-1. Only one subnet works when multiple CIDRs are configured in a single policy‑based VPN connection.
-1. Phase 2 negotiation or traffic selector mismatch errors appear in logs.
+* The tunnel stays down when IBM Cloud initiates traffic but comes up immediately when the Check Point peer sends traffic.
+* IBM‑initiated pings, SSH, or cURL fail to establish the tunnel.
+* Only one subnet works when multiple CIDRs are configured in a single policy‑based VPN connection.
+* Phase 2 negotiation or traffic selector mismatch errors appear in logs.
 
 Tunnel bring‑up issues with Check Point are commonly caused when the _Permanent Tunnel_ settings are disabled. When the tunnel fails to establish, it might also be due to multiple CIDRs configured for a single policy‑based VPN connection.
 {: tsCauses}
