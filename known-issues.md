@@ -2,7 +2,7 @@
 
 copyright:
   years: 2018, 2026
-lastupdated: "2026-01-23"
+lastupdated: "2026-03-16"
 
 keywords:
 
@@ -129,6 +129,7 @@ Because all bare metal profiles are VMware&reg; certified, the `supported_image_
 When a security group or network ACL rule is created with a `protocol` value that was previously unsupported, there is an issue with old versions of some tools that use the API. The following tools may experience an error (crash) when retrieving or listing rules with a previously unsupported `protocol` value:
 - The [IBM Cloud VPC Go SDK](https://github.com/IBM/vpc-go-sdk). For troubleshooting information, see the [known issues](https://github.com/IBM/vpc-go-sdk/blob/master/known-issues.md).
 - The `vpc-infrastructure` plugin for the [IBM Cloud CLI](/docs/cli). To prevent errors, update to the latest version of the `vpc-infrastructure` plugin.
+- The [Terraform provider](https://registry.terraform.io/providers/IBM-Cloud/ibm/latest/docs) for VPC. For troubleshooting, see [Terraform on IBM Cloud FAQs](/docs/ibm-cloud-provider-for-terraform?topic=ibm-cloud-provider-for-terraform-faqs&interface=cli).
 
 ### Security Group and Network ACL rules with ESP protocol issue
 {: #security-groups-network-acls-protocol-esp-known-issue}
