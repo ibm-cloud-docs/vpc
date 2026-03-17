@@ -2,7 +2,7 @@
 
 copyright:
   years: 2022, 2026
-lastupdated: "2026-03-13"
+lastupdated: "2026-03-17"
 
 keywords: confidential computing, enclave, secure execution, hpcr, contract, customization, schema, contract schema, env, workload, encryption
 
@@ -227,7 +227,7 @@ In the `play` subsection, you can define the workload through [Pod descriptors](
              restartPolicy: Never
     ```
     {: codeblock}
-    
+
 - In the `archive` subsection of `play`, the archive is a Base64 encoded, gzipped tar file. The Pods or ConfigMaps are represented as YAML files, at the top level in this tar file. The file might also contain extra files and all the files are extracted to the host file system before the Pods are started. The *current working directory* is the directory in which the files were extracted, so it's possible to use a volume mount with a relative path to mount the files or directories from the YAML file.
 
    Example:
@@ -767,9 +767,9 @@ Complete the following steps on an Ubuntu system to encrypt the workload section
    For more information, see [Overview of Docker Compose](https://docs.docker.com/compose/).
 
 2. Create the [workload section](#hpcr_contract_workload) of the contract and add the contents in the `workload.yaml` file.
-   
+
    Following is an example of ​​​​​`​workload.yaml`​​​​:
-   
+
    ```yaml
    type: workload
    auths:
@@ -806,7 +806,7 @@ Complete the following steps on an Ubuntu system to encrypt the workload section
 
 5. Starting with OpenSSL 3.0, the OpenSSL rsautl sub command is deprecated, and might be removed in a future release. As a replacement, OpenSSL recommends using the `pkeyutl` sub command. Use one of the following commands to encrypt password with `ibm-hyper-protect-container-runtime-1-0-s390x-26-encrypt.crt`:
 
-   
+
    - Using `rsautl` (deprecated):
 
       ```yaml
@@ -848,7 +848,7 @@ Complete the following steps on an Ubuntu system to encrypt the workload section
 Complete the following steps on an Ubuntu system to encrypt the `env` section used in a contract:
 
 1. Create the [`env` section](#hpcr_contract_env) of the contract and add the contents in the `env.yaml` file.
-   
+
    Following is an example of `env.yaml`:
 
    ```yaml
@@ -882,7 +882,7 @@ Complete the following steps on an Ubuntu system to encrypt the `env` section us
    {: pre}
 
 4. Starting with OpenSSL 3.0, the OpenSSL rsautl sub command is deprecated, and might be removed in a future release. As a replacement, OpenSSL recommends using the `pkeyutl` sub command. Use one of the following commands to encrypt password with `ibm-hyper-protect-container-runtime-1-0-s390x-26-encrypt.crt`:
-   
+
    - Using `rsautl` (deprecated):
 
       ```yaml
@@ -1072,20 +1072,20 @@ Complete the following steps on an Ubuntu system to create the contract signatur
    {: pre}
 
 9. Starting with OpenSSL 3.0, the OpenSSL rsautl sub command is deprecated, and might be removed in a future release. As a replacement, OpenSSL recommends that you use the pkeyutl sub command. Use one of the following commands to encrypt password with `ibm-hyper-protect-container-runtime-1-0-s390x-26-encrypt.crt`:
-   
-  - Using `rsautl` (deprecated):
 
-      ```yaml
-      ENCRYPTED_PASSWORD="$(echo -n "$PASSWORD" | base64 -d | openssl rsautl -encrypt -inkey $CONTRACT_KEY -certin | base64 -w0)"
-      ```
-      {: pre}
+    - Using `rsautl` (deprecated):
 
-  - Using `pkeyutl` (recommended):
+        ```yaml
+        ENCRYPTED_PASSWORD="$(echo -n "$PASSWORD" | base64 -d | openssl rsautl -encrypt -inkey $CONTRACT_KEY -certin | base64 -w0)"
+        ```
+        {: pre}
 
-     ```yaml
-     ENCRYPTED_PASSWORD="$(echo -n "$PASSWORD" | base64 -d | openssl pkeyutl -encrypt -inkey $CONTRACT_KEY -certin -pkeyopt rsa_padding_mode:pkcs1 | base64 -w0)"
-     ```
-     {: pre}
+    - Using `pkeyutl` (recommended):
+
+        ```yaml
+        ENCRYPTED_PASSWORD="$(echo -n "$PASSWORD" | base64 -d | openssl pkeyutl -encrypt -inkey $CONTRACT_KEY -certin -pkeyopt rsa_padding_mode:pkcs1 | base64 -w0)"
+        ```
+        {: pre}
 
 10. Use the following command to encrypt `env.yaml` with a random password:
 

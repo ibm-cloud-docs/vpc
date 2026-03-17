@@ -2,7 +2,7 @@
 
 copyright:
   years: 2025, 2026
-lastupdated: "2026-03-06"
+lastupdated: "2026-03-17"
 
 keywords: virtual server instances, flex profile, flexible profile, virtual server profile
 
@@ -64,8 +64,8 @@ See the following capabilities for Flex profiles.
 * Instance storage: No
 * NUMA Pinning: Yes
 - NIC capabilities:
-   - Max single NIC throughput: up to 25 Gbps
-   - Bandwidth pooling: No
+    - Max single NIC throughput: up to 25 Gbps
+    - Bandwidth pooling: No
 * [Volume bandwidth allocation method](/docs/vpc?topic=vpc-block-storage-bandwidth#attached-block-vol-bandwidth): `pooled` by default; it can be updated to `weighted`.
 
 ## VM configuration

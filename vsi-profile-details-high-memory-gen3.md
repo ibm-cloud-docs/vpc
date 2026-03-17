@@ -2,7 +2,7 @@
 
 copyright:
   years: 2026, 2026
-lastupdated: "2026-03-06"
+lastupdated: "2026-03-17"
 
 keywords: vsi, virtual server, virtual server instances, profile, profiles, gpu, very high memory, high memory, gen 3
 
@@ -35,8 +35,8 @@ The very high memory profiles can also be paired with a corresponding dedicated 
 
 - Status: Select availability
 - Regions:
-   - Washington DC (`us-east`)
-   - Toronto (`ca-tor`)
+    - Washington DC (`us-east`)
+    - Toronto (`ca-tor`)
 
 ## Capabilities
 {: #vhm-3-capabilities}
@@ -50,18 +50,18 @@ The very high memory profiles can also be paired with a corresponding dedicated 
 - Instance storage: Yes
 - NUMA pinning: Yes
 - NIC Capabilities:
-   - Max single NIC throughput: up to 32 Gbps
-   - Bandwidth pooling: No
+    - Max single NIC throughput: up to 32 Gbps
+    - Bandwidth pooling: No
 - [Volume bandwidth allocation method](/docs/vpc?topic=vpc-block-storage-bandwidth#attached-block-vol-bandwidth): `weighted` by default; it can be updated to `pooled`.
 
 ## VM configuration
 {: #vhm-3-vm-config}
 
 - Hardware type: i440fx
-   - Utilizes Q35 hardware type when running in secure boot mode.
+    - Utilizes Q35 hardware type when running in secure boot mode.
 - Cloud networking: virtio
 - Block boot volume: virtio
-   - Exception: vscsi for Windows-based instances
+    - Exception: vscsi for Windows-based instances
 - Block data volumes: virtio
 - Instance storage: virtio
 

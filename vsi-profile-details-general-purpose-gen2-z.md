@@ -2,7 +2,7 @@
 
 copyright:
   years: 2024, 2026
-lastupdated: "2026-03-06"
+lastupdated: "2026-03-17"
 
 keywords: vsi, virtual server, virtual server instances, profile, profiles, balanced, compute, memory, dedicated host, gen 2, s390x architecture, LinuxONE, IBM z, mainframe
 
@@ -46,8 +46,8 @@ for single-tenant hypervisors that run workloads from a single {{site.data.keywo
 - Live migration: Yes
 - Instance storage: No
 - NIC capabilities:
-  - Max single NIC throughput: up to 25 Gbps
-  - Bandwidth pooling: No
+    - Max single NIC throughput: up to 25 Gbps
+    - Bandwidth pooling: No
 - [Volume bandwidth allocation method](/docs/vpc?topic=vpc-block-storage-bandwidth#attached-block-vol-bandwidth): `weighted` by default; `pooled` is not supported.
 
 ## VM configuration

@@ -2,7 +2,7 @@
 
 copyright:
   years: 2024, 2026
-lastupdated: "2026-03-06"
+lastupdated: "2026-03-17"
 
 keywords: vsi, virtual server, virtual server instances, profile, profiles, balanced, compute, memory, dedicated host, gen 4
 
@@ -53,8 +53,8 @@ for single-tenant hypervisors that run workloads from a single {{site.data.keywo
 - Instance storage: Yes
 - NUMA Pinning: Yes
 - NIC Capabilities:
-   - Max single NIC throughput: up to 100 Gbps VPC traffic and 32 Gbps external traffic
-   - Bandwidth Pooling: Yes
+    - Max single NIC throughput: up to 100 Gbps VPC traffic and 32 Gbps external traffic
+    - Bandwidth Pooling: Yes
 - [Volume bandwidth allocation method](/docs/vpc?topic=vpc-block-storage-bandwidth#attached-block-vol-bandwidth): `pooled` by default; it can be updated to `weighted`.
 
 For more information about networking bandwidth allocation for profiles, see [Optimizing network bandwidth allocation for profiles](/docs/vpc?topic=vpc-bandwidth-allocation-profiles#network-perf-notes-for-profiles). For more information about volume bandwidth, see [Volume bandwidth allocation method](/docs/vpc?topic=vpc-block-storage-bandwidth#attached-block-vol-bandwidth).
@@ -63,10 +63,10 @@ For more information about networking bandwidth allocation for profiles, see [Op
 {: #general-purpose-vm-config-gen4}
 
 - Hardware type: i440fx
-   - Utilizes Q35 hardware type when it's running in secure boot mode
+    - Utilizes Q35 hardware type when it's running in secure boot mode
 - Cloud networking: virtio
 - Block boot volume: virtio
-   - Exception: vscsi for Windows-based virtual server instances
+    - Exception: vscsi for Windows-based virtual server instances
 - Block data volumes: virtio
 - Instance storage: virtio
 
