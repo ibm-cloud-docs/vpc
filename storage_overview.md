@@ -2,7 +2,7 @@
 
 copyright:
   years: 2022, 2026
-lastupdated: "2026-03-16"
+lastupdated: "2026-03-17"
 
 keywords: block storage for VPC, File Storage for VPC, Snapshots for VPC, Backup for VPC, block storage, file storage, snapshots, backup,
 
@@ -82,7 +82,7 @@ You can use your snapshots to create other second-generation volumes in the same
 | Consistency group   | Multi-volume snapshots are supported. | Not supported in the current release. |
 {: caption="Block Storage snapshot generations comparison." caption-side="bottom"}
 
-First- and second-generation volume profiles are not interchangeable. You can't create a second-generation block volume with a snapshot that was taken of a first-generation volume. You can't use the snapshot with a second-generation volume profile to create a first-generation volume. Creating a consistency group with snapshots of the two different generations is not supported. 
+First- and second-generation volume profiles are not interchangeable. You can't create a second-generation block volume with a snapshot that was taken of a first-generation volume. You can't use the snapshot with a second-generation volume profile to create a first-generation volume. Creating a consistency group with snapshots of the two different generations is not supported.
 
 Consider [migrating](/docs/vpc?topic=vpc-block-storage-vpc-volume-migration) your first-generation volumes to the `sdp` profile. The `sdp` profile provides better value and more flexibility than the first-generation profiles. For more information, see [{{site.data.keyword.block_storage_is_short}} profiles](/docs/vpc?topic=vpc-block-storage-profiles).
 {: tip}
