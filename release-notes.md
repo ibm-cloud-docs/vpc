@@ -27,8 +27,8 @@ For more information about changes to the {{site.data.keyword.vpc_short}} comman
 ## March 2026
 {: #vpc-mar26}
 
-### 16 March 2026
-{: #vpc-mar1626}
+### 17 March 2026
+{: #vpc-mar1726}
 {: release-note}
 
 SSH keys authorized only for Linux default user accounts
