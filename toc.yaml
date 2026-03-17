@@ -1081,6 +1081,7 @@ toc:
               label: Troubleshooting custom images
               topics:
               - vsi_is_tbs_rhel_classic_image.md
+              - vsi_is_tbs_linux_default_user_account.md
               - custom_image_vpc_troubleshoot.md
           - topicgroup:
               id: tbs-dedicated-host
