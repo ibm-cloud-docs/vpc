@@ -2,7 +2,7 @@
 
 copyright:
   years: 2019, 2026
-lastupdated: "2026-03-09"
+lastupdated: "2026-03-17"
 
 keywords:
 
@@ -26,6 +26,13 @@ For more information about changes to the {{site.data.keyword.vpc_short}} comman
 
 ## March 2026
 {: #vpc-mar26}
+
+### 16 March 2026
+{: #vpc-mar1626}
+{: release-note}
+
+SSH keys authorized only for Linux default user accounts
+:   Previously, the SSH key associated with a virtual server instance was also added to the root user account by default. This behavior has changed. SSH keys are authorized now for only the default user account for all Linux images. The name of the default user account depends on the operating system image being used. For a list of all Linux operating system default user accounts, see [Determining the default user account](/docs/vpc?topic=vpc-vsi_is_connecting_linux#determining-default-user-account)
 
 ### 09 March 2026
 {: #vpc-mar0926}
