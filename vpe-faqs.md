@@ -2,7 +2,7 @@
 
 copyright:
   years: 2020, 2026
-lastupdated: "2026-03-03"
+lastupdated: "2026-03-17"
 
 keywords: virtual private endpoint, FAQs, VPE, endpoint gateway
 
@@ -75,6 +75,14 @@ To avoid port exhaustion, consider techniques such as long-running connections a
 {: faq}
 
 A finite pool of IP addresses is used for NAT operations on the VPC gateway. One IP address is required per VPC per zone.
+
+## What is the maximum MTU supported by VPE?
+{: #mtu-supported}
+
+VPE supports MTU sizes up to the following limits, depending on the connection type:
+
+* IBM services: up to 9000 bytes
+* Private Path services: up to 8500 bytes
 
 ## Can you ping a VPE-hosted private IP?
 {: #faq-ping-private-ip}
