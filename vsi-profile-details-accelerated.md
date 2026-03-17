@@ -98,8 +98,7 @@ This large profile likely requires that you open a support ticket to request a [
 ### Limits
 {: #amd-mi300x-limits}
 
-An instance has a limit for the number of volumes and virtual network interfaces that can be
-attached. This limit is based on the size of the instance.
+An instance has a limit for the number of volumes and virtual network interfaces that can be attached. This limit is based on the size of the instance.
 
 | Profile | Max volumes | Max vNICs |
 | --------------- | ----------- | --------- |
