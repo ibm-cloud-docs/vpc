@@ -280,7 +280,7 @@ To create a VPN gateway with the API, follow these steps:
 
 1. When all variables are initiated, create the VPN gateway:
 
-   * To create VPN gateway for policy-based VPN, use the following command:
+   * To create a policy-based VPN gateway, use the following command:
 
    ```sh
       curl -X POST "$vpc_api_endpoint/v1/vpn_gateways?version=$api_version&generation=2" \
@@ -298,7 +298,7 @@ To create a VPN gateway with the API, follow these steps:
    ```
    {: codeblock}
 
-   * To create VPN gateway for static route-based VPN connection, use the following command:
+   * To create a VPN gateway for a static route-based VPN connection, use the following command:
 
    ```sh
       curl -X POST "$vpc_api_endpoint/v1/vpn_gateways?version=$api_version&generation=2" \
@@ -316,7 +316,7 @@ To create a VPN gateway with the API, follow these steps:
    ```
    {: codeblock}
 
-   * To create VPN gateway for dynamic route-based VPN connection, use the following command:
+   * To create a VPN gateway for a dynamic route-based VPN connection, use the following command:
 
    ```sh
       curl -X POST "$vpc_api_endpoint/v1/vpn_gateways?version=$api_version&generation=2" \

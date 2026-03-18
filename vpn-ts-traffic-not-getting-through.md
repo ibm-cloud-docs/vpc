@@ -31,7 +31,7 @@ An interoperability issue might exist.
 Follow these steps to resolve this issue:
 {: tsResolve}
 
-1. Make sure that NAT-Traversal is enabled on the peer, if it's a configurable option. For more information, see [Known issues for VPN gateways](/docs/vpc/build/vpc-review-output?topic=vpc-vpn-limitations)
+1. Make sure that NAT-Traversal is enabled on the peer, if it's a configurable option. For more information, see [Known issues for VPN gateways](/docs/vpc/build/vpc-review-output?topic=vpc-vpn-limitations).
 1. Make sure that ACLs are configured properly on both sides to allow application traffic.
 1. If you're using a policy-based VPN with multiple CIDR subnets on either side, create multiple connections with one CIDR subnet pair per connection. Alternatively, check if your can configure your peer gateway to allow multiple CIDRs. 
 1. If you're using a route-based VPN on either side, configure the routes on each side properly so that traffic is routed to the VPN gateway correctly. 
