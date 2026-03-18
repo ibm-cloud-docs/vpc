@@ -1,8 +1,8 @@
 ---
 
 copyright:
-  years: 2019, 2025
-lastupdated: "2025-11-19"
+  years: 2019, 2026
+lastupdated: "2026-03-18"
 
 keywords:
 subcollection: vpc
@@ -280,8 +280,9 @@ To create a VPN gateway with the API, follow these steps:
 
 1. When all variables are initiated, create the VPN gateway:
 
+   * To create VPN gateway for policy-based VPN, use the following command:
+
    ```sh
-      # To create VPN gateway for policy-based VPN, use the following command:
       curl -X POST "$vpc_api_endpoint/v1/vpn_gateways?version=$api_version&generation=2" \
         -H "Authorization: $iam_token" \
         -d '{
@@ -297,8 +298,9 @@ To create a VPN gateway with the API, follow these steps:
    ```
    {: codeblock}
 
+   * To create VPN gateway for static route-based VPN connection, use the following command:
+
    ```sh
-      # To create VPN gateway for static route-based VPN connection, use the following command:
       curl -X POST "$vpc_api_endpoint/v1/vpn_gateways?version=$api_version&generation=2" \
         -H "Authorization: $iam_token" \
         -d '{
@@ -314,8 +316,9 @@ To create a VPN gateway with the API, follow these steps:
    ```
    {: codeblock}
 
+   * To create VPN gateway for dynamic route-based VPN connection, use the following command:
+
    ```sh
-      # To create VPN gateway for dynamic route-based VPN connection, use the following command:
       curl -X POST "$vpc_api_endpoint/v1/vpn_gateways?version=$api_version&generation=2" \
         -H "Authorization: Bearer $iam_token" \
         -H "Content-Type: application/json" \
@@ -338,22 +341,25 @@ To create a VPN gateway with the API, follow these steps:
    ```
    {: codeblock}
 
+   * To list all the advertised CIDRs for a VPN gateway, use the following command:
+
    ```sh
-      # To list all the advertised CIDRs for a VPN gateway, use the following command:
       curl -X GET "$vpc_api_endpoint/v1/vpn_gateways?version=$api_version&generation=2/$vpn_gateway_id/advertised_cidrs/$cidr?__QUERY__" \
         -H "Authorization: Bearer $iam_token"
    ```
    {: codeblock}
 
+   * To remove an advertised CIDR from a VPN gateway, use the following command:
+
    ```sh
-      # To remove an advertised CIDR from a VPN gateway, use the following command:
       curl -X DELETE "$vpc_api_endpoint/v1/vpn_gateways?version=$api_version&generation=2/$vpn_gateway_id/advertised_cidrs/$cidr?__QUERY__" \
         -H "Authorization: Bearer $iam_token" \
    ```
    {: codeblock}
 
+   * To set an advertised CIDR on a VPN gateway, use the following command:
+
    ```sh
-      # To set an advertised CIDR on a VPN gateway, use the following command:
       curl -X PUT "$vpc_api_endpoint/v1/vpn_gateways?version=$api_version&generation=2/$vpn_gateway_id/advertised_cidrs/$cidr?__QUERY__" \
         -H "Authorization: Bearer $iam_token"
    ```
