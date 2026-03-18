@@ -2,7 +2,7 @@
 
 copyright:
   years: 2024, 2026
-lastupdated: "2026-03-06"
+lastupdated: "2026-03-17"
 
 keywords: vsi, virtual server, virtual server instances, profile, profiles, gpu, very high memory, ultra high memory, high memory
 
@@ -56,8 +56,8 @@ single tenant hypervisors running workloads from a single {{site.data.keyword.cl
 - Live migration: Yes
 - Instance storage: Yes
 - NIC Capabilities:
-  - Max single NIC throughput: up to 25 Gbps
-  - Bandwidth pooling: No
+    - Max single NIC throughput: up to 25 Gbps
+    - Bandwidth pooling: No
 - [Volume bandwidth allocation method](/docs/vpc?topic=vpc-block-storage-bandwidth#attached-block-vol-bandwidth): `weighted` by default; `pooled` is not supported.
 
 ### VM configuration
@@ -66,7 +66,7 @@ single tenant hypervisors running workloads from a single {{site.data.keyword.cl
 - Hardware type: i440fx
 - Cloud networking: virtio
 - Block boot volume: virtio
-   - Exception: vscsi for Windows-based instances
+    - Exception: vscsi for Windows-based instances
 - Block data volumes: virtio
 - Instance storage: virtio
 
@@ -144,8 +144,8 @@ single tenant hypervisors running workloads from a single {{site.data.keyword.cl
 - Live migration: Yes
 - Instance storage: Yes
 - NIC capabilities:
-  - Max single NIC throughput: up to 25 Gbps
-  - Bandwidth pooling: No
+    - Max single NIC throughput: up to 25 Gbps
+    - Bandwidth pooling: No
 - [Volume bandwidth allocation method](/docs/vpc?topic=vpc-block-storage-bandwidth#attached-block-vol-bandwidth): `weighted` by default; `pooled` is not supported.
 
 ### VM configuration
@@ -154,7 +154,7 @@ single tenant hypervisors running workloads from a single {{site.data.keyword.cl
 - Hardware type: i440fx
 - Cloud networking: virtio
 - Block boot volume: virtio
-   - Exception: vscsi for Windows-based instances
+    - Exception: vscsi for Windows-based instances
 - Block data volumes: virtio
 - Instance storage: virtio
 

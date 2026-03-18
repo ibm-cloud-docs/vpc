@@ -2,7 +2,7 @@
 
 copyright:
   years: 2024, 2026
-lastupdated: "2026-03-06"
+lastupdated: "2026-03-17"
 
 keywords: vsi, virtual server, virtual server instances, profile, profiles, gpu, accelerated, h100, h200, l4, l40s
 
@@ -98,8 +98,7 @@ This large profile likely requires that you open a support ticket to request a [
 ### Limits
 {: #amd-mi300x-limits}
 
-An instance has a limit for the number of volumes and virtual network interfaces that can be
-attached. This limit is based on the size of the instance.
+An instance has a limit for the number of volumes and virtual network interfaces that can be attached. This limit is based on the size of the instance.
 
 | Profile | Max volumes | Max vNICs |
 | --------------- | ----------- | --------- |
@@ -158,11 +157,11 @@ For more information about regions and universal zones, see [Regions](/docs/over
 - Live migration: No
 - Instance storage: Yes
 - Internal AI Fabric: Yes
-   - 21 x 200 GbE for OAM-to-OAM connections
+    - 21 x 200 GbE for OAM-to-OAM connections
 - Cluster network capable: No
 - NIC capabilities:
-   - Max single NIC throughput: up to 32 Gbps
-   - Bandwidth Pooling: No
+    - Max single NIC throughput: up to 32 Gbps
+    - Bandwidth Pooling: No
 - [Volume bandwidth allocation method](/docs/vpc?topic=vpc-block-storage-bandwidth#attached-block-vol-bandwidth): `weighted` by default; it can be updated to `pooled`.
 
 ### VM configuration
@@ -288,11 +287,11 @@ For more information about regions and universal zones, see [Regions](/docs/over
 - NVLink: Yes (900 GB/s)
 - [NVIDIA GPUDirect Capable](https://developer.nvidia.com/gpudirect): Yes
 - Cluster network capable: Yes (limited regions)
-   - Bandwidth: 3.2 Tbps (8x 400 Gbps)
-   - Type: Dedicated
+    - Bandwidth: 3.2 Tbps (8x 400 Gbps)
+    - Type: Dedicated
 - NIC capabilities:
-   - Max single NIC throughput: up to 32 Gbps
-   - Bandwidth Pooling: No
+    - Max single NIC throughput: up to 32 Gbps
+    - Bandwidth Pooling: No
 - [Volume bandwidth allocation method](/docs/vpc?topic=vpc-block-storage-bandwidth#attached-block-vol-bandwidth): `weighted` by default; it can be updated to `pooled`.
 
 ### VM configuration
@@ -301,8 +300,8 @@ For more information about regions and universal zones, see [Regions](/docs/over
 - Hardware type: q35
 - Cloud networking: virtio
 - Cluster networking: SR-IOV
-   - Type: NVIDIA CX-7 – Virtual Function
-   - Quantity: 8x Dedicated 400 Gbps Physical NICs
+    - Type: NVIDIA CX-7 – Virtual Function
+    - Quantity: 8x Dedicated 400 Gbps Physical NICs
 - Block boot volume: virtio
 - Block data volumes: virtio
 - Instance storage: NVMe
@@ -398,8 +397,8 @@ Regions:
 - Instance storage: No
 - NVLink: No
 - NIC capabilities:
-   - Max single NIC throughput: up to 32 Gbps
-   - Bandwidth Pooling: No
+    - Max single NIC throughput: up to 32 Gbps
+    - Bandwidth Pooling: No
 - [Volume bandwidth allocation method](/docs/vpc?topic=vpc-block-storage-bandwidth#attached-block-vol-bandwidth): `weighted` by default; it can be updated to `pooled`.
 
 ### VM configuration
@@ -492,8 +491,8 @@ Regions:
 - Instance storage: No
 - NVLink: No
 - NIC capabilities:
-   - Max single NIC throughput: up to 32 Gbps
-   - Bandwidth Pooling: No
+    - Max single NIC throughput: up to 32 Gbps
+    - Bandwidth Pooling: No
 - [Volume bandwidth allocation method](/docs/vpc?topic=vpc-block-storage-bandwidth#attached-block-vol-bandwidth): `weighted` by default; it can be updated to `pooled`.
 
 ### VM configuration
@@ -502,7 +501,7 @@ Regions:
 - Hardware type: i440fx
 - Cloud networking: virtio
 - Block boot volume: virtio
-   - Exception: vscsi for Windows-based instances
+    - Exception: vscsi for Windows-based instances
 - Block data volumes: virtio
 
 ### Instance profiles
@@ -587,7 +586,7 @@ Regions:
 - Hardware type: i440fx
 - Cloud networking: virtio
 - Block boot volume: virtio
-   - Exception: vscsi for Windows-based instances
+    - Exception: vscsi for Windows-based instances
 - Block data volumes: virtio
 
 ### Instance profiles

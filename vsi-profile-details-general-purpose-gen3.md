@@ -2,7 +2,7 @@
 
 copyright:
   years: 2024, 2026
-lastupdated: "2026-03-06"
+lastupdated: "2026-03-17"
 
 keywords: vsi, virtual server, virtual server instances, profile, profiles, balanced, compute, memory, dedicated host, gen 3
 
@@ -50,18 +50,18 @@ for single-tenant hypervisors that run workloads from a single {{site.data.keywo
 - Instance storage: Yes
 - NUMA Pinning: Yes
 - NIC capabilities:
-  - Max single NIC throughput: up to 32 Gbps
-  - Bandwidth pooling: No
+    - Max single NIC throughput: up to 32 Gbps
+    - Bandwidth pooling: No
 - [Volume bandwidth allocation method](/docs/vpc?topic=vpc-block-storage-bandwidth#attached-block-vol-bandwidth): `weighted` by default; it can be updated to `pooled`.
 
 ## VM Configuration
 {: #general-purpose-vm-config-gen3}
 
 - Hardware type: i440fx
-   - Utilizes Q35 hardware type when it's running in secure boot mode
+    - Utilizes Q35 hardware type when it's running in secure boot mode
 - Cloud networking: virtio
 - Block boot volume: virtio
-   - Exception: vscsi for Windows-based virtual server instances
+    - Exception: vscsi for Windows-based virtual server instances
 - Block data volumes: virtio
 - Instance storage: virtio
 
