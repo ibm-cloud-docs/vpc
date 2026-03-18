@@ -14,7 +14,7 @@ content-type: troubleshoot
 
 {{site.data.keyword.attribute-definition-list}}
 
-# Why does my VPN tunnel ocassionally fail?
+# Why does my VPN tunnel occasionally fail?
 {: #troubleshoot-vpn-tunnel-fails}
 {: troubleshoot}
 {: support}
