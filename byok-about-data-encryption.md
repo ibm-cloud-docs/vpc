@@ -2,7 +2,7 @@
 
 copyright:
   years: 2019, 2026
-lastupdated: "2026-03-17"
+lastupdated: "2026-03-18"
 
 keywords:
 
@@ -43,7 +43,7 @@ For end-to-end encryption in the {{site.data.keyword.cloud_notm}}, you can use c
 
 With customer-managed encryption, you can bring your own customer root key (CRK) to the cloud or have a [key management service](#kms-for-byok) (KMS) generate a key for you. Root keys are used to encrypt volume, file share, and custom image passphrases with [envelope encryption](#vpc-envelope-encryption-byok), a process that wraps a key with another key.
 
-Supported key management services are {{site.data.keyword.keymanagementserviceshort}} and {{site.data.keyword.hscrypto}}. After the key management service is provisioned, you must authorize access between the source service (for example, Cloud Block Storage, Cloud File Storage) and the KMS. For custom images, authorize between Image Service for VPC (source service) and {{site.data.keyword.cos_full_notm}} (target service). This authorization is required so that the image service has authority to import custom images from the {{site.data.keyword.cos_short}} bucket that contains your custom image.
+Supported key management services are {{site.data.keyword.keymanagementserviceshort}} and {{site.data.keyword.hscrypto}}. 
 
 When you use customer-managed encryption, you can use root keys to encrypt resources across regions. You can encrypt resources with a key that is stored in your regional KMS instance, and you can use root keys from another region. For best performance and security, colocate your KMS instance, root keys, and your encrypted resources in the same region. For more information, see [Root key regional and cross-regional considerations](#byok-cross-region-keys).
 
@@ -142,6 +142,8 @@ Table 1 describes these services:
 
 You might see {{site.data.keyword.keymanagementserviceshort}} being described as _BYOK_, "bring your own key" and {{site.data.keyword.hscrypto}} as _KYOK_, or "keep your own key". {{site.data.keyword.keymanagementserviceshort}} and {{site.data.keyword.hscrypto}} are similar services.
 {: note}
+
+
 
 ### Envelope encryption
 {: #vpc-envelope-encryption-byok}

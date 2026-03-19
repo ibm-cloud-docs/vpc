@@ -2,7 +2,7 @@
 
 copyright:
   years: 2019, 2026
-lastupdated: "2026-03-09"
+lastupdated: "2026-03-18"
 
 keywords:
 
@@ -27,7 +27,7 @@ Consider the following prerequisites before you set up data encryption for your 
 |-------------------|
 |__ Evaluate the amount of control that you want over your data encryption. [IBM-managed encryption](/docs/vpc?topic=vpc-vpc-encryption-about#vpc-provider-managed-encryption) is provided by default for boot volumes, data volumes, and file shares. With [customer-managed encryption](/docs/vpc?topic=vpc-vpc-encryption-about#vpc-customer-managed-encryption), you own the encryption keys and control the encryption process. |
 |__ For encrypted custom images, review the image requirements, supported operating systems, and learn about creating and importing QCOW2 custom image files. For more information, see [Planning for custom images](/docs/vpc?topic=vpc-planning-custom-images). |
-|__ Evaluate which [key management service](#byok-encryption-prereqs) best meets your needs. Determine the availability of these services in your region and zone. |
+|__ Evaluate which [key management service](#byok-encryption-prereqs) best meets your needs. Determine the availability of these services in your region and zone.  |
 |__ Determine whether your account can authorize access:  \n For Cloud Block Storage as the [source service](/docs/vpc?topic=vpc-vpc-encryption-planning#byok-volumes-prereqs), Lite accounts must [upgrade to a Pay-As-You-Go](/docs/account?topic=account-upgrading-account#upgrade-paygo) account or a Subscription account. For more information, see IBM Cloud [account types](/docs/account?topic=account-accounts). \n \n For {{site.data.keyword.filestorage_vpc_short}}, specify VPC Infrastructure Services under (source service), check the box (Resource type), and choose {{site.data.keyword.filestorage_vpc_short}} and {{site.data.keyword.keymanagementserviceshort}} (target service). \n \n For custom images, authorize access between Image Service for VPC (source service) and {{site.data.keyword.cos_full_notm}} (target service). Specify reader access for the role. \n \n For all VPC Source services, do not filter by resource group. Do not select the resource group checkbox.|
 |__ For customer-managed encryption, consider importing or creating multiple root keys and [rotating your keys](/docs/vpc?topic=vpc-vpc-key-rotation) for greater security.|
 |__ Make sure you have a unique name for your virtual server instances, volumes, and file shares. For example, if you have a method for naming volumes with customer-managed encryption, it's much easier to filter and search for them later.|

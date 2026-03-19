@@ -1,8 +1,8 @@
 ---
 
 copyright:
-  years: 2020, 2025
-lastupdated: "2025-11-04"
+  years: 2020, 2026
+lastupdated: "2026-03-18"
 
 keywords: pricing, billing, suspended billing, suspended virtual server, suspend billing
 
@@ -29,13 +29,15 @@ It's important to understand what costs stop accruing and what costs persist whe
 
 Review the following table for details on how suspended billing impacts various resource charges.
 
-| Resource                      | Billing stopped   | Billing persists |
-| ----------------------------- | :---------------: | :--------------: |
+| Resource                      | Billing stopped | Billing persists |
+| ----------------------------- | --------------- | ---------------- |
 | vCPU                          |   Stopped       |                  |
 | RAM                           |   Stopped       |                  |
 | Operating system licenses     |   Stopped       |                  |
+| GPU                           |   Stopped       |                  |
+| Instance storage              |   Stopped       |                  |
 | Floating IPs, Load balancers, or other attached networking offerings |                   |         Persists        |
-| Storage                       |                   |         Persists        |
+| VPC storage services                       |                   |         Persists        |
 {: caption="Resource billing details" caption-side="bottom"}
 
 Usage times are calculated per second, for both the in-use time and suspended time of your virtual server instance. Even if you never initiate the suspend billing feature by powering off your instance, the billing is calculated per second of the instance's lifecycle. No minimum usage requirement exists for an instance.

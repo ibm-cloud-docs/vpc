@@ -2,7 +2,7 @@
 
 copyright:
   years: 2020, 2026
-lastupdated: "2026-03-09"
+lastupdated: "2026-03-18"
 
 keywords: data encryption, data storage, bring your own keys, BYOK, key management, key encryption, personal data, data deletion, data security
 
@@ -15,7 +15,7 @@ subcollection: vpc
 # Securing your data in VPC
 {: #mng-data}
 
-To ensure that you can securely manage your data when you use {{site.data.keyword.vpc_full}}, it's important to know exactly what data is stored and encrypted and how you can delete any stored personal data. Data encryption with your own root keys is available by using a supported key management service (KMS).
+To securely manage your data with {{site.data.keyword.vpc_full}}, you need to understand what data is stored and encrypted. You must also know how to delete any personal data that is stored. Data encryption with your own root keys is available by using a supported key management service (KMS).
 {: shortdesc}
 
 {{site.data.keyword.vpn_vpc_short}} does not store any customer data other than what is required to configure VPN gateways, connections, and policies. Data that is transmitted through a VPN gateway is not encrypted by IBM. Data about your specific VPN and policy configurations are encrypted in transit and at rest. VPN configuration data is deleted upon your request through the API or in the console.
@@ -26,6 +26,8 @@ To ensure that you can securely manage your data when you use {{site.data.keywor
 All Block Storage volumes are encrypted by default with IBM-managed encryption. {{site.data.keyword.IBM}}-managed keys are generated and securely stored in a Block Storage vault that is backed by Consul and maintained by {{site.data.keyword.cloud}} operations.
 
 For more security and control, you can protect your data with your own root keys (also called a customer root key or CRK). This feature is commonly called Bring Your Own Key, or BYOK. Root keys encrypt the keys that safeguard your data. You can import your root keys to {{site.data.keyword.keymanagementserviceshort}} or {{site.data.keyword.hscrypto}}, or have either key management service create one for you.
+
+
 
 The KMS stores your key and makes it available during volume and custom image encryption. {{site.data.keyword.keymanagementserviceshort}} provides FIPS 140-2 Level 3 compliance. Hyper Protect Crypto Services offers the highest level of security with FIPS 140-2 Level 4 compliance. Your key material is protected in transit (when it's transported) and at rest (when it is stored).
 
@@ -40,38 +42,40 @@ After the {{site.data.keyword.vpn_vpc_short}} is provisioned and the network con
 ### Instance storage data isolation and encryption
 {: #instance-storage-isolation}
 
-The instance storage disk or disks, which are attached to the virtual server instance, cannot be shared with any other virtual servers and cannot be accessed by any other virtual servers in the future. They are one-time use, single-attach, for the virtual server that requested the instance storage.
+The instance storage disk or disks, which are attached to the virtual server instance, can't be shared with any other virtual servers. The instance storage disk or disks can't be accessed by any other virtual servers in the future. The disks are one-time use, single-attach, for the virtual server that requested the instance storage.
 
 Instance storage data is secured with on-disk encryption. The physical disks that are used for instance storage are self-encrypting with the strong AES-256 encryption standard. The data is automatically decrypted when your instance accesses the data. When your instance is shut down or deleted, the underlying storage space is erased and unrecoverable. At that point, the data is unrecoverable.
 
-Data is automatically encrypted on the physical media at the drive level. However, customer-managed keys are not supported for instance storage. For sensitive data, it is strongly recommended that users utilize software-based file system encryption such as LUKS for Linux&reg; or BitLocker for Windows&reg;. This technology allows end users to encrypt entirely within the instance, and can provide additional protection for sensitive data in-transit between the instances and the physical drive media. Some operating systems also provide FIPS certified encryption algorithms that may also be used. See [Encrypting block devices using LUKS](https://docs.redhat.com/en/documentation/red_hat_enterprise_linux/8/html/security_hardening/encrypting-block-devices-using-luks_security-hardening) for an example of how to encrypt on Red Hat Enterprise Linux&reg; however, refer to the Operating System documentation or specific information on how to encrypt each device.
+Data is automatically encrypted on the physical media at the drive level. However, customer-managed keys are not supported for instance storage. For sensitive data, it is strongly recommended that users use software-based file system encryption such as LUKS for Linux&reg; or BitLocker for Windows&reg;. This technology allows users to encrypt entirely within the instance, and can provide extra protection for sensitive data in-transit between the instances and the physical drive media. Some operating systems also provide FIPS-certified encryption algorithms that can also be used. For an example of how to encrypt on Red Hat Enterprise Linux&reg;, see [Encrypting block devices using LUKS](https://docs.redhat.com/en/documentation/red_hat_enterprise_linux/8/html/security_hardening/encrypting-block-devices-using-luks_security-hardening). Refer to the Operating System documentation for specific information on how to encrypt each device.
 
 ## Protecting your sensitive data in VPC
 {: #data-encryption}
 
-{{site.data.keyword.keymanagementserviceshort}} or {{site.data.keyword.hscrypto}} provide a higher level of protection called [envelope encryption](/docs/vpc?topic=vpc-vpc-encryption-about#vpc-envelope-encryption-byok), which encrypts one encryption key with another encryption key. This multi-layered approach ensures that your data is protected by multiple keys, and only you control access to the root keys.
+{{site.data.keyword.keymanagementserviceshort}} or {{site.data.keyword.hscrypto}} provide a higher level of protection that is called [envelope encryption](/docs/vpc?topic=vpc-vpc-encryption-about#vpc-envelope-encryption-byok), which encrypts one encryption key with another encryption key. This multi-layered approach helps ensure that your data is protected by multiple keys, and only you control access to the root keys.
 
-You control access to your root keys stored in KMS instances within {{site.data.keyword.cloud}} by using {{site.data.keyword.iamlong}} (IAM). You grant access to a service to use your keys. You can also revoke access at any time, for example, if you suspect your keys might be compromised. For more information about managing your encryption keys, see [Managing data encryption](/docs/vpc?topic=vpc-vpc-encryption-managing).
+You control access to your root keys stored in the KMS instances within {{site.data.keyword.cloud}} by using {{site.data.keyword.iamlong}} (IAM). You grant access to a service to use your keys. You can also revoke access at any time, for example, if you suspect your keys might be compromised. For more information about managing your encryption keys, see [Managing data encryption](/docs/vpc?topic=vpc-vpc-encryption-managing).
 
-{{site.data.keyword.vpn_vpc_short}}: Customer-provided preshared keys are encrypted before they are stored in database. All other data VPN gateway and VPN policy configuration is encrypted at rest at the database level.
+{{site.data.keyword.vpn_vpc_short}}: Customer-provided preshared keys are encrypted before they are stored in the database. All other data VPN gateway and VPN policy configuration is encrypted at rest at the database level.
 
 ### About customer-managed keys
 {: #about-encryption}
 
-With {{site.data.keyword.keymanagementserviceshort}} or {{site.data.keyword.hscrypto}} you can create, import, and manage your root keys. You can assign access policies to the keys, assign users or service IDs to the keys, or give the key access only to a specific service. The first 20 keys are without cost.
+With {{site.data.keyword.keymanagementserviceshort}} or {{site.data.keyword.hscrypto}} you can create, import, and manage your root keys.
+
+You can assign access policies to the keys, assign users or service IDs to the keys, or give the key access only to a specific service.
 
 You can rotate your root keys for enhanced security. For more information, see [Key rotation for VPC resources](/docs/vpc?topic=vpc-vpc-key-rotation).
 
-Consider regional and cross-regional implications when you choose to use customer-managed encryption. For more information, see [Regional and cross regional considerations](/docs/vpc?topic=vpc-vpc-encryption-about#byok-cross-region-keys).
+Consider regional and cross-regional implications when you choose to use customer-managed encryption. For more information, see [Regional and cross-regional considerations](/docs/vpc?topic=vpc-vpc-encryption-about#byok-cross-region-keys).
 
 ### About customer-managed encrypted volumes and images
 {: #about-encryption_volumes-images}
 
 With customer-managed encryption, you provision root keys to protect your encrypted resources in the cloud. Root keys serve as key-wrapping keys that encrypt the encryption keys that protect your data. You decide whether to import your existing root keys, or have a supported KMS create one for you.
 
-Block Storage volumes are assigned a unique data encryption key that is generated by the instance's host hypervisor. The data encryption key for each volume is encrypted with a unique KMS-generated LUKS passphrase, which is then encrypted by the root key and stored in the KMS.
+A unique data encryption key that is generated by the instance's host hypervisor is assigned to the Block Storage volumes. The data encryption key for each volume is encrypted with a unique KMS-generated LUKS passphrase, which is then encrypted by the root key and stored in the KMS.
 
-Custom images are encrypted by your own LUKS passphrase you create by using QEMU. After the image is encrypted, you wrap the passphrase with your CRK stored in the KMS. For more information, see [Encrypted custom images](/docs/vpc?topic=vpc-vpc-encryption-about#byok-about-encrypted-images).
+Custom images are encrypted by your own LUKS passphrase that you create by using QEMU. After the image is encrypted, you wrap the passphrase with your CRK stored in the KMS. For more information, see [Encrypted custom images](/docs/vpc?topic=vpc-vpc-encryption-about#byok-about-encrypted-images).
 
 ### Enabling customer-managed keys for VPC
 {: #using-byok}
@@ -79,6 +83,8 @@ Custom images are encrypted by your own LUKS passphrase you create by using QEMU
 See the following procedure for creating Block Storage boot and data volumes with customer-managed encryption
 * [Creating Block Storage volumes with customer-managed encryption](/docs/vpc?topic=vpc-block-storage-vpc-encryption)
 * [Creating File Storage shares with customer-managed encryption](/docs/vpc?topic=vpc-file-storage-byok-encryption)
+
+
 
 ### Working with customer-managed keys for VPC
 {: #working-with-keys}

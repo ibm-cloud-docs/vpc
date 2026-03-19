@@ -2,7 +2,7 @@
 
 copyright:
   years: 2023, 2026
-lastupdated: "2026-01-26"
+lastupdated: "2026-03-18"
 
 keywords:
 
@@ -18,8 +18,16 @@ subcollection: vpc
 Known issues are identified bugs or unexpected behaviors that were not fixed before release, but weren’t critical enough to delay it. These issues are communicated to you, often with workarounds, and are prioritized for resolution in the near term by the development team.
 {: shortdesc}
 
-Known issues for security groups and network ACLs are as follows:
+**Warning**: Do NOT create a rule with a previously unsupported `protocol` value in your production environments until further notice. Creating a rule with these new protocol values anywhere in your VPC can break your existing Kubernetes and OpenShift clusters. They can also break any other components that make security group or network ACL API requests via an SDK, or via a custom API client that does not handle these new protocol values properly. Work is ongoing to resolve these issues. Until the known issues have been resolved, the UI and the current latest version of CLI will not allow rules with previously unsupported `protocol` values to be created.
+{: important}
 
+Known issues for security groups and network ACLs are as follows:  
+
+* Security Group and Network ACL rules support for any protocol including issues with older SDKs, CLIs and Terraform providers:
+    * When a security group or network ACL rule is created with a `protocol` value that was previously unsupported, there is an issue with old versions of some tools that use the API. The following tools may experience an error (crash) when retrieving or listing rules with a previously unsupported `protocol` value:
+       - The [IBM Cloud VPC Go SDK](https://github.com/IBM/vpc-go-sdk). For troubleshooting information, see the [known issues](https://github.com/IBM/vpc-go-sdk/blob/master/known-issues.md).
+       - The `vpc-infrastructure` plugin for the [IBM Cloud CLI](/docs/cli). To prevent errors, update to the latest version of the `vpc-infrastructure` plugin.
+       - The [Terraform provider](https://registry.terraform.io/providers/IBM-Cloud/ibm/latest/docs){: external} for VPC. For troubleshooting, see [Terraform on IBM Cloud FAQs](/docs/ibm-cloud-provider-for-terraform?topic=ibm-cloud-provider-for-terraform-faqs&interface=cli).
 * Security Group and Network ACL rules with ESP protocol issue:
     * Network traffic with the ESP protocol is currently supported by instances with [generation 2 profiles](/docs/vpc?topic=vpc-profiles#x86-64-instance-profile-families). Instances with newer generation profiles, and all bare metal servers, do not currently support ESP traffic.
     * Configuring a security group rule with a `protocol` value of `esp` or `any` will not allow ESP traffic when the security group targets a network interface for an instance with a newer generation profile or a bare metal server.
