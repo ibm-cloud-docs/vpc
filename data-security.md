@@ -64,13 +64,13 @@ You control access to your root keys stored in the KMS instances within {{site.d
 ### About customer-managed keys
 {: #about-encryption}
 
-With {{site.data.keyword.keymanagementserviceshort}} or {{site.data.keyword.hscrypto}} you can create, import, and manage your root keys.With {{site.data.keyword.keymanagementserviceshort}}, you can create, import, and manage your root keys. {{site.data.keyword.keymanagementserviceshort}} is available in two deployment options:
+With {{site.data.keyword.keymanagementserviceshort}} or {{site.data.keyword.hscrypto}} you can create, import, and manage your root keys.<kp-dedicated>With {{site.data.keyword.keymanagementserviceshort}}, you can create, import, and manage your root keys. {{site.data.keyword.keymanagementserviceshort}} is available in two deployment options:
 
 - **Standard**: A multi-tenant service with FIPS 140-2 Level 3 compliance, suitable for most workloads that require customer-managed encryption.
 - **Dedicated**: A single-tenant service with FIPS 140-3 Level 4 compliance (submitted for certification), providing complete control over encryption keys with no IBM administrator access.
+</kp-dedicated>
 
-
-You can assign access policies to the keys, assign users or service IDs to the keys, or give the key access only to a specific service. For pricing information, see [Pricing for Key Protect](/docs/key-protect?topic=key-protect-pricing-plan).
+You can assign access policies to the keys, assign users or service IDs to the keys, or give the key access only to a specific service.<kp-dedicated> For pricing information, see [Pricing for Key Protect](/docs/key-protect?topic=key-protect-pricing-plan).</kp-dedicated>
 
 You can rotate your root keys for enhanced security. For more information, see [Key rotation for VPC resources](/docs/vpc?topic=vpc-vpc-key-rotation).
 
@@ -92,10 +92,10 @@ See the following procedure for creating Block Storage boot and data volumes wit
 * [Creating Block Storage volumes with customer-managed encryption](/docs/vpc?topic=vpc-block-storage-vpc-encryption)
 * [Creating File Storage shares with customer-managed encryption](/docs/vpc?topic=vpc-file-storage-byok-encryption)
 
-
+<kp-dedicated>
 If you choose {{site.data.keyword.keymanagementserviceshort}} Dedicated, you must first initialize your instance by using the CLI before you can use it to encrypt VPC resources. For more information, see [Initializing Dedicated {{site.data.keyword.keymanagementserviceshort}}](/docs/key-protect?topic=key-protect-st-init-cli).
 {: important}
-
+</kp-dedicated>
 
 ### Working with customer-managed keys for VPC
 {: #working-with-keys}
