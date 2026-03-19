@@ -1,8 +1,8 @@
 ---
 
 copyright:
-  years: 2019, 2025
-lastupdated: "2025-11-05"
+  years: 2019, 2026
+lastupdated: "2026-03-19"
 
 keywords: volume, capacity, Block Storage
 
@@ -15,7 +15,7 @@ subcollection: vpc
 # Managing volume count and capacity limits
 {: #manage-storage-limit}
 
-{{site.data.keyword.block_storage_is_short}} offers block-level data storage volumes that can be attached to an instance as either a boot volume or as a data volume. You can create up to 300 boot and data Block Storage volumes per account in a region. You can request an increase of this quota by contacting [IBM Support](/unifiedsupport/cases/add){: external} and submitting a support case. Answer the following questions when you're requesting an increase in your volume provisioning limit. 
+{{site.data.keyword.block_storage_is_short}} offers block-level data storage volumes that can be attached to an instance as either a boot volume or as a data volume. You can create up to 300 boot and data Block Storage volumes per account in a region. You can request an increase of this quota by contacting [IBM Support](/unifiedsupport/cases/add){: external} and submitting a support case. Answer the following questions when you're requesting an increase in your volume provisioning limit.
 {: shortdesc}
 
 ## Volume count and storage limits checklist
@@ -23,7 +23,7 @@ subcollection: vpc
 
 Review the following checklist items and record your answers. Provide this information when you create a support case.
 
-- **Ticket Subject**: 
+- **Ticket Subject**:
     >"*Request to Increase VPC Volume Count Limit*".
 
 - **How many extra volumes do you need? Provide your account, region, and the zone where you want more volumes.**
@@ -51,7 +51,7 @@ Review the following checklist items and record your answers. Provide this infor
 - **Which volume profiles are used: `general-purpose`, `5iops-tier`, `10iops-tier`, `custom`, or `sdp`?**
     >*We request the capacity increase for `sdp` volumes.*
 
-Respond promptly to all questions and statements in your request. They're necessary for processing and approval. If some things are unclear, the support team contacts you to clarify your answers. 
+Respond promptly to all questions and statements in your request. They're necessary for processing and approval. If some things are unclear, the support team contacts you to clarify your answers.
 {: important}
 
 You're notified about the update to your limits throughout the case process.
@@ -59,4 +59,4 @@ You're notified about the update to your limits throughout the case process.
 ## Increasing volume capacity
 {: #manage-storage-capacity}
 
-You can increase the capacity of a second-generation volume in 1 GB increments up to 32,000 GB. The maximum capacity of first-generation volumes can be increased up to 16,000 GB. For a custom profile, you can expand the volume based on [sizing limits](/docs/vpc?topic=vpc-about-increasing-volume-capacity#expandable-volume-limitations).
+You can increase the capacity of a second-generation volume in 1 GB increments up to 32,000 GB. The maximum capacity of first-generation volumes can be increased up to 16,000 GB. For a custom profile, you can expand the volume based on [sizing limits](/docs/vpc?topic=vpc-expanding-block-storage-volumes#expandable-volume-limitations).

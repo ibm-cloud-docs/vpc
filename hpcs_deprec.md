@@ -2,7 +2,7 @@
 
 copyright:
   years: 2019, 2026
-lastupdated: "2026-03-05"
+lastupdated: "2026-03-19"
 
 keywords:
 
@@ -39,12 +39,12 @@ Make sure that you have the following:
 - Required tools: Install `qemu-utils` on your VSI:
 
    - For Ubuntu or Debian:
-   
+
      ```bash
      sudo apt-get update && sudo apt-get install -y qemu-utils
      ```
      {: codeblock}
-   
+
    - For RHEL or CentOS:
 
      ```bash
@@ -88,14 +88,14 @@ Create a VSI by importing the snapshot. For more information, see [Creating a vi
 
    ```text
    NAME    MAJ:MIN RM  SIZE RO TYPE MOUNTPOINTS
-   vda     254:0    0  100G  0 disk 
+   vda     254:0    0  100G  0 disk
    ├─vda1  254:1    0 99.9G  0 part /
-   ├─vda14 254:14   0    3M  0 part 
+   ├─vda14 254:14   0    3M  0 part
    └─vda15 254:15   0  124M  0 part /boot/efi
-   vdb     254:16   0  368K  0 disk 
-   vdc     254:32   0   44K  0 disk 
+   vdb     254:16   0  368K  0 disk
+   vdc     254:32   0   44K  0 disk
    vdd     254:48   0   10G  0 disk              ← new volume
-   ├─vdd1  254:49   0   99M  0 part 
+   ├─vdd1  254:49   0   99M  0 part
    └─vdd2  254:50   0  9.9G  0 part
    ```
    {: screen}
@@ -183,10 +183,10 @@ Update your on-premises virtual server configuration to use the migrated volume.
    <domain type='kvm'>
      <name>hpvs-migrated</name>
      
-     
+
      <devices>
        
-       
+
        
        <disk type='file' device='disk'>
          <driver name='qemu' type='qcow2' cache='none' iommu='on'/>
@@ -205,10 +205,10 @@ Update your on-premises virtual server configuration to use the migrated volume.
    <domain type='kvm'>
      <name>hpcr-migrated</name>
      
-     
+
      <devices>
        
-       
+
        
        <disk type='file' device='disk'>
          <driver name='qemu' type='qcow2' cache='none' iommu='on'/>
