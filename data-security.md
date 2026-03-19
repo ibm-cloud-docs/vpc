@@ -2,7 +2,7 @@
 
 copyright:
   years: 2020, 2026
-lastupdated: "2026-03-18"
+lastupdated: "2026-03-19"
 
 keywords: data encryption, data storage, bring your own keys, BYOK, key management, key encryption, personal data, data deletion, data security
 
@@ -27,7 +27,11 @@ All Block Storage volumes are encrypted by default with IBM-managed encryption. 
 
 For more security and control, you can protect your data with your own root keys (also called a customer root key or CRK). This feature is commonly called Bring Your Own Key, or BYOK. Root keys encrypt the keys that safeguard your data. You can import your root keys to {{site.data.keyword.keymanagementserviceshort}} or {{site.data.keyword.hscrypto}}, or have either key management service create one for you.
 
+{{site.data.keyword.keymanagementserviceshort}} offers two deployment options to meet different security and compliance requirements:
+- **Standard** (multi-tenant): A cost-effective solution with FIPS 140-2 Level 3 compliance and shared HSM infrastructure. IBM manages the HSM master keys.
+- **Dedicated** (single-tenant): Enhanced security with FIPS 140-3 Level 4 compliance (submitted for certification), dedicated HSM partitions, and complete workload isolation. You own and manage your own master keys with no IBM administrator access.
 
+For more information about choosing between Standard and Dedicated, see [About Standard and Dedicated {{site.data.keyword.keymanagementserviceshort}}](/docs/key-protect?topic=key-protect-about).
 
 The KMS stores your key and makes it available during volume and custom image encryption. {{site.data.keyword.keymanagementserviceshort}} provides FIPS 140-2 Level 3 compliance. Hyper Protect Crypto Services offers the highest level of security with FIPS 140-2 Level 4 compliance. Your key material is protected in transit (when it's transported) and at rest (when it is stored).
 
@@ -60,9 +64,13 @@ You control access to your root keys stored in the KMS instances within {{site.d
 ### About customer-managed keys
 {: #about-encryption}
 
-With {{site.data.keyword.keymanagementserviceshort}} or {{site.data.keyword.hscrypto}} you can create, import, and manage your root keys.
+With {{site.data.keyword.keymanagementserviceshort}} or {{site.data.keyword.hscrypto}} you can create, import, and manage your root keys.With {{site.data.keyword.keymanagementserviceshort}}, you can create, import, and manage your root keys. {{site.data.keyword.keymanagementserviceshort}} is available in two deployment options:
 
-You can assign access policies to the keys, assign users or service IDs to the keys, or give the key access only to a specific service.
+- **Standard**: A multi-tenant service with FIPS 140-2 Level 3 compliance, suitable for most workloads that require customer-managed encryption.
+- **Dedicated**: A single-tenant service with FIPS 140-3 Level 4 compliance (submitted for certification), providing complete control over encryption keys with no IBM administrator access.
+
+
+You can assign access policies to the keys, assign users or service IDs to the keys, or give the key access only to a specific service. For pricing information, see [Pricing for Key Protect](/docs/key-protect?topic=key-protect-pricing-plan).
 
 You can rotate your root keys for enhanced security. For more information, see [Key rotation for VPC resources](/docs/vpc?topic=vpc-vpc-key-rotation).
 
@@ -84,6 +92,9 @@ See the following procedure for creating Block Storage boot and data volumes wit
 * [Creating Block Storage volumes with customer-managed encryption](/docs/vpc?topic=vpc-block-storage-vpc-encryption)
 * [Creating File Storage shares with customer-managed encryption](/docs/vpc?topic=vpc-file-storage-byok-encryption)
 
+
+If you choose {{site.data.keyword.keymanagementserviceshort}} Dedicated, you must first initialize your instance by using the CLI before you can use it to encrypt VPC resources. For more information, see [Initializing Dedicated {{site.data.keyword.keymanagementserviceshort}}](/docs/key-protect?topic=key-protect-st-init-cli).
+{: important}
 
 
 ### Working with customer-managed keys for VPC

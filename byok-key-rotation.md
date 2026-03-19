@@ -2,7 +2,7 @@
 
 copyright:
   years: 2019, 2026
-lastupdated: "2026-02-21"
+lastupdated: "2026-03-19"
 
 keywords: Block Storage, virtual private cloud, Key Protect, encryption, key management, Hyper Protect Crypto Services, HPCS, volume, data storage, virtual server instance, instance, customer-managed encryption, fihe share
 
@@ -21,7 +21,7 @@ For {{site.data.keyword.vpc_short}} resources such as volumes, file shares, and 
 ## Key rotation overview
 {: #vpc-key-rotation-overview}
 
-Customer-managed encrypted resources such as volumes, file shares, and custom images use your root key (CRK) as the root-of-trust key. The root key's function is to encrypt a LUKS passphrase that encrypts a data encryption key (DEK) protecting the resource. You can import your CRK to a key management service (KMS) instance or have the KMS generate one for you. Supported key management services are {{site.data.keyword.keymanagementserviceshort}} and {{site.data.keyword.hscrypto}}. Root keys are rotated in your KMS instance.
+Customer-managed encrypted resources such as volumes, file shares, and custom images use your root key (CRK) as the root-of-trust key. The root key's function is to encrypt a LUKS passphrase that encrypts a data encryption key (DEK) protecting the resource. You can import your CRK to a key management service (KMS) instance or have the KMS generate one for you. Supported key management services are {{site.data.keyword.keymanagementserviceshort}} and {{site.data.keyword.hscrypto}}. {{site.data.keyword.keymanagementserviceshort}} is the preferred key management service, available in both Standard (multi-tenant) and Dedicated (single-tenant) deployment options. Root keys are rotated in your KMS instance.
 
 When you rotate a root key, a new version of the key is created by generating or importing new cryptographic key material. The old root key is retired, which means its key material remains available for decrypting existing resources but not for encrypting new ones.
 

@@ -2,7 +2,7 @@
 
 copyright:
   years: 2019, 2026
-lastupdated: "2026-03-18"
+lastupdated: "2026-03-19"
 
 keywords:
 
@@ -43,7 +43,15 @@ For end-to-end encryption in the {{site.data.keyword.cloud_notm}}, you can use c
 
 With customer-managed encryption, you can bring your own customer root key (CRK) to the cloud or have a [key management service](#kms-for-byok) (KMS) generate a key for you. Root keys are used to encrypt volume, file share, and custom image passphrases with [envelope encryption](#vpc-envelope-encryption-byok), a process that wraps a key with another key.
 
-Supported key management services are {{site.data.keyword.keymanagementserviceshort}} and {{site.data.keyword.hscrypto}}. 
+Supported key management services are {{site.data.keyword.keymanagementserviceshort}} and {{site.data.keyword.hscrypto}}.
+
+{{site.data.keyword.keymanagementserviceshort}} is available in two deployment options to meet different security and compliance requirements:
+
+- **Standard (multi-tenant)**: Provides FIPS 140-2 Level 3 compliance with shared HSM infrastructure. IBM manages the HSM master keys. Ideal for most customer-managed encryption use cases.
+
+- **Dedicated (single-tenant)**: Provides FIPS 140-3 Level 4 compliance (submitted for certification) with dedicated HSM partitions. You own and manage your own master keys with no IBM administrator access. Offers complete workload isolation and runs on confidential computing infrastructure. Ideal for highly regulated industries and sensitive data that requires maximum security.
+
+For a detailed comparison, see [About Standard and Dedicated {{site.data.keyword.keymanagementserviceshort}}](/docs/key-protect?topic=key-protect-about).
 
 When you use customer-managed encryption, you can use root keys to encrypt resources across regions. You can encrypt resources with a key that is stored in your regional KMS instance, and you can use root keys from another region. For best performance and security, colocate your KMS instance, root keys, and your encrypted resources in the same region. For more information, see [Root key regional and cross-regional considerations](#byok-cross-region-keys).
 
@@ -143,7 +151,22 @@ Table 1 describes these services:
 You might see {{site.data.keyword.keymanagementserviceshort}} being described as _BYOK_, "bring your own key" and {{site.data.keyword.hscrypto}} as _KYOK_, or "keep your own key". {{site.data.keyword.keymanagementserviceshort}} and {{site.data.keyword.hscrypto}} are similar services.
 {: note}
 
+{{site.data.keyword.keymanagementserviceshort}} is the preferred key management service for customer-managed encryption in VPC. It's available in two deployment options:
 
+| Deployment Option | HSM Certification | Tenancy | Description |
+|-------------------|-------------------|---------|-------------|
+| **Standard** | FIPS 140-2 Level 3 (submitted for certification) | Multi-tenant | A cost-effective KMS with shared HSM infrastructure. IBM manages the HSM master keys. You can import or create root keys and securely manage them. |
+| **Dedicated** | FIPS 140-3 Level 4 (submitted for certification) | Single-tenant | The highest level of security with dedicated HSM partitions. You own and manage the HSM master keys with no IBM administrator access. Complete workload isolation with confidential computing. |
+{: caption="{{site.data.keyword.keymanagementserviceshort}} deployment options" caption-side="bottom"}
+
+**Choosing between Standard and Dedicated:**
+- Use **Standard** for most workloads that require customer-managed encryption with cost-effective shared infrastructure.
+- Use **Dedicated** for highly regulated industries, sensitive data that requires maximum security, or when you need complete control over the root of trust.
+
+For more information about the differences and when to use each option, see [About Standard and Dedicated {{site.data.keyword.keymanagementserviceshort}}](/docs/key-protect?topic=key-protect-about).
+
+You might see {{site.data.keyword.keymanagementserviceshort}} Standard being described as _BYOK_ (Bring Your Own Key) and {{site.data.keyword.keymanagementserviceshort}} Dedicated as _KYOK_ (Keep Your Own Key).
+{: note}
 
 ### Envelope encryption
 {: #vpc-envelope-encryption-byok}
