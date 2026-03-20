@@ -1,8 +1,8 @@
 ---
 
 copyright:
-  years: 2025
-lastupdated: "2025-11-05"
+  years: 2025, 2026
+lastupdated: "2026-03-20"
 
 keywords:
 
@@ -17,7 +17,7 @@ completion-time: 30m
 
 {{site.data.keyword.attribute-definition-list}}
 
-# Running a model in RHEL AI on IBM Cloud 
+# Running a model in RHEL AI on IBM Cloud
 {: #how-to-rhel-ai-tutorial}
 {: toc-content-type="tutorial"}
 {: toc-services="vpc"}
@@ -26,7 +26,7 @@ completion-time: 30m
 Red Hat Enterprise Linux AI (RHEL AI) is a foundation model platform that is designed to develop, test, and run large language models (LLMs) for enterprise applications. It is available as a bootable Red Hat Enterprise Linux image optimized for AI workloads. These images include PyTorch, hardware acceleration libraries for NVIDIA, Intel, and AMD GPUs, and essential runtime libraries, which help streamline the setup of your AI development platform. For more information about RHEL AI, see [Introducing an accessible open source AI platform](https://developers.redhat.com/products/rhel-ai/overview){: external}. {{site.data.keyword.cloud_notm}} provides different GPU-based virtual server instances (VSIs) where you install RHEL AI and run the models. The following guide provides step-by-step instructions to deploy RHEL AI on {{site.data.keyword.cloud_notm}}.
 {: shortdesc}
 
-{{site.data.keyword.cloud_notm}} provides GPU-based virtual server instances (VSIs) for different AI model requirements. Running a model that uses InstructLab (ilab) requires a GPU-based VSI on {{site.data.keyword.cloud_notm}} before you download a model from Hugging Face and use it to chat with the LLM. 
+{{site.data.keyword.cloud_notm}} provides GPU-based virtual server instances (VSIs) for different AI model requirements. Running a model that uses InstructLab (ilab) requires a GPU-based VSI on {{site.data.keyword.cloud_notm}} before you download a model from Hugging Face and use it to chat with the LLM.
 
 Use this tutorial to learn how to complete the following tasks:
 
@@ -39,7 +39,7 @@ Use this tutorial to learn how to complete the following tasks:
 - [Create an {{site.data.keyword.cloud_notm}} account](/registration) if you don't already have one.
 - [Download the RHEL AI image](https://developers.redhat.com/products/rhel-ai/download){: external}.
 - [Create user access tokens in Hugging Face](https://huggingface.co/docs/hub/en/security-tokens){: external}.
-- (Optional) Create a Red Hat account with the activation key. For more information, see [Creating and managing activation keys](https://docs.redhat.com/en/documentation/subscription_central/1-latest/html/getting_started_with_activation_keys_on_the_hybrid_cloud_console/assembly-creating-managing-activation-keys){: external}.
+- (Optional) Create a Red Hat account with the activation key. For more information, see [Creating and managing activation keys](https://docs.redhat.com/en/documentation/subscription_central/1-latest/html/getting_started_with_activation_keys_on_the_hybrid_cloud_console/assembly-creating-managing-activation-keys_assembly-creating-managing-activation-keys){: external}.
 
 ## Setting up RHEL AI on {{site.data.keyword.cloud_notm}}
 {: #how-to-host-rhel-ai}
@@ -167,7 +167,7 @@ The security groups and network access control lists (NACLs) associated with the
 1. (Optional) To allow only your IP address or CIDR address range to access the VSI instance, select Source type **IP address** or **CIDR block**.
 1. Click **Create**.
 1. Click **Infrastructure > Network > Access control lists**.
-1. Click the name of the access control list. 
+1. Click the name of the access control list.
 1. Add inbound and outbound rules to allow SSH port 22:
    1. In Inbound rules, click **Create**. Then, name the inbound rule `ssh`.
    1. Select **Allow** and **TCP**.
@@ -241,7 +241,7 @@ First you must initialize ilab, the environment for running and fine-tuning LLMs
 
    ` ilab `
 
-   If you see the following message, you must have the activation from your Red Hat account. For more information, see. [Creating and managing activation keys](https://docs.redhat.com/en/documentation/subscription_central/1-latest/html/getting_started_with_activation_keys_on_the_hybrid_cloud_console/assembly-creating-managing-activation-keys){: external}.
+   If you see the following message, you must have the activation from your Red Hat account. For more information, see. [Creating and managing activation keys](https://docs.redhat.com/en/documentation/subscription_central/1-latest/html/getting_started_with_activation_keys_on_the_hybrid_cloud_console/assembly-creating-managing-activation-keys_assembly-creating-managing-activation-keys){: external}.
 
     ```sh
     [root@instructlab-rhel-ai ~]# ilab
@@ -255,9 +255,9 @@ First you must initialize ilab, the environment for running and fine-tuning LLMs
     https://console.redhat.com/insights/connector/activation-keys (this page will also display your Organization ID).
 
     For more information on Red Hat Insights, visit:
-    https://docs.redhat.com/en/documentation/subscription_central/1-latest/html/getting_started_with_activation_keys_on_the_hybrid_cloud_console/assembly-creating-managing-activation-keys
+    https://docs.redhat.com/en/documentation/subscription_central/1-latest/html/getting_started_with_activation_keys_on_the_hybrid_cloud_console/assembly-creating-managing-activation-keys_assembly-creating-managing-activation-keys
 
-    You must have the activation from your Red Hat account. Please read the [documentation](https://docs.redhat.com/en/documentation/subscription_central/1-latest/html/getting_started_with_activation_keys_on_the_hybrid_cloud_console/assembly-creating-managing-activation-keys)
+    You must have the activation from your Red Hat account. Please read the [documentation](https://docs.redhat.com/en/documentation/subscription_central/1-latest/html/getting_started_with_activation_keys_on_the_hybrid_cloud_console/assembly-creating-managing-activation-keys_assembly-creating-managing-activation-keys)
 
     From your RedHat account, gather the `organization-id` and the `activation-key`. For more information on the organization-id and activation-key, read the note below
 

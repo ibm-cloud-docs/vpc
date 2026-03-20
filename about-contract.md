@@ -2,7 +2,7 @@
 
 copyright:
   years: 2022, 2026
-lastupdated: "2026-03-17"
+lastupdated: "2026-03-20"
 
 keywords: confidential computing, enclave, secure execution, hpcr, contract, customization, schema, contract schema, env, workload, encryption
 
@@ -1120,30 +1120,30 @@ Following is the notification schedule:
 
 - **30 days before expiry**: A warning message is generated once **every 24 hours**, notifying that the certificate will expire in one month.
 
-  Example:
+   Example:
 
-  ```text
-  HPL12011W: The Encryption certificate is going to expire -> Warning: The encryption certificate will expire on 12 February 2026 at 16:17:41 UTC, over 20 days. Upgrade to the latest image to unlock the latest features and avoid potential security vulnerabilities!!!
-  ```
-  {: screen}
+   ```text
+   HPL12011W: The Encryption certificate is going to expire -> Warning: The encryption certificate will expire on 12 February 2026 at 16:17:41 UTC, over 20 days. Upgrade to the latest image to unlock the latest features and avoid potential security vulnerabilities!!!
+   ```
+   {: screen}
 
 - **7 days before expiry**: Warning messages are logged **every 12 hours** as the expiry date nears, highlighting the need for action.
 
-  Example:
+   Example:
 
-  ```text
-  HPL12011W: The Encryption certificate is going to expire -> Warning: The encryption certificate will expire on 27 January 2026 at 16:17:41 UTC, over 4 days. Upgrade to the latest image to unlock the latest features and avoid potential security vulnerabilities!!!
-  ```
-  {: screen}
+   ```text
+   HPL12011W: The Encryption certificate is going to expire -> Warning: The encryption certificate will expire on 27 January 2026 at 16:17:41 UTC, over 4 days. Upgrade to the latest image to unlock the latest features and avoid potential security vulnerabilities!!!
+   ```
+   {: screen}
 
 - **After certificate expiry**: If the certificate has expired, HPVS logs warning messages **every 4 hours** until the HPVS image is upgraded.
 
-  Example:
+   Example:
 
-  ```text
-  HPL12013W: The Encryption certificate expired -> Urgent: The encryption certificate expired on 15 June 2025 at 17:15:59 UTC, over 7 months. Immediate upgrade to the latest image is required to unlock the latest features and prevent serious security breaches.
-  ```
-  {: screen}
+   ```text
+   HPL12013W: The Encryption certificate expired -> Urgent: The encryption certificate expired on 15 June 2025 at 17:15:59 UTC, over 7 months. Immediate upgrade to the latest image is required to unlock the latest features and prevent serious security breaches.
+   ```
+   {: screen}
 
 ## Preparing the Attestation section
 {: #hpcr_attestation_prepare}
