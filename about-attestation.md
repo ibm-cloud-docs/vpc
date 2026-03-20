@@ -313,8 +313,8 @@ The `attestationPublicKey` is the public key that you provide that is used to en
 
 ### ​​​​​​Calculating sha of `​​​​​​certificate_expiry_date.json​​​​​​​​`
 {: #cal_cedjfile}
-​​​
-​​​​​​To calculate the sha256sum value of  `​​​​​​certificate_expiry_date.json​​​`​:
+
+​​​​​To calculate the sha256sum value of  `​​​​​​certificate_expiry_date.json​​​`​:
 ​​​​​​
 1. ​​​​​​Take the ​​​​​`​certificate_expiry_date.json​​​​` file from the directory: `​​​​​​/var/hyperprotect`​​​​.​​​​
 1. ​Run the following command:
