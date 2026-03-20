@@ -2,7 +2,7 @@
 
 copyright:
   years: 2019, 2026
-lastupdated: "2026-03-19"
+lastupdated: "2026-03-20"
 
 keywords:
 
@@ -28,15 +28,15 @@ The migration steps that are described in this guide are valid only until the En
 
 Make sure that you have the following:
 
-- Active {{site.data.keyword.cloud_notm}} account with HPVS instance
-- A Virtual Server Instance (VSI) running on {{site.data.keyword.cloud_notm}} with `qemu-utils` package installed
-- Sufficient storage space to accomodate the volume snapshots in the machine from which you do `ssh` to the VSI
-- Administrative access to both cloud and on-premises environments
+- [VPC SE VSI]{: tag-purple} Active {{site.data.keyword.cloud_notm}} account with HPVS instance
+- [VPC NON SE VSI]{: tag-green} A virtual server instance running on {{site.data.keyword.cloud_notm}} with `qemu-utils` package installed
+- [VPC NON SE VSI]{: tag-green} Sufficient storage space to accommodate the volume snapshots in the machine from which you do `ssh` to the VSI
+- [VPC NON SE VSI]{: tag-green} [VPC SE VSI]{: tag-purple} Administrative access to both cloud and on-premises environments
 - Original contract and seed files that are used for HPVS deployment on {{site.data.keyword.cloud_notm}}
 - Backup verification: Confirm that you have recent backups of your data on the HPVS instance ({{site.data.keyword.cloud_notm}} deployment)
 - Downtime planning: It is recommended to schedule a maintenance window and avoid modification to the volume during migration.
 - Network connectivity: Ensure secure transfer mechanism (VPN, direct Link, or secure file transfer) between the machine for volume snapshot to the on-prem machine
-- Required tools: Install `qemu-utils` on your VSI:
+- Required tools: Install `qemu-utils` on your virtual server instance:
 
    - For Ubuntu or Debian:
 
@@ -52,6 +52,11 @@ Make sure that you have the following:
      ```
      {: codeblock}
 
+## Migration workflow diagram
+{: #migration_guide_diagram}
+
+![Migration workflow diagram](images/migration_workflow_hpvs.svg "Migration workflow diagram"){: caption="Migration workflow diagram" caption-side="bottom"}
+
 ## Procedure
 {: #migration_guide_procedure}
 
@@ -60,15 +65,15 @@ Make sure that you have the following:
 
 Take a volume snapshot of the encrypted disk volume that is attached to the HPVS instance. For more information, see [Creating Block Storage for VPC snapshots](/docs/vpc?topic=vpc-snapshots-vpc-create&interface=ui).
 
-### Step 2: Creating a VSI with QEMU using the snapshot
+### Step 2: Creating a virtual server instance with QEMU using the snapshot
 {: #step2_create_vsi}
 
-Create a VSI by importing the snapshot. For more information, see [Creating a virtual server instance in the console](/docs/vpc?topic=vpc-creating-virtual-servers&interface=ui).
+Create a virtual server instance by importing the snapshot. For more information, see [Creating a virtual server instance in the console](/docs/vpc?topic=vpc-creating-virtual-servers&interface=ui).
 
 ### Step 3: Identify the volume location
 {: #step3_identify_volume}
 
-1. SSH into your VSI:
+1. SSH into your virtual server instance:
 
    ```bash
    ssh -i /path/to/private_key user@<VSI_IP_ADDRESS>
