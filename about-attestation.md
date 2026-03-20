@@ -2,7 +2,7 @@
 
 copyright:
   years: 2022, 2026
-lastupdated: "2026-03-13"
+lastupdated: "2026-03-20"
 
 keywords: confidential computing, enclave, secure execution, hpcr, hyper protect virtual server for vpc
 
@@ -80,40 +80,37 @@ From 25 March 2025, the certificate links are changed.
 In case you provided a public key for encrypting the attestation record, the following script might help in decrypting the record.
 
 ```sh
-#!/bin/bash
-#
-# Example script to decrypt attestation document.
-#
-# Usage:
-#   ./decrypt-attestation.sh <rsa-priv-key.pem> [file]
-#
-# Token Format:
-#   hyper-protect-basic.<ENC_AES_KEY_BASE64>.<ENC_MESSAGE_BASE64>
-
-
-RSA_PRIV_KEY="$1"
-if [ -z "$RSA_PRIV_KEY" ]; then
-    echo "Usage: $0 <rsa-priv-key.pem>"
-    exit 1
-fi
-INPUT_FILE="${2:-se-checksums.txt.enc}"
-TMP_DIR="$(mktemp -d)"
-#trap 'rm -r $TMP_DIR' EXIT
-
-
-PASSWORD_ENC="${TMP_DIR}/password_enc"
-MESSAGE_ENC="${TMP_DIR}/message_enc"
-
-
-# extract encrypted AES key and encrypted message
-cut -d. -f 2 "$INPUT_FILE"| base64 -d > "$PASSWORD_ENC"
-cut -d. -f 3 "$INPUT_FILE"| base64 -d > "$MESSAGE_ENC"
-
-# decrypt password
-PASSWORD=$(openssl pkeyutl -decrypt -inkey "$RSA_PRIV_KEY" -in "$PASSWORD_ENC")
-
-# decrypt message
-echo -n "$PASSWORD" | openssl aes-256-cbc -d -pbkdf2 -in "$MESSAGE_ENC" -pass stdin --out se-checksums.txt
+  #!/bin/bash 
+  #
+  # Example script to decrypt attestation document.
+  #
+  # Usage:
+  #   ./decrypt-attestation.sh <rsa-priv-key.pem> [file]
+  #
+  # Token Format:
+  #   hyper-protect-basic.<ENC_AES_KEY_BASE64>.<ENC_MESSAGE_BASE64>
+  
+  RSA_PRIV_KEY="$1"
+  if [ -z "$RSA_PRIV_KEY" ]; then
+      echo "Usage: $0 <rsa-priv-key.pem>"
+      exit 1
+  fi
+  INPUT_FILE="${2:-se-checksums.txt.enc}"
+  TMP_DIR="$(mktemp -d)"
+  #trap 'rm -r $TMP_DIR' EXIT
+  
+  PASSWORD_ENC="${TMP_DIR}/password_enc"
+  MESSAGE_ENC="${TMP_DIR}/message_enc"
+  
+  # extract encrypted AES key and encrypted message
+  cut -d. -f 2 "$INPUT_FILE"| base64 -d > "$PASSWORD_ENC"
+  cut -d. -f 3 "$INPUT_FILE"| base64 -d > "$MESSAGE_ENC"
+  
+  # decrypt password
+  PASSWORD=$(openssl pkeyutl -decrypt -inkey "$RSA_PRIV_KEY" -in "$PASSWORD_ENC")
+  
+  # decrypt message
+  echo -n "$PASSWORD" | openssl aes-256-cbc -d -pbkdf2 -in "$MESSAGE_ENC" -pass stdin --out se-checksums.txt
 ```
 {: codeblock}
 
@@ -320,15 +317,13 @@ The `attestationPublicKey` is the public key that you provide that is used to en
 ​​​​​​To calculate the sha256sum value of  `​​​​​​certificate_expiry_date.json​​​`​:
 ​​​​​​
 1. ​​​​​​Take the ​​​​​`​certificate_expiry_date.json​​​​` file from the directory: `​​​​​​/var/hyperprotect`​​​​.​​​​
-​​​​​
 1. ​Run the following command:
-​​​​​
-   ```bash
+   ```sh
    ​sha256sum certificiate_expiry_date.json​​​​
    ```
-   {: codeblock}
-​​​​
-​​​​​1. ​Validate the output content with the ​​​​​`​se-checksum.txt`​​​​ file.​​​
+   {: pre}
+
+1. ​Validate the output content with the ​​​​​`​se-checksum.txt`​​​​ file.​​​
 
 ### Decrypting the attestation document
 {: #decrypt_attest_record}
