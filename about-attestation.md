@@ -15,7 +15,7 @@ subcollection: vpc
 # Attestation
 {: #about-attestation}
 
-The {{site.data.keyword.cloud_notm}} {{site.data.keyword.hpvs}} for VPC is deprecated. As of 28 February 2026, you can't create new instances. Existing instances are supported until 20 February 2027. Any instances that still exist on that date will be deleted. You can redeploy your workloads by using [IBM Confidential Computing Container Runtime (formerly known as Hyper Protect Virtual Servers)](https://www.ibm.com/docs/en/cccr) or [IBM Confidential Computing Container Runtime for Red Hat Virtualization Solutions (formerly known as Hyper Protect Container Runtime for Red Hat Virtualization Solutions)](https://www.ibm.com/docs/en/ccrv/1.1.x). For information about data migration, see the [Migration guide](/docs/vpc?topic=vpc-migration_guide). For more information, see the [Service deprecation announcement](/docs/vpc?topic=vpc-ichpcs_deprecated_anmt).
+The {{site.data.keyword.cloud_notm}} {{site.data.keyword.hpvs}} for VPC is deprecated. As of 28 February 2026, you can't create new instances. Existing instances are supported until 20 February 2027. Any instances that still exist on that date will be deleted. You can redeploy your workloads by using [IBM Confidential Computing Container Runtime (formerly known as Hyper Protect Virtual Servers)](https://www.ibm.com/docs/en/ccrt) or [IBM Confidential Computing Container Runtime for Red Hat Virtualization Solutions (formerly known as Hyper Protect Container Runtime for Red Hat Virtualization Solutions)](https://www.ibm.com/docs/en/ccrv/1.1.x). For information about data migration, see the [Migration guide](/docs/vpc?topic=vpc-migration_guide). For more information, see the [Service deprecation announcement](/docs/vpc?topic=vpc-ichpcs_deprecated_anmt).
 {: deprecated}
 
 Attestation is a process that starts by default at virtual instance creation, ensures that the virtual server instance image is indeed built by IBM, and that it was not modified. This process also provides information and allows validation of any data that is provided to the instance at the time of deployment.
@@ -80,7 +80,7 @@ From 25 March 2025, the certificate links are changed.
 In case you provided a public key for encrypting the attestation record, the following script might help in decrypting the record.
 
 ```sh
-  #!/bin/bash 
+  #!/bin/bash
   #
   # Example script to decrypt attestation document.
   #
@@ -89,7 +89,7 @@ In case you provided a public key for encrypting the attestation record, the fol
   #
   # Token Format:
   #   hyper-protect-basic.<ENC_AES_KEY_BASE64>.<ENC_MESSAGE_BASE64>
-  
+
   RSA_PRIV_KEY="$1"
   if [ -z "$RSA_PRIV_KEY" ]; then
       echo "Usage: $0 <rsa-priv-key.pem>"
@@ -98,17 +98,17 @@ In case you provided a public key for encrypting the attestation record, the fol
   INPUT_FILE="${2:-se-checksums.txt.enc}"
   TMP_DIR="$(mktemp -d)"
   #trap 'rm -r $TMP_DIR' EXIT
-  
+
   PASSWORD_ENC="${TMP_DIR}/password_enc"
   MESSAGE_ENC="${TMP_DIR}/message_enc"
-  
+
   # extract encrypted AES key and encrypted message
   cut -d. -f 2 "$INPUT_FILE"| base64 -d > "$PASSWORD_ENC"
   cut -d. -f 3 "$INPUT_FILE"| base64 -d > "$MESSAGE_ENC"
-  
+
   # decrypt password
   PASSWORD=$(openssl pkeyutl -decrypt -inkey "$RSA_PRIV_KEY" -in "$PASSWORD_ENC")
-  
+
   # decrypt message
   echo -n "$PASSWORD" | openssl aes-256-cbc -d -pbkdf2 -in "$MESSAGE_ENC" -pass stdin --out se-checksums.txt
 ```
@@ -176,9 +176,9 @@ f8614f9f6a39302b97b0a590e14b2e64affddb0f98ef459bf0f8c7f185c98bd5 baseimage
 12110b938921c6a2ccd7bc6222b3fb1ef39b6ac4bf9dbe4ff8ae450a3d6e2fb9 cidata/meta-data
 cca422046ad1e2680312758dbf19a3cd6fdd80ec79c6bcc29775847ee3bc0cb2 cidata/user-data
 5a2b8897d00e4f03436494a36304776a637bf3f134ae10107f2a47e9859ed0fb cidata/vendor-data
-24d1aef313d2ca5ca452620c3e084d1ff02f16ee5cf812c76faec74ebe5ac1f1 contract:workload 
-61d5a566ca9774a04449759548e5b92576967ce9823c6069d1a4bad6a53f2e14 contract:env 
-d1eccc9b91b09a67097073cee8d9a8046a2a0bd658b88920f36c8ec4b823f050 contract:envWorkloadSignature 
+24d1aef313d2ca5ca452620c3e084d1ff02f16ee5cf812c76faec74ebe5ac1f1 contract:workload
+61d5a566ca9774a04449759548e5b92576967ce9823c6069d1a4bad6a53f2e14 contract:env
+d1eccc9b91b09a67097073cee8d9a8046a2a0bd658b88920f36c8ec4b823f050 contract:envWorkloadSignature
 48a998c2f84a2576d1e500453efb7b215c5b6c9dec49d36611ad3275d5780986 contract:attestationPublicKey
 ```
 {: pre}

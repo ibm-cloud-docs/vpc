@@ -2,7 +2,7 @@
 
 copyright:
   years: 2022, 2026
-lastupdated: "2026-03-13"
+lastupdated: "2026-03-20"
 
 keywords: confidential computing, secure execution, hpcr, contract, customization, env, workload, encryption, attestation, validating
 
@@ -15,7 +15,7 @@ subcollection: vpc
 # Validating the certificates
 {: #cert_validate}
 
-The {{site.data.keyword.cloud_notm}} {{site.data.keyword.hpvs}} for VPC is deprecated. As of 28 February 2026, you can't create new instances. Existing instances are supported until 20 February 2027. Any instances that still exist on that date will be deleted. You can redeploy your workloads by using [IBM Confidential Computing Container Runtime (formerly known as Hyper Protect Virtual Servers)](https://www.ibm.com/docs/en/cccr) or [IBM Confidential Computing Container Runtime for Red Hat Virtualization Solutions (formerly known as Hyper Protect Container Runtime for Red Hat Virtualization Solutions)](https://www.ibm.com/docs/en/ccrv/1.1.x). For information about data migration, see the [Migration guide](/docs/vpc?topic=vpc-migration_guide). For more information, see the [Service deprecation announcement](/docs/vpc?topic=vpc-ichpcs_deprecated_anmt).
+The {{site.data.keyword.cloud_notm}} {{site.data.keyword.hpvs}} for VPC is deprecated. As of 28 February 2026, you can't create new instances. Existing instances are supported until 20 February 2027. Any instances that still exist on that date will be deleted. You can redeploy your workloads by using [IBM Confidential Computing Container Runtime (formerly known as Hyper Protect Virtual Servers)](https://www.ibm.com/docs/en/ccrt) or [IBM Confidential Computing Container Runtime for Red Hat Virtualization Solutions (formerly known as Hyper Protect Container Runtime for Red Hat Virtualization Solutions)](https://www.ibm.com/docs/en/ccrv/1.1.x). For information about data migration, see the [Migration guide](/docs/vpc?topic=vpc-migration_guide). For more information, see the [Service deprecation announcement](/docs/vpc?topic=vpc-ichpcs_deprecated_anmt).
 {: deprecated}
 
 You can validate the certificates that you download for contract encryption and attestation.
@@ -111,7 +111,7 @@ Complete the following steps on an Ubuntu system to validate the encryption cert
    openssl x509 -in ibm-hyper-protect-container-runtime-1-0-s390x-26-intermediate.crt -subject -noout
    ```
    {: pre}
-   
+
 5. Verify that the encryption certificate document is valid by checking the output of the following command:
 
    ```sh
@@ -236,7 +236,7 @@ The certificates contain **Certificate Revocation List (CRL) Distribution Points
       openssl x509 -in ibm-hyper-protect-container-runtime-1-0-s390x-26-encrypt.crt -noout -serial
       ```
       {: pre}
-      
+
       Example output:
 
       ```sh
@@ -267,13 +267,13 @@ The certificates contain **Certificate Revocation List (CRL) Distribution Points
 
 5. Verify that the attestation certificate document is valid:
    1. Extract the serial from the attestation certificate:
-   
+
       ```sh
       openssl x509 -in ibm-hyper-protect-container-runtime-1-0-s390x-26-attestation.crt -noout -serial
-      
+
       ```
       {: pre}
-      
+
       Example output:
 
       ```sh
