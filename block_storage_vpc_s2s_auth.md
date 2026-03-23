@@ -25,7 +25,7 @@ In an authorization, the source service is the service that is granted access to
 
 To be able to create an encrypted volume with customer-managed CRKs, you need to establish service-to-service authorization between the Block service and the Key Management Service of your choice.
 
-[Deprecated]{: tag-deprecated} The {{site.data.keyword.hscrypto}} are deprecated. Customers can use existing instances until 20 March 2027. For more information, see [Why is IBM Cloud retiring Hyper Protect Crypto Services](/docs/hs-crypto?topic=hs-crypto-faqs-deprecation-of-ibm-cloud-hyper-protect-crypto-services). For continued protection, consider migrating your existing encryption keys to a Dedicated {{site.data.keyword.keymanagementserviceshort}} instance. For more information, see the [Migration guide](/docs/key-protect?topic=key-protect-migrate-st).
+[Deprecated]{: tag-deprecated} The {{site.data.keyword.hscrypto}} are deprecated. Customers can use existing instances until 20 March 2027. For more information, see [Deprecation of IBM Cloud Hyper Protect Crypto Services](/docs/hs-crypto?topic=hs-crypto-faqs-deprecation-of-ibm-cloud-hyper-protect-crypto-services). For continued protection, consider migrating your existing encryption keys to a Dedicated {{site.data.keyword.keymanagementserviceshort}} instance. For more information, see the [Migration guide](/docs/key-protect?topic=key-protect-migrate-st).
 
 If you want to create backup snapshots of your {{site.data.keyword.block_storage_is_short}} volumes, the Backup service needs to be authorized to work with {{site.data.keyword.block_storage_is_short}}, Snapshots for VPC, and Virtual Server for VPC services. For more information, see [Establishing service-to-service authorizations for the Backup service](/docs/vpc?topic=vpc-backup-s2s-auth).
 
@@ -40,7 +40,7 @@ When the authorization is needed for cross-account encryption, the authorization
 
 1. In the {{site.data.keyword.cloud_notm}} console, go to **Manage > Access (IAM)**.
 1. From the side panel, click **Manage access**, and select **Authorizations**.
-1. On the **Manage authorizations** page, click **Create**. 
+1. On the **Manage authorizations** page, click **Create**.
 1. In the **Source** section, select the **Source account**. The source account is where the block storage volumes are to be created.
    - If the goal is to allow another account to use a CRK of the target account, select **Specific account** and enter the 32-character-long account ID. Then, click **Next**.
    - Otherwise, select **This account**. Then, click **Next**.
@@ -59,8 +59,8 @@ When the authorization is needed for cross-account encryption, the authorization
 
 The following steps authorize the Block Storage service of one account to use a snapshot that is created by another account to restore volumes. The steps need to be performed by the account that owns the snapshot that is to be shared. The receiving account must ensure that their admin user has the `SnapshotRemoteAccountRestorer` role in IAM before they start a volume restoration with the CRN of the shared snapshot.
 
-1. On the **Manage authorizations** page, click **Create**. 
-1. On the **Grant a service authorization** page, select the source account. 
+1. On the **Manage authorizations** page, click **Create**.
+1. On the **Grant a service authorization** page, select the source account.
    1. Because the goal is to allow the use of a snapshot from another account, select a **Specific account**.
    1. Enter the 32-character account ID.
    1. Click **Next**.
@@ -73,8 +73,8 @@ The following steps authorize the Block Storage service of one account to use a 
    1. Click **Select an attribute**.
    1. From the list, select **Resource type**.
    1. In the next field, select **Block Storage Snapshots for VPC**.
-   1. If you want to restrict the authorization to a specific snapshot, click **Add a condition**. 
-      1. Click **Select an attribute** and select **Snapshot ID**. 
+   1. If you want to restrict the authorization to a specific snapshot, click **Add a condition**.
+      1. Click **Select an attribute** and select **Snapshot ID**.
       1. Enter the ID of the snapshot. Click **Next**
 1. Select the role `Snapshot Remote Account Restorer`.
 1. Click **Review** and inspect your choices.
@@ -107,14 +107,14 @@ ibmcloud iam authorization-policies
 ```sh
 Getting authorization policies under account a1234567 as test.user@ibm.com...
 OK
-                           
+
 ID:                        1f722de4-c3e6-4765-b0d3-482ec77a04f8
 Source service name:       server-protect
 Source service instance:   All instances
 Target service name:       kms
 Target service instance:   51042d7f-f0df-4915-bd39-6a49957c9175
 Roles:                     Reader 
-                           
+
 ID:                        605cb9b9-ba0d-456b-8c22-180abee66c47
 Source service name:       server-protect
 Source service instance:   All instances
@@ -157,7 +157,7 @@ When the authorization is needed for cross-account encryption, the authorization
    ibmcloud iam authorization-policy-create --file ~/Documents/policy.json
    ```
    {: pre}
-   
+
    The cross-account authorization is one-way and specific to key and service. When Account A authorizes their key to be used by Account B's file service, Account B can use Account A's CRK to encrypt Account B's shares. However, Account A cannot use Account B's root keys to encrypt Account A's shares.
    {: note}
 
@@ -198,9 +198,9 @@ Make a request to the [IAM Policy Management API](/apidocs/iam-policy-management
 * The following example shows how you can authorize the Block service `is.server-protect` (source) to interact with the {{site.data.keyword.keymanagementserviceshort}} service `kms` (target) with the _Reader_ role.
 
    ```sh
-   curl -X POST 'https://iam.cloud.ibm.com/v1/policies' -H 
-   'Authorization: Bearer $TOKEN' -H 
-   'Content-Type: application/json' -d 
+   curl -X POST 'https://iam.cloud.ibm.com/v1/policies' -H
+   'Authorization: Bearer $TOKEN' -H
+   'Content-Type: application/json' -d
    '{
      "type":"access",
      "description":"Reader role for the Block service to interact with the KeyProtect service.",
@@ -229,7 +229,7 @@ Make a request to the [IAM Policy Management API](/apidocs/iam-policy-management
         "type":"authorization",
         "description":"Reader and Delegator access to KeyProtect service instance",
         "subjects": [
-          {"attributes": 
+          {"attributes":
             {"name":"Cloud Block Storage","value":"server-protect"},
             {"name":"Account-B","value":"<Account-B-ID>"}]}],
         "roles": [{"role_id":"crn:v1:bluemix:public:iam::::role:AuthorizationDelegator"},{"role_id":"crn:v1:bluemix:public:iam::::serviceRole:Reader"}],
@@ -268,7 +268,7 @@ curl -X POST "https://iam.cloud.ibm.com/v1/policies"\
    }'
 ```
 {: codeblock}
- 
+
 When you want to restrict the access to a specific snapshot, use the snapshot ID instead of `*` when you define your resources.
 
 ## Creating service-to-service authorization for customer-managed encryption with Terraform
@@ -277,8 +277,8 @@ When you want to restrict the access to a specific snapshot, use the snapshot ID
 
 Create an authorization policy between the Block service and the key management services by using the `ibm_iam_authorization_policy` resource argument in your `main.tf` file.
 
-The following example creates an authorization policy between the Block service and {{site.data.keyword.keymanagementserviceshort}} when applied. 
-```terraform 
+The following example creates an authorization policy between the Block service and {{site.data.keyword.keymanagementserviceshort}} when applied.
+```terraform
 resource "ibm_iam_authorization_policy" "mypolicy4keyprotect" {
   source_service_name  = "server-protect"
   target_service_name  = "kms"
@@ -288,7 +288,7 @@ resource "ibm_iam_authorization_policy" "mypolicy4keyprotect" {
 {: codeblock}
 
 The following example creates an authorization policy between the Block service and {{site.data.keyword.hscrypto}} when applied.
-```terraform 
+```terraform
 resource "ibm_iam_authorization_policy" "mypolicy4HPCS" {
   source_service_name  = "server-protect"
   target_service_name  = "hs-crypto"
@@ -303,9 +303,9 @@ For more information about the arguments and attributes, see the [Terraform docu
 {: #block-s2s-xaccount-encryption-terraform}
 {: terraform}
 
-1. Terraform supports configuring two different accounts for IBM provider. The provider without an alias is considered to be the default provider. See the following example, where two IBM accounts are specified, and the second account uses the alias `team_account`. That configuration must be referred to as `ibm.team_account` later. 
+1. Terraform supports configuring two different accounts for IBM provider. The provider without an alias is considered to be the default provider. See the following example, where two IBM accounts are specified, and the second account uses the alias `team_account`. That configuration must be referred to as `ibm.team_account` later.
 
-   ```terraform 
+   ```terraform
    terraform {
      required_providers {
        ibm = {
@@ -326,7 +326,7 @@ For more information about the arguments and attributes, see the [Terraform docu
      ibmcloud_api_key = var.ibmcloud_api_key_second_account
      region           = var.region
      ibmcloud_timeout = var.ibmcloud_timeout
-   } 
+   }
    ```
    {: screen}
 
@@ -338,10 +338,10 @@ For more information about the arguments and attributes, see the [Terraform docu
    resource "ibm_iam_authorization_policy" "policy" {
        source_service_name = "server-protect"
        source_service_account = "<volume-account-id>"
-       target_service_name = "kms"   
+       target_service_name = "kms"
        target_resource_instance_id = ibm_kms_key.key.instance_id
        roles               = ["Reader", "Authorization Delegator"]
-       description         = "Authorization Policy" 
+       description         = "Authorization Policy"
    }
    ```
    {: screen}
@@ -362,11 +362,11 @@ For more information about the arguments and attributes, see the [Terraform docu
    resource "ibm_iam_authorization_policy" "policy" {
        source_service_name = "server-protect"
        source_service_account = "<volume-account-id>"
-       target_service_name = "ibm_is_snapshot"   
+       target_service_name = "ibm_is_snapshot"
        target_resource_instance_id = ibm_is_snapshot.snapshot.instance_id
        target_service_account = "<snapshot-account-id>"
        roles               = ["SnapshotRemoteAccountRestorer"]
-       description         = "Authorization Policy" 
+       description         = "Authorization Policy"
    }
    ```
    {: screen}

@@ -30,7 +30,7 @@ You can create an image from a volume in several ways.
 
 * Select an instance, create an image from that instance's boot volume, and specify a different encryption. For example, if the boot volume was encrypted with IBM-managed encryption, you can select customer-managed encryption for the new image.
 
-[Deprecated]{: tag-deprecated} The {{site.data.keyword.hscrypto}} are deprecated. Customers can use existing instances until 20 March 2027. For more information, see [Why is IBM Cloud retiring Hyper Protect Crypto Services](/docs/hs-crypto?topic=hs-crypto-faqs-deprecation-of-ibm-cloud-hyper-protect-crypto-services). For continued protection, consider migrating your existing encryption keys to a Dedicated {{site.data.keyword.keymanagementserviceshort}} instance. For more information, see the [Migration guide](/docs/key-protect?topic=key-protect-migrate-st).
+[Deprecated]{: tag-deprecated} The {{site.data.keyword.hscrypto}} are deprecated. Customers can use existing instances until 20 March 2027. For more information, see [Deprecation of IBM Cloud Hyper Protect Crypto Services](/docs/hs-crypto?topic=hs-crypto-faqs-deprecation-of-ibm-cloud-hyper-protect-crypto-services). For continued protection, consider migrating your existing encryption keys to a Dedicated {{site.data.keyword.keymanagementserviceshort}} instance. For more information, see the [Migration guide](/docs/key-protect?topic=key-protect-migrate-st).
 
 * Create an image from a boot volume from the list of Block Storage volumes. The volume must be a boot volume that is attached to a virtual server instance.
 
@@ -369,7 +369,7 @@ Before you begin, make sure that you [set up your API environment](/docs/vpc?top
 ### Scheduling custom image lifecycle status changes with the API
 {: #ifv-import-schedule-ilm-status-change-API}
 
-When you create an image from a volume, you can schedule the lifecycle status changes of the custom image at the same time. 
+When you create an image from a volume, you can schedule the lifecycle status changes of the custom image at the same time.
 
 To schedule the `deprecation_at` or `obsolescence_at` properties, specify a date in the ISO 8601 (`YYYY-MM-DDThh:mm:ss+hh:mm`) date and time format.
 
@@ -403,7 +403,7 @@ curl -X POST "$vpc_api_endpoint/v1/images?version=2023-02-21&generation=2"\
 {: #image-from-volume-vpc-terraform}
 {: terraform}
 
-Create custom images from {{site.data.keyword.block_storage_is_short}} boot volumes with Terraform by using [ibm_is_image](https://registry.terraform.io/providers/IBM-Cloud/ibm/latest/docs/resources/is_image){: external} resource. After specifying the name of the image, specify the source volume ID. 
+Create custom images from {{site.data.keyword.block_storage_is_short}} boot volumes with Terraform by using [ibm_is_image](https://registry.terraform.io/providers/IBM-Cloud/ibm/latest/docs/resources/is_image){: external} resource. After specifying the name of the image, specify the source volume ID.
 
 Optionally, you can also specify the CRN of your customer root key to be used to encrypt the custom image, and set [allowed-use expressions](/docs/vpc?topic=vpc-custom-image-allowed-use-expressions&interface=terraform#custom-image-allowed-use-expressions-terraform). See the following example:
 
@@ -417,7 +417,7 @@ resource "ibm_is_image" "example" {
     api_version       = "2025-04-03"
     bare_metal_server = "enable_secure_boot == true"
     instance          = "enable_secure_boot == true"
-  }  
+  }
 
   //increase timeouts as per volume size
   timeouts {

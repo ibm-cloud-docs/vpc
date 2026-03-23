@@ -1,8 +1,8 @@
 ---
 
 copyright:
-  years: 2020, 2025
-lastupdated: "2025-10-29"
+  years: 2020, 2026
+lastupdated: "2026-03-23"
 
 keywords:
 
@@ -19,7 +19,7 @@ In today's fast-paced economy, companies rely on data in their decision-making. 
 {: shortdesc}
 
 | {{site.data.keyword.block_storage_is_short}} Storage type | Use Case | Durability | Availability | Encryption |
-|--------------|----------|------------|--------------|------------|
+|--------------|----------|------------|--------------|------------| 
 | 3 IOPS per GB tier| It is designed for general-purpose workloads such as workloads that host small databases for web applications or store virtual machine disk images for a hypervisor. |  99.999999999% \n (11 9's) | 99.999% \n (5 9's) | Provider-managed AES-256 encryption, Customer-managed encryption |
 | 5 IOPS per GB tier| It is designed for high I/O intensity workloads that are characterized by a large percentage of active data, such as transactional and other performance-sensitive databases. |  99.999999999% \n (11 9's) | 99.999% \n (5 9's) | Provider-managed AES-256 encryption, Customer-managed encryption |
 | 10 IOPS per GB tier| It is designed for demanding storage workloads such as data-intensive workloads created by NoSQL databases, data processing for video, machine learning, and analytics. |  99.999999999% \n (11 9's) | 99.999% \n (5 9's) | Provider-managed AES-256 encryption, Customer-managed encryption |
@@ -35,6 +35,8 @@ In today's fast-paced economy, companies rely on data in their decision-making. 
 {: caption="{{site.data.keyword.filestorage_vpc_short}} Storage durability and availability chart." caption-side="bottom"}
 
 {{site.data.keyword.filestorage_vpc_short}} shares are encrypted by using provider-managed encryption or customer-managed encryption keys.
+
+The values in the tables represent service level objectives (SLOs), design targets that indicate the performance and availability levels the storage service is engineered to meet. These SLOs are not contractual service level agreements (SLAs) and do not constitute a guarantee. For more information, see the [Service Level Agreements for IBM Cloud](https://www.ibm.com/support/customer/csol/terms/?id=i126-9268&lc=en){: external}.
 
 ## Durability
 {: #stordurability}
