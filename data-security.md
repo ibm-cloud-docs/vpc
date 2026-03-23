@@ -2,7 +2,7 @@
 
 copyright:
   years: 2020, 2026
-lastupdated: "2026-03-19"
+lastupdated: "2026-03-23"
 
 keywords: data encryption, data storage, bring your own keys, BYOK, key management, key encryption, personal data, data deletion, data security
 
@@ -17,6 +17,8 @@ subcollection: vpc
 
 To securely manage your data with {{site.data.keyword.vpc_full}}, you need to understand what data is stored and encrypted. You must also know how to delete any personal data that is stored. Data encryption with your own root keys is available by using a supported key management service (KMS).
 {: shortdesc}
+
+[Deprecated]{: tag-deprecated} The {{site.data.keyword.hscrypto}} are deprecated. Customers can use existing instances until 20 March 2027. For more information, see [Why is IBM Cloud retiring Hyper Protect Crypto Services](/docs/hs-crypto?topic=hs-crypto-faqs-deprecation-of-ibm-cloud-hyper-protect-crypto-services).
 
 {{site.data.keyword.vpn_vpc_short}} does not store any customer data other than what is required to configure VPN gateways, connections, and policies. Data that is transmitted through a VPN gateway is not encrypted by IBM. Data about your specific VPN and policy configurations are encrypted in transit and at rest. VPN configuration data is deleted upon your request through the API or in the console.
 

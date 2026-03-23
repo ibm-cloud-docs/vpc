@@ -2,7 +2,7 @@
 
 copyright:
   years: 2019, 2026
-lastupdated: "2026-03-19"
+lastupdated: "2026-03-23"
 
 keywords:
 
@@ -52,6 +52,8 @@ Supported key management services are {{site.data.keyword.keymanagementservicesh
 - **Dedicated (single-tenant)**: Provides FIPS 140-3 Level 4 compliance (submitted for certification) with dedicated HSM partitions. You own and manage your own master keys with no IBM administrator access. Offers complete workload isolation and runs on confidential computing infrastructure. Ideal for highly regulated industries and sensitive data that requires maximum security.
 
 For a detailed comparison, see [About Standard and Dedicated {{site.data.keyword.keymanagementserviceshort}}](/docs/key-protect?topic=key-protect-about).
+
+[Deprecated]{: tag-deprecated} The {{site.data.keyword.hscrypto}} are deprecated. Customers can use existing instances until 20 March 2027. For more information, see [Why is IBM Cloud retiring Hyper Protect Crypto Services](/docs/hs-crypto?topic=hs-crypto-faqs-deprecation-of-ibm-cloud-hyper-protect-crypto-services).
 
 When you use customer-managed encryption, you can use root keys to encrypt resources across regions. You can encrypt resources with a key that is stored in your regional KMS instance, and you can use root keys from another region. For best performance and security, colocate your KMS instance, root keys, and your encrypted resources in the same region. For more information, see [Root key regional and cross-regional considerations](#byok-cross-region-keys).
 

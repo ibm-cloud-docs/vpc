@@ -2,7 +2,7 @@
 
 copyright:
   years: 2019, 2026
-lastupdated: "2026-03-13"
+lastupdated: "2026-03-23"
 
 keywords:
 
@@ -38,6 +38,8 @@ Keep the following considerations in mind when you import a custom image:
 * For custom images with Red Hat&reg; Enterprise Linux&reg;, SUSE Linux Enterprise Server, or Windows&reg; operating systems, you must select the appropriate version of the operating system. Depending on how you configured the image, select either bring your own license `byol`, or if you plan to license the OS through {{site.data.keyword.cloud_notm}}, select the version without `byol` appended.
 
 For more information about custom images, see [Getting started with custom images](/docs/vpc?topic=vpc-planning-custom-images).
+
+[Deprecated]{: tag-deprecated} The {{site.data.keyword.hscrypto}} are deprecated. Customers can use existing instances until 20 March 2027. For more information, see [Why is IBM Cloud retiring Hyper Protect Crypto Services](/docs/hs-crypto?topic=hs-crypto-faqs-deprecation-of-ibm-cloud-hyper-protect-crypto-services).
 
 ## Importing a custom image by using the UI
 {: #import-custom-image-cloud-object-storage-ui}

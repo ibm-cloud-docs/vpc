@@ -2,7 +2,7 @@
 
 copyright:
   years: 2019, 2026
-lastupdated: "2026-03-19"
+lastupdated: "2026-03-23"
 
 keywords:
 
@@ -63,6 +63,8 @@ Setting up customer-managed encryption for your VPC resources involves the follo
 {: #byok-volumes-prereqs}
 
 Provision a key management service (KMS), and authorize access between your VPC resource and KMS.
+
+[Deprecated]{: tag-deprecated} The {{site.data.keyword.hscrypto}} are deprecated. Customers can use existing instances until 20 March 2027. For more information, see [Why is IBM Cloud retiring Hyper Protect Crypto Services](/docs/hs-crypto?topic=hs-crypto-faqs-deprecation-of-ibm-cloud-hyper-protect-crypto-services).
 
 1. When you provision a KMS, you can choose between [{{site.data.keyword.keymanagementserviceshort}}](/docs/key-protect?topic=key-protect-getting-started-tutorial) Single Tenant and Multi Tenant instances, and [{{site.data.keyword.hscrypto}}](/docs/hs-crypto?topic=hs-crypto-get-started). Follow the linked tutorials to provision a service instance, and create or import a customer root key.
 

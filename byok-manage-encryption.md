@@ -2,7 +2,7 @@
 
 copyright:
   years: 2019, 2026
-lastupdated: "2026-03-09"
+lastupdated: "2026-03-23"
 
 keywords:
 
@@ -17,6 +17,8 @@ subcollection: vpc
 
 In {{site.data.keyword.cloud}}, you can secure your resources with your own root keys. You can rotate your root keys regularly or manually as needed. You can disable or delete root keys that are compromised or that you no longer need. You can restore root keys that were deleted within 30 days of their deletion.
 {: shortdesc}
+
+[Deprecated]{: tag-deprecated} The {{site.data.keyword.hscrypto}} are deprecated. Customers can use existing instances until 20 March 2027. For more information, see [Why is IBM Cloud retiring Hyper Protect Crypto Services](/docs/hs-crypto?topic=hs-crypto-faqs-deprecation-of-ibm-cloud-hyper-protect-crypto-services).
 
 Manage your root keys by taking the following actions:
 
