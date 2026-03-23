@@ -18,7 +18,7 @@ subcollection: vpc
 For {{site.data.keyword.vpc_short}} resources such as volumes, file shares, and custom images that are protected by your customer root key (CRK), you can rotate the root keys for more security. When you rotate a root key by schedule or on demand, the original key material is replaced. The old key remains active to decrypt existing resources but can't be used to encrypt new ones.
 {: shortdesc}
 
-[Deprecated]{: tag-deprecated} The {{site.data.keyword.hscrypto}} are deprecated. Customers can use existing instances until 20 March 2027. For more information, see [Why is IBM Cloud retiring Hyper Protect Crypto Services](/docs/hs-crypto?topic=hs-crypto-faqs-deprecation-of-ibm-cloud-hyper-protect-crypto-services).
+[Deprecated]{: tag-deprecated} The {{site.data.keyword.hscrypto}} are deprecated. Customers can use existing instances until 20 March 2027. For more information, see [Why is IBM Cloud retiring Hyper Protect Crypto Services](/docs/hs-crypto?topic=hs-crypto-faqs-deprecation-of-ibm-cloud-hyper-protect-crypto-services). For continued protection, consider migrating your existing encryption keys to a Dedicated {{site.data.keyword.keymanagementserviceshort}} instance. For more information, see the [Migration guide](/docs/key-protect?topic=key-protect-migrate-st).
 
 ## Key rotation overview
 {: #vpc-key-rotation-overview}

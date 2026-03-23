@@ -25,7 +25,7 @@ In an authorization, the source service is the service that is granted access to
 
 To be able to create an encrypted volume with customer-managed CRKs, you need to establish service-to-service authorization between the Block service and the Key Management Service of your choice.
 
-[Deprecated]{: tag-deprecated} The {{site.data.keyword.hscrypto}} are deprecated. Customers can use existing instances until 20 March 2027. For more information, see [Why is IBM Cloud retiring Hyper Protect Crypto Services](/docs/hs-crypto?topic=hs-crypto-faqs-deprecation-of-ibm-cloud-hyper-protect-crypto-services).
+[Deprecated]{: tag-deprecated} The {{site.data.keyword.hscrypto}} are deprecated. Customers can use existing instances until 20 March 2027. For more information, see [Why is IBM Cloud retiring Hyper Protect Crypto Services](/docs/hs-crypto?topic=hs-crypto-faqs-deprecation-of-ibm-cloud-hyper-protect-crypto-services). For continued protection, consider migrating your existing encryption keys to a Dedicated {{site.data.keyword.keymanagementserviceshort}} instance. For more information, see the [Migration guide](/docs/key-protect?topic=key-protect-migrate-st).
 
 If you want to create backup snapshots of your {{site.data.keyword.block_storage_is_short}} volumes, the Backup service needs to be authorized to work with {{site.data.keyword.block_storage_is_short}}, Snapshots for VPC, and Virtual Server for VPC services. For more information, see [Establishing service-to-service authorizations for the Backup service](/docs/vpc?topic=vpc-backup-s2s-auth).
 

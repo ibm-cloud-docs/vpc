@@ -39,7 +39,7 @@ Keep the following considerations in mind when you import a custom image:
 
 For more information about custom images, see [Getting started with custom images](/docs/vpc?topic=vpc-planning-custom-images).
 
-[Deprecated]{: tag-deprecated} The {{site.data.keyword.hscrypto}} are deprecated. Customers can use existing instances until 20 March 2027. For more information, see [Why is IBM Cloud retiring Hyper Protect Crypto Services](/docs/hs-crypto?topic=hs-crypto-faqs-deprecation-of-ibm-cloud-hyper-protect-crypto-services).
+[Deprecated]{: tag-deprecated} The {{site.data.keyword.hscrypto}} are deprecated. Customers can use existing instances until 20 March 2027. For more information, see [Why is IBM Cloud retiring Hyper Protect Crypto Services](/docs/hs-crypto?topic=hs-crypto-faqs-deprecation-of-ibm-cloud-hyper-protect-crypto-services). For continued protection, consider migrating your existing encryption keys to a Dedicated {{site.data.keyword.keymanagementserviceshort}} instance. For more information, see the [Migration guide](/docs/key-protect?topic=key-protect-migrate-st).
 
 ## Importing a custom image by using the UI
 {: #import-custom-image-cloud-object-storage-ui}

@@ -21,7 +21,7 @@ Create a [{{site.data.keyword.block_storage_is_short}} volume](/docs/vpc?topic=v
 Before you get started, make sure that you [created a VPC](/docs/vpc?topic=vpc-creating-a-vpc-using-the-ibm-cloud-console). When you create a volume from a snapshot, you can use a snapshot from your own account or another account. If you plan to use a snapshot from another account, make sure that the right [IAM authorizations](/docs/vpc?topic=vpc-block-s2s-auth&interface=ui#block-s2s-auth-xaccountrestore-ui) are in place.
 {: important}
 
-[Deprecated]{: tag-deprecated} The {{site.data.keyword.hscrypto}} are deprecated. Customers can use existing instances until 20 March 2027. For more information, see [Why is IBM Cloud retiring Hyper Protect Crypto Services](/docs/hs-crypto?topic=hs-crypto-faqs-deprecation-of-ibm-cloud-hyper-protect-crypto-services).
+[Deprecated]{: tag-deprecated} The {{site.data.keyword.hscrypto}} are deprecated. Customers can use existing instances until 20 March 2027. For more information, see [Why is IBM Cloud retiring Hyper Protect Crypto Services](/docs/hs-crypto?topic=hs-crypto-faqs-deprecation-of-ibm-cloud-hyper-protect-crypto-services). For continued protection, consider migrating your existing encryption keys to a Dedicated {{site.data.keyword.keymanagementserviceshort}} instance. For more information, see the [Migration guide](/docs/key-protect?topic=key-protect-migrate-st).
 
 ## Creating {{site.data.keyword.block_storage_is_short}} volumes in the console
 {: #creating-block-storage-ui}

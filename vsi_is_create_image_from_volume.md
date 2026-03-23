@@ -30,7 +30,7 @@ You can create an image from a volume in several ways.
 
 * Select an instance, create an image from that instance's boot volume, and specify a different encryption. For example, if the boot volume was encrypted with IBM-managed encryption, you can select customer-managed encryption for the new image.
 
-[Deprecated]{: tag-deprecated} The {{site.data.keyword.hscrypto}} are deprecated. Customers can use existing instances until 20 March 2027. For more information, see [Why is IBM Cloud retiring Hyper Protect Crypto Services](/docs/hs-crypto?topic=hs-crypto-faqs-deprecation-of-ibm-cloud-hyper-protect-crypto-services).
+[Deprecated]{: tag-deprecated} The {{site.data.keyword.hscrypto}} are deprecated. Customers can use existing instances until 20 March 2027. For more information, see [Why is IBM Cloud retiring Hyper Protect Crypto Services](/docs/hs-crypto?topic=hs-crypto-faqs-deprecation-of-ibm-cloud-hyper-protect-crypto-services). For continued protection, consider migrating your existing encryption keys to a Dedicated {{site.data.keyword.keymanagementserviceshort}} instance. For more information, see the [Migration guide](/docs/key-protect?topic=key-protect-migrate-st).
 
 * Create an image from a boot volume from the list of Block Storage volumes. The volume must be a boot volume that is attached to a virtual server instance.
 
