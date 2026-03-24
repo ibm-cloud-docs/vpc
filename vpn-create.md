@@ -2,7 +2,7 @@
 
 copyright:
   years: 2019, 2026
-lastupdated: "2026-03-18"
+lastupdated: "2026-03-24"
 
 keywords:
 subcollection: vpc
@@ -24,7 +24,7 @@ Before you begin, review [Planning considerations for VPN gateways](/docs/vpc?to
 {: #vpn-create-ui}
 {: ui}
 
-To create a VPN gateway in the console:
+To create a VPN gateway in the console, follow these steps:
 
 1. From your browser, open the [{{site.data.keyword.cloud_notm}} console](/login){: external} and log in to your account.
 1. Select the **Navigation menu** ![Navigation menu icon](../icons/icon_hamburger.svg), then click **Infrastructure** ![VPC icon](../../icons/vpc.svg) > **Network** > **VPNs**.
@@ -39,7 +39,7 @@ To create a VPN gateway in the console:
    * **Virtual Private Cloud** - Select the VPC for the VPN gateway.
    * **Subnet** - Select the subnet where you want to create the VPN gateway. See [Planning considerations](/docs/vpc?topic=vpc-planning-considerations-vpn) for important subnet information.
    * **Mode** - Select either a policy-based or route-based VPN. For more information about VPN types, see [VPN features](/docs/vpc?topic=vpc-using-vpn#vpn-features).
-   * **ASN** - It is the numeric identifier for the VPN gateway. This value identifies your local network for BGP peering and is used during the BGP session setup with your on-premises device.
+   * **ASN** - A numeric identifier for the VPN gateway. This value identifies your local network for BGP peering and is used during the BGP session setup with your on-premises device.
    * **Advertised CIDRs (optional)** - The CIDR range values that advertise the IPv4 network ranges to the remote VPN peers.
 
       The ASN value is required for dynamic routing. If you don't specify an ASN, the VPN gateway is created with the default ASN of `64520`. You can't change the local ASN value after you connect the VPN gateway to the transit gateway.
