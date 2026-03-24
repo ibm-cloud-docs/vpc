@@ -2,7 +2,7 @@
 
 copyright:
   years: 2020, 2026
-lastupdated: "2026-02-20"
+lastupdated: "2026-03-24"
 
 keywords: license, virtual private cloud, BYOL, virtual server instance, instance, custom image, encryption, RHEL, SUSE
 subcollection: vpc
@@ -60,7 +60,7 @@ For more information about creating and importing Linux custom images, see:
 ## BYOL for SUSE Linux Enterprise Server (SLES)
 {: #byol-vpc-suse}
 
-You can use your own license for a [custom Linux image](/docs/vpc?topic=vpc-create-linux-custom-image) that you create on premises. This BYOL custom image is a single qcow2 or vhd file that you upload to {{site.data.keyword.cos_full_notm}} and then import to the VPC. When you import your BYOL custom image, you must select a _BYOL_ operating system from the list of OS versions. Supported Linux version is SLES 15and SLES 16.
+You can use your own license for a [custom Linux image](/docs/vpc?topic=vpc-create-linux-custom-image) that you create on premises. This BYOL custom image is a single qcow2 or vhd file that you upload to {{site.data.keyword.cos_full_notm}} and then import to the VPC. When you import your BYOL custom image, you must select a _BYOL_ operating system from the list of OS versions. Supported Linux version is SLES 15 and SLES 16.
 
 To see all of the operating system versions from the API, make a `GET /operating_systems` call. In the response, you see SUSE Linux Enterprise Server BYOL OS versions among the list of operating systems. This example response shows information that is returned for SLES 15:
 
