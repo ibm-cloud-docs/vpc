@@ -2,7 +2,7 @@
 
 copyright:
   years: 2024, 2026
-lastupdated: "2026-03-17"
+lastupdated: "2026-03-24"
 
 keywords: vsi, virtual server, virtual server instances, profile, profiles, balanced, compute, gen 3, intel, confidential computing
 
@@ -15,8 +15,8 @@ subcollection: vpc
 # Confidential Computing instance profiles - x86 Gen 3
 {: #confidential-computing-vsi-profiles-gen3-x86}
 
-The confidential computing family of 3rd generation {{site.data.keyword.cloud}} VPC virtual server profiles (balanced and compute) are built atop the 4th Generation Intel® Xeon® Scalable processors. The confidential computing profiles provide a broad set of capabilities and scale from 2 vCPUs (1 physical core) up to 128 vCPUs (64 physical cores). These profiles support the Intel SGX confidential
-computing capability.
+The confidential computing family of 3rd generation {{site.data.keyword.cloud}} VPC virtual server profiles (balanced and compute) are built atop the 4th Generation Intel® Xeon® Scalable processors. The confidential computing profiles provide a broad set of capabilities and scale from 2 vCPUs (1 physical core) up to 128 vCPUs (64 physical cores).The confidential computing family of 3rd generation {{site.data.keyword.cloud}} VPC virtual server profiles (balanced and compute) are built atop the 4th Generation Intel® Xeon® Scalable processors. These profiles support the Intel SGX confidential
+computing capability. 
 {: shortdesc}
 
 ## Operating systems

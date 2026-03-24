@@ -2,7 +2,7 @@
 
 copyright:
   years: 2019, 2026
-lastupdated: "2026-03-06"
+lastupdated: "2026-03-24"
 
 keywords: vsi, virtual server instances, profile, profiles, balanced, compute, memory, very high memory, ultra high memory, gpu, storage optimized, confidential compute, flex, high frequency
 
@@ -503,7 +503,9 @@ Confidential computing profiles, Confidential computing with Intel SGX for VPC, 
 
 The following profiles support Intel SGX, Intel TDX, and secure boot. If you prefer to use Intel SGX or Intel TDX without secure boot, you can disable the secure boot option. For more information, see [Secure boot for Virtual Servers for VPC](/docs/vpc?topic=vpc-confidential-computing-with-secure-boot-vpc).
 
-For more information about confidential computing, see [Confidential computing for x86 Virtual Servers for VPC](/docs/vpc?topic=vpc-about-confidential-computing-vpc).
+TDX is the default Confidential computing mode for all profiles. Secure boot is enabled by default for all Confidential computing profiles.
+
+For more information about confidential computing, see [Confidential computing for x86 Virtual Servers for VPC](/docs/vpc?topic=vpc-about-sgx-vpc).
 
 | Instance profile | vCPU / Cores | GiB RAM | EPC (SGX) capacity (GiB)  | Bandwidth cap (Gbps) | Instance storage (GB) |
 | ---------------- | ---- | ------- | ------------------------- |------- | ------------------------- |
@@ -540,7 +542,7 @@ For more information about confidential computing, see [Confidential computing f
 {: tab-title="cx3"}
 {: tab-group="Confidential compute"}
 {: class="simple-tab-table"}
-{: summary="Compute cx3 profile options for confidential compute compatible virtual server instances."}
+{: summary="Balanced bx3 profiles for confidential compute compatible virtual server instances."}
 
 ## Flex profiles
 {: #flexible-profiles}
