@@ -709,6 +709,7 @@ toc:
               - block_storage_vpc_expand_volumes.md
               - block_storage_vpc_adjustable_iops.md
               - block_storage_vpc_adjustable_throughput.md
+              - block_storage_vpc_volume_migration.md
               - block_storage_vpc_monitoring.md
       - topicgroup:
           id: block-volume-snapshots
