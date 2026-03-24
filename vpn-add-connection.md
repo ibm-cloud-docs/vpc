@@ -1,8 +1,8 @@
 ---
 
 copyright:
-  years: 2020, 2025
-lastupdated: "2025-12-04"
+  years: 2020, 2026
+lastupdated: "2026-03-24"
 
 keywords:
 
@@ -769,5 +769,5 @@ For more information, see the [Terraform registry](https://registry.terraform.io
 ## Next steps
 {: #vpn-add-connection-next-steps}
 
-To create a route-based VPN, first [create a routing table](/docs/vpc?topic=vpc-create-vpc-routing-table), then [create a route using the VPN connection type](/docs/vpc?topic=vpc-create-vpc-route).
-For a dynamic route-based VPN connection, attach a transit gateway to the VPN gateway. See [Creating a transit gateway](/docs/transit-gateway?topic=transit-gateway-ordering-transit-gateway&interface=ui).
+* To create a route-based VPN, first [create a routing table](/docs/vpc?topic=vpc-create-vpc-routing-table), then [create a route using the VPN connection type](/docs/vpc?topic=vpc-create-vpc-route).
+* For a dynamic route-based VPN connection, attach a transit gateway to the VPN gateway. See [Creating a transit gateway](/docs/transit-gateway?topic=transit-gateway-ordering-transit-gateway&interface=ui).

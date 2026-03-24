@@ -2,7 +2,7 @@
 
 copyright:
   years: 2018, 2026
-lastupdated: "2026-03-23"
+lastupdated: "2026-03-24"
 
 keywords: virtual private network, VPN, VPN gateway, troubleshooting
 
@@ -47,6 +47,6 @@ Follow these steps to resolve VPN instability that is caused by rekey or negotia
    {: tip}
 
 1. Verify that the IKE and IPsec encryption settings match exactly on the IBM Cloud VPN gateway and the peer.
-1. Make sure that both sides agree on local and remote CIDR ranges and represent traffic selectors consistently. For example, if one side defines a broader range (for example, `10.0.0.0/16`) while the other side defines multiple smaller ranges (for example, `10.0.1.0/24`, `10.0.2.0/24`), the peers might negotiate multiple IPsec SAs instead of a single SA.
+1. Make sure both sides agree on local and remote CIDR ranges and represent traffic selectors consistently. For example, if one side uses a broader range like `10.0.0.0/16` and the other uses smaller ranges like `10.0.1.0/24`, `10.0.2.0/24`, the peer might try to negotiate multiple IPsec SAs instead of a single one.
 1. Review VPN logs on both sides and compare the configured and received proposals during rekey.
 1. Reset the VPN by restarting the VPN service on the peer device and monitor logs to confirm successful rekeying without errors.
