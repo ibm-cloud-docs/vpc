@@ -2,7 +2,7 @@
 
 copyright:
   years: 2019, 2026
-lastupdated: "2026-02-02"
+lastupdated: "2026-03-24"
 
 keywords: api, change log, new features, restrictions, migrations
 
@@ -53,6 +53,14 @@ At this time, all instances, and therefore all instance templates, continue to r
 
 The new response code will be rolled out gradually. Each phase of the rollout will be tied to a dated API version. These changes will be announced in future change log updates.
 {: note}
+
+## 24 March 2026
+{: #24-march-2026}
+
+### For all version dates
+{: #24-march-2026-all-version-dates}
+
+**Block Storage volume migration** You can now migrate a volume between `storage_generation` 1 and `storage_generation` 2 by specifying the value `migrate` for the `job_type` property when [creating a volume job](/apidocs/vpc-latest#create-volume-job). The `migrate` volume job accepts a volume profile from the target storage generation, along with valid IOPS and bandwidth values. If the IOPS and bandwidth values are not specified, the volume is migrated to the default IOPS and bandwidth values of the target profile.  For more information, see [Migrating block storage volume](/docs/vpc?topic=vpc-block-storage-vpc-volume-migration&interface=api).
 
 ## 17 February 2026
 {: #17-february-2026}
