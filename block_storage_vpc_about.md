@@ -2,7 +2,7 @@
 
 copyright:
   years: 2019, 2026
-lastupdated: "2026-03-12"
+lastupdated: "2026-03-24"
 
 keywords:
 
@@ -87,7 +87,6 @@ The following limitations apply to this release:
 * No support for the IBM Z platform (s390x architecture) or {{site.data.keyword.bm_is_short}}.
 * Importing custom encrypted images are not supported.
 * Creating a custom image from a boot volume with customer-managed encryption is not supported.
-* Migration between storage volume profile families is not supported.
 * Migration of volumes across zones is not supported.
 * The `sdp` profile is not available in Chennai - Airtel (`in-che`), Mumbai - Airtel (`in-mum`), and Montreal (`ca-mon`) regions.
 
@@ -97,6 +96,11 @@ The following limitations apply to this release:
 When you create a {{site.data.keyword.block_storage_is_short}} volume in your availability zone, you can use 3 different tiered profiles with predefined IOPS levels. Or you can select a custom profile and define your own IOPS level based on the volume capacity. All profiles are backed by solid-state drives (SSDs).
 
 For more information, see [{{site.data.keyword.block_storage_is_short}} profiles](/docs/vpc?topic=vpc-block-storage-profiles).
+
+[New]{: tag-new}
+
+You can migrate your volume from a traditional volume profile to the SSD Defined Performance profile in the console, from the CLI, with the API, or Terraform. For more information, see [Migrating block storage volume](/docs/vpc?topic=vpc-block-storage-vpc-volume-migration).
+{: tip}
 
 ## Securing your data
 {: #bs-data-security}

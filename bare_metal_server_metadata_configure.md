@@ -2,7 +2,7 @@
 
 copyright:
   years: 2025, 2026
-lastupdated: "2026-03-05"
+lastupdated: "2026-03-24"
 
 keywords:
 
@@ -164,8 +164,6 @@ Trusted profiles for compute resource identities help you assign an {{site.data.
 
 ## Enabling or disabling the bare metal server metadata service
 {: #metadata-service-enable-bare-metal}
-
-The bare metal server metadata service is disabled by default. To retrieve metadata from a bare metal server, enable the service on new bare metal servers or existing bare metal servers by using the VPC UI, CLI, API, or Terraform.
 
 The bare metal server metadata service is disabled by default. To retrieve metadata from a bare metal server, enable the service on new bare metal servers or existing bare metal servers by using the VPC UI, CLI, API, or Terraform.
 
@@ -661,7 +659,7 @@ To enable secure access, when you provision a bare metal server with the [POST /
 {: #secure-access-api-existing-bare-metal}
 {: api}
 
-To enable secure access on an existing bare metal server, use the [PATCH /bare_metal_servers/{id}](/apidocs/vpc/latest#update-bare-metal-server) method to update the bare metal server. Specify a value for the `metadata_service.protocol` property for your bare metal server. For secure access, specify `https`. The default setting is unencrypted `http`. 
+To enable secure access on an existing bare metal server, use the [PATCH /bare_metal_servers/{id}](/apidocs/vpc/latest#update-bare-metal-server) method to update the bare metal server. Specify a value for the `metadata_service.protocol` property for your bare metal server. For secure access, specify `https`. The default setting is unencrypted `http`.
 
 ## Configure metadata settings by using Terraform
 {: #metadata-config-terraform-bare-metal}
