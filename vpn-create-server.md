@@ -1,8 +1,8 @@
 ---
 
 copyright:
-  years: 2021, 2025
-lastupdated: "2025-10-15"
+  years: 2021, 2026
+lastupdated: "2026-03-24"
 
 keywords:
 
@@ -44,7 +44,7 @@ Before you provision a VPN server, complete the following prerequisites in the f
 {: #creating-vpn-server-ui}
 {: ui}
 
-To create a VPN server in the console:
+To create a VPN server in the console, follow these steps:
 
 1. Complete all prerequisites in the "Before you begin" section.
 1. From your browser, open the [{{site.data.keyword.cloud_notm}} console](/login){: external} and log in to your account.
