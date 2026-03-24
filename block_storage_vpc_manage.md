@@ -2,7 +2,7 @@
 
 copyright:
   years: 2019, 2026
-lastupdated: "2026-03-12"
+lastupdated: "2026-03-24"
 
 keywords: Block storage for VPC, change IOPS, change auto-delete, increase volume, change name, rename volume, delete volume, renaming volume, updating volume
 
@@ -33,6 +33,7 @@ Use the UI to manage your block storage volumes. In the console, you can complet
 * Adjust the IOPS of a data volume. For more information, see [Adjusting IOPS](/docs/vpc?topic=vpc-adjusting-volume-iops).
 * Increase the capacity of a volume. For more information, see [Expanding block storage volume capacity](/docs/vpc?topic=vpc-expanding-block-storage-volumes).
 * For `sdp` volumes, adjust the throughput limit. For more information, see [Adjusting throughput limit](/docs/vpc?topic=vpc-adjusting-volume-throughput).
+* Migrate a first-generation volume to use a volume profile from the second-generation. For more information, see [Migrating Block Storage Volume](/docs/vpc?topic=vpc-block-storage-vpc-volume-migration).
 * Delete a block storage data volume.
 
 ### Detaching a {{site.data.keyword.block_storage_is_short}} volume from a virtual server instance
@@ -162,6 +163,7 @@ Manage your block storage from the command-line interface (CLI). From the CLI, y
 * Adjust the IOPS of a data volume. For more information, see [Adjusting IOPS](/docs/vpc?topic=vpc-adjusting-volume-iops).
 * Increase the capacity of a volume. For more information, see [Expanding block storage volume capacity](/docs/vpc?topic=vpc-expanding-block-storage-volumes).
 * For `sdp` volumes, adjust the throughput limit. For more information, see [Adjusting throughput limit](/docs/vpc?topic=vpc-adjusting-volume-throughput).
+* Migrate a first-generation volume to use a volume profile from the second-generation. For more information, see [Migrating Block Storage Volume](/docs/vpc?topic=vpc-block-storage-vpc-volume-migration).
 * Delete a block storage data volume.
 
 Before you can use the CLI, you must install the IBM Cloud CLI and the VPC CLI plug-in. For more information, see the [CLI prerequisites](/docs/vpc?topic=vpc-set-up-environment#cli-prerequisites-setup).
@@ -346,8 +348,9 @@ Manage your block storage programmatically by making requests to the [VPC REST A
 * Update the volume attachment by changing its name or changing the auto-delete setting.
 * Detach a volume from a virtual server instance.
 * Adjust the IOPS of a data volume. For more information, see [Adjusting IOPS](/docs/vpc?topic=vpc-adjusting-volume-iops).
-* Increase the capacity of a volume. For more information, see [Expanding block storage volume capacity](/docs/vpc?topic=vpc-expanding-block-storage-volumes).
+* Increase the capacity of a volume. For more information, see [Increasing capacity of a data volume](/docs/vpc?topic=vpc-expanding-block-storage-volumes) and [Increasing capacity of a boot volume](/docs/vpc?topic=vpc-resize-boot-volumes).
 * For `sdp` volumes, adjust the throughput limit. For more information, see [Adjusting throughput limit](/docs/vpc?topic=vpc-adjusting-volume-throughput).
+* Migrate a first-generation volume to use a volume profile from the second-generation. For more information, see [Migrating Block Storage Volume](/docs/vpc?topic=vpc-block-storage-vpc-volume-migration).
 * Delete a block storage data volume.
 
 ### Updating the name of a volume with the API
@@ -575,6 +578,7 @@ Manage your block storage as a code with Terraform. With the Terraform, you can:
 * Adjust the IOPS of a data volume. For more information, see [Adjusting IOPS](/docs/vpc?topic=vpc-adjusting-volume-iops).
 * Increase the capacity of a volume. For more information, see [Expanding block storage volume capacity](/docs/vpc?topic=vpc-expanding-block-storage-volumes).
 * For `sdp` volumes, adjust the throughput limit. For more information, see [Adjusting throughput limit](/docs/vpc?topic=vpc-adjusting-volume-throughput).
+* Migrate a first-generation volume to use a volume profile from the second-generation. For more information, see [Migrating Block Storage Volume](/docs/vpc?topic=vpc-block-storage-vpc-volume-migration).
 * Delete a block storage data volume.
 
 To use Terraform, download the Terraform CLI and configure the {{site.data.keyword.cloud_notm}} Provider plug-in. For more information, see [Getting started with Terraform](/docs/ibm-cloud-provider-for-terraform?topic=ibm-cloud-provider-for-terraform-getting-started).

@@ -2,7 +2,7 @@
 
 copyright:
   years: 2019, 2026
-lastupdated: "2026-03-12"
+lastupdated: "2026-03-24"
 
 keywords: Block Storage profiles, Block Storage for VPC, IOPS tiers, custom IOPS, storage performance
 
@@ -48,9 +48,6 @@ Nominal IOPS values are based on 16k I/O size. The maximum throughput value is d
 
 The application I/O size directly impacts storage performance. If the application I/O size is smaller than the throughput multiplier that is used by the profile to calculate the volume’s bandwidth limit, the IOPS limit is reached before the throughput limit. Conversely, if the application I/O size is larger, the throughput limit is reached before the IOPS limit. For more information, see [How I/O size affects performance](/docs/vpc?topic=vpc-capacity-performance#how-block-size-affects-performance).
 {: note}
-
-Moving volumes across volume-profiles that belong to different families is not allowed.
-{: restriction}
 
 ### SSD defined performance profile
 {: #defined-performance-profile}
@@ -337,5 +334,9 @@ For more information about the pricing of the volume profiles, see the [FAQs](/d
 For more information about how to expand volume capacity, see [expanding Block Storage volume capacity](/docs/vpc?topic=vpc-expanding-block-storage-volumes#expanding-data-volumes).
 
 For more information about how to change the IOPS tier or Custom IOPS for an existing volume, see [Adjusting IOPS of a Block Storage for VPC volume](/docs/vpc?topic=vpc-adjusting-volume-iops).
+
+[New]{: tag-new}
+
+For more information about how to migrate your volume from a first-generation volume profile to a second-generation profile in the console, from the CLI, with the API, or Terraform, see [Migrating Block Storage Volume](/docs/vpc?topic=vpc-block-storage-vpc-volume-migration).
 
 For more information about Balanced, Compute, and Memory profiles for {{site.data.keyword.vsi_is_short}}, see [x86-64 instance profiles](/docs/vpc?topic=vpc-profiles).

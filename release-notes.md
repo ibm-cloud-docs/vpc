@@ -2,7 +2,7 @@
 
 copyright:
   years: 2019, 2026
-lastupdated: "2026-03-23"
+lastupdated: "2026-03-24"
 
 keywords:
 
@@ -26,6 +26,13 @@ For more information about changes to the {{site.data.keyword.vpc_short}} comman
 
 ## March 2026
 {: #vpc-mar26}
+
+### 24 March 2026
+{: #vpc-mar2426}
+{: release-note}
+
+Migrating block storage volume (GA)
+:   You can migrate your storage volume from first-generation volume profiles ([tiered](https://cloud.ibm.com/docs/vpc?topic=vpc-block-storage-profiles&interface=ui#tiers) or [custom](/docs/vpc?topic=vpc-block-storage-profiles&interface=ui#custom)) to the [second-generation volume profile](/docs/vpc?topic=vpc-block-storage-profiles&interface=ui#defined-performance-profile) in the console, from the CLI, with API, or Terraform. During the migration, all consumed areas of the volume are copied and the source and target volumes are kept in sync by mirroring writes. If the volume is attached to an instance, the VSI's volume attachment is seamlessly converted from source to target volume when the copy operation is complete. For more information, see [Migrating block storage volume](/docs/vpc?topic=vpc-block-storage-vpc-volume-migration).
 
 ### 19 March 2026
 {: #vpc-mar1926}
