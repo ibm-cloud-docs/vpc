@@ -2,7 +2,7 @@
 
 copyright:
   years: 2022, 2026
-lastupdated: "2026-03-23"
+lastupdated: "2026-03-24"
 
 keywords: Backup for VPC, backup service, backup plan, backup policy, restore, restore volume, restore data
 
@@ -26,7 +26,6 @@ In an authorization, the source service is the service that is granted access to
 To be able to create an encrypted file share with a Customer Root Key (CRK), you must first have an instance of a Key Management Service (KMS) to hold your CRK. You can choose between {{site.data.keyword.keymanagementserviceshort}} or {{site.data.keyword.hscrypto}}. Then, you need to establish service-to-service authorization between the file service and the KMS instance. The authorization must be created in the account that owns and hosts the customer root key. The account that holds the CRK is the source, and the account where the file share is to be created is the target.
 
 [Deprecated]{: tag-deprecated} The {{site.data.keyword.hscrypto}} are deprecated. Customers can use existing instances until 20 March 2027. For more information, see [Deprecation of IBM Cloud Hyper Protect Crypto Services](/docs/hs-crypto?topic=hs-crypto-faqs-deprecation-of-ibm-cloud-hyper-protect-crypto-services). For continued protection, consider migrating your existing encryption keys to a Dedicated {{site.data.keyword.keymanagementserviceshort}} instance. For more information, see the [Migration guide](/docs/key-protect?topic=key-protect-migrate-st).
-
 
 For cross-region replication, you need to establish service-to-service authorizations and specify [user roles](/docs/account?topic=account-iam-service-roles-actions#is.share-roles) for the various File Storage Service instances in different VPCs. This authorization enables the File Storage service in one VPC to interact with the File Storage Service of another VPC. Both VPCs must belong to the same account. Cross-account replication is not supported. For more information, see [Replication overview](/docs/vpc?topic=vpc-file-storage-replication).
 

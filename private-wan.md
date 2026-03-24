@@ -2,7 +2,7 @@
 
 copyright:
   years: 2020, 2026
-lastupdated: "2026-03-23"
+lastupdated: "2026-03-24"
 
 keywords:
 
@@ -61,6 +61,5 @@ See [{{site.data.keyword.tg_full_notm}}](/docs/transit-gateway?topic=transit-gat
 {: #vpc_privatenetwork_hpcs}
 
 [Deprecated]{: tag-deprecated} The {{site.data.keyword.hscrypto}} are deprecated. Customers can use existing instances until 20 March 2027. For more information, see [Deprecation of IBM Cloud Hyper Protect Crypto Services](/docs/hs-crypto?topic=hs-crypto-faqs-deprecation-of-ibm-cloud-hyper-protect-crypto-services). For continued protection, consider migrating your existing encryption keys to a Dedicated {{site.data.keyword.keymanagementserviceshort}} instance. For more information, see the [Migration guide](/docs/key-protect?topic=key-protect-migrate-st).
-
 
 The HPCS instance can be configured using API requests from both public and private endpoints. You can route traffic from your virtual server instance to the HPCS instance through the private network by configuring the route. You can use the `route add -net 166.9.0.0/16 gw <gateway> dev <gateway_interface>` command to configure the route. For more information about configuring the private network of {{site.data.keyword.cloud_notm}} on your virtual server, see [Using service endpoints to privately connect to Hyper Protect Crypto Services](/docs/hs-crypto?topic=hs-crypto-secure-connection#configure-network).
