@@ -2,7 +2,7 @@
 
 copyright:
   years: 2021, 2026
-lastupdated: "2026-02-26"
+lastupdated: "2026-03-24"
 
 keywords:
 
@@ -233,7 +233,7 @@ See the following table to see what Generation 3 (x3) bare metal profiles are av
 {: summary="Use the buttons before the table to change the context of the table. The column headers identify the hardware class."}
 
 
-| Profile |  in-che-che02-a | in-che-che02-b  | in-che-che02-c  |  in-mum-mum02-a | in-mum-mum03-a | in-mum-mum05-a |
+| Profile |  in-che-che02-a | in-che-che02-b  | in-che-che02-c  | in-mum-mum02-a | in-mum-mum03-a | in-mum-mum05-a |
 | ------- | ----------- | ---------- | ---------- |----------- | ---------- | ---------- |
 | mx3-metal-16x128   |   |   |   |   |   |   |
 | cx3-metal-48x128   |   |   |   |   |   |   |
@@ -262,7 +262,6 @@ See the following table to see what Generation 3 (x3) bare metal profiles are av
 {: tab-group="profile-regions-gen3"}
 {: class="simple-tab-table"}
 {: summary="Use the buttons before the table to change the context of the table. The column headers identify the hardware class."}
-
 
 ## Generation 2 (x2) bare metal profiles availability by region
 {: #bare-metal-profile-availability-by-region}
