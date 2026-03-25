@@ -2,7 +2,7 @@
 
 copyright:
   years: 2019, 2026
-lastupdated: "2026-03-24"
+lastupdated: "2026-03-25"
 
 keywords: Block storage for VPC, change IOPS, change auto-delete, increase volume, change name, rename volume, delete volume, renaming volume, updating volume
 
@@ -31,7 +31,7 @@ Use the UI to manage your block storage volumes. In the console, you can complet
 * Add user tags to a block storage volume.
 * Update the auto-delete setting of the volume.
 * Adjust the IOPS of a data volume. For more information, see [Adjusting IOPS](/docs/vpc?topic=vpc-adjusting-volume-iops).
-* Increase the capacity of a volume. For more information, see [Expanding block storage volume capacity](/docs/vpc?topic=vpc-expanding-block-storage-volumes).
+* Increase the capacity of a volume. For more information, see [Expanding {{site.data.keyword.block_storage_is_short}} volume capacity](/docs/vpc?topic=vpc-expanding-block-storage-volumes).
 * For `sdp` volumes, adjust the throughput limit. For more information, see [Adjusting throughput limit](/docs/vpc?topic=vpc-adjusting-volume-throughput).
 * Migrate a first-generation volume to use a volume profile from the second-generation. For more information, see [Migrating Block Storage Volume](/docs/vpc?topic=vpc-block-storage-vpc-volume-migration).
 * Delete a block storage data volume.
@@ -161,7 +161,7 @@ Manage your block storage from the command-line interface (CLI). From the CLI, y
 * Update the volume attachment by changing its name or changing the auto-delete setting.
 * Detach a volume from a virtual server instance.
 * Adjust the IOPS of a data volume. For more information, see [Adjusting IOPS](/docs/vpc?topic=vpc-adjusting-volume-iops).
-* Increase the capacity of a volume. For more information, see [Expanding block storage volume capacity](/docs/vpc?topic=vpc-expanding-block-storage-volumes).
+* Increase the capacity of a volume. For more information, see [Expanding {{site.data.keyword.block_storage_is_short}} volume capacity](/docs/vpc?topic=vpc-expanding-block-storage-volumes).
 * For `sdp` volumes, adjust the throughput limit. For more information, see [Adjusting throughput limit](/docs/vpc?topic=vpc-adjusting-volume-throughput).
 * Migrate a first-generation volume to use a volume profile from the second-generation. For more information, see [Migrating Block Storage Volume](/docs/vpc?topic=vpc-block-storage-vpc-volume-migration).
 * Delete a block storage data volume.
@@ -348,7 +348,7 @@ Manage your block storage programmatically by making requests to the [VPC REST A
 * Update the volume attachment by changing its name or changing the auto-delete setting.
 * Detach a volume from a virtual server instance.
 * Adjust the IOPS of a data volume. For more information, see [Adjusting IOPS](/docs/vpc?topic=vpc-adjusting-volume-iops).
-* Increase the capacity of a volume. For more information, see [Increasing capacity of a data volume](/docs/vpc?topic=vpc-expanding-block-storage-volumes) and [Increasing capacity of a boot volume](/docs/vpc?topic=vpc-resize-boot-volumes).
+* Increase the capacity of a volume. For more information, see [Expanding {{site.data.keyword.block_storage_is_short}} volume capacity](/docs/vpc?topic=vpc-expanding-block-storage-volumes).
 * For `sdp` volumes, adjust the throughput limit. For more information, see [Adjusting throughput limit](/docs/vpc?topic=vpc-adjusting-volume-throughput).
 * Migrate a first-generation volume to use a volume profile from the second-generation. For more information, see [Migrating Block Storage Volume](/docs/vpc?topic=vpc-block-storage-vpc-volume-migration).
 * Delete a block storage data volume.
@@ -576,7 +576,7 @@ Manage your block storage as a code with Terraform. With the Terraform, you can:
 * Rename a block storage volume.
 * Add user tags to a block storage volume.
 * Adjust the IOPS of a data volume. For more information, see [Adjusting IOPS](/docs/vpc?topic=vpc-adjusting-volume-iops).
-* Increase the capacity of a volume. For more information, see [Expanding block storage volume capacity](/docs/vpc?topic=vpc-expanding-block-storage-volumes).
+* Increase the capacity of a volume. For more information, see [Expanding {{site.data.keyword.block_storage_is_short}} volume capacity](/docs/vpc?topic=vpc-expanding-block-storage-volumes).
 * For `sdp` volumes, adjust the throughput limit. For more information, see [Adjusting throughput limit](/docs/vpc?topic=vpc-adjusting-volume-throughput).
 * Migrate a first-generation volume to use a volume profile from the second-generation. For more information, see [Migrating Block Storage Volume](/docs/vpc?topic=vpc-block-storage-vpc-volume-migration).
 * Delete a block storage data volume.

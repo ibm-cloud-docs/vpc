@@ -2,7 +2,7 @@
 
 copyright:
   years: 2018, 2026
-lastupdated: "2026-03-23"
+lastupdated: "2026-03-25"
 
 keywords: virtual private network, VPN, VPN gateway, troubleshooting
 
@@ -40,4 +40,4 @@ Follow these steps to resolve peer‑side timing and multi‑subnet issues:
 1. Increase the idle timeout on your peer device from 30 minutes to several hours. If your policy allows, disable the idle timeout, which avoids first‑request failures after quiet periods.
 1. If the peer idle timeout can't be changed, send periodic keepalives every 20–25 minutes so that the peer device sees activity and keeps the security association alive. You can configure keepalives on the peer device by using features such as IKE keepalive, Dead Peer Detection (DPD), or by generating periodic ICMP pings from either side of the tunnel. Consult your peer device documentation for settings related to keepalive intervals.
 1. Add a simple retry with a script on the client or the application to automatically retry the first failed request after idle periods.
-1. If the VPN is configured in policy‑based mode, split large or multiple remote CIDR blocks into separate VPN connections so that each CIDR pair negotiates its own security association. An unstable connection in this case is by negotiation issues when multiple subnets or CIDRs are configured. For more information, see [Why can't I reach network destinations when multiple CIDRs are configured for my VPN connection?](/docs/vpc?topic=vpc-troubleshoot-multi-cidr-oneway-traffic)
+1. If the VPN is configured in policy‑based mode, split large or multiple remote CIDR blocks into separate VPN connections so that each CIDR pair negotiates its own security association. An unstable connection in this case is by negotiation issues when multiple subnets or CIDRs are configured. 

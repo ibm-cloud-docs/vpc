@@ -2,7 +2,7 @@
 
 copyright:
   years: 2018, 2026
-lastupdated: "2026-03-23"
+lastupdated: "2026-03-25"
 
 keywords: virtual private network, VPN, VPN gateway, troubleshooting
 
@@ -43,7 +43,7 @@ Follow these steps to resolve the VPN connection issue with your peer:
 {: tsResolve}
 
 1. Ensure that the tunnel supports bidirectional traffic initiation. This action allows IBM‑initiated traffic to establish the tunnel after idle or tunnel resets.
-1. If you use a policy‑based VPN, configure only one CIDR per VPN connection. Certain peer devices often negotiate only a single traffic selector per policy‑based tunnel, and any additional CIDRs might fail Phase 2 negotiation. For more information, see [Why can't I reach network destinations when multiple CIDRs are configured for my VPN connection?](/docs/vpc?topic=vpc-troubleshoot-multi-cidr-oneway-traffic)
+1. If you use a policy‑based VPN, configure only one CIDR per VPN connection. Certain peer devices often negotiate only a single traffic selector per policy‑based tunnel, and any additional CIDRs might fail Phase 2 negotiation. 
 1. Make sure that the CIDRs match exactly on both sides. Avoid mismatches like `/16` on one end and `/32` on the other.
 1. Keep NAT‑Traversal (NAT-T) enabled on the peer if configurable. This setting allows IPsec traffic to pass through devices that perform network address translation by encapsulating IPsec packets over UDP. If NAT-T is disabled and a NAT device exists between peers, tunnel establishment or bidirectional traffic initiation can fail.
 1. Re-enable the connection after you make the changes.

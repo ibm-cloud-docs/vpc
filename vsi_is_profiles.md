@@ -2,7 +2,7 @@
 
 copyright:
   years: 2019, 2026
-lastupdated: "2026-03-24"
+lastupdated: "2026-03-25"
 
 keywords: vsi, virtual server instances, profile, profiles, balanced, compute, memory, very high memory, ultra high memory, gpu, storage optimized, confidential compute, flex, high frequency
 
@@ -503,7 +503,7 @@ Confidential computing profiles, Confidential computing with Intel SGX for VPC, 
 
 The following profiles support Intel SGX, Intel TDX, and secure boot. If you prefer to use Intel SGX or Intel TDX without secure boot, you can disable the secure boot option. For more information, see [Secure boot for Virtual Servers for VPC](/docs/vpc?topic=vpc-confidential-computing-with-secure-boot-vpc).
 
-For more information about confidential computing, see [Confidential computing for x86 Virtual Servers for VPC](/docs/vpc?topic=vpc-about-sgx-vpc).
+For more information about confidential computing, see [Confidential computing for x86 Virtual Servers for VPC](/docs/vpc?topic=vpc-about-confidential-computing-vpc).
 
 | Instance profile | vCPU / Cores | GiB RAM | EPC (SGX) capacity (GiB)  | Bandwidth cap (Gbps) | Instance storage (GB) |
 | ---------------- | ---- | ------- | ------------------------- |------- | ------------------------- |
@@ -545,7 +545,7 @@ For more information about confidential computing, see [Confidential computing f
 ## Flex profiles
 {: #flexible-profiles}
 
-Flex profiles are a cost-effective option to help improve mainstream capacity where and when it's needed. As a dedicated core offering, you have cpu-to-memory ratio options for compute, balanced, memory, and two low-memory variants (small and nano). The Flex profile family doesn't include instance storage.
+Flex profiles are a cost-effective option to help improve mainstream capacity where and when it's needed. Flex offers cpu-to-memory ratio options for compute, balanced, memory, and two low-memory variants (small and nano). The Flex profile family doesn't include instance storage.
 
 The following flex profiles are available.
 

@@ -2,7 +2,7 @@
 
 copyright:
   years: 2023, 2026
-lastupdated: "2026-03-20"
+lastupdated: "2026-03-25"
 
 keywords:
 
@@ -173,7 +173,7 @@ Existing Ubuntu customers can upgrade to the most recent version. For more infor
 
 CentOS Stream 9 EOS date is 31 May 2027. Support for this software discontinues on 31 May 2027. CentOS Stream 9 reaches its End of Marketing (EOM) on 6 June 2026 and can't be downloaded.
 
-Existing CentOS Stream customers can upgrade to the most recent version. For more information, see [CentOS Documentation]( https://docs.centos.org/centos-stream-docs/){: external}.
+Existing CentOS Stream customers can upgrade to the most recent version. For more information, see [CentOS Documentation](https://docs.centos.org/centos-stream-docs/){: external}.
 
 ## Troubleshooting
 {: #troubleshooting-upgrading-your-os-vpc}
