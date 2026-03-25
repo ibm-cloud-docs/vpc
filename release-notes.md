@@ -2,7 +2,7 @@
 
 copyright:
   years: 2019, 2026
-lastupdated: "2026-03-24"
+lastupdated: "2026-03-25"
 
 keywords:
 
@@ -26,6 +26,16 @@ For more information about changes to the {{site.data.keyword.vpc_short}} comman
 
 ## March 2026
 {: #vpc-mar26}
+
+### 25 March 2026
+{: #vpc-mar2526}
+{: release-note}
+
+Product name changed from IBM Hyper Protect Secure Build to IBM Confidential Computing Container Secure Build
+:   The product name is changed from IBM Hyper Protect Secure Build to IBM Confidential Computing Container Secure Build. All features and functionalities continue to work as before.
+
+Workload update for IBM Confidential Computing Container Secure Build
+:   The `workload` section of the IBM Confidential Computing Container Secure Build is updated based on the IBM Hyper Protect Container Runtime image `ibm-hyper-protect-container-runtime-1-0-s390x-26`. For more information, see [Configuring and using IBM Confidential Computing Container Secure Build in {{site.data.keyword.hpvs}} for VPC](/docs/vpc?topic=vpc-about-hpsb#hpvs_hpsb). Clone the latest Secure-Build-Cli to create a IBM Confidential Computing Container Secure Build server.
 
 ### 24 March 2026
 {: #vpc-mar2426}
