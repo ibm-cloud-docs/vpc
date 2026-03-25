@@ -2,7 +2,7 @@
 
 copyright:
   years: 2024, 2026
-lastupdated: "2026-03-10"
+lastupdated: "2026-03-25"
 
 keywords:
 
@@ -682,12 +682,14 @@ The following dependencies apply to the following deployment locations: Dallas (
 |:---|:---|:---|:---|:---|
 | {{site.data.keyword.monitoringlong}}| Operations | No | Both |  Same region  |
 | {{site.data.keyword.atracker_full}}| Operations, Security compliance | No | Both |  Same region  |
-| {{site.data.keyword.atracker_full}}| Operations, Security compliance | No | Both |  Washington DC (us-east)  |
+| {{site.data.keyword.atracker_full}}| Operations, Security compliance | No | Both |  us-east  |
 | IBM Cloud Business Support Services| none | No | Both |  Same zone  |
 | IBM Cloud Hyper Protect Crypto| none | No | Both |  Same region  |
 | {{site.data.keyword.block_storage_is_full}}| none | No | Both |  Same data center  |
 | {{site.data.keyword.block_storage_is_full}}| none | No | Both |  Same region  |
 | {{site.data.keyword.logs_full}}| Access management, Operations, Security compliance | No | Both |  Same region  |
+| None| Security compliance | No | Both |  Same data center  |
+| None| Security compliance | No | Both |  Same data center  |
 {: row-headers}
 {: caption="IBM Cloud Block Storage for Virtual Private Cloud - Data and Control plane deployment service dependency information - Minimal dependencies" caption-side="top"}
 {: tab-title="Minimal dependencies"}
@@ -733,12 +735,14 @@ The following dependencies apply to the following deployment locations: Chennai 
 |:---|:---|:---|:---|:---|
 | {{site.data.keyword.monitoringlong}}| Operations | No | ngdc-data-plane |  Same region  |
 | {{site.data.keyword.atracker_full}}| Operations, Security compliance | No | ngdc-data-plane |  Same region  |
-| {{site.data.keyword.atracker_full}}| Operations, Security compliance | No | ngdc-data-plane |  Washington DC (us-east)  |
+| {{site.data.keyword.atracker_full}}| Operations, Security compliance | No | ngdc-data-plane |  us-east  |
 | IBM Cloud Business Support Services| none | No | ngdc-data-plane |  Same zone  |
 | IBM Cloud Hyper Protect Crypto| none | No | ngdc-data-plane |  Same region  |
 | {{site.data.keyword.block_storage_is_full}}| none | No | ngdc-data-plane |  Same data center  |
 | {{site.data.keyword.block_storage_is_full}}| none | No | ngdc-data-plane |  Same region  |
 | {{site.data.keyword.logs_full}}| Access management, Operations, Security compliance | No | ngdc-data-plane |  Same region  |
+| None| Security compliance | No | ngdc-data-plane |  Same data center  |
+| None| Security compliance | No | ngdc-data-plane |  Same data center  |
 {: row-headers}
 {: caption="IBM Cloud Block Storage for Virtual Private Cloud - Data plane deployment for NGDC service dependency information - Minimal dependencies" caption-side="top"}
 {: tab-title="Minimal dependencies"}
