@@ -2,7 +2,7 @@
 
 copyright:
   years: 2022, 2026
-lastupdated: "2026-03-20"
+lastupdated: "2026-03-25"
 
 keywords: confidential computing, enclave, secure execution, hpcr, hyper protect virtual server for vpc
 
@@ -76,7 +76,7 @@ It's important to read the following information and complete the required prepa
 
 - Choose to build your own image with {{site.data.keyword.hpvs}}
 
-   Apart from using the stock image, you can choose to securely build your own image with {{site.data.keyword.hpvs}} and use that image to provision a {{site.data.keyword.hpvs}} for VPC instance. For more information, see [Hyper Protect Secure Build](/docs/vpc?topic=vpc-about-hpsb).
+   Apart from using the stock image, you can choose to securely build your own image with {{site.data.keyword.hpvs}} and use that image to provision a {{site.data.keyword.hpvs}} for VPC instance. For more information, see [Confidential Computing Container Secure Build](/docs/vpc?topic=vpc-about-hpsb).
 
 - [Prepare a contract](/docs/vpc?topic=vpc-about-contract_se)
 
