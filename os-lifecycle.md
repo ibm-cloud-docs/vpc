@@ -3,7 +3,7 @@
 copyright:
 
   years: 2022, 2026
-lastupdated: "2026-03-13"
+lastupdated: "2026-03-26"
 
 keywords: operating system end of support (eos)
 
@@ -128,7 +128,7 @@ The following table describes the end of support date and license model for SUSE
 
 | Operating system | End of support | License model |
 |-----------------|----------------|---------------|
-| SLES 16.0   | 30 November 2027 | Pay-as-you-Go |
+| SLES 16     | 30 November 2027 | Pay-as-you-Go |
 | SLES 15 SP7 | 31 July 2031 | Pay-as-you-Go |
 | SLES 15 SP6 | 31 December 2025 | Pay-as-you-Go |
 | SLES 15 SP5 | 31 December 2024 | Pay-as-you-Go |

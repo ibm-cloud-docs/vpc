@@ -2,7 +2,7 @@
 
 copyright:
   years: 2022, 2026
-lastupdated: "2026-03-20"
+lastupdated: "2026-03-26"
 
 keywords: confidential computing, secure execution, logging for hyper protect virtual server for vpc
 
@@ -163,7 +163,7 @@ Make sure to use a strong digest algorithm for the certificates, otherwise the s
 ### Example
 {: #syslog-example}
 
-You can follow the following procedure to create the required certificates and keys. The example uses [openssl](https://www.openssl.org/) and shows [bash](https://www.gnu.org/software/bash/) syntax.
+You can follow the following procedure to create the required certificates and keys. The example uses [openssl](https://www.openssl.org/){: external} and shows [bash](https://www.gnu.org/software/bash/){: external} syntax.
 
 #### Preparation
 {: #syslog-preparation}
