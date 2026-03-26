@@ -2,9 +2,9 @@
 
 copyright:
   years: 2024, 2026
-lastupdated: "2026-03-25"
+lastupdated: "2026-03-26"
 
-keywords: confidential computing, enclave, secure execution, hpcr, hyper protect virtual server for vpc, Confidential Computing Container Secure Build, hpsb, sbs
+keywords: confidential computing, enclave, secure execution, hpcr, hyper protect virtual server for vpc, Hyper Protect Secure Build, hpsb, sbs
 
 subcollection: vpc
 
@@ -12,27 +12,27 @@ subcollection: vpc
 
 {{site.data.keyword.attribute-definition-list}}
 
-# Confidential Computing Container Secure Build
+# Hyper Protect Secure Build
 {: #about-hpsb}
 
 The {{site.data.keyword.cloud_notm}} {{site.data.keyword.hpvs}} for VPC is deprecated. As of 28 February 2026, you can't create new instances. Existing instances are supported until 20 February 2027. Any instances that still exist on that date will be deleted. You can redeploy your workloads by using [IBM Confidential Computing Container Runtime (formerly known as Hyper Protect Virtual Servers)](https://www.ibm.com/docs/en/ccrt) or [IBM Confidential Computing Container Runtime for Red Hat Virtualization Solutions (formerly known as Hyper Protect Container Runtime for Red Hat Virtualization Solutions)](https://www.ibm.com/docs/en/ccrv/1.1.x). For information about data migration, see the [Migration guide](/docs/vpc?topic=vpc-migration_guide). For more information, see the [Service deprecation announcement](/docs/vpc?topic=vpc-ichpcs_deprecated_anmt).
 {: deprecated}
 
-By using Confidential Computing Container Secure Build, you can build a trusted container image within a secure enclave that is provided by {{site.data.keyword.cloud_notm}} {{site.data.keyword.hpvs}} for VPC. The enclave is highly isolated, where developers can access the container only by using a specific API and the cloud administrator cannot access the contents of the container. Therefore, the image that is built can be highly trusted. Specifically, the build server cryptographically signs the image, and a manifest (which is a collection of materials that are used during the build, for audits). Since the enclave protects the signing keys within the enclave, the signatures can be used to verify whether the image and manifest are from the build server, and not elsewhere.
+By using Hyper Protect Secure Build, you can build a trusted container image within a secure enclave that is provided by {{site.data.keyword.cloud_notm}} {{site.data.keyword.hpvs}} for VPC. The enclave is highly isolated, where developers can access the container only by using a specific API and the cloud administrator cannot access the contents of the container. Therefore, the image that is built can be highly trusted. Specifically, the build server cryptographically signs the image, and a manifest (which is a collection of materials that are used during the build, for audits). Since the enclave protects the signing keys within the enclave, the signatures can be used to verify whether the image and manifest are from the build server, and not elsewhere.
 {: shortdesc}
 
 
-## Configuring and using Confidential Computing Container Secure Build in {{site.data.keyword.hpvs}} for VPC
+## Configuring and using Hyper Protect Secure Build in {{site.data.keyword.hpvs}} for VPC
 {: #hpvs_hpsb}
 
 Make sure that you use the latest Secure Build CLI code from [this repository](https://github.com/ibm-hyper-protect/secure-build-cli).
 
-1. Complete the following steps to set up the Confidential Computing Container Secure Build Server (HPSB) client environment:
+1. Complete the following steps to set up the Hyper Protect Secure Build Server (HPSB) client environment:
     1. Install the Secure Build CLI first. For more information, see [Install the Secure Build CLI](https://github.com/ibm-hyper-protect/secure-build-cli/blob/master/HPSB-VPC.md#install-the-secure-build-cli).
     2. Prepare the `sbs-config.json` configuration file for the HPSB server. For more information, see [Prepare the configuration](https://github.com/ibm-hyper-protect/secure-build-cli/blob/master/HPSB-VPC.md#preparing-the-configuration).
 2. Complete the following steps to create the `user-data.yaml`file that is used as the contract.
 
-   1. Copy the following `workload` section of the contract that is generated through an automated process into the `user-data.yaml`file. This `workload` section contains the encrypted details of the Confidential Computing Container Secure Build image.
+   1. Copy the following `workload` section of the contract that is generated through an automated process into the `user-data.yaml`file. This `workload` section contains the encrypted details of the Hyper Protect Secure Build image.
 
    Use the following `workload` section of the contract for the IBM Hyper Protect Container Runtime image version `ibm-hyper-protect-container-runtime-1-0-s390x-26`:
 
@@ -53,7 +53,7 @@ Make sure that you use the latest Secure Build CLI code from [this repository](h
 
       See an [example contract](/docs/vpc?topic=vpc-about-contract_se#step7).
 
-3. Deploy the HPSB on {{site.data.keyword.hpvs}} for VPC by using the certificates and the contract that you created in the previous step. For more information, see [Deploying the Confidential Computing Container Secure Build Server](https://github.com/ibm-hyper-protect/secure-build-cli/blob/master/HPSB-VPC.md#deploying-the-hyper-protect-secure-build-server).
+3. Deploy the HPSB on {{site.data.keyword.hpvs}} for VPC by using the certificates and the contract that you created in the previous step. For more information, see [Deploying the Hyper Protect Secure Build Server](https://github.com/ibm-hyper-protect/secure-build-cli/blob/master/HPSB-VPC.md#deploying-the-hyper-protect-secure-build-server).
 
 4. Build the container image by using the HPSB. For more information, see [How to build an image by using HPSB](https://github.com/ibm-hyper-protect/secure-build-cli/blob/master/HPSB-VPC.md#how-to-build-image-by-using-hpsb).
 
