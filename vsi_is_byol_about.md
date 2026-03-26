@@ -1,8 +1,7 @@
----
 
 copyright:
   years: 2020, 2026
-lastupdated: "2026-03-24"
+lastupdated: "2026-03-26"
 
 keywords: license, virtual private cloud, BYOL, virtual server instance, instance, custom image, encryption, RHEL, SUSE
 subcollection: vpc
@@ -66,20 +65,17 @@ To see all of the operating system versions from the API, make a `GET /operating
 
 ```json
 {
-    ...
-    "48": {
-	"id": "jp-tok~sles-15-s390x-byol",
-	"name": "sles-15-s390x-byol",
-	"family": "SUSE Linux Enterprise Server",
-	"href": "https://jp-tok.private.iaas.cloud.ibm.com/v1/operating_systems/sles-15-s390x-byol",
-	"architecture": "s390x",
-	"status": null,
-	"description": null,
-	"vendor": "SUSE",
-	"version": "15",
-	"bootType": null,
-	"allowImageCreation": null,
-	"__typename": "OperatingSystem"
+    ... 
+    "48": { 
+        "id": "jp-tok~sles-15-x86-byol",
+        "name": "sles-15-x86-byol",
+        "family": "SUSE Linux Enterprise Server",
+       "href": "https://jp-tok.private.iaas.cloud.ibm.com/v1/operating_systems/sles-15-x86-byol",
+        "architecture": "x86",
+        "status": null, "description": null,
+        "vendor": "SUSE", "version": "15",
+        "bootType": null, "allowImageCreation": null,
+        "__typename": "OperatingSystem"
     }
     ...
 }
