@@ -1,8 +1,8 @@
 ---
 
 copyright:
-  years: 2022, 2025
-lastupdated: "2025-11-12"
+  years: 2022, 2026
+lastupdated: "2026-03-26"
 
 keywords: VPC File Storage, file for VPC, NSF, replica, file share, replication, schedule
 
@@ -156,9 +156,9 @@ Before you can use the CLI, you must install the IBM Cloud CLI and the VPC CLI p
 
    ```sh
    Listing shares in all resource groups and region us-south under account Test Account as user test.user@ibm.com...
-   ID                                          Name                    Lifecycle state   Zone         Profile   Size(GB)   Resource group  Replication role   Accessor binding role   Snapshot count   Snapshot size   
-   r006-2a10af45-de9e-4894-8e9e-fd01a25ec529   my-replica-file-share   stable            us-south-1   dp2       101        Default         replica            none                    0                0   
-   r006-74634ace-43bd-4983-a22b-47b1c9662794   my-source-file-share    stable            us-south-2   dp2       101        Default         source             none                    1                1   
+   ID                                          Name                    Lifecycle state   Zone         Profile   Size(GB)   Resource group  Replication role   Accessor binding role   Snapshot count   Snapshot size
+   r006-2a10af45-de9e-4894-8e9e-fd01a25ec529   my-replica-file-share   stable            us-south-1   dp2       101        Default         replica            none                    0                0
+   r006-74634ace-43bd-4983-a22b-47b1c9662794   my-source-file-share    stable            us-south-2   dp2       101        Default         source             none                    1                1
    r006-b1707390-3825-41eb-a5bb-1161f77f8a58   my-vpc-file-share       stable            us-south-2   dp2       1000       Default         none               none                    0                0
    r006-b696742a-92ee-4f6a-bfd7-921d6ddf8fa6   my-file-share           stable            us-south-2   dp2       1500       Default         none               none                    0                0
    ```
@@ -184,7 +184,7 @@ Before you can use the CLI, you must install the IBM Cloud CLI and the VPC CLI p
    Profile                      dp2
    Size(GB)                     1500
    IOPS                         2000
-   Encryption                   provider_managed   
+   Encryption                   provider_managed
    Mount Targets                ID                                          Name
                                 r006-dd497561-c7c9-4dfb-af0a-c84eeee78b61   my-cli-share-mount-target-1
 
@@ -206,10 +206,10 @@ Before you can use the CLI, you must install the IBM Cloud CLI and the VPC CLI p
    Snapshot count               0
    Snapshot size                0
    Source snapshot              -
-   Allowed Access Protocols     nfs4    
-   Availability Mode            zonal   
-   Bandwidth(Mbps)              1    
-   Storage Generation           1  
+   Allowed Access Protocols     nfs4
+   Availability Mode            zonal
+   Bandwidth(Mbps)              1
+   Storage Generation           1
    ```
    {: screen}
 

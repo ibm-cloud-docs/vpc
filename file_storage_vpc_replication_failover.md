@@ -1,10 +1,10 @@
 ---
 
 copyright:
-  years: 2022, 2025
-lastupdated: "2025-12-09"
+  years: 2022, 2026
+lastupdated: "2026-03-26"
 
-keywords: file storage, file share, replication, replica, source share, failover, 
+keywords: file storage, file share, replication, replica, source share, failover,
 
 subcollection: vpc
 
@@ -21,13 +21,13 @@ A failover to the replica file share keeps your data available if your source fi
 ## Replication failover concepts
 {: #fs-failover-concepts}
 
-When you create a replica file share, the replica pulls data from the source file share based on a replication schedule. The data on the replica file share is set to read-only. Failover switches the replication relationship. The read-only replica file share becomes the read/write source file share and the original share becomes read-only. You can now mount the active file share and manage it as a regular file share. 
+When you create a replica file share, the replica pulls data from the source file share based on a replication schedule. The data on the replica file share is set to read-only. Failover switches the replication relationship. The read-only replica file share becomes the read/write source file share and the original share becomes read-only. You can now mount the active file share and manage it as a regular file share.
 
 When you initiate a failover, you can choose what happens if the failover operation fails or times out. The default timeout is 5 minutes.
 
 * If you decide to keep the replication relationship, the system "falls back" to the source share. Even though the operation failed, the system attempts to replicate data again at the next scheduled time. This option can be used when the primary site is scheduled for [routine maintenance](#fs-failover-maintenance). You can fall back to the original share when the maintenance is complete and the site is stable again. Replication can resume.
 
-* If you decide to remove the replication relationship, the system splits the two file shares apart, and they become independent read/write file shares. This option can be used for failover in a [disaster recovery](#fs-failover-dr) situation when it's more important to start your application up as quickly as possible. So you can continue normal operations on the replica site, while the future of the original site is uncertain. 
+* If you decide to remove the replication relationship, the system splits the two file shares apart, and they become independent read/write file shares. This option can be used for failover in a [disaster recovery](#fs-failover-dr) situation when it's more important to start your application up as quickly as possible. So you can continue normal operations on the replica site, while the future of the original site is uncertain.
 
 A failover operation or a replica split cannot occur when another operation is being performed on the source or replica file share (for example, the file share size is being expanded). The split or failover operation continues to pend until the other operation completes.
 {: important}
@@ -103,18 +103,18 @@ Before you can use the CLI, you must install the IBM Cloud CLI and the VPC CLI p
 
    ```sh
    Listing shares in all resource groups and region us-south under account Test Account as user test.user@ibm.com...
-   ID                                          Name                    Lifecycle state   Zone         Profile   Size(GB)   Resource group   Replication role   Accessor binding role   Snapshot count   Snapshot size   
-   r006-a8d6af48-0c97-4c6b-bab1-fbefdc1e1e03   my-file-share           stable            us-south-2   dp2       10         defaults         none               none                    0                0   
-   r006-aaf4bfe9-358c-4faa-a4ec-0b955090b940   my-file-share-2         stable            us-south-2   dp2       10         defaults         none               none                    0                0   
-   r006-a60bfa90-a893-40ad-be34-28ab51a963f9   replica-dal-2           stable            us-south-2   dp2       10         defaults         replica            none                    0                0   
-   r006-3f21e3c3-e12d-425f-ab77-810cabfde8df   source-dal-1            stable            us-south-1   dp2       10         defaults         source             none                    0                0   
-   r006-455b601c-8fc1-4476-8771-4708c49c8ef7   my-replica-share-dal-1  stable            us-south-1   dp2       10         defaults         replica            none                    0                0   
-   r006-4dadac27-cd17-42df-a5fe-1388705d33e0   my-source-share-dal-2   stable            us-south-2   dp2       10         defaults         source             none                    0                0   
-    
+   ID                                          Name                    Lifecycle state   Zone         Profile   Size(GB)   Resource group   Replication role   Accessor binding role   Snapshot count   Snapshot size
+   r006-a8d6af48-0c97-4c6b-bab1-fbefdc1e1e03   my-file-share           stable            us-south-2   dp2       10         defaults         none               none                    0                0
+   r006-aaf4bfe9-358c-4faa-a4ec-0b955090b940   my-file-share-2         stable            us-south-2   dp2       10         defaults         none               none                    0                0
+   r006-a60bfa90-a893-40ad-be34-28ab51a963f9   replica-dal-2           stable            us-south-2   dp2       10         defaults         replica            none                    0                0
+   r006-3f21e3c3-e12d-425f-ab77-810cabfde8df   source-dal-1            stable            us-south-1   dp2       10         defaults         source             none                    0                0
+   r006-455b601c-8fc1-4476-8771-4708c49c8ef7   my-replica-share-dal-1  stable            us-south-1   dp2       10         defaults         replica            none                    0                0
+   r006-4dadac27-cd17-42df-a5fe-1388705d33e0   my-source-share-dal-2   stable            us-south-2   dp2       10         defaults         source             none                    0                0
+
    ```
    {: screen}
 
-1. Run the `ibmcloud is share-replica-failover` command and specify the `fallback-policy` property. You can specify `fail` or `split` for this property. 
+1. Run the `ibmcloud is share-replica-failover` command and specify the `fallback-policy` property. You can specify `fail` or `split` for this property.
 
    * The following example specifies `fail` for the `fallback-policy` property. If the failover operation fails or the timeout is reached, the failover operation is unsuccessful. The source share remains active and the replication resumes as scheduled.
 
@@ -122,7 +122,7 @@ Before you can use the CLI, you must install the IBM Cloud CLI and the VPC CLI p
    ibmcloud is share-replica-failover r006-a60bfa90-a893-40ad-be34-28ab51a963f9 --fallback-policy fail
    ```
    {: pre}
-   
+
    ```sh
    The file share r006-a60bfa90-a893-40ad-be34-28ab51a963f9 failover request was accepted under account Test Account as user test.user@ibm.com...
    The file share failover request was accepted.

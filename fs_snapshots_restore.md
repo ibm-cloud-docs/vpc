@@ -1,8 +1,8 @@
 ---
 
 copyright:
-  years: 2024, 2025
-lastupdated: "2025-11-04"
+  years: 2024, 2026
+lastupdated: "2026-03-26"
 
 keywords:
 
@@ -15,10 +15,10 @@ subcollection: vpc
 # Restoring data from a file share snapshot
 {: #fs-snapshots-restore}
 
-Restoring data from a snapshot creates a new, fully provisioned share. Shares can be restored from snapshots that were created manually or by a backup policy. You can create shares from snapshots in the console, from the CLI, with the API, or Terraform. The share that you create by using a snapshot must have the same file share profile as the snapshot. You can also restore single files from snapshots of your file share. 
+Restoring data from a snapshot creates a new, fully provisioned share. Shares can be restored from snapshots that were created manually or by a backup policy. You can create shares from snapshots in the console, from the CLI, with the API, or Terraform. The share that you create by using a snapshot must have the same file share profile as the snapshot. You can also restore single files from snapshots of your file share.
 {: shortdesc}
 
-Shares can be created only in the same location as the origin share of the snapshot. When the new share is created, it contains only pointers to the original share, and the data copy process begins. While the data is being copied, the share is in a _pending_ state. While the new share can be mounted for read/write in _pending_ state, a few operations like creating a replica or snapshots are not permitted. After the data-copy operation is complete, the new share is split from the parent share to become independent, completing the initialization process. After the initialization process is complete, the share moves to the _stable_ state and can be used as any other share. 
+Shares can be created only in the same location as the origin share of the snapshot. When the new share is created, it contains only pointers to the original share, and the data copy process begins. While the data is being copied, the share is in a _pending_ state. While the new share can be mounted for read/write in _pending_ state, a few operations like creating a replica or snapshots are not permitted. After the data-copy operation is complete, the new share is split from the parent share to become independent, completing the initialization process. After the initialization process is complete, the share moves to the _stable_ state and can be used as any other share.
 
 It is possible to change the customer-managed encryption key when the new zonal file share is created. This process registers the new share in the key management service with a new key. The new key is used to encrypt the new Share.
 
@@ -56,7 +56,7 @@ From the list of {{site.data.keyword.filestorage_vpc_short}} snapshots, you can 
     | **Share details** | Define the new share. |
     | Name | Enter a name for the new share. |
     | Resource group | Use the defaults or select from the list. |
-    | User tags | Specify [user tags](/docs/vpc?topic=vpc-block-storage-about&interface=ui#storage-about-user-tags) to organize your resources and for use by [backup policies](/docs/vpc?topic=vpc-backup-service-about) | 
+    | User tags | Specify [user tags](/docs/vpc?topic=vpc-block-storage-about&interface=ui#storage-about-user-tags) to organize your resources and for use by [backup policies](/docs/vpc?topic=vpc-backup-service-about) |
     | Access management tags | Specify [access management tags](/docs/vpc?topic=vpc-block-storage-about&interface=ui#storage-about-mgt-tags) that were created in IAM to help you manage access to your shares. |
     | **Profile** | Defaults to `dp2` for zonal shares, and `rfs` for regional shares. The profile and storage generation value of the new share must match the profile and storage generation value of the snapshot. |
     | Size | Enter a share size that is allowed by the profile. It must be bigger or equal to the size of the snapshot. |
@@ -71,7 +71,7 @@ From the list of {{site.data.keyword.filestorage_vpc_short}} snapshots, you can 
 {: #fs-snapshots-restore-CLI}
 {: cli}
 
-You can create a {{site.data.keyword.filestorage_vpc_short}} share from a snapshot from the CLI. When the share is created, you can create a mount target and mount the share to an instance later. 
+You can create a {{site.data.keyword.filestorage_vpc_short}} share from a snapshot from the CLI. When the share is created, you can create a mount target and mount the share to an instance later.
 
 ### Before you begin
 {: #fs-snapshots-restore-prereq-CLI}
@@ -89,7 +89,7 @@ Before you can use the CLI, you must install the IBM Cloud CLI and the VPC CLI p
    This command returns a URL and prompts for a passcode. Go to that URL in your browser and log in. If successful, you get a one-time passcode. Copy this passcode and paste it as a response on the prompt. After successful authentication, you are prompted to choose your account. If you have access to multiple accounts, select the account that you want to log in as. Respond to any remaining prompts to finish logging in.
 
 1. Gather information about the snapshot that you want to use to restore a share.
-   1. You can use the CLI to [list all the snapshots of a specific share](/docs/vpc?topic=vpc-fs-snapshots-view&interface=cli#fs-snapshots-view-all-snapshots-cli) and choose one from the output. 
+   1. You can use the CLI to [list all the snapshots of a specific share](/docs/vpc?topic=vpc-fs-snapshots-view&interface=cli#fs-snapshots-view-all-snapshots-cli) and choose one from the output.
    1. Then, use the `ibmcloud is share-snapshot SHARE SNAPSHOT` command to list the details of the chosen snapshot.
 
 ### Creating a share from a snapshot from the CLI
@@ -104,7 +104,7 @@ ibmcloud is share-create --name my-file-share-from-snapshot --snapshot r006-de41
 
 ```sh
 Creating file share my-file-share-from-snapshot under account Test Account as user test.user@ibm.com...
-                                      
+
 ID                                 r006-ef44c3ac-2cc3-49bd-8c4f-27f46936644d
 Name                               my-file-share-from-snapshot
 CRN                                crn:v1:bluemix:public:is:us-south-2:a/a1234567::share:r006-ef44c3ac-2cc3-49bd-8c4f-27f46936644d
@@ -133,11 +133,11 @@ Replication status reasons         Status code   Status message
 Snapshot count                     0
 Snapshot size                      0
 Source snapshot                    ID                                          Name
-                                   r006-de41f19f-204c-4d4c-a630-1971ba85ed1d   my-test-snap 
-Allowed Access Protocols           nfs4    
-Availability Mode                  zonal   
-Bandwidth(Mbps)                    1    
-Storage Generation                 1  
+                                   r006-de41f19f-204c-4d4c-a630-1971ba85ed1d   my-test-snap
+Allowed Access Protocols           nfs4
+Availability Mode                  zonal
+Bandwidth(Mbps)                    1
+Storage Generation                 1
 
 ```
 {: screen}
@@ -151,7 +151,7 @@ ibmcloud is share-create --profile dp2 --snapshot crn:v1:bluemix:public:is:us-so
 
 ```sh
 Creating file share  under account Test Account as user test.user@ibm.com...
-                                      
+
 ID                                 r006-683e075d-30b6-429c-aba6-1eeb44d06dc2
 Name                               giggling-maturing-remnant-unworldly
 CRN                                crn:v1:bluemix:public:is:us-south-2:a/a1234567::share:r006-683e075d-30b6-429c-aba6-1eeb44d06dc2
@@ -179,11 +179,11 @@ Replication status reasons         Status code   Status message
 Snapshot count                     0
 Snapshot size                      0
 Source snapshot                    ID                                          Name
-                                   r006-de41f19f-204c-4d4c-a630-1971ba85ed1d   my-test-snap 
-Allowed Access Protocols           nfs4    
-Availability Mode                  zonal   
-Bandwidth(Mbps)                    1    
-Storage Generation                 1     
+                                   r006-de41f19f-204c-4d4c-a630-1971ba85ed1d   my-test-snap
+Allowed Access Protocols           nfs4
+Availability Mode                  zonal
+Bandwidth(Mbps)                    1
+Storage Generation                 1
 ```
 {: screen}
 
@@ -199,7 +199,7 @@ For more information about available command options, see [`ibmcloud is share-cr
 You can programmatically restore a share by calling the `/shares` method in the [VPC API](/apidocs/vpc/latest#create-share).
 
 Before you begin, gather information about the snapshot that you want to use to restore a share.
-   - First, locate the snapshot and view its details. You can use the API to [list all the snapshots of a file share](/apidocs/vpc/latest#list-share-snapshots){: external} and select from the list. 
+   - First, locate the snapshot and view its details. You can use the API to [list all the snapshots of a file share](/apidocs/vpc/latest#list-share-snapshots){: external} and select from the list.
    - Then, [retrieve the snapshot](/apidocs/vpc/latest#get-share-snapshot){: external} details.
 
 ### Creating a share from a snapshot with the API

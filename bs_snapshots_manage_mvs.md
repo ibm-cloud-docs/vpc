@@ -2,7 +2,7 @@
 
 copyright:
   years: 2022, 2026
-lastupdated: "2026-03-16"
+lastupdated: "2026-03-26"
 
 keywords: consistency group, snapshots, backups, instance snapshot, instance backup,
 
@@ -79,6 +79,7 @@ Created                     2023-08-25T10:55:37+05:30
 Service Tags                -
 ```
 {: screen}
+
 
 For more information about available command options, see [`ibmcloud is snapshot-consistency-group-update`](/docs/vpc?topic=vpc-vpc-reference#snapshot-consistency-group-update).
 

@@ -1,8 +1,8 @@
 ---
 
 copyright:
-  years: 2021, 2025
-lastupdated: "2025-11-14"
+  years: 2021, 2026
+lastupdated: "2026-03-26"
 
 keywords: file share, file storage, rename share, increase size, adjust IOPS, mount target
 
@@ -46,7 +46,7 @@ In the console, you can:
 In the console, you can manage normal file shares and accessor shares. Only the share owner can modify properties like access control mode, IOPS, and profile. The accessor account cannot edit the origin share, and can modify a smaller set of properties of the accessor share.
 
 Snapshots are supported only for shares that have *security group* as their access control mode. You can't change access control mode to VPC unless all the snapshots of the share are deleted.
-{: note} 
+{: note}
 
 ### Renaming a file share in the console
 {: #rename-file-share-ui}
@@ -122,13 +122,13 @@ Snapshots are supported only for shares that have *security group* as their acce
 
    ```sh
    Listing shares in all resource groups and region us-south under account Test Account as user test.user@ibm.com...
-   ID                                          Name                    Lifecycle state   Zone         Profile    Size(GB)   Resource group   Replication role   Accessor binding role   Snapshot count   Snapshot size   
-   r006-a8d6af48-0c97-4c6b-bab1-fbefdc1e1e03   my-file-share           stable            us-south-2   dp2        10         defaults         none               none                    0                0   
-   r006-aaf4bfe9-358c-4faa-a4ec-0b955090b940   my-file-share-2         stable            us-south-2   dp2        10         defaults         none               none                    0                0   
-   r006-a60bfa90-a893-40ad-be34-28ab51a963f9   replica-dal-2           stable            us-south-2   dp2        10         defaults         replica            none                    0                0   
-   r006-3f21e3c3-e12d-425f-ab77-810cabfde8df   source-dal-1            stable            us-south-1   dp2        10         defaults         source             none                    0                0   
-   r006-455b601c-8fc1-4476-8771-4708c49c8ef7   my-replica-share-dal-1  stable            us-south-1   dp2        10         defaults         replica            none                    0                0   
-   r006-4dadac27-cd17-42df-a5fe-1388705d33e0   my-source-share-dal-2   stable            us-south-2   dp2        10         defaults         source             none                    0                0   
+   ID                                          Name                    Lifecycle state   Zone         Profile    Size(GB)   Resource group   Replication role   Accessor binding role   Snapshot count   Snapshot size
+   r006-a8d6af48-0c97-4c6b-bab1-fbefdc1e1e03   my-file-share           stable            us-south-2   dp2        10         defaults         none               none                    0                0
+   r006-aaf4bfe9-358c-4faa-a4ec-0b955090b940   my-file-share-2         stable            us-south-2   dp2        10         defaults         none               none                    0                0
+   r006-a60bfa90-a893-40ad-be34-28ab51a963f9   replica-dal-2           stable            us-south-2   dp2        10         defaults         replica            none                    0                0
+   r006-3f21e3c3-e12d-425f-ab77-810cabfde8df   source-dal-1            stable            us-south-1   dp2        10         defaults         source             none                    0                0
+   r006-455b601c-8fc1-4476-8771-4708c49c8ef7   my-replica-share-dal-1  stable            us-south-1   dp2        10         defaults         replica            none                    0                0
+   r006-4dadac27-cd17-42df-a5fe-1388705d33e0   my-source-share-dal-2   stable            us-south-2   dp2        10         defaults         source             none                    0                0
    r006-cc7ab6a0-bb71-4e03-8ef7-dcffca43717f   my-old-file-share       stable            us-south-1   tier-3iops 40         defaults         none               -                       -                -
    ```
    {: screen}
@@ -152,7 +152,7 @@ Snapshots are supported only for shares that have *security group* as their acce
    Profile                      dp2
    Size(GB)                     100
    IOPS                         100
-   Encryption                   ipsec 
+   Encryption                   ipsec
    Mount Targets                ID                          Name
                                 No mounted targets found.
 
@@ -171,12 +171,12 @@ Snapshots are supported only for shares that have *security group* as their acce
                                 -             -
 
    Snapshot count               0
-   Snapshot size                0   
-   Source snapshot              -  
-   Allowed Access Protocols     nfs4    
-   Availability Mode            zonal   
-   Bandwidth(Mbps)              1    
-   Storage Generation           1  
+   Snapshot size                0
+   Source snapshot              -
+   Allowed Access Protocols     nfs4
+   Availability Mode            zonal
+   Bandwidth(Mbps)              1
+   Storage Generation           1
    ```
    {: screen}
 
@@ -228,13 +228,13 @@ These instructions are for the previous generation of file share profiles (gener
 
    ```sh
    Listing shares in all resource groups and region us-south under account Test Account as user test.user@ibm.com...
-   ID                                          Name                    Lifecycle state   Zone         Profile    Size(GB)   Resource group   Replication role   Accessor binding role   Snapshot count   Snapshot size   
-   r006-a8d6af48-0c97-4c6b-bab1-fbefdc1e1e03   my-file-share           stable            us-south-2   dp2        10         defaults         none               none                    0                0   
-   r006-aaf4bfe9-358c-4faa-a4ec-0b955090b940   my-file-share-2         stable            us-south-2   dp2        10         defaults         none               none                    0                0   
-   r006-a60bfa90-a893-40ad-be34-28ab51a963f9   replica-dal-2           stable            us-south-2   dp2        10         defaults         replica            none                    0                0   
-   r006-3f21e3c3-e12d-425f-ab77-810cabfde8df   source-dal-1            stable            us-south-1   dp2        10         defaults         source             none                    0                0   
-   r006-455b601c-8fc1-4476-8771-4708c49c8ef7   my-replica-share-dal-1  stable            us-south-1   dp2        10         defaults         replica            none                    0                0   
-   r006-4dadac27-cd17-42df-a5fe-1388705d33e0   my-source-share-dal-2   stable            us-south-2   dp2        10         defaults         source             none                    0                0   
+   ID                                          Name                    Lifecycle state   Zone         Profile    Size(GB)   Resource group   Replication role   Accessor binding role   Snapshot count   Snapshot size
+   r006-a8d6af48-0c97-4c6b-bab1-fbefdc1e1e03   my-file-share           stable            us-south-2   dp2        10         defaults         none               none                    0                0
+   r006-aaf4bfe9-358c-4faa-a4ec-0b955090b940   my-file-share-2         stable            us-south-2   dp2        10         defaults         none               none                    0                0
+   r006-a60bfa90-a893-40ad-be34-28ab51a963f9   replica-dal-2           stable            us-south-2   dp2        10         defaults         replica            none                    0                0
+   r006-3f21e3c3-e12d-425f-ab77-810cabfde8df   source-dal-1            stable            us-south-1   dp2        10         defaults         source             none                    0                0
+   r006-455b601c-8fc1-4476-8771-4708c49c8ef7   my-replica-share-dal-1  stable            us-south-1   dp2        10         defaults         replica            none                    0                0
+   r006-4dadac27-cd17-42df-a5fe-1388705d33e0   my-source-share-dal-2   stable            us-south-2   dp2        10         defaults         source             none                    0                0
    r006-cc7ab6a0-bb71-4e03-8ef7-dcffca43717f   my-old-file-share       stable            us-south-1   tier-3iops 40         defaults         none               -                       -                -
    ```
    {: screen}
@@ -259,7 +259,7 @@ These instructions are for the previous generation of file share profiles (gener
    Size(GB)                     1000
    IOPS                         3000
    User Tags                    env:dev,env:prod
-   Encryption                   provider_managed   
+   Encryption                   provider_managed
    Mount Targets                ID                                          Name
                                 r006-c9d82a15-7ead-4388-abc8-88e81c12ed28   my-target121
 
@@ -273,11 +273,11 @@ These instructions are for the previous generation of file share profiles (gener
                                 -             -
 
    Snapshot count               0
-   Snapshot size                0   
-   Source snapshot              - 
-   Allowed Access Protocols     nfs4    
-   Availability Mode            zonal   
-   Bandwidth(Mbps)              1    
+   Snapshot size                0
+   Source snapshot              -
+   Allowed Access Protocols     nfs4
+   Availability Mode            zonal
+   Bandwidth(Mbps)              1
    Storage Generation           1
    ```
    {: screen}
@@ -327,10 +327,10 @@ Replication role                 none
 Replication status               none
 Replication status reasons       Status code   Status message
                                  -             -
- Allowed Access Protocols        nfs4    
- Availability Mode               zonal   
- Bandwidth(Mbps)                 1    
- Storage Generation              1                                  
+ Allowed Access Protocols        nfs4
+ Availability Mode               zonal
+ Bandwidth(Mbps)                 1
+ Storage Generation              1
 ```
 {: screen}
 
@@ -386,7 +386,7 @@ A successful response looks like the following example.
     "href": "https://us-south.iaas.cloud.ibm.com/v1/share/profiles/tier-10iops",
     "name": "tier-10iops",
     "resource_type": "share_profile"
-  }, 
+  },
   "resource_group": {
     "crn": "crn:[...]",
     "href": "https://resource-controller.cloud.ibm.com/v2/resource_groups/bfb4a7c7-00d8-400b-98ba-5a67e5851970",
@@ -578,13 +578,13 @@ You can add and remove tags when you update a file share with the `ibmcloud is s
 
    ```sh
    Listing shares in all resource groups and region us-south under account Test Account as user test.user@ibm.com...
-   ID                                          Name                    Lifecycle state   Zone         Profile   Size(GB)   Resource group   Replication role   Accessor binding role   Snapshot count   Snapshot size   
-   r006-a8d6af48-0c97-4c6b-bab1-fbefdc1e1e03   my-file-share           stable            us-south-2   dp2       10         defaults         none               none                    0                0   
-   r006-aaf4bfe9-358c-4faa-a4ec-0b955090b940   my-file-share-2         stable            us-south-2   dp2       10         defaults         none               none                    0                0   
-   r006-a60bfa90-a893-40ad-be34-28ab51a963f9   replica-dal-2           stable            us-south-2   dp2       10         defaults         replica            none                    0                0   
-   r006-3f21e3c3-e12d-425f-ab77-810cabfde8df   source-dal-1            stable            us-south-1   dp2       10         defaults         source             none                    0                0   
-   r006-455b601c-8fc1-4476-8771-4708c49c8ef7   my-replica-share-dal-1  stable            us-south-1   dp2       10         defaults         replica            none                    0                0   
-   r006-4dadac27-cd17-42df-a5fe-1388705d33e0   my-source-share-dal-2   stable            us-south-2   dp2       10         defaults         source             none                    0                0   
+   ID                                          Name                    Lifecycle state   Zone         Profile   Size(GB)   Resource group   Replication role   Accessor binding role   Snapshot count   Snapshot size
+   r006-a8d6af48-0c97-4c6b-bab1-fbefdc1e1e03   my-file-share           stable            us-south-2   dp2       10         defaults         none               none                    0                0
+   r006-aaf4bfe9-358c-4faa-a4ec-0b955090b940   my-file-share-2         stable            us-south-2   dp2       10         defaults         none               none                    0                0
+   r006-a60bfa90-a893-40ad-be34-28ab51a963f9   replica-dal-2           stable            us-south-2   dp2       10         defaults         replica            none                    0                0
+   r006-3f21e3c3-e12d-425f-ab77-810cabfde8df   source-dal-1            stable            us-south-1   dp2       10         defaults         source             none                    0                0
+   r006-455b601c-8fc1-4476-8771-4708c49c8ef7   my-replica-share-dal-1  stable            us-south-1   dp2       10         defaults         replica            none                    0                0
+   r006-4dadac27-cd17-42df-a5fe-1388705d33e0   my-source-share-dal-2   stable            us-south-2   dp2       10         defaults         source             none                    0                0
    ```
    {: screen}
 
@@ -608,7 +608,7 @@ You can add and remove tags when you update a file share with the `ibmcloud is s
    Profile                      dp2
    Size(GB)                     1000
    IOPS                         1000
-   Encryption                   provider_managed   
+   Encryption                   provider_managed
    Mount Targets                ID                                          Name
                                 r006-dd497561-c7c9-4dfb-af0a-c84eeee78b61   my-cli-share-mount-target
 
@@ -620,14 +620,14 @@ You can add and remove tags when you update a file share with the `ibmcloud is s
    Replication status           none
    Replication status reasons   Status code   Status message
                                 -             -
-                              
+
    Snapshot count               0
-   Snapshot size                0   
-   Source snapshot              -   
-   Allowed Access Protocols     nfs4    
-   Availability Mode            zonal   
-   Bandwidth(Mbps)              1    
-   Storage Generation           1  
+   Snapshot size                0
+   Source snapshot              -
+   Allowed Access Protocols     nfs4
+   Availability Mode            zonal
+   Bandwidth(Mbps)              1
+   Storage Generation           1
    ```
    {: screen}
 
@@ -641,19 +641,19 @@ You can add and remove tags when you update a file share with the `ibmcloud is s
    ```sh
    Getting file share my-file-share under account Test Account as user test.user@ibm.com...
 
-   ID                                 r006-9ae55188-610e-4cf9-9350-d0b675026ff8 
+   ID                                 r006-9ae55188-610e-4cf9-9350-d0b675026ff8
    Name                               my-regional-file-share
    CRN                                crn:v1:bluemix:public:is:us-south-2:a/a1234567::share:r006-9ae55188-610e-4cf9-9350-d0b675026ff8
    Lifecycle state                    stable
    Access control mode                security_group
    Accessor binding role              none
-   Allowed transit encryption modes   stunnel,none   
-   Zone                               -  
+   Allowed transit encryption modes   stunnel,none
+   Zone                               -
    Profile                            rfs
    Size(GB)                           1000
    IOPS                               35000
    Encryption                         provider_managed
-   Mount Targets                      ID                          Name      
+   Mount Targets                      ID                          Name
                                       No mounted targets foun
 
    Resource group                     ID                                 Name
@@ -665,12 +665,12 @@ You can add and remove tags when you update a file share with the `ibmcloud is s
    Replication status reasons         Status code   Status message
                                       -             -
 
-   Snapshot count                     0   
-   Snapshot size                      0   
-   Source snapshot                    -   
-   Allowed Access Protocols           nsf4   
-   Availability Mode                  regional   
-   Bandwidth(Mbps)                    125   
+   Snapshot count                     0
+   Snapshot size                      0
+   Source snapshot                    -
+   Allowed Access Protocols           nsf4
+   Availability Mode                  regional
+   Bandwidth(Mbps)                    125
    Storage Generation                 2
    ```
    {: screen}
@@ -692,7 +692,7 @@ The following example adds two user tags to the file share.
    CRN                          crn:v1:bluemix:public:is:us-south-2:a/a1234567::share:r006-b696742a-92ee-4f6a-bfd7-921d6ddf8fa6
    Lifecycle state              stable
    Access control mode          security_group
-   Accessor binding role        none 
+   Accessor binding role        none
    Zone                         us-south-2
    Profile                      dp2
    Size(GB)                     1500
@@ -713,12 +713,12 @@ The following example adds two user tags to the file share.
                                 -             -
 
    Snapshot count               0
-   Snapshot size                0  
-   Source snapshot              -  
-   Allowed Access Protocols     nfs4    
-   Availability Mode            zonal   
-   Bandwidth(Mbps)              1    
-   Storage Generation           1  
+   Snapshot size                0
+   Source snapshot              -
+   Allowed Access Protocols     nfs4
+   Availability Mode            zonal
+   Bandwidth(Mbps)              1
+   Storage Generation           1
    ```
    {: screen}
 
@@ -1042,13 +1042,13 @@ The following instructions can assist you in making sure that share bindings and
 
    ```sh
    Listing shares in all resource groups and region us-south under account Test Account as user test.user@ibm.com...
-   ID                                          Name                    Lifecycle state   Zone         Profile    Size(GB)   Resource group   Replication role   Accessor binding role   Snapshot count   Snapshot size   
-   r006-a8d6af48-0c97-4c6b-bab1-fbefdc1e1e03   my-file-share           stable            us-south-2   dp2        10         defaults         none               none                    0                0   
-   r006-aaf4bfe9-358c-4faa-a4ec-0b955090b940   my-file-share-2         stable            us-south-2   dp2        10         defaults         none               none                    0                0   
-   r006-a60bfa90-a893-40ad-be34-28ab51a963f9   replica-dal-2           stable            us-south-2   dp2        10         defaults         replica            none                    0                0   
-   r006-3f21e3c3-e12d-425f-ab77-810cabfde8df   source-dal-1            stable            us-south-1   dp2        10         defaults         source             none                    0                0   
-   r006-455b601c-8fc1-4476-8771-4708c49c8ef7   my-replica-share-dal-1  stable            us-south-1   dp2        10         defaults         replica            none                    0                0   
-   r006-4dadac27-cd17-42df-a5fe-1388705d33e0   my-source-share-dal-2   stable            us-south-2   dp2        10         defaults         source             none                    0                0   
+   ID                                          Name                    Lifecycle state   Zone         Profile    Size(GB)   Resource group   Replication role   Accessor binding role   Snapshot count   Snapshot size
+   r006-a8d6af48-0c97-4c6b-bab1-fbefdc1e1e03   my-file-share           stable            us-south-2   dp2        10         defaults         none               none                    0                0
+   r006-aaf4bfe9-358c-4faa-a4ec-0b955090b940   my-file-share-2         stable            us-south-2   dp2        10         defaults         none               none                    0                0
+   r006-a60bfa90-a893-40ad-be34-28ab51a963f9   replica-dal-2           stable            us-south-2   dp2        10         defaults         replica            none                    0                0
+   r006-3f21e3c3-e12d-425f-ab77-810cabfde8df   source-dal-1            stable            us-south-1   dp2        10         defaults         source             none                    0                0
+   r006-455b601c-8fc1-4476-8771-4708c49c8ef7   my-replica-share-dal-1  stable            us-south-1   dp2        10         defaults         replica            none                    0                0
+   r006-4dadac27-cd17-42df-a5fe-1388705d33e0   my-source-share-dal-2   stable            us-south-2   dp2        10         defaults         source             none                    0                0
    r006-cc7ab6a0-bb71-4e03-8ef7-dcffca43717f   my-old-file-share       stable            us-south-1   dp2        40         defaults         none               -                       -                -
     ```
    {: screen}
@@ -1073,7 +1073,7 @@ The following instructions can assist you in making sure that share bindings and
    Size(GB)                     40
    IOPS                         2000
    User Tags                    env:dev,env:prod
-   Encryption                   provider_managed   
+   Encryption                   provider_managed
    Mount Targets                ID                                          Name
                                 r006-36d67ada-ca83-44be-adad-dc58e7c38dc5   my-new-mount-target
 
@@ -1087,8 +1087,8 @@ The following instructions can assist you in making sure that share bindings and
                                 -             -
 
    Snapshot count               0
-   Snapshot size                0   
-   Source snapshot              - 
+   Snapshot size                0
+   Source snapshot              -
    ```
    {: screen}
 
@@ -1184,7 +1184,7 @@ curl -X DELETE \
 ```
 {: pre}
 
-A successful response has a confirmation of acceptance for deletion and a response that contains the target information. 
+A successful response has a confirmation of acceptance for deletion and a response that contains the target information.
 
 The following example shows a mount target where `access_control_mode` is `security_group`. The response shows the security group and subnet. You can see the specifics of the reserved IP address that was used for the virtual network interface of the mount target in the `primary_ip` section. By default the virtual network interface is deleted along with the mount target when the mount target is deleted. Status of mount target shows *deleting* while the deletion is underway.
 
@@ -1285,7 +1285,7 @@ A successful response confirms acceptance for deletion and shows file share info
   },
   "resource_type": "share",
   "size": 100,
-  "snapshot_count": 10, 
+  "snapshot_count": 10,
   "snapshot_size": 10,
   "user_tags": [],
   "mount_targets": [],

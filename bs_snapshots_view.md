@@ -2,7 +2,7 @@
 
 copyright:
   years: 2021, 2026
-lastupdated: "2026-03-16"
+lastupdated: "2026-03-26"
 
 keywords: view snapshots, view snapshot, viewing snapshots, see snapshots, Block Storage snapshots
 
@@ -214,9 +214,9 @@ ibmcloud is snapshots [--json]
 
 ```sh
 Listing snapshots in all resource groups and region us-south under account Test Account as user test.user@ibm.com...
-ID                                          Name             Status   Source volume                               Bootable   Resource group   Created                     Catalog Offering Version   Catalog Offering Plan   Storage Generation   
-r006-22db5609-69a1-4fe2-bd02-f64fb11230b3   my-test-snapshot stable   r006-ccbc5bc6-cd88-48e0-9a1d-de0f4d024324   true       defaults         2025-07-31T00:04:24+00:00   -                          -                       1   
-r006-e799fad8-aefa-4df5-81bd-dac6d13200a6   my-test-snap-1   stable   r006-2c5f577c-8cd0-47ef-8aec-cd8d1423249f   true       defaults         2025-08-06T22:38:01+00:00   -                          -                       1   
+ID                                          Name             Status   Source volume                               Bootable   Resource group   Created                     Catalog Offering Version   Catalog Offering Plan   Storage Generation
+r006-22db5609-69a1-4fe2-bd02-f64fb11230b3   my-test-snapshot stable   r006-ccbc5bc6-cd88-48e0-9a1d-de0f4d024324   true       defaults         2025-07-31T00:04:24+00:00   -                          -                       1
+r006-e799fad8-aefa-4df5-81bd-dac6d13200a6   my-test-snap-1   stable   r006-2c5f577c-8cd0-47ef-8aec-cd8d1423249f   true       defaults         2025-08-06T22:38:01+00:00   -                          -                       1
 ```
 {: screen}
 
@@ -296,41 +296,41 @@ ibmcloud is snapshot r006-e799fad8-aefa-4df5-81bd-dac6d13200a6
 
 ```sh
 Getting snapshot r006-e799fad8-aefa-4df5-81bd-dac6d13200a6 under account Test Account as user test.user@ibm.com...
-                                   
-ID                              r006-e799fad8-aefa-4df5-81bd-dac6d13200a6   
-Name                            my-test-snap-1   
-CRN                             crn:v1:bluemix:public:is:us-south:a/a1234567::snapshot:r006-e799fad8-aefa-4df5-81bd-dac6d13200a6   
-Status                          stable   
-Clones                          Zone   Available   Created      
-                                   
-Source volume                   ID                                          Name               Remote Region   CRN                                                                                                                        Resource type      
-                                r006-2c5f577c-8cd0-47ef-8aec-cd8d1423249f   test-volume-fast   -               crn:v1:bluemix:public:is:us-south-1:a/a1234567::volume:r006-2c5f577c-8cd0-47ef-8aec-cd8d1423249f   volume      
-                                   
-Backup policy plan              -   
-Snapshot Copies                 -   
-Bootable                        true   
-Encryption                      provider_managed   
-Encryption key                  -   
-Source Snapshot                 -   
-Minimum capacity(GB)            100   
-Size(GB)                        10   
-Source Image                    ID                                          Name                                 Remote Region   CRN                                                                                                                     Resource type      
-                                r006-cec640a3-615e-4364-bae7-d3642d9f9e34   ibm-ubuntu-22-04-5-minimal-amd64-4   -               crn:v1:bluemix:public:is:us-south:a/a1234567::image:r006-cec640a3-615e-4364-bae7-d3642d9f9e34   image      
-                                   
-Operating system                Name                 Vendor      Version                                     Family         Architecture   Display name      
-                                ubuntu-22-04-amd64   Canonical   22.04 LTS Jammy Jellyfish Minimal Install   Ubuntu Linux   amd64          Ubuntu Linux 22.04 LTS Jammy Jellyfish Minimal Install (amd64)      
-                                   
-Resource group                  ID                                 Name      
-                                6edefe513d934fdd872e78ee6a8e73ef   defaults      
-                                   
-Created                         2025-08-06T22:38:01+00:00   
-Captured at                     2025-08-06T22:38:02+00:00   
-Tags                            -   
-Service Tags                    -   
-Storage Generation              1   
-Allowed Use API Version         2025-07-17   
-Allowed Use Bare Metal Server   true   
-Allowed Use Instance            true   
+
+ID                              r006-e799fad8-aefa-4df5-81bd-dac6d13200a6
+Name                            my-test-snap-1
+CRN                             crn:v1:bluemix:public:is:us-south:a/a1234567::snapshot:r006-e799fad8-aefa-4df5-81bd-dac6d13200a6
+Status                          stable
+Clones                          Zone   Available   Created
+
+Source volume                   ID                                          Name               Remote Region   CRN                                                                                                                        Resource type
+                                r006-2c5f577c-8cd0-47ef-8aec-cd8d1423249f   test-volume-fast   -               crn:v1:bluemix:public:is:us-south-1:a/a1234567::volume:r006-2c5f577c-8cd0-47ef-8aec-cd8d1423249f   volume
+
+Backup policy plan              -
+Snapshot Copies                 -
+Bootable                        true
+Encryption                      provider_managed
+Encryption key                  -
+Source Snapshot                 -
+Minimum capacity(GB)            100
+Size(GB)                        10
+Source Image                    ID                                          Name                                 Remote Region   CRN                                                                                                                     Resource type
+                                r006-cec640a3-615e-4364-bae7-d3642d9f9e34   ibm-ubuntu-22-04-5-minimal-amd64-4   -               crn:v1:bluemix:public:is:us-south:a/a1234567::image:r006-cec640a3-615e-4364-bae7-d3642d9f9e34   image
+
+Operating system                Name                 Vendor      Version                                     Family         Architecture   Display name
+                                ubuntu-22-04-amd64   Canonical   22.04 LTS Jammy Jellyfish Minimal Install   Ubuntu Linux   amd64          Ubuntu Linux 22.04 LTS Jammy Jellyfish Minimal Install (amd64)
+
+Resource group                  ID                                 Name
+                                6edefe513d934fdd872e78ee6a8e73ef   defaults
+
+Created                         2025-08-06T22:38:01+00:00
+Captured at                     2025-08-06T22:38:02+00:00
+Tags                            -
+Service Tags                    -
+Storage Generation              1
+Allowed Use API Version         2025-07-17
+Allowed Use Bare Metal Server   true
+Allowed Use Instance            true
 ```
 {: screen}
 

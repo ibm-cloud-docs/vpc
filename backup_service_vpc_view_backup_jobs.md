@@ -1,8 +1,8 @@
 ---
 
 copyright:
-  years: 2022, 2025
-lastupdated: "2025-11-07"
+  years: 2022, 2026
+lastupdated: "2026-03-26"
 
 keywords: Backup for VPC, backup service, backup plan, backup policy, restore, restore volume, restore data, view backup lists,
 
@@ -85,12 +85,12 @@ ibmcloud is backup-policy-jobs new-policy-23
 
 ```sh
 Listing jobs of backup policy new-policy-23 under account Test Account as user test.user@ibm.com...
-ID                                          Auto delete   Auto delete after   Completed at                Created at                  Job type   Status     Match resource type   
-r138-4611c14d-69bd-4522-bc5f-4d3352df9b7b   true          15                  2024-02-06T01:47:39+00:00   2024-02-06T01:45:25+00:00   deletion   succeeded  volume 
-r138-58a33e41-472f-431c-8c74-5270ac3e48fd   true          15                  2024-01-23T01:48:07+00:00   2024-01-23T01:45:25+00:00   deletion   succeeded  volume 
-r138-f800fe99-455f-4b30-95ad-98293eb3b3e2   true          15                  2024-01-17T10:13:13+00:00   2024-01-17T10:06:21+00:00   deletion   succeeded  volume 
-r138-60497743-43b4-4e7d-a221-0f6927653c6b   true          15                  2024-01-17T10:06:37+00:00   2024-01-17T10:06:19+00:00   creation   succeeded  volume 
-r138-3fe98f73-56ee-425b-842f-2a4b2a967241   true          15                  2024-01-16T10:12:59+00:00   2024-01-16T10:06:22+00:00   deletion   succeeded  volume 
+ID                                          Auto delete   Auto delete after   Completed at                Created at                  Job type   Status     Match resource type
+r138-4611c14d-69bd-4522-bc5f-4d3352df9b7b   true          15                  2024-02-06T01:47:39+00:00   2024-02-06T01:45:25+00:00   deletion   succeeded  volume
+r138-58a33e41-472f-431c-8c74-5270ac3e48fd   true          15                  2024-01-23T01:48:07+00:00   2024-01-23T01:45:25+00:00   deletion   succeeded  volume
+r138-f800fe99-455f-4b30-95ad-98293eb3b3e2   true          15                  2024-01-17T10:13:13+00:00   2024-01-17T10:06:21+00:00   deletion   succeeded  volume
+r138-60497743-43b4-4e7d-a221-0f6927653c6b   true          15                  2024-01-17T10:06:37+00:00   2024-01-17T10:06:19+00:00   creation   succeeded  volume
+r138-3fe98f73-56ee-425b-842f-2a4b2a967241   true          15                  2024-01-16T10:12:59+00:00   2024-01-16T10:06:22+00:00   deletion   succeeded  volume
 r138-bd881c52-4f2e-4644-8072-fadcd6c8d3df   true          15                  2024-01-16T10:06:38+00:00   2024-01-16T10:06:21+00:00   creation   succeeded  volume
 ```
 {: screen}
@@ -171,7 +171,7 @@ $ ibmcloud is backup-policy-jobs r006-0723c648-9a47-4d51-b1ba-349e21e715b6  -jso
             }
         ]
     }
-  ]  
+  ]
 ```
 {: screen}
 
@@ -184,11 +184,11 @@ ibmcloud is backup-policy-jobs my-files-daily
 
 ```sh
 Listing jobs of backup policy my-files-daily under account Test Account as user test.user@ibm.com...
-ID                                          Auto delete   Auto delete after   Completed at                Created at                  Job type   Status      Match resource type   
-r006-4574ede8-f502-40db-827a-0d65b6039e20   true          30                  2024-11-27T19:20:22+05:30   2024-11-27T19:20:18+05:30   creation   succeeded   share   
-r006-6a508a4c-67fd-4745-98ab-50447d09d974   true          30                  2024-11-28T19:20:22+05:30   2024-11-28T19:20:18+05:30   creation   succeeded   share   
-r006-b072e083-972a-406c-b38c-c2f4ded6180c   true          30                  2024-11-29T19:20:21+05:30   2024-11-29T19:20:17+05:30   creation   succeeded   share   
-r006-967a8568-b538-409f-a96b-3c66985b677b   true          30                  2024-11-30T19:20:22+05:30   2024-11-30T19:20:17+05:30   creation   succeeded   share   
+ID                                          Auto delete   Auto delete after   Completed at                Created at                  Job type   Status      Match resource type
+r006-4574ede8-f502-40db-827a-0d65b6039e20   true          30                  2024-11-27T19:20:22+05:30   2024-11-27T19:20:18+05:30   creation   succeeded   share
+r006-6a508a4c-67fd-4745-98ab-50447d09d974   true          30                  2024-11-28T19:20:22+05:30   2024-11-28T19:20:18+05:30   creation   succeeded   share
+r006-b072e083-972a-406c-b38c-c2f4ded6180c   true          30                  2024-11-29T19:20:21+05:30   2024-11-29T19:20:17+05:30   creation   succeeded   share
+r006-967a8568-b538-409f-a96b-3c66985b677b   true          30                  2024-11-30T19:20:22+05:30   2024-11-30T19:20:17+05:30   creation   succeeded   share
 ```
 {: screen}
 
@@ -466,5 +466,5 @@ For more information, see [troubleshooting Backup for VPC](/docs/vpc?topic=vpc-b
 * [Apply tags to your resources for backups](/docs/vpc?topic=vpc-backup-use-policies).
 * [Create more backup policies](/docs/vpc?topic=vpc-create-backup-policy-and-plan&interface=ui).
 * [Restore a volume from a backup snapshot](/docs/vpc?topic=vpc-baas-vpc-restore).
-* [Restore data from a file share snapshot](/docs/vpc?topic=vpc-fs-snapshots-restore) 
+* [Restore data from a file share snapshot](/docs/vpc?topic=vpc-fs-snapshots-restore)
 * [Enabling event notifications for Backup for VPC](/docs/vpc?topic=vpc-event-notifications-events).
