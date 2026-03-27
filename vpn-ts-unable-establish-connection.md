@@ -1,8 +1,8 @@
 ---
 
 copyright:
-  years: 2018, 2025
-lastupdated: "2025-12-17"
+  years: 2018, 2026
+lastupdated: "2026-03-27"
 
 keywords: virtual private network, VPN, VPN gateway, troubleshooting
 
@@ -38,4 +38,5 @@ Follow these steps to verify your configurations:
 
 1. Make sure that ports UDP `4500` and UDP `500` are open on both sides.
 1. Make sure that NAT-Traversal is enabled on the peer, if it is a configurable option.
+1. Make sure that the local and remote CIDRs match.
 1. Make sure that the peer device uses its public IP address as the IKE ID. This option is not a configurable option.
