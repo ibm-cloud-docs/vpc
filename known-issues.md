@@ -41,7 +41,7 @@ When a beta `version` query parameter of `2025-07-14` or earlier from bare metal
 
 [Select availability]{: tag-green}
 
-### TDX virtual servers are supported in Washington DC (us-east) and Frankfurt (eu-de) regions only
+### TDX virtual servers are supported in Dallas (us-south), Washington DC (us-east), Frankfurt (eu-de) regions only
 {: #tdx-wdc-confidential-computing-vpc-known-issues}
 
 **Issue:** All confidential computing profiles support both Intel&reg; Software Guard Extensions (SGX) and Intel&reg; Trusted Domain Extensions (TDX). When you use the API to list instance profiles, such as with `GET /instance/profiles` or `GET /instance/profiles/{name}`, the response indicates that the confidential computing profiles are supported in the Dallas (us-south), Washington DC (us-east), Frankfurt (eu-de), Madrid (eu-es) and London (eu-gb) regions only. If you want to create a virtual server instance with a confidential computing profile, you can create that virtual server instance in only the Dallas (us-south), Washington DC (us-east) and Frankfurt (eu-de) regions. You can’t create a confidential computing virtual server instance in any other region, including Madrid (eu-es), London (eu-gb).
