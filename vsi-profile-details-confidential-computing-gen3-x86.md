@@ -2,7 +2,7 @@
 
 copyright:
   years: 2024, 2026
-lastupdated: "2026-03-24"
+lastupdated: "2026-03-27"
 
 keywords: vsi, virtual server, virtual server instances, profile, profiles, balanced, compute, gen 3, intel, confidential computing
 
@@ -40,7 +40,9 @@ computing capability.
 
 - TDX Status: Select availability
 - Regions:
+   - Dallas (`us-south`)
    - Washington DC (`us-east`)
+   - Frankfurt (`eu-de`)
 
 ## Capabilities
 {: #cc-capabilities-gen3-intel}
