@@ -2,7 +2,7 @@
 
 copyright:
   years: 2022, 2026
-lastupdated: "2026-03-16"
+lastupdated: "2026-03-26"
 
 keywords: file share, file storage, IOPS, performance needs, adjust IOPS
 
@@ -36,23 +36,23 @@ When your share uses the [dp2](/docs/vpc?topic=vpc-file-storage-profiles#dp2-pro
    For the 96,000 IOPS to be realized, a single file share must be accessed by multiple virtual server instances. A single file share that is accessed by one client is limited to 48,000 IOPS.
    {: note}
 
-When your file share uses the [Deprecated]{: tag-red} [custom](/docs/vpc?topic=vpc-file-storage-profiles&interface=ui#fs-custom) share profile, the IOPS range is based on the file share size. 
+When your file share uses the [Deprecated]{: tag-red} [custom](/docs/vpc?topic=vpc-file-storage-profiles&interface=ui#fs-custom) share profile, the IOPS range is based on the file share size.
 * For example, for a file share that's 25 GB, you can increase IOPS anywhere in the range 100-1,000 IOPS with a custom profile. If you later [increase the size of a file share](/docs/vpc?topic=vpc-file-storage-expand-capacity) to the next highest band, you can increase the IOPS again. IOPS can be adjusted multiple times until the maximum or minimum limit is reached.
 * Or you can switch from a custom profile to an IOPS tier profile. The IOPS tier selection is restricted by the file share size. When you move from a custom profile to any tiered profile, billing is updated, and the IOPS is adjusted according to the profile.
 
 When your file share uses one of the [Deprecated]{: tag-red} [tiered share profiles](/docs/vpc?topic=vpc-file-storage-profiles&interface=ui#fs-v2-profiles), you can adjust your IOPS limit by:
 
-* Switching from an IOPS tier profile to the `dp2` or the `custom` profile. In this case, the file share size restricts the IOPS range that you select. 
-   - For example, if you're adjusting IOPS for file share with a 3 IOPS/GB profile and it's 12,000 GB, you can adjust the IOPS by using a custom or dp2 profile. It's possible because both support a share size of 12,000 GB. 
-   - If the file share size was greater than 16,000 GB, the custom profile would not support adjusting IOPS, but the dp2 profile would because it supports share sizes to 32,000 GB. The IOPS tier maximum sizes are 32,000 GB for 3 IOPS/GB, 9,600 GB for 5 IOPS/GB, and 4,800 GB for 10 IOPS/GB. 
-   
+* Switching from an IOPS tier profile to the `dp2` or the `custom` profile. In this case, the file share size restricts the IOPS range that you select.
+   - For example, if you're adjusting IOPS for file share with a 3 IOPS/GB profile and it's 12,000 GB, you can adjust the IOPS by using a custom or dp2 profile. It's possible because both support a share size of 12,000 GB.
+   - If the file share size was greater than 16,000 GB, the custom profile would not support adjusting IOPS, but the dp2 profile would because it supports share sizes to 32,000 GB. The IOPS tier maximum sizes are 32,000 GB for 3 IOPS/GB, 9,600 GB for 5 IOPS/GB, and 4,800 GB for 10 IOPS/GB.
+
    When you move from a tiered profile to a custom or dp2 profile, billing is update based on the specified IOPS.
    {: important}
 
 * Selecting a different [IOPS tier](/docs/vpc?topic=vpc-file-storage-profiles#fs-tiers). IOPS is adjusted within the tier. The degree to which IOPS can be increased is determined by the maximum that is allowed by the file share's [IOPS tier profile](/docs/vpc?topic=vpc-file-storage-profiles). You can adjust IOPS for an IOPS tier based on share size or select the next profile that allows for increased performance.
 
    The maximum IOPS for a file share for a 3 IOPS/GB tier profile is 96,000 IOPS. All other profiles are capped at 48,000 IOPS. For 96,000 IOPS to be realized, a single file share must be accessed by multiple virtual server instances. A single file share that is accessed by one instance is limited to 48,000 IOPS.
-   {: note}   
+   {: note}
 
 To adjust a file share's IOPS, the file share must be in a _stable_ state. Your user authorization is verified before IOPS is adjusted.
 
@@ -85,7 +85,7 @@ Follow these steps to adjust IOPS by selecting a new IOPS tier or custom IOPS ba
 4. In the side panel, adjust IOPS as follows:
 
    * For the dp2 or custom profile, the current IOPS value is shown and file share size. Enter a new IOPS value within the allowable range for that size.
-   
+
    * For an IOPS tier, select a different tier from the menu. For example, you might have a 3 IOPS/GB general-purpose profile that you want to increase to a 5 IOPS/GB profile.
 
 
@@ -114,14 +114,14 @@ Before you can use the CLI, you must install the IBM Cloud CLI and the VPC CLI p
 
    ```sh
    Listing shares in all resource groups and region us-south under account Test Account as user test.user@ibm.com...
-   
-   ID                                          Name                    Lifecycle state   Zone         Profile   Size(GB)   Resource group   Replication role   
-   r006-dc6a644d-c7da-4c91-acf0-d66b47fc8516   my-replica-file-share   stable            us-south-1   dp2       1500       Default          replica   
-   r006-e4acfa9b-88b0-4f90-9320-537e6fa3482a   my-source-file-share    stable            us-south-2   dp2       1500       Default          source   
-   r006-6d1719da-f790-45cc-9f68-896fd5673a1a   my-replica-share        stable            us-south-3   dp2       1500       Default          replica   
-   r006-925214bc-ded5-4626-9d8e-bc4e2e579232   my-new-file-share       stable            us-south-2   dp2       500        Default          none   
-   r006-b1707390-3825-41eb-a5bb-1161f77f8a58   my-vpc-file-share       stable            us-south-2   dp2       1000       Default          none   
-   r006-b696742a-92ee-4f6a-bfd7-921d6ddf8fa6   my-file-share           stable            us-south-2   dp2       1500       Default          source 
+
+   ID                                          Name                    Lifecycle state   Zone         Profile   Size(GB)   Resource group   Replication role
+   r006-dc6a644d-c7da-4c91-acf0-d66b47fc8516   my-replica-file-share   stable            us-south-1   dp2       1500       Default          replica
+   r006-e4acfa9b-88b0-4f90-9320-537e6fa3482a   my-source-file-share    stable            us-south-2   dp2       1500       Default          source
+   r006-6d1719da-f790-45cc-9f68-896fd5673a1a   my-replica-share        stable            us-south-3   dp2       1500       Default          replica
+   r006-925214bc-ded5-4626-9d8e-bc4e2e579232   my-new-file-share       stable            us-south-2   dp2       500        Default          none
+   r006-b1707390-3825-41eb-a5bb-1161f77f8a58   my-vpc-file-share       stable            us-south-2   dp2       1000       Default          none
+   r006-b696742a-92ee-4f6a-bfd7-921d6ddf8fa6   my-file-share           stable            us-south-2   dp2       1500       Default          source
    ```
    {: screen}
 
@@ -135,34 +135,34 @@ Before you can use the CLI, you must install the IBM Cloud CLI and the VPC CLI p
 
    ```sh
    Getting file share my-file-share under account Test Account as user test.user@ibm.com...
-                                
-   ID                           r006-b696742a-92ee-4f6a-bfd7-921d6ddf8fa6   
-   Name                         my-file-share   
-   CRN                          crn:v1:bluemix:public:is:us-south-2:a/a1234567::share:r006-b696742a-92ee-4f6a-bfd7-921d6ddf8fa6   
-   Lifecycle state              stable   
-   Access control mode          security_group   
-   Accessor binding role        none   
-   Zone                         us-south-2   
-   Profile                      dp2   
-   Size(GB)                     1000   
-   IOPS                         1000   
-   User Tags                    docs:test
-   Encryption                   provider_managed   
-   Mount Targets                ID                                          Name      
-                                r006-dd497561-c7c9-4dfb-af0a-c84eeee78b61   my-cli-share-mount-target-1      
-                                
-   Resource group               ID                                 Name      
-                                db8e8d865a83e0aae03f25a492c5b39e   Default      
-                                
-   Created                      2023-10-18T22:15:15+00:00   
 
-   Replication role             none   
-   Replication status           none   
-   Replication status reasons   Status code   Status message      
-                                -             -      
+   ID                           r006-b696742a-92ee-4f6a-bfd7-921d6ddf8fa6
+   Name                         my-file-share
+   CRN                          crn:v1:bluemix:public:is:us-south-2:a/a1234567::share:r006-b696742a-92ee-4f6a-bfd7-921d6ddf8fa6
+   Lifecycle state              stable
+   Access control mode          security_group
+   Accessor binding role        none
+   Zone                         us-south-2
+   Profile                      dp2
+   Size(GB)                     1000
+   IOPS                         1000
+   User Tags                    docs:test
+   Encryption                   provider_managed
+   Mount Targets                ID                                          Name
+                                r006-dd497561-c7c9-4dfb-af0a-c84eeee78b61   my-cli-share-mount-target-1
+
+   Resource group               ID                                 Name
+                                db8e8d865a83e0aae03f25a492c5b39e   Default
+
+   Created                      2023-10-18T22:15:15+00:00
+
+   Replication role             none
+   Replication status           none
+   Replication status reasons   Status code   Status message
+                                -             -
    Snapshot count               0
-   Snapshot size                0   
-   Source snapshot              -   
+   Snapshot size                0
+   Source snapshot              -
    ```
    {: screen}
 
@@ -175,38 +175,38 @@ Before you can use the CLI, you must install the IBM Cloud CLI and the VPC CLI p
 
    ```sh
    Updating file share my-file-share under account Test Account as user test.user@ibm.com...
-                                
-   ID                           r006-b696742a-92ee-4f6a-bfd7-921d6ddf8fa6   
-   Name                         my-file-share   
-   CRN                          crn:v1:bluemix:public:is:us-south-2:a/a1234567::share:r006-b696742a-92ee-4f6a-bfd7-921d6ddf8fa6   
-   Lifecycle state              updating   
-   Access control mode          security_group  
-   Accessor binding role        none    
-   Zone                         us-south-2   
-   Profile                      dp2   
-   Size(GB)                     1000   
-   IOPS                         2000   
+
+   ID                           r006-b696742a-92ee-4f6a-bfd7-921d6ddf8fa6
+   Name                         my-file-share
+   CRN                          crn:v1:bluemix:public:is:us-south-2:a/a1234567::share:r006-b696742a-92ee-4f6a-bfd7-921d6ddf8fa6
+   Lifecycle state              updating
+   Access control mode          security_group
+   Accessor binding role        none
+   Zone                         us-south-2
+   Profile                      dp2
+   Size(GB)                     1000
+   IOPS                         2000
    User Tags                    docs:test
-   Encryption                   provider_managed   
-   Mount Targets                ID                                          Name      
-                                r006-dd497561-c7c9-4dfb-af0a-c84eeee78b61   my-cli-share-mount-target-1      
-                                
-   Resource group               ID                                 Name      
-                                db8e8d865a83e0aae03f25a492c5b39e   Default      
-                                
-   Created                      2023-10-18T22:15:15+00:00   
-   Replication role             none   
-   Replication status           none   
-   Replication status reasons   Status code   Status message      
-                                -             -      
+   Encryption                   provider_managed
+   Mount Targets                ID                                          Name
+                                r006-dd497561-c7c9-4dfb-af0a-c84eeee78b61   my-cli-share-mount-target-1
+
+   Resource group               ID                                 Name
+                                db8e8d865a83e0aae03f25a492c5b39e   Default
+
+   Created                      2023-10-18T22:15:15+00:00
+   Replication role             none
+   Replication status           none
+   Replication status reasons   Status code   Status message
+                                -             -
 
    Snapshot count               0
-   Snapshot size                0   
-   Source snapshot              -       
-   Allowed Access Protocols     nfs4    
-   Availability Mode            zonal   
-   Bandwidth(Mbps)              1    
-   Storage Generation           1  
+   Snapshot size                0
+   Source snapshot              -
+   Allowed Access Protocols     nfs4
+   Availability Mode            zonal
+   Bandwidth(Mbps)              1
+   Storage Generation           1
    ```
    {: screen}
 
@@ -234,8 +234,8 @@ ID                           ba7c7c8a-c111-4f54-a7fe-bb6d3d66eb2a
 Name                         my-file-share
 CRN                          crn:v1:bluemix:public:is:us-south-1:a/a1234567::share:ba7c7c8a-c111-4f54-a7fe-bb6d3d66eb2a
 Lifecycle state              updating
-Access control mode          security_group   
-Accessor binding role        none 
+Access control mode          security_group
+Accessor binding role        none
 Zone                         us-south-1
 Profile                      tier-5iops
 Size(GB)                     100
@@ -251,10 +251,10 @@ Resource group               ID                                     Name
 Created                      2023-02-26T20:01:18+05:30
 
 Snapshot count               0
-Snapshot size                0        
+Snapshot size                0
 Source snapshot              -
 ```
-{: screen}                    
+{: screen}
 
 For more information about the command options, see [`ibmcloud is share-update my-file-share`](/docs/vpc?topic=vpc-vpc-reference#share-update).
 
@@ -350,7 +350,7 @@ When the IOPS expansion completes, restart the instance. The new value is displa
       }
     }
   ],
-  "snapshot_count": 10, 
+  "snapshot_count": 10,
   "snapshot_size": 10,
   "user_tags": [],
   "zone": {

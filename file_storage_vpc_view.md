@@ -2,7 +2,7 @@
 
 copyright:
   years: 2022, 2026
-lastupdated: "2026-03-16"
+lastupdated: "2026-03-26"
 
 keywords: file storage, file share, view share details, mount targets, view targets, view share
 
@@ -46,7 +46,7 @@ You can view all file shares, their bindings and mount targets in the console, r
 | Encryption type | It shows the encryption type of the file share, either provider-managed or customer-managed. [Customer-managed encryption](/docs/vpc?topic=vpc-file-storage-byok-encryption) uses your own root keys to protect your data. The UI also identifies the key management service (KMS), either {{site.data.keyword.keymanagementserviceshort}} or {{site.data.keyword.hscrypto}}. |
 {: caption="File shares list page." caption-side="bottom"}
 
-You can access the Actions menu by clicking ![Actions icon](../icons/action-menu-icon.svg "Actions"). The Actions menu has options for managing the file share, depending on its state. 
+You can access the Actions menu by clicking ![Actions icon](../icons/action-menu-icon.svg "Actions"). The Actions menu has options for managing the file share, depending on its state.
 - For a zonal file share in a _stable_ state, you can choose to rename the share, edit IOPS, copy the share's CRN, create a replica, or delete the file share. **Delete** and **Create replica** actions are disabled if you set up replication to a replica file share already. For more information, see [Creating replica file shares](/docs/vpc?topic=vpc-file-storage-create-replication&interface=ui).
 - For a regional file share, the Actions menu contains Rename, Edit size and bandwidth, Copy CRN, Create Snapshot, and Delete actions.
 
@@ -57,7 +57,7 @@ You can access the Actions menu by clicking ![Actions icon](../icons/action-menu
 
 2. Click the name of a file share to see the details page. The editable name and status of the file share is shown. If you applied user or access management tags to the file share, they are listed next to the status. Click **Add tags** to apply new [tags](/docs/vpc?topic=vpc-file-storage-vpc-about&interface=ui#fs-about-fs-tags) to the share.
 
-3. The details page several tabs. The **Overview** tab is displayed by default. 
+3. The details page several tabs. The **Overview** tab is displayed by default.
    - **Overview** - The following table describes the information that is available for your file share.
 
      | Field | Value |
@@ -94,7 +94,7 @@ You can access the Actions menu by clicking ![Actions icon](../icons/action-menu
      | Account ID | The ID of the account that has access to your share's data through the accessor share. |
      | Accessor ID | This field shows the account ID that created the accessor share in another VPC. |
      | Status  | It displays the lifecycle status of the accessor file share. The [status](/docs/vpc?topic=vpc-fs-vpc-monitoring&interface=ui#file-share-statuses) `Stable` is expected  |
-     | Created date | The date and time when the accessor share was created. |  
+     | Created date | The date and time when the accessor share was created. |
      | **File share replication relationship** | Shows the name, location, and status of the source and the replica file shares \n * If no replica file shares were created, click **Create replica** to [create one](/docs/vpc?topic=vpc-file-storage-create-replication). \n * To break the replication relationship, click **Remove replication relationship**. Then, the replica file share becomes an independent read/write file share.|
      | Replication frequency | Hover over the information icon to see an explanation of the cron replication schedule. |
      | Status | Replication status; for example, _suspended_ or _available_. |
@@ -111,14 +111,14 @@ You can access the Actions menu by clicking ![Actions icon](../icons/action-menu
    -  **Snapshots**  - On the Snapshots tab you can find a summary that's related to all the snapshots and the list of the snapshots that were taken of the file share.
       - The snapshot summary provides information such as the number of snapshots, the overall data volume captured in the snapshots, and the replication role.
       - The Snapshots list shows the snapshots that were taken of the file share. You can see the name, size of the file share when the snapshot was taken, and the status of the snapshot. You can click **Create** to capture a new snapshot. Click the **Actions** icon ![Actions icon](../icons/action-menu-icon.svg "Actions") to reveal the Actions menu. The Actions menu has 2 options: Restore, and Delete.
-     
+
    - **Monitoring** - On the Monitoring tab, you can see three graphs for share usage, total bandwidth, and total IOPS. These graphs are available to you at no cost, even without an {{site.data.keyword.mon_full_notm}} instance. You can customize the date range to view data over time.
 
      Monitoring these utilization metrics can help you to determine how much work is done by your application or workload. You can use this information to determine whether the IOPS value needs to be adjusted. Monitoring the available capacity of your share can help you identify the need for more storage before insufficient space can become a problem with writing data to the share or replication. Seeing these metrics can help you anticipate any changes in charges at the end of the billing period.
-     
+
      These metrics are not updated in real time. Data for new file shares can take up to an hour or an hour and 15 minutes to appear in the graphs in the console. Changes in usage can take from 15 to 30 minutes to be reflected in the graphs.
      {: note}
-    
+
      If you have an instance of the {{site.data.keyword.mon_full_notm}} service, click **Launch monitoring** to open the Sysdig web UI to work with the metrics dashboards there. For more information about how to set up the {{site.data.keyword.mon_full_notm}} instance, see [Monitoring metrics for File Storage for VPC](/docs/vpc?topic=vpc-fs-vpc-monitoring-sysdig).
 
 ### Viewing all file shares for a VPC in the console
@@ -137,9 +137,9 @@ You can see all file shares that have a mount target to a VPC by viewing the VPC
 {: #fs-get-mountpath-ui-vpc}
 
 1. Go to the list of all file shares. From the [{{site.data.keyword.cloud_notm}} console](/login){: external}, click the **Navigation menu** icon ![menu icon](../icons/icon_hamburger.svg) **> Infrastructure** ![VPC icon](../icons/vpc.svg) **> Storage > File storage shares**.
-2. Click the name of a file share to see the details page. 
+2. Click the name of a file share to see the details page.
 3. Scroll to the Mount targets section to see the list of mount targets. The list contains the names and statuses of the mount target, and the VPC that the mount target belongs to.
-4. Click the **Actions** icon ![Actions icon](../icons/action-menu-icon.svg "Actions") to reveal the Actions menu. The Actions menu has 3 options: Rename, View path, and Delete. 
+4. Click the **Actions** icon ![Actions icon](../icons/action-menu-icon.svg "Actions") to reveal the Actions menu. The Actions menu has 3 options: Rename, View path, and Delete.
 5. Click **View path** to see the mount path information that you can copy and paste in your mounting commands.
 
 ## Viewing file shares, share bindings, and mount targets from the CLI
@@ -161,12 +161,12 @@ ibmcloud is shares
 
 ```sh
 Listing shares in all resource groups and region us-south under account Test Account as user test.user@ibm.com...
-ID                                          Name                     Lifecycle state   Zone         Profile   Size(GB)   Resource group   Replication role   Accessor binding role   Snapshot count   Snapshot size   Allowed Access Protocols   Availability Mode   Bandwidth(Mbps)   Storage Generation   
-r006-6cedac18-ffe5-4a89-9e7a-5c8683d17279   my-regional-file-share   stable            -            rfs       1000        defaults         none               none                    0                0               -                          regional            1500              2   
-r006-e4acfa9b-88b0-4f90-9320-537e6fa3482a   my-source-file-share     stable            us-south-2   dp2       10         defaults         source             none                    2                1               -                          zonal               -                 1   
-r006-455b601c-8fc1-4476-8771-4708c49c8ef7   my-replica-file-share    stable            us-south-1   dp2       10         defaults         replica            none                    2                1               -                          zonal               -                 1   
-r006-ee1f6fc0-6fa3-4821-ad70-f6589e30c566   my-accessor-share        stable            -           rfs        3000         defaults         none               accessor                0                0               -                          regional            1                 2   
-r006-fdd5774c-fe8a-41f4-9088-eafc89f58c09   my-origin-share          stable            -           rfs        3000        defaults         none               origin                  0                0               -                          regional            1                 2  
+ID                                          Name                     Lifecycle state   Zone         Profile   Size(GB)   Resource group   Replication role   Accessor binding role   Snapshot count   Snapshot size   Allowed Access Protocols   Availability Mode   Bandwidth(Mbps)   Storage Generation
+r006-6cedac18-ffe5-4a89-9e7a-5c8683d17279   my-regional-file-share   stable            -            rfs       1000        defaults         none               none                    0                0               -                          regional            1500              2
+r006-e4acfa9b-88b0-4f90-9320-537e6fa3482a   my-source-file-share     stable            us-south-2   dp2       10         defaults         source             none                    2                1               -                          zonal               -                 1
+r006-455b601c-8fc1-4476-8771-4708c49c8ef7   my-replica-file-share    stable            us-south-1   dp2       10         defaults         replica            none                    2                1               -                          zonal               -                 1
+r006-ee1f6fc0-6fa3-4821-ad70-f6589e30c566   my-accessor-share        stable            -           rfs        3000         defaults         none               accessor                0                0               -                          regional            1                 2
+r006-fdd5774c-fe8a-41f4-9088-eafc89f58c09   my-origin-share          stable            -           rfs        3000        defaults         none               origin                  0                0               -                          regional            1                 2
 ```
 {: screen}
 
@@ -175,7 +175,7 @@ For more information about the command options, see [`ibmcloud is shares`](/docs
 ### Viewing details of a file share from the CLI
 {: #fs-share-details-cli}
 
-To see the details of a file share, run the `ibmcloud is share` command and specify the file share by ID or name. 
+To see the details of a file share, run the `ibmcloud is share` command and specify the file share by ID or name.
 
 The following example identifies the file share by ID. This share is a replica that is based on the `dp2` profile, and access to the share is granted by using security groups. The output provides information about the source file share and the replication details, too.
 
@@ -186,48 +186,48 @@ ibmcloud is share r006-455b601c-8fc1-4476-8771-4708c49c8ef7
 
 ```sh
 Getting file share r006-455b601c-8fc1-4476-8771-4708c49c8ef7 under account Test Account as user test.user@ibm.com...
-                                
-ID                                 r006-455b601c-8fc1-4476-8771-4708c49c8ef7   
-Name                               my-replica-file-share  
-CRN                                crn:v1:bluemix:public:is:us-south-1:a/a1234567::share:r006-455b601c-8fc1-4476-8771-4708c49c8ef7   
-Lifecycle state                    stable   
-Access control mode                security_group   
-Accessor binding role              none   
+
+ID                                 r006-455b601c-8fc1-4476-8771-4708c49c8ef7
+Name                               my-replica-file-share
+CRN                                crn:v1:bluemix:public:is:us-south-1:a/a1234567::share:r006-455b601c-8fc1-4476-8771-4708c49c8ef7
+Lifecycle state                    stable
+Access control mode                security_group
+Accessor binding role              none
 Allowed transit encryption modes   none,ipsec
-Zone                               us-south-1   
-Profile                            dp2   
-Size(GB)                           10   
-IOPS                               100   
-Encryption                         provider_managed   
-Mount Targets                      ID                          Name      
-                                   No mounted targets found.      
-                                      
-Resource group                     ID                                 Name      
-                                   6edefe513d934fdd872e78ee6a8e73ef   defaults      
-                                      
-Created                            2025-04-04T09:19:27+00:00   
-Latest job                         Job status   Job status reasons      
-                                   succeeded    -      
-                                      
-Latest Sync                        Completed At                Data Transferred   Started At      
-                                   2025-04-18T21:00:04+00:00   3560               2025-04-18T21:00:00+00:00      
-                                      
-Replication cron spec              00 * * * *   
-Replication role                   replica   
-Replication status                 active   
-Replication status reasons         Status code   Status message      
-                                   -             -      
-                                      
-Source share                       ID                                          Name                    Resource type      
-                                   r006-e4acfa9b-88b0-4f90-9320-537e6fa3482a   my-source-file-share    share      
-                                      
-Snapshot count                     0   
-Snapshot size                      0   
-Source snapshot                    -   
-Allowed Access Protocols           nfs4    
-Availability Mode                  zonal   
-Bandwidth(Mbps)                    1    
-Storage Generation                 1  
+Zone                               us-south-1
+Profile                            dp2
+Size(GB)                           10
+IOPS                               100
+Encryption                         provider_managed
+Mount Targets                      ID                          Name
+                                   No mounted targets found.
+
+Resource group                     ID                                 Name
+                                   6edefe513d934fdd872e78ee6a8e73ef   defaults
+
+Created                            2025-04-04T09:19:27+00:00
+Latest job                         Job status   Job status reasons
+                                   succeeded    -
+
+Latest Sync                        Completed At                Data Transferred   Started At
+                                   2025-04-18T21:00:04+00:00   3560               2025-04-18T21:00:00+00:00
+
+Replication cron spec              00 * * * *
+Replication role                   replica
+Replication status                 active
+Replication status reasons         Status code   Status message
+                                   -             -
+
+Source share                       ID                                          Name                    Resource type
+                                   r006-e4acfa9b-88b0-4f90-9320-537e6fa3482a   my-source-file-share    share
+
+Snapshot count                     0
+Snapshot size                      0
+Source snapshot                    -
+Allowed Access Protocols           nfs4
+Availability Mode                  zonal
+Bandwidth(Mbps)                    1
+Storage Generation                 1
 ```
 {: screen}
 
@@ -240,44 +240,44 @@ ibmcloud is share my-source-file-share
 
 ```sh
 Getting file share my-source-file-share under account Test Account as user test.user@ibm.com...
-                                
-ID                               r006-e4acfa9b-88b0-4f90-9320-537e6fa3482a   
-Name                             my-source-file-share   
-CRN                              crn:v1:bluemix:public:is:us-south-2:a/a1234567b::share:r006-e4acfa9b-88b0-4f90-9320-537e6fa3482a   
-Lifecycle state                  stable   
+
+ID                               r006-e4acfa9b-88b0-4f90-9320-537e6fa3482a
+Name                             my-source-file-share
+CRN                              crn:v1:bluemix:public:is:us-south-2:a/a1234567b::share:r006-e4acfa9b-88b0-4f90-9320-537e6fa3482a
+Lifecycle state                  stable
 Access control mode              security_group
 Accessor binding role            origin
 Allowed transit encryption modes ipsec,none
-Zone                             us-south-2   
-Profile                          dp2   
-Size(GB)                         10   
-IOPS                             100   
-User Tags                        env:dev   
-Encryption                       provider_managed   
-Mount Targets                    ID                                          Name      
-                                 r006-fdbffc45-618c-49f1-bb08-ec530d7be378   my-source-mount-target      
-                                
-Resource group                   ID                                 Name      
-                                 6edefe513d934fdd872e78ee6a8e73ef   defaults      
-                                
-Created                          2024-06-25T15:42:53+00:00   
-Latest job                       Job status   Job status reasons      
-                                 succeeded    -      
-                                
-Replication share                ID                                          Name                    Resource type      
-                                 r006-455b601c-8fc1-4476-8771-4708c49c8ef7   my-replica-file-share   share      
-                                
-Replication role                 source   
-Replication status               active   
-Replication status reasons       Status code   Status message      
+Zone                             us-south-2
+Profile                          dp2
+Size(GB)                         10
+IOPS                             100
+User Tags                        env:dev
+Encryption                       provider_managed
+Mount Targets                    ID                                          Name
+                                 r006-fdbffc45-618c-49f1-bb08-ec530d7be378   my-source-mount-target
+
+Resource group                   ID                                 Name
+                                 6edefe513d934fdd872e78ee6a8e73ef   defaults
+
+Created                          2024-06-25T15:42:53+00:00
+Latest job                       Job status   Job status reasons
+                                 succeeded    -
+
+Replication share                ID                                          Name                    Resource type
+                                 r006-455b601c-8fc1-4476-8771-4708c49c8ef7   my-replica-file-share   share
+
+Replication role                 source
+Replication status               active
+Replication status reasons       Status code   Status message
                                  -             -
 Snapshot count                   0
-Snapshot size                    0 
+Snapshot size                    0
 Source snapshot                  -
-Allowed Access Protocols         nfs4    
-Availability Mode                zonal   
-Bandwidth(Mbps)                  1    
-Storage Generation               1  
+Allowed Access Protocols         nfs4
+Availability Mode                zonal
+Bandwidth(Mbps)                  1
+Storage Generation               1
 ```
 {: screen}
 
@@ -297,13 +297,13 @@ CRN                                crn:v1:bluemix:public:is:us-south-2:a/a123456
 Lifecycle state                    stable
 Access control mode                security_group
 Accessor binding role              none
-Allowed transit encryption modes   stunnel,none   
-Zone                               -  
+Allowed transit encryption modes   stunnel,none
+Zone                               -
 Profile                            rfs
 Size(GB)                           1000
 IOPS                               35000
 Encryption                         provider_managed
-Mount Targets                      ID                       Name       
+Mount Targets                      ID                       Name
                                    No mounted targets found
 
 Resource group                     ID                                 Name
@@ -315,12 +315,12 @@ Replication status                 none
 Replication status reasons         Status code   Status message
                                    -             -
 
-Snapshot count                     0   
-Snapshot size                      0   
-Source snapshot                    -   
-Allowed Access Protocols           nsf4   
-Availability Mode                  regional   
-Bandwidth(Mbps)                    125   
+Snapshot count                     0
+Snapshot size                      0
+Source snapshot                    -
+Allowed Access Protocols           nsf4
+Availability Mode                  regional
+Bandwidth(Mbps)                    125
 Storage Generation                 2
 ```
 {: screen}
@@ -339,10 +339,10 @@ ibmcloud is share-accessor-bindings my-origin-share
 
 ```sh
 Listing accessor bindings for the share ID my-origin-share under account Test Account as user test.user@ibm.com...
-                                
-ID                                          Lifecycle state   Created at                  Accessor CRN                                                                                                    Accessor resource type   
-r006-b5707b7b-1ac7-48c9-8fc3-4ba65b91e36f   stable            2025-08-26T21:03:40+00:00   crn:v1:bluemix:public:is::a/a1234567::share:r006-fdd5774c-fe8a-41f4-9088-eafc89f58c09   share   
-Viktoria_Muirhead@cloudshell:~$ 
+
+ID                                          Lifecycle state   Created at                  Accessor CRN                                                                                                    Accessor resource type
+r006-b5707b7b-1ac7-48c9-8fc3-4ba65b91e36f   stable            2025-08-26T21:03:40+00:00   crn:v1:bluemix:public:is::a/a1234567::share:r006-fdd5774c-fe8a-41f4-9088-eafc89f58c09   share
+Viktoria_Muirhead@cloudshell:~$
 ```
 {: screen}
 
@@ -358,14 +358,14 @@ ibmcloud is share-accessor-binding my-origin-share r006-b5707b7b-1ac7-48c9-8fc3-
 
 ```sh
 Get accessor binding r006-b5707b7b-1ac7-48c9-8fc3-4ba65b91e36f for the share ID my-origin-share under account Test Account as user test.user@ibm.com...
-                                
-ID                r006-b5707b7b-1ac7-48c9-8fc3-4ba65b91e36f   
-Created           2025-08-26T21:03:40+00:00   
-Href              https://us-south.iaas.cloud.ibm.com/v1/shares/r006-fdd5774c-fe8a-41f4-9088-eafc89f58c09/accessor_bindings/r006-b5707b7b-1ac7-48c9-8fc3-4ba65b91e36f   
-Resource type     share_accessor_binding   
-Lifecycle state   stable   
-Accessor          Resource type   CRN                                                                                                             Name      
-                  share           crn:v1:bluemix:public:is::a/a1234567::share:r006-fdd5774c-fe8a-41f4-9088-eafc89f58c09      my-accessor-share     
+
+ID                r006-b5707b7b-1ac7-48c9-8fc3-4ba65b91e36f
+Created           2025-08-26T21:03:40+00:00
+Href              https://us-south.iaas.cloud.ibm.com/v1/shares/r006-fdd5774c-fe8a-41f4-9088-eafc89f58c09/accessor_bindings/r006-b5707b7b-1ac7-48c9-8fc3-4ba65b91e36f
+Resource type     share_accessor_binding
+Lifecycle state   stable
+Accessor          Resource type   CRN                                                                                                             Name
+                  share           crn:v1:bluemix:public:is::a/a1234567::share:r006-fdd5774c-fe8a-41f4-9088-eafc89f58c09      my-accessor-share
 ```
 {: screen}
 
@@ -381,8 +381,8 @@ ibmcloud is share-mount-targets r006-e1a89008-f23b-42f8-8e44-5b31ddf0aac7
 
 ```sh
 Listing share mount target of r006-e4acfa9b-88b0-4f90-9320-537e6fa3482a in all resource groups and region us-south under account Test Account as user test.user@ibm.com...
-ID                                          Name                     VPC      Lifecycle state   Transit Encryption   
-r006-fdbffc45-618c-49f1-bb08-ec530d7be378   my-source-mount-target   my-vpc   stable            none   
+ID                                          Name                     VPC      Lifecycle state   Transit Encryption
+r006-fdbffc45-618c-49f1-bb08-ec530d7be378   my-source-mount-target   my-vpc   stable            none
 ```
 {: screen}
 
@@ -400,21 +400,21 @@ ibmcloud is share-mount-target  r006-e4acfa9b-88b0-4f90-9320-537e6fa3482a my-sou
 
 ```sh
 Getting mount target ID my-source-mount-target for share ID r006-e4acfa9b-88b0-4f90-9320-537e6fa3482a under account Test Account as user test.user@ibm.com...
-                               
-ID                          r006-fdbffc45-618c-49f1-bb08-ec530d7be378   
-Name                        my-source-mount-target   
-VPC                         ID                                          Name      
-                            r006-6e8fb140-5668-45b8-b98a-d5cb0e0bf39b   my-vpc      
-                               
-Access control mode         security_group   
-Resource type               share_mount_target   
-Virtual network interface   ID                                          Name      
-                            r006-3b0c00fa-0ce3-4ff8-9a5d-c7a645fbe530   my-source-vni      
-                               
-Lifecycle state             stable   
-Mount path                  10.240.64.6:/5975a795_e5e7_474c_82d3_46c1d4159c6a   
-Transit Encryption          none   
-Created                     2023-10-19T15:42:54+00:00   
+
+ID                          r006-fdbffc45-618c-49f1-bb08-ec530d7be378
+Name                        my-source-mount-target
+VPC                         ID                                          Name
+                            r006-6e8fb140-5668-45b8-b98a-d5cb0e0bf39b   my-vpc
+
+Access control mode         security_group
+Resource type               share_mount_target
+Virtual network interface   ID                                          Name
+                            r006-3b0c00fa-0ce3-4ff8-9a5d-c7a645fbe530   my-source-vni
+
+Lifecycle state             stable
+Mount path                  10.240.64.6:/5975a795_e5e7_474c_82d3_46c1d4159c6a
+Transit Encryption          none
+Created                     2023-10-19T15:42:54+00:00
 ```
 {: screen}
 
@@ -815,7 +815,7 @@ curl -X GET \
 ```
 {: pre}
 
-A successful response looks like the following example. In this example, [data encryption in transit](/docs/vpc?topic=vpc-file-storage-vpc-eit) is enabled. 
+A successful response looks like the following example. In this example, [data encryption in transit](/docs/vpc?topic=vpc-file-storage-vpc-eit) is enabled.
 
 ```json
 {
@@ -927,7 +927,7 @@ A successful response provides details of the source file share. Notice that the
     },
     "resource_type": "share",
     "size": 4800,
-    "snapshot_count": 10, 
+    "snapshot_count": 10,
     "snapshot_size": 10,
     "user_tags": [],
     "zone": {

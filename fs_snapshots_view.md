@@ -1,8 +1,8 @@
 ---
 
 copyright:
-  years: 2024, 2025
-lastupdated: "2025-11-14"
+  years: 2024, 2026
+lastupdated: "2026-03-26"
 
 keywords: view snapshots, view snapshot, viewing snapshots, see snapshots, File storage snapshots
 
@@ -28,7 +28,7 @@ In the console, you can view a list of all snapshots that belong to a file share
 
 1. The file shares are listed for a specific region. If you want to see resources in another region, click the arrow to expand the list and select a different region. By default, the newest shares are displayed at the beginning of the list.
 
-1. Select the file share that you want to view, and click the **Snapshots** tab. 
+1. Select the file share that you want to view, and click the **Snapshots** tab.
 
    The Snapshot summary section contains the following information:
 
@@ -49,7 +49,7 @@ In the console, you can view a list of all snapshots that belong to a file share
     {: caption="Summary of the Snapshots tab." caption-side="bottom"}
 
    By clicking the Actions icon ![Actions icon](../icons/action-menu-icon.svg "Actions"), you can display a menu of context-specific actions.
-   - [Delete](/docs/vpc?topic=vpc-fs-snapshots-manage#fs-snapshots-delete-snapshot-ui). 
+   - [Delete](/docs/vpc?topic=vpc-fs-snapshots-manage#fs-snapshots-delete-snapshot-ui).
    - [Restore](/docs/vpc?topic=vpc-fs-snapshots-restore).
 
    The Actions menu is dynamic. If the share is a replica share, only the Restore action is displayed. If the share is a source share or has no replica, all 3 actions are available.
@@ -71,25 +71,25 @@ The following table describes the information that can be viewed on the Snapshot
 | ID | Copiable UUID of the snapshot. |
 | CRN | Copiable CRN of the snapshot. |
 | Resource group | Resource group defined when you set up your VPC. |
-| Status | For example, `stable`. | 
+| Status | For example, `stable`. |
 | Location | Same as the source file share's location.  |
 | Created date | Date and time that the snapshot resource creation process started. |
 | Size of source file share | The size of the share when the snapshot was taken in GBs. |
 | Source file share | Source share from which the first snapshot was taken. Click the link for share details. |
 | Encryption | Provider-managed or customer-managed encryption. For customer-managed encryption, the KMS instance, root key name, and root key ID are shown. |
-| Fingerprint | The reference ID that you can use to locate the snapshot in the `.snapshot` folder. | 
+| Fingerprint | The reference ID that you can use to locate the snapshot in the `.snapshot` folder. |
 | User tags | The tags that you added. This field is empty when you look at snapshots on a replica share. |
 | Created by | It shows whether the snapshot was created by the user or a [backup policy](/docs/vpc?topic=vpc-backup-service-about&interface=ui#backup-service-concepts). The field shows _replication_ when snapshots are viewed on a replica file share.|
 {: caption="Snapshot details" caption-side="bottom"}
 
 By clicking the Actions icon ![Actions icon](../icons/action-menu-icon.svg "Actions"), you can display a menu of context-specific actions.
    - [Rename](/docs/vpc?topic=vpc-fs-snapshots-manage&interface=ui#fs-snapshots-delete-snapshot-ui).
-   - [Delete](/docs/vpc?topic=vpc-fs-snapshots-manage#fs-snapshots-delete-snapshot-ui). 
+   - [Delete](/docs/vpc?topic=vpc-fs-snapshots-manage#fs-snapshots-delete-snapshot-ui).
    - [Restore](/docs/vpc?topic=vpc-fs-snapshots-restore).
 
    The Actions menu is dynamic. If the share is a replica share, only the Restore action is displayed. If the share is a source share or has no replica, all 3 actions are available.
    {: note}
-  
+
 ## Viewing snapshots from the CLI
 {: #fs-snapshots-view-cli}
 {: cli}
@@ -131,12 +131,12 @@ ibmcloud is share-snapshots
 
 ```sh
 Listing share snapshots in all resource groups and region au-syd under account Test Account as user test.user@ibm.com...
-ID                                          Name                                Created at                  Fingerprint                            Minimum Size   Lifecycle state   Zone       Status      User Tags   
-r026-c8fd81f8-3437-424e-8fc0-f9dd2f4766d3   demo-bkp-plan-2-02ae167865c0-44e8   2024-12-09T16:55:13+05:30   15b9509d-b6f8-461b-987a-2333be203e0e   40             stable            au-syd-1   available   dev:tags   
-r026-9997158e-daa6-409d-8e51-b2bbbc23c5d2   demo-bkp-plan-2-29e97584db07-4e86   2024-12-09T16:55:12+05:30   0b9c1e17-d872-4858-b478-a4d46cfd3dfe   40             stable            au-syd-1   available   dev:tags   
-r026-d04eb5f7-4159-4fa0-bfdd-83deca3b73b0   demo-bkp-plan-2-2b8c5b1bcadc-496f   2024-12-09T18:55:14+05:30   622a0e1f-7a48-4dce-adf0-c54adb4605c3   40             stable            au-syd-1   available   dev:tags   
-r026-9289ba15-a922-4b75-9650-7afc9471e9d9   demo-bkp-plan-2-47a13671bf22-47e0   2024-12-09T17:55:11+05:30   9a433610-0134-4162-8af3-d9358af832b5   40             stable            au-syd-1   available   dev:tags   
-r026-bee1b285-adc3-43e6-b8dd-5645efbe5732   demo-bkp-plan-2-4a90deb0778a-4f1a   2024-12-09T17:55:11+05:30   f8ec608d-9fbc-48cf-9018-01b1a8711449   40             stable            au-syd-1   available   dev:tags   
+ID                                          Name                                Created at                  Fingerprint                            Minimum Size   Lifecycle state   Zone       Status      User Tags
+r026-c8fd81f8-3437-424e-8fc0-f9dd2f4766d3   demo-bkp-plan-2-02ae167865c0-44e8   2024-12-09T16:55:13+05:30   15b9509d-b6f8-461b-987a-2333be203e0e   40             stable            au-syd-1   available   dev:tags
+r026-9997158e-daa6-409d-8e51-b2bbbc23c5d2   demo-bkp-plan-2-29e97584db07-4e86   2024-12-09T16:55:12+05:30   0b9c1e17-d872-4858-b478-a4d46cfd3dfe   40             stable            au-syd-1   available   dev:tags
+r026-d04eb5f7-4159-4fa0-bfdd-83deca3b73b0   demo-bkp-plan-2-2b8c5b1bcadc-496f   2024-12-09T18:55:14+05:30   622a0e1f-7a48-4dce-adf0-c54adb4605c3   40             stable            au-syd-1   available   dev:tags
+r026-9289ba15-a922-4b75-9650-7afc9471e9d9   demo-bkp-plan-2-47a13671bf22-47e0   2024-12-09T17:55:11+05:30   9a433610-0134-4162-8af3-d9358af832b5   40             stable            au-syd-1   available   dev:tags
+r026-bee1b285-adc3-43e6-b8dd-5645efbe5732   demo-bkp-plan-2-4a90deb0778a-4f1a   2024-12-09T17:55:11+05:30   f8ec608d-9fbc-48cf-9018-01b1a8711449   40             stable            au-syd-1   available   dev:tags
 ```
 {: screen}
 
@@ -145,7 +145,7 @@ For snapshots of regional file shares, the zone value is blank in both the CLI a
 
 For more information about available command options, see [`ibmcloud is share-snapshots`](/docs/vpc?topic=vpc-vpc-reference#share-snapshots-list).
 
-#### Viewing all snapshots of a share from the CLI 
+#### Viewing all snapshots of a share from the CLI
 {: #fs-snapshots-view-all-share-snapshots-cli}
 
 Run the `ibmcloud is share-snapshots` command and specify the share name or ID to filter the snapshot results. The following example shows the snapshots that were taken of the share `r026-734c173e-044f-4d09-a729-950364ea9900`.
@@ -186,10 +186,10 @@ ibmcloud is share-snapshots --backup-policy-plan r006-158e0d66-338e-4501-b756-be
 
 ```sh
 Listing share snapshots of share my-file-share under account Test Account as user test.user@ibm.com...
-ID                                          Name                                Created at                  Fingerprint                            Minimum Size   LifeCycle State   Zone         Status      User Tags   
-r006-b4d12d66-18de-4660-9fe7-12e667d5ed5b   demo-bkp-plan-1-d619b2fb4a68-4602   2024-11-19T11:33:27+05:30   643ce8da-bbbd-4515-b988-701aea2667df   40             stable            us-south-1   available   dev:tags   
-r006-59d25cac-92cd-4076-b988-e5d6746a848f   demo-bkp-plan-1-e4406ae16e8f-4cb0   2024-11-19T12:32:23+05:30   202a5bd4-a1e0-4d89-914c-3574f45fc725   40             stable            us-south-1   available   dev:tags   
-r006-41785c6b-5d48-4dc1-89b7-21a5b2ada21e   demo-bkp-plan-1-efc6f81b8505-4782   2024-11-19T10:32:19+05:30   acd57e05-ffe2-4eed-8e78-40b5000c53d3   40             stable            us-south-1   available   dev:tags 
+ID                                          Name                                Created at                  Fingerprint                            Minimum Size   LifeCycle State   Zone         Status      User Tags
+r006-b4d12d66-18de-4660-9fe7-12e667d5ed5b   demo-bkp-plan-1-d619b2fb4a68-4602   2024-11-19T11:33:27+05:30   643ce8da-bbbd-4515-b988-701aea2667df   40             stable            us-south-1   available   dev:tags
+r006-59d25cac-92cd-4076-b988-e5d6746a848f   demo-bkp-plan-1-e4406ae16e8f-4cb0   2024-11-19T12:32:23+05:30   202a5bd4-a1e0-4d89-914c-3574f45fc725   40             stable            us-south-1   available   dev:tags
+r006-41785c6b-5d48-4dc1-89b7-21a5b2ada21e   demo-bkp-plan-1-efc6f81b8505-4782   2024-11-19T10:32:19+05:30   acd57e05-ffe2-4eed-8e78-40b5000c53d3   40             stable            us-south-1   available   dev:tags
 ```
 {: screen}
 
@@ -215,29 +215,29 @@ ibmcloud is share-snapshot my-file-share r006-6c760e3e-33fc-41a4-b896-8a2c229ddc
 ```sh
 Getting share snapshot ID r006-6c760e3e-33fc-41a4-b896-8a2c229ddccd for share ID my-file-share under account Test Account as user test.user@ibm.com...
 
-ID                   r006-6c760e3e-33fc-41a4-b896-8a2c229ddccd   
+ID                   r006-6c760e3e-33fc-41a4-b896-8a2c229ddccd
 Name                 my-first-share-snapshot
-Fingerprint          7f29bdd5-bc67-4e67-9b24-638a73be4742   
-Backup Policy Plan   -   
-Status               available   
-Created at           2025-03-10T19:17:55+00:00   
-Captured At          2025-03-10T19:17:58+00:00   
-CRN                  crn:v1:bluemix:public:is:us-south-2:a/a1234567::share-snapshot:r006-d14e4b29-cb73-4886-a267-b2cd58d67641/r006-6c760e3e-33fc-41a4-b896-8a2c229ddccd   
-LifeCycle Reasons    Code   Message   More Info      
-                     -      -               
-                        
-LifeCycle State      stable   
-Href                 https://us-south.iaas.cloud.ibm.com/v1/shares/r006-d14e4b29-cb73-4886-a267-b2cd58d67641/snapshots/r006-6c760e3e-33fc-41a4-b896-8a2c229ddccd   
-Minimum Size         10   
-Zone                 ID   Name      
-                          us-south-2      
-                        
-Resource group       ID                                 Name      
-                     6edefe513d934fdd872e78ee6a8e73ef   defaults      
-                        
-Status reasons       Status code   Status message      
-                     -             -      
-                        
+Fingerprint          7f29bdd5-bc67-4e67-9b24-638a73be4742
+Backup Policy Plan   -
+Status               available
+Created at           2025-03-10T19:17:55+00:00
+Captured At          2025-03-10T19:17:58+00:00
+CRN                  crn:v1:bluemix:public:is:us-south-2:a/a1234567::share-snapshot:r006-d14e4b29-cb73-4886-a267-b2cd58d67641/r006-6c760e3e-33fc-41a4-b896-8a2c229ddccd
+LifeCycle Reasons    Code   Message   More Info
+                     -      -
+
+LifeCycle State      stable
+Href                 https://us-south.iaas.cloud.ibm.com/v1/shares/r006-d14e4b29-cb73-4886-a267-b2cd58d67641/snapshots/r006-6c760e3e-33fc-41a4-b896-8a2c229ddccd
+Minimum Size         10
+Zone                 ID   Name
+                          us-south-2
+
+Resource group       ID                                 Name
+                     6edefe513d934fdd872e78ee6a8e73ef   defaults
+
+Status reasons       Status code   Status message
+                     -             -
+
 Resource type        share_snapshot
 
 ```
@@ -249,7 +249,7 @@ For more information about available command options, see [`ibmcloud is share-sn
 {: #fs-snapshots-view-all-api}
 {: api}
 
-You can list your snapshots that belong to the same share programmatically by using the VPC API. 
+You can list your snapshots that belong to the same share programmatically by using the VPC API.
 
 Although you can't create a snapshot on a replica share, the snapshots of the source share are auto-generated on the replica at the next scheduled replication sync. These replicated snapshots are created by the file service. They do not inherit the names or the tags from the original snapshots. However, they have the same fingerprint values with the source snapshots.
 {: note}

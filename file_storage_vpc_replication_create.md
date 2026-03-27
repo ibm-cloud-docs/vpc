@@ -2,9 +2,9 @@
 
 copyright:
   years: 2022, 2026
-lastupdated: "2026-02-26"
+lastupdated: "2026-03-26"
 
-keywords: file share, file storage, source volume, replica share, 
+keywords: file share, file storage, source volume, replica share,
 
 subcollection: vpc
 
@@ -18,7 +18,7 @@ subcollection: vpc
 Create a replica file share in the console, from the CLI, with the API, or with Terraform. Replica file shares can be created in another zone of the same metro region as the primary share's zone, or a zone of a different metro region in the same geography.
 {: shortdesc}
 
-The following table shows which metro regions can replicate with each other within each geography. 
+The following table shows which metro regions can replicate with each other within each geography.
 
 | Americas | Europe  | Asia  |
 |----------|---------|-------|
@@ -79,7 +79,7 @@ On the File share replica create page, review the source file share details, and
    * **Encryption in transit** is disabled by default. You can click the toggle to enable it. For more information about this feature, see [Encryption in transit - Securing mount connections between file share and host](/docs/vpc?topic=vpc-file-storage-vpc-eit). |
    * When you replicate to another zone of the same region, the encryption is inherited from the primary share. If you selected customer-managed encryption, the key management system is shown along with the root key. You can't encrypt a replica share with a different key.
    * When you replicate to another region, the encryption type (provider-managed vs customer-managed) of the replica must match the source share. However, it is not inherited from the source, and you must select a Customer Root Key for your replica if the source share is protected by customer-managed encryption.
-  
+
    | Field | Value |
    |------|------|
    | Encryption | Select either {{site.data.keyword.keymanagementserviceshort}} or {{site.data.keyword.hscrypto}}. |
@@ -90,8 +90,8 @@ On the File share replica create page, review the source file share details, and
 
 1. In the side panel, review your estimated cost, and apply a discount code, if you have one.
 1. Click **Create file share**.
-   
-If you're not ready to order yet or just looking for pricing information, you can add the information that you see in the side panel to an Estimate. For more information about how this feature works, see [Estimating your costs](/docs/account?topic=account-cost).    
+
+If you're not ready to order yet or just looking for pricing information, you can add the information that you see in the side panel to an Estimate. For more information about how this feature works, see [Estimating your costs](/docs/account?topic=account-cost).
 {: tip}
 
 ## Adding replication to file share from the CLI
@@ -116,42 +116,42 @@ ibmcloud is share-create --name my-source-file-share --zone us-south-2 --profile
 
 ```sh
 Creating file share my-source-file-share under account Test Account as user test.user@ibm.com...
-                                
-ID                                 r006-0a3444bc-df55-4c2e-aef4-f37a9a8d8262   
-Name                               my-source-file-share   
-CRN                                crn:v1:bluemix:public:is:us-south-2:a/a1234567::share:r006-0a3444bc-df55-4c2e-aef4-f37a9a8d8262   
-Lifecycle state                    pending   
-Access control mode                security_group   
-Accessor binding role              none   
-Allowed transit encryption modes   user_managed,none   
-Zone                               us-south-2   
-Profile                            dp2   
-Size(GB)                           1500   
-IOPS                               2000   
-User Tags                          env:dev   
-Encryption                         provider_managed   
-Mount Targets                      ID                                          Name      
-                                   r006-67799c85-09cf-4cfe-811d-effa10c99395   my-source-mount-target      
-                                      
-Resource group                     ID                                 Name      
-                                   6edefe513d934fdd872e78ee6a8e73ef   defaults      
-                                      
-Created                            2025-08-01T17:25:05+00:00   
-Replication share                  ID                                          Name                    Resource type      
-                                   r006-2068a709-8c18-4844-8c1d-42b83889dfb3   my-replica-file-share   share      
-                                      
-Replication role                   source   
-Replication status                 none   
-Replication status reasons         Status code   Status message      
-                                   -             -      
-                                      
-Snapshot count                     0   
-Snapshot size                      0   
-Source snapshot                    -   
-Allowed Access Protocols           nfs4    
-Availability Mode                  zonal   
-Bandwidth(Mbps)                    1    
-Storage Generation                 1  
+
+ID                                 r006-0a3444bc-df55-4c2e-aef4-f37a9a8d8262
+Name                               my-source-file-share
+CRN                                crn:v1:bluemix:public:is:us-south-2:a/a1234567::share:r006-0a3444bc-df55-4c2e-aef4-f37a9a8d8262
+Lifecycle state                    pending
+Access control mode                security_group
+Accessor binding role              none
+Allowed transit encryption modes   user_managed,none
+Zone                               us-south-2
+Profile                            dp2
+Size(GB)                           1500
+IOPS                               2000
+User Tags                          env:dev
+Encryption                         provider_managed
+Mount Targets                      ID                                          Name
+                                   r006-67799c85-09cf-4cfe-811d-effa10c99395   my-source-mount-target
+
+Resource group                     ID                                 Name
+                                   6edefe513d934fdd872e78ee6a8e73ef   defaults
+
+Created                            2025-08-01T17:25:05+00:00
+Replication share                  ID                                          Name                    Resource type
+                                   r006-2068a709-8c18-4844-8c1d-42b83889dfb3   my-replica-file-share   share
+
+Replication role                   source
+Replication status                 none
+Replication status reasons         Status code   Status message
+                                   -             -
+
+Snapshot count                     0
+Snapshot size                      0
+Source snapshot                    -
+Allowed Access Protocols           nfs4
+Availability Mode                  zonal
+Bandwidth(Mbps)                    1
+Storage Generation                 1
 ```
 {: screen}
 
@@ -166,18 +166,18 @@ Storage Generation                 1
 
    ```sh
    Listing shares in all resource groups and region us-south under account Test Account as user test.user@ibm.com...
-   ID                                          Name                    Lifecycle state   Zone         Profile   Size(GB)   Resource group   Replication role   Accessor binding role   Snapshot count   Snapshot size   
-   r006-a8d6af48-0c97-4c6b-bab1-fbefdc1e1e03   my-file-share           stable            us-south-2   dp2       10         defaults         none               none                    0                0   
-   r006-aaf4bfe9-358c-4faa-a4ec-0b955090b940   my-file-share-2         stable            us-south-2   dp2       10         defaults         none               none                    0                0   
-   r006-a60bfa90-a893-40ad-be34-28ab51a963f9   replica-dal-2           stable            us-south-2   dp2       10         defaults         replica            none                    0                0   
-   r006-3f21e3c3-e12d-425f-ab77-810cabfde8df   source-dal-1            stable            us-south-1   dp2       10         defaults         source             none                    0                0   
-   r006-455b601c-8fc1-4476-8771-4708c49c8ef7   my-replica-share-dal-1  stable            us-south-1   dp2       10         defaults         replica            none                    0                0   
-   r006-4dadac27-cd17-42df-a5fe-1388705d33e0   my-source-share-dal-2   stable            us-south-2   dp2       10         defaults         source             none                    0                0   
+   ID                                          Name                    Lifecycle state   Zone         Profile   Size(GB)   Resource group   Replication role   Accessor binding role   Snapshot count   Snapshot size
+   r006-a8d6af48-0c97-4c6b-bab1-fbefdc1e1e03   my-file-share           stable            us-south-2   dp2       10         defaults         none               none                    0                0
+   r006-aaf4bfe9-358c-4faa-a4ec-0b955090b940   my-file-share-2         stable            us-south-2   dp2       10         defaults         none               none                    0                0
+   r006-a60bfa90-a893-40ad-be34-28ab51a963f9   replica-dal-2           stable            us-south-2   dp2       10         defaults         replica            none                    0                0
+   r006-3f21e3c3-e12d-425f-ab77-810cabfde8df   source-dal-1            stable            us-south-1   dp2       10         defaults         source             none                    0                0
+   r006-455b601c-8fc1-4476-8771-4708c49c8ef7   my-replica-share-dal-1  stable            us-south-1   dp2       10         defaults         replica            none                    0                0
+   r006-4dadac27-cd17-42df-a5fe-1388705d33e0   my-source-share-dal-2   stable            us-south-2   dp2       10         defaults         source             none                    0                0
    ```
    {: screen}
 
 1. View the details of the file share that you want to use as your source with the `ibmcloud is share` command. You can use the share's name or ID when you create a replica in the same region. If you create the replica in another region, take note of the CRN of the source file share.
-   
+
    ```sh
    ibmcloud is share my-file-share
    ```
@@ -185,43 +185,43 @@ Storage Generation                 1
 
    ```sh
    Getting file share my-file-share under account Test Account as user test.user@ibm.com...
-                                
-   ID                           r006-b696742a-92ee-4f6a-bfd7-921d6ddf8fa6   
-   Name                         my-file-share   
-   CRN                          crn:v1:bluemix:public:is:us-south-2:a/a1234567::share:r006-b696742a-92ee-4f6a-bfd7-921d6ddf8fa6   
-   Lifecycle state              stable   
-   Access control mode          security_group   
-   Accessor binding role        none 
-   Zone                         us-south-2   
-   Profile                      dp2   
-   Size(GB)                     1000   
-   IOPS                         1000  
-   User Tags                    docs:test 
-   Encryption                   provider_managed   
-   Mount Targets                ID                                          Name      
-                                r006-dd497561-c7c9-4dfb-af0a-c84eeee78b61   my-cli-share-mount-target-1      
-                                
-   Resource group               ID                                 Name      
-                                db8e8d865a83e0aae03f25a492c5b39e   Default      
-                                
-   Created                      2023-10-18T22:15:15+00:00   
 
-   Replication role             none   
-   Replication status           none   
-   Replication status reasons   Status code   Status message      
-                                -             -     
+   ID                           r006-b696742a-92ee-4f6a-bfd7-921d6ddf8fa6
+   Name                         my-file-share
+   CRN                          crn:v1:bluemix:public:is:us-south-2:a/a1234567::share:r006-b696742a-92ee-4f6a-bfd7-921d6ddf8fa6
+   Lifecycle state              stable
+   Access control mode          security_group
+   Accessor binding role        none
+   Zone                         us-south-2
+   Profile                      dp2
+   Size(GB)                     1000
+   IOPS                         1000
+   User Tags                    docs:test
+   Encryption                   provider_managed
+   Mount Targets                ID                                          Name
+                                r006-dd497561-c7c9-4dfb-af0a-c84eeee78b61   my-cli-share-mount-target-1
+
+   Resource group               ID                                 Name
+                                db8e8d865a83e0aae03f25a492c5b39e   Default
+
+   Created                      2023-10-18T22:15:15+00:00
+
+   Replication role             none
+   Replication status           none
+   Replication status reasons   Status code   Status message
+                                -             -
 
    Snapshot count               0
    Snapshot size                0
    Source snapshot              -
-   Allowed Access Protocols     nfs4    
-   Availability Mode            zonal   
-   Bandwidth(Mbps)              1    
-   Storage Generation           1  
+   Allowed Access Protocols     nfs4
+   Availability Mode            zonal
+   Bandwidth(Mbps)              1
+   Storage Generation           1
    ```
    {: screen}
 
-1. Create a replica share by running the `ibmcloud is share-replica-create` command in the target region. If you're not targeting the right region, use the `ibmcloud target -r REGION` command to switch the target region. Specify the source share by name, ID, or CRN. Provide values to define the zone where the replica file share is going to be created, and the profile of the replica share. Specify the replication schedule with a cron expression. If the source file share has `user_managed` encryption, you must provide the `--encryption_key`. The `--encryption_key` property must not be specified otherwise.
+1. Create a replica share by running the `ibmcloud is share-replica-create` command in the target region. If you're not targeting the right region, use the `ibmcloud target -r REGION` command to switch the target region. Specify the source share by ID or CRN using the `--source-share-id` option. Provide values to define the zone where the replica file share is going to be created, and the profile of the replica share. Specify the replication schedule with a cron expression using the `--replication-cron-spec` option. If the source file share has `user_managed` encryption, you must provide the `--encryption-key-crn`. The `--encryption-key-crn` property must not be specified otherwise.
 
    ```sh
    ibmcloud is share-replica-create --name my-replica-share --zone us-south-3 --profile dp2 --replication-cron-spec '10 05 * * *' --source-share my-file-share
@@ -230,45 +230,45 @@ Storage Generation                 1
 
    ```sh
    Creating replica file share my-replica-share under account Test Account as user test.user@ibm.com...
-                                
-   ID                               r006-6d1719da-f790-45cc-9f68-896fd5673a1a   
-   Name                             my-replica-share   
-   CRN                              crn:v1:bluemix:public:is:us-south-3:a/a1234567::share:r006-6d1719da-f790-45cc-9f68-896fd5673a1a   
-   Lifecycle state                  pending   
+
+   ID                               r006-6d1719da-f790-45cc-9f68-896fd5673a1a
+   Name                             my-replica-share
+   CRN                              crn:v1:bluemix:public:is:us-south-3:a/a1234567::share:r006-6d1719da-f790-45cc-9f68-896fd5673a1a
+   Lifecycle state                  pending
    Access control mode              security_group
    Accessor binding role            origin
    Allowed transit encryption modes ipsec,none
-   Zone                             us-south-3   
-   Profile                          dp2   
-   Size(GB)                         1000   
-   IOPS                             100   
-   User Tags                        docs:test 
-   Encryption                       provider_managed      
-   Mount Targets                    ID                          Name      
-                                    No mounted targets found.      
-                                
-   Resource group                   ID                                 Name      
-                                    db8e8d865a83e0aae03f25a492c5b39e   Default      
-                                
-   Created                          2024-06-25T15:13:18+00:00   
-   Latest job                       Job status   Job status reasons      
-                                    running      -      
-                                
-   Replication cron spec            10 05 * * *   
-   Replication role                 replica   
-   Replication status               initializing   
-   Replication status reasons       Status code   Status message      
-                                    -             -      
-                                
-   Source share                     ID                                          Name            Resource type      
-                                    r006-b696742a-92ee-4f6a-bfd7-921d6ddf8fa6   my-file-share   share 
+   Zone                             us-south-3
+   Profile                          dp2
+   Size(GB)                         1000
+   IOPS                             100
+   User Tags                        docs:test
+   Encryption                       provider_managed
+   Mount Targets                    ID                          Name
+                                    No mounted targets found.
+
+   Resource group                   ID                                 Name
+                                    db8e8d865a83e0aae03f25a492c5b39e   Default
+
+   Created                          2024-06-25T15:13:18+00:00
+   Latest job                       Job status   Job status reasons
+                                    running      -
+
+   Replication cron spec            10 05 * * *
+   Replication role                 replica
+   Replication status               initializing
+   Replication status reasons       Status code   Status message
+                                    -             -
+
+   Source share                     ID                                          Name            Resource type
+                                    r006-b696742a-92ee-4f6a-bfd7-921d6ddf8fa6   my-file-share   share
    Snapshot count                   0
-   Snapshot size                    0         
-   Source snapshot                  - 
-   Allowed Access Protocols         nfs4    
-   Availability Mode                zonal   
-   Bandwidth(Mbps)                  1    
-   Storage Generation               1                   
+   Snapshot size                    0
+   Source snapshot                  -
+   Allowed Access Protocols         nfs4
+   Availability Mode                zonal
+   Bandwidth(Mbps)                  1
+   Storage Generation               1
    ```
    {: screen}
 
@@ -281,46 +281,46 @@ When you create a replica of a file share in another region, you must use the CR
 
    ```sh
    Creating replica file share my-cross-regional-replica-share under account Test Account as user test.user@ibm.com...
-                                
-   ID                               r006-6d1719da-g687-45ac-9f68-896fd76843a1b    
-   Name                             my-cross-regional-replica-share   
-   CRN                              crn:v1:bluemix:public:is:us-east-1:a/a1234567::share:r006-6d1719da-g687-45ac-9f68-896fd76843a1b   
-   Lifecycle state                  pending   
+
+   ID                               r006-6d1719da-g687-45ac-9f68-896fd76843a1b
+   Name                             my-cross-regional-replica-share
+   CRN                              crn:v1:bluemix:public:is:us-east-1:a/a1234567::share:r006-6d1719da-g687-45ac-9f68-896fd76843a1b
+   Lifecycle state                  pending
    Access control mode              security_group
    Accessor binding role            origin
    Allowed transit encryption modes ipsec,none
-   Zone                             us-east-1   
-   Profile                          dp2   
-   Size(GB)                         1000   
-   IOPS                             100   
-   Encryption                       user_managed   
-   Mount Targets                    ID                          Name      
-                                    No mounted targets found.      
-                                
-   Resource group                   ID                                 Name      
-                                    db8e8d865a83e0aae03f25a492c5b39e   Default      
-                                
-   Created                          2024-06-25T15:13:18+00:00   
+   Zone                             us-east-1
+   Profile                          dp2
+   Size(GB)                         1000
+   IOPS                             100
+   Encryption                       user_managed
+   Mount Targets                    ID                          Name
+                                    No mounted targets found.
+
+   Resource group                   ID                                 Name
+                                    db8e8d865a83e0aae03f25a492c5b39e   Default
+
+   Created                          2024-06-25T15:13:18+00:00
    Encryption key                   crn:v1:bluemix:public:kms:us-south:a/a1234567:1be45161-6dae-44ca-b248-837f98004057:key:3dd21cc5-cc20-4f7c-bc62-8ec9a8a3d1bd
-   Latest job                       Job status   Job status reasons      
-                                    running      -      
-                                
-   Replication cron spec            5 * * * *   
-   Replication role                 replica   
-   Replication status               initializing   
-   Replication status reasons       Status code   Status message      
-                                    -             -      
-                                
+   Latest job                       Job status   Job status reasons
+                                    running      -
+
+   Replication cron spec            5 * * * *
+   Replication role                 replica
+   Replication status               initializing
+   Replication status reasons       Status code   Status message
+                                    -             -
+
    Source share                     ID                                          Name       Resource type  Remote
                                     r006-d8c8821c-a227-451d-a9ed-0c0cd2358829   my-share   share          us-south
 
    Snapshot count                   0
    Snapshot size                    0
-   Source snapshot                  - 
-   Allowed Access Protocols         nfs4    
-   Availability Mode                zonal   
-   Bandwidth(Mbps)                  1    
-   Storage Generation               1  
+   Source snapshot                  -
+   Allowed Access Protocols         nfs4
+   Availability Mode                zonal
+   Bandwidth(Mbps)                  1
+   Storage Generation               1
    ```
    {: screen}
 

@@ -1,8 +1,8 @@
 ---
 
 copyright:
-  years: 2024, 2025
-lastupdated: "2025-11-19"
+  years: 2024, 2026
+lastupdated: "2026-03-26"
 
 keywords: snapshots, File Storage, File Storage snapshot
 
@@ -123,7 +123,7 @@ Resource type          share_snapshot
 ```
 {: screen}
 
-The status shows `pending` while the snapshot is created. If you want to, you can issue a second `ibmcloud is share-snapshot` command with the snapshot ID to see the new snapshot in `stable` status.
+The status shows `pending` while the snapshot is created. If you want to, you can issue a second `ibmcloud is share-snapshot` command with the share ID and snapshot ID to see the new snapshot in `stable` status.
 
 For snapshots of regional file shares, the zone value is blank in both the CLI and API responses. 
 {: preview}

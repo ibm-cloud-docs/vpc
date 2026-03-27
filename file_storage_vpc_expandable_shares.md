@@ -2,7 +2,7 @@
 
 copyright:
   years: 2022, 2026
-lastupdated: "2026-03-16"
+lastupdated: "2026-03-26"
 
 keywords: file share, file storage, increase capacity, expand capacity, expand share size, file share size
 
@@ -57,7 +57,7 @@ The following limitations apply to this release.
 * IOPS increase to the maximum allowed by the profile.
 * You can't independently modify IOPS for a file share that was created from an IOPS tier profile. IOPS is adjusted when you expand capacity.
 * When you expand a file share that was created from a custom or dp2 profile, the capacity is increased, but the IOPS remains the same unless you choose to [adjust the IOPS](/docs/vpc?topic=vpc-file-storage-adjusting-iops).
-* [Select availability]{: tag-green} When you expand a file share that was created with the `rfs` profile, the capacity and minimum bandwidth are increased. 
+* [Select availability]{: tag-green} When you expand a file share that was created with the `rfs` profile, the capacity and minimum bandwidth are increased.
 * The maximum IOPS for a zonal file share is capped at 48,000 IOPS if it is accessed by a single host. For a zonal file share that is accessed by multiple hosts, IOPS can reach up to 96,000 IOPS.
 * After a file share is expanded, you can't reduce its size.
 
@@ -101,13 +101,13 @@ To increase the capacity of a file share from the CLI, use the `share-update` co
 
    ```sh
    Listing shares in all resource groups and region us-south under account Test Account as user test.user@ibm.com...
-   ID                                          Name                    Lifecycle state   Zone         Profile   Size(GB)   Resource group   Replication role   Accessor binding role   Snapshot count   Snapshot size   
-   r006-a8d6af48-0c97-4c6b-bab1-fbefdc1e1e03   my-file-share           stable            us-south-2   dp2       10         defaults         none               none                    0                0   
-   r006-aaf4bfe9-358c-4faa-a4ec-0b955090b940   my-file-share-2         stable            us-south-2   dp2       10         defaults         none               none                    0                0   
-   r006-a60bfa90-a893-40ad-be34-28ab51a963f9   replica-dal-2           stable            us-south-2   dp2       10         defaults         replica            none                    0                0   
-   r006-3f21e3c3-e12d-425f-ab77-810cabfde8df   source-dal-1            stable            us-south-1   dp2       10         defaults         source             none                    0                0   
-   r006-455b601c-8fc1-4476-8771-4708c49c8ef7   my-replica-share-dal-1  stable            us-south-1   dp2       10         defaults         replica            none                    0                0   
-   r006-4dadac27-cd17-42df-a5fe-1388705d33e0   my-source-share-dal-2   stable            us-south-2   dp2       10         defaults         source             none                    0                0   
+   ID                                          Name                    Lifecycle state   Zone         Profile   Size(GB)   Resource group   Replication role   Accessor binding role   Snapshot count   Snapshot size
+   r006-a8d6af48-0c97-4c6b-bab1-fbefdc1e1e03   my-file-share           stable            us-south-2   dp2       10         defaults         none               none                    0                0
+   r006-aaf4bfe9-358c-4faa-a4ec-0b955090b940   my-file-share-2         stable            us-south-2   dp2       10         defaults         none               none                    0                0
+   r006-a60bfa90-a893-40ad-be34-28ab51a963f9   replica-dal-2           stable            us-south-2   dp2       10         defaults         replica            none                    0                0
+   r006-3f21e3c3-e12d-425f-ab77-810cabfde8df   source-dal-1            stable            us-south-1   dp2       10         defaults         source             none                    0                0
+   r006-455b601c-8fc1-4476-8771-4708c49c8ef7   my-replica-share-dal-1  stable            us-south-1   dp2       10         defaults         replica            none                    0                0
+   r006-4dadac27-cd17-42df-a5fe-1388705d33e0   my-source-share-dal-2   stable            us-south-2   dp2       10         defaults         source             none                    0                0
    ```
    {: screen}
 
@@ -120,43 +120,43 @@ To increase the capacity of a file share from the CLI, use the `share-update` co
 
    ```sh
    Getting file share my-file-share under account Test Account as user test.user@ibm.com...
-                                
-   ID                           r006-b696742a-92ee-4f6a-bfd7-921d6ddf8fa6   
-   Name                         my-file-share   
-   CRN                          crn:v1:bluemix:public:is:us-south-2:a/a1234567::share:r006-b696742a-92ee-4f6a-bfd7-921d6ddf8fa6   
-   Lifecycle state              stable   
-   Access control mode          security_group   
-   Accessor binding role        none   
-   Zone                         us-south-2   
-   Profile                      dp2   
-   Size(GB)                     1000   
+
+   ID                           r006-b696742a-92ee-4f6a-bfd7-921d6ddf8fa6
+   Name                         my-file-share
+   CRN                          crn:v1:bluemix:public:is:us-south-2:a/a1234567::share:r006-b696742a-92ee-4f6a-bfd7-921d6ddf8fa6
+   Lifecycle state              stable
+   Access control mode          security_group
+   Accessor binding role        none
+   Zone                         us-south-2
+   Profile                      dp2
+   Size(GB)                     1000
    IOPS                         1000
    User Tags                    docs:test
-   Encryption                   provider_managed   
+   Encryption                   provider_managed
    Mount Targets                ID                                          Name
-                                r006-dd497561-c7c9-4dfb-af0a-c84eeee78b61   my-cli-share-mount-target-1      
-                                
-   Resource group               ID                                 Name      
-                                db8e8d865a83e0aae03f25a492c5b39e   Default      
-                                
-   Created                      2023-10-18T22:15:15+00:00   
-   Replication role             none   
-   Replication status           none   
-   Replication status reasons   Status code   Status message      
-                                -             -      
-   
+                                r006-dd497561-c7c9-4dfb-af0a-c84eeee78b61   my-cli-share-mount-target-1
+
+   Resource group               ID                                 Name
+                                db8e8d865a83e0aae03f25a492c5b39e   Default
+
+   Created                      2023-10-18T22:15:15+00:00
+   Replication role             none
+   Replication status           none
+   Replication status reasons   Status code   Status message
+                                -             -
+
    Snapshot count               0
-   Snapshot size                0  
-   Source snapshot              -        
-   Allowed Access Protocols     nfs4    
-   Availability Mode            zonal   
-   Bandwidth(Mbps)              1    
-   Storage Generation           1      
+   Snapshot size                0
+   Source snapshot              -
+   Allowed Access Protocols     nfs4
+   Availability Mode            zonal
+   Bandwidth(Mbps)              1
+   Storage Generation           1
    ```
    {: screen}
 
 1. Run the `ibmcloud is share-update` command to increase the capacity of your file share.
-   
+
    ```sh
    ibmcloud is share-update my-file-share --size 1500
    ```
@@ -164,43 +164,43 @@ To increase the capacity of a file share from the CLI, use the `share-update` co
 
    ```sh
    Updating file share my-file-share under account Test Account as user test.user@ibm.com...
-                                
-   ID                           r006-b696742a-92ee-4f6a-bfd7-921d6ddf8fa6   
-   Name                         my-file-share   
-   CRN                          crn:v1:bluemix:public:is:us-south-2:a/a1234567::share:r006-b696742a-92ee-4f6a-bfd7-921d6ddf8fa6   
-   Lifecycle state              updating   
-   Access control mode          security_group  
-   Accessor binding role        none  
-   Zone                         us-south-2   
-   Profile                      dp2   
-   Size(GB)                     1500   
-   IOPS                         1000   
-   Encryption                   provider_managed   
-   Mount Targets                ID                                          Name      
-                                r006-dd497561-c7c9-4dfb-af0a-c84eeee78b61   my-cli-share-mount-target-1      
-                                   
-   Resource group               ID                                 Name      
-                                db8e8d865a83e0aae03f25a492c5b39e   Default      
-                                
-   Created                      2023-10-18T22:15:15+00:00   
-   Latest job                   Job status   Job status reasons      
-                                succeeded    -      
-                                
-   Replication share            ID                                          Name               Resource type      
-                                r006-6d1719da-f790-45cc-9f68-896fd5673a1a   my-replica-share   share      
-                                
-   Replication role             source   
-   Replication status           active   
-   Replication status reasons   Status code   Status message      
-                                -             -      
+
+   ID                           r006-b696742a-92ee-4f6a-bfd7-921d6ddf8fa6
+   Name                         my-file-share
+   CRN                          crn:v1:bluemix:public:is:us-south-2:a/a1234567::share:r006-b696742a-92ee-4f6a-bfd7-921d6ddf8fa6
+   Lifecycle state              updating
+   Access control mode          security_group
+   Accessor binding role        none
+   Zone                         us-south-2
+   Profile                      dp2
+   Size(GB)                     1500
+   IOPS                         1000
+   Encryption                   provider_managed
+   Mount Targets                ID                                          Name
+                                r006-dd497561-c7c9-4dfb-af0a-c84eeee78b61   my-cli-share-mount-target-1
+
+   Resource group               ID                                 Name
+                                db8e8d865a83e0aae03f25a492c5b39e   Default
+
+   Created                      2023-10-18T22:15:15+00:00
+   Latest job                   Job status   Job status reasons
+                                succeeded    -
+
+   Replication share            ID                                          Name               Resource type
+                                r006-6d1719da-f790-45cc-9f68-896fd5673a1a   my-replica-share   share
+
+   Replication role             source
+   Replication status           active
+   Replication status reasons   Status code   Status message
+                                -             -
 
    Snapshot count               0
-   Snapshot size                0 
+   Snapshot size                0
    Source snapshot              -
-   Allowed Access Protocols     nfs4    
-   Availability Mode            zonal   
-   Bandwidth(Mbps)              1    
-   Storage Generation           1  
+   Allowed Access Protocols     nfs4
+   Availability Mode            zonal
+   Bandwidth(Mbps)              1
+   Storage Generation           1
    ```
    {: screen}
 

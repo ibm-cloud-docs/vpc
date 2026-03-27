@@ -2,7 +2,7 @@
 
 copyright:
   years: 2024, 2026
-lastupdated: "2026-02-20"
+lastupdated: "2026-03-26"
 
 keywords: file share, file storage, accessor share, cross-account share
 
@@ -28,7 +28,7 @@ When the accessor share is created, it is linked to the origin share by an acces
 
 As the accessor, you can't edit the properties of the origin share, and you can't delete the origin share. The accessors can mount the share by creating an accessor share and a mount target to the accessor share. Then, you can access and use the data of the origin share, including the snapshots that might be present.
 
-Sharing a file share with other accounts or services is not supported for file shares with VPC-wide access mode. 
+Sharing a file share with other accounts or services is not supported for file shares with VPC-wide access mode.
 {: note}
 
 ## Transit encryption policy
@@ -128,10 +128,10 @@ Replication status reasons       Status code   Status message
 Snapshot count                   0
 Snapshot size                    0
 Source snapshot                  -
-Allowed Access Protocols         nfs4    
-Availability Mode                zonal   
-Bandwidth(Mbps)                  1    
-Storage Generation               1  
+Allowed Access Protocols         nfs4
+Availability Mode                zonal
+Bandwidth(Mbps)                  1
+Storage Generation               1
 ```
 {: screen}
 
@@ -160,19 +160,19 @@ ibmcloud is share-mount-target-create my-accessor-share --subnet my-subnet --nam
 Mounting target for share r006-b696742a-92ee-4f6a-bfd7-921d6ddf8fa6 under account Test Account as user test.user@ibm.com...
 
 ID                          r006-dd497561-c7c9-4dfb-af0a-c84eeee78b61
-Name                        my-cli-share-mount-target-1  
-VPC                         ID                                          Name      
-                            r006-912b5ac5-4ed1-4b2a-8f09-5fd8d79f6042   my-vpc      
-                               
-Access control mode         security_group   
-Resource type               share_mount_target   
-Virtual network interface   ID                                          Name             Protocol State Filtering Mode      
-                            0727-709ccc60-0c43-45cb-87b6-7ea1e37ef423   my-share-vni-1   auto      
-                               
-Lifecycle state             stable   
-Mount path                  10.240.64.5:/2be3efe6_6dff_46ea_9cec_b397f3141faf   
-Transit Encryption          none   
-Created                     2024-09-16T21:27:09+00:00   
+Name                        my-cli-share-mount-target-1
+VPC                         ID                                          Name
+                            r006-912b5ac5-4ed1-4b2a-8f09-5fd8d79f6042   my-vpc
+
+Access control mode         security_group
+Resource type               share_mount_target
+Virtual network interface   ID                                          Name             Protocol State Filtering Mode
+                            0727-709ccc60-0c43-45cb-87b6-7ea1e37ef423   my-share-vni-1   auto
+
+Lifecycle state             stable
+Mount path                  10.240.64.5:/2be3efe6_6dff_46ea_9cec_b397f3141faf
+Transit Encryption          none
+Created                     2024-09-16T21:27:09+00:00
 ```
 {: screen}
 
@@ -223,11 +223,11 @@ Replication status reasons       Status code   Status message
                                  -             -
 Snapshot count                   0
 Snapshot size                    0
-Source snapshot                  - 
-Allowed Access Protocols         nfs4    
-Availability Mode                zonal   
-Bandwidth(Mbps)                  1    
-Storage Generation               1  
+Source snapshot                  -
+Allowed Access Protocols         nfs4
+Availability Mode                zonal
+Bandwidth(Mbps)                  1
+Storage Generation               1
 ```
 {: screen}
 
@@ -384,7 +384,7 @@ resource "ibm_is_share_mount_target" "zonal-mount-target-with-vni" {
           auto_delete   = true
           name          = "my-example-pip"
          }
-     }    
+     }
    }
 ```
 {: codeblock}
