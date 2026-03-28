@@ -1175,6 +1175,8 @@ toc:
               topics:
               - vpn-ts-unable-establish-connection.md
               - vpn-ts-traffic-not-getting-through.md
+              - vpn-ts-multi-cidr-oneway-traffic.md
+              - vpn-ts-duplicate-ike-sa.md
               - vpn-ts-unstable-connection.md
               - vpn-ts-vpn-tunnel-fails.md
               - vpn-ts-vpn-tunnel-peer-initiated-only.md
