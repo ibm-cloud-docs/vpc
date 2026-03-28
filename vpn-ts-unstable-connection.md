@@ -2,7 +2,7 @@
 
 copyright:
   years: 2018, 2026
-lastupdated: "2026-03-27"
+lastupdated: "2026-03-28"
 
 keywords: virtual private network, VPN, VPN gateway, troubleshooting
 
@@ -40,7 +40,7 @@ An unstable VPN connection is caused by IPsec rekey failures between the IBM Clo
 Follow these steps to resolve VPN instability that is caused by rekey or negotiation issues:
 {: tsResolve}
 
-1. Verify that NAT-Traversal is enabled on the peer, if it is a configurable option. Allow UDP ports `500` and `4500` on firewalls and ACLs.
+1. Verify that NAT-Traversal is enabled on the peer, if it is a configurable option. Allow UDP ports `500` and `4500` on firewalls and ACLs. This setting allows IPsec traffic to pass through devices that perform network address translation by encapsulating IPsec packets over UDP. If NAT-T is disabled and a NAT device exists between peers, tunnel establishment or bidirectional traffic initiation can fail.
 1. To avoid simultaneous rekeying, configure rekey timers so that only one side consistently initiates the rekey.
 
    If you're using IKEv2, configure your peer device's Phase 1 (IKE) and Phase 2 (IPsec) lifetime shorter than IBM Cloud lifetime. This action can make the peer more likely to initiate the rekeying first.
