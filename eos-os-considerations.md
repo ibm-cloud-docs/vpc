@@ -2,7 +2,7 @@
 
 copyright:
   years: 2023, 2026
-lastupdated: "2026-03-25"
+lastupdated: "2026-03-30"
 
 keywords:
 
@@ -147,7 +147,7 @@ To migrate workloads from CentOS, you can switch to a compatible OS distribution
 ### Ubuntu 20.04
 {: #ubuntu-20-eos}
 
-Ubuntu 20.04 EOS date is 31 May 2025. Support for this software discontinues on 31 May 2025. After deprecation, you can't download the software. For existing customers, upgrade to the most recent version. For more information, see the [Ubuntu documentation](https://ubuntu.com/20-04){external}.
+Ubuntu 20.04 EOS date is 31 May 2025. Support for this software discontinues on 31 May 2025. After deprecation, you can't download the software. For existing customers, upgrade to the most recent version. For more information, see the [Ubuntu documentation](https://ubuntu.com/20-04){: external}.
 
 ### Debian 11
 {: #debian-11-eos}
