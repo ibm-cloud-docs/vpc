@@ -2,9 +2,9 @@
 
 copyright:
   years: 2018, 2026
-lastupdated: "2026-03-02"
+lastupdated: "2026-03-30"
 
-keywords: listener, pool, round-robin, weighted, layer 7, datapath logging, http2, websocket
+keywords: application, load balancer, application, public, private, listener, back-end, front-end, pool, round-robin, weighted, layer 7, datapath logging, http2, websocket
 
 subcollection: vpc
 
@@ -121,6 +121,17 @@ Listener | The HTTPS listener to which a request redirects.
 HTTP status code | The status code of the response returned by the application load balancer. The acceptable values are: `301`, `302`, `303`, `307`, or `308`.
 URI | The relative URI to which a request redirects. This property is optional.
 {: caption="HTTPS redirect listener properties" caption-side="bottom"}
+
+### Back-end pool failsafe policies
+{: #alb-back-end-pool-failsafe-policies}
+
+When editing a back-end pool in a load balancer, you can specify one of the following failsafe policy actions:
+
+* **Forward:** - The load balancer routes requests to a designated backup pool. This provides a clean failover path to another set of application servers. You must have an existing backup pool configured and ready to receive traffic.
+* **Drop:** -  The load balancer drops all incoming requests, and the client receives no response.
+* **Fail:** - The load balancer rejects requests with an HTTP 503 ("Service Unavailable") status code, informing the client that the service is temporarily down.
+
+Only application load balancers allow you to associate more than one pool with a single listener. Ensure that there is at least one pool that already exists in the load balancer.
 
 ## Elasticity
 {: #alb-elasticity}

@@ -2,7 +2,7 @@
 
 copyright:
   years: 2021, 2026
-lastupdated: "2026-03-18"
+lastupdated: "2026-03-30"
 
 keywords:
 
@@ -67,6 +67,10 @@ To create an ALB:
        * **Max retries**: Maximum number of health check attempts that the load balancer makes before an instance is declared unhealthy. By default, an instance is no longer considered healthy after two failed health checks.
 
        Although the load balancer stops sending connections to unhealthy instances, the load balancer continues monitoring the health of these instances and resumes their use if they're found healthy again (that is, if they successfully pass two consecutive health check attempts).
+       
+       HTTP sends data as plain text that can be intercepted and is considered insecure. It is recommended to choose protocol as `https` instead of `http`.
+       For more details see: https://www.cloudflare.com/learning/ssl/why-is-http-not-secure/
+       {: note}
 
        If instances in the pool are unhealthy and you believe that your application is running fine, double check the health protocol and health path values. Also, check any security groups that are attached to the instances to ensure that the rules allow traffic between the load balancer and the instances.
        {: tip}
@@ -119,11 +123,8 @@ To create an ALB:
 
 1. After you finish creating pools and listeners, click **Create load balancer**.
 1. To view details of an existing load balancer, click the name of your load balancer on the **Load balancers** page.
-1. Optionally, you can create a backup for any of your existing pools. This allows the backup pool to manage traffic in the case of a member failure. To do so, you will need to create a failsafe policy:
-
-   There should be at least one pool already existing in the load balancer.
-   {: note}
-
+1. Optionally, you can create a backup for any of your existing pools. This allows the backup pool to manage traffic in the case of a member failure. To do so, you must create a failsafe policy:
+     
    * After the status of your load balancer changes to **Active**, select the **Back-end pools** tab.
    * In the pools list page, click **Edit**, then specify the following information:
       * **Action**: Select **forward** in order to create a backup pool. This makes the **Target** section active.

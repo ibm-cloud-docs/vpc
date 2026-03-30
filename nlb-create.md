@@ -1,8 +1,8 @@
 ---
 
 copyright:
-  years: 2020, 2025
-lastupdated: "2025-11-07"
+  years: 2020, 2026
+lastupdated: "2026-03-30"
 
 keywords: network load balancer, public, listener, pool, round-robin
 
@@ -93,7 +93,7 @@ To create and configure a network load balancer in the {{site.data.keyword.cloud
       You can attach server instances after you create your back-end pool.
       {: note}
 
-1. Optionally, you can create a backup for any of your existing pools. This allows the backup pool to manage traffic in the case of a member failure. To do so, you will need to create a failsafe policy:
+1. Optionally, you can create a backup for any of your existing pools. This allows the backup pool to manage traffic in the case of a member failure. To do so, you must create a failsafe policy:
 
     Your load balancer must have at least one pool in order to assign a backup pool.
     {: note}

@@ -2,9 +2,9 @@
 
 copyright:
   years: 2020, 2026
-lastupdated: "2026-03-16"
+lastupdated: "2026-03-30"
 
-keywords: load balancer, public, listener, back-end, front-end, pool, round-robin, weighted, connections, methods, policies, APIs, access, ports
+keywords: network load balancer, public, private, listener, back-end, front-end, pool, round-robin, weighted, connections, layer 4, methods, policies, APIs, access, ports, zonal
 
 subcollection: vpc
 
@@ -87,40 +87,16 @@ Front-end listeners are application ports for load balancers to receive incoming
 
 You can attach up to 50 virtual server instances to a back-end pool. Traffic is sent to each instance on its specified data port. This data port does not need to be the same as the front-end listener port.
 
-### Back-end pool failsafe policies 
+### Back-end pool failsafe policies
 {: #nlb-back-end-pool-failsafe-policies}
 
-When editing a back-end pool in a load balancer, you can specify one of the following failsafe policy actions: 
+When editing a back-end pool in a load balancer, you can specify one of the following failsafe policy actions:
 
-You can add failsafe policies after provisioning a load balancer. To add failsafe policies:
+* **Forward:** - The load balancer routes requests to a designated backup pool. This provides a clean failover path to another set of application servers. You must have an existing backup pool configured and ready to receive traffic.
+* **Bypass:** - The load balancer sends requests directly to the member's destination IP addresses, bypassing the load balancer completely. This option is typically used in specific networking setups, such as with Network Load Balancers and virtual network function (VNF) devices.
+* **Drop:** -  The load balancer drops all incoming requests, and the client receives no response.
 
-1. Log in to the [{{site.data.keyword.cloud_notm}} console](/login){: external}.
-1. Select the **Navigation menu** ![Menu icon](../icons/icon_hamburger.svg), then click **Infrastructure** ![VPC icon](../../icons/vpc.svg) > **Network** > **Load balancers** from the Network section.
-1. Select the Region of your load balancer.
-1. Select the load balancer that you want to update.
-1. Select **Back-end pools**. When you create or edit a pool, you can specify or update a failsafe policy. 
-
-When editing a back-end pool in a load balancer, you can specify one of the following failsafe policy actions: 
-
-* **Forward:** - The load balancer forwards requests to the target pool. If specified, the pool protocol must be http or https.
-* **Bypass:** - The load balancer bypasses the members and sends requests directly to their destination IPs. If specified, this load balancer must have route_mode enabled.
-* **Drop:** -  The load balancer drops all incoming requests, and the client receives no response. If specified, the pool protocol must be tcp.
-* **Fail:** - The load balancer fails requests with an HTTP 503 status code. If specified, the pool protocol must be http or https.
-
-The following failsafe actions are available depending on the protocol of the pool: 
-
-- **HTTP or HTTPS** : fail, foward
-- **TCP or UDP** : drop, forward, bypass (only if LB is a private NLB with routing mode enabled)
-
-You can choose a failsafe target from a list of applicable backup pools:
-
-* **Target:** - The failsafe target pool to forward to. The specified pool must:
-
-   * Belong to te same load balancer as this pool
-   * Have the same protocol as this pool, or have a compatible protocol. At present, the compatible protocols are http and https
-   * Not be a backup pool for another pool
-   * Not have a failsafe_policy.action of forward or bypass
-   * If specified, action must be forward
+You can choose a failsafe target from a list of applicable backup pools.
 
 ## Maximum connections
 {: #nlb-maximum-connections}
