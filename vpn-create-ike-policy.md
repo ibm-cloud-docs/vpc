@@ -1,8 +1,8 @@
 ---
 
 copyright:
-  years: 2021, 2025
-lastupdated: "2025-10-21"
+  years: 2021, 2026
+lastupdated: "2026-03-30"
 
 keywords: ike policy
 
@@ -129,6 +129,8 @@ To create an IKE policy with the API, follow these steps:
          }'
    ```
    {: codeblock}
+
+To view the complete set of APIs for site-to-site VPN gateways, see the [VPC API reference](/apidocs/vpc/latest#create-ike-policy).
 
 ## Creating an IKE policy by using Terraform
 {: #vpn-using-terraform-create-ike-policy}

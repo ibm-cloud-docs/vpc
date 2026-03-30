@@ -2,7 +2,7 @@
 
 copyright:
   years: 2019, 2026
-lastupdated: "2026-03-24"
+lastupdated: "2026-03-30"
 
 keywords:
 subcollection: vpc
@@ -364,6 +364,8 @@ To create a VPN gateway with the API, follow these steps:
         -H "Authorization: Bearer $iam_token"
    ```
    {: codeblock}
+
+To view the complete set of APIs for site-to-site VPN gateways, see the [VPC API reference](/apidocs/vpc/latest#create-vpn-gateway).
 
 ## Creating a VPN gateway with Terraform
 {: #vpn-create-terraform}

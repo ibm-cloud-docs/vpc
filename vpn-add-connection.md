@@ -2,7 +2,7 @@
 
 copyright:
   years: 2020, 2026
-lastupdated: "2026-03-24"
+lastupdated: "2026-03-30"
 
 keywords:
 
@@ -641,6 +641,8 @@ This API is only supported by policy mode VPN gateways.
         -H "Authorization: $iam_token"
    ```
    {: codeblock}
+
+To view the complete set of APIs for site-to-site VPN gateways, see the [VPC API reference](/apidocs/vpc/latest#create-vpn-gateway-connection).
 
 ## Adding a connection by using Terraform
 {: #vpn-using-cli-add-terraform}
