@@ -942,9 +942,9 @@ The following dependencies apply to the following deployment locations: Dallas (
 | IBM Cloud Virtual Server for VPC | Availability, Change management, Disaster recovery, Instance control, Security compliance | No | data-plane |  Same zone  |
 | {{site.data.keyword.block_storage_is_full}} | Availability, Change management, Disaster recovery, Instance control, Security compliance | No | data-plane |  Same zone  |
 | IBM Cloud File Storage for Virtual Private Cloud | Availability, Change management, Disaster recovery, Instance control, Security compliance | No | data-plane |  Same zone  |
-| {{site.data.keyword.cos_full}} | Availability, Change management, Disaster recovery, Instance control, Security compliance | No | data-plane |  [Global](/docs/resiliency?topic=resiliency-ha-redundancy#global-platform)  |
+| {{site.data.keyword.cos_full}} | Availability, Change management, Disaster recovery, Instance control, Security compliance | No | data-plane |  us-south  |
 | {{site.data.keyword.messagehub_full}} | Availability, Change management, Disaster recovery, Instance control, Security compliance | No | data-plane |  Same region  |
-| {{site.data.keyword.iamlong}} | Availability, Change management, Instance control, Security compliance | No | data-plane |  [Global](/docs/resiliency?topic=resiliency-ha-redundancy#global-platform)  |
+| {{site.data.keyword.iamlong}} | Access management, Availability, Change management, Instance control, Security compliance | No | data-plane |  [Global](/docs/resiliency?topic=resiliency-ha-redundancy#global-platform)  |
 | IBM Cloud Classic DNS Servers | Availability, Change management, Instance control | No | data-plane |  Same data center  |
 {: row-headers}
 {: caption="IBM Cloud VPN for VPC Client to Site Server - Data plane deployment service dependency information - Critical dependencies" caption-side="top"}
@@ -957,13 +957,41 @@ The following dependencies apply to the following deployment locations: Dallas (
 |Dependencies|Dependency impacts|Customer provided|Control or data plane|Location of dependency|
 |:---|:---|:---|:---|:---|
 | {{site.data.keyword.secrets-manager_full}} | Availability, Change management, Disaster recovery, Instance control, Security compliance | No | data-plane |  Same region  |
+| IBM Cloud Business Support Services | Availability, Instance control | No | data-plane |  [Global](/docs/resiliency?topic=resiliency-ha-redundancy#global-platform)  |
 | IBM Cloud Global Resource Catalog | Availability, Change management, Instance control | No | data-plane |  [Global](/docs/resiliency?topic=resiliency-ha-redundancy#global-platform)  |
+| IBM Log Analysis Log Routing | Access management, Availability, Instance control, Operations, Security compliance | No | data-plane |  Same region  |
 {: row-headers}
 {: caption="IBM Cloud VPN for VPC Client to Site Server - Data plane deployment service dependency information - Significant dependencies" caption-side="top"}
 {: tab-title="Significant dependencies"}
 {: tab-group="service-dependency-data-for-is-vpn-server-Data-plane-deployment"}
 {: class="comparison-tab-table"}
 {: #significant-service-dependencies-for-is-vpn-server-Data-plane-deployment}
+{: summary="Use the buttons for the dependency level to change the context of the table. This table has row and column headers. The row headers detail the specific dependent service. The column headers identify the details about the dependency and its impact. To understand the details about each dependency, navigate to the row to find the dependency that you need more information about interested in."}
+
+|Dependencies|Dependency impacts|Customer provided|Control or data plane|Location of dependency|
+|:---|:---|:---|:---|:---|
+| {{site.data.keyword.atracker_full}}| Change management, Operations, Security compliance | No | data-plane |  Same region  |
+{: row-headers}
+{: caption="IBM Cloud VPN for VPC Client to Site Server - Data plane deployment service dependency information - Medium dependencies" caption-side="top"}
+{: tab-title="Medium dependencies"}
+{: tab-group="service-dependency-data-for-is-vpn-server-Data-plane-deployment"}
+{: class="comparison-tab-table"}
+{: #medium-service-dependencies-for-is-vpn-server-Data-plane-deployment}
+{: summary="Use the buttons for the dependency level to change the context of the table. This table has row and column headers. The row headers detail the specific dependent service. The column headers identify the details about the dependency and its impact. To understand the details about each dependency, navigate to the row to find the dependency that you need more information about interested in."}
+
+|Dependencies|Dependency impacts|Customer provided|Control or data plane|Location of dependency|
+|:---|:---|:---|:---|:---|
+| IBM Cloud VPN for VPC Client to Site Server| none | Yes | data-plane |  Customer selected  |
+| IBM Cloud Classic NTP Servers| Operations | No | data-plane |  Same data center  |
+| None| Security compliance | No | data-plane |  [Global](/docs/resiliency?topic=resiliency-ha-redundancy#global-platform)  |
+| SOS Compliance Reporting| none | No | data-plane |  [Global](/docs/resiliency?topic=resiliency-ha-redundancy#global-platform)  |
+| None| Security compliance | No | data-plane |  [Global](/docs/resiliency?topic=resiliency-ha-redundancy#global-platform)  |
+{: row-headers}
+{: caption="IBM Cloud VPN for VPC Client to Site Server - Data plane deployment service dependency information - Minimal dependencies" caption-side="top"}
+{: tab-title="Minimal dependencies"}
+{: tab-group="service-dependency-data-for-is-vpn-server-Data-plane-deployment"}
+{: class="comparison-tab-table"}
+{: #minimal-service-dependencies-for-is-vpn-server-Data-plane-deployment}
 {: summary="Use the buttons for the dependency level to change the context of the table. This table has row and column headers. The row headers detail the specific dependent service. The column headers identify the details about the dependency and its impact. To understand the details about each dependency, navigate to the row to find the dependency that you need more information about interested in."}
 
 ## Control plane deployment
@@ -977,9 +1005,11 @@ The following dependencies apply to the following deployment locations: Dallas (
 | {{site.data.keyword.cis_full}} | Availability, Change management, Disaster recovery, Instance control, Security compliance | No | control-plane |  Same region  |
 | {{site.data.keyword.vpc_full}} | Availability, Change management, Disaster recovery, Instance control, Security compliance | No | control-plane |  Same zone  |
 | IBM Cloud File Storage for Virtual Private Cloud | Availability, Change management, Disaster recovery, Instance control, Security compliance | No | control-plane |  Same zone  |
-| {{site.data.keyword.cos_full}} | Availability, Change management, Disaster recovery, Instance control, Security compliance | No | control-plane |  [Global](/docs/resiliency?topic=resiliency-ha-redundancy#global-platform)  |
+| IBM Cloud Kubernetes Service and Red Hat OpenShift on IBM Cloud | Availability, Change management, Disaster recovery, Instance control, Security compliance | No | control-plane |  Same region  |
+| {{site.data.keyword.cos_full}} | Availability, Change management, Disaster recovery, Instance control, Security compliance | No | control-plane |  us-south  |
 | {{site.data.keyword.messagehub_full}} | Availability, Change management, Disaster recovery, Instance control, Security compliance | No | control-plane |  Same region  |
-| {{site.data.keyword.iamlong}} | Availability, Change management, Instance control, Security compliance | No | control-plane |  [Global](/docs/resiliency?topic=resiliency-ha-redundancy#global-platform)  |
+| {{site.data.keyword.iamlong}} | Access management, Availability, Change management, Instance control, Security compliance | No | control-plane |  [Global](/docs/resiliency?topic=resiliency-ha-redundancy#global-platform)  |
+| VPC Regional Infrastructure API Service | Availability, Change management, Disaster recovery, Instance control | No | control-plane |  Same region  |
 | IBM Cloud Classic DNS Servers | Availability, Change management, Instance control | No | control-plane |  Same data center  |
 {: row-headers}
 {: caption="IBM Cloud VPN for VPC Client to Site Server - Control plane deployment service dependency information - Critical dependencies" caption-side="top"}
@@ -992,13 +1022,53 @@ The following dependencies apply to the following deployment locations: Dallas (
 |Dependencies|Dependency impacts|Customer provided|Control or data plane|Location of dependency|
 |:---|:---|:---|:---|:---|
 | {{site.data.keyword.secrets-manager_full}} | Availability, Change management, Disaster recovery, Instance control, Security compliance | No | control-plane |  Same region  |
+| IBM Cloud Business Support Services | Availability, Instance control | No | control-plane |  [Global](/docs/resiliency?topic=resiliency-ha-redundancy#global-platform)  |
 | IBM Cloud Global Resource Catalog | Availability, Change management, Instance control | No | control-plane |  [Global](/docs/resiliency?topic=resiliency-ha-redundancy#global-platform)  |
+| Let's Encrypt | Availability, Change management | No | control-plane |  [Global](/docs/resiliency?topic=resiliency-ha-redundancy#global-platform)  |
+| IBM Cloud Global Search and Tagging | Availability, Instance control | No | control-plane |  [Global](/docs/resiliency?topic=resiliency-ha-redundancy#global-platform)  |
+| OSS Platform | Availability, Operations | No | control-plane |  [Global](/docs/resiliency?topic=resiliency-ha-redundancy#global-platform)  |
+| {{site.data.keyword.pag_full}} | Access management, Availability, Instance control, Operations, Security compliance | No | control-plane |  ibm-intranet  |
+| IBM Log Analysis Log Routing | Access management, Availability, Instance control, Operations, Security compliance | No | control-plane |  Same region  |
+| IBM Cloud Console | Availability, Instance control, Operations | No | control-plane |  [Global](/docs/resiliency?topic=resiliency-ha-redundancy#global-platform)  |
 {: row-headers}
 {: caption="IBM Cloud VPN for VPC Client to Site Server - Control plane deployment service dependency information - Significant dependencies" caption-side="top"}
 {: tab-title="Significant dependencies"}
 {: tab-group="service-dependency-data-for-is-vpn-server-Control-plane-deployment"}
 {: class="comparison-tab-table"}
 {: #significant-service-dependencies-for-is-vpn-server-Control-plane-deployment}
+{: summary="Use the buttons for the dependency level to change the context of the table. This table has row and column headers. The row headers detail the specific dependent service. The column headers identify the details about the dependency and its impact. To understand the details about each dependency, navigate to the row to find the dependency that you need more information about interested in."}
+
+|Dependencies|Dependency impacts|Customer provided|Control or data plane|Location of dependency|
+|:---|:---|:---|:---|:---|
+| TaaS Jenkins| Change management, configuration-management, Operations | No | control-plane |  [Global](/docs/resiliency?topic=resiliency-ha-redundancy#global-platform)  |
+| {{site.data.keyword.atracker_full}}| Change management, Operations, Security compliance | No | control-plane |  Same region  |
+{: row-headers}
+{: caption="IBM Cloud VPN for VPC Client to Site Server - Control plane deployment service dependency information - Medium dependencies" caption-side="top"}
+{: tab-title="Medium dependencies"}
+{: tab-group="service-dependency-data-for-is-vpn-server-Control-plane-deployment"}
+{: class="comparison-tab-table"}
+{: #medium-service-dependencies-for-is-vpn-server-Control-plane-deployment}
+{: summary="Use the buttons for the dependency level to change the context of the table. This table has row and column headers. The row headers detail the specific dependent service. The column headers identify the details about the dependency and its impact. To understand the details about each dependency, navigate to the row to find the dependency that you need more information about interested in."}
+
+|Dependencies|Dependency impacts|Customer provided|Control or data plane|Location of dependency|
+|:---|:---|:---|:---|:---|
+| {{site.data.keyword.metrics_router_full}}| Operations | No | control-plane |  Same region  |
+| AccessHub| Access management, Operations, Security compliance | No | control-plane |  [Global](/docs/resiliency?topic=resiliency-ha-redundancy#global-platform)  |
+| PagerDuty| Operations | No | control-plane |  [Global](/docs/resiliency?topic=resiliency-ha-redundancy#global-platform)  |
+| Slack| Operations | No | control-plane |  [Global](/docs/resiliency?topic=resiliency-ha-redundancy#global-platform)  |
+| IBM Cloud Business Support Services| none | No | control-plane |  [Global](/docs/resiliency?topic=resiliency-ha-redundancy#global-platform)  |
+| SOS Compliance Reporting| none | No | control-plane |  [Global](/docs/resiliency?topic=resiliency-ha-redundancy#global-platform)  |
+| IBM Cloud Service Endpoints| none | No | control-plane |  ibm-intranet  |
+| VPC Regional Infrastructure API Service| none | No | control-plane |  Same region  |
+| IBM Cloud Classic NTP Servers| Operations | No | control-plane |  Same data center  |
+| None| Security compliance | No | control-plane |  [Global](/docs/resiliency?topic=resiliency-ha-redundancy#global-platform)  |
+| None| Security compliance | No | control-plane |  [Global](/docs/resiliency?topic=resiliency-ha-redundancy#global-platform)  |
+{: row-headers}
+{: caption="IBM Cloud VPN for VPC Client to Site Server - Control plane deployment service dependency information - Minimal dependencies" caption-side="top"}
+{: tab-title="Minimal dependencies"}
+{: tab-group="service-dependency-data-for-is-vpn-server-Control-plane-deployment"}
+{: class="comparison-tab-table"}
+{: #minimal-service-dependencies-for-is-vpn-server-Control-plane-deployment}
 {: summary="Use the buttons for the dependency level to change the context of the table. This table has row and column headers. The row headers detail the specific dependent service. The column headers identify the details about the dependency and its impact. To understand the details about each dependency, navigate to the row to find the dependency that you need more information about interested in."}
 
 ## IBM Cloud Load Balancer for VPC

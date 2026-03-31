@@ -2,7 +2,7 @@
 
 copyright:
  years: 2022, 2026
-lastupdated: "2026-03-16"
+lastupdated: "2026-03-31"
 
 keywords: Backup, backup service, backup plan, backup policy, restore, restore volume, restore data
 
@@ -192,7 +192,7 @@ For more information, see [Restoring a volume from a backup snapshot](/docs/vpc?
 
 You can copy a Block storage backup from one region to another region, and later use that snapshot to restore a volume in the new region. You can use and manage the cross-regional snapshot in the target region independently from the parent volume or the original snapshot.
 
-Currently, cross-regional copy of block storage snapshots is not supported in the Chennai - Airtel region. It can't be selected as a source or target region.
+Currently, cross-regional copy of block storage snapshots is not supported in the Chennai - Airtel and Mumbai - Airtel regions. They can't be selected as a source or target region.
 {: restriction}
 
 If the source snapshot is not encrypted with a customer key, the encryption of the copy remains provider-managed. If the source snapshot is protected by a customer-managed key, you must specify the customer-managed key that you want to use to encrypt the new copy in the target region.
