@@ -975,6 +975,18 @@ toc:
               - nlb-faqs.md
           - faq-private-path.md
           - faq-par.md
+          - topicgroup:
+              id: faq-stock-images
+              label: FAQ for stock images
+              topics:
+              - centos-stream-stock-images-faq.md
+              - debian-stock-images-faq.md
+              - fedora-coreos-stock-images-faq.md
+              - rhel-stock-images-faq.md
+              - rocky-linux-stock-images-faq.md
+              - sles-stock-images-faq.md
+              - ubuntu-stock-images-faq.md
+              - windows-server-stock-images-faq.md
           - vni-faq.md
           - vpe-faqs.md
           - topicgroup:

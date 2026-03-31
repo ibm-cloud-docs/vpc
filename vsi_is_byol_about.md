@@ -5,6 +5,7 @@ copyright:
 lastupdated: "2026-03-31"
 
 keywords: license, virtual private cloud, BYOL, virtual server instance, instance, custom image, encryption, RHEL, SUSE
+
 subcollection: vpc
 
 ---
@@ -14,7 +15,7 @@ subcollection: vpc
 # Bring your own license
 {: #byol-vpc-about}
 
-For Red Hat Enterprise Linux&reg;, SUSE Linux Enterprise Server, and Windows operating systems, you can bring your own license (BYOL) to the {{site.data.keyword.cloud}} VPC when you import a custom image. These images are registered and licensed by you. You maintain control over your license and incur no additional costs by using your license. Acquisition and activation of the license is between you and the OS vendor.
+For Red Hat&reg; Enterprise Linux&reg;, SUSE Linux Enterprise Server, and Windows operating systems, you can bring your own license (BYOL) to the {{site.data.keyword.cloud}} VPC when you import a custom image. These images are registered and licensed by you. You maintain control over your license and incur no additional costs by using your license. Acquisition and activation of the license is between you and the OS vendor.
 {: shortdesc}
 
 ## BYOL concepts
@@ -66,8 +67,8 @@ To see all of the operating system versions from the API, make a `GET /operating
 
 ```json
 {
-    ... 
-    "48": { 
+    ...
+    "48": {
         "id": "jp-tok~sles-15-x86-byol",
         "name": "sles-15-x86-byol",
         "family": "SUSE Linux Enterprise Server",
