@@ -2,7 +2,7 @@
 
 copyright:
   years: 2019, 2026
-lastupdated: "2026-03-24"
+lastupdated: "2026-03-31"
 
 subcollection: vpc
 
@@ -26,7 +26,6 @@ The following operating systems are available as stock images when you create a 
 
 | Image | Architectures |
 |---------|---------|
-| CentOS 7.x | x86-64 |
 | CentOS Stream 9.x, 10.x | x86-64 |
 | Debian 11.x, 12.x, 13.x | x86-64 |
 | Fedora Core OS | x86-64 |
@@ -36,13 +35,13 @@ The following operating systems are available as stock images when you create a 
 | RHEL AI 1.x for AMD| x86-64 |
 | RHEL AI 1.x for Intel | x86-64 |
 | Rocky Linux 8.x, 9.x, 10.x | x86-64 |
-| SUSE Linux Enterprise Server 12.x, 15.x, 16.x | x86-64 |
-| SUSE Linux Enterprise Server for SAP 12.x, 15.x | x86-64 |
-| Ubuntu 20.04.x, 22.04.x, 24.04.x | x86-64 |
+| SUSE Linux Enterprise Server 15.x, 16.x | x86-64 |
+| SUSE Linux Enterprise Server for SAP 15.x | x86-64 |
+| Ubuntu 22.04.x, 24.04.x | x86-64 |
 | Windows 2016, 2019, 2022, 2025 | x86-64 |
 {: caption="Supported x86_64 stock image operating systems" caption-side="top"}
 
-For more information about support for Red Hat, see [FAQs about Red Hat and IBM Cloud® infrastructure](/docs/infrastructure-hub?topic=infrastructure-hub-faqs-for-red-hat-ibm-cloud).
+For more information about {{site.data.keyword.cloud_notm}} VPC stock image support, see [FAQs for stock images](/docs/vpc?group=faq-stock-images).
 
 When you select an RHEL AI 1.x image, make sure that you are using the correct RHEL AI image for the instance profile you chose. For more information about the GPU profiles you can use with RHEL AI images, see [Accelerated instance profiles - Gen 3](/docs/vpc?topic=vpc-accelerated-profile-family). For information about RHEL AI, including information such as the supported use cases for RHEL AI, see [Red Hat Enterprise Linux AI](https://docs.redhat.com/en/documentation/red_hat_enterprise_linux_ai/1.5){: external}.
 {: note}
