@@ -2,7 +2,7 @@
 
 copyright:
   years: 2019, 2026
-lastupdated: "2026-03-26"
+lastupdated: "2026-03-31"
 
 keywords:
 
@@ -25,7 +25,7 @@ For more information about changes to the {{site.data.keyword.vpc_short}} API, s
 For more information about changes to the {{site.data.keyword.vpc_short}} command-line interface (CLI), see [{{site.data.keyword.vpc_short}} CLI release notes](/docs/vpc?topic=vpc-vpc-cli-rn).
 
 ## March 2026
-{: #vpc-mar26}
+{: #vpc-mar26}.
 
 ### 25 March 2026
 {: #vpc-mar2526}
@@ -46,7 +46,7 @@ Migrating block storage volume (GA)
 {: release-note}
 
 Dedicated {{site.data.keyword.keymanagementserviceshort}} (Select availability)
-:   {{site.data.keyword.keymanagementservicefull}} now offers two deployment options to meet different security and compliance requirements: Standard (multi-tenant) and Dedicated (single-tenant). Both versions provide full-service encryption solutions that allow data to be secured and stored in {{site.data.keyword.cloud_notm}} by using envelope encryption techniques and cloud-based hardware security modules. The new Dedicated instance is a single-tenant deployment that offers full control of keys (master key and root keys) and confidential computing. As a VPC customer, you can use the encryption keys that are stored in the Dedicated instance to encrypt your block storage volumes, file shares, snapshots, and custom images. For more information, see [Securing your data in VPC](/docs/vpc?topic=vpc-mng-data) and [About Standard and Dedicated {{site.data.keyword.keymanagementserviceshort}}](/docs/key-protect?topic=key-protect-about).
+:   {{site.data.keyword.keymanagementservicefull}} now offers two deployment options to meet different security and compliance requirements: Standard (multi-tenant) and Dedicated (single-tenant). Both versions provide full-service encryption solutions that allow data to be secured and stored in {{site.data.keyword.cloud_notm}} by using envelope encryption techniques and cloud-based hardware security modules. The new Dedicated instance is a single-tenant deployment that offers full control of keys (master key and root keys) and confidential computing. As a VPC customer, you can use the encryption keys that are stored in the Dedicated instance to encrypt your block storage volumes, file shares, snapshots, and custom images. For more information, see [Securing your data in VPC](/docs/vpc?topic=vpc-mng-data) and [About Standard and Dedicated {{site.data.keyword.keymanagementserviceshort}}](/docs/key-protect?topic=key-protect-about)
 
 ### 17 March 2026
 {: #vpc-mar1726}
