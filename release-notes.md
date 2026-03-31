@@ -27,6 +27,9 @@ For more information about changes to the {{site.data.keyword.vpc_short}} comman
 ## March 2026
 {: #vpc-mar26}.
 
+Storage dense x2de and x3de profiles for Bare Metal on VPC (select availability)
+:   The storage dense profiles x2de and x3de for Bare Metal on VPC are now available in the Dallas (us-south) and Frankfurt (eu-de) regions. These storage-rich profiles minimize the required servers for a solution and remove the reliance on slower and more expensive network storage. For more information, see [x86-64 bare metal server profiles](/docs/vpc?topic=vpc-bare-metal-servers-profile&interface=ui#bare-metal-balanced-profiles-x3).
+
 ### 25 March 2026
 {: #vpc-mar2526}
 {: release-note}
@@ -119,6 +122,9 @@ Service deprecation: IBM Cloud LinuxONE and Hyper Protect Virtual Server offerin
    The End of Service (EOS) date is 20 February 2027, on which IBM will terminate all active instances.
 
    For more information, see the [Service deprecation announcement](/docs/vpc?topic=vpc-ichpcs_deprecated_anmt).
+
+Storage dense x2de and x3de profiles for Bare Metal on VPC (select availability)
+:   The storage dense profiles x2de and x3de for Bare Metal on VPC are now available in the Dallas (us-south) and Frankfurt (eu-de) regions. These storage-rich profiles minimize the required servers for a solution and remove the reliance on slower and more expensive network storage. For more information, see [x86-64 bare metal server profiles](/docs/vpc?topic=vpc-bare-metal-servers-profile&interface=ui#bare-metal-balanced-profiles-x3).
 
 ### 12 February 2026
 {: #vpc-feb1226}
