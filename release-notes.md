@@ -25,7 +25,11 @@ For more information about changes to the {{site.data.keyword.vpc_short}} API, s
 For more information about changes to the {{site.data.keyword.vpc_short}} command-line interface (CLI), see [{{site.data.keyword.vpc_short}} CLI release notes](/docs/vpc?topic=vpc-vpc-cli-rn).
 
 ## March 2026
-{: #vpc-mar26}.
+{: #vpc-mar26}
+
+### 31 March 2026
+{: #vpc-mar3126}
+{: release-note}
 
 Storage dense x2de and x3de profiles for Bare Metal on VPC (select availability)
 :   The storage dense profiles x2de and x3de for Bare Metal on VPC are now available in the Dallas (us-south) and Frankfurt (eu-de) regions. These storage-rich profiles minimize the required servers for a solution and remove the reliance on slower and more expensive network storage. For more information, see [x86-64 bare metal server profiles](/docs/vpc?topic=vpc-bare-metal-servers-profile&interface=ui#bare-metal-balanced-profiles-x3).
