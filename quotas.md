@@ -2,7 +2,7 @@
 
 copyright:
   years: 2018, 2026
-lastupdated: "2026-03-05"
+lastupdated: "2026-03-31"
 
 keywords:
 
@@ -94,6 +94,8 @@ The combined total of the address prefixes quota and the [advertised routes quot
 | Maximum number of cluster network subnets per cluster network | 32 |
 | Maximum number of cluster network subnet reserved IP addresses per account | 5000 |
 {: caption="Quotas for cluster networks" caption-side="bottom"}
+
+
 
 ### Floating IPs
 {: #fips-quotas}

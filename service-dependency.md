@@ -2,7 +2,7 @@
 
 copyright:
   years: 2024, 2026
-lastupdated: "2026-03-25"
+lastupdated: "2026-03-31"
 
 keywords:
 
@@ -605,7 +605,7 @@ The following dependencies apply to the following deployment locations: Dallas (
 ## Data and Control plane deployment for NGDC
 {: #data-and-control-plane-deployment-for-ngdc}
 
-The following dependencies apply to the following deployment locations: Montreal 04 (a), Montreal 04 (b), Montreal 04 (c).
+The following dependencies apply to the following deployment locations: Chennai - Airtel (in-che), Montreal (ca-mon).
 
 
 |Dependencies|Dependency impacts|Customer provided|Control or data plane|Location of dependency|
@@ -1077,7 +1077,6 @@ The following dependencies apply to the following deployment locations: Dallas (
 |Dependencies|Dependency impacts|Customer provided|Control or data plane|Location of dependency|
 |:---|:---|:---|:---|:---|
 | IBM Cloud Global Resource Catalog | Availability | No | Both |  [Global](/docs/resiliency?topic=resiliency-ha-redundancy#global-platform)  |
-| IBM Cloud Acadia Storage Platform | Availability | No | Both |  Same zone  |
 | IBM Cloud Business Support Services | Availability, Instance control | No | Both |  Same region  |
 {: row-headers}
 {: caption="IBM Cloud Image Service for VPC - Data and Control plane deployment service dependency information - Significant dependencies" caption-side="top"}
@@ -1090,6 +1089,8 @@ The following dependencies apply to the following deployment locations: Dallas (
 |Dependencies|Dependency impacts|Customer provided|Control or data plane|Location of dependency|
 |:---|:---|:---|:---|:---|
 | {{site.data.keyword.atracker_full}}| Security compliance | No | Both |  Same region  |
+| CrowdStrike Falcon| Security compliance | No | Both |  [Global](/docs/resiliency?topic=resiliency-ha-redundancy#global-platform)  |
+| None| Security compliance | No | Both |  [Global](/docs/resiliency?topic=resiliency-ha-redundancy#global-platform)  |
 {: row-headers}
 {: caption="IBM Cloud Image Service for VPC - Data and Control plane deployment service dependency information - Minimal dependencies" caption-side="top"}
 {: tab-title="Minimal dependencies"}
