@@ -2,7 +2,7 @@
 
 copyright:
   years: 2018, 2026
-lastupdated: "2026-02-26"
+lastupdated: "2026-03-31"
 
 keywords:
 
@@ -44,7 +44,7 @@ A local {{site.data.keyword.keymanagementserviceshort}} instance is not availabl
 ### Cross-regional copy of block storage snapshots in Chennai - Airtel and Mumbai - Airtel
 {: #snapshot-CRC-IN-CHE}
 
-A cross-regional copy of block storage volume snapshots is not supported in the Chennai - Airtel region. It can't be selected as a source or target region.
+A cross-regional copy of block storage volume snapshots is not supported in the Chennai - Airtel and Mumbai - Airtel regions. They can't be selected as a source or target region.
 
 ### Creating a volume from a second-generation snapshot that has provider-managed encryption fails when customer-managed encryption is specified for the volume
 {: #gen2-volume-from-snapshot-fail}
