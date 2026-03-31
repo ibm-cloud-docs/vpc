@@ -1,7 +1,8 @@
+---
 
 copyright:
   years: 2020, 2026
-lastupdated: "2026-03-26"
+lastupdated: "2026-03-31"
 
 keywords: license, virtual private cloud, BYOL, virtual server instance, instance, custom image, encryption, RHEL, SUSE
 subcollection: vpc
