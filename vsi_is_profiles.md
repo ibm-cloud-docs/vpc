@@ -2,7 +2,7 @@
 
 copyright:
   years: 2019, 2026
-lastupdated: "2026-03-25"
+lastupdated: "2026-04-01"
 
 keywords: vsi, virtual server instances, profile, profiles, balanced, compute, memory, very high memory, ultra high memory, gpu, storage optimized, confidential compute, flex, high frequency
 
@@ -15,7 +15,7 @@ subcollection: vpc
 # x86-64 instance profiles
 {: #profiles}
 
-When you provision {{site.data.keyword.vsi_is_full}}, you can select from nine families of profiles: Balanced, Compute, Memory, Very High Memory, Ultra High Memory, GPU, Storage Optimized, Confidential Computing, and Flex.
+When you provision {{site.data.keyword.vsi_is_full}}, you can select from ten families of profiles: Balanced, Compute, Memory, Very High Memory, Ultra High Memory, GPU, Storage Optimized, Confidential Computing, Flex, and High Frequency.
 
 A profile is a combination of instance attributes, such as the number of vCPUs, amount of RAM, network bandwidth, and default bandwidth allocation. The attributes define the size and capabilities of the virtual server instance that is provisioned. In the {{site.data.keyword.Bluemix_notm}} console, you can select the most recently used profile or click **View All Profiles** to choose the profile that best fits your needs.
 {: shortdesc}
@@ -46,6 +46,7 @@ The following profile families are available when you provision a virtual server
 | [Confidential Compute](#confidential-computing-profiles) | Confidential Compute-supported profiles use processor reserved memory called EPC (Enclave Page Cache) to encrypt application data. Processor reserved memory EPC maintains confidentiality and integrity. |
 | [Flex profiles](#flexible-profiles) | Flex profiles offer a cost-effective option to help improve and mainstream capacity and scalability where and when you need it. |
 | [Burstable Flex profiles](#burstable-supported-flex-profiles) | Burstable profiles are designed to provide flexible CPU performance so workloads can operate at a smaller baseline level and burst to higher performance when needed. |
+| [High Frequency profiles](#high-frequency-profiles) (select availability) | High frequency profiles provide CPUs with a high frequency, which generally enables higher performance per core than other profiles within the same hardware generation.
 {: caption="Virtual server family selections" caption-side="bottom"}
 
 2nd generation profiles with instance storage and 2nd generation profiles with 64 or more vCPUs are deployed exclusively on the Intel&reg; second-generation quad processor Xeon&reg; Platinum 8260 Cascade Lake with 96 cores that are running at a base speed of 2.4 GHz and an all-core turbo frequency of 3.1 GHz or an Intel quad processor Xeon Gold 6248 Cascade Lake with 80 cores that are running at a base speed of 2.5 GHz and an all-core turbo frequency of 3.1 GHz.
@@ -603,6 +604,19 @@ The following Burstable profiles are available.
 | bxf-16x64 | 16   | 64           |  50%        |
 {: caption="Burstable-supported Flex profile options for virtual servers" caption-side="bottom"}
 
+## High Frequency profiles
+{: #high-frequency-profiles}
+
+High frequency profiles provide CPUs with a high frequency, which generally enables higher performance per core than other profiles that are within the same hardware generation. The high frequency profile provides AMD&reg; 5th Generation Epyc 9575F processor-based virtual server instances. This processor offers all-core boost speeds up to 4.5 HZ and a max turbo speed of 5 GHz. AMD 5th Generation Epyc 9575F uses Chiplet-based architecture with distributed L3 cache. Distributed L3 cache can ensure that more dedicated L3 is shared per CPU. High frequency profiles support pooled bandwidth allocation for data volumes. For more information, see [Volume bandwidth allocation method](/docs/vpc?topic=vpc-block-storage-bandwidth#attached-block-vol-bandwidth).
+
+Gen 4 High Frequency profiles are available in the Dallas (us-south) and Sydney (au-syd) regions with the AMD 5th Generation Epyc 9575F processor-based to provision virtual server instances. For more information about the capabilities of the new profile, see [High frequency profiles - Gen 4](/docs/vpc?topic=vpc-high-frequency-profile-family).
+{: preview}
+
+| Instance profile | vCPU / Cores | GiB RAM | Bandwidth cap (Gbps) | Instance storage (GB) | NUMA Count
+| ---------------- | ---- | ------- | ------- | ------- | ---- |
+| hx4da-248x680 | 248 / 124 | 680 | 200 | 1x2600 | 2 |
+{: caption="High frequency profiles for compatible virtual server instances" caption-side="bottom"}
+
 ## Bandwidth allocation
 {: #bandwidth-allocation}
 
@@ -683,6 +697,7 @@ The first character represents the profile families. Different profile families 
 - "g": GPU profiles, which is a 1:8 or 1:16 ratio
 - "o": storage optimized family of profiles, 1 vCPU to 8 GiB memory ratio and 1 vCPU to 300 GB instance storage ratio
 - "f": flex profiles offer a broad set of capabilities and scale from 2 vCPUs (1 physical core) up to 64 vCPUs (64 physical cores).
+- "h": high frequency family of profiles
 
 The second character represents the CPU architecture.
 
