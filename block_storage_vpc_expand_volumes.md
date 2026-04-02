@@ -72,11 +72,17 @@ _z/OS_ When you expand Block Storage volume capacity on an existing z/OS virtual
 ### Boot volumes
 {: #expand-boot-vols}
 
-By default, when you create an instance from a stock image, a 100 GB, 3,000 IOPS boot volume is created and attached to the instance. Instances that are created with a custom image or snapshot from the CLI, with the API or Terraform, can have a specified boot volume capacity in the range of 10 GB to 250 GB. In the console, the default minimum capacity of a boot volume is always 100 GB.
+By default, when you create an instance from a stock image and use the general-purpose profile, a 100 GB, 3,000 IOPS boot volume is created and attached to the instance. Instances that are created with a custom image or snapshot from the CLI, with the API or Terraform, can have a specified boot volume capacity in the range of 10 GB to 250 GB. In the console, the default minimum capacity of a boot volume is always 100 GB.
 
-Regardless of the image type, you can increase boot volume capacity from its minimum provisioned size up to 250 GB. You can increase the capacity either when you provision an instance or later by updating the boot volume..
+Regardless of the image type, you can increase boot volume capacity from its minimum provisioned size up to 250 GB. You can increase the capacity either when you provision an instance or later by updating the boot volume.
 
 The boot volume expansion takes effect without a restart of the virtual server. However, to use the increased boot volume space, you must expand your operating system so the increased boot volume capacity is recognized.
+
+When the sdp profile is used for the boot volume, a 100 GB, 3,000 IOPS boot volume is also the default.  With the SDP profile the max initial boot volume size is 250 GB with a max IOPS of 64000. You can increase sdp profile boot volume capacity from its initial provisioned size up to 32 TB post provision without a restart of the virtual server. However, to use the increased boot volume space, you must expand your operating system so the increased boot volume capacity is recognized.
+
+Both general-purpose and sdp profile can be used as boot volumes.  The difference being that general-propose profile has a max size of 250 GB and max IOPS of 48000.  sdp profiles have a max size of 32 TB and max IOPS of 64000 IOPS.
+
+
 {: note}
 
 ## Requirements
