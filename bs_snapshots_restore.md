@@ -2,7 +2,7 @@
 
 copyright:
   years: 2021, 2026
-lastupdated: "2026-03-23"
+lastupdated: "2026-04-06"
 
 keywords:
 
@@ -157,7 +157,6 @@ Follow these steps to create volumes for virtual server instance from the consis
 1. Select a snapshot consistency group from the list. It must be in a `stable` state.
 1. From the Actions icon ![Actions icon](../icons/action-menu-icon.svg "Actions"), select **Create virtual server**.
    * If the group has more than one bootable snapshot, you can choose the one that you want to use for the boot volume of the new virtual server instance. Then, click **Configure virtual server**.
-   * If only one bootable snapshot is in the consistency group, you're taken directly to the VPC provisioning page.
 1. The information about your region, profile, boot volume, and data volumes are populated in the New virtual server for VPC provisioning page.
 
    If you change the profile selection to **Image** or **Existing volume**, the boot volume snapshot is removed. The data volumes section is also populated with the nonbootable snapshots from the consistency group. You can remove a snapshot or create another data volume. However, if you removed a data volume and want to add it back, you must return to the step of selecting the consistency group again.
