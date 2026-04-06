@@ -2,7 +2,7 @@
 
 copyright:
   years: 2019, 2026
-lastupdated: "2026-02-26"
+lastupdated: "2026-04-06"
 
 keywords: CSE, endpoint, service, DNS, resolver, mirror, object, storage, bandwidth, charges
 
@@ -127,8 +127,10 @@ The following ports must be open to allow ADN network traffic to flow for the fo
 For Linux virtual machines, open port `8443` to `161.26.0.0/16`.
 {: note}
 
-## Instance metadata endpoints
+## Virtual server metadata endpoints
 {: #instance-metadata-endpoint}
+
+By default, instances that are created with the metadata service endpoint are disabled. See [Configure the metadata service](/docs/vpc?topic=vpc-imd-configure-service&interface=ui) for information in enabling and disabling the metadatservice.
 
 The metadata endpoint provides instance-specific metadata and is accessible only from within the virtual machine. The metadata API can be accessed from within that instance by using the following endpoint URLs:
 
@@ -136,6 +138,8 @@ The metadata endpoint provides instance-specific metadata and is accessible only
 * When the metadata_service.protocol property is `https`, the endpoint URL must contain the service's hostname `https://api.metadata.cloud.ibm.com`.
 
 You cannot configure the metadata service with both `http` and `https` protocols at the same time. See [Endpoint URLs](/apidocs/vpc-metadata#endpoint-url-metadata), for instance metadata API.
+
+When the `metadata_service.enabled` property is `false`, the Metadata API is not available. Requests sent to any of the endpoint URLs don't receive a response.
 
 ## Virtual private endpoints
 {: #virtual-private-endpoints}
