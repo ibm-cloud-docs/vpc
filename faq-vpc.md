@@ -62,7 +62,7 @@ The VPC API service enforces this limit.
 {: #faq-vpc-public-gateway-timeout}
 {: faq}
 
-Yes. The VPC public gateway enforces a fixed 4-minute idle timeout for TCP connections, and this setting cannot be changed.
+Yes. The VPC public gateway applies a fixed idle timeout of 4 minutes for TCP connections and 3 minutes for UDP connections. These timeouts are enforced by default and cannot be modified.
 
 ## How do you obtain the Cloud Resource Name (CRN) of a VPC?
 {: #faq-crn}
