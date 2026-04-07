@@ -2,7 +2,7 @@
 
 copyright:
   years: 2020, 2026
-lastupdated: "2026-01-09"
+lastupdated: "2026-04-07"
 
 keywords: virtual private endpoints, endpoint gateway, VPE
 subcollection: vpc
@@ -104,5 +104,5 @@ These links provide additional information about {{site.data.keyword.cloud}} VPE
 * [VPE API reference](/apidocs/vpc/latest?list-endpoint-gateways=#list-endpoint-gateways)
 * [FAQs for virtual private endpoints](/docs/vpc?topic=vpc-faqs-vpe)
 * [VPE for VPC infrastructure resources for Terraform](https://registry.terraform.io/providers/IBM-Cloud/ibm/latest/docs/data-sources/is_virtual_endpoint_gateway){: external} (VPC infrastructure > Resources)
-* [Troubleshooting VPE gateways](/docs/vpc?topic=vpc-troubleshoot-create-reserved-ip)
+* [Troubleshooting VPE gateways](/docs/vpc?group=tbs-vpe-gateway)
 * [VPE activity tracking events](/docs/vpc?topic=vpc-at_events#events-vpe)
