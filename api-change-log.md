@@ -2,7 +2,7 @@
 
 copyright:
   years: 2019, 2026
-lastupdated: "2026-03-24"
+lastupdated: "2026-04-07"
 
 keywords: api, change log, new features, restrictions, migrations
 
@@ -53,6 +53,24 @@ At this time, all instances, and therefore all instance templates, continue to r
 
 The new response code will be rolled out gradually. Each phase of the rollout will be tied to a dated API version. These changes will be announced in future change log updates.
 {: note}
+
+## 7 April 2026
+{: #7-april-2026}
+
+### For all version dates
+{: #7-april-2026-all-version-dates}
+
+**Instance profiles** When [retrieving](/apidocs/vpc/latest#get-instance-profile) or [listing](/apidocs/vpc/latest#list-instance-profiles) instance profiles, the new `profiles.zones` property indicates the zones within the region that contain the hardware to support the instance profile. The `zones` property doesn't indicate if there is available capacity to create an instance with an instance profile.
+
+### For version `2026-04-07` or later
+{: #version-2026-04-07}
+
+**Instance profiles** When using a `version` query parameter of `2026-04-07` or later, the [list instance profiles](/apidocs/vpc/latest#list-instance-profiles) method returns a paginated collection.  Update your existing client applications to avoid regressions in client functionality.
+
+### For version `2026-04-06` or earlier
+{: #version-2026-04-06}
+
+**Instance profiles** When using a `version` query parameter of `2026-04-06` or earlier, an unpaginated collection continues to be returned in the [list instance profiles](/apidocs/vpc/latest#list-instance-profiles) response.
 
 ## 24 March 2026
 {: #24-march-2026}
