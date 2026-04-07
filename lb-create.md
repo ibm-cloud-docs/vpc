@@ -2,7 +2,7 @@
 
 copyright:
   years: 2021, 2026
-lastupdated: "2026-03-30"
+lastupdated: "2026-04-07"
 
 keywords:
 
@@ -400,12 +400,6 @@ To create an application load balancer with the API, follow these steps:
               {
                   "certificate_instance": {
                       "crn": "crn:v1:bluemix:public:cloudcerts:us-south:a/123456:b8877ea4-b8eg-467e-912a-da1eb7f031cg:certificate:43219c4c97d013fb2a95b21dddde1234"
-                  },
-                  "client_authentication": {
-                        "client_ca_certificate_instance": {
-                            "crn": "crn:v1:staging:public:secrets-manager:eu-gb:a/6266f0faa7df487d8438b9b31d24ca57:00b4c600-0d8b-4c9b-a930-4769debb7051:secret:f4cb4cd6-41fe-949f-6db8-7b68c2988f3g"
-                        },
-                        "crl_instance": "string"
                   },
                   "port": 443,
                   "protocol": "tcp",
