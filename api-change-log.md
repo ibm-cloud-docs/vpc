@@ -60,17 +60,17 @@ The new response code will be rolled out gradually. Each phase of the rollout wi
 ### For all version dates
 {: #7-april-2026-all-version-dates}
 
-**Instance profiles** When [retrieving](/apidocs/vpc/latest#get-instance-profile) or [listing](/apidocs/vpc/latest#list-instance-profiles) instance profiles, the new `profiles.zones` property indicates the zones within the region that contain the hardware to support the instance profile. The `zones` property doesn't indicate if there is available capacity to create an instance with an instance profile.
+**Instance profiles.** When [retrieving](/apidocs/vpc/latest#get-instance-profile) or [listing](/apidocs/vpc/latest#list-instance-profiles) instance profiles, the new `profiles.zones` property indicates the zones within the region that contain the hardware to support the instance profile. The `zones` property doesn't indicate if there is available capacity to create an instance with an instance profile.
 
 ### For version `2026-04-07` or later
 {: #version-2026-04-07}
 
-**Instance profiles** When using a `version` query parameter of `2026-04-07` or later, the [list instance profiles](/apidocs/vpc/latest#list-instance-profiles) method returns a paginated collection.  Update your existing client applications to avoid regressions in client functionality.
+**Instance profiles.** When using a `version` query parameter of `2026-04-07` or later, the [list instance profiles](/apidocs/vpc/latest#list-instance-profiles) method returns a paginated collection.  Update your existing client applications to avoid regressions in client functionality.
 
 ### For version `2026-04-06` or earlier
 {: #version-2026-04-06}
 
-**Instance profiles** When using a `version` query parameter of `2026-04-06` or earlier, an unpaginated collection continues to be returned in the [list instance profiles](/apidocs/vpc/latest#list-instance-profiles) response.
+**Instance profiles.** When using a `version` query parameter of `2026-04-06` or earlier, an unpaginated collection continues to be returned in the [list instance profiles](/apidocs/vpc/latest#list-instance-profiles) response.
 
 ## 24 March 2026
 {: #24-march-2026}
@@ -78,7 +78,7 @@ The new response code will be rolled out gradually. Each phase of the rollout wi
 ### For all version dates
 {: #24-march-2026-all-version-dates}
 
-**Block Storage volume migration** You can now migrate a volume between `storage_generation` 1 and `storage_generation` 2 by specifying the value `migrate` for the `job_type` property when [creating a volume job](/apidocs/vpc/latest#create-volume-job). The `migrate` volume job accepts a volume profile from the target storage generation, along with valid IOPS and bandwidth values. If the IOPS and bandwidth values are not specified, the volume is migrated to the default IOPS and bandwidth values of the target profile.  For more information, see [Migrating block storage volume](/docs/vpc?topic=vpc-block-storage-vpc-volume-migration&interface=api).
+**Block Storage volume migration.** You can now migrate a volume between `storage_generation` 1 and `storage_generation` 2 by specifying the value `migrate` for the `job_type` property when [creating a volume job](/apidocs/vpc/latest#create-volume-job). The `migrate` volume job accepts a volume profile from the target storage generation, along with valid IOPS and bandwidth values. If the IOPS and bandwidth values are not specified, the volume is migrated to the default IOPS and bandwidth values of the target profile.  For more information, see [Migrating block storage volume](/docs/vpc?topic=vpc-block-storage-vpc-volume-migration&interface=api).
 
 ## 17 February 2026
 {: #17-february-2026}
