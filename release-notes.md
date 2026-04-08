@@ -2,7 +2,7 @@
 
 copyright:
   years: 2019, 2026
-lastupdated: "2026-04-07"
+lastupdated: "2026-04-08"
 
 keywords:
 
@@ -23,6 +23,13 @@ Use the release notes to learn the latest updates to {{site.data.keyword.vpc_ful
 For more information about changes to the {{site.data.keyword.vpc_short}} API, see [{{site.data.keyword.vpc_short}} API change log](/docs/vpc?topic=vpc-api-change-log).
 
 For more information about changes to the {{site.data.keyword.vpc_short}} command-line interface (CLI), see [{{site.data.keyword.vpc_short}} CLI release notes](/docs/vpc?topic=vpc-vpc-cli-rn).
+
+### 07 April 2026
+{: #vpc-apr0726}
+{: release-note}
+
+Instance profile information now includes zones
+:   Some instance profiles are only available in certain regions and zones. When creating a virtual server instance, the instance profile must be available in the zone where you are creating the virtual server instance or the creation fails. For more information, see [VPC API change log](/docs/vpc?topic=vpc-api-change-log#upcoming-changes) and [Profile Details](/docs/vpc?group=profile-details).
 
 
 ### 01 April 2026

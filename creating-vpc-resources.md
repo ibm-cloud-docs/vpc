@@ -2,7 +2,7 @@
 
 copyright:
   years: 2018, 2026
-lastupdated: "2026-03-04"
+lastupdated: "2026-04-08"
 
 keywords:
 
@@ -182,6 +182,12 @@ ibmcloud is instance-profiles
 {: pre}
 
 Save the profile that you plan to use as a variable, which is used later to provision an instance.
+
+Verify the profile you use is available in the zone where you plan to create the instance.
+
+Some profiles might not be available because of one of the following reasons:
+   - The number of network interfaces in the virtual server exceeds profile limits. You can remove network interfaces to select from more profiles. For more information, see [Resizing a virtual server](/docs/vpc?topic=vpc-resizing-an-instance).
+   - The image selected contains an allowed-use expression that is not compatible with the profile. In these cases, select an image with an allowed-use expression that is compatible with the desired profile. For more infomation, see [Adding allowed-use expressions to custom images](/docs/vpc?topic=vpc-custom-image-allowed-use-expressions&interface=ui).
 
 ### Selecting an image for the instance
 {: #cli-select-a-image-for-the-instance}
@@ -682,6 +688,12 @@ Save the name of the profile in a variable, which is used later to provision an 
 profile_name="b2-2x8"
 ```
 {: pre}
+
+Verify the profile you use is available in the zone where you plan to create the instance.
+
+Some profiles might not be available because of one of the following reasons:
+   - The number of network interfaces in the virtual server exceeds profile limits. You can remove network interfaces to select from more profiles. For more information, see [Resizing a virtual server](/docs/vpc?topic=vpc-resizing-an-instance).
+   - The image selected contains an allowed-use expression that is not compatible with the profile. In these cases, select an image with an allowed-use expression that is compatible with the desired profile. For more infomation, see [Adding allowed-use expressions to custom images](/docs/vpc?topic=vpc-custom-image-allowed-use-expressions&interface=ui).
 
 ### Selecting an image for your instance
 {: #api-select-image}
