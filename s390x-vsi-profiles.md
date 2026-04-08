@@ -1,7 +1,7 @@
 ---
 copyright:
   years: 2022, 2026
-lastupdated: "2026-02-20"
+lastupdated: "2026-04-08"
 
 
 keywords: vsi, virtual server instances, profile, profiles, balanced, compute, memory, ultra high memory, storage optimized
@@ -42,6 +42,11 @@ s390x processor architecture profiles can be used to provision {{site.data.keywo
 
 For the LinuxONE and z/OS virtual server instances, the profiles are available in the US South (Dallas), Japan (Tokyo), Brazil (São Paulo), Spain (Madrid), Canada (Toronto), United Kingdom (London), Germany (Frankfurt), and US East (Washington DC) regions.
 {: preview}
+
+## Before you begin
+{: #s390x-instance-profiles-before-you-begin}
+
+Verify the profile you use is available in the zone where you plan to create the instance. 
 
 
 ## Balanced

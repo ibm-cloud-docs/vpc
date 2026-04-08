@@ -2,7 +2,7 @@
 
 copyright:
   years: 2019, 2026
-lastupdated: "2026-04-01"
+lastupdated: "2026-04-08"
 
 keywords: vsi, virtual server instances, profile, profiles, balanced, compute, memory, very high memory, ultra high memory, gpu, storage optimized, confidential compute, flex, high frequency
 
@@ -24,6 +24,8 @@ For more information about SAP profiles, see [SAP HANA certified instances on In
 
 ## Before you begin
 {: #x86-64-instance-profiles-before-you-begin}
+
+Verify the profile you use is available in the zone where you plan to create the instance. 
 
 Some profiles might not be available because of one of the following reasons:
    - The number of network interfaces in the virtual server exceeds profile limits. You can remove network interfaces to select from more profiles. For more information, see [Resizing a virtual server](/docs/vpc?topic=vpc-resizing-an-instance).

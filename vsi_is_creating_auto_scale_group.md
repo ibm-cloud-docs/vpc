@@ -1,8 +1,8 @@
 ---
 
 copyright:
-  years: 2020, 2025
-lastupdated: "2025-12-09"
+  years: 2020, 2026
+lastupdated: "2026-04-08"
 
 keywords: auto scale, autoscale, virtual server instance, creating, UI, console, instance group
 
@@ -173,6 +173,8 @@ All resources that are defined in an instance template must all be in the same r
 {: #cli-command-options-instance-template-create}
 
 Ready to create an instance template? Before you can run the `ibmcloud is instance-template-create` command, you need to know the details about your instance template and command options, such as what profile or image you want to use. Use the following steps to prepare for running the command.
+
+Verify that the profile that you want to use is available in the zone where you plan to create the instance.
 
 Gather the following required instance template details.
 

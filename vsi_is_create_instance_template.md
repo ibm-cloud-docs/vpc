@@ -1,8 +1,8 @@
 ---
 
 copyright:
-  years: 2020, 2025
-lastupdated: "2025-12-11"
+  years: 2020, 2026
+lastupdated: "2026-04-08"
 
 keywords:
 
@@ -69,6 +69,8 @@ Gather the following required instance template details.
 | Keys | `ibmcloud is keys` | [List all keys](/docs/vpc?topic=vpc-vpc-reference#keys) |
 | Placement groups | `ibmcloud is placement-groups` | [List all placement groups](/docs/vpc?topic=vpc-vpc-reference#placement-groups-list) |
 {: caption="Required instance template details" caption-side="bottom"}
+
+Verify that the profile that you want to use is available in the zone where you plan to create the instance. 
 
 Use the following commands to determine the required information to create an instance template.
 
@@ -323,6 +325,8 @@ Gather the following required instance template details by making the following 
 | Key                   | `GET /keys`                     | [List all keys](/apidocs/vpc/latest#list-keys) |
 | Placement groups      | `GET /placement_groups`         | [List all placement groups](/apidocs/vpc/latest#list-placement-groups) |
 {: caption="Required API instance template details" caption-side="bottom"}
+
+Verify that the profile that you want to use is available in the zone where you plan to create the instance. 
 
 Use the following commands to determine the required information to create an instance template.
 
