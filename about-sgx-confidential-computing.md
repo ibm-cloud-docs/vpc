@@ -2,7 +2,7 @@
 
 copyright:
   years: 2023, 2026
-lastupdated: "2026-01-14"
+lastupdated: "2026-04-08"
 
 keywords: sgx, intel sgx, software guard extension, confidential computing, trusted execution environment, TEE, data protection
 
@@ -101,6 +101,7 @@ Keep the following limitations in mind if you want to use SGX or TDX.
       - CentOS Stream 9
       - Rocky Linux 9.2, 9.4
       - SLES 15.6
+      - Debian 13.3
 
 * TDX limitations
    - When you force a reboot of a TDX-enabled virtual server, the virtual server shuts down. You must then restart this virtual server.
