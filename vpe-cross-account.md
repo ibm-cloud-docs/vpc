@@ -2,7 +2,7 @@
 
 copyright:
   years: 2025, 2026
-lastupdated: "2026-01-22"
+lastupdated: "2026-04-09"
 
 keywords: virtual private endpoints, VPE, endpoint gateway, cross account
 
@@ -31,6 +31,10 @@ Before creating an endpoint gateway, make sure that you review [Planning for vir
 * Appropriate [IAM permissions](/docs/vpc?topic=vpc-vpe-iam) to create an endpoint gateway, create or bind a reserved IP, and view or list the target service.
 * Make sure that you have the necessary IAM permissions and Context-Based Restriction (CBR) policies to authorize access.
 * You must obtain the Cloud Resource Name (CRN) of the target service instance.
+
+   The IBM Cloud console does not display service instances that belong to other accounts.
+   {: note}
+
 * To authorize a VPE in your accessor account to use the target service instance that resides in a different IBM Cloud account, you must create a service-to-service authorization policy as described in the next section.
 
 ### Creating service authorization for cross-account VPE in the console

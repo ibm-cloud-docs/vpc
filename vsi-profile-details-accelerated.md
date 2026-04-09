@@ -2,7 +2,7 @@
 
 copyright:
   years: 2024, 2026
-lastupdated: "2026-03-17"
+lastupdated: "2026-04-09"
 
 keywords: vsi, virtual server, virtual server instances, profile, profiles, gpu, accelerated, h100, h200, l4, l40s
 
@@ -17,98 +17,6 @@ subcollection: vpc
 
 The accelerated (GPU) family of profiles provides on-demand, cost-effective access to accelerators and GPUs for {{site.data.keyword.vsi_is_full}} (VPC). GPUs and accelerators help to accelerate the processing time that is required for compute intensive workloads such as AI, machine learning, inferencing, and more.
 {: shortdesc}
-
-## AMD MI300X instance profiles
-{: #amd-mi300x-profiles}
-
-The AMD MI300X accelerated virtual server profiles are built atop 192 GB OAM-based AMD Instinct™ MI300X Accelerators. These accelerators are tuned for AI workloads, including inferencing and fine-tuning. The solution is paired with the 5th Generation Intel® Xeon® Scalable processors.
-
-AMD MI300X accelerated virtual server profiles are available for select customers. Create a [support case](/docs/account?topic=account-open-case&interface=ui) if you are interested in purchasing and using this offering.
-{: preview}
-
-### Operating systems
-{: #amd-mi300x-os}
-
-- Linux
-
-### Processor generation
-{: #amd-mi300x-processor}
-
-- Intel® 8570 - 5th Generation Xeon® Scalable processor
-
-### Accelerator
-{: #amd-mi300x-accelerator}
-
-- AMD Instinct MI300X Accelerators (192 GB OAM)
-
-### Availability
-{: #amd-mi300x-availability}
-
-Status: Select Availability
-
-The following table lists the available regions and universal zones for the AMD MI300X profiles.
-
-| Region    | Universal zone    |
-|-----------|-------------------|
-| `us-east` | `us-east-wdc06-a` |
-| `us-east` | `us-east-wdc07-a` |
-| `eu-de`   | `eu-de-fra02-a`   |
-| `eu-de`   | `eu-de-fra05-a`   |
-{: caption="Supported regions and zones" caption-side="bottom"}
-
-For more information about regions and universal zones, see [Regions](/docs/overview?topic=overview-locations#regions). You can review the assigned zone mapping for an account on the [VPC Infrastructure Overview](/infrastructure/overview#endpoints) page in the Endpoint section. The zone mapping shows how the zone corresponds to the universal zone name that represents the physical location.
-
-### Capabilities
-{: #amd-mi300x-capabilities}
-
-- Core type: Dedicated
-- Dedicated host: No
-- Hyperthreading: Yes (SMT-2)
-- Secure boot: No
-- Confidential computing: No
-- Live migration: No
-- Instance storage: Yes
-- Internal AI Fabric: Yes
-- Infinity Fabric™ (XGMI) 128 GB/s GPU-to-GPU connections
-- Cluster network capable: No
-- [Volume bandwidth allocation method](/docs/vpc?topic=vpc-block-storage-bandwidth#attached-block-vol-bandwidth): `weighted` by default; it can be updated to `pooled`.
-
-### VM configuration
-{: #amd-mi300x-vm-config}
-
-- Hardware type: q35
-- Cloud networking: virtio
-- Block boot volume: virtio
-- Block data volumes: virtio
-- Instance storage: NVMe
-
-### Instance profiles
-{: #amd-mi300x-vsi-profiles}
-
-The following table lists the AMD MI300X profiles.
-
-| Instance profile | vCPU / Cores | Memory (GiB)  | Bandwidth cap (Gbps) | Accelerators | Instance storage (GB) |
-|---------|---------|---------|---------|---------|---------|
-| gx3d-208x1792x8mi300x | 208 / 104 | 1792 | 200 | 8x AMD MI300X (192 GB) | 8 x 3.2 TB |
-{: caption="Accelerated AMD profile options" caption-side="bottom"}
-
-This large profile likely requires that you open a support ticket to request a [quota increase](/docs/vpc?topic=vpc-quotas). Review your quota levels, and determine whether the account that's provisioning the resource requires a change to the quotas. This server uses vCPU, RAM, instance storage, and GPU quotas.
-{: important}
-
-### Limits
-{: #amd-mi300x-limits}
-
-An instance has a limit for the number of volumes and virtual network interfaces that can be attached. This limit is based on the size of the instance.
-
-| Profile | Max volumes | Max vNICs |
-| --------------- | ----------- | --------- |
-| gx3d-208x1792x8mi300x | 12          | 15        |
-{: caption="Accelerated AMD family limits for maximum volumes, and maximum network interfaces" caption-side="bottom"}
-
-#### Boot volume profiles
-{: #amd-mi300x-volume-profiles}
-
-In the current release of {{site.data.keyword.block_storage_is_short}} offering, only first-generation volumes from the tiered and custom volume profile families can be used as boot volumes for the MI300X instances.
 
 ## Intel Gaudi 3 instance profiles
 {: #gaudi-3-profiles}
