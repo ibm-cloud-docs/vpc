@@ -2,7 +2,7 @@
 
 copyright:
   years: 2015, 2026
-lastupdated: "2026-04-08"
+lastupdated: "2026-04-09"
 
 keywords:
 
@@ -38,8 +38,8 @@ The profile families are Balanced, Compute, Memory, Ultra High Memory, Very High
 All custom images must meet the following requirements：
 - Contain a single file or volume.
 - Be in qcow2 or vhd format.
-- Be cloud-init enabled or bootable by using ESXi kickstart.
 - Size doesn't exceed 250 GB.
+- Ensure that [cloud-init (Linux)](https://docs.cloud-init.io/en/latest/) or [cloudbase-init (Windows)](https://cloudbase.it/cloudbase-init/) is installed and active in the qcow2 image.
 - The minimum size is 10 GB. For any image that is less than 10 GB, the size is rounded up to 10 GB.
 {: #custom-image-requirements-list}
 
