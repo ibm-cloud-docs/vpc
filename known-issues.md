@@ -2,7 +2,7 @@
 
 copyright:
   years: 2018, 2026
-lastupdated: "2026-03-27"
+lastupdated: "2026-04-09"
 
 keywords:
 
@@ -50,6 +50,11 @@ When a beta `version` query parameter of `2025-07-14` or earlier from bare metal
 {: #s390x-confidential-computing-vpc-known-issues}
 
 **Issue:** When [listing instance profiles](/apidocs/vpc#list-instance-profiles) or [retrieving an instance profile](/apidocs/vpc#get-instance-profile), s390x instance profiles don't include the required `values` property in the `confidential_compute_modes` object. See [s390x instance profiles](/docs/vpc?topic=vpc-vs-profiles&interface=ui) for a complete list of profiles.
+
+### Memory-related statistics aren't available for confidential computing virtual servers
+{: #memory-statistics-confidential-computing-vpc-known-issues}
+
+**Issue:** By design, memory-related statistics for the confidential computing virtual server instances aren't available due to the encrypted memory architecture that protects data confidentiality. This is different from conventional virtual server instances where memory metrics are available for monitoring and observability.
 
 ## Image known issues
 {: #image-vpc-known-issues}
