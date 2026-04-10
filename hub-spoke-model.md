@@ -1,8 +1,8 @@
 ---
 
 copyright:
-  years: 2023, 2025
-lastupdated: "2025-12-12"
+  years: 2023, 2026
+lastupdated: "2026-04-10"
 
 keywords:
 
@@ -98,6 +98,24 @@ For each DNS-shared VPC:
 * Create VPE gateways for application services, such as IKS and ICD instances (as needed).
 * Create a DNS resolution binding to the DNS hub VPC to share its VPE DNS records to the DNS hub VPC.
 * Configure your DNS to use the custom resolver on a DNS hub VPC by changing its resolver type to Delegated with the DNS hub VPC.
+
+# IBM Cloud service domains for VPE
+{: #vpe-dns-service-domains}
+
+When DNS sharing is configured for Virtual Private Endpoints (VPE), DNS queries for supported IBM Cloud service endpoints resolve to private IP addresses through the DNS hub VPC.
+
+## Supported service domains
+{: #vpe-dns-service-domains-list}
+
+DNS resolution through VPE includes domains such as:
+
+- `*.cloud.ibm.com`
+- `*.appdomain.cloud`
+- `*.networklayer.com`
+- `*.isops.ibm.com`
+- `icr.io`
+
+The specific domains that are resolved depend on the IBM Cloud services that you access through VPE gateways.
 
 ## Related links
 {: #vpe-dns-sharing-related-links}

@@ -1,8 +1,8 @@
 ---
 
 copyright:
-  years: 2023, 2025
-lastupdated: "2025-07-28"
+  years: 2023, 2026
+lastupdated: "2026-04-10"
 
 keywords:
 
@@ -34,9 +34,13 @@ To create an IAM s2s authorization policy in the console, follow these steps:
 1. In the [{{site.data.keyword.cloud_notm}} console](/login){: external}, go to **Manage > Access (IAM)**. The {{site.data.keyword.iamlong}} page displays.
 1. From the side panel, select **Authorizations**.
 1. On the Manage authorizations page, click **Create**.
-1. On the Grant a service authorization page, select source account.
+1. On the Grant a service authorization page, select a source account:
    - If you're setting up authorization in your account, select **This account**.
-   - If you're setting up authorization in the enterprise account, select **Other account**.
+   - If you're setting up authorization in the enterprise account, select **Another account**.
+
+      For cross-account configurations only, specify the source account for the authorization by entering the account ID.
+      {: note}
+
 1. For the source service, select **VPC Infrastructure Services** from the list.
 1. Select the scope. Choose **Specific resources**.
 1. Select **Resource type**. From the list, select **Virtual Private Cloud**.
@@ -46,8 +50,12 @@ To create an IAM s2s authorization policy in the console, follow these steps:
    {: note}
 
 1. For the target service, select **VPC Infrastructure Services** from the list.
-1. Select the scope. Choose **Specific resources**.
-1. Click **Resource type**. From the list, select **Virtual Private Cloud**.
+1. For the scope, select **Specific resources**.
+1. Select **Resource type**. From the list, select **Virtual Private Cloud**.
+
+   If you want to provide the target VPC, select **VPC ID**. Operator: Select **string equals** and enter the VPC value.
+   {: tip}
+
 1. In the Roles section under Service access, select **DNSBindingConnector**.
 1. Click **Authorize**.
 1. When you are returned to the **Manage authorizations** page, click **Create** again and follow the same steps to set up authorizations for the other two services.
