@@ -1,8 +1,8 @@
 ---
 
 copyright:
-  years: 2023, 2025
-lastupdated: "2025-12-12"
+  years: 2023, 2026
+lastupdated: "2026-04-10"
 
 keywords:
 
@@ -45,12 +45,13 @@ General steps to configure DNS sharing for VPE gateways are as follows:
 
 1. [Enable a VPC as the hub VPC](/docs/vpc?topic=vpc-vpe-dns-sharing-configure-hub).
 1. [Create endpoint gateways](/docs/vpc?topic=vpc-ordering-endpoint-gateway) for multi-tenant services in the hub VPC and enable DNS sharing for each endpoint gateway.
-1. If you have different accounts for the hub VPC and a DNS-shared VPC, the hub VPC administrator must create a service-to-service (s2s) authorization policy to give Read access to the DNS-shared VPC account. For more information, see [Establishing service-to-service authorization](/docs/vpc?topic=vpc-vpe-dns-sharing-s2s-auth&interface=api).
+1. When in the same or different accounts for the hub VPC and a DNS-shared VPC, the hub VPC administrator must create a service-to-service (s2s) authorization policy to give Read access to the DNS-shared VPC account. For more information, see [Establishing service-to-service authorization](/docs/vpc?topic=vpc-vpe-dns-sharing-s2s-auth&interface=api).
 1. Ensure that you disable DNS resolution binding (`allow_dns_resolution`) on redundant or conflicting VPEs on the DNS-shared VPCs. By default, the DNS resolution binding switch is enabled on VPEs.
-1. [Create a DNS resolution binding](/docs/vpc?topic=vpc-vpe-dns-sharing-resolution-bindings&interface=ui) on the VPCs that you want to allow VPE gateway DNS records access between the VPC and the DNS hub VPC. These VPCs are called DNS-shared VPCs.
 1. [Configure a DNS custom resolver](/docs/dns-svcs?topic=dns-svcs-ui-create-cr) on the hub VPC to be responsible for resolving DNS queries from hub and DNS-shared VPCs, as well as those from on-prem networks.
+1. [Create a DNS resolution binding](/docs/vpc?topic=vpc-vpe-dns-sharing-resolution-bindings&interface=ui) on the VPCs that you want to allow VPE gateway DNS records access between the VPC and the DNS hub VPC. These VPCs are called DNS-shared VPCs.
+
 1. The DNS-shared VPC user [sets its DNS resolver type](/docs/vpc?topic=vpc-configure-dns-resolver&interface=ui) to `Delegated` to point to the hub VPC's custom resolver.
-1. The DNS-shared VPC user [creates endpoint gateways](/docs/vpc?topic=vpc-ordering-endpoint-gateway) for single-tenant services in the DNS-shared VPC.
+1. The DNS-shared VPC user [creates endpoint gateways](/docs/vpc?topic=vpc-ordering-endpoint-gateway) for common services in the DNS-shared VPC.
 
 [Select availability]{: tag-green}
 
@@ -58,6 +59,13 @@ General steps to configure DNS sharing for VPE gateways are as follows:
    {: note}
 
 1. For each DNS-shared VPC, the DNS-shared VPC user must repeat steps 4-9.
+
+## How DNS resolution works for VPE
+{: #dns-resolution-for-vpe}
+
+DNS Services for VPE is a regional service and isn’t associated with a specific VPC.
+
+For each VPE, a DNS zone is created. To enable DNS resolution between VPCs, both the DNS-shared VPC and the hub VPC are added as permitted networks for that zone.
 
 ## Use case: DNS sharing in a hub and spoke network topology
 {: #vpe-dns-sharing-use-cases}
@@ -68,7 +76,7 @@ In this example, the customer has three applications they want to isolate on sep
 
 Each of the application VPCs contains an IBM Kubernetes Service (IKS) cluster and an IBM Cloud Databases (ICD) database. The VPCs contain VPEs to each of these services.
 
-These VPCs also rely on common IBM services, such as Cloud Object Storage (COS) for backups, {{site.data.keyword.iamlong}} (IAM) for authorization, IBM Cloud Business Support Server (BSS) for billing, and Container Registry for managing application images. The customer also uses these services through a VPE for private connectivity.
+These VPCs also rely on a common service, such as Cloud Object Storage  for backups, {{site.data.keyword.iamlong}} (IAM) for authorization, IBM Cloud Business Support Server (BSS) for billing, and Container Registry for managing application images. The customer also uses these services through a VPE for private connectivity.
 
 While the network connectivity between VPCs is already provided through a transit gateway, by default the DNS resolution of VPE DNS records is not resolvable by each other. Without DNS sharing for VPE, management of the VPE is overwhelming, as the customer must manage:
 
@@ -89,7 +97,7 @@ To achieve this architecture with DNS sharing enabled for VPE gateways, you can 
 
 For the VPC used as a DNS hub:
 
-* Create a VPE gateway for common IBM services, such as IAM, billing and Container Registry.
+* Create a VPE gateway for a common service, such as IAM, billing and Container Registry.
 * Create a DNS custom resolver on the VPC.
 * Designate this VPC as a DNS hub.
 
@@ -98,6 +106,24 @@ For each DNS-shared VPC:
 * Create VPE gateways for application services, such as IKS and ICD instances (as needed).
 * Create a DNS resolution binding to the DNS hub VPC to share its VPE DNS records to the DNS hub VPC.
 * Configure your DNS to use the custom resolver on a DNS hub VPC by changing its resolver type to Delegated with the DNS hub VPC.
+
+# IBM Cloud service domains for VPE
+{: #vpe-dns-service-domains}
+
+When DNS sharing is configured for Virtual Private Endpoints (VPE), DNS queries for supported IBM Cloud service endpoints resolve to private IP addresses through the DNS hub VPC.
+
+## Supported service domains
+{: #vpe-dns-service-domains-list}
+
+DNS resolution through VPE includes domains such as:
+
+- `*.cloud.ibm.com`
+- `*.appdomain.cloud`
+- `*.networklayer.com`
+- `*.isops.ibm.com`
+- `icr.io`
+
+The specific domains that are resolved depend on the IBM Cloud services that you access through VPE gateways.
 
 ## Related links
 {: #vpe-dns-sharing-related-links}

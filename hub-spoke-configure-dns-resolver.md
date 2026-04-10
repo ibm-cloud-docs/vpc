@@ -1,8 +1,8 @@
 ---
 
 copyright:
-  years: 2023, 2025
-lastupdated: "2025-11-11"
+  years: 2023, 2026
+lastupdated: "2026-04-10"
 
 keywords:
 
@@ -265,4 +265,4 @@ resource ibm_is_vpc my-vpc {
 ## Next step
 {: #next-step-create-vpe-gateways}
 
-The DNS-shared VPC user [creates VPE gateways](/docs/vpc?topic=vpc-ordering-endpoint-gateway) for single-tenant services in the DNS-shared VPC.
+The DNS-shared VPC user [creates VPE gateways](/docs/vpc?topic=vpc-ordering-endpoint-gateway) for common services in the DNS-shared VPC.
