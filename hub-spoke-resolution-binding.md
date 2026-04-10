@@ -1,8 +1,8 @@
 ---
 
 copyright:
-  years: 2023, 2025
-lastupdated: "2025-12-09"
+  years: 2023, 2026
+lastupdated: "2026-04-10"
 
 keywords:
 
@@ -25,6 +25,7 @@ Before you create a DNS resolution binding, review the following prerequisites:
 
 * Review [DNS sharing planning considerations](/docs/vpc?topic=vpc-vpe-dns-sharing-planning-considerations).
 * Ensure a [VPC enabled as a DNS hub](/docs/vpc?topic=vpc-vpe-dns-sharing-configure-hub) already exists.
+* [Configure a DNS custom resolver](/docs/dns-svcs?topic=dns-svcs-ui-create-cr&interface=ui) on the DNS hub VPC to be responsible for resolving DNS queries from hub and DNS-shared VPCs, as well as those from on-prem networks.
 * The hub VPC administrator must create an IAM service-to-service authorization policy that allows this DNS-shared VPC to have `DNSBindingConnector` permission on the hub VPC. This `DNSBindingConnector` role on the hub VPC is required regardless of whether the DNS-shared VPC is in the same or a different account. For more information, see [Establishing service-to-service authorization](/docs/vpc?topic=vpc-vpe-dns-sharing-s2s-auth&interface=api).
 
 You can create a DNS resolution binding with the console, CLI, API, or Terraform.
@@ -45,8 +46,6 @@ To create a DNS resolution binding in the IBM Cloud console, follow these steps:
 
    The VPC with the DNS resolution binding now shows a `DNS-Shared` tag next to its name.
 
-Next, [configure a DNS custom resolver](/docs/dns-svcs?topic=dns-svcs-ui-create-cr&interface=ui) on the DNS hub VPC to be responsible for resolving DNS queries from hub and DNS-shared VPCs, as well as those from on-prem networks.
-
 ## Deleting a DNS resolution binding in the console
 {: #delete-dns-resolution-binding-ui}
 {: ui}
@@ -60,7 +59,7 @@ To delete a resolution binding, you need the appropriate DNS Services IAM role (
 1. Select the **Navigation menu** ![Menu icon](../icons/icon_hamburger.svg), then click **Infrastructure** ![VPC icon](../../icons/vpc.svg) > **Network** > **VPCs**.
 1. Click the Virtual Private Cloud in which you want to delete the DNS resolution binding.
 1. Scroll to the Optional DNS settings section, then expand the DNS resolution binding section.
-1. Click **Delete**. If there is more than one binding, click the Actions icon ![More Actions icon](../icons/action-menu-icon.svg), then click **Delete**. 
+1. Click **Delete**. If there is more than one binding, click the Actions icon ![More Actions icon](../icons/action-menu-icon.svg), then click **Delete**.
 
 ## Creating a DNS resolution binding from the CLI
 {: #create-dns-resolution-binding-cli}
@@ -106,7 +105,7 @@ To create a DNS resolution binding, enter the following command:
 {: cli}
 
 * `ibmcloud is vpc-dns-resolution-binding-create my-vpc --name my-dns-res-binding --target-vpc my-dns-binding-vpc --output JSON`
-* `ibmcloud is vpc-dns-resolution-binding-create 72251a2e-d6c5-42b4-97b0-b5f8e8d1f479 --name my-dns-res-binding --target-vpc my-dns-binding-vpc --output JSON` 
+* `ibmcloud is vpc-dns-resolution-binding-create 72251a2e-d6c5-42b4-97b0-b5f8e8d1f479 --name my-dns-res-binding --target-vpc my-dns-binding-vpc --output JSON`
 
 
 
