@@ -2,7 +2,7 @@
 
 copyright:
   years: 2020, 2026
-lastupdated: "2026-03-30"
+lastupdated: "2026-04-12"
 
 keywords: network load balancer, public, private, listener, back-end, front-end, pool, round-robin, weighted, connections, layer 4, methods, policies, APIs, access, ports, zonal
 
@@ -31,9 +31,9 @@ As discussed in the [Load balancers for VPC overview](/docs/vpc?topic=vpc-nlb-vs
 * **Public** - A public load balancer is a load balancer with a publicly accessible IP address that is registered with DNS.
 * **Private** - A private load balancer is only accessible from within the VPC network, where the client is in the same VPC or has reachability (for example, through Direct Link, Transit Gateway, or both). For private load balancers, you must have a dedicated subnet with no custom routes configured for the subnet.
 * **Private with routing mode enabled** - Private NLBs with routing mode enabled support only Virtual Network Function (VNF) devices as back-end targets. For more information, see [Creating a network load balancer with routing mode](/docs/vpc?topic=vpc-nlb-vnf&interface=ui).
-* **Private Path** - Service providers use Private Path NLBs to securely connect {{site.data.keyword.cloud_notm}} with third-party, VPC-hosted services on the {{site.data.keyword.cloud_notm}} private network. Private Path NLBs are required when you use [Private Path services](/docs/vpc?topic=vpc-private-path-service-intro) to keep network traffic on a private path that never intersects with the public internet. For more information, see the [Private Path solutions guide](/docs/private-path).
+* **Private Path** - Service providers use Private Path NLBs to securely connect {{site.data.keyword.cloud_notm}} with third-party, VPC-hosted services on the {{site.data.keyword.cloud_notm}} private network. Private Path NLBs are required when you use [Private Path services](/docs/vpc?topic=vpc-private-path-service-intro) to keep network traffic on a private path that never intersects with the internet. For more information, see the [Private Path solutions guide](/docs/private-path).
 
-   A Private Path NLB only works with a Private Path service.
+   Private Path NLBs can only be used with a Private Path service.
    {: important}
 
 ## Getting started
@@ -77,13 +77,13 @@ Setting a server weight to `0` means that no new connections are forwarded to th
 
 With this method, the back-end server instance that serves the least number of connections at a particular time receives the next client connection.
 
-A Private Path NLB does not support the least-connection method.
+Private Path NLBs don't support the least-connection method.
 {: important}
 
 ## Front-end listeners and back-end pools
 {: #nlb-front-end-listeners-and-back-end-pools}
 
-Front-end listeners are application ports for load balancers to receive incoming requests while back-end pools are the application servers behind the load balancers. You can define up to 10 front-end listeners and map them to back-end pools on the back-end application servers. For a public NLB, the FQDN assigned to your load balancer and the front-end listener ports are exposed to the public internet. Incoming user requests are received on these ports. TCP and UDP are the supported protocols for front-end listeners and back-end pools.
+Front-end listeners are application ports for load balancers to receive incoming requests while back-end pools are the application servers behind the load balancers. You can define up to 10 front-end listeners and map them to back-end pools on the back-end application servers. For a public NLB, the FQDN assigned to your load balancer and the front-end listener ports are exposed to the internet. Incoming user requests are received on these ports. TCP and UDP are the supported protocols for front-end listeners and back-end pools.
 
 You can attach up to 50 virtual server instances to a back-end pool. Traffic is sent to each instance on its specified data port. This data port does not need to be the same as the front-end listener port.
 
@@ -153,7 +153,7 @@ Figure 4 illustrates how a private NLB with routing mode works. The Consumer que
 
 Figure 5 illustrates how you can deploy an NLB to support multiple zones. This deployment scenario often requires the use of the global load balancer (GLB) option in [IBM Cloud Internet Services (CIS)](/docs/cis?topic=cis-configure-glb).
 
-Be aware that a [known limitation](/docs/vpc?topic=vpc-nlb-limitations#limitations-network-load-balancers) applies to this scenario: Two members with the same instance and port cannot exist at the same time, so use a different port with the same instance.
+A [known limitation](/docs/vpc?topic=vpc-nlb-limitations#limitations-network-load-balancers) exists for this use case. Two members with the same instance and port cannot exist at the same time. Instead, you can use a different port with the same instance.
 {: important}
 
 You might want to leverage the high throughput performance (and low latency) the NLB gains through DSR. In addition, it is recommended that you deploy your workloads in multiple zones to increase their availability in a High Availability (HA) environment.
@@ -168,9 +168,9 @@ The requirement of one NLB per zone is only needed for Public and Private NLB. P
 ## Use case 5: Private Path network load balancer
 {: #nlb-use-case-5}
 
-A Private Path NLB helps keep all the traffic checkpoints between the Provider and the Consumer within the IBM Cloud infrastructure. Data does not exit to the public backbone.
+A Private Path NLB keeps all traffic checkpoints between the Provider and the Consumer within the IBM Cloud infrastructure. Data does not exit to the internet.
 
-Unlike other NLBs, the Private Path load balancer provides regional availability and is resilient to zone failure even if a single subnet is selected. You do not need to create multiple Private Path load balancers or specify more than a single subnet to ensure resiliency to zone failure. Your subnet selection only impacts the IP-addresses associated with the load balancer.
+Unlike other NLBs, a Private Path network load balancer provides regional availability and is resilient to zone failure even if a single subnet is selected. You do not need to create multiple Private Path load balancers or specify more than a single subnet to ensure resiliency to zone failure. Your subnet selection only impacts the IP-addresses associated with the load balancer.
 
 You can only use Private Path NLBs with a Private Path service. For more information, see [About Private Path services](/docs/vpc?topic=vpc-private-path-service-intro).
 {: important}
