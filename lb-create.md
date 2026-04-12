@@ -2,9 +2,9 @@
 
 copyright:
   years: 2021, 2026
-lastupdated: "2026-04-07"
+lastupdated: "2026-04-12"
 
-keywords:
+keywords: application load balancer, ALB, create load balancer, VPC load balancer, load balancer pools, load balancer listeners
 
 subcollection: vpc
 
@@ -15,7 +15,7 @@ subcollection: vpc
 # Creating an application load balancer
 {: #load-balancers}
 
-You can create an {{site.data.keyword.cloud}} {{site.data.keyword.alb_full}} (ALB) to distribute inbound traffic across multiple instances. IBM supports virtual server instances, bare metal server instances, and other devices that are reachable to the application load balancer with a device IP address, such as Power Systems™ Virtual Server instances connected over {{site.data.keyword.cloud_notm}} Direct Link.
+You can create an {{site.data.keyword.cloud}} {{site.data.keyword.alb_full}} (ALB) to distribute inbound traffic across multiple instances. You can use the ALB with virtual server instances, bare metal server instances, and other devices that have IP addresses accessible to the load balancer, such as Power Systems™ Virtual Server instances connected through {{site.data.keyword.cloud_notm}} Direct Link.
 {: shortdesc}
 
 ## Creating an application load balancer in the console
@@ -26,7 +26,7 @@ To create an ALB:
 
 1. From your browser, open the [{{site.data.keyword.cloud_notm}} console](/login){: external} and log in to your account.
 1. Select the **Navigation menu** ![Menu icon](../icons/icon_hamburger.svg), then click **Infrastructure** ![VPC icon](../../icons/vpc.svg) > **Network** > **Load balancers**.
-1. On the Load balancers page, click **Create +**.
+1. On the Load balancers page, click **Create**.
 1. For Load balancer type, select the Application Load Balancer (ALB) tile.
 1. In the Location section, edit the following fields, if necessary.
    * **Geography**: Indicates the geography where you want the load balancer created.
@@ -43,34 +43,36 @@ To create an ALB:
      * A private load balancer has a private IP address, which means that it is accessible only to internal clients on your private subnets, within the same region and VPC.
    * For the DNS type, select either **Public** or **Private**. Private DNS zones are resolvable only on IBM Cloud, and only from explicitly permitted networks in an account or with cross-account access.
 
-      **For Private type only**, click Bind+ to enter your DNS instance and zone information, then click **Bind**.
+      **For Private type only**, click **Bind** to enter your DNS instance and zone information, then click **Bind**.
 
    * **Subnets**: Select the subnets in which to create your load balancer. To maximize the availability of your application, select subnets in different zones.
 
         You cannot assign more than 15 subnets per ALB.
         {: important}
 
-1. In the Back-end pools section, click **Create pool** and specify the following information to create a back-end pool. You can create one or more pools.
+1. In the Back-end pools section, click **Create** and specify the following information to create a back-end pool. You can create one or more pools.
    * **Name**: Enter a name for the pool, such as `my-pool`.
-   * **Protocol**: Select the protocol for your instances in this pool. The protocol of the pool must match the protocol of its associated listener. For example, if an HTTPS or HTTP protocol is selected for the listener, the protocol of the pool must be HTTP. Similarly, if the listener protocol is TCP, the protocol of the pool must be TCP.
+   * **Pool protocol**: Select the protocol for your instances in this pool. The pool protocol must be compatible with its listener protocol. For HTTP or HTTPS listeners, use HTTP as the pool protocol. For TCP listeners, use TCP as the pool protocol.
    * **Session stickiness**: Select whether all requests during a user's session are sent to the same instance.
+   * MISSING PROXY PROTOCOL SECTION
    * **Method**: Select how you want the load balancer to distribute traffic across the instances in the pool:
+       * **Least connections:** Forward requests to the instance with the least number of connections at the current time.
        * **Round robin:** Forward requests to each instance in turn. All instances receive approximately an equal number of client connections.
        * **Weighted round robin:** Forward requests to each instance in proportion to its assigned weight. For example, you have instances A, B, and C, and their weights are set to `60`, `60` and `30`. Instances A and B receive an equal number of connections, and instance C receives half as many connections.
-       * **Least connections:** Forward requests to the instance with the least number of connections at the current time.
    * **Health check**: Configure how the load balancer checks the health of the instances.
        * **Health check path**: The health check path is applicable only if HTTP is selected as the health check protocol. The health check path specifies the URL used by the load balancer to send the HTTP health check requests to the instances in the pool. By default, health checks are sent to the root path (`/`).
        * **Health protocol**: The protocol used by the load balancer to send health check messages to the instances in the pool.
-       * **Health port**: The port on which to send health check requests. By default, health checks are sent on the same port on which traffic is sent to the instance.
-       * **Interval**: Interval in seconds between two consecutive health check attempts. By default, health checks are sent every 5 seconds.
+       * **Health port (optional)**: The port on which to send health check requests. By default, health checks are sent on the same port on which traffic is sent to the instance.
+       * **Interval (sec)**: Interval in seconds between two consecutive health check attempts. By default, health checks are sent every 5 seconds.
        * **Timeout (sec)**: Maximum amount of time the system waits for a response from a health check request. By default, the load balancer waits 2 seconds for a response.
        * **Max retries**: Maximum number of health check attempts that the load balancer makes before an instance is declared unhealthy. By default, an instance is no longer considered healthy after two failed health checks.
 
        Although the load balancer stops sending connections to unhealthy instances, the load balancer continues monitoring the health of these instances and resumes their use if they're found healthy again (that is, if they successfully pass two consecutive health check attempts).
-       
-       HTTP sends data as plain text that can be intercepted and is considered insecure. It is recommended to choose protocol as `https` instead of `http`.
-       For more details see: https://www.cloudflare.com/learning/ssl/why-is-http-not-secure/
+
+       HTTP sends data as plain text that can be intercepted and is considered insecure. Use `https` instead of `http` as the protocol. For more details, see [Why is HTTP not secure?](https://www.cloudflare.com/learning/ssl/why-is-http-not-secure/){: external}
        {: note}
+
+       WHY HTTPS HERE and HTTP RECOMMENDED IN ANOTHER SECTION?
 
        If instances in the pool are unhealthy and you believe that your application is running fine, double check the health protocol and health path values. Also, check any security groups that are attached to the instances to ensure that the rules allow traffic between the load balancer and the instances.
        {: tip}
@@ -113,7 +115,7 @@ To create an ALB:
     * **IAM Authorization**: If HTTPS is the selected protocol for this listener, you must designate your IAM authorization, either by instance or your CRN.
     * **Secrets Manager**: If HTTPS is the selected protocol for this listener, you must select or create a secrets manager.
     * **SSL certificate**: If HTTPS is the selected protocol for this listener, you must select an SSL certificate. Make sure that the load balancer is authorized to access the SSL certificate.
-    * **Timeout (sec)** (optional): The maximum timeout after which the load balancer closes the connection if no data has been sent or received by the time that the idle timeout period elapses. The minimum and maximum timeout values are 50 seconds and 2 hours. These values are for both the Client and Server. To increase the timeout limit to more than 2 hours, [Create a support case](/docs/account?topic=account-open-case&interface=ui) providing the business requirement for the timeout value required. 
+    * **Timeout (sec)** (optional): The maximum timeout after which the load balancer closes the connection if no data has been sent or received by the time that the idle timeout period elapses. The minimum and maximum timeout values are 50 seconds and 2 hours. These values are for both the client and server. To increase the timeout limit to more than 2 hours, [create a support case](/docs/account?topic=account-open-case&interface=ui) providing the business requirement for the timeout value required.
 
 1. Click **Create** to create the front-end listener.
 1. In the Security groups section, select the security groups that you want to attach to your load balancer, or click **Create** to create a new security group to attach to your ALB.
@@ -123,12 +125,12 @@ To create an ALB:
 
 1. After you finish creating pools and listeners, click **Create load balancer**.
 1. To view details of an existing load balancer, click the name of your load balancer on the **Load balancers** page.
-1. Optionally, you can create a backup for any of your existing pools. This allows the backup pool to manage traffic in the case of a member failure. To do so, you must create a failsafe policy:
-     
+1. Optionally, you can create a backup for any of your existing pools. This allows the backup pool to manage traffic if a member fails. To do so, you must create a failsafe policy:
+
    * After the status of your load balancer changes to **Active**, select the **Back-end pools** tab.
    * In the pools list page, click **Edit**, then specify the following information:
-      * **Action**: Select **forward** in order to create a backup pool. This makes the **Target** section active.
-      * **Target**: Select a pool from the list of compatible pools to create your backup pool.
+      * **Action**: Select **forward** to configure the failsafe policy. This forwards traffic to a backup pool when members fail and makes the **Target** section active.
+      * **Target**: Select a pool from the list of compatible pools as your backup pool.
 1. If you want to redirect the traffic from an HTTP listener to an HTTPS listener, you can create an HTTP listener with HTTPS redirect settings.
 
     Layer 7 load-balancing policies overwrite settings that you define here.
@@ -139,28 +141,28 @@ To create an ALB:
     There must be an existing HTTPS listener before you create a new HTTP listener with HTTPS redirect.
     {: note}
 
-    *  After the status of the load balancer changes to **Active**, click the **Front-end listeners** tab.
-    *  In the listener list page, click **Create**, then specify the following information:
-        * **Protocol**: Select your **HTTP** protocol.
+    * After the status of the load balancer changes to **Active**, click the **Front-end listeners** tab.
+    * In the listener list page, click **Create**, then specify the following information:
+        * **Protocol**: Select **HTTP** as the protocol.
         * **Port**: Choose the listening port on which requests are received.
         * **Max connections** (optional): Define the maximum number of concurrent connections that the listener allows.
         * **HTTPS redirect**: Click the toggle button to enable the HTTPS redirect configuration, then specify the following HTTPS redirect settings:
-            * **HTTPS listener**: The target HTTPS listener, which the current HTTP listener incoming traffic is redirected to. Note that you will only see a list of HTTPS listeners whose `accept_proxy_proxy` value is the same as the HTTP listener.
+            * **HTTPS listener**: The target HTTPS listener to which incoming traffic from the current HTTP listener is redirected. Note that you only see a list of HTTPS listeners whose `accept_proxy_proxy` value is the same as the HTTP listener.  ACCEPT_PROXY_PROTOCOL ???
             * **Redirect URI** (optional): The URL to which the request redirects.
             * **Status code**: The status code of the response returned by the load balancer.
 1. If you want to redirect, forward, or reject particular incoming traffic for an HTTP or HTTPS front-end listener based on certain criteria, configure layer 7 policies.
-    *  After the status of the load balancer changes to **Active**, click **Front-end listeners** in the navigation and click the value in the **Policies** column for the listener you created.
-    *  On the Policies page, click **Add policy** and specify the following information to create a policy. You can create multiple policies.
+    * After the status of the load balancer changes to **Active**, click **Front-end listeners** in the navigation and click the value in the **Policies** column for the listener you created.
+    * On the Policies page, click **Add policy** and specify the following information to create a policy. You can create multiple policies.
         * **Name**: Enter a name for the policy, such as `my-policy`. The name must be unique within the listener.
         * **Action**: The action to take when all the rules for the policy match. You can reject a request with a 403 response, redirect the request to a configured URL and response code, redirect the traffic from an HTTP listener to an HTTPS listener, or forward the request to a specific back-end pool. If an incoming request does not match the rules for any policies, the request is forwarded to the default back-end pool of the listener.
         * **Priority**: Within each action type, policies are evaluated in ascending order of priority. Policies to reject traffic are always evaluated first, regardless of their priority. Policies to redirect traffic are evaluated next, followed by policies to forward traffic.
-        * **Redirect**: The URL to which the request is redirected, if the action is set to **Redirect**. You must provide either a full URL or the parameters of a URI. When using a URL, all incoming traffic will redirect to this URL. When using URI parameters, values from the incoming traffic request can be retained by using the incoming values of the parameters. This includes the protocol, port, host, path, and query. The default values of URI parameters will be equal to their original incoming values. To retain the incoming values, provide them as `{protocol}`, `{port}`, `{host}`, `{path}`, and `{query}`. For example, if the host of the incoming request is `ibm.com`, then the default value will be `{host}` equal to the incoming `ibm.com` value.
+        * **Redirect**: The URL to which the request is redirected, if the action is set to **Redirect**. You must provide either a full URL or the parameters of a URI. When using a URL, all incoming traffic redirects to this URL. When using URI parameters, values from the incoming traffic request can be retained by using the incoming values of the parameters. This includes the protocol, port, host, path, and query. The default values of URI parameters are equal to their original incoming values. To retain the incoming values, provide them as `{protocol}`, `{port}`, `{host}`, `{path}`, and `{query}`. For example, if the host of the incoming request is `ibm.com`, then the default value is `{host}` equal to the incoming `ibm.com` value.
         * **Status Code**: The status code of the response returned by the load balancer, if the action is set to **Redirect**.
         * **Forward**: The back-end pool of virtual server instances to which the request is forwarded, if the action is set to **Forward to pool**.
     * On the Policies page, you can also create an HTTPS redirect policy with the following configuration:
         * **Name**: Enter a name for the policy, such as `my-policy`. The name must be unique within the listener.
         * **Action**: Select the **Redirect to HTTPS** option.
-        * **HTTPS listener**: The target HTTPS listener which the traffic from the current HTTP listener will redirect to. Note that you will only see a list of HTTPS listeners whose `accept_proxy_proxy` value is the same as the HTTP listener.
+        * **HTTPS listener**: The target HTTPS listener to which traffic from the current HTTP listener is redirected. Note that you only see a list of HTTPS listeners whose `accept_proxy_proxy` value is the same as the HTTP listener.
         * **Redirect URI** (optional): The URL to which the request redirects.
         * **Status code**: The status code of the response returned by the load balancer.
     * On the Policies page, click **Add rule** for your policy. If rules exist for the policy, click the value in the **Rules** column to add more rules.
@@ -182,10 +184,10 @@ To create an application load balancer from the CLI, follow these steps:
 
 1. Use the terminal to log in to your account using the CLI. After you enter the password, the system prompts which account and region you want to use:
 
-    ```sh
-    ibmcloud login --sso
-    ```
-    {: pre}
+   ```sh
+   ibmcloud login --sso
+   ```
+   {: pre}
 
 1. Create a load balancer:
 
@@ -197,12 +199,12 @@ To create an application load balancer from the CLI, follow these steps:
     Sample output:
 
     ```sh
-    Creating load balancer nlb-test in resource group under account IBM Cloud Network Services as user test@ibm.com...
+    Creating load balancer alb-test in resource group under account IBM Cloud Network Services as user test@ibm.com...
 
     ID                 r006-99b5ab45-6357-42db-8b32-5d2c8aa62776
     Name               alb-test
     CRN                crn:v1:public:is:us-south-1:a/123456::load-balancer:r006-99b5ab45-6357-42db-8b32-5d2c8aa62776
-    Family             Network
+    Family             Application
     Host name          99b5ab45-us-south.lb.test.appdomain.cloud
     Subnets            ID                                          Name
                        0896-b1f24514-89dc-4afd-b0e2-5489a43cf45c   nlb
@@ -221,7 +223,7 @@ To create an application load balancer from the CLI, follow these steps:
     Created            2020-08-27T14:34:34.732-05:00
     ```
     {: screen}
-    
+
 1. Create a pool:
 
     ```sh
@@ -232,7 +234,7 @@ To create an application load balancer from the CLI, follow these steps:
     Sample output:
 
     ```sh
-    Creating pool nlb-pool of load balancer r006-99b5ab45-6357-42db-8b32-5d2c8aa62776  under account IBM Cloud Network Services as user test@ibm.com...
+    Creating pool alb-pool of load balancer r006-99b5ab45-6357-42db-8b32-5d2c8aa62776  under account IBM Cloud Network Services as user test@ibm.com...
 
     ID                         r006-3b66d605-6aa5-4166-9f66-b16054da3cb0
     Name                       alb-pool
@@ -302,7 +304,7 @@ To create an application load balancer from the CLI, follow these steps:
     ```
     {: screen}
 
-    For more options, see [VPC CLI reference for load balancers](/docs/vpc?topic=vpc-vpc-reference#lb-anchor). 
+    For more options, see [VPC CLI reference for load balancers](/docs/vpc?topic=vpc-vpc-reference#lb-anchor).
 
 1. Create a policy:
 
@@ -339,12 +341,12 @@ To create an application load balancer from the CLI, follow these steps:
     Getting load balancer r006-99b5ab45-6357-42db-8b32-5d2c8aa62776 under account IBM Cloud Network Services as user test@ibm.com...
 
     ID                 r006-99b5ab45-6357-42db-8b32-5d2c8aa62776
-    Name               nlb-test
+    Name               alb-test
     CRN                crn:v1:public:is:us-south-1:a/123456::load-balancer:r006-99b5ab45-6357-42db-8b32-5d2c8aa62776
-    Family             Network
+    Family             Application
     Host name          99b5ab45-us-south.lb.test.appdomain.cloud
     Subnets            ID                                          Name
-                       0896-b1f24514-89dc-4afd-b0e2-5489a43cf45c   nlb
+                       0896-b1f24514-89dc-4afd-b0e2-5489a43cf45c   alb-subnet
 
     Public IPs         150.238.50.78, 150.238.54.95
     Private IPs        10.240.0.58, 10.240.0.59
@@ -353,7 +355,7 @@ To create an application load balancer from the CLI, follow these steps:
     Is public          true
     Listeners          r006-2847a948-f9b6-4fc1-91c6-f1c49dac3eba
     Pools              ID                                          Name
-                       r006-3b66d605-6aa5-4166-9f66-b16054da3cb0   nlb-pool
+                       r006-3b66d605-6aa5-4166-9f66-b16054da3cb0   alb-pool
 
     Resource group     ID                                 Name
                        3021f90279574ce287dd5fba82c08899   Default
@@ -384,7 +386,7 @@ To create an application load balancer with the API, follow these steps:
     ```
     {: pre}
 
-    You can also find your resource group ID by using IBM Cloud console. From your browser, open the [{{site.data.keyword.cloud_notm}} console](/login){: external} and log in to your account. Select **Manage** > **Account** > **Resource Groups**. 
+    You can also find your resource group ID by using IBM Cloud console. From your browser, open the [{{site.data.keyword.cloud_notm}} console](/login){: external} and log in to your account. Select **Manage** > **Account** > **Resource Groups**.
 
 1. Create a load balancer with a listener, pool, and attached server instances (pool members) with the following sample code:
 
@@ -452,7 +454,7 @@ To create an application load balancer with the API, follow these steps:
     ```
     {: codeblock}
 
-    For more options, see [VPC API reference for load balancers](https://cloud.ibm.com/apidocs/vpc/latest#list-load-balancer-profiles). 
+    For more options, see [VPC API reference for load balancers](https://cloud.ibm.com/apidocs/vpc/latest#list-load-balancer-profiles).
 
     Sample output:
 
