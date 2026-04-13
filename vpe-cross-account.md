@@ -308,11 +308,11 @@ output "authorization_policy_id" {
 
 For more information, see the [Terraform registry](https://registry.terraform.io/providers/IBM-Cloud/ibm/latest/docs/resources/iam_authorization_policy){: external}.
 
-## Creating an endpoint gateway in the console
+## Creating a cross-account endpoint gateway in the console
 {: #vpe-cross-account-creating-ui}
 {: ui}
 
-To create an endpoint gateway for non-IBM (third-party) services in the {{site.data.keyword.cloud_notm}} console, follow these steps:
+To create a cross-account endpoint gateway for non-IBM (third-party) services in the {{site.data.keyword.cloud_notm}} console, follow these steps:
 
 Currently, creating cross-account VPE gateways to IBM Cloud services is supported only from the CLI. 
 {: attention}
@@ -336,15 +336,12 @@ Currently, creating cross-account VPE gateways to IBM Cloud services is supporte
    Endpoint gateways created before the support for security groups do not have an attached security group. They also allow all inbound traffic. If you attach a security group to a VPE that does not have any attached security groups, you cannot revert that VPE back to a state where is has no security groups. You can revert to the previous "allow all inbound traffic" behavior by attaching a security group with rules for allowing all inbound traffic. However, this rule is inherently less secure than having a more restrictive security group in place and is not recommended.
    {: important}
 
-1. In the **Request connection to a service** section, select either an {{site.data.keyword.cloud_notm}} or non-{{site.data.keyword.cloud_notm}} service to access by using this endpoint gateway.
+1. In the **Request connection to a service** section, select a non-{{site.data.keyword.cloud_notm}} service to access by using this endpoint gateway. Then, enter the cloud resource name (CRN) of the Private Path service (obtained from your service provider).
 
-   * For IBM Cloud services, select an available IBM Cloud service offering from the menu, then select its region. A region is pre-selected to optimize performance.
-   * For non-IBM Cloud services, enter the cloud resource name (CRN) of the Private Path service (obtained from your service provider).
-
-      Your connection request is sent to the service provider for review.
-
-      The review might be automated based on the provider's chosen account policy, or it could take days if the provider has chosen to manually review their requests. If your request is permitted, you will receive a notification and can then access the service. If your request is denied, contact the service provider.
-      {: note}
+   It is not currently possible to create cross-account VPEs to IBM Cloud services. You must use the CLI and provide the service instance CRN.
+   {: reminder}
+ 
+   After you create your connection request, it is sent to the service provider for review. The review might be automated based on the provider's chosen account policy, or it could take days if the provider has chosen to manually review their requests. If your request is permitted, you receive a notification and can then access the service. If your request is denied, contact the service provider. 
 
 1. In the Share DNS section, select one of the following DNS resolution binding modes:
 
@@ -367,13 +364,13 @@ Currently, creating cross-account VPE gateways to IBM Cloud services is supporte
 
 1. Review the **Order summary**, then click **Create virtual private endpoint gateway**. The endpoint gateway is requested for use.
 
-## Creating an endpoint gateway from the CLI
+## Creating a cross-account endpoint gateway from the CLI
 {: #vpe-cross-account-ordering-cli}
 {: cli}
 
 Before you begin, [set up your CLI environment](/docs/vpc?topic=vpc-set-up-environment&interface=cli).
 
-To create an endpoint gateway from the CLI, follow these steps:
+To create a cross-account endpoint gateway from the CLI, follow these steps:
 
 1. List the IBM Cloud service instances that are qualified to be set as endpoint gateway targets:
 
@@ -382,7 +379,7 @@ To create an endpoint gateway from the CLI, follow these steps:
    ```
    {: pre}
 
-1. Create an endpoint gateway by running the following command:
+1. Create a cross-account endpoint gateway by running the following command:
 
    ```sh
    ibmcloud is endpoint-gateway-create --target TARGET [--target-type private_path_service_gateway | provider_cloud_service | provider_infrastructure_service] [--vpc VPC] [--name NAME] [--rip RIP --subnet SUBNET | (--new-reserved-ip NEW_RESERVED_IP1 --new-reserved-ip NEW_RESERVED_IP2 ...)] [--allow-dns-resolution-binding false | true] [--sg SG] [--resource-group-id RESOURCE_GROUP_ID | --resource-group-name RESOURCE_GROUP_NAME] [--output JSON] [-q, --quiet]
@@ -398,7 +395,7 @@ To create an endpoint gateway from the CLI, follow these steps:
    :   Indicates ID or name of the VPC.
 
    `--target`:
-   :   Indicates the name of the provider infrastructure service or the CRN for a provider cloud service instance. You can use the command `ibmcloud is endpoint-gateway-targets` to list the provider cloud and infrastructure services that are qualified to be set as the endpoint gateway target.
+   :   Indicates the name of the provider infrastructure service or the CRN for a provider cloud service instance. You can enter the command `ibmcloud is endpoint-gateway-targets` to list the provider cloud and infrastructure services that are qualified to be set as the endpoint gateway target.
 
    `--name`:
    :   Indicates the new name of the endpoint gateway.
@@ -432,11 +429,11 @@ To create an endpoint gateway from the CLI, follow these steps:
 
    For more information and command examples, see the [VPC CLI reference](/docs/vpc?topic=vpc-vpc-reference&interface=cli#endpoint-gateway-create).
 
-## Creating an endpoint gateway with the API
+## Creating a cross-account endpoint gateway with the API
 {: #vpe-cross-account-ordering-api}
 {: api}
 
-To create an endpoint gateway with the API, follow these steps:
+To create a cross-account endpoint gateway with the API, follow these steps:
 
 1. Set up your [API environment](/docs/vpc?topic=vpc-set-up-environment&interface=cli).
 1. Store the following values in variables to be used in the API command:
@@ -526,11 +523,11 @@ To create an endpoint gateway with the API, follow these steps:
 After an endpoint gateway is created for an {{site.data.keyword.cloud_notm}} service, it presents the endpoints that are associated with it. You can edit the endpoint gateway in various ways, such as binding or unbinding IP addresses, changing the resource group, and updating tags. If you need to change the service endpoints for any reason, you must delete and re-create the endpoint gateway.
 {: important}
 
-## Creating an endpoint gateway with Terraform
+## Creating a cross-account endpoint gateway with Terraform
 {: #creating-cross-account-endpoint-gateway-terraform}
 {: terraform}
 
-You can use Terraform to create an endpoint gateway.
+You can use Terraform to create a cross-account endpoint gateway.
 
 To use Terraform, download the Terraform CLI and configure the {{site.data.keyword.cloud_notm}} Provider plug-in. For more information, see [Getting started with Terraform](/docs/ibm-cloud-provider-for-terraform?topic=ibm-cloud-provider-for-terraform-getting-started).
 {: requirement}
