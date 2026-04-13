@@ -314,7 +314,7 @@ For more information, see the [Terraform registry](https://registry.terraform.io
 
 To create a cross-account endpoint gateway for non-IBM (third-party) services in the {{site.data.keyword.cloud_notm}} console, follow these steps:
 
-Currently, creating cross-account VPE gateways to IBM Cloud services is supported only from the CLI. 
+Currently, creating cross-account VPE gateways to IBM Cloud services is supported only from the CLI.
 {: attention}
 
 1. From the [{{site.data.keyword.cloud_notm}} console](/login){: external}, select the **Navigation menu** ![Navigation menu icon](../icons/icon_hamburger.svg), then click **Infrastructure** ![VPC icon](../../icons/vpc.svg) > **Network** > **Virtual private endpoint gateways**. The Virtual private endpoint gateways for VPC page appears.
@@ -333,15 +333,12 @@ Currently, creating cross-account VPE gateways to IBM Cloud services is supporte
 
     When you create an endpoint gateway without specifying a security group, the VPC default security group is attached to the endpoint gateway. For more information, see [Configuring ACLs and security groups for use with endpoint gateways](/docs/vpc?topic=vpc-configure-acls-sgs-endpoint-gateways).
 
-   Endpoint gateways created before the support for security groups do not have an attached security group. They also allow all inbound traffic. If you attach a security group to a VPE that does not have any attached security groups, you cannot revert that VPE back to a state where is has no security groups. You can revert to the previous "allow all inbound traffic" behavior by attaching a security group with rules for allowing all inbound traffic. However, this rule is inherently less secure than having a more restrictive security group in place and is not recommended.
-   {: important}
-
 1. In the **Request connection to a service** section, select a non-{{site.data.keyword.cloud_notm}} service to access by using this endpoint gateway. Then, enter the cloud resource name (CRN) of the Private Path service (obtained from your service provider).
 
    It is not currently possible to create cross-account VPEs to IBM Cloud services. You must use the CLI and provide the service instance CRN.
    {: reminder}
- 
-   After you create your connection request, it is sent to the service provider for review. The review might be automated based on the provider's chosen account policy, or it could take days if the provider has chosen to manually review their requests. If your request is permitted, you receive a notification and can then access the service. If your request is denied, contact the service provider. 
+
+   After you create your connection request, it is sent to the service provider for review. The review might be automated based on the provider's chosen account policy, or it could take days if the provider has chosen to manually review their requests. If your request is permitted, you receive a notification and can then access the service. If your request is denied, contact the service provider.
 
 1. In the Share DNS section, select one of the following DNS resolution binding modes:
 
