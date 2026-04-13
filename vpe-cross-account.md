@@ -314,8 +314,8 @@ For more information, see the [Terraform registry](https://registry.terraform.io
 
 To create a cross-account endpoint gateway for non-IBM (third-party) services in the {{site.data.keyword.cloud_notm}} console, follow these steps:
 
-Currently, creating cross-account VPE gateways to IBM Cloud services is supported only from the CLI.
-{: attention}
+Currently, creating cross-account VPE gateways to "IBM Cloud services" is not supported in the console.
+{: important}
 
 1. From the [{{site.data.keyword.cloud_notm}} console](/login){: external}, select the **Navigation menu** ![Navigation menu icon](../icons/icon_hamburger.svg), then click **Infrastructure** ![VPC icon](../../icons/vpc.svg) > **Network** > **Virtual private endpoint gateways**. The Virtual private endpoint gateways for VPC page appears.
 1. Click **Create** to go to the provisioning page.
