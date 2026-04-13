@@ -17,7 +17,7 @@ subcollection: vpc
 {: help}
 {: support}
 
-You can create an endpoint gateway for a supported {{site.data.keyword.cloud}} or third-party service or application that you want to access on your private VPC network. You can use the console, CLI, API, or Terraform.
+You can create an endpoint gateway for a supported {{site.data.keyword.cloud}} service or a non-IBM (third-party) service that you want to access within your private VPC network. For both IBM and non-IBM services, you can use the CLI, API, or Terraform. However, creating cross-account VPE gateways for IBM Cloud services is not currently supported through the console.
 {: shortdesc}
 
 ## Before you begin
