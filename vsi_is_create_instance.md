@@ -2,7 +2,7 @@
 
 copyright:
   years: 2018, 2026
-lastupdated: "2026-04-13"
+lastupdated: "2026-04-14"
 
 keywords:
 
@@ -61,6 +61,8 @@ Use the following steps to create a virtual server instance.
    | Existing volume | Select an existing boot volume that is not attached to an instance and click **Save**.  |
    {: caption="Instance provisioning image, snapshot, or volume selections" caption-side="bottom"}
    {: #table-select-image-and-profile}
+
+You can provision an instance from an `available`, `partially_available` (image is not yet available in all zones) or `deprecated` image. For more information on image lifecycles, see [Custom image lifecycle](/docs/vpc?topic=vpc-planning-custom-images#custom-image-lifecycle).
 
    | Field | Value |
    |-------|-------|
@@ -156,6 +158,8 @@ Gather the following information by using the associated commands.
 | Zone | `ibmcloud is zones` | [List all regions](/docs/vpc?topic=vpc-vpc-reference#zones-list) |
 | Placement groups | `ibmcloud is placement-groups` | [List all placement groups](/docs/vpc?topic=vpc-vpc-reference#placement-groups-list) |
 {: caption="Required instance details" caption-side="bottom"}
+
+You can provision an instance from an `available`, `partially_available` (image is not yet available in all zones) or `deprecated` image. For more information on image lifecycles, see [Custom image lifecycle](/docs/vpc?topic=vpc-planning-custom-images#custom-image-lifecycle).
 
 Verify the profile that you use is available in the zone where you plan to create the instance.
 
@@ -291,6 +295,8 @@ Deprecated images do not include the most current support. For more information,
 {: #list-available-stock-custom-images-cli}
 
 List the available stock images, custom images, or images that are shared with your account from a private catalog for creating your instance. If you are creating an instance from an existing boot volume, skip this step.
+
+You can provision an instance from an `available`, `partially_available` (image is not yet available in all zones) or `deprecated` image. For more information on image lifecycles, see [Custom image lifecycle](/docs/vpc?topic=vpc-planning-custom-images#custom-image-lifecycle).
 
 To list all available stock or custom images, run the following command.
 
@@ -988,6 +994,8 @@ Before you can create an instance, you need to know the details about the instan
 | Placement groups      | `GET /placement_groups`         | [List all placement groups](/apidocs/vpc/latest#list-placement-groups)|
 {: caption="Required instance details api" caption-side="bottom"}
 
+You can provision an instance from an `available`, `partially_available` (image is not yet available in all zones) or `deprecated` image. For more information on image lifecycles, see [Custom image lifecycle](/docs/vpc?topic=vpc-planning-custom-images#custom-image-lifecycle).
+
 Verify the profile that you use is available in the zone where you plan to create the instance.
 
 If you plan to use a snapshot from another account, make sure that the right [IAM authorizations](/docs/vpc?topic=vpc-block-s2s-auth&interface=api#block-s2s-auth-xaccountrestore-api) are in place first. Then, contact the snapshot's owner for the CRN of the snapshot.
@@ -1397,6 +1405,8 @@ Gather the following information by using `DataSource` command.
    {: codeblock}
 
 1. List the available images for creating your instance. You can use a stock image, a custom image from your account, or an image that was shared with your account from a private catalog. For more information, see the Terraform documentation on [ibm_is_image](https://registry.terraform.io/providers/IBM-Cloud/ibm/latest/docs/data-sources/is_image){: external}. If you plan to use an image that was shared from a private catalog, see the Terraform documentation on [ibm_cm_version](https://registry.terraform.io/providers/IBM-Cloud/ibm/latest/docs/resources/cm_version){: external} or [ibm_cm_offering_instance](https://registry.terraform.io/providers/IBM-Cloud/ibm/latest/docs/resources/cm_offering_instance){: external}.
+
+You can provision an instance from an `available`, `partially_available` (image is not yet available in all zones) or `deprecated` image. For more information on image lifecycles, see [Custom image lifecycle](/docs/vpc?topic=vpc-planning-custom-images#custom-image-lifecycle).
 
 Verify the profile that you use is available in the zone where you plan to create the instance.
 

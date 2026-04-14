@@ -2,7 +2,7 @@
 
 copyright:
   years: 2019, 2026
-lastupdated: "2026-04-08"
+lastupdated: "2026-04-14"
 
 keywords:
 
@@ -23,6 +23,13 @@ Use the release notes to learn the latest updates to {{site.data.keyword.vpc_ful
 For more information about changes to the {{site.data.keyword.vpc_short}} API, see [{{site.data.keyword.vpc_short}} API change log](/docs/vpc?topic=vpc-api-change-log).
 
 For more information about changes to the {{site.data.keyword.vpc_short}} command-line interface (CLI), see [{{site.data.keyword.vpc_short}} CLI release notes](/docs/vpc?topic=vpc-vpc-cli-rn).
+
+### 14 April 2026
+{: #vpc-apr1426}
+{: release-note}
+
+Image partial availability
+:   A new, temporary status of `partially_available` is now available for the image lifecycle. This status indicates an image was imported into at least one zone but is not yet available in all zones. The image eventually reaches the `available` status without additional user action. An image in `partially_available` status can be used for virtual server instances or bare metal servers, as well as be exported into {{site.data.keyword.cos_full_notm}}. For more information, see [Custom image lifecycle](/docs/vpc?topic=vpc-planning-custom-images#custom-image-lifecycle).
 
 ### 07 April 2026
 {: #vpc-apr0726}
