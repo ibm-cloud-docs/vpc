@@ -1031,6 +1031,7 @@ toc:
               label: Troubleshooting bare metal servers
               topics:
               - bare_metal_server_troubleshoot.md
+              - troubleshooting_partially_available_custom_image_bm.md
           - topicgroup:
               id: tbs-hpvs
               label: Troubleshooting Hyper Protect Virtual Servers for VPC
@@ -1098,6 +1099,7 @@ toc:
               - vsi_is_tbs_rhel_classic_image.md
               - vsi_is_tbs_linux_default_user_account.md
               - custom_image_vpc_troubleshoot.md
+              - troubleshooting_partially_available_custom_image.md
           - topicgroup:
               id: tbs-dedicated-host
               label: Troubleshooting dedicated host
