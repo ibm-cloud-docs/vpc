@@ -2,7 +2,7 @@
 
 copyright:
   years: 2019, 2026
-lastupdated: "2026-04-07"
+lastupdated: "2026-04-14"
 
 keywords: api, change log, new features, restrictions, migrations
 
@@ -53,6 +53,14 @@ At this time, all instances, and therefore all instance templates, continue to r
 
 The new response code will be rolled out gradually. Each phase of the rollout will be tied to a dated API version. These changes will be announced in future change log updates.
 {: note}
+
+## 14 April 2026
+{: #14-april-2026}
+
+### For all version dates
+{: #14-april-2026-all-version-dates}
+
+**Image partial availability.** When [retrieving](/apidocs/vpc/latest#get-image) or [listing](/apidocs/vpc/latest#list-images) images, the `zones` property in the response now contains only the zones in which the image is available. The `partially_available` value for `status` indicates that the image is not yet available in all zones. For more information, see [Custom Image Lifecycle](/docs/vpc?topic=vpc-planning-custom-images#custom-image-lifecycle).
 
 ## 7 April 2026
 {: #7-april-2026}
