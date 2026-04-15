@@ -2,7 +2,7 @@
 
 copyright:
   years: 2021, 2026
-lastupdated: "2026-02-28"
+lastupdated: "2026-04-15"
 
 keywords: virtual private network, VPN, VPN server, troubleshooting
 
@@ -27,8 +27,8 @@ You can’t connect to a private resource through a VPE when using client-to-sit
 This issue usually occurs because one or both of the following settings are missing:
 {: tsCauses}
 
-* DNS is blocked by the security group: Your VPN client must contact IBM Cloud DNS to look up the private VPE address. If port `53` (DNS) isn’t allowed in the security group, the request is blocked, and the VPE IP address is never returned.
-* Missing VPN server route: In split-tunnel mode, the VPN server specifies routes for the traffic that should go through the tunnel. If no VPN route exists for the VPC subnet where the VPE is located, your client sends the traffic to the public internet, where private IP addresses aren’t accessible.
+* **DNS is blocked by the security group** - Your VPN client must contact IBM Cloud DNS to look up the private VPE address. If port `53` (DNS) isn’t allowed in the security group, the request is blocked, and the VPE IP address is never returned.
+* **Missing VPN server route** - In split-tunnel mode, the VPN server specifies routes for the traffic that should go through the tunnel. If no VPN route exists for the VPC subnet where the VPE is located, your client sends the traffic to the public internet, where private IP addresses aren’t accessible.
 
 Follow these steps to fix this issue:
 {: tsResolve}
@@ -46,4 +46,4 @@ Follow these steps to fix this issue:
    * VPC subnet CIDR: `10.x.y.0/24` (recommended)
    * VPE private IP as a /32 route: `10.x.y.z/32`
 
-1. Reconnect the VPN: Route changes are applied only after you disconnect and reconnect the VPN.
+1. Reconnect the VPN because route changes are applied only after you disconnect and reconnect the VPN.
