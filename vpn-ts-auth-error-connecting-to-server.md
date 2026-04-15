@@ -1,8 +1,8 @@
 ---
 
 copyright:
-  years: 2021, 2025
-lastupdated: "2025-12-17"
+  years: 2021, 2026
+lastupdated: "2026-04-15"
 
 keywords: virtual private network, VPN, VPN server, troubleshooting
 
@@ -29,3 +29,8 @@ For user ID and password-based authentication, follow these steps to resolve thi
 
 1. Verify that the client that's being connected is added to the correct access group with sufficient access policies to the specific VPN server. See [Creating an access group](/docs/vpc?topic=vpc-create-iam-access-group) for more details.
 1. Verify that the **Users of the VPN Server need this role to connect to the VPN server** checkbox is selected in the Service access section.
+
+## Related links
+{: #related-links-authentication-error}
+
+[Why do I see an auth-failure error with user ID and passcode authentication?](/docs/vpc?topic=vpc-troubleshoot-auth-failure-error&interface=cli)
