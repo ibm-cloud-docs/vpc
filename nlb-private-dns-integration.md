@@ -1,8 +1,8 @@
 ---
 
 copyright:
-  years: 2022, 2025
-lastupdated: "2025-08-04"
+  years: 2022, 2026
+lastupdated: "2026-04-16"
 
 keywords:
 
@@ -33,7 +33,7 @@ Before binding DNS zones to load balancers, you must first create DNS zones and 
 
 1. DNS zones must be created before they can be bound to a load balancer. For more information, see [Managing DNS zones](/docs/dns-svcs?topic=dns-svcs-managing-dns-zones).
 
-1. To give a load balancer access to your DNS zone, you must enable service-to-service authorization. This grants your load balancer access to the DNS zone. For more information, see [Granting access between services](/docs/account?topic=account-serviceauth&interface=ui#create-auth). Make sure to choose **VPC Infrastructure Services** as the source service, **Load Balancer for VPC** as the resource type, **DNS Services** as the target service, and assign the **Manager** service access role.
+1. To give a load balancer access to your DNS zone, you must enable service-to-service authorization. This grants your load balancer access to the DNS zone. For more information, see [Granting access between services](/docs/iam?topic=iam-serviceauth&interface=ui#create-auth). Make sure to choose **VPC Infrastructure Services** as the source service, **Load Balancer for VPC** as the resource type, **DNS Services** as the target service, and assign the **Manager** service access role.
 
 ## Working with DNS zones in the console
 {: #dns-zones-ui-nlb}

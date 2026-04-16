@@ -2,7 +2,7 @@
 
 copyright:
   years: 2022, 2026
-lastupdated: "2026-03-24"
+lastupdated: "2026-04-16"
 
 keywords: Backup for VPC, backup service, backup plan, backup policy, restore, restore volume, restore data
 
@@ -31,7 +31,7 @@ For cross-region replication, you need to establish service-to-service authoriza
 
 For cross-account access, you need to establish service-to-service authorizations between the File Storage service of two different accounts. The authorization must be created in the account that owns and hosts the file share. You must also specify [user roles](/docs/account?topic=account-iam-service-roles-actions#is.share-roles) in both accounts to allow the users to create and manage accessor shares and share bindings. For more information, see [Sharing and mounting a file share from another account](/docs/vpc?topic=vpc-file-storage-accessor-create).
 
-For more information about authorizations, see [Using authorizations to grant access between services](/docs/account?topic=account-serviceauth).
+For more information about authorizations, see [Using authorizations to grant access between services](/docs/iam?topic=iam-serviceauth).
 
 ## Creating authorization for customer-managed encryption in the console
 {: #file-s2s-auth-encryption-ui}

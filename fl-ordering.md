@@ -1,8 +1,8 @@
 ---
 
 copyright:
-  years: 2020, 2025
-lastupdated: "2025-10-24"
+  years: 2020, 2026
+lastupdated: "2026-04-16"
 
 keywords: flow logs, ordering, getting started
 
@@ -58,7 +58,7 @@ Before you create a flow log collector, make sure that you meet the following pr
 
    * Click **Authorize**.
 
-   For more information, see [Using authorizations to grant access between services](/docs/account?topic=account-serviceauth&interface=ui).
+   For more information, see [Using authorizations to grant access between services](/docs/iam?topic=iam-serviceauth&interface=ui).
    {: note}
 
 ## Prerequisites from the CLI
@@ -88,7 +88,7 @@ Before you create a flow log collector, make sure that you meet the following pr
 
    ![{{site.data.keyword.cos_short}} Service credentials](images/flow-logs-service-credentials.png){: caption="{{site.data.keyword.cos_short}} Service credentials" caption-side="bottom"}
 
-   For more information, see [Using authorizations to grant access between services](/docs/account?topic=account-serviceauth&interface=ui#create-auth).
+   For more information, see [Using authorizations to grant access between services](/docs/iam?topic=iam-serviceauth&interface=ui#create-auth).
    {: note}
 
 ## Prerequisites with the API
@@ -126,7 +126,7 @@ Before you create a flow log collector, make sure that you meet the following pr
 
    * Click **Authorize**.
 
-   For more information, see [Using authorizations to grant access between services](/docs/account?topic=account-serviceauth&interface=ui#create-auth).
+   For more information, see [Using authorizations to grant access between services](/docs/iam?topic=iam-serviceauth&interface=ui#create-auth).
    {: note}
 
 ## Creating a flow log collector in the console

@@ -2,7 +2,7 @@
 
 copyright:
   years: 2019, 2026
-lastupdated: "2026-03-23"
+lastupdated: "2026-04-16"
 
 keywords:
 
@@ -202,7 +202,7 @@ For detailed information about key rotation, including rotation policies, manual
 
 You can make your data inaccessible but retain it on the cloud by removing IAM authorization to use that root key.
 
-When you [authorize use](/docs/account?topic=account-serviceauth#serviceauth) of your root key, you grant permission for IBM to use the key to encrypt your resource. Authorization is done at the key management service level through IAM, when you authorize service between your service (for example, Cloud Block Storage) and the key management service.
+When you [authorize use](/docs/iam?topic=iam-serviceauth#serviceauth) of your root key, you grant permission for IBM to use the key to encrypt your resource. Authorization is done at the key management service level through IAM, when you authorize service between your service (for example, Cloud Block Storage) and the key management service.
 
 You can remove any authorization between services in your account when you have the Administrator role on the target service (in this case, the key management service). If you remove an access policy that was created by the source service for its dependent services, the source service is unable to complete the workflow or access the target service.
 
@@ -213,7 +213,7 @@ Do not remove IAM authorization between Cloud Block Storage and the KMS instance
 
 To make your data inaccessible, but retain it on the {{site.data.keyword.cloud_notm}}:
 
-1. [Remove IAM authorization](/docs/account?topic=account-serviceauth&interface=ui#remove-auth) from the source Cloud Block Storage service to your target key management service instance.
+1. [Remove IAM authorization](/docs/iam?topic=iam-serviceauth&interface=ui#remove-auth) from the source Cloud Block Storage service to your target key management service instance.
 1. [Stop all virtual server instances](/docs/vpc?topic=vpc-managing-virtual-server-instances&interface=ui#stop-start-virtual-server-instances-ui) with attached encrypted volumes that are secured by that root key.
 
 ## Viewing events in the {{site.data.keyword.logs_full_notm}}
