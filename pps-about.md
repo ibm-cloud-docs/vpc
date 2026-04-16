@@ -2,7 +2,7 @@
 
 copyright:
   years: 2023, 2026
-lastupdated: "2026-02-10"
+lastupdated: "2026-04-16"
 
 keywords:
 
@@ -30,7 +30,7 @@ The typical process for creating private connectivity between providers and cons
 
 For more information, see the [Private Path solution guide](/docs/private-path).
 
-Your ability to complete the following actions depends on the level of IAM permissions that are associated with your IBM Cloud account. For more information, see [Required permissions](/docs/account?topic=account-iam-service-roles-actions#is.private-path-service-gateway-roles).
+Your ability to complete the following actions depends on the level of IAM permissions that are associated with your IBM Cloud account. For more information, see [Required permissions](/docs/iam?topic=iam-iam-service-roles-actions#is.private-path-service-gateway-roles).
 
 ## Getting started with Private Path service
 {: #pps-getting-started}
@@ -126,5 +126,5 @@ It is recommended to enable zonal affinity in the Private Path service to ensure
 * [Private Path services API reference](/apidocs/vpc/latest#list-private-path-service-gateways)
 * [Private Path service resources for Terraform](https://registry.terraform.io/providers/IBM-Cloud/ibm/latest/docs/resources/is_private_path_service_gateway){: external}
 * [Private Path solution tutorial using Terraform](/docs/solution-tutorials?topic=solution-tutorials-vpc-pps-basics)
-* [IAM permissions](/docs/account?topic=account-iam-service-roles-actions#is.private-path-service-gateway-roles)
+* [IAM permissions](/docs/iam?topic=iam-iam-service-roles-actions#is.private-path-service-gateway-roles)
 * [Activity tracking events](/docs/vpc?topic=vpc-at_events#events-private-path-service-events)

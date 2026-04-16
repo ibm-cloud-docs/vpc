@@ -2,7 +2,7 @@
 
 copyright:
   years: 2023, 2026
-lastupdated: "2026-04-10"
+lastupdated: "2026-04-16"
 
 keywords:
 
@@ -129,5 +129,5 @@ The specific domains that are resolved depend on the IBM Cloud services that you
 {: #vpe-dns-sharing-related-links}
 
 * [Activity tracking events](/docs/vpc?topic=vpc-at_events#events-dns-resolution-bindings)
-* [IAM permissions](/docs/account?topic=account-iam-service-roles-actions#is.vpc-roles)
+* [IAM permissions](/docs/iam?topic=iam-iam-service-roles-actions#is.vpc-roles)
 * [Troubleshooting issues](/docs/vpc?topic=vpc-troubleshoot-hub-1)

@@ -1,8 +1,8 @@
 ---
 
 copyright:
-  years: 2024, 2025
-lastupdated: "2025-11-19"
+  years: 2024, 2026
+lastupdated: "2026-04-16"
 
 subcollection: vpc
 
@@ -13,10 +13,10 @@ content-type: faq
 {{site.data.keyword.attribute-definition-list}}
 
 # FAQ for public address ranges
-{: #faq-public-address-ranges} 
+{: #faq-public-address-ranges}
 
 The following questions are commonly asked about public address ranges. If you have additional questions you'd like to see addressed here, open an issue by using the **Open doc issue** or **Edit topic** links at the end of this page.
-{: shortdesc} 
+{: shortdesc}
 
 ## Can I bring my own public IP address range?
 {: #assign-public-ips}
@@ -38,10 +38,10 @@ You can reserve ranges with the following prefix sizes:
 * `/31` = 2 IPs
 * `/32` = 1 IP
 
-After reserving a range, you can't change its size. Make sure to reserve a range that’s large enough to meet your current and future needs. 
+After reserving a range, you can't change its size. Make sure to reserve a range that’s large enough to meet your current and future needs.
 
 If you require a prefix size larger than `/28`, [contact support](/unifiedsupport/cases/form){: external} to request a quota increase.
-  
+
 IPs in different public address ranges aren't guaranteed to be contiguous.
 {: note}
 
@@ -70,7 +70,7 @@ Not by default. However, you can create separate public address ranges in differ
 {: #faq-related-links-par}
 
 - [About public address ranges](/docs/vpc?topic=vpc-about-par)
-- [IAM roles and actions](/docs/account?topic=account-iam-service-roles-actions#is.public-address-range-roles)
+- [IAM roles and actions](/docs/iam?topic=iam-iam-service-roles-actions#is.public-address-range-roles)
 - [Quotas](/docs/vpc?topic=vpc-quotas#par-quotas) and [service limits](/docs/vpc?topic=vpc-quotas#service-limits-for-vpc-services)
 - [FAQ](/docs/vpc?topic=vpc-faq-public-address-ranges)
 - [Known issues](/docs/vpc?topic=vpc-par-known-issues)

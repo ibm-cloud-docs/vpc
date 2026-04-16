@@ -1,8 +1,8 @@
 ---
 
 copyright:
-  years: 2023, 2025
-lastupdated: "2025-10-09"
+  years: 2023, 2026
+lastupdated: "2026-04-16"
 
 keywords:
 
@@ -29,7 +29,7 @@ To create a virtual network interface, you must have the following prerequisites
 
 * A VPC instance
 * A subnet in which to create a virtual network interface
-* Make sure that you have the appropriate [IAM permissions](/docs/account?topic=account-iam-service-roles-actions#is.virtual-network-interface-roles). You must have IAM Administrator role permission to configure IP spoofing and infrastructure NAT.
+* Make sure that you have the appropriate [IAM permissions](/docs/iam?topic=iam-iam-service-roles-actions#is.virtual-network-interface-roles). You must have IAM Administrator role permission to configure IP spoofing and infrastructure NAT.
 
 Review [planning considerations](/docs/vpc?topic=vpc-vni-about#vni-planning) and [known issues](/docs/vpc?topic=vpc-vni-known-issues) for virtual network interfaces.
 {: important}

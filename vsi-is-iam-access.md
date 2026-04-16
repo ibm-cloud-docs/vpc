@@ -65,50 +65,50 @@ Review the following tables that outline what types of tasks each role allows wh
 {: tab-title="VPC Infrastructure Service roles"}
 {: tab-group="IAMVPC"}
 
-For more information about the exact actions that are mapped to each role, see [`Infrastructure Services`](/docs/account?topic=account-iam-service-roles-actions#is-roles) on the IAM roles and actions page.
+For more information about the exact actions that are mapped to each role, see [`Infrastructure Services`](/docs/iam?topic=iam-iam-service-roles-actions#is-roles) on the IAM roles and actions page.
 
 The following links take you directly to the specific infrastructure service on the IAM roles and actions page.
 
 ## Network IAM roles and actions
 {: #network-iam-roles-actions}
 
-- [Cluster Networks for VPC](/docs/account?topic=account-iam-service-roles-actions#is.cluster-network-roles)
-- [Floating IP for VPC](/docs/account?topic=account-iam-service-roles-actions#is.floating-ip-roles)
-- [Flow Logs for VPC](/docs/account?topic=account-iam-service-roles-actions#is.flow-log-collector-roles)
-- [Load Balancer for VPC](/docs/account?topic=account-iam-service-roles-actions#is.load-balancer-roles)
-- [Network ACL](/docs/account?topic=account-iam-service-roles-actions#is.network-acl-roles)
-- [Private Path Service](/docs/account?topic=account-iam-service-roles-actions#is.private-path-service-gateway-roles)
-- [Public Address Range](/docs/account?topic=account-iam-service-roles-actions#is.public-address-range-roles)
-- [Public Gateway](/docs/account?topic=account-iam-service-roles-actions#is.public-gateway-roles)
-- [Routing tables](/docs/account?topic=account-iam-service-roles-actions#is.vpc-roles) (See Virtual Private Cloud section > Actions tab)
-- [Security Group for VPC](/docs/account?topic=account-iam-service-roles-actions#is.security-group-roles)
-- [Subnets](/docs/account?topic=account-iam-service-roles-actions#is.subnet-roles)
-- [Virtual Private Cloud](/docs/account?topic=account-iam-service-roles-actions#is.vpc-roles)
-- [Virtual Private Endpoint for VPC](/docs/account?topic=account-iam-service-roles-actions#is.endpoint-gateway-roles)
-- [VPN for VPC](/docs/account?topic=account-iam-service-roles-actions#is.vpn-roles)
-- [VPN Client for VPC](/docs/account?topic=account-iam-service-roles-actions#is.vpn-server-roles)
-- [Virtual Network Interface](/docs/account?topic=account-iam-service-roles-actions#is.virtual-network-interface-roles)
+- [Cluster Networks for VPC](/docs/iam?topic=iam-iam-service-roles-actions#is.cluster-network-roles)
+- [Floating IP for VPC](/docs/iam?topic=iam-iam-service-roles-actions#is.floating-ip-roles)
+- [Flow Logs for VPC](/docs/iam?topic=iam-iam-service-roles-actions#is.flow-log-collector-roles)
+- [Load Balancer for VPC](/docs/iam?topic=iam-iam-service-roles-actions#is.load-balancer-roles)
+- [Network ACL](/docs/iam?topic=iam-iam-service-roles-actions#is.network-acl-roles)
+- [Private Path Service](/docs/iam?topic=iam-iam-service-roles-actions#is.private-path-service-gateway-roles)
+- [Public Address Range](/docs/iam?topic=iam-iam-service-roles-actions#is.public-address-range-roles)
+- [Public Gateway](/docs/iam?topic=iam-iam-service-roles-actions#is.public-gateway-roles)
+- [Routing tables](/docs/iam?topic=iam-iam-service-roles-actions#is.vpc-roles) (See Virtual Private Cloud section > Actions tab)
+- [Security Group for VPC](/docs/iam?topic=iam-iam-service-roles-actions#is.security-group-roles)
+- [Subnets](/docs/iam?topic=iam-iam-service-roles-actions#is.subnet-roles)
+- [Virtual Private Cloud](/docs/iam?topic=iam-iam-service-roles-actions#is.vpc-roles)
+- [Virtual Private Endpoint for VPC](/docs/iam?topic=iam-iam-service-roles-actions#is.endpoint-gateway-roles)
+- [VPN for VPC](/docs/iam?topic=iam-iam-service-roles-actions#is.vpn-roles)
+- [VPN Client for VPC](/docs/iam?topic=iam-iam-service-roles-actions#is.vpn-server-roles)
+- [Virtual Network Interface](/docs/iam?topic=iam-iam-service-roles-actions#is.virtual-network-interface-roles)
 
 ## Compute IAM roles and actions
 {: #compute-iam-roles-actions}
 
-- [Auto Scale for VPC](/docs/account?topic=account-iam-service-roles-actions#is.instance-group-roles)
-- [Bare Metal Server for VPC](/docs/account?topic=account-iam-service-roles-actions#is.bare-metal-server-roles)
-- [Dedicated Host for VPC](/docs/account?topic=account-iam-service-roles-actions#is.dedicated-host-roles)
-- [Image Service for VPC](/docs/account?topic=account-iam-service-roles-actions#is.image-roles)
-- [Placement Groups for VPC](/docs/account?topic=account-iam-service-roles-actions#is.placement-group-roles)
-- [SSH Key for VPC](/docs/account?topic=account-iam-service-roles-actions#is.key-roles)
-- [Virtual Server for VPC](/docs/account?topic=account-iam-service-roles-actions#is.instance-roles)
-- [Reservations for VPC](/docs/account?topic=account-iam-service-roles-actions#is.reservation-roles)
+- [Auto Scale for VPC](/docs/iam?topic=iam-iam-service-roles-actions#is.instance-group-roles)
+- [Bare Metal Server for VPC](/docs/iam?topic=iam-iam-service-roles-actions#is.bare-metal-server-roles)
+- [Dedicated Host for VPC](/docs/iam?topic=iam-iam-service-roles-actions#is.dedicated-host-roles)
+- [Image Service for VPC](/docs/iam?topic=iam-iam-service-roles-actions#is.image-roles)
+- [Placement Groups for VPC](/docs/iam?topic=iam-iam-service-roles-actions#is.placement-group-roles)
+- [SSH Key for VPC](/docs/iam?topic=iam-iam-service-roles-actions#is.key-roles)
+- [Virtual Server for VPC](/docs/iam?topic=iam-iam-service-roles-actions#is.instance-roles)
+- [Reservations for VPC](/docs/iam?topic=iam-iam-service-roles-actions#is.reservation-roles)
 
 ## Storage IAM roles and actions
 {: #storage-iam-roles-actions}
 
-- [Block Storage for VPC](/docs/account?topic=account-iam-service-roles-actions#is.volume-roles)
-- [Block Storage Snapshots for VPC](/docs/account?topic=account-iam-service-roles-actions#is.snapshot-roles)
-- [Block Storage Multi Volume Snapshots for VPC](/docs/account?topic=account-iam-service-roles-actions#is.snapshot-consistency-group-roles)
-- [Backup as a Service for VPC](/docs/account?topic=account-iam-service-roles-actions#is.backup-policy-roles)
-- [File Storage for VPC](/docs/account?topic=account-iam-service-roles-actions#is.share-roles)
+- [Block Storage for VPC](/docs/iam?topic=iam-iam-service-roles-actions#is.volume-roles)
+- [Block Storage Snapshots for VPC](/docs/iam?topic=iam-iam-service-roles-actions#is.snapshot-roles)
+- [Block Storage Multi Volume Snapshots for VPC](/docs/iam?topic=iam-iam-service-roles-actions#is.snapshot-consistency-group-roles)
+- [Backup as a Service for VPC](/docs/iam?topic=iam-iam-service-roles-actions#is.backup-policy-roles)
+- [File Storage for VPC](/docs/iam?topic=iam-iam-service-roles-actions#is.share-roles)
 
 Some VPC tasks require authorizations for multiple IAM actions. For example, create virtual server instance not only requires `is.instance.instance.create`, it also requires `is.vpc.vpc.operate`, `is.subnet.subnet.operate`, `is.security-group.security-group.operate`, and `is.volume.volume.create`. Additional conditional actions might be required. For example, if you provision an instance on a dedicated host, you need `is.dedicated-host.dedicated-host-group.operate` and `is.dedicated-host.dedicated-host.operate`. The Virtual Private Cloud API reference includes an Authorization section for each API call, for example, [Create an instance](/apidocs/vpc/latest#create-instance).
 {: note}

@@ -2,7 +2,7 @@
 
 copyright:
   years: 2022, 2026
-lastupdated: "2026-03-23"
+lastupdated: "2026-04-16"
 
 keywords: Backup for VPC, backup service, backup plan, backup policy, restore, restore volume, restore data
 
@@ -15,7 +15,7 @@ subcollection: vpc
 # Establishing service-to-service authorizations for {{site.data.keyword.block_storage_is_short}}
 {: #block-s2s-auth}
 
-You can use the {{site.data.keyword.iamshort}} (IAM) to create or remove an authorization that grants one service access to another service. For {{site.data.keyword.block_storage_is_short}}, you need to create service-to-service authorization for configuring customer-managed encryption, and backups. You also need to specify [user roles](/docs/account?topic=account-iam-service-roles-actions#is.volume-roles).
+You can use the {{site.data.keyword.iamshort}} (IAM) to create or remove an authorization that grants one service access to another service. For {{site.data.keyword.block_storage_is_short}}, you need to create service-to-service authorization for configuring customer-managed encryption, and backups. You also need to specify [user roles](/docs/iam?topic=iam-iam-service-roles-actions#is.volume-roles).
 {: shortdesc}
 
 ## Overview

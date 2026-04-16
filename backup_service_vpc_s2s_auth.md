@@ -2,7 +2,7 @@
 
 copyright:
   years: 2022, 2026
-lastupdated: "2026-01-06"
+lastupdated: "2026-04-16"
 
 keywords: Backup for VPC, backup service, backup plan, backup policy, restore, restore volume, restore data
 
@@ -15,7 +15,7 @@ subcollection: vpc
 # Establishing service-to-service authorizations for the Backup service
 {: #backup-s2s-auth}
 
-Before you can create backup policies, you need to establish service-to-service authorizations and specify [user roles](/docs/account?topic=account-iam-service-roles-actions#is.backup-policy-roles). This authorization enables the Backup for VPC service to detect the tags, create backup snapshots of block volumes and file shares.
+Before you can create backup policies, you need to establish service-to-service authorizations and specify [user roles](/docs/iam?topic=iam-iam-service-roles-actions#is.backup-policy-roles). This authorization enables the Backup for VPC service to detect the tags, create backup snapshots of block volumes and file shares.
 {: shortdesc}
 
 ## Overview
@@ -23,7 +23,7 @@ Before you can create backup policies, you need to establish service-to-service 
 
 For IBM Cloud Backup for VPC service to work, you need to provide an authorization for the service. In an authorization, the source service is the service that is granted access to the target service. The roles that you select define the level of access for the source service. The target service is the service that you are granting permission to be accessed by the source service based on the roles that you assign. A source service can be in the same account where the authorization is created or in another account. The target service is always in the account where the authorization is created.
 
-To create a backup policy and for the backup jobs to run correctly, the Backup service needs to be authorized to work with {{site.data.keyword.block_storage_is_short}}, Snapshots for VPC, and Virtual Server for VPC services. 
+To create a backup policy and for the backup jobs to run correctly, the Backup service needs to be authorized to work with {{site.data.keyword.block_storage_is_short}}, Snapshots for VPC, and Virtual Server for VPC services.
 
 If you are an Enterprise account administrator who wants to create a backup policy for your enterprise account and subaccounts, you also need to have authorization for the Backup service in the enterprise account to work with the Backup service in the subaccounts.
 
@@ -45,19 +45,19 @@ To create a service-to-service authorization policy, follow this procedure:
 
 1. In the {{site.data.keyword.cloud_notm}} console, go to **Manage > Access (IAM)**.
 1. From the side panel, select **Authorizations**.
-1. On the **Manage authorizations** page, click **Create**. 
+1. On the **Manage authorizations** page, click **Create**.
 1. In the **Source** section, select the **Source account**. As you're setting up authorization for the Backup service in your account, select **This account**. Click **Next**.
 1. For the source service, select **VPC Infrastructure Services** from the list. Click **Next**.
    1. Select the scope by clicking **Specific resources**.
-   1. Click **Select an attribute**. 
-   1. From the list, select **Resource type**. 
+   1. Click **Select an attribute**.
+   1. From the list, select **Resource type**.
    1. In the next field, select **IBM Cloud Backup for VPC**.
    1. Click **Next**.
 1. For the target service, select **VPC Infrastructure Services** from the list. Click **Next**.
    1. Select the scope by clicking **Specific resources**.
    1. Click **Select an attribute**.
    1. Click **Resource type**. Select one of the following services. You need to create authorization for all of them.
-   
+
    | Source service - resource type | Target service - resource type  | Dependent service user role |
    |--------------------------------|---------------------------------|-----------|
    | IBM Cloud Backup for VPC       | Block Storage for VPC           | Operator |
@@ -81,12 +81,12 @@ To create a service-to-service authorization policy, follow this procedure:
 
 1. In the {{site.data.keyword.cloud_notm}} console, go to **Manage > Access (IAM)**.
 1. From the side panel, select **Authorizations**.
-1. On the **Manage authorizations** page, click **Create**. 
+1. On the **Manage authorizations** page, click **Create**.
 1. In the **Source** section, select the **Source account**. As you're setting up authorization for the Backup service in your account, select **This account**. Click **Next**.
 1. For the source service, select **VPC Infrastructure Services** from the list. Click **Next**.
    1. Select the scope by clicking **Specific resources**.
-   1. Click **Select an attribute**. 
-   1. From the list, select **Resource type**. 
+   1. Click **Select an attribute**.
+   1. From the list, select **Resource type**.
    1. In the next field, select **IBM Cloud Backup for VPC**.
    1. Click **Next**.
 1. For the target service, select **VPC Infrastructure Services** from the list. Click **Next**.
@@ -105,15 +105,15 @@ To allow an Enterprise administrator to manage backups centrally, the subaccount
 
 1. In the {{site.data.keyword.cloud_notm}} console, go to **Manage > Access (IAM)**.
 1. From the side panel, select **Authorizations**.
-1. On the **Manage authorizations** page, click **Create**. 
+1. On the **Manage authorizations** page, click **Create**.
 1. In the **Source** section, select the **Source account**. As you're setting up authorization for the Backup service of the enterprise account, select **Specific account**, and enter the Enterprise account's ID. Click **Next**.
 1. For the source service, select **VPC Infrastructure Services** from the list. Click **Next**.
    1. Select the scope by clicking **Specific resources**.
-   1. Click **Select an attribute**. 
-   1. From the list, select **Resource type**. 
+   1. Click **Select an attribute**.
+   1. From the list, select **Resource type**.
    1. In the next field, select **IBM Cloud Backup for VPC**.
    1. Click **Next**.
-1. For the target service, select **VPC Infrastructure Services** from the list. 
+1. For the target service, select **VPC Infrastructure Services** from the list.
    1. Select the scope by clicking **Specific resources**.
    1. Click **Select an attribute**.
    1. Click **Resource type**. Select one of the services in Table 2.
@@ -123,7 +123,7 @@ To allow an Enterprise administrator to manage backups centrally, the subaccount
    | IBM Cloud Backup for VPC       | Block Storage for VPC           | Operator  |
    | IBM Cloud Backup for VPC       | Block Storage Snapshots for VPC | Editor    |
    | IBM Cloud Backup for VPC       | Multi Volume Snapshots for VPC  | Editor    |
-   | IBM Cloud Backup for VPC       | Virtual Server for VPC          | Operator  | 
+   | IBM Cloud Backup for VPC       | Virtual Server for VPC          | Operator  |
    | IBM Cloud Backup for VPC       | IBM Cloud Backup for VPC        | Editor    |
    | IBM Cloud Backup for VPC       | File Storage for VPC | Editor, Share Snapshot Operator|
    {: caption="Service-to-service authorizations for the Enterprise" caption-side="bottom"}
@@ -149,13 +149,13 @@ Next, complete the following steps to build the authorization rules:
 
 1. Go to **Authorization** to specify the details of the authorization policy.
 1. Select the account from which the source service requests access to another service. Select **Assigned account(s)**. When you assign the authorization template to a child account later, the source account is populated to the same account as the child account, which holds the resource that is accessed.
-1. Next, select the source service and resources. 
+1. Next, select the source service and resources.
    1. Select **VPC Infrastructure Services** from the list. Click **Next**.
    1. Select the scope by clicking **Specific resources**.
-   1. Click **Select an attribute**. 
-   1. From the list, select **Resource type**. 
+   1. Click **Select an attribute**.
+   1. From the list, select **Resource type**.
    1. In the next field, select **IBM Cloud Backup for VPC**.
-1. For the target service, select **VPC Infrastructure Services** from the list. 
+1. For the target service, select **VPC Infrastructure Services** from the list.
    1. Select the scope by clicking **Specific resources**.
    1. Click **Select an attribute**.
    1. From the list, select **Resource type**. Select one of the services in the following table. You need to create authorization for all of them.
@@ -165,7 +165,7 @@ Next, complete the following steps to build the authorization rules:
    | IBM Cloud Backup for VPC       | Block Storage for VPC           | Operator  |
    | IBM Cloud Backup for VPC       | Block Storage Snapshots for VPC | Editor    |
    | IBM Cloud Backup for VPC       | Multi Volume Snapshots for VPC  | Editor    |
-   | IBM Cloud Backup for VPC       | Virtual Server for VPC          | Operator  | 
+   | IBM Cloud Backup for VPC       | Virtual Server for VPC          | Operator  |
    | IBM Cloud Backup for VPC       | IBM Cloud Backup for VPC        | Editor    |
    | IBM Cloud Backup for VPC       | File Storage for VPC | Editor, Share Snapshot Operator|
    {: caption="Service-to-service authorizations for the Enterprise" caption-side="bottom"}
@@ -183,11 +183,11 @@ To create a service-to-service authorization policy for {{site.data.keyword.en_s
 
 1. In the {{site.data.keyword.cloud_notm}} console, go to **Manage > Access (IAM)**.
 1. From the side panel, select **Authorizations**.
-1. On the **Manage authorizations** page, click **Create**. 
+1. On the **Manage authorizations** page, click **Create**.
 1. In the **Source** section, select the **Source account**. As you're setting up authorization for the Backup service in your account, select **This account**. Click **Next**.
 1. For the source service, select **VPC Infrastructure Services** from the list. Click **Next**.
    1. Select the scope by clicking **Specific resources**.
-   1. Click **Select an attribute** and from the list, select **Resource type**. 
+   1. Click **Select an attribute** and from the list, select **Resource type**.
    1. In the next field, select **IBM Cloud Backup for VPC**.
    1. Click **Next**.
 1. Select **{{site.data.keyword.en_short}}** as the target service. Click **Next**.
@@ -301,7 +301,7 @@ To use Backup for VPC in your account to create policies, plans and run backup j
    ```
    {: pre}
 
-For more information about all of the parameters that are available for this command, see [ibmcloud iam authorization-policy-create](/docs/cli?topic=cli-ibmcloud_commands_iam#ibmcloud_iam_authorization_policy_create). 
+For more information about all of the parameters that are available for this command, see [ibmcloud iam authorization-policy-create](/docs/cli?topic=cli-ibmcloud_commands_iam#ibmcloud_iam_authorization_policy_create).
 
 ### Creating authorization for file share backups at the account level
 {: #backup-s2s-auth-procedure-fs-cli}
@@ -387,7 +387,7 @@ ibmcloud enterprise show
      {: codeblock}
 
    * Block Storage snapshot service:
-  
+
      ```json
      {
           "name": "Centralized authorization for Backup service to work with Block Storage snapshots",
@@ -444,7 +444,7 @@ ibmcloud enterprise show
      ```
      {: codeblock}
 
-   * File shares: 
+   * File shares:
 
    ```json
      {
@@ -525,9 +525,9 @@ To use Backup for VPC in your account to create policies, plans and run backup j
 Make the request to the [IAM Policy Management API](/apidocs/iam-policy-management#create-v2-policy), similar to the following examples.
 
 ```sh
-curl -X POST 'https://iam.cloud.ibm.com/v1/policies' 
--H 'Authorization: Bearer $TOKEN' 
--H 'Content-Type: application/json' 
+curl -X POST 'https://iam.cloud.ibm.com/v1/policies'
+-H 'Authorization: Bearer $TOKEN'
+-H 'Content-Type: application/json'
 -d '{
    "type": "access",
    "description": "Operator role for the Backup service to the Virtual Server service",
@@ -646,8 +646,8 @@ To allow an Enterprise administrator to manage backups centrally, the subaccount
 1. Make an API request to the [Enterprise Management API](/apidocs/enterprise-apis/enterprise#list-enterprises) to get the account ID of the parent enterprise account.
 
    ```sh
-   curl -X GET "https://enterprise.cloud.ibm.com/v1/enterprises" 
-   -H "Authorization: Bearer <IAM_Token>" 
+   curl -X GET "https://enterprise.cloud.ibm.com/v1/enterprises"
+   -H "Authorization: Bearer <IAM_Token>"
    -H 'Content-Type: application/json'
    ```
    {: pre}
@@ -657,9 +657,9 @@ To allow an Enterprise administrator to manage backups centrally, the subaccount
    * Authorize `is.backup-policy` (source) to interact with `is.backup-policy` (target) with the _editor_ role.
 
    ```json
-   curl -X POST 'https://iam.cloud.ibm.com/v1/policies' -H 
-   'Authorization: Bearer $TOKEN' -H 
-   'Content-Type: application/json' -d 
+   curl -X POST 'https://iam.cloud.ibm.com/v1/policies' -H
+   'Authorization: Bearer $TOKEN' -H
+   'Content-Type: application/json' -d
    '{
      "type": "access",
      "description": "Editor role for the Enterprise account's backup service to interact with this account's backup service.",
@@ -687,9 +687,9 @@ To allow an Enterprise administrator to manage backups centrally, the subaccount
    * Authorize `is.backup-policy` (source) to interact with `is.volume` (target) with the _operator_ role.
 
    ```json
-   curl -X POST 'https://iam.cloud.ibm.com/v1/policies' -H 
-   'Authorization: Bearer $TOKEN' -H 
-   'Content-Type: application/json' -d 
+   curl -X POST 'https://iam.cloud.ibm.com/v1/policies' -H
+   'Authorization: Bearer $TOKEN' -H
+   'Content-Type: application/json' -d
    '{
      "type": "access",
      "description": "Operator role for the Enterprise account's backup service to interact with this account's volume service",
@@ -709,7 +709,7 @@ To allow an Enterprise administrator to manage backups centrally, the subaccount
           {"name": "accountId", "value": "$SUB_ACCOUNT_ID"},
           {"name": "serviceName", "operator": "stringEquals", "value": "is.volume"},
           {"name": "volumeId", "operator": "stringEquals", "value": "*"}]
-       } 
+       }
       ]
    }'
    ```
@@ -718,9 +718,9 @@ To allow an Enterprise administrator to manage backups centrally, the subaccount
    * Authorize `is.backup-policy` (source) to interact with `is.snapshot` (target) with the _editor_ role.
 
    ```json
-   curl -X POST 'https://iam.cloud.ibm.com/v1/policies' -H 
-   'Authorization: Bearer $TOKEN' -H 
-   'Content-Type: application/json' -d 
+   curl -X POST 'https://iam.cloud.ibm.com/v1/policies' -H
+   'Authorization: Bearer $TOKEN' -H
+   'Content-Type: application/json' -d
     '{
       "type": "access",
       "description": "Editor role for the Enterprise account's backup service to interact with this account's snapshots",
@@ -747,11 +747,11 @@ To allow an Enterprise administrator to manage backups centrally, the subaccount
     {: pre}
 
    * Authorize `is.backup-policy` (source) to interact with `is.instance` (target) with the _operator_ role.
-  
+
    ```json
-   curl -X POST 'https://iam.cloud.ibm.com/v1/policies' -H 
-   'Authorization: Bearer $TOKEN' -H 
-   'Content-Type: application/json' -d 
+   curl -X POST 'https://iam.cloud.ibm.com/v1/policies' -H
+   'Authorization: Bearer $TOKEN' -H
+   'Content-Type: application/json' -d
    '{
      "type": "access",
      "description": "Operator role for the Enterprise account's backup service to interact with this account's virtual server instance service",
@@ -775,7 +775,7 @@ To allow an Enterprise administrator to manage backups centrally, the subaccount
    }'
    ```
    {: pre}
-      
+
 For more information, see the api spec for [IAM Policy Management](/apidocs/iam-policy-management#create-v2-policy).
 
 ### Creating authorization for file share backups
@@ -785,8 +785,8 @@ For more information, see the api spec for [IAM Policy Management](/apidocs/iam-
 To use Backup for VPC in your account to create policies, plans and run backup jobs for file shares, make the following request to create the required service-to-service authorization.
 
 ```sh
-curl -X POST 'https://iam.cloud.ibm.com/v2/policies' 
--H 'Authorization: Bearer $TOKEN' 
+curl -X POST 'https://iam.cloud.ibm.com/v2/policies'
+-H 'Authorization: Bearer $TOKEN'
 -H 'Content-Type: application/json'
 -d '{
      "type": "authorization",
@@ -822,7 +822,7 @@ Enterprise account admins can programmatically [create and assign authorization 
 
    ```sh
    curl -X GET `https://enterprise.cloud.ibm.com/v1/enterprises`
-   -H "Authorization: Bearer <IAM_Token>" 
+   -H "Authorization: Bearer <IAM_Token>"
    -H 'Content-Type: application/json'
    ```
    {: pre}
@@ -832,9 +832,9 @@ Enterprise account admins can programmatically [create and assign authorization 
    * Authorize `is.backup-policy` (source) to interact with `is.backup-policy` (target) with the _editor_ role.
 
    ```json
-   curl -X POST 'https://iam.cloud.ibm.com/v1/policy_templates' 
-   -H 'Authorization: Bearer $TOKEN' 
-   -H 'Content-Type: application/json' 
+   curl -X POST 'https://iam.cloud.ibm.com/v1/policy_templates'
+   -H 'Authorization: Bearer $TOKEN'
+   -H 'Content-Type: application/json'
    -d '{
       "name": "Centralized authorization for Backup service to work with Instances",
       "description": "Grant Operator Role for the Backup service to work with Instances",
@@ -859,14 +859,14 @@ Enterprise account admins can programmatically [create and assign authorization 
               ]}}
      }
    ```
-   {: pre} 
+   {: pre}
 
    * Authorize `is.backup-policy` (source) to interact with `is.volume` (target) with the _operator_ role.
 
    ```json
-   curl -X POST 'https://iam.cloud.ibm.com/v1/policy_templates' 
-   -H 'Authorization: Bearer $TOKEN' 
-   -H 'Content-Type: application/json' 
+   curl -X POST 'https://iam.cloud.ibm.com/v1/policy_templates'
+   -H 'Authorization: Bearer $TOKEN'
+   -H 'Content-Type: application/json'
    -d '{
           "name": "Centralized authorization for Backup service to work with Block Storage service",
           "description": "Grant Operator Role for the Backup service to work with Block Storage volumes",
@@ -896,9 +896,9 @@ Enterprise account admins can programmatically [create and assign authorization 
    * Authorize `is.backup-policy` (source) to interact with `is.snapshot` (target) with the _editor_ role.
 
    ```json
-   curl -X POST 'https://iam.cloud.ibm.com/v1/policy_templates' 
-   -H 'Authorization: Bearer $TOKEN' 
-   -H 'Content-Type: application/json' 
+   curl -X POST 'https://iam.cloud.ibm.com/v1/policy_templates'
+   -H 'Authorization: Bearer $TOKEN'
+   -H 'Content-Type: application/json'
    -d '{
           "name": "Centralized authorization for Backup service to work with Block Storage snapshots",
           "description": "Grant Editor Role for the Backup service to work with Block Storage snapshots",
@@ -926,11 +926,11 @@ Enterprise account admins can programmatically [create and assign authorization 
     {: pre}
 
    * Authorize `is.backup-policy` (source) to interact with `is.instance` (target) with the _operator_ role.
-  
+
    ```json
-   curl -X POST 'https://iam.cloud.ibm.com/v1/policy_templates' 
-   -H 'Authorization: Bearer $TOKEN' 
-   -H 'Content-Type: application/json' 
+   curl -X POST 'https://iam.cloud.ibm.com/v1/policy_templates'
+   -H 'Authorization: Bearer $TOKEN'
+   -H 'Content-Type: application/json'
    -d '{
       "name": "Centralized authorization for Backup service to work with Instances",
       "description": "Grant Operator Role for the Backup service to work with Instances",
@@ -958,11 +958,11 @@ Enterprise account admins can programmatically [create and assign authorization 
    {: pre}
 
    * Authorize `is.backup-policy` (source) to interact with `is.snapshotConsistencyGroup` (target) with the _editor_ role.
-   
+
    ```json
-   curl -X POST 'https://iam.cloud.ibm.com/v1/policy_templates' 
-   -H 'Authorization: Bearer $TOKEN' 
-   -H 'Content-Type: application/json' 
+   curl -X POST 'https://iam.cloud.ibm.com/v1/policy_templates'
+   -H 'Authorization: Bearer $TOKEN'
+   -H 'Content-Type: application/json'
    -d '{
           "name": "Centralized authorization for Backup service to work with snapshot consistency groups",
           "description": "Grant Editor Role for the Backup service to work with snapshot consistency groups",
@@ -990,11 +990,11 @@ Enterprise account admins can programmatically [create and assign authorization 
    {: pre}
 
    * Authorize `is.backup-policy` (source) to interact with `is.share` (target) with the _editor_ and _share snapshot operator_ roles.
-  
+
    ```json
-   curl -X POST 'https://iam.cloud.ibm.com/v1/policy_templates' 
-   -H 'Authorization: Bearer $TOKEN' 
-   -H 'Content-Type: application/json' 
+   curl -X POST 'https://iam.cloud.ibm.com/v1/policy_templates'
+   -H 'Authorization: Bearer $TOKEN'
+   -H 'Content-Type: application/json'
    -d '{
           "name": "Centralized authorization for Backup service to work with File shares",
           "description": "Grant Editor Role for the Backup service to work with File shares",
@@ -1023,8 +1023,8 @@ Enterprise account admins can programmatically [create and assign authorization 
    ```
    {: pre}
 
-1. After you created the authorization templates, you must [commit](/apidocs/iam-policy-management#commit-policy-template) and [assign](/apidocs/iam-policy-management#create-policy-template-assignment) them to the accounts.   
-      
+1. After you created the authorization templates, you must [commit](/apidocs/iam-policy-management#commit-policy-template) and [assign](/apidocs/iam-policy-management#create-policy-template-assignment) them to the accounts.
+
 For more information, see the api spec for [IAM Policy Management](/apidocs/iam-policy-management#create-policy-template).
 
 ### Creating authorization for {{site.data.keyword.en_short}}
@@ -1034,9 +1034,9 @@ For more information, see the api spec for [IAM Policy Management](/apidocs/iam-
 To create a service-to-service authorization policy for {{site.data.keyword.en_short}}, make an API request to grant`is.backup-policy` (source) access to `event-notification` (target) with the `EventSourceManager` role.
 
 ```sh
-curl -X POST 'https://iam.cloud.ibm.com/v2/policies' -H 
-'Authorization: Bearer $TOKEN' -H 
-'Content-Type: application/json' -d 
+curl -X POST 'https://iam.cloud.ibm.com/v2/policies' -H
+'Authorization: Bearer $TOKEN' -H
+'Content-Type: application/json' -d
 '{
   "type": "access",
   "description": "Event Source Manager role for the backup service to interact with the Event notification service",
@@ -1202,7 +1202,7 @@ For more information about the arguments and attributes, see the [Terraform docu
 
 Create an authorization policy between services by using the `ibm_iam_authorization_policy` resource argument in your `main.tf` file.
 
-```terraform 
+```terraform
 resource "ibm_iam_authorization_policy" "policy1" {
    source_service_name  = "is"
    source_resource_type = "backup-policy"
@@ -1221,7 +1221,7 @@ For more information about the arguments and attributes, see the [Terraform docu
 
 To create a service-to-service authorization policy for {{site.data.keyword.en_short}}, use the `ibm_iam_authorization_policy` resource argument in your `main.tf` file.
 
-```terraform 
+```terraform
 resource "ibm_iam_authorization_policy" "en-policy" {
    source_service_name         = "is"
    source_resource_type        = "backup-policy"

@@ -126,7 +126,7 @@ The storage platform uses shared IP range across multiple zones that allows your
 ### IAM roles for creating and managing shares, accessor bindings, and mount targets
 {: #fs-vpc-iam}
 
-{{site.data.keyword.filestorage_vpc_short}} requires IAM permissions for role-based access control. Depending on your assigned role, you can create and manage file shares. For more information, see [IAM roles and actions for File Storage for VPC](/docs/account?topic=account-iam-service-roles-actions#is.share-roles).
+{{site.data.keyword.filestorage_vpc_short}} requires IAM permissions for role-based access control. Depending on your assigned role, you can create and manage file shares. For more information, see [IAM roles and actions for File Storage for VPC](/docs/iam?topic=iam-iam-service-roles-actions#is.share-roles).
 
 For more information, see the [best practices for assigning access](/docs/account?topic=account-account_setup#account_setup). For the complete IAM process, which includes inviting users to your account and assigning Cloud IAM access, see the [IAM getting started tutorial](/docs/iam?topic=iam-iamoverview).
 {: tip}

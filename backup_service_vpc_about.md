@@ -263,7 +263,7 @@ File share backups:
 ### IAM roles for backup policies
 {: #baas-vpc-iam}
 
-Backups require IAM permissions for role-based access control. Depending on your assigned role as a backup user, you can create and administer backup policies. For more information, see [IAM roles and actions for Regional Backup as a Service for VPC](/docs/account?topic=account-iam-service-roles-actions#is.backup-policy-roles).
+Backups require IAM permissions for role-based access control. Depending on your assigned role as a backup user, you can create and administer backup policies. For more information, see [IAM roles and actions for Regional Backup as a Service for VPC](/docs/iam?topic=iam-iam-service-roles-actions#is.backup-policy-roles).
 
 For more information, see the [best practices for assigning access](/docs/account?topic=account-account_setup#account_setup). For the complete IAM process, which includes inviting users to your account and assigning Cloud IAM access, see the [IAM getting started tutorial](/docs/iam?topic=iam-iamoverview).
 {: tip}

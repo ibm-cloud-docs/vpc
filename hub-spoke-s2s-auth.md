@@ -2,7 +2,7 @@
 
 copyright:
   years: 2023, 2026
-lastupdated: "2026-04-10"
+lastupdated: "2026-04-16"
 
 keywords:
 
@@ -318,4 +318,4 @@ resource "ibm_iam_authorization_policy" "policy" {
 ## Related link
 {: #related-link-iam}
 
-[IAM permissions](/docs/account?topic=account-iam-service-roles-actions#is.vpc-roles)
+[IAM permissions](/docs/iam?topic=iam-iam-service-roles-actions#is.vpc-roles)

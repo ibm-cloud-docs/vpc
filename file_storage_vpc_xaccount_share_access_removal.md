@@ -1,8 +1,8 @@
 ---
 
 copyright:
-  years: 2024, 2025
-lastupdated: "2025-11-14"
+  years: 2024, 2026
+lastupdated: "2026-04-16"
 
 keywords: file share, file storage, virtual network interface, accessor share, de-auth
 
@@ -24,7 +24,7 @@ A failed accessor share and its associated mount targets can't become stable aga
 ## Removing authorization
 {: #file-storage-xaccount-deauth}
 
-[Removing an authorization in the console](/docs/account?topic=account-serviceauth&interface=ui#remove-auth){: ui}[Removing an authorization by using the CLI](/docs/account?topic=account-serviceauth&interface=cli#remove-auth-cli){: cli}[Removing an authorization by using the API](/docs/account?topic=account-serviceauth&interface=api#remove-auth-api){: api}[Removing an authorization by using Terraform](/docs/account?topic=account-serviceauth&interface=terraform#remove-auth-tf){: terraform}
+[Removing an authorization in the console](/docs/iam?topic=iam-serviceauth&interface=ui#remove-auth){: ui}[Removing an authorization by using the CLI](/docs/iam?topic=iam-serviceauth&interface=cli#remove-auth-cli){: cli}[Removing an authorization by using the API](/docs/iam?topic=iam-serviceauth&interface=api#remove-auth-api){: api}[Removing an authorization by using Terraform](/docs/iam?topic=iam-serviceauth&interface=terraform#remove-auth-tf){: terraform}
 
 ## Deleting the bindings
 {: #file-storage-delete-bindings}

@@ -1,8 +1,8 @@
 ---
 
 copyright:
-  years: 2019, 2025
-lastupdated: "2024-02-27"
+  years: 2019, 2026
+lastupdated: "2026-04-16"
 
 keywords:
 
@@ -22,7 +22,7 @@ After you import a custom image to {{site.data.keyword.vpc_short}}, you can view
 - To use a custom image in a private catalog, see [Onboarding a virtual server image for VPC](/docs/account?topic=account-catalog-vsivpc-tutorial&interface=ui).
 - To use allowed-use expressions with your custom images to define the capabilities and restrictions of an image and help you find compatible image and profile combinations during server creation, see [Adding allowed-use expressions to custom images](/docs/vpc?topic=vpc-custom-image-allowed-use-expressions&interface=ui).
 
-{{site.data.keyword.cloud}} Identity and Access Management (IAM) enables you to securely authenticate users for platform services and control access to resources consistently across {{site.data.keyword.cloud_notm}}. For more information about access requirements for custom images, see the IAM roles and actions information in [Image Service for VPC](/docs/account?topic=account-iam-service-roles-actions#is.image-roles).
+{{site.data.keyword.cloud}} Identity and Access Management (IAM) enables you to securely authenticate users for platform services and control access to resources consistently across {{site.data.keyword.cloud_notm}}. For more information about access requirements for custom images, see the IAM roles and actions information in [Image Service for VPC](/docs/iam?topic=iam-iam-service-roles-actions#is.image-roles).
 
 For details about the `$vpc_api_endpoint` and `$iam_token` variables in the following examples, see the Authentication and Endpoint URLs sections in [Virtual Private Cloud API Introduction](/apidocs/vpc/latest#about-vpc-api).
 {: api}

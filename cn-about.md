@@ -1,8 +1,8 @@
 ---
 
 copyright:
-  years: 2024, 2025
-lastupdated: "2025-12-30"
+  years: 2024, 2026
+lastupdated: "2026-04-16"
 
 keywords:
 
@@ -108,7 +108,7 @@ To maintain minimal access to the cluster network:
 {: #related-links-cluster-network}
 
 * [Quotas and service limits](/docs/vpc?topic=vpc-quotas&q=service+limits&tags=vpc#cluster-networks-quotas)
-* [IAM permissions](/docs/account?topic=account-iam-service-roles-actions#is.cluster-network-roles)
+* [IAM permissions](/docs/iam?topic=iam-iam-service-roles-actions#is.cluster-network-roles)
 * [AT events](/docs/vpc?topic=vpc-at_events&q=tracker&tags=vpc#events-cluster-network)
 * [FAQs](/docs/vpc?topic=vpc-faqs-cluster-network)
 * [GPU profile information](/docs/vpc?topic=vpc-profiles#gpu)
