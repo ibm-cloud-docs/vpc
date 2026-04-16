@@ -1,8 +1,8 @@
 ---
 
 copyright:
-  years: 2017, 2025
-lastupdated: "2025-09-25"
+  years: 2017, 2026
+lastupdated: "2026-04-16"
 
 keywords: IAM access for vpc infrastructure services, permissions for vpc infrastructure services, identity and access management for vpc infrastructure services, roles for vpc infrastructure services, actions for vpc infrastructure services, assigning access for vpc infrastructure services
 
@@ -520,5 +520,5 @@ ic iam access-group-policy-create Developers_MyApp --roles Viewer --service-name
 
 For more information about IAM, resource groups, access groups, and access management tags, see the following {{site.data.keyword.cloud_notm}} topics:
 
-* [{{site.data.keyword.cloud_notm}} IAM](/docs/account?topic=account-iamoverview)
+* [{{site.data.keyword.cloud_notm}} IAM](/docs/iam?topic=iam-iamoverview)
 * [Access groups](/docs/account?topic=account-cloudaccess)

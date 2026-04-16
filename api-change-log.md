@@ -2,7 +2,7 @@
 
 copyright:
   years: 2019, 2026
-lastupdated: "2026-04-14"
+lastupdated: "2026-04-16"
 
 keywords: api, change log, new features, restrictions, migrations
 
@@ -44,7 +44,7 @@ SDK changes are based on API changes. For more information about the latest chan
 
 In an upcoming release, unless your account has been granted approval, you will no longer be able to create a new VPC with `classic_access` set to `true`. To prepare for this change, update your workflows to use Transit Gateways instead of the `classic_access` property.
 
-**`InstanceTemplate` response schema change.** In an upcoming release, future methods of creating instances, and therefore creating instance templates, may not require a primary network interface. To accommodate this, the `primary_network_interface` property is now optional in the instance template response model. 
+**`InstanceTemplate` response schema change.** In an upcoming release, future methods of creating instances, and therefore creating instance templates, may not require a primary network interface. To accommodate this, the `primary_network_interface` property is now optional in the instance template response model.
 
 At this time, all instances, and therefore all instance templates, continue to require that a primary network interface be specified. Therefore, existing instance templates are unaffected. Additionally, new instance templates will continue to include a primary network interface until further notice. However, to ensure your clients will not be affected in the future, verify that they are tolerant of the `primary_network_interface` property not being included when consuming `InstanceTemplate` responses.
 {: important}
@@ -150,7 +150,7 @@ In a DNS sharing VPC topology, when [creating](/apidocs/vpc/latest#create-endpoi
 In a DNS sharing VPC topology, when [creating](/apidocs/vpc/latest#create-endpoint-gateway) or [updating](/apidocs/vpc/latest#update-endpoint-gateway) an endpoint gateway, you can:
 - Set `allow_dns_resolution_binding` to `false` and set `allow_resource_binding` to `false` - This endpoint gateway will not participate in DNS sharing for VPE gateways with other VPCs in the topology.
 - Set `allow_dns_resolution_binding` to `true` and set `allow_resource_binding` to `false` – This endpoint gateway will be the primary endpoint gateway in the topology for accessing the `target` service.
-- Set `allow_dns_resolution_binding` to `true` and set `allow_resource_binding` to `true` – This endpoint gateway can be used for local access to resources in the endpoint gateway's `target` service. 
+- Set `allow_dns_resolution_binding` to `true` and set `allow_resource_binding` to `true` – This endpoint gateway can be used for local access to resources in the endpoint gateway's `target` service.
 
 ## 9 December 2025
 {: #9-december-2025}
@@ -335,7 +335,7 @@ Cross-region replication for regional file shares is not currently supported.
 
 **Enhanced transit encryption support for file shares.** When [creating a file share](/apidocs/vpc/latest#create-share) with a `storage_generation` of `2`, you can include the new [`stunnel`](/docs/vpc?topic=vpc-file-storage-vpc-eit-tls) value when specifying the `allowed_transit_encryption_modes` property for this share. Subsequently, you can also specify the `stunnel` value for the `transit_encryption` property when [creating a mount target](/apidocs/vpc/latest#create-share-mount-target) for the file share. The `stunnel` transit encryption mode is supported only for file shares that are created with a `storage_generation` of `2`.
 
-When [retrieving](/apidocs/vpc/latest#get-share-profile) or [listing](/apidocs/vpc/latest#list-share-profiles) file share profiles, a new `allowed_transit_encryption_modes` property is provided in the response. The `allowed_transit_encryption_modes.default` property denotes the allowed transit encryption modes for a share with this profile, which will be used if `allowed_transit_encryption_modes` is not specified when [creating a file share](/apidocs/vpc/latest#create-share). 
+When [retrieving](/apidocs/vpc/latest#get-share-profile) or [listing](/apidocs/vpc/latest#list-share-profiles) file share profiles, a new `allowed_transit_encryption_modes` property is provided in the response. The `allowed_transit_encryption_modes.default` property denotes the allowed transit encryption modes for a share with this profile, which will be used if `allowed_transit_encryption_modes` is not specified when [creating a file share](/apidocs/vpc/latest#create-share).
 
 **Allowed access protocols for file shares.** When [creating a file share](/apidocs/vpc/latest#create-share), a set of [allowed access protocols](/docs/vpc?topic=vpc-file-storage-vpc-about&interface=api#fs-allowed-access-protocols) may now be specified to denote which access protocols to use when [creating mount targets for that file share](/apidocs/vpc/latest#create-share-mount-target). The `allowed_access_protocols` properties are also included in the `Share` and `ShareProfile` response schemas.
 
@@ -656,7 +656,7 @@ Now that all VPC routing tables have a CRN, you can [tag](/docs/account?topic=ac
 ### For all version dates
 {: #24-september-2024-all-version-dates}
 
-**Sharing snapshots across accounts.** You can now use [cross-account authorization](/docs/vpc?topic=vpc-block-s2s-auth&interface=api#block-s2s-xaccount-encryption-api) in Identity and Access Management ([IAM](/docs/account?topic=account-iamoverview)) to share a snapshot CRN with a target IBM account. Sharing allows that account to create a block storage volume from the shared snapshot. When [creating a volume](/apidocs/vpc/latest#create-volume), users who have been authorized within the target account can specify the `source_snapshot.crn` property with the CRN of the snapshot. When [retrieving](/apidocs/vpc/latest#get-volume) or [listing](/apidocs/vpc/latest#list-volumes) volumes, the response includes `source_snapshot.remote.account` if the snapshot is from a different account.
+**Sharing snapshots across accounts.** You can now use [cross-account authorization](/docs/vpc?topic=vpc-block-s2s-auth&interface=api#block-s2s-xaccount-encryption-api) in Identity and Access Management ([IAM](/docs/iam?topic=iam-iamoverview)) to share a snapshot CRN with a target IBM account. Sharing allows that account to create a block storage volume from the shared snapshot. When [creating a volume](/apidocs/vpc/latest#create-volume), users who have been authorized within the target account can specify the `source_snapshot.crn` property with the CRN of the snapshot. When [retrieving](/apidocs/vpc/latest#get-volume) or [listing](/apidocs/vpc/latest#list-volumes) volumes, the response includes `source_snapshot.remote.account` if the snapshot is from a different account.
 
 For more information, see [Sharing a snapshot with another account](/docs/vpc?topic=vpc-snapshots-vpc-manage&interface=api#snapshots-vpc-s2s-api) and [Restoring a volume from a snapshot](/docs/vpc?topic=vpc-snapshots-vpc-restore&interface=api#snapshots-vpc-restore-API).
 
@@ -721,7 +721,7 @@ Provisioned bare metal servers are not affected. Existing bare metal server prof
 
 **Accessor file shares.** You can now [create a share](/apidocs/vpc/latest#create-share) that accesses data from [another share](/docs/vpc?topic=vpc-file-storage-accessor-create&interface=api), which may be in another account. Specify the share to access data from, which may also be a replica share, with the new `origin_share` property.
 
-Before specifying an origin share in another account, ensure that [authorizations](/docs/vpc?topic=vpc-file-s2s-auth&interface=api#file-s2s-auth-xaccount-api) are established between the origin share account and accessor account. You must also have an appropriate ([IAM](/docs/account?topic=account-iamoverview)) role with the `is.share.share.allow-remote-account-access` action.
+Before specifying an origin share in another account, ensure that [authorizations](/docs/vpc?topic=vpc-file-s2s-auth&interface=api#file-s2s-auth-xaccount-api) are established between the origin share account and accessor account. You must also have an appropriate ([IAM](/docs/iam?topic=iam-iamoverview)) role with the `is.share.share.allow-remote-account-access` action.
 {: requirement}
 
 When [creating](/apidocs/vpc/latest#create-share) or [updating](/apidocs/vpc/latest#update-share) a share, specify the new `allowed_transit_encryption_modes` property (possible values `none`, `user_managed`) to limit the transit encryption modes for the share and its associated [accessor shares](/docs/vpc?topic=vpc-file-storage-accessor-create&interface=api#fs-create-accessor-mount-target-api).
@@ -1221,7 +1221,7 @@ Unlike previous response code changes, the transition from `204` to `202` applie
 ### For all version dates
 {: #15-november-2022-all-version-dates}
 
-**Access management tag support.** As described in [Authorization](/apidocs/vpc/latest#api-authorization) in the VPC API reference, you can now use [IBM Cloud Identity and Access Management](/docs/account?topic=account-iamoverview) to control access to VPC resources by using access management tags. For details, see [Managing IAM access for VPC Infrastructure Services](/docs/vpc?topic=vpc-iam-getting-started&interface=api#iam-access-management-tags).
+**Access management tag support.** As described in [Authorization](/apidocs/vpc/latest#api-authorization) in the VPC API reference, you can now use [IBM Cloud Identity and Access Management](/docs/iam?topic=iam-iamoverview) to control access to VPC resources by using access management tags. For details, see [Managing IAM access for VPC Infrastructure Services](/docs/vpc?topic=vpc-iam-getting-started&interface=api#iam-access-management-tags).
 
 Some VPC APIs currently require additional authorizations beyond those defined in the API specification. For more information, see [Known issues](/docs/vpc?topic=vpc-known-issues#api-spec-auth-known-issue).
 {: important}

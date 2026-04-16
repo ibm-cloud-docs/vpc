@@ -2,7 +2,7 @@
 
 copyright:
  years: 2022, 2026
-lastupdated: "2026-03-31"
+lastupdated: "2026-04-16"
 
 keywords: Backup, backup service, backup plan, backup policy, restore, restore volume, restore data
 
@@ -265,7 +265,7 @@ File share backups:
 
 Backups require IAM permissions for role-based access control. Depending on your assigned role as a backup user, you can create and administer backup policies. For more information, see [IAM roles and actions for Regional Backup as a Service for VPC](/docs/account?topic=account-iam-service-roles-actions#is.backup-policy-roles).
 
-For more information, see the [best practices for assigning access](/docs/account?topic=account-account_setup#account_setup). For the complete IAM process, which includes inviting users to your account and assigning Cloud IAM access, see the [IAM getting started tutorial](/docs/account?topic=account-iamoverview).
+For more information, see the [best practices for assigning access](/docs/account?topic=account-account_setup#account_setup). For the complete IAM process, which includes inviting users to your account and assigning Cloud IAM access, see the [IAM getting started tutorial](/docs/iam?topic=iam-iamoverview).
 {: tip}
 
 ### Service-to-service authorizations
