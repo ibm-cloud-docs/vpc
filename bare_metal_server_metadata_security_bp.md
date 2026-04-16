@@ -1,8 +1,8 @@
 ---
 
 copyright:
-  years: 2025, 2025
-lastupdated: "2025-12-04"
+  years: 2025, 2026
+lastupdated: "2026-04-16"
 
 keywords:
 
@@ -63,9 +63,9 @@ sudo iptables --append OUTPUT --proto tcp --destination 169.254.169.254 --match 
 
 Limit trusted profiles that you create for compute resource identities. Optionally, don't assign a compute resource identity to a bare metal server.
 
-When you [remove trusted profiles](/docs/account?topic=account-trusted-profile-update&interface=ui#remove-tp-console){: ui}[remove trusted profiles](/docs/account?topic=account-trusted-profile-update&interface=cli#remove-tp-cli){: cli}[remove trusted profiles](/docs/account?topic=account-trusted-profile-update&interface=api#remove-tp-api){: api}, compute resources and federated users are unlinked from the profile, and can no longer apply the trusted profile identity.
+When you [remove trusted profiles](/docs/iam?topic=iam-trusted-profile-update&interface=ui#remove-tp-console){: ui}[remove trusted profiles](/docs/iam?topic=iam-trusted-profile-update&interface=cli#remove-tp-cli){: cli}[remove trusted profiles](/docs/iam?topic=iam-trusted-profile-update&interface=api#remove-tp-api){: api}, compute resources and federated users are unlinked from the profile, and can no longer apply the trusted profile identity.
 
-You can also update existing trusted profiles by redefining the trust relationship, assigning access policies, and updating session limits. For more information, see [Updating trusted profiles](/docs/account?topic=account-trusted-profile-update).
+You can also update existing trusted profiles by redefining the trust relationship, assigning access policies, and updating session limits. For more information, see [Updating trusted profiles](/docs/iam?topic=iam-trusted-profile-update).
 
 ## Extra network security measures
 {: #metadata-network-security-bare-metal}
