@@ -1,8 +1,8 @@
 ---
 
 copyright:
-  years: 2018, 2025
-lastupdated: "2025-11-20"
+  years: 2018, 2026
+lastupdated: "2026-04-16"
 
 keywords:
 
@@ -16,7 +16,7 @@ subcollection: vpc
 {: #nlb-limitations}
 
 Known issues are identified bugs or unexpected behaviors that were not fixed before release, but weren’t critical enough to delay it. These issues are communicated to you, often with workarounds, and are prioritized for resolution in the near term by the development team.
-{: shortdesc} 
+{: shortdesc}
 
 The following section contains known issues for public and private network load balancers (NLBs). The next section contains known issues for Private Path network load balancers.
 {: shortdesc}
@@ -34,7 +34,7 @@ The following section contains known issues for public and private network load 
    * The only supported back-end targets are Virtual Network Function (VNF) instances. When APIs are used, the listener `port_min` and `port_max` is to be set to `1` and `65535` respectively; `port` is to be left empty.
    * Only one listener is supported.
    * The NLB and the VNF back-end targets must be in the same subnet.
-* For quotas and service limits, see [Quotas and service limits for Network load balancers](/docs/vpc?topic=vpc-quotas#nlb-quotas). To increase the quota for your Private Path network load balancer, you must [create a support case](/docs/account?topic=account-open-case).
+* For quotas and service limits, see [Quotas and service limits for Network load balancers](/docs/vpc?topic=vpc-quotas#nlb-quotas). To increase the quota for your Private Path network load balancer, you must [create a support case](/docs/support?topic=support-open-case).
 * When you create a listener for a network load balancer, you can specify a `protocol` of `tcp` or `udp`. However, each listener in the network load balancer must have a unique `port`.
 * [Private NLB]{: tag-blue} The NLB service might add rules to custom routing tables to ensure service availability for some failure conditions. As a result, if the client is outside the zone and/or VPC of the NLB, you must add an ingress custom routing table to the VPC where the NLB resides with the proper traffic source selected.
 * [Private NLB]{: tag-blue} Depending on the location of the clients, you must ensure that ingress routing tables exist.
@@ -59,14 +59,14 @@ The following section contains known issues for public and private network load 
 * Access to a Virtual Private Endpoint gateway associated with Private Path Network load balancer from Direct Link or Transit Gateway is not supported.
    * Workaround: Access an ALB that has the VPE as a member. Contact IBM Support for assistance with the details.
 * Private Path network load balancer pool members must be VPC virtual server instances or reserved IPs in same VPC as the load balancer. If there is a need to reach members outside the VPC (such as on-premises members), an ALB can be defined as member of the Private Path NLB pool and the remote destinations can be defined as ALB members. For more information, see [Connecting an on-premises service to a consumer using an ALB in a Private Path NLB pool](/docs/vpc?topic=vpc-private-path-service-intro&interface=ui#pps-use-case-5).
-* Access to a Private Path network load balancer from remote regions is not supported. The consumer Virtual Private Endpoint gateway and the Private Path network load balancer instance must reside in same region. 
+* Access to a Private Path network load balancer from remote regions is not supported. The consumer Virtual Private Endpoint gateway and the Private Path network load balancer instance must reside in same region.
    * Workaround: Access an ALB in the remote region that has the VPE as member. Contact IBM Support for assistance with the details.
 * Access to Private Path network load balancers from CSE (classic) is not supported.
 * Granular control of access to the load balancer is done through a Private Path service rather than by security groups and Network Access Control Lists (NACLs), which are not supported.
 * UDP traffic isn't supported by the load balancer data path.
 * Autoscaler integration is not supported.
 * The maximal MTU for Private Path NLB traffic is `8500`.
-* For quotas and service limits, see [Quotas and service limits for Private Path network load balancers](/docs/vpc?topic=vpc-quotas#ppnlb-quotas). To increase the quota for your Private Path network load balancer, you must [create a support case](/docs/account?topic=account-open-case).
+* For quotas and service limits, see [Quotas and service limits for Private Path network load balancers](/docs/vpc?topic=vpc-quotas#ppnlb-quotas). To increase the quota for your Private Path network load balancer, you must [create a support case](/docs/support?topic=support-open-case).
 
 ### Related link
 {: #nlb-limitations-related-links}

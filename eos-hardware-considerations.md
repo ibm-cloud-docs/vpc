@@ -1,8 +1,8 @@
 ---
 
 copyright:
-  years: 2023
-lastupdated: "2025-12-11"
+  years: 2023, 2026
+lastupdated: "2026-04-16"
 
 keywords:
 
@@ -62,4 +62,4 @@ If you choose to continue with an EOS hardware, consider the following informati
 ## Troubleshooting
 {: #troubleshooting-upgrading-your-hardware}
 
-If you need help after your hardware upgrade is complete, create [support case](/docs/account?topic=account-open-case). {{site.data.keyword.cloud_notm}}  support investigates each issue on a case-by-case basis. You can open a support case in the customer portal.
+If you need help after your hardware upgrade is complete, create [support case](/docs/support?topic=support-open-case). {{site.data.keyword.cloud_notm}}  support investigates each issue on a case-by-case basis. You can open a support case in the customer portal.

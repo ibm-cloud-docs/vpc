@@ -1,8 +1,8 @@
 ---
 
 copyright:
-  years: 2019, 2025
-lastupdated: "2025-09-26"
+  years: 2019, 2026
+lastupdated: "2026-04-16"
 
 keywords: load balancer, network, faqs
 
@@ -105,7 +105,7 @@ Make sure that the security group rules that are attached to your load balancer 
 {: faq}
 {: support}
 
-No, it is not possible to attach the same backend member with the same port on two different NLBs, because of the NLB's Direct Server Return (DSR) feature. 
+No, it is not possible to attach the same backend member with the same port on two different NLBs, because of the NLB's Direct Server Return (DSR) feature.
 
 ## FAQs for Private Path network load balancers
 {: #ppnlb-faqs}
@@ -173,7 +173,7 @@ The default quota is 10 front-end listeners for a Private Path NLB. To increase 
 {: faq}
 {: support}
 
-For more information, see [Quotas and service limits for Private Path network load balancers](/docs/vpc?topic=vpc-quotas#ppnlb-quotas). To increase the quota for your Private Path network load balancer, you must [create a support case](/docs/account?topic=account-open-case).
+For more information, see [Quotas and service limits for Private Path network load balancers](/docs/vpc?topic=vpc-quotas#ppnlb-quotas). To increase the quota for your Private Path network load balancer, you must [create a support case](/docs/support?topic=support-open-case).
 
 ### What is the recommended setting for health checks when a Private Path network load balancer (NLB) pool targets an application load balancer (ALB)?
 {: #health-checks-private-path-nlb}

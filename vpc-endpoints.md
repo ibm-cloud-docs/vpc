@@ -2,7 +2,7 @@
 
 copyright:
   years: 2019, 2026
-lastupdated: "2026-04-06"
+lastupdated: "2026-04-16"
 
 keywords: CSE, endpoint, service, DNS, resolver, mirror, object, storage, bandwidth, charges
 
@@ -98,7 +98,7 @@ You can allocate additional service gateway connections when your workloads requ
 
 To allocate additional SNAT IPs for a service gateway, follow these steps:
 
-1. [Open a support case](/docs/account?topic=account-open-case&interface=ui) requesting an additional SNAT IP for the specific VPC and zone.
+1. [Open a support case](/docs/support?topic=support-open-case&interface=ui) requesting an additional SNAT IP for the specific VPC and zone.
 1. After the new SNAT IP is allocated, you are notified through the support case response. Add this address to any required allowlists so that traffic from that SNAT IP is accepted by your backend.
 1. Open another support case to activate the SNAT IP. After activation, the new SNAT IP becomes available for use with the service gateway.
 

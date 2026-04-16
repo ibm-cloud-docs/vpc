@@ -2,7 +2,7 @@
 
 copyright:
   years: 2021, 2026
-lastupdated: "2026-04-12"
+lastupdated: "2026-04-16"
 
 keywords: application load balancer, ALB, create load balancer, VPC load balancer, load balancer pools, load balancer listeners
 
@@ -115,7 +115,7 @@ To create an ALB:
     * **IAM Authorization**: If HTTPS is the selected protocol for this listener, you must designate your IAM authorization, either by instance or your CRN.
     * **Secrets Manager**: If HTTPS is the selected protocol for this listener, you must select or create a secrets manager.
     * **SSL certificate**: If HTTPS is the selected protocol for this listener, you must select an SSL certificate. Make sure that the load balancer is authorized to access the SSL certificate.
-    * **Timeout (sec)** (optional): The maximum timeout after which the load balancer closes the connection if no data has been sent or received by the time that the idle timeout period elapses. The minimum and maximum timeout values are 50 seconds and 2 hours. These values are for both the client and server. To increase the timeout limit to more than 2 hours, [create a support case](/docs/account?topic=account-open-case&interface=ui) providing the business requirement for the timeout value required.
+    * **Timeout (sec)** (optional): The maximum timeout after which the load balancer closes the connection if no data has been sent or received by the time that the idle timeout period elapses. The minimum and maximum timeout values are 50 seconds and 2 hours. These values are for both the client and server. To increase the timeout limit to more than 2 hours, [create a support case](/docs/support?topic=support-open-case&interface=ui) providing the business requirement for the timeout value required.
 
 1. Click **Create** to create the front-end listener.
 1. In the Security groups section, select the security groups that you want to attach to your load balancer, or click **Create** to create a new security group to attach to your ALB.

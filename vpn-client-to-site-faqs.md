@@ -2,7 +2,7 @@
 
 copyright:
   years: 2022, 2026
-lastupdated: "2026-01-27"
+lastupdated: "2026-04-16"
 
 keywords: VPN server, faq, faqs, frequently asked questions, vpn, VPN
 
@@ -243,7 +243,7 @@ If you are using [IBM Cloud Internet Services](/docs/cis?topic=cis-getting-start
 {: faq}
 {: support}
 
-Supply the following content in your [IBM Support case](/docs/account?topic=account-open-case):
+Supply the following content in your [IBM Support case](/docs/support?topic=support-open-case):
 
 1. Your VPN server ID.
 1. Your VPN client and operating system version.

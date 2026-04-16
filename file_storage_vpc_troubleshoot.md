@@ -1,8 +1,8 @@
 ---
 
 copyright:
-  years: 2022, 2025
-lastupdated: "2025-08-06"
+  years: 2022, 2026
+lastupdated: "2026-04-16"
 
 keywords: troubleshooting, file storage for vpc, CBR errors
 
@@ -56,5 +56,5 @@ An error occurs after you set up CBR by [creating a network zone](/docs/vpc?topi
 ```
 {: screen}
 
-This error requires that you contact [IBM support](/docs/account?topic=account-open-case). Provide the error logs for their reference.
+This error requires that you contact [IBM support](/docs/support?topic=support-open-case). Provide the error logs for their reference.
 {: tsResolve}
