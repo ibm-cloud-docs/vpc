@@ -2,7 +2,7 @@
 
 copyright:
   years: 2021, 2026
-lastupdated: "2026-03-26"
+lastupdated: "2026-04-16"
 
 keywords: file share, file storage, rename share, increase size, adjust IOPS, mount target
 
@@ -957,7 +957,7 @@ Add an access management tag to an existing file share or when you [create a fil
 
 After you create an access management tag and apply it to a file share, complete the following steps to assign access and add users:
 
-1. [Create an access group](/docs/account?topic=account-access-tags-tutorial#tagging-create-access-group). Access groups are assigned to policies that grant roles and permissions to the members of that group. You assign access to the specific access management tags for the file service. For more information about access groups, see [Setting up access groups](/docs/account?topic=account-groups&interface=ui).
+1. [Create an access group](/docs/account?topic=account-access-tags-tutorial#tagging-create-access-group). Access groups are assigned to policies that grant roles and permissions to the members of that group. You assign access to the specific access management tags for the file service. For more information about access groups, see [Setting up access groups](/docs/iam?topic=iam-groups&interface=ui).
 2. [Assign an access policy to a group](/docs/account?topic=account-access-tags-tutorial#tagging-assign-policy).
 3. [Add users to the access group](/docs/account?topic=account-access-tags-tutorial#tagging-add-users-access-group).
 

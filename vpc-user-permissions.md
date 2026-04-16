@@ -105,7 +105,7 @@ Create four access groups with the following names, and assign the appropriate u
 * `production_team_manage_vpcs`
 * `production_team_view_vpcs`
 
-For more information about how to create access groups and assign users to the access groups, see [Create access groups](/docs/account?topic=account-groups&interface=ui#create_ag).
+For more information about how to create access groups and assign users to the access groups, see [Create access groups](/docs/iam?topic=iam-groups&interface=ui#create_ag).
 
 ### Step 3: Add IAM policies to the access groups
 {: #step-3-add-iam-policies-to-the-access-groups}

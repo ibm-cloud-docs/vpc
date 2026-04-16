@@ -2,7 +2,7 @@
 
 copyright:
   years: 2019, 2026
-lastupdated: "2026-03-25"
+lastupdated: "2026-04-16"
 
 keywords: Block storage for VPC, change IOPS, change auto-delete, increase volume, change name, rename volume, delete volume, renaming volume, updating volume
 
@@ -696,7 +696,7 @@ Add an access management tag to an existing volume or when you [create a volume]
 
 After you create an access management tag and apply it to a volume, complete the following steps to assign access and add users.
 
-1. [Create an access group](/docs/account?topic=account-access-tags-tutorial#tagging-create-access-group). Access groups are assigned policies that grant roles and permissions to the members of that group. You assign access to the specific access management tags for the block storage service. For more information about access groups, see [Setting up access groups](/docs/account?topic=account-groups&interface=ui).
+1. [Create an access group](/docs/account?topic=account-access-tags-tutorial#tagging-create-access-group). Access groups are assigned policies that grant roles and permissions to the members of that group. You assign access to the specific access management tags for the block storage service. For more information about access groups, see [Setting up access groups](/docs/iam?topic=iam-groups&interface=ui).
 
 2. [Assign an access policy to a group](/docs/account?topic=account-access-tags-tutorial#tagging-assign-policy).
 
