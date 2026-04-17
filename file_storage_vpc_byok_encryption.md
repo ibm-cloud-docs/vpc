@@ -2,7 +2,7 @@
 
 copyright:
   years: 2022, 2026
-lastupdated: "2026-03-23"
+lastupdated: "2026-04-17"
 
 keywords: file share, customer-managed encryption, encryption, byok, KMS, Key Protect, Hyper Protect Crypto Services,
 
@@ -29,7 +29,7 @@ To create file shares with customer-managed encryption, you must have your own c
 
 It's also possible to use a customer root key from another account. In {{site.data.keyword.cloud_notm}}, the KMS can be either located in the same or in another account as the service that is using an encryption key. This deployment pattern allows enterprises to centrally manage encryption keys for all corporate accounts. For more information, see [Encryption key management](/docs/solution-tutorials?topic=solution-tutorials-resource-sharing#resource-sharing-security-kms).
 
-Generally, the account administrator or another privileged user of the account that owns the CRK, [invites the user](/docs/account?topic=account-iamuserinv) of the second account and creates the authorization for sharing the CRK. For more information, see [Granting access to keys with {{site.data.keyword.keymanagementserviceshort}}](/docs/key-protect?topic=key-protect-grant-access-keys). Then, the user from the second account can use the CRK to encrypt data in {{site.data.keyword.cloud_notm}}.
+Generally, the account administrator or another privileged user of the account that owns the CRK, [invites the user](/docs/iam?topic=iam-iamuserinv) of the second account and creates the authorization for sharing the CRK. For more information, see [Granting access to keys with {{site.data.keyword.keymanagementserviceshort}}](/docs/key-protect?topic=key-protect-grant-access-keys). Then, the user from the second account can use the CRK to encrypt data in {{site.data.keyword.cloud_notm}}.
 
 Configure all required [service-to-service authorizations](/docs/vpc?topic=vpc-file-s2s-auth&interface=ui#file-s2s-auth-encryption-ui){: ui}[service-to-service authorizations](/docs/vpc?topic=vpc-file-s2s-auth&interface=cli#file-s2s-auth-encryption-cli){: cli}[service-to-service authorizations](/docs/vpc?topic=vpc-file-s2s-auth&interface=api#file-s2s-auth-encryption-api){: api}[service-to-service authorizations](/docs/vpc?topic=vpc-file-s2s-auth&interface=terraform#file-s2s-auth-encryption-terraform){: terraform} between File Storage for VPC (source service) and the KMS instance (target service) that holds the customer root key. If you're provisioning volumes with a CRK of another account, ask that account's administrator to set up the authorization in their account and to share the CRN of the root key.
 {: requirement}

@@ -2,7 +2,7 @@
 
 copyright:
   years: 2019, 2026
-lastupdated: "2026-04-16"
+lastupdated: "2026-04-17"
 
 keywords: resource, access, role, role-based, authorization, policy, access group, resource group, permission, assign, administrator, operator, editor, viewer, user, team, scenario, manage, create, IAM
 
@@ -183,5 +183,5 @@ Changes to IAM access policies for VPC can take up to 10 minutes to take effect.
 {: #permissions-related-links}
 
 * [Managing identity and access](/docs/vpc?topic=vpc-iam-getting-started)
-* [Managing users and access](/docs/account?topic=account-iamuserinv)
+* [Managing users and access](/docs/iam?topic=iam-iamuserinv)
 * [What is IAM](/docs/iam?topic=iam-iamoverview)
