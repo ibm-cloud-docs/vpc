@@ -2,7 +2,7 @@
 
 copyright:
   years: 2017, 2026
-lastupdated: "2026-04-16"
+lastupdated: "2026-04-17"
 
 keywords: IAM access for vpc infrastructure services, permissions for vpc infrastructure services, identity and access management for vpc infrastructure services, roles for vpc infrastructure services, actions for vpc infrastructure services, assigning access for vpc infrastructure services
 
@@ -119,14 +119,14 @@ Some VPC tasks require authorizations for multiple IAM actions. For example, cre
 
 You have two common ways to assign access in the console:
 
-* Access policies per user. You can manage access policies per user from the **Manage** > **Access (IAM)** > **Users** page in the console. For more information about the steps to assign IAM access, see [Managing access to resources](/docs/account?topic=account-assign-access-resources&interface=ui#access-resources-console).
+* Access policies per user. You can manage access policies per user from the **Manage** > **Access (IAM)** > **Users** page in the console. For more information about the steps to assign IAM access, see [Managing access to resources](/docs/iam?topic=iam-assign-access-resources&interface=ui#access-resources-console).
 * Access groups. Access groups are used to streamline access management by assigning access to a group once, then you can add or remove users as needed from the group to control their access. You manage access groups and their access from the **Manage** > **Access (IAM)** > **Access groups** page in the console. For more information, see [Assigning access to a group in the console](/docs/iam?topic=iam-groups&interface=ui#access_ag).
 
 ## Assigning access to VPC Infrastructure Services in the CLI
 {: #vpc-infrastructure-services-assign-access-cli}
 {: cli}
 
-For step-by-step instructions for assigning, removing, and reviewing access, see [Assigning access ro resources by using the CLI](/docs/account?topic=account-assign-access-resources&interface=cli#access-resources-cli).
+For step-by-step instructions for assigning, removing, and reviewing access, see [Assigning access ro resources by using the CLI](/docs/iam?topic=iam-assign-access-resources&interface=cli#access-resources-cli).
 
 The following example shows a command for assigning the `Viewer` role for `VPC Infrastructure Services`:
 
@@ -142,7 +142,7 @@ ibmcloud iam user-policy-create USER@EXAMPLE.COM --service-name is --roles "View
 {: #vpc-infrastructure-services-assign-access-api}
 {: api}
 
-For step-by-step instructions for assigning, removing, and reviewing access, see [Assigning access to resources by using the API](/docs/account?topic=account-assign-access-resources&interface=api) or [Create a policy API](/apidocs/iam-policy-management#create-policy). Role cloud resource names (CRN) in the following table are used to assign access with the API.
+For step-by-step instructions for assigning, removing, and reviewing access, see [Assigning access to resources by using the API](/docs/iam?topic=iam-assign-access-resources&interface=api) or [Create a policy API](/apidocs/iam-policy-management#create-policy). Role cloud resource names (CRN) in the following table are used to assign access with the API.
 
 | Role name | Role CRN |
 |---------------|-----------------|

@@ -1,8 +1,8 @@
 ---
 
 copyright:
-  years: 2019, 2024
-lastupdated: "2024-10-10"
+  years: 2019, 2026
+lastupdated: "2026-04-17"
 
 keywords: virtual private endpoint, IAM, VPE endpoint gateway
 
@@ -43,7 +43,7 @@ VPE supports Administrator, Editor, Operator, and Viewer platform-access roles. 
 
 [^E]:A user must have Operator privileges for a reserved IP resource to bind a reserved IP when an endpoint gateway is created. To create an endpoint gateway without binding a reserved IP, a user requires only Administrator or Editor privileges.
 
-For more information about assigning user roles in the console, see [Managing access to resources](/docs/account?topic=account-assign-access-resources).
+For more information about assigning user roles in the console, see [Managing access to resources](/docs/iam?topic=iam-assign-access-resources).
 
 ## Viewing VPE resources in the Resource list
 {: #viewing-vpe-resources-in-resource-list}

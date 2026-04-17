@@ -1,8 +1,8 @@
 ---
 
 copyright:
-  years: 2020, 2024
-lastupdated: "2024-10-10"
+  years: 2020, 2026
+lastupdated: "2026-04-17"
 
 keywords: flow logs, IAM
 
@@ -35,7 +35,7 @@ For more information about IAM roles, see [Getting Started with IAM](/docs/vpc?t
 | Viewer | Read flow log collectors |
 {: caption="IAM user roles and actions" caption-side="bottom"}
 
-For more information about assigning user roles in the console, see [Managing access to resources](/docs/account?topic=account-assign-access-resources).
+For more information about assigning user roles in the console, see [Managing access to resources](/docs/iam?topic=iam-assign-access-resources).
 
 Only one operator role is needed, as determined by the scope of your flow log collector.
 {: important}
