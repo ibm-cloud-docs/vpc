@@ -2,7 +2,7 @@
 
 copyright:
   years: 2018, 2026
-lastupdated: "2026-03-31"
+lastupdated: "2026-04-17"
 
 keywords:
 
@@ -50,6 +50,11 @@ A cross-regional copy of block storage volume snapshots is not supported in the 
 {: #gen2-volume-from-snapshot-fail}
 
 When a second-generation snapshot with provider-managed encryption is selected to create a volume with customer-managed keys, the volume provisioning gets stuck in `pending` status. When you restore a volume from a second-generation snapshot, make sure that the encryption type of the new volume matches the encryption type of the snapshot.
+
+### Snapshot operations can be slower after a volume is resized
+{: #snapshot-slowness-after-resize-known-issue}
+
+After a volume's capacity is increased, snapshot operations such as cross-region copy, volume restoration, and snapshot deletion can be slower than before the size update.
 
 ## File Storage shares and snapshots
 {: #file-storage-known-issue}

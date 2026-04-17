@@ -2,7 +2,7 @@
 
 copyright:
   years: 2022, 2026
-lastupdated: "2026-03-16"
+lastupdated: "2026-04-17"
 
 keywords: Block Storage, snapshots, cross-regional copy, fast restore, backup, restore volume
 
@@ -56,7 +56,7 @@ You can copy a snapshot from one region to another region, and later use that sn
 
 How long the copy is kept in another regions depends on how often your backup plan generates backup snapshots and the number of copies that you chose to keep. When you create your backup policy plan with the option to create remote clones, you must specify where you want to create those copies. You must also specify the maximum number of snapshot copies that you want to keep.
 
-For example, if your backup plan takes snapshots daily and you specified 5 remote copies to keep, then at any time the oldest remote copy is less than 5 days old. If you already have 5 remote copies in a region, then the system deletes the oldest one to make room for the new snapshot copy. 
+For example, if your backup plan takes snapshots daily and you specified 5 remote copies to keep, then at any time the oldest remote copy is less than 5 days old. If you already have 5 remote copies in a region, then the system deletes the oldest one to make room for the new snapshot copy.
 
 Manually created copies remain in the other region until you delete them.
 
@@ -156,7 +156,7 @@ You can copy a snapshot from one region to another region, and later use that sn
 {: faq}
 {: #faq-snapshot-consistency-group-snap}
 
-A consistency group is a collection of snapshots that are managed as a single unit. It is used to create snapshots of multiple volumes that are attached to the same virtual server instance at the same time to preserve data consistency. 
+A consistency group is a collection of snapshots that are managed as a single unit. It is used to create snapshots of multiple volumes that are attached to the same virtual server instance at the same time to preserve data consistency.
 
 The snapshots are loosely coupled. The snapshots can be used to create new volumes. They can be copied to another region individually, and can be preserved after the consistency group is deleted. However, you can't copy a consistency group to another region or use the ID of the consistency group to create a virtual server instance.
 
