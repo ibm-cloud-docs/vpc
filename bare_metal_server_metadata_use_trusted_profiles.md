@@ -2,7 +2,7 @@
 
 copyright:
   years: 2025, 2026
-lastupdated: "2026-02-24"
+lastupdated: "2026-04-17"
 
 keywords:
 
@@ -38,7 +38,7 @@ The bare metal server inherits the access rights that are defined in the default
 
 1. Configure a floating IP so that you can ping the virtual servers over the floating IP address and SSH into them.
 
-1. Create a trusted profile. For more information, see [Managing access for apps in compute resources](/docs/account?topic=account-trustedprofile-compute-tutorial#trusted-profile-compute-create).
+1. Create a trusted profile. For more information, see [Managing access for apps in compute resources](/docs/iam?topic=iam-trustedprofile-compute-tutorial#trusted-profile-compute-create).
 
 ## IAM authorizations for linking trusted profiles
 {: #metadata-auth-trusted-profiles-bare-metal}
@@ -68,7 +68,7 @@ The IAM token is obtained by exchanging the bare metal server identity access to
 
 | Step | Context | Service Called | User Action |
 |------|---------|----------------|-------------|
-| 1    | IBM Cloud | IAM | [Create an IAM trusted profile](/docs/account?topic=account-trustedprofile-compute-tutorial). |
+| 1    | IBM Cloud | IAM | [Create an IAM trusted profile](/docs/iam?topic=iam-trustedprofile-compute-tutorial). |
 | 2    | IBM Cloud | IAM | Assign access rights to the IAM trusted profile. |
 | 3    | IBM Cloud | VPC API or UI| With the API, make a request to create a new bare metal server, which is configured with the [metadata service](/docs/vpc?topic=vpc-configure-metadata-service-bare-metal) enabled. Specify any user data and the default trusted profile. Specify to link the trusted profile in the same call. \n In the console, [create a bare metal server](/docs/vpc?topic=vpc-creating-bare-metal-servers&interface=ui) and select a trusted profile and link it to the bare metal server. You can also [Enable the metadata service for an existing bare metal server](/docs/vpc?topic=vpc-configure-metadata-service-bare-metal#metadata-enable-on-bare-metal-server-ui-bare-metal). |
 | 4    | Bare metal server | VPC API | Make an API request to the metadata token service and [get a bare metal server identity access token](/docs/vpc?topic=vpc-configure-metadata-service-bare-metal#metadata-json-token-bare-metal). |
