@@ -2,7 +2,7 @@
 
 copyright:
   years: 2019, 2026
-lastupdated: "2026-03-24"
+lastupdated: "2026-04-17"
 
 keywords: creating an encrypted custom image, qcow2
 
@@ -226,7 +226,7 @@ The following example steps are specific to {{site.data.keyword.keymanagementser
 
 Make sure that you created the required authorizations in IBM {{site.data.keyword.iamshort}}.
 
-1. From IBM {{site.data.keyword.iamshort}} (IAM), [create an authorization](/docs/account?topic=account-serviceauth) between **Cloud Block Storage** (source service) and **your key management service** (target service). The authorization permits the {{site.data.keyword.cloud_notm}} backplane services to use your WDEK for data encryption.
+1. From IBM {{site.data.keyword.iamshort}} (IAM), [create an authorization](/docs/iam?topic=iam-serviceauth) between **Cloud Block Storage** (source service) and **your key management service** (target service). The authorization permits the {{site.data.keyword.cloud_notm}} backplane services to use your WDEK for data encryption.
 2. Make sure that you created an IAM authorization between the **Image Service for VPC** and **{{site.data.keyword.cos_full_notm}}**. Specify **Infrastructure Services** as the source service. Specify **Image Service for VPC** as the resource type. Specify **{{site.data.keyword.cos_full_notm}}** as the target service. The authorization is so that the Image Service for VPC can access images in {{site.data.keyword.cos_full_notm}}. For more information, see [Granting access to {{site.data.keyword.cos_full_notm}} to import images](/docs/vpc?topic=vpc-object-storage-prereq).
 
 

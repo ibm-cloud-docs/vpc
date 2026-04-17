@@ -1,8 +1,8 @@
 ---
 
 copyright:
-  years: 2021, 2025
-lastupdated: "2025-11-05"
+  years: 2021, 2026
+lastupdated: "2026-04-17"
 
 keywords: snapshots, Block Storage snapshots, manage snapshots, fast restore clone, backup snapshot, remote copy, cross-regional copy
 
@@ -123,40 +123,40 @@ ibmcloud is snapshot-update r006-b6b5e2ad-e60a-40c9-bbc2-356dad292fe3 --allowed-
 ```sh
 Updating snapshot r006-b6b5e2ad-e60a-40c9-bbc2-356dad292fe3 under account Test Account as user test.user@ibm.com...
 
-ID                              r006-b6b5e2ad-e60a-40c9-bbc2-356dad292fe3   
-Name                            my-bootable-snapshot   
-CRN                             crn:v1:bluemix:public:is:us-south:a/a1234567::snapshot:r006-b6b5e2ad-e60a-40c9-bbc2-356dad292fe3   
-Status                          stable   
-Clones                          Zone   Available   Created      
-                          
-Source volume                   ID                                          Name                         Remote Region   CRN                                                                                                                        Resource type      
-                                r006-9a40241d-d116-4fc3-83ea-6134d30ee33c   fence-denture-mosaic-royal   -               crn:v1:bluemix:public:is:us-south-1:a/a1234567::volume:r006-9a40241d-d116-4fc3-83ea-6134d30ee33c   volume      
-                          
-Backup policy plan              -   
-Snapshot Copies                 -   
-Bootable                        true   
-Encryption                      provider_managed   
-Encryption key                  -   
-Source Snapshot                 -   
-Minimum capacity(GB)            100   
-Size(GB)                        1   
-Source Image                    ID                                          Name                                 Remote Region   CRN                                                                                                                     Resource type      
-                                r006-d734b459-b5a0-4777-8600-9fa3254d2cea   ibm-ubuntu-24-04-6-minimal-amd64-2   -               crn:v1:bluemix:public:is:us-south:a/a1234567::image:r006-d734b459-b5a0-4777-8600-9fa3254d2cea   image      
-                          
-Operating system                Name                 Vendor      Version                                  Family         Architecture   Display name      
-                                ubuntu-24-04-amd64   Canonical   24.04 LTS Noble Numbat Minimal Install   Ubuntu Linux   amd64          Ubuntu Linux 24.04 LTS Noble Numbat Minimal Install (amd64)      
-                          
-Resource group                  ID                                 Name      
-                                6edefe513d934fdd872e78ee6a8e73ef   defaults      
-                          
-Created                         2025-02-17T17:08:15+00:00   
-Captured at                     2025-02-17T17:08:15+00:00   
-Tags                            -   
-Service Tags                    -   
-Storage Generation              1   
-Allowed Use API Version         2025-03-03   
-Allowed Use Bare Metal Server   enable_secure_boot==true   
-Allowed Use Instance            true   
+ID                              r006-b6b5e2ad-e60a-40c9-bbc2-356dad292fe3
+Name                            my-bootable-snapshot
+CRN                             crn:v1:bluemix:public:is:us-south:a/a1234567::snapshot:r006-b6b5e2ad-e60a-40c9-bbc2-356dad292fe3
+Status                          stable
+Clones                          Zone   Available   Created
+
+Source volume                   ID                                          Name                         Remote Region   CRN                                                                                                                        Resource type
+                                r006-9a40241d-d116-4fc3-83ea-6134d30ee33c   fence-denture-mosaic-royal   -               crn:v1:bluemix:public:is:us-south-1:a/a1234567::volume:r006-9a40241d-d116-4fc3-83ea-6134d30ee33c   volume
+
+Backup policy plan              -
+Snapshot Copies                 -
+Bootable                        true
+Encryption                      provider_managed
+Encryption key                  -
+Source Snapshot                 -
+Minimum capacity(GB)            100
+Size(GB)                        1
+Source Image                    ID                                          Name                                 Remote Region   CRN                                                                                                                     Resource type
+                                r006-d734b459-b5a0-4777-8600-9fa3254d2cea   ibm-ubuntu-24-04-6-minimal-amd64-2   -               crn:v1:bluemix:public:is:us-south:a/a1234567::image:r006-d734b459-b5a0-4777-8600-9fa3254d2cea   image
+
+Operating system                Name                 Vendor      Version                                  Family         Architecture   Display name
+                                ubuntu-24-04-amd64   Canonical   24.04 LTS Noble Numbat Minimal Install   Ubuntu Linux   amd64          Ubuntu Linux 24.04 LTS Noble Numbat Minimal Install (amd64)
+
+Resource group                  ID                                 Name
+                                6edefe513d934fdd872e78ee6a8e73ef   defaults
+
+Created                         2025-02-17T17:08:15+00:00
+Captured at                     2025-02-17T17:08:15+00:00
+Tags                            -
+Service Tags                    -
+Storage Generation              1
+Allowed Use API Version         2025-03-03
+Allowed Use Bare Metal Server   enable_secure_boot==true
+Allowed Use Instance            true
 ```
 {: screen}
 
@@ -238,7 +238,7 @@ Alternatively, you can create a service-to-service authorization through the **M
 
 4. Click **Manage IAM Authorization** to go to the Authorization page to modify or revoke the authorization.
 
-Alternatively, you can manage a service-to-service authorization policy directly through the **Manage > Access (IAM) > Authorizations** menu. For more information, see [Using authorizations to grant access between services](/docs/account?topic=account-serviceauth&interface=ui).
+Alternatively, you can manage a service-to-service authorization policy directly through the **Manage > Access (IAM) > Authorizations** menu. For more information, see [Using authorizations to grant access between services](/docs/iam?topic=iam-serviceauth&interface=ui).
 
 ## Sharing a snapshot with another account from the CLI
 {: #snapshots-vpc-s2s-cli}
@@ -250,7 +250,7 @@ You can create a service-to-service authorization for a specific snapshot from t
 {: #snapshots-vpc-s2s-update-cli}
 {: cli}
 
-You can remove a service-to-service authorization for a specific snapshot from the CLI by using the `authorization-policy-delete` command. For more information, see [Removing an authorization by using the CLI](/docs/account?topic=account-serviceauth&interface=cli#remove-auth-cli).
+You can remove a service-to-service authorization for a specific snapshot from the CLI by using the `authorization-policy-delete` command. For more information, see [Removing an authorization by using the CLI](/docs/iam?topic=iam-serviceauth&interface=cli#remove-auth-cli).
 
 ## Sharing a snapshot with another account with the API
 {: #snapshots-vpc-s2s-api}
@@ -262,7 +262,7 @@ You can programmatically create a service-to-service authorization for a specifi
 {: #snapshots-vpc-s2s-update-api}
 {: api}
 
-You can programmatically revoke a service-to-service authorization for a specific snapshot by calling the `policies` method in the [IAM Policy Management API](/apidocs/iam-policy-management#delete-policy). For more information, see [Removing an authorization by using the API](/docs/account?topic=account-serviceauth&interface=api#remove-auth-api).
+You can programmatically revoke a service-to-service authorization for a specific snapshot by calling the `policies` method in the [IAM Policy Management API](/apidocs/iam-policy-management#delete-policy). For more information, see [Removing an authorization by using the API](/docs/iam?topic=iam-serviceauth&interface=api#remove-auth-api).
 
 ## Adding tags to a snapshot in the console
 {: #snapshots-vpc-add-tags-ui}

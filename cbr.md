@@ -1,8 +1,8 @@
 ---
 
 copyright:
-  years: 2022, 2025
-lastupdated: "2025-12-22"
+  years: 2022, 2026
+lastupdated: "2026-04-17"
 
 keywords: context-based restrictions for VPC Infrastructure Services
 
@@ -23,9 +23,9 @@ These restrictions work with traditional IAM policies, which are based on identi
 A user must have the Administrator role on the VPC Infrastructure Services to create, update, or delete rules that target VPC Infrastructure Services. A user must have either the Editor or Administrator role on the context-based restrictions service to create, update, or delete network zones. A user with the Viewer role on the context-based restrictions service can add network zones to a rule only.
 {: note}
 
-The context-based restriction service generates audit logs every time when a context-based policy is enforced. For more information, see [Monitoring context-based restrictions](/docs/account?topic=account-cbr-monitor).
+The context-based restriction service generates audit logs every time when a context-based policy is enforced. For more information, see [Monitoring context-based restrictions](/docs/iam?topic=iam-cbr-monitor).
 
-To get started with protecting your VPC Infrastructure Services with context-based restrictions, see the tutorial for [Leveraging context-based restrictions to secure your resources](/docs/account?topic=account-context-restrictions-tutorial).
+To get started with protecting your VPC Infrastructure Services with context-based restrictions, see the tutorial for [Leveraging context-based restrictions to secure your resources](/docs/iam?topic=iam-context-restrictions-tutorial).
 
 ## How VPC Infrastructure Services integrates with context-based restrictions
 {: #cbr-overview}
@@ -46,7 +46,7 @@ A network zone represents an allowlist of IP addresses where an access request i
 ### Service references
 {: #service-references}
 
-A *service reference, which is defined as part of a network zone, allows the specified service to talk to the restricted resources or APIs that are targeted by a context-based restriction policy. The following table contains the service references that need to be included when context-based restrictions are used in the context of VPC Infrastructure Services. You can also look at the [service-to-service IAM authorizations](/docs/account?topic=account-serviceauth&interface=ui) in your account when you deliberate which service references to add in your network zone. You can find service-to-service authorization in your account by going to **Manage -> Access (IAM)** and selecting the **Authorizations** tab.
+A *service reference, which is defined as part of a network zone, allows the specified service to talk to the restricted resources or APIs that are targeted by a context-based restriction policy. The following table contains the service references that need to be included when context-based restrictions are used in the context of VPC Infrastructure Services. You can also look at the [service-to-service IAM authorizations](/docs/iam?topic=iam-serviceauth&interface=ui) in your account when you deliberate which service references to add in your network zone. You can find service-to-service authorization in your account by going to **Manage -> Access (IAM)** and selecting the **Authorizations** tab.
 
 | Service with context-based restrictions | Impacted service       | Service references that are required in the network zone |
 |------------------------------------|--------------------------------------------|-----------------------------------------|
@@ -103,10 +103,10 @@ The `serviceRef` attribute for VPC Infrastructure Services is `is`. Cloud Block 
 {: #network-zone-cli}
 {: cli}
 
-1. To create network zones from the CLI, [install the CBR CLI plug-in](/docs/account?topic=account-cbr-plugin&interface=ui).
-1. Use the `cbr-zone-create` command to add network locations, VPCs, and service references to network zones. For more information, see the CBR [CLI reference](/docs/account?topic=account-cbr-plugin&interface=ui#cbr-zones-cli).
+1. To create network zones from the CLI, [install the CBR CLI plug-in](/docs/iam?topic=iam-cbr-plugin&interface=ui).
+1. Use the `cbr-zone-create` command to add network locations, VPCs, and service references to network zones. For more information, see the CBR [CLI reference](/docs/iam?topic=iam-cbr-plugin&interface=ui#cbr-zones-cli).
 
-   To find a list of available service reference targets, run the `ibmcloud cbr service-ref-targets` [command](/docs/account?topic=account-cbr-plugin&interface=ui#cbr-cli-service-ref-targets-command). The `service_name` for *VPC Infrastructure Services* is `is`. *Cloud Block Storage* is `server-protect`, and *File Storage for VPC* is `is.share`.
+   To find a list of available service reference targets, run the `ibmcloud cbr service-ref-targets` [command](/docs/iam?topic=iam-cbr-plugin&interface=ui#cbr-cli-service-ref-targets-command). The `service_name` for *VPC Infrastructure Services* is `is`. *Cloud Block Storage* is `server-protect`, and *File Storage for VPC* is `is.share`.
    {: tip}
 
    The following example command adds the `is` service, referred to as *VPC Infrastructure Services* in {{site.data.keyword.cloud}} console, to a network zone.
@@ -202,8 +202,8 @@ access only from the specified network zone through a private endpoint.
 {: #rules-cli}
 {: cli}
 
-1. To create rules from the CLI, [install the CBR CLI plug-in](/docs/account?topic=account-cbr-plugin&interface=ui).
-1. Use the `ibmcloud cbr rule-create` [command](/docs/account?topic=account-cbr-plugin&interface=ui#cbr-cli-rule-create-command) to create CBR rules. For more information, see the CBR [CLI reference](/docs/account?topic=account-cbr-plugin&interface=ui#cbr-zones-cli).
+1. To create rules from the CLI, [install the CBR CLI plug-in](/docs/iam?topic=iam-cbr-plugin&interface=ui).
+1. Use the `ibmcloud cbr rule-create` [command](/docs/iam?topic=iam-cbr-plugin&interface=ui#cbr-cli-rule-create-command) to create CBR rules. For more information, see the CBR [CLI reference](/docs/iam?topic=iam-cbr-plugin&interface=ui#cbr-zones-cli).
 
 The following examples are enforcement rules. You can make them report-only by adding `--enforcement-mode report`.
 
@@ -262,7 +262,7 @@ ibmcloud cbr rule-create --context-attributes 'endpointType=private' --zone-id a
 
 The context-based restriction service generates audit logs every time when a context-based policy is
 enforced. For more information, see
-[Monitoring context-based restrictions](/docs/account?topic=account-cbr-monitor).
+[Monitoring context-based restrictions](/docs/iam?topic=iam-cbr-monitor).
 
 ## Troubleshooting failures due to context-based restrictions
 {: #cbr-vpc-troubleshooting}

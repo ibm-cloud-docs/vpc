@@ -39,7 +39,7 @@ An error occurs after you set up CBR by [creating a network zone](/docs/vpc?topi
     ```
     {: pre}
 
-    For more information about these commands, see the [CBR CLI reference](/docs/account?topic=account-cbr-plugin).
+    For more information about these commands, see the [CBR CLI reference](/docs/iam?topic=iam-cbr-plugin).
 
 3. The error occurs when you attempt to create a file share after CBR is enabled. For example, when you use the [VPC API](/docs/vpc?topic=vpc-file-storage-create&interface=api#fs-create-file-share-api) to create the share, you get the following error message in the response:
 

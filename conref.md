@@ -2,7 +2,7 @@
 
 copyright:
   years: 2015, 2026
-lastupdated: "2026-04-09"
+lastupdated: "2026-04-17"
 
 keywords:
 
@@ -23,7 +23,7 @@ content-type: conref
 You must also create a service authorization to allow your application load balancer instance to access the {{site.data.keyword.secrets-manager_full_notm}} instance that contains your SSL certificate.
 
 You can create an authorization through [IAM Authorizations](/iam/authorizations){: external}. Make sure to choose
-**VPC Infrastructure Services** as the Source service, then select **Specific resources**. Click **Select an attribute** and choose **Resource type** from the list. Select **Load Balancer for VPC** as the resource type and click **Next**. For the Target service, select **Secrets Manager**. Set the Target service instance access to **All instances** or to your specific {{site.data.keyword.secrets-manager_full_notm}} instance. Assign the **Writer** service access role. For more information, see [Granting access between services](/docs/account?topic=account-serviceauth&interface=ui#create-auth).
+**VPC Infrastructure Services** as the Source service, then select **Specific resources**. Click **Select an attribute** and choose **Resource type** from the list. Select **Load Balancer for VPC** as the resource type and click **Next**. For the Target service, select **Secrets Manager**. Set the Target service instance access to **All instances** or to your specific {{site.data.keyword.secrets-manager_full_notm}} instance. Assign the **Writer** service access role. For more information, see [Granting access between services](/docs/iam?topic=iam-serviceauth&interface=ui#create-auth).
 {: #load-balancer-grant-service-auth}
 
 # Content referenced for x86 instance profiles

@@ -1,8 +1,8 @@
 ---
 
 copyright:
-  years: 2019, 2025
-lastupdated: "2025-08-06"
+  years: 2019, 2026
+lastupdated: "2026-04-17"
 
 keywords: Block Storage, virtual private cloud, volume, data storage, troubleshooting, troubleshoot
 
@@ -24,5 +24,5 @@ The root keys in the Key management service (KMS) instance remain registered to 
 If you remove IAM authorization from Cloud Block Storage to the KMS before you delete all BYOK volumes or images, the root key fails to unregister from the resource.
 {: tsCauses}
 
-As best practice, delete all storage or image resources before you remove IAM authorization. If you already removed authorization, you must restore the IAM authorization between Cloud Block Storage (source service) and your KMS (target service). For more information, see [Using authorizations to grant access between services](/docs/account?topic=account-serviceauth) to establish IAM service-to-service authorizations in the console, CLI, or API.
+As best practice, delete all storage or image resources before you remove IAM authorization. If you already removed authorization, you must restore the IAM authorization between Cloud Block Storage (source service) and your KMS (target service). For more information, see [Using authorizations to grant access between services](/docs/iam?topic=iam-serviceauth) to establish IAM service-to-service authorizations in the console, CLI, or API.
 {: tsResolve}

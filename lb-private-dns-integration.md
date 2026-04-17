@@ -2,7 +2,7 @@
 
 copyright:
   years: 2022, 2026
-lastupdated: "2026-02-03"
+lastupdated: "2026-04-17"
 
 keywords:
 
@@ -33,10 +33,10 @@ Before binding DNS zones to load balancers, you must first create DNS zones and 
 
 1. Create DNS zones to bind to a load balancer. For more information, see [Managing DNS zones](/docs/dns-svcs?topic=dns-svcs-managing-dns-zones).
 
-1. To give a load balancer access to your DNS zone, enable service-to-service authorization, which grants your load balancer access to the DNS zone. For more information, see [Granting access between services](/docs/account?topic=account-serviceauth&interface=ui#create-auth). Make sure to choose **VPC Infrastructure Services** as the source service, **Load Balancer for VPC** as the resource type, **DNS Services** as the target service, and assign the **Manager** service access role.
+1. To give a load balancer access to your DNS zone, enable service-to-service authorization, which grants your load balancer access to the DNS zone. For more information, see [Granting access between services](/docs/iam?topic=iam-serviceauth&interface=ui#create-auth). Make sure to choose **VPC Infrastructure Services** as the source service, **Load Balancer for VPC** as the resource type, **DNS Services** as the target service, and assign the **Manager** service access role.
 
 
-You can use DNS zones in the same account or across different accounts. When binding DNS zones across different accounts, enable service-to-service authorization in the target account where the DNS zone is hosted, mentioning the source account where the load balancer exists. 
+You can use DNS zones in the same account or across different accounts. When binding DNS zones across different accounts, enable service-to-service authorization in the target account where the DNS zone is hosted, mentioning the source account where the load balancer exists.
 {: note}
 
 For example, if you have a load balancer in Account A and a DNS zone in Account B, you must create service-to-service authorization in account B mentioning the source as Account A. Then, as indicated in step 2, choose **VPC Infrastructure Services** as the source service. Select **Load Balancer for VPC** as the resource type, **DNS Services** as the target service, and assign the **Manager** service access role.
@@ -76,7 +76,7 @@ To bind a DNS zone when you [create a load balancer](/docs/vpc?topic=vpc-load-ba
 1. Select **Specify instance option** and provide the DNS CRN and Zone ID.
 1. Click **Bind** to bind the DNS zone to your load balancer.
 1. Click **Create** to provision the load balancer.
-   
+
 ### Binding a DNS zone to an existing load balancer in the console
 {: #binding-dns-zone-to-lb-ui}
 
@@ -86,7 +86,7 @@ To bind a DNS zone to an existing load balancer, follow these steps:
 1. Select the **Navigation menu** ![Menu icon](../icons/icon_hamburger.svg), then click **Infrastructure** ![VPC icon](../../icons/vpc.svg) > **Network** > **Load balancers**.
 1. From the list of load balancers, select the load balancer to view its details page. Navigate to the Attached resources section and scroll to the end of the page.
 1. Click **Bind** in the Private DNS section.
-1. Select the DNS instance, and DNS zone information. 
+1. Select the DNS instance, and DNS zone information.
 1. Click **Bind** to bind the DNS zone to your load balancer.
 
 When you migrate to a private DNS zone for an existing load balancer, the default A records in `lb.appdomain.cloud` are removed. To prepare your client devices, create a CNAME record with the default hostname under the wanted private DNS zone before the migration. After you configure all client devices to use the new private DNS zone, you can then delete the CNAME record and begin the migration. This CNAME record, created before the migration, allows the client devices to cache the private DNS hostname until the A records are created.
@@ -100,7 +100,7 @@ To bind a DNS zone to an existing load balancer cross-account, follow these step
 1. After ensuring that service-to-service authorization is provided, from your browser, open the [{{site.data.keyword.cloud_notm}} console](/login){: external} and log in to your account.
 1. Select the **Navigation menu** ![Menu icon](../icons/icon_hamburger.svg), then click **Infrastructure** ![VPC icon](../../icons/vpc.svg) > **Network** > **Load balancers**.
 1. From the list of load balancers, select the load balancer to view its details page. Navigate to the "Attached resources" section and scroll to the end of the page.
-1. Select "Specify instance" option and provide DNS CRN and Zone ID. 
+1. Select "Specify instance" option and provide DNS CRN and Zone ID.
 1. Click **Bind** to bind the DNS zone to your load balancer.
 
 ### Unbinding a DNS zone from an existing load balancer in the console
@@ -120,7 +120,7 @@ To unbind a DNS zone from a load balancer, follow these steps:
 
 You can bind and unbind DNS zones to an application load balancer during provisioning, or to an existing load balancer.
 
-You can use DNS zones in the same account or across different accounts. When binding DNS zones across different accounts, enable service-to-service authorization in the target account where the DNS zone is hosted, mentioning the source account where the load balancer exists. 
+You can use DNS zones in the same account or across different accounts. When binding DNS zones across different accounts, enable service-to-service authorization in the target account where the DNS zone is hosted, mentioning the source account where the load balancer exists.
 {: note}
 
 ### Creating a load balancer that is bound to a private DNS zone from the CLI
@@ -305,7 +305,7 @@ UDP Supported                false
 
 You can bind and unbind DNS zones to an application load balancer during provisioning, or to an existing load balancer.
 
-You can use DNS zones in the same account or across different accounts. When binding DNS zones across different accounts, enable service-to-service authorization in the target account where the DNS zone is hosted, mentioning the source account where the load balancer exists. 
+You can use DNS zones in the same account or across different accounts. When binding DNS zones across different accounts, enable service-to-service authorization in the target account where the DNS zone is hosted, mentioning the source account where the load balancer exists.
 {: note}
 
 ### Creating a load balancer that is bound to a private DNS zone with the API

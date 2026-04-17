@@ -1,8 +1,8 @@
 ---
 
 copyright:
-  years: 2019, 2025
-lastupdated: "2025-07-07"
+  years: 2019, 2026
+lastupdated: "2026-04-17"
 
 keywords: create authorization for {{site.data.keyword.cos_full_notm}}, import image to vpc infrastructure, migrate virtual server, migrate instance
 
@@ -28,7 +28,7 @@ From {{site.data.keyword.iamshort}}, you must create an authorization so that th
 ## Creating an authorization
 {: #migrate-prereq-create-service-authorization}
 
-To authorize the Image Service for VPC to access the target service, {{site.data.keyword.cos_full_notm}}, you must create an [authorization](/docs/account?topic=account-serviceauth). To import an image, you must specify the Reader service access role for {{site.data.keyword.cos_short}}. To export an image, you must specify the Writer service access role for {{site.data.keyword.cos_full_notm}}. With both Reader and Writer service access roles for {{site.data.keyword.cos_short}}, you can both import and export images.
+To authorize the Image Service for VPC to access the target service, {{site.data.keyword.cos_full_notm}}, you must create an [authorization](/docs/iam?topic=iam-serviceauth). To import an image, you must specify the Reader service access role for {{site.data.keyword.cos_short}}. To export an image, you must specify the Writer service access role for {{site.data.keyword.cos_full_notm}}. With both Reader and Writer service access roles for {{site.data.keyword.cos_short}}, you can both import and export images.
 
 ### Granting Reader and Writer access in the console
 {: #custom-image-service-authorization-rw-ui}
@@ -38,9 +38,9 @@ Complete the following steps to create an authorization for the Image Service fo
 
 1. From the [{{site.data.keyword.cloud_notm}} console](https://console.cloud.ibm.com){: external} menu bar, click **Manage > Access (IAM)**, and select **Authorizations**.
 2. On the Manage authorizations page, click **Create**.
-3. Make your selection for the **Source account**. By default **This account** is selected. Click **Next**. 
+3. Make your selection for the **Source account**. By default **This account** is selected. Click **Next**.
 4. Select a source service for the authorization. Specify **VPC Infrastructure Services** as the source service. Click **Next**.
-5. For Resources, select how you want to scope the access. 
+5. For Resources, select how you want to scope the access.
     1. Select **Specific resources**.
     2. For Specific resources, select **Resource type** and **Image service for VPC**.
     3. Click **Next**.
@@ -54,7 +54,7 @@ Complete the following steps to create an authorization for the Image Service fo
 10. Click **Review** to make sure that your selections look correct.
 11. Click **Authorize**.
 
-For more information, see [Using authorizations to grant access between services](/docs/account?topic=account-serviceauth#serviceauth).
+For more information, see [Using authorizations to grant access between services](/docs/iam?topic=iam-serviceauth#serviceauth).
 
 ### Granting Reader and Writer access to all buckets from the CLI
 {: #custom-image-service-authorization-rw}

@@ -2,7 +2,7 @@
 
 copyright:
   years: 2022, 2026
-lastupdated: "2026-04-16"
+lastupdated: "2026-04-17"
 
 keywords: Backup for VPC, backup service, backup plan, backup policy, restore, restore volume, restore data
 
@@ -29,7 +29,7 @@ If you are an Enterprise account administrator who wants to create a backup poli
 
 To create a backup policy and for the backup jobs to run correctly for File shares, the Backup service needs to be authorized to work with {{site.data.keyword.filestorage_vpc_short}}.
 
-For more information about authorizations, see [Using authorizations to grant access between services](/docs/account?topic=account-serviceauth).
+For more information about authorizations, see [Using authorizations to grant access between services](/docs/iam?topic=iam-serviceauth).
 
 If you set up service authorizations incorrectly, the backup service cannot create the backup policies. For more information, see the troubleshooting topic [What causes the service authorization error when I try to create a backup policy?](/docs/vpc?topic=vpc-baas-ts-3)
 {: note}

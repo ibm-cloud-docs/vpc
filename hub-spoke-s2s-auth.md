@@ -2,7 +2,7 @@
 
 copyright:
   years: 2023, 2026
-lastupdated: "2026-04-16"
+lastupdated: "2026-04-17"
 
 keywords:
 
@@ -15,7 +15,7 @@ subcollection: vpc
 # Establishing service-to-service authorization
 {: #vpe-dns-sharing-s2s-auth}
 
-To configure DNS sharing for VPE gateways between hub and DNS-shared VPCs on different accounts, the hub VPC administrator must establish an IAM service-to-service (s2s) authorization policy. For more information, see [Using authorizations to grant access between services](/docs/account?topic=account-serviceauth).
+To configure DNS sharing for VPE gateways between hub and DNS-shared VPCs on different accounts, the hub VPC administrator must establish an IAM service-to-service (s2s) authorization policy. For more information, see [Using authorizations to grant access between services](/docs/iam?topic=iam-serviceauth).
 {: shortdesc}
 
 **Notes:**

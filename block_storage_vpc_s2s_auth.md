@@ -2,7 +2,7 @@
 
 copyright:
   years: 2022, 2026
-lastupdated: "2026-04-16"
+lastupdated: "2026-04-17"
 
 keywords: Backup for VPC, backup service, backup plan, backup policy, restore, restore volume, restore data
 
@@ -29,7 +29,7 @@ To be able to create an encrypted volume with customer-managed CRKs, you need to
 
 If you want to create backup snapshots of your {{site.data.keyword.block_storage_is_short}} volumes, the Backup service needs to be authorized to work with {{site.data.keyword.block_storage_is_short}}, Snapshots for VPC, and Virtual Server for VPC services. For more information, see [Establishing service-to-service authorizations for the Backup service](/docs/vpc?topic=vpc-backup-s2s-auth).
 
-For more information about authorizations, see [Using authorizations to grant access between services](/docs/account?topic=account-serviceauth).
+For more information about authorizations, see [Using authorizations to grant access between services](/docs/iam?topic=iam-serviceauth).
 
 ## Creating service-to-service authorization for customer-managed encryption in the console
 {: #block-s2s-auth-encryption-ui}
