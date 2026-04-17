@@ -1,8 +1,8 @@
 ---
 
 copyright:
-  years: 2018, 2024
-lastupdated: "2024-10-29"
+  years: 2018, 2026
+lastupdated: "2026-04-17"
 
 keywords: virtual server instances, VSI, compute, virtual machines, planning, best practices, instances, virtual servers, virtual server instance, Virtual servers for VPC, gen 2, generation 2, infrastructure, infrastructure as a service, IaaS
 
@@ -47,7 +47,7 @@ For more information about unscheduled migrations that result from an unexpected
 ## What to expect during a scheduled maintenance event
 {: #about-scheduled-maintenance}
 
-In scenarios where workloads cannot migrate automatically, a scheduled maintenance event occurs. When workloads can't migrate automatically, the account owner receives an email about the upcoming maintenance that requires their attention. The account owner has a maintenance period typically 30 days in length. Exceptional cases can necessitate different timelines as outlined in [Getting advanced notice for disruptive maintenance](/docs/account?topic=account-viewing-cloud-status#disruptive-maintenance).
+In scenarios where workloads cannot migrate automatically, a scheduled maintenance event occurs. When workloads can't migrate automatically, the account owner receives an email about the upcoming maintenance that requires their attention. The account owner has a maintenance period typically 30 days in length. Exceptional cases can necessitate different timelines as outlined in [Getting advanced notice for disruptive maintenance](/docs/support?topic=support-viewing-status#disruptive-maintenance).
 
 To start the maintenance event, the account owner needs to power-off their virtual server and then power it back on. This power cycle can be initiated as soon as a maintenance notification is received. When the virtual server resumes, it starts on the updated infrastructure. By doing so, the customer can choose when to perform the maintenance anytime ahead of the scheduled window.
 

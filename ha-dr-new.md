@@ -2,7 +2,7 @@
 
 copyright:
   years: 2026
-lastupdated: "2026-01-26"
+lastupdated: "2026-04-17"
 
 keywords: HA for VPC, DR for VPC, VPC recovery time objective, VPC recovery point objective
 
@@ -244,4 +244,4 @@ Complex changes are enabled and disabled with feature flags to control exposure.
 
 
 
-Changes that impact customer workloads are detailed in {{site.data.keyword.cloud_notm}} notifications. For more information about planned maintenance, announcements, and release notes that impact this service, see [Monitoring notifications and status](/docs/account?topic=account-viewing-cloud-status).
+Changes that impact customer workloads are detailed in {{site.data.keyword.cloud_notm}} notifications. For more information about planned maintenance, announcements, and release notes that impact this service, see [Monitoring notifications and status](/docs/support?topic=support-viewing-status).

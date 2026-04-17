@@ -2,7 +2,7 @@
 
 copyright:
   years: 2020, 2026
-lastupdated: "2026-03-16"
+lastupdated: "2026-04-17"
 
 keywords: virtual private network, faq, faqs, frequently asked questions, vpn, vpn gateway
 
@@ -100,7 +100,7 @@ To troubleshoot IBM Cloud VPN connection issues, check the VPN dashboard tunnel 
 {: #faq-vpn-10}
 {: faq}
 
-To know about VPN service unavailability, use IBM Cloud standard notification process for maintenance events. See [IBM Cloud Status page](/docs/account?topic=account-viewing-cloud-status).
+To know about VPN service unavailability, use IBM Cloud standard notification process for maintenance events. See [IBM Cloud Status page](/docs/support?topic=support-viewing-status).
 
 ## What's the starting point to set up site-to-site VPN for my VPC?
 {: #faq-vpn-11}
