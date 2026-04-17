@@ -2,7 +2,7 @@
 
 copyright:
   years: 2018, 2026
-lastupdated: "2026-03-05"
+lastupdated: "2026-04-17"
 
 subcollection: vpc
 
@@ -79,7 +79,7 @@ This system is not registered with an entitlement server.
 
 Your REHL virtual server instance was unregistered from the capsule server. To resolve this issue:
 
-1. Create an empty file in `/tmp` folder of your server: `touch reregister-ng-rhel-vsi.sh`. Copy and Paste the code in the following section [Script to reregister an RHEL virtual server instance](#script-reregister-RHEL-VSI). 
+1. Create an empty file in `/tmp` folder of your server: `touch reregister-ng-rhel-vsi.sh`. Copy and Paste the code in the following section [Script to reregister an RHEL virtual server instance](#script-reregister-RHEL-VSI).
 1. Edit the script and add to the file: `vi reregister-ng-rhel-vsi.sh`.
 1. Run the script: `chmod +x reregister-ng-rhel-vsi.sh` and `./reregister-ng-rhel-vsi.sh`.
 1. If the script fails, provide the following parameters to support:
@@ -171,7 +171,7 @@ ssh-keyscan -t rsa [sFTP] >> ~/.ssh/known_hosts
 ```
 {: pre}
 
-If you need more help, you can open a [support case](/docs/account?topic=account-using-avatar).
+If you need more help, you can open a [support case](/docs/support?topic=support-using-avatar).
 
 For troubleshooting information about z/OS virtual server instances, see [{{site.data.keyword.waziaas_full_notm}} documentation](https://www.ibm.com/docs/en/wazi-aas/1.1.0?topic=known-limitations){: external}.
 

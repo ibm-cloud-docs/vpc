@@ -2,7 +2,7 @@
 
 copyright:
   years: 2018, 2026
-lastupdated: "2026-04-16"
+lastupdated: "2026-04-17"
 
 keywords: help, support
 
@@ -29,7 +29,7 @@ If you still can't resolve the problem, you can open a support case. For more in
 ## Support cases
 {: #getting-help-tickets}
 
-For more information about opening an IBM support cases, or about support levels and case severities, see [Contacting support](/docs/account?topic=account-using-avatar).
+For more information about opening an IBM support cases, or about support levels and case severities, see [Contacting support](/docs/support?topic=support-using-avatar).
 {: shortdesc}
 
 If you need to open a support case, collect as much information as possible to help Support analyze and diagnose your problem.

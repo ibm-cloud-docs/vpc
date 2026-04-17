@@ -1,8 +1,8 @@
 ---
 
 copyright:
-  years: 2021, 2025
-lastupdated: "2025-12-19"
+  years: 2021, 2026
+lastupdated: "2026-04-17"
 
 keywords: virtual private cloud, private cloud network, placement group, placement group strategy, host spread, power spread, faq, faqs
 
@@ -30,7 +30,7 @@ No, an instance can be assigned to only one placement group.
 
 If you are using the host spread placement strategy, you can have a maximum of 12 instances per placement group. If you are using the power spread placement strategy, you can have a maximum of four instances per placement group.
 
-If more instances are needed, you can request a quota increase through IBM [customer support](/docs/account?topic=account-using-avatar).
+If more instances are needed, you can request a quota increase through IBM [customer support](/docs/support?topic=support-using-avatar).
 
 ## Can I move an instance from one placement group to another?
 {: #faq-placement-groups-2}

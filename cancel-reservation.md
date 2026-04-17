@@ -1,9 +1,9 @@
 ---
 copyright:
-  years: 2023, 2025
-lastupdated: "2024-03-25"
+  years: 2023, 2026
+lastupdated: "2026-04-17"
 
-keywords: 
+keywords:
 
 subcollection: vpc
 
@@ -32,7 +32,7 @@ Use the following steps to delete an inactive or expired reservation.
 Virtual servers that are attached to a reservation are billed at the on-demand rates when the reservation is deleted.
 {: important}
 
-Reservations can be deleted for cases such as degraded capacity. All deletion requests are reviewed on a case-by-case basis. To delete an active reservation, [contact support](/docs/account?topic=account-using-avatar).
+Reservations can be deleted for cases such as degraded capacity. All deletion requests are reviewed on a case-by-case basis. To delete an active reservation, [contact support](/docs/support?topic=support-using-avatar).
 
 ## Deleting an inactive or expired reservation with the CLI
 {: #reservation-delete-cli}

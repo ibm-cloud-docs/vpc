@@ -2,7 +2,7 @@
 
 copyright:
   years: 2018, 2026
-lastupdated: "2026-01-05"
+lastupdated: "2026-04-17"
 
 keywords: application load balancer, public, listener, back-end, front-end, pool, round-robin, weighted, connections, methods, policies, APIs, access, ports, layer 7, compression
 subcollection: vpc
@@ -68,7 +68,7 @@ In addition to HTTP cookie stickiness, you can also define your own application 
 
 Application Load Balancer for VPC supports `HTTP keep alive` when it is enabled on both the consumer and back-end servers. If the consumer supports `HTTP keep alive`, the ALB keeps the connection open for multiple requests. The ALB attempts to reuse server-side HTTP connections to back-end servers to minimize connection overhead.
 
-`HTTP keep alive` must be enabled on both customer and back-end server sides of the connection. 
+`HTTP keep alive` must be enabled on both customer and back-end server sides of the connection.
 {: note}
 
 ## TCP keep alive
@@ -108,7 +108,7 @@ An ALB preserves the original protocol that is used by the client for front-end 
 
 Private load balancer enforcement prevents public load balancers from being created. This ensures only non-internet clients, or clients from within your network environment, can access your load balancers. When enabled, a restriction is placed on your account to prevent the creation of floating IPs on all ALBs.
 
-To implement private load balancer enforcement, open an [IBM Support case](/docs/account?topic=account-using-avatar) and reference your need to alter your account to restrict the creation of floating IPs. After IBM processes the change, you will no longer be able to create public load balancers.
+To implement private load balancer enforcement, open an [IBM Support case](/docs/support?topic=support-using-avatar) and reference your need to alter your account to restrict the creation of floating IPs. After IBM processes the change, you will no longer be able to create public load balancers.
 
 Private load balancer enforcement applies for all regions when enabled.
 {: note}

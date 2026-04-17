@@ -2,7 +2,7 @@
 
 copyright:
   years: 2023, 2026
-lastupdated: "2026-03-30"
+lastupdated: "2026-04-17"
 
 keywords:
 
@@ -99,7 +99,7 @@ End of Support (EOS) is the last date that {{site.data.keyword.cloud}} delivers 
 
 SUSE Linux Enterprise Server (SLES) 12 EOS date is 31 October 2024. After deprecation, you can't download the software. You are encouraged to upgrade to the most recent version for continued support.
 
-For more information about upgrading, see [SUSE documentation](https://documentation.suse.com/sles/15-SP6/single-html/SLES-upgrade/#sec-upgrade-paths-supported){: external} or contact [IBM support](/docs/account?topic=account-using-avatar).
+For more information about upgrading, see [SUSE documentation](https://documentation.suse.com/sles/15-SP6/single-html/SLES-upgrade/#sec-upgrade-paths-supported){: external} or contact [IBM support](/docs/support?topic=support-using-avatar).
 
 ### Debian 10
 {: #debian-ten-eos-vpc}
@@ -179,4 +179,4 @@ Existing CentOS Stream customers can upgrade to the most recent version. For mor
 {: #troubleshooting-upgrading-your-os-vpc}
 
 If you encounter problems after your OS is upgrade is complete, open a support case. IBM Support investigates each issue on a
-case-by-case basis. You can open a support case in the customer portal. For more information about support, see [Using the Support Center](/docs/account?topic=account-using-avatar).
+case-by-case basis. You can open a support case in the customer portal. For more information about support, see [Using the Support Center](/docs/support?topic=support-using-avatar).
