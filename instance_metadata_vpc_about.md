@@ -1,8 +1,8 @@
 ---
 
 copyright:
-  years: 2022, 2025
-lastupdated: "2025-10-27"
+  years: 2022, 2026
+lastupdated: "2026-04-18"
 
 keywords:
 
@@ -73,7 +73,7 @@ A Trusted Profile in {{site.data.keyword.cloud_notm}} is an identity within a sp
 
 Trusted profiles can be members of IAM access groups and have assigned access privileges, and can also have direct access assigned to them. They are particularly useful for administrative work with a given set of privileges under a specific identity for identities or resources identified by a set of properties configured as part of the trusted profile.
 
-The trusted profile is created through the {{site.data.keyword.cloud_notm}} Identity and Access Management (IAM) service. Specifically, it is done by navigating to **Manage > Access (IAM)** and selecting **Trusted profiles**, then clicking **Create profile**. For more information, see [Creating trusted profiles](/docs/account?topic=account-create-trusted-profile).
+The trusted profile is created through the {{site.data.keyword.cloud_notm}} Identity and Access Management (IAM) service. Specifically, it is done by navigating to **Manage > Access (IAM)** and selecting **Trusted profiles**, then clicking **Create profile**. For more information, see [Creating trusted profiles](/docs/iam?topic=iam-create-trusted-profile).
 
 Using trusted profiles eliminates the need to create service IDs or API keys for the compute resources. It allows applications to access {{site.data.keyword.cloud_notm}} services without requiring individual authentication for each compute resource.
 

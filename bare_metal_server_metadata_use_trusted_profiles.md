@@ -2,7 +2,7 @@
 
 copyright:
   years: 2025, 2026
-lastupdated: "2026-04-17"
+lastupdated: "2026-04-18"
 
 keywords:
 
@@ -76,7 +76,7 @@ The IAM token is obtained by exchanging the bare metal server identity access to
 | 6    | Bare metal server | IAM-enabled service | Pass the IAM token to call an IAM-enabled service API. The required access rights to the service exist in the trusted profile. |
 {: caption="Procedure for using a trusted profile" caption-side="bottom"}
 
-For more information, see the IAM documentation on [setting up trusted profiles](/docs/account?topic=account-create-trusted-profile).
+For more information, see the IAM documentation on [setting up trusted profiles](/docs/iam?topic=iam-create-trusted-profile).
 
 ## End-to-end procedure for using a trusted profile to call IAM-enabled services
 {: #metadata-trusted-profile-md-ex-bare-metal}
@@ -84,7 +84,7 @@ For more information, see the IAM documentation on [setting up trusted profiles]
 Default trusted profiles cannot be changed on existing bare metal servers. A default trusted profile can be specified only while you provision a bare metal server.
 {: important}
 
-1. Create a [trusted profile](/docs/account?topic=account-create-trusted-profile) for the new bare metal server.
+1. Create a [trusted profile](/docs/iam?topic=iam-create-trusted-profile) for the new bare metal server.
 
 2. Create the bare metal server and specify a default trusted profile while you provision the bare metal server. With the VPC API, set the `auto_link` property to `true` to automatically link the trusted profile to the bare metal server. Specify the trusted profile ID or the CRN of the trusted profile. For example,
 

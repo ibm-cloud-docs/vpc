@@ -1,8 +1,8 @@
 ---
 
 copyright:
-  years: 2020, 2025
-lastupdated: "2025-12-19"
+  years: 2020, 2026
+lastupdated: "2026-04-18"
 
 keywords: resource attribute, iam access policy, terraform, cli
 
@@ -29,7 +29,7 @@ ibmcloud iam user-policy-create name@example.com --roles Viewer --service-name i
 ```
 {: pre}
 
-For more information about using the CLI to create and modify IAM access policy, see [ibmcloud iam user-policy-create](/docs/account?topic=account-ibmcloud_commands_iam#ibmcloud_iam_user_policy_create).
+For more information about using the CLI to create and modify IAM access policy, see [ibmcloud iam user-policy-create](/docs/iam?topic=iam-ibmcloud_commands_iam#ibmcloud_iam_user_policy_create).
 
 For more information about using Terraform to create IAM access policies, see the `resources` attribute for the following IAM policies:
 

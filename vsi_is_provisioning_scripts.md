@@ -2,7 +2,7 @@
 
 copyright:
   years: 2019, 2026
-lastupdated: "2026-03-05"
+lastupdated: "2026-04-18"
 
 keywords: user data, virtual server username
 
@@ -17,7 +17,7 @@ subcollection: vpc
 
 
 
-When you create an {{site.data.keyword.vsi_is_full}} instance, you can specify optional user data that automatically performs common configuration tasks or runs scripts. For more information about user data and usernames, see [IAM access](/docs/account?topic=account-userroles).
+When you create an {{site.data.keyword.vsi_is_full}} instance, you can specify optional user data that automatically performs common configuration tasks or runs scripts. For more information about user data and usernames, see [IAM access](/docs/iam?topic=iam-userroles).
 {: shortdesc}
 
 {{site.data.keyword.vpc_short}} uses Cloud-init technology to configure virtual server instances. The **User Data** field on the *New virtual server for VPC* page allows users to put in custom configuration options by using cloud-init. Cloud-init supports several formats for configuration data, including yaml in a cloud-config file.
