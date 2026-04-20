@@ -2,7 +2,7 @@
 
 copyright:
   years: 2022, 2026
-lastupdated: "2026-04-17"
+lastupdated: "2026-04-20"
 
 keywords: context-based restrictions for VPC Infrastructure Services
 
@@ -18,7 +18,7 @@ subcollection: vpc
 Context-based restrictions give account owners and administrators the ability to define and enforce access restrictions for {{site.data.keyword.cloud}} resources based on the context of access requests. Access to VPC Infrastructure Services can be controlled with context-based restrictions and identity and access management (IAM) policies.
 {: shortdesc}
 
-These restrictions work with traditional IAM policies, which are based on identity, to provide an extra layer of protection. Unlike IAM policies, context-based restrictions don't assign access. Context-based restrictions check that an access request comes from an allowed context that you configured. Since both IAM access and context-based restrictions enforce access, context-based restrictions offer protection even in the face of compromised or mismanaged credentials. For more information, see [What are context-based restrictions](/docs/account?topic=account-context-restrictions-whatis).
+These restrictions work with traditional IAM policies, which are based on identity, to provide an extra layer of protection. Unlike IAM policies, context-based restrictions don't assign access. Context-based restrictions check that an access request comes from an allowed context that you configured. Since both IAM access and context-based restrictions enforce access, context-based restrictions offer protection even in the face of compromised or mismanaged credentials. For more information, see [What are context-based restrictions](/docs/iam?topic=iam-context-restrictions-whatis).
 
 A user must have the Administrator role on the VPC Infrastructure Services to create, update, or delete rules that target VPC Infrastructure Services. A user must have either the Editor or Administrator role on the context-based restrictions service to create, update, or delete network zones. A user with the Viewer role on the context-based restrictions service can add network zones to a rule only.
 {: note}
@@ -130,7 +130,7 @@ The `serviceRef` attribute for VPC Infrastructure Services is `is`. Cloud Block 
 
 1. Determine which resources you want to add to your allowlist.
 1. Check the [service references](#service-references) section to see whether you need to add any service reference to your network zone.
-1. Follow these steps to [create context-based restrictions in the console](/docs/account?topic=account-context-restrictions-create).
+1. Follow these steps to [create context-based restrictions in the console](/docs/iam?topic=iam-context-restrictions-create).
 
 ## Creating rules
 {: #cbr-rules}

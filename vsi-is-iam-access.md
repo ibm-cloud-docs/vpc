@@ -2,7 +2,7 @@
 
 copyright:
   years: 2017, 2026
-lastupdated: "2026-04-17"
+lastupdated: "2026-04-20"
 
 keywords: IAM access for vpc infrastructure services, permissions for vpc infrastructure services, identity and access management for vpc infrastructure services, roles for vpc infrastructure services, actions for vpc infrastructure services, assigning access for vpc infrastructure services
 
@@ -20,7 +20,7 @@ Access to {{site.data.keyword.vpc_full}} service instances for users in your acc
 
 The access policy that you assign users in your account determines what actions a user can perform within the context of the service or specific instance that you select. The allowable actions are customized and defined by the `VPC Infrastructure Services` as operations that you are allowed to perform on the service. Each action is mapped to an IAM platform or service role that you can assign to a user.
 
-If a specific role and its actions don't fit the use case that you're looking to address, you can [create a custom role](/docs/account?topic=account-custom-roles&interface=ui#custom-access-roles) and pick the actions to include.
+If a specific role and its actions don't fit the use case that you're looking to address, you can [create a custom role](/docs/iam?topic=iam-custom-roles&interface=ui#custom-access-roles) and pick the actions to include.
 {: tip}
 
 IAM access policies enable access to grant at different levels. The following are some options that are included:
@@ -521,4 +521,4 @@ ic iam access-group-policy-create Developers_MyApp --roles Viewer --service-name
 For more information about IAM, resource groups, access groups, and access management tags, see the following {{site.data.keyword.cloud_notm}} topics:
 
 * [{{site.data.keyword.cloud_notm}} IAM](/docs/iam?topic=iam-iamoverview)
-* [Access groups](/docs/account?topic=account-cloudaccess)
+* [Access groups](/docs/iam?topic=iam-cloudaccess)

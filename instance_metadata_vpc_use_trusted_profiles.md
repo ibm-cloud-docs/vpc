@@ -2,7 +2,7 @@
 
 copyright:
   years: 2022, 2026
-lastupdated: "2026-04-18"
+lastupdated: "2026-04-20"
 
 keywords:
 
@@ -35,7 +35,7 @@ You can link a trusted profile when you provision an instance. You can also link
 
 The trusted profile that you specify when you provision the instance becomes the default trusted profile. Trusted profiles that are linked after the instance is provisioned might define more authorizations, but they cannot replace or become the default trusted profile for the instance.
 
-The trusted profile can be linked to a compute instance either explicitly when the instance is created or implicitly through [trusted profile dynamic rules](/docs/iam?topic=Iam-iam-condition-properties).
+The trusted profile can be linked to a compute instance either explicitly when the instance is created or implicitly through [trusted profile dynamic rules](/docs/iam?topic=iam-iam-condition-properties).
 
 {{site.data.keyword.iamlong}} is the source of truth for trusted profile linkage. The trusted profile information cannot be changed after the instance creation. The information may become stale as any trusted profile-related changes made in IAM are not reflected.
 {: important}

@@ -2,7 +2,7 @@
 
 copyright:
   years: 2025, 2026
-lastupdated: "2026-03-20"
+lastupdated: "2026-04-20"
 
 keywords:
 
@@ -39,7 +39,7 @@ Use this tutorial to learn how to complete the following tasks:
 - [Create an {{site.data.keyword.cloud_notm}} account](/registration) if you don't already have one.
 - [Download the RHEL AI image](https://developers.redhat.com/products/rhel-ai/download){: external}.
 - [Create user access tokens in Hugging Face](https://huggingface.co/docs/hub/en/security-tokens){: external}.
-- (Optional) Create a Red Hat account with the activation key. For more information, see [Creating and managing activation keys](https://docs.redhat.com/en/documentation/subscription_central/1-latest/html/getting_started_with_activation_keys_on_the_hybrid_cloud_console/assembly-creating-managing-activation-keys_assembly-creating-managing-activation-keys){: external}.
+- (Optional) Create a Red Hat account with the activation key. For more information, see [Creating and managing activation keys](https://docs.redhat.com/en/documentation/subscription_central/1-latest/html/getting_started_with_activation_keys_on_the_hybrid_cloud_console/assembly-creating-managing-activation-keys_context){: external}.
 
 ## Setting up RHEL AI on {{site.data.keyword.cloud_notm}}
 {: #how-to-host-rhel-ai}
@@ -241,7 +241,7 @@ First you must initialize ilab, the environment for running and fine-tuning LLMs
 
    ` ilab `
 
-   If you see the following message, you must have the activation from your Red Hat account. For more information, see. [Creating and managing activation keys](https://docs.redhat.com/en/documentation/subscription_central/1-latest/html/getting_started_with_activation_keys_on_the_hybrid_cloud_console/assembly-creating-managing-activation-keys_assembly-creating-managing-activation-keys){: external}.
+   If you see the following message, you must have the activation from your Red Hat account. For more information, see. [Creating and managing activation keys](https://docs.redhat.com/en/documentation/subscription_central/1-latest/html/getting_started_with_activation_keys_on_the_hybrid_cloud_console/assembly-creating-managing-activation-keys_context){: external}.
 
     ```sh
     [root@instructlab-rhel-ai ~]# ilab
@@ -255,9 +255,9 @@ First you must initialize ilab, the environment for running and fine-tuning LLMs
     https://console.redhat.com/insights/connector/activation-keys (this page will also display your Organization ID).
 
     For more information on Red Hat Insights, visit:
-    https://docs.redhat.com/en/documentation/subscription_central/1-latest/html/getting_started_with_activation_keys_on_the_hybrid_cloud_console/assembly-creating-managing-activation-keys_assembly-creating-managing-activation-keys
+    https://docs.redhat.com/en/documentation/subscription_central/1-latest/html/getting_started_with_activation_keys_on_the_hybrid_cloud_console/assembly-creating-managing-activation-keys_context
 
-    You must have the activation from your Red Hat account. Please read the [documentation](https://docs.redhat.com/en/documentation/subscription_central/1-latest/html/getting_started_with_activation_keys_on_the_hybrid_cloud_console/assembly-creating-managing-activation-keys_assembly-creating-managing-activation-keys)
+    You must have the activation from your Red Hat account. Please read the [documentation](https://docs.redhat.com/en/documentation/subscription_central/1-latest/html/getting_started_with_activation_keys_on_the_hybrid_cloud_console/assembly-creating-managing-activation-keys_context)
 
     From your RedHat account, gather the `organization-id` and the `activation-key`. For more information on the organization-id and activation-key, read the note below
 

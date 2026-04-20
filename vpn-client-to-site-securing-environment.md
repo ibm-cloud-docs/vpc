@@ -1,8 +1,8 @@
 ---
 
 copyright:
-  years: 2022, 2025
-lastupdated: "2025-06-27"
+  years: 2022, 2026
+lastupdated: "2026-04-20"
 
 keywords:
 
@@ -37,7 +37,7 @@ You can use both authentication methods together to authenticate client access. 
 
 To authenticate with a username or passcode, be aware of the following:
 
-* This option requires VPN client users to authenticate with your wanted MFA method before a valid passcode can be acquired and used for a VPN connection. It can be configured from the IAM Authentication section (**Manage > Access (IAM) > Settings > Authentication**). For more information, see [Enabling multifactor authentication](/docs/account?topic=account-enablemfa).
+* This option requires VPN client users to authenticate with your wanted MFA method before a valid passcode can be acquired and used for a VPN connection. It can be configured from the IAM Authentication section (**Manage > Access (IAM) > Settings > Authentication**). For more information, see [Enabling multifactor authentication](/docs/iam?topic=iam-enablemfa).
 * Username/passcode authentication requires a user to have the IAM VPN server user role. For more information, see [Creating an IAM access group and granting the role to connect to the VPN server](/docs/vpc?topic=vpc-create-iam-access-group). You must configure IAM access groups or access policies to enable this role only for users that require VPN access.
 
 ### Authenticating with client certificates

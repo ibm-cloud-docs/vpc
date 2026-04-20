@@ -1195,7 +1195,6 @@ toc:
               - vpn-ts-duplicate-ike-sa.md
               - vpn-ts-unstable-connection.md
               - vpn-ts-vpn-tunnel-fails.md
-              - vpn-ts-vpn-tunnel-peer-initiated-only.md
               - vpn-ts-routing-issues.md
               - vpn-ts-vpn-gateway-fix-bad-service-routes.md
               - vpn-ts-advertise-route-not-work.md
