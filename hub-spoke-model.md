@@ -2,7 +2,7 @@
 
 copyright:
   years: 2023, 2026
-lastupdated: "2026-04-16"
+lastupdated: "2026-04-20"
 
 keywords:
 
@@ -107,7 +107,7 @@ For each DNS-shared VPC:
 * Create a DNS resolution binding to the DNS hub VPC to share its VPE DNS records to the DNS hub VPC.
 * Configure your DNS to use the custom resolver on a DNS hub VPC by changing its resolver type to Delegated with the DNS hub VPC.
 
-# IBM Cloud service domains for VPE
+## IBM Cloud service domains for VPE
 {: #vpe-dns-service-domains}
 
 When DNS sharing is configured for Virtual Private Endpoints (VPE), DNS queries for supported IBM Cloud service endpoints resolve to private IP addresses through the DNS hub VPC.
