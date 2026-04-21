@@ -2,7 +2,7 @@
 
 copyright:
   years: 2020, 2026
-lastupdated: "2026-04-08"
+lastupdated: "2026-04-21"
 
 keywords: auto scale, autoscale, virtual server instance, creating, UI, console, instance group
 
@@ -125,7 +125,7 @@ Not all network load balancer offerings support integration with instance groups
 | Use a load balancer | Select this checkbox if you plan to use a load balancer to balance incoming requests across instances in your instance group. The load balancer must already be configured, attached to the subnets that you select for this instance group, and have at least one back-end pool. |
 | Instance template |  Select the instance template that you want to use for provisioning the virtual server instances in your auto-scale instance group. All virtual server instances in the group are provisioned with the same instance template. |
 | Scaling method | Select whether you want to use a dynamic or static scaling method. With the dynamic scaling method, instances are added or removed based on the metric targets that you specify. With the static scaling method, you can specify a fixed number of instances that you want to maintain. |
-| Instance group size | For a static group, enter the number of instances that you want to constantly have in this instance group. For a dynamic group, enter the minimum and maximum number of instances for your group. The number of instances automaticall scale automatically within that range based on the target metrics that you define. |
+| Instance group size | For a static group, enter the number of instances that you want to constantly have in this instance group. For a dynamic group, enter the minimum and maximum number of instances for your group. The number of instances automatically scale automatically within that range based on the target metrics that you define. |
 | Aggregation window (seconds) | For a dynamic group, this value determines the time period that the instance group manager monitors each instance and determines the average utilization. |
 | Cooldown period (seconds) | For a dynamic group, the cooldown period is the time in seconds to pause further scaling actions after scaling takes place. |
 {: caption="Instance group selections" caption-side="bottom"}
@@ -340,7 +340,7 @@ Use the following commands to determine the required information to create an in
     ```
     {: pre}
 
-    This command returns both the `offering_crn` and the `offering_version_crn` for the available images. When you create an instance, you can either provision an instance from the private catalog image at the latest version in a catalog product offering by using the `offering_crn` or from a specific version in the catalog product offering by using the `offering_version_crn`.
+    This command returns both the `offering_crn` and the `offering_version_crn` for the available images. When you create an instance, you can either provision an instance from the private catalog image at the most recent version in a catalog product offering by using the `offering_crn` or from a specific version in the catalog product offering by using the `offering_version_crn`.
 
     Save the `offering_crn` and `offering_version_crn`in variables, which is used later to provision an instance.
 
