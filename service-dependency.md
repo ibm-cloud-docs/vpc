@@ -2,7 +2,7 @@
 
 copyright:
   years: 2024, 2026
-lastupdated: "2026-04-15"
+lastupdated: "2026-04-21"
 
 keywords:
 
@@ -1194,7 +1194,7 @@ The following dependencies apply to the following deployment locations: Dallas (
 
 |Dependencies|Dependency impacts|Customer provided|Control or data plane|Location of dependency|
 |:---|:---|:---|:---|:---|
-| {{site.data.keyword.iamlong}} | Access management, Availability, Instance control | No | Both |  Sydney (au-syd)  |
+| {{site.data.keyword.iamlong}} | Access management, Availability, Instance control | No | Both |  Same region  |
 {: row-headers}
 {: caption="IBM Cloud Private Paths for VPC - Data and Control plane deployment service dependency information - Critical dependencies" caption-side="top"}
 {: tab-title="Critical dependencies"}
@@ -1216,13 +1216,52 @@ The following dependencies apply to the following deployment locations: Dallas (
 
 |Dependencies|Dependency impacts|Customer provided|Control or data plane|Location of dependency|
 |:---|:---|:---|:---|:---|
-| {{site.data.keyword.atracker_full}}| Security compliance | No | Both |  Dallas (us-south)  |
+| {{site.data.keyword.atracker_full}}| Security compliance | No | Both |  Same region  |
 {: row-headers}
 {: caption="IBM Cloud Private Paths for VPC - Data and Control plane deployment service dependency information - Minimal dependencies" caption-side="top"}
 {: tab-title="Minimal dependencies"}
 {: tab-group="service-dependency-data-for-is-private-path-service-gateway-Data-and-Control-plane-deployment"}
 {: class="comparison-tab-table"}
 {: #minimal-service-dependencies-for-is-private-path-service-gateway-Data-and-Control-plane-deployment}
+{: summary="Use the buttons for the dependency level to change the context of the table. This table has row and column headers. The row headers detail the specific dependent service. The column headers identify the details about the dependency and its impact. To understand the details about each dependency, navigate to the row to find the dependency that you need more information about interested in."}
+
+## Data and Control plane deployment NGDC
+{: #data-and-control-plane-deployment-ngdc}
+
+The following dependencies apply to the following deployment locations: Montreal 04 (a), Montreal 04 (b), Montreal 04 (c).
+
+
+|Dependencies|Dependency impacts|Customer provided|Control or data plane|Location of dependency|
+|:---|:---|:---|:---|:---|
+| {{site.data.keyword.iamlong}} | Access management, Availability, Instance control | No | Both |  Same region  |
+{: row-headers}
+{: caption="IBM Cloud Private Paths for VPC - Data and Control plane deployment NGDC service dependency information - Critical dependencies" caption-side="top"}
+{: tab-title="Critical dependencies"}
+{: tab-group="service-dependency-data-for-is-private-path-service-gateway-Data-and-Control-plane-deployment-NGDC"}
+{: class="comparison-tab-table"}
+{: #critical-service-dependencies-for-is-private-path-service-gateway-Data-and-Control-plane-deployment-NGDC}
+{: summary="Use the buttons for the dependency level to change the context of the table. This table has row and column headers. The row headers detail the specific dependent service. The column headers identify the details about the dependency and its impact. To understand the details about each dependency, navigate to the row to find the dependency that you need more information about interested in."}
+
+|Dependencies|Dependency impacts|Customer provided|Control or data plane|Location of dependency|
+|:---|:---|:---|:---|:---|
+| {{site.data.keyword.cis_full}} | Access management, Availability, Security compliance | No | Both |  [Global](/docs/resiliency?topic=resiliency-ha-redundancy#global-platform)  |
+{: row-headers}
+{: caption="IBM Cloud Private Paths for VPC - Data and Control plane deployment NGDC service dependency information - Significant dependencies" caption-side="top"}
+{: tab-title="Significant dependencies"}
+{: tab-group="service-dependency-data-for-is-private-path-service-gateway-Data-and-Control-plane-deployment-NGDC"}
+{: class="comparison-tab-table"}
+{: #significant-service-dependencies-for-is-private-path-service-gateway-Data-and-Control-plane-deployment-NGDC}
+{: summary="Use the buttons for the dependency level to change the context of the table. This table has row and column headers. The row headers detail the specific dependent service. The column headers identify the details about the dependency and its impact. To understand the details about each dependency, navigate to the row to find the dependency that you need more information about interested in."}
+
+|Dependencies|Dependency impacts|Customer provided|Control or data plane|Location of dependency|
+|:---|:---|:---|:---|:---|
+| {{site.data.keyword.atracker_full}}| Security compliance | No | Both |  Same region  |
+{: row-headers}
+{: caption="IBM Cloud Private Paths for VPC - Data and Control plane deployment NGDC service dependency information - Minimal dependencies" caption-side="top"}
+{: tab-title="Minimal dependencies"}
+{: tab-group="service-dependency-data-for-is-private-path-service-gateway-Data-and-Control-plane-deployment-NGDC"}
+{: class="comparison-tab-table"}
+{: #minimal-service-dependencies-for-is-private-path-service-gateway-Data-and-Control-plane-deployment-NGDC}
 {: summary="Use the buttons for the dependency level to change the context of the table. This table has row and column headers. The row headers detail the specific dependent service. The column headers identify the details about the dependency and its impact. To understand the details about each dependency, navigate to the row to find the dependency that you need more information about interested in."}
 
 
