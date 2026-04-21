@@ -1195,6 +1195,8 @@ toc:
               - vpn-ts-duplicate-ike-sa.md
               - vpn-ts-unstable-connection.md
               - vpn-ts-vpn-tunnel-fails.md
+              - vpn-ts-destination-host-unreachable.md
+              - vpn-ts-acl-specific-rules.md
               - vpn-ts-routing-issues.md
               - vpn-ts-vpn-gateway-fix-bad-service-routes.md
               - vpn-ts-advertise-route-not-work.md
@@ -1209,8 +1211,11 @@ toc:
               topics:
               - vpn-ts-auth-error-connecting-to-server.md
               - vpn-ts-auth-failure-error.md
+              - vpn-ts-c2s-auth-failure-error.md
               - vpn-ts-cannot-access-vpc-resources.md
               - vpn-ts-c2s-cannot-connect-vpe.md
+              - vpn-ts-c2s-cannot-connect-to-virtual-server.md
+              - vpn-ts-c2s-server-cert-easyrsa.md
               - vpn-ts-certificate-warning-openvpn.md
               - vpn-ts-client-restart-message.md
               - vpn-ts-connection-failure.md
