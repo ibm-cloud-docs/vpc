@@ -2,7 +2,7 @@
 
 copyright:
   years: 2019, 2026
-lastupdated: "2026-04-09"
+lastupdated: "2026-04-21"
 
 keywords: vsi, virtual server instances, profile, profiles, balanced, compute, memory, very high memory, ultra high memory, gpu, storage optimized, confidential compute, flex, high frequency
 
@@ -25,11 +25,11 @@ For more information about SAP profiles, see [SAP HANA certified instances on In
 ## Before you begin
 {: #x86-64-instance-profiles-before-you-begin}
 
-Verify the profile you use is available in the zone where you plan to create the instance. 
+Verify the profile that you use is available in the zone where you plan to create the instance. 
 
 Some profiles might not be available because of one of the following reasons:
    - The number of network interfaces in the virtual server exceeds profile limits. You can remove network interfaces to select from more profiles. For more information, see [Resizing a virtual server](/docs/vpc?topic=vpc-resizing-an-instance).
-   - The image selected contains an allowed-use expression that is not compatible with the profile. In these cases, select an image with an allowed-use expression that is compatible with the desired profile. For more infomation, see [Adding allowed-use expressions to custom images](/docs/vpc?topic=vpc-custom-image-allowed-use-expressions&interface=ui).
+   - The selected image contains an allowed-use expression that is not compatible with the profile. In these cases, select an image with an allowed-use expression that is compatible with the selected profile. For more information, see [Adding allowed-use expressions to custom images](/docs/vpc?topic=vpc-custom-image-allowed-use-expressions&interface=ui).
 
 ## Profile families
 {: #x86-64-instance-profile-families}
@@ -419,7 +419,7 @@ The GPU and accelerated profile family includes profiles with and without [insta
 - [Select availability]{: tag-green} GPU `-a100p` profiles include NVIDIA A100 Tensor Core 80 GB GPUs.
 - GPU `-h100` profiles include [NVIDIA](https://www.nvidia.com/en-us/data-center/hgx/){: external} GPUs. The system is an HGX design. The H100 offering is available in the following regions and zones: London (eu-gb-2), Sydney (au-syd-2), Toronto (ca-tor-3), Madrid (eu-es-3), Washington DC (us-east-3), Tokyo (jp-tok-3), Sao Paulo (br-sao-1), Dallas (us-south-1), and Frankfurt (eu-de-2).
 - [Select availability]{: tag-green} GPU `-h200` profiles include [NVIDIA](https://www.nvidia.com/en-us/data-center/hgx/){: external} GPUs. The system is an HGX design. The H200 offering is available in Washington DC (us-east-3), Toronto (ca-tor-3), Frankfurt (eu-de-2), London (eu-gb-2), Sydney (au-syd-3), and Chennai (in-che-1).
-- [Select availability]{: tag-green} GPU `-gaudi3` profiles include the [Intel® Gaudi® 3 AI Accelerator](https://www.intel.com/content/www/us/en/products/details/processors/ai-accelerators/gaudi.html). The Intel Gaudi 3 offering is available in Dallas (us-south-dal12-a), Washington DC (us-east-wdc06-a, us-east-wdc07-a) and Frankfurt (eu-de-fra02-a).
+- [Select availability]{: tag-green} GPU `-gaudi3` profiles include the [Intel® Gaudi® 3 AI Accelerator](https://www.intel.com/content/www/us/en/products/details/processors/ai-accelerators/gaudi.html). The Intel Gaudi 3 offering is available in Dallas (us-south-dal12-a), Washington DC (us-east-wdc06-a, us-east-wdc07-a), and Frankfurt (eu-de-fra02-a).
 
 Make sure to install the appropriate driver and software for the profile you select:
 - [NVIDIA Drivers](https://www.nvidia.com/en-us/drivers/){: external}
@@ -465,7 +465,7 @@ When you create a virtual server by using a GPU or accelerated profile, keep the
 - During {{site.data.keyword.Bluemix_notm}} periodic maintenance, GPU workloads aren't secure live migrated. Instead, the virtual server instance is restarted. You are notified 30 days in advance of any maintenance where the virtual server instance restarts. For more information, see [Understanding cloud maintenance operations](/docs/vpc?topic=vpc-about-cloud-maintenance).
 - If you are using GPU profiles, you need to install the required software and drivers onto your virtual server instance. For more information, see [Managing GPUs and accelerators](/docs/vpc?topic=vpc-managing-gpus).
 - For more information about persistent storage options, see [Storage notes for profiles](#block-storage-notes-for-profiles).
-- For GPU profiles that contain instance storage, those block devices are attached as native NVMe drives instead of virtio block devices. The ordering of the instance storage drives with respect to storage volumes might differ.
+- For GPU profiles that contain instance storage, those block devices are attached as native NVMe drives instead of virtio block devices. The ordering of the instance storage drives regarding storage volumes might differ.
 
 ## Storage Optimized
 {: #storageopt}
@@ -721,7 +721,7 @@ You can view available profile configurations by using the {{site.data.keyword.c
 {: #profiles-using-console}
 {: ui}
 
-1. In the {{site.data.keyword.cloud_notm}} console, go to **Navigation Menu** icon ![menu icon](../../icons/icon_hamburger.svg) **> Infrastructure** ![VPC icon](../../icons/vpc.svg) **> Compute > Virtual server instances**.
+1. In the {{site.data.keyword.cloud_notm}} console, click the **Navigation Menu** icon ![menu icon](../../icons/icon_hamburger.svg) **> Infrastructure** ![VPC icon](../../icons/vpc.svg) **> Compute > Virtual server instances**.
 2. From the Virtual server instances page, click **New instance**.
 3. You can either select a profile configuration from **Popular profiles** or click **All profiles** to view more configurations.
 
