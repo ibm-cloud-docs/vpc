@@ -2,7 +2,7 @@
 
 copyright:
   years: 2022, 2026
-lastupdated: "2026-03-05"
+lastupdated: "2026-04-21"
 
 keywords:
 
@@ -84,7 +84,7 @@ The example uses `jq` as a parser, a third-party tool licensed under the [MIT li
 
 You can specify `identity_token` variable in a `GET` call to the metadata service to invoke one of the metadata methods. For more information, see [Retrieve metadata from your running instances](/docs/vpc?topic=vpc-imd-access-instance-metadata&interface=api#imd-access-md-use).
 
-You can also generate an IAM token from this identity token and use the RIAS API to call IAM-enabled services. For more information, see [Generate an IAM token from an identity access token](/docs/vpc?topic=vpc-imd-identity-operations#imd-token-exchange).
+You can also generate an IAM token from this identity token and use the VPC API to call IAM-enabled services. For more information, see [Generate an IAM token from an identity access token](/docs/vpc?topic=vpc-imd-identity-operations#imd-token-exchange).
 
 ## Generate an IAM token from an identity access token
 {: #imd-token-exchange}
