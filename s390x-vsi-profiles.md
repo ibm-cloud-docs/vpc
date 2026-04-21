@@ -1,7 +1,7 @@
 ---
 copyright:
   years: 2022, 2026
-lastupdated: "2026-04-08"
+lastupdated: "2026-04-21"
 
 
 keywords: vsi, virtual server instances, profile, profiles, balanced, compute, memory, ultra high memory, storage optimized
@@ -16,7 +16,7 @@ subcollection: vpc
 # s390x instance profiles
 {: #vs-profiles}
 
-The IBM Cloud LinuxONE Virtual Server for VPC (s390x architecture) is deprecated. As of 28 February 2026, you can't create new instances. Existing instances are supported until 20 February 2027. Any instances that still exist on that date will be deleted. You can migrate to an on-premises deployment model. For more information, see [Linux on IBM Z and LinuxONE](https://www.ibm.com/docs/en/linux-on-systems?topic=linux-z-linuxone). For more information, see the [Service deprecation announcement](/docs/vpc?topic=vpc-ichpcs_deprecated_anmt).
+The IBM Cloud LinuxONE Virtual Server for VPC (s390x architecture) is deprecated. As of 28 February 2026, you can't create new instances. Existing instances are supported until 20 February 2027. Any instances that still exist on that date is deleted. You can migrate to an on-premises deployment model. For more information, see [Linux on IBM Z and LinuxONE](https://www.ibm.com/docs/en/linux-on-systems?topic=linux-z-linuxone). For more information, see the [Service deprecation announcement](/docs/vpc?topic=vpc-ichpcs_deprecated_anmt).
 {: deprecated}
 
 You can use s390x instance profiles to provision virtual server instances and you can select from three families of profiles: Balanced, Compute, and Memory. IBM Z or LinuxONE (s390x processor architecture) is a uniquely secure and scalable architecture that provides dedicated CPU core, memory, and I/O channel to better manage your high-performance workloads.
@@ -46,7 +46,7 @@ For the LinuxONE and z/OS virtual server instances, the profiles are available i
 ## Before you begin
 {: #s390x-instance-profiles-before-you-begin}
 
-Verify the profile you use is available in the zone where you plan to create the instance. 
+Verify that the profile that you use is available in the zone where you plan to create the instance. 
 
 
 ## Balanced
@@ -54,7 +54,7 @@ Verify the profile you use is available in the zone where you plan to create the
 
 Balanced profiles provide a mix of performance and scalability for more common workloads with a ratio of 4 GiB of memory for every 1 vCPU of compute. The following table shows all Balanced profiles available for the IBM Z or LinuxONE (s390x architecture) processors.
 
-Ensure that you select a secure execution enabled profile (for example, cz2e-2x4) when you enable the **Run your workload with an OS and a profile protected by Secure Execution** toggle (to activate support for secure execution images). Selecting any profile that is not secure execution enabled will cause the deployment of the virtual instance to fail.
+Make sure that you select a secure execution-enabled profile (for example, cz2e-2x4) when you enable the **Run your workload with an OS and a profile that is protected by Secure Execution** toggle (to activate support for secure execution images). Selecting any profile that is not secure execution that is enabled causes the deployment of the virtual instance to fail.
 
 
 | Instance profile | vCPU | Cores | GiB RAM | Bandwidth Cap (Gbps) |
@@ -91,7 +91,7 @@ Ensure that you select a secure execution enabled profile (for example, cz2e-2x4
 
 Compute profiles are best for workloads with intensive CPU demands, such as high web traffic workloads, production batch processing, and front-end web servers that can benefit from 2 GiB of memory for every 1 vCPU of compute. The following table shows all Compute profiles available for the IBM Z or LinuxONE (s390x architecture) processors.
 
-Ensure that you select a secure execution enabled profile (for example, cz2e-2x4) when you enable the **Run your workload with an OS and a profile protected by Secure Execution** toggle (to activate support for secure execution images). Selecting any profile that is not secure execution enabled will cause the deployment of the virtual instance to fail.
+Make sure that you select a secure execution-enabled profile (for example, cz2e-2x4) when you enable the **Run your workload with an OS and a profile that is protected by Secure Execution** toggle (to activate support for secure execution images). Selecting any profile that is not secure execution-enabled causes the deployment of the virtual instance to fail.
 
 
 | Instance profile | vCPU | Cores | GiB RAM | Bandwidth Cap (Gbps) |
@@ -126,7 +126,7 @@ Ensure that you select a secure execution enabled profile (for example, cz2e-2x4
 
 Memory profiles are best for memory intensive workloads, such as large caching workloads, intensive database applications, or in-memory analytics workloads with 8 GiB of memory for every 1 vCPU of compute. The following table shows all Memory profiles available for the IBM Z or LinuxONE (s390x architecture) processors.
 
-Ensure that you select a secure execution enabled profile (for example, mz2e-2x16) when you enable the **Run your workload with an OS and a profile protected by Secure Execution** toggle (to activate support for secure execution images). Selecting any profile that is not secure execution enabled will cause the deployment of the virtual instance to fail.
+Make sure that you select a secure execution-enabled profile (for example, mz2e-2x16) when you enable the **Run your workload with an OS and a profile that is protected by Secure Execution** toggle (to activate support for secure execution images). Selecting any profile that is not secure execution-enabled causes the deployment of the virtual instance to fail.
 
 
 | Instance profile | vCPU | Cores | GiB RAM | Bandwidth Cap (Gbps) | I
@@ -156,11 +156,11 @@ Ensure that you select a secure execution enabled profile (for example, mz2e-2x1
 {: summary="Memory secure execution profiles options for s390x virtual server instances."}
 
 
-## How the bandwidth is allocated using the UI
+## How the bandwidth is allocated by using the UI
 {: #vs-bandwidth-allocation-ui}
 {: ui}
 
-Instance bandwidth is allocated between volume bandwidth and networking bandwidth. The bandwidth capacity (Bandwidth Cap) is determined by the virtual server profile that you select during instance provisioning. For example, a bx2-2x8 balanced server profile allows a bandwidth cap of 4 Gbps. The initial volume and network bandwidth allocation depends on the bandwidth set by the instance profile you selected. You can also see the bandwidth allocations in the profile information during instance creation in the console. The bandwidth allocation can be changed on the instance details page after provisioning an instance.
+Instance bandwidth is allocated between volume bandwidth and networking bandwidth. The bandwidth capacity (Bandwidth Cap) is determined by the virtual server profile that you select during instance provisioning. For example, a bx2-2x8 balanced server profile allows a bandwidth cap of 4 Gbps. The initial volume and network bandwidth allocation depends on the bandwidth set by the instance profile that you selected. You can also see the bandwidth allocations in the profile information during instance creation in the console. The bandwidth allocation can be changed on the instance details page after the instance is provisioned.
 
 For example, for the bz2-2x8 profile you might have:
 
@@ -174,13 +174,13 @@ For a cz2-8x16 profile:
 
 The amount of overall bandwidth provided to volume bandwidth can be adjusted within the overall instance limits. A default amount of volume bandwidth is set on each instance profile.
 
-For more information, see [Bandwidth allocation for instance profiles](/docs/vpc?topic=vpc-bandwidth-allocation-profiles) and [Adjusting bandwidth allocation using the UI](/docs/vpc?topic=vpc-managing-virtual-server-instances&interface=ui#adjusting-bandwidth-allocation-ui).
+For more information, see [Bandwidth allocation for instance profiles](/docs/vpc?topic=vpc-bandwidth-allocation-profiles) and [Adjusting bandwidth allocation by using the UI](/docs/vpc?topic=vpc-managing-virtual-server-instances&interface=ui#adjusting-bandwidth-allocation-ui).
 
-## How the bandwidth is allocated using the API
+## How the bandwidth is allocated by using the API
 {: #vs-bandwidth-allocation-api}
 {: api}
 
-Instance bandwidth is allocated between volume bandwidth and networking bandwidth. The bandwidth capacity (Bandwidth Cap) is determined by the virtual server profile that you select during instance provisioning. For example, a bz2-2x8 balanced server profile allows a bandwidth cap of 4 Gbps. The initial volume and network bandwidth allocation depends on the bandwidth you set by using the API or by the instance profile you selected. You can see bandwidth allocations with the `/instance/profiles` endpoint in the API. The bandwidth can be changed during or after provisioning an instance.
+Instance bandwidth is allocated between volume bandwidth and networking bandwidth. The bandwidth capacity (Bandwidth Cap) is determined by the virtual server profile that you select during instance provisioning. For example, a bz2-2x8 balanced server profile allows a bandwidth cap of 4 Gbps. The initial volume and network bandwidth allocation depends on the bandwidth that you set by using the API or by the instance profile you selected. You can see bandwidth allocations with the `/instance/profiles` endpoint in the API. The bandwidth can be changed during or after the instance is provisioned.
 
 For example, for the bz2-2x8 profile you might have:
 
@@ -199,7 +199,7 @@ For more information, see [Creating VPC resources with CLI and API](/docs/vpc?to
 ## Viewing profile configurations
 {: #vs-popular-profiles}
 
-You can view available profile configurations by using the {{site.data.keyword.cloud_notm}} console or the CLI. In the {{site.data.keyword.cloud_notm}} console, you can select from popular profile configurations that support most common use cases.
+You can view available profile configurations by using the {{site.data.keyword.cloud_notm}} console or the CLI. In the {{site.data.keyword.cloud_notm}} console, you can select from popular profile configurations that support the most common use cases.
 
 ### Understanding the naming rule of the profiles
 {: #vs-profiles-naming-rule}
@@ -222,7 +222,7 @@ The third character represents the generation of the IBM Cloud infrastructure wh
 - "2": IBM Cloud Virtual Servers for VPC
 
 
-The fourth character is an "e", such as bz2e, which identifies the profile as a secure execution profile. These profiles are available when you select IBM Hyper Protect Container Runtime image as the image for provisioning the virtual server instance. For more information, see [s390x virtual server images](/docs/vpc?topic=vpc-vsabout-images). The characters after "-" represents the number of vCPUs and the size of RAM (GiB). For example, "2x8" means that this profile has 2 vCPU and 8 GiB of RAM.
+The fourth character is an "e", such as bz2e, which identifies the profile as a secure execution profile. These profiles are available when you select the IBM Hyper Protect Container Runtime image as the image for provisioning the virtual server instance. For more information, see [s390x virtual server images](/docs/vpc?topic=vpc-vsabout-images). The characters after "-" represents the number of vCPUs and the size of RAM (GiB). For example, "2x8" means that this profile has 2 vCPU and 8 GiB of RAM.
 
 Using “bz2-4x16” as an example, you can know from the name that it is a balanced profile that provides 4 vCPUs of compute and 16 GiB of memory. The profile is deployed on an s390x host and is for the second-generation VPC.
 
@@ -230,7 +230,7 @@ Using “bz2-4x16” as an example, you can know from the name that it is a bala
 {: #vs-profiles-using-console}
 {: ui}
 
-1. In the {{site.data.keyword.cloud_notm}} console, go to **Navigation Menu** icon ![menu icon](../../icons/icon_hamburger.svg) **> Infrastructure** ![VPC icon](../../icons/vpc.svg) **> Compute > Virtual server instances**.
+1. In the {{site.data.keyword.cloud_notm}} console, click **Navigation Menu** icon ![menu icon](../../icons/icon_hamburger.svg) **> Infrastructure** ![VPC icon](../../icons/vpc.svg) **> Compute > Virtual server instances**.
 2. From the Virtual server instances page, click **New instance**.
 3. You can either select a profile configuration from **Popular profiles** or click **All profiles** to view more configurations.
 
@@ -264,14 +264,14 @@ curl -X GET \
 
 When you create secondary data volumes, you select a volume profile that best meets your requirements. Volume profiles are available as three predefined [tiers](/docs/vpc?topic=vpc-block-storage-profiles#tiers) or as a [custom volume profile](/docs/vpc?topic=vpc-block-storage-profiles#custom). These volume profiles relate to virtual server instance profiles:
 
-* A [3 IOPS general-purpose tier profile](/docs/vpc?topic=vpc-block-storage-profiles#tiers) provides IOPS/GB performance suitable for a virtual server instance Balanced profile.
-* A [5-IOPS tier](/docs/vpc?topic=vpc-block-storage-profiles#tiers) profile provides IOPS/GB performance suitable for a virtual server instance Compute profile.
-* A [10-IOPS tier](/docs/vpc?topic=vpc-block-storage-profiles#tiers) profile provides IOPS/GB performance suitable for a virtual server instance Memory profile.
+* A [3 IOPS general-purpose tier profile](/docs/vpc?topic=vpc-block-storage-profiles#tiers) provides IOPS/GB performance suitable for a Balanced profile.
+* A [5-IOPS tier](/docs/vpc?topic=vpc-block-storage-profiles#tiers) profile provides IOPS/GB performance suitable for a Compute profile.
+* A [10-IOPS tier](/docs/vpc?topic=vpc-block-storage-profiles#tiers) profile provides IOPS/GB performance suitable for a Memory profile.
 
 ## Next steps
 {: #vs-nextsteps-profiles}
 
-After you choose a profile, it's time to create an instance.
+After you choose a profile, you can create an instance.
 
 * [Creating an instance by using the UI](/docs/vpc?topic=vpc-creating-virtual-servers)
 * [Creating an instance by using the CLI](/docs/vpc?topic=vpc-creating-virtual-servers&interface=cli)
