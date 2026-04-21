@@ -120,6 +120,7 @@ Private load balancer enforcement applies for all regions when enabled.
 
 The HTTP/2 protocol is now supported for back-end pools.
 {: note}</stage>
+
 The HTTP/2 protocol is not yet supported for back-end pools. However, HTTP and HTTPS protocols are supported.
 {: note} 
 
