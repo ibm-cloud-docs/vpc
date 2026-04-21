@@ -2,7 +2,7 @@
 
 copyright:
   years: 2024, 2026
-lastupdated: "2026-03-27"
+lastupdated: "2026-04-21"
 
 keywords: vsi, virtual server, virtual server instances, profile, profiles, balanced, compute, gen 3, intel, confidential computing
 
@@ -104,8 +104,8 @@ computing capability.
 | cx3dc-128x320 | 128 / 64 / 2                 | 320          | 128 GB EPC| 0 GB EPC |  200                 | 2 x 2860                   |
 {: caption="Confidential computing compute instance profile options for x86 architecture, Gen 3" caption-side="bottom"}
 
-- These profiles configure EPC memory when used in SGX mode only. In TDX mode the EPC memory is not configured.
-- Any profile with more than 120 GB memory does not support TDX mode.
+For these profiles, the EPC memory is not configured in TDX mode. The EPC memory is configured only for SGX mode.
+{: note}
 
 ## Limits
 {: #cc-vsi-limits-gen3-intel}
