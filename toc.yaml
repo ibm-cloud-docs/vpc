@@ -1139,7 +1139,11 @@ toc:
               - ts-rt-ecmp.md
               - ts-rt-spoke-tgw.md
               - ts-rt-valid-ip.md
-          - vsi_is_troubleshooting.md
+          - topicgroup:
+              id: tbs-virtual-servers
+              label: Troubleshooting virtual servers
+              topics:
+              - vsi_is_troubleshooting.md
           - topicgroup:
               id: tbs-vpe-gateway
               label: Troubleshooting VPE gateways
