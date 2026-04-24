@@ -168,14 +168,14 @@ Spot instances (GA)
 :   The 4th generation of {{site.data.keyword.cloud_notm}} {{site.data.keyword.vsi_is_short}} are available in the Dallas (`us-south`) region. This new generation features virtual server profile families hosted exclusively on 6th Generation Intel&reg; Xeon&reg; Scalable processors. For more information, see [x86-64 instance profiles](/docs/vpc?topic=vpc-profiles&interface=ui). General purpose profiles are available in the [Balanced](/docs/vpc?topic=vpc-profiles&interface=ui#balanced-intel-x86-64-gen4), [Compute](/docs/vpc?topic=vpc-profiles&interface=ui#compute-intel-x86-64-gen4), and [Memory](/docs/vpc?topic=vpc-profiles&interface=ui#memory-intel-x86-64-gen4) families. 4th generation dedicated host profiles are also available. For more information, see [Dedicated host profiles](/docs/vpc?topic=vpc-general-purpose-vsi-profiles-gen4-intel&interface=ui#general-purpose-dh-profiles-gen4).
 
 ## January 2026
-{: #vpc-jan26}<spot>
+{: #vpc-jan26}
 
 ### 22 January 2026
 {: #vpc-jan2226}
 {: release-note}
 
 Spot instances (Select availability)
-:   [Spot instances](/docs/vpc?topic=vpc-spot-instances-virtual-servers) are highly discounted versions of the standard instances. They are designed to use available compute resources for interruptible or stateless workloads. Spot instances can be preempted (or evicted) at any time.</spot>
+:   [Spot instances](/docs/vpc?topic=vpc-spot-instances-virtual-servers) are highly discounted versions of the standard instances. They are designed to use available compute resources for interruptible or stateless workloads. Spot instances can be preempted (or evicted) at any time.
 
 ### 16 January 2026
 {: #vpc-jan1626}
@@ -433,10 +433,10 @@ Cross-regional copies of second-generation block volume snapshots (select availa
 {: release-note}
 
 Increasing limit on NACLs rules
-:   The default service limit of `100` rules for Network ACLs is increasing to `200` rules. By creating rules in Network ACLs (Access Control Lists), network administrators can define granular access policies for inbound and outbound traffic, ensuring that only authorized communication is permitted while blocking unwanted or potentially harmful traffic. For more information, see [Quotas for Access Control Lists](/docs/vpc?topic=vpc-quotas#acl-quotas).<burstable>
+:   The default service limit of `100` rules for Network ACLs is increasing to `200` rules. By creating rules in Network ACLs (Access Control Lists), network administrators can define granular access policies for inbound and outbound traffic, ensuring that only authorized communication is permitted while blocking unwanted or potentially harmful traffic. For more information, see [Quotas for Access Control Lists](/docs/vpc?topic=vpc-quotas#acl-quotas).
 
 Burstable Flex virtual servers (beta)
-:   Burstable Flex virtual servers are designed to provide flexible CPU performance so workloads can operate at a smaller baseline level and opportunistically burst to higher performance when needed. Flex virtual servers are ideal for applications that require a baseline of CPU performance and experience intermittent spikes in CPU demand but don't require sustained high performance. For more information, see [Burstable virtual servers](/docs/vpc?topic=vpc-burstable-virtual-servers).</burstable>
+:   Burstable Flex virtual servers are designed to provide flexible CPU performance so workloads can operate at a smaller baseline level and opportunistically burst to higher performance when needed. Flex virtual servers are ideal for applications that require a baseline of CPU performance and experience intermittent spikes in CPU demand but don't require sustained high performance. For more information, see [Burstable virtual servers](/docs/vpc?topic=vpc-burstable-virtual-servers).
 
 ### 14 August 2025
 {: #vpc-aug1425}
