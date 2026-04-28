@@ -2,7 +2,7 @@
 
 copyright:
   years: 2019, 2026
-lastupdated: "2026-04-17"
+lastupdated: "2026-04-28"
 
 keywords: api, change log, new features, restrictions, migrations
 
@@ -53,6 +53,14 @@ At this time, all instances, and therefore all instance templates, continue to r
 
 The new response code will be rolled out gradually. Each phase of the rollout will be tied to a dated API version. These changes will be announced in future change log updates.
 {: note}
+
+## 28 April 2026
+{: #28-april-2026}
+
+### For all version dates
+{: #28-april-2026-all-version-dates}
+
+**Multiple passive pools for application load balancers.** You can now configure more than two pools in an active-passive setup for `application` family load balancers. When [creating](/apidocs/vpc/latest#create-load-balancer-pool) or [updating](/apidocs/vpc/latest#update-load-balancer-pool) a load balancer pool, you can specify a pool for the `failsafe_policy.target`. You can also define a `forward` action in `failsafe_policy.action` that references a pool already configured as a `failsafe_policy.target` in another pool. Chaining pools this way allows you to configure multiple passive pools for a single listener. For more information, see [Working with application load balancer pools](/docs/vpc?topic=vpc-alb-pools&interface=ui).
 
 ## 14 April 2026
 {: #14-april-2026}

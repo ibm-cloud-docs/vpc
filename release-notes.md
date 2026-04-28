@@ -2,7 +2,7 @@
 
 copyright:
   years: 2019, 2026
-lastupdated: "2026-04-27"
+lastupdated: "2026-04-28"
 
 keywords:
 
@@ -40,7 +40,6 @@ Image partial availability
 
 Instance profile information now includes zones
 :   Some instance profiles are only available in certain regions and zones. When creating a virtual server instance, the instance profile must be available in the zone where you are creating the virtual server instance or the creation fails. For more information, see [VPC API change log](/docs/vpc?topic=vpc-api-change-log#upcoming-changes) and [Profile Details](/docs/vpc?group=profile-details).
-
 
 ### 01 April 2026
 {: #vpc-apr0126}
