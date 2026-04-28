@@ -2,7 +2,7 @@
 
 copyright:
   years: 2022, 2026
-lastupdated: "2026-03-26"
+lastupdated: "2026-04-28"
 
 keywords: file storage, file share, view share details, mount targets, view targets, view share
 
@@ -326,7 +326,6 @@ Storage Generation                 2
 {: screen}
 
 For more information about the command options, see [`ibmcloud is share`](/docs/vpc?topic=vpc-vpc-reference#share-view).
-
 ### Viewing share bindings of a file share from the CLI
 {: #fs-view-share-bindings-cli}
 

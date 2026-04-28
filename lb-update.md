@@ -2,7 +2,7 @@
 
 copyright:
   years: 2020, 2026
-lastupdated: "2026-04-16"
+lastupdated: "2026-04-28"
 
 keywords: application load balancer, public, listener, back-end, front-end, pool, round-robin, weighted, connections, methods, policies, APIs, access, ports, vpc network, update
 
@@ -43,10 +43,16 @@ The following example shows how to use the CLI to update your ALB pool to use th
 
 Sample command:
 
+
+
 ```sh
 ibmcloud is load-balancer-pool-update r006-99b5ab45-6357-42db-8b32-5d2c8aa62776 r006-3b66d605-6aa5-4166-9f66-b16054da3cb0 --algorithm least_connections
 ```
 {: pre}
+
+
+
+
 
 Sample output:
 
@@ -72,10 +78,16 @@ Created                    2020-08-27T14:45:42.038-05:00
 
 Sample command:
 
+
+
 ```sh
 ibmcloud is load-balancer-pool-member-update r006-99b5ab45-6357-42db-8b32-5d2c8aa62776 r006-3b66d605-6aa5-4166-9f66-b16054da3cb0 r006-61f8b000-a90d-4abe-909e-c507dffec565 --port 6060
 ```
 {: pre}
+
+
+
+
 
 Sample output:
 
@@ -100,24 +112,42 @@ The following example shows how to use the CLI to update your ALB timeout value:
 
 1. Get the listener ID:
 
+
+
 ```sh
 ibmcloud is load-balancer LOAD_BALANCER_ID
 ```
 {: pre}
 
+
+
+
+
 1. Verify the current listener details:
+
+
 
 ```sh
 ibmcloud is load-balancer-listener [--load-balancer LOAD_BALANCER_ID] [--listener LISTENER_ID] [--output JSON]
 ```
 {: pre}
 
+
+
+
+
 1. Update the timeout value:
+
+
 
 ```sh
 ibmcloud is load-balancer-listener-update [--load-balancer LOAD_BALANCER_ID] [--listener LISTENER_ID] [--idle-connection-timeout VALUE_IN_SECONDS]
 ```
 {: pre}
+
+
+
+
 
 Where:
 
@@ -130,15 +160,22 @@ Where:
 `--output`
 :   Output format, only `JSON` is supported.
 
-`-idle-connection-timeout`
+`--idle-connection-timeout`
 :   Idle connection timeout value in seconds.
 
+
 Sample command:
+
+
 
 ```sh
 ibmcloud is load-balancer-listener-update r042-ce351658-c236-4c99-8711-1414c5a6a99c r042-a00f2544-a1d3-4f9b-af31-4c34990a01f0 --idle-connection-timeout 90
 ```
 {: pre}
+
+
+
+
 
 Sample output:
 

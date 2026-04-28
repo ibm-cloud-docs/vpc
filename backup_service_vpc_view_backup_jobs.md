@@ -2,7 +2,7 @@
 
 copyright:
   years: 2022, 2026
-lastupdated: "2026-03-26"
+lastupdated: "2026-04-28"
 
 keywords: Backup for VPC, backup service, backup plan, backup policy, restore, restore volume, restore data, view backup lists,
 
@@ -245,6 +245,7 @@ $ ibmcloud is backup-policy-job my-backup-policy-v2 r006-60497743-43b4-4e7d-a221
 {: screen}
 
 For more information about available command options, see [`ibmcloud is backup-policy-jobs`](/docs/vpc?topic=vpc-vpc-reference#backup-policy-jobs-list).
+
 
 ## View backup jobs with the API
 {: #backup-view-jobs-api}

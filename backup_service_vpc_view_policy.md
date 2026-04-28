@@ -1,8 +1,8 @@
 ---
 
 copyright:
-  years: 2022, 2025
-lastupdated: "2025-11-11"
+  years: 2022, 2026
+lastupdated: "2026-04-28"
 
 keywords: Backup, backup service, backup plan, backup policy, restore, restore volume, restore data
 
@@ -186,6 +186,7 @@ r138-5c719085-cf26-456e-9216-984866659e29   my-backup-policy-v2   stable   defau
 
 For more information about available command options, see [`ibmcloud is backup-policies`](/docs/vpc?topic=vpc-vpc-reference#backup-policies-list). For more information about the values in the `Status` column, see [Backup policy statuses](/docs/vpc?topic=vpc-backup-vpc-monitoring)
 
+
 ### Listing all backup policies filtered by user tags from the CLI
 {: #backup-view-all-filter-by-tags-cli}
 
@@ -353,6 +354,7 @@ Created at             2023-08-30T13:39:10+05:30
 {: screen}
 
 For more information about available command options, see [`ibmcloud is backup-policy`](/docs/vpc?topic=vpc-vpc-reference#backup-policy-view).
+
 
 ### Listing all plans for a backup policy from the CLI
 {: #backup-view-plans-cli}

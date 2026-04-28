@@ -2,7 +2,7 @@
 
 copyright:
   years: 2021, 2026
-lastupdated: "2026-03-26"
+lastupdated: "2026-04-28"
 
 keywords: view snapshots, view snapshot, viewing snapshots, see snapshots, Block Storage snapshots
 
@@ -397,6 +397,7 @@ eu-de-3   true        2023-02-17T20:29:21+00:00
 
 For more information about available command options, see [`ibmcloud is snapshot-clones`](/docs/vpc?topic=vpc-vpc-reference#snapshot-clones-list).
 
+
 ### Viewing details of a fast restore snapshot clone from the CLI
 {: #snapshots-clone-details-cli}
 
@@ -476,6 +477,7 @@ ibmcloud is snapshot-consistency-groups
 {: pre}
 
 For more information about available command options, see [`ibmcloud is snapshot-consistency-groups`](/docs/vpc?topic=vpc-vpc-reference#snapshots-cli).
+
 
 ### Viewing details of a snapshot consistency group from the CLI
 {: #snapshots-vpc-view-a-consistency-group-cli}

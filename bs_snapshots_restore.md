@@ -2,7 +2,7 @@
 
 copyright:
   years: 2021, 2026
-lastupdated: "2026-04-06"
+lastupdated: "2026-04-28"
 
 keywords:
 
@@ -301,6 +301,7 @@ ibmcloud is instance-create my-instance-restore1 ea002578-ff10-41fe-9652-e63f7e0
 
 For more information about available command options, see [`ibmcloud is instance-create`](/docs/vpc?topic=vpc-vpc-reference#instance-create).
 
+
 ### Creating a data volume from a snapshot for an existing instance from the CLI
 {: #snapshots-vpc-restore-data-inst-cli}
 
@@ -357,6 +358,7 @@ Tags                                   -
 {: screen}
 
 For more information about available command options, see [`ibmcloud is volume-create`](/docs/vpc?topic=vpc-vpc-reference#volume-create).
+
 
 ## Restoring a volume from a snapshot with the API
 {: #snapshots-vpc-restore-API}

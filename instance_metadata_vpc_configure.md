@@ -1,8 +1,8 @@
 ---
 
 copyright:
-  years: 2022, 2025
-lastupdated: "2025-11-04"
+  years: 2022, 2026
+lastupdated: "2026-04-28"
 
 keywords:
 
@@ -93,6 +93,7 @@ Before you begin:
 
 Run the `ibmcloud is instance-create` command and set the `metadata-service` property to `true`. Access to the metadata service is disabled by default. In the response, you see `Metadata service enabled` set to `true`.
 
+
 ```json
 ibmcloud is instance-create test-instance-1 7002c1cd-9b0b-43ee-8112-5124dedbe84b us-south-1  bx2-2x8  0711-08206578-d749-49ea-86c9-1014622d1c6f --image-id 9f0050d0-636b-4fe6-82ea-931664fd9d91 --metadata-service true
 
@@ -125,15 +126,26 @@ Boot volume                ID   Name           Attachment ID                    
 ```
 {: codeblock}
 
+
+
+
+See the CLI help for the complete list of options available for instance-create.
+
 #### Enabling or disabling access to the metadata service for an existing instance from the CLI
 {: #imd-enable-on-existing-instance-cli}
 
 Run the `ibmcloud is instance-update` command and specify the instance ID. To enable access to the metadata service, set the `metadata-service` parameter to `true`; to disable, set it to `false`. An example command for enabling access to the service looks like this:
 
+
+
 ```sh
 ibmcloud is instance-update e219a883-41f2-4680-810e-ee63ade35f98 --metadata-service true
 ```
 {: codeblock}
+
+
+
+
 
 #### Enabling or disabling access to the metadata service when you create new instance templates from the CLI
 {: #imd-enable-instance-template-cli}
@@ -144,17 +156,29 @@ Use the `ibmcloud is instance-create-from-template` command and specify `--metad
 
 For example, to create an instance template with access to the metadata service enabled, run this command:
 
+
+
 ```sh
 ibmcloud is instance-template-create my-template-name {template_id} us-south-1 mx2-2x16 {subnet_id} --image-id {image_id} --metadata-service true
 ```
 {: pre}
 
+
+
+
+
 When you create an instance from this template, specify the `--metadata-service true` option again to enable access to the service on the new instance:
+
+
 
 ```sh
 ibmcloud is instance-create-from-template --template-id {template_id} --name my-instance --metadata-service true
 ```
 {: pre}
+
+
+
+
 
 If you override the instance template by running the `ibmcloud is instance-template-create-override-source-template` command, you can enable or disable access to the metadata service by specifying the `--metadata-service` option with `true` or `false`.
 
@@ -334,10 +358,16 @@ You can enable and disable features of the metadata service using the CLI.
 
 The following example shows an instance with access to the metadata service enabled.
 
+
+
 ```sh
 ibmcloud is instance instance-name
 ```
 {: pre}
+
+
+
+
 
 ```sh
 ID                                    0716_9cc6d74d-4b77-4cca-b1f4-31cc6edefe01
@@ -381,9 +411,15 @@ You can disable auto link for the metadata service when provisioning an instance
 
 To disable auto link, set the `--default-trusted-profile-auto-link` option to `true` when provisioning an instance. The following example shows instance the provision command with auto link set to `false`.
 
+
+
 ```sh
 ibmcloud is instance-create .... --default-trusted-profile "Profile-9fd84246-7df4-4667-94e4-8ecde51d5ac5" --default-trusted-profile-auto-link false
 ```
+
+
+
+
 
 ### Enable secure access by using the CLI
 {: #secure-access-cli}
@@ -402,12 +438,18 @@ Certain properties might be required in the following scenarios:
 
 To enable secure access when you provision an instance, specify a value for the `--metadata-service-protocol` option when you use the `instance-create` command. For secure access specify `https`. The default setting is unencrypted `http`.
 
+
+
 ```sh
 ibmcloud is instance-create INSTANCE_NAME VPC ZONE_NAME PROFILE_NAME SUBNET ... [--metadata-service-protocol http | https] ...
 
 --metadata-service-protocol value : The communication protocol to use for the metadata service
   endpoint. Applies only when the metadata service is enabled. One of: http, https. (default: "http")
 ```
+
+
+
+
 
 To enable secure access on an existing instance, specify a value for the `protocol` sub-property of the `metadata service` when you use the `instance-update` command.
 
@@ -423,12 +465,18 @@ You can set a hop limit for IP response packets from the metadata service by spe
 
 To set the metadata hop limit when you provision an instance, specify a hop limit value between `1` (default) and `64` for the `--metadata-service-response-hop-limit` option when you use the `instance-create` command.
 
+
+
 ```sh
 ibmcloud is instance-create INSTANCE_NAME VPC ZONE_NAME PROFILE_NAME SUBNET ... [--metadata-service-response-hop-limit METADATA-SERVICE-RESPONSE-HOP-LIMIT] ...
 
 --metadata-service-response-hop-limit value : The hop limit (IP time to live) for IP response packets
   from the metadata service. (default: 1)
 ```
+
+
+
+
 
 ## Configure metadata settings by using the API
 {: #metadata-config-api}

@@ -2,7 +2,7 @@
 
 copyright:
   years: 2025, 2026
-lastupdated: "2026-03-24"
+lastupdated: "2026-04-28"
 
 keywords:
 
@@ -230,7 +230,9 @@ Before you begin:
 #### Enable or disable the metadata service when you create a bare metal server by using the CLI
 {: #metadata-enable-on-bare-metal-server-cli-bare-metal}
 
-Run the `ibmcloud bare-metal-server-create` command and set the `metadata-service` property to `true`. The metadata service is disabled by default. In the response, you see `Metadata service enabled` set to `true`.
+Run the `ibmcloud is bare-metal-server-create` command and set the `--metadata-service` option to `true`. The metadata service is disabled by default. In the response, you see `Metadata service enabled` set to `true`.
+
+
 
 ```json
 ibmcloud is bare-metal-server-create test-bare-metal-server-1 7002c1cd-9b0b-43ee-8112-5124dedbe84b us-south-1  bx2-2x8  0711-08206578-d749-49ea-86c9-1014622d1c6f --image-id 9f0050d0-636b-4fe6-82ea-931664fd9d91 --metadata-service true
@@ -264,10 +266,14 @@ Boot volume                ID   Name           Attachment ID                    
 ```
 {: codeblock}
 
+
+
 #### Enable or disable the metadata service for an existing bare metal server from the CLI
 {: #metadata-enable-on-existing-bare-metal-server-cli-bare-metal}
 
-Run the `ibmcloud is bare-metal-server-update` command and specify the bare metal server ID. To enable the metadata service, set the `metadata-service` parameter to `true`; to disable, set it to `false`. An example command for enabling the service looks like this:
+Run the `ibmcloud is bare-metal-server-update` command and specify the bare metal server ID. To enable the metadata service, set the `--metadata-service` option to `true`; to disable, set it to `false`. An example command for enabling the service looks like this:
+
+
 
 ```sh
 ibmcloud is bare-metal-server-update e219a883-41f2-4680-810e-ee63ade35f98 --metadata-service true
@@ -570,6 +576,8 @@ You can disable auto link for the bare metal server metadata service when you pr
 
 To disable auto link, set the `--default-trusted-profile-auto-link` option to `true` when you provision a bare metal server. The following example shows a bare metal server provision command with auto link set to `false`.
 
+
+
 ```sh
 ibmcloud is bare-metal-server-create .... --default-trusted-profile "Profile-9fd84246-7df4-4667-94e4-8ecde51d5ac5" --default-trusted-profile-auto-link false
 ```
@@ -591,6 +599,8 @@ Certain properties might be required in the following scenarios:
 {: cli}
 
 To enable secure access when you provision a bare metal server, specify a value for the `--metadata-service-protocol` option when you use the `bare-metal-server-create` command. For secure access, specify `https`. The default setting is unencrypted `http`.
+
+
 
 ```sh
 ibmcloud is bare-metal-server-create BARE_METAL_SERVER_NAME VPC ZONE_NAME PROFILE_NAME SUBNET ... [--metadata-service-protocol http | https] ...

@@ -2,7 +2,7 @@
 
 copyright:
   years: 2022, 2026
-lastupdated: "2026-04-17"
+lastupdated: "2026-04-28"
 
 keywords: file share, customer-managed encryption, encryption, byok, KMS, Key Protect, Hyper Protect Crypto Services,
 
@@ -310,7 +310,9 @@ Before you can use the CLI, you must install the IBM Cloud CLI and the VPC CLI p
       ```
       {: screen}
 
+
 For more information about the command options, see [`ibmcloud is share-create`](/docs/vpc?topic=vpc-vpc-reference#share-create).
+
 
 ## Creating file shares with customer-managed encryption with the API
 {: #fs-byok-api}

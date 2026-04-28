@@ -2,7 +2,7 @@
 
 copyright:
   years: 2022, 2026
-lastupdated: "2026-03-26"
+lastupdated: "2026-04-28"
 
 keywords: file share, file storage, IOPS, performance needs, adjust IOPS
 
@@ -210,6 +210,7 @@ Before you can use the CLI, you must install the IBM Cloud CLI and the VPC CLI p
    ```
    {: screen}
 
+
 For more information about the command options, see [`ibmcloud is share-update my-file-share`](/docs/vpc?topic=vpc-vpc-reference#share-update).
 
 ### Adjusting IOPS by specifying a different IOPS tier profile
@@ -257,6 +258,7 @@ Source snapshot              -
 {: screen}
 
 For more information about the command options, see [`ibmcloud is share-update my-file-share`](/docs/vpc?topic=vpc-vpc-reference#share-update).
+
 
 ## Adjusting IOPS with the API
 {: #adjust-vpc-iops-api-file}

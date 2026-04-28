@@ -1,8 +1,8 @@
 ---
 
 copyright:
-  years: 2023, 2025
-lastupdated: "2025-12-11"
+  years: 2023, 2026
+lastupdated: "2026-04-28"
 
 subcollection: vpc
 
@@ -102,14 +102,14 @@ You can manage a reservation by using the CLI.
 You can activate a reservation by using the command-line interface (CLI). To activate a specific reservation by using the CLI, use the `ibmcloud is reservation-activate` command. You must specify the name or ID of the specific reservation by using the `RESERVATION_NAME` for the specific reservation you want to get.
 
 ```sh
-ibmcloud is reservation-activate
+ibmcloud is reservation-activate RESERVATION
 ```
 
 See the following example.
 
 ```sh
 ibmcloud is reservation-activate b4735ce6-f83d-45d1-b41b-4d47451c8396
-Activating reservation b4735ce6-f83d-45d1-b41b-4d47451c8396 under account VPCUI-DEMO as user Sreekar.B.V@ibm.com...
+Activating reservation b4735ce6-f83d-45d1-b41b-4d47451c8396 under account ACCOUNT as user user@ibm.com...
 Successfully activated reservation.
 ```
 {: screen}
@@ -124,18 +124,18 @@ Where the following argument and option values are used
 {: #create-reservation-cli-vpc}
 {: cli}
 
-You can get instance with reservation in your region by using the command-line interface (CLI). To get a specific instance reservation by using the CLI, use the `ibmcloud is instance` command. You must specify the name or ID of the specific reservation by using the `RESERVATION_NAME` for the specific reservation you want to get. Use the `NEW_NAME` variable in the `--name` option to rename the reservation.
+You can get instance with reservation in your region by using the command-line interface (CLI). To get a specific instance reservation by using the CLI, use the `ibmcloud is instance` command. You must specify the name or ID of the specific instance by using the `INSTANCE_NAME` for the specific instance you want to get.
 
 ```sh
-ibmcloud is instance RESERVATION_NAME
+ibmcloud is instance INSTANCE_NAME
 ```
 {: pre}
 
 See the following example.
 
 ```sh
-ibmcloud is reservation aaaaaaaa-aaaa-default-reservation2-aaaaaaaaaaaa
-Getting reservation aaaaaaaa-aaaa-default-reservation2-aaaaaaaaaaaa under account VPCUI-DEMO as user Sreekar.B.V@ibm.com...
+ibmcloud is instance instance-cli-test-patch-reservation-1
+Getting instance instance-cli-test-patch-reservation-1 under account VPCUI-DEV as user user@ibm.com...
 
 ID                aaaaaaaa-aaaa-default-reservation2-aaaaaaaaaaaa
 Name              aaa-default-reservation-2
@@ -171,7 +171,7 @@ See the following example.
 ```sh
 ibmcloud is reservation-delete e9e537f0-59f5-4759-b06e-86bb5cd4068e
 This will delete reservation e9e537f0-59f5-4759-b06e-86bb5cd4068e and cannot be undone. Continue [y/N] ?> y
-Deleting reservation e9e537f0-59f5-4759-b06e-86bb5cd4068e under account VPCUI-DEMO as user Sreekar.B.V@ibm.com...
+Deleting reservation e9e537f0-59f5-4759-b06e-86bb5cd4068e under account ACCOUNT as user user@ibm.com...
 OK
 Reservation e9e537f0-59f5-4759-b06e-86bb5cd4068e is deleted.
 ```
@@ -189,22 +189,21 @@ Where the following argument and option values are used
 {: #list-all-reservation-cli-vpc}
 {: cli}
 
-You can list all {{site.data.keyword.vpc_short}} reservations in your region by using the command-line interface (CLI). To list all reservations by using the CLI, use the `ibmcloud is reservation` command.
+You can list all {{site.data.keyword.vpc_short}} reservations in your region by using the command-line interface (CLI). To list all reservations by using the CLI, use the `ibmcloud is reservations` command.
 
 ```sh
-ibmcloud is reservation
+ibmcloud is reservations
 ```
 {: pre}
 
 See the following example.
 
 ```sh
-ibmcloud is instances
-Listing instances in all resource groups and region us-south under account VPCUI-DEV as user Sreekar.B.V@ibm.com...
-ID                                          Name               Status    Reserved IP     Floating IP   Profile   Image                             VPC    Zone         Resource group   Reservation Name
-0735_73b1e3e5-10a2-44b0-a113-c8d6cd8c42e7   cli-in-test-1      pending   0.0.0.0         -             cx2-2x4   ibm-centos-7-9-minimal-amd64-11   test   us-south-3   Default          reservation-cli-test-1
-0735_4e245881-c9c8-49f3-a21b-d890a13835bb   i4                 running   10.240.128.30   -             cx2-2x4   ibm-centos-7-9-minimal-amd64-11   test   us-south-3   Default          reservation-cli-test-3
-0735_83748ac9-dffc-4ec0-9914-27c9b7e4a5f3   test-unattached2   running   10.240.128.20   -             cx2-2x4   ibm-centos-7-9-minimal-amd64-11   test   us-south-3   Default          -
+ibmcloud is reservations
+Listing reservations in all resource groups and region us-south under account VPCUI-DEV as user user@ibm.com...
+ID                                          Name                     Status    Zone         Profile    Resource group
+0735_73b1e3e5-10a2-44b0-a113-c8d6cd8c42e7   reservation-cli-test-1   active    us-south-3   cx2-2x4    Default
+0735_4e245881-c9c8-49f3-a21b-d890a13835bb   reservation-cli-test-3   active    us-south-3   cx2-2x4    Default
 ```
 {: screen}
 
@@ -223,7 +222,7 @@ See the following example.
 
 ```sh
 ibmcloud is reservation aaaaaaaa-aaaa-default-reservation2-aaaaaaaaaaaa
-Getting reservation aaaaaaaa-aaaa-default-reservation2-aaaaaaaaaaaa under account VPCUI-DEMO as user Sreekar.B.V@ibm.com...
+Getting reservation aaaaaaaa-aaaa-default-reservation2-aaaaaaaaaaaa under account ACCOUNT as user user@ibm.com...
 
 ID                aaaaaaaa-aaaa-default-reservation2-aaaaaaaaaaaa
 Name              aaa-default-reservation-2
@@ -234,7 +233,7 @@ Lifecycle state   stable
 Affinity Policy   open
 Resource group    -
 Profile Name      mx2-2x16
-Created At        2023-06-05T10:41:51.401+05:30
+Created At        2023-06-05:10:41:51.401+05:30
 Expiration        At                         Policy   Term
                   2026-08-28T05:11:51.401Z   renew    three_year
 
@@ -258,7 +257,7 @@ See the following example.
 
 ```sh
 ibmcloud is reservation-update aaaaaaaa-aaaa-default-reservation2-aaaaaaaaaaaa --name aaa-default-reservation-2-renamed
-Updating reservation aaaaaaaa-aaaa-default-reservation2-aaaaaaaaaaaa under account VPCUI-DEMO as user Sreekar.B.V@ibm.com...
+Updating reservation aaaaaaaa-aaaa-default-reservation2-aaaaaaaaaaaa under account ACCOUNT as user user@ibm.com...
 
 ID                aaaaaaaa-aaaa-default-reservation2-aaaaaaaaaaaa
 Name              aaa-default-reservation-2-renamed
@@ -303,7 +302,7 @@ See the following example.
 
 ```sh
 ibmcloud is instance-profiles
-Listing instance profiles in region us-south under account VPCUI-DEV as user Sreekar.B.V@ibm.com...
+Listing instance profiles in region us-south under account VPCUI-DEV as user user@ibm.com...
 Name               vCPU Manufacturer   Architecture   Family             vCPUs   Memory(GiB)   Bandwidth(Mbps)   Volume bandwidth(Mbps)   GPUs   Storage(GB)   Min NIC Count   Max NIC Count   Status     Reservation Terms
 bx2-2x8            intel               amd64          balanced           2       8             4000              1000                     -      -             1               5               current    -
 bx2-2x8-sriov      intel               amd64          balanced           2       8             4000              1000                     -      -             1               5               current    -
@@ -328,7 +327,7 @@ See the following example.
 
 ```sh
 ibmcloud is instance instance-cli-test-patch-reservation-1
-Getting instance instance-cli-test-patch-reservation-1 under account VPCUI-DEV as user Sreekar.B.V@ibm.com...
+Getting instance instance-cli-test-patch-reservation-1 under account VPCUI-DEV as user user@ibm.com...
 
 ID                                    0735_78c1b310-6dc3-45d4-9c01-0335dc526135
 Name                                  instance-cli-test-patch-reservation-1
@@ -386,22 +385,17 @@ Health State                          ok
 You can get instance profiles with reservation terms in your region by using the command-line interface (CLI). To get instance profiles with reservation terms by using the CLI, use the `ibmcloud is instance-profile` command.
 
 ```sh
-ibmcloud is instance-profile
+ibmcloud is instance-profile PROFILE_NAME
 ```
 {: pre}
 
 See the following example.
 
 ```sh
-ibmcloud is instance-profiles
-Listing instance profiles in region us-south under account VPCUI-DEV as user Sreekar.B.V@ibm.com...
+ibmcloud is instance-profile bx2-2x8
+Getting instance profile bx2-2x8 under account VPCUI-DEV as user user@ibm.com...
 Name               vCPU Manufacturer   Architecture   Family             vCPUs   Memory(GiB)   Bandwidth(Mbps)   Volume bandwidth(Mbps)   GPUs   Storage(GB)   Min NIC Count   Max NIC Count   Status     Reservation Terms
 bx2-2x8            intel               amd64          balanced           2       8             4000              1000                     -      -             1               5               current    -
-bx2-2x8-sriov      intel               amd64          balanced           2       8             4000              1000                     -      -             1               5               current    -
-bx2a-2x8           amd                 amd64          balanced           2       8             2000              500                      -      -             1               5               current    -
-bx2d-2x8           intel               amd64          balanced           2       8             4000              1000                     -      1x75          1               5               previous   one_year,three_year
-bx3-2x10           intel               amd64          balanced           2       10            4000              1000                     -      -             1               5               current    -
-bx3d-2x10          intel               amd64          balanced           2       10            4000              1000                     -      1x65          1               5               current    one_year,three_year
 ```
 {: screen}
 
