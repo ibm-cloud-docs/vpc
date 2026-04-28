@@ -2,7 +2,7 @@
 
 copyright:
   years: 2022, 2026
-lastupdated: "2026-03-26"
+lastupdated: "2026-04-28"
 
 keywords: file share, file storage, source volume, replica share,
 
@@ -323,6 +323,7 @@ When you create a replica of a file share in another region, you must use the CR
    Storage Generation               1
    ```
    {: screen}
+
 
 For more information about the command options, see [`ibmcloud is share-replica-create`](/docs/vpc?topic=vpc-vpc-reference#share-replica-create).
 

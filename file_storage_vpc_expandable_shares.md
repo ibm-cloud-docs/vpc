@@ -207,7 +207,9 @@ To increase the capacity of a file share from the CLI, use the `share-update` co
    ```
    {: screen}
 
+
 For more information about the command options, see [`ibmcloud is share-update my-file-share`](/docs/vpc?topic=vpc-vpc-reference#share-update).
+
 
 ## Expanding file share capacity with the API
 {: #expand-vpc-share-api}

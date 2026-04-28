@@ -1,7 +1,7 @@
 ---
 copyright:
-  years: 2021, 2025
-lastupdated: "2025-10-31"
+  years: 2021, 2026
+lastupdated: "2026-04-28"
 
 keywords: virtual private cloud, private cloud network, placement group, placement group strategy, host spread, power spread, generation 2, gen 2
 
@@ -100,12 +100,12 @@ Gather the following required information:
 
 You can create a placement group in your {{site.data.keyword.vpc_short}} by using the command-line interface (CLI).
 
-To create a placement group by using the CLI, use the **ibmcloud is placement-group-create** command. Specify the placement group strategy for the placement group, the name of the placement group, the resource group ID, and the name of the resource group.
+To create a placement group by using the CLI, use the **ibmcloud is placement-group-create** command. Specify the placement group strategy for the placement group, the name of the placement group, and the resource group ID or name.
 
-The following example creates a placement group with a host spread strategy, named `MyPlacementGroup`, with resource group ID `RESOURCE_GROUP_ID`, and a resource group name of `RESOURCE_GROUP_NAME`.
+The following example creates a placement group with a host spread strategy, named `MyPlacementGroup`, with resource group ID `RESOURCE_GROUP_ID`.
 
 ```sh
-ibmcloud is placement-group-create --strategy host_spread --name MyPlacementGroup --resource-group-id RESOURCE_GROUP_ID --resource-group-name RESOURCE_GROUP_NAME
+ibmcloud is placement-group-create --strategy host_spread --name MyPlacementGroup --resource-group-id RESOURCE_GROUP_ID
 ```
 {: codeblock}
 
@@ -174,9 +174,9 @@ To rename a placement group:
 
 You can update the name of a placement group in your {{site.data.keyword.vpc_short}} by using the command-line interface (CLI).
 
-To update the placement group name by using the CLI, use the **ibmcloud is placement-group-update** command. Specify the placement group ID and the new name of the placement group.
+To update the placement group name by using the CLI, use the **ibmcloud is placement-group-update** command. Specify the placement group ID or name and the new name of the placement group.
 
-The following example updates the placement group with the ID `72251a2e-d6c5-42b4-97b0-b5f8e8d1f479` to the name of `NEW_NAME`.
+The following example updates the placement group with the ID `72251a2e-d6c5-42b4-97b0-b5f8e8d1f479` to the name of `new-name`.
 
 ```sh
 ibmcloud is placement-group-update 72251a2e-d6c5-42b4-97b0-b5f8e8d1f479 --name NEW_NAME
@@ -230,9 +230,9 @@ Use the following steps to delete a placement group:
 
 You can delete a placement group in your {{site.data.keyword.vpc_short}} by using the command-line interface (CLI). A placement group can't be deleted if instances are attached to it. All instances must be removed first. For more information about deleting a virtual private cloud instance and its associated resources, see [Deleting a VPC](/docs/vpc?topic=vpc-deleting).
 
-To delete placement group by using the CLI, use the **ibmcloud is placement-group-delete** command. Specify the placement group ID.
+To delete placement group by using the CLI, use the **ibmcloud is placement-group-delete** command. Specify the placement group ID or name.
 
-The following example deletes a placement group named `PLACEMENT_GROUP`.
+The following example deletes a placement group with the ID or name `PLACEMENT_GROUP`.
 
 ```sh
 ibmcloud is placement-group-delete PLACEMENT_GROUP --output JSON
@@ -281,12 +281,12 @@ To display a list of all existing placement groups:
 
 You can generate a list of placement groups for a region. You can list all the existing placement groups in your {{site.data.keyword.vpc_short}} by using the command-line interface (CLI).
 
-To list all the existing placement groups by using the CLI, use the **ibmcloud is placement-groups** command. Specify the name and ID of the resource group that you are listing placement groups.
+To list all the existing placement groups by using the CLI, use the **ibmcloud is placement-groups** command.
 
-The following example lists all the existing placement groups for the resource group ID `RESOURCE_GROUP_ID` and name `RESOURCE_GROUP`.
+The following example lists all the existing placement groups.
 
 ```sh
-ibmcloud is placement-groups --resource-group-id RESOURCE_GROUP_ID --resource-group-name RESOURCE_GROUP_NAME --all-resource-groups --output JSON
+ibmcloud is placement-groups --output JSON
 ```
 {: pre}
 
@@ -334,9 +334,9 @@ You can view details about a placement group, such as the placement group name, 
 
 You can retrieve the details of a placement group in your {{site.data.keyword.vpc_short}} by using the command-line interface (CLI).
 
-To retrieve the details of a placement group by using the CLI, use the **ibmcloud is placement-group** command. Specify the placement group ID.
+To retrieve the details of a placement group by using the CLI, use the **ibmcloud is placement-group** command. Specify the placement group ID or name.
 
-The following example retrieves the details for a placement group named `PLACEMENT_GROUP`.
+The following example retrieves the details for a placement group with the ID or name `PLACEMENT_GROUP`.
 
 ```sh
 ibmcloud is placement-group PLACEMENT_GROUP --output JSON

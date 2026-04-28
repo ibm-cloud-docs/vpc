@@ -2,7 +2,7 @@
 
 copyright:
   years: 2021, 2026
-lastupdated: "2026-03-05"
+lastupdated: "2026-04-28"
 
 subcollection: vpc
 
@@ -176,7 +176,7 @@ Custom routes communication without NAT rules between VMWare VMS within an NSX-T
 1. Use the following command to create the custom route.
 
    ```sh
-   ibmcloud is vpc-route-create my-custom-route <VPC_ID> --zone us-south-3 --destination <DEST_CIDR> --next-hop-ip <NH_IP>
+   ibmcloud is vpc-routing-table-route-create <VPC_ID> <ROUTING_TABLE_ID> --zone us-south-3 --destination <DEST_CIDR> --next-hop <NH_IP>
    ```
    {: pre}
 

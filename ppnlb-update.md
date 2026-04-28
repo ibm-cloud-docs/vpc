@@ -1,8 +1,8 @@
 ---
 
 copyright:
-  years: 2020, 2025
-lastupdated: "2025-09-24"
+  years: 2020, 2026
+lastupdated: "2026-04-28"
 
 keywords: network load balancer, public, listener, back-end, front-end, pool, round-robin, weighted, connections, methods, policies, APIs, access, ports, vpc network, update
 
@@ -55,10 +55,16 @@ The Active button on the upper left of your screen now shows as Updating. When U
 
 The following example shows how to use the CLI to update your Private Path NLB pool to use the algorithm `least_connections` and the port of the member:
 
+
+
 ```sh
 ibmcloud is load-balancer-pool-update r006-99b5ab45-6357-42db-8b32-5d2c8aa62776 r006-3b66d605-6aa5-4166-9f66-b16054da3cb0 --algorithm least_connections
 ```
 {: pre}
+
+
+
+
 
 Sample output:
 
@@ -82,10 +88,16 @@ Sample output:
 ```
 {: screen}
 
+
+
 ```sh
 ibmcloud is load-balancer-pool-member-update r006-99b5ab45-6357-42db-8b32-5d2c8aa62776 r006-3b66d605-6aa5-4166-9f66-b16054da3cb0 r006-61f8b000-a90d-4abe-909e-c507dffec565 --port 6060
 ```
 {: pre}
+
+
+
+
 
 Sample output:
 

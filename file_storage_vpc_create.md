@@ -2,7 +2,7 @@
 
 copyright:
   years: 2021, 2026
-lastupdated: "2026-03-23"
+lastupdated: "2026-04-28"
 
 keywords: file share, file storage, virtual network interface, encryption in transit, profiles,
 
@@ -309,6 +309,7 @@ When you create a mount target, you must specify the file share that it is for. 
 Lastly, you must specify values for the options that are needed to create a [virtual network interface](/docs/vpc?topic=vpc-vni-about) for the mount target. Use the appropriate CLI commands to list the available [subnets](/docs/vpc?topic=vpc-vpc-reference#subnets-list), [reserved IP addresses in a subnet](/docs/vpc?topic=vpc-vpc-reference#subnet-reserved-ips-list), [security groups](/docs/vpc?topic=vpc-vpc-reference#security-groups-list) to get the information that you need.
 
 The following examples illustrate how to create mount targets with different access modes. For more information about the command options and syntax, see [VPC CLI Reference: `ibmcloud is share-mount-target-create`](/docs/vpc?topic=vpc-vpc-reference#share-mount-target-create).
+
 
 A virtual network interface with secondary IP addresses attached cannot be accepted as a file share mount target.
 {: note}

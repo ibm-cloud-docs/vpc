@@ -2,7 +2,7 @@
 
 copyright:
   years: 2021, 2026
-lastupdated: "2026-04-17"
+lastupdated: "2026-04-28"
 
 keywords: file share, file storage, rename share, increase size, adjust IOPS, mount target
 
@@ -184,6 +184,7 @@ Valid file share names can include a combination of lowercase alpha-numeric char
 {: important}
 
 For more information about the command options, see [`ibmcloud is share-update`](/docs/vpc?topic=vpc-vpc-reference#share-update).
+
 
 ### Renaming a mount target of a file share from the CLI
 {: #rename-mount-target-cli}

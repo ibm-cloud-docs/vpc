@@ -2,7 +2,7 @@
 
 copyright:
   years: 2021, 2026
-lastupdated: "2026-04-09"
+lastupdated: "2026-04-28"
 
 keywords: image, virtual private cloud, boot volume, virtual server instance, instance, gpu, graphics processing unit, set up gpu
 
@@ -48,9 +48,9 @@ The GPU-enabled family of profiles provides on demand, cost-effective access to 
    | V100    | 535  | [12.2](https://developer.nvidia.com/cuda-12-2-0-download-archive?target_os=Windows){: external} |
    | H100    | N/A  | N/A  |
    | H200    | N/A  | N/A  |
-   {: caption="NVIDIA drivers and CUDA version for Windows 2019, 2022" caption-side="bottom"}
+   {: caption="NVIDIA drivers and CUDA version for Windows 2019, 2022, 2025" caption-side="bottom"}
    {: #windows-2019-2022-gpu-nvidia-drivers}
-   {: tab-title="Windows 2019, 2022"}
+   {: tab-title="Windows 2019, 2022, 2025"}
    {: tab-group="NVIDIA GPU drivers"}
    {: class="simple-tab-table"}
    {: summary="GPUs and minimum NVIDIA drivers and CUDA versions"}

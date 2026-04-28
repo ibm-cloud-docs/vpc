@@ -2,7 +2,7 @@
 
 copyright:
   years: 2022, 2026
-lastupdated: "2026-03-05"
+lastupdated: "2026-04-28"
 
 keywords:
 
@@ -52,6 +52,9 @@ Table 1 describes the steps that are involved in accessing metadata. The informa
 1. Log in to IBM Cloud CLI.
 
 1. Locate the running instance by using the `ibmcloud is instances` command, which lists the available instances in the region.
+
+    
+
     ```sh
     $ ibmcloud is instances
     Listing instances in all resource groups and region us-south under account Test Account as user test.user@ibm.com...
@@ -62,10 +65,16 @@ Table 1 describes the steps that are involved in accessing metadata. The informa
     ```
     {: screen}
 
+    
+
+    
+
     The metadata service is supported on all stock and custom images, and CPU profiles.
     {: note}
 
 1. Run `ibmcloud is instance` command to confirm if access to the metadata service is enabled. The following example shows the value `false`.
+
+    
 
     ```sh
     $ ibmcloud is instance 0727_ed12480a-40a4-41a0-98e3-6dfac8b25ad6
@@ -119,7 +128,13 @@ Table 1 describes the steps that are involved in accessing metadata. The informa
     ```
     {: screen}
 
+    
+
+    
+
 1. Enable access to the metadata service by running the `ibmcloud is instance-update` command with the option `--metadata-service true`.
+
+    
 
     ```sh
     $ ibmcloud is instance-update  0727_ed12480a-40a4-41a0-98e3-6dfac8b25ad6 --metadata-service true
@@ -172,6 +187,10 @@ Table 1 describes the steps that are involved in accessing metadata. The informa
     Health State                          ok
     ```
     {: screen}
+
+    
+
+    
 
 1. If the instance has a floating IP address already, use that address to establish a secure connection to the server. If it does not have a floating IP address, assign one to it. For more information, see the [Next steps](/docs/vpc?topic=vpc-creating-virtual-servers&interface=cli#next-step-after-creating-virtual-servers-cli) in the Creating virtual server instances topic.
 

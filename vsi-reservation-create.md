@@ -2,7 +2,7 @@
 
 copyright:
   years: 2023, 2026
-lastupdated: "2026-02-20"
+lastupdated: "2026-04-28"
 
 subcollection: vpc
 
@@ -138,7 +138,7 @@ See the following example.
 
 ```sh
 ibmcloud is reservation-create --capacity 10 --term one_year --profile ba2-2x8 --profile-resource-type instance_profile --zone us-east-1 --name reservation-mock-test-1
-Creating reservation with name reservation-mock-test-1 under account VPCUI-DEMO as user Sreekar.B.V@ibm.com...
+Creating reservation with name reservation-mock-test-1 under account ACCOUNT as user user@ibm.com...
 
 ID                22d3ec3b-d798-454a-ad88-fe608ae86ad6
 Name              reservation-mock-test-1
@@ -187,7 +187,7 @@ You can attach an existing virtual server to a reservation with restricted affin
 1. Attach a virtual server to a reservation by using the following command with the associated details.
 
 ```sh
-ibmcloud is instance-update <instance-name> -reservation-affinity-policy manual --reservation-affinity-pool <reservation-name>
+ibmcloud is instance-update <instance-name> --reservation-affinity-policy manual --reservation-affinity-pool <reservation-name>
 ```
 {: pre}
 
@@ -200,7 +200,7 @@ You can attach an existing bare metal server to a reservation with restricted af
 1. Attach a bare metal server to a reservation by using the following command with the associated details.
 
 ```sh
-ibmcloud is bare-metal-server-update SERVER [--name NEW_NAME] [--enable-secure-boot false | true] [--tpm-mode tpm_2 | disabled] [--bandwidth BANDWIDTH] [--reservation-affinity-policy, --res-policy disabled | manual] [--reservation-affinity-pool, --res-pool RESERVATION_AFFINITY_POOL] [--output JSON] [-q, --quiet]
+ibmcloud is bare-metal-server-update SERVER [--name NEW_NAME] [--enable-secure-boot false | true] [--tpm-mode tpm_2 | disabled] [--bandwidth BANDWIDTH] [--reservation-affinity-policy disabled | manual] [--reservation-affinity-pool RESERVATION_AFFINITY_POOL] [--output JSON] [-q, --quiet]
 ```
 {: pre}
 
