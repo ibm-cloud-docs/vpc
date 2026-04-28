@@ -31,7 +31,7 @@ For more information about changes to the {{site.data.keyword.vpc_short}} comman
 {: #vpc-apr2826}
 {: release-note}
 
-Application Load Balancer (ALB) for VPC Active-Passive pools supports more than 2 pools
+Application Load Balancer (ALB) for VPC Active-Passive pools support more than 2 pools
 :   Now ALBs for VPC can have one active pool and multiple backup pools. For more information, see [Load balancers for VPC overview](/docs/vpc?topic=vpc-nlb-vs-elb).
 
 ### 14 April 2026
