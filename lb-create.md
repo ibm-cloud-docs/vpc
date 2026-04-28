@@ -2,7 +2,7 @@
 
 copyright:
   years: 2021, 2026
-lastupdated: "2026-04-16"
+lastupdated: "2026-04-28"
 
 keywords: application load balancer, ALB, create load balancer, VPC load balancer, load balancer pools, load balancer listeners
 
@@ -67,12 +67,10 @@ To create an ALB:
        * **Timeout (sec)**: Maximum amount of time the system waits for a response from a health check request. By default, the load balancer waits 2 seconds for a response.
        * **Max retries**: Maximum number of health check attempts that the load balancer makes before an instance is declared unhealthy. By default, an instance is no longer considered healthy after two failed health checks.
 
-       Although the load balancer stops sending connections to unhealthy instances, the load balancer continues monitoring the health of these instances and resumes their use if they're found healthy again (that is, if they successfully pass two consecutive health check attempts).
-
        HTTP sends data as plain text that can be intercepted and is considered insecure. Use `https` instead of `http` as the protocol. For more details, see [Why is HTTP not secure?](https://www.cloudflare.com/learning/ssl/why-is-http-not-secure/){: external}
        {: note}
 
-       WHY HTTPS HERE and HTTP RECOMMENDED IN ANOTHER SECTION?
+       Although the load balancer stops sending connections to unhealthy instances, the load balancer continues monitoring the health of these instances and resumes their use if they're found healthy again (that is, if they successfully pass two consecutive health check attempts).
 
        If instances in the pool are unhealthy and you believe that your application is running fine, double check the health protocol and health path values. Also, check any security groups that are attached to the instances to ensure that the rules allow traffic between the load balancer and the instances.
        {: tip}
@@ -126,6 +124,12 @@ To create an ALB:
 1. After you finish creating pools and listeners, click **Create load balancer**.
 1. To view details of an existing load balancer, click the name of your load balancer on the **Load balancers** page.
 1. Optionally, you can create a backup for any of your existing pools. This allows the backup pool to manage traffic if a member fails. To do so, you must create a failsafe policy:
+
+   * Only application load balancers allow you to associate more than one pool with a single listener.
+   * Ensure that there is at least one pool that already exists in the load balancer.
+
+      A listener is the parent resource in a load balancer. You can associate pools with a listener directly (by setting it as the `default_pool`) or indirectly (by referencing it through another pool's `failsafe_policy.target`). The indirectly referenced pool must already be linked to the listener.
+      {: note}
 
    * After the status of your load balancer changes to **Active**, select the **Back-end pools** tab.
    * In the pools list page, click **Edit**, then specify the following information:

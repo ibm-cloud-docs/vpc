@@ -2,7 +2,7 @@
 
 copyright:
   years: 2018, 2026
-lastupdated: "2026-03-30"
+lastupdated: "2026-04-28"
 
 keywords: application, load balancer, application, public, private, listener, back-end, front-end, pool, round-robin, weighted, layer 7, datapath logging, http2, websocket
 
@@ -132,6 +132,9 @@ When editing a back-end pool in a load balancer, you can specify one of the foll
 * **Fail:** - The load balancer rejects requests with an HTTP 503 ("Service Unavailable") status code, informing the client that the service is temporarily down.
 
 Only application load balancers allow you to associate more than one pool with a single listener. Ensure that there is at least one pool that already exists in the load balancer.
+
+      In a load balancer configuration, a listener is considered the parent resource. You can associate pools with that listener in two ways, by referencing them directly or indirectly. For direct association, configure the pool as the listener’s `default_pool`. For indirect association, reference the pool from another pool through a `failsafe_policy.target` relationship, ensuring that the other pool is already linked to the listener.
+      {: note}
 
 ## Elasticity
 {: #alb-elasticity}

@@ -2,7 +2,7 @@
 
 copyright:
   years: 2018, 2026
-lastupdated: "2026-04-16"
+lastupdated: "2026-04-28"
 
 keywords:
 
@@ -18,55 +18,63 @@ subcollection: vpc
 Known issues are identified bugs or unexpected behaviors that were not fixed before release, but weren’t critical enough to delay it. These issues are communicated to you, often with workarounds, and are prioritized for resolution in the near term by the development team.
 {: shortdesc}
 
-The following section contains known issues for public and private network load balancers (NLBs). The next section contains known issues for Private Path network load balancers.
+The following sections contain known issues for public, private, and Private Path network load balancers (NLBs).
 {: shortdesc}
 
 ## Known issues for private and public network load balancers
 {: #limitations-network-load-balancers}
 
-* An NLB requires the member and port combination to be unique.
+* An NLB requires each member and port combination to be unique.
 * An NLB member virtual server instance’s port can be used for only NLB traffic.
-* There is a one-to-one mapping between listener and pool.
+* Each listener maps to a single pool (one-to-one relationship).
 * An NLB uses the primary network interfaces of its associated members for data traffic. Non-primary network interfaces aren't supported.
-* To ensure service availability, use a dedicated subnet with your NLBs. Clients and members should reside in an alternate subnet.
-* Two members with the same instance X and same port Y cannot exist at the same time for an NLB. This means that adding two members with the same server port to an NLB is not allowed. This case is not supported and your traffic might not be routed correctly. To learn more, see [Why can't I add members with the same server port to my NLB?](/docs/vpc?topic=vpc-troubleshoot-lb-nlb-members-same-port)
+* To improve availability, use a dedicated subnet for NLBs. Place clients and members in separate subnets when possible.
+* Two members with the same instance X and same port Y cannot exist at the same time for an NLB. For example, two members using the same server port on the same instance are not supported, and traffic routing might fail. For more information, see [Why can't I add members with the same server port to my NLB?](/docs/vpc?topic=vpc-troubleshoot-lb-nlb-members-same-port).
 * For an NLB with routing mode enabled:
-   * The only supported back-end targets are Virtual Network Function (VNF) instances. When APIs are used, the listener `port_min` and `port_max` is to be set to `1` and `65535` respectively; `port` is to be left empty.
+   * Only Virtual Network Function (VNF) instances are supported as back-end targets. When using APIs, set `port_min` to `1` and `port_max` to `65535`; leave `port` empty.
    * Only one listener is supported.
    * The NLB and the VNF back-end targets must be in the same subnet.
-* For quotas and service limits, see [Quotas and service limits for Network load balancers](/docs/vpc?topic=vpc-quotas#nlb-quotas). To increase the quota for your Private Path network load balancer, you must [create a support case](/docs/support?topic=support-open-case).
-* When you create a listener for a network load balancer, you can specify a `protocol` of `tcp` or `udp`. However, each listener in the network load balancer must have a unique `port`.
-* [Private NLB]{: tag-blue} The NLB service might add rules to custom routing tables to ensure service availability for some failure conditions. As a result, if the client is outside the zone and/or VPC of the NLB, you must add an ingress custom routing table to the VPC where the NLB resides with the proper traffic source selected.
-* [Private NLB]{: tag-blue} Depending on the location of the clients, you must ensure that ingress routing tables exist.
+* For quotas and service limits, see [Quotas and service limits for Network load balancers](/docs/vpc?topic=vpc-quotas#nlb-quotas). To request an increase, [create a support case](/docs/support?topic=support-open-case).
+* When you create a listener for an NLB, you can specify a `protocol` of `tcp` or `udp`. However, each listener in the NLB must use a unique `port`.
+* [Private NLB]{: tag-blue} The NLB service might add rules to custom routing tables to ensure service availability for some failure conditions. As a result, if the client is outside the zone and/or VPC of the NLB, you must configure an ingress custom routing table in the VPC that hosts the NLB with the appropriate traffic source.
+* [Private NLB]{: tag-blue} The required ingress routing table depends on client location:
 
    | Client location | Routing table type | Traffic source |
    |----|----|----|
-   | On-prem | Ingress | Direct link |
-   | Another VPC or classic infrastructure | Ingress | Transit gateway |
+   | On-prem | Ingress | Direct Link |
+   | Another VPC or classic infrastructure | Ingress | Transit Gateway |
    | Another availability zone of the same VPC | Ingress | VPC zone |
    {: caption="Traffic sources that require ingress custom routing tables." caption-side="bottom"}
 
    For more information, see [About routing tables and routes](/docs/vpc?topic=vpc-about-custom-routes).
    {: note}
 
-* You can have a maximum of 128 direct server return configurations for each backend member VSI.
-* When a member target instance is deleted, a Network load balancer pool member is not automatically deleted.
+* You can have a maximum of 128 direct server return configurations for each back-end member virtual server instance.
+* When a member target instance is deleted, the corresponding NLB pool member is not automatically removed.
 
 ## Known issues for Private Path network load balancers
 {: #issues-private-path-network-load-balancers}
 
-* When you configure an ALB as a Private Path NLB member, the Private Path NLB's TCP health check status will always show OK, even if the ALB pool members are faulty. Health check status of ALB should be considered to determine the system health.
-* Access to a Virtual Private Endpoint gateway associated with Private Path Network load balancer from Direct Link or Transit Gateway is not supported.
-   * Workaround: Access an ALB that has the VPE as a member. Contact IBM Support for assistance with the details.
-* Private Path network load balancer pool members must be VPC virtual server instances or reserved IPs in same VPC as the load balancer. If there is a need to reach members outside the VPC (such as on-premises members), an ALB can be defined as member of the Private Path NLB pool and the remote destinations can be defined as ALB members. For more information, see [Connecting an on-premises service to a consumer using an ALB in a Private Path NLB pool](/docs/vpc?topic=vpc-private-path-service-intro&interface=ui#pps-use-case-5).
-* Access to a Private Path network load balancer from remote regions is not supported. The consumer Virtual Private Endpoint gateway and the Private Path network load balancer instance must reside in same region.
-   * Workaround: Access an ALB in the remote region that has the VPE as member. Contact IBM Support for assistance with the details.
-* Access to Private Path network load balancers from CSE (classic) is not supported.
-* Granular control of access to the load balancer is done through a Private Path service rather than by security groups and Network Access Control Lists (NACLs), which are not supported.
-* UDP traffic isn't supported by the load balancer data path.
+* When you configure an ALB as a Private Path NLB member, the NLB TCP health check status always shows `OK`, even if ALB pool members are unhealthy.
+* Access to a Virtual Private Endpoint (VPE) gateway associated with a Private Path NLB from Direct Link or Transit Gateway is not supported.
+
+   Workaround: Access an ALB that has the VPE configured as a member. For configuration assistance, contact IBM Support.
+  
+* Private Path NLB pool members must be VPC virtual server instances or reserved IPs in same VPC as the load balancer. To reach members outside the VPC (for example, on-premises members), you can configure an ALB as a member of the Private Path NLB pool and define the remote destinations as ALB members. For more information, see [Connecting an on-premises service to a consumer using an ALB in a Private Path NLB pool](/docs/vpc?topic=vpc-private-path-service-intro&interface=ui#pps-use-case-5).
+* Access to a Private Path NLB from a different region is not supported. The consumer VPE gateway and the Private Path NLB instance must be in the same region.
+
+   Workaround: Access an ALB in 
+the remote region that has the VPE as member. Contact IBM Support for assistance with the details.
+
+* Access to Private Path NLBs from Classic Infrastructure (CSE) is not supported.
+
+   
+   
+* Access control for the load balancer is managed through a Private Path service. Security groups and network access control lists (NACLs) are not supported.
+* UDP traffic is not supported by the load balancer data path.
 * Autoscaler integration is not supported.
 * The maximal MTU for Private Path NLB traffic is `8500`.
-* For quotas and service limits, see [Quotas and service limits for Private Path network load balancers](/docs/vpc?topic=vpc-quotas#ppnlb-quotas). To increase the quota for your Private Path network load balancer, you must [create a support case](/docs/support?topic=support-open-case).
+* For quotas and service limits, see [Quotas and service limits for Private Path network load balancers](/docs/vpc?topic=vpc-quotas#ppnlb-quotas). To request an increase, [create a support case](/docs/support?topic=support-open-case).
 
 ### Related link
 {: #nlb-limitations-related-links}

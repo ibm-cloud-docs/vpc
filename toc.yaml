@@ -518,6 +518,7 @@ toc:
               - lb-private-dns-integration.md
               - lb-api.md
               - lb-datapath-logging.md
+              - alb-pools.md
           - topicgroup:
               id: network-load-balancer
               label: Network Load Balancer for VPC
