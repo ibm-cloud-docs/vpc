@@ -71,10 +71,6 @@ toc:
               topics:
               - topic: vsi-profile-details-flexible.md
                 navtitle: General purpose - Flex profile
-              - topic: vsi-profile-details-accelerated.md
-                navtitle: Accelerated - Gen 3
-              - topic: vsi-profile-details-high-frequency.md
-                navtitle: High frequency profiles
               - topic: vsi-profile-details-general-purpose-gen4.md
                 navtitle: General purpose - Gen 4 (x86)
               - topic: vsi-profile-details-general-purpose-gen3.md
@@ -83,6 +79,10 @@ toc:
                 navtitle: General purpose - Gen 2 (x86)
               - topic: vsi-profile-details-general-purpose-gen2-z.md
                 navtitle: General purpose - Gen 2 (s390x)
+              - topic: vsi-profile-details-accelerated.md
+                navtitle: Accelerated - Gen 3<vsivpc-858-hpc-amd-profiles>
+              - topic: vsi-profile-details-high-frequency.md
+                navtitle: High frequency profiles</vsivpc-858-hpc-amd-profiles>
               - topic: vsi-profile-details-high-memory-gen3.md
                 navtitle: High memory - Gen 3
               - topic: vsi-profile-details-high-memory-gen2.md
