@@ -214,7 +214,7 @@ Destination NAT (DNAT)
 
 IBM Cloud VPC provides the following options for external connectivity:
 
-### Public gateway
+#### Public gateway
 {: #public-gateway}
 
 A public gateway enables all instances in a subnet to access the internet for outbound connections. Instances can't receive inbound connections from the internet.
@@ -227,7 +227,7 @@ Use a public gateway in the following cases:
 
 For more information, see [About public gateways](/docs/vpc?topic=vpc-about-public-gateways).
 
-### Floating IP address
+#### Floating IP address
 {: #floating-ip}
 
 A floating IP address is a public IP address that you can associate with a virtual network interface to enable bidirectional internet connectivity for a single instance.
@@ -255,7 +255,7 @@ The following table highlights the difference between a public gateway and float
 | **Security** | Instances are protected from inbound internet traffic | Instances are exposed to inbound internet traffic (use security groups to control access) |
 {: caption="Comparison of external connectivity options" caption-side="bottom"}
 
-### Public address ranges
+#### Public address ranges
 {: #public-address-ranges}
 
 A public address range is a contiguous set of IBM-provided public IP addresses that you can reserve and bind to a VPC in an availability zone. Unlike floating IP addresses that provide individual public IP addresses, public address ranges give you a block of consecutive public IP addresses that you can use for advanced routing and security scenarios.
