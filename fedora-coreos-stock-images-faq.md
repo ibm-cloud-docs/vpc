@@ -2,7 +2,7 @@
 
 copyright:
   years: 2026
-lastupdated: "2026-03-31"
+lastupdated: "2026-04-29"
 
 keywords: fedora coreos, stock images, faq, lifecycle, support, updates, stream-based
 
@@ -86,4 +86,4 @@ Fedora CoreOS does not follow a fixed End-of-Support (EOS) or End-of-Life (EOL) 
 {: #fedora-coreos-configuration-hardening}
 {: faq}
 
-Fedora CoreOS images for {{site.data.keyword.cloud_notm}} are utilized from Fedora cloud builds with no additional configuration or hardening. Example of [Fedora CoreOS Stable stream download URL](https://www.fedoraproject.org/coreos/download?stream=stable){: external}.
+Fedora CoreOS images for {{site.data.keyword.cloud_notm}} are utilized from Fedora cloud builds with no additional configuration or hardening. Example of [Fedora CoreOS Stable stream download URL](https://fedoraproject.org/coreos/download/?stream=stable){: external}.

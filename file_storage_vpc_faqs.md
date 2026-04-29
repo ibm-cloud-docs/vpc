@@ -1,8 +1,8 @@
 ---
 
 copyright:
-  years: 2021, 2025
-lastupdated: "2025-11-19"
+  years: 2021, 2026
+lastupdated: "2026-04-29"
 
 keywords: file share, file storage, replication, replica, size increase, capacity, encryption, BYOK, security group
 
@@ -241,8 +241,8 @@ Yes, you can increase or decrease IOPS for file shares based on an **IOPS tier**
 ### What is the maximum IO transfer size that's supported for a file share per session?
 {: faq}
 {: #faq-fs-supported-IO-size}
- 
-The maximum IO size that can be transferred for a share per session is 64 KB. To consume up to the max allowable bandwidth, you need multiple concurrent sessions to the share. 
+
+The maximum IO size that can be transferred for a share per session is 64 KB. To consume up to the max allowable bandwidth, you need multiple concurrent sessions to the share.
 
 Throughput performance can vary depending on the IOPS that is configured for the file share.
 

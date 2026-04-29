@@ -45,7 +45,7 @@ The mapping of logical zone names to physical zones is relative to each account.
 ### Subnets
 {: #networking-terms-subnets}
 
-A subnet is a range of IP addresses (CIDR block) within a VPC where you deploy resources. Subnets provide network segmentation and isolation for your workloads. For more information, see [About subnets](/docs/vpc?topic=vpc-about-subnets-vpc&interface=ui)
+A subnet is a range of IP addresses (CIDR block) within a VPC where you deploy resources. Subnets provide network segmentation and isolation for your workloads. For more information, see [About subnets](/docs/vpc?topic=vpc-about-subnets-vpc&interface=ui).
 
 #### Subnet characteristics
 {: #subnet-characteristics}

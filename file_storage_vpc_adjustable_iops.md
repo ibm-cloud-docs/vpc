@@ -2,7 +2,7 @@
 
 copyright:
   years: 2022, 2026
-lastupdated: "2026-04-28"
+lastupdated: "2026-04-29"
 
 keywords: file share, file storage, IOPS, performance needs, adjust IOPS
 
@@ -216,7 +216,7 @@ For more information about the command options, see [`ibmcloud is share-update m
 ### Adjusting IOPS by specifying a different IOPS tier profile
 {: #adjust-profile-cli-file}
 
-These instructions are for the previous generation of file share profiles (general purpose, 5-iops, 10-iops, or custom). New file shares can be provisioned with only the dp2 profile. To access the latest features, you must change the IOPS profile of your share to dp2.
+These instructions are for the previous generation of file share profiles (general purpose, 5-iops, 10-iops, or custom) that were used in the beta release of zonal file shares. As of 08 August 2023, zonal file shares can be provisioned with only the dp2 profile. To access the latest features, you must change the IOPS profile of your share to dp2.
 {: deprecated}
 
 From the CLI, use the `ibmcloud is share-update` command with the `--profile` property and indicate the name or href of the IOPS tier profile.
@@ -229,7 +229,7 @@ ibmcloud is share-update my-file-share --profile tier-5iops
 {: pre}
 
 ```sh
-Updating file share my-file-share under account VPC1 as user user@mycompany.com...
+Updating file share my-file-share under account Test Account as user user@mycompany.com...
 
 ID                           ba7c7c8a-c111-4f54-a7fe-bb6d3d66eb2a
 Name                         my-file-share
@@ -367,7 +367,7 @@ When the IOPS expansion completes, restart the instance. The new value is displa
 ### Adjusting IOPS by specifying a different IOPS tier profile
 {: #adjust-profile-api-file}
 
-These instructions are for the previous generation of file share profiles (general purpose, 5-iops, 10-iops, or custom). New file shares can be provisioned with only the dp2 profile. To access the latest features, you must change the IOPS profile of your share to dp2.
+These instructions are for the previous generation of file share profiles (general purpose, 5-iops, 10-iops, or custom) that were used in the beta release of zonal file shares. As of 08 August 2023, zonal file shares can be provisioned with only the dp2 profile. To access the latest features, you must change the IOPS profile of your share to dp2.
 {: deprecated}
 
 Make a `PATCH /shares` request and specify the `profile` property and indicate the name or href of the IOPS tier profile.
