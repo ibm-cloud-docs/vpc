@@ -2,7 +2,7 @@
 
 copyright:
   years: 2020, 2026
-lastupdated: "2026-04-08"
+lastupdated: "2026-04-29"
 
 keywords:
 
@@ -70,7 +70,7 @@ Gather the following required instance template details.
 | Placement groups | `ibmcloud is placement-groups` | [List all placement groups](/docs/vpc?topic=vpc-vpc-reference#placement-groups-list) |
 {: caption="Required instance template details" caption-side="bottom"}
 
-Verify that the profile that you want to use is available in the zone where you plan to create the instance. 
+Verify that the profile that you want to use is available in the zone where you plan to create the instance.
 
 Use the following commands to determine the required information to create an instance template.
 
@@ -326,7 +326,7 @@ Gather the following required instance template details by making the following 
 | Placement groups      | `GET /placement_groups`         | [List all placement groups](/apidocs/vpc/latest#list-placement-groups) |
 {: caption="Required API instance template details" caption-side="bottom"}
 
-Verify that the profile that you want to use is available in the zone where you plan to create the instance. 
+Verify that the profile that you want to use is available in the zone where you plan to create the instance.
 
 Use the following commands to determine the required information to create an instance template.
 

@@ -2,7 +2,7 @@
 
 copyright:
   years: 2018, 2026
-lastupdated: "2026-03-17"
+lastupdated: "2026-04-29"
 
 keywords: connecting, linux
 
@@ -79,10 +79,6 @@ Optionally, you can locate the floating IP address that is associated to the ins
 
 ## Determining the default user account
 {: #determining-default-user-account}
-
-The system-generated default user account is typically associated with managing access and operations. The default user can be used to log into the virtual server instance using SSH. The SSH keys are configured for the default user in the image. For more information on SSH keys, see [Getting started with SSH keys](/docs/vpc?topic=vpc-ssh-keys&interface=ui).
-
-The name of the default user account depends on the operating system image being used. See the following table for the operating system and its corresponding default user account.
 
 The system-generated default user account is typically associated with managing access and operations. The default user can be used to log into the virtual server instance using SSH. The SSH keys are configured only for the default user in the image. The name of the default user account depends on the operating system image being used. See the following table for the operating system and its corresponding default user account.
 

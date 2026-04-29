@@ -1,7 +1,7 @@
 ---
 copyright:
   years: 2022, 2026
-lastupdated: "2026-04-21"
+lastupdated: "2026-04-29"
 
 
 keywords: vsi, virtual server instances, profile, profiles, balanced, compute, memory, ultra high memory, storage optimized
@@ -46,7 +46,7 @@ For the LinuxONE and z/OS virtual server instances, the profiles are available i
 ## Before you begin
 {: #s390x-instance-profiles-before-you-begin}
 
-Verify that the profile that you use is available in the zone where you plan to create the instance. 
+Verify that the profile that you use is available in the zone where you plan to create the instance.
 
 
 ## Balanced

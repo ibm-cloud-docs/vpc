@@ -2,7 +2,7 @@
 
 copyright:
   years: 2019, 2026
-lastupdated: "2026-04-28"
+lastupdated: "2026-04-29"
 
 keywords: vsi, virtual server instances, profile, profiles, balanced, compute, memory, very high memory, ultra high memory, gpu, storage optimized, confidential compute, flex, high frequency
 
@@ -25,7 +25,7 @@ For more information about SAP profiles, see [SAP HANA certified instances on In
 ## Before you begin
 {: #x86-64-instance-profiles-before-you-begin}
 
-Verify the profile that you use is available in the zone where you plan to create the instance. 
+Verify the profile that you use is available in the zone where you plan to create the instance.
 
 Some profiles might not be available because of one of the following reasons:
    - The number of network interfaces in the virtual server exceeds profile limits. You can remove network interfaces to select from more profiles. For more information, see [Resizing a virtual server](/docs/vpc?topic=vpc-resizing-an-instance).
@@ -48,7 +48,7 @@ The following profile families are available when you provision a virtual server
 | [Confidential Compute](#confidential-computing-profiles) | Confidential Compute-supported profiles use processor reserved memory called EPC (Enclave Page Cache) to encrypt application data. Processor reserved memory EPC maintains confidentiality and integrity. |
 | [Flex profiles](#flexible-profiles) | Flex profiles offer a cost-effective option to help improve and mainstream capacity and scalability where and when you need it. |
 | [Burstable Flex profiles](#burstable-supported-flex-profiles) | Burstable profiles are designed to provide flexible CPU performance so workloads can operate at a smaller baseline level and burst to higher performance when needed. |
-| [High Frequency profiles](#high-frequency-profiles) (select availability) | High frequency profiles provide CPUs with a high frequency, which generally enables higher performance per core than other profiles within the same hardware generation.
+| [High Frequency profiles](#high-frequency-profiles) (select availability) | High frequency profiles provide CPUs with a high frequency, which generally enables higher performance per core than other profiles within the same hardware generation.|
 {: caption="Virtual server family selections" caption-side="bottom"}
 
 2nd generation profiles with instance storage and 2nd generation profiles with 64 or more vCPUs are deployed exclusively on the Intel&reg; second-generation quad processor Xeon&reg; Platinum 8260 Cascade Lake with 96 cores that are running at a base speed of 2.4 GHz and an all-core turbo frequency of 3.1 GHz or an Intel quad processor Xeon Gold 6248 Cascade Lake with 80 cores that are running at a base speed of 2.5 GHz and an all-core turbo frequency of 3.1 GHz.
