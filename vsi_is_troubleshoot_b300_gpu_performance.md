@@ -21,6 +21,9 @@ content-type: troubleshoot
 In some instances, one or more NVIDIA B300 GPU clock speeds are locked, which can cause degraded performance or higher power usage on affected GPUs.
 {: shortdesc}
 
+NVIDIA HGX B300 accelerated virtual server profiles are available for select customers. Create a [support case](/docs/account?topic=account-open-case&interface=ui) if you are interested in purchasing and using this offering.
+{: preview}
+
 When you run the `nvidia-smi` command to check GPU status, you see that some GPUs are running at significantly higher clock speeds and power usage than others, even when no workload is running.
 {: tsSymptoms}
 
