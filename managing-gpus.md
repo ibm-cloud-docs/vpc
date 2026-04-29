@@ -2,7 +2,7 @@
 
 copyright:
   years: 2021, 2026
-lastupdated: "2026-04-28"
+lastupdated: "2026-04-29"
 
 keywords: image, virtual private cloud, boot volume, virtual server instance, instance, gpu, graphics processing unit, set up gpu
 
@@ -33,6 +33,7 @@ The GPU-enabled family of profiles provides on demand, cost-effective access to 
    | V100    | 535  | [12.2](https://developer.nvidia.com/cuda-12-2-0-download-archive?target_os=Linux){: external} |
    | H100    | 550  | [12.4](https://developer.nvidia.com/cuda-12-4-0-download-archive?target_os=Linux){: external} |
    | H200    | 570  | [12.8](https://developer.nvidia.com/cuda-12-8-0-download-archive?target_os=Linux){: external}  |
+   | B300 [Select availability]{: tag-green} | 590  | [13.1](https://developer.nvidia.com/cuda-13-1-0-download-archive?target_os=Linux){: external}  |
    {: caption="NVIDIA drivers and CUDA version for Linux" caption-side="bottom"}
    {: #linux-gpu-nvidia-drivers}
    {: tab-title="Linux"}
@@ -48,6 +49,7 @@ The GPU-enabled family of profiles provides on demand, cost-effective access to 
    | V100    | 535  | [12.2](https://developer.nvidia.com/cuda-12-2-0-download-archive?target_os=Windows){: external} |
    | H100    | N/A  | N/A  |
    | H200    | N/A  | N/A  |
+   | B300    | N/A  | N/A  |
    {: caption="NVIDIA drivers and CUDA version for Windows 2019, 2022, 2025" caption-side="bottom"}
    {: #windows-2019-2022-gpu-nvidia-drivers}
    {: tab-title="Windows 2019, 2022, 2025"}
@@ -63,6 +65,7 @@ The GPU-enabled family of profiles provides on demand, cost-effective access to 
    | V100    | 535  | [12.0](https://developer.nvidia.com/cuda-12-0-0-download-archive?target_os=Windows){: external} |
    | H100    | N/A  | N/A  |
    | H200    | N/A  | N/A  |
+   | B300    | N/A  | N/A  |
    {: caption="NVIDIA drivers and CUDA version for Windows 2016" caption-side="bottom"}
    {: #windows-2016-gpu-nvidia-drivers}
    {: tab-title="Windows 2016"}
@@ -78,6 +81,53 @@ For a Linux-focused guide on installing the NVIDIA drivers, see the [NVIDIA Driv
 
 If you want to automate the installation of the drivers, you can use the [User data](/docs/vpc?topic=vpc-user-data) section of the virtual server. By using the user data field, you can input a script that issues the commands to install the NVIDIA drivers.
 {: tip}
+
+## Configuring a virtual server instance with an NVIDIA B300 GPU
+{: #provision-b300-gpu-on-vsi}
+
+NVIDIA HGX B300 accelerated virtual server profiles are available for select customers. Create a [support case](/docs/account?topic=account-open-case&interface=ui) if you are interested in purchasing and using this offering.
+{: preview}
+
+When you use the B300 GPU profile, the guest operating system needs an update. If the guest OS is not modified, you might see errors such as, "NVRM: This PCI I/O region assigned to your NVIDIA device is invalid:"
+
+To configure the guest OS for the B300 GPU:
+
+1. These commands must be run as root. Sudo to root.
+   ```sh
+   sudo -i
+   ```
+   {: pre}
+
+2. Edit the grub configuration file. The following example uses vi.
+   ```sh
+   vi /etc/default/grub.d/50-cloudimg-settings.cfg
+   ```
+   {: pre}
+
+3. Add the following kernel parameters to the `GRUB_CMDLINE_LINUX_DEFAULT` line:
+   ```text
+   pci=assign-busses pci=realloc pci=nocrs pci=big_root_window
+   ```
+   {: pre}
+
+   The updated line should look like this:
+   ```text
+   # CLOUD_IMG: This file was created/modified by the Cloud Image build process
+   GRUB_CMDLINE_LINUX_DEFAULT="nofb console=ttyS0 console=tty1 pci=assign-busses pci=realloc pci=nocrs pci=big_root_window"
+   ```
+   {: screen}
+
+4. Update grub to apply the changes.
+   ```sh
+   update-grub2
+   ```
+   {: pre}
+
+5. Restart the virtual server.
+   ```sh
+   reboot
+   ```
+   {: pre}
 
 ## Configuring a virtual server instance with an Intel Gaudi 3 AI Accelerator
 {: #provision-gaudi-3-on-vsi}

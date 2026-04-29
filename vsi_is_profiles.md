@@ -419,6 +419,7 @@ The GPU and accelerated profile family includes profiles with and without [insta
 - [Select availability]{: tag-green} GPU `-a100p` profiles include NVIDIA A100 Tensor Core 80 GB GPUs.
 - GPU `-h100` profiles include [NVIDIA](https://www.nvidia.com/en-us/data-center/hgx/){: external} GPUs. The system is an HGX design. The H100 offering is available in the following regions and zones: London (eu-gb-2), Sydney (au-syd-2), Toronto (ca-tor-3), Madrid (eu-es-3), Washington DC (us-east-3), Tokyo (jp-tok-3), Sao Paulo (br-sao-1), Dallas (us-south-1), and Frankfurt (eu-de-2).
 - [Select availability]{: tag-green} GPU `-h200` profiles include [NVIDIA](https://www.nvidia.com/en-us/data-center/hgx/){: external} GPUs. The system is an HGX design. The H200 offering is available in Washington DC (us-east-3), Toronto (ca-tor-3), Frankfurt (eu-de-2), London (eu-gb-2), Sydney (au-syd-3), and Chennai (in-che-1).
+- [Select availability]{: tag-green} GPU `-b300` profiles include [NVIDIA](https://www.nvidia.com/en-us/data-center/hgx/){: external} GPUs. The system is an HGX design. The B300 offering is available in Washington DC (us-east) for select customers. Create a [support case](/docs/account?topic=account-open-case&interface=ui) if you are interested in purchasing and using this offering.
 - [Select availability]{: tag-green} GPU `-gaudi3` profiles include the [Intel® Gaudi® 3 AI Accelerator](https://www.intel.com/content/www/us/en/products/details/processors/ai-accelerators/gaudi.html). The Intel Gaudi 3 offering is available in Dallas (us-south-dal12-a), Washington DC (us-east-wdc06-a, us-east-wdc07-a), and Frankfurt (eu-de-fra02-a).
 
 Make sure to install the appropriate driver and software for the profile you select:
@@ -456,6 +457,16 @@ Make sure to install the appropriate driver and software for the profile you sel
 {: tab-group="GPU"}
 {: class="simple-tab-table"}
 {: summary="GPU gx2 16 GB profile options for Intel x86-64 virtual server instances."}
+
+| Instance profile | vCPU / Cores | GiB RAM | Type / Number of GPUs | Bandwidth Cap (Gbps) | Instance storage (GB) |
+|---------|---------|---------|---------|---------|---------|
+| gx4d-232x3840x8b300 | 232 / 116 | 3840 | b300 / 8 | 200 | 4x7680 |
+{: caption="GPU gx4 profile options for x86-64 instances" caption-side="bottom"}
+{: #gpu-intel-x86-64c}
+{: tab-title="gx4 (Select availability)"}
+{: tab-group="GPU"}
+{: class="simple-tab-table"}
+{: summary="GPU gx4 profile options for x86-64 virtual server instances."}
 
 ### Considerations for GPU profiles
 {: #considerations-gpu-profiles}
