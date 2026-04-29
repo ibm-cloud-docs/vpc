@@ -2,7 +2,7 @@
 
 copyright:
   years: 2019, 2026
-lastupdated: "2026-04-28"
+lastupdated: "2026-04-29"
 
 keywords:
 
@@ -27,14 +27,19 @@ For more information about changes to the {{site.data.keyword.vpc_short}} comman
 ## April 2026
 {: #vpc-apr26}
 
+### 29 April 2026
+{: #vpc-apr2926}
+{: release-note}
+
+Accelerated B300 profile available in Washington DC (us-east) (select availability)
+:   The `gx4d-232x3840x8b300` profile is now available in the Washington DC (us-east) region for select customers. When you use the B300 virtual server profile it is powered by the [NVIDIA HGX B300](https://www.nvidia.com/en-us/data-center/hgx/){: external} server and provides high-performance GPU capabilities for AI workloads such as fine tuning and large-scale training. For more information, see [GPU](/docs/vpc?topic=vpc-profiles&interface=ui#gpu) profiles and [Accelerated (GPU) instance profiles - Gen 4](/docs/vpc?topic=vpc-accelerated-profile-family-gen4). If you are interested in purchasing and using this offering, create a [support case](/docs/account?topic=account-open-case&interface=ui).
+
 ### 28 April 2026
 {: #vpc-apr2826}
 {: release-note}
 
 Application Load Balancer (ALB) for VPC Active-Passive pools support more than 2 pools
 :   Now ALBs for VPC can have one active pool and multiple backup pools. For more information, see [Load balancers for VPC overview](/docs/vpc?topic=vpc-nlb-vs-elb).
-
-
 
 ### 14 April 2026
 {: #vpc-apr1426}
@@ -176,14 +181,14 @@ Spot instances (GA)
 :   The 4th generation of {{site.data.keyword.cloud_notm}} {{site.data.keyword.vsi_is_short}} are available in the Dallas (`us-south`) region. This new generation features virtual server profile families hosted exclusively on 6th Generation Intel&reg; Xeon&reg; Scalable processors. For more information, see [x86-64 instance profiles](/docs/vpc?topic=vpc-profiles&interface=ui). General purpose profiles are available in the [Balanced](/docs/vpc?topic=vpc-profiles&interface=ui#balanced-intel-x86-64-gen4), [Compute](/docs/vpc?topic=vpc-profiles&interface=ui#compute-intel-x86-64-gen4), and [Memory](/docs/vpc?topic=vpc-profiles&interface=ui#memory-intel-x86-64-gen4) families. 4th generation dedicated host profiles are also available. For more information, see [Dedicated host profiles](/docs/vpc?topic=vpc-general-purpose-vsi-profiles-gen4-intel&interface=ui#general-purpose-dh-profiles-gen4).
 
 ## January 2026
-{: #vpc-jan26}<spot>
+{: #vpc-jan26}
 
 ### 22 January 2026
 {: #vpc-jan2226}
 {: release-note}
 
 Spot instances (Select availability)
-:   [Spot instances](/docs/vpc?topic=vpc-spot-instances-virtual-servers) are highly discounted versions of the standard instances. They are designed to use available compute resources for interruptible or stateless workloads. Spot instances can be preempted (or evicted) at any time.</spot>
+:   [Spot instances](/docs/vpc?topic=vpc-spot-instances-virtual-servers) are highly discounted versions of the standard instances. They are designed to use available compute resources for interruptible or stateless workloads. Spot instances can be preempted (or evicted) at any time.
 
 ### 16 January 2026
 {: #vpc-jan1626}

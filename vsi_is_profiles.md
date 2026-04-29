@@ -2,7 +2,7 @@
 
 copyright:
   years: 2019, 2026
-lastupdated: "2026-04-28"
+lastupdated: "2026-04-29"
 
 keywords: vsi, virtual server instances, profile, profiles, balanced, compute, memory, very high memory, ultra high memory, gpu, storage optimized, confidential compute, flex, high frequency
 
@@ -25,7 +25,7 @@ For more information about SAP profiles, see [SAP HANA certified instances on In
 ## Before you begin
 {: #x86-64-instance-profiles-before-you-begin}
 
-Verify the profile that you use is available in the zone where you plan to create the instance. 
+Verify the profile that you use is available in the zone where you plan to create the instance.
 
 Some profiles might not be available because of one of the following reasons:
    - The number of network interfaces in the virtual server exceeds profile limits. You can remove network interfaces to select from more profiles. For more information, see [Resizing a virtual server](/docs/vpc?topic=vpc-resizing-an-instance).
@@ -48,7 +48,7 @@ The following profile families are available when you provision a virtual server
 | [Confidential Compute](#confidential-computing-profiles) | Confidential Compute-supported profiles use processor reserved memory called EPC (Enclave Page Cache) to encrypt application data. Processor reserved memory EPC maintains confidentiality and integrity. |
 | [Flex profiles](#flexible-profiles) | Flex profiles offer a cost-effective option to help improve and mainstream capacity and scalability where and when you need it. |
 | [Burstable Flex profiles](#burstable-supported-flex-profiles) | Burstable profiles are designed to provide flexible CPU performance so workloads can operate at a smaller baseline level and burst to higher performance when needed. |
-| [High Frequency profiles](#high-frequency-profiles) (select availability) | High frequency profiles provide CPUs with a high frequency, which generally enables higher performance per core than other profiles within the same hardware generation.
+| [High Frequency profiles](#high-frequency-profiles) (select availability) | High frequency profiles provide CPUs with a high frequency, which generally enables higher performance per core than other profiles within the same hardware generation.|
 {: caption="Virtual server family selections" caption-side="bottom"}
 
 2nd generation profiles with instance storage and 2nd generation profiles with 64 or more vCPUs are deployed exclusively on the Intel&reg; second-generation quad processor Xeon&reg; Platinum 8260 Cascade Lake with 96 cores that are running at a base speed of 2.4 GHz and an all-core turbo frequency of 3.1 GHz or an Intel quad processor Xeon Gold 6248 Cascade Lake with 80 cores that are running at a base speed of 2.5 GHz and an all-core turbo frequency of 3.1 GHz.
@@ -419,6 +419,7 @@ The GPU and accelerated profile family includes profiles with and without [insta
 - [Select availability]{: tag-green} GPU `-a100p` profiles include NVIDIA A100 Tensor Core 80 GB GPUs.
 - GPU `-h100` profiles include [NVIDIA](https://www.nvidia.com/en-us/data-center/hgx/){: external} GPUs. The system is an HGX design. The H100 offering is available in the following regions and zones: London (eu-gb-2), Sydney (au-syd-2), Toronto (ca-tor-3), Madrid (eu-es-3), Washington DC (us-east-3), Tokyo (jp-tok-3), Sao Paulo (br-sao-1), Dallas (us-south-1), and Frankfurt (eu-de-2).
 - [Select availability]{: tag-green} GPU `-h200` profiles include [NVIDIA](https://www.nvidia.com/en-us/data-center/hgx/){: external} GPUs. The system is an HGX design. The H200 offering is available in Washington DC (us-east-3), Toronto (ca-tor-3), Frankfurt (eu-de-2), London (eu-gb-2), Sydney (au-syd-3), and Chennai (in-che-1).
+- [Select availability]{: tag-green} GPU `-b300` profiles include [NVIDIA](https://www.nvidia.com/en-us/data-center/hgx/){: external} GPUs. The system is an HGX design. The B300 offering is available in Washington DC (us-east) for select customers. Create a [support case](/docs/account?topic=account-open-case&interface=ui) if you are interested in purchasing and using this offering.
 - [Select availability]{: tag-green} GPU `-gaudi3` profiles include the [Intel® Gaudi® 3 AI Accelerator](https://www.intel.com/content/www/us/en/products/details/processors/ai-accelerators/gaudi.html). The Intel Gaudi 3 offering is available in Dallas (us-south-dal12-a), Washington DC (us-east-wdc06-a, us-east-wdc07-a), and Frankfurt (eu-de-fra02-a).
 
 Make sure to install the appropriate driver and software for the profile you select:
@@ -456,6 +457,16 @@ Make sure to install the appropriate driver and software for the profile you sel
 {: tab-group="GPU"}
 {: class="simple-tab-table"}
 {: summary="GPU gx2 16 GB profile options for Intel x86-64 virtual server instances."}
+
+| Instance profile | vCPU / Cores | GiB RAM | Type / Number of GPUs | Bandwidth Cap (Gbps) | Instance storage (GB) |
+|---------|---------|---------|---------|---------|---------|
+| gx4d-232x3840x8b300 | 232 / 116 | 3840 | b300 / 8 | 200 | 4x7680 |
+{: caption="GPU gx4 profile options for x86-64 instances" caption-side="bottom"}
+{: #gpu-intel-x86-64c}
+{: tab-title="gx4 (Select availability)"}
+{: tab-group="GPU"}
+{: class="simple-tab-table"}
+{: summary="GPU gx4 profile options for x86-64 virtual server instances."}
 
 ### Considerations for GPU profiles
 {: #considerations-gpu-profiles}
