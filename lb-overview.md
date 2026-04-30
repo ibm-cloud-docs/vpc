@@ -127,9 +127,9 @@ URI | The relative URI to which a request redirects. This property is optional.
 
 When editing a back-end pool in a load balancer, you can specify one of the following failsafe policy actions:
 
-* **Forward:** - The load balancer routes requests to a designated backup pool. This provides a clean failover path to another set of application servers. You must have an existing backup pool configured and ready to receive traffic.
-* **Drop:** -  The load balancer drops all incoming requests, and the client receives no response.
-* **Fail:** - The load balancer rejects requests with an HTTP 503 ("Service Unavailable") status code, informing the client that the service is temporarily down.
+* **Forward:** The load balancer routes requests to a designated backup pool. This provides a clean failover path to another set of application servers. You must have an existing backup pool configured and ready to receive traffic.
+* **Drop:**  The load balancer drops all incoming requests, and the client receives no response.
+* **Fail:** The load balancer rejects requests with an HTTP 503 ("Service Unavailable") status code, informing the client that the service is temporarily down.
 
 Only application load balancers allow you to associate more than one pool with a single listener. Ensure that there is at least one pool that already exists in the load balancer.
 
