@@ -2,7 +2,7 @@
 
 copyright:
   years: 2023, 2026
-lastupdated: "2026-04-16"
+lastupdated: "2026-04-30"
 
 keywords:
 
@@ -117,6 +117,17 @@ It is recommended to enable zonal affinity in the Private Path service to ensure
 {: important}
 
 ![A Private Path connecting a consumer’s service to a provider’s on-premises service using an ALB in a Private Path NLB pool](images/private_path_detailed_5.svg "A Private Path connecting a consumer’s service to a provider’s on-premises service using an ALB in a Private Path NLB pool"){: caption="A Private Path connecting a consumer’s service to a provider’s on-premises service using an ALB in a Private Path NLB pool" caption-side="bottom"}
+
+### Use case 6: Connecting a service to a consumer using Direct Link or Transit Gateway
+{: #pps-use-case-6}
+
+The following diagram illustrates how a consumer can access a Private Path service from multiple environments using Direct Link or Transit Gateway.
+
+A consumer can host their application in one VPC and connect to an endpoint gateway in another VPC. For example, an application in **Consumer VPC 1** can reach an endpoint gateway in **Consumer VPC 2** through a transit gateway. Similarly, an on-premises application can connect to the endpoint gateway in **Consumer VPC 2** through Direct Link.
+
+The endpoint gateway provides access to the Private Path service by connecting to a Private Path Network Load Balancer (NLB) in the **Provider VPC**. The Private Path NLB then routes traffic to the provider’s service. For more information, see [High Availability access to VPE from Transit Gateway or Direct Link](/docs/vpc?topic=vpc-about-vpe#ha-access-to-vpe-using-custom-dns-resolvers).
+
+![Consumer Service connecting to Consumer VPE through Direct Link or Transit Gateway](images/private_path_detailed_6.svg){: caption="“Consumer applications access a provider service using Private Path, with Direct Link and Transit Gateway providing underlying connectivity" caption-side="bottom}
 
 ## Related links
 {: #pps-related-links}

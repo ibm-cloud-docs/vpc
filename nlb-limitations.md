@@ -2,7 +2,7 @@
 
 copyright:
   years: 2018, 2026
-lastupdated: "2026-04-28"
+lastupdated: "2026-04-30"
 
 keywords:
 
@@ -63,12 +63,11 @@ The following sections contain known issues for public, private, and Private Pat
 * Private Path NLB pool members must be VPC virtual server instances or reserved IPs in same VPC as the load balancer. To reach members outside the VPC (for example, on-premises members), you can configure an ALB as a member of the Private Path NLB pool and define the remote destinations as ALB members. For more information, see [Connecting an on-premises service to a consumer using an ALB in a Private Path NLB pool](/docs/vpc?topic=vpc-private-path-service-intro&interface=ui#pps-use-case-5).
 * Access to a Private Path NLB from a different region is not supported. The consumer VPE gateway and the Private Path NLB instance must be in the same region.
 
-   Workaround: Access an ALB in 
-the remote region that has the VPE as member. Contact IBM Support for assistance with the details.
+   Workaround: Create a transit gateway to connect the consumer VPC in the remote region to the VPC that hosts the Private Path VPE. Then, access the service through that VPE. For configuration assistance, contact IBM Support.
 
 * Access to Private Path NLBs from Classic Infrastructure (CSE) is not supported.
 
-   
+   Workaround: Create a transit gateway from the classic environment to the VPC that hosts the Private Path VPE. Then, access the service through that VPE.
    
 * Access control for the load balancer is managed through a Private Path service. Security groups and network access control lists (NACLs) are not supported.
 * UDP traffic is not supported by the load balancer data path.
