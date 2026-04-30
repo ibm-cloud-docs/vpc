@@ -2,7 +2,7 @@
 
 copyright:
   years: 2019, 2026
-lastupdated: "2026-04-29"
+lastupdated: "2026-04-30"
 
 keywords:
 
@@ -26,6 +26,13 @@ For more information about changes to the {{site.data.keyword.vpc_short}} comman
 
 ## April 2026
 {: #vpc-apr26}
+
+### 30 April 2026
+{: #vpc-apr3026}
+{: release-note}
+
+Enabling access to Private Path VPEs using Transit Gateway and Direct Link
+:   Now consumers can access a Private Path service from anywhere using Direct Link or Transit Gateway. Consumers can connect an application in one VPC to an endpoint gateway in another VPC. Consumers can also connect an on-prem application to a VPE gateway in another VPC through Direct Link. For more information, see [Use case 6: Connecting a service to a consumer using Direct Link or Transit Gateway](/docs/vpc?topic=vpc-private-path-service-intro#pps-use-case-6).
 
 ### 29 April 2026
 {: #vpc-apr2926}
