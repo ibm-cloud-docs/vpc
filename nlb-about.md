@@ -2,7 +2,7 @@
 
 copyright:
   years: 2020, 2026
-lastupdated: "2026-04-12"
+lastupdated: "2026-05-02"
 
 keywords: network load balancer, public, private, listener, back-end, front-end, pool, round-robin, weighted, connections, layer 4, methods, policies, APIs, access, ports, zonal
 
@@ -97,6 +97,10 @@ When editing a back-end pool in a load balancer, you can specify one of the foll
 * **Drop:** -  The load balancer drops all incoming requests, and the client receives no response.
 
 You can choose a failsafe target from a list of applicable backup pools.
+
+**Failsafe Target pool requirements (if action is Forward):**
+* must belong to the same load balancer
+* must have the same or compatible protocol (TCP is only compatible with TCP, but any combination of HTTP and HTTPS is compatible)
 
 ## Maximum connections
 {: #nlb-maximum-connections}
