@@ -2,7 +2,7 @@
 
 copyright:
   years: 2018, 2026
-lastupdated: "2026-04-28"
+lastupdated: "2026-05-02"
 
 keywords: application, load balancer, application, public, private, listener, back-end, front-end, pool, round-robin, weighted, layer 7, datapath logging, http2, websocket
 
@@ -127,14 +127,20 @@ URI | The relative URI to which a request redirects. This property is optional.
 
 When editing a back-end pool in a load balancer, you can specify one of the following failsafe policy actions:
 
-* **Forward:** - The load balancer routes requests to a designated backup pool. This provides a clean failover path to another set of application servers. You must have an existing backup pool configured and ready to receive traffic.
-* **Drop:** -  The load balancer drops all incoming requests, and the client receives no response.
-* **Fail:** - The load balancer rejects requests with an HTTP 503 ("Service Unavailable") status code, informing the client that the service is temporarily down.
+* **Forward:** The load balancer routes requests to a designated backup pool. This provides a clean failover path to another set of application servers. You must have an existing backup pool configured and ready to receive traffic.
+* **Drop:**  The load balancer drops all incoming requests, and the client receives no response.
+* **Fail:** The load balancer rejects requests with an HTTP 503 ("Service Unavailable") status code, informing the client that the service is temporarily down.
+
+You can choose a failsafe target from a list of applicable backup pools.
+
+**Failsafe Target pool requirements (if action is Forward):**
+* must belong to the same load balancer
+* must have the same or compatible protocol (TCP is only compatible with TCP, but any combination of HTTP and HTTPS is compatible)
 
 Only application load balancers allow you to associate more than one pool with a single listener. Ensure that there is at least one pool that already exists in the load balancer.
 
-      In a load balancer configuration, a listener is considered the parent resource. You can associate pools with that listener in two ways, by referencing them directly or indirectly. For direct association, configure the pool as the listener’s `default_pool`. For indirect association, reference the pool from another pool through a `failsafe_policy.target` relationship, ensuring that the other pool is already linked to the listener.
-      {: note}
+In a load balancer configuration, a listener is considered the parent resource. You can associate pools with that listener in two ways, by referencing them directly or indirectly. For direct association, configure the pool as the listener’s `default_pool`. For indirect association, reference the pool from another pool through a `failsafe_policy.target` relationship, ensuring that the other pool is already linked to the listener.
+{: note}
 
 ## Elasticity
 {: #alb-elasticity}

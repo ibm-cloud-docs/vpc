@@ -2,7 +2,7 @@
 
 copyright:
   years: 2020, 2026
-lastupdated: "2026-04-28"
+lastupdated: "2026-05-02"
 
 keywords: application load balancer, public, private, listener, back-end, front-end, pool, round-robin, weighted, connections, methods, policies, APIs, access, ports, vpc
 
@@ -32,6 +32,11 @@ You can configure pools when [creating a application load balancer](/docs/vpc?to
 1. Select the options for your pool:
    * **Pool Name**: The name for your pool. Ideally, a name that describes the function that is performed by this pool.
    * **Protocol**: Select the protocol for your instances in this pool. The protocol of the pool must match the protocol of its associated listener. For example, if an HTTPS or HTTP protocol is selected for the listener, the protocol of the pool must be HTTP. Similarly, if the listener protocol is TCP, the protocol of the pool must be TCP.
+
+   HTTP sends data as plain text that can be intercepted and is considered insecure. It is recommended to choose protocol as `https` instead of `http`.
+   For more details see: https://www.cloudflare.com/learning/ssl/why-is-http-not-secure/
+   {: note}
+   
    * **Method**: Select how you want the load balancer to distribute traffic across the instances in the pool:
        * **Round robin:** Forward requests to each instance in turn. All instances receive approximately an equal number of client connections.
        * **Weighted round robin:** Forward requests to each instance in proportion to its assigned weight. For example, you have instances A, B, and C, and their weights are set to `60`, `60` and `30`. Instances A and B receive an equal number of connections, and instance C receives half as many connections.
@@ -45,10 +50,6 @@ You can configure pools when [creating a application load balancer](/docs/vpc?to
          * **Drop:** -  The load balancer drops all incoming requests, and the client receives no response.
          * **Fail:** - The load balancer rejects requests with an HTTP 503 ("Service Unavailable") status code, informing the client that the service is temporarily down.
    * **Target**: The selection of the backup pool is done here. If a pool specified, then the `action` must be `forward`
-
-HTTP sends data as plain text that can be intercepted and is considered insecure. It is recommended to choose protocol as `https` instead of `http`.
-For more details see: https://www.cloudflare.com/learning/ssl/why-is-http-not-secure/
-{: note}
 
 If instances in the pool are unhealthy and you believe that your application is running fine, double check the health protocol and health path values. Also, check any security groups that are attached to the instances to ensure that the rules allow traffic between the load balancer and the instances.
 {: tip}
