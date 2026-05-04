@@ -2,7 +2,7 @@
 
 copyright:
   years: 2018, 2026
-lastupdated: "2026-04-30"
+lastupdated: "2026-05-04"
 
 keywords:
 
@@ -55,17 +55,13 @@ The following sections contain known issues for public, private, and Private Pat
 ## Known issues for Private Path network load balancers
 {: #issues-private-path-network-load-balancers}
 
-* When you configure an ALB as a Private Path NLB member, the NLB TCP health check status always shows `OK`, even if ALB pool members are unhealthy.
-* Access to a Virtual Private Endpoint (VPE) gateway associated with a Private Path NLB from Direct Link or Transit Gateway is not supported.
-
-   Workaround: Access an ALB that has the VPE configured as a member. For configuration assistance, contact IBM Support.
-  
+* When you configure an ALB as a Private Path NLB member, the NLB TCP health check status always shows `OK`, even if ALB pool members are unhealthy.  
 * Private Path NLB pool members must be VPC virtual server instances or reserved IPs in same VPC as the load balancer. To reach members outside the VPC (for example, on-premises members), you can configure an ALB as a member of the Private Path NLB pool and define the remote destinations as ALB members. For more information, see [Connecting an on-premises service to a consumer using an ALB in a Private Path NLB pool](/docs/vpc?topic=vpc-private-path-service-intro&interface=ui#pps-use-case-5).
 * Access to a Private Path NLB from a different region is not supported. The consumer VPE gateway and the Private Path NLB instance must be in the same region.
 
    Workaround: Create a transit gateway to connect the consumer VPC in the remote region to the VPC that hosts the Private Path VPE. Then, access the service through that VPE. For configuration assistance, contact IBM Support.
 
-* Access to Private Path NLBs from Classic Infrastructure (CSE) is not supported.
+* Access to Private Path NLBs from Classic Infrastructure is not supported.
 
    Workaround: Create a transit gateway from the classic environment to the VPC that hosts the Private Path VPE. Then, access the service through that VPE.
    
