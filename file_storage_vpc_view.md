@@ -2,7 +2,7 @@
 
 copyright:
   years: 2022, 2026
-lastupdated: "2026-04-28"
+lastupdated: "2026-05-04"
 
 keywords: file storage, file share, view share details, mount targets, view targets, view share
 
@@ -281,7 +281,7 @@ Storage Generation               1
 ```
 {: screen}
 
-The following example shows the information that the `ibmcloud is share` command returns when you retrieve information about a regional file share. 
+The following example shows the information that the `ibmcloud is share` command returns when you retrieve information about a regional file share.
 
 ```sh
 ibmcloud is share my-regional-file-share
@@ -326,6 +326,7 @@ Storage Generation                 2
 {: screen}
 
 For more information about the command options, see [`ibmcloud is share`](/docs/vpc?topic=vpc-vpc-reference#share-view).
+
 ### Viewing share bindings of a file share from the CLI
 {: #fs-view-share-bindings-cli}
 
@@ -1032,7 +1033,7 @@ For more information, see [ibm_is_share_mount_target](https://registry.terraform
 ## Next steps
 {: #fs-view-next-steps}
 
-Mount your file shares. Mounting is a process by which a server's operating system makes files and directories on the storage device available for users to access through the server's file system. For more information, see the following topics:
+Mount your file shares. Mounting is the process by which a server's operating system makes files and directories on the storage device available for users to access through the server's file system. For more information, see the following topics:
 * [IBM Cloud File Share Mount Helper utility](/docs/vpc?topic=vpc-fs-mount-helper-utility)
 * [Mounting file shares on Red Hat Linux](/docs/vpc?topic=vpc-file-storage-mount-RHEL).
 * [Mounting file shares in CentOS](/docs/vpc?topic=vpc-file-storage-mount-centos).

@@ -2,7 +2,7 @@
 
 copyright:
   years: 2022, 2026
-lastupdated: "2026-04-29"
+lastupdated: "2026-05-04"
 
 keywords: file share, file storage, IOPS, performance needs, adjust IOPS
 
@@ -37,8 +37,9 @@ When your share uses the [dp2](/docs/vpc?topic=vpc-file-storage-profiles#dp2-pro
    {: note}
 
 When your file share uses the [Deprecated]{: tag-red} [custom](/docs/vpc?topic=vpc-file-storage-profiles&interface=ui#fs-custom) share profile, the IOPS range is based on the file share size.
+
 * For example, for a file share that's 25 GB, you can increase IOPS anywhere in the range 100-1,000 IOPS with a custom profile. If you later [increase the size of a file share](/docs/vpc?topic=vpc-file-storage-expand-capacity) to the next highest band, you can increase the IOPS again. IOPS can be adjusted multiple times until the maximum or minimum limit is reached.
-* Or you can switch from a custom profile to an IOPS tier profile. The IOPS tier selection is restricted by the file share size. When you move from a custom profile to any tiered profile, billing is updated, and the IOPS is adjusted according to the profile.
+* Or you can switch from a custom profile to an IOPS tier profile or the dp2 profile. The IOPS tier selection is restricted by the file share size. When you move from a custom profile to any tiered profile, billing is updated, and the IOPS is adjusted according to the profile.
 
 When your file share uses one of the [Deprecated]{: tag-red} [tiered share profiles](/docs/vpc?topic=vpc-file-storage-profiles&interface=ui#fs-v2-profiles), you can adjust your IOPS limit by:
 

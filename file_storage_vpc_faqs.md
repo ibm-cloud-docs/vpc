@@ -2,7 +2,7 @@
 
 copyright:
   years: 2021, 2026
-lastupdated: "2026-04-29"
+lastupdated: "2026-05-04"
 
 keywords: file share, file storage, replication, replica, size increase, capacity, encryption, BYOK, security group
 
@@ -250,7 +250,7 @@ Throughput performance can vary depending on the IOPS that is configured for the
 {: faq}
 {: #faq-fs-update-profile}
 
-If you have one of the tiered and custom file share profiles, you can use the UI, CLI, or API to update the file share profile. You can change among IOPS tier profiles. Or you can switch to the custom profile, and you specify the maximum IOPS based on the file share size. You can also choose to convert your share to the dp2 high-performance profile.
+If you have one of the tiered and custom file share profiles, you can use the UI, CLI, or API to update the file share profile. You can change among IOPS tier profiles. Or you can switch to the custom profile, and you can specify the maximum IOPS based on the file share size. You can also choose to convert your share to the dp2 high-performance profile.
 
 You can't use the UI, CLI, or API to update multiple file shares in a single operation. For more on this issue, see [troubleshooting {{site.data.keyword.filestorage_vpc_short}}](/docs/vpc?topic=vpc-troubleshooting-file-storage). You can't change a file share that was created with the dp2 profile to an earlier profile version.
 {: note}

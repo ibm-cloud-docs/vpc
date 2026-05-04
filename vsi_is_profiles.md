@@ -2,7 +2,7 @@
 
 copyright:
   years: 2019, 2026
-lastupdated: "2026-04-29"
+lastupdated: "2026-05-04"
 
 keywords: vsi, virtual server instances, profile, profiles, balanced, compute, memory, very high memory, ultra high memory, gpu, storage optimized, confidential compute, flex, high frequency
 
@@ -82,9 +82,9 @@ The following table shows all balance profiles that are available for x86-64.
 | bx3d-96x480 | 96 / 48 | 2 | 480 | 192 | 2x1560 |
 | bx3d-128x640 | 128 / 64 | 2 | 640 | 200 | 2x2080 |
 | bx3d-176x880 | 176 / 88 | 2 | 880 | 200 | 2x2860 |
-{: caption="Balanced bx3d beta profile options for Intel x86-64 instances" caption-side="bottom"}
+{: caption="Balanced bx3 profile options for Intel x86-64 instances" caption-side="bottom"}
 {: #balanced-intel-x86-64-spr}
-{: tab-title="bx3d"}
+{: tab-title="bx3"}
 {: tab-group="Balanced"}
 {: class="simple-tab-table"}
 {: summary="Balanced Beta profile options for Intel x86-64 virtual server instances."}
@@ -269,9 +269,9 @@ The 4th generation memory profiles (mx4) are available in the Dallas (us-south) 
 | mx3d-96x960 | 96 / 48 | 2 | 960 | 192 | 2x1560 |
 | mx3d-128x1280 | 128 / 64 | 2 | 1280 | 200 | 2x2080 |
 | mx3d-176x1760 | 176 / 88 | 2 | 1760 | 200 | 2x2860 |
-{: caption="Memory mx3d Beta profile options for x86-64 instances " caption-side="bottom"}
+{: caption="Memory mx3 profile options for x86-64 instances " caption-side="bottom"}
 {: #memory-intel-x86-64}
-{: tab-title="mx3d"}
+{: tab-title="mx3"}
 {: tab-group="Memory"}
 {: class="simple-tab-table"}
 {: summary="Memory mx3d profile options for Intel x86-64 virtual server instances."}

@@ -2,7 +2,7 @@
 
 copyright:
   years: 2021, 2026
-lastupdated: "2026-04-29"
+lastupdated: "2026-05-04"
 
 keywords: file storage, file share, performance, IOPS, block size, capacity, range
 
@@ -114,7 +114,7 @@ In the following section, you can find information about the file share profiles
 ### IOPS tiers
 {: #fs-tiers}
 
-Existing file shares can be based on IOPS tiers that you selected when you created the file share. Table 3 describes the IOPS performance for the IOPS tier profile.
+Existing file shares can be based on IOPS tiers that you selected when you created the file share. Table 3 describes the IOPS performance for the IOPS tier profiles.
 
 | IOPS Tier | Workload | Share size (GB) | Max IOPS (IOPS) |
 |-----------|----------|-----------------|-----------------|

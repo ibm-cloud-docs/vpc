@@ -2,7 +2,7 @@
 
 copyright:
   years: 2023, 2026
-lastupdated: "2026-04-28"
+lastupdated: "2026-05-04"
 
 subcollection: vpc
 
@@ -274,18 +274,18 @@ Reservations are regional-specific that are based on the endpoint. By default, t
 
    ```terraform
    resource "ibm_is_reservation" "example" {
-  capacity {
+   capacity {
     total = 5
-  }
-  committed_use {
+   }
+   committed_use {
     term = "one_year"
-  }
-  profile {
+   }
+   profile {
     name          = "ba2-2x8"
     resource_type = "instance_profile"
-  }
-  zone = "us-east-3"
-  name = "reservation-terraform-1"
-}
+   }
+   zone = "us-east-3"
+   name = "reservation-terraform-1"
+   }
    ```
-{: codeblock}
+   {: codeblock}

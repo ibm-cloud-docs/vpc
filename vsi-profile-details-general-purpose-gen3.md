@@ -2,7 +2,7 @@
 
 copyright:
   years: 2024, 2026
-lastupdated: "2026-03-17"
+lastupdated: "2026-05-04"
 
 keywords: vsi, virtual server, virtual server instances, profile, profiles, balanced, compute, memory, dedicated host, gen 3
 
@@ -18,8 +18,7 @@ subcollection: vpc
 The general purpose 3rd generation virtual server profiles (balanced, compute, and memory) are built atop the 4th Generation Intel® Xeon® Scalable processors. This generation provides NUMA pinning and increased overall instance throughput up to 200 Gbps. These profiles also include secure boot virtual servers as an option.
 {: shortdesc}
 
-The general-purpose profiles can also be paired with a corresponding dedicated host. This solution allows
-for single-tenant hypervisors that run workloads from a single {{site.data.keyword.cloud}} account.
+The 3rd generation general-purpose virtual server profiles can also be paired with a corresponding dedicated host. This solution allows for single-tenant hypervisors that run workloads from a single {{site.data.keyword.cloud}} account.
 
 ## Operating Systems
 {: #general-purpose-os-gen3}
@@ -71,19 +70,19 @@ for single-tenant hypervisors that run workloads from a single {{site.data.keywo
 ### Balanced
 {: #balanced-profiles-gen3-intel}
 
-| Profile      | vCPUs / Cores / NUMA Domains | Memory (GiB) | Bandwidth cap (Gbps) | Instance storage (Qty x GB) |
-| ------------ | ---------------------------- | ------------ | -------------------- | --------------------------- |
-| bx3d-2x10    | 2 / 1 / 1                    | 10           | 4                    | 1x65                        |
-| bx3d-4x20    | 4 / 2 / 1                    | 20           | 8                    | 1x130                       |
-| bx3d-8x40    | 8 / 4 / 1                    | 40           | 16                   | 1x260                       |
-| bx3d-16x80   | 16 / 8 / 1                   | 80           | 32                   | 1x520                       |
-| bx3d-24x120  | 24 / 12 / 1                  | 120          | 48                   | 1x780                       |
-| bx3d-32x160  | 32 / 16 / 2                  | 160          | 64                   | 2x520                       |
-| bx3d-48x240  | 48 / 24 / 2                  | 240          | 96                   | 2x780                       |
-| bx3d-64x320  | 64 / 32 / 2                  | 320          | 128                  | 2x1024                      |
-| bx3d-96x480  | 96 / 48 / 2                  | 480          | 192                  | 2x1560                      |
-| bx3d-128x640 | 128 / 64 / 2                 | 640          | 200                  | 2x2080                      |
-| bx3d-176x880 | 176 / 88 / 2                 | 880          | 200                  | 2x2860                      |
+| Profile       | vCPUs / Cores / NUMA Domains | Memory (GiB) | Bandwidth cap (Gbps) | Instance storage (Qty x GB) |
+| ------------- | ---------------------------- | ------------ | -------------------- | --------------------------- |
+| bx3d-2x10     | 2 / 1 / 1                    | 10           | 4                    | 1x65                        |
+| bx3d-4x20     | 4 / 2 / 1                    | 20           | 8                    | 1x130                       |
+| bx3d-8x40     | 8 / 4 / 1                    | 40           | 16                   | 1x260                       |
+| bx3d-16x80    | 16 / 8 / 1                   | 80           | 32                   | 1x520                       |
+| bx3d-24x120   | 24 / 12 / 1                  | 120          | 48                   | 1x780                       |
+| bx3d-32x160   | 32 / 16 / 2                  | 160          | 64                   | 2x520                       |
+| bx3d-48x240   | 48 / 24 / 2                  | 240          | 96                   | 2x780                       |
+| bx3d-64x320   | 64 / 32 / 2                  | 320          | 128                  | 2x1024                      |
+| bx3d-96x480   | 96 / 48 / 2                  | 480          | 192                  | 2x1560                      |
+| bx3d-128x640  | 128 / 64 / 2                 | 640          | 200                  | 2x2080                      |
+| bx3d-176x880  | 176 / 88 / 2                 | 880          | 200                  | 2x2860                      |
 {: caption="Balanced instance profile options, Gen 3 Intel" caption-side="bottom"}
 
 ### Compute
