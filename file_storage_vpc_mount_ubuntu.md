@@ -2,7 +2,7 @@
 
 copyright:
   years: 2021, 2026
-lastupdated: "2026-03-05"
+lastupdated: "2026-05-05"
 
 keywords: file share, file storage, mount helper, mount target, mount path, secure connection, NFS, mounting share
 
@@ -22,10 +22,10 @@ Use these instructions to connect a Network File System (NFS) file share to an U
 {: #fs-ubuntu-create-vsi}
 
 1. If the file share was set up with Security group access mode, verify that the compute host is part of the same [security group](/docs/vpc?topic=vpc-using-security-groups#sg-getting-started) as the share. If your file share was set up with VPC access mode, verify that the server where you want to mount the share is in the same zone as the file share. For more information, see [Mount target access modes](/docs/vpc?topic=vpc-file-storage-vpc-about#fs-mount-access-mode).
-2. Confirm that a mount target for the share exists for the VPC where the server is. If a new mount target is needed, follow the instructions in [Creating file shares and mount targets](/docs/vpc?topic=vpc-file-storage-create). 
+2. Confirm that a mount target for the share exists for the VPC where the server is. If a new mount target is needed, follow the instructions in [Creating file shares and mount targets](/docs/vpc?topic=vpc-file-storage-create).
 3. Get the mount path of the file share from the mount target. Mount path information can be obtained from the File share details page in the [console](/docs/vpc?topic=vpc-file-storage-view&interface=ui#fs-get-mountpath-ui-vpc), from the [CLI](/docs/vpc?topic=vpc-file-storage-view&interface=cli#fs-get-mountpath-cli), with the [API](/docs/vpc?topic=vpc-file-storage-view&interface=api#fs-get-target-api), or [Terraform](/docs/vpc?topic=vpc-file-storage-view&interface=terraform#fs-view-mount-target-terraform).
 4. If you want to use encryption in transit, you need to obtain an IPsec certificate from the metadata service. Make sure that encryption in transit is enabled for the mount target. Plus, mount the file share with a secure connection. This feature is only available for file shares with `dp2` profiles and security group access mode. For more information, see [Encryption in transit - Securing mount connections between file share and host](/docs/vpc?topic=vpc-file-storage-vpc-eit).
-   
+
    Install and run the [mount helper utility](/docs/vpc?topic=vpc-fs-mount-helper-utility) to mount file shares with encryption in transit or without an encrypted connection.
    {: fast-path}
 
@@ -37,7 +37,7 @@ For more information about how NFS works on Ubuntu, see the [Ubuntu Server Docum
 ## Mounting the file share
 {: #fs-Ubuntu-mount}
 
-Follow these steps to mount a file share on an Ubuntu host. 
+Follow these steps to mount a file share on an Ubuntu host.
 
 1. [Log in to the Compute host through an SSH connection](/docs/vpc?topic=vpc-creating-virtual-servers&interface=ui#next-steps-after-creating-virtual-servers-ui).
 
@@ -147,6 +147,11 @@ Follow these steps to mount a file share on an Ubuntu host.
 
    For NFS 4.1, add `sec=sys` to the mount command to prevent file ownership issues. Use `_netdev` to wait for the storage to be mounted until after all network components are started.
    {: tip}
+
+## Managing user permissions to the content of the mounted file share
+{: #ubuntu-user-group-permissions}
+
+As a system administrator, you can manage the access to data on the mounted file storage volume. After the file share is mounted, you can refine access control by using the `chown` and `chmod` commands to assign read, write, and execute permissions to individual users and groups. For more information, see the [Ubuntu Server documentation about User management](https://ubuntu.com/server/docs/how-to/security/user-management/){: external}.
 
 ## Unmounting the file system
 {: #fs-Ubuntu-umount}

@@ -1,8 +1,8 @@
 ---
 
 copyright:
-  years: 2021, 2025
-lastupdated: "2025-10-16"
+  years: 2021, 2026
+lastupdated: "2026-05-05"
 
 keywords: file share, file storage, mount helper, mount target, mount path, secure connection, NFS
 
@@ -22,10 +22,10 @@ Use these instructions to connect a Red Hat Enterprise Linux&reg;-based {{site.d
 {: #fs-rhel-create-vsi}
 
 1. If the file share was set up with Security group access mode, verify that the compute host is part of the same [security group](/docs/vpc?topic=vpc-using-security-groups#sg-getting-started) as the share. If your file share was set up with VPC access mode, verify that the server where you want to mount the share is in the same zone as the file share. For more information, see [Mount target access modes](/docs/vpc?topic=vpc-file-storage-vpc-about#fs-mount-access-mode).
-2. Confirm that a mount target for the share exists for the VPC where the server is. If a new mount target is needed, follow the instructions in [Creating file shares and mount targets](/docs/vpc?topic=vpc-file-storage-create). 
+2. Confirm that a mount target for the share exists for the VPC where the server is. If a new mount target is needed, follow the instructions in [Creating file shares and mount targets](/docs/vpc?topic=vpc-file-storage-create).
 3. Get the mount path of the file share from the mount target. Mount path information can be obtained from the File share details page in the [console](/docs/vpc?topic=vpc-file-storage-view&interface=ui#fs-get-mountpath-ui-vpc), from the [CLI](/docs/vpc?topic=vpc-file-storage-view&interface=cli#fs-get-mountpath-cli), with the [API](/docs/vpc?topic=vpc-file-storage-view&interface=api#fs-get-target-api), or [Terraform](/docs/vpc?topic=vpc-file-storage-view&interface=terraform#fs-view-mount-target-terraform).
 4. If you want to use encryption in transit, you need to obtain an IPsec certificate from the metadata service. Make sure that encryption in transit is enabled for the mount target. Plus, mount the file share with a secure connection. This feature is only available for file shares with `dp2` profiles and security group access mode. For more information, see [Encryption in transit - Securing mount connections between file share and host](/docs/vpc?topic=vpc-file-storage-vpc-eit).
-   
+
    Install and run the [mount helper utility](/docs/vpc?topic=vpc-fs-mount-helper-utility) to mount file shares with encryption in transit or without an encrypted connection.
    {: fast-path}
 
@@ -139,7 +139,7 @@ Follow these steps to mount a file share on an RHEL host. Examples were tested o
        198.51.100.0 fsf-dal2433a-dz.adn.networklayer.com
        ```
        {: screen}
-      
+
     3. Edit the file systems table `/etc/fstab`, and add an entry.
        ```text
        (hostname):/(file_share_path) /mnt nfs_version options 0 0
@@ -189,6 +189,11 @@ For NFSv4.1, set the nfsv4 domain to: `slnfsv4.com` and start `rpcidmapd` or a s
    {: codeblock}
 
 2. Run `nfsidmap -c`.
+
+## Managing user permissions to the content of the mounted file share
+{: #fs-rhel-user-group-permissions}
+
+As a system administrator, you can manage the access to data on the mounted file storage volume. After the file share is mounted, you can refine access control by using the `chown` and `chmod` commands to assign read, write, and execute permissions to individual users and groups. For more information, see [Red Hat's tutorial: How to manage Linux permissions for users, groups, and others](https://www.redhat.com/en/blog/manage-permissions){: external}.
 
 ## Unmounting the file system
 {: #fs-RHEL-umount}
