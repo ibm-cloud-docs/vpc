@@ -2,7 +2,7 @@
 
 copyright:
   years: 2021, 2026
-lastupdated: "2026-05-04"
+lastupdated: "2026-05-05"
 
 keywords: file share, mount target, virtual network interface, customer-managed encryption, encryption at rest, encryption in transit, file storage, share,
 
@@ -324,6 +324,7 @@ The following limitations apply to this release of {{site.data.keyword.filestora
 * Windows operating systems are not supported.
 * The minimum capacity of a zonal file share is 10 GB. The minimum capacity of a regional file share is 1 GB.
 * The maximum capacity is 32,000 GB per file share.
+* For regional file shares (`rfs` profile), the maximum file size is 1 TB. Zonal file shares (`dp2` profile) don't have a file size limit.
 * No data retention policy exists for deleted file shares. You cannot undelete a file share after you delete it.
 * Up to 256 hosts per zone per VPC can be concurrently connected to a single file share.
 * You can create up to 300 file shares within your VPC.
