@@ -2,7 +2,7 @@
 
 copyright:
   years: 2021, 2026
-lastupdated: "2026-04-28"
+lastupdated: "2026-05-06"
 
 keywords: file share, file storage, virtual network interface, encryption in transit, profiles,
 
@@ -57,7 +57,7 @@ In the {{site.data.keyword.cloud_notm}} console, you can create a file share wit
    | Profile | The profile is auto-populated based on your data availability selection. For more information, see [file Storage profiles](/docs/vpc?topic=vpc-file-storage-profiles). \n - If you chose Single zone availability, your file share uses the `dp2` profile. Select the size and IOPS for your file share. You can increase the capacity later, and you can also adjust the IOPS as needed. \n - [Select availability]{: tag-green} If you chose regional availability, your file share uses the `rfs` profile. Select the size and bandwidth for your file share. 800 Mbps is the default bandwidth allocation for all file shares at no extra cost. You can increase the capacity later, and you can also adjust the bandwidth as needed.|
    | Mount target access mode  | Select how you want to manage access to this file share: |
    |  | Security group: Access to the file share is based on [security group](/docs/vpc?topic=vpc-using-security-groups#sg-getting-started) rules. This option can be used to restrict access to specific virtual server instances. You can also use this option if you want to mount the file share to a virtual server instance in another zone. This option is recommended as you have more control over who can access the data that is stored on the file share. When you choose this type of access, you can also specify the allowed transit encryption modes. |
-   |  | Virtual private cloud: Access to the file share is granted to any virtual server instance in the same region. Cross-zone mounting, encryption in transit, cross-zone mounting, and snapshots are not supported when this access mode is selected. [Select availability]{: tag-green} This less-secure access mode is not supported for regional shares. |
+   |  | Virtual private cloud [Deprecated]{: tag-deprecated}: Access to the file share is granted to any virtual server instance in the same region. Cross-zone mounting, encryption in transit, cross-zone mounting, and snapshots are not supported when this access mode is selected. [Select availability]{: tag-green} This less-secure access mode is not supported for regional shares. [Deprecated]{: tag-deprecated} The VPC access control mode is deprecated. Select the Security group option instead. |
    | Allowed transit encryption modes | As the share owner, you can specify how you want clients within your account and authorized accounts to connect to your file share. You can select *none* if you do not want them to use encryption in transit. If you want them to use encryption in transit, select *IPsec* for a zonal share or [Select availability]{: tag-green} *stunnel* for a regional share. If you select both available options, then the transit encryption type of the first mount target decides the transit encryption types of all future mount targets within the account. |
    {: caption="Values for creating a file share" caption-side="bottom"}
 
@@ -72,7 +72,7 @@ In the {{site.data.keyword.cloud_notm}} console, you can create a file share wit
       6. Then, click **Next**.
       7. Review your selection, and either click **Back** to return and update your choices or click **Create**.
 
-   - If you selected VPC as the access mode, provide a name for the mount target and select a VPC from the list. This mount target can be used to mount the file share on any virtual server instance of the selected VPC in the same zone as the file share. Cross-zone mounting is not supported.
+   - If you selected VPC as the access mode [Deprecated]{: tag-deprecated}, provide a name for the mount target and select a VPC from the list. This mount target can be used to mount the file share on any virtual server instance of the selected VPC in the same zone as the file share. Cross-zone mounting is not supported.
 
 1. Encryption at rest. By default, all file shares are encrypted by IBM-managed keys. You can also choose to create an envelop-encryption for your shares with your own keys. If you want to use your own keys, select one of the [key management services](/docs/vpc?topic=vpc-vpc-encryption-about#kms-for-byok).
 

@@ -2,7 +2,7 @@
 
 copyright:
   years: 2019, 2026
-lastupdated: "2026-05-04"
+lastupdated: "2026-05-06"
 
 keywords: vsi, virtual server instances, profile, profiles, balanced, compute, memory, very high memory, ultra high memory, gpu, storage optimized, confidential compute, flex, high frequency
 
@@ -509,24 +509,28 @@ The following Storage Optimized profiles are available for x86-64 processors:
 
 [Select availability]{: tag-green}
 
-Confidential computing profiles, Confidential computing with Intel SGX for VPC, and Confidential computing with Intel TDX for VPC are available in the Dallas (us-south), Washington DC (us-east), and Frankfurt (eu-de) regions. For more information, see [Confidential computing known issues](/docs/vpc?topic=vpc-known-issues#confidential-computing-vpc-known-issues). Confidential computing is only available with select profiles. For more information, see [Confidential computing profiles](/docs/vpc?topic=vpc-profiles&interface=ui#confidential-computing-profiles).
+Confidential computing with Intel TDX for VPC and confidential computing with Intel SGX for VPC are available in the Dallas (us-south), Washington DC (us-east), and Frankfurt (eu-de) regions.
 {: preview}
 
-The following profiles support Intel SGX, Intel TDX, and secure boot. If you prefer to use Intel SGX or Intel TDX without secure boot, you can disable the secure boot option. For more information, see [Secure boot for Virtual Servers for VPC](/docs/vpc?topic=vpc-confidential-computing-with-secure-boot-vpc).
+The following profiles support Intel TDX, Intel SGX, and secure boot. If you prefer to use Intel TDX or Intel SGX without secure boot, you can disable the secure boot option. For more information, see [Secure boot for Virtual Servers for VPC](/docs/vpc?topic=vpc-confidential-computing-with-secure-boot-vpc).
+
+TDX is the default Confidential computing mode for all profiles. Secure boot is enabled by default for all Confidential computing profiles.
+
+All confidential computing profiles support Trusted Domain Extensions (TDX) and secure boot. Profiles with 60 GiB or less memory also support Software Guard Extensions (SGX).
 
 For more information about confidential computing, see [Confidential computing for x86 Virtual Servers for VPC](/docs/vpc?topic=vpc-about-confidential-computing-vpc).
 
-| Instance profile | vCPU / Cores | GiB RAM | EPC (SGX) capacity (GiB)  | Bandwidth cap (Gbps) | Instance storage (GB) |
+| Instance profile | vCPU / Cores | GiB RAM | Confidential compute mode  | Bandwidth cap (Gbps) | Instance storage (GB) |
 | ---------------- | ---- | ------- | ------------------------- |------- | ------------------------- |
-| bx3dc-2x10 | 2 / 1 | 10 | 4 | 4 | 1x65 |
-| bx3dc-4x20 | 4 / 2 | 20 | 8 | 8 | 1x130 |
-| bx3dc-8x40 | 8 / 4 | 40 | 16 | 16 | 1x260 |
-| bx3dc-16x80 | 16 / 8 | 80 | 32 | 32 | 1x520 |
-| bx3dc-24x120 | 24 / 12 | 120 | 48 | 48 | 1x780 |
-| bx3dc-32x160 | 32 / 16 | 160 | 64 | 64 | 2x520 |
-| bx3dc-48x240 | 48 / 24 | 240 | 96 | 96 | 2x780 |
-| bx3dc-64x320 | 64 / 32 | 320 | 128 | 128 | 2x1024 |
-| bx3dc-96x480 | 96 / 48 | 480 | 192 | 480 | 2x1560 |
+| bx3dc-2x10 | 2 / 1 | 10 | TDX, SGX (4 GB EPC) | 4 | 1x65 |
+| bx3dc-4x20 | 4 / 2 | 20 | TDX, SGX (8 GB EPC) | 8 | 1x130 |
+| bx3dc-8x40 | 8 / 4 | 40 | TDX, SGX (16 GB EPC) | 16 | 1x260 |
+| bx3dc-16x80 | 16 / 8 | 80 | TDX | 32 | 1x520 |
+| bx3dc-24x120 | 24 / 12 | 120 | TDX | 48 | 1x780 |
+| bx3dc-32x160 | 32 / 16 | 160 | TDX | 64 | 2x520 |
+| bx3dc-48x240 | 48 / 24 | 240 | TDX | 96 | 2x780 |
+| bx3dc-64x320 | 64 / 32 | 320 | TDX | 128 | 2x1024 |
+| bx3dc-96x480 | 96 / 48 | 480 | TDX | 480 | 2x1560 |
 {: caption="Balanced profile options for confidential computing compatible virtual server instances" caption-side="bottom"}
 {: #balanced-cc-x86-64}
 {: tab-title="bx3"}
@@ -534,18 +538,18 @@ For more information about confidential computing, see [Confidential computing f
 {: class="simple-tab-table"}
 {: summary="Balanced bx3 profiles for confidential compute compatible virtual server instances."}
 
-| Instance profile | vCPU / Cores | GiB RAM | EPC (SGX) capacity (GiB)  | Bandwidth cap (Gbps) | Instance storage (GB) |
+| Instance profile | vCPU / Cores | GiB RAM | Confidential compute mode  | Bandwidth cap (Gbps) | Instance storage (GB) |
 | ---------------- | ---- | ------- | ------------------------- |------- | ------------------------- |
-| cx3dc-2x5 | 2 / 1 | 5 | 2 | 4 | 1x65 |
-| cx3dc-4x10 | 4 / 2 | 10 | 4 | 8 | 1x130 |
-| cx3dc-8x20 | 8 / 4 | 20 | 8 | 16 | 1x260 |
-| cx3dc-16x40 | 16 / 8 | 40 | 16 | 32 | 1x520 |
-| cx3dc-24x60 | 24 / 12 | 60 | 24 | 48 | 1x780 |
-| cx3dc-32x80 | 32 / 16 | 80 | 32 | 64 | 2x520 |
-| cx3dc-48x120 | 48 / 24 | 120 | 48 | 96 | 2x780 |
-| cx3dc-64x160 | 64 / 32 | 160 | 64 | 128 | 2x1024 |
-| cx3dc-96x240 | 96 / 48 | 240 | 96 | 192 | 2x1560 |
-| cx3dc-128x320 | 128 / 64 | 320| 128 | 200 | 2x2860|
+| cx3dc-2x5 | 2 / 1 | 5 | TDX, SGX (2 GB EPC) | 4 | 1x65 |
+| cx3dc-4x10 | 4 / 2 | 10 | TDX, SGX (4 GB EPC) | 8 | 1x130 |
+| cx3dc-8x20 | 8 / 4 | 20 | TDX, SGX (8 GB EPC) | 16 | 1x260 |
+| cx3dc-16x40 | 16 / 8 | 40 | TDX, SGX (16 GB EPC) | 32 | 1x520 |
+| cx3dc-24x60 | 24 / 12 | 60 | TDX, SGX (24 GB EPC) | 48 | 1x780 |
+| cx3dc-32x80 | 32 / 16 | 80 | TDX | 64 | 2x520 |
+| cx3dc-48x120 | 48 / 24 | 120 | TDX | 96 | 2x780 |
+| cx3dc-64x160 | 64 / 32 | 160 | TDX | 128 | 2x1024 |
+| cx3dc-96x240 | 96 / 48 | 240 | TDX | 192 | 2x1560 |
+| cx3dc-128x320 | 128 / 64 | 320 | TDX | 200 | 2x2860 |
 {: caption="Compute profile options for confidential computing compatible virtual server instances" caption-side="bottom"}
 {: #compute-cc-x86-64}
 {: tab-title="cx3"}

@@ -2,7 +2,7 @@
 
 copyright:
   years: 2021, 2026
-lastupdated: "2026-05-05"
+lastupdated: "2026-05-06"
 
 keywords: file share, mount target, virtual network interface, customer-managed encryption, encryption at rest, encryption in transit, file storage, share,
 
@@ -94,6 +94,9 @@ When you create or update a mount target, you can specify the manner in which yo
 * Use the **security groups access** mode to authorize access to the file share for a specific virtual server instance or instances within a subnet. This option is available to newer file shares based on the `dp2` profile. Communication between an authorized virtual server instance and the file share can optionally be IPsec encapsulated. For more information, see [Encryption in Transit](#fs-eit). Cross-zone mounting is also supported.
 
 * Use the **VPC access** mode to allow access to the file share to a bare metal server or any virtual server instances in the same zone of a VPC. This option is available for all [file share profiles](/docs/vpc?topic=vpc-file-storage-profiles). Cross-zone mounting and encryption of data in transit are not supported for shares with VPC access mode. Snapshots are also not supported for shares with VPC access mode. This type of access mode is not available for regional file shares with the `rfs` profile.
+
+    The VPC access control mode for zonal file shares is deprecated. As of 06 June 2027, you can't use VPC access control mode when creating new file shares. Existing file shares that use VPC access control mode are supported until 06 May 2027. [Migrate to security group access control mode](/docs/vpc?topic=vpc-fs-migrate-access-mode) before the end of support date.
+    {: deprecated}
 
     VPC access mode is not supported in newer MZRs, such as Montreal (ca-mon), Mumbai - Airtel (in-mum), and Chennai - Airtel (in-che).
     {: note}

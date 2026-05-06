@@ -197,6 +197,8 @@ Snapshots inherit their storage_generation property from the parent file share. 
 
 Yes. When you create a file share, you must specify the access control mode. It can be based on Security Groups, which restrict the access to the file share to specific resources in the VPC. Or the access mode can allow for VPC-wide file share mounting.
 
+The VPC access control mode is [Deprecated]{: tag-deprecated} and scheduled to reach End of Support on 06 May 2027. For more information, see [Migrating file shares from VPC access control mode to security group access control mode](/docs/vpc?topic=vpc-fs-migrate-access-mode).
+
 For more information, see [Mount target access modes](/docs/vpc?topic=vpc-file-storage-vpc-about&interface=ui#fs-mount-access-mode).
 
 ### Can I securely share my data with other accounts?

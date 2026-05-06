@@ -2,7 +2,7 @@
 
 copyright:
   years: 2022, 2026
-lastupdated: "2026-04-28"
+lastupdated: "2026-05-06"
 
 keywords: file share, file storage, source volume, replica share,
 
@@ -66,7 +66,7 @@ On the File share replica create page, review the source file share details, and
      | **Security groups** | The [default security group](/docs/vpc?topic=vpc-updating-the-default-security-group) for the VPC is selected. You can use it or select another security group from the list. |
      {: caption="Values for creating a mount target." caption-side="top"}
 
-   - If you selected VPC as the access mode, provide a name for the mount target and select a VPC from the list. This mount target can be used to mount the file share on any virtual server instance of the selected VPC in the same zone as the file share. Cross-zone mounting is not supported.
+   - If you selected VPC as the access mode [Deprecated]{: tag-deprecated}, provide a name for the mount target and select a VPC from the list. This mount target can be used to mount the file share on any virtual server instance of the selected VPC in the same zone as the file share. Cross-zone mounting is not supported.
 
 1. Sync frequency - Specify how often you want to synchronize changes from the primary file share to the replica share. The Summary shows the selections that you made. For **Frequency**, the options are hourly, daily, weekly, monthly, or by `cron-spec` expression:
    * For hourly replication, enter a value in the range 0 - 60 to specify exactly how many minutes past the hour, every hour, every day the replication is to start.

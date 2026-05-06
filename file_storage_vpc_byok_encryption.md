@@ -2,7 +2,7 @@
 
 copyright:
   years: 2022, 2026
-lastupdated: "2026-04-28"
+lastupdated: "2026-05-06"
 
 keywords: file share, customer-managed encryption, encryption, byok, KMS, Key Protect, Hyper Protect Crypto Services,
 
@@ -58,7 +58,7 @@ Follow this procedure to specify customer-managed encryption when you create a f
    | Profile | The profile is auto-populated based on your data availability selection. For more information, see [file Storage profiles](/docs/vpc?topic=vpc-file-storage-profiles). \n - If you chose regional availability, your file share uses the `rfs` profile. Select the size and bandwidth for your file share. You can increase the capacity later, and you can also adjust the bandwidth as needed. \n - If you chose Single zone availability, your file share uses the `dp2` profile. Select the size and IOPS for your file share. You can increase the capacity later, and you can also adjust the IOPS as needed.|
    | Mount target access mode  | Select how you want to manage access to this file share: |
    |  | Security group: Access to the file share is based on [security group](/docs/vpc?topic=vpc-using-security-groups#sg-getting-started) rules. This option can be used to restrict access to specific virtual server instances. You can also use this option if you want to mount the file share to a virtual server instance in another zone. This option is recommended as you have more control over who can access the data that is stored on the file share. When you choose this type of access, you can also specify the allowed transit encryption modes. |
-   |  | Virtual private cloud: Access to the file share is granted to any virtual server instance in the same region. Cross-zone mounting and encryption in transit are not supported. This option is only available for zonal file shares. |
+   |  | Virtual private cloud [Deprecated]{: tag-deprecated}: Access to the file share is granted to any virtual server instance in the same region. Cross-zone mounting and encryption in transit are not supported. This option is only available for zonal file shares. The VPC access control mode is deprecated as of 06 June 2026. Select the Security group option instead. |
    | Allowed transit encryption modes| As the share owner, you can specify how you want clients within your account and authorized accounts to connect to your file share. You can select *none* if you do not want them to use encryption in transit. If you want them to use encryption in transit, select *ipsec* for your zonal files or *stunnel* for your regional files. |
    {: caption="Values for creating a file share and mount target." caption-side="bottom"}
 

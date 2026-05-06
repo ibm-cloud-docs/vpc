@@ -2,7 +2,7 @@
 
 copyright:
   years: 2024, 2026
-lastupdated: "2026-04-21"
+lastupdated: "2026-05-06"
 
 keywords: vsi, virtual server, virtual server instances, profile, profiles, balanced, compute, gen 3, intel, confidential computing
 
@@ -15,8 +15,7 @@ subcollection: vpc
 # Confidential Computing instance profiles - x86 Gen 3
 {: #confidential-computing-vsi-profiles-gen3-x86}
 
-The confidential computing family of 3rd generation {{site.data.keyword.cloud}} VPC virtual server profiles (balanced and compute) are built atop the 4th Generation Intel® Xeon® Scalable processors. The confidential computing profiles provide a broad set of capabilities and scale from 2 vCPUs (1 physical core) up to 128 vCPUs (64 physical cores). These profiles support the Intel SGX confidential
-computing capability.
+The confidential computing family of 3rd generation {{site.data.keyword.cloud}} VPC virtual server profiles (balanced and compute) are built atop the 4th Generation Intel® Xeon® Scalable processors. The confidential computing profiles provide a broad set of capabilities and scale from 2 vCPUs (1 physical core) up to 128 vCPUs (64 physical cores).
 {: shortdesc}
 
 ## Operating systems
@@ -71,6 +70,8 @@ computing capability.
 ## Instance profiles
 {: #cc-vsi-profiles-gen3-intel}
 
+All confidential computing profiles support Trusted Domain Extensions (TDX). TDX is the default confidential computing mode for all profiles. Profiles with 60 GiB or less memory also support Software Guard Extensions (SGX). 
+
 ### Balanced
 {: #cc-balanced-profiles-gen3-intel}
 
@@ -85,6 +86,19 @@ computing capability.
 | bx3dc-48x240 | 48 / 24 / 2                  | 240          | 96 GB EPC| 0 GB EPC | 96                   | 2 x 780                    |
 | bx3dc-64x320 | 64 / 32 / 2                  | 320          | 128 GB EPC| 0 GB EPC | 128                  | 2 x 1024                   |
 | bx3dc-96x480 | 96 / 48 / 2                  | 480          | 192 GB EPC| 0 GB EPC | 192                  | 2 x 1560                   |
+{: caption="Confidential computing balanced instance profile options for x86 architecture, Gen 3" caption-side="bottom"}
+
+| Profile      | vCPUs / Cores / NUMA domains | Memory (GiB) | Confidential compute mode | Bandwidth cap (Gbps) | Instance storage (Qty x GB)|
+| ------------ | ---------------------------- | ------------ | ------------------------- | -------------------- | ---------------------------|
+| bx3dc-2x10   | 2 / 1 / 1 | 10  | TDX, SGX (4 GB EPC)  |  4   | 1 x 65 |
+| bx3dc-4x20   | 4 / 2 / 1 | 20  | TDX, SGX (8 GB EPC)  |  8   | 1 x 130 |
+| bx3dc-8x40   | 8 / 4 / 1 | 40  | TDX, SGX (16 GB EPC) |  16  | 1 x 260 |
+| bx3dc-16x80  | 16 / 8 / 1 | 80  | TDX |  32  | 1 x 520 |
+| bx3dc-24x120 | 24 / 12 / 1 | 120 | TDX |  48  | 1 x 780 |
+| bx3dc-32x160 | 32 / 16 / 2 | 160 | TDX |  64  | 2 x 520 |
+| bx3dc-48x240 | 48 / 24 / 2 | 240 | TDX |  96  | 2 x 780 |
+| bx3dc-64x320 | 64 / 32 / 2 | 320 | TDX |  128 | 2 x 1024 |
+| bx3dc-96x480 | 96 / 48 / 2 | 480 | TDX | 192 | 2 x 1560 |
 {: caption="Confidential computing balanced instance profile options for x86 architecture, Gen 3" caption-side="bottom"}
 
 ### Compute
@@ -102,6 +116,21 @@ computing capability.
 | cx3dc-64x160  | 64 / 32 / 2                  | 160          | 64 GB EPC| 0 GB EPC |  128                 | 2 x 1024                   |
 | cx3dc-96x240  | 96 / 48 / 2                  | 240          | 96 GB EPC| 0 GB EPC |  192                 | 2 x 1560                   |
 | cx3dc-128x320 | 128 / 64 / 2                 | 320          | 128 GB EPC| 0 GB EPC |  200                 | 2 x 2860                   |
+{: caption="Confidential computing compute instance profile options for x86 architecture, Gen 3" caption-side="bottom"}
+
+
+| Profile | vCPUs / Cores / NUMA domains | Memory (GiB) | Confidential compute mode |  Bandwidth cap (Gbps) | Instance storage (Qty x GB)|
+| ------- | ---------------------------- | ------------ | ------------------------- |  -------------------- | ---------------------------|
+| cx3dc-2x5 | 2 / 1 / 1 | 5   | TDX, SGX (2 GB EPC)  |  4   | 1 x 65 |
+| cx3dc-4x10 | 4 / 2 / 1 | 10 | TDX, SGX (4 GB EPC)  |  8   | 1 x 130 |
+| cx3dc-8x20 | 8 / 4 / 1 | 20 | TDX, SGX (8 GB EPC)  |  16  | 1 x 260 |
+| cx3dc-16x40 | 16 / 8 / 1 | 40 | TDX, SGX (16 GB EPC) |  32  | 1 x 520 |
+| cx3dc-24x60 | 24 / 12 / 1 | 60 | TDX, SGX (24 GB EPC) |  48  | 1 x 780 |
+| cx3dc-32x80 | 32 / 16 / 2 | 80 | TDX |  64  | 2 x 520 |
+| cx3dc-48x120 | 48 / 24 / 2 | 120 | TDX |  96  | 2 x 780 |
+| cx3dc-64x160 | 64 / 32 / 2 | 160 | TDX |  128 | 2 x 1024 |
+| cx3dc-96x240 | 96 / 48 / 2 | 240 | TDX |  192 | 2 x 1560 |
+| cx3dc-128x320 | 128 / 64 / 2 | 320 | TDX |  200 | 2 x 2860 |
 {: caption="Confidential computing compute instance profile options for x86 architecture, Gen 3" caption-side="bottom"}
 
 For these profiles, the EPC memory is not configured in TDX mode. The EPC memory is configured only for SGX mode.
