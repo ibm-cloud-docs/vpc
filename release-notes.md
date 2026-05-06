@@ -38,7 +38,7 @@ End of Marketing (EOM) announcement for the VPC access control mode of zonal fil
 :   The VPC access control mode of zonal file shares, which allows all virtual server instances or bare metal servers in the VPC to access a file share, is being deprecated. As of 06 June 2027, the VPC access control mode can no longer be used when you create file shares. The VPC access control mode is scheduled to reach End of Support on 06 May 2027. If you have any file shares that use the VPC access control mode, follow the [Migration guide](/docs/vpc?topic=vpc-fs-migrate-access-mode) to update the access control mode and avoid any unplanned service disruptions.
 
 TDX is default mode for confidential computing profiles
-:   Intel Trusted Domain Extension (TDX) is now the default mode for confidential computing profiles. Intel Software Guard Extensions (SGX) is still available, however it is only available for 80 GB or smaller profiles. For more information, see [Confidential computing profiles](/docs/vpc?topic=vpc-profiles&interface=ui#confidential-computing-profiles).
+:   Intel Trusted Domain Extension (TDX) is now the default mode for confidential computing profiles. Intel Software Guard Extensions (SGX) is still available, however it is only available for 60 GB or smaller profiles. For more information, see [Confidential computing profiles](/docs/vpc?topic=vpc-profiles&interface=ui#confidential-computing-profiles).
 
 ## April 2026
 {: #vpc-apr26}
