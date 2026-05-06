@@ -2,7 +2,7 @@
 
 copyright:
   years: 2021, 2026
-lastupdated: "2026-04-29"
+lastupdated: "2026-05-06"
 
 keywords: file share, file storage, rename share, increase size, adjust IOPS, mount target
 
@@ -978,7 +978,7 @@ Revoking access to a file share is a 2-step process.
 ## Mounting and unmounting file shares on a virtual server instance
 {: #fs-mount-unmount-vsi}
 
-Mounting is a process by which a server's operating system makes files and directories on the storage device available for users to access through the server's file system. To mount a file share to a virtual server instance, [locate the mount path information](/docs/vpc?topic=vpc-file-storage-view). The mount path is created when you create a mount target for the file share. See the following information for mounting on a few Linux operating systems. Other Linux distributions follow similar procedures.
+Mounting is the process by which a server's operating system makes files and directories on the storage device available for users to access through the server's file system. To mount a file share to a virtual server instance, [locate the mount path information](/docs/vpc?topic=vpc-file-storage-view). The mount path is created when you create a mount target for the file share. See the following information for mounting on a few Linux operating systems. Other Linux distributions follow similar procedures.
 
 * [Mounting file shares on Red Hat Linux](/docs/vpc?topic=vpc-file-storage-mount-RHEL).
 * [Mounting file shares in CentOS](/docs/vpc?topic=vpc-file-storage-mount-centos).
