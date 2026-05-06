@@ -2,7 +2,7 @@
 
 copyright:
   years: 2021, 2026
-lastupdated: "2026-05-04"
+lastupdated: "2026-05-06"
 
 keywords: file storage, file share, performance, IOPS, block size, capacity, range
 
@@ -25,7 +25,7 @@ When you [create a file share](/docs/vpc?topic=vpc-file-storage-create), you sel
 
 [Select availability]{: tag-green} Customers with special access to preview the new regional file share offering can use the **rfs** profile to create file shares with regional availability and adjustable bandwidth values.
 
-File shares that were created during the beta and limited availability phases of zonal file shares, with either [tiered](#fs-tiers) profiles or the [custom](#fs-custom) profile can continue to operate based on those profiles. You can also update these file shares to use the `dp2` profile or switch to another previous generation profile. However, previous profiles are not supported for creating new file shares. These profiles do not support newer features such as encryption-in-transit, cross-zone mounting, cross-account sharing, and snapshots.
+File shares that were created during the beta and limited availability phases of zonal file shares, with either [tiered](#fs-tiers) profiles or the [custom](#fs-custom) profile can continue to operate based on those profiles until 06 May 2027. You can also update these file shares to use the `dp2` profile or switch to another previous generation profile. However, previous profiles are not supported for creating new file shares. These profiles do not support newer features such as encryption-in-transit, cross-zone mounting, cross-account sharing, and snapshots.
 
 The following tables show the characteristics and performance levels of the available profiles.
 
@@ -108,13 +108,15 @@ Table 2 shows the available IOPS ranges, based on share size.
 ## Tiered and custom file storage profiles
 {: #fs-v2-profiles}
 
-In the following section, you can find information about the file share profiles (general purpose, 5-iops, 10-iops, or custom) that were used in the beta release of zonal file shares. As of 08 August 2023, zonal file shares can be provisioned with only the defined performance profile. To access the newest features, you must change the IOPS profile of your share to dp2.
+In the following section, you can find information about the file share profiles (general purpose, 5-iops, 10-iops, or custom) that were used in the beta release of zonal file shares. As of 08 August 2023, zonal file shares can be provisioned with only the defined performance profile. These share profiles are scheduled to reach End of Support on 06 May 2027. To access the newest features, you must change the IOPS profile of your share to dp2.
 {: deprecated}
 
 ### IOPS tiers
 {: #fs-tiers}
 
-Existing file shares can be based on IOPS tiers that you selected when you created the file share. Table 3 describes the IOPS performance for the IOPS tier profiles.
+Existing file shares can be based on IOPS tiers that you selected when you created the file share. Table 3 describes the IOPS performance for the IOPS tier profile.
+
+Table 3 describes the IOPS performance for the deprecated IOPS tier profiles.
 
 | IOPS Tier | Workload | Share size (GB) | Max IOPS (IOPS) |
 |-----------|----------|-----------------|-----------------|
@@ -131,7 +133,7 @@ The total maximum IOPS is rounded up to the next multiple of 10 when the IOPS ca
 ### Custom share profile
 {: #fs-custom}
 
-The Custom IOPS profile specifies the total IOPS for the file share within the range for its size. File shares that use a custom IOPS profile can have an IOPS performance level in the range of 100-48000 IOPS.
+The deprecated Custom IOPS profile specifies the total IOPS for the file share within the range for its size. File shares that use a custom IOPS profile can have an IOPS performance level in the range of 100-48000 IOPS.
 
 Table 4 shows the available IOPS ranges based on file share size.
 

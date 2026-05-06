@@ -2,7 +2,7 @@
 
 copyright:
   years: 2022, 2026
-lastupdated: "2026-05-04"
+lastupdated: "2026-05-06"
 
 keywords: file share, file storage, increase capacity, expand capacity, expand share size, file share size
 
@@ -31,15 +31,15 @@ Expanded capacity is determined by the maximum that is allowed by the file share
 
 [Select availability]{: tag-green} The regional file shares that are created with the `rfs` profile, can be increased up to 32 TB without restrictions.
 
-Zonal file shares that are created with the [dp2](/docs/vpc?topic=vpc-file-storage-profiles#dp2-profile) or the [custom](/docs/vpc?topic=vpc-file-storage-profiles#fs-custom) profile can be expanded within the allowable IOPS range for that file share size.
+Zonal file shares that are created with the [dp2](/docs/vpc?topic=vpc-file-storage-profiles#dp2-profile) or the [Deprecated]{: tag-red} [custom](/docs/vpc?topic=vpc-file-storage-profiles#fs-custom) profile can be expanded within the allowable IOPS range for that file share size.
 
-Zonal file shares that are created with one of the [IOPS tier profiles](/docs/vpc?topic=vpc-file-storage-profiles#fs-tiers) can be expanded to the maximum size for its IOPS tier:
+Zonal file shares that are created with one of the [Deprecated]{: tag-red} [IOPS tier profiles](/docs/vpc?topic=vpc-file-storage-profiles#fs-tiers) can be expanded to the maximum size for its IOPS tier:
 
 * A general-purpose, 3 IOPS/GB profile can be expanded up to 32,000 GB.
 * A 5 IOPS/GB profile can be expanded up to 9,600 GB.
 * A 10 IOPS/GB profile can be expanded up to 4,800 GB.
 
-IOPS is automatically adjusted for tiered file share profiles, based on the size of the file share. For example, if you expand a share with a 5 IOPS/GB profile from 250 GB to 1,000 GB, it has a maximum IOPS of 5,000 IOPS (1,000 GB capacity _x_ 5 IOPS). Because a 5 IOPS/GB file share can potentially expand to 9,600 GB, the max IOPS is adjusted to 48,000 IOPS. The capacity and the IOPS are immediately changed, and you don't need to restart the instance.
+IOPS is automatically adjusted for the deprecated tiered file share profiles, based on the size of the file share. For example, if you expand a share with a 5 IOPS/GB profile from 250 GB to 1,000 GB, it has a maximum IOPS of 5,000 IOPS (1,000 GB capacity _x_ 5 IOPS). Because a 5 IOPS/GB file share can potentially expand to 9,600 GB, the max IOPS is adjusted to 48,000 IOPS. The capacity and the IOPS are immediately changed, and you don't need to restart the instance.
 
 You can monitor the progress of your file share expansion from the UI or CLI. You can also check the [Activity tracking events](/docs/vpc?topic=vpc-at_events) to verify that the file share was expanded. After a file share is expanded, you can't reduce capacity.
 

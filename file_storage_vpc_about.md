@@ -28,7 +28,8 @@ Share profiles define the capacity, performance, and data availability character
 
 When you create a file share in your availability zone, you use the **dp2** profile to specify the total IOPS for the file share based on the share size.
 
-If you have file shares that are based on the IOPS tier profiles or the custom IOPS profile, you can update those shares to use the **dp2** profile.
+The file share profiles (general purpose, 5-iops, 10-iops, or custom) that were used in the beta release of zonal file shares are scheduled to reach End of Support on 06 May 2027. If you have file shares that are based on these share profiles, switch them to the **dp2** profile to avoid data loss and service disruption.
+{: deprecated}
 
 Customers with special access to preview the new regional file share offering can use the **rfs** profile to create file shares with regional availability and adjustable bandwidth values.
 {: preview}
@@ -322,7 +323,7 @@ Further, when IBM decommissions a physical drive, the drive is destroyed before 
 
 The following limitations apply to this release of {{site.data.keyword.filestorage_vpc_short}}.
 
-* Previous profiles are not supported when you provision a file share. New file shares must use the `dp2` or the `rfs` profile. However, earlier version file shares can continue to use their profiles.
+* Previous profiles are not supported when you provision a file share. New file shares must use the `dp2` or the `rfs` profile. However, earlier version file shares can continue to use their profiles until 06 May 2027. [Update the file share profile](/docs/vpc?topic=vpc-file-storage-managing&interface=ui#fs-update-profile-ui) to `dp2` by that date to avoid service disruption and data loss.
 * Restricting file share access to specific virtual server instances and data encryption in transit is available only for shares that are based on the `dp2` or the `rfs` profile.
 * Windows operating systems are not supported.
 * The minimum capacity of a zonal file share is 10 GB. The minimum capacity of a regional file share is 1 GB.
