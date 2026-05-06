@@ -149,7 +149,7 @@ Follow these steps to mount a file share on an Ubuntu host.
    {: tip}
 
 ## Managing user permissions to the content of the mounted file share
-{: #ubuntu-user-group-permissions}
+{: #fs-ubuntu-user-group-permissions}
 
 As a system administrator, you can manage the access to data on the mounted file storage volume. After the file share is mounted, you can refine access control by using the `chown` and `chmod` commands to assign read, write, and execute permissions to individual users and groups. For more information, see the [Ubuntu Server documentation about User management](https://ubuntu.com/server/docs/how-to/security/user-management/){: external}.
 
