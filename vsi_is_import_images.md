@@ -2,7 +2,7 @@
 
 copyright:
   years: 2019, 2026
-lastupdated: "2026-03-23"
+lastupdated: "2026-05-07"
 
 keywords:
 
@@ -326,7 +326,7 @@ Getting image r006-1d1e92e9-6550-4d06-8483-d674310045fd under account Rios IMSLe
 
 ID                             r006-589548bd-9241-4ad7-a610-1df6ba020793
 Name                           my-image-from-volume-cli-1
-CRN                            crn:v1:bluemix:public:is:us-south:a/efe5afc483594adaa8325e2b4d1290df::image:r006-589548bd-9241-4ad7-a610-1df6ba020793
+CRN                            crn:v1:bluemix:public:is:us-south:a/a1234567::image:r006-589548bd-9241-4ad7-a610-1df6ba020793
 Status                         available
 Operating system               Name             Architecture   Vendor   Version                 Dedicated host only
                                centos-7-amd64   amd64          CentOS   7.x - Minimal Install   false

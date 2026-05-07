@@ -2,7 +2,7 @@
 
 copyright:
   years: 2021, 2026
-lastupdated: "2026-05-06"
+lastupdated: "2026-05-07"
 
 keywords: file share, file storage, virtual network interface, encryption in transit, profiles,
 
@@ -213,7 +213,7 @@ Creating file share my-vpc-file-share under account Test Account as user test.us
 
 ID                                 r006-83100dcb-24d8-45a6-91f3-256e5c17233f
 Name                               my-vpc-file-share
-CRN                                crn:v1:bluemix:public:is:us-south-2:a/efe5afc483594adaa8325e2b4d1290df::share:r006-83100dcb-24d8-45a6-91f3-256e5c17233f
+CRN                                crn:v1:bluemix:public:is:us-south-2:a/a1234567::share:r006-83100dcb-24d8-45a6-91f3-256e5c17233f
 Lifecycle state                    pending
 Access control mode                vpc
 Accessor binding role              none

@@ -2,7 +2,7 @@
 
 copyright:
   years: 2018, 2026
-lastupdated: "2026-04-29"
+lastupdated: "2026-05-07"
 
 keywords:
 
@@ -674,7 +674,7 @@ Use the following steps to create a virtual server instance from a private catal
        us-south-2\
        bx2-2x8\
        0717-198db988-3b9b-4cfa-9dec-0206420d37d0\
-       --catalog-offering crn:v1:public:globalcatalog-collection:global:a/efe5afc483594adaa8325e2b4d1290df:0b322820-dafd-4b5e-b694-6465da6f008a:offering:136559f6-4588-4af2-8585-f3c625eee09d
+       --catalog-offering crn:v1:public:globalcatalog-collection:global:a/a1234567:0b322820-dafd-4b5e-b694-6465da6f008a:offering:136559f6-4588-4af2-8585-f3c625eee09d
        --keys r006-89ec781c-9630-4f76-b9c4-a7d204828d61\
        --placement-group c5f1f366-b92a-4080-991a-aa5c2e33d96b\
    ```
@@ -687,7 +687,7 @@ Use the following steps to create a virtual server instance from a private catal
       * ZONE_NAME: `us-south-2`
       * PROFILE_NAME: `bx2-2x8`
       * SUBNET: `0717-198db988-3b9b-4cfa-9dec-0206420d37d0`
-      * CATALOG-OFFERING: is `crn:v1:public:globalcatalog-collection:global:a/efe5afc483594adaa8325e2b4d1290df:0b322820-dafd-4b5e-b694-6465da6f008a:offering:136559f6-4588-4af2-8585-f3c625eee09d`
+      * CATALOG-OFFERING: is `crn:v1:public:globalcatalog-collection:global:a/a1234567:0b322820-dafd-4b5e-b694-6465da6f008a:offering:136559f6-4588-4af2-8585-f3c625eee09d`
       * KEYS: `r006-89ec781c-9630-4f76-b9c4-a7d204828d61`
       * PLACEMENT_GROUP: `c5f1f366-b92a-4080-991a-aa5c2e33d96b`
 

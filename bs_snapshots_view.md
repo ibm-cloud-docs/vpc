@@ -2,7 +2,7 @@
 
 copyright:
   years: 2021, 2026
-lastupdated: "2026-04-28"
+lastupdated: "2026-05-07"
 
 keywords: view snapshots, view snapshot, viewing snapshots, see snapshots, Block Storage snapshots
 
@@ -488,7 +488,6 @@ Run the `snapshot-consistency-group` command to list the details of a specific c
 ibmcloud is snapshot-consistency-group CONSISTENCY_GROUP_ID
 ```
 {: pre}
-
 
 For more information about available command options, see  [`ibmcloud is snapshot-consistency-group`](/docs/vpc?topic=vpc-vpc-reference#snapshots-cli).
 

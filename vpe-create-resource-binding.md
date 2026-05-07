@@ -2,7 +2,7 @@
 
 copyright:
   years: 2026
-lastupdated: "2026-01-09"
+lastupdated: "2026-05-07"
 
 keywords: VPE, virtual private endpoint, endpoint gateway, resource binding
 
@@ -95,7 +95,7 @@ Where:
 To create resource binding `my-resource-binding` to the endpoint gateway `cli-egw-1`:
 
 ```sh
-ibmcloud is endpoint-gateway-resource-binding-create cli-egw-1 --name my-resource-binding --target crn:v1:bluemix:public:cloud-object-storage:global:a/efe5afc483594adaa8325e2b4d1290df:504bde7e-28c0-447f-8f75-484c55b5f222:bucket:test-cli 
+ibmcloud is endpoint-gateway-resource-binding-create cli-egw-1 --name my-resource-binding --target crn:v1:bluemix:public:cloud-object-storage:global:a/a1234567:504bde7e-28c0-447f-8f75-484c55b5f222:bucket:test-cli 
 ```
 
 ## Creating resource bindings with the API 

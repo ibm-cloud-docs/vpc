@@ -2,7 +2,7 @@
 
 copyright:
   years: 2022, 2026
-lastupdated: "2026-03-16"
+lastupdated: "2026-05-07"
 
 keywords: consistency groups, Block Storage snapshots, multi-volume snapshot, instance snapshot,
 
@@ -90,23 +90,23 @@ Before you can use the CLI, you must install the IBM Cloud CLI and the VPC CLI p
         "name": "snapshot-no-2",
         "source_volume": {"id": "r106-aeb2bbe6-1d3c-4186-82ce-abddb03e243e"},
         "user_tags": ["env:dev", "env:test"]
-   }]' --delete-snapshot-on-delete false --name multiple-snapshots-consistency-group-1 
+   }]' --delete-snapshot-on-delete false --name multiple-snapshots-consistency-group-1
 
    Creating snapshot consistency group under account Test Account as user test.user@ibm.com...
-                               
-   ID                          r006-4625d29b-3ac9-4bee-aca8-9366c4fd0c44   
-   Name                        multiple-snapshots-consistency-group-1   
-   CRN                         crn:v1:bluemix:public:is:us-south:a/a1234567::snapshot-consistency-group:r006-4625d29b-3ac9-4bee-aca8-9366c4fd0c44   
-   Href                        https://us-south.iaas.cloud.ibm.com/v1/snapshots/r006-4625d29b-3ac9-4bee-aca8-9366c4fd0c44   
-   Status                      pending   
-   Backup policy plan          -   
-   Delete snapshot on delete   false   
-   Source Snapshot             -   
-   Resource group              ID                                 Name      
-                               11caaa983d9c4beb82690daab08717e9   Default      
-                               
-   Created                     2023-12-05T17:32:53+05:30   
-   Service Tags                - 
+
+   ID                          r006-4625d29b-3ac9-4bee-aca8-9366c4fd0c44
+   Name                        multiple-snapshots-consistency-group-1
+   CRN                         crn:v1:bluemix:public:is:us-south:a/a1234567::snapshot-consistency-group:r006-4625d29b-3ac9-4bee-aca8-9366c4fd0c44
+   Href                        https://us-south.iaas.cloud.ibm.com/v1/snapshots/r006-4625d29b-3ac9-4bee-aca8-9366c4fd0c44
+   Status                      pending
+   Backup policy plan          -
+   Delete snapshot on delete   false
+   Source Snapshot             -
+   Resource group              ID                                 Name
+                               11caaa983d9c4beb82690daab08717e9   Default
+
+   Created                     2023-12-05T17:32:53+05:30
+   Service Tags                -
    ```
    {: screen}
 
@@ -219,12 +219,12 @@ data "ibm_is_instance" "example" {
 resource "ibm_is_snapshot_consistency_group" "is_snapshot_consistency_group" {
   name = "my-data-consistency-group"
   snapshots {
-    [ 
+    [
       name = "snapshot-1"
       source_volume = {id = "r016-0a74c6af-f9f5-4671-9025-c4efd41ac6da"}
       user_tags = ["my-tag"]
     ].
-    [ 
+    [
       name = "snapshot-2"
       source_volume = {id = "r016-0a74c6af-f9f5-4671-9025-c4efd41ac6db"}
       user_tags = ["my-tag"]

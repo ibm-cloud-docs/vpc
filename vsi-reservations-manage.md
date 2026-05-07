@@ -2,7 +2,7 @@
 
 copyright:
   years: 2023, 2026
-lastupdated: "2026-04-28"
+lastupdated: "2026-05-07"
 
 subcollection: vpc
 
@@ -331,7 +331,7 @@ Getting instance instance-cli-test-patch-reservation-1 under account VPCUI-DEV a
 
 ID                                    0735_78c1b310-6dc3-45d4-9c01-0335dc526135
 Name                                  instance-cli-test-patch-reservation-1
-CRN                                   crn:v1:bluemix:public:is:us-south-3:a/efe5afc483594adaa8325e2b4d1290df::instance:0735_78c1b310-6dc3-45d4-9c01-0335dc526135
+CRN                                   crn:v1:bluemix:public:is:us-south-3:a/a1234567::instance:0735_78c1b310-6dc3-45d4-9c01-0335dc526135
 Status                                running
 Availability policy on host failure   restart
 Startable                             true
@@ -370,10 +370,10 @@ Boot volume                           ID                                        
 
 Reservation Affinity Policy           manual
 Reservation Affinity Pool             ID                                          Name                     CRN                                                                                                                             Resource type
-                                      0735-4d504e68-b22b-41ed-9a13-6df324301a9f   reservation-cli-test-1   crn:v1:bluemix:public:is:us-south-3:a/efe5afc483594adaa8325e2b4d1290df::reservation:0735-4d504e68-b22b-41ed-9a13-6df324301a9f   reservation
+                                      0735-4d504e68-b22b-41ed-9a13-6df324301a9f   reservation-cli-test-1   crn:v1:bluemix:public:is:us-south-3:a/a1234567::reservation:0735-4d504e68-b22b-41ed-9a13-6df324301a9f   reservation
 
 Reservation                           ID                                          Name                     CRN                                                                                                                             Resource type
-                                      0735-4d504e68-b22b-41ed-9a13-6df324301a9f   reservation-cli-test-1   crn:v1:bluemix:public:is:us-south-3:a/efe5afc483594adaa8325e2b4d1290df::reservation:0735-4d504e68-b22b-41ed-9a13-6df324301a9f   reservation
+                                      0735-4d504e68-b22b-41ed-9a13-6df324301a9f   reservation-cli-test-1   crn:v1:bluemix:public:is:us-south-3:a/a1234567::reservation:0735-4d504e68-b22b-41ed-9a13-6df324301a9f   reservation
 
 Health State                          ok
 ```
