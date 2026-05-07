@@ -2,7 +2,7 @@
 
 copyright:
   years: 2021, 2026
-lastupdated: "2026-04-14"
+lastupdated: "2026-05-07"
 
 keywords: creating bare metal servers
 
@@ -42,7 +42,7 @@ Use the following steps to create a bare metal server by using the {{site.data.k
 | Tags | You can assign labels to your server so that you can easily filter resources in your resource list. |
 | Access management tags | Access management tags help you apply flexible access policies on specific resources. |
 | Image | Click **Change image** to select an image. On the Select an image page, you can select from all eligible stock and custom images. After you select your image, click **Save**.  \n  \n For more information, see [Bare metal server images](/docs/vpc?topic=vpc-bare-metal-image). For information about using custom images with your bare metal server, see [Getting started with custom images](/docs/vpc?topic=vpc-planning-custom-images&interface=ui).  \n  \n The allowed-use expression for the selected image might affect which settings and profiles that you can use to create a bare metal server by using that image. For information on using allowed-use expressions with your bare metal server custom images, see [Adding allowed-use expressions to custom images](/docs/vpc?topic=vpc-custom-image-allowed-use-expressions&interface=ui).  \n  \n You can provision a bare metal server from an `available`, `partially_available` (image is not yet available in all zones) or `deprecated` image. For more information on image lifecycles, see [Custom image lifecycle](/docs/vpc?topic=vpc-planning-custom-images#custom-image-lifecycle). |
-| Profile | Click **Change profile** to select from all available vCPU and RAM combinations. The profile families are Balanced, Compute, and Memory. For more information, see [x86-64 bare metal server profiles](/docs/vpc?topic=vpc-bare-metal-servers-profile). |
+| Profile | Click **Change profile** to select from all available vCPU and RAM combinations. The profile families are Balanced, Compute, Memory, and Very High Memory. For more information, see [x86-64 bare metal server profiles](/docs/vpc?topic=vpc-bare-metal-servers-profile). |
 | SSH key | Select an existing public SSH key or click **Create an SSH key** to create a new one. For more information about creating an SSH key, see [Creating your SSH key by using the UI](/docs/vpc?topic=vpc-ssh-keys&interface=ui#generate-ssh-keys-ui). You must specify at least one SSH key.  \n - For x86 architecture, the SSH key is used to automatically generate a password that is required for accessing VMware&reg; ESXi Direct Console User Interface (DCUI) and the ESXi web client.  \n  \n **Note:**  SSH keys can be either RSA or Ed25519. You can generate new RSA key pairs by using the UI. Pre-existing RSA and Ed25519 SSH keys can be uploaded. Ed25519 can be used only if the operating system supports this key type. Ed25519 can't be used with Windows or VMware images. |
 | Virtual private cloud | Specify the VPC where you want to create your server. You can use the default VPC, another existing VPC, or you can create a new VPC. |
 | Network bandwidth | Select the network bandwidth to allocate to your server at the time of provisioning, or post provisioning. For more information, see [adjusting network bandwidth after you provision](/docs/vpc?topic=vpc-managing-bare-metal-servers&interface=ui#viewing-bare-metal-server-ui) a bare metal server. |
