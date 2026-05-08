@@ -2,7 +2,7 @@
 
 copyright:
   years: 2021, 2026
-lastupdated: "2026-04-29"
+lastupdated: "2026-05-08"
 
 keywords: image, virtual private cloud, boot volume, virtual server instance, instance, gpu, graphics processing unit, set up gpu
 
@@ -85,7 +85,7 @@ If you want to automate the installation of the drivers, you can use the [User d
 ## Configuring a virtual server instance with an NVIDIA B300 GPU
 {: #provision-b300-gpu-on-vsi}
 
-NVIDIA HGX B300 accelerated virtual server profiles are available for select customers. Create a [support case](/docs/account?topic=account-open-case&interface=ui) if you are interested in purchasing and using this offering.
+NVIDIA HGX B300 accelerated virtual server profiles are available for select customers. Create a [support case](/docs/support?topic=support-open-case&interface=ui) if you are interested in purchasing and using this offering.
 {: preview}
 
 When you use the B300 GPU profile, the guest operating system needs an update. If the guest OS is not modified, you might see errors such as, "NVRM: This PCI I/O region assigned to your NVIDIA device is invalid:"

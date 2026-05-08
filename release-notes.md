@@ -2,7 +2,7 @@
 
 copyright:
   years: 2019, 2026
-lastupdated: "2026-05-07"
+lastupdated: "2026-05-08"
 
 keywords:
 
@@ -55,7 +55,7 @@ Enabling access to Private Path VPEs using Transit Gateway and Direct Link
 {: release-note}
 
 Accelerated B300 profile available in Washington DC (us-east) (select availability)
-:   The `gx4d-232x3840x8b300` profile is now available in the Washington DC (us-east) region for select customers. When you use the B300 virtual server profile it is powered by the [NVIDIA HGX B300](https://www.nvidia.com/en-us/data-center/hgx/){: external} server and provides high-performance GPU capabilities for AI workloads such as fine tuning and large-scale training. For more information, see [GPU](/docs/vpc?topic=vpc-profiles&interface=ui#gpu) profiles and [Accelerated (GPU) instance profiles - Gen 4](/docs/vpc?topic=vpc-accelerated-profile-family-gen4). If you are interested in purchasing and using this offering, create a [support case](/docs/account?topic=account-open-case&interface=ui).
+:   The `gx4d-232x3840x8b300` profile is now available in the Washington DC (us-east) region for select customers. When you use the B300 virtual server profile it is powered by the [NVIDIA HGX B300](https://www.nvidia.com/en-us/data-center/hgx/){: external} server and provides high-performance GPU capabilities for AI workloads such as fine tuning and large-scale training. For more information, see [GPU](/docs/vpc?topic=vpc-profiles&interface=ui#gpu) profiles and [Accelerated (GPU) instance profiles - Gen 4](/docs/vpc?topic=vpc-accelerated-profile-family-gen4). If you are interested in purchasing and using this offering, create a [support case](/docs/support?topic=support-open-case&interface=ui).
 
 ### 28 April 2026
 {: #vpc-apr2826}

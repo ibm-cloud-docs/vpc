@@ -2,7 +2,7 @@
 
 copyright:
   years: 2019, 2026
-lastupdated: "2026-04-17"
+lastupdated: "2026-05-08"
 
 keywords: resource, access, role, role-based, authorization, policy, access group, resource group, permission, assign, administrator, operator, editor, viewer, user, team, scenario, manage, create, IAM
 
@@ -27,7 +27,7 @@ This document shows examples of how the account administrator can use the {{site
 * **Limited access scenario:** Assign an access policy so an existing user can create and use only virtual server instances.
 * **Team access scenario:** Set up resource groups and access groups to allow two separate teams to create and use the VPC resources that are assigned to their team.
 
-You can also manage permissions through the CLI or API. For more information, see [How do I use IBM Cloud IAM](/docs/iam?topic=iam-iamoverview#howto).
+You can also manage permissions through the CLI or API. For more information, see [How do I use IBM Cloud IAM](/docs/iam?topic=iam-iamoverview).
 {: tip}
 
 ## Full-access scenario

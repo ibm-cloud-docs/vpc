@@ -2,7 +2,7 @@
 
 copyright:
   years: 2026
-lastupdated: "2026-05-06"
+lastupdated: "2026-05-08"
 
 keywords: file share, file storage, access control mode, vpc access mode, security group, migration
 
@@ -478,7 +478,7 @@ resource "ibm_is_share_mount_target" "example" {
 ```
 {: codeblock}
 
-For more information, see [Creating mount targets with Terraform](/docs/vpc?topic=vpc-file-storage-create&interface=terraform#fs-create-mount-target-terraform).
+For more information, see [Creating mount targets with Terraform](/docs/vpc?topic=vpc-file-storage-create&interface=terraform#file-share-mount-create-terraform).
 
 ## Step 6: Recreate replica file shares (if applicable)
 {: #fs-migrate-recreate-replica}

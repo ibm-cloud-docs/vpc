@@ -2,7 +2,7 @@
 
 copyright:
   years: 2019, 2026
-lastupdated: "2026-04-28"
+lastupdated: "2026-05-08"
 
 keywords: api, change log, new features, restrictions, migrations
 
@@ -180,14 +180,14 @@ Existing security group rules will have system assigned names. When creating a V
 - `udp` for UDP traffic (protocol number 17)
 - `rsvp` for Reservation Protocol traffic (protocol number 46)
 - `gre` for Generic Routing Encapsulation traffic (protocol number 47)
-- `esp` for IP Encapsulating Security Payload traffic (number 50), however see [Networking known issues](/docs/vpc?topic=vpc-known-issues#networking-vpc-known-issues).
+- `esp` for IP Encapsulating Security Payload traffic (number 50), however see [Networking known issues](/docs/vpc?topic=vpc-sg-acl-known-issues).
 - `ah` for Authentication Header traffic (protocol number 51)
 - `vrrp` for Virtual Router Redundancy Protocol traffic (protocol number 112)
 - `l2tp` for Layer Two Tunneling Protocol traffic (protocol number 115)
 - `sctp` for Stream Control Transmission Protocol traffic (protocol number 132)
 - `number_<N>` for traffic with any other individual protocol (replace `<N>` with the decimal protocol number, such as `number_108` for [IP Payload Compression Protocol](https://www.rfc-editor.org/rfc/rfc2393.html#section-3.1){: external} traffic)
 
-See [Networking known issues](/docs/vpc?topic=vpc-known-issues#networking-vpc-known-issues) before creating a rule with a previously unsupported `protocol` value.
+See [Networking known issues](/docs/vpc?topic=vpc-sg-acl-known-issues) before creating a rule with a previously unsupported `protocol` value.
 {: note}
 
 When [creating a rule for a security group](/apidocs/vpc/latest#create-security-group-rule), you can now specify one of these values for the `protocol` property.

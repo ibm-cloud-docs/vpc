@@ -2,7 +2,7 @@
 
 copyright:
   years: 2026
-lastupdated: "2026-04-29"
+lastupdated: "2026-05-08"
 
 keywords: vsi, virtual server, virtual server instances, profile, profiles, gpu, accelerated, b300, blackwell, gen 4
 
@@ -18,7 +18,7 @@ subcollection: vpc
 The Gen 4 accelerated (GPU) family of profiles provides on-demand, cost-effective access to the latest generation accelerators for {{site.data.keyword.vsi_is_full}} (VPC). These accelerators help to reduce the processing time that is required for compute intensive workloads such as AI, machine learning, inferencing, and more.
 {: shortdesc}
 
-NVIDIA HGX B300 accelerated virtual server profiles are available for select customers. Create a [support case](/docs/account?topic=account-open-case&interface=ui) if you are interested in purchasing and using this offering.
+NVIDIA HGX B300 accelerated virtual server profiles are available for select customers. Create a [support case](/docs/support?topic=support-open-case&interface=ui) if you are interested in purchasing and using this offering.
 {: preview}
 
 ## NVIDIA B300 instance profile
