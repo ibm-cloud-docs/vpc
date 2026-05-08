@@ -2,7 +2,7 @@
 
 copyright:
   years: 2021, 2026
-lastupdated: "2026-05-07"
+lastupdated: "2026-05-08"
 
 keywords: bare metal servers, managing, operation, manage bare metal server, manage bare metal, manage server, restart bare metal, stop bare metal, delete bare metal, reboot bare metal, restart server, stop server, delete server
 
@@ -15,15 +15,15 @@ subcollection: vpc
 # Managing Bare Metal Servers for VPC
 {: #managing-bare-metal-servers}
 
-You can manage your {{site.data.keyword.cloud}} Bare Metal Servers for VPC by performing tasks such as start, stop, update firmware, reboot, reinitialize and delete bare metal server.
+You can manage your {{site.data.keyword.cloud}} Bare Metal Servers for VPC by completing tasks such as start, stop, update firmware, reboot, reinitialize, and delete bare metal server.
 {: shortdesc}
 
-You can perform the following actions by using the UI, CLI, and API.
+You can complete the following actions by using the UI, CLI, and API.
 
 | Action | Description |
 |--------|-------------|
 | Stop | Stop the server by using a soft stop or a hard stop.  \n - Soft stop can take a few seconds to several minutes to shut down the server, depending on the state of the operating system. If the operating system is not responding and the soft stop can’t complete, a hard stop is required.  \n - Hard stop shuts down the bare metal server immediately. This method prevents the operating system from shutting down gracefully. |
-| Start | Start a stopped server. This action is not available if the status is Running. |
+| Start | Start a stopped server. This action is not available if the status is **Running**. |
 | Update firmware | If the server is stopped and a firmware update is available, this option is visible. \n \n If you select to update the firmware, a prompt is displayed giving you extra details about the firmware update. You can start the server when the update completes. This option is selected by default. \n \n You can select to either proceed with the firmware update or to cancel.  \n **Important** It is recommended to back up your server before any firmware update. |
 | Reboot | Immediately powers off a running server and then powers it back on. |
 | Reinitialize | You can reinitialize the server only if the server is stopped. Or, you can reinitialize if the server status is `failed` and the lifecycle state has a status reason of `cannot_reinitialize`. When the bare metal server is reinitialized, the contents of the boot disk are wiped and the specified operating system is installed. The server retains the same physical node, interfaces, IP addresses, and resource IDs. Data on secondary drives is preserved. |
@@ -51,7 +51,7 @@ You can view and manage a bare metal server from the *Bare metal servers* page i
 To manage your servers, complete the following steps.
 
 1. In [{{site.data.keyword.cloud_notm}} dashboard](https://cloud.ibm.com){: external}, go to **Navigation Menu** icon![menu icon](../icons/icon_hamburger.svg) **> Infrastructure** ![VPC icon](../../icons/vpc.svg) **> Compute > Bare metal servers**.
-2. On the **Bare metal servers** page, click the Actions icon ![More Actions icon](../icons/action-menu-icon.svg) for the server that you want to manage. You can perform the following actions:
+2. On the **Bare metal servers** page, click the Actions icon ![More Actions icon](../icons/action-menu-icon.svg) for the server that you want to manage. You can complete the following actions:
 
 ### Viewing your bare metal servers by using the UI
 {: #viewing-bare-metal-server-ui}
@@ -232,7 +232,7 @@ Specify the following variables to use when you reinitialize the bare metal serv
 - `PROFILE` ID, name, or CRN of the trusted profile.
 - `DEFAULT_TRUSTED_PROFILE` changes the default trusted profile auto-link parameter.
 
-When using a default_trusted_profile, reinitializing the bare metal server includes the same auto_link parameter defined for the default_trusted_profile to determine whether the links the trusted profile to the bare metal server as part of the reinitialization process. Trusted profiles previously linked to the bare metal server before the reinitialization process remain linked. The reinitialization process doesn't remove the link to IAM trusted profiles. To prevent the trusted profile from remaining linked to the bare metal server, change the "auto_link" parameter to false.
+When you use a default_trusted_profile, reinitializing the bare metal server includes the same auto_link parameter that was defined for the default_trusted_profile to determine whether the links the trusted profile to the bare metal server as part of the reinitialization process. Trusted profiles that were previously linked to the bare metal server before the reinitialization process remain linked. The reinitialization process doesn't remove the link to IAM trusted profiles. To prevent the trusted profile from remaining linked to the bare metal server, change the "auto_link" parameter to false.
 
 For a full list of command options, see [ibmcloud is bare-metal-server-initialization-replace](/docs/vpc?topic=vpc-vpc-reference#bare-metal-server-initialization-replace-view).
 
@@ -361,7 +361,7 @@ curl -X POST "$vpc_api_endpoint/v1/bare_metal_servers/$bare_metal_server_id/star
 
 For more information about the API request, see [Start a bare metal server](/apidocs/vpc/latest#start-bare-metal-server).
 
-### Updating  a bare metal server by using the API
+### Updating a bare metal server by using the API
 {: #update-bare-metal-servers-api}
 
 Specify a `PATCH /bare_metal_servers/{id}` request to update a specific bare metal server where `id` is the identifier of the bare metal server you are updating.
@@ -422,7 +422,7 @@ Specify the following properties values to use when you reinitialize the bare me
 - `user_data` specifies any optional user data
 - `default_trusted_profile` changes or removes the default trusted profile
 
-When using a `default_trusted_profile`, reinitializing the bare metal server includes the same `"auto_link"` parameter defined for the `default_trusted_profile` to determine whether the links the trusted profile to the bare metal server as part of the reinitialization process. Trusted profiles previously linked to the bare metal server before the reinitialization process remain linked. The reinitialization process doesn't remove the link to IAM trusted profiles. To prevent the trusted profile from remaining linked to the bare metal server, change the `"auto_link"` parameter to `false`.
+When using a `default_trusted_profile`, reinitializing the bare metal server includes the same `"auto_link"` parameter that is defined for the `default_trusted_profile` to determine whether the links the trusted profile to the bare metal server as part of the reinitialization process. Trusted profiles that were previously linked to the bare metal server before the reinitialization process remain linked. The reinitialization process doesn't remove the link to IAM trusted profiles. To prevent the trusted profile from remaining linked to the bare metal server, change the `"auto_link"` parameter to `false`.
 
 ### Updating the firmware for a bare metal server by using the API
 {: #update-firmware-bare-metal-servers-API}
@@ -569,7 +569,7 @@ Specify the following variables to use when you reinitialize the bare metal serv
 - `DATA` specifies any optional user data
 - `KEYS` specifies the SSH keys
 - `IMAGE` specifies the operating system image
-- `Default Trusted Profile` specified if auto link is enable
+- `Default Trusted Profile` specified if auto link is enabled
 
 While you can retain the same physical node, interfaces, IP addresses, and resource IDs, you can also select to avoid these changes by using the `lifecycle` property.
 
