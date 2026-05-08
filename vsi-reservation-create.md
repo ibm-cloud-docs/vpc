@@ -2,7 +2,7 @@
 
 copyright:
   years: 2023, 2026
-lastupdated: "2026-05-04"
+lastupdated: "2026-05-08"
 
 subcollection: vpc
 
@@ -204,6 +204,8 @@ ibmcloud is bare-metal-server-update SERVER [--name NEW_NAME] [--enable-secure-b
 ```
 {: pre}
 
+
+
 ## Creating a reservation with the API
 {: #create-reservation-api-vpc}
 {: api}
@@ -232,7 +234,6 @@ curl -X POST "$vpc_api_endpoint/v1/reservations?version=2024-01-27&generation=2"
     }'
 ```
 {: pre}
-
 
 ## Next steps
 {: #next-step-provisioning-reserved}
