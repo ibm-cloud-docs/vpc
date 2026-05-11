@@ -2,7 +2,7 @@
 
 copyright:
   years: 2022, 2026
-lastupdated: "2026-04-16"
+lastupdated: "2026-05-11"
 
 keywords: Backup for VPC, backup service, backup plan, backup policy, restore, restore volume, restore data
 
@@ -80,6 +80,39 @@ For more information about authorizations, see [Using authorizations to grant ac
 1. Select the role `Editor`.
 1. Click **Review** and inspect your choices.
 1. Click **Authorize**.
+
+## Creating authorization for cross-region replication for all child accounts in an Enterprise
+{: #file-s2s-auth-template-replication-ui}
+{: ui}
+
+Enterprise account admins can [create and assign authorization policy templates](/docs/enterprise-management?topic=enterprise-management-authorization-policy-template-create&interface=ui) to the child accounts to manage authorizations centrally. To create an authorization policy template that can be used to enable cross-region replication for all child accounts of the Enterprise, complete the following steps:
+
+1. Go to **Manage > Access (IAM) > Templates** in the console.
+1. Select **Authorizations** and click **Create**.
+1. Enter a name and description for the authorization template that describes its purpose for enterprise users.
+1. Enter a description for the enterprise-managed authorization policy that describes its purpose for child account users.
+1. Click **Create**.
+
+Next, complete the following steps to build the authorization rules:
+
+1. Go to **Authorization** to specify the details of the authorization policy.
+1. Select **Assigned account(s)**. When you assign the authorization template to a child account, the source account is populated to the same account number as the child account, which holds the resource that is accessed.
+1. Next, you select the source service and resources.
+   1. Select **VPC Infrastructure Services** from the list. Click **Next**.
+   1. Select the scope by clicking **Specific resources**.
+   1. Click **Select an attribute**.
+   1. From the list, select **Resource type**.
+   1. In the next field, select **File Storage for VPC**.
+   1. Click **Next**.
+1. For the target service, select **VPC Infrastructure Services** from the list. Click **Next**.
+   1. Select the scope by clicking **Specific resources**.
+   1. Click **Select an attribute**.
+   1. From the list, select **Resource type**.
+   1. In the next field, select **File Storage for VPC**.
+   1. Click **Next**.
+1. Select the role `Editor`.
+1. Click **Review** and **Save**.
+1. The template is now ready to commit and assign to child accounts.
 
 ## Creating authorization for cross-account access in the console
 {: #file-s2s-auth-xaccount-ui}
@@ -256,6 +289,78 @@ Roles:                     Editor
 
 For more information about all of the parameters that are available for this command, see [ibmcloud iam authorization-policy-create](/docs/cli?topic=cli-ibmcloud_commands_iam#ibmcloud_iam_authorization_policy_create).
 
+## Creating authorization for cross-region replication for all child accounts of an Enterprise
+{: #file-s2s-auth-template-replication-cli}
+{: cli}
+
+Enterprise account admins can [create and assign authorization policy templates](/docs/enterprise-management?topic=enterprise-management-authorization-policy-template-create&interface=cli) to the child accounts to manage authorizations centrally. To create an authorization policy template that can be used to enable cross-region replication for all child accounts of the Enterprise, complete the following steps.
+
+1. Create a JSON file that provides the definition of the authorization policy template. For more information about the attributes that you can use in your JSON file, see the [IAM Policy Management API](/apidocs/iam-policy-management#create-policy-template).
+
+   The following example JSON file specifies the `name` and `description` of the template and the `account_id` of the enterprise account. The authorization template grants an Editor role between all "File Storage for VPC" in the assigned accounts.
+
+    ```json
+        {
+          "name": "VPC_REGIONAL_REPLICATOR",
+          "description": "Grant Editor Role between VPC File Storage to enable regional replication",
+          "account_id": "ENTERPRISE_ROOT_ACCOUNT_ID",
+          "policy": {
+            "type": "authorization",
+            "description": "Grant Editor on VPC File Storage",
+            "control": {
+                "grant": {
+                "roles": [
+                  {
+                    "role_id": "crn:v1:bluemix:public:iam::::role:Editor"
+                  }
+                ]
+              }
+            },
+            "subject":
+              {
+                "attributes": [
+                  {
+                    "key": "serviceName",
+                    "operator": "stringEquals",
+                    "value": "is"
+                  },
+                  {
+                    "key": "resourceType",
+                    "operator": "stringEquals",
+                    "value": "share"
+                  }
+                ]
+              }
+            ,
+            "resource":
+              {
+                "attributes": [
+                  {
+                    "key": "serviceName",
+                    "operator": "stringEquals",
+                    "value": "is"
+                  },
+                  {
+                    "key": "resourceType",
+                    "operator": "stringEquals",
+                    "value": "share"
+                  }
+                ]
+              }
+          }
+    }
+    ```
+    {: codeblock}
+
+1. Run the `authorization-policy-template-create` command with the JSON file as shown in the following sample request:
+
+```sh
+ibmcloud iam authorization-policy-template-create --file /path/to/vpc-share-authorization-template.json
+```
+{: pre}
+
+For more information about all of the parameters that are available for this command, see [Managing IAM access, API keys, trusted profiles, service IDs, and access groups (ibmcloud iam)](/docs/cli?topic=cli-ibmcloud_commands_iam) CLI reference.
+
 ## Creating authorization for cross-account access from the CLI
 {: #file-s2s-auth-xaccount-cli}
 {: cli}
@@ -270,7 +375,7 @@ As the share owner, create a JSON file and use it with the `ibmcloud iam authori
                  "description": "As a share broker, you can create and delete share bindings"}],
         "resources": [{"attributes": [
             {"name": "accountId","value": "<origin share owner Account ID>","operator": "stringEquals"},
-            {"name": "serviceName","value": "is","operator": "share"},
+            {"name": "serviceName","value": "is","operator": "stringEquals"},
             {"name": "shareId","value": "<OriginShareId>","operator": "stringEquals"}]}],
         "type": "authorization",
         "description": "ShareBroker role for File Storage for VPC cross-account share access",
@@ -333,14 +438,14 @@ curl -X POST "https://iam.cloud.ibm.com/v1/policies" \
       "description":"Reader and Delegator role for KeyProtect service instance",
       "resources": [{"attributes": [
             {"name": "KeyOwnerAccountID","value": "a/a1234567","operator": "stringEquals"},
-            {"name": "KeyProtect","operator":"stringEquals","value":"kms"}]}],
+            {"name": "serviceName","operator":"stringEquals","value":"kms"}]}],
       "roles": [
          {"role_id": "crn:v1:bluemix:public:iam::::role:AuthorizationDelegator"},
          {"role_id": "crn:v1:bluemix:public:iam::::serviceRole:Reader"}],
       "subjects": [
          {"name": "serviceName","value": "is"},
             {"name": "resourceType","value": "share"},
-            {"name": "KeyUserAccountID","value": "a/a7654321>"}],
+            {"name": "KeyUserAccountID","value": "a/a7654321"}],
       "type":"authorization"
    }'
 ```
@@ -368,9 +473,9 @@ Make a request to the [IAM Policy Management API](/apidocs/iam-policy-management
        "roles":[
            {"role_id": "crn:v1:bluemix:public:iam::::role:Editor"}],
        "resources":[
-           {"attributes": [{
-            "name": "serviceName","value": "is"},
-            "name": "resourceType","value": "share"}]}]
+           {"attributes": [
+            {"name": "serviceName","value": "is"},
+            {"name": "resourceType","value": "share"}]}]
        }'
      ```
      {: pre}
@@ -396,7 +501,7 @@ curl -X POST "https://iam.cloud.ibm.com/v1/policies" \
         "resources": [
             {"attributes": [
               {"name": "accountId","value": "<origin share owner Account ID>","operator": "stringEquals"},
-              {"name": "serviceName","value": "is","operator": "share"},
+              {"name": "serviceName","value": "is","operator": "stringEquals"},
               {"name": "shareId","value": "<OriginShareId>","operator": "stringEquals"}
               ]}],
         "type": "authorization",
@@ -495,7 +600,7 @@ For more information about the arguments and attributes, see the [Terraform docu
       value = data.ibm_iam_account_settings.iam.ibm.team_account_id
     }
     resource_attributes {
-      name  = "Hyper-Protect-Crypto-Services"
+      name  = "serviceName"
       operator = "stringEquals"
       value = "hs-crypto"
     }

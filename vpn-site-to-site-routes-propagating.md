@@ -1,8 +1,8 @@
 ---
 
 copyright:
-  years: 2024, 2025
-lastupdated: "2025-12-17"
+  years: 2024, 2026
+lastupdated: "2026-05-11"
 
 keywords: network, VPN, VPN gateways, encryption
 
@@ -24,14 +24,14 @@ When you configure route propagation, select the **VPN gateway** option in the f
 
 1. You want the routing table that is associated with a subnet to accept routes from the VPN gateway.
 
-1. You are using policy-based VPN and want the routes to be propagated to the routing table.
+1. You are using a policy-based VPN and want the routes to be propagated to the routing table.
 
 VPN gateway route propagation supports both the default routing table and custom routing tables. For the default routing table, the default selection is **VPN gateway**. For the custom routing table, you must manually select **VPN gateway** if you want the routes to be propagated to the routing table.
 
 ## VPN gateway modes and route propagation
 {: #vpn-gateway-modes-and-routes}
 
-Understand how route propagation works across VPN gateways:
+Understand how route propagation works across site-to-site VPN gateways:
 
 * **Policy-based VPN** - In a policy-based VPN, the routes are manually defined by using address prefixes and route propagation must be explicitly configured in the routing table. This mode supports manual route advertisement with Transit Gateway. See [setting up a transit gateway with policy-based VPN](/docs/vpc?topic=vpc-advertise-routes-s2s&interface=ui#setup-tg-with-vpn-vpc).
 
@@ -78,6 +78,8 @@ For a policy-based VPN, you can migrate from manually defined routes (address pr
 ## Related links
 {: #propagating-routes-s2s-related}
 
+* [About routing tables and routes](/docs/vpc?topic=vpc-about-custom-routes)
+* [Creating a routing table](/docs/vpc?topic=vpc-create-vpc-routing-table&interface=ui)
 * [Use case 4: Integrating with a site-to-site VPN gateway](/docs/vpc?topic=vpc-vpn-client-to-site-overview#integrating-with-site-to-site-vpn-gateway)
 * [Why did the advertised route creation fail in my VPN gateway?](/docs/vpc?topic=vpc-troubleshoot-s2s-advertise-routes-over-quota)
 * [Why isn't route advertisement to ingress sources working?](/docs/vpc?topic=vpc-troubleshoot-advertise-route-does-not-work-s2s)

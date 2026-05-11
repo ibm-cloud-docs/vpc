@@ -2,7 +2,7 @@
 
 copyright:
   years: 2018, 2026
-lastupdated: "2026-04-28"
+lastupdated: "2026-05-10"
 
 keywords: application load balancer, public, listener, back-end, front-end, pool, round-robin, weighted, connections, methods, policies, APIs, access, ports, layer 7, compression
 subcollection: vpc
@@ -116,7 +116,7 @@ Private load balancer enforcement applies for all regions when enabled.
 ## HTTP/2 support for clients connecting to HTTPS listeners
 {: #atm-http2-support}
 
-{{site.data.keyword.alb_full}} uses Application-Layer Protocol Negotiation (ALPN) to negotiate with clients connecting to HTTPS listeners, and supports both HTTP/1.1 and HTTP/2. If the client connecting to the ALB is using HTTP/2, then the ALB also uses HTTP/2 as its preferred protocol, and processes the request to the back-end pool. Otherwise, HTTP/1.1 is chosen by default.
+{{site.data.keyword.alb_full}} uses Application-Layer Protocol Negotiation (ALPN) to negotiate with clients connecting to HTTPS listeners, and supports both HTTP and HTTPS protocols.
 
 The HTTP/2 protocol is not yet supported for back-end pools. However, HTTP and HTTPS protocols are supported.
 {: note}
