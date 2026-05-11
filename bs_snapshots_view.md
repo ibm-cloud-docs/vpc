@@ -2,7 +2,7 @@
 
 copyright:
   years: 2021, 2026
-lastupdated: "2026-05-07"
+lastupdated: "2026-05-11"
 
 keywords: view snapshots, view snapshot, viewing snapshots, see snapshots, Block Storage snapshots
 
@@ -56,7 +56,7 @@ Click the settings icon ![Settings icon](../icons/settings.svg "Settings") to di
 | Field | Description |
 |-------|-------------|
 | Encryption | It shows [IBM-managed encryption](/docs/vpc?topic=vpc-vpc-encryption-about&interface=ui#vpc-provider-managed-encryption) or [customer-managed encryption](/docs/vpc?topic=vpc-vpc-encryption-about&interface=ui#vpc-customer-managed-encryption). The encryption is inherited from the source volume. |
-| Fast restore status | Status of restore as enabled, pending, or disabled. |
+| Fast restore status | It indicates whether fast restore clones are available for the snapshots. The possible statuses are enabled, pending, or disabled. |
 | Resource group |The resource group that the snapshot belongs to.|
 | Bootable | Yes or No. It shows whether the snapshot was taken of a boot volume or a data volume. |
 | Created by | It shows whether the snapshot was created by the user or a [backup policy](/docs/vpc?topic=vpc-backup-service-about&interface=ui#backup-service-concepts). |
@@ -69,7 +69,7 @@ By clicking the Actions icon ![Actions icon](../icons/action-menu-icon.svg "Acti
    - Copy CRN.
    - [Create volume](/docs/vpc?topic=vpc-snapshots-vpc-restore#snapshots-vpc-restore-ui).
    - [Create snapshot copy](/docs/vpc?topic=vpc-snapshots-vpc-create&interface=ui#crsnapshots-vpc-create-ui).
-   - [Share snapshot](/docs/vpc?topic=vpc-snapshots-vpc-manage&interface=ui#snapshots-vpc-s2s-ui).
+   - [Share a snapshot](/docs/vpc?topic=vpc-snapshots-vpc-manage&interface=ui#snapshots-vpc-s2s-ui).
    - [Manage share permissions](/docs/vpc?topic=vpc-snapshots-vpc-manage&interface=ui#snapshots-vpc-s2s-update-ui).
    - [Edit fast restore](/docs/vpc?topic=vpc-snapshots-vpc-manage#snapshots-edit-fast-restore).
    - [Delete](/docs/vpc?topic=vpc-snapshots-vpc-manage#snapshots-vpc-delete-snapshot-ui).
