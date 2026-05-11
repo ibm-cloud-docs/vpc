@@ -2,7 +2,7 @@
 
 copyright:
   years: 2019, 2026
-lastupdated: "2026-03-23"
+lastupdated: "2026-05-11"
 
 keywords: vpc Block Storage, provision Block Storage for vpc, bootable snapshots, create volume from snapshot, fast restore
 
@@ -821,7 +821,7 @@ curl -X POST "$vpc_api_endpoint/v2/volumes?version=2024-09-27&generation=2" \
       "name": "my-special-volume-1",
       "iops": 3000,
       "capacity": 250,
-      "bandwidth": 5000
+      "bandwidth": 5000,
       "zone": {"name": "us-east-2"},
       "profile": {"name": "sdp"},
       "encryption_key":{"crn":"crn:[...]"},

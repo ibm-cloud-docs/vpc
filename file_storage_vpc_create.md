@@ -2,7 +2,7 @@
 
 copyright:
   years: 2021, 2026
-lastupdated: "2026-05-07"
+lastupdated: "2026-05-11"
 
 keywords: file share, file storage, virtual network interface, encryption in transit, profiles,
 
@@ -848,7 +848,7 @@ Access to the mount target is VPC wide; all instances in the VPC have access to 
 
 ```sh
 curl -X POST \
-"$vpc_api_endpoint/v1/shares?version=2025-09-23&generation=2\
+"$vpc_api_endpoint/v1/shares?version=2025-09-23&generation=2"\
 -H "Authorization: Bearer $iam_token"\
 -H 'Content-Type: application/json'\
 -d '{
@@ -947,7 +947,7 @@ curl -X POST "$vpc_api_endpoint/v1/shares?version=2023-08-08&generation=2"\
      "zone": {"name": "us-south-1"},
      "mount_targets": [{
          "virtual_network_interface": {"subnet": {"id": "4e95744c-7e64-48c9-b5d2-3b6481b1dfde"}},
-         "transit_encryption": {"ipsec"}}]
+         "transit_encryption": "ipsec"}]
 }'
 ```
 {: codeblock}
@@ -1004,13 +1004,13 @@ The following example shows how to add a mount target to a regional file share. 
 curl -X POST "$vpc_api_endpoint/v1/shares?version=2025-09-23&generation=2"\
 -H "Authorization: $iam_token"\
 -d '{
-    "allowed_transit_encryption_modes": ["stunnel,none"],
+    "allowed_transit_encryption_modes": ["stunnel","none"],
     "size": 5000,
     "name": "my-regional-share-1",
     "profile": {"name": "rfs"},
      "mount_targets": [{
          "virtual_network_interface": {"subnet": {"id": "4e95744c-7e64-48c9-b5d2-3b6481b1dfde"}},
-         "transit_encryption": {"stunnel"}}]
+         "transit_encryption": "stunnel"}]
 }'
 ```
 {: codeblock}
@@ -1089,7 +1089,7 @@ curl -X POST "$vpc_api_endpoint/v1/shares?version=2023-09-23&generation=2"\
             "subnet": {"id": "4e95744c-7e64-48c9-b5d2-3b6481b1dfde"},
             "security_groups": [{"id": "34c09abb-37bf-4ef6-88bb-f63a0ef28915"}]
         },
-        "transit_encryption": {"ipsec"}
+        "transit_encryption": "ipsec"
       }]
     }'
 ```
@@ -1119,7 +1119,7 @@ The following response shows that access control mode is `security_group`, which
             "id": "r006-b8573e2c-60ee-4ecc-9eae-c52f890a8195",
             "name": "sticky-idealist-spoiled-sloppily",
             "resource_type": "share_target",
-            "transit_encryption": {"ipsec"}
+            "transit_encryption": "ipsec"
         }
     ],
     "profile": {
@@ -1167,7 +1167,7 @@ curl -X POST "$vpc_api_endpoint/v1/shares?version=2023-08-08&generation=2" \
     "allowed_transit_encryption_modes": ["none"],
     "mount_targets": [{
         "name": "mount-target-1",
-        "transit_encryption": {"none"},
+        "transit_encryption": "none",
         "virtual_network_interface": {"id": "0767-fa41aecb-4f21-423d-8082-630bfba1e1d9"}
       }]
     }'

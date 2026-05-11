@@ -2,7 +2,7 @@
 
 copyright:
   years: 2022, 2026
-lastupdated: "2026-05-04"
+lastupdated: "2026-05-11"
 
 keywords: file storage, file share, view share details, mount targets, view targets, view share
 
@@ -330,7 +330,7 @@ For more information about the command options, see [`ibmcloud is share`](/docs/
 ### Viewing share bindings of a file share from the CLI
 {: #fs-view-share-bindings-cli}
 
-To view the accessor share bindings that are linked to an origin share from the CLI, use the `ibmcloud is share-accesssor-bindings` command. See the following example.
+To view the accessor share bindings that are linked to an origin share from the CLI, use the `ibmcloud is share-accessor-bindings` command. See the following example.
 
 ```sh
 ibmcloud is share-accessor-bindings my-origin-share
@@ -349,7 +349,7 @@ Viktoria_Muirhead@cloudshell:~$
 ### Viewing a specific share binding of a file share from the CLI
 {: #fs-view-share-binding-cli}
 
-To view a specific accessor share binding that is linked to an origin share from the CLI, use the `ibmcloud is share-accesssor-binding` command. See the following example.
+To view a specific accessor share binding that is linked to an origin share from the CLI, use the `ibmcloud is share-accessor-binding` command. See the following example.
 
 ```sh
 ibmcloud is share-accessor-binding my-origin-share r006-b5707b7b-1ac7-48c9-8fc3-4ba65b91e36f
