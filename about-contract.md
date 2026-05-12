@@ -2,7 +2,7 @@
 
 copyright:
   years: 2022, 2026
-lastupdated: "2026-03-20"
+lastupdated: "2026-05-12"
 
 keywords: confidential computing, enclave, secure execution, hpcr, contract, customization, schema, contract schema, env, workload, encryption
 
@@ -804,7 +804,7 @@ Complete the following steps on an Ubuntu system to encrypt the workload section
    ```
    {: pre}
 
-5. Starting with OpenSSL 3.0, the OpenSSL rsautl sub command is deprecated, and might be removed in a future release. As a replacement, OpenSSL recommends using the `pkeyutl` sub command. Use one of the following commands to encrypt password with `ibm-hyper-protect-container-runtime-1-0-s390x-26-encrypt.crt`:
+5. Starting with OpenSSL 3.0, the OpenSSL rsautl sub command is deprecated. As a replacement, OpenSSL recommends using the `pkeyutl` sub command. Use one of the following commands to encrypt password with `ibm-hyper-protect-container-runtime-1-0-s390x-26-encrypt.crt`:
 
 
    - Using `rsautl` (deprecated):
@@ -881,7 +881,7 @@ Complete the following steps on an Ubuntu system to encrypt the `env` section us
    ```
    {: pre}
 
-4. Starting with OpenSSL 3.0, the OpenSSL rsautl sub command is deprecated, and might be removed in a future release. As a replacement, OpenSSL recommends using the `pkeyutl` sub command. Use one of the following commands to encrypt password with `ibm-hyper-protect-container-runtime-1-0-s390x-26-encrypt.crt`:
+4. Starting with OpenSSL 3.0, the OpenSSL rsautl sub command is deprecated. As a replacement, OpenSSL recommends using the `pkeyutl` sub command. Use one of the following commands to encrypt password with `ibm-hyper-protect-container-runtime-1-0-s390x-26-encrypt.crt`:
 
    - Using `rsautl` (deprecated):
 
@@ -1071,7 +1071,7 @@ Complete the following steps on an Ubuntu system to create the contract signatur
    ```
    {: pre}
 
-9. Starting with OpenSSL 3.0, the OpenSSL rsautl sub command is deprecated, and might be removed in a future release. As a replacement, OpenSSL recommends that you use the pkeyutl sub command. Use one of the following commands to encrypt password with `ibm-hyper-protect-container-runtime-1-0-s390x-26-encrypt.crt`:
+9. Starting with OpenSSL 3.0, the OpenSSL rsautl sub command is deprecated. As a replacement, OpenSSL recommends that you use the pkeyutl sub command. Use one of the following commands to encrypt password with `ibm-hyper-protect-container-runtime-1-0-s390x-26-encrypt.crt`:
 
     - Using `rsautl` (deprecated):
 
