@@ -2,7 +2,7 @@
 
 copyright:
   years: 2022, 2026
-lastupdated: "2026-03-20"
+lastupdated: "2026-05-12"
 
 keywords: confidential computing, enclave, secure execution, hpcr, hyper protect virtual server for vpc
 
@@ -193,42 +193,42 @@ d1eccc9b91b09a67097073cee8d9a8046a2a0bd658b88920f36c8ec4b823f050 contract:envWor
 
 The `baseimage` is the IBM internal QEMU Copy On Write Version 2 (QCOW2) file, which is used as the source for most of the operating system files of the Hyper Protect Container Runtime image. It is used only at image build time by the enabler process. The enabler uses this source with other Debian packages to create the `root.tar.gz` and the encrypted secure execution kernel or an 'initrd' image.
 
-Following is the shasum of the ibm-hyper-protect-container-runtime-1-0-s390x-26 `baseimage`:
+The following is the shasum of the ibm-hyper-protect-container-runtime-1-0-s390x-26 `baseimage`:
 
 ```sh
 f8614f9f6a39302b97b0a590e14b2e64affddb0f98ef459bf0f8c7f185c98bd5 baseimage
 ```
 {: pre}
 
-Following is the shasum of the ibm-hyper-protect-container-runtime-1-0-s390x-25 `baseimage`:
+The following is the shasum of the ibm-hyper-protect-container-runtime-1-0-s390x-25 `baseimage`:
 
 ```sh
 f73df7d02327896fbda67f6e7368c3e27fe5e15b580cdfdb60e7310afeed5b75 baseimage
 ```
 {: pre}
 
-Following is the shasum of the ibm-hyper-protect-container-runtime-1-0-s390x-24 `baseimage`:
+The following is the shasum of the ibm-hyper-protect-container-runtime-1-0-s390x-24 `baseimage`:
 
 ```sh
 14d2a725746bf9a6cbf9847e09422f5a97609d03f15b373519a16015619f227d baseimage
 ```
 {: pre}
 
-Following is the shasum of the ibm-hyper-protect-container-runtime-1-0-s390x-23 `baseimage`:
+The following is the shasum of the ibm-hyper-protect-container-runtime-1-0-s390x-23 `baseimage`:
 
 ```sh
 3e13f7658ef790dbc040e90ff4f8d537c9c10da879b0b16df9e98265c7b5170a baseimage
 ```
 {: pre}
 
-Following is the shasum of the ibm-hyper-protect-container-runtime-1-0-s390x-22 `baseimage`:
+The following is the shasum of the ibm-hyper-protect-container-runtime-1-0-s390x-22 `baseimage`:
 
 ```sh
 538170f79b7bd44553847e81afce7ae14c8ea8857df243e4f8656c9d06d42c18 baseimage
 ```
 {: pre}
 
-Following is the shasum of the ibm-hyper-protect-container-runtime-1-0-s390x-21 `baseimage`:
+The following is the shasum of the ibm-hyper-protect-container-runtime-1-0-s390x-21 `baseimage`:
 
 ```sh
 538170f79b7bd44553847e81afce7ae14c8ea8857df243e4f8656c9d06d42c18 baseimage
@@ -242,42 +242,42 @@ Following is the shasum of the ibm-hyper-protect-container-runtime-1-0-s390x-21 
 
 The `root.tar.gz` is part of the final secure execution that is enabled by an IBM Hyper Protect Container Runtime image and contains all operating system files. It is stored on the first partition (boot partition) of the image as `/boot/root.tar.gz`.
 
-Following is the shasum of the ibm-hyper-protect-container-runtime-1-0-s390x-26 `root.tar.gz`.
+The following is the shasum of the ibm-hyper-protect-container-runtime-1-0-s390x-26 `root.tar.gz`.
 
 ```sh
 f700d860d931d953bffa6a7f2593ec53074a757c0184bcfbea0648de7f2b501b root.tar.gz
 ```
 {: pre}
 
-Following is the shasum of the ibm-hyper-protect-container-runtime-1-0-s390x-25 `root.tar.gz`.
+The following is the shasum of the ibm-hyper-protect-container-runtime-1-0-s390x-25 `root.tar.gz`.
 
 ```sh
 3c5866a25d0e64c47e56ba29238b96435c6a81933d4e19bf3bc0704c0504d16b root.tar.gz
 ```
 {: pre}
 
-Following is the shasum of the ibm-hyper-protect-container-runtime-1-0-s390x-24 `root.tar.gz`.
+The following is the shasum of the ibm-hyper-protect-container-runtime-1-0-s390x-24 `root.tar.gz`.
 
 ```sh
 a93839d82b98323665740a12ca2b30107bd8488e02eb411a6db6c17703b9b5cf root.tar.gz
 ```
 {: pre}
 
-Following is the shasum of the ibm-hyper-protect-container-runtime-1-0-s390x-23 `root.tar.gz`.
+The following is the shasum of the ibm-hyper-protect-container-runtime-1-0-s390x-23 `root.tar.gz`.
 
 ```sh
 84ae048bc5d88e99f6ec13b4c4ba3e2ffe5f10285f7dd71a65ea99eaa1838ce0 root.tar.gz
 ```
 {: pre}
 
-Following is the shasum of the ibm-hyper-protect-container-runtime-1-0-s390x-22 `root.tar.gz`.
+The following is the shasum of the ibm-hyper-protect-container-runtime-1-0-s390x-22 `root.tar.gz`.
 
 ```sh
 ff09f53f19d0f82ca24d4f2d5277c851516734c3d55ae7f8db47cde378a51ec9 root.tar.gz
 ```
 {: pre}
 
-Following is the shasum of the ibm-hyper-protect-container-runtime-1-0-s390x-21 `root.tar.gz`.
+The following is the shasum of the ibm-hyper-protect-container-runtime-1-0-s390x-21 `root.tar.gz`.
 
 ```sh
 024ff109be23e1e4e7b9f07dc553afc60a5a93645939eedf2a936930cc8a44ae root.tar.gz
