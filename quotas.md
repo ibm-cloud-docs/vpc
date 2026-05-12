@@ -2,7 +2,7 @@
 
 copyright:
   years: 2018, 2026
-lastupdated: "2026-03-31"
+lastupdated: "2026-05-12"
 
 keywords:
 
@@ -135,7 +135,7 @@ The combined total of the address prefixes quota and the [advertised routes quot
 
 | Resource | Quota |
 |--------|-----|
-| Maximum number of public address ranges per account per region | 5 |
+| Maximum number of IPv4 public address ranges per account per region | 5 |
 | Prefix size | `/32` to `/28` |
 {: caption="Quotas for public address ranges" caption-side="bottom"}
 
