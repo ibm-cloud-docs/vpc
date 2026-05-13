@@ -2,7 +2,7 @@
 
 copyright:
   years: 2022, 2026
-lastupdated: "2026-02-02"
+lastupdated: "2026-05-13"
 
 keywords: Backup, backup snapshot, create backups, backup service, backup plan, backup policy, restore, restore volume, restore data, restore share
 
@@ -26,7 +26,9 @@ You can create backup policies for your {{site.data.keyword.block_storage_is_sho
 2. Create user tags for new or existing resources (storage volumes, shares, or virtual server instances) that you can associate with a backup policy. For more information about adding tags, see [Apply tags to resources for backup policies](/docs/vpc?topic=vpc-backup-use-policies). For more information about creating tags, see [Working with tags](/docs/account?topic=account-tag).
 
 You're not required to create a backup plan when you create a backup policy, but it's good practice to create at least one backup plan with your policy.
-{: tip}
+
+Backup jobs do not start until the scheduled time, and may start for up to 90 minutes after the scheduled time. For example, if you schedule a backup to run at 7:00 PM UTC, the backup job starts sometime between 7:00 PM and 8:30 PM UTC.
+{: note}
 
 ## Creating a backup policy and plan in the console
 {: #backup-policy-create-ui}

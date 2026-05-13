@@ -2,7 +2,7 @@
 
 copyright:
   years: 2022, 2026
-lastupdated: "2026-04-16"
+lastupdated: "2026-05-13"
 
 keywords: backup planning, restore volume, restore data
 
@@ -41,7 +41,7 @@ Consider the following prerequisites before you set up the VPC Backup Service.
 | Monitoring | Backup jobs that create or delete backup snapshots run according to the backup plan and the retention policy. You can check their status in the console, from the CLI, with the API, or Terraform. If a job fails, the health status code shows the reason for the failure. For more information, see [Viewing backup jobs](/docs/vpc?topic=vpc-backup-view-policy-jobs). You can also set up a connection to {{site.data.keyword.en_short}} and receive alerts to your preferred destinations. For more information, see [Enabling event notifications for Backup for VPC](/docs/vpc?topic=vpc-event-notifications-events). |
 |**Creating backups**: |
 | Prerequisites | Verify that the volume is attached to a virtual server instance and that the instance is in a running state. |
-| Backup frequency | Verify that the plan that you selected is creating backups at the interval that you want. Backups do not occur instaneously like manually created snapshots. Backups usually occur within an hour of being triggered by a backup plan schedule. |
+| Backup frequency | Verify that the plan that you selected is creating backups at the interval that you want. Backups do not occur immediately like manually created snapshots. Backups usually start within 90 minutes of being triggered by a backup plan schedule. |
 | Timing | Consistency group backups: Creating crash-consistent snapshots of multiple volumes that are attached to the same virtual server instance leads to a short-lived I/O suspension that can last from a few milliseconds to a few seconds. The duration depends on the number and size of volumes that are connected to your virtual server instance. It is recommended to run your automated backup job during off-peak hours to minimize any impact on performance. |
 | Tags | Verify that at least one of your policy tags matches at least one tag of each resource that you want to back up. When you decide on the tags for your target resources, confirm that other policies are not using the same tags unless you want the resource to be backed up by multiple policies. |
 |**Restoring a volume from a backup snapshot**: |

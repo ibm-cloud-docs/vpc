@@ -2,7 +2,7 @@
 
 copyright:
   years: 2022, 2026
-lastupdated: "2026-03-12"
+lastupdated: "2026-05-13"
 
 keywords: Backup for VPC, backup service, backup plan, backup policy, restore, restore volume, restore data, faqs
 
@@ -64,6 +64,16 @@ You can create up to 750 backups per volume or share. Consider how your billing 
 {: #faq-backup-jobs}
 
 Backup policy jobs, or backup jobs for short, are triggered when a scheduled backup snapshot is being created or deleted. If the create or delete action is successful, the backup job contains information about the backup snapshot that was created or deleted. If the job ran unsuccessfully, the job contains the reason for the failure. For more information, see [Viewing backup jobs](/docs/vpc?topic=vpc-backup-view-policy-jobs).
+
+## When do backup jobs start running?
+{: faq}
+{: #faq-backup-job-timing}
+
+Backup policy jobs are scheduled to run at a specific time that you define in your backup plan. However, the actual start time can vary. Backup jobs do not start until the scheduled time, and may start for up to 90 minutes after the scheduled time.
+
+For example, if you schedule a backup to run at 7:00 PM UTC, the backup job starts sometime between 7:00 PM and 8:30 PM UTC. This window allows the backup service to manage job execution efficiently while ensuring that jobs never start before the scheduled time.
+
+When you create backup plans within the same policy, ensure that all backup schedules are at least an hour apart to avoid conflicts.
 
 ## Can I back up my volume snapshots?
 {: faq}
