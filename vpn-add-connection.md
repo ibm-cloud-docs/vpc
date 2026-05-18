@@ -2,7 +2,7 @@
 
 copyright:
   years: 2020, 2026
-lastupdated: "2026-05-07"
+lastupdated: "2026-05-18"
 
 keywords:
 
@@ -18,7 +18,7 @@ subcollection: vpc
 You can add connections when [creating a VPN gateway](/docs/vpc?topic=vpc-vpn-create-gateway&interface=ui), or after provisioning one. When you configure a VPN connection, you can choose to connect with auto-negotiation or use a pre-defined custom IKE or IPsec policy. For more information, see [About policy negotiation](/docs/vpc?topic=vpc-using-vpn#policy-negotiation).
 {: shortdesc}
 
-The IKE and IPsec security options that you specify for the connection must exactly match the ones that are set on the peer gateway for the network outside your VPC.
+The IKE and IPsec security options that you specify for the VPN connection must exactly match the ones that are set on the peer gateway for the network outside your VPC.
 {: important}
 
 ## Adding a connection in the console
@@ -47,7 +47,7 @@ To add a VPN connection to an existing VPN gateway, follow these steps:
        - **Bidirectional** mode initiates IKE protocol negotiations (or rekeying processes) from either side of the VPN gateway.
        - **Peer only** mode allows the peer to initiate IKE protocol negotiations for this VPN gateway connection. The peer is also responsible for initiating the rekeying process after the connection is established.
 
-      If your peer device is behind a NAT device and doesn't have a public IP address, make sure to specify **Peer only**. 
+      If your peer device is behind a NAT device and doesn't have a public IP address, make sure to specify **Peer only**.
       {: important}
 
    * **Preshared key** - Specify the authentication key of the VPN gateway for the network outside your VPC. The preshared key is a string of hexadecimal digits, or a passphrase of printable ASCII characters. To be compatible with most peer gateway types, this string must follow these rules:
