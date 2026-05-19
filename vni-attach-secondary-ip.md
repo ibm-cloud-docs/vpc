@@ -1,8 +1,8 @@
 ---
 
 copyright:
-  years: 2023, 2025
-lastupdated: "2025-06-18"
+  years: 2023, 2026
+lastupdated: "2026-05-19"
 
 keywords:
 
@@ -53,7 +53,7 @@ export IBMCLOUD_IS_FEATURE_VNI_PHASE_II=true
 Then run the following command:
 
 ```sh
-ibmcloud is virtual-network-interface-update VIRTUAL_NETWORK_INTERFACE --name NEW_NAME [--allow-ip-spoofing false | true] [--auto-delete false | true] [--enable-infrastructure-nat false | true] [--output JSON] [-q, --quiet]
+ibmcloud is virtual-network-interface-reserved-ip-bind VIRTUAL_NETWORK_INTERFACE RESERVED_IP [--output JSON] [-q, --quiet]
 ```
 {: pre}
 
@@ -62,17 +62,8 @@ Where:
 `VIRTUAL_NETWORK_INTERFACE`
 :   ID or name of the virtual network interface.
 
-`--name`
-:   Name of the virtual network interface.
-
-`--allow-ip-spoofing`
-:   Indicates whether source IP spoofing is allowed on this interface. If `false`, source IP spoofing is prevented on this interface. If `true`, source IP spoofing is allowed on this interface. One of: `false`, `true`.
-
-`--auto-delete`
-:   Indicates whether this virtual network interface will be automatically deleted when target is deleted. Must be `false` if the virtual network interface is unbound. One of: `false`, `true`.
-
-`--enable-infrastructure-nat`
-:   If `true`, the VPC infrastructure performs any needed NAT operations. If `false`, packets are passed unchanged to/from the network interface, allowing the workload to perform any needed NAT operations. One of: `false`, `true`.
+`RESERVED_IP`
+:   ID or name of the reserved IP.
 
 `--output`
 :   Specify output format, only JSON is supported. One of: `JSON`.
@@ -80,13 +71,17 @@ Where:
 `-q, --quiet`
 :   Suppress verbose output.
 
+
+
 ### Command examples
 {: #vni-existing-secondary-ip-cli-command-examples}
 
-- `ibmcloud is virtual-network-interface-update 72251a2e-d6c5-42b4-97b0-b5f8e8d1f479 --name new-vni`
-- `ibmcloud is virtual-network-interface-update new-vni --name new-share`
-- `ibmcloud is virtual-network-interface-update 7208-8918786e-5958-42fc-9e4b-410c5a58b164 --name cli-vni-1 --allow-ip-spoofing false --auto-delete false --enable-infrastructure-nat false`
-- `ibmcloud is virtual-network-interface-update cli-vni-1 --name cli-vni-2 --allow-ip-spoofing false --auto-delete true --enable-infrastructure-nat false`
+
+
+- `ibmcloud is virtual-network-interface-reserved-ip-bind my-vni my-reserved-ip`
+- `ibmcloud is virtual-network-interface-reserved-ip-bind 72251a2e-d6c5-42b4-97b0-b5f8e8d1f479 0717-6d353a0f-aeb1-4ae1-832e-1110d10981bb`
+
+
 
 ## Attaching a secondary IP to an existing virtual network interface from the API
 {: #vni-existing-secondary-ip-api}

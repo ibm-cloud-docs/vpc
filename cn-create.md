@@ -1,8 +1,8 @@
 ---
 
 copyright:
-  years: 2024, 2025
-lastupdated: "2025-12-30"
+  years: 2024, 2026
+lastupdated: "2026-05-19"
 
 keywords:
 
@@ -50,7 +50,7 @@ To create a cluster network in the console, follow these steps:
    * **Resource group**: Select a resource group for the virtual network interface.
    * **Tags**: (Optional) Add tags to help you organize and find your resources. You can add more tags later. For more information, see [Working with tags](/docs/account?topic=account-tag).
    * **Virtual private cloud**: Choose the VPC to associate the cluster network with.
-1. Choose the required profile for your cluster network. Available profile is Hopper 1 (`hopper-1`).
+1. Choose the required profile for your cluster network. Available profile is Hopper 1 (`hopper-1`)
 
 1. To add cluster subnets to your cluster network, enable the **Cluster network subnets** section. You can add cluster subnets now, or after you create your cluster network.
    * For Hopper 1, select the total number of cluster subnets that you want to create (8, 16, or 32).
@@ -94,7 +94,7 @@ To create a cluster network from the CLI, follow these steps:
    :    The zone this cluster network resides in. The zone must be listed as supported on the specified cluster network profile. For more information, see [Cluster network supported regions and zones](/docs/vpc?topic=vpc-planning-cluster-network&interface=ui#cn-supported-regions).
 
    `--profile`
-   :    Name of the profile to use for this cluster network. Available profiles are `hopper-1` for Hopper 1 cluster network.
+   :    Name of the profile to use for this cluster network. Available profiles are `hopper-1` for Hopper 1  cluster network.
 
    `--name`
    :    Name for the cluster network.
@@ -187,7 +187,7 @@ To create a cluster network with the API, follow these steps:
    ```
    {: codeblock}
 
-   Available cluster network profiles name is `hopper-1`.
+   Available cluster network profiles name is `hopper-1` 
    {: note}
 
 To view the complete set of cluster network APIs, see the [VPC API reference](/apidocs/vpc/latest#list-cluster-network-profiles).

@@ -2,7 +2,7 @@
 
 copyright:
   years: 2021, 2026
-lastupdated: "2026-03-30"
+lastupdated: "2026-05-19"
 
 keywords: ike policy
 
@@ -84,14 +84,14 @@ Where:
 - Create an IKE policy with the same parameters and a 3600-second lifetime:
 
    ```sh
-   ibmcloud is ipsec-policy-create my-ipsec-policy sha256 14 aes128 2 --key-lifetime 3600
+   ibmcloud is ike-policy-create my-ike-policy sha256 14 aes128 2 --key-lifetime 3600
    ```
    {: pre}
 
 - Create an IKE policy with the same parameters and a resource group ID:
 
    ```sh
-   ibmcloud is ipsec-policy-create my-ipsec-policy sha256 14 aes128 2 --resource-group-id fee82deba12e4c0fb69c3b09d1f12345 --output JSON
+   ibmcloud is ike-policy-create my-ike-policy sha256 14 aes128 2 --resource-group-id fee82deba12e4c0fb69c3b09d1f12345 --output JSON
    ```
    {: pre}
 

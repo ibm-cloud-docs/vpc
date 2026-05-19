@@ -1,8 +1,8 @@
 ---
 
 copyright:
-  years: 2020, 2025
-lastupdated: "2025-06-18"
+  years: 2020, 2026
+lastupdated: "2026-05-19"
 
 keywords: custom routes
 
@@ -72,19 +72,19 @@ Where:
 `--q, quiet`
 :   Causes the command to run silently and does not generate any output.
 
+
+
 ### CLI examples
 {: #examples-cli-route-update}
 {: cli}
+
+
 
 `ibmcloud is vpc-routing-table-route-update 72b27b5c-f4b0-48bb-b954-5becc7c1dcb3 72b27b5c-f4b0-48bb-b954-5becc7c1d456 72b27b5c-f4b0-48bb-b954-5becc7c1d4ef --name my-vpc-route --priority 1`
 
 `ibmcloud is vpc-routing-table-route-update 72b27b5c-f4b0-48bb-b954-5becc7c1dcb3 72b27b5c-f4b0-48bb-b954-5becc7c1d456 72b27b5c-f4b0-48bb-b954-5becc7c1d4ef --name my-vpc-route --next-hop 10.0.0.2`
 
-`ibmcloud is vpc-routing-table-update 72b27b5c-f4b0-48bb-b954-5becc7c1dcb3 72b27b5c-f4b0-48bb-b954-5becc7d1d2d3 -—advertise_routes_to direct_link --direct-link-ingress true -—output JSON`
 
-`ibmcloud is vpc-routing-table-update my-vpc my-vpc-routing-table -—advertise-routes-to transit_gateway  -—transit-gateway-ingress true --output JSON`
-
-`ibmcloud is vpc-routing-table-update my-vpc my-vpc-routing-table -—advertise-routes-to direct_link, transit_gateway  --direct-link-ingress true —transit-gateway-ingress true -—output JSON`
 
 ## Updating a route with the API
 {: #cr-route-update-the-api}

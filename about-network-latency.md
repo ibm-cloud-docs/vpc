@@ -2,7 +2,7 @@
 
 copyright:
   years: 2023, 2026
-lastupdated: "2026-05-11"
+lastupdated: "2026-05-18"
 
 keywords: data center latency, latency dashboard, network latency, inter-AZ latency, Inter-region latency
 subcollection: vpc
