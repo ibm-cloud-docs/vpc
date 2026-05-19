@@ -2,7 +2,7 @@
 
 copyright:
   years: 2024, 2026
-lastupdated: "2026-05-07"
+lastupdated: "2026-05-19"
 
 keywords:
 
@@ -151,7 +151,7 @@ The following dependencies apply to the following deployment locations: Dallas (
 ## Data plane deployment for NGDC
 {: #data-plane-deployment-for-ngdc}
 
-The following dependencies apply to the following deployment locations: Chennai - Airtel (in-che), Montreal (ca-mon).
+The following dependencies apply to the following deployment locations: Chennai - Airtel (in-che), Montreal (ca-mon), Mumbai (mum).
 
 
 |Dependencies|Dependency impacts|Customer provided|Control or data plane|Location of dependency|
@@ -610,7 +610,7 @@ The following dependencies apply to the following deployment locations: Dallas (
 ## Data and Control plane deployment for NGDC
 {: #data-and-control-plane-deployment-for-ngdc}
 
-The following dependencies apply to the following deployment locations: Chennai - Airtel (in-che), Montreal (ca-mon).
+The following dependencies apply to the following deployment locations: Chennai - Airtel (in-che), Montreal (ca-mon), Mumbai (mum).
 
 
 |Dependencies|Dependency impacts|Customer provided|Control or data plane|Location of dependency|
@@ -706,7 +706,7 @@ The following dependencies apply to the following deployment locations: Dallas (
 ## Data plane deployment for NGDC
 {: #data-plane-deployment-for-ngdc}
 
-The following dependencies apply to the following deployment locations: Chennai - Airtel (in-che), Montreal (ca-mon).
+The following dependencies apply to the following deployment locations: Chennai - Airtel (in-che), Montreal (ca-mon), Mumbai (mum).
 
 
 |Dependencies|Dependency impacts|Customer provided|Control or data plane|Location of dependency|
@@ -814,7 +814,7 @@ The following dependencies apply to the following deployment locations: Dallas (
 ## NGDC Data plane deployment
 {: #ngdc-data-plane-deployment}
 
-The following dependencies apply to the following deployment locations: Chennai - Airtel (in-che), Montreal (ca-mon).
+The following dependencies apply to the following deployment locations: Chennai - Airtel (in-che), Montreal (ca-mon), Mumbai (mum).
 
 
 |Dependencies|Dependency impacts|Customer provided|Control or data plane|Location of dependency|
