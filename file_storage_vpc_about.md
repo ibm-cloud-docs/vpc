@@ -43,7 +43,7 @@ All profiles are backed by solid-state drives (SSDs). For more information, see 
 
 You can create file shares with the `dp2` profile at a zonal level, for example in `us-south-1`. File shares are identified by name and associated with a resource group in your {{site.data.keyword.cloud_notm}} customer account.
 
-You create a file share in a zone and create the mount target for the share in the VPC. You can control how the file share is accessed by specifying the [access mode](#fs-mount-access-mode): targeted access for specific instances or VPC-wide access.
+You create a file share in a zone and create the mount target for the share in the VPC. You can control how the file share is accessed by specifying the [access mode](#fs-mount-access-mode): targeted access for specific instances or [Deprecated]{: tag-deprecated} VPC-wide access.
 
 You can set up [replication](/docs/vpc?topic=vpc-file-storage-replication) between the source file share and a replica file share in different zones. So if an outage at the primary site was to occur, you can fail over to the replica file share and continue operations.
 
@@ -109,7 +109,7 @@ When you create a mount target for a zonal share with security access group mode
 
 ![Zonal File shares can be accessed by multiple compute hosts within the region.](images/ZonalFile.svg "A zonal file share can be accessed by multiple hosts within the region by using the same mount target. Security groups provide granular access control."){: caption="Zonal file shares" caption-side="bottom"}
 
-Cross-zone mounting is not supported for file shares with VPC-wide access mode.
+Cross-zone mounting is not supported for file shares with [Deprecated]{: tag-deprecated} VPC-wide access mode.
 
 Cross-zone mounting is not applicable for regional file shares. For more information, see the following section.
 
@@ -242,7 +242,7 @@ All mount targets created for a single file share must use the same transit encr
 
 For more information about sharing and mounting a file share from another {{site.data.keyword.cloud}} account or VPC, see [Sharing and mounting a file share from another account](/docs/vpc?topic=vpc-file-storage-accessor-create&interface=ui).
 
-Sharing a file share with other accounts or services is not supported for zonal file shares with VPC-wide access mode.
+Sharing a file share with other accounts or services is not supported for zonal file shares with [Deprecated]{: tag-deprecated} VPC-wide access mode.
 
 ### Activity tracking events
 {: #fs-activity-tracking-events}
