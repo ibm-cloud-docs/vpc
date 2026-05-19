@@ -1,8 +1,8 @@
 ---
 
 copyright:
-  years: 2024, 2025
-lastupdated: "2025-12-30"
+  years: 2024, 2026
+lastupdated: "2026-05-19"
 
 keywords:
 
@@ -53,10 +53,10 @@ Review the following planning considerations before you create a cluster network
 
 * Plan your cluster network subnets based on the recommended number for the instance profile.
 
-   | Cluster network profile | Instance profile       | Subnet-to-vNIC ratio | Supported cluster vNICs | Recommended subnets |
-   |-------------------------|------------------------|----------------------|-------------------------|---------------------|
-   | `hopper-1`              | `gx3d-160x1792x8h100`  | 1:1                  | 8, 16, or 32            | Match vNIC count    |
-   | `hopper-1`              | `gx3d-160x1792x8h200`  | 1:1                  | 8, 16, or 32            | Match vNIC count    |
+   |Cluster network profile|Instance profile|Subnet-to-vNIC ratio|Supported cluster vNICs|Recommended subnets|
+   |-----------------------|-----------------|--------------------|-----------------------|-------------------|
+   |`hopper-1`|`gx3d-160x1792x8h100`|1:1|8, 16, or 32|Match vNIC count|
+   |`hopper-1`|`gx3d-160x1792x8h200`|1:1|8, 16, or 32|Match vNIC count|
    {: caption="Recommended cluster subnet configuration per instance profile." caption-side="bottom"}
 
    If you're unsure how many vNICs to use with Hopper 1 instance profiles, start with 8.
@@ -99,10 +99,10 @@ You can apply the following considerations only through the API and CLI.
 
 The following table provides an overview of the supported regions and zones for cluster networks.
 
-| Cluster network profile | Instance profile                                          | Region                       |Zone                 | Universal zone name   |
-|------------------------ |-----------------------------------------------------------|------------------------------|---------------------|-----------------------|
-| `hopper-1`              | `gx3d-160x1792x8h100` \n `gx3d-160x1792x8h200`            | Frankfurt (`eu-de`)          |`eu-de-2`            | `eu-de-fra02-a`       |
-| `hopper-1`              | `gx3d-160x1792x8h100` \n `gx3d-160x1792x8h200`            | Washington DC (`us-east`)    |`us-east-3`          | `us-east-wdc07-a`     |
+|Cluster network profile|Instance profile|Region|Zone|Universal zone name|
+|-----------------------|----------------|-------|----|------------------|
+|`hopper-1`|`gx3d-160x1792x8h100` \n `gx3d-160x1792x8h200`|Frankfurt (`eu-de`)|`eu-de-2`|`eu-de-fra02-a`|
+|`hopper-1`|`gx3d-160x1792x8h100` \n `gx3d-160x1792x8h200`|Washington DC (`us-east`)|`us-east-3`|`us-east-wdc07-a`|
 {: caption="Zone availability for cluster networks and instances." caption-side="bottom"}
 
 To understand how various regions correspond to zones, see [zone mapping per account](/docs/overview?topic=overview-locations#zone-mapping).
