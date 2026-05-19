@@ -1,8 +1,8 @@
 ---
 
 copyright:
-  years: 2023, 2025
-lastupdated: "2025-12-21"
+  years: 2023, 2026
+lastupdated: "2026-05-19"
 
 keywords:
 
@@ -104,13 +104,19 @@ Where:
 `-q, --quiet`
 :   Suppress verbose output.
 
+
+
 ### Command examples
 {: #cli-command-examples-virtual-network-interface-update}
+
+
 
 - `ibmcloud is virtual-network-interface-update 72251a2e-d6c5-42b4-97b0-b5f8e8d1f479 --name new-vni`
 - `ibmcloud is virtual-network-interface-update new-vni --name new-share`
 - `ibmcloud is virtual-network-interface-update 7208-8918786e-5958-42fc-9e4b-410c5a58b164 --name cli-vni-1 --allow-ip-spoofing false --auto-delete false --enable-infrastructure-nat false --protocol-state-filtering-mode auto`
 - `ibmcloud is virtual-network-interface-update cli-vni-1 --name cli-vni-2 --allow-ip-spoofing false --auto-delete true --enable-infrastructure-nat false --protocol-state-filtering-mode disabled`
+
+
 
 ## Updating a virtual network interface with the API
 {: #vni-api-update}
