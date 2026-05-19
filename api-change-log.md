@@ -2,7 +2,7 @@
 
 copyright:
   years: 2019, 2026
-lastupdated: "2026-05-08"
+lastupdated: "2026-05-19"
 
 keywords: api, change log, new features, restrictions, migrations
 
@@ -53,6 +53,14 @@ At this time, all instances, and therefore all instance templates, continue to r
 
 The new response code will be rolled out gradually. Each phase of the rollout will be tied to a dated API version. These changes will be announced in future change log updates.
 {: note}
+
+## 19 May 2026
+{: #19-may-2026}
+
+### For all version dates
+{: #19-may-2026-all-version-dates}
+
+**Boot volume capacity increase for Gen 2 `sdp` volume profiles.** When [creating an instance](/apidocs/vpc/latest#create-instance), the `capacity` value for a boot volume can be increased from 250 GB to 32,000 GB for Gen 2 `sdp` volume profile. Creating an image from a boot volume by using a Gen 1 volume profile remains limited to a maximum of 250 GB. For more information, see [Creating virtual server instances](/docs/vpc?topic=vpc-creating-virtual-servers&interface=api).
 
 ## 28 April 2026
 {: #28-april-2026}
