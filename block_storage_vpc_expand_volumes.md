@@ -2,7 +2,7 @@
 
 copyright:
   years: 2020, 2026
-lastupdated: "2026-03-12"
+lastupdated: "2026-05-19"
 
 keywords: Block Storage, boot volume, data volume, volume, data storage, virtual server instance, instance, expandable volume
 
@@ -72,9 +72,7 @@ _z/OS_ When you expand Block Storage volume capacity on an existing z/OS virtual
 ### Boot volumes
 {: #expand-boot-vols}
 
-By default, when you create an instance from a stock image, a 100 GB, 3,000 IOPS boot volume is created and attached to the instance. Instances that are created with a custom image or snapshot from the CLI, with the API or Terraform, can have a specified boot volume capacity in the range of 10 GB to 250 GB. In the console, the default minimum capacity of a boot volume is always 100 GB.
-
-Regardless of the image type, you can increase boot volume capacity from its minimum provisioned size up to 250 GB. You can increase the capacity either when you provision an instance or later by updating the boot volume..
+The default boot volume size for most virtual server profiles is 100 GB. Some Linux stock images can be installed on a boot volume with capacity as small as 10 GB, while some Windows stock images require a minimum of 40 GB. If you're importing a custom image or snapshot, the boot volume capacity can be 10 - 250 GB, when you use first-generation volume profiles, or 10 - 32,000 GB when you're using the second-generation `sdp` profile.
 
 The boot volume expansion takes effect without a restart of the virtual server. However, to use the increased boot volume space, you must expand your operating system so the increased boot volume capacity is recognized.
 {: note}
@@ -268,7 +266,7 @@ For more information about the arguments and attributes, see [ibm_is_volume](htt
 ## Expanding boot volumes
 {: #resize-boot-volumes}
 
-You can increase the capacity of your boot volumes up to 250 GB during and after instance provisioning in the console, from the CLI, with the API, or Terraform. For first-generation boot volumes, you can increase the capacity when the volumes are attached to a running virtual server instance. The capacity of second-generation boot volumes can be increased even if the volumes are not attached to a running instance. The steps for increasing the capacity are the same for all volume profiles.
+By default, boot volumes are generated with 100 GB capacity. The maximum capacity of a boot volume is 250 GB, when you're using a first-generation volume profile. When you're using the `sdp` profile, the boot capacity can be increase up to 32,000 GB. You can increase the capacity of your boot volumes during and after instance provisioning in the console, from the CLI, with the API, or Terraform. For first-generation boot volumes, you can increase the capacity when the volumes are attached to a running virtual server instance. The capacity of second-generation boot volumes can be increased even if the volumes are not attached to a running instance. The steps for increasing the capacity are the same for all volume profiles.
 
 ### Expand boot volume capacity in the console
 {: #resize-vpc-boot-volumes-ui}
@@ -279,7 +277,7 @@ Increase boot volume capacity for new or existing instances in the console. For 
 #### Expand boot volume capacity during instance provisioning in the console
 {: #resize-boot-vol-new-instance-ui}
 
-When you create an instance with a stock or custom image, the boot volume capacity must be equal to or larger than the minimum provisioned size of the image. For example, a stock image would show 100 GB by default. You can increase the boot volume size up to 250 GB while using that image. For more information about creating virtual server instances, see [Creating virtual server instances in the console](/docs/vpc?topic=vpc-creating-virtual-servers&interface=ui).
+When you create an instance with a stock or custom image, the boot volume capacity must be equal to or larger than the minimum provisioned size of the image. For example, a stock image would show 100 GB by default. You can increase the boot volume size up to 250 GB for boot volumes that use the first-generation volume profiles such as `general-purpose` or `custom`. When you use the second-generation `sdp` profile, your boot volume size can be up to 32,000 GB. For more information about creating virtual server instances, see [Creating virtual server instances in the console](/docs/vpc?topic=vpc-creating-virtual-servers&interface=ui).
 
 You can also specify a larger boot volume capacity when you create an instance template. For more information, see [Creating an instance template](/docs/vpc?topic=vpc-creating-auto-scale-instance-group&interface=ui#creating-instance-template).
 

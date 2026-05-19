@@ -2,7 +2,7 @@
 
 copyright:
   years: 2019, 2026
-lastupdated: "2026-05-08"
+lastupdated: "2026-05-19"
 
 keywords: vsi, virtual server instances, profile, profiles, balanced, compute, memory, very high memory, ultra high memory, gpu, storage optimized, confidential compute, flex, high frequency
 
@@ -570,7 +570,7 @@ The following flex profiles are available.
 | nxf-2x2          | 2    | 2            | 2   |
 | bxf-2x8          | 2    | 8            | 4   |
 | bxf-4x16         | 4    | 16           | 8   |
-| bxf-8x32         | 8    | 32           |  16  |
+| bxf-8x32         | 8    | 32           | 16  |
 | bxf-16x64        | 16   | 64           | 32  |
 | bxf-24x96        | 24   | 96           | 48  |
 | bxf-32x128       | 32   | 128          | 64  |
@@ -578,7 +578,7 @@ The following flex profiles are available.
 | bxf-64x256       | 64   | 256          | 80  |
 | cxf-2x4          | 2    | 4            | 4   |
 | cxf-4x8          | 4    | 8            | 8   |
-| cxf-8x16         | 8    | 16           | 16   |
+| cxf-8x16         | 8    | 16           | 16  |
 | cxf-16x32        | 16   | 32           | 32  |
 | cxf-24x48        | 24   | 48           | 48  |
 | cxf-32x64        | 32   | 64           | 64  |

@@ -1,8 +1,8 @@
 ---
 
 copyright:
-  years: 2021, 2025
-lastupdated: "2024-06-12"
+  years: 2021, 2026
+lastupdated: "2026-05-19"
 
 keywords: image, virtual private cloud, boot volume, virtual server instance, instance
 
@@ -46,7 +46,7 @@ With {{site.data.keyword.iamshort}} (IAM), you can securely authenticate users f
 To create an image from a volume, the volume must meet the following requirements:
 
 * The volume must be in the region where you want to create the custom image.
-* The volume must be a primary boot volume with 100 GB capacity. Data volumes are not supported.
+* The volume must be a primary boot volume with 100-250 GB capacity. Data volumes are not supported.
 * The volume must be attached to an instance. Unattached boot volumes are not supported.
 * The instance must be in an available state.
 * The available, the running instance must be stopped before you create the custom image. Creating an image from a running instance is not allowed.

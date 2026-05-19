@@ -1,7 +1,7 @@
 ---
 copyright:
   years: 2017, 2026
-lastupdated: "2026-02-20"
+lastupdated: "2026-05-19"
 
 keywords: vpc, virtual private cloud, private cloud network, quick provisioning, logical isolation, security, cloud-native, workloads, BYOIP, high availability, ACL, Access control list, Block Storage volumes, File shares, snapshots
 
@@ -36,14 +36,14 @@ You can create instances with up to 80 Gbps network bandwidth per instance. Each
 You can choose to create *virtual server instances* with different operating systems on:
 
    - x86_64 processor architecture
-   - [Deprecated]{: tag-deprecated} s390x processor architecture 
-  
+   - [Deprecated]{: tag-deprecated} s390x processor architecture
+
 For more information, see [Images](/docs/vpc?topic=vpc-about-images).
 
 ## Storage capabilities
 {: #about-vpc-storage-capabilities}
 
-When you create an instance, a 100 GB Block Storage volume is automatically attached as a primary boot volume. You can increase the capacity of the boot volume to 250 GB. To add secondary data storage to your instance, create {{site.data.keyword.block_storage_is_short}} volumes or {{site.data.keyword.filestorage_vpc_short}} shares. 
+When you create an instance, a Block Storage volume is automatically attached as a primary boot volume. You can increase the capacity of the boot volume to 250 GB when you're using first-generation volume profiles, and 32,000 GB when you're using the `sdp` profile. To add secondary data storage to your instance, create {{site.data.keyword.block_storage_is_short}} volumes or {{site.data.keyword.filestorage_vpc_short}} shares.
 
 You can use {{site.data.keyword.block_storage_is_short}} snapshots to create point-in-time copies of your boot or data volumes, create copies of the snapshots in other regions, and create volumes from the snapshots. You can automate the creation of the snapshots with the {{site.data.keyword.cloud}} Backup for VPC service.
 

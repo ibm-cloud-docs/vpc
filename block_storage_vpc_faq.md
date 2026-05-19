@@ -2,7 +2,7 @@
 
 copyright:
   years: 2019, 2026
-lastupdated: "2026-03-16"
+lastupdated: "2026-05-19"
 
 keywords: faqs, Block Storage for vpc, fast restore, multizone, instance, instance provisioning, volume management, volume deletion.
 
@@ -69,7 +69,7 @@ No. You can't copy the storage volume to a different zone.
 {: faq}
 {: #faq-sdp-backup}
 
-Yes, you can take snapshots of individual volumes. Consistency group snapshots of multiple `sdp` volumes are not supported.
+Yes, you can take snapshots of individual volumes
 
 ## How does {{site.data.keyword.block_storage_is_short}} prevent a single point of failure? What mechanism assures data durability?
 {: faq}
@@ -233,7 +233,7 @@ You can increase the capacity of data volumes that are attached to a virtual ser
 {: faq}
 {: #faq-block-storge-rbv}
 
-Boot volume capacity can be increased up to 250 GB during instance provisioning or later, by directly modifying the boot volume. This feature applies to instances that are created from stock or custom images. You can also specify a larger boot volume capacity when you create an instance template. For more information, see [Increasing boot volume capacity](/docs/vpc?topic=vpc-expanding-block-storage-volumes#resize-boot-volumes).
+Boot volume capacity can be increased during instance provisioning or later, by directly modifying the boot volume. The maximum capacity for boot volumes that use the first-generation volume profiles such as `general-purpose` or `custom` is 250 GB. When you use the second-generation `sdp` profile, your boot volume size can be up to 32,000 GB. This feature applies to instances that are created from stock or custom images. You can also specify a larger boot volume capacity when you create an instance template. For more information, see [Increasing boot volume capacity](/docs/vpc?topic=vpc-expanding-block-storage-volumes#resize-boot-volumes).
 
 ## Can I change boot volume capacity for an existing instance?
 {: faq}
@@ -273,7 +273,7 @@ Yes, you can create a custom image directly from a {{site.data.keyword.block_sto
 {: faq}
 {: #faq-block-storage-14}
 
-The boot volume is created when you provision a virtual server instance. The boot disk of an instance is an exact copy (clone) of the virtual machine image that was selected. The boot disk contains the operating system and any additional software required for the instance to start. The virtual machine image is a template that can be used to create multiple instances.  For stock images, the boot volume capacity is 100 GB. If you are importing a custom image by using the CLI, API, or Terraform, the boot volume capacity can be 10-250 GB, depending on what the image requires. Images smaller than 10 GB are rounded up to 10 GB.
+The boot volume is created when you provision a virtual server instance. The boot disk of an instance is an exact copy (clone) of the virtual machine image that was selected. The boot disk contains the operating system and any additional software required for the instance to start. The virtual machine image is a template that can be used to create multiple instances. For most stock images, the boot volume capacity is 100 GB. If you are importing a custom image by using the CLI, API, or Terraform, the boot volume capacity can be 10-250 GB or 10-32,000 GB, depending on the volume profile and what the image requires. Images smaller than 10 GB are rounded up to 10 GB.
 
 ## When can I delete a {{site.data.keyword.block_storage_is_short}} volume?
 {: faq}

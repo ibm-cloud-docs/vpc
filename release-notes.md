@@ -2,7 +2,7 @@
 
 copyright:
   years: 2019, 2026
-lastupdated: "2026-05-08"
+lastupdated: "2026-05-19"
 
 keywords:
 
@@ -26,6 +26,13 @@ For more information about changes to the {{site.data.keyword.vpc_short}} comman
 
 ## May 2026
 {: #vpc-may26}
+
+### 19 May 2026
+{: #vpc-may1926}
+{: release-note}
+
+Enhanced boot volume capacity options
+:   Boot volumes now support a wider range of capacity options to better match your workload requirements. You can provision virtual server instances with boot volumes as small as 10 GB for Linux stock images (Windows requires a minimum of 40 GB), reducing costs for lightweight workloads. At the other end of the spectrum, boot volumes that use the second-generation SSD Defined Performance (`sdp`) profile can now be expanded up to 32,000 GB, providing significantly more capacity for workloads that require large boot volumes. Boot volumes that use first-generation profiles support capacities from 10 GB to 250 GB. Boot volumes larger than 250 GB can't be used to create custom images. For more information, see [About Block Storage for VPC](/docs/vpc?topic=vpc-block-storage-about#block-storage-vpc-boot-volumes), [Block Storage profiles](/docs/vpc?topic=vpc-block-storage-profiles#vsi-profiles-boot), and [Expanding Block Storage volumes](/docs/vpc?topic=vpc-expanding-block-storage-volumes#expand-boot-vols).
 
 ### 06 May 2026
 {: #vpc-may0626}
