@@ -2,7 +2,7 @@
 
 copyright:
   years: 2024, 2026
-lastupdated: "2026-04-16"
+lastupdated: "2026-05-19"
 
 keywords: file share, file storage, accessor share, cross-account share
 
@@ -28,7 +28,7 @@ When the accessor share is created, it is linked to the origin share by an acces
 
 As the accessor, you can't edit the properties of the origin share, and you can't delete the origin share. The accessors can mount the share by creating an accessor share and a mount target to the accessor share. Then, you can access and use the data of the origin share, including the snapshots that might be present.
 
-Sharing a file share with other accounts or services is not supported for file shares with VPC-wide access mode.
+Sharing a file share with other accounts or services is not supported for file shares with [Deprecated]{: tag-deprecated} VPC-wide access mode.
 {: note}
 
 ## Transit encryption policy

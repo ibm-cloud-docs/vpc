@@ -2,7 +2,7 @@
 
 copyright:
   years: 2021, 2026
-lastupdated: "2026-05-11"
+lastupdated: "2026-05-19"
 
 keywords: file share, file storage, virtual network interface, encryption in transit, profiles,
 
@@ -842,6 +842,9 @@ The following example shows how to add a mount target to a regional file share. 
 {: #fs-create-share-target-api}
 {: api}
 
+[Deprecated]{: tag-deprecated} The VPC access control mode is deprecated. Select the Security group option instead.
+{: tip}
+
 The following example request creates a file share that has the VPC-wide access mode and a mount target that can be used by every virtual server instance in the specified VPC. It also adds [user tags](/docs/vpc?topic=vpc-file-storage-managing&interface=api#fs-add-user-tags) to the share.
 
 Access to the mount target is VPC wide; all instances in the VPC have access to this file share. Newer features such as cross-zone mounting and data encryption in transit are not supported.
@@ -1403,6 +1406,9 @@ For more information about the arguments and attributes, see [ibm_is_share](http
 
 ### Creating a file share with a mount target with VPC-wide access mode
 {: #file-share-create-with-target-vpc-terraform}
+
+[Deprecated]{: tag-deprecated} The VPC access control mode is deprecated. Select the Security group option instead.
+{: tip}
 
 To create a zonal file share with a mount target that is accessible to all virtual server instances within a VPC, use the `ibm_is_share` resource. Specify the access control mode as `vpc`, and define the mount target by providing a name for it and the VPC where it's going to be used in.
 

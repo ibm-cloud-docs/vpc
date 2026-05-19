@@ -2,7 +2,7 @@
 
 copyright:
   years: 2019, 2026
-lastupdated: "2026-05-08"
+lastupdated: "2026-05-19"
 
 keywords: api, change log, new features, restrictions, migrations
 
@@ -53,6 +53,16 @@ At this time, all instances, and therefore all instance templates, continue to r
 
 The new response code will be rolled out gradually. Each phase of the rollout will be tied to a dated API version. These changes will be announced in future change log updates.
 {: note}
+
+## 19 May 2026
+{: #19-may-2026}
+
+### For all version dates
+{: #19-may-2026-all-version-dates}
+
+**Boot volumes less than 100 GB.** When [creating an instance](/apidocs/vpc/latest#create-instance) the `capacity` value for a boot volume can now be smaller than the default 100 GB when using IBM stock images, provided the capacity meets the image's `minimum_provisioned_size`. When you do not specify a boot volume capacity, the default behavior is preserved at 100 GB for compatibility with earlier version dates. For custom images, if you do not specify a boot volume capacity, the value will be set to image's `minimum_provisioned_size`. When you explicitly specify a capacity for stock or custom images, you can choose any size down to the image's actual size. For more information, see [Creating virtual server instances](/docs/vpc?topic=vpc-creating-virtual-servers&interface=api).
+
+**Boot volume capacity increase for Gen 2 `sdp` volume profiles.** When [creating an instance](/apidocs/vpc/latest#create-instance), the `capacity` value for a boot volume can be increased from 250 GB to 32,000 GB for Gen 2 `sdp` volume profile. Creating an image from a boot volume by using a Gen 1 volume profile remains limited to a maximum of 250 GB. For more information, see [Creating virtual server instances](/docs/vpc?topic=vpc-creating-virtual-servers&interface=api).
 
 ## 28 April 2026
 {: #28-april-2026}
