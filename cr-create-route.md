@@ -1,8 +1,8 @@
 ---
 
 copyright:
-  years: 2020, 2025
-lastupdated: "2025-12-30"
+  years: 2020, 2026
+lastupdated: "2026-05-20"
 
 keywords: custom routes
 
@@ -101,40 +101,40 @@ ibmcloud is vpc-routing-table-route-create VPC ROUTING_TABLE --zone ZONE_NAME --
 Where:
 
 `VPC`
-:   Is the ID or name of the VPC.
+:   The ID or name of the VPC.
 
 `ROUTING_TABLE`
-:   Is the ID or name of the VPC routing table.
+:   The ID or name of the VPC routing table.
 
 `--zone`
-:   Is the name of the zone.
+:   The name of the zone.
 
 `--destination`
-:   Is the destination CIDR of the route. At most, two routes per zone in a table can have the same destination, and only if both routes have an action of **deliver**.
+:   The destination CIDR of the route. At most, two routes per zone in a table can have the same destination, and only if both routes have an action of `deliver`.
 
 `--action`
-:   Is the action to perform with a packet that matches the route. Actions are **delegate_vpc**, **delegate**, **deliver**, and **drop**.
+:   The action to perform with a packet that matches the route. One of: `delegate_vpc`, `delegate`, `deliver`, `drop`. Default: `deliver`
 
 `--priority`
-:   Is the route's priority. Values are `0`, `1`, `2`, `3`, and `4`. The default value is `2`.  Lesser values have higher priority. If a custom routing table contains routes with the same destination, the route with the highest priority (smallest value) is selected.
+:   The route's priority. One of: `0`, `1`, `2`, `3`, `4`. Default: `2`.  Lower values have higher priority. If a custom routing table contains routes with the same destination, the route with the highest priority (lowest value) is selected.
 
 `--next-hop`
-:   If the action is **deliver**, enter the IP address or VPN connection ID of the next hop to which to route packets.
+:   If the action is `deliver`, enter the IP address or VPN connection ID of the next hop to which to route packets.
 
 `--vpngw`
-:   Is the name of the VPN gateway.
+:   The name of the VPN gateway.
 
 `--advertise`
-:   Advertise to a direct link, transit gateway, or both ingress sources. One of **true**, **false**.
+:   Advertise to a direct link, transit gateway, or both ingress sources. One of `true`, `false`.
 
 `--name`
-:   Is the name of the VPC routing table.
+:   The name of the VPC routing table.
 
 `--output`
-:   Formats the output in JSON.
+   :   The output format. One of: `json`.
 
 `--q, quiet`
-:   Causes the command to run silently and does not generate any output.
+:   Suppress verbose output.
 
 
 

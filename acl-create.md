@@ -1,8 +1,8 @@
 ---
 
 copyright:
-  years: 2019, 2025
-lastupdated: "2025-12-12"
+  years: 2019, 2026
+lastupdated: "2026-05-20"
 
 keywords:
 
@@ -96,7 +96,7 @@ Where:
 `--output`
 :   Output in JSON format.
 `-q, --quiet`
-:   Suppresses verbose output.
+:   Suppress verbose output.
 
 
 

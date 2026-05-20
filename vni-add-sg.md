@@ -1,8 +1,8 @@
 ---
 
 copyright:
-  years: 2023, 2025
-lastupdated: "2025-10-14"
+  years: 2023, 2026
+lastupdated: "2026-05-20"
 
 keywords:
 
@@ -47,6 +47,7 @@ ibmcloud is security-group-target-add GROUP TARGET [--vpc VPC] [(--trt load_bala
 ```
 {: pre}
 
+
 Where:
 
 `GROUP`
@@ -57,6 +58,9 @@ Where:
 
 `--trt value`
 :   The bound target resource type, this option is only required if you use the target name instead of ID. One of: `load_balancer`, `endpoint_gateway`, `vpn_server`, `virtual_network_interface`.
+
+
+
 
 
 
