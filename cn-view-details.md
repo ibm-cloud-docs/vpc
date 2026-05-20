@@ -1,8 +1,8 @@
 ---
 
 copyright:
-  years: 2024, 2025
-lastupdated: "2025-12-30"
+  years: 2024, 2026
+lastupdated: "2026-05-20"
 
 keywords:
 
@@ -75,8 +75,6 @@ To view the details of a cluster network from the CLI, follow these steps:
 
    `-q, --quiet`
    :    Suppress verbose output.
-
-
 
 
 

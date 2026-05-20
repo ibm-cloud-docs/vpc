@@ -1,8 +1,8 @@
 ---
 
 copyright:
-  years: 2020, 2025
-lastupdated: "2025-06-18"
+  years: 2020, 2026
+lastupdated: "2026-05-20"
 
 keywords: custom routes
 
@@ -56,10 +56,12 @@ ibmcloud is subnet-update SUBNET_ID --routing-table-id ROUTING_TABLE_ID
 Where:
 
 `SUBNET_ID`
-:   Is the ID or name of the subnet you want to update.
+:   The ID or name of the subnet that you want to update.
 
 `ROUTING_TABLE_ID`
-:   Is the ID or name of the routing table that you want to assign the subnet to.
+:   The ID or name of the routing table that you want to assign the subnet to.
+
+
 
 ## Attaching subnets to a routing table with the API
 {: #cr-attach-subnets-using-the-api}

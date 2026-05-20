@@ -2,7 +2,7 @@
 
 copyright:
   years: 2023, 2026
-lastupdated: "2026-04-16"
+lastupdated: "2026-05-20"
 
 keywords:
 
@@ -183,11 +183,16 @@ Where:
 ### Command examples
 {: #cli-command-examples-virtual-network-interface-create}
 
+
+
 - `ibmcloud is virtual-network-interface-create --subnet 7208-d42716a5-6df2-416c-979d-f26330b9eod1`
 - `ibmcloud is virtual-network-interface-create --name cli-vni-1 --allow-ip-spoofing true --auto-delete true --enable-infrastructure-nat true --protocol-state-filtering-mode auto --rip 7208-d4c0abbe-3fc2-4696-9fe1-4eb3dc9af976 --ips '[{"id":"7208-d83b7e58-3c3d-47d0-89c5-02d9a20c72fd"},{"address":"10.240.64.13", "auto_delete": false, "name": "srip2"}]' --sgs r006-aa7c7658-e503-4456-b342-8d6a89e05115,r006-4fb388f1-2b6e-4013-b279-7a8748f4d6ca --resource-group-id 11caaa983d9c4beb82690daab08717e9`
 - `ibmcloud is virtual-network-interface-create --name cli-vni-2 --allow-ip-spoofing true --auto-delete true --enable-infrastructure-nat true --protocol-state-filtering-mode enabled --rip cli-rip-1 --subnet my-subnet --vpc vpc-cli-1 --ips '[{"id":"7208-d83b7e58-3c3d-47d0-89c5-02d9a20c72fd"},{"address":"10.240.64.14", "auto_delete": false, "name": "srip3"}]' --sgs cli-sg,sanctity-contest-only-filing --resource-group-name Default`
 - `ibmcloud is virtual-network-interface-create --name cli-vni-4 --allow-ip-spoofing false --auto-delete false --enable-infrastructure-nat false --protocol-state-filtering-mode disabled --subnet 7208-bfe017e7-6e71-415a-8615-0ee787fbeef9 --rip-address 10.240.64.15 --rip-auto-delete false --rip-name primar-ip-1 --ips '[{"id":"7208-2772a45f-c062-4e22-bafb-32ea792da56b"},{"address":"10.240.64.17", "auto_delete": false, "name": "sec-ip-2"}]' --sgs r006-aa7c7658-e503-4456-b342-8d6a89e05115,r006-4fb388f1-2b6e-4013-b279-7a8748f4d6ca --resource-group-id 11caaa983d9c4beb82690daab08717e9`
 - `ibmcloud is virtual-network-interface-create --name cli-vni-3 --allow-ip-spoofing true --auto-delete false --enable-infrastructure-nat true --protocol-state-filtering-mode auto --subnet my-subnet --vpc vpc-cli-1 --rip-address 10.240.64.18 --rip-auto-delete true --rip-name primar-ip-2 --ips '[{"id":"7208-d42716a5-6df2-416c-979d-f26330b9d0b1"},{"address":"10.240.64.19", "auto_delete": true, "name": "sec-ip-3"}]' --sgs cli-sg,sanctity-contest-only-filing --resource-group-name Default`
+
+
+
 
 ## Creating a virtual network interface with the API
 {: #vni-api-create}
