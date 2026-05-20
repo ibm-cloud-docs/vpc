@@ -2,7 +2,7 @@
 
 copyright:
   years: 2026
-lastupdated: "2026-01-22"
+lastupdated: "2026-05-20"
 
 keywords: virtual private endpoints, VPE, endpoint gateway
 
@@ -105,6 +105,8 @@ To create a local-access endpoint gateway from the CLI, follow these steps:
 
 1. Create an endpoint gateway by running the following command:
 
+   
+
    ```sh
    ibmcloud is endpoint-gateway-create --target TARGET [--target-type private_path_service_gateway | provider_cloud_service | provider_infrastructure_service] [--vpc VPC] [--name NAME] [--rip RIP --subnet SUBNET | (--new-reserved-ip NEW_RESERVED_IP1 --new-reserved-ip NEW_RESERVED_IP2 ...)] [--allow-dns-resolution-binding false | true] [--sg SG] [--resource-group-id RESOURCE_GROUP_ID | --resource-group-name RESOURCE_GROUP_NAME] [--output JSON] [-q, --quiet]
    ```
@@ -150,6 +152,10 @@ To create a local-access endpoint gateway from the CLI, follow these steps:
 
    `-q, --quiet`:
    :   Suppresses verbose output.
+
+   
+
+   
 
    For more information and command examples, see the [VPC CLI reference](/docs/vpc?topic=vpc-vpc-reference&interface=cli#endpoint-gateway-create).
 
