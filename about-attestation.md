@@ -2,7 +2,7 @@
 
 copyright:
   years: 2022, 2026
-lastupdated: "2026-05-12"
+lastupdated: "2026-05-22"
 
 keywords: confidential computing, enclave, secure execution, hpcr, hyper protect virtual server for vpc
 
@@ -51,6 +51,7 @@ From 25 March 2025, the certificate links are changed.
 
    | Image version| Certificate link | Expiry date |
    |--------------|------------------|-------------|
+   | `ibm-hyper-protect-container-runtime-1-0-s390x-27` | [Certificate](https://hpvsvpcubuntu.s3.us.cloud-object-storage.appdomain.cloud/s390x-27/ibm-hyper-protect-container-runtime-1-0-s390x-27-attestation.crt){: external} | 18 May 2027 |
    | `ibm-hyper-protect-container-runtime-1-0-s390x-26` | [Certificate](https://hpvsvpcubuntu.s3.us.cloud-object-storage.appdomain.cloud/s390x-26/ibm-hyper-protect-container-runtime-1-0-s390x-26-attestation.crt){: external} | 24 February 2027 |
    | `ibm-hyper-protect-container-runtime-1-0-s390x-25` | [Certificate](https://hpvsvpcubuntu.s3.us.cloud-object-storage.appdomain.cloud/s390x-25/ibm-hyper-protect-container-runtime-1-0-s390x-25-attestation.crt){: external} | 26 November 2026 |
    | `ibm-hyper-protect-container-runtime-1-0-s390x-24` | [Certificate](https://hpvsvpcubuntu.s3.us.cloud-object-storage.appdomain.cloud/s390x-24/ibm-hyper-protect-container-runtime-1-0-s390x-24-attestation.crt){: external} | 22 August 2026 |
@@ -60,7 +61,7 @@ From 25 March 2025, the certificate links are changed.
 * Extract the attestation public key from the attestation certificate by using the following command:
 
    ```sh
-   openssl x509 -pubkey -noout -in ibm-hyper-protect-container-runtime-1-0-s390x-26-attestation.crt > contract-public-key.pub
+   openssl x509 -pubkey -noout -in ibm-hyper-protect-container-runtime-1-0-s390x-27-attestation.crt > contract-public-key.pub
    ```
    {: pre}
 
@@ -163,23 +164,23 @@ sha256sum <file>
 The following snippet is an example of an attestation document:
 
 ```text
-26.2.0
+26.5.0
 Machine Type/Plant/Serial: 9175/02/C25B8
-Image age: 0 days since creation.
-Encryption Certificate valid until: Feb 24 09:30:55 2027 UTC
-Attestation Certificate valid until: Feb 24 11:16:13 2027 UTC
-295c720f88cfa86a4daabf88ef4d01b717d66f69c49055d3b2c2ddf6e0fc7d93 certificate_expiry_date.json
-f700d860d931d953bffa6a7f2593ec53074a757c0184bcfbea0648de7f2b501b root.tar.gz
-f8614f9f6a39302b97b0a590e14b2e64affddb0f98ef459bf0f8c7f185c98bd5 baseimage
-12daeb445ae39e320ca4ee1794cf32923a9011add87b40c34d3c77c6e610e980 sbom
-67dc911966dd996f790b4166dc83b0ebe95d407351fa92c2423aa90e4a656b73 /dev/disk/by-label/cidata
-12110b938921c6a2ccd7bc6222b3fb1ef39b6ac4bf9dbe4ff8ae450a3d6e2fb9 cidata/meta-data
-cca422046ad1e2680312758dbf19a3cd6fdd80ec79c6bcc29775847ee3bc0cb2 cidata/user-data
-5a2b8897d00e4f03436494a36304776a637bf3f134ae10107f2a47e9859ed0fb cidata/vendor-data
-24d1aef313d2ca5ca452620c3e084d1ff02f16ee5cf812c76faec74ebe5ac1f1 contract:workload
-61d5a566ca9774a04449759548e5b92576967ce9823c6069d1a4bad6a53f2e14 contract:env
+Image age: 3 days since creation.
+Encryption Certificate valid until: May 18 10:47:12 2027 UTC
+Attestation Certificate valid until: May 18 12:37:49 2027 UTC
+805dd8786c2c181b34ce42eded40cafebd1806aa07ce721a4e71adb32622bbc0 certificate_expiry_date.json
+50f93af14cc5af1585ec3d1a925fea67c25d4fc2c07a7bb0f030390ab76ff854 root.tar.gz
+335d2db7919aaa0ff49dc6e415e58e3fee1dee4a5644354f8e1f5db93d56b6a0 baseimage
+f576c2d782add88271154fb47ba724efa7612b0eb5d200c37eeb31dc946f56de sbom
+98f3faf43cc9171cdc305f15f682af013a51395df96aee142387b95df40e1dac /dev/disk/by-label/cidata
+ec5f642e1899a519aa386c4d6bd52be3506f4b98fb8aa0b9805d618396ff635b cidata/meta-data
+c6d9534c5d91a8a199110c012514ce7c54391b706430ce82618c5d4f2aac5228 cidata/user-data
+1cffcfefd1c8d758f2c285275714ed040c39945f80fb52638ac630fcb7b52e1c cidata/vendor-data
+fdeb7096b3b6e43c8ffa77c085b1581b650dce67b45e2ea8dc6ff91aa6ac1703 contract:workload 
+853809fedf71c3743667fa0c2c0826877016c94c56bae4533c950455a0b51c92 contract:env
 d1eccc9b91b09a67097073cee8d9a8046a2a0bd658b88920f36c8ec4b823f050 contract:envWorkloadSignature
-48a998c2f84a2576d1e500453efb7b215c5b6c9dec49d36611ad3275d5780986 contract:attestationPublicKey
+6d526b0cd7a320085872b919424339d0370582d63a1f3305bf29def5f582b849 contract:attestationPublicKey 
 ```
 {: pre}
 
@@ -192,6 +193,13 @@ d1eccc9b91b09a67097073cee8d9a8046a2a0bd658b88920f36c8ec4b823f050 contract:envWor
 {: #base_image}
 
 The `baseimage` is the IBM internal QEMU Copy On Write Version 2 (QCOW2) file, which is used as the source for most of the operating system files of the Hyper Protect Container Runtime image. It is used only at image build time by the enabler process. The enabler uses this source with other Debian packages to create the `root.tar.gz` and the encrypted secure execution kernel or an 'initrd' image.
+
+The following is the shasum of the ibm-hyper-protect-container-runtime-1-0-s390x-27 `baseimage`:
+
+```sh
+335d2db7919aaa0ff49dc6e415e58e3fee1dee4a5644354f8e1f5db93d56b6a0 baseimage
+```
+{: pre}
 
 The following is the shasum of the ibm-hyper-protect-container-runtime-1-0-s390x-26 `baseimage`:
 
@@ -241,6 +249,13 @@ The following is the shasum of the ibm-hyper-protect-container-runtime-1-0-s390x
 {: #root_tarfile}
 
 The `root.tar.gz` is part of the final secure execution that is enabled by an IBM Hyper Protect Container Runtime image and contains all operating system files. It is stored on the first partition (boot partition) of the image as `/boot/root.tar.gz`.
+
+The following is the shasum of the ibm-hyper-protect-container-runtime-1-0-s390x-27 `root.tar.gz`.
+
+```sh
+50f93af14cc5af1585ec3d1a925fea67c25d4fc2c07a7bb0f030390ab76ff854 root.tar.gz
+```
+{: pre}
 
 The following is the shasum of the ibm-hyper-protect-container-runtime-1-0-s390x-26 `root.tar.gz`.
 
@@ -295,9 +310,9 @@ The `/dev/disk/by-label/cidata` is a block device that is attached to the runnin
 {: #cidata}
 
 ```sh
-12110b938921c6a2ccd7bc6222b3fb1ef39b6ac4bf9dbe4ff8ae450a3d6e2fb9 cidata/meta-data
-cca422046ad1e2680312758dbf19a3cd6fdd80ec79c6bcc29775847ee3bc0cb2 cidata/user-data
-5a2b8897d00e4f03436494a36304776a637bf3f134ae10107f2a47e9859ed0fb cidata/vendor-data
+ec5f642e1899a519aa386c4d6bd52be3506f4b98fb8aa0b9805d618396ff635b cidata/meta-data
+c6d9534c5d91a8a199110c012514ce7c54391b706430ce82618c5d4f2aac5228 cidata/user-data
+1cffcfefd1c8d758f2c285275714ed040c39945f80fb52638ac630fcb7b52e1c cidata/vendor-data
 ```
 {: codeblock}
 
@@ -307,7 +322,7 @@ cca422046ad1e2680312758dbf19a3cd6fdd80ec79c6bcc29775847ee3bc0cb2 cidata/user-dat
 The `attestationPublicKey` is the public key that you provide that is used to encrypt the attestation document. The `attestationPublicKey` is part of the user-data file. Encrypting the attestation document is optional.
 
 ```sh
-48a998c2f84a2576d1e500453efb7b215c5b6c9dec49d36611ad3275d5780986 contract:attestationPublicKey
+6d526b0cd7a320085872b919424339d0370582d63a1f3305bf29def5f582b849 contract:attestationPublicKey 
 ```
 {: pre}
 
