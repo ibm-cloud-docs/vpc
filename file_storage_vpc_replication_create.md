@@ -2,7 +2,7 @@
 
 copyright:
   years: 2022, 2026
-lastupdated: "2026-05-21"
+lastupdated: "2026-05-22"
 
 keywords: file share, file storage, source volume, replica share,
 
@@ -68,6 +68,9 @@ On the File share replica create page, review the source file share details, and
 
    - If you selected VPC as the access mode, provide a name for the mount target and select a VPC from the list. This mount target can be used to mount the file share on any virtual server instance of the selected VPC in the same zone as the file share. Cross-zone mounting is not supported.
 
+   The vpc access mode is deprecated and reaches end of support on 06 May 2027. Follow the [migration guide](/docs/vpc?topic=vpc-fs-migrate-access-mode&interface=ui#fs-migrate-update-mode) to update the source share's access control mode to `security-group`.
+   {: deprecated}
+
 1. Sync frequency - Specify how often you want to synchronize changes from the primary file share to the replica share. The Summary shows the selections that you made. For **Frequency**, the options are hourly, daily, weekly, monthly, or by `cron-spec` expression:
    * For hourly replication, enter a value in the range 0 - 60 to specify exactly how many minutes past the hour, every hour, every day the replication is to start.
    * For daily replication, specify the starting time in hours and minutes in Coordinated Universal Time. Enter a value between 00:00 and 23:59. For your convenience, the Coordinated Universal Time value is converted into your local time.
@@ -83,7 +86,7 @@ On the File share replica create page, review the source file share details, and
    | Field | Value |
    |------|------|
    | Encryption | Select either {{site.data.keyword.keymanagementserviceshort}} or {{site.data.keyword.hscrypto}}. |
-   | Encryption service instance | If you provisioned multiple KMS instances in your account, select the one that includes the root key that you want to use for customer-managed encryption. Ensure that [service-to-service authorizations](/docs/vpc?topic=vpc-file-s2s-auth) between the file service and the target KMS are in place. |
+   | Encryption service instance | If you provisioned multiple KMS instances in your account, select the one that includes the root key that you want to use for customer-managed encryption. Make sure that [service-to-service authorizations](/docs/vpc?topic=vpc-file-s2s-auth) between the file service and the target KMS are in place. |
    | Key name | Select the root key within the KMS instance that you want to use for encrypting the share. |
    | Key ID | The field shows the key ID that is associated with the data encryption key that you selected. |
    {: caption="Values for customer-managed encryption for file shares." caption-side="bottom"}
@@ -107,7 +110,7 @@ Before you can use the CLI, you must install the IBM Cloud CLI and the VPC CLI p
 
 When you use the `ibmcloud is share-create` command to create your share, you can create a replica share at the same time by specifying values for the options `--replica-share-name`, `--replica-share-profile`, `--replica-share-cron-spec`,`--replica-share-zone`. The cron-spec specifies the replication frequency, and you can schedule to replicate your data as often as 15 minutes. For more information about the command options, see [`ibmcloud is share-create`](/docs/vpc?topic=vpc-vpc-reference#share-create).
 
-In the following example, a share `my-source-file-share` is created in `us-south-2` with a replica file share `my-replica-file-share` in `us-south-1`. In this example, only one mount target is created for the source file share. You could also create a mount target for the replica share by using the same JSON syntax with the `--replica-share-mount-targets` option.
+In the following example, a share `my-source-file-share` is created in `us-south-2` with a replica file share `my-replica-file-share` in `us-south-1`. In this example, only one mount target is created for the source file share. You can also create a mount target for the replica share by using the same JSON syntax with the `--replica-share-mount-targets` option.
 
 ```sh
 ibmcloud is share-create --name my-source-file-share --zone us-south-2 --profile dp2 --size 1500 --iops 2000  --user-tags env:dev --mount-targets '[{"name":"my-source-mount-target","virtual_network_interface": {"name":"my-source-vni","subnet": {"id":"0717-c66032c9-048d-4c35-aa83-c932e24afdbb"}}}]' --replica-share-name my-replica-file-share --replica-share-profile dp2 --replica-share-cron-spec '55 09 * * *' --replica-share-zone us-south-1
@@ -221,7 +224,7 @@ Storage Generation                 1
    ```
    {: screen}
 
-1. Create a replica share by running the `ibmcloud is share-replica-create` command in the target region. If you're not targeting the right region, use the `ibmcloud target -r REGION` command to switch the target region. Specify the source share by ID or CRN using the `--source-share-id` option. Provide values to define the zone where the replica file share is going to be created, and the profile of the replica share. Specify the replication schedule with a cron expression using the `--replication-cron-spec` option. If the source file share has `user_managed` encryption, you must provide the `--encryption-key-crn`. The `--encryption-key-crn` property must not be specified otherwise.
+1. Create a replica share by running the `ibmcloud is share-replica-create` command in the target region. If you're not targeting the right region, use the `ibmcloud target -r REGION` command to switch the target region. Specify the source share by ID or CRN by using the `--source-share-id` option. Provide values to define the zone where the replica file share is going to be created, and the profile of the replica share. Specify the replication schedule with a cron expression by using the `--replication-cron-spec` option. If the source file share has `user_managed` encryption, you must provide the `--encryption-key-crn`. The `--encryption-key-crn` property must not be specified otherwise.
 
    ```sh
    ibmcloud is share-replica-create --name my-replica-share --zone us-south-3 --profile dp2 --replication-cron-spec '10 05 * * *' --source-share my-file-share

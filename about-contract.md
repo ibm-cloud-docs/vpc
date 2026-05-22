@@ -2,7 +2,7 @@
 
 copyright:
   years: 2022, 2026
-lastupdated: "2026-05-12"
+lastupdated: "2026-05-22"
 
 keywords: confidential computing, enclave, secure execution, hpcr, contract, customization, schema, contract schema, env, workload, encryption
 
@@ -426,6 +426,9 @@ The `volumes` field here defines the data on the host to be mounted into the pod
 ### The `images` subsection
 {: #hpcr_contract_images}
 
+Docker has announced the retirement of **Docker Content Trust (DCT)**. Since DCT is built on the legacy **Notary v1 framework**, which is no longer actively maintained, it is not considered a future‑ready or sustainable solution for image signing and verification. As a result, customers are encouraged to move away from DCT and adopt **OCI‑compliant image‑signing and verification technologies** that align with current supply‑chain security standards. You can migrate container images to **IBM Cloud Container Registry (ICR)**. ICR integrates with the **Red Hat Signing Service (RHS)** as its trusted root of signing, providing a vendor‑backed trust model and alignment with contemporary container security and supply‑chain best practices. For more information, see [Retiring Docker Content Trust](https://www.docker.com/blog/retiring-docker-content-trust/).
+{: important}
+
 The `images` subsection is meant only for an image that is signed.
 
 #### Images described by docker compose
@@ -732,15 +735,16 @@ The encryption and attestation certificates are signed by the IBM intermediate c
 
    | Image version| Certificate link | Encryption cert expiry date | Deprecation date |
    | -------- | ----------- | ----------- | ----------- |
+   | `ibm-hyper-protect-container-runtime-1-0-s390x-27` | [Certificate](https://hpvsvpcubuntu.s3.us.cloud-object-storage.appdomain.cloud/s390x-27/ibm-hyper-protect-container-runtime-1-0-s390x-27-encrypt.crt){: external} | 23 March 2027 | 23 September 2026 |
    | `ibm-hyper-protect-container-runtime-1-0-s390x-26` | [Certificate](https://hpvsvpcubuntu.s3.us.cloud-object-storage.appdomain.cloud/s390x-26/ibm-hyper-protect-container-runtime-1-0-s390x-26-encrypt.crt){: external} | 24 February 2027 | 24 September 2026 |
    | `ibm-hyper-protect-container-runtime-1-0-s390x-25` | [Certificate](https://hpvsvpcubuntu.s3.us.cloud-object-storage.appdomain.cloud/s390x-25/ibm-hyper-protect-container-runtime-1-0-s390x-25-encrypt.crt){: external} | 06 August 2026  | 31 March 2026 |
    | `ibm-hyper-protect-container-runtime-1-0-s390x-24` | [Certificate](https://hpvsvpcubuntu.s3.us.cloud-object-storage.appdomain.cloud/s390x-24/ibm-hyper-protect-container-runtime-1-0-s390x-24-encrypt.crt){: external} | 06 August 2026  | 31 March 2026 |
    {: caption="Encryption certificate expiry dates and image deprecation/ obsolete dates" caption-side="bottom"}
 
-   **Note:**
-   * **Deprecated**: You can use the image to create an instance from the IBM Cloud CLI. Using the deprecated status can discourage the use of the image before its status is changed to obsolete. The image catalog always maintains the two most recent image versions: n and n-1. When a new version (n+1) becomes available, the system deprecates the oldest version (n-1).
-   * **Obsolete**: After the certificate associated with the image is expired, the image will no longer be available to provision new instance.
-   * Always download the encryption certs corresponding to the image and encrypt the contracts.
+   **Note**
+   * **Deprecated** - You can use the image to create an instance from the IBM Cloud CLI. The deprecated status can discourage the use of the image before its status changes to obsolete. The image catalog always maintains the two most recent image versions: n and n-1. When a new version (n+1) is available, the system deprecates the oldest version (n-1).
+   * **Obsolete**: After the certificate that is associated with the image expires, the image isn't available to provision an instance.
+   * Always download the encryption certificates that correspond to the image and encrypt the contracts.
 
    To check the image deprecation or obsolete status, you can also use the IBM Cloud image list command.
 
@@ -790,21 +794,21 @@ Complete the following steps on an Ubuntu system to encrypt the workload section
 
 
 
-3. Export the complete path of the `workload.yaml` file and `ibm-hyper-protect-container-runtime-1-0-s390x-26-encrypt.crt`:
+3. Export the complete path of the `workload.yaml` file and `ibm-hyper-protect-container-runtime-1-0-s390x-27-encrypt.crt`:
 
    ```yaml
    WORKLOAD="<PATH to workload.yaml>"
-   CONTRACT_KEY="<PATH to ibm-hyper-protect-container-runtime-1-0-s390x-26-encrypt.crt>"
+   CONTRACT_KEY="<PATH to ibm-hyper-protect-container-runtime-1-0-s390x-27-encrypt.crt>"
    ```
    {: pre}
 
-4. Use the following command to create a random password (the contract is encrypted through symmetric AES with a random PASSWORD):
+4. Use the following command to create a random password. The contract is encrypted through symmetric AES with a random password.
    ```yaml
    PASSWORD="$(openssl rand 32 | base64 -w0)"
    ```
    {: pre}
 
-5. Starting with OpenSSL 3.0, the OpenSSL rsautl sub command is deprecated. As a replacement, OpenSSL recommends using the `pkeyutl` sub command. Use one of the following commands to encrypt password with `ibm-hyper-protect-container-runtime-1-0-s390x-26-encrypt.crt`:
+5. Starting with OpenSSL 3.0, the OpenSSL rsautl sub command is deprecated. As a replacement, OpenSSL recommends using the `pkeyutl` sub command. Use one of the following commands to encrypt password with `ibm-hyper-protect-container-runtime-1-0-s390x-27-encrypt.crt`:
 
 
    - Using `rsautl` (deprecated):
@@ -866,11 +870,11 @@ Complete the following steps on an Ubuntu system to encrypt the `env` section us
    ```
    {: codeblock}
 
-2. Export the complete path of the `env.yaml` file and `ibm-hyper-protect-container-runtime-1-0-s390x-26-encrypt.crt`:
+2. Export the complete path of the `env.yaml` file and `ibm-hyper-protect-container-runtime-1-0-s390x-27-encrypt.crt`:
 
    ```yaml
    ENV="<PATH to env.yaml>"
-   CONTRACT_KEY="<PATH to ibm-hyper-protect-container-runtime-1-0-s390x-26-encrypt.crt>"
+   CONTRACT_KEY="<PATH to ibm-hyper-protect-container-runtime-1-0-s390x-27-encrypt.crt>"
    ```
    {: pre}
 
@@ -881,16 +885,16 @@ Complete the following steps on an Ubuntu system to encrypt the `env` section us
    ```
    {: pre}
 
-4. Starting with OpenSSL 3.0, the OpenSSL rsautl sub command is deprecated. As a replacement, OpenSSL recommends using the `pkeyutl` sub command. Use one of the following commands to encrypt password with `ibm-hyper-protect-container-runtime-1-0-s390x-26-encrypt.crt`:
+4. Starting with OpenSSL 3.0, the OpenSSL rsautl sub command is deprecated. As a replacement, OpenSSL recommends that you use the `pkeyutl` sub command. Use one of the following commands to encrypt the password with `ibm-hyper-protect-container-runtime-1-0-s390x-27-encrypt.crt`:
 
-   - Using `rsautl` (deprecated):
+   - `rsautl` (deprecated):
 
       ```yaml
       ENCRYPTED_PASSWORD="$(echo -n "$PASSWORD" | base64 -d | openssl rsautl -encrypt -inkey $CONTRACT_KEY -certin | base64 -w0)"
       ```
       {: pre}
 
-   - Using `pkeyutl` (recommended):
+   - `pkeyutl` (recommended):
 
      ```yaml
      ENCRYPTED_PASSWORD="$(echo -n "$PASSWORD" | base64 -d | openssl pkeyutl -encrypt -inkey $CONTRACT_KEY -certin -pkeyopt rsa_padding_mode:pkcs1 | base64 -w0)"
@@ -898,12 +902,14 @@ Complete the following steps on an Ubuntu system to encrypt the `env` section us
      {: pre}
 
 5. Use the following command to encrypt `env.yaml` with a random password:
+
    ```yaml
    ENCRYPTED_ENV="$(echo -n "$PASSWORD" | base64 -d | openssl enc -aes-256-cbc -pbkdf2 -pass stdin -in "$ENV" | base64 -w0)"
    ```
    {: pre}
 
 6. Use the following command to get the encrypted section of the contract:
+
    ```yaml
    echo "hyper-protect-basic.${ENCRYPTED_PASSWORD}.${ENCRYPTED_ENV}"
    ```
@@ -912,17 +918,16 @@ Complete the following steps on an Ubuntu system to encrypt the `env` section us
 7. To encrypt the workload section, see [Creating the encrypted `workload` section of a contract](#hpcr_contract_encrypt_workload).
 
 8. Get the output from step 6 and add it to the `user-data.yaml` file.
+
    ```yaml
    env: hyper-protect-basic.VWg/5/SWE+9jLfhr8q4i.........
    ```
    {: pre}
 
-
 ## Contract signature
 {: #hpcr_contract_sign}
 
-
-Contract signature is an optional feature that can be used with the contract. You can choose to sign a contract before it is passed as input. You can also set the expiry of the contract during signature. Contracts that are in plain text or encrypted can be signed. Validation of the contract signature is done by the {{site.data.keyword.hpvs}} for VPC image.
+Contract signature is an optional feature that you can use with the contract. You can choose to sign a contract before it is passed as input. You can also set the expiry of the contract during signature. Contracts that are in plain text or encrypted can be signed. Validation of the contract signature is done by the {{site.data.keyword.hpvs}} for VPC image.
 The purpose of this signature feature is to ensure that the `workload` and `env` sections are always used together and are not tampered with by a third party. This feature also supports setting expiry for contract. That is, if the instance is booted after the signature expired, the boot process fails. The signature of the `workload` and the `env` sections are added as the value to the `envWorkloadSignature` section.
 The following are two sections in a contract that are relevant while creating and adding a contract signature:
 * `envWorkloadSignature`: This section is where the signature of the other sections of the contract is added. This section is not required for a contract that is not signed.
@@ -1056,11 +1061,11 @@ Complete the following steps on an Ubuntu system to create the contract signatur
    ```
    {: codeblock}
 
-7. Use the following command to export complete path of `env.yaml` and `ibm-hyper-protect-container-runtime-1-0-s390x-26-encrypt.crt`:
+7. Use the following command to export complete path of `env.yaml` and `ibm-hyper-protect-container-runtime-1-0-s390x-27-encrypt.crt`:
 
    ```sh
    ENV="<PATH to env.yaml>"
-   CONTRACT_KEY="<PATH to ibm-hyper-protect-container-runtime-1-0-s390x-26-encrypt.crt>"
+   CONTRACT_KEY="<PATH to ibm-hyper-protect-container-runtime-1-0-s390x-27-encrypt.crt>"
    ```
    {: pre}
 
