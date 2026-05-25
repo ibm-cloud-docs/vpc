@@ -1201,6 +1201,7 @@ toc:
               - vpn-ts-unable-establish-connection.md
               - vpn-ts-traffic-not-getting-through.md
               - vpn-ts-multi-cidr-oneway-traffic.md
+              - vpn-ts-policy-based-multi-cidr.md
               - vpn-ts-duplicate-ike-sa.md
               - vpn-ts-unstable-connection.md
               - vpn-ts-vpn-tunnel-fails.md
@@ -1208,6 +1209,8 @@ toc:
               - vpn-ts-acl-specific-rules.md
               - vpn-ts-routing-issues.md
               - vpn-ts-vpn-gateway-fix-bad-service-routes.md
+              - vpn-ts-connection-down-gateway-healthy.md
+              - vpn-ts-vpn-stuck-suspended.md
               - vpn-ts-advertise-route-not-work.md
               - vpn-ts-s2s-over-quota.md
               - vpn-ts-s2s-cannot-access-classic-vsi.md
@@ -1225,11 +1228,14 @@ toc:
               - vpn-ts-c2s-cannot-connect-vpe.md
               - vpn-ts-c2s-cannot-connect-to-virtual-server.md
               - vpn-ts-c2s-server-cert-easyrsa.md
+              - vpn-ts-c2s-certificate-not-found.md
+              - vpn-ts-c2s-auth-failed-cert-chain.md
               - vpn-ts-certificate-warning-openvpn.md
               - vpn-ts-client-restart-message.md
               - vpn-ts-connection-failure.md
               - vpn-ts-dns-configuration-not-working.md
               - vpn-ts-vpn-client-hangs.md
+              - vpn-ts-c2s-connection-timeout.md
               - vpn-ts-vpn-server-fix-bad-service-routes.md
               - vpn-client-to-site-ts-advertise-route-not-work.md
               - vpn-ts-c2s-over-quota.md
