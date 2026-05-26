@@ -2,7 +2,7 @@
 
 copyright:
   years: 2019, 2026
-lastupdated: "2026-05-19"
+lastupdated: "2026-05-26"
 
 keywords:
 
@@ -100,8 +100,6 @@ The following limitations apply to this release:
 When you create a {{site.data.keyword.block_storage_is_short}} volume in your availability zone, you can use 3 different tiered profiles with predefined IOPS levels. Or you can select a custom profile and define your own IOPS level based on the volume capacity. All profiles are backed by solid-state drives (SSDs).
 
 For more information, see [{{site.data.keyword.block_storage_is_short}} profiles](/docs/vpc?topic=vpc-block-storage-profiles).
-
-[New]{: tag-new}
 
 You can migrate your volume from a traditional volume profile to the SSD Defined Performance profile in the console, from the CLI, with the API, or Terraform. For more information, see [Migrating block storage volume](/docs/vpc?topic=vpc-block-storage-vpc-volume-migration).
 {: tip}

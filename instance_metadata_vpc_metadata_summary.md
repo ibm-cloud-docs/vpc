@@ -1,8 +1,8 @@
 ---
 
 copyright:
-  years: 2021, 2025
-lastupdated: "2025-12-19"
+  years: 2021, 2026
+lastupdated: "2026-05-26"
 
 keywords:
 
@@ -55,7 +55,7 @@ Use the information in the Table 1 to understand the type of metadata returned f
 | `/instance`	| `vcpu` | The number of VCPUs that are assigned by way of a structure that includes count and architecture properties. |
 | `/instance`	| `volume_attachments` | A list of the virtual server instance's volume attachments. |
 | `/instance` | `boot_volume_attachment` | Instance's boot volume attachment. |
-| `/instance` | `volume_bandwidth_qos_mode` | [New]{: tag-new} The volume bandwidth QoS mode for this virtual server instance. Either pooled or weighted. |
+| `/instance` | `volume_bandwidth_qos_mode` | The volume bandwidth QoS mode for this virtual server instance. Either pooled or weighted. |
 | `/instance`	| `vpc` |	The VPC in which the virtual server instance resides. |
 | `/instance`	| `zone` | The globally unique name for the zone. |
 | `/instance/initialization` | `default_trusted_profile` | The default trusted profile configuration that was specified at virtual server instance creation. |
