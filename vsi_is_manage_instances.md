@@ -2,7 +2,7 @@
 
 copyright:
   years: 2019, 2026
-lastupdated: "2026-01-14"
+lastupdated: "2026-05-26"
 
 keywords: view instance details, restart virtual server, stop, details, delete
 
@@ -15,7 +15,7 @@ subcollection: vpc
 # Managing virtual server instances
 {: #managing-virtual-server-instances}
 
-Manage your {{site.data.keyword.vsi_is_full}} instances by performing tasks such as start, stop, restart, and delete virtual server instances.
+Manage your {{site.data.keyword.vsi_is_full}} instances by completing tasks such as start, stop, restart, and delete virtual server instances.
 {: shortdesc}
 
 If you don't know the name or ID of the virtual server instance that you want to manage, run **`ibmcloud is instances`** to list virtual server instances in your account.
@@ -87,7 +87,7 @@ The following example renames a virtual server instance from `name` to `my-insta
 {: #stop-start-virtual-server-instances-ui}
 {: ui}
 
-The stop action shuts down the guest operating system and then the virtual server instance is deprovisioned. This change releases the instance resources that were being consumed. The virtual server instance goes into the Stop state. If the instance is stopped, the instance remains in the stopped state and must be started manually. Billing is [suspended](/docs/vpc?topic=vpc-suspend-billing) for some compute resources while the instance is stopped. You cannot interact with an instance if it is stopped, but volumes remain provisioned. If the instance is started, normal interaction and billing continue.
+The stop action shuts down the guest operating system and then the virtual server instance is deprovisioned. This change releases the instance resources that were being used. The virtual server instance goes into the Stop state. If the instance is stopped, the instance remains in the stopped state and must be started manually. Billing is [suspended](/docs/vpc?topic=vpc-suspend-billing) for some compute resources while the instance is stopped. You cannot interact with an instance if it is stopped, but volumes remain provisioned. If the instance is started, normal interaction and billing continue.
 
 A _Force stop_ action triggers a power cycle reset of the virtual server instance.
 {: note}
@@ -98,7 +98,7 @@ When a virtual server is stopped, it is removed from the host. When the virtual 
 
 From the _Virtual server instances_ page in {{site.data.keyword.cloud_notm}} console, click **Stop** or **Start**.
 
-_For z/OS virtual server instances only_. You must shut down all the subsystems in the z/OS system to halt the virtual server instance. For more information, see [Shutting down z/OS virtual server instances](https://www.ibm.com/docs/en/wazi-aas/1.1.0?topic=vpc-shutting-down-zos-virtual-server-instances){: external}.
+_For z/OS virtual server instances only_: You must shut down all the subsystems in the z/OS system to halt the virtual server instance. For more information, see [Shutting down z/OS virtual server instances](https://www.ibm.com/docs/en/wazi-aas/1.1.0?topic=vpc-shutting-down-zos-virtual-server-instances){: external}.
 {: note}
 
 ## Stopping a virtual server instance from the CLI
@@ -240,7 +240,7 @@ For more information, see the [Create an instance action](/apidocs/vpc/latest#cr
 {: #resize-virtual-server-instances-ui}
 {: ui}
 
-You can increase or decrease the amount of vCPU and RAM that is available for greater flexibility in workload management to address resource requirement changes, optimize cost, or workload performance. After the resize is complete, you are billed the hourly rate of the new instance profile that you selected.
+You can increase or decrease the amount of vCPU and RAM that is available for greater flexibility in workload management to address resource requirement changes, optimize cost, or workload performance. After the resize is complete, you are billed for the hourly rate of the new instance profile that you selected.
 
 For the steps to resize a virtual server instance in the console, see [Resizing a virtual server instance by using the UI](/docs/vpc?topic=vpc-resizing-an-instance#resizing-a-virtual-server-UI).
 
@@ -248,7 +248,7 @@ For the steps to resize a virtual server instance in the console, see [Resizing 
 {: #resize-virtual-server-instances-CLI}
 {: cli}
 
-You can increase or decrease the amount of vCPU and RAM available for greater flexibility in workload management to address resource requirement changes, optimize cost or workload performance. After the resize is complete, you are billed the hourly rate of the new instance profile selected.
+You can increase or decrease the amount of vCPU and RAM available for greater flexibility in workload management to address resource requirement changes, optimize cost, or workload performance. After the resize is complete, you are billed for the hourly rate of the new instance profile selected.
 
 For the steps to resize a virtual server instance, see [Resizing a virtual server instance by using the CLI](/docs/vpc?topic=vpc-resizing-an-instance#resizing-a-virtual-server-CLI).
 
@@ -256,7 +256,7 @@ For the steps to resize a virtual server instance, see [Resizing a virtual serve
 {: #resize-virtual-server-instances-API}
 {: api}
 
-You can increase or decrease the amount of vCPU and RAM available for greater flexibility in workload management to address resource requirement changes, optimize cost or workload performance. After the resize is complete, you are billed the hourly rate of the new instance profile selected.
+You can increase or decrease the amount of vCPU and RAM available for greater flexibility in workload management to address resource requirement changes, optimize cost, or workload performance. After the resize is complete, you are billed for the hourly rate of the new instance profile selected.
 
 For the steps to resize a virtual server instance, see [Resizing a virtual server instance by using the API](/docs/vpc?topic=vpc-resizing-an-instance#resizing-a-virtual-server-API).
 
@@ -317,7 +317,7 @@ For more information, see the [Delete an instance](/apidocs/vpc/latest#delete-in
 {: #auto-delete-toggle-ui}
 {: ui}
 
-During instance provisioning, a boot volume is created with the auto-delete option enabled by default. When this feature is enabled, the volume is deleted when the instance is deleted.
+During instance provisioning, a boot volume is created with the auto-delete option that is enabled by default. When this feature is enabled, the volume is deleted when the instance is deleted.
 
 The opposite is true for data volumes that are created during instance provisioning, the auto-delete feature is disabled for them. Data volumes are meant to be detached but not deleted by default so your data can persist beyond the virtual server instance lifecycle.
 
@@ -327,7 +327,7 @@ You can change this setting on the Edit boot volume panel when you create an ins
 {: #auto-delete-toggle-cli}
 {: cli}
 
-During instance provisioning, a boot volume is created with the auto-delete option enabled by default. When this feature is enabled, the volume is deleted when the instance is deleted.
+During instance provisioning, a boot volume is created with the auto-delete option that is enabled by default. When this feature is enabled, the volume is deleted when the instance is deleted.
 
 The opposite is true for data volumes that are created during instance provisioning, the auto-delete feature is disabled for them. Data volumes are meant to be detached but not deleted by default so your data can persist beyond the virtual server instance lifecycle.
 
@@ -337,7 +337,7 @@ You can change this setting by specifying the `auto_delete` property when you cr
 {: #auto-delete-toggle-api}
 {: api}
 
-During instance provisioning, a boot volume is created with the auto-delete option enabled by default. When this feature is enabled, the volume is deleted when the instance is deleted.
+During instance provisioning, a boot volume is created with the auto-delete option that is enabled by default. When this feature is enabled, the volume is deleted when the instance is deleted.
 
 The opposite is true for data volumes that are created during instance provisioning, the auto-delete feature is disabled for them. Data volumes are meant to be detached but not deleted by default so your data can persist beyond the virtual server instance lifecycle.
 
@@ -548,8 +548,8 @@ For z/OS virtual server instances, you can SSH into the instance, and then run t
 To set the host failure auto restart for an existing instance, complete the following steps.
 
    1. In [{{site.data.keyword.cloud_notm}} console](https://console.cloud.ibm.com){: external}, click **Navigation Menu** icon ![menu icon](../icons/icon_hamburger.svg) **> Infrastructure** ![VPC icon](../../icons/vpc.svg) **> Compute > Virtual server instances**.
-   2. On the **Virtual server instances** page, click the Actions icon ![More Actions icon](../icons/action-menu-icon.svg) for the instance that you want to manage.
-   3. From the instance details page, locate 'Host failure auto restart'. Click the **Edit icon** ![Edit icon](../icons/edit-tagging.svg "Edit") and choose Enabled or Disabled to toggle the status of the host recovery policy on or off.
+   1. On the **Virtual server instances** page, click the Actions icon ![More Actions icon](../icons/action-menu-icon.svg) for the instance that you want to manage.
+   1. From the instance details page, locate 'Host failure auto restart'. Click the **Edit icon** ![Edit icon](../icons/edit-tagging.svg "Edit") and choose Enabled or Disabled to toggle the status of the host recovery policy on or off.
 
    For more information, see [Host failure recovery policies](/docs/vpc?topic=vpc-host-failure-recovery-policies&interface=api).
 
@@ -608,7 +608,7 @@ For more information, see the [update an instance action](/apidocs/vpc/latest#up
 {: #disable-secure-boot-ui}
 {: ui}
 
-When you select a [confidential computing instance profile](/docs/vpc?topic=vpc-profiles&interface=ui#confidential-computing-profiles), the secure boot option is enabled by default. You can disable secure boot on your virtual server instance, but you must first stop the virtual server instance. After disabling secure boot, you can then restart your virtual server instance.
+When you select a [confidential computing instance profile](/docs/vpc?topic=vpc-profiles&interface=ui#confidential-computing-profiles), the secure boot option is enabled by default. You can disable secure boot on your virtual server instance, but you must first stop the virtual server instance. After you disable secure boot, you can then restart your virtual server instance.
 
 1. From the _Virtual server instances_ page in {{site.data.keyword.cloud_notm}} console, select the virtual server instance.
 1. From **Actions**, click **Stop**.
@@ -621,7 +621,7 @@ If you decide to re-enable secure boot, follow these same steps and toggle the o
 {: #set-secure-boot-cli}
 {: cli}
 
-When you select a [confidential computing instance profile](/docs/vpc?topic=vpc-profiles&interface=ui#confidential-computing-profiles), the secure boot option is enabled by default. You can disable secure boot on your virtual server instance, but you must first stop the virtual server instance. After disabling secure boot, you can then restart your virtual server instance.
+When you select a [confidential computing instance profile](/docs/vpc?topic=vpc-profiles&interface=ui#confidential-computing-profiles), the secure boot option is enabled by default. You can disable secure boot on your virtual server instance, but you must first stop the virtual server instance. After you disable secure boot, you can then restart your virtual server instance.
 
 You can update an instance and change the `enable-secure-boot` by using the command-line interface (CLI). Use the `ibmcloud is instance-update` command. For INSTANCE, specify the ID or name of the instance and set the `--enable-secure-boot` property to `false`.
 
@@ -636,7 +636,7 @@ If you decide to re-enable secure boot, follow these same steps and set the `--e
 {: #set-secure-boot-API}
 {: api}
 
-When you select a [confidential computing instance profile](/docs/vpc?topic=vpc-profiles&interface=ui#confidential-computing-profiles), the secure boot option is enabled by default. You can disable secure boot on your virtual server instance, but you must first stop the virtual server instance. After disabling secure boot, you can then restart your virtual server instance.
+When you select a [confidential computing instance profile](/docs/vpc?topic=vpc-profiles&interface=ui#confidential-computing-profiles), the secure boot option is enabled by default. You can disable secure boot on your virtual server instance, but you must first stop the virtual server instance. After you disble secure boot, you can then restart your virtual server instance.
 
 You can update a virtual server instance and change the `enable_secure_boot` property by using the API. Use the `update-instance` command. Make a `PATCH /instances` request and specify a new value for the `enable_secure_boot` property. To enable confidential secure boot, change this value to `false`.
 
@@ -663,7 +663,7 @@ You can detach a virtual server from a reservation in the console.
 {: #cloud-security-posture-management}
 {: ui}
 
-When you select this option, a workload protection instance is created with the configurations to provide CSPM to all the resources. If a workload protection instance already exists, this option is not available. For more information, see [About IBM Cloud Security Posture Management (CSPM)](/docs/workload-protection?topic=workload-protection-about&interface=ui).
+When you select this option, a workload protection instance is created with the configurations to provide CSPM to all the resources. If a workload protection instance exists, this option is not available. For more information, see [About IBM Cloud Security Posture Management (CSPM)](/docs/workload-protection?topic=workload-protection-about&interface=ui).
 
 You can add CSPM (Cloud Security Posture Management) on the _Virtual server instances_ page.
 
