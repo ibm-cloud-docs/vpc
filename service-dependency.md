@@ -2,7 +2,7 @@
 
 copyright:
   years: 2024, 2026
-lastupdated: "2026-05-19"
+lastupdated: "2026-05-26"
 
 keywords:
 
@@ -151,7 +151,7 @@ The following dependencies apply to the following deployment locations: Dallas (
 ## Data plane deployment for NGDC
 {: #data-plane-deployment-for-ngdc}
 
-The following dependencies apply to the following deployment locations: Chennai - Airtel (in-che), Montreal (ca-mon), Mumbai (mum).
+The following dependencies apply to the following deployment locations: Chennai - Airtel (in-che), Montreal (ca-mon), Mumbai - Airtel (in-mum).
 
 
 |Dependencies|Dependency impacts|Customer provided|Control or data plane|Location of dependency|
@@ -561,7 +561,6 @@ The following dependencies apply to the following deployment locations: Dallas (
 |:---|:---|:---|:---|:---|
 | {{site.data.keyword.messagehub_full}} | Availability, Change management, Disaster recovery, Instance control | No | Both |  Same region  |
 | IBM Cloud Hyper Protect Crypto | Availability | Yes | Both |  Same region  |
-| IBM Cloud Databases | Availability, Change management, Disaster recovery, Instance control | No | Both |  Same region  |
 | IBM Cloud Kubernetes Service and Red Hat OpenShift on IBM Cloud | Availability, Change management, Disaster recovery, Instance control | No | Both |  Same region  |
 | {{site.data.keyword.cis_full}} | Availability, Change management, Disaster recovery, Instance control, Security compliance | No | Both |  Same data center  |
 | {{site.data.keyword.iamlong}} | Access management, Availability, Change management, Instance control, Security compliance | No | Both |  Same region  |
@@ -599,6 +598,8 @@ The following dependencies apply to the following deployment locations: Dallas (
 |:---|:---|:---|:---|:---|
 | {{site.data.keyword.logs_full}}| Access management, Operations, Security compliance | No | Both |  Same region  |
 | VPC Security Services| none | No | Both |  Same region  |
+| None| Security compliance | No | Both |  Same region  |
+| None| Security compliance | No | Both |  Same region  |
 {: row-headers}
 {: caption="IBM Cloud Block Storage Snapshots for VPC - Data and Control plane deployment service dependency information - Minimal dependencies" caption-side="top"}
 {: tab-title="Minimal dependencies"}
@@ -610,7 +611,7 @@ The following dependencies apply to the following deployment locations: Dallas (
 ## Data and Control plane deployment for NGDC
 {: #data-and-control-plane-deployment-for-ngdc}
 
-The following dependencies apply to the following deployment locations: Chennai - Airtel (in-che), Montreal (ca-mon), Mumbai (mum).
+The following dependencies apply to the following deployment locations: Chennai - Airtel (in-che), Montreal (ca-mon), Mumbai - Airtel (in-mum).
 
 
 |Dependencies|Dependency impacts|Customer provided|Control or data plane|Location of dependency|
@@ -706,7 +707,7 @@ The following dependencies apply to the following deployment locations: Dallas (
 ## Data plane deployment for NGDC
 {: #data-plane-deployment-for-ngdc}
 
-The following dependencies apply to the following deployment locations: Chennai - Airtel (in-che), Montreal (ca-mon), Mumbai (mum).
+The following dependencies apply to the following deployment locations: Chennai - Airtel (in-che), Montreal (ca-mon), Mumbai - Airtel (in-mum).
 
 
 |Dependencies|Dependency impacts|Customer provided|Control or data plane|Location of dependency|
@@ -814,7 +815,7 @@ The following dependencies apply to the following deployment locations: Dallas (
 ## NGDC Data plane deployment
 {: #ngdc-data-plane-deployment}
 
-The following dependencies apply to the following deployment locations: Chennai - Airtel (in-che), Montreal (ca-mon), Mumbai (mum).
+The following dependencies apply to the following deployment locations: Chennai - Airtel (in-che), Montreal (ca-mon), Mumbai - Airtel (in-mum).
 
 
 |Dependencies|Dependency impacts|Customer provided|Control or data plane|Location of dependency|
