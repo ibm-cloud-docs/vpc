@@ -2,7 +2,7 @@
 
 copyright:
   years: 2018, 2026
-lastupdated: "2026-05-12"
+lastupdated: "2026-05-27"
 
 keywords:
 
@@ -127,7 +127,7 @@ The combined total of the address prefixes quota and the [advertised routes quot
 | Load balancers | 50 per region |
 | Listeners | 10 per load balancer |
 | Pools | 10 per load balancer |
-| Members | 50 per pool (if pool member targets an an ALB, only a single member is allowed) |
+| Members | 50 per pool (if pool member targets an ALB, only a single member is allowed) |
 {: caption="Quotas for Private Path load balancers" caption-side="bottom"}
 
 ### Public address ranges
