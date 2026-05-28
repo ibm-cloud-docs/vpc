@@ -2,7 +2,7 @@
 
 copyright:
   years: 2020, 2026
-lastupdated: "2026-05-18"
+lastupdated: "2026-05-28"
 
 keywords:
 
@@ -18,7 +18,7 @@ subcollection: vpc
 You can add connections when [creating a VPN gateway](/docs/vpc?topic=vpc-vpn-create-gateway&interface=ui), or after provisioning one. When you configure a VPN connection, you can choose to connect with auto-negotiation or use a pre-defined custom IKE or IPsec policy. For more information, see [About policy negotiation](/docs/vpc?topic=vpc-using-vpn#policy-negotiation).
 {: shortdesc}
 
-The IKE and IPsec security options that you specify for the VPN connection must exactly match the ones that are set on the peer gateway for the network outside your VPC.
+To ensure consistent algorithm selection, match exact IKE and IPsec algorithms and their order of priority on both the IBM Cloud VPN gateway and peer gateway. For more information on what factors affect algorithm selection, see [How are encryption algorithms chosen for IKE and IPsec in a site-to-site VPN connection?](/docs/vpc?topic=vpc-faqs-vpn&interface=ui#faq-vpn-18)
 {: important}
 
 ## Adding a connection in the console
@@ -76,6 +76,9 @@ To add a VPN connection to an existing VPN gateway, follow these steps:
    * Select or create custom policies if:
       * You need to enforce particular security requirements.
       * The VPN gateway on the other network doesn't support the security proposals that are automatically negotiated during setup.
+
+      IKEv1 supports only a single algorithm. If your VPN connection uses an IKEv1 policy, the associated IPsec policy must also contain only one algorithm. IPsec policies with multiple algorithms are not supported with IKEv1.
+      {: note}
 
 
 1. In the **Advanced options** section, you can customize local and peer IKE identities instead of using the default IKE identity. One peer IKE identity can be specified at most.

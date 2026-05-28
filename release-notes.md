@@ -2,7 +2,7 @@
 
 copyright:
   years: 2019, 2026
-lastupdated: "2026-05-22"
+lastupdated: "2026-05-28"
 
 keywords:
 
@@ -26,6 +26,13 @@ For more information about changes to the {{site.data.keyword.vpc_short}} comman
 
 ## May 2026
 {: #vpc-may26}
+
+### 29 May 2026
+{: #vpc-may2926}
+{: release-note}
+
+Multiple IKE and IPsec policy support for VPN gateways
+:   You can now configure multiple IKE and IPsec policies on site‑to‑site VPN gateways and order them by priority. The VPN gateway negotiates mutually supported encryption and hashing algorithms with your on‑premises peer based on the priority. This feature improves interoperability, strengthens security, and consistent VPN policy management. For more information, see [Creating an IKE policy](/docs/vpc?topic=vpc-creating-ike-policy) and [Creating an IPsec policy](/docs/vpc?topic=vpc-creating-ipsec-policy).
 
 ### 22 May 2026
 {: #vpc-may2926}

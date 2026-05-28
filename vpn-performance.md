@@ -2,7 +2,7 @@
 
 copyright:
   years: 2025, 2026
-lastupdated: "2026-03-11"
+lastupdated: "2026-05-28"
 
 keywords: VPN, vpn gateways, performance, best practices
 
@@ -123,7 +123,7 @@ IBM Cloud supports both IKEv1 and IKEv2. However, IKEv2 is recommended because i
 * Improves stability
 * Minimizes rekeying issues
 
-   For more information, see [What is a rekey collision in site-to-site VPNs?](/docs/vpc?topic=vpc-faqs-vpn&interface=ui&loginMethod=federated#faq-vpn-14).
+   For more information, see [What is a rekey collision in site-to-site VPNs?](/docs/vpc?topic=vpc-faqs-vpn&interface=ui&loginMethod=federated#faq-vpn-30).
    {: note}
 
 Use IKEv2 whenever supported by your peer device.
