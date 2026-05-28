@@ -14,7 +14,8 @@ subcollection: vpc
 # High frequency profiles -  Gen 4
 {: #high-frequency-profile-family}
 
-The high frequency profile family provides access to CPUs with elevated clock speeds that are tailored for compute-intensive workloads. These workloads include Electronic Design Automation (EDA), Computational Fluid Dynamics (CFD), Finite Element Analysis (FEA), and weather or climate modeling. These higher frequencies boost per-core performance, by enabling faster execution, and more efficient use of software licensed on a per-core basis.{: shortdesc}
+The high frequency profile family provides access to CPUs with elevated clock speeds that are tailored for compute-intensive workloads. These workloads include Electronic Design Automation (EDA), Computational Fluid Dynamics (CFD), Finite Element Analysis (FEA), and weather or climate modeling. These higher frequencies boost per-core performance, by enabling faster execution, and more efficient use of software licensed on a per-core basis.
+{: shortdesc}
 
 ## AMD hx4da instance profiles
 {: #amd-hx4da-profiles}
