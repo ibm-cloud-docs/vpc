@@ -613,10 +613,11 @@ toc:
               - vpn-using.md
               - vpn-planning.md
               - vpn-create.md
-              - vpn-upgrade-ciphers.md
               - vpn-add-connection.md
               - vpn-create-ike-policy.md
               - vpn-create-ipsec-policy.md
+              - vpn-upgrade-ciphers.md
+              - vpn-update-multiple-algorithms.md
               - vpn-site-to-site-routes-propagating.md
               - vpn-onprem.md
               - vpn-onprem-aws.md
