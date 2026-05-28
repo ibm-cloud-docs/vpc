@@ -150,7 +150,7 @@ The singular values for _authentication algorithms_, _pfsgs_, and _encryption al
    ```
    {: pre}
 
-   The `authentication_algorithms` must be set to `disabled` if and only if the `encryption_algorithms` list contains any GCM-based algorithms (`aes128gcm16`, `aes192gcm16`, or `aes256gcm16`). GCM algorithms provide both encryption and built-in data integrity (authentication) as part of a single operation, so a separate authentication algorithm (such as `sha256` or `sha512`) must not be specified. GCM algorithms can't be mixed with non-GCM encryption algorithms (such as `aes128`, `aes192`, or `aes256`) within the same policy, because non-GCM algorithms require an external authentication algorithm while GCM does not. By mixing them, it can create configuration conflicts and lead to negotiation failures.
+   The `authentication_algorithms` must be set to `disabled` if and only if the `encryption_algorithms` list contains any GCM-based algorithms (`aes128gcm16`, `aes192gcm16`, or `aes256gcm16`). GCM algorithms provide both encryption and built-in data integrity (authentication) as part of a single operation, so a separate authentication algorithm (such as `sha256` or `sha512`) must not be specified.
    {: note}
 
 ## Creating an IPsec policy with the API
@@ -207,7 +207,7 @@ Create an IPsec policy with multiple algorithms and `authentication_algorithms` 
    ```
    {: codeblock}
 
-   The `authentication_algorithms` property must be set to `disabled` if and only if the `encryption_algorithms` list contains any GCM-based algorithms (`aes128gcm16`, `aes192gcm16`, or `aes256gcm16`). GCM algorithms provide both encryption and built-in data integrity (authentication) as part of a single operation, so a separate authentication algorithm (such as `sha256` or `sha512`) must not be specified. GCM algorithms can't be mixed with non-GCM encryption algorithms (such as `aes128` or `aes256`) within the same policy because non-GCM algorithms require an external authentication algorithm while GCM does not. By mixing them, it can create configuration conflicts and lead to negotiation failures.
+   The `authentication_algorithms` property must be set to `disabled` if and only if the `encryption_algorithms` list contains any GCM-based algorithms (`aes128gcm16`, `aes192gcm16`, or `aes256gcm16`). GCM algorithms provide both encryption and built-in data integrity (authentication) as part of a single operation, so a separate authentication algorithm (such as `sha256` or `sha512`) must not be specified.
    {: note}
 
 To create an IPsec policy with the API by using singular properties (deprecated), follow these steps:
