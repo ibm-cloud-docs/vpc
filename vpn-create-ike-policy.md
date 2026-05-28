@@ -21,7 +21,7 @@ You can use custom Internet Key Exchange (IKE) policies to define security param
 IKEv1 is a deprecated protocol and you are strongly encouraged to use IKEv2. If your VPN connection uses an IKEv1 policy, the associated IPsec policy must also contain only one algorithm because IKEv1 supports only a single algorithm. IPsec policies with multiple algorithms are not supported by IKEv1.
 {: note}
 
-To ensure consistent algorithm selection, match exact IKE and IPsec algorithms and their order of priority on both the IBM Cloud VPN gateway and peer gateway. For more information on what factors affect algorithm selection, see [How are encryption algorithms chosen for IKE and IPsec in a site-to-site VPN connection?](/docs/vpc?topic=vpc-faqs-vpn&interface=ui#faq-vpn-40)
+To ensure consistent algorithm selection, match exact IKE and IPsec algorithms and their order of priority on both the IBM Cloud VPN gateway and peer gateway. For more information on what factors affect algorithm selection, see [How are encryption algorithms chosen for IKE and IPsec in a site-to-site VPN connection?](/docs/vpc?topic=vpc-faqs-vpn&interface=ui#faq-vpn-18)
 {: important}
 
 ## Creating an IKE policy in the console

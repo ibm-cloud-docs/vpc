@@ -23,12 +23,12 @@ Use the following instructions to migrate from deprecated, singular algorithm pr
 ## Before you begin
 {: #vpn-update-algorithms-prereqs}
 
-Review the following information before you update your VPN policies.
+Review the following information before you update your site-to-site VPN policies.
 
 ### Deprecated singular algorithm properties
 {: #deprecated-singular-algorithm-properties}
 
-As of 29 May 2026, the VPN IKE and IPsec singular algorithm properties are deprecated. Existing VPN connections that are configured with singular properties continue to function without changes. To avoid negotiation failures when setting up your VPN connection, update to array-based algorithm properties as soon as possible.
+As of 29 May 2026, the VPN IKE and IPsec singular algorithm properties are deprecated. Existing route or policy-based VPN connections that are configured with singular properties continue to function without changes. To avoid negotiation failures when setting up your VPN connection, update to array-based algorithm properties as soon as possible.
 {: deprecated}
 
 | IKE singular property (deprecated) | IKE array-based property (recommended)|
@@ -51,7 +51,7 @@ Use multiple algorithms when your VPN environment requires compatibility with pe
 ### Important considerations
 {: #important-considerations}
 
-* New IKE and IPsec policies can be created only by using array-based algorithm properties.
+* New IKE and IPsec policies in the console, CLI, API, and Terraform can be created only by using array-based algorithm properties.
 * When you update an existing IKE or IPsec policy, it might temporarily disconnect the VPN tunnel while the connection is re-established.
 * If your disaster recovery procedures, automation, scripts, API integrations, or CLI workflows reference deprecated singular properties, update them accordingly.
 * Review your current IKE and IPsec policies to identify the algorithms in use.
@@ -64,7 +64,7 @@ Use multiple algorithms when your VPN environment requires compatibility with pe
 {: #vpn-update-algorithms-behavior}
 {: api}
 
-The API automatically synchronizes singular and array-based algorithm properties. Review the following behavior and restrictions before updating your policies.
+The API automatically synchronizes singular and array-based algorithm properties. This behavior applies not only to API updates, but also when you update policies from the CLI or Terraform. Review the following behavior and restrictions before updating your policies.
 
 IKE version compatibility
 

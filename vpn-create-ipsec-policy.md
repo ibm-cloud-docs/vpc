@@ -18,7 +18,7 @@ subcollection: vpc
 You can use custom IPsec policies to define security parameters that are used during Phase 2 of the negotiation. In this phase, the VPN and peer device use the security association that is established during Phase 1 to negotiate what traffic to send and how to authenticate and encrypt that traffic.
 {: shortdesc}
 
-To ensure consistent algorithm selection, match exact IKE and IPsec algorithms and their order of priority on both the IBM Cloud VPN gateway and peer gateway. For more information on what factors affect algorithm selection, see [How are encryption algorithms chosen for IKE and IPsec in a site-to-site VPN connection?](/docs/vpc?topic=vpc-faqs-vpn&interface=ui#faq-vpn-40)
+To ensure consistent algorithm selection, match exact IKE and IPsec algorithms and their order of priority on both the IBM Cloud VPN gateway and peer gateway. For more information on what factors affect algorithm selection, see [How are encryption algorithms chosen for IKE and IPsec in a site-to-site VPN connection?](/docs/vpc?topic=vpc-faqs-vpn&interface=ui#faq-vpn-18)
 {: important}
 
 ## Creating an IPsec policy in the console
