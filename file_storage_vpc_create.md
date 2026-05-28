@@ -2,7 +2,7 @@
 
 copyright:
   years: 2021, 2026
-lastupdated: "2026-05-21"
+lastupdated: "2026-05-28"
 
 keywords: file share, file storage, virtual network interface, encryption in transit, profiles,
 
@@ -114,6 +114,9 @@ If you're not ready to order yet or just looking for pricing information, you ca
 
    - If the zonal share has the [Deprecated]{: tag-deprecated} VPC as the access mode, provide a name for the mount target and select a VPC from the list. This mount target can be used to mount the file share on any virtual server instance of the selected VPC in the same zone as the file share. Cross-zone mounting is not supported.
 
+   The `vpc` access mode is set to reach End of Support on 06 May 2027. Follow the [migration guide](/docs/vpc?topic=vpc-fs-migrate-access-mode&interface=ui#fs-migrate-update-mode) to update your share's access control mode to `security-group`.
+   {: deprecated}
+
 5. Click **Create**.
 
 ## Adding supplemental IDs when you create a file share
@@ -201,7 +204,12 @@ Storage Generation                 1
 #### Creating a zonal file share without a mount target with VPC access mode
 {: #fs-create-share-vpc-cli}
 
-Security group access mode is the default and recommended setting. However, you can choose to create a zonal file share with the VPC access mode that allows every Compute host in the VPC to mount the file share. See the following example.
+Security group access mode is the default and recommended setting. However, you can choose to create a zonal file share with the VPC access mode that allows every Compute host in the VPC to mount the file share. 
+
+The `vpc` access mode is set to reach End of Support on 06 May 2027. Follow the [migration guide](/docs/vpc?topic=vpc-fs-migrate-access-mode&interface=ui#fs-migrate-update-mode) to update your share's access control mode to `security-group`.
+{: deprecated}
+
+See the following example.
 
 ```sh
 ibmcloud is share-create --name my-vpc-file-share --zone us-south-2 --profile dp2 --size 1000 --iops 500 --access-control-mode vpc
@@ -348,7 +356,10 @@ Access Protocol             nfs4
 ### Creating a mount target with VPC access mode
 {: #fs-create-mount-target-vpc-cli}
 
-The following example creates a mount target for a zonal file share that has VPC access mode.
+The following example creates a mount target for a zonal file share that has the [Deprecated]{: tag-deprecated} vpc access mode.
+
+The `vpc` access mode is set to reach End of Support on 06 May 2027. Follow the [migration guide](/docs/vpc?topic=vpc-fs-migrate-access-mode&interface=ui#fs-migrate-update-mode) to update your share's access control mode to `security-group`.
+{: deprecated}
 
 ```sh
 ibmcloud is share-mount-target-create my-vpc-file-share --vpc cli-vpc-3 --name my-vpc-mount-target --access-protocol nfs4 --transit-encryption none
@@ -478,6 +489,9 @@ Storage Generation                 2
 {: #fs-create-zonal-share-target-vpc-cli}
 
 The following example creates a file share with VPC access mode and a mount target that can be used by any virtual server instance within the VPC.
+
+The `vpc` access mode is set to reach End of Support on 06 May 2027. Follow the [migration guide](/docs/vpc?topic=vpc-fs-migrate-access-mode&interface=ui#fs-migrate-update-mode) to update your share's access control mode to `security-group`.
+{: deprecated}
 
 ```sh
 ibmcloud is share-create --name my-file-share-8 --zone us-south-1 --profile dp2 --size 40 --iops 2000 --user-tags env:dev --mount-targets '[{"name": "my-new-mount-target","vpc": {"name": "my-vpc"}}]'
@@ -682,6 +696,9 @@ Make sure that when you create the mount target, you also specify a virtual netw
 
 The following example shows a request to create a 4800 GB file share. It specifies the access control mode `vpc`, which enables all clients in each mount target's VPC to have access to this file share. This option is less secure, and does not support newer features.
 
+The `vpc` access mode is set to reach End of Support on 06 May 2027. Follow the [migration guide](/docs/vpc?topic=vpc-fs-migrate-access-mode&interface=ui#fs-migrate-update-mode) to update your share's access control mode to `security-group`.
+{: deprecated}
+
 ```sh
 curl -X POST "$vpc_api_endpoint/v1/shares?version=2023-08-08&generation=2"\
 -H "Authorization: $iam_token" \
@@ -763,10 +780,50 @@ curl -X POST "$vpc_api_endpoint/v1/shares?version=2025-09-23&generation=2"\
 {: #fs-create-mount-target-api}
 {: api}
 
-This request creates or adds a mount target to an existing file share. In this example, the `vpc` property is specified because the file share's access control mode is `vpc`. Data encryption in transit cannot be enabled.
+You can create a mount target for an existing file share by making a `POST /shares/{share_id}/mount_targets` request.
 
-Access control modes of the mount target and the share must match. Both must be either `vpc` or `security_group`. When you create a mount target with `security_group` access mode, pay attention to the share's `allowed_transit_encryption_modes`. The `transit_encryption` value must reflect what is allowed for the share.
-{: important}
+Access control modes of the mount target and the share must match. Both must be either `security_group` or `vpc`. When you create a mount target with `security_group` access mode, pay attention to the share's `allowed_transit_encryption_modes`. The `transit_encryption` value must reflect what is allowed for the share.
+
+The `vpc` access mode is set to reach End of Support on 06 May 2027. Follow the [migration guide](/docs/vpc?topic=vpc-fs-migrate-access-mode&interface=ui#fs-migrate-update-mode) to update your share's access control mode to `security-group`.
+{: deprecated}
+
+### Adding a mount target to an existing file share by specifying a subnet and security group
+{: #fs-create-file-share-subnet-sg-api}
+
+Make a `POST /shares/{share_id}/mount_targets` request and specify a subnet and security group for the mount target network interface. The security groups that you associate with a mount target must allow inbound access for the TCP protocol on the NFS port from all servers where you want to mount the share.
+
+This example adds a mount target to an existing zonal file share, which is identified by ID, and provides a subnet and security group to define the network interface. Encryption in transit is enabled.
+
+```sh
+ curl -X POST "$vpc_api_endpoint/v1/shares/r006-201487a2-cf35-4b2a-a4fe-f480803e1e80/mount_targets/?version=2023-07-18&generation=2"\
+ -d '{
+     "virtual_network_interface": {
+        "subnet": {"id": "1a0b3d75-8a62-4c78-9263-f9bcd25a8759"},
+        "security_groups": [{"id": "b2599112-7027-480e-ad1b-fd917d2fcb84"}]
+     },
+     "transit_encryption": "ipsec"
+}'
+```
+{: codeblock}
+
+The following example shows how to add a mount target to a regional file share. To enable encryption in transit for a regional file share target, specify "stunnel".
+
+```sh
+ curl -X POST "$vpc_api_endpoint/v1/shares/r006-ee1f6fc0-6fa3-4821-ad70-f6589e30c566/mount_targets/?version=2025-09-23&generation=2"\
+ -d '{
+     "virtual_network_interface": {
+        "subnet": {"id": "1a0b3d75-8a62-4c78-9263-f9bcd25a8759"},
+        "security_groups": [{"id": "b2599112-7027-480e-ad1b-fd917d2fcb84"}]
+     },
+     "transit_encryption": "stunnel"
+}'
+```
+{: codeblock}
+
+### Adding a mount target to an existing file share with the vpc access mode
+{: #fs-create-file-share-vpc-api}
+
+This request adds a mount target to an existing file share. In this example, the [Deprecated]{: deprecated} `vpc` value is specified because the file share's access control mode is `vpc`. Data encryption in transit cannot be enabled.
 
 ```sh
 curl -X POST "$vpc_api_endpoint/v1/shares/$share_id/mount_targets?version=2023-08-08&generation=2"\
@@ -802,39 +859,6 @@ A successful response looks like the following example.
     "resource_type": "vpc"
   }
 }
-```
-{: codeblock}
-
-### Adding a mount target to an existing file share by specifying a subnet and security group
-{: #fs-create-file-share-subnet-sg-api}
-
-Make a `POST /shares/{share_id}/mount_targets` request and specify a subnet and security group for the mount target network interface. The security groups that you associate with a mount target must allow inbound access for the TCP protocol on the NFS port from all servers where you want to mount the share.
-
-This example adds a mount target to an existing zonal file share, which is identified by ID, and provides a subnet and security group to define the network interface. Encryption in transit is enabled.
-
-```sh
- curl -X POST "$vpc_api_endpoint/v1/shares/r006-201487a2-cf35-4b2a-a4fe-f480803e1e80/mount_targets/?version=2023-07-18&generation=2"\
- -d '{
-     "virtual_network_interface": {
-        "subnet": {"id": "1a0b3d75-8a62-4c78-9263-f9bcd25a8759"},
-        "security_groups": [{"id": "b2599112-7027-480e-ad1b-fd917d2fcb84"}]
-     },
-     "transit_encryption": "ipsec"
-}'
-```
-{: codeblock}
-
-The following example shows how to add a mount target to a regional file share. To enable encryption in transit for a regional file share target, specify "stunnel".
-
-```sh
- curl -X POST "$vpc_api_endpoint/v1/shares/r006-ee1f6fc0-6fa3-4821-ad70-f6589e30c566/mount_targets/?version=2025-09-23&generation=2"\
- -d '{
-     "virtual_network_interface": {
-        "subnet": {"id": "1a0b3d75-8a62-4c78-9263-f9bcd25a8759"},
-        "security_groups": [{"id": "b2599112-7027-480e-ad1b-fd917d2fcb84"}]
-     },
-     "transit_encryption": "stunnel"
-}'
 ```
 {: codeblock}
 
