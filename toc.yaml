@@ -638,6 +638,7 @@ toc:
               - vpn-monitoring-metrics.md
               - vpn-mtu.md
               - vpn-api-example.md
+              - vpn-hcr.md
           - topicgroup:
               id: client-to-site-servers
               label: Client-to-site-servers
