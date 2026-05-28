@@ -2,7 +2,7 @@
 
 copyright:
   years: 2024, 2026
-lastupdated: "2026-05-26"
+lastupdated: "2026-05-28"
 
 keywords:
 
@@ -204,13 +204,12 @@ The following dependencies apply to the following deployment locations: Dallas (
 
 |Dependencies|Dependency impacts|Customer provided|Control or data plane|Location of dependency|
 |:---|:---|:---|:---|:---|
-| {{site.data.keyword.cis_full}} | Availability, Change management, Disaster recovery, Instance control, Security compliance | No | Both |  Same region  |
+| {{site.data.keyword.cis_full}} | Availability, Change management, Disaster recovery, Security compliance | No | Both |  Same region  |
 | IBM Cloud Classic DNS Servers | Access management, Availability | No | Both |  Same data center  |
 | IBM Cloud Classic Infrastructure Resource Management | Availability, Instance control, Operations | No | Both |  Same data center  |
 | IBM Cloud Public IP Address Management | Access management, Availability | No | Both |  Same region  |
 | {{site.data.keyword.cos_full}} | Availability, Operations | No | Both |  Same region  |
 | {{site.data.keyword.iamlong}} | Access management, Availability, Instance control, Security compliance | No | Both |  Same region  |
-| IBM Cloud Kubernetes Service and Red Hat OpenShift on IBM Cloud | Availability, Change management, Disaster recovery, Instance control, Security compliance | No | Both |  Same region  |
 | {{site.data.keyword.registrylong}} | Availability, Instance control | No | Both |  Same region  |
 {: row-headers}
 {: caption="IBM Cloud Bare Metal Servers for VPC - Data and Control plane deployment service dependency information - Critical dependencies" caption-side="top"}
@@ -236,6 +235,18 @@ The following dependencies apply to the following deployment locations: Dallas (
 {: tab-group="service-dependency-data-for-is-bare-metal-server-Data-and-Control-plane-deployment"}
 {: class="comparison-tab-table"}
 {: #significant-service-dependencies-for-is-bare-metal-server-Data-and-Control-plane-deployment}
+{: summary="Use the buttons for the dependency level to change the context of the table. This table has row and column headers. The row headers detail the specific dependent service. The column headers identify the details about the dependency and its impact. To understand the details about each dependency, navigate to the row to find the dependency that you need more information about interested in."}
+
+|Dependencies|Dependency impacts|Customer provided|Control or data plane|Location of dependency|
+|:---|:---|:---|:---|:---|
+| None| Security compliance | No | Both |  Same region  |
+| None| Security compliance | No | Both |  Same region  |
+{: row-headers}
+{: caption="IBM Cloud Bare Metal Servers for VPC - Data and Control plane deployment service dependency information - Minimal dependencies" caption-side="top"}
+{: tab-title="Minimal dependencies"}
+{: tab-group="service-dependency-data-for-is-bare-metal-server-Data-and-Control-plane-deployment"}
+{: class="comparison-tab-table"}
+{: #minimal-service-dependencies-for-is-bare-metal-server-Data-and-Control-plane-deployment}
 {: summary="Use the buttons for the dependency level to change the context of the table. This table has row and column headers. The row headers detail the specific dependent service. The column headers identify the details about the dependency and its impact. To understand the details about each dependency, navigate to the row to find the dependency that you need more information about interested in."}
 
 ## IBM Cloud Dedicated Host for VPC
