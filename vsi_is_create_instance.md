@@ -2,7 +2,7 @@
 
 copyright:
   years: 2018, 2026
-lastupdated: "2026-05-19"
+lastupdated: "2026-05-28"
 
 keywords:
 
@@ -63,11 +63,11 @@ Use the following steps to create a virtual server instance.
    {: caption="Instance provisioning image, snapshot, or volume selections" caption-side="bottom"}
    {: #table-select-image-and-profile}
 
-   You can provision an instance from an `available`, `partially_available` (image is not yet available in all zones) or `deprecated` image. For more information on image lifecycles, see [Custom image lifecycle](/docs/vpc?topic=vpc-planning-custom-images#custom-image-lifecycle).
+You can provision an instance from an `available`, `partially_available` (image is not yet available in all zones) or `deprecated` image. For more information on image lifecycles, see [Custom image lifecycle](/docs/vpc?topic=vpc-planning-custom-images#custom-image-lifecycle).
 
    | Field | Value |
    |-------|-------|
-   | Profile | The profile families are Balanced, Compute, Memory, Very High Memory, Ultra High Memory, GPU, Storage Optimized, Confidential Computing, Flex, and High Frequency. For more information, see [x86-64 instance profiles](/docs/vpc?topic=vpc-profiles).  \n  \n [Deprecated]{: tag-deprecated} When you create an {{site.data.keyword.cloud_notm}} {{site.data.keyword.hpvs}} for {{site.data.keyword.vpc_full}} instance, make sure that you select secure execution-enabled profiles, otherwise provisioning fails. For more information, see [s390x instance profiles](/docs/vpc?topic=vpc-vs-profiles). \n \n Some profiles might not be available because the number of network interfaces in the virtual server exceed profile limits. You can remove network interfaces to select from more profiles. For more information, see [Resizing a virtual server](/docs/vpc?topic=vpc-resizing-an-instance).  \n  \n Some profiles might not be available because the image selected contains an allowed-use expression that is not compatible with the profile. In these cases, select an image with an allowed-use expression that is compatible with the wanted profile. For more information, see [Adding allowed-use expressions to custom images](/docs/vpc?topic=vpc-custom-image-allowed-use-expressions&interface=ui).  \n  \n The s390x architecture is deprecated. You can migrate to an on-premises deployment model. For more information, see [Linux on IBM Z and LinuxONE](https://www.ibm.com/docs/en/linux-on-systems?topic=linux-z-linuxone). For more information about deprecation, see the [Service deprecation announcement](/docs/vpc?topic=vpc-ichpcs_deprecated_anmt). |
+   | Profile | The profile families are Balanced, Compute, Memory, Very High Memory, Ultra High Memory, GPU, Storage Optimized, Confidential Computing, Flex, and High Frequency. For more information, see [x86-64 instance profiles](/docs/vpc?topic=vpc-profiles).  \n  \n [Deprecated]{: tag-deprecated} When you create an {{site.data.keyword.cloud_notm}} {{site.data.keyword.hpvs}} for {{site.data.keyword.vpc_full}} instance, make sure that you select secure execution-enabled profiles, otherwise provisioning fails. For more information, see [s390x instance profiles](/docs/vpc?topic=vpc-vs-profiles). \n \n Some profiles might not be available because the number of network interfaces in the virtual server exceed profile limits. You can remove network interfaces to select from more profiles. For more information, see [Resizing a virtual server](/docs/vpc?topic=vpc-resizing-an-instance).  \n  \n Some profiles might not be available because the image selected contains an allowed-use expression that is not compatible with the profile. In these cases, select an image with an allowed-use expression that is compatible with the wanted profile. For more information, see [Adding allowed-use expressions to custom images](/docs/vpc?topic=vpc-custom-image-allowed-use-expressions&interface=ui).  \n  \n The s390x architecture is deprecated. You can migrate to an on-premises deployment model. For more information, see [Linux on IBM Z and LinuxONE](https://www.ibm.com/docs/en/linux-on-systems?topic=linux-z-linuxone). For more information about deprecation, see the [Service deprecation announcement](/docs/vpc?topic=vpc-ichpcs_deprecated_anmt).|
    | Spot instances [Select availability]{: tag-green} | Spot instances are highly discounted versions of the standard instances. They are designed to use available compute resources for interruptible or stateless workloads.  \n To convert an instance to a Spot instance, make sure that you select a supported profile and click the **Convert to spot instance** toggle under **Deployment configurations**.|
    | Advanced security selections |  |
    | Secure boot | Click the toggle to enable secure boot. Secure boot is available with only compatible instance profiles. Second-generation boot volumes with the `sdp` volume profile do not support secure boot yet. For more information about secure boot, see [Secure boot for Virtual Servers for VPC](/docs/vpc?topic=vpc-confidential-computing-with-secure-boot-vpc).|
@@ -89,7 +89,7 @@ Use the following steps to create a virtual server instance.
    | Network interfaces | By default the virtual server instance is created with a single primary network interface. You can click the **Edit icon** ![Edit icon](../icons/edit-tagging.svg "Edit") to edit the details of the network interface, for example, the subnet or security group that's associated with the interface. To include extra secondary network interfaces, click **Create**. You can create and assign up to 15 network interfaces for your virtual server instance, depending on the vCPU count that is included in the instance profile. For more information, see [About network interfaces](/docs/vpc?topic=vpc-using-instance-vnics#about-network-interfaces). \n \n With the virtual network interface feature, you can select the type of network interface that you want to use. You can select the new option **Network attachment with a virtual network interface** or the traditional option **Instance network interface**. Whichever type of network interface option that you select when you provision the virtual server persists through the lifecycle of the virtual server. You can click **Attach** to create a network attachment with an existing virtual network interface. For more information, see [About virtual network interfaces](/docs/vpc?topic=vpc-vni-about). |
    {: caption="Selections to complete instance provisioning" caption-side="bottom"}
 
-5. For Advanced options, you can choose to complete more instance configurations.
+1. For Advanced options, you can choose to complete more instance configurations.
 
    | Field | Value |
    |-------|-------|
@@ -104,7 +104,7 @@ Use the following steps to create a virtual server instance.
    | Cloud security posture management | When you select this option, a workload protection instance is created with the configurations to provide CSPM to all the resources. If a workload protection instance exists, this option is not available. For more information, see [About IBM Cloud Security Posture Management (CSPM)](/docs/workload-protection?topic=workload-protection-about&interface=ui). |
    {: caption="Instance provisioning advanced options selections" caption-side="bottom"}
 
-6. Click **Create a virtual server instance** when you are ready to provision.
+1. Click **Create a virtual server instance** when you are ready to provision.
 
 ## Next steps after an instance is created in the console
 {: #next-steps-after-creating-virtual-servers-ui}
