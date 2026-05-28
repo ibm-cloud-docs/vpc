@@ -2,7 +2,7 @@
 
 copyright:
   years: 2021, 2026
-lastupdated: "2026-05-21"
+lastupdated: "2026-05-28"
 
 keywords: file share, file storage, virtual network interface, encryption in transit, profiles,
 
@@ -114,6 +114,9 @@ If you're not ready to order yet or just looking for pricing information, you ca
 
    - If the zonal share has the [Deprecated]{: tag-deprecated} VPC as the access mode, provide a name for the mount target and select a VPC from the list. This mount target can be used to mount the file share on any virtual server instance of the selected VPC in the same zone as the file share. Cross-zone mounting is not supported.
 
+   The `vpc` access mode is set to reach End of Support on 06 May 2027. Follow the [migration guide](/docs/vpc?topic=vpc-fs-migrate-access-mode&interface=ui#fs-migrate-update-mode) to update your share's access control mode to `security-group`.
+   {: deprecated}
+
 5. Click **Create**.
 
 ## Adding supplemental IDs when you create a file share
@@ -201,7 +204,12 @@ Storage Generation                 1
 #### Creating a zonal file share without a mount target with VPC access mode
 {: #fs-create-share-vpc-cli}
 
-Security group access mode is the default and recommended setting. However, you can choose to create a zonal file share with the VPC access mode that allows every Compute host in the VPC to mount the file share. See the following example.
+Security group access mode is the default and recommended setting. However, you can choose to create a zonal file share with the VPC access mode that allows every Compute host in the VPC to mount the file share. 
+
+The `vpc` access mode is set to reach End of Support on 06 May 2027. Follow the [migration guide](/docs/vpc?topic=vpc-fs-migrate-access-mode&interface=ui#fs-migrate-update-mode) to update your share's access control mode to `security-group`.
+{: deprecated}
+
+See the following example.
 
 ```sh
 ibmcloud is share-create --name my-vpc-file-share --zone us-south-2 --profile dp2 --size 1000 --iops 500 --access-control-mode vpc
@@ -350,6 +358,9 @@ Access Protocol             nfs4
 
 The following example creates a mount target for a zonal file share that has VPC access mode.
 
+The `vpc` access mode is set to reach End of Support on 06 May 2027. Follow the [migration guide](/docs/vpc?topic=vpc-fs-migrate-access-mode&interface=ui#fs-migrate-update-mode) to update your share's access control mode to `security-group`.
+{: deprecated}
+
 ```sh
 ibmcloud is share-mount-target-create my-vpc-file-share --vpc cli-vpc-3 --name my-vpc-mount-target --access-protocol nfs4 --transit-encryption none
 ```
@@ -478,6 +489,9 @@ Storage Generation                 2
 {: #fs-create-zonal-share-target-vpc-cli}
 
 The following example creates a file share with VPC access mode and a mount target that can be used by any virtual server instance within the VPC.
+
+The `vpc` access mode is set to reach End of Support on 06 May 2027. Follow the [migration guide](/docs/vpc?topic=vpc-fs-migrate-access-mode&interface=ui#fs-migrate-update-mode) to update your share's access control mode to `security-group`.
+{: deprecated}
 
 ```sh
 ibmcloud is share-create --name my-file-share-8 --zone us-south-1 --profile dp2 --size 40 --iops 2000 --user-tags env:dev --mount-targets '[{"name": "my-new-mount-target","vpc": {"name": "my-vpc"}}]'
@@ -681,6 +695,9 @@ Make sure that when you create the mount target, you also specify a virtual netw
 {: important}
 
 The following example shows a request to create a 4800 GB file share. It specifies the access control mode `vpc`, which enables all clients in each mount target's VPC to have access to this file share. This option is less secure, and does not support newer features.
+
+The `vpc` access mode is set to reach End of Support on 06 May 2027. Follow the [migration guide](/docs/vpc?topic=vpc-fs-migrate-access-mode&interface=ui#fs-migrate-update-mode) to update your share's access control mode to `security-group`.
+{: deprecated}
 
 ```sh
 curl -X POST "$vpc_api_endpoint/v1/shares?version=2023-08-08&generation=2"\
