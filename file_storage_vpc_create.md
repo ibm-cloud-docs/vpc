@@ -356,7 +356,7 @@ Access Protocol             nfs4
 ### Creating a mount target with VPC access mode
 {: #fs-create-mount-target-vpc-cli}
 
-The following example creates a mount target for a zonal file share that has VPC access mode.
+The following example creates a mount target for a zonal file share that has the [Deprecated]{: tag-deprecated} vpc access mode.
 
 The `vpc` access mode is set to reach End of Support on 06 May 2027. Follow the [migration guide](/docs/vpc?topic=vpc-fs-migrate-access-mode&interface=ui#fs-migrate-update-mode) to update your share's access control mode to `security-group`.
 {: deprecated}
