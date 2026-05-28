@@ -109,10 +109,10 @@ Where:
 ### Command examples
 {: #command-examples-vpn-create-ike-policy}
 
-The singular values for _authentication algorithms_, _dh_groups_, and _encryption algorithms_, to create IKE policy from the CLI are deprecated. Use multiple comma-separated values instead.
+The singular values for `authentication algorithms`, `dh_groups`, and `encryption algorithms`, to create IKE policy from the CLI are deprecated. Use multiple comma-separated values instead.
 {: important}
 
-- Create an IKE policy by using multiple authentication algorithms (SHA 512 and SHA 256), multiple DH groups (14, 15, 16, 17), multiple encryption algorithms (AES 256, AES 192, AES 128 encryption), and IKE Version 2:
+- Create an IKE policy by using comma-separated authentication algorithms (SHA 512 and SHA 256), DH groups (14, 15, 16, 17), encryption algorithms (AES 256, AES 192, AES 128), and IKE Version 2:
 
    ```sh
    ibmcloud is ike-policy-create my-ike-policy sha512,sha256 14,15,16,17 aes256,aes192,aes128 2

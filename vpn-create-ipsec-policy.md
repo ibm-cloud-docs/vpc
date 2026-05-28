@@ -103,10 +103,10 @@ Where:
 ### Command examples
 {: #command-examples-vpn-create-ipsec-policy}
 
-The singular values for _authentication algorithms_, _pfsgs_, and _encryption algorithms_, to create IPsec policy from the CLI are deprecated. Use multiple comma-separated values instead.
+The singular values for `authentication algorithms`, `pfsgs`, and `encryption algorithms`, to create IPsec policy from the CLI are deprecated. Use multiple comma-separated values instead.
 {: deprecated}
 
-- Create an IPsec policy by using multiple authentication algorithms (SHA 512 and SHA 256), multiple encryption algorithms (AES 256, AES 192, and AES 128), and perfect forward secrecy groups (group_14 and group_15):
+- Create an IPsec policy by using comma-separated authentication algorithms (SHA 512 and SHA 256), encryption algorithms (AES 256, AES 192, and AES 128), and perfect forward secrecy groups (group_14 and group_15):
 
    ```sh
    ibmcloud is ipsec-policy-create my-ipsec-policy sha512,sha256 aes256,aes192,aes128 group_14,group_15
