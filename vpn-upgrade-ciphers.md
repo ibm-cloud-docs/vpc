@@ -1,8 +1,8 @@
 ---
 
 copyright:
-  years: 2022, 2025
-lastupdated: "2025-12-19"
+  years: 2022, 2026
+lastupdated: "2026-05-29"
 
 keywords: auto-negotiation, ciphers, upgrading ciphers, migrating ciphers
 
@@ -797,3 +797,11 @@ To upgrade the IPsec policy by using Terraform, follow these steps:
    {: pre}
 
 For more information, see the [Terraform registry](https://registry.terraform.io/providers/IBM-Cloud/ibm/latest/docs/resources/is_ipsec_policy){: external}.
+
+## Related links
+{: #related-links-vpn-upgrade-ciphers}
+
+* [Creating an IKE policy](/docs/vpc?topic=vpc-creating-ike-policy-copy&interface=ui)
+* [Creating an IPsec policy](/docs/vpc?topic=vpc-creating-ipsec-policy-copy&interface=ui)
+* [Updating to multiple IKE and IPsec algorithms](/docs/vpc?topic=vpc-vpn-update-multiple-algorithms&interface=api)
+* [Changes to VPN gateway IKE and IPsec policy API](/docs/vpc?topic=vpc-vpn-hcr-introduction&interface=ui).
