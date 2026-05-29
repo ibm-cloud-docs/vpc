@@ -239,7 +239,7 @@ GCM algorithm requirements and restrictions
          -H "Authorization: $iam_token" \
          -d '{
            "encryption_algorithms": ["aes128gcm16", "aes256", "aes128", "aes192gcm16"],
-           "authentication_algorithms": ["disabled"],
+           "authentication_algorithms": ["sha256, sha128"],
            "pfs_groups": ["group_14", "group_15", "group_16"]
          }'
    ```
@@ -256,7 +256,7 @@ GCM algorithm requirements and restrictions
          -H "Authorization: $iam_token" \
          -d '{
            "encryption_algorithms": ["aes256", "aes128", "aes128gcm16", "aes192gcm16"],
-           "authentication_algorithms": ["disabled"],
+           "authentication_algorithms": ["sha256, sha128"],
            "pfs_groups": ["group_14", "group_15", "group_16"]
          }'
    ```
@@ -273,7 +273,7 @@ GCM algorithm requirements and restrictions
          -H "Authorization: $iam_token" \
          -d '{
            "encryption_algorithms": ["aes128gcm16", "aes256", "aes128", "aes192gcm16"],
-           "authentication_algorithms": ["disabled"],
+           "authentication_algorithms": ["sha256, sha128"],
            "pfs_groups": ["group_14", "group_15", "group_16"]
          }'
    ```
