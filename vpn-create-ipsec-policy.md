@@ -190,7 +190,7 @@ To create an IPsec policy with multiple algorithms by using the array-based prop
    ```
    {: codeblock}
 
-Create an IPsec policy with multiple algorithms and `authentication_algorithms` set to `disabled`:
+Create an IPsec policy with `encryption_algorithms` set to GCM-based algorithms and `authentication_algorithms` set to `disabled`:
 
    ```sh
       curl -X POST "$vpc_api_endpoint/v1/ipsec_policies?version=$api_version&generation=2" \
