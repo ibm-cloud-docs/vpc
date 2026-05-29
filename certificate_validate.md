@@ -2,7 +2,7 @@
 
 copyright:
   years: 2022, 2026
-lastupdated: "2026-05-22"
+lastupdated: "2026-05-29"
 
 keywords: confidential computing, secure execution, hpcr, contract, customization, env, workload, encryption, attestation, validating
 
@@ -38,7 +38,6 @@ From 25 March 2025, the certificate links are changed.
    | `ibm-hyper-protect-container-runtime-1-0-s390x-25` | [certificate](https://hpvsvpcubuntu.s3.us.cloud-object-storage.appdomain.cloud/s390x-25/ibm-hyper-protect-container-runtime-1-0-s390x-25-intermediate.crt){: external} | 03 August 2027 |
    | `ibm-hyper-protect-container-runtime-1-0-s390x-24` | [certificate](https://hpvsvpcubuntu.s3.us.cloud-object-storage.appdomain.cloud/s390x-24/ibm-hyper-protect-container-runtime-1-0-s390x-24-intermediate.crt){: external} | 03 August 2027 |
    {: caption="Intermediate certificate expiry dates" caption-side="bottom"}
-
 
 * Make sure that you use the certificates that corresponds to the hyper protect container runtime image for contract encryption and attestation.
 
@@ -205,7 +204,7 @@ The certificates contain **Certificate Revocation List (CRL) Distribution Points
 1. Extract and download the CRL URL from the attestation or encryption certificate:
 
    ```Sh
-   openssl x509 -in "ibm-hyper-protect-container-runtime-1-0-s390x-26-encrypt.crt" -noout -ext crlDistributionPoints
+   openssl x509 -in "ibm-hyper-protect-container-runtime-1-0-s390x-27-encrypt.crt" -noout -ext crlDistributionPoints
    crl_url=https://ibm.biz/hyper-protect-container-runtime-0b8907-crl-1 # (example)
    curl --location --silent "$crl_url" --output "ibm-hyper-protect-container-runtime.crl"
    ```
@@ -221,7 +220,7 @@ The certificates contain **Certificate Revocation List (CRL) Distribution Points
 3. Verify the CRL signature:
 
    ```sh
-   openssl x509 -in "ibm-hyper-protect-container-runtime-1-0-s390x-26-intermediate.crt" -pubkey -noout -out pubkey
+   openssl x509 -in "ibm-hyper-protect-container-runtime-1-0-s390x-27-intermediate.crt" -pubkey -noout -out pubkey
    bbegin="$(openssl asn1parse -in "ibm-hyper-protect-container-runtime.crl" | head -2 | tail -1 | cut -d : -f 1)"
    bend="$(openssl asn1parse -in "ibm-hyper-protect-container-runtime.crl" | tail -1 | cut -d : -f 1)"
    openssl asn1parse -in "ibm-hyper-protect-container-runtime.crl" -out signature -strparse $bend -noout
@@ -234,7 +233,7 @@ The certificates contain **Certificate Revocation List (CRL) Distribution Points
    1. Extract the serial from the encryption certificate:
 
       ```sh
-      openssl x509 -in ibm-hyper-protect-container-runtime-1-0-s390x-26-encrypt.crt -noout -serial
+      openssl x509 -in ibm-hyper-protect-container-runtime-1-0-s390x-27-encrypt.crt -noout -serial
       ```
       {: pre}
 
@@ -270,7 +269,7 @@ The certificates contain **Certificate Revocation List (CRL) Distribution Points
    1. Extract the serial from the attestation certificate:
 
       ```sh
-      openssl x509 -in ibm-hyper-protect-container-runtime-1-0-s390x-26-attestation.crt -noout -serial
+      openssl x509 -in ibm-hyper-protect-container-runtime-1-0-s390x-27-attestation.crt -noout -serial
 
       ```
       {: pre}
