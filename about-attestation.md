@@ -2,7 +2,7 @@
 
 copyright:
   years: 2022, 2026
-lastupdated: "2026-05-22"
+lastupdated: "2026-05-29"
 
 keywords: confidential computing, enclave, secure execution, hpcr, hyper protect virtual server for vpc
 
@@ -138,7 +138,7 @@ In the case of a Podman container, the `decrypt-attestation.sh` file can be acce
 
 The attestation document is available at `/var/hyperprotect/se-checksums.txt`, within the {{site.data.keyword.hpvs}} for VPC instance. The other related files are also located in the same directory.
 
-The following information is available at the `/var/hyperprotect/` directory:>
+The following information is available at the `/var/hyperprotect/` directory:
 
 ```sh
 ​/var/hyperprotect
@@ -193,6 +193,7 @@ d1eccc9b91b09a67097073cee8d9a8046a2a0bd658b88920f36c8ec4b823f050 contract:envWor
 {: #base_image}
 
 The `baseimage` is the IBM internal QEMU Copy On Write Version 2 (QCOW2) file, which is used as the source for most of the operating system files of the Hyper Protect Container Runtime image. It is used only at image build time by the enabler process. The enabler uses this source with other Debian packages to create the `root.tar.gz` and the encrypted secure execution kernel or an 'initrd' image.
+
 
 The following is the shasum of the ibm-hyper-protect-container-runtime-1-0-s390x-27 `baseimage`:
 
@@ -249,6 +250,13 @@ The following is the shasum of the ibm-hyper-protect-container-runtime-1-0-s390x
 {: #root_tarfile}
 
 The `root.tar.gz` is part of the final secure execution that is enabled by an IBM Hyper Protect Container Runtime image and contains all operating system files. It is stored on the first partition (boot partition) of the image as `/boot/root.tar.gz`.
+
+The following is the shasum of the ibm-hyper-protect-container-runtime-1-0-s390x-27 `root.tar.gz`.
+
+```sh
+50f93af14cc5af1585ec3d1a925fea67c25d4fc2c07a7bb0f030390ab76ff854 root.tar.gz
+```
+{: pre}
 
 The following is the shasum of the ibm-hyper-protect-container-runtime-1-0-s390x-27 `root.tar.gz`.
 
@@ -334,7 +342,7 @@ The `attestationPublicKey` is the public key that you provide that is used to en
 1. ​​​​​​Take the ​​​​​`​certificate_expiry_date.json​​​​` file from the directory: `​​​​​​/var/hyperprotect`​​​​.​​​​
 1. ​Run the following command:
    ```sh
-   ​sha256sum certificiate_expiry_date.json​​​​
+   ​sha256sum certificate_expiry_date.json​​​​
    ```
    {: pre}
 

@@ -2,7 +2,7 @@
 
 copyright:
   years: 2022, 2026
-lastupdated: "2026-05-22"
+lastupdated: "2026-05-29"
 
 keywords: confidential computing, enclave, secure execution, hpcr, contract, customization, schema, contract schema, env, workload, encryption
 
@@ -772,7 +772,7 @@ Complete the following steps on an Ubuntu system to encrypt the workload section
 
 2. Create the [workload section](#hpcr_contract_workload) of the contract and add the contents in the `workload.yaml` file.
 
-   Following is an example of ​​​​​`​workload.yaml`​​​​:
+   The following is an example of ​​​​​`​workload.yaml`​​​​:
 
    ```yaml
    type: workload
@@ -792,8 +792,6 @@ Complete the following steps on an Ubuntu system to encrypt the workload section
    ```
    {: codeblock}
 
-
-
 3. Export the complete path of the `workload.yaml` file and `ibm-hyper-protect-container-runtime-1-0-s390x-27-encrypt.crt`:
 
    ```yaml
@@ -808,8 +806,7 @@ Complete the following steps on an Ubuntu system to encrypt the workload section
    ```
    {: pre}
 
-5. Starting with OpenSSL 3.0, the OpenSSL rsautl sub command is deprecated. As a replacement, OpenSSL recommends using the `pkeyutl` sub command. Use one of the following commands to encrypt password with `ibm-hyper-protect-container-runtime-1-0-s390x-27-encrypt.crt`:
-
+5. Starting with OpenSSL 3.0, the OpenSSL `rsautl` sub command is deprecated and being replaced by the `pkeyutl` sub command. Use one of the following commands to encrypt password with `ibm-hyper-protect-container-runtime-1-0-s390x-27-encrypt.crt`:
 
    - Using `rsautl` (deprecated):
 
@@ -853,7 +850,7 @@ Complete the following steps on an Ubuntu system to encrypt the `env` section us
 
 1. Create the [`env` section](#hpcr_contract_env) of the contract and add the contents in the `env.yaml` file.
 
-   Following is an example of `env.yaml`:
+   The following is an example of `env.yaml`:
 
    ```yaml
    type: env
@@ -885,7 +882,7 @@ Complete the following steps on an Ubuntu system to encrypt the `env` section us
    ```
    {: pre}
 
-4. Starting with OpenSSL 3.0, the OpenSSL rsautl sub command is deprecated. As a replacement, OpenSSL recommends that you use the `pkeyutl` sub command. Use one of the following commands to encrypt the password with `ibm-hyper-protect-container-runtime-1-0-s390x-27-encrypt.crt`:
+4. Starting with OpenSSL 3.0, the OpenSSL `rsautl` sub command is deprecated and being replaced by the `pkeyutl` sub command. Use one of the following commands to encrypt password with `ibm-hyper-protect-container-runtime-1-0-s390x-27-encrypt.crt`:
 
    - `rsautl` (deprecated):
 
@@ -1076,7 +1073,7 @@ Complete the following steps on an Ubuntu system to create the contract signatur
    ```
    {: pre}
 
-9. Starting with OpenSSL 3.0, the OpenSSL rsautl sub command is deprecated. As a replacement, OpenSSL recommends that you use the pkeyutl sub command. Use one of the following commands to encrypt password with `ibm-hyper-protect-container-runtime-1-0-s390x-26-encrypt.crt`:
+9. Starting with OpenSSL 3.0, the OpenSSL `rsautl` sub command is deprecated and being replaced by the `pkeyutl` sub command. Use one of the following commands to encrypt password with `ibm-hyper-protect-container-runtime-1-0-s390x-27-encrypt.crt`:
 
     - Using `rsautl` (deprecated):
 
@@ -1121,7 +1118,7 @@ Timelines for the notification are as follows:
 
 HPVS logs warning messages to the configured logging service about upcoming and expired encryption and attestation certificates.
 
-Following is the notification schedule:
+The following is the notification schedule:
 
 - **30 days before expiry**: A warning message is generated once **every 24 hours**, notifying that the certificate will expire in one month.
 
