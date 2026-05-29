@@ -2,7 +2,7 @@
 
 copyright:
   years: 2021, 2026
-lastupdated: "2026-05-28"
+lastupdated: "2026-05-29"
 
 keywords: vpn, ipsec policy
 
@@ -316,5 +316,7 @@ After you create an IPsec policy, complete the following tasks as needed:
 ## Related links
 {: #related-links-vpn-ipsec-policy}
 
+* [Upgrading weak cipher suites on a VPN gateway](/docs/vpc?topic=vpc-upgrading-weak-ciphers&interface=ui).
+* [Changes to VPN gateway IKE and IPsec policy API](/docs/vpc?topic=vpc-vpn-hcr-introduction&interface=ui).
 * [How do I check IPsec logs?](/docs/vpc?topic=vpc-faqs-vpn&interface=ui#faq-vpn-19)
 * [Why does my IPsec connection status appear to be up but the BGP state isn't established?](/vpc?topic=vpc-troubleshoot-ipsec-up-bgp-not-established)

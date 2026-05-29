@@ -2,7 +2,7 @@
 
 copyright:
   years: 2026
-lastupdated: "2026-05-28"
+lastupdated: "2026-05-29"
 
 subcollection: vpc
 
@@ -110,3 +110,9 @@ If you or other users in your account are currently using IKE or IPsec policies,
       - `pfs`
 
 - Update validation logic to follow [API best practices](/apidocs/vpc/latest#api-best-practices).
+
+## Related links
+{: #related-links-vpn-hcr}
+
+* [Updating to multiple IKE and IPsec algorithms](/docs/vpc?topic=vpc-vpn-update-multiple-algorithms&interface=api)
+* [Upgrading weak cipher suites on a VPN gateway](/docs/vpc?topic=vpc-upgrading-weak-ciphers&interface=ui).
