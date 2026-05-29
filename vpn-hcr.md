@@ -114,5 +114,5 @@ If you or other users in your account are currently using IKE or IPsec policies,
 ## Related links
 {: #related-links-vpn-hcr}
 
-* [Updating to multiple IKE and IPsec algorithms](/docs/vpc?topic=vpc-vpn-update-multiple-algorithms&interface=api)
+* [Updating to multiple IKE and IPsec algorithms](/docs/vpc?topic=vpc-vpn-update-multiple-algorithms&interface=api).
 * [Upgrading weak cipher suites on a VPN gateway](/docs/vpc?topic=vpc-upgrading-weak-ciphers&interface=ui).
