@@ -2,7 +2,7 @@
 
 copyright:
   years: 2021, 2026
-lastupdated: "2026-05-08"
+lastupdated: "2026-06-01"
 
 keywords: bare metal servers, managing, operation, manage bare metal server, manage bare metal, manage server, restart bare metal, stop bare metal, delete bare metal, reboot bare metal, restart server, stop server, delete server
 
@@ -422,7 +422,7 @@ Specify the following properties values to use when you reinitialize the bare me
 - `user_data` specifies any optional user data
 - `default_trusted_profile` changes or removes the default trusted profile
 
-When using a `default_trusted_profile`, reinitializing the bare metal server includes the same `"auto_link"` parameter that is defined for the `default_trusted_profile` to determine whether the links the trusted profile to the bare metal server as part of the reinitialization process. Trusted profiles that were previously linked to the bare metal server before the reinitialization process remain linked. The reinitialization process doesn't remove the link to IAM trusted profiles. To prevent the trusted profile from remaining linked to the bare metal server, change the `"auto_link"` parameter to `false`.
+When you use a `default_trusted_profile`, reinitializing the bare metal server includes the same `"auto_link"` parameter that is defined for the `default_trusted_profile` to determine whether the links the trusted profile to the bare metal server as part of the reinitialization process. Trusted profiles that were previously linked to the bare metal server before the reinitialization process remain linked. The reinitialization process doesn't remove the link to IAM trusted profiles. To prevent the trusted profile from remaining linked to the bare metal server, change the `"auto_link"` parameter to `false`.
 
 ### Updating the firmware for a bare metal server by using the API
 {: #update-firmware-bare-metal-servers-API}
@@ -569,7 +569,7 @@ Specify the following variables to use when you reinitialize the bare metal serv
 - `DATA` specifies any optional user data
 - `KEYS` specifies the SSH keys
 - `IMAGE` specifies the operating system image
-- `Default Trusted Profile` specified if auto link is enabled
+- `Default Trusted Profile` specifies if the auto link is enabled
 
 While you can retain the same physical node, interfaces, IP addresses, and resource IDs, you can also select to avoid these changes by using the `lifecycle` property.
 
