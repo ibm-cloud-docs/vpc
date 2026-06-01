@@ -2,7 +2,7 @@
 
 copyright:
   years: 2021, 2026
-lastupdated: "2026-05-19"
+lastupdated: "2026-06-01"
 
 keywords: file share, mount target, virtual network interface, customer-managed encryption, encryption at rest, encryption in transit, file storage, share,
 
@@ -56,7 +56,7 @@ You can view and manage your zonal file shares in the console, from the CLI, wit
 
 As a customer with special access to preview the regional file share profile, you can create file shares with the `rfs` profile with regional availability in Dallas, Chennai - Airtel, Frankfurt, London, Madrid, Osaka, Sao Paulo, Sydney, Toronto, Tokyo, and Washington, DC.
 
-You create a file share within the region and create the mount target for the share in the VPC. File shares are identified by name and associated with a resource group in your {{site.data.keyword.cloud_notm}} customer account. You can control how the file share is accessed by using security groups. The regional file can be accessed from all three zones of the region when the compute clients are in the correct security group. For more information, see [regional mount targets](#fs-regional-mount)
+You create a file share within a region. File shares are identified by name and associated with a resource group in your {{site.data.keyword.cloud_notm}} customer account. You can control how the file share is accessed by using security groups. The regional file can be accessed from all three zones of the region when the compute clients are in the correct security group. You can mount the file share on your compute host by using a regional network endpoint, known as a mount target for the share. For more information, see [regional mount targets](#fs-regional-mount).
 
 Data is regionally available, setting up replication between different zones is unnecessary.
 
@@ -79,13 +79,13 @@ File access protocols provide a standardized way for clients (virtual server ins
 ## Mount targets for file shares
 {: #fs-share-mount-targets}
 
-Mounting is a process by which a server's operating system makes files and directories on a storage device available for users to access through the server's file system. To mount a file share on a virtual server instance or to use it in a Kubernetes cluster, you need the NFS mount path. To create an NFS mount path, you need to create a mount target.
+Mounting is how a server's operating system makes files and directories on a storage device available for users to access through the server's file system. To mount a file share on a virtual server instance, a bare metal server instance, or to use it in a Kubernetes cluster, you need the NFS mount path. To create an NFS mount path, you need to create a mount target.
 
-A mount target for a file share is a network endpoint. When you create a mount target, an NFS mount path is created for the file share. You use the mount path to attach the file share to virtual server instances or Kubernetes clusters in the same region. Depending on the [access mode](#fs-mount-access-mode) you choose, you can restrict access to a share to a specific instance in the VPC or allow all the virtual server instances to mount the share.
+A mount target for a file share is a network endpoint. When you create a mount target, an NFS mount path is created for the file share. You use the mount path to attach the file share to server instances or Kubernetes clusters in the same region. Depending on the [security group](/docs/vpc?topic=vpc-using-security-groups) you choose, you can restrict access to a share to a specific instance in the VPC or allow multiple virtual server instances or bare metal servers to mount the share.
 
 If you want to connect a file share to instances that are running in different VPCs in a zone, you can create multiple mount targets, one mount target for each VPC.
 
-After the mount target is created, you can SSH into the virtual server instance and attach the file share.
+After the mount target is created, you can remotely access your virtual server or bare metal server instance, and attach the file share.
 
 ### Mount target access modes
 {: #fs-mount-access-mode}
@@ -101,6 +101,9 @@ When you create or update a mount target, you can specify the manner in which yo
 
     VPC access mode is not supported in newer MZRs, such as Montreal (ca-mon), Mumbai - Airtel (in-mum), and Chennai - Airtel (in-che).
     {: note}
+
+The `vpc` access mode reaches End of Support on 06 May 2027. Follow the [migration guide](/docs/vpc?topic=vpc-fs-migrate-access-mode&interface=ui#fs-migrate-update-mode) to update your share's access control mode to `security-group` to avoid service disruption and data loss.
+{: deprecated}
 
 ### Cross-zone mount targets
 {: #fs-cross-zone-mount}
@@ -154,6 +157,8 @@ You can bring your own customer root key (CRK) to the cloud for customer-managed
 
 After you specified an encryption type for a file share, you can't change it.
 {: restriction}
+
+[Deprecated]{: tag-deprecated} The {{site.data.keyword.hscrypto}} are deprecated. Customers can use existing instances until 20 March 2027. For continued protection, consider migrating your existing encryption keys to a Dedicated {{site.data.keyword.keymanagementserviceshort}} instance. For more information, see the [Migration guide](/docs/key-protect?topic=key-protect-migrate-st).
 
 ### Encryption in transit
 {: #fs-eit}

@@ -1,7 +1,7 @@
 ---
 copyright:
-  years: 2021, 2024
-lastupdated: "2025-06-27"
+  years: 2021, 2026
+lastupdated: "2026-06-01"
 
 keywords: virtual private cloud, private cloud network, cloud-native, workloads, high availability, generation 2, placement group, host spread, power spread
 
@@ -48,7 +48,7 @@ Instance provisioning fails if an instance cannot be placed on a different node 
 ### Power spread strategy (power anti-affinity) for high availability.
 {: #power-spread-placement-groups-for-vpc}
 
-A power spread placement group strategy guarantees each instance is placed on computer hosts with separate power and network supplies to minimize the chances of service disruption. This placement group strategy supports a maximum of four instances per placement group.
+A power spread placement group strategy guarantees each instance is placed on compute hosts with separate power and network supplies to minimize the chances of service disruption. This placement group strategy supports a maximum of four instances per placement group.
 
 Instance provisioning fails if the instance cannot be placed on a different power supply than all other instances in the placement group.
 
