@@ -1,8 +1,8 @@
 ---
 
 copyright:
-  years: 2024, 2025
-lastupdated: "2025-12-30"
+  years: 2024, 2026
+lastupdated: "2026-06-02"
 
 keywords: cluster profiles, cluster network, cluster-network, cluster network profile, cluster network profiles, gpu, nvidia, hopper-1, rdma, roce, accelerated, rocev2, accelerated network
 
@@ -33,10 +33,10 @@ For a list of supported instance profiles with this cluster network, see [Hopper
 
 Currently, the use of the Hopper 1 cluster network profile is available in the following supported regions and zones:
 
-| Region                    | Zone                     | Universal zone name           |
-| ------------------------  | -------------------------|-------------------------------|
-| Frankfurt (`eu-de`)       | `eu-de-2`                | `eu-de-fra04-a`               |
-| Washington DC (`us-east`) | `us-east-3`              | `us-east-wdc07-a`             |
+| Region                                | Zone                     | Universal zone name           |
+| --------------------------------------| -------------------------|-------------------------------|
+| Frankfurt (`eu-de`)                   | `eu-de-2`                | `eu-de-fra04-a`               |
+| Washington DC (`us-east`)             | `us-east-3`              | `us-east-wdc07-a`             |
 {: caption="Supported regions and zones for Hopper 1" caption-side="bottom"}
 
 To understand how various regions correspond to zones, see [zone mapping per account](/docs/overview?topic=overview-locations#zone-mapping).
