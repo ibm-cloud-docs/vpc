@@ -2,7 +2,7 @@
 
 copyright:
   years: 2024, 2026
-lastupdated: "2026-04-16"
+lastupdated: "2026-06-02"
 
 keywords:
 
@@ -43,7 +43,7 @@ Flexibility and control
 ### NVIDIA Hopper 1
 {: #nvidia-hopper-1}
 
-The Hopper 1 cluster network profile is a high-performance {{site.data.keyword.cloud_notm}} cluster that is powered by NVIDIA H100 and H200 GPUs, connected with NVLink and 400 Gbps InfiniBand networking. Hopper 1 is optimized for cloud deployment and designed for large-scale AI training and inference with high memory bandwidth and low-latency GPU communication.
+The Hopper 1 cluster network profile is a high-performance {{site.data.keyword.cloud_notm}} cluster that is powered by NVIDIA H100 and H200 GPUs, connected with NVLink and 400 Gbps RoCE v2 networking. Hopper 1 is optimized for cloud deployment and designed for large-scale AI training and inference with high memory bandwidth and low-latency GPU communication.
 
 ## Getting started with cluster networks
 {: #cluster-network-getting-started}
