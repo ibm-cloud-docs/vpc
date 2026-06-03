@@ -2,7 +2,7 @@
 
 copyright:
   years: 2024, 2026
-lastupdated: "2026-05-28"
+lastupdated: "2026-06-03"
 
 keywords:
 
@@ -298,7 +298,7 @@ The following dependencies apply to the following deployment locations: Dallas (
 |Dependencies|Dependency impacts|Customer provided|Control or data plane|Location of dependency|
 |:---|:---|:---|:---|:---|
 | IBM Cloud Virtual Server for VPC | Availability, Change management, Disaster recovery, Instance control | No | Both |  Same zone  |
-| {{site.data.keyword.iamlong}} | Access management, Availability, Instance control | No | Both |  [Global](/docs/resiliency?topic=resiliency-ha-redundancy#global-platform)  |
+| {{site.data.keyword.iamlong}} | Access management, Availability, Instance control | No | Both |  Same region  |
 | {{site.data.keyword.dns_full}} | Availability, Change management, Disaster recovery, Instance control | No | Both |  Same region  |
 | {{site.data.keyword.cos_full}} | Availability, Change management, Disaster recovery, Instance control | No | Both |  Same region  |
 | IBM Cloud Classic DNS Servers | Availability, Change management, Instance control | No | Both |  Same data center  |
@@ -336,6 +336,24 @@ The following dependencies apply to the following deployment locations: Dallas (
 {: tab-group="service-dependency-data-for-is-endpoint-gateway-Data-and-Control-plane-deployment"}
 {: class="comparison-tab-table"}
 {: #significant-service-dependencies-for-is-endpoint-gateway-Data-and-Control-plane-deployment}
+{: summary="Use the buttons for the dependency level to change the context of the table. This table has row and column headers. The row headers detail the specific dependent service. The column headers identify the details about the dependency and its impact. To understand the details about each dependency, navigate to the row to find the dependency that you need more information about interested in."}
+
+## Data and Control plane deployment NGDC
+{: #data-and-control-plane-deployment-ngdc}
+
+The following dependencies apply to the following deployment locations: Montreal 04 (a), Montreal 04 (b), Montreal 04 (c).
+
+
+|Dependencies|Dependency impacts|Customer provided|Control or data plane|Location of dependency|
+|:---|:---|:---|:---|:---|
+| {{site.data.keyword.iamlong}} | Access management, Availability, Instance control | No | Both |  Same region  |
+| {{site.data.keyword.cis_full}} | Access management, Availability, Security compliance | No | Both |  [Global](/docs/resiliency?topic=resiliency-ha-redundancy#global-platform)  |
+{: row-headers}
+{: caption="IBM Cloud Virtual Private Endpoint for VPC - Data and Control plane deployment NGDC service dependency information - Critical dependencies" caption-side="top"}
+{: tab-title="Critical dependencies"}
+{: tab-group="service-dependency-data-for-is-endpoint-gateway-Data-and-Control-plane-deployment-NGDC"}
+{: class="comparison-tab-table"}
+{: #critical-service-dependencies-for-is-endpoint-gateway-Data-and-Control-plane-deployment-NGDC}
 {: summary="Use the buttons for the dependency level to change the context of the table. This table has row and column headers. The row headers detail the specific dependent service. The column headers identify the details about the dependency and its impact. To understand the details about each dependency, navigate to the row to find the dependency that you need more information about interested in."}
 
 ## IBM Cloud Flow Logs for VPC
