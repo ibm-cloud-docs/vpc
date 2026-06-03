@@ -2,7 +2,7 @@
 
 copyright:
   years: 2019, 2026
-lastupdated: "2026-05-19"
+lastupdated: "2026-06-03"
 
 keywords: vsi, virtual server instances, profile, profiles, balanced, compute, memory, very high memory, ultra high memory, gpu, storage optimized, confidential compute, flex, high frequency
 
@@ -417,8 +417,8 @@ The GPU and accelerated profile family includes profiles with and without [insta
 - GPU `-l4` profiles include NVIDIA L4 24 GB GPUs.
 - GPU `-l40S` profiles include NVIDIA L40S 48 GB GPUs.
 - [Select availability]{: tag-green} GPU `-a100p` profiles include NVIDIA A100 Tensor Core 80 GB GPUs.
-- GPU `-h100` profiles include [NVIDIA](https://www.nvidia.com/en-us/data-center/hgx/){: external} GPUs. The system is an HGX design. The H100 offering is available in the following regions and zones: London (eu-gb-2), Sydney (au-syd-2), Toronto (ca-tor-3), Madrid (eu-es-3), Washington DC (us-east-3), Tokyo (jp-tok-3), Sao Paulo (br-sao-1), Dallas (us-south-1), and Frankfurt (eu-de-2).
-- [Select availability]{: tag-green} GPU `-h200` profiles include [NVIDIA](https://www.nvidia.com/en-us/data-center/hgx/){: external} GPUs. The system is an HGX design. The H200 offering is available in Washington DC (us-east-3), Toronto (ca-tor-3), Frankfurt (eu-de-2), London (eu-gb-2), Sydney (au-syd-3), and Chennai (in-che-1).
+- GPU `-h100` profiles include [NVIDIA](https://www.nvidia.com/en-us/data-center/hgx/){: external} GPUs. The system is an HGX design. The H100 offering is available in the following regions and zones: London (eu-gb-2), Sydney (au-syd-2), Toronto (ca-tor-3), Madrid (eu-es-3), Washington DC (us-east-2, us-east-3), Tokyo (jp-tok-3), Sao Paulo (br-sao-1), Dallas (us-south-1), and Frankfurt (eu-de-2).
+- [Select availability]{: tag-green} GPU `-h200` profiles include [NVIDIA](https://www.nvidia.com/en-us/data-center/hgx/){: external} GPUs. The system is an HGX design. The H200 offering is available in Washington DC (us-east-2, us-east-3), Toronto (ca-tor-3), Frankfurt (eu-de-2), London (eu-gb-2), Sydney (au-syd-3), and Chennai (in-che-1).
 - [Select availability]{: tag-green} GPU `-b300` profiles include [NVIDIA](https://www.nvidia.com/en-us/data-center/hgx/){: external} GPUs. The system is an HGX design. The B300 offering is available in Washington DC (us-east) for select customers. Create a [support case](/docs/support?topic=support-open-case&interface=ui) if you are interested in purchasing and using this offering.
 - [Select availability]{: tag-green} GPU `-gaudi3` profiles include the [Intel® Gaudi® 3 AI Accelerator](https://www.intel.com/content/www/us/en/products/details/processors/ai-accelerators/gaudi.html). The Intel Gaudi 3 offering is available in Dallas (us-south-dal12-a), Washington DC (us-east-wdc06-a, us-east-wdc07-a), and Frankfurt (eu-de-fra02-a).
 

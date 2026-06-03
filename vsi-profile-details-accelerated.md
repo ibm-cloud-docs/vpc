@@ -2,7 +2,7 @@
 
 copyright:
   years: 2024, 2026
-lastupdated: "2026-04-24"
+lastupdated: "2026-06-03"
 
 keywords: vsi, virtual server, virtual server instances, profile, profiles, gpu, accelerated, h100, h200, l4, l40s
 
@@ -150,7 +150,7 @@ The following table lists the available regions and universal zones for the Hopp
 | Region                    | Universal zone    | Cluster network |
 | ------------------------  | -------------     | --------------- |
 | Dallas (`us-south`)       | `us-south-dal10-a` | No             |
-| Washington DC (`us-east`) | `us-east-wdc07-a` | Yes             |
+| Washington DC (`us-east`) | `us-east-wdc06-a`, `us-east-wdc07-a` | Yes             |
 | Toronto (`ca-tor`)        | `ca-tor-tor05-a`  | No              |
 | Sao Paulo (`br-sao`)      | `br-sao-sao01-a`  | No              |
 | Frankfurt (`eu-de`)       | `eu-de-fra04-a`   | Yes             |
@@ -172,7 +172,7 @@ The following table lists the available regions and universal zones for the Hopp
 
 | Region                    | Universal zone    | Cluster network |
 | ------------------------  | -------------     | --------------- |
-| Washington DC (`us-east`) | `us-east-wdc07-a` | Yes             |
+| Washington DC (`us-east`) | `us-east-wdc06-a`, `us-east-wdc07-a` | Yes             |
 | Toronto (`ca-tor`)        | `ca-tor-tor05-a`  | No              |
 | Frankfurt (`eu-de`)       | `eu-de-fra04-a`   | Yes             |
 | London (`eu-gb`)          | `eu-gb-lon05-a`   | No              |
