@@ -2,7 +2,7 @@
 
 copyright:
   years: 2018, 2026
-lastupdated: "2026-06-03"
+lastupdated: "2026-06-04"
 
 keywords:
 
@@ -101,7 +101,7 @@ You can provision an instance from an `available`, `partially_available` (image 
    | Dynamic volume bandwidth allocation | Click the toggle to enable [Pooled volume bandwidth allocation](/docs/vpc?topic=vpc-block-storage-bandwidth#pooled-vol-bandwidth) for attached data volumes. This feature is supported for select [compute profiles](/docs/vpc?group=profile-details).|
    | Add to reservation | If you have an active reservation, click the toggle to add the virtual server instance to that reservation. For more information, see [About Reservations for VPC](/docs/vpc?topic=vpc-about-reserved-virtual-servers-vpc). |
    | Host failure auto restart | This setting is enabled by default. To disable host failure auto restart, click the toggle. For more information, see [Host failure recovery policies](/docs/vpc?topic=vpc-host-failure-recovery-policies&interface=ui) |
-   | Activity tracking | Audit event collection is disabled by default. Click the toggle to enable activity tracking for the virtual server instance. Activity tracking is recommended for optimal troubleshooting and reducing downtime. For more information, see [Activity tracking events](/docs/vpc?topic=vpc-at-events). |
+   | Activity tracking | Audit event collection is disabled by default. Click the toggle to enable activity tracking for the virtual server instance. Activity tracking is recommended for optimal troubleshooting and reducing downtime. For more information, see [Activity tracking events](/docs/vpc?topic=vpc-at_events). |
    | Logging | Logging is disabled by default. Click the toggle to enable logging for the virtual server instance. Logging is helpful for troubleshooting and reducing downtime. When enabled, you can select an existing {{site.data.keyword.logs_routing_full_notm}} target or create a new one to route platform logs. For more information, see [Getting started with IBM Cloud Logs Routing](/docs/logs-router?topic=logs-router-getting-started){: external}. |
    | Monitoring | Monitoring is disabled by default. Click the toggle to enable monitoring for the virtual server instance. Monitoring is helpful for optimal troubleshooting and reducing downtime. When enabled, you can select an existing {{site.data.keyword.metrics_router_full_notm}} target or create a new one to route platform metrics. For more information, see [Getting started with IBM Cloud Metrics Routing](/docs/metrics-router?topic=metrics-router-getting-started){: external}. |
    | Cloud security posture management | When you select this option, a workload protection instance is created with the configurations to provide CSPM to all the resources. If a workload protection instance exists, this option is not available. For more information, see [About IBM Cloud Security Posture Management (CSPM)](/docs/workload-protection?topic=workload-protection-about&interface=ui). |
