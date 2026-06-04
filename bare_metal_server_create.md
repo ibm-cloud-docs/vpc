@@ -2,7 +2,7 @@
 
 copyright:
   years: 2021, 2026
-lastupdated: "2026-05-08"
+lastupdated: "2026-06-03"
 
 keywords: creating bare metal servers
 
@@ -56,6 +56,9 @@ Use the following steps to create a bare metal server by using the {{site.data.k
 | Secure boot | Click the toggle to enable secure boot. For more information, see [Secure boot with Trusted Platform Module (TPM)](/docs/vpc?topic=vpc-secure-boot-tpm&interface=ui). |
 | Add to reservation (beta) | If you have an active reservation, click the toggle to add the server to that reservation. For more information about reservations, see [About Reservations for VPC](/docs/vpc?topic=vpc-about-reserved-virtual-servers-vpc). |
 | Metadata | Disabled by default. Click the toggle to enable. This setting informs the bare metal server to collect the bare metal server configuration information and user data. For more information, see [About {{site.data.keyword.vpc_full}} (VPC) Metadata on bare metal servers](/docs/vpc?topic=vpc-bare-metal-server-metadata-about). |
+| Activity tracking | Audit event collection is disabled by default. Audit event collection is helpful for optimal troubleshooting and reducing downtime. Click the toggle to enable activity tracking for your bare metal server. When enabled, audit events are collected and routed to your configured {{site.data.keyword.atracker_short}} targets. For more information, see [Getting started with {{site.data.keyword.atracker_full_notm}}](/docs/atracker?topic=atracker-getting-started). |
+| Logging | Logging is disabled by default. Logging is helpful for optimal troubleshooting and reducing downtime. Click the toggle to enable logging for your bare metal server. When enabled, logs are collected and routed to your configured {{site.data.keyword.logs_routing_full_notm}} targets. For more information, see [Getting started with {{site.data.keyword.logs_routing_full_notm}}](/docs/logs-router?topic=logs-router-getting-started). |
+| Monitoring | Monitoring is disabled by default. Monitoring is helpful for optimal troubleshooting and reducing downtime. Click the toggle to enable monitoring for your bare metal server. When enabled, metrics are collected and routed to your configured {{site.data.keyword.metrics_router_full_notm}} targets. For more information, see [Getting started with {{site.data.keyword.metrics_router_full_notm}}](/docs/metrics-router?topic=metrics-router-getting-started). |
 | Cloud security posture management | When you select this option, a workload protection bare metal server is created with the configurations to provide CSPM to all the resources. If a workload protection bare metal server exists, this option is not available. For more information, see [About IBM Cloud Security Posture Management (CSPM)](/docs/workload-protection?topic=workload-protection-about&interface=ui). |
 {: caption="Bare metal server advanced options" caption-side="bottom"}
 

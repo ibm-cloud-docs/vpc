@@ -2,7 +2,7 @@
 
 copyright:
   years: 2022, 2026
-lastupdated: "2026-04-17"
+lastupdated: "2026-06-04"
 
 keywords: confidential computing, secure execution, hyper protect virtual server for vpc, terraform, tutorial, financial transaction
 
@@ -154,14 +154,18 @@ Completing this tutorial takes approximately 60 minutes.
 {: #hpvs-ftcc-step3}
 
 1.	Log in to [IBM Cloud](/login){: external}.
-2.	Go to the [provisioning page](/infrastructure/provision/vs?architecture=s390x&secureExecution=true){: external} for Hyper Protect Virtual Server for VPC on the IBM Cloud catalog.
-3.	Name the virtual server instance.
-4.	Paste the created contract information into **User data**.
-5.	Under the **Networking**, select your VPC and subnet.
-6.	Click **Create virtual server**.
-7.	View the logs in the ICL instance dashboard.
-8.	Assign a floating IP address to the Hyper Protect Virtual Server for VPC instance and click Save.
-9.	To open the PayNow website, copy and paste the floating IP address and use your browser to open the PayNow website under the URL `https://<floatingip>:8443/index.html`.
+1.	Go to the [provisioning page](/infrastructure/provision/vs?architecture=s390x&secureExecution=true){: external} for Hyper Protect Virtual Server for VPC on the IBM Cloud catalog.
+1.	Name the virtual server instance.
+1. From the VSI provision page, navigate to **Storage** → **Boot volume**.
+   1. Select the **Custom** tile.
+   1. Click the **Edit** icon (pencil icon).
+   1. Change the boot volume profile from `sdp` to `general-purpose`.
+1.	Paste the created contract information into **User data**.
+1.	Under the **Networking**, select your VPC and subnet.
+1.	Click **Create virtual server**.
+1.	View the logs in the ICL instance dashboard.
+1.	Assign a floating IP address to the Hyper Protect Virtual Server for VPC instance and click Save.
+1.	To open the PayNow website, copy and paste the floating IP address and use your browser to open the PayNow website under the URL `https://<floatingip>:8443/index.html`.
 
 Now, by using Confidential Computing with IBM Cloud Hyper Protect Virtual Server for VPC, you can ensure that you have a level of data security that is unmatched in the industry.
 

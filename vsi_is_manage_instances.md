@@ -2,7 +2,7 @@
 
 copyright:
   years: 2019, 2026
-lastupdated: "2026-05-26"
+lastupdated: "2026-06-04"
 
 keywords: view instance details, restart virtual server, stop, details, delete
 
@@ -187,6 +187,48 @@ The stop and start action remotely turns an instance off or on. If the instance 
 
 For more information, see the [Create an instance action](/apidocs/vpc/latest#create-instance-action) in the VPC API.
 
+## Stopping a virtual server instance by using Terraform
+{: #stop-virtual-server-instances-terraform}
+{: terraform}
+
+You can stop a virtual server instance by using Terraform.
+
+The following example stops a virtual server instance:
+
+```terraform
+resource "ibm_is_instance_action" "example" {
+  action       = "stop"
+  force_action = true
+  instance     = ibm_is_instance.example.id
+}
+```
+{: codeblock}
+
+The stop action shuts down the guest operating system and then the virtual server instance is deprovisioned. This change releases the instance resources that were being used. The virtual server instance goes into the Stop state.If the instance is stopped, the instance remains in the stopped state and must be started manually. Billing is [suspended](/docs/vpc?topic=vpc-suspend-billing) for some compute resources while the instance is stopped. You cannot interact with an instance if it is stopped, but volumes remain provisioned. If the instance is started, normal interaction and billing continue.
+
+A _Force stop_ action triggers a power cycle reset of the virtual server instance. Set `force_action` to `true` to force the action immediately and delete all queued actions.
+{: note}
+
+For more information, see [ibm_is_instance_action](https://registry.terraform.io/providers/IBM-Cloud/ibm/latest/docs/resources/is_instance_action){: external}.
+
+## Starting a virtual server instance by using Terraform
+{: #start-virtual-server-instances-terraform}
+{: terraform}
+
+You can start a virtual server instance that is stopped by using Terraform.
+
+The following example starts a virtual server instance:
+
+```terraform
+resource "ibm_is_instance_action" "example" {
+  action   = "start"
+  instance = ibm_is_instance.example.id
+}
+```
+{: codeblock}
+
+For more information, see [ibm_is_instance_action](https://registry.terraform.io/providers/IBM-Cloud/ibm/latest/docs/resources/is_instance_action){: external}.
+
 ## Rebooting a virtual server instance in the console
 {: #reboot-virtual-server-instances-ui}
 {: ui}
@@ -235,6 +277,30 @@ A _Force reboot_ action triggers a power cycle reset of the virtual server insta
 {: note}
 
 For more information, see the [Create an instance action](/apidocs/vpc/latest#create-instance-action) in the VPC API.
+
+## Rebooting a virtual server instance by using Terraform
+{: #reboot-virtual-server-instances-terraform}
+{: terraform}
+
+You can reboot a virtual server instance by using Terraform.
+
+The following example reboots a virtual server instance:
+
+```terraform
+resource "ibm_is_instance_action" "example" {
+  action       = "reboot"
+  force_action = true
+  instance     = ibm_is_instance.example.id
+}
+```
+{: codeblock}
+
+The reboot action triggers a guest operating system reboot. The virtual server instance remains in a running state while the guest operating system is rebooting. Billing continues.
+
+A _Force reboot_ action triggers a power cycle reset of the virtual server instance. Set `force_action` to `true` to force the action immediately and delete all queued actions.
+{: note}
+
+For more information, see [ibm_is_instance_action](https://registry.terraform.io/providers/IBM-Cloud/ibm/latest/docs/resources/is_instance_action){: external}.
 
 ## Resizing a virtual server instance in the console
 {: #resize-virtual-server-instances-ui}
@@ -378,6 +444,23 @@ curl -X GET "https://us-south.iaas.cloud.ibm.com/v1/instance/profiles/$profile_n
 {: pre}
 
 For more information, see the [Retrieve an instance profile](/apidocs/vpc/latest#get-instance-profile) in the VPC API.
+
+## Viewing instance details by using Terraform
+{: #viewing-virtual-server-instances-terraform}
+{: terraform}
+
+You can retrieve information about an existing virtual server instance by using Terraform.
+
+The following example retrieves information about a virtual server instance by name:
+
+```terraform
+data "ibm_is_instance" "example" {
+  name        = "my-instance"
+}
+```
+{: codeblock}
+
+For more information, see [ibm_is_instance](https://registry.terraform.io/providers/IBM-Cloud/ibm/latest/docs/data-sources/is_instance){: external}.
 
 ## Adjusting instance bandwidth allocation in the console
 {: #adjusting-bandwidth-allocation-ui}

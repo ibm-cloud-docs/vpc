@@ -2,7 +2,7 @@
 
 copyright:
   years: 2019, 2026
-lastupdated: "2026-05-29"
+lastupdated: "2026-06-03"
 
 keywords:
 
@@ -23,6 +23,13 @@ Use the release notes to learn the latest updates to {{site.data.keyword.vpc_ful
 For more information about changes to the {{site.data.keyword.vpc_short}} API, see [{{site.data.keyword.vpc_short}} API change log](/docs/vpc?topic=vpc-api-change-log).
 
 For more information about changes to the {{site.data.keyword.vpc_short}} command-line interface (CLI), see [{{site.data.keyword.vpc_short}} CLI release notes](/docs/vpc?topic=vpc-vpc-cli-rn).
+
+### 03 June 2026
+{: #vpc-june0326}
+{: release-note}
+
+UI enhancement: Observability features now configurable when provisioning servers
+:   When you are using {{site.data.keyword.cloud_notm}} console, you can now configure activity tracking, logging, and monitoring when you provision either a virtual server or a bare metal server. The new observability options are available in the Advanced section of the respective provisioning pages. For more information, see [Creating virtual server instances](/docs/vpc?topic=vpc-creating-virtual-servers) and [Creating Bare Metal Servers on VPC](/docs/vpc?topic=vpc-creating-bare-metal-servers).
 
 ## May 2026
 {: #vpc-may26}
