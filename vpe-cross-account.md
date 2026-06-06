@@ -2,7 +2,7 @@
 
 copyright:
   years: 2025, 2026
-lastupdated: "2026-05-20"
+lastupdated: "2026-06-05"
 
 keywords: virtual private endpoints, VPE, endpoint gateway, cross account
 
@@ -23,7 +23,10 @@ You can create an endpoint gateway for a supported {{site.data.keyword.cloud}} s
 ## Before you begin
 {: #vpe-before-you-begin}
 
+
+
 Before creating an endpoint gateway, make sure that you review [Planning for virtual private endpoint gateways](/docs/vpc?topic=vpc-vpe-planning-considerations) and have met the following prerequisites:
+
 * Make sure that your target service supports cross-account VPEs. Check the service's documentation for details.
 * A VPC
 * A subnet in at least one availability zone if you intend on binding an IP address at the same time you provision the endpoint gateway
