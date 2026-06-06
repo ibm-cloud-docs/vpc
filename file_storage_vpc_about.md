@@ -2,7 +2,7 @@
 
 copyright:
   years: 2021, 2026
-lastupdated: "2026-06-01"
+lastupdated: "2026-06-06"
 
 keywords: file share, mount target, virtual network interface, customer-managed encryption, encryption at rest, encryption in transit, file storage, share,
 
@@ -15,7 +15,7 @@ subcollection: vpc
 # About {{site.data.keyword.filestorage_vpc_short}}
 {: #file-storage-vpc-about}
 
-{{site.data.keyword.filestorage_vpc_full}} provides NFS-based file storage services within the VPC Infrastructure. A file share is a type of file storage that is made accessible over the network to allow multiple clients to access the same folders and files simultaneously. You can create file shares with zonal and regional data availability. You can share them with multiple virtual server instances within the same zone or other zones in your region, across multiple VPCs. You can also limit access to a file share to a specific virtual server instance or group of instances within a VPC. You can choose to encrypt your file shares at rest with IBM-managed encryption keys or use your own customer keys. You can choose to encrypt the data in transit between the file share and the compute hosts. You can create replicas of your file shares in other regions, and take snapshots of your data. You can create and manage your file shares in the console, from the CLI, with the API, or Terraform.
+{{site.data.keyword.filestorage_vpc_full}} provides NFS-based file storage services within the VPC Infrastructure. A file share is a type of file storage that is made accessible over the network to allow multiple clients to access the same folders and files simultaneously. You can create file shares with zonal and regional data availability. You can share them with multiple virtual server instances within the same zone or other zones in your region, across multiple VPCs. You can also limit access to a file share to a specific server instance or group of instances within a VPC. You can choose to encrypt your file shares at rest with IBM-managed encryption keys or use your own customer keys. You can choose to encrypt the data in transit between the file share and the compute hosts. You can create replicas of your file shares in other regions, and take snapshots of your data. You can create and manage your file shares in the console, from the CLI, with the API, or Terraform.
 {: shortdesc}
 
 Creating file shares with regional availability requires special access. If you’re interested in previewing the new offering, contact your assigned Account team representative or Customer Success Manager.
@@ -43,7 +43,7 @@ All profiles are backed by solid-state drives (SSDs). For more information, see 
 
 You can create file shares with the `dp2` profile at a zonal level, for example in `us-south-1`. File shares are identified by name and associated with a resource group in your {{site.data.keyword.cloud_notm}} customer account.
 
-You create a file share in a zone and create the mount target for the share in the VPC. You can control how the file share is accessed by specifying the [access mode](#fs-mount-access-mode): targeted access for specific instances or [Deprecated]{: tag-deprecated} VPC-wide access.
+You create a file share in a zone. You can control how the file share is accessed by specifying the security group [access mode](#fs-mount-access-mode). Then, you create a network endpoint, known as a [mount target](#fs-share-mount-targets) for the share in the VPC.
 
 You can set up [replication](/docs/vpc?topic=vpc-file-storage-replication) between the source file share and a replica file share in different zones. So if an outage at the primary site was to occur, you can fail over to the replica file share and continue operations.
 
@@ -87,20 +87,10 @@ If you want to connect a file share to instances that are running in different V
 
 After the mount target is created, you can remotely access your virtual server or bare metal server instance, and attach the file share.
 
-### Mount target access modes
+### Mount target access mode
 {: #fs-mount-access-mode}
 
-When you create or update a mount target, you can specify the manner in which you want the mount target to be accessed on the file share. You have two options:
-
-* Use the **security groups access** mode to authorize access to the file share for a specific virtual server instance or instances within a subnet. This option is available to newer file shares based on the `dp2` profile. Communication between an authorized virtual server instance and the file share can optionally be IPsec encapsulated. For more information, see [Encryption in Transit](#fs-eit). Cross-zone mounting is also supported.
-
-* Use the **VPC access** mode to allow access to the file share to a bare metal server or any virtual server instances in the same zone of a VPC. This option is available for all [file share profiles](/docs/vpc?topic=vpc-file-storage-profiles). Cross-zone mounting and encryption of data in transit are not supported for shares with VPC access mode. Snapshots are also not supported for shares with VPC access mode. This type of access mode is not available for regional file shares with the `rfs` profile.
-
-    The VPC access control mode for zonal file shares is deprecated. As of 06 June 2026, you can't use VPC access control mode when creating new file shares. Existing file shares that use VPC access control mode are supported until 06 May 2027. [Migrate to security group access control mode](/docs/vpc?topic=vpc-fs-migrate-access-mode) before the end of support date.
-    {: deprecated}
-
-    VPC access mode is not supported in newer MZRs, such as Montreal (ca-mon), Mumbai - Airtel (in-mum), and Chennai - Airtel (in-che).
-    {: note}
+When you create or update a mount target, you can specify the manner in which you want the mount target to be accessed on the file share. As of 06 June 2026, the only option for access control mode is **security groups** access mode. By using the security group, you can authorize access to the file share for a specific server instance or a number of instances within a subnet. Communication between an authorized virtual server instance and the file share can also be encrypted. For more information, see [Encryption in Transit](#fs-eit).
 
 The `vpc` access mode reaches End of Support on 06 May 2027. Follow the [migration guide](/docs/vpc?topic=vpc-fs-migrate-access-mode&interface=ui#fs-migrate-update-mode) to update your share's access control mode to `security-group` to avoid service disruption and data loss.
 {: deprecated}
@@ -185,7 +175,7 @@ Encryption in transit is not supported for virtual server instances that are run
 ### Granular authorization
 {: #fs-mount-granular-auth}
 
-You can set the access control mode of a file share to use [security groups](/docs/vpc?topic=vpc-using-security-groups). Then, create a mount target with a [virtual network interface](/docs/vpc?topic=vpc-vni-about). When you mount your file share by using this mount target, the created file share gateway provides a 1:1:1 granular authorization.
+Your file share is created with the access control mode to use [security groups](/docs/vpc?topic=vpc-using-security-groups). To mount this share, you must first create a mount target with a [virtual network interface](/docs/vpc?topic=vpc-vni-about). When you mount your file share with this mount target, the created file share gateway provides a 1:1:1 granular authorization.
 
 The security groups that are associated with the mount target act as a virtual firewall that controls the traffic between the mount target and the Compute host.
 
@@ -304,7 +294,7 @@ Replicas enable compliance and legal workflows, staged migrations, and operation
 
 Snapshots are point-in-time copies of your file share. The snapshots can be used to restore individual files, or create other file shares in the same zone with the data that is captured in the snapshot. You can create snapshots manually in the console or from the CLI, and programmatically with the API. You can also schedule the snapshots to be created automatically at regular intervals by using the Backup for VPC service. For more information, see [About {{site.data.keyword.filestorage_vpc_short}} snapshots](/docs/vpc?topic=vpc-fs-snapshots-about) and [Planning snapshots](/docs/vpc?topic=vpc-fs-snapshots-planning).
 
-Snapshots are supported only for shares that have "security group" as their access control mode. You can't change access control mode to VPC either unless all the snapshots of the share are deleted.
+Snapshots are supported only for shares that have "security group" as their access control mode.
 
 You can't create snapshots of replica or accessor shares. However, snapshots of the origin share are replicated to the read-only replica share at the next scheduled sync. Snapshots of the origin share are also available to the accessor shares.
 {: important}

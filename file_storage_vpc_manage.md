@@ -2,7 +2,7 @@
 
 copyright:
   years: 2021, 2026
-lastupdated: "2026-05-06"
+lastupdated: "2026-06-06"
 
 keywords: file share, file storage, rename share, increase size, adjust IOPS, mount target
 
@@ -509,7 +509,7 @@ resource "ibm_is_share" "example" {
 Valid file share and mount target names can include a combination of lowercase alpha-numeric characters (a-z, 0-9) and the hyphen (-), up to 63 characters. File share names must begin with a lowercase letter.
 {: important}
 
-Some attributes, such as profile, mount target access mode, allowed transit encryption modes, and encryption at rest, are not editable for accessor shares.
+Some attributes, such as profile, allowed transit encryption modes, and encryption at rest, are not editable for accessor shares.
 
 The owner of the share can update the allowed transit encryption modes with the following values.
 - For zonal file shares, the allowed values are `ipsec,none`,`ipsec`, or `none`.

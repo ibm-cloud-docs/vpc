@@ -2,7 +2,7 @@
 
 copyright:
   years: 2022, 2026
-lastupdated: "2026-05-22"
+lastupdated: "2026-06-06"
 
 keywords: file share, file storage, source volume, replica share,
 
@@ -66,7 +66,7 @@ On the File share replica create page, review the source file share details, and
      | **Security groups** | The [default security group](/docs/vpc?topic=vpc-updating-the-default-security-group) for the VPC is selected. You can use it or select another security group from the list. |
      {: caption="Values for creating a mount target." caption-side="top"}
 
-   - If you selected VPC as the access mode, provide a name for the mount target and select a VPC from the list. This mount target can be used to mount the file share on any virtual server instance of the selected VPC in the same zone as the file share. Cross-zone mounting is not supported.
+   - [Deprecated]{: tag-deprecated} If you selected VPC as the access mode, provide a name for the mount target and select a VPC from the list. This mount target can be used to mount the file share on any virtual server instance of the selected VPC in the same zone as the file share. Cross-zone mounting is not supported.
 
    The vpc access mode is deprecated and reaches end of support on 06 May 2027. Follow the [migration guide](/docs/vpc?topic=vpc-fs-migrate-access-mode&interface=ui#fs-migrate-update-mode) to update the source share's access control mode to `security-group`.
    {: deprecated}

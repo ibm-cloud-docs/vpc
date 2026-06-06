@@ -2,7 +2,7 @@
 
 copyright:
   years: 2022, 2026
-lastupdated: "2026-05-06"
+lastupdated: "2026-06-06"
 
 keywords: file share, customer-managed encryption, encryption, byok, KMS, Key Protect, Hyper Protect Crypto Services,
 
@@ -56,24 +56,17 @@ Follow this procedure to specify customer-managed encryption when you create a f
    | Tags | Tags are used to organize, track, and even manage access to your file share resources. You can tag related resources and view them throughout your account by filtering by tags from your resource list. User tags are visible account-wide. Avoid including sensitive data in the tag name. For more information, see [Working with tags](/docs/account?topic=account-tag&interface=ui).|
    | Access-management tags| You can apply flexible access policies on your file shares with access-management tags. For more information, see [Controlling access to resources by using tags](/docs/account?topic=account-access-tags-tutorial). |
    | Profile | The profile is auto-populated based on your data availability selection. For more information, see [file Storage profiles](/docs/vpc?topic=vpc-file-storage-profiles). \n - If you chose regional availability, your file share uses the `rfs` profile. Select the size and bandwidth for your file share. You can increase the capacity later, and you can also adjust the bandwidth as needed. \n - If you chose Single zone availability, your file share uses the `dp2` profile. Select the size and IOPS for your file share. You can increase the capacity later, and you can also adjust the IOPS as needed.|
-   | Mount target access mode  | Select how you want to manage access to this file share: |
-   |  | Security group: Access to the file share is based on [security group](/docs/vpc?topic=vpc-using-security-groups#sg-getting-started) rules. This option can be used to restrict access to specific virtual server instances. You can also use this option if you want to mount the file share to a virtual server instance in another zone. This option is recommended as you have more control over who can access the data that is stored on the file share. When you choose this type of access, you can also specify the allowed transit encryption modes. |
-   |  | Virtual private cloud [Deprecated]{: tag-deprecated}: Access to the file share is granted to any virtual server instance in the same region. Cross-zone mounting and encryption in transit are not supported. This option is only available for zonal file shares. The VPC access control mode is deprecated as of 06 June 2026. Select the Security group option instead. |
    | Allowed transit encryption modes| As the share owner, you can specify how you want clients within your account and authorized accounts to connect to your file share. You can select *none* if you do not want them to use encryption in transit. If you want them to use encryption in transit, select *ipsec* for your zonal files or *stunnel* for your regional files. |
    {: caption="Values for creating a file share and mount target." caption-side="bottom"}
 
-1. The creation of [mount targets](/docs/vpc?topic=vpc-file-storage-vpc-about#fs-share-mount-targets) is optional. You can skip this step if you do not want to create a mount target now. However, you need one to mount your file share on a compute host. A file share can have multiple mount targets so you can access it from multiple VPCs. You can create one mount target per VPC per file share. To create it, click **Create**.
-
-   - If you selected security group as the access mode, enter the information as described in the Table 2. This action creates and attaches a [virtual network interface](/docs/vpc?topic=vpc-vni-about) to your mount target that identifies the file share with a reserved IP address and applies the rules of the selected Security group. This mount target supports encryption-in-transit and cross-zone mounting.
-      1. Provide a mount target name. The name can be up to 63 lowercase alpha-numeric characters and include the hyphen (-), and must begin with a lowercase letter. You can later edit the name if you want.
-      2. Select an available VPC. The list includes only those VPCs with a subnet in the selected location. The location selection is inherited from the file share (for example, us-south-2).
-      3. A default virtual network interface is generated. You can customize it by clicking the Edit icon ![Edit icon](/images/edit.png). You can change the name or subnet if you have multiple subnets in the zone.
-      4. Click **Next**.
-      5. **Encryption in transit** is disabled by default for zonal shares, and it is enabled by default for regional shares. Click the toggle to change the preset value. For more information about this feature, see [Encryption in transit - Securing mount connections between file share and host](/docs/vpc?topic=vpc-file-storage-vpc-eit).
-      6. Then, click **Next**.
-      7. Review your selection, and either click **Back** to return and update your choices or click **Create**.
-
-   - If you selected VPC as the access mode, provide a name for the mount target and select a VPC from the list. This mount target can be used to mount the file share on any virtual server instance of the selected VPC in the same zone as the file share. Cross-zone mounting is not supported.
+1. The creation of [mount targets](/docs/vpc?topic=vpc-file-storage-vpc-about#fs-share-mount-targets) is optional. You can skip this step if you do not want to create a mount target now. However, you need one to mount your file share on a compute host. A file share can have multiple mount targets so you can access it from multiple VPCs. You can create one mount target per VPC per file share. To create it, click **Create**. Define the mount target by providing the following information:
+   1. Provide a mount target name. The name can be up to 63 lowercase alpha-numeric characters and include the hyphen (-), and must begin with a lowercase letter. You can later edit the name if you want.
+   2. Select an available VPC. The list includes only those VPCs with a subnet in the selected location. The location selection is inherited from the file share (for example, us-south-2).
+   3. A default virtual network interface is generated. You can customize it by clicking the Edit icon ![Edit icon](/images/edit.png). You can change the name or subnet if you have multiple subnets available in the location. You can also select an existing VNI to attach to the mount target. The list of available VNIs in the VPC and location are displayed. As VNIs secondary IP addresses attached cannot be accepted as a file share mount target, they are filtered out of the list.
+   4. Click **Next**.
+   5. **Encryption in transit** is disabled by default for zonal shares, and it is enabled by default for regional shares. Click the toggle to change the preset value. For more information about this feature, see [Encryption in transit - Securing mount connections between file share and host](/docs/vpc?topic=vpc-file-storage-vpc-eit).
+    6. Then, click **Next**.
+    7. Review your selection, and either click **Back** to return and update your choices or click **Create**.
 
 1. Update the fields in the **Encryption at rest** section.
    1. Select the encryption type. By default, all file shares are encrypted by IBM-managed keys. You can also choose to create an envelop-encryption for your shares with your own keys. If you want to use your own keys, select one of the [key management services](/docs/vpc?topic=vpc-vpc-encryption-about#kms-for-byok): {{site.data.keyword.keymanagementserviceshort}} or {{site.data.keyword.hscrypto}}.

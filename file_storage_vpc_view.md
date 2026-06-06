@@ -2,7 +2,7 @@
 
 copyright:
   years: 2022, 2026
-lastupdated: "2026-05-11"
+lastupdated: "2026-06-06"
 
 keywords: file storage, file share, view share details, mount targets, view targets, view share
 
@@ -70,12 +70,12 @@ You can access the Actions menu by clicking ![Actions icon](../icons/action-menu
      | Location | The location of the file share (for example, us-south-2). |
      | Replication role | Source file share or replica. |
      | Encryption | Specifies provider-managed or [customer-managed encryption](/docs/vpc?topic=vpc-file-storage-byok-encryption). When the file share is encrypted with customer-managed keys, the encryption instance, encryption key name, and encryption key CRN are also shown. |
-     | Mount target access mode   | Access to the file share is granted by either a security group within a subnet or to any virtual server instance in the VPC. Click the **Edit icon** ![Edit icon](../icons/edit-tagging.svg "Edit") to switch access modes. Security group access is available only to file shares created with the [`dp2` profile](/docs/vpc?topic=vpc-file-storage-profiles&interface=ui#dp2-profile). For more information, see the [Mount target access modes](/docs/vpc?topic=vpc-file-storage-vpc-about&interface=api#fs-mount-access-mode). |
+     | Mount target access mode | This field is displayed only when the file share has the [Deprecated]{: tag-deprecated} vpc access mode. Click the **Edit icon** ![Edit icon](../icons/edit-tagging.svg "Edit") to switch access mode. For more information, see the [migration guide](/docs/vpc?topic=vpc-fs-migrate-access-mode&interface=ui#fs-migrate-update-mode). |
      | CRN | The copiable Cloud Resource Name of the file share.|
-     | Allowed encryption in transit mode | This value shows whether encryption in transit is required when clients access the file share. Click the **Edit icon** ![Edit icon](../icons/edit-tagging.svg "Edit") to change the allowed values. The possible values are `User managed`, and `None`. This field is not applicable for file shares with VPC access mode. \n [Select availability]{: tag-green} Customers with special access to preview the new regional file share offering can choose from IPsec, Stunnel, and None. |
-     | Cross-account role | The possible values are None, Origin, Accessor. This field is not applicable for file shares with VPC access mode.|
-     | Snapshot count  | This value indicates the number of snapshots that were taken of the file share. This field is not applicable for file shares with VPC access mode. |
-     | Size of changed data in all the snapshots  | It represents the billable volume of data across all the snapshots. This field is not applicable for file shares with VPC access mode. |
+     | Allowed encryption in transit mode | This value shows whether encryption in transit is required when clients access the file share. Click the **Edit icon** ![Edit icon](../icons/edit-tagging.svg "Edit") to change the allowed values. The possible values are `User managed`, and `None`. This field is not applicable for file shares with [Deprecated]{: tag-deprecated} VPC access mode. \n [Select availability]{: tag-green} Customers with special access to preview the new regional file share offering can choose from IPsec, Stunnel, and None. |
+     | Cross-account role | The possible values are None, Origin, Accessor. This field is not applicable for file shares with [Deprecated]{: tag-deprecated} VPC access mode.|
+     | Snapshot count  | This value indicates the number of snapshots that were taken of the file share. This field is not applicable for file shares with [Deprecated]{: tag-deprecated} VPC access mode. |
+     | Size of changed data in all the snapshots  | It represents the billable volume of data across all the snapshots. This field is not applicable for file shares with [Deprecated]{: tag-deprecated} VPC access mode. |
      | **Profile details**| |
      | Profile | The name of the share [profile](/docs/vpc?topic=vpc-file-storage-profiles) that defines the file share performance. In most cases, the dp2 profile.|
      | Size | File share capacity in GB. |
@@ -84,11 +84,11 @@ You can access the Actions menu by clicking ![Actions icon](../icons/action-menu
      | **Mount targets** | Number of mount targets associated with the file share. You can have one mount target per VPC per file share. You can create more mount targets for other VPCs. Click ![Actions icon](../icons/action-menu-icon.svg) to rename or delete the mount target, or to view the mount path. |
      | Name | Name of the mount target. |
      | Status | Status of the mount target on the VPC. |
-     | Virtual private cloud | This field is shown if the file share has VPC access mode. Click the name to go to the details page for that VPC, where you can see a [list of file shares](#fs-view-shares-vpc) that have a mount target in that VPC. |
-     | Subnet | This field is shown if the file share has Security group access mode. Click the name of the subnet to see its details.|
-     | Security group | This field is shown if the file share has Security group access mode. It's the number of security groups that the share is a member of. |
-     | Reserved IP | This field is shown if the file share has Security group access mode. The IP address of the virtual network interface that is attached to the mount target |
-     | Encryption in Transit |This field is shown if the file share has Security group access mode. Its value can be enabled or disabled. |
+     | Virtual private cloud | This field is shown if the file share has the [Deprecated]{: tag-deprecated} VPC access mode. Click the name to go to the details page for that VPC, where you can see a [list of file shares](#fs-view-shares-vpc) that have a mount target in that VPC. |
+     | Subnet | This field is shown when the file share has Security group access mode. Click the name of the subnet to see its details.|
+     | Security group | This field is shown when the file share has Security group access mode. It's the number of security groups that the share is a member of. |
+     | Reserved IP | This field is shown when the file share has Security group access mode. The IP address of the virtual network interface that is attached to the mount target |
+     | Encryption in Transit |This field is shown when the file share has Security group access mode. Its value can be enabled or disabled. |
      | **Accessor share bindings**| This section is shown if the share has accessor shares in other VPCs. |
      | Binding ID | This field shows the ID of the binding that connects the origin share to the accessor share. |
      | Account ID | The ID of the account that has access to your share's data through the accessor share. |
@@ -447,7 +447,7 @@ curl -X GET "$vpc_api_endpoint/v1/shares?version=2023-07-18?limit=50&generation=
 ```
 {: pre}
 
-A successful response looks like the following example. In the example, the `limit` query parameter specifies a limit of 50 file shares, although the example response contains only one. The `access_control_mode` property value is `vpc`, which means that the file share can be mounted on all virtual server instances in a VPC.
+A successful response looks like the following example.
 
 ```json
 {
@@ -504,6 +504,8 @@ A successful response looks like the following example. In the example, the `lim
 }
 ```
 {: codeblock}
+
+In the example, the `limit` query parameter specifies a limit of 50 file shares, although the example response contains only one. The `access_control_mode` property value is `vpc`, which means that the file share can be mounted on all virtual server instances in a VPC. This access control mode is [Deprecated]{: tag-deprecated}. Follow the [migration guide](/docs/vpc?topic=vpc-fs-migrate-access-mode&interface=api#fs-migrate-update-mode) to update your share's access control mode to `security-group`.
 
 ### Viewing a single file share with the API
 {: #fs-single-file-shares-api}
