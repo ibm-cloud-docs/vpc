@@ -31,7 +31,7 @@ This table summarizes the differences between the options:
 
 | Public gateway | Floating IP |
 | ---- | ---- |
-| Instances can initiate connections to the internet, but they can't receive connections from the internet.| Instances can initiate or receive connections to or from the internet |
+| Instances can initiate connections to the internet, but they can't receive connections from the internet. | Instances can initiate or receive connections to or from the internet |
 | Provides connectivity for an entire subnet | Provides connectivity for a single instance |
 {: caption="External connectivity options" caption-side="bottom"}
 
