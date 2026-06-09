@@ -2,7 +2,7 @@
 
 copyright:
   years: 2019, 2026
-lastupdated: "2026-06-04"
+lastupdated: "2026-06-09"
 
 keywords: view instance details, restart virtual server, stop, details, delete
 
@@ -39,7 +39,7 @@ To manage your instances, complete the following steps.
 | Stop| Stop the instance. |
 | Start | Start an instance that is stopped. This action is not available if the instance status is Running. |
 | Reboot | Immediately powers off a running instance and then powers it back on again. |
-| Resize | Vertically scale virtual server instances to any supported profile size. For more information, see [Resizing a virtual server instance](/docs/vpc?topic=vpc-resizing-an-instance).
+| Resize | Vertically scale virtual server instances to any supported profile size. For more information, see [Resizing a virtual server instance](/docs/vpc?topic=vpc-resizing-an-instance). |
 | Delete | To delete an instance, the instance must have a powered off status. If the instance has a floating IP address, it must be unassociated or released before the instance is deleted. The delete action permanently removes an instance and its connected vNIC, and data from your account. If auto-delete is enabled, the associated boot volume is also deleted. |
 | Host failure auto restart | Toggles the host failure restart policy for an instance on or off. For more information, see [Host failure recovery policies](/docs/vpc?topic=vpc-host-failure-recovery-policies&interface=api). |
 {: caption="Actions available for virtual server instances" caption-side="bottom"}
