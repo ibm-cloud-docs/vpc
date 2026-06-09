@@ -2,7 +2,7 @@
 
 copyright:
   years: 2025, 2026
-lastupdated: "2026-05-28"
+lastupdated: "2026-06-09"
 
 keywords: vsi, virtual server, virtual server instances, profile, profiles, amd, turin, chiplet, epyc
 subcollection: vpc
@@ -11,7 +11,7 @@ subcollection: vpc
 
 {{site.data.keyword.attribute-definition-list}}
 
-# High frequency profiles -  Gen 4
+# High Frequency profiles -  Gen 4
 {: #high-frequency-profile-family}
 
 The high frequency profile family provides access to CPUs with elevated clock speeds that are tailored for compute-intensive workloads. These workloads include Electronic Design Automation (EDA), Computational Fluid Dynamics (CFD), Finite Element Analysis (FEA), and weather or climate modeling. These higher frequencies boost per-core performance, by enabling faster execution, and more efficient use of software licensed on a per-core basis.
@@ -91,7 +91,7 @@ The following table lists available AMD hx4da profiles.
 | Instance profile | vCPU / Cores | GiB RAM | Bandwidth cap (Gbps) | Instance storage (GB) | NUMA Count |
 | ---------------- | ---- | ------- | ------- | ------- | ---- |
 | hx4da-248x680 | 248 / 124 | 680 | 200 | 1x2600 | 2 |
-{: caption="High frequency profiles for compatible virtual server instances" caption-side="bottom"}
+{: caption="High Frequency profiles for compatible virtual server instances" caption-side="bottom"}
 
 ### Limits
 {: #amd-hx4da-limits}

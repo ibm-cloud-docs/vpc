@@ -2,7 +2,7 @@
 
 copyright:
   years: 2019, 2026
-lastupdated: "2026-06-03"
+lastupdated: "2026-06-09"
 
 keywords: vsi, virtual server instances, profile, profiles, balanced, compute, memory, very high memory, ultra high memory, gpu, storage optimized, confidential compute, flex, high frequency
 
@@ -48,7 +48,7 @@ The following profile families are available when you provision a virtual server
 | [Confidential Compute](#confidential-computing-profiles) | Confidential Compute-supported profiles use processor reserved memory called EPC (Enclave Page Cache) to encrypt application data. Processor reserved memory EPC maintains confidentiality and integrity. |
 | [Flex profiles](#flexible-profiles) | Flex profiles offer a cost-effective option to help improve and mainstream capacity and scalability where and when you need it. |
 | [Burstable Flex profiles](#burstable-supported-flex-profiles) | Burstable profiles are designed to provide flexible CPU performance so workloads can operate at a smaller baseline level and burst to higher performance when needed. |
-| [High Frequency profiles](#high-frequency-profiles) (select availability) | High frequency profiles provide CPUs with a high frequency, which generally enables higher performance per core than other profiles within the same hardware generation.|
+| [High Frequency profiles](#high-frequency-profiles) (select availability) | High Frequency profiles provide CPUs with a high frequency, which generally enables higher performance per core than other profiles within the same hardware generation.|
 {: caption="Virtual server family selections" caption-side="bottom"}
 
 2nd generation profiles with instance storage and 2nd generation profiles with 64 or more vCPUs are deployed exclusively on the Intel&reg; second-generation quad processor Xeon&reg; Platinum 8260 Cascade Lake with 96 cores that are running at a base speed of 2.4 GHz and an all-core turbo frequency of 3.1 GHz or an Intel quad processor Xeon Gold 6248 Cascade Lake with 80 cores that are running at a base speed of 2.5 GHz and an all-core turbo frequency of 3.1 GHz.
@@ -621,15 +621,15 @@ The following Burstable profiles are available.
 ## High Frequency profiles
 {: #high-frequency-profiles}
 
-High frequency profiles provide CPUs with a high frequency, which generally enables higher performance per core than other profiles that are within the same hardware generation. The high frequency profile provides AMD&reg; 5th Generation Epyc 9575F processor-based virtual server instances. This processor offers all-core boost speeds up to 4.5 HZ and a max turbo speed of 5 GHz. AMD 5th Generation Epyc 9575F uses Chiplet-based architecture with distributed L3 cache. Distributed L3 cache can ensure that more dedicated L3 is shared per CPU. High frequency profiles support pooled bandwidth allocation for data volumes. For more information, see [Volume bandwidth allocation method](/docs/vpc?topic=vpc-block-storage-bandwidth#attached-block-vol-bandwidth).
+High Frequency profiles provide CPUs with a high frequency, which generally enables higher performance per core than other profiles that are within the same hardware generation. The high frequency profile provides AMD&reg; 5th Generation Epyc 9575F processor-based virtual server instances. This processor offers all-core boost speeds up to 4.5 HZ and a max turbo speed of 5 GHz. AMD 5th Generation Epyc 9575F uses Chiplet-based architecture with distributed L3 cache. Distributed L3 cache can ensure that more dedicated L3 is shared per CPU. High Frequency profiles support pooled bandwidth allocation for data volumes. For more information, see [Volume bandwidth allocation method](/docs/vpc?topic=vpc-block-storage-bandwidth#attached-block-vol-bandwidth).
 
-Gen 4 High Frequency profiles are available in the Dallas (us-south) and Sydney (au-syd) regions with the AMD 5th Generation Epyc 9575F processor-based to provision virtual server instances. For more information about the capabilities of the new profile, see [High frequency profiles - Gen 4](/docs/vpc?topic=vpc-high-frequency-profile-family).
+Gen 4 High Frequency profiles are available in the Dallas (us-south) and Sydney (au-syd) regions with the AMD 5th Generation Epyc 9575F processor-based to provision virtual server instances. For more information about the capabilities of the new profile, see [High Frequency profiles - Gen 4](/docs/vpc?topic=vpc-high-frequency-profile-family).
 {: preview}
 
 | Instance profile | vCPU / Cores | GiB RAM | Bandwidth cap (Gbps) | Instance storage (GB) | NUMA Count
 | ---------------- | ---- | ------- | ------- | ------- | ---- |
 | hx4da-248x680 | 248 / 124 | 680 | 200 | 1x2600 | 2 |
-{: caption="High frequency profiles for compatible virtual server instances" caption-side="bottom"}
+{: caption="High Frequency profiles for compatible virtual server instances" caption-side="bottom"}
 
 ## Bandwidth allocation
 {: #bandwidth-allocation}
