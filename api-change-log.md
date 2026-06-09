@@ -2,7 +2,7 @@
 
 copyright:
   years: 2019, 2026
-lastupdated: "2026-06-03"
+lastupdated: "2026-06-09"
 
 keywords: api, change log, new features, restrictions, migrations
 
@@ -53,6 +53,14 @@ At this time, all instances, and therefore all instance templates, continue to r
 
 The new response code will be rolled out gradually. Each phase of the rollout will be tied to a dated API version. These changes will be announced in future change log updates.
 {: note}
+
+## 9 June 2026
+{: #9-june-2026}
+
+### For all version dates
+{: #9-june-2026-all-version-dates}
+
+**Snapshot consistency group support for second generation storage.** You can now [create a snapshot consistency group](/apidocs/vpc/latest#create-snapshot-consistency-group) for block storage volumes with a `storage_generation` value of `2`. This includes both on‑demand and backup policy driven snapshot consistency groups. Previously, this capability was available only for volumes with a `storage_generation` value of `1`. For more information, see [Managing block storage multi-volume snapshots](/docs/vpc?topic=vpc-snapshots-vpc-manage-consistency-groups&interface=api).
 
 ## 2 June 2026
 {: #2-june-2026}
