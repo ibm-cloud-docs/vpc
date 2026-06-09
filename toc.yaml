@@ -84,7 +84,7 @@ toc:
               - topic: vsi-profile-details-accelerated.md
                 navtitle: Accelerated - Gen 3
               - topic: vsi-profile-details-high-frequency.md
-                navtitle: High frequency profiles
+                navtitle: High Frequency profiles
               - topic: vsi-profile-details-high-memory-gen3.md
                 navtitle: High memory - Gen 3
               - topic: vsi-profile-details-high-memory-gen2.md

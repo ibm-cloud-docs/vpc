@@ -2,7 +2,7 @@
 
 copyright:
   years: 2019, 2026
-lastupdated: "2026-06-04"
+lastupdated: "2026-06-09"
 
 keywords:
 
@@ -121,7 +121,7 @@ Instance profile information now includes zones
 
 New high frequency profile family (select availability)
 
-:   The high frequency profile family is available in the Dallas (us-south) and Sydney (au-syd) regions. High frequency profiles provide CPUs with a high frequency, generally enabling higher performance per core than other profiles within the same hardware generation. The high frequency profile provides AMD® 5th Generation Epyc 9575F processor-based virtual server instances. This processor offers all core boost speed up to 4.5 GHz and max turbo speed of 5 GHz. AMD® 5th Generation Epyc 9575F is Chiplet-based architecture and uses distributed L3 cache. Distributed L3 cache ensures more dedicated L3 per CPUs. High frequency profiles are Gen 4 profiles. Instead of dividing the total network bandwidth across the attached vNICs, the bandwith is pooled which allows each vNIC to use its full capability. The virtual server instance can never exceed it's overall bandwidth, but each individual vNIC can achieve a full 32 Gbps as long as the aggregated bandwidth doesn't exceed the overall bandwidth. For more information, see [x86-64 instance profiles > High Frequency profiles](/docs/vpc?topic=vpc-profiles&interface=ui#high-frequency-profiles), [Profiles details > High frequency profiles](/docs/vpc?topic=vpc-high-frequency-profile-family), and [About bandwidth allocation for instance profiles](/docs/vpc?topic=vpc-bandwidth-allocation-profiles#network-perf-notes-for-profiles).
+:   The high frequency profile family is available in the Dallas (us-south) and Sydney (au-syd) regions. High Frequency profiles provide CPUs with a high frequency, generally enabling higher performance per core than other profiles within the same hardware generation. The high frequency profile provides AMD® 5th Generation Epyc 9575F processor-based virtual server instances. This processor offers all core boost speed up to 4.5 GHz and max turbo speed of 5 GHz. AMD® 5th Generation Epyc 9575F is Chiplet-based architecture and uses distributed L3 cache. Distributed L3 cache ensures more dedicated L3 per CPUs. High Frequency profiles are Gen 4 profiles. Instead of dividing the total network bandwidth across the attached vNICs, the bandwith is pooled which allows each vNIC to use its full capability. The virtual server instance can never exceed it's overall bandwidth, but each individual vNIC can achieve a full 32 Gbps as long as the aggregated bandwidth doesn't exceed the overall bandwidth. For more information, see [x86-64 instance profiles > High Frequency profiles](/docs/vpc?topic=vpc-profiles&interface=ui#high-frequency-profiles), [Profiles details > High Frequency profiles](/docs/vpc?topic=vpc-high-frequency-profile-family), and [About bandwidth allocation for instance profiles](/docs/vpc?topic=vpc-bandwidth-allocation-profiles#network-perf-notes-for-profiles).
 
 ## March 2026
 {: #vpc-mar26}
