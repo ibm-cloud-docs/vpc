@@ -1,8 +1,8 @@
 ---
 
 copyright:
-  years: 2020, 2025
-lastupdated: "2025-10-15"
+  years: 2020, 2026
+lastupdated: "2026-06-10"
 
 keywords: custom routes
 
@@ -41,7 +41,7 @@ To delete a routing table from the CLI, run the following command:
 ```sh
 ibmcloud is vpc-routing-table-delete VPC ROUTING_TABLE [-f, --force]
 ```
-{: pre}
+{: codeblock}
 
 Where:
 

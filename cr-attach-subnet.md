@@ -2,7 +2,7 @@
 
 copyright:
   years: 2020, 2026
-lastupdated: "2026-05-20"
+lastupdated: "2026-06-10"
 
 keywords: custom routes
 
@@ -51,7 +51,7 @@ To attach subnets to a routing table from the CLI, run the following command:
 ```sh
 ibmcloud is subnet-update SUBNET_ID --routing-table-id ROUTING_TABLE_ID
 ```
-{: pre}
+{: codeblock}
 
 Where:
 

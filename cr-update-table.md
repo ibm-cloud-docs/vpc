@@ -1,8 +1,8 @@
 ---
 
 copyright:
-  years: 2020, 2025
-lastupdated: "2025-06-18"
+  years: 2020, 2026
+lastupdated: "2026-06-10"
 
 keywords: custom routes
 
@@ -48,7 +48,7 @@ To update a routing table from the CLI, run the following command:
 ```sh
 ibmcloud is vpc-routing-table-update VPC ROUTING_TABLE [--name NEW_NAME] [--direct-link-ingress false | true] [--internet-ingress, --internet false | true] [--transit-gateway-ingress false | true] [--vpc-zone-ingress false | true] [--accept-routes-from-resource-type-filters, --ar-rtf vpn_server | vpn_gateway | --clean-all-accept-routes-from-filters, --cl-arf] [--advertise_routes_to TARGETS] [--output JSON] [-q, --quiet]
 ```
-{: pre}
+{: codeblock}
 
 Where:
 
@@ -97,13 +97,25 @@ You can set an ingress option to **true** on only one routing table per VPC, and
 ### CLI examples
 {: #routing-table-update-examples-cli}
 
+```sh
 `ibmcloud is vpc-routing-table-update 72b27b5c-f4b0-48bb-b954-5becc7c1dcb3 72b27b5c-f4b0-48bb-b954-5becc7c1d456 --name my-renamed-vpc-routing-table --output JSON`
+```
+{: pre}
 
+```sh
 `ibmcloud is vpc-routing-table-update my-vpc my-vpc-routing-table --name my-renamed-vpc-routing-table --output JSON`
+```
+{: pre}
 
+```sh
 `ibmcloud is vpc-routing-table-update vpc-doloremque-6364-us-east  test-vpc-cli-routing-tb2 --direct-link-ingress true --internet-ingress false --transit-gateway-ingress true  --vpc-zone-ingress false`
+```
+{: pre}
 
+```sh
 `ibmcloud is vpc-routing-table-update 979b4bc6-f018-40a2-92f5-0b1cf777b55d  27415d55-9d3b-4adb-a993-236ef59a45ec --direct-link-ingress false --internet-ingress false   --transit-gateway-ingress false  --vpc-zone-ingress false`
+```
+{: pre}
 
 ## Updating a routing table with the API
 {: #cr-update-the-api-ct}
