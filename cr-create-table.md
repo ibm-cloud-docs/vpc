@@ -114,22 +114,22 @@ You can set an ingress option to `true` on only one routing table per VPC, and t
 {: #routing-table-create-examples-cli}
 
 ```sh
-`ibmcloud is vpc-routing-table-create 72b27b5c-f4b0-48bb-b954-5becc7c1dcb3 --name my-vpc-routing-table -—advertise-routes-to direct_link --direct-link-ingress true -—output JSON`
+ibmcloud is vpc-routing-table-create 72b27b5c-f4b0-48bb-b954-5becc7c1dcb3 --name my-vpc-routing-table -—advertise-routes-to direct_link --direct-link-ingress true -—output JSON
 ```
 {: pre}
 
 ```sh
-`ibmcloud is vpc-routing-table-create my-vpc --name my-vpc-routing-table --advertise-routes-to transit_gateway —-transit-gateway-ingress true --output JSON`
+ibmcloud is vpc-routing-table-create my-vpc --name my-vpc-routing-table --advertise-routes-to transit_gateway —-transit-gateway-ingress true --output JSON
 ```
 {: pre}
 
 ```sh
-`ibmcloud is vpc-routing-table-create my-vpc --name my-vpc-routing-table --advertise-routes-to direct_link, transit_gateway  --direct-link-ingress true —transit-gateway-ingress true -—output JSON`
+ibmcloud is vpc-routing-table-create my-vpc --name my-vpc-routing-table --advertise-routes-to direct_link, transit_gateway  --direct-link-ingress true —transit-gateway-ingress true -—output JSON
 ```
 {: pre}
 
 ```sh
-`ibmcloud is vpc-routing-table-create 979b4bc6-f018-40a2-92f5-0b1cf777b55d --name test-vpc-cli-routing-tb1 --direct-link-ingress false --internet-ingress false   --transit-gateway-ingress false  --vpc-zone-ingress true`
+ibmcloud is vpc-routing-table-create 979b4bc6-f018-40a2-92f5-0b1cf777b55d --name test-vpc-cli-routing-tb1 --direct-link-ingress false --internet-ingress false   --transit-gateway-ingress false  --vpc-zone-ingress true
 
 
 ## Creating a routing table with the API

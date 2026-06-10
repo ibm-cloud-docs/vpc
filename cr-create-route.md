@@ -116,7 +116,7 @@ Where:
 :   The action to perform with a packet that matches the route. One of: `delegate_vpc`, `delegate`, `deliver`, `drop`. Default: `deliver`
 
 `--priority`
-:   The route's priority. One of: `0`, `1`, `2`, `3`, `4`. Default: `2`.  Lower values have higher priority. If a custom routing table contains routes with the same destination, the route with the highest priority (lowest value) is selected.
+:   The route's priority. One of: `0`, `1`, `2`, `3`, `4`. Default: `2`. Lower values have higher priority. If a custom routing table contains routes with the same destination, the route with the highest priority (lowest value) is selected.
 
 `--next-hop`
 :   If the action is `deliver`, enter the IP address or VPN connection ID of the next hop to which to route packets.
@@ -141,16 +141,12 @@ Where:
 {: #examples-priority}
 {: cli}
 
+- Create a route by specifying the zone name, destination CIDR and next hop as the IP address:
 
-```sh
-   `ibmcloud is vpc-routing-table-route-update 72b27b5c-f4b0-48bb-b954-5becc7c1dcb3 72b27b5c-f4b0-48bb-b954-5becc7c1d456 72b27b5c-f4b0-48bb-b954-5becc7c1d4ef --name my-vpc-route --priority 1`
-```
-{: pre}
-
-```sh
-`ibmcloud is vpc-routing-table-route-update 72b27b5c-f4b0-48bb-b954-5becc7c1dcb3 72b27b5c-f4b0-48bb-b954-5becc7c1d456 72b27b5c-f4b0-48bb-b954-5becc7c1d4ef --name my-vpc-route --next-hop 10.0.0.2`
-```
-{: pre}
+   ```sh
+   ibmcloud is vpc-routing-table-route-create r134-b754e387-8b06-43be-a5ea-909595a50676 r134-6cfaceb8-99d6-4743-bee8-ebbcbba6a563 --zone us-south-1 --destination 10.2.2.0/24 --action deliver --priority 1 --next-hop 10.0.0.2 --name my-vpc-route
+   ```
+   {: pre}
 
 ## Creating a route with the API
 {: #cr-route-using-the-api}
@@ -167,7 +163,7 @@ To create a destination route with the API, follow these steps:
     ```
     {: codeblock}
 
-1. Create a route:
+1. Create a route by specifying `next_hop` as an IP address 
 
    ```sh
    curl -X POST "$vpc_api_endpoint/v1/vpcs/$VpcId/routing_tables/$RoutingTableId/routes?version=$api_version&generation=2" \
