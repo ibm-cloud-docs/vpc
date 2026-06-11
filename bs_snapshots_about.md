@@ -2,7 +2,7 @@
 
 copyright:
   years: 2022, 2026
-lastupdated: "2026-04-16"
+lastupdated: "2026-06-11"
 
 keywords: snapshots, Block Storage, volumes, cross-regional snapshot, restore volume, copy snapshot
 
@@ -99,20 +99,19 @@ When you create a snapshot or list details of a snapshot, the system lists only 
 
 A snapshot consistency group contains snapshots of multiple Block Storage volumes that are attached to the same virtual server instance. You can include or exclude boot volumes. Instance storage is not included.
 
-Multi-volume snapshots of a consistency group are not yet supported for second-generation block storage.
-{: note}
-
 When you request a snapshot of a consistency group, the system ensures that all write operations are complete before it takes the snapshots. Then, the system generates snapshots of all the tagged Block Storage volumes that are attached to the virtual server instance at the same time. Depending on the number and size of the attached volumes, plus the amount of data that is to be captured, you might observe a slight IO pause. This IO pause can range from a few milliseconds up to 4 seconds.
 
-The consistency group must have a unique name that can't exceed 64 characters. If you do not provide one, the system auto-generates a name for you. The snapshots in the consistency group are named by using the first 16 characters of the group name and 3-4 auto-generated characters, so their names are unique, too. Later, you can rename the member snapshots if you want to.
+The consistency group must have a unique name that can't exceed 64 characters. If you do not provide one, the system autogenerates a name for you. The snapshots in the consistency group are named by using the first 16 characters of the group name and 3-4 auto-generated characters, so their names are unique, too. Later, you can rename the member snapshots if you want to.
 
 The snapshot consistency group has its own lifecycle, and it keeps references to the member snapshots. So if a member snapshot is deleted or renamed, the consistency group is also updated.
 
 The snapshots in the group are loosely coupled. You can manage the snapshots within a consistency group the same way you manage any other snapshot. You can delete individual snapshots from the consistency group if you want to. You can keep individual snapshots after you decide to delete the consistency group.
 
-You can use the members of the snapshot consistency group to restore volumes separately. Restoring an instance directly from snapshot consistency group identifier is not supported.
+You can use the members of the snapshot consistency group to restore volumes separately. Restoring an instance directly from snapshot consistency group identifier is not supported. Restoring multiple volumes from different storage generations in a single operation that also provisions a virtual server instance is not recommended. For more information, see [Known issues for storage services](/docs/vpc?topic=vpc-storage-known-issues#multi-volume-restore-from-snapshot-fail).
 
 You can create cross-regional copies of the members of the snapshot set separately, but you can't create a copy of a consistency group in another zone or region.
+
+Consistency groups can't include snapshots from mixed generations.
 
 ## How snapshots work
 {: #snapshots-vpc-operation}

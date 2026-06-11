@@ -18,16 +18,17 @@ subcollection: vpc
 A snapshot consistency group contains snapshots of multiple volumes that are attached to the same virtual server instance. You can include or exclude boot volumes. You can create a consistency group in the console, CLI, API, and Terraform.
 {: shortdesc}
 
-Consistency group snapshots of multiple `sdp` volumes are not supported in the current release. Creating a multi-volume snapshot group for a mix of first and second-generation volumes results in snapshots being created of only the first-generation volumes in the group.
-
 When you request a snapshot of a consistency group, the system ensures that all write operations are complete before it takes the snapshots. Then, the system generates snapshots of all the tagged Block Storage volumes that are attached to the virtual server instance at the same time. Depending on the number and size of the attached volumes, plus the amount of data that is to be captured, you might observe a slight IO pause. This IO pause can range from a few milliseconds up to 4 seconds.
 
 Before you start, gather the following information:
 
-- A unique name for the consistency group. The name cannot exceed 64 characters. If you do not provide one, the system auto-generates a name for you. (The snapshots in the consistency group are named by using the first 16 characters of the group name and 3-4 auto-generated characters, so their names are unique, too.)
+- A unique name for the consistency group. The name cannot exceed 64 characters. If you do not provide one, the system autogenerates a name for you. (The snapshots in the consistency group are named by using the first 16 characters of the group name and 3-4 auto-generated characters, so their names are unique, too.)
 - The IDs of the source volumes.
 - The resource group ID, which is optional. However, you can't change the resource group after the snapshot is created.
 - Any tags that you want to attach to the snapshots.
+
+Creating a consistency group with snapshots of different generations is not supported. Consider [migrating](/docs/vpc?topic=vpc-block-storage-vpc-volume-migration) your first-generation volumes to the `sdp` profile. The `sdp` profile provides better value and more flexibility than the first-generation profiles. For more information, see [{{site.data.keyword.block_storage_is_short}} profiles](/docs/vpc?topic=vpc-block-storage-profiles).
+{: tip}
 
 ## Creating a consistency group snapshot in the console
 {: #mvsnapshot-create-ui}
@@ -99,6 +100,7 @@ Before you can use the CLI, you must install the IBM Cloud CLI and the VPC CLI p
    CRN                         crn:v1:bluemix:public:is:us-south:a/a1234567::snapshot-consistency-group:r006-4625d29b-3ac9-4bee-aca8-9366c4fd0c44
    Href                        https://us-south.iaas.cloud.ibm.com/v1/snapshots/r006-4625d29b-3ac9-4bee-aca8-9366c4fd0c44
    Status                      pending
+   Backup policy job           -
    Backup policy plan          -
    Delete snapshot on delete   false
    Source Snapshot             -

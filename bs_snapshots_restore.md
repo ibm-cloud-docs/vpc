@@ -225,7 +225,14 @@ Before you can use the CLI, you must install the IBM Cloud CLI and the VPC CLI p
 
    - If you want to restore a volume from a single snapshot, locate the snapshot first and view its details. You can use the CLI to [view all the snapshots of an account in a region](/docs/vpc?topic=vpc-snapshots-vpc-view&interface=cli#snapshots-vpc-view-all-account-cli) and select from the list. Alternatively, you can also [list all the snapshots of a specific volume](/docs/vpc?topic=vpc-snapshots-vpc-view&interface=cli#snapshots-vpc-view-all-snapshots-cli) and choose one from the output. Then, use the `ibmcloud is snapshots SNAPSHOT_ID` command to list the details of the chosen snapshot. If you want to restore a volume from a snapshot of another account, contact the snapshot's owner for the CRN of the snapshot.
 
-   - If you want to restore an instance by restoring multiple volumes from a consistency group, you need to gather information about the snapshots in the consistency group. [List all the consistency groups in the region](/docs/vpc?topic=vpc-snapshots-vpc-view&interface=cli#snapshots-vpc-view-all-consistency-groups-cli).Then, take the ID of the consistency group and use it with the `ibmcloud is snapshots` command to filter the output to the snapshots in the specified consistency group. See the following example.
+   - If you want to restore an instance by restoring multiple volumes from a consistency group, you need to gather information about the snapshots in the consistency group. [List all the consistency groups in the region](/docs/vpc?topic=vpc-snapshots-vpc-view&interface=cli#snapshots-vpc-view-all-consistency-groups-cli). Filtering the consistency group list by a backup job ID can be useful when you want to restore an instance by restoring volumes from two consistency groups of backup snapshots that were created because your original instance had a mix of first- and second-generation volumes attached.
+
+       ```sh
+       ibmcloud is snapshot-consistency-groups --backup-policy-job BACKUP_POLICY_JOB_ID
+       ```
+       {: pre}
+
+       Then, take the ID of the consistency group and use it with the `ibmcloud is snapshots` command to filter the output to the snapshots in the specified consistency group. See the following example.
 
        ```sh
        ibmcloud is snapshots --snapshot-consistency-group CONSISTENCY_GROUP_ID
@@ -370,7 +377,7 @@ Before you begin, gather information about the snapshot or snapshots that you wa
 
    - If you want to restore a volume from a single snapshot, locate the snapshot first and view its details. You can use the API to [list all the snapshots of an account in a region](/apidocs/vpc/latest#list-snapshots){: external} and select from the list. Then, [retrieve the snapshot](/apidocs/vpc/latest#get-snapshot){: external} details. If you want to restore a volume from a snapshot of another account, contact the snapshot's owner for the CRN of the snapshot.
 
-   - If you want to restore an instance by restoring multiple volumes from a consistency group, you need to gather information about the snapshots in the consistency group. [List all the consistency groups in the region](/apidocs/vpc/latest#list-snapshot-consistency-groups){: external}.  Then, take the ID of the consistency group that you want to restore and use it to [retrieve the snapshot consistency group](/apidocs/vpc/latest#get-snapshot-consistency-group){: external} details.
+   - If you want to restore an instance by restoring multiple volumes from a consistency group, you need to gather information about the snapshots in the consistency group. [List all the consistency groups in the region](/apidocs/vpc/latest#list-snapshot-consistency-groups){: external}. Filtering the consistency group list by a backup job ID can be useful when you want to restore an instance by restoring volumes from two consistency groups of backup snapshots that were created because your original instance had a mix of first- and second-generation volumes attached. Then, take the ID of the consistency group that you want to restore and use it to [retrieve the snapshot consistency group](/apidocs/vpc/latest#get-snapshot-consistency-group){: external} details.
 
 A snapshot whose `storage_generation` property value is 1 can be used only to create a block storage volume with the same `storage_generation` value. When you create a volume from a snapshot, the `storage_generation` values of the snapshot and the selected volume profile must match.
 

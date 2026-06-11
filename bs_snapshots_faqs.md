@@ -2,7 +2,7 @@
 
 copyright:
   years: 2022, 2026
-lastupdated: "2026-04-17"
+lastupdated: "2026-06-11"
 
 keywords: Block Storage, snapshots, cross-regional copy, fast restore, backup, restore volume
 
@@ -162,4 +162,5 @@ The snapshots are loosely coupled. The snapshots can be used to create new volum
 
 For more information, see [Snapshot consistency groups](/docs/vpc?topic=vpc-snapshots-vpc-about&interface=ui#multi-volume-snapshots).
 
-In this release, consistency group snapshots of second-generation storage volumes are not supported.
+Creating a consistency group with snapshots of different generations is not supported. Consider [migrating](/docs/vpc?topic=vpc-block-storage-vpc-volume-migration) your first-generation volumes to the `sdp` profile. The `sdp` profile provides better value and more flexibility than the first-generation profiles. For more information, see [{{site.data.keyword.block_storage_is_short}} profiles](/docs/vpc?topic=vpc-block-storage-profiles).
+{: tip}

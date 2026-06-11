@@ -476,6 +476,24 @@ ibmcloud is snapshot-consistency-groups
 ```
 {: pre}
 
+[New]{: tag-green} Optionally, you can filter the results of the query by a backup job ID. Filtering by backup job ID can be useful when you want to restore an instance by restoring volumes from two consistency groups of backup snapshots that were created because your original instance had a mix of first- and second-generation volumes attached.
+
+```sh
+ibmcloud is snapshot-consistency-groups --backup-policy-job BACKUP_POLICY_JOB_ID
+```
+{: pre}
+
+Example output:
+
+```sh
+Listing snapshot consistency groups in all resource groups and region us-south under account Test Account as user test.user@ibm.com...
+
+ID                                      Name                           Backup policy job                      Backup policy plan                 Snapshots count   Lifecycle State   Service Tags                                               Resource group
+r006-687c49cb-13ad-4dd8-9d04-0e264baa99a1  test-cli-2-4a3286e405b-4d3b  r006-8ebe4d1b-43e7-4371-abb9-aa0f27316b36  r006-ee0bddb-17b9-4279-8d1a-802afe9104da  1                 stable            is.instance:0726_98d1be09-e127-49f5-abe6-c1aa4181774d  Default
+r006-7f5a3964-3528-4781-8bfe-df3dbb7d91cc  test-cli-2-f4690eb88143-441a  r006-8ebe4d1b-43e7-4371-abb9-aa0f27316b36  r006-ee0bddb-17b9-4279-8d1a-802afe9104da  2                 stable            is.instance:0726_98d1be09-e127-49f5-abe6-c1aa4181774d  Default
+```
+{: screen}
+
 For more information about available command options, see [`ibmcloud is snapshot-consistency-groups`](/docs/vpc?topic=vpc-vpc-reference#snapshots-cli).
 
 
@@ -488,6 +506,54 @@ Run the `snapshot-consistency-group` command to list the details of a specific c
 ibmcloud is snapshot-consistency-group CONSISTENCY_GROUP_ID
 ```
 {: pre}
+
+[New]{: tag-green} Example output showing backup policy job and plan information:
+
+```sh
+Getting snapshot consistency group r006-7f5a3964-3528-4781-8bfe-df3dbb7d91cc under account Test Account as user test.user@ibm.com...
+
+ID
+r006-7f5a3964-3528-4781-8bfe-df3dbb7d91cc
+
+Name
+test-cli-2-f4690eb88143-441a
+
+CRN
+crn:v1:public:is:us-south:a/a1234567::snapshot-consistency-group:r006-7f5a3964-3528-4781-8bfe-df3dbb7d91cc
+
+Href
+https://us-south.iaas.cloud.ibm.com/v1/snapshot_consistency_groups/r006-7f5a3964-3528-4781-8bfe-df3dbb7d91cc
+
+Status
+stable
+
+Backup policy job
+ID                                   Resource type
+r006-8ebe4d1b-43e7-4371-abb9-aa0f27316b36   backup_policy_job
+
+Backup policy plan
+ID                                   Name        Resource type
+r006-ee0bddb-17b9-4279-8d1a-802afe9104da   test-cli-2   backup_policy_plan
+
+Delete snapshot on delete
+true
+
+Source Snapshot
+ID                                   Name                          Remote Region   CRN                                                                                                           Resource type
+r006-7e672c73-b476-4ec6-94e9-b1ef498362aa   test-cli-2-c01a2ef47cd3-4202              crn:v1:public:is:us-south:a/a1234567::snapshot:r006-7e672c73-b476-4ec6-94e9-b1ef498362aa   snapshot
+r006-388f4bb7-cdd2-4e60-b57e-690066412d45   test-cli-2-12524f129f23-4fbc              crn:v1:public:is:us-south:a/a1234567::snapshot:r006-388f4bb7-cdd2-4e60-b57e-690066412d45   snapshot
+
+Resource group
+ID                                   Name
+11caaa983d9c4beb82690daadb08717e9     Default
+
+Created
+2026-05-05T21:42:30+05:30
+
+Service Tags
+is.instance:0726_98d1be09-e127-49f5-abe6-c1aa4181774d
+```
+{: screen}
 
 For more information about available command options, see  [`ibmcloud is snapshot-consistency-group`](/docs/vpc?topic=vpc-vpc-reference#snapshots-cli).
 
@@ -899,6 +965,18 @@ curl -X GET "$vpc_api_endpoint/v1/snapshot_consistency_groups?version=2023-12-05
 ```
 {: pre}
 
+[New]{: tag-green} Optionally, you can filter the results of the query by a backup job ID. Filtering by backup job ID can be useful when you want to restore an instance by restoring volumes from two consistency groups of backup snapshots that were created because your original instance had a mix of first- and second-generation volumes attached.
+
+```sh
+curl -X GET "$vpc_api_endpoint/v1/snapshot_consistency_groups/006-e8707243-96b3-4c27-be1f-57eff0196207?version=2023-12-05&generation=2" \
+-H "Authorization: Bearer $iam_token"\
+-d '{
+      "backup_policy_job_id":
+        "id": "8948ad59-bc0f-7510-812f-5dc64f59fab8"
+      }'
+```
+{: pre}
+
 ### Viewing details of a snapshot consistency group with the API
 {: #snapshots-vpc-view-a-consistency-group-api}
 
@@ -1064,6 +1142,15 @@ data "ibm_is_snapshot_consistency_group" "example 1" {
 ```terraform
 data "ibm_is_snapshot_consistency_group" "example 2" {
   name = "my-data-consistency-group"
+}
+```
+{: codeblock}
+
+[New]{: tag-green} You can also filter the collection to snapshot consistency groups with the `backup_policy_job.id` property. See the following example.
+
+```terraform
+data "ibm_is_snapshot_consistency_groups" "example 3" {
+    backup_policy_job = "r006-fc4b7fbc-38af-45d9-9fb6-bf0533acbfc4"
 }
 ```
 {: codeblock}

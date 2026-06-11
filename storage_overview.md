@@ -70,7 +70,7 @@ You can create a snapshot consistency group that contains snapshots of multiple 
 
 Second-generation snapshots are available in Dallas, Frankfurt, London, Madrid, Osaka, Sao Paulo, Sydney, Tokyo, Toronto, and Washington, DC. In this release, you can create up to 512 snapshots of these volumes. You can even create snapshots when the volumes are unattached.
 
-You can use your snapshots to create other second-generation volumes in the same region. You can't use your second-generation snapshot to create a volume with a first-generation volume profile. Similarly, you can't use first-generation volume's snapshot to create a volume with the `sdp` profile. Consistency group snapshots of multiple `sdp` volumes are not supported.
+You can use your snapshots to create other second-generation volumes in the same region. You can't use your second-generation snapshot to create a volume with a first-generation volume profile. Similarly, you can't use first-generation volume's snapshot to create a volume with the `sdp` profile.
 
 | Features            | First-generation snapshots | Second-generation snapshots |
 |---------------------|----------------------------|-----------------------------|
@@ -79,10 +79,13 @@ You can use your snapshots to create other second-generation volumes in the same
 | Scheduled snapshots | Yes, up to 750 snapshots per region. | Yes, up to 512 snapshots per region. |
 | Fast restore clones | Yes. You can cache a copy of your snapshot in any zone of the region. |Yes, the feature is available in most regions, except Chennai - Airtel, Mumbai - Airtel, and Montreal. You can cache a copy of your snapshot in any zone of the region. |
 | Cross-regional copy | The feature is available in most regions, except Chennai - Airtel and Mumbai - Airtel. You can create one cross-regional copy per snapshot per region. | The feature is available in most regions, except Chennai - Airtel, Mumbai - Airtel, and Montreal. You can create one cross-regional copy per snapshot per region.|
-| Consistency group   | Multi-volume snapshots are supported. | Not supported in the current release. |
+| Consistency group   | Multi-volume snapshots are supported. | Multi-volume snapshots are supported. |
 {: caption="Block Storage snapshot generations comparison." caption-side="bottom"}
 
 First- and second-generation volume profiles are not interchangeable. You can't create a second-generation block volume with a snapshot that was taken of a first-generation volume. You can't use the snapshot with a second-generation volume profile to create a first-generation volume. Creating a consistency group with snapshots of the two different generations is not supported.
+
+Consider [migrating](/docs/vpc?topic=vpc-block-storage-vpc-volume-migration) your first-generation volumes to the `sdp` profile. The `sdp` profile provides better value and more flexibility than the first-generation profiles. For more information, see [{{site.data.keyword.block_storage_is_short}} profiles](/docs/vpc?topic=vpc-block-storage-profiles).
+{: tip}
 
 For more information, see [About Snapshots for VPC](/docs/vpc?topic=vpc-snapshots-vpc-about).
 

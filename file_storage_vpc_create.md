@@ -67,8 +67,8 @@ In the {{site.data.keyword.cloud_notm}} console, you can create a file share wit
    3. A default virtual network interface is generated. You can customize it by clicking the Edit icon ![Edit icon](/images/edit.png). You can change the name or subnet if you have multiple subnets available in the location. You can also select an existing VNI to attach to the mount target. The list of available VNIs in the VPC and location are displayed. As VNIs secondary IP addresses attached cannot be accepted as a file share mount target, they are filtered out of the list.
    4. Click **Next**.
    5. **Encryption in transit** is disabled by default for zonal shares, and it is enabled by default for regional shares. Click the toggle to change the preset value. For more information about this feature, see [Encryption in transit - Securing mount connections between file share and host](/docs/vpc?topic=vpc-file-storage-vpc-eit).
-    6. Then, click **Next**.
-    7. Review your selection, and either click **Back** to return and update your choices or click **Create**.
+   6. Then, click **Next**.
+   7. Review your selection, and either click **Back** to return and update your choices or click **Create**.
 
 1. Encryption at rest. By default, all file shares are encrypted by IBM-managed keys. You can also choose to create an envelop-encryption for your shares with your own keys. If you want to use your own keys, select one of the [key management services](/docs/vpc?topic=vpc-vpc-encryption-about#kms-for-byok).
 

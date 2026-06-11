@@ -2,7 +2,7 @@
 
 copyright:
   years: 2019, 2026
-lastupdated: "2026-05-19"
+lastupdated: "2026-06-11"
 
 keywords: faqs, Block Storage for vpc, fast restore, multizone, instance, instance provisioning, volume management, volume deletion.
 
@@ -69,7 +69,7 @@ No. You can't copy the storage volume to a different zone.
 {: faq}
 {: #faq-sdp-backup}
 
-Yes, you can take snapshots of individual volumes
+Yes, you can take snapshots of individual volumes and consistency groups.
 
 ## How does {{site.data.keyword.block_storage_is_short}} prevent a single point of failure? What mechanism assures data durability?
 {: faq}

@@ -2,7 +2,7 @@
 
 copyright:
   years: 2019, 2026
-lastupdated: "2026-06-09"
+lastupdated: "2026-06-11"
 
 keywords:
 
@@ -26,6 +26,13 @@ For more information about changes to the {{site.data.keyword.vpc_short}} comman
 
 ## June 2026
 {: #vpc-jun26}
+
+### 11 June 2026
+{: #vpc-jun1126}
+{: release-note}
+
+Multi-volume snapshots for second-generation block storage volumes
+:   Snapshot consistency groups are now supported for second-generation block storage volumes that use the `sdp` profile. You can create snapshots of multiple volumes attached to the same virtual server instance at the same point in time to preserve data consistency. When a virtual server instance has both first-generation and second-generation volumes attached, the backup service creates separate consistency groups for each generation. You can filter consistency groups by backup job ID to locate snapshots created by the same backup job. For more information, see [About snapshot consistency groups](/docs/vpc?topic=vpc-snapshots-vpc-about#multi-volume-snapshots), [Creating snapshot consistency groups](/docs/vpc?topic=vpc-snapshots-vpc-create-consistency-groups), and [Managing snapshot consistency groups](/docs/vpc?topic=vpc-snapshots-vpc-manage-consistency-groups). See also [Known issues for storage services](/docs/vpc?topic=vpc-storage-known-issues#multi-volume-restore-from-snapshot-fail).
 
 ### 03 June 2026
 {: #vpc-june0326}

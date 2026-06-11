@@ -20,8 +20,8 @@ A snapshot consistency group contains snapshots of multiple volumes that are att
 
 When you consider deleting the consistency group, you can choose to delete or keep the individual snapshots. If you update the backup consistency group to keep the individual snapshots after deletion of the group, and delete the group, an activity tracking event is created. However, a backup job is not created because the backup snapshots remain intact.
 
-In the current release, consistency groups are not supported for second-generation storage volumes.
-{: note}
+Creating a consistency group with snapshots of different generations is not supported. Consider [migrating](/docs/vpc?topic=vpc-block-storage-vpc-volume-migration) your first-generation volumes to the `sdp` profile. The `sdp` profile provides better value and more flexibility than the first-generation profiles. For more information, see [{{site.data.keyword.block_storage_is_short}} profiles](/docs/vpc?topic=vpc-block-storage-profiles).
+{: tip}
 
 ## Updating a consistency group in the console
 {: #update-consistencygroup-ui}
@@ -69,6 +69,7 @@ Name                        my-consistency-group
 CRN                         crn:v1:bluemix:public:is:us-south:a/a1234567::snapshot-consistency-group:r174-ed7c034e-9bd1-4474-83d0-f5b050f1490a
 Href                        https://us-south.iaas.cloud.ibm.com/v1/snapshot_consistency_groups/r174-ed7c034e-9bd1-4474-83d0-f5b050f1490a
 Status                      stable
+Backup policy job           -
 Backup policy plan          -
 Delete snapshot on delete   true
 Source Snapshot             -

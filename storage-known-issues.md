@@ -2,7 +2,7 @@
 
 copyright:
   years: 2018, 2026
-lastupdated: "2026-04-17"
+lastupdated: "2026-06-11"
 
 keywords:
 
@@ -50,6 +50,11 @@ A cross-regional copy of block storage volume snapshots is not supported in the 
 {: #gen2-volume-from-snapshot-fail}
 
 When a second-generation snapshot with provider-managed encryption is selected to create a volume with customer-managed keys, the volume provisioning gets stuck in `pending` status. When you restore a volume from a second-generation snapshot, make sure that the encryption type of the new volume matches the encryption type of the snapshot.
+
+### VSI creation can fail when the request includes multiple volumes with different profiles and one or more volumes are restored from snapshot
+{: #multi-volume-restore-from-snapshot-fail}
+
+When you create a virtual server instance with multiple volumes, the provisioning can fail if the volumes have different profiles and the data is restored from snapshots. This scenario is currently not supported. As a workaround, create the VSI first with a restored volume. Then, create and attach the restored data volumes separately.
 
 ### Snapshot operations can be slower after a volume is resized
 {: #snapshot-slowness-after-resize-known-issue}
@@ -134,11 +139,6 @@ Cross-regional replication for zonal file shares is not supported in the Chennai
 {: #backup-policy-plan-fs}
 
 When details of a snapshot are retrieved, the API response shows the property name `backup_plan_id` instead of `backup_policy_plan`. A fix for this issue is planned.
-
-### Multi-volume backup creation requests create consistency group snapshots without second-generation volumes
-{: #consistency-group-with-mixed-volume-generation-fails}
-
-Multi-volume snapshots are not supported for second-generation volumes. When you try to create a consistency group of snapshots of a mix of first and second-generation volumes, the API request appears successful as snapshots of Gen 1 volumes are created. However, the Gen 2, `sdp` volumes are skipped.
 
 ### Private context-based restriction rules for Backups are not working in Montreal (`ca-mon`) and Chennai - Airtel (`in-che`) MZRs.
 {: #baas-CBR-issue-MON}
