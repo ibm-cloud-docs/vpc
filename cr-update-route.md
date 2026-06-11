@@ -2,7 +2,7 @@
 
 copyright:
   years: 2020, 2026
-lastupdated: "2026-05-19"
+lastupdated: "2026-06-10"
 
 keywords: custom routes
 
@@ -41,7 +41,7 @@ To update a VPC route from the CLI, run the following command:
 ```sh
 ibmcloud is vpc-routing-table-route-update VPC ROUTING_TABLE ROUTE --name NEW_NAME [--priority PRIORITY] [--next-hop NEXT_HOP [--vpngw VPNGW]] [--advertise true | false] [--output JSON] [-q, --quiet]
 ```
-{: pre}
+{: codeblock}
 
 Where:
 
@@ -80,9 +80,15 @@ Where:
 
 
 
-`ibmcloud is vpc-routing-table-route-update 72b27b5c-f4b0-48bb-b954-5becc7c1dcb3 72b27b5c-f4b0-48bb-b954-5becc7c1d456 72b27b5c-f4b0-48bb-b954-5becc7c1d4ef --name my-vpc-route --priority 1`
+```sh
+ibmcloud is vpc-routing-table-route-update 72b27b5c-f4b0-48bb-b954-5becc7c1dcb3 72b27b5c-f4b0-48bb-b954-5becc7c1d456 72b27b5c-f4b0-48bb-b954-5becc7c1d4ef --name my-vpc-route --priority 1
+```
+{: pre}
 
-`ibmcloud is vpc-routing-table-route-update 72b27b5c-f4b0-48bb-b954-5becc7c1dcb3 72b27b5c-f4b0-48bb-b954-5becc7c1d456 72b27b5c-f4b0-48bb-b954-5becc7c1d4ef --name my-vpc-route --next-hop 10.0.0.2`
+```sh
+ibmcloud is vpc-routing-table-route-update 72b27b5c-f4b0-48bb-b954-5becc7c1dcb3 72b27b5c-f4b0-48bb-b954-5becc7c1d456 72b27b5c-f4b0-48bb-b954-5becc7c1d4ef --name my-vpc-route --next-hop 10.0.0.2
+```
+{: pre}
 
 
 

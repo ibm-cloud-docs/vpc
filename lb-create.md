@@ -2,7 +2,7 @@
 
 copyright:
   years: 2021, 2026
-lastupdated: "2026-04-28"
+lastupdated: "2026-06-11"
 
 keywords: application load balancer, ALB, create load balancer, VPC load balancer, load balancer pools, load balancer listeners
 
@@ -54,7 +54,6 @@ To create an ALB:
    * **Name**: Enter a name for the pool, such as `my-pool`.
    * **Pool protocol**: Select the protocol for your instances in this pool. The pool protocol must be compatible with its listener protocol. For HTTP or HTTPS listeners, use HTTP as the pool protocol. For TCP listeners, use TCP as the pool protocol.
    * **Session stickiness**: Select whether all requests during a user's session are sent to the same instance.
-   * MISSING PROXY PROTOCOL SECTION
    * **Method**: Select how you want the load balancer to distribute traffic across the instances in the pool:
        * **Least connections:** Forward requests to the instance with the least number of connections at the current time.
        * **Round robin:** Forward requests to each instance in turn. All instances receive approximately an equal number of client connections.

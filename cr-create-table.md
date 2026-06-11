@@ -2,7 +2,7 @@
 
 copyright:
   years: 2020, 2026
-lastupdated: "2026-01-05"
+lastupdated: "2026-06-10"
 
 keywords: custom routes
 
@@ -69,7 +69,7 @@ To create a routing table from the CLI, run the following command:
 ```sh
 ibmcloud is vpc-routing-table-create VPC [--name NAME] [--direct-link-ingress false | true] [--internet-ingress, --internet false | true] [--transit-gateway-ingress false | true] [--vpc-zone-ingress false | true] [--accept-routes-from-resource-type-filters, --ar-rtf vpn_server | vpn_gateway] [--advertise-routes-to direct_link | transit_gateway | direct_link, transit_gateway] [--output JSON] [-q, --quiet]
 ```
-{: pre}
+{: codeblock}
 
 Where:
 
@@ -113,13 +113,23 @@ You can set an ingress option to `true` on only one routing table per VPC, and t
 ### CLI examples
 {: #routing-table-create-examples-cli}
 
-`ibmcloud is vpc-routing-table-create 72b27b5c-f4b0-48bb-b954-5becc7c1dcb3 --name my-vpc-routing-table -—advertise-routes-to direct_link --direct-link-ingress true -—output JSON`
+```sh
+ibmcloud is vpc-routing-table-create 72b27b5c-f4b0-48bb-b954-5becc7c1dcb3 --name my-vpc-routing-table -—advertise-routes-to direct_link --direct-link-ingress true -—output JSON
+```
+{: pre}
 
-`ibmcloud is vpc-routing-table-create my-vpc --name my-vpc-routing-table --advertise-routes-to transit_gateway —-transit-gateway-ingress true --output JSON`
+```sh
+ibmcloud is vpc-routing-table-create my-vpc --name my-vpc-routing-table --advertise-routes-to transit_gateway —-transit-gateway-ingress true --output JSON
+```
+{: pre}
 
-`ibmcloud is vpc-routing-table-create my-vpc --name my-vpc-routing-table --advertise-routes-to direct_link, transit_gateway  --direct-link-ingress true —transit-gateway-ingress true -—output JSON`
+```sh
+ibmcloud is vpc-routing-table-create my-vpc --name my-vpc-routing-table --advertise-routes-to direct_link, transit_gateway  --direct-link-ingress true —transit-gateway-ingress true -—output JSON
+```
+{: pre}
 
-`ibmcloud is vpc-routing-table-create 979b4bc6-f018-40a2-92f5-0b1cf777b55d --name test-vpc-cli-routing-tb1 --direct-link-ingress false --internet-ingress false   --transit-gateway-ingress false  --vpc-zone-ingress true`
+```sh
+ibmcloud is vpc-routing-table-create 979b4bc6-f018-40a2-92f5-0b1cf777b55d --name test-vpc-cli-routing-tb1 --direct-link-ingress false --internet-ingress false   --transit-gateway-ingress false  --vpc-zone-ingress true
 
 
 ## Creating a routing table with the API

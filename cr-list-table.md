@@ -1,8 +1,8 @@
 ---
 
 copyright:
-  years: 2020, 2025
-lastupdated: "2025-10-14"
+  years: 2020, 2026
+lastupdated: "2026-06-10"
 
 keywords: custom routes
 
@@ -55,7 +55,7 @@ To list the routing tables for a VPC from the CLI, run the following command:
 ```sh
 ibmcloud is vpc-routing-tables VPC [--json]
 ```
-{: pre}
+{: codeblock}
 
 Where:
 

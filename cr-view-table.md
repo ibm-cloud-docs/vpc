@@ -1,8 +1,8 @@
 ---
 
 copyright:
-  years: 2020, 2025
-lastupdated: "2025-10-14"
+  years: 2020, 2026
+lastupdated: "2026-06-10"
 
 keywords: custom routes
 
@@ -56,21 +56,21 @@ To view details of a specific routing table:
 ```sh
 ibmcloud is vpc-routing-table VPC ROUTING_TABLE [--json]
 ```
-{: pre}
+{: codeblock}
 
 To view details of the default routing table:
 
 ```sh
 ibmcloud is vpc-default-routing-table VPC [--json]
 ```
-{: pre}
+{: codeblock}
 
 To view details of a routing table that is attached to the subnet:
 
 ```sh
 ibmcloud is subnet-routing-table SUBNET [--json]
 ```
-{: pre}
+{: codeblock}
 
 Where:
 
