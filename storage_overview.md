@@ -2,7 +2,7 @@
 
 copyright:
   years: 2022, 2026
-lastupdated: "2026-06-04"
+lastupdated: "2026-06-11"
 
 keywords: block storage for VPC, File Storage for VPC, Snapshots for VPC, Backup for VPC, block storage, file storage, snapshots, backup,
 
@@ -144,7 +144,7 @@ Customers with special access to preview the second-generation File Storage offe
 
 | Features            | First-generation shares | Second-generation shares |
 |---------------------|--------------------------|---------------------------|
-| Availability        | Generally available in all VPC regions for all customers. | Available for allowlisted customers in most regions, except for Montreal and Mumbai - Airtel. |
+| Availability | Generally available in all VPC regions for all customers. | Available for allowlisted customers in most regions, except for Montreal and Mumbai - Airtel. |
 | On-demand snapshots | Yes, Up to 750 per share in a region. | Yes, Up to 30 per share in a region. This quota can be increased upon request. |
 | Scheduled snapshots | Yes, up to 750 snapshots per region. | Yes, Up to 30 per share in a region. This quota can be increased upon request.|
 {: caption="File share snapshot generations comparison." caption-side="bottom"}
