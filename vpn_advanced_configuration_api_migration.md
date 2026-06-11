@@ -1,8 +1,8 @@
 ---
 
 copyright:
-  years: 2024, 2025
-lastupdated: "2025-12-21"
+  years: 2024, 2026
+lastupdated: "2026-06-11"
 
 keywords: VPN migration, api migration, versioned change
 
@@ -127,7 +127,7 @@ The following example uses API version `2024-04-29` or earlier to create a VPN c
 
 ```sh
 curl -X POST "$vpc_api_endpoint/v1/vpn_gateways/$vpn_gateway_id/connections?version=2024-04-29&generation=2"
--H "Authorization: $iam_token"
+-H "Authorization: Bearer $iam_token"
  -d '{
     "name": "my-vpn-connection-1",
     "psk": "lkj14b1oi0alcniejkso",
@@ -142,7 +142,7 @@ The following example uses API version `2024-04-30` or later to create a VPN con
 
 ```sh
 curl -X POST "$vpc_api_endpoint/v1/vpn_gateways/$vpn_gateway_id/connections?version=2024-04-30&generation=2"
--H "Authorization: $iam_token"
+-H "Authorization: Bearer $iam_token"
  -d '{
     "name": "my-vpn-connection-1",
     "psk": "lkj14b1oi0alcniejkso",
@@ -164,7 +164,7 @@ The following example uses API version `2024-04-29` or earlier to update a VPN c
 
 ```sh
 curl -X PATCH "$vpc_api_endpoint/v1/vpn_gateways/$vpn_gateway_id/connections/$id?version=2024-04-29&generation=2"
--H "Authorization: $iam_token"
+-H "Authorization: Bearer $iam_token"
  -d '{
     "peer_address": "1.2.3.4"
   }'
@@ -175,7 +175,7 @@ The following example uses API version `2024-04-30` or later to update a VPN con
 
 ```sh
 curl -X PATCH "$vpc_api_endpoint/v1/vpn_gateways/$vpn_gateway_id/connections/$id?version=2024-04-30&generation=2"
--H "Authorization: $iam_token"
+-H "Authorization: Bearer $iam_token"
  -d '{
     "peer": {
       "address": "1.2.3.4"
@@ -191,7 +191,7 @@ The following example uses API version `2024-04-29` or earlier to list a VPN con
 
 ```sh
 curl -X GET "$vpc_api_endpoint/v1/vpn_gateways/$vpn_gateway_id/connections?version=2024-04-29&generation=2"
--H "Authorization: $iam_token"
+-H "Authorization: Bearer $iam_token"
 ```
 {: pre}
 
@@ -271,7 +271,7 @@ The following example uses API version `2024-04-30` or later to list a VPN conne
 
 ```sh
 curl -X GET "$vpc_api_endpoint/v1/vpn_gateways/$vpn_gateway_id/connections?version=2024-04-30&generation=2"
--H "Authorization: $iam_token"
+-H "Authorization: Bearer $iam_token"
 ```
 {: pre}
 
@@ -386,7 +386,7 @@ The following example uses API version `2024-04-29` or earlier to get a VPN conn
 
 ```sh
 curl -X GET "$vpc_api_endpoint/v1/vpn_gateways/$vpn_gateway_id/connections/$id?version=2024-04-29&generation=2"
--H "Authorization: $iam_token"
+-H "Authorization: Bearer $iam_token"
 ```
 {: pre}
 
@@ -425,7 +425,7 @@ The following example uses API version `2024-04-30` or later to get a VPN connec
 
 ```sh
 curl -X GET "$vpc_api_endpoint/v1/vpn_gateways/$vpn_gateway_id/connections/$id?version=2024-04-30&generation=2"
--H "Authorization: $iam_token"
+-H "Authorization: Bearer $iam_token"
 ```
 {: pre}
 
@@ -483,7 +483,7 @@ The following example uses API version `2024-04-29` or earlier to list local CID
 
 ```sh
 curl -X GET "$vpc_api_endpoint/v1/vpn_gateways/$vpn_gateway_id/connections/$id/local_cidrs?version=2024-04-29&generation=2"
--H "Authorization: $iam_token"
+-H "Authorization: Bearer $iam_token"
 ```
 {: pre}
 
@@ -502,7 +502,7 @@ The following example uses API version `2024-04-30` or later to list local CIDRs
 
 ```sh
 curl -X GET "$vpc_api_endpoint/v1/vpn_gateways/$vpn_gateway_id/connections/$id/local/cidrs?version=2024-04-30&generation=2"
--H "Authorization: $iam_token"
+-H "Authorization: Bearer $iam_token"
 ```
 {: pre}
 
@@ -524,7 +524,7 @@ The following example uses API version `2024-04-29` or earlier to remove a local
 
 ```sh
 curl -X DELETE "$vpc_api_endpoint/v1/vpn_gateways/$vpn_gateway_id/connections/$id/local_cidrs/$cidr_prefix/$prefix_length?version=2024-04-29&generation=2"
--H "Authorization: $iam_token"
+-H "Authorization: Bearer $iam_token"
 ```
 {: pre}
 
@@ -532,7 +532,7 @@ The following example uses API version `2024-04-30` or later to remove a local C
 
 ```sh
 curl -X DELETE "$vpc_api_endpoint/v1/vpn_gateways/$vpn_gateway_id/connections/$id/local/cidrs/$cidr?version=2024-04-30&generation=2"
--H "Authorization: $iam_token"
+-H "Authorization: Bearer $iam_token"
 ```
 {: pre}
 
@@ -543,7 +543,7 @@ The following example uses API version `2024-04-29` or earlier to get a local CI
 
 ```sh
 curl -X GET "$vpc_api_endpoint/v1/vpn_gateways/$vpn_gateway_id/connections/$id/local_cidrs/$cidr_prefix/$prefix_length?version=2024-04-29&generation=2"
--H "Authorization: $iam_token"
+-H "Authorization: Bearer $iam_token"
 ```
 {: pre}
 
@@ -553,7 +553,7 @@ The following example uses API version `2024-04-30` or later to get a local CIDR
 
 ```sh
 curl -X GET "$vpc_api_endpoint/v1/vpn_gateways/$vpn_gateway_id/connections/$id/local/cidrs/$cidr?version=2024-04-30&generation=2"
--H "Authorization: $iam_token"
+-H "Authorization: Bearer $iam_token"
 ```
 {: pre}
 
@@ -566,7 +566,7 @@ The following example uses API version `2024-04-29` or earlier to set a local CI
 
 ```sh
 curl -X PUT "$vpc_api_endpoint/v1/vpn_gateways/$vpn_gateway_id/connections/$id/local_cidrs/$cidr_prefix/$prefix_length?version=2024-04-29&generation=2"
--H "Authorization: $iam_token"
+-H "Authorization: Bearer $iam_token"
 ```
 {: pre}
 
@@ -576,7 +576,7 @@ The following example uses API version `2024-04-30` or later to set a local CIDR
 
 ```sh
 curl -X PUT "$vpc_api_endpoint/v1/vpn_gateways/$vpn_gateway_id/connections/$id/local/cidrs/$cidr?version=2024-04-30&generation=2"
--H "Authorization: $iam_token"
+-H "Authorization: Bearer $iam_token"
 ```
 {: pre}
 
@@ -589,7 +589,7 @@ The following example uses API version `2024-04-29` or earlier to list peer CIDR
 
 ```sh
 curl -X GET "$vpc_api_endpoint/v1/vpn_gateways/$vpn_gateway_id/connections/$id/peer_cidrs?version=2024-04-29&generation=2"
--H "Authorization: $iam_token"
+-H "Authorization: Bearer $iam_token"
 ```
 {: pre}
 
@@ -608,7 +608,7 @@ The following example uses API version `2024-04-30` or later to list peer CIDRs.
 
 ```sh
 curl -X GET "$vpc_api_endpoint/v1/vpn_gateways/$vpn_gateway_id/connections/$id/peer/cidrs?version=2024-04-30&generation=2"
--H "Authorization: $iam_token"
+-H "Authorization: Bearer $iam_token"
 ```
 {: pre}
 
@@ -630,7 +630,7 @@ The following example uses API version `2024-04-29` or earlier to remove a peer 
 
 ```sh
 curl -X DELETE "$vpc_api_endpoint/v1/vpn_gateways/$vpn_gateway_id/connections/$id/peer_cidrs/$cidr_prefix/$prefix_length?version=2024-04-29&generation=2"
--H "Authorization: $iam_token"
+-H "Authorization: Bearer $iam_token"
 ```
 {: pre}
 
@@ -638,7 +638,7 @@ The following example uses API version `2024-04-30` or later to remove a peer CI
 
 ```sh
 curl -X DELETE "$vpc_api_endpoint/v1/vpn_gateways/$vpn_gateway_id/connections/$id/peer/cidrs/$cidr?version=2024-04-30&generation=2"
--H "Authorization: $iam_token"
+-H "Authorization: Bearer $iam_token"
 ```
 {: pre}
 
@@ -649,7 +649,7 @@ The following example uses API version `2024-04-29` or earlier to get a peer CID
 
 ```sh
 curl -X GET "$vpc_api_endpoint/v1/vpn_gateways/$vpn_gateway_id/connections/$id/peer_cidrs/$cidr_prefix/$prefix_length?version=2024-04-29&generation=2"
--H "Authorization: $iam_token"
+-H "Authorization: Bearer $iam_token"
 ```
 {: pre}
 
@@ -659,7 +659,7 @@ The following example uses API version `2024-04-30` or later to get a peer CIDR.
 
 ```sh
 curl -X GET "$vpc_api_endpoint/v1/vpn_gateways/$vpn_gateway_id/connections/$id/peer/cidrs/$cidr?version=2024-04-30&generation=2"
--H "Authorization: $iam_token"
+-H "Authorization: Bearer $iam_token"
 ```
 {: pre}
 
@@ -672,7 +672,7 @@ The following example uses API version `2024-04-29` or earlier to set a peer CID
 
 ```sh
 curl -X PUT "$vpc_api_endpoint/v1/vpn_gateways/$vpn_gateway_id/connections/$id/peer_cidrs/$cidr_prefix/$prefix_length?version=2024-04-29&generation=2"
--H "Authorization: $iam_token"
+-H "Authorization: Bearer $iam_token"
 ```
 {: pre}
 
@@ -682,7 +682,7 @@ The following example uses API version `2024-04-30` or later to set a peer CIDR.
 
 ```sh
 curl -X PUT "$vpc_api_endpoint/v1/vpn_gateways/$vpn_gateway_id/connections/$id/peer/cidrs/$cidr?version=2024-04-30&generation=2"
--H "Authorization: $iam_token"
+-H "Authorization: Bearer $iam_token"
 ```
 {: pre}
 

@@ -2,7 +2,7 @@
 
 copyright:
   years: 2020, 2026
-lastupdated: "2026-04-28"
+lastupdated: "2026-06-11"
 
 keywords: application load balancer, public, listener, back-end, front-end, pool, round-robin, weighted, connections, methods, policies, APIs, access, ports, vpc network, update
 
@@ -217,7 +217,7 @@ To update an application load balancer with the API, follow these steps:
    {: note}
 
    ```sh
-   curl -H "Authorization: $iam_token" -X GET
+   curl -H "Authorization: Bearer $iam_token" -X GET
    "$vpc_api_endpoint/v1/load_balancers/$lbid?version=$api_version&generation=2" | jq
    ```
    {: codeblock}
@@ -335,7 +335,7 @@ To update an application load balancer with the API, follow these steps:
     1. Update the listener port and client/server timeout values of the load balancer:
 
     ```sh
-    curl -H "Authorization: $iam_token" -X PATCH
+    curl -H "Authorization: Bearer $iam_token" -X PATCH
     "$vpc_api_endpoint/v1/load_balancers/$lbid/listeners/$listenerid?version=$api_version&generation=2" \
         -d '{"idle_connection_timeout": 50 , "port": 8080}' | jq
     ```

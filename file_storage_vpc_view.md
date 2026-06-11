@@ -2,7 +2,7 @@
 
 copyright:
   years: 2022, 2026
-lastupdated: "2026-06-06"
+lastupdated: "2026-06-11"
 
 keywords: file storage, file share, view share details, mount targets, view targets, view share
 
@@ -443,7 +443,7 @@ You must provide the `generation` parameter and specify `generation=2`. For more
 Make a `GET /shares` request to list all file shares for a region.
 
 ```sh
-curl -X GET "$vpc_api_endpoint/v1/shares?version=2023-07-18?limit=50&generation=2" -H "Authorization: $iam_token"
+curl -X GET "$vpc_api_endpoint/v1/shares?version=2023-07-18?limit=50&generation=2" -H "Authorization: Bearer $iam_token"
 ```
 {: pre}
 
@@ -515,7 +515,7 @@ Make a `GET /shares/{share_id}` request to get details about a single file share
 ```sh
 curl -X GET \
 "$vpc_api_endpoint/v1/shares/$share_id?version=2025-04-01&generation=2"\
--H "Authorization: $iam_token"
+-H "Authorization: Bearer $iam_token"
 ```
 {: pre}
 
@@ -588,7 +588,7 @@ The following example shows the response that is returned when you retrieve info
 ```sh
 curl -X GET \
 "$vpc_api_endpoint/v1/shares/$share_id?version=2025-07-23&generation=2"\
--H "Authorization: $iam_token"
+-H "Authorization: Bearer $iam_token"
 ```
 {: pre}
 
@@ -649,7 +649,7 @@ Make a `GET /shares/{id}/bindings` request to get the list of bindings of a sing
 
 ```sh
 curl -X GET "$vpc_api_endpoint/v1/shares/$share_id/bindings?version=2024-03-20&generation=2"\
--H "Authorization: $iam_token"
+-H "Authorization: Bearer $iam_token"
 ```
 {: pre}
 
@@ -695,7 +695,7 @@ Make a `GET /shares/{share_id}/bindings/{binding_id}` request to get the informa
 
 ```sh
 curl -X GET "$vpc_api_endpoint/v1/shares/$share_id/bindings/$binding_id?version=2024-03-20&generation=2"\
--H "Authorization: $iam_token"
+-H "Authorization: Bearer $iam_token"
 ```
 {: pre}
 
@@ -735,7 +735,7 @@ See the following example.
 ```sh
 curl -X GET \
 "$vpc_api_endpoint/v1/shares/$share_id/mount_targets?version=2023-07-18?limit=50&generation=2"\
--H "Authorization: $iam_token"
+-H "Authorization: Bearer $iam_token"
 ```
 {: pre}
 
@@ -813,7 +813,7 @@ See the following example
 ```sh
 curl -X GET \
 "$vpc_api_endpoint/v1/shares/$share_id/mount_targets/$mount_target_id?version=2023-07-18&generation=2"\
--H "Authorization: $iam_token"
+-H "Authorization: Bearer $iam_token"
 ```
 {: pre}
 
@@ -880,7 +880,7 @@ Make a `GET /shares/{replica_id}/source` request and specify the replica share I
 ```sh
 curl -X GET \
 "$vpc_api_endpoint/v1/shares/$replica_id/source?version=2023-07-18&generation=2"\
--H "Authorization: $iam_token"\
+-H "Authorization: Bearer $iam_token"\
 ```
 {: pre}
 

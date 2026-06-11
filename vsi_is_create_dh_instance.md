@@ -1,8 +1,8 @@
 ---
 
 copyright:
-  years: 2020, 2025
-lastupdated: "2025-10-31"
+  years: 2020, 2026
+lastupdated: "2026-06-11"
 
 keywords: dedicated host instance, instance on vpc dedicated host, create instance on dedicated host
 
@@ -108,7 +108,7 @@ The profile family and class must match for the dedicated host or dedicated grou
 ```curl
 curl -X POST \
 ”$vpc_api_endpoint/v1/instances?version=2020-11-17&generation=2" \
--H "Authorization: $iam_token" \
+-H "Authorization: Bearer $iam_token" \
 -d '{
       "primary_network_interface": {
         "name": "my-network-interface",

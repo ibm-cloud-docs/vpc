@@ -2,7 +2,7 @@
 
 copyright:
   years: 2019, 2026
-lastupdated: "2026-06-09"
+lastupdated: "2026-06-11"
 
 keywords: vsi, virtual server instances, profile, profiles, balanced, compute, memory, very high memory, ultra high memory, gpu, storage optimized, confidential compute, flex, high frequency
 
@@ -762,7 +762,7 @@ The following request example lists the available instance profiles. When you ca
 ```sh
 curl -X GET \
 "$vpc_api_endpoint/v1/instance/profiles?version=2021-02-23&generation=2" \
--H "Authorization: $iam_token"
+-H "Authorization: Bearer $iam_token"
 ```
 {: codeblock}
 

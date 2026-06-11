@@ -1,8 +1,8 @@
 ---
 
 copyright:
-  years: 2018, 2025
-lastupdated: "2025-11-05"
+  years: 2018, 2026
+lastupdated: "2026-06-11"
 
 keywords: application load balancer, alb, polices, rules
 
@@ -102,7 +102,7 @@ The following layer 7 examples show how policies and rules are created and assoc
 {: #create-https-listener-redirect}
 
 ```bash
-curl -H "Authorization: $iam_token" -X POST
+curl -H "Authorization: Bearer $iam_token" -X POST
 "$vpc_api_endpoint/v1/load_balancers/$lbId/listeners" \
     -d '{
             "certificate_instance": {
@@ -203,7 +203,7 @@ curl -H "Authorization: $iam_token" -X POST
 {: #create-policies-forward-requests}
 
 ```bash
-curl -H "Authorization: $iam_token" -X POST
+curl -H "Authorization: Bearer $iam_token" -X POST
 "$vpc_api_endpoint/v1/load_balancers/$lbId/listeners/$listenerId/policies" \
     -d '{
             "policies": [
@@ -274,7 +274,7 @@ curl -H "Authorization: $iam_token" -X POST
 {: #create-http-listener-https-redirect}
 
 ```bash
-curl -H "Authorization: $iam_token" -X POST
+curl -H "Authorization: Bearer $iam_token" -X POST
 "$vpc_api_endpoint/v1/load_balancers/$lbId/listeners" \
     -d '{
             "connection_limit": 2000,
@@ -362,7 +362,7 @@ curl -H "Authorization: $iam_token" -X POST
 ## Layer 4 policies
 {: #layer-4-policy}
 
-You can define policies for TCP listeners. For each policy, you must define one or more rules. Similar to layer 7 policies, a layer 4 policy is applied with the lowest priority first and only when all of its designated rules are matched. 
+You can define policies for TCP listeners. For each policy, you must define one or more rules. Similar to layer 7 policies, a layer 4 policy is applied with the lowest priority first and only when all of its designated rules are matched.
 
 If the incoming request does not match the rules for any policy, the client may get an SSL error.
 {: note}
@@ -380,22 +380,22 @@ A layer 4 rule defines how requests are matched, the same as a layer 7 rule. How
 The "SNI Hostname" rule only works with a TCP Listener.
 {: note}
 
-SNI in an IBM Cloud ALB is attached to the listener and lets you route traffic to different backend pools based on the hostname. Within a pool, traffic is always load-balanced across all members using the chosen algorithm (round-robin, least connections, etc). You cannot use SNI to pick a specific member inside a pool. 
+SNI in an IBM Cloud ALB is attached to the listener and lets you route traffic to different backend pools based on the hostname. Within a pool, traffic is always load-balanced across all members using the chosen algorithm (round-robin, least connections, etc). You cannot use SNI to pick a specific member inside a pool.
 
 If you are using a backend pool with Protocol HTTP or HTTPs, then the ALB will not set the SNI when forwarding the client request to the backend pool. This is because the ALB only uses the SNI to make a forwarding decision (if layer 7 rules are configured), and the ALB does a separate TLS handshake with the backend (which is different from the consumer's handshake).
 
-If you are using TCP protocol for the backend, instead of HTTP/HTTPs, then the ALB will set the SNI sent by the consumer. This is because the TLS handshake will be between the consumer and the backend directly, rather than between the ALB and the backend. 
+If you are using TCP protocol for the backend, instead of HTTP/HTTPs, then the ALB will set the SNI sent by the consumer. This is because the TLS handshake will be between the consumer and the backend directly, rather than between the ALB and the backend.
 
-Use one of the following workarounds if you use HTTP/HTTPS Listener with an SNI: 
+Use one of the following workarounds if you use HTTP/HTTPS Listener with an SNI:
 
 1. Use a wildcard certificate on a virtual host. Then configure only a single host name on separate backend ports. For example, if you want per hostname routing to individual servers, you may create separate pools for each hostname and use the SNI to route to the correct pool.
-1. Use TCP mode for the backend protocol instead of HTTPs. TCP mode will forward SNI correctly, and still allow for load balancing based on SNI hostname rules if you configure it. 
+1. Use TCP mode for the backend protocol instead of HTTPs. TCP mode will forward SNI correctly, and still allow for load balancing based on SNI hostname rules if you configure it.
 
 ### Example: Create a TCP listener with the `sni_hostname` rule
 {: #layer4-example-1}
 
 ```bash
-curl -H "Authorization: $iam_token" -X POST
+curl -H "Authorization: Bearer $iam_token" -X POST
 "$vpc_api_endpoint/v1/load_balancers/$lbId/listeners"     -d '{
             "connection_limit": 2000,
             "port": 443,

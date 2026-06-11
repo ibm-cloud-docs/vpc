@@ -2,7 +2,7 @@
 
 copyright:
   years: 2021, 2026
-lastupdated: "2026-03-12"
+lastupdated: "2026-06-11"
 
 keywords: Block Storage for VPC, boot volume, data volume, volume, data storage, virtual server instance, instance, adjustable volume, iops
 
@@ -211,7 +211,7 @@ This example shows an increase of 100 IOPS to 3,000 IOPS for a 100 GB volume bas
 ```sh
 curl -X PATCH \
  "$vpc_api_endpoint/v1/volumes/$volume_id?version=2022-01-11&generation=2" \
- -H "Authorization: $iam_token" \
+ -H "Authorization: Bearer $iam_token" \
  -d '{
       "iops": 3000
     }'
@@ -294,7 +294,7 @@ This example changes a 3 IOPS/GB profile to a 5 IOPS/GB profile. In this case, t
 ```sh
 curl -X PATCH \
  "$vpc_api_endpoint/v1/volumes/$volume_id?version=2022-01-11&generation=2" \
- -H "Authorization: $iam_token" \
+ -H "Authorization: Bearer $iam_token" \
  -d '{
       "profile": "5iops-tier"
     }'

@@ -2,7 +2,7 @@
 
 copyright:
   years: 2018, 2026
-lastupdated: "2026-04-17"
+lastupdated: "2026-06-11"
 
 keywords:
 
@@ -598,7 +598,7 @@ To provision resources in your subnet, the subnet must be in the `Ready` status.
 
 ```bash
 curl -X GET "$vpc_api_endpoint/v1/subnets/$subnet?version=$api_version&generation=2" \
-  -H "Authorization: $iam_token"
+  -H "Authorization: Bearer $iam_token"
 ```
 {: pre}
 
@@ -645,7 +645,7 @@ You can then retrieve and view the public gateway that is attached to the subnet
 
 ```bash
 curl -X GET "$vpc_api_endpoint/v1/subnets/$subnet/public_gateway?version=$api_version&generation=2" \
-  -H "Authorization: $iam_token"
+  -H "Authorization: Bearer $iam_token"
 ```
 {: pre}
 
@@ -843,7 +843,7 @@ The status of the instance is `stopped` when you create it. Before you can proce
 
 ```bash
 curl -X GET "$vpc_api_endpoint/v1/instances/$instance?version=$api_version&generation=2" \
-  -H "Authorization: $iam_token"
+  -H "Authorization: Bearer $iam_token"
 ```
 {: pre}
 
@@ -866,7 +866,7 @@ Show a list of volume profiles:
 
 ```bash
 curl -X GET "$vpc_api_endpoint/v1/volumes/profiles?version=$api_version&generation=2" \
-  -H "Authorization: $iam_token" \
+  -H "Authorization: Bearer $iam_token" \
 ```
 {: pre}
 
@@ -876,7 +876,7 @@ Create the data volume:
 
 ```bash
 curl -X POST "$vpc_api_endpoint/v1/volumes?version=$api_version&generation=2" \
-  -H "Authorization: $iam_token" \
+  -H "Authorization: Bearer $iam_token" \
   -d '{
         "name": "my-volume",
         "iops": 1000,
@@ -904,7 +904,7 @@ Check the status of the volume:
 
 ```bash
 curl -X GET "$vpc_api_endpoint/v1/volumes/$volume_id?version=$api_version&generation=2" \
-  -H "Authorization: $iam_token"
+  -H "Authorization: Bearer $iam_token"
 ```
 {: pre}
 
@@ -914,7 +914,7 @@ Create the volume attachment:
 
 ```bash
 curl -X POST "$vpc_api_endpoint/v1/instances/$instance/volume_attachments?version=$version&generation=2" \
-  -H "Authorization: $iam_token" \
+  -H "Authorization: Bearer $iam_token" \
   -d '{
         "name": "my-volume-attachment",
         "volume": {
@@ -948,7 +948,7 @@ Now create a rule to allow inbound SSH traffic so that you can connect to the in
 
 ```bash
 curl -X POST "$vpc_api_endpoint/v1/security_groups/$sg/rules?version=$api_version&generation=2" \
-  -H "Authorization: $iam_token" \
+  -H "Authorization: Bearer $iam_token" \
   -d '{
         "direction": "inbound",
         "protocol": "tcp",

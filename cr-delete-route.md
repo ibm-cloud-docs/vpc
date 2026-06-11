@@ -2,7 +2,7 @@
 
 copyright:
   years: 2020, 2026
-lastupdated: "2026-06-10"
+lastupdated: "2026-06-11"
 
 keywords: custom routes
 
@@ -76,7 +76,7 @@ To delete a route with the API, follow these steps:
 
    ```sh
    curl -X DELETE "$vpc_api_endpoint/v1/vpcs/$VpcId/routing_tables/$RoutingTableId/routes/$RouteId?version=$api_version&generation=2" \
-      -H "Authorization: $iam_token"
+      -H "Authorization: Bearer $iam_token"
    ```
    {: codeblock}
 

@@ -1,8 +1,8 @@
 ---
 
 copyright:
-  years: 2025, 2025
-lastupdated: "2025-11-20"
+  years: 2025, 2026
+lastupdated: "2026-06-11"
 
 keywords: file share, regional, file storage, bandwidth, bandwidth
 
@@ -62,14 +62,14 @@ Updating file share my-file-share under account Test Account as user test.user@i
    Lifecycle state                    stable
    Access control mode                security_group
    Accessor binding role              none
-   Allowed transit encryption modes   stunnel,none 
+   Allowed transit encryption modes   stunnel,none
    Zone                               us-south-1
    Profile                            rfs
    Size(GB)                           1000
    IOPS                               35000
    Bandwidth                          3000
    User Tags                          docs:test
-   Encryption                         provider_managed   
+   Encryption                         provider_managed
    Mount Targets                      ID                                          Name
                                       r006-dd497561-c7c9-4dfb-af0a-c84eeee78b61   my-cli-share-mount-target-1
 
@@ -83,10 +83,10 @@ Updating file share my-file-share under account Test Account as user test.user@i
                                       -             -
    Snapshot count                     0
    Snapshot size                      0
-   Source snapshot                    -  
-   Allowed Access Protocols           nsf4   
-   Availability Mode                  zonal   
-   Storage Generation                 2    
+   Source snapshot                    -
+   Allowed Access Protocols           nsf4
+   Availability Mode                  zonal
+   Storage Generation                 2
 ```
 {: screen}
 
@@ -108,7 +108,7 @@ This example shows the bandwidth value increased to 3,000 Mbps.
 ```sh
 curl -X PATCH \
  "$vpc_api_endpoint/v1/shares/$share_id?version=2025-09-23&generation=2" \
- -H "Authorization: $iam_token" \
+ -H "Authorization: Bearer $iam_token" \
  -d '{
       "bandwidth": 3000
     }'

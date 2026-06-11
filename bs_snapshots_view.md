@@ -2,7 +2,7 @@
 
 copyright:
   years: 2021, 2026
-lastupdated: "2026-05-11"
+lastupdated: "2026-06-11"
 
 keywords: view snapshots, view snapshot, viewing snapshots, see snapshots, Block Storage snapshots
 
@@ -505,7 +505,7 @@ You can programmatically list all snapshots of your volumes by calling the `/sna
 ```sh
 curl -X GET \
   "$vpc_api_endpoint/v1/snapshots?version=2022-12-16&generation=2" \
-  -H "Authorization: $iam_token"
+  -H "Authorization: Bearer $iam_token"
 ```
 {: pre}
 
@@ -520,7 +520,7 @@ For example, the following call filters the list to show snapshots that were cre
 ```sh
 curl -X GET \
 "$vpc_api_endpoint/v1/snapshots?version=2022-08-16&generation=2" \
--H "Authorization: $iam_token" \
+-H "Authorization: Bearer $iam_token" \
 -d '{
       "limit": 5,
       "source_volume":
@@ -658,7 +658,7 @@ You can programmatically retrieve the details of a single snapshot by calling th
 ```sh
 curl -X GET \
 "$vpc_api_endpoint/v1/snapshots/7528eb61-bc01-4763-a67a-a414a103f96d?version=2022-12-16&generation=2" \
--H "Authorization: $iam_token"
+-H "Authorization: Bearer $iam_token"
 ```
 {: pre}
 
@@ -734,7 +734,7 @@ Make a `GET /v1/snapshots/{id}/clones` request to list all fast restore snapshot
 ```sh
 curl -X GET \
 "$vpc_api_endpoint/v1/snapshots/7528eb61-bc01-4763-a67a-a414a103f96d/clones?version=2022-12-16&generation=2" \
--H "Authorization: $iam_token"
+-H "Authorization: Bearer $iam_token"
 ```
 {: pre}
 
@@ -774,7 +774,7 @@ Make a `GET /v1/snapshots/{id}/clones/{zone-name}` request to retrieve a single 
 ```sh
 curl -X GET \
 "$vpc_api_endpoint/v1/snapshots/7528eb61-bc01-4763-a67a-a414a103f96d/clones/us-south-1?version=2022-12-16&generation=2" \
--H "Authorization: $iam_token"
+-H "Authorization: Bearer $iam_token"
 ```
 {: pre}
 
@@ -800,7 +800,7 @@ You can programmatically retrieve the details of a single snapshot by calling th
 ```sh
 curl -X GET \
 "$vpc_api_endpoint/v1/snapshots/7528eb61-bc01-4763-a67a-a414a103f96d?version=2022-12-16&generation=2" \
--H "Authorization: $iam_token"
+-H "Authorization: Bearer $iam_token"
 ```
 {: pre}
 
@@ -895,7 +895,7 @@ You can programmatically list all consistency groups by calling the `/snapshot_c
 
 ```sh
 curl -X GET "$vpc_api_endpoint/v1/snapshot_consistency_groups?version=2023-12-05&generation=2" \
--H "Authorization: $iam_token"
+-H "Authorization: Bearer $iam_token"
 ```
 {: pre}
 
@@ -906,7 +906,7 @@ You can programmatically retrieve details of a consistency group by calling the 
 
 ```sh
 curl -X GET "$vpc_api_endpoint/v1/snapshot_consistency_groups/006-e8707243-96b3-4c27-be1f-57eff0196207?version=2023-12-05&generation=2" \
--H "Authorization: $iam_token"
+-H "Authorization: Bearer $iam_token"
 ```
 {: pre}
 

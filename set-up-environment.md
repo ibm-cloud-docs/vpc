@@ -2,7 +2,7 @@
 
 copyright:
   years: 2018, 2026
-lastupdated: "2026-04-17"
+lastupdated: "2026-06-11"
 
 keywords: vpc, setup, environment, prerequisites, api, cli, command line interface, plugin, creating a vpc, iam, permissions, access, ssh key
 
@@ -184,7 +184,7 @@ If you run into unexpected results, add the `--verbose` (debug) flag after the `
 
     ```sh
     curl -X GET "$vpc_api_endpoint/v1/regions?version=$api_version&generation=2" \
-      -H "Authorization: $iam_token"
+      -H "Authorization: Bearer $iam_token"
     ```
     {: pre}
 
@@ -192,7 +192,7 @@ If you run into unexpected results, add the `--verbose` (debug) flag after the `
 
     ```curl
     curl -X GET "$vpc_api_endpoint/v1/regions/us-south/zones?version=$api_version&generation=2" \
-      -H "Authorization: $iam_token"
+      -H "Authorization: Bearer $iam_token"
     ```
    {: pre}
 
@@ -203,7 +203,7 @@ If you run into unexpected results, add the `--verbose` (debug) flag after the `
 
     ```curl
     curl -X GET "$vpc_api_endpoint/v1/instance/profiles?version=$api_version&generation=2" \
-      -H "Authorization: $iam_token"
+      -H "Authorization: Bearer $iam_token"
     ```
     {: pre}
 
@@ -211,7 +211,7 @@ If you run into unexpected results, add the `--verbose` (debug) flag after the `
 
    ```curl
    curl -X GET "$vpc_api_endpoint/v1/images?version=$api_version&generation=2" \
-     -H "Authorization: $iam_token"
+     -H "Authorization: Bearer $iam_token"
    ```
    {: pre}
 
@@ -219,7 +219,7 @@ If you run into unexpected results, add the `--verbose` (debug) flag after the `
 
     ```curl
     curl -X GET "$vpc_api_endpoint/v1/vpcs?version=$api_version&generation=2" \
-      -H "Authorization: $iam_token"
+      -H "Authorization: Bearer $iam_token"
     ```
     {: pre}
 

@@ -2,7 +2,7 @@
 
 copyright:
   years: 2019, 2026
-lastupdated: "2026-04-16"
+lastupdated: "2026-06-11"
 
 keywords: Block storage for VPC, change IOPS, change auto-delete, increase volume, change name, rename volume, delete volume, renaming volume, updating volume
 
@@ -360,7 +360,7 @@ Make a `PATCH /volumes/{id}` call and specify a new name for the volume.
 
 ```sh
 curl -X PATCH "$vpc_api_endpoint/v1/volumes?version=2022-04-22&generation=2" \
--H "Authorization: $iam_token" \
+-H "Authorization: Bearer $iam_token" \
 -d '{
       "name": "my-volume-4-update"
     }'
@@ -521,7 +521,7 @@ Make a `PATCH /instances/$instance_id/volume_attachments/$volume_attachment_id` 
 
 ```sh
 curl -X PATCH "$vpc_api_endpoint/v1/instances/$instance_id/volume_attachments/$volume_attachment_id?version=2022-04-22&generation=2" \
--H "Authorization: $iam_token" \
+-H "Authorization: Bearer $iam_token" \
 -d '{
       "delete_volume_on_instance_delete": false,
       "name": "my-volume-attachment-data-5iops-updated"
@@ -557,7 +557,7 @@ Make a `DELETE /instances/{instance_id}/volume_attachments/{id}` request and spe
 
 ```sh
 curl -X DELETE "$vpc_api_endpoint/v1/instances/$instance_id/volume_attachments/$volume_attachment_id?version=2022-04-22&generation=2" \
--H "Authorization: $iam_token"
+-H "Authorization: Bearer $iam_token"
 
 ```
 {: pre}
@@ -775,7 +775,7 @@ Make a `DELETE /volumes/{id}` call.
 
 ```sh
 curl -X DELETE "$vpc_api_endpoint/v1/volumes/$volume_id?version=2022-04-22&generation=2" \
--H "Authorization: $iam_token"
+-H "Authorization: Bearer $iam_token"
 ```
 {: pre}
 

@@ -2,7 +2,7 @@
 
 copyright:
   years: 2020, 2026
-lastupdated: "2026-04-28"
+lastupdated: "2026-06-11"
 
 keywords: network load balancer, public, listener, back-end, front-end, pool, round-robin, weighted, connections, methods, policies, APIs, access, ports, vpc network, update
 
@@ -133,7 +133,7 @@ To update a Private Path NLB by using the API, follow these steps:
    {: pre}
 
    ```bash
-   curl -H "Authorization: $iam_token" -X GET
+   curl -H "Authorization: Bearer $iam_token" -X GET
    "$vpc_api_endpoint/v1/load_balancers/$lbid?version=$api_version&generation=2"
    ```
    {: codeblock}
@@ -217,7 +217,7 @@ To update a Private Path NLB by using the API, follow these steps:
 1. Update the listener port of the load balancer:
 
    ```bash
-   curl -H "Authorization: $iam_token" -X PATCH
+   curl -H "Authorization: Bearer $iam_token" -X PATCH
    "$vpc_api_endpoint/v1/load_balancers/$lbid/listeners/$listenerid?version=$api_version&generation=2" \
        -d '{"port": 200}'
    ```

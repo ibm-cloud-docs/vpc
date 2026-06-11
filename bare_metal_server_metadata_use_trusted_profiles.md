@@ -2,7 +2,7 @@
 
 copyright:
   years: 2025, 2026
-lastupdated: "2026-04-18"
+lastupdated: "2026-06-11"
 
 keywords:
 
@@ -89,7 +89,7 @@ Default trusted profiles cannot be changed on existing bare metal servers. A def
 2. Create the bare metal server and specify a default trusted profile while you provision the bare metal server. With the VPC API, set the `auto_link` property to `true` to automatically link the trusted profile to the bare metal server. Specify the trusted profile ID or the CRN of the trusted profile. For example,
 
     ```sh
-    curl -X POST "$vpc_api_endpoint/v1/bare_metal_servers?version=2025-06-30&generation=2" -H "Authorization: $iam_token"
+    curl -X POST "$vpc_api_endpoint/v1/bare_metal_servers?version=2025-06-30&generation=2" -H "Authorization: Bearer $iam_token"
     -d '{
         "default_trusted_profile": {
            "auto_link": true,

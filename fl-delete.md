@@ -1,8 +1,8 @@
 ---
 
 copyright:
-  years: 2020, 2025
-lastupdated: "2025-10-24"
+  years: 2020, 2026
+lastupdated: "2026-06-11"
 
 keywords: flow logs, delete
 
@@ -66,7 +66,7 @@ To delete a flow log collector by using the API, follow these steps:
 
    ```sh
    curl -sS -X DELETE \
-   -H "Authorization: $iam_token" \
+   -H "Authorization: Bearer $iam_token" \
    "$vpc_api_endpoint/v1/flow_log_collectors/$FlowLogID01?version=$api_version&generation=2" | jq
    ```
    {: pre}

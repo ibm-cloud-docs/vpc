@@ -2,7 +2,7 @@
 
 copyright:
   years: 2021, 2026
-lastupdated: "2026-05-29"
+lastupdated: "2026-06-11"
 
 keywords: ike policy
 
@@ -171,7 +171,7 @@ To create an IKE policy with multiple algorithms by using the array-based proper
 
    ```sh
       curl -X POST "$vpc_api_endpoint/v1/ike_policies?version=$api_version&generation=2" \
-        -H "Authorization: $iam_token" \
+        -H "Authorization: Bearer $iam_token" \
         -d '{
            "name": "my-new-ike-policy",
             "authentication_algorithms": ["sha256","sha384","sha512"],
@@ -205,7 +205,7 @@ To create an IKE policy with the API by using singular properties (deprecated), 
 
    ```sh
       curl -X POST "$vpc_api_endpoint/v1/ike_policies?version=$api_version&generation=2" \
-        -H "Authorization: $iam_token" \
+        -H "Authorization: Bearer $iam_token" \
         -d '{
            "name": "my-new-ike-policy",
            "dh_group": 14,
@@ -240,7 +240,7 @@ To update an IKE policy with the API by using the array-based properties (recomm
 
    ```sh
       curl -X PATCH "$vpc_api_endpoint/v1/ike_policies/$ike_policy_id?version=$api_version&generation=2" \
-        -H "Authorization: $iam_token" \
+        -H "Authorization: Bearer $iam_token" \
         -d '{
             "name": "my-updated-ike-policy",
             "authentication_algorithms": ["sha512","sha384","sha256"],
@@ -275,7 +275,7 @@ To update an IKE policy with the API by using singular properties (deprecated), 
 
    ```sh
       curl -X PATCH "$vpc_api_endpoint/v1/ike_policies/$ike_policy_id?version=$api_version&generation=2" \
-        -H "Authorization: $iam_token" \
+        -H "Authorization: Bearer $iam_token" \
         -d '{
             "name": "my-updated-ike-policy",
             "authentication_algorithm": "sha384",

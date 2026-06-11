@@ -2,7 +2,7 @@
 
 copyright:
   years: 2022, 2026
-lastupdated: "2026-04-06"
+lastupdated: "2026-06-11"
 
 keywords: consistency group, snapshots, backups, instance snapshot, instance backup,
 
@@ -122,7 +122,7 @@ You can programmatically update a consistency group by calling the `/snapshot_co
 ```sh
 curl -X PATCH\
 "$vpc_api_endpoint/v1/snapshot_consistency_groups/$consistency_group_id?version=2023-12-05&generation=2"
--H "Authorization: $iam_token"
+-H "Authorization: Bearer $iam_token"
 -d "{\
    "delete_snapshot_on_delete_snapshot_consistency_group":false,\
    "name":"my-snapshot-consistency-group"}"
@@ -138,7 +138,7 @@ You can programmatically delete a consistency group by calling the `/snapshot_co
 ```sh
 curl -X DELETE\
 "$vpc_api_endpoint/v1/snapshot_consistency_groups/$consistency_group_id?version=2023-12-05&generation=2"
--H "Authorization: $iam_token"
+-H "Authorization: Bearer $iam_token"
 ```
 {: pre}
 

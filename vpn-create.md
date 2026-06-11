@@ -2,7 +2,7 @@
 
 copyright:
   years: 2019, 2026
-lastupdated: "2026-03-30"
+lastupdated: "2026-06-11"
 
 keywords:
 subcollection: vpc
@@ -284,7 +284,7 @@ To create a VPN gateway with the API, follow these steps:
 
    ```sh
       curl -X POST "$vpc_api_endpoint/v1/vpn_gateways?version=$api_version&generation=2" \
-        -H "Authorization: $iam_token" \
+        -H "Authorization: Bearer $iam_token" \
         -d '{
            "name": "my-new-vpn-gateway",
            "mode": "policy",
@@ -302,7 +302,7 @@ To create a VPN gateway with the API, follow these steps:
 
    ```sh
       curl -X POST "$vpc_api_endpoint/v1/vpn_gateways?version=$api_version&generation=2" \
-        -H "Authorization: $iam_token" \
+        -H "Authorization: Bearer $iam_token" \
         -d '{
            "name": "my-new-vpn-gateway",
            "mode": "route",

@@ -2,7 +2,7 @@
 
 copyright:
   years: 2021, 2026
-lastupdated: "2026-04-17"
+lastupdated: "2026-06-11"
 
 keywords: snapshots, Block Storage snapshots, manage snapshots, fast restore clone, backup snapshot, remote copy, cross-regional copy
 
@@ -469,7 +469,7 @@ You can also specify the `clone` property when you create a snapshot of a volume
 ```sh
 curl -X POST \
 "$vpc_api_endpoint/v1/snapshots?version=2025-02-18&generation=2" \
--H "Authorization: $iam_token" \
+-H "Authorization: Bearer $iam_token" \
 -d '{
     "clones": [{"zone": {"name": "us-south-1"}}],
     "name": "my-snapshot2",

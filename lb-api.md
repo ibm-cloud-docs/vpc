@@ -1,8 +1,8 @@
 ---
 
 copyright:
-  years: 2018, 2024
-lastupdated: "2024-02-14"
+  years: 2018, 2026
+lastupdated: "2026-06-11"
 
 keywords: application load balancer, public, listener, back-end, front-end, pool, round-robin, weighted, connections, methods, policies, APIs, access, ports, vpc, vpc network, layer 7
 
@@ -19,7 +19,7 @@ subcollection: vpc
 To make API calls, you must use a REST client. For example, you can use a `curl` command to retrieve all existing load balancers:
 
 ```sh
-curl -X GET "$vpc_api_endpoint/v1/load_balancers?version=$api_version&generation=2" -H "Authorization: $iam_token"
+curl -X GET "$vpc_api_endpoint/v1/load_balancers?version=$api_version&generation=2" -H "Authorization: Bearer $iam_token"
 ```
 
 For detailed information on APIs available for application load balancers in your VPC environment, see the load balancers section in the [VPC API reference](/apidocs/vpc/latest#list-load-balancer-profiles).
@@ -35,7 +35,7 @@ You can also create a load balancer using the UI or CLI. For instructions, see [
 {: #step-1-create-a-load-balancer-alb}
 
 ```sh
-curl -H "Authorization: $iam_token" -X POST
+curl -H "Authorization: Bearer $iam_token" -X POST
 "$vpc_api_endpoint/v1/load_balancers?version=$api_version&generation=2" \
     -d '{
         "name": "example-balancer",
@@ -157,7 +157,7 @@ You can deploy load balancer appliances to multiple subnets. To achieve higher a
 {: #step-2-get-details-about-the-alb}
 
 ```sh
-curl -H "Authorization: $iam_token" -X GET "$vpc_api_endpoint/v1/load_balancers/$lbid?version=$api_version&generation=2"
+curl -H "Authorization: Bearer $iam_token" -X GET "$vpc_api_endpoint/v1/load_balancers/$lbid?version=$api_version&generation=2"
 ```
 {: pre}
 
@@ -228,6 +228,6 @@ Sample output:
 {: #step-3-delete-the-alb}
 
 ```sh
-curl -H "Authorization: $iam_token" -X DELETE "$vpc_api_endpoint/v1/load_balancers/$lbid?version=$api_version&generation=2"
+curl -H "Authorization: Bearer $iam_token" -X DELETE "$vpc_api_endpoint/v1/load_balancers/$lbid?version=$api_version&generation=2"
 ```
 {: pre}

@@ -2,7 +2,7 @@
 
 copyright:
   years: 2021, 2026
-lastupdated: "2026-04-28"
+lastupdated: "2026-06-11"
 
 keywords:
 
@@ -386,7 +386,7 @@ See the following example.
 ```sh
 curl -X POST \
 "$vpc_api_endpoint/v1/instances?version=2025-01-21&generation=2" \
--H "Authorization: $iam_token" \
+-H "Authorization: Bearer $iam_token" \
 -H "Content-Type: application/json" \
 -d '{
   "zone": {
@@ -463,7 +463,7 @@ To restore a data volume from a snapshot and attach it at boot time, make a `POS
 ```sh
 curl -X POST \
 "$vpc_api_endpoint/v1/instances?version=2022-06-14&generation=2" \
--H "Authorization: $iam_token" \
+-H "Authorization: Bearer $iam_token" \
 -H "Content-Type: application/json" \
 -d '{
       "name": "my-server-name",
@@ -515,7 +515,7 @@ The following example request creates a 100-GB volume that is based on a 5 IOPS/
 ```sh
 curl -X POST \
 "$vpc_api_endpoint/v1/volumes/?version=2022-06-14&generation=2" \
--H "Authorization: $iam_token" \
+-H "Authorization: Bearer $iam_token" \
 -H "Content-Type: application/json" \
 -d '{
      "name": "volume-from-snapshot-1",

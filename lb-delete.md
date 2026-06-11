@@ -2,7 +2,7 @@
 
 copyright:
   years: 2020, 2026
-lastupdated: "2026-04-17"
+lastupdated: "2026-06-11"
 
 keywords: application load balancer, public, listener, back-end, front-end, pool, round-robin, weighted, connections, methods, policies, APIs, access, ports, vpc network, delete
 
@@ -79,7 +79,7 @@ To delete an ALB with the API, perform the following procedure:
 1. Run the following command to delete the load balancer:
 
     ```bash
-    curl -H "Authorization: $iam_token" -X DELETE "$vpc_api_endpoint/v1/load_balancers/$lbid?version=$api_version&generation=2"
+    curl -H "Authorization: Bearer $iam_token" -X DELETE "$vpc_api_endpoint/v1/load_balancers/$lbid?version=$api_version&generation=2"
     ```
     {: codeblock}
 

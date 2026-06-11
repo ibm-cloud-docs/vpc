@@ -2,7 +2,7 @@
 
 copyright:
   years: 2022, 2026
-lastupdated: "2026-03-26"
+lastupdated: "2026-06-11"
 
 keywords: Backup for VPC, backup service, backup plan, backup policy, restore, restore volume, restore data, faqs
 
@@ -30,7 +30,7 @@ To create a backup policy and plans and for the backup jobs to run correctly, mu
 {: faq}
 {: #faq-baas-ee-2}
 
-When you log in any of the child accounts in the console, you can view the IAM authorizations by clicking **Manage > Access (IAM) > Authorizations**. 
+When you log in any of the child accounts in the console, you can view the IAM authorizations by clicking **Manage > Access (IAM) > Authorizations**.
 
 If any of the required authorizations are missing, the backup job fails. When the backup job fails for this reason, an error message is generated that looks like the following example.
 
@@ -53,7 +53,7 @@ See the following example that lists all volumes with the `dev:test` tag.
 
 ```sh
 curl -X GET "$vpc_api_endpoint/v1/volumes?version=2023-08-04&generation=2&user_tags=dev:test" \
--H "Authorization: $iam_token"
+-H "Authorization: Bearer $iam_token"
 ```
 {: pre}
 
@@ -66,7 +66,7 @@ ibmcloud is backup-policies --tag dev:test
 ```
 {: pre}
 
-For more information, see [Listing all backup policies that are filtered by user tags from the CLI](/docs/vpc?topic=vpc-backup-view-policies&interface=cli#backup-view-all-filter-by-tags-cli). 
+For more information, see [Listing all backup policies that are filtered by user tags from the CLI](/docs/vpc?topic=vpc-backup-view-policies&interface=cli#backup-view-all-filter-by-tags-cli).
 
 ## Where can I find all the backups created?
 {: faq}
@@ -80,7 +80,7 @@ The enterprise administrator can make a `GET /backup_policies/{backup_policy_id}
 {: faq}
 {: #faq-baas-ee-5}
 
-When you want to create a backup policy for your enterprise account and all child accounts from the CLI or with the API, you need to fetch your enterprise account `crn`.  
+When you want to create a backup policy for your enterprise account and all child accounts from the CLI or with the API, you need to fetch your enterprise account `crn`.
 
 To obtain the enterprise CRN programmatically, you need to make a `GET /accounts/{accountID}` request to the [Enterprise API](/apidocs/enterprise-apis/enterprise#get-account){: external}. See the following example.
 

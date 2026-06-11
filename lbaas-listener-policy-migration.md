@@ -1,8 +1,8 @@
 ---
 
 copyright:
-  years: 2025
-lastupdated: "2025-06-26"
+  years: 2025, 2026
+lastupdated: "2026-06-11"
 
 keywords: application load balancer migration, api migration, versioned change
 
@@ -74,7 +74,7 @@ The following example uses API version `2025-04-07` or earlier to create an appl
 
 ```sh
 curl -X POST "$vpc_api_endpoint/v1/load_balancers/$load_balancer_id/listeners/$listener_id/policies?version=2025-04-07&generation=2"
--H "Authorization: $iam_token"
+-H "Authorization: Bearer $iam_token"
  -d '{
       "action": "forward",
       "name": "older-version-2025-04-07",
@@ -96,7 +96,7 @@ curl -X POST "$vpc_api_endpoint/v1/load_balancers/$load_balancer_id/listeners/$l
 The following example uses API version `2025-04-08` or later to create an application load balancer listener policy with the `action` `forward_to_pool`.
 ```sh
 curl -X POST "$vpc_api_endpoint/v1/load_balancers/$load_balancer_id/listeners/$listener_id/policies?version=2025-04-08&generation=2"
--H "Authorization: $iam_token"
+-H "Authorization: Bearer $iam_token"
  -d '{
       "action": "forward_to_pool",
       "name": "newer-version-2025-04-08",

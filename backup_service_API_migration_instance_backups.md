@@ -1,8 +1,8 @@
 ---
 
 copyright:
-  years: 2023, 2024
-lastupdated: "2024-07-17"
+  years: 2023, 2026
+lastupdated: "2026-06-11"
 
 keywords: Backup for VPC, api migration, versioned change
 
@@ -45,8 +45,8 @@ These examples compare differences between before and after the `2023-12-05` ver
 The following example uses API version `2023-12-04` or earlier to create a backup policy for individual volumes. The `data` object specifies `match_resource_types` as `array`. It's not possible to create an `instance` type backup policy with an API version `2023-12-04` or earlier.
 
 ```sh
-curl -X POST "$vpc_api_endpoint/v1/backup_policies?version=2023-12-04&generation=2"    
--H "Authorization: $iam_token"   
+curl -X POST "$vpc_api_endpoint/v1/backup_policies?version=2023-12-04&generation=2"
+-H "Authorization: Bearer $iam_token"
  -d '{
    "match_resource_types": "array",
    "match_user_tags": ["my-daily-backup-policy"],
@@ -69,7 +69,7 @@ The following example uses API version `2023-12-05` or later to create a backup 
 
 ```sh
 curl -X POST "$vpc_api_endpoint/v1/backup_policies?version=2023-12-05&generation=2"\
-   -H "Authorization: $iam_token"\
+   -H "Authorization: Bearer $iam_token"\
    -d '{
      "match_resource_type": "volume",
      "match_user_tags": ["my-daily-backup-policy"],
@@ -92,7 +92,7 @@ The following example uses the API version `2023-12-05` or later to create a bac
 
 ```sh
 curl -X POST "$vpc_api_endpoint/v1/backup_policies?version=2023-12-05&generation=2"\
-   -H "Authorization: $iam_token"\
+   -H "Authorization: Bearer $iam_token"\
    -d '{
       "match_resource_type": "instance",
       "included_content": "data_volumes"

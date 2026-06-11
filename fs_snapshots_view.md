@@ -2,7 +2,7 @@
 
 copyright:
   years: 2024, 2026
-lastupdated: "2026-03-26"
+lastupdated: "2026-06-11"
 
 keywords: view snapshots, view snapshot, viewing snapshots, see snapshots, File storage snapshots
 
@@ -262,7 +262,7 @@ You can programmatically list all snapshots of your shares by calling the `/shar
 ```sh
 curl -X GET \
   "$vpc_api_endpoint/v1/shares/{share-id}/snapshots?version=2024-12-10&generation=2" \
-  -H "Authorization: $iam_token"
+  -H "Authorization: Bearer $iam_token"
 ```
 {: pre}
 
@@ -271,7 +271,7 @@ You can filter the list by using the backup policy plan ID to display the snapsh
 ```sh
 curl -X GET \
 "$vpc_api_endpoint/v1/shares/r006-0fe9e5d8-0a4d-4818-96ec-e99708644a58/snapshots?version=2024-12-10&generation=2" \
--H "Authorization: $iam_token" \
+-H "Authorization: Bearer $iam_token" \
 -d '{
       "limit": 5,
       "backup_policy_plan":
@@ -351,7 +351,7 @@ You can programmatically retrieve the details of a single snapshot by calling th
 ```sh
 curl -X GET \
 "$vpc_api_endpoint/v1/shares/r006-1fe9e5d8-0a4d-4818-96ec-e99708644a58/snapshots/r006-e13ee54f-baa4-40d3-b35c-b9ec163972b4?version=2024-12-10&generation=2" \
--H "Authorization: $iam_token"
+-H "Authorization: Bearer $iam_token"
 ```
 {: pre}
 

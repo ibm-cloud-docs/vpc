@@ -2,7 +2,7 @@
 
 copyright:
   years: 2021, 2026
-lastupdated: "2026-06-01"
+lastupdated: "2026-06-11"
 
 keywords: bare metal servers, managing, operation, manage bare metal server, manage bare metal, manage server, restart bare metal, stop bare metal, delete bare metal, reboot bare metal, restart server, stop server, delete server
 
@@ -285,7 +285,7 @@ Specify a `GET /bare_metal_servers` request to list all the bare metal servers.
 
    ```sh
    curl -X GET "$vpc_api_endpoint/v1/bare_metal_servers?version=2021-03-09&generation=2" \
-   -H "Authorization: $iam_token"
+   -H "Authorization: Bearer $iam_token"
    ```
    {: pre}
 
@@ -298,7 +298,7 @@ Specify a `GET /bare_metal_servers/{id}` request retrieve a specific bare metal 
 
    ```sh
    curl -X GET "$vpc_api_endpoint/v1/bare_metal_servers/$bare_metal_server_id?version=2021-03-09&generation=2" \
-   -H "Authorization: $iam_token"
+   -H "Authorization: Bearer $iam_token"
    ```
    {: pre}
 
@@ -313,7 +313,7 @@ Specify a `POST /bare_metal_servers/{id}/restart` request to restart a specific 
 
 ```sh
 curl -X POST "$vpc_api_endpoint/v1/bare_metal_servers/$bare_metal_server_id/restart?version=2021-03-09&generation=2" \
--H "Authorization: $iam_token"
+-H "Authorization: Bearer $iam_token"
 ```
 {: pre}
 
@@ -336,7 +336,7 @@ You must specify the `type` for the stop action in the data payload. `soft` tell
 
 ```sh
 curl -X POST "$vpc_api_endpoint/v1/bare_metal_servers/$bare_metal_server_id/stop?version=2021-03-09&generation=2" \
--H "Authorization: $iam_token"
+-H "Authorization: Bearer $iam_token"
 -d '{
         "type": "soft"
 }'
@@ -355,7 +355,7 @@ Specify a `POST /bare_metal_servers/{id}/start` request to start a specific bare
 
 ```sh
 curl -X POST "$vpc_api_endpoint/v1/bare_metal_servers/$bare_metal_server_id/start?version=2021-03-09&generation=2" \
--H "Authorization: $iam_token"
+-H "Authorization: Bearer $iam_token"
 ```
 {: pre}
 
@@ -395,7 +395,7 @@ Specify a `PUT /bare_metal_servers/{id}/initialization` request to reinitialize 
 
 ```sh
 curl -X PUT "$vpc_api_endpoint/v1/bare_metal_servers/$bare_metal_server_id/initialization?version=2021-03-09&generation=2" \
--H "Authorization: $iam_token" \
+-H "Authorization: Bearer $iam_token" \
 -d '{
 	  "image": {
 		"id": $image
@@ -449,7 +449,7 @@ Specify a `DELETE /bare_metal_servers/{id}` request delete a specific bare metal
 
 ```sh
 curl -X DELETE "$vpc_api_endpoint/v1/bare_metal_servers/$bare_metal_server_id?version=2021-03-09&generation=2" \
--H "Authorization: $iam_token"
+-H "Authorization: Bearer $iam_token"
 ```
 {: pre}
 

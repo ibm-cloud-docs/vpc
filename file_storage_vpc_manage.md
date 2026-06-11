@@ -2,7 +2,7 @@
 
 copyright:
   years: 2021, 2026
-lastupdated: "2026-06-06"
+lastupdated: "2026-06-11"
 
 keywords: file share, file storage, rename share, increase size, adjust IOPS, mount target
 
@@ -456,7 +456,7 @@ Make a `PATCH /shares/{share_ID}` call and specify the profile name in the `prof
 
 ```sh
 curl -X PATCH "$vpc_api_endpoint/v1/shares/432f1a4d-4aac-4ba1-922c-76fdbcbeb1e3?version=2023-08-08&generation=2"\
--H "Authorization: $iam_token"\
+-H "Authorization: Bearer $iam_token"\
 -d '{"profile": {"name": "dp2"}}'
 ```
 {: codeblock}
@@ -765,7 +765,7 @@ The following example modifies a file share that is identified by ID. The share 
 ```sh
 curl -X PATCH\
 "$vpc_api_endpoint/v1/shares/432f1a4d-4aac-4ba1-922c-76fdbcbeb1e3?version=2023-08-08&generation=2"\
--H "Authorization: $iam_token" \
+-H "Authorization: Bearer $iam_token" \
 -d '{
     "name": "myshare-patch-1",
     "user_tags": [

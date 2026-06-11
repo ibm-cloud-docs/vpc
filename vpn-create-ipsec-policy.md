@@ -2,7 +2,7 @@
 
 copyright:
   years: 2021, 2026
-lastupdated: "2026-05-29"
+lastupdated: "2026-06-11"
 
 keywords: vpn, ipsec policy
 
@@ -177,7 +177,7 @@ To create an IPsec policy with multiple algorithms by using the array-based prop
 
    ```sh
       curl -X POST "$vpc_api_endpoint/v1/ipsec_policies?version=$api_version&generation=2" \
-        -H "Authorization: $iam_token" \
+        -H "Authorization: Bearer $iam_token" \
         -d '{
            "name": "my-new-ipsec-policy",
            "authentication_algorithms": ["sha256", "sha512"],
@@ -194,7 +194,7 @@ Create an IPsec policy with `encryption_algorithms` set to GCM-based algorithms 
 
    ```sh
       curl -X POST "$vpc_api_endpoint/v1/ipsec_policies?version=$api_version&generation=2" \
-      -H "Authorization: $iam_token" \
+      -H "Authorization: Bearer $iam_token" \
       -d '{
          "name": "gcm-ipsec-policy",
          "encryption_algorithms": ["aes128gcm16","aes192gcm16","aes256gcm16"],
@@ -227,7 +227,7 @@ To create an IPsec policy with the API by using singular properties (deprecated)
 
    ```sh
       curl -X POST "$vpc_api_endpoint/v1/ipsec_policies?version=$api_version&generation=2" \
-        -H "Authorization: $iam_token" \
+        -H "Authorization: Bearer $iam_token" \
         -d '{
            "name": "my-new-ipsec-policy",
            "authentication_algorithm": "sha256",
@@ -261,7 +261,7 @@ To update an IPsec policy with the API by using the array-based properties (reco
 
    ```sh
       curl -X PATCH "$vpc_api_endpoint/v1/ipsec_policies/$ipsec_policy_id?version=$api_version&generation=2" \
-        -H "Authorization: $iam_token" \
+        -H "Authorization: Bearer $iam_token" \
         -d '{
             "name": "my-updated-ipsec-policy",
             "authentication_algorithms": ["sha512", "sha384", "sha256"],
@@ -291,7 +291,7 @@ To update an IPsec policy with the API by using singular properties (deprecated)
 
    ```sh
       curl -X PATCH "$vpc_api_endpoint/v1/ipsec_policies/$ipsec_policy_id?version=$api_version&generation=2" \
-        -H "Authorization: $iam_token" \
+        -H "Authorization: Bearer $iam_token" \
         -d '{
             "name": "my-updated-ipsec-policy",
             "authentication_algorithm": "sha512",

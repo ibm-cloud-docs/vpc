@@ -2,7 +2,7 @@
 
 copyright:
   years: 2021, 2026
-lastupdated: "2026-04-28"
+lastupdated: "2026-06-11"
 
 keywords: bare metal server connect esxi, connect to esxi, connect to esxi, bare metal connect esxi, bare metal esxi, windows serial console, connect to windows console, connect to windows serial console, serial console, connect to serial console
 
@@ -226,7 +226,7 @@ After you collect all the required information, use the following API request to
 
 ```sh
 curl -X PUT "$vpc_api_endpoint/v1/bare_metal_servers/$bare_metal_server_id/network_interfaces/$network_interface_id/floating_ips/$floating_ip_id?version=2021-03-09&generation=2" \
--H "Authorization: $iam_token"
+-H "Authorization: Bearer $iam_token"
 ```
 {: pre}
 

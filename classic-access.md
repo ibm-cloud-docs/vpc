@@ -1,7 +1,7 @@
 ---
 copyright:
   years: 2018, 2026
-lastupdated: "2026-04-07"
+lastupdated: "2026-06-11"
 
 keywords: classic, access, classic access, VRF, peering
 
@@ -68,7 +68,7 @@ Pass in the `classic_access` parameter when you create the VPC, for example:
 
 ```bash
 curl -X POST "$vpc_api_endpoint/v1/vpcs?version=$api_version&generation=2" \
-  -H "Authorization: $iam_token" \
+  -H "Authorization: Bearer $iam_token" \
   -d '{
         "name": "my-access-vpc",
         "classic_access": true

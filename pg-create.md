@@ -1,7 +1,7 @@
 ---
 copyright:
   years: 2022, 2026
-lastupdated: "2026-03-30"
+lastupdated: "2026-06-11"
 
 keywords:
 
@@ -53,7 +53,7 @@ To create a public gateway using the {{site.data.keyword.cloud_notm}} console, f
 
    * **Public gateway name** - Type a unique name for your public gateway.
    * **Resource group** - Select a resource group for your public gateway collector. You can use the default group for this public gateway, or select from the list (if defined). For more information, see [Best practices for organizing resources in a resource group](/docs/account?topic=account-account_setup).
-   
+
       After provisioning is complete, you cannot change the resource group.
       {: important}
 
@@ -139,7 +139,7 @@ You can then retrieve and view the public gateway that is attached to the subnet
 
 ```bash
 curl -X GET "$vpc_api_endpoint/v1/subnets/$subnet/public_gateway?version=$api_version&generation=2" \
-  -H "Authorization: $iam_token"
+  -H "Authorization: Bearer $iam_token"
 ```
 {: pre}
 

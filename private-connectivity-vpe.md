@@ -2,7 +2,7 @@
 
 copyright:
   years: 2022, 2026
-lastupdated: "2026-02-16"
+lastupdated: "2026-06-11"
 
 keywords:
 
@@ -81,7 +81,7 @@ Follow these steps:
    For example, if you want to create a VPE for (IAM), you can make the following REST API call from an on-premises network by using a private VPC API endpoint to provision VPE for IAM:
 
    ```sh
-   curl -X POST "$vpc_api_endpoint/v1/endpoint_gateways?version=$version&generation=2" -H "Authorization: $iam_token" -d '{
+   curl -X POST "$vpc_api_endpoint/v1/endpoint_gateways?version=$version&generation=2" -H "Authorization: Bearer $iam_token" -d '{
    "name": "my-iam-endpoint-gateway",
    "target": {
    "crn" : "crn:v1:bluemix:public:iam-svcs:global:::endpoint:private.iam.cloud.ibm.com",

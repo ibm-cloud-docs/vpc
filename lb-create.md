@@ -394,7 +394,7 @@ To create an application load balancer with the API, follow these steps:
 1. Create a load balancer with a listener, pool, and attached server instances (pool members) with the following sample code:
 
     ```bash
-    curl -H "Authorization: $iam_token" -X POST
+    curl -H "Authorization: Bearer $iam_token" -X POST
     "$vpc_api_endpoint/v1/load_balancers?version=$api_version&generation=2" \
       -d @alb_create_payload.json
       Where alb_create_payload.json has the following content:
@@ -513,7 +513,7 @@ To create an application load balancer with the API, follow these steps:
 1. Get details about the load balancer
 
     ```bash
-    curl -H "Authorization: $iam_token" -X GET "$vpc_api_endpoint/v1/load_balancers/$lbid?version=$api_version&generation=2"
+    curl -H "Authorization: Bearer $iam_token" -X GET "$vpc_api_endpoint/v1/load_balancers/$lbid?version=$api_version&generation=2"
     ```
     {: codeblock}
 

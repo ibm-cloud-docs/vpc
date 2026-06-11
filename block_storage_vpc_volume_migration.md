@@ -2,7 +2,7 @@
 
 copyright:
   years: 2025, 2026
-lastupdated: "2026-03-26"
+lastupdated: "2026-06-11"
 
 keywords: Block Storage, volume migration, volume jobs, storage generations, volume conversion
 
@@ -68,16 +68,16 @@ ibmcloud is volume-job-create r006-45421f23-df25-4dc7-bb5a-3cbcec26bba3 --profil
 
 ```sh
 Creating volume job for r006-45421f23-df25-4dc7-bb5a-3cbcec26bba3 under account test account as user test.user@ibm.com...
-ID                r006-10d88923-1102-4859-a2b8-628bb9fb0d70   
-Name              my-volume-migration-job   
-Status            queued   
-Bandwidth(Mbps)   1000   
-IOPS              3000   
-Profile           sdp   
-Auto Delete       false   
-Created at        2026-03-17T14:26:02+05:30   
-Href              https://us-south.iaas.cloud.ibm.com/v1/volumes/r006-45421f23-df25-4dc7-bb5a-3cbcec26bba3/jobs/r006-10d88923-1102-4859-a2b8-628bb9fb0d70   
-Job type          migrate 
+ID                r006-10d88923-1102-4859-a2b8-628bb9fb0d70
+Name              my-volume-migration-job
+Status            queued
+Bandwidth(Mbps)   1000
+IOPS              3000
+Profile           sdp
+Auto Delete       false
+Created at        2026-03-17T14:26:02+05:30
+Href              https://us-south.iaas.cloud.ibm.com/v1/volumes/r006-45421f23-df25-4dc7-bb5a-3cbcec26bba3/jobs/r006-10d88923-1102-4859-a2b8-628bb9fb0d70
+Job type          migrate
 Resource type     volume_job
 ```
 {: screen}
@@ -95,7 +95,7 @@ You can programmatically [migrate your storage volume](/apidocs/vpc/latest#creat
 ```sh
 curl "$vpc_api_endpoint/v1/volumes/r006-567faad4-81f4-440a-95f0-6f4c98f22c25/jobs?version=2026-03-17&generation=2" \
   --header "Content-Type: application/json" \
-  -H "Authorization: $iam_token" \
+  -H "Authorization: Bearer $iam_token" \
   --request POST \
   --data '{
     "job_type": "migrate",
@@ -198,7 +198,7 @@ ibmcloud is volume-jobs r006-45421f23-df25-4dc7-bb5a-3cbcec26bba3
 ```sh
 Listing volume job for r006-45421f23-df25-4dc7-bb5a-3cbcec26bba3 under account test account as user test.user@ibm.com...
 
-ID                                         Name       Created at                 Auto Delete  Job type  Status     Bandwidth(Mbps)   IOPS  Profile   
+ID                                         Name       Created at                 Auto Delete  Job type  Status     Bandwidth(Mbps)   IOPS  Profile
 r006-10d88923-1102-4859-a2b8-628bb9fb0d70  my-volume-migration-job   2026-03-17T14:26:02+05:30  false        migrate   succeeded  1000              3000  sdp
 ```
 {: screen}
@@ -236,18 +236,18 @@ When the migration is in complete, the response looks similar to the following e
 ```sh
 Getting volume job r006-10d88923-1102-4859-a2b8-628bb9fb0d70 for r006-45421f23-df25-4dc7-bb5a-3cbcec26bba3 under account test account as user test.user@ibm.com...
 
-ID                r006-10d88923-1102-4859-a2b8-628bb9fb0d70   
-Name              my-volume-migration-job   
-Status            succeeded   
-Bandwidth(Mbps)   1000   
-IOPS              3000   
-Profile           sdp   
-Auto Delete       false   
-Completed at      2026-03-17T14:26:23+05:30   
-Created at        2026-03-17T14:26:02+05:30   
-Href              https://us-south.iaas.cloud.ibm.com/v1/volumes/r006-45421f23-df25-4dc7-bb5a-3cbcec26bba3/jobs/r006-10d88923-1102-4859-a2b8-628bb9fb0d70   
-Job type          migrate   
-Started at        2026-03-17T14:26:18+05:30 
+ID                r006-10d88923-1102-4859-a2b8-628bb9fb0d70
+Name              my-volume-migration-job
+Status            succeeded
+Bandwidth(Mbps)   1000
+IOPS              3000
+Profile           sdp
+Auto Delete       false
+Completed at      2026-03-17T14:26:23+05:30
+Created at        2026-03-17T14:26:02+05:30
+Href              https://us-south.iaas.cloud.ibm.com/v1/volumes/r006-45421f23-df25-4dc7-bb5a-3cbcec26bba3/jobs/r006-10d88923-1102-4859-a2b8-628bb9fb0d70
+Job type          migrate
+Started at        2026-03-17T14:26:18+05:30
 Resource type     volume_job
 ```
 {: screen}
@@ -265,7 +265,7 @@ You can check the status and progress of the volume migration programmatically w
    ```sh
    curl "$vpc_api_endpoint/v1/volumes/r006-567faad4-81f4-440a-95f0-6f4c98f22c25/jobs?version=2026-03-17&generation=2" \
      --header "Content-Type: application/json" \
-     -H "Authorization: $iam_token" \
+     -H "Authorization: Bearer $iam_token" \
     --request GET
    ```
    {: pre}
@@ -333,7 +333,7 @@ You can check the status and progress of the volume migration programmatically w
    ```sh
    curl "$vpc_api_endpoint/v1/volumes/r006-567faad4-81f4-440a-95f0-6f4c98f22c25/jobs/r006-03edeeed-fae7-439e-b31c-fbdbec6f9e7d?version=2026-03-17&generation=2" \
      --header "Content-Type: application/json" \
-     -H "Authorization: $iam_token" \
+     -H "Authorization: Bearer $iam_token" \
      --request GET
    ```
    {: pre}
@@ -398,8 +398,8 @@ You can check the status and progress of the volume migration programmatically w
 Import the list of volume jobs that belong to a volume as a read-only data source with the `ibm_is_volume_job` resource.
 
 ```terraform
-`data "ibm_is_volume_job" "example" { 
-  volume_job_id = ibm_is_volume_job.example.id 
+`data "ibm_is_volume_job" "example" {
+  volume_job_id = ibm_is_volume_job.example.id
   }
 ```
 {: codeblock}
@@ -429,18 +429,18 @@ ibmcloud is volume-job-update r006-45421f23-df25-4dc7-bb5a-3cbcec26bba3 --volume
 ```sh
 Updating volume job r006-10d88923-1102-4859-a2b8-628bb9fb0d70 for r006-45421f23-df25-4dc7-bb5a-3cbcec26bba3 under account test account as user test.user@ibm.com...
 
-ID                        r006-10d88923-1102-4859-a2b8-628bb9fb0d70   
-Name                      new-name-for-migration-job   
-Status                    running   
-Bandwidth(Mbps)           1000   
-IOPS                      3000   
-Profile                   sdp   
-Auto Delete               false   
+ID                        r006-10d88923-1102-4859-a2b8-628bb9fb0d70
+Name                      new-name-for-migration-job
+Status                    running
+Bandwidth(Mbps)           1000
+IOPS                      3000
+Profile                   sdp
+Auto Delete               false
 Created at                2026-03-17T10:54:52-06:00
-Estimated completion at   2026-03-17T12:03:30-06:00 
-Href                      https://us-south.iaas.cloud.ibm.com/v1/volumes/r006-45421f23-df25-4dc7-bb5a-3cbcec26bba3/jobs/r006-10d88923-1102-4859-a2b8-628bb9fb0d70   
-Job type                  migrate   
-Started at                2026-03-17T10:58:52-06:00     
+Estimated completion at   2026-03-17T12:03:30-06:00
+Href                      https://us-south.iaas.cloud.ibm.com/v1/volumes/r006-45421f23-df25-4dc7-bb5a-3cbcec26bba3/jobs/r006-10d88923-1102-4859-a2b8-628bb9fb0d70
+Job type                  migrate
+Started at                2026-03-17T10:58:52-06:00
 Resource type             volume_job
 ```
 {: screen}
@@ -456,7 +456,7 @@ While the migration job is running, you can also update the volume job's name if
 ```sh
 curl "$vpc_api_endpoint/v1/volumes/r006-567faad4-81f4-440a-95f0-6f4c98f22c25/jobs/r006-03edeeed-fae7-439e-b31c-fbdbec6f9e7d?version=2026-03-17&generation=2" \
   --header "Content-Type: application/json" \
-  -H "Authorization: $iam_token" \
+  -H "Authorization: Bearer $iam_token" \
   --request PATCH \
   --data '{
     "name": "my-updated-migration-job"
@@ -497,9 +497,9 @@ A successful response shows that the volume job name is updated.
 While the migration job is running, you can also update the volume job's name if you want to, by using the `ibm_is_volume_job` resource.
 
 ```terraform
-`resource "ibm_is_volume_job" "example" { 
+`resource "ibm_is_volume_job" "example" {
   volume_job_id = ibm_is_volume_job.example.id
-  name          = 
+  name          =
   }
 ```
 {: codeblock}
@@ -529,18 +529,18 @@ ibmcloud is volume-job-cancel r006-ef750f93-70f3-45db-bb10-71901d5371e2 --volume
 ```sh
 Cancelling volume job r006-55e8105d-61bd-46cc-b714-042eadfc6e17 for r006-ef750f93-70f3-45db-bb10-71901d5371e2 under account test account as user test.user@ibm.com...
 
-ID                        r006-55e8105d-61bd-46cc-b714-042eadfc6e17   
-Name                      my-volume-migration-job   
-Status                    canceling   
-Bandwidth(Mbps)           1000   
-IOPS                      3000   
-Profile                   sdp   
-Auto delete               false   
-Created at                2026-03-17T17:24:53+05:30   
-Estimated completion at   2026-03-17T17:38:39+05:30   
-Href                      https://us-south.iaas.cloud.ibm.com/v1/volumes/r006-ef750f93-70f3-45db-bb10-71901d5371e2/jobs/r006-55e8105d-61bd-46cc-b714-042eadfc6e17  
-Job type                  migrate   
-Started at                2026-03-17T17:25:00+05:30      
+ID                        r006-55e8105d-61bd-46cc-b714-042eadfc6e17
+Name                      my-volume-migration-job
+Status                    canceling
+Bandwidth(Mbps)           1000
+IOPS                      3000
+Profile                   sdp
+Auto delete               false
+Created at                2026-03-17T17:24:53+05:30
+Estimated completion at   2026-03-17T17:38:39+05:30
+Href                      https://us-south.iaas.cloud.ibm.com/v1/volumes/r006-ef750f93-70f3-45db-bb10-71901d5371e2/jobs/r006-55e8105d-61bd-46cc-b714-042eadfc6e17
+Job type                  migrate
+Started at                2026-03-17T17:25:00+05:30
 Resource type             volume_job
 ```
 {: screen}
@@ -556,7 +556,7 @@ You can cancel a migration if it’s still within the migrating phase programmat
 ```sh
 curl "$vpc_api_endpoint/v1/volumes/r006-567faad4-81f4-440a-95f0-6f4c98f22c25/jobs/r006-03edeeed-fae7-439e-b31c-fbdbec6f9e7d/cancel?version=2026-03-17&generation=2" \
   --header "Content-Type: application/json" \
-  -H "Authorization: $iam_token" \
+  -H "Authorization: Bearer $iam_token" \
   --request POST
 ```
 {: pre}

@@ -2,7 +2,7 @@
 
 copyright:
   years: 2021, 2026
-lastupdated: "2026-04-02"
+lastupdated: "2026-06-11"
 
 keywords:
 
@@ -352,7 +352,7 @@ List all bare metal server profiles that are available in a region by running th
 ```text
 curl -X GET \
 "$vpc_api_endpoint/v1/bare_metal_server/profiles?version=2021-03-09&generation=2" \
--H "Authorization: $iam_token"
+-H "Authorization: Bearer $iam_token"
 ```
 {: pre}
 

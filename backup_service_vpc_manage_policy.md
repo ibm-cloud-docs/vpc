@@ -1,8 +1,8 @@
 ---
 
 copyright:
-  years: 2022, 2025
-lastupdated: "2025-10-06"
+  years: 2022, 2026
+lastupdated: "2026-06-11"
 
 keywords: Backup, backup service, backup plan, backup policy, restore, restore volume, restore data
 
@@ -367,7 +367,7 @@ To change the name of a backup policy, make a `PATCH /backup_policies/{backup_po
 ```sh
 curl -X PATCH\
 "$vpc_api_endpoint/v1/backup_policies/5063bfe5-c16f-4606-ba26-fba0f099b97d?version=2022-06-28&generation=2"\
-  -H "Authorization: $iam_token"\
+  -H "Authorization: Bearer $iam_token"\
   -d {"name": "my-backup-policy"}
 ```
 {: codeblock}
@@ -380,7 +380,7 @@ To update the user tags for target resources, make a `PATCH /backup_policies/{ba
 ```sh
 curl -X PATCH\
 "$vpc_api_endpoint/v1/backup_policies/5063bfe5-c16f-4606-ba26-fba0f099b97d?version=2022-06-28&generation=2"\
-  -H "Authorization: $iam_token"\
+  -H "Authorization: Bearer $iam_token"\
   -d {"match_user_tags": ["my-daily-backup-policy"]}
 ```
 {: codeblock}
@@ -393,7 +393,7 @@ When you want to update a multi-volume backup policy to include or exclude the b
 ```sh
 curl -X PATCH\
 "$vpc_api_endpoint/v1/backup_policies/5063bfe5-c16f-4606-ba26-fba0f099b97d?version=2022-06-28&generation=2"\
-  -H "Authorization: $iam_token"\
+  -H "Authorization: Bearer $iam_token"\
   -d {"included_content": ["data_volumes"]}
 ```
 {: codeblock}
@@ -412,7 +412,7 @@ Make a `PATCH /backup_policies/{backup_policy_id}/plans/{plan_id}` request to up
 ```sh
 curl -X PATCH\
 "$vpc_api_endpoint/v1/backup_policies/5063bfe5-c16f-4606-ba26-fba0f099b97d/plans/78bb42ae-b82e-4560-861b-5bc4bca3fba6?version=2022-06-28&generation=2"\
-  -H "Authorization: $iam_token"\
+  -H "Authorization: Bearer $iam_token"\
   -d '{
       "active": true,
       "attach_user_tags": ["my-daily-backup-plan"],
@@ -436,7 +436,7 @@ This example updates a backup policy to create a backup plan. The new plan defin
 
 ```sh
 curl -X POST "$vpc_api_endpoint/v1/backup_policies/8758bd18-344b-486a-b606-5b8cb8cdd044/plans?version=2022-12-09&generation=2"\
-   -H "Authorization: $iam_token"\
+   -H "Authorization: Bearer $iam_token"\
    -d '{
         "active": true,
         "attach_user_tags": ["daily-backups"],
@@ -493,7 +493,7 @@ This example updates a backup policy to create a backup plan that creates backup
 
 ```sh
 curl -X PATCH "$vpc_api_endpoint/v1/backup_policies/8758bd18-344b-486a-b606-5b8cb8cdd044/plans?version=2023-05-09&generation=2"\
-   -H "Authorization: $iam_token"\
+   -H "Authorization: Bearer $iam_token"\
    -d '{
         "active": true,
         "attach_user_tags": ["daily-backups"],
@@ -730,7 +730,7 @@ See the following example.
 ```sh
 curl -X DELETE\
 "$vpc_api_endpoint/v1/backup_policies/5063bfe5-c16f-4606-ba26-fba0f099b97d/plans/4cf9171a-0043-4434-8727-15b53dbc374c?version=2022-06-28&generation=2"\
-   -H "Authorization: $iam_token"
+   -H "Authorization: Bearer $iam_token"
 ```
 {: codeblock}
 
@@ -764,7 +764,7 @@ See the following example.
 ```sh
 curl -X DELETE\
 "$vpc_api_endpoint/v1/backup_policies/5063bfe5-c16f-4606-ba26-fba0f099b97d?version=2022-06-28&generation=2"\
-  -H "Authorization: $iam_token"
+  -H "Authorization: Bearer $iam_token"
 ```
 {: codeblock}
 

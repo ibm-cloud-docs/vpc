@@ -1,8 +1,8 @@
 ---
 
 copyright:
-  years: 2021, 2025
-lastupdated: "2025-10-24"
+  years: 2021, 2026
+lastupdated: "2026-06-11"
 
 keywords:
 
@@ -93,6 +93,6 @@ The disconnected VPN client is automatically deleted after one hour.
 
    ```sh
       curl -X POST "$vpc_api_endpoint/v1/vpn_servers/$vpnServerID/clients/$vpnClientID/disconnect?version=$api_version&generation=2" \
-        -H "Authorization: $iam_token"
+        -H "Authorization: Bearer $iam_token"
    ```
    {: codeblock}

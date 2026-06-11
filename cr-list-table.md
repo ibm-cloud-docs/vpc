@@ -2,7 +2,7 @@
 
 copyright:
   years: 2020, 2026
-lastupdated: "2026-06-10"
+lastupdated: "2026-06-11"
 
 keywords: custom routes
 
@@ -84,7 +84,7 @@ To list the routing tables for a VPC with the API, follow these steps:
 
    ```curl
    curl -X GET "$vpc_api_endpoint/v1/vpcs/$VpcId/routing_tables?version=$api_version&generation=2" \
-      -H "Authorization: $iam_token"
+      -H "Authorization: Bearer $iam_token"
    ```
 
 ## Listing routing tables with Terraform
