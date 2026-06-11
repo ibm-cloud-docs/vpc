@@ -21,7 +21,7 @@ Before you adopt the release version `2025-06-30` or later, review the changes d
 
 ## Changed image properties
 {: #changed-properties-image-api-version-2025-06-30}
-  
+
 The following properties have changed for API requests that use a `version` query parameter of `2025-06-30` or later.
 
 When [retrieving](/apidocs/vpc/2025-06-30#get-image), [listing](/apidocs/vpc/2025-06-30#list-images), [creating](/apidocs/vpc/2025-06-30#create-image), or [updating](/apidocs/vpc/2025-06-30#update-image) images, the following resulting properties have changed for API requests that use a `version` query parameter of `2025-06-30` or later.
@@ -69,7 +69,7 @@ These examples compare differences between before and after the `2025-06-30` ver
 The following example image is from a response to a request made using API version `2025-06-29` or earlier.  The image is owned by the requesting account, so it includes the `owner_type` property set to `user`.
 
 ```sh
-curl -X GET "$vpc_api_endpoint/v1/images/$image_id?version=2025-06-29&generation=2" -H "Authorization: $iam_token"
+curl -X GET "$vpc_api_endpoint/v1/images/$image_id?version=2025-06-29&generation=2" -H "Authorization: Bearer $iam_token"
 ```
 {: pre}
 
@@ -126,7 +126,7 @@ curl -X GET "$vpc_api_endpoint/v1/images/$image_id?version=2025-06-29&generation
 The following example image is from a response to a request made using API version `2025-06-30` or later.  The image is owned by the requesting account, so it omits `remote.account` because the owning account is not remote.
 
 ```sh
-curl -X GET "$vpc_api_endpoint/v1/images/$image_id?version=2025-06-30&generation=2" -H "Authorization: $iam_token"
+curl -X GET "$vpc_api_endpoint/v1/images/$image_id?version=2025-06-30&generation=2" -H "Authorization: Bearer $iam_token"
 ```
 {: pre}
 
@@ -185,7 +185,7 @@ curl -X GET "$vpc_api_endpoint/v1/images/$image_id?version=2025-06-30&generation
 The following example image is from a response to a request made using API version `2025-06-29` or earlier.  The image is not owned by the requesting account, so it includes the `owner_type` property set to `provider`.
 
 ```sh
-curl -X GET "$vpc_api_endpoint/v1/images/$image_id?version=2025-06-29&generation=2" -H "Authorization: $iam_token"
+curl -X GET "$vpc_api_endpoint/v1/images/$image_id?version=2025-06-29&generation=2" -H "Authorization: Bearer $iam_token"
 ```
 {: pre}
 
@@ -242,7 +242,7 @@ curl -X GET "$vpc_api_endpoint/v1/images/$image_id?version=2025-06-29&generation
 The following example image is from a response to a request made using API version `2025-06-30` or later.  The image is not owned by the requesting account, so it includes the `remote.account` property with `remote.account.id` set to the account identifier of the image owner.
 
 ```sh
-curl -X GET "$vpc_api_endpoint/v1/images/$image_id?version=2025-06-30&generation=2" -H "Authorization: $iam_token"
+curl -X GET "$vpc_api_endpoint/v1/images/$image_id?version=2025-06-30&generation=2" -H "Authorization: Bearer $iam_token"
 ```
 {: pre}
 
@@ -307,7 +307,7 @@ curl -X GET "$vpc_api_endpoint/v1/images/$image_id?version=2025-06-30&generation
 The following example uses API version `2025-06-29` or earlier and query parameter `owner_type=user` to list images owned by the requesting account.
 
 ```sh
-curl -X GET "$vpc_api_endpoint/v1/images?version=2025-06-29&generation=2&owner_type=user" -H "Authorization: $iam_token"
+curl -X GET "$vpc_api_endpoint/v1/images?version=2025-06-29&generation=2&owner_type=user" -H "Authorization: Bearer $iam_token"
 ```
 {: pre}
 
@@ -375,7 +375,7 @@ The response includes only images with `owner_type` set to `user`:
 The following example uses API version `2025-06-30` or later and query parameter `remote.account.id=null` to list images owned by the requesting account.
 
 ```sh
-curl -X GET "$vpc_api_endpoint/v1/images?version=2025-06-30&generation=2&remote.account.id=null" -H "Authorization: $iam_token"
+curl -X GET "$vpc_api_endpoint/v1/images?version=2025-06-30&generation=2&remote.account.id=null" -H "Authorization: Bearer $iam_token"
 ```
 {: pre}
 
@@ -445,7 +445,7 @@ The response includes only images without `remote.account` set because the ownin
 The following example uses API version `2025-06-29` or earlier and query parameter `owner_type=provider` to list images not owned by the requesting account.
 
 ```sh
-curl -X GET "$vpc_api_endpoint/v1/images?version=2025-06-29&generation=2&owner_type=provider" -H "Authorization: $iam_token"
+curl -X GET "$vpc_api_endpoint/v1/images?version=2025-06-29&generation=2&owner_type=provider" -H "Authorization: Bearer $iam_token"
 ```
 {: pre}
 
@@ -513,7 +513,7 @@ The response includes only images with `owner_type` set to `provider`:
 The following example uses API version `2025-06-30` or later and query parameter `remote.account.id=not:null` to list images not owned by the requesting account.
 
 ```sh
-curl -X GET "$vpc_api_endpoint/v1/images?version=2025-06-30&generation=2&remote.account.id=not:null" -H "Authorization: $iam_token"
+curl -X GET "$vpc_api_endpoint/v1/images?version=2025-06-30&generation=2&remote.account.id=not:null" -H "Authorization: Bearer $iam_token"
 ```
 {: pre}
 

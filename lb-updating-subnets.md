@@ -1,8 +1,8 @@
 ---
 
 copyright:
-  years: 2022, 2025
-lastupdated: "2025-06-18"
+  years: 2022, 2026
+lastupdated: "2026-06-11"
 
 keywords: application load balancer, subnet, APIs, vpc network, update, detach, attach, etag
 
@@ -93,7 +93,7 @@ To update subnets for an application load balancer with the API, perform the fol
    {: pre}
 
    ```bash
-   curl -H "Authorization: $iam_token" -H "If-Match: $Etag" -X PATCH
+   curl -H "Authorization: Bearer $iam_token" -H "If-Match: $Etag" -X PATCH
    "$vpc_api_endpoint/v1/load_balancers/$lbId?version=$api_version&generation=2" \
       -d '{
                "subnets": [

@@ -2,7 +2,7 @@
 
 copyright:
   years: 2022, 2026
-lastupdated: "2026-04-16"
+lastupdated: "2026-06-11"
 
 keywords: VPC File Storage, file for VPC, NSF, replica, file share, replication, schedule
 
@@ -52,7 +52,7 @@ You can use the API to verify that the replication succeeded, is pending, or fai
 ```sh
 curl -X GET \
 "$vpc_api_endpoint/v1/shares/$share_id?version=2023-08-08&generation=2"\
--H "Authorization: $iam_token"
+-H "Authorization: Bearer $iam_token"
 ```
 {: pre}
 
@@ -258,7 +258,7 @@ Make a `DELETE /shares/{replica_id}/source` request to remove the replication re
 ```sh
 curl -X DELETE \
 "$vpc_api_endpoint/v1/shares/{replica_share_id}/source?version=2023-08-08&generation=2"\
--H "Authorization: $iam_token"\
+-H "Authorization: Bearer $iam_token"\
 ```
 {: pre}
 

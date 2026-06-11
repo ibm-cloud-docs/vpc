@@ -2,7 +2,7 @@
 
 copyright:
   years: 2022, 2026
-lastupdated: "2026-06-06"
+lastupdated: "2026-06-11"
 
 keywords: file share, file storage, source volume, replica share,
 
@@ -348,7 +348,7 @@ The following example creates the replica `test-replica-001` for the source shar
 ```sh
 curl -X POST\
 "$vpc_api_endpoint/v1/shares?version=2023-08-08&generation=2"\
--H "Authorization: $iam_token"\
+-H "Authorization: Bearer $iam_token"\
 -d '{
     "name": "source-share-001",
     "profile":{"name":"dp2"},

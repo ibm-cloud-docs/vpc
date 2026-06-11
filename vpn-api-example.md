@@ -1,8 +1,8 @@
 ---
 
 copyright:
-  years: 2019, 2025
-lastupdated: "2025-08-05"
+  years: 2019, 2026
+lastupdated: "2026-06-11"
 
 keywords: VPN, network, encryption, authentication, algorithm, IKE, IPsec, policies
 
@@ -54,7 +54,7 @@ The following command deploys the VPN gateway in the `Default` resource group.
 
 ```bash
 curl -X POST "$vpc_api_endpoint/v1/vpn_gateways?version=$api_version&generation=2" \
-    -H "Authorization: $iam_token" \
+    -H "Authorization: Bearer $iam_token" \
     -d '{
             "name": "vpn-gateway-1",
             "subnet": {
@@ -103,7 +103,7 @@ You can check the gateway's status with the following command:
 
 ```bash
 curl -X GET "$vpc_api_endpoint/v1/vpn_gateways/$gwid1?version=$api_version&generation=2" \
-     -H "Authorization: $iam_token"
+     -H "Authorization: Bearer $iam_token"
 ```
 {: codeblock}
 
@@ -129,7 +129,7 @@ make sure to update the variable `vpc_api_endpoint`. See the list of [API endpoi
 
 ```bash
 curl -X POST  "$vpc_api_endpoint/v1/vpn_gateways?version=$api_version&generation=2" \
-    -H "Authorization: $iam_token"  \
+    -H "Authorization: Bearer $iam_token"  \
     -d '{
             "name": "vpn-gateway-2",
             "subnet": {
@@ -179,7 +179,7 @@ You can check the gateway's status with the following command:
 
 ```bash
 curl -X GET "$vpc_api_endpoint/v1/vpn_gateways/$gwid2?version=$api_version&generation=2" \
-     -H "Authorization: $iam_token"
+     -H "Authorization: Bearer $iam_token"
 ```
 {: codeblock}
 
@@ -204,7 +204,7 @@ export Vpc2Subnets=<your_vpc2_subnets>
 
 ```bash
 curl -X POST "$vpc_api_endpoint/v1/vpn_gateways/$gwid1/connections?version=$api_version&generation=2" \
-        -H "Authorization: $iam_token"   \
+        -H "Authorization: Bearer $iam_token"   \
         -d '{
                 "name": "vpn-connection-to-vpn-gateway-2",
                 "peer_address": "'$gwaddress2'",
@@ -251,7 +251,7 @@ When you create the connection for the VPN gateway of VPC 2, set `local_cidrs` t
 
 ```bash
 curl -X POST "$vpc_api_endpoint/v1/vpn_gateways/$gwid2/connections?version=$api_version&generation=2" \
-        -H "Authorization: $iam_token" \
+        -H "Authorization: Bearer $iam_token" \
         -d '{
                 "name": "vpn-connection-to-vpn-gateway-1",
                 "peer_address": "'$gwaddress1'",
@@ -300,7 +300,7 @@ You can check the status of the VPN connection as follows:
 
 ```bash
 curl  -X GET "$vpc_api_endpoint/v1/vpn_gateways/$gwid1/connections?version=$api_version&generation=2" \
-      -H "Authorization: $iam_token"
+      -H "Authorization: Bearer $iam_token"
 ```
 {: codeblock}
 

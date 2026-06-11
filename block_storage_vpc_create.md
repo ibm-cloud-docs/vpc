@@ -2,7 +2,7 @@
 
 copyright:
   years: 2019, 2026
-lastupdated: "2026-05-11"
+lastupdated: "2026-06-11"
 
 keywords: vpc Block Storage, provision Block Storage for vpc, bootable snapshots, create volume from snapshot, fast restore
 
@@ -553,7 +553,7 @@ Valid volume names can include a combination of lowercase alpha-numeric characte
 This example specifies customer-managed encryption and user tags for the boot and data volumes.
 
 ```sh
-curl -X POST "$vpc_api_endpoint/v1/instances?version=2022-06-14&generation=2" -H "Authorization: $iam_token" -d '{
+curl -X POST "$vpc_api_endpoint/v1/instances?version=2022-06-14&generation=2" -H "Authorization: Bearer $iam_token" -d '{
   "boot_volume_attachment": {
     "volume": {
       "encryption_key": {"crn": "crn:[...]"},
@@ -724,7 +724,7 @@ In addition to capacity and IOPS, you can also specify custom throughput limit w
 
 ```sh
 curl -X POST "$vpc_api_endpoint/v1/instances?version=2024-09-24&generation=2"\
--H "Authorization: $iam_token" \
+-H "Authorization: Bearer $iam_token" \
 -d '{
   "boot_volume_attachment": {
     "volume": {
@@ -762,7 +762,7 @@ The following example created a `custom` volume with 50 MB capacity and 100 IOPS
 
 ```sh
 curl -X POST "$vpc_api_endpoint/v1/volumes?version=2022-06-14&generation=2" \
--H "Authorization: $iam_token" \
+-H "Authorization: Bearer $iam_token" \
 -d '{
       "name": "my-volume-4",
       "iops": 100,
@@ -816,7 +816,7 @@ When you use the `sdp` profile, you can create a data volume with custom capacit
 
 ```sh
 curl -X POST "$vpc_api_endpoint/v2/volumes?version=2024-09-27&generation=2" \
--H "Authorization: $iam_token" \
+-H "Authorization: Bearer $iam_token" \
 -d '{
       "name": "my-special-volume-1",
       "iops": 3000,

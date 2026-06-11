@@ -2,7 +2,7 @@
 
 copyright:
   years: 2020, 2026
-lastupdated: "2026-06-10"
+lastupdated: "2026-06-11"
 
 keywords: custom routes
 
@@ -107,7 +107,7 @@ To view the details of a routing table with the API, follow these steps:
 
    ```sh
    curl -X GET "$vpc_api_endpoint/v1/vpcs/$VpcId/routing_tables/$RoutingTableId?version=$api_version&generation=2" \
-        -H "Authorization: $iam_token"
+        -H "Authorization: Bearer $iam_token"
    ```
    {: codeblock}
 
@@ -116,7 +116,7 @@ To view the details of a routing table with the API, follow these steps:
    ```sh
    export SubnetId=<your_subnet_id>
    curl -X GET "$vpc_api_endpoint/v1/subnets/$SubnetId/routing_table?version=$api_version&generation=2" \
-        -H "Authorization: $iam_token"
+        -H "Authorization: Bearer $iam_token"
    ```
    {: codeblock}
 

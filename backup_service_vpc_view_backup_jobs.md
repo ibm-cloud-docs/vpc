@@ -2,7 +2,7 @@
 
 copyright:
   years: 2022, 2026
-lastupdated: "2026-04-28"
+lastupdated: "2026-06-11"
 
 keywords: Backup for VPC, backup service, backup plan, backup policy, restore, restore volume, restore data, view backup lists,
 
@@ -261,7 +261,7 @@ Make a `GET /backup_policies/{backup_policy_id}/jobs` request to list all backup
 ```sh
 curl -X GET\
 "$vpc_api_endpoint/v1/backup_policies/{backup_policy_id}/jobs?version=2022-06-22&generation=2"\
-   -H "Authorization: $iam_token"
+   -H "Authorization: Bearer $iam_token"
 ```
 {: codeblock}
 
@@ -338,7 +338,7 @@ Make a `GET /backup_policies/{backup_policy_id}/jobs/{backup_job_id}` request to
 ```sh
 curl -X GET\
 "$vpc_api_endpoint/v1/backup_policies/{backup_policy_id}/jobs{backup_job_id}?version=2022-06-22&generation=2"\
-   -H "Authorization: $iam_token"
+   -H "Authorization: Bearer $iam_token"
 ```
 {: codeblock}
 

@@ -2,7 +2,7 @@
 
 copyright:
   years: 2019, 2026
-lastupdated: "2026-03-23"
+lastupdated: "2026-06-11"
 
 keywords: Block Storage, IBM Cloud, VPC, virtual private cloud, Key Protect, encryption, key management, Hyper Protect Crypto Services, HPCS, volume, data storage, virtual server instance, instance, customer-managed encryption, Block Storage for vpc, customer-managed encryption,
 
@@ -181,7 +181,7 @@ The following example creates a general-purpose data volume with customer-manage
 ```sh
 curl -X POST \
 "$vpc_api_endpoint/v1/volumes?version=2025-02-18&generation=2" \
--H "Authorization: $iam_token" \
+-H "Authorization: Bearer $iam_token" \
 -d '{
       "name": "my-volume-1",
       "iops": 100,
@@ -306,7 +306,7 @@ The following example creates an instance with a boot volume with customer-manag
 ```sh
 curl -X POST \
  "$vpc_api_endpoint/v1/instances?version=version=2020-03-10&generation=2" \
- -H "Authorization: $iam_token" \
+ -H "Authorization: Bearer $iam_token" \
  -d '{
      "boot_volume_attachment":{
            "volume": {

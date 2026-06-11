@@ -1,8 +1,8 @@
 ---
 
 copyright:
-  years: 2019, 2025
-lastupdated: "2025-10-24"
+  years: 2019, 2026
+lastupdated: "2026-06-11"
 
 keywords: flow logs, activate, deactivate, suspend, resume
 
@@ -23,14 +23,14 @@ After you create a flow log collector, its default state is `Active`.
 {: #fl-managing-ui}
 {: ui}
 
-To suspend an `Active` flow log collector, click the Actions menu ![Actions menu](../icons/action-menu-icon.svg "Actions") and select **Suspend**. 
+To suspend an `Active` flow log collector, click the Actions menu ![Actions menu](../icons/action-menu-icon.svg "Actions") and select **Suspend**.
 
-Suspending the flow log stops the flow log from writing to the {{site.data.keyword.cos_full}} bucket.   
+Suspending the flow log stops the flow log from writing to the {{site.data.keyword.cos_full}} bucket.
 {: note}
 
-To resume a suspended flow log, select **Resume** from the Actions menu ![Actions menu](../icons/action-menu-icon.svg "Actions"). 
+To resume a suspended flow log, select **Resume** from the Actions menu ![Actions menu](../icons/action-menu-icon.svg "Actions").
 
-Alternatively, you can suspend and resume a flow log collector from the flow log's details page using the **Active**/**Inactive** switch. 
+Alternatively, you can suspend and resume a flow log collector from the flow log's details page using the **Active**/**Inactive** switch.
 {: tip}
 
 ## Suspending and resuming a flow log collector from the CLI
@@ -79,7 +79,7 @@ To suspend and resume flow log collectors by using the API, follow these steps:
       ```sh
       curl -s -X PATCH \
       "$vpc_api_endpoint/v1/flow_log_collectors/$FlowLogID01?version=$api_version&generation=2" \
-      -H "Authorization: $iam_token" \
+      -H "Authorization: Bearer $iam_token" \
       -d '{ "active": false }' | jq
       ```
       {: pre}
@@ -89,7 +89,7 @@ To suspend and resume flow log collectors by using the API, follow these steps:
       ```sh
       curl -s -X PATCH \
       "$vpc_api_endpoint/v1/flow_log_collectors/$FlowLogID01?version=$api_version&generation=2" \
-      -H "Authorization: $iam_token" \
+      -H "Authorization: Bearer $iam_token" \
       -d '{ "active": true }' | jq
       ```
       {: pre}

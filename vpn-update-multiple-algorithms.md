@@ -2,7 +2,7 @@
 
 copyright:
   years: 2026
-lastupdated: "2026-05-29"
+lastupdated: "2026-06-11"
 
 keywords: VPN, IKE policy, IPsec policy, multiple algorithms, migration, deprecated, authentication algorithms, encryption algorithms, dh groups
 
@@ -146,7 +146,7 @@ Property mixing restriction
 
    ```sh
       curl -X PATCH "$vpc_api_endpoint/v1/ike_policies/$ike_policy_id?version=$api_version&generation=2" \
-         -H "Authorization: $iam_token" \
+         -H "Authorization: Bearer $iam_token" \
          -d '{
            "authentication_algorithms": ["sha256", "sha384", "sha512"],
            "dh_groups": [14, 15, 16],
@@ -159,7 +159,7 @@ Property mixing restriction
 
    ```sh
       curl -X PATCH "$vpc_api_endpoint/v1/ike_policies/$ike_policy_id?version=$api_version&generation=2" \
-         -H "Authorization: $iam_token" \
+         -H "Authorization: Bearer $iam_token" \
          -d '{
            "authentication_algorithm": "sha512",
            "authentication_algorithms": ["sha256", "sha384", "sha512"],
@@ -176,7 +176,7 @@ GCM algorithm requirements and restrictions
 
    ```sh
       curl -X PATCH "$vpc_api_endpoint/v1/ipsec_policies/$ipsec_policy_id?version=$api_version&generation=2" \
-         -H "Authorization: $iam_token" \
+         -H "Authorization: Bearer $iam_token" \
          -d '{
            "authentication_algorithms": ["disabled"],
            "encryption_algorithms": ["aes256gcm16", "aes192gcm16"],
@@ -189,7 +189,7 @@ GCM algorithm requirements and restrictions
 
    ```sh
       curl -X PATCH "$vpc_api_endpoint/v1/ipsec_policies/$ipsec_policy_id?version=$api_version&generation=2" \
-         -H "Authorization: $iam_token" \
+         -H "Authorization: Bearer $iam_token" \
          -d '{
            "authentication_algorithms": ["sha256"],
            "encryption_algorithms": ["aes256gcm16", "aes192gcm16"],
@@ -206,7 +206,7 @@ GCM algorithm requirements and restrictions
 
    ```sh
       curl -X PATCH "$vpc_api_endpoint/v1/ipsec_policies/$ipsec_policy_id?version=$api_version&generation=2" \
-         -H "Authorization: $iam_token" \
+         -H "Authorization: Bearer $iam_token" \
          -d '{
            "authentication_algorithms": ["sha512", "sha256"],
            "encryption_algorithms": ["aes256", "aes128"],
@@ -219,7 +219,7 @@ GCM algorithm requirements and restrictions
 
    ```sh
       curl -X PATCH "$vpc_api_endpoint/v1/ipsec_policies/$ipsec_policy_id?version=$api_version&generation=2" \
-         -H "Authorization: $iam_token" \
+         -H "Authorization: Bearer $iam_token" \
          -d '{
            "authentication_algorithms": ["disabled"],
            "encryption_algorithms": ["aes256", "aes128"],
@@ -236,7 +236,7 @@ GCM algorithm requirements and restrictions
 
    ```sh
       curl -X PATCH "$vpc_api_endpoint/v1/ipsec_policies/$ipsec_policy_id?version=$api_version&generation=2" \
-         -H "Authorization: $iam_token" \
+         -H "Authorization: Bearer $iam_token" \
          -d '{
            "encryption_algorithms": ["aes128gcm16", "aes256", "aes128", "aes192gcm16"],
            "authentication_algorithms": ["sha512, sha256"],
@@ -253,7 +253,7 @@ GCM algorithm requirements and restrictions
 
    ```sh
       curl -X PATCH "$vpc_api_endpoint/v1/ipsec_policies/$ipsec_policy_id?version=$api_version&generation=2" \
-         -H "Authorization: $iam_token" \
+         -H "Authorization: Bearer $iam_token" \
          -d '{
            "encryption_algorithms": ["aes256", "aes128", "aes128gcm16", "aes192gcm16"],
            "authentication_algorithms": ["sha512, sha256"],
@@ -270,7 +270,7 @@ GCM algorithm requirements and restrictions
 
    ```sh
       curl -X PATCH "$vpc_api_endpoint/v1/ipsec_policies/$ipsec_policy_id?version=$api_version&generation=2" \
-         -H "Authorization: $iam_token" \
+         -H "Authorization: Bearer $iam_token" \
          -d '{
            "encryption_algorithms": ["aes128gcm16", "aes256", "aes128", "aes192gcm16"],
            "authentication_algorithms": ["sha512, sha256"],
@@ -338,7 +338,7 @@ To update an IKE policy with the API, follow these steps:
 
     ```sh
        curl -X PATCH "$vpc_api_endpoint/v1/ike_policies/$ike_policy_id?version=$api_version&generation=2" \
-         -H "Authorization: $iam_token" \
+         -H "Authorization: Bearer $iam_token" \
          -d '{
            "authentication_algorithms": ["sha256", "sha384", "sha512"],
            "dh_groups": [14, 15, 16],
@@ -538,7 +538,7 @@ To update an IPsec policy with the API, follow these steps:
 
     ```sh
        curl -X PATCH "$vpc_api_endpoint/v1/ipsec_policies/$ipsec_policy_id?version=$api_version&generation=2" \
-         -H "Authorization: $iam_token" \
+         -H "Authorization: Bearer $iam_token" \
          -d '{
            "authentication_algorithms": ["sha256", "sha384", "sha512"],
            "encryption_algorithms": ["aes128", "aes256"],

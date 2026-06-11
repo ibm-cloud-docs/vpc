@@ -2,7 +2,7 @@
 
 copyright:
   years: 2020, 2026
-lastupdated: "2026-03-30"
+lastupdated: "2026-06-11"
 
 keywords: network load balancer, public, listener, pool, round-robin
 
@@ -356,7 +356,7 @@ To create a network load balancer with the API, follow these steps:
 1. Create a load balancer with a listener, pool, and attached server instances (pool members).
 
    ```bash
-   curl -H "Authorization: $iam_token" -X POST
+   curl -H "Authorization: Bearer $iam_token" -X POST
    "$vpc_api_endpoint/v1/load_balancers?version=$api_version&generation=2" \
        -d '{
            "name": "example-balancer",
@@ -473,7 +473,7 @@ To create a network load balancer with the API, follow these steps:
 1. Get details about the load balancer.
 
    ```bash
-    curl -H "Authorization: $iam_token" -X GET "$vpc_api_endpoint/v1/load_balancers/$lbid?version=$api_version&generation=2"
+    curl -H "Authorization: Bearer $iam_token" -X GET "$vpc_api_endpoint/v1/load_balancers/$lbid?version=$api_version&generation=2"
    ```
    {: codeblock}
 

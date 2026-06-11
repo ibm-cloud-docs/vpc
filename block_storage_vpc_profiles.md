@@ -2,7 +2,7 @@
 
 copyright:
   years: 2019, 2026
-lastupdated: "2026-05-26"
+lastupdated: "2026-06-11"
 
 keywords: Block Storage profiles, Block Storage for VPC, IOPS tiers, custom IOPS, storage performance
 
@@ -216,7 +216,7 @@ To see the available profiles, make a `GET /volume/profiles` request.
 ```sh
 curl -X GET \
 $vpc_api_endpoint/v1/volume/profiles?$api_version&generation=2 \
--H "Authorization: $iam_token"
+-H "Authorization: Bearer $iam_token"
 ```
 {: pre}
 
@@ -251,7 +251,7 @@ The new profile is listed as `sdp`. To see details of this profile, make a `GET 
 
 ```sh
 curl -X GET "https://us-south.iaas.cloud.ibm.com/v1/volume/profiles/sdp?version=2024-09-24&generation=2"\
- -H "Authorization: $iam_token"
+ -H "Authorization: Bearer $iam_token"
 ```
 {: pre}
 

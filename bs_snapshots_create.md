@@ -1,8 +1,8 @@
 ---
 
 copyright:
-  years: 2021, 2025
-lastupdated: "2025-12-12"
+  years: 2021, 2026
+lastupdated: "2026-06-11"
 
 keywords: snapshots, Block Storage, snapshot clone, remote copy, fast restore, Block Storage snapshot, cross-regional snapshot
 
@@ -66,8 +66,8 @@ In the console, you can create a snapshot of a {{site.data.keyword.block_storage
    {: caption="Selections for creating a snapshot" caption-side="bottom"}
 
 3. Click **Create**. You're returned to the screen that you started from. Snapshot creation is asynchronous. The snapshot is created immediately, but it remains in the pending state until all of data is transferred to the regional storage repository. Messages are displayed while the snapshot is being created and when it's ready, the snapshot is displayed in the list of snapshots. For more information, see [View snapshot details in the console](/docs/vpc?topic=vpc-snapshots-vpc-view&interface=ui#snapshots-vpc-view-snapshot-ui).
-   
-If you're not ready to order yet or just looking for pricing information, you can add the information that you see in the side panel to an Estimate. For more information about how this feature works, see [Estimating your costs](/docs/account?topic=account-cost).    
+
+If you're not ready to order yet or just looking for pricing information, you can add the information that you see in the side panel to an Estimate. For more information about how this feature works, see [Estimating your costs](/docs/account?topic=account-cost).
 {: tip}
 
 ## Enabling fast restore snapshot clones in the console
@@ -253,7 +253,7 @@ The fast restore feature is billed at an extra hourly rate for each zone that it
 {: #snapshots-vpc-create-crcopy}
 {: cli}
 
-To create a copy of a snapshot in another region, run the `ibmcloud is snapshot-create` command with the `--source-snapshot-crn` option and the source snapshot CRN. 
+To create a copy of a snapshot in another region, run the `ibmcloud is snapshot-create` command with the `--source-snapshot-crn` option and the source snapshot CRN.
 
 If the source snapshot is not encrypted with a customer key, the encryption of the copy remains provider-managed. If the source snapshot is protected by a customer-managed key, you need to specify the customer-managed key that you want to use to encrypt the new copy. The source snapshot must be in Stable status for the copy to be created successfully.
 {: important}
@@ -267,39 +267,39 @@ ibmcloud is snapshot-create --name my-cli-snapshot-crc --source-snapshot-crn crn
 
 ```sh
 Creating snapshot my-cli-snapshot-crc under account Test Account as user test.user@ibm.com...
-                          
-ID                     r006-daefc524-2643-4444-a22d-7c38144cc529   
-Name                   my-cli-snapshot-crc   
-CRN                    crn:v1:bluemix:public:is:us-south:a/a1234567::snapshot:r006-daefc524-2643-4444-a22d-7c38144cc529   
-Status                 stable   
-Clones                 Zone   Available   Created      
-                          
-Source volume          ID                                          Name                   Remote Region   CRN                                                                                                                       Resource type      
-                       r014-26fce2ff-8177-47ce-8182-49d8aed33063   -remote-49d8aed33063   us-east         crn:v1:bluemix:public:is:us-east-1:a/a1234567::volume:r014-26fce2ff-8177-47ce-8182-49d8aed33063   volume      
-                          
-Backup policy plan     -   
-Snapshot Copies        -   
-Bootable               true   
-Encryption             provider_managed   
-Encryption key         -   
-Source Snapshot        ID                                          Name                   Remote Region   CRN                                                                                                                       Resource type      
-                       r014-14aae86e-f03d-4978-a4da-ab02e69bb2f9   my-bootable-snapshot   us-east         crn:v1:bluemix:public:is:us-east:a/a1234567::snapshot:r014-14aae86e-f03d-4978-a4da-ab02e69bb2f9   snapshot      
-                          
-Minimum capacity(GB)   100   
-Size(GB)               3   
-Source Image           ID                                          Name                   Remote Region   CRN                                                                                                                    Resource type      
-                       r014-da69503f-30d4-4f1d-b03f-1f4a7cd29214   -remote-1f4a7cd29214   us-east         crn:v1:bluemix:public:is:us-east:a/811f8abfbd32425597dc7ba40da98fa6::image:r014-da69503f-30d4-4f1d-b03f-1f4a7cd29214   image      
-                          
-Operating system       Name                    Vendor   Version   Family          Architecture   Display name      
-                       centos-stream-9-amd64   CentOS   9         CentOS Stream   amd64          CentOS Stream 9 - Minimal Install (amd64)      
-                          
-Resource group         ID                                 Name      
-                       6edefe513d934fdd872e78ee6a8e73ef   defaults      
-                          
-Created                2025-01-21T21:27:30+00:00   
-Captured at            2025-01-21T21:17:14+00:00   
-Tags                   -   
-Service Tags           -   
+
+ID                     r006-daefc524-2643-4444-a22d-7c38144cc529
+Name                   my-cli-snapshot-crc
+CRN                    crn:v1:bluemix:public:is:us-south:a/a1234567::snapshot:r006-daefc524-2643-4444-a22d-7c38144cc529
+Status                 stable
+Clones                 Zone   Available   Created
+
+Source volume          ID                                          Name                   Remote Region   CRN                                                                                                                       Resource type
+                       r014-26fce2ff-8177-47ce-8182-49d8aed33063   -remote-49d8aed33063   us-east         crn:v1:bluemix:public:is:us-east-1:a/a1234567::volume:r014-26fce2ff-8177-47ce-8182-49d8aed33063   volume
+
+Backup policy plan     -
+Snapshot Copies        -
+Bootable               true
+Encryption             provider_managed
+Encryption key         -
+Source Snapshot        ID                                          Name                   Remote Region   CRN                                                                                                                       Resource type
+                       r014-14aae86e-f03d-4978-a4da-ab02e69bb2f9   my-bootable-snapshot   us-east         crn:v1:bluemix:public:is:us-east:a/a1234567::snapshot:r014-14aae86e-f03d-4978-a4da-ab02e69bb2f9   snapshot
+
+Minimum capacity(GB)   100
+Size(GB)               3
+Source Image           ID                                          Name                   Remote Region   CRN                                                                                                                    Resource type
+                       r014-da69503f-30d4-4f1d-b03f-1f4a7cd29214   -remote-1f4a7cd29214   us-east         crn:v1:bluemix:public:is:us-east:a/811f8abfbd32425597dc7ba40da98fa6::image:r014-da69503f-30d4-4f1d-b03f-1f4a7cd29214   image
+
+Operating system       Name                    Vendor   Version   Family          Architecture   Display name
+                       centos-stream-9-amd64   CentOS   9         CentOS Stream   amd64          CentOS Stream 9 - Minimal Install (amd64)
+
+Resource group         ID                                 Name
+                       6edefe513d934fdd872e78ee6a8e73ef   defaults
+
+Created                2025-01-21T21:27:30+00:00
+Captured at            2025-01-21T21:17:14+00:00
+Tags                   -
+Service Tags           -
 ```
 {: codeblock}
 
@@ -329,7 +329,7 @@ To create a snapshot of a boot or data volume, make a `POST /snapshots`. The fol
 ```sh
 curl -X POST \
 "$vpc_api_endpoint/v1/snapshots?version=2025-02-18&generation=2" \
--H "Authorization: $iam_token" \
+-H "Authorization: Bearer $iam_token" \
 -d '{
       "name": "my-bootable-snapshot",
       "source_volume": {"id": "r014-26fce2ff-8177-47ce-8182-49d8aed33063"},
@@ -399,7 +399,7 @@ A successful response looks like the following example. The snapshot lifecycle s
 ## Creating a snapshot and a fast restore snapshot clone with the API
 {: #snapshots-vpc-create-snapshot-clone-api}
 {: api}
- 
+
 When you create a snapshot, you can also create a fast restore snapshot clone in another zone. By cloning a snapshot and keeping it in another zone, you can later use the fast restore feature to quickly provision a new volume with data from a snapshot. For more information, see [Snapshots fast restore feature](/docs/vpc?topic=vpc-snapshots-vpc-about&interface=api#snapshots_vpc_fast_restore).
 
 Make a `POST/snapshots` request to create a snapshot of a boot or data volume and specify the `clones` property. Indicate a different zone or zones in your region from the zone in which you're creating the snapshot. In the following example, a clone is created in us-south-2, specified by name.
@@ -407,7 +407,7 @@ Make a `POST/snapshots` request to create a snapshot of a boot or data volume an
 ```sh
 curl -X POST \
 "$vpc_api_endpoint/v1/snapshots?version=2022-12-18&generation=2" \
--H "Authorization: $iam_token" \
+-H "Authorization: Bearer $iam_token" \
 -d '{
     "clones": [{"zone": {"name": "us-south-2"}}],
     "name": "my-snapshot-1",
@@ -467,7 +467,7 @@ If the source snapshot is not encrypted with a customer key, the encryption of t
 ```sh
 curl -X POST \
 "$vpc_api_endpoint/v1/snapshots?version=2023-05-10&generation=2" \
--H "Authorization: $iam_token" \
+-H "Authorization: Bearer $iam_token" \
 -d '{
      "name": "my-api-snapshot-crc",    // required
      "source_snapshot": {      // required

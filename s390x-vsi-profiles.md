@@ -1,7 +1,7 @@
 ---
 copyright:
   years: 2022, 2026
-lastupdated: "2026-04-29"
+lastupdated: "2026-06-11"
 
 
 keywords: vsi, virtual server instances, profile, profiles, balanced, compute, memory, ultra high memory, storage optimized
@@ -255,7 +255,7 @@ The following request example lists the available instance profiles. When you ca
 ```curl
 curl -X GET \
 "$vpc_api_endpoint/v1/instance/profiles?version=2021-02-23&generation=2" \
--H "Authorization: $iam_token"
+-H "Authorization: Bearer $iam_token"
 ```
 {: codeblock}
 

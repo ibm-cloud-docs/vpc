@@ -2,7 +2,7 @@
 
 copyright:
   years: 2020, 2026
-lastupdated: "2026-02-20"
+lastupdated: "2026-06-11"
 
 keywords: dedicated host, dedicated host group
 
@@ -262,7 +262,7 @@ The following request example creates a dedicated host in a specific group.
 ```sh
 curl -X POST \
 "$vpc_api_endpoint/v1/dedicated_hosts?version=2020-11-17&generation=2" \
--H "Authorization: $iam_token" \
+-H "Authorization: Bearer $iam_token" \
 -d '{
       "name": "my-host",
       "group": {

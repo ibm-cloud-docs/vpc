@@ -2,7 +2,7 @@
 
 copyright:
   years: 2022, 2026
-lastupdated: "2026-05-13"
+lastupdated: "2026-06-11"
 
 keywords: Backup, backup snapshot, create backups, backup service, backup plan, backup policy, restore, restore volume, restore data, restore share
 
@@ -653,7 +653,7 @@ Make a `POST /backup_policies` request to create a backup policy. The value of `
 
 ```sh
 curl -X POST "$vpc_api_endpoint/v1/backup_policies?version=2022-04-19&generation=2"\
-   -H "Authorization: $iam_token"\
+   -H "Authorization: Bearer $iam_token"\
    -d '{
       "match_resource_type": "volume",
       "match_user_tags": "my-daily-backup-policy",
@@ -715,7 +715,7 @@ Make a `POST /backup_policies` request to create a backup policy. The value of `
 
 ```sh
 curl -X POST "$vpc_api_endpoint/v1/backup_policies?version=2023-08-12&generation=2"
--H "accept: application/json" -H "Content-Type: application/json" -H "Authorization: $iam_token"\
+-H "accept: application/json" -H "Content-Type: application/json" -H "Authorization: Bearer $iam_token"\
 -d "{
   {
       "match_resource_type": "volume",
@@ -795,7 +795,7 @@ Make a `POST /backup_policies` request to create a backup policy. The value of `
 
 ```sh
 curl -X POST "$vpc_api_endpoint/v1/backup_policies?version=2023-12-05&generation=2"\
-   -H "Authorization: $iam_token"\
+   -H "Authorization: Bearer $iam_token"\
    -d '{
       "match_resource_type": "instance",
       "included_content": "data_volumes",
@@ -862,7 +862,7 @@ The following example is of a backup policy that creates snapshots of a mult-vol
 
 ```sh
 curl -X POST "$vpc_api_endpoint/v1/backup_policies?version=2023-12-05&generation=2"\
-   -H "Authorization: $iam_token"\
+   -H "Authorization: Bearer $iam_token"\
    -d '{
       "match_resource_type": "instance",
       "included_content": ["data_volumes","boot_volume"]
@@ -936,7 +936,7 @@ Make a `POST /backup_policies` request to create a backup policy. The value of `
 
 ```sh
 curl -X POST "$vpc_api_endpoint/v1/backup_policies?version=2024-12-10&generation=2"\
-   -H "Authorization: $iam_token"\
+   -H "Authorization: Bearer $iam_token"\
    -d '{
       "match_resource_type": "share",
       "match_user_tags": "my-daily-backup-policy",
@@ -967,7 +967,7 @@ You can programmatically create a backup plan for an existing ID by calling the 
 
 ```sh
 curl -X POST "$vpc_api_endpoint/v1/backup_policies/8758bd18-344b-486a-b606-5b8cb8cdd044/plans?version=2022-04-19&generation=2"\
-   -H "Authorization: $iam_token"\
+   -H "Authorization: Bearer $iam_token"\
    -d '{
      "attach_user_tags": ["my-daily-backup-plan"],
      "copy_user_tags": true,
@@ -1008,7 +1008,7 @@ The following example creates a backup plan for an existing policy that includes
 
 ```sh
 curl -X POST "$vpc_api_endpoint/v1/backup_policies/8758bd18-344b-486a-b606-5b8cb8cdd044/plans?version=2022-12-09&generation=2"\
-   -H "Authorization: $iam_token"\
+   -H "Authorization: Bearer $iam_token"\
    -d '{
         "active": true,
         "attach_user_tags": ["hourly-backups"],
@@ -1075,7 +1075,7 @@ The following example creates a backup policy in the `us-south` region with a co
 
 ```sh
 curl -X POST "$vpc_api_endpoint/v1/backup_policies/8758bd18-344b-486a-b606-5b8cb8cdd044/plans?version=2023-05-09&generation=2"\
-   -H "Authorization: $iam_token"\
+   -H "Authorization: Bearer $iam_token"\
    -d '{
         "active": true,
         "attach_user_tags": ["hourly-backups"],

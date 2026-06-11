@@ -1,8 +1,8 @@
 ---
 
 copyright:
-  years: 2020, 2025
-lastupdated: "2025-12-29"
+  years: 2020, 2026
+lastupdated: "2026-06-11"
 
 keywords:
 
@@ -71,7 +71,7 @@ To list flow log collectors by using the API, follow these steps:
 
 ```curl
 curl -sS -X GET \
-  -H "Authorization: $iam_token" \
+  -H "Authorization: Bearer $iam_token" \
   "$vpc_api_endpoint/v1/flow_log_collectors?version=$api_version&generation=2" | jq
 ```
 {: pre}

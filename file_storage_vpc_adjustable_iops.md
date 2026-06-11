@@ -2,7 +2,7 @@
 
 copyright:
   years: 2022, 2026
-lastupdated: "2026-05-06"
+lastupdated: "2026-06-11"
 
 keywords: file share, file storage, IOPS, performance needs, adjust IOPS
 
@@ -280,7 +280,7 @@ The following example shows an increase of 100 IOPS to 3,000 IOPS for a 100 GB f
 ```sh
 curl -X PATCH \
  "$vpc_api_endpoint/v1/shares/$share_id?version=2023-08-086&generation=2" \
- -H "Authorization: $iam_token" \
+ -H "Authorization: Bearer $iam_token" \
  -d '{
       "iops": 3000
     }'
@@ -378,7 +378,7 @@ The following example changes a 3 IOPS/GB profile to a 5 IOPS/GB profile. In thi
 ```sh
 curl -X PATCH \
  "$vpc_api_endpoint/v1/shares/$share_id?version=2023-07-18&generation=2" \
- -H "Authorization: $iam_token" \
+ -H "Authorization: Bearer $iam_token" \
  -d '{
       "profile": "5iops-tier"
     }'

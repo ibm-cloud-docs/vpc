@@ -2,7 +2,7 @@
 
 copyright:
   years: 2020, 2026
-lastupdated: "2026-05-19"
+lastupdated: "2026-06-11"
 
 keywords: Block Storage, boot volume, data volume, volume, data storage, virtual server instance, instance, expandable volume
 
@@ -218,7 +218,7 @@ This example call expands a volume with a capacity of 50 GB to 250 GB.
 ```sh
 curl -X PATCH \
  "$vpc_api_endpoint/v1/volumes/$volume_id?version=2022-02-25&generation=2" \
- -H "Authorization: $iam_token" \
+ -H "Authorization: Bearer $iam_token" \
  -d '{
       "capacity": 250
     }'
@@ -364,7 +364,7 @@ The following example creates a virtual server instance from an image, with a bo
 
 ```sh
 curl -X POST "$vpc_api_endpoint/v1/instances?version=2022-02-01&generation=2"\
--H "Authorization: $iam_token"\
+-H "Authorization: Bearer $iam_token"\
 -d '{
       "boot_volume_attachment": {
          "volume": {
@@ -395,7 +395,7 @@ For example, this call increases the capacity of a boot volume to 250 GB.
 
 ```sh
 curl -X PATCH "$vpc_api_endpoint/v1/volumes/$volume_id/?version=2022-02-12&generation=2"\
--H "Authorization: $iam_token" \
+-H "Authorization: Bearer $iam_token" \
 -d '{
       "capacity": 250,
    }'

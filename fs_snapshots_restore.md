@@ -2,7 +2,7 @@
 
 copyright:
   years: 2024, 2026
-lastupdated: "2026-03-26"
+lastupdated: "2026-06-11"
 
 keywords:
 
@@ -212,7 +212,7 @@ The following example request creates a 100-GB share that is based on the source
 ```sh
 curl -X POST \
 "$vpc_api_endpoint/v1/shares/?version=2024-12-10&generation=2" \
--H "Authorization: $iam_token" \
+-H "Authorization: Bearer $iam_token" \
 -H "Content-Type: application/json" \
 -d '{
      "name": "my-share-from-snapshot",

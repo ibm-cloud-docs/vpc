@@ -2,7 +2,7 @@
 
 copyright:
   years: 2019, 2026
-lastupdated: "2026-06-09"
+lastupdated: "2026-06-11"
 
 keywords: view instance details, restart virtual server, stop, details, delete
 
@@ -79,7 +79,7 @@ You can rename the virtual server instance in your {{site.data.keyword.vpc_short
 The following example renames a virtual server instance from `name` to `my-instance`.
 
    ```sh
-   curl -X PATCH "$vpc_api_endpoint/v1/instances/$instance_id?version=2021-06-29&generation=2" -H "Authorization: $iam_token" -d '{"name": "my-instance"}'
+   curl -X PATCH "$vpc_api_endpoint/v1/instances/$instance_id?version=2021-06-29&generation=2" -H "Authorization: Bearer $iam_token" -d '{"name": "my-instance"}'
    ```
    {: pre}
 
@@ -159,7 +159,7 @@ You can stop the virtual server instance in your {{site.data.keyword.vpc_short}}
 The following example stops a virtual server instance with an instance ID of `d6c3902d-1ecf-3a2c-b7ab-eb9143581000`.
 
 ```sh
-curl -X POST "https://us-south.iaas.cloud.ibm.com/v1/instances/d6c3902d-1ecf-3a2c-b7ab-eb9143581000/actions?version=2021-06-22&generation=2" -H "Authorization: $iam_token" -d '{"type": "stop"}'
+curl -X POST "https://us-south.iaas.cloud.ibm.com/v1/instances/d6c3902d-1ecf-3a2c-b7ab-eb9143581000/actions?version=2021-06-22&generation=2" -H "Authorization: Bearer $iam_token" -d '{"type": "stop"}'
 ```
 {: pre}
 
@@ -179,7 +179,7 @@ You can start a virtual server instance that is stopped in your {{site.data.keyw
 The following example stops a virtual server instance with an instance ID of `d6c3902d-1ecf-3a2c-b7ab-eb9143581000`.
 
 ```sh
-curl -X POST "https://us-south.iaas.cloud.ibm.com/v1/instances/d6c3902d-1ecf-3a2c-b7ab-eb9143581000/actions?version=2021-06-22&generation=2" -H "Authorization: $iam_token" -d '{"type": "start"}'
+curl -X POST "https://us-south.iaas.cloud.ibm.com/v1/instances/d6c3902d-1ecf-3a2c-b7ab-eb9143581000/actions?version=2021-06-22&generation=2" -H "Authorization: Bearer $iam_token" -d '{"type": "start"}'
 ```
 {: pre}
 
@@ -267,7 +267,7 @@ For a full list of command options, see [ibmcloud is instance-reboot](/docs/vpc?
 You can reboot the virtual server instance in your {{site.data.keyword.vpc_short}} by using the API. The following example reboots the specified virtual server.
 
 ```sh
-curl -X POST "https://us-south.iaas.cloud.ibm.com/v1/instances/d6c3902d-1ecf-3a2c-b7ab-eb9143581000/actions?version=2021-06-22&generation=2" -H "Authorization: $iam_token" -d '{"type": "reboot"}'
+curl -X POST "https://us-south.iaas.cloud.ibm.com/v1/instances/d6c3902d-1ecf-3a2c-b7ab-eb9143581000/actions?version=2021-06-22&generation=2" -H "Authorization: Bearer $iam_token" -d '{"type": "reboot"}'
 ```
 {: pre}
 
@@ -371,7 +371,7 @@ If the instance has a floating IP address, it must be unassociated or released b
 The following example deletes an instance.
 
 ```sh
-curl -X DELETE "$vpc_api_endpoint/v1/instances/$instance_id?version=2021-06-22&generation=2" -H "Authorization: $iam_token"
+curl -X DELETE "$vpc_api_endpoint/v1/instances/$instance_id?version=2021-06-22&generation=2" -H "Authorization: Bearer $iam_token"
 ```
 {: pre}
 
@@ -439,7 +439,7 @@ You can view the virtual server instance details in your {{site.data.keyword.vpc
 The following example displays the virtual server instance details for an instance profile with a profile name of `version=2021-06-22&generation=2`.
 
 ```sh
-curl -X GET "https://us-south.iaas.cloud.ibm.com/v1/instance/profiles/$profile_name?version=2021-06-22&generation=2" -H "Authorization: $iam_token"
+curl -X GET "https://us-south.iaas.cloud.ibm.com/v1/instance/profiles/$profile_name?version=2021-06-22&generation=2" -H "Authorization: Bearer $iam_token"
 ```
 {: pre}
 
@@ -501,7 +501,7 @@ You can adjust the total storage bandwidth for an existing instance with the API
 
 ```sh
 curl -X PATCH "$vpc_api_endpoint/v1/instances/$instance_id?version=2021-06-22&generation=2" \
-  -H "Authorization: $iam_token" \
+  -H "Authorization: Bearer $iam_token" \
   -d '{
       "total_volume_bandwidth": 500
       }'
@@ -553,7 +553,7 @@ The following example request enables dynamic bandwidth allocation for data volu
 
 ```sh
 curl -X PATCH "$vpc_api_endpoint/v1/instances/$instance_id?version=2024-07-11&generation=2" \
-  -H "Authorization: $iam_token" \
+  -H "Authorization: Bearer $iam_token" \
   -d '{
       "storage_qos_mode": "pooled"
       }'
@@ -564,7 +564,7 @@ The following example request reverts the storage QoS mode back to weighted.
 
 ```sh
 curl -X PATCH "$vpc_api_endpoint/v1/instances/$instance_id?version=2024-07-11&generation=2" \
-  -H "Authorization: $iam_token" \
+  -H "Authorization: Bearer $iam_token" \
   -d '{
       "storage_qos_mode": "weighted"
       }'

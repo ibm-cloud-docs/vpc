@@ -2,7 +2,7 @@
 
 copyright:
   years: 2021, 2026
-lastupdated: "2026-06-03"
+lastupdated: "2026-06-11"
 
 keywords: creating bare metal servers
 
@@ -121,7 +121,7 @@ After you have all the information, use the [Create bare metal server](/apidocs/
    The API request is similar to:
    ```sh
    curl -X POST "$vpc_api_endpoint/v1/bare_metal_servers?version=2021-03-09&generation=2" \
-   -H "Authorization: $iam_token" \
+   -H "Authorization: Bearer $iam_token" \
    -d '{
        "initialization": {
            "image": {
@@ -330,7 +330,7 @@ When the server status changes to "Running", use the following request to view i
 
 ```sh
 curl -X GET "$vpc_api_endpoint/v1/bare_metal_servers/$bare_metal_server_id?version=2021-03-09&generation=2" \
--H "Authorization: $iam_token"
+-H "Authorization: Bearer $iam_token"
 ```
 {: pre}
 

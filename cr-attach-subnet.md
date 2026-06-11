@@ -2,7 +2,7 @@
 
 copyright:
   years: 2020, 2026
-lastupdated: "2026-06-10"
+lastupdated: "2026-06-11"
 
 keywords: custom routes
 
@@ -81,7 +81,7 @@ To attach subnets to a routing table with the API, follow these steps:
 
     ```sh
     curl -X PUT "$vpc_api_endpoint/v1/subnets/$subnet_id/routing_table?version=$api_version&generation=2"
-    -H "Authorization: $iam_token"
+    -H "Authorization: Bearer $iam_token"
     -d '{
       "id": "37491549-51c0-4acc-9e7b-9ab3628e1a68"
         }'

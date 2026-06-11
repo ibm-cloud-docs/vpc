@@ -2,7 +2,7 @@
 
 copyright:
   years: 2021, 2026
-lastupdated: "2026-01-22"
+lastupdated: "2026-06-11"
 
 keywords: upgrading VPN, VPN server types
 
@@ -156,7 +156,7 @@ To upgrade to an HA VPN server with the API, follow these steps:
 
    ```sh
       curl -X PATCH "$vpc_api_endpoint/v1/vpn_servers/$VpnServer?version=$api_version&generation=2" \
-        -H "Authorization: $iam_token" \
+        -H "Authorization: Bearer $iam_token" \
         -H "If-Match: $ETag" \
         -d '{
            "subnets": [

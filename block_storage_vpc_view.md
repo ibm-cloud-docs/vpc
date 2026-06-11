@@ -2,7 +2,7 @@
 
 copyright:
   years: 2019, 2026
-lastupdated: "2026-03-26"
+lastupdated: "2026-06-11"
 
 keywords:
 
@@ -307,7 +307,7 @@ Make a `GET /volumes` call to list summary information about all volumes. See th
 
 ```sh
 curl -X GET "$vpc_api_endpoint/v1/volumes?version=2025-01-212&generation=2" \
--H "Authorization: $iam_token"
+-H "Authorization: Bearer $iam_token"
 ```
 {: pre}
 
@@ -491,7 +491,7 @@ Make a `GET /volumes/{id}` call to see details of a volume. See the following ex
 
 ```sh
 curl -X GET "$vpc_api_endpoint/v1/volumes/$volume_id?version=2025-01-21&generation=2" \
--H "Authorization: $iam_token"
+-H "Authorization: Bearer $iam_token"
 ```
 {: pre}
 

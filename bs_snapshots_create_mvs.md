@@ -2,7 +2,7 @@
 
 copyright:
   years: 2022, 2026
-lastupdated: "2026-05-07"
+lastupdated: "2026-06-11"
 
 keywords: consistency groups, Block Storage snapshots, multi-volume snapshot, instance snapshot,
 
@@ -123,7 +123,7 @@ You can programmatically create a consistency group by calling the `/snapshot_co
 ```sh
 curl -X POST \
 "$vpc_api_endpoint/v1/snapshot_consistency_groups?version=2023-12-05&generation=2"\
- -H "Authorization: $iam_token" \
+ -H "Authorization: Bearer $iam_token" \
  -d '{
    "delete_snapshots_on_delete":true,
    "name": "my-snapshot-consistency-group",

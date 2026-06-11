@@ -2,7 +2,7 @@
 
 copyright:
   years: 2020, 2026
-lastupdated: "2026-06-10"
+lastupdated: "2026-06-11"
 
 keywords: custom routes
 
@@ -164,7 +164,7 @@ To create a routing table with the API, follow these steps:
 
     ```sh
        curl -X POST "$vpc_api_endpoint/v1/vpcs/$VpcId/routing_tables?version=$api_version&generation=2" \
-       -H "Authorization: $iam_token" \
+       -H "Authorization: Bearer $iam_token" \
        -d '{
              "name": "my-ingress-routing-table",
              "route_direct_link_ingress": true

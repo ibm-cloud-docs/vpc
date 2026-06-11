@@ -2,7 +2,7 @@
 
 copyright:
   years: 2022, 2026
-lastupdated: "2026-04-28"
+lastupdated: "2026-06-11"
 
 keywords: Backup, backup service, backup plan, backup policy, restore, restore volume, restore data
 
@@ -511,7 +511,7 @@ You can programmatically retrieve the details of a backup policy by calling the 
 ```sh
 curl -X GET\
 "$vpc_api_endpoint/v1/backup_policies/r006-076191ba-49c2-4763-94fd-c70de73ee2e6?version=2023-09-26&generation=2"\
-   -H "Authorization: $iam_token"
+   -H "Authorization: Bearer $iam_token"
 ```
 {: codeblock}
 
@@ -564,7 +564,7 @@ The following example shows the details of a backup policy that creates backups 
 ```sh
 curl -X GET\
 "$vpc_api_endpoint/v1/backup_policies/r006-5f45c186-d710-41ed-a4bc-e924a79e47bb?version=2023-12-05&generation=2"\
-   -H "Authorization: $iam_token"
+   -H "Authorization: Bearer $iam_token"
 ```
 {: codeblock}
 
@@ -618,7 +618,7 @@ You can programmatically list the plans of a backup policy by calling the `/back
 ```sh
 curl -X GET\
 "$vpc_api_endpoint/v1/backup_policies/fb721535-2cc6-45d6-ade7-3ceb95b7f26f/plans?version=2022-12-16&generation=2"\
-   -H "Authorization: $iam_token"
+   -H "Authorization: Bearer $iam_token"
 ```
 {: codeblock}
 
@@ -672,7 +672,7 @@ See the following example.
 ```sh
 curl -X GET\
 "$vpc_api_endpoint/v1/backup_policies/fb721535-2cc6-45d6-ade7-3ceb95b7f26f/plan/4d58eb08-d950-498b-8175-b4d617b6ba6a?version=2023-08-29&generation=2"
-   -H "Authorization: $iam_token"
+   -H "Authorization: Bearer $iam_token"
 ```
 {: codeblock}
 
@@ -711,7 +711,7 @@ See the following example.
 ```sh
 curl -X GET\
 "$vpc_api_endpoint/v1/backup_policies/fb721535-2cc6-45d6-ade7-3ceb95b7f26f/plan/4d58eb08-d950-498b-8175-b4d617b6ba6a?version=2023-05-09&generation=2"\
-   -H "Authorization: $iam_token"
+   -H "Authorization: Bearer $iam_token"
 ```
 {: codeblock}
 

@@ -2,7 +2,7 @@
 
 copyright:
   years: 2022, 2026
-lastupdated: "2026-05-06"
+lastupdated: "2026-06-11"
 
 keywords: file share, file storage, increase capacity, expand capacity, expand share size, file share size
 
@@ -222,7 +222,7 @@ This request example expands a file share with a capacity of 50 GB to 2500 GB fo
 ```sh
 curl -X PATCH \
  "$vpc_api_endpoint/v1/shares/$share_id?version=2023-08-08&generation=2" \
- -H "Authorization: $iam_token" \
+ -H "Authorization: Bearer $iam_token" \
  -d '{
       "size": 2500
     }'

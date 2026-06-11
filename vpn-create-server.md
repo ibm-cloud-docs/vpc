@@ -2,7 +2,7 @@
 
 copyright:
   years: 2021, 2026
-lastupdated: "2026-04-01"
+lastupdated: "2026-06-11"
 
 keywords:
 
@@ -216,7 +216,7 @@ To create a client-to-site VPN server with the API, follow these steps:
 
    ```sh
       curl -X POST "$vpc_api_endpoint/v1/vpn_servers?version=$api_version&generation=2" \
-        -H "Authorization: $iam_token" \
+        -H "Authorization: Bearer $iam_token" \
         -d '{
            "certificate": {
                "crn": "crn:v1:bluemix:public:cloudcerts:us-south:a/aa5a471f75bc456fac416bf02c4ba6de:1862b0b4-c1f8-4eef-a6b5-e9c00c9f593d:certificate:6c801ef768c139d986b4c6f91175e8cc"

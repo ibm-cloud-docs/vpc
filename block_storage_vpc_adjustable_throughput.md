@@ -1,8 +1,8 @@
 ---
 
 copyright:
-  years: 2025
-lastupdated: "2025-09-23"
+  years: 2025, 2026
+lastupdated: "2026-06-11"
 
 keywords: Block Storage for VPC, boot volume, data volume, volume, data storage, virtual server instance, instance, adjustable volume, throughput, bandwidth
 
@@ -115,7 +115,7 @@ This example shows an increase of 1000 Mbps to 3,000 Mbps. The throughput range 
 ```sh
 curl -X PATCH \
  "$vpc_api_endpoint/v1/volumes/$volume_id?version=2025-03-25&generation=2" \
- -H "Authorization: $iam_token" \
+ -H "Authorization: Bearer $iam_token" \
  -d '{
       "bandwidth": 3000
     }'

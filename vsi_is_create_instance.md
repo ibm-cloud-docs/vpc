@@ -2,7 +2,7 @@
 
 copyright:
   years: 2018, 2026
-lastupdated: "2026-06-04"
+lastupdated: "2026-06-11"
 
 keywords:
 
@@ -1202,7 +1202,7 @@ In the `POST /instances` request, specify the `boot_volume_attachment` property 
 ```sh
 curl -X POST \
 "$vpc_api_endpoint/v1/instances?version=2023-03-07&generation=2" \
--H "Authorization: $iam_token" \
+-H "Authorization: Bearer $iam_token" \
 -H "Content-Type: application/json" \
 -d '{
       "boot_volume_attachment": {
@@ -1233,7 +1233,7 @@ Select [compute profiles](/docs/vpc?group=profile-details) support pooled bandwi
 
 ```sh
 curl -X POST "$vpc_api_endpoint/v1/instances?version=2024-07-12&generation=2" \
--H "Authorization: $iam_token" \
+-H "Authorization: Bearer $iam_token" \
 -H "Content-Type: application/json" \
 -d '{
   "zone": {"name": "us-south-2"},

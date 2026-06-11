@@ -1,8 +1,8 @@
 ---
 
 copyright:
-  years: 2022, 2025
-lastupdated: "2025-11-13"
+  years: 2022, 2026
+lastupdated: "2026-06-11"
 
 keywords: load balancer, public, listener, back-end, front-end, pool, round-robin, weighted, connections, methods, policies, APIs, access, ports
 
@@ -319,7 +319,7 @@ To create a Private Path NLB with the API, follow these steps:
 1. Create a Private Path NLB with a listener, pool, and attached server instances (pool members):
 
    ```bash
-   curl -H "Authorization: $iam_token" -X POST
+   curl -H "Authorization: Bearer $iam_token" -X POST
    "$vpc_api_endpoint/v1/load_balancers?version=$api_version&generation=2" \
        -d '{
         "is_public": false,
@@ -471,7 +471,7 @@ To create a Private Path NLB with the API, follow these steps:
 1. Get details about the Private Path load balancer:
 
    ```bash
-    curl -H "Authorization: $iam_token" -X GET "$vpc_api_endpoint/v1/load_balancers/$lbid?version=$api_version&generation=2"
+    curl -H "Authorization: Bearer $iam_token" -X GET "$vpc_api_endpoint/v1/load_balancers/$lbid?version=$api_version&generation=2"
    ```
    {: codeblock}
 

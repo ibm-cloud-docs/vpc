@@ -1,8 +1,8 @@
 ---
 
 copyright:
-  years: 2021, 2025
-lastupdated: "2025-12-26"
+  years: 2021, 2026
+lastupdated: "2026-06-11"
 
 keywords:
 
@@ -202,7 +202,7 @@ To create a VPN route on the VPN server with the API, follow these steps:
 
    ```sh
       curl -X POST "$vpc_api_endpoint/v1/vpn_servers/$vpn_server_id/routes?version=$api_version&generation=2" \
-        -H "Authorization: $iam_token" \
+        -H "Authorization: Bearer $iam_token" \
         -d '{
            "name":"my-route-1",
             "destination": "10.10.10.0/24",
@@ -223,7 +223,7 @@ To update a route on the VPN server with the API, follow these steps:
 
    ```sh
       curl -X PUT "$vpc_api_endpoint/v1/vpn_servers/$vpn_server_id/routes/$route_id?version=$api_version&generation=2" \
-        -H "Authorization: $iam_token" \
+        -H "Authorization: Bearer $iam_token" \
         -d '{
            "name":"new-route-name"
          }'
@@ -242,7 +242,7 @@ To view a route on a VPN server with the API, follow these steps:
 
    ```sh
    curl -sS -X GET \
-   -H "Authorization: $iam_token" \
+   -H "Authorization: Bearer $iam_token" \
    "$vpc_api_endpoint/v1/vpn_servers/$vpn_server_id/routes?version=$api_version&generation=2" | jq
    ```
    {: codeblock}
@@ -254,7 +254,7 @@ To view a route on a VPN server with the API, follow these steps:
 
    ```sh
    curl -sS -X GET \
-   -H "Authorization: $iam_token" \
+   -H "Authorization: Bearer $iam_token" \
    "$vpc_api_endpoint/v1/vpn_servers/$vpn_server_id/routes/$route_id?version=$api_version&generation=2" | jq
    ```
    {: codeblock}
@@ -271,7 +271,7 @@ To delete a route on a VPN server with the API, follow these steps:
 
    ```sh
    curl -sS -X DELETE \
-   -H "Authorization: $iam_token" \
+   -H "Authorization: Bearer $iam_token" \
    "$vpc_api_endpoint/v1/vpn_servers/$vpn_server_id/routes/$route_id?version=$api_version&generation=2"
    ```
    {: codeblock}

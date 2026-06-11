@@ -2,7 +2,7 @@
 
 copyright:
   years: 2024, 2026
-lastupdated: "2026-03-26"
+lastupdated: "2026-06-11"
 
 keywords: snapshots, File Storage, File Storage snapshot
 
@@ -67,7 +67,7 @@ This command returns a URL and prompts for a passcode. Go to that URL in your br
 
 Before you start, gather the following information:
 
-- A unique name for the snapshot. Share snapshot name must be unique at the share level. For suggestions about how to name your snapshots, see [Naming snapshots](/docs/vpc?topic=vpc-fs-snapshots-planning#fs-snapshots-naming). 
+- A unique name for the snapshot. Share snapshot name must be unique at the share level. For suggestions about how to name your snapshots, see [Naming snapshots](/docs/vpc?topic=vpc-fs-snapshots-planning#fs-snapshots-naming).
 - The name or ID of the source share.
 - Any tags that you want to attach to the snapshot.
 
@@ -102,8 +102,8 @@ Name                   my-first-share-snapshot
 Fingerprint            7abc3aef-c2bc-4f65-a296-2928e534d498
 Backup Policy Plan     -
 Lifecycle state        pending
-LifeCycle Reasons      Code   Message   More Info      
-                       -      -         
+LifeCycle Reasons      Code   Message   More Info
+                       -      -
 Status                 pending
 Created at             2024-12-18T20:15:43+00:00
 Captured at            -
@@ -125,7 +125,7 @@ Resource type          share_snapshot
 
 The status shows `pending` while the snapshot is created. If you want to, you can issue a second `ibmcloud is share-snapshot` command with the share ID and snapshot ID to see the new snapshot in `stable` status.
 
-For snapshots of regional file shares, the zone value is blank in both the CLI and API responses. 
+For snapshots of regional file shares, the zone value is blank in both the CLI and API responses.
 {: preview}
 
 For more information about available command options, see [`ibmcloud is share-snapshot-create`](/docs/cli?topic=cli-vpc-reference#share-snapshot-create).
@@ -141,7 +141,7 @@ You can create a snapshot by using the API.
 
 You can create a snapshot by calling the [VPC API](/apidocs/vpc). Before you start, gather the following information:
 
-- A unique name for the snapshot. Share snapshot name must be unique at the share level. For suggestions about how to name your snapshots, see [Naming snapshots](/docs/vpc?topic=vpc-fs-snapshots-planning#fs-snapshots-naming). 
+- A unique name for the snapshot. Share snapshot name must be unique at the share level. For suggestions about how to name your snapshots, see [Naming snapshots](/docs/vpc?topic=vpc-fs-snapshots-planning#fs-snapshots-naming).
 - The ID of the source share.
 - Any tags that you want to attach to the snapshot.
 
@@ -153,7 +153,7 @@ You can programmatically create a snapshot of a file share by calling the `share
 ```sh
 curl -X POST \
 "$vpc_api_endpoint/v1/shares/{share-id}/snapshots?version=2024-12-10&generation=2" \
--H "Authorization: $iam_token"
+-H "Authorization: Bearer $iam_token"
 -d '{
   "name": "my-first-share-snapshot",
   "user_tags": [

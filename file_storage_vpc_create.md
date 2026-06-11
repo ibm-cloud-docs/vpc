@@ -2,7 +2,7 @@
 
 copyright:
   years: 2021, 2026
-lastupdated: "2026-06-06"
+lastupdated: "2026-06-11"
 
 keywords: file share, file storage, virtual network interface, encryption in transit, profiles,
 
@@ -565,7 +565,7 @@ Before you make the `POST /shares` request, gather the information that you need
 Make a `POST /shares` request to create a file share. Specify the size of the file share, a name, the IOPS profile, and zone. If you want to be able to create a file share with granular access authorization, specify `security_group` as the access mode. Shares with security group access mode can be configured to support encryption in transit, cross-zone mounts, snapshots, and backups, too. See the following example.
 ```sh
 curl -X POST "$vpc_api_endpoint/v1/shares?version=2025-09-23&generation=2"\
--H "Authorization: $iam_token" \
+-H "Authorization: Bearer $iam_token" \
 -d '{
     "access_control_mode": "security-group",
     "allowed_transit_encryption_modes": ["none","ipsec"],
@@ -588,7 +588,7 @@ The following example shows how to create 1000-GB regional file share with 8000 
 
 ```sh
 curl -X POST "$vpc_api_endpoint/v1/shares?version=2025-09-23&generation=2"\
--H "Authorization: $iam_token" \
+-H "Authorization: Bearer $iam_token" \
 -d '{
   "name": "my-regional-share-1",
   "mount_targets": [],
@@ -705,7 +705,7 @@ In this example, the mount target section specifies a subnet ID. The system pick
 
 ```sh
 curl -X POST "$vpc_api_endpoint/v1/shares?version=2023-08-08&generation=2"\
--H "Authorization: $iam_token"\
+-H "Authorization: Bearer $iam_token"\
 -d '{
     "allowed_transit_encryption_modes": ["ipsec"],
     "size": 10,
@@ -769,7 +769,7 @@ The following example shows how to add a mount target to a regional file share. 
 
 ```sh
 curl -X POST "$vpc_api_endpoint/v1/shares?version=2025-09-23&generation=2"\
--H "Authorization: $iam_token"\
+-H "Authorization: Bearer $iam_token"\
 -d '{
     "allowed_transit_encryption_modes": ["stunnel","none"],
     "size": 5000,
@@ -843,7 +843,7 @@ In the following example, the `mount_targets` property specifies a subnet ID and
 
 ```sh
 curl -X POST "$vpc_api_endpoint/v1/shares?version=2023-09-23&generation=2"\
--H "Authorization: $iam_token" \
+-H "Authorization: Bearer $iam_token" \
 -d '{
     "size": 20,
     "iops": 100,
@@ -925,7 +925,7 @@ Make a `POST /shares` request and create a mount target with a virtual network i
 
 ```sh
 curl -X POST "$vpc_api_endpoint/v1/shares?version=2023-08-08&generation=2" \
--H "Authorization: $iam_token" \
+-H "Authorization: Bearer $iam_token" \
 -d '{
     "size": 10,
     "name": "my-share-sc-2",
@@ -979,7 +979,7 @@ To set supplemental IDs when you create a share, make a `POST /shares` call and 
 ```sh
 curl -X POST \
 "$vpc_api_endpoint/v1/shares?version=2023-08-08&generation=2"\
--H "Authorization: $iam_token" \
+-H "Authorization: Bearer $iam_token" \
 -d '{
     "initial_owner": {"gid": 101,"uid": 10001},
     "size": 4800,

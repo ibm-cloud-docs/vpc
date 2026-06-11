@@ -2,7 +2,7 @@
 
 copyright:
   years: 2022, 2026
-lastupdated: "2026-05-29"
+lastupdated: "2026-06-11"
 
 keywords: auto-negotiation, ciphers, upgrading ciphers, migrating ciphers
 
@@ -131,14 +131,14 @@ To upgrade the auto-negotiation policy with the API, follow these steps:
    ```sh
    # set the admin_state_up parameter to false to disable the VPN connection
    curl -X PATCH "$vpc_api_endpoint/v1/vpn_gateways/$vpn_gateway_id/connections/$vpn_connection_id?version=$api_version&generation=2" \
-      -H "Authorization: $iam_token" \
+      -H "Authorization: Bearer $iam_token" \
       -d '{
          "admin_state_up": false
       }'
 
    # check the VPN connection status to be changed to down
    curl -X GET "$vpc_api_endpoint/v1/vpn_gateways/$vpn_gateway_id/connections/$vpn_connection_id?version=$api_version&generation=2" \
-      -H "Authorization: $iam_token"
+      -H "Authorization: Bearer $iam_token"
    ```
    {: codeblock}
 
@@ -147,14 +147,14 @@ To upgrade the auto-negotiation policy with the API, follow these steps:
    ```sh
    # set the admin_state_up parameter to true to re-enable the VPN connection
    curl -X PATCH "$vpc_api_endpoint/v1/vpn_gateways/$vpn_gateway_id/connections/$vpn_connection_id?version=$api_version&generation=2" \
-      -H "Authorization: $iam_token" \
+      -H "Authorization: Bearer $iam_token" \
       -d '{
          "admin_state_up": true
       }'
 
    # check the VPN connection status to be changed to up
    curl -X GET "$vpc_api_endpoint/v1/vpn_gateways/$vpn_gateway_id/connections/$vpn_connection_id?version=$api_version&generation=2" \
-      -H "Authorization: $iam_token"
+      -H "Authorization: Bearer $iam_token"
    ```
    {: codeblock}
 
@@ -536,7 +536,7 @@ To upgrade a custom IKE policy with the API, follow these steps:
 
     ```sh
     curl -X PATCH "$vpc_api_endpoint/v1/ike_policies/$ike_policy_id?version=$api_version&generation=2" \
-      -H "Authorization: $iam_token" \
+      -H "Authorization: Bearer $iam_token" \
 
     export ike_policy_id=<your_ike_policy_id>
     ```
@@ -561,7 +561,7 @@ To upgrade a custom IKE policy with the API, follow these steps:
 
    ```sh
    curl -X PATCH "$vpc_api_endpoint/v1/ike_policies/$ike_policy_id?version=$api_version&generation=2" \
-      -H "Authorization: $iam_token" \
+      -H "Authorization: Bearer $iam_token" \
       -d "{
          'authentication_algorithm': $authentication_algorithm,
          'dh_group': $dh_group,
@@ -609,7 +609,7 @@ To upgrade the IPsec policy with the API, follow these steps:
 
    ```sh
    curl -X PATCH "$vpc_api_endpoint/v1/ipsec_policies/$ipsec_policy_id?version=$api_version&generation=2" \
-      -H "Authorization: $iam_token" \
+      -H "Authorization: Bearer $iam_token" \
       -d "{
          'authentication_algorithm': $authentication_algorithm,
          'encryption_algorithm': $encryption_algorithm,

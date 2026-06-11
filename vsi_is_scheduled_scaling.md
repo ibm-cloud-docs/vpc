@@ -1,8 +1,8 @@
 ---
 
 copyright:
-  years: 2021, 2025
-lastupdated: "2025-12-20"
+  years: 2021, 2026
+lastupdated: "2026-06-11"
 
 keywords: scheduled scaling, instance scaling, virtual server instance scaling, scheduled actions, scaling actions
 
@@ -177,7 +177,7 @@ You can create a scheduled scaling action for your auto-scaled instances by call
 The following example creates a scheduled action
 
    ```curl
-   curl -X POST "$vpc_api_endpoint/v1/instance_groups/$instance_group_id/managers?   version=2021-04-20&generation=2" -H "Authorization: $iam_token" -d '{
+   curl -X POST "$vpc_api_endpoint/v1/instance_groups/$instance_group_id/managers?   version=2021-04-20&generation=2" -H "Authorization: Bearer $iam_token" -d '{
          "manager_type": "autoscale",
          "max_membership_count": 50
        }'
@@ -235,7 +235,7 @@ The following example deletes a scheduled action.
 
    ```bash
 
-   curl -X DELETE "$vpc_api_endpoint/v1/instance_groups/$instance_group_id/memberships?   version=2021-04-20&generation=2" -H "Authorization: $iam_token"
+   curl -X DELETE "$vpc_api_endpoint/v1/instance_groups/$instance_group_id/memberships?   version=2021-04-20&generation=2" -H "Authorization: Bearer $iam_token"
    ```
    {: codeblock}
 

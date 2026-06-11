@@ -2,7 +2,7 @@
 
 copyright:
   years: 2021, 2026
-lastupdated: "2026-05-06"
+lastupdated: "2026-06-11"
 
 keywords: file storage, file share, performance, IOPS, block size, capacity, range
 
@@ -252,7 +252,7 @@ Use the `GET /share/profiles` request to retrieve information about the generall
 
 ```sh
 curl -X GET $vpc_api_endpoint/v1/share/profiles?$api_version&generation=2\
--H "Authorization: $iam_token"
+-H "Authorization: Bearer $iam_token"
 ```
 {: pre}
 

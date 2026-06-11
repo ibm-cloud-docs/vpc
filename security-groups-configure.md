@@ -1,8 +1,8 @@
 ---
 
 copyright:
-  years: 2018, 2025
-lastupdated: "2025-10-14"
+  years: 2018, 2026
+lastupdated: "2026-06-11"
 
 keywords:
 
@@ -156,7 +156,7 @@ Create a security group named `my-security-group` in your {{site.data.keyword.vp
 
 ```sh
 curl -X POST "$vpc_api_endpoint/v1/security_groups?version=$api_version&generation=2" \
-  -H "Authorization: $iam_token" \
+  -H "Authorization: Bearer $iam_token" \
   -d '{
         "name": "my-security-group",
         "vpc": { "id": "'$vpc'" }
@@ -178,7 +178,7 @@ Create a rule on the security group to allow inbound connections on port 22.
 
 ```sh
 curl -X POST "$vpc_api_endpoint/v1/security_groups/$sg/rules?version=$api_version&generation=2" \
-  -H "Authorization: $iam_token" \
+  -H "Authorization: Bearer $iam_token" \
   -d '{
         "direction": "inbound",
         "protocol": "tcp",
@@ -195,7 +195,7 @@ To clean up the security group, it cannot be associated with any network interfa
 
 ```sh
 curl -X DELETE "$vpc_api_endpoint/v1/security_groups/$sg?version=$api_version&generation=2" \
-  -H "Authorization: $iam_token"
+  -H "Authorization: Bearer $iam_token"
 ```
 {: pre}
 
