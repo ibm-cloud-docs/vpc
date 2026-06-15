@@ -66,7 +66,7 @@ To create an ALB:
        * **Timeout (sec)**: Maximum amount of time the system waits for a response from a health check request. By default, the load balancer waits 2 seconds for a response.
        * **Max retries**: Maximum number of health check attempts that the load balancer makes before an instance is declared unhealthy. By default, an instance is no longer considered healthy after two failed health checks.
 
-       HTTP sends data as plain text that can be intercepted and is considered insecure. Use `https` instead of `http` as the protocol. For more details, see [Why is HTTP not secure?](https://www.cloudflare.com/learning/ssl/why-is-http-not-secure/){: external}
+       HTTP sends data as plain text that can be intercepted and is considered insecure. `Https` is recommended instead of `http` as the protocol. For more details, see [Why is HTTP not secure?](https://www.cloudflare.com/learning/ssl/why-is-http-not-secure/){: external}
        {: note}
 
        Although the load balancer stops sending connections to unhealthy instances, the load balancer continues monitoring the health of these instances and resumes their use if they're found healthy again (that is, if they successfully pass two consecutive health check attempts).

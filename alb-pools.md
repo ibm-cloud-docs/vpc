@@ -2,7 +2,7 @@
 
 copyright:
   years: 2020, 2026
-lastupdated: "2026-05-10"
+lastupdated: "2026-06-15"
 
 keywords: application load balancer, public, private, listener, back-end, front-end, pool, round-robin, weighted, connections, methods, policies, APIs, access, ports, vpc
 
@@ -36,7 +36,7 @@ You can configure pools when [creating a application load balancer](/docs/vpc?to
 1. On the application load balancer's details page, click the back-end pools tab and select the pool that you want to edit.
 1. Select the options for your pool:
    * **Pool Name**: The name for your pool. Ideally, a name that describes the function that is performed by this pool.
-   * **Protocol**: Select the protocol for your instances in this pool. The protocol of the pool must match the protocol of its associated listener. For example, if an HTTPS or HTTP protocol is selected for the listener, the protocol of the pool must be HTTP. Similarly, if the listener protocol is TCP, the protocol of the pool must be TCP.
+   * **Protocol**: Select the protocol for your instances in this pool. The protocol of the pool must match the protocol of its associated listener. For example, if an HTTP protocol is selected for the listener, the protocol of the pool must be HTTP. Similarly, if the listener protocol is TCP, the protocol of the pool must be TCP.
 
    HTTP sends data as plain text that can be intercepted and is considered insecure. It is recommended to choose protocol as `https` instead of `http`.
    For more details see: https://www.cloudflare.com/learning/ssl/why-is-http-not-secure/
