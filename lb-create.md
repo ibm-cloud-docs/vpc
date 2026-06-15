@@ -407,7 +407,7 @@ To create an application load balancer with the API, follow these steps:
                       "crn": "crn:v1:bluemix:public:cloudcerts:us-south:a/123456:b8877ea4-b8eg-467e-912a-da1eb7f031cg:certificate:43219c4c97d013fb2a95b21dddde1234"
                   },
                   "port": 443,
-                  "protocol": "tcp",
+                  "protocol": "https",
                   "idle_connection_timeout" : 80,
                   "default_pool": {
                       "name": "example-pool"
@@ -470,8 +470,7 @@ To create an application load balancer with the API, follow these steps:
         "id": "0738-dd754295-e9e0-4c9d-bf6c-58fbc59e5727",
         "is_public": true,
         "profile": {
-            "name": "network-fixed",
-            "family": "network"
+            "name": "network-fixed"
         },
         "listeners": [
             {
@@ -529,8 +528,7 @@ To create an application load balancer with the API, follow these steps:
       "hostname": "dd754295-e9e0-4c9d-bf6c-58fbc59e5727.lb.appdomain.cloud",
       "is_public": true,
       "profile": {
-            "name": "network-fixed",
-            "family": "network"
+            "name": "network-fixed"
       },
       "listeners": [
         {
