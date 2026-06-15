@@ -2,7 +2,7 @@
 
 copyright:
   years: 2022, 2026
-lastupdated: "2026-03-09"
+lastupdated: "2026-06-15"
 
 keywords: file share, file storage, replication, replica,
 
@@ -96,7 +96,7 @@ You can use replication to address disaster recovery concerns. The replication a
 
 1. [Create a replica file share](/docs/vpc?topic=vpc-file-storage-create-replication) in the console, from the CLI, with the API or Terraform.
 
-   If you want to set up replication between different regions, you need to [establish service-to-service authorizations](/docs/vpc?topic=vpc-file-s2s-auth) between the file services of the two VPCs first.
+   If you want to set up replication between different regions, you need to [establish service-to-service authorizations](/docs/vpc?topic=vpc-file-s2s-auth) between the file services of the two VPCs first. 
    {: requirement}
 
    If you want to create a replica share in a different region where you use a different KMS solution, [establish service-to-service authorizations](/docs/vpc?topic=vpc-file-s2s-auth) between the file service and the target KMS.
