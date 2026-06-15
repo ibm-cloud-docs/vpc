@@ -2,7 +2,7 @@
 
 copyright:
   years: 2021, 2026
-lastupdated: "2026-06-11"
+lastupdated: "2026-06-15"
 
 keywords: application load balancer, ALB, create load balancer, VPC load balancer, load balancer pools, load balancer listeners
 
@@ -150,7 +150,7 @@ To create an ALB:
         * **Port**: Choose the listening port on which requests are received.
         * **Max connections** (optional): Define the maximum number of concurrent connections that the listener allows.
         * **HTTPS redirect**: Click the toggle button to enable the HTTPS redirect configuration, then specify the following HTTPS redirect settings:
-            * **HTTPS listener**: The target HTTPS listener to which incoming traffic from the current HTTP listener is redirected. Note that you only see a list of HTTPS listeners whose `accept_proxy_proxy` value is the same as the HTTP listener.  ACCEPT_PROXY_PROTOCOL ???
+            * **HTTPS listener**: The target HTTPS listener to which incoming traffic from the current HTTP listener is redirected. Note that you only see a list of HTTPS listeners whose `accept_proxy_protocol` value is the same as the HTTP listener.
             * **Redirect URI** (optional): The URL to which the request redirects.
             * **Status code**: The status code of the response returned by the load balancer.
 1. If you want to redirect, forward, or reject particular incoming traffic for an HTTP or HTTPS front-end listener based on certain criteria, configure layer 7 policies.
