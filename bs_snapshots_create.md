@@ -2,7 +2,7 @@
 
 copyright:
   years: 2021, 2026
-lastupdated: "2026-06-11"
+lastupdated: "2026-06-16"
 
 keywords: snapshots, Block Storage, snapshot clone, remote copy, fast restore, Block Storage snapshot, cross-regional snapshot
 
@@ -288,7 +288,7 @@ Source Snapshot        ID                                          Name         
 Minimum capacity(GB)   100
 Size(GB)               3
 Source Image           ID                                          Name                   Remote Region   CRN                                                                                                                    Resource type
-                       r014-da69503f-30d4-4f1d-b03f-1f4a7cd29214   -remote-1f4a7cd29214   us-east         crn:v1:bluemix:public:is:us-east:a/811f8abfbd32425597dc7ba40da98fa6::image:r014-da69503f-30d4-4f1d-b03f-1f4a7cd29214   image
+                       r014-da69503f-30d4-4f1d-b03f-1f4a7cd29214   -remote-1f4a7cd29214   us-east         crn:v1:bluemix:public:is:us-east:a/a1234567::image:r014-da69503f-30d4-4f1d-b03f-1f4a7cd29214   image
 
 Operating system       Name                    Vendor   Version   Family          Architecture   Display name
                        centos-stream-9-amd64   CentOS   9         CentOS Stream   amd64          CentOS Stream 9 - Minimal Install (amd64)

@@ -2,7 +2,7 @@
 
 copyright:
   years: 2021, 2026
-lastupdated: "2026-06-11"
+lastupdated: "2026-06-16"
 
 keywords: snapshots, Block Storage snapshots, manage snapshots, fast restore clone, backup snapshot, remote copy, cross-regional copy
 
@@ -15,7 +15,7 @@ subcollection: vpc
 # Managing {{site.data.keyword.block_storage_is_short}} snapshots
 {: #snapshots-vpc-manage}
 
-You can manage existing snapshots in several ways. Rename existing snapshots to make them simpler to identify. Add user tags to snapshots for use by the VPC backup service. Enable of disable fast restore copies of a snapshot. Delete snapshots that you no longer need and free up space for new snapshots. Verify {{site.data.keyword.iamshort}} access. Verify snapshot statuses.
+Manage {{site.data.keyword.block_storage_is_short}} snapshots by renaming, tagging, enabling fast restore, deleting, and verifying access and status.
 {: shortdesc}
 
 ## Naming snapshots

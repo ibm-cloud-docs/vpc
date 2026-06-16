@@ -15,11 +15,8 @@ subcollection: vpc
 # Viewing {{site.data.keyword.block_storage_is_short}} snapshots and consistency groups
 {: #snapshots-vpc-view}
 
-You can view a list of all snapshots and consistency groups, and drill down to see information about a particular snapshot. Choose the UI, CLI, API, or Terraform to retrieve this information.
+View {{site.data.keyword.block_storage_is_short}} snapshots and consistency groups, including detailed information about individual snapshots and their properties.
 {: shortdesc}
-
-Consistency groups are not supported for second-generation storage volumes in the current release.
-{: note}
 
 ## Listing snapshots in the console
 {: #snapshots-vpc-view-ui}

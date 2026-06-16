@@ -1,8 +1,8 @@
 ---
 
 copyright:
-  years: 2022, 2025
-lastupdated: "2025-08-14"
+  years: 2022, 2026
+lastupdated: "2026-06-16"
 
 keywords: Backup for VPC, backup service, backup plan, backup policy, restore, restore volume, restore data
 
@@ -14,10 +14,13 @@ content-type: troubleshoot
 
 {{site.data.keyword.attribute-definition-list}}
 
-# Why were volume backups not created according to the backup plan?
+# Why aren't my scheduled backups running?
 {: #baas-ts-1}
 {: troubleshoot}
 {: support}
+
+Scheduled backups may fail when volumes are detached, tags are deleted, instances aren't running, or service-to-service authorizations are missing. Learn how to troubleshoot and resolve backup plan execution issues.
+{: shortdesc}
 
 Volumes are not getting backed up on all scheduled times. For example, you created a schedule for backups in a backup plan to create daily backups. However, after the service created backups for a while as defined in the plan, the backups stop.
 {: tsSymptoms}

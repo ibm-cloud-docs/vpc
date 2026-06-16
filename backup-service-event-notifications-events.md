@@ -1,8 +1,8 @@
 ---
 
 copyright:
-  years: 2022, 2025
-lastupdated: "2025-09-12"
+  years: 2022, 2026
+lastupdated: "2026-06-16"
 
 keywords: backup for VPC, backup service, backup plan, backup policy, restore, restore volume, restore data
 
@@ -15,7 +15,7 @@ subcollection: vpc
 # Enabling event notifications for Backup for VPC
 {: #event-notifications-events}
 
-As an administrator of IBM Cloud Backup for VPC, you might want to send notifications of events in IBM Cloud Backup for VPC to other users, or human destinations, by using email, SMS, or other supported delivery channels. Additionally, you might want to send these notifications of events to other applications to build logic by using event-driven programming with webhooks, for example. It is made possible by the integration between IBM Cloud Backup for VPC and {{site.data.keyword.en_full}}.
+Configure {{site.data.keyword.en_full}} to receive alerts when Backup for VPC jobs fail. Send notifications through email, SMS, or webhooks to monitor backup snapshot creation, retention failures, and consistency group issues.
 {: shortdesc}
 
 To send information to {{site.data.keyword.en_short}}, you must connect your IBM Cloud Backup for VPC instance to {{site.data.keyword.en_short}}. For more information about working with {{site.data.keyword.en_short}}, see [Getting started with {{site.data.keyword.en_short}}](/docs/event-notifications?topic=event-notifications-getting-started).

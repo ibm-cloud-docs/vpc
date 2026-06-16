@@ -405,7 +405,7 @@ A successful response looks like the following example. This example shows three
         "name": "defaults"
     },
     "source_image": {
-        "crn": "crn:v1:bluemix:public:is:us-south:a/811f8abfbd32425597dc7ba40da98fa6::image:r006-0e578411-53ab-44ba-a0f8-d003d0011993",
+        "crn": "crn:v1:bluemix:public:is:us-south:a/a1234567::image:r006-0e578411-53ab-44ba-a0f8-d003d0011993",
         "href": "https://us-south.iaas.cloud.ibm.com/v1/images/r006-0e578411-53ab-44ba-a0f8-d003d0011993",
         "id": "r006-0e578411-53ab-44ba-a0f8-d003d0011993",
         "name": "ibm-redhat-8-6-minimal-amd64-7",
