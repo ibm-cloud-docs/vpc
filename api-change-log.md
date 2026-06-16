@@ -2,7 +2,7 @@
 
 copyright:
   years: 2019, 2026
-lastupdated: "2026-06-09"
+lastupdated: "2026-06-16"
 
 keywords: api, change log, new features, restrictions, migrations
 
@@ -53,6 +53,18 @@ At this time, all instances, and therefore all instance templates, continue to r
 
 The new response code will be rolled out gradually. Each phase of the rollout will be tied to a dated API version. These changes will be announced in future change log updates.
 {: note}
+
+## 16 June 2026
+{: #16-june-2026}
+
+### For all version dates
+{: #16-june-2026-all-version-dates}
+
+**Advanced health checks, FQDN targets, and `starts_with` policy rules for application load balancers.** You can now configure advanced health checks for `application` family load balancers. When [creating a load balancer](/apidocs/vpc/latest#create-load-balancer), or when [creating](/apidocs/vpc/latest#create-load-balancer-pool) or [updating](/apidocs/vpc/latest#update-load-balancer-pool) a load balancer pool, you can specify advanced health check properties such as `health_monitor.request` and `health_monitor.response`, if supported by the load balancer profile. For more information, see steps 8 and 9 in [Creating an application load balancer](/docs/vpc?topic=vpc-load-balancers&interface=ui).
+
+You can also now specify the FQDN for a domain as the `target` when [creating a load balancer pool member](/apidocs/vpc/latest#create-load-balancer-pool-member), if supported by the load balancer profile.
+
+In addition, when [creating a load balancer listener policy rule](/apidocs/vpc/latest#create-load-balancer-listener-policy-rule), you can now specify `starts_with` as the rule condition to redirect traffic.
 
 ## 9 June 2026
 {: #9-june-2026}
