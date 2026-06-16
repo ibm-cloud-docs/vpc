@@ -2,7 +2,7 @@
 
 copyright:
   years: 2021, 2026
-lastupdated: "2026-06-11"
+lastupdated: "2026-06-15"
 
 keywords: application load balancer, ALB, create load balancer, VPC load balancer, load balancer pools, load balancer listeners
 
@@ -66,7 +66,7 @@ To create an ALB:
        * **Timeout (sec)**: Maximum amount of time the system waits for a response from a health check request. By default, the load balancer waits 2 seconds for a response.
        * **Max retries**: Maximum number of health check attempts that the load balancer makes before an instance is declared unhealthy. By default, an instance is no longer considered healthy after two failed health checks.
 
-       HTTP sends data as plain text that can be intercepted and is considered insecure. Use `https` instead of `http` as the protocol. For more details, see [Why is HTTP not secure?](https://www.cloudflare.com/learning/ssl/why-is-http-not-secure/){: external}
+       HTTP sends data as plain text that can be intercepted and is considered insecure. `Https` is recommended instead of `http` as the protocol. For more details, see [Why is HTTP not secure?](https://www.cloudflare.com/learning/ssl/why-is-http-not-secure/){: external}
        {: note}
 
        Although the load balancer stops sending connections to unhealthy instances, the load balancer continues monitoring the health of these instances and resumes their use if they're found healthy again (that is, if they successfully pass two consecutive health check attempts).
@@ -150,7 +150,7 @@ To create an ALB:
         * **Port**: Choose the listening port on which requests are received.
         * **Max connections** (optional): Define the maximum number of concurrent connections that the listener allows.
         * **HTTPS redirect**: Click the toggle button to enable the HTTPS redirect configuration, then specify the following HTTPS redirect settings:
-            * **HTTPS listener**: The target HTTPS listener to which incoming traffic from the current HTTP listener is redirected. Note that you only see a list of HTTPS listeners whose `accept_proxy_proxy` value is the same as the HTTP listener.  ACCEPT_PROXY_PROTOCOL ???
+            * **HTTPS listener**: The target HTTPS listener to which incoming traffic from the current HTTP listener is redirected. Note that you only see a list of HTTPS listeners whose `accept_proxy_protocol` value is the same as the HTTP listener.
             * **Redirect URI** (optional): The URL to which the request redirects.
             * **Status code**: The status code of the response returned by the load balancer.
 1. If you want to redirect, forward, or reject particular incoming traffic for an HTTP or HTTPS front-end listener based on certain criteria, configure layer 7 policies.
@@ -407,7 +407,7 @@ To create an application load balancer with the API, follow these steps:
                       "crn": "crn:v1:bluemix:public:cloudcerts:us-south:a/123456:b8877ea4-b8eg-467e-912a-da1eb7f031cg:certificate:43219c4c97d013fb2a95b21dddde1234"
                   },
                   "port": 443,
-                  "protocol": "tcp",
+                  "protocol": "https",
                   "idle_connection_timeout" : 80,
                   "default_pool": {
                       "name": "example-pool"
@@ -470,8 +470,7 @@ To create an application load balancer with the API, follow these steps:
         "id": "0738-dd754295-e9e0-4c9d-bf6c-58fbc59e5727",
         "is_public": true,
         "profile": {
-            "name": "network-fixed",
-            "family": "network"
+            "name": "network-fixed"
         },
         "listeners": [
             {
@@ -529,8 +528,7 @@ To create an application load balancer with the API, follow these steps:
       "hostname": "dd754295-e9e0-4c9d-bf6c-58fbc59e5727.lb.appdomain.cloud",
       "is_public": true,
       "profile": {
-            "name": "network-fixed",
-            "family": "network"
+            "name": "network-fixed"
       },
       "listeners": [
         {

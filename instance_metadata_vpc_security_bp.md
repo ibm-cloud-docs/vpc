@@ -2,7 +2,7 @@
 
 copyright:
   years: 2022, 2026
-lastupdated: "2026-04-16"
+lastupdated: "2026-06-16"
 
 keywords:
 
@@ -33,10 +33,16 @@ This topic describes how to configure security safeguards to protect your metada
 
 You can enable secure access to the metadata service. When secure access is enabled, the metadata service is accessible only to the virtual server instance by encrypted HTTP secure protocol (HTTPS). For more information, see [Enable secure access in the console](/docs/vpc?topic=vpc-imd-configure-service&interface=ui#secure-access-ui)
 
+When you use an image that has an allowed-use expression that specifies either HTTPS or HTTP as the required metadata service protocol, keep that in mind for metadata service requests and responses. You can't use an image that is set up for HTTP for HTTPS and vice versa.
+{: note}
+
 ## Disable the metadata service for an instance or account
 {: #imd-disable-instance-acct}
 
 You can disable the service on an existing instance where it is enabled. For more information, see [Enable or disable the metadata service](/docs/vpc?topic=vpc-imd-configure-service).
+
+Disabling the metadata service for a virtual server instance might not be possible due to an allowed-use expression requiring it be enabled.
+{: note}
 
 ## Use `iptables` firewall to limit access on Linux
 {: #imd-iptables}

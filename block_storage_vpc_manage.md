@@ -2,7 +2,7 @@
 
 copyright:
   years: 2019, 2026
-lastupdated: "2026-06-11"
+lastupdated: "2026-06-16"
 
 keywords: Block storage for VPC, change IOPS, change auto-delete, increase volume, change name, rename volume, delete volume, renaming volume, updating volume
 
@@ -359,8 +359,8 @@ Manage your block storage programmatically by making requests to the [VPC REST A
 Make a `PATCH /volumes/{id}` call and specify a new name for the volume.
 
 ```sh
-curl -X PATCH "$vpc_api_endpoint/v1/volumes?version=2022-04-22&generation=2" \
--H "Authorization: Bearer $iam_token" \
+curl -X PATCH "$vpc_api_endpoint/v1/volumes/$volume_id?version=2022-04-22&generation=2"  \
+-H "Authorization: $iam_token" \
 -d '{
       "name": "my-volume-4-update"
     }'
@@ -450,7 +450,7 @@ To apply tags to a block storage volume, follow these steps:
    ```sh
    curl -X PATCH\
    "$vpc_api_endpoint/v1/volumes/r006-5ed4006b-3dac-4c95-8eeb-4aa9a85cbd34?version=2025-01-21&generation=2"\
-      -H "Authorization: Bearer"\
+      -H "Authorization: Bearer $iam_token"\
       -H "If-Match: <_Etag-hash-string_>"\
       -d `{
          "user_tags": [
@@ -517,7 +517,7 @@ To apply tags to a block storage volume, follow these steps:
 ### Updating a volume attachment with the API
 {: #update-vol-attachment-api}
 
-Make a `PATCH /instances/$instance_id/volume_attachments/$volume_attachment_id` call and specify the IDs of the volume and the volume attachment. In the request body, specify the new name of the attachment or the new value of the `delete_volume_on_instance_delete` property. If the `delete_volume_on_instance_delete` property is set to `true`, when the instance is deleted, the attached volume is deleted. If you want to retain the volume after the instance is deleted, specify the value `true` for the `delete_volume_on_instance_delete` property.
+Make a `PATCH /instances/$instance_id/volume_attachments/$volume_attachment_id` call and specify the IDs of the instance and the volume attachment. In the request body, specify the new name of the attachment or the new value of the `delete_volume_on_instance_delete` property. If the `delete_volume_on_instance_delete` property is set to `true`, when the instance is deleted, the attached volume is deleted. If you want to retain the volume after the instance is deleted, specify the value `false` for the `delete_volume_on_instance_delete` property.
 
 ```sh
 curl -X PATCH "$vpc_api_endpoint/v1/instances/$instance_id/volume_attachments/$volume_attachment_id?version=2022-04-22&generation=2" \

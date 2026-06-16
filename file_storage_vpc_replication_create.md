@@ -2,7 +2,7 @@
 
 copyright:
   years: 2022, 2026
-lastupdated: "2026-06-11"
+lastupdated: "2026-06-15"
 
 keywords: file share, file storage, source volume, replica share,
 
@@ -101,12 +101,15 @@ If you're not ready to order yet or just looking for pricing information, you ca
 {: #fs-create-replica-cli}
 {: cli}
 
-You can use the CLI to create a file share with a replica share in another zone, or region, or to create a replica share for an existing file share.
+You can use the CLI to create a file share with a replica share in another zone, or region, or to create a replica share for an existing file share. 
 
 Before you can use the CLI, you must install the IBM Cloud CLI and the VPC CLI plug-in. For more information, see the [CLI prerequisites](/docs/vpc?topic=vpc-set-up-environment#cli-prerequisites-setup).
 
 ### Creating a file share with a replica from the CLI
 {: #fs-create-new-share-replica-cli}
+
+You can create a zonal file share with a replica in the same region at the same time. This approach is only supported for zonal shares with replicas that remain in the same region. Cross-regional replicas must be created in a separate step because they require the source share to be in a stable state when the replica is initialized.
+{: important}
 
 When you use the `ibmcloud is share-create` command to create your share, you can create a replica share at the same time by specifying values for the options `--replica-share-name`, `--replica-share-profile`, `--replica-share-cron-spec`,`--replica-share-zone`. The cron-spec specifies the replication frequency, and you can schedule to replicate your data as often as 15 minutes. For more information about the command options, see [`ibmcloud is share-create`](/docs/vpc?topic=vpc-vpc-reference#share-create).
 
@@ -160,6 +163,10 @@ Storage Generation                 1
 
 ### Creating a replica for an existing file share from the CLI
 {: #fs-create-share-replica-cli}
+
+You can create a replica for an existing file share in the same region or in another region within the same geography.
+
+
 
 1. Locate your source file share from the CLI by listing your file shares in the region with the `ibmcloud is shares` command.
    ```sh
@@ -275,60 +282,7 @@ Storage Generation                 1
    ```
    {: screen}
 
-When you create a replica of a file share in another region, you must use the CRN of the source file share. If the source file share has `user_managed` encryption, you must provide the `encryption_key`. The `encryption_key` value must not be specified otherwise. See the following example.
 
-   ```sh
-   ibmcloud is share-replica-create --name my-replica-share --zone us-east-1 --profile dp2 --replication-cron-spec '5 * * * *' --source-share crn:v1:bluemix:public:is:us-south-1:a/a1234567::share:r006-d8c8821c-a227-451d-a9ed-0c0cd2358829 --encryption-key crn:v1:bluemix:public:kms:us-south:a/a1234567:1be45161-6dae-44ca-b248-837f98004057:key:3dd21cc5-cc20-4f7c-bc62-8ec9a8a3d1bd
-   ```
-   {: pre}
-
-   ```sh
-   Creating replica file share my-cross-regional-replica-share under account Test Account as user test.user@ibm.com...
-
-   ID                               r006-6d1719da-g687-45ac-9f68-896fd76843a1b
-   Name                             my-cross-regional-replica-share
-   CRN                              crn:v1:bluemix:public:is:us-east-1:a/a1234567::share:r006-6d1719da-g687-45ac-9f68-896fd76843a1b
-   Lifecycle state                  pending
-   Access control mode              security_group
-   Accessor binding role            origin
-   Allowed transit encryption modes ipsec,none
-   Zone                             us-east-1
-   Profile                          dp2
-   Size(GB)                         1000
-   IOPS                             100
-   Encryption                       user_managed
-   Mount Targets                    ID                          Name
-                                    No mounted targets found.
-
-   Resource group                   ID                                 Name
-                                    db8e8d865a83e0aae03f25a492c5b39e   Default
-
-   Created                          2024-06-25T15:13:18+00:00
-   Encryption key                   crn:v1:bluemix:public:kms:us-south:a/a1234567:1be45161-6dae-44ca-b248-837f98004057:key:3dd21cc5-cc20-4f7c-bc62-8ec9a8a3d1bd
-   Latest job                       Job status   Job status reasons
-                                    running      -
-
-   Replication cron spec            5 * * * *
-   Replication role                 replica
-   Replication status               initializing
-   Replication status reasons       Status code   Status message
-                                    -             -
-
-   Source share                     ID                                          Name       Resource type  Remote
-                                    r006-d8c8821c-a227-451d-a9ed-0c0cd2358829   my-share   share          us-south
-
-   Snapshot count                   0
-   Snapshot size                    0
-   Source snapshot                  -
-   Allowed Access Protocols         nfs4
-   Availability Mode                zonal
-   Bandwidth(Mbps)                  1
-   Storage Generation               1
-   ```
-   {: screen}
-
-
-For more information about the command options, see [`ibmcloud is share-replica-create`](/docs/vpc?topic=vpc-vpc-reference#share-replica-create).
 
 ## Adding replication to file share with the API
 {: #fs-create-replica-api}
@@ -340,6 +294,9 @@ Before you begin, first set up the [API environment](/docs/vpc?topic=vpc-set-up-
 
 ### Creating a file share with a replica with the API
 {: #fs-create-new-share-replica-api}
+
+You can create a zonal file share with a replica in the same region at the same time. This approach is only supported for zonal shares with replicas that remain in the same region. Cross-regional replicas must be created in a separate step because they require the source share to be in a stable state when the replica is initialized.
+{: important}
 
 When you create a file share, you can specify that a replica file share is also created in a different zone. Make a `POST /shares` request and specify the `replica_share` property to define the replica file share.
 
@@ -378,41 +335,15 @@ curl -X POST\
 ### Creating a replica for an existing file share with the API
 {: #fs-create-share-replica-api}
 
-To add replication to an existing file share, you need to create a replica share in a different zone of your region. In the `POST /shares` request, specify the replica share's name and profile, and specify the `source_share` by either its name, ID, or CRN. Other required properties are the `zone`, and `replication_cron_spec`, which provides the replication schedule. You can schedule to replicate your data as often as 15 minutes.
-
-The following example shows an API request that creates a replica share in the `us-south-1` zone. In this example, the source share is in another `us-south` zone and is identified by its ID.
-
-```sh
-curl -X POST \
-"$vpc_api_endpoint/v1/shares?version=2023-08-28&generation=2"\
-  -H "Authorization: Bearer $iam_token" \
-  -d '{
-  "source_share": {"id": "4aafd9c9-5555-4bdb-902d-d63d4dcf5adc"},
-  "mount_targets": [],
-  "name": "my-replica-share",
-  "profile": {"name": "dp2"},
-  "size": 100,
-  "zone": {"name": "us-south-1"},
-  "iops": 300,
-  "replication_cron_spec": "00 05 * * 0",
-  "resource_group": {"id": "6edefe513d934fdd872e78ee6a8e73ef"},
-  "access_control_mode": "security_group",
-  "allowed_transit_encryption_modes": "ipsec,none"
-}'
-```
-{: pre}
-
-When you create a replica of a file share in another region, you must use the CRN of the source file share. If the source file share has `user_managed` encryption, you must provide the `encryption_key`. The `encryption_key` value must not be specified otherwise.
-{: requirement}
-
-You can use the API to verify that the replication succeeded, is pending, or failed. Make a `GET /shares/{replica_id}` call. Look at the `latest_job` property. For more information, see [Verify replication with the API](/docs/vpc?topic=vpc-file-storage-manage-replication&interface=api#fs-verify-replica-api).
-{: note}
+To add replication to an existing file share, you need to create a replica share in a different zone. In the `POST /shares` request, specify the replica share's name and profile, and specify the `source_share` by either its name, ID, or CRN. Other required properties are the `zone`, and `replication_cron_spec`, which provides the replication schedule. You can schedule to replicate your data as often as 15 minutes. 
 
 ## Adding replication to file share with Terraform
 {: #fs-create-replica-terraform}
 {: terraform}
 
-You can use the `ibm_is_share` resource in Terraform to create a file share with replication, or update a file share to include replication. The following example creates a replica share in the `us-south-3` zone and associates it to the parent share that is specified by its ID `ibm_is_share.example.id`.
+You can use the `ibm_is_share` resource in Terraform to create a file share with replication, or update a file share to include replication.
+
+The following example creates a replica share in the `us-south-3` zone and associates it to the parent share that is specified by its ID `ibm_is_share.example.id`.
 
 ```terraform
 resource "ibm_is_share" "my-replica1" {
@@ -443,21 +374,7 @@ resource "ibm_is_share" "my-replica" {
 ```
 {: screen}
 
-When you create a replica of a file share in another region, you must use the CRN of the source file share. If the source file share has `user_managed` encryption, you must provide the `encryption_key`. The `encryption_key` value must not be specified otherwise. See the following example.
 
-```terraform
-resource "ibm_is_share" "my-cross-regional-replica" {
-  zone    = "us-east-1"
-  source_share_crn = "crn:v1:bluemix:public:is:us-south-1:a/a1234567::share:r006-d8c8821c-a227-451d-a9ed-0c0cd2358829"
-  encryption_key = "crn:v1:bluemix:public:kms:us-south:a/a1234567:1be45161-6dae-44ca-b248-837f98004057:key:3dd21cc5-cc20-4f7c-bc62-8ec9a8a3d1bd"
-  replication_cron_spec = "5 * * * *"
-  name    = "my-cross-regional-replica"
-  profile = "dp2"
-}
-```
-{: screen}
-
-For more information about the arguments and attributes, see [ibm_is_share](https://registry.terraform.io/providers/IBM-Cloud/ibm/latest/docs/resources/is_share){: external}.
 
 ## Next steps
 {: #fs-repl-next-steps}

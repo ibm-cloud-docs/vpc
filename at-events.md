@@ -2,7 +2,7 @@
 
 copyright:
   years: 2019, 2026
-lastupdated: "2026-02-26"
+lastupdated: "2026-06-16"
 
 keywords:
 
@@ -719,7 +719,7 @@ The following table lists the actions that are related to volume resources and t
 | `volume`  | `is.volume.volume.update`  | The volume was updated  |
 | `volume`  | `is.volume.volume.delete`  | The volume was deleted  |
 | `volume`  | `is.volume.volume.read`    | One or more volumes were retrieved  |
-| volume | is.volume.volume.operate | Volume ID was specified |
+| `volume` | `is.volume.volume.operate` | Volume ID was specified |
 {: caption="Actions that generate events for Block Storage resources" caption-side="bottom"}
 
 An event does not contain a volume name if no information is available at the time of the event. For example, when you make a request to create a volume but do not provide a volume name, the information is not available and does not appear in the event's description.

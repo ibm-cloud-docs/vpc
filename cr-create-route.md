@@ -2,7 +2,7 @@
 
 copyright:
   years: 2020, 2026
-lastupdated: "2026-06-11"
+lastupdated: "2026-06-16"
 
 keywords: custom routes
 
@@ -22,14 +22,14 @@ Multiple routing tables can exist for each zone in your VPC. For egress traffic,
 
 A VPC custom route has four main components:
 
-* The destination CIDR
-* The next hop where the packet will route (when the action is `Deliver`)
+* Destination CIDR: Specifies the destination IP address range that the route applies to.
+* Next hop: Specifies the IP address where matching traffic is forwarded when the route action is `Deliver`.
 
    You can edit the next hop IP address for existing routes.
    {: note}
 
-* The zone
-* Action
+* Zone: Specifies the zone where the route is evaluated. For egress routes, the zone typically refers to the zone where the source traffic originates. For ingress routes, the zone refers to the zone where incoming traffic is processed and where the next hop must exist.
+* Action: Specifies how matching traffic is handled, such as forwarding, delegating, or dropping the traffic.
 
 Any traffic that originates in the specified zone of the VPC and has a destination address within the specified destination CIDR routes to the next hop. If the destination address is within the destination CIDR for multiple VPC routes, the most specific route is used. If the VPC has two or more equally specific routes, the traffic is round-robin that is distributed between each route.
 
@@ -45,6 +45,9 @@ The `Delegate-VPC` action is required if both are true:
 The `Delegate-VPC` action is NOT required if:
 * The VPC uses only RFC-1918 addresses
 * The VPC has no public connectivity
+
+Before you create custom routes, review [About routing tables and routes](/docs/vpc?topic=vpc-about-custom-routes#egress-ingress-overview) to understand ingress and egress routing behavior.
+{: tip}
 
 You can create a route for an IBM Cloud service by using the console, CLI, API, or Terraform.
 
@@ -201,4 +204,4 @@ To create a route with Terraform, follow these steps:
    }
    ```
 
-      For more information about the `ibm_is_vpc_routing_table_route` resource, see the [Terraform Registry](https://registry.terraform.io/providers/IBM-Cloud/ibm/latest/docs/resources/is_vpc_routing_table_route).{: external}
+For more information about the `ibm_is_vpc_routing_table_route` resource, see the [Terraform Registry](https://registry.terraform.io/providers/IBM-Cloud/ibm/latest/docs/resources/is_vpc_routing_table_route).{: external}

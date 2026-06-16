@@ -2,7 +2,7 @@
 
 copyright:
   years: 2024, 2026
-lastupdated: "2026-02-13"
+lastupdated: "2026-06-15"
 
 keywords: File Storage, snapshots, cross-regional copy, backup, restore share
 
@@ -88,7 +88,7 @@ When a snapshot is deleted, only the data blocks that are no longer needed by an
 {: faq}
 {: #faq-fs-snapshot-dr}
 
-To help ensure that snapshots are able to survive the loss of an availability zone, configure replication for the file share. When a new replica share is created, all snapshots present on the source volume are transferred to the replica. When replication proceeds normally, any snapshots that are taken on the source are copied to the replica, and snapshots that are deleted from the source are also removed from the replica.
+To help ensure that snapshots are able to survive the loss of an availability zone, configure replication for the file share. When a new replica share is created, all snapshots present on the source volume are transferred to the replica. When replication proceeds normally, any snapshots that are taken on the source are copied to the replica, and snapshots that are deleted from the source are also removed from the replica. Snapshot replication is not supported for regional file shares.
 
 [Select availability]{: tag-green} In this release of regional file shares, cross-region replication is not supported.
 

@@ -2,7 +2,7 @@
 
 copyright:
   years: 2021, 2026
-lastupdated: "2026-06-11"
+lastupdated: "2026-06-16"
 
 keywords: file share, file storage, rename share, increase size, adjust IOPS, mount target
 
@@ -866,7 +866,7 @@ To modify existing user tags that are added to a file share, you first make a `G
    ```sh
    curl -X PATCH\
    "$vpc_api_endpoint/v1/shares/50fda9c3-eecd-4152-b473-a98018ccfb10?version=2023-08-08&generation=2"\
-      -H "Authorization: Bearer"\
+      -H "Authorization: Bearer $iam_token"\
       -H "If-Match: W/xxxyyyzzz123"\
       -d `{
          "user_tags": [

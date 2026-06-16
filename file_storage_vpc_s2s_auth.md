@@ -2,7 +2,7 @@
 
 copyright:
   years: 2022, 2026
-lastupdated: "2026-05-11"
+lastupdated: "2026-06-15"
 
 keywords: Backup for VPC, backup service, backup plan, backup policy, restore, restore volume, restore data
 
@@ -15,7 +15,7 @@ subcollection: vpc
 # Establishing service-to-service authorizations for {{site.data.keyword.filestorage_vpc_short}}
 {: #file-s2s-auth}
 
-You can use the {{site.data.keyword.iamshort}} (IAM) to create or remove an authorization that grants one service access to another service. For {{site.data.keyword.filestorage_vpc_short}}, you need to create service-to-service authorization for configuring customer-managed encryption and setting up cross-region replication.
+You can use the {{site.data.keyword.iamshort}} (IAM) to create or remove an authorization that grants one service access to another service. For {{site.data.keyword.filestorage_vpc_short}}, you need to create service-to-service authorization for configuring customer-managed encryption and setting up cross-region replication. 
 {: shortdesc}
 
 ## Overview
@@ -117,6 +117,8 @@ Next, complete the following steps to build the authorization rules:
 ## Creating authorization for cross-account access in the console
 {: #file-s2s-auth-xaccount-ui}
 {: ui}
+
+
 
 1. In the {{site.data.keyword.cloud_notm}} console, log in to the account where your file share is.
 1. Go to **Manage > Access (IAM)**.
@@ -234,14 +236,14 @@ Log in to the account that holds the instance of a Key Management Service ({{sit
       "description":"Reader and Delegator role for KeyProtect service instance",
       "resources": [{"attributes": [
             {"name": "KeyOwnerAccountID","value": "a/a1234567","operator": "stringEquals"},
-            {"name":"Hyper-Protect-Crypto-Services","operator":"stringEquals","value":"kms"}]}],
+            {"name":"serviceName","operator":"stringEquals","value":"kms"}]}],
       "roles": [
          {"role_id":"crn:v1:bluemix:public:iam::::role:AuthorizationDelegator"},
          {"role_id":"crn:v1:bluemix:public:iam::::serviceRole:Reader"}],
       "subjects": [
          {"name": "serviceName","value": "is"},
             {"name": "resourceType","value": "share"},
-            {"name": "KeyUserAccountID","value": "a/a7654321>"}],
+            {"name": "KeyUserAccountID","value": "a/a7654321"}],
       "type":"authorization"
    }'
    ```
@@ -365,6 +367,8 @@ For more information about all of the parameters that are available for this com
 {: #file-s2s-auth-xaccount-cli}
 {: cli}
 
+
+
 As the share owner, create a JSON file and use it with the `ibmcloud iam authorization-policy-create` command to create the service-to-service authorization for the {{site.data.keyword.filestorage_vpc_short}} service of the share owner account (source) to access a share in accessor account (target).
 
 1. Create a JSON file with the following content. In this example, the file is created as the policy.json in the Documents folder.
@@ -486,6 +490,8 @@ For more information, see the api spec for [IAM Policy Management](/apidocs/iam-
 {: #file-s2s-auth-xaccount-api}
 {: api}
 
+
+
 As the share owner, make an API request to the [IAM Policy Management API](/apidocs/iam-policy-management#create-policy) to create an authorization that allows the accessor account to access the origin share. The following example shows how to create the service-to-service authorization between the origin share account (source) and the accessor account (target).
 
 ```sh
@@ -512,7 +518,7 @@ curl -X POST "https://iam.cloud.ibm.com/v1/policies" \
             {"name": "accountId","value": "<accessor share Account ID>"}]}]
         }'
 ```
-{: screen}
+{: pre}
 
 ## Creating authorization for customer-managed encryption with Terraform
 {: #file-s2s-auth-encryption-terraform}
@@ -648,6 +654,8 @@ For more information about the arguments and attributes, see the [Terraform docu
 ## Creating authorization for cross-account access with Terraform
 {: #file-s2s-auth-xaccount-terraform}
 {: terraform}
+
+
 
 1. Terraform supports configuring two different accounts for IBM provider. The provider without an alias is considered the default provider. See the following example, where two IBM accounts are specified, and the second uses the alias `team_account`. That configuration must be referred to as `ibm.team_account` later.
 
