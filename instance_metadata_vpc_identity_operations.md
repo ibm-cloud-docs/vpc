@@ -181,7 +181,7 @@ A successful response returns the new certificate with information such as its I
   "id": "9fd84246-7df4-4667-94e4-8ecde51d5ac5"
 }
 ```
-{: screen}
+{: codeblock}
 
 For more information, see [Encryption in transit - Securing mount connections between file share and host](/docs/vpc?topic=vpc-file-storage-vpc-eit).
 
