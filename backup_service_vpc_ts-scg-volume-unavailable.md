@@ -1,8 +1,8 @@
 ---
 
 copyright:
-  years: 2024, 2025
-lastupdated: "2025-08-14"
+  years: 2024, 2026
+lastupdated: "2026-06-16"
 
 keywords: Backup for VPC, backup service, backup plan, backup policy, restore, restore volume, restore data
 
@@ -17,7 +17,10 @@ content-type: troubleshoot
 # Why did my backup job fail with 'snapshot_consistency_group-volume-unavailable' event type?
 {: #baas-ts-scg-volume-unavailable}
 {: troubleshoot}
-{: support} 
+{: support}
+
+Backup jobs fail when virtual server instances aren't running or volumes are detached from the instance. Learn how to resolve consistency group backup failures caused by unavailable volumes.
+{: shortdesc}
 
 You receive an [event notification](/docs/vpc?topic=vpc-event-notifications-events#event-notifications-list) with the event type 'snapshot_consistency_group-volume-unavailable'.
 {: tsSymptoms}

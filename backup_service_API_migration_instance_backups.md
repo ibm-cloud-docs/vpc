@@ -2,7 +2,7 @@
 
 copyright:
   years: 2023, 2026
-lastupdated: "2026-06-11"
+lastupdated: "2026-06-16"
 
 keywords: Backup for VPC, api migration, versioned change
 
@@ -12,8 +12,11 @@ subcollection: vpc
 
 {{site.data.keyword.attribute-definition-list}}
 
-# Updating to the `2023-12-05` version (backup policies)
+# Migrating to 2023-12-05 API for backup policies
 {: #2023-12-05-migration-backup-policy}
+
+Migrate to VPC API version 2023-12-05 for backup policies. The property `match_resource_types` changed to `match_resource_type` for volume and instance backups.
+{: shortdesc}
 
 As described in the [VPC API](/apidocs/vpc/latest) reference [versioning](/apidocs/vpc#api-versioning) policy, most changes to the VPC APIs are fully compatible with earlier versions and are made available to all clients, regardless of the API version the client requests. However, the `2023-12-05` release of the VPC API necessitated incompatible changes in support of backup policy methods.
 
@@ -46,7 +49,7 @@ The following example uses API version `2023-12-04` or earlier to create a backu
 
 ```sh
 curl -X POST "$vpc_api_endpoint/v1/backup_policies?version=2023-12-04&generation=2"
--H "Authorization: Bearer $iam_token"
+-H "Authorization: $iam_token"
  -d '{
    "match_resource_types": "array",
    "match_user_tags": ["my-daily-backup-policy"],

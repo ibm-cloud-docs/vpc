@@ -2,7 +2,7 @@
 
 copyright:
   years: 2022, 2026
-lastupdated: "2026-06-11"
+lastupdated: "2026-06-16"
 
 keywords: consistency group, snapshots, backups, instance snapshot, instance backup,
 
@@ -15,8 +15,10 @@ subcollection: vpc
 # Managing snapshot consistency groups
 {: #snapshots-vpc-manage-consistency-groups}
 
-A snapshot consistency group contains snapshots of multiple volumes that are attached to the same virtual server instance. The snapshots are loosely coupled. So, you can manage the snapshots within a consistency group in the same way that you manage any other snapshot. You can rename or delete individual snapshots from the consistency group if you want to.
+Manage snapshot consistency groups by renaming, deleting individual snapshots, or removing entire groups while keeping or deleting member snapshots.
 {: shortdesc}
+
+ A snapshot consistency group contains snapshots of multiple volumes that are attached to the same virtual server instance. The snapshots are loosely coupled. So, you can manage the snapshots within a consistency group in the same way that you manage any other snapshot.
 
 When you consider deleting the consistency group, you can choose to delete or keep the individual snapshots. If you update the backup consistency group to keep the individual snapshots after deletion of the group, and delete the group, an activity tracking event is created. However, a backup job is not created because the backup snapshots remain intact.
 

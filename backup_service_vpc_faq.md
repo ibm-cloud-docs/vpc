@@ -2,7 +2,7 @@
 
 copyright:
   years: 2022, 2026
-lastupdated: "2026-05-13"
+lastupdated: "2026-06-16"
 
 keywords: Backup for VPC, backup service, backup plan, backup policy, restore, restore volume, restore data, faqs
 
@@ -17,8 +17,11 @@ content-type: faq
 # FAQ for Backup for VPC
 {: #backup-service-vpc-faq}
 
-The following questions pertain to the VPC Backup service. If you have other questions you'd like to see answered here, provide feedback by using the **Open doc issue** or **Edit topic** links after the FAQs.
+Get answers to common questions about IBM Cloud Backup for VPC, including how to create backup policies, schedule automated backups, restore volumes from snapshots, and manage retention periods for your Block Storage volumes and file shares.
 {: shortdesc}
+
+If you have other questions you'd like to see answered here, provide feedback by using the **Open doc issue** or **Edit topic** links after the FAQs.
+{: tip}
 
 ## What is the VPC backup service?
 {: faq}
