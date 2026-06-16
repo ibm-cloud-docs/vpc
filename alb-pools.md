@@ -2,7 +2,7 @@
 
 copyright:
   years: 2020, 2026
-lastupdated: "2026-06-15"
+lastupdated: "2026-06-16"
 
 keywords: application load balancer, public, private, listener, back-end, front-end, pool, round-robin, weighted, connections, methods, policies, APIs, access, ports, vpc
 
@@ -58,3 +58,23 @@ You can configure pools when [creating a application load balancer](/docs/vpc?to
 
 If instances in the pool are unhealthy and you believe that your application is running fine, double check the health protocol and health path values. Also, check any security groups that are attached to the instances to ensure that the rules allow traffic between the load balancer and the instances.
 {: tip}
+
+## Add members to application load balancer pools
+{: #alb-pools-add-members}
+
+
+ You can add members to application load balancer pools after [creating a application load balancer](/docs/vpc?topic=vpc-load-balancers&interface=ui), with the following procedure:
+
+1. From your browser, open the [{{site.data.keyword.cloud_notm}} console](/login){: external} and log in to your account.
+1. Select the **Navigation menu** ![Menu icon](../icons/icon_hamburger.svg), then click **Infrastructure** ![VPC icon](../../icons/vpc.svg) > **Network** > **Load balancers**.
+1. Click the application load balancer that you want to change.
+1. On the application load balancer's details page, click the back-end pools tab and select the pool that you want to edit.
+1. Select the **Members** tab and click **Attach Members +**.
+1. Select the options for your member:
+   * **Member type**: Select one of `Compute server instances` or `Other`. Compute devices include Virtual Server Instances and Bare Metal Servers within the selected VPC. To attach other server instances, such as those in PowerVS, choose `Other`.
+   * **Add member details**:
+      * **Type**: Select one of `IP address` or `FQDN`.
+      * **Address value**: For `IP address` type, enter IP address. for `FQDN`, enter the domain name.
+      * **Server Port**: Enter server port value.
+1. Click **Add +** to add a new member. Repeat the previous steps to create any additional new members before attaching all new members.
+1. Click **Attach** to save and attach your members.

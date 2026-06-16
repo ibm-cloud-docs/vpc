@@ -2,7 +2,7 @@
 
 copyright:
   years: 2019, 2026
-lastupdated: "2026-06-11"
+lastupdated: "2026-06-16"
 
 keywords:
 
@@ -26,6 +26,13 @@ For more information about changes to the {{site.data.keyword.vpc_short}} comman
 
 ## June 2026
 {: #vpc-jun26}
+
+### 16 June 2026
+{: #vpc-jun1626}
+{: release-note}
+
+Application Load Balancer (ALB) HTTP Bundle (GA)
+:   ALBs now support advanced HTTP health checks, FQDN-based pool members, and expanded listener-policy matching for cloud-native workloads.
 
 ### 11 June 2026
 {: #vpc-jun1126}

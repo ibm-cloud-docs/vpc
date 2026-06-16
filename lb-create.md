@@ -2,7 +2,7 @@
 
 copyright:
   years: 2021, 2026
-lastupdated: "2026-06-15"
+lastupdated: "2026-06-16"
 
 keywords: application load balancer, ALB, create load balancer, VPC load balancer, load balancer pools, load balancer listeners
 
@@ -26,34 +26,34 @@ To create an ALB:
 
 1. From your browser, open the [{{site.data.keyword.cloud_notm}} console](/login){: external} and log in to your account.
 1. Select the **Navigation menu** ![Menu icon](../icons/icon_hamburger.svg), then click **Infrastructure** ![VPC icon](../../icons/vpc.svg) > **Network** > **Load balancers**.
-1. On the Load balancers page, click **Create**.
-1. For Load balancer type, select the Application Load Balancer (ALB) tile.
-1. In the Location section, edit the following fields, if necessary.
-   * **Geography**: Indicates the geography where you want the load balancer created.
+1. On the Load balancers for VPC page, click **Create**.
+1. For Load balancer type, select the **Application Load Balancer (ALB)** tile.
+1. In the Location section, edit the following field, if necessary.
    * **Region**: Indicates the region where you want the load balancer created.
 1. In the Details section, complete the following information:
    * **Name**: Enter a name for the load balancer, such as `my-load-balancer`.
    * **Resource group**: Select a resource group for the load balancer.
    * **Tags**: (Optional) Add tags to help you organize and find your resources. You can add more tags later. For more information, see [Working with tags](/docs/account?topic=account-tag).
    * **Access management tags**: (Optional) Add access management tags to resources to help organize access control relationships. The only supported format for access management tags is `key:value`. For more information, see [Controlling access to resources by using tags](/docs/account?topic=account-access-tags-tutorial).
-   * Select the **Application Load Balancer (ALB)** tile.
    * **Virtual private cloud**: Select your VPC.
-   * **Type**: Select the load balancer type.
-     * A public load balancer has a public IP address, which means that it can route requests from clients over the internet.
-     * A private load balancer has a private IP address, which means that it is accessible only to internal clients on your private subnets, within the same region and VPC.
-   * For the DNS type, select either **Public** or **Private**. Private DNS zones are resolvable only on IBM Cloud, and only from explicitly permitted networks in an account or with cross-account access.
-
-      **For Private type only**, click **Bind** to enter your DNS instance and zone information, then click **Bind**.
-
    * **Subnets**: Select the subnets in which to create your load balancer. To maximize the availability of your application, select subnets in different zones.
 
         You cannot assign more than 15 subnets per ALB.
         {: important}
 
+   * **Type**: Select the load balancer type.
+     * A **Public** load balancer has a public IP address, which means that it can route requests from clients over the internet.
+     * A **Private** load balancer has a private IP address, which means that it is accessible only to internal clients within the same region and VPC.
+   * **DNS type**: Select either **Public** or **Private**. Private DNS zones are resolvable only on IBM Cloud, and only from explicitly permitted networks in an account or with cross-account access.
+
+      **For Private type only**, click **Bind** to enter your DNS instance and zone information, then click **Bind**.
+      {: note}
+
 1. In the Back-end pools section, click **Create** and specify the following information to create a back-end pool. You can create one or more pools.
    * **Name**: Enter a name for the pool, such as `my-pool`.
    * **Pool protocol**: Select the protocol for your instances in this pool. The pool protocol must be compatible with its listener protocol. For HTTP or HTTPS listeners, use HTTP as the pool protocol. For TCP listeners, use TCP as the pool protocol.
    * **Session stickiness**: Select whether all requests during a user's session are sent to the same instance.
+   * **Proxy protocol**: Select **Disabled** (default), **Version 1**, or **Version 2** (versions of the proxy protocol header). Proxy protocol attaches a proxy protocol header to the TCP, HTTP, and HTTPS packets that are sent to the back-end pool. This setting enables the the back-end servers to get the client IP and port information that the load balancer sets in the proxy protocol header.
    * **Method**: Select how you want the load balancer to distribute traffic across the instances in the pool:
        * **Least connections:** Forward requests to the instance with the least number of connections at the current time.
        * **Round robin:** Forward requests to each instance in turn. All instances receive approximately an equal number of client connections.
@@ -66,7 +66,7 @@ To create an ALB:
        * **Timeout (sec)**: Maximum amount of time the system waits for a response from a health check request. By default, the load balancer waits 2 seconds for a response.
        * **Max retries**: Maximum number of health check attempts that the load balancer makes before an instance is declared unhealthy. By default, an instance is no longer considered healthy after two failed health checks.
 
-       HTTP sends data as plain text that can be intercepted and is considered insecure. `Https` is recommended instead of `http` as the protocol. For more details, see [Why is HTTP not secure?](https://www.cloudflare.com/learning/ssl/why-is-http-not-secure/){: external}
+       HTTP sends data as plain text that can be intercepted and is considered insecure. `https` is recommended instead of `http` as the protocol. For more details, see [Why is HTTP not secure?](https://www.cloudflare.com/learning/ssl/why-is-http-not-secure/){: external}.
        {: note}
 
        Although the load balancer stops sending connections to unhealthy instances, the load balancer continues monitoring the health of these instances and resumes their use if they're found healthy again (that is, if they successfully pass two consecutive health check attempts).
@@ -136,13 +136,10 @@ To create an ALB:
       * **Target**: Select a pool from the list of compatible pools as your backup pool.
 1. If you want to redirect the traffic from an HTTP listener to an HTTPS listener, you can create an HTTP listener with HTTPS redirect settings.
 
-    Layer 7 load-balancing policies overwrite settings that you define here.
+    Layer 7 load-balancing policies overwrite settings that you define here. Also, keep in mind that there must be an existing HTTPS listener before you create a new HTTP listener with HTTPS redirect.
     {: note}
 
-    To do so:
-
-    There must be an existing HTTPS listener before you create a new HTTP listener with HTTPS redirect.
-    {: note}
+    To do so: 
 
     * After the status of the load balancer changes to **Active**, click the **Front-end listeners** tab.
     * In the listener list page, click **Create**, then specify the following information:
@@ -179,7 +176,7 @@ To create an ALB:
 {: #lb-cli-creating-application-load-balancer}
 {: cli}
 
-The following example illustrates using the CLI to create an {{site.data.keyword.alb_full}} (ALB). In this example, it is in front of one VPC virtual server instance (ID `0716_6acdd058-4607-4463-af08-d4999d983945`) running a TCP server that listens on port 9090. The load balancer has a front-end listener, which allows secure access to the TCP server.
+The following example demonstrates using the CLI to create an {{site.data.keyword.alb_full}} (ALB). In this example, it is in front of one VPC virtual server instance (ID `0716_6acdd058-4607-4463-af08-d4999d983945`) running a TCP server that listens on port 9090. The load balancer has a front-end listener, which allows secure access to the TCP server.
 
 To create an application load balancer from the CLI, follow these steps:
 
@@ -202,28 +199,39 @@ To create an application load balancer from the CLI, follow these steps:
     Sample output:
 
     ```sh
-    Creating load balancer alb-test in resource group under account IBM Cloud Network Services as user test@ibm.com...
-
-    ID                 r006-99b5ab45-6357-42db-8b32-5d2c8aa62776
-    Name               alb-test
-    CRN                crn:v1:public:is:us-south-1:a/123456::load-balancer:r006-99b5ab45-6357-42db-8b32-5d2c8aa62776
-    Family             Application
-    Host name          99b5ab45-us-south.lb.test.appdomain.cloud
-    Subnets            ID                                          Name
-                       0896-b1f24514-89dc-4afd-b0e2-5489a43cf45c   nlb
-
-    Public IPs
-    Private IPs
-    Provision status   create_pending
-    Operating status   offline
-    Is public          true
-    Listeners
-    Pools              ID   Name
-
-    Resource group     ID                                 Name
-                       3021f90279574ce287dd5fba82c08899   Default
-
-    Created            2020-08-27T14:34:34.732-05:00
+  ibmcloud is load-balancer-create my-lb public --subnet my-subnet 
+Creating load balancer my-lb under account vpcdemo as user test@ibm.com..
+                                      
+ID                                 r026-ec6717fa-aa6c-46c4-94ff-4ccd193ee423   
+Name                               my-lb   
+CRN                                crn:v1:bluemix:public:is:au-syd:a/7f75c7b025e54bc5635f754b2f888665::load-balancer:r026-ec6717fa-aa6c-46c4-94ff-4ccd193ee423   
+Family                             application   
+Host name                          ec6717fa-au-syd.lb.appdomain.cloud   
+Subnets                            ID                                          Name      
+                                   02h7-16f74a61-b586-4143-92df-dbc4a047bd5c   my-subnet      
+                                      
+Public IPs                            
+Private IPs                           
+Provision status                   create_pending   
+Operating status                   offline   
+Is public                          true   
+Is private path                    false   
+Listeners                             
+Pools                              ID   Name      
+                                      
+Resource group                     ID                                 Name      
+                                   bdd96715c2a44f2bb60df4ff14a543f5   -      
+                                      
+Created                            2026-05-26T14:47:06+05:30   
+Availability                       subnet   
+Instance Group Supported           true   
+SourceIP Session Supported         true   
+Security groups supported          true   
+UDP Supported                      false   
+Failsafe policy actions            fail,drop,forward   
+Access mode                        public   
+Advanced Health Checks Supported   true   
+FQDN Pool Members Supported        true     
     ```
     {: screen}
 
