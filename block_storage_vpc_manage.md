@@ -360,7 +360,7 @@ Make a `PATCH /volumes/{id}` call and specify a new name for the volume.
 
 ```sh
 curl -X PATCH "$vpc_api_endpoint/v1/volumes/$volume_id?version=2022-04-22&generation=2"  \
--H "Authorization: $iam_token" \
+-H "Authorization: Bearer $iam_token" \
 -d '{
       "name": "my-volume-4-update"
     }'
