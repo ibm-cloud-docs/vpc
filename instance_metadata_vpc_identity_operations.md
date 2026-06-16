@@ -2,7 +2,7 @@
 
 copyright:
   years: 2022, 2026
-lastupdated: "2026-04-21"
+lastupdated: "2026-06-16"
 
 keywords:
 
@@ -20,8 +20,9 @@ You can use the metadata service to obtain an identity access token from the met
 
 ## Identity access token
 {: #imd-json-token}
+{: api}
 
-An identity access token provides a security credential for accessing the Metadata and VPC Identity services. It's a signed token with a set of claims based on information about the instance and information that is passed in the token request. The minimum version date to use the identity access token feature is `2022-03-01`.
+An identity access token provides a security credential for accessing the {{site.data.keyword.cloud}} Metadata and VPC Identity services. It's a signed token with a set of claims based on information about the instance and information that is passed in the token request. The minimum version date to use the identity access token feature is `2022-03-01`.
 
 Communication between the instance and the metadata service stays within the host. You acquire the token from within the instance. If secure access to the metadata service is enabled on your instance, use the "https" protocol instead of the "http" protocol.
 {: important}
@@ -66,7 +67,7 @@ identity_token=`curl -X PUT "https://api.metadata.cloud.ibm.com/identity/v1/toke
         "expires_in": 3600
       }' | jq -r '(.access_token)'`
 ```
-{: pre}
+{: codeblock}
 
 In the following example, the return value of the cURL command is the identity access token. The token is extracted by `jq` and placed in the `identity_token` environment variable.
 
@@ -77,7 +78,7 @@ identity_token=`curl -X PUT "https://api.metadata.cloud.ibm.com/identity/v1/toke
         "expires_in": 3600
       }' | jq -r '(.access_token)'`
 ```
-{: pre}
+{: codeblock}
 
 The example uses `jq` as a parser, a third-party tool licensed under the [MIT license](https://stedolan.github.io/jq/download/). `jq` might not come preinstalled on all VPC images available when you create an instance. You might need to install `jq` before use or use another parser of your choice.
 {: note}
@@ -109,7 +110,7 @@ iam_token=`curl -X POST "$vpc_metadata_api_endpoint/identity/v1/iam_tokens?versi
       }
     }'| jq -r '(.access_token)'`
 ```
-{: pre}
+{: codeblock}
 
 The JSON response shows the IAM token.
 
@@ -127,6 +128,7 @@ For more information about trusted profiles, see [Using a trusted profile to cal
 
 ## Generating an identity certificate by using an identity access token
 {: #imd-acquire-certificate}
+{: api}
 
 Identity certificates are required to successfully enable and use encryption in transit between virtual server instances and {{site.data.keyword.filestorage_vpc_full}} shares. To generate an identity certificate for the instance, make a `POST /identity/v1/certificates` call with the identity access token and a certificate signing request (CSR).
 

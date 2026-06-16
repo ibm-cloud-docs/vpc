@@ -2,7 +2,7 @@
 
 copyright:
   years: 2022, 2026
-lastupdated: "2026-04-16"
+lastupdated: "2026-06-16"
 
 keywords:
 
@@ -33,10 +33,16 @@ This topic describes how to configure security safeguards to protect your metada
 
 You can enable secure access to the metadata service. When secure access is enabled, the metadata service is accessible only to the virtual server instance by encrypted HTTP secure protocol (HTTPS). For more information, see [Enable secure access in the console](/docs/vpc?topic=vpc-imd-configure-service&interface=ui#secure-access-ui)
 
+When you use an image that has an allowed-use expression that specifies either HTTPS or HTTP as the required metadata service protocol, keep that in mind for metadata service requests and responses. You can't use an image that is set up for HTTP for HTTPS and vice versa.
+{: note}
+
 ## Disable the metadata service for an instance or account
 {: #imd-disable-instance-acct}
 
 You can disable the service on an existing instance where it is enabled. For more information, see [Enable or disable the metadata service](/docs/vpc?topic=vpc-imd-configure-service).
+
+Disabling the metadata service for a virtual server instance might not be possible due to an allowed-use expression requiring it be enabled.
+{: note}
 
 ## Use `iptables` firewall to limit access on Linux
 {: #imd-iptables}
@@ -72,6 +78,11 @@ Limit trusted profiles that you create for compute resource identities in IAM. O
 When you [remove trusted profiles](/docs/iam?topic=iam-trusted-profile-update&interface=ui#remove-tp-console){: ui}[remove trusted profiles](/docs/iam?topic=iam-trusted-profile-update&interface=cli#remove-tp-cli){: cli}[remove trusted profiles](/docs/iam?topic=iam-trusted-profile-update&interface=api#remove-tp-api){: api}, compute resources and federated users are unlinked from the profile, and can no longer apply the trusted profile identity.
 
 You can also update existing trusted profiles by redefining the trust relationship, assigning access policies, and updating session limits. For more information, see [Updating trusted profiles](/docs/iam?topic=iam-trusted-profile-update).
+
+### Verify token requests with a nonce
+{: #imd-verify-nonce}
+
+A nonce may be specified in the request to get an identity access token, and then verified to be the same in a response, to verify that the response is in fact from the call just made.  When specified, the value returned in the response and in the same-named property in the decoded identity token will match that specified.
 
 ## Additional network security measures
 {: #imd-network-security}

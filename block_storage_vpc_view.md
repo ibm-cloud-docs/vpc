@@ -2,7 +2,7 @@
 
 copyright:
   years: 2019, 2026
-lastupdated: "2026-06-11"
+lastupdated: "2026-06-16"
 
 keywords:
 
@@ -241,6 +241,7 @@ Storage Generation                     2
 In the example, the volume is attached to a virtual server instance, so the names and IDs of the volume attachment and instance are also displayed in the command output. The `Active` property is `true` because the virtual server instance to which the volume is attached is running. The `Busy` property with the value `false` indicates that this volume is not performing an operation that must be serialized.
 
 For more information about available command options, see [`ibmcloud is volume`](/docs/cli?topic=cli-vpc-reference#volume-view).
+
 
 ### Extra CLI properties for boot volumes
 {: #viewvol-boot-cli}
