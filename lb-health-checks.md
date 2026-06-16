@@ -34,6 +34,18 @@ You can configure health checks when [creating an application load balancer](/do
     * **Interval**: The number of seconds between consecutive health check attempts. By default, health checks are run every 5 seconds.
     * **Timeout (sec)**: The maximum time that the load balancer waits for a health check response. By default, the timeout is 2 seconds.
     * **Max retries**: The number of consecutive failed health check attempts that are allowed before a target is marked unhealthy. By default, a target is marked unhealthy after two failed health checks. The load balancer continues monitoring unhealthy targets and resumes forwarding traffic after they successfully pass two consecutive health checks.
+1. Select optional request settings for your health checks. You have the following options:
+    * **Request settings (optional)**: Customize successful request values during health checks. If unspecified, health checks use default values.
+    * **Request method**: Choose one of `GET` or `POST`. You can customize `request.headers` for both methods. You can optionally customize a `request.body` while using the `POST` method.
+    * **Request body**: Specify the HTTP request body to use for health checks. If unspecified, health check requests do not have a request body.
+    * **Host header**: Specify a host header to ensure request uses HTTP/1.1 protocol. Otherwise, the system defaults to HTTP/1.0.
+    * **Add other request headers**: Add one or more additional request headers.
+    * **Header name**: For a `GET` request method, choose one of `content-type`, `accept`, `authorization`, `cookie`, `origin`, `referrer`, or `user-agent`. For a `POST` request method, choose one of `content-type`, `content-length`, `application-json`, or `accept-encoding`.
+    * **Value**: Enter the value that corresponds with the specified Header name.
+1. Select optional response settings for your health checks. You have the following options:
+    * **Response settings (optional)**: Customize successful response values during health checks. If unspecified, health checks will use default values.
+    * **Response body**: Enter response body text.
+    * **Response code**: You can specify multiple comma separated values within the range of 100-599. To specify a range, use XX. For example, 2XX for 200-299.
 
 If instances in the pool are marked unhealthy but your application appears to be functioning correctly, double-check the health protocol and health check path settings. Also verify that any security groups attached to the instances allow traffic between the load balancer and the instances.
 {: tip}
