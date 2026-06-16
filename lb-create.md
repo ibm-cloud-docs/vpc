@@ -65,6 +65,18 @@ To create an ALB:
        * **Interval (sec)**: Interval in seconds between two consecutive health check attempts. By default, health checks are sent every 5 seconds.
        * **Timeout (sec)**: Maximum amount of time the system waits for a response from a health check request. By default, the load balancer waits 2 seconds for a response.
        * **Max retries**: Maximum number of health check attempts that the load balancer makes before an instance is declared unhealthy. By default, an instance is no longer considered healthy after two failed health checks.
+1. (Optional) Select **Request settings** to customize health check request values. If no values are specified, the default settings are used.
+
+   * **Request method**: Choose one of `GET` or `POST`. You can customize `request.headers` for both methods. You can optionally customize a `request.body` while using the `POST` method.
+   * **Request Body**: Include the HTTP request body to use for health checks. If unspecified, health check requests will not have a request body.
+   * **Host header**: Include host header to ensure request uses HTTP/1.1 protocol. Otherwise, the system defaults to HTTP/1.0.
+   * **Add other request headers**: Add one or more additional request headers.
+   * **Header name**: For `GET` request method, choose one of `content-type`, `accept`, `authorization`, `cookie`, `origin`, `referrer`, or `user-agent`. For `POST` request method, choose one of `content-type`, `content-length`, `application-json`, or `accept-encoding`.
+   * **Value**: Enter the value that corresponds with the specified Header name.
+1. (Optional) Select **Response settings** to customize health check response values. If no values are specified, the default settings are used.
+
+   * **Response body**: Enter response body text.
+   * **Response code**: You can specify multiple comma separated values within the range of 100-599. To specify a range, use XX. For example, 2XX for 200-299.
 
        HTTP sends data as plain text that can be intercepted and is considered insecure. `https` is recommended instead of `http` as the protocol. For more details, see [Why is HTTP not secure?](https://www.cloudflare.com/learning/ssl/why-is-http-not-secure/){: external}.
        {: note}
