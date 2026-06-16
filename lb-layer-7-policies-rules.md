@@ -2,7 +2,7 @@
 
 copyright:
   years: 2018, 2026
-lastupdated: "2026-06-11"
+lastupdated: "2026-06-16"
 
 keywords: application load balancer, alb, polices, rules
 
@@ -53,25 +53,25 @@ URI | The relative URI to which the request is redirected, if the action is `htt
 ## Layer 7 rules
 {: #layer-7-rules}
 
-A rule defines how a request is to be matched. Both URI-based routing and parameter-based routing are supported. Five types of rules are supported, described as follows.
-
+A rule defines how a request is matched. Both URI-based routing and parameter-based routing are supported. The following five rule types are supported.
 Type      |  Description
 ----------| -----------------------
 `hostname` | The request matches the specified `hostname`, such as `api.my_company.com`.
 `header`   | The request matches an HTTP `header` field and value, such as `Cookie: xxxx`.
 `path`     | The request matches the `path` in the URL after the `hostname`, such as `/index.html`.
-`query`    | The request matches the `query` in the URL, for example `x=y`. The `query` string must be percent-encoded, and it is case-sensitive.
-`body`     | The `body` request of the `POST` request is form-encoded. The request matches the body, for example `key=value`. It is case-sensitive.
+`query`    | The request matches the `query` string in the URL, for example `x=y`. The `query` string must be percent-encoded, and it is case-sensitive.
+`body`     | The request `body` for the `POST` request is form-encoded. The request matches the body, for example `key=value`. It is case-sensitive.
 `sni_hostname` | The server provided in the "server name indication" extension during TLS negotiation matches the specified SNI hostname.
 {: caption="Layer 7 rules" caption-side="bottom"}
 
-To match a request, a `condition` statement must be defined in a rule. Three conditions are supported, described as follows.
+To match a request, a `condition` statement must be defined in a rule. The following four conditions are supported.
 
 Condition |  Type of evaluation
 ----------------|---------------------
-`contains`        |  Verify whether the value extracted based on the `type` contains the string that is specified in the `value`.
-`equals`        |  Verify whether the value extracted based on the `type` is identical to the string specified in the `value`.
-`matches_regex`           |  Match the value extracted based on the `type` with the regular expression that is specified in the `value`.
+`contains`        |  Verifies whether the value extracted based on the `type` contains the string that is specified in the `value`.
+`equals`        |  Verifies whether the value extracted based on the `type` is identical to the string specified in the `value`.
+`matches_regex`           |  Matches the value extracted based on the `type` with the regular expression that is specified in the `value`.
+`starts_with`           |  Verifies whether the value extracted based on the `type` starts with the string that is specified in the `value`.
 {: caption="Condition statements defined in a rule" caption-side="bottom"}
 
 ## Rule properties
@@ -82,9 +82,9 @@ This table describes layer 7 policy rule properties.
 Property  | Description
 ------------- | -------------
 `type` | Specifies the type of rule. The acceptable values are `hostname`, `header`, `path`, `query`, or `body`.
-`condition` | Specifies the condition with which a rule is evaluated. Condition can be: `contains`, `equals`, or `matches_regex`.
+`condition` | Specifies the condition used to evaluate the rule. The supported values are `contains`, `equals`, or `matches_regex`.
 `field` | Specifies the field name. This field is applicable only to the `header` `query` and `body` rule type and does not support regular expression and wildcard characters. For example, to match a cookie in the HTTP header, the field can be set to `cookie`. When the rule type is `query` and `body`, this field is optional. This property is not applicable to the `sni_hostname` rule type.
-`value` | The string to be matched. Does not support wildcard characters. Supports regular expression if the `condition` is set to `matches_regex`.
+`value` | The string to be matched. This field does not support wildcard characters. Regular expressions are supported when the `condition` is set to `matches_regex`.
 {: caption="Descriptions of rule properties" caption-side="bottom"}
 
 **Notes**:
