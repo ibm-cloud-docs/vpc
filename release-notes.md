@@ -59,7 +59,7 @@ IBM Hyper Protect Container Runtime image `ibm-hyper-protect-container-runtime-1
 {: release-note}
 
 Application Load Balancer (ALB) HTTP Bundle (GA)
-:   ALBs now support advanced HTTP health checks, FQDN-based pool members, and expanded listener-policy matching for cloud-native workloads.
+:   ALBs now support advanced HTTP health checks, FQDN-based pool members, and expanded listener-policy matching for cloud-native workloads. For a deeper look at these capabilities and their benefits, see [Introducing the HTTP Bundle for IBM Cloud ALB for VPC](https://community.ibm.com/community/user/blogs/parshant/2026/06/17/http-https-enhancement){: external}.
 
 ### 11 June 2026
 {: #vpc-jun1126}
