@@ -2,7 +2,7 @@
 
 copyright:
   years: 2020, 2026
-lastupdated: "2026-06-16"
+lastupdated: "2026-06-17"
 
 keywords: application load balancer, public, private, listener, back-end, front-end, pool, round-robin, weighted, connections, methods, policies, APIs, access, ports, vpc
 
@@ -49,7 +49,7 @@ You can configure pools when [creating a application load balancer](/docs/vpc?to
    * **Session stickiness**: Select Whether all requests during a user's session are sent to the same instance.
    * **Health check**: Configure how the load balancer checks the health of the instances. For information about configuring health checks, see [Working with health checks](/docs/vpc?topic=vpc-alb-health-checks#lb-health-checks).
 1. Select **Request settings (optional)** for your health checks. If you do not specify values, the default health check settings are used. The following options are available:
-    * **Request Method**: Choose one of `GET` or `POST`. You can customize `request.headers` for both methods. You can optionally customize a `request.body` when you use the `POST` method.
+    * **Request Method**: Choose one of `GET` or `POST`. You can customize Request headers for both methods. You can optionally customize a Request body when you use the `POST` method.
     * **Request Body**: Specify the HTTP request body to use for health checks. If no value is specified, health check requests do not include a request body.
     * **Host header**: Include host header to ensure that the request uses HTTP/1.1 protocol. Otherwise, the system defaults to HTTP/1.0.
     * **Add other request headers**: Add one or more additional request headers.
