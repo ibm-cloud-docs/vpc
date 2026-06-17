@@ -2,7 +2,7 @@
 
 copyright:
   years: 2020, 2026
-lastupdated: "2026-06-16"
+lastupdated: "2026-06-17"
 
 keywords: application load balancer, public, listener, back-end, front-end, pool, round-robin, weighted, connections, methods, policies, APIs, access, ports
 
@@ -36,7 +36,7 @@ You can configure health checks when [creating an application load balancer](/do
     * **Max retries**: The number of consecutive failed health check attempts that are allowed before a target is marked unhealthy. By default, a target is marked unhealthy after two failed health checks. The load balancer continues monitoring unhealthy targets and resumes forwarding traffic after they successfully pass two consecutive health checks.
 1. Select optional request settings for your health checks. You have the following options:
     * **Request settings (optional)**: Customize successful request values during health checks. If unspecified, health checks use default values.
-    * **Request method**: Choose one of `GET` or `POST`. You can customize `request.headers` for both methods. You can optionally customize a `request.body` while using the `POST` method.
+    * **Request method**: Choose one of `GET` or `POST`. You can customize Request headers for both methods. You can optionally customize a Request body while using the `POST` method.
     * **Request body**: Specify the HTTP request body to use for health checks. If unspecified, health check requests do not have a request body.
     * **Host header**: Specify a host header to ensure request uses HTTP/1.1 protocol. Otherwise, the system defaults to HTTP/1.0.
     * **Add other request headers**: Add one or more additional request headers.

@@ -2,7 +2,7 @@
 
 copyright:
   years: 2021, 2026
-lastupdated: "2026-06-16"
+lastupdated: "2026-06-17"
 
 keywords: application load balancer, ALB, create load balancer, VPC load balancer, load balancer pools, load balancer listeners
 
@@ -67,7 +67,7 @@ To create an ALB:
        * **Max retries**: Maximum number of health check attempts that the load balancer makes before an instance is declared unhealthy. By default, an instance is no longer considered healthy after two failed health checks.
 1. (Optional) Select **Request settings** to customize health check request values. If no values are specified, the default settings are used.
 
-   * **Request method**: Choose one of `GET` or `POST`. You can customize `request.headers` for both methods. You can optionally customize a `request.body` while using the `POST` method.
+   * **Request method**: Choose one of `GET` or `POST`. You can customize Request headers for both methods. You can optionally customize a Request body while using the `POST` method.
    * **Request Body**: Include the HTTP request body to use for health checks. If unspecified, health check requests will not have a request body.
    * **Host header**: Include host header to ensure request uses HTTP/1.1 protocol. Otherwise, the system defaults to HTTP/1.0.
    * **Add other request headers**: Add one or more additional request headers.
