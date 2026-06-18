@@ -2,7 +2,7 @@
 
 copyright:
   years: 2019, 2026
-lastupdated: "2026-06-16"
+lastupdated: "2026-06-18"
 
 keywords:
 
@@ -291,7 +291,7 @@ Allowed Use Instance                   true
 
 The allowed-use properties are inherited from the source image or snapshot that the parent boot volume was created from. By using the CLI or API, you can override these values when you create an instance or when you update the boot volume. You must have the `is.volume.volume.manage-allowed-use` IAM role to make these updates.
 
-These properties comprise a Boolean [Common Expression Language](https://github.com/google/cel-spec/blob/master/doc/langdef.md){: external} expression. When the expression is evaluated to be `true`, the virtual server instance or bare metal server provisioning is allowed with the boot volume or an image that was created from the boot volume. When the expression is evaluated to be `false`, the provisioning is blocked. For more information, see [Adding allowed-use expressions to custom images](/docs/vpc?topic=vpc-custom-image-allowed-use-expressions&interface=cli).
+These properties comprise a Boolean [Common Expression Language](https://github.com/cel-expr/cel-spec/blob/master/doc/langdef.md){: external} expression. When the expression is evaluated to be `true`, the virtual server instance or bare metal server provisioning is allowed with the boot volume or an image that was created from the boot volume. When the expression is evaluated to be `false`, the provisioning is blocked. For more information, see [Adding allowed-use expressions to custom images](/docs/vpc?topic=vpc-custom-image-allowed-use-expressions&interface=cli).
 
 ## Viewing {{site.data.keyword.block_storage_is_short}} volumes with the API
 {: #viewing-block-storage-api}
@@ -571,7 +571,7 @@ When you request to view details of boot volumes, a couple of extra properties a
 
 * The `busy` property indicates whether this volume is performing an operation that must be serialized. If an operation requires serialization, the operation fails unless this property is `false`.
 
-* The allowed-use expressions are inherited from the source image or snapshot that the parent boot volume was created from. You can update allowed-use expressions only on detached boot volumes. Using the CLI or API, you can override these values when you create an instance or by updating the boot volume. You must have the `is.volume.volume.manage-allowed-use` IAM role to make these updates. These properties comprise a Boolean [Common Expression Language](https://github.com/google/cel-spec/blob/master/doc/langdef.md){: external} expression. When the expression is evaluated to be `true`, the virtual server instance or bare metal server provisioning is allowed with the boot volume or an image that was created from the boot volume. When the expression is evaluated to be `false`, the provisioning is blocked. For more information, see [Adding allowed-use expressions to custom images](/docs/vpc?topic=vpc-custom-image-allowed-use-expressions&interface=ui).
+* The allowed-use expressions are inherited from the source image or snapshot that the parent boot volume was created from. You can update allowed-use expressions only on detached boot volumes. Using the CLI or API, you can override these values when you create an instance or by updating the boot volume. You must have the `is.volume.volume.manage-allowed-use` IAM role to make these updates. These properties comprise a Boolean [Common Expression Language](https://github.com/cel-expr/cel-spec/blob/master/doc/langdef.md){: external} expression. When the expression is evaluated to be `true`, the virtual server instance or bare metal server provisioning is allowed with the boot volume or an image that was created from the boot volume. When the expression is evaluated to be `false`, the provisioning is blocked. For more information, see [Adding allowed-use expressions to custom images](/docs/vpc?topic=vpc-custom-image-allowed-use-expressions&interface=ui).
 
 See the following example.
 
@@ -651,7 +651,7 @@ For more information, see [ibm_is_volume](https://registry.terraform.io/provider
 ### Extra Terraform properties for boot volumes
 {: #viewvol-boot-terraform}
 
-The allowed-use expressions are inherited from the source image or snapshot that the parent boot volume was created from. You can update allowed-use expressions only on detached boot volumes. Using Terraform, you can override these values when you create an instance or by updating the boot volume. You must have the `is.volume.volume.manage-allowed-use` IAM role to make these updates. These properties comprise a Boolean [Common Expression Language](https://github.com/google/cel-spec/blob/master/doc/langdef.md){: external} expression. When the expression is evaluated to be `true`, the virtual server instance or bare metal server provisioning is allowed with the boot volume or an image that was created from the boot volume. When the expression is evaluated to be `false`, the provisioning is blocked. For more information, see [Adding allowed-use expressions to custom images](/docs/vpc?topic=vpc-custom-image-allowed-use-expressions&interface=ui).
+The allowed-use expressions are inherited from the source image or snapshot that the parent boot volume was created from. You can update allowed-use expressions only on detached boot volumes. Using Terraform, you can override these values when you create an instance or by updating the boot volume. You must have the `is.volume.volume.manage-allowed-use` IAM role to make these updates. These properties comprise a Boolean [Common Expression Language](https://github.com/cel-expr/cel-spec/blob/master/doc/langdef.md){: external} expression. When the expression is evaluated to be `true`, the virtual server instance or bare metal server provisioning is allowed with the boot volume or an image that was created from the boot volume. When the expression is evaluated to be `false`, the provisioning is blocked. For more information, see [Adding allowed-use expressions to custom images](/docs/vpc?topic=vpc-custom-image-allowed-use-expressions&interface=ui).
 
 ## Next steps
 {: #next-step-viewing-block-storage}

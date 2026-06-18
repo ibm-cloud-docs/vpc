@@ -2,7 +2,7 @@
 
 copyright:
   years: 2021, 2026
-lastupdated: "2026-06-16"
+lastupdated: "2026-06-18"
 
 keywords: snapshots, Block Storage snapshots, manage snapshots, fast restore clone, backup snapshot, remote copy, cross-regional copy
 
@@ -160,7 +160,7 @@ Allowed Use Instance            true
 ```
 {: screen}
 
-The properties comprise a Boolean [Common Expression Language](https://github.com/google/cel-spec/blob/master/doc/langdef.md){: external} expression. When the expression is evaluated to be `true`, then the provisioning of a virtual server instance or a bare metal server is allowed with the snapshot. When the expression is evaluated to be `false`, the provisioning is blocked.
+The properties comprise a Boolean [Common Expression Language](https://github.com/cel-expr/cel-spec/blob/master/doc/langdef.md){: external} expression. When the expression is evaluated to be `true`, then the provisioning of a virtual server instance or a bare metal server is allowed with the snapshot. When the expression is evaluated to be `false`, the provisioning is blocked.
 
 ## Renaming a snapshot with the API
 {: #snapshots-vpc-rename-api}

@@ -1,8 +1,8 @@
 ---
 
 copyright:
-  years: 2025, 2025
-lastupdated: "2025-11-05"
+  years: 2025, 2026
+lastupdated: "2026-06-18"
 
 keywords:
 
@@ -76,7 +76,7 @@ gpu.count > 1 && gpu.manufacturer == 'nvidia' && enable_secure_boot
 ```
 {: codeblock}
 
-For more information about Common Expression Language, which is used to create the allowed-use expression, see [Google's CEL Language Definition reference](https://github.com/google/cel-spec/blob/master/doc/langdef.md){: external}
+For more information about Common Expression Language, which is used to create the allowed-use expression, see [Google's CEL Language Definition reference](https://github.com/cel-expr/cel-spec/blob/master/doc/langdef.md){: external}
 
 ## Defining allowed-use expressions by using the CLI
 {: #custom-image-allowed-use-expressions-cli}
@@ -122,7 +122,7 @@ ibmcloud is image-update r006-c9da1575-20cd-4412-9269-8ed08d3ac278 --allowed-use
 ```
 {: pre}
 
- For more information about the CLI allowed-use expression options and variables, see the [VPC CLI reference: Images](/docs/vpc?topic=vpc-vpc-reference#compute-images). For more information regarding Common Expression Language, which is used to create the allowed-use expression, see [Google's CEL Language Definition reference](https://github.com/google/cel-spec/blob/master/doc/langdef.md){: external}
+ For more information about the CLI allowed-use expression options and variables, see the [VPC CLI reference: Images](/docs/vpc?topic=vpc-vpc-reference#compute-images). For more information regarding Common Expression Language, which is used to create the allowed-use expression, see [Google's CEL Language Definition reference](https://github.com/cel-expr/cel-spec/blob/master/doc/langdef.md){: external}
 
 ## Defining allowed-use expressions by using the API
 {: #custom-image-allowed-use-expressions-api}
@@ -185,7 +185,7 @@ curl -X PATCH "$vpc_api_endpoint/v1/images/$image_id?version=$today&generation=2
 ```
 {: pre}
 
-For more details on the API `allowed_use` property and sub-properties, see the [Virtual Private Cloud API: Create image](/apidocs/vpc/latest#create-image) and [Virtual Private Cloud API: Update image](/apidocs/vpc/latest#update-image). For more information regarding Common Expression Language, which is used to create the allowed-use expression, see [Google's CEL Language Definition reference](https://github.com/google/cel-spec/blob/master/doc/langdef.md){: external}
+For more details on the API `allowed_use` property and sub-properties, see the [Virtual Private Cloud API: Create image](/apidocs/vpc/latest#create-image) and [Virtual Private Cloud API: Update image](/apidocs/vpc/latest#update-image). For more information regarding Common Expression Language, which is used to create the allowed-use expression, see [Google's CEL Language Definition reference](https://github.com/cel-expr/cel-spec/blob/master/doc/langdef.md){: external}
 
 ## Defining allowed-use expressions by using Terraform
 {: #custom-image-allowed-use-expressions-terraform}
@@ -233,4 +233,4 @@ resource "ibm_is_image" "example" {
 ```
 {: codeblock}
 
-For more information regarding Common Expression Language, which is used to create the allowed-use expressions, see [Google's CEL Language Definition reference](https://github.com/google/cel-spec/blob/master/doc/langdef.md){: external}</
+For more information regarding Common Expression Language, which is used to create the allowed-use expressions, see [Google's CEL Language Definition reference](https://github.com/cel-expr/cel-spec/blob/master/doc/langdef.md){: external}</
