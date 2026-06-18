@@ -2,7 +2,7 @@
 
 copyright:
   years: 2018, 2026
-lastupdated: "2026-05-04"
+lastupdated: "2026-06-18"
 
 keywords:
 
@@ -70,6 +70,8 @@ The following sections contain known issues for public, private, and Private Pat
 * Autoscaler integration is not supported.
 * The maximal MTU for Private Path NLB traffic is `8500`.
 * For quotas and service limits, see [Quotas and service limits for Private Path network load balancers](/docs/vpc?topic=vpc-quotas#ppnlb-quotas). To request an increase, [create a support case](/docs/support?topic=support-open-case).
+
+* When you create a Private Path NLB, there is a known issue in which the health monitor request and response fields are not returned in the GET API response.
 
 ### Related link
 {: #nlb-limitations-related-links}
