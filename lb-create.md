@@ -2,7 +2,7 @@
 
 copyright:
   years: 2021, 2026
-lastupdated: "2026-06-17"
+lastupdated: "2026-06-18"
 
 keywords: application load balancer, ALB, create load balancer, VPC load balancer, load balancer pools, load balancer listeners
 
@@ -73,6 +73,10 @@ To create an ALB:
    * **Add other request headers**: Add one or more additional request headers.
    * **Header name**: For `GET` request method, choose one of `content-type`, `accept`, `authorization`, `cookie`, `origin`, `referrer`, or `user-agent`. For `POST` request method, choose one of `content-type`, `content-length`, `application-json`, or `accept-encoding`.
    * **Value**: Enter the value that corresponds with the specified Header name.
+
+   For Private Path Network Load Balancers (PPNLBs), there is a known issue in which the health monitor request and response fields are not returned in the GET API response.
+   {: note}
+   
 1. (Optional) Select **Response settings** to customize health check response values. If no values are specified, the default settings are used.
 
    * **Response body**: Enter response body text.

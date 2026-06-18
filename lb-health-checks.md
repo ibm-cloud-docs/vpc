@@ -2,7 +2,7 @@
 
 copyright:
   years: 2020, 2026
-lastupdated: "2026-06-17"
+lastupdated: "2026-06-18"
 
 keywords: application load balancer, public, listener, back-end, front-end, pool, round-robin, weighted, connections, methods, policies, APIs, access, ports
 
@@ -42,6 +42,10 @@ You can configure health checks when [creating an application load balancer](/do
     * **Add other request headers**: Add one or more additional request headers.
     * **Header name**: For a `GET` request method, choose one of `content-type`, `accept`, `authorization`, `cookie`, `origin`, `referrer`, or `user-agent`. For a `POST` request method, choose one of `content-type`, `content-length`, `application-json`, or `accept-encoding`.
     * **Value**: Enter the value that corresponds with the specified Header name.
+
+   For Private Path Network Load Balancers (PPNLBs), there is a known issue in which the health monitor request and response fields are not returned in the GET API response.
+   {: note}
+   
 1. Select optional response settings for your health checks. You have the following options:
     * **Response settings (optional)**: Customize successful response values during health checks. If unspecified, health checks will use default values.
     * **Response body**: Enter response body text.
