@@ -2,7 +2,7 @@
 
 copyright:
   years: 2022, 2026
-lastupdated: "2026-06-11"
+lastupdated: "2026-06-18"
 
 keywords: load balancer, public, listener, back-end, front-end, pool, round-robin, weighted, connections, methods, policies, APIs, access, ports
 
@@ -74,6 +74,31 @@ To create and configure {{site.data.keyword.nlb_full}} in the {{site.data.keywor
 
      If instances in the pool are unhealthy and you believe that your application is working correctly, double check the health protocol and health path values. Also, check any security groups that are attached to the instances to ensure that the rules allow traffic between the load balancer and the instances.
      {: tip}
+
+1. (Optional) Select **Request settings** to customize health check request values. If no values are specified, the default settings are used.
+
+   * **Request method**: Choose one of `GET` or `POST`. You can customize Request headers for both methods. You can optionally customize a Request body while using the `POST` method.
+   * **Request Body**: Include the HTTP request body to use for health checks. If unspecified, health check requests will not have a request body.
+   * **Host header**: Include host header to ensure request uses HTTP/1.1 protocol. Otherwise, the system defaults to HTTP/1.0.
+   * **Add other request headers**: Add one or more additional request headers.
+   * **Header name**: For `GET` request method, choose one of `content-type`, `accept`, `authorization`, `cookie`, `origin`, `referrer`, or `user-agent`. For `POST` request method, choose one of `content-type`, `content-length`, `application-json`, or `accept-encoding`.
+   * **Value**: Enter the value that corresponds with the specified Header name.
+
+   For Private Path Network Load Balancers (PPNLBs), there is a known issue in which the health monitor request and response fields are not returned in the GET API response.
+   {: note}
+   
+1. (Optional) Select **Response settings** to customize health check response values. If no values are specified, the default settings are used.
+
+   * **Response body**: Enter response body text.
+   * **Response code**: You can specify multiple comma separated values within the range of 100-599. To specify a range, use XX. For example, 2XX for 200-299.
+
+       HTTP sends data as plain text that can be intercepted and is considered insecure. `https` is recommended instead of `http` as the protocol. For more details, see [Why is HTTP not secure?](https://www.cloudflare.com/learning/ssl/why-is-http-not-secure/){: external}.
+       {: note}
+
+       Although the load balancer stops sending connections to unhealthy instances, the load balancer continues monitoring the health of these instances and resumes their use if they're found healthy again (that is, if they successfully pass two consecutive health check attempts).
+
+       If instances in the pool are unhealthy and you believe that your application is running fine, double check the health protocol and health path values. Also, check any security groups that are attached to the instances to ensure that the rules allow traffic between the load balancer and the instances.
+       {: tip}
 
 1. You can attach members to your back-end pool now, or after you create your Private Path NLB. Click **Attach** on the table row of your back-end pool. Specify the following information, then click **Attach**.
 
