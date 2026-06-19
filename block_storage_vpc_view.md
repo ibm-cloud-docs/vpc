@@ -240,41 +240,7 @@ Storage Generation                     2
 
 In the example, the volume is attached to a virtual server instance, so the names and IDs of the volume attachment and instance are also displayed in the command output. The `Active` property is `true` because the virtual server instance to which the volume is attached is running. The `Busy` property with the value `false` indicates that this volume is not performing an operation that must be serialized.
 
-For more information about available command options, see [`ibmcloud is volume`](/docs/cli?topic=cli-vpc-reference#volume-view).<vpcimg-226-software-attachments-storage>
-
-## Viewing software attachments of a volume from the CLI
-{: #ifv-view-volume-software-attachments-cli}
-{: cli}
-
-You can view the software attachments of a volume using the CLI.
-
-- To list all software attachments for a volume, use [`ibmcloud is volume-software-attachments`](/docs/vpc?topic=vpc-vpc-reference#volume-software-attachments). The variable `VOLUME` is the ID or name of the volume.
-
-   ```sh
-   ibmcloud is volume-software-attachments VOLUME [--output JSON] [-q, --quiet]
-   ```
-   {: pre}
-
-   The following example lists all software attachments for the volume `my-volume`.
-
-   ```sh
-   ibmcloud is volume-software-attachments my-volume
-   ```
-   {: pre}
-
-- To view the details of a specific software attachment for a volume, use [`ibmcloud is volume-software-attachment`](/docs/vpc?topic=vpc-vpc-reference#volume-software-attachment). The `VOLUME` variable is the ID or name of the volume. The `SWAC` variable is the volume software attachment ID or name.
-
-   ```sh
-   ibmcloud is volume-software-attachment VOLUME SWAC [--output JSON] [-q, --quiet]
-   ```
-   {: pre}
-
-   The following example shows the details of the software attachment `my-volume-software-attachment` for the volume `my-volume`.
-
-   ```sh
-   ibmcloud is volume-software-attachment my-volume my-volume-software-attachment
-   ```
-   {: pre}</vpcimg-226-software-attachments-storage>
+For more information about available command options, see [`ibmcloud is volume`](/docs/cli?topic=cli-vpc-reference#volume-view).
 
 
 ### Extra CLI properties for boot volumes
@@ -594,41 +560,7 @@ A successful response provides details of the volume, including capacity and IOP
   }
 }
 ```
-{: codeblock}<vpcimg-226-software-attachments-storage>
-
-## Listing volume software attachments with the API
-{: #list-volume-software-attachments-api}
-{: api}
-
-You can programmatically list all software attachments associated with a volume by calling the VPC API.
-
-Make a `GET /volumes/{volume_id}/software_attachments` request and specify the volume ID to list all software attachments associated with a volume.
-
-The following example lists all software attachments for a volume with a volume ID of `$volume_id`.
-
-```sh
-curl -X GET "https://us-south.iaas.cloud.ibm.com/v1/volumes/$volume_id/software_attachments?version=2024-06-23&generation=2" -H "accept: application/json" -H "Authorization: Bearer $iam_token"
-```
-{: pre}
-
-For more information, see [List volume software attachments associated with a volume](/apidocs/vpc/latest#list-volume-software-attachments) in the VPC API.
-
-## Retrieving a single volume software attachment with the API
-{: #retrieve-volume-software-attachment-api}
-{: api}
-
-You can retrieve a single software attachment associated with a volume by calling the VPC API.
-
-Make a GET `/volumes/{volume_id}/software_attachments/{id}` request and specify the volume ID and software attachment ID to retrieve a single volume software attachment.
-
-The following example retrieves the volume software attachment with ID `$software_attachment_id` for a volume with a volume ID of `$volume_id`.
-
-```sh
-curl -X GET "https://us-south.iaas.cloud.ibm.com/v1/volumes/$volume_id/software_attachments/$software_attachment_id?version=2024-06-23&generation=2" -H "accept: application/json" -H "Authorization: Bearer $iam_token"
-```
-{: pre}
-
-For more information, see [Retrieve a volume software attachment](/apidocs/vpc/latest#get-volume-software-attachment) in the VPC API.</vpcimg-226-software-attachments-storage>
+{: codeblock}
 
 ### Extra API properties for boot volumes
 {: #viewvol-boot}

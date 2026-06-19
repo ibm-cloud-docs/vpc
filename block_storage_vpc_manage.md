@@ -335,27 +335,7 @@ Volume attachment one-true-pairing is deleted.
 For more information about available command options, see [`ibmcloud is instance-volume-attachment-detach`](/docs/cli?topic=cli-vpc-reference#instance-volume-attachment-detach).
 
 A boot volume cannot be detached from an instance while the instance exists. If you want to keep the boot volume after the instance is deleted, make sure that the `auto-delete` option in the volume attachment is set to `false`.
-{: note}<vpcimg-226-software-attachments-storage>
-
-## Renaming a software attachment of a volume from the CLI
-{: #ifv-rename-volume-software-attachment-cli}
-{: cli}
-
-You can rename a software attachment of a volume from the CLI.
-
-To rename a software attachment of a volume, use [`ibmcloud is volume-software-attachment-update`](/docs/vpc?topic=vpc-vpc-reference#volume-software-attachment-update). The `VOLUME` variable is the ID or name of the volume. The `SWAC` variable is the volume software attachment ID or name. The `--name` value is the new name of the volume software attachment.
-
-```sh
-ibmcloud is volume-software-attachment-update VOLUME SWAC --name NEW_NAME [--output JSON] [-q, --quiet]
-```
-{: pre}
-
-The following example renames the software attachment `my-volume-software-attachment` to `my-renamed-volume-software-attachment` for the volume `my-volume`.
-
-```sh
-ibmcloud is volume-software-attachment-update my-volume my-volume-software-attachment --name my-renamed-volume-software-attachment
-```
-{: pre}</vpcimg-226-software-attachments-storage>
+{: note}
 
 ## Managing {{site.data.keyword.block_storage_is_short}} with the API
 {: #managing-block-storage-api}
@@ -585,37 +565,7 @@ curl -X DELETE "$vpc_api_endpoint/v1/instances/$instance_id/volume_attachments/$
 A boot volume cannot be detached from an instance while the instance exists. If you want to keep the boot volume after the instance is deleted, make sure that the `delete_volume_on_instance_delete` property in the volume attachment is set to `false`.
 {: note}
 
-Verify that the volume is detached from the instance by making a `GET /instances/{instance_id}` call.<vpcimg-226-software-attachments-storage>
-
-## Retrieving a volume software attachment with the API
-{: #get-volume-software-attachment-api}
-{: api}
-
-Make a `GET /volumes/{volume_id}/software_attachments/{id}` request and specify the software attachment ID and volume ID. This request retrieves a single volume software attachment specified by identifier in the URL.
-
-The following example retrieves a specific software attachment with an ID of `$software_attachment_id` for a volume with a volume ID of `$volume_id`.
-
-```sh
-curl -X GET "https://us-south.iaas.cloud.ibm.com/v1/volumes/$volume_id/software_attachments/$software_attachment_id?version=2024-06-23&generation=2" -H "accept: application/json" -H "Authorization: Bearer $iam_token"
-```
-{: pre}
-
-For more information, see [Retrieve a volume software attachment](/apidocs/vpc/latest#get-volume-software-attachment) in the VPC API.
-
-## Updating a volume software attachment with the API
-{: #update-volume-software-attachment-api}
-{: api}
-
-Make a `PATCH /volumes/{volume_id}/software_attachments/{id}` request and specify the software attachment ID and volume ID. This request updates a volume software attachment with the information provided in a volume software attachment patch object.
-
-The following example updates a software attachment with an ID of `$software_attachment_id` for a volume with a volume ID of `$volume_id`.
-
-```sh
-curl -X PATCH "https://us-south.iaas.cloud.ibm.com/v1/volumes/$volume_id/software_attachments/$software_attachment_id?version=2024-06-23&generation=2" -H "accept: application/json" -H "Content-Type: application/merge-patch+json" -H "Authorization: Bearer $iam_token" -d "{\"name\":\"my-software-attachment-patch\"}"
-```
-{: pre}
-
-For more information, see [Update a volume software attachment](/apidocs/vpc/latest##update-volume-software-attachment) in the VPC API.</vpcimg-226-software-attachments-storage>
+Verify that the volume is detached from the instance by making a `GET /instances/{instance_id}` call.
 
 ## Managing {{site.data.keyword.block_storage_is_short}} with Terraform
 {: #managing-block-storage-terraform}
