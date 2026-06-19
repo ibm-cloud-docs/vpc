@@ -2,7 +2,7 @@
 
 copyright:
   years: 2021, 2026
-lastupdated: "2026-06-18"
+lastupdated: "2026-06-19"
 
 keywords: application load balancer, ALB, create load balancer, VPC load balancer, load balancer pools, load balancer listeners
 
@@ -215,39 +215,39 @@ To create an application load balancer from the CLI, follow these steps:
     Sample output:
 
     ```sh
-  ibmcloud is load-balancer-create my-lb public --subnet my-subnet 
-Creating load balancer my-lb under account vpcdemo as user test@ibm.com..
-                                      
-ID                                 r026-ec6717fa-aa6c-46c4-94ff-4ccd193ee423   
-Name                               my-lb   
-CRN                                crn:v1:bluemix:public:is:au-syd:a/7f75c7b025e54bc5635f754b2f888665::load-balancer:r026-ec6717fa-aa6c-46c4-94ff-4ccd193ee423   
-Family                             application   
-Host name                          ec6717fa-au-syd.lb.appdomain.cloud   
-Subnets                            ID                                          Name      
-                                   02h7-16f74a61-b586-4143-92df-dbc4a047bd5c   my-subnet      
-                                      
-Public IPs                            
-Private IPs                           
-Provision status                   create_pending   
-Operating status                   offline   
-Is public                          true   
-Is private path                    false   
-Listeners                             
-Pools                              ID   Name      
-                                      
-Resource group                     ID                                 Name      
-                                   bdd96715c2a44f2bb60df4ff14a543f5   -      
-                                      
-Created                            2026-05-26T14:47:06+05:30   
-Availability                       subnet   
-Instance Group Supported           true   
-SourceIP Session Supported         true   
-Security groups supported          true   
-UDP Supported                      false   
-Failsafe policy actions            fail,drop,forward   
-Access mode                        public   
-Advanced Health Checks Supported   true   
-FQDN Pool Members Supported        true     
+    ibmcloud is load-balancer-create my-lb public --subnet my-subnet 
+    Creating load balancer my-lb under account vpcdemo as user test@ibm.com..
+                                        
+    ID                                 r026-ec6717fa-aa6c-46c4-94ff-4ccd193ee423   
+    Name                               my-lb   
+    CRN                                crn:v1:bluemix:public:is:au-syd:a/7f75c7b025e54bc5635f754b2f888665::load-balancer:r026-ec6717fa-aa6c-46c4-94ff-4ccd193ee423   
+    Family                             application   
+    Host name                          ec6717fa-au-syd.lb.appdomain.cloud   
+    Subnets                            ID                                          Name      
+                                    02h7-16f74a61-b586-4143-92df-dbc4a047bd5c   my-subnet      
+                                        
+    Public IPs                            
+    Private IPs                           
+    Provision status                   create_pending   
+    Operating status                   offline   
+    Is public                          true   
+    Is private path                    false   
+    Listeners                             
+    Pools                              ID   Name      
+                                        
+    Resource group                     ID                                 Name      
+                                    bdd96715c2a44f2bb60df4ff14a543f5   -      
+                                        
+    Created                            2026-05-26T14:47:06+05:30   
+    Availability                       subnet   
+    Instance Group Supported           true   
+    SourceIP Session Supported         true   
+    Security groups supported          true   
+    UDP Supported                      false   
+    Failsafe policy actions            fail,drop,forward   
+    Access mode                        public   
+    Advanced Health Checks Supported   true   
+    FQDN Pool Members Supported        true     
     ```
     {: screen}
 
