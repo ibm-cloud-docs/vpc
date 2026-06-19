@@ -2,7 +2,7 @@
 
 copyright:
   years: 2021, 2026
-lastupdated: "2026-06-18"
+lastupdated: "2026-06-19"
 
 keywords: view snapshots, view snapshot, viewing snapshots, see snapshots, Block Storage snapshots
 
@@ -272,7 +272,41 @@ r174-7311f226-8259-46be-9bfa-5b2cd08bdf2f   snapshot-no-1   stable   r174-bf5957
 ```
 {: screen}
 
-For more information about available command options, see [`ibmcloud is snapshots`](/docs/vpc?topic=vpc-vpc-reference#snapshots-list).
+For more information about available command options, see [`ibmcloud is snapshots`](/docs/vpc?topic=vpc-vpc-reference#snapshots-list).<vpcimg-226-software-attachments-storage>
+
+### Viewing software attachments of a snapshot from the CLI
+{: #snapshots-vpc-view-software-attachments-cli}
+{: cli}
+
+You can view the software attachments of a snapshot from the CLI.
+
+- To list all software attachments for a snapshot, use [`ibmcloud is snapshot-software-attachments`](/docs/vpc?topic=vpc-vpc-reference#snapshot-software-attachments). The `SNAPSHOT` variable is the ID or name of the snapshot.
+
+   ```sh
+   ibmcloud is snapshot-software-attachments SNAPSHOT [--output JSON] [-q, --quiet]
+   ```
+   {: pre}
+
+   The following example lists all software attachments for the snapshot `my-snapshot`.
+
+   ```sh
+   ibmcloud is snapshot-software-attachments my-snapshot
+   ```
+   {: pre}
+
+- To view the details of a specific software attachment for a snapshot, use [`ibmcloud is snapshot-software-attachment`](/docs/vpc?topic=vpc-vpc-reference#snapshot-software-attachment). The `SNAPSHOT` variable is the ID or name of the snapshot. The `SWAC` variable is the snapshot software attachment ID or name.
+
+   ```sh
+   ibmcloud is snapshot-software-attachment SNAPSHOT SWAC [--output JSON] [-q, --quiet]
+   ```
+   {: pre}
+
+   The following example shows the details of the software attachment `my-snapshot-software-attachment` for the snapshot `my-snapshot`.
+
+   ```sh
+   ibmcloud is snapshot-software-attachment my-snapshot my-snapshot-software-attachment
+   ```
+   {: pre}</vpcimg-226-software-attachments-storage>
 
 For more information about available command options, see [`ibmcloud is snapshots`](/docs/vpc?topic=vpc-vpc-reference#snapshots-list).
 
@@ -1025,7 +1059,37 @@ A successful response looks like the following example.
     ]
 }
 ```
-{: screen}
+{: screen}<vpcimg-226-software-attachments-storage>
+
+### Listing snapshot software attachments with the API
+{: #list-snapshot-software-attachments-api}
+{: api}
+
+Make a `GET /snapshots/{snapshot_id}/software_attachments` request and specify the snapshot ID to list all software attachments associated with a snapshot.
+
+The following example lists all software attachments for a snapshot with a snapshot ID of `$snapshot_id`.
+
+```sh
+curl -X GET "https://us-south.iaas.cloud.ibm.com/v1/snapshots/$snapshot_id/software_attachments?version=2024-06-23&generation=2" -H "accept: application/json" -H "Authorization: Bearer $iam_token"
+```
+{: pre}
+
+For more information, see [List snapshot software attachments associated with a snapshot](/apidocs/vpc/latest#list-snapshot-software-attachments) in the VPC API.
+
+### Retrieving a snapshot software attachment with the API
+{: #get-snapshot-software-attachment-api}
+{: api}
+
+Make a `GET /snapshots/{snapshot_id}/software_attachments/{id}` request and specify the snapshot ID and software attachment ID to retrieve a single snapshot software attachment specified by identifier in the URL.
+
+The following example retrieves a specific software attachment with an ID of `$software_attachment_id` for a snapshot with a snapshot ID of `$snapshot_id`.
+
+```sh
+curl -X GET "https://us-south.iaas.cloud.ibm.com/v1/snapshots/$snapshot_id/software_attachments/$software_attachment_id?version=2024-06-23&generation=2" -H "accept: application/json" -H "Authorization: Bearer $iam_token"
+```
+{: pre}
+
+For more information, see [Retrieve a snapshot software attachment](/apidocs/vpc/latest#get-snapshot-software-attachment) in the VPC API.</vpcimg-226-software-attachments-storage>
 
 ## Viewing snapshots with Terraform
 {: #snapshots-vpc-view-terraform}

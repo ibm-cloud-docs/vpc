@@ -2,7 +2,7 @@
 
 copyright:
   years: 2021, 2026
-lastupdated: "2026-06-18"
+lastupdated: "2026-06-19"
 
 keywords: snapshots, Block Storage snapshots, manage snapshots, fast restore clone, backup snapshot, remote copy, cross-regional copy
 
@@ -104,7 +104,27 @@ Tags                   -
 ```
 {: screen}
 
-For more information about available command options, see [`ibmcloud is snapshot-update`](/docs/vpc?topic=vpc-vpc-reference#snapshot-update).
+For more information about available command options, see [`ibmcloud is snapshot-update`](/docs/vpc?topic=vpc-vpc-reference#snapshot-update).<vpcimg-226-software-attachments-storage>
+
+## Renaming a software attachment of a snapshot from the CLI
+{: #snapshots-vpc-rename-software-attachment-cli}
+{: cli}
+
+You can rename a software attachment of a snapshot from the CLI.
+
+To rename a software attachment of a snapshot, use [`ibmcloud is snapshot-software-attachment-update`](/docs/vpc?topic=vpc-vpc-reference#snapshot-software-attachment-update). The `SNAPSHOT` variable is the ID or name of the snapshot. The `SWAC` variable is the snapshot software attachment ID or name. The `--name` value is the new name of the snapshot software attachment.
+
+```sh
+ibmcloud is snapshot-software-attachment-update SNAPSHOT SWAC --name NEW_NAME [--output JSON] [-q, --quiet]
+```
+{: pre}
+
+The following example renames the software attachment `my-snapshot-software-attachment` to `my-renamed-snapshot-software-attachment` for the snapshot `my-snapshot`.
+
+```sh
+ibmcloud is snapshot-software-attachment-update my-snapshot my-snapshot-software-attachment --name my-renamed-snapshot-software-attachment
+```
+{: pre}</vpcimg-226-software-attachments-storage>
 
 ## Changing the Allowed Use property of a snapshot from the CLI
 {: #snapshot-update-allowed-use-cli}
@@ -180,7 +200,22 @@ curl -X PATCH \
 ```
 {: codeblock}
 
-You can use the same call to rename a cross-regional copy. The cross-regional copy is independent from the source snapshot and source volume, and can be managed like any other snapshot.
+You can use the same call to rename a cross-regional copy. The cross-regional copy is independent from the source snapshot and source volume, and can be managed like any other snapshot.<vpcimg-226-software-attachments-storage>
+
+## Updating a snapshot software attachment with the API
+{: #update-snapshot-software-attachment-api}
+{: api}
+
+Make a `PATCH  /snapshots/{snapshot_id}/software_attachments/{id}` request and specifying the snapshot ID and the software attachment ID to update a snapshot software attachment with the information provided in a snapshot software attachment patch object.
+
+The following example updates a software attachment with an ID of `$software_attachment_id` for a snapshot with a snapshot ID of `$snapshot_id`.
+
+```sh
+curl -X PATCH "https://us-south.iaas.cloud.ibm.com/v1/snapshots/$snapshot_id/software_attachments/$software_attachment_id?version=2024-06-23&generation=2" -H "accept: application/json" -H "Content-Type: application/merge-patch+json" -d "{\"name\":\"my-software-attachment-patch\"}" -H "Authorization: Bearer $iam_token"
+```
+{: pre}
+
+For more information, see [Update a snapshot software attachment](/apidocs/vpc/latest##update-snapshot-software-attachment) in the VPC API.</vpcimg-226-software-attachments-storage>
 
 ## Updating a snapshot with Terraform
 {: #snapshots-vpc-rename-terraform}
