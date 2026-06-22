@@ -41,7 +41,7 @@ Catalog images are billed in one of the following ways.
 Images that are shared through a private catalog are still offered without billing.
 {: note}
 
-Any private catalog images available to your VPC can be found in**Navigation Menu** icon ![menu icon](../icons/icon_hamburger.svg) **> Infrastructure** ![VPC icon](../../icons/vpc.svg) **> Compute > Images > Catalog images**
+Any private catalog images available to your VPC can be found in **Navigation Menu** icon ![menu icon](../icons/icon_hamburger.svg) **> Infrastructure** ![VPC icon](../../icons/vpc.svg) **> Compute > Images > Catalog images**
 
 To create a virtual server using a private catalog image, see one of the following:
 * [Creating a virtual server instance with the UI](/docs/vpc?topic=vpc-creating-virtual-servers&interface=ui#creating-virtual-servers-ui)
