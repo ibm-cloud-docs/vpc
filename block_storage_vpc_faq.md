@@ -13,7 +13,7 @@ content-type: faq
 ---
 {{site.data.keyword.attribute-definition-list}}
 
-# FAQs for Block Storage for VPC
+# FAQ for {{site.data.keyword.block_storage_is_short}}
 {: #block-storage-vpc-faq}
 
 Get answers to common questions about {{site.data.keyword.block_storage_is_full}}, including volume profiles, encryption, capacity expansion, and performance optimization.
