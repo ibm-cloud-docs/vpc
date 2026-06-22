@@ -57,7 +57,7 @@ The following limitations apply to this release.
 * To adjust IOPS, a first-generation volume must be attached to a virtual server instance that is powered on and _running_.
 * To adjust IOPS, the volume must be in an _available_ state.
 * When a volume is in transition, the volume remains in an _updating_ state until you reattach it to a running instance. For example, if the volume is detached while IOPS adjustment is in progress, the IOPS expansion resumes and completes only after the volume is reattached.
-* When you delete an instance, volumes that are marked for auto-deletion are not deleted while the IOPS adjustment is underway.
+* When you delete an instance, volumes that are marked for autodelete are not deleted while the IOPS adjustment is underway.
 
 ### Limitations that are related to volume profiles
 {: #exp-vol-IOPS-limitations}
