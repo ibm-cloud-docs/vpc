@@ -2,9 +2,9 @@
 
 copyright:
   years: 2019, 2026
-lastupdated: "2026-06-19"
+lastupdated: "2026-06-22"
 
-keywords: Block storage for VPC, change IOPS, change auto-delete, increase volume, change name, rename volume, delete volume, renaming volume, updating volume
+keywords: Block storage for VPC, change IOPS, change autodelete, increase volume, change name, rename volume, delete volume, renaming volume, updating volume
 
 subcollection: vpc
 
@@ -15,7 +15,7 @@ subcollection: vpc
 # Managing {{site.data.keyword.block_storage_is_short}} volumes
 {: #managing-block-storage}
 
-You can manage your {{site.data.keyword.block_storage_is_full}} in the console, from the CLI, or with the API. You can detach a volume from a virtual server instance or transfer a volume from one instance to another. You can attach a previously attached volume or rename a volume. You can set automatic volume deletion or manually delete a volume. You can assign access to a volume, and you can access volume read/write metrics for monitoring performance. Apply user tags that are associated with a backup policy to a volume to create automated backups.
+Manage {{site.data.keyword.block_storage_is_short}} volumes by detaching, transferring, renaming, expanding capacity, adjusting IOPS, or deleting volumes. Monitor performance metrics and apply user tags for automated backups.
 {: shortdesc}
 
 ## Managing {{site.data.keyword.block_storage_is_short}} in the console
@@ -29,7 +29,7 @@ Use the UI to manage your block storage volumes. In the console, you can complet
 * Attach a previously attached block storage data volume.
 * Rename a block storage volume.
 * Add user tags to a block storage volume.
-* Update the auto-delete setting of the volume.
+* Update the autodelete setting of the volume.
 * Adjust the IOPS of a data volume. For more information, see [Adjusting IOPS](/docs/vpc?topic=vpc-adjusting-volume-iops).
 * Increase the capacity of a volume. For more information, see [Expanding {{site.data.keyword.block_storage_is_short}} volume capacity](/docs/vpc?topic=vpc-expanding-block-storage-volumes).
 * For `sdp` volumes, adjust the throughput limit. For more information, see [Adjusting throughput limit](/docs/vpc?topic=vpc-adjusting-volume-throughput).
@@ -132,7 +132,7 @@ When you go to the [backup policy page](/docs/vpc?topic=vpc-backup-view-policies
 
 For more information about creating backups, see [Creating a backup policy](/docs/vpc?topic=vpc-backup-service-about). For more information about user tags, see [Working with tags](/docs/account?topic=account-tag).
 
-### Updating the auto-delete setting of a {{site.data.keyword.block_storage_is_short}} volume
+### Updating the autodelete setting of a {{site.data.keyword.block_storage_is_short}} volume
 {: #auto-delete-ui}
 {: ui}
 
@@ -140,7 +140,7 @@ By using the Auto Delete feature, you can specify that a block storage volume is
 
 When boot volumes are created during instance creation and automatic deletion is enabled for them. When you delete the instance, the boot volume is also deleted unless you disable this feature.
 
-To change the default setting of the auto-delete option of an existing block storage volume, follow these steps:
+To change the default setting of the autodelete option of an existing block storage volume, follow these steps:
 
 1. Locate the virtual server instance to which the volume is attached. In the [{{site.data.keyword.cloud_notm}} console](/login){: external}, click the **Navigation menu** icon ![menu icon](../icons/icon_hamburger.svg) **> Infrastructure** ![VPC icon](../icons/vpc.svg) **> Compute > Virtual server instances**.
 1. Click the **Storage** tab to see all the volumes that are attached to the server.
@@ -148,7 +148,7 @@ To change the default setting of the auto-delete option of an existing block sto
 
 Alternatively, select a volume from the list of block storage (**Storage > Block Storage volumes**). On the volume details page, under **Attached instances**, click the **Auto-delete** toggle to enable or disable automatic deletion.
 
-You can also enable or disable the Auto-delete option on the volumes when you create an instance. For more information, see [Create and attach a {{site.data.keyword.block_storage_is_short}} volume when you create an instance](/docs/vpc?topic=vpc-creating-block-storage#create-from-vsi).
+You can also enable or disable the autodelete option on the volumes when you create an instance. For more information, see [Create and attach a {{site.data.keyword.block_storage_is_short}} volume when you create an instance](/docs/vpc?topic=vpc-creating-block-storage#create-from-vsi).
 
 ## Managing {{site.data.keyword.block_storage_is_short}} from the CLI
 {: #managing-block-storage-cli}
@@ -158,7 +158,7 @@ Manage your block storage from the command-line interface (CLI). From the CLI, y
 
 * Rename a block storage volume.
 * Add user tags to a block storage volume.
-* Update the volume attachment by changing its name or changing the auto-delete setting.
+* Update the volume attachment by changing its name or changing the autodelete setting.
 * Detach a volume from a virtual server instance.
 * Adjust the IOPS of a data volume. For more information, see [Adjusting IOPS](/docs/vpc?topic=vpc-adjusting-volume-iops).
 * Increase the capacity of a volume. For more information, see [Expanding {{site.data.keyword.block_storage_is_short}} volume capacity](/docs/vpc?topic=vpc-expanding-block-storage-volumes).
@@ -272,7 +272,7 @@ Storage Generation                     1
 ### Updating a volume attachment from the CLI
 {: #update-vol-attachment-cli}
 
-You can update the volume attachment name and change the default auto-delete setting with the `instance-volume-attachment-update` command.
+You can update the volume attachment name and change the default autodelete setting with the `instance-volume-attachment-update` command.
 
 ```sh
 ibmcloud is instance-volume-attachment-update INSTANCE_ID VOLUME_ATTACHMENT_ID [--name NEW_NAME] [--auto-delete true | false] [--json]
@@ -345,7 +345,7 @@ Manage your block storage programmatically by making requests to the [VPC REST A
 
 * Rename a block storage volume.
 * Add user tags to a block storage volume.
-* Update the volume attachment by changing its name or changing the auto-delete setting.
+* Update the volume attachment by changing its name or changing the autodelete setting.
 * Detach a volume from a virtual server instance.
 * Adjust the IOPS of a data volume. For more information, see [Adjusting IOPS](/docs/vpc?topic=vpc-adjusting-volume-iops).
 * Increase the capacity of a volume. For more information, see [Expanding {{site.data.keyword.block_storage_is_short}} volume capacity](/docs/vpc?topic=vpc-expanding-block-storage-volumes).

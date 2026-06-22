@@ -2,7 +2,7 @@
 
 copyright:
   years: 2019, 2026
-lastupdated: "2026-06-11"
+lastupdated: "2026-06-22"
 
 keywords: Block Storage profiles, Block Storage for VPC, IOPS tiers, custom IOPS, storage performance
 
@@ -15,7 +15,7 @@ subcollection: vpc
 # {{site.data.keyword.block_storage_is_short}} profiles
 {: #block-storage-profiles}
 
-When you provision {{site.data.keyword.block_storage_is_short}} volumes by using the {{site.data.keyword.cloud_notm}} console, CLI, API, or Terraform you specify a volume profile that best meets your storage requirements. The second-generation profile (`sdp`) is available in the Dallas, Frankfurt, London, Madrid, Osaka, Sao Paulo, Sydney, Tokyo, Toronto, and Washington, DC regions. You can specify custom capacity, IOPS, and Throughput with the `sdp` profile. First-generation profiles are generally available as three predefined IOPS levels or with custom IOPS. The volume profiles from the _tiered_ family provide reliable IOPS/GB performance for volumes up to 16,000 GB capacity. With a _custom_ volume profile, you can specify your own IOPS value in a range that is appropriate for your selected volume capacity.
+Select {{site.data.keyword.block_storage_is_short}} volume profiles to match your performance requirements. Choose the `sdp` profile for custom capacity, IOPS, and throughput, or select tiered and custom profiles for predefined performance levels.
 {: shortdesc}
 
 ## Block Storage profile families

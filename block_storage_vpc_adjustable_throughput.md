@@ -2,7 +2,7 @@
 
 copyright:
   years: 2025, 2026
-lastupdated: "2026-06-11"
+lastupdated: "2026-06-22"
 
 keywords: Block Storage for VPC, boot volume, data volume, volume, data storage, virtual server instance, instance, adjustable volume, throughput, bandwidth
 
@@ -15,10 +15,10 @@ subcollection: vpc
 # Adjusting throughput limit of a {{site.data.keyword.block_storage_is_short}} volume
 {: #adjusting-volume-throughput}
 
-The `sdp` profile is available in the Dallas (`us-south`), Frankfurt (`eu-de`), London (`eu-gb`), Madrid (`eu-es`), Osaka (`jp-osa`), Sydney (`au-syd`), Tokyo (`jp-tok`), Toronto (`ca-tor`), and Washington (`us-east`) regions, and you can use it to specify custom capacity, custom throughput limit, and custom IOPS for your second-generation block storage volumes.
-
-For {{site.data.keyword.block_storage_is_full}} volumes that are provisioned with the `sdp` profile, you can increase or decrease the throughput limit to meet your performance needs. The maximum throughput for any volume with the `sdp` profile is 1024 MBps (8192 Mbps). The minimum throughput value is 125 MBps (1000 Mbps). The adjustment causes no outage or lack of access to the storage.
+Adjust {{site.data.keyword.block_storage_is_short}} volume throughput limits for `sdp` profile volumes to optimize data transfer performance. Increase or decrease throughput between 125-1024 MBps (1000-8192 Mbps) without causing storage access interruptions or downtime.
 {: shortdesc}
+
+The `sdp` profile is available in the Dallas (`us-south`), Frankfurt (`eu-de`), London (`eu-gb`), Madrid (`eu-es`), Osaka (`jp-osa`), Sydney (`au-syd`), Tokyo (`jp-tok`), Toronto (`ca-tor`), and Washington (`us-east`) regions, and you can use it to specify custom capacity, custom throughput limit, and custom IOPS for your second-generation block storage volumes.
 
 With this feature, you can increase or decrease your volume's throughput limit in the console, from the CLI, with the API, or Terraform. To change this attribute, the volume must be in an _available_ state. It can be attached to a running instance, but it's not a requirement. Your user authorization is verified before the bandwidth limit is adjusted.
 

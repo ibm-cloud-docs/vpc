@@ -2,7 +2,7 @@
 
 copyright:
   years: 2021, 2026
-lastupdated: "2026-06-11"
+lastupdated: "2026-06-22"
 
 keywords: Block Storage for VPC, boot volume, data volume, volume, data storage, virtual server instance, instance, adjustable volume, iops
 
@@ -15,8 +15,14 @@ subcollection: vpc
 # Adjusting IOPS of a {{site.data.keyword.block_storage_is_short}} volume
 {: #adjusting-volume-iops}
 
-You can increase or decrease the IOPS limit of second-generation boot and data volumes at any time, regardless if they are attached to a virtual server or not. First-generation boot and data volumes must be attached to a running server when you attempt to adjust the IOPS limit. For second-generation volumes, the `sdp`profile offers flexible IOPS without capacity restrictions. For first-generation volumes, you can adjust IOPS by specifying a different profile from the `tiered` family or a different IOPS value within a `custom` IOPS band. You can use the UI, the CLI, the API, or Terraform to adjust IOPS. You can adjust the volume's IOPS multiple times up to its maximum limit or reduce IOPS to its minimum limit. The IOPS adjustment causes no outage or lack of access to the storage.
+Increase or decrease {{site.data.keyword.block_storage_is_short}} volume Input/Output Operations Per Second (IOPS) to optimize performance for your workload. Adjust IOPS for volumes without causing storage access interruptions or downtime in the console, from the CLI, with the API or Terraform.
 {: shortdesc}
+
+You can increase or decrease the IOPS limit of second-generation boot and data volumes at any time, regardless if they are attached to a virtual server or not. First-generation boot and data volumes must be attached to a running server when you attempt to adjust the IOPS limit.
+
+For second-generation volumes, the `sdp`profile offers flexible IOPS without capacity restrictions. For first-generation volumes, you can adjust IOPS by specifying a different profile from the `tiered` family or a different IOPS value within a `custom` IOPS band.
+
+You can adjust the volume's IOPS multiple times up to its maximum limit or reduce IOPS to its minimum limit. The IOPS adjustment causes no disruptions to the service.
 
 For example, you might find that an application scaled such that a lower-tier storage profile is now a performance bottleneck. Instead of ordering a new volume and migrating your data, you can change the performance characteristics of the existing volume by increasing IOPS in the next performance tier.
 

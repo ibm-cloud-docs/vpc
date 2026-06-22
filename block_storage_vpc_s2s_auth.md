@@ -2,7 +2,7 @@
 
 copyright:
   years: 2022, 2026
-lastupdated: "2026-04-17"
+lastupdated: "2026-06-22"
 
 keywords: Backup for VPC, backup service, backup plan, backup policy, restore, restore volume, restore data
 
@@ -15,7 +15,7 @@ subcollection: vpc
 # Establishing service-to-service authorizations for {{site.data.keyword.block_storage_is_short}}
 {: #block-s2s-auth}
 
-You can use the {{site.data.keyword.iamshort}} (IAM) to create or remove an authorization that grants one service access to another service. For {{site.data.keyword.block_storage_is_short}}, you need to create service-to-service authorization for configuring customer-managed encryption, and backups. You also need to specify [user roles](/docs/iam?topic=iam-iam-service-roles-actions#is.volume-roles).
+Create service-to-service authorizations between {{site.data.keyword.block_storage_is_short}} and {{site.data.keyword.keymanagementserviceshort}} for customer-managed encryption, or with the Backup service for automated snapshots. Configure IAM authorizations to grant required access permissions.
 {: shortdesc}
 
 ## Overview
@@ -29,7 +29,7 @@ To be able to create an encrypted volume with customer-managed CRKs, you need to
 
 If you want to create backup snapshots of your {{site.data.keyword.block_storage_is_short}} volumes, the Backup service needs to be authorized to work with {{site.data.keyword.block_storage_is_short}}, Snapshots for VPC, and Virtual Server for VPC services. For more information, see [Establishing service-to-service authorizations for the Backup service](/docs/vpc?topic=vpc-backup-s2s-auth).
 
-For more information about authorizations, see [Using authorizations to grant access between services](/docs/iam?topic=iam-serviceauth).
+For more information about authorizations, see [Using authorizations to grant access between services](/docs/iam?topic=iam-serviceauth) and [user roles](/docs/iam?topic=iam-iam-service-roles-actions#is.volume-roles).
 
 ## Creating service-to-service authorization for customer-managed encryption in the console
 {: #block-s2s-auth-encryption-ui}

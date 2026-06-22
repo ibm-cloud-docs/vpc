@@ -2,7 +2,7 @@
 
 copyright:
   years: 2021, 2026
-lastupdated: "2026-06-11"
+lastupdated: "2026-06-22"
 
 keywords:
 
@@ -173,10 +173,10 @@ Follow these steps to create a boot and a data volume from snapshots when you pr
 2. Click **Create** and provision your new instance. For more information about the required fields, see the table in [Creating virtual server instances in the console](/docs/vpc?topic=vpc-creating-virtual-servers).
 3. For the operating system, click **Change image**, then click the tab for **Snapshots**. The most recent bootable snapshot is listed.
    * If you want to use a different snapshot, click **Edit**. Either choose a bootable snapshot from the list or search for a specific snapshot by its CRN. Click **Save**. This action populates the snapshot data in the boot volume field on the provisioning page.
-   * If you want to change the properties of the boot volume, such as the name, auto-delete feature, encryption, or tags, click the **Edit icon** ![Edit icon](../icons/edit-tagging.svg "Edit"). Change the property that you want and click **Save**. The boot volume information is updated on the provisioning page.
+   * If you want to change the properties of the boot volume, such as the name, autodelete feature, encryption, or tags, click the **Edit icon** ![Edit icon](../icons/edit-tagging.svg "Edit"). Change the property that you want and click **Save**. The boot volume information is updated on the provisioning page.
 4. To create a data volume, under Data Volumes, click **Create**. A side panel is displayed.
    1. Select **Import from snapshot**. Expand the list to select a data snapshot. The most recent data snapshot is selected by default. However, you can select any snapshot from the list.
-   1. The snapshot contains the properties of the original source volume, including the auto-delete status, tags, size, profile, and encryption. You can change all these properties. Keep in mind that you can change the volume name, profile, size, and IOPS later, but you cannot change the encryption type or CRK after the volume is created.
+   1. The snapshot contains the properties of the original source volume, including the autodelete status, tags, size, profile, and encryption. You can change all these properties. Keep in mind that you can change the volume name, profile, size, and IOPS later, but you cannot change the encryption type or CRK after the volume is created.
    1. Select a unique name, specify the size, and click **Create**. The data volume information is added in the Data volume list.
 5. Review your selections for volumes, instance profile, SSH keys, networking, and so on.
 6. If you are satisfied with your choices, click **Create virtual server instance**. The new instance is created with the volumes that you specified. The new instance appears in the list of virtual server instances.
@@ -192,7 +192,7 @@ You can also create a data volume from a snapshot for an existing instance. Choo
 3. On the Instance details page, scroll to the list of Storage volumes and click **Attach volumes**. A side panel opens for you to define the volume attachment.
 4. From the Attach storage volume panel, expand the list of Block Volumes, and select **Create a data volume**.
 5. You can expand the list and select a snapshot, or search for a specific snapshot by its CRN.
-6. The snapshot contains the properties of the original source volume, including the auto-delete status, tags, profile, and encryption. You can change all these properties. Keep in mind that you can change the volume name, profile, size, and IOPS later, but you cannot change the encryption type or CRK after the volume is created.
+6. The snapshot contains the properties of the original source volume, including the autodelete status, tags, profile, and encryption. You can change all these properties. Keep in mind that you can change the volume name, profile, size, and IOPS later, but you cannot change the encryption type or CRK after the volume is created.
 
    If you selected a second-generation snapshot to create the volume, your volume's encryption type must match the snapshot's encryption type. If the snapshot has provider-managed keys, do not specify a key from a key management service.
    {: note}

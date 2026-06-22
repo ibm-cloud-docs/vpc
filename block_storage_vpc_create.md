@@ -2,7 +2,7 @@
 
 copyright:
   years: 2019, 2026
-lastupdated: "2026-06-11"
+lastupdated: "2026-06-22"
 
 keywords: vpc Block Storage, provision Block Storage for vpc, bootable snapshots, create volume from snapshot, fast restore
 
@@ -15,7 +15,7 @@ subcollection: vpc
 # Creating {{site.data.keyword.block_storage_is_short}} volumes
 {: #creating-block-storage}
 
-Create a [{{site.data.keyword.block_storage_is_short}} volume](/docs/vpc?topic=vpc-block-storage-about) in the console, from the CLI, with the API, or Terraform. You can create a volume as part of instance provisioning, as a stand-alone volume that you can later attach to an instance, or by restoring from a [snapshot](/docs/vpc?topic=vpc-snapshots-vpc-about).
+Create [{{site.data.keyword.block_storage_is_short}} volumes](/docs/vpc?topic=vpc-block-storage-about) during instance provisioning, as stand-alone volumes, or by [restoring from snapshots](/docs/vpc?topic=vpc-snapshots-vpc-about). Configure capacity, IOPS, encryption, and profile settings to meet your storage requirements.
 {: shortdesc}
 
 Before you get started, make sure that you [created a VPC](/docs/vpc?topic=vpc-creating-a-vpc-using-the-ibm-cloud-console). When you create a volume from a snapshot, you can use a snapshot from your own account or another account. If you plan to use a snapshot from another account, make sure that the right [IAM authorizations](/docs/vpc?topic=vpc-block-s2s-auth&interface=ui#block-s2s-auth-xaccountrestore-ui) are in place.
@@ -41,7 +41,7 @@ Use the {{site.data.keyword.cloud_notm}} console to create a {{site.data.keyword
 1. To create a data volume and attach it to the instance, in the **Data volumes** section of the instance provisioning page, click **Create**. In the side panel, specify the volume details.
    1. You can create a blank data volume or create a volume with imported data from a snapshot. If you choose **Import existing snapshot**, then select an available snapshot from the list. If you choose **Import snapshot by CRN**, have the CRN of the snapshot ready to be entered.
    1. Specify a unique, meaningful name for your volume. For example, it can be a name that describes your compute or workload function. The volume name must begin with a lowercase letter. The name can be up to 63 lowercase alpha-numeric characters and include the hyphen (-). Volume names must be unique to your VPC. You can edit the name later if you want.
-   1. Auto-delete feature is disabled by default. If you want the volume to be deleted when the attached virtual server instance is deleted, click the toggle to enable the feature.
+   1. Autodelete feature is disabled by default. If you want the volume to be deleted when the attached virtual server instance is deleted, click the toggle to enable the feature.
    1. Resource group and location are inherited from the instance. These values can't be changed.
    1. You can specify optional user tags to associate with this volume. For more information about organizing resources with user tags, see [Working with tags](/docs/account?topic=account-tag&interface=ui).
    1. Select the encryption type. Provider-managed encryption is enabled by default on all volumes. You can also choose to create an envelop encryption with your own root keys. Encryption keys are created and maintained in Key Management Services ({{site.data.keyword.keymanagementserviceshort}} or {{site.data.keyword.hscrypto}}). For more information, see [Prerequisites for setting up customer-managed encryption](/docs/vpc?topic=vpc-vpc-encryption-planning#byok-encryption-prereqs).
@@ -68,7 +68,7 @@ You can create a {{site.data.keyword.block_storage_is_short}} volume from an exi
 4. In the side panel, click the down arrow under **Block volumes** and select **Create a data volume**. The side panel expands with fields to define the volume.
    1. If you created volume snapshots previously, the option to import one becomes available. Click the toggle to **Import from snapshot**, and select a snapshot from the list or locate the snapshot by its CRN.
    1. Specify a unique, meaningful name for your volume. For example, it can be a name that describes your compute or workload function. The volume name must begin with a lowercase letter. The name can be up to 63 lowercase alpha-numeric characters and include the hyphen (-). Volume names must be unique to your VPC. You can edit the name later if you want.
-   1. The Auto-delete feature is disabled by default. If you want the volume to be deleted when the attached virtual server instance is deleted, click the toggle to enable the feature.
+   1. The Autodelete feature is disabled by default. If you want the volume to be deleted when the attached virtual server instance is deleted, click the toggle to enable the feature.
    1. Resource group and location are inherited from the instance. These values can't be changed.
    1. You can specify optional user tags to associate with this volume. For more information about organizing resources with user tags, see [Working with tags](/docs/account?topic=account-tag&interface=ui).
    1. Select the encryption type. Provider-managed encryption is enabled by default on all volumes. You can also choose to create an envelop encryption with your own root keys. Encryption keys are created and maintained in Key Management Services ({{site.data.keyword.keymanagementserviceshort}} or {{site.data.keyword.hscrypto}}).

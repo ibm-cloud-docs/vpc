@@ -2,7 +2,7 @@
 
 copyright:
   years: 2026
-lastupdated: "2026-06-11"
+lastupdated: "2026-06-22"
 
 keywords: VPN, IKE policy, IPsec policy, multiple algorithms, migration, deprecated, authentication algorithms, encryption algorithms, dh groups
 
@@ -717,7 +717,7 @@ The following example shows how `PATCH` requests affect both singular and array 
 ## Related links
 {: #related-links-vpn-multiple-algorithms}
 
-* [Creating an IKE policy](/docs/vpc?topic=vpc-creating-ike-policy-copy&interface=ui)
+* [Creating an IKE policy](/docs/vpc?topic=vpc-creating-ike-policy&interface=ui)
 * [Creating an IPsec policy](/docs/vpc?topic=vpc-creating-ipsec-policy-copy&interface=ui)
 * [Changes to VPN gateway IKE and IPsec policy API](/docs/vpc?topic=vpc-vpn-hcr-introduction&interface=ui).
 * [Upgrading weak cipher suites on a VPN gateway](/docs/vpc?topic=vpc-upgrading-weak-ciphers&interface=ui).

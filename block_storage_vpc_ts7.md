@@ -1,8 +1,8 @@
 ---
 
 copyright:
-  years: 2025
-lastupdated: "2025-09-29"
+  years: 2025, 2026
+lastupdated: "2026-06-22"
 
 keywords: Block Storage, virtual private cloud, volume, data storage, troubleshooting, troubleshoot, expanding boot volume, windows
 
@@ -18,6 +18,9 @@ content-type: troubleshoot
 {: #troubleshooting-unexpandable-c-drive}
 {: troubleshoot}
 {: support}
+
+Resolve C: drive expansion issues on Windows Server 2022 or 2025 Standard Edition instances by removing the Recovery partition that prevents boot volume expansion.
+{: shortdesc}
 
 You used a stock image of Windows Server 2022 Standard Edition or Windows Server 2025 Standard Edition to create your virtual server. You also chose to expand the boot volume up to 250 GB. However, the C: drive cannot be extended.
 {: tsSymptoms}
@@ -59,10 +62,10 @@ Open the Command Prompt or PowerShell as an administrator, and run the following
 
 1. Select the boot disk and list the partitions.
 
-   ```sh   
+   ```sh
    sel disk 1
    ```
-   {: pre} 
+   {: pre}
 
    ```sh
    list part
@@ -83,10 +86,10 @@ Open the Command Prompt or PowerShell as an administrator, and run the following
      Partition 3    Primary       200 MB    98 GB
      Partition 4    Recovery      681 MB    99 GB
    ```
-   {: screen}  
+   {: screen}
 
 1. Identify for the partition with the type "recovery", and select it and delete it.
-   
+
    ```sh
    sel part 4
    ```
@@ -146,7 +149,7 @@ Open the Command Prompt or PowerShell as an administrator, and run the following
    * Disk 1    Online        100 GB  1087 MB
      Disk 2    Online        378 KB   378 KB
    ```
-   {: screen}  
+   {: screen}
 
 1. Select the second partition and extend it.
 

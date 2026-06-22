@@ -1,8 +1,8 @@
 ---
 
 copyright:
-  years: 2021, 2025
-lastupdated: "2025-06-09"
+  years: 2021, 2026
+lastupdated: "2026-06-22"
 
 keywords: bare metal servers, baremetal, what is bare metal, about bare metal, bare metal features, bare metal benefits
 
@@ -39,7 +39,7 @@ For more information, see [Profiles for Bare Metal Servers for VPC](/docs/vpc?to
 ### Advanced Intel® Xeon® CPUs
 {: #bare-metal-advanced-intel-xeon-cpu}
 
-{{site.data.keyword.cloud_notm}} {{site.data.keyword.bm_is_short}} are deployed with 2nd Gen Intel® Xeon® Platinum 8260 processors, 4th Gen Intel® Xeon® Gold 6426Y processors, and 4th Gen Intel® Xeon® Platinum 8474C processors that are built for cloud-enterprise applications, HPC workloads, virtualization, enhanced networking, and security.
+{{site.data.keyword.cloud_notm}} {{site.data.keyword.bm_is_short}} are deployed with 2nd Gen Intel® Xeon® Platinum 8260 processors, 4th Gen Intel® Xeon® Gold 6426Y processors, 4th Gen Intel® Xeon® Gold 6416H processors, and 4th Gen Intel® Xeon® Platinum 8474C processors that are built for cloud-enterprise applications, HPC workloads, virtualization, enhanced networking, and security.
 
 ### SmartNIC technology
 {: #bare-metal-smart-nic}

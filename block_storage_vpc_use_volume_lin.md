@@ -1,8 +1,8 @@
 ---
 
 copyright:
-  years: 2019, 2025
-lastupdated: "2025-07-03"
+  years: 2019, 2026
+lastupdated: "2026-06-22"
 
 keywords: Block Storage for VPC, iscsi for VPC, SAN for VPC
 
@@ -16,7 +16,7 @@ subcollection: vpc
 # Setting up your {{site.data.keyword.block_storage_is_short}} data volume for use (Linux)
 {: #start-using-your-block-storage-data-volume-lin}
 
-You can create a {{site.data.keyword.block_storage_is_short}} volume and attached it to an instance in the IBM Cloud console, with the CLI, API or Terraform. If you want to use your {{site.data.keyword.block_storage_is_full}} volume as a file system, your next steps are to partition the volume, format it, and then mount it as a file system. 
+Partition, format, and mount {{site.data.keyword.block_storage_is_short}} data volumes on Linux instances. Configure volumes as file systems to store data on your virtual server instances.
 {: shortdesc}
 
 First, [connect to your instance](/docs/vpc?topic=vpc-vsi_is_connecting_linux). Then, follow this procedure from the shell.

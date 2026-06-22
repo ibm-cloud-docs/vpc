@@ -1,8 +1,8 @@
 ---
 
 copyright:
-  years: 2021, 2025
-lastupdated: "2025-09-30"
+  years: 2021, 2026
+lastupdated: "2026-06-22"
 
 keywords: Block Storage, virtual private cloud, boot volume, data volume, volume, data storage, virtual server instance, bandwidth
 
@@ -10,13 +10,15 @@ subcollection: vpc
 
 ---
 
-{{site.data.keyword.attribute-definition-list}} 
+{{site.data.keyword.attribute-definition-list}}
 
 # Bandwidth allocation for Block Storage volumes
 {: #block-storage-bandwidth}
 
-Instance bandwidth is distributed between networking and storage resources. The storage bandwidth is divided between the boot volume and the attached data volumes. You can adjust the storage-networking bandwidth ratio in the console, from the CLI or with the API. After that change, you can adjust the portion of available bandwidth that is allocated to the data volumes by detaching and reattaching them. The maximum bandwidth for your volumes is constrained by both the virtual server instance's and the volume's bandwidth limits. 
+Understand how instance bandwidth is distributed between networking and {{site.data.keyword.block_storage_is_short}} volumes. Adjust the storage-networking bandwidth ratio and optimize data volume bandwidth allocation for your workload in the console, from the CLI, with the API or Terraform.
 {: shortdesc}
+
+Instance bandwidth is distributed between networking and storage resources. The storage bandwidth is divided or shared between the boot volume and the attached data volumes. The maximum bandwidth for your volume is constrained by both the virtual server instance's and the volume's bandwidth limits.
 
 ## Adjusting Volume bandwidth vs Network bandwidth ratio
 {: #storage-network-bandwidth}
@@ -37,13 +39,13 @@ The allocation does not change unless a volume is detached or attached to the in
 
 Each volume has an IOPS and a throughput limit. This throughput limit is either calculated automatically by using a throughput multiplier (traditional profiles) or can be specified explicitly (defined performance profile).
 
-When you create a stand-alone data volume with a first-generation profile, the volume throughput limit is calculated based on volume capacity, IOPS, and the [volume profile](/docs/vpc?topic=vpc-block-storage-profiles). The IOPS limit is always set to the maximum IOPS of the volume. 
+When you create a stand-alone data volume with a first-generation profile, the volume throughput limit is calculated based on volume capacity, IOPS, and the [volume profile](/docs/vpc?topic=vpc-block-storage-profiles). The IOPS limit is always set to the maximum IOPS of the volume.
 
-The provisioned throughput limit is determined by the total number of IOPS multiplied by the throughput multiplier. The throughput multiplier is 16 KB for 3 IOPS/GB or 5 IOPS/GB tiers, or 256 KB for 10 IOPS/GB or custom IOPS tiers. 
+The provisioned throughput limit is determined by the total number of IOPS multiplied by the throughput multiplier. The throughput multiplier is 16 KB for 3 IOPS/GB or 5 IOPS/GB tiers, or 256 KB for 10 IOPS/GB or custom IOPS tiers.
 
 Maximum throughput limit:
-- for the general-purpose volume profile, the limit is 670 MBps (5360 Mbps). 
-- for the 5iops-tier volume profile, the limit is 768 MBps (6144 Mbps). 
+- for the general-purpose volume profile, the limit is 670 MBps (5360 Mbps).
+- for the 5iops-tier volume profile, the limit is 768 MBps (6144 Mbps).
 - for the 10iops-tier and custom profiles, throughput can't exceed 1024 MBps (8192 Mbps).
 
 Where can you see what bandwidth or throughput limit is assigned to your volume? The bandwidth or throughput limits assigned to the volume can be seen as **Throughput** on the overview tab of the Block Storage volume details page.{: ui}
@@ -51,14 +53,14 @@ Where can you see what bandwidth or throughput limit is assigned to your volume?
 Where can you see what bandwidth or throughput limit is assigned to your volume? You can see the bandwidth value in the output of the `ibmcloud is volume` command.{: cli}
 
    ```sh
-   ibmcloud is volume my-test-volume 
+   ibmcloud is volume my-test-volume
    Getting volume my-test-volume under account Test Account as user test.user@ibm.com...
-                                          
+
    ID                                     r006-3869cd62-7676-43e3-8196-dad27b0c0f27
    Name                                   my-test-volume
    CRN                                    crn:v1:bluemix:public:is:us-south-3:a/a1234567::volume:r006-3869cd62-7676-43e3-8196-dad27b0c0f27
    Status                                 available
-   Attachment state                       unattached   
+   Attachment state                       unattached
    Capacity                               100
    IOPS                                   3000
    Bandwidth(Mbps)                        393
@@ -97,14 +99,14 @@ Where can you see what bandwidth or throughput limit is assigned to your volume?
        "href": "https://us-south.iaas.cloud.ibm.com/v1/volume/profiles/general-purpose",
        "name": "general-purpose"},
      "volume_attachments": []
-   } 
+   }
    ```
    {: screen}
    {: api}
-   
+
 In the following examples, the stand-alone volumes are provisioned with:
 - **`volume-a`** has 1,800 GB capacity and the 5 IOPS/GB volume profile, it can handle 9,000 IOPS, which means a maximum throughput limit of 1,179 Mbps.
-- **`volume-b`** has 3,000 GB capacity and the 5 IOPS/GB volume profile, it can handle 15,000 IOPS, which means a maximum throughput limit of 1,966 Mbps. 
+- **`volume-b`** has 3,000 GB capacity and the 5 IOPS/GB volume profile, it can handle 15,000 IOPS, which means a maximum throughput limit of 1,966 Mbps.
 - **`volume-c`** has 3,000 GB capacity and the general-purpose volume profile, it can handle 9,000 IOPS, which means a maximum throughput limit of 1,179 Mbps.
 - **`volume_d`** has 2,000 GB capacity and the general-purpose volume profile, it can handle 6,000 IOPS, which means a maximum throughput limit of 786 Mbps.
 
@@ -182,7 +184,7 @@ The data volumes share the overall 3,607 Mbps bandwidth. The bandwidth that is u
 ![Data volumes share the available volume bandwidth dynamically based on usage.](images/PooledBWDiagramAnimationShort.mp4){: video controls loop autoplay}
 
 Detaching and reattaching volumes does not change the volume QoS behavior.
-{: note}   
+{: note}
 
 Generally available second-generation profiles do not support pooled bandwidth allocation.
 

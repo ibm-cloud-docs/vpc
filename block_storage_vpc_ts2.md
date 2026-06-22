@@ -1,8 +1,8 @@
 ---
 
 copyright:
-  years: 2019, 2025
-lastupdated: "2025-08-06"
+  years: 2019, 2026
+lastupdated: "2026-06-22"
 
 keywords: Block Storage, virtual private cloud, volume, data storage, troubleshooting, troubleshoot
 
@@ -18,6 +18,9 @@ content-type: troubleshoot
 {: #troubleshoot-topic-2}
 {: troubleshoot}
 {: support}
+
+Resolve volume rename errors when using the API or CLI, including invalid name format errors and duplicate name conflicts across your VPC region.
+{: shortdesc}
 
 You receive an error message when you attempt to rename an existing volume.
 {: tsSymptoms}

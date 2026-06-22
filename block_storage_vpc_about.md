@@ -2,7 +2,7 @@
 
 copyright:
   years: 2019, 2026
-lastupdated: "2026-05-26"
+lastupdated: "2026-06-22"
 
 keywords:
 
@@ -16,7 +16,7 @@ subcollection: vpc
 # About {{site.data.keyword.block_storage_is_short}}
 {: #block-storage-about}
 
-{{site.data.keyword.block_storage_is_full}} provides high-performance data storage for your virtual server instances that you can provision within an {{site.data.keyword.vpc_full}} (VPC). The [VPC infrastructure](/docs/vpc?topic=vpc-about-vpc) provides rapid scaling across zones and extra performance and security.
+{{site.data.keyword.block_storage_is_full}} provides high-performance SSD-backed storage for virtual server instances in [VPC](docs/vpc?topic=vpc-about-vpc). Create boot and data volumes with customizable capacity, IOPS, and encryption options.
 {: shortdesc}
 
 ## Overview
@@ -53,7 +53,7 @@ Boot volumes that are larger than 250 GB can't be used to create a custom image.
 
 By default, boot volumes are encrypted by IBM-managed encryption. Optionally, you can use your own root keys (CRKs) by choosing customer-managed encryption during instance creation (see [Customer-managed encryption](/docs/vpc?topic=vpc-vpc-encryption-about#vpc-customer-managed-encryption)).
 
-By default, boot volumes are deleted when you delete an instance. You can change the auto-delete setting in the console, from the CLI, and with the API. A boot volume can be unattached only by deleting the instance that it is attached to. A boot volume cannot be detached from an instance while the instance exists. For more information, see [Managing Block Storage for VPC volumes](/docs/vpc?topic=vpc-managing-block-storage).
+By default, boot volumes are deleted when you delete an instance. You can change the autodelete setting in the console, from the CLI, and with the API. A boot volume can be unattached only by deleting the instance that it is attached to. A boot volume cannot be detached from an instance while the instance exists. For more information, see [Managing Block Storage for VPC volumes](/docs/vpc?topic=vpc-managing-block-storage).
 
 ### Data volumes
 {: #secondary-data-volumes}
@@ -68,7 +68,7 @@ Data volumes are encrypted by default with IBM-managed encryption. You can also 
 
 When the instance is deleted, these volumes are detached by default. Detaching by default allows your data to persist beyond the virtual server instance lifecycle. Only the volume's association with the instance is removed. Detached volumes can be attached to an available, running instance without reprovisioning the volume or the instance. Or you can delete data volumes manually after they are detached.
 
-When you create volumes, you can specify whether you want the data volumes to be deleted when then instance is deleted. You can enable and disable the auto-delete feature in the console, from the CLI or with the API.
+When you create volumes, you can specify whether you want the data volumes to be deleted when then instance is deleted. You can enable and disable the autodelete feature in the console, from the CLI or with the API.
 
 You can also increase the size of an attached volume in the console, from the CLI, or with the API. For first-generation volumes, you can increase the capacity in GB increments up to 16,000 GB capacity, depending on your volume profile. For second-generation volumes that use the `sdp` profile, you can increase the capacity up to 32,000 GB. For more information, see [expanding {{site.data.keyword.block_storage_is_short}} volume capacity](/docs/vpc?topic=vpc-expanding-block-storage-volumes) and [Managing Block Storage for VPC volumes](/docs/vpc?topic=vpc-managing-block-storage).
 

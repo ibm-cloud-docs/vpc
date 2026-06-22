@@ -1,8 +1,8 @@
 ---
 
 copyright:
-  years: 2019, 2025
-lastupdated: "2025-08-06"
+  years: 2019, 2026
+lastupdated: "2026-06-22"
 
 keywords: Block Storage, virtual private cloud, volume, data storage, troubleshooting, troubleshoot
 
@@ -19,7 +19,10 @@ content-type: troubleshoot
 {: troubleshoot}
 {: support}
 
-Information about a Block Storage volume or volumes can't be retrieved for a region.
+Resolve issues when {{site.data.keyword.block_storage_is_short}} volume information cannot be retrieved in a specific region, including missing volume names in the UI or CLI.
+{: shortdesc}
+
+Information about a {{site.data.keyword.block_storage_is_short}} volume or volumes cannot be retrieved for a region.
 {: tsSymptoms}
 
 Any of the following causes might apply:

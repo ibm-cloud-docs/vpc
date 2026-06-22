@@ -2,7 +2,7 @@
 
 copyright:
   years: 2019, 2026
-lastupdated: "2026-05-26"
+lastupdated: "2026-06-22"
 
 keywords: Block Storage, boot volume, data volume, status, health state, monitoring, performance
 
@@ -15,7 +15,7 @@ subcollection: vpc
 # Monitoring {{site.data.keyword.block_storage_is_short}} health states, volume status, and metrics
 {: #block-storage-vpc-monitoring}
 
-By using the UI, CLI, or API, you can check on the status and health states of your {{site.data.keyword.block_storage_is_short}} volumes. You can also view the cumulative number of read and write operations for a specific volume that is attached to a virtual server instance.
+Monitor {{site.data.keyword.block_storage_is_short}} volume health states, status, and performance metrics. Check volume availability, track read/write operations, and identify degraded performance or connection issues.
 {: shortdesc}
 
 ## Monitoring {{site.data.keyword.block_storage_is_short}} performance

@@ -2,7 +2,7 @@
 
 copyright:
   years: 2021, 2026
-lastupdated: "2026-06-11"
+lastupdated: "2026-06-22"
 
 keywords: vpn, ipsec policy
 
@@ -309,7 +309,7 @@ To view the complete set of APIs for site-to-site VPN gateways, see the [VPC API
 
 After you create an IPsec policy, complete the following tasks as needed:
 
-* [Create an IKE policy](/docs/vpc?topic=vpc-creating-ike-policy-copy) if you decide to use a custom IKE policy instead of an auto-negotiated IKE policy.
+* [Create an IKE policy](/docs/vpc?topic=vpc-creating-ike-policy) if you decide to use a custom IKE policy instead of an auto-negotiated IKE policy.
 * If you didn't create a VPN connection during VPN gateway creation, you can create one after the gateway is provisioned. For more information, see [Adding connections to a VPN gateway](/docs/vpc?topic=vpc-vpn-adding-connections).
 * For a route-based VPN, select or [create a routing table](/docs/vpc?topic=vpc-create-vpc-routing-table). Then, [create a route using the VPN connection type](/docs/vpc?topic=vpc-create-vpc-route).
 

@@ -2,7 +2,7 @@
 
 copyright:
   years: 2020, 2026
-lastupdated: "2026-06-11"
+lastupdated: "2026-06-22"
 
 keywords: Block Storage, boot volume, data volume, volume, data storage, virtual server instance, instance, expandable volume
 
@@ -15,7 +15,7 @@ subcollection: vpc
 # Expanding {{site.data.keyword.block_storage_is_short}} volume capacity
 {: #expanding-block-storage-volumes}
 
-For {{site.data.keyword.block_storage_is_short}} boot and data volumes, you can increase volume capacity from its initial setting, within limits. You can expand volumes in the console, from the CLI, with the API, or Terraform.
+Increase {{site.data.keyword.block_storage_is_short}} boot and data volume capacity to meet growing storage requirements. Expand volumes up to 32,000 GB for `sdp` profiles or 16,000 GB for tiered and custom profiles without causing outages.
 {: shortdesc}
 
 ## Overview

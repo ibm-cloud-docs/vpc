@@ -2,7 +2,7 @@
 
 copyright:
   years: 2025, 2026
-lastupdated: "2026-06-18"
+lastupdated: "2026-06-22"
 
 keywords: Block Storage, volume migration, volume jobs, storage generations, volume conversion
 
@@ -15,10 +15,17 @@ subcollection: vpc
 # Migrating block storage volume
 {: #block-storage-vpc-volume-migration}
 
-You can migrate your storage volume from first-generation volume profiles ([tiered](https://cloud.ibm.com/docs/vpc?topic=vpc-block-storage-profiles&interface=ui#tiers) or [custom](/docs/vpc?topic=vpc-block-storage-profiles&interface=ui#custom)) to the [second-generation volume profile](/docs/vpc?topic=vpc-block-storage-profiles&interface=ui#defined-performance-profile) in the console, from the CLI, with API, or Terraform. During the migration, all used areas of the volume are copied and the source and target volumes are kept in sync by mirroring writes. If the volume is attached to an instance, the VSI's volume attachment is seamlessly converted from source to target volume when the copy operation is complete.
+Migrate {{site.data.keyword.block_storage_is_short}} volumes from first-generation profiles ([tiered](/docs/vpc?topic=vpc-block-storage-profiles&interface=ui#tiers) or [custom](/docs/vpc?topic=vpc-block-storage-profiles&interface=ui#custom)) to the [second-generation `sdp` profile](/docs/vpc?topic=vpc-block-storage-profiles&interface=ui#defined-performance-profile). Customize IOPS and bandwidth during migration while maintaining data integrity and minimizing downtime.
 {: shortdesc}
 
-When you create a migration job, you can customize the IOPS and bandwidth limits. If you don’t specify these values, the system applies the default values of the profile. While the migration is in progress, the volume is in the `updating` state. You can cancel a migration while the copy process is running. You can track the status and progress of your migration jobs in the UI, from the CLI, with API and Terraform. When the migration completes, the volume moves to the `available` state and follows the billing model of the new profile.
+.
+When you create a migration job, you can customize the IOPS and bandwidth limits. If you don’t specify these values, the system applies the default values of the profile.
+
+While the migration is in progress, the volume is in the `updating` state. All used areas of the volume are copied and the source and target volumes are kept in sync by mirroring writes. If the volume is attached to an instance, the VSI's volume attachment is seamlessly converted from source to target volume when the copy operation is complete. You can track the status and progress of your migration jobs in the UI, from the CLI, with API and Terraform.
+
+You can cancel a migration while the copy process is running.
+
+When the migration completes, the volume moves to the `available` state and follows the billing model of the new profile.
 
 Encryption at rest is not impacted by the migration process. The volume is encrypted by using the same CRK and WDEK before and after the migration.
 

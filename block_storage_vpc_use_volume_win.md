@@ -1,8 +1,8 @@
 ---
 
 copyright:
-  years: 2023, 2025
-lastupdated: "2025-12-18"
+  years: 2023, 2026
+lastupdated: "2026-06-22"
 
 keywords: Block Storage for VPC, iscsi for VPC, SAN for VPC, format windows storage disk
 
@@ -16,7 +16,7 @@ subcollection: vpc
 # Setting up your {{site.data.keyword.block_storage_is_short}} data volume for use (Windows)
 {: #start-using-your-block-storage-data-volume-win}
 
-If you want to use your {{site.data.keyword.block_storage_is_full}} volume as a file system, you need to partition the volume, format it, and then mount it as a file system. You can perform this operation after you created a {{site.data.keyword.block_storage_is_short}} volume and attached it to an instance.
+Partition, format, and mount {{site.data.keyword.block_storage_is_short}} data volumes on Windows instances using Disk Management utility or PowerShell. Configure volumes as file systems to store data.
 {: shortdesc}
 
 Follow this procedure to use your Block Storage volume on a Windows&reg; system.
@@ -26,7 +26,7 @@ Follow this procedure to use your Block Storage volume on a Windows&reg; system.
 
 1. Log in to your Windows instance by using Remote Desktop. For more information, see [Connecting to Windows instances](/docs/vpc?topic=vpc-vsi_is_connecting_windows).
 1. Start the Disk Management utility. On the taskbar, open the menu by right-clicking the Windows logo, and choose Disk Management.
-  
+
    In Windows Server 2008, choose Start > Administrative Tools > Computer Management > Disk Management.
    {: note}
 

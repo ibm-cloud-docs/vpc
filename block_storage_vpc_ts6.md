@@ -1,8 +1,8 @@
 ---
 
 copyright:
-  years: 2019, 2025
-lastupdated: "2025-08-06"
+  years: 2019, 2026
+lastupdated: "2026-06-22"
 
 keywords: Block Storage, virtual private cloud, volume, data storage, troubleshooting, troubleshoot
 
@@ -18,6 +18,9 @@ content-type: troubleshoot
 {: #troubleshooting-block-storage}
 {: troubleshoot}
 {: support}
+
+Resolve volume resize failures when attempting to expand {{site.data.keyword.block_storage_is_short}} volume capacity while a snapshot is being created from the same volume.
+{: shortdesc}
 
 If you take a snapshot of a volume and increase the capacity of the source volume while the snapshot is being created, you get an error.
 {: tsSymptoms}

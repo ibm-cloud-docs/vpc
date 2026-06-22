@@ -1,8 +1,8 @@
 ---
 
 copyright:
-  years: 2019, 2025
-lastupdated: "2025-08-06"
+  years: 2019, 2026
+lastupdated: "2026-06-22"
 
 keywords: Block Storage, virtual private cloud, volume, data storage, troubleshooting, troubleshoot
 
@@ -19,7 +19,10 @@ content-type: troubleshoot
 {: troubleshoot}
 {: support}
 
-You can't delete a Block Storage volume by name or ID.
+Resolve issues when unable to delete {{site.data.keyword.block_storage_is_short}} volumes by name or ID, including verification of volume state and attachment status.
+{: shortdesc}
+
+You can't delete a {{site.data.keyword.block_storage_is_short}} volume by name or ID.
 {: tsSymptoms}
 
 The volume name and ID are not accepted.
