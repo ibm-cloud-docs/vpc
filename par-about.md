@@ -17,6 +17,7 @@ subcollection: vpc
 
 A public address range is a contiguous set of public IPs that you can reserve and bind to a VPC in an availability zone.
 {: shortdesc}
+
 [IPv4]{: tag-purple}
 
 When you use a custom authorized CIDR, you define the public address range by selecting a CIDR block from your IP address range instead of specifying the number of IPs.
