@@ -26,8 +26,6 @@ You can route the IPs in the range to a target resource in the VPC, such as a vi
 
 For example, you can configure public ingress routing to send the destination IP range to a VNF appliance next-hop. Response traffic from the target retains the original source IP as it exits the VPC, ensuring that return traffic isn't dropped.
 
-
-
 For more information about configuring ingress routing, see [About routing tables and routes](/docs/vpc?topic=vpc-about-custom-routes&interface=api).
 {: note}
 
