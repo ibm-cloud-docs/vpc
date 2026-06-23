@@ -494,7 +494,6 @@ toc:
           topics:
           - par-about.md
           - par-creating.md
-          - byiop-create-cidr.md
           - par-binding.md
           - par-viewing.md
           - par-deleting.md
