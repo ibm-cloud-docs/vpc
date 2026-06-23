@@ -28,6 +28,16 @@ Some changes, such as new response properties or new optional request parameters
 - Consume only the resources and properties that your application needs to function
 - Avoid depending on behavior that is not explicitly documented
 
+## 23 June 2026
+{: #23-june-2026-identity}
+
+### For all version dates
+{: #23-june-2026-all-version-dates-identity}
+
+**Third-party license and entitlement service.** The VPC Identity service now supports an optional `nonce` parameter when [creating an instance identity token](/apidocs/vpc-identity/latest#create-identity-token). When you specify a `nonce` value in the request, it is included in the signed token response, allowing vendor software to verify that it is running on IBM Cloud and that the token was generated recently. This attestation mechanism helps vendors ensure their software is executing in an authorized IBM Cloud environment.
+
+For more information, see [Instance identity operations](/docs/vpc?topic=vpc-imd-identity-operations&interface=api).
+
 ## 26 August 2025
 {: #26-august-2025-identity}
 

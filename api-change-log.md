@@ -61,6 +61,20 @@ The new response code will be rolled out gradually. Each phase of the rollout wi
 ### For all version dates
 {: #23-june-2026-all-version-dates}
 
+**Instance third-party license and entitlement service.** You can now provision virtual server instances from catalog images with vendor-managed software licensing. This feature enables dynamic license acquisition and management for third-party software running on instances, allowing vendors to control and track license usage on a per-instance basis.
+
+When [creating an instance](/apidocs/vpc/latest#create-instance) from a catalog image with an associated software plan configured for vendor licensing, the system automatically acquires a license from the vendor's license server. If license acquisition fails, the instance's `lifecycle_state` will transition to `failed` with a `lifecycle_reasons` value indicating a license-related error.
+
+A new child resource collection, `software_attachments`, has been added to instances. This resource represents the software associated with a catalog-defined software plan and includes license entitlement information when applicable. You can [retrieve](/apidocs/vpc/latest#get-instance-software-attachment) or [list](/apidocs/vpc/latest#list-instance-software-attachments) software attachments for an instance. The `software_attachments` property is also included when [retrieving](/apidocs/vpc/latest#get-instance) or [listing](/apidocs/vpc/latest#list-instances) instances. You can also [update a software attachment](/apidocs/vpc/latest#update-instance-software-attachment) to change its `name`.
+
+Software attachments include a `lifecycle_state` property that progresses through `pending`, `stable`, `failed`, or `deleting` states, reflecting the status of software instance registration and license acquisition, if applicable. When the `lifecycle_state` is `stable`, the software instance and any associated licenses are successfully registered and ready for use.
+
+**Usage constraint additions for images.** When [creating](/apidocs/vpc/latest#create-image) or [updating](/apidocs/vpc/latest#update-image) images, you can now specify usage constraints through the `allowed_use.instance` property to require specific vCPU counts or ranges, metadata service enablement or disablement, or metadata service protocol (`http` or `https`) when enabled. When [creating an instance](/apidocs/vpc/latest#create-instance) from an image with usage constraints, the request will fail if the specified configuration does not meet the image's requirements. Usage constraints also prevent instance resize operations that would violate the constraints.
+
+Similar usage constraints are available for [volumes](/apidocs/vpc/latest#create-volume) and [snapshots](/apidocs/vpc/latest#create-snapshot) through their respective `allowed_use.instance` properties.
+
+For more information, see [Managing virtual server instances](/docs/vpc?topic=vpc-managing-virtual-server-instances&interface=api).
+
 **AMD high frequency Turin VSI profiles.** When [creating](/apidocs/vpc/latest#create-instance) or [updating](/apidocs/vpc/latest#update-instance) an instance, or when [creating](/apidocs/vpc/latest#create-instance-template) or [updating](/apidocs/vpc/latest#update-instance-template) an instance template, you can now specify the `threads_per_core` property. 
 
 For instances using [High Frequency gen4 profiles](/docs/vpc?topic=vpc-high-frequency-profile-family) you may specify `1` or `2`. If not specified, the value defaults to `2` and is the only allowed value for instances using other profiles.

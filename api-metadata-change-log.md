@@ -34,6 +34,10 @@ Some changes, such as new response properties or new optional request parameters
 ### For all version dates
 {: #23-june-2026-all-version-dates-metadata}
 
+**Instance third-party license and entitlement service.** The VPC Metadata service now provides access to software license entitlements for instances provisioned with vendor-managed licensing. Vendor agents running on instances can view license keys when [retrieving](/apidocs/vpc-metadata#get-instance-software-attachment) or [listing](/apidocs/vpc-metadata#list-instance-software-attachments) software attachments.
+
+For more information, see [Accessing the instance metadata service](/docs/vpc?topic=vpc-imd-access-instance-metadata&interface=api).
+
 **AMD high frequency Turin VSI profiles.** When [retrieving an instance](/apidocs/vpc-metadata#get-instance), the response now includes the  `threads_per_core` property. This field specifies the number of threads configured per core. For [High Frequency gen4 profiles](/docs/vpc?topic=vpc-high-frequency-profile-family) the `threads_per_core` value can be either `1` or `2`. For all other profiles, the value defaults to `2`.
 
 For more information, see [Accessing the instance metadata service](/docs/vpc?topic=vpc-imd-access-instance-metadata&interface=api)
