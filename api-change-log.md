@@ -2,7 +2,7 @@
 
 copyright:
   years: 2019, 2026
-lastupdated: "2026-06-16"
+lastupdated: "2026-06-23"
 
 keywords: api, change log, new features, restrictions, migrations
 
@@ -37,6 +37,7 @@ SDK changes are based on API changes. For more information about the latest chan
 
 ## Upcoming changes
 {: #upcoming-changes}
+**`InstanceProfile` response change.** In an upcoming release, when [retrieving](/apidocs/vpc/latest#get-instance-profile) or [listing](/apidocs/vpc/latest#list-instance-profiles) instance profiles, the `vcpu_count` enumeration will transition from a fixed value to an enum-based value. The `supported_vcpu_count` property will be removed from the response. This behavior change will occur only for an [API version date](/apidocs/vpc/latest#api-versioning) after its release.
 
 **`InstanceProfile` response change.** In an upcoming release, when [retrieving](/apidocs/vpc/latest#get-instance-profile) or [listing](/apidocs/vpc/latest#list-instance-profiles) instance profiles, the response will include a `zones` property. This property indicates the zones that support the instance profile. When [creating an instance](/apidocs/vpc/latest#create-instance), the request will fail if the profile is not supported in the specified zone.
 
@@ -53,6 +54,23 @@ At this time, all instances, and therefore all instance templates, continue to r
 
 The new response code will be rolled out gradually. Each phase of the rollout will be tied to a dated API version. These changes will be announced in future change log updates.
 {: note}
+
+## 23 June 2026
+{: #23-june-2026}
+
+### For all version dates
+{: #23-june-2026-all-version-dates}
+
+**AMD high frequency Turin VSI profiles.** When [creating](/apidocs/vpc/latest#create-instance) or [updating](/apidocs/vpc/latest#update-instance) an instance, or when [creating](/apidocs/vpc/latest#create-instance-template) or [updating](/apidocs/vpc/latest#update-instance-template) an instance template, you can now specify the `threads_per_core` property. 
+
+For instances using [High Frequency gen4 profiles](/docs/vpc?topic=vpc-high-frequency-profile-family) you may specify `1` or `2`. If not specified, the value defaults to `2` and is the only allowed value for instances using other profiles.
+
+When [retrieving](/apidocs/vpc/latest#get-instance-profile) or [listing](/apidocs/vpc/latest#list-instance-profiles) instance profiles, the response includes the following changes: 
+	
+- New `threads_per_core` property with values of `[1]`, `[2]`, or `[1, 2]`
+- New `supported_vcpu_count` property lists supported vCPU count values for the profile
+	
+For more information, see [High Frequency profiles](/docs/vpc?topic=vpc-high-frequency-profile-family).
 
 ## 16 June 2026
 {: #16-june-2026}

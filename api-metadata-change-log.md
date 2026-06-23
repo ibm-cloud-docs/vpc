@@ -2,7 +2,7 @@
 
 copyright:
   years: 2019, 2026
-lastupdated: "2026-01-20"
+lastupdated: "2026-06-23"
 
 keywords: api, change log, metadata, new features, restrictions, migration, versioned change
 
@@ -27,6 +27,16 @@ Some changes, such as new response properties or new optional request parameters
 - Follow HTTP redirect rules for any `3xx` HTTP status code
 - Consume only the resources and properties that your application needs to function
 - Avoid depending on behavior that is not explicitly documented
+
+## 23 June 2026
+{: #23-june-2026-metadata}
+
+### For all version dates
+{: #23-june-2026-all-version-dates-metadata}
+
+**AMD high frequency Turin VSI profiles.** When [retrieving an instance](/apidocs/vpc-metadata#get-instance), the response now includes the  `threads_per_core` property. This field specifies the number of threads configured per core. For [High Frequency gen4 profiles](/docs/vpc?topic=vpc-high-frequency-profile-family) the `threads_per_core` value can be either `1` or `2`. For all other profiles, the value defaults to `2`.
+
+For more information, see [Accessing the instance metadata service](/docs/vpc?topic=vpc-imd-access-instance-metadata&interface=api)
 
 ## 20 January 2026
 {: #20-january-2026-metadata}
