@@ -20,8 +20,6 @@ A public address range is a contiguous set of public IPs that you can reserve an
 
 
 
-When you use a custom authorized CIDR, you define the public address range by selecting a CIDR block from your IP address range instead of specifying the number of IPs.
-
 You can route the IPs in the range to a target resource in the VPC, such as a virtual server instance, VNF appliance, or other compute resource. 
 
 For example, you can configure public ingress routing to send the destination IP range to a VNF appliance next-hop. Response traffic from the target retains the original source IP as it exits the VPC, ensuring that return traffic isn't dropped.
