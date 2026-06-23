@@ -23,7 +23,7 @@ The following questions are commonly asked about public address ranges. If you h
 {: faq}
 {: support}
 
-[IPv4]{: tag-purple}
+
 
 No. Only IBM-provided public IPs are supported. BYOIP (Bring Your Own IP) is not available for this service.
 

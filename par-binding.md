@@ -18,7 +18,7 @@ subcollection: vpc
 You can bind, unbind, and move public address ranges to a VPC in an availability zone with the console, CLI, API, and Terraform.
 {: shortdesc}
 
-[IPv4]{: tag-purple}
+
 
 ## Before you begin
 {: #before-you-begin-binding-public-address-range}

@@ -18,11 +18,11 @@ subcollection: vpc
 A public address range is a contiguous set of public IPs that you can reserve and bind to a VPC in an availability zone.
 {: shortdesc}
 
-[IPv4]{: tag-purple}
+
 
 When you use a custom authorized CIDR, you define the public address range by selecting a CIDR block from your IP address range instead of specifying the number of IPs.
 
-You can route the IPs in the range to a target resource in the VPC, such as a virtual server instance, VNF appliance, or other compute resource. [IPv4]{: tag-purple}
+You can route the IPs in the range to a target resource in the VPC, such as a virtual server instance, VNF appliance, or other compute resource. 
 
 For example, you can configure public ingress routing to send the destination IP range to a VNF appliance next-hop. Response traffic from the target retains the original source IP as it exits the VPC, ensuring that return traffic isn't dropped.
 
@@ -80,7 +80,7 @@ Review the following considerations before creating a public address range:
    When a VPC is created, the default security group and network ACL allow inbound and outbound traffic for the supported protocols. To ensure secure and intentional use of these public address range IPs, it is highly recommended to review and customize your security group rules, network ACLs, and egress routes to ensure an adequate security posture. This practice helps prevent unintended access to traffic patterns, particularly when multiple users have permission to deploy virtual server instances and compute resources in your account.
    {: attention}
 
-* Before you create a public address range, review the following limitations:[IPv4]{: tag-purple}
+* Before you create a public address range, review the following limitations:
    * You can't assign IP addresses from a public address range to resources in a VPC. You can only use these destination IP addresses in ingress custom route tables with "Public internet" enabled as the Traffic source to direct traffic to a next-hop target resource, such as a virtual server instance, network appliance, or other compute resource.
    * This service only supports IBM-provided public IP ranges. Bringing your own public IP or subnet is not supported.
    *  You can't divide public address ranges into subranges or bind one to multiple VPCs or zones.
