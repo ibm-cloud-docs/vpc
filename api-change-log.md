@@ -2,7 +2,7 @@
 
 copyright:
   years: 2019, 2026
-lastupdated: "2026-06-16"
+lastupdated: "2026-06-23"
 
 keywords: api, change log, new features, restrictions, migrations
 
@@ -37,6 +37,7 @@ SDK changes are based on API changes. For more information about the latest chan
 
 ## Upcoming changes
 {: #upcoming-changes}
+**`InstanceProfile` response change.** In an upcoming release, when [retrieving](/apidocs/vpc/latest#get-instance-profile) or [listing](/apidocs/vpc/latest#list-instance-profiles) instance profiles, the `vcpu_count` enumeration will transition from a fixed value to an enum-based value. The `supported_vcpu_count` property will be removed from the response. This behavior change will occur only for an [API version date](/apidocs/vpc/latest#api-versioning) after its release.
 
 **`InstanceProfile` response change.** In an upcoming release, when [retrieving](/apidocs/vpc/latest#get-instance-profile) or [listing](/apidocs/vpc/latest#list-instance-profiles) instance profiles, the response will include a `zones` property. This property indicates the zones that support the instance profile. When [creating an instance](/apidocs/vpc/latest#create-instance), the request will fail if the profile is not supported in the specified zone.
 
@@ -53,6 +54,45 @@ At this time, all instances, and therefore all instance templates, continue to r
 
 The new response code will be rolled out gradually. Each phase of the rollout will be tied to a dated API version. These changes will be announced in future change log updates.
 {: note}
+
+## 23 June 2026
+{: #23-june-2026}
+
+### For all version dates
+{: #23-june-2026-all-version-dates}
+
+**mTLS support for application load balancers.** You can now verify client identity for incoming data traffic requests to `application` family load balancers.
+
+When [creating](/apidocs/vpc/latest#create-load-balancer-listener) or [updating](/apidocs/vpc/latest#update-load-balancer-listener) a load balancer listener, you can now specify a `client_authentication.certificate_authority` CRN from Secrets Manager to enable mTLS for the listener. For more information, see [Configuring client authentication at the listener level](/docs/vpc?topic=vpc-alb-mtls-listener&interface=api). You can also set a certificate revocation list for the listener by specifying a [PEM-encoded](https://www.rfc-editor.org/rfc/rfc7468) `client_authentication.certificate_revocation_list`.
+
+When [creating](/apidocs/vpc/latest#create-load-balancer-pool) or [updating](/apidocs/vpc/latest#update-load-balancer-pool) a load balancer pool, you can now specify a `client_authentication.certificate_instance` CRN from Secrets Manager to enable mTLS for the pool. Additionally, you can enable TLS server certificate validation by setting `server_authentication.verify_certificate` to `true` and optionally specify a `server_authentication.certificate_authority` CRN from Secrets Manager for backend certificate validation. For more information, see [Configuring authentication at the pool level](/docs/vpc?topic=vpc-alb-mtls-pool&interface=api).
+
+These mTLS configurations for listeners and pools can also be specified when [creating a load balancer](/apidocs/vpc/latest#create-load-balancer).
+
+**Instance third-party license and entitlement service.** You can now provision virtual server instances from catalog images with vendor-managed software licensing. This feature enables dynamic license acquisition and management for third-party software running on instances, allowing vendors to control and track license usage on a per-instance basis.
+
+When [creating an instance](/apidocs/vpc/latest#create-instance) from a catalog image with an associated software plan configured for vendor licensing, the system automatically acquires a license from the vendor's license server. If license acquisition fails, the instance's `lifecycle_state` will transition to `failed` with a `lifecycle_reasons` value indicating a license-related error.
+
+A new child resource collection, `software_attachments`, has been added to instances. This resource represents the software associated with a catalog-defined software plan and includes license entitlement information when applicable. You can [retrieve](/apidocs/vpc/latest#get-instance-software-attachment) or [list](/apidocs/vpc/latest#list-instance-software-attachments) software attachments for an instance. The `software_attachments` property is also included when [retrieving](/apidocs/vpc/latest#get-instance) or [listing](/apidocs/vpc/latest#list-instances) instances. You can also [update a software attachment](/apidocs/vpc/latest#update-instance-software-attachment) to change its `name`.
+
+Software attachments include a `lifecycle_state` property that progresses through `pending`, `stable`, `failed`, or `deleting` states, reflecting the status of software instance registration and license acquisition, if applicable. When the `lifecycle_state` is `stable`, the software instance and any associated licenses are successfully registered and ready for use.
+
+**Usage constraint additions for images.** When [creating](/apidocs/vpc/latest#create-image) or [updating](/apidocs/vpc/latest#update-image) images, you can now specify usage constraints through the `allowed_use.instance` property to require specific vCPU counts or ranges, metadata service enablement or disablement, or metadata service protocol (`http` or `https`) when enabled. When [creating an instance](/apidocs/vpc/latest#create-instance) from an image with usage constraints, the request will fail if the specified configuration does not meet the image's requirements. Usage constraints also prevent instance resize operations that would violate the constraints.
+
+Similar usage constraints are available for [volumes](/apidocs/vpc/latest#create-volume) and [snapshots](/apidocs/vpc/latest#create-snapshot) through their respective `allowed_use.instance` properties.
+
+For more information, see [Managing virtual server instances](/docs/vpc?topic=vpc-managing-virtual-server-instances&interface=api).
+
+**AMD high frequency Turin VSI profiles.** When [creating](/apidocs/vpc/latest#create-instance) or [updating](/apidocs/vpc/latest#update-instance) an instance, or when [creating](/apidocs/vpc/latest#create-instance-template) or [updating](/apidocs/vpc/latest#update-instance-template) an instance template, you can now specify the `threads_per_core` property. 
+
+For instances using [High Frequency gen4 profiles](/docs/vpc?topic=vpc-high-frequency-profile-family) you may specify `1` or `2`. If not specified, the value defaults to `2` and is the only allowed value for instances using other profiles.
+
+When [retrieving](/apidocs/vpc/latest#get-instance-profile) or [listing](/apidocs/vpc/latest#list-instance-profiles) instance profiles, the response includes the following changes: 
+	
+- New `threads_per_core` property with values of `[1]`, `[2]`, or `[1, 2]`
+- New `supported_vcpu_count` property lists supported vCPU count values for the profile
+	
+For more information, see [High Frequency profiles](/docs/vpc?topic=vpc-high-frequency-profile-family).
 
 ## 16 June 2026
 {: #16-june-2026}
