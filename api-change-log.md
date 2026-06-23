@@ -61,6 +61,14 @@ The new response code will be rolled out gradually. Each phase of the rollout wi
 ### For all version dates
 {: #23-june-2026-all-version-dates}
 
+**mTLS support for application load balancers.** You can now verify client identity for incoming data traffic requests to `application` family load balancers.
+
+When [creating](/apidocs/vpc/latest#create-load-balancer-listener) or [updating](/apidocs/vpc/latest#update-load-balancer-listener) a load balancer listener, you can now specify a `client_authentication.certificate_authority` CRN from Secrets Manager to enable mTLS for the listener. For more information, see [Configuring client authentication at the listener level](/docs/vpc?topic=vpc-alb-mtls-listener&interface=api). You can also set a certificate revocation list for the listener by specifying a [PEM-encoded](https://www.rfc-editor.org/rfc/rfc7468) `client_authentication.certificate_revocation_list`.
+
+When [creating](/apidocs/vpc/latest#create-load-balancer-pool) or [updating](/apidocs/vpc/latest#update-load-balancer-pool) a load balancer pool, you can now specify a `client_authentication.certificate_instance` CRN from Secrets Manager to enable mTLS for the pool. Additionally, you can enable TLS server certificate validation by setting `server_authentication.verify_certificate` to `true` and optionally specify a `server_authentication.certificate_authority` CRN from Secrets Manager for backend certificate validation. For more information, see [Configuring authentication at the pool level](/docs/vpc?topic=vpc-alb-mtls-pool&interface=api).
+
+These mTLS configurations for listeners and pools can also be specified when [creating a load balancer](/apidocs/vpc/latest#create-load-balancer).
+
 **Instance third-party license and entitlement service.** You can now provision virtual server instances from catalog images with vendor-managed software licensing. This feature enables dynamic license acquisition and management for third-party software running on instances, allowing vendors to control and track license usage on a per-instance basis.
 
 When [creating an instance](/apidocs/vpc/latest#create-instance) from a catalog image with an associated software plan configured for vendor licensing, the system automatically acquires a license from the vendor's license server. If license acquisition fails, the instance's `lifecycle_state` will transition to `failed` with a `lifecycle_reasons` value indicating a license-related error.
