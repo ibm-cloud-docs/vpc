@@ -660,7 +660,7 @@ The following example shows how `PATCH` requests affect both singular and array 
 ## Related links
 {: #related-links-vpn-multiple-algorithms}
 
-* [Creating an IKE policy](/docs/vpc?topic=vpc-creating-ike-policy-copy&interface=ui)
-* [Creating an IPsec policy](/docs/vpc?topic=vpc-creating-ipsec-policy-copy&interface=ui)
+* [Creating an IKE policy](/docs/vpc?topic=vpc-creating-ike-policy)
+* [Creating an IPsec policy](/docs/vpc?topic=vpc-creating-ipsec-policy)
 * [How are encryption algorithms chosen for IKE and IPsec in a site-to-site VPN connection?](/docs/vpc?topic=vpc-faqs-vpn&interface=ui#faq-vpn-40)
 * [How do I check IPsec logs?](/docs/vpc?topic=vpc-faqs-vpn&interface=ui#faq-vpn-41)
