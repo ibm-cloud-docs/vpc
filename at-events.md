@@ -2,7 +2,7 @@
 
 copyright:
   years: 2019, 2026
-lastupdated: "2026-06-16"
+lastupdated: "2026-06-23"
 
 keywords:
 
@@ -562,6 +562,8 @@ The metadata service events are undergoing changes and should not be used for au
 | Metadata | is.metadata.instance-network-interface.list | Network interfaces were listed for the calling instance  |
 | Metadata | is.metadata.instance-placement-group.get | Placement group information was retrieved for the calling instance |
 | Metadata | is.metadata.instance-placement-group.list | Placement group information was listed for the calling instance |
+| Metadata | is.metadata.instance-software-attachment.list | Software attachments were listed for the calling instance |
+| Metadata | is.metadata.instance-software-attachment.read | A software attachment was retrieved for the calling instance |
 | Metadata | is.metadata.instance-volume-attachment.get | A volume attachment was retrieved for the calling instance |
 | Metadata | is.metadata.instance-volume-attachment.list | Volume attachments were listed for the calling instance  |
 {: caption="Actions that generate events for the Metadata service" caption-side="bottom"}

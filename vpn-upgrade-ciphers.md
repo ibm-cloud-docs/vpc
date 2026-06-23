@@ -2,7 +2,7 @@
 
 copyright:
   years: 2022, 2026
-lastupdated: "2026-06-22"
+lastupdated: "2026-06-23"
 
 keywords: auto-negotiation, ciphers, upgrading ciphers, migrating ciphers
 
@@ -801,7 +801,7 @@ For more information, see the [Terraform registry](https://registry.terraform.io
 ## Related links
 {: #related-links-vpn-upgrade-ciphers}
 
-* [Creating an IKE policy](/docs/vpc?topic=vpc-creating-ike-policy&interface=ui)
-* [Creating an IPsec policy](/docs/vpc?topic=vpc-creating-ipsec-policy-copy&interface=ui)
+* [Creating an IKE policy](/docs/vpc?topic=vpc-creating-ike-policy)
+* [Creating an IPsec policy](/docs/vpc?topic=vpc-creating-ipsec-policy)
 * [Updating to multiple IKE and IPsec algorithms](/docs/vpc?topic=vpc-vpn-update-multiple-algorithms&interface=api)
 * [Changes to VPN gateway IKE and IPsec policy API](/docs/vpc?topic=vpc-vpn-hcr-introduction&interface=ui).

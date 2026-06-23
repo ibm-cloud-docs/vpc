@@ -2,7 +2,7 @@
 
 copyright:
   years: 2024, 2026
-lastupdated: "2026-04-16"
+lastupdated: "2026-06-23"
 
 subcollection: vpc
 
@@ -22,6 +22,8 @@ The following questions are commonly asked about public address ranges. If you h
 {: #assign-public-ips}
 {: faq}
 {: support}
+
+
 
 No. Only IBM-provided public IPs are supported. BYOIP (Bring Your Own IP) is not available for this service.
 

@@ -2,7 +2,7 @@
 
 copyright:
   years: 2022, 2026
-lastupdated: "2026-06-16"
+lastupdated: "2026-06-23"
 
 keywords:
 
@@ -78,6 +78,11 @@ Limit trusted profiles that you create for compute resource identities in IAM. O
 When you [remove trusted profiles](/docs/iam?topic=iam-trusted-profile-update&interface=ui#remove-tp-console){: ui}[remove trusted profiles](/docs/iam?topic=iam-trusted-profile-update&interface=cli#remove-tp-cli){: cli}[remove trusted profiles](/docs/iam?topic=iam-trusted-profile-update&interface=api#remove-tp-api){: api}, compute resources and federated users are unlinked from the profile, and can no longer apply the trusted profile identity.
 
 You can also update existing trusted profiles by redefining the trust relationship, assigning access policies, and updating session limits. For more information, see [Updating trusted profiles](/docs/iam?topic=iam-trusted-profile-update).
+
+### Verify token requests with a nonce
+{: #imd-verify-nonce}
+
+A nonce may be specified in the request to get an identity access token, and then verified to be the same in a response, to verify that the response is in fact from the call just made.  When specified, the value returned in the response and in the same-named property in the decoded identity token will match that specified.
 
 ## Additional network security measures
 {: #imd-network-security}

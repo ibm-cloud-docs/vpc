@@ -2,7 +2,7 @@
 
 copyright:
   years: 2022, 2026
-lastupdated: "2026-06-22"
+lastupdated: "2026-06-23"
 
 keywords:
 
@@ -40,6 +40,12 @@ Catalog images are billed in one of the following ways.
 
 Images that are shared through a private catalog are still offered without billing.
 {: note}
+
+Some usage-based software billing plans can include software licensing. In such cases, software running on the virtual server instance must be licensed to function correctly. If such a license is associated with the billing plan you choose, you don't need to take any specific action related to the license. A license key is provided for you automatically by the system, and billing takes that license use into account.
+
+When multiple billing plans exist, you must choose the appropriate one for your use.
+
+After you create your virtual server instance from a catalog image, you can either [View the software attachments of a virtual server instance using the CLI](/docs/vpc?topic=vpc-managing-virtual-server-instances&interface=cli#view-software-attachments-virtual-server-instances-cli) or [View the software attachments of a virtual server instance using the API](/docs/vpc?topic=vpc-managing-virtual-server-instances&interface=api#view-software-attachments-virtual-server-instances-api) in order to view the software attachment that represents the software instance created from the software billing plan and which is now a part of the virtual server instance. If a license is associated with the plan, information about the license is included in the software attachment.
 
 Any private catalog images available to your VPC can be found in **Navigation Menu** icon ![menu icon](../icons/icon_hamburger.svg) **> Infrastructure** ![VPC icon](../../icons/vpc.svg) **> Compute > Images > Catalog images**
 

@@ -2,7 +2,7 @@
 
 copyright:
   years: 2019, 2026
-lastupdated: "2026-06-18"
+lastupdated: "2026-06-23"
 
 keywords:
 
@@ -26,6 +26,21 @@ For more information about changes to the {{site.data.keyword.vpc_short}} comman
 
 ## June 2026
 {: #vpc-jun26}
+
+Third-party license and entitlement service
+:  You can now provision virtual server instances from catalog images with vendor-managed software licensing. This feature enables dynamic license acquisition and management for third-party software running on instances, allowing vendors to control and track license usage on a per-instance basis.
+
+   Software attachments now exist for virtual server instances created from resources sourced from a catalog offering with a software billing plan, and represent software instances created from these plans. These software attachments contain license information when the plan is associated with vendor-managed software licensing. This feature enables you to track and manage licensed software running on your infrastructure resources. You can view, list, retrieve, and update software attachments using the CLI and API. For more information on how to do this, see the following content.
+
+   - [Managing virtual server instances](/docs/vpc?topic=vpc-managing-virtual-server-instances)
+
+   The VPC Identity service now supports an optional `nonce` parameter to get a token. You can pass a known value in, then decode the resulting token, and verify the value of the `nonce` property inside the token to help ensure the token is valid and secure before using it to call the metadata API. For more information on the `nonce` property, see the following content.
+
+   - [Summary of metadata for software attachments](/docs/vpc?topic=vpc-imd-metadata-summary&interface=api#imd-software-attachments-summary)
+   - [Verify token requests with a nonce](/docs/vpc?topic=vpc-imd-security-best-practices&interface=api#imd-verify-nonce)
+   - [Decoding the identity access token](/docs/vpc?topic=vpc-imd-identity-operations&interface=api#imd-json-token-decode)
+
+   For more information on the API changes, see the [VPC API change log entry for 23 June 2026](/docs/vpc?topic=vpc-api-change-log#23-june-2026-all-version-dates) and [VPC Metadata API change log entry for 23 June 2026](/docs/vpc?topic=vpc-metadata-api-change-log#23-june-2026-all-version-dates-metadata).
 
 ### 17 June 2026
 {: #vpc-jun1726}

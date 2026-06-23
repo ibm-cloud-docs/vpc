@@ -2,7 +2,7 @@
 
 copyright:
   years: 2026
-lastupdated: "2026-04-16"
+lastupdated: "2026-06-23"
 
 keywords: public address range, bind, unbind
 
@@ -17,6 +17,8 @@ subcollection: vpc
 
 You can bind, unbind, and move public address ranges to a VPC in an availability zone with the console, CLI, API, and Terraform.
 {: shortdesc}
+
+
 
 ## Before you begin
 {: #before-you-begin-binding-public-address-range}

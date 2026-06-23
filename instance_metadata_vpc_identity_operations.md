@@ -2,7 +2,7 @@
 
 copyright:
   years: 2022, 2026
-lastupdated: "2026-06-16"
+lastupdated: "2026-06-23"
 
 keywords:
 
@@ -184,6 +184,98 @@ A successful response returns the new certificate with information such as its I
 {: codeblock}
 
 For more information, see [Encryption in transit - Securing mount connections between file share and host](/docs/vpc?topic=vpc-file-storage-vpc-eit).
+
+## Decoding the identity access token
+{: #imd-json-token-decode}
+{: api}
+
+{{site.data.keyword.vpc_full}} Identity metadata access tokens are standard JSON Web Tokens (JWTs). You can decode them using command-line tools, online decoders, or programmatic libraries to view claims like expiration time (exp), server info (iaas), and nonce.
+
+The fastest way to decode an {{site.data.keyword.vpc_short}} identity token in your terminal is using standard Unix tools or specialized CLI utilities.
+
+Identity tokens consist of three parts (header, payload, signature) separated by period `.` separators.
+1. The encoded header object consists of key-value pairs.
+1. The encoded payload object consisting of claims, which are essentially key-value pairs. The following are examples of {{site.data.keyword.vpc_short}} claims in identity tokens.
+   - `iaas`
+   - `vpc`
+   - custom ip addresses
+   - subnets
+1. The signature of the issuer which is used to determine whether the JWT code was compromised or altered after it was issued. The signature is created by the issuer by signing the encoded header and payload objects with a server or private key. The issuer is indicated by the `iss` claim.
+
+- To decode an identity token using base64 and jq, you can decode the payload (the second part) with the following command.
+
+   ```bash
+   # Replace <TOKEN> with your actual token string
+   echo "<TOKEN>" | cut -d '.' -f 2 | base64 --decode | jq .
+   ```
+   {: pre}
+
+   For tokens that use URL-safe Base64, you might need to replace `-` with `+` and `_` with `/` before decoding.
+
+- To decode an identity token using jwt-cli, use the following steps. This process should be used with caution.
+
+   1. Install a dedicated tool for a cleaner output.
+
+      ```bash
+      npm install -g jwt-cli
+      ```
+      {: pre}
+
+   1. Issue the following command.
+
+      ```bash
+      jwt decode <TOKEN>
+      ```
+      {: pre}
+
+   1. Review the information in the payload section. See the following example.
+
+      ```screen
+      {
+        "aud": [
+          "VSI-CR_us-south",
+          "247cd7d3-ff6b-11ef-8b70-ca73f727becf_63791398320466773051136262737897537855791952320"
+        ],
+        "exp": 1741802544,
+        "iaas": {
+          "crn": "crn:v1:staging:public:is:us-south-3:a/af6443f619a949c9919c1eb1625d6cc5::instance:7389_bca3d8e4-b8b4-42e0-881e-761a01a89f20",
+          "accountID": "af6443f619a949c9919c1eb1625d6cc5",
+          "instanceID": "7389_bca3d8e4-b8b4-42e0-881e-761a01a89f20",
+          "zone": "us-south-3",
+          "region": "us-south",
+          "profile_name": "bx2-2x8",
+          "resource_group_id": "6d42cce33e604a86b95485c5735be52d"
+        },
+        "iat": 1741802244,
+        "ip_addresses": [
+          {
+            "address": "52.118.123.193"
+          },
+          {
+            "address": "10.240.128.4"
+          }
+        ],
+        "iss": "VSI-CR_us-south",
+        "nonce": "2026-03-12T12:34:56.789Z",
+        "subnets": [
+          {
+            "crn": "crn:v1:staging:public:is:us-south-3:a/af6443f619a949c9919c1eb1625d6cc5::subnet:7389-9b1a8341-5863-40da-a29f-9a9d6eef2a51",
+            "name": "fode-sn3",
+            "id": "7389-9b1a8341-5863-40da-a29f-9a9d6eef2a51"
+          }
+        ],
+        "vpc": {
+          "crn": "crn:v1:staging:public:is:us-south:a/af6443f619a949c9919c1eb1625d6cc5::vpc:r134-199db3c7-928c-41af-95fd-d4e166648773",
+          "name": "fode",
+          "id": "r134-199db3c7-928c-41af-95fd-d4e166648773"
+        }
+      }
+      ```
+      {: codeblock}
+
+   1. To validate the JWT, check the `iss` signature and verify the encoded header object and the encoded payload object were not altered after the JWT was issued.
+
+You can also use a third party tool, such as [python-jwt](https://pypi.org/project/jwt/){: external} or [golang-jwt](https://github.com/golang-jwt/jwt){: external}, to decode the JWT.
 
 ## Creating a trusted profile for the instance
 {: #imd-trusted-profile-config}
