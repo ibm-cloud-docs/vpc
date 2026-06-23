@@ -2,7 +2,7 @@
 
 copyright:
   years: 2024, 2026
-lastupdated: "2026-02-13"
+lastupdated: "2026-06-23"
 
 keywords: instance lifecycle status reasons, lifecycle status, status reasons
 
@@ -42,3 +42,12 @@ If you still need help, contact [support](/docs/vpc?topic=vpc-getting-help-and-s
 **Status message**: _The virtual server instance was stopped due to preemption._
 
 Restart the instance or delete it if no longer needed.
+
+## Status: `failed_licensing`
+{: #failed-licensing}
+
+**Status message**: _Licensing the instance's software product(s) failed._
+
+Delete the instance and provision a new one.
+
+If you still need help, contact [support](/docs/vpc?topic=vpc-getting-help-and-support-for-vpc). Make sure that you provide the CRN.

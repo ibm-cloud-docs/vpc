@@ -2,7 +2,7 @@
 
 copyright:
   years: 2022, 2026
-lastupdated: "2026-04-28"
+lastupdated: "2026-06-23"
 
 keywords:
 
@@ -453,6 +453,8 @@ The following table shows more methods for API GET requests that you can make to
 | `/metadata/v1/instance/network_attachments/{id}`| Retrieve a network attachment |
 | `/metadata/v1/instance/network_interfaces` | List metadata for all network interfaces for an instance. |
 | `/metadata/v1/instance/network_interfaces/{id}` | Retrieve metadata for a network interface by ID. |
+| `/metadata/v1/instance/software_attachments` | List metadata for all software attachments for an instance. |
+| `/metadata/v1/instance/software_attachments/{id}` | Retrieve metadata for a software attachment by ID. |
 | `/metadata/v1/instance/volume_attachments` | List metadata for all volume attachments for an instance. |
 | `/metadata/v1/instance/volume_attachment/{id}` | Retrieve metadata for a volume attachment by ID. |
 {: caption="Metadata URIs" caption-side="bottom"}

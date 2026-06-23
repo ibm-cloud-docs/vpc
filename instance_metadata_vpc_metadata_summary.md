@@ -2,7 +2,7 @@
 
 copyright:
   years: 2021, 2026
-lastupdated: "2026-05-26"
+lastupdated: "2026-06-23"
 
 keywords:
 
@@ -47,6 +47,7 @@ Use the information in the Table 1 to understand the type of metadata returned f
 | `/instance`	| `placement_target` | The placement restrictions for the virtual server instance. |
 | `/instance`	| `primary_network_interface`	| The instance's primary network interface. |
 | `/instance`	| `profile` |	The globally unique name for this virtual server instance profile. For example, a bx2-2x8, balanced profile. |
+| `/instance`	| `software_attachments` | A list of the virtual server instance's software attachments. |
 | `/instance`	| `startable` | Indicates whether the state of the virtual server instance permits a start request. |
 | `/instance`	| `status` | The status of the instance: deleting, failed, paused, pausing, pending, restarting, resuming, running, starting, stopped, or stopping. |
 | `/instance`	| `status_reasons` | The reasons for the current status. |
@@ -74,7 +75,21 @@ Use the information in the Table 1 to understand the type of metadata returned f
 | `/instance/network_interfaces/{id}`	| `security_groups` |	A list of security groups. |
 | `/instance/network_interfaces/{id}`	| `status` | The status of the network interface. |
 | `/instance/network_interfaces/{id}`	| `subnet` | The subnet associated with the instance. |
-| `/instance/network_interfaces/{id}`	| `type` | The type of this network interface as it relates to an instance. |
+| `/instance/network_interfaces/{id}`	| `type` | The type of this network interface as it relates to an instance. |<vpcimg-226-software-attachments>
+| `/instance/software_attachments` | `software_attachments` | An array of zero or more software attachment objects. |
+| `/instance/software_attachments/{id}` | `id` | The unique identifier (UUID) for this software attachment. |
+| `/instance/software_attachments/{id}` | `name` | The name for this software attachment. The name is unique within the set of software attachments associated with the virtual server instance. |
+| `/instance/software_attachments/{id}` | `href` | The URL for this software attachment. |
+| `/instance/software_attachments/{id}` | `catalog_offering` | An object containing the catalog offering version CRN and associated software plan CRN representing the software. |
+| `/instance/software_attachments/{id}` | `offering_instance` | An object representing the software offering instance instantiated from the software plan. Contains the CRN of the software offering instance. |
+| `/instance/software_attachments/{id}` | `entitlement` | An object representing the license entitlement for the software offering instance. This property is populated dynamically after a successful call to License Manager to get the entitlement. |
+| `/instance/software_attachments/{id}` | `entitlement.licensed_software` | An array of zero or more objects, each representing an installed, licensed software program or feature in the virtual server instance. |
+| `/instance/software_attachments/{id}` | `entitlement.licensed_software[].sku` | The SKU (Stock Keeping Unit) of one licensable software program or feature associated with the software plan and running on the virtual server instance. |
+| `/instance/software_attachments/{id}` | `entitlement.licensed_software[].key` | The license key for the software entitlement. This property's value may change over time. |
+| `/instance/software_attachments/{id}` | `lifecycle_state` | The lifecycle state of the software attachment, indicating whether it is complete and usable. |
+| `/instance/software_attachments/{id}` | `lifecycle_reasons` | An array of reasons for the current lifecycle_state. |
+| `/instance/software_attachments/{id}` | `resource_type` | The resource type. Set to `instance_software_attachment`. |
+| `/instance/software_attachments/{id}` | `created_at` | The date and time that this software attachment was created. |</vpcimg-226-software-attachments>
 | `/instance/volume_attachments/{id}` | `bandwidth` | The maximum bandwidth in megabits per second for the volume when it's attached to this instance. This value might be less than the volume bandwidth depending on the configuration of the instance. |
 | `/instance/volume_attachments/{id}`	| `created_at` | The date and time that the volume was attached. |
 | `/instance/volume_attachments/{id}`	| `delete_volume_on_instance_delete` | If set to `true`, then when you delete the instance, the volume is also deleted. |
@@ -120,6 +135,31 @@ Use the information in the Table 3 to understand the type of metadata returned f
 | `/placement_groups/{id}` | `resource_type` | The resource type. |
 | `/placement_groups/{id}` | `strategy` | The strategy for the placement group. |
 {: caption="Metadata for placement groups" caption-side="bottom"}
+
+## Summary of metadata for software attachments
+{: #imd-software-attachments-summary}
+
+Use the information in the following table to understand the type of metadata returned for software attachments.
+
+The `/metadata/v1/instance/software_attachments` endpoint returns an array of zero or more software attachment objects. Each object represents a resource-controller-registered software instance corresponding to a software plan.
+
+| Software attachments URI path | Metadata key | Description of the metadata |
+| ------------------------------ | ------------- | ------------- |
+| `/instance/software_attachments/{id}` | `id` | A unique UUID for the software attachment. |
+| `/instance/software_attachments/{id}` | `name` | A name unique within the set of software attachments associated with the virtual server instance. This name is set to a system-generated random value and may be updated by the owner thereafter if desired. Note that updating the name in the virtual server instance software attachment does not affect that of the attached boot volume or any snapshots already created from that volume. |
+| `/instance/software_attachments/{id}` | `href` | The URL for this software attachment. |
+| `/instance/software_attachments/{id}` | `catalog_offering` | An object whose value is the same as the instance's object of the same name, containing the catalog offering version CRN and associated software plan CRN representing the software. |
+| `/instance/software_attachments/{id}` | `offering_instance` | An object representing the software offering instance instantiated from the software plan. |
+| `/instance/software_attachments/{id}` | `offering_instance.crn` | The software offering instance CRN. |
+| `/instance/software_attachments/{id}` | `entitlement` (optional) | An object representing the license entitlement for the software offering instance. If absent, no license is associated with the software plan. |
+| `/instance/software_attachments/{id}` | `entitlement.licensed_software` | An array of zero or more objects, each representing an installed, licensed software program or feature in the virtual server instance. |
+| `/instance/software_attachments/{id}` | `entitlement.licensed_software[].sku` | The SKU (Stock Keeping Unit) of one licensable software program or feature associated with the software plan and running on the virtual server instance.  It is meaningful to the software's vendor. |
+| `/instance/software_attachments/{id}` | `entitlement.licensed_software[].key` (optional) | The license key for the software entitlement.  If absent, the license has not been obtained yet. |
+| `/instance/software_attachments/{id}` | `lifecycle_state` | The lifecycle state of the software attachment.  If stable, the software instance has been created successfully. |
+| `/instance/software_attachments/{id}` | `lifecycle_reasons[]` | The reasons for the current lifecycle_state. |
+| `/instance/software_attachments/{id}` | `resource_type` | The resource type, set to `instance_software_attachment`. |
+| `/instance/software_attachments/{id}` | `created_at` | The date and time when this software attachment was created. |
+{: caption="Metadata for software attachments" caption-side="bottom"}
 
 ## Next steps
 {: #imd-summary-next-steps}

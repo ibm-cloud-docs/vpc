@@ -2,7 +2,7 @@
 
 copyright:
   years: 2019, 2026
-lastupdated: "2026-06-11"
+lastupdated: "2026-06-23"
 
 keywords: view instance details, restart virtual server, stop, details, delete
 
@@ -756,3 +756,115 @@ You can add CSPM (Cloud Security Posture Management) on the _Virtual server inst
 1. On the **Add cloud security posture management (CSPM)**, click **Create**.
 
 This setting adds CSPM to an existing Workload Protection instance for your account. For more information, see [Implementing CSPM (Cloud Security Posture Management) for IBM Cloud](/docs/workload-protection?topic=workload-protection-cspm-implement&interface=ui).
+
+## Viewing the software attachments of a virtual server instance using the CLI
+{: #view-software-attachments-virtual-server-instances-cli}
+{: cli}
+
+You can view the software attachments of a virtual server instance that was created from a catalog image by using the CLI.
+
+- To list all software attachments for an instance, use [`ibmcloud is instance-software-attachments`](/docs/vpc?topic=vpc-vpc-reference#instance-software-attachments). The `INSTANCE` variable is the ID or name of the instance.
+
+   ```sh
+   ibmcloud is instance-software-attachments INSTANCE [--output JSON] [-q, --quiet]
+   ```
+   {: pre}
+
+   The following example lists all software attachments for the instance `my-instance`.
+
+   ```sh
+   ibmcloud is instance-software-attachments my-instance
+   ```
+   {: pre}
+
+- To view the details of a specific software attachment for an instance, use [`ibmcloud is instance-software-attachment`](/docs/vpc?topic=vpc-vpc-reference#instance-software-attachment). The `INSTANCE` variable is the ID or name of the instance. The `SWAC` variable is the instance software attachment ID or name.
+
+   ```sh
+   ibmcloud is instance-software-attachment INSTANCE SWAC [--output JSON] [-q, --quiet]
+   ```
+   {: pre}
+
+   The following example shows the details of the software attachment `my-software-attachment` for the instance `my-instance`.
+
+   ```sh
+   ibmcloud is instance-software-attachment my-instance my-software-attachment
+   ```
+   {: pre}
+
+## Updating the software attachments of a virtual server instance using the CLI
+{: #update-software-attachments-virtual-server-instances-cli}
+{: cli}
+
+You can update the software attachments of a virtual server instance that was created from a catalog image by using the CLI.
+
+To update the name of a software attachment for an instance, use [`ibmcloud is instance-software-attachment-update`](/docs/vpc?topic=vpc-vpc-reference#instance-software-attachment-update). The `INSTANCE` variable is the ID or name of the instance. The `SWAC` variable is the instance software attachment ID or name. The `--name` value is the new name of the instance software attachment.
+
+```sh
+ibmcloud is instance-software-attachment-update INSTANCE SWAC --name NEW_NAME [--output JSON] [-q, --quiet]
+```
+{: pre}
+
+The following example renames the software attachment `$software_attachment_id`to `my-renamed-software-attachment` for the instance `my-instance`.
+
+```sh
+ibmcloud is instance-software-attachment-update my-instance my-software-attachment --name my-renamed-software-attachment
+```
+{: pre}
+
+## Viewing the software attachments of a virtual server instance using the API
+{: #view-software-attachments-virtual-server-instances-api}
+{: api}
+
+When you create a virtual server instance sourced from a catalog image, you can use a catalog image that is specificially configured with a defined software billing plan. After you create your virtual server instance, you can view the software attachments that are now a part of the virtual server instance.
+
+To view the software attachments using the API, make a `GET /instances/{instance_id}/software_attachments` request.
+
+```sh
+curl -X GET "https://us-south.iaas.cloud.ibm.com/v1/instances/{instance_id}/software_attachments?version=2026-04-21" -H "Authorization: Bearer $iam_token"
+```
+{: pre}
+
+## Listing instance software attachments with the API
+{: #list-instance-software-attachments-api}
+{: api}
+
+You can programmatically list all software attachments associated with a virtual server instance by calling the VPC API.
+
+The following example lists all software attachments for an instance with an instance ID of `$instance_id`.
+
+```sh
+curl -X GET "https://us-south.iaas.cloud.ibm.com/v1/instances/$instance_id/software_attachments?version=2024-06-23&generation=2" -H "accept: application/json" -H "Authorization: Bearer $iam_token"
+```
+{: pre}
+
+For more information, see [List instance software attachments associated with an instance](/apidocs/vpc/latest#list-instance-software-attachments) in the VPC API.
+
+## Retrieving an instance software attachment with the API
+{: #get-instance-software-attachment-api}
+{: api}
+
+You can retrieve a single instance software attachment by making a `GET  /instances/{instance_id}/software_attachments/{id}` request and specifying the instance software attachment ID and the instance ID.
+
+The following example retrieves a specific software attachment with an ID of `$software_attachment_id` for an instance with an instance ID of `$instance_id`.
+
+```sh
+curl -X GET "https://us-south.iaas.cloud.ibm.com/v1/instances/$instance_id/software_attachments/$software_attachment_id?version=2024-06-23&generation=2" -H "accept: application/json" -H "Authorization: Bearer $iam_token"
+```
+{: pre}
+
+For more information, see [Retrieve an instance software attachment](/apidocs/vpc/latest#get-instance-software-attachment) in the VPC API.
+
+## Updating an instance software attachment with the API
+{: #update-instance-software-attachment-api}
+{: api}
+
+You can update an instance software attachment by making a `PATCH  /instances/{instance_id}/software_attachments/{id}` request and specifying the instance software attachment ID and the instance ID.
+
+The following example updates a software attachment with an ID of `$software_attachment_id` for an instance with an instance ID of `$instance_id`.
+
+```sh
+curl -X PATCH "https://us-south.iaas.cloud.ibm.com/v1/instances/$instance_id/software_attachments/$software_attachment_id?version=2024-06-23&generation=2" -H "accept: application/json" -H "Authorization: Bearer $iam_token" -H "Content-Type: application/merge-patch+json" -d "{\"name\":\"my-software-attachment-patch\"}"
+```
+{: pre}
+
+For more information, see [Update an instance software attachment](/apidocs/vpc/latest#update-instance-software-attachment) in the VPC API.
