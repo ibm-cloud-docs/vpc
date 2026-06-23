@@ -2,7 +2,7 @@
 
 copyright:
   years: 2026
-lastupdated: "2026-04-16"
+lastupdated: "2026-06-23"
 
 keywords: viewing, deleting, public address range
 
@@ -67,7 +67,7 @@ To view public address ranges from the command line, follow these steps:
    Where:
 
    `PUBLIC_ADDRESS_RANGE`
-   :   The ID or name of the public address range to delete.
+   :   The ID or name of the public address range to view.
 
    `--output`
    :   The output format, only JSON is supported. One of: JSON.

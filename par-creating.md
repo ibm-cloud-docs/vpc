@@ -2,7 +2,7 @@
 
 copyright:
   years: 2026
-lastupdated: "2026-04-16"
+lastupdated: "2026-06-23"
 
 keywords: public address range, create, bind
 
@@ -40,8 +40,11 @@ To create public address ranges in the {{site.data.keyword.cloud_notm}} console,
    * **Geography**: Indicates the geography where you want the public address range created.
    * **Region**: Indicates the region where you want the public address range created.
 1. In the Details section, complete the following information:
-   * **Name**: Enter a name for the public address range, such as `my-public-address-range`.
-   * **Size**: Choose the size (number of IPs) of the address range. You can choose from 1, 2, 4, 8, or 16 IPs to include in the block.
+   * **Name**: Enter a name for the public address range, such as `my-public-address-range`.[IPv4]{: tag-purple}
+
+   * **Size**:
+
+      * For IBM-managed IPs, choose the size (number of IPs) of the address range. You can choose from 1, 2, 4, 8, or 16 IPs to include in the block.[IPv4]{: tag-purple}
 
       After you create a public address range, you can't change its size.
       {: note}
@@ -61,6 +64,7 @@ To create public address ranges in the {{site.data.keyword.cloud_notm}} console,
 1. Review the **Order summary**, then click **Create**. The public address range is requested for use.
 
 On the Public address ranges for VPC page, your address range now shows in the table. For IBM Cloud services, the status of your public address range changes from `Updating` to `Stable`.
+[IPv4]{: tag-purple}
 
 ## Creating public address ranges from the CLI
 {: #par-ordering-cli}
