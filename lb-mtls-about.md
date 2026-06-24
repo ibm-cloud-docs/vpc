@@ -20,7 +20,7 @@ Mutual Transport Layer Security (mTLS) authentication provides enhanced security
 ## Before you begin
 {: #alb-mtls-listener-prereqs}
 
-Before you configure client authentication at the listener level, ensure that you have: 
+Before you configure client authentication at the listener level, ensure that you have:
 
 - An Application Load Balancer (ALB) with a profile that supports mTLS (check the `mtls_supported` property)
 - A listener configured with the HTTPS protocol
@@ -34,7 +34,7 @@ Front-end authentication
 :   Verify client identities by requiring clients to present valid certificates when connecting to the load balancer listener.
 
 Listener-level authentication
-:   When you enable client authentication at the listener level, the load balancer requires clients to present a valid certificate during the TLS handshake. The load balancer verifies the client certificate against the configured Certificate Authority (CA) certificate and checks it against a optional Certificate Revocation List (CRL).
+:   When you enable client authentication at the listener level, the load balancer requires clients to present a valid certificate during the TLS handshake. The load balancer verifies the client certificate against the configured Certificate Authority (CA) certificate and checks it against an optional Certificate Revocation List (CRL).
 
 ### Client authentication configuration
 {: #alb-mtls-listener-config}
@@ -160,19 +160,19 @@ Certificate updates
 
 Multiple CAs
 :   When back-end servers in the same pool are signed by different CAs, you can provide a bundled CA file containing all relevant root and intermediate certificates. All back-end servers are trusted if their certificate chains to any CA in the bundle.
-=======
+
 1. Navigate to the [Load balancers for VPC](https://cloud.ibm.com/vpc-ext/network/loadBalancers){: external} page.
-2. Click the name of your Application Load Balancer.
-3. Click the **Front-end listeners** tab.
-4. For an existing listener, click the **Actions** menu ![Actions menu](../icons/action-menu-icon.svg "Actions") and select **Edit**. To create a new listener, click **Create**.
-5. In the listener configuration:
+1. Click the name of your Application Load Balancer.
+1. Click the **Front-end listeners** tab.
+1. For an existing listener, click the **Actions** menu ![Actions menu](../icons/action-menu-icon.svg "Actions") and select **Edit**. To create a new listener, click **Create**.
+1. In the listener configuration:
    - Ensure that **Protocol** is set to **HTTPS**.
    - In the **SSL certificate** section, select your server certificate from {{site.data.keyword.secrets-manager_short}}.
-6. In the **Client authentication** section:
+1. In the **Client authentication** section:
    - Select **Enable client authentication**.
    - For **Certificate authority**, select the CA certificate from {{site.data.keyword.secrets-manager_short}} that will be used to verify client certificates.
    - (Optional) For **Certificate revocation list**, enter the CRL content in PEM format or upload a CRL file.
-7. Click **Save** or **Create**.
+1. Click **Save** or **Create**.
 
 The listener now requires clients to present valid certificates signed by the configured CA.
 
