@@ -2,7 +2,7 @@
 
 copyright:
   years: 2020, 2026
-lastupdated: "2026-06-11"
+lastupdated: "2026-06-23"
 
 keywords: network load balancer, public, listener, back-end, front-end, pool, round-robin, weighted, connections, methods, policies, APIs, access, ports, vpc network, update
 
@@ -115,7 +115,7 @@ Sample output:
 {: screen}
 
 ## Updating a Private Path network load balancer with the API
-{: #ppnlb-updating-frontend-listener-port-api}
+{: #ppnlb-updating-front-end-listener-port-api}
 {: api}
 
 The following example illustrates how to use the API to update the front-end listener port of a Private Path NLB. For example, if the front-end listener port was set to 80 and you want to update the port value to 90.
