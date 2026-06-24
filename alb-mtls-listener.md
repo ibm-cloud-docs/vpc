@@ -223,7 +223,8 @@ resource "ibm_is_lb_listener" "example" {
 After configuring client authentication, verify that it's working correctly:
 
 1. Test with a valid client certificate:
-   ```
+
+   ```sh
    curl --cert client-cert.pem --key client-key.pem https://your-load-balancer-hostname
    ```
    {: pre}
@@ -231,7 +232,8 @@ After configuring client authentication, verify that it's working correctly:
    This request should succeed if the client certificate is valid and signed by the configured CA.
 
 1. Test without a client certificate:
-   ```
+
+   ```sh
    curl https://your-load-balancer-hostname
    ```
    {: pre}
@@ -239,7 +241,8 @@ After configuring client authentication, verify that it's working correctly:
    This request should fail with an SSL handshake error, as the load balancer requires a client certificate.
 
 1. Test with a revoked certificate (if CRL is configured):
-   ```
+
+   ```sh
    curl --cert revoked-cert.pem --key revoked-key.pem https://your-load-balancer-hostname
    ```
    {: pre}
