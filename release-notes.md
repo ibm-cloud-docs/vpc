@@ -32,7 +32,7 @@ For more information about changes to the {{site.data.keyword.vpc_short}} comman
 {: release-note}
 
 Application Load Balancers (ALBs) for VPC support mutual Transport Layer Security (mTLS)
-:   ALBs for VPC now support mTLS, enabling authentication of both clients and servers. Providers can also use Certificate Revocation Lists (CRLs) to revoke or block compromised client certificates. For more information, see [About mutual TLS authentication for application load balancers](/docs/vpc?topic=vpc-alb-mtls-about).
+:   ALBs for VPC now support mTLS, enabling authentication of both clients and servers. Providers can also use Certificate Revocation Lists (CRLs) to revoke or block compromised client certificates. For more information, see [About mutual TLS authentication for application load balancers](/docs/vpc?topic=vpc-alb-mtls-pool&interface=ui).
 
 Third-party license and entitlement service
 :  You can now provision virtual server instances from catalog images with vendor-managed software licensing. This feature enables dynamic license acquisition and management for third-party software running on instances, allowing vendors to control and track license usage on a per-instance basis.
