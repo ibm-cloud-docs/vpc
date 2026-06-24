@@ -185,7 +185,7 @@ The listener now requires clients to present valid certificates signed by the co
 
 To create a listener with client authentication enabled, use the `ibmcloud is load-balancer-listener-create` command:
 
-```
+```sh
 ibmcloud is load-balancer-listener-create LOAD_BALANCER \
   --protocol https \
   --port 443 \
@@ -204,7 +204,7 @@ Where:
 
 Example:
 
-```
+```sh
 ibmcloud is load-balancer-listener-create my-load-balancer \
   --protocol https \
   --port 443 \
@@ -218,7 +218,7 @@ ibmcloud is load-balancer-listener-create my-load-balancer \
 
 To update an existing listener to enable client authentication, use the `ibmcloud is load-balancer-listener-update` command:
 
-```
+```sh
 ibmcloud is load-balancer-listener-update LOAD_BALANCER LISTENER_ID \
   --client-auth-ca-crn CA_CERT_CRN \
   [--client-auth-crl CRL_CONTENT]
@@ -227,7 +227,7 @@ ibmcloud is load-balancer-listener-update LOAD_BALANCER LISTENER_ID \
 
 Example:
 
-```
+```sh
 ibmcloud is load-balancer-listener-update my-load-balancer my-listener \
   --client-auth-ca-crn crn:v1:bluemix:public:secrets-manager:us-south:a/aa5a471f75bc456fac416bf02c4ba6de:aace9348-39da-4498-b132-e5ab918237f4:secret:e3bd96ce-1e4c-f642-d1f2-0d0ab025f511
 ```
@@ -238,7 +238,7 @@ ibmcloud is load-balancer-listener-update my-load-balancer my-listener \
 
 To disable client authentication for a listener:
 
-```
+```sh
 ibmcloud is load-balancer-listener-update LOAD_BALANCER LISTENER_ID --reset-client-auth
 ```
 {: pre}
@@ -252,7 +252,7 @@ ibmcloud is load-balancer-listener-update LOAD_BALANCER LISTENER_ID --reset-clie
 
 To create a listener with client authentication enabled, call the `POST /load_balancers/{load_balancer_id}/listeners` method:
 
-```
+```sh
 curl -X POST \
   "$vpc_api_endpoint/v1/load_balancers/$load_balancer_id/listeners?version=2026-05-06&generation=2" \
   -H "Authorization: Bearer $iam_token" \
@@ -277,7 +277,7 @@ curl -X POST \
 
 To update an existing listener to enable client authentication, call the `PATCH /load_balancers/{load_balancer_id}/listeners/{id}` method:
 
-```
+```sh
 curl -X PATCH \
   "$vpc_api_endpoint/v1/load_balancers/$load_balancer_id/listeners/$listener_id?version=2026-05-06&generation=2" \
   -H "Authorization: Bearer $iam_token" \
@@ -296,7 +296,7 @@ curl -X PATCH \
 
 To disable client authentication, set the `client_authentication` property to `null`:
 
-```
+```sh
 curl -X PATCH \
   "$vpc_api_endpoint/v1/load_balancers/$load_balancer_id/listeners/$listener_id?version=2026-05-06&generation=2" \
   -H "Authorization: Bearer $iam_token" \
