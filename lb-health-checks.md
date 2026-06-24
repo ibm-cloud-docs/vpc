@@ -2,7 +2,7 @@
 
 copyright:
   years: 2020, 2026
-lastupdated: "2026-06-18"
+lastupdated: "2026-06-24"
 
 keywords: application load balancer, public, listener, back-end, front-end, pool, round-robin, weighted, connections, methods, policies, APIs, access, ports
 
@@ -63,7 +63,8 @@ The health checks for HTTP, HTTPS, and TCP ports are conducted as follows:
 
 * **HTTPS:** Similar to an HTTP health check, an `HTTPS GET` request is sent to the configured health check port and URL path. Health checks use HTTPS to encrypt traffic to back-end servers. A back-end server is deemed healthy after receiving a `200 OK` response. The default `GET` health path is "/".
 
-   
+   If mutual TLS (mTLS) is enabled on the back-end servers and HTTPS is used for health checks, ensure that the load balancer is configured with a valid client certificate and that the full certificate chain of trust is properly established. Otherwise, health checks can fail during the TLS handshake, causing healthy instances to be marked as unhealthy. For simpler configurations that don’t require TLS validation, you can use HTTP for health checks.
+   {: note}
 
 * **TCP:** The load balancer attempts to open a TCP connection with the back-end server on the specified TCP port. The server port is marked healthy if the connection attempt is successful, and the connection is closed.
 

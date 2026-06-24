@@ -507,6 +507,7 @@ toc:
               label: Application Load Balancer for VPC
               topics:
               - lb-overview.md
+              - lb-mtls-about.md
               - lb-create.md
               - lb-update.md
               - lb-delete.md
@@ -522,6 +523,8 @@ toc:
               - lb-api.md
               - lb-datapath-logging.md
               - alb-pools.md
+              - alb-mtls-listener.md
+              - alb-mtls-pool.md
           - topicgroup:
               id: network-load-balancer
               label: Network Load Balancer for VPC
@@ -1189,6 +1192,8 @@ toc:
               - lb-ts-backend-members.md
               - lb-ts-https-listener.md
               - lb-ts-internal-error.md
+              - lb-ts-mtls-listener.md
+              - lb-ts-mtls-pool.md
               - ppnlb-ts.md
           - topicgroup:
               id: tbs-pps
