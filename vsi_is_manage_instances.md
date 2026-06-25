@@ -2,7 +2,7 @@
 
 copyright:
   years: 2019, 2026
-lastupdated: "2026-06-23"
+lastupdated: "2026-06-25"
 
 keywords: view instance details, restart virtual server, stop, details, delete
 
@@ -868,3 +868,49 @@ curl -X PATCH "https://us-south.iaas.cloud.ibm.com/v1/instances/$instance_id/sof
 {: pre}
 
 For more information, see [Update an instance software attachment](/apidocs/vpc/latest#update-instance-software-attachment) in the VPC API.
+
+## Editing Threads per core in the console
+{: #edit-threads-per-core-ui-vpc}
+{: ui}
+
+Threads per core offers you the flexability to optimize your workload. While threads per core is displayed for all profiles, you can edit it only for the [High Frequency](/docs/vpc?topic=vpc-high-frequency-profile-family) profile family. For High Frequency profiles, the default value is to 2. You can adjust this to 1.
+
+While threads per core is displayed for all profiles, you can edit it only for the [High Frequency](/docs/vpc?topic=vpc-high-frequency-profile-family) profile family. Before you change the `threads_per_core` property, you must stop the virtual server instance.
+{: note}
+
+1. From the _Virtual server instances_ page in {{site.data.keyword.cloud_notm}} console, click an individual instance name to view details.
+1. From the details page, go to `Profiles details` and then `Threads per core`. Click `Edit`.
+1. From the Threads per core page, edit the Threads per core value.
+1. Click `Save`.
+
+## Editing Threads per core using the CLI
+{: #edit-threads-per-core-cli-vpc}
+{: cli}
+
+Threads per core offers you the flexability to optimize your workload. While threads per core is displayed for all profiles, you can edit it only for the [High Frequency](/docs/vpc?topic=vpc-high-frequency-profile-family) profile family. For High Frequency profiles, the default value is to 2. You can adjust this to 1.
+
+Before you can change the `threads_per_core` property, you must stop the virtual server instance.
+{: note}
+
+You can edit the `--threads-per-core` value for the virtual server instance in your {{site.data.keyword.vpc_short}} by using the command-line interface (CLI). To update the `--threads-per-core` value, use the `ibmcloud is instance-update` command. Specify the ID or name of the virtual server instance that you want to update by using the `INSTANCE` variable. For the `--threads-per-core` option, enter either `1` or `2`.
+
+```sh
+ibmcloud is instance-update INSTANCE --threads-per-core [1]
+```
+{: pre}
+
+## Editing Threads per core using the API
+{: #edit-threads-per-core-api-vpc}
+{: api}
+
+Threads per core offers you the flexability to optimize your workload. While threads per core is displayed for all profiles, you can edit it only for the [High Frequency](/docs/vpc?topic=vpc-high-frequency-profile-family) profile family. For High Frequency profiles, the default value is to 2. You can adjust this to 1.
+
+Before you change the `threads_per_core` property, you must stop the virtual server instance.
+{: note}
+
+You edit the `threads_per_core` property for the  virtual server instance in your {{site.data.keyword.vpc_short}} by using the API. Use the `update-instance` command. Make a `PATCH /instances` request and specify a new value for the `threads_per_core` property.
+
+```sh
+curl -X PATCH "$vpc_api_endpoint/v1/instances/$instance_id?version=2024-10-17&generation=2" -H "Authorization: Bearer $iam_token" -d '{"threads_per_core": "1"}'
+```
+{: pre}

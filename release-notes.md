@@ -2,7 +2,7 @@
 
 copyright:
   years: 2019, 2026
-lastupdated: "2026-06-24"
+lastupdated: "2026-06-25"
 
 keywords:
 
@@ -26,6 +26,14 @@ For more information about changes to the {{site.data.keyword.vpc_short}} comman
 
 ## June 2026
 {: #vpc-jun26}
+
+### 25 June 2026
+{: #vpc-june2526}
+{: release-note}
+
+New hx4da and hx4a profiles for the High Frequency profile family (select availablity)
+
+:   New hx4da and hx4a profiles are now available. The Gen 4 High Frequency 1.4 TB RAM hx4da profiles are available only in the Dallas (us-south) region. All other hx4a and hx4da profiles are available in both the Dallas (us-south) and Sydney (au-syd) regions. All profiles have the AMD 5th Generation Epyc 9575F processor-base to provision virtual server instances. You can customize the `threads_per_core` value for these profiles. For more information on the profiles, see [High Frequency profiles - Gen 4](/docs/vpc?topic=vpc-high-frequency-profile-family&interface=ui). For more information on the `threads_per_core` value, see [Editing Threads per core] (/docs/vpc?topic=vpc-managing-virtual-server-instances&interface=ui#edit-threads-per-core-ui-vpc). For more information on the API changes, see the [VPC API change log entry for 23 June 2026](/docs/vpc?topic=vpc-api-change-log#23-june-2026-all-version-dates).
 
 ### 23 June 2026
 {: #vpc-june2326}
