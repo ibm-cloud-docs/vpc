@@ -2,7 +2,7 @@
 
 copyright:
   years: 2023, 2026
-lastupdated: "2026-06-18"
+lastupdated: "2026-06-25"
 
 keywords: file share, file storage, encryption in transit, Mount Helper, IPsec, secure connection, mount share
 
@@ -57,14 +57,12 @@ Do not add the Mount Helper installer script to your `cloud-init` configuration.
 
    | Supported OS    | Supported OS | Supported OS                 |
    |-----------------|--------------|------------------------------|
+   | RHEL_8 [8.4, 8.6, 8.8, 8.10] | RHEL_9 [9.0, 9.2, 9.4] | RHCOS 4.1 and newer |
    | UBUNTU_2204     | UBUNTU_2404  | SAP_SLES_15_SP3_HANA         |
-   | RHEL_8 [8.4, 8.6, 8.8, 8.10] | RHEL_9 [9.0, 9.2, 9.4] | SAP_SLES_15_SP3_APPLICATIONS |
    | CENTOS_STREAM_9 | CENTOS_STREAM_10 | SAP_SLES_15_SP4_HANA       |
-   | DEBIAN_11       | DEBIAN_12    | SAP_SLES_15_SP4_APPLICATIONS |
-   | ROCKYLINUX_8 [8.9, 8.10] | ROCKYLINUX_9 [9.4, 9.5]  |   |
+   | DEBIAN_11       | DEBIAN_12    | SAP_SLES_15_SP3_APPLICATIONS |
+   | ROCKYLINUX_8 [8.9, 8.10] | ROCKYLINUX_9 [9.4, 9.5]  | SAP_SLES_15_SP4_APPLICATIONS |
    {: caption="This table shows the supported host OS distributions." caption-side="bottom"}
-
-* Installing the Mount Helper on Red Hat Enterprise Linux CoreOS is not supported.
 
 ## Installation and configuration of the Mount Helper
 {: #fs-eit-installation}
