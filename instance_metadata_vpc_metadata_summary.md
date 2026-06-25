@@ -2,7 +2,7 @@
 
 copyright:
   years: 2021, 2026
-lastupdated: "2026-06-23"
+lastupdated: "2026-06-25"
 
 keywords:
 
@@ -75,7 +75,7 @@ Use the information in the Table 1 to understand the type of metadata returned f
 | `/instance/network_interfaces/{id}`	| `security_groups` |	A list of security groups. |
 | `/instance/network_interfaces/{id}`	| `status` | The status of the network interface. |
 | `/instance/network_interfaces/{id}`	| `subnet` | The subnet associated with the instance. |
-| `/instance/network_interfaces/{id}`	| `type` | The type of this network interface as it relates to an instance. |<vpcimg-226-software-attachments>
+| `/instance/network_interfaces/{id}`	| `type` | The type of this network interface as it relates to an instance. |
 | `/instance/software_attachments` | `software_attachments` | An array of zero or more software attachment objects. |
 | `/instance/software_attachments/{id}` | `id` | The unique identifier (UUID) for this software attachment. |
 | `/instance/software_attachments/{id}` | `name` | The name for this software attachment. The name is unique within the set of software attachments associated with the virtual server instance. |
@@ -89,7 +89,7 @@ Use the information in the Table 1 to understand the type of metadata returned f
 | `/instance/software_attachments/{id}` | `lifecycle_state` | The lifecycle state of the software attachment, indicating whether it is complete and usable. |
 | `/instance/software_attachments/{id}` | `lifecycle_reasons` | An array of reasons for the current lifecycle_state. |
 | `/instance/software_attachments/{id}` | `resource_type` | The resource type. Set to `instance_software_attachment`. |
-| `/instance/software_attachments/{id}` | `created_at` | The date and time that this software attachment was created. |</vpcimg-226-software-attachments>
+| `/instance/software_attachments/{id}` | `created_at` | The date and time that this software attachment was created. |
 | `/instance/volume_attachments/{id}` | `bandwidth` | The maximum bandwidth in megabits per second for the volume when it's attached to this instance. This value might be less than the volume bandwidth depending on the configuration of the instance. |
 | `/instance/volume_attachments/{id}`	| `created_at` | The date and time that the volume was attached. |
 | `/instance/volume_attachments/{id}`	| `delete_volume_on_instance_delete` | If set to `true`, then when you delete the instance, the volume is also deleted. |
