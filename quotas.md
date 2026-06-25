@@ -2,7 +2,7 @@
 
 copyright:
   years: 2018, 2026
-lastupdated: "2026-05-27"
+lastupdated: "2026-06-25"
 
 keywords:
 
@@ -31,7 +31,7 @@ To increase a quota for a particular resource, [contact support](/unifiedsupport
 
 | Resource | Quota |
 | ------- | ------ |
-| vCPU | 200 per region  |
+| vCPU | 200 per region |
 | RAM | 5600 GB per region |
 | Bare metal servers | 25 per account  |
 | Instance storage | 18 TB per region |
@@ -51,9 +51,9 @@ Bare metal servers use physical cores and don't count toward your vCPU quota.
 ### VPCs
 {: #vpc-quotas}
 
-|   Resource     | Quota |
+| Resource | Quota |
 | ------- | ------ |
-| Virtual private clouds | 10 per region|
+| Virtual private clouds | 10 per region |
 | Subnets | 100 per VPC |
 | Address prefixes | 25 per VPC |
 | Service IPs | 1 per zone per VPC |
@@ -66,7 +66,7 @@ The combined total of the address prefixes quota and the [advertised routes quot
 {: #acl-quotas}
 
 | Resource | Quota |
-|--------|-----|
+| ------ | --- |
 | ACLs | 100 per VPC |
 | Rules | 200 per ACL |
 {: caption="Quotas for access control lists" caption-side="bottom"}
@@ -75,7 +75,7 @@ The combined total of the address prefixes quota and the [advertised routes quot
 {: #alb-quotas}
 
 | Resource | Quota |
-|--------|-----|
+| ------ | --- |
 | Load balancers | 50 per region |
 | Listeners | 10 per load balancer |
 | Pools | 10 per load balancer |
@@ -89,7 +89,7 @@ The combined total of the address prefixes quota and the [advertised routes quot
 {: #cluster-networks-quotas}
 
 | Resource | Quota |
-|--------|-----|
+| ------ | --- |
 | Maximum number of cluster networks per account per region | 5 |
 | Maximum number of cluster network subnets per cluster network | 32 |
 | Maximum number of cluster network subnet reserved IP addresses per account | 5000 |
@@ -101,7 +101,7 @@ The combined total of the address prefixes quota and the [advertised routes quot
 {: #fips-quotas}
 
 | Resource | Quota |
-|--------|-----|
+| ------ | --- |
 | Floating IP addresses | 40 per zone |
 {: caption="Quotas for floating IPs" caption-side="bottom"}
 
@@ -109,7 +109,7 @@ The combined total of the address prefixes quota and the [advertised routes quot
 {: #nlb-quotas}
 
 | Resource | Quota |
-|--------|-----|
+| ------ | --- |
 | Load balancers | 50 per region |
 | Listeners | 10 per load balancer |
 | Pools | 10 per load balancer |
@@ -123,7 +123,7 @@ The combined total of the address prefixes quota and the [advertised routes quot
 {: #ppnlb-quotas}
 
 | Resource | Quota |
-|--------|-----|
+| ------ | --- |
 | Load balancers | 50 per region |
 | Listeners | 10 per load balancer |
 | Pools | 10 per load balancer |
@@ -134,7 +134,7 @@ The combined total of the address prefixes quota and the [advertised routes quot
 {: #par-quotas}
 
 | Resource | Quota |
-|--------|-----|
+| ------ | --- |
 | Maximum number of IPv4 public address ranges per account per region | 5 |
 | Prefix size | `/32` to `/28` |
 {: caption="Quotas for public address ranges" caption-side="bottom"}
@@ -143,7 +143,7 @@ The combined total of the address prefixes quota and the [advertised routes quot
 {: #reserved-ip-quotas}
 
 | Resource | Quota |
-|--------|-----|
+| ------ | --- |
 | Reserved IP addresses | 20,000 per region |
 {: caption="Quotas for reserved IP addresses" caption-side="bottom"}
 
@@ -151,7 +151,7 @@ The combined total of the address prefixes quota and the [advertised routes quot
 {: #routing-tables-routes-quotas}
 
 | Resource | Quota |
-|--------|-----|
+| ------ | --- |
 | Routing tables per VPC | 50 |
 | Routes per routing table | 200 |
 | Advertised routes per VPC | 70 |
@@ -167,7 +167,7 @@ The combined total of the advertised routes quota and the [address prefixes quot
 {: #security-group-quotas}
 
 | Resource | Quota |
-|--------|-----|
+| ------ | --- |
 | Security groups | 100 per VPC |
 | Rules | 250 per security group |
 | [Targets](/docs/vpc?topic=vpc-using-security-groups#about-security-group-targets) | 1000 per security group[^fn8] |
@@ -179,18 +179,18 @@ The combined total of the advertised routes quota and the [address prefixes quot
 {: #virtual-network-interfaces-quotas}
 
 | Resource | Quota |
-|--------|-----|
+| ------ | --- |
 | IP addresses | 8 per virtual network interface |
 {: caption="Quotas for virtual network interfaces" caption-side="bottom"}
 
-### VPN gateways (site-to-site)
+### VPN for VPC (site-to-site)
 {: #vpn-quotas}
 
-| Resource | Quota | Supports Policy Mode | Supports Route Mode|
-|--------|--------|----------|----------|
-| VPN gateways| 9 per region, 3 per zone | Yes | Yes[^fn1]|
+| Resource | Quota | Supports Policy Mode | Supports Route Mode |
+| ------ | ------ | -------- | -------- |
+| VPN gateways | 9 per region, 3 per zone | Yes | Yes[^fn1] |
 | VPN connections | 10 per VPN gateway | Yes | Yes |
-| IKE policies | 20 per region | Yes| Yes |
+| IKE policies | 20 per region | Yes | Yes |
 | IPsec policies | 20 per region | Yes | Yes |
 | Peer and local subnets | 50 across all connections per gateway, 15 per connection | Yes | No |
 | User defined advertised routes | 10 per VPN gateway | No | Yes[^fn2] |
@@ -199,11 +199,11 @@ The combined total of the advertised routes quota and the [address prefixes quot
 [^fn1]: A single VPC supports a maximum of one route-mode VPN per zone.
 [^fn2]: This resource and quota is applicable only to dynamic route-based VPN connection.
 
-### VPN servers (client-to-site)
+### Client VPN for VPC (client-to-site)
 {: #vpn-server-quotas}
 
 | Resource | Quota |
-|--------|-----|
+| ------ | --- |
 | Active connections per VPN server | 2000 |
 | Active VPN servers | 10 per region |
 | Active routes per VPN server | 50 |
@@ -216,29 +216,29 @@ The combined total of the advertised routes quota and the [address prefixes quot
 {: #block-storage-quotas}
 
 | Resource | Quota |
-|----------|-------|
+| -------- | ----- |
 | Boot and secondary volumes | 300 total VPC volumes per region. |
-| Snapshots and backup snapshots | Up to 750 snapshots per first-generation storage volume in a region. \n Up to 512 snapshots per second-generation storage volume in a region.|
+| Snapshots and backup snapshots | Up to 750 snapshots per first-generation storage volume in a region. \n Up to 512 snapshots per second-generation storage volume in a region. |
 {: caption="Quotas for Block Storage volumes and snapshots" caption-side="bottom"}
 
 ### File shares and snapshots
 {: #file-storage-quotas}
 
 | Resource | Quota |
-|----------|-------|
+| -------- | ----- |
 | File shares | 300 file shares per account, across all VPCs |
 | Mount targets | 256 per file share per account per zone. |
-| Accessor share bindings | A file share can have a maximum of 100 accessor bindings.|
+| Accessor share bindings | A file share can have a maximum of 100 accessor bindings. |
 | Snapshots and backup snapshots | Zonal file shares can have up to 750 snapshots per share in a region. \n In the current release of Regional file shares, you can create up to 30 snapshots per share in a region. |
-| Snapshots and backup snapshots | The total snapshot size that is allocated to a Zonal file share can't exceed 8 times the size of the share. \n In the current release of Regional file shares, there are no limitations on snapshot size allocation.|
+| Snapshots and backup snapshots | The total snapshot size that is allocated to a Zonal file share can't exceed 8 times the size of the share. \n In the current release of Regional file shares, there are no limitations on snapshot size allocation. |
 {: caption="Quotas for file shares" caption-side="bottom"}
 
 ### Backup policies and plans
 {: #backup-quotas}
 
 | Resource | Quota |
-|----------|-------|
-| Backup policies |  You can create up to 10 backup policies per region. This quota can't be increased. |
+| -------- | ----- |
+| Backup policies | You can create up to 10 backup policies per region. This quota can't be increased. |
 | File shares | The cumulative size of all backups for a share can't exceed 100 TB. |
 | Block volumes | The cumulative size of all backups for a first-generation storage volume can't exceed 10 TB. \n You can create backup snapshots of second-generation storage volumes up to 32 TB. |
 | Retention period | You can keep your backup snapshots for up to 1000 days. |
@@ -248,7 +248,7 @@ The combined total of the advertised routes quota and the [address prefixes quot
 {: #placement-group-quotas}
 
 | Resource | Quota |
-|--------|-----|
+| ------ | --- |
 | Placement groups | 100 placement groups per region |
 | Instances (*host_spread*) | 12 instances per placement group per region with `host_spread` placement group strategy. |
 | Instances (*power_spread*) | 4 instances per placement group per region with `power_spread` placement group strategy. |
@@ -263,15 +263,15 @@ The quotas for placement groups are preset and can't be adjusted.
 The following table displays current VPC service limits. Unlike quotas, these limits can't be adjusted.
 
 | Resource | Limit |
-|--------|-----|
-| VPCs with classic access | 1 per region|
+| ------ | --- |
+| VPCs with classic access | 1 per region |
 | Network interfaces | 5, 10, or 15 (depending on the size of the instance) per instance | 
 | PCI network interfaces for bare metal servers | 8 per bare metal server |
 | Public address ranges | 10 per VPC per zone |
 | Public gateways | 1 per zone per VPC |
 | Secondary volumes per instance | Up to 12 secondary volumes |
 | Security groups | 5 per [target](/docs/vpc?topic=vpc-using-security-groups#about-security-group-targets) |
-| Image export jobs | 5 active jobs per image, 10 total per image, 20 active jobs per account, per region|
-| Instance groups for auto scale and more | 200 per account |
-| Instance group memberships  | 1000 per instance group|
+| Image export jobs | 5 active jobs per image, 10 total per image, 20 active jobs per account, per region |
+| Instance groups for auto scale and more | 200 per account  |
+| Instance group memberships | 1000 per instance group |
 {: caption="Limits for VPC resources" caption-side="bottom"}

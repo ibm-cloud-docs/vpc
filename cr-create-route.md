@@ -2,7 +2,7 @@
 
 copyright:
   years: 2020, 2026
-lastupdated: "2026-06-16"
+lastupdated: "2026-06-25"
 
 keywords: custom routes
 
@@ -151,6 +151,13 @@ Where:
    ```
    {: pre}
 
+- Create a route by specifying the zone name, destination CIDR and next hop as the VPN connection ID:
+
+   ```sh
+   ibmcloud is vpc-routing-table-route-create r134-b754e387-8b06-43be-a5ea-909595a50676 r134-6cfaceb8-99d6-4743-bee8-ebbcbba6a563 --zone us-south-1 --destination 10.2.2.0/24 --action deliver --priority 1 --next-hop 02h7-1cf20e69-e2ce-400b-b070-0897521e2eb6 --name my-vpc-route
+   ```
+   {: pre}
+
 ## Creating a route with the API
 {: #cr-route-using-the-api}
 {: api}
@@ -166,7 +173,7 @@ To create a destination route with the API, follow these steps:
     ```
     {: codeblock}
 
-1. Create a route by specifying `next_hop` as an IP address 
+1. Create a route by specifying `next_hop` as an IP address or VPN connection ID:
 
    ```sh
    curl -X POST "$vpc_api_endpoint/v1/vpcs/$VpcId/routing_tables/$RoutingTableId/routes?version=$api_version&generation=2" \
@@ -177,6 +184,19 @@ To create a destination route with the API, follow these steps:
         "action": "deliver",
         "destination": "10.10.10.0/24",
         "next_hop": {"address": "10.0.0.3"}
+      }'
+   ```
+   {: codeblock}
+
+   ```sh
+   curl -X POST "$vpc_api_endpoint/v1/vpcs/$VpcId/routing_tables/$RoutingTableId/routes?version=$api_version&generation=2" \
+   -H "Authorization: Bearer $iam_token" \
+   -d '{
+        "name": "my-new-route",
+        "zone": {"name": "us-south-2"},
+        "action": "deliver",
+        "destination": "10.10.10.0/24",
+        "next_hop": {"id": "02h7-1cf20e69-e2ce-400b-b070-0897521e2eb6"}
       }'
    ```
    {: codeblock}

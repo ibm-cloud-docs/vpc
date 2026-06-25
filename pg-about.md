@@ -1,7 +1,7 @@
 ---
 copyright:
-  years: 2022, 2025
-lastupdated: "2025-11-04"
+  years: 2022, 2026
+lastupdated: "2026-06-25"
 
 keywords:
 
@@ -67,7 +67,7 @@ External service 1 and External service 2 (logging) receive outbound traffic fro
 
 These links provide additional information about {{site.data.keyword.cloud_notm}} public gateways.
 
-* [VPC external connectivity options](/docs/vpc?topic=vpc-about-networking-for-vpc#public-gateway-for-external-connectivity)
+* [VPC external connectivity options](/docs/vpc?topic=vpc-about-networking-for-vpc&interface=api#public-gateway)
 * [Create VPC resources with CLI and API](/docs/vpc?topic=vpc-creating-vpc-resources-with-cli-and-api&interface=cli)
 * [Public gateway prerequisites](/docs/vpc?topic=vpc-create-public-gateways&interface=ui#pg-before-you-begin)
 * [Create your public gateway](/docs/vpc?topic=vpc-create-public-gateways&interface=ui#pg-creating-api)
