@@ -12,7 +12,7 @@ subcollection: vpc
 
 {{site.data.keyword.attribute-definition-list}}
 
-# Configuring route propagation for VPN gateways (WIP)
+# Configuring route propagation for VPN gateways
 {: #advertise-routes-s2s}
 
 Route propagation enables a VPC routing table to automatically learn routes from a site-to-site VPN gateway. Route advertisement enables those learned routes to be advertised to a transit gateway so they can be shared with other VPCs and connected networks.
@@ -115,6 +115,5 @@ The ingress routing table in the transit VPC advertises on-premises CIDR ranges 
 {: #propagating-routes-s2s-related}
 
 * [Use case 4: Integrating with a site-to-site VPN gateway](/docs/vpc?topic=vpc-vpn-client-to-site-overview#integrating-with-site-to-site-vpn-gateway)
-* [Why did the advertised route creation fail in my VPN gateway?](/docs/vpc?topic=vpc-troubleshoot-s2s-advertise-routes-over-quota)
 * [Why is the route advertisement to ingress sources not working?](/docs/vpc?topic=vpc-troubleshoot-advertise-route-does-not-work-s2s)
 * [Why can't I access my classic virtual server instance privately after I configure route propagation for VPN gateways?](/docs/vpc?topic=vpc-troubleshoot-s2s-cannot-access-classic-vsi)
