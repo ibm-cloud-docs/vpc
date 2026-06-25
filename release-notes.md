@@ -35,6 +35,9 @@ New hx4da and hx4a profiles for the High Frequency profile family (select availa
 
 :   New hx4da and hx4a profiles are now available. The Gen 4 High Frequency 1.4 TB RAM hx4da profiles are available only in the Dallas (us-south) region. All other hx4a and hx4da profiles are available in both the Dallas (us-south) and Sydney (au-syd) regions. All profiles have the AMD 5th Generation Epyc 9575F processor-base to provision virtual server instances. You can customize the `threads_per_core` value for these profiles. For more information on the profiles, see [High Frequency profiles - Gen 4](/docs/vpc?topic=vpc-high-frequency-profile-family&interface=ui). For more information on the `threads_per_core` value, see [Editing Threads per core] (/docs/vpc?topic=vpc-managing-virtual-server-instances&interface=ui#edit-threads-per-core-ui-vpc). For more information on the API changes, see the [VPC API change log entry for 23 June 2026](/docs/vpc?topic=vpc-api-change-log#23-june-2026-all-version-dates).
 
+VPC ingress routing tables now supports VPN connection as next hop
+:   You can now use a VPN connection as the next hop in VPC ingress routing tables. This capability allows route-based VPNs to forward traffic that is received through Transit Gateway by using local VPN connections. This feature enables hybrid and spoke-to-on-prem connectivity through a transit hub without requiring BGP configuration, simplifying enterprise migration scenarios and improving routing flexibility.  For more information, see [Setting up a transit gateway with static route-based VPN for VPC](/docs/vpc?topic=vpc-advertise-routes-s2s#setup-tg-with-static-vpn-vpc).
+
 ### 23 June 2026
 {: #vpc-june2326}
 {: release-note}
@@ -55,7 +58,7 @@ Third-party license and entitlement service
    - [Verify token requests with a nonce](/docs/vpc?topic=vpc-imd-security-best-practices&interface=api#imd-verify-nonce)
    - [Decoding the identity access token](/docs/vpc?topic=vpc-imd-identity-operations&interface=api#imd-json-token-decode)
 
-   For more information on the API changes, see the [VPC API change log entry for 23 June 2026](/docs/vpc?topic=vpc-api-change-log#23-june-2026-all-version-dates) and [VPC Metadata API change log entry for 23 June 2026](/docs/vpc?topic=vpc-metadata-api-change-log#23-june-2026-all-version-dates-metadata).
+   For more information on the API changes, see the [VPC API change log entry for 23 June 2026](/docs/vpc?topic=vpc-api-change-log#23-june-2026-all-version-dates) and [VPC Metadata API change log entry for 23 June 2026](/docs/vpc?topic=vpc-metadata-api-change-log#23-june-2026-all-version-dates-metadata).<
 
 ### 17 June 2026
 {: #vpc-jun1726}
