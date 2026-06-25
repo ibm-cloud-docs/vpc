@@ -2,7 +2,7 @@
 
 copyright:
   years: 2019, 2026
-lastupdated: "2026-06-11"
+lastupdated: "2026-06-25"
 
 keywords: vsi, virtual server instances, profile, profiles, balanced, compute, memory, very high memory, ultra high memory, gpu, storage optimized, confidential compute, flex, high frequency
 
@@ -629,7 +629,47 @@ Gen 4 High Frequency profiles are available in the Dallas (us-south) and Sydney 
 | Instance profile | vCPU / Cores | GiB RAM | Bandwidth cap (Gbps) | Instance storage (GB) | NUMA Count
 | ---------------- | ---- | ------- | ------- | ------- | ---- |
 | hx4da-248x680 | 248 / 124 | 680 | 200 | 1x2600 | 2 |
-{: caption="High Frequency profiles for compatible virtual server instances" caption-side="bottom"}
+{: caption="High Frequency profiles for compatible virtual server instances" caption-side="bottom"}<vsivpc-655-amd-turin-phase-2>
+
+The Gen 4 High Frequency 1.4 TB RAM hx4da profiles are available only in the Dallas (us-south) region. All other hx4a and hx4da profiles are available in both the Dallas (us-south) and Sydney (au-syd) regions. All profiles have the AMD 5th Generation Epyc 9575F processor-base to provision virtual server instances. For more information about the capabilities of the new profile, see [High Frequency profiles - Gen 4](/docs/vpc?topic=vpc-high-frequency-profile-family).
+{: preview}
+
+The following table lists available AMD hx4da and hx4a profiles.
+
+| Instance profile | vCPU / Cores | GiB RAM | Bandwidth cap (Gbps) | Instance storage (GB) | NUMA Count |
+| ---------------- | ---- | ------- | ------- | ------- | ---- |
+| hx4da-16x32 |	16 / 8 | 32 |	32 | 520 | - |
+| hx4da-16x64 |	16 / 8 | 64 |	32 |	520 | - |
+| hx4da-16x128 | 16 / 8 |	128 |	32 | 520 | - |
+| hx4da-64x680 | 32/64 | 680 | 200 | 2600 | 2 |
+| hx4da-128x680 | 64/128 | 680 | 200 | 2600 |	2 |
+| hx4da-192x680 |	96/192 | 680 | 200 | 2600 | 2 |
+| hx4da-248x680 | 248 / 124 | 680 | 200 | 1x2600 | 2 |
+| hx4da-64x1408	| 32/64	| 1408 | 200 | 2600 | 2 |
+| hx4da-128x1408 | 64/128 |	1408 | 200 | 2600 | 2 |
+| hx4da-192x1408 | 96/192 |	1408 | 200 | 2600 | 2 |
+| hx4da-248x1408 | 124/248 | 1408 | 200 | 2600 | 2 |
+{: class="simple-tab-table"}
+{: caption="High Frequency profiles (hx4da) for compatible virtual server instances" caption-side="bottom"}
+{: tab-group="high-frequency-profiles"}
+{: #hx4da-profiles}
+{: tab-title="hx4da"}
+
+
+| Instance profile | vCPU / Cores | GiB RAM | Bandwidth cap (Gbps) | Instance storage (GB) | NUMA Count |
+| ---------------- | ---- | ------- | ------- | ------- | ---- |
+| hx4a-8x16 | 8 / 4 | 16 | 16 |	 - | - |
+| hx4a-8x32 |	8 / 4 |	32 |	16 |  - | - |
+| hx4a-8x64 |	8 / 4 |	64 |	16 | - | - |
+| hx4a-8x128 | 8 / 4 | 128 |	16 | - | - |
+| hx4a-16x32 | 16 / 8 |	32 |	32 | - | - |
+| hx4a-16x64 | 16 / 8 |	64 | 32 | - | - |
+| hx4a-16x128	| 16 / 8 | 128 |	32 | - | - |
+{: class="simple-tab-table"}
+{: caption="High Frequency profiles (hx4a) for compatible virtual server instances" caption-side="bottom"}
+{: tab-group="high-frequency-profiles"}
+{: #hx4a-profiles}
+{: tab-title="hx4a"}
 
 ## Bandwidth allocation
 {: #bandwidth-allocation}

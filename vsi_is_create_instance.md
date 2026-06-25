@@ -2,7 +2,7 @@
 
 copyright:
   years: 2018, 2026
-lastupdated: "2026-06-11"
+lastupdated: "2026-06-25"
 
 keywords:
 
@@ -68,6 +68,7 @@ You can provision an instance from an `available`, `partially_available` (image 
    | Field | Value |
    |-------|-------|
    | Profile | The profile families are Balanced, Compute, Memory, Very High Memory, Ultra High Memory, GPU, Storage Optimized, Confidential Computing, Flex, and High Frequency. For more information, see [x86-64 instance profiles](/docs/vpc?topic=vpc-profiles).  \n  \n [Deprecated]{: tag-deprecated} When you create an {{site.data.keyword.cloud_notm}} {{site.data.keyword.hpvs}} for {{site.data.keyword.vpc_full}} instance, make sure that you select secure execution-enabled profiles, otherwise provisioning fails. For more information, see [s390x instance profiles](/docs/vpc?topic=vpc-vs-profiles). \n \n Some profiles might not be available because the number of network interfaces in the virtual server exceed profile limits. You can remove network interfaces to select from more profiles. For more information, see [Resizing a virtual server](/docs/vpc?topic=vpc-resizing-an-instance).  \n  \n Some profiles might not be available because the image selected contains an allowed-use expression that is not compatible with the profile. In these cases, select an image with an allowed-use expression that is compatible with the wanted profile. For more information, see [Adding allowed-use expressions to custom images](/docs/vpc?topic=vpc-custom-image-allowed-use-expressions&interface=ui).  \n  \n The s390x architecture is deprecated. You can migrate to an on-premises deployment model. For more information, see [Linux on IBM Z and LinuxONE](https://www.ibm.com/docs/en/linux-on-systems?topic=linux-z-linuxone). For more information about deprecation, see the [Service deprecation announcement](/docs/vpc?topic=vpc-ichpcs_deprecated_anmt).|
+   | Threads per core | Threads per core offers you the flexability to optimize your workload. While threads per core is displayed for all profiles, you can edit it only for the [High Frequency](/docs/vpc?topic=vpc-high-frequency-profile-family) profile family. For High Frequency profiles, the default value is 2, but it can be adjusted to 1|
    | Spot instances [Select availability]{: tag-green} | Spot instances are highly discounted versions of the standard instances. They are designed to use available compute resources for interruptible or stateless workloads.  \n To convert an instance to a Spot instance, make sure that you select a supported profile and click the **Convert to spot instance** toggle under **Deployment configurations**.|
    | Advanced security selections |  |
    | Secure boot | Click the toggle to enable secure boot. Secure boot is available with only compatible instance profiles. Second-generation boot volumes with the `sdp` volume profile do not support secure boot yet. For more information about secure boot, see [Secure boot for Virtual Servers for VPC](/docs/vpc?topic=vpc-confidential-computing-with-secure-boot-vpc).|
