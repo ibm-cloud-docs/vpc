@@ -783,10 +783,16 @@ toc:
               - file_storage_vpc_cross_account_share.md
               - file_storage_vpc_manage_storage_limits.md
           - topicgroup:
+              id: mount-helper-utility
+              label: Mount Helper utility
+              topics:
+              - file_storage_vpc_mounthelper_about.md
+              - file_storage_vpc_mounthelper_install.md
+          - topicgroup:
               id: mounting-file-shares
               label: Mounting file shares
               topics:
-              - file_storage_vpc_mounthelper.md
+              - file_storage_vpc_mounthelper_mount.md
               - file_storage_vpc_mount_rhel.md
               - file_storage_vpc_mount_centos.md
               - file_storage_vpc_mount_ubuntu.md
@@ -1078,6 +1084,7 @@ toc:
               topics:
               - fs_snapshots_troubleshooting.md
               - fs_snapshots_ts_delayed_regional.md
+          - file_storage_vpc_mounthelper_ts.md
           - topicgroup:
               id: tbs-backup
               label: Troubleshooting backups
