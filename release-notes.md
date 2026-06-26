@@ -2,7 +2,7 @@
 
 copyright:
   years: 2019, 2026
-lastupdated: "2026-06-25"
+lastupdated: "2026-06-26"
 
 keywords:
 
@@ -26,6 +26,13 @@ For more information about changes to the {{site.data.keyword.vpc_short}} comman
 
 ## June 2026
 {: #vpc-jun26}
+
+### 26 June 2026
+{: #vpc-june2626}
+{: release-note}
+
+Chennai - Airtel region now available for Hopper 1 cluster network
+:   The Chennai - Airtel region is now available for provisioning Hopper 1 cluster networks with NVIDIA H200 instance profile.  You can create cluster networks with NVIDIA H200 instance profile in this region to run workloads, such as AI training and large-scale simulations. For more information, see [Cluster network supported regions and zones](/docs/vpc?topic=vpc-planning-cluster-network).
 
 ### 25 June 2026
 {: #vpc-june2526}
@@ -58,7 +65,7 @@ Third-party license and entitlement service
    - [Verify token requests with a nonce](/docs/vpc?topic=vpc-imd-security-best-practices&interface=api#imd-verify-nonce)
    - [Decoding the identity access token](/docs/vpc?topic=vpc-imd-identity-operations&interface=api#imd-json-token-decode)
 
-   For more information on the API changes, see the [VPC API change log entry for 23 June 2026](/docs/vpc?topic=vpc-api-change-log#23-june-2026-all-version-dates) and [VPC Metadata API change log entry for 23 June 2026](/docs/vpc?topic=vpc-metadata-api-change-log#23-june-2026-all-version-dates-metadata).<
+   For more information on the API changes, see the [VPC API change log entry for 23 June 2026](/docs/vpc?topic=vpc-api-change-log#23-june-2026-all-version-dates) and [VPC Metadata API change log entry for 23 June 2026](/docs/vpc?topic=vpc-metadata-api-change-log#23-june-2026-all-version-dates-metadata).
 
 ### 17 June 2026
 {: #vpc-jun1726}

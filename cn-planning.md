@@ -2,7 +2,7 @@
 
 copyright:
   years: 2024, 2026
-lastupdated: "2026-05-19"
+lastupdated: "2026-06-26"
 
 keywords:
 
@@ -103,6 +103,7 @@ The following table provides an overview of the supported regions and zones for 
 |-----------------------|----------------|-------|----|------------------|
 |`hopper-1`|`gx3d-160x1792x8h100` \n `gx3d-160x1792x8h200`|Frankfurt (`eu-de`)|`eu-de-2`|`eu-de-fra02-a`|
 |`hopper-1`|`gx3d-160x1792x8h100` \n `gx3d-160x1792x8h200`|Washington DC (`us-east`)|`us-east-3`|`us-east-wdc07-a`|
+|`hopper-1`|`gx3d-160x1792x8h200`|Chennai - Airtel (`in-che`)|`in-che-1`|`in-che-che02-a`|
 {: caption="Zone availability for cluster networks and instances." caption-side="bottom"}
 
 To understand how various regions correspond to zones, see [zone mapping per account](/docs/overview?topic=overview-locations#zone-mapping).
