@@ -13,7 +13,7 @@ subcollection: vpc
 {{site.data.keyword.attribute-definition-list}}
 
 # Mount Helper for secure file share connections
-{: #fs-mount-helper-about}
+{: #fs-mount-helper-utility}
 
 Mount Helper automates encryption in transit for {{site.data.keyword.filestorage_vpc_short}}. The utility configures IPsec tunnels for zonal shares and TLS connections for regional shares.
 {: shortdesc}
