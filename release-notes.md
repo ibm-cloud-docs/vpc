@@ -31,6 +31,9 @@ For more information about changes to the {{site.data.keyword.vpc_short}} comman
 {: #vpc-june2626}
 {: release-note}
 
+Workload update for IBM Hyper Protect Secure Build
+:   The `workload` section of the IBM Hyper Protect Secure Build is updated based on the IBM Hyper Protect Container Runtime image `ibm-hyper-protect-container-runtime-1-0-s390x-28`. For more information, see [Configuring and using IBM Hyper Protect Secure Build in {{site.data.keyword.hpvs}} for VPC](/docs/vpc?topic=vpc-about-hpsb#hpvs_hpsb). Clone the latest Secure-Build-Cli to create a IBM Hyper Protect Secure Build server.
+
 Chennai - Airtel region now available for Hopper 1 cluster network
 :   The Chennai - Airtel region is now available for provisioning Hopper 1 cluster networks with NVIDIA H200 instance profile.  You can create cluster networks with NVIDIA H200 instance profile in this region to run workloads, such as AI training and large-scale simulations. For more information, see [Cluster network supported regions and zones](/docs/vpc?topic=vpc-planning-cluster-network).
 
