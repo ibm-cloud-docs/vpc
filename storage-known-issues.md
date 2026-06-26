@@ -2,7 +2,7 @@
 
 copyright:
   years: 2018, 2026
-lastupdated: "2026-06-11"
+lastupdated: "2026-06-26"
 
 keywords:
 
@@ -131,6 +131,11 @@ When performing file share operations with the CLI or API, the snapshot size fie
 {: #zonalfileshare-CRR-IN}
 
 Cross-regional replication for zonal file shares is not supported in the Chennai - Airtel and Mumbai - Airtel  regions.
+
+### Potential mount disruption for IPsec-configured zonal file shares during maintenance
+{: #ipsec-connection-delays}
+
+When you use IPsec connections to mount zonal file shares, temporary mount disruptions can occur during maintenance or node failure situations. In rare circumstances, IPsec-configured mounts can experience service disruptions of up to 3 minutes while the network connection is reestablished. This issue occurs because ingress traffic flow needs to be redirected during these events. A networking feature to address this issue is currently in development.
 
 ## Backup for VPC service
 {: #backup-service-known-issue}

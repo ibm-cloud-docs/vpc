@@ -24,6 +24,9 @@ The IPsec connection requires that you have an X.509 certificate for authenticat
 
 A Certificate Signing Request (CSR) is a block of encoded texts that are forwarded to a certificate authority (CA) when users apply for a certificate. CSR is created on the server where the certificate is to be installed. CSR includes information such as domain name, organization name, locality, and country. The request also contains the public key, which is associated with the certificate that is generated, and the private key. The CA uses only the public key when the certificate is created. The private key must be saved and kept secret. As the private key is part of the key pair with the public key, and the certificate does not work if the private key is lost.
 
+When you use IPsec connections to mount zonal file shares, temporary mount disruptions can occur during maintenance or node failure situations. In rare circumstances, IPsec-configured mounts can experience service disruptions of up to 3 minutes. For more information, see [Potential mount disruption for IPsec-configured zonal file shares during maintenance](/docs/vpc?topic=vpc-storage-known-issues#ipsec-connection-delays).
+{: attention}
+
 ## Before you begin configuring encryption in transit with IPsec
 {: #file-storage-eit-ipsec-prereq}
 

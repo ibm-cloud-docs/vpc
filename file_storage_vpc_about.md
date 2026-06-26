@@ -171,6 +171,8 @@ Even without EIT, the data moves through a secure data center network. For more 
 - IPsec - You can establish an encrypted mount connection between the compute host and a **zonal** file share by using the Internet Security Protocol (IPsec) security profile, and an instance identity certificate. For more information, see [Encryption in transit - IPsec encryption](/docs/vpc?topic=vpc-file-storage-vpc-eit-ipsec).
 - Stunnel - You can establish an encrypted mount connection between the compute host and a **regional** file share by creating a TLS 1.2+ connection between the client VSI and NFS server with stunnel. For more information, see [Encryption in transit - TLS encryption](/docs/vpc?topic=vpc-file-storage-vpc-eit-tls).
 
+For information about a known issue with IPsec-configured mounts, see [Potential mount disruption for IPsec-configured zonal file shares during maintenance](/docs/vpc?topic=vpc-storage-known-issues#ipsec-connection-delays).
+
 ### Granular authorization
 {: #fs-mount-granular-auth}
 
