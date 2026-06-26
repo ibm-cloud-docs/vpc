@@ -1,8 +1,8 @@
 ---
 
 copyright:
-  years: 2024, 2025
-lastupdated: "2025-08-06"
+  years: 2024, 2026
+lastupdated: "2026-06-26"
 
 keywords: File storage for VPC, file share snapshots, file share restore
 
@@ -19,7 +19,10 @@ content-type: troubleshoot
 {: troubleshoot}
 {: support}
 
-You initiated the creation of a share from a snapshot. However, the new share did not move to the `stable` state because the initialization failed. 
+File share creation from a snapshot with customer-managed encryption can fail due to encryption key issues. Try creating the share again without or with a different encryption key.
+{: shortdesc}
+
+You initiated the creation of a share from a snapshot. However, the new share did not move to the `stable` state because the initialization failed.
 {: tsSymptoms}
 
 A possible reason for such a failure is a problem with the encryption key of either the source share or the new share.

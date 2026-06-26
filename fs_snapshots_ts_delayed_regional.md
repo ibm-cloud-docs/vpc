@@ -1,8 +1,8 @@
 ---
 
 copyright:
-  years: 2024, 2025
-lastupdated: "2025-09-23"
+  years: 2024, 2026
+lastupdated: "2026-06-26"
 
 keywords: File storage for VPC, file share snapshots, file share restore
 
@@ -18,6 +18,9 @@ content-type: troubleshoot
 {: #fs-snapshots-delayed-regional-snapshot}
 {: troubleshoot}
 {: support}
+
+Sometimes regional file share snapshots don't immediately appear in the `.snap` folder due to client-side caching. Refresh the cache to display the snapshot.
+{: shortdesc}
 
 You created a snapshot of a regional file share in the console, from the CLI, or the API. The operation succeeded without errors. However, the new share snapshot does not appear to be in the `.snap` folder.
 {: tsSymptoms}

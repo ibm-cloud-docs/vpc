@@ -2,7 +2,7 @@
 
 copyright:
   years: 2021, 2026
-lastupdated: "2026-06-11"
+lastupdated: "2026-06-26"
 
 keywords: file storage, file share, performance, IOPS, block size, capacity, range
 
@@ -15,7 +15,7 @@ subcollection: vpc
 # {{site.data.keyword.filestorage_vpc_short}} profiles
 {: #file-storage-profiles}
 
-When you provision {{site.data.keyword.filestorage_vpc_short}} file shares by using the {{site.data.keyword.cloud_notm}} console, CLI, or API, you specify capacity and performance within a file share profile. Available performance levels vary based on the file share size. All file shares are backed by solid-state drives (SSDs).
+{{site.data.keyword.filestorage_vpc_short}} profiles define capacity and performance characteristics for file shares. Select rfs for regional shares and dp2 for zonal shares. All file shares are backed by solid-state drives (SSDs).
 {: shortdesc}
 
 ## File Storage profile overview

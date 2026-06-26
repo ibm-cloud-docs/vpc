@@ -2,7 +2,7 @@
 
 copyright:
   years: 2022, 2026
-lastupdated: "2026-06-15"
+lastupdated: "2026-06-26"
 
 keywords: file share, file storage, source volume, replica share,
 
@@ -15,7 +15,7 @@ subcollection: vpc
 # Creating replica file shares
 {: #file-storage-create-replication}
 
-Create a replica file share in the console, from the CLI, with the API, or with Terraform. Replica file shares can be created in another zone of the same metro region as the primary share's zone, or a zone of a different metro region in the same geography.
+Create replica file shares in another zone within the same metro region or in a different metro region within the same geography by using the console, CLI, API, or Terraform.
 {: shortdesc}
 
 The following table shows which metro regions can replicate with each other within each geography.

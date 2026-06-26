@@ -2,7 +2,7 @@
 
 copyright:
   years: 2022, 2026
-lastupdated: "2026-06-11"
+lastupdated: "2026-06-26"
 
 keywords: file storage, file share, replication, replica, source share, failover,
 
@@ -15,7 +15,7 @@ subcollection: vpc
 # Replication failover
 {: #file-storage-failover}
 
-A failover to the replica file share keeps your data available if your source file share becomes unavailable. The failover switches the replication relationship so that the replica file share becomes the source file share and the source share becomes the read-only replica file share.
+Failover switches replication roles. The replica becomes the read/write source and the original source becomes read-only, maintaining data availability during outages.
 {: shortdesc}
 
 ## Replication failover concepts

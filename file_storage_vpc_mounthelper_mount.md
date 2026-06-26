@@ -22,7 +22,7 @@ Use Mount Helper to mount zonal and regional file shares with encryption in tran
 {: #fs-mount-helper-mount-prereqs}
 
 Before you mount file shares with Mount Helper:
-- Review the [Mount Helper requirements and limitations](/docs/vpc?topic=vpc-fs-mount-helper-about#fs-mount-helper-requirements)
+- Review the [Mount Helper requirements and limitations](/docs/vpc?topic=vpc-fs-mount-helper-utility#fs-mount-helper-requirements)
 - [Install the Mount Helper utility](/docs/vpc?topic=vpc-fs-mount-helper-install) on your compute host
 
 

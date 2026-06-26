@@ -2,7 +2,7 @@
 
 copyright:
   years: 2022, 2026
-lastupdated: "2026-06-06"
+lastupdated: "2026-06-26"
 
 keywords: file share, file storage, mount helper, mount target, mount path, secure connection
 
@@ -15,8 +15,11 @@ subcollection: vpc
 # Mounting file shares on z/OS
 {: #file-storage-mount-zos}
 
-Use these instructions to connect a z/OS-based {{site.data.keyword.cloud}} Compute Instance to a Network File System (NFS) file share.
+Mount NFS file shares on z/OS compute instances. Encryption in transit is not supported for z/OS.
 {: shortdesc}
+
+[IBM Cloud LinuxONE Virtual Server for VPC (s390x architecture)](/docs/vpc?group=virtual-servers), [IBM Cloud Dedicated Host for VPC (s390x architecture)](/docs/vpc?group=dedicated-hosts), [IBM Cloud Hyper Protect Virtual Server for VPC](https://www.ibm.com/products/confidential-computing-container-runtime) and [IBM Cloud Wazi as a Service](https://www.ibm.com/products/wazi-as-a-service) are deprecated. The End of Service (EOS) date is 20 February 2027,when remaining instances are terminated. For more information, see the [Service deprecation announcement](/docs/vpc?topic=vpc-ichpcs_deprecated_anmt).
+{: deprecated}
 
 ## Before you begin
 {: #fs-zos-prereq}

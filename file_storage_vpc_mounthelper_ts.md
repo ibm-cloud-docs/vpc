@@ -112,6 +112,6 @@ Location of the stunnel logs:
 {: #fs-mount-helper-ts-next-steps}
 
 If you continue to experience issues after trying these troubleshooting steps:
-- Review the [Mount Helper requirements](/docs/vpc?topic=vpc-fs-mount-helper-about#fs-mount-helper-requirements) to ensure your environment is properly configured
+- Review the [Mount Helper requirements](/docs/vpc?topic=vpc-fs-mount-helper-utility#fs-mount-helper-requirements) to ensure your environment is properly configured
 - Check the [Mount Helper installation steps](/docs/vpc?topic=vpc-fs-mount-helper-install) to verify the utility was installed correctly
 - Review the [mounting procedures](/docs/vpc?topic=vpc-fs-mount-helper-mount) to ensure you're using the correct commands

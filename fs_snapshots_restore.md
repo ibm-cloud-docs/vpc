@@ -2,7 +2,7 @@
 
 copyright:
   years: 2024, 2026
-lastupdated: "2026-06-16"
+lastupdated: "2026-06-26"
 
 keywords:
 
@@ -15,7 +15,7 @@ subcollection: vpc
 # Restoring data from a file share snapshot
 {: #fs-snapshots-restore}
 
-Restoring data from a snapshot creates a new, fully provisioned share. Shares can be restored from snapshots that were created manually or by a backup policy. You can create shares from snapshots in the console, from the CLI, with the API, or Terraform. The share that you create by using a snapshot must have the same file share profile as the snapshot. You can also restore single files from snapshots of your file share.
+Restore file share data by creating new shares from snapshots. Restored shares use the same profile and location as the snapshot. Supports full and single-file recovery.
 {: shortdesc}
 
 Shares can be created only in the same location as the origin share of the snapshot. When the new share is created, it contains only pointers to the original share, and the data copy process begins. While the data is being copied, the share is in a _pending_ state. While the new share can be mounted for read/write in _pending_ state, a few operations like creating a replica or snapshots are not permitted. After the data-copy operation is complete, the new share is split from the parent share to become independent, completing the initialization process. After the initialization process is complete, the share moves to the _stable_ state and can be used as any other share.

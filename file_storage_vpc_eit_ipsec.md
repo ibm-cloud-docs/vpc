@@ -1,8 +1,8 @@
 ---
 
 copyright:
-  years: 2023, 2025
-lastupdated: "2025-11-20"
+  years: 2023, 2026
+lastupdated: "2026-06-26"
 
 keywords: file share, file storage, encryption in transit, Mount Helper, IPsec, secure connection, mount share
 
@@ -15,7 +15,7 @@ subcollection: vpc
 # Establishing encryption in transit for zonal file shares
 {: #file-storage-vpc-eit-ipsec}
 
-You can establish an encrypted mount connection between the virtual server instance and a zonal file share by using the Internet Security Protocol (IPsec) security profile and X.509 certificate. By enabling encryption in transit, you create secure end-to-end encryption for your data.
+Establish encrypted mount connections for zonal file shares by using IPsec security protocol and X.509 certificates for secure end-to-end data encryption.
 {: shortdesc}
 
 IPsec is a group of protocols that together set up encrypted connections between devices. It helps keep data sent over public networks secure. IPsec Encrypts IP packets, and authenticates the source where the packets come from. To configure IPsec on your virtual server instance, you can use [strongSwan](https://www.strongswan.org/){: external}, which is an open source IPsec-based VPN solution. For more information about how strongSwan works, see [Introduction to strongSwan](https://docs.strongswan.org/docs/5.9/howtos/introduction.html){: external} and [IPsec Protocol](https://docs.strongswan.org/docs/5.9/howtos/ipsecProtocol.html){: external}, too.
@@ -28,7 +28,7 @@ A Certificate Signing Request (CSR) is a block of encoded texts that are forward
 {: #file-storage-eit-ipsec-prereq}
 
 To use the feature, the following requirements need to be met:
-- The file share must be based on the [`dp2` profile](/docs/vpc?topic=vpc-file-storage-profiles&interface=api#dp2-profile) and be configured with [Security Group access mode](/docs/vpc?topic=vpc-file-storage-vpc-about#fs-share-mount-targets). 
+- The file share must be based on the [`dp2` profile](/docs/vpc?topic=vpc-file-storage-profiles&interface=api#dp2-profile) and be configured with [Security Group access mode](/docs/vpc?topic=vpc-file-storage-vpc-about#fs-share-mount-targets).
 - The mount target must be created with a [virtual network interface](/docs/vpc?topic=vpc-vni-about). The virtual server instance and the mount target must be members of the same [security group](/docs/vpc?topic=vpc-using-security-groups). For more information, see [Creating file shares and mount targets](/docs/vpc?topic=vpc-file-storage-create).
 - Data encryption in transit must be enabled. In the console, you can toggle encryption in transit on when you create the mount target. The API `transit_encryption` property accepts the `ipsec` value to enable the feature.
 - The metadata service must be enabled on the compute host. For more information, see [Metadata service on virtual server instances](/docs/vpc?topic=vpc-imd-about) and [Metadata service on bare metal servers](/docs/vpc?topic=vpc-bare-metal-server-metadata-about).
@@ -63,7 +63,7 @@ Obtain the X.509 certificates that are needed for authentication. The same certi
    ```
    {: pre}
 
-3. Then, use the metadata service on the [virtual server instance](/docs/vpc?topic=vpc-imd-identity-operations#imd-json-token) or the [bare metal server](/docs/vpc?topic=vpc-bare-metal-server-metadata-about) to create a client certificate. 
+3. Then, use the metadata service on the [virtual server instance](/docs/vpc?topic=vpc-imd-identity-operations#imd-json-token) or the [bare metal server](/docs/vpc?topic=vpc-bare-metal-server-metadata-about) to create a client certificate.
    1. Make a `PUT /instance_identity/v1/token` (virtual server instance) or `PUT /identity/v1/tokens` (bare metal server) request to get a token from the VPC identity service to be used for subsequent calls. For more information, see the following topics:
       - [Acquiring an instance identity access token](/docs/vpc?topic=vpc-imd-identity-operations&interface=api#imd-json-token).
       - [Acquiring a bare metal server identity access token](/docs/vpc?topic=vpc-configure-metadata-service-bare-metal&interface=api#metadata-json-token-bare-metal).
@@ -71,7 +71,7 @@ Obtain the X.509 certificates that are needed for authentication. The same certi
       - [Generating an instance identity certificate by using an instance identity access token](/docs/vpc?topic=vpc-imd-identity-operations&interface=api#imd-acquire-certificate).
       - [Generating a bare metal server identity certificate by using a bare metal server identity access token](/docs/vpc?topic=vpc-configure-metadata-service-bare-metal&interface=api#metadata-acquire-certificate-bare-metal).
    1. Copy the API response output, including the `-----BEGIN CERTIFICATE-----` and `-----END CERTIFICATE-----` lines, and save it to a file with a recognizable name, such as `ca-cert.pem`. Make sure that the file you create has the `.pem` extension.
-   
+
 4. Copy the instance identity certificate in the `/etc/ipsec.d/cacerts` directory.
    ```sh
    sudo cp /tmp/ca-cert.pem /etc/ipsec.d/cacerts
@@ -81,7 +81,7 @@ Obtain the X.509 certificates that are needed for authentication. The same certi
 ### Configuring the host and mounting the share
 {: #file-storage-eit-ipsec-manual-host-setup}
 
-1. [Install](https://docs.strongswan.org/docs/latest/install/install.html){: external} and configure the strongSwan client. You must configure [IPsec Transport Mode](https://docs.strongswan.org/docs/latest/howtos/ipsecProtocol.html#_ipsec_transport_mode){: external} for the mount target address. 
+1. [Install](https://docs.strongswan.org/docs/latest/install/install.html){: external} and configure the strongSwan client. You must configure [IPsec Transport Mode](https://docs.strongswan.org/docs/latest/howtos/ipsecProtocol.html#_ipsec_transport_mode){: external} for the mount target address.
 
 1. Make sure that you install the required plug-ins (`libcharon-extra-plugins`) for authentication, and update the configuration files with the location of the instance identity certificate.
 

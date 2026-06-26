@@ -1,8 +1,8 @@
 ---
 
 copyright:
-  years: 2025, 2025
-lastupdated: "2025-11-04"
+  years: 2025, 2026
+lastupdated: "2026-06-26"
 
 keywords: file share, file storage, encryption in transit, Mount Helper, TLS, NFS over TLS, secure connection, mount share
 
@@ -15,8 +15,10 @@ subcollection: vpc
 # Establishing encryption in transit for regional file shares
 {: #file-storage-vpc-eit-tls}
 
-You can establish an encrypted mount connection between the compute host and a regional file share by creating a Transport Layer Security (TLS) 1.2+ connection with stunnel. You can enable secure end-to-end encryption when you use file shares with security-group-based access control mode and mount targets with virtual network interfaces (VNI). When such a mount target is attached and the share is mounted, the VNI checks the security group policy to make sure that only authorized instances can communicate with the share.
+Establish encrypted mount connections for regional file shares by using Transport Layer Security (TLS) 1.2+ with stunnel for secure end-to-end data encryption.
 {: shortdesc}
+
+You can establish an encrypted mount connection between the compute host and a regional file share by creating a TLS 1.2+ connection with stunnel. You can enable secure end-to-end encryption when you use file shares with security-group-based access control mode and mount targets with virtual network interfaces (VNI). When such a mount target is attached and the share is mounted, the VNI checks the security group policy to make sure that only authorized instances can communicate with the share.
 
 Stunnel is an open source, multipurpose, multiplatform application that provides a universal TLS/SSL tunneling service. It relies on the OpenSSL library to implement the underlying TLS protocol. Stunnel uses public-key cryptography with X.509 digital certificates to secure the connection, and clients can optionally be authenticated through a certificate.
 

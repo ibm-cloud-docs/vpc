@@ -1,8 +1,8 @@
 ---
 
 copyright:
-  years: 2021, 2025
-lastupdated: "2025-11-20"
+  years: 2021, 2026
+lastupdated: "2026-06-26"
 
 keywords: file share, file storage, rename share, increase size, adjust IOPS, mount target
 
@@ -15,7 +15,7 @@ subcollection: vpc
 # Monitoring file share health states, lifecycle status, and events
 {: #fs-vpc-monitoring}
 
-By using the console, the CLI, or the API, you can check on the status and health states of the file shares.
+Monitor {{site.data.keyword.filestorage_vpc_short}} health states, lifecycle status, and events by using the console, CLI, or API to track share operations.
 {: shortdesc}
 
 ## File share statuses

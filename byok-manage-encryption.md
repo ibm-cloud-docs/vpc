@@ -2,7 +2,7 @@
 
 copyright:
   years: 2019, 2026
-lastupdated: "2026-04-16"
+lastupdated: "2026-06-26"
 
 keywords:
 
@@ -15,7 +15,7 @@ subcollection: vpc
 # Managing data encryption
 {: #vpc-encryption-managing}
 
-In {{site.data.keyword.cloud}}, you can secure your resources with your own root keys. You can rotate your root keys regularly or manually as needed. You can disable or delete root keys that are compromised or that you no longer need. You can restore root keys that were deleted within 30 days of their deletion.
+Manage customer-managed encryption for VPC resources by rotating, disabling, or deleting root keys. According to {{site.data.keyword.cloud}} encryption guidelines, regular key rotation and proper key lifecycle management reduce security risks by limiting exposure to compromised keys.
 {: shortdesc}
 
 [Deprecated]{: tag-deprecated} The {{site.data.keyword.hscrypto}} are deprecated. Customers can use existing instances until 20 March 2027. For more information, see [Deprecation of IBM Cloud Hyper Protect Crypto Services](/docs/hs-crypto?topic=hs-crypto-faqs-deprecation-of-ibm-cloud-hyper-protect-crypto-services). For continued protection, consider migrating your existing encryption keys to a Dedicated {{site.data.keyword.keymanagementserviceshort}} instance. For more information, see the [Migration guide](/docs/key-protect?topic=key-protect-migrate-st).

@@ -2,7 +2,7 @@
 
 copyright:
   years: 2026
-lastupdated: "2026-05-08"
+lastupdated: "2026-06-26"
 
 keywords: file share, file storage, access control mode, vpc access mode, security group, migration
 
@@ -15,7 +15,7 @@ subcollection: vpc
 # Migrating from VPC access control mode to security group access control mode
 {: #fs-migrate-access-mode}
 
-The VPC access control mode for zonal file shares is deprecated and scheduled to reach End of Support on 06 May 2027. If you have file shares that use the VPC access control mode, you must migrate them to security group access control mode before the End of Support date.
+Migrate zonal file shares from deprecated VPC access control mode to security group mode before 06 May 2027 (End of Support) to avoid data loss.
 {: shortdesc}
 
 The VPC access control mode allows all virtual server instances and bare metal servers in a VPC to access a file share. The security group access control mode provides more granular control by restricting access to specific compute resources based on security group rules. Security group access control mode also supports additional features such as encryption in transit, cross-zone mounting, and snapshots.

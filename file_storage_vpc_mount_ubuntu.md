@@ -2,7 +2,7 @@
 
 copyright:
   years: 2021, 2026
-lastupdated: "2026-06-06"
+lastupdated: "2026-06-26"
 
 keywords: file share, file storage, mount helper, mount target, mount path, secure connection, NFS, mounting share
 
@@ -15,7 +15,7 @@ subcollection: vpc
 # Mounting file shares on Ubuntu
 {: #file-storage-mount-ubuntu}
 
-Use these instructions to connect a Network File System (NFS) file share to an Ubuntu Linux&reg;-based {{site.data.keyword.cloud}} Compute instance.
+Mount NFS file shares on Ubuntu Linux&reg; compute instances with optional IPsec encryption in transit (requires dp2 profile, security group access mode).
 {: shortdesc}
 
 ## Before you begin

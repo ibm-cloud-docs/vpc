@@ -21,7 +21,7 @@ Install Mount Helper on your compute host to automate encrypted connections to {
 ## Before you begin
 {: #fs-mount-helper-install-prereqs}
 
-Before you install Mount Helper, review the [requirements and limitations](/docs/vpc?topic=vpc-fs-mount-helper-about#fs-mount-helper-requirements) to ensure your environment is compatible.
+Before you install Mount Helper, review the [requirements and limitations](/docs/vpc?topic=vpc-fs-mount-helper-utility#fs-mount-helper-requirements) to ensure your environment is compatible.
 
 You must connect to your compute host:
 - [Connect to your virtual server instance](/docs/vpc?topic=vpc-creating-virtual-servers&interface=ui#next-steps-after-creating-virtual-servers-ui).

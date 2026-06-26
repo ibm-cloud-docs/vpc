@@ -1,8 +1,8 @@
 ---
 
 copyright:
-  years: 2024, 2025
-lastupdated: "2025-11-04"
+  years: 2024, 2026
+lastupdated: "2026-06-26"
 
 keywords: snapshots, File storage snapshots, manage snapshots, backup snapshot, remote copy, cross-regional copy
 
@@ -15,7 +15,7 @@ subcollection: vpc
 # Managing {{site.data.keyword.filestorage_vpc_short}} snapshots
 {: #fs-snapshots-manage}
 
-You can manage existing snapshots in the console, from the CLI, with the API or Terraform. You can update the user tags of the snapshots, and delete snapshots that you no longer need to free up space for new snapshots.
+Manage {{site.data.keyword.filestorage_vpc_short}} snapshots through the console, CLI, API, or Terraform. You can rename snapshots, update user tags, and delete snapshots to free up space.
 {: shortdesc}
 
 Although you can't create a snapshot on a replica share, the snapshots of the origin share are copied from the source to the replica at the next scheduled sync. These replica snapshots are created by the file service. They do not inherit the tags or the name from the original snapshots. However, they have the same fingerprint value as the source snapshot. They can't be manually deleted from the replica share, but are removed from the replica share at the next replication sync if the source snapshot is deleted on the source share.
@@ -29,7 +29,7 @@ Use the following steps to rename a snapshot in the console.
 
 1. Go to the list of snapshots. In the [{{site.data.keyword.cloud_notm}} console](/login){: external}, click the **Navigation menu** icon ![menu icon](../icons/icon_hamburger.svg) **> Infrastructure** ![VPC icon](../icons/vpc.svg) **> Storage > File storage shares**.
 1. The file shares are listed for a specific region. If you want to see resources in another region, click the arrow to expand the list and select a different region. By default, the newest shares are displayed at the beginning of the list.
-1. Select the file share that you want to view, and click the **Snapshots** tab. 
+1. Select the file share that you want to view, and click the **Snapshots** tab.
 1. Locate the snapshot in the list, then click the ![Actions icon](../icons/action-menu-icon.svg "Actions") and select **Rename**.
 1. Enter the new name and click **Rename**.
 
@@ -41,7 +41,7 @@ Use the following steps to update the user tags of a snapshot in the console.
 
 1. Go to the list of snapshots. In the [{{site.data.keyword.cloud_notm}} console](/login){: external}, click the **Navigation menu** icon ![menu icon](../icons/icon_hamburger.svg) **> Infrastructure** ![VPC icon](../icons/vpc.svg) **> Storage > File storage shares**.
 1. The file shares are listed for a specific region. If you want to see resources in another region, click the arrow to expand the list and select a different region. By default, the newest shares are displayed at the beginning of the list.
-1. Select the file share that you want to view, and click the **Snapshots** tab. 
+1. Select the file share that you want to view, and click the **Snapshots** tab.
 1. Click the name of a snapshot to open the Snapshot details panel.
 1. Click the **Edit icon** ![Edit icon](../icons/edit-tagging.svg "Edit") next to the User tags.
 1. You can remove any existing tags and add new tags. Click **Save**.
@@ -64,7 +64,7 @@ ibmcloud login --sso -a cloud.ibm.com
 ```
 {: pre}
 
-This command returns a URL and prompts for a passcode. Go to that URL in your browser and log in. If successful, you get a one-time passcode. Copy this passcode and paste it as a response on the prompt. After successful authentication, you are prompted to choose your account. If you have access to multiple accounts, select the account that you want to log in as. Respond to any remaining prompts to finish logging in. 
+This command returns a URL and prompts for a passcode. Go to that URL in your browser and log in. If successful, you get a one-time passcode. Copy this passcode and paste it as a response on the prompt. After successful authentication, you are prompted to choose your account. If you have access to multiple accounts, select the account that you want to log in as. Respond to any remaining prompts to finish logging in.
 
 
 
@@ -88,29 +88,29 @@ ibmcloud is share-snapshot-update my-file-share r006-6ce54f3b-8971-4b5d-95a7-7df
 
 ```sh
 Updating file share snapshot share-snapshot-cli-update for share my-file-share under account Test Account as user test.user@ibm.com...
-                        
-ID                   r006-6ce54f3b-8971-4b5d-95a7-7dfa897ddfb3   
-Name                 share-snapshot-cli-update   
-Fingerprint          c25fdce4-6e0a-433f-99c0-9985f127cd54   
-Backup Policy Plan   -   
-Status               available   
-Status reasons       Status code   Status message      
-                     -             -  
-Created at           2024-12-17T11:19:33+05:30   
-Captured At          2024-12-17T11:19:34+05:30   
-CRN                  crn:v1:bluemix:public:is:us-south-1:a/a123456::share-snapshot:r006-2ae87eb2-b26c-4126-ab34-e6e64f6f1773/r006-6ce54f3b-8971-4b5d-95a7-7dfa897ddfb3   
+
+ID                   r006-6ce54f3b-8971-4b5d-95a7-7dfa897ddfb3
+Name                 share-snapshot-cli-update
+Fingerprint          c25fdce4-6e0a-433f-99c0-9985f127cd54
+Backup Policy Plan   -
+Status               available
+Status reasons       Status code   Status message
+                     -             -
+Created at           2024-12-17T11:19:33+05:30
+Captured At          2024-12-17T11:19:34+05:30
+CRN                  crn:v1:bluemix:public:is:us-south-1:a/a123456::share-snapshot:r006-2ae87eb2-b26c-4126-ab34-e6e64f6f1773/r006-6ce54f3b-8971-4b5d-95a7-7dfa897ddfb3
 LifeCycle State      stable
-LifeCycle Reasons    Code   Message   More Info      
-                      -      -         
-Href                 https://us-south.iaas.cloud.ibm.com/v1/shares/r006-2ae87eb2-b26c-4126-ab34-e6e64f6f1773/snapshots/r006-6ce54f3b-8971-4b5d-95a7-7dfa897ddfb3   
-Minimum Size         40   
-User Tags            test:cli   
-Zone                 ID   Name      
-                          us-south-1      
-                        
-Resource group       ID                                 Name      
-                     11caaa983d9c4beb82690daab08717e9   Default      
-           
+LifeCycle Reasons    Code   Message   More Info
+                      -      -
+Href                 https://us-south.iaas.cloud.ibm.com/v1/shares/r006-2ae87eb2-b26c-4126-ab34-e6e64f6f1773/snapshots/r006-6ce54f3b-8971-4b5d-95a7-7dfa897ddfb3
+Minimum Size         40
+User Tags            test:cli
+Zone                 ID   Name
+                          us-south-1
+
+Resource group       ID                                 Name
+                     11caaa983d9c4beb82690daab08717e9   Default
+
 Resource type        share_snapshot
 ```
 {: screen}
@@ -148,7 +148,7 @@ curl -X PATCH \
      "user_tags": ["env:test","dev:test"]
     }'
 ```
-{: codeblock}  
+{: codeblock}
 
 ## Updating a snapshot with Terraform
 {: #fs-snapshots-rename-terraform}

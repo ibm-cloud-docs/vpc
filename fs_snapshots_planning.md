@@ -1,8 +1,8 @@
 ---
 
 copyright:
-  years: 2024, 2025
-lastupdated: "2025-04-24"
+  years: 2024, 2026
+lastupdated: "2026-06-26"
 
 keywords:
 
@@ -15,7 +15,7 @@ subcollection: vpc
 # Planning {{site.data.keyword.filestorage_vpc_short}} snapshots
 {: #fs-snapshots-planning}
 
-When you plan a snapshot strategy for your {{site.data.keyword.filestorage_vpc_short}} shares, you might find this checklist helpful.
+Plan your {{site.data.keyword.filestorage_vpc_short}} snapshot strategy by considering interface options, naming conventions, retention policies, and restoration requirements.
 {: shortdesc}
 
 ## Planning to create and use snapshots

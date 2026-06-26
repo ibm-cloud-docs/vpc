@@ -2,7 +2,7 @@
 
 copyright:
   years: 2019, 2026
-lastupdated: "2026-06-16"
+lastupdated: "2026-06-26"
 
 keywords:
 
@@ -16,7 +16,7 @@ subcollection: vpc
 # About data encryption for VPC
 {: #vpc-encryption-about}
 
-{{site.data.keyword.cloud}} takes security seriously and understands the importance of encrypting data to keep it safe. {{site.data.keyword.block_storage_is_short}} volumes, snapshots, and {{site.data.keyword.filestorage_vpc_short}} file shares are automatically encrypted by using IBM-managed encryption. You can also choose to manage your own encryption for volumes, file shares, and custom images by using customer-managed encryption.
+In {{site.data.keyword.block_storage_is_short}}, volumes, snapshots, and file shares use Advanced Encryption Standard (AES) 256-bit encryption at rest by default. Customer-managed encryption with FIPS 140-2 Level 3 keys provides enhanced control.
 {: shortdesc}
 
 ## IBM-managed encryption

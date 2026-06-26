@@ -2,7 +2,7 @@
 
 copyright:
   years: 2022, 2026
-lastupdated: "2026-06-11"
+lastupdated: "2026-06-26"
 
 keywords: file storage, file share, view share details, mount targets, view targets, view share
 
@@ -16,7 +16,7 @@ subcollection: vpc
 # Viewing file shares, share bindings, and mount targets
 {: #file-storage-view}
 
-You can view all file shares, their bindings and mount targets in the console, retrieve their information from the CLI, with the API, or Terraform. You can retrieve information for all shares, bindings, and mount targets, or just the information of a specific resource.
+View {{site.data.keyword.filestorage_vpc_short}} shares, accessor share bindings, and mount targets by using the console, CLI, API, or Terraform.
 {: shortdesc}
 
 ## Viewing file shares, share bindings and mount targets in the console

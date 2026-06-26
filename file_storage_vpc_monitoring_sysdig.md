@@ -1,8 +1,8 @@
 ---
 
 copyright:
-  years: 2021, 2025
-lastupdated: "2025-11-07"
+  years: 2021, 2026
+lastupdated: "2026-06-26"
 
 keywords: file share, file storage, sysdig, platform metrics
 
@@ -15,8 +15,10 @@ subcollection: vpc
 # Monitoring metrics for {{site.data.keyword.filestorage_vpc_short}}
 {: #fs-vpc-monitoring-sysdig}
 
-{{site.data.keyword.mon_full}} is a third-party cloud-native, and container-intelligence management system that you can include as part of your {{site.data.keyword.cloud_notm}} architecture. Use it to gain operational visibility into the performance and health of your applications, services, and platforms. It offers administrators, DevOps teams, and developers full-stack telemetry with advanced features to monitor and troubleshoot, define alerts, and design custom dashboards. {{site.data.keyword.mon_full_notm}} is operated by Sysdig in partnership with {{site.data.keyword.IBM_notm}}. 
+Monitor {{site.data.keyword.filestorage_vpc_short}} throughput, IOPS, and capacity metrics by using {{site.data.keyword.mon_full}} platform metrics.
 {: shortdesc}
+
+{{site.data.keyword.mon_full}} is a third-party cloud-native, and container-intelligence management system that you can include as part of your {{site.data.keyword.cloud_notm}} architecture. Use it to gain operational visibility into the performance and health of your applications, services, and platforms. It offers administrators, DevOps teams, and developers full-stack telemetry with advanced features to monitor and troubleshoot, define alerts, and design custom dashboards. {{site.data.keyword.mon_full_notm}} is operated by Sysdig in partnership with {{site.data.keyword.IBM_notm}}.
 
 With {{site.data.keyword.mon_full}}, you can view utilization metrics that measure the amount of transmitted data (throughput) and the number of read and write operations (IOPS) that are performed on the share. It can help you to determine how much work is done by your application or workload. You can use this information to determine whether the IOPS value needs to be adjusted. Monitoring the available capacity of your share can help you identify the need for more storage before insufficient space can become a problem with writing data to the share or replication. Seeing these metrics can help you anticipate any changes in charges at the end of the billing period.
 
@@ -92,7 +94,7 @@ When you open the file share dashboard, you can see the graphs that show the fol
 * Share usage - available capacity, used capacity, total capacity
 * Bandwidth - read, write, and maximum throughput
 * IOPS - read, write, maximum
-* Snapshot space - available and used capacity for snapshots. 
+* Snapshot space - available and used capacity for snapshots.
 
 The displayed metrics contain a timestamp in UNIX epoch time and the metric value for the time intervals that end at that timestamp. You can specify different scopes, and the time interval over which to report the metrics. The following time intervals are supported in the {{site.data.keyword.mon_full_notm}} dashboard:
 
@@ -119,14 +121,14 @@ The following metrics help track the IO activity and throughput that is handled 
 
 |Name                           | Description|
 |-------------------------------|------------|
-| `ibm_is_share_throughput_read`  | Current read throughput | 
-| `ibm_is_share_throughput_write` | Current write throughput | 
+| `ibm_is_share_throughput_read`  | Current read throughput |
+| `ibm_is_share_throughput_write` | Current write throughput |
 | `ibm_is_share_throughput_max`   | Maximum throughput configured on the share |
 | `ibm_is_share_iops_read`       | Current read IOPS|
-| `ibm_is_share_iops_write`       | Current write IOPS| 
-| `ibm_is_share_iops_max`         | Maximum IOPS configured on the share 
+| `ibm_is_share_iops_write`       | Current write IOPS|
+| `ibm_is_share_iops_max`         | Maximum IOPS configured on the share
 | `ibm_is_share_capacity_total`   | Total allocated capacity|
-| `ibm_is_share_capacity_used`    | Current used capacity| 
+| `ibm_is_share_capacity_used`    | Current used capacity|
 | `ibm_is_share_mount_targets_count` | Number of Share mount targets |
 | `ibm_is_share_snapshot_capacity_used`  | Current capacity used by snapshots |
 | `ibm_is_share_snapshot_capacity_total`  | Available capacity for snapshots. |
@@ -162,14 +164,14 @@ Each metric is composed of the following metadata types:
 
 | Metric name                           | Metric Type  | Metric value type |
 |---------------------------------------|--------------|-------------------|
-| `ibm_is_share_throughput_read`          | Gauge        |Floating point     | 
-| `ibm_is_share_throughput_write`         | Gauge        |Floating point     | 
-| `ibm_is_share_throughput_max`           | Gauge        |Floating point     | 
-| `ibm_is_share_iops_read`                | Gauge        |Integer            | 
-| `ibm_is_share_iops_write`               | Gauge        |Integer            | 
-| `ibm_is_share_iops_max`                 | Gauge        |Integer            | 
-| `ibm_is_share_capacity_total`          | Gauge        |Floating point     | 
-| `ibm_is_share_capacity_used`            | Gauge        |Floating point     | 
+| `ibm_is_share_throughput_read`          | Gauge        |Floating point     |
+| `ibm_is_share_throughput_write`         | Gauge        |Floating point     |
+| `ibm_is_share_throughput_max`           | Gauge        |Floating point     |
+| `ibm_is_share_iops_read`                | Gauge        |Integer            |
+| `ibm_is_share_iops_write`               | Gauge        |Integer            |
+| `ibm_is_share_iops_max`                 | Gauge        |Integer            |
+| `ibm_is_share_capacity_total`          | Gauge        |Floating point     |
+| `ibm_is_share_capacity_used`            | Gauge        |Floating point     |
 | `ibm_is_share_mount_targets_count`      | Gauge        |Integer            |
 | `ibm_is_share_snapshot_capacity_used`  | Gauge  |Floating point |
 | `ibm_is_share_snapshot_capacity_total` | Gauge  |Floating point |
@@ -208,6 +210,6 @@ The following attributes are available for segmenting one or more attributes as 
 ## Monitoring alerts
 {: #monitoring-alerts}
 
-In the {{site.data.keyword.mon_full_notm}} service, you can configure single alerts and multi-condition alerts to notify about problems that might require attention. When an alert is triggered, you can be notified through 1 or more notification channels. An alert definition can generate multi-channel notifications. 
+In the {{site.data.keyword.mon_full_notm}} service, you can configure single alerts and multi-condition alerts to notify about problems that might require attention. When an alert is triggered, you can be notified through 1 or more notification channels. An alert definition can generate multi-channel notifications.
 
 For example, when your file share is low on available capacity, it can cause problems with replication. So you might want to create an alert for when your file share reaches 75%, 90%, and 95% of capacity used. When the metric threshold is reached, you can be notified of it through email, Slack, PagerDuty, or another channel. For more information, see [Working with alerts and events](/docs/monitoring?topic=monitoring-alerts).

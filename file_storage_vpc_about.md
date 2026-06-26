@@ -2,7 +2,7 @@
 
 copyright:
   years: 2021, 2026
-lastupdated: "2026-06-25"
+lastupdated: "2026-06-26"
 
 keywords: file share, mount target, virtual network interface, customer-managed encryption, encryption at rest, encryption in transit, file storage, share,
 
@@ -15,8 +15,10 @@ subcollection: vpc
 # About {{site.data.keyword.filestorage_vpc_short}}
 {: #file-storage-vpc-about}
 
-{{site.data.keyword.filestorage_vpc_full}} provides NFS-based file storage services within the VPC Infrastructure. A file share is a type of file storage that is made accessible over the network to allow multiple clients to access the same folders and files simultaneously. You can create file shares with zonal and regional data availability. You can share them with multiple virtual server instances within the same zone or other zones in your region, across multiple VPCs. You can also limit access to a file share to a specific server instance or group of instances within a VPC. You can choose to encrypt your file shares at rest with IBM-managed encryption keys or use your own customer keys. You can choose to encrypt the data in transit between the file share and the compute hosts. You can create replicas of your file shares in other regions, and take snapshots of your data. You can create and manage your file shares in the console, from the CLI, with the API, or Terraform.
+{{site.data.keyword.filestorage_vpc_full}} provides NFS-based file storage with zonal (dp2 profile) and regional (rfs profile) availability. Features include encryption at rest and in transit, cross-region replication, snapshots, and multi-VPC sharing. Manage file shares through the console, CLI, API, or Terraform.
 {: shortdesc}
+
+{{site.data.keyword.filestorage_vpc_full}} provides NFS-based file storage services within the VPC Infrastructure. A file share is a type of file storage that is made accessible over the network to allow multiple clients to access the same folders and files simultaneously.
 
 Creating file shares with regional availability requires special access. If you’re interested in previewing the new offering, contact your assigned Account team representative or Customer Success Manager.
 {: preview}

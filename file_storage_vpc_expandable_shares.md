@@ -2,7 +2,7 @@
 
 copyright:
   years: 2022, 2026
-lastupdated: "2026-06-11"
+lastupdated: "2026-06-26"
 
 keywords: file share, file storage, increase capacity, expand capacity, expand share size, file share size
 
@@ -15,7 +15,7 @@ subcollection: vpc
 # Expanding file share capacity
 {: #file-storage-expand-capacity}
 
-For {{site.data.keyword.filestorage_vpc_short}} file shares, you can increase the file share size from its original capacity in GB increments up to 32,000 GB capacity, depending on your file share profile. This process doesn't require you to perform manual steps. For example, you don't need to migrate your data to a larger file share. The expansion operation causes no outage or lack of access to your storage.
+Expand {{site.data.keyword.filestorage_vpc_short}} capacity up to 32,000 GB without downtime, data migration, or manual steps.
 {: shortdesc}
 
 Billing for the file share is automatically updated to add the pro-rated difference of the new price to the current billing cycle. The new full amount is then billed in the next billing cycle.

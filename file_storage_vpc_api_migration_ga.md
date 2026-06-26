@@ -4,7 +4,7 @@ copyright:
     years: 2025, 2026
 lastupdated: "2025-09-16"
 
-keywords: storage, File Storage, VPC, API, virtual private cloud, support 
+keywords: storage, File Storage, VPC, API, virtual private cloud, support
 
 subcollection: vpc
 
@@ -14,6 +14,9 @@ subcollection: vpc
 
 # Updating to the `2025-09-16` version (file shares, file share profiles, and file share mount targets)
 {: #2025-09-16-migration-file-shares}
+
+VPC API version 2025-09-16 changes file share transit encryption from `user_managed` to `ipsec` and removes the `zone` requirement for regional shares.
+{: shortdesc}
 
 As described in the VPC API reference [versioning](/apidocs/vpc/latest#api-versioning) policy, most changes to the VPC APIs are fully compatible with earlier versions and are made available to all clients, regardless of the API version the client requests. However, the `2025-09-16` release of the VPC API necessitated incompatible changes in support of file shares, file share profiles, and file share mount target methods.
 
@@ -57,7 +60,7 @@ If your clients continue to specify version `2025-09-15` or earlier, no changes 
 ### Client migration
 {: #client-migration-2025-09-16}
 
-Before you migrate a client to an API version `2025-09-16` or later, review your code that uses the following methods: 
+Before you migrate a client to an API version `2025-09-16` or later, review your code that uses the following methods:
 
 - `POST /shares`
 - `GET /shares`
@@ -66,7 +69,7 @@ Before you migrate a client to an API version `2025-09-16` or later, review your
 - `POST /shares/{share_id}/mount_targets`
 - `PATCH /shares/{share_id}/mount_targets`
 - `GET /shares/{share_id}/mount_targets`
-- `GET /shares/{share_id}/mount_targets/{id}` 
+- `GET /shares/{share_id}/mount_targets/{id}`
 
 Verify that your code includes the `ipsec` value (instead of `user_managed`) for `allowed_transit_encryption_modes` for shares and for `transit_encryption` for share mount targets in the manner that is appropriate for your programming language. Additionally, verify that requests to create file share mount targets include an `access_protocol` value as specified by the share's `allowed_access_protocols`. For more information, see the [Beta VPC API change log](/docs/vpc?topic=vpc-api-change-log#version-2025-09-16).
 
@@ -199,7 +202,7 @@ The following example shows a response to an API request for a regional file sha
 ```
 {: codeblock
 
-The following example shows a response to an API request for a regional file share that uses the API version `2025-09-16` or later. The `zone` property is absent. 
+The following example shows a response to an API request for a regional file share that uses the API version `2025-09-16` or later. The `zone` property is absent.
 
 ```sh
 {

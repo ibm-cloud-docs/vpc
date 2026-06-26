@@ -2,7 +2,7 @@
 
 copyright:
   years: 2021, 2026
-lastupdated: "2026-06-11"
+lastupdated: "2026-06-26"
 
 keywords: file share, file storage, virtual network interface, encryption in transit, profiles,
 
@@ -15,8 +15,10 @@ subcollection: vpc
 # Creating file shares and mount targets
 {: #file-storage-create}
 
-Create [zonal and regional file shares](/docs/vpc?topic=vpc-file-storage-vpc-about) and [mount targets](/docs/vpc?topic=vpc-file-storage-vpc-about#fs-share-mount-targets) in the console, CLI, API, or Terraform. You can select their data availability, location, custom capacity, and performance level. You can assign the file share and mount target to a [security group](/docs/vpc?topic=vpc-using-security-groups), apply tags, and enable customer-managed encryption at [rest](/docs/vpc?topic=vpc-vpc-encryption-about) and [in-transit](/docs/vpc?topic=vpc-file-storage-vpc-eit).
+Create [file shares](/docs/vpc?topic=vpc-file-storage-vpc-about) and [mount targets](/docs/vpc?topic=vpc-file-storage-vpc-about#fs-share-mount-targets) with custom capacity, performance, and encryption at [rest](/docs/vpc?topic=vpc-vpc-encryption-about) and [in transit](/docs/vpc?topic=vpc-file-storage-vpc-eit).
 {: shortdesc}
+
+You can create zonal and regional file shares in the console, CLI, API, or Terraform. You can select their data availability, location, custom capacity, and performance level. You can assign the file share and mount target to a [security group](/docs/vpc?topic=vpc-using-security-groups), apply tags for ease of management and backup support.
 
 [Deprecated]{: tag-deprecated} The {{site.data.keyword.hscrypto}} are deprecated. Customers can use existing instances until 20 March 2027. For more information, see [Deprecation of IBM Cloud Hyper Protect Crypto Services](/docs/hs-crypto?topic=hs-crypto-faqs-deprecation-of-ibm-cloud-hyper-protect-crypto-services). For continued protection, consider migrating your existing encryption keys to a Dedicated {{site.data.keyword.keymanagementserviceshort}} instance. For more information, see the [Migration guide](/docs/key-protect?topic=key-protect-migrate-st).
 

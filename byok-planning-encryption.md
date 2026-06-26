@@ -2,7 +2,7 @@
 
 copyright:
   years: 2019, 2026
-lastupdated: "2026-04-17"
+lastupdated: "2026-06-26"
 
 keywords:
 
@@ -15,7 +15,7 @@ subcollection: vpc
 # Planning data encryption
 {: #vpc-encryption-planning}
 
-When you're planning a data encryption strategy for your {{site.data.keyword.block_storage_is_short}} volumes, snapshots, {{site.data.keyword.filestorage_vpc_short}} shares, or custom images, you might find this checklist helpful.
+Plan customer-managed encryption for storage volumes, snapshots, file shares, and custom images using your own root keys. Supports FIPS 140-2 Level 3 and Level 4.
 {: shortdesc}
 
 ## Planning for data encryption

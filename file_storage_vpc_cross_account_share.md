@@ -2,7 +2,7 @@
 
 copyright:
   years: 2024, 2026
-lastupdated: "2026-05-19"
+lastupdated: "2026-06-26"
 
 keywords: file share, file storage, accessor share, cross-account share
 
@@ -16,8 +16,10 @@ subcollection: vpc
 # Sharing and mounting a file share from another account
 {: #file-storage-accessor-create}
 
-As a storage administrator who manages multiple accounts, you can share an NFS file system across accounts, so the data that your applications depend on is available across the different systems. You can also share your {{site.data.keyword.filestorage_vpc_short}} with the [IBM watsonx](https://dataplatform.cloud.ibm.com/docs/content/wsj/getting-started/welcome-main.html?context=wx){: external} service.
+Share {{site.data.keyword.filestorage_vpc_short}} across accounts by using accessor shares with cross-account authorization for multi-account data access.
 {: shortdesc}
+
+You can also share your {{site.data.keyword.filestorage_vpc_short}} with the [IBM watsonx](https://dataplatform.cloud.ibm.com/docs/content/wsj/getting-started/welcome-main.html?context=wx){: external} service.
 
 [Cross-account service-to-service authorization](/docs/vpc?topic=vpc-file-s2s-auth) is used to establish trust between share owner and accessor accounts. Also, the appropriate IAM platform and services roles must be assigned to the users so they can perform their tasks. To create an accessor share within the same account as the origin share, the user must have *Share Broker* and *Editor* roles. To create an accessor share within a different account from the origin share, the user must have *Share Remote Account Accessor* and *Editor* roles. For more information, see [IAM Roles and actions](/docs/iam?topic=iam-iam-service-roles-actions#is.share-roles).
 {: requirement}

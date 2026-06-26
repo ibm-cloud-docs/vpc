@@ -2,7 +2,7 @@
 
 copyright:
   years: 2021, 2026
-lastupdated: "2026-06-15"
+lastupdated: "2026-06-26"
 
 keywords: file share, file storage, requirements, planning, encryption, share size, capacity, performance profile, IOPS,
 
@@ -15,7 +15,7 @@ subcollection: vpc
 # Planning your file shares
 {: #file-storage-planning}
 
-When you're planning to create {{site.data.keyword.filestorage_vpc_short}}, you might find this checklist helpful to set up and use the file service.
+Plan {{site.data.keyword.filestorage_vpc_short}} by selecting profiles (dp2 zonal or rfs regional), capacity up to 32 TB, performance, and encryption options.
 {: shortdesc}
 
 ## Planning for creating file shares

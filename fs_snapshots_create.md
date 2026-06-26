@@ -2,7 +2,7 @@
 
 copyright:
   years: 2024, 2026
-lastupdated: "2026-06-11"
+lastupdated: "2026-06-26"
 
 keywords: snapshots, File Storage, File Storage snapshot
 
@@ -15,7 +15,7 @@ subcollection: vpc
 # Creating {{site.data.keyword.filestorage_vpc_short}} snapshots
 {: #fs-snapshots-create}
 
-You can create a snapshot of a {{site.data.keyword.filestorage_vpc_short}} share in the console, from the CLI, with the API, or Terraform. Snapshots capture the data on the share at a specific data and time. Snapshots can be used later to retrieve old versions of files or to create new shares with the data of the snapshot.
+Create {{site.data.keyword.filestorage_vpc_short}} snapshots through the console, CLI, API, or Terraform to capture point-in-time data. Use snapshots to restore previous file versions or provision new shares with the snapshot data.
 {: shortdesc}
 
 Although you can't create a snapshot on a replica share, the snapshots of the origin share are copied from the source to the replica at the next scheduled sync. These replica snapshots are created by the file service. They do not inherit the tags or the name from the original snapshots. However, they have the same fingerprint value as the source snapshot. They can't be manually deleted from the replica share, but are removed from the replica share at the next replication sync if the source snapshot is deleted on the source share.

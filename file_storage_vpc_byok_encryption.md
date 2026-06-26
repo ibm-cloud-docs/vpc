@@ -2,7 +2,7 @@
 
 copyright:
   years: 2022, 2026
-lastupdated: "2026-06-11"
+lastupdated: "2026-06-26"
 
 keywords: file share, customer-managed encryption, encryption, byok, KMS, Key Protect, Hyper Protect Crypto Services,
 
@@ -15,10 +15,13 @@ subcollection: vpc
 # Creating file shares with customer-managed encryption
 {: #file-storage-byok-encryption}
 
-By default, {{site.data.keyword.filestorage_vpc_short}} shares are encrypted with IBM-managed encryption. You can also create an envelop-encryption for your file shares by using one of the supported key management services to create or import your own root keys. You can't change the encryption type after the file share is created.
+Create {{site.data.keyword.filestorage_vpc_short}} shares with customer-managed encryption by using root keys stored in {{site.data.keyword.keymanagementserviceshort}} for BYOK data protection.
 {: shortdesc}
 
-For more information, see [Protecting data with envelope encryption](/docs/key-protect?topic=key-protect-envelope-encryption).
+You can't change the encryption type after the file share is created.
+{: important}
+
+By default, {{site.data.keyword.filestorage_vpc_short}} shares are encrypted with IBM-managed encryption. For more information about envelope encryption, see [Protecting data with envelope encryption](/docs/key-protect?topic=key-protect-envelope-encryption).
 
 ## Before you begin
 {: #custom-managed-vol-prereqs-file}

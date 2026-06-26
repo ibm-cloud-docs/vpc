@@ -2,7 +2,7 @@
 
 copyright:
   years: 2024, 2026
-lastupdated: "2026-03-16"
+lastupdated: "2026-06-26"
 
 keywords: snapshots, File Storage, shares, restore share
 
@@ -15,7 +15,7 @@ subcollection: vpc
 # About {{site.data.keyword.filestorage_vpc_short}} snapshots
 {: #fs-snapshots-about}
 
-File Storage snapshots are used to create a point-in-time copy of your {{site.data.keyword.filestorage_vpc_short}} share. The initial snapshot that you take is a full backup of the share. Subsequent snapshots of the same share are incremental, so they capture only the changes that occurred after the last snapshot was taken. You can use a snapshot to restore data to a new share in the console, from the CLI, with the API, or Terraform.
+File share snapshots create point-in-time copies for data protection and recovery. First snapshot is full; subsequent snapshots are incremental with encryption support.
 {: shortdesc}
 
 ## Snapshots concepts
@@ -30,7 +30,7 @@ The first time that you take a snapshot of a share, all the share's contents are
 
 When you take a second snapshot, it captures only the changes that occurred since the last snapshot was taken. As such, the size of the snapshots can grow or shrink, depending on what changed in the meantime. The number of snapshots increases with each successive snapshot that you take. You can take up to 750 snapshots per share, and one snapshot per minute.
 
-When a snapshot is deleted, only the data blocks that are no longer needed by other snapshots are freed on the share. 
+When a snapshot is deleted, only the data blocks that are no longer needed by other snapshots are freed on the share.
 
 The lifecycle of snapshots is tied to the lifecycle of the shares that they belong to. When a file share is replicated, its snapshots are replicated as well. When the share is deleted, the snapshots are also deleted automatically.
 
@@ -55,7 +55,7 @@ Do you want to automatically create snapshots of your {{site.data.keyword.filest
 The following limitations apply to this release:
 
 * File share snapshots cannot be copied to another zone or region. They are stored in the same location as the file share. If you want the snapshots to survive the loss of the availability zone, you need to configure replication for the file share. When a replica share is created, all snapshots that are present on the source volume are also copied to the replica.
-* Snapshots are not supported on shares with Access control mode "VPC". 
+* Snapshots are not supported on shares with Access control mode "VPC".
 * Taking snapshots are also not supported on replica shares or Accessor shares. However, the `/.snapshot` and `.snap` directory is accessible both on replica and Accessor shares.
 
 ## Snapshots for second-generation file shares

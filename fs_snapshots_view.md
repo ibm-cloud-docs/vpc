@@ -2,7 +2,7 @@
 
 copyright:
   years: 2024, 2026
-lastupdated: "2026-06-16"
+lastupdated: "2026-06-26"
 
 keywords: view snapshots, view snapshot, viewing snapshots, see snapshots, File storage snapshots
 
@@ -15,7 +15,7 @@ subcollection: vpc
 # Viewing {{site.data.keyword.filestorage_vpc_short}} snapshots
 {: #fs-snapshots-view}
 
-You can view a list of all snapshots, and drill down to see information about a particular snapshot. Choose the UI, CLI, API, or Terraform to retrieve this information.
+View {{site.data.keyword.filestorage_vpc_short}} snapshot lists and details through the console, CLI, API, or Terraform. Access information including snapshot count, size, status, and replication role.
 {: shortdesc}
 
 ## Listing snapshots in the console

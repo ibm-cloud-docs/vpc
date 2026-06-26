@@ -2,7 +2,7 @@
 
 copyright:
   years: 2021, 2026
-lastupdated: "2026-06-16"
+lastupdated: "2026-06-26"
 
 keywords: file share, file storage, rename share, increase size, adjust IOPS, mount target
 
@@ -15,7 +15,7 @@ subcollection: vpc
 # Managing file shares, accessor share bindings, and mount targets
 {: #file-storage-managing}
 
-Manage the file shares that you created. You can rename a file share. You can increase its capacity and modify its performance characteristic. You can add mount targets to a file share, and use the mount path to mount a file share from virtual server instances. You can rename or delete a mount target. Or you can delete a file share if you no longer need it.
+Manage {{site.data.keyword.filestorage_vpc_short}} shares by renaming, expanding capacity, adjusting IOPS and bandwidth, adding mount targets, and managing accessor share bindings.
 {: shortdesc}
 
 {{site.data.keyword.filestorage_vpc_short}} service requires IAM permissions for role-based access control. For example, to create a file share, you need to have at least editor permissions. For more information, see [Managing IAM access for VPC Infrastructure Services](/docs/vpc?topic=vpc-iam-getting-started&interface=ui) for file shares.

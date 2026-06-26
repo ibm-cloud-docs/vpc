@@ -1,8 +1,8 @@
 ---
 
 copyright:
-  years: 2023, 2024
-lastupdated: "2024-10-16"
+  years: 2023, 2026
+lastupdated: "2026-06-26"
 
 keywords: share, capacity, Block Storage
 
@@ -15,7 +15,7 @@ subcollection: vpc
 # Managing file share count and capacity limits
 {: #manage-fs-limit}
 
-{{site.data.keyword.filestorage_vpc_full}} is a zonal file storage offering that provides NFS-based file storage services. You can create up to 300 file shares in your account, across all VPCs. You can request an increase of this quota by contacting [IBM Support](/unifiedsupport/cases/add){: external} and submitting a support case. Answer the following questions when you're requesting an increase in your File share provisioning limit. 
+Request an increase to the default 300 file share limit per account by submitting a [Support case](/unifiedsupport/cases/add){: external} with required details.
 {: shortdesc}
 
 ## File share count and storage limits checklist
@@ -23,7 +23,7 @@ subcollection: vpc
 
 Review the following checklist items and record your answers. Provide this information when you create a support case.
 
-- **Ticket Subject**: 
+- **Ticket Subject**:
     >"*Request to Increase VPC File Share Count Limit*".
 
 - **How many extra shares do you need? Provide your account, region, and the zone where you want more shares.**
@@ -45,7 +45,7 @@ Review the following checklist items and record your answers. Provide this infor
     >*"I expect 25% of the shares to be used in 30 days, 50 percent to be used in 60 days and 75% to be used in 90 days".*
     >*"I expect to create 50% of the shares at less than 250 GB within 30 days and file shares greater than 250 GB within 60 days."*
 
-Respond promptly to all questions and statements in your request. They're necessary for processing and approval. If some things are unclear, the support team contacts you to clarify your answers. 
+Respond promptly to all questions and statements in your request. They're necessary for processing and approval. If some things are unclear, the support team contacts you to clarify your answers.
 {: important}
 
 You're notified about the update to your limits throughout the case process.

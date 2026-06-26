@@ -2,7 +2,7 @@
 
 copyright:
   years: 2022, 2026
-lastupdated: "2026-06-11"
+lastupdated: "2026-06-26"
 
 keywords: VPC File Storage, file for VPC, NSF, replica, file share, replication, schedule
 
@@ -15,7 +15,7 @@ subcollection: vpc
 # Managing replica file shares
 {: #file-storage-manage-replication}
 
-Manage replica file shares by removing the replication relationship to create two independent file shares. The replica file share becomes read/write, and you can update and delete the share.
+Manage replica file shares by removing replication relationships to create independent read/write shares that can be updated and deleted separately.
 {: shortdesc}
 
 You need Administrator or Editor IAM user roles to create and manage file share replicas and the replication relationship. For a list of these roles and actions, see [IAM roles for creating and managing file shares](/docs/iam?topic=iam-iam-service-roles-actions#is.share-roles).

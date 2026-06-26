@@ -2,7 +2,7 @@
 
 copyright:
   years: 2021, 2026
-lastupdated: "2026-06-06"
+lastupdated: "2026-06-26"
 
 keywords: file share, file storage, mount helper, mount target, mount path, secure connection, NFS
 
@@ -15,7 +15,7 @@ subcollection: vpc
 # Mounting file shares in CentOS
 {: #file-storage-mount-centos}
 
-Use these instructions to connect a CentOS Linux&reg;-based {{site.data.keyword.cloud}} Compute Instance to a Network File System (NFS) file share.
+Mount NFS file shares on CentOS Linux&reg; compute instances with optional IPsec encryption in transit (requires dp2 profile, security group access mode).
 {: shortdesc}
 
 ## Before you begin

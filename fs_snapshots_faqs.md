@@ -2,7 +2,7 @@
 
 copyright:
   years: 2024, 2026
-lastupdated: "2026-06-15"
+lastupdated: "2026-06-26"
 
 keywords: File Storage, snapshots, cross-regional copy, backup, restore share
 
@@ -17,7 +17,7 @@ content-type: faq
 # FAQ for {{site.data.keyword.filestorage_vpc_short}} snapshots
 {: #fs-snapshots-faqs}
 
-The following questions often arise about the {{site.data.keyword.filestorage_vpc_short}} snapshots offering. If you have other questions you'd like to see answered here, provide feedback by using the **Open doc issue** or **Edit topic** links at the end of the topic.
+Find answers to common questions about {{site.data.keyword.filestorage_vpc_short}} snapshots, including snapshot types, limits, security, backup policies, and restoration procedures.
 {: shortdesc}
 
 ## What is a snapshot?
