@@ -555,7 +555,7 @@ VPC Metadata on bare metal servers (GA)
    - [API change log](/docs/vpc?topic=vpc-api-change-log#26-august-2025)
    - [API Identity change log](/docs/vpc?topic=vpc-identity-api-change-log#26-august-2025-identity)
    - [API Metadata change log](/docs/vpc?topic=vpc-metadata-api-change-log#26-august-2025-metadata)
-   - [VPC Identity API](/apidocs/vpc-identity)
+   - [VPC Identity API](/docs/apis/vpc-identity)
 
    If you currently use the `/instance_identity/v1/token` method and want to adopt the API release version 2025-08-26 or later, review the changes that are described in the migration guidance: [Updating to the `2025-08-26` version of the VPC Identity API](/docs/vpc?topic=vpc-2025-08-26-migration-metadata-identity#changed-paths-metadata-identity).
 
@@ -875,7 +875,7 @@ Workload update for Hyper Protect Secure Build
 {: release-note}
 
 Storage_generation API property
-:   An informational API property is introduced for Block Storage volume profiles, volumes, and snapshots to help identify which storage generation the volumes and snapshots belong to. When you [create a volume](/apidocs/vpc/latest#create-volume), it inherits the generation value from the volume profile that is selected. When you [create a snapshot](/apidocs/vpc/latest#create-snapshot) of a block volume, the snapshot inherits the `storage_generation` from the `source_volume`. Similarly, when a volume is created from a snapshot, it inherits the `storage_generation` value from the snapshot. For more information, see [Viewing available volume profiles](/docs/vpc?topic=vpc-block-storage-profiles&interface=api#using-api-iops-profiles).
+:   An informational API property is introduced for Block Storage volume profiles, volumes, and snapshots to help identify which storage generation the volumes and snapshots belong to. When you [create a volume](/docs/apis/vpc/latest#create-volume), it inherits the generation value from the volume profile that is selected. When you [create a snapshot](/docs/apis/vpc/latest#create-snapshot) of a block volume, the snapshot inherits the `storage_generation` from the `source_volume`. Similarly, when a volume is created from a snapshot, it inherits the `storage_generation` value from the snapshot. For more information, see [Viewing available volume profiles](/docs/vpc?topic=vpc-block-storage-profiles&interface=api#using-api-iops-profiles).
 
 Mount Helper utility - new region values
 :   After you install the Mount Helper on your virtual server instance, you must specify the region where you want to use the utility to mount file shares. The accepted values for the region are changed to match the VPC region names. The old values are still accepted on existing instances. For more information, see the [IBM Cloud File Share Mount Helper utility](/docs/vpc?topic=vpc-fs-mount-helper-utility).
@@ -1089,7 +1089,7 @@ Very High Memory profiles for SAP-HANA (select availability)
 :   New Very High Memory profiles for SAP-HANA are now available. These profiles are only available in Toronto (`ca-tor`) region. For more information, see [x86-64 Very High Memory profiles](/docs/vpc?topic=vpc-profiles&interface=ui#vhmemory). For more information about the Multizone regions, see [Region and data center locations for resource deployment](/docs/overview?topic=overview-locations).
 
 Updated API properties returned for volumes with the `sdp` profile (beta release)
-:   The volume and volume profile property of `unattached_capacity_update_supported` changed to `adjustable_capacity_states`, and the volume and volume profile property of `unattached_iops_update_supported` changed to `adjustable_iops_states`. These changes applies when [listing](/apidocs/vpc-beta/latest#list-volume-profiles) or [retrieving](/apidocs/vpc-beta/latest#get-volume-profile) a volume profile, [creating](/apidocs/vpc-beta/latest#create-volume) or [updating](/apidocs/vpc-beta/latest#update-volume) a volume, [listing volumes](/apidocs/vpc-beta/latest#list-volumes), and [retrieving a volume](/apidocs/vpc-beta/latest#get-volume). For more information, see [Viewing available volume profiles](/docs/vpc?topic=vpc-block-storage-profiles&interface=api#view-iops-profiles).
+:   The volume and volume profile property of `unattached_capacity_update_supported` changed to `adjustable_capacity_states`, and the volume and volume profile property of `unattached_iops_update_supported` changed to `adjustable_iops_states`. These changes applies when [listing](/docs/apis/vpc-beta/latest#list-volume-profiles) or [retrieving](/docs/apis/vpc-beta/latest#get-volume-profile) a volume profile, [creating](/docs/apis/vpc-beta/latest#create-volume) or [updating](/docs/apis/vpc-beta/latest#update-volume) a volume, [listing volumes](/docs/apis/vpc-beta/latest#list-volumes), and [retrieving a volume](/docs/apis/vpc-beta/latest#get-volume). For more information, see [Viewing available volume profiles](/docs/vpc?topic=vpc-block-storage-profiles&interface=api#view-iops-profiles).
 
 ### 11 September 2024
 {: #vpc-sep1124}
@@ -1183,7 +1183,7 @@ Reinitialization on Bare Metal Servers for VPC (GA)
 {: release-note}
 
 Parameterized redirect for application load balancers
-:  You can now redirect traffic on Uniform Resource Identifier (URI), as well as other customizable parameters, when creating [load balancer listener policies](/apidocs/vpc/latest#create-load-balancer-listener-policy) using the updated `Redirect to URL` action. You can redirect traffic to a dynamic URL through the application load balancer. You can also enter a static URL or retain the values from the incoming traffic request by using the default values of the URL parameters. This includes the protocol, port, host, path, and query, which, as a combination, makes the URL dynamic. For more information, refer to [Layer 7 load balancing](/docs/vpc?topic=vpc-layer-7-load-balancing#layer-7-policy).
+:  You can now redirect traffic on Uniform Resource Identifier (URI), as well as other customizable parameters, when creating [load balancer listener policies](/docs/apis/vpc/latest#create-load-balancer-listener-policy) using the updated `Redirect to URL` action. You can redirect traffic to a dynamic URL through the application load balancer. You can also enter a static URL or retain the values from the incoming traffic request by using the default values of the URL parameters. This includes the protocol, port, host, path, and query, which, as a combination, makes the URL dynamic. For more information, refer to [Layer 7 load balancing](/docs/vpc?topic=vpc-layer-7-load-balancing#layer-7-policy).
 
 IBM Hyper Protect Container Runtime image `ibm-hyper-protect-container-runtime-1-0-s390x-17` updates
 :   For the IBM Hyper Protect Container Runtime image version `ibm-hyper-protect-container-runtime-1-0-s390x-17`, new certificates are available.
@@ -1826,7 +1826,7 @@ VPC Status History
 {: release-note}
 
 Metadata Instance identity certificates
-:   You can now use the instance identity access token and a Certificate Signing Request (CSR) to [create](/apidocs/vpc-metadata-beta/latest#create-certificate) an instance identity certificate with the Metadata API. For more information, see [Generating an instance identity certificate by using an instance identity access token](/docs/vpc?topic=vpc-imd-identity-operations&interface=api#imd-acquire-certificate). Instance identity certificates can be used when the traffic between an authorized client and the mounted file share is [encrypted in transit](/docs/vpc?topic=vpc-file-storage-vpc-eit).
+:   You can now use the instance identity access token and a Certificate Signing Request (CSR) to [create](/docs/apis/vpc-metadata-beta/latest#create-certificate) an instance identity certificate with the Metadata API. For more information, see [Generating an instance identity certificate by using an instance identity access token](/docs/vpc?topic=vpc-imd-identity-operations&interface=api#imd-acquire-certificate). Instance identity certificates can be used when the traffic between an authorized client and the mounted file share is [encrypted in transit](/docs/vpc?topic=vpc-file-storage-vpc-eit).
 
 ### 08 August 2023
 {: #vpc-august0823}
@@ -1957,7 +1957,7 @@ UI Enhancement to the List view
 {: release-note}
 
 {{site.data.keyword.filestorage_vpc_short}} file share activity tracking event name changes (beta release)
-:    For users with accounts that have access to file shares, when making API requests using a `version` query parameter of `2023-05-30` or later, the shares `targets` property was changed to `mount_targets`. This change affects file share activity tracking events. Events generated when [creating](/apidocs/vpc-beta/latest#create-share-mount-target), [listing](/apidocs/vpc-beta/latest#list-share-mount-targets), [retrieving](/apidocs/vpc-beta/latest#get-share-mount-target), [deleting](/apidocs/vpc-beta/latest#delete-share-mount-target), and [updating](/apidocs/vpc-beta/latest#update-share-mount-target) mount targets for a file share are now `is.share.mount-target.create`, `is.share.mount-target.list`,`is.share.mount-target.read`, `is.share.mount-target.delete`, and `is.share.mount-target.update`. Events for `is.share.target.create`, `is.share.target.list`, `is.share.target.read`, `is.share.target.delete`, and `is.share.target.update` are deprecated and will be removed in a future API release per the VPC beta API [versioning policy](/apidocs/vpc-beta#api-versioning-beta).
+:    For users with accounts that have access to file shares, when making API requests using a `version` query parameter of `2023-05-30` or later, the shares `targets` property was changed to `mount_targets`. This change affects file share activity tracking events. Events generated when [creating](/docs/apis/vpc-beta/latest#create-share-mount-target), [listing](/docs/apis/vpc-beta/latest#list-share-mount-targets), [retrieving](/docs/apis/vpc-beta/latest#get-share-mount-target), [deleting](/docs/apis/vpc-beta/latest#delete-share-mount-target), and [updating](/docs/apis/vpc-beta/latest#update-share-mount-target) mount targets for a file share are now `is.share.mount-target.create`, `is.share.mount-target.list`,`is.share.mount-target.read`, `is.share.mount-target.delete`, and `is.share.mount-target.update`. Events for `is.share.target.create`, `is.share.target.list`, `is.share.target.read`, `is.share.target.delete`, and `is.share.target.update` are deprecated and will be removed in a future API release per the VPC beta API [versioning policy](/docs/apis/vpc-beta#api-versioning-beta).
 
 ### 19 May 2023
 {: #vpc-may1923}
@@ -2080,7 +2080,7 @@ Designating VPC route priority
    {: note}
 
 Modifying the next hop for VPC routes
-:   You can now [update](/apidocs/vpc/latest#update-vpc-routing-table-route) the next-hop of a VPC route. For more information, see [Creating a route](/docs/vpc?topic=vpc-create-vpc-route).
+:   You can now [update](/docs/apis/vpc/latest#update-vpc-routing-table-route) the next-hop of a VPC route. For more information, see [Creating a route](/docs/vpc?topic=vpc-create-vpc-route).
 
 ### 20 March 2023
 {: #vpc-mar2023}

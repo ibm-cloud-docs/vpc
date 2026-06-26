@@ -1,7 +1,7 @@
 ---
 copyright:
-  years: 2019, 2025
-lastupdated: "2025-03-18"
+  years: 2019, 2026
+lastupdated: "2026-06-26"
 
 keywords: resource, storage, connection, COS, object, endpoints, cross-region, regional, data center
 
@@ -28,7 +28,7 @@ Information that is stored with {{site.data.keyword.cloud_notm}} Object Storage 
 To send a REST API request, you must set a target endpoint or a URL, and each {{site.data.keyword.cos_full_notm}} location must have its own set of URLs. Direct endpoints provide your servers with high-speed, direct connections to {{site.data.keyword.cloud_notm}} services, which incur no added bandwidth costs. With the {{site.data.keyword.cos_full_notm}} direct endpoint, a VPC can connect to an {{site.data.keyword.cos_short}} bucket located anywhere in the world. For more information about resiliency and direct endpoints for {{site.data.keyword.cos_full_notm}}, see [Endpoints and storage locations](/docs/cloud-object-storage?topic=cloud-object-storage-endpoints).
 
 * A VPC client also has access to the {{site.data.keyword.cos_full_notm}} bucket over the public endpoint.
-* A VPC client has access to the [{{site.data.keyword.cos_full_notm}} configuration API](/apidocs/cos/cos-configuration) over the public endpoint and direct endpoint. You can use the {{site.data.keyword.cos_full_notm}} configuration API to configure some {{site.data.keyword.cos_full_notm}} features on buckets, and to view bucket metadata.
+* A VPC client has access to the [{{site.data.keyword.cos_full_notm}} configuration API](/docs/apis/cos/cos-configuration) over the public endpoint and direct endpoint. You can use the {{site.data.keyword.cos_full_notm}} configuration API to configure some {{site.data.keyword.cos_full_notm}} features on buckets, and to view bucket metadata.
 * A VPC client can access an {{site.data.keyword.cos_full_notm}} bucket when [context-based restrictions are in place](/docs/cloud-object-storage?topic=cloud-object-storage-setting-a-firewall) by setting the network zone to the VPC ID. VPC clients can't access buckets that are restricted to using a traditional bucket firewall.
 
 ## How to connect to {{site.data.keyword.cos_full_notm}} from a VPC

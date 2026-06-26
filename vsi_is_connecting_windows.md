@@ -2,7 +2,7 @@
 
 copyright:
   years: 2018, 2026
-lastupdated: "2026-02-20"
+lastupdated: "2026-06-26"
 
 keywords: connecting, windows
 
@@ -84,7 +84,7 @@ After you create your Windows instance and complete the prerequisites, complete 
     ```
     {: pre}
 
-    You can also use the API to get the encrypted password, which returns the decoded and decrypted password. For more information, see [Retrieve initialization configuration for an instance](/apidocs/vpc/latest#get-instance-initialization).
+    You can also use the API to get the encrypted password, which returns the decoded and decrypted password. For more information, see [Retrieve initialization configuration for an instance](/docs/apis/vpc/latest#get-instance-initialization).
     {: tip}
 
 3. After you obtain your instance password, you can optionally associate a floating IP address to your Windows instance so you can connect to it from an internet location. Run the following command to associate a floating IP address to your instance, where `NIC` is the ID or Name of the target network interface (for example, `eth0`).

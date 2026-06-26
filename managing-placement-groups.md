@@ -1,7 +1,7 @@
 ---
 copyright:
   years: 2021, 2026
-lastupdated: "2026-06-11"
+lastupdated: "2026-06-26"
 
 keywords: virtual private cloud, private cloud network, placement group, placement group strategy, host spread, power spread, generation 2, gen 2
 
@@ -127,7 +127,7 @@ curl -X POST "$vpc_api_endpoint/v1/placement_groups?version=2021-04-20&generatio
 ```
 {: codeblock}
 
-For more information about the `host_spread` and `power_spread` strategy variables, see [Create a placement group](/apidocs/vpc/latest#create-placement-group) in the Virtual Private Cloud API documentation.
+For more information about the `host_spread` and `power_spread` strategy variables, see [Create a placement group](/docs/apis/vpc/latest#create-placement-group) in the Virtual Private Cloud API documentation.
 
 ## Creating the placement group with Terraform
 {: #creating-placement-group-terraform}
@@ -154,7 +154,7 @@ resource "ibm_is_placement_group" "is_placement_group" {
 ```
 {: codeblock}
 
-For more information about the `host_spread` and `power_spread` strategy variables, see [Create a placement group](/apidocs/vpc/latest#create-placement-group) in the Virtual Private Cloud API documentation.
+For more information about the `host_spread` and `power_spread` strategy variables, see [Create a placement group](/docs/apis/vpc/latest#create-placement-group) in the Virtual Private Cloud API documentation.
 
 
 ## Changing the placement group name in the console

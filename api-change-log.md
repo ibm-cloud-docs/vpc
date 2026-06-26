@@ -2,7 +2,7 @@
 
 copyright:
   years: 2019, 2026
-lastupdated: "2026-06-23"
+lastupdated: "2026-06-26"
 
 keywords: api, change log, new features, restrictions, migrations
 
@@ -15,7 +15,7 @@ subcollection: vpc
 # VPC API change log
 {: #api-change-log}
 
-Read the VPC API change log to learn about updates and improvements to the {{site.data.keyword.vpc_full}} (VPC) [API](/apidocs/vpc). Change log announcements are ordered by the date that they were released. Changes to existing API versions are designed to be compatible with existing client applications.
+Read the VPC API change log to learn about updates and improvements to the {{site.data.keyword.vpc_full}} (VPC) [API](/docs/apis/vpc). Change log announcements are ordered by the date that they were released. Changes to existing API versions are designed to be compatible with existing client applications.
 {: shortdesc}
 
 By design, new features with backward-incompatible changes apply only to version dates on and after the feature's release. Changes that apply to older versions of the API are designed to maintain compatibility with existing applications and code. If backward-incompatible changes require non-trivial client code changes to use an API version, the API change log might provide links to instructions, tips, or best practices for updating client code.
@@ -37,11 +37,11 @@ SDK changes are based on API changes. For more information about the latest chan
 
 ## Upcoming changes
 {: #upcoming-changes}
-**`InstanceProfile` response change.** In an upcoming release, when [retrieving](/apidocs/vpc/latest#get-instance-profile) or [listing](/apidocs/vpc/latest#list-instance-profiles) instance profiles, the `vcpu_count` enumeration will transition from a fixed value to an enum-based value. The `supported_vcpu_count` property will be removed from the response. This behavior change will occur only for an [API version date](/apidocs/vpc/latest#api-versioning) after its release.
+**`InstanceProfile` response change.** In an upcoming release, when [retrieving](/docs/apis/vpc/latest#get-instance-profile) or [listing](/docs/apis/vpc/latest#list-instance-profiles) instance profiles, the `vcpu_count` enumeration will transition from a fixed value to an enum-based value. The `supported_vcpu_count` property will be removed from the response. This behavior change will occur only for an [API version date](/docs/apis/vpc/latest#api-versioning) after its release.
 
-**`InstanceProfile` response change.** In an upcoming release, when [retrieving](/apidocs/vpc/latest#get-instance-profile) or [listing](/apidocs/vpc/latest#list-instance-profiles) instance profiles, the response will include a `zones` property. This property indicates the zones that support the instance profile. When [creating an instance](/apidocs/vpc/latest#create-instance), the request will fail if the profile is not supported in the specified zone.
+**`InstanceProfile` response change.** In an upcoming release, when [retrieving](/docs/apis/vpc/latest#get-instance-profile) or [listing](/docs/apis/vpc/latest#list-instance-profiles) instance profiles, the response will include a `zones` property. This property indicates the zones that support the instance profile. When [creating an instance](/docs/apis/vpc/latest#create-instance), the request will fail if the profile is not supported in the specified zone.
 
-**Deprecated `classic_access` for VPCs.** When [creating a VPC](/apidocs/vpc/latest#create-vpc), the `classic_access` property is now deprecated. Instead, use a [Transit Gateway](/docs/transit-gateway) to connect VPCs to Classic Infrastructure.
+**Deprecated `classic_access` for VPCs.** When [creating a VPC](/docs/apis/vpc/latest#create-vpc), the `classic_access` property is now deprecated. Instead, use a [Transit Gateway](/docs/transit-gateway) to connect VPCs to Classic Infrastructure.
 
 In an upcoming release, unless your account has been granted approval, you will no longer be able to create a new VPC with `classic_access` set to `true`. To prepare for this change, update your workflows to use Transit Gateways instead of the `classic_access` property.
 
@@ -63,31 +63,31 @@ The new response code will be rolled out gradually. Each phase of the rollout wi
 
 **mTLS support for application load balancers.** You can now verify client identity for incoming data traffic requests to `application` family load balancers.
 
-When [creating](/apidocs/vpc/latest#create-load-balancer-listener) or [updating](/apidocs/vpc/latest#update-load-balancer-listener) a load balancer listener, you can now specify a `client_authentication.certificate_authority` CRN from Secrets Manager to enable mTLS for the listener. For more information, see [Configuring client authentication at the listener level](/docs/vpc?topic=vpc-alb-mtls-listener&interface=api). You can also set a certificate revocation list for the listener by specifying a [PEM-encoded](https://www.rfc-editor.org/rfc/rfc7468) `client_authentication.certificate_revocation_list`.
+When [creating](/docs/apis/vpc/latest#create-load-balancer-listener) or [updating](/docs/apis/vpc/latest#update-load-balancer-listener) a load balancer listener, you can now specify a `client_authentication.certificate_authority` CRN from Secrets Manager to enable mTLS for the listener. For more information, see [Configuring client authentication at the listener level](/docs/vpc?topic=vpc-alb-mtls-listener&interface=api). You can also set a certificate revocation list for the listener by specifying a [PEM-encoded](https://www.rfc-editor.org/rfc/rfc7468) `client_authentication.certificate_revocation_list`.
 
-When [creating](/apidocs/vpc/latest#create-load-balancer-pool) or [updating](/apidocs/vpc/latest#update-load-balancer-pool) a load balancer pool, you can now specify a `client_authentication.certificate_instance` CRN from Secrets Manager to enable mTLS for the pool. Additionally, you can enable TLS server certificate validation by setting `server_authentication.verify_certificate` to `true` and optionally specify a `server_authentication.certificate_authority` CRN from Secrets Manager for backend certificate validation. For more information, see [Configuring authentication at the pool level](/docs/vpc?topic=vpc-alb-mtls-pool&interface=api).
+When [creating](/docs/apis/vpc/latest#create-load-balancer-pool) or [updating](/docs/apis/vpc/latest#update-load-balancer-pool) a load balancer pool, you can now specify a `client_authentication.certificate_instance` CRN from Secrets Manager to enable mTLS for the pool. Additionally, you can enable TLS server certificate validation by setting `server_authentication.verify_certificate` to `true` and optionally specify a `server_authentication.certificate_authority` CRN from Secrets Manager for backend certificate validation. For more information, see [Configuring authentication at the pool level](/docs/vpc?topic=vpc-alb-mtls-pool&interface=api).
 
-These mTLS configurations for listeners and pools can also be specified when [creating a load balancer](/apidocs/vpc/latest#create-load-balancer).
+These mTLS configurations for listeners and pools can also be specified when [creating a load balancer](/docs/apis/vpc/latest#create-load-balancer).
 
 **Instance third-party license and entitlement service.** You can now provision virtual server instances from catalog images with vendor-managed software licensing. This feature enables dynamic license acquisition and management for third-party software running on instances, allowing vendors to control and track license usage on a per-instance basis.
 
-When [creating an instance](/apidocs/vpc/latest#create-instance) from a catalog image with an associated software plan configured for vendor licensing, the system automatically acquires a license from the vendor's license server. If license acquisition fails, the instance's `lifecycle_state` will transition to `failed` with a `lifecycle_reasons` value indicating a license-related error.
+When [creating an instance](/docs/apis/vpc/latest#create-instance) from a catalog image with an associated software plan configured for vendor licensing, the system automatically acquires a license from the vendor's license server. If license acquisition fails, the instance's `lifecycle_state` will transition to `failed` with a `lifecycle_reasons` value indicating a license-related error.
 
-A new child resource collection, `software_attachments`, has been added to instances. This resource represents the software associated with a catalog-defined software plan and includes license entitlement information when applicable. You can [retrieve](/apidocs/vpc/latest#get-instance-software-attachment) or [list](/apidocs/vpc/latest#list-instance-software-attachments) software attachments for an instance. The `software_attachments` property is also included when [retrieving](/apidocs/vpc/latest#get-instance) or [listing](/apidocs/vpc/latest#list-instances) instances. You can also [update a software attachment](/apidocs/vpc/latest#update-instance-software-attachment) to change its `name`.
+A new child resource collection, `software_attachments`, has been added to instances. This resource represents the software associated with a catalog-defined software plan and includes license entitlement information when applicable. You can [retrieve](/docs/apis/vpc/latest#get-instance-software-attachment) or [list](/docs/apis/vpc/latest#list-instance-software-attachments) software attachments for an instance. The `software_attachments` property is also included when [retrieving](/docs/apis/vpc/latest#get-instance) or [listing](/docs/apis/vpc/latest#list-instances) instances. You can also [update a software attachment](/docs/apis/vpc/latest#update-instance-software-attachment) to change its `name`.
 
 Software attachments include a `lifecycle_state` property that progresses through `pending`, `stable`, `failed`, or `deleting` states, reflecting the status of software instance registration and license acquisition, if applicable. When the `lifecycle_state` is `stable`, the software instance and any associated licenses are successfully registered and ready for use.
 
-**Usage constraint additions for images.** When [creating](/apidocs/vpc/latest#create-image) or [updating](/apidocs/vpc/latest#update-image) images, you can now specify usage constraints through the `allowed_use.instance` property to require specific vCPU counts or ranges, metadata service enablement or disablement, or metadata service protocol (`http` or `https`) when enabled. When [creating an instance](/apidocs/vpc/latest#create-instance) from an image with usage constraints, the request will fail if the specified configuration does not meet the image's requirements. Usage constraints also prevent instance resize operations that would violate the constraints.
+**Usage constraint additions for images.** When [creating](/docs/apis/vpc/latest#create-image) or [updating](/docs/apis/vpc/latest#update-image) images, you can now specify usage constraints through the `allowed_use.instance` property to require specific vCPU counts or ranges, metadata service enablement or disablement, or metadata service protocol (`http` or `https`) when enabled. When [creating an instance](/docs/apis/vpc/latest#create-instance) from an image with usage constraints, the request will fail if the specified configuration does not meet the image's requirements. Usage constraints also prevent instance resize operations that would violate the constraints.
 
-Similar usage constraints are available for [volumes](/apidocs/vpc/latest#create-volume) and [snapshots](/apidocs/vpc/latest#create-snapshot) through their respective `allowed_use.instance` properties.
+Similar usage constraints are available for [volumes](/docs/apis/vpc/latest#create-volume) and [snapshots](/docs/apis/vpc/latest#create-snapshot) through their respective `allowed_use.instance` properties.
 
 For more information, see [Managing virtual server instances](/docs/vpc?topic=vpc-managing-virtual-server-instances&interface=api).
 
-**AMD high frequency Turin VSI profiles.** When [creating](/apidocs/vpc/latest#create-instance) or [updating](/apidocs/vpc/latest#update-instance) an instance, or when [creating](/apidocs/vpc/latest#create-instance-template) or [updating](/apidocs/vpc/latest#update-instance-template) an instance template, you can now specify the `threads_per_core` property. 
+**AMD high frequency Turin VSI profiles.** When [creating](/docs/apis/vpc/latest#create-instance) or [updating](/docs/apis/vpc/latest#update-instance) an instance, or when [creating](/docs/apis/vpc/latest#create-instance-template) or [updating](/docs/apis/vpc/latest#update-instance-template) an instance template, you can now specify the `threads_per_core` property. 
 
 For instances using [High Frequency gen4 profiles](/docs/vpc?topic=vpc-high-frequency-profile-family) you may specify `1` or `2`. If not specified, the value defaults to `2` and is the only allowed value for instances using other profiles.
 
-When [retrieving](/apidocs/vpc/latest#get-instance-profile) or [listing](/apidocs/vpc/latest#list-instance-profiles) instance profiles, the response includes the following changes: 
+When [retrieving](/docs/apis/vpc/latest#get-instance-profile) or [listing](/docs/apis/vpc/latest#list-instance-profiles) instance profiles, the response includes the following changes: 
 	
 - New `threads_per_core` property with values of `[1]`, `[2]`, or `[1, 2]`
 - New `supported_vcpu_count` property lists supported vCPU count values for the profile
@@ -100,11 +100,11 @@ For more information, see [High Frequency profiles](/docs/vpc?topic=vpc-high-fre
 ### For all version dates
 {: #16-june-2026-all-version-dates}
 
-**Advanced health checks, FQDN targets, and `starts_with` policy rules for application load balancers.** You can now configure advanced health checks for `application` family load balancers. When [creating a load balancer](/apidocs/vpc/latest#create-load-balancer), or when [creating](/apidocs/vpc/latest#create-load-balancer-pool) or [updating](/apidocs/vpc/latest#update-load-balancer-pool) a load balancer pool, you can specify advanced health check properties such as `health_monitor.request` and `health_monitor.response`, if supported by the load balancer profile. For more information, see steps 8 and 9 in [Creating an application load balancer](/docs/vpc?topic=vpc-load-balancers&interface=ui).
+**Advanced health checks, FQDN targets, and `starts_with` policy rules for application load balancers.** You can now configure advanced health checks for `application` family load balancers. When [creating a load balancer](/docs/apis/vpc/latest#create-load-balancer), or when [creating](/docs/apis/vpc/latest#create-load-balancer-pool) or [updating](/docs/apis/vpc/latest#update-load-balancer-pool) a load balancer pool, you can specify advanced health check properties such as `health_monitor.request` and `health_monitor.response`, if supported by the load balancer profile. For more information, see steps 8 and 9 in [Creating an application load balancer](/docs/vpc?topic=vpc-load-balancers&interface=ui).
 
-You can also now specify the FQDN for a domain as the `target` when [creating a load balancer pool member](/apidocs/vpc/latest#create-load-balancer-pool-member), if supported by the load balancer profile.
+You can also now specify the FQDN for a domain as the `target` when [creating a load balancer pool member](/docs/apis/vpc/latest#create-load-balancer-pool-member), if supported by the load balancer profile.
 
-In addition, when [creating a load balancer listener policy rule](/apidocs/vpc/latest#create-load-balancer-listener-policy-rule), you can now specify `starts_with` as the rule condition to redirect traffic.
+In addition, when [creating a load balancer listener policy rule](/docs/apis/vpc/latest#create-load-balancer-listener-policy-rule), you can now specify `starts_with` as the rule condition to redirect traffic.
 
 ## 9 June 2026
 {: #9-june-2026}
@@ -112,7 +112,7 @@ In addition, when [creating a load balancer listener policy rule](/apidocs/vpc/l
 ### For all version dates
 {: #9-june-2026-all-version-dates}
 
-**Snapshot consistency group support for second generation storage.** You can now [create a snapshot consistency group](/apidocs/vpc/latest#create-snapshot-consistency-group) for block storage volumes with a `storage_generation` value of `2`. This includes both on‑demand and backup policy driven snapshot consistency groups. Previously, this capability was available only for volumes with a `storage_generation` value of `1`. For more information, see [Managing block storage multi-volume snapshots](/docs/vpc?topic=vpc-snapshots-vpc-manage-consistency-groups&interface=api).
+**Snapshot consistency group support for second generation storage.** You can now [create a snapshot consistency group](/docs/apis/vpc/latest#create-snapshot-consistency-group) for block storage volumes with a `storage_generation` value of `2`. This includes both on‑demand and backup policy driven snapshot consistency groups. Previously, this capability was available only for volumes with a `storage_generation` value of `1`. For more information, see [Managing block storage multi-volume snapshots](/docs/vpc?topic=vpc-snapshots-vpc-manage-consistency-groups&interface=api).
 
 ## 2 June 2026
 {: #2-june-2026}
@@ -122,12 +122,12 @@ In addition, when [creating a load balancer listener policy rule](/apidocs/vpc/l
 
 **Multiple algorithms for IKE and IPsec policies.** IKE and IPsec policies now support specifying multiple algorithms per category using array-based properties.
 
-* **IKE policies:** Array-based properties `authentication_algorithms`, `dh_groups`, and `encryption_algorithms` are available. Existing singular properties (`authentication_algorithm`, `dh_group`, `encryption_algorithm`) are deprecated but remain supported. When [creating](/apidocs/vpc/latest#create-ike-policy) or [updating](/apidocs/vpc/latest#update-ike-policy) an IKE policy, you can specify either singular or array-based properties. PATCH operations allow mixing property types across categories. Responses for [retrieving](/apidocs/vpc/latest#get-ike-policy) or [listing](/apidocs/vpc/latest#list-ike-policies) include both property types using sentinel values (`"multiple"` for strings, `65535` for `dh_group`) if multiple algorithms are configured.
+* **IKE policies:** Array-based properties `authentication_algorithms`, `dh_groups`, and `encryption_algorithms` are available. Existing singular properties (`authentication_algorithm`, `dh_group`, `encryption_algorithm`) are deprecated but remain supported. When [creating](/docs/apis/vpc/latest#create-ike-policy) or [updating](/docs/apis/vpc/latest#update-ike-policy) an IKE policy, you can specify either singular or array-based properties. PATCH operations allow mixing property types across categories. Responses for [retrieving](/docs/apis/vpc/latest#get-ike-policy) or [listing](/docs/apis/vpc/latest#list-ike-policies) include both property types using sentinel values (`"multiple"` for strings, `65535` for `dh_group`) if multiple algorithms are configured.
 
    Multiple algorithms are not supported for IKEv1 policies. IKEv1 policies are limited to a single algorithm per category. Array-based properties must contain only a single element per category. 
    {: note}
 
-* **IPsec policies:** Array-based properties `authentication_algorithms`, `encryption_algorithms`, and `pfs_groups` are available. Existing singular properties (`authentication_algorithm`, `encryption_algorithm`, `pfs`) are deprecated but remain supported. When [creating](/apidocs/vpc/latest#create-ipsec-policy) or [updating](/apidocs/vpc/latest#update-ipsec-policy) an IPsec policy, you can specify either singular or array-based properties. PATCH operations allow mixing property types across categories. Responses for [retrieving](/apidocs/vpc/latest#get-ipsec-policy) or [listing](/apidocs/vpc/latest#list-ipsec-policies) IKE policies include both property types.
+* **IPsec policies:** Array-based properties `authentication_algorithms`, `encryption_algorithms`, and `pfs_groups` are available. Existing singular properties (`authentication_algorithm`, `encryption_algorithm`, `pfs`) are deprecated but remain supported. When [creating](/docs/apis/vpc/latest#create-ipsec-policy) or [updating](/docs/apis/vpc/latest#update-ipsec-policy) an IPsec policy, you can specify either singular or array-based properties. PATCH operations allow mixing property types across categories. Responses for [retrieving](/docs/apis/vpc/latest#get-ipsec-policy) or [listing](/docs/apis/vpc/latest#list-ipsec-policies) IKE policies include both property types.
 
 Singular properties automatically update the corresponding array properties, and the reverse. This behavior differs from standard [JSON Merge Patch (RFC 7396)](https://datatracker.ietf.org/doc/html/rfc7396){: external} semantics where properties are updated independently.
 {: note}
@@ -140,9 +140,9 @@ For more information, see [Updating to multiple IKE and IPsec algorithms](/docs/
 ### For all version dates
 {: #19-may-2026-all-version-dates}
 
-**Boot volumes less than 100 GB.** When [creating an instance](/apidocs/vpc/latest#create-instance) the `capacity` value for a boot volume can now be smaller than the default 100 GB when using IBM stock images, provided the capacity meets the image's `minimum_provisioned_size`. When you do not specify a boot volume capacity, the default behavior is preserved at 100 GB for compatibility with earlier version dates. For custom images, if you do not specify a boot volume capacity, the value will be set to image's `minimum_provisioned_size`. When you explicitly specify a capacity for stock or custom images, you can choose any size down to the image's actual size. For more information, see [Creating virtual server instances](/docs/vpc?topic=vpc-creating-virtual-servers&interface=api).
+**Boot volumes less than 100 GB.** When [creating an instance](/docs/apis/vpc/latest#create-instance) the `capacity` value for a boot volume can now be smaller than the default 100 GB when using IBM stock images, provided the capacity meets the image's `minimum_provisioned_size`. When you do not specify a boot volume capacity, the default behavior is preserved at 100 GB for compatibility with earlier version dates. For custom images, if you do not specify a boot volume capacity, the value will be set to image's `minimum_provisioned_size`. When you explicitly specify a capacity for stock or custom images, you can choose any size down to the image's actual size. For more information, see [Creating virtual server instances](/docs/vpc?topic=vpc-creating-virtual-servers&interface=api).
 
-**Boot volume capacity increase for Gen 2 `sdp` volume profiles.** When [creating an instance](/apidocs/vpc/latest#create-instance), the `capacity` value for a boot volume can be increased from 250 GB to 32,000 GB for Gen 2 `sdp` volume profile. Creating an image from a boot volume by using a Gen 1 volume profile remains limited to a maximum of 250 GB. For more information, see [Creating virtual server instances](/docs/vpc?topic=vpc-creating-virtual-servers&interface=api).
+**Boot volume capacity increase for Gen 2 `sdp` volume profiles.** When [creating an instance](/docs/apis/vpc/latest#create-instance), the `capacity` value for a boot volume can be increased from 250 GB to 32,000 GB for Gen 2 `sdp` volume profile. Creating an image from a boot volume by using a Gen 1 volume profile remains limited to a maximum of 250 GB. For more information, see [Creating virtual server instances](/docs/vpc?topic=vpc-creating-virtual-servers&interface=api).
 
 ## 28 April 2026
 {: #28-april-2026}
@@ -150,7 +150,7 @@ For more information, see [Updating to multiple IKE and IPsec algorithms](/docs/
 ### For all version dates
 {: #28-april-2026-all-version-dates}
 
-**Multiple passive pools for application load balancers.** You can now configure more than two pools in an active-passive setup for `application` family load balancers. When [creating](/apidocs/vpc/latest#create-load-balancer-pool) or [updating](/apidocs/vpc/latest#update-load-balancer-pool) a load balancer pool, you can specify a pool for the `failsafe_policy.target`. You can also define a `forward` action in `failsafe_policy.action` that references a pool already configured as a `failsafe_policy.target` in another pool. Chaining pools this way allows you to configure multiple passive pools for a single listener. For more information, see [Working with application load balancer pools](/docs/vpc?topic=vpc-alb-pools&interface=ui).
+**Multiple passive pools for application load balancers.** You can now configure more than two pools in an active-passive setup for `application` family load balancers. When [creating](/docs/apis/vpc/latest#create-load-balancer-pool) or [updating](/docs/apis/vpc/latest#update-load-balancer-pool) a load balancer pool, you can specify a pool for the `failsafe_policy.target`. You can also define a `forward` action in `failsafe_policy.action` that references a pool already configured as a `failsafe_policy.target` in another pool. Chaining pools this way allows you to configure multiple passive pools for a single listener. For more information, see [Working with application load balancer pools](/docs/vpc?topic=vpc-alb-pools&interface=ui).
 
 ## 14 April 2026
 {: #14-april-2026}
@@ -158,7 +158,7 @@ For more information, see [Updating to multiple IKE and IPsec algorithms](/docs/
 ### For all version dates
 {: #14-april-2026-all-version-dates}
 
-**Image partial availability.** When [retrieving](/apidocs/vpc/latest#get-image) or [listing](/apidocs/vpc/latest#list-images) images, the `zones` property in the response now contains only the zones in which the image is available. The `partially_available` value for `status` indicates that the image is not yet available in all zones. For more information, see [Custom Image Lifecycle](/docs/vpc?topic=vpc-planning-custom-images#custom-image-lifecycle).
+**Image partial availability.** When [retrieving](/docs/apis/vpc/latest#get-image) or [listing](/docs/apis/vpc/latest#list-images) images, the `zones` property in the response now contains only the zones in which the image is available. The `partially_available` value for `status` indicates that the image is not yet available in all zones. For more information, see [Custom Image Lifecycle](/docs/vpc?topic=vpc-planning-custom-images#custom-image-lifecycle).
 
 ## 7 April 2026
 {: #7-april-2026}
@@ -166,17 +166,17 @@ For more information, see [Updating to multiple IKE and IPsec algorithms](/docs/
 ### For all version dates
 {: #7-april-2026-all-version-dates}
 
-**Instance profiles.** When [retrieving](/apidocs/vpc/latest#get-instance-profile) or [listing](/apidocs/vpc/latest#list-instance-profiles) instance profiles, the new `profiles.zones` property indicates the zones within the region that contain the hardware to support the instance profile. The `zones` property doesn't indicate if there is available capacity to create an instance with an instance profile.
+**Instance profiles.** When [retrieving](/docs/apis/vpc/latest#get-instance-profile) or [listing](/docs/apis/vpc/latest#list-instance-profiles) instance profiles, the new `profiles.zones` property indicates the zones within the region that contain the hardware to support the instance profile. The `zones` property doesn't indicate if there is available capacity to create an instance with an instance profile.
 
 ### For version `2026-04-07` or later
 {: #version-2026-04-07}
 
-**Instance profiles.** When using a `version` query parameter of `2026-04-07` or later, the [list instance profiles](/apidocs/vpc/latest#list-instance-profiles) method returns a paginated collection.  Update your existing client applications to avoid regressions in client functionality.
+**Instance profiles.** When using a `version` query parameter of `2026-04-07` or later, the [list instance profiles](/docs/apis/vpc/latest#list-instance-profiles) method returns a paginated collection.  Update your existing client applications to avoid regressions in client functionality.
 
 ### For version `2026-04-06` or earlier
 {: #version-2026-04-06}
 
-**Instance profiles.** When using a `version` query parameter of `2026-04-06` or earlier, an unpaginated collection continues to be returned in the [list instance profiles](/apidocs/vpc/latest#list-instance-profiles) response.
+**Instance profiles.** When using a `version` query parameter of `2026-04-06` or earlier, an unpaginated collection continues to be returned in the [list instance profiles](/docs/apis/vpc/latest#list-instance-profiles) response.
 
 ## 24 March 2026
 {: #24-march-2026}
@@ -184,7 +184,7 @@ For more information, see [Updating to multiple IKE and IPsec algorithms](/docs/
 ### For all version dates
 {: #24-march-2026-all-version-dates}
 
-**Block Storage volume migration.** You can now migrate a volume between `storage_generation` 1 and `storage_generation` 2 by specifying the value `migrate` for the `job_type` property when [creating a volume job](/apidocs/vpc/latest#create-volume-job). The `migrate` volume job accepts a volume profile from the target storage generation, along with valid IOPS and bandwidth values. If the IOPS and bandwidth values are not specified, the volume is migrated to the default IOPS and bandwidth values of the target profile.  For more information, see [Migrating block storage volume](/docs/vpc?topic=vpc-block-storage-vpc-volume-migration&interface=api).
+**Block Storage volume migration.** You can now migrate a volume between `storage_generation` 1 and `storage_generation` 2 by specifying the value `migrate` for the `job_type` property when [creating a volume job](/docs/apis/vpc/latest#create-volume-job). The `migrate` volume job accepts a volume profile from the target storage generation, along with valid IOPS and bandwidth values. If the IOPS and bandwidth values are not specified, the volume is migrated to the default IOPS and bandwidth values of the target profile.  For more information, see [Migrating block storage volume](/docs/vpc?topic=vpc-block-storage-vpc-volume-migration&interface=api).
 
 ## 17 February 2026
 {: #17-february-2026}
@@ -192,7 +192,7 @@ For more information, see [Updating to multiple IKE and IPsec algorithms](/docs/
 ### For all version dates
 {: #17-february-2026-all-version-dates}
 
-**Spot instances.** You can now use [Spot instance](/docs/vpc?topic=vpc-spot-instances-virtual-servers) by setting the `availability.class` property to `spot` when creating an [instance](/apidocs/vpc/latest#create-instance) or [instance template](/apidocs/vpc/latest#create-instance-template). When creating an instance or instance template you can now set the `availability_policy.preemption` to `stop` or `delete` to specify the behavior you want upon instance preemption. You can [update an instance](/apidocs/vpc/latest#update-instance) to set or change the `availability.class` and `availability_policy.preemption`. Additionally, [instance profiles](/apidocs/vpc/latest#list-instance-profiles) that support spot capabilities now include `spot` in the `availability_class` property response.
+**Spot instances.** You can now use [Spot instance](/docs/vpc?topic=vpc-spot-instances-virtual-servers) by setting the `availability.class` property to `spot` when creating an [instance](/docs/apis/vpc/latest#create-instance) or [instance template](/docs/apis/vpc/latest#create-instance-template). When creating an instance or instance template you can now set the `availability_policy.preemption` to `stop` or `delete` to specify the behavior you want upon instance preemption. You can [update an instance](/docs/apis/vpc/latest#update-instance) to set or change the `availability.class` and `availability_policy.preemption`. Additionally, [instance profiles](/docs/apis/vpc/latest#list-instance-profiles) that support spot capabilities now include `spot` in the `availability_class` property response.
 
 ## 27 January 2026
 {: #27-january-2026}
@@ -200,7 +200,7 @@ For more information, see [Updating to multiple IKE and IPsec algorithms](/docs/
 ### For all version dates
 {: #27-january-2026-all-version-dates}
 
-**Network bandwidth pooling for instances.** When [retrieving](/apidocs/vpc/latest#get-instance-profile) or [listing](/apidocs/vpc/latest#list-instance-profiles) instance profiles, the response now includes a `network_bandwidth_mode` property. This property denotes the supported network bandwidth modes for an instance with this profile. An instance profile with a `network_bandwidth_mode.value` of `divided` divides the network bandwidth equally across the network attachments or network interfaces for the instance. An instance profile with a `network_bandwidth_mode.value` of `pooled` pools the network bandwidth among the network attachments or network interfaces for the instance.
+**Network bandwidth pooling for instances.** When [retrieving](/docs/apis/vpc/latest#get-instance-profile) or [listing](/docs/apis/vpc/latest#list-instance-profiles) instance profiles, the response now includes a `network_bandwidth_mode` property. This property denotes the supported network bandwidth modes for an instance with this profile. An instance profile with a `network_bandwidth_mode.value` of `divided` divides the network bandwidth equally across the network attachments or network interfaces for the instance. An instance profile with a `network_bandwidth_mode.value` of `pooled` pools the network bandwidth among the network attachments or network interfaces for the instance.
 
 ## 20 January 2026
 {: #20-january-2026}
@@ -208,7 +208,7 @@ For more information, see [Updating to multiple IKE and IPsec algorithms](/docs/
 ### For all version dates
 {: #20-january-2026-all-version-dates}
 
-**Spot instances.** Accounts that have been granted special approval to preview this feature can now use [Spot instance](/docs/vpc?topic=vpc-spot-instances-virtual-servers) by setting the `availability.class` property to `spot` when [creating an instance](/apidocs/vpc/latest#create-instance) or when [creating an instance template](/apidocs/vpc/latest#create-instance-template). When [creating an instance](/apidocs/vpc/latest#create-instance) or when [creating an instance template](/apidocs/vpc/latest#create-instance-template) you can set the `availability_policy.preemption` to `stop` or `delete` to specify the behavior you want upon instance preemption. You can [update an instance](/apidocs/vpc/latest#update-instance) to set or change the `availability.class` and `availability_policy.preemption`. Additionally, [instance profiles](/apidocs/vpc/latest#list-instance-profiles) that support spot capabilities now include `spot` in the `availability_class` property response.
+**Spot instances.** Accounts that have been granted special approval to preview this feature can now use [Spot instance](/docs/vpc?topic=vpc-spot-instances-virtual-servers) by setting the `availability.class` property to `spot` when [creating an instance](/docs/apis/vpc/latest#create-instance) or when [creating an instance template](/docs/apis/vpc/latest#create-instance-template). When [creating an instance](/docs/apis/vpc/latest#create-instance) or when [creating an instance template](/docs/apis/vpc/latest#create-instance-template) you can set the `availability_policy.preemption` to `stop` or `delete` to specify the behavior you want upon instance preemption. You can [update an instance](/docs/apis/vpc/latest#update-instance) to set or change the `availability.class` and `availability_policy.preemption`. Additionally, [instance profiles](/docs/apis/vpc/latest#list-instance-profiles) that support spot capabilities now include `spot` in the `availability_class` property response.
 
 This feature is now generally available. See the [17 February 2026](#17-february-2026) announcement.
 
@@ -218,24 +218,24 @@ This feature is now generally available. See the [17 February 2026](#17-february
 ### For all version dates
 {: #16-december-2025-all-version-dates}
 
-**Burstable (shared core) instances.** When [creating](/apidocs/vpc/latest#create-instance) or [updating](/apidocs/vpc/latest#update-instance) an instance or when [creating an instance template](/apidocs/vpc/latest#create-instance-template), you can now enable [burstable virtual server instances](/docs/vpc?topic=vpc-burstable-virtual-servers) by setting the `vcpu.percentage` property value to `10`, `25`, or `50`.
+**Burstable (shared core) instances.** When [creating](/docs/apis/vpc/latest#create-instance) or [updating](/docs/apis/vpc/latest#update-instance) an instance or when [creating an instance template](/docs/apis/vpc/latest#create-instance-template), you can now enable [burstable virtual server instances](/docs/vpc?topic=vpc-burstable-virtual-servers) by setting the `vcpu.percentage` property value to `10`, `25`, or `50`.
 
-When [retrieving](/apidocs/vpc/latest#get-instance) and [listing](/apidocs/vpc/latest#list-instances) instances the `vcpu.burst.limit` property is included in the response. This property indicates the percentage limit that the instance can burst.
+When [retrieving](/docs/apis/vpc/latest#get-instance) and [listing](/docs/apis/vpc/latest#list-instances) instances the `vcpu.burst.limit` property is included in the response. This property indicates the percentage limit that the instance can burst.
 
-When [listing instance profiles](/apidocs/vpc/latest#list-instance-profiles) that support burstable instances, the response now includes the supported percentage shares of the VCPUs in the `vcpu_percentage` property. For more information, see [Burstable virtual servers](/docs/vpc?topic=vpc-burstable-virtual-servers).
+When [listing instance profiles](/docs/apis/vpc/latest#list-instance-profiles) that support burstable instances, the response now includes the supported percentage shares of the VCPUs in the `vcpu_percentage` property. For more information, see [Burstable virtual servers](/docs/vpc?topic=vpc-burstable-virtual-servers).
 
 **Local-access endpoint gateways with DNS sharing for VPE gateways.** You can now bind resources to an endpoint gateway that resides in a VPC that is bound to a DNS sharing hub VPC. In such a configuration, the resources bound to the endpoint gateway are accessed from the endpoint gateway's VPC without having to traverse the hub VPC.
 
 For more information, see [About DNS sharing for VPE gateways](/docs/vpc?topic=vpc-vpe-dns-sharing).
 
-A new child resource collection, `resource_bindings`, has been added to endpoint gateways. To [create a resource binding](/apidocs/vpc/latest#create-endpoint-gateway-resource-binding) for an endpoint gateway, the endpoint gateway must reside in a VPC that is participating in a DNS sharing VPC topology and the VPC must have `dns.enable_hub` set to `false`. You can [delete](/apidocs/vpc/latest#delete-endpoint-gateway-resource-binding) or [update](/apidocs/vpc/latest#update-endpoint-gateway-resource-binding) a resource binding as needed. You can [retrieve](/apidocs/vpc/latest#get-endpoint-gateway-resource-binding) or [list](/apidocs/vpc/latest#list-endpoint-gateway-resource-bindings) resource bindings to view the `target` resource and its associated `service_endpoints`.
+A new child resource collection, `resource_bindings`, has been added to endpoint gateways. To [create a resource binding](/docs/apis/vpc/latest#create-endpoint-gateway-resource-binding) for an endpoint gateway, the endpoint gateway must reside in a VPC that is participating in a DNS sharing VPC topology and the VPC must have `dns.enable_hub` set to `false`. You can [delete](/docs/apis/vpc/latest#delete-endpoint-gateway-resource-binding) or [update](/docs/apis/vpc/latest#update-endpoint-gateway-resource-binding) a resource binding as needed. You can [retrieve](/docs/apis/vpc/latest#get-endpoint-gateway-resource-binding) or [list](/docs/apis/vpc/latest#list-endpoint-gateway-resource-bindings) resource bindings to view the `target` resource and its associated `service_endpoints`.
 
 ### For version `2025-11-18` or later
 {: #version-2025-11-18}
 
 **Local-access endpoint gateways with DNS sharing for VPE gateways.** When using a `version` query parameter of `2025-11-18` or later, a new property, `dns_resolution_binding_mode`, has been added to endpoint gateways. This property replaces the `allow_dns_resolution_binding` and `allow_resource_binding` properties in older API versions.
 
-In a DNS sharing VPC topology, when [creating](/apidocs/vpc/latest#create-endpoint-gateway) or [updating](/apidocs/vpc/latest#update-endpoint-gateway) an endpoint gateway, you can set `dns_resolution_binding_mode` to one of the following values:
+In a DNS sharing VPC topology, when [creating](/docs/apis/vpc/latest#create-endpoint-gateway) or [updating](/docs/apis/vpc/latest#update-endpoint-gateway) an endpoint gateway, you can set `dns_resolution_binding_mode` to one of the following values:
 - `disabled` - This endpoint gateway will not participate in DNS sharing for VPE gateways with other VPCs in the topology.
 - `primary` – This endpoint gateway will be the primary endpoint gateway in the topology for accessing the `target` service.
 - `per_resource_binding` – This endpoint gateway can be used for local access to resources in the endpoint gateway's `target` service.
@@ -245,7 +245,7 @@ In a DNS sharing VPC topology, when [creating](/apidocs/vpc/latest#create-endpoi
 
 **Local-access endpoint gateways with DNS sharing for VPE gateways.** When using a `version` query parameter of `2025-11-17` or earlier, a new property, `allow_resource_binding` has been added to endpoint gateways. This property can be used together with `allow_dns_resolution_binding` to allow local access to resources in an endpoint gateway's target service.
 
-In a DNS sharing VPC topology, when [creating](/apidocs/vpc/latest#create-endpoint-gateway) or [updating](/apidocs/vpc/latest#update-endpoint-gateway) an endpoint gateway, you can:
+In a DNS sharing VPC topology, when [creating](/docs/apis/vpc/latest#create-endpoint-gateway) or [updating](/docs/apis/vpc/latest#update-endpoint-gateway) an endpoint gateway, you can:
 - Set `allow_dns_resolution_binding` to `false` and set `allow_resource_binding` to `false` - This endpoint gateway will not participate in DNS sharing for VPE gateways with other VPCs in the topology.
 - Set `allow_dns_resolution_binding` to `true` and set `allow_resource_binding` to `false` – This endpoint gateway will be the primary endpoint gateway in the topology for accessing the `target` service.
 - Set `allow_dns_resolution_binding` to `true` and set `allow_resource_binding` to `true` – This endpoint gateway can be used for local access to resources in the endpoint gateway's `target` service.
@@ -256,9 +256,9 @@ In a DNS sharing VPC topology, when [creating](/apidocs/vpc/latest#create-endpoi
 ### For all version dates
 {: #9-december-2025-all-version-dates}
 
-**Names for security group rules.** Security group rules now have a `name` property. When [creating a security group rule](/apidocs/vpc/latest#create-security-group-rule), you can specify a `name` for it. If not specified, a default name is assigned using a hyphenated list of randomly selected words. You can [update](/apidocs/vpc/latest#update-security-group-rule) the `name` later.
+**Names for security group rules.** Security group rules now have a `name` property. When [creating a security group rule](/docs/apis/vpc/latest#create-security-group-rule), you can specify a `name` for it. If not specified, a default name is assigned using a hyphenated list of randomly selected words. You can [update](/docs/apis/vpc/latest#update-security-group-rule) the `name` later.
 
-Existing security group rules will have system assigned names. When creating a VPC, the [VPC default security group](/apidocs/vpc/latest#get-vpc-default-security-group) includes inbound and outbound security group rules with system assigned names.
+Existing security group rules will have system assigned names. When creating a VPC, the [VPC default security group](/docs/apis/vpc/latest#get-vpc-default-security-group) includes inbound and outbound security group rules with system assigned names.
 
 **Any protocol in security group and network ACL rules.** For accounts that have special approval to preview and use this feature, security group and network ACL rules now support [any protocol](https://www.iana.org/assignments/protocol-numbers/protocol-numbers.xhtml){: external}. The `protocol` property for these rules can now have one of these values:
 
@@ -280,27 +280,27 @@ Existing security group rules will have system assigned names. When creating a V
 See [Networking known issues](/docs/vpc?topic=vpc-sg-acl-known-issues) before creating a rule with a previously unsupported `protocol` value.
 {: note}
 
-When [creating a rule for a security group](/apidocs/vpc/latest#create-security-group-rule), you can now specify one of these values for the `protocol` property.
+When [creating a rule for a security group](/docs/apis/vpc/latest#create-security-group-rule), you can now specify one of these values for the `protocol` property.
 
 The `protocol` property in the `SecurityGroupRule` response schema can now have one of these values. This response schema is used for:
 
-- [Security group methods](/apidocs/vpc/latest#list-security-groups)
-- [Retrieving the default security group for a VPC](/apidocs/vpc/latest#get-vpc-default-security-group)
+- [Security group methods](/docs/apis/vpc/latest#list-security-groups)
+- [Retrieving the default security group for a VPC](/docs/apis/vpc/latest#get-vpc-default-security-group)
 
-When [creating a rule for a network ACL](/apidocs/vpc/latest#create-network-acl-rule), you can now specify one of these values for the `protocol` property.
+When [creating a rule for a network ACL](/docs/apis/vpc/latest#create-network-acl-rule), you can now specify one of these values for the `protocol` property.
 
 The `protocol` property in the `NetworkACLRule` and `NetworkACLRuleItem` response schemas can now have one of these values. These response schemas are used for:
 
-- [Network ACL methods](/apidocs/vpc/latest#list-network-acls)
-- [Retrieving the attached network ACL for a subnet](/apidocs/vpc/latest#replace-subnet-network-acl)
-- [Retrieving the default network ACL for a VPC](/apidocs/vpc/latest#get-vpc-default-network-acl)
+- [Network ACL methods](/docs/apis/vpc/latest#list-network-acls)
+- [Retrieving the attached network ACL for a subnet](/docs/apis/vpc/latest#replace-subnet-network-acl)
+- [Retrieving the default network ACL for a VPC](/docs/apis/vpc/latest#get-vpc-default-network-acl)
 
 ### For version `2025-12-09` or later
 {: #version-2025-12-09}
 
-When [creating a security group rule](/apidocs/vpc/latest#create-security-group-rule) to allow ICMP, TCP, and UDP traffic, set the rule's `protocol` to `icmp_tcp_udp`. The `protocol` property in the `SecurityGroupRule` response schema will have the value `icmp_tcp_udp` for this rule.
+When [creating a security group rule](/docs/apis/vpc/latest#create-security-group-rule) to allow ICMP, TCP, and UDP traffic, set the rule's `protocol` to `icmp_tcp_udp`. The `protocol` property in the `SecurityGroupRule` response schema will have the value `icmp_tcp_udp` for this rule.
 
-To [create a network ACL rule](/apidocs/vpc/latest#create-network-acl-rule) for allowing ICMP, TCP, and UDP traffic, set the rule's `action` to `allow` and the `protocol` to `icmp_tcp_udp`. The `protocol` property in the `NetworkACLRule` and `NetworkACLRuleItem` response schemas will have the value `icmp_tcp_udp` for this rule. After a network ACL rule is created with a `protocol` of `icmp_tcp_udp`, it cannot be updated to an `action` value of `deny`.
+To [create a network ACL rule](/docs/apis/vpc/latest#create-network-acl-rule) for allowing ICMP, TCP, and UDP traffic, set the rule's `action` to `allow` and the `protocol` to `icmp_tcp_udp`. The `protocol` property in the `NetworkACLRule` and `NetworkACLRuleItem` response schemas will have the value `icmp_tcp_udp` for this rule. After a network ACL rule is created with a `protocol` of `icmp_tcp_udp`, it cannot be updated to an `action` value of `deny`.
 
 The value `icmp_tcp_udp` is not allowed for the `protocol` property in a network ACL rule when the `action` is `deny`. Denying traffic for these three protocols requires three separate rules.
 {: note}
@@ -312,9 +312,9 @@ For migration guidance, see [Updating to the `2025-12-09` version (security grou
 ### For version `2025-12-08` or earlier
 {: #version-2025-12-08}
 
-When [creating a security group rule](/apidocs/vpc/latest#create-security-group-rule) to allow ICMP, TCP, and UDP traffic, set the `protocol` to `all`. The `protocol` property in the `SecurityGroupRule` response schema will have the value `all` for this rule.
+When [creating a security group rule](/docs/apis/vpc/latest#create-security-group-rule) to allow ICMP, TCP, and UDP traffic, set the `protocol` to `all`. The `protocol` property in the `SecurityGroupRule` response schema will have the value `all` for this rule.
 
-To [create a network ACL rule](/apidocs/vpc/latest#create-network-acl-rule) for allowing ICMP, TCP, and UDP traffic, set the rule's `action` to `allow` and the `protocol` to `all`. The `protocol` property in the `NetworkACLRule` and `NetworkACLRuleItem` response schemas will have the value `all` for this rule.
+To [create a network ACL rule](/docs/apis/vpc/latest#create-network-acl-rule) for allowing ICMP, TCP, and UDP traffic, set the rule's `action` to `allow` and the `protocol` to `all`. The `protocol` property in the `NetworkACLRule` and `NetworkACLRuleItem` response schemas will have the value `all` for this rule.
 
 The value `any` is not allowed for the `protocol` property in a network ACL rule when the `action` is `deny`. To deny traffic for protocols from number 0 to number 255, set the network ACL rule's `action` to `deny` and the `protocol` to `all`.
 {: note}
@@ -327,7 +327,7 @@ For migration guidance, see [Updating to the `2025-12-09` version (security grou
 ### For all version dates
 {: #2-december-2025-all-version-dates}
 
-**New filters for instance collections.** When [listing instances](/apidocs/vpc/latest#list-instances), you can now filter the collection to instances with a specified  `instance_group_membership.instance_group.id` or `instance_group_membership.instance_group.crn`.
+**New filters for instance collections.** When [listing instances](/docs/apis/vpc/latest#list-instances), you can now filter the collection to instances with a specified  `instance_group_membership.instance_group.id` or `instance_group_membership.instance_group.crn`.
 
 ## 18 November 2025
 {: #18-november-2025}
@@ -336,14 +336,14 @@ For migration guidance, see [Updating to the `2025-12-09` version (security grou
 
 For more information, see [About DNS sharing for VPE gateways](/docs/vpc?topic=vpc-vpe-dns-sharing).
 
-A new child resource collection, `resource_bindings`, has been added to endpoint gateways. To [create a resource binding](/apidocs/vpc/latest#create-endpoint-gateway-resource-binding) for an endpoint gateway, the endpoint gateway must reside in a VPC that is participating in a DNS sharing VPC topology and the VPC must have `dns.enable_hub` set to `false`. You can [delete](/apidocs/vpc/latest#delete-endpoint-gateway-resource-binding) or [update](/apidocs/vpc/latest#updatet-endpoint-gateway-resource-binding) a resource binding as needed. You can [retrieve](/apidocs/vpc/latest#get-endpoint-gateway-resource-binding) or [list](/apidocs/vpc/latest#list-endpoint-gateway-resource-bindings) resource bindings to view the`target` resource and its associated `service_endpoints`.
+A new child resource collection, `resource_bindings`, has been added to endpoint gateways. To [create a resource binding](/docs/apis/vpc/latest#create-endpoint-gateway-resource-binding) for an endpoint gateway, the endpoint gateway must reside in a VPC that is participating in a DNS sharing VPC topology and the VPC must have `dns.enable_hub` set to `false`. You can [delete](/docs/apis/vpc/latest#delete-endpoint-gateway-resource-binding) or [update](/docs/apis/vpc/latest#updatet-endpoint-gateway-resource-binding) a resource binding as needed. You can [retrieve](/docs/apis/vpc/latest#get-endpoint-gateway-resource-binding) or [list](/docs/apis/vpc/latest#list-endpoint-gateway-resource-bindings) resource bindings to view the`target` resource and its associated `service_endpoints`.
 
 ### For version `2025-11-18` or later
 {: #version-2025-11-18}
 
 **Local-access endpoint gateways with DNS sharing for VPE gateways.** When using a `version` query parameter of `2025-11-18` or later, a new property, `dns_resolution_binding_mode`, has been added to endpoint gateways. This property replaces the `allow_dns_resolution_binding` and `allow_resource_binding` properties in older API versions.
 
-In a DNS sharing VPC topology, when [creating](/apidocs/vpc/latest#create-endpoint-gateway) or [updating](/apidocs/vpc/latest#update-endpoint-gateway) an endpoint gateway, you can set `dns_resolution_binding_mode` to one of the following values:
+In a DNS sharing VPC topology, when [creating](/docs/apis/vpc/latest#create-endpoint-gateway) or [updating](/docs/apis/vpc/latest#update-endpoint-gateway) an endpoint gateway, you can set `dns_resolution_binding_mode` to one of the following values:
 - `disabled` - This endpoint gateway will not participate in DNS sharing for VPE gateways with other VPCs in the topology.
 - `primary` – This endpoint gateway will be the primary endpoint gateway in the topology for accessing the `target` service.
 - `per_resource_binding` – This endpoint gateway can be used for local access to resources in the endpoint gateway's `target` service.
@@ -353,7 +353,7 @@ In a DNS sharing VPC topology, when [creating](/apidocs/vpc/latest#create-endpoi
 
 **Local-access endpoint gateways with DNS sharing for VPE gateways.** When using a `version` query parameter of `2025-11-17` or earlier, a new property, `allow_resource_binding` has been added to endpoint gateways. This property can be used together with `allow_dns_resolution_binding` to allow local access to resources in an endpoint gateway's target service.
 
-In a DNS sharing VPC topology, when [creating](/apidocs/vpc/latest#create-endpoint-gateway) or [updating](/apidocs/vpc/latest#update-endpoint-gateway) an endpoint gateway, you can:
+In a DNS sharing VPC topology, when [creating](/docs/apis/vpc/latest#create-endpoint-gateway) or [updating](/docs/apis/vpc/latest#update-endpoint-gateway) an endpoint gateway, you can:
 - Set `allow_dns_resolution_binding` to `false` and set `allow_resource_binding` to `false` - This endpoint gateway will not participate in DNS sharing for VPE gateways with other VPCs in the topology.
 - Set `allow_dns_resolution_binding` to `true` and set `allow_resource_binding` to `false` – This endpoint gateway will be the primary endpoint gateway in the topology for accessing the `target` service.
 - Set `allow_dns_resolution_binding` to `true` and set `allow_resource_binding` to `true` – This endpoint gateway can be used for local access to resources in the endpoint gateway's `target` service.
@@ -366,31 +366,31 @@ This feature is now generally available. See the [16 December 2025](#16-december
 ### For all version dates
 {: #4-november-2025-all-version-dates}
 
-**Dynamic routing for route-mode VPN gateway connections.** Route-mode VPN gateways now support connections with dynamic routing by learning from BGP. When [creating a connection](/apidocs/vpc/latest#create-vpn-gateway-connection) for a VPN gateway with `mode` set to `route`, you can now specify the `routing_protocol` property as `bgp` to enable dynamic exchange of routes over the connection. When creating a dynamic route-mode connection with `routing_protocol` set to `bgp`:
+**Dynamic routing for route-mode VPN gateway connections.** Route-mode VPN gateways now support connections with dynamic routing by learning from BGP. When [creating a connection](/docs/apis/vpc/latest#create-vpn-gateway-connection) for a VPN gateway with `mode` set to `route`, you can now specify the `routing_protocol` property as `bgp` to enable dynamic exchange of routes over the connection. When creating a dynamic route-mode connection with `routing_protocol` set to `bgp`:
 
 - Use the `peer.asn` property to specify the peer ASN for the VPN gateway connection.
 - Use the `tunnels` property to configure the tunnels for the VPN gateway connection.
 
-You can also [update a VPN connection](/apidocs/vpc/latest#update-vpn-gateway-connection), to switch between static and dynamic routing by changing the `routing_protocol` value to `none` (static) or `bgp` (dynamic).
+You can also [update a VPN connection](/docs/apis/vpc/latest#update-vpn-gateway-connection), to switch between static and dynamic routing by changing the `routing_protocol` value to `none` (static) or `bgp` (dynamic).
 
 Existing route-mode VPN gateway connections will have `routing_protocol` set to `none`.
 {: note}
 
 For more information, see [Adding connections to a VPN gateway](/docs/vpc?topic=vpc-vpn-adding-connections&interface=api).
 
-When [creating a VPN gateway](/apidocs/vpc/latest#create-vpn-gateway) with `mode` set to `route`, you can now specify:
+When [creating a VPN gateway](/docs/apis/vpc/latest#create-vpn-gateway) with `mode` set to `route`, you can now specify:
 
 - `local_asn` to set the local autonomous system number for this VPN gateway and its connections. If unspecified, `64520` is used.
 - `advertised_cidrs` to add CIDRs advertised as route destinations through BGP.
 
-You can [update a VPN gateway](/apidocs/vpc/latest#update-vpn-gateway) to modify its `local_asn`. To update the `advertised_cidrs`, use the new [add](/apidocs/vpc/latest#add-vpn-gateway-advertised-cidrs) and [remove](/apidocs/vpc/latest#remove-vpn-gateway-advertised-cidrs) methods.
+You can [update a VPN gateway](/docs/apis/vpc/latest#update-vpn-gateway) to modify its `local_asn`. To update the `advertised_cidrs`, use the new [add](/docs/apis/vpc/latest#add-vpn-gateway-advertised-cidrs) and [remove](/docs/apis/vpc/latest#remove-vpn-gateway-advertised-cidrs) methods.
 
 Existing route-mode VPN gateways will have the `local_asn` property set to `64520`, and the `advertised_cidrs` array will be empty.
 {: note}
 
 For more information, see [Creating a VPN gateway](/docs/vpc?topic=vpc-vpn-create-gateway).
 
-**VPN gateway service connections.** You can now [retrieve](/apidocs/vpc/latest#get-vpn-gateway-service-connection) or [list](/apidocs/vpc/latest#list-vpn-gateway-service-connections) service connections for a VPN gateway. Service connections are created by services, such as Transit Gateway, and facilitate the propagation of routes learned from VPN gateway peer connections to the connected service.
+**VPN gateway service connections.** You can now [retrieve](/docs/apis/vpc/latest#get-vpn-gateway-service-connection) or [list](/docs/apis/vpc/latest#list-vpn-gateway-service-connections) service connections for a VPN gateway. Service connections are created by services, such as Transit Gateway, and facilitate the propagation of routes learned from VPN gateway peer connections to the connected service.
 
 ## 30 September 2025
 {: #30-september-2025}
@@ -398,11 +398,11 @@ For more information, see [Creating a VPN gateway](/docs/vpc?topic=vpc-vpn-creat
 ### For all version dates
 {: #30-september-2025-all-version-dates}
 
-**Flex instance profiles.** When [creating](/apidocs/vpc/latest#create-instance) or [updating](/apidocs/vpc/latest#update-instance) an instance, or when [creating](/apidocs/vpc/latest#create-instance-template) an instance template, you can now use [flex instance profiles](/docs/vpc?topic=vpc-flexible-profiles-virtual-servers).
+**Flex instance profiles.** When [creating](/docs/apis/vpc/latest#create-instance) or [updating](/docs/apis/vpc/latest#update-instance) an instance, or when [creating](/docs/apis/vpc/latest#create-instance-template) an instance template, you can now use [flex instance profiles](/docs/vpc?topic=vpc-flexible-profiles-virtual-servers).
 
-**Default instance profile change.** When [creating](/apidocs/vpc/latest#create-instance) a new instance, the `profile` property will now default to `bxf-2x8`.
+**Default instance profile change.** When [creating](/docs/apis/vpc/latest#create-instance) a new instance, the `profile` property will now default to `bxf-2x8`.
 
-**Dynamic bandwidth allocation.** For [select instance profiles](/docs/vpc?group=profile-details), you can now specify the QoS mode for [Pooled bandwidth allocation for data volumes](/docs/vpc?topic=vpc-block-storage-bandwidth&interface=ui#pooled-vol-bandwidth). When [creating](/apidocs/vpc/latest#create-instance) or [updating](/apidocs/vpc/latest#update-instance) an instance, or when [creating](/apidocs/vpc/latest#create-instance-template) or [updating](/apidocs/vpc/latest#update-instance-template) an instance template, you can specify the `volume_bandwidth_qos_mode` (`pooled` or `weighted`) to use for a virtual server instance. The new `volume_bandwidth_qos_modes` instance profile property indicates which modes are supported for the instance profile. If you do not specify the QoS mode when creating an instance or instance template, the default volume bandwidth QoS mode from the profile is used. For more information, see [Bandwidth allocation for attached volumes](/docs/vpc?topic=vpc-block-storage-bandwidth).
+**Dynamic bandwidth allocation.** For [select instance profiles](/docs/vpc?group=profile-details), you can now specify the QoS mode for [Pooled bandwidth allocation for data volumes](/docs/vpc?topic=vpc-block-storage-bandwidth&interface=ui#pooled-vol-bandwidth). When [creating](/docs/apis/vpc/latest#create-instance) or [updating](/docs/apis/vpc/latest#update-instance) an instance, or when [creating](/docs/apis/vpc/latest#create-instance-template) or [updating](/docs/apis/vpc/latest#update-instance-template) an instance template, you can specify the `volume_bandwidth_qos_mode` (`pooled` or `weighted`) to use for a virtual server instance. The new `volume_bandwidth_qos_modes` instance profile property indicates which modes are supported for the instance profile. If you do not specify the QoS mode when creating an instance or instance template, the default volume bandwidth QoS mode from the profile is used. For more information, see [Bandwidth allocation for attached volumes](/docs/vpc?topic=vpc-block-storage-bandwidth).
 
 ## 23 September 2025
 {: #23-september-2025}
@@ -410,13 +410,13 @@ For more information, see [Creating a VPN gateway](/docs/vpc?topic=vpc-vpn-creat
 ### For all version dates
 {: #23-september-2025-all-version-dates}
 
-**Public address ranges.** You can now [create a public address range](/apidocs/vpc/latest#create-public-address-range). A public address range is a contiguous block of public IP addresses that can be bound to a zone in a VPC. You can bind a public address range when creating it, or [update](/apidocs/vpc/latest#update-public-address-range) its binding later by setting its `target`. You can update `target.zone` to bind it to anther zone in the VPC, or update `target.vpc` to bind it to another VPC. Traffic that originates from the internet destined for addresses in a public address range must be routed to resources in the bound VPC zone by [creating VPC routes](/apidocs/vpc/latest#create-vpc-routing-table-route) in the VPC's routing table with `route_internet_ingress` set to `true`.
+**Public address ranges.** You can now [create a public address range](/docs/apis/vpc/latest#create-public-address-range). A public address range is a contiguous block of public IP addresses that can be bound to a zone in a VPC. You can bind a public address range when creating it, or [update](/docs/apis/vpc/latest#update-public-address-range) its binding later by setting its `target`. You can update `target.zone` to bind it to anther zone in the VPC, or update `target.vpc` to bind it to another VPC. Traffic that originates from the internet destined for addresses in a public address range must be routed to resources in the bound VPC zone by [creating VPC routes](/docs/apis/vpc/latest#create-vpc-routing-table-route) in the VPC's routing table with `route_internet_ingress` set to `true`.
 
-When [retrieving](/apidocs/vpc/latest#get-vpc) or [listing](/apidocs/vpc/latest#list-vpcs) VPCs, the response now includes the `public_address_ranges` that are bound to each VPC.
+When [retrieving](/docs/apis/vpc/latest#get-vpc) or [listing](/docs/apis/vpc/latest#list-vpcs) VPCs, the response now includes the `public_address_ranges` that are bound to each VPC.
 
-Learn about [public address ranges](/docs/vpc?topic=vpc-about-par), and explore the new [API methods](/apidocs/vpc/latest#list-public-address-ranges).
+Learn about [public address ranges](/docs/vpc?topic=vpc-about-par), and explore the new [API methods](/docs/apis/vpc/latest#list-public-address-ranges).
 
-**Reserved IPs as load balancer pool member targets.** You can now create [pool members](/apidocs/vpc/latest#list-load-balancer-pool-members) that target reserved IPs. When [creating a member in a load balancer pool](/apidocs/vpc/latest#create-load-balancer-pool-member), you can specify the identity of a reserved IP as the `target` if supported by the load balancer's profile. When [retrieving](/apidocs/vpc/latest#get-load-balancer-profile) or [listing](/apidocs/vpc/latest#list-load-balancer-profiles) load balancer profiles, use the new `targetable_resource_types` property to determine which resources that load balancer can target. For more information, see [Creating a Private Path network load balancer](/docs/vpc?topic=vpc-ppnlb-ui-creating-private-path-network-load-balancer&interface=api).
+**Reserved IPs as load balancer pool member targets.** You can now create [pool members](/docs/apis/vpc/latest#list-load-balancer-pool-members) that target reserved IPs. When [creating a member in a load balancer pool](/docs/apis/vpc/latest#create-load-balancer-pool-member), you can specify the identity of a reserved IP as the `target` if supported by the load balancer's profile. When [retrieving](/docs/apis/vpc/latest#get-load-balancer-profile) or [listing](/docs/apis/vpc/latest#list-load-balancer-profiles) load balancer profiles, use the new `targetable_resource_types` property to determine which resources that load balancer can target. For more information, see [Creating a Private Path network load balancer](/docs/vpc?topic=vpc-ppnlb-ui-creating-private-path-network-load-balancer&interface=api).
 
 ## 16 September 2025
 {: #16-september-2025}
@@ -426,31 +426,31 @@ Learn about [public address ranges](/docs/vpc?topic=vpc-about-par), and explore 
 
 This release introduces the following updates for accounts that have special approval to preview and use these features. Although usage of these features is restricted, changes to schemas (such as new properties) will be visible to all accounts.
 
-**File shares with regional availability.** You can now [create file shares](/apidocs/vpc/latest#create-share) with regional availability by specifying the `rfs` profile. When creating file shares with regional availability, the `zone` property must not be specified. For more information, see [About File Storage for VPC](/docs/vpc?topic=vpc-file-storage-vpc-about). See also [Storage known issues](/docs/vpc?topic=vpc-storage-known-issues).
+**File shares with regional availability.** You can now [create file shares](/docs/apis/vpc/latest#create-share) with regional availability by specifying the `rfs` profile. When creating file shares with regional availability, the `zone` property must not be specified. For more information, see [About File Storage for VPC](/docs/vpc?topic=vpc-file-storage-vpc-about). See also [Storage known issues](/docs/vpc?topic=vpc-storage-known-issues).
 
 Cross-region replication for regional file shares is not currently supported.
 {: note}
 
-**Enhanced transit encryption support for file shares.** When [creating a file share](/apidocs/vpc/latest#create-share) with a `storage_generation` of `2`, you can include the new [`stunnel`](/docs/vpc?topic=vpc-file-storage-vpc-eit-tls) value when specifying the `allowed_transit_encryption_modes` property for this share. Subsequently, you can also specify the `stunnel` value for the `transit_encryption` property when [creating a mount target](/apidocs/vpc/latest#create-share-mount-target) for the file share. The `stunnel` transit encryption mode is supported only for file shares that are created with a `storage_generation` of `2`.
+**Enhanced transit encryption support for file shares.** When [creating a file share](/docs/apis/vpc/latest#create-share) with a `storage_generation` of `2`, you can include the new [`stunnel`](/docs/vpc?topic=vpc-file-storage-vpc-eit-tls) value when specifying the `allowed_transit_encryption_modes` property for this share. Subsequently, you can also specify the `stunnel` value for the `transit_encryption` property when [creating a mount target](/docs/apis/vpc/latest#create-share-mount-target) for the file share. The `stunnel` transit encryption mode is supported only for file shares that are created with a `storage_generation` of `2`.
 
-When [retrieving](/apidocs/vpc/latest#get-share-profile) or [listing](/apidocs/vpc/latest#list-share-profiles) file share profiles, a new `allowed_transit_encryption_modes` property is provided in the response. The `allowed_transit_encryption_modes.default` property denotes the allowed transit encryption modes for a share with this profile, which will be used if `allowed_transit_encryption_modes` is not specified when [creating a file share](/apidocs/vpc/latest#create-share).
+When [retrieving](/docs/apis/vpc/latest#get-share-profile) or [listing](/docs/apis/vpc/latest#list-share-profiles) file share profiles, a new `allowed_transit_encryption_modes` property is provided in the response. The `allowed_transit_encryption_modes.default` property denotes the allowed transit encryption modes for a share with this profile, which will be used if `allowed_transit_encryption_modes` is not specified when [creating a file share](/docs/apis/vpc/latest#create-share).
 
-**Allowed access protocols for file shares.** When [creating a file share](/apidocs/vpc/latest#create-share), a set of [allowed access protocols](/docs/vpc?topic=vpc-file-storage-vpc-about&interface=api#fs-allowed-access-protocols) may now be specified to denote which access protocols to use when [creating mount targets for that file share](/apidocs/vpc/latest#create-share-mount-target). The `allowed_access_protocols` properties are also included in the `Share` and `ShareProfile` response schemas.
+**Allowed access protocols for file shares.** When [creating a file share](/docs/apis/vpc/latest#create-share), a set of [allowed access protocols](/docs/vpc?topic=vpc-file-storage-vpc-about&interface=api#fs-allowed-access-protocols) may now be specified to denote which access protocols to use when [creating mount targets for that file share](/docs/apis/vpc/latest#create-share-mount-target). The `allowed_access_protocols` properties are also included in the `Share` and `ShareProfile` response schemas.
 
-**Allowed transit encryption modes for files shares.** When [retrieving](/apidocs/vpc/latest#get-share-profile) or [listing](/apidocs/vpc/latest#list-share-profiles) file share profiles, the response now includes an `allowed_transit_encryption_modes` property. This property denotes the allowed [transit encryption modes](/docs/vpc?topic=vpc-file-storage-vpc-about&interface=ui#fs-eit) used when [creating file shares](/apidocs/vpc/latest#create-share) using the specified profile, and subsequently when [creating mount targets](/apidocs/vpc/latest#create-share-mount-target) for those file shares.
+**Allowed transit encryption modes for files shares.** When [retrieving](/docs/apis/vpc/latest#get-share-profile) or [listing](/docs/apis/vpc/latest#list-share-profiles) file share profiles, the response now includes an `allowed_transit_encryption_modes` property. This property denotes the allowed [transit encryption modes](/docs/vpc?topic=vpc-file-storage-vpc-about&interface=ui#fs-eit) used when [creating file shares](/docs/apis/vpc/latest#create-share) using the specified profile, and subsequently when [creating mount targets](/docs/apis/vpc/latest#create-share-mount-target) for those file shares.
 
-**Bandwidth for file shares.** When [creating](/apidocs/vpc/latest#create-share), [retrieving](/apidocs/vpc/latest#get-share), or [listing](/apidocs/vpc/latest#list-shares) file shares, and when [retrieving](/apidocs/vpc/latest#get-share-profile) or [listing](/apidocs/vpc/latest#list-share-profiles) file share profiles, the response now includes a `bandwidth` property that denotes the [available bandwidth](/docs/vpc?topic=vpc-file-storage-profiles&interface=api) that is provided when that profile is specified during file share [creation](/apidocs/vpc/latest#create-share).
+**Bandwidth for file shares.** When [creating](/docs/apis/vpc/latest#create-share), [retrieving](/docs/apis/vpc/latest#get-share), or [listing](/docs/apis/vpc/latest#list-shares) file shares, and when [retrieving](/docs/apis/vpc/latest#get-share-profile) or [listing](/docs/apis/vpc/latest#list-share-profiles) file share profiles, the response now includes a `bandwidth` property that denotes the [available bandwidth](/docs/vpc?topic=vpc-file-storage-profiles&interface=api) that is provided when that profile is specified during file share [creation](/docs/apis/vpc/latest#create-share).
 
 For more information, see [About File Storage for VPC](/docs/vpc?topic=vpc-file-storage-vpc-about) and [Securing mount connections between a file share and virtual server instance](/docs/vpc?topic=vpc-file-storage-vpc-eit). See also [Storage known issues](/docs/vpc?topic=vpc-storage-known-issues).
 
 ### For version `2025-09-16` or later
 {: #version-2025-09-16}
 
-**File share `zone` property no longer always included.** When using a `version` query parameter of `2025-09-16` or later, the response no longer includes `zone` when [creating](/apidocs/vpc/latest#create-share), [updating](/apidocs/vpc/latest#update-share), [retrieving](/apidocs/vpc/latest#get-share), [listing](/apidocs/vpc/latest#list-shares), or [deleting](/apidocs/vpc/latest#delete-share) regional file shares. When using a `version` query parameter of `2025-09-15` or earlier, the `zone` property in the `Share` response for regional file shares will return the first zone from the region.
+**File share `zone` property no longer always included.** When using a `version` query parameter of `2025-09-16` or later, the response no longer includes `zone` when [creating](/docs/apis/vpc/latest#create-share), [updating](/docs/apis/vpc/latest#update-share), [retrieving](/docs/apis/vpc/latest#get-share), [listing](/docs/apis/vpc/latest#list-shares), or [deleting](/docs/apis/vpc/latest#delete-share) regional file shares. When using a `version` query parameter of `2025-09-15` or earlier, the `zone` property in the `Share` response for regional file shares will return the first zone from the region.
 
 **File share `user_managed` transit encryption mode renamed.** When using a `version` query parameter of `2025-09-16` or later, the IPsec encryption mode is represented as `ipsec` rather than `user_managed`. This change affects the `allowed_transit_encryption_modes` property in the `Share`, `SharePrototype`, `SharePatch`, and `ShareProfile` schemas, as well as the `transit_encryption` property in the `ShareMountTarget` and `ShareMountTargetPrototype` schemas. Requests using a `version` query parameter of `2025-09-15` or earlier are unchanged.
 
-**File share mount target access protocol and transit encryption.** When using a `version` query parameter of `2025-09-16` or later, [access protocol](/docs/vpc?topic=vpc-file-storage-vpc-about&interface=api#fs-allowed-access-protocols) and [transit encryption modes](/docs/vpc?topic=vpc-file-storage-vpc-about&interface=api#fs-allowed-eit-modes) must be specified when [creating a mount target for a file share](/apidocs/vpc/latest#create-share-mount-target). The specified value for the `access_protocol` must be included in the share's `allowed_access_protocols` property. The specified value for `transit_encryption` must be included in the share's `allowed_transit_encryption_modes` property. Requests using a `version` query parameter of `2025-09-16` or earlier are unchanged.
+**File share mount target access protocol and transit encryption.** When using a `version` query parameter of `2025-09-16` or later, [access protocol](/docs/vpc?topic=vpc-file-storage-vpc-about&interface=api#fs-allowed-access-protocols) and [transit encryption modes](/docs/vpc?topic=vpc-file-storage-vpc-about&interface=api#fs-allowed-eit-modes) must be specified when [creating a mount target for a file share](/docs/apis/vpc/latest#create-share-mount-target). The specified value for the `access_protocol` must be included in the share's `allowed_access_protocols` property. The specified value for `transit_encryption` must be included in the share's `allowed_transit_encryption_modes` property. Requests using a `version` query parameter of `2025-09-16` or earlier are unchanged.
 
 For more information, see [About File Storage for VPC snapshots](/docs/vpc?topic=vpc-file-storage-vpc-about). See also [Storage known issues](/docs/vpc?topic=vpc-storage-known-issues).
 
@@ -462,11 +462,11 @@ For migration guidance, see [Updating to the `2025-09-16` version (file shares, 
 ### For all version dates
 {: #26-august-2025-all-version-dates}
 
-**VPC Metadata service support for bare metal servers.** When [creating](/apidocs/vpc/latest#create-bare-metal-server) or [updating](/apidocs/vpc/latest#update-bare-metal-server) a bare metal server, you can now enable access to the VPC Metadata service. You can access the VPC Metadata service on a bare metal server using an [endpoint URL](/apidocs/vpc-identity#endpoint-urls-identity) by specifying the new `metadata_service.protocol` property as `http` or `https`.
+**VPC Metadata service support for bare metal servers.** When [creating](/docs/apis/vpc/latest#create-bare-metal-server) or [updating](/docs/apis/vpc/latest#update-bare-metal-server) a bare metal server, you can now enable access to the VPC Metadata service. You can access the VPC Metadata service on a bare metal server using an [endpoint URL](/docs/apis/vpc-identity#endpoint-urls-identity) by specifying the new `metadata_service.protocol` property as `http` or `https`.
 
 Access to the VPC Metadata service is disabled on bare metal servers by default. To enable access to the VPC Metadata service, when creating or updating a bare metal server, set the new `metadata_service.enabled` property to `true`. The default communication protocol to the VPC Metadata service from the server is `http` (unencrypted). To change the protocol to secure access, specify the `metadata_service.protocol` as `https`
 
-For more information, see the [VPC Identity API](/apidocs/vpc-identity).
+For more information, see the [VPC Identity API](/docs/apis/vpc-identity).
 
 ## 22 July 2025
 {: #22-july-2025}
@@ -474,14 +474,14 @@ For more information, see the [VPC Identity API](/apidocs/vpc-identity).
 ### For all version dates
 {: #22-july-2025-all-version-dates}
 
-**Availability modes for file shares.** When [creating](/apidocs/vpc/latest#create-share), [retrieving](/apidocs/vpc/latest#get-share), or [listing](/apidocs/vpc/latest#list-shares) file shares, and when [retrieving](/apidocs/vpc/latest#get-share-profile) or [listing](/apidocs/vpc/latest#list-share-profiles) file share profiles, the response now includes an [`availability_modes`](/docs/vpc?topic=vpc-file-storage-profiles&interface=api) property that denotes the availability modes that may be specified when [creating a file share](/apidocs/vpc/latest#create-share).
+**Availability modes for file shares.** When [creating](/docs/apis/vpc/latest#create-share), [retrieving](/docs/apis/vpc/latest#get-share), or [listing](/docs/apis/vpc/latest#list-shares) file shares, and when [retrieving](/docs/apis/vpc/latest#get-share-profile) or [listing](/docs/apis/vpc/latest#list-share-profiles) file share profiles, the response now includes an [`availability_modes`](/docs/vpc?topic=vpc-file-storage-profiles&interface=api) property that denotes the availability modes that may be specified when [creating a file share](/docs/apis/vpc/latest#create-share).
 
-**Bandwidth for file shares.** When [retrieving](/apidocs/vpc/latest#get-share) or [listing](/apidocs/vpc/latest#list-shares) file shares, and when [retrieving](/apidocs/vpc/latest#get-share-profile) or [listing](/apidocs/vpc/latest#list-share-profiles) file share profiles, the response now includes a `bandwidth` property that denotes the [available bandwidth](/docs/vpc?topic=vpc-file-storage-profiles&interface=api) provided for the file share using that profile.
+**Bandwidth for file shares.** When [retrieving](/docs/apis/vpc/latest#get-share) or [listing](/docs/apis/vpc/latest#list-shares) file shares, and when [retrieving](/docs/apis/vpc/latest#get-share-profile) or [listing](/docs/apis/vpc/latest#list-share-profiles) file share profiles, the response now includes a `bandwidth` property that denotes the [available bandwidth](/docs/vpc?topic=vpc-file-storage-profiles&interface=api) provided for the file share using that profile.
 
 Bandwidth provided for file shares created with the `dp2` profile is solely informational.
 {: note}
 
-**Storage generation for file shares.** When [retrieving](/apidocs/vpc/latest#get-share-profile) or [listing](/apidocs/vpc/latest#list-share-profiles) file share profiles, the response now includes a `storage_generation` property that denotes which [generation](/docs/vpc?topic=vpc-file-storage-profiles&interface=api#fs-using-api-iops-profiles) of file storage will be created when [creating a file share](/apidocs/vpc/latest#create-share) using that profile. Consequently, when [retrieving](/apidocs/vpc/latest#get-share) or [listing](/apidocs/vpc/latest#list-shares) file shares, the response now includes a `storage_generation` property.
+**Storage generation for file shares.** When [retrieving](/docs/apis/vpc/latest#get-share-profile) or [listing](/docs/apis/vpc/latest#list-share-profiles) file share profiles, the response now includes a `storage_generation` property that denotes which [generation](/docs/vpc?topic=vpc-file-storage-profiles&interface=api#fs-using-api-iops-profiles) of file storage will be created when [creating a file share](/docs/apis/vpc/latest#create-share) using that profile. Consequently, when [retrieving](/docs/apis/vpc/latest#get-share) or [listing](/docs/apis/vpc/latest#list-shares) file shares, the response now includes a `storage_generation` property.
 
 For more information, see [About File Storage for VPC](/docs/vpc?topic=vpc-file-storage-vpc-about). See also [Storage known issues](/docs/vpc?topic=vpc-storage-known-issues).
 
@@ -491,7 +491,7 @@ For more information, see [About File Storage for VPC](/docs/vpc?topic=vpc-file-
 ### For all version dates
 {: #15-july-2025-all-version-dates}
 
-**Allowed-use constraints for custom images.** When creating or updating [images](/apidocs/vpc/latest#list-images), [volumes](/apidocs/vpc/latest#list-volumes), or [snapshots](/apidocs/vpc/latest#list-snapshots), you can now specify the `allowed_use` property to constrain how the resource can be used for provisioning. The `allowed_use` property includes `bare_metal_server` and `instance` child properties that constrain provisioning for bare metal servers and virtual server instances, respectively. You can also list the [bare metal server profiles](/apidocs/vpc/latest#list-image-bare-metal-server-profiles) that are compatible with the allowed use constraints for a given image, and the instance profiles that are compatible with the allowed use constraints for a given [image](/apidocs/vpc/latest#list-image-instance-profiles), boot [volume](/apidocs/vpc/latest#list-volume-instance-profiles), or bootable [snapshot](/apidocs/vpc/latest#list-snapshot-instance-profiles). For more information, see [Defining allowed-use expressions](/docs/vpc?topic=vpc-custom-image-allowed-use-expressions&interface=api).
+**Allowed-use constraints for custom images.** When creating or updating [images](/docs/apis/vpc/latest#list-images), [volumes](/docs/apis/vpc/latest#list-volumes), or [snapshots](/docs/apis/vpc/latest#list-snapshots), you can now specify the `allowed_use` property to constrain how the resource can be used for provisioning. The `allowed_use` property includes `bare_metal_server` and `instance` child properties that constrain provisioning for bare metal servers and virtual server instances, respectively. You can also list the [bare metal server profiles](/docs/apis/vpc/latest#list-image-bare-metal-server-profiles) that are compatible with the allowed use constraints for a given image, and the instance profiles that are compatible with the allowed use constraints for a given [image](/docs/apis/vpc/latest#list-image-instance-profiles), boot [volume](/docs/apis/vpc/latest#list-volume-instance-profiles), or bootable [snapshot](/docs/apis/vpc/latest#list-snapshot-instance-profiles). For more information, see [Defining allowed-use expressions](/docs/vpc?topic=vpc-custom-image-allowed-use-expressions&interface=api).
 
 ## 8 July 2025
 {: #8-july-2025}
@@ -499,11 +499,11 @@ For more information, see [About File Storage for VPC](/docs/vpc?topic=vpc-file-
 ### For all version dates
 {: #8-july-2025-all-version-dates}
 
-**Public address ranges.** Accounts that have special approval to preview this feature can now [create a public address range](/apidocs/vpc/latest#create-public-address-range). A public address range is a contiguous block of public IP addresses that can be bound to a zone in a VPC. You can bind a public address range when creating it, or [update](/apidocs/vpc/latest#update-public-address-range) its binding later by setting its `target`. You can update `target.zone` to bind it to anther zone in the VPC, or update `target.vpc` to bind it to another VPC. Traffic that originates from the internet destined for addresses in a public address range must be routed to resources in the bound VPC zone by [creating VPC routes](/apidocs/vpc/latest#create-vpc-routing-table-route) in the VPC's routing table with `route_internet_ingress` set to `true`.
+**Public address ranges.** Accounts that have special approval to preview this feature can now [create a public address range](/docs/apis/vpc/latest#create-public-address-range). A public address range is a contiguous block of public IP addresses that can be bound to a zone in a VPC. You can bind a public address range when creating it, or [update](/docs/apis/vpc/latest#update-public-address-range) its binding later by setting its `target`. You can update `target.zone` to bind it to anther zone in the VPC, or update `target.vpc` to bind it to another VPC. Traffic that originates from the internet destined for addresses in a public address range must be routed to resources in the bound VPC zone by [creating VPC routes](/docs/apis/vpc/latest#create-vpc-routing-table-route) in the VPC's routing table with `route_internet_ingress` set to `true`.
 
-When [retrieving](/apidocs/vpc/latest#get-vpc) or [listing](/apidocs/vpc/latest#list-vpcs) VPCs, the response now includes the `public_address_ranges` that are bound to each VPC.
+When [retrieving](/docs/apis/vpc/latest#get-vpc) or [listing](/docs/apis/vpc/latest#list-vpcs) VPCs, the response now includes the `public_address_ranges` that are bound to each VPC.
 
-Learn about [public address ranges](/docs/vpc?topic=vpc-about-par), and explore the new [API methods](/apidocs/vpc/latest#list-public-address-ranges).
+Learn about [public address ranges](/docs/vpc?topic=vpc-about-par), and explore the new [API methods](/docs/apis/vpc/latest#list-public-address-ranges).
 
 This feature is now generally available. See the [23 September 2025](#23-september-2025) announcement.
 
@@ -513,9 +513,9 @@ This feature is now generally available. See the [23 September 2025](#23-septemb
 ### For version `2025-06-30` or later
 {: #version-2025-06-30}
 
-**Image ownership property and filter change.** When [retrieving](/apidocs/vpc/2025-06-30#get-image), [listing](/apidocs/vpc/2025-06-30#list-images), [creating](/apidocs/vpc/2025-06-30#create-image), or [updating](/apidocs/vpc/2025-06-30#update-image) an image using a `version` query parameter of `2025-06-30` or later, the `remote.account` property replaces the `owner_type` property in the `Image` schema. The new property conveys the same information as the old in a different form.
+**Image ownership property and filter change.** When [retrieving](/docs/apis/vpc/2025-06-30#get-image), [listing](/docs/apis/vpc/2025-06-30#list-images), [creating](/docs/apis/vpc/2025-06-30#create-image), or [updating](/docs/apis/vpc/2025-06-30#update-image) an image using a `version` query parameter of `2025-06-30` or later, the `remote.account` property replaces the `owner_type` property in the `Image` schema. The new property conveys the same information as the old in a different form.
 
-Additionally, when [listing images](/apidocs/vpc/2025-06-30#list-images), the `remote.account.id` filter replaces the `owner_type` filter. The new filter is functionally equivalent to the old, allowing filtering of images to include or exclude those owned by the requester or by all other accounts. In addition, you can now specify the account ID of the image owner, if different from that of the requester, rather than the type of owner.
+Additionally, when [listing images](/docs/apis/vpc/2025-06-30#list-images), the `remote.account.id` filter replaces the `owner_type` filter. The new filter is functionally equivalent to the old, allowing filtering of images to include or exclude those owned by the requester or by all other accounts. In addition, you can now specify the account ID of the image owner, if different from that of the requester, rather than the type of owner.
 
 For migration guidance, see [Updating to the `2025-06-30` version (image ownership property and filter change)](/docs/vpc?topic=vpc-2025-06-30-image-ownership-property-change). Requests and responses using a `version` query parameter of `2025-06-29` or earlier are unchanged.
 
@@ -525,7 +525,7 @@ For migration guidance, see [Updating to the `2025-06-30` version (image ownersh
 ### For all version dates
 {: #13-may-2025-all-version-dates}
 
-**AMD GPU instance profiles.** When [creating an instance](/apidocs/vpc/latest#create-instance), you can now specify a `profile` for a server with GPUs manufactured by AMD, such as `gx3d-208x1792x8mi300x`. Accordingly, when [retrieving](/apidocs/vpc/latest#get-instance) or [listing](/apidocs/vpc/latest#list-instances) instances, the response may include a new `gpu.manufacturer` property value of `amd`. Similarly, when [retrieving](/apidocs/vpc/latest#get-instance-profile) or [listing](/apidocs/vpc/latest#list-instance-profiles) instance profiles, the response may include a `gpu_manufacturer.values` property value of `amd`. For more information, see [AMD MI300X instance profiles](/docs/vpc?topic=vpc-accelerated-profile-family&interface=ui#amd-mi300x-profiles).
+**AMD GPU instance profiles.** When [creating an instance](/docs/apis/vpc/latest#create-instance), you can now specify a `profile` for a server with GPUs manufactured by AMD, such as `gx3d-208x1792x8mi300x`. Accordingly, when [retrieving](/docs/apis/vpc/latest#get-instance) or [listing](/docs/apis/vpc/latest#list-instances) instances, the response may include a new `gpu.manufacturer` property value of `amd`. Similarly, when [retrieving](/docs/apis/vpc/latest#get-instance-profile) or [listing](/docs/apis/vpc/latest#list-instance-profiles) instance profiles, the response may include a `gpu_manufacturer.values` property value of `amd`. For more information, see [AMD MI300X instance profiles](/docs/vpc?topic=vpc-accelerated-profile-family&interface=ui#amd-mi300x-profiles).
 
 ## 29 April 2025
 {: #29-april-2025}
@@ -533,9 +533,9 @@ For migration guidance, see [Updating to the `2025-06-30` version (image ownersh
 ### For all version dates
 {: #29-april-2025-all-version-dates}
 
-**Load balancers as pool member targets.** You can now create [pool members](/apidocs/vpc/latest#list-load-balancer-pool-members) that target other [load balancers](/apidocs/vpc/latest#list-load-balancers). When [creating a member in a load balancer pool](/apidocs/vpc/latest#create-load-balancer-pool-member), you can now specify the identity of another load balancer as the `target`. When [retrieving](/apidocs/vpc/latest#get-load-balancer-profile) or [listing](/apidocs/vpc/latest#list-load-balancer-profiles) load balancer profiles, use the new `targetable_load_balancer_profiles` property to determine which load balancers that profile can target.
+**Load balancers as pool member targets.** You can now create [pool members](/docs/apis/vpc/latest#list-load-balancer-pool-members) that target other [load balancers](/docs/apis/vpc/latest#list-load-balancers). When [creating a member in a load balancer pool](/docs/apis/vpc/latest#create-load-balancer-pool-member), you can now specify the identity of another load balancer as the `target`. When [retrieving](/docs/apis/vpc/latest#get-load-balancer-profile) or [listing](/docs/apis/vpc/latest#list-load-balancer-profiles) load balancer profiles, use the new `targetable_load_balancer_profiles` property to determine which load balancers that profile can target.
 
-When [retrieving](/apidocs/vpc/latest#get-load-balancer) and [listing](/apidocs/vpc/latest#list-load-balancers) load balancers, the response now includes an `attached_load_balancer_pool_members` property, which references any pool members targeting this load balancer.
+When [retrieving](/docs/apis/vpc/latest#get-load-balancer) and [listing](/docs/apis/vpc/latest#list-load-balancers) load balancers, the response now includes an `attached_load_balancer_pool_members` property, which references any pool members targeting this load balancer.
 
 ## 8 April 2025
 {: #8-april-2025}
@@ -543,18 +543,18 @@ When [retrieving](/apidocs/vpc/latest#get-load-balancer) and [listing](/apidocs/
 ### For all version dates
 {: #8-april-2025-all-version-dates}
 
-**Load balancers as pool member targets.** Accounts that have special approval to preview this feature can now create [pool members](/apidocs/vpc/latest#list-load-balancer-pool-members) that target other [load balancers](/apidocs/vpc/latest#list-load-balancers). When [creating a member in a load balancer pool](/apidocs/vpc/latest#create-load-balancer-pool-member), you can now specify the identity of another load balancer as the `target`. When [retrieving](/apidocs/vpc/latest#get-load-balancer-profile) or [listing](/apidocs/vpc/latest#list-load-balancer-profiles) load balancer profiles, use the new `targetable_load_balancer_profiles` property to determine which load balancers that profile can target.
+**Load balancers as pool member targets.** Accounts that have special approval to preview this feature can now create [pool members](/docs/apis/vpc/latest#list-load-balancer-pool-members) that target other [load balancers](/docs/apis/vpc/latest#list-load-balancers). When [creating a member in a load balancer pool](/docs/apis/vpc/latest#create-load-balancer-pool-member), you can now specify the identity of another load balancer as the `target`. When [retrieving](/docs/apis/vpc/latest#get-load-balancer-profile) or [listing](/docs/apis/vpc/latest#list-load-balancer-profiles) load balancer profiles, use the new `targetable_load_balancer_profiles` property to determine which load balancers that profile can target.
 
-When [retrieving](/apidocs/vpc/latest#get-load-balancer) or [listing](/apidocs/vpc/latest#list-load-balancers) load balancers, the response now includes an `attached_load_balancer_pool_members` property, which references any pool members targeting this load balancer.
+When [retrieving](/docs/apis/vpc/latest#get-load-balancer) or [listing](/docs/apis/vpc/latest#list-load-balancers) load balancers, the response now includes an `attached_load_balancer_pool_members` property, which references any pool members targeting this load balancer.
 
 This feature is now generally available. See the [29 April 2025](#29-april-2025) announcement.
 
-**SNI hostname support for application load balancers.** You can now [create a policy rule](/apidocs/vpc/latest#create-load-balancer-listener-policy-rule) for a server name indication (SNI) hostname by specifying `sni_hostname` as the `type`. Moreover, when [creating a policy](/apidocs/vpc/latest#create-load-balancer-listener-policy) you can now target another listener on the load balancer by specifying the listener as the policy's `target`. For more information, see [Policy-based load balancing](/docs/vpc?topic=vpc-layer-7-load-balancing).
+**SNI hostname support for application load balancers.** You can now [create a policy rule](/docs/apis/vpc/latest#create-load-balancer-listener-policy-rule) for a server name indication (SNI) hostname by specifying `sni_hostname` as the `type`. Moreover, when [creating a policy](/docs/apis/vpc/latest#create-load-balancer-listener-policy) you can now target another listener on the load balancer by specifying the listener as the policy's `target`. For more information, see [Policy-based load balancing](/docs/vpc?topic=vpc-layer-7-load-balancing).
 
 ### For version `2025-04-08` or later
 {: #version-2025-04-08}
 
-**Load balancer listener policy schema property value change.** When [creating a policy](/apidocs/vpc/latest#create-load-balancer-listener-policy) to target a pool using a `version` query parameter of `2025-04-08` or later,  the `action` value `forward_to_pool` must be used instead of `forward`. Similarly, when [retrieving](/apidocs/vpc/latest#get-load-balancer-listener-policy) or [listing](/apidocs/vpc/latest#list-load-balancer-listener-policies) policies using a `version` query parameter of `2025-04-08` or later,  the `action` value of `forward_to_pool` will be returned instead of `forward`. For migration guidance, see [Updating to the `2025-04-08` version (SNI hostname support for application load balancers)](/docs/vpc?topic=vpc-2025-04-08-migration-alb-listener-policy). Requests using a `version` query parameter of `2025-04-07` or earlier are unchanged.
+**Load balancer listener policy schema property value change.** When [creating a policy](/docs/apis/vpc/latest#create-load-balancer-listener-policy) to target a pool using a `version` query parameter of `2025-04-08` or later,  the `action` value `forward_to_pool` must be used instead of `forward`. Similarly, when [retrieving](/docs/apis/vpc/latest#get-load-balancer-listener-policy) or [listing](/docs/apis/vpc/latest#list-load-balancer-listener-policies) policies using a `version` query parameter of `2025-04-08` or later,  the `action` value of `forward_to_pool` will be returned instead of `forward`. For migration guidance, see [Updating to the `2025-04-08` version (SNI hostname support for application load balancers)](/docs/vpc?topic=vpc-2025-04-08-migration-alb-listener-policy). Requests using a `version` query parameter of `2025-04-07` or earlier are unchanged.
 
 ## 1 April 2025
 {: #1-april-2025}
@@ -562,9 +562,9 @@ This feature is now generally available. See the [29 April 2025](#29-april-2025)
 ### For all version dates
 {: #1-april-2025-all-version-dates}
 
-**Trust Domain Extensions for confidential computing.** In select regions, you can now enable [Intel&reg; Trust Domain Extensions (TDX)](/docs/vpc?topic=vpc-about-confidential-computing-vpc#confidential-computing-vpc-with-tdx). [Instance profiles](/apidocs/vpc#list-instance-profiles) that support TDX include `tdx` in their `confidential_compute_modes.values` property. To use TDX, specify a profile that supports it along with the `confidential_compute_mode` value of `tdx` when [creating](/apidocs/vpc/latest#create-instance) or [updating](/apidocs/vpc/latest#update-instance) an instance, or when [creating](/apidocs/vpc/latest#create-instance-template) an instance template.
+**Trust Domain Extensions for confidential computing.** In select regions, you can now enable [Intel&reg; Trust Domain Extensions (TDX)](/docs/vpc?topic=vpc-about-confidential-computing-vpc#confidential-computing-vpc-with-tdx). [Instance profiles](/docs/apis/vpc#list-instance-profiles) that support TDX include `tdx` in their `confidential_compute_modes.values` property. To use TDX, specify a profile that supports it along with the `confidential_compute_mode` value of `tdx` when [creating](/docs/apis/vpc/latest#create-instance) or [updating](/docs/apis/vpc/latest#update-instance) an instance, or when [creating](/docs/apis/vpc/latest#create-instance-template) an instance template.
 
-See [Confidential computing known issues](/docs/vpc?topic=vpc-known-issues#confidential-computing-vpc-known-issues) for details regarding a known issue when [retrieving](/apidocs/vpc#get-instance-profile) or [listing](/apidocs/vpc#list-instance-profiles) instance profiles in the Dallas (`us-south`) and Frankfurt (`eu-de`) regions.
+See [Confidential computing known issues](/docs/vpc?topic=vpc-known-issues#confidential-computing-vpc-known-issues) for details regarding a known issue when [retrieving](/docs/apis/vpc#get-instance-profile) or [listing](/docs/apis/vpc#list-instance-profiles) instance profiles in the Dallas (`us-south`) and Frankfurt (`eu-de`) regions.
 
 ## 25 March 2025
 {: #25-march-2025}
@@ -572,11 +572,11 @@ See [Confidential computing known issues](/docs/vpc?topic=vpc-known-issues#confi
 ### For all version dates
 {: #25-march-2025-all-version-dates}
 
-**Intel accelerator instance profiles.** When [creating an instance](/apidocs/vpc/latest#create-instance), you can now specify a `profile` for a server with accelerators manufactured by Intel, such as `gx3d-160x1792x8gaudi3`. Accordingly, when [retrieving](/apidocs/vpc/latest#get-instance) or [listing](/apidocs/vpc/latest#list-instances) instances, the response may also include a new `gpu.manufacturer` property value of `intel`. Similarly, when [retrieving](/apidocs/vpc/latest#get-instance-profile) or [listing](/apidocs/vpc/latest#list-instance-profiles) instance profiles, the response may also include a `gpu_manufacturer.values` property value of `intel`. For more information, see [Intel Gaudi 3 instance profiles](/docs/vpc?topic=vpc-accelerated-profile-family&interface=ui#gaudi-3-profiles).
+**Intel accelerator instance profiles.** When [creating an instance](/docs/apis/vpc/latest#create-instance), you can now specify a `profile` for a server with accelerators manufactured by Intel, such as `gx3d-160x1792x8gaudi3`. Accordingly, when [retrieving](/docs/apis/vpc/latest#get-instance) or [listing](/docs/apis/vpc/latest#list-instances) instances, the response may also include a new `gpu.manufacturer` property value of `intel`. Similarly, when [retrieving](/docs/apis/vpc/latest#get-instance-profile) or [listing](/docs/apis/vpc/latest#list-instance-profiles) instance profiles, the response may also include a `gpu_manufacturer.values` property value of `intel`. For more information, see [Intel Gaudi 3 instance profiles](/docs/vpc?topic=vpc-accelerated-profile-family&interface=ui#gaudi-3-profiles).
 
-**Adjustable bandwidth for block storage volumes.** You can now specify the `bandwidth` property when [creating a volume](/apidocs/vpc/latest#create-volume) with a profile that supports adjustable bandwidth. The specified `bandwidth` will set the maximum bandwidth for a volume. You can also specify the `bandwidth` property when [creating an instance](/apidocs/vpc/latest#create-instance) with volume attachments. Additionally, you can [update a volume](/apidocs/vpc/latest#update-volume) to change the `bandwidth` property after volume creation.
+**Adjustable bandwidth for block storage volumes.** You can now specify the `bandwidth` property when [creating a volume](/docs/apis/vpc/latest#create-volume) with a profile that supports adjustable bandwidth. The specified `bandwidth` will set the maximum bandwidth for a volume. You can also specify the `bandwidth` property when [creating an instance](/docs/apis/vpc/latest#create-instance) with volume attachments. Additionally, you can [update a volume](/docs/apis/vpc/latest#update-volume) to change the `bandwidth` property after volume creation.
 
-When [retrieving](/apidocs/vpc/latest#get-volume-profile) or [listing](/apidocs/vpc/latest#list-volume-profiles) volume profiles, the response now includes a `bandwidth` property, which indicates whether the profile supports adjustable bandwidth, and the range of supported values. Presently, only volume profiles with a `storage_generation` of `2` support adjustable bandwidth. For more information, see [Storage known issues](/docs/vpc?topic=vpc-storage-known-issues#gen1-bandwidth-property-dependent).
+When [retrieving](/docs/apis/vpc/latest#get-volume-profile) or [listing](/docs/apis/vpc/latest#list-volume-profiles) volume profiles, the response now includes a `bandwidth` property, which indicates whether the profile supports adjustable bandwidth, and the range of supported values. Presently, only volume profiles with a `storage_generation` of `2` support adjustable bandwidth. For more information, see [Storage known issues](/docs/vpc?topic=vpc-storage-known-issues#gen1-bandwidth-property-dependent).
 
 ## 4 March 2025
 {: #4-march-2025}
@@ -584,9 +584,9 @@ When [retrieving](/apidocs/vpc/latest#get-volume-profile) or [listing](/apidocs/
 ### For all version dates
 {: #4-march-2025-all-version-dates}
 
-**Failsafe policies for load balancer pools.** When [creating](/apidocs/vpc/latest#create-load-balancer-pool) or [updating](/apidocs/vpc/latest#update-load-balancer-pool) a load balancer pool, you can now specify the `failsafe_policy` property to manage potential failures in your environment. A failsafe policy includes an `action`, and depending on the action, may also require a `target` (such as a pool to forward requests to).
+**Failsafe policies for load balancer pools.** When [creating](/docs/apis/vpc/latest#create-load-balancer-pool) or [updating](/docs/apis/vpc/latest#update-load-balancer-pool) a load balancer pool, you can now specify the `failsafe_policy` property to manage potential failures in your environment. A failsafe policy includes an `action`, and depending on the action, may also require a `target` (such as a pool to forward requests to).
 
-When [retrieving](/apidocs/vpc/latest#get-load-balancer-profile) or [listing](/apidocs/vpc/latest#list-load-balancer-profiles) load balancer profiles, the response now includes a `failsafe_policy_actions` property, which indicates the default and supported actions for each load balancer profile (when known).  Similarly, when [retrieving](/apidocs/vpc/latest#get-load-balancer) or [listing](/apidocs/vpc/latest#list-load-balancers) load balancers, the `failsafe_policy_actions` property indicates the supported actions. For more information, see [Creating an application load balancer](/docs/vpc?topic=vpc-load-balancers&interface=api) and [Creating a public or private network load balancer](/docs/vpc?topic=vpc-nlb-ui-creating-network-load-balancer&interface=api).
+When [retrieving](/docs/apis/vpc/latest#get-load-balancer-profile) or [listing](/docs/apis/vpc/latest#list-load-balancer-profiles) load balancer profiles, the response now includes a `failsafe_policy_actions` property, which indicates the default and supported actions for each load balancer profile (when known).  Similarly, when [retrieving](/docs/apis/vpc/latest#get-load-balancer) or [listing](/docs/apis/vpc/latest#list-load-balancers) load balancers, the `failsafe_policy_actions` property indicates the supported actions. For more information, see [Creating an application load balancer](/docs/vpc?topic=vpc-load-balancers&interface=api) and [Creating a public or private network load balancer](/docs/vpc?topic=vpc-nlb-ui-creating-network-load-balancer&interface=api).
 
 Before you create a pool for a Private Path network load balancer, review [Known limitations for Private Path network load balancers](/docs/vpc?topic=vpc-nlb-limitations) for information about `failsafe_policy.action` value behavior.
 {: note}
@@ -597,10 +597,10 @@ Before you create a pool for a Private Path network load balancer, review [Known
 ### For all version dates
 {: #18-february-2025-all-version-dates}
 
-**Storage generation for block storage and block storage snapshots.** When [retrieving](/apidocs/vpc/latest#get-volume-profile) or [listing](/apidocs/vpc/latest#list-volume-profiles) volume profiles, the response now includes a `storage_generation` property to denote which [generation](/docs/vpc?topic=vpc-block-storage-profiles&interface=api#using-api-iops-profiles) of block storage will be created when that profile is selected to [create a volume](/apidocs/vpc/latest#create-volume). Likewise, when [retrieving](/apidocs/vpc/latest#get-volume) or [listing](/apidocs/vpc/latest#list-volumes) volumes, the `storage_generation` property is included in the response. For more information, see [Viewing available volume profiles](/docs/vpc?topic=vpc-block-storage-profiles&interface=api#using-api-iops-profiles).
+**Storage generation for block storage and block storage snapshots.** When [retrieving](/docs/apis/vpc/latest#get-volume-profile) or [listing](/docs/apis/vpc/latest#list-volume-profiles) volume profiles, the response now includes a `storage_generation` property to denote which [generation](/docs/vpc?topic=vpc-block-storage-profiles&interface=api#using-api-iops-profiles) of block storage will be created when that profile is selected to [create a volume](/docs/apis/vpc/latest#create-volume). Likewise, when [retrieving](/docs/apis/vpc/latest#get-volume) or [listing](/docs/apis/vpc/latest#list-volumes) volumes, the `storage_generation` property is included in the response. For more information, see [Viewing available volume profiles](/docs/vpc?topic=vpc-block-storage-profiles&interface=api#using-api-iops-profiles).
 
-When you [create a snapshot](/apidocs/vpc/latest#create-snapshot), the snapshot inherits the `storage_generation` from the `source_volume` that the snapshot was created from. Similarly, when a volume is created from a snapshot, the volume inherits the `storage_generation` value from the snapshot. When you [retrieve](/apidocs/vpc/latest#get-snapshot)
-or [list](/apidocs/vpc/latest#list-snapshots) snapshots, the `storage_generation` property is included in the response.
+When you [create a snapshot](/docs/apis/vpc/latest#create-snapshot), the snapshot inherits the `storage_generation` from the `source_volume` that the snapshot was created from. Similarly, when a volume is created from a snapshot, the volume inherits the `storage_generation` value from the snapshot. When you [retrieve](/docs/apis/vpc/latest#get-snapshot)
+or [list](/docs/apis/vpc/latest#list-snapshots) snapshots, the `storage_generation` property is included in the response.
 
 ## 17 December 2024
 {: #17-december-2024}
@@ -608,13 +608,13 @@ or [list](/apidocs/vpc/latest#list-snapshots) snapshots, the `storage_generation
 ### For all version dates
 {: #17-december-2024-all-version-dates}
 
-**File share snapshots.** You can now [create a snapshot for a file share](/apidocs/vpc/latest#create-share-snapshot), a point-in-time copy of your file share data that is directly tied to the lifecycle of the file share. The initial snapshot that you take is a full backup of the share. Subsequent snapshots of the same share are incremental, capturing only the changes that occurred after the last snapshot was taken. [Deleting a file share](/apidocs/vpc/latest#delete-share) deletes all of the snapshots associated with that file share. You can also [update a share snapshot](/apidocs/vpc/latest#update-share-snapshot) to change its user tags, and you can [delete a share snapshot](/apidocs/vpc/latest#delete-share-snapshot), when it's no longer needed.
+**File share snapshots.** You can now [create a snapshot for a file share](/docs/apis/vpc/latest#create-share-snapshot), a point-in-time copy of your file share data that is directly tied to the lifecycle of the file share. The initial snapshot that you take is a full backup of the share. Subsequent snapshots of the same share are incremental, capturing only the changes that occurred after the last snapshot was taken. [Deleting a file share](/docs/apis/vpc/latest#delete-share) deletes all of the snapshots associated with that file share. You can also [update a share snapshot](/docs/apis/vpc/latest#update-share-snapshot) to change its user tags, and you can [delete a share snapshot](/docs/apis/vpc/latest#delete-share-snapshot), when it's no longer needed.
 
-When you [create a share](/apidocs/vpc/latest#create-share), you can now specify the `source_snapshot` property to create the new share with the data from that snapshot. When you [create a replica file share](/docs/vpc?topic=vpc-file-storage-create-replication&interface=api), snapshots of the source file share are automatically copied to the replica, and as snapshots are created and deleted on the source, corresponding snapshots will be created and deleted on the replica.
+When you [create a share](/docs/apis/vpc/latest#create-share), you can now specify the `source_snapshot` property to create the new share with the data from that snapshot. When you [create a replica file share](/docs/vpc?topic=vpc-file-storage-create-replication&interface=api), snapshots of the source file share are automatically copied to the replica, and as snapshots are created and deleted on the source, corresponding snapshots will be created and deleted on the replica.
 
 For more information, see [About File Storage for VPC snapshots](/docs/vpc?topic=vpc-fs-snapshots-about&interface=api). See also [Storage known issues](/docs/vpc?topic=vpc-storage-known-issues).
 
-**File share snapshot automation.** You can now automate the creation of file share snapshots by applying backup policies to file shares. When [creating a backup policy](/apidocs/vpc/latest#create-backup-policy) specify the `match_resource_type` property value as `share` to target file shares. File shares that have both a matching type and a matching user tag are subject to the backup policy. For more information, see [Backup service concepts](/docs/vpc?topic=vpc-backup-service-about&interface=api#backup-service-concepts).
+**File share snapshot automation.** You can now automate the creation of file share snapshots by applying backup policies to file shares. When [creating a backup policy](/docs/apis/vpc/latest#create-backup-policy) specify the `match_resource_type` property value as `share` to target file shares. File shares that have both a matching type and a matching user tag are subject to the backup policy. For more information, see [Backup service concepts](/docs/vpc?topic=vpc-backup-service-about&interface=api#backup-service-concepts).
 
 ## 10 December 2024
 {: #10-december-2024}
@@ -622,18 +622,18 @@ For more information, see [About File Storage for VPC snapshots](/docs/vpc?topic
 ### For all version dates
 {: #10-december-2024-all-version-dates}
 
-**NVIDIA Hopper HGX H100 instance profiles.** When [creating an instance](/apidocs/vpc/latest#create-instance), a new `gx3d-160x1792x8h100` instance profile is available in select zones. This profile provides 8 NVIDIA H100 GPUs that are tuned for AI workloads, such as inferencing, fine tuning, and large-scale training. For details, see [Accelerated profile family - Gen 3](/docs/vpc?topic=vpc-accelerated-profile-family#hopper-hgx-profiles).
+**NVIDIA Hopper HGX H100 instance profiles.** When [creating an instance](/docs/apis/vpc/latest#create-instance), a new `gx3d-160x1792x8h100` instance profile is available in select zones. This profile provides 8 NVIDIA H100 GPUs that are tuned for AI workloads, such as inferencing, fine tuning, and large-scale training. For details, see [Accelerated profile family - Gen 3](/docs/vpc?topic=vpc-accelerated-profile-family#hopper-hgx-profiles).
 
-**Cluster networks.** Cluster networks provide high-bandwidth, low-latency networking for workloads such as AI training and large-scale simulations. You can now [create cluster networks](/apidocs/vpc/latest#create-cluster-network) using a [cluster network profile](/apidocs/vpc/latest#get-cluster-network-profile), which defines the cluster network performance characteristics and capabilities. The [H100 cluster network profile](/docs/vpc?topic=vpc-profiles&interface=api#gpu) is the first cluster network profile being introduced. It provides a specialized network that implements the RoCEv2 protocol to enable remote direct memory access for your workloads that are running on the `gx3d-160x1792x8h100` instance profile.
+**Cluster networks.** Cluster networks provide high-bandwidth, low-latency networking for workloads such as AI training and large-scale simulations. You can now [create cluster networks](/docs/apis/vpc/latest#create-cluster-network) using a [cluster network profile](/docs/apis/vpc/latest#get-cluster-network-profile), which defines the cluster network performance characteristics and capabilities. The [H100 cluster network profile](/docs/vpc?topic=vpc-profiles&interface=api#gpu) is the first cluster network profile being introduced. It provides a specialized network that implements the RoCEv2 protocol to enable remote direct memory access for your workloads that are running on the `gx3d-160x1792x8h100` instance profile.
 
-When [creating an instance](/apidocs/vpc/latest#create-instance) using a supported cluster profile, you can specify the new `cluster_network_attachments` property to connect the virtual server instance to your cluster network. Alternatively, you can [create cluster network attachments](/apidocs/vpc/latest#create-cluster-network-attachment) on an existing instance that is in a `stopping` or `stopped` state. Additionally, when [creating an instance template](/apidocs/vpc/latest#create-instance-template) you can specify `cluster_network_attachments`.
+When [creating an instance](/docs/apis/vpc/latest#create-instance) using a supported cluster profile, you can specify the new `cluster_network_attachments` property to connect the virtual server instance to your cluster network. Alternatively, you can [create cluster network attachments](/docs/apis/vpc/latest#create-cluster-network-attachment) on an existing instance that is in a `stopping` or `stopped` state. Additionally, when [creating an instance template](/docs/apis/vpc/latest#create-instance-template) you can specify `cluster_network_attachments`.
 
-**Instance profile schema changes.** When [retrieving](/apidocs/vpc/latest#get-instance-profile) or [listing](/apidocs/vpc/latest#list-instance-profiles) instance profiles, the response includes the following new properties:
+**Instance profile schema changes.** When [retrieving](/docs/apis/vpc/latest#get-instance-profile) or [listing](/docs/apis/vpc/latest#list-instance-profiles) instance profiles, the response includes the following new properties:
 
 - `cluster_network_attachment_count` specifies the number of cluster network attachments supported for that instance profile.
 - `supported_cluster_network_profiles` indicates the cluster network profiles that are supported for that instance profile.
 
-Learn [about cluster networks](/docs/vpc?topic=vpc-about-cluster-network), cluster network subnets, cluster network interfaces, and explore the new [API methods](/apidocs/vpc/latest#list-cluster-networks). See also [Known issues and limitations for cluster networks](/docs/vpc?topic=vpc-known-issues-cluster-networks) for information about Activity Tracker events.
+Learn [about cluster networks](/docs/vpc?topic=vpc-about-cluster-network), cluster network subnets, cluster network interfaces, and explore the new [API methods](/docs/apis/vpc/latest#list-cluster-networks). See also [Known issues and limitations for cluster networks](/docs/vpc?topic=vpc-known-issues-cluster-networks) for information about Activity Tracker events.
 
 ## 19 November 2024
 {: #19-november-2024}
@@ -643,22 +643,22 @@ Learn [about cluster networks](/docs/vpc?topic=vpc-about-cluster-network), clust
 
 **Reservations for bare metal servers.** You can now purchase a [capacity reservation](/docs/vpc?topic=vpc-about-reserved-virtual-servers-vpc&interface=ui) for a specified bare metal server profile in a specified zone. Reservations provide resources for future deployments and cost savings over the life of the term within the availability zone of your choice.
 
-When [creating](/apidocs/vpc/latest#create-reservation) or [updating](/apidocs/vpc/latest#update-reservation) a reservation, specify the `capacity.total` and `committed_use.term` properties to use for this reservation. Optionally specify the `committed_use.expiration_policy` property to apply when the committed use term expires (default: `release`). Specify the `profile.name` and `profile.resource_type` properties of the profile, and the `zone` property to use for this reservation. After you confirm that the reservation is configured the way that you want it, you must [activate the reservation](/apidocs/vpc/latest#activate-reservation). The reservation cannot be deleted until the committed use term expires. To provision a bare metal server using a reservation's capacity, specify the reservation using the `reservation_affinity.pool` property when [creating the bare metal server](/apidocs/vpc/latest#create-bare-metal-server). You can also [update a bare metal server](/apidocs/vpc/latest#update-bare-metal-server) that's been provisioned to associate it with a reservation.
+When [creating](/docs/apis/vpc/latest#create-reservation) or [updating](/docs/apis/vpc/latest#update-reservation) a reservation, specify the `capacity.total` and `committed_use.term` properties to use for this reservation. Optionally specify the `committed_use.expiration_policy` property to apply when the committed use term expires (default: `release`). Specify the `profile.name` and `profile.resource_type` properties of the profile, and the `zone` property to use for this reservation. After you confirm that the reservation is configured the way that you want it, you must [activate the reservation](/docs/apis/vpc/latest#activate-reservation). The reservation cannot be deleted until the committed use term expires. To provision a bare metal server using a reservation's capacity, specify the reservation using the `reservation_affinity.pool` property when [creating the bare metal server](/docs/apis/vpc/latest#create-bare-metal-server). You can also [update a bare metal server](/docs/apis/vpc/latest#update-bare-metal-server) that's been provisioned to associate it with a reservation.
 
-When [retrieving a bare metal server](/apidocs/vpc/latest#get-bare-metal-server), the new `reservation_affinity` property indicates the reservation affinity policy in effect for the bare metal server. The new `health_state` property indicates the bare metal server's overall health state, while an accompanying `health_reasons` property indicates the reason for any unhealthy health states, such as a failed reservation.
+When [retrieving a bare metal server](/docs/apis/vpc/latest#get-bare-metal-server), the new `reservation_affinity` property indicates the reservation affinity policy in effect for the bare metal server. The new `health_state` property indicates the bare metal server's overall health state, while an accompanying `health_reasons` property indicates the reason for any unhealthy health states, such as a failed reservation.
 
 For more information, see [Provisioning reserved capacity for VPC](/docs/vpc?topic=vpc-provisioning-reserved-capacity-vpc&interface=api).
 
-**Reservation automatic attachment support.** You can now [automatically attach](/docs/vpc?topic=vpc-automatic-reservation-vpc) a reservation when [creating an instance](/apidocs/vpc/latest#create-instance) or [creating a bare metal server](/apidocs/vpc/latest#create-bare-metal-server). Additionally, when [updating an instance](/apidocs/vpc/latest#update-instance) or [updating a bare metal server](/apidocs/vpc/latest#update-bare-metal-server), you can change the `reservation_affinity.policy` to `automatic` for the instance or bare metal server to automatically attach to available reserved capacity.
+**Reservation automatic attachment support.** You can now [automatically attach](/docs/vpc?topic=vpc-automatic-reservation-vpc) a reservation when [creating an instance](/docs/apis/vpc/latest#create-instance) or [creating a bare metal server](/docs/apis/vpc/latest#create-bare-metal-server). Additionally, when [updating an instance](/docs/apis/vpc/latest#update-instance) or [updating a bare metal server](/docs/apis/vpc/latest#update-bare-metal-server), you can change the `reservation_affinity.policy` to `automatic` for the instance or bare metal server to automatically attach to available reserved capacity.
 
-When [creating a reservation](/apidocs/vpc/latest#create-reservation), you can now specify an `affinity_policy` of `restricted` to prevent the policy from being used for automatic attachments. Similarly, while a reservation's `status` is `inactive`, you can [update a reservation](/apidocs/vpc/latest#update-reservation) to be restricted.
+When [creating a reservation](/docs/apis/vpc/latest#create-reservation), you can now specify an `affinity_policy` of `restricted` to prevent the policy from being used for automatic attachments. Similarly, while a reservation's `status` is `inactive`, you can [update a reservation](/docs/apis/vpc/latest#update-reservation) to be restricted.
 
 For more information, see [Automatic attachments for reservations](/docs/vpc?topic=vpc-automatic-reservation-vpc).
 
 ### For version `2024-11-19` or later
 {: #version-2024-11-19}
 
-**Reservation affinity policy default.** When using a `version` query parameter of `2024-11-19` or later, the `reservation_affinity.policy` defaults to `automatic` when [creating a reservation](/apidocs/vpc/2024-11-19#create-reservation). Similarly, when using a `version` query parameter of `2024-11-19` or later, the `reservation_affinity.policy` defaults to `automatic` when [creating an instance](/apidocs/vpc/2024-11-19#create-instance) or [creating a bare metal server](/apidocs/vpc/2024-11-19#create-bare-metal-server). The behavior remains unchanged when using a `version` query parameter of `2024-11-18` or earlier.
+**Reservation affinity policy default.** When using a `version` query parameter of `2024-11-19` or later, the `reservation_affinity.policy` defaults to `automatic` when [creating a reservation](/docs/apis/vpc/2024-11-19#create-reservation). Similarly, when using a `version` query parameter of `2024-11-19` or later, the `reservation_affinity.policy` defaults to `automatic` when [creating an instance](/docs/apis/vpc/2024-11-19#create-instance) or [creating a bare metal server](/docs/apis/vpc/2024-11-19#create-bare-metal-server). The behavior remains unchanged when using a `version` query parameter of `2024-11-18` or earlier.
 
 ## 12 November 2024
 {: #12-november-2024}
@@ -666,7 +666,7 @@ For more information, see [Automatic attachments for reservations](/docs/vpc?top
 ### For all version dates
 {: #12-november-2024-all-version-dates}
 
-**Private Path network load balancers.** You can now create a [Private Path network load balancer](/docs/vpc?topic=vpc-ppnlb-ui-creating-private-path-network-load-balancer&interface=api) to enable and manage private connectivity for consumers of a hosted service. When [creating a load balancer](/apidocs/vpc/latest#create-load-balancer), you can specify the new `is_private_path` property value as `true` to create a Private Path network load balancer.
+**Private Path network load balancers.** You can now create a [Private Path network load balancer](/docs/vpc?topic=vpc-ppnlb-ui-creating-private-path-network-load-balancer&interface=api) to enable and manage private connectivity for consumers of a hosted service. When [creating a load balancer](/docs/apis/vpc/latest#create-load-balancer), you can specify the new `is_private_path` property value as `true` to create a Private Path network load balancer.
 
 **Load balancer schema enhancements for Private Path network load balancers.** The Private Path network load balancer includes a new load balancer profile `network-private-path`, along with the following new load balancer and load balancer profile properties:
 
@@ -675,30 +675,30 @@ For more information, see [Automatic attachments for reservations](/docs/vpc?top
 
 The `value` for load balancer profiles properties `route_mode_supported`, `security_groups_supported`, `udp_supported`, and `logging_supported` is set to `false` for Private Path load balancers. Additionally, Private Path load balancers do not support setting or updating the `dns` property, because Private Path network load balancers are accessed using endpoint gateways where DNS is configured.
 
-**Private Path service gateways.** You can now [create](/apidocs/vpc/latest#create-private-path-service-gateway) a Private Path service gateway to provide cross-account connectivity to the Private Path network load balancers that front your [services](/docs/vpc?topic=vpc-private-path-service-about&interface=api). Consumers access your services by targeting their endpoint gateways at your Private Path service gateways. You can also [update](/apidocs/vpc/latest#update-private-path-service-gateway), [publish](/apidocs/vpc/latest#publish-private-path-service-gateway), [unpublish](/apidocs/vpc/latest#unpublish-private-path-service-gateway) or [delete](/apidocs/vpc/latest#delete-private-path-service-gateway) Private Path service gateways. Private Path service gateways also have two child resources:
+**Private Path service gateways.** You can now [create](/docs/apis/vpc/latest#create-private-path-service-gateway) a Private Path service gateway to provide cross-account connectivity to the Private Path network load balancers that front your [services](/docs/vpc?topic=vpc-private-path-service-about&interface=api). Consumers access your services by targeting their endpoint gateways at your Private Path service gateways. You can also [update](/docs/apis/vpc/latest#update-private-path-service-gateway), [publish](/docs/apis/vpc/latest#publish-private-path-service-gateway), [unpublish](/docs/apis/vpc/latest#unpublish-private-path-service-gateway) or [delete](/docs/apis/vpc/latest#delete-private-path-service-gateway) Private Path service gateways. Private Path service gateways also have two child resources:
 
-- [Account policies](/apidocs/vpc/latest#list-private-path-service-gateway-account-policies) provide per-account access policies that supersede the Private Path service gateway's default access policy. You can [create](/apidocs/vpc/latest#create-private-path-service-gateway-account-policy), [update](/apidocs/vpc/latest#update-private-path-service-gateway-account-policy), or [delete](/apidocs/vpc/latest#delete-private-path-service-gateway-account-policy) policies to `permit`, `deny`, or manually `review` requests from any account. You can also [revoke](/apidocs/vpc/latest#revoke-account-for-private-path-service-gateway) current and future access for an account. For more information, see [About account policies](/docs/vpc?topic=vpc-pps-about-account-policies).
+- [Account policies](/docs/apis/vpc/latest#list-private-path-service-gateway-account-policies) provide per-account access policies that supersede the Private Path service gateway's default access policy. You can [create](/docs/apis/vpc/latest#create-private-path-service-gateway-account-policy), [update](/docs/apis/vpc/latest#update-private-path-service-gateway-account-policy), or [delete](/docs/apis/vpc/latest#delete-private-path-service-gateway-account-policy) policies to `permit`, `deny`, or manually `review` requests from any account. You can also [revoke](/docs/apis/vpc/latest#revoke-account-for-private-path-service-gateway) current and future access for an account. For more information, see [About account policies](/docs/vpc?topic=vpc-pps-about-account-policies).
 
-- [Endpoint gateway bindings](/apidocs/vpc/latest#list-private-path-service-gateway-endpoint-gateway) are created for each endpoint gateway targeting the Private Path service gateway. The access policy for the endpoint gateway's account is applied to all new endpoint gateway bindings. If an account policy doesn't exist, the Private Path service gateway's `default_access_policy` is used. If the resulting policy is `review`, you must explicitly [permit](/apidocs/vpc/latest#permit-private-path-service-gateway-endpoint-gatew) or [deny](/apidocs/vpc/latest#deny-private-path-service-gateway-endpoint-gateway) the request, and optionally set a new policy for future requests from the account.
+- [Endpoint gateway bindings](/docs/apis/vpc/latest#list-private-path-service-gateway-endpoint-gateway) are created for each endpoint gateway targeting the Private Path service gateway. The access policy for the endpoint gateway's account is applied to all new endpoint gateway bindings. If an account policy doesn't exist, the Private Path service gateway's `default_access_policy` is used. If the resulting policy is `review`, you must explicitly [permit](/docs/apis/vpc/latest#permit-private-path-service-gateway-endpoint-gatew) or [deny](/docs/apis/vpc/latest#deny-private-path-service-gateway-endpoint-gateway) the request, and optionally set a new policy for future requests from the account.
 
-Learn about [Creating Private Path service gateways](/docs/vpc?topic=vpc-private-path-service-intro&interface=ui), and explore the new [API methods](/apidocs/vpc/latest#list-private-path-service-gateways).
+Learn about [Creating Private Path service gateways](/docs/vpc?topic=vpc-private-path-service-intro&interface=ui), and explore the new [API methods](/docs/apis/vpc/latest#list-private-path-service-gateways).
 
-**Load balancer PUT response code change.** When [replacing load balancer pool members](/apidocs/vpc/latest#replace-load-balancer-pool-members), the response will now return an HTTP status code of `200` on success, instead of `202`. This change applies to all API versions.
+**Load balancer PUT response code change.** When [replacing load balancer pool members](/docs/apis/vpc/latest#replace-load-balancer-pool-members), the response will now return an HTTP status code of `200` on success, instead of `202`. This change applies to all API versions.
 
 This release introduces the following updates for accounts that have special approval to preview and use these features. Although usage of these features is restricted, changes to schemas (such as new properties) will be visible to all accounts.
 
-**NVIDIA Hopper HGX H100 instance profiles.** When [creating an instance](/apidocs/vpc/latest#create-instance), a new `gx3d-160x1792x8h100` instance profile is available in select zones. This profile provides 8 NVIDIA H100 GPUs that are tuned for AI workloads, such as inferencing, fine tuning, and large-scale training. For details, see [Accelerated profile family - Gen 3](/docs/vpc?topic=vpc-accelerated-profile-family#hopper-hgx-profiles).
+**NVIDIA Hopper HGX H100 instance profiles.** When [creating an instance](/docs/apis/vpc/latest#create-instance), a new `gx3d-160x1792x8h100` instance profile is available in select zones. This profile provides 8 NVIDIA H100 GPUs that are tuned for AI workloads, such as inferencing, fine tuning, and large-scale training. For details, see [Accelerated profile family - Gen 3](/docs/vpc?topic=vpc-accelerated-profile-family#hopper-hgx-profiles).
 
-**Cluster networks.** Cluster networks provide high-bandwidth, low-latency networking for workloads such as AI training and large-scale simulations. You can now [create cluster networks](/apidocs/vpc/latest#create-cluster-network) using a [cluster network profile](/apidocs/vpc/latest#get-cluster-network-profile), which defines the cluster network performance characteristics and capabilities. The [H100 cluster network profile](/docs/vpc?topic=vpc-profiles&interface=api#gpu) is the first cluster network profile being introduced. It provides a specialized network that implements the RoCEv2 protocol to enable remote direct memory access for your workloads that are running on the `gx3d-160x1792x8h100` instance profile.
+**Cluster networks.** Cluster networks provide high-bandwidth, low-latency networking for workloads such as AI training and large-scale simulations. You can now [create cluster networks](/docs/apis/vpc/latest#create-cluster-network) using a [cluster network profile](/docs/apis/vpc/latest#get-cluster-network-profile), which defines the cluster network performance characteristics and capabilities. The [H100 cluster network profile](/docs/vpc?topic=vpc-profiles&interface=api#gpu) is the first cluster network profile being introduced. It provides a specialized network that implements the RoCEv2 protocol to enable remote direct memory access for your workloads that are running on the `gx3d-160x1792x8h100` instance profile.
 
-When [creating an instance](/apidocs/vpc/latest#create-instance) using a supported cluster profile, you can specify the new `cluster_network_attachments` property to connect the virtual server instance to your cluster network. Alternatively, you can [create cluster network attachments](/apidocs/vpc/latest#create-cluster-network-attachment) on an existing instance that is in a `stopping` or `stopped` state. Additionally, when [creating an instance template](/apidocs/vpc/latest#create-instance-template) you can specify `cluster_network_attachments`.
+When [creating an instance](/docs/apis/vpc/latest#create-instance) using a supported cluster profile, you can specify the new `cluster_network_attachments` property to connect the virtual server instance to your cluster network. Alternatively, you can [create cluster network attachments](/docs/apis/vpc/latest#create-cluster-network-attachment) on an existing instance that is in a `stopping` or `stopped` state. Additionally, when [creating an instance template](/docs/apis/vpc/latest#create-instance-template) you can specify `cluster_network_attachments`.
 
-**Instance profile schema changes.** When [retrieving](/apidocs/vpc/latest#get-instance-profile) or [listing](/apidocs/vpc/latest#list-instance-profiles) instance profiles, the response includes the following new properties:
+**Instance profile schema changes.** When [retrieving](/docs/apis/vpc/latest#get-instance-profile) or [listing](/docs/apis/vpc/latest#list-instance-profiles) instance profiles, the response includes the following new properties:
 
 - `cluster_network_attachment_count` specifies the number of cluster network attachments supported for that instance profile.
 - `supported_cluster_network_profiles` indicates the cluster network profiles that are supported for that instance profile.
 
-Learn [about cluster networks](/docs/vpc?topic=vpc-about-cluster-network), cluster network subnets, cluster network interfaces, and explore the new [API methods](/apidocs/vpc/latest#list-cluster-networks). See also [Known issues and limitations for cluster networks](/docs/vpc?topic=vpc-known-issues-cluster-networks) for information about Activity Tracker events and setting a cluster network reserved IP's `auto_delete` property.
+Learn [about cluster networks](/docs/vpc?topic=vpc-about-cluster-network), cluster network subnets, cluster network interfaces, and explore the new [API methods](/docs/apis/vpc/latest#list-cluster-networks). See also [Known issues and limitations for cluster networks](/docs/vpc?topic=vpc-known-issues-cluster-networks) for information about Activity Tracker events and setting a cluster network reserved IP's `auto_delete` property.
 
 The H100 profiles and cluster networks features are now generally available. See the announcement on [10 December 2024](#10-december-2024).
 
@@ -708,7 +708,7 @@ The H100 profiles and cluster networks features are now generally available. See
 ### For all version dates
 {: #29-october-2024-all-version-dates}
 
-**File share replication frequency increase.** When [creating](/apidocs/vpc/latest#create-share) or [updating](/apidocs/vpc/latest#update-share) a replication file share, you can now set the replication schedule as often as every 15 minutes by setting the `replication_cron_spec` property. The previous minimum threshold was 1 hour. For more information, see [About file share replication](/docs/vpc?topic=vpc-file-storage-replication).
+**File share replication frequency increase.** When [creating](/docs/apis/vpc/latest#create-share) or [updating](/docs/apis/vpc/latest#update-share) a replication file share, you can now set the replication schedule as often as every 15 minutes by setting the `replication_cron_spec` property. The previous minimum threshold was 1 hour. For more information, see [About file share replication](/docs/vpc?topic=vpc-file-storage-replication).
 
 ## 15 October 2024
 {: #15-october-2024}
@@ -716,7 +716,7 @@ The H100 profiles and cluster networks features are now generally available. See
 ### For all version dates
 {: #15-october-2024-all-version-dates}
 
-**Distributing traffic across tunnels of route-based VPN gateway connections.** You can now distribute traffic across tunnels with a `status` of `up` in a route-based VPN gateway connection. When [creating](/apidocs/vpc/latest#create-vpn-gateway-connection) or [updating](/apidocs/vpc/latest#update-vpn-gateway-connection) a route-based VPN gateway connection, set the `distribute_traffic` property to `true` (default is `false`). Existing connections will have the `distribute_traffic` property set to `false`. The `distribute_traffic` property is now included in the `VPNGatewayConnection` schema used in responses, for example when [retrieving a VPN gateway connection](/apidocs/vpc/latest#get-vpn-gateway-connection). For more information, see [Distributing traffic for a route-based VPN](/docs/vpc?topic=vpc-using-vpn#use-case-4-vpn).
+**Distributing traffic across tunnels of route-based VPN gateway connections.** You can now distribute traffic across tunnels with a `status` of `up` in a route-based VPN gateway connection. When [creating](/docs/apis/vpc/latest#create-vpn-gateway-connection) or [updating](/docs/apis/vpc/latest#update-vpn-gateway-connection) a route-based VPN gateway connection, set the `distribute_traffic` property to `true` (default is `false`). Existing connections will have the `distribute_traffic` property set to `false`. The `distribute_traffic` property is now included in the `VPNGatewayConnection` schema used in responses, for example when [retrieving a VPN gateway connection](/docs/apis/vpc/latest#get-vpn-gateway-connection). For more information, see [Distributing traffic for a route-based VPN](/docs/vpc?topic=vpc-using-vpn#use-case-4-vpn).
 
 ## 1 October 2024
 {: #1-october-2024}
@@ -724,7 +724,7 @@ The H100 profiles and cluster networks features are now generally available. See
 ### For all version dates
 {: #1-october-2024-all-version-dates}
 
-**Private Path network load balancers.** Accounts that have special approval to preview this feature can now create a [Private Path network load balancer](/docs/vpc?topic=vpc-ppnlb-ui-creating-private-path-network-load-balancer&interface=api) to enable and manage private connectivity for consumers of a hosted service. When [creating a load balancer](/apidocs/vpc/latest#create-load-balancer), you can specify the new `is_private_path` property value as `true` to create a Private Path network load balancer.
+**Private Path network load balancers.** Accounts that have special approval to preview this feature can now create a [Private Path network load balancer](/docs/vpc?topic=vpc-ppnlb-ui-creating-private-path-network-load-balancer&interface=api) to enable and manage private connectivity for consumers of a hosted service. When [creating a load balancer](/docs/apis/vpc/latest#create-load-balancer), you can specify the new `is_private_path` property value as `true` to create a Private Path network load balancer.
 
 **Load balancer schema enhancements for Private Path network load balancers.** The Private Path network load balancer includes a new load balancer profile `network-private-path`, along with the following new load balancer and load balancer profile properties:
 
@@ -733,17 +733,17 @@ The H100 profiles and cluster networks features are now generally available. See
 
 The `value` for load balancer profiles properties `route_mode_supported`, `security_groups_supported`, `udp_supported`, and `logging_supported` is set to `false` for Private Path load balancers. Additionally, Private Path load balancers do not support setting or updating the `dns` property, because Private Path network load balancers are accessed using endpoint gateways where DNS is configured.
 
-**Private Path service gateways.** Accounts that have special approval to preview this feature can now create a private path service gateway. [Creating](/apidocs/vpc/latest#create-private-path-service-gateway), [updating](/apidocs/vpc/latest#update-private-path-service-gateway), [publishing](/apidocs/vpc/latest#publish-private-path-service-gateway), [unpublishing](/apidocs/vpc/latest#unpublish-private-path-service-gateway) and [deleting](/apidocs/vpc/latest#delete-private-path-service-gateway) Private Path service gateways provide cross-account connectivity to the Private Path network load balancers fronting your [services](/docs/vpc?topic=vpc-private-path-service-about&interface=api). Consumers access your services by targeting their endpoint gateways at your Private Path service gateways. Private Path service gateways also have two child resources:
+**Private Path service gateways.** Accounts that have special approval to preview this feature can now create a private path service gateway. [Creating](/docs/apis/vpc/latest#create-private-path-service-gateway), [updating](/docs/apis/vpc/latest#update-private-path-service-gateway), [publishing](/docs/apis/vpc/latest#publish-private-path-service-gateway), [unpublishing](/docs/apis/vpc/latest#unpublish-private-path-service-gateway) and [deleting](/docs/apis/vpc/latest#delete-private-path-service-gateway) Private Path service gateways provide cross-account connectivity to the Private Path network load balancers fronting your [services](/docs/vpc?topic=vpc-private-path-service-about&interface=api). Consumers access your services by targeting their endpoint gateways at your Private Path service gateways. Private Path service gateways also have two child resources:
 
-- [Account policies](/apidocs/vpc/latest#list-private-path-service-gateway-account-policies) provide per-account access policies that supersede the Private Path service gateway's default access policy. You can [create](/apidocs/vpc/latest#create-private-path-service-gateway-account-policy), [update](/apidocs/vpc/latest#update-private-path-service-gateway-account-policy), or [delete](/apidocs/vpc/latest#delete-private-path-service-gateway-account-policy) policies to `permit`, `deny`, or manually `review` requests from any account. You can also [revoke](/apidocs/vpc/latest#revoke-account-for-private-path-service-gateway) current and future access for an account. For more information, see [About account policies](/docs/vpc?topic=vpc-pps-about-account-policies).
+- [Account policies](/docs/apis/vpc/latest#list-private-path-service-gateway-account-policies) provide per-account access policies that supersede the Private Path service gateway's default access policy. You can [create](/docs/apis/vpc/latest#create-private-path-service-gateway-account-policy), [update](/docs/apis/vpc/latest#update-private-path-service-gateway-account-policy), or [delete](/docs/apis/vpc/latest#delete-private-path-service-gateway-account-policy) policies to `permit`, `deny`, or manually `review` requests from any account. You can also [revoke](/docs/apis/vpc/latest#revoke-account-for-private-path-service-gateway) current and future access for an account. For more information, see [About account policies](/docs/vpc?topic=vpc-pps-about-account-policies).
 
-- [Endpoint gateway bindings](/apidocs/vpc/latest#list-private-path-service-gateway-endpoint-gateway) are created for each endpoint gateway targeting the Private Path service gateway. The access policy for the endpoint gateway's account is applied to all new endpoint gateway bindings. If an account policy doesn't exist, the Private Path service gateway's `default_access_policy` is used. If the resulting policy is `review`, you must explicitly [permit](/apidocs/vpc/latest#permit-private-path-service-gateway-endpoint-gatew) or [deny](/apidocs/vpc/latest#deny-private-path-service-gateway-endpoint-gateway) the request, and optionally set a new policy for future requests from the account.
+- [Endpoint gateway bindings](/docs/apis/vpc/latest#list-private-path-service-gateway-endpoint-gateway) are created for each endpoint gateway targeting the Private Path service gateway. The access policy for the endpoint gateway's account is applied to all new endpoint gateway bindings. If an account policy doesn't exist, the Private Path service gateway's `default_access_policy` is used. If the resulting policy is `review`, you must explicitly [permit](/docs/apis/vpc/latest#permit-private-path-service-gateway-endpoint-gatew) or [deny](/docs/apis/vpc/latest#deny-private-path-service-gateway-endpoint-gateway) the request, and optionally set a new policy for future requests from the account.
 
-Learn about [Creating Private Path service gateways](/docs/vpc?topic=vpc-private-path-service-intro&interface=ui), and explore the new [API methods](/apidocs/vpc/latest#list-private-path-service-gateways).
+Learn about [Creating Private Path service gateways](/docs/vpc?topic=vpc-private-path-service-intro&interface=ui), and explore the new [API methods](/docs/apis/vpc/latest#list-private-path-service-gateways).
 
 This feature is now generally available. See the "Private Path network load balancer" announcement on [12 November 2024](#12-november-2024).
 
-**CRNs for VPC routing tables.** VPC routing tables now support the `crn` property as an identifier. As a result, the `RoutingTable`, `RoutingTableReference` and `RoutingTableIdentity` schemas now include a `crn` property. All operations that use these schemas have been updated. For operations where the response contains a routing table or a reference to a routing table, for example [creating a routing table](/apidocs/vpc/latest#create-vpc-routing-table), [retrieving a routing table](/apidocs/vpc/latest#get-vpc-routing-table) or [retrieving a VPC's default routing table](/apidocs/vpc/latest#get-vpc-default-routing-table), the `crn` property is now included. When [replacing the routing table for a subnet](/apidocs/vpc/latest#replace-subnet-routing-table), for example, you can now optionally specify the routing table by its `crn` property.
+**CRNs for VPC routing tables.** VPC routing tables now support the `crn` property as an identifier. As a result, the `RoutingTable`, `RoutingTableReference` and `RoutingTableIdentity` schemas now include a `crn` property. All operations that use these schemas have been updated. For operations where the response contains a routing table or a reference to a routing table, for example [creating a routing table](/docs/apis/vpc/latest#create-vpc-routing-table), [retrieving a routing table](/docs/apis/vpc/latest#get-vpc-routing-table) or [retrieving a VPC's default routing table](/docs/apis/vpc/latest#get-vpc-default-routing-table), the `crn` property is now included. When [replacing the routing table for a subnet](/docs/apis/vpc/latest#replace-subnet-routing-table), for example, you can now optionally specify the routing table by its `crn` property.
 
 Now that all VPC routing tables have a CRN, you can [tag](/docs/account?topic=account-tag&interface=api) routing tables to [control access](/docs/account?topic=account-access-tags-tutorial), as well as [search](/docs/account?topic=account-tag&interface=api#search-tags-api-link) for VPC routing tables using tags.
 {: note}
@@ -754,15 +754,15 @@ Now that all VPC routing tables have a CRN, you can [tag](/docs/account?topic=ac
 ### For all version dates
 {: #24-september-2024-all-version-dates}
 
-**Sharing snapshots across accounts.** You can now use [cross-account authorization](/docs/vpc?topic=vpc-block-s2s-auth&interface=api#block-s2s-xaccount-encryption-api) in Identity and Access Management ([IAM](/docs/iam?topic=iam-iamoverview)) to share a snapshot CRN with a target IBM account. Sharing allows that account to create a block storage volume from the shared snapshot. When [creating a volume](/apidocs/vpc/latest#create-volume), users who have been authorized within the target account can specify the `source_snapshot.crn` property with the CRN of the snapshot. When [retrieving](/apidocs/vpc/latest#get-volume) or [listing](/apidocs/vpc/latest#list-volumes) volumes, the response includes `source_snapshot.remote.account` if the snapshot is from a different account.
+**Sharing snapshots across accounts.** You can now use [cross-account authorization](/docs/vpc?topic=vpc-block-s2s-auth&interface=api#block-s2s-xaccount-encryption-api) in Identity and Access Management ([IAM](/docs/iam?topic=iam-iamoverview)) to share a snapshot CRN with a target IBM account. Sharing allows that account to create a block storage volume from the shared snapshot. When [creating a volume](/docs/apis/vpc/latest#create-volume), users who have been authorized within the target account can specify the `source_snapshot.crn` property with the CRN of the snapshot. When [retrieving](/docs/apis/vpc/latest#get-volume) or [listing](/docs/apis/vpc/latest#list-volumes) volumes, the response includes `source_snapshot.remote.account` if the snapshot is from a different account.
 
 For more information, see [Sharing a snapshot with another account](/docs/vpc?topic=vpc-snapshots-vpc-manage&interface=api#snapshots-vpc-s2s-api) and [Restoring a volume from a snapshot](/docs/vpc?topic=vpc-snapshots-vpc-restore&interface=api#snapshots-vpc-restore-API).
 
-**Block storage `defined_performance` family.** For accounts that have special approval to preview this feature, a new `defined_performance` family is introduced for data and boot [volumes](/apidocs/vpc/latest#create-volume). This family initially contains the new [`sdp`](/docs/vpc?topic=vpc-block-storage-about#block-storage-sdp-intro) profile, which provides similar functionality to the existing `custom` volume profile. The `sdp` profile introduces the ability to increase capacity and change IOPS to volumes, even when those volumes are not attached to a virtual server instance. To use these capabilities in your automation, refer to **Block storage schema enhancements for adjustable capacity and IOPS.**
+**Block storage `defined_performance` family.** For accounts that have special approval to preview this feature, a new `defined_performance` family is introduced for data and boot [volumes](/docs/apis/vpc/latest#create-volume). This family initially contains the new [`sdp`](/docs/vpc?topic=vpc-block-storage-about#block-storage-sdp-intro) profile, which provides similar functionality to the existing `custom` volume profile. The `sdp` profile introduces the ability to increase capacity and change IOPS to volumes, even when those volumes are not attached to a virtual server instance. To use these capabilities in your automation, refer to **Block storage schema enhancements for adjustable capacity and IOPS.**
 
 For more information, see [About Block Storage for VPC](/docs/vpc?topic=vpc-block-storage-about), [Block Storage for VPC profiles](/docs/vpc?topic=vpc-block-storage-profiles&interface=api), [Creating Block Storage for VPC volumes](/docs/vpc?topic=vpc-creating-block-storage&interface=api), and [Viewing available volume profiles](/docs/vpc?topic=vpc-block-storage-profiles&interface=api#view-iops-profiles).
 
-**Block storage schema enhancements for adjustable capacity and IOPS.** When [retrieving](/apidocs/vpc/latest#get-volume-profile) or [listing](/apidocs/vpc/latest#list-volume-profiles) volume profiles, the new `adjustable_capacity_states`, `adjustable_iops_states`, `boot_capacity`, `capacity`, and `iops` properties indicate the capacity and IOPS capabilities of the volume profile. While the capabilities of existing profiles are unchanged, accounts with access to the `defined_performance` profile family can use these properties in automation to robustly use the new capabilities. Similarly, when [retrieving](/apidocs/vpc/latest#get-volume) or [listing](/apidocs/vpc/latest#list-volumes), volumes, the new `adjustable_capacity_states` and `adjustable_iops_states` properties indicate the adjustable capacity and IOPS capabilities of the volume.
+**Block storage schema enhancements for adjustable capacity and IOPS.** When [retrieving](/docs/apis/vpc/latest#get-volume-profile) or [listing](/docs/apis/vpc/latest#list-volume-profiles) volume profiles, the new `adjustable_capacity_states`, `adjustable_iops_states`, `boot_capacity`, `capacity`, and `iops` properties indicate the capacity and IOPS capabilities of the volume profile. While the capabilities of existing profiles are unchanged, accounts with access to the `defined_performance` profile family can use these properties in automation to robustly use the new capabilities. Similarly, when [retrieving](/docs/apis/vpc/latest#get-volume) or [listing](/docs/apis/vpc/latest#list-volumes), volumes, the new `adjustable_capacity_states` and `adjustable_iops_states` properties indicate the adjustable capacity and IOPS capabilities of the volume.
 
 ## 10 September 2024
 {: #10-september-2024}
@@ -770,7 +770,7 @@ For more information, see [About Block Storage for VPC](/docs/vpc?topic=vpc-bloc
 ### For all version dates
 {: #10-september-2024-all-version-dates}
 
-**Zone universal names.** Unique identifiers for IBM Cloud zones are now available in the Geography API methods. When [retrieving](/apidocs/vpc/latest#get-region-zone) or [listing](/apidocs/vpc/latest#list-region-zones)zones in a region, new properties `universal_name` and `data_center` are included in the response. A zone's `universal_name` is a persistent identifier of the zone, irrespective of the IBM Cloud account's [logical zone name mapping](/docs/overview?topic=overview-locations#zone-mapping). The `data_center` property denotes the primary physical data center where the logical zone is hosted. This property lets you connect your VPC resources to your resources in IBM Classic data centers. If the `data_center` property is absent from the response, no physical data center has been assigned.
+**Zone universal names.** Unique identifiers for IBM Cloud zones are now available in the Geography API methods. When [retrieving](/docs/apis/vpc/latest#get-region-zone) or [listing](/docs/apis/vpc/latest#list-region-zones)zones in a region, new properties `universal_name` and `data_center` are included in the response. A zone's `universal_name` is a persistent identifier of the zone, irrespective of the IBM Cloud account's [logical zone name mapping](/docs/overview?topic=overview-locations#zone-mapping). The `data_center` property denotes the primary physical data center where the logical zone is hosted. This property lets you connect your VPC resources to your resources in IBM Classic data centers. If the `data_center` property is absent from the response, no physical data center has been assigned.
 
 The response may also include a new zone `status` property value of `unassigned`, which indicates that the IBM Cloud account's zone mapping has not yet been assigned. For more information, see the overview [Region and data center locations for resource deployment](/docs/overview?topic=overview-locations).
 
@@ -780,7 +780,7 @@ The response may also include a new zone `status` property value of `unassigned`
 ### For all version dates
 {: #23-july-2024-all-version-dates}
 
-**Bare metal server reinitialization.** You can now [reinitialize](/apidocs/vpc/latest#replace-bare-metal-server-initialization) a bare metal server. To reinitialize a bare metal server, specify the `image` to provision, one or more SSH public `keys`, and optionally specify `user_data`. Upon successful reinitialization, the bare metal server starts automatically and retains the same physical node, interfaces, IP addresses, and resource IDs it had before reinitialization.
+**Bare metal server reinitialization.** You can now [reinitialize](/docs/apis/vpc/latest#replace-bare-metal-server-initialization) a bare metal server. To reinitialize a bare metal server, specify the `image` to provision, one or more SSH public `keys`, and optionally specify `user_data`. Upon successful reinitialization, the bare metal server starts automatically and retains the same physical node, interfaces, IP addresses, and resource IDs it had before reinitialization.
 
 To reinitialize a bare metal server, the server `status` must be `stopped`, or have `failed` a previous reinitialization. For more information, see [Managing Bare Metal Servers for VPC](/docs/vpc?topic=vpc-managing-bare-metal-servers&interface=api#reinitialize-bare-metal-servers-api).
 
@@ -790,11 +790,11 @@ To reinitialize a bare metal server, the server `status` must be `stopped`, or h
 ### For all version dates
 {: #9-july-2024-all-version-dates}
 
-**Parameterized redirect target URL for load balancers.** The `target.url` property now supports the variables `{protocol}`, `{port}`, `{host}`, `{path}`, and `{query}`, and embedding [RFC 6570 level 1 expressions](https://datatracker.ietf.org/doc/html/rfc6570#section-1.2){: external}. When [creating](/apidocs/vpc/latest#create-load-balancer-listener-policy) or [updating](/apidocs/vpc/latest#update-load-balancer-listener-policy) a policy for a load balancer listener, you can specify a value that contains a combination of these variables for the `target.url` property. This enables redirecting requests to a dynamic URL through the application load balancer. For more information, see [Layer 7 load balancing](/docs/vpc?topic=vpc-layer-7-load-balancing#layer-7-policy-properties).
+**Parameterized redirect target URL for load balancers.** The `target.url` property now supports the variables `{protocol}`, `{port}`, `{host}`, `{path}`, and `{query}`, and embedding [RFC 6570 level 1 expressions](https://datatracker.ietf.org/doc/html/rfc6570#section-1.2){: external}. When [creating](/docs/apis/vpc/latest#create-load-balancer-listener-policy) or [updating](/docs/apis/vpc/latest#update-load-balancer-listener-policy) a policy for a load balancer listener, you can specify a value that contains a combination of these variables for the `target.url` property. This enables redirecting requests to a dynamic URL through the application load balancer. For more information, see [Layer 7 load balancing](/docs/vpc?topic=vpc-layer-7-load-balancing#layer-7-policy-properties).
 
-**Firmware update for bare metal servers.** You can now [update firmware](/apidocs/vpc/latest#update-firmware-for-bare-metal-server) for a stopped bare metal server. This request updates server firmware if newer firmware is available and automatically starts the bare metal server after the firmware update is successfully completed. If you don't want the bare metal server to start after the® firmware is updated, set the `auto_start` property value to `false` in the request.
+**Firmware update for bare metal servers.** You can now [update firmware](/docs/apis/vpc/latest#update-firmware-for-bare-metal-server) for a stopped bare metal server. This request updates server firmware if newer firmware is available and automatically starts the bare metal server after the firmware update is successfully completed. If you don't want the bare metal server to start after the® firmware is updated, set the `auto_start` property value to `false` in the request.
 
-When [retrieving](/apidocs/vpc/latest#get-bare-metal-server) or [listing](/apidocs/vpc/latest#list-bare-metal-servers) bare metal servers, the response includes the new `firmware` property, which in turn has an `update` property that indicates the type of update available (`none`, `optional`, or `required`). For more information, see [Managing Bare Metal Servers for VPC](/docs/vpc?topic=vpc-managing-bare-metal-servers&interface=api#update-firmware-bare-metal-servers-API).
+When [retrieving](/docs/apis/vpc/latest#get-bare-metal-server) or [listing](/docs/apis/vpc/latest#list-bare-metal-servers) bare metal servers, the response includes the new `firmware` property, which in turn has an `update` property that indicates the type of update available (`none`, `optional`, or `required`). For more information, see [Managing Bare Metal Servers for VPC](/docs/vpc?topic=vpc-managing-bare-metal-servers&interface=api#update-firmware-bare-metal-servers-API).
 
 ## 2 July 2024
 {: #2-july-2024}
@@ -802,11 +802,11 @@ When [retrieving](/apidocs/vpc/latest#get-bare-metal-server) or [listing](/apido
 ### For all version dates
 {: #2-july-2024-all-version-dates}
 
-**Dynamic network bandwidth control for bare metal servers.** When [provisioning a bare metal server](/apidocs/vpc/latest#create-bare-metal-server), you can now optionally specify the `bandwidth` property according to the needs of your workload. You can subsequently [update](/apidocs/vpc/latest#update-bare-metal-server) the `bandwidth` property of an existing bare metal server to support dynamic workload requirements. Bandwidth changes do not require a restart and are effective immediately. For more information, see [Creating Bare Metal Servers on VPC](/docs/vpc?topic=vpc-creating-bare-metal-servers&interface=ui).
+**Dynamic network bandwidth control for bare metal servers.** When [provisioning a bare metal server](/docs/apis/vpc/latest#create-bare-metal-server), you can now optionally specify the `bandwidth` property according to the needs of your workload. You can subsequently [update](/docs/apis/vpc/latest#update-bare-metal-server) the `bandwidth` property of an existing bare metal server to support dynamic workload requirements. Bandwidth changes do not require a restart and are effective immediately. For more information, see [Creating Bare Metal Servers on VPC](/docs/vpc?topic=vpc-creating-bare-metal-servers&interface=ui).
 
-When [retrieving](/apidocs/vpc/latest#get-bare-metal-server-profile) or [listing](/apidocs/vpc/latest#list-bare-metal-server-profiles) bare metal server profiles, the `bandwidth` property for new profiles can now return a `bandwidth.type` of `enum`, with `bandwidth.values` providing the supported bandwidth values, and `bandwidth.default` providing the profile's default bandwidth.
+When [retrieving](/docs/apis/vpc/latest#get-bare-metal-server-profile) or [listing](/docs/apis/vpc/latest#list-bare-metal-server-profiles) bare metal server profiles, the `bandwidth` property for new profiles can now return a `bandwidth.type` of `enum`, with `bandwidth.values` providing the supported bandwidth values, and `bandwidth.default` providing the profile's default bandwidth.
 
-**Third generation of bare metal hardware profiles and Trusted Platform Module.** For accounts that have special approval to preview this feature, when [creating a bare metal server](/apidocs/vpc/latest#create-bare-metal-server), the default TPM mode and the supported TPM modes will be determined by the profile. All third generation profiles will default to TPM 2.0 and will no longer support disabling TPM. For more information, see [Secure boot with Trusted Platform Module (TPM) for bare metal servers](/docs/vpc?topic=vpc-secure-boot-tpm&interface=ui) and [Creating Bare Metal Servers on VPC](/docs/vpc?topic=vpc-creating-bare-metal-servers&interface=ui).
+**Third generation of bare metal hardware profiles and Trusted Platform Module.** For accounts that have special approval to preview this feature, when [creating a bare metal server](/docs/apis/vpc/latest#create-bare-metal-server), the default TPM mode and the supported TPM modes will be determined by the profile. All third generation profiles will default to TPM 2.0 and will no longer support disabling TPM. For more information, see [Secure boot with Trusted Platform Module (TPM) for bare metal servers](/docs/vpc?topic=vpc-secure-boot-tpm&interface=ui) and [Creating Bare Metal Servers on VPC](/docs/vpc?topic=vpc-creating-bare-metal-servers&interface=ui).
 
 Provisioned bare metal servers are not affected. Existing bare metal server profiles are also not affected. Therefore, TPM remains disabled by default when provisioning servers using previous generations of bare metal server profiles.
 {: note}
@@ -817,22 +817,22 @@ Provisioned bare metal servers are not affected. Existing bare metal server prof
 ### For all version dates
 {: #25-june-2024-all-version-dates}
 
-**Accessor file shares.** You can now [create a share](/apidocs/vpc/latest#create-share) that accesses data from [another share](/docs/vpc?topic=vpc-file-storage-accessor-create&interface=api), which may be in another account. Specify the share to access data from, which may also be a replica share, with the new `origin_share` property.
+**Accessor file shares.** You can now [create a share](/docs/apis/vpc/latest#create-share) that accesses data from [another share](/docs/vpc?topic=vpc-file-storage-accessor-create&interface=api), which may be in another account. Specify the share to access data from, which may also be a replica share, with the new `origin_share` property.
 
 Before specifying an origin share in another account, ensure that [authorizations](/docs/vpc?topic=vpc-file-s2s-auth&interface=api#file-s2s-auth-xaccount-api) are established between the origin share account and accessor account. You must also have an appropriate ([IAM](/docs/iam?topic=iam-iamoverview)) role with the `is.share.share.allow-remote-account-access` action.
 {: requirement}
 
-When [creating](/apidocs/vpc/latest#create-share) or [updating](/apidocs/vpc/latest#update-share) a share, specify the new `allowed_transit_encryption_modes` property (possible values `none`, `user_managed`) to limit the transit encryption modes for the share and its associated [accessor shares](/docs/vpc?topic=vpc-file-storage-accessor-create&interface=api#fs-create-accessor-mount-target-api).
+When [creating](/docs/apis/vpc/latest#create-share) or [updating](/docs/apis/vpc/latest#update-share) a share, specify the new `allowed_transit_encryption_modes` property (possible values `none`, `user_managed`) to limit the transit encryption modes for the share and its associated [accessor shares](/docs/vpc?topic=vpc-file-storage-accessor-create&interface=api#fs-create-accessor-mount-target-api).
 
-When [retrieving](/apidocs/vpc/latest#get-share) or [listing](/apidocs/vpc/latest#list-shares) file shares, the `origin_share` property will be included in the response when the new `accessor_binding_role` is `accessor` (possible values `none`, `accessor`, `origin`).
+When [retrieving](/docs/apis/vpc/latest#get-share) or [listing](/docs/apis/vpc/latest#list-shares) file shares, the `origin_share` property will be included in the response when the new `accessor_binding_role` is `accessor` (possible values `none`, `accessor`, `origin`).
 
 Each time an accessor share is created, an accessor binding is created on its origin share, allowing all access to the origin share to be tracked and managed. The following new accessor bindings methods are introduced in this release:
 
-- [List accessor bindings for an origin share](/apidocs/vpc/latest#list-share-accessor-bindings)
-- [Retrieve an origin share accessor binding](/apidocs/vpc/latest#get-share-accessor-binding)
-- [Delete an origin share accessor binding](/apidocs/vpc/latest#delete-share-accessor-binding)
+- [List accessor bindings for an origin share](/docs/apis/vpc/latest#list-share-accessor-bindings)
+- [Retrieve an origin share accessor binding](/docs/apis/vpc/latest#get-share-accessor-binding)
+- [Delete an origin share accessor binding](/docs/apis/vpc/latest#delete-share-accessor-binding)
 
-Revoking an account's access to an origin share requires both removing the accessor account's authorizations and [deleting](/apidocs/vpc/latest#delete-share-accessor-binding) its existing accessor bindings. For more information, see [Removing access to a file share from other accounts](/docs/vpc?topic=vpc-file-storage-accessor-delete&interface=api).
+Revoking an account's access to an origin share requires both removing the accessor account's authorizations and [deleting](/docs/apis/vpc/latest#delete-share-accessor-binding) its existing accessor bindings. For more information, see [Removing access to a file share from other accounts](/docs/vpc?topic=vpc-file-storage-accessor-delete&interface=api).
 
 Currently, when creating, updating or retrieving an accessor share, the `accessor_bindings` and `lifecycle_reasons` properties may be missing from the response. Additionally, when creating, updating, or retrieving an origin share, the value of the `href` sub-property of the `accessor_bindings` property may be incorrect.
 {: note}
@@ -843,14 +843,14 @@ Currently, when creating, updating or retrieving an accessor share, the `accesso
 ### For all version dates
 {: #11-june-2024-all-version-dates}
 
-**Generic operating system images.** You can now create a [generic operating system image](/docs/vpc?topic=vpc-create-generic-os-custom-image), which is an image containing a specific operating system that is not in the response from [listing operating systems](/apidocs/vpc/latest#list-operating-systems). To facilitate creating these images and provisioning servers from them, two new immutable operating system properties, `user_data_format` and `allow_user_image_creation`, and one new immutable image property, `user_data_format`, are provided. The operating system property, `user_data_format` (possible values `cloud_init`, `esxi_kickstart`, `ipxe`), populates the image property, [`user_data_format`](/docs/vpc?topic=vpc-planning-custom-images#custom-image-user-data-format), which specifies how `user_data` is interpreted and used when [creating a virtual server instance](/apidocs/vpc/latest#create-instance) or [creating a bare metal server](/apidocs/vpc/latest#create-bare-metal-server). The operating system property, `allow_user_image_creation`, indicates whether that operating system may be used to create a generic operating system image.
+**Generic operating system images.** You can now create a [generic operating system image](/docs/vpc?topic=vpc-create-generic-os-custom-image), which is an image containing a specific operating system that is not in the response from [listing operating systems](/docs/apis/vpc/latest#list-operating-systems). To facilitate creating these images and provisioning servers from them, two new immutable operating system properties, `user_data_format` and `allow_user_image_creation`, and one new immutable image property, `user_data_format`, are provided. The operating system property, `user_data_format` (possible values `cloud_init`, `esxi_kickstart`, `ipxe`), populates the image property, [`user_data_format`](/docs/vpc?topic=vpc-planning-custom-images#custom-image-user-data-format), which specifies how `user_data` is interpreted and used when [creating a virtual server instance](/docs/apis/vpc/latest#create-instance) or [creating a bare metal server](/docs/apis/vpc/latest#create-bare-metal-server). The operating system property, `allow_user_image_creation`, indicates whether that operating system may be used to create a generic operating system image.
 
 For more information, see [Importing and validating custom images into VPC](/docs/vpc?topic=vpc-importing-custom-images-vpc&interface=api).
 
-Images that are used to create virtual server instances or to [create instance templates](/apidocs/vpc/latest#create-instance-template) must have a `user_data_format` value of `cloud_init`.
+Images that are used to create virtual server instances or to [create instance templates](/docs/apis/vpc/latest#create-instance-template) must have a `user_data_format` value of `cloud_init`.
 {: important}
 
-**Network bootable bare metal servers.** You can now use a specific [stock image](/docs/vpc?topic=vpc-getting-started-images-on-vpc-stock) to [create a bare metal server](/apidocs/vpc/latest#create-bare-metal-server) that will [network boot an image](/docs/vpc?topic=vpc-network-boot-bare-metal-servers&interface=api#network-boot-bare-metal-servers-api) using iPXE. This stock image must have `user_data_format` value of `ipxe`.
+**Network bootable bare metal servers.** You can now use a specific [stock image](/docs/vpc?topic=vpc-getting-started-images-on-vpc-stock) to [create a bare metal server](/docs/apis/vpc/latest#create-bare-metal-server) that will [network boot an image](/docs/vpc?topic=vpc-network-boot-bare-metal-servers&interface=api#network-boot-bare-metal-servers-api) using iPXE. This stock image must have `user_data_format` value of `ipxe`.
 
 ## 4 June 2024
 {: #4-june-2024}
@@ -858,11 +858,11 @@ Images that are used to create virtual server instances or to [create instance t
 ### For all version dates
 {: #4-june-2024-all-version-dates}
 
-**Provisioning instances with IBM Cloud billed catalog offering plans.** You can now provision a virtual server instance with a [billed catalog offering](/docs/vpc?topic=vpc-getting-started-images-on-vpc-catalog&interface=ui#images-on-vpc-catalog-images) from the IBM Catalog. When [creating an instance](/apidocs/vpc/latest#create-instance) specify the `catalog_offering.version.crn` or  `catalog_offering.offering.crn` property as before, and additionally specify the billing plan using the new `catalog_offering.plan.crn` property. You can still provision an instance without a plan, but if it's a billed plan, you must specify `catalog_offering.plan.crn`. The same requirements apply when provisioning an [instance template](/apidocs/vpc/latest#create-instance-template) for a billed offering. For more information, see [Provision an instance from a private catalog image by using the API](/docs/vpc?topic=vpc-creating-virtual-servers&interface=api#create-instance-private-catalog-image-api).
+**Provisioning instances with IBM Cloud billed catalog offering plans.** You can now provision a virtual server instance with a [billed catalog offering](/docs/vpc?topic=vpc-getting-started-images-on-vpc-catalog&interface=ui#images-on-vpc-catalog-images) from the IBM Catalog. When [creating an instance](/docs/apis/vpc/latest#create-instance) specify the `catalog_offering.version.crn` or  `catalog_offering.offering.crn` property as before, and additionally specify the billing plan using the new `catalog_offering.plan.crn` property. You can still provision an instance without a plan, but if it's a billed plan, you must specify `catalog_offering.plan.crn`. The same requirements apply when provisioning an [instance template](/docs/apis/vpc/latest#create-instance-template) for a billed offering. For more information, see [Provision an instance from a private catalog image by using the API](/docs/vpc?topic=vpc-creating-virtual-servers&interface=api#create-instance-private-catalog-image-api).
 
-When [retrieving an instance](/apidocs/vpc/latest#get-instance) that was provisioned with a billed catalog offering, the new `catalog_offering.plan.crn` property provides the associated billing plan.
+When [retrieving an instance](/docs/apis/vpc/latest#get-instance) that was provisioned with a billed catalog offering, the new `catalog_offering.plan.crn` property provides the associated billing plan.
 
-**Enhancements to volumes and snapshots in support of catalog offering plans.** When [retrieving a volume](/apidocs/vpc/latest#get-volume) that was originally provisioned as a boot volume from an instance with a [billed catalog offering](/docs/vpc?topic=vpc-getting-started-images-on-vpc-catalog&interface=ui#images-on-vpc-catalog-images), the response now includes both `catalog_offering.version.crn` and `catalog_offering.plan.crn` properties. The response includes the same properties when [retrieving a snapshot](/apidocs/vpc/latest#get-snapshot) with a `source_volume` that had those properties.
+**Enhancements to volumes and snapshots in support of catalog offering plans.** When [retrieving a volume](/docs/apis/vpc/latest#get-volume) that was originally provisioned as a boot volume from an instance with a [billed catalog offering](/docs/vpc?topic=vpc-getting-started-images-on-vpc-catalog&interface=ui#images-on-vpc-catalog-images), the response now includes both `catalog_offering.version.crn` and `catalog_offering.plan.crn` properties. The response includes the same properties when [retrieving a snapshot](/docs/apis/vpc/latest#get-snapshot) with a `source_volume` that had those properties.
 
 ## 28 May 2024
 {: #28-may-2024}
@@ -870,15 +870,15 @@ When [retrieving an instance](/apidocs/vpc/latest#get-instance) that was provisi
 ### For all version dates
 {: #28-may-2024-all-version-dates}
 
-**Virtual network interface protocol state filtering mode.** [Protocol state filtering](/docs/vpc?topic=vpc-vni-about#protocol-state-filtering) monitors each network connection flowing over a virtual network interface (VNI), and drops any packets that are invalid based on the current connection state and protocol. Certain use cases, such as having a virtual server instance function as a network gateway, require selective disabling of this filtering. To accommodate these use cases, if you have the `is.virtual-network-interface.virtual-network-interface.manage-protocol-state-filtering-mode` IAM action, you can now set non-default values for the `protocol_state_filtering_mode` property when you are [creating](/apidocs/vpc/latest#create-virtual-network-interface) or [updating](/apidocs/vpc/latest#update-virtual-network-interface) a VNI.
+**Virtual network interface protocol state filtering mode.** [Protocol state filtering](/docs/vpc?topic=vpc-vni-about#protocol-state-filtering) monitors each network connection flowing over a virtual network interface (VNI), and drops any packets that are invalid based on the current connection state and protocol. Certain use cases, such as having a virtual server instance function as a network gateway, require selective disabling of this filtering. To accommodate these use cases, if you have the `is.virtual-network-interface.virtual-network-interface.manage-protocol-state-filtering-mode` IAM action, you can now set non-default values for the `protocol_state_filtering_mode` property when you are [creating](/docs/apis/vpc/latest#create-virtual-network-interface) or [updating](/docs/apis/vpc/latest#update-virtual-network-interface) a VNI.
 
 The new `protocol_state_filtering_mode` property is supported for VNI methods and all methods in which a VNI can be created.
 
 This release introduces the following updates for accounts that have special approval to preview these features:
 
-**Confidential computing capabilities.** On select instance profiles, you can now enable [Intel&reg; Software Guard Extensions](/docs/vpc?topic=vpc-about-confidential-computing-vpc). When [creating](/apidocs/vpc/latest#create-instance) or [updating](/apidocs/vpc/latest#update-instance) an instance, or when [creating](/apidocs/vpc/latest#create-instance-template) or [updating](/apidocs/vpc/latest#update-instance-template) an instance template, you can specify the new `confidential_compute_mode` property (`disabled` or `sgx`) to use for a virtual server instance. The new `confidential_compute_modes` instance profile property indicates which profiles will support which modes. If you do not specify the `confidential_compute_mode` property when creating an instance or instance template, the default confidential compute mode from the profile will be used. For more information, see [Confidential computing with Intel Software Guard Extensions (SGX) for Virtual Servers for VPC](/docs/vpc?topic=vpc-about-confidential-computing-vpc).
+**Confidential computing capabilities.** On select instance profiles, you can now enable [Intel&reg; Software Guard Extensions](/docs/vpc?topic=vpc-about-confidential-computing-vpc). When [creating](/docs/apis/vpc/latest#create-instance) or [updating](/docs/apis/vpc/latest#update-instance) an instance, or when [creating](/docs/apis/vpc/latest#create-instance-template) or [updating](/docs/apis/vpc/latest#update-instance-template) an instance template, you can specify the new `confidential_compute_mode` property (`disabled` or `sgx`) to use for a virtual server instance. The new `confidential_compute_modes` instance profile property indicates which profiles will support which modes. If you do not specify the `confidential_compute_mode` property when creating an instance or instance template, the default confidential compute mode from the profile will be used. For more information, see [Confidential computing with Intel Software Guard Extensions (SGX) for Virtual Servers for VPC](/docs/vpc?topic=vpc-about-confidential-computing-vpc).
 
-**Secure boot capabilities.** When [creating](/apidocs/vpc/latest#create-instance) or [updating](/apidocs/vpc/latest#update-instance) an instance, or when [creating](/apidocs/vpc/latest#create-instance-template) or [updating](/apidocs/vpc/latest#update-instance-template) an instance template, you can set the new `enable_secure_boot` property to `true` to enable secure boot on the virtual server instance. The new `secure_boot_modes` instance profile property indicates the secure boot modes supported by the profile. If you do not specify the `enable_secure_boot` property when creating an instance or instance template, the default secure boot mode from the profile will be used. To use secure boot, the image must support secure boot or the instance will fail to boot. For more information, see [Secure boot for Virtual Servers for VPC](/docs/vpc?topic=vpc-confidential-computing-with-secure-boot-vpc).
+**Secure boot capabilities.** When [creating](/docs/apis/vpc/latest#create-instance) or [updating](/docs/apis/vpc/latest#update-instance) an instance, or when [creating](/docs/apis/vpc/latest#create-instance-template) or [updating](/docs/apis/vpc/latest#update-instance-template) an instance template, you can set the new `enable_secure_boot` property to `true` to enable secure boot on the virtual server instance. The new `secure_boot_modes` instance profile property indicates the secure boot modes supported by the profile. If you do not specify the `enable_secure_boot` property when creating an instance or instance template, the default secure boot mode from the profile will be used. To use secure boot, the image must support secure boot or the instance will fail to boot. For more information, see [Secure boot for Virtual Servers for VPC](/docs/vpc?topic=vpc-confidential-computing-with-secure-boot-vpc).
 
 To update the `enable_secure_boot` and `confidential_compute_mode` properties, the virtual server instance `status` must be `stopping` or `stopped`.
 
@@ -888,7 +888,7 @@ To update the `enable_secure_boot` and `confidential_compute_mode` properties, t
 ### For version `2022-02-28` or later
 {: #version-2022-02-28}
 
-**Snapshots `DELETE` response code change.** When [deleting a snapshot](/apidocs/vpc/latest#delete-snapshot) or [deleting a filtered collection of snapshots](/apidocs/vpc/latest#delete-snapshots) using a `version` query parameter of `2022-02-28` or later, the response will now return an HTTP response code of `202` upon success, instead of `204`. The underlying deletion operations were already asynchronous, and remain unchanged.
+**Snapshots `DELETE` response code change.** When [deleting a snapshot](/docs/apis/vpc/latest#delete-snapshot) or [deleting a filtered collection of snapshots](/docs/apis/vpc/latest#delete-snapshots) using a `version` query parameter of `2022-02-28` or later, the response will now return an HTTP response code of `202` upon success, instead of `204`. The underlying deletion operations were already asynchronous, and remain unchanged.
 
 To avoid regressions in client functionality, before issuing requests using a `version` query parameter of `2022-02-28` or later, ensure that any clients deleting snapshot resources will also regard a response code of `202` as success.
 {: important}
@@ -904,7 +904,7 @@ This feature was originally released on 28 February 2022, but an announcement wa
 ### For all version dates
 {: #14-may-2024-all-version-dates}
 
-**Local IP address support for security group rules.** You can now specify local IP addresses or address ranges in security group rules. When [creating](/apidocs/vpc/latest#create-security-group-rule) or [updating](/apidocs/vpc/latest#update-security-group-rule) a security group rule, specify the optional `local` property. The value can be an IP address or a range of IP addresses in CIDR format. If not specified, the default value is `cidr_block: 0.0.0.0/0`, which means the rule allows traffic to all local IP addresses (or from all local IP addresses, for outbound rules). This default value will be applied to all existing security group rules. For more information, see [Applying security group rules to source and destination IP addresses](/docs/vpc?topic=vpc-security-groups-rules&interface=api).
+**Local IP address support for security group rules.** You can now specify local IP addresses or address ranges in security group rules. When [creating](/docs/apis/vpc/latest#create-security-group-rule) or [updating](/docs/apis/vpc/latest#update-security-group-rule) a security group rule, specify the optional `local` property. The value can be an IP address or a range of IP addresses in CIDR format. If not specified, the default value is `cidr_block: 0.0.0.0/0`, which means the rule allows traffic to all local IP addresses (or from all local IP addresses, for outbound rules). This default value will be applied to all existing security group rules. For more information, see [Applying security group rules to source and destination IP addresses](/docs/vpc?topic=vpc-security-groups-rules&interface=api).
 
 ## 30 April 2024
 {: #30-april-2024}
@@ -915,18 +915,18 @@ The `2024-04-30` release includes incompatible changes. To avoid regressions in 
 ### For version `2024-04-30` or later
 {: #version-2024-04-30}
 
-**Advanced VPN gateway configuration.** Using a `version` query parameter of `2024-04-30` or later, you can specify `peer.fqdn` instead of `peer.address` when [creating](/apidocs/vpc/latest#create-vpn-gateway-connection) or [updating](/apidocs/vpc/latest#update-vpn-gateway-connection) a VPN gateway connection. You can also now fully control the local and peer IKE identities assigned to a VPN gateway connection by using properties `local.ike_identities` and `peer.ike_identity`. If unspecified, the local IKE identities will default to the public IP addresses of the VPN gateway and member's VPN connection tunnel. The peer identity will default to either the peer's address or FQDN, depending on what was specified.
+**Advanced VPN gateway configuration.** Using a `version` query parameter of `2024-04-30` or later, you can specify `peer.fqdn` instead of `peer.address` when [creating](/docs/apis/vpc/latest#create-vpn-gateway-connection) or [updating](/docs/apis/vpc/latest#update-vpn-gateway-connection) a VPN gateway connection. You can also now fully control the local and peer IKE identities assigned to a VPN gateway connection by using properties `local.ike_identities` and `peer.ike_identity`. If unspecified, the local IKE identities will default to the public IP addresses of the VPN gateway and member's VPN connection tunnel. The peer identity will default to either the peer's address or FQDN, depending on what was specified.
 
 For migration guidance, see [Updating to the `2024-04-30` version (VPN gateway connection)](/docs/vpc?topic=vpc-2024-04-30-migration-vpn-advanced-configuration). See also the [known issue](/docs/vpc?topic=vpc-vpn-limitations) about updating the `peer.address` or `peer.fqdn` of a VPN connection tunnel.
 
-**Migration of VPN gateway connection CIDR paths.** Using a `version` query parameter of `2024-04-30` or later, API paths for [listing](/apidocs/vpc/latest#list-vpn-gateway-connections-local-cidrs), [removing](/apidocs/vpc/latest#remove-vpn-gateway-connections-local-cidr), [checking](/apidocs/vpc/latest#check-vpn-gateway-connections-local-cidr), or [setting](/apidocs/vpc/latest#add-vpn-gateway-connections-local-cidr) a local CIDR, and [listing](/apidocs/vpc/latest#list-vpn-gateway-connections-peer-cidrs), [removing](/apidocs/vpc/latest#remove-vpn-gateway-connections-peer-cidr), [checking](/apidocs/vpc/latest#check-vpn-gateway-connections-peer-cidr), or [setting](/apidocs/vpc/latest#add-vpn-gateway-connections-peer-cidr) a peer CIDR are changed. See [Updating to the `2024-04-30` version (VPN gateway connection)](/docs/vpc?topic=vpc-2024-04-30-migration-vpn-advanced-configuration) for guidance on migration.
+**Migration of VPN gateway connection CIDR paths.** Using a `version` query parameter of `2024-04-30` or later, API paths for [listing](/docs/apis/vpc/latest#list-vpn-gateway-connections-local-cidrs), [removing](/docs/apis/vpc/latest#remove-vpn-gateway-connections-local-cidr), [checking](/docs/apis/vpc/latest#check-vpn-gateway-connections-local-cidr), or [setting](/docs/apis/vpc/latest#add-vpn-gateway-connections-local-cidr) a local CIDR, and [listing](/docs/apis/vpc/latest#list-vpn-gateway-connections-peer-cidrs), [removing](/docs/apis/vpc/latest#remove-vpn-gateway-connections-peer-cidr), [checking](/docs/apis/vpc/latest#check-vpn-gateway-connections-peer-cidr), or [setting](/docs/apis/vpc/latest#add-vpn-gateway-connections-peer-cidr) a peer CIDR are changed. See [Updating to the `2024-04-30` version (VPN gateway connection)](/docs/vpc?topic=vpc-2024-04-30-migration-vpn-advanced-configuration) for guidance on migration.
 
-**VPN gateway connection schema change.**  As of version `2023-04-30`, the VPN gateway connection `peer_address`, `peer_cidrs`, and `local_cidrs` properties have been replaced by new `peer` and `local` properties. These changes apply to all methods that interact with VPN gateway connections, including [creating](/apidocs/vpc/latest#create-vpn-gateway-connection), [retrieving](/apidocs/vpc/latest#get-vpn-gateway-connection), or [updating](/apidocs/vpc/latest#update-vpn-gateway-connection) a VPN gateway connection.  See [Updating to the `2024-04-30` version (VPN gateway connection)](/docs/vpc?topic=vpc-2024-04-30-migration-vpn-advanced-configuration) for a full list of affected methods and guidance on migration.
+**VPN gateway connection schema change.**  As of version `2023-04-30`, the VPN gateway connection `peer_address`, `peer_cidrs`, and `local_cidrs` properties have been replaced by new `peer` and `local` properties. These changes apply to all methods that interact with VPN gateway connections, including [creating](/docs/apis/vpc/latest#create-vpn-gateway-connection), [retrieving](/docs/apis/vpc/latest#get-vpn-gateway-connection), or [updating](/docs/apis/vpc/latest#update-vpn-gateway-connection) a VPN gateway connection.  See [Updating to the `2024-04-30` version (VPN gateway connection)](/docs/vpc?topic=vpc-2024-04-30-migration-vpn-advanced-configuration) for a full list of affected methods and guidance on migration.
 
 ### For all version dates
 {: #30-april-2024-all-version-dates}
 
-**Establish mode for VPN gateway connections.** When [creating](/apidocs/vpc/latest#create-vpn-gateway-connection) or [updating](/apidocs/vpc/latest#update-vpn-gateway-connection) a VPN gateway connection, you can specify the new `establish_mode` property to control which side of the gateway can initiate the connection by setting the value to `bidirectional` (default) or `peer_only`.
+**Establish mode for VPN gateway connections.** When [creating](/docs/apis/vpc/latest#create-vpn-gateway-connection) or [updating](/docs/apis/vpc/latest#update-vpn-gateway-connection) a VPN gateway connection, you can specify the new `establish_mode` property to control which side of the gateway can initiate the connection by setting the value to `bidirectional` (default) or `peer_only`.
 
 ## 26 March 2024
 {: #26-march-2024}
@@ -936,13 +936,13 @@ For migration guidance, see [Updating to the `2024-04-30` version (VPN gateway c
 
 **Reservations for Virtual Servers for VPC.** You can now purchase a [capacity reservation](/docs/vpc?topic=vpc-about-reserved-virtual-servers-vpc&interface=ui) for a specified instance profile in a specified zone. Reservations provide resources for future deployments and cost savings over the life of the term within the availability zone of your choice.
 
-When [creating](/apidocs/vpc/latest#create-reservation) or [updating](/apidocs/vpc/latest#update-reservation) a reservation, specify the `capacity.total` and `committed_use.term` properties to use for this reservation. Optionally specify the `committed_use.expiration_policy` property to apply when the committed use term expires (default: `release`). Specify the `profile.name` and `profile.resource_type` properties of the profile, and the `zone` property to use for this reservation. After you confirm that the reservation is configured the way that you want it, you must [activate the reservation](/apidocs/vpc/latest#activate-reservation). The reservation cannot be deleted until the committed use term expires. To provision an instance using a reservation's capacity, specify the reservation using the `reservation_affinity.pool` property when [creating the instance](/apidocs/vpc/latest#create-instance). You can also [update an instance](/apidocs/vpc/latest#update-instance) that's been provisioned to associate it with a reservation.
+When [creating](/docs/apis/vpc/latest#create-reservation) or [updating](/docs/apis/vpc/latest#update-reservation) a reservation, specify the `capacity.total` and `committed_use.term` properties to use for this reservation. Optionally specify the `committed_use.expiration_policy` property to apply when the committed use term expires (default: `release`). Specify the `profile.name` and `profile.resource_type` properties of the profile, and the `zone` property to use for this reservation. After you confirm that the reservation is configured the way that you want it, you must [activate the reservation](/docs/apis/vpc/latest#activate-reservation). The reservation cannot be deleted until the committed use term expires. To provision an instance using a reservation's capacity, specify the reservation using the `reservation_affinity.pool` property when [creating the instance](/docs/apis/vpc/latest#create-instance). You can also [update an instance](/docs/apis/vpc/latest#update-instance) that's been provisioned to associate it with a reservation.
 
-When [retrieving an instance](/apidocs/vpc/latest#get-instance), the new `reservation_affinity` property indicates the reservation affinity policy in effect for the virtual server instance. The new `health_state` property indicates the instance's overall health state, while an accompanying `health_reasons` property indicates the reason for any unhealthy health states, such as a failed reservation.
+When [retrieving an instance](/docs/apis/vpc/latest#get-instance), the new `reservation_affinity` property indicates the reservation affinity policy in effect for the virtual server instance. The new `health_state` property indicates the instance's overall health state, while an accompanying `health_reasons` property indicates the reason for any unhealthy health states, such as a failed reservation.
 
 For more information, see [Provisioning reserved capacity for VPC](/docs/vpc?topic=vpc-provisioning-reserved-capacity-vpc&interface=api).
 
-**Local IP addresses in security group rules.** Accounts that have special approval to preview this feature can now specify local IP addresses or address ranges in security group rules. When [creating](/apidocs/vpc#create-security-group-rule) or [updating](/apidocs/vpc#update-security-group-rule) a security group rule, specify the optional `local` property. The value can be an IP address or a range of IP addresses in CIDR format, where `0.0.0.0/0` means the rule allows traffic to all local IP addresses (or from all local IP addresses, for an outbound rule). The default value is `cidr_block: 0.0.0.0/0`, which is also used for all existing rules.
+**Local IP addresses in security group rules.** Accounts that have special approval to preview this feature can now specify local IP addresses or address ranges in security group rules. When [creating](/docs/apis/vpc#create-security-group-rule) or [updating](/docs/apis/vpc#update-security-group-rule) a security group rule, specify the optional `local` property. The value can be an IP address or a range of IP addresses in CIDR format, where `0.0.0.0/0` means the rule allows traffic to all local IP addresses (or from all local IP addresses, for an outbound rule). The default value is `cidr_block: 0.0.0.0/0`, which is also used for all existing rules.
 
 ## 19 March 2024
 {: #19-march-2024}
@@ -950,9 +950,9 @@ For more information, see [Provisioning reserved capacity for VPC](/docs/vpc?top
 ### For all version dates
 {: #19-march-2024-all-version-dates}
 
-**Sharing DNS resolution for endpoint gateways across VPCs.** When multiple VPCs are connected together using Transit Gateway, Direct Link, or other connectivity options, a VPC in the connected topology can now be enabled as a DNS hub to centralize the DNS resolution for endpoint gateways. When [creating](/apidocs/vpc/latest#create-vpc) or [updating](/apidocs/vpc/latest#update-vpc) a VPC, the `dns` property includes new configuration options for DNS. Specify the `dns.enable_hub` property as `true` to enable the VPC as a DNS hub (default is `false`). Specify a DNS hub VPC when [creating a DNS resolution binding](/apidocs/vpc/latest#create-vpc-dns-resolution-binding) on another VPC to share its DNS resolution with that DNS hub VPC. The `dns.resolution_binding_count` response property specifies how many other VPCs a VPC is bound to for DNS resolution sharing. For more information, see [About DNS sharing for VPE gateways](/docs/vpc?topic=vpc-vpe-dns-sharing).
+**Sharing DNS resolution for endpoint gateways across VPCs.** When multiple VPCs are connected together using Transit Gateway, Direct Link, or other connectivity options, a VPC in the connected topology can now be enabled as a DNS hub to centralize the DNS resolution for endpoint gateways. When [creating](/docs/apis/vpc/latest#create-vpc) or [updating](/docs/apis/vpc/latest#update-vpc) a VPC, the `dns` property includes new configuration options for DNS. Specify the `dns.enable_hub` property as `true` to enable the VPC as a DNS hub (default is `false`). Specify a DNS hub VPC when [creating a DNS resolution binding](/docs/apis/vpc/latest#create-vpc-dns-resolution-binding) on another VPC to share its DNS resolution with that DNS hub VPC. The `dns.resolution_binding_count` response property specifies how many other VPCs a VPC is bound to for DNS resolution sharing. For more information, see [About DNS sharing for VPE gateways](/docs/vpc?topic=vpc-vpe-dns-sharing).
 
-**Configuring DNS resolvers for a VPC.** You can now use the `dns.resolver` property to configure the DNS resolvers for a VPC. Use a `dns.resolver.type` of `manual` to specify the DNS resolvers by IP address. Use a `dns.resolver.type` of `delegated` to specify another VPC (typically a DNS hub VPC) whose DNS resolvers will be used. Use a `dns.resolver.type` of `system` to restore the system default DNS resolvers. When `dns.resolver.type` is `manual`, [updating](/apidocs/vpc/latest#update-vpc) specifying the VPC's `dns.resolver.manual_servers` requires the [`If-Match` header](/apidocs/vpc/latest#concurrent-update-protection) also be provided with the VPC's current `ETag` value.
+**Configuring DNS resolvers for a VPC.** You can now use the `dns.resolver` property to configure the DNS resolvers for a VPC. Use a `dns.resolver.type` of `manual` to specify the DNS resolvers by IP address. Use a `dns.resolver.type` of `delegated` to specify another VPC (typically a DNS hub VPC) whose DNS resolvers will be used. Use a `dns.resolver.type` of `system` to restore the system default DNS resolvers. When `dns.resolver.type` is `manual`, [updating](/docs/apis/vpc/latest#update-vpc) specifying the VPC's `dns.resolver.manual_servers` requires the [`If-Match` header](/docs/apis/vpc/latest#concurrent-update-protection) also be provided with the VPC's current `ETag` value.
 
 ## 12 March 2024
 {: #12-march-2024}
@@ -965,14 +965,14 @@ For more information, see [Provisioning reserved capacity for VPC](/docs/vpc?top
 Your account is affected by these changes if you have API clients (such as custom automations, auditing scripts, or dashboards) that interact with instances, bare metal servers, network interfaces, or file shares. For more information about what changed, along with guidance on avoiding possible failures due to these changes, see [Mitigating behavior changes to virtual network interfaces, instances, bare metal servers, and file shares](/docs/vpc?topic=vpc-vni-api-introduction).
 {: important}
 
-- You can now create [instances](/apidocs/vpc/latest#create-instance) and [bare metal servers](/apidocs/vpc/latest#create-bare-metal-server) with virtual network interfaces attached to new child resources called network attachments. You can specify a `primary_network_attachment` (instead of a `primary_network_interface`) and provide either the identity of an already created virtual network interface, or a subnet to create a new virtual network interface for the instance or bare metal server.
-- Virtual network interfaces now have lifecycles that are independent of the resources they are attached to. You can [update](/apidocs/vpc/latest#update-virtual-network-interface) the `auto_delete` property to `false` to allow a virtual network interface to persist beyond the lifecycle of its original bare metal server or instance, and be re-attached to another bare metal server or instance.
-- Virtual network interfaces now support [secondary IP addresses](/docs/vpc?topic=vpc-vni-about-secondary-ip). You can now [add](/apidocs/vpc/latest#add-virtual-network-interface-ip) and [remove](/apidocs/vpc/latest#remove-virtual-network-interface-ip) reserved IPs to and from a virtual network interface.
+- You can now create [instances](/docs/apis/vpc/latest#create-instance) and [bare metal servers](/docs/apis/vpc/latest#create-bare-metal-server) with virtual network interfaces attached to new child resources called network attachments. You can specify a `primary_network_attachment` (instead of a `primary_network_interface`) and provide either the identity of an already created virtual network interface, or a subnet to create a new virtual network interface for the instance or bare metal server.
+- Virtual network interfaces now have lifecycles that are independent of the resources they are attached to. You can [update](/docs/apis/vpc/latest#update-virtual-network-interface) the `auto_delete` property to `false` to allow a virtual network interface to persist beyond the lifecycle of its original bare metal server or instance, and be re-attached to another bare metal server or instance.
+- Virtual network interfaces now support [secondary IP addresses](/docs/vpc?topic=vpc-vni-about-secondary-ip). You can now [add](/docs/apis/vpc/latest#add-virtual-network-interface-ip) and [remove](/docs/apis/vpc/latest#remove-virtual-network-interface-ip) reserved IPs to and from a virtual network interface.
 - For compatibility with existing clients, instances and bare metal servers with virtual network interfaces now include a read-only representation of their network attachments and virtual network interfaces as old-style network interface child resources. Learn about [support for old API clients](/docs/vpc?topic=vpc-vni-about&interface=ui#vni-old-api-clients).
-- For instances and bare metal servers with virtual network interfaces, the IAM permissions for options to allow IP spoofing or disable infrastructure NAT are now managed on their attached virtual network interfaces. When [creating](/apidocs/vpc/latest#create-virtual-network-interface) or [updating](/apidocs/vpc/latest#update-virtual-network-interface) a virtual network interface, you can set non-default values for the `allow_ip_spoofing` and `enable_infrastructure_nat` properties only if you have the `is.virtual-network-interface.virtual-network-interface.manage-ip-spoofing` and `is.virtual-network-interface.virtual-network-interface.manage-infrastructure-nat` IAM permissions respectively.
-- You can now use [flow log collectors](/apidocs/vpc/latest#create-flow-log-collector) to target instance network attachments and virtual network interfaces. There is no support for flow logs for bare metal servers and share mount targets.
+- For instances and bare metal servers with virtual network interfaces, the IAM permissions for options to allow IP spoofing or disable infrastructure NAT are now managed on their attached virtual network interfaces. When [creating](/docs/apis/vpc/latest#create-virtual-network-interface) or [updating](/docs/apis/vpc/latest#update-virtual-network-interface) a virtual network interface, you can set non-default values for the `allow_ip_spoofing` and `enable_infrastructure_nat` properties only if you have the `is.virtual-network-interface.virtual-network-interface.manage-ip-spoofing` and `is.virtual-network-interface.virtual-network-interface.manage-infrastructure-nat` IAM permissions respectively.
+- You can now use [flow log collectors](/docs/apis/vpc/latest#create-flow-log-collector) to target instance network attachments and virtual network interfaces. There is no support for flow logs for bare metal servers and share mount targets.
 
-**Resource suspension for instance groups.** The [list all instance groups](/apidocs/vpc/latest#list-instance-groups) and [retrieve an instance group](/apidocs/vpc/latest#get-instance-group) methods now include `lifecycle_reasons` and `lifecycle_state` properties. An instance group that violates the [{{site.data.keyword.cloud}} Terms of Use](/docs/overview?topic=overview-terms){: external} will have its `lifecycle_state` property set to `suspended`. A suspended instance group will not auto scale or self heal, and you cannot enable, update, or delete it.
+**Resource suspension for instance groups.** The [list all instance groups](/docs/apis/vpc/latest#list-instance-groups) and [retrieve an instance group](/docs/apis/vpc/latest#get-instance-group) methods now include `lifecycle_reasons` and `lifecycle_state` properties. An instance group that violates the [{{site.data.keyword.cloud}} Terms of Use](/docs/overview?topic=overview-terms){: external} will have its `lifecycle_state` property set to `suspended`. A suspended instance group will not auto scale or self heal, and you cannot enable, update, or delete it.
 
 ## 30 January 2024
 {: #30-january-2024}
@@ -982,9 +982,9 @@ Your account is affected by these changes if you have API clients (such as custo
 
 **Reservations for Virtual Servers for VPC.** Accounts that have special approval to preview this feature can now purchase a [capacity reservation](/docs/vpc?topic=vpc-about-reserved-virtual-servers-vpc) for a specified instance profile in a specified zone. Reservations provide resources for future deployments and cost savings over the life of the term within the availability zone of your choice.
 
-When [creating](/apidocs/vpc/latest#create-reservation) or [updating](/apidocs/vpc/latest#update-reservation) a reservation, specify the `capacity.total` and `committed_use.term` properties to use for this reservation. Optionally specify the `committed_use.expiration_policy` property to apply when the committed use term expires (default: `release`). Specify the `profile.name` and `profile.resource_type` properties of the profile, and the `zone` property to use for this reservation. After you confirm that the reservation is configured the way that you want it, you must [activate the reservation](/apidocs/vpc/latest#activate-reservation). The reservation cannot be deleted until the committed use term expires. To provision an instance using a reservation's capacity, specify the reservation using the `reservation_affinity.pool` property when [creating the instance](/apidocs/vpc/latest#create-instance). You can also [update an instance](/apidocs/vpc/latest#update-instance) that's been provisioned to associate it with a reservation.
+When [creating](/docs/apis/vpc/latest#create-reservation) or [updating](/docs/apis/vpc/latest#update-reservation) a reservation, specify the `capacity.total` and `committed_use.term` properties to use for this reservation. Optionally specify the `committed_use.expiration_policy` property to apply when the committed use term expires (default: `release`). Specify the `profile.name` and `profile.resource_type` properties of the profile, and the `zone` property to use for this reservation. After you confirm that the reservation is configured the way that you want it, you must [activate the reservation](/docs/apis/vpc/latest#activate-reservation). The reservation cannot be deleted until the committed use term expires. To provision an instance using a reservation's capacity, specify the reservation using the `reservation_affinity.pool` property when [creating the instance](/docs/apis/vpc/latest#create-instance). You can also [update an instance](/docs/apis/vpc/latest#update-instance) that's been provisioned to associate it with a reservation.
 
-When [retrieving an instance](/apidocs/vpc/latest#get-instance), the new `reservation_affinity` property indicates the reservation affinity policy in effect for the virtual server instance. The new `health_state` property indicates the instance's overall health state, while an accompanying `health_reasons` property indicates the reason for any unhealthy health states, such as a failed reservation.
+When [retrieving an instance](/docs/apis/vpc/latest#get-instance), the new `reservation_affinity` property indicates the reservation affinity policy in effect for the virtual server instance. The new `health_state` property indicates the instance's overall health state, while an accompanying `health_reasons` property indicates the reason for any unhealthy health states, such as a failed reservation.
 
 For more information, see [Provisioning reserved capacity for VPC](/docs/vpc?topic=vpc-provisioning-reserved-capacity-vpc).
 
@@ -996,21 +996,21 @@ This feature is now generally available. See the [26 March 2024](#26-march-2024)
 ### For all version dates
 {: #19-december-2023-all-version-dates}
 
-**VPC route advertisement to Direct Link and Transit Gateway.** When [creating](/apidocs/vpc/latest#create-vpc-routing-table-route) or [updating](/apidocs/vpc/latest#update-vpc-routing-table-route) a route in a routing table, you can set the new `advertise` property to `true` (default is `false`). For the route to be advertised, the route's routing table must be configured for the source or sources to advertise it to:
+**VPC route advertisement to Direct Link and Transit Gateway.** When [creating](/docs/apis/vpc/latest#create-vpc-routing-table-route) or [updating](/docs/apis/vpc/latest#update-vpc-routing-table-route) a route in a routing table, you can set the new `advertise` property to `true` (default is `false`). For the route to be advertised, the route's routing table must be configured for the source or sources to advertise it to:
 
-- When [creating](/apidocs/vpc/latest#create-vpc-routing-table) or [updating](/apidocs/vpc/latest#update-vpc-routing-table) a VPC routing table, you can set the new `advertise_routes_to` array property to include the value `direct_link`. Including this value requires that the routing table's `route_direct_link_ingress` property be set to `true`. Routes in this routing table with the `advertise` property set to `true` will be advertised to Direct Link sources.
-- When [creating](/apidocs/vpc/latest#create-vpc-routing-table) or [updating](/apidocs/vpc/latest#update-vpc-routing-table) a VPC routing table, you can set the new `advertise_routes_to` array property to include the value `transit_gateway`. Including this value requires that the routing table's `route_transit_gateway_ingress` property be set to `true`. Routes in this routing table with the `advertise` property set to `true` will be advertised to Transit Gateway sources.
+- When [creating](/docs/apis/vpc/latest#create-vpc-routing-table) or [updating](/docs/apis/vpc/latest#update-vpc-routing-table) a VPC routing table, you can set the new `advertise_routes_to` array property to include the value `direct_link`. Including this value requires that the routing table's `route_direct_link_ingress` property be set to `true`. Routes in this routing table with the `advertise` property set to `true` will be advertised to Direct Link sources.
+- When [creating](/docs/apis/vpc/latest#create-vpc-routing-table) or [updating](/docs/apis/vpc/latest#update-vpc-routing-table) a VPC routing table, you can set the new `advertise_routes_to` array property to include the value `transit_gateway`. Including this value requires that the routing table's `route_transit_gateway_ingress` property be set to `true`. Routes in this routing table with the `advertise` property set to `true` will be advertised to Transit Gateway sources.
 
-When [creating](/apidocs/vpc/latest#create-vpc-routing-table) a routing table, the default value for the `advertise_routes_to` property is an empty array. When the `advertise_routes_to` property is an empty array, the `advertise` property for routes in the table has no effect.
+When [creating](/docs/apis/vpc/latest#create-vpc-routing-table) a routing table, the default value for the `advertise_routes_to` property is an empty array. When the `advertise_routes_to` property is an empty array, the `advertise` property for routes in the table has no effect.
 
 **Virtual network interface expanded support.** Accounts that have special approval can preview a new feature that expands the support for [virtual network interfaces](/docs/vpc?topic=vpc-vni-about):
 
-- [Instances](/apidocs/vpc/latest#create-instance) and [bare metal servers](/apidocs/vpc/latest#create-bare-metal-server) can now be created with virtual network interfaces attached to new child resources called network attachments. You can specify a `primary_network_attachment` (instead of a `primary_network_interface`) and provide either the identity of an existing virtual network interface, or a subnet to create a new virtual network interface for the instance or bare metal server.
-- Virtual network interfaces can now have lifecycles that are independent of the resources they are attached to. When [creating](/apidocs/vpc/latest#create-virtual-network-interface) a virtual network interface, the `auto_delete` property is set to `false`. When automatically creating a new virtual network interface in the context of creating another resource, the `auto_delete` property for the automatically created virtual network interface defaults to `true`. You can override it, or you can later [update](/apidocs/vpc/latest#update-virtual-network-interface) the `auto_delete` property to `false`. A virtual network interface with `auto_delete` set to `false` persists beyond the lifecycle of its current `target` resource. After the target resource is deleted, you can re-attach the virtual network interface to another resource, such as to a bare metal server, an instance, or a share mount target.
-- Virtual network interfaces now support [secondary IP addresses](/docs/vpc?topic=vpc-vni-about-secondary-ip). To add a secondary IP, [bind](/apidocs/vpc/latest#add-virtual-network-interface-ip) a reserved IP to a virtual network interface. To remove a secondary IP, [unbind](/apidocs/vpc/latest#remove-virtual-network-interface-ip) a reserved IP from from a virtual network interface.
+- [Instances](/docs/apis/vpc/latest#create-instance) and [bare metal servers](/docs/apis/vpc/latest#create-bare-metal-server) can now be created with virtual network interfaces attached to new child resources called network attachments. You can specify a `primary_network_attachment` (instead of a `primary_network_interface`) and provide either the identity of an existing virtual network interface, or a subnet to create a new virtual network interface for the instance or bare metal server.
+- Virtual network interfaces can now have lifecycles that are independent of the resources they are attached to. When [creating](/docs/apis/vpc/latest#create-virtual-network-interface) a virtual network interface, the `auto_delete` property is set to `false`. When automatically creating a new virtual network interface in the context of creating another resource, the `auto_delete` property for the automatically created virtual network interface defaults to `true`. You can override it, or you can later [update](/docs/apis/vpc/latest#update-virtual-network-interface) the `auto_delete` property to `false`. A virtual network interface with `auto_delete` set to `false` persists beyond the lifecycle of its current `target` resource. After the target resource is deleted, you can re-attach the virtual network interface to another resource, such as to a bare metal server, an instance, or a share mount target.
+- Virtual network interfaces now support [secondary IP addresses](/docs/vpc?topic=vpc-vni-about-secondary-ip). To add a secondary IP, [bind](/docs/apis/vpc/latest#add-virtual-network-interface-ip) a reserved IP to a virtual network interface. To remove a secondary IP, [unbind](/docs/apis/vpc/latest#remove-virtual-network-interface-ip) a reserved IP from from a virtual network interface.
 - For compatibility with existing clients, instances and bare metal servers with virtual network interfaces now include a read-only representation of their network attachments and virtual network interfaces as legacy network interface child resources. Learn about [support for old API clients](/docs/vpc?topic=vpc-vni-about&interface=ui#vni-old-api-clients).
-- For instances and bare metal servers with virtual network interfaces, the IAM permissions for options to allow IP spoofing or disable infrastructure NAT are managed on their attached virtual network interfaces. When [creating](/apidocs/vpc/latest#create-virtual-network-interface) or [updating](/apidocs/vpc/latest#update-virtual-network-interface) a virtual network interface, you can set non-default values for the `allow_ip_spoofing` and `enable_infrastructure_nat` properties only if you have the `is.virtual-network-interface.virtual-network-interface.manage-ip-spoofing` and `is.virtual-network-interface.virtual-network-interface.manage-infrastructure-nat` IAM permissions respectively.
-- [Flow log collectors](/apidocs/vpc/latest#create-flow-log-collector) can now target instance network attachments and virtual network interfaces. There is currently no support for flow logs for bare metal servers and share mount targets.
+- For instances and bare metal servers with virtual network interfaces, the IAM permissions for options to allow IP spoofing or disable infrastructure NAT are managed on their attached virtual network interfaces. When [creating](/docs/apis/vpc/latest#create-virtual-network-interface) or [updating](/docs/apis/vpc/latest#update-virtual-network-interface) a virtual network interface, you can set non-default values for the `allow_ip_spoofing` and `enable_infrastructure_nat` properties only if you have the `is.virtual-network-interface.virtual-network-interface.manage-ip-spoofing` and `is.virtual-network-interface.virtual-network-interface.manage-infrastructure-nat` IAM permissions respectively.
+- [Flow log collectors](/docs/apis/vpc/latest#create-flow-log-collector) can now target instance network attachments and virtual network interfaces. There is currently no support for flow logs for bare metal servers and share mount targets.
 
 ## 12 December 2023
 {: #12-december-2023}
@@ -1018,7 +1018,7 @@ When [creating](/apidocs/vpc/latest#create-vpc-routing-table) a routing table, t
 ### For all version dates
 {: #12-december-2023-all-version-dates}
 
-**Cross-region replication of file shares.** When [creating a file share](/apidocs/vpc/latest#create-share), you can now specify a zone in an associated partner region to create a replica file share. For more information about cross-region pairings, see [About file share replication](/docs/vpc?topic=vpc-file-storage-replication). A [service-to-service authorization for cross-region replication](/docs/vpc?topic=vpc-file-s2s-auth&interface=api#file-s2s-auth-replication-api) between the regional file services must be created before creating a replica.
+**Cross-region replication of file shares.** When [creating a file share](/docs/apis/vpc/latest#create-share), you can now specify a zone in an associated partner region to create a replica file share. For more information about cross-region pairings, see [About file share replication](/docs/vpc?topic=vpc-file-storage-replication). A [service-to-service authorization for cross-region replication](/docs/vpc?topic=vpc-file-s2s-auth&interface=api#file-s2s-auth-replication-api) between the regional file services must be created before creating a replica.
 
 An important difference between setting up in-region and cross-region replication is configuring the encryption for the replica share.
 
@@ -1026,9 +1026,9 @@ An important difference between setting up in-region and cross-region replicatio
 - When the replica is created in another region, only the encryption type is inherited. Therefore, if the source share has `user_managed` encryption, you must specify the root key by using the `encryption_key` property when creating the replica share.
 {: note}
 
-When [retrieving a file share](/apidocs/vpc/latest#get-share), the `source_share` property now includes a `remote` sub-property that, if present in the response, indicates that the resource that is associated with this reference is remote and might not be directly retrievable.
+When [retrieving a file share](/docs/apis/vpc/latest#get-share), the `source_share` property now includes a `remote` sub-property that, if present in the response, indicates that the resource that is associated with this reference is remote and might not be directly retrievable.
 
-**Last replication sync information.** When [retrieving a file share](/apidocs/vpc/latest#get-share), the response now includes the properties `completed_at`, `started_at`, and `data_transferred`. These properties provide information about the replication process that can be used to monitor the health of the replication. For more information, see [Replication sync information](/docs/vpc?topic=vpc-file-storage-manage-replication&interface=api#fs-repl-syncinfo).
+**Last replication sync information.** When [retrieving a file share](/docs/apis/vpc/latest#get-share), the response now includes the properties `completed_at`, `started_at`, and `data_transferred`. These properties provide information about the replication process that can be used to monitor the health of the replication. For more information, see [Replication sync information](/docs/vpc?topic=vpc-file-storage-manage-replication&interface=api#fs-repl-syncinfo).
 
 ## 5 December 2023
 {: #5-december-2023}
@@ -1036,16 +1036,16 @@ When [retrieving a file share](/apidocs/vpc/latest#get-share), the `source_share
 ### For all version dates
 {: #5-december-2023-all-version-dates}
 
-**Multi-volume snapshots and backups.** This release introduces a new way to create snapshots. You can now [create a snapshot consistency group](/apidocs/vpc/latest#create-snapshot-consistency-group) and specify one or more snapshots that are attached to the same virtual server instance. When you create a consistency group, you are implicitly creating one or more snapshots. Snapshots taken simultaneously are data-consistent with one another, which helps to ensure consistent backups of a group of {{site.data.keyword.block_storage_is_short}} volumes attached to the same instance. [Deleting a snapshot consistency group](/apidocs/vpc/latest#delete-snapshot-consistency-group) will delete the snapshots in the group by default. However, you can keep the snapshots and delete the consistency group by specifying the `delete_snapshots_on_delete` property.
+**Multi-volume snapshots and backups.** This release introduces a new way to create snapshots. You can now [create a snapshot consistency group](/docs/apis/vpc/latest#create-snapshot-consistency-group) and specify one or more snapshots that are attached to the same virtual server instance. When you create a consistency group, you are implicitly creating one or more snapshots. Snapshots taken simultaneously are data-consistent with one another, which helps to ensure consistent backups of a group of {{site.data.keyword.block_storage_is_short}} volumes attached to the same instance. [Deleting a snapshot consistency group](/docs/apis/vpc/latest#delete-snapshot-consistency-group) will delete the snapshots in the group by default. However, you can keep the snapshots and delete the consistency group by specifying the `delete_snapshots_on_delete` property.
 
-You can also automate the creation of snapshots in consistency groups. When [creating a backup policy](/apidocs/vpc/latest#create-backup-policy) you can now specify `instance` as a `match_resource_type` value that this backup policy will apply to. Resources that have both a matching type and a matching user tag will be subject to the backup policy. You can exclude boot volumes from backup policies by specifying the `included_content` property. The default behavior includes boot volumes and data volumes.
+You can also automate the creation of snapshots in consistency groups. When [creating a backup policy](/docs/apis/vpc/latest#create-backup-policy) you can now specify `instance` as a `match_resource_type` value that this backup policy will apply to. Resources that have both a matching type and a matching user tag will be subject to the backup policy. You can exclude boot volumes from backup policies by specifying the `included_content` property. The default behavior includes boot volumes and data volumes.
 
-For more information, see [Backup service concepts](/docs/vpc?topic=vpc-backup-service-about&interface=api#backup-service-concepts), [Snapshot consistency groups](/docs/vpc?topic=vpc-snapshots-vpc-about&interface=api#multi-volume-snapshots), and explore the [backup policy](/apidocs/vpc/latest#list-backup-policies) and [snapshot consistency group](/apidocs/vpc/latest#list-snapshot-consistency-groups) methods.
+For more information, see [Backup service concepts](/docs/vpc?topic=vpc-backup-service-about&interface=api#backup-service-concepts), [Snapshot consistency groups](/docs/vpc?topic=vpc-snapshots-vpc-about&interface=api#multi-volume-snapshots), and explore the [backup policy](/docs/apis/vpc/latest#list-backup-policies) and [snapshot consistency group](/docs/apis/vpc/latest#list-snapshot-consistency-groups) methods.
 
 ### For version `2023-12-05` or later
 {: #version-2023-12-05}
 
-When making API requests using a `version` query parameter of `2023-12-05` or later, the backup policy `match_resource_types` property has been changed to `match_resource_type`. This change applies when [creating](/apidocs/vpc/latest#create-backup-policy), [updating](/apidocs/vpc/latest#update-backup-policy), [listing](/apidocs/vpc/latest#list-backup-policies), [retrieving](/apidocs/vpc/latest#get-backup-policy), and [deleting](/apidocs/vpc/latest#delete-backup-policy) a backup policy. See [Updating to the `2023-12-05` version (backup policies)](/docs/vpc?topic=vpc-2023-12-05-migration-backup-policy) for guidance on migrating from `match_resource_types` to `match_resource_type`.
+When making API requests using a `version` query parameter of `2023-12-05` or later, the backup policy `match_resource_types` property has been changed to `match_resource_type`. This change applies when [creating](/docs/apis/vpc/latest#create-backup-policy), [updating](/docs/apis/vpc/latest#update-backup-policy), [listing](/docs/apis/vpc/latest#list-backup-policies), [retrieving](/docs/apis/vpc/latest#get-backup-policy), and [deleting](/docs/apis/vpc/latest#delete-backup-policy) a backup policy. See [Updating to the `2023-12-05` version (backup policies)](/docs/vpc?topic=vpc-2023-12-05-migration-backup-policy) for guidance on migrating from `match_resource_types` to `match_resource_type`.
 
 ## 24 October 2023
 {: #24-october-2023}
@@ -1053,7 +1053,7 @@ When making API requests using a `version` query parameter of `2023-12-05` or la
 ### For all version dates
 {: #24-october-2023-all-version-dates}
 
-**Network load balancer security group integration.** For enhanced security, you can now associate security groups with [network load balancers](/docs/vpc?topic=vpc-nlb-integration-with-security-groups). When [creating a load balancer](/apidocs/vpc/latest#create-load-balancer), you can now specify the `security_groups` property, which associates those security groups with the load balancer. If you do not specify `security_groups`, the network load balancer will be associated with the VPC's default security group. Before using the default security group, review your default security group rules and, if necessary, edit the rules to accommodate your expected network load balancer traffic.
+**Network load balancer security group integration.** For enhanced security, you can now associate security groups with [network load balancers](/docs/vpc?topic=vpc-nlb-integration-with-security-groups). When [creating a load balancer](/docs/apis/vpc/latest#create-load-balancer), you can now specify the `security_groups` property, which associates those security groups with the load balancer. If you do not specify `security_groups`, the network load balancer will be associated with the VPC's default security group. Before using the default security group, review your default security group rules and, if necessary, edit the rules to accommodate your expected network load balancer traffic.
 
 All existing network load balancers in your account will continue to allow all inbound and outbound traffic. This is indicated by the `security_groups` property being set to an empty array (no security groups configured).
 {: note}
@@ -1061,11 +1061,11 @@ All existing network load balancers in your account will continue to allow all i
 When creating a network load balancer, you must now have an appropriate Identity and Access Management (IAM) role with the `is.security-group.security-group.operate` action.
 {: note}
 
-You can update security groups for a network load balancer by [adding a network load balancer](/apidocs/vpc/latest#create-security-group-target-binding) to or [removing a network load balancer](/apidocs/vpc/latest#delete-security-group-target-binding) from a security group's targets.
+You can update security groups for a network load balancer by [adding a network load balancer](/docs/apis/vpc/latest#create-security-group-target-binding) to or [removing a network load balancer](/docs/apis/vpc/latest#delete-security-group-target-binding) from a security group's targets.
 
 You will not be able to remove the only remaining security group from a network load balancer. As a result, if you add a security group to a network load balancer that had no security groups, you will not be able to revert that network load balancer to have no security groups.
 
-Finally, the security group `targets` property can now refer to a network load balancer, as can the responses for the [get security group target](/apidocs/vpc/latest#get-security-group-target) and [list security group targets](/apidocs/vpc/latest#list-security-group-targets) methods.
+Finally, the security group `targets` property can now refer to a network load balancer, as can the responses for the [get security group target](/docs/apis/vpc/latest#get-security-group-target) and [list security group targets](/docs/apis/vpc/latest#list-security-group-targets) methods.
 
 ## 17 October 2023
 {: #17-october-2023}
@@ -1073,21 +1073,21 @@ Finally, the security group `targets` property can now refer to a network load b
 ### For all version dates
 {: #17-october-all-version-dates}
 
-**Non-uniform memory access (NUMA) awareness on instances and dedicated hosts.**  When [retrieving](/apidocs/vpc/latest#get-instance) or [listing](/apidocs/vpc/latest#list-instances) instances, the new `numa_count` property indicates the number of NUMA nodes on which a virtual server instance is provisioned. This property will be absent from the response if the instance's `status` is not `running`. When [retrieving](/apidocs/vpc/latest#get-dedicated-host) or [listing](/apidocs/vpc/latest#list-dedicated-hosts) dedicated hosts, the new `numa.count` and `numa.nodes` properties describe the processor topology.
+**Non-uniform memory access (NUMA) awareness on instances and dedicated hosts.**  When [retrieving](/docs/apis/vpc/latest#get-instance) or [listing](/docs/apis/vpc/latest#list-instances) instances, the new `numa_count` property indicates the number of NUMA nodes on which a virtual server instance is provisioned. This property will be absent from the response if the instance's `status` is not `running`. When [retrieving](/docs/apis/vpc/latest#get-dedicated-host) or [listing](/docs/apis/vpc/latest#list-dedicated-hosts) dedicated hosts, the new `numa.count` and `numa.nodes` properties describe the processor topology.
 
-When [retrieving](/apidocs/vpc/latest#get-instance-profile) or [listing](/apidocs/vpc/latest#list-instance-profiles) instance profiles, the `numa_count` property indicates the total number of NUMA nodes for an instance with this profile. When the `type` is `dependent`, the total number of NUMA nodes for an instance with this profile depends on its configuration and the capacity constraints within the zone. Not all instance profiles have a strict NUMA definition within them.
+When [retrieving](/docs/apis/vpc/latest#get-instance-profile) or [listing](/docs/apis/vpc/latest#list-instance-profiles) instance profiles, the `numa_count` property indicates the total number of NUMA nodes for an instance with this profile. When the `type` is `dependent`, the total number of NUMA nodes for an instance with this profile depends on its configuration and the capacity constraints within the zone. Not all instance profiles have a strict NUMA definition within them.
 
 For more information, see [Next generation instance profiles](/docs/vpc?topic=vpc-profiles&interface=api#next-gen-profiles).
 
-**Status on instance profiles and dedicated host profiles.** When [retrieving](/apidocs/vpc/latest#get-instance-profile) or [listing](/apidocs/vpc/latest#list-instance-profiles) instance profiles or [retrieving](/apidocs/vpc/latest#get-dedicated-host-profile) or [listing](/apidocs/vpc/latest#list-dedicated-host-profiles) dedicated host profiles, a new `status` property indicates the status of the instance profile or dedicated host profile. A `status` value of `previous` indicates an older profile generation that remains provisionable and usable. A `status` value of `current` indicates the latest generation of a given profile. For more information, see [Next generation instance profiles](/docs/vpc?topic=vpc-profiles&interface=api#next-gen-profiles) and [Dedicated host profiles](/docs/vpc?topic=vpc-dh-profiles).
+**Status on instance profiles and dedicated host profiles.** When [retrieving](/docs/apis/vpc/latest#get-instance-profile) or [listing](/docs/apis/vpc/latest#list-instance-profiles) instance profiles or [retrieving](/docs/apis/vpc/latest#get-dedicated-host-profile) or [listing](/docs/apis/vpc/latest#list-dedicated-host-profiles) dedicated host profiles, a new `status` property indicates the status of the instance profile or dedicated host profile. A `status` value of `previous` indicates an older profile generation that remains provisionable and usable. A `status` value of `current` indicates the latest generation of a given profile. For more information, see [Next generation instance profiles](/docs/vpc?topic=vpc-profiles&interface=api#next-gen-profiles) and [Dedicated host profiles](/docs/vpc?topic=vpc-dh-profiles).
 
-**Viewing DNS resolver information for VPCs.** When [retrieving](/apidocs/vpc/latest#get-vpc) a VPC, the new `dns.resolver` property contains information about the DNS resolvers provided by the system for DHCP clients in the VPC.
+**Viewing DNS resolver information for VPCs.** When [retrieving](/docs/apis/vpc/latest#get-vpc) a VPC, the new `dns.resolver` property contains information about the DNS resolvers provided by the system for DHCP clients in the VPC.
 
 This release introduces the following updates for accounts that have special approval to preview these features:
 
-- **Sharing DNS resolution for endpoint gateways across VPCs.** When multiple VPCs are connected together using Transit Gateway, Direct Link, or other connectivity options, a VPC in the connected topology can now be enabled as a DNS hub to centralize the DNS resolution for endpoint gateways. When [creating](/apidocs/vpc/latest#create-vpc) or [updating](/apidocs/vpc/latest#update-vpc) a VPC, a new `dns` property includes configuration options for DNS. Specify the `dns.enable_hub` property as `true` to enable the VPC as a DNS hub (default is `false`).  Specify a DNS hub VPC when [creating a DNS resolution binding](/apidocs/vpc/latest#create-vpc-dns-resolution-binding) on another VPC to share its DNS resolution with that DNS hub VPC. The new `dns.resolution_binding_count` response property specifies how many other VPCs a VPC is bound to for DNS resolution sharing. For more information, see [About DNS sharing for VPE gateways](/docs/vpc?topic=vpc-vpe-dns-sharing).
+- **Sharing DNS resolution for endpoint gateways across VPCs.** When multiple VPCs are connected together using Transit Gateway, Direct Link, or other connectivity options, a VPC in the connected topology can now be enabled as a DNS hub to centralize the DNS resolution for endpoint gateways. When [creating](/docs/apis/vpc/latest#create-vpc) or [updating](/docs/apis/vpc/latest#update-vpc) a VPC, a new `dns` property includes configuration options for DNS. Specify the `dns.enable_hub` property as `true` to enable the VPC as a DNS hub (default is `false`).  Specify a DNS hub VPC when [creating a DNS resolution binding](/docs/apis/vpc/latest#create-vpc-dns-resolution-binding) on another VPC to share its DNS resolution with that DNS hub VPC. The new `dns.resolution_binding_count` response property specifies how many other VPCs a VPC is bound to for DNS resolution sharing. For more information, see [About DNS sharing for VPE gateways](/docs/vpc?topic=vpc-vpe-dns-sharing).
 
-- **Configuring DNS resolvers for a VPC.** You can use the new `dns.resolver` property to configure the DNS resolvers for a VPC. Use a `dns.resolver.type` of `manual` to specify the DNS resolvers by IP address. Use a `dns.resolver.type` of `delegated` to specify another VPC (typically a DNS hub VPC) whose DNS resolvers will be used. Use a `dns.resolver.type` of `system` to restore the system default DNS resolvers. When `dns.resolver.type` is `manual`, [updating](/apidocs/vpc/latest#update-vpc) specifying the VPC's `dns.resolver.manual_servers` requires the [`If-Match` header](/apidocs/vpc/latest#concurrent-update-protection) also be provided with the VPC's current `ETag` value.
+- **Configuring DNS resolvers for a VPC.** You can use the new `dns.resolver` property to configure the DNS resolvers for a VPC. Use a `dns.resolver.type` of `manual` to specify the DNS resolvers by IP address. Use a `dns.resolver.type` of `delegated` to specify another VPC (typically a DNS hub VPC) whose DNS resolvers will be used. Use a `dns.resolver.type` of `system` to restore the system default DNS resolvers. When `dns.resolver.type` is `manual`, [updating](/docs/apis/vpc/latest#update-vpc) specifying the VPC's `dns.resolver.manual_servers` requires the [`If-Match` header](/docs/apis/vpc/latest#concurrent-update-protection) also be provided with the VPC's current `ETag` value.
 
 ## 10 October 2023
 {: #10-october-2023}
@@ -1097,26 +1097,26 @@ This release introduces the following updates for accounts that have special app
 
 **Diagnosing VPN gateway and VPN server issues.** You can now diagnose and resolve issues with your deployed VPN gateways and VPN servers:
 
-- The [list all VPN gateways](/apidocs/vpc/latest#list-vpn-gateways) and [retrieve a VPN gateway](/apidocs/vpc/latest#get-vpn-gateway) methods now include `health_reasons`, `health_state`, `members[].health_reasons`, and `members[].health_state` properties. An unhealthy VPN gateway or VPN gateway member now has its `health_state` property set to `degraded` or `faulted`. The `health_reasons` property includes the reasons for the current VPN gateway or VPN gateway member health state. For more information, see [Diagnosing VPN gateway health](/docs/vpc?topic=vpc-vpn-health).
+- The [list all VPN gateways](/docs/apis/vpc/latest#list-vpn-gateways) and [retrieve a VPN gateway](/docs/apis/vpc/latest#get-vpn-gateway) methods now include `health_reasons`, `health_state`, `members[].health_reasons`, and `members[].health_state` properties. An unhealthy VPN gateway or VPN gateway member now has its `health_state` property set to `degraded` or `faulted`. The `health_reasons` property includes the reasons for the current VPN gateway or VPN gateway member health state. For more information, see [Diagnosing VPN gateway health](/docs/vpc?topic=vpc-vpn-health).
 
-- The [list all VPN gateway connections](/apidocs/vpc/latest#list-vpn-gateway-connections) and [retrieve a VPN gateway connection](/apidocs/vpc/latest#get-vpn-gateway-connection) methods now include `status_reasons` and `tunnels[].status_reasons` properties for a static-route-mode VPN gateway. A VPN gateway connection or tunnel in a down state now includes the reasons for the current VPN gateway connection or tunnel through the `status_reasons` property. For more information, see [Diagnosing VPN gateway connection health](/docs/vpc?topic=vpc-vpn-health#vpn-connection-health).
+- The [list all VPN gateway connections](/docs/apis/vpc/latest#list-vpn-gateway-connections) and [retrieve a VPN gateway connection](/docs/apis/vpc/latest#get-vpn-gateway-connection) methods now include `status_reasons` and `tunnels[].status_reasons` properties for a static-route-mode VPN gateway. A VPN gateway connection or tunnel in a down state now includes the reasons for the current VPN gateway connection or tunnel through the `status_reasons` property. For more information, see [Diagnosing VPN gateway connection health](/docs/vpc?topic=vpc-vpn-health#vpn-connection-health).
 
-- The [list all VPN servers](/apidocs/vpc/latest#list-vpn-servers) and [retrieve a VPN server](/apidocs/vpc/latest#get-vpn-server) methods now include a `health_reasons` property. An unhealthy VPN server now has its `health_state` property set to `degraded` or `faulted`. The `health_reasons` property includes the reasons for the current VPN server health state. For more information, see [Diagnosing VPN server health](/docs/vpc?topic=vpc-vpn-server-health).
+- The [list all VPN servers](/docs/apis/vpc/latest#list-vpn-servers) and [retrieve a VPN server](/docs/apis/vpc/latest#get-vpn-server) methods now include a `health_reasons` property. An unhealthy VPN server now has its `health_state` property set to `degraded` or `faulted`. The `health_reasons` property includes the reasons for the current VPN server health state. For more information, see [Diagnosing VPN server health](/docs/vpc?topic=vpc-vpn-server-health).
 
-- The [list all VPN server routes](/apidocs/vpc/latest#list-vpn-server-routes) and [retrieve a VPN server route](/apidocs/vpc/latest#get-vpn-server-route) methods now include `health_reasons` and `health_state` properties. An unhealthy VPN server route now has its `health_state` property set to `degraded` or `faulted`. The  `health_reasons` property includes the reasons for the current VPN server route health state. For more information, see [Diagnosing VPN server route health](/docs/vpc?topic=vpc-vpn-server-health#vpn-server-route-health).
+- The [list all VPN server routes](/docs/apis/vpc/latest#list-vpn-server-routes) and [retrieve a VPN server route](/docs/apis/vpc/latest#get-vpn-server-route) methods now include `health_reasons` and `health_state` properties. An unhealthy VPN server route now has its `health_state` property set to `degraded` or `faulted`. The  `health_reasons` property includes the reasons for the current VPN server route health state. For more information, see [Diagnosing VPN server route health](/docs/vpc?topic=vpc-vpn-server-health#vpn-server-route-health).
 
 **Resource suspension for VPNs for VPC.**
 
-- VPN gateway. The [list all VPN gateways](/apidocs/vpc/latest#list-vpn-gateways) and [retrieve a VPN gateway](/apidocs/vpc/latest#get-vpn-gateway) methods now include `lifecycle_reasons` and `lifecycle_state` properties. The same properties are also included for VPN gateway member child resources. A VPN gateway that violates the [{{site.data.keyword.cloud}} Terms of Use](/docs/overview?topic=overview-terms){: external} will have its `lifecycle_state` property set to `suspended`, along with the `lifecycle_state` of its members. A suspended VPN gateway is automatically disabled, causing all connections to be brought down, and you cannot enable, update, or delete it or its connections.
+- VPN gateway. The [list all VPN gateways](/docs/apis/vpc/latest#list-vpn-gateways) and [retrieve a VPN gateway](/docs/apis/vpc/latest#get-vpn-gateway) methods now include `lifecycle_reasons` and `lifecycle_state` properties. The same properties are also included for VPN gateway member child resources. A VPN gateway that violates the [{{site.data.keyword.cloud}} Terms of Use](/docs/overview?topic=overview-terms){: external} will have its `lifecycle_state` property set to `suspended`, along with the `lifecycle_state` of its members. A suspended VPN gateway is automatically disabled, causing all connections to be brought down, and you cannot enable, update, or delete it or its connections.
 
-- VPN server. The [list all VPN servers](/apidocs/vpc/latest#list-vpn-servers) and [retrieve a VPN server](/apidocs/vpc/latest#get-vpn-server) methods now include `lifecycle_reasons` and `lifecycle_state` properties. The same properties are also included for the VPN server route child resource. A VPN server that violates the [{{site.data.keyword.cloud}} Terms of Use](/docs/overview?topic=overview-terms){: external} will have its `lifecycle_state` property set to `suspended`, along with the `lifecycle_state` of its server routes. A suspended VPN server is automatically disabled, and you cannot enable, update, or delete it or its routes.
+- VPN server. The [list all VPN servers](/docs/apis/vpc/latest#list-vpn-servers) and [retrieve a VPN server](/docs/apis/vpc/latest#get-vpn-server) methods now include `lifecycle_reasons` and `lifecycle_state` properties. The same properties are also included for the VPN server route child resource. A VPN server that violates the [{{site.data.keyword.cloud}} Terms of Use](/docs/overview?topic=overview-terms){: external} will have its `lifecycle_state` property set to `suspended`, along with the `lifecycle_state` of its server routes. A suspended VPN server is automatically disabled, and you cannot enable, update, or delete it or its routes.
 
 For more information, see [Resource suspension](/docs/vpc?topic=vpc-resource-suspension).
 
 ### For version `2023-10-10` or later
 {: #version-2023-10-10}
 
-When [listing](/apidocs/vpc/latest#list-vpn-gateways) or [retrieving](/apidocs/vpc/latest#get-vpn-gateway) VPN gateways using a `version` query parameter of `2023-10-10` or later, the response will no longer include `status` and `members[].status` properties. These properties remain supported for API requests using a version query parameter of `2023-10-09` or earlier. To avoid regressions in client functionality, follow the guidance in [Updating to the `2023-10-10` version (VPN)](/docs/vpc?topic=vpc-2023-10-10-migration-vpn) before specifying version `2023-10-10` or later in VPN gateway requests.
+When [listing](/docs/apis/vpc/latest#list-vpn-gateways) or [retrieving](/docs/apis/vpc/latest#get-vpn-gateway) VPN gateways using a `version` query parameter of `2023-10-10` or later, the response will no longer include `status` and `members[].status` properties. These properties remain supported for API requests using a version query parameter of `2023-10-09` or earlier. To avoid regressions in client functionality, follow the guidance in [Updating to the `2023-10-10` version (VPN)](/docs/vpc?topic=vpc-2023-10-10-migration-vpn) before specifying version `2023-10-10` or later in VPN gateway requests.
 
 ## 3 October 2023
 {: #3-october-2023}
@@ -1124,7 +1124,7 @@ When [listing](/apidocs/vpc/latest#list-vpn-gateways) or [retrieving](/apidocs/v
 ### For all version dates
 {: #3-october-2023-all-version-dates}
 
-**Enterprise Backup as a Service.** As an enterprise account administrator, you can now create backup policies and plans that apply to resources of all accounts within your enterprise. Specify the enterprise CRN in the `scope` property when you [create a backup policy](/apidocs/vpc/latest#create-backup-policy), and the policy will apply to all resources that have tags that match with the policy across all accounts within your enterprise. For more information, see [Scope of the backup policy](/docs/vpc?topic=vpc-backup-service-about&interface=api#backup-service-about-scope). As a prerequisite, ensure that authorizations are in place between services and between the enterprise account and the child accounts. For more information, see [Establishing service to service authorizations](/docs/vpc?topic=vpc-backup-s2s-auth&interface=api).
+**Enterprise Backup as a Service.** As an enterprise account administrator, you can now create backup policies and plans that apply to resources of all accounts within your enterprise. Specify the enterprise CRN in the `scope` property when you [create a backup policy](/docs/apis/vpc/latest#create-backup-policy), and the policy will apply to all resources that have tags that match with the policy across all accounts within your enterprise. For more information, see [Scope of the backup policy](/docs/vpc?topic=vpc-backup-service-about&interface=api#backup-service-about-scope). As a prerequisite, ensure that authorizations are in place between services and between the enterprise account and the child accounts. For more information, see [Establishing service to service authorizations](/docs/vpc?topic=vpc-backup-s2s-auth&interface=api).
 
 ## 8 August 2023
 {: #8-august-2023}
@@ -1132,7 +1132,7 @@ When [listing](/apidocs/vpc/latest#list-vpn-gateways) or [retrieving](/apidocs/v
 ### For all version dates
 {: #8-august-2023-all-version-dates}
 
-**File storage for VPC.** You can now create NFS-based file shares in a zone in your region. Share file storage over multiple virtual server instances within the same zone across multiple VPCs. Learn about [file shares and mount targets](/docs/vpc?topic=vpc-file-storage-vpc-about), and explore the new [API methods](/apidocs/vpc/latest#list-share-profiles).
+**File storage for VPC.** You can now create NFS-based file shares in a zone in your region. Share file storage over multiple virtual server instances within the same zone across multiple VPCs. Learn about [file shares and mount targets](/docs/vpc?topic=vpc-file-storage-vpc-about), and explore the new [API methods](/docs/apis/vpc/latest#list-share-profiles).
 
 ## 11 July 2023
 {: #11-july-2023}
@@ -1140,7 +1140,7 @@ When [listing](/apidocs/vpc/latest#list-vpn-gateways) or [retrieving](/apidocs/v
 ### For all version dates
 {: #11-july-2023-all-version-dates}
 
-**Image lifecycle management.** You can now [deprecate](/apidocs/vpc/latest#deprecate-image) or [obsolete](/apidocs/vpc/latest#obsolete-image) custom images directly. Alternatively, you can schedule transition at a later date by specifying the `deprecation_at` or `obsolescence_at` properties when [creating](/apidocs/vpc/latest#create-image) or [updating](/apidocs/vpc/latest#update-image) an image. If you need to revert a status change, you can transition `deprecated` or `obsolete` images back to `available`. For more information, see [Managing custom images](/docs/vpc?topic=vpc-managing-custom-images&interface=api#custom-images-list-api).
+**Image lifecycle management.** You can now [deprecate](/docs/apis/vpc/latest#deprecate-image) or [obsolete](/docs/apis/vpc/latest#obsolete-image) custom images directly. Alternatively, you can schedule transition at a later date by specifying the `deprecation_at` or `obsolescence_at` properties when [creating](/docs/apis/vpc/latest#create-image) or [updating](/docs/apis/vpc/latest#update-image) an image. If you need to revert a status change, you can transition `deprecated` or `obsolete` images back to `available`. For more information, see [Managing custom images](/docs/vpc?topic=vpc-managing-custom-images&interface=api#custom-images-list-api).
 
 `deprecated` custom images remain usable, while `obsolete` images cannot be used to provision instances or bare metal servers.
 {: note}
@@ -1151,11 +1151,11 @@ When [listing](/apidocs/vpc/latest#list-vpn-gateways) or [retrieving](/apidocs/v
 ### For all version dates
 {: #27-june-2023-all-version-dates}
 
-**Copying snapshots and backups across regions.** You can now specify an existing snapshot in one region to [create](/apidocs/vpc/latest#create-snapshot) a copy of the snapshot in another region. When you [list all snapshots](/apidocs/vpc/latest#list-snapshots), you can see the direct snapshot copies in the other regions and you can use them to restore volumes in the other regions. You can create copies in multiple regions, but only one copy of the snapshot can exist in each region. The cross-region snapshot copy contains the same data as the source snapshot, but the cross-region snapshot copy has its own, independent lifecycle and is billed independently. For more information, see [Cross-regional snapshots](/docs/vpc?topic=vpc-snapshots-vpc-about#snapshots_vpc_crossregion_copy) and [Cross-regional copy array issue](/docs/vpc?topic=vpc-snapshots-vpc-about&interface=ui#snapshots_vpc_crossregion_copy).
+**Copying snapshots and backups across regions.** You can now specify an existing snapshot in one region to [create](/docs/apis/vpc/latest#create-snapshot) a copy of the snapshot in another region. When you [list all snapshots](/docs/apis/vpc/latest#list-snapshots), you can see the direct snapshot copies in the other regions and you can use them to restore volumes in the other regions. You can create copies in multiple regions, but only one copy of the snapshot can exist in each region. The cross-region snapshot copy contains the same data as the source snapshot, but the cross-region snapshot copy has its own, independent lifecycle and is billed independently. For more information, see [Cross-regional snapshots](/docs/vpc?topic=vpc-snapshots-vpc-about#snapshots_vpc_crossregion_copy) and [Cross-regional copy array issue](/docs/vpc?topic=vpc-snapshots-vpc-about&interface=ui#snapshots_vpc_crossregion_copy).
 
-You can now [create a backup policy](/apidocs/vpc/latest#create-backup-policy) that creates backup copies in other regions, in addition to creating a backup snapshot in the current region. [Retrieving](/apidocs/vpc/latest#get-backup-policy-plan) or [listing](/apidocs/vpc/latest#list-backup-policy-plans) backup policy plans shows the `copies` of the snapshot in other regions. For more information, see [Cross-regional backup copies](/docs/vpc?topic=vpc-backup-service-about&interface=api#backup-service-crc).
+You can now [create a backup policy](/docs/apis/vpc/latest#create-backup-policy) that creates backup copies in other regions, in addition to creating a backup snapshot in the current region. [Retrieving](/docs/apis/vpc/latest#get-backup-policy-plan) or [listing](/docs/apis/vpc/latest#list-backup-policy-plans) backup policy plans shows the `copies` of the snapshot in other regions. For more information, see [Cross-regional backup copies](/docs/vpc?topic=vpc-backup-service-about&interface=api#backup-service-crc).
 
-**Extended SSH key encryption.** When [creating](/apidocs/vpc/latest#create-key) an SSH key, you can now specify a `type` property value of `ed25519` for the crypto-system used by the key. If `type` is not specified during key creation, the default value `rsa` continues to be used. When [retrieving](/apidocs/vpc/latest#get-key) or [listing](/apidocs/vpc/latest#list-keys) keys, the response provides the key `type` used. For more information, see [Getting started with SSH keys](/docs/vpc?topic=vpc-ssh-keys&interface=api). See also [Extended SSH key encryption](/docs/vpc?topic=vpc-metadata-api-change-log#27-june-2023-metadata) in the VPC Metadata API change log.
+**Extended SSH key encryption.** When [creating](/docs/apis/vpc/latest#create-key) an SSH key, you can now specify a `type` property value of `ed25519` for the crypto-system used by the key. If `type` is not specified during key creation, the default value `rsa` continues to be used. When [retrieving](/docs/apis/vpc/latest#get-key) or [listing](/docs/apis/vpc/latest#list-keys) keys, the response provides the key `type` used. For more information, see [Getting started with SSH keys](/docs/vpc?topic=vpc-ssh-keys&interface=api). See also [Extended SSH key encryption](/docs/vpc?topic=vpc-metadata-api-change-log#27-june-2023-metadata) in the VPC Metadata API change log.
 
 ## 20 June 2023
 {: #20-june-2023}
@@ -1163,9 +1163,9 @@ You can now [create a backup policy](/apidocs/vpc/latest#create-backup-policy) t
 ### For all version dates
 {: #20-june-2023-all-version-dates}
 
-**Instance group integration with Network Load Balancer for VPC.** Network load balancer is now integrated with instance groups to improve pool member scaling. When [creating](/apidocs/vpc/latest#create-instance-group) or [updating](/apidocs/vpc/latest#update-instance-group) an instance group for auto scaling, you can now also specify a network load balancer pool for the `load_balancer_pool` property. As before, if `load_balancer_pool` is set, `load_balancer` and `application_port` must also be set. As with application load balancers, the pool must not be used by another instance group in the VPC. When you configure a listener with a range of ports, the instance group's application port is used only for checking the health status of targets. For more information, see [Creating an instance group for auto scaling](/docs/vpc?topic=vpc-creating-auto-scale-instance-group).
+**Instance group integration with Network Load Balancer for VPC.** Network load balancer is now integrated with instance groups to improve pool member scaling. When [creating](/docs/apis/vpc/latest#create-instance-group) or [updating](/docs/apis/vpc/latest#update-instance-group) an instance group for auto scaling, you can now also specify a network load balancer pool for the `load_balancer_pool` property. As before, if `load_balancer_pool` is set, `load_balancer` and `application_port` must also be set. As with application load balancers, the pool must not be used by another instance group in the VPC. When you configure a listener with a range of ports, the instance group's application port is used only for checking the health status of targets. For more information, see [Creating an instance group for auto scaling](/docs/vpc?topic=vpc-creating-auto-scale-instance-group).
 
-In the future, load balancer profiles may be introduced that do not support instance groups. To ensure your clients will work reliably in the future, check that the new `instance_groups_supported` property on the [load balancer](/apidocs/vpc/latest#get-load-balancer) is `true` before specifying that load balancer or one of its pools.
+In the future, load balancer profiles may be introduced that do not support instance groups. To ensure your clients will work reliably in the future, check that the new `instance_groups_supported` property on the [load balancer](/docs/apis/vpc/latest#get-load-balancer) is `true` before specifying that load balancer or one of its pools.
 {: important}
 
 ## 13 June 2023
@@ -1196,7 +1196,7 @@ As a result, you will no longer be able to create an IKE/IPsec policy or VPN con
 ### For all version dates
 {: #2-may-2023-all-version-dates}
 
-**Exporting custom images.** You can now [export custom images](/apidocs/vpc/latest#create-image-export-job) to an authorized IBM Cloud Object Storage bucket. Specify the target `storage_bucket` to export the image to. The image will be exported as `qcow2` unless you specify another value using the `format` property. For more information, see [Exporting a custom image to IBM Cloud Object Storage](/docs/vpc?topic=vpc-managing-custom-images&interface=api#custom-image-export-to-cos-api), or start using the new [export jobs](/apidocs/vpc/latest#list-image-export-jobs) methods.
+**Exporting custom images.** You can now [export custom images](/docs/apis/vpc/latest#create-image-export-job) to an authorized IBM Cloud Object Storage bucket. Specify the target `storage_bucket` to export the image to. The image will be exported as `qcow2` unless you specify another value using the `format` property. For more information, see [Exporting a custom image to IBM Cloud Object Storage](/docs/vpc?topic=vpc-managing-custom-images&interface=api#custom-image-export-to-cos-api), or start using the new [export jobs](/docs/apis/vpc/latest#list-image-export-jobs) methods.
 
 ## 18 April 2023
 {: #18-april-2023}
@@ -1204,7 +1204,7 @@ As a result, you will no longer be able to create an IKE/IPsec policy or VPN con
 ### For all version dates
 {: #18-april-2023-all-version-dates}
 
-**Resource suspension for bare metal servers.** The [list all bare metal servers](/apidocs/vpc/latest#list-bare-metal-servers) and [retrieve a bare metal server](/apidocs/vpc/latest#get-bare-metal-server) methods now provide `lifecycle_reasons` and `lifecycle_state` properties. A bare metal server that violates [{{site.data.keyword.cloud}} Terms of Use](/docs/overview?topic=overview-terms){: external} will now have its `lifecycle_state` property set to `suspended`. A suspended bare metal server is automatically powered off and you cannot update, delete, or power it on. For more information, see [Viewing bare metal status and lifecycle_state in the API](/docs/vpc?topic=vpc-managing-bare-metal-servers&interface=api) and [Resource suspension](/docs/vpc?topic=vpc-resource-suspension).
+**Resource suspension for bare metal servers.** The [list all bare metal servers](/docs/apis/vpc/latest#list-bare-metal-servers) and [retrieve a bare metal server](/docs/apis/vpc/latest#get-bare-metal-server) methods now provide `lifecycle_reasons` and `lifecycle_state` properties. A bare metal server that violates [{{site.data.keyword.cloud}} Terms of Use](/docs/overview?topic=overview-terms){: external} will now have its `lifecycle_state` property set to `suspended`. A suspended bare metal server is automatically powered off and you cannot update, delete, or power it on. For more information, see [Viewing bare metal status and lifecycle_state in the API](/docs/vpc?topic=vpc-managing-bare-metal-servers&interface=api) and [Resource suspension](/docs/vpc?topic=vpc-resource-suspension).
 
 ## 11 April 2023
 {: #11-april-2023}
@@ -1212,9 +1212,9 @@ As a result, you will no longer be able to create an IKE/IPsec policy or VPN con
 ### For all version dates
 {: #11-april-2023-all-version-dates}
 
-**Console type configuration for bare metal server profiles.** When [retrieving](/apidocs/vpc/latest#get-bare-metal-server-profile) or [listing](/apidocs/vpc/latest#list-bare-metal-server-profiles) bare metal server profiles, the response now provides a `console_types` property that denotes the console type configuration for a bare metal server with this profile.
+**Console type configuration for bare metal server profiles.** When [retrieving](/docs/apis/vpc/latest#get-bare-metal-server-profile) or [listing](/docs/apis/vpc/latest#list-bare-metal-server-profiles) bare metal server profiles, the response now provides a `console_types` property that denotes the console type configuration for a bare metal server with this profile.
 
-**Network interface configuration for bare metal server profiles.** When [retrieving](/apidocs/vpc/latest#get-bare-metal-server-profile) or [listing](/apidocs/vpc/latest#list-bare-metal-server-profiles) bare metal server profiles, the response now provides a `network_interface_count` property. When the `type` is `range`, the new property provides `max` and `min` sub-properties that denote the maximum and minimum number of network interfaces that are supported for a bare metal server with the specified profile. The values for `max` and `min` include both the primary network interface and secondary network interfaces. When the `type` is `dependent`, the network interface count depends on another value that is specified when the server is created. For more information about network interfaces, see [Overview of bare metal server network interfaces](/docs/vpc?topic=vpc-managing-nic-for-bare-metal-servers#overview-bare-metal-network-interfaces), and [Managing network interfaces for bare metal servers on VPC](/docs/vpc?topic=vpc-managing-nic-for-bare-metal-servers&interface).
+**Network interface configuration for bare metal server profiles.** When [retrieving](/docs/apis/vpc/latest#get-bare-metal-server-profile) or [listing](/docs/apis/vpc/latest#list-bare-metal-server-profiles) bare metal server profiles, the response now provides a `network_interface_count` property. When the `type` is `range`, the new property provides `max` and `min` sub-properties that denote the maximum and minimum number of network interfaces that are supported for a bare metal server with the specified profile. The values for `max` and `min` include both the primary network interface and secondary network interfaces. When the `type` is `dependent`, the network interface count depends on another value that is specified when the server is created. For more information about network interfaces, see [Overview of bare metal server network interfaces](/docs/vpc?topic=vpc-managing-nic-for-bare-metal-servers#overview-bare-metal-network-interfaces), and [Managing network interfaces for bare metal servers on VPC](/docs/vpc?topic=vpc-managing-nic-for-bare-metal-servers&interface).
 
 ## 28 March 2023
 {: #28-march-2023}
@@ -1222,11 +1222,11 @@ As a result, you will no longer be able to create an IKE/IPsec policy or VPN con
 ### For all version dates
 {: #28-march-2023-all-version-dates}
 
-**VCPU manufacturer support for instances and dedicated hosts.** When [provisioning](/apidocs/vpc/latest#create-instance) an instance or dedicated host, you can now use the new `vcpu_manufacturer` property in the [instance](/apidocs/vpc/latest#list-instance-profiles) or [dedicated host](/apidocs/vpc/latest#list-dedicated-host-profiles) profile to choose between profiles from different processor manufacturers. You can also view the virtual server instance VCPU configuration through the `vcpu` sub-property `manufacturer`. For more information and limitations, see [x86-64 instance profiles](/docs/vpc?topic=vpc-profiles&interface=ui#balanced) and [Dedicated host profiles](/docs/vpc?topic=vpc-dh-profiles&interface=ui#balanced-dh-pr).
+**VCPU manufacturer support for instances and dedicated hosts.** When [provisioning](/docs/apis/vpc/latest#create-instance) an instance or dedicated host, you can now use the new `vcpu_manufacturer` property in the [instance](/docs/apis/vpc/latest#list-instance-profiles) or [dedicated host](/docs/apis/vpc/latest#list-dedicated-host-profiles) profile to choose between profiles from different processor manufacturers. You can also view the virtual server instance VCPU configuration through the `vcpu` sub-property `manufacturer`. For more information and limitations, see [x86-64 instance profiles](/docs/vpc?topic=vpc-profiles&interface=ui#balanced) and [Dedicated host profiles](/docs/vpc?topic=vpc-dh-profiles&interface=ui#balanced-dh-pr).
 
-**Network interface configuration for instance profiles.** When [retrieving](/apidocs/vpc/latest#get-instance-profile) or [listing](/apidocs/vpc/latest#list-instance-profiles) instance profiles, the response now provides a `network_interface_count` property. When the `type` is `range`, the new property provides `max` and `min` sub-properties that denote the maximum and minimum number of network interfaces that are supported for a virtual server instance with the specified profile. The values for `max` and `min` include both the primary network interface and secondary network interfaces. When the `type` is `dependent`, the network interface count depends on another value that is specified when the instance is created. For more information about instance profiles and network interface count, see [Bandwidth allocation with multiple network interfaces](/docs/vpc?topic=vpc-profiles&interface=api#bandwidth-multi-vnic).
+**Network interface configuration for instance profiles.** When [retrieving](/docs/apis/vpc/latest#get-instance-profile) or [listing](/docs/apis/vpc/latest#list-instance-profiles) instance profiles, the response now provides a `network_interface_count` property. When the `type` is `range`, the new property provides `max` and `min` sub-properties that denote the maximum and minimum number of network interfaces that are supported for a virtual server instance with the specified profile. The values for `max` and `min` include both the primary network interface and secondary network interfaces. When the `type` is `dependent`, the network interface count depends on another value that is specified when the instance is created. For more information about instance profiles and network interface count, see [Bandwidth allocation with multiple network interfaces](/docs/vpc?topic=vpc-profiles&interface=api#bandwidth-multi-vnic).
 
-**Private DNS integration for load balancers.** When you [create](/apidocs/vpc/latest#create-load-balancer) or [update](/apidocs/vpc/latest#update-load-balancer) a load balancer, you can now bind the IP addresses of your VPC load balancers to your private DNS zone by specifying the new `dns.instance` and `dns.zone` properties. When you specify these properties, load balancer IPs will no longer be registered to the publicly resolvable `lb.appdomain.cloud` domain name. For more information, see [IBM Cloud Network Load Balancer for VPC](/docs/vpc?topic=vpc-nlb-dns&interface=api) and [IBM Cloud Application Load Balancer for VPC](/docs/vpc?topic=vpc-lb-dns&interface=api).
+**Private DNS integration for load balancers.** When you [create](/docs/apis/vpc/latest#create-load-balancer) or [update](/docs/apis/vpc/latest#update-load-balancer) a load balancer, you can now bind the IP addresses of your VPC load balancers to your private DNS zone by specifying the new `dns.instance` and `dns.zone` properties. When you specify these properties, load balancer IPs will no longer be registered to the publicly resolvable `lb.appdomain.cloud` domain name. For more information, see [IBM Cloud Network Load Balancer for VPC](/docs/vpc?topic=vpc-nlb-dns&interface=api) and [IBM Cloud Application Load Balancer for VPC](/docs/vpc?topic=vpc-lb-dns&interface=api).
 
 ## 21 March 2023
 {: #21-march-2023}
@@ -1234,13 +1234,13 @@ As a result, you will no longer be able to create an IKE/IPsec policy or VPN con
 ### For all version dates
 {: #21-march-2023-all-version-dates}
 
-**Instance provision by volume.**  You can now reuse an existing boot volume to provision a virtual server instance by specifying the existing volume using the `id` or `crn` sub-properties of the `boot_volume_attachment` property. The specified volume must be unattached and must have an operating system with the same architecture as the instance profile. You can use the new volume `attachment_state` property and expanded `operating_system` property to determine its eligibility. You can also use the new [list volumes](/apidocs/vpc/latest#list-volumes) filters to list volumes that have specific `attachment_state`, `operating_system`, and `encryption_type` values.
+**Instance provision by volume.**  You can now reuse an existing boot volume to provision a virtual server instance by specifying the existing volume using the `id` or `crn` sub-properties of the `boot_volume_attachment` property. The specified volume must be unattached and must have an operating system with the same architecture as the instance profile. You can use the new volume `attachment_state` property and expanded `operating_system` property to determine its eligibility. You can also use the new [list volumes](/docs/apis/vpc/latest#list-volumes) filters to list volumes that have specific `attachment_state`, `operating_system`, and `encryption_type` values.
 
-By default, a boot volume created as part of provisioning a virtual server instance will be deleted when the instance is deleted. You can control this by specifying the `delete_volume_on_instance_delete` property when [creating the instance](/apidocs/vpc/latest#create-instance) or updating the [boot volume attachment](/apidocs/vpc/latest#update-instance-volume-attachment). For more information, see [Creating virtual server instances](/docs/vpc?topic=vpc-creating-virtual-servers&interface=api).
+By default, a boot volume created as part of provisioning a virtual server instance will be deleted when the instance is deleted. You can control this by specifying the `delete_volume_on_instance_delete` property when [creating the instance](/docs/apis/vpc/latest#create-instance) or updating the [boot volume attachment](/docs/apis/vpc/latest#update-instance-volume-attachment). For more information, see [Creating virtual server instances](/docs/vpc?topic=vpc-creating-virtual-servers&interface=api).
 
-**VPC route priority.** You can now control the priority of [VPC routes](/docs/vpc?topic=vpc-about-custom-routes). When you [create](/apidocs/vpc/latest#create-vpc-routing-table-route) or [update](/apidocs/vpc/latest#update-vpc-routing-table-route) a VPC route, use the new `priority` property to specify a value between `0` and `4` (default: `2`). Smaller values have higher priority. For more information, see [Determining route preference](/docs/vpc?topic=vpc-about-custom-routes#cr-determining-route-pref).
+**VPC route priority.** You can now control the priority of [VPC routes](/docs/vpc?topic=vpc-about-custom-routes). When you [create](/docs/apis/vpc/latest#create-vpc-routing-table-route) or [update](/docs/apis/vpc/latest#update-vpc-routing-table-route) a VPC route, use the new `priority` property to specify a value between `0` and `4` (default: `2`). Smaller values have higher priority. For more information, see [Determining route preference](/docs/vpc?topic=vpc-about-custom-routes#cr-determining-route-pref).
 
-**Modifiable next hop for VPC routes.** You can now [update](/apidocs/vpc/latest#update-vpc-routing-table-route) the `next_hop` property of a VPC route. For more information about next hop, see [Creating a route](/docs/vpc?topic=vpc-create-vpc-route).
+**Modifiable next hop for VPC routes.** You can now [update](/docs/apis/vpc/latest#update-vpc-routing-table-route) the `next_hop` property of a VPC route. For more information about next hop, see [Creating a route](/docs/vpc?topic=vpc-create-vpc-route).
 
 ## 7 March 2023
 {: #7-march-2023}
@@ -1248,7 +1248,7 @@ By default, a boot volume created as part of provisioning a virtual server insta
 ### For all version dates
 {: #7-march-2023-all-version-dates}
 
-**Idle connection timeout control for application load balancers.** You can now control the maximum time a client can be inactive when connected to the server by specifying the `idle_connection_timeout` property when [creating a load balancer](/apidocs/vpc/latest#create-load-balancer), [creating a load balancer listener](/apidocs/vpc/latest#create-load-balancer-listener), or [updating a load balancer listener](/apidocs/vpc/latest#update-load-balancer-listener). The `idle_connection_timeout` value defaults to the minimum of 50 seconds, and has a maximum of 2 hours, specified in seconds. For more information, see [Creating an application load balancer](/docs/vpc?topic=vpc-load-balancers&interface=ui).
+**Idle connection timeout control for application load balancers.** You can now control the maximum time a client can be inactive when connected to the server by specifying the `idle_connection_timeout` property when [creating a load balancer](/docs/apis/vpc/latest#create-load-balancer), [creating a load balancer listener](/docs/apis/vpc/latest#create-load-balancer-listener), or [updating a load balancer listener](/docs/apis/vpc/latest#update-load-balancer-listener). The `idle_connection_timeout` value defaults to the minimum of 50 seconds, and has a maximum of 2 hours, specified in seconds. For more information, see [Creating an application load balancer](/docs/vpc?topic=vpc-load-balancers&interface=ui).
 
 ## 14 February 2023
 {: #14-february-2023}
@@ -1256,9 +1256,9 @@ By default, a boot volume created as part of provisioning a virtual server insta
 ### For all version dates
 {: #14-february-2023-all-version-dates}
 
-**VPC Metadata new endpoint URL.** You can now use the fully qualified domain name (FQDN) `api.metadata.cloud.ibm.com` for the VPC Metadata service endpoint. The FQDN resolves to the link-local IP address `169.254.169.254` without requiring the application of special configurations. For more information, see [Endpoint URLs](/apidocs/vpc-metadata#endpoint-url-metadata) in the VPC Metadata API.
+**VPC Metadata new endpoint URL.** You can now use the fully qualified domain name (FQDN) `api.metadata.cloud.ibm.com` for the VPC Metadata service endpoint. The FQDN resolves to the link-local IP address `169.254.169.254` without requiring the application of special configurations. For more information, see [Endpoint URLs](/docs/apis/vpc-metadata#endpoint-url-metadata) in the VPC Metadata API.
 
-**VPC Metadata communication protocol and hop limit.** You can now control the communication protocol and hop limit for IP response packets used by the [VPC Metadata service](/docs/vpc?topic=vpc-imd-about). When you [create](/apidocs/vpc/latest#create-instance) or [update](/apidocs/vpc/latest#update-instance) an instance, use the new `metadata_service.protocol` property to specify either `http` (default) or `https` (secure access) communication. In addition, use the new `metadata_service.response_hop_limit` property to specify a value between `1` (default) and `64`. Both of these properties apply only when the VPC Metadata service is enabled by setting `metadata_service.enabled` to `true`. The default is `false`. For more information, see [Configure metadata settings on an existing instance with the API](/docs/vpc?topic=vpc-imd-configure-service&interface=api#metadata-config-api).
+**VPC Metadata communication protocol and hop limit.** You can now control the communication protocol and hop limit for IP response packets used by the [VPC Metadata service](/docs/vpc?topic=vpc-imd-about). When you [create](/docs/apis/vpc/latest#create-instance) or [update](/docs/apis/vpc/latest#update-instance) an instance, use the new `metadata_service.protocol` property to specify either `http` (default) or `https` (secure access) communication. In addition, use the new `metadata_service.response_hop_limit` property to specify a value between `1` (default) and `64`. Both of these properties apply only when the VPC Metadata service is enabled by setting `metadata_service.enabled` to `true`. The default is `false`. For more information, see [Configure metadata settings on an existing instance with the API](/docs/vpc?topic=vpc-imd-configure-service&interface=api#metadata-config-api).
 
 ## 7 February 2023
 {: #7-february-2023}
@@ -1266,11 +1266,11 @@ By default, a boot volume created as part of provisioning a virtual server insta
 ### For all version dates
 {: #7-february-2023-all-version-dates}
 
-**Snapshot clones for fast restore.** You can now quickly restore a volume from a snapshot by using a fast restore snapshot clone. You can create a fast restore clone when you [create](/apidocs/vpc/latest#create-snapshot) a new snapshot or [update](/apidocs/vpc/latest#create-snapshot-clone) an existing snapshot by adding one or more zonal clones for a snapshot in the same region as the snapshot. Later, you can restore a volume, and all of its data, from that fast restore snapshot clone. When you no longer need a zonal snapshot clone, you can [delete](/apidocs/vpc/latest#delete-snapshot-clone) it. Although the delete operation cannot be reversed, you can create an new, equivalent zonal clone from the snapshot.
+**Snapshot clones for fast restore.** You can now quickly restore a volume from a snapshot by using a fast restore snapshot clone. You can create a fast restore clone when you [create](/docs/apis/vpc/latest#create-snapshot) a new snapshot or [update](/docs/apis/vpc/latest#create-snapshot-clone) an existing snapshot by adding one or more zonal clones for a snapshot in the same region as the snapshot. Later, you can restore a volume, and all of its data, from that fast restore snapshot clone. When you no longer need a zonal snapshot clone, you can [delete](/docs/apis/vpc/latest#delete-snapshot-clone) it. Although the delete operation cannot be reversed, you can create an new, equivalent zonal clone from the snapshot.
 
-When [creating](/apidocs/vpc/latest#create-backup-policy-plan) or [updating](/apidocs/vpc/latest#update-backup-policy-plan) a backup policy plan, you can now specify the `clone_policy.zones` in which backup service will create snapshot clones.
+When [creating](/docs/apis/vpc/latest#create-backup-policy-plan) or [updating](/docs/apis/vpc/latest#update-backup-policy-plan) a backup policy plan, you can now specify the `clone_policy.zones` in which backup service will create snapshot clones.
 
-For more information, see [Restoring a volume using fast restore](/docs/vpc?topic=vpc-snapshots-vpc-restore&interface=api#snapshots-vpc-use-fast-restore) or dive into the new [API methods](/apidocs/vpc/latest#list-snapshot-clones).
+For more information, see [Restoring a volume using fast restore](/docs/vpc?topic=vpc-snapshots-vpc-restore&interface=api#snapshots-vpc-use-fast-restore) or dive into the new [API methods](/docs/apis/vpc/latest#list-snapshot-clones).
 
 ## 31 January 2023
 {: #31-january-2023}
@@ -1278,9 +1278,9 @@ For more information, see [Restoring a volume using fast restore](/docs/vpc?topi
 ### For all version dates
 {: #31-january-2023-all-version-dates}
 
-**Bare metal server secure boot.** When you [create](/apidocs/vpc/latest#create-bare-metal-server) or [update](/apidocs/vpc/latest#update-bare-metal-server) a bare metal server, you can now enable secure boot. The default is `false` (disabled). If enabled, the image must support secure boot or the server will fail to boot. To toggle secure boot, the server must be `stopped`. For more information, see [Bare metal server images](/docs/vpc?topic=vpc-bare-metal-image).
+**Bare metal server secure boot.** When you [create](/docs/apis/vpc/latest#create-bare-metal-server) or [update](/docs/apis/vpc/latest#update-bare-metal-server) a bare metal server, you can now enable secure boot. The default is `false` (disabled). If enabled, the image must support secure boot or the server will fail to boot. To toggle secure boot, the server must be `stopped`. For more information, see [Bare metal server images](/docs/vpc?topic=vpc-bare-metal-image).
 
-**Bare metal server trusted platform module (TPM) support.** When you [create](/apidocs/vpc/latest#create-bare-metal-server) or [update](/apidocs/vpc/latest#update-bare-metal-server) a bare metal server, you can now set a TPM mode. Specify a `mode` value (`disabled` or `tpm_2`) in the `trusted_platform_module` property. The default is `disabled`. To change the TPM mode, the server must be `stopped`. To determine the supported TPM modes, use the `supported_trusted_platform_modes` property included in the [bare metal server profile](/apidocs/vpc/latest#list-bare-metal-server-profiles). For more information, see [Secure boot with Trusted Platform Module (TPM)](/docs/vpc?topic=vpc-secure-boot-tpm).
+**Bare metal server trusted platform module (TPM) support.** When you [create](/docs/apis/vpc/latest#create-bare-metal-server) or [update](/docs/apis/vpc/latest#update-bare-metal-server) a bare metal server, you can now set a TPM mode. Specify a `mode` value (`disabled` or `tpm_2`) in the `trusted_platform_module` property. The default is `disabled`. To change the TPM mode, the server must be `stopped`. To determine the supported TPM modes, use the `supported_trusted_platform_modes` property included in the [bare metal server profile](/docs/apis/vpc/latest#list-bare-metal-server-profiles). For more information, see [Secure boot with Trusted Platform Module (TPM)](/docs/vpc?topic=vpc-secure-boot-tpm).
 
 ## 17 January 2023
 {: #17-january-2023}
@@ -1290,9 +1290,9 @@ For more information, see [Restoring a volume using fast restore](/docs/vpc?topi
 
 **Bare metal server DELETE response code change.** Bare metal `DELETE` methods now return an HTTP response code of `202` upon success:
 
-- [Delete a network interface](/apidocs/vpc/latest#delete-bare-metal-server-network-interface)
-- [Disassociate a floating IP from a network interface](/apidocs/vpc/latest#remove-bare-metal-server-network-interface-floatin)
-- [Delete a bare metal server](/apidocs/vpc/latest#delete-bare-metal-server)
+- [Delete a network interface](/docs/apis/vpc/latest#delete-bare-metal-server-network-interface)
+- [Disassociate a floating IP from a network interface](/docs/apis/vpc/latest#remove-bare-metal-server-network-interface-floatin)
+- [Delete a bare metal server](/docs/apis/vpc/latest#delete-bare-metal-server)
 
 Unlike previous response code changes, the transition from `204` to `202` applies to all API versions.  Therefore, a response code of `204` will not be returned for any API requests for these methods, regardless of the `version` query parameter value. Future transitions from `204` to `202` will be tied to a dated API version, as described in [Upcoming changes](#upcoming-changes).
 {: note}
@@ -1303,7 +1303,7 @@ Unlike previous response code changes, the transition from `204` to `202` applie
 ### For all version dates
 {: #20-december-2022-all-version-dates}
 
-**Backup policy jobs.** You can now [list all jobs for a backup policy](/apidocs/vpc/latest#list-backup-policy-jobs) or [retrieve a backup policy job](/apidocs/vpc/latest#get-backup-policy-job). A backup policy job is triggered when a scheduled backup snapshot is being created or deleted. If the create or delete action is successful, the job contains information about the backup snapshot that was created or deleted. If the job ran unsuccessfully, the job contains the reason for the failure. For more information, see [Viewing backup jobs](/docs/vpc?topic=vpc-backup-view-policy-jobs).
+**Backup policy jobs.** You can now [list all jobs for a backup policy](/docs/apis/vpc/latest#list-backup-policy-jobs) or [retrieve a backup policy job](/docs/apis/vpc/latest#get-backup-policy-job). A backup policy job is triggered when a scheduled backup snapshot is being created or deleted. If the create or delete action is successful, the job contains information about the backup snapshot that was created or deleted. If the job ran unsuccessfully, the job contains the reason for the failure. For more information, see [Viewing backup jobs](/docs/vpc?topic=vpc-backup-view-policy-jobs).
 
 ## 13 December 2022
 {: #13-december-2022}
@@ -1311,7 +1311,7 @@ Unlike previous response code changes, the transition from `204` to `202` applie
 ### For all version dates
 {: #13-december-2022-all-version-dates}
 
-**Health states for block storage volumes.** When [retrieving](/apidocs/vpc/latest#get-volume) or [listing](/apidocs/vpc/latest#list-volumes) volumes, the responses now include `health_state` and `health_reasons` properties. For more information, see [Block storage volume health states](/docs/vpc?topic=vpc-block-storage-vpc-monitoring&interface=api#block-storage-vpc-health-states).
+**Health states for block storage volumes.** When [retrieving](/docs/apis/vpc/latest#get-volume) or [listing](/docs/apis/vpc/latest#list-volumes) volumes, the responses now include `health_state` and `health_reasons` properties. For more information, see [Block storage volume health states](/docs/vpc?topic=vpc-block-storage-vpc-monitoring&interface=api#block-storage-vpc-health-states).
 
 ## 15 November 2022
 {: #15-november-2022}
@@ -1319,7 +1319,7 @@ Unlike previous response code changes, the transition from `204` to `202` applie
 ### For all version dates
 {: #15-november-2022-all-version-dates}
 
-**Access management tag support.** As described in [Authorization](/apidocs/vpc/latest#api-authorization) in the VPC API reference, you can now use [IBM Cloud Identity and Access Management](/docs/iam?topic=iam-iamoverview) to control access to VPC resources by using access management tags. For details, see [Managing IAM access for VPC Infrastructure Services](/docs/vpc?topic=vpc-iam-getting-started&interface=api#iam-access-management-tags).
+**Access management tag support.** As described in [Authorization](/docs/apis/vpc/latest#api-authorization) in the VPC API reference, you can now use [IBM Cloud Identity and Access Management](/docs/iam?topic=iam-iamoverview) to control access to VPC resources by using access management tags. For details, see [Managing IAM access for VPC Infrastructure Services](/docs/vpc?topic=vpc-iam-getting-started&interface=api#iam-access-management-tags).
 
 Some VPC APIs currently require additional authorizations beyond those defined in the API specification. For more information, see [Known issues](/docs/vpc?topic=vpc-known-issues#api-spec-auth-known-issue).
 {: important}
@@ -1338,7 +1338,7 @@ Some VPC APIs currently require additional authorizations beyond those defined i
 ### For all version dates
 {: #11-october-2022-all-version-dates}
 
-**Public internet ingress routing.** You can now route public internet ingress traffic destined to a floating IP to a next-hop IP. When you [create a new VPC routing table](/apidocs/vpc/latest#create-vpc-routing-table) or [update an existing VPC routing table](/apidocs/vpc/latest#update-vpc-routing-table), the new `route_internet_ingress` property lets you route traffic that originates from the public internet. For more information, see [Creating a routing table by using the API](/docs/vpc?topic=vpc-create-vpc-routing-table&interface=api) and limitations and guidelines for [Ingress routes](/docs/vpc?topic=vpc-about-custom-routes&interface=ui#routes-ingress).
+**Public internet ingress routing.** You can now route public internet ingress traffic destined to a floating IP to a next-hop IP. When you [create a new VPC routing table](/docs/apis/vpc/latest#create-vpc-routing-table) or [update an existing VPC routing table](/docs/apis/vpc/latest#update-vpc-routing-table), the new `route_internet_ingress` property lets you route traffic that originates from the public internet. For more information, see [Creating a routing table by using the API](/docs/vpc?topic=vpc-create-vpc-routing-table&interface=api) and limitations and guidelines for [Ingress routes](/docs/vpc?topic=vpc-about-custom-routes&interface=ui#routes-ingress).
 
 ## 4 October 2022
 {: #4-october-2022}
@@ -1346,7 +1346,7 @@ Some VPC APIs currently require additional authorizations beyond those defined i
 ### For all version dates
 {: #4-october-2022-all-version-dates}
 
-**Enhanced network interface support for flow logs.** Flow logs are now collected for all network interfaces attached to a subnet, even if those network interfaces are in another account. As a result, flow logs for network interfaces associated with IBM Cloud Kubernetes Service (IKS)/Red Hat OpenShift Kubernetes Service (ROKS) worker nodes, load balancers, and VPN gateways are now collected. For example, if you have an existing [flow log collector](/apidocs/vpc/latest#get-flow-log-collector) that targets a VPC or subnet that also has attached IKS worker nodes, it will now collect flow logs for traffic flowing through those IKS worker nodes in those VPCs and subnets. For more information, see [Flow log limitations](/docs/vpc?topic=vpc-limitations-flow-logs).
+**Enhanced network interface support for flow logs.** Flow logs are now collected for all network interfaces attached to a subnet, even if those network interfaces are in another account. As a result, flow logs for network interfaces associated with IBM Cloud Kubernetes Service (IKS)/Red Hat OpenShift Kubernetes Service (ROKS) worker nodes, load balancers, and VPN gateways are now collected. For example, if you have an existing [flow log collector](/docs/apis/vpc/latest#get-flow-log-collector) that targets a VPC or subnet that also has attached IKS worker nodes, it will now collect flow logs for traffic flowing through those IKS worker nodes in those VPCs and subnets. For more information, see [Flow log limitations](/docs/vpc?topic=vpc-limitations-flow-logs).
 
 ## 27 September 2022
 {: #27-september-2022}
@@ -1354,25 +1354,25 @@ Some VPC APIs currently require additional authorizations beyond those defined i
 ### For all version dates
 {: #27-september-2022-all-version-dates}
 
-**Sharing images across accounts within an enterprise.** You can now use a [catalog to share custom images](/docs/vpc?topic=vpc-custom-image-cloud-private-catalog&interface=api) with users in other accounts within the same enterprise. When you [create an image](/apidocs/vpc/latest#create-image), a new `catalog_offering` property includes a `managed` sub-property that is set to `false` by default.  When the custom image is imported to a catalog the `managed` sub-property is set to `true`, indicating that the image is added to a catalog offering `version` and is managed from a catalog. Any user who has been authorized to the catalog offering version can [provision a virtual server instance](/apidocs/vpc/latest#create-instance) with that image by specifying the offering version's CRN as `catalog_offering.version.crn`. Alternatively, users can specify the offering's CRN as `catalog_offering.offering.crn` to provision a virtual server instance with the latest image associated with the catalog offering. For more information, see [Custom images in a private catalog](/docs/vpc?topic=vpc-private-catalog-image-instance-group&interface=ui), the tutorial [Onboarding a virtual server image for VPC](/docs/account?topic=account-catalog-vsivpc-tutorial&interface=ui), and the [Import offering](/apidocs/resource-catalog/private-catalog#import-offering){: external} method in the Catalog Management API.
+**Sharing images across accounts within an enterprise.** You can now use a [catalog to share custom images](/docs/vpc?topic=vpc-custom-image-cloud-private-catalog&interface=api) with users in other accounts within the same enterprise. When you [create an image](/docs/apis/vpc/latest#create-image), a new `catalog_offering` property includes a `managed` sub-property that is set to `false` by default.  When the custom image is imported to a catalog the `managed` sub-property is set to `true`, indicating that the image is added to a catalog offering `version` and is managed from a catalog. Any user who has been authorized to the catalog offering version can [provision a virtual server instance](/docs/apis/vpc/latest#create-instance) with that image by specifying the offering version's CRN as `catalog_offering.version.crn`. Alternatively, users can specify the offering's CRN as `catalog_offering.offering.crn` to provision a virtual server instance with the latest image associated with the catalog offering. For more information, see [Custom images in a private catalog](/docs/vpc?topic=vpc-private-catalog-image-instance-group&interface=ui), the tutorial [Onboarding a virtual server image for VPC](/docs/account?topic=account-catalog-vsivpc-tutorial&interface=ui), and the [Import offering](/docs/apis/resource-catalog/private-catalog#import-offering){: external} method in the Catalog Management API.
 
 The image may not be deleted or used in a different catalog product offering version while it is managed from a catalog. If the catalog is deleted, a 7 day reclamation period will apply that prevents any images managed by the catalog from being deleted or re-used during the reclamation period. For more information, see [Deleting a custom image in a private catalog](/docs/vpc?topic=vpc-custom-image-cloud-private-catalog&interface=ui#deleting-private-catalog-custom-image-vpc) and [Using resource reclamations](/docs/account?topic=account-resource-reclamation&interface=api).
 
 Image references may refer to custom images in other accounts. Before using this feature, verify that your clients handle image reference lookup failures gracefully and do not assume inaccessible images have been deleted, even when running with full access to your images.  To avoid possible retrieval or use of the wrong image by `name`, specify the image `id`, `crn`, or `href` instead. For more information, see [Using cross-account image references in a private catalog in the API](/docs/vpc?topic=vpc-custom-image-cloud-private-catalog&interface=api#private-catalog-image-reference-vpc-api).
 {: important}
 
-**Increased network interface limits for virtual server instances.** You can now have up to 14 secondary network interfaces on a virtual server instance. The previous limit for secondary network interfaces was 4. The number of interfaces that a virtual server instance supports is dependent on the VCPU count that is included in the [instance profile](/docs/vpc?topic=vpc-profiles). For more information about the number of interfaces that a virtual server supports, see [Bandwidth allocation with multiple network interfaces](/docs/vpc?topic=vpc-profiles&interface=ui#bandwidth-multi-vnic). To utilize the increased limit for network interfaces, you can create secondary network interfaces by specifying `network_interfaces` when you [create an instance](/apidocs/vpc/latest#create-instance). You also can add secondary network interfaces to an existing instance by [creating a network interface on an instance](/apidocs/vpc/latest#create-instance-network-interface).
+**Increased network interface limits for virtual server instances.** You can now have up to 14 secondary network interfaces on a virtual server instance. The previous limit for secondary network interfaces was 4. The number of interfaces that a virtual server instance supports is dependent on the VCPU count that is included in the [instance profile](/docs/vpc?topic=vpc-profiles). For more information about the number of interfaces that a virtual server supports, see [Bandwidth allocation with multiple network interfaces](/docs/vpc?topic=vpc-profiles&interface=ui#bandwidth-multi-vnic). To utilize the increased limit for network interfaces, you can create secondary network interfaces by specifying `network_interfaces` when you [create an instance](/docs/apis/vpc/latest#create-instance). You also can add secondary network interfaces to an existing instance by [creating a network interface on an instance](/docs/apis/vpc/latest#create-instance-network-interface).
 
 For an existing, running instance with 17 or more vCPUs to take advantage of the new network interface limits, it must be stopped and then started again. A reboot action on the running virtual server does not activate the increased network interface limit.
 {: note}
 
-**IBM&reg; LinuxONE Bare Metal Servers.** Accounts with access to the profiles for s390x bare metal servers can now [create](/apidocs/vpc/latest#create-bare-metal-server) LinuxONE Bare Metal Servers. These profiles have a `cpu_architecture` of `s390x` and must be used with Red Hat Enterprise Linux for s390x and SUSE Linux Enterprise Server (SLES) for s390x. For more information, see [Creating bare metal servers on VPC](/docs/vpc?topic=vpc-creating-bare-metal-servers&interface=api).
+**IBM&reg; LinuxONE Bare Metal Servers.** Accounts with access to the profiles for s390x bare metal servers can now [create](/docs/apis/vpc/latest#create-bare-metal-server) LinuxONE Bare Metal Servers. These profiles have a `cpu_architecture` of `s390x` and must be used with Red Hat Enterprise Linux for s390x and SUSE Linux Enterprise Server (SLES) for s390x. For more information, see [Creating bare metal servers on VPC](/docs/vpc?topic=vpc-creating-bare-metal-servers&interface=api).
 
 In support of s390x bare metal servers, the following enumerations have been expanded:
 
-- Because s390x local disks are attached through Fiber Channel protocol, a value of `fcp` has been added to the `interface_type` enumeration that is returned when [retrieving](/apidocs/vpc/latest#get-bare-metal-server-disk) or [listing](/apidocs/vpc/latest#list-bare-metal-server-disks) the disks for a bare metal server.
+- Because s390x local disks are attached through Fiber Channel protocol, a value of `fcp` has been added to the `interface_type` enumeration that is returned when [retrieving](/docs/apis/vpc/latest#get-bare-metal-server-disk) or [listing](/docs/apis/vpc/latest#list-bare-metal-server-disks) the disks for a bare metal server.
 
-- Because s390x provides TCP/IP connectivity by using HiperSockets, a value of `hipersocket` has been added to the `interface_type` enumeration returned when [retrieving](/apidocs/vpc/latest#get-bare-metal-server-network-interface) or [listing](/apidocs/vpc/latest#list-bare-metal-server-network-interfaces) the network interfaces on an s390x bare metal server. Similarly, when you [create](/apidocs/vpc/latest#create-bare-metal-server) an s390x bare metal server, or [add](/apidocs/vpc/latest#create-bare-metal-server-network-interface) a network interface to an existing s390x bare metal server, you must specify an `interface_type` of `hipersocket`. For more information, see the [_IBM HiperSockets Implementation Guide_](https://www.redbooks.ibm.com/abstracts/sg246816.html){: external}.
+- Because s390x provides TCP/IP connectivity by using HiperSockets, a value of `hipersocket` has been added to the `interface_type` enumeration returned when [retrieving](/docs/apis/vpc/latest#get-bare-metal-server-network-interface) or [listing](/docs/apis/vpc/latest#list-bare-metal-server-network-interfaces) the network interfaces on an s390x bare metal server. Similarly, when you [create](/docs/apis/vpc/latest#create-bare-metal-server) an s390x bare metal server, or [add](/docs/apis/vpc/latest#create-bare-metal-server-network-interface) a network interface to an existing s390x bare metal server, you must specify an `interface_type` of `hipersocket`. For more information, see the [_IBM HiperSockets Implementation Guide_](https://www.redbooks.ibm.com/abstracts/sg246816.html){: external}.
 
 s390x bare metal servers have different network bandwidth and maximum network interface limits from x86 bare metal servers.
 
@@ -1392,9 +1392,9 @@ You have until 13 December 2022 to upgrade to more secure ciphers. After this da
 
 **Additional VPN for VPC ciphers.** VPN gateways now provide new algorithms to help meet your security and compliance requirements.
 
-[IKE policy](/apidocs/vpc/latest#list-ike-policies) methods now support the `sha384` value for the `authentication_algorithm` property, `aes192` value for the `encryption_algorithm` property, and groups 15-18, 20-24, and 31 for the `dh_group` property.
+[IKE policy](/docs/apis/vpc/latest#list-ike-policies) methods now support the `sha384` value for the `authentication_algorithm` property, `aes192` value for the `encryption_algorithm` property, and groups 15-18, 20-24, and 31 for the `dh_group` property.
 
-[IPsec policy](/apidocs/vpc/latest#list-ipsec-policies) methods now support `sha384` and `disabled` values for the `authentication_algorithm` property, `aes192`, `aes128gcm16`, `aes192gcm16`, and `aes256gcm16` values for the `encryption_algorithm` property, and groups 15-18, 20-24, and 31 for the `dh_group` property.
+[IPsec policy](/docs/apis/vpc/latest#list-ipsec-policies) methods now support `sha384` and `disabled` values for the `authentication_algorithm` property, `aes192`, `aes128gcm16`, `aes192gcm16`, and `aes256gcm16` values for the `encryption_algorithm` property, and groups 15-18, 20-24, and 31 for the `dh_group` property.
 
 Specifying IKE and IPsec policies when configuring a VPN connection is optional. If a policy is not specified, one is chosen through _auto-negotiation_. For more information, see [About policy negotiation](/docs/vpc?topic=vpc-using-vpn#policy-negotiation).
 {: note}
@@ -1405,11 +1405,11 @@ Specifying IKE and IPsec policies when configuring a VPN connection is optional.
 ### For all version dates
 {: #13-september-2022-all-version-dates}
 
-**Updating subnets for application load balancers.** You can now update the subnets attached to an application load balancer by specifying `subnets` when [updating a load balancer](/apidocs/vpc/latest#update-load-balancer). The specified subnets must be in the same VPC as the load balancer's current subnets. If the update requires moving your load balancer to a different zone, its `provisioning_status` will change to `migrate_pending` until the move is complete. For more information, see [Updating subnets for Application Load Balancers for VPC](/docs/vpc?topic=vpc-alb-updating-subnets&interface=api).
+**Updating subnets for application load balancers.** You can now update the subnets attached to an application load balancer by specifying `subnets` when [updating a load balancer](/docs/apis/vpc/latest#update-load-balancer). The specified subnets must be in the same VPC as the load balancer's current subnets. If the update requires moving your load balancer to a different zone, its `provisioning_status` will change to `migrate_pending` until the move is complete. For more information, see [Updating subnets for Application Load Balancers for VPC](/docs/vpc?topic=vpc-alb-updating-subnets&interface=api).
 
 Verify that any clients retrieving the `provisioning_status` property will gracefully handle unknown values. For example, a client might bypass the load balancer, log a message, or halt processing and surface an error.
 
-Because the `subnets` property is an array, the specified value will replace the load balancer's existing array of subnets. To guard against concurrent updates, you must provide the resource's current ETag using the `If-Match` header. For guidance on the use of ETags, see [Concurrent update protection](/apidocs/vpc/latest#concurrent-update-protection).
+Because the `subnets` property is an array, the specified value will replace the load balancer's existing array of subnets. To guard against concurrent updates, you must provide the resource's current ETag using the `If-Match` header. For guidance on the use of ETags, see [Concurrent update protection](/docs/apis/vpc/latest#concurrent-update-protection).
 {: important}
 
 ### For version `2022-09-13` or later
@@ -1417,12 +1417,12 @@ Because the `subnets` property is an array, the specified value will replace the
 
 **Load balancer DELETE response code change.** For requests using a `version` query parameter of `2022-09-13` or later, all load balancer `DELETE` methods will return an HTTP response code of `202` upon success:
 
-- [Delete a load balancer](/apidocs/vpc/latest#delete-load-balancer)
-- [Delete a load balancer listener](/apidocs/vpc/latest#delete-load-balancer-listener)
-- [Delete a load balancer listener policy](/apidocs/vpc/latest#delete-load-balancer-listener-policy)
-- [Delete a load balancer listener policy rule](/apidocs/vpc/latest#delete-load-balancer-listener-policy-rule)
-- [Delete a load balancer pool](/apidocs/vpc/latest#delete-load-balancer-pool)
-- [Delete a load balancer pool member](/apidocs/vpc/latest#delete-load-balancer-pool-member)
+- [Delete a load balancer](/docs/apis/vpc/latest#delete-load-balancer)
+- [Delete a load balancer listener](/docs/apis/vpc/latest#delete-load-balancer-listener)
+- [Delete a load balancer listener policy](/docs/apis/vpc/latest#delete-load-balancer-listener-policy)
+- [Delete a load balancer listener policy rule](/docs/apis/vpc/latest#delete-load-balancer-listener-policy-rule)
+- [Delete a load balancer pool](/docs/apis/vpc/latest#delete-load-balancer-pool)
+- [Delete a load balancer pool member](/docs/apis/vpc/latest#delete-load-balancer-pool-member)
 
 The underlying deletion operations were already asynchronous, and remain unchanged.
 
@@ -1439,8 +1439,8 @@ A response code of `204` will continue to be returned for API requests using a `
 
 **Improved reserved IP support for bare metal servers**. The following methods have been added for convenience and parity with the virtual server instance reserved IP methods:
 
-- [List all reserved IPs bound to a network interface](/apidocs/vpc/latest#list-instance-network-interface-ips) for a bare metal server
-- [Retrieve bound reserved IP](/apidocs/vpc/latest#get-instance-network-interface-ip) for a bare metal server
+- [List all reserved IPs bound to a network interface](/docs/apis/vpc/latest#list-instance-network-interface-ips) for a bare metal server
+- [Retrieve bound reserved IP](/docs/apis/vpc/latest#get-instance-network-interface-ip) for a bare metal server
 
 ## 23 August 2022
 {: #23-august-2022}
@@ -1448,7 +1448,7 @@ A response code of `204` will continue to be returned for API requests using a `
 ### For all version dates
 {: #23-august-2022-all-version-dates}
 
-**Additional user tag support for boot and data volumes.** You can now add user tags to boot and data volumes when provisioning a virtual server instance or adding a volume attachment. You can specify the `user_tags` property when you [create an instance](/apidocs/vpc/latest#create-instance), [create an instance template](/apidocs/vpc/latest#create-instance-template), and [create a volume attachment](/apidocs/vpc/latest#create-instance-volume-attachment). For more information, see [Create and attach a block storage volume when you create a new instance](/docs/vpc?topic=vpc-creating-block-storage&interface=api) and [Working with tags](/docs/account?topic=account-tag&interface=api).
+**Additional user tag support for boot and data volumes.** You can now add user tags to boot and data volumes when provisioning a virtual server instance or adding a volume attachment. You can specify the `user_tags` property when you [create an instance](/docs/apis/vpc/latest#create-instance), [create an instance template](/docs/apis/vpc/latest#create-instance-template), and [create a volume attachment](/docs/apis/vpc/latest#create-instance-volume-attachment). For more information, see [Create and attach a block storage volume when you create a new instance](/docs/vpc?topic=vpc-creating-block-storage&interface=api) and [Working with tags](/docs/account?topic=account-tag&interface=api).
 
 ## 16 August 2022
 {: #16-august-2022}
@@ -1456,7 +1456,7 @@ A response code of `204` will continue to be returned for API requests using a `
 ### For all version dates
 {: #16-august-all-version-dates}
 
-**Improved VLAN support for bare metal servers.** The restriction limiting a VLAN ID in the `allowed_vlans` property to a single PCI [network interface on a bare metal server](/apidocs/vpc/latest#get-bare-metal-server-network-interface) has been removed. As a result, you can now move VLAN interfaces between PCI interfaces on the same bare metal server.
+**Improved VLAN support for bare metal servers.** The restriction limiting a VLAN ID in the `allowed_vlans` property to a single PCI [network interface on a bare metal server](/docs/apis/vpc/latest#get-bare-metal-server-network-interface) has been removed. As a result, you can now move VLAN interfaces between PCI interfaces on the same bare metal server.
 
 ## 26 July 2022
 {: #26-july-2022}
@@ -1464,7 +1464,7 @@ A response code of `204` will continue to be returned for API requests using a `
 ### For all version dates
 {: #26-july-2022-all-version-dates}
 
-**Resource suspension for virtual server instances.** When [retrieving](/apidocs/vpc/latest#get-instance) or [listing](/apidocs/vpc/latest#list-instances) instances, the response now provides `lifecycle_reasons` and `lifecycle_state` properties. A virtual server instance that violates [{{site.data.keyword.cloud}} Terms of Use](/docs/overview?topic=overview-terms){: external} will now have its `lifecycle_state` property set to `suspended`. A suspended instance is automatically powered off and you cannot update, delete, or power it on. For more information, see [Viewing instance status and lifecycle_state in the API](/docs/vpc?topic=vpc-managing-virtual-server-instances&interface=api#instance-status-api) and [Resource suspension](/docs/vpc?topic=vpc-resource-suspension).
+**Resource suspension for virtual server instances.** When [retrieving](/docs/apis/vpc/latest#get-instance) or [listing](/docs/apis/vpc/latest#list-instances) instances, the response now provides `lifecycle_reasons` and `lifecycle_state` properties. A virtual server instance that violates [{{site.data.keyword.cloud}} Terms of Use](/docs/overview?topic=overview-terms){: external} will now have its `lifecycle_state` property set to `suspended`. A suspended instance is automatically powered off and you cannot update, delete, or power it on. For more information, see [Viewing instance status and lifecycle_state in the API](/docs/vpc?topic=vpc-managing-virtual-server-instances&interface=api#instance-status-api) and [Resource suspension](/docs/vpc?topic=vpc-resource-suspension).
 
 ## 5 July 2022
 {: #5-july-2022}
@@ -1474,13 +1474,13 @@ A response code of `204` will continue to be returned for API requests using a `
 
 **Client VPN for VPC.** Client-to-site connectivity is now available. This feature allows remote devices to securely connect to a VPC using an OpenVPN (or other compatible) software client. For more information about VPN client-to-site connectivity and how it complements the existing VPN site-to-site connectivity, see [About client-to-site VPN servers](/docs/vpc?topic=vpc-vpn-client-to-site-overview).
 
-- A **VPN server** allows VPN clients from the internet to connect to a VPC. When [creating a VPN server](/apidocs/vpc/latest#create-vpn-server), you can specify a security group to protect the VPN server, and subnets in your VPC in which the VPN server will allocate its [reserved IP addresses](/apidocs/vpc/latest#list-subnet-reserved-ips). For more information, see [Creating a VPN server](/docs/vpc?topic=vpc-vpn-create-server) and the new [VPN server methods](/apidocs/vpc/latest#list-vpn-servers).
-- A **VPN client** represents a client connecting from the internet. You can [retrieve the OpenVPN client configuration](/apidocs/vpc/latest#get-vpn-server-client-configuration) to use to configure a VPN client for a VPN server. For more information, see [Setting up a client VPN environment and connecting to a VPN server](/docs/vpc?topic=vpc-vpn-client-environment-setup) and the new [VPN client methods](/apidocs/vpc/latest#list-vpn-server-clients).
-- A **VPN route** controls which subnets the VPN client can access and how the traffic from the VPN client reaches these subnets. For more information, see [Managing VPN routes](/docs/vpc?topic=vpc-vpn-client-to-site-routes) and the new [VPN server route methods](/apidocs/vpc/latest#list-vpn-server-routes).
+- A **VPN server** allows VPN clients from the internet to connect to a VPC. When [creating a VPN server](/docs/apis/vpc/latest#create-vpn-server), you can specify a security group to protect the VPN server, and subnets in your VPC in which the VPN server will allocate its [reserved IP addresses](/docs/apis/vpc/latest#list-subnet-reserved-ips). For more information, see [Creating a VPN server](/docs/vpc?topic=vpc-vpn-create-server) and the new [VPN server methods](/docs/apis/vpc/latest#list-vpn-servers).
+- A **VPN client** represents a client connecting from the internet. You can [retrieve the OpenVPN client configuration](/docs/apis/vpc/latest#get-vpn-server-client-configuration) to use to configure a VPN client for a VPN server. For more information, see [Setting up a client VPN environment and connecting to a VPN server](/docs/vpc?topic=vpc-vpn-client-environment-setup) and the new [VPN client methods](/docs/apis/vpc/latest#list-vpn-server-clients).
+- A **VPN route** controls which subnets the VPN client can access and how the traffic from the VPN client reaches these subnets. For more information, see [Managing VPN routes](/docs/vpc?topic=vpc-vpn-client-to-site-routes) and the new [VPN server route methods](/docs/apis/vpc/latest#list-vpn-server-routes).
 
-**Configuring route propagation for VPN gateways and VPN servers.** When you [create a VPC routing table](/apidocs/vpc/latest#create-vpc-routing-table), you can now control if the routing table accepts routes from a VPN gateway or server by specifying the `accept_routes_from` property. When you [view a route in a VPC routing table](/apidocs/vpc/latest#get-vpc-routing-table-route), the new `origin` property shows who created the route (either `user` or `service`), and the `service` routes include a new `creator` property that references the resource that created the route. Routes with the `creator` property present cannot be deleted directly. For more information, see [Configuring route propagation for VPN gateways](/docs/vpc?topic=vpc-advertise-routes-s2s&interface=ui) and [VPN servers](/docs/vpc?topic=vpc-vpn-client-to-site-route-propagation).
+**Configuring route propagation for VPN gateways and VPN servers.** When you [create a VPC routing table](/docs/apis/vpc/latest#create-vpc-routing-table), you can now control if the routing table accepts routes from a VPN gateway or server by specifying the `accept_routes_from` property. When you [view a route in a VPC routing table](/docs/apis/vpc/latest#get-vpc-routing-table-route), the new `origin` property shows who created the route (either `user` or `service`), and the `service` routes include a new `creator` property that references the resource that created the route. Routes with the `creator` property present cannot be deleted directly. For more information, see [Configuring route propagation for VPN gateways](/docs/vpc?topic=vpc-advertise-routes-s2s&interface=ui) and [VPN servers](/docs/vpc?topic=vpc-vpn-client-to-site-route-propagation).
 
-**Concurrent update protection.** ETags returned on `GET`, `POST`, and `PATCH` requests represent the modifiable state of the resource. When updating the `accept_routes_from` property on a [routing table](/apidocs/vpc/latest#update-vpc-routing-table), or updating the `client_authentication`, `client_dns_servers`, or `subnets` properties on a [VPN server](/apidocs/vpc/latest#update-vpn-server), you must provide the resource's ETag using the `If-Match` header. For general guidance on the use of ETags, see [Concurrent update protection](/apidocs/vpc/latest#concurrent-update-protection).
+**Concurrent update protection.** ETags returned on `GET`, `POST`, and `PATCH` requests represent the modifiable state of the resource. When updating the `accept_routes_from` property on a [routing table](/docs/apis/vpc/latest#update-vpc-routing-table), or updating the `client_authentication`, `client_dns_servers`, or `subnets` properties on a [VPN server](/docs/apis/vpc/latest#update-vpn-server), you must provide the resource's ETag using the `If-Match` header. For general guidance on the use of ETags, see [Concurrent update protection](/docs/apis/vpc/latest#concurrent-update-protection).
 
 ## 28 June 2022
 {: #28-june-2022}
@@ -1488,9 +1488,9 @@ A response code of `204` will continue to be returned for API requests using a `
 ### For all version dates
 {: #28-june-2022-all-version-dates}
 
-**Block storage.** You can now create a volume from a snapshot without having to also create and attach it to a virtual server instance. When you [create a volume](/apidocs/vpc/latest#create-volume), a new `source_snapshot` property lets you specify a snapshot that will be used as source data for the new volume. The volume's data is fully restored later, when you attach it to an instance. Volume performance is initially degraded until the volume data is fully restored. For more information, see [Restoring an unattached data volume from a snapshot with the API](/docs/vpc?topic=vpc-snapshots-vpc-restore&interface=api#snapshots-vpc-restore-unattached-api).
+**Block storage.** You can now create a volume from a snapshot without having to also create and attach it to a virtual server instance. When you [create a volume](/docs/apis/vpc/latest#create-volume), a new `source_snapshot` property lets you specify a snapshot that will be used as source data for the new volume. The volume's data is fully restored later, when you attach it to an instance. Volume performance is initially degraded until the volume data is fully restored. For more information, see [Restoring an unattached data volume from a snapshot with the API](/docs/vpc?topic=vpc-snapshots-vpc-restore&interface=api#snapshots-vpc-restore-unattached-api).
 
-**Cross-zone member support for network load balancers.** You can now [create a load balancer pool](/apidocs/vpc/latest#create-load-balancer-pool) with members across any zone in the region. You can also use the [create pool member](/apidocs/vpc/latest#create-load-balancer-pool-member) or [replace pool member](/apidocs/vpc/latest#replace-load-balancer-pool-members) methods to update an existing pool with members across any zone in the region. The zone of the network load balancer is still identified by the subnet that you specify when you create a load balancer.
+**Cross-zone member support for network load balancers.** You can now [create a load balancer pool](/docs/apis/vpc/latest#create-load-balancer-pool) with members across any zone in the region. You can also use the [create pool member](/docs/apis/vpc/latest#create-load-balancer-pool-member) or [replace pool member](/docs/apis/vpc/latest#replace-load-balancer-pool-members) methods to update an existing pool with members across any zone in the region. The zone of the network load balancer is still identified by the subnet that you specify when you create a load balancer.
 
 Network load balancers with `route_mode` enabled do not support cross zone members.
 
@@ -1500,7 +1500,7 @@ Network load balancers with `route_mode` enabled do not support cross zone membe
 ### For all version dates
 {: #21-june-2022-all-version-dates}
 
-**Backup for VPC.** You can now create backup policies to schedule automatic backups of your block storage volumes. Backups are made when a user tag in a block storage volume matches a user tag defined in a backup policy. Backups are created by a schedule defined in a [backup plan](/apidocs/vpc/latest#create-backup-policy-plan). Each plan also has a deletion policy for managing backups created by the plan, which you can customize by specifying the `deletion_trigger` sub-property. At the scheduled interval, a backup snapshot is created of that volume. You can have up to four backup plans per policy. See [Backup for VPC](/docs/vpc?topic=vpc-backup-service-about).
+**Backup for VPC.** You can now create backup policies to schedule automatic backups of your block storage volumes. Backups are made when a user tag in a block storage volume matches a user tag defined in a backup policy. Backups are created by a schedule defined in a [backup plan](/docs/apis/vpc/latest#create-backup-policy-plan). Each plan also has a deletion policy for managing backups created by the plan, which you can customize by specifying the `deletion_trigger` sub-property. At the scheduled interval, a backup snapshot is created of that volume. You can have up to four backup plans per policy. See [Backup for VPC](/docs/vpc?topic=vpc-backup-service-about).
 
 The backup policy jobs API remains in [beta](/docs/vpc?topic=vpc-api-change-log-beta#24-may-2022-beta).
 {: note}
@@ -1514,7 +1514,7 @@ The `2022-03-29` release includes incompatible changes. To avoid regressions in 
 ### For version `2022-03-29` or later
 {: #version-2022-03-29}
 
-**Reserved IPs for compute.** Using a `version` query parameter of `2022-03-29` or later, you can now fully control the IP addresses assigned to your network interfaces by specifying a new or existing reserved IP when you [create an instance](/apidocs/vpc/latest#create-instance) or [create a bare metal server](/apidocs/vpc/latest#create-bare-metal-server).
+**Reserved IPs for compute.** Using a `version` query parameter of `2022-03-29` or later, you can now fully control the IP addresses assigned to your network interfaces by specifying a new or existing reserved IP when you [create an instance](/docs/apis/vpc/latest#create-instance) or [create a bare metal server](/docs/apis/vpc/latest#create-bare-metal-server).
 
 **Migration of network interface IP addresses.** In support of reserved IPs, for requests using a `version` query parameter of `2022-03-29` or later, the network interface `primary_ipv4_address` string property has been migrated to the `primary_ip` object property. See [Migrating use of IP addresses](/docs/vpc?topic=vpc-2022-03-29-migration#migrate-ip-addresses) for guidance on how to migrate to `primary_ip`.
 
@@ -1523,14 +1523,14 @@ The `2022-03-29` release includes incompatible changes. To avoid regressions in 
 ### For all version dates
 {: #29-march-2022-all-version-dates}
 
-**Reserved IP management.** You can explicitly [Reserve an IP in a subnet](/apidocs/vpc/latest#create-subnet-reserved-ip) ahead of time, and [List all reserved IPs on a subnet](/apidocs/vpc/latest#list-subnet-reserved-ips) to see all your VPC resources that are using IP addresses on that subnet, including load balancers and VPN gateways. For more information, see [Managing IP addresses](/docs/vpc?topic=vpc-managing-ip-addresses).
+**Reserved IP management.** You can explicitly [Reserve an IP in a subnet](/docs/apis/vpc/latest#create-subnet-reserved-ip) ahead of time, and [List all reserved IPs on a subnet](/docs/apis/vpc/latest#list-subnet-reserved-ips) to see all your VPC resources that are using IP addresses on that subnet, including load balancers and VPN gateways. For more information, see [Managing IP addresses](/docs/vpc?topic=vpc-managing-ip-addresses).
 
-**UDP support for network load balancers.** When [creating a network load balancer](/apidocs/vpc/latest#create-load-balancer) (NLB), you can now set User Datagram Protocol (UDP) as the communications protocol for NLB listeners and pools by specifying `udp` for the `protocol` sub-property of the [`listener`](/apidocs/vpc/latest#create-load-balancer-listener) and [`pool`](/apidocs/vpc/latest#create-load-balancer-pool) properties respectively. (Health checks do not support UDP for monitoring the health of pool members.) For more information, see [Configuring UDP for network load balancers](/docs/vpc?topic=vpc-nlb-udp&interface=api).
+**UDP support for network load balancers.** When [creating a network load balancer](/docs/apis/vpc/latest#create-load-balancer) (NLB), you can now set User Datagram Protocol (UDP) as the communications protocol for NLB listeners and pools by specifying `udp` for the `protocol` sub-property of the [`listener`](/docs/apis/vpc/latest#create-load-balancer-listener) and [`pool`](/docs/apis/vpc/latest#create-load-balancer-pool) properties respectively. (Health checks do not support UDP for monitoring the health of pool members.) For more information, see [Configuring UDP for network load balancers](/docs/vpc?topic=vpc-nlb-udp&interface=api).
 
 You must set the same protocol for the load balancer pool and listeners using that pool.
 {: tip}
 
-Not all network load balancer offerings will support UDP. Before creating a UDP network load balancer (or updating an existing NLB listener to use UDP), check that the `udp_supported` property of the [load balancer profile](/apidocs/vpc/latest#list-load-balancer-profiles) is `true`.
+Not all network load balancer offerings will support UDP. Before creating a UDP network load balancer (or updating an existing NLB listener to use UDP), check that the `udp_supported` property of the [load balancer profile](/docs/apis/vpc/latest#list-load-balancer-profiles) is `true`.
 {: important}
 
 ## 22 March 2022
@@ -1539,7 +1539,7 @@ Not all network load balancer offerings will support UDP. Before creating a UDP 
 ### For all version dates
 {: #22-march-2022-all-version-dates}
 
-**Concurrent update protection.** To prevent multiple clients from unknowingly overwriting each other's updates, select API methods support entity-tags and conditional requests. For details, see [Concurrent update protection](/apidocs/vpc/latest#concurrent-update-protection) in the Virtual Private Cloud API.
+**Concurrent update protection.** To prevent multiple clients from unknowingly overwriting each other's updates, select API methods support entity-tags and conditional requests. For details, see [Concurrent update protection](/docs/apis/vpc/latest#concurrent-update-protection) in the Virtual Private Cloud API.
 
 ## 22 February 2022
 {: #22-february-2022}
@@ -1547,7 +1547,7 @@ Not all network load balancer offerings will support UDP. Before creating a UDP 
 ### For all API version dates
 {: #22-february-2022-all-version-dates}
 
-**Instance availability policies for compute host failures.** A new `availability_policy` property has been added to the [create](/apidocs/vpc/latest#create-instance) and [update](/apidocs/vpc/latest#update-instance) instance methods to control the behavior when the instance's underlying compute host experiences a failure. The `host_failure` sub-property can be used to set the host failure `availability_policy` of the virtual server instance. The default policy is `restart`, which relocates the instance to a healthy host and restarts the instance. The policy may be set to `stop` to have the instance remain stopped if the compute host experiences a failure.
+**Instance availability policies for compute host failures.** A new `availability_policy` property has been added to the [create](/docs/apis/vpc/latest#create-instance) and [update](/docs/apis/vpc/latest#update-instance) instance methods to control the behavior when the instance's underlying compute host experiences a failure. The `host_failure` sub-property can be used to set the host failure `availability_policy` of the virtual server instance. The default policy is `restart`, which relocates the instance to a healthy host and restarts the instance. The policy may be set to `stop` to have the instance remain stopped if the compute host experiences a failure.
 
 For more information, see [Host failure recovery policies](/docs/vpc?topic=vpc-host-failure-recovery-policies&interface=api).
 
@@ -1557,7 +1557,7 @@ For more information, see [Host failure recovery policies](/docs/vpc?topic=vpc-h
 ### For all version dates
 {: #15-february-2022-all-version-dates}
 
-**Resizable boot volumes.** You can now increase the capacity of a boot volume, up to 250 gigabytes (GB). When [creating an instance](/apidocs/vpc/latest#create-instance) from an image or an [instance template](/apidocs/vpc/latest#create-instance-template), you can specify a larger capacity than the image's `minimum_provisioned_size` default. Specify `capacity` in the `volume` sub-property of the `boot_volume_attachment` property.  You can also increase the size of an existing boot volume by specifying the `capacity` property when [updating the volume](/apidocs/vpc/latest#update-volume).
+**Resizable boot volumes.** You can now increase the capacity of a boot volume, up to 250 gigabytes (GB). When [creating an instance](/docs/apis/vpc/latest#create-instance) from an image or an [instance template](/docs/apis/vpc/latest#create-instance-template), you can specify a larger capacity than the image's `minimum_provisioned_size` default. Specify `capacity` in the `volume` sub-property of the `boot_volume_attachment` property.  You can also increase the size of an existing boot volume by specifying the `capacity` property when [updating the volume](/docs/apis/vpc/latest#update-volume).
 
 ## 8 February 2022
 {: #8-february-2022}
@@ -1565,9 +1565,9 @@ For more information, see [Host failure recovery policies](/docs/vpc?topic=vpc-h
 ### For all version dates
 {: #8-february-2022-all-version-dates}
 
-**Port ranges for public network load balancers.** When [creating a public network load balancer](/docs/vpc?topic=vpc-nlb-ui-creating-network-load-balancer&interface=api) you can now specify a range of listener ports. When you configure a load balancer with a port range, the `port` property of the load balancer's [pool members](/apidocs/vpc/latest#list-load-balancer-pool-members) will not be used for port translation on incoming traffic. Instead, traffic will arrive at the member on the same port it arrived on at the listener.
+**Port ranges for public network load balancers.** When [creating a public network load balancer](/docs/vpc?topic=vpc-nlb-ui-creating-network-load-balancer&interface=api) you can now specify a range of listener ports. When you configure a load balancer with a port range, the `port` property of the load balancer's [pool members](/docs/apis/vpc/latest#list-load-balancer-pool-members) will not be used for port translation on incoming traffic. Instead, traffic will arrive at the member on the same port it arrived on at the listener.
 
-Before using this feature on a load balancer, update client applications that integrate with it to check the `port_min` and `port_max` properties on the [load balancer listener](/apidocs/vpc/latest#get-load-balancer-listener). If those properties do not have the same value, the client must consider the inclusive range between `port_min` and `port_max` as the possible ports on which traffic can arrive at the member. However, if `port_min` and `port_max` have the same value, the behavior will be unchanged and traffic will arrive on the port specified by the `port` property of the load balancer pool member.
+Before using this feature on a load balancer, update client applications that integrate with it to check the `port_min` and `port_max` properties on the [load balancer listener](/docs/apis/vpc/latest#get-load-balancer-listener). If those properties do not have the same value, the client must consider the inclusive range between `port_min` and `port_max` as the possible ports on which traffic can arrive at the member. However, if `port_min` and `port_max` have the same value, the behavior will be unchanged and traffic will arrive on the port specified by the `port` property of the load balancer pool member.
 
 ## 1 February 2022
 {: #1-february-2022}
@@ -1575,9 +1575,9 @@ Before using this feature on a load balancer, update client applications that in
 ### For all version dates
 {: #1-february-2022-all-version-dates}
 
-**Bare metal servers for VPC.** You can now create bare metal servers to host VMware&reg; clusters in {{site.data.keyword.vpc_short}}. You can set up VMware management applications and create VMware virtual machines on the bare metal servers. The new [bare metal server](/apidocs/vpc/latest#list-bare-metal-servers) APIs use a similar structure and employ the same concepts as the existing [instance](/apidocs/vpc/latest#list-instances) APIs. There is also a parallel but separate set of [bare metal server profile](/apidocs/vpc/latest#list-bare-metal-server-profiles) APIs with similar conventions to the existing [instance profile](/apidocs/vpc/latest#list-instance-profiles) APIs. After you've learned one concept, it will apply to the other.
+**Bare metal servers for VPC.** You can now create bare metal servers to host VMware&reg; clusters in {{site.data.keyword.vpc_short}}. You can set up VMware management applications and create VMware virtual machines on the bare metal servers. The new [bare metal server](/docs/apis/vpc/latest#list-bare-metal-servers) APIs use a similar structure and employ the same concepts as the existing [instance](/docs/apis/vpc/latest#list-instances) APIs. There is also a parallel but separate set of [bare metal server profile](/docs/apis/vpc/latest#list-bare-metal-server-profiles) APIs with similar conventions to the existing [instance profile](/docs/apis/vpc/latest#list-instance-profiles) APIs. After you've learned one concept, it will apply to the other.
 
-For more information, see [About Bare Metal Servers for VPC](/docs/vpc?topic=vpc-about-bare-metal-servers) and [Bare metal server profiles](/docs/vpc?topic=vpc-bare-metal-servers-profile&interface=api), or dive into the new [API methods](/apidocs/vpc/latest#list-bare-metal-server-profiles).
+For more information, see [About Bare Metal Servers for VPC](/docs/vpc?topic=vpc-about-bare-metal-servers) and [Bare metal server profiles](/docs/vpc?topic=vpc-bare-metal-servers-profile&interface=api), or dive into the new [API methods](/docs/apis/vpc/latest#list-bare-metal-server-profiles).
 
 ## 25 January 2022
 {: #25-january-2022}
@@ -1585,17 +1585,17 @@ For more information, see [About Bare Metal Servers for VPC](/docs/vpc?topic=vpc
 ### For all version dates
 {: #25-january-2022-all-version-dates}
 
-**Security groups for endpoint gateways.** For enhanced security, you can now associate security groups with [endpoint gateways](/docs/vpc?topic=vpc-about-vpe). When you [create an endpoint gateway](/apidocs/vpc/latest#create-endpoint-gateway), you can now specify the `security_groups` property, which associates those security groups with the endpoint gateway. If you do not specify `security_groups`, the endpoint gateway will be associated with the VPC's default security group. Before using the default security group, review your default security group rules and, if necessary, edit the rules to accommodate your endpoint gateway traffic.
+**Security groups for endpoint gateways.** For enhanced security, you can now associate security groups with [endpoint gateways](/docs/vpc?topic=vpc-about-vpe). When you [create an endpoint gateway](/docs/apis/vpc/latest#create-endpoint-gateway), you can now specify the `security_groups` property, which associates those security groups with the endpoint gateway. If you do not specify `security_groups`, the endpoint gateway will be associated with the VPC's default security group. Before using the default security group, review your default security group rules and, if necessary, edit the rules to accommodate your endpoint gateway traffic.
 
 Responses that return an endpoint gateway now include the `security_groups` property. On endpoint gateways created before 25 January 2022, the `security_groups` property in the response is an empty array (`[]`), and no security groups are set.
 
-You can update security groups for an endpoint gateway by [adding an endpoint gateway](/apidocs/vpc/latest#create-security-group-target-binding) to or [removing an endpoint gateway](/apidocs/vpc/latest#delete-security-group-target-binding) from a security group's targets.
+You can update security groups for an endpoint gateway by [adding an endpoint gateway](/docs/apis/vpc/latest#create-security-group-target-binding) to or [removing an endpoint gateway](/docs/apis/vpc/latest#delete-security-group-target-binding) from a security group's targets.
 
 You will not be able to remove the only remaining security group from an endpoint gateway. As a result, if you add a security group to an endpoint gateway, which had no security groups, you will not be able to revert the endpoint gateway to have no security groups.
 
-Finally, the security group `targets` property can now refer to an endpoint gateway, as can the responses for the [get security group target](/apidocs/vpc/latest#get-security-group-target) and [list security group target](/apidocs/vpc/latest#list-security-group-targets) methods.
+Finally, the security group `targets` property can now refer to an endpoint gateway, as can the responses for the [get security group target](/docs/apis/vpc/latest#get-security-group-target) and [list security group target](/docs/apis/vpc/latest#list-security-group-targets) methods.
 
-**Snapshots for VPC.** A `captured_at` property has been added to each [snapshot](/apidocs/vpc/latest#list-snapshots), indicating the date and time when the snapshot was captured from the volume. The `captured_at` timestamp value is a close approximation to the actual snapshot time, typically within a few seconds. The actual snapshot capture is between the `created_at` and `captured_at` timestamps. (The `created_at` property indicates when the [snapshot creation](/apidocs/vpc/latest#create-snapshot) process was initiated.)
+**Snapshots for VPC.** A `captured_at` property has been added to each [snapshot](/docs/apis/vpc/latest#list-snapshots), indicating the date and time when the snapshot was captured from the volume. The `captured_at` timestamp value is a close approximation to the actual snapshot time, typically within a few seconds. The actual snapshot capture is between the `created_at` and `captured_at` timestamps. (The `created_at` property indicates when the [snapshot creation](/docs/apis/vpc/latest#create-snapshot) process was initiated.)
 
 If `captured_at` is absent from the response, the snapshot's data has not yet been captured. Additionally, the property may be absent for snapshots created before 1 January 2022.
 
@@ -1605,7 +1605,7 @@ If `captured_at` is absent from the response, the snapshot's data has not yet be
 ### For all version dates
 {: #23-november-2021-all-version-dates}
 
-**Snapshots for VPC.** Restrictions have been removed for deleting snapshots. You can now [delete](/apidocs/vpc/latest#delete-snapshot) any snapshot in the chain of snapshots.  If the snapshot is actively being used to restore a volume, the snapshot will remain in `deleting` until the restore completes. The `deletable` property, which indicated whether a snapshot could be deleted, has been deprecated.
+**Snapshots for VPC.** Restrictions have been removed for deleting snapshots. You can now [delete](/docs/apis/vpc/latest#delete-snapshot) any snapshot in the chain of snapshots.  If the snapshot is actively being used to restore a volume, the snapshot will remain in `deleting` until the restore completes. The `deletable` property, which indicated whether a snapshot could be deleted, has been deprecated.
 
 ## 19 October 2021
 {: #19-october-2021}
@@ -1615,7 +1615,7 @@ If `captured_at` is absent from the response, the snapshot's data has not yet be
 
 **GPU instances.** Updated instance and instance profile methods now include details about GPUs attached to the instance. New profiles provide support for GPUs. These GPUs provide accelerated computing to help you run workloads with more powerful compute capabilities.
 
-The [list all instances](/apidocs/vpc/latest#list-instances) method returns a new `gpu` property with additional sub-properties: `count`, `manufacturer`, `model`, and `memory`. The [retrieve an instance profile](/apidocs/vpc/latest#get-instance-profile) method returns new properties: `gpu_count`, `gpu_manufacturer`, `gpu_model`, and `gpu_memory`. For more information, see [Managing GPUs](/docs/vpc?topic=vpc-managing-gpus).
+The [list all instances](/docs/apis/vpc/latest#list-instances) method returns a new `gpu` property with additional sub-properties: `count`, `manufacturer`, `model`, and `memory`. The [retrieve an instance profile](/docs/apis/vpc/latest#get-instance-profile) method returns new properties: `gpu_count`, `gpu_manufacturer`, `gpu_model`, and `gpu_memory`. For more information, see [Managing GPUs](/docs/vpc?topic=vpc-managing-gpus).
 
 ## 28 September 2021
 {: #28-september-2021}
@@ -1623,9 +1623,9 @@ The [list all instances](/apidocs/vpc/latest#list-instances) method returns a ne
 ### For all version dates
 {: #28-september-2021-all-version-dates}
 
-**Route mode for VNF support for network load balancers.** [Network load balancers](/apidocs/vpc/latest#create-load-balancer) now support a new "route mode" enabling virtual network functions (VNFs) as back-end targets. A `route_mode` property has been added to the load balancer resource to indicate if the load balancer is in route mode. A `route_mode_supported` property has been added to the load balancer profile resource to indicate if the profile supports route mode. Presently, only network load balancer profiles support route mode.
+**Route mode for VNF support for network load balancers.** [Network load balancers](/docs/apis/vpc/latest#create-load-balancer) now support a new "route mode" enabling virtual network functions (VNFs) as back-end targets. A `route_mode` property has been added to the load balancer resource to indicate if the load balancer is in route mode. A `route_mode_supported` property has been added to the load balancer profile resource to indicate if the profile supports route mode. Presently, only network load balancer profiles support route mode.
 
-The [Create load balancer](/apidocs/vpc/latest#create-load-balancer) and [Create load balancer listener](/apidocs/vpc/latest#create-load-balancer-listener) methods now accept properties `port_min` and `port_max`. You can request a load balancer listener for a single port by setting either the `port` property, or by setting the `port_min` and `port_max` properties to the same value. All load balancer listener responses now include `port_min` and `port_max` properties, with `port_min` matching the value of the existing `port` property.
+The [Create load balancer](/docs/apis/vpc/latest#create-load-balancer) and [Create load balancer listener](/docs/apis/vpc/latest#create-load-balancer-listener) methods now accept properties `port_min` and `port_max`. You can request a load balancer listener for a single port by setting either the `port` property, or by setting the `port_min` and `port_max` properties to the same value. All load balancer listener responses now include `port_min` and `port_max` properties, with `port_min` matching the value of the existing `port` property.
 
 When creating load balancers with route mode enabled, you must specify the listener's `port_min` value as `1`,  the `port_max` value as `65535`, and omit the `port` property. Other port range values are not currently supported, as noted in [Known issues](/docs/vpc?topic=vpc-known-issues).
 {: note}
@@ -1638,7 +1638,7 @@ For more information, see [Creating a route mode Network Load Balancer for VPC](
 ### For all version dates
 {: #7-september-2021-all-version-dates}
 
-**Instance bandwidth.** New properties have been added to the [create](/apidocs/vpc/latest#create-instance) and [update](/apidocs/vpc/latest#update-instance) instance methods to allow adjustment to the amount of total bandwidth (in megabits per second) allocated exclusively to attached volumes. The range of acceptable volume bandwidth values depends on the selected instance profile. A new `total_volume_bandwidth` property, added to each [instance profile](/apidocs/vpc/latest#list-instance-profiles), provides the range of possible values, and the default value used when creating an instance. An increase in `total_volume_bandwidth` will result in a corresponding decrease to `total_network_bandwidth`.
+**Instance bandwidth.** New properties have been added to the [create](/docs/apis/vpc/latest#create-instance) and [update](/docs/apis/vpc/latest#update-instance) instance methods to allow adjustment to the amount of total bandwidth (in megabits per second) allocated exclusively to attached volumes. The range of acceptable volume bandwidth values depends on the selected instance profile. A new `total_volume_bandwidth` property, added to each [instance profile](/docs/apis/vpc/latest#list-instance-profiles), provides the range of possible values, and the default value used when creating an instance. An increase in `total_volume_bandwidth` will result in a corresponding decrease to `total_network_bandwidth`.
 
 The volume bandwidth allocated to your existing instances will be unaffected unless:
 
@@ -1655,9 +1655,9 @@ For more information about this feature, see [Bandwidth allocation for instance 
 
 **Block storage volumes:**
 
-- **Adjustable IOPS.** To manage the performance of the data volumes attached to running virtual server instances, use the [update volume](/apidocs/vpc/latest#update-volume) method to specify a different tiered `profile` value, or a different `iops` value within the [custom IOPS](/docs/vpc?topic=vpc-block-storage-profiles&interface=api#custom) tier. For more information, see [Adjusting IOPS for block storage volumes](/docs/vpc?topic=vpc-adjusting-volume-iops&interface=api).
+- **Adjustable IOPS.** To manage the performance of the data volumes attached to running virtual server instances, use the [update volume](/docs/apis/vpc/latest#update-volume) method to specify a different tiered `profile` value, or a different `iops` value within the [custom IOPS](/docs/vpc?topic=vpc-block-storage-profiles&interface=api#custom) tier. For more information, see [Adjusting IOPS for block storage volumes](/docs/vpc?topic=vpc-adjusting-volume-iops&interface=api).
 
-- **Expandable volumes.** You can now expand a secondary volume attached to a running virtual server instance. Use the `capacity` property in the [update volume](/apidocs/vpc/latest#update-volume) method to request a new volume capacity, up to 16 TB (depending on the volume's profile).  While the volume's capacity is being updated, the volume will remain available for use, but will have a `status` value of `updating`. For more information, see [Expanding block storage volume capacity](/docs/vpc?topic=vpc-expanding-block-storage-volumes#expanding-data-volumes).
+- **Expandable volumes.** You can now expand a secondary volume attached to a running virtual server instance. Use the `capacity` property in the [update volume](/docs/apis/vpc/latest#update-volume) method to request a new volume capacity, up to 16 TB (depending on the volume's profile).  While the volume's capacity is being updated, the volume will remain available for use, but will have a `status` value of `updating`. For more information, see [Expanding block storage volume capacity](/docs/vpc?topic=vpc-expanding-block-storage-volumes#expanding-data-volumes).
 
    If you expand an existing data volume, be aware that existing applications will be exposed to the new `updating` value. To avoid disruption, first check that your applications are written to gracefully handle unexpected `status` values.
    {: important}
@@ -1677,8 +1677,8 @@ If you configure an HTTPS redirect on a listener policy, be aware that existing 
 
 Additional API restrictions are enforced after an HTTPS redirect is configured:
 
-- You will not be able to [update the `protocol` and `accept_proxy_protocol` properties](/apidocs/vpc/latest#update-load-balancer-listener) of the HTTP and HTTPS listeners. Instead, delete the listener and create a new listener with the new property values.
-- You will not be able to [delete an HTTPS listener](/apidocs/vpc/latest#delete-load-balancer-listener) until the HTTP listener referring to it is deleted.
+- You will not be able to [update the `protocol` and `accept_proxy_protocol` properties](/docs/apis/vpc/latest#update-load-balancer-listener) of the HTTP and HTTPS listeners. Instead, delete the listener and create a new listener with the new property values.
+- You will not be able to [delete an HTTPS listener](/docs/apis/vpc/latest#delete-load-balancer-listener) until the HTTP listener referring to it is deleted.
 
 ## 17 August 2021
 {: #17-august-2021}
@@ -1688,7 +1688,7 @@ Additional API restrictions are enforced after an HTTPS redirect is configured:
 
 **Larger size boot volumes for custom images.** You can import custom images with a boot disk size from 10 GB to 250 GB, which will become the image's `minimum_provisioned_size` after import. When you specify the image as part of [creating an instance](/docs/vpc?topic=vpc-creating-virtual-servers), the boot volume `capacity` is set to the image's `minimum_provisioned_size`. For details, see [Planning custom images](/docs/vpc?topic=vpc-planning-custom-images).
 
-**Placement groups.** Placement groups for {{site.data.keyword.vpc_full}} are logical groupings of virtual server instances that can be configured to reduce the risk of correlated failures inherent in your physical environment, such as networking issues, power loss, or hardware failure. Define a placement group strategy for high-availability workloads, such as for host or power spread. For more information, see [About placement groups](/docs/vpc?topic=vpc-about-placement-groups-for-vpc) or dive into the new [API methods](/apidocs/vpc/latest#list-placement-groups).
+**Placement groups.** Placement groups for {{site.data.keyword.vpc_full}} are logical groupings of virtual server instances that can be configured to reduce the risk of correlated failures inherent in your physical environment, such as networking issues, power loss, or hardware failure. Define a placement group strategy for high-availability workloads, such as for host or power spread. For more information, see [About placement groups](/docs/vpc?topic=vpc-about-placement-groups-for-vpc) or dive into the new [API methods](/docs/apis/vpc/latest#list-placement-groups).
 
 ## 10 August 2021
 {: #10-august-2021}
@@ -1696,7 +1696,7 @@ Additional API restrictions are enforced after an HTTPS redirect is configured:
 ### For all version dates
 {: #10-august-2021-all-version-dates}
 
-**LinuxONE (s390x processor architecture).** You can now [create virtual server instances](/apidocs/vpc/latest#create-instance) on LinuxONE in {{site.data.keyword.Bluemix}} using new virtual server instance profiles. Instances provisioned with these profiles will have a VCPU architecture of s390x and interoperate with other VPC storage and networking features such as block storage volumes, floating IPs, and security groups. For more information, see [x86 instance profiles](/docs/vpc?topic=vpc-profiles&interface=api#balanced), and [Service limitations](/docs/vpc?topic=vpc-limitations).
+**LinuxONE (s390x processor architecture).** You can now [create virtual server instances](/docs/apis/vpc/latest#create-instance) on LinuxONE in {{site.data.keyword.Bluemix}} using new virtual server instance profiles. Instances provisioned with these profiles will have a VCPU architecture of s390x and interoperate with other VPC storage and networking features such as block storage volumes, floating IPs, and security groups. For more information, see [x86 instance profiles](/docs/vpc?topic=vpc-profiles&interface=api#balanced), and [Service limitations](/docs/vpc?topic=vpc-limitations).
 
 ## 29 June 2021
 {: #29-june-2021}
@@ -1704,7 +1704,7 @@ Additional API restrictions are enforced after an HTTPS redirect is configured:
 ### For all version dates
 {: #29-june-2021-all-version-dates}
 
-**Keys.** Pagination has been added to the [List all keys](/apidocs/vpc/latest#list-keys) method. Pagination will not occur until your account includes more than 50 keys in a region, but we recommend that you update your existing client applications in preparation. Contact IBM support if you need assistance.
+**Keys.** Pagination has been added to the [List all keys](/docs/apis/vpc/latest#list-keys) method. Pagination will not occur until your account includes more than 50 keys in a region, but we recommend that you update your existing client applications in preparation. Contact IBM support if you need assistance.
 
 ## 15 June 2021
 {: #15-june-2021}
@@ -1712,7 +1712,7 @@ Additional API restrictions are enforced after an HTTPS redirect is configured:
 ### For all version dates
 {: #15-june-2021-all-version-dates}
 
-**Load balancer pools.** New cookie-based values have been added to the `session_persistence` enumeration returned by the load balancers pool methods. If you [create](/apidocs/vpc/latest#create-load-balancer-pool) or [update](/apidocs/vpc/latest#update-load-balancer-pool) pools with these new values to enforce session persistence, client applications will expose cookie values in all requests. For details, see [Cookie-based session persistence](/docs/vpc?topic=vpc-advanced-traffic-management#cookie).
+**Load balancer pools.** New cookie-based values have been added to the `session_persistence` enumeration returned by the load balancers pool methods. If you [create](/docs/apis/vpc/latest#create-load-balancer-pool) or [update](/docs/apis/vpc/latest#update-load-balancer-pool) pools with these new values to enforce session persistence, client applications will expose cookie values in all requests. For details, see [Cookie-based session persistence](/docs/vpc?topic=vpc-advanced-traffic-management#cookie).
 
 ## 8 June 2021
 {: #8-june-2021}
@@ -1720,7 +1720,7 @@ Additional API restrictions are enforced after an HTTPS redirect is configured:
 ### For version `2021-06-08` or later
 {: #version-2021-06-08}
 
-**Load balancers.** For requests using a `version` query parameter of `2021-06-08` or later, you can now use pagination when [listing all load balancers](/apidocs/vpc/latest#list-load-balancers) in the region. Requests using a `version` query parameter of `2021-06-07` or earlier remain unpaginated, but may time out if you have many load balancers.
+**Load balancers.** For requests using a `version` query parameter of `2021-06-08` or later, you can now use pagination when [listing all load balancers](/docs/apis/vpc/latest#list-load-balancers) in the region. Requests using a `version` query parameter of `2021-06-07` or earlier remain unpaginated, but may time out if you have many load balancers.
 
 If you expect to use many load balancers at once, migrate your applications to the paginated API to improve responsiveness and reliability. Contact [IBM support](/docs/support?topic=support-using-avatar) if you need help migrating your existing client applications.
 
@@ -1738,7 +1738,7 @@ If you expect to use many load balancers at once, migrate your applications to t
 ### For all version dates
 {: #18-may-2021-all-version-dates}
 
-**Snapshots for VPC.** Use the new regional snapshot service to create point-in-time copies of your block storage boot or data volumes. Select a snapshot during instance provisioning and restore a new, fully-provisioned boot volume to start the instance. You can also create and attach a data volume from a snapshot within a running virtual server instance. Learn about [creating and using snapshots](/docs/vpc?topic=vpc-snapshots-vpc-about) and explore the new [API methods](/apidocs/vpc/latest#delete-snapshots).
+**Snapshots for VPC.** Use the new regional snapshot service to create point-in-time copies of your block storage boot or data volumes. Select a snapshot during instance provisioning and restore a new, fully-provisioned boot volume to start the instance. You can also create and attach a data volume from a snapshot within a running virtual server instance. Learn about [creating and using snapshots](/docs/vpc?topic=vpc-snapshots-vpc-about) and explore the new [API methods](/docs/apis/vpc/latest#delete-snapshots).
 
 ## 6 May 2021
 {: #6-may-2021}
@@ -1746,7 +1746,7 @@ If you expect to use many load balancers at once, migrate your applications to t
 ### For all version dates
 {: #6-may-2021-all-version-dates}
 
-**Scheduled scaling.** Use scheduled scaling for VPC to schedule actions that automatically add or remove instance group capacity, based on daily, intermittent, or seasonal demand. You can create multiple scheduled actions that scale capacity monthly, weekly, daily, hourly, or even every set number of minutes. Explore the instance group [managers methods](/apidocs/vpc/latest#list-instance-group-managers) and the new [manager actions methods](/apidocs/vpc/latest#list-instance-group-manager-actions).
+**Scheduled scaling.** Use scheduled scaling for VPC to schedule actions that automatically add or remove instance group capacity, based on daily, intermittent, or seasonal demand. You can create multiple scheduled actions that scale capacity monthly, weekly, daily, hourly, or even every set number of minutes. Explore the instance group [managers methods](/docs/apis/vpc/latest#list-instance-group-managers) and the new [manager actions methods](/docs/apis/vpc/latest#list-instance-group-manager-actions).
 
 ## 30 March 2021
 {: #30-march-2021}
@@ -1758,12 +1758,12 @@ If you expect to use many load balancers at once, migrate your applications to t
 
 The following API methods have been added:
 
-- [List all disks on an instance](/apidocs/vpc/latest#list-instance-disks) (`GET /instances/{instance_id}/disks`)
-- [Retrieve an instance disk](/apidocs/vpc/latest#get-instance-disk) (`GET /instances/{instance_id}/disks/{id}`)
-- [Update an instance disk](/apidocs/vpc/latest#update-instance-disk) (`PATCH /instances/{instance_id}/disks/{id}`)
-- [List all disks on a dedicated host](/apidocs/vpc/latest#list-dedicated-host-disks) (`GET /dedicated_hosts/{dedicated_host_id}/disks`)
-- [Retrieve a dedicated host disk](/apidocs/vpc/latest#get-dedicated-host-disk) (`GET /dedicated_hosts/{dedicated_host_id}/disks/{id}`)
-- [Update a dedicated host disk](/apidocs/vpc/latest#update-dedicated-host-disk) (`PATCH /dedicated_hosts/{dedicated_host_id}/disks/{id}`)
+- [List all disks on an instance](/docs/apis/vpc/latest#list-instance-disks) (`GET /instances/{instance_id}/disks`)
+- [Retrieve an instance disk](/docs/apis/vpc/latest#get-instance-disk) (`GET /instances/{instance_id}/disks/{id}`)
+- [Update an instance disk](/docs/apis/vpc/latest#update-instance-disk) (`PATCH /instances/{instance_id}/disks/{id}`)
+- [List all disks on a dedicated host](/docs/apis/vpc/latest#list-dedicated-host-disks) (`GET /dedicated_hosts/{dedicated_host_id}/disks`)
+- [Retrieve a dedicated host disk](/docs/apis/vpc/latest#get-dedicated-host-disk) (`GET /dedicated_hosts/{dedicated_host_id}/disks/{id}`)
+- [Update a dedicated host disk](/docs/apis/vpc/latest#update-dedicated-host-disk) (`PATCH /dedicated_hosts/{dedicated_host_id}/disks/{id}`)
 
 API methods that return instance and dedicated host profiles now include a `disks` property with information about the storage capability (where present) of resources provisioned with those profiles.
 
@@ -1773,10 +1773,10 @@ For more information, see [About instance storage](/docs/vpc?topic=vpc-instance-
 
 **Virtual server instance console.** You can now access your instances by connecting to a VNC or serial console. Learn about [Accessing virtual server instances by using VNC or serial consoles](/docs/vpc?topic=vpc-vsi_is_connecting_console), and explore the new instance console API methods:
 
-- [Create a console access token for an instance](/apidocs/vpc/latest#create-instance-console-access-token) (`POST /instances/{instance_id}/console_access_token`)
-- [Retrieve the console WebSocket for an instance](/apidocs/vpc/latest#get-instance-console) (`GET /instances/{instance_id}/console`)
+- [Create a console access token for an instance](/docs/apis/vpc/latest#create-instance-console-access-token) (`POST /instances/{instance_id}/console_access_token`)
+- [Retrieve the console WebSocket for an instance](/docs/apis/vpc/latest#get-instance-console) (`GET /instances/{instance_id}/console`)
 
-**Instance resize.** You can now resize an instance by providing the `profile` property in the API method `PATCH /instances/{id}` ([Update an instance](/apidocs/vpc/latest#update-instance)). For more information, see [Resizing a virtual server instance](/docs/vpc?topic=vpc-resizing-an-instance&interface=api).
+**Instance resize.** You can now resize an instance by providing the `profile` property in the API method `PATCH /instances/{id}` ([Update an instance](/docs/apis/vpc/latest#update-instance)). For more information, see [Resizing a virtual server instance](/docs/vpc?topic=vpc-resizing-an-instance&interface=api).
 
 ## 23 March 2021
 {: #23-march-2021}
@@ -1835,15 +1835,15 @@ If you plan to use default security groups for new application load balancers, r
 
 The following load balancer methods have been updated:
 
-- [Create a load balancer](/apidocs/vpc/latest#create-load-balancer) (`POST /load_balancers`) can now accept a list of security groups
-- [Get load balancer details](/apidocs/vpc/latest#get-load-balancer) (`GET /load_balancers/{id}`) now returns references to the security groups to which a load balancer is attached
+- [Create a load balancer](/docs/apis/vpc/latest#create-load-balancer) (`POST /load_balancers`) can now accept a list of security groups
+- [Get load balancer details](/docs/apis/vpc/latest#get-load-balancer) (`GET /load_balancers/{id}`) now returns references to the security groups to which a load balancer is attached
 
 New security group methods have been added for managing security group targets:
 
-- [Attach a security group to a target network interface or load balancer](/apidocs/vpc/latest#create-security-group-target-binding) (`PUT /security_groups/{security_group_id}/targets/{id}`)
-- [List targets attached to a security group](/apidocs/vpc/latest#list-security-group-targets) (`GET /security_groups/{security_group_id}/targets`)
-- [Retrieve a target in a security group](/apidocs/vpc/latest#get-security-group-target) (`GET /security_groups/{security_group_id}/targets/{id}`)
-- [Delete targets from a security group](/apidocs/vpc/latest#delete-security-group-target-binding) (`DELETE /security_groups/{security_group_id}/targets/{id}`)
+- [Attach a security group to a target network interface or load balancer](/docs/apis/vpc/latest#create-security-group-target-binding) (`PUT /security_groups/{security_group_id}/targets/{id}`)
+- [List targets attached to a security group](/docs/apis/vpc/latest#list-security-group-targets) (`GET /security_groups/{security_group_id}/targets`)
+- [Retrieve a target in a security group](/docs/apis/vpc/latest#get-security-group-target) (`GET /security_groups/{security_group_id}/targets/{id}`)
+- [Delete targets from a security group](/docs/apis/vpc/latest#delete-security-group-target-binding) (`DELETE /security_groups/{security_group_id}/targets/{id}`)
 
 Use the security group target methods to manage security group attachments to both load balancers and network interfaces. The original methods specific to network interfaces are now deprecated:
 
@@ -1872,7 +1872,7 @@ The following API methods have been updated:
 
 **Checksum (SHA256) for imported images.** When you import a custom image to {{site.data.keyword.vpc_short}}, you can now view the checksum that was generated for the image during the import operation. By generating a checksum for the image locally, and checking that the checksums match, you can verify the integrity of the imported image. For more information, see [Importing and validating custom images into VPC](/docs/vpc?topic=vpc-importing-custom-images-vpc&interface=api).
 
-The `sha256` checksum is available in the `file` details in API method `GET /images/{id}`. See [Retrieve an image](/apidocs/vpc/latest#get-image).
+The `sha256` checksum is available in the `file` details in API method `GET /images/{id}`. See [Retrieve an image](/docs/apis/vpc/latest#get-image).
 
 ## 19 January 2021
 {: #19-january-2021}
@@ -1897,14 +1897,14 @@ For requests using a `version` query parameter of `2021-01-19` or later, memory 
 
 The `unusable` status appears in the following API methods:
 
-- [List all volumes](/apidocs/vpc/latest#list-volumes) (`GET /volumes`)
-- [Retrieve a specific volume](/apidocs/vpc/latest#get-volume) (`GET /volumes/{id}`)
-- [List all images](/apidocs/vpc/latest#list-volumes) (`GET /images`)
-- [Retrieve the specified image](/apidocs/vpc/latest#get-image) (`GET /images/{id}`)
+- [List all volumes](/docs/apis/vpc/latest#list-volumes) (`GET /volumes`)
+- [Retrieve a specific volume](/docs/apis/vpc/latest#get-volume) (`GET /volumes/{id}`)
+- [List all images](/docs/apis/vpc/latest#list-volumes) (`GET /images`)
+- [Retrieve the specified image](/docs/apis/vpc/latest#get-image) (`GET /images/{id}`)
 
 For more information about key states and resource statuses, see [User actions that impact root key states and resource status](/docs/vpc?topic=vpc-vpc-encryption-managing#byok-root-key-states).
 
-**Dedicated hosts** are now supported in the VPC API. Learn more about using [dedicated hosts](/docs/vpc?topic=vpc-creating-dedicated-hosts-instances&interface=api) and explore the new [API methods](/apidocs/vpc/latest#list-dedicated-host-groups).
+**Dedicated hosts** are now supported in the VPC API. Learn more about using [dedicated hosts](/docs/vpc?topic=vpc-creating-dedicated-hosts-instances&interface=api) and explore the new [API methods](/docs/apis/vpc/latest#list-dedicated-host-groups).
 
 ## 20 November 2020
 {: #20-november-2020}
@@ -1916,8 +1916,8 @@ For more information about key states and resource statuses, see [User actions t
 
 View the `logging` property in the following API methods:
 
-- [List all load balancers](/apidocs/vpc/latest#list-load-balancers) (`GET /load_balancers`)
-- [Retrieve a load balancer](/apidocs/vpc/latest#get-load-balancer) (`GET /load_balancers/{id}`)
+- [List all load balancers](/docs/apis/vpc/latest#list-load-balancers) (`GET /load_balancers`)
+- [Retrieve a load balancer](/docs/apis/vpc/latest#get-load-balancer) (`GET /load_balancers/{id}`)
 
 ## 19 November 2020
 {: #19-november-2020}
@@ -1925,7 +1925,7 @@ View the `logging` property in the following API methods:
 ### For all version dates
 {: #19-november-2020-all-version-dates}
 
-**Support for ingress routing** is included as part of [routing tables](/apidocs/vpc/latest#list-vpc-routing-tables), which were released on 30 October 2020. Use [ingress routing](/apidocs/vpc/latest#create-vpc-routing-table) to control the policy for packets that are coming in to your VPC or one of its zones. The policy can vary, depending on the type of source and the destination IP address range.
+**Support for ingress routing** is included as part of [routing tables](/docs/apis/vpc/latest#list-vpc-routing-tables), which were released on 30 October 2020. Use [ingress routing](/docs/apis/vpc/latest#create-vpc-routing-table) to control the policy for packets that are coming in to your VPC or one of its zones. The policy can vary, depending on the type of source and the destination IP address range.
 
 Routing tables for the VPC API are the same for both egress and ingress routing, with the following additional properties that you can specify for ingress routing:
 
@@ -1941,7 +1941,7 @@ For more information, see [About routing tables and routes](/docs/vpc?topic=vpc-
 ### For version `2020-11-13` or later
 {: #version-2020-11-13}
 
-**Static-route-based VPN gateways** are now available for requests using a `version` query parameter of `2020-11-13` or later. For a [static-route-based VPN gateway](/apidocs/vpc/latest#create-vpn-gateway), virtual tunnel interfaces are created. Any traffic that is routed to these interfaces with [user-defined routes](/docs/vpc?topic=vpc-create-vpc-route) is encrypted. For more information, see [About VPN gateways](/docs/vpc?topic=vpc-using-vpn).
+**Static-route-based VPN gateways** are now available for requests using a `version` query parameter of `2020-11-13` or later. For a [static-route-based VPN gateway](/docs/apis/vpc/latest#create-vpn-gateway), virtual tunnel interfaces are created. Any traffic that is routed to these interfaces with [user-defined routes](/docs/vpc?topic=vpc-create-vpc-route) is encrypted. For more information, see [About VPN gateways](/docs/vpc?topic=vpc-using-vpn).
 
 ## 30 October 2020
 {: #30-october-2020}
@@ -1949,15 +1949,15 @@ For more information, see [About routing tables and routes](/docs/vpc?topic=vpc-
 ### For all version dates
 {: #30-october-2020-all-version-dates}
 
-- **Custom routing tables** are now supported in the VPC API. This feature controls where network traffic is directed on a per-subnet basis. Explore new API methods for [routing tables](/apidocs/vpc/latest#list-vpc-routing-tables) and [routes](/apidocs/vpc/latest#create-vpc-routing-table-route). This feature subsumes the [VPC routing API](/apidocs/vpc/latest#list-vpc-routes), which remains supported but is deprecated and might be removed in a future API release.
+- **Custom routing tables** are now supported in the VPC API. This feature controls where network traffic is directed on a per-subnet basis. Explore new API methods for [routing tables](/docs/apis/vpc/latest#list-vpc-routing-tables) and [routes](/docs/apis/vpc/latest#create-vpc-routing-table-route). This feature subsumes the [VPC routing API](/docs/apis/vpc/latest#list-vpc-routes), which remains supported but is deprecated and might be removed in a future API release.
 
-- **Virtual private endpoint gateways.** Use [virtual private endpoint gateways](/apidocs/vpc/latest#list-endpoint-gateways) to connect to supported {{site.data.keyword.cloud_notm}} services from your VPC network by using the IP addresses of your choice, which is allocated from a subnet within your VPC. For more information, see [About virtual private endpoint gateways](/docs/vpc?topic=vpc-about-vpe).
+- **Virtual private endpoint gateways.** Use [virtual private endpoint gateways](/docs/apis/vpc/latest#list-endpoint-gateways) to connect to supported {{site.data.keyword.cloud_notm}} services from your VPC network by using the IP addresses of your choice, which is allocated from a subnet within your VPC. For more information, see [About virtual private endpoint gateways](/docs/vpc?topic=vpc-about-vpe).
 
-- **VPC network interfaces.** IP anti-spoofing checks had already been provided for enhanced security. However, certain use cases, such as having a virtual server instance act as a network gateway, require selective disabling of these checks. To accommodate these use cases, if you have the `is.instance.instance.ip-spoofing` IAM action, you can now enable the `allow_ip_spoofing` property when you [create a network interface](/apidocs/vpc/latest#create-instance-network-interface). Alternatively, toggle the property when you [update an existing network interface](/apidocs/vpc/latest#update-instance-network-interface). See also [About IP spoofing checks](/docs/vpc?topic=vpc-ip-spoofing-about).
+- **VPC network interfaces.** IP anti-spoofing checks had already been provided for enhanced security. However, certain use cases, such as having a virtual server instance act as a network gateway, require selective disabling of these checks. To accommodate these use cases, if you have the `is.instance.instance.ip-spoofing` IAM action, you can now enable the `allow_ip_spoofing` property when you [create a network interface](/docs/apis/vpc/latest#create-instance-network-interface). Alternatively, toggle the property when you [update an existing network interface](/docs/apis/vpc/latest#update-instance-network-interface). See also [About IP spoofing checks](/docs/vpc?topic=vpc-ip-spoofing-about).
 
-- **Proxy protocol for application load balancers for VPC.** When you configure a load balancer [pool](/apidocs/vpc/latest#create-load-balancer-pool) to use proxy protocol, the pool will pass information about the client to a back-end pool member when a connection is opened.
+- **Proxy protocol for application load balancers for VPC.** When you configure a load balancer [pool](/docs/apis/vpc/latest#create-load-balancer-pool) to use proxy protocol, the pool will pass information about the client to a back-end pool member when a connection is opened.
 
-    You can also configure a load balancer [listener](/apidocs/vpc/latest#create-load-balancer-listener) to accept proxy protocol information. This feature is useful when the client is, itself, a proxy (which, in turn, was connected to by the actual client) that supports the proxy protocol. This allows client information to be obtained and passed on to any pools that, themselves, have the proxy protocol enabled.
+    You can also configure a load balancer [listener](/docs/apis/vpc/latest#create-load-balancer-listener) to accept proxy protocol information. This feature is useful when the client is, itself, a proxy (which, in turn, was connected to by the actual client) that supports the proxy protocol. This allows client information to be obtained and passed on to any pools that, themselves, have the proxy protocol enabled.
 
     For more information, see [Enabling proxy protocol](/docs/vpc?topic=vpc-advanced-traffic-management#proxy-protocol-enablement).
 
@@ -1969,7 +1969,7 @@ For more information, see [About routing tables and routes](/docs/vpc?topic=vpc-
 
 **Encrypted images.** Use the VPC API to create your own image, encrypt it with your own key, and import it, encrypted, into {{site.data.keyword.cloud_notm}}. After you import the image, use it like any other image. If you use the image to provision an instance, its boot volume is encrypted using the image's root encryption key or another root encryption key of your choosing.
 
-Dive into the APIs to [import an encrypted image](/apidocs/vpc/latest#create-image) and [provision an instance](/apidocs/vpc/latest#create-instance) from that encrypted image. See also [Creating an encrypted custom image](/docs/vpc?topic=vpc-create-encrypted-custom-image).
+Dive into the APIs to [import an encrypted image](/docs/apis/vpc/latest#create-image) and [provision an instance](/docs/apis/vpc/latest#create-instance) from that encrypted image. See also [Creating an encrypted custom image](/docs/vpc?topic=vpc-create-encrypted-custom-image).
 
 ## 31 August 2020
 {: #2020-08-31}
@@ -1977,7 +1977,7 @@ Dive into the APIs to [import an encrypted image](/apidocs/vpc/latest#create-ima
 ### For all version dates
 {: #2020-08-31-all-version-dates}
 
-**Network load balancers.** You can now use the [load balancers API](/apidocs/vpc/latest#list-load-balancer-profiles) to distribute traffic among multiple server instances within the same region of your VPC. To learn how to create and manage a network load balancer, see [About IBM Cloud Network Load Balancer for VPC](/docs/vpc?topic=vpc-network-load-balancers).
+**Network load balancers.** You can now use the [load balancers API](/docs/apis/vpc/latest#list-load-balancer-profiles) to distribute traffic among multiple server instances within the same region of your VPC. To learn how to create and manage a network load balancer, see [About IBM Cloud Network Load Balancer for VPC](/docs/vpc?topic=vpc-network-load-balancers).
 
 The network load balancers API is shared between {{site.data.keyword.cloud_notm}} application load balancers and network load balancers.
 {: note}
@@ -1995,7 +1995,7 @@ This API release supports the following changes:
 
 For more information, see [Creating an instance group for auto scaling](/docs/vpc?topic=vpc-creating-auto-scale-instance-group).
 
-The following new methods are available for [instance groups](/apidocs/vpc/latest#list-instance-groups):
+The following new methods are available for [instance groups](/docs/apis/vpc/latest#list-instance-groups):
 
 - `GET` and `POST` for `/instance_groups`
 - `DELETE`, `GET`, and `PATCH` for `/instance_groups/{id}`
@@ -2007,7 +2007,7 @@ The following new methods are available for [instance groups](/apidocs/vpc/lates
 - `GET` for `/instance_groups/{instance_group_id}/memberships`
 - `DELETE`, `GET`, and `PATCH` for `instance_groups/{instance_group_id}/memberships/{id}`
 
-You can also use the new [instance template](/apidocs/vpc/latest#list-instance-templates) feature independently of auto scale. For example, create a template, and then create instances from that template, without creating an instance group.
+You can also use the new [instance template](/docs/apis/vpc/latest#list-instance-templates) feature independently of auto scale. For example, create a template, and then create instances from that template, without creating an instance group.
 
 The following new endpoints are now available for instances:
 
@@ -2022,7 +2022,7 @@ The following new endpoints are now available for instances:
 ### For all version dates
 {: #2020-07-23-all-version-dates}
 
-The [flow log collectors API](/apidocs/vpc/latest#list-flow-log-collectors) is now generally available.
+The [flow log collectors API](/docs/apis/vpc/latest#list-flow-log-collectors) is now generally available.
 
 ## 22 July 2020
 {: #2020-07-22}
@@ -2032,8 +2032,8 @@ The [flow log collectors API](/apidocs/vpc/latest#list-flow-log-collectors) is n
 
 This API release supports the following enhancements for customer-managed encryption for block storage boot and data volumes:
 
-- `POST /instances` -- [Create an instance](/apidocs/vpc/latest#create-instance) and new volume, encrypted, using your customer root key (CRK). CRKs are imported to {{site.data.keyword.cloud_notm}} or created in a key management service.
-- `POST /volumes` -- Create an unattached data [volume](/apidocs/vpc/latest#create-volume), encrypted, using your CRK.
+- `POST /instances` -- [Create an instance](/docs/apis/vpc/latest#create-instance) and new volume, encrypted, using your customer root key (CRK). CRKs are imported to {{site.data.keyword.cloud_notm}} or created in a key management service.
+- `POST /volumes` -- Create an unattached data [volume](/docs/apis/vpc/latest#create-volume), encrypted, using your CRK.
 
 ## 12 May 2020
 {: #2020-05-12}
@@ -2041,7 +2041,7 @@ This API release supports the following enhancements for customer-managed encryp
 ### For all version dates
 {: #2020-05-12-all-version-dates}
 
-Configure load balancer pool resources and their health monitors to use the HTTPS protocol. This enhancement enables end-to-end SSL encryption with HTTPS listeners, along with HTTPS health checks for increased availability. See the [load balancers API](/apidocs/vpc/latest#list-load-balancers).
+Configure load balancer pool resources and their health monitors to use the HTTPS protocol. This enhancement enables end-to-end SSL encryption with HTTPS listeners, along with HTTPS health checks for increased availability. See the [load balancers API](/docs/apis/vpc/latest#list-load-balancers).
 
 ## 1 May 2020
 {: #2020-05-02}
@@ -2051,7 +2051,7 @@ Configure load balancer pool resources and their health monitors to use the HTTP
 
 This API release supports the following changes:
 
-- [Flow log collectors](/apidocs/vpc/latest#list-flow-log-collectors) API is available as beta
+- [Flow log collectors](/docs/apis/vpc/latest#list-flow-log-collectors) API is available as beta
 - `GET` /security_groups now supports `vpc.crn` and `vpc.name` filters
 
 ## 17 April 2020
@@ -2073,7 +2073,7 @@ Usage recommendations are provided for the following load balancer properties:
 - `protocol` property for load balancer pools
 - `type` property for load balancer pool health monitors
 
-The guidance notes that new values for these properties might be added in the future, and unexpected values are handled gracefully. See the [load balancers API](/apidocs/vpc/latest#list-load-balancers).
+The guidance notes that new values for these properties might be added in the future, and unexpected values are handled gracefully. See the [load balancers API](/docs/apis/vpc/latest#list-load-balancers).
 
 ## 6 February 2020
 {: #2020-02-06}
@@ -2102,7 +2102,7 @@ Device IDs are now shown when you retrieve an instance's volume attachments.
 
 This API release supports the following changes:
 
-- [Network access control list (ACL)](/apidocs/vpc/latest#list-network-acls) methods
+- [Network access control list (ACL)](/docs/apis/vpc/latest#list-network-acls) methods
 - Instance filtering by VPC
 
 ## 21 November 2019
@@ -2121,7 +2121,7 @@ A VPC’s cloud service endpoint source IPs now appear in output. Learn about [c
 
 This API release supports the following changes:
 
-- [Load balancers](/apidocs/vpc/latest#list-load-balancers) API is available as beta
-- [VPN gateways](/apidocs/vpc/latest#list-vpn-gateways) are available as beta
-- Pagination is now supported for [instances](/apidocs/vpc/latest#list-instances)
+- [Load balancers](/docs/apis/vpc/latest#list-load-balancers) API is available as beta
+- [VPN gateways](/docs/apis/vpc/latest#list-vpn-gateways) are available as beta
+- Pagination is now supported for [instances](/docs/apis/vpc/latest#list-instances)
 - Classic access to VPCs (also known as classic peering) is supported

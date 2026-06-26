@@ -2,7 +2,7 @@
 
 copyright:
   years: 2021, 2026
-lastupdated: "2026-06-19"
+lastupdated: "2026-06-26"
 
 keywords: snapshots, Block Storage snapshots, manage snapshots, fast restore clone, backup snapshot, remote copy, cross-regional copy
 
@@ -256,13 +256,13 @@ You can remove a service-to-service authorization for a specific snapshot from t
 {: #snapshots-vpc-s2s-api}
 {: api}
 
-You can programmatically create a service-to-service authorization for a specific snapshot by calling the `policies` method in the [IAM Policy Management API](/apidocs/iam-policy-management#create-policy). For more information, see [Creating service-to-service authorization for cross-account restore with the API](/docs/vpc?topic=vpc-block-s2s-auth&interface=api#block-s2s-auth-xaccountrestore-api).
+You can programmatically create a service-to-service authorization for a specific snapshot by calling the `policies` method in the [IAM Policy Management API](/docs/apis/iam-policy-management#create-policy). For more information, see [Creating service-to-service authorization for cross-account restore with the API](/docs/vpc?topic=vpc-block-s2s-auth&interface=api#block-s2s-auth-xaccountrestore-api).
 
 ## Managing sharing permissions for a snapshot with the API
 {: #snapshots-vpc-s2s-update-api}
 {: api}
 
-You can programmatically revoke a service-to-service authorization for a specific snapshot by calling the `policies` method in the [IAM Policy Management API](/apidocs/iam-policy-management#delete-policy). For more information, see [Removing an authorization by using the API](/docs/iam?topic=iam-serviceauth&interface=api#remove-auth-api).
+You can programmatically revoke a service-to-service authorization for a specific snapshot by calling the `policies` method in the [IAM Policy Management API](/docs/apis/iam-policy-management#delete-policy). For more information, see [Removing an authorization by using the API](/docs/iam?topic=iam-serviceauth&interface=api#remove-auth-api).
 
 ## Adding tags to a snapshot in the console
 {: #snapshots-vpc-add-tags-ui}

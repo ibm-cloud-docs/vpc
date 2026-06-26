@@ -1,8 +1,8 @@
 ---
 
 copyright:
-  years: 2022, 2025
-lastupdated: "2025-07-31"
+  years: 2022, 2026
+lastupdated: "2026-06-26"
 
 subcollection: vpc
 
@@ -32,7 +32,7 @@ The VPC metadata service is supported only on x86 systems.
 {: #faq-rmds-2}
 {: faq}
 
-By calling the [metadata service APIs](/apidocs/vpc-metadata-beta) from within an instance, you can get the instance's initialization data, network interface, volume attachment, public SSH key, and placement group information.
+By calling the [metadata service APIs](/docs/apis/vpc-metadata-beta) from within an instance, you can get the instance's initialization data, network interface, volume attachment, public SSH key, and placement group information.
 
 To use the metadata service, you need an instance identity access token. By using the instance identity token service, you can access the metadata service. For more information, see this [FAQ](#faq-rmds-4).
 

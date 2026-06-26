@@ -1,8 +1,8 @@
 ---
 
 copyright:
-  years: 2023, 2025
-lastupdated: "2025-12-19"
+  years: 2023, 2026
+lastupdated: "2026-06-26"
 
 keywords:
 
@@ -28,7 +28,7 @@ Before you start any load balancer troubleshooting procedure, do the following:
 ## Error codes
 {: #error-codes}
 
-When requests are made to the load balancer APIs, you might encounter errors. An error response contains an error code and a corresponding error message. For more information, see the [VPC API reference](/apidocs/vpc/latest#list-load-balancer-profiles).
+When requests are made to the load balancer APIs, you might encounter errors. An error response contains an error code and a corresponding error message. For more information, see the [VPC API reference](/docs/apis/vpc/latest#list-load-balancer-profiles).
 
 ## Quota errors
 {: #quota-errors}

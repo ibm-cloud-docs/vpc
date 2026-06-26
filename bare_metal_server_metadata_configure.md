@@ -2,7 +2,7 @@
 
 copyright:
   years: 2025, 2026
-lastupdated: "2026-06-25"
+lastupdated: "2026-06-26"
 
 keywords:
 
@@ -30,7 +30,7 @@ Windows users have extra requirements to set up the metadata service. For more i
 
 A bare metal server identity access token provides a security credential for accessing the metadata service. It's a signed token with a set of claims based on information about the bare metal server and information that is passed in the token request. The minimum version date to use the bare metal server identity access token feature is 1 March 2022.
 
-To access the bare metal server identity, make a `PUT "https://api.metadata.cloud.ibm.com/identity/v1/token` call by using the [Metadata service API](/apidocs/vpc-identity/latest#create-access-token) that invokes the bare metal server hostname. Communication between the bare metal server and metadata service never stops with the host. You acquire the token from within the bare metal server. If `https` secure protocol is not enabled on your bare metal server, you can use your bare metal server IP address instead of the hostname.
+To access the bare metal server identity, make a `PUT "https://api.metadata.cloud.ibm.com/identity/v1/token` call by using the [Metadata service API](/docs/apis/vpc-identity/latest#create-access-token) that invokes the bare metal server hostname. Communication between the bare metal server and metadata service never stops with the host. You acquire the token from within the bare metal server. If `https` secure protocol is not enabled on your bare metal server, you can use your bare metal server IP address instead of the hostname.
 
 In the request, you specify an expiration time for the token. The default is 5 minutes, but you can specify that it expires sooner or later (5 seconds to 1 hour).
 
@@ -663,13 +663,13 @@ Certain properties might be required in the following scenarios:
 {: #secure-access-api-provision-bare-metal}
 {: api}
 
-To enable secure access, when you provision a bare metal server with the [POST /bare_metal_servers](/apidocs/vpc/latest#create-bare-metal-server) method, specify a value for the `metadata_service.protocol` property for your bare metal server. For secure access, specify `https`. The default setting is unencrypted `http`.
+To enable secure access, when you provision a bare metal server with the [POST /bare_metal_servers](/docs/apis/vpc/latest#create-bare-metal-server) method, specify a value for the `metadata_service.protocol` property for your bare metal server. For secure access, specify `https`. The default setting is unencrypted `http`.
 
 #### Enable secure access on an existing bare metal server
 {: #secure-access-api-existing-bare-metal}
 {: api}
 
-To enable secure access on an existing bare metal server, use the [PATCH /bare_metal_servers/{id}](/apidocs/vpc/latest#update-bare-metal-server) method to update the bare metal server. Specify a value for the `metadata_service.protocol` property for your bare metal server. For secure access, specify `https`. The default setting is unencrypted `http`.
+To enable secure access on an existing bare metal server, use the [PATCH /bare_metal_servers/{id}](/docs/apis/vpc/latest#update-bare-metal-server) method to update the bare metal server. Specify a value for the `metadata_service.protocol` property for your bare metal server. For secure access, specify `https`. The default setting is unencrypted `http`.
 
 ## Configure metadata settings by using Terraform
 {: #metadata-config-terraform-bare-metal}
@@ -724,13 +724,13 @@ Certain properties might be required in the following scenarios:
 {: #secure-access-terraform-provisioning-bare-metal}
 {: terraform}
 
-To enable secure access, when you provision a bare metal server with the [POST /bare_metal_servers](/apidocs/vpc/latest#create-bare-metal-server) method, specify a value for the `metadata_service.protocol` property for your bare metal server. For secure access, specify `https`. The default setting is unencrypted `http`.
+To enable secure access, when you provision a bare metal server with the [POST /bare_metal_servers](/docs/apis/vpc/latest#create-bare-metal-server) method, specify a value for the `metadata_service.protocol` property for your bare metal server. For secure access, specify `https`. The default setting is unencrypted `http`.
 
 #### Enable secure access on an existing bare metal server
 {: #secure-access-terraform-existing-bare-metal}
 {: terraform}
 
-To enable secure access on an existing bare metal server, use the [PATCH /bare_metal_servers/{id}](/apidocs/vpc/latest#update-bare-metal-server) method to update the bare metal server. Specify a value for the `metadata_service.protocol` property for your bare metal server. For secure access, specify `https`. The default setting is unencrypted `http`.
+To enable secure access on an existing bare metal server, use the [PATCH /bare_metal_servers/{id}](/docs/apis/vpc/latest#update-bare-metal-server) method to update the bare metal server. Specify a value for the `metadata_service.protocol` property for your bare metal server. For secure access, specify `https`. The default setting is unencrypted `http`.
 
 ## Activity tracking events for bare metal server metadata
 {: #metadata-at-events-bare-metal}

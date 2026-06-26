@@ -2,7 +2,7 @@
 
 copyright:
   years: 2019, 2026
-lastupdated: "2026-05-07"
+lastupdated: "2026-06-26"
 
 keywords:
 
@@ -140,7 +140,7 @@ Make sure that your compatible custom image is available in {{site.data.keyword.
 
 When you have an image available in {{site.data.keyword.cos_full_notm}}, you can import it to {{site.data.keyword.vpc_short}} infrastructure by using the application programming interface (API).
 
-To import a custom image by using the API, use [Create an image](/apidocs/vpc/latest#create-image).
+To import a custom image by using the API, use [Create an image](/docs/apis/vpc/latest#create-image).
 
 The `name` can't be used by another image in the region and names that start with `ibm-` are reserved for system-provided images. Specify the `file.href` subproperty with the location of the image. Specify the `operating_system.name` subproperty with the name of the image operating system.
 
@@ -165,7 +165,7 @@ curl -X POST "$vpc_api_endpoint/v1/images?version=2023-02-21&generation=2" -H "A
 ### Schedule custom image lifecycle status changes by using the API
 {: #import-schedule-ilm-status-change-API}
 
-When you import a custom image by using the application programming interface (API), you can also schedule the lifecycle status changes of an {{site.data.keyword.vpc_short}} custom image at the same time by using the [Create an image](/apidocs/vpc/latest#create-image) command.
+When you import a custom image by using the application programming interface (API), you can also schedule the lifecycle status changes of an {{site.data.keyword.vpc_short}} custom image at the same time by using the [Create an image](/docs/apis/vpc/latest#create-image) command.
 
 The `name` can't be used by another image in the region and names that start with `ibm-` are reserved for system-provided images. Specify the `file.href` subproperty with the location of the image. Specify the `operating_system.name` subproperty with the name of the image operating system.
 
@@ -364,7 +364,7 @@ After you import a custom image, you can view the checksum that was generated fo
 
 If you generate a checksum locally for your image before you import it, you can compare the two checksums to make sure that they are identical. Matching checksums indicate that the image is unaltered.
 
-To validate as custom image by using the API, use [List all images](/apidocs/vpc/latest#list-images).
+To validate as custom image by using the API, use [List all images](/docs/apis/vpc/latest#list-images).
 
 For the `$image_id`, specify the ID of the custom image you want to validate.
 

@@ -2,7 +2,7 @@
 
 copyright:
   years: 2023, 2026
-lastupdated: "2026-04-16"
+lastupdated: "2026-06-26"
 
 keywords:
 
@@ -123,7 +123,7 @@ For this example, a single virtual server instance is running three instances of
 
 For compatibility with old clients, the API response provides a read-only representation of each network attachment and its associated virtual network interface as a child network interface:
 
-* When retrieving an [instance network interface](/apidocs/vpc#get-instance-network-interface), the properties are derived as follows:
+* When retrieving an [instance network interface](/docs/apis/vpc#get-instance-network-interface), the properties are derived as follows:
 
 | Network interface property | Mapped from                                                                               |
 |:---------------------------|:------------------------------------------------------------------------------------------|
@@ -155,7 +155,7 @@ The `status` value is determined according to the following table:
 |                   `stable`                    |                   `stable`                    | `available` |
 {: caption="Instance network interface status values" caption-side="bottom"}
 
-* The same properties are derived when retrieving a [bare metal server network interface](/apidocs/vpc#get-bare-metal-server-network-interface), in addition to the following properties that are specific to bare metal server network interfaces:
+* The same properties are derived when retrieving a [bare metal server network interface](/docs/apis/vpc#get-bare-metal-server-network-interface), in addition to the following properties that are specific to bare metal server network interfaces:
 
 | Network interface property  | Mapped from                                           |
 |:----------------------------|:------------------------------------------------------|

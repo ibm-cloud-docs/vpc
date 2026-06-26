@@ -95,7 +95,7 @@ When snapshots are added or deleted, the change in the snapshot size is reported
 You can [create](/docs/vpc?topic=vpc-fs-snapshots-create#fs-snapshots-create) and [manage](/docs/vpc?topic=vpc-fs-snapshots-manage) your snapshots in the console, from the CLI, with the API, and Terraform.
 * To use the console, log in to the [{{site.data.keyword.cloud_notm}} console](/docs/vpc?topic=vpc-fs-snapshots-create&interface=ui).{: ui}
 * To use the [CLI](/docs/vpc?topic=vpc-fs-snapshots-create&interface=cli), download and install the required CLI plug-ins. For more information, see the [CLI reference](/docs/vpc?topic=vpc-vpc-reference&interface=cli).{: cli}
-* To use the [API](/docs/vpc?topic=vpc-fs-snapshots-create&interface=api), set up the [VPC API](/apidocs/vpc).{: api}
+* To use the [API](/docs/vpc?topic=vpc-fs-snapshots-create&interface=api), set up the [VPC API](/docs/apis/vpc).{: api}
 * To use [Terraform](/docs/vpc?topic=vpc-fs-snapshots-create&interface=terraform), download the Terraform CLI and configure the {{site.data.keyword.cloud_notm}} Provider plug-in. For more information, see [Getting started with Terraform](/docs/ibm-cloud-provider-for-terraform?topic=ibm-cloud-provider-for-terraform-getting-started).{: terraform}
 
 For more information about creating and managing snapshots, and restoring a share from a snapshot, see the following topics.

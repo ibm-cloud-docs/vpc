@@ -2,7 +2,7 @@
 
 copyright:
   years: 2019, 2026
-lastupdated: "2026-06-11"
+lastupdated: "2026-06-26"
 
 keywords:
 subcollection: vpc
@@ -365,7 +365,7 @@ To create a VPN gateway with the API, follow these steps:
    ```
    {: codeblock}
 
-To view the complete set of APIs for site-to-site VPN gateways, see the [VPC API reference](/apidocs/vpc/latest#create-vpn-gateway).
+To view the complete set of APIs for site-to-site VPN gateways, see the [VPC API reference](/docs/apis/vpc/latest#create-vpn-gateway).
 
 ## Creating a VPN gateway with Terraform
 {: #vpn-create-terraform}

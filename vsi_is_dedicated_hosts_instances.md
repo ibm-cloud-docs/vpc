@@ -2,7 +2,7 @@
 
 copyright:
   years: 2020, 2026
-lastupdated: "2026-06-11"
+lastupdated: "2026-06-26"
 
 keywords: dedicated host, dedicated host group
 
@@ -278,9 +278,9 @@ curl -X POST \
 
 The dedicated group information is optional. If you want a dedicated group to be created for you automatically, you can omit the group information and add a zone instead.
 
-For more information, see [Create a dedicated host](/apidocs/vpc/latest#create-dedicated-host).
+For more information, see [Create a dedicated host](/docs/apis/vpc/latest#create-dedicated-host).
 
-For details about the `$vpc_api_endpoint` and `$iam_token` variables, see the Authentication and Endpoint URLs sections in [Virtual Private Cloud API Introduction](/apidocs/vpc/latest#about-vpc-api).
+For details about the `$vpc_api_endpoint` and `$iam_token` variables, see the Authentication and Endpoint URLs sections in [Virtual Private Cloud API Introduction](/docs/apis/vpc/latest#about-vpc-api).
 
 ## Next steps
 {: #dh-next-steps}

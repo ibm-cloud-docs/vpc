@@ -2,7 +2,7 @@
 
 copyright:
   years: 2019, 2026
-lastupdated: "2026-06-22"
+lastupdated: "2026-06-26"
 
 keywords: Block Storage, IBM Cloud, VPC, virtual private cloud, Key Protect, encryption, key management, Hyper Protect Crypto Services, HPCS, volume, data storage, virtual server instance, instance, customer-managed encryption, Block Storage for vpc, customer-managed encryption,
 
@@ -171,7 +171,7 @@ You can also create volumes with customer-managed encryption during instance pro
 {: #data-vol-encryption-api}
 {: api}
 
-You can create data volumes with customer-managed encryption programmatically by calling the `/volumes` method in the [VPC API](/apidocs/vpc/latest#create-volume){: external} as shown in the following sample request. Use the `encryption_key` property to specify your customer root key (CRK), shown in the example as `crn:[...key:...]`.
+You can create data volumes with customer-managed encryption programmatically by calling the `/volumes` method in the [VPC API](/docs/apis/vpc/latest#create-volume){: external} as shown in the following sample request. Use the `encryption_key` property to specify your customer root key (CRK), shown in the example as `crn:[...key:...]`.
 
 Valid volume names can include a combination of lowercase alpha-numeric characters (a-z, 0-9) and the hyphen (-), up to 63 characters. Volume names must begin with a lowercase letter. Volume names must be unique across the entire VPC infrastructure.
 {: important}
@@ -299,7 +299,7 @@ The following `VOLUME_ATTACH_JSON_FILE` example defines a data volume with the 1
 {: #provision-byok-api}
 {: api}
 
-You can create virtual server instances with boot volumes that use customer-managed encryption programmatically by calling the `/instances` method in the [VPC API](/apidocs/vpc/latest#create-instance){: external} as shown in the following sample request. Use the `encryption_key` property to specify your customer root key (CRK), shown in the example as `crn:[...key:...]`.
+You can create virtual server instances with boot volumes that use customer-managed encryption programmatically by calling the `/instances` method in the [VPC API](/docs/apis/vpc/latest#create-instance){: external} as shown in the following sample request. Use the `encryption_key` property to specify your customer root key (CRK), shown in the example as `crn:[...key:...]`.
 
 The following example creates an instance with a boot volume with customer-managed encryption and two secondary volumes with customer-managed encryption.
 

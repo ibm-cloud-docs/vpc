@@ -2,7 +2,7 @@
 
 copyright:
   years: 2021, 2026
-lastupdated: "2026-06-16"
+lastupdated: "2026-06-26"
 
 keywords: snapshots, Block Storage, snapshot clone, remote copy, fast restore, Block Storage snapshot, cross-regional snapshot
 
@@ -314,7 +314,7 @@ You can create a snapshot by using the API.
 ### Prerequisites for creating a snapshot with the API
 {: #snapshots-vpc-create-procedure-api}
 
-You can create a snapshot by calling the [VPC API](/apidocs/vpc). Before you start, gather the following information:
+You can create a snapshot by calling the [VPC API](/docs/apis/vpc). Before you start, gather the following information:
 
 - A unique name for the snapshot.
 - The ID of the source volume.

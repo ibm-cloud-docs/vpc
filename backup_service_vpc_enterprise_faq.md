@@ -2,7 +2,7 @@
 
 copyright:
   years: 2022, 2026
-lastupdated: "2026-06-11"
+lastupdated: "2026-06-26"
 
 keywords: Backup for VPC, backup service, backup plan, backup policy, restore, restore volume, restore data, faqs
 
@@ -82,7 +82,7 @@ The enterprise administrator can make a `GET /backup_policies/{backup_policy_id}
 
 When you want to create a backup policy for your enterprise account and all child accounts from the CLI or with the API, you need to fetch your enterprise account `crn`.
 
-To obtain the enterprise CRN programmatically, you need to make a `GET /accounts/{accountID}` request to the [Enterprise API](/apidocs/enterprise-apis/enterprise#get-account){: external}. See the following example.
+To obtain the enterprise CRN programmatically, you need to make a `GET /accounts/{accountID}` request to the [Enterprise API](/docs/apis/enterprise-apis/enterprise#get-account){: external}. See the following example.
 
 ```sh
 curl -X GET "https://enterprise.cloud.ibm.com/v1/accounts/$ACCOUNT_ID" -H "Authorization: Bearer <IAM_Token>" -H 'Content-Type: application/json'
@@ -125,7 +125,7 @@ curl -X GET "https://enterprise.cloud.ibm.com/v1/enterprises" -H "Authorization:
 ```
 {: pre}
 
-For more information, see the API Spec for [list enterprises](/apidocs/enterprise-apis/enterprise#list-enterprises).
+For more information, see the API Spec for [list enterprises](/docs/apis/enterprise-apis/enterprise#list-enterprises).
 
 ## What does the health state mean?
 {: faq}
@@ -141,7 +141,7 @@ When you make a `GET /backup_policies/{id}` request, the API returns a `health_s
 |`inapplicable` | The health state does not apply because of the current lifecycle state. A resource with a lifecycle state of `failed` or `deleting` also has a health state of `inapplicable`. A `pending` resource can also have this state.|
 {: caption="Backup policy health states." caption-side="bottom"}
 
-For more information, see the API Spec for [Retrieve a backup policy](/apidocs/vpc/latest#get-backup-policy){: external}.
+For more information, see the API Spec for [Retrieve a backup policy](/docs/apis/vpc/latest#get-backup-policy){: external}.
 
 ## Can I change the scope of my backup policy to apply to all the accounts within the enterprise?
 {: faq}

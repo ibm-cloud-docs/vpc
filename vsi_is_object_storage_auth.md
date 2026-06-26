@@ -2,7 +2,7 @@
 
 copyright:
   years: 2019, 2026
-lastupdated: "2026-04-17"
+lastupdated: "2026-06-26"
 
 keywords: create authorization for {{site.data.keyword.cos_full_notm}}, import image to vpc infrastructure, migrate virtual server, migrate instance
 
@@ -134,7 +134,7 @@ For more information about all of the parameters that are available for this com
 {: #auth-api}
 {: api}
 
-To authorize a source service access to a target service, use the [IAM Policy Management API](/apidocs/iam-policy-management#create-policy). See the following API example for Create a policy method with the `type=authorization` specified. All of the possible attributes are listed.
+To authorize a source service access to a target service, use the [IAM Policy Management API](/docs/apis/iam-policy-management#create-policy). See the following API example for Create a policy method with the `type=authorization` specified. All of the possible attributes are listed.
 
 The supported attributes for creating an authorization policy depend on what each service supports. For more information about the supported attributes for each service, refer to the documentation for the services that you're using.
 {: note}

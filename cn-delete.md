@@ -1,8 +1,8 @@
 ---
 
 copyright:
-  years: 2024, 2025
-lastupdated: "2025-12-30"
+  years: 2024, 2026
+lastupdated: "2026-06-26"
 
 keywords:
 
@@ -112,7 +112,7 @@ To delete a cluster network with the API, follow these steps:
    ```
    {: codeblock}
 
-To view the complete set of cluster network APIs, see the [VPC API reference](/apidocs/vpc/latest#list-cluster-network-profiles).
+To view the complete set of cluster network APIs, see the [VPC API reference](/docs/apis/vpc/latest#list-cluster-network-profiles).
 
 ## Deleting a cluster network with Terraform
 {: #delete-cluster-network-terraform}

@@ -2,7 +2,7 @@
 
 copyright:
   years: 2022, 2026
-lastupdated: "2026-06-23"
+lastupdated: "2026-06-26"
 
 keywords:
 
@@ -27,7 +27,7 @@ An identity access token provides a security credential for accessing the {{site
 Communication between the instance and the metadata service stays within the host. You acquire the token from within the instance. If secure access to the metadata service is enabled on your instance, use the "https" protocol instead of the "http" protocol.
 {: important}
 
-To obtain the identity token, make a `PUT /identity/v1/token` request to the [Metadata service API](/apidocs/vpc-identity/latest#create-identity-token).
+To obtain the identity token, make a `PUT /identity/v1/token` request to the [Metadata service API](/docs/apis/vpc-identity/latest#create-identity-token).
 
 If you currently use the `/instance_identity/v1/token` method and want to adopt the API release version `2025-08-26` or later, review the changes that are described in the migration guidance: [Updating to the `2025-08-26` version of the VPC Identity API](/docs/vpc?topic=vpc-2025-08-26-migration-metadata-identity).
 {: note}

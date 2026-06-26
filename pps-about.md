@@ -2,7 +2,7 @@
 
 copyright:
   years: 2023, 2026
-lastupdated: "2026-04-30"
+lastupdated: "2026-06-26"
 
 keywords:
 
@@ -134,7 +134,7 @@ The endpoint gateway provides access to the Private Path service by connecting t
 
 * [Quotas and service limits](/docs/vpc?topic=vpc-quotas)
 * [Private Path services CLI reference](/docs/vpc?topic=vpc-vpc-reference)
-* [Private Path services API reference](/apidocs/vpc/latest#list-private-path-service-gateways)
+* [Private Path services API reference](/docs/apis/vpc/latest#list-private-path-service-gateways)
 * [Private Path service resources for Terraform](https://registry.terraform.io/providers/IBM-Cloud/ibm/latest/docs/resources/is_private_path_service_gateway){: external}
 * [Private Path solution tutorial using Terraform](/docs/solution-tutorials?topic=solution-tutorials-vpc-pps-basics)
 * [IAM permissions](/docs/iam?topic=iam-iam-service-roles-actions#is.private-path-service-gateway-roles)

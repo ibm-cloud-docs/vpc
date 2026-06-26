@@ -2,7 +2,7 @@
 
 copyright:
   years: 2019, 2026
-lastupdated: "2026-06-22"
+lastupdated: "2026-06-26"
 
 keywords: vpc Block Storage, provision Block Storage for vpc, bootable snapshots, create volume from snapshot, fast restore
 
@@ -535,7 +535,7 @@ ibmcloud is instance-template-create --template my-tpl-1 --name my-vsi-3 --boot-
 {: #creating-block-storage-api}
 {: api}
 
-You can create {{site.data.keyword.block_storage_is_short}} volumes by directly calling the [VPC REST APIs](/apidocs/vpc){: external}. For more information about the file shares VPC API, see the [VPC API reference](/apidocs/vpc).
+You can create {{site.data.keyword.block_storage_is_short}} volumes by directly calling the [VPC REST APIs](/docs/apis/vpc){: external}. For more information about the file shares VPC API, see the [VPC API reference](/docs/apis/vpc).
 
 ### Before you begin
 {: #block-storage-api-prereqs}
@@ -751,7 +751,7 @@ curl -X POST "$vpc_api_endpoint/v1/instances?version=2024-09-24&generation=2"\
 ```
 {: pre}
 
-For more information about volume creation with the API, see [Creating Block Storage volumes](/docs/vpc?topic=vpc-creating-block-storage&interface=api#creating-block-storage-api) and the API reference for [creating an instance](/apidocs/vpc/latest#create-instance)
+For more information about volume creation with the API, see [Creating Block Storage volumes](/docs/vpc?topic=vpc-creating-block-storage&interface=api#creating-block-storage-api) and the API reference for [creating an instance](/docs/apis/vpc/latest#create-instance)
 
 ### Creating a stand-alone {{site.data.keyword.block_storage_is_short}} volume with the API
 {: #block-storage-create-vol-api}
@@ -870,7 +870,7 @@ A successful response looks like the following example.
 ```
 {: screen}
 
-For more information about volume creation with the API, see [Creating Block Storage volumes](/docs/vpc?topic=vpc-creating-block-storage&interface=api#creating-block-storage-api) and the API reference for [creating a volume](/apidocs/vpc/latest#create-volume).
+For more information about volume creation with the API, see [Creating Block Storage volumes](/docs/vpc?topic=vpc-creating-block-storage&interface=api#creating-block-storage-api) and the API reference for [creating a volume](/docs/apis/vpc/latest#create-volume).
 
 ### Creating a data volume from a snapshot with the API
 {: #block-storage-create-vol-snapshot-api}

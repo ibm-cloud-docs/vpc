@@ -1,8 +1,8 @@
 ---
 
 copyright:
-  years: 2021, 2024
-lastupdated: "2024-10-24"
+  years: 2021, 2026
+lastupdated: "2026-06-26"
 
 keywords: custom image, creating a custom image, migrating a custom image, rbac, permissions, granular, granular permissions, rbac role-based access control
 
@@ -19,7 +19,7 @@ The VPC image service allows the [creation of custom images](/docs/vpc?topic=vpc
 
 The custom resource group that hosts the images can contain a set of images. The resource group can control either a single image or multiple images. It's common for a family of images to be hosted within a resource group. This hosting can make management of the control of the images easier because the access rules are attached to the resource group.
 
-The process that is described here is for the console. However, this function can also be carried out with the [API](/apidocs/iam-identity-token-api) and from the [CLI](/docs/account?topic=account-rgs&interface=cli#rgs_cli).
+The process that is described here is for the console. However, this function can also be carried out with the [API](/docs/apis/iam-identity-token-api) and from the [CLI](/docs/account?topic=account-rgs&interface=cli#rgs_cli).
 {: shortdesc}
 
 ## Creating a custom resource group for image access controls

@@ -2,7 +2,7 @@
 
 copyright:
   years: 2021, 2026
-lastupdated: "2026-06-19"
+lastupdated: "2026-06-26"
 
 keywords: view snapshots, view snapshot, viewing snapshots, see snapshots, Block Storage snapshots
 
@@ -565,7 +565,7 @@ You can list your snapshots by using the API.
 ### Listing all snapshots with the API
 {: #snapshots-vpc-list-all-api}
 
-You can programmatically list all snapshots of your volumes by calling the `/snapshots` method in the [VPC API](/apidocs/vpc/latest#list-snapshots){: external} as shown in the following sample request. By default, the list shows the most recent snapshots first, followed by older snapshots in descending order.
+You can programmatically list all snapshots of your volumes by calling the `/snapshots` method in the [VPC API](/docs/apis/vpc/latest#list-snapshots){: external} as shown in the following sample request. By default, the list shows the most recent snapshots first, followed by older snapshots in descending order.
 
 ```sh
 curl -X GET \
@@ -718,7 +718,7 @@ A successful response looks like the following example.
 ### Listing details of a snapshot with the API
 {: #snapshots-vpc-view-api}
 
-You can programmatically retrieve the details of a single snapshot by calling the `/snapshots` method in the [VPC API](/apidocs/vpc/latest#get-snapshot){: external} and specifying the snapshot ID as shown in the following sample request.
+You can programmatically retrieve the details of a single snapshot by calling the `/snapshots` method in the [VPC API](/docs/apis/vpc/latest#get-snapshot){: external} and specifying the snapshot ID as shown in the following sample request.
 
 ```sh
 curl -X GET \
@@ -792,7 +792,7 @@ A successful response looks like the following example.
 ### Viewing all fast restore snapshot clones with the API
 {: #snapshots-view-zonal-clones-api}
 
-You can programmatically list all fast restore clones by calling the `/snapshots/clones` method in the [VPC API](/apidocs/vpc/latest#list-snapshot-clones){: external} and specifying the snapshot ID as shown in the following sample request.
+You can programmatically list all fast restore clones by calling the `/snapshots/clones` method in the [VPC API](/docs/apis/vpc/latest#list-snapshot-clones){: external} and specifying the snapshot ID as shown in the following sample request.
 
 Make a `GET /v1/snapshots/{id}/clones` request to list all fast restore snapshot clones.
 
@@ -832,7 +832,7 @@ A successful response provides information about the fast restore snapshot clone
 ### Viewing details of a fast restore snapshot clone with the API
 {: #snapshots-clone-details-api}
 
-You can programmatically retrieve the details of a single fast restore clone by calling the `/snapshots/clones` method in the [VPC API](/apidocs/vpc/latest#get-snapshot-clone){: external} and specifying the snapshot ID and zone as shown in the following sample request.
+You can programmatically retrieve the details of a single fast restore clone by calling the `/snapshots/clones` method in the [VPC API](/docs/apis/vpc/latest#get-snapshot-clone){: external} and specifying the snapshot ID and zone as shown in the following sample request.
 
 Make a `GET /v1/snapshots/{id}/clones/{zone-name}` request to retrieve a single fast restore snapshot clone specified by ID and zone name.
 
@@ -860,7 +860,7 @@ A successful response shows the following information about the fast restore sna
 ### Viewing details of a remote region snapshot copy with the API
 {: #snapshots-regional-copy-details-api}
 
-You can programmatically retrieve the details of a single snapshot by calling the `/snapshots` method in the [VPC API](/apidocs/vpc/latest#get-snapshot){: external} and specifying the snapshot ID as shown in the following sample request.
+You can programmatically retrieve the details of a single snapshot by calling the `/snapshots` method in the [VPC API](/docs/apis/vpc/latest#get-snapshot){: external} and specifying the snapshot ID as shown in the following sample request.
 
 ```sh
 curl -X GET \
@@ -956,7 +956,7 @@ A successful response shows information that is similar to the following example
 ### Viewing all snapshot consistency groups with the API
 {: #snapshots-vpc-view-all-consistency-groups-apip}
 
-You can programmatically list all consistency groups by calling the `/snapshot_consistency_groups` method in the [VPC API](/apidocs/vpc/latest#list-snapshot-consistency-groups){: external} as shown in the following sample request.
+You can programmatically list all consistency groups by calling the `/snapshot_consistency_groups` method in the [VPC API](/docs/apis/vpc/latest#list-snapshot-consistency-groups){: external} as shown in the following sample request.
 
 ```sh
 curl -X GET "$vpc_api_endpoint/v1/snapshot_consistency_groups?version=2023-12-05&generation=2" \
@@ -979,7 +979,7 @@ curl -X GET "$vpc_api_endpoint/v1/snapshot_consistency_groups/006-e8707243-96b3-
 ### Viewing details of a snapshot consistency group with the API
 {: #snapshots-vpc-view-a-consistency-group-api}
 
-You can programmatically retrieve details of a consistency group by calling the `/snapshot_consistency_groups` method in the [VPC API](/apidocs/vpc/latest#get-snapshot-consistency-group){: external} as shown in the following sample request.
+You can programmatically retrieve details of a consistency group by calling the `/snapshot_consistency_groups` method in the [VPC API](/docs/apis/vpc/latest#get-snapshot-consistency-group){: external} as shown in the following sample request.
 
 ```sh
 curl -X GET "$vpc_api_endpoint/v1/snapshot_consistency_groups/006-e8707243-96b3-4c27-be1f-57eff0196207?version=2023-12-05&generation=2" \

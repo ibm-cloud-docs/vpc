@@ -2,7 +2,7 @@
 
 copyright:
   years: 2025, 2026
-lastupdated: "2026-06-25"
+lastupdated: "2026-06-26"
 
 keywords:
 
@@ -27,7 +27,7 @@ To access metadata service, you must have a bare metal server identity access to
 
 The metadata service is disabled by default. To enable it, see [Enable or disable the metadata service](/docs/vpc?topic=vpc-configure-metadata-service-bare-metal&interface=ui#metadata-service-enable-bare-metal).
 
-For more information about these API calls and examples, see the [Metadata service API reference](/apidocs/vpc-identity-beta).
+For more information about these API calls and examples, see the [Metadata service API reference](/docs/apis/vpc-identity-beta).
 
 Windows users have extra requirements to access and use the metadata service. For more information, see [Setting up windows servers for using the metadata service](/docs/vpc?topic=vpc-configure-metadata-service-bare-metal&interface=ui#metadata-service-enable-bare-metal).
 {: note}
@@ -45,7 +45,7 @@ Windows users have extra requirements to access and use the metadata service. Fo
 
 A bare metal server identity access token provides a security credential for accessing the metadata service. It's a signed token with a set of claims based on information about the bare metal server and information that is passed in the token request.
 
-To access the bare metal server identity, make a `PUT "http://api.metadata.cloud.ibm.com /identity/v1/token` call by using the [Metadata service API](/apidocs/vpc-identity/latest#create-access-token) that invokes the bare metal server hostname. Communication between the bare metal server and metadata service never departs the host. You acquire the token from within the bare metal server. If secure access to the bare metal server metadata service is enabled on your bare metal server, use the `https` protocol instead of the `http` protocol.
+To access the bare metal server identity, make a `PUT "http://api.metadata.cloud.ibm.com /identity/v1/token` call by using the [Metadata service API](/docs/apis/vpc-identity/latest#create-access-token) that invokes the bare metal server hostname. Communication between the bare metal server and metadata service never departs the host. You acquire the token from within the bare metal server. If secure access to the bare metal server metadata service is enabled on your bare metal server, use the `https` protocol instead of the `http` protocol.
 
 In the request, you specify an expiration time for the token. The default is 5 minutes, but you can specify that it expires sooner or later (5 seconds to 1 hour).
 

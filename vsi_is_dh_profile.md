@@ -1,7 +1,7 @@
 ---
 copyright:
   years: 2020, 2026
-lastupdated: "2026-02-26"
+lastupdated: "2026-06-26"
 
 keywords: dedicated host profiles, balanced, compute, memory, ultra high memory, generation 2, gen 2
 
@@ -330,7 +330,7 @@ All Intel&reg;-based servers operate with the Intel&reg; Hyper-Threading Technol
 ## Querying dedicated host capacity
 {: #profiles-query-dedicated-host-capacity}
 
-For licensing purposes, you can retrieve the total physical capacity of the dedicated host that includes the compute that is held back for intensive resource usage. To see the total physical dedicated host compute, use the `GET` API command to query the dedicated host. The `GET` command returns both `available_memory` and `available_vcpu`. A vCPU is 1/2 of a physical core. For more information, see [Retrieve a dedicated host](/apidocs/vpc#get-dedicated-host).
+For licensing purposes, you can retrieve the total physical capacity of the dedicated host that includes the compute that is held back for intensive resource usage. To see the total physical dedicated host compute, use the `GET` API command to query the dedicated host. The `GET` command returns both `available_memory` and `available_vcpu`. A vCPU is 1/2 of a physical core. For more information, see [Retrieve a dedicated host](/docs/apis/vpc#get-dedicated-host).
 
 ## Next steps
 {: #dh-nextsteps-profiles}

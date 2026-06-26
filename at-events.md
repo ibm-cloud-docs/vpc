@@ -2,7 +2,7 @@
 
 copyright:
   years: 2019, 2026
-lastupdated: "2026-06-23"
+lastupdated: "2026-06-26"
 
 keywords:
 
@@ -871,4 +871,4 @@ Refer to the following information when you are analyzing events:
 
    You cannot use `request id` to correlate console activity tracking events as each call generates a unique `request id`. Instead, you can use `initiator id` to correlate console events that are generated from API calls issued by the same user.
 
-- You can find the detailed information and fields included in the requestData and responseData for the Bare Metal Servers for VPC AT events in the [API documentation](/apidocs/vpc/latest).
+- You can find the detailed information and fields included in the requestData and responseData for the Bare Metal Servers for VPC AT events in the [API documentation](/docs/apis/vpc/latest).

@@ -79,7 +79,7 @@ You also incur charges when you [replicate data](/docs/vpc?topic=vpc-file-storag
 
 In the console, go to the [File storage share for VPC provisioning page](/infrastructure/provision/fileShare) and click the **Pricing** tab. On the **Pricing** tab, you can view details of the pricing plan based on the selected Geography, Region, and Currency. You can also switch between Hourly and Monthly rates.
 
-You can programmatically retrieve the pricing information by calling the [Global catalog API](/apidocs/resource-catalog/global-catalog#get-pricing). For more information, see [Getting dynamic pricing](/docs/account?topic=account-getting-pricing-api).
+You can programmatically retrieve the pricing information by calling the [Global catalog API](/docs/apis/resource-catalog/global-catalog#get-pricing). For more information, see [Getting dynamic pricing](/docs/account?topic=account-getting-pricing-api).
 
 ## File share management questions
 {: #file-storage-vpc-management-questions}

@@ -2,7 +2,7 @@
 
 copyright:
   years: 2017, 2026
-lastupdated: "2026-04-20"
+lastupdated: "2026-06-26"
 
 keywords: IAM access for vpc infrastructure services, permissions for vpc infrastructure services, identity and access management for vpc infrastructure services, roles for vpc infrastructure services, actions for vpc infrastructure services, assigning access for vpc infrastructure services
 
@@ -110,7 +110,7 @@ The following links take you directly to the specific infrastructure service on 
 - [Backup as a Service for VPC](/docs/iam?topic=iam-iam-service-roles-actions#is.backup-policy-roles)
 - [File Storage for VPC](/docs/iam?topic=iam-iam-service-roles-actions#is.share-roles)
 
-Some VPC tasks require authorizations for multiple IAM actions. For example, create virtual server instance not only requires `is.instance.instance.create`, it also requires `is.vpc.vpc.operate`, `is.subnet.subnet.operate`, `is.security-group.security-group.operate`, and `is.volume.volume.create`. Additional conditional actions might be required. For example, if you provision an instance on a dedicated host, you need `is.dedicated-host.dedicated-host-group.operate` and `is.dedicated-host.dedicated-host.operate`. The Virtual Private Cloud API reference includes an Authorization section for each API call, for example, [Create an instance](/apidocs/vpc/latest#create-instance).
+Some VPC tasks require authorizations for multiple IAM actions. For example, create virtual server instance not only requires `is.instance.instance.create`, it also requires `is.vpc.vpc.operate`, `is.subnet.subnet.operate`, `is.security-group.security-group.operate`, and `is.volume.volume.create`. Additional conditional actions might be required. For example, if you provision an instance on a dedicated host, you need `is.dedicated-host.dedicated-host-group.operate` and `is.dedicated-host.dedicated-host.operate`. The Virtual Private Cloud API reference includes an Authorization section for each API call, for example, [Create an instance](/docs/apis/vpc/latest#create-instance).
 {: note}
 
 ## Assigning access to VPC Infrastructure Services in the console
@@ -142,7 +142,7 @@ ibmcloud iam user-policy-create USER@EXAMPLE.COM --service-name is --roles "View
 {: #vpc-infrastructure-services-assign-access-api}
 {: api}
 
-For step-by-step instructions for assigning, removing, and reviewing access, see [Assigning access to resources by using the API](/docs/iam?topic=iam-assign-access-resources&interface=api) or [Create a policy API](/apidocs/iam-policy-management#create-policy). Role cloud resource names (CRN) in the following table are used to assign access with the API.
+For step-by-step instructions for assigning, removing, and reviewing access, see [Assigning access to resources by using the API](/docs/iam?topic=iam-assign-access-resources&interface=api) or [Create a policy API](/docs/apis/iam-policy-management#create-policy). Role cloud resource names (CRN) in the following table are used to assign access with the API.
 
 | Role name | Role CRN |
 |---------------|-----------------|
@@ -426,7 +426,7 @@ For more information about resources group, see [Resource groups](/docs/account?
 
 When you use tags to control access to your resources, your team's projects can grow without requiring updates to IAM policies. You can attach Access Management Tags to VPC Infrastructure Resources and you can define access level to those resources based on tags.
 
-VPC Infrastructure resources have a complex authorization model where a single API call might check authorizations on multiple resources. For such APIs, tags must be attached to all resources that an API needs access to. For more information about required API authorizations, see the [VPC API Reference](/apidocs/vpc/latest).
+VPC Infrastructure resources have a complex authorization model where a single API call might check authorizations on multiple resources. For such APIs, tags must be attached to all resources that an API needs access to. For more information about required API authorizations, see the [VPC API Reference](/docs/apis/vpc/latest).
 
 If the API call returns `UNKNOWN` for a resource group name, add Viewer access to resource groups when you create the access management tags policy.
 {: tip}

@@ -2,7 +2,7 @@
 
 copyright:
   years: 2021, 2026
-lastupdated: "2026-03-23"
+lastupdated: "2026-06-26"
 
 keywords: image, virtual private cloud, boot volume, virtual server instance, instance
 
@@ -203,7 +203,7 @@ ibmcloud is image-create IMAGE_NAME [--source-volume VOLUME_ID] [--deprecate-at 
 {: #image-from-volume-vpc-api}
 {: api}
 
-Create custom images from {{site.data.keyword.block_storage_is_short}} boot volumes programmatically by making calls to the [VPC REST APIs](/apidocs/vpc). You can list all instances and volumes, then use the details of the specific volume to create the image.
+Create custom images from {{site.data.keyword.block_storage_is_short}} boot volumes programmatically by making calls to the [VPC REST APIs](/docs/apis/vpc). You can list all instances and volumes, then use the details of the specific volume to create the image.
 
 ### Before you begin
 {: #ifv-prereqs-api}
@@ -213,13 +213,13 @@ Before you begin, make sure that you [set up your API environment](/docs/vpc?top
 ### Creating an image from a boot of an instance with the API
 {: #ifv-vpc-api-create-instance}
 
-1. Locate the instance and boot volume that you want to create an image from. Get the list of the available instances with the [list instance](/apidocs/vpc/latest#list-instances) method.
+1. Locate the instance and boot volume that you want to create an image from. Get the list of the available instances with the [list instance](/docs/apis/vpc/latest#list-instances) method.
       ```sh
       curl -X GET "$vpc_api_endpoint/v1/instances?version=2024-06-11&generation=2" -H "Authorization: Bearer $iam_token"
       ```
       {: pre}
 
-1. Take a note of the instance ID, and use it to [retrieve the instance](/apidocs/vpc/latest#get-instance) details.
+1. Take a note of the instance ID, and use it to [retrieve the instance](/docs/apis/vpc/latest#get-instance) details.
       ```sh
       curl -X GET "$vpc_api_endpoint/v1/instances/$instance_id?version=2024-06-11&generation=2" -H "Authorization: Bearer $iam_token"
       ```
@@ -256,7 +256,7 @@ Before you begin, make sure that you [set up your API environment](/docs/vpc?top
       ```
       {: pre}
 
-1. By using the boot volume ID, [create an image](/apidocs/vpc/latest#create-image). See the following example:
+1. By using the boot volume ID, [create an image](/docs/apis/vpc/latest#create-image). See the following example:
       ```sh
        curl -X POST "$vpc_api_endpoint/v1/images?version=2024-06-11&generation=2"
        -H "Authorization: Bearer $iam_token"
@@ -313,7 +313,7 @@ Before you begin, make sure that you [set up your API environment](/docs/vpc?top
    - [{{site.data.keyword.keymanagementserviceshort}} - Retrieving your instance ID and cloud resource name (CRN)](/docs/key-protect?topic=key-protect-retrieve-instance-ID&interface=api).
    - [{{site.data.keyword.hscrypto}} - Retrieving your instance ID](/docs/hs-crypto?topic=hs-crypto-retrieve-instance-ID&interface=api).
 
-1. Make an API request to [create an image](/apidocs/vpc/latest#create-image). Specify the volume ID and the CRN of the root key as shown in the following example.
+1. Make an API request to [create an image](/docs/apis/vpc/latest#create-image). Specify the volume ID and the CRN of the root key as shown in the following example.
    ```sh
    curl -X POST "$vpc_api_endpoint/v1/images?version=2024-06-11&generation=2"
    -H "Authorization: Bearer $iam_token"

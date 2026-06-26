@@ -288,9 +288,9 @@ You can create a replica for an existing file share in the same region or in ano
 {: #fs-create-replica-api}
 {: api}
 
-You can programmatically set up replication by calling the `/shares` method in the [VPC API](/apidocs/vpc/latest#create-share){: external} as shown in the following sample requests.
+You can programmatically set up replication by calling the `/shares` method in the [VPC API](/docs/apis/vpc/latest#create-share){: external} as shown in the following sample requests.
 
-Before you begin, first set up the [API environment](/docs/vpc?topic=vpc-set-up-environment&interface=api). For more information about the file shares VPC API, see the [VPC API reference](/apidocs/vpc/latest).
+Before you begin, first set up the [API environment](/docs/vpc?topic=vpc-set-up-environment&interface=api). For more information about the file shares VPC API, see the [VPC API reference](/docs/apis/vpc/latest).
 
 ### Creating a file share with a replica with the API
 {: #fs-create-new-share-replica-api}

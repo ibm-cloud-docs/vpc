@@ -59,7 +59,7 @@ ibmcloud is shares --output json | jq '.[] | select(.access_control_mode == "vpc
 {: pre}
 {: cli}
 
-Make a [`GET /shares`](/apidocs/vpc/latest#list-shares) request and pipe the JSON response to [`jq`](https://jqlang.org/){: external}:
+Make a [`GET /shares`](/docs/apis/vpc/latest#list-shares) request and pipe the JSON response to [`jq`](https://jqlang.org/){: external}:
 {: api}
 
 ```sh

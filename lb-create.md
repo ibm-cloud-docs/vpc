@@ -2,7 +2,7 @@
 
 copyright:
   years: 2021, 2026
-lastupdated: "2026-06-19"
+lastupdated: "2026-06-26"
 
 keywords: application load balancer, ALB, create load balancer, VPC load balancer, load balancer pools, load balancer listeners
 
@@ -481,7 +481,7 @@ To create an application load balancer with the API, follow these steps:
     ```
     {: codeblock}
 
-    For more options, see [VPC API reference for load balancers](https://cloud.ibm.com/apidocs/vpc/latest#list-load-balancer-profiles).
+    For more options, see [VPC API reference for load balancers](https://cloud.ibm.com/docs/apis/vpc/latest#list-load-balancer-profiles).
 
     Sample output:
 

@@ -2,7 +2,7 @@
 
 copyright:
   years: 2022, 2026
-lastupdated: "2026-06-16"
+lastupdated: "2026-06-26"
 
 keywords: Backup for VPC, backup service, backup plan, backup policy, restore, restore volume, restore data, view backup lists,
 
@@ -162,7 +162,7 @@ $ ibmcloud is backup-policy-jobs r006-0723c648-9a47-4d51-b1ba-349e21e715b6  -jso
             {
                 "crn": "crn:v1:bluemix:public:is:us-south:a/a1234567::snapshot:r006-1ac68268-35e5-4eb0-8e9f-82fbf06cf192",
                 "deleted": {
-                    "more_info": "https://cloud.ibm.com/apidocs/vpc#deleted-resources"
+                    "more_info": "https://cloud.ibm.com/docs/apis/vpc#deleted-resources"
                 },
                 "href": "https://us-south.iaas.cloud.ibm.com/v1/snapshots/r006-1ac68268-35e5-4eb0-8e9f-82fbf06cf192",
                 "id": "r006-1ac68268-35e5-4eb0-8e9f-82fbf06cf192",
@@ -278,7 +278,7 @@ A successful response looks like the following example.
       "auto_delete_after": 90,
       "backup_policy_plan": {
         "deleted": {
-          "more_info": "https://cloud.ibm.com/apidocs/vpc#deleted-resources"
+          "more_info": "https://cloud.ibm.com/docs/apis/vpc#deleted-resources"
         },
         "href": "https://us-south.iaas.cloud.ibm.com/v1/backup_policies/0fe9e5d8-0a4d-4818-96ec-e99708644a58/plans/4cf9171a-0043-4434-8727-15b53dbc374c",
         "id": "4cf9171a-0043-4434-8727-15b53dbc374c",
@@ -294,7 +294,7 @@ A successful response looks like the following example.
       "source": {
         "crn": "crn:v1:bluemix:public:is:us-south-1:a/123456::volume:r006-1a6b7274-678d-4dfb-8981-c71dd9d4daa5",
         "deleted": {
-          "more_info": "https://cloud.ibm.com/apidocs/vpc#deleted-resources"
+          "more_info": "https://cloud.ibm.com/docs/apis/vpc#deleted-resources"
         },
         "href": "https://us-south.iaas.cloud.ibm.com/v1/volumes/r006-1a6b7274-678d-4dfb-8981-c71dd9d4daa5",
         "id": "1a6b7274-678d-4dfb-8981-c71dd9d4daa5",
@@ -312,7 +312,7 @@ A successful response looks like the following example.
       "target_snapshot": {
         "crn": "crn:v1:bluemix:public:is:us-south:a/123456::snapshot:f6bfa329-0e36-433f-a3bb-0df632e79263",
         "deleted": {
-          "more_info": "https://cloud.ibm.com/apidocs/vpc#deleted-resources"
+          "more_info": "https://cloud.ibm.com/docs/apis/vpc#deleted-resources"
         },
         "href": "https://us-south.iaas.cloud.ibm.com/v1/snapshots/f6bfa329-0e36-433f-a3bb-0df632e79263",
         "id": "f6bfa329-0e36-433f-a3bb-0df632e79263",
@@ -350,7 +350,7 @@ A successful response looks like the following example.
   "auto_delete_after": 90,
   "backup_policy_plan": {
     "deleted": {
-      "more_info": "https://cloud.ibm.com/apidocs/vpc#deleted-resources"
+      "more_info": "https://cloud.ibm.com/docs/apis/vpc#deleted-resources"
     },
     "href": "https://us-south.iaas.cloud.ibm.com/v1/backup_policies/0fe9e5d8-0a4d-4818-96ec-e99708644a58/plans/4cf9171a-0043-4434-8727-15b53dbc374c",
     "id": "4cf9171a-0043-4434-8727-15b53dbc374c",
@@ -366,7 +366,7 @@ A successful response looks like the following example.
   "source": {
     "crn": "crn:v1:bluemix:public:is:us-south-1:a/123456::volume:r006-1a6b7274-678d-4dfb-8981-c71dd9d4daa5",
     "deleted": {
-      "more_info": "https://cloud.ibm.com/apidocs/vpc#deleted-resources"
+      "more_info": "https://cloud.ibm.com/docs/apis/vpc#deleted-resources"
     },
     "href": "https://us-south.iaas.cloud.ibm.com/v1/volumes/1a6b7274-678d-4dfb-8981-c71dd9d4daa5",
     "id": "1a6b7274-678d-4dfb-8981-c71dd9d4daa5",
@@ -384,7 +384,7 @@ A successful response looks like the following example.
   "target_snapshot": {
     "crn": "crn:v1:bluemix:public:is:us-south:a/123456::snapshot:f6bfa329-0e36-433f-a3bb-0df632e79263",
     "deleted": {
-      "more_info": "https://cloud.ibm.com/apidocs/vpc#deleted-resources"
+      "more_info": "https://cloud.ibm.com/docs/apis/vpc#deleted-resources"
     },
     "href": "https://us-south.iaas.cloud.ibm.com/v1/snapshots/f6bfa329-0e36-433f-a3bb-0df632e79263",
     "id": "f6bfa329-0e36-433f-a3bb-0df632e79263",
@@ -445,7 +445,7 @@ For more information about the arguments and attributes, see [ibm_is_backup_poli
 ## Backup job statuses and reason codes
 {: #backup-jobs-status}
 
-When you view details of a backup job from the CLI or by making a [`GET /backup_policies/{backup_policy_id}/jobs/{backup_job_id}`](/apidocs/vpc/latest#get-backup-policy-job) request to the API, the `status` property indicates whether the job `failed`, is `running`, or `succeeded`. The CLI and API responses also provide status reasons with the following codes:
+When you view details of a backup job from the CLI or by making a [`GET /backup_policies/{backup_policy_id}/jobs/{backup_job_id}`](/docs/apis/vpc/latest#get-backup-policy-job) request to the API, the `status` property indicates whether the job `failed`, is `running`, or `succeeded`. The CLI and API responses also provide status reasons with the following codes:
 
 * `internal_error` - The code indicates an internal error. Contact IBM support if you see this code.
 * `snapshot_encryption_key_invalid` - The code indicates that the system cannot create a snapshot because the encryption key could not be validated. The reason for this error can be that either the key information you provided is incorrect or the service-to-service authorization was revoked.

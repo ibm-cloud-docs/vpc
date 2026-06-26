@@ -257,7 +257,7 @@ Although you can't create a snapshot on a replica share, the snapshots of the so
 ### Listing all snapshots with the API
 {: #fs-snapshots-list-all-api}
 
-You can programmatically list all snapshots of your shares by calling the `/shares/{share-id}/snapshots` method in the [VPC API](/apidocs/vpc/latest#list-snapshots){: external} as shown in the following sample request. By default, the list shows the most recent snapshots first, followed by older snapshots in descending order.
+You can programmatically list all snapshots of your shares by calling the `/shares/{share-id}/snapshots` method in the [VPC API](/docs/apis/vpc/latest#list-snapshots){: external} as shown in the following sample request. By default, the list shows the most recent snapshots first, followed by older snapshots in descending order.
 
 ```sh
 curl -X GET \
@@ -346,7 +346,7 @@ For snapshots of regional file shares, the zone value is blank in both the CLI a
 ### Listing details of a snapshot with the API
 {: #fs-snapshots-view-api}
 
-You can programmatically retrieve the details of a single snapshot by calling the `/shares/{share-id}/snapshots/{snapshot-id}` method in the [VPC API](/apidocs/vpc/latest#get-snapshot){: external} and specifying the share ID and the snapshot ID as shown in the following sample request.
+You can programmatically retrieve the details of a single snapshot by calling the `/shares/{share-id}/snapshots/{snapshot-id}` method in the [VPC API](/docs/apis/vpc/latest#get-snapshot){: external} and specifying the share ID and the snapshot ID as shown in the following sample request.
 
 ```sh
 curl -X GET \

@@ -2,7 +2,7 @@
 
 copyright:
   years: 2022, 2026
-lastupdated: "2026-06-23"
+lastupdated: "2026-06-26"
 
 keywords: auto-negotiation, ciphers, upgrading ciphers, migrating ciphers
 
@@ -116,9 +116,9 @@ To upgrade the auto-negotiation policy with the API, follow these steps:
 
 1. Store the VPN gateway ID and VPN connection ID in variables to be used in the API, for example:
 
-   `vpn_gateway_id` - Find the VPN gateway ID by using the [get VPN gateways](/apidocs/vpc/latest#list-vpn-gateways) API, and then populate the variable.
+   `vpn_gateway_id` - Find the VPN gateway ID by using the [get VPN gateways](/docs/apis/vpc/latest#list-vpn-gateways) API, and then populate the variable.
 
-   `vpn_connection_id` - Find the VPN gateway connection ID by using the [get VPN gateway connections](/apidocs/vpc/latest#list-vpn-gateway-connections) API, and then populate the variable.
+   `vpn_connection_id` - Find the VPN gateway connection ID by using the [get VPN gateway connections](/docs/apis/vpc/latest#list-vpn-gateway-connections) API, and then populate the variable.
 
     ```sh
     export vpn_gateway_id=<your_vpn_gateway_id>
@@ -166,9 +166,9 @@ To upgrade the auto-negotiation policy by using the SDK, follow these Go languag
 
 1. Store the VPN gateway ID and VPN connection ID variables to be used in your SDK, for example:
 
-   `gatewayID` - Find the VPN gateway ID by using the [get VPN gateways](/apidocs/vpc/latest?code=go#list-vpn-gateways) command, and then populate the variable:
+   `gatewayID` - Find the VPN gateway ID by using the [get VPN gateways](/docs/apis/vpc/latest?code=go#list-vpn-gateways) command, and then populate the variable:
 
-   `connID` - Find the VPN gateway connection ID by using the [get VPN gateway connections](/apidocs/vpc/latest?code=go#list-vpn-gateway-connections) command, and then populate the variable:
+   `connID` - Find the VPN gateway connection ID by using the [get VPN gateway connections](/docs/apis/vpc/latest?code=go#list-vpn-gateway-connections) command, and then populate the variable:
 
     ```go
     gatewayID := <your_vpn_gateway_id>
@@ -208,7 +208,7 @@ To upgrade the auto-negotiation policy by using the SDK, follow these Go languag
    ```
    {: codeblock}
 
-For more information about SDK Go or other languages, see the [VPC SDK reference](/apidocs/vpc/latest?code=go#update-vpn-gateway-connection).
+For more information about SDK Go or other languages, see the [VPC SDK reference](/docs/apis/vpc/latest?code=go#update-vpn-gateway-connection).
 
 ### Upgrading the auto-negotiation policy with Terraform
 {: #upgrade-vpn-old-auto-procedure-ui-terraform}
@@ -532,7 +532,7 @@ To upgrade a custom IKE policy with the API, follow these steps:
 
 1. Find and store the IKE policy ID variable to be used in your API code, for example:
 
-   `ike_policy_id` - Find the ID of IKE policy that contains weak ciphers by using the [list IKE policies](/apidocs/vpc/latest#list-ike-policies) command, and then populate the variable:
+   `ike_policy_id` - Find the ID of IKE policy that contains weak ciphers by using the [list IKE policies](/docs/apis/vpc/latest#list-ike-policies) command, and then populate the variable:
 
     ```sh
     curl -X PATCH "$vpc_api_endpoint/v1/ike_policies/$ike_policy_id?version=$api_version&generation=2" \
@@ -580,7 +580,7 @@ To upgrade the IPsec policy with the API, follow these steps:
 
 1. Find and store IPsec policy ID variable to be used in your API code, for example:
 
-   `ipsec_policy_id` - Find the IPsec policy ID by using the [list IPsec policies](/apidocs/vpc/latest#list-ipsec-policies) command and then populate the variable:
+   `ipsec_policy_id` - Find the IPsec policy ID by using the [list IPsec policies](/docs/apis/vpc/latest#list-ipsec-policies) command and then populate the variable:
 
     ```sh
     export ipsec_policy_id=<your_ipsec_policy_id>
@@ -626,7 +626,7 @@ To upgrade the IKE policy by using the SDK, follow these Go language example ste
 
 1. Find and store IKE policy ID variable to be used in your SDK, for example:
 
-   `ikePolicyID` - Find the ID of the IKE policy that contains weak ciphers by using the [list IKE policies](/apidocs/vpc/latest?code=go#list-ike-policies) command, and then populate the variable:
+   `ikePolicyID` - Find the ID of the IKE policy that contains weak ciphers by using the [list IKE policies](/docs/apis/vpc/latest?code=go#list-ike-policies) command, and then populate the variable:
 
     ```go
     ikePolicyID := <you_ike_policy_id>
@@ -661,7 +661,7 @@ To upgrade the IKE policy by using the SDK, follow these Go language example ste
    ```
    {: codeblock}
 
-For more information about SDK Go or other languages, see the [VPC SDK reference](/apidocs/vpc/latest?code=go#update-ike-policy).
+For more information about SDK Go or other languages, see the [VPC SDK reference](/docs/apis/vpc/latest?code=go#update-ike-policy).
 
 ### Upgrading a VPN from a custom IPsec policy with the SDK
 {: #upgrade-vpn-custom-ipsec-policy-procedure-sdk}
@@ -671,7 +671,7 @@ To upgrade the IPsec policy by using the SDK, follow these Go language example s
 
 1. Find and store IPsec policy ID variable to be used in your SDK, for example:
 
-   `ipsecPolicyID` - Find the ID of IPsec policy that contains weak ciphers by using the [list IPsec policies](/apidocs/vpc/latest?code=go#list-ipsec-policies) command, and then populate the variable:
+   `ipsecPolicyID` - Find the ID of IPsec policy that contains weak ciphers by using the [list IPsec policies](/docs/apis/vpc/latest?code=go#list-ipsec-policies) command, and then populate the variable:
 
     ```go
     ipsecPolicyID := <you_ipsec_policy_id>
@@ -709,7 +709,7 @@ To upgrade the IPsec policy by using the SDK, follow these Go language example s
    ```
    {: codeblock}
 
-For more information about SDK Go or other languages, see the [VPC SDK reference](/apidocs/vpc/latest?code=go#update-ipsec-policy).
+For more information about SDK Go or other languages, see the [VPC SDK reference](/docs/apis/vpc/latest?code=go#update-ipsec-policy).
 
 ### Upgrading a VPN from a custom IKE policy with Terraform
 {: #upgrade-vpn-custom-ike-policy-procedure-terraform}

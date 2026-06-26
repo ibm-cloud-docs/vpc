@@ -39,7 +39,7 @@ The utility uses strongSwan and [`swanctl`](https://docs.strongswan.org/docs/5.9
 
 The Mount Helper makes new certificate requests every 45 minutes, as the lifetime of the certificate is 1 hour. The new certificate is generated before the old certificate expires to ensure seamless connection. The certificates are generated with the shorter life span for security reasons.
 
-You can use the utility for encrypted or unencrypted connections. For encrypted connections, the Mount Helper uses the metadata service protocol option that is set to either `http` or `https`. For more information, see the API reference for `metadata_service` option of [instance provisioning](/apidocs/vpc/latest#create-instance){: external} and [bare metal server provisioning](/apidocs/vpc/latest#create-bare-metal-server){: external}.
+You can use the utility for encrypted or unencrypted connections. For encrypted connections, the Mount Helper uses the metadata service protocol option that is set to either `http` or `https`. For more information, see the API reference for `metadata_service` option of [instance provisioning](/docs/apis/vpc/latest#create-instance){: external} and [bare metal server provisioning](/docs/apis/vpc/latest#create-bare-metal-server){: external}.
 
 ### Stunnel secure connection for regional shares
 {: #fs-eit-stunnel}

@@ -2,7 +2,7 @@
 
 copyright:
   years: 2025, 2026
-lastupdated: "2026-06-11"
+lastupdated: "2026-06-26"
 
 keywords: application load balancer migration, api migration, versioned change
 
@@ -13,7 +13,7 @@ subcollection: vpc
 # Updating to the `2025-04-08` version (SNI hostname support for application load balancers)
 {: #2025-04-08-migration-alb-listener-policy}
 
-As described in the [VPC API](/apidocs/vpc/latest) reference [versioning](/apidocs/vpc#api-versioning) policy, most changes to the VPC APIs are fully backward compatible and are made available to all clients, regardless of the API version the client requests. However, the `2025-04-08` release of the VPC API necessitated incompatible changes in support of [creating a listener policy](/apidocs/vpc/latest#create-load-balancer-listener-policy) for application load balancers (ALBs).
+As described in the [VPC API](/docs/apis/vpc/latest) reference [versioning](/docs/apis/vpc#api-versioning) policy, most changes to the VPC APIs are fully backward compatible and are made available to all clients, regardless of the API version the client requests. However, the `2025-04-08` release of the VPC API necessitated incompatible changes in support of [creating a listener policy](/docs/apis/vpc/latest#create-load-balancer-listener-policy) for application load balancers (ALBs).
 
 Before you adopt the release version `2025-04-08` or later, review the changes described in this migration guidance that might require you to update your client.
 
@@ -22,14 +22,14 @@ Before you adopt the release version `2025-04-08` or later, review the changes d
 
 The following application load balancer listener policy property has changed for API requests that use a `version` query parameter of `2024-04-08` or later.
 
-When [creating an application load balancer policy](/apidocs/vpc/latest#create-load-balancer-listener) (`POST /load_balancers/{load_balancer_id}/listeners/{listener_id}/policies`):
+When [creating an application load balancer policy](/docs/apis/vpc/latest#create-load-balancer-listener) (`POST /load_balancers/{load_balancer_id}/listeners/{listener_id}/policies`):
 
 | Old property           |        New property      |
 |------------------------|--------------------------|
 |   `action.forward`     | `action.forward_to_pool` |
 {: caption="Old and new properties when creating an ALB listener policy." caption-side="bottom"}
 
-When [retrieving an ALB listener policy](/apidocs/vpc/latest#get-load-balancer-listener-policy) (`GET /load_balancers/{load_balancer_id}/listeners/{listener_id}/policies/{id}`):
+When [retrieving an ALB listener policy](/docs/apis/vpc/latest#get-load-balancer-listener-policy) (`GET /load_balancers/{load_balancer_id}/listeners/{listener_id}/policies/{id}`):
 
 | Old property           |        New property      |
 |------------------------|--------------------------|
@@ -37,7 +37,7 @@ When [retrieving an ALB listener policy](/apidocs/vpc/latest#get-load-balancer-l
 {: caption="Old and new properties when retrieving an ALB listener policy." caption-side="bottom"}
 
 
-When [listing policies for a load balancer listener](/apidocs/vpc/latest#list-load-balancer-listener-policies) (`GET /load_balancers/{load_balancer_id}/listeners/{listener_id}/policies`):
+When [listing policies for a load balancer listener](/docs/apis/vpc/latest#list-load-balancer-listener-policies) (`GET /load_balancers/{load_balancer_id}/listeners/{listener_id}/policies`):
 
 | Old property           |        New property      |
 |------------------------|--------------------------|

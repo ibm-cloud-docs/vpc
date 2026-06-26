@@ -2,7 +2,7 @@
 
 copyright:
   years: 2021, 2026
-lastupdated: "2026-06-11"
+lastupdated: "2026-06-26"
 
 keywords: creating bare metal servers
 
@@ -88,12 +88,12 @@ Before you use the API to create bare metal server, see the following table for 
 
 | Server detail | Listing options |
 | --------- | --------- |
-| Image | [List all images](/apidocs/vpc/latest#list-images) \n  \n For more information, see [Bare metal server images](/docs/vpc?topic=vpc-bare-metal-image). For information about using custom images with your bare metal server, see [Getting started with custom images](/docs/vpc?topic=vpc-planning-custom-images&interface=ui). The allowed-use expression for the selected image might affect which settings and profiles that you can use to create a bare metal server by using that image. For information on using allowed-use expressions with your bare metal server custom images, see [Adding allowed-use expressions to custom images](/docs/vpc?topic=vpc-custom-image-allowed-use-expressions&interface=ui). |
-| Keys | [List all keys](/apidocs/vpc/latest#list-keys)  \n  \n If you don't have any available SSH keys, use [Create a key](/apidocs/vpc/latest#create-key) to create one. For more information, see [SSH keys](/docs/vpc?topic=vpc-ssh-keys).  \n  \n **Note:**  SSH keys can be either RSA or Ed25519. You can generate new RSA key pairs by using the UI. Pre-existing RSA and Ed25519 SSH keys can be uploaded. Ed25519 can be used only if the operating system supports this key type. Ed25519 can't be used with Windows or VMware images. |
-| Subnet | [List all subnets](/apidocs/vpc/latest#list-subnets) |
-| Security groups (optional) | [List all security groups](/apidocs/vpc/latest#list-security-groups) |
-| Profile | [List all bare metal server profiles](/apidocs/vpc/latest#list-bare-metal-server-profiles) |
-| Zone | [List all regions](/apidocs/vpc/latest#list-regions)  \n [List all zones in a region](/apidocs/vpc/latest#list-region-zones) |
+| Image | [List all images](/docs/apis/vpc/latest#list-images) \n  \n For more information, see [Bare metal server images](/docs/vpc?topic=vpc-bare-metal-image). For information about using custom images with your bare metal server, see [Getting started with custom images](/docs/vpc?topic=vpc-planning-custom-images&interface=ui). The allowed-use expression for the selected image might affect which settings and profiles that you can use to create a bare metal server by using that image. For information on using allowed-use expressions with your bare metal server custom images, see [Adding allowed-use expressions to custom images](/docs/vpc?topic=vpc-custom-image-allowed-use-expressions&interface=ui). |
+| Keys | [List all keys](/docs/apis/vpc/latest#list-keys)  \n  \n If you don't have any available SSH keys, use [Create a key](/docs/apis/vpc/latest#create-key) to create one. For more information, see [SSH keys](/docs/vpc?topic=vpc-ssh-keys).  \n  \n **Note:**  SSH keys can be either RSA or Ed25519. You can generate new RSA key pairs by using the UI. Pre-existing RSA and Ed25519 SSH keys can be uploaded. Ed25519 can be used only if the operating system supports this key type. Ed25519 can't be used with Windows or VMware images. |
+| Subnet | [List all subnets](/docs/apis/vpc/latest#list-subnets) |
+| Security groups (optional) | [List all security groups](/docs/apis/vpc/latest#list-security-groups) |
+| Profile | [List all bare metal server profiles](/docs/apis/vpc/latest#list-bare-metal-server-profiles) |
+| Zone | [List all regions](/docs/apis/vpc/latest#list-regions)  \n [List all zones in a region](/docs/apis/vpc/latest#list-region-zones) |
 {: caption="Information that you need to create a bare metal server by using the API" caption-side="bottom"}
 
 You can provision a bare metal server from an `available`, `partially_available` (image is not yet available in all zones), or `deprecated` image. For more information on image lifecycles, see [Custom image lifecycle](/docs/vpc?topic=vpc-planning-custom-images#custom-image-lifecycle).
@@ -101,7 +101,7 @@ You can provision a bare metal server from an `available`, `partially_available`
 ### Creating a bare metal server
 {: #api-request-create-bare-metal-server}
 
-After you have all the information, use the [Create bare metal server](/apidocs/vpc/latest#create-bare-metal-server) API request to create a bare metal server.
+After you have all the information, use the [Create bare metal server](/docs/apis/vpc/latest#create-bare-metal-server) API request to create a bare metal server.
 
 * For x86 architecture, you can create a bare metal server with the following example configuration:
 
@@ -321,7 +321,7 @@ After you have all the information, use the [Create bare metal server](/apidocs/
 The status displays "Pending" until the server is created.
 {: tip}
 
-For more information about the API request, see [Create a bare metal server](/apidocs/vpc/latest#create-bare-metal-server).
+For more information about the API request, see [Create a bare metal server](/docs/apis/vpc/latest#create-bare-metal-server).
 
 ### Viewing your server
 {: #viewing-bms-api}

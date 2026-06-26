@@ -2,7 +2,7 @@
 
 copyright:
   years: 2022, 2026
-lastupdated: "2026-03-05"
+lastupdated: "2026-06-26"
 
 keywords:
 
@@ -162,7 +162,7 @@ Follow these instructions to create subnets by using the API:
 |`name` \n Required \n `string` | The name for this subnet. The name must not be used by another subnet in the VPC. If unspecified, the name is going to be a hyphenated list of randomly selected words. \n Possible values: 1 ≤ length ≤ 63, Value must match regular expression `([a-z]&verbar;[a-z][-a-z0-9]*[a-z0-9])$` \n Example: `my-subnet`|
 |`network_acl` \n `string` | The network ACL to use for this subnet. If unspecified, the default network ACL for the VPC is used. \n One of: `NetworkACLIdentityById`, `NetworkACLIdentityByCRN`, `NetworkACLIdentityHref`|
 |`public_gateway` \n `string` |The public gateway to use for internet-bound traffic for this subnet. If unspecified, the subnet is not going to be attached to a public gateway. \n One of: `PublicGatewayIdentityById`, `PublicGatewayIdentityByCRN`, `PublicGatewayIdentityByHref`|
-|`resource_group` \n ResourceGroupIdentityById | The resource group to use. If unspecified, the account’s [default resource group](/apidocs/resource-manager#introduction) is used.|
+|`resource_group` \n ResourceGroupIdentityById | The resource group to use. If unspecified, the account’s [default resource group](/docs/apis/resource-manager#introduction) is used.|
 |`routing_table` \n `string` | The routing table to use for this subnet. If unspecified, the default routing table for the VPC is used. The routing table properties `route_direct_link_ingress`, `route_internet_ingress`, `route_transit_gateway_ingress`, and `route_vpc_zone_ingress` must be `false`. \n One of: `RoutingTableIdentityById`, `RoutingTableIdentityByCRN`, `RoutingTableIdentityByHref`|
 |`SubnetByTotalCount` \n `int 64` \n or \n `SubnetByCIDR` \n `string` | For `SubnetByTotalCount`, specify the total number of IPv4 addresses required. For `SubnetByCIDR`, specify the IPv4 range of the subnet, expressed in CIDR format. Both options require a `zone` for the subnet to be created in.
 {: caption="Parameters for creating a subnet" caption-side="bottom"}
@@ -215,7 +215,7 @@ The following response shows after you initiate the request:
 |`409`| The subnet prototype object conflicts with another subnet in the VPC, or specifies a CIDR block outside of the VPC's address prefixes.|
 {: caption="Create status codes" caption-side="bottom"}
 
-For more information (including Java, Node, Python and Go examples), see the create a subnet method in the [VPC API reference](/apidocs/vpc/latest#create-subnet).
+For more information (including Java, Node, Python and Go examples), see the create a subnet method in the [VPC API reference](/docs/apis/vpc/latest#create-subnet).
 
 ## Viewing subnets
 {: #subnets-view}
@@ -321,5 +321,5 @@ The following response shows after you initiate the request:
 |`404`| A subnet with the specified identifier could not be found.|
 {: caption="Retrieve status codes" caption-side="bottom"}
 
-For more information (including Java, Node, Python and Go examples), see "Retrieve a subnet" in the [VPC API reference](/apidocs/vpc/latest#get-subnet).
+For more information (including Java, Node, Python and Go examples), see "Retrieve a subnet" in the [VPC API reference](/docs/apis/vpc/latest#get-subnet).
 {: note}

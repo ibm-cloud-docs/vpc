@@ -2,7 +2,7 @@
 
 copyright:
   years: 2021, 2026
-lastupdated: "2026-06-23"
+lastupdated: "2026-06-26"
 
 keywords: ike policy
 
@@ -290,7 +290,7 @@ To update an IKE policy with the API by using singular properties (deprecated), 
    ```
    {: codeblock}
 
-To view the complete set of APIs for site-to-site VPN gateways, see the [VPC API reference](/apidocs/vpc/latest#create-ike-policy).
+To view the complete set of APIs for site-to-site VPN gateways, see the [VPC API reference](/docs/apis/vpc/latest#create-ike-policy).
 {: tip}
 
 

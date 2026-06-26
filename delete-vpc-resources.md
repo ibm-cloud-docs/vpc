@@ -1,8 +1,8 @@
 ---
 
 copyright:
-  years: 2018, 2025
-lastupdated: "2025-07-01"
+  years: 2018, 2026
+lastupdated: "2026-06-26"
 
 keywords: delete, resources, ui, console, cli, infrastructure, command line interface
 
@@ -335,7 +335,7 @@ curl -X GET "$vpc_api_endpoint/v1/instances?version=$version&generation=2" \
 
 If you are deleting all instances in the VPC, you can run the following command for each instance in the VPC, where `$vsi` is the ID of the instance you want to delete. When the instance is deleted, all network interfaces in other subnets, if any, are deleted automatically.
 
-Instances must be stopped before you can delete them. For more information, see [Create an instance action](/apidocs/vpc/latest#create-instance-action) to use the `type` request and `stop` action.
+Instances must be stopped before you can delete them. For more information, see [Create an instance action](/docs/apis/vpc/latest#create-instance-action) to use the `type` request and `stop` action.
 {: tip}
 
 ```bash

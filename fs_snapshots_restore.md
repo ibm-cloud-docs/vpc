@@ -196,11 +196,11 @@ For more information about available command options, see [`ibmcloud is share-cr
 {: #fs-snapshots-restore-API}
 {: api}
 
-You can programmatically restore a share by calling the `/shares` method in the [VPC API](/apidocs/vpc/latest#create-share).
+You can programmatically restore a share by calling the `/shares` method in the [VPC API](/docs/apis/vpc/latest#create-share).
 
 Before you begin, gather information about the snapshot that you want to use to restore a share.
-   - First, locate the snapshot and view its details. You can use the API to [list all the snapshots of a file share](/apidocs/vpc/latest#list-share-snapshots){: external} and select from the list.
-   - Then, [retrieve the snapshot](/apidocs/vpc/latest#get-share-snapshot){: external} details.
+   - First, locate the snapshot and view its details. You can use the API to [list all the snapshots of a file share](/docs/apis/vpc/latest#list-share-snapshots){: external} and select from the list.
+   - Then, [retrieve the snapshot](/docs/apis/vpc/latest#get-share-snapshot){: external} details.
 
 ### Creating a share from a snapshot with the API
 {: #fs-snapshots-restore-share-api}

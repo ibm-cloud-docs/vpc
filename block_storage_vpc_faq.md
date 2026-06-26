@@ -2,7 +2,7 @@
 
 copyright:
   years: 2019, 2026
-lastupdated: "2026-06-22"
+lastupdated: "2026-06-26"
 
 keywords: faqs, Block Storage for vpc, fast restore, multizone, instance, instance provisioning, volume management, volume deletion.
 
@@ -113,7 +113,7 @@ You can use the Cost estimator ![Cost estimator icon](../icons/calculator.svg "C
 
 In the console, go to the [Block storage volume for VPC provisioning page](/infrastructure/provision/storage) and click the **Pricing** tab. On the **Pricing** tab, you can view details of the pricing plan for each volume profile based on the selected Geography, Region, and Currency. You can also switch between Hourly and Monthly rates.
 
-You can programmatically retrieve the pricing information by calling the [Global catalog API](/apidocs/resource-catalog/global-catalog#get-pricing). For more information, see [Getting dynamic pricing](/docs/account?topic=account-getting-pricing-api).
+You can programmatically retrieve the pricing information by calling the [Global catalog API](/docs/apis/resource-catalog/global-catalog#get-pricing). For more information, see [Getting dynamic pricing](/docs/account?topic=account-getting-pricing-api).
 
 ## Is storage capacity measured in GB or GiB?
 {: faq}

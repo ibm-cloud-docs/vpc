@@ -18,7 +18,7 @@ subcollection: vpc
 VPC API beta version 2025-07-22 changes file share transit encryption from `user_managed` to `ipsec` and removes the `zone` requirement for regional shares.
 {: shortdesc}
 
-As described in the VPC API reference [versioning](/apidocs/vpc/latest#api-versioning) policy, most changes to the VPC APIs are fully compatible with earlier versions and are made available to all clients, regardless of the API version the client requests. However, the beta `2025-07-22` release of the VPC API necessitated incompatible changes in support of file shares, file share profiles, and file share mount target methods.
+As described in the VPC API reference [versioning](/docs/apis/vpc/latest#api-versioning) policy, most changes to the VPC APIs are fully compatible with earlier versions and are made available to all clients, regardless of the API version the client requests. However, the beta `2025-07-22` release of the VPC API necessitated incompatible changes in support of file shares, file share profiles, and file share mount target methods.
 
 Before you adopt the release version `2025-07-22` or later, review the changes that are described in this migration guidance that might require you to update your client.
 {: important}

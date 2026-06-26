@@ -1,8 +1,8 @@
 ---
 
 copyright:
-  years: 2018, 2025
-lastupdated: "2024-02-29"
+  years: 2018, 2026
+lastupdated: "2026-06-26"
 
 keywords:
 
@@ -258,9 +258,9 @@ To create a virtual network interface with the API, follow these steps:
     ```
     {: codeblock}
 
-For more information, see [Create a virtual network interface](/apidocs/vpc/latest#create-virtual-network-interface).
+For more information, see [Create a virtual network interface](/docs/apis/vpc/latest#create-virtual-network-interface).
 
-If you want to attach the virtual network interface to a new virtual server instance, see [Create an instance](/apidocs/vpc/latest#create-instance).
+If you want to attach the virtual network interface to a new virtual server instance, see [Create an instance](/docs/apis/vpc/latest#create-instance).
 
 
 ## Creating a virtual network interface with Terraform

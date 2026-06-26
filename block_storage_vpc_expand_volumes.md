@@ -2,7 +2,7 @@
 
 copyright:
   years: 2020, 2026
-lastupdated: "2026-06-22"
+lastupdated: "2026-06-26"
 
 keywords: Block Storage, boot volume, data volume, volume, data storage, virtual server instance, instance, expandable volume
 
@@ -384,7 +384,7 @@ curl -X POST "$vpc_api_endpoint/v1/instances?version=2022-02-01&generation=2"\
 ```
 {: codeblock}
 
-For more information, see [Create an instance](/apidocs/vpc#create-instance) in the VPC API reference.
+For more information, see [Create an instance](/docs/apis/vpc#create-instance) in the VPC API reference.
 
 #### Expand the capacity of an existing boot volume with the API
 {: #expand-existing-boot-vol-api}

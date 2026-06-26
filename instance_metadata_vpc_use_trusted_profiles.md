@@ -2,7 +2,7 @@
 
 copyright:
   years: 2022, 2026
-lastupdated: "2026-04-20"
+lastupdated: "2026-06-26"
 
 keywords:
 
@@ -66,7 +66,7 @@ Verify that your access permissions are assigned as Administrator or Editor in t
 Create or retrieve a trusted profile. You need either its ID or CRN.
 - In the console, go to **Manage > Access (IAM)**, and select [**Trusted profiles**](/iam/trusted-profiles). For more information about creating a trusted profile and linking it to existing VPC virtual server instance, see [Establishing trust with compute resources in the console](/docs/iam?topic=iam-create-trusted-profile&interface=ui#create-profile-compute).{: ui}
 - From the CLI, you can run the `ibmcloud iam trusted-profile-create` command to create a trusted profile or run the `ibmcloud iam trusted-profiles` command to list existing trusted profiles. For more information,  [Establishing trust with compute resources by using the CLI](/docs/iam?topic=iam-create-trusted-profile&interface=cli#create-profile-compute-cli).{: cli}
-- You can make a [`GET /v1/profiles`](/apidocs/iam-identity-token-api#list-profiles) or [`POST /v1/profiles`](/apidocs/iam-identity-token-api#create-profile) request to the IAM Identity Services API. For more information, see [Establishing trust with compute resources with the API](/docs/iam?topic=iam-create-trusted-profile&interface=api#create-profile-compute-api).{: api}
+- You can make a [`GET /v1/profiles`](/docs/apis/iam-identity-token-api#list-profiles) or [`POST /v1/profiles`](/docs/apis/iam-identity-token-api#create-profile) request to the IAM Identity Services API. For more information, see [Establishing trust with compute resources with the API](/docs/iam?topic=iam-create-trusted-profile&interface=api#create-profile-compute-api).{: api}
 
 ## End-to-end procedure for using a trusted profile to call IAM-enabled services
 {: #imd-trusted-profile-md-ex}
@@ -74,7 +74,7 @@ Create or retrieve a trusted profile. You need either its ID or CRN.
 1. [Create an instance](/docs/vpc?topic=vpc-creating-virtual-servers) with a linked trusted profile, and [enable access to the metadata service in the console](/docs/vpc?topic=vpc-imd-configure-service&interface=ui#imd-enable-service-ui){: ui}[enable access to the metadata service from the cli](/docs/vpc?topic=vpc-imd-configure-service&interface=cli#imd-metadata-service-enable-cli){: cli}[enable access to the metadata service with the API](/docs/vpc?topic=vpc-imd-configure-service&interface=api#imd-metadata-service-enable){: api}.
    - In the console, you find the Metadata service in the **Advanced options**. Click the toggle to enable access to it. Next, click **Select a trusted profile**. In the side panel, select a trusted profile from the list. Click **Select trusted profile**. **Auto-link** is enabled, if you want to manage linking the trusted profile through the IAM interface, you can click the toggle to disable it. For more information, see [Creating virtual server instances](/docs/vpc?topic=vpc-creating-virtual-servers&interface=ui).{: ui}
    - From the CLI, use the `ibmcloud is instance-create` command and specify `--default-trusted-profile YOUR_DEFAULT_TRUSTED_PROFILE`, `--default-trusted-profile-auto-link true`, and `--metadata-service true` options For more information, see [Creating virtual server instances](/docs/vpc?topic=vpc-creating-virtual-servers&interface=cli).{: cli}
-   - With the VPC API, specify the default trusted profile and set the `auto_link` property to `true` to automatically link the trusted profile to the instance. You can specify the ID or the CRN of the trusted profile. For more information, see the API VPC reference: [Create an instance](/apidocs/vpc/latest#create-instance). See the following example.{: api}
+   - With the VPC API, specify the default trusted profile and set the `auto_link` property to `true` to automatically link the trusted profile to the instance. You can specify the ID or the CRN of the trusted profile. For more information, see the API VPC reference: [Create an instance](/docs/apis/vpc/latest#create-instance). See the following example.{: api}
       ```sh
       curl -X POST "$vpc_api_endpoint/v1/instances?version=2022-03-01&generation=2" -H "Authorization: Bearer $iam_token"
        -d '{
@@ -101,7 +101,7 @@ Create or retrieve a trusted profile. You need either its ID or CRN.
       ```
       {: pre}
 
-      The response is the access token payload. For more information, see the Metadata API reference: [Create an identity access token](/apidocs/vpc-identity/latest#create-identity-token).
+      The response is the access token payload. For more information, see the Metadata API reference: [Create an identity access token](/docs/apis/vpc-identity/latest#create-identity-token).
 
 1. Use the identity token to [generate an IAM token](/docs/vpc?topic=vpc-imd-identity-operations#imd-token-exchange).
 

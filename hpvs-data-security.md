@@ -2,7 +2,7 @@
 
 copyright:
   years: 2023, 2026
-lastupdated: "2026-03-20"
+lastupdated: "2026-06-26"
 
 keywords: data security for {{site.data.keyword.hpvs}} for VPC, bring your own key, keep your own key, key management service, kms, {{site.data.keyword.hscrypto}}
 
@@ -147,7 +147,7 @@ You can also choose to **manually** create two partitions in a volume, create a 
     - 1st partition is labeled as `metadata` and is of length 100 MiB. The metadata partition is reserved for internal metadata only and **not** to be accessed by a workload. Create a file system (ext4) and create a file by the name **keyfile**.
     - 2nd partition is labeled as `data` and fills up the full disk space.
 
-2. Use the {{site.data.keyword.hscrypto}} KMS API [**Wrap a key**](/apidocs/hs-crypto#wrapkey){: external} to generate a random plain text that is rooted in an HSM and wrap it without passing the value.
+2. Use the {{site.data.keyword.hscrypto}} KMS API [**Wrap a key**](/docs/apis/hs-crypto#wrapkey){: external} to generate a random plain text that is rooted in an HSM and wrap it without passing the value.
 3. Copy the ciphertext from the response object to the **keyfile**.
 4. Prepare the contract with the KMS information and create a {{site.data.keyword.hpvs}} for VPC instance with the manually partitioned volume that contains a wrapped seed.
 

@@ -2,7 +2,7 @@
 
 copyright:
   years: 2020, 2026
-lastupdated: "2026-04-29"
+lastupdated: "2026-06-26"
 
 keywords:
 
@@ -317,13 +317,13 @@ Gather the following required instance template details by making the following 
 
 |    Instance details   |  Listing methods                | API spec documentation |
 | --------------------- | ------------------------------- | ---------------------------------------------------------------------- |
-| VPC                   | `GET /vpcs`                     | [List all VPCs](/apidocs/vpc/latest#list-vpcs) |
-| Zone                  | `GET /regions/<region>/zones`   | [List all zones in a region](/apidocs/vpc/latest#list-region-zones) |
-| Profile               | `GET /instance/profiles`        | [List all instance profiles](/apidocs/vpc/latest#list-instance-profiles) |
-| Subnet                | `GET /subnets`                  | [List all subnets](/apidocs/vpc/latest#list-subnets) |
-| Image                 | `GET /images`                   | [List all images](/apidocs/vpc/latest#list-images) |
-| Key                   | `GET /keys`                     | [List all keys](/apidocs/vpc/latest#list-keys) |
-| Placement groups      | `GET /placement_groups`         | [List all placement groups](/apidocs/vpc/latest#list-placement-groups) |
+| VPC                   | `GET /vpcs`                     | [List all VPCs](/docs/apis/vpc/latest#list-vpcs) |
+| Zone                  | `GET /regions/<region>/zones`   | [List all zones in a region](/docs/apis/vpc/latest#list-region-zones) |
+| Profile               | `GET /instance/profiles`        | [List all instance profiles](/docs/apis/vpc/latest#list-instance-profiles) |
+| Subnet                | `GET /subnets`                  | [List all subnets](/docs/apis/vpc/latest#list-subnets) |
+| Image                 | `GET /images`                   | [List all images](/docs/apis/vpc/latest#list-images) |
+| Key                   | `GET /keys`                     | [List all keys](/docs/apis/vpc/latest#list-keys) |
+| Placement groups      | `GET /placement_groups`         | [List all placement groups](/docs/apis/vpc/latest#list-placement-groups) |
 {: caption="Required API instance template details" caption-side="bottom"}
 
 Verify that the profile that you want to use is available in the zone where you plan to create the instance.
@@ -337,7 +337,7 @@ Use the following commands to determine the required information to create an in
    ```
    {: pre}
 
-   If you don't have one available, you can create an {{site.data.keyword.vpc_short}} by using the `POST /vpcs` method. For more information about creating an {{site.data.keyword.vpc_short}}, see [IBM Cloud API Docs - Create a VPC](/apidocs/vpc/latest#create-vpc).
+   If you don't have one available, you can create an {{site.data.keyword.vpc_short}} by using the `POST /vpcs` method. For more information about creating an {{site.data.keyword.vpc_short}}, see [IBM Cloud API Docs - Create a VPC](/docs/apis/vpc/latest#create-vpc).
 
 1. List the regions that are associated with your account.
 
@@ -369,7 +369,7 @@ Use the following commands to determine the required information to create an in
 
    For the best performance of an instance group, make sure that you use a subnet size of 32 or greater.
 
-   If you don't have a subnet available, you can create one by using the `POST /subnets` method. For more information about creating an {{site.data.keyword.vpc_short}}, see [IBM Cloud API Docs - Create a subnet](/apidocs/vpc/latest#create-subnet).
+   If you don't have a subnet available, you can create one by using the `POST /subnets` method. For more information about creating an {{site.data.keyword.vpc_short}}, see [IBM Cloud API Docs - Create a subnet](/docs/apis/vpc/latest#create-subnet).
 
 1. List the images that are available to create your instance template.
 
@@ -387,7 +387,7 @@ Use the following commands to determine the required information to create an in
 
    If you do not have an SSH key available, you can create an SSH key by using the [ibmcloud is key-create](/docs/vpc?topic=vpc-vpc-reference#key-create) command.
 
-   If you don't have an SSH key available, you can create one by using the `POST /keys` method. For more information about creating an {{site.data.keyword.vpc_short}}, see [IBM Cloud API Docs - Create a key](/apidocs/vpc/latest#create-key).
+   If you don't have an SSH key available, you can create one by using the `POST /keys` method. For more information about creating an {{site.data.keyword.vpc_short}}, see [IBM Cloud API Docs - Create a key](/docs/apis/vpc/latest#create-key).
 
    RSA and ED25519 are the two types of SSH keys that you can use. However, you can't use the ED25519 SSH key type with Windows or VMware images. You can use only RSA SSH keys for these images. For more information, see [Getting started with SSH keys](/docs/vpc?topic=vpc-ssh-keys).
    {: note}
@@ -508,7 +508,7 @@ curl -X POST "$vpc_api_endpoint/v1/instance/templates?version=2024-07-12&generat
 ```
 {: pre}
 
-For more examples of the `/instance/templates` method, see the [Create an instance template](/apidocs/vpc/latest#create-instance-template) API documentation.
+For more examples of the `/instance/templates` method, see the [Create an instance template](/docs/apis/vpc/latest#create-instance-template) API documentation.
 
 ## Creating an instance template with Terraform
 {: #solo-instance-template-terraform}

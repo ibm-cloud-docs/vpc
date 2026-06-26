@@ -2,7 +2,7 @@
 
 copyright:
   years: 2022, 2026
-lastupdated: "2026-06-11"
+lastupdated: "2026-06-26"
 
 keywords: Backup, backup service, backup plan, backup policy, restore, restore volume, restore data
 
@@ -506,7 +506,7 @@ You can view backup policies and plans by using the API.
 ### Showing details of a backup policy with the API
 {: #backup-view-policy-details-api}
 
-You can programmatically retrieve the details of a backup policy by calling the `/backup_policies/{backup_policy_id}` method in the [VPC API](/apidocs/vpc/latest#get-backup-policy){: external} as shown in the following sample request.
+You can programmatically retrieve the details of a backup policy by calling the `/backup_policies/{backup_policy_id}` method in the [VPC API](/docs/apis/vpc/latest#get-backup-policy){: external} as shown in the following sample request.
 
 ```sh
 curl -X GET\
@@ -613,7 +613,7 @@ For more information about the values of the `health_state` and `lifecycle_state
 ### Listing all plans for a backup policy with the API
 {: #backup-view-plans-api}
 
-You can programmatically list the plans of a backup policy by calling the `/backup_policies/{backup_policy_id}/plans` method in the [VPC API](/apidocs/vpc/latest#get-backup-policy){: external} as shown in the following sample request.
+You can programmatically list the plans of a backup policy by calling the `/backup_policies/{backup_policy_id}/plans` method in the [VPC API](/docs/apis/vpc/latest#get-backup-policy){: external} as shown in the following sample request.
 
 ```sh
 curl -X GET\
@@ -664,7 +664,7 @@ You can see information about the zone in which fast restore backup snapshots ar
 
 Make a `GET /backup_policy/{backup_policy_id}/plans/{plan_id}` call. In the response, the `clone_policy` property shows the zone in which the snapshot clone for fast restore is created and the maximum number of recent snapshots per volume that keeps clones.
 
-You can also retrieve all plans for a backup policy and view plans you set up for backup snapshot clones. For more information, see [List all plans for a backup policy](/apidocs/vpc/latest#list-backup-policy-plans) in the API reference.
+You can also retrieve all plans for a backup policy and view plans you set up for backup snapshot clones. For more information, see [List all plans for a backup policy](/docs/apis/vpc/latest#list-backup-policy-plans) in the API reference.
 {: note}
 
 See the following example.

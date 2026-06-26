@@ -2,7 +2,7 @@
 
 copyright:
   years: 2018, 2026
-lastupdated: "2026-06-11"
+lastupdated: "2026-06-26"
 
 keywords:
 
@@ -539,7 +539,7 @@ curl -X POST "$vpc_api_endpoint/v1/vpcs?version=$api_version&generation=2" \
 ```
 {: pre}
 
-You must send the `generation` parameter with every API request to specify which generation to use. For generation 2 virtual server instances, specify `generation=2`. For more information, see **Generation** in the [Virtual Private Cloud API](/apidocs/vpc/latest#api-generation-parameter)
+You must send the `generation` parameter with every API request to specify which generation to use. For generation 2 virtual server instances, specify `generation=2`. For more information, see **Generation** in the [Virtual Private Cloud API](/docs/apis/vpc/latest#api-generation-parameter)
 {: important}
 
 For the rest of the calls, you need to know the ID of the newly created VPC. Save the ID in a variable, for example:
@@ -724,14 +724,14 @@ Some profiles might not be available because of one of the following reasons:
 
     You can either provision an instance from the private catalog image at the latest version in a catalog product offering or from a specific version in the catalog product offering.
 
-    To select the private catalog image from the latest version of a catalog product offering, see [Catalog Management API - Get offering](/apidocs/resource-catalog/private-catalog?code=java#get-offering). Find the offering CRN, and save it into a variable for later use:
+    To select the private catalog image from the latest version of a catalog product offering, see [Catalog Management API - Get offering](/docs/apis/resource-catalog/private-catalog?code=java#get-offering). Find the offering CRN, and save it into a variable for later use:
 
     ```bash
      offering_crn="crn:v1:bluemix:public:globalcatalog-collection:global::1082e7d2-5e2f-0a11-a3bc-f88a8e1931fc:offering:00111601-0ec5-41ac-b142-96d1e64e6442-global"
      ```
      {: pre}
 
-     To select the private catalog image from a specific version of a catalog product offering, see [Catalog Management API - Get offering](/apidocs/resource-catalog/private-catalog?code=java#get-offering). Then, go to **Get offering > Kinds > Versions > CRN** to retrieve the version's CRN and save it into a variable for later use:
+     To select the private catalog image from a specific version of a catalog product offering, see [Catalog Management API - Get offering](/docs/apis/resource-catalog/private-catalog?code=java#get-offering). Then, go to **Get offering > Kinds > Versions > CRN** to retrieve the version's CRN and save it into a variable for later use:
 
      ```bash
      version_crn="crn:v1:bluemix:public:globalcatalog-collection:global::1082e7d2-5e2f-0a11-a3bc-f88a8e1931fc:version:00111601-0ec5-41ac-b142-96d1e64e6442-global/ec66bec2-6a33-42d6-9323-26dd4dc8875d-global"
@@ -1024,4 +1024,4 @@ For example, a VPC can't be deleted if it contains instances, subnets, or public
 ### Congratulations!
 {: #congratulations-api-tutorial}
 
-You successfully created and configured your VPC by using the REST APIs. To try out more API commands, see the [Virtual Private Cloud API](/apidocs/vpc).
+You successfully created and configured your VPC by using the REST APIs. To try out more API commands, see the [Virtual Private Cloud API](/docs/apis/vpc).

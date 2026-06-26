@@ -2,7 +2,7 @@
 
 copyright:
   years: 2023, 2026
-lastupdated: "2026-05-08"
+lastupdated: "2026-06-26"
 
 subcollection: vpc
 
@@ -210,7 +210,7 @@ ibmcloud is bare-metal-server-update SERVER [--name NEW_NAME] [--enable-secure-b
 {: #create-reservation-api-vpc}
 {: api}
 
-You can create an {{site.data.keyword.vpc_short}} reservation in your region by using the application programming interface (API). To create a reservation by using the API, use [Create a reservation](/apidocs/vpc/latest#create-reservation).
+You can create an {{site.data.keyword.vpc_short}} reservation in your region by using the application programming interface (API). To create a reservation by using the API, use [Create a reservation](/docs/apis/vpc/latest#create-reservation).
 
 Specify a `Post /reservations` request create a new reservation. See the following example.
 

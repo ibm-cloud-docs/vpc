@@ -2,7 +2,7 @@
 
 copyright:
   years: 2024, 2026
-lastupdated: "2026-05-19"
+lastupdated: "2026-06-26"
 
 keywords:
 
@@ -190,7 +190,7 @@ To create a cluster network with the API, follow these steps:
    Available cluster network profiles name is `hopper-1` 
    {: note}
 
-To view the complete set of cluster network APIs, see the [VPC API reference](/apidocs/vpc/latest#list-cluster-network-profiles).
+To view the complete set of cluster network APIs, see the [VPC API reference](/docs/apis/vpc/latest#list-cluster-network-profiles).
 
 ## Creating a cluster network interface with Terraform
 {: #create-cluster-network-terraform}

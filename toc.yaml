@@ -882,7 +882,7 @@ toc:
           topics:
           - link:
               label: Reference
-              href: https://{DomainName}/apidocs/vpc
+              href: https://{DomainName}/docs/apis/vpc
           - api-change-log.md
       - topicgroup:
           id: beta-vpc-api
@@ -890,7 +890,7 @@ toc:
           topics:
           - link:
               label: Reference
-              href: https://{DomainName}/apidocs/vpc-beta
+              href: https://{DomainName}/docs/apis/vpc-beta
           - api-change-log-beta.md
       - topicgroup:
           id: vpc-identity-api
@@ -898,7 +898,7 @@ toc:
           topics:
           - link:
               label: Reference
-              href: https://{DomainName}/apidocs/vpc-identity
+              href: https://{DomainName}/docs/apis/vpc-identity
           - api-identity-change-log.md
       - topicgroup:
           id: beta-vpc-identity-api
@@ -906,7 +906,7 @@ toc:
           topics:
           - link:
               label: Reference
-              href: https://{DomainName}/apidocs/vpc-identity-beta
+              href: https://{DomainName}/docs/apis/vpc-identity-beta
           - api-identity-beta-change-log.md
       - topicgroup:
           id: vpc-metadata-service-api
@@ -914,7 +914,7 @@ toc:
           topics:
           - link:
               label: Reference
-              href: https://{DomainName}/apidocs/vpc-metadata
+              href: https://{DomainName}/docs/apis/vpc-metadata
           - api-metadata-change-log.md
       - topicgroup:
           id: beta-metadata-service-api
@@ -922,7 +922,7 @@ toc:
           topics:
           - link:
               label: Reference
-              href: https://{DomainName}/apidocs/vpc-metadata-beta
+              href: https://{DomainName}/docs/apis/vpc-metadata-beta
           - api-metadata-beta-change-log.md
       - topic: service-dependency.md
         navtitle: Service dependencies

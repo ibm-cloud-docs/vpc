@@ -2,7 +2,7 @@
 
 copyright:
   years: 2023, 2026
-lastupdated: "2026-05-07"
+lastupdated: "2026-06-26"
 
 subcollection: vpc
 
@@ -416,7 +416,7 @@ To manage a reservation by using the application programming interface (API), yo
 {: #list-reservation-api-vpc}
 {: api}
 
-You can list all of the {{site.data.keyword.vpc_short}} reservations in your region by using the application programming interface (API). To list all reservations by using the API, use [List all images](/apidocs/vpc/latest#list-reservations).
+You can list all of the {{site.data.keyword.vpc_short}} reservations in your region by using the application programming interface (API). To list all reservations by using the API, use [List all images](/docs/apis/vpc/latest#list-reservations).
 
 Specify a `GET /reservations` request to list all of the reservations. See the following example.
 
@@ -437,7 +437,7 @@ You can filter the list further with the following property values.
 {: #delete-reservation-api-vpc}
 {: api}
 
-You can delete an {{site.data.keyword.vpc_short}} reservation in your region by using the application programming interface (API). To delete a reservation by using the API, use [Delete a reservation](/apidocs/vpc/latest#delete-reservation).
+You can delete an {{site.data.keyword.vpc_short}} reservation in your region by using the application programming interface (API). To delete a reservation by using the API, use [Delete a reservation](/docs/apis/vpc/latest#delete-reservation).
 
 Specify a `DELETE /reservation` request to delete a reservation. See the following example.
 
@@ -450,7 +450,7 @@ curl -X DELETE "$vpc_api_endpoint/v1/reservations/$id?version=2024-01-27&generat
 {: #retrieve-reservation-api-vpc}
 {: api}
 
-You can retrieve a specific {{site.data.keyword.vpc_short}} reservation in your region by using the application programming interface (API). To retrieve a specific reservation by using the API, use [Retrieve a reservation](/apidocs/vpc/latest#get-reservation).
+You can retrieve a specific {{site.data.keyword.vpc_short}} reservation in your region by using the application programming interface (API). To retrieve a specific reservation by using the API, use [Retrieve a reservation](/docs/apis/vpc/latest#get-reservation).
 
 Specify a `GET /reservation/{id}` request to retrieve a specific reservation where `id` is the reservation identifier of the reservation you are retrieving. The identifier is in the URL. See the following example.
 
@@ -463,7 +463,7 @@ curl -X GET "$vpc_api_endpoint/v1/reservations/$id?version=2024-01-27&generation
 {: #update-reservation-api-vpc}
 {: api}
 
-You update a specific {{site.data.keyword.vpc_short}} reservation in your region by using the application programming interface (API). To update a specific reservation by using the API, use [Update a reservation](/apidocs/vpc/latest#update-reservation).
+You update a specific {{site.data.keyword.vpc_short}} reservation in your region by using the application programming interface (API). To update a specific reservation by using the API, use [Update a reservation](/docs/apis/vpc/latest#update-reservation).
 
 Specify a `PATCH /reservations/{id}` request to update a specific reservation where `id` is the reservation identifier of the reservation you are retrieving. The identifier is in the URL. See the following example.
 
@@ -480,7 +480,7 @@ curl -X PATCH "$vpc_api_endpoint/v1/reservations/$id?version=2024-01-27&generati
 {: #activate-reservation-api-vpc}
 {: api}
 
-You can activate a specific {{site.data.keyword.vpc_short}} reservation in your region by using the application programming interface (API). To activate a specific reservation by using the API, use [Activate a reservation](/apidocs/vpc/latest#activate-reservation).
+You can activate a specific {{site.data.keyword.vpc_short}} reservation in your region by using the application programming interface (API). To activate a specific reservation by using the API, use [Activate a reservation](/docs/apis/vpc/latest#activate-reservation).
 
 Specify a `POST /reservations/{id}/activate` request to update a specific reservation where `id` is the reservation identifier of the reservation you are retrieving. The identifier is in the URL. See the following example.
 

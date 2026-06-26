@@ -1,8 +1,8 @@
 ---
 
 copyright:
-  years: 2025, 2025
-lastupdated: "2025-08-29"
+  years: 2025, 2026
+lastupdated: "2026-06-26"
 
 keywords:
 
@@ -19,7 +19,7 @@ subcollection: vpc
 The {{site.data.keyword.vpc_full}} (VPC) Metadata service on bare metal servers is a free service you can invoke through a REST API within a bare metal server to get bare metal server identity tokens and bare metal server identity certificates.
 {: shortdesc}
 
- Access to the API is unavailable from outside the bare metal server. Before you can access the metadata, you need to generate a bare metal server identity access token. You can use the bare metal server identity token to optionally get an IAM token that can be used to access all IAM-enabled services. For information about the REST API, see [VPC Identity API](/apidocs/vpc-identity) documentation.
+ Access to the API is unavailable from outside the bare metal server. Before you can access the metadata, you need to generate a bare metal server identity access token. You can use the bare metal server identity token to optionally get an IAM token that can be used to access all IAM-enabled services. For information about the REST API, see [VPC Identity API](/docs/apis/vpc-identity) documentation.
 
 ## Metadata service concepts
 {: #metadata-concepts-bare-metal}

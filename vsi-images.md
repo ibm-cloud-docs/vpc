@@ -2,7 +2,7 @@
 
 copyright:
   years: 2019, 2026
-lastupdated: "2026-03-31"
+lastupdated: "2026-06-26"
 
 subcollection: vpc
 
@@ -61,7 +61,7 @@ If you plan to use Windows operating systems with SQL Server, see the [About Mic
 
 When you order an instance, the images are cloud-init enabled to optimize creation times. With a cloud-init enabled image, you can provide user data. In the **User Data** field on the order form, you can enter optional cloud-init user data for the server. For more information about user data and automation, see [User data](/docs/vpc?topic=vpc-user-data).
 
-You can access details about each operating system, such as the url for the operating system, by using the API call, [List all operating systems](/apidocs/vpc#list-operating-systems){: external}.
+You can access details about each operating system, such as the url for the operating system, by using the API call, [List all operating systems](/docs/apis/vpc#list-operating-systems){: external}.
 {: tip}
 
 ### Stock image naming conventions
@@ -89,7 +89,7 @@ The following list explains the variables that make up the components of the ima
 
 You can obtain the current list of images, including stock images, by running the following command in the command-line interface: [ibmcloud is images](/docs/vpc?topic=vpc-vpc-reference#compute-images).
 
-The image naming convention is subject to change. The list of image names is not intended to be programmatically parsed or interpreted. You can use the [GET /images](/apidocs/vpc/latest#get-image) API to obtain metadata in a structured format.
+The image naming convention is subject to change. The list of image names is not intended to be programmatically parsed or interpreted. You can use the [GET /images](/docs/apis/vpc/latest#get-image) API to obtain metadata in a structured format.
 {: important}
 
 ## Custom images

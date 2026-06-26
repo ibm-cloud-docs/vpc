@@ -2,7 +2,7 @@
 
 copyright:
   years: 2025, 2026
-lastupdated: "2026-06-22"
+lastupdated: "2026-06-26"
 
 keywords: Block Storage, volume migration, volume jobs, storage generations, volume conversion
 
@@ -97,7 +97,7 @@ For more information about all available command options, see the [VPC CLI refer
 
 Before you begin, make sure that you set up your API environment. For more information, see [Setting up your API and CLI environment](/docs/vpc?topic=vpc-set-up-environment).
 
-You can programmatically [migrate your storage volume](/apidocs/vpc/latest#create-volume-job) to a [volume profile](/docs/vpc?topic=vpc-block-storage-profiles#block-storage-profile-overview) of another storage generation by making a `POST /volumes/{volume_id}/jobs` request to the VPC API. Specify the job type "migrate", and the target volume profile. When the volume is migrated to the `sdp` profile, you can optionally specify new IOPS and bandwidth values. See the following example.
+You can programmatically [migrate your storage volume](/docs/apis/vpc/latest#create-volume-job) to a [volume profile](/docs/vpc?topic=vpc-block-storage-profiles#block-storage-profile-overview) of another storage generation by making a `POST /volumes/{volume_id}/jobs` request to the VPC API. Specify the job type "migrate", and the target volume profile. When the volume is migrated to the `sdp` profile, you can optionally specify new IOPS and bandwidth values. See the following example.
 
 ```sh
 curl "$vpc_api_endpoint/v1/volumes/r006-567faad4-81f4-440a-95f0-6f4c98f22c25/jobs?version=2026-03-17&generation=2" \
@@ -265,7 +265,7 @@ For more information about all available command options, see the [VPC CLI refer
 {: #volume-migration-monitor-api}
 {: api}
 
-You can check the status and progress of the volume migration programmatically with the API. First, [list the volume jobs](/apidocs/vpc/latest#list-volume-jobs) of the volume, and select a migration job from the API response. Then, [retrieve the selected volume job](/apidocs/vpc/latest#get-volume-job).
+You can check the status and progress of the volume migration programmatically with the API. First, [list the volume jobs](/docs/apis/vpc/latest#list-volume-jobs) of the volume, and select a migration job from the API response. Then, [retrieve the selected volume job](/docs/apis/vpc/latest#get-volume-job).
 
 1. List the migration jobs of the volume. The following example lists the migration jobs for the volume `r006-567faad4-81f4-440a-95f0-6f4c98f22c25`.
 

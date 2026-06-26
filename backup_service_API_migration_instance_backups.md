@@ -2,7 +2,7 @@
 
 copyright:
   years: 2023, 2026
-lastupdated: "2026-06-16"
+lastupdated: "2026-06-26"
 
 keywords: Backup for VPC, api migration, versioned change
 
@@ -18,12 +18,12 @@ subcollection: vpc
 Migrate to VPC API version 2023-12-05 for backup policies. The property `match_resource_types` changed to `match_resource_type` for volume and instance backups.
 {: shortdesc}
 
-As described in the [VPC API](/apidocs/vpc/latest) reference [versioning](/apidocs/vpc#api-versioning) policy, most changes to the VPC APIs are fully compatible with earlier versions and are made available to all clients, regardless of the API version the client requests. However, the `2023-12-05` release of the VPC API necessitated incompatible changes in support of backup policy methods.
+As described in the [VPC API](/docs/apis/vpc/latest) reference [versioning](/docs/apis/vpc#api-versioning) policy, most changes to the VPC APIs are fully compatible with earlier versions and are made available to all clients, regardless of the API version the client requests. However, the `2023-12-05` release of the VPC API necessitated incompatible changes in support of backup policy methods.
 
 Before you adopt the release version `2023-12-05` or later, be aware of the following changes that might require you to update your client:
 
-- Backup policy methods support only one type of resource for a backup policy. In the version `2023-12-05`, the property `match_resource_types` changed to `match_resource_type`. This change applies when you're [creating](/apidocs/vpc/latest#list-backup-policies), [updating](/apidocs/vpc/latest#update-backup-policy), [listing](/apidocs/vpc/latest#list-backup-policies), [retrieving](/apidocs/vpc/latest#get-backup-policy), and [deleting](/apidocs/vpc/latest#delete-backup-policy) a backup policy.
-- When you're initiating a request to [create a backup policy](/apidocs/vpc/latest#create-backup-policy), you must provide a value for the `match_resource_type` property, either `volume` or `instance`. When `volume` is selected, the backup policy is applied to individual {{site.data.keyword.block_storage_is_short}} volumes separately. When `instance` is specified, the {{site.data.keyword.block_storage_is_short}} volumes that are attached to the same instances are treated as a consistency group and the backup snapshots of the volumes are created together in a loose-knit group.
+- Backup policy methods support only one type of resource for a backup policy. In the version `2023-12-05`, the property `match_resource_types` changed to `match_resource_type`. This change applies when you're [creating](/docs/apis/vpc/latest#list-backup-policies), [updating](/docs/apis/vpc/latest#update-backup-policy), [listing](/docs/apis/vpc/latest#list-backup-policies), [retrieving](/docs/apis/vpc/latest#get-backup-policy), and [deleting](/docs/apis/vpc/latest#delete-backup-policy) a backup policy.
+- When you're initiating a request to [create a backup policy](/docs/apis/vpc/latest#create-backup-policy), you must provide a value for the `match_resource_type` property, either `volume` or `instance`. When `volume` is selected, the backup policy is applied to individual {{site.data.keyword.block_storage_is_short}} volumes separately. When `instance` is specified, the {{site.data.keyword.block_storage_is_short}} volumes that are attached to the same instances are treated as a consistency group and the backup snapshots of the volumes are created together in a loose-knit group.
 
 ## Action needed
 {: #action-needed-backup-policy}

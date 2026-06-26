@@ -2,7 +2,7 @@
 
 copyright:
   years: 2022, 2026
-lastupdated: "2026-04-17"
+lastupdated: "2026-06-26"
 
 keywords: Backup for VPC, backup service, backup plan, backup policy, restore, restore volume, restore data
 
@@ -328,7 +328,7 @@ ibmcloud enterprise show
 ```
 {: pre}
 
-1. Create the JSON files that provide the definition of the authorization policy template. For more information about the attributes that you can use in your JSON file, see the [IAM Policy Management API](/apidocs/iam-policy-management#create-policy-template).
+1. Create the JSON files that provide the definition of the authorization policy template. For more information about the attributes that you can use in your JSON file, see the [IAM Policy Management API](/docs/apis/iam-policy-management#create-policy-template).
 
 * Instance service:
      ```json
@@ -522,7 +522,7 @@ To use Backup for VPC in your account to create policies, plans and run backup j
 * `is.backup-policy` (source) to `is.snapshot` (target) with _editor_ role.
 * `is.backup-policy` (source) to `is.snapshot-consistency-group` with _editor_ role
 
-Make the request to the [IAM Policy Management API](/apidocs/iam-policy-management#create-v2-policy), similar to the following examples.
+Make the request to the [IAM Policy Management API](/docs/apis/iam-policy-management#create-v2-policy), similar to the following examples.
 
 ```sh
 curl -X POST 'https://iam.cloud.ibm.com/v1/policies'
@@ -636,14 +636,14 @@ curl -X POST 'https://iam.cloud.ibm.com/v1/policies' \
 ```
 {: pre}
 
-For more information, see the api spec for [IAM Policy Management](/apidocs/iam-policy-management#create-v2-policy).
+For more information, see the api spec for [IAM Policy Management](/docs/apis/iam-policy-management#create-v2-policy).
 
 ### Creating cross-account authorization for volume backups managed by the Enterprise from the child account
 {: #backup-s2s-auth-procedure-api-enterprise}
 
 To allow an Enterprise administrator to manage backups centrally, the subaccounts must provide authorization for the Backup service of the Enterprise account to interact with the resources of the child accounts.
 
-1. Make an API request to the [Enterprise Management API](/apidocs/enterprise-apis/enterprise#list-enterprises) to get the account ID of the parent enterprise account.
+1. Make an API request to the [Enterprise Management API](/docs/apis/enterprise-apis/enterprise#list-enterprises) to get the account ID of the parent enterprise account.
 
    ```sh
    curl -X GET "https://enterprise.cloud.ibm.com/v1/enterprises"
@@ -652,7 +652,7 @@ To allow an Enterprise administrator to manage backups centrally, the subaccount
    ```
    {: pre}
 
-1. Then, make the requests to the [IAM Policy Management API](/apidocs/iam-policy-management#create-v2-policy) to create the service-to-service authorizations for the `is.backup-policy` of enterprise account to interact with the child account's `is.backup`, `is.snapshot`, `is.volume`, `is.snapshot-consistency-group`, and `is.instance` services.
+1. Then, make the requests to the [IAM Policy Management API](/docs/apis/iam-policy-management#create-v2-policy) to create the service-to-service authorizations for the `is.backup-policy` of enterprise account to interact with the child account's `is.backup`, `is.snapshot`, `is.volume`, `is.snapshot-consistency-group`, and `is.instance` services.
 
    * Authorize `is.backup-policy` (source) to interact with `is.backup-policy` (target) with the _editor_ role.
 
@@ -776,7 +776,7 @@ To allow an Enterprise administrator to manage backups centrally, the subaccount
    ```
    {: pre}
 
-For more information, see the api spec for [IAM Policy Management](/apidocs/iam-policy-management#create-v2-policy).
+For more information, see the api spec for [IAM Policy Management](/docs/apis/iam-policy-management#create-v2-policy).
 
 ### Creating authorization for file share backups
 {: #backup-s2s-auth-procedure-fs-api}
@@ -816,9 +816,9 @@ curl -X POST 'https://iam.cloud.ibm.com/v2/policies'
 ### Creating cross-account authorization templates for backups managed by the Enterprise
 {: #backup-s2s-auth-template-api-enterprise}
 
-Enterprise account admins can programmatically [create and assign authorization policy templates](/apidocs/iam-policy-management#create-policy-template) to the child accounts to manage authorizations centrally. To create an authorization policy template that can be used to enable backup policies for all child accounts of the Enterprise, complete the following steps.
+Enterprise account admins can programmatically [create and assign authorization policy templates](/docs/apis/iam-policy-management#create-policy-template) to the child accounts to manage authorizations centrally. To create an authorization policy template that can be used to enable backup policies for all child accounts of the Enterprise, complete the following steps.
 
-1. Make an API request to the [Enterprise Management API](/apidocs/enterprise-apis/enterprise#list-enterprises) to get the account ID of the parent enterprise account.
+1. Make an API request to the [Enterprise Management API](/docs/apis/enterprise-apis/enterprise#list-enterprises) to get the account ID of the parent enterprise account.
 
    ```sh
    curl -X GET `https://enterprise.cloud.ibm.com/v1/enterprises`
@@ -827,7 +827,7 @@ Enterprise account admins can programmatically [create and assign authorization 
    ```
    {: pre}
 
-1. Then, make the requests to the [IAM Policy Management API](/apidocs/iam-policy-management#create-policy-template) to create the service-to-service authorizations for the `is.backup-policy` of the Enterprise account to interact with the assigned child account's `is.backup`, `is.snapshot`, `is.volume`, `is.snapshot-consistency-group`, and `is.instance` services.
+1. Then, make the requests to the [IAM Policy Management API](/docs/apis/iam-policy-management#create-policy-template) to create the service-to-service authorizations for the `is.backup-policy` of the Enterprise account to interact with the assigned child account's `is.backup`, `is.snapshot`, `is.volume`, `is.snapshot-consistency-group`, and `is.instance` services.
 
    * Authorize `is.backup-policy` (source) to interact with `is.backup-policy` (target) with the _editor_ role.
 
@@ -1023,9 +1023,9 @@ Enterprise account admins can programmatically [create and assign authorization 
    ```
    {: pre}
 
-1. After you created the authorization templates, you must [commit](/apidocs/iam-policy-management#commit-policy-template) and [assign](/apidocs/iam-policy-management#create-policy-template-assignment) them to the accounts.
+1. After you created the authorization templates, you must [commit](/docs/apis/iam-policy-management#commit-policy-template) and [assign](/docs/apis/iam-policy-management#create-policy-template-assignment) them to the accounts.
 
-For more information, see the api spec for [IAM Policy Management](/apidocs/iam-policy-management#create-policy-template).
+For more information, see the api spec for [IAM Policy Management](/docs/apis/iam-policy-management#create-policy-template).
 
 ### Creating authorization for {{site.data.keyword.en_short}}
 {: #backup-s2s-auth-procedure-en-api}

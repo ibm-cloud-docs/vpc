@@ -2,7 +2,7 @@
 
 copyright:
   years: 2020, 2026
-lastupdated: "2026-06-11"
+lastupdated: "2026-06-26"
 
 keywords:
 
@@ -645,7 +645,7 @@ This API is only supported by policy mode VPN gateways.
    ```
    {: codeblock}
 
-To view the complete set of APIs for site-to-site VPN gateways, see the [VPC API reference](/apidocs/vpc/latest#create-vpn-gateway-connection).
+To view the complete set of APIs for site-to-site VPN gateways, see the [VPC API reference](/docs/apis/vpc/latest#create-vpn-gateway-connection).
 
 ## Adding a connection by using Terraform
 {: #vpn-using-cli-add-terraform}

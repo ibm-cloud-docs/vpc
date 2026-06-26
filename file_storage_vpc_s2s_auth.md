@@ -310,7 +310,7 @@ For more information about all of the parameters that are available for this com
 
 Enterprise account admins can [create and assign authorization policy templates](/docs/enterprise-management?topic=enterprise-management-authorization-policy-template-create&interface=cli) to the child accounts to manage authorizations centrally. To create an authorization policy template that can be used to enable cross-region replication for all child accounts of the Enterprise, complete the following steps.
 
-1. Create a JSON file that provides the definition of the authorization policy template. For more information about the attributes that you can use in your JSON file, see the [IAM Policy Management API](/apidocs/iam-policy-management#create-policy-template).
+1. Create a JSON file that provides the definition of the authorization policy template. For more information about the attributes that you can use in your JSON file, see the [IAM Policy Management API](/docs/apis/iam-policy-management#create-policy-template).
 
    The following example JSON file specifies the `name` and `description` of the template and the `account_id` of the enterprise account. The authorization template grants an Editor role between all "File Storage for VPC" in the assigned accounts.
 
@@ -415,7 +415,7 @@ As the share owner, create a JSON file and use it with the `ibmcloud iam authori
 {: #file-s2s-auth-encryption-api}
 {: api}
 
-To authorize the file service to access your Key Management Service instance ({{site.data.keyword.keymanagementserviceshort}} or {{site.data.keyword.hscrypto}}), make an API request to the [IAM Policy Management API](/apidocs/iam-policy-management#create-policy) to create the service-to-service authorization.
+To authorize the file service to access your Key Management Service instance ({{site.data.keyword.keymanagementserviceshort}} or {{site.data.keyword.hscrypto}}), make an API request to the [IAM Policy Management API](/docs/apis/iam-policy-management#create-policy) to create the service-to-service authorization.
 
 * The following example shows how you can authorize the File service `is.share` (source) to interact with the {{site.data.keyword.keymanagementserviceshort}} service `kms` (target) with the _Reader_ role.
 
@@ -445,7 +445,7 @@ To authorize the file service to access your Key Management Service instance ({{
 {: #file-s2s-xaccount-encryption-api}
 {: api}
 
-To authorize the file service of another account to access your Key Management Service instance ({{site.data.keyword.keymanagementserviceshort}} or {{site.data.keyword.hscrypto}}), make a request to the [IAM Policy Management API](/apidocs/iam-policy-management#create-policy) to create the service-to-service authorization. The following example shows how to create an authorization for the {{site.data.keyword.filestorage_vpc_short}} service of the source account to access the key management service of your account (target) with Reader permission.
+To authorize the file service of another account to access your Key Management Service instance ({{site.data.keyword.keymanagementserviceshort}} or {{site.data.keyword.hscrypto}}), make a request to the [IAM Policy Management API](/docs/apis/iam-policy-management#create-policy) to create the service-to-service authorization. The following example shows how to create an authorization for the {{site.data.keyword.filestorage_vpc_short}} service of the source account to access the key management service of your account (target) with Reader permission.
 
 ```sh
 curl -X POST "https://iam.cloud.ibm.com/v1/policies" \
@@ -472,7 +472,7 @@ curl -X POST "https://iam.cloud.ibm.com/v1/policies" \
 {: #file-s2s-auth-replication-api}
 {: api}
 
-Make a request to the [IAM Policy Management API](/apidocs/iam-policy-management#create-policy) to create the service-to-service authorization for the source share's regional file service to interact with the replica share's regional file service.
+Make a request to the [IAM Policy Management API](/docs/apis/iam-policy-management#create-policy) to create the service-to-service authorization for the source share's regional file service to interact with the replica share's regional file service.
 
    * Authorize `is.share` (source) to interact with `is.share` (target) with the _Editor_ role.
 
@@ -497,7 +497,7 @@ Make a request to the [IAM Policy Management API](/apidocs/iam-policy-management
      ```
      {: pre}
 
-For more information, see the api spec for [IAM Policy Management](/apidocs/iam-policy-management#create-policy).
+For more information, see the api spec for [IAM Policy Management](/docs/apis/iam-policy-management#create-policy).
 
 ## Creating authorization for cross-account access with the API
 {: #file-s2s-auth-xaccount-api}
@@ -505,7 +505,7 @@ For more information, see the api spec for [IAM Policy Management](/apidocs/iam-
 
 
 
-As the share owner, make an API request to the [IAM Policy Management API](/apidocs/iam-policy-management#create-policy) to create an authorization that allows the accessor account to access the origin share. The following example shows how to create the service-to-service authorization between the origin share account (source) and the accessor account (target).
+As the share owner, make an API request to the [IAM Policy Management API](/docs/apis/iam-policy-management#create-policy) to create an authorization that allows the accessor account to access the origin share. The following example shows how to create the service-to-service authorization between the origin share account (source) and the accessor account (target).
 
 ```sh
 curl -X POST "https://iam.cloud.ibm.com/v1/policies" \

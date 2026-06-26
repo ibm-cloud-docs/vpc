@@ -1,8 +1,8 @@
 ---
 
 copyright:
-  years: 2024, 2025
-lastupdated: "2025-12-21"
+  years: 2024, 2026
+lastupdated: "2026-06-26"
 
 keywords:
 
@@ -36,13 +36,13 @@ Any code or automation that expects to use session persistence or the "least con
 ## What actions can you take to avoid a disruption?
 {: #nlb-actions-to-avoid-disruption}
 
-As documented in the [VPC API](/apidocs/vpc/latest#get-load-balancer-profile), load balancer profile properties have been introduced to indicate support for these features:
+As documented in the [VPC API](/docs/apis/vpc/latest#get-load-balancer-profile), load balancer profile properties have been introduced to indicate support for these features:
 
 * The new `source_ip_session_persistence_supported` property will have its `value` sub-property set to `true` if a given load balancer profile supports session persistence.
 
 * The new `availability` property will have its `value` sub-property set to `subnet` if a given load balancer supports the `least_connections` algorithm.
 
-Additionally, analogous properties have been introduced on each provisioned load balancer ([https://cloud.ibm.com/apidocs/vpc/latest#get-load-balancer](/apidocs/vpc/latest#get-load-balancer)) to indicate whether the load balancer supports these features.
+Additionally, analogous properties have been introduced on each provisioned load balancer ([https://cloud.ibm.com/docs/apis/vpc/latest#get-load-balancer](/docs/apis/vpc/latest#get-load-balancer)) to indicate whether the load balancer supports these features.
 
 While existing load balancers and load balancer profiles have also been updated with these properties, there is no change in functionality for existing network load balancers. They continue to support these features.
 {: note}

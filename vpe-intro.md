@@ -2,7 +2,7 @@
 
 copyright:
   years: 2020, 2026
-lastupdated: "2026-04-07"
+lastupdated: "2026-06-26"
 
 keywords: virtual private endpoints, endpoint gateway, VPE
 subcollection: vpc
@@ -101,7 +101,7 @@ This capability enables granular access control to service resources through Con
 These links provide additional information about {{site.data.keyword.cloud}} VPE for VPC:
 
 * [VPE CLI reference](/docs/vpc?topic=vpc-vpc-reference#vpe-clis)
-* [VPE API reference](/apidocs/vpc/latest?list-endpoint-gateways=#list-endpoint-gateways)
+* [VPE API reference](/docs/apis/vpc/latest?list-endpoint-gateways=#list-endpoint-gateways)
 * [FAQs for virtual private endpoints](/docs/vpc?topic=vpc-faqs-vpe)
 * [VPE for VPC infrastructure resources for Terraform](https://registry.terraform.io/providers/IBM-Cloud/ibm/latest/docs/data-sources/is_virtual_endpoint_gateway){: external} (VPC infrastructure > Resources)
 * [Troubleshooting VPE gateways](/docs/vpc?group=tbs-vpe-gateway)

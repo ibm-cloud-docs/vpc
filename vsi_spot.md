@@ -2,7 +2,7 @@
 
 copyright:
   years: 2025, 2026
-lastupdated: "2026-04-23"
+lastupdated: "2026-06-26"
 
 keywords: spot virtual server, spot virtual server instance, spot instance
 
@@ -149,4 +149,4 @@ If you want to automatically re-create a spot instance after preemption, you can
    To increase the likelihood of finding capacity for your spot instance (if capacity is constrained in one zone), specify multiple subnets that are spread across zones in the region for high-availability.
    { :tip}
 
-To keep your preempted instances in a stopped state, then you need to specify `stop` for the availability_policy.preemption_ configuration. After the spot instance is created by the instance group, you need to submit a [PATCH /instance_groups/{instance_group_id}/memberships/{id}](/apidocs/vpc/latest#update-instance-group-membership) and specify `false`for the [delete_instance_on_membership_delete](/apidocs/vpc/latest#delete-instance-group-memberships) property.
+To keep your preempted instances in a stopped state, then you need to specify `stop` for the availability_policy.preemption_ configuration. After the spot instance is created by the instance group, you need to submit a [PATCH /instance_groups/{instance_group_id}/memberships/{id}](/docs/apis/vpc/latest#update-instance-group-membership) and specify `false`for the [delete_instance_on_membership_delete](/docs/apis/vpc/latest#delete-instance-group-memberships) property.

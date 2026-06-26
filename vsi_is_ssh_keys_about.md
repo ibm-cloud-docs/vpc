@@ -1,8 +1,8 @@
 ---
 
 copyright:
-  years: 2018, 2025
-lastupdated: "2025-10-21"
+  years: 2018, 2026
+lastupdated: "2026-06-26"
 
 keywords: ssh public keys, OpenSSH, add ssh key, ssh key, manage ssh key, generate ssh key, locate ssh key
 
@@ -158,7 +158,7 @@ For more information, see the [ibmcloud is keys](/docs/vpc?topic=vpc-vpc-referen
 {: #locating-ssh-keys-api}
 {: api}
 
-To list all SSH keys by using the API, use [List all keys](/apidocs/vpc/latest#list-keys).
+To list all SSH keys by using the API, use [List all keys](/docs/apis/vpc/latest#list-keys).
 
 ```sh
 curl -X GET "$vpc_api_endpoint/v1/keys?version=2023-03-30&generation=2" -H "Authorization: Bearer $iam_token"
@@ -248,7 +248,7 @@ ibmcloud is key-create KEY_NAME (KEY | @KEY_FILE) [--resource-group-id RESOURCE_
 {: #import-ssh-keys-api}
 {: api}
 
-To import an SSH key by using the API, use the [Create a key](/apidocs/vpc/latest#create-key). You can't create an SSH key by using the API. However, you can create an SSH key in the console and from the UI, generate the API code snippet that you need that includes the new SSH key. If you use the UI, make sure you save the SSH key that you create in the console before you generate the API code snippet.
+To import an SSH key by using the API, use the [Create a key](/docs/apis/vpc/latest#create-key). You can't create an SSH key by using the API. However, you can create an SSH key in the console and from the UI, generate the API code snippet that you need that includes the new SSH key. If you use the UI, make sure you save the SSH key that you create in the console before you generate the API code snippet.
 
 For the `name` property, specify the name of the SSH key. For `public_key` property, enter in the public key information. For the `type` property, specify either `rsa` or `ed25519` for the SSH key type.
 

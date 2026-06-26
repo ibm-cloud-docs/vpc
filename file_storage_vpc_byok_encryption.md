@@ -314,11 +314,11 @@ For more information about the command options, see [`ibmcloud is share-create`]
 {: #fs-byok-api}
 {: api}
 
-You can create file shares with customer-managed encryption by calling the [Virtual Private Cloud (VPC) API](/apidocs/vpc).
+You can create file shares with customer-managed encryption by calling the [Virtual Private Cloud (VPC) API](/docs/apis/vpc).
 
 Make a `POST /shares` request and specify the `encryption_key` parameter to identify your customer root key (CRK). It is shown in the example as `crn:[...key:...]`.
 
-You must provide the `generation` parameter and specify `generation=2`. For more information, see **Generation** in the [Virtual Private Cloud API reference](/apidocs/vpc/latest#api-generation-parameter).
+You must provide the `generation` parameter and specify `generation=2`. For more information, see **Generation** in the [Virtual Private Cloud API reference](/docs/apis/vpc/latest#api-generation-parameter).
 {: requirement}
 
 The following example creates a zonal file share with a mount target, and specifies the CRN of the root key for customer-managed encryption.

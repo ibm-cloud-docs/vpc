@@ -2,7 +2,7 @@
 
 copyright:
   years: 2018, 2026
-lastupdated: "2026-04-09"
+lastupdated: "2026-06-26"
 
 keywords:
 
@@ -24,7 +24,7 @@ Known issues might change over time, so check back occasionally.
 ### `vcpu.manufacturer` property returns an empty string value
 {: #vcpu-manufacturer-instance-metadata-api-known-issues}
 
-**Issue:** When [retrieving an instance](/apidocs/vpc-metadata#get-instance), the value of the `vcpu.manufacturer` property is an empty string `""`.
+**Issue:** When [retrieving an instance](/docs/apis/vpc-metadata#get-instance), the value of the `vcpu.manufacturer` property is an empty string `""`.
 
 ## VPC Identity API known issues
 {: #identity-api-known-issues}
@@ -32,7 +32,7 @@ Known issues might change over time, so check back occasionally.
 ### The `/instance_identity` methods return incorrect HTTP status
 {: #identity-api-incorrect-http-status-known-issues}
 
-**Issue:** When a `version` query parameter of `2025-08-25` or earlier is used from bare metal servers, an incorrect HTTP response of `404` is returned for `/instance_identity` methods that are used to [create an identity token](/apidocs/vpc-identity/latest#create-identity-token), [create an identity certificate](/apidocs/vpc-identity/latest#create-identity-certificate), and [create an IAM token](/apidocs/vpc-identity/latest#create-identity-iam-token). The behavior is correct when a `version` query parameter of `2025-08-26` or later is used.
+**Issue:** When a `version` query parameter of `2025-08-25` or earlier is used from bare metal servers, an incorrect HTTP response of `404` is returned for `/instance_identity` methods that are used to [create an identity token](/docs/apis/vpc-identity/latest#create-identity-token), [create an identity certificate](/docs/apis/vpc-identity/latest#create-identity-certificate), and [create an IAM token](/docs/apis/vpc-identity/latest#create-identity-iam-token). The behavior is correct when a `version` query parameter of `2025-08-26` or later is used.
 
 When a beta `version` query parameter of `2025-07-14` or earlier from bare metal servers is used, an incorrect HTTP response of `404` is returned for all `/instance_identity` methods.
 
@@ -49,7 +49,7 @@ When a beta `version` query parameter of `2025-07-14` or earlier from bare metal
 ### s390x profiles don't include 'values' property
 {: #s390x-confidential-computing-vpc-known-issues}
 
-**Issue:** When [listing instance profiles](/apidocs/vpc#list-instance-profiles) or [retrieving an instance profile](/apidocs/vpc#get-instance-profile), s390x instance profiles don't include the required `values` property in the `confidential_compute_modes` object. See [s390x instance profiles](/docs/vpc?topic=vpc-vs-profiles&interface=ui) for a complete list of profiles.
+**Issue:** When [listing instance profiles](/docs/apis/vpc#list-instance-profiles) or [retrieving an instance profile](/docs/apis/vpc#get-instance-profile), s390x instance profiles don't include the required `values` property in the `confidential_compute_modes` object. See [s390x instance profiles](/docs/vpc?topic=vpc-vs-profiles&interface=ui) for a complete list of profiles.
 
 ### Memory-related statistics aren't available for confidential computing virtual servers
 {: #memory-statistics-confidential-computing-vpc-known-issues}
@@ -111,7 +111,7 @@ Because all bare metal profiles are VMware&reg; certified, the `supported_image_
 ## Extra authorizations beyond the authorizations defined in the API specification
 {: #api-spec-auth-known-issue}
 
-**Issue:** Some API implementations require authorizations that are different from the authorization requirements that are defined in the [API specification](/apidocs/vpc/latest). The following table lists these APIs and the extra permissions that are required that are in addition to what are defined in the specification. This table is updated as these issues are resolved.
+**Issue:** Some API implementations require authorizations that are different from the authorization requirements that are defined in the [API specification](/docs/apis/vpc/latest). The following table lists these APIs and the extra permissions that are required that are in addition to what are defined in the specification. This table is updated as these issues are resolved.
 
 | API | Additional access requirements | Action name|
 | ----------- | ---------------------------------- | -----------------------------------------|

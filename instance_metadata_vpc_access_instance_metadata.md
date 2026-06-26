@@ -2,7 +2,7 @@
 
 copyright:
   years: 2022, 2026
-lastupdated: "2026-06-23"
+lastupdated: "2026-06-26"
 
 keywords:
 
@@ -27,8 +27,8 @@ Table 1 describes the steps that are involved in accessing metadata. The informa
 |------|---------|----------------|-------------|
 | 1    | IBM Cloud | VPC UI, CLI, API | Access to the metadata service is disabled by default. You can enable access to the metadata service on an existing instance in the console, from the CLI, or with the API. |
 | 2    | IBM Cloud | - | Sign on to the instance by using normal startup operations. |
-| 3    | VPC instance | Metadata service | Run a `curl` command to call the metadata token service to [acquire an identity access token](/apidocs/vpc-identity/latest#create-identity-token). |
-| 4    | VPC instance | Metadata service | Run a `curl` command to call the metadata service to [retrieve instance information](/apidocs/vpc-metadata#get-instance). The token from the previous step is passed and the metadata is returned.|
+| 3    | VPC instance | Metadata service | Run a `curl` command to call the metadata token service to [acquire an identity access token](/docs/apis/vpc-identity/latest#create-identity-token). |
+| 4    | VPC instance | Metadata service | Run a `curl` command to call the metadata service to [retrieve instance information](/docs/apis/vpc-metadata#get-instance). The token from the previous step is passed and the metadata is returned.|
 | 5    | VPC instance | - | Parse the JSON returned in the previous step to acquire the user data. |
 {: caption="General procedure for accessing metadata" caption-side="bottom"}
 
@@ -198,14 +198,14 @@ Table 1 describes the steps that are involved in accessing metadata. The informa
 {: #imd-access-md-locate-vsi-api}
 {: api}
 
-1. Locate the running instance by [listing the available instances](/apidocs/vpc/latest#list-instances) in the region. Select the instance ID from the response.
+1. Locate the running instance by [listing the available instances](/docs/apis/vpc/latest#list-instances) in the region. Select the instance ID from the response.
 
    ```sh
    curl -X GET "$vpc_api_endpoint/v1/instances?version=2025-05-13&generation=2" -H "Authorization: Bearer $iam_token"
    ```
    {: pre}
 
-1. [Retrieve the information of the selected instance](/apidocs/vpc/latest#get-instance) to confirm if access to the metadata service is enabled.
+1. [Retrieve the information of the selected instance](/docs/apis/vpc/latest#get-instance) to confirm if access to the metadata service is enabled.
 
    ```sh
    curl -X GET "$vpc_api_endpoint/v1/instances/0727_ed12480a-40a4-41a0-98e3-6dfac8b25ad6?version=2025-05-13&generation=2" -H "Authorization: Bearer $iam_token"
@@ -267,7 +267,7 @@ Table 1 describes the steps that are involved in accessing metadata. The informa
    ```
    {: codeblock}
 
-1. Enable access to the metadata service by making a [`PATCH /instances`](/apidocs/vpc/latest#update-instance) request for the instance.
+1. Enable access to the metadata service by making a [`PATCH /instances`](/docs/apis/vpc/latest#update-instance) request for the instance.
 
    ```json
    curl -X PATCH "$vpc_api_endpoint/v1/instances/0727_ed12480a-40a4-41a0-98e3-6dfac8b25ad6?version=2025-05-13&generation=2" \
@@ -441,7 +441,7 @@ The response lists all details for an instance, including network interfaces, co
 ```
 {: codeblock}
 
-1. Use other API methods to retrieve more information about the instance, such as volume and network attachments, or gather information about SSH keys, placement groups, or virtual network interfaces. For more information, see the [Metadata service API](/apidocs/vpc-metadata) reference and the [Summary of metadata service information](/docs/vpc?topic=vpc-imd-metadata-summary).
+1. Use other API methods to retrieve more information about the instance, such as volume and network attachments, or gather information about SSH keys, placement groups, or virtual network interfaces. For more information, see the [Metadata service API](/docs/apis/vpc-metadata) reference and the [Summary of metadata service information](/docs/vpc?topic=vpc-imd-metadata-summary).
 
 The following table shows more methods for API GET requests that you can make to get specific information about the instance.
 

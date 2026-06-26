@@ -1,8 +1,8 @@
 ---
 
 copyright:
-  years: 2022, 2025
-lastupdated: "2025-08-15"
+  years: 2022, 2026
+lastupdated: "2026-06-26"
 
 keywords:
 
@@ -15,7 +15,7 @@ subcollection: vpc
 # Updating to the `2022-03-29` version (network interfaces, security groups)
 {: #2022-03-29-migration}
 
-As described in [Versioning](/apidocs/vpc/latest#api-versioning){: external}, most changes to the VPC APIs are fully compatible with earlier versions and therefore are made available to all clients, regardless of the API version the client requests. However, the `2022-03-29` release of the VPC API necessitated incompatible changes in support of the reserved IP addresses feature:
+As described in [Versioning](/docs/apis/vpc/latest#api-versioning){: external}, most changes to the VPC APIs are fully compatible with earlier versions and therefore are made available to all clients, regardless of the API version the client requests. However, the `2022-03-29` release of the VPC API necessitated incompatible changes in support of the reserved IP addresses feature:
 
 - IP addresses are now modeled as objects (resources), rather than strings.
 - Security groups must now be associated with targets rather than network interfaces.
@@ -25,7 +25,7 @@ If your clients continue to specify version `2022-03-28` or earlier of the VPC A
 Even if you are not planning to use reserved IP addresses, to avoid regressions in client functionality, read, and follow the [action needed](#action-needed) section before your client specifies a version `2022-03-29` or later.
 {: important}
 
-The [VPC Metadata API](/apidocs/vpc-metadata) does not yet support reserved IP addresses. Clients that use the metadata API do not require changes to use version `2022-03-29` or later.
+The [VPC Metadata API](/docs/apis/vpc-metadata) does not yet support reserved IP addresses. Clients that use the metadata API do not require changes to use version `2022-03-29` or later.
 {: note}
 
 ## Action needed

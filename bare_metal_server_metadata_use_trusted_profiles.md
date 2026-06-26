@@ -2,7 +2,7 @@
 
 copyright:
   years: 2025, 2026
-lastupdated: "2026-06-11"
+lastupdated: "2026-06-26"
 
 keywords:
 
@@ -55,7 +55,7 @@ In the console,
 
 To create a link to a trusted profile, you need the following IAM access roles: `iam-identity.profile.update` and `iam-identity.profile.linkToResource`.
 
-For more information, see the [IAM API reference](/apidocs/iam-identity-token-api#create-link).
+For more information, see the [IAM API reference](/docs/apis/iam-identity-token-api#create-link).
 
 ## Using trusted profiles for compute resource identities
 {: #metadata-procedure-trusted-profile-bare-metal}

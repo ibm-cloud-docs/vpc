@@ -2,7 +2,7 @@
 
 copyright:
   years: 2022, 2026
-lastupdated: "2026-04-28"
+lastupdated: "2026-06-26"
 
 keywords:
 
@@ -515,13 +515,13 @@ Certain properties might be required in the following scenarios:
 {: #secure-access-api-provision}
 {: api}
 
-To enable secure access, when you provision an instance with the [POST /instances](/apidocs/vpc/latest#create-instance) method, specify a value for the `metadata_service.protocol` property for your instance. For secure access specify `https`. The default setting is unencrypted `http`.
+To enable secure access, when you provision an instance with the [POST /instances](/docs/apis/vpc/latest#create-instance) method, specify a value for the `metadata_service.protocol` property for your instance. For secure access specify `https`. The default setting is unencrypted `http`.
 
 #### Enable secure access on an existing instance
 {: #secure-access-api-existing}
 {: api}
 
-To enable secure access on an existing instance, use the [PATCH /instances/{id}](/apidocs/vpc/latest#update-instance) method to update the instance. Specify a value for the `metadata_service.protocol` property for your instance. For secure access specify `https`. The default setting is unencrypted `http`.
+To enable secure access on an existing instance, use the [PATCH /instances/{id}](/docs/apis/vpc/latest#update-instance) method to update the instance. Specify a value for the `metadata_service.protocol` property for your instance. For secure access specify `https`. The default setting is unencrypted `http`.
 
 ### Set the metadata hop limit by using the API
 {: #set-hop-limit-api}
@@ -535,7 +535,7 @@ This property applies only when access to the metadata service is enabled by set
 {: #set-hop-limit-api-when-provisioning}
 {: api}
 
-To set the response when you provision an instance, call the [POST /instances method](/apidocs/vpc/latest#create-instance) method, and specify the `metadata_service.response_hop_limit` property value between `1` (default) and `64`.
+To set the response when you provision an instance, call the [POST /instances method](/docs/apis/vpc/latest#create-instance) method, and specify the `metadata_service.response_hop_limit` property value between `1` (default) and `64`.
 
 This property applies only when access to the metadata service is enabled by setting `metadata_service.enabled` to `true`. The default is `false`.
 
@@ -543,7 +543,7 @@ This property applies only when access to the metadata service is enabled by set
 {: #set-hop-limit-api-on-existing-instance}
 {: api}
 
-To set the response hop limit on an existing instance, call the [PATCH /instances/{id}](/apidocs/vpc/latest#update-instance) method, and specify the `metadata_service.response_hop_limit` property value between `1` (default) and `64`.
+To set the response hop limit on an existing instance, call the [PATCH /instances/{id}](/docs/apis/vpc/latest#update-instance) method, and specify the `metadata_service.response_hop_limit` property value between `1` (default) and `64`.
 
 ## Next steps
 {: #imd-token-next}

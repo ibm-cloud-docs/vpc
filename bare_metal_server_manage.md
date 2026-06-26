@@ -2,7 +2,7 @@
 
 copyright:
   years: 2021, 2026
-lastupdated: "2026-06-11"
+lastupdated: "2026-06-26"
 
 keywords: bare metal servers, managing, operation, manage bare metal server, manage bare metal, manage server, restart bare metal, stop bare metal, delete bare metal, reboot bare metal, restart server, stop server, delete server
 
@@ -279,7 +279,7 @@ For a full list of command options, see [ibmcloud is bare-metal-server-delete](/
 ### Viewing your bare metal servers by using the API
 {: #viewing-bare-metal-servers-api}
 
-To list all bare metal servers by using the API, use [List all bare metal servers](/apidocs/vpc/latest#list-bare-metal-servers).
+To list all bare metal servers by using the API, use [List all bare metal servers](/docs/apis/vpc/latest#list-bare-metal-servers).
 
 Specify a `GET /bare_metal_servers` request to list all the bare metal servers.
 
@@ -292,7 +292,7 @@ Specify a `GET /bare_metal_servers` request to list all the bare metal servers.
 ### Retrieve a bare metal server by using the API
 {: #retrieve-bare-metal-servers-api}
 
-To retrieve a bare metal server by using the API, use [Retrieve a bare metal server](/apidocs/vpc/latest#get-bare-metal-server).
+To retrieve a bare metal server by using the API, use [Retrieve a bare metal server](/docs/apis/vpc/latest#get-bare-metal-server).
 
 Specify a `GET /bare_metal_servers/{id}` request retrieve a specific bare metal server where `id` is the identifier of the bare metal server you are retrieving.
 
@@ -302,12 +302,12 @@ Specify a `GET /bare_metal_servers/{id}` request retrieve a specific bare metal 
    ```
    {: pre}
 
-For more information of the API requests, see [List all bare metal servers](/apidocs/vpc/latest#list-bare-metal-servers) and [Retrieve a bare metal server](/apidocs/vpc/latest#get-bare-metal-server).
+For more information of the API requests, see [List all bare metal servers](/docs/apis/vpc/latest#list-bare-metal-servers) and [Retrieve a bare metal server](/docs/apis/vpc/latest#get-bare-metal-server).
 
 ### Rebooting the bare metal server by using the API
 {: #reboot-bare-metal-servers-api}
 
-To reboot a bare metal server by using the API, use [Restart a bare metal server](/apidocs/vpc/latest#restart-bare-metal-server).
+To reboot a bare metal server by using the API, use [Restart a bare metal server](/docs/apis/vpc/latest#restart-bare-metal-server).
 
 Specify a `POST /bare_metal_servers/{id}/restart` request to restart a specific bare metal server where `id` is the identifier of the bare metal server you are restarting.
 
@@ -317,12 +317,12 @@ curl -X POST "$vpc_api_endpoint/v1/bare_metal_servers/$bare_metal_server_id/rest
 ```
 {: pre}
 
-For more information of the API request, see [Restart a bare metal server](/apidocs/vpc/latest#restart-bare-metal-server).
+For more information of the API request, see [Restart a bare metal server](/docs/apis/vpc/latest#restart-bare-metal-server).
 
 ### Stopping and starting a bare metal server by using the API
 {: #stop-start-bare-metal-servers-api}
 
-To stop or start a bare metal server by using the API, use [Stop a bare metal server](/apidocs/vpc/latest#stop-bare-metal-server) and [Start a bare metal server](/apidocs/vpc/latest#start-bare-metal-server).
+To stop or start a bare metal server by using the API, use [Stop a bare metal server](/docs/apis/vpc/latest#stop-bare-metal-server) and [Start a bare metal server](/docs/apis/vpc/latest#start-bare-metal-server).
 
 Use the following API requests to stop or start a bare metal server.
 
@@ -346,7 +346,7 @@ curl -X POST "$vpc_api_endpoint/v1/bare_metal_servers/$bare_metal_server_id/stop
 Billing continues after the bare metal server is stopped.
 {: note}
 
-For more information about the API request, see [Stop a bare metal server](/apidocs/vpc/latest#stop-bare-metal-server).
+For more information about the API request, see [Stop a bare metal server](/docs/apis/vpc/latest#stop-bare-metal-server).
 
 #### Starting the bare metal server by using the API
 {: #start-bm-api}
@@ -359,7 +359,7 @@ curl -X POST "$vpc_api_endpoint/v1/bare_metal_servers/$bare_metal_server_id/star
 ```
 {: pre}
 
-For more information about the API request, see [Start a bare metal server](/apidocs/vpc/latest#start-bare-metal-server).
+For more information about the API request, see [Start a bare metal server](/docs/apis/vpc/latest#start-bare-metal-server).
 
 ### Updating a bare metal server by using the API
 {: #update-bare-metal-servers-api}
@@ -381,13 +381,13 @@ Specify the following properties values to use when you update the bare metal se
 - `name` specifies the name of the bare metal server
 - `metadata_service` specifies whether the service is enabled and which protocol to use.
 
-For more information about the API request, see [Update a bare metal server](/apidocs/vpc/latest#update-bare-metal-server).
+For more information about the API request, see [Update a bare metal server](/docs/apis/vpc/latest#update-bare-metal-server).
 
 ### Reinitialize a bare metal server by using the API
 {: #reinitialize-bare-metal-servers-api}
 {: api}
 
-To reinitialize your bare metal server by using the API, use [Bare metal servers initialization](/apidocs/vpc/latest#replace-bare-metal-server-initialization).
+To reinitialize your bare metal server by using the API, use [Bare metal servers initialization](/docs/apis/vpc/latest#replace-bare-metal-server-initialization).
 
 You can reinitialize the server only if the server is stopped and provisioned with local storage. Or, you can reinitialize if the server status is `failed` and the lifecycle state has a status reason of `cannot_reinitialize`. When the bare metal server is reinitialized, the contents of the boot disk are wiped and the specified operating system is installed. The server retains the same physical node, interfaces, IP addresses, and resource IDs. Data on secondary drives is preserved.
 
@@ -427,7 +427,7 @@ When you use a `default_trusted_profile`, reinitializing the bare metal server i
 ### Updating the firmware for a bare metal server by using the API
 {: #update-firmware-bare-metal-servers-API}
 
-You can update the firmware on only a bare metal server that is stopped and has firmware updates available. It is recommended that you back up your server before you update the firmware. To update the firmware by using the API, use [Update firmware for a bare metal server](/apidocs/vpc-beta/latest#update-firmware-for-bare-metal-server).
+You can update the firmware on only a bare metal server that is stopped and has firmware updates available. It is recommended that you back up your server before you update the firmware. To update the firmware by using the API, use [Update firmware for a bare metal server](/docs/apis/vpc-beta/latest#update-firmware-for-bare-metal-server).
 
 Specify a `POST /bare_metal_servers/{id}/firmware/update` request to update the firmware for a specific bare metal server where `id` is the identifier of the bare metal server that you are updating.
 
@@ -443,7 +443,7 @@ curl -X POST "$vpc_api_endpoint/v1/bare_metal_servers/$bare_metal_server_id/firm
 ### Deleting a bare metal server by using the API
 {: #delete-bare-metal-servers-api}
 
-To delete a bare metal server by using the API, use [Delete a bare metal server](/apidocs/vpc/latest#delete-bare-metal-server).
+To delete a bare metal server by using the API, use [Delete a bare metal server](/docs/apis/vpc/latest#delete-bare-metal-server).
 
 Specify a `DELETE /bare_metal_servers/{id}` request delete a specific bare metal server where `id` is the identifier of the bare metal server you are deleting.
 

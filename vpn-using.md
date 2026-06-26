@@ -2,7 +2,7 @@
 
 copyright:
   years: 2019, 2026
-lastupdated: "2026-03-06"
+lastupdated: "2026-06-26"
 
 keywords: VPN, VPN gateways, encryption, IKE, IPsec, gateway, auto-negotiation, Diffie-Hellman, dead peer detection, PFS
 
@@ -238,7 +238,7 @@ To set up this configuration, follow these steps:
 These links provide additional information about IBM Cloud VPN for VPC:
 
 * [VPN CLI reference](/docs/vpc?topic=vpc-vpc-reference#vpn-clis)
-* [VPN API reference](/apidocs/vpc/latest#list-ike-policies)
+* [VPN API reference](/docs/apis/vpc/latest#list-ike-policies)
 * [VPN Terraform reference](https://registry.terraform.io/providers/IBM-Cloud/ibm/latest/docs/resources/is_vpn_gateway){: external}
 * [Managing IAM access for VPC Infrastructure Services](/docs/vpc?topic=vpc-iam-getting-started&interface=ui)
 * [Activity tracking events](/docs/vpc?topic=vpc-at_events#events-vpns)

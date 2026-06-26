@@ -139,7 +139,7 @@ You can create a snapshot by using the API.
 ### Prerequisites for creating a snapshot with the API
 {: #fs-snapshots-create-procedure-api}
 
-You can create a snapshot by calling the [VPC API](/apidocs/vpc). Before you start, gather the following information:
+You can create a snapshot by calling the [VPC API](/docs/apis/vpc). Before you start, gather the following information:
 
 - A unique name for the snapshot. Share snapshot name must be unique at the share level. For suggestions about how to name your snapshots, see [Naming snapshots](/docs/vpc?topic=vpc-fs-snapshots-planning#fs-snapshots-naming).
 - The ID of the source share.

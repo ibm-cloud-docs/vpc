@@ -2,7 +2,7 @@
 
 copyright:
   years: 2019, 2026
-lastupdated: "2026-04-16"
+lastupdated: "2026-06-26"
 
 keywords:
 
@@ -188,7 +188,7 @@ The following are UI instructions for defining rules in a security group to allo
 These links provide additional information about IBM Cloud Security Groups for VPC:
 
 * [Security groups CLI reference](/docs/vpc?topic=vpc-vpc-reference#security-groups-cli-ref)
-* [Security groups API reference](/apidocs/vpc/latest#list-security-groups)
+* [Security groups API reference](/docs/apis/vpc/latest#list-security-groups)
 * [Security group required permissions](/docs/iam?topic=iam-iam-service-roles-actions#is.security-group-roles)
 * [Security groups for VPC infrastructure resources for Terraform](https://registry.terraform.io/providers/IBM-Cloud/ibm/latest/docs/resources/is_security_group){: external}
 * [Security group activity tracking events](/docs/vpc?topic=vpc-at_events#events-network-security-group)

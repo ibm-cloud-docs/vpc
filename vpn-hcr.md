@@ -2,7 +2,7 @@
 
 copyright:
   years: 2026
-lastupdated: "2026-05-29"
+lastupdated: "2026-06-26"
 
 subcollection: vpc
 
@@ -82,7 +82,7 @@ Accounts with client code or automation that retrieves, validates, or updates IK
 ## What actions can you take to avoid a disruption?
 {: #vpn-hcr-actions}
 
-As documented in the [property value expansion](/apidocs/vpc/latest#property-value-expansion) guidance, ensure that your client code or automation processes deprecated property values while accounting for the new sentinel values `multiple` and `65535`, according to [API best practices](/apidocs/vpc/latest#api-best-practices).
+As documented in the [property value expansion](/docs/apis/vpc/latest#property-value-expansion) guidance, ensure that your client code or automation processes deprecated property values while accounting for the new sentinel values `multiple` and `65535`, according to [API best practices](/docs/apis/vpc/latest#api-best-practices).
 
 - For IKE policies:
    - `authentication_algorithm` and `encryption_algorithm` can return `multiple`
@@ -109,7 +109,7 @@ If you or other users in your account are currently using IKE or IPsec policies,
       - `encryption_algorithm`
       - `pfs`
 
-- Update validation logic to follow [API best practices](/apidocs/vpc/latest#api-best-practices).
+- Update validation logic to follow [API best practices](/docs/apis/vpc/latest#api-best-practices).
 
 ## Related links
 {: #related-links-vpn-hcr}

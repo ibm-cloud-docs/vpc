@@ -2,7 +2,7 @@
 
 copyright:
   years: 2020, 2026
-lastupdated: "2026-06-11"
+lastupdated: "2026-06-26"
 
 keywords: dedicated host instance, instance on vpc dedicated host, create instance on dedicated host
 
@@ -141,6 +141,6 @@ curl -X POST \
 ```
 {: codeblock}
 
-For more information, see [Create an instance](/apidocs/vpc/latest#create-instance).
+For more information, see [Create an instance](/docs/apis/vpc/latest#create-instance).
 
-For more information about the `$vpc_api_endpoint` and `$iam_token` variables, see the Authentication and Endpoint URLs sections in [Virtual Private Cloud API Introduction](/apidocs/vpc/latest#about-vpc-api).
+For more information about the `$vpc_api_endpoint` and `$iam_token` variables, see the Authentication and Endpoint URLs sections in [Virtual Private Cloud API Introduction](/docs/apis/vpc/latest#about-vpc-api).

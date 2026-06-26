@@ -1,8 +1,8 @@
 ---
 
 copyright:
-  years: 2018, 2025
-lastupdated: "2025-10-29"
+  years: 2018, 2026
+lastupdated: "2026-06-26"
 
 keywords:
 
@@ -74,7 +74,7 @@ Make sure that the {{site.data.keyword.cloud_notm}} CLI `vpc-infrastructure` plu
 {: #managing-ssh-keys-by-using-the-api}
 {: api}
 
-You can also manage your SSH keys by using the API. For more information about the `$vpc_api_endpoint` and `$iam_token` variables in the following examples, see the Authentication and Endpoint URLs sections in [Virtual Private Cloud API Introduction](/apidocs/vpc/latest#about-vpc-api).
+You can also manage your SSH keys by using the API. For more information about the `$vpc_api_endpoint` and `$iam_token` variables in the following examples, see the Authentication and Endpoint URLs sections in [Virtual Private Cloud API Introduction](/docs/apis/vpc/latest#about-vpc-api).
 
 ## Managing SSH keys by using Terraform
 {: #managing-ssh-keys-by-using-terraform}
@@ -108,7 +108,7 @@ ibmcloud is keys [--all-resource-groups]
 {: #viewing-all-ssh-keys-api}
 {: api}
 
-To list all SSH keys by using the API, use [List all keys](/apidocs/vpc/latest#list-keys).
+To list all SSH keys by using the API, use [List all keys](/docs/apis/vpc/latest#list-keys).
 
 ```sh
 curl -X GET "$vpc_api_endpoint/v1/keys?version=2023-03-30&generation=2" -H "Authorization: Bearer $iam_token"
@@ -160,7 +160,7 @@ ibmcloud is key KEY
 {: #viewing-ssh-keys-api}
 {: api}
 
-To retrieve information for a specific key by using the API, use [Retrieve a key](/apidocs/vpc/latest#get-key).
+To retrieve information for a specific key by using the API, use [Retrieve a key](/docs/apis/vpc/latest#get-key).
 
 For the `$id` variable, specify the name of the SSH key for which you want to display details.
 
@@ -254,7 +254,7 @@ ibmcloud is key-create KEY_NAME (KEY | @KEY_FILE) [--resource-group-id RESOURCE_
 {: #importing-ssh-keys-api}
 {: api}
 
-To import a new SSH key by using the API, use the [Create a key](/apidocs/vpc/latest#create-key). The file that you import is `id_rsa.pub` or `id_ed25519.pub`, which contains your public key. You can't create a brand-new SSH key by using the API. However, you can create a new SSH key by using the UI and from the UI, generate the API code snippet that you need that includes the new SSH key. For more information, see [Creating an SSH key by using the UI](/docs/vpc?topic=vpc-managing-ssh-keys&interface=ui#generating-ssh-keys-ui).
+To import a new SSH key by using the API, use the [Create a key](/docs/apis/vpc/latest#create-key). The file that you import is `id_rsa.pub` or `id_ed25519.pub`, which contains your public key. You can't create a brand-new SSH key by using the API. However, you can create a new SSH key by using the UI and from the UI, generate the API code snippet that you need that includes the new SSH key. For more information, see [Creating an SSH key by using the UI](/docs/vpc?topic=vpc-managing-ssh-keys&interface=ui#generating-ssh-keys-ui).
 
 For the `name` property, specify the name of the SSH key. For `public_key` property, enter in the public key information. For the `type` property, specify either `rsa` or `ed25519` for the SSH key type.
 
@@ -322,7 +322,7 @@ ibmcloud is key-update KEY [--name NEW_NAME]
 {: #updating-ssh-keys-api}
 {: api}
 
-To update an existing SSH key by using the API, use [Update a key](/apidocs/vpc/latest#update-key). After you update an existing key, the key is renamed immediately.
+To update an existing SSH key by using the API, use [Update a key](/docs/apis/vpc/latest#update-key). After you update an existing key, the key is renamed immediately.
 
 For the `$id` variable, specify the current name of the SSH key. For the `name` property, specify the new name for the SSH key.
 
@@ -366,7 +366,7 @@ ibmcloud is key-delete (KEY1 KEY2 ...)
 {: #deleting-ssh-keys-api}
 {: api}
 
-To delete one or more SSH keys by using the API, use [Delete a key](/apidocs/vpc/latest#delete-key).
+To delete one or more SSH keys by using the API, use [Delete a key](/docs/apis/vpc/latest#delete-key).
 
 For the `$id` variable, specify the name of the SSH key you want to delete.
 

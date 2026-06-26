@@ -424,18 +424,18 @@ For more information about the command options, see [`ibmcloud is share-mount-ta
 {: #file-storage-view-shares-targets-api}
 {: api}
 
-You can programmatically view shares and mount targets by calling the `/shares` method in the [VPC API](/apidocs/vpc/latest#list-shares){: external} as shown in the following sample requests.
+You can programmatically view shares and mount targets by calling the `/shares` method in the [VPC API](/docs/apis/vpc/latest#list-shares){: external} as shown in the following sample requests.
 
-You must provide the `generation` parameter and specify `generation=2`. For more information, see **Generation** in the [Virtual Private Cloud API reference](/apidocs/vpc/latest#api-generation-parameter).
+You must provide the `generation` parameter and specify `generation=2`. For more information, see **Generation** in the [Virtual Private Cloud API reference](/docs/apis/vpc/latest#api-generation-parameter).
 {: requirement}
 
 ### Viewing replication status and lifecycle_state with the API
 {: #share-states-api}
 
 - `lifecycle_state`
-   - This property provides the current state of a resource through the [Retrieve a file share](/apidocs/vpc/latest#get-share) method. The values that `lifecycle_state` provides are generic and are meant to apply to various resources, not only file shares. `lifecycle_state` indicate whether the file share is stable, updating, deleting, suspended, and so on. `Stable` is expected. For more information, see [File share statuses](/docs/vpc?topic=vpc-fs-vpc-monitoring&interface=ui#file-share-statuses).
+   - This property provides the current state of a resource through the [Retrieve a file share](/docs/apis/vpc/latest#get-share) method. The values that `lifecycle_state` provides are generic and are meant to apply to various resources, not only file shares. `lifecycle_state` indicate whether the file share is stable, updating, deleting, suspended, and so on. `Stable` is expected. For more information, see [File share statuses](/docs/vpc?topic=vpc-fs-vpc-monitoring&interface=ui#file-share-statuses).
 - `replication_status`
-   - This property provides the current replication status of the file through the [Retrieve a file share](/apidocs/vpc/latest#get-share) method. The values that `replication_status` returns are specific for file shares. For more information, see the [Virtual Private Cloud API](/apidocs/vpc/latest) content.
+   - This property provides the current replication status of the file through the [Retrieve a file share](/docs/apis/vpc/latest#get-share) method. The values that `replication_status` returns are specific for file shares. For more information, see the [Virtual Private Cloud API](/docs/apis/vpc/latest) content.
 
 ### Viewing all file shares with the API
 {: #fs-view-all-shares-api}

@@ -2,7 +2,7 @@
 
 copyright:
   years: 2020, 2026
-lastupdated: "2026-06-19"
+lastupdated: "2026-06-26"
 
 keywords: custom routes
 
@@ -172,7 +172,7 @@ To create a routing table with the API, follow these steps:
     ```
     {: codeblock}
 
-For more information and optional parameters, see [Create a routing table for a VPC](/apidocs/vpc/latest#create-vpc-routing-table) in the VPC API Reference.
+For more information and optional parameters, see [Create a routing table for a VPC](/docs/apis/vpc/latest#create-vpc-routing-table) in the VPC API Reference.
 
 ## Creating a routing table with Terraform
 {: #cr-create-terraform}

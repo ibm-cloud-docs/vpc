@@ -2,7 +2,7 @@
 
 copyright:
   years: 2022, 2026
-lastupdated: "2026-02-20"
+lastupdated: "2026-06-26"
 
 keywords: image, stock image, linuxone image, hpcr, container runtime, virtual private cloud, virtual server, generation 2, gen 2
 
@@ -62,7 +62,7 @@ With a cloud-init enabled image, you can provide user data. In the **User Data**
 When using the IBM Hyper Protect Container Runtime image, container details are provided at instance creation through the contract, specified in the **User Data** field on the order form. Once the containers start, you can interact with the workload that is brought up on the containers. For more information, see [Contract](/docs/vpc?topic=vpc-about-contract_se).
 {: note}
 
-You can access details about each operating system, such as the url for the operating system, by using the API call, [List all operating systems](/apidocs/vpc#list-operating-systems).
+You can access details about each operating system, such as the url for the operating system, by using the API call, [List all operating systems](/docs/apis/vpc#list-operating-systems).
 {: tip}
 
 
@@ -94,7 +94,7 @@ The following list explains the variables that make up the components of the ima
 
 You can obtain the current list of images, including stock images, by running the following command in the command-line interface: [ibmcloud is images](/docs/vpc?topic=vpc-vpc-reference#images-list).
 
-The image naming convention is subject to change. The list of image names is not intended to be programmatically parsed or interpreted. You can use the [GET /images](/apidocs/vpc#get-image) API to obtain metadata in a structured format.
+The image naming convention is subject to change. The list of image names is not intended to be programmatically parsed or interpreted. You can use the [GET /images](/docs/apis/vpc#get-image) API to obtain metadata in a structured format.
 {: important}
 
 ## Custom images

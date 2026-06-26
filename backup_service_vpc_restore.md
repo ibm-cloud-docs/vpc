@@ -2,7 +2,7 @@
 
 copyright:
   years: 2022, 2026
-lastupdated: "2026-06-16"
+lastupdated: "2026-06-26"
 
 keywords: Backup, backup service, backup plan, backup policy, restore, restore volume, restore data
 
@@ -220,7 +220,7 @@ You can restore boot and data volumes from a backup snapshot with the VPC API. T
 
 The API requests are the same as the one you use to restore from a manually created snapshot. For more information, see [Restore a volume from a snapshot with the API](/docs/vpc?topic=vpc-snapshots-vpc-restore&interface=api#snapshots-vpc-restore-API).
 
-For more information about using the API and all backup service API methods, see [VPC API reference](/apidocs/vpc/latest).
+For more information about using the API and all backup service API methods, see [VPC API reference](/docs/apis/vpc/latest).
 
 ## Restoring a volume from a snapshot with Terraform
 {: #baas-vpc-restore-terraform}

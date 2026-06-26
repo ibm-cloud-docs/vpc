@@ -15,7 +15,7 @@ subcollection: vpc
 # Updating to the `2025-06-30` version (image ownership property and filter change)
 {: #2025-06-30-image-ownership-property-change}
 
-As described in the VPC API reference [versioning](/apidocs/vpc/latest#api-versioning) policy, most changes to the VPC APIs are fully backward compatible and are made available to all clients, regardless of the API version the client requests. However, the `2025-06-30` release of the VPC API necessitated incompatible changes in support of improved modeling of the ownership property of image resources.
+As described in the VPC API reference [versioning](/docs/apis/vpc/latest#api-versioning) policy, most changes to the VPC APIs are fully backward compatible and are made available to all clients, regardless of the API version the client requests. However, the `2025-06-30` release of the VPC API necessitated incompatible changes in support of improved modeling of the ownership property of image resources.
 
 Before you adopt the release version `2025-06-30` or later, review the changes described in this migration guidance that might require you to update your client.
 
@@ -24,14 +24,14 @@ Before you adopt the release version `2025-06-30` or later, review the changes d
 
 The following properties have changed for API requests that use a `version` query parameter of `2025-06-30` or later.
 
-When [retrieving](/apidocs/vpc/2025-06-30#get-image), [listing](/apidocs/vpc/2025-06-30#list-images), [creating](/apidocs/vpc/2025-06-30#create-image), or [updating](/apidocs/vpc/2025-06-30#update-image) images, the following resulting properties have changed for API requests that use a `version` query parameter of `2025-06-30` or later.
+When [retrieving](/docs/apis/vpc/2025-06-30#get-image), [listing](/docs/apis/vpc/2025-06-30#list-images), [creating](/docs/apis/vpc/2025-06-30#create-image), or [updating](/docs/apis/vpc/2025-06-30#update-image) images, the following resulting properties have changed for API requests that use a `version` query parameter of `2025-06-30` or later.
 
 | Old property           |        New property      |
 |------------------------|--------------------------|
 |   `owner_type`         | `remote.account`         |
 {: caption="Old and new properties resulting when retrieving, listing, creating, or updating images." caption-side="bottom"}
 
-When [listing](/apidocs/vpc/2025-06-30#list-images) images, the following query parameters have changed for API requests that use a `version` query parameter of `2025-06-30` or later.
+When [listing](/docs/apis/vpc/2025-06-30#list-images) images, the following query parameters have changed for API requests that use a `version` query parameter of `2025-06-30` or later.
 
 | Old parameter          |        New parameter     |
 |------------------------|--------------------------|

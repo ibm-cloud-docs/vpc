@@ -541,7 +541,7 @@ You can create file shares and mount targets by directly calling the REST APIs.
 
 Set up your API environment. Define variables for the IAM token, API endpoint, and API version. For instructions, see [Setting up your API and CLI environment](/docs/vpc?topic=vpc-set-up-environment).
 
-You must provide the `generation` parameter and specify `generation=2`. For more information, see **Generation** in the [Virtual Private Cloud API reference](/apidocs/vpc/latest#api-generation-parameter).
+You must provide the `generation` parameter and specify `generation=2`. For more information, see **Generation** in the [Virtual Private Cloud API reference](/docs/apis/vpc/latest#api-generation-parameter).
 {: requirement}
 
 A good way to learn more about the API is to click **Get sample API call** on the provisioning pages in {{site.data.keyword.cloud_notm}} console. You can view the correct sequence of API requests and better understand actions and their dependencies.
@@ -552,14 +552,14 @@ A good way to learn more about the API is to click **Get sample API call** on th
 
 Before you make the `POST /shares` request, gather the information that you need for provisioning a share by using the following API methods.
 
-* [List file shares](/apidocs/vpc/latest#list-shares) with `GET /shares` in a region.
-* [Retrieve a file share](/apidocs/vpc/latest#get-share) with `GET /shares/{id}` to review its details.
-* [List file share snapshots](/apidocs/vpc/latest#list-share-snapshots) with `GET /shares/{share_id}/snapshots` to list the snapshots of a specific file share.
-* [List file share profiles](/apidocs/vpc/latest#list-share-profiles) with `GET /share/profiles` to see the available file share profiles in a region. Only `dp2` and `rfs` can be used to create file shares.
-* [List mount targets for a file share](/apidocs/vpc/latest#list-share-mount-targets) with `GET /shares/{share_id}/mount_targets` to see existing mount targets of a file share,
-* [List subnets](/apidocs/vpc/latest#list-subnets) with `GET /subnets` to see the available subnets in the region.
-* [List reserved IP addresses in a subnet](/apidocs/vpc/latest#list-subnet-reserved-ips) with `GET /subnets/{subnet_id}/reserved_ips`.
-* [List Security Groups](/apidocs/vpc/latest#list-security-groups) with `GET /security_groups`.
+* [List file shares](/docs/apis/vpc/latest#list-shares) with `GET /shares` in a region.
+* [Retrieve a file share](/docs/apis/vpc/latest#get-share) with `GET /shares/{id}` to review its details.
+* [List file share snapshots](/docs/apis/vpc/latest#list-share-snapshots) with `GET /shares/{share_id}/snapshots` to list the snapshots of a specific file share.
+* [List file share profiles](/docs/apis/vpc/latest#list-share-profiles) with `GET /share/profiles` to see the available file share profiles in a region. Only `dp2` and `rfs` can be used to create file shares.
+* [List mount targets for a file share](/docs/apis/vpc/latest#list-share-mount-targets) with `GET /shares/{share_id}/mount_targets` to see existing mount targets of a file share,
+* [List subnets](/docs/apis/vpc/latest#list-subnets) with `GET /subnets` to see the available subnets in the region.
+* [List reserved IP addresses in a subnet](/docs/apis/vpc/latest#list-subnet-reserved-ips) with `GET /subnets/{subnet_id}/reserved_ips`.
+* [List Security Groups](/docs/apis/vpc/latest#list-security-groups) with `GET /security_groups`.
 
 ### Creating a zonal file share with the API
 {: #fs-create-file-share-api}

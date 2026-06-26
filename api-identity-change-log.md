@@ -15,7 +15,7 @@ subcollection: vpc
 # VPC Identity API change log
 {: #identity-api-change-log}
 
-Read the API change log to learn about updates and improvements to the {{site.data.keyword.vpc_full}} (VPC) [Identity API](/apidocs/vpc-identity). Change log announcements are ordered by the date that they were released. Changes to existing API versions are designed to be compatible with existing client applications.
+Read the API change log to learn about updates and improvements to the {{site.data.keyword.vpc_full}} (VPC) [Identity API](/docs/apis/vpc-identity). Change log announcements are ordered by the date that they were released. Changes to existing API versions are designed to be compatible with existing client applications.
 {: shortdesc}
 
 By design, new features with backward-incompatible changes apply only to version dates on and after the feature's release. Changes that apply to older versions of the API are designed to maintain compatibility with existing applications and code. If backward-incompatible changes require nontrivial client code changes to use an API version, the API change log might provide links to instructions, tips, or best practices for updating client code.
@@ -34,7 +34,7 @@ Some changes, such as new response properties or new optional request parameters
 ### For all version dates
 {: #23-june-2026-all-version-dates-identity}
 
-**Third-party license and entitlement service.** The VPC Identity service now supports an optional `nonce` parameter when [creating an instance identity token](/apidocs/vpc-identity/latest#create-identity-token). When you specify a `nonce` value in the request, it is included in the signed token response, allowing vendor software to verify that it is running on IBM Cloud and that the token was generated recently. This attestation mechanism helps vendors ensure their software is executing in an authorized IBM Cloud environment.
+**Third-party license and entitlement service.** The VPC Identity service now supports an optional `nonce` parameter when [creating an instance identity token](/docs/apis/vpc-identity/latest#create-identity-token). When you specify a `nonce` value in the request, it is included in the signed token response, allowing vendor software to verify that it is running on IBM Cloud and that the token was generated recently. This attestation mechanism helps vendors ensure their software is executing in an authorized IBM Cloud environment.
 
 For more information, see [Instance identity operations](/docs/vpc?topic=vpc-imd-identity-operations&interface=api).
 
@@ -44,7 +44,7 @@ For more information, see [Instance identity operations](/docs/vpc?topic=vpc-imd
 ### For all version dates
 {: #26-august-2025-all-version-dates-identity}
 
-**Bare metal server support.** You can now access the VPC Identity API from bare metal servers. Use the new [create identity token](/apidocs/vpc-identity/latest#create-identity-token) method to create an identity token for your bare metal server, and pass that token to the new [create identity certificate](/apidocs/vpc-identity/latest#create-identity-certificate) method. Alternatively, you can pass that token to the [create IAM access token](/apidocs/vpc-identity/latest#create-identity-iam-token) method, and then use that token to access IAM-enabled services. You can also use these new methods from virtual server instances. For more information, see the [VPC Identity API](/apidocs/vpc-identity).
+**Bare metal server support.** You can now access the VPC Identity API from bare metal servers. Use the new [create identity token](/docs/apis/vpc-identity/latest#create-identity-token) method to create an identity token for your bare metal server, and pass that token to the new [create identity certificate](/docs/apis/vpc-identity/latest#create-identity-certificate) method. Alternatively, you can pass that token to the [create IAM access token](/docs/apis/vpc-identity/latest#create-identity-iam-token) method, and then use that token to access IAM-enabled services. You can also use these new methods from virtual server instances. For more information, see the [VPC Identity API](/docs/apis/vpc-identity).
 
 ### For version `2025-08-26` or later
 {: #version-2025-08-26}

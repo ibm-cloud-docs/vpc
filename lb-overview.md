@@ -2,7 +2,7 @@
 
 copyright:
   years: 2018, 2026
-lastupdated: "2026-05-02"
+lastupdated: "2026-06-26"
 
 keywords: application, load balancer, application, public, private, listener, back-end, front-end, pool, round-robin, weighted, layer 7, datapath logging, http2, websocket
 
@@ -246,7 +246,7 @@ You can also do this with already existing ALBs. Go to the **Attached Resources*
 {: #permissions-related-links-alb}
 
 * [Load balancer CLI reference](/docs/vpc?topic=vpc-vpc-reference#lb-anchor)
-* [Load balancer API reference](/apidocs/vpc#list-load-balancer-profiles)
+* [Load balancer API reference](/docs/apis/vpc#list-load-balancer-profiles)
 * [ALB for VPC infrastructure resources for Terraform](https://registry.terraform.io/providers/IBM-Cloud/ibm/latest/docs/data-sources/is_lb){: external} (VPC infrastructure > Resources)
 * [{{site.data.keyword.cloudaccesstraillong_notm}} events](/docs/vpc?topic=vpc-at_events#events-load-balancers)
 * [FAQs for application load balancers](/docs/vpc?topic=vpc-load-balancer-faqs)

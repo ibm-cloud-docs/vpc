@@ -2,7 +2,7 @@
 
 copyright:
   years: 2022, 2026
-lastupdated: "2026-05-19"
+lastupdated: "2026-06-26"
 
 keywords:
 
@@ -30,7 +30,7 @@ When you provision a virtual server on your VPC, you need to select an image to 
 * [Bare metal server images](/docs/vpc?topic=vpc-bare-metal-image)
 
 All available stock images can be found in the [{{site.data.keyword.cloud_notm}} console](/login){: external}. Go to the **Navigation menu** ![Navigation menu icon](../icons/icon_hamburger.svg) **> Infrastructure** ![VPC icon](../../icons/vpc.svg) **> Compute** **> Images** **> Stock images**.
-You can also programmatically list images by calling the `/images` method in the [VPC API](/apidocs/vpc/latest#list-images), or running the `is images` command from the [IBMCLOUD CLI](/docs/vpc?topic=vpc-vpc-reference#images-list).
+You can also programmatically list images by calling the `/images` method in the [VPC API](/docs/apis/vpc/latest#list-images), or running the `is images` command from the [IBMCLOUD CLI](/docs/vpc?topic=vpc-vpc-reference#images-list).
 
 When you use an {{site.data.keyword.IBM_notm}} stock image, you must apply the most recent security patches and any updates that are provided by the operating system vendor. After you provision a virtual server, it is your responsibility to continue to regularly make package updates for the operating system. If you are using the RHEL AI 1.x stock image, you can't apply updates to an existing virtual server instance. You must provision a new virtual server instance with the most recent image.
 {: important}

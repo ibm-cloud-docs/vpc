@@ -2,7 +2,7 @@
 
 copyright:
   years: 2019, 2026
-lastupdated: "2026-06-22"
+lastupdated: "2026-06-26"
 
 keywords: Block Storage profiles, Block Storage for VPC, IOPS tiers, custom IOPS, storage performance
 
@@ -299,7 +299,7 @@ A successful response looks like the following example.
 ```
 {: screen}
 
-For more information about this method, see the API reference for [listing all volume profiles](/apidocs/vpc/latest#list-volume-profiles) and [retrieving a volume profile](/apidocs/vpc/latest#get-volume-profile).
+For more information about this method, see the API reference for [listing all volume profiles](/docs/apis/vpc/latest#list-volume-profiles) and [retrieving a volume profile](/docs/apis/vpc/latest#get-volume-profile).
 
 ### With Terraform
 {: #using-terraform-iops-profiles}

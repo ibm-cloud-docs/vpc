@@ -352,7 +352,7 @@ By using the API, you can:
 * [Delete mount target of a file share](#delete-mount-target-api).
 * [Delete a file share](#delete-file-share-api).
 
-To see information about the {{site.data.keyword.filestorage_vpc_short}} API methods, see the following section in the [API reference](/apidocs/vpc/latest#list-share-profiles).
+To see information about the {{site.data.keyword.filestorage_vpc_short}} API methods, see the following section in the [API reference](/docs/apis/vpc/latest#list-share-profiles).
 
 Snapshots are supported only for shares that have *security group* as their access control mode. You can't change access control mode to VPC unless all the snapshots of the share are deleted.
 {: note}
@@ -545,7 +545,7 @@ You can add user tags to new or existing file shares, modify, and delete tags fo
 Up to 100 tags can be attached or detached in the same operation. When you edit your tags, the new tags overwrite the existing tags. To keep tags manageable, create only as many user tags as you require to effectively handle the resource.
 {: tip}
 
-You can manage your tags in the {{site.data.keyword.cloud_notm}} with the [Global Tagging API](/apidocs/tagging). With this API, you can create, delete, search, attach, or detach tags. For more information about managing tags for your account, see [Working with tags](/docs/account?topic=account-tag).
+You can manage your tags in the {{site.data.keyword.cloud_notm}} with the [Global Tagging API](/docs/apis/tagging). With this API, you can create, delete, search, attach, or detach tags. For more information about managing tags for your account, see [Working with tags](/docs/account?topic=account-tag).
 
 ### Adding user tags to file share in the console
 {: #fs-add-tags-shares-ui}
@@ -727,7 +727,7 @@ The following example adds two user tags to the file share.
 {: #fs-add-tags-api}
 {: api}
 
-When you're working with the API, you must provide the `generation` parameter and specify `generation=2`. For more information, see **Generation** in the [Virtual Private Cloud API reference](/apidocs/vpc/latest#api-generation-parameter).
+When you're working with the API, you must provide the `generation` parameter and specify `generation=2`. For more information, see **Generation** in the [Virtual Private Cloud API reference](/docs/apis/vpc/latest#api-generation-parameter).
 {: requirement}
 
 #### Adding a user tag when a file share is created
@@ -928,7 +928,7 @@ For more information, see the [`ibmcloud resource` command reference](/docs/cli?
 {: #fs-create-access-mgt-tag-api}
 {: api}
 
-With the [Global Search and Tagging API](/docs/account?topic=account-tag&interface=api#create-access-api), make a `POST/ tags` request to [create an access management tag](/apidocs/tagging#create-tag). Specify the tag in the `tag_names` property. For an example, see [Creating access management tags by using the API](/docs/account?topic=account-tag&interface=api#create-access-api).
+With the [Global Search and Tagging API](/docs/account?topic=account-tag&interface=api#create-access-api), make a `POST/ tags` request to [create an access management tag](/docs/apis/tagging#create-tag). Specify the tag in the `tag_names` property. For an example, see [Creating access management tags by using the API](/docs/account?topic=account-tag&interface=api#create-access-api).
 
 ### Step 1 - Creating an IAM access management tag with Terraform
 {: #fs-create-access-mgt-tag-terraform}
@@ -1163,7 +1163,7 @@ The following instructions can assist you in making sure that share bindings and
 #### Deleting share bindings of a file share with the API
 {: #delete-bindings-api}
 
-You can programmatically delete a share binding by calling the `/shares` method in the [VPC API](/apidocs/vpc/latest){: external} as shown in the following sample request.
+You can programmatically delete a share binding by calling the `/shares` method in the [VPC API](/docs/apis/vpc/latest){: external} as shown in the following sample request.
 {: api}
 
 ```sh

@@ -2,7 +2,7 @@
 
 copyright:
   years: 2024, 2026
-lastupdated: "2026-06-11"
+lastupdated: "2026-06-26"
 
 keywords: VPN migration, api migration, versioned change
 
@@ -15,7 +15,7 @@ subcollection: vpc
 # Updating to the `2024-04-30` version (VPN gateway connection)
 {: #2024-04-30-migration-vpn-advanced-configuration}
 
-As described in the [VPC API](/apidocs/vpc/latest) reference [versioning](/apidocs/vpc#api-versioning) policy, most changes to the VPC APIs are fully backward compatible and are made available to all clients, regardless of the API version the client requests. However, the `2024-04-30` release of the VPC API necessitated incompatible changes in support of VPN gateway connections.
+As described in the [VPC API](/docs/apis/vpc/latest) reference [versioning](/docs/apis/vpc#api-versioning) policy, most changes to the VPC APIs are fully backward compatible and are made available to all clients, regardless of the API version the client requests. However, the `2024-04-30` release of the VPC API necessitated incompatible changes in support of VPN gateway connections.
 
 Before you adopt the release version `2024-04-30` or later, review the changes described in this migration guidance that might require you to update your client.
 
@@ -24,7 +24,7 @@ Before you adopt the release version `2024-04-30` or later, review the changes d
 
 The following VPN gateway connection properties have changed for API requests that use a `version` query parameter of `2024-04-30` or later.
 
-When [creating a connection for a VPN gateway](/apidocs/vpc/latest#create-vpn-gateway-connection) (`POST /vpn_gateways/{vpn_gateway_id}/connections`):
+When [creating a connection for a VPN gateway](/docs/apis/vpc/latest#create-vpn-gateway-connection) (`POST /vpn_gateways/{vpn_gateway_id}/connections`):
 
 | Old property    | New property   |
 |-----------------|----------------|
@@ -33,7 +33,7 @@ When [creating a connection for a VPN gateway](/apidocs/vpc/latest#create-vpn-ga
 | `local_cidrs`   | `local.cidrs`  |
 {: caption="Old and new properties when creating a VPN connection." caption-side="bottom"}
 
-When [updating a VPN gateway connection](/apidocs/vpc/latest#update-vpn-gateway-connection) (`PATCH /vpn_gateways/{vpn_gateway_id}/connections/{id}`):
+When [updating a VPN gateway connection](/docs/apis/vpc/latest#update-vpn-gateway-connection) (`PATCH /vpn_gateways/{vpn_gateway_id}/connections/{id}`):
 
 | Old property    | New property   |
 |-----------------|----------------|
@@ -42,12 +42,12 @@ When [updating a VPN gateway connection](/apidocs/vpc/latest#update-vpn-gateway-
 
 When making the following requests for policy-based VPN gateways, the properties have changed in the response:
 
-- [Creating](/apidocs/vpc/latest#create-vpn-gateway-connection) (`POST /vpn_gateways/{vpn_gateway_id}/connections`)
-- [Retrieving](/apidocs/vpc/latest#get-vpn-gateway-connection) (`GET /vpn_gateways/{vpn_gateway_id}/connections/{id}`)
-- [Updating](/apidocs/vpc/latest#update-vpn-gateway-connection) a VPN gateway connection (`PATCH /vpn_gateways/{vpn_gateway_id}/connections/{id}`)
-- [Listing](/apidocs/vpc/latest#list-vpn-gateway-connections) all connections of a VPN gateway (`GET /vpn_gateways/{vpn_gateway_id}/connections`)
-- [Listing](/apidocs/vpc/latest#list-ike-policy-connections) all VPN gateway connections that use a specified IKE policy (`GET /ike_policies/{id}/connections`)
-- [Listing](/apidocs/vpc/latest#list-ipsec-policy-connections) all VPN gateway connections that use a specified IPsec policy (`GET /ipsec_policies/{id}/connections`)
+- [Creating](/docs/apis/vpc/latest#create-vpn-gateway-connection) (`POST /vpn_gateways/{vpn_gateway_id}/connections`)
+- [Retrieving](/docs/apis/vpc/latest#get-vpn-gateway-connection) (`GET /vpn_gateways/{vpn_gateway_id}/connections/{id}`)
+- [Updating](/docs/apis/vpc/latest#update-vpn-gateway-connection) a VPN gateway connection (`PATCH /vpn_gateways/{vpn_gateway_id}/connections/{id}`)
+- [Listing](/docs/apis/vpc/latest#list-vpn-gateway-connections) all connections of a VPN gateway (`GET /vpn_gateways/{vpn_gateway_id}/connections`)
+- [Listing](/docs/apis/vpc/latest#list-ike-policy-connections) all VPN gateway connections that use a specified IKE policy (`GET /ike_policies/{id}/connections`)
+- [Listing](/docs/apis/vpc/latest#list-ipsec-policy-connections) all VPN gateway connections that use a specified IPsec policy (`GET /ipsec_policies/{id}/connections`)
 
 | Old property    | New property                   |
 |-----------------|--------------------------------|
@@ -83,7 +83,7 @@ The following table lists the methods and their changed paths for API requests t
 ## Changed HTTP response codes when setting VPN gateway connection CIDRs
 {: #changed-http-response-vpn-advanced-configuration}
 
-When [setting a local CIDR](/apidocs/vpc/latest#add-vpn-gateway-connections-local-cidr) or [setting a peer CIDR](/apidocs/vpc/latest#add-vpn-gateway-connections-peer-cidr) on a VPN gateway connection, the response now includes a `201` HTTP success code if the CIDR was successfully set or a `204` HTTP success code if the CIDR is already set.
+When [setting a local CIDR](/docs/apis/vpc/latest#add-vpn-gateway-connections-local-cidr) or [setting a peer CIDR](/docs/apis/vpc/latest#add-vpn-gateway-connections-peer-cidr) on a VPN gateway connection, the response now includes a `201` HTTP success code if the CIDR was successfully set or a `204` HTTP success code if the CIDR is already set.
 
 ## Action needed
 {: #action-needed-vpn-advanced-configuration}

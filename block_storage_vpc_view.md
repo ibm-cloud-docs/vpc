@@ -2,7 +2,7 @@
 
 copyright:
   years: 2019, 2026
-lastupdated: "2026-06-22"
+lastupdated: "2026-06-26"
 
 keywords:
 
@@ -297,7 +297,7 @@ These properties comprise a Boolean [Common Expression Language](https://github.
 {: #viewing-block-storage-api}
 {: api}
 
-View {{site.data.keyword.block_storage_is_short}} volumes programmatically by making calls to the [VPC REST APIs](/apidocs/vpc). You can list all volumes and view details for a specific volume.
+View {{site.data.keyword.block_storage_is_short}} volumes programmatically by making calls to the [VPC REST APIs](/docs/apis/vpc). You can list all volumes and view details for a specific volume.
 
 Before you begin, make sure that you [set up your API environment](/docs/vpc?topic=vpc-creating-block-storage#block-storage-api-prereqs).
 

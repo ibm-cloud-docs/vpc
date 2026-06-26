@@ -1,7 +1,7 @@
 ---
 copyright:
   years: 2023, 2026
-lastupdated: "2026-04-17"
+lastupdated: "2026-06-26"
 
 keywords:
 
@@ -67,7 +67,7 @@ Where the following argument and option values are used
 {: #delete-inactive-expired-reservation-api-vpc}
 {: api}
 
-You can delete an {{site.data.keyword.vpc_short}} reservation in your region by using the application programming interface (API). To delete a reservation by using the API, use [Delete a reservation](/apidocs/vpc/latest#delete-reservation).
+You can delete an {{site.data.keyword.vpc_short}} reservation in your region by using the application programming interface (API). To delete a reservation by using the API, use [Delete a reservation](/docs/apis/vpc/latest#delete-reservation).
 
 Specify a `DELETE /reservation` request delete a reservation. See the following example.
 

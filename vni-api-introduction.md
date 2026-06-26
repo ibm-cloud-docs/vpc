@@ -2,7 +2,7 @@
 
 copyright:
   years: 2024, 2026
-lastupdated: "2026-01-22"
+lastupdated: "2026-06-26"
 
 keywords: virtual network interfaces, hazardous change remediation, mitigation
 
@@ -29,12 +29,12 @@ If you have not deferred access to this feature, read the provided guidance even
 
 The following features are available for virtual network interfaces:
 
-- You can create [instances](/apidocs/vpc/latest#create-instance) and [bare metal servers](/apidocs/vpc/latest#create-bare-metal-server) with virtual network interfaces attached to new child resources called network attachments. You can specify a `primary_network_attachment` (instead of a `primary_network_interface`) and provide either the identity of an already-created virtual network interface, or a subnet to create a new virtual network interface for the instance or bare metal server.
-- Virtual network interfaces have lifecycles that are independent of the resources they are attached to. You can [update](/apidocs/vpc/latest#update-virtual-network-interface) the `auto_delete` property to `false` to allow a virtual network interface to persist beyond the lifecycle of its original bare metal server or instance, and be re-attached to another bare metal server or instance.
-- Virtual network interfaces support [secondary IP addresses](/docs/vpc?topic=vpc-vni-about-secondary-ip). You can [add](/apidocs/vpc/latest#add-virtual-network-interface-ip) and [remove](/apidocs/vpc/latest#remove-virtual-network-interface-ip) reserved IPs to and from a virtual network interface.
+- You can create [instances](/docs/apis/vpc/latest#create-instance) and [bare metal servers](/docs/apis/vpc/latest#create-bare-metal-server) with virtual network interfaces attached to new child resources called network attachments. You can specify a `primary_network_attachment` (instead of a `primary_network_interface`) and provide either the identity of an already-created virtual network interface, or a subnet to create a new virtual network interface for the instance or bare metal server.
+- Virtual network interfaces have lifecycles that are independent of the resources they are attached to. You can [update](/docs/apis/vpc/latest#update-virtual-network-interface) the `auto_delete` property to `false` to allow a virtual network interface to persist beyond the lifecycle of its original bare metal server or instance, and be re-attached to another bare metal server or instance.
+- Virtual network interfaces support [secondary IP addresses](/docs/vpc?topic=vpc-vni-about-secondary-ip). You can [add](/docs/apis/vpc/latest#add-virtual-network-interface-ip) and [remove](/docs/apis/vpc/latest#remove-virtual-network-interface-ip) reserved IPs to and from a virtual network interface.
 - For compatibility with existing clients, instances and bare metal servers with virtual network interfaces include a read-only representation of their network attachments and virtual network interfaces as old-style network interface child resources. Learn about [support for old API clients](/docs/vpc?topic=vpc-vni-about&interface=ui#vni-old-api-clients).
-- For instances and bare metal servers with virtual network interfaces, the IAM permissions for options to allow IP spoofing or disable infrastructure NAT are managed on their attached virtual network interfaces. When [creating](/apidocs/vpc/latest#create-virtual-network-interface) or [updating](/apidocs/vpc/latest#update-virtual-network-interface) a virtual network interface, you can set non-default values for the `allow_ip_spoofing` and `enable_infrastructure_nat` properties only if you have the `is.virtual-network-interface.virtual-network-interface.manage-ip-spoofing` and `is.virtual-network-interface.virtual-network-interface.manage-infrastructure-nat` IAM permissions respectively.
-- You can use [flow log collectors](/apidocs/vpc/latest#create-flow-log-collector) to target instance network attachments and virtual network interfaces. There is no support for flow logs for bare metal servers and share mount targets.
+- For instances and bare metal servers with virtual network interfaces, the IAM permissions for options to allow IP spoofing or disable infrastructure NAT are managed on their attached virtual network interfaces. When [creating](/docs/apis/vpc/latest#create-virtual-network-interface) or [updating](/docs/apis/vpc/latest#update-virtual-network-interface) a virtual network interface, you can set non-default values for the `allow_ip_spoofing` and `enable_infrastructure_nat` properties only if you have the `is.virtual-network-interface.virtual-network-interface.manage-ip-spoofing` and `is.virtual-network-interface.virtual-network-interface.manage-infrastructure-nat` IAM permissions respectively.
+- You can use [flow log collectors](/docs/apis/vpc/latest#create-flow-log-collector) to target instance network attachments and virtual network interfaces. There is no support for flow logs for bare metal servers and share mount targets.
 
 ## Why did we make this change?
 {: #vni-api-change-justification}

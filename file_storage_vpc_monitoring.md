@@ -77,7 +77,7 @@ You can see information about the last replication operation when you view the d
 You can see information about the last replication operation when you list the details of either the source or the replica share. For more information, see [View details of a file share from the CLI](/docs/vpc?topic=vpc-file-storage-view&interface=cli#fs-share-details-cli).
 {: cli}
 
-You can programmatically retrieve the last sync details by calling the `/shares` method in the [VPC API](/apidocs/vpc/latest#get-share){: external}. Look for the `latest_sync` section in the API response to see when the replication started (`started_at`), when it ended (`completed_at`), and how much data was transferred (`data_transferred`). For more information, see [View a single file share with the API](/docs/vpc?topic=vpc-file-storage-view&interface=api#fs-single-file-shares-api).
+You can programmatically retrieve the last sync details by calling the `/shares` method in the [VPC API](/docs/apis/vpc/latest#get-share){: external}. Look for the `latest_sync` section in the API response to see when the replication started (`started_at`), when it ended (`completed_at`), and how much data was transferred (`data_transferred`). For more information, see [View a single file share with the API](/docs/vpc?topic=vpc-file-storage-view&interface=api#fs-single-file-shares-api).
 {: api}
 
 When the amount of data to be transferred exceeds the amount of data that can be transferred during the replication window with the normal transfer rate, the replication process can't complete and the replication status becomes `degraded`. If this situation occurs, try adjusting the rate of change on the file share and the replication frequency.

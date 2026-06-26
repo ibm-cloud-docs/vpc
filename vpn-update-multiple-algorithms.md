@@ -2,7 +2,7 @@
 
 copyright:
   years: 2026
-lastupdated: "2026-06-23"
+lastupdated: "2026-06-26"
 
 keywords: VPN, IKE policy, IPsec policy, multiple algorithms, migration, deprecated, authentication algorithms, encryption algorithms, dh groups
 
@@ -269,7 +269,7 @@ To update an IKE policy with the API, follow these steps:
     ```
     {: codeblock}
 
-    To find the IKE policy ID, use the [list IKE policies](/apidocs/vpc/latest#list-ike-policies) command.
+    To find the IKE policy ID, use the [list IKE policies](/docs/apis/vpc/latest#list-ike-policies) command.
 
 1. Update the IKE policy to use multiple algorithms. Replace singular properties with the corresponding array-based properties.
 
@@ -469,7 +469,7 @@ To update an IPsec policy with the API, follow these steps:
     ```
     {: codeblock}
 
-    To find the IPsec policy ID, use the [list IPsec policies](/apidocs/vpc/latest#list-ipsec-policies) command.
+    To find the IPsec policy ID, use the [list IPsec policies](/docs/apis/vpc/latest#list-ipsec-policies) command.
 
 1. Update the IPsec policy to use multiple algorithms. Replace singular properties with the corresponding array-based properties.
 

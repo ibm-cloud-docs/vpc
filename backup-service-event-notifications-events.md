@@ -2,7 +2,7 @@
 
 copyright:
   years: 2022, 2026
-lastupdated: "2026-06-16"
+lastupdated: "2026-06-26"
 
 keywords: backup for VPC, backup service, backup plan, backup policy, restore, restore volume, restore data
 
@@ -105,7 +105,7 @@ curl -X POST "{base_url}/v1/instances/{instance_id}/sources"
 ```
 {: codeblock}
 
-A successful response returns the CRN value of your connected {{site.data.keyword.en_short}} service instance. For more information about the required and optional request parameters, see the [Event Notification API docs](/apidocs/event-notifications#create-sources).
+A successful response returns the CRN value of your connected {{site.data.keyword.en_short}} service instance. For more information about the required and optional request parameters, see the [Event Notification API docs](/docs/apis/event-notifications#create-sources).
 
 ### Connecting to {{site.data.keyword.en_short}} with Terraform
 {: #event-notifications-enable-terraform}

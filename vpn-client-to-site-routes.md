@@ -2,7 +2,7 @@
 
 copyright:
   years: 2021, 2026
-lastupdated: "2026-06-11"
+lastupdated: "2026-06-26"
 
 keywords:
 
@@ -250,7 +250,7 @@ To view a route on a VPN server with the API, follow these steps:
    The example uses `jq` as a parser, a third-party tool licensed under the [MIT license](https://stedolan.github.io/jq/download/). `jq` might not come preinstalled on all VPC images available when you create an instance. You might need to install `jq` before use or use another parser of your choice.
    {: note}
 
-1. Perform a GET on `/vpn_servers/{vpn_server_id}/routes/{id}`. For details, see [`list_vpn-server_routes`](/apidocs/vpc/latest#list-vpn-server-routes).
+1. Perform a GET on `/vpn_servers/{vpn_server_id}/routes/{id}`. For details, see [`list_vpn-server_routes`](/docs/apis/vpc/latest#list-vpn-server-routes).
 
    ```sh
    curl -sS -X GET \

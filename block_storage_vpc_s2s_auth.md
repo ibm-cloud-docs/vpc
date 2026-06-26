@@ -2,7 +2,7 @@
 
 copyright:
   years: 2022, 2026
-lastupdated: "2026-06-22"
+lastupdated: "2026-06-26"
 
 keywords: Backup for VPC, backup service, backup plan, backup policy, restore, restore volume, restore data
 
@@ -193,7 +193,7 @@ WHen the authorization is needed for cross-account data restoration, the authori
 {: #block-s2s-auth-encryption-api}
 {: api}
 
-Make a request to the [IAM Policy Management API](/apidocs/iam-policy-management#create-policy) to create the service-to-service authorization for the source volume's Block service to interact with a Key Management Service instance ({{site.data.keyword.keymanagementserviceshort}} or {{site.data.keyword.hscrypto}}).
+Make a request to the [IAM Policy Management API](/docs/apis/iam-policy-management#create-policy) to create the service-to-service authorization for the source volume's Block service to interact with a Key Management Service instance ({{site.data.keyword.keymanagementserviceshort}} or {{site.data.keyword.hscrypto}}).
 
 * The following example shows how you can authorize the Block service `is.server-protect` (source) to interact with the {{site.data.keyword.keymanagementserviceshort}} service `kms` (target) with the _Reader_ role.
 
@@ -217,7 +217,7 @@ Make a request to the [IAM Policy Management API](/apidocs/iam-policy-management
 {: #block-s2s-xaccount-encryption-api}
 {: api}
 
-Make a request to the [IAM Policy Management API](/apidocs/iam-policy-management#create-policy) to create the service-to-service authorization for the source account's Block Storage service to interact with a Key Management Service instance ({{site.data.keyword.keymanagementserviceshort}} or {{site.data.keyword.hscrypto}}) of the target account. The request must be made from the account that owns the customer root key in their KMS.
+Make a request to the [IAM Policy Management API](/docs/apis/iam-policy-management#create-policy) to create the service-to-service authorization for the source account's Block Storage service to interact with a Key Management Service instance ({{site.data.keyword.keymanagementserviceshort}} or {{site.data.keyword.hscrypto}}) of the target account. The request must be made from the account that owns the customer root key in their KMS.
 
 * The following example shows how you can authorize the Block service `is.server-protect` of one account (source) to interact with the {{site.data.keyword.hscrypto}} service `hs-crypto` of another account (target) with the _Reader_ and _Authorization Delegator_ roles.
 

@@ -2,7 +2,7 @@
 
 copyright:
   years: 2019, 2026
-lastupdated: "2026-04-16"
+lastupdated: "2026-06-26"
 
 keywords: CSE, endpoint, service, DNS, resolver, mirror, object, storage, bandwidth, charges
 
@@ -18,7 +18,7 @@ subcollection: vpc
 
 Before you can run workloads in an {{site.data.keyword.vpc_short}}, you must first set up your environment to access the VPC API. That is, if you choose to manage your VPC resources programmatically. The following information lists the regional API endpoints that you can use to access your VPC resources.
 
-For more information about setting up your VPC API environment or referencing methods to access your VPC resources, see [Setting up your CLI or API environment](/docs/vpc?topic=vpc-set-up-environment) or the [Virtual Private Cloud API reference](/apidocs/vpc).
+For more information about setting up your VPC API environment or referencing methods to access your VPC resources, see [Setting up your CLI or API environment](/docs/vpc?topic=vpc-set-up-environment) or the [Virtual Private Cloud API reference](/docs/apis/vpc).
 
 Use one of the following public endpoints to connect to the VPC infrastructure API. The endpoints are based on the region of the service.
 
@@ -137,7 +137,7 @@ The metadata endpoint provides instance-specific metadata and is accessible only
 * When the metadata_service.protocol property is `http`, the endpoint URL can either contain the service's IP address `http://169.254.169.254` or the service's hostname `http://api.metadata.cloud.ibm.com`.
 * When the metadata_service.protocol property is `https`, the endpoint URL must contain the service's hostname `https://api.metadata.cloud.ibm.com`.
 
-You cannot configure the metadata service with both `http` and `https` protocols at the same time. See [Endpoint URLs](/apidocs/vpc-metadata#endpoint-url-metadata), for instance metadata API.
+You cannot configure the metadata service with both `http` and `https` protocols at the same time. See [Endpoint URLs](/docs/apis/vpc-metadata#endpoint-url-metadata), for instance metadata API.
 
 When the `metadata_service.enabled` property is `false`, the Metadata API is not available. Requests sent to any of the endpoint URLs don't receive a response.
 

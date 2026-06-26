@@ -2,7 +2,7 @@
 
 copyright:
   years: 2020, 2026
-lastupdated: "2026-04-21"
+lastupdated: "2026-06-26"
 
 keywords: auto scale, autoscale, virtual server instance, creating, UI, console, instance group
 
@@ -106,7 +106,7 @@ For more information about health checks for load balancer pools, see the follow
 - [Working with health checks (ALB)](/docs/vpc?topic=vpc-alb-health-checks)
 - [Working with health checks (NLB)](/docs/vpc?topic=vpc-nlb-health-checks)
 
-Not all network load balancer offerings support integration with instance groups. Before you attach an instance group to a network load balancer pool, make sure that the `instance_groups_supported` property of the [load balancer detail](/apidocs/vpc/latest#get-load-balancer) is `true`.
+Not all network load balancer offerings support integration with instance groups. Before you attach an instance group to a network load balancer pool, make sure that the `instance_groups_supported` property of the [load balancer detail](/docs/apis/vpc/latest#get-load-balancer) is `true`.
 {: important}
 
 1. Make sure that you have the required IBM {{site.data.keyword.iamshort}} (IAM) permissions to create an instance group. For more information, see [Managing IAM access for VPC Infrastructure Services](/docs/vpc?topic=vpc-iam-getting-started&interface=ui).

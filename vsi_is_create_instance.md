@@ -2,7 +2,7 @@
 
 copyright:
   years: 2018, 2026
-lastupdated: "2026-06-25"
+lastupdated: "2026-06-26"
 
 keywords:
 
@@ -990,13 +990,13 @@ Before you can create an instance, you need to know the details about the instan
 
 |    Instance details   |  Listing options                | API spec documentation |
 |-----------------------|---------------------------------| --------------------------------------------|
-| Image                 | `GET /images`                   | [List all images](/apidocs/vpc/latest#list-images)|
-| Profile               | `GET /instance/profiles`  \n  \n `GET /images/<id>/instance_profiles` | [List all instance profiles](/apidocs/vpc/latest#list-instance-profiles)  \n  \n [List all instance profiles compatible with a specific image](/apidocs/vpc/latest#list-image-instance-profiles)|
-| Key                   | `GET /keys`                     | [List all keys](/apidocs/vpc/latest#list-keys)|
-| VPC                   | `GET /vpcs`                     | [List all VPCs](/apidocs/vpc/latest#list-vpcs)|
-| Subnet                | `GET /subnets`                  | [List all subnets](/apidocs/vpc/latest#list-subnets) |
-| Zone                  | `GET /regions/<region>/zones`   | [List all zones in a region](/apidocs/vpc/latest#list-region-zones) |
-| Placement groups      | `GET /placement_groups`         | [List all placement groups](/apidocs/vpc/latest#list-placement-groups)|
+| Image                 | `GET /images`                   | [List all images](/docs/apis/vpc/latest#list-images)|
+| Profile               | `GET /instance/profiles`  \n  \n `GET /images/<id>/instance_profiles` | [List all instance profiles](/docs/apis/vpc/latest#list-instance-profiles)  \n  \n [List all instance profiles compatible with a specific image](/docs/apis/vpc/latest#list-image-instance-profiles)|
+| Key                   | `GET /keys`                     | [List all keys](/docs/apis/vpc/latest#list-keys)|
+| VPC                   | `GET /vpcs`                     | [List all VPCs](/docs/apis/vpc/latest#list-vpcs)|
+| Subnet                | `GET /subnets`                  | [List all subnets](/docs/apis/vpc/latest#list-subnets) |
+| Zone                  | `GET /regions/<region>/zones`   | [List all zones in a region](/docs/apis/vpc/latest#list-region-zones) |
+| Placement groups      | `GET /placement_groups`         | [List all placement groups](/docs/apis/vpc/latest#list-placement-groups)|
 {: caption="Required instance details api" caption-side="bottom"}
 
 You can provision an instance from an `available`, `partially_available` (image is not yet available in all zones) or `deprecated` image. For more information on image lifecycles, see [Custom image lifecycle](/docs/vpc?topic=vpc-planning-custom-images#custom-image-lifecycle).
@@ -1014,7 +1014,7 @@ Some profiles might not be available because of one of the following reasons:
 {: #create-vsi-api}
 {: api}
 
-After you retrieved the information that you need, you can run the [`POST /instances`](/apidocs/vpc/latest#create-instance) method to create an instance.
+After you retrieved the information that you need, you can run the [`POST /instances`](/docs/apis/vpc/latest#create-instance) method to create an instance.
 
 ### Provision an instance from a stock or custom image with the API
 {: #create-instance-stock-custom-image-api}
@@ -1123,7 +1123,7 @@ Reusing an existing, bootable volume is faster than creating a new volume from a
 
 You can provision an instance with an existing volume by specifying the existing volume's `id` or `crn` subproperty as the value of the `boot_volume_attachment` property.
 
-The existing bootable volume must be an unattached bootable volume that has the same architecture as the instance profile. Use the [list volumes](/apidocs/vpc/latest#list-volumes) filter and reference the `attachment_state` property and `operating_system` property to view a volume's eligibility.
+The existing bootable volume must be an unattached bootable volume that has the same architecture as the instance profile. Use the [list volumes](/docs/apis/vpc/latest#list-volumes) filter and reference the `attachment_state` property and `operating_system` property to view a volume's eligibility.
 
 For example, to see unattached volumes in `us-south-1` with an x86 operating system.
 
@@ -1134,7 +1134,7 @@ curl -X GET "$vpc_api_endpoint/v1/volumes?version=2023-02-08&generation=2?attach
 
 By default, a boot volume that is created as part of provisioning a virtual server instance is deleted when the instance is deleted. You can change this behavior by setting the `delete_volume_on_instance_delete` property to `false` when you create the instance or update the boot volume attachment.
 
-Use the [`POST /instances`](/apidocs/vpc/latest#create-instance) method to create an instance with the information you gathered. The following call is an example of provisioning an instance by using an existing boot volume.
+Use the [`POST /instances`](/docs/apis/vpc/latest#create-instance) method to create an instance with the information you gathered. The following call is an example of provisioning an instance by using an existing boot volume.
 
 ```sh
 curl -X POST "$vpc_api_endpoint/v1/instances?version=2023-02-08&generation=2"
@@ -1190,7 +1190,7 @@ curl -X POST "$vpc_api_endpoint/v1/instances?version=2023-02-08&generation=2"
 Second-generation boot volumes with the `sdp` volume profile do not support secure boot yet. If secure-boot is required, use a boot volume with a first-generation volume profile.
 {: note}
 
-For more information, see [Create an instance](/apidocs/vpc/latest#create-instance).
+For more information, see [Create an instance](/docs/apis/vpc/latest#create-instance).
 
 ### Restore a boot volume from a snapshot and use it to provision a new instance
 {: #create-instance-bootable-snapshot-api}

@@ -47,7 +47,7 @@
     }
   ],
   "section_devtools": {
-    "api": "/apidocs/vpc",
+    "api": "/docs/apis/vpc",
     "cli": "/docs/vpc?topic=vpc-set-up-environment&interface=cli",
     "terraform": "https://registry.terraform.io/providers/IBM-Cloud/ibm/latest/docs/resources/is_instance"
   },

@@ -2,7 +2,7 @@
 
 copyright:
   years: 2023, 2026
-lastupdated: "2026-04-17"
+lastupdated: "2026-06-26"
 
 keywords:
 
@@ -121,7 +121,7 @@ To create an IAM s2s authorization policy with the API, follow these steps:
     ```
     {: pre}
 
-1. To create and delete a DNS resolution binding between hub and DNS-shared VPCs across different accounts, a s2s policy must exist in the hub VPC account. This gives the DNS-shared VPC a `DNSBindingConnector` role on the hub VPC. To create the s2s policy, refer to the `policies` method in the [IAM Policy Management API](/apidocs/iam-policy-management#create-policy)
+1. To create and delete a DNS resolution binding between hub and DNS-shared VPCs across different accounts, a s2s policy must exist in the hub VPC account. This gives the DNS-shared VPC a `DNSBindingConnector` role on the hub VPC. To create the s2s policy, refer to the `policies` method in the [IAM Policy Management API](/docs/apis/iam-policy-management#create-policy)
 
 ### Example request
 {: #example-req-body}

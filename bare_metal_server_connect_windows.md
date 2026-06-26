@@ -1,8 +1,8 @@
 ---
 
 copyright:
-  years: 2023, 2025
-lastupdated: "2025-12-18"
+  years: 2023, 2026
+lastupdated: "2026-06-26"
 
 keywords: connecting, windows, bare metal, bare metal server
 
@@ -81,7 +81,7 @@ After you create your Windows server and complete the prerequisites, use the fol
     ```
    {: pre}
 
-   You can also use the API to get the encrypted password, which returns the decoded and decrypted password. For more information, see [Retrieve initialization configuration for a bare metal server](/apidocs/vpc/latest#get-bare-metal-server-initialization).
+   You can also use the API to get the encrypted password, which returns the decoded and decrypted password. For more information, see [Retrieve initialization configuration for a bare metal server](/docs/apis/vpc/latest#get-bare-metal-server-initialization).
    {: tip}
 
 3. After you obtain your password, you can optionally associate a floating IP address to your Windows server so you can connect to it from an internet location. Run the following command to associate a floating IP address to your server, where `NIC_ID` is the ID of the target network interface (for example, `eth0`).

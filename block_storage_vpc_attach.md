@@ -2,7 +2,7 @@
 
 copyright:
   years: 2019, 2026
-lastupdated: "2026-06-22"
+lastupdated: "2026-06-26"
 
 keywords: vpc, Block Storage, Block Storage for vpc, mounting storing, attaching Block Storage, vpc instance, data volumes
 
@@ -251,7 +251,7 @@ The following example shows the content of a volume attachment JSON file that de
 {: help}
 {: support}
 
-Attach {{site.data.keyword.block_storage_is_short}} volumes to an instance by directly calling the [REST APIs](/apidocs/vpc).
+Attach {{site.data.keyword.block_storage_is_short}} volumes to an instance by directly calling the [REST APIs](/docs/apis/vpc).
 
 Create a volume attachment for an instance to attach a {{site.data.keyword.block_storage_is_short}} volume. Make a `POST /instances` call and specify `volume_attachments`.
 

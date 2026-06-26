@@ -2,7 +2,7 @@
 
 copyright:
   years: 2019, 2026
-lastupdated: "2026-06-25"
+lastupdated: "2026-06-26"
 
 keywords: view instance details, restart virtual server, stop, details, delete
 
@@ -168,7 +168,7 @@ The stop action shuts down the guest operating system and then the virtual serve
 A _Force stop_ action triggers a power cycle reset of the virtual server instance.
 {: note}
 
-For more information, see the [Create an instance action](/apidocs/vpc/latest#create-instance-action) in the VPC API.
+For more information, see the [Create an instance action](/docs/apis/vpc/latest#create-instance-action) in the VPC API.
 
 ## Starting a virtual server instance with the API
 {: #start-virtual-server-instances-api}
@@ -185,7 +185,7 @@ curl -X POST "https://us-south.iaas.cloud.ibm.com/v1/instances/d6c3902d-1ecf-3a2
 
 The stop and start action remotely turns an instance off or on. If the instance is stopped, the instance remains in the stopped state and must be started manually. Billing is [suspended](/docs/vpc?topic=vpc-suspend-billing) for some compute resources while the instance is stopped. You cannot interact with an instance if it is stopped. If the instance is started, normal interaction and billing continue.
 
-For more information, see the [Create an instance action](/apidocs/vpc/latest#create-instance-action) in the VPC API.
+For more information, see the [Create an instance action](/docs/apis/vpc/latest#create-instance-action) in the VPC API.
 
 ## Stopping a virtual server instance by using Terraform
 {: #stop-virtual-server-instances-terraform}
@@ -276,7 +276,7 @@ The reboot action triggers a guest operating system reboot. The virtual server i
 A _Force reboot_ action triggers a power cycle reset of the virtual server instance.
 {: note}
 
-For more information, see the [Create an instance action](/apidocs/vpc/latest#create-instance-action) in the VPC API.
+For more information, see the [Create an instance action](/docs/apis/vpc/latest#create-instance-action) in the VPC API.
 
 ## Rebooting a virtual server instance by using Terraform
 {: #reboot-virtual-server-instances-terraform}
@@ -377,7 +377,7 @@ curl -X DELETE "$vpc_api_endpoint/v1/instances/$instance_id?version=2021-06-22&g
 
 The delete action permanently removes an instance, its connected vNIC, and data from your account. The instance boot volume is also deleted if the volume auto-delete setting is enabled. If an existing boot volume is attached as part of provisioning a virtual server instance, the volume is preserved by default when the instance is deleted. If a boot volume was created as part of provisioning a virtual server instance, the volume deletes by default when the instance is deleted. After you confirm the delete action, the process to delete the instance and its associated vNIC, boot volume, and data begins. The delete action can take up to 30 minutes, but when the process is complete, the instance no longer appears on the virtual server instances page.
 
-For more information, see the [Delete an instance](/apidocs/vpc/latest#delete-instance) in the VPC API.
+For more information, see the [Delete an instance](/docs/apis/vpc/latest#delete-instance) in the VPC API.
 
 ## Changing the auto-deletion setting of volumes that are attached to an instance in the console
 {: #auto-delete-toggle-ui}
@@ -407,7 +407,7 @@ During instance provisioning, a boot volume is created with the auto-delete opti
 
 The opposite is true for data volumes that are created during instance provisioning, the auto-delete feature is disabled for them. Data volumes are meant to be detached but not deleted by default so your data can persist beyond the virtual server instance lifecycle.
 
-You can change this setting by specifying the `delete_volume_on_instance_delete` property when you [create the instance](/apidocs/vpc/latest#create-instance) or update the [volume attachment](/apidocs/vpc/latest#update-instance-volume-attachment). For more information, see [Creating virtual server instances](/docs/vpc?topic=vpc-creating-virtual-servers&interface=api) and [Updating a volume attachment with the API](/docs/vpc?topic=vpc-managing-block-storage&interface=api#update-vol-attachment-api).
+You can change this setting by specifying the `delete_volume_on_instance_delete` property when you [create the instance](/docs/apis/vpc/latest#create-instance) or update the [volume attachment](/docs/apis/vpc/latest#update-instance-volume-attachment). For more information, see [Creating virtual server instances](/docs/vpc?topic=vpc-creating-virtual-servers&interface=api) and [Updating a volume attachment with the API](/docs/vpc?topic=vpc-managing-block-storage&interface=api#update-vol-attachment-api).
 
 ## Viewing instance details in the console
 {: #viewing-virtual-server-instances-ui}
@@ -443,7 +443,7 @@ curl -X GET "https://us-south.iaas.cloud.ibm.com/v1/instance/profiles/$profile_n
 ```
 {: pre}
 
-For more information, see the [Retrieve an instance profile](/apidocs/vpc/latest#get-instance-profile) in the VPC API.
+For more information, see the [Retrieve an instance profile](/docs/apis/vpc/latest#get-instance-profile) in the VPC API.
 
 ## Viewing instance details by using Terraform
 {: #viewing-virtual-server-instances-terraform}
@@ -547,7 +547,7 @@ For the QoS mode change to take effect, you must first stop the virtual server i
 {: #updating-qos-mode-api}
 {: api}
 
-You can programmatically change the storage QoS mode of a virtual server instance that uses one of the [General purpose - Flex](/docs/vpc?topic=vpc-flexible-profiles-virtual-servers), [General purpose Gen 3](/docs/vpc?topic=vpc-general-purpose-vsi-profiles-gen3-intel), [Accelerated Gen 3](/docs/vpc?topic=vpc-accelerated-profile-family ), or [Confidential Computing - Gen 3](/docs/vpc?topic=vpc-confidential-computing-vsi-profiles-gen3-x86) profiles by calling the `/instances/{id}` method in the [VPC API](/apidocs/vpc/latest#update-instance){: external} as shown in the following sample request.
+You can programmatically change the storage QoS mode of a virtual server instance that uses one of the [General purpose - Flex](/docs/vpc?topic=vpc-flexible-profiles-virtual-servers), [General purpose Gen 3](/docs/vpc?topic=vpc-general-purpose-vsi-profiles-gen3-intel), [Accelerated Gen 3](/docs/vpc?topic=vpc-accelerated-profile-family ), or [Confidential Computing - Gen 3](/docs/vpc?topic=vpc-confidential-computing-vsi-profiles-gen3-x86) profiles by calling the `/instances/{id}` method in the [VPC API](/docs/apis/vpc/latest#update-instance){: external} as shown in the following sample request.
 
 The following example request enables dynamic bandwidth allocation for data volumes that are attached to a 3rd generation virtual server.
 
@@ -620,9 +620,9 @@ For z/OS virtual server instances, you can SSH into the instance, and then run t
 {: api}
 
 - `status`
-   - This property provides the status of the virtual server instance through the [Retrieve an instance](/apidocs/vpc/latest#get-instance) request. The values that `status` returns are specialized for virtual server instances and indicate whether it is running, stopped, or transitioning. For more information, see the [Virtual Private Cloud API](/apidocs/vpc/latest#about-vpc-api).
+   - This property provides the status of the virtual server instance through the [Retrieve an instance](/docs/apis/vpc/latest#get-instance) request. The values that `status` returns are specialized for virtual server instances and indicate whether it is running, stopped, or transitioning. For more information, see the [Virtual Private Cloud API](/docs/apis/vpc/latest#about-vpc-api).
 - `lifecycle_state`
-   - This property provides the state of a resource through the [Retrieve an instance](/apidocs/vpc/latest#get-instance) request. The values that `lifecycle_state` provide are generic and are meant to apply to various resources, such as [Placement groups](/docs/vpc?topic=vpc-about-placement-groups-for-vpc). `lifecycle_state` can return values that overlap with `status`. `lifecycle_state` also includes values that detail if a resource is suspended.
+   - This property provides the state of a resource through the [Retrieve an instance](/docs/apis/vpc/latest#get-instance) request. The values that `lifecycle_state` provide are generic and are meant to apply to various resources, such as [Placement groups](/docs/vpc?topic=vpc-about-placement-groups-for-vpc). `lifecycle_state` can return values that overlap with `status`. `lifecycle_state` also includes values that detail if a resource is suspended.
 
 ## Setting the host failure auto restart in the console
 {: #set-recovery-policy-ui}
@@ -651,7 +651,7 @@ ibmcloud is instance-update INSTANCE --total-volume-bandwidth VALUE --host-failu
 {: #set-policy-api}
 {: api}
 
-During an instance [update](/apidocs/vpc/latest#update-instance), the `host_failure` subproperty can be used to set the host failure `availability_policy` of the virtual server instance.
+During an instance [update](/docs/apis/vpc/latest#update-instance), the `host_failure` subproperty can be used to set the host failure `availability_policy` of the virtual server instance.
 
 ## Setting the confidential compute value from the CLI
 {: #set-confidential-compute-cli}
@@ -685,7 +685,7 @@ curl -X PATCH "$vpc_api_endpoint/v1/instances/$instance_id?version=2024-10-17&ge
 ```
 {: pre}
 
-For more information, see the [update an instance action](/apidocs/vpc/latest#update-instance) in the {{site.data.keyword.vsi_is_short}} API.
+For more information, see the [update an instance action](/docs/apis/vpc/latest#update-instance) in the {{site.data.keyword.vsi_is_short}} API.
 
 ## Disable or enable secure boot in the console
 {: #disable-secure-boot-ui}
@@ -730,7 +730,7 @@ curl -X PATCH "$vpc_api_endpoint/v1/instances/$instance_id?version=2024-10-17&ge
 
 If you decide to re-enable secure boot, follow these same steps and set the `enable_secure_boot` property to `true`.
 
-For more information, see the [update an instance action](/apidocs/vpc/latest#update-instance) in the {{site.data.keyword.vsi_is_short}} API.
+For more information, see the [update an instance action](/docs/apis/vpc/latest#update-instance) in the {{site.data.keyword.vsi_is_short}} API.
 
 ## Detaching a server from a reservation in the console
 {: #removing-adding-server-reserved-capacity-ui-vpc}
@@ -837,7 +837,7 @@ curl -X GET "https://us-south.iaas.cloud.ibm.com/v1/instances/$instance_id/softw
 ```
 {: pre}
 
-For more information, see [List instance software attachments associated with an instance](/apidocs/vpc/latest#list-instance-software-attachments) in the VPC API.
+For more information, see [List instance software attachments associated with an instance](/docs/apis/vpc/latest#list-instance-software-attachments) in the VPC API.
 
 ## Retrieving an instance software attachment with the API
 {: #get-instance-software-attachment-api}
@@ -852,7 +852,7 @@ curl -X GET "https://us-south.iaas.cloud.ibm.com/v1/instances/$instance_id/softw
 ```
 {: pre}
 
-For more information, see [Retrieve an instance software attachment](/apidocs/vpc/latest#get-instance-software-attachment) in the VPC API.
+For more information, see [Retrieve an instance software attachment](/docs/apis/vpc/latest#get-instance-software-attachment) in the VPC API.
 
 ## Updating an instance software attachment with the API
 {: #update-instance-software-attachment-api}
@@ -867,7 +867,7 @@ curl -X PATCH "https://us-south.iaas.cloud.ibm.com/v1/instances/$instance_id/sof
 ```
 {: pre}
 
-For more information, see [Update an instance software attachment](/apidocs/vpc/latest#update-instance-software-attachment) in the VPC API.
+For more information, see [Update an instance software attachment](/docs/apis/vpc/latest#update-instance-software-attachment) in the VPC API.
 
 ## Editing Threads per core in the console
 {: #edit-threads-per-core-ui-vpc}

@@ -2,7 +2,7 @@
 
 copyright:
   years: 2019, 2026
-lastupdated: "2026-06-22"
+lastupdated: "2026-06-26"
 
 keywords: Block storage for VPC, change IOPS, change autodelete, increase volume, change name, rename volume, delete volume, renaming volume, updating volume
 
@@ -341,7 +341,7 @@ A boot volume cannot be detached from an instance while the instance exists. If 
 {: #managing-block-storage-api}
 {: api}
 
-Manage your block storage programmatically by making requests to the [VPC REST APIs](/apidocs/vpc). With the API, you can:
+Manage your block storage programmatically by making requests to the [VPC REST APIs](/docs/apis/vpc). With the API, you can:
 
 * Rename a block storage volume.
 * Add user tags to a block storage volume.
@@ -664,7 +664,7 @@ For more information, see the [`ibmcloud resource` command reference](/docs/cli?
 {: #storage-create-access-mgt-tag-api}
 {: api}
 
-With the [Global Search and Tagging API](/docs/account?topic=account-tag&interface=api#create-access-api), make a `POST/ tags` call to [create an access management tag](/apidocs/tagging#create-tag). Specify the tag in the `tag_names` property. For an example, see [Creating access management tags by using the API](/docs/account?topic=account-tag&interface=api#create-access-api).
+With the [Global Search and Tagging API](/docs/account?topic=account-tag&interface=api#create-access-api), make a `POST/ tags` call to [create an access management tag](/docs/apis/tagging#create-tag). Specify the tag in the `tag_names` property. For an example, see [Creating access management tags by using the API](/docs/account?topic=account-tag&interface=api#create-access-api).
 
 ### Step 1 - Creating an IAM access management tag with Terraform
 {: #storage-create-access-mgt-tag-terraform}

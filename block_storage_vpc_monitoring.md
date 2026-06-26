@@ -2,7 +2,7 @@
 
 copyright:
   years: 2019, 2026
-lastupdated: "2026-06-22"
+lastupdated: "2026-06-26"
 
 keywords: Block Storage, boot volume, data volume, status, health state, monitoring, performance
 
@@ -64,7 +64,7 @@ Volume health states correspond with volume statuses. Table 2 describes the heal
 | Faulted | The volume is unreachable, inoperative, or entirely incapacitated. |
 {: caption="Block Storage health states and reasons" caption-side="bottom"}
 
-For more information about the health states and reason codes in the API, see the [API reference](/apidocs/vpc/latest#create-volume) for creating, listing, and updating volumes.
+For more information about the health states and reason codes in the API, see the [API reference](/docs/apis/vpc/latest#create-volume) for creating, listing, and updating volumes.
 
 ## Volume performance when you restore from a snapshot
 {: #block-vol-restore-snap}

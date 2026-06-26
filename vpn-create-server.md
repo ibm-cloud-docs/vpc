@@ -2,7 +2,7 @@
 
 copyright:
   years: 2021, 2026
-lastupdated: "2026-06-11"
+lastupdated: "2026-06-26"
 
 keywords:
 
@@ -252,7 +252,7 @@ To create a client-to-site VPN server with the API, follow these steps:
    ```
    {: codeblock}
 
-To view the complete set of APIs for client-to-site VPN servers, see the [VPC API reference](/apidocs/vpc/latest#list-vpn-servers).
+To view the complete set of APIs for client-to-site VPN servers, see the [VPC API reference](/docs/apis/vpc/latest#list-vpn-servers).
 
 ## Creating a VPN server with Terraform
 {: #vpn-server-setup-terraform}

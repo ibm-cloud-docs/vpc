@@ -1,8 +1,8 @@
 ---
 
 copyright:
-  years: 2020, 2025
-lastupdated: "2025-11-07"
+  years: 2020, 2026
+lastupdated: "2026-06-26"
 
 keywords:
 
@@ -125,6 +125,6 @@ ALB's and NLB's determine their pricing based on the following metrics.
 
 * [About application load balancers](/docs/vpc?topic=vpc-load-balancers-about)
 * [About network load balancers](/docs/vpc?topic=vpc-network-load-balancers)
-* [Load balancer API reference](/apidocs/vpc#list-load-balancers)
+* [Load balancer API reference](/docs/apis/vpc#list-load-balancers)
 * [Activity tracking events](/docs/vpc?topic=vpc-at_events#events-load-balancers)
 * [Quotas and service limits](/docs/vpc?topic=vpc-quotas)

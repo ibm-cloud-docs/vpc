@@ -2,7 +2,7 @@
 
 copyright:
   years: 2022, 2026
-lastupdated: "2026-06-11"
+lastupdated: "2026-06-26"
 
 keywords: Backup, backup snapshot, create backups, backup service, backup plan, backup policy, restore, restore volume, restore data, restore share
 
@@ -613,9 +613,9 @@ The cross-regional copy feature is not applicable for multi-volume or share back
 {: #backup-policy-create-policy-plan-api}
 {: api}
 
-You can programmatically create a backup policy by calling the `/backup_policies` method in the [VPC API](/apidocs/vpc/latest#create-backup-policy){: external} as shown in the following sample requests. A `POST /backup_policies` request creates a backup policy with tags that you provide to identify {{site.data.keyword.block_storage_is_short}} volume resources that are to be backed up. The backup policy accepts a backup plan, where you define backup schedules and deletion rules.
+You can programmatically create a backup policy by calling the `/backup_policies` method in the [VPC API](/docs/apis/vpc/latest#create-backup-policy){: external} as shown in the following sample requests. A `POST /backup_policies` request creates a backup policy with tags that you provide to identify {{site.data.keyword.block_storage_is_short}} volume resources that are to be backed up. The backup policy accepts a backup plan, where you define backup schedules and deletion rules.
 
-If you are an Enterprise account administrator who wants to create a backup policy and plan for your enterprise account and child accounts, you need to fetch your enterprise account CRN. Make an API request to the [Enterprise Management API](/apidocs/enterprise-apis/enterprise#list-enterprises) like the following example.
+If you are an Enterprise account administrator who wants to create a backup policy and plan for your enterprise account and child accounts, you need to fetch your enterprise account CRN. Make an API request to the [Enterprise Management API](/docs/apis/enterprise-apis/enterprise#list-enterprises) like the following example.
 
 ```sh
 curl -X GET "https://enterprise.cloud.ibm.com/v1/accounts/$ACCOUNT_ID" -H "Authorization: Bearer <IAM_Token>" -H 'Content-Type: application/json'
@@ -963,7 +963,7 @@ curl -X POST "$vpc_api_endpoint/v1/backup_policies?version=2024-12-10&generation
 ### Creating a plan for an existing backup policy with the API
 {: #backup-policy-create-plan-api}
 
-You can programmatically create a backup plan for an existing ID by calling the `/backup_policies/{id}/plans` method in the [VPC API](/apidocs/vpc/latest#create-backup-policy-plan){: external} as shown in the following sample request.
+You can programmatically create a backup plan for an existing ID by calling the `/backup_policies/{id}/plans` method in the [VPC API](/docs/apis/vpc/latest#create-backup-policy-plan){: external} as shown in the following sample request.
 
 ```sh
 curl -X POST "$vpc_api_endpoint/v1/backup_policies/8758bd18-344b-486a-b606-5b8cb8cdd044/plans?version=2022-04-19&generation=2"\
@@ -1056,7 +1056,7 @@ A successful response shows that the clone policy is created.
 ```
 {: codeblock}
 
-You can also set up the fast restore option when you create a backup policy and plan. Specify `clone_policy` as a subproperty of the `plans` property. For more information, see the [Create a backup policy](/apidocs/vpc/latest#create-backup-policy) in the API reference.
+You can also set up the fast restore option when you create a backup policy and plan. Specify `clone_policy` as a subproperty of the `plans` property. For more information, see the [Create a backup policy](/docs/apis/vpc/latest#create-backup-policy) in the API reference.
 
 The fast restore feature is billed at an extra rate per hour for each zone where it is enabled. Maintaining fast restore clones is considerably more costly than keeping regular backup snapshots.
 {: note}

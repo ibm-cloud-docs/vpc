@@ -2,7 +2,7 @@
 
 copyright:
   years: 2020, 2026
-lastupdated: "2026-04-16"
+lastupdated: "2026-06-26"
 
 keywords: custom routes
 
@@ -263,7 +263,7 @@ You can use a maximum of 14 unique prefix lengths per custom routing table. You 
 These links provide additional information about {{site.data.keyword.cloud_notm}} routing tables and routes for VPC:
 
 * [VPC CLI reference](/docs/vpc?topic=vpc-vpc-reference#custom-routes-section)
-* [VPC API reference](/apidocs/vpc)
+* [VPC API reference](/docs/apis/vpc)
 * [Activity tracking events](/docs/vpc?topic=vpc-at_events#events-custom-routes)
 * [Routing tables for VPC infrastructure resources for Terraform](https://registry.terraform.io/providers/IBM-Cloud/ibm/latest/docs/resources/is_vpc_routing_table){: external}
 * [Managing IAM access for VPC Infrastructure Services](/docs/vpc?topic=vpc-iam-getting-started&interface=ui) (see Actions tab for [VPC roles and actions](/docs/iam?topic=iam-iam-service-roles-actions#is.vpc-roles))

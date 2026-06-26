@@ -2,7 +2,7 @@
 
 copyright:
   years: 2022, 2026
-lastupdated: "2026-04-20"
+lastupdated: "2026-06-26"
 
 keywords: context-based restrictions for VPC Infrastructure Services
 
@@ -62,7 +62,7 @@ A *service reference, which is defined as part of a network zone, allows the spe
 {: #network-zone-api}
 {: api}
 
-You can create network zones by using the `create-zone` command. For more information, see the [API docs](/apidocs/context-based-restrictions#create-zone).
+You can create network zones by using the `create-zone` command. For more information, see the [API docs](/docs/apis/context-based-restrictions#create-zone).
 
 The `serviceRef` attribute for VPC Infrastructure Services is `is`. Cloud Block Storage is `server-protect`, and File Storage for VPC is `is.share`.
 {: tip}
@@ -152,7 +152,7 @@ group the policy is applied to in the command.
 {: api}
 
 Review the following example requests to create rules. For more information about the `v1/rules`
-API, see the [API docs](/apidocs/context-based-restrictions#create-rule).
+API, see the [API docs](/docs/apis/context-based-restrictions#create-rule).
 
 After you create a rule, it might take up to 10 minutes before you can update that rule.
 {: note}
@@ -422,10 +422,10 @@ After the VPN client connects to the VPN server, the requests to the VPE endpoin
 ## Limitations
 {: #cbr-limitations}
 
-- Context-based restrictions protect only the actions that are associated with the [VPC Infrastructure Services APIs](/apidocs/vpc) or the `is` plug-in of the IBM CLI. The SDK and Terraform options are also supported. Actions that are associated with the following platform APIs are *not* protected by context-based restrictions:
-   - [Resource Instance List APIs](/apidocs/resource-controller/resource-controller#list-resource-instances)
-   - [Resource Instance Delete resource API](/apidocs/resource-controller/resource-controller#delete-resource-instance)
-   - [Global Search APIs](/apidocs/search)
-   - Global Tagging [Attach](/apidocs/tagging#attach-tag) and [Detach](/apidocs/tagging#detach-tag) APIs
+- Context-based restrictions protect only the actions that are associated with the [VPC Infrastructure Services APIs](/docs/apis/vpc) or the `is` plug-in of the IBM CLI. The SDK and Terraform options are also supported. Actions that are associated with the following platform APIs are *not* protected by context-based restrictions:
+   - [Resource Instance List APIs](/docs/apis/resource-controller/resource-controller#list-resource-instances)
+   - [Resource Instance Delete resource API](/docs/apis/resource-controller/resource-controller#delete-resource-instance)
+   - [Global Search APIs](/docs/apis/search)
+   - Global Tagging [Attach](/docs/apis/tagging#attach-tag) and [Detach](/docs/apis/tagging#detach-tag) APIs
 - When you create a rule, it might take up to 10 minutes to become enforced.
-- Due to a limitation that is being addressed, context-based restrictions must not be in place for [Secrets Manager APIs](/apidocs/secrets-manager) when you use the [Load balancer for VPC service](/docs/vpc?topic=vpc-nlb-vs-elb). Because it results in failing to attach the certificates to the listener that is associated with the load balancer.
+- Due to a limitation that is being addressed, context-based restrictions must not be in place for [Secrets Manager APIs](/docs/apis/secrets-manager) when you use the [Load balancer for VPC service](/docs/vpc?topic=vpc-nlb-vs-elb). Because it results in failing to attach the certificates to the listener that is associated with the load balancer.

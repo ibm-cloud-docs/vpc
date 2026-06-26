@@ -46,7 +46,7 @@ ibmcloud is share-accessor-binding-delete SHARE ACCESSOR_BINDING
 {: pre}
 {: cli}
 
-You can programmatically delete a share binding by calling the `/shares` method in the [VPC API](/apidocs/vpc/latest){: external} as shown in the following sample request.
+You can programmatically delete a share binding by calling the `/shares` method in the [VPC API](/docs/apis/vpc/latest){: external} as shown in the following sample request.
 {: api}
 
 ```sh

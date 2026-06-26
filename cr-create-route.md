@@ -2,7 +2,7 @@
 
 copyright:
   years: 2020, 2026
-lastupdated: "2026-06-25"
+lastupdated: "2026-06-26"
 
 keywords: custom routes
 
@@ -201,7 +201,7 @@ To create a destination route with the API, follow these steps:
    ```
    {: codeblock}
 
-For more information and optional parameters, see [Create a route in a VPC routing table](/apidocs/vpc/latest#create-vpc-routing-table-route) in the VPC API Reference.
+For more information and optional parameters, see [Create a route in a VPC routing table](/docs/apis/vpc/latest#create-vpc-routing-table-route) in the VPC API Reference.
 
 ## Creating a route with Terraform
 {: #cr-create-route-terraform}

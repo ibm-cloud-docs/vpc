@@ -1,8 +1,8 @@
 ---
 
 copyright:
-  years: 2023, 2025
-lastupdated: "2025-02-20"
+  years: 2023, 2026
+lastupdated: "2026-06-26"
 
 keywords:
 
@@ -15,11 +15,11 @@ subcollection: vpc
 # Updating to the `2023-10-10` version (VPN)
 {: #2023-10-10-migration-vpn}
 
-As described in the [VPC API](/apidocs/vpc/latest) reference [versioning](/apidocs/vpc/latest#api-versioning) policy, most changes to the VPC APIs are fully backward compatible and are made available to all clients, regardless of the API version the client requests. However, the `2023-10-10` release of the VPC API necessitated incompatible changes in support of the health diagnostics feature for VPN gateways.
+As described in the [VPC API](/docs/apis/vpc/latest) reference [versioning](/docs/apis/vpc/latest#api-versioning) policy, most changes to the VPC APIs are fully backward compatible and are made available to all clients, regardless of the API version the client requests. However, the `2023-10-10` release of the VPC API necessitated incompatible changes in support of the health diagnostics feature for VPN gateways.
 
 Before you adopt release version `2023-10-10` or later, be aware of the following change, which might require you to update your client:
 
-The `status` and `members[].status` properties are not returned on version `2023-10-10` or later versions of [VPN gateways](/apidocs/vpc/latest#list-vpn-gateways).
+The `status` and `members[].status` properties are not returned on version `2023-10-10` or later versions of [VPN gateways](/docs/apis/vpc/latest#list-vpn-gateways).
 
 ## Action needed
 {: #action-needed-migration-vpn}
@@ -33,7 +33,7 @@ If your clients continue to specify version `2023-10-09` or earlier, no changes 
 
 Before you migrate a client to API version `2023-10-10` or later, review your code for use of the `status` and `members[].status` properties in the VPN gateway response. Change all VPN gateway `status` and `members[].status` to `lifecycle_state` or `health_state` in the manner appropriate for your programming language. Changes are required in all response JSON field name formats. For more information, see the [API change log](/docs/vpc?topic=vpc-api-change-log#10-october-2023).
 
-The following table maps the old property values for `status` and `members[].status` to the new properties and values for `lifecycle_state`, `members[].lifecycle_state`, `health_state`, and `members[].health_state` for API requests [listing all VPN gateways](/apidocs/vpc/latest#list-vpn-gateways) and [retrieving a VPN gateway](/apidocs/vpc/latest#get-vpn-gateway) using a `version` query parameter of `2023-10-10` or later.
+The following table maps the old property values for `status` and `members[].status` to the new properties and values for `lifecycle_state`, `members[].lifecycle_state`, `health_state`, and `members[].health_state` for API requests [listing all VPN gateways](/docs/apis/vpc/latest#list-vpn-gateways) and [retrieving a VPN gateway](/docs/apis/vpc/latest#get-vpn-gateway) using a `version` query parameter of `2023-10-10` or later.
 
 | `status`, `members[].status` | `lifecycle_state`, `members[].lifecycle_state` | `health_state`, `members[].health_state` |
 |------------------------------|------------------------------------------------|------------------------------------------|
@@ -46,7 +46,7 @@ The following table maps the old property values for `status` and `members[].sta
 ## Examples
 {: #example-api-migration-vpn}
 
-The following examples compare how to make a [`GET /vpn_gateways/{id}`](/apidocs/vpc/latest#get-vpn-gateway) request before and after the `2023-10-10` versioned change.
+The following examples compare how to make a [`GET /vpn_gateways/{id}`](/docs/apis/vpc/latest#get-vpn-gateway) request before and after the `2023-10-10` versioned change.
 
 Specifying API version `2023-10-09` or earlier:
 

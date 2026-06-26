@@ -1,8 +1,8 @@
 ---
 
 copyright:
-  years: 2025, 2025
-lastupdated: "2025-12-17"
+  years: 2025, 2026
+lastupdated: "2026-06-26"
 
 keywords: endpoint gateway migration
 
@@ -15,7 +15,7 @@ subcollection: vpc
 # `2025-11-18` API migration (endpoint gateways)
 {: #2025-11-18-migration-endpoint-gateways}
 
-As described in the VPC API reference [versioning](/apidocs/vpc/latest#api-versioning) policy, most changes to the VPC APIs are fully backward compatible and are made available to all clients, regardless of the API version the client requests. However, the `2025-11-18` release of the VPC API necessitated incompatible changes in support of local-access endpoint gateways with DNS sharing for VPE gateways.
+As described in the VPC API reference [versioning](/docs/apis/vpc/latest#api-versioning) policy, most changes to the VPC APIs are fully backward compatible and are made available to all clients, regardless of the API version the client requests. However, the `2025-11-18` release of the VPC API necessitated incompatible changes in support of local-access endpoint gateways with DNS sharing for VPE gateways.
 
 Before you adopt the release version `2025-11-18` or later, review the changes described in this migration guidance that might require you to update your client.
 
@@ -24,7 +24,7 @@ Before you adopt the release version `2025-11-18` or later, review the changes d
 
 The following properties have changed for API requests that use a version query parameter of `2025-11-18` or later.
 
-When [creating](/apidocs/vpc/2025-11-18#create-endpoint-gateway), [updating](/apidocs/vpc/2025-11-18#update-endpoint-gateway), [retrieving](/apidocs/vpc/2025-11-18#get-endpoint-gateway) or [listing](/apidocs/vpc/2025-11-18#list-endpoint-gateways), the following properties have changed for API requests that use a version query parameter of `2025-11-18` or later.
+When [creating](/docs/apis/vpc/2025-11-18#create-endpoint-gateway), [updating](/docs/apis/vpc/2025-11-18#update-endpoint-gateway), [retrieving](/docs/apis/vpc/2025-11-18#get-endpoint-gateway) or [listing](/docs/apis/vpc/2025-11-18#list-endpoint-gateways), the following properties have changed for API requests that use a version query parameter of `2025-11-18` or later.
 
 | Old properties                                           | New property                  |
 |----------------------------------------------------------|-------------------------------|

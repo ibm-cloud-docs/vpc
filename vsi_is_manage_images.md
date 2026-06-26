@@ -2,7 +2,7 @@
 
 copyright:
   years: 2019, 2026
-lastupdated: "2026-04-16"
+lastupdated: "2026-06-26"
 
 keywords:
 
@@ -24,7 +24,7 @@ After you import a custom image to {{site.data.keyword.vpc_short}}, you can view
 
 {{site.data.keyword.cloud}} Identity and Access Management (IAM) enables you to securely authenticate users for platform services and control access to resources consistently across {{site.data.keyword.cloud_notm}}. For more information about access requirements for custom images, see the IAM roles and actions information in [Image Service for VPC](/docs/iam?topic=iam-iam-service-roles-actions#is.image-roles).
 
-For details about the `$vpc_api_endpoint` and `$iam_token` variables in the following examples, see the Authentication and Endpoint URLs sections in [Virtual Private Cloud API Introduction](/apidocs/vpc/latest#about-vpc-api).
+For details about the `$vpc_api_endpoint` and `$iam_token` variables in the following examples, see the Authentication and Endpoint URLs sections in [Virtual Private Cloud API Introduction](/docs/apis/vpc/latest#about-vpc-api).
 {: api}
 
 ## Managing custom images by using the UI
@@ -69,7 +69,7 @@ For more information, see [ibmcloud is images](/docs/vpc?topic=vpc-vpc-reference
 
 You can list all of the {{site.data.keyword.vpc_short}} images in your region by using the application programming interface (API).
 
-To list all images by using the API, use [List all images](/apidocs/vpc/latest#list-images). Custom images are private to the account where they are created, so you can set the `visibility` property to `private` to retrieve only custom images.
+To list all images by using the API, use [List all images](/docs/apis/vpc/latest#list-images). Custom images are private to the account where they are created, so you can set the `visibility` property to `private` to retrieve only custom images.
 
 ```sh
 curl -X GET \
@@ -144,7 +144,7 @@ For more information, see [ibmcloud is image](/docs/vpc?topic=vpc-vpc-reference&
 
 You can view the details of a custom image, such as name and ID, operating system and version, encryption status, deprecation or obsolescence dates, and assigned resource group, by using the application programming interface (API).
 
-To retrieve the details of a specific custom image by using the API, use [Retrieve an image](/apidocs/vpc/latest#get-image). For the `$image_id` variable, specify the ID of the custom image that you want to retrieve.
+To retrieve the details of a specific custom image by using the API, use [Retrieve an image](/docs/apis/vpc/latest#get-image). For the `$image_id` variable, specify the ID of the custom image that you want to retrieve.
 
 ```sh
 curl -X GET \
@@ -227,7 +227,7 @@ For more information, see [ibmcloud is image-export-job-create](/docs/vpc?topic=
 
 You can export an {{site.data.keyword.vpc_short}} custom image to {{site.data.keyword.cos_full_notm}} by using the application programming interface (API).
 
-To export a custom image by using the API, use [Create an image export job](/apidocs/vpc/latest#create-image-export-job).
+To export a custom image by using the API, use [Create an image export job](/docs/apis/vpc/latest#create-image-export-job).
 
 For the`$image_id` variable, specify the ID of the custom image that you want to export. You can optionally specify a meaningful `name` for the image export job. In this example, the export job name is `my-image-export`. For the `storage_bucket` `name` subproperty, specify the name of the {{site.data.keyword.cos_full_notm}} bucket where you want to export the custom image. In this example, the bucket name is `bucket-27200-lwx4cfvcue`. Alternatively, you can use the `crn` subproperty to specify the CRN of the bucket.
 
@@ -357,7 +357,7 @@ For more information, see [ibmcloud is image-export-job-update](/docs/vpc?topic=
 {: #custom-image-export-job-history-api}
 {: api}
 
-To view the export history of a specific custom image by using the API, use [List all image export jobs](/apidocs/vpc/latest#create-image-export-job).
+To view the export history of a specific custom image by using the API, use [List all image export jobs](/docs/apis/vpc/latest#create-image-export-job).
 
 For the`$image_id` variable, specify the ID of the custom image for which you want to display export jobs.
 
@@ -372,7 +372,7 @@ curl -X GET \
 {: #custom-image-export-job-details-api}
 {: api}
 
-To view the details of a specific image export job by using the API, use [Retrieve an image export job](/apidocs/vpc/latest#get-image-export-job).
+To view the details of a specific image export job by using the API, use [Retrieve an image export job](/docs/apis/vpc/latest#get-image-export-job).
 
 For the`$image_id` variable, specify the ID of the custom image that was exported. For the `$export_job_id` variable, specify the ID of the image export job for which you want to retrieve details.
 
@@ -387,7 +387,7 @@ curl -X GET \
 {: #custom-image-export-job-delete-api}
 {: api}
 
-To delete a completed image export job or cancel (and delete) an in-progress image export job by using the API, use [Delete an image export job](/apidocs/vpc/latest#delete-image-export-job).
+To delete a completed image export job or cancel (and delete) an in-progress image export job by using the API, use [Delete an image export job](/docs/apis/vpc/latest#delete-image-export-job).
 
 For the`$image_id` variable, specify the ID of the custom image for which you want to delete an export job. For the `$export_job_id` variable, specify the ID of the image export job that you want to delete.
 
@@ -402,7 +402,7 @@ curl -X DELETE \
 {: #custom-image-export-job-rename-api}
 {: api}
 
-To rename a custom image export job by using the API, use [Update an image export job](/apidocs/vpc/latest#update-image-export-job).
+To rename a custom image export job by using the API, use [Update an image export job](/docs/apis/vpc/latest#update-image-export-job).
 
 For the`$image_id` variable, specify the ID of the custom image for which you want to rename an export job. For the `$export_job_id` variable, specify the ID of the image export job that you want to rename. The new name to assign to the image export job in the following example is `my-export-job-patched`.
 

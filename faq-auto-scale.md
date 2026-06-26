@@ -1,8 +1,8 @@
 ---
 
 copyright:
-  years: 2020, 2025
-lastupdated: "2025-11-05"
+  years: 2020, 2026
+lastupdated: "2026-06-26"
 
 subcollection: vpc
 
@@ -141,4 +141,4 @@ If you set a port range for the network load balancer listener, then the instanc
 {: #faq-auto-scale-15}
 {: faq}
 
-Not all network load balancer offerings support integration with instance groups. Load balancers support auto scaling if the `instance_groups_supported` property of the [load balancer detail](/apidocs/vpc/latest#get-load-balancer) is `true`.
+Not all network load balancer offerings support integration with instance groups. Load balancers support auto scaling if the `instance_groups_supported` property of the [load balancer detail](/docs/apis/vpc/latest#get-load-balancer) is `true`.

@@ -2,7 +2,7 @@
 
 copyright:
   years: 2021, 2026
-lastupdated: "2026-06-22"
+lastupdated: "2026-06-26"
 
 keywords: vpn, ipsec policy
 
@@ -301,7 +301,7 @@ To update an IPsec policy with the API by using singular properties (deprecated)
    ```
    {: codeblock}
 
-To view the complete set of APIs for site-to-site VPN gateways, see the [VPC API reference](/apidocs/vpc/latest#create-ipsec-policy).
+To view the complete set of APIs for site-to-site VPN gateways, see the [VPC API reference](/docs/apis/vpc/latest#create-ipsec-policy).
 {: tip}
 
 ## Next steps

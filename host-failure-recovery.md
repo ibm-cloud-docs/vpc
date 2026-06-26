@@ -1,8 +1,8 @@
 ---
 
 copyright:
-  years: 2021, 2025
-lastupdated: "2025-12-19"
+  years: 2021, 2026
+lastupdated: "2026-06-26"
 
 keywords: host failure recovery, recovery
 
@@ -148,7 +148,7 @@ Boot volume                           ID                                        
 {: #set-recovery-policy-api}
 {: api}
 
-During the instance [create](/apidocs/vpc/latest#create-instance) or [update](/apidocs/vpc/latest#update-instance) operations, the `host_failure` subproperty can be used to set the host failure `availability_policy` of the virtual server instance. If the compute host experiences a failure, specify `restart` or `stop` to set the policy.
+During the instance [create](/docs/apis/vpc/latest#create-instance) or [update](/docs/apis/vpc/latest#update-instance) operations, the `host_failure` subproperty can be used to set the host failure `availability_policy` of the virtual server instance. If the compute host experiences a failure, specify `restart` or `stop` to set the policy.
 
 | Host failure policy | Attribute  |
 |---------|---------|
@@ -156,7 +156,7 @@ During the instance [create](/apidocs/vpc/latest#create-instance) or [update](/a
 | stop | 'stop' |
 {: caption="Recovery policy API " caption-side="bottom"}
 
-For more information, see [Create an instance](/apidocs/vpc/latest#create-instance) and [Managing virtual server instances](/docs/vpc?topic=vpc-managing-virtual-server-instances&interface=api).
+For more information, see [Create an instance](/docs/apis/vpc/latest#create-instance) and [Managing virtual server instances](/docs/vpc?topic=vpc-managing-virtual-server-instances&interface=api).
 
 ## Next steps
 {: #host-fail-next-steps}

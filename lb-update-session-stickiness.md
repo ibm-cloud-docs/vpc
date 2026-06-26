@@ -2,7 +2,7 @@
 
 copyright:
   years: 2019, 2026
-lastupdated: "2026-01-05"
+lastupdated: "2026-06-26"
 
 keywords: application load balancer, session stickiness, vpc network, update
 
@@ -91,4 +91,4 @@ To update session stickiness for an application load balancer with the API, perf
    ```
    {: codeblock}
 
-   There are multiple ways to update your ALB from the API. For other options, see [VPC API reference for load balancers](/apidocs/vpc/latest#update-load-balancer-pool).
+   There are multiple ways to update your ALB from the API. For other options, see [VPC API reference for load balancers](/docs/apis/vpc/latest#update-load-balancer-pool).
