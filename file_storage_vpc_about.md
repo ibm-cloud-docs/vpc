@@ -45,7 +45,7 @@ All profiles are backed by solid-state drives (SSDs). For more information, see 
 
 You can create file shares with the `dp2` profile at a zonal level, for example in `us-south-1`. File shares are identified by name and associated with a resource group in your {{site.data.keyword.cloud_notm}} customer account.
 
-You create a file share in a zone. You can control how the file share is accessed by specifying the security group [access mode](#fs-mount-access-mode). Then, you create a network endpoint, known as a [mount target](#fs-share-mount-targets) for the share in the VPC.
+You create a file share in a zone. You can control how the file share is accessed by specifying the security group [access mode](#fs-mount-access-mode). Then, you create a network endpoint, which is known as a [mount target](#fs-share-mount-targets) for the share in the VPC.
 
 You can set up [replication](/docs/vpc?topic=vpc-file-storage-replication) between the source file share and a replica file share in different zones. So if an outage at the primary site was to occur, you can fail over to the replica file share and continue operations.
 
@@ -58,7 +58,7 @@ You can view and manage your zonal file shares in the console, from the CLI, wit
 
 As a customer with special access to preview the regional file share profile, you can create file shares with the `rfs` profile with regional availability in Dallas, Chennai - Airtel, Frankfurt, London, Madrid, Osaka, Sao Paulo, Sydney, Toronto, Tokyo, and Washington, DC.
 
-You create a file share within a region. File shares are identified by name and associated with a resource group in your {{site.data.keyword.cloud_notm}} customer account. You can control how the file share is accessed by using security groups. The regional file can be accessed from all three zones of the region when the compute clients are in the correct security group. You can mount the file share on your compute host by using a regional network endpoint, known as a mount target for the share. For more information, see [regional mount targets](#fs-regional-mount).
+You create a file share within a region. File shares are identified by name and associated with a resource group in your {{site.data.keyword.cloud_notm}} customer account. You can control how the file share is accessed by using security groups. The regional file can be accessed from all three zones of the region when the compute clients are in the correct security group. You can mount the file share on your compute host by using a regional network endpoint, which is known as a mount target for the share. For more information, see [regional mount targets](#fs-regional-mount).
 
 Data is regionally available, setting up replication between different zones is unnecessary.
 
@@ -83,7 +83,7 @@ File access protocols provide a standardized way for clients (virtual server ins
 
 Mounting is how a server's operating system makes files and directories on a storage device available for users to access through the server's file system. To mount a file share on a virtual server instance, a bare metal server instance, or to use it in a Kubernetes cluster, you need the NFS mount path. To create an NFS mount path, you need to create a mount target.
 
-A mount target for a file share is a network endpoint. When you create a mount target, an NFS mount path is created for the file share. You use the mount path to attach the file share to server instances or Kubernetes clusters in the same region. Depending on the [security group](/docs/vpc?topic=vpc-using-security-groups) you choose, you can restrict access to a share to a specific instance in the VPC or allow multiple virtual server instances or bare metal servers to mount the share.
+A mount target for a file share is a network endpoint. When you create a mount target, an NFS mount path is created for the file share. You use the mount path to attach the file share to server instances or Kubernetes clusters in the same region. Depending on the [security group](/docs/vpc?topic=vpc-using-security-groups) you choose, you can restrict access to a share to a specific instance or allow multiple virtual server instances or bare metal servers to mount the share.
 
 If you want to connect a file share to instances that are running in different VPCs in a zone, you can create multiple mount targets, one mount target for each VPC.
 
@@ -122,10 +122,18 @@ The storage platform uses shared IP range across multiple zones that allows your
 
 {{site.data.keyword.cloud}} offers security-specific tools and features to help you securely manage your data when you use {{site.data.keyword.vpc_full}}. The following section provides information about access control, data encryption, configuration management, auditing and logging options that are available for your file shares.
 
-### IAM roles for creating and managing shares, accessor bindings, and mount targets
+### IAM roles for managing various file storage-related activities
 {: #fs-vpc-iam}
 
-{{site.data.keyword.filestorage_vpc_short}} requires IAM permissions for role-based access control. Depending on your assigned role, you can create and manage file shares. For more information, see [IAM roles and actions for File Storage for VPC](/docs/iam?topic=iam-iam-service-roles-actions#is.share-roles).
+{{site.data.keyword.filestorage_vpc_short}} requires IAM permissions for role-based access control. Depending on your assigned role, you can create and manage file shares, snapshots, encryption, and view service configuration.
+
+* The **Key Manager** role allows a service to create, update, retrieve, and delete resource keys for managing access to resource instances.
+* The **Service Configuration Reader** role grants read-only access to service configuration and related governance metadata across resources.
+* The **Share Broker** role enables creating and deleting bindings between real and shadow shares to manage share relationships.
+* The **Share Remote Account Accessor** role permits creating cross-account access bindings for shares that are owned by another account.
+* The **Share Snapshot Operator** role allows full management (create, read, list, update, delete) of share snapshots
+
+For more information, see [IAM roles and actions for File Storage for VPC](/docs/iam?topic=iam-iam-service-roles-actions#is.share-roles).
 
 For more information, see the [best practices for assigning access](/docs/account?topic=account-account_setup#account_setup). For the complete IAM process, which includes inviting users to your account and assigning Cloud IAM access, see the [IAM getting started tutorial](/docs/iam?topic=iam-iamoverview).
 {: tip}
@@ -133,7 +141,9 @@ For more information, see the [best practices for assigning access](/docs/accoun
 ### IAM service-to-service authorizations
 {: #fs-vpc-iam-s2sauth}
 
-You can use the {{site.data.keyword.iamshort}} (IAM) to create or remove an authorization that grants one service access to another service. For {{site.data.keyword.filestorage_vpc_short}}, you need to create service-to-service authorization for configuring customer-managed encryption, cross-regional replication, cross-account access, and backups. For more information, see [Establishing service-to-service authorizations](/docs/vpc?topic=vpc-file-s2s-auth).
+You can use the {{site.data.keyword.iamshort}} (IAM) to create or remove an authorization that grants one service access to another service. For {{site.data.keyword.filestorage_vpc_short}}, you need to create service-to-service authorization for configuring customer-managed encryption, cross-regional replication, cross-account access, and backups.
+
+For more information, see [Establishing service-to-service authorizations](/docs/vpc?topic=vpc-file-s2s-auth).
 
 ### Context-based restrictions
 {: #fs-vpc-cbr}
@@ -222,7 +232,7 @@ For more information, see [Sharing and mounting a file share from another accoun
 #### Allowed transit encryption modes
 {: #fs-allowed-eit-modes}
 
-The share owner can enforce the transit encryption settings for a file share's data. They can choose to allow encryption, allow no encryption, or leave it up to the accessor account to choose the transit encryption mode for their mount targets. All mount targets created for a single file share must use the same transit encryption mode for consistency.
+The share owner can enforce the transit encryption settings for a file share's data. They can choose to allow encryption, allow no encryption, or defer the choice of transit encryption mode to the accessor account. All mount targets created for a single file share must use the same transit encryption mode for consistency.
 
 For zonal file shares, the share owner can choose from the following transit encryption modes: `ipsec`, `none`, or both.
 - If `ipsec` is enforced, all accessor mount targets must use IPsec.
@@ -276,15 +286,15 @@ You can create access management tags and then apply them to new or existing fil
 ## Replication and failover
 {: #fs-repl-failover-overview}
 
-You can create read-only replicas of your file shares in another zone within your VPC, or another zone in a different region if you have multiple VPCs in the same geography. The replica is updated regularly based on the replication schedule that you specify. You can schedule to replicate your data as often as every 15 minutes.
-
-Using replication is a good way to recover from incidents at the primary site when data becomes inaccessible or applications fail. The [failover](/docs/vpc?topic=vpc-file-storage-failover) to the replica share makes it the new, writeable primary share. For more information, see [About file share replication](/docs/vpc?topic=vpc-file-storage-replication).
-
-For cross-region replication, you must configure [service to service authorizations](/docs/vpc?topic=vpc-file-s2s-auth) before you create your replica file share.
-{: requirement}
+You can create read-only replicas of your zonal file shares in another zone within your VPC, or in a different region if you have multiple VPCs in the same geography. The replica is updated regularly based on the replication schedule that you specify. You can schedule to replicate your data as often as every 15 minutes.
 
 In this release, cross-regional replication is not supported yet for regional file shares with the `rfs` profile.
 {: preview}
+
+For cross-region replication, you must configure [service to service authorizations](/docs/vpc?topic=vpc-file-s2s-auth) before the replica file share can be created.
+{: requirement}
+
+Using replication is a good way to recover from incidents at the primary site when data becomes inaccessible or applications fail. The [failover](/docs/vpc?topic=vpc-file-storage-failover) to the replica share makes it the new, writeable primary share. For more information, see [About file share replication](/docs/vpc?topic=vpc-file-storage-replication).
 
 File share replication can deliver significant operational and performance benefits, beyond disaster-recovery. One major use case is low-latency access for distributed teams and applications. By placing read-only replicas closer to the users in a different region, you can reduce file access times and improve productivity for workloads like design files, media assets, or code repositories. Similarly, content distribution becomes easier when you create replicas in regional hubs, as it can ensure faster downloads for installers, documentation, or training materials without overloading a single source.
 
@@ -297,7 +307,7 @@ Snapshots are point-in-time copies of your file share. The snapshots can be used
 
 Snapshots are supported only for shares that have "security group" as their access control mode.
 
-You can't create snapshots of replica or accessor shares. However, snapshots of the origin share are replicated to the read-only replica share at the next scheduled sync. Snapshots of the origin share are also available to the accessor shares.
+You can't create snapshots of replica or accessor shares. However, snapshots of a zonal origin share are replicated to the read-only replica share at the next scheduled sync. Snapshots of the origin share are also available to the accessor shares.
 {: important}
 
 ## File share data eradication
@@ -333,7 +343,7 @@ The following limitations apply to this release of {{site.data.keyword.filestora
 * Only {{site.data.keyword.bm_is_short}} that are provisioned after 31 August 2023 support {{site.data.keyword.filestorage_vpc_short}}.
 * Encryption in transit is not supported between {{site.data.keyword.filestorage_vpc_short}} and {{site.data.keyword.bm_is_short}}.
 * A file share cannot be split from its replica by using a `DELETE /shares/<id>/source` API request, if the `lifecycle_state` of the file share is `updating` or if replica operations are in progress.
-* Cross-regional replication is supported within the same geography when both source and replica shares belong to the same account. Cross-geography replication is not supported.
+* For zonal file shares, cross-regional replication is supported within the same geography when both source and replica shares belong to the same account. Cross-geography replication is not supported.
 * Cross-regional replication for zonal file shares is not supported in the Chennai - Airtel and Mumbai - Airtel regions currently.
 * Cross-regional replication is not supported for regional files shares in the [Select availability]{: tag-green} phase.
 * Regional file shares are not available in Mumbai - Airtel, and Montreal currently.

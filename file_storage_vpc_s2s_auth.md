@@ -131,7 +131,7 @@ Next, complete the following steps to build the authorization rules:
 {: #file-s2s-auth-xaccount-ui}
 {: ui}
 
-
+This authorization is for the creation of accessor shares and sharing data across accounts.
 
 1. In the {{site.data.keyword.cloud_notm}} console, log in to the account where your file share is.
 1. Go to **Manage > Access (IAM)**.
@@ -380,7 +380,7 @@ For more information about all of the parameters that are available for this com
 {: #file-s2s-auth-xaccount-cli}
 {: cli}
 
-
+This authorization is for the creation of accessor shares and sharing data across accounts. 
 
 As the share owner, create a JSON file and use it with the `ibmcloud iam authorization-policy-create` command to create the service-to-service authorization for the {{site.data.keyword.filestorage_vpc_short}} service of the share owner account (source) to access a share in accessor account (target).
 
@@ -503,7 +503,7 @@ For more information, see the api spec for [IAM Policy Management](/docs/apis/ia
 {: #file-s2s-auth-xaccount-api}
 {: api}
 
-
+This authorization is for the creation of accessor shares and sharing data across accounts.
 
 As the share owner, make an API request to the [IAM Policy Management API](/docs/apis/iam-policy-management#create-policy) to create an authorization that allows the accessor account to access the origin share. The following example shows how to create the service-to-service authorization between the origin share account (source) and the accessor account (target).
 
@@ -668,7 +668,7 @@ For more information about the arguments and attributes, see the [Terraform docu
 {: #file-s2s-auth-xaccount-terraform}
 {: terraform}
 
-
+This authorization is for the creation of accessor shares and sharing data across accounts.
 
 1. Terraform supports configuring two different accounts for IBM provider. The provider without an alias is considered the default provider. See the following example, where two IBM accounts are specified, and the second uses the alias `team_account`. That configuration must be referred to as `ibm.team_account` later.
 

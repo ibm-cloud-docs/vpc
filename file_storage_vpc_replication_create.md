@@ -18,6 +18,8 @@ subcollection: vpc
 Create replica file shares in another zone within the same metro region or in a different metro region within the same geography by using the console, CLI, API, or Terraform.
 {: shortdesc}
 
+
+
 The following table shows which metro regions can replicate with each other within each geography.
 
 | Americas | Europe  | Asia  |
@@ -31,7 +33,7 @@ The specified source file share must not have another replica already, and must 
 If you want to create a replica in another region, you need to establish service-to-service authorizations first. Both file service instances must belong to the same account. Cross-account replication is not supported. For more information, see [Establishing service-to-service authorizations for {{site.data.keyword.filestorage_vpc_short}}](/docs/vpc?topic=vpc-file-s2s-auth).
 {: requirement}
 
-[Select availability]{: tag-green} Customers with special access to preview the new regional file share offering can use the **rfs** profile to create file shares with regional availability. When you create file shares with regional availability, data is automatically replicated throughout the region, so you don't need to set up replication pairs. Cross-regional replication of regional file shares is not supported in this release.
+When you create file shares with regional availability, data is automatically replicated throughout the region, so you don't need to set up replication pairs within the region.
 
 Currently, cross-regional replication for zonal file shares is not supported in the Chennai - Airtel and Mumbai - Airtel regions.
 {: restriction}
@@ -68,7 +70,7 @@ On the File share replica create page, review the source file share details, and
 
    - [Deprecated]{: tag-deprecated} If you selected VPC as the access mode, provide a name for the mount target and select a VPC from the list. This mount target can be used to mount the file share on any virtual server instance of the selected VPC in the same zone as the file share. Cross-zone mounting is not supported.
 
-   The vpc access mode is deprecated and reaches end of support on 06 May 2027. Follow the [migration guide](/docs/vpc?topic=vpc-fs-migrate-access-mode&interface=ui#fs-migrate-update-mode) to update the source share's access control mode to `security-group`.
+   The VPC access mode is deprecated and reaches end of support on 06 May 2027. Follow the [migration guide](/docs/vpc?topic=vpc-fs-migrate-access-mode&interface=ui#fs-migrate-update-mode) to update the source share's access control mode to `security-group`.
    {: deprecated}
 
 1. Sync frequency - Specify how often you want to synchronize changes from the primary file share to the replica share. The Summary shows the selections that you made. For **Frequency**, the options are hourly, daily, weekly, monthly, or by `cron-spec` expression:
