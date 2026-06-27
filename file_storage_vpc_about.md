@@ -2,7 +2,7 @@
 
 copyright:
   years: 2021, 2026
-lastupdated: "2026-06-26"
+lastupdated: "2026-06-27"
 
 keywords: file share, mount target, virtual network interface, customer-managed encryption, encryption at rest, encryption in transit, file storage, share,
 
@@ -141,9 +141,7 @@ For more information, see the [best practices for assigning access](/docs/accoun
 ### IAM service-to-service authorizations
 {: #fs-vpc-iam-s2sauth}
 
-You can use the {{site.data.keyword.iamshort}} (IAM) to create or remove an authorization that grants one service access to another service. For {{site.data.keyword.filestorage_vpc_short}}, you need to create service-to-service authorization for configuring customer-managed encryption, cross-regional replication, cross-account access, and backups.
-
-For more information, see [Establishing service-to-service authorizations](/docs/vpc?topic=vpc-file-s2s-auth).
+You can use the {{site.data.keyword.iamshort}} (IAM) to create or remove an authorization that grants one service access to another service. For {{site.data.keyword.filestorage_vpc_short}}, you need to create service-to-service authorization for configuring customer-managed encryption, cross-regional replication, cross-account access, and backups. For more information, see [Establishing service-to-service authorizations](/docs/vpc?topic=vpc-file-s2s-auth).
 
 ### Context-based restrictions
 {: #fs-vpc-cbr}
@@ -286,7 +284,7 @@ You can create access management tags and then apply them to new or existing fil
 ## Replication and failover
 {: #fs-repl-failover-overview}
 
-You can create read-only replicas of your zonal file shares in another zone within your VPC, or in a different region if you have multiple VPCs in the same geography. The replica is updated regularly based on the replication schedule that you specify. You can schedule to replicate your data as often as every 15 minutes.
+For your zonal file shares, you can create read-only replicas in another zone within your VPC, or in a different region if your account has multiple VPCs in the same geography. The replica is updated regularly based on the replication schedule that you specify. You can schedule to replicate your data as often as every 15 minutes.
 
 In this release, cross-regional replication is not supported yet for regional file shares with the `rfs` profile.
 {: preview}
@@ -307,8 +305,10 @@ Snapshots are point-in-time copies of your file share. The snapshots can be used
 
 Snapshots are supported only for shares that have "security group" as their access control mode.
 
-You can't create snapshots of replica or accessor shares. However, snapshots of a zonal origin share are replicated to the read-only replica share at the next scheduled sync. Snapshots of the origin share are also available to the accessor shares.
+You can't create snapshots of replica or accessor shares. However, snapshots of the origin share are also available to the accessor shares. Snapshots of a zonal origin share are replicated to the read-only replica share at the next scheduled sync.
 {: important}
+
+
 
 ## File share data eradication
 {: #file-storage-data-eradication}
@@ -343,7 +343,7 @@ The following limitations apply to this release of {{site.data.keyword.filestora
 * Only {{site.data.keyword.bm_is_short}} that are provisioned after 31 August 2023 support {{site.data.keyword.filestorage_vpc_short}}.
 * Encryption in transit is not supported between {{site.data.keyword.filestorage_vpc_short}} and {{site.data.keyword.bm_is_short}}.
 * A file share cannot be split from its replica by using a `DELETE /shares/<id>/source` API request, if the `lifecycle_state` of the file share is `updating` or if replica operations are in progress.
-* For zonal file shares, cross-regional replication is supported within the same geography when both source and replica shares belong to the same account. Cross-geography replication is not supported.
+* For zonal file shares, cross-regional replication is supported only when both source and replica shares belong to the same account. Cross-geography replication is not supported.
 * Cross-regional replication for zonal file shares is not supported in the Chennai - Airtel and Mumbai - Airtel regions currently.
 * Cross-regional replication is not supported for regional files shares in the [Select availability]{: tag-green} phase.
 * Regional file shares are not available in Mumbai - Airtel, and Montreal currently.
