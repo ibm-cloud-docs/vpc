@@ -18,6 +18,8 @@ subcollection: vpc
 Create backup policies and plans for {{site.data.keyword.block_storage_is_short}} volumes and {{site.data.keyword.filestorage_vpc_short}} shares to automate scheduled backups with tag-based targeting and retention rules.
 {: shortdesc}
 
+[Deprecated]{: tag-deprecated} The {{site.data.keyword.hscrypto}} are deprecated. Customers can use existing instances until 20 March 2027. For more information, see [Deprecation of IBM Cloud Hyper Protect Crypto Services](/docs/hs-crypto?topic=hs-crypto-faqs-deprecation-of-ibm-cloud-hyper-protect-crypto-services). For continued protection, consider migrating your existing encryption keys to a Dedicated {{site.data.keyword.keymanagementserviceshort}} instance. For more information, see the [Migration guide](/docs/key-protect?topic=key-protect-migrate-st).
+
 ## Before you begin
 {: #backup-prereqs}
 
