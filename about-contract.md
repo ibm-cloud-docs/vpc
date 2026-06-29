@@ -2,7 +2,7 @@
 
 copyright:
   years: 2022, 2026
-lastupdated: "2026-06-17"
+lastupdated: "2026-06-29"
 
 keywords: confidential computing, enclave, secure execution, hpcr, contract, customization, schema, contract schema, env, workload, encryption
 
@@ -295,7 +295,7 @@ In the `play` subsection, you can define the workload through [Pod descriptors](
 
    The `{{ .Env REGISTRY }}` expression references the `REGISTRY` environment variable that in this example is defined in the `env` section of the contract.
 
-   The templates need to be valid [YAML](https://yaml.org/spec/1.2.2/){: external}, so a replacement expression must be escaped if it appears as the first part of a string. Otherwise, it collides with the [block mapping](https://yaml.org/spec/1.2.2/#822-block-mappings){: external} syntax. This is different from [helm templates](https://helm.sh/docs/helm/helm_template/){: external} where expressions are applied to the textual representation of the document instead of the model representation.
+   The templates need to be valid [YAML](https://spec.yaml.io/main/spec/1.2.2/){: external}, so a replacement expression must be escaped if it appears as the first part of a string. Otherwise, it collides with the [block mapping](https://spec.yaml.io/main/spec/1.2.2/#822-block-mappings){: external} syntax. This is different from [helm templates](https://helm.sh/docs/helm/helm_template/){: external} where expressions are applied to the textual representation of the document instead of the model representation.
    {: note}
 
 #### Environment Variables
