@@ -1,8 +1,8 @@
 ---
 
 copyright:
-  years: 2022, 2025
-lastupdated: "2025-09-04"
+  years: 2022, 2026
+lastupdated: "2026-06-29"
 
 keywords: Backup for VPC, backup service, backup plan, backup policy, restore, restore volume, restore data
 
@@ -17,6 +17,9 @@ content-type: troubleshoot
 # What is causing my Backup jobs to indicate a failed state?
 {: #baas-ts-2}
 {: troubleshoot}
+
+Backup jobs can fail due to an internal error or because the snapshot limit for the volume is reached.
+{: shortdesc}
 
 The backup failed, as indicated in the backup job details. When you make a `GET /backup_policies/{backup_policy_id}/jobs/{backup_job_id}` call, the `status` property shows `failed`.
 {: tsSymptoms}

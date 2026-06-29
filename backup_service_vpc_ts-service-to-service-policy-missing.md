@@ -1,8 +1,8 @@
 ---
 
 copyright:
-  years: 2024, 2025
-lastupdated: "2025-08-14"
+  years: 2024, 2026
+lastupdated: "2026-06-29"
 
 keywords: Backup for VPC, backup service, backup plan, backup policy, restore, restore volume, restore data
 
@@ -17,7 +17,10 @@ content-type: troubleshoot
 # Why did my backup job fail with 'service-to-service-policy-missing' event type?
 {: #baas-ts-s2s-policy-missing}
 {: troubleshoot}
-{: support} 
+{: support}
+
+Backup jobs fail to create or delete snapshots when the service-to-service authorization for {{site.data.keyword.cloud_notm}} Backup for VPC is not configured correctly.
+{: shortdesc}
 
 You receive an [event notification](/docs/vpc?topic=vpc-event-notifications-events#event-notifications-list) with the event type 'service-to-service-policy-missing'.
 {: tsSymptoms}

@@ -2,7 +2,7 @@
 
 copyright:
   years: 2022, 2026
-lastupdated: "2026-06-26"
+lastupdated: "2026-06-29"
 
 keywords: Backup for VPC, backup service, backup plan, backup policy, restore, restore volume, restore data, faqs
 
@@ -17,7 +17,7 @@ content-type: faq
 # FAQ for Enterprise Backup for VPC
 {: #backup-service-enterprise-faq}
 
-The following questions pertain to the VPC Backup service for Enterprise accounts. If you have other questions you'd like to see answered here, provide feedback by using the **Open doc issue** or **Edit topic** links after the FAQs.
+Get answers to frequently asked questions about {{site.data.keyword.cloud_notm}} Backup for VPC in Enterprise accounts, including service-to-service authorizations, backup policies, and cross-account backup management.
 {: shortdesc}
 
 ## What service-to-service authorizations are required?

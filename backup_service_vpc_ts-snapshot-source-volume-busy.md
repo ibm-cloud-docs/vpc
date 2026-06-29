@@ -1,8 +1,8 @@
 ---
 
 copyright:
-  years: 2024, 2025
-lastupdated: "2025-08-14"
+  years: 2024, 2026
+lastupdated: "2026-06-29"
 
 keywords: Backup for VPC, backup service, backup plan, backup policy, restore, restore volume, restore data
 
@@ -18,6 +18,9 @@ content-type: troubleshoot
 {: #baas-ts-snapshot-volume-busy}
 {: troubleshoot}
 {: support}
+
+Backup snapshots cannot be created because the source volume is performing an operation that blocks snapshot creation.
+{: shortdesc}
 
 You receive an [event notification](/docs/vpc?topic=vpc-event-notifications-events#event-notifications-list) with the event type 'snapshots-source-volume-busy'.
 {: tsSymptoms}

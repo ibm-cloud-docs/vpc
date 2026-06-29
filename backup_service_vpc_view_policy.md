@@ -2,7 +2,7 @@
 
 copyright:
   years: 2022, 2026
-lastupdated: "2026-06-26"
+lastupdated: "2026-06-29"
 
 keywords: Backup, backup service, backup plan, backup policy, restore, restore volume, restore data
 
@@ -15,11 +15,8 @@ subcollection: vpc
 # Viewing backup policies
 {: #backup-view-policies}
 
-You can list and view all backup policies that you created for your storage resources in the console, from the CLI, with the API, or Terraform. You can review the details of individual policies, and view the number of resources that have tags that match a backup policy.
+List and view {{site.data.keyword.cloud_notm}} backup policies for your storage resources, including policy details and the resources whose tags match a backup policy.
 {: shortdesc}
-
-For the backup operation to be successful, the tagged volumes must be attached to running virtual server instances. Unattached volumes are not backed up even if they have the right tags.
-{: note}
 
 ## Viewing backup policies in the console
 {: #backup-view-ui}

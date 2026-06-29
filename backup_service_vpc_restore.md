@@ -2,7 +2,7 @@
 
 copyright:
   years: 2022, 2026
-lastupdated: "2026-06-26"
+lastupdated: "2026-06-29"
 
 keywords: Backup, backup service, backup plan, backup policy, restore, restore volume, restore data
 
@@ -15,7 +15,7 @@ subcollection: vpc
 # Restoring a volume from a backup snapshot
 {: #baas-vpc-restore}
 
-Restore boot or data volumes from backup snapshots to create fully provisioned storage. Restore volumes during instance creation, add storage to existing instances, or restore in different regions for disaster recovery and business continuity.
+Restore boot or data volumes from backup snapshots to create fully provisioned storage, during instance creation, by adding storage to existing instances, or across regions for disaster recovery.
 {: shortdesc}
 
 You can restore volumes from backup snapshots in the console, from the CLI, with the API, or Terraform.

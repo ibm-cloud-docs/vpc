@@ -2,7 +2,7 @@
 
 copyright:
   years: 2022, 2026
-lastupdated: "2026-06-26"
+lastupdated: "2026-06-29"
 
 keywords: Backup for VPC, backup service, backup plan, backup policy, restore, restore volume, restore data
 
@@ -15,7 +15,7 @@ subcollection: vpc
 # Establishing service-to-service authorizations for the Backup service
 {: #backup-s2s-auth}
 
-Before you can create backup policies, you need to establish service-to-service authorizations and specify [user roles](/docs/iam?topic=iam-iam-service-roles-actions#is.backup-policy-roles). This authorization enables the Backup for VPC service to detect the tags, create backup snapshots of block volumes and file shares.
+Establish service-to-service authorizations and [user roles](/docs/iam?topic=iam-iam-service-roles-actions#is.backup-policy-roles) so that {{site.data.keyword.cloud_notm}} Backup for VPC can detect resource tags and create backup snapshots of block volumes and file shares.
 {: shortdesc}
 
 ## Overview

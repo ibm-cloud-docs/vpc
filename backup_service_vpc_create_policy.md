@@ -2,7 +2,7 @@
 
 copyright:
   years: 2022, 2026
-lastupdated: "2026-06-26"
+lastupdated: "2026-06-29"
 
 keywords: Backup, backup snapshot, create backups, backup service, backup plan, backup policy, restore, restore volume, restore data, restore share
 
@@ -15,7 +15,7 @@ subcollection: vpc
 # Creating backup policies and plans
 {: #create-backup-policy-and-plan}
 
-You can create backup policies for your {{site.data.keyword.block_storage_is_short}} volumes and {{site.data.keyword.filestorage_vpc_short}} shares in the console, from the CLI, with the API, or Terraform. You can create up to four backup plans to schedule backup creation and retention. Specify user tags in the policy to make sure that your data is backed up regularly. Create backups on schedule when the tags that are applied to a resource match the tags in a backup policy.
+Create backup policies and plans for {{site.data.keyword.block_storage_is_short}} volumes and {{site.data.keyword.filestorage_vpc_short}} shares to automate scheduled backups with tag-based targeting and retention rules.
 {: shortdesc}
 
 ## Before you begin

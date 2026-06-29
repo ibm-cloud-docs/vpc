@@ -1,8 +1,8 @@
 ---
 
 copyright:
-  years: 2024, 2025
-lastupdated: "2025-08-14"
+  years: 2024, 2026
+lastupdated: "2026-06-29"
 
 keywords: Backup for VPC, backup service, backup plan, backup policy, restore, restore volume, restore data
 
@@ -17,7 +17,10 @@ content-type: troubleshoot
 # Why did my backup job fail with 'snapshot-quota-reached' event type?
 {: #baas-ts-snapshot-quota-reached}
 {: troubleshoot}
-{: support} 
+{: support}
+
+Backup snapshots cannot be created because the snapshot quota for the storage volume is reached.
+{: shortdesc}
 
 You receive an [event notification](/docs/vpc?topic=vpc-event-notifications-events#event-notifications-list) with the event type 'snapshot-quota-reached'.
 {: tsSymptoms}

@@ -1,8 +1,8 @@
 ---
 
 copyright:
-  years: 2022, 2025
-lastupdated: "2025-08-14"
+  years: 2022, 2026
+lastupdated: "2026-06-29"
 
 keywords: Backup for VPC, backup service, backup plan, backup policy, restore, restore volume, restore data
 
@@ -18,6 +18,9 @@ content-type: troubleshoot
 {: #baas-troubleshoot}
 {: troubleshoot}
 {: support}
+
+Backup policies, plans, or jobs return an `ID is not found` error when listed with the API or CLI because the resource was deleted or never existed.
+{: shortdesc}
 
 When you try to list a backup policy, backup policy plan or backup job with the API or the CLI, you receive a `ID is not found` error.
 {: tsSymptoms}

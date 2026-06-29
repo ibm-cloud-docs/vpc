@@ -2,7 +2,7 @@
 
 copyright:
   years: 2022, 2026
-lastupdated: "2026-06-11"
+lastupdated: "2026-06-29"
 
 keywords: Backup, backup service, backup plan, backup policy, restore, restore volume, restore data
 
@@ -15,7 +15,7 @@ subcollection: vpc
 # Managing backup policies
 {: #backup-service-manage}
 
-You can manage backup policies and their associated plans that were created for your resources in the console, from the CLI, with the API, or Terraform. You can delete policies and plans that you no longer need. You can update the backup policy and plans when your needs change. You can add or remove tags. You can check the status of your backup policies. Audit your policies by integrating Activity tracking events.
+Manage {{site.data.keyword.cloud_notm}} backup policies and plans by updating schedules, adding or removing tags, checking status, auditing events, and deleting unneeded policies.
 {: shortdesc}
 
 ## Managing backup policies in the console

@@ -1,8 +1,8 @@
 ---
 
 copyright:
-  years: 2024, 2025
-lastupdated: "2025-08-14"
+  years: 2024, 2026
+lastupdated: "2026-06-29"
 
 keywords: Backup for VPC, backup service, backup plan, backup policy, restore, restore volume, restore data
 
@@ -18,6 +18,9 @@ content-type: troubleshoot
 {: #baas-ts-scg-bad-state}
 {: troubleshoot}
 {: support}
+
+Backup jobs fail to delete an expired snapshot because the snapshot consistency group is in a bad state.
+{: shortdesc}
 
 You receive an [event notification](/docs/vpc?topic=vpc-event-notifications-events#event-notifications-list) with the event type 'snapshot_consistency_group-bad-state.
 {: tsSymptoms}

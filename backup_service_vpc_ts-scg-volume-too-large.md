@@ -1,8 +1,8 @@
 ---
 
 copyright:
-  years: 2024, 2025
-lastupdated: "2025-10-09"
+  years: 2024, 2026
+lastupdated: "2026-06-29"
 
 keywords: Backup for VPC, backup service, backup plan, backup policy, restore, restore volume, restore data
 
@@ -17,7 +17,10 @@ content-type: troubleshoot
 # Why did my backup job fail with 'snapshot_consistency_group-volume-too-large' event type?
 {: #baas-ts-scg-volume-too-large}
 {: troubleshoot}
-{: support} 
+{: support}
+
+Backup snapshots in a consistency group cannot be created because one or more Gen 1 parent volumes exceed the 10 TB size limit.
+{: shortdesc}
 
 You receive an [event notification](/docs/vpc?topic=vpc-event-notifications-events#event-notifications-list) with the event type 'snapshot_consistency_group-volume-too-large'.
 {: tsSymptoms}
