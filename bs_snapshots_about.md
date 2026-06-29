@@ -2,7 +2,7 @@
 
 copyright:
   years: 2022, 2026
-lastupdated: "2026-06-26"
+lastupdated: "2026-06-29"
 
 keywords: snapshots, Block Storage, volumes, cross-regional snapshot, restore volume, copy snapshot
 
@@ -15,7 +15,7 @@ subcollection: vpc
 # About {{site.data.keyword.block_storage_is_short}} snapshots
 {: #snapshots-vpc-about}
 
-{{site.data.keyword.block_storage_is_short}} snapshots create point-in-time copies of boot or data volumes. The first snapshot is a full backup; subsequent snapshots are incremental, capturing only changes. Restore data to new volumes attached to new or existing instances, or create stand-alone volumes for later use.
+Learn about block storage snapshots in {{site.data.keyword.vpc_short}}, which are point-in-time copies of boot or data volumes that you can restore to new volumes.
 {: shortdesc}
 
 In the current release of second-generation block volumes, snapshots are available in Dallas (`us-south`), Frankfurt (`eu-de`), London (`eu-gb`), Madrid (`eu-es`), Osaka (`js-osa`), Sao Paulo (`br-sao`), Sydney (`au-syd`), Tokyo (`jp-tok`), Toronto (`ca-tor`), and Washington (`us-east`) regions.

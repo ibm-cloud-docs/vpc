@@ -2,7 +2,7 @@
 
 copyright:
   years: 2019, 2026
-lastupdated: "2026-06-26"
+lastupdated: "2026-06-29"
 
 keywords: Block Storage profiles, Block Storage for VPC, IOPS tiers, custom IOPS, storage performance
 
@@ -15,7 +15,7 @@ subcollection: vpc
 # {{site.data.keyword.block_storage_is_short}} profiles
 {: #block-storage-profiles}
 
-Select {{site.data.keyword.block_storage_is_short}} volume profiles to match your performance requirements. Choose the `sdp` profile for custom capacity, IOPS, and throughput, or select tiered and custom profiles for predefined performance levels.
+Select {{site.data.keyword.cloud_notm}} block storage volume profiles to match your performance requirements. Choose from tiered, custom, or defined performance profiles for predefined or flexible performance levels.
 {: shortdesc}
 
 ## Block Storage profile families

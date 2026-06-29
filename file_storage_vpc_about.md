@@ -2,7 +2,7 @@
 
 copyright:
   years: 2021, 2026
-lastupdated: "2026-06-27"
+lastupdated: "2026-06-29"
 
 keywords: file share, mount target, virtual network interface, customer-managed encryption, encryption at rest, encryption in transit, file storage, share,
 
@@ -56,7 +56,7 @@ You can view and manage your zonal file shares in the console, from the CLI, wit
 ## Regional file shares overview
 {: #regional-file-storage-overview}
 
-As a customer with special access to preview the regional file share profile, you can create file shares with the `rfs` profile with regional availability in Dallas, Chennai - Airtel, Frankfurt, London, Madrid, Osaka, Sao Paulo, Sydney, Toronto, Tokyo, and Washington, DC.
+As a customer with special access to preview the regional file share profile, you can create file shares with the `rfs` profile with regional availability in Dallas, Chennai - Airtel, Frankfurt, London, Madrid, Mumbai - Airtel, Osaka, Sao Paulo, Sydney, Toronto, Tokyo, and Washington, DC.
 
 You create a file share within a region. File shares are identified by name and associated with a resource group in your {{site.data.keyword.cloud_notm}} customer account. You can control how the file share is accessed by using security groups. The regional file can be accessed from all three zones of the region when the compute clients are in the correct security group. You can mount the file share on your compute host by using a regional network endpoint, which is known as a mount target for the share. For more information, see [regional mount targets](#fs-regional-mount).
 
@@ -346,7 +346,7 @@ The following limitations apply to this release of {{site.data.keyword.filestora
 * For zonal file shares, cross-regional replication is supported only when both source and replica shares belong to the same account. Cross-geography replication is not supported.
 * Cross-regional replication for zonal file shares is not supported in the Chennai - Airtel and Mumbai - Airtel regions currently.
 * Cross-regional replication is not supported for regional files shares in the [Select availability]{: tag-green} phase.
-* Regional file shares are not available in Mumbai - Airtel, and Montreal currently.
+* Regional file shares are not available in Montreal currently.
 
 ## Next steps
 {: #file-storage-vpc-next-steps}

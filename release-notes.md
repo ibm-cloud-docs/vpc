@@ -2,7 +2,7 @@
 
 copyright:
   years: 2019, 2026
-lastupdated: "2026-06-26"
+lastupdated: "2026-06-29"
 
 keywords:
 
@@ -36,6 +36,9 @@ Workload update for IBM Hyper Protect Secure Build
 
 Chennai - Airtel region now available for Hopper 1 cluster network
 :   The Chennai - Airtel region is now available for provisioning Hopper 1 cluster networks with NVIDIA H200 instance profile.  You can create cluster networks with NVIDIA H200 instance profile in this region to run workloads, such as AI training and large-scale simulations. For more information, see [Cluster network supported regions and zones](/docs/vpc?topic=vpc-planning-cluster-network).
+
+Regional file shares are now available in Mumbai - Airtel MZR (Select Availability)
+:   The new `rfs` share profile is now available for customers with special access in Dallas, Chennai - Airtel, Frankfurt, London, Madrid, Mumbai - Airtel, Osaka, Sydney, Tokyo, Toronto, and Washington, DC. For more information, see [About File Storage for VPC](/docs/vpc?topic=vpc-file-storage-vpc-about).
 
 ### 25 June 2026
 {: #vpc-june2526}

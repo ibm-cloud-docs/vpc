@@ -2,7 +2,7 @@
 
 copyright:
   years: 2019, 2026
-lastupdated: "2026-06-26"
+lastupdated: "2026-06-29"
 
 keywords: vpc Block Storage, provision Block Storage for vpc, bootable snapshots, create volume from snapshot, fast restore
 
@@ -15,7 +15,7 @@ subcollection: vpc
 # Creating {{site.data.keyword.block_storage_is_short}} volumes
 {: #creating-block-storage}
 
-Create [{{site.data.keyword.block_storage_is_short}} volumes](/docs/vpc?topic=vpc-block-storage-about) during instance provisioning, as stand-alone volumes, or by [restoring from snapshots](/docs/vpc?topic=vpc-snapshots-vpc-about). Configure capacity, IOPS, encryption, and profile settings to meet your storage requirements.
+Create {{site.data.keyword.cloud_notm}} block storage volumes during instance provisioning, as stand-alone volumes, or by restoring from snapshots. Configure capacity, IOPS, and encryption.
 {: shortdesc}
 
 Before you get started, make sure that you [created a VPC](/docs/vpc?topic=vpc-creating-a-vpc-using-the-ibm-cloud-console). When you create a volume from a snapshot, you can use a snapshot from your own account or another account. If you plan to use a snapshot from another account, make sure that the right [IAM authorizations](/docs/vpc?topic=vpc-block-s2s-auth&interface=ui#block-s2s-auth-xaccountrestore-ui) are in place.

@@ -2,7 +2,7 @@
 
 copyright:
   years: 2019, 2026
-lastupdated: "2026-06-26"
+lastupdated: "2026-06-29"
 
 keywords: Block Storage, boot volume, data volume, status, health state, monitoring, performance
 
@@ -12,10 +12,10 @@ subcollection: vpc
 
 {{site.data.keyword.attribute-definition-list}}
 
-# Monitoring {{site.data.keyword.block_storage_is_short}} health states, volume status, and metrics
+# Monitoring {{site.data.keyword.cloud_notm}} block storage health and performance metrics
 {: #block-storage-vpc-monitoring}
 
-Monitor {{site.data.keyword.block_storage_is_short}} volume health states, status, and performance metrics. Check volume availability, track read/write operations, and identify degraded performance or connection issues.
+Monitor {{site.data.keyword.cloud_notm}} block storage volume health states, status, and performance metrics. Check volume availability and identify degraded performance or connection issues.
 {: shortdesc}
 
 ## Monitoring {{site.data.keyword.block_storage_is_short}} performance

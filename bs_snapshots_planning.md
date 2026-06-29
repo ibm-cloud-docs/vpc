@@ -2,7 +2,7 @@
 
 copyright:
   years: 2022, 2026
-lastupdated: "2026-06-16"
+lastupdated: "2026-06-29"
 
 keywords: block storage, snapshots, planning, backups, consistency group
 
@@ -15,7 +15,7 @@ subcollection: vpc
 # Planning {{site.data.keyword.block_storage_is_short}} snapshots
 {: #snapshots-vpc-planning}
 
-Plan your {{site.data.keyword.block_storage_is_short}} snapshot strategy, including naming conventions, encryption, backup policies, and cross-regional replication.
+Plan your block storage snapshot strategy in {{site.data.keyword.vpc_short}}, including naming conventions, encryption, backup policies, and cross-regional replication.
 {: shortdesc}
 
 ## Planning to create and use snapshots

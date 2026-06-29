@@ -2,7 +2,7 @@
 
 copyright:
   years: 2019, 2026
-lastupdated: "2026-06-22"
+lastupdated: "2026-06-29"
 
 keywords:
 
@@ -16,7 +16,7 @@ subcollection: vpc
 # About {{site.data.keyword.block_storage_is_short}}
 {: #block-storage-about}
 
-{{site.data.keyword.block_storage_is_full}} provides high-performance SSD-backed storage for virtual server instances in [VPC](docs/vpc?topic=vpc-about-vpc). Create boot and data volumes with customizable capacity, IOPS, and encryption options.
+{{site.data.keyword.block_storage_is_full}} provides high-performance SSD-backed block storage for virtual server instances in {{site.data.keyword.vpc_short}}. Create boot and data volumes with customizable capacity, IOPS, and encryption.
 {: shortdesc}
 
 ## Overview

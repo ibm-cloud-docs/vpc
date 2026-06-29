@@ -2,7 +2,7 @@
 
 copyright:
   years: 2019, 2026
-lastupdated: "2026-06-26"
+lastupdated: "2026-06-29"
 
 keywords: faqs, Block Storage for vpc, fast restore, multizone, instance, instance provisioning, volume management, volume deletion.
 
@@ -16,7 +16,7 @@ content-type: faq
 # FAQ for {{site.data.keyword.block_storage_is_short}}
 {: #block-storage-vpc-faq}
 
-Get answers to common questions about {{site.data.keyword.block_storage_is_full}}, including volume profiles, encryption, capacity expansion, and performance optimization.
+Get answers to common questions about {{site.data.keyword.block_storage_is_full}}, including volume profiles, encryption, capacity expansion, and performance.
 {: shortdesc}
 
 ## Where is defined performance volume family available for provisioning?

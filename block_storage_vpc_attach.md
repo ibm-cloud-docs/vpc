@@ -2,7 +2,7 @@
 
 copyright:
   years: 2019, 2026
-lastupdated: "2026-06-26"
+lastupdated: "2026-06-29"
 
 keywords: vpc, Block Storage, Block Storage for vpc, mounting storing, attaching Block Storage, vpc instance, data volumes
 
@@ -15,7 +15,7 @@ subcollection: vpc
 # Attaching a {{site.data.keyword.block_storage_is_short}} volume
 {: #attaching-block-storage}
 
-Attach {{site.data.keyword.block_storage_is_short}} data volumes to virtual server instances to provide additional storage capacity. Attach unattached volumes from the [volume list](/docs/vpc?topic=vpc-viewing-block-storage#viewvols) or instance details page in the console, or by using the CLI, API, or Terraform.
+Attach {{site.data.keyword.cloud_notm}} block storage data volumes to virtual server instances for additional storage capacity using the console, CLI, API, or Terraform.
 {: shortdesc}
 
 ## Volume attachment limits

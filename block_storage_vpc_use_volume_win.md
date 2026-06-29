@@ -2,7 +2,7 @@
 
 copyright:
   years: 2023, 2026
-lastupdated: "2026-06-22"
+lastupdated: "2026-06-29"
 
 keywords: Block Storage for VPC, iscsi for VPC, SAN for VPC, format windows storage disk
 
@@ -16,7 +16,7 @@ subcollection: vpc
 # Setting up your {{site.data.keyword.block_storage_is_short}} data volume for use (Windows)
 {: #start-using-your-block-storage-data-volume-win}
 
-Partition, format, and mount {{site.data.keyword.block_storage_is_short}} data volumes on Windows instances using Disk Management utility or PowerShell. Configure volumes as file systems to store data.
+Partition, format, and mount {{site.data.keyword.cloud_notm}} block storage data volumes on Windows instances using Disk Management or PowerShell.
 {: shortdesc}
 
 Follow this procedure to use your Block Storage volume on a Windows&reg; system.

@@ -2,7 +2,7 @@
 
 copyright:
   years: 2020, 2026
-lastupdated: "2026-06-26"
+lastupdated: "2026-06-29"
 
 keywords: Block Storage, boot volume, data volume, volume, data storage, virtual server instance, instance, expandable volume
 
@@ -15,7 +15,7 @@ subcollection: vpc
 # Expanding {{site.data.keyword.block_storage_is_short}} volume capacity
 {: #expanding-block-storage-volumes}
 
-Increase {{site.data.keyword.block_storage_is_short}} boot and data volume capacity to meet growing storage requirements. Expand volumes up to 32,000 GB for `sdp` profiles or 16,000 GB for tiered and custom profiles without causing outages.
+Increase {{site.data.keyword.cloud_notm}} block storage boot and data volume capacity to meet growing storage requirements, without causing outages.
 {: shortdesc}
 
 ## Overview

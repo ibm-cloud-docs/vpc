@@ -2,7 +2,7 @@
 
 copyright:
   years: 2019, 2026
-lastupdated: "2026-06-26"
+lastupdated: "2026-06-29"
 
 keywords: Block storage for VPC, change IOPS, change autodelete, increase volume, change name, rename volume, delete volume, renaming volume, updating volume
 
@@ -15,7 +15,7 @@ subcollection: vpc
 # Managing {{site.data.keyword.block_storage_is_short}} volumes
 {: #managing-block-storage}
 
-Manage {{site.data.keyword.block_storage_is_short}} volumes by detaching, transferring, renaming, expanding capacity, adjusting IOPS, or deleting volumes. Monitor performance metrics and apply user tags for automated backups.
+Manage {{site.data.keyword.cloud_notm}} block storage volumes by detaching, transferring, renaming, expanding capacity, adjusting IOPS, or deleting volumes and monitoring metrics.
 {: shortdesc}
 
 ## Managing {{site.data.keyword.block_storage_is_short}} in the console

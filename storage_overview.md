@@ -2,7 +2,7 @@
 
 copyright:
   years: 2022, 2026
-lastupdated: "2026-06-26"
+lastupdated: "2026-06-29"
 
 keywords: block storage for VPC, File Storage for VPC, Snapshots for VPC, Backup for VPC, block storage, file storage, snapshots, backup,
 
@@ -102,7 +102,7 @@ Pay for only the capacity that you need. You can start with a smaller file share
 
 You can create zonal file shares with the `dp2` profile. The first-generation file shares come with a maximum storage capacity of 32 TB, a performance level of 96,000 IOPS, and maximum throughput of 1024 MBps. You can adjust IOPS up or down, for greater performance or when you want to reduce costs. You can create read-only replicas of your file shares in another zone within your VPC, or another zone in a different region if you have multiple VPCs in the same geography. The replica is updated regularly based on the replication schedule that you specify. You can schedule to replicate your data as often as every 15 minutes. You can fail over to the replica and make it active if an outage occurs at the primary site.
 
-Customers with special access to preview the second-generation file storage offering can provision file shares with the new `rfs` profile. The `rfs` profile is available in the Dallas, Chennai - Airtel, Frankfurt, London, Madrid, Osaka, Sao Paulo, Sydney, Toronto, Tokyo, and Washington, DC regions in this release.
+Customers with special access to preview the second-generation file storage offering can provision file shares with the new `rfs` profile. The `rfs` profile is available in the Dallas, Chennai - Airtel, Frankfurt, London, Madrid, Mumbai - Airtel, Osaka, Sao Paulo, Sydney, Toronto, Tokyo, and Washington, DC regions in this release.
 {: preview}
 
 Second-generation file shares can be created with capacity in the range of 1 - 32,000 GB. Customers can directly adjust their file share's bandwidth up to 8192 Mbps (1024 MBps). The preset value is 800 Mbps. The maximum IOPS that a share with the `rfs` profile can support is 35,000. Second-generation profiles provide regional data availability across all 3 zones of an MZR. Data is regionally available, setting up replication between different zones is unnecessary.
@@ -113,7 +113,7 @@ The following table provides a comparison between the different generations of f
 
 | Features            | First-generation shares | Second-generation shares |
 |---------------------|--------------------------|---------------------------|
-| Availability | Generally available in all VPC regions for all customers. | Available for allowlisted customers in the Dallas, Chennai - Airtel, Frankfurt, London, Madrid, Osaka, Sydney, Tokyo, Toronto, and Washington, DC regions. |
+| Availability | Generally available in all VPC regions for all customers. | Available for allowlisted customers in the Dallas, Chennai - Airtel, Frankfurt, London, Madrid, Mumbai - Airtel, Osaka, Sydney, Tokyo, Toronto, and Washington, DC regions. |
 | Data Availability   | Zonal. While the share can be accessed from multiple zones across the region, if the share becomes unavailable, data access is lost. Operations can be recovered by setting up replicas in advance and failover to the replica during an outage. Cross-zone mounting of a file share can also introduce latency as data traverses zonal boundaries. | Regional. The file share exists in all 3 zones simultaneously, the clients connect to the closest instance of the share. When one zone becomes unavailable, data is still accessible. Storage traffic remains within the zone of the compute host. |
 | Expandable capacity | Yes, up to 16,000 GB     | Yes, up to 32,000 GB |
 | Adjustable IOPS     | Yes, up to 96,000. IOPS depends on capacity range. | No. Maximum IOPS is preset at 35,000.|
@@ -143,11 +143,11 @@ You can create, list, view details, and manage snapshots in the console, from th
 
 Snapshots are tied to their source share. If you delete the original share and the snapshot is also deleted. However, you can't delete a snapshot that is being used to hydrate a newly restored file.
 
-Customers with special access to preview the second-generation File Storage offering can take snapshots of their regional file shares. The `rfs` profile is available in the Dallas, Chennai - Airtel, Frankfurt, London, Madrid, Osaka, Sao Paulo, Sydney, Toronto, Tokyo, and Washington, DC regions in this release.
+Customers with special access to preview the second-generation File Storage offering can take snapshots of their regional file shares. The `rfs` profile is available in the Dallas, Chennai - Airtel, Frankfurt, London, Madrid, Mumbai - Airtel, Osaka, Sao Paulo, Sydney, Toronto, Tokyo, and Washington, DC regions in this release.
 
 | Features            | First-generation shares | Second-generation shares |
 |---------------------|--------------------------|---------------------------|
-| Availability | Generally available in all VPC regions for all customers. | Available for allowlisted customers in most regions, except for Montreal and Mumbai - Airtel. |
+| Availability | Generally available in all VPC regions for all customers. | Available for allowlisted customers in most regions, except for Montreal.|
 | On-demand snapshots | Yes, Up to 750 per share in a region. | Yes, Up to 30 per share in a region. This quota can be increased upon request. |
 | Scheduled snapshots | Yes, up to 750 snapshots per region. | Yes, Up to 30 per share in a region. This quota can be increased upon request.|
 {: caption="File share snapshot generations comparison." caption-side="bottom"}

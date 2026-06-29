@@ -2,7 +2,7 @@
 
 copyright:
   years: 2019, 2026
-lastupdated: "2026-06-26"
+lastupdated: "2026-06-29"
 
 keywords:
 
@@ -15,7 +15,7 @@ subcollection: vpc
 # Viewing {{site.data.keyword.block_storage_is_short}} volumes
 {: #viewing-block-storage}
 
-View {{site.data.keyword.block_storage_is_short}} volume details including capacity, IOPS, encryption status, health state, and attachment information. List all volumes or view individual volume properties and snapshots.
+View {{site.data.keyword.cloud_notm}} block storage volume details including capacity, IOPS, encryption status, and attachment information. List all volumes or view individual volume properties.
 {: shortdesc}
 
 ## Viewing information about {{site.data.keyword.block_storage_is_short}} volumes in the console
