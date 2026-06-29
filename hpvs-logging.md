@@ -2,7 +2,7 @@
 
 copyright:
   years: 2022, 2026
-lastupdated: "2026-03-26"
+lastupdated: "2026-06-29"
 
 keywords: confidential computing, secure execution, logging for hyper protect virtual server for vpc
 
@@ -314,7 +314,7 @@ Use the content of the following files in preparation to fill in the placeholder
 - `${CLIENT_CERTIFICATE}` - `client.crt` from preparation step 3
 - `${CLIENT_PRIVATE_KEY}` - `client-key-pkcs8.pem` from preparation step 3
 
-`${HOSTNAME}`, `${CA}`, `${CLIENT_CERTIFICATE}`, and `${CLIENT_PRIVATE_KEY}` are strings without extra encoding or escaping. Regardless of the way you format them, make sure that you use **valid YAML** (see [Scalars](https://yaml.org/spec/1.2.2/#scalars){: external}). In the following example, the new lines are replaced with `\n` and carriage returns are deleted to make sure the content fits in one line between the inverted commas (see [scalars in double-quoted style](https://yaml.org/spec/1.2.2/#double-quoted-style){: external}). You can also use other valid YAML variations.
+`${HOSTNAME}`, `${CA}`, `${CLIENT_CERTIFICATE}`, and `${CLIENT_PRIVATE_KEY}` are strings without extra encoding or escaping. Regardless of the way you format them, make sure that you use **valid YAML** (see [Scalars](https://spec.yaml.io/main/spec/1.2.2/#scalars){: external}). In the following example, the new lines are replaced with `\n` and carriage returns are deleted to make sure the content fits in one line between the inverted commas (see [scalars in double-quoted style](https://spec.yaml.io/main/spec/1.2.2/#double-quoted-style){: external}). You can also use other valid YAML variations.
 
 Example:
 ```yaml
