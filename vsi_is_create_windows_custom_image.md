@@ -1,8 +1,8 @@
 ---
 
 copyright:
-  years: 2019, 2025
-lastupdated: "2025-12-10"
+  years: 2019, 2026
+lastupdated: "2026-06-30"
 
 keywords: creating a Windows custom image, cloudbase-init, qcow2
 
@@ -99,7 +99,7 @@ Use the following steps to create a custom Windows&reg; image.
    1. Use a secure copy to copy the virtio-win ISO file, for example `virtio-win-1.9.24.iso`, to use for your Windows&reg; custom image.
 
       * Use winSCP to copy the ISO file on a &reg; client.
-      * Use SCP to copy the ISO file on a Linux or macOS client.
+      * Use SmartCloud Provisioning to copy the ISO file on a Linux or macOS client.
 
    1. Mount and open the ISO file.
    1. Copy all relevant virtio drivers from `virtio-win.iso` file for the respective operating system, put the drivers into a folder called `Drivers`, then copy the `Drivers` folder into the operating system ISO folder.
@@ -120,7 +120,7 @@ Use the following steps to create a custom Windows&reg; image.
 1. Start the server and begin the Windows&reg; installation.
 1. Select the **Edition** (Standard / Data Center) of the operating system and **Desktop Experience** (with Desktop Experience or without Desktop Experience).
 1. Select **Drive 0** and continue with the installation.
-1. When the installation is complete, shut down the virtual server and remove the installation ISO. You can ignore warnings about removing the installation ISO.
+1. When the installation is complete, shut down the virtual server and remove the installation ISO. You can ignore warnings about removing the ISO installation.
 1. Use the default Windows&reg; updater to download and install Windows updates. Repeat the process of downloading and installing updates until no updates are available.
 
 ### Making the virtio-win drivers available in the recovery image
@@ -170,6 +170,13 @@ After you download the required virtio drivers `vioscsi.inf` and `viostor.inf`, 
    ```
    {: codeblock}
 
+   Auxiliary storage volumes are presented as virtio block devices. Your boot volume is
+   presented as a SCSI device, except in two cases. If your boot volume is on a second-generation
+   storage volume, it is presented as a virtio block device. Additionally, if your instance
+   is running with secure boot and with a Windows Server 2022 or newer operating system, your
+   boot volume is presented as a virtio block device.
+   {: note}
+
 1. After you add all the drivers, you are ready to create the recovery image.
 
    ```sh
@@ -206,7 +213,7 @@ After you download the required virtio drivers `vioscsi.inf` and `viostor.inf`, 
       {: codeblock}
 
 1. Enable the recovery image by using `reagentc /enable`.
-1. Verify that recover mode is enabled by using `reagentc /info`.
+1. Verify whether recover mode is enabled by using `reagentc /info`.
 
 Your image is set up with a recovery image that includes the necessary virtio drivers.
 

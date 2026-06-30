@@ -1,8 +1,8 @@
 ---
 
 copyright:
-  years: 2022, 2025
-lastupdated: "2025-12-20"
+  years: 2022, 2026
+lastupdated: "2026-06-30"
 
 keywords: floating ip, reserving, bare metal, vnic, public gateways
 
@@ -26,7 +26,7 @@ You can add floating IP addresses to network interfaces with the console.
 ### Adding a floating IP address to a virtual server instance with the console
 {: #fip-add-vsi-ui}
 
-To add a floating IP to a network interface to allow internet traffic to access your VSI, perform the following procedure:
+To add a floating IP to a network interface to allow internet traffic to access your virtual server instance:
 
 1. In the {{site.data.keyword.cloud_notm}} console, go to **Navigation Menu** icon ![menu icon](../../icons/icon_hamburger.svg) **> Infrastructure** ![VPC icon](../../icons/vpc.svg) **> Compute > Virtual server instances**.
 1. Click the name of a virtual server instance that includes the network interface that you want to edit. Or you can add a new network interface to the virtual server instance.
@@ -50,9 +50,9 @@ establish the data path. Later, you can associate the floating IP to a different
 ### Adding a floating IP address to a Bare Metal server with the console
 {: #fip-add-bare-metal-ui}
 
-To add your floating IP to a network interface to allow internet traffic to access your Bare Metal server, perform the following procedure:
+To add your floating IP to a network interface to allow internet traffic to access your Bare Metal server:
 
-To associate multiple floating IPs to a network interface, make sure that both **Allow IP spoofing** and **Enable infrastructure NAT** are disabled on the network interface. Note that **Enable infrastructure NAT** is not supported on LinuxONE Bare Metal servers.
+To associate multiple floating IPs to a network interface, verify that both **Allow IP spoofing** and **Enable infrastructure NAT** are disabled on the network interface. **Enable infrastructure NAT** is not supported on LinuxONE Bare Metal servers.
 {: important}
 
 1. In the {{site.data.keyword.cloud_notm}} console, go to **Navigation Menu** icon ![menu icon](../../icons/icon_hamburger.svg) **> Infrastructure** ![VPC icon](../../icons/vpc.svg) **> Compute > Bare Metal server**.
@@ -69,6 +69,11 @@ To associate multiple floating IPs to a network interface, make sure that both *
     {: note}
 
 1. After making your selections, click **Save**.
+
+### Reserving a floating IP from a custom authorized CIDR with the console
+{: #fip-create-byoip-ui}
+
+
 
 ### Adding a floating IP address to a virtual network interface with the console
 {: #fip-create-vni-ui}
@@ -95,7 +100,7 @@ You can add floating IP addresses to network interfaces with the CLI.
 
 Before you begin, [set up your CLI environment](/docs/vpc?topic=vpc-set-up-environment&interface=cli).
 
-First get the instance, in order to retrieve the NIC name:
+First, get the instance to retrieve the network interface name:
 
    ```sh
    ibmcloud is instance my-instance
@@ -142,6 +147,8 @@ You can directly associate a floating IP to a VNI with the following command:
    ```
    {: pre}
 
+
+
 ## Adding floating IP addresses to network interfaces with the API
 {: #fip-add-ni-api}
 {: api}
@@ -154,52 +161,65 @@ You can add floating IP addresses to network interfaces with the API.
 To add a floating IP address to a virtual server instance with the API, follow these steps:
 
 1. Set up your [API environment](/docs/vpc?topic=vpc-set-up-environment#api-prerequisites-setup).
-1. If you do no know the VNIC ID of your VSI, acquire it with the following command:
+1. If you do not know the network interface ID of your virtual server instance, retrieve it with the following command:
 
    ```sh
-   curl -H "Authorization: Bearer $TOKEN" -X POST "https://us-south.iaas.cloud.ibm.com/v1/instances/$INSTANCE/network_interfaces?generation=2&version=2019-10-01"
+   curl -sX GET "$vpc_api_endpoint/v1/instances/$instance_id/network_interfaces?version=$api_version&generation=2" \
+     -H "Authorization: Bearer $iam_token"
    ```
    {: pre}
 
-1. Then create the floating IP with the following command:
+1. Create the floating IP:
 
    ```sh
-   curl -H "Authorization: Bearer $TOKEN" -X POST "https://us-south.iaas.cloud.ibm.com/v1/floating_ips?generation=2&version=2019-10-01" -d '{"name":"my-floating-ip", "target":{"id":"69e55145-cc7d-4d8e-9e1f-cc3fb60b1793"}}'
+   curl -sX POST "$vpc_api_endpoint/v1/floating_ips?version=$api_version&generation=2" \
+     -H "Authorization: Bearer $iam_token" \
+     -H "Content-Type: application/json" \
+     -d '{"name":"my-floating-ip", "target":{"id":"69e55145-cc7d-4d8e-9e1f-cc3fb60b1793"}}'
    ```
    {: pre}
 
 ### Adding a floating IP address to a Bare Metal server with the API
 {: #fip-add-bare-metal-api}
 
-To add a floating IP address to a virtual server instance with the API, follow these steps:
+To add a floating IP address to a Bare Metal server with the API, follow these steps:
 
 1. Set up your [API environment](/docs/vpc?topic=vpc-set-up-environment#api-prerequisites-setup).
-1. If you do no know the VNIC ID of your VSI, acquire it with the following command:
+1. If you do not know the network interface ID of your Bare Metal server, retrieve it with the following command:
 
    ```sh
-   curl -H "Authorization: Bearer $TOKEN" -X POST "https://us-south.iaas.cloud.ibm.com/v1//bare_metal_servers/$SERVER_ID/network_interfaces?generation=2&version=2019-10-01"
+   curl -sX GET "$vpc_api_endpoint/v1/bare_metal_servers/$bare_metal_server_id/network_interfaces?version=$api_version&generation=2" \
+     -H "Authorization: Bearer $iam_token"
    ```
    {: pre}
 
-1. Then create the floating IP with the following command:
+1. Create the floating IP:
 
    ```sh
-   curl -H "Authorization: Bearer $TOKEN" -X POST "https://us-south.iaas.cloud.ibm.com/v1/floating_ips?generation=2&version=2019-10-01"  -d '{"name":"my-floating-ip", "target":{"id":"69e55145-cc7d-4d8e-9e1f-cc3fb60b1793"}}'
+   curl -sX POST "$vpc_api_endpoint/v1/floating_ips?version=$api_version&generation=2" \
+     -H "Authorization: Bearer $iam_token" \
+     -H "Content-Type: application/json" \
+     -d '{"name":"my-floating-ip", "target":{"id":"69e55145-cc7d-4d8e-9e1f-cc3fb60b1793"}}'
    ```
    {: pre}
 
 ### Adding a floating IP address to a virtual network interface with the API
 {: #fip-create-vni-api}
 
-To add a floating IP address to a virtual server instance with the API, follow these steps:
+To add a floating IP address to a virtual network interface with the API, follow these steps:
 
 1. Set up your [API environment](/docs/vpc?topic=vpc-set-up-environment#api-prerequisites-setup).
-1. Run the following command to create your floating UP:
+1. Run the following command to create your floating IP:
 
    ```sh
-   curl -H "Authorization: Bearer $TOKEN" -X POST "https://us-south.iaas.cloud.ibm.com/v1/floating_ips?generation=2&version=2019-10-01" d '{"name":"my-floating-ip", "target":{"id":"69e55145-cc7d-4d8e-9e1f-cc3fb60b1793"}}'
+   curl -sX POST "$vpc_api_endpoint/v1/floating_ips?version=$api_version&generation=2" \
+     -H "Authorization: Bearer $iam_token" \
+     -H "Content-Type: application/json" \
+     -d '{"name":"my-floating-ip", "target":{"id":"69e55145-cc7d-4d8e-9e1f-cc3fb60b1793"}}'
    ```
    {: pre}
+
+
 
 ## Creating a public gateway for VPC with a floating IP address
 {: #fip-create-public-gateway}

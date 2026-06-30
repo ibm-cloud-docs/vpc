@@ -2,7 +2,7 @@
 
 copyright:
   years: 2026
-lastupdated: "2026-06-23"
+lastupdated: "2026-06-30"
 
 keywords: public address range, create, bind
 
@@ -93,20 +93,23 @@ To create public address ranges from the command line, follow these steps:
 1. Run the following command:
 
    ```sh
-   ibmcloud is public-address-range-create --ipv4-address-count IPV4_ADDRESS_COUNT [--zone ZONE] [--name NAME] [--resource-group-id RESOURCE_GROUP_ID | --resource-group-name RESOURCE_GROUP_NAME | --all-resource-groups] [--vpc VPC] [--output JSON] [-q, --quiet]
+   ibmcloud is public-address-range-create (--ipv4-address-count IPV4_ADDRESS_COUNT | --cidr CIDR) [--zone ZONE] [--name NAME] [--resource-group-id RESOURCE_GROUP_ID | --resource-group-name RESOURCE_GROUP_NAME | --all-resource-groups] [--vpc VPC] [--output JSON] [-q, --quiet]
    ```
    
 
    Where:
 
    `--ipv4-address-count`
-   :   The total number of public IPv4 addresses required. Must be a power of 2.
+   :   The total number of public IPv4 addresses required. Must be a power of 2. Mutually exclusive with `--cidr`.
+
+   `--cidr`
+   :   The public IPv4 range for this public address range, expressed in CIDR format. Must be an unallocated block within a custom authorized CIDR in your account. Mutually exclusive with `--ipv4-address-count`.
 
    `--zone`
    :   The zone where this public address range will reside. When specifying the `--zone` option, `--vpc` is required.
 
    `--name`
-   :   A unique identifier for the Private Path service, such as `public-address-range-1`.
+   :   A name for the public address range, such as `public-address-range-1`.
 
    `--resource-group-id`
    :   ID of the resource group. This ID is mutually exclusive with `--resource-group-name`.
@@ -152,53 +155,54 @@ ibmcloud is public-address-range-create --name public-address-range-3 --ipv4-add
 ```
 {: pre}
 
+
+
 ## Creating public address ranges with the API
 {: #par-ordering-api}
 {: api}
 
-To create public address ranges with the API, follow these steps:
+Before you begin, set up your [API environment](/docs/vpc?topic=vpc-set-up-environment#api-prerequisites-setup).
+{: requirement}
 
-1. Set up your [API environment](/docs/vpc?topic=vpc-set-up-environment&interface=cli).
-1. Store the following values in variables to be used in the API command:
+Select one of the following options:
 
-   For example: `version` (string): The API version, in format `YYYY-MM-DD`.
+* Create a public address range from IBM-managed IPs, bound to a VPC:
 
-1. When all variables are initiated, select one of the following actions:
+   ```sh
+   curl -sX POST \
+   "$vpc_api_endpoint/v1/public_address_ranges?version=$api_version&generation=2" \
+   -H "Authorization: Bearer $iam_token" \
+   -H "Content-Type: application/json" \
+   -d '{
+         "ipv4_address_count": 8,
+         "name": "my-public-address-range",
+         "target": {
+            "vpc": {
+               "id": "r006-4727d842-f94f-4a2d-824a-9bc9b02c523b"
+            },
+            "zone": {
+               "name": "us-south-1"
+            }
+         }
+      }'
+   ```
+   {: pre}
 
-   * Create a public address range bound to a VPC:
+* Create an unbound public address range from IBM-managed IPs:
 
-      ```sh
-         curl -X POST \
-         "$vpc_api_endpoint/v1/public_address_ranges?version=$version&generation=2" \
-         -H "Authorization: Bearer $iam_token" \
-         -d '{
-               "ipv4_address_count": 8,
-               "name": "my-public-address-range",
-               "target": {
-                  "vpc": {
-                     "id": "r006-4727d842-f94f-4a2d-824a-9bc9b02c523b"
-                  },
-                  "zone": {
-                     "name": "us-south-1"
-                  }
-               }
-            }'
-      ```
-      {: pre}
+   ```sh
+   curl -sX POST \
+   "$vpc_api_endpoint/v1/public_address_ranges?version=$api_version&generation=2" \
+   -H "Authorization: Bearer $iam_token" \
+   -H "Content-Type: application/json" \
+   -d '{
+         "ipv4_address_count": 8,
+         "name": "my-public-address-range"
+      }'
+   ```
+   {: pre}
 
-   * Create an unbound public address range:
-
-      ```sh
-      curl -X POST \
-      "$vpc_api_endpoint/v1/public_address_ranges?version=$version&generation=2" \
-      -H "Authorization: Bearer $iam_token" \
-      -d '{
-               "ipv4_address_count": 8,
-               "name": "my-public-address-range"
-            }'
-
-      ```
-      {: pre}
+* 
 
 If you need to change the size of the address range or the resource group, you must delete and recreate the address range.
 {: important}
@@ -210,24 +214,25 @@ If you need to change the size of the address range or the resource group, you m
 To create a public address range with Terraform, use the following example:
 
 ```terraform
-
-resource "ibm_is_public_address_range" "public_address_range_instance" {
-	ipv4_address_count = "16"
-  name = "example-public-address-range"
-  resource_group{
-      id = "11caaa983d9c4beb82690daab08717e9"
+resource "ibm_is_public_address_range" "example" {
+  ipv4_address_count = 8
+  name               = "my-public-address-range"
+  resource_group {
+    id = data.ibm_resource_group.example.id
   }
-  target{
+  target {
     vpc {
-      id = ibm_is_vpc.testacc_vpc.id
+      id = ibm_is_vpc.example.id
     }
     zone {
-      name = "us-south-3"
+      name = "us-south-1"
     }
   }
 }
 ```
 {: codeblock}
+
+
 
 ## Related links
 {: #after-create-par}

@@ -2,7 +2,7 @@
 
 copyright:
   years: 2026
-lastupdated: "2026-06-23"
+lastupdated: "2026-06-30"
 
 keywords: vpc, public address ranges, about
 
@@ -18,7 +18,7 @@ subcollection: vpc
 A public address range is a contiguous set of public IPs that you can reserve and bind to a VPC in an availability zone.
 {: shortdesc}
 
-
+You can create public address ranges by using IBM-managed public IP address pools.
 
 You can route the IPs in the range to a target resource in the VPC, such as a virtual server instance, VNF appliance, or other compute resource. 
 
@@ -58,6 +58,7 @@ Review the following considerations before creating a public address range:
    {: note}
 
 * You can limit the use of a public address range to specific resources within the VPC by configuring network ACLs, security groups, or a combination of both.
+* 
 * You can reserve a public address range with the following prefix sizes. For more information, review public address range [quotas](/docs/vpc?topic=vpc-quotas&interface=ui#par-quotas) and [service limits](/docs/vpc?topic=vpc-quotas#service-limits-for-vpc-services).
    * `/28` = 16 addresses
    * `/29`  = 8 addresses
@@ -79,7 +80,7 @@ Review the following considerations before creating a public address range:
 * Before you create a public address range, review the following limitations:
    * You can't assign IP addresses from a public address range to resources in a VPC. You can only use these destination IP addresses in ingress custom route tables with "Public internet" enabled as the Traffic source to direct traffic to a next-hop target resource, such as a virtual server instance, network appliance, or other compute resource.
    * This service only supports IBM-provided public IP ranges. Bringing your own public IP or subnet is not supported.
-   *  You can't divide public address ranges into subranges or bind one to multiple VPCs or zones.
+   * You can't divide public address ranges into subranges or bind one to multiple VPCs or zones.
    * Using public address ranges with a shared virtual IP for ingress routing (for example, NSX-T Tier 0 HA VIP or similar appliances with Bare Metal Server VNI VLAN attachments), can cause an asymmetric routing issue that disrupts stateful firewall handling in security groups.
 
       To mitigate this, there are two workarounds:

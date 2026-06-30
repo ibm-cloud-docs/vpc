@@ -2,7 +2,7 @@
 
 copyright:
   years: 2026
-lastupdated: "2026-06-23"
+lastupdated: "2026-06-30"
 
 keywords: viewing, deleting, public address range
 
@@ -59,15 +59,19 @@ To view public address ranges from the command line, follow these steps:
 
 1. Run the following command:
 
+   
    ```sh
    ibmcloud is public-address-range PUBLIC_ADDRESS_RANGE [--output JSON] [-q, --quiet]
    ```
+   
    
 
    Where:
 
    `PUBLIC_ADDRESS_RANGE`
    :   The ID or name of the public address range to view.
+
+   
 
    `--output`
    :   The output format, only JSON is supported. One of: JSON.
@@ -98,32 +102,28 @@ ibmcloud is public-address-ranges
 {: #par-view-api}
 {: api}
 
-To view public address ranges with the API, follow these steps:
+Before you begin, set up your [API environment](/docs/vpc?topic=vpc-set-up-environment#api-prerequisites-setup).
+{: requirement}
 
-1. Set up your [API environment](/docs/vpc?topic=vpc-set-up-environment#api-prerequisites-setup).
-1. Store the following values in variables to use in the API command:
+Select one of the following options:
 
-   For example: `version` (string): The API version, in format `YYYY-MM-DD`.
+* View all public address ranges for an account:
 
-1. When all variables are initiated, select one of the following actions:
+   ```sh
+   curl -sX GET \
+            "$vpc_api_endpoint/v1/public_address_ranges?version=$api_version&generation=2" \
+            -H "Authorization: Bearer $iam_token"
+   ```
+   {: pre}
 
-   * View all public address ranges for an account:
+* View a specific public address range:
 
-      ```sh
-      curl -sX GET \
-               "$e/v1/public_address_ranges?version=$dt&generation=2" \
-               -H "Authorization: Bearer $iam_token"
-      ```
-      {: pre}
-
-   * View a specific public address range:
-
-      ```sh
-      curl -sX GET \
-               "$e/v1/public_address_ranges/$par-id?version=$dt&generation=2" \
-               -H "Authorization: Bearer $iam_token"
-      ```
-      {: pre}
+   ```sh
+   curl -sX GET \
+            "$vpc_api_endpoint/v1/public_address_ranges/$par_id?version=$api_version&generation=2" \
+            -H "Authorization: Bearer $iam_token"
+   ```
+   {: pre}
 
 ## Viewing public address ranges with Terraform
 {: #par-view-terraform}

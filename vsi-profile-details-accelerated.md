@@ -2,7 +2,7 @@
 
 copyright:
   years: 2024, 2026
-lastupdated: "2026-06-03"
+lastupdated: "2026-06-30"
 
 keywords: vsi, virtual server, virtual server instances, profile, profiles, gpu, accelerated, h100, h200, l4, l40s
 
@@ -314,7 +314,7 @@ Regions:
 - Hardware type: i440fx
 - Cloud networking: virtio
 - Block boot volume: virtio
-   - Exception: vscsi for Windows-based instances
+   - Exception: vscsi for most Windows-based instances. However, Windows instances that run on second-generation storage volumes, are secure boot enabled, and are running Windows Server 2022 or newer, use virtio.
 - Block data volumes: virtio
 
 ### Instance profiles
@@ -408,7 +408,7 @@ Regions:
 - Hardware type: i440fx
 - Cloud networking: virtio
 - Block boot volume: virtio
-    - Exception: vscsi for Windows-based instances
+   - Exception: vscsi for most Windows-based instances. However, Windows instances that run on second-generation storage volumes, are secure boot enabled, and are running Windows Server 2022 or newer, use virtio.
 - Block data volumes: virtio
 
 ### Instance profiles
@@ -493,7 +493,7 @@ Regions:
 - Hardware type: i440fx
 - Cloud networking: virtio
 - Block boot volume: virtio
-    - Exception: vscsi for Windows-based instances
+   - Exception: vscsi for most Windows-based instances. However, Windows instances that run on second-generation storage volumes, are secure boot enabled, and are running Windows Server 2022 or newer, use virtio.
 - Block data volumes: virtio
 
 ### Instance profiles

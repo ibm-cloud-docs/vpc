@@ -2,7 +2,7 @@
 
 copyright:
   years: 2019, 2026
-lastupdated: "2026-02-26"
+lastupdated: "2026-06-30"
 
 keywords: address prefixes, regions, subnets, zones, IP, ranges, CIDR
 
@@ -18,6 +18,9 @@ subcollection: vpc
 
 You can bring your own IPv4 address ranges (public and private) from your on-premises deployment to your {{site.data.keyword.vpc_full}} (VPC) by creating address prefixes. You can then create subnets within these IP ranges.
 {: shortdesc}
+
+
+{: note}
 
 Each zone of your VPC is assigned a default address prefix, which specifies the address range in which subnets can be created. If the default address scheme does not suit your requirements, you can customize the address prefixes.
 
