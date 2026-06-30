@@ -2,7 +2,7 @@
 
 copyright:
   years: 2024, 2026
-lastupdated: "2026-05-04"
+lastupdated: "2026-06-30"
 
 keywords: vsi, virtual server, virtual server instances, profile, profiles, balanced, compute, memory, dedicated host, gen 3
 
@@ -60,7 +60,7 @@ The 3rd generation general-purpose virtual server profiles can also be paired wi
     - Utilizes Q35 hardware type when it's running in secure boot mode
 - Cloud networking: virtio
 - Block boot volume: virtio
-    - Exception: vscsi for Windows-based virtual server instances
+   - Exception: vscsi for most Windows-based instances. However, Windows instances that run on second-generation storage volumes, are secure boot enabled, and are running Windows Server 2022 or newer, use virtio.
 - Block data volumes: virtio
 - Instance storage: virtio
 

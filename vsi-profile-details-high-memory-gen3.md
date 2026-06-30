@@ -2,7 +2,7 @@
 
 copyright:
   years: 2026, 2026
-lastupdated: "2026-03-17"
+lastupdated: "2026-06-30"
 
 keywords: vsi, virtual server, virtual server instances, profile, profiles, gpu, very high memory, high memory, gen 3
 
@@ -15,9 +15,9 @@ subcollection: vpc
 # High Memory instance profiles - Gen 3
 {: #very-high-memory-vsi-profiles-gen3}
 
-The very high memory family of 3rd generation virtual server profiles are built atop the 4th Generation Intel® Xeon® Scalable processors. This generation provides NUMA pinning, increased overall instance throughput up to 200 Gbps, and provides secure boot as an option for your virtual server. The profiles are targeted towards workloads that need a higher amount of memory per core.
+The very high memory family of 3rd generation virtual server profiles are built atop the 4th Generation Intel® Xeon® Scalable processors. This generation provides NUMA pinning, increased overall instance throughput up to 200 Gbps, and provides secure boot as an option for your virtual server. The profiles are targeted toward workloads that need a higher amount of memory per core.
 
-The very high memory profiles can also be paired with a corresponding dedicated host. This solution allows for single tenant hypervisors running workloads from a single {{site.data.keyword.cloud}} account.
+The very high memory profiles can also be paired with a corresponding dedicated host. This solution allows for single tenant hypervisors that run workloads from a single {{site.data.keyword.cloud}} account.
 
 ## Operating systems
 {: #vhm-3-os}
@@ -50,18 +50,18 @@ The very high memory profiles can also be paired with a corresponding dedicated 
 - Instance storage: Yes
 - NUMA pinning: Yes
 - NIC Capabilities:
-    - Max single NIC throughput: up to 32 Gbps
-    - Bandwidth pooling: No
+   - Max single NIC throughput: up to 32 Gbps
+   - Bandwidth pooling: No
 - [Volume bandwidth allocation method](/docs/vpc?topic=vpc-block-storage-bandwidth#attached-block-vol-bandwidth): `weighted` by default; it can be updated to `pooled`.
 
 ## VM configuration
 {: #vhm-3-vm-config}
 
 - Hardware type: i440fx
-    - Utilizes Q35 hardware type when running in secure boot mode.
+    - Uses Q35 hardware type when in secure boot mode is enabled.
 - Cloud networking: virtio
 - Block boot volume: virtio
-    - Exception: vscsi for Windows-based instances
+    - Exception: vscsi for most Windows-based instances. However, Windows instances that run on second-generation storage volumes, are secure boot enabled, and are running Windows Server 2022 or newer, use virtio.
 - Block data volumes: virtio
 - Instance storage: virtio
 

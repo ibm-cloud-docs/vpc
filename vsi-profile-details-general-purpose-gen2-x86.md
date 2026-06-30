@@ -2,7 +2,7 @@
 
 copyright:
   years: 2024, 2026
-lastupdated: "2026-03-26"
+lastupdated: "2026-06-30"
 
 keywords: vsi, virtual server, virtual server instances, profile, profiles, balanced, compute, memory, dedicated host, gen 2, intel, amd
 
@@ -66,7 +66,8 @@ for single-tenant hypervisors that run workloads from a single {{site.data.keywo
 - Hardware type: i440fx
 - Cloud networking: virtio
 - Block boot volume: virtio
-   - Exception: vscsi for Windows-based virtual server instances
+   - Exception: vscsi for most Windows-based instances. However, Windows instances that run on
+     second-generation storage volumes use virtio.
 - Block data volumes: virtio
 - Instance storage: virtio
 
@@ -223,7 +224,8 @@ for single-tenant hypervisors that run workloads from a single {{site.data.keywo
 - Hardware type: i440fx
 - Cloud networking: virtio
 - Block boot volume: virtio
-   - Exception: vscsi for Windows-based virtual server instances
+   - Exception: vscsi for most Windows-based instances. However, Windows instances that run on
+     second-generation storage volumes use virtio.
 - Block data volumes: virtio
 
 ### Instance profiles

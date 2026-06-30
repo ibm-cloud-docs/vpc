@@ -2,7 +2,7 @@
 
 copyright:
   years: 2024, 2026
-lastupdated: "2026-03-17"
+lastupdated: "2026-06-30"
 
 keywords: vsi, virtual server, virtual server instances, profile, profiles, gpu, very high memory, ultra high memory, high memory
 
@@ -66,7 +66,8 @@ single tenant hypervisors running workloads from a single {{site.data.keyword.cl
 - Hardware type: i440fx
 - Cloud networking: virtio
 - Block boot volume: virtio
-    - Exception: vscsi for Windows-based instances
+    - Exception: vscsi for most Windows-based instances. However, Windows instances that run on
+      second-generation storage volumes use virtio
 - Block data volumes: virtio
 - Instance storage: virtio
 
@@ -154,7 +155,8 @@ single tenant hypervisors running workloads from a single {{site.data.keyword.cl
 - Hardware type: i440fx
 - Cloud networking: virtio
 - Block boot volume: virtio
-    - Exception: vscsi for Windows-based instances
+    - Exception: vscsi for most Windows-based instances. However, Windows instances that run on
+      second-generation storage volumes use virtio
 - Block data volumes: virtio
 - Instance storage: virtio
 
