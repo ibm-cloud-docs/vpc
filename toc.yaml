@@ -251,6 +251,7 @@ toc:
               topics:
               - vsi_is_connecting_linux_gc.md
               - vsi_is_connecting_windows.md
+              - vsi_is_connecting_mssql.md
               - vsi_is_connecting_zos.md
           - topicgroup:
               id: ssh-keys
