@@ -2,7 +2,7 @@
 
 copyright:
   years: 2026
-lastupdated: "2026-04-16"
+lastupdated: "2026-06-30"
 
 keywords: viewing, deleting, public address range
 
@@ -88,21 +88,23 @@ ibmcloud is public-address-range-delete $par-id
 {: #par-deleting-api}
 {: api}
 
-To delete a public address range with the API, follow these steps:
+Before you begin, set up your [API environment](/docs/vpc?topic=vpc-set-up-environment#api-prerequisites-setup).
+{: requirement}
 
-1. Set up your [API environment](/docs/vpc?topic=vpc-set-up-environment&interface=cli).
-1. Store the following values in variables to be used in the API command:
+To delete a public address range, follow these steps:
 
-   For example: `version` (string): The API version, in format `YYYY-MM-DD`.
-
-1. When all variables are initiated, you can delete a public address range from a specific VPC as follows:
+1. If the address range is bound to a VPC, unbind it first. See [Binding, unbinding, and moving public address ranges](/docs/vpc?topic=vpc-par-unbinding-binding&interface=api).
+1. Delete the address range:
 
    ```sh
    curl -sX DELETE \
-            "$e/v1/public_address_ranges/$par-id?version=$dt&generation=2" \
+            "$vpc_api_endpoint/v1/public_address_ranges/$par_id?version=$api_version&generation=2" \
             -H "Authorization: Bearer $iam_token"
    ```
    {: pre}
+
+   
+   {: note}
 
 ## Deleting public address ranges with Terraform
 {: #par-delete-terraform}
