@@ -70,9 +70,6 @@ To associate multiple floating IPs to a network interface, verify that both **Al
 
 1. After making your selections, click **Save**.
 
-### Reserving a floating IP from a custom authorized CIDR with the console
-{: #fip-create-byoip-ui}
-
 
 
 ### Adding a floating IP address to a virtual network interface with the console

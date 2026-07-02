@@ -1,8 +1,8 @@
 ---
 
 copyright:
-  years: 2021, 2025
-lastupdated: "2025-04-01"
+  years: 2021, 2026
+lastupdated: "2026-07-02"
 
 subcollection: vpc
 
@@ -48,7 +48,6 @@ One storage option is available that includes secondary local NVMe drives. All p
 
 - {{site.data.keyword.block_storage_is_short}} is not supported.
 - {{site.data.keyword.filestorage_vpc_short}} is supported.
-- Encryption in transit is not supported between {{site.data.keyword.filestorage_vpc_short}} and {{site.data.keyword.bm_is_short}}.
  
 For more information about file storage, see [About {{site.data.keyword.filestorage_vpc_short}}](/docs/vpc?topic=vpc-file-storage-vpc-about).
 

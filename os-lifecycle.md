@@ -3,7 +3,7 @@
 copyright:
 
   years: 2022, 2026
-lastupdated: "2026-03-26"
+lastupdated: "2026-06-30"
 
 keywords: operating system end of support (eos)
 
@@ -78,6 +78,8 @@ When you select an RHEL AI 1.x image, make sure that you are using the correct R
 
 | Operating system | End of support | License model |
 |-----------------|----------------|---------------|
+| RHEL 9.8 minimal | 31 May 2028    | Pay-as-you-Go  |
+| RHEL 9.8 (SAP HANA and SAP applications) | 31 May 2030    | Pay-as-you-Go |
 | RHEL 9.6 minimal | 31 May 2027    | Pay-as-you-Go  |
 | RHEL 9.6 (SAP HANA and SAP applications) | 31 May 2029    | Pay-as-you-Go |
 | RHEL 9.4 minimal | 30 April 2026    | Pay-as-you-Go  |
@@ -155,10 +157,10 @@ The following table describes the end of support date and license model for Ubun
 
 | Operating system | End of support | License model |
 |-----------------|----------------|---------------|
-| Ubuntu 24.04 minimal | 25 April 2029 | Free |
-| Ubuntu 22.04 minimal | 30 April 2027 | Free |
-| Ubuntu 20.04 minimal [^tabletext]| 30 April 2025 | Free |
-| Ubuntu 18.04 minimal [^tabletext]| 31 May 2023  | Free |
+| Ubuntu 24.04 minimal | 25 May 2029 | Free |
+| Ubuntu 22.04 minimal | 30 May 2027 | Free |
+| Ubuntu 20.04 minimal | 30 April 2025 | Free |
+| Ubuntu 18.04 minimal | 31 May 2023  | Free |
 | Ubuntu 16.04 minimal | 01 April 2021  | Free |
 {: caption="Lifecycle for Ubuntu operating systems" caption-side="bottom"}
 

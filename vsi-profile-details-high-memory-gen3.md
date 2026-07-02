@@ -2,7 +2,7 @@
 
 copyright:
   years: 2026, 2026
-lastupdated: "2026-06-30"
+lastupdated: "2026-07-01"
 
 keywords: vsi, virtual server, virtual server instances, profile, profiles, gpu, very high memory, high memory, gen 3
 
@@ -61,7 +61,7 @@ The very high memory profiles can also be paired with a corresponding dedicated 
     - Uses Q35 hardware type when in secure boot mode is enabled.
 - Cloud networking: virtio
 - Block boot volume: virtio
-    - Exception: vscsi for most Windows-based instances. However, Windows instances that run on second-generation storage volumes, are secure boot enabled, and are running Windows Server 2022 or newer, use virtio.
+    - Exception: vscsi for most Windows-based instances. However, Windows instances that run on second-generation storage volumes, and Windows instances with secure boot enabled that run Windows Server 2022 or newer, use virtio.
 - Block data volumes: virtio
 - Instance storage: virtio
 

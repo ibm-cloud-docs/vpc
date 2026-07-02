@@ -20,7 +20,6 @@ You can bring your own IPv4 address ranges (public and private) from your on-pre
 {: shortdesc}
 
 
-{: note}
 
 Each zone of your VPC is assigned a default address prefix, which specifies the address range in which subnets can be created. If the default address scheme does not suit your requirements, you can customize the address prefixes.
 
