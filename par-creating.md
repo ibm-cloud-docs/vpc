@@ -2,7 +2,7 @@
 
 copyright:
   years: 2026
-lastupdated: "2026-06-30"
+lastupdated: "2026-07-04"
 
 keywords: public address range, create, bind
 
@@ -48,6 +48,8 @@ To create public address ranges in the {{site.data.keyword.cloud_notm}} console,
 
       After you create a public address range, you can't change its size.
       {: note}
+
+   
 
    * **Resource group**: Select a resource group for the public address range.
 
