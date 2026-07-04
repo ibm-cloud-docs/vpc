@@ -242,6 +242,7 @@ resource "ibm_is_public_address_range" "example" {
 {: #after-create-par}
 
 - [About public address ranges](/docs/vpc?topic=vpc-about-par)
+- [Managing your own IP address ranges in VPC (BYOIP)](/docs/vpc?topic=vpc-byoip)
 - [IAM roles and actions](/docs/iam?topic=iam-iam-service-roles-actions#is.public-address-range-roles)
 - [Quotas](/docs/vpc?topic=vpc-quotas#par-quotas) and [service limits](/docs/vpc?topic=vpc-quotas#service-limits-for-vpc-services)
 - [FAQ](/docs/vpc?topic=vpc-faq-public-address-ranges)
