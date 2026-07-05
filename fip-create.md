@@ -70,8 +70,6 @@ To associate multiple floating IPs to a network interface, verify that both **Al
 
 1. After making your selections, click **Save**.
 
-
-
 ### Adding a floating IP address to a virtual network interface with the console
 {: #fip-create-vni-ui}
 
@@ -144,8 +142,6 @@ You can directly associate a floating IP to a VNI with the following command:
    ```
    {: pre}
 
-
-
 ## Adding floating IP addresses to network interfaces with the API
 {: #fip-add-ni-api}
 {: api}
@@ -216,8 +212,6 @@ To add a floating IP address to a virtual network interface with the API, follow
    ```
    {: pre}
 
-
-
 ## Adding floating IP addresses to network interfaces with Terraform
 {: #fip-add-ni-terraform}
 {: terraform}
@@ -249,8 +243,6 @@ resource "ibm_is_floating_ip" "example" {
 }
 ```
 {: codeblock}
-
-
 
 ## Creating a public gateway for VPC with a floating IP address
 {: #fip-create-public-gateway}
