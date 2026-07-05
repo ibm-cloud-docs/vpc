@@ -17,6 +17,8 @@ subcollection: vpc
 
 You can reserve a floating IP address, then add it to a network interface to allow traffic from the internet to access your VPC public gateway, virtual server instance, or Bare Metal server.
 
+
+
 ## Adding floating IP addresses to network interfaces with the console
 {: #fip-add-ni-ui}
 {: ui}
