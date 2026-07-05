@@ -29,7 +29,7 @@ The Public address ranges for VPC page shows the following information:
 - **Name:** The name of the public address range object.
 - **Status:** States whether the address range is bound or unbound to the specified VPC.
 - **Lifecycle state:** States whether the binding or unbinding of the address range is successful, and if it is stable or not.
-- **IP range:** The range of IP addresses included in the address range. 
+- **IP range:** The range of IP addresses included in the address range.
 - **Zone:** States the zone that the address range is bound to (if applicable).
 - **Target resource:** States the VPC that the address range is bound to in the previous zone (if applicable).
 
