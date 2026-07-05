@@ -40,7 +40,7 @@ To bind a public address range in the {{site.data.keyword.cloud}} console, follo
 
 1. From the [{{site.data.keyword.cloud_notm}} console](/login){: external}, select the **Navigation menu** ![Menu icon](../icons/icon_hamburger.svg), then click **Infrastructure** ![VPC icon](../../icons/vpc.svg) > **Network** > **Public address ranges**. The Public Address Ranges for VPC page appears.
 1. Highlight the row of the address range in the table, then click **Bind** from the **Actions** menu ![Actions icon](../icons/action-menu-icon.svg "Actions").
-1. From the Bind public address range side panel, select the VPC and its corresponding availability zone where you want to bind the address range.
+1. From the **Bind public address range** page, select the VPC and its corresponding availability zone where you want to bind the address range.
 1. Click **Bind** to bind the public address range to the VPC.
 
 ### Unbinding a public address range in the console
@@ -67,7 +67,7 @@ To move a public address range in the console, follow these steps:
 
 1. From the [{{site.data.keyword.cloud_notm}} console](/login){: external}, select the **Navigation menu** ![Menu icon](../icons/icon_hamburger.svg), then click **Infrastructure** ![VPC icon](../../icons/vpc.svg) > **Network** > **Public address ranges**. The Public Address Ranges for VPC page appears.
 1. Highlight the row of the address range in the table, then click **Edit** from the **Actions** menu ![Actions icon](../icons/action-menu-icon.svg "Actions").
-1. From the address range side panel, select the VPC and its availability zone where you want to move the address range.
+1. From the **Edit public address range** page, select the VPC and its availability zone where you want to move the address range.
 1. Click **Save** to bind the public address range to the new VPC.
 
 ## Binding, unbinding, and moving public address ranges from the CLI
