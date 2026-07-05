@@ -2,7 +2,7 @@
 
 copyright:
   years: 2026
-lastupdated: "2026-06-30"
+lastupdated: "2026-07-05"
 
 keywords: viewing, deleting, public address range
 
@@ -31,7 +31,9 @@ The Public address ranges for VPC page shows the following information:
 - **Lifecycle state:** States whether the binding or unbinding of the address range is successful, and if it is stable or not.
 - **IP range:** The range of IP addresses included in the address range.
 - **Zone:** States the zone that the address range is bound to (if applicable).
-- **Virtual Private Cloud:** States the VPC that the address range is bound to in the previous zone (if applicable).
+- **Target resource:** States the VPC that the address range is bound to in the previous zone (if applicable).
+
+
 
 ## Viewing public address ranges from the CLI
 {: #par-view-cli}

@@ -2,7 +2,7 @@
 
 copyright:
   years: 2023, 2026
-lastupdated: "2026-05-20"
+lastupdated: "2026-07-05"
 
 keywords:
 
@@ -82,6 +82,8 @@ To create a virtual network interface in the console, follow these steps:
     * **Reserving method**: Select whether you want a primary IP address created for you, or if you want to specify one manually. If you specify your own, type an existing reserved IP address for your virtual network interface, or select one from the existing reserved IP list menu.
     * **Auto release**: Click the switch to enable or disable auto release for this virtual network interface.
 1. In the Floating IPs section (optional), click **Attach**. In the side panel that appears, you can either select from the existing list of floating IP addresses, or select **Reserve new Floating IP** and complete the information that is requested.
+
+    
 
     If a floating IP is attached, the virtual network interface will not be accepted as file share mount target. If infrastructure NAT is enabled, at most one floating IP can be attached.
     {: note}

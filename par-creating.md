@@ -68,6 +68,8 @@ To create public address ranges in the {{site.data.keyword.cloud_notm}} console,
 On the Public address ranges for VPC page, your address range now shows in the table. For IBM Cloud services, the status of your public address range changes from `Updating` to `Stable`.
 
 
+
+
 ## Creating public address ranges from the CLI
 {: #par-ordering-cli}
 {: cli}
@@ -240,6 +242,7 @@ resource "ibm_is_public_address_range" "example" {
 {: #after-create-par}
 
 - [About public address ranges](/docs/vpc?topic=vpc-about-par)
+- 
 - [IAM roles and actions](/docs/iam?topic=iam-iam-service-roles-actions#is.public-address-range-roles)
 - [Quotas](/docs/vpc?topic=vpc-quotas#par-quotas) and [service limits](/docs/vpc?topic=vpc-quotas#service-limits-for-vpc-services)
 - [FAQ](/docs/vpc?topic=vpc-faq-public-address-ranges)

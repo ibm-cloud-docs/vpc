@@ -2,7 +2,7 @@
 
 copyright:
   years: 2022, 2026
-lastupdated: "2026-06-30"
+lastupdated: "2026-07-05"
 
 keywords: floating ip, reserving, bare metal, vnic, public gateways
 
@@ -70,8 +70,6 @@ To associate multiple floating IPs to a network interface, verify that both **Al
 
 1. After making your selections, click **Save**.
 
-
-
 ### Adding a floating IP address to a virtual network interface with the console
 {: #fip-create-vni-ui}
 
@@ -83,8 +81,8 @@ To associate multiple floating IPs to a network interface, verify that both **Al
    * If infrastructure NAT is enabled, at most one floating IP can be attached.
 1. In the Attach floating IP side panel, choose one of the following options:
 
-   * Click **Reserve new floating IP** to create floating IP, complete the information, and then click **Reserve**.
    * Select an existing floating IP address from the menu, then click **Attach**.
+   * Click **Reserve new floating IP** to open the Reserve floating IP panel. Complete the location and details fields, then click **Reserve**.
 
 ## Adding floating IP addresses to network interfaces with the CLI
 {: #fip-add-ni-cli}
@@ -143,8 +141,6 @@ You can directly associate a floating IP to a VNI with the following command:
    ibmcloud is floating-ip-reserve my-ip --nic 72b27b5c-f4b0-48bb-b954-5becc7c1dcb3
    ```
    {: pre}
-
-
 
 ## Adding floating IP addresses to network interfaces with the API
 {: #fip-add-ni-api}
@@ -216,7 +212,37 @@ To add a floating IP address to a virtual network interface with the API, follow
    ```
    {: pre}
 
+## Adding floating IP addresses to network interfaces with Terraform
+{: #fip-add-ni-terraform}
+{: terraform}
 
+You can reserve floating IP addresses with Terraform.
+
+### Adding a floating IP address to a virtual server instance with Terraform
+{: #fip-add-vsi-terraform}
+
+To reserve a floating IP and associate it to an instance network interface with Terraform:
+
+```terraform
+resource "ibm_is_floating_ip" "example" {
+  name   = "my-floating-ip"
+  target = ibm_is_instance.example.primary_network_interface[0].id
+}
+```
+{: codeblock}
+
+### Adding a floating IP address to a virtual network interface with Terraform
+{: #fip-create-vni-terraform}
+
+To reserve a floating IP and associate it to a virtual network interface with Terraform:
+
+```terraform
+resource "ibm_is_floating_ip" "example" {
+  name   = "my-floating-ip"
+  target = ibm_is_virtual_network_interface.example.id
+}
+```
+{: codeblock}
 
 ## Creating a public gateway for VPC with a floating IP address
 {: #fip-create-public-gateway}

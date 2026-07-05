@@ -1,8 +1,8 @@
 ---
 
 copyright:
-  years: 2023, 2025
-lastupdated: "2025-12-21"
+  years: 2023, 2026
+lastupdated: "2026-07-05"
 
 keywords:
 
@@ -31,8 +31,11 @@ To attach a floating IP to an existing virtual network interface, follow these s
 1. Click the name of the virtual network interface that you want to attach a floating IP to in the Virtual network interfaces for VPC table.
 1. In the Floating IPs section, click **Attach**.
 1. In the Attach floating IP panel that appears, you can choose one of the following options:
-    * Reserve a new floating IP by clicking **Reserve new floating IP** and completing the requested information in the panel that appears
     * Select an existing floating IP from the Floating IP addresses menu.
+    * Click **Reserve new floating IP** to open the Reserve floating IP panel and complete the following:
+      1. In the **Location** section, select the zone where you want to create the floating IP.
+      1. In the **Details** section, enter a **Name**, select a **Resource group**, and optionally add **Tags** or **Access management tags**.
+      1.  Click **Reserve**.
 1. Click **Attach** to attach the floating IP to your virtual network interface, or click **Cancel**.
 
 ## Attaching a floating IP to a virtual network interface from the CLI
