@@ -2,7 +2,7 @@
 
 copyright:
   years: 2026
-lastupdated: "2026-07-05"
+lastupdated: "2026-07-06"
 
 keywords: vpc, public address ranges, about
 
@@ -93,9 +93,6 @@ Review the following considerations before creating a public address range.
    * Option B: Allow all inbound and outbound traffic in the security group rules, and rely on the appliance's built-in firewall capabilities.
 
    These appliances are typically NFVs with integrated firewall capabilities, and the purpose of the public address range and the VPC ingress route is to direct traffic to that appliance.
-
-### Custom authorized CIDR considerations
-{: #par-planning-byoip}
 
 
 

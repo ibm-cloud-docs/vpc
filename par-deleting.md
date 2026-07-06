@@ -2,7 +2,7 @@
 
 copyright:
   years: 2026
-lastupdated: "2026-07-05"
+lastupdated: "2026-07-06"
 
 keywords: viewing, deleting, public address range
 
@@ -127,5 +127,5 @@ terraform destroy -auto-approve
 ## Related links
 {: #after-delete-par}
 
+- [About public address ranges](/docs/vpc?topic=vpc-about-par)
 - [Creating public address ranges](/docs/vpc?topic=vpc-par-creating)
-- [Troubleshooting](/docs/vpc?group=tbs-par)
