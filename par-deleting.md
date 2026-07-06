@@ -84,6 +84,8 @@ ibmcloud is public-address-range-delete $par-id
 ```
 {: pre}
 
+
+
 ## Deleting public address ranges with the API
 {: #par-deleting-api}
 {: api}
