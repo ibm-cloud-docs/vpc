@@ -2,7 +2,7 @@
 
 copyright:
   years: 2022, 2026
-lastupdated: "2026-06-29"
+lastupdated: "2026-07-06"
 
 keywords: confidential computing, enclave, secure execution, hpcr, contract, customization, schema, contract schema, env, workload, encryption
 
@@ -731,7 +731,7 @@ The encryption and attestation certificates are signed by the IBM intermediate c
 ### Downloading the encryption certificate and extracting the public key
 {: #encrypt_downloadcert}
 
-1. Download the certificate. The following table lists the encryption certificate expiry dates and image deprecation/obsolete date based on the version of the image.
+1. Download the certificate. The following table lists the encryption certificate expiry dates and image deprecation/obsolete date based on the version of the image
 
    | Image version| Certificate link | Encryption cert expiry date | Deprecation date |
    | -------- | ----------- | ----------- | ----------- |

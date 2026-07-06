@@ -2,7 +2,7 @@
 
 copyright:
   years: 2022, 2026
-lastupdated: "2026-06-17"
+lastupdated: "2026-07-06"
 
 keywords: confidential computing, secure execution, hpcr, contract, customization, env, workload, encryption, attestation, validating
 
@@ -30,6 +30,7 @@ Download the following certificates:
 
 From 25 March 2025, the certificate links are changed.
 {: note}
+
 
    | Image version| Certificate link | Expiry date |
    | -------- | ----------- | ----------- |
@@ -255,6 +256,7 @@ The certificates contain **Certificate Revocation List (CRL) Distribution Points
       ```
       {: pre}
 
+
       You can verify if the value is set by running the following command:
       ```sh
       echo $serial
@@ -291,6 +293,7 @@ The certificates contain **Certificate Revocation List (CRL) Distribution Points
       export serial=355A3F79102E0E523FDC31ECFD8BD19F
       ```
       {: pre}
+
 
       You can verify if the value is set by running the following command:
       ```sh

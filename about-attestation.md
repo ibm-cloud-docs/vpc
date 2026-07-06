@@ -2,7 +2,7 @@
 
 copyright:
   years: 2022, 2026
-lastupdated: "2026-06-17"
+lastupdated: "2026-07-06"
 
 keywords: confidential computing, enclave, secure execution, hpcr, hyper protect virtual server for vpc
 
@@ -197,12 +197,14 @@ d879515efa1fb1b94bf00f3e03855539d169c54f4beb4dad3fff91b39467c461 contract:attest
 
 The `baseimage` is the IBM internal QEMU Copy On Write Version 2 (QCOW2) file, which is used as the source for most of the operating system files of the Hyper Protect Container Runtime image. It is used only at image build time by the enabler process. The enabler uses this source with other Debian packages to create the `root.tar.gz` and the encrypted secure execution kernel or an 'initrd' image.
 
+
 The following is the shasum of the ibm-hyper-protect-container-runtime-1-0-s390x-28 `baseimage`:
 
 ```sh
 334549f6dfcf8e0e2132c0eb9a5281e9e0b335e319fe2f66158be5b524acdc48 baseimage
 ```
 {: pre}
+
 
 The following is the shasum of the ibm-hyper-protect-container-runtime-1-0-s390x-27 `baseimage`:
 
@@ -260,12 +262,14 @@ The following is the shasum of the ibm-hyper-protect-container-runtime-1-0-s390x
 
 The `root.tar.gz` is part of the final secure execution that is enabled by an IBM Hyper Protect Container Runtime image and contains all operating system files. It is stored on the first partition (boot partition) of the image as `/boot/root.tar.gz`.
 
+
 The following is the shasum of the ibm-hyper-protect-container-runtime-1-0-s390x-28 `root.tar.gz`.
 
 ```sh
 692f9724bb6c6fb855d6724c903e080998997b3a8aa2350fd5cb95b1c967ea92 root.tar.gz
 ```
 {: pre}
+
 
 The following is the shasum of the ibm-hyper-protect-container-runtime-1-0-s390x-27 `root.tar.gz`.
 
