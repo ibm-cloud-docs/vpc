@@ -2,7 +2,7 @@
 
 copyright:
   years: 2026
-lastupdated: "2026-07-04"
+lastupdated: "2026-07-06"
 
 keywords: vpc, public address ranges, about
 
@@ -20,7 +20,7 @@ A public address range is a contiguous set of public IPs that you can reserve an
 
 You can create public address ranges by using IBM-managed public IP address pools.
 
-You can route the IPs in the range to a target resource in the VPC, such as a virtual server instance, VNF appliance, or other compute resource. 
+You can route the IPs in the range to a target resource in the VPC, such as a virtual server instance, VNF appliance, or other compute resource.
 
 For example, you can configure public ingress routing to send the destination IP range to a VNF appliance next-hop. Response traffic from the target retains the original source IP as it exits the VPC, ensuring that return traffic isn't dropped.
 
@@ -47,7 +47,10 @@ High Availability
 ## Planning considerations
 {: #par-planning}
 
-Review the following considerations before creating a public address range:
+Review the following considerations before creating a public address range.
+
+### General considerations
+{: #par-planning-general}
 
 * Make sure that you have the appropriate [IAM permissions](/docs/iam?topic=iam-iam-service-roles-actions#is.public-address-range-roles).
 * You can bind multiple public address ranges to a VPC.
@@ -58,7 +61,6 @@ Review the following considerations before creating a public address range:
    {: note}
 
 * You can limit the use of a public address range to specific resources within the VPC by configuring network ACLs, security groups, or a combination of both.
-* 
 * You can reserve a public address range with the following prefix sizes. For more information, review public address range [quotas](/docs/vpc?topic=vpc-quotas&interface=ui#par-quotas) and [service limits](/docs/vpc?topic=vpc-quotas#service-limits-for-vpc-services).
    * `/28` = 16 addresses
    * `/29`  = 8 addresses
@@ -77,18 +79,22 @@ Review the following considerations before creating a public address range:
    When a VPC is created, the default security group and network ACL allow inbound and outbound traffic for the supported protocols. To ensure secure and intentional use of these public address range IPs, it is highly recommended to review and customize your security group rules, network ACLs, and egress routes to ensure an adequate security posture. This practice helps prevent unintended access to traffic patterns, particularly when multiple users have permission to deploy virtual server instances and compute resources in your account.
    {: attention}
 
-* Before you create a public address range, review the following limitations:
-   * You can't assign IP addresses from a public address range to resources in a VPC. You can only use these destination IP addresses in ingress custom route tables with "Public internet" enabled as the Traffic source to direct traffic to a next-hop target resource, such as a virtual server instance, network appliance, or other compute resource.
-   * This service only supports IBM-provided public IP ranges. Bringing your own public IP or subnet is not supported.
-   * You can't divide public address ranges into subranges or bind one to multiple VPCs or zones.
-   * Using public address ranges with a shared virtual IP for ingress routing (for example, NSX-T Tier 0 HA VIP or similar appliances with Bare Metal Server VNI VLAN attachments), can cause an asymmetric routing issue that disrupts stateful firewall handling in security groups.
+### Limitations
+{: #par-planning-limitations}
 
-      To mitigate this, there are two workarounds:
+* You can't assign IP addresses from a public address range to resources in a VPC. You can only use these destination IP addresses in ingress custom route tables with "Public internet" enabled as the Traffic source to direct traffic to a next-hop target resource, such as a virtual server instance, network appliance, or other compute resource.
+* This service only supports IBM-provided public IP ranges. Bringing your own public IP or subnet is not supported.
+* You can't divide public address ranges into subranges or bind one to multiple VPCs or zones.
+* Using public address ranges with a shared virtual IP for ingress routing (for example, NSX-T Tier 0 HA VIP or similar appliances with Bare Metal Server VNI VLAN attachments), can cause an asymmetric routing issue that disrupts stateful firewall handling in security groups.
 
-      * Option A: Treat the security group rules as stateless for the affected public address range prefixes.
-      * Option B: Allow all inbound and outbound traffic in the security group rules, and rely on the appliance’s built-in firewall capabilities.
+   To mitigate this, there are two workarounds:
 
-      These appliances are typically NFVs with integrated firewall capabilities, and the purpose of the public address range and the VPC ingress route is to direct traffic to that appliance.
+   * Option A: Treat the security group rules as stateless for the affected public address range prefixes.
+   * Option B: Allow all inbound and outbound traffic in the security group rules, and rely on the appliance's built-in firewall capabilities.
+
+   These appliances are typically NFVs with integrated firewall capabilities, and the purpose of the public address range and the VPC ingress route is to direct traffic to that appliance.
+
+
 
 ## Getting started with public address ranges
 {: #par-getting-started}
@@ -127,6 +133,8 @@ The following diagram illustrates how routes and firewalls can be configured usi
 The public address range is attached to the zone with the Active Firewall, `us-south-1`. Internet traffic incoming through the public address range is routed to the Active Firewall per Route 1 in `us-south-1` for inspection and filtering. When the Active Firewall is down, the customer must manually (or through automation) update the zone attachment of the public address range to `us-south-2`, so that incoming traffic is routed through Route 2 to the Passive Firewall. This setup makes the firewall highly available for internet traffic inspection, securing workloads in the VPC even during zonal failures.
 
 ![Deploying highly-available and resilient workloads in VPC](images/par_use_case_2.svg "Deploy highly-available and resilient workloads in VPC"){: caption="Deploy highly-available and resilient workloads in VPC" caption-side="bottom"}
+
+
 
 ## Related links
 {: #par-related-links}
