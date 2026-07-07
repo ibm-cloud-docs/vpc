@@ -2,7 +2,7 @@
 
 copyright:
   years: 2025, 2026
-lastupdated: "2026-06-22"
+lastupdated: "2026-07-07"
 
 keywords: Block Storage, virtual private cloud, volume, data storage, troubleshooting, troubleshoot, expanding boot volume, windows
 
@@ -174,7 +174,7 @@ Open the Command Prompt or PowerShell as an administrator, and run the following
 1. Re-enable the Windows Recovery Environment.
 
    ```sh
-   PS: C:\Users\Administrator> reagentc /ensable
+   PS: C:\Users\Administrator> reagentc /enable
    REAGENTC.EXE: Operation Successful.
    ```
    {: screen}

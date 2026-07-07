@@ -2,7 +2,7 @@
 
 copyright:
   years: 2019, 2026
-lastupdated: "2026-06-26"
+lastupdated: "2026-07-07"
 
 keywords:
 
@@ -43,7 +43,7 @@ For end-to-end encryption in the {{site.data.keyword.cloud_notm}}, you can use c
 
 With customer-managed encryption, you can bring your own customer root key (CRK) to the cloud or have a [key management service](#kms-for-byok) (KMS) generate a key for you. Root keys are used to encrypt volume, file share, and custom image passphrases with [envelope encryption](#vpc-envelope-encryption-byok), a process that wraps a key with another key.
 
-Supported key management services are {{site.data.keyword.keymanagementserviceshort}} and {{site.data.keyword.hscrypto}}.
+Supported key management services are {{site.data.keyword.keymanagementserviceshort}} Standard and Dedicated, and {{site.data.keyword.hscrypto}}.
 
 {{site.data.keyword.keymanagementserviceshort}} is available in two deployment options to meet different security and compliance requirements:
 
