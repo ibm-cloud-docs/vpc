@@ -2,7 +2,7 @@
 
 copyright:
   years: 2022, 2026
-lastupdated: "2026-06-29"
+lastupdated: "2026-07-07"
 
 keywords: snapshots, Block Storage, volumes, cross-regional snapshot, restore volume, copy snapshot
 
@@ -138,7 +138,6 @@ The following limitations apply for the second-generation block storage snapshot
 * You can't create a copy of a snapshot in the source (local) region.
 * You can delete any snapshot that you take. However, snapshots must be in a `stable` or `pending` state and not actively restoring a volume.
 * You can delete a {{site.data.keyword.block_storage_is_short}} volume and all its snapshots. All snapshots must be in a `stable` or `pending` state. No snapshot can be actively restoring a volume.
-* Consistency-group snapshots are not supported.
 
 The following limitations apply for the first-generation block storage snapshots:
 

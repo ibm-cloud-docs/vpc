@@ -1047,8 +1047,8 @@ toc:
               id: tbs-bare-metal
               label: Troubleshooting bare metal servers
               topics:
-              - bare_metal_server_troubleshoot.md
               - troubleshooting_partially_available_custom_image_bm.md
+              - bare_metal_server_troubleshoot.md
           - topicgroup:
               id: tbs-hpvs
               label: Troubleshooting Hyper Protect Virtual Servers for VPC
