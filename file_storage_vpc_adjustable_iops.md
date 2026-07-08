@@ -2,7 +2,7 @@
 
 copyright:
   years: 2022, 2026
-lastupdated: "2026-06-26"
+lastupdated: "2026-07-08"
 
 keywords: file share, file storage, IOPS, performance needs, adjust IOPS
 
@@ -15,8 +15,10 @@ subcollection: vpc
 # Adjusting IOPS for a zonal file share
 {: #file-storage-adjusting-iops}
 
-Adjust IOPS for zonal file shares with the dp2 profile from 100 to 96,000 IOPS without service interruption. Changes take effect immediately with no outage. Manage IOPS limit through the console, CLI, API, or Terraform.
+Adjust Input/Output Operations Per Second (IOPS) limits for zonal file shares with the dp2 profile from 100 to 96,000 IOPS without service interruption.
 {: shortdesc}
+
+Changes take effect immediately with no outage. You can manage the IOPS limit through the console, CLI, API, or Terraform.
 
 Billing for an updated share is automatically updated. The prorated difference of the new price is added to the current billing cycle. The new full amount is then billed in the next billing cycle.
 

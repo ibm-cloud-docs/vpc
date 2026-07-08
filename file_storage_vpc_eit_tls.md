@@ -2,7 +2,7 @@
 
 copyright:
   years: 2025, 2026
-lastupdated: "2026-06-26"
+lastupdated: "2026-07-08"
 
 keywords: file share, file storage, encryption in transit, Mount Helper, TLS, NFS over TLS, secure connection, mount share
 
@@ -15,7 +15,7 @@ subcollection: vpc
 # Establishing encryption in transit for regional file shares
 {: #file-storage-vpc-eit-tls}
 
-Establish encrypted mount connections for regional file shares by using Transport Layer Security (TLS) 1.2+ with stunnel for secure end-to-end data encryption.
+Establish encrypted mount connections for regional file shares by using Transport Layer Security (TLS) 1.2+ with stunnel.
 {: shortdesc}
 
 You can establish an encrypted mount connection between the compute host and a regional file share by creating a TLS 1.2+ connection with stunnel. You can enable secure end-to-end encryption when you use file shares with security-group-based access control mode and mount targets with virtual network interfaces (VNI). When such a mount target is attached and the share is mounted, the VNI checks the security group policy to make sure that only authorized instances can communicate with the share.
@@ -40,7 +40,7 @@ To use the feature, the following requirements need to be met:
 
 - Data encryption in transit must be enabled. In the console, you can toggle encryption in transit on when you create the mount target. The API `transit_encryption` property accepts the `stunnel` value to enable the feature.
 
-- Stunnel must be installed on the server. The {{site.data.keyword.cloud}} file service provides the [Mount Helper utility](/docs/vpc?topic=vpc-fs-mount-helper-utility) to automate the tasks that are required on the compute host, such as downloading, configuring and initiating the stunnel application.
+- Stunnel must be installed on the server. The {{site.data.keyword.cloud}} file service provides the [Mount Helper utility](/docs/vpc?topic=vpc-fs-mount-helper-utility) to automate the tasks that are required on the compute host, such as downloading, configuring, and initiating the stunnel application.
 
 
 

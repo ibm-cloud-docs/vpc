@@ -1,10 +1,10 @@
 ---
 
 copyright:
-  years: 2021, 2025
-lastupdated: "2025-09-23"
+  years: 2021, 2026
+lastupdated: "2026-07-08"
 
-keywords:
+keywords: snapshot, restore, volume, degraded, initializing_from_snapshot, block storage
 
 subcollection: vpc
 
@@ -18,7 +18,10 @@ content-type: troubleshoot
 {: #snapshot_ts_restore_fail}
 {: troubleshoot}
 
-A fully restored volume was not created from the snapshot. The API health status shows `degraded`, with the health reason `initializing_from_snapshot` and a message indicates that initializing from the snapshot failed.
+Resolve issues where a volume that is restored from a snapshot remains in a degraded state and does not reach stable status due to a failed initialization.
+{: shortdesc}
+
+The volume was not successfully restored from the snapshot. The API health status shows `degraded`, with the health reason `initializing_from_snapshot`, indicating that initializing from the snapshot failed.
 {: tsSymptoms}
 
 Some or all of the data wasn't downloaded from the regional storage repository to the volume that's being created. Data blocks were not written.

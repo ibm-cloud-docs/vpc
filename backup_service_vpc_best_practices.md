@@ -1,8 +1,8 @@
 ---
 
 copyright:
-  years: 2022, 2025
-lastupdated: "2025-11-04"
+  years: 2022, 2026
+lastupdated: "2026-07-08"
 
 keywords: Backup for VPC, backup service, backup plan, backup policy, restore, restore volume, restore data
 
@@ -39,11 +39,11 @@ To help ensure that you're using the VPC Backup Service most effectively and eco
 
 * Provide a unique name for your backup policy. If you have a convention for naming volumes, you might name a backup policy by using a similar convention. Backups that are created by a policy can also follow the convention. As the number of backups grows, a good naming convention can make them more identifiable.
 
-* Consistency group backups: Creating crash-consistent snapshots of multiple volumes that are attached to the same virtual server instance leads to a short-lived I/O suspension that can last from a few milliseconds to a few seconds. The duration depends on the number and size of volumes that are connected to your virtual server instance. It is recommended to run your automated backup job during off-peak hours to minimize any impact on performance.
+* Consistency group backups: Creating crash-consistent snapshots of multiple volumes that are attached to the same virtual server instance leads to a short-lived I/O suspension that can last from a few milliseconds to a few seconds. The duration depends on the number and size of volumes that are connected to your virtual server instance. Run your automated backup job during off-peak hours to minimize any impact on performance.
 
 *  Backup schedules for file shares can be set up only on the source side of a replication pair. When you choose to failover operations to the replica share, the source and replica shares switch roles. After a failover is performed, backup policies need to be removed from what was previously the source and applied to the current source share.
 
-Albeit you cannot schedule the creation of snapshots for a replica share, your replica shares can still have snapshots. When you create a backup snapshot of the source share, then that backup snapshot is copied to the replica at the next replication cycle. 
+Although you cannot schedule the creation of snapshots for a replica share, your replica shares can still have snapshots. When you create a backup snapshot of the source share, that backup snapshot is copied to the replica at the next replication cycle.
 {: note}
 
 ## Best practices for user actions
@@ -91,8 +91,8 @@ If you specify both age and the number of backups in your retention policy, age 
 
 For example, when you create the weekly plan and specify the retention period as 365 days, you can also specify the maximum count of 8. In this scenario, you're going to get a maximum of 8 backups in the chain, with the oldest being 8 weeks old. Alternatively, you can specify 30 days as your retention period and set the number of maximum backups to 8. Then, by the time the 5th backup is created, the first backup is going to be deleted as it is outside of the 30-day retention period.
 
-## Next Steps
+## Next steps
 {: #baas-bp-next-steps}
 
-[Plan a strategy](/docs/vpc?topic=vpc-backups-vpc-planning) for backing up your {{site.data.keyword.block_storage_is_short}} volumes.
-[Create a backup policy](/docs/vpc?topic=vpc-create-backup-policy-and-plan).
+* [Plan a strategy](/docs/vpc?topic=vpc-backups-vpc-planning) for backing up your {{site.data.keyword.block_storage_is_short}} volumes.
+* [Create a backup policy](/docs/vpc?topic=vpc-create-backup-policy-and-plan).

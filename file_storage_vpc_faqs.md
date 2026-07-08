@@ -2,7 +2,7 @@
 
 copyright:
   years: 2021, 2026
-lastupdated: "2026-06-26"
+lastupdated: "2026-07-08"
 
 keywords: file share, file storage, replication, replica, size increase, capacity, encryption, BYOK, security group
 
@@ -17,7 +17,7 @@ content-type: faq
 # FAQ for {{site.data.keyword.filestorage_vpc_short}}
 {: #file-storage-vpc-faqs}
 
-Find answers to frequently asked questions about {{site.data.keyword.filestorage_vpc_short}} features, profiles, capacity, and security.
+Find answers to frequently asked questions about {{site.data.keyword.filestorage_vpc_short}} file share features, profiles, capacity, replication, encryption, and security.
 {: shortdesc}
 
 ## Offering questions

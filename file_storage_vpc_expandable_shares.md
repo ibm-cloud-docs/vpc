@@ -2,7 +2,7 @@
 
 copyright:
   years: 2022, 2026
-lastupdated: "2026-06-26"
+lastupdated: "2026-07-08"
 
 keywords: file share, file storage, increase capacity, expand capacity, expand share size, file share size
 
@@ -15,7 +15,7 @@ subcollection: vpc
 # Expanding file share capacity
 {: #file-storage-expand-capacity}
 
-Expand {{site.data.keyword.filestorage_vpc_short}} capacity up to 32,000 GB without downtime, data migration, or manual steps.
+Expand {{site.data.keyword.filestorage_vpc_short}} file share capacity up to 32,000 GB without downtime or data migration. Billing is automatically updated to reflect the new capacity.
 {: shortdesc}
 
 Billing for the file share is automatically updated to add the pro-rated difference of the new price to the current billing cycle. The new full amount is then billed in the next billing cycle.

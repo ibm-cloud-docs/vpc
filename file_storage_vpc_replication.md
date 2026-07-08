@@ -2,7 +2,7 @@
 
 copyright:
   years: 2022, 2026
-lastupdated: "2026-06-26"
+lastupdated: "2026-07-08"
 
 keywords: file share, file storage, replication, replica,
 
@@ -15,10 +15,10 @@ subcollection: vpc
 # About file share replication
 {: #file-storage-replication}
 
-Create read-only replica file shares in another zone for disaster recovery, low-latency access to distributed teams, content distribution in regional hubs, or testing.
+Replicate zonal file shares across zones or regions for disaster recovery, low-latency access, content distribution, and testing.
 {: shortdesc}
 
-You can create replicas of your zonal file shares in another zone of the same geography. With the replication feature, you can keep a read-only copy of your file share in another zone. The replica share is updated from the source share on a schedule that you specify. The read-only replica can help provide low-latency access to distributed teams and applications by placing the data closer to the consumers. Replication can improve content distribution for global teams by creating regional hubs for faster downloads of installers, documentation, and media. Replicas can burst capacity for peak events like product launches or global campaigns. You can use replicas for maintenance, testing changes, and migration trials without disrupting primary workloads. You can use them as isolated copies for audits and legal holds without impacting production. Replication also provides a way to recover from an incident at the primary site, when data becomes inaccessible or an application fails.
+Create read-only replica file shares in another zone for disaster recovery, low-latency access to distributed teams, content distribution in regional hubs, or testing. You can create replicas of your zonal file shares in another zone of the same geography. With the replication feature, you can keep a read-only copy of your file share in another zone. The replica share is updated from the source share on a schedule that you specify. The read-only replica can help provide low-latency access to distributed teams and applications by placing the data closer to the consumers. Replication can improve content distribution for global teams by creating regional hubs for faster downloads of installers, documentation, and media. Replicas can burst capacity for peak events like product launches or global campaigns. You can use replicas for maintenance, testing changes, and migration trials without disrupting primary workloads. You can use them as isolated copies for audits and legal holds without impacting production. Replication also provides a way to recover from an incident at the primary site, when data becomes inaccessible or an application fails.
 
 [Select availability]{: tag-green} Customers with special access to preview the new regional file share offering can use the **rfs** profile to create file shares with regional availability. When you create file shares with regional availability, data is automatically replicated throughout the region, so you don't need to set up replication pairs in the same region. Cross-regional replication of regional file shares is not supported in this release.
 
@@ -41,7 +41,7 @@ You can create a replica share in another zone of the same region. You can also 
 
 When you create your replica file share in another zone of the same region, the replica share inherits the encryption type and key from the source file share. The encryption can't be changed.
 
-When you replicate your file share to another region, the replica must match the type of encryption that the source share has. However, it does not inherit the encryption from the source. In other words, if the source share is encrypted with provider-managed keys, the replica must have provider-managed encryption, too. If the source share is encrypted with a customer-managed key, the replica must be encrypted with a customer-managed key as well. However, it does not have to be the same key. When you create the replica, provide the CRN of the key that you want to use.
+When you replicate your file share to another region, the replica must match the type of encryption that the source share has. However, it does not inherit the encryption from the source. In other words, if the source share is encrypted with provider-managed keys, the replica must have provider-managed encryption, too. If the source share is encrypted with a customer-managed key, the replica must be encrypted with a customer-managed key as well. However, it does not have to be the same key. When you create the replica, provide the Cloud Resource Name (CRN) of the key that you want to use.
 
 Based on the replication schedule, the service pulls data from the source file share to the replica file share. You can choose how often you want to sync changes from the source share to the replica. You can specify an hourly, daily, weekly, or monthly replication schedule. Replications must be scheduled at least 15 minutes apart.
 

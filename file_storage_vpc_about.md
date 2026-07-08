@@ -2,7 +2,7 @@
 
 copyright:
   years: 2021, 2026
-lastupdated: "2026-07-02"
+lastupdated: "2026-07-08"
 
 keywords: file share, mount target, virtual network interface, customer-managed encryption, encryption at rest, encryption in transit, file storage, share,
 
@@ -15,10 +15,10 @@ subcollection: vpc
 # About {{site.data.keyword.filestorage_vpc_short}}
 {: #file-storage-vpc-about}
 
-{{site.data.keyword.filestorage_vpc_full}} provides NFS-based file storage with zonal (dp2 profile) and regional (rfs profile) availability. Features include encryption at rest and in transit, cross-region replication, snapshots, and multi-VPC sharing. Manage file shares through the console, CLI, API, or Terraform.
+{{site.data.keyword.filestorage_vpc_full}} delivers NFS-based file storage with zonal and regional availability, encryption, cross-region replication, and multi-VPC sharing for IBM Cloud VPC workloads.
 {: shortdesc}
 
-{{site.data.keyword.filestorage_vpc_full}} provides NFS-based file storage services within the VPC Infrastructure. A file share is a type of file storage that is made accessible over the network to allow multiple clients to access the same folders and files simultaneously.
+{{site.data.keyword.filestorage_vpc_full}} provides Network File System (NFS)-based file storage services within the VPC Infrastructure. A file share is a type of file storage that is made accessible over the network to allow multiple clients to access the same folders and files simultaneously.
 
 Creating file shares with regional availability requires special access. If you’re interested in previewing the new offering, contact your assigned Account team representative or Customer Success Manager.
 {: preview}
@@ -168,7 +168,7 @@ You can [establish an encrypted mount connection](/docs/vpc?topic=vpc-file-stora
 If you want to connect a file share to instances that are running in different VPCs in a zone, you can create multiple mount targets. You can create one mount target for each VPC.
 {: important}
 
-If you choose to use Encryption-in-transit, you need to balance your requirements between performance and enhanced security. Encrypting data in transit can have some performance impact due to the processing that is needed to encrypt and decrypt the data at the endpoints. The impact depends on the workload characteristics. Workloads that perform synchronous writes or bypass VSI caching, such as databases, might have a substantial performance impact when EIT is enabled. To determine EIT’s performance impact, benchmark your workload with and without EIT.
+If you choose to use Encryption-in-transit (EIT), you need to balance your requirements between performance and enhanced security. Encrypting data in transit can have some performance impact due to the processing that is needed to encrypt and decrypt the data at the endpoints. The impact depends on the workload characteristics. Workloads that perform synchronous writes or bypass VSI caching, such as databases, might have a substantial performance impact when EIT is enabled. To determine EIT's performance impact, benchmark your workload with and without EIT.
 
 Even without EIT, the data moves through a secure data center network. For more information about network security, see [Security in your VPC](/docs/vpc?topic=vpc-security-in-your-vpc) and [Protecting Virtual Private Cloud (VPC) Infrastructure Services with context-based restrictions](/docs/vpc?topic=vpc-cbr).
 

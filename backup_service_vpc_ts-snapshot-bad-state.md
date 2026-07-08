@@ -1,8 +1,8 @@
 ---
 
 copyright:
-  years: 2024, 2025
-lastupdated: "2025-08-14"
+  years: 2024, 2026
+lastupdated: "2026-07-08"
 
 keywords: Backup for VPC, backup service, backup plan, backup policy, restore, restore volume, restore data
 
@@ -17,7 +17,10 @@ content-type: troubleshoot
 # Why did my backup job fail with 'snapshots-bad-state' event type?
 {: #baas-ts-snapshot-bad-state}
 {: troubleshoot}
-{: support} 
+{: support}
+
+Resolve backup job failures with the 'snapshots-bad-state' event type, which occur when a snapshot that passed its retention period cannot be deleted because it is not in a stable state.
+{: shortdesc}
 
 You receive an [event notification](/docs/vpc?topic=vpc-event-notifications-events#event-notifications-list) with the event type 'snapshots-bad-state'.
 {: tsSymptoms}

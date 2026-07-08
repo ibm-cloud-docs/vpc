@@ -1,8 +1,8 @@
 ---
 
 copyright:
-  years: 2022, 2025
-lastupdated: "2025-04-21"
+  years: 2022, 2026
+lastupdated: "2026-07-08"
 
 keywords: Backup, backup service, backup plan, backup policy, restore, restore volume, restore data
 
@@ -15,7 +15,7 @@ subcollection: vpc
 # Monitoring backup policy health states, lifecycle status, and events
 {: #backup-vpc-monitoring}
 
-By using the UI, CLI, or API, you can check on the status and health states of the backup service.
+Monitor backup policy health states, lifecycle statuses, and backup jobs by using the console, CLI, or API, and set up event notifications for the backup service.
 {: shortdesc}
 
 ## Backup policy statuses
@@ -30,7 +30,7 @@ When you [view backup policy details from the CLI](/docs/vpc?topic=vpc-backup-vi
 When you make a `GET /backup_policies/` request, the API returns a `lifecycle_state` value as part of the information about the backup policy.
 {: api}
 
-Table 1 shows the lifecycle statuses that the backup policy can have.
+The following table shows the lifecycle statuses that the backup policy can have.
 
 | Status    | Description |
 |-----------|-------------|
@@ -52,7 +52,7 @@ When you [view the details of a policy from the CLI](/docs/vpc?topic=vpc-backup-
 When you make a `GET /backup_policies/{id}` request, the API returns a `health_state` value as part of the information about the backup policy.
 {: api}
 
-Table 2 shows all the health states that the backup policies can have.
+The following table shows all the health states that the backup policies can have.
 
 | Health state | Meaning |
 |--------------|---------|

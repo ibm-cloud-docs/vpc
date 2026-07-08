@@ -1,8 +1,8 @@
 ---
 
 copyright:
-  years: 2022, 2025
-lastupdated: "2025-08-14"
+  years: 2022, 2026
+lastupdated: "2026-07-08"
 
 keywords: Backup for VPC, backup service, backup plan, backup policy, restore, restore volume, restore data
 
@@ -18,6 +18,9 @@ content-type: troubleshoot
 {: #baas-ts-3}
 {: troubleshoot}
 
+Resolve service authorization errors that occur when you create a backup policy due to missing or incorrect service-to-service authorizations.
+{: shortdesc}
+
 A service authorization error is generated when you try to create a backup policy.
 {: tsSymptoms}
 
@@ -26,4 +29,3 @@ When you attempt to create a backup policy, an `s2s service not completed` error
 
 Establish correct service-to-service authorizations and try creating a backup policy again. For more information about setting up authorizations for the backup service, see [Establishing service-to-service authorizations](/docs/vpc?topic=vpc-backup-s2s-auth).
 {: tsResolve}
-
