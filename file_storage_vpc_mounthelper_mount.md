@@ -2,7 +2,7 @@
 
 copyright:
   years: 2023, 2026
-lastupdated: "2026-06-26"
+lastupdated: "2026-07-08"
 
 keywords: file share, Mount Helper, mount, mounting, IPsec, stunnel, NFS
 
@@ -29,7 +29,7 @@ Before you mount file shares with Mount Helper:
 ## Connecting to your compute host
 {: #fs-mount-helper-mount-connect}
 
-To mount file shares with Mount Helper, you must login to your compute host.
+To mount file shares with Mount Helper, you must log in to your compute host.
 - [Connect to your virtual server instance](/docs/vpc?topic=vpc-creating-virtual-servers&interface=ui#next-steps-after-creating-virtual-servers-ui).
 - [Connect to your bare metal server](/docs/vpc?topic=vpc-connect-to-ESXi-bare-metal-servers).
 - If you want to access the file shares from IBM {{site.data.keyword.powerSys_notm}} instances, you must use a network path through a load balancer. For more information, see the following tutorial: [Accessing File Storage for VPC shares from IBM Power Virtual Server instances](/docs/sap?topic=sap-ha-nlb-rt-rfs-intro).
@@ -137,4 +137,4 @@ By default, NFS downgrades any files that were created with the root permissions
 
 Learn about [Managing file shares](/docs/vpc?topic=vpc-file-storage-managing).
 
-If you encounter issues while mounting file shares, see [Troubleshooting Mount Helper](/docs/vpc?topic=vpc-fs-mount-helper-ts).
+If you encounter issues, see [Troubleshooting Mount Helper](/docs/vpc?topic=vpc-fs-mount-helper-ts).

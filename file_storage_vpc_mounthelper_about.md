@@ -2,7 +2,7 @@
 
 copyright:
   years: 2023, 2026
-lastupdated: "2026-06-26"
+lastupdated: "2026-07-08"
 
 keywords: file share, file storage, encryption in transit, Mount Helper, IPsec, secure connection, mount share, stunnel
 
@@ -44,12 +44,12 @@ You can use the utility for encrypted or unencrypted connections. For encrypted 
 ### Stunnel secure connection for regional shares
 {: #fs-eit-stunnel}
 
-The Mount Helper utility installs stunnel on the compute host that's running a Linux OS. Stunnel is an application that creates encrypted TLS tunnels between clients and servers for secure communication. In client mode, Stunnel initiates a connection from your virtual server instance of bare metal server to the file share, and tunnels data over a secure connection. Stunnel requires a PEM file, which typically contains a private key and a certificate. When stunnel operates in client mode, it relies on the system-wide SSL/TLS configuration and certificates. It can use the default PEM file provided by the Linux distribution rather than generating a custom certificate. The PEM file is often located in `/etc/ssl/private` or `/etc/pki/tls/private` folder.
+The Mount Helper utility installs stunnel on the compute host that's running a Linux OS. Stunnel is an application that creates encrypted TLS tunnels between clients and servers for secure communication. In client mode, Stunnel initiates a connection from your virtual server instance or bare metal server to the file share, and tunnels data over a secure connection. Stunnel requires a PEM file, which typically contains a private key and a certificate. When stunnel operates in client mode, it relies on the system-wide SSL/TLS configuration and certificates. It can use the default PEM file that is provided by the Linux distribution rather than generating a custom certificate. The PEM file is often located in `/etc/ssl/private` or `/etc/pki/tls/private` folder.
 
 ## Requirements
 {: #fs-mount-helper-requirements}
 
-Before you can use Mount Helper, ensure that your environment meets the following requirements:
+Before you use Mount Helper, confirm that your environment meets the following requirements:
 
 * For setting up a secure connection with **zonal** file share, the [Metadata service](/docs/vpc?topic=vpc-imd-about) must be enabled on the virtual server instance. If it is not enabled yet, follow the instructions for [enabling metadata in the console](/docs/vpc?topic=vpc-imd-configure-service&interface=ui#imd-enable-service-ui){: ui}[enabling metadata from the CLI](/docs/vpc?topic=vpc-imd-configure-service&interface=cli#imd-metadata-service-enable-cli){: cli}[enabling metadata from the API](/docs/vpc?topic=vpc-imd-configure-service&interface=api#imd-metadata-service-enable-api){: api} for virtual server instances or [enabling metadata in the console](/docs/vpc?topic=vpc-configure-metadata-service-bare-metal&interface=ui#metadata-enable-service-ui-bare-metal){: ui}[enabling metadata from the CLI](/docs/vpc?topic=vpc-configure-metadata-service-bare-metal&interface=cli#metadata-service-enable-cli-bare-metal){: cli}[enabling metadata from the API](/docs/vpc?topic=vpc-configure-metadata-service-bare-metal&interface=api#metadata-service-enable-api-bare-metal){: api} for bare metal servers.
 * The zonal or regional file share must have [security group access mode](/docs/vpc?topic=vpc-file-storage-vpc-about&interface=ui#fs-mount-access-mode), so the VPC's security access groups can be used to define which compute host can mount the share.
@@ -63,7 +63,7 @@ Do not add the Mount Helper installer script to your `cloud-init` configuration.
 ## Restrictions and limitations
 {: #fs-mount-helper-restrictions}
 
-Be aware of the following restrictions when using Mount Helper:
+Be aware of the following restrictions:
 
 * For IPsec encapsulation, the same certificates cannot be used across multiple regions.
 * The Mount Helper is supported on Linux hosts only. See the following table for the supported distributions:

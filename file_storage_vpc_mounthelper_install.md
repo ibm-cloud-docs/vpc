@@ -2,7 +2,7 @@
 
 copyright:
   years: 2023, 2026
-lastupdated: "2026-06-26"
+lastupdated: "2026-07-08"
 
 keywords: file share, Mount Helper, install, installation, download, build, update, uninstall
 
@@ -21,7 +21,7 @@ Install Mount Helper on your compute host to automate encrypted connections to {
 ## Before you begin
 {: #fs-mount-helper-install-prereqs}
 
-Before you install Mount Helper, review the [requirements and limitations](/docs/vpc?topic=vpc-fs-mount-helper-utility#fs-mount-helper-requirements) to ensure your environment is compatible.
+Before you install Mount Helper, review the [requirements and limitations](/docs/vpc?topic=vpc-fs-mount-helper-utility#fs-mount-helper-requirements) to confirm that your environment is compatible.
 
 You must connect to your compute host:
 - [Connect to your virtual server instance](/docs/vpc?topic=vpc-creating-virtual-servers&interface=ui#next-steps-after-creating-virtual-servers-ui).
@@ -148,7 +148,7 @@ If you want to mount a regional file share on an IBM Power VSI, download the ins
 ### Installing without EPEL and StrongSwan dependencies
 {: #install-MH-regional-no-epel}
 
-If you need to mount regional file shares with encryption in transit but want to avoid installing EPEL and StrongSwan packages, you can use the `DO_NOT_INSTALL_IPSEC` environment variable. This approach installs only the stunnel components needed for regional file share mounting.
+If you need to mount regional file shares with encryption in transit but want to avoid installing EPEL and StrongSwan packages, you can use the `DO_NOT_INSTALL_IPSEC` environment variable. This approach installs only the stunnel components that are needed for regional file share mounting.
 
 1. Install the NFS utilities package.
    ```sh
@@ -193,7 +193,7 @@ If you need to mount regional file shares with encryption in transit but want to
    ```
    {: screen}
 
-After installation, you can mount regional file shares following the procedures in [Mounting a regional file share](/docs/vpc?topic=vpc-fs-mount-helper-mount#fs-eit-mount-share-stunnel). Traffic between the client and the file storage service is encrypted by using stunnel.
+After installation, you can mount regional file shares by following the procedures in [Mounting a regional file share](/docs/vpc?topic=vpc-fs-mount-helper-mount#fs-eit-mount-share-stunnel). Traffic between the client and the file storage service is encrypted by using stunnel.
 
 ## Building the Mount Helper utility from the source code
 {: #build-from-source-code}

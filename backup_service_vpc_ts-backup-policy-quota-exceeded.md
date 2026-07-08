@@ -2,7 +2,7 @@
 
 copyright:
   years: 2022, 2026
-lastupdated: "2026-06-16"
+lastupdated: "2026-07-08"
 
 keywords: Backup for VPC, backup service, backup plan, backup policy, restore, restore volume, restore data
 
@@ -17,14 +17,14 @@ content-type: troubleshoot
 # Why can't I create more backup policies?
 {: #baas-backup-policy-quota-exceeded}
 
-{{site.data.keyword.cloud_notm}} limits accounts to 10 backup policies per region. When you reach this quota, you must delete an existing policy before creating a new one.
+{{site.data.keyword.cloud_notm}} limits accounts to 10 backup policies per region. When you reach this quota, you must delete an existing policy before you can create another one.
 {: shortdesc}
 
-You receive the message that the account reached its backup policy quota when you try to create another backup policy. The event type is 'snapshot-quota-reached'.
+When you try to create a backup policy, you receive a message that states that the account reached its backup policy quota. The event type is `snapshot-quota-reached`.
 {: tsSymptoms}
 
-You are limited to 10 backup policies per account in a region.
+Accounts are limited to 10 backup policies per region.
 {: tsCauses}
 
-The backup policy quota can't be increased. To create a new policy, you need to delete a previous one. For more information about backup strategies, see [Best practices for backups](/docs/vpc?topic=vpc-backups-vpc-best-practices).
+The backup policy quota cannot be increased. To create a new policy, you must delete an existing one. For more information about backup strategies, see [Best practices for backups](/docs/vpc?topic=vpc-backups-vpc-best-practices).
 {: tsResolve}

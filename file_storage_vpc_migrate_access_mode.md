@@ -2,7 +2,7 @@
 
 copyright:
   years: 2026
-lastupdated: "2026-06-26"
+lastupdated: "2026-07-08"
 
 keywords: file share, file storage, access control mode, vpc access mode, security group, migration
 
@@ -18,16 +18,16 @@ subcollection: vpc
 Migrate zonal file shares from deprecated VPC access control mode to security group mode before 06 May 2027 (End of Support) to avoid data loss.
 {: shortdesc}
 
-The VPC access control mode allows all virtual server instances and bare metal servers in a VPC to access a file share. The security group access control mode provides more granular control by restricting access to specific compute resources based on security group rules. Security group access control mode also supports additional features such as encryption in transit, cross-zone mounting, and snapshots.
+The VPC access control mode allows all virtual server instances and bare metal servers in a VPC to access a file share. The security group access control mode provides more granular control by restricting access to specific compute resources based on security group rules. Security group access control mode also supports more features such as encryption in transit, cross-zone mounting, and snapshots.
 
 ## Before you begin
 {: #fs-migrate-access-mode-prereqs}
 
 Before you migrate your file shares from VPC access control mode to security group access control mode, review the following requirements:
 
-* Ensure that you have the necessary [IAM permissions](/docs/vpc?topic=vpc-iam-getting-started) to manage file shares and mount targets.
+* Verify that you have the necessary [IAM permissions](/docs/vpc?topic=vpc-iam-getting-started) to manage file shares and mount targets.
 * Identify all file shares in your account that use VPC access control mode.
-* Plan your security group configuration to ensure that authorized compute resources can access the file share after migration.
+* Plan your security group configuration to make sure that authorized compute resources can access the file share after migration.
 * Schedule a maintenance window for the migration, as the file share is temporarily unavailable during the process.
 
 ## Migration overview
@@ -46,9 +46,9 @@ The migration process involves the following steps:
 ## Step 1: Unmount the file share from all compute hosts
 {: #fs-migrate-unmount}
 
-Before you can delete the mount targets, you must unmount the file share from all virtual server instances and bare metal servers where it is currently mounted.
+Before you can delete the mount targets, you must unmount the file share from all virtual server instances and bare metal servers where it is mounted.
 
-First, identify the file shares that use VPC access control mode. You can list all file shares, then filter the results to show only shares with `access_control_mode` set to `vpc` by using the CLI or the API.
+First, identify the file shares that use VPC access control mode. You can list all file shares by using the CLI or the API. Filter the results to show only shares with `access_control_mode` set to `vpc`.
 
 If your environment supports JSON output, you can use [`jq`](https://jqlang.org/){: external} to filter the output of [`ibmcloud is shares`](/docs/vpc?topic=vpc-vpc-reference#shares-list):
 {: cli}
@@ -69,7 +69,7 @@ curl -s -X GET "$vpc_api_endpoint/v1/shares?version=2026-04-28&generation=2" \
 {: pre}
 {: api}
 
-After you identify the shares that use VPC access control mode, connect to each compute host where those shares are mounted, and run the `umount` command with the mount point name. For example:
+After you identify the shares that use VPC access control mode, connect to each compute host where those shares are mounted, and run the `umount` command with the mount point name. See the following example:
 
 ```sh
 umount /mnt/my-file-share
@@ -81,7 +81,7 @@ For more information about unmounting file shares on different operating systems
 ## Step 2: Delete all mount targets from the file share
 {: #fs-migrate-delete-targets}
 
-After unmounting the file share from all compute hosts, delete all mount targets associated with the file share. You must delete all mount targets before you can update the access control mode.
+After the file share is unmounted from all compute hosts, delete all mount targets associated with the file share. You must delete all mount targets before you can update the access control mode.
 
 ### Deleting mount targets in the console
 {: #fs-migrate-delete-targets-ui}
@@ -289,24 +289,21 @@ For more information, see [Removing the replication relationship with the API](/
    ```
    {: codeblock}
 
-For more information, see [Removing the replication relationship with Terraform](/docs/vpc?topic=vpc-file-storage-manage-replication&interface=terraform#fs-remove-replication-terraform).
-
-
-For more information, see [Deleting a mount target with Terraform](/docs/vpc?topic=vpc-file-storage-managing&interface=terraform#delete-file-share-terraform).
+For more information, see [Removing the replication relationship with Terraform](/docs/vpc?topic=vpc-file-storage-manage-replication&interface=terraform#fs-remove-replication-terraform) and [Deleting a mount target with Terraform](/docs/vpc?topic=vpc-file-storage-managing&interface=terraform#delete-file-share-terraform).
 
 ## Step 4: Update the access control mode to security group
 {: #fs-migrate-update-mode}
 
-After deleting all mount targets and any replica file shares, update the file share's access control mode from `vpc` to `security_group`.
+After all mount targets and any replica file shares are deleted, update the file share's access control mode from `vpc` to `security_group`.
 
-### Updating access control mode in the console
+### Updating the access control mode in the console
 {: #fs-migrate-update-mode-ui}
 {: ui}
 
 1. In the [{{site.data.keyword.cloud_notm}} console](/login){: external}, click the **Navigation menu** icon ![menu icon](../icons/icon_hamburger.svg) **> Infrastructure** ![VPC icon](../icons/vpc.svg) **> Storage > File storage shares**.
 2. Select the file share that you want to migrate from the list.
 3. On the File share details page, locate the **Access control mode** field.
-4. Click the **Edit** icon !![Edit icon](../icons/edit-tagging.svg) next to the Access control mode field.
+4. Click the **Edit** icon ![Edit icon](../icons/edit-tagging.svg) next to the **Access control mode** field.
 5. Select **Security group** from the dropdown menu.
 6. Click **Save**.
 
@@ -367,9 +364,7 @@ resource "ibm_is_share" "example" {
 ## Step 5: Create new mount targets with security group access
 {: #fs-migrate-create-targets}
 
-After updating the access control mode, create new mount targets with security group access. The mount targets must be created with a [virtual network interface](/docs/vpc?topic=vpc-vni-about) that is associated with a security group.
-
-Before you create the mount targets, ensure that you have a security group configured with rules that allow inbound access for the TCP protocol on the NFS port (2049) from all compute hosts where you want to mount the file share.
+After the access control mode is updated, create new mount targets with security group access. The mount targets must be created with a [virtual network interface](/docs/vpc?topic=vpc-vni-about) that is associated with a security group. Before you create the mount targets, verify that you have a security group that is configured with rules that allow inbound TCP access on the NFS port (2049) from all compute hosts where you want to mount the file share.
 
 ### Creating mount targets in the console
 {: #fs-migrate-create-targets-ui}
@@ -484,7 +479,7 @@ For more information, see [Creating mount targets with Terraform](/docs/vpc?topi
 ## Step 6: Recreate replica file shares (if applicable)
 {: #fs-migrate-recreate-replica}
 
-If you deleted a replica file share in Step 3, you can now recreate it with the updated security group access control mode. The new replica file share inherits the security group access control mode from the source file share.
+If you deleted a replica file share in Step 3, you can now re-create it with the updated security group access control mode. The new replica file share inherits the security group access control mode from the source file share.
 
 If you did not have a replica file share, skip this step and proceed to [Step 7: Mount the file share on compute hosts](#fs-migrate-remount).
 {: tip}
@@ -594,16 +589,14 @@ resource "ibm_is_share" "replica" {
 ```
 {: codeblock}
 
-Then run `terraform apply` to create the replica.
+Then, run `terraform apply` to create the replica.
 
 For more information, see [Creating replica file shares with Terraform](/docs/vpc?topic=vpc-file-storage-create-replication&interface=terraform#fs-create-replica-terraform).
 
 ## Step 7: Mount the file share on compute hosts
 {: #fs-migrate-remount}
 
-After creating the new mount targets with security group access, mount the file share on your compute hosts using the new mount path.
-
-To mount a file share, you need the mount path information. You can retrieve the mount path from the mount target details in the console, CLI, or API.
+After the new mount targets are created with security group access, mount the file share on your compute hosts by using the new mount path. You can retrieve the mount path from the mount target details in the console, CLI, or API.
 
 For detailed instructions on mounting file shares on different operating systems, see the following topics:
 
@@ -616,10 +609,10 @@ For a complete list of mounting instructions for all supported operating systems
 ## Next steps
 {: #fs-migrate-access-mode-next-steps}
 
-After completing the migration, verify that:
+After the migration is complete, verify the following conditions:
 
 * The file share is accessible from all authorized compute hosts.
-* Security group rules are properly configured to allow access.
+* Security group rules are configured to allow access.
 * Applications that use the file share are functioning correctly.
 * The mount is persistent across reboots (check `/etc/fstab` entries).
 
