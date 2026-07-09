@@ -381,7 +381,7 @@ To set up a VPN server with Terraform, follow these steps:
    ```
    {: codeblock}
 
-   Then, a user can use the VPN client profile with OpenVPN client to connect their client system to the created VPN server. 
+   Then, a user can use the VPN client profile with OpenVPN client to connect their client system to the created VPN server.
 
 For more information, see the [IBM Terraform Registry](https://registry.terraform.io/providers/IBM-Cloud/ibm/latest/docs/resources/is_vpn_server).{: external}
 {: note}
