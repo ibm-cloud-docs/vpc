@@ -2,7 +2,7 @@
 
 copyright:
   years: 2021, 2026
-lastupdated: "2026-06-26"
+lastupdated: "2026-07-09"
 
 keywords:
 
@@ -130,7 +130,7 @@ Before you begin, [set up your CLI environment](/docs/vpc?topic=vpc-set-up-envir
 To create a VPN server from the CLI, enter the following command:
 
 ```sh
-ibmcloud is vpn-server-create --subnets SUBNETS --client-ip-pool CLIENT_IP_POOL --cert CERT (--client-auth-methods certificate | username | certificate,username | username,certificate) [--client-ca CLIENT_CA] [--client-crl CLIENT_CRL] [--client-dns CLIENT_DNS] [--client-idle-timeout CLIENT_IDLE_TIMEOUT] [--enable-split-tunnel false | true] [--port PORT] [--protocol udp | tcp] [--security-group SECURITY_GROUP1 --security-group SECURITY_GROUP2 ...] [--name NAME] [--resource-group-id RESOURCE_GROUP_ID | --resource-group-name RESOURCE_GROUP_NAME] [--output JSON] [-q, --quiet]
+ibmcloud is vpn-server-create --subnets SUBNETS --client-ip-pool CLIENT_IP_POOL --cert CERT (--client-auth-methods certificate | username | certificate,username | username,certificate) [--client-ca CLIENT_CA] [--client-crl CLIENT_CRL] [--client-dns CLIENT_DNS] [--client-idle-timeout CLIENT_IDLE_TIMEOUT] [--enable-split-tunnel false | true] [--port PORT] [--protocol udp | tcp] [--sg SECURITY_GROUP1 --sg SECURITY_GROUP2 ...] [--name NAME] [--resource-group-id RESOURCE_GROUP_ID | --resource-group-name RESOURCE_GROUP_NAME] [--output JSON] [-q, --quiet]
 ```
 {: codeblock}
 
@@ -148,7 +148,7 @@ ibmcloud is vpn-server-create --subnets SUBNETS --client-ip-pool CLIENT_IP_POOL 
 - **--enable-split-tunnel**: Indicates whether the split tunneling is enabled on this VPN server. One of: **false**, **true** (default: **false**).
 - **--port**: The port number to use for this VPN server (default: **443**).
 - **--protocol**: The transport protocol to use for this VPN server. One of: **udp**, **tcp** (default: **udp**).
-- **--security-group**: ID of the security group.
+- **--sg**: Comma-separated security group IDs or names for the VPN server.
 - **--name**: New name for the vpn server.
 - **--resource-group-id**: ID of the resource group. This option is mutually exclusive with **--resource-group-name**.
 - **--resource-group-name**: Name of the resource group. This option is mutually exclusive with **--resource-group-id**.
@@ -177,13 +177,13 @@ ibmcloud is vpn-server-create --name myvpnserver2 --subnets 0717-a7191f77-7c87-4
 {: codeblock}
 
 ```sh
-ibmcloud is vpn-server-create --name myvpnserver3 --subnets 0717-a7191f77-7c87-4ad4-bb11-a37f9e9fc0f0 --cert crn:v1:bluemix:public:cloudcerts:us-south:a/aa5a471f75bc456fac416bf02c4ba6de:1862b0b4-c1f8-4eef-a6b5-e9c00c9f593d:certificate:6c801ef768c139d986b4c6f91175e8cc --client-ip-pool 190.168.7.0/20 --client-auth-methods username --security-group r006-e32f671c-463d-4f93-88e3-2dd0413476b4 --security-group r006-3af7a9db-d9bc-43d4-bced-93e0a33fee25
+ibmcloud is vpn-server-create --name myvpnserver3 --subnets 0717-a7191f77-7c87-4ad4-bb11-a37f9e9fc0f0 --cert crn:v1:bluemix:public:cloudcerts:us-south:a/aa5a471f75bc456fac416bf02c4ba6de:1862b0b4-c1f8-4eef-a6b5-e9c00c9f593d:certificate:6c801ef768c139d986b4c6f91175e8cc --client-ip-pool 190.168.7.0/20 --client-auth-methods username --sg r006-e32f671c-463d-4f93-88e3-2dd0413476b4 --sg r006-3af7a9db-d9bc-43d4-bced-93e0a33fee25
 ```
 {: pre}
 {: codeblock}
 
 ```sh
-ibmcloud is vpn-server-create  --subnets 0736-4b871e22-e819-4f87-bb17-e457a88246a2 --client-ip-pool 192.170.0.0/22 --client-dns 172.34.1.100 --cert crn:v1:bluemix:public:cloudcerts:us-south:a/0046b57b897f419080c4ed3e011b86d4:5f1a72bc-b4c2-413f-bd22-011cfa4be5db:certificate:c81627a1bf6f766379cc4b98fd21ccd6 --client-auth-methods certificate,username --client-ca crn:v1:bluemix:public:cloudcerts:us-south:a/0046b57b897f419080c4ed3e011b86d4:5f1a72bc-b4c2-413f-bd22-011cfa4be5db:certificate:c81627a1bf6f766379cc4b98fd21ccd6 --client-crl @./openvpn/crl.pem --name vpnswithcrl --security-group r006-5744b689-e5c4-461d-9f9b-ce5e7e8dbed6
+ibmcloud is vpn-server-create  --subnets 0736-4b871e22-e819-4f87-bb17-e457a88246a2 --client-ip-pool 192.170.0.0/22 --client-dns 172.34.1.100 --cert crn:v1:bluemix:public:cloudcerts:us-south:a/0046b57b897f419080c4ed3e011b86d4:5f1a72bc-b4c2-413f-bd22-011cfa4be5db:certificate:c81627a1bf6f766379cc4b98fd21ccd6 --client-auth-methods certificate,username --client-ca crn:v1:bluemix:public:cloudcerts:us-south:a/0046b57b897f419080c4ed3e011b86d4:5f1a72bc-b4c2-413f-bd22-011cfa4be5db:certificate:c81627a1bf6f766379cc4b98fd21ccd6 --client-crl @./openvpn/crl.pem --name vpnswithcrl --sg r006-5744b689-e5c4-461d-9f9b-ce5e7e8dbed6
 ```
 {: pre}
 {: codeblock}
