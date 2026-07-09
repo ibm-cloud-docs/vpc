@@ -1047,8 +1047,9 @@ toc:
               id: tbs-bare-metal
               label: Troubleshooting bare metal servers
               topics:
+              - troubleshooting-bare-metal-hardware-issue.md
+              - troubleshooting-bare-metal-custom-image-boot.md
               - troubleshooting_partially_available_custom_image_bm.md
-              - bare_metal_server_troubleshoot.md
           - topicgroup:
               id: tbs-hpvs
               label: Troubleshooting Hyper Protect Virtual Servers for VPC
@@ -1161,7 +1162,17 @@ toc:
               id: tbs-virtual-servers
               label: Troubleshooting virtual servers
               topics:
-              - vsi_is_troubleshooting.md
+              - vsi-ts-permissions.md
+              - vsi-ts-unknown-status.md
+              - vsi-ts-409-conflict.md
+              - vsi-ts-instance-reboot.md
+              - vsi-ts-ssh-key-add.md
+              - vsi-ts-rhel-deploy.md
+              - vsi-ts-rhel-reregister.md
+              - vsi-ts-nested-virtualization.md
+              - vsi-ts-ssh-permission-denied.md
+              - vsi-ts-network-interfaces.md
+              - vsi-ts-sysrq.md
               - vsi_is_troubleshoot_b300_gpu_performance.md
           - topicgroup:
               id: tbs-vpe-gateway
