@@ -2,7 +2,7 @@
 
 copyright:
   years: 2021, 2026
-lastupdated: "2026-03-12"
+lastupdated: "2026-07-09"
 
 keywords: custom image, image from volume, troubleshooting, troubleshoot
 
@@ -14,16 +14,13 @@ content-type: troubleshoot
 
 {{site.data.keyword.attribute-definition-list}}
 
-# Troubleshooting custom images
+# Why can't I retrieve a volume for a specified region?
 {: #ifv-troubleshooting-custom-images}
+{: troubleshoot}
+{: support}
 
 When you create or manage custom images, you might encounter issues. Issues, symptoms, likely causes, and resolutions are described in the following sections.
 {: shortdesc}
-
-## Cannot retrieve a volume in a specified region
-{: #troubleshoot-ifv1}
-{: troubleshoot}
-{: support}
 
 You are trying to create a custom image from a volume that is not 100 GB. When you try to select a volume that is not the right capacity to create your image, the system cannot retrieve it.
 {: tsSymptoms}

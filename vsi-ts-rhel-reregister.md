@@ -14,7 +14,7 @@ content-type: troubleshoot
 
 {{site.data.keyword.attribute-definition-list}}
 
-# How do I reregister an RHEL virtual server instance??
+# How do I reregister an RHEL virtual server instance?
 {: #troubleshooting-reregister-RHEL-VSI}
 {: troubleshoot}
 {: support}
