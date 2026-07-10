@@ -2,7 +2,7 @@
 
 copyright:
   years: 2024, 2026
-lastupdated: "2026-06-22"
+lastupdated: "2026-07-10"
 
 keywords:
 
@@ -1248,6 +1248,9 @@ The following dependencies apply to the following deployment locations: Dallas (
 |Dependencies|Dependency impacts|Customer provided|Control or data plane|Location of dependency|
 |:---|:---|:---|:---|:---|
 | {{site.data.keyword.cis_full}} | Access management, Availability, Security compliance | No | Both |  [Global](/docs/resiliency?topic=resiliency-ha-redundancy#global-platform)  |
+| SOS SIEM | Availability, Security compliance | No | Both |  Same region  |
+| corporate-uptycs | Availability, Security compliance | No | Both |  Same region  |
+| corporate-magna | Availability, Security compliance | No | Both |  Same region  |
 {: row-headers}
 {: caption="IBM Cloud Private Paths for VPC - Data and Control plane deployment service dependency information - Significant dependencies" caption-side="top"}
 {: tab-title="Significant dependencies"}
@@ -1287,6 +1290,9 @@ The following dependencies apply to the following deployment locations: Montreal
 |Dependencies|Dependency impacts|Customer provided|Control or data plane|Location of dependency|
 |:---|:---|:---|:---|:---|
 | {{site.data.keyword.cis_full}} | Access management, Availability, Security compliance | No | Both |  [Global](/docs/resiliency?topic=resiliency-ha-redundancy#global-platform)  |
+| SOS SIEM | Availability, Security compliance | No | Both |  Same region  |
+| corporate-uptycs | Availability, Security compliance | No | Both |  Same region  |
+| corporate-magna | Availability, Security compliance | No | Both |  Same region  |
 {: row-headers}
 {: caption="IBM Cloud Private Paths for VPC - Data and Control plane deployment NGDC service dependency information - Significant dependencies" caption-side="top"}
 {: tab-title="Significant dependencies"}
