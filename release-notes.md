@@ -2,7 +2,7 @@
 
 copyright:
   years: 2019, 2026
-lastupdated: "2026-06-29"
+lastupdated: "2026-07-10"
 
 keywords:
 
@@ -23,6 +23,13 @@ Use the release notes to learn the latest updates to {{site.data.keyword.vpc_ful
 For more information about changes to the {{site.data.keyword.vpc_short}} API, see [{{site.data.keyword.vpc_short}} API change log](/docs/vpc?topic=vpc-api-change-log).
 
 For more information about changes to the {{site.data.keyword.vpc_short}} command-line interface (CLI), see [{{site.data.keyword.vpc_short}} CLI release notes](/docs/vpc?topic=vpc-vpc-cli-rn).
+
+### 10 July 2026
+{: #vpc-jul1026}
+{: release-note}
+
+Cross-regional copy of block storage snapshots now supported in Chennai - Airtel and Mumbai - Airtel
+:   Cross-regional copies of first-generation block storage volume snapshots are now supported in the Chennai - Airtel (`in-che`) and Mumbai - Airtel (`in-mum`) regions. Both regions can now be selected as a source or target region for cross-regional snapshot copies. For more information, see [About Snapshots for VPC](/docs/vpc?topic=vpc-snapshots-vpc-about).
 
 ## June 2026
 {: #vpc-jun26}

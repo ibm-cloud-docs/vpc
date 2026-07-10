@@ -2,7 +2,7 @@
 
 copyright:
   years: 2018, 2026
-lastupdated: "2026-06-26"
+lastupdated: "2026-07-10"
 
 keywords:
 
@@ -40,11 +40,6 @@ The first time that you create a cross-regional copy, that snapshot is a full co
 {: #snapshot-COS-upload-IN-CHE-EU-GB}
 
 A local {{site.data.keyword.keymanagementserviceshort}} instance is not available in Chennai - Airtel and Mumbai - Airtel. First-generation block volume snapshots that are taken in Chennai - Airtel are routed to a regional {{site.data.keyword.cos_short}} bucket that is encrypted by using a {{site.data.keyword.keymanagementserviceshort}} instance from the London (`eu-gb`) region temporarily. When the KMS service becomes available in Chennai - Airtel and Mumbai - Airtel, the snapshots service will switch to use the local {{site.data.keyword.keymanagementserviceshort}} instance for encryption, so both storage and key management are handled within the same region.
-
-### Cross-regional copy of block storage snapshots in Chennai - Airtel and Mumbai - Airtel
-{: #snapshot-CRC-IN-CHE}
-
-A cross-regional copy of block storage volume snapshots is not supported in the Chennai - Airtel and Mumbai - Airtel regions. They can't be selected as a source or target region.
 
 ### Creating a volume from a second-generation snapshot that has provider-managed encryption fails when customer-managed encryption is specified for the volume
 {: #gen2-volume-from-snapshot-fail}

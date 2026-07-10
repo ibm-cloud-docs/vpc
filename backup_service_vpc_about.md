@@ -2,7 +2,7 @@
 
 copyright:
  years: 2022, 2026
-lastupdated: "2026-06-29"
+lastupdated: "2026-07-10"
 
 keywords: Backup, backup service, backup plan, backup policy, restore, restore volume, restore data
 
@@ -196,9 +196,6 @@ For more information, see [Restoring a volume from a backup snapshot](/docs/vpc?
 
 You can copy a Block storage backup from one region to another region, and later use that snapshot to restore a volume in the new region. You can use and manage the cross-regional snapshot in the target region independently from the parent volume or the original snapshot.
 
-Currently, cross-regional copy of block storage snapshots is not supported in the Chennai - Airtel and Mumbai - Airtel regions. They can't be selected as a source or target region.
-{: restriction}
-
 If the source snapshot is not encrypted with a customer key, the encryption of the copy remains provider-managed. If the source snapshot is protected by a customer-managed key, you must specify the customer-managed key that you want to use to encrypt the new copy in the target region.
 
 When a backup policy creates a job that includes a cross-regional copy, the service initiates the creation of the backup snapshot first. The snapshot creation is asynchronous. The snapshot is created immediately, but it remains in the _pending_ state until all of the data is transferred to the regional storage repository. When the snapshot reaches the _stable_ state in the source region, the service creates the copies in the target regions and starts transferring the data.
@@ -248,7 +245,6 @@ Volume backups:
 * You can't take a backup of a detached volume.
 * You can't create a copy of a backup snapshot in the source (local) region.
 * You can create a copy of a block storage backup in another region. However, only one copy of the backup snapshot can exist in each region.
-* Cross-regional copies are not supported in the Chennai (`in-che`) region.
 * [Context-based restriction rules](#baas-cbr) are not supported in Montreal (`ca-mon`) and Chennai - Airtel (`in-che`) MZRs.
 * Consistency groups consist of the attached Block Storage volumes of virtual server instances, such as boot and data volumes. Instance storage volumes and virtual server instance configuration are not included.
 * The fast restore feature is not supported for multi-volume backups of consistency groups.
