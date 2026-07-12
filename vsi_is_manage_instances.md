@@ -2,7 +2,7 @@
 
 copyright:
   years: 2019, 2026
-lastupdated: "2026-06-26"
+lastupdated: "2026-07-12"
 
 keywords: view instance details, restart virtual server, stop, details, delete
 
@@ -18,15 +18,11 @@ subcollection: vpc
 Manage your {{site.data.keyword.vsi_is_full}} instances by completing tasks such as start, stop, restart, and delete virtual server instances.
 {: shortdesc}
 
-If you don't know the name or ID of the virtual server instance that you want to manage, run **`ibmcloud is instances`** to list virtual server instances in your account.
-{: tip}
-{: cli}
-
-## Managing virtual server instances in the console
-{: #managing-virtual-server-instances-ui}
+## Managing instances from the Virtual server instances page
+{: #managing-virtual-server-instances-list-ui}
 {: ui}
 
-You can view and manage your {{site.data.keyword.vsi_is_full}} instances from the _Virtual server instances_ page in {{site.data.keyword.cloud_notm}} console.
+You can manage your {{site.data.keyword.vsi_is_full}} instances from the _Virtual server instances_ page in {{site.data.keyword.cloud_notm}} console.
 
 To manage your instances, complete the following steps.
 
@@ -36,12 +32,14 @@ To manage your instances, complete the following steps.
 | Action | Description |
 |--------|-------------|
 | Rename | Change the name of the instance. |
-| Stop| Stop the instance. |
+| Stop | Stop the instance. |
 | Start | Start an instance that is stopped. This action is not available if the instance status is Running. |
 | Reboot | Immediately powers off a running instance and then powers it back on again. |
+| Open VNC console | Open a VNC console session for the instance. |
+| Open serial console | Open a serial console session for the instance. |
 | Resize | Vertically scale virtual server instances to any supported profile size. For more information, see [Resizing a virtual server instance](/docs/vpc?topic=vpc-resizing-an-instance). |
+| Create image | Create a custom image from the instance. |
 | Delete | To delete an instance, the instance must have a powered off status. If the instance has a floating IP address, it must be unassociated or released before the instance is deleted. The delete action permanently removes an instance and its connected vNIC, and data from your account. If auto-delete is enabled, the associated boot volume is also deleted. |
-| Host failure auto restart | Toggles the host failure restart policy for an instance on or off. For more information, see [Host failure recovery policies](/docs/vpc?topic=vpc-host-failure-recovery-policies&interface=api). |
 {: caption="Actions available for virtual server instances" caption-side="bottom"}
 
 ## Renaming a virtual server instance in the console
@@ -50,8 +48,80 @@ To manage your instances, complete the following steps.
 
 You can rename a virtual server instance in the console.
 
-1. From the _Virtual server instances_ page in {{site.data.keyword.cloud_notm}} console, click **Rename**.
+1. On the **Virtual server instances** page, click the Actions icon ![More Actions icon](../icons/action-menu-icon.svg) for the instance that you want to rename, then click **Rename**.
 2. Enter the new name for the virtual server instance, then click **Rename**.
+
+## Listing virtual server instances from the CLI
+{: #list-virtual-server-instances-cli}
+{: cli}
+
+Before you can manage a virtual server instance, you need its name or ID. To list all virtual server instances in your account, use the following command.
+
+
+```sh
+ibmcloud is instances
+```
+{: pre}
+
+For a full list of command options, see [ibmcloud is instances](/docs/vpc?topic=vpc-vpc-reference#instances-list).
+
+## Listing virtual server instances with the API
+{: #list-virtual-server-instances-api}
+{: api}
+
+Before you can manage a virtual server instance, you need its ID. To list all virtual server instances in your account, make the following request.
+
+```sh
+curl -X GET "$vpc_api_endpoint/v1/instances?version=2021-06-22&generation=2" -H "Authorization: Bearer $iam_token"
+```
+{: pre}
+
+For more information, see [List all instances](/docs/apis/vpc/latest#list-instances) in the VPC API.
+
+## Viewing instance details from the CLI
+{: #viewing-virtual-server-instances-cli}
+{: cli}
+
+You can view the virtual server instance details in your {{site.data.keyword.vpc_short}} by using the command-line interface (CLI).
+
+To view the virtual server instance details, use the **`ibmcloud is instance`** command. Specify the ID or name of the virtual server instance that you want to view by using the `INSTANCE` variable.
+
+```sh
+ibmcloud is instance INSTANCE
+```
+{: pre}
+
+## Viewing instance details with the API
+{: #viewing-virtual-server-instances-api}
+{: api}
+
+You can view the virtual server instance details in your {{site.data.keyword.vpc_short}} by using the API.
+
+The following example displays the virtual server instance details for an instance profile with a profile name of `version=2021-06-22&generation=2`.
+
+```sh
+curl -X GET "$vpc_api_endpoint/v1/instance/profiles/$profile_name?version=2021-06-22&generation=2" -H "Authorization: Bearer $iam_token"
+```
+{: pre}
+
+For more information, see the [Retrieve an instance profile](/docs/apis/vpc/latest#get-instance-profile) in the VPC API.
+
+## Viewing instance details by using Terraform
+{: #viewing-virtual-server-instances-terraform}
+{: terraform}
+
+You can retrieve information about an existing virtual server instance by using Terraform.
+
+The following example retrieves information about a virtual server instance by name:
+
+```terraform
+data "ibm_is_instance" "example" {
+  name        = "my-instance"
+}
+```
+{: codeblock}
+
+For more information, see [ibm_is_instance](https://registry.terraform.io/providers/IBM-Cloud/ibm/latest/docs/data-sources/is_instance){: external}.
 
 ## Renaming a virtual server instance from the CLI
 {: #rename-virtual-server-instances-CLI}
@@ -83,11 +153,28 @@ The following example renames a virtual server instance from `name` to `my-insta
    ```
    {: pre}
 
-## Stopping and starting a virtual server instance in the console
-{: #stop-start-virtual-server-instances-ui}
-{: ui}
+## Renaming a virtual server instance by using Terraform
+{: #rename-virtual-server-instances-terraform}
+{: terraform}
 
-The stop action shuts down the guest operating system and then the virtual server instance is deprovisioned. This change releases the instance resources that were being used. The virtual server instance goes into the Stop state. If the instance is stopped, the instance remains in the stopped state and must be started manually. Billing is [suspended](/docs/vpc?topic=vpc-suspend-billing) for some compute resources while the instance is stopped. You cannot interact with an instance if it is stopped, but volumes remain provisioned. If the instance is started, normal interaction and billing continue.
+You can rename a virtual server instance in your {{site.data.keyword.vpc_short}} by using Terraform. Update the `name` argument in the `ibm_is_instance` resource.
+
+The following example renames a virtual server instance to `my-renamed-instance`:
+
+```terraform
+resource "ibm_is_instance" "example" {
+  name    = "my-renamed-instance"
+  # ... other required arguments
+}
+```
+{: codeblock}
+
+For more information, see the [`name` argument](https://registry.terraform.io/providers/IBM-Cloud/ibm/latest/docs/resources/is_instance#argument-reference){: external} in the `ibm_is_instance` resource documentation.
+
+## Stopping and starting a virtual server instance
+{: #stop-start-virtual-server-instances}
+
+The stop action shuts down the guest operating system and then the virtual server instance is deprovisioned. This change releases the instance resources that were being used. The virtual server instance goes into the stopped state. If the instance is stopped, it remains in the stopped state and must be started manually. Billing is [suspended](/docs/vpc?topic=vpc-suspend-billing) for some compute resources while the instance is stopped. You cannot interact with an instance if it is stopped, but volumes remain provisioned. When the instance is started, normal interaction and billing continue.
 
 A _Force stop_ action triggers a power cycle reset of the virtual server instance.
 {: note}
@@ -96,10 +183,14 @@ The start action starts a virtual server instance that is in a stopped state.
 
 When a virtual server is stopped, it is removed from the host. When the virtual server is started again later, it might be started on a new host. Capacity for a specific virtual server profile is not guaranteed or reserved; for example, capacity might be limited, or not available, for profile families such as GPU (Accelerated) or Storage Optimized.
 
-From the _Virtual server instances_ page in {{site.data.keyword.cloud_notm}} console, click **Stop** or **Start**.
-
 _For z/OS virtual server instances only_: You must shut down all the subsystems in the z/OS system to halt the virtual server instance. For more information, see [Shutting down z/OS virtual server instances](https://www.ibm.com/docs/en/wazi-aas/1.1.0?topic=vpc-shutting-down-zos-virtual-server-instances){: external}.
 {: note}
+
+## Stopping and starting a virtual server instance in the console
+{: #stop-start-virtual-server-instances-ui}
+{: ui}
+
+From the _Virtual server instances_ page in {{site.data.keyword.cloud_notm}} console, click **Stop** or **Start**.
 
 ## Stopping a virtual server instance from the CLI
 {: #stop-virtual-server-instances-cli}
@@ -113,8 +204,6 @@ To stop the virtual server instance, use the **`ibmcloud is instance-stop`** com
 ibmcloud is instance-stop INSTANCE
 ```
 {: pre}
-
-The stop action shuts down the guest operating system and then the virtual server instance is deprovisioned. This change releases the instance resources that were being consumed. The virtual server instance goes into the Stop state. If the instance is stopped, the instance remains in the stopped state and must be started manually. Billing is [suspended](/docs/vpc?topic=vpc-suspend-billing) for some compute resources while the instance is stopped. You cannot interact with an instance if it is stopped, but volumes remain provisioned. If the instance is started, normal interaction and billing continue.
 
 The following example stops an instance without requesting confirmation. The virtual server instance has an ID of `0777_e7af506a-35d4-451d-aa9e-59330e62b77e`. The `--force` option indicates that the request for confirmation is skipped.
 
@@ -163,11 +252,6 @@ curl -X POST "https://us-south.iaas.cloud.ibm.com/v1/instances/d6c3902d-1ecf-3a2
 ```
 {: pre}
 
-The stop action shuts down the guest operating system and then the virtual server instance is deprovisioned. This change releases the instance resources that were being used. The virtual server instance goes into the Stop state. If the instance is stopped, the instance remains in the stopped state and must be started manually. Billing is [suspended](/docs/vpc?topic=vpc-suspend-billing) for some compute resources while the instance is stopped. You cannot interact with an instance if it is stopped, but volumes remain provisioned. If the instance is started, normal interaction and billing continue.
-
-A _Force stop_ action triggers a power cycle reset of the virtual server instance.
-{: note}
-
 For more information, see the [Create an instance action](/docs/apis/vpc/latest#create-instance-action) in the VPC API.
 
 ## Starting a virtual server instance with the API
@@ -176,14 +260,12 @@ For more information, see the [Create an instance action](/docs/apis/vpc/latest#
 
 You can start a virtual server instance that is stopped in your {{site.data.keyword.vpc_short}} by using the API.
 
-The following example stops a virtual server instance with an instance ID of `d6c3902d-1ecf-3a2c-b7ab-eb9143581000`.
+The following example starts a virtual server instance with an instance ID of `d6c3902d-1ecf-3a2c-b7ab-eb9143581000`.
 
 ```sh
 curl -X POST "https://us-south.iaas.cloud.ibm.com/v1/instances/d6c3902d-1ecf-3a2c-b7ab-eb9143581000/actions?version=2021-06-22&generation=2" -H "Authorization: Bearer $iam_token" -d '{"type": "start"}'
 ```
 {: pre}
-
-The stop and start action remotely turns an instance off or on. If the instance is stopped, the instance remains in the stopped state and must be started manually. Billing is [suspended](/docs/vpc?topic=vpc-suspend-billing) for some compute resources while the instance is stopped. You cannot interact with an instance if it is stopped. If the instance is started, normal interaction and billing continue.
 
 For more information, see the [Create an instance action](/docs/apis/vpc/latest#create-instance-action) in the VPC API.
 
@@ -204,9 +286,7 @@ resource "ibm_is_instance_action" "example" {
 ```
 {: codeblock}
 
-The stop action shuts down the guest operating system and then the virtual server instance is deprovisioned. This change releases the instance resources that were being used. The virtual server instance goes into the Stop state.If the instance is stopped, the instance remains in the stopped state and must be started manually. Billing is [suspended](/docs/vpc?topic=vpc-suspend-billing) for some compute resources while the instance is stopped. You cannot interact with an instance if it is stopped, but volumes remain provisioned. If the instance is started, normal interaction and billing continue.
-
-A _Force stop_ action triggers a power cycle reset of the virtual server instance. Set `force_action` to `true` to force the action immediately and delete all queued actions.
+Set `force_action` to `true` to force the stop immediately and delete all queued actions.
 {: note}
 
 For more information, see [ibm_is_instance_action](https://registry.terraform.io/providers/IBM-Cloud/ibm/latest/docs/resources/is_instance_action){: external}.
@@ -326,6 +406,26 @@ You can increase or decrease the amount of vCPU and RAM available for greater fl
 
 For the steps to resize a virtual server instance, see [Resizing a virtual server instance by using the API](/docs/vpc?topic=vpc-resizing-an-instance#resizing-a-virtual-server-API).
 
+## Resizing a virtual server instance by using Terraform
+{: #resize-virtual-server-instances-terraform}
+{: terraform}
+
+You can increase or decrease the amount of vCPU and RAM available for greater flexibility in workload management by updating the `profile` argument in the `ibm_is_instance` resource. After the resize is complete, you are billed for the hourly rate of the new instance profile.
+
+The following example updates the profile of a virtual server instance:
+
+```terraform
+resource "ibm_is_instance" "example" {
+  name    = "my-instance"
+  profile = "bx2-4x16"
+  # ... other required arguments
+}
+```
+{: codeblock}
+
+For more information, see the [`profile` argument](https://registry.terraform.io/providers/IBM-Cloud/ibm/latest/docs/resources/is_instance#argument-reference){: external} in the `ibm_is_instance` resource documentation.
+
+
 ## Deleting a virtual server instance in the console
 {: #delete-virtual-server-instances-ui}
 {: ui}
@@ -379,6 +479,77 @@ The delete action permanently removes an instance, its connected vNIC, and data 
 
 For more information, see the [Delete an instance](/docs/apis/vpc/latest#delete-instance) in the VPC API.
 
+## Managing instances from the instance details page
+{: #managing-virtual-server-instances-detail-ui}
+{: ui}
+
+To display an instance's details page, take the following steps.
+
+1. In [{{site.data.keyword.cloud_notm}} console](https://console.cloud.ibm.com){: external}, click the **Navigation menu** icon ![menu icon](../icons/icon_hamburger.svg) **> Infrastructure** ![VPC icon](../../icons/vpc.svg) **> Compute > Virtual server instances**.
+
+1. In the list on the _Virtual server instances_ page, locate the instance that you want to view. Click the instance name to display its details. The instance details page is organized into five tabs: **Overview**, **Networking**, **Storage**, **Monitoring**, and **Integrations**.
+
+## Viewing instance details in the console
+{: #viewing-virtual-server-instances-ui}
+{: ui}
+
+Click the name of a virtual server instance on the _Virtual server instances_ page to open its details page. The details page is organized into the following tabs.
+
+### Overview tab
+{: #viewing-vsi-overview-tab}
+
+The Overview tab is divided into the following sections.
+
+Instance details
+:   Displays the instance name (editable by clicking the pencil icon), instance ID, resource group, location, created date, virtual private cloud, and the name of the provisioned SSH keys.
+
+Image details
+:   Displays the image name, image type (stock or custom), version, image ID, architecture, and image status.
+
+Profile details
+:   Displays the profile name, processor type, number of vCPUs, memory, NUMA count, bandwidth allocation, whether spot instances and burstable instances are supported, and threads per core.
+
+Reservation details
+:   Displays the attachment policy type and the associated reservation.
+
+Metadata details
+:   Displays the access disabled toggle, hop limit, secure access toggle, and default trusted profile.
+
+Resilience & business continuity
+:   Displays the host failure auto-restart toggle, which you can enable or disable.
+
+Monitoring preview
+:   Displays CPU usage and memory usage as bar graphs. Click **Monitoring** to open the full monitoring UI.
+
+### Networking tab
+{: #viewing-vsi-networking-tab}
+
+The Networking tab displays a list of network attachments with the following information for each: virtual network interface name, VNI name (links to the VNI overview page), subnet (links to the subnet overview page), reserved IP, floating IP, and security group.
+
+Click **Actions** to create a new network attachment or attach an existing one. Click the Actions icon ![More Actions icon](../icons/action-menu-icon.svg) in a network attachment row to edit details, edit security groups, edit floating IPs, or edit secondary IPs.
+
+### Storage tab
+{: #viewing-vsi-storage-tab}
+
+The Storage tab displays a list of volumes with the following information for each: type (boot or data), name (links to the volume details page), device ID, size (GB), IOPS, encryption (provider managed or customer managed), generation, auto-delete toggle, and tags.
+
+Click **Actions** to attach an existing volume or create a new one.
+
+### Monitoring tab
+{: #viewing-vsi-monitoring-tab}
+
+The Monitoring tab displays usage graphs for CPU, volumes by OS device name, volumes by IBM Cloud Block Storage for VPC, memory, network, and running state. The default time range is the last 7 days. You can switch to the last 6 hours, 24 hours, 48 hours, 14 days, or a custom date range.
+
+### Integrations tab
+{: #viewing-vsi-integrations-tab}
+
+The Integrations tab provides quick access to related IBM Cloud services:
+
+- Click **Monitoring** to open Infrastructure Monitoring.
+- Click **CSPM** to open Cloud Security Posture Management.
+- Click **View logging** to open the logging UI.
+- Click **View activity tracking** to open the Activity Tracking UI.
+
 ## Changing the auto-deletion setting of volumes that are attached to an instance in the console
 {: #auto-delete-toggle-ui}
 {: ui}
@@ -409,58 +580,26 @@ The opposite is true for data volumes that are created during instance provision
 
 You can change this setting by specifying the `delete_volume_on_instance_delete` property when you [create the instance](/docs/apis/vpc/latest#create-instance) or update the [volume attachment](/docs/apis/vpc/latest#update-instance-volume-attachment). For more information, see [Creating virtual server instances](/docs/vpc?topic=vpc-creating-virtual-servers&interface=api) and [Updating a volume attachment with the API](/docs/vpc?topic=vpc-managing-block-storage&interface=api#update-vol-attachment-api).
 
-## Viewing instance details in the console
-{: #viewing-virtual-server-instances-ui}
-{: ui}
-
-You can view a summary of all instances on the _Virtual server instances_ page. You can access the details page for an instance by clicking an individual instance name to view details and make changes. From the instance details page, you can also view the associated network interface, access its subnet, toggle the auto-delete setting, and reserve or release a floating IP address.
-
-Select [compute profiles](/docs/vpc?group=profile-details) support dynamic bandwidth allocation for data volumes. You can see whether the feature is enabled or disabled on the instance details page.
-
-## Viewing instance details from the CLI
-{: #viewing-virtual-server-instances-cli}
-{: cli}
-
-You can view the virtual server instance details in your {{site.data.keyword.vpc_short}} by using the command-line interface (CLI).
-
-To view the virtual server instance details, use the **`ibmcloud is instance`** command. Specify the ID or name of the virtual server instance that you want to view by using the `INSTANCE` variable.
-
-```sh
-ibmcloud is instance INSTANCE
-```
-{: pre}
-
-## Viewing instance details with the API
-{: #viewing-virtual-server-instances-api}
-{: api}
-
-You can view the virtual server instance details in your {{site.data.keyword.vpc_short}} by using the API.
-
-The following example displays the virtual server instance details for an instance profile with a profile name of `version=2021-06-22&generation=2`.
-
-```sh
-curl -X GET "https://us-south.iaas.cloud.ibm.com/v1/instance/profiles/$profile_name?version=2021-06-22&generation=2" -H "Authorization: Bearer $iam_token"
-```
-{: pre}
-
-For more information, see the [Retrieve an instance profile](/docs/apis/vpc/latest#get-instance-profile) in the VPC API.
-
-## Viewing instance details by using Terraform
-{: #viewing-virtual-server-instances-terraform}
+## Changing the auto-deletion setting of volumes that are attached to an instance by using Terraform
+{: #auto-delete-toggle-terraform}
 {: terraform}
 
-You can retrieve information about an existing virtual server instance by using Terraform.
+During instance provisioning, a boot volume is created with the `auto_delete_volume` option enabled by default. When this option is enabled, the boot volume is deleted when the instance is deleted.
 
-The following example retrieves information about a virtual server instance by name:
+You can change this setting by updating the `auto_delete_volume` argument in the `ibm_is_instance` resource.
+
+The following example disables auto-deletion of the boot volume:
 
 ```terraform
-data "ibm_is_instance" "example" {
-  name        = "my-instance"
+resource "ibm_is_instance" "example" {
+  name              = "my-instance"
+  auto_delete_volume = false
+  # ... other required arguments
 }
 ```
 {: codeblock}
 
-For more information, see [ibm_is_instance](https://registry.terraform.io/providers/IBM-Cloud/ibm/latest/docs/data-sources/is_instance){: external}.
+For more information, see the [`auto_delete_volume` argument](https://registry.terraform.io/providers/IBM-Cloud/ibm/latest/docs/resources/is_instance#argument-reference){: external} in the `ibm_is_instance` resource documentation.
 
 ## Adjusting instance bandwidth allocation in the console
 {: #adjusting-bandwidth-allocation-ui}
@@ -509,6 +648,27 @@ curl -X PATCH "$vpc_api_endpoint/v1/instances/$instance_id?version=2021-06-22&ge
 {: pre}
 
 To see the new bandwidth allocation, you must either stop and start the instance, or detach and reattach data volumes. Bandwidth allocation for individual volumes is updated when you add a data volume by using the `POST / volume_attachments` method or delete a volume by using the `DELETE volume_attachments` method.
+
+## Adjusting instance bandwidth allocation by using Terraform
+{: #adjusting-bandwidth-allocation-terraform}
+{: terraform}
+
+You can adjust the allocation of your instance's total bandwidth between network bandwidth and storage bandwidth by updating the `total_volume_bandwidth` argument in the `ibm_is_instance` resource. Total storage bandwidth (in megabits per second) is the total bandwidth allocated for the boot and attached data volumes. Increasing total storage bandwidth results in a corresponding decrease in network bandwidth. The minimum network bandwidth is 500 Mbps.
+
+The following example sets total storage bandwidth to 500 Mbps:
+
+```terraform
+resource "ibm_is_instance" "example" {
+  name                   = "my-instance"
+  total_volume_bandwidth = 500
+  # ... other required arguments
+}
+```
+{: codeblock}
+
+To see the new bandwidth allocation, you must either stop and start the instance, or detach and reattach data volumes.
+
+For more information, see the [`total_volume_bandwidth` argument](https://registry.terraform.io/providers/IBM-Cloud/ibm/latest/docs/resources/is_instance#argument-reference){: external} in the `ibm_is_instance` resource documentation.
 
 ## Adjusting storage QoS mode in the console
 {: #updating-qos-mode-ui}
@@ -653,6 +813,25 @@ ibmcloud is instance-update INSTANCE --total-volume-bandwidth VALUE --host-failu
 
 During an instance [update](/docs/apis/vpc/latest#update-instance), the `host_failure` subproperty can be used to set the host failure `availability_policy` of the virtual server instance.
 
+## Setting the host failure recovery policy by using Terraform
+{: #set-recovery-policy-terraform}
+{: terraform}
+
+You can set the host failure recovery policy for a virtual server instance by updating the `availability_policy_host_failure` argument in the `ibm_is_instance` resource. The default value is `restart`.
+
+The following example sets the policy to `stop`:
+
+```terraform
+resource "ibm_is_instance" "example" {
+  name                              = "my-instance"
+  availability_policy_host_failure  = "stop"
+  # ... other required arguments
+}
+```
+{: codeblock}
+
+For more information, see the [`availability_policy_host_failure` argument](https://registry.terraform.io/providers/IBM-Cloud/ibm/latest/docs/resources/is_instance#argument-reference){: external} in the `ibm_is_instance` resource documentation.
+
 ## Setting the confidential compute value from the CLI
 {: #set-confidential-compute-cli}
 {: cli}
@@ -687,6 +866,30 @@ curl -X PATCH "$vpc_api_endpoint/v1/instances/$instance_id?version=2024-10-17&ge
 
 For more information, see the [update an instance action](/docs/apis/vpc/latest#update-instance) in the {{site.data.keyword.vsi_is_short}} API.
 
+## Setting the confidential compute value by using Terraform
+{: #set-confidential-compute-terraform}
+{: terraform}
+
+[Select availability]{: tag-green}
+
+Confidential computing with Intel SGX for VPC and Confidential computing with Intel TDX for VPC are available in the Dallas (us-south), Washington DC (us-east), and Frankfurt (eu-de) regions.
+{: preview}
+
+You can update the confidential compute mode of a virtual server instance by updating the `confidential_compute_mode` argument in the `ibm_is_instance` resource.
+
+The following example enables SGX confidential computing:
+
+```terraform
+resource "ibm_is_instance" "example" {
+  name                     = "my-instance"
+  confidential_compute_mode = "sgx"
+  # ... other required arguments
+}
+```
+{: codeblock}
+
+For more information, see the [`confidential_compute_mode` argument](https://registry.terraform.io/providers/IBM-Cloud/ibm/latest/docs/resources/is_instance#argument-reference){: external} in the `ibm_is_instance` resource documentation.
+
 ## Disable or enable secure boot in the console
 {: #disable-secure-boot-ui}
 {: ui}
@@ -719,12 +922,12 @@ If you decide to re-enable secure boot, follow these same steps and set the `--e
 {: #set-secure-boot-API}
 {: api}
 
-When you select a [confidential computing instance profile](/docs/vpc?topic=vpc-profiles&interface=ui#confidential-computing-profiles), the secure boot option is enabled by default. You can disable secure boot on your virtual server instance, but you must first stop the virtual server instance. After you disble secure boot, you can then restart your virtual server instance.
+When you select a [confidential computing instance profile](/docs/vpc?topic=vpc-profiles&interface=ui#confidential-computing-profiles), the secure boot option is enabled by default. You can disable secure boot on your virtual server instance, but you must first stop the virtual server instance. After you disable secure boot, you can then restart your virtual server instance.
 
-You can update a virtual server instance and change the `enable_secure_boot` property by using the API. Use the `update-instance` command. Make a `PATCH /instances` request and specify a new value for the `enable_secure_boot` property. To enable confidential secure boot, change this value to `false`.
+You can update a virtual server instance and change the `enable_secure_boot` property by using the API. Make a `PATCH /instances` request and specify a boolean value for the `enable_secure_boot` property. The following example disables secure boot:
 
 ```sh
-curl -X PATCH "$vpc_api_endpoint/v1/instances/$instance_id?version=2024-10-17&generation=2" -H "Authorization: Bearer $iam_token" -d '{"enable_secure_boot": "false"}'
+curl -X PATCH "$vpc_api_endpoint/v1/instances/$instance_id?version=2024-10-17&generation=2" -H "Authorization: Bearer $iam_token" -d '{"enable_secure_boot": false}'
 ```
 {: pre}
 
@@ -741,6 +944,18 @@ You can detach a virtual server from a reservation in the console.
 1. In the [{{site.data.keyword.cloud_notm}} console](/login){: external}, click **Navigation Menu** icon ![the menu icon](../icons/icon_hamburger.svg) **> Infrastructure** ![VPC icon](../../icons/vpc.svg) **> Reservations**.
 1. From your virtual server list or in the Reservation details page, click the server that you want to detach and then click **Actions** > **Detach**.
 1. To confirm, click **Detach**.
+
+## Detaching a server from a reservation from the CLI
+{: #removing-adding-server-reserved-capacity-cli-vpc}
+{: cli}
+
+For the steps to detach a virtual server from a reservation by using the CLI, see [Managing a reservation for VPC](/docs/vpc?topic=vpc-managing-reserved-capacity-vpc&interface=cli).
+
+## Detaching a server from a reservation with the API
+{: #removing-adding-server-reserved-capacity-api-vpc}
+{: api}
+
+For the steps to detach a virtual server from a reservation by using the API, see [Managing a reservation for VPC](/docs/vpc?topic=vpc-managing-reserved-capacity-vpc&interface=api).
 
 ## Adding CSPM in the console
 {: #cloud-security-posture-management}
@@ -811,13 +1026,13 @@ ibmcloud is instance-software-attachment-update my-instance my-software-attachme
 ```
 {: pre}
 
-## Viewing the software attachments of a virtual server instance using the API
+## Viewing the software attachments of a virtual server instance with the API
 {: #view-software-attachments-virtual-server-instances-api}
 {: api}
 
 When you create a virtual server instance sourced from a catalog image, you can use a catalog image that is specificially configured with a defined software billing plan. After you create your virtual server instance, you can view the software attachments that are now a part of the virtual server instance.
 
-To view the software attachments using the API, make a `GET /instances/{instance_id}/software_attachments` request.
+To view the software attachments by using the API, make a `GET /instances/{instance_id}/software_attachments` request.
 
 ```sh
 curl -X GET "https://us-south.iaas.cloud.ibm.com/v1/instances/{instance_id}/software_attachments?version=2026-04-21" -H "Authorization: Bearer $iam_token"
@@ -899,7 +1114,7 @@ ibmcloud is instance-update INSTANCE --threads-per-core [1]
 ```
 {: pre}
 
-## Editing Threads per core using the API
+## Editing Threads per core with the API
 {: #edit-threads-per-core-api-vpc}
 {: api}
 
