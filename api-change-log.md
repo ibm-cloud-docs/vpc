@@ -2,7 +2,7 @@
 
 copyright:
   years: 2019, 2026
-lastupdated: "2026-06-26"
+lastupdated: "2026-07-13"
 
 keywords: api, change log, new features, restrictions, migrations
 
@@ -37,6 +37,7 @@ SDK changes are based on API changes. For more information about the latest chan
 
 ## Upcoming changes
 {: #upcoming-changes}
+
 **`InstanceProfile` response change.** In an upcoming release, when [retrieving](/docs/apis/vpc/latest#get-instance-profile) or [listing](/docs/apis/vpc/latest#list-instance-profiles) instance profiles, the `vcpu_count` enumeration will transition from a fixed value to an enum-based value. The `supported_vcpu_count` property will be removed from the response. This behavior change will occur only for an [API version date](/docs/apis/vpc/latest#api-versioning) after its release.
 
 **`InstanceProfile` response change.** In an upcoming release, when [retrieving](/docs/apis/vpc/latest#get-instance-profile) or [listing](/docs/apis/vpc/latest#list-instance-profiles) instance profiles, the response will include a `zones` property. This property indicates the zones that support the instance profile. When [creating an instance](/docs/apis/vpc/latest#create-instance), the request will fail if the profile is not supported in the specified zone.

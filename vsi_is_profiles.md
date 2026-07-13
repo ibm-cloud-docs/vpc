@@ -2,7 +2,7 @@
 
 copyright:
   years: 2019, 2026
-lastupdated: "2026-06-26"
+lastupdated: "2026-07-13"
 
 keywords: vsi, virtual server instances, profile, profiles, balanced, compute, memory, very high memory, ultra high memory, gpu, storage optimized, confidential compute, flex, high frequency
 
@@ -629,7 +629,7 @@ Gen 4 High Frequency profiles are available in the Dallas (us-south) and Sydney 
 | Instance profile | vCPU / Cores | GiB RAM | Bandwidth cap (Gbps) | Instance storage (GB) | NUMA Count
 | ---------------- | ---- | ------- | ------- | ------- | ---- |
 | hx4da-248x680 | 248 / 124 | 680 | 200 | 1x2600 | 2 |
-{: caption="High Frequency profiles for compatible virtual server instances" caption-side="bottom"}<vsivpc-655-amd-turin-phase-2>
+{: caption="High Frequency profiles for compatible virtual server instances" caption-side="bottom"}
 
 The Gen 4 High Frequency 1.4 TB RAM hx4da profiles are available only in the Dallas (us-south) region. All other hx4a and hx4da profiles are available in both the Dallas (us-south) and Sydney (au-syd) regions. All profiles have the AMD 5th Generation Epyc 9575F processor-base to provision virtual server instances. For more information about the capabilities of the new profile, see [High Frequency profiles - Gen 4](/docs/vpc?topic=vpc-high-frequency-profile-family).
 {: preview}

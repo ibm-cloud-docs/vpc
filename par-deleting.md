@@ -2,7 +2,7 @@
 
 copyright:
   years: 2026
-lastupdated: "2026-07-06"
+lastupdated: "2026-07-13"
 
 keywords: viewing, deleting, public address range
 
@@ -106,7 +106,6 @@ To delete a public address range, follow these steps:
    {: pre}
 
    
-   {: note}
 
 ## Deleting public address ranges with Terraform
 {: #par-delete-terraform}
