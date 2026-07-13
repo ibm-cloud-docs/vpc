@@ -2,7 +2,7 @@
 
 copyright:
   years: 2018, 2026
-lastupdated: "2026-07-10"
+lastupdated: "2026-07-13"
 
 keywords:
 
@@ -121,11 +121,6 @@ Creating a share mount target for a regional file share can take more than 10 mi
 {: #regional-file-share-snapshot-size-incorrect}
 
 When performing file share operations with the CLI or API, the snapshot size field defaults to 1 in the response when a snapshot is created and to 0 otherwise. This value does not represent the actual size of the snapshot for regional shares.
-
-### Cross-regional replication for zonal file shares in Chennai - Airtel and Mumbai - Airtel
-{: #zonalfileshare-CRR-IN}
-
-Cross-regional replication for zonal file shares is not supported in the Chennai - Airtel and Mumbai - Airtel  regions.
 
 ### Potential mount disruption for IPsec-configured zonal file shares during maintenance
 {: #ipsec-connection-delays}

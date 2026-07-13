@@ -2,7 +2,7 @@
 
 copyright:
   years: 2022, 2026
-lastupdated: "2026-07-10"
+lastupdated: "2026-07-13"
 
 keywords: block storage for VPC, File Storage for VPC, Snapshots for VPC, Backup for VPC, block storage, file storage, snapshots, backup,
 
@@ -123,7 +123,7 @@ The following table provides a comparison between the different generations of f
 | On-demand snapshots | Yes, up to 750 per share in a region. | Yes, up to 30 per share in a region. This quota can be increased upon request. |
 | Scheduled snapshots | Yes, up to 750 snapshots per region. | Yes, Up to 30 per share in a region. This quota can be increased upon request. |
 | Cross-zonal replication| Yes, as often as every 15 minutes. | Not applicable. Data is synchronously available in all zones of the region. |
-| Cross-regional replication | Yes, as often as every 15 minutes. Cross-regional replication is not supported in Chennai - Airtel or Mumbai - Airtel. | Not supported in the [Select availability]{: tag-green} release. |
+| Cross-regional replication | Yes, as often as every 15 minutes. | Not supported in the [Select availability]{: tag-green} release. |
 | Cross-zonal mounting | Yes. | Not applicable. Data is synchronously available in all zones of the region. Storage traffic doesn't cross zone-boundaries. |
 | Cross-account access | Yes. A share can have up to 100 accessor bindings. | Yes.|
 | Monitoring integration with Sysdig | Yes. | Yes.|

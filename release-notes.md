@@ -2,7 +2,7 @@
 
 copyright:
   years: 2019, 2026
-lastupdated: "2026-07-10"
+lastupdated: "2026-07-13"
 
 keywords:
 
@@ -26,6 +26,13 @@ For more information about changes to the {{site.data.keyword.vpc_short}} comman
 
 ## July 2026
 {: #vpc-jul26}
+
+### 14 July 2026
+{: #vpc-jul1426}
+{: release-note}
+
+Cross-regional replication of file shares now supported in Chennai - Airtel and Mumbai - Airtel
+:   Cross-regional replication of zonal file shares is now supported in the Chennai - Airtel (`in-che`) and Mumbai - Airtel (`in-mum`) regions. Both regions can now be used as the source or target region for cross-regional file share replication. For more information, see [About file share replication](/docs/vpc?topic=vpc-file-storage-replication).
 
 ### 10 July 2026
 {: #vpc-jul1026}

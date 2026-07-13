@@ -2,7 +2,7 @@
 
 copyright:
   years: 2022, 2026
-lastupdated: "2026-07-08"
+lastupdated: "2026-07-13"
 
 keywords: file share, file storage, replication, replica,
 
@@ -22,9 +22,6 @@ Create read-only replica file shares in another zone for disaster recovery, low-
 
 [Select availability]{: tag-green} Customers with special access to preview the new regional file share offering can use the **rfs** profile to create file shares with regional availability. When you create file shares with regional availability, data is automatically replicated throughout the region, so you don't need to set up replication pairs in the same region. Cross-regional replication of regional file shares is not supported in this release.
 
-Currently, cross-regional replication for zonal file shares is not supported in the Chennai - Airtel and Mumbai - Airtel regions.
-{: restriction}
-
 ## Replication overview
 {: #fs-replication-overview}
 
@@ -36,7 +33,7 @@ You can create a replica share in another zone of the same region. You can also 
 
 | Americas | Europe  | Asia  |
 |----------|---------|-------|
-| - Dallas, TX / `us-south` \n - Montreal / `ca-mon` \n - Sao Paulo / `br-sao` \n - Toronto / `ca-tor` \n - Washington, DC / `us-east` |  - Frankfurt / `eu-de` \n - London / `eu-gb` \n - Madrid / `eu-es`| - Osaka/ `jp-osa` \n - Sydney / `au-syd`\n - Tokyo / `jp-tok` |
+| - Dallas, TX / `us-south` \n - Montreal / `ca-mon` \n - Sao Paulo / `br-sao` \n - Toronto / `ca-tor` \n - Washington, DC / `us-east` |  - Frankfurt / `eu-de` \n - London / `eu-gb` \n - Madrid / `eu-es`| - Chennai / `in-che` \n - Mumbai / `in-mum` \n - Osaka/ `jp-osa` \n - Sydney / `au-syd`\n - Tokyo / `jp-tok` |
 {: caption="This table shows the metro regions that can replicate with each other in each geography. Every geography is a separate column." caption-side="bottom"}
 
 When you create your replica file share in another zone of the same region, the replica share inherits the encryption type and key from the source file share. The encryption can't be changed.

@@ -2,7 +2,7 @@
 
 copyright:
   years: 2022, 2026
-lastupdated: "2026-06-29"
+lastupdated: "2026-07-13"
 
 keywords: Backup for VPC, backup service, backup plan, backup policy, restore, restore volume, restore data
 
@@ -65,6 +65,8 @@ To create a service-to-service authorization policy, follow this procedure:
    | IBM Cloud Backup for VPC       | Multi Volume Snapshots for VPC  | Editor   |
    | IBM Cloud Backup for VPC       | Virtual Server for VPC          | Operator |
    {: caption="Service-to-service authorizations" caption-side="bottom"}
+   
+   
 
 1. Click **Next**.
 1. Select the role. See the table for the appropriate role.
@@ -215,6 +217,9 @@ To use Backup for VPC in your account to create policies, plans and run backup j
 * `backup-policy` (source) to `snapshot-consistency-group` (target) with _Editor_ role
 
 1. Create four JSON files with the following information for the authorization policies.
+
+
+
    * Instance service:
      ```json
      {
@@ -523,6 +528,8 @@ To use Backup for VPC in your account to create policies, plans and run backup j
 * `is.backup-policy` (source) to `is.snapshot-consistency-group` with _editor_ role
 
 Make the request to the [IAM Policy Management API](/docs/apis/iam-policy-management#create-v2-policy), similar to the following examples.
+
+
 
 ```sh
 curl -X POST 'https://iam.cloud.ibm.com/v1/policies'
@@ -1067,6 +1074,8 @@ curl -X POST 'https://iam.cloud.ibm.com/v2/policies' -H
 {: #backup-s2s-auth-procedure-terraform-account}
 
 Create an authorization policy between services by using the `ibm_iam_authorization_policy` resource argument in your `main.tf` file.
+
+
 
 ```terraform
 resource "ibm_iam_authorization_policy" "policy1" {

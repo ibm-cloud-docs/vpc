@@ -2,7 +2,7 @@
 
 copyright:
   years: 2022, 2026
-lastupdated: "2026-06-26"
+lastupdated: "2026-07-13"
 
 keywords: file share, file storage, source volume, replica share,
 
@@ -24,7 +24,7 @@ The following table shows which metro regions can replicate with each other with
 
 | Americas | Europe  | Asia  |
 |----------|---------|-------|
-| - Dallas, TX / `us-south` \n - Montreal / `ca-mon` \n - Sao Paulo / `br-sao` \n - Toronto / `ca-tor` \n - Washington, DC / `us-east` |  - Frankfurt / `eu-de` \n - London / `eu-gb` \n - Madrid / `eu-es`| - Osaka/ `jp-osa` \n - Sydney / `au-syd`\n - Tokyo / `jp-tok` |
+| - Dallas, TX / `us-south` \n - Montreal / `ca-mon` \n - Sao Paulo / `br-sao` \n - Toronto / `ca-tor` \n - Washington, DC / `us-east` |  - Frankfurt / `eu-de` \n - London / `eu-gb` \n - Madrid / `eu-es`| - Chennai / `in-che` \n - Mumbai / `in-mum` \n - Osaka/ `jp-osa` \n - Sydney / `au-syd`\n - Tokyo / `jp-tok` |
 {: caption="This table shows the metro regions that can replicate with each other in each geography. Every geography is a separate column." caption-side="bottom"}
 
 The specified source file share must not have another replica already, and must not be a replica of another share.
@@ -34,9 +34,6 @@ If you want to create a replica in another region, you need to establish service
 {: requirement}
 
 When you create file shares with regional availability, data is automatically replicated throughout the region, so you don't need to set up replication pairs within the region.
-
-Currently, cross-regional replication for zonal file shares is not supported in the Chennai - Airtel and Mumbai - Airtel regions.
-{: restriction}
 
 ## Adding replication to a file share in the console
 {: #fs-create-replica-ui}
