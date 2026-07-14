@@ -2,7 +2,7 @@
 
 copyright:
   years: 2022, 2026
-lastupdated: "2026-07-09"
+lastupdated: "2026-07-14"
 
 keywords: Backup, backup snapshot, create backups, backup service, backup plan, backup policy, restore, restore volume, restore data, restore share
 
@@ -24,6 +24,12 @@ Create backup policies and plans for {{site.data.keyword.block_storage_is_short}
 1. Establish IAM user roles to grant [service-to-service authorizations](/docs/vpc?topic=vpc-backup-s2s-auth#backup-s2s-auth-overview) so the backup service can detect tags on resources and create backups.
 
 2. Create user tags for new or existing resources (storage volumes, shares, or virtual server instances) that you can associate with a backup policy. For more information about adding tags, see [Apply tags to resources for backup policies](/docs/vpc?topic=vpc-backup-use-policies). For more information about creating tags, see [Working with tags](/docs/account?topic=account-tag).
+
+3. **Verify authorization scope:** Make sure that your service-to-service authorizations cover all resources that need backup. If you used resource-specific IAM policies, verify that every virtual server instance whose volumes need to be backed up is included in the authorization scope.
+
+
+   To check your authorization scope, go to **Manage > Access (IAM) > Authorizations**. Review each authorization policy where the source is "IBM Cloud Backup for VPC" and the target is "Virtual Server for VPC". If you see specific resource attributes (for example, a single `instanceId`), broaden the scope or create more authorization policies to cover the required resources.
+	{: tip}
 
 You're not required to create a backup plan when you create a backup policy, but it's good practice to create at least one backup plan with your policy.
 

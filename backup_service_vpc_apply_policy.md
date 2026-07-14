@@ -2,7 +2,7 @@
 
 copyright:
   years: 2022, 2026
-lastupdated: "2026-07-08"
+lastupdated: "2026-07-14"
 
 keywords: backup for VPC, backup service, backup plan, backup policy, restore, restore volume, restore data
 
@@ -30,6 +30,9 @@ Up to 100 tags can be attached or detached in the same operation. Maintaining a 
 
 Backup schedules for file shares can be set up only on the source side of a replication pair. Scheduling snapshots of a replica share is not supported. When you fail over operations to the replica share, the source and replica shares switch roles. After a failover, remove backup policies from what was previously the source share and apply them to the current source share. Update the tags on the affected shares.
 {: important}
+
+If you add resources to be backed up later, and you have a resource-specific authorization, review and adjust your authorization to include the new resources. New backups can fail if the scope of the resource-specific authorization does not cover the newly tagged resources. For more information about service-to-service authorizations, see [Establishing service-to-service authorizations](/docs/vpc?topic=vpc-backup-s2s-auth).
+{: attention}
 
 ## Next steps
 {: #backup-next-steps-use}
