@@ -2,7 +2,7 @@
 
 copyright:
  years: 2022, 2026
-lastupdated: "2026-07-10"
+lastupdated: "2026-07-14"
 
 keywords: Backup, backup service, backup plan, backup policy, restore, restore volume, restore data
 
@@ -272,6 +272,11 @@ For more information, see the [best practices for assigning access](/docs/accoun
 {: #baas-s2s-auth}
 
 Specific IAM user roles are required to grant service-to-service authorizations. Service-to-service authorizations between the Backup service and Cloud Block Storage, Snapshots for VPC, and Virtual server for VPC are needed so the backup service can detect volume tags and create snapshots. If you want to create automated snapshots of your file shares, set up service-to-service authorizations between the Backup service and the Cloud File Storage service. For more information, see [Establishing service-to-service authorizations](/docs/vpc?topic=vpc-backup-s2s-auth).
+
+When you configure service-to-service authorizations, make sure that the authorization scope covers all resources that need backup. If you use resource-specific IAM policies, verify that every virtual server instance whose volumes need to be backed up is included in the authorization scope. The backup policy creation process cannot detect authorization policies that are scoped too narrowly, which can result in silent backup failures for resources outside the authorized scope. Regularly monitor backup job status to discover authorization issues early. For more information, see [Viewing backup job status](/docs/vpc?topic=vpc-backup-view-policy-jobs).
+
+If you add more resources to be backed up later by applying tags to them, and you have a resource-specific authorization, review and adjust your authorization to include the new resources. New backups might fail if the scope of the resource-specific authorization does not cover the newly tagged resources.
+{: note}
 
 ### Context-based restrictions
 {: #baas-cbr}
