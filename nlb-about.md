@@ -2,7 +2,7 @@
 
 copyright:
   years: 2020, 2026
-lastupdated: "2026-06-26"
+lastupdated: "2026-07-13"
 
 keywords: network load balancer, public, private, listener, back-end, front-end, pool, round-robin, weighted, connections, layer 4, methods, policies, APIs, access, ports, zonal
 
@@ -30,7 +30,10 @@ As discussed in the [Load balancers for VPC overview](/docs/vpc?topic=vpc-nlb-vs
 
 * **Public** - A public load balancer is a load balancer with a publicly accessible IP address that is registered with DNS.
 * **Private** - A private load balancer is only accessible from within the VPC network, where the client is in the same VPC or has reachability (for example, through Direct Link, Transit Gateway, or both). For private load balancers, you must have a dedicated subnet with no custom routes configured for the subnet.
-* **Private with routing mode enabled** - Private NLBs with routing mode enabled support Virtual Network Function (VNF) devices as back-end targets. They perform direct routing without any NAT, enabling VNF devices to inspect packets as-is.  For more information, see [Creating a network load balancer with routing mode](/docs/vpc?topic=vpc-nlb-vnf&interface=ui).
+* **Private with routing mode enabled** - Private NLBs with routing mode enabled support Virtual Network Function (VNF) devices as back-end targets. They perform direct routing without any NAT, enabling VNF devices to inspect packets as-is.
+
+    For more information, see [Creating a network load balancer with routing mode](/docs/vpc?topic=vpc-nlb-vnf&interface=ui).
+
 * **Private Path** - Service providers use Private Path NLBs to securely connect {{site.data.keyword.cloud_notm}} with third-party, VPC-hosted services on the {{site.data.keyword.cloud_notm}} private network. Private Path NLBs are required when you use [Private Path services](/docs/vpc?topic=vpc-private-path-service-intro) to keep network traffic on a private path that never intersects with the internet. For more information, see the [Private Path solutions guide](/docs/private-path).
 
    Private Path NLBs can only be used with a Private Path service.
@@ -117,7 +120,7 @@ Figure 1 shows the VPC representation of a typical network load balancer setup. 
 ## Layer 4 load balancing
 {: #nlb-layer4}
 
-{{site.data.keyword.nlb_full}} provides a layer 4 (known as the transport layer) load-balancing service to the user’s servers in a VPC. It decides where traffic is directed based on the source and destination IP addresses and the port in the packet header. The load balancer does not perform a check on the contents of the packet. 
+{{site.data.keyword.nlb_full}} provides a layer 4 (known as the transport layer) load-balancing service to the user’s servers in a VPC. It decides where traffic is directed based on the source and destination IP addresses and the port in the packet header. The load balancer does not perform a check on the contents of the packet.
 
 Since layer 4 load balancing requires fewer computations compared to more sophisticated load balancing, such as layer 7, CPU usage and memory are used more efficiently.
 
