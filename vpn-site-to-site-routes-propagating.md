@@ -2,7 +2,7 @@
 
 copyright:
   years: 2024, 2026
-lastupdated: "2026-06-25"
+lastupdated: "2026-07-14"
 
 keywords: network, VPN, VPN gateways, encryption
 
@@ -94,9 +94,6 @@ To set up this configuration, follow these steps:
    * In the routing table, create a route and set the next hop to **VPN connection**, which enables direct routing to the VPN tunnel. For more information, see [Creating a route](/docs/vpc?topic=vpc-create-vpc-route&interface=ui).
    * While creating a route, select the VPN gateway and VPN connection to define the next hop for traffic.
    * Enable the **Advertise** toggle so that on-premises routes that are learned from the VPN gateway are advertised to the transit gateway.
-
-   When you create a route with a VPN connection as the next hop, the route advertisement setting is configured during route creation. If you want to change this setting, you must delete and recreate the route with the updated preference.
-   {: note}
 
 After the connection with the transit gateway is established, the route shows **On** in the Advertise column of the routing table. On-premises routes are then automatically advertised through the transit gateway.
 
