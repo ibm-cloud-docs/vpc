@@ -2,7 +2,7 @@
 
 copyright:
   years: 2022, 2026
-lastupdated: "2026-07-13"
+lastupdated: "2026-07-14"
 
 keywords: file share, file storage, source volume, replica share,
 
@@ -84,7 +84,7 @@ On the File share replica create page, review the source file share details, and
 
    | Field | Value |
    |------|------|
-   | Encryption | Select either {{site.data.keyword.keymanagementserviceshort}} or {{site.data.keyword.hscrypto}}. |
+   | Encryption | Select either Single or Multi tenant {{site.data.keyword.keymanagementserviceshort}} or {{site.data.keyword.hscrypto}}. |
    | Encryption service instance | If you provisioned multiple KMS instances in your account, select the one that includes the root key that you want to use for customer-managed encryption. Make sure that [service-to-service authorizations](/docs/vpc?topic=vpc-file-s2s-auth) between the file service and the target KMS are in place. |
    | Key name | Select the root key within the KMS instance that you want to use for encrypting the share. |
    | Key ID | The field shows the key ID that is associated with the data encryption key that you selected. |

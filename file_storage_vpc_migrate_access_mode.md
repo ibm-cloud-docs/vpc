@@ -2,7 +2,7 @@
 
 copyright:
   years: 2026
-lastupdated: "2026-07-08"
+lastupdated: "2026-07-15"
 
 keywords: file share, file storage, access control mode, vpc access mode, security group, migration
 
@@ -28,7 +28,7 @@ Before you migrate your file shares from VPC access control mode to security gro
 * Verify that you have the necessary [IAM permissions](/docs/vpc?topic=vpc-iam-getting-started) to manage file shares and mount targets.
 * Identify all file shares in your account that use VPC access control mode.
 * Plan your security group configuration to make sure that authorized compute resources can access the file share after migration.
-* Schedule a maintenance window for the migration, as the file share is temporarily unavailable during the process.
+* Schedule a maintenance window for the migration because the file share is temporarily inaccessible during the process.
 
 ## Migration overview
 {: #fs-migrate-access-mode-overview}
@@ -106,11 +106,9 @@ ibmcloud is share-mount-target-delete SHARE_ID MOUNT_TARGET_ID
 ```
 {: pre}
 
-Where:
-- `SHARE_ID` is the ID or name of the file share.
-- `MOUNT_TARGET_ID` is the ID or name of the mount target to delete.
+Where `SHARE_ID` is the ID or name of the file share, and `MOUNT_TARGET_ID` is the ID or name of the mount target to delete.
 
-Example:
+See the following example:
 
 ```sh
 ibmcloud is share-mount-target-delete my-file-share my-mount-target
@@ -198,7 +196,7 @@ For more information, see [Removing the replication relationship in the console]
 
    Where `REPLICA_SHARE_ID` is the ID or name of the replica file share.
 
-   Example:
+   See the following example:
 
    ```sh
    ibmcloud is share-replica-split my-replica-file-share
@@ -276,7 +274,7 @@ For more information, see [Removing the replication relationship with the API](/
    ```
    {: codeblock}
 
-2. After the split operation completes, remove the replica file share and its mount targets from your Terraform configuration, then run `terraform apply`:
+2. After the split operation completes, remove the replica file share and its mount targets from your Terraform configuration, then run `terraform apply`.
 
    ```terraform
    # Remove or comment out the replica share and its mount targets
@@ -304,7 +302,7 @@ After all mount targets and any replica file shares are deleted, update the file
 2. Select the file share that you want to migrate from the list.
 3. On the File share details page, locate the **Access control mode** field.
 4. Click the **Edit** icon ![Edit icon](../icons/edit-tagging.svg) next to the **Access control mode** field.
-5. Select **Security group** from the dropdown menu.
+5. Select **Security group** from the list.
 6. Click **Save**.
 
 ### Updating access control mode from the CLI
@@ -320,7 +318,7 @@ ibmcloud is share-update SHARE_ID --access-control-mode security_group
 
 Where `SHARE_ID` is the ID or name of the file share.
 
-Example:
+See the following example:
 
 ```sh
 ibmcloud is share-update my-file-share --access-control-mode security_group
@@ -364,7 +362,7 @@ resource "ibm_is_share" "example" {
 ## Step 5: Create new mount targets with security group access
 {: #fs-migrate-create-targets}
 
-After the access control mode is updated, create new mount targets with security group access. The mount targets must be created with a [virtual network interface](/docs/vpc?topic=vpc-vni-about) that is associated with a security group. Before you create the mount targets, verify that you have a security group that is configured with rules that allow inbound TCP access on the NFS port (2049) from all compute hosts where you want to mount the file share.
+After the access control mode is updated, create new mount targets with security group access. Each mount target must be created with a [virtual network interface](/docs/vpc?topic=vpc-vni-about) that is associated with a security group. Before you create the mount targets, verify that your security group allows inbound TCP access on the NFS port (2049) from all compute hosts that need access to the file share.
 
 ### Creating mount targets in the console
 {: #fs-migrate-create-targets-ui}
@@ -378,7 +376,7 @@ After the access control mode is updated, create new mount targets with security
 6. Configure the virtual network interface:
    - Provide a name for the virtual network interface.
    - Select the subnet where the mount target is created.
-   - Optionally, specify a reserved IP address, or let the system assign one automatically.
+   - Optionally, specify a reserved IP address, or allow the system to assign one automatically.
    - Select the security group that controls access to the file share.
 7. Optionally, enable encryption in transit if you want to protect data during transmission.
 8. Click **Create**.
@@ -403,15 +401,9 @@ ibmcloud is share-mount-target-create SHARE_ID \
 ```
 {: pre}
 
-Where:
-- `SHARE_ID` is the ID or name of the file share.
-- `MOUNT_TARGET_NAME` is the name for the new mount target.
-- `VPC_ID` is the ID or name of the VPC.
-- `VNI_NAME` is the name for the virtual network interface.
-- `SUBNET_ID` is the ID or name of the subnet.
-- `SECURITY_GROUP_ID` is the ID or name of the security group.
+Where `SHARE_ID` is the ID or name of the file share, `MOUNT_TARGET_NAME` is the name for the new mount target, `VPC_ID` is the ID or name of the VPC, `VNI_NAME` is the name for the virtual network interface, `SUBNET_ID` is the ID or name of the subnet, and `SECURITY_GROUP_ID` is the ID or name of the security group.
 
-Example:
+See the following example:
 
 ```sh
 ibmcloud is share-mount-target-create my-file-share \
@@ -499,7 +491,7 @@ If you did not have a replica file share, skip this step and proceed to [Step 7:
    - **Mount targets**: Optionally, create mount targets for the replica share with security group access.
    - **Sync frequency**: Specify how often to synchronize changes from the source to the replica (hourly, daily, weekly, monthly, or cron-spec).
    - **Encryption**: Configure encryption settings. For cross-region replication, you must select a customer root key if the source uses customer-managed encryption.
-5. Click **Create file share**.
+5. Click **Create a file share**.
 
 For more information, see [Adding replication to a file share in the console](/docs/vpc?topic=vpc-file-storage-create-replication&interface=ui#fs-create-replica-ui).
 
@@ -519,13 +511,9 @@ ibmcloud is share-replica-create \
 ```
 {: pre}
 
-Where:
-- `SOURCE_SHARE_ID` is the ID or name of the source file share.
-- `REPLICA_NAME` is the name for the new replica share.
-- `REPLICA_ZONE` is the zone where you want to create the replica.
-- `CRON_SPEC` is the replication frequency in cron format (for example, `30 17 * * *` for daily at 5:30 PM).
+Where `SOURCE_SHARE_ID` is the ID or name of the source file share, `REPLICA_NAME` is the name for the new replica share, `REPLICA_ZONE` is the zone where you want to create the replica, and `CRON_SPEC` is the replication frequency in cron format (for example, `30 17 * * *` for daily at 5:30 PM).
 
-Example:
+See the following example:
 
 ```sh
 ibmcloud is share-replica-create \
@@ -614,6 +602,6 @@ After the migration is complete, verify the following conditions:
 * The file share is accessible from all authorized compute hosts.
 * Security group rules are configured to allow access.
 * Applications that use the file share are functioning correctly.
-* The mount is persistent across reboots (check `/etc/fstab` entries).
+* The mount is persistent across restarts (check `/etc/fstab` entries).
 
 For more information about managing file shares, see [Managing file shares and mount targets](/docs/vpc?topic=vpc-file-storage-managing).

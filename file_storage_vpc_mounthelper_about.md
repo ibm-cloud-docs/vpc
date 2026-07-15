@@ -2,7 +2,7 @@
 
 copyright:
   years: 2023, 2026
-lastupdated: "2026-07-08"
+lastupdated: "2026-07-15"
 
 keywords: file share, file storage, encryption in transit, Mount Helper, IPsec, secure connection, mount share, stunnel
 
@@ -23,9 +23,9 @@ Mount Helper automates encryption in transit for {{site.data.keyword.filestorage
 
 Mount Helper is an open source automation tool that configures and establishes secure communication between your compute resources (virtual server instances or bare metal servers) and {{site.data.keyword.filestorage_vpc_short}}. The utility handles the complexity of setting up encryption in transit, managing certificates, and establishing secure tunnels, so you can focus on using your file shares rather than configuring security infrastructure.
 
-Mount Helper supports two different encryption methods depending on whether you're using zonal or regional file shares:
+The encryption method that Mount Helper uses is determined by your file share type:
 - **IPsec encapsulation** for zonal file shares
-- **Stunnel secure connections** for regional file shares
+- **Stunnel secure connection** for regional file shares
 
 ## In-transit encryption types
 {: #fs-eit-types}
