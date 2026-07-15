@@ -2,7 +2,7 @@
 
 copyright:
   years: 2025, 2026
-lastupdated: "2026-07-08"
+lastupdated: "2026-07-15"
 
 keywords: file share, file storage, encryption in transit, Mount Helper, TLS, NFS over TLS, secure connection, mount share
 
@@ -22,17 +22,19 @@ You can establish an encrypted mount connection between the compute host and a r
 
 Stunnel is an open source, multipurpose, multiplatform application that provides a universal TLS/SSL tunneling service. It relies on the OpenSSL library to implement the underlying TLS protocol. Stunnel uses public-key cryptography with X.509 digital certificates to secure the connection, and clients can optionally be authenticated through a certificate.
 
-The cipher for the stunnel connection is AES-128-GCM (TLS_ECDHE_ECDSA_WITH_AES_128_GCM_SHA256) if established through the Mount Helper utility. For more information acceptable cipher suites, see the [IBM Cloud Framework for Financial Services - Data encryption in transit](/docs/framework-financial-services?topic=framework-financial-services-shared-encryption-in-transit) topic.
+The cipher for the stunnel connection is Advanced Encryption Standard 128-bit Galois/Counter Mode (AES-128-GCM) (TLS_ECDHE_ECDSA_WITH_AES_128_GCM_SHA256) if established through the Mount Helper utility. For more information about acceptable cipher suites, see the [IBM Cloud Framework for Financial Services - Data encryption in transit](/docs/framework-financial-services?topic=framework-financial-services-shared-encryption-in-transit) topic.
 
-Installation and maintenance of the stunnel client application is your responsibility. For more information, see [Stunnel - How-to](https://www.stunnel.org/howto.html){: external}, [Using stunnel - Red Hat Enterprise Linux](https://docs.redhat.com/en/documentation/red_hat_enterprise_linux/7/html/security_guide/sec-using_stunnel#sec-Using_stunnel){: external}.
+Installation and maintenance of the stunnel client application is your responsibility. For more information, see the following resources:
+- [Stunnel - How-to](https://www.stunnel.org/howto.html){: external}
+- [Using stunnel - Red Hat Enterprise Linux](https://docs.redhat.com/en/documentation/red_hat_enterprise_linux/7/html/security_guide/sec-using_stunnel#sec-Using_stunnel){: external}
 {: important}
 
 
 
-## Before you begin using encryption in transit with Stunnel
+## Prerequisites for encryption in transit with Stunnel
 {: #file-storage-vpc-eit-stunnel-setup}
 
-To use the feature, the following requirements need to be met:
+The following requirements must be met before you use this feature:
 
 - The file share must be based on the [`rfs` profile](/docs/vpc?topic=vpc-file-storage-profiles&interface=api#rfs-profile) and be configured with [Security Group access mode](/docs/vpc?topic=vpc-file-storage-vpc-about#fs-share-mount-targets).
 
@@ -52,7 +54,7 @@ To use the feature, the following requirements need to be met:
    ```sh
    mount -t ibmshare -o stunnel 10.0.0.1:/MOUNT_PATH /mnt/MOUNT_PATH
    ```
-   {: screen}
+   {: pre}
 
    See the following example.
 

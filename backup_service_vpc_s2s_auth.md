@@ -2,7 +2,7 @@
 
 copyright:
   years: 2022, 2026
-lastupdated: "2026-07-14"
+lastupdated: "2026-07-15"
 
 keywords: Backup for VPC, backup service, backup plan, backup policy, restore, restore volume, restore data
 
@@ -15,17 +15,17 @@ subcollection: vpc
 # Establishing service-to-service authorizations for the Backup service
 {: #backup-s2s-auth}
 
-Establish service-to-service authorizations and [user roles](/docs/iam?topic=iam-iam-service-roles-actions#is.backup-policy-roles) so that {{site.data.keyword.cloud_notm}} Backup for VPC can detect resource tags and create backup snapshots of block volumes and file shares.
+Establish service-to-service authorizations and [user roles](/docs/iam?topic=iam-iam-service-roles-actions#is.backup-policy-roles) for {{site.data.keyword.cloud_notm}} Backup for VPC to detect resource tags and create backup snapshots of block volumes and file shares.
 {: shortdesc}
 
 ## Overview
 {: #backup-s2s-auth-overview}
 
-For IBM Cloud Backup for VPC service to work, you need to provide an authorization for the service. In an authorization, the source service is the service that is granted access to the target service. The roles that you select define the level of access for the source service. The target service is the service that you are granting permission to be accessed by the source service based on the roles that you assign. A source service can be in the same account where the authorization is created or in another account. The target service is always in the account where the authorization is created.
+For IBM Cloud Backup for VPC service to work, you need to provide an authorization for the service. In an authorization, the source service is granted access to the target service. The roles that you select define the level of access for the source service. The target service is the service that you are granting permission to be accessed by the source service, based on the roles that you assign. A source service can be in the same account where the authorization is created or in another account. The target service is always in the account where the authorization is created.
 
 To create a backup policy and for the backup jobs to run correctly, the Backup service needs to be authorized to work with {{site.data.keyword.block_storage_is_short}}, Snapshots for VPC, and Virtual Server for VPC services.
 
-If you are an Enterprise account administrator who wants to create a backup policy for your enterprise account and subaccounts, you also need to have authorization for the Backup service in the enterprise account to work with the Backup service in the subaccounts.
+Enterprise account administrators who want to create a backup policy for their enterprise account and subaccounts also need authorization. Specifically, the Backup service in the enterprise account must be authorized to work with the Backup service in the subaccounts.
 
 To create a backup policy and for the backup jobs to run correctly for File shares, the Backup service needs to be authorized to work with {{site.data.keyword.filestorage_vpc_short}}.
 
@@ -65,14 +65,14 @@ To create a service-to-service authorization policy, follow this procedure:
    | IBM Cloud Backup for VPC       | Multi Volume Snapshots for VPC  | Editor   |
    | IBM Cloud Backup for VPC       | Virtual Server for VPC          | Operator |
    {: caption="Service-to-service authorizations" caption-side="bottom"}
-   
-   (Optional) To limit authorization scope to specific virtual server instances, click **Add a condition** and select **Instance ID** from the attribute list. Then select a specific instance from the dropdown menu.
 
-   Limiting authorization scope to specific instances causes backup failures for volumes attached to other instances. If you add a condition for Virtual Server for VPC, you must create a separate authorization policy for each instance whose volumes require backup. For more information, see [Troubleshooting authorization scope issues](/docs/vpc?topic=vpc-baas-troubleshoot-auth-scope).
+   (Optional) To limit authorization scope to specific virtual server instances, click **Add a condition** and select **Instance ID** from the attribute list. Then, select a specific instance from the menu.
+
+   Limiting authorization scope to specific instances causes backup failures for volumes that are attached to other instances. If you add a condition for Virtual Server for VPC, you must create a separate authorization policy for each instance whose volumes require backup. For more information, see [troubleshooting authorization scope issues](/docs/vpc?topic=vpc-baas-troubleshoot-auth-scope).
    {: important}
 
 1. Click **Next**.
-1. Select the role. See the table for the appropriate role.
+1. Select the role. For more information, see the table for the appropriate role.
 1. Click **Review** and inspect your choices.
 1. Click **Authorize**.
 1. When you are returned to the **Manage authorizations** page, click **Create** again and follow the same steps to set up authorizations for the remaining services.
@@ -106,7 +106,7 @@ To create a service-to-service authorization policy, follow this procedure:
 ### Creating cross-account authorization for backups managed by the Enterprise account from the child account
 {: #backup-s2s-auth-procedure-ui-enterprise}
 
-To allow an Enterprise administrator to manage backups centrally, the subaccounts must provide authorization for the Backup service of the Enterprise account to interact with the resources of the child accounts. The following steps can be followed by the child account administrator to create the authorizations in their account locally.
+To allow an Enterprise administrator to manage backups centrally, the subaccounts must authorize the Backup service of the Enterprise account to interact with their resources. The child account administrator can follow these steps to create the authorizations locally in their account.
 
 1. In the {{site.data.keyword.cloud_notm}} console, go to **Manage > Access (IAM)**.
 1. From the side panel, select **Authorizations**.
@@ -134,7 +134,7 @@ To allow an Enterprise administrator to manage backups centrally, the subaccount
    {: caption="Service-to-service authorizations for the Enterprise" caption-side="bottom"}
 
 1. Click **Next**.
-1. Select the role. See Table 2 for the appropriate role.
+1. Select the role. For more information, see Table 2 for the appropriate role.
 1. Click **Review** and inspect your choices.
 1. Click **Authorize**.
 1. When you are returned to the **Manage authorizations** page, click **Create** again and follow the same steps to set up authorizations for the remaining services.
@@ -142,7 +142,7 @@ To allow an Enterprise administrator to manage backups centrally, the subaccount
 ### Creating cross-account authorization templates for backups managed by the Enterprise
 {: #backup-s2s-auth-template-ui-enterprise}
 
-By using [authorization templates](/docs/enterprise-management?topic=enterprise-management-authorization-policy-template-create&interface=ui), the Enterprise account administrator can create an authorization policy that can be assigned to the child accounts and implement the authorization in the assigned accounts without logging in to the child accounts individually.
+With [authorization templates](/docs/enterprise-management?topic=enterprise-management-authorization-policy-template-create&interface=ui), the Enterprise account administrator can create an authorization policy and assign it to child accounts. The authorization is then applied to those accounts without requiring the administrator to log in to each child account individually.
 
 1. In the {{site.data.keyword.cloud_notm}} console, go to **Manage > Access (IAM) > Enterprise > Templates**.
 1. Select **Authorizations** and click **Create**.
@@ -153,7 +153,7 @@ By using [authorization templates](/docs/enterprise-management?topic=enterprise-
 Next, complete the following steps to build the authorization rules:
 
 1. Go to **Authorization** to specify the details of the authorization policy.
-1. Select the account from which the source service requests access to another service. Select **Assigned account(s)**. When you assign the authorization template to a child account later, the source account is populated to the same account as the child account, which holds the resource that is accessed.
+1. Select the account from which the source service requests access to another service. Select **Assigned account(s)**. When you assign the authorization template to a child account later, the source account field is automatically set to match the child account that holds the accessed resource.
 1. Next, select the source service and resources.
    1. Select **VPC Infrastructure Services** from the list. Click **Next**.
    1. Select the scope by clicking **Specific resources**.
@@ -176,9 +176,9 @@ Next, complete the following steps to build the authorization rules:
    {: caption="Service-to-service authorizations for the Enterprise" caption-side="bottom"}
 
 1. Click **Next**.
-1. Select the role. See the table for the appropriate role.
+1. Select the role. For more information, see the table for the appropriate role.
 1. Click **Review** and inspect your choices. Then, click **Save**.
-1. The template is now ready for you to commit and assign to child accounts. Repeat the steps to create authorization templates for all of the services.
+1. Commit and assign the template to child accounts. Repeat the steps to create authorization templates for all of the services.
 
 ### Creating authorization for {{site.data.keyword.en_short}}
 {: #backup-s2s-auth-procedure-en-ui}
@@ -212,7 +212,7 @@ To create a service-to-service authorization policy for {{site.data.keyword.en_s
 ### Creating authorization for volume backups at the account level
 {: #backup-s2s-auth-procedure-cli-account}
 
-To use Backup for VPC in your account to create policies, plans and run backup jobs for block storage volumes, create the following service-to-service authorizations:
+To use Backup for VPC in your account to create policies and plans, and to run backup jobs for block storage volumes, create the following service-to-service authorizations:
 
 * `backup-policy` (source) to `instance` (target) with _Operator_ role
 * `backup-policy` (source) to `volume` (target) with _Operator_ role
@@ -221,7 +221,7 @@ To use Backup for VPC in your account to create policies, plans and run backup j
 
 1. Create four JSON files with the following information for the authorization policies.
 
-Keep the wildcard values (`"*"`) in the examples. Replacing wildcards with specific resource IDs limits the authorization scope and causes backup failures. See [Troubleshooting authorization scope issues](/docs/vpc?topic=vpc-baas-troubleshoot-auth-scope).
+Keep the wildcard values (`"*"`) in the examples. Replacing wildcards with specific resource IDs limits the authorization scope and causes backup failures. For more information, see [troubleshooting authorization scope issues](/docs/vpc?topic=vpc-baas-troubleshoot-auth-scope).
 {: important}
 
    * Instance service:
@@ -328,7 +328,7 @@ For more information about all of the parameters that are available for this com
 ### Creating cross-account authorization templates for backups managed by the Enterprise
 {: #backup-s2s-auth-procedure-cli-enterprise}
 
-Enterprise account admins can [create and assign authorization policy templates](/docs/enterprise-management?topic=enterprise-management-authorization-policy-template-create&interface=cli) to the child accounts to manage authorizations centrally. To create an authorization policy template that can be used to enable backup policies for all child accounts of the Enterprise, complete the following steps.
+Enterprise account admins can [create and assign authorization policy templates](/docs/enterprise-management?topic=enterprise-management-authorization-policy-template-create&interface=cli) to child accounts to manage authorizations centrally. To create an authorization policy template for use with backup policies across all child accounts of the Enterprise, complete the following steps.
 
 1. To get the enterprise root account ID, you can run the following command.
 
@@ -524,7 +524,7 @@ For more information about all of the parameters that are available for this com
 ### Creating authorization for volume backups at the account level
 {: #backup-s2s-auth-procedure-api-account}
 
-To use Backup for VPC in your account to create policies, plans and run backup jobs for block storage volumes, create the following service-to-service authorizations:
+To use Backup for VPC in your account to create policies and plans, and to run backup jobs for block storage volumes, create the following service-to-service authorizations:
 
 * `is.backup-policy` (source) to `is.instance` (target) with _operator_ role.
 * `is.backup-policy` (source) to `is.volume` (target) with _operator_ role.
@@ -533,7 +533,7 @@ To use Backup for VPC in your account to create policies, plans and run backup j
 
 Make the request to the [IAM Policy Management API](/docs/apis/iam-policy-management#create-v2-policy), similar to the following examples.
 
-Keep the wildcard values (`"*"`) in the examples. Replacing wildcards with specific resource IDs limits the authorization scope and causes backup failures. See [Troubleshooting authorization scope issues](/docs/vpc?topic=vpc-baas-troubleshoot-auth-scope).
+Keep the wildcard values (`"*"`) in the examples. Replacing wildcards with specific resource IDs limits the authorization scope and causes backup failures. For more information, see [troubleshooting authorization scope issues](/docs/vpc?topic=vpc-baas-troubleshoot-auth-scope).
 {: important}
 
 ```sh
@@ -794,7 +794,7 @@ For more information, see the api spec for [IAM Policy Management](/docs/apis/ia
 {: #backup-s2s-auth-procedure-fs-api}
 {: api}
 
-To use Backup for VPC in your account to create policies, plans and run backup jobs for file shares, make the following request to create the required service-to-service authorization.
+To use Backup for VPC in your account to create policies and plans, and to run backup jobs for file shares, make the following request to create the required service-to-service authorization.
 
 ```sh
 curl -X POST 'https://iam.cloud.ibm.com/v2/policies'
@@ -828,7 +828,7 @@ curl -X POST 'https://iam.cloud.ibm.com/v2/policies'
 ### Creating cross-account authorization templates for backups managed by the Enterprise
 {: #backup-s2s-auth-template-api-enterprise}
 
-Enterprise account admins can programmatically [create and assign authorization policy templates](/docs/apis/iam-policy-management#create-policy-template) to the child accounts to manage authorizations centrally. To create an authorization policy template that can be used to enable backup policies for all child accounts of the Enterprise, complete the following steps.
+Enterprise account admins can programmatically [create and assign authorization policy templates](/docs/apis/iam-policy-management#create-policy-template) to child accounts to manage authorizations centrally. To create an authorization policy template for use with backup policies across all child accounts of the Enterprise, complete the following steps.
 
 1. Make an API request to the [Enterprise Management API](/docs/apis/enterprise-apis/enterprise#list-enterprises) to get the account ID of the parent enterprise account.
 
@@ -1043,7 +1043,7 @@ For more information, see the api spec for [IAM Policy Management](/docs/apis/ia
 {: #backup-s2s-auth-procedure-en-api}
 {: api}
 
-To create a service-to-service authorization policy for {{site.data.keyword.en_short}}, make an API request to grant`is.backup-policy` (source) access to `event-notification` (target) with the `EventSourceManager` role.
+To create a service-to-service authorization policy for {{site.data.keyword.en_short}}, make an API request to grant `is.backup-policy` (source) access to `event-notification` (target) with the `EventSourceManager` role.
 
 ```sh
 curl -X POST 'https://iam.cloud.ibm.com/v2/policies' -H
@@ -1080,7 +1080,7 @@ curl -X POST 'https://iam.cloud.ibm.com/v2/policies' -H
 
 Create an authorization policy between services by using the `ibm_iam_authorization_policy` resource argument in your `main.tf` file.
 
-Keep `operator = "stringExists"` with `value = "true"` for resource attributes. Changing to `"stringEquals"` with specific resource IDs limits the authorization scope and causes backup failures. See [Troubleshooting authorization scope issues](/docs/vpc?topic=vpc-baas-troubleshoot-auth-scope).
+Keep `operator = "stringExists"` with `value = "true"` for resource attributes. Changing to `"stringEquals"` with specific resource IDs limits the authorization scope and causes backup failures. For more information, see [troubleshooting authorization scope issues](/docs/vpc?topic=vpc-baas-troubleshoot-auth-scope).
 {: important}
 
 ```terraform

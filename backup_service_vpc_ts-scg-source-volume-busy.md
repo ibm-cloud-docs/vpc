@@ -2,7 +2,7 @@
 
 copyright:
   years: 2024, 2026
-lastupdated: "2026-06-29"
+lastupdated: "2026-07-15"
 
 keywords: Backup for VPC, backup service, backup plan, backup policy, restore, restore volume, restore data
 
@@ -25,9 +25,8 @@ Backup snapshots in a consistency group cannot be created because one or more pa
 You receive an [event notification](/docs/vpc?topic=vpc-event-notifications-events#event-notifications-list) with the event type 'snapshot_consistency_group-source-volume-busy'.
 {: tsSymptoms}
 
-Your backup snapshots in the consistency group could not be created because one or more of the parent volumes are performing operations that block the locking that's needed to create the snapshots.
+Your backup snapshots in the consistency group were not created because one or more of the parent volumes are performing operations that block the locking that is needed to create the snapshots.
 {: tsCauses}
 
-Wait until the volume operation is complete, and let the next scheduled backup job create the backups.
+Wait until the volume operation is complete, and allow the next scheduled backup job to create the backups.
 {: tsResolve}
- 

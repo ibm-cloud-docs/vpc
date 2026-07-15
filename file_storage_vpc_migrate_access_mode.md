@@ -99,14 +99,12 @@ For more information, see [Deleting mount target of a file share in the console]
 {: #fs-migrate-delete-targets-cli}
 {: cli}
 
-Run the `share-mount-target-delete` command for each mount target associated with the file share. You can use either the mount target name or ID.
+Run the `share-mount-target-delete` command for each mount target associated with the file share. Replace `SHARE_ID` with the ID or name of the file share, and `MOUNT_TARGET_ID` with the ID or name of the mount target to delete.
 
 ```sh
 ibmcloud is share-mount-target-delete SHARE_ID MOUNT_TARGET_ID
 ```
 {: pre}
-
-Where `SHARE_ID` is the ID or name of the file share, and `MOUNT_TARGET_ID` is the ID or name of the mount target to delete.
 
 See the following example:
 
@@ -187,14 +185,12 @@ For more information, see [Removing the replication relationship in the console]
 
    Look for the file share with `replica` in the **Replication role** column.
 
-2. Remove the replication relationship by running the `share-replica-split` command with the replica file share ID:
+2. Remove the replication relationship by running the `share-replica-split` command. Replace `REPLICA_SHARE_ID` with the ID or name of the replica file share.
 
    ```sh
    ibmcloud is share-replica-split REPLICA_SHARE_ID
    ```
    {: pre}
-
-   Where `REPLICA_SHARE_ID` is the ID or name of the replica file share.
 
    See the following example:
 
@@ -309,14 +305,12 @@ After all mount targets and any replica file shares are deleted, update the file
 {: #fs-migrate-update-mode-cli}
 {: cli}
 
-Run the `share-update` command with the `--access-control-mode` option set to `security_group`.
+Run the `share-update` command with the `--access-control-mode` option set to `security_group`. Replace `SHARE_ID` with the ID or name of the file share.
 
 ```sh
 ibmcloud is share-update SHARE_ID --access-control-mode security_group
 ```
 {: pre}
-
-Where `SHARE_ID` is the ID or name of the file share.
 
 See the following example:
 
@@ -389,7 +383,7 @@ For more information, see [Creating a mount target in the console](/docs/vpc?top
 {: #fs-migrate-create-targets-cli}
 {: cli}
 
-Run the `share-mount-target-create` command with the virtual network interface parameters.
+Run the `share-mount-target-create` command with the virtual network interface parameters. Replace `SHARE_ID` with the ID or name of the file share, `MOUNT_TARGET_NAME` with the name for the new mount target, `VPC_ID` with the ID or name of the VPC, `VNI_NAME` with the name for the virtual network interface, `SUBNET_ID` with the ID or name of the subnet, and `SECURITY_GROUP_ID` with the ID or name of the security group.
 
 ```sh
 ibmcloud is share-mount-target-create SHARE_ID \
@@ -400,8 +394,6 @@ ibmcloud is share-mount-target-create SHARE_ID \
   --vni-sgs SECURITY_GROUP_ID
 ```
 {: pre}
-
-Where `SHARE_ID` is the ID or name of the file share, `MOUNT_TARGET_NAME` is the name for the new mount target, `VPC_ID` is the ID or name of the VPC, `VNI_NAME` is the name for the virtual network interface, `SUBNET_ID` is the ID or name of the subnet, and `SECURITY_GROUP_ID` is the ID or name of the security group.
 
 See the following example:
 
@@ -499,7 +491,7 @@ For more information, see [Adding replication to a file share in the console](/d
 {: #fs-migrate-recreate-replica-cli}
 {: cli}
 
-Use the `share-replica-create` command to create a replica for your source file share:
+Use the `share-replica-create` command to create a replica for your source file share. Replace `SOURCE_SHARE_ID` with the ID or name of the source file share, `REPLICA_NAME` with the name for the new replica share, `REPLICA_ZONE` with the zone where you want to create the replica, and `CRON_SPEC` with the replication frequency in cron format (for example, `30 17 * * *` for daily at 5:30 PM).
 
 ```sh
 ibmcloud is share-replica-create \
@@ -510,8 +502,6 @@ ibmcloud is share-replica-create \
   --replication-cron-spec "CRON_SPEC"
 ```
 {: pre}
-
-Where `SOURCE_SHARE_ID` is the ID or name of the source file share, `REPLICA_NAME` is the name for the new replica share, `REPLICA_ZONE` is the zone where you want to create the replica, and `CRON_SPEC` is the replication frequency in cron format (for example, `30 17 * * *` for daily at 5:30 PM).
 
 See the following example:
 

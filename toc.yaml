@@ -781,7 +781,7 @@ toc:
               topics:
               - file_storage_vpc_create.md
               - file_storage_vpc_byok_encryption.md
-              - file_storage_vpc_cross_account_share.md
+              - file_storage_vpc_xaccount_share.md
               - file_storage_vpc_manage_storage_limits.md
           - topicgroup:
               id: mount-helper-utility

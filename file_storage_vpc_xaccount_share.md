@@ -2,7 +2,7 @@
 
 copyright:
   years: 2024, 2026
-lastupdated: "2026-06-26"
+lastupdated: "2026-07-15"
 
 keywords: file share, file storage, accessor share, cross-account share
 
@@ -24,11 +24,11 @@ You can also share your {{site.data.keyword.filestorage_vpc_short}} with the [IB
 [Cross-account service-to-service authorization](/docs/vpc?topic=vpc-file-s2s-auth) is used to establish trust between share owner and accessor accounts. Also, the appropriate IAM platform and services roles must be assigned to the users so they can perform their tasks. To create an accessor share within the same account as the origin share, the user must have *Share Broker* and *Editor* roles. To create an accessor share within a different account from the origin share, the user must have *Share Remote Account Accessor* and *Editor* roles. For more information, see [IAM Roles and actions](/docs/iam?topic=iam-iam-service-roles-actions#is.share-roles).
 {: requirement}
 
-After the authorization is set in place and roles are assigned, you can create an accessor share that is bound to the origin share. The accessor share inherits the profile, size, encryption type both at rest and in-transit from the origin share. The origin share's account can see the IDs of the accounts who can mount the shared NFS share.
+After the authorization is set in place and roles are assigned, you can create an accessor share that is bound to the origin share. The accessor share inherits the profile, size, encryption type, both at rest and in transit, from the origin share. The origin share's account can see the IDs of the accounts who can mount the shared NFS share.
 
-When the accessor share is created, it is linked to the origin share by an accessor binding. The accessor bindings are sub-resources that are owned by the origin share, and only the administrator of the origin share can retrieve or delete them.
+When the accessor share is created, it is linked to the origin share by an accessor binding. The accessor bindings are subresources that are owned by the origin share, and only the administrator of the origin share can retrieve or delete them.
 
-As the accessor, you can't edit the properties of the origin share, and you can't delete the origin share. The accessors can mount the share by creating an accessor share and a mount target to the accessor share. Then, you can access and use the data of the origin share, including the snapshots that might be present.
+As the accessor, you can't edit the properties of the origin share, and you can't delete the origin share. As an accessor, you can mount the share by creating an accessor share and a mount target to the accessor share. Then, you can access and use the data of the origin share, including the snapshots that might be present.
 
 Sharing a file share with other accounts or services is not supported for file shares with [Deprecated]{: tag-deprecated} VPC-wide access mode.
 {: note}
@@ -36,10 +36,10 @@ Sharing a file share with other accounts or services is not supported for file s
 ## Transit encryption policy
 {: #file-storage-transit-encryption-policy}
 
-The share owner can control how data is encrypted during transit by setting allowed transit encryption modes. If this field is not provided, the system uses the default allowed encryption modes defined in the selected share profile. When an accessor creates a mount target, they must choose an encryption mode that matches one of the share’s allowed modes. For example, if ipsec is selected, all mount targets for that share must use ipsec for consistency.
+The share owner can control how data is encrypted during transit by setting allowed transit encryption modes. If this field is not provided, the system uses the default allowed encryption modes that are defined in the selected share profile. When an accessor creates a mount target, they must choose an encryption mode that matches one of the allowed modes of the share. For example, if IPsec is selected, all mount targets for that share must use IPsec for consistency.
 
-For zonal file shares, the share owner can choose from the following transit encryption modes: ipsec, none, or both.
-- If ipsec is enforced, all accessor mount targets must use ipsec.
+For zonal file shares, the share owner can choose from the following transit encryption modes: IPsec, none, or both.
+- If IPsec is enforced, all accessor mount targets must use IPsec.
 - If none is enforced, encryption-in-transit is not allowed.
 - If both are allowed, accessor accounts can choose which one to use.
 
@@ -56,12 +56,12 @@ File shares that were created before the release of the cross-account access fea
 
 In the {{site.data.keyword.cloud_notm}} console, you can create an accessor share with or without a mount target. However, you need to create a mount target when you want to mount the share on a virtual server instance.
 
-### Creating an accessor share in the console
+### Creating an accessor share in the console without a mount target
 {: #fs-create-accessor-target-ui}
 
 1. In the [{{site.data.keyword.cloud_notm}} console](/login){: external}, click the **Navigation menu** icon ![menu icon](../icons/icon_hamburger.svg) **> Infrastructure** ![VPC icon](../icons/vpc.svg) **> Storage > File storage shares**. A list of file shares displays.
 
-1. On the File storage shares for VPC page, click **Create** >  **Create accessor share**.
+1. On the File storage shares for VPC page, click **Create** > **Create accessor share**.
 
 1. Enter the following information.
 
@@ -69,7 +69,9 @@ In the {{site.data.keyword.cloud_notm}} console, you can create an accessor shar
    |-------|-------|
    | Accessor share name  | Specify a meaningful name for your accessor share. The file share name can be up to 63 lowercase alpha-numeric characters and include the hyphen (-), and must begin with a lowercase letter. You can later edit the name if you want.
    | Remote share CRN | Enter the CRN of the origin file share.|
-   {: caption="Values for creating a file share" caption-side="top"}
+   {: caption="Values for creating a file share" caption-side="bottom"}
+
+1. Click **Create**.
 
 1. You return to the {{site.data.keyword.filestorage_vpc_short}} page, where a message indicates that the file share is provisioning. When the transaction completes, the share status changes to **Active**.
 
@@ -137,7 +139,7 @@ Storage Generation               1
 ```
 {: screen}
 
-The accessor share inherits the following characteristics from its origin share: profile, size, encryption type both at rest and in-transit. If you try to use this command with the property `--origin-share` with other properties such as `--iops`, `--profile`, `--bandwidth` and `--replica-share`, the request fails.
+The accessor share inherits the following characteristics from its origin share: profile, size, encryption type both at rest and in-transit. If you try to use this command with the property `--origin-share` with other properties such as `--iops`, `--profile`, `--bandwidth`, and `--replica-share`, the request fails.
 {: important}
 
 For more information about the command options, see [`ibmcloud is share-create`](/docs/vpc?topic=vpc-vpc-reference#share-create).
@@ -145,9 +147,9 @@ For more information about the command options, see [`ibmcloud is share-create`]
 ### Creating a mount target for an accessor share from the CLI
 {: #fs-create-accessor-mount-target-cli}
 
-To create a mount target for the file share, run the `share-mount-target-create` command. Before you begin, gather some necessary information.
+Before you run the `share-mount-target-create` command to create a mount target for the file share, gather the following information.
 
-When you create a mount target, you must specify the file share that it is for. You can use the file share's name or ID. You must specify the VPC, too, either with its ID or name. The VPC must be unique to each mount target. You must also specify the security access group that's going to be used to manage access to the share. The security groups that you associate with a mount target must allow inbound access for the TCP protocol on the NFS port from all servers where you want to mount the share.
+When you create a mount target, you must specify the file share that it is for. You can use the file share's name or ID. You must specify the VPC, too, either with its ID or name. The VPC must be unique to each mount target. You must also specify the security access group that is used to manage access to the share. The security groups that you associate with a mount target must allow inbound access for the TCP protocol on the NFS port from all servers where you want to mount the share.
 
 Lastly, you must specify values for the options that are needed to create a [virtual network interface](/docs/vpc?topic=vpc-vni-about) for the mount target. Use the appropriate CLI commands to list the available [subnets](/docs/vpc?topic=vpc-vpc-reference#subnets-list), [reserved IP addresses in a subnet](/docs/vpc?topic=vpc-vpc-reference#subnet-reserved-ips-list), [security groups](/docs/vpc?topic=vpc-vpc-reference#security-groups-list) to get the information that you need.
 
@@ -249,7 +251,7 @@ Set up your API environment. Define variables for the IAM token, API endpoint, a
 
 Make a `POST /shares` request to create a file share.
 
-The following example shows a request to create an accessor share by using the CRN of the origin share. The accessor share inherits the following characteristics from its origin share: profile, zone, size, IOPS, encryption type both at rest and in-transit. The values for `initial_owner`,`access_control_mode`, and `encryption_key` are also inherited from origin_share.
+The following example shows a request to create an accessor share by using the CRN of the origin share. The accessor share inherits the following characteristics from its origin share: profile, zone, size, IOPS, encryption type, both at rest and in transit. The values for `initial_owner`, `access_control_mode`, and `encryption_key` are also inherited from origin_share.
 
 ```sh
 curl -X POST \
@@ -306,7 +308,7 @@ A successful response looks like the following example.
 ### Creating a mount target for a file share with the API
 {: #fs-create-accessor-mount-target-api}
 
-If the share's access control mode is `security_group`, then the mount target must be created with a [virtual network interface](/docs/vpc?topic=vpc-vni-about). When the share's allowed transit encryption mode is `ipsec`, the mount target's `transit_encryption` value must be `ipsec`, too.
+If the share's access control mode is `security_group`, then the mount target must be created with a [virtual network interface](/docs/vpc?topic=vpc-vni-about). When the allowed transit encryption mode of the share is `ipsec`, the mount target's `transit_encryption` value must be `ipsec`, too.
 
 Make a `POST /shares/{share_id}/mount_targets` request and specify a subnet and security group for the mount target network interface. The security groups that you associate with a mount target must allow inbound access for the TCP protocol on the NFS port from all servers where you want to mount the share.
 
@@ -333,7 +335,7 @@ This example adds a mount target to an existing accessor share, which is identif
 To use Terraform, download the Terraform CLI and configure the {{site.data.keyword.cloud}} Provider plug-in. For more information, see [Getting started with Terraform](/docs/ibm-cloud-provider-for-terraform?topic=ibm-cloud-provider-for-terraform-getting-started).
 {: requirement}
 
-VPC infrastructure services use a specific regional endpoint, which targets to `us-south` by default. If your VPC is created in another region, make sure to target the appropriate region in the provider block in the `provider.tf` file.
+VPC infrastructure services use a specific regional endpoint, which targets `us-south` by default. If your VPC is created in another region, make sure to target the appropriate region in the provider block in the `provider.tf` file.
 
 See the following example of targeting a region other than the default `us-south`.
 
@@ -342,7 +344,7 @@ provider "ibm" {
    region = "eu-de"
 }
 ```
-{: screen}
+{: codeblock}
 
 ### Creating an accessor share with Terraform
 {: #file-accessor-share-create-terraform}
@@ -370,7 +372,7 @@ resource "ibm_is_share" "example-accessor" {
 ### Creating a mount target with Terraform
 {: #file-accessor-share-mount-create-terraform}
 
-To create a mount target for a file share, use the `ibm_is_share_mount_target` resource. The following example creates a mount target with `security_group` access control mode. First, specify the share for which the mount target is created. Then, you specify the name of the mount target and define the new virtual network interface by providing an IP address and a name. You must also specify the security group that you want to use to manage access to the file share that the mount target is associated to. The security groups that you associate with a mount target must allow inbound access for the TCP protocol on the NFS port from all servers where you want to mount the share. The attribute `auto_delete = true` means that the virtual network interface is to be deleted if the mount target is deleted.
+To create a mount target for a file share, use the `ibm_is_share_mount_target` resource. The following example creates a mount target with `security_group` access control mode. First, specify the share for which the mount target is created. Then, you specify the name of the mount target and define the new virtual network interface by providing an IP address and a name. You must also specify the security group that you want to use to manage access to the file share that the mount target is associated with. The security groups that you associate with a mount target must allow inbound access for the TCP protocol on the NFS port from all servers where you want to mount the share. The attribute `auto_delete = true` means that the virtual network interface is deleted if the mount target is deleted.
 
 ```terraform
 resource "ibm_is_share_mount_target" "zonal-mount-target-with-vni" {
@@ -391,7 +393,7 @@ resource "ibm_is_share_mount_target" "zonal-mount-target-with-vni" {
 ```
 {: codeblock}
 
-The previous example enables encryption in transit for a zonal file share. When you want to protect your data with transit encryption for a reginal share, specify the `transit_encryption` argument as `stunnel`.
+The previous example enables encryption in transit for a zonal file share. When you want to protect your data with transit encryption for a regional share, specify the `transit_encryption` argument as `stunnel`.
 
 For more information about the arguments and attributes, see [ibm_is_share_mount_target](https://registry.terraform.io/providers/IBM-Cloud/ibm/latest/docs/resources/is_share_mount_target){: external}.
 
@@ -415,7 +417,7 @@ resource "ibm_is_share" "share4" {
        transit_encryption = "ipsec"
        virtual_network_interface {
            primary_ip {
-              address.    = "10.240.64.5"
+              address     = "10.240.64.5"
               auto_delete = true
               name        = "my-example-pip"
            }
