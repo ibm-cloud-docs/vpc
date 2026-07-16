@@ -2,7 +2,7 @@
 
 copyright:
   years: 2021, 2026
-lastupdated: "2026-06-26"
+lastupdated: "2026-07-16"
 
 keywords: ike policy
 
@@ -292,6 +292,56 @@ To update an IKE policy with the API by using singular properties (deprecated), 
 
 To view the complete set of APIs for site-to-site VPN gateways, see the [VPC API reference](/docs/apis/vpc/latest#create-ike-policy).
 {: tip}
+
+## Creating an IKE policy by using Terraform
+{: #vpn-using-terraform-create-ike-policy}
+{: terraform}
+
+In the following example, you can create an IKE policy by using Terraform:
+
+```terraform
+   resource "ibm_is_ike_policy" "is_ike_policy" {
+     name                     = "my-ike-policy"
+     authentication_algorithm = "sha256"
+     encryption_algorithm     = "aes128"
+     dh_group                 = 14
+     ike_version              = 2
+   }
+```
+{: codeblock}
+
+1. In the following example, you can create an IKE policy with array-based properties (recommended) by using Terraform:
+
+   ```terraform
+      resource "ibm_is_ike_policy" "is_ike_policy" {
+        name                     = "my-ike-policy"
+        authentication_algorithms = ["sha512", "sha384"]
+        encryption_algorithms     = ["aes192", "aes128"]
+        dh_groups                 = [15, 16]
+        ike_version              = 2
+        key_lifetime             = 1800
+      }
+   ```
+   {: codeblock}
+
+1. In the following example, you can create an IKE policy with singular properties (deprecated) by using Terraform:
+
+
+   ```terraform
+      resource "ibm_is_ike_policy" "is_ike_policy" {
+        name                     = "my-ike-policy"
+        authentication_algorithm = "sha256"
+        encryption_algorithm     = "aes128"
+        dh_group                 = 14
+        ike_version              = 2
+      }
+   ```
+   {: codeblock}
+
+   Don't mix singular and array-based properties for the same algorithm category in a single request.
+   {: note}
+
+For more information, see the [Terraform registry](https://registry.terraform.io/providers/IBM-Cloud/ibm/latest/docs/resources/is_ike_policy){: external}.
 
 
 ## Next steps
