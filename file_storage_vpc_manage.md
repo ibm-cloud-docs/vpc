@@ -2,7 +2,7 @@
 
 copyright:
   years: 2021, 2026
-lastupdated: "2026-06-26"
+lastupdated: "2026-07-16"
 
 keywords: file share, file storage, rename share, increase size, adjust IOPS, mount target
 
@@ -996,6 +996,13 @@ File shares can be integrated with {{site.data.keyword.mon_full}} to gain operat
 {: #delete-vpc-file-resources}
 
 Before you delete a file share, make sure that it is [unmounted](#fs-mount-unmount-vsi) from all virtual server instances and that all mount targets that belong to the file share are deleted. If your file share is shared with another account, delete the accessor bindings before you delete the share. Also, if the file share has a replica file share, you must remove the replication relationship. For more information, see [Remove the replication relationship in the console](/docs/vpc?topic=vpc-file-storage-manage-replication&interface=ui#fs-remove-replication-ui){: ui}[Remove the replication relationship from the CLI](/docs/vpc?topic=vpc-file-storage-manage-replication&interface=cli#fs-remove-replication-cli){: cli}[Remove the replication relationship with the API](/docs/vpc?topic=vpc-file-storage-manage-replication&interface=api#fs-remove-replication-api){: api}[Remove the replication relationship with Terraform](/docs/vpc?topic=vpc-file-storage-manage-replication&interface=terraform#fs-remove-replication-terraform){: terraform}.
+
+### Sanitizing your data before you delete a file share
+{: #file-storage-sanitization}
+
+When you delete a file share, IBM guarantees that your data is inaccessible on the physical disk and is eventually eradicated. If you have extra compliance requirements such as NIST 800-88 Guidelines for Media Sanitization, you must perform data sanitation procedures before you delete your file shares. For more information, see the [NIST 800-88 Guidelines for Media Sanitation](https://csrc.nist.gov/pubs/sp/800/88/r1/final){: external}.
+
+Sanitizing the file share before deletion ensures that residual data on the physical disk cannot be discovered or reconstructed, even if the physical media were to be obtained outside of IBM's control.
 
 ### Deleting file shares, accessor share bindings, and mount targets in the console
 {: #delete-targets-shares-ui}

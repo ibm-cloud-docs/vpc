@@ -2,7 +2,7 @@
 
 copyright:
   years: 2019, 2026
-lastupdated: "2026-06-29"
+lastupdated: "2026-07-16"
 
 keywords: Block storage for VPC, change IOPS, change autodelete, increase volume, change name, rename volume, delete volume, renaming volume, updating volume
 
@@ -714,7 +714,7 @@ When you delete a block storage volume, that data immediately becomes inaccessib
 
 When you delete a block storage volume, IBM guarantees that your data is inaccessible on the physical disk and is eventually [eradicated](#block-storage-data-eradication). If you have extra compliance requirements such as NIST 800-88 Guidelines for Media Sanitization, you must perform data sanitation procedures before you delete your volumes. For more information, see the [NIST 800-88 Guidelines for Media Sanitation](https://csrc.nist.gov/pubs/sp/800/88/r1/final){: external}.
 
-Sanitizing and deleting the volume means your data can't be restored.
+Sanitizing the volume before deletion ensures that residual data on the physical disk cannot be discovered or reconstructed, even if the physical media were to be obtained outside of IBM's control.
 
 ### Deleting a {{site.data.keyword.block_storage_is_short}} data volume in the console
 {: #delete}
