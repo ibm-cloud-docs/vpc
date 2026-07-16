@@ -506,7 +506,7 @@ resource "ibm_is_share" "example" {
 ```
 {: codeblock}
 
-Valid file share and mount target names can include a combination of lowercase alpha-numeric characters (a-z, 0-9) and the hyphen (-), up to 63 characters. File share names must begin with a lowercase letter.
+Valid named for file share and mount target can include a combination of lowercase alpha-numeric characters (a-z, 0-9) and the hyphen (-), up to 63 characters. File share names must begin with a lowercase letter.
 {: important}
 
 Some attributes, such as profile, allowed transit encryption modes, and encryption at rest, are not editable for accessor shares.
@@ -1002,7 +1002,7 @@ Before you delete a file share, make sure that it is [unmounted](#fs-mount-unmou
 
 When you delete a file share, IBM guarantees that your data is inaccessible on the physical disk and is eventually eradicated. If you have extra compliance requirements such as NIST 800-88 Guidelines for Media Sanitization, you must perform data sanitation procedures before you delete your file shares. For more information, see the [NIST 800-88 Guidelines for Media Sanitation](https://csrc.nist.gov/pubs/sp/800/88/r1/final){: external}.
 
-Sanitizing the file share before deletion ensures that residual data on the physical disk cannot be discovered or reconstructed, even if the physical media were to be obtained outside of IBM's control.
+Sanitizing the file share before deletion ensures that residual data on the physical disk cannot be discovered or reconstructed, even if the media were to be obtained outside of IBM's control.
 
 ### Deleting file shares, accessor share bindings, and mount targets in the console
 {: #delete-targets-shares-ui}
