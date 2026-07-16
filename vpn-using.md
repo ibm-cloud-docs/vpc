@@ -2,7 +2,7 @@
 
 copyright:
   years: 2019, 2026
-lastupdated: "2026-06-26"
+lastupdated: "2026-07-16"
 
 keywords: VPN, VPN gateways, encryption, IKE, IPsec, gateway, auto-negotiation, Diffie-Hellman, dead peer detection, PFS
 
@@ -17,9 +17,6 @@ subcollection: vpc
 
 You can use the IBM Cloud VPN for VPC service to securely connect your Virtual Private Cloud (VPC) to another private network. Use a route-based VPN, or a policy-based VPN to set up an IPsec site-to-site tunnel between your VPC and your on-premises private network or another VPC.
 {: shortdesc}
-
-A route-based VPN is now available in addition to a policy-based VPN. To get started, select **route-based** as the mode when you create a VPN gateway and create routes by using the VPN connection type. Additionally, a route-based VPN now supports dynamic connections, which enable the VPN to learn routes automatically. See [Planning considerations](/docs/vpc?topic=vpc-planning-considerations-vpn&interface=ui#dynamic-route-based-connection-considerations) to set up a dynamic route-based connection.
-{: note}
 
 ## VPN for VPC features
 {: #vpn-features}
@@ -68,7 +65,11 @@ To create a VPN gateway, follow these general steps:
    {: note}
 
 1. For a static route-based VPN connection, select or [create a routing table for static routing](/docs/vpc?topic=vpc-create-vpc-routing-table), then [create routes](/docs/vpc?topic=vpc-create-vpc-route) by using the **VPN connection** type.
-1. For a dynamic route-based VPN connection, create a transit gateway and associate it with the VPN gateway. If you have an existing transit gateway, you can also attach it to the VPN gateway. See [Adding a connection](/docs/transit-gateway?topic=transit-gateway-adding-connections&interface=ui#tg-ui-adding-connection-transit-gateway).
+1. For a dynamic route-based VPN connection, [create a transit gateway](/docs/transit-gateway?topic=transit-gateway-ordering-transit-gateway&interface=ui) and associate it with the VPN gateway. If you have an existing transit gateway, you can also attach it to the VPN gateway. See [Adding a connection](/docs/transit-gateway?topic=transit-gateway-adding-connections&interface=ui#tg-ui-adding-connection-transit-gateway). For information on creating a dynamic route-based connection with a transit gateway, see the following use cases:
+   * [Single-zone dynamic route-based VPN connection with Transit Gateway](/docs/vpc?topic=vpc-using-vpn#use-case-5-vpn).
+   * [Cross-zone VPN dynamic route-based VPN connection with Transit Gateway](/docs/vpc?topic=vpc-using-vpn#use-case-6-vpn)
+   * [VPN connection as a backup of direct link](/docs/vpc?topic=vpc-using-vpn#use-case-7-vpn).
+   * [High availability dynamic route-based VPN with zonal affinity](/docs/vpc?topic=vpc-using-vpn#use-case-8-vpn).
 1. [Connect to an on-premises network through a VPN tunnel](/docs/vpc?topic=vpc-vpn-onprem-example).
 1. Verify that your VPN connection is available by sending a ping or data traffic across the tunnel to devices that are on the peer network.
 

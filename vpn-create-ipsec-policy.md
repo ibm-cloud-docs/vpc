@@ -2,7 +2,7 @@
 
 copyright:
   years: 2021, 2026
-lastupdated: "2026-06-26"
+lastupdated: "2026-07-16"
 
 keywords: vpn, ipsec policy
 
@@ -303,6 +303,51 @@ To update an IPsec policy with the API by using singular properties (deprecated)
 
 To view the complete set of APIs for site-to-site VPN gateways, see the [VPC API reference](/docs/apis/vpc/latest#create-ipsec-policy).
 {: tip}
+
+## Creating an IPsec policy by using Terraform
+{: #vpn-using-terraform-create-ipsec-policy}
+{: terraform}
+
+In the following example, you can create an IPsec policy by using Terraform:
+
+```terraform
+   resource "ibm_is_ipsec_policy" "is_ipsec_policy" {
+     name                     = "my-ipsec-policy"
+     authentication_algorithm = "sha256"
+     encryption_algorithm     = "aes128"
+     pfs                      = "group_14"
+   }
+```
+{: codeblock}
+
+1. In the following example, you can create an IPsec policy with array-based properties (recommended) by using Terraform:
+
+   ```terraform
+      resource "ibm_is_ipsec_policy" "is_ipsec_policy" {
+        name                     = "my-ipsec-policy"
+        authentication_algorithms = ["sha512", "sha384"]
+        encryption_algorithms     = ["aes128", "aes192"]
+        pfs_groups                = ["group_14", "group_15"]
+      }
+   ```
+   {: codeblock}
+
+1. In the following example, you can create an IPsec policy with singular properties (deprecated) by using Terraform:
+
+   ```terraform
+      resource "ibm_is_ipsec_policy" "is_ipsec_policy" {
+        name                     = "my-ipsec-policy"
+        authentication_algorithm = "sha256"
+        encryption_algorithm     = "aes128"
+        pfs                      = "group_14"
+      }
+   ```
+   {: codeblock}
+
+   Don't mix singular and array-based properties for the same algorithm category in a single request.
+   {: note}
+
+For more information, see the [Terraform registry](https://registry.terraform.io/providers/IBM-Cloud/ibm/latest/docs/resources/is_ipsec_policy).
 
 ## Next steps
 {: #vpn-create-ipsec-next-steps}
