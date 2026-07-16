@@ -2,7 +2,7 @@
 
 copyright:
   years: 2021, 2026
-lastupdated: "2026-06-26"
+lastupdated: "2026-07-16"
 
 keywords: view snapshots, view snapshot, viewing snapshots, see snapshots, Block Storage snapshots
 
@@ -279,10 +279,10 @@ For more information about available command options, see [`ibmcloud is snapshot
 ### Viewing details of a snapshot from the CLI
 {: #snapshots-vpc-view-details-cli}
 
-Run the `snapshots` command and specify the snapshots ID.
+Run the `snapshot` command and specify the snapshots ID.
 
 ```sh
-ibmcloud is snapshots SNAPSHOTS_ID [--json]
+ibmcloud is snapshot SNAPSHOTS_ID [--json]
 ```
 {: pre}
 
