@@ -2,7 +2,7 @@
 
 copyright:
   years: 2020, 2026
-lastupdated: "2026-07-13"
+lastupdated: "2026-07-17"
 
 keywords: network load balancer, public, private, listener, back-end, front-end, pool, round-robin, weighted, connections, layer 4, methods, policies, APIs, access, ports, zonal
 
@@ -192,8 +192,7 @@ Figure 6 illustrates how a Private Path NLB works to support a Private Path serv
 * [Load balancer CLI reference](/docs/vpc?topic=vpc-vpc-reference#lb-anchor)
 * [Load balancer API reference](/docs/apis/vpc#list-load-balancer-profiles)
 * [Load balancer resources for Terraform](https://registry.terraform.io/providers/IBM-Cloud/ibm/latest/docs/data-sources/is_lb){: external}
-* [Network load balancer in {{site.data.keyword.cloud}} Kubernetes Service](/docs/containers?topic=containers-vpclb-about#vpc-nlb)
 * [Managing IAM access for VPC Infrastructure Services](/docs/vpc?topic=vpc-iam-getting-started&interface=ui)
 * [Activity tracking events](/docs/vpc?topic=vpc-at_events#events-load-balancers)
-* [FAQs for network load balancers](/docs/vpc?topic=vpc-nlb-faqs)
+* [FAQ for network load balancers](/docs/vpc?topic=vpc-nlb-faqs)
 * [Quotas and service limits](/docs/vpc?topic=vpc-quotas&interface=ui#nlb-quotas)
