@@ -2,7 +2,7 @@
 
 copyright:
   years: 2019, 2026
-lastupdated: "2026-07-15"
+lastupdated: "2026-07-17"
 
 keywords:
 
@@ -55,7 +55,7 @@ Workload update for IBM Hyper Protect Secure Build
 Chennai - Airtel region now available for Hopper 1 cluster network
 :   The Chennai - Airtel region is now available for provisioning Hopper 1 cluster networks with NVIDIA H200 instance profile.  You can create cluster networks with NVIDIA H200 instance profile in this region to run workloads, such as AI training and large-scale simulations. For more information, see [Cluster network supported regions and zones](/docs/vpc?topic=vpc-planning-cluster-network).
 
-Regional file shares are now available in Mumbai - Airtel MZR (Select Availability)
+Regional file shares are now available in Mumbai - Airtel MZR (select availability)
 :   The new `rfs` share profile is now available for customers with special access in Dallas, Chennai - Airtel, Frankfurt, London, Madrid, Mumbai - Airtel, Osaka, Sydney, Tokyo, Toronto, and Washington, DC. For more information, see [About File Storage for VPC](/docs/vpc?topic=vpc-file-storage-vpc-about).
 
 ### 25 June 2026
@@ -243,7 +243,7 @@ Migrating block storage volume (GA)
 {: #vpc-mar1926}
 {: release-note}
 
-Dedicated {{site.data.keyword.keymanagementserviceshort}} (Select availability)
+Dedicated {{site.data.keyword.keymanagementserviceshort}} (select availability)
 :   {{site.data.keyword.keymanagementservicefull}} now offers two deployment options to meet different security and compliance requirements: Standard (multi-tenant) and Dedicated (single-tenant). Both versions provide full-service encryption solutions that allow data to be secured and stored in {{site.data.keyword.cloud_notm}} by using envelope encryption techniques and cloud-based hardware security modules. The new Dedicated instance is a single-tenant deployment that offers full control of keys (master key and root keys) and confidential computing. As a VPC customer, you can use the encryption keys that are stored in the Dedicated instance to encrypt your block storage volumes, file shares, snapshots, and custom images. For more information, see [Securing your data in VPC](/docs/vpc?topic=vpc-mng-data) and [About Standard and Dedicated {{site.data.keyword.keymanagementserviceshort}}](/docs/key-protect?topic=key-protect-about)
 
 ### 17 March 2026
@@ -283,7 +283,7 @@ Advertised routes per VPC quota increased (combined total limit applies)
 {: #vpc-mar0326}
 {: release-note}
 
-Regional file shares are now available in Chennai - Airtel MZR (Select availability)
+Regional file shares are now available in Chennai - Airtel MZR (select availability)
 :   The new `rfs` share profile is now available for customers with special access in Dallas, Chennai - Airtel, Frankfurt, London, Madrid, Osaka, Sydney, Tokyo, Toronto, and Washington, DC. For more information, see [About File Storage for VPC](/docs/vpc?topic=vpc-file-storage-vpc-about).
 
 ## February 2026
@@ -339,7 +339,7 @@ Spot instances (GA)
 {: #vpc-jan2226}
 {: release-note}
 
-Spot instances (Select availability)
+Spot instances (select availability)
 :   [Spot instances](/docs/vpc?topic=vpc-spot-instances-virtual-servers) are highly discounted versions of the standard instances. They are designed to use available compute resources for interruptible or stateless workloads. Spot instances can be preempted (or evicted) at any time.
 
 ### 16 January 2026
@@ -420,14 +420,14 @@ Cross-regional copy of snapshots 10 TB+ (beta)
 ### 20 November 2025
 {: #vpc-nov2025}
 
-Regional file shares now available in Sao Paulo (Select availability)
+Regional file shares now available in Sao Paulo (select availability)
 :   Customers with special access can now create and use file shares with regional data availability in Sao Paulo (`br-sao`) MZR.
 
 ### 19 November 2025
 {: #vpc-nov1925}
 {: release-note}
 
-Backup for VPC support for regional file shares (Select availability)
+Backup for VPC support for regional file shares (select availability)
 :   Customers with special access to preview the regional file share offering can automate the creation and deletion of snapshots for these file shares with the Backup for VPC service. You can manage your backup policies for second-generation shares in the console, from the CLI, or with the API. For more information, see [About Backup for VPC](/docs/vpc?topic=vpc-backup-service-about).
 
 ### 06 November 2025
@@ -437,7 +437,7 @@ Backup for VPC support for regional file shares (Select availability)
 Site-to-site dynamic route-based VPN connections (GA)
 :   You can now configure dynamic route-based VPN connections for site-to-site VPNs. This configuration learns routes dynamically and establishes connections between your on-premises peer network and the IBM Cloud VPN gateway. Dynamic routing improves network management and provides high availability allowing services like Power Virtual Server to seamlessly connect through VPN gateway connections. For more information, see [Creating a VPN gateway](/docs/vpc?topic=vpc-vpn-create-gateway&interface=ui)
 
-Regional file shares - Base bandwidth and pricing changes (Select availability)
+Regional file shares - Base bandwidth and pricing changes (select availability)
 :   Customers with special access can now provision regional file shares with the baseline bandwidth of 800 Mbps. The bandwidth value can be adjusted between the preset value and the maximum of 8192 Mbps in the console, from the CLI, or with the API. You pay extra only for the bandwidth that exceeds the preset 800 Mbps.
 
 ## October 2025
@@ -520,10 +520,10 @@ Second-generation block storage volumes (GA)
 Second-generation block storage volume snapshots (GA)
 :   Customers can take and manage snapshots of their second-generation volumes in the console, from the CLI, or with API. Customers can also automate the creation and deletion of second-generation snapshots with the Backup for VPC service. Fast restore clones and cross-regional copies are available in all regions where second-generation volumes are supported. The only exception where cross-regional snapshot copies are not supported are the snapshots of volumes that exceed 10 TB. Consistency groups for Gen 2 snapshots are not supported. For more information, see [About Block Storage for VPC snapshots](/docs/vpc?topic=vpc-snapshots-vpc-about) and [About Backup for VPC](/docs/vpc?topic=vpc-backup-service-about).
 
-Regional file shares (Select availability)
+Regional file shares (select availability)
 :   The new `rfs` share profile is now available for customers with special access in Dallas, Frankfurt, London, Madrid, Osaka, Sydney, Tokyo, Toronto, and Washington, DC. Shares that are created with this profile offer regional data availability and support adjustable share bandwidth. File share data can be protected with customer-managed encryption keys, and in-transit encryption is supported by the use of stunnel. Cross-account access is now supported. Transit encryption settings can be enforced by the share owner. For regional shares, the available allowed transit encryption modes are `stunnel`, `none`, or both. For more information, see [About File Storage for VPC](/docs/vpc?topic=vpc-file-storage-vpc-about).
 
-Regional file share snapshots (Select availability)
+Regional file share snapshots (select availability)
 :   On-demand snapshots are now available for regional file shares. You can create snapshots in the console, from the CLI, and with the API. You can use the snapshots to create other regional file shares in the same region. When you create a file share from a snapshot, the share profile of the new file share must match the share profile of the snapshot's parent file share. You can use the snapshots to restore individual files, the regional snapshots can be accessed in the `.snap` directory. For more information, see [About File Storage for VPC snapshots](/docs/vpc?topic=vpc-fs-snapshots-about).
 
 Change in allowed transit encryption mode value of zonal file shares
@@ -1076,7 +1076,7 @@ Block Storage for VPC snapshots for cross-account restore
 :   You can now share a snapshot with another account and allow the other account to create volumes with the snapshot. To do so, you must set up [cross-account authorization](/docs/vpc?topic=vpc-block-s2s-auth) in {{site.data.keyword.iamshort}}, and share the CRN of the snapshot with the other account. The other account's authorized storage administrator can use the CRN to create a volume in the console, from the CLI, with the API, or Terraform. For more information, see [Sharing a snapshot with another account in the console](/docs/vpc?topic=vpc-snapshots-vpc-manage&interface=ui#snapshots-vpc-s2s-ui) and [Restoring a volume from a snapshot](/docs/vpc?topic=vpc-snapshots-vpc-restore).
 
 Defined performance profile for Block Storage for VPC
-:   Select Availability: Customers with special approval to preview the defined performance profile can now provision block storage volumes with the `sdp` profile in WDC and LON MZRs. For more information, see [The defined performance profile](/docs/vpc?topic=vpc-block-storage-about#block-storage-sdp-intro).
+:   select availability: Customers with special approval to preview the defined performance profile can now provision block storage volumes with the `sdp` profile in WDC and LON MZRs. For more information, see [The defined performance profile](/docs/vpc?topic=vpc-block-storage-about#block-storage-sdp-intro).
 
 ### 23 September 2024
 {: #vpc-sep2324}
@@ -1226,7 +1226,7 @@ Hyper Protect Secure Build
 {: #vpc-jun2724}
 {: release-note}
 
-Sapphire Rapids (x3 and x3d) x86-64 bare metal server profiles (Select availability)
+Sapphire Rapids (x3 and x3d) x86-64 bare metal server profiles (select availability)
 :   Sapphire Rapids (x3 and x3d) x86-64 bare metal server profiles are now available in the Dallas (`us-south`) region. For more information, see [x86-64 bare metal server profiles](/docs/vpc?topic=vpc-bare-metal-servers-profile&interface=ui). For more information about the Multizone regions, see [Region and data center locations for resource deployment](/docs/overview?topic=overview-locations).
 
 ### 25 June 2024
@@ -1528,7 +1528,7 @@ London 1 AZ for bare metal servers
 {: #vpc-feb2024}
 {: release-note}
 
-Virtual Network Interfaces for VPC (Select availability)
+Virtual Network Interfaces for VPC (select availability)
 :   Accounts that have special approval can preview a new feature in the Virtual Private Cloud (VPC) service that expands the support for [virtual network interfaces](/docs/vpc?topic=vpc-vni-about). The following features are available.
    - Virtual network interfaces have an independent lifecycle, which means that when you delete a resource to which the virtual network interface is attached, the virtual network interface persists and retains its IP address.
    - New instances and bare metal servers can be created with virtual network interfaces attached to new child resources called network attachments.
@@ -1588,7 +1588,7 @@ New Madrid (`eu-es`) region for ux2d profiles (GA)
 {: release-note}
 
 Next generation instance profiles available in London (`eu-gb`) region (select availability)
-:   The 3rd generation of {{site.data.keyword.cloud_notm}} {{site.data.keyword.vsi_is_short}} are now available as a Select Availability offering in the London (`eu-gb`) region, in addition to the Dallas (`us-south`) region. This new generation features virtual server profile families hosted exclusively on 4th Generation Intel&reg; Xeon&reg; Scalable processors to provide the most powerful and performant general-purpose profiles available. For more information, see [Next generation instance profiles](/docs/vpc?topic=vpc-profiles&interface=ui#next-gen-profiles). In the [Balanced](/docs/vpc?topic=vpc-profiles&interface=ui#balanced) family, see the *bx3d* profiles tab. In the [Compute](/docs/vpc?topic=vpc-profiles&interface=ui#compute) family, see the *cx3d* profiles tab. In the [Memory](/docs/vpc?topic=vpc-profiles&interface=ui#memory) family, see the *mx3d* profiles tab. 3rd generation dedicated host profiles are also available. For more information, see *bx3d*, *cx3d*, and *mx3d* profiles in [x86-64 dedicated host profiles](/docs/vpc?topic=vpc-dh-profiles&interface=ui). For more information about the Multizone regions, see [Region and data center locations for resource deployment](/docs/overview?topic=overview-locations).
+:   The 3rd generation of {{site.data.keyword.cloud_notm}} {{site.data.keyword.vsi_is_short}} are now available as a select availability offering in the London (`eu-gb`) region, in addition to the Dallas (`us-south`) region. This new generation features virtual server profile families hosted exclusively on 4th Generation Intel&reg; Xeon&reg; Scalable processors to provide the most powerful and performant general-purpose profiles available. For more information, see [Next generation instance profiles](/docs/vpc?topic=vpc-profiles&interface=ui#next-gen-profiles). In the [Balanced](/docs/vpc?topic=vpc-profiles&interface=ui#balanced) family, see the *bx3d* profiles tab. In the [Compute](/docs/vpc?topic=vpc-profiles&interface=ui#compute) family, see the *cx3d* profiles tab. In the [Memory](/docs/vpc?topic=vpc-profiles&interface=ui#memory) family, see the *mx3d* profiles tab. 3rd generation dedicated host profiles are also available. For more information, see *bx3d*, *cx3d*, and *mx3d* profiles in [x86-64 dedicated host profiles](/docs/vpc?topic=vpc-dh-profiles&interface=ui). For more information about the Multizone regions, see [Region and data center locations for resource deployment](/docs/overview?topic=overview-locations).
 
 ### 16 January 2024
 {: #vpc-jan1624}
@@ -1748,7 +1748,7 @@ VPNs for VPC: Diagnose unhealthy VPN gateways and servers
 :   When you see an existing VPN gateway or server in a `degraded` or `faulted` state, you can now diagnose the issue. You are presented with reasons for the state and actions to resolve the issue. For more information, see [Diagnosing VPN gateway health](/docs/vpc?topic=vpc-vpn-health), [Diagnosing VPN gateway connection health](/docs/vpc?topic=vpc-vpn-health#vpn-connection-health), and [Diagnosing VPN server health](/docs/vpc?topic=vpc-vpn-server-health).
 
 Next generation instance profiles available in Dallas (`us-south`) region (select availability)
-:   The 3rd generation of {{site.data.keyword.cloud_notm}} {{site.data.keyword.vsi_is_short}} are available as a Select Availability offering in the Dallas (`us-south`) region. This new generation features virtual server profile families hosted exclusively on 4th Generation Intel&reg; Xeon&reg; Scalable processors to provide the most powerful and performant general-purpose profiles available. For more information, see [Next generation instance profiles](/docs/vpc?topic=vpc-profiles&interface=ui#next-gen-profiles). In the [Balanced](/docs/vpc?topic=vpc-profiles&interface=ui#balanced) family, see the *bx3d* profiles tab. In the [Compute](/docs/vpc?topic=vpc-profiles&interface=ui#compute) family, see the *cx3d* profiles tab. In the [Memory](/docs/vpc?topic=vpc-profiles&interface=ui#memory) family, see the *mx3d* profiles tab. 3rd generation dedicated host profiles are also available. For more information, see *bx3d*, *cx3d*, and *mx3d* profiles in [x86-64 dedicated host profiles](/docs/vpc?topic=vpc-dh-profiles&interface=ui). For more information about the Multizone regions, see [Region and data center locations for resource deployment](/docs/overview?topic=overview-locations).
+:   The 3rd generation of {{site.data.keyword.cloud_notm}} {{site.data.keyword.vsi_is_short}} are available as a select availability offering in the Dallas (`us-south`) region. This new generation features virtual server profile families hosted exclusively on 4th Generation Intel&reg; Xeon&reg; Scalable processors to provide the most powerful and performant general-purpose profiles available. For more information, see [Next generation instance profiles](/docs/vpc?topic=vpc-profiles&interface=ui#next-gen-profiles). In the [Balanced](/docs/vpc?topic=vpc-profiles&interface=ui#balanced) family, see the *bx3d* profiles tab. In the [Compute](/docs/vpc?topic=vpc-profiles&interface=ui#compute) family, see the *cx3d* profiles tab. In the [Memory](/docs/vpc?topic=vpc-profiles&interface=ui#memory) family, see the *mx3d* profiles tab. 3rd generation dedicated host profiles are also available. For more information, see *bx3d*, *cx3d*, and *mx3d* profiles in [x86-64 dedicated host profiles](/docs/vpc?topic=vpc-dh-profiles&interface=ui). For more information about the Multizone regions, see [Region and data center locations for resource deployment](/docs/overview?topic=overview-locations).
 
 UI enhancements
 :   The following enhancements were made to the VPC UI.
