@@ -21,8 +21,6 @@ Manage {{site.data.keyword.filestorage_vpc_short}} snapshots through the console
 Although you can't create a snapshot on a replica share, the snapshots of a zonal origin share are copied from the source to the replica at the next scheduled sync. These replica snapshots are created by the file service. They do not inherit the tags or the name from the original snapshots. However, they have the same fingerprint value as the source snapshot. They can't be manually deleted from the replica share, but are removed from the replica share at the next replication sync if the source snapshot is deleted on the source share.
 {: note}
 
-
-
 ## Renaming a snapshot in the console
 {: #fs-snapshots-rename-ui}
 {: ui}
