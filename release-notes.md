@@ -27,6 +27,19 @@ For more information about changes to the {{site.data.keyword.vpc_short}} comman
 ## July 2026
 {: #vpc-jul26}
 
+### 17 July 2026
+{: #vpc-jul1726}
+{: release-note}
+
+Security and bug fixes for IBM Hyper Protect Virtual Servers
+:   This release includes important security fixes and bug fixes that improve system stability.
+
+IBM Hyper Protect Container Runtime image `ibm-hyper-protect-container-runtime-1-0-s390x-29` updates
+:   For the IBM Hyper Protect Container Runtime image version `ibm-hyper-protect-container-runtime-1-0-s390x-29`, new certificates are available.
+   - [Attestation certificate](/docs/vpc?topic=vpc-about-attestation)
+   - [Encryption certificate](/docs/vpc?topic=vpc-about-contract_se#hpcr_contract_encrypt)
+   - [Intermediate certificate](/docs/vpc?topic=vpc-cert_validate#download_cert)
+
 ### 14 July 2026
 {: #vpc-jul1426}
 {: release-note}
