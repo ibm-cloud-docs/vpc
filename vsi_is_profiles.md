@@ -2,7 +2,7 @@
 
 copyright:
   years: 2019, 2026
-lastupdated: "2026-07-13"
+lastupdated: "2026-07-20"
 
 keywords: vsi, virtual server instances, profile, profiles, balanced, compute, memory, very high memory, ultra high memory, gpu, storage optimized, confidential compute, flex, high frequency
 
@@ -622,14 +622,6 @@ The following Burstable profiles are available.
 {: #high-frequency-profiles}
 
 High Frequency profiles provide CPUs with a high frequency, which generally enables higher performance per core than other profiles that are within the same hardware generation. The high frequency profile provides AMD&reg; 5th Generation Epyc 9575F processor-based virtual server instances. This processor offers all-core boost speeds up to 4.5 HZ and a max turbo speed of 5 GHz. AMD 5th Generation Epyc 9575F uses Chiplet-based architecture with distributed L3 cache. Distributed L3 cache can ensure that more dedicated L3 is shared per CPU. High Frequency profiles support pooled bandwidth allocation for data volumes. For more information, see [Volume bandwidth allocation method](/docs/vpc?topic=vpc-block-storage-bandwidth#attached-block-vol-bandwidth).
-
-Gen 4 High Frequency profiles are available in the Dallas (us-south) and Sydney (au-syd) regions with the AMD 5th Generation Epyc 9575F processor-based to provision virtual server instances. For more information about the capabilities of the new profile, see [High Frequency profiles - Gen 4](/docs/vpc?topic=vpc-high-frequency-profile-family).
-{: preview}
-
-| Instance profile | vCPU / Cores | GiB RAM | Bandwidth cap (Gbps) | Instance storage (GB) | NUMA Count
-| ---------------- | ---- | ------- | ------- | ------- | ---- |
-| hx4da-248x680 | 248 / 124 | 680 | 200 | 1x2600 | 2 |
-{: caption="High Frequency profiles for compatible virtual server instances" caption-side="bottom"}
 
 The Gen 4 High Frequency 1.4 TB RAM hx4da profiles are available only in the Dallas (us-south) region. All other hx4a and hx4da profiles are available in both the Dallas (us-south) and Sydney (au-syd) regions. All profiles have the AMD 5th Generation Epyc 9575F processor-base to provision virtual server instances. For more information about the capabilities of the new profile, see [High Frequency profiles - Gen 4](/docs/vpc?topic=vpc-high-frequency-profile-family).
 {: preview}
