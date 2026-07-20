@@ -2,7 +2,7 @@
 
 copyright:
   years: 2020, 2026
-lastupdated: "2026-07-13"
+lastupdated: "2026-07-17"
 
 keywords: network load balancer, public, private, listener, back-end, front-end, pool, round-robin, weighted, connections, layer 4, methods, policies, APIs, access, ports, zonal
 
@@ -58,10 +58,20 @@ For more information, see [Types of load balancers](/docs/vpc?topic=vpc-nlb-vs-e
 
 Three load-balancing methods are available for distributing traffic across back-end application servers: round-robin, weighted round-robin, and least connections.
 
+### Least connections
+{: #least-connections-method}
+
+With this method, the back-end server instance that serves the least number of connections at a particular time receives the next client connection.
+
+Private Path NLBs don't support the least-connection method.
+{: important}
+
 ### Round-robin
 {: #round-robin-method}
 
 Round-robin is the default load-balancing method. With this method, the load balancer forwards incoming client connections in a round-robin fashion to the back-end servers. As a result, all back-end servers receive roughly an equal number of client connections.
+
+
 
 ### Weighted round-robin
 {: #weighted-round-robin-method}
@@ -74,14 +84,6 @@ The server weight values are applicable only with the weighted round-robin metho
 
 Setting a server weight to `0` means that no new connections are forwarded to that server, but any existing traffic continues to flow. Using a weight of `0` can help to gradually bring down a server and remove it from service rotation.
 {: tip}
-
-### Least connections
-{: #least-connections-method}
-
-With this method, the back-end server instance that serves the least number of connections at a particular time receives the next client connection.
-
-Private Path NLBs don't support the least-connection method.
-{: important}
 
 ## Front-end listeners and back-end pools
 {: #nlb-front-end-listeners-and-back-end-pools}
@@ -192,8 +194,7 @@ Figure 6 illustrates how a Private Path NLB works to support a Private Path serv
 * [Load balancer CLI reference](/docs/vpc?topic=vpc-vpc-reference#lb-anchor)
 * [Load balancer API reference](/docs/apis/vpc#list-load-balancer-profiles)
 * [Load balancer resources for Terraform](https://registry.terraform.io/providers/IBM-Cloud/ibm/latest/docs/data-sources/is_lb){: external}
-* [Network load balancer in {{site.data.keyword.cloud}} Kubernetes Service](/docs/containers?topic=containers-vpclb-about#vpc-nlb)
 * [Managing IAM access for VPC Infrastructure Services](/docs/vpc?topic=vpc-iam-getting-started&interface=ui)
 * [Activity tracking events](/docs/vpc?topic=vpc-at_events#events-load-balancers)
-* [FAQs for network load balancers](/docs/vpc?topic=vpc-nlb-faqs)
+* [FAQ for network load balancers](/docs/vpc?topic=vpc-nlb-faqs)
 * [Quotas and service limits](/docs/vpc?topic=vpc-quotas&interface=ui#nlb-quotas)
