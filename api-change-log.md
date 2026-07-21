@@ -2,7 +2,7 @@
 
 copyright:
   years: 2019, 2026
-lastupdated: "2026-07-13"
+lastupdated: "2026-07-21"
 
 keywords: api, change log, new features, restrictions, migrations
 
@@ -55,6 +55,24 @@ At this time, all instances, and therefore all instance templates, continue to r
 
 The new response code will be rolled out gradually. Each phase of the rollout will be tied to a dated API version. These changes will be announced in future change log updates.
 {: note}
+
+## 21 July 2026
+{: #21-july-2026}
+
+### For all version dates
+{: #21-july-2026-all-version-dates}
+
+**Instance reinitialization.** You can now [reinitialize an instance](/docs/apis/vpc/latest#create-instance-reinitialization) to replace its boot volume and initialization data in place, without recreating the instance. Upon successful reinitialization, the instance starts automatically and retains its existing network interfaces, volume attachments, and other resource connections — along with their associated IP addresses and identifiers. Note that a new boot volume is created, so the boot volume and its attachment will have new identifiers.
+
+To reinitialize an instance, the instance `status` must be `stopped`. The instance can be reinitialized using one of the following boot volume sources:
+
+- By volume: Specify an existing unattached `volume` to use.
+- By image: Specify an existing `image` to use to create a new boot volume.
+- By snapshot: Specify an existing `source_snapshot` to use to create a new boot volume.
+
+After you reinitialize the instance, the current boot volume is deleted, any local disks are permanently erased, and the `boot_volume_attachment` identifier is changed. Instances provisioned from a `catalog_offering` cannot be reinitialized.
+
+For more information, see [Managing virtual server instances](/docs/vpc?topic=vpc-managing-virtual-server-instances&interface=api#reload-operating-system-instances).
 
 ## 23 June 2026
 {: #23-june-2026}
