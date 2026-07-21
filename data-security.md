@@ -2,7 +2,7 @@
 
 copyright:
   years: 2020, 2026
-lastupdated: "2026-04-17"
+lastupdated: "2026-07-21"
 
 keywords: data encryption, data storage, bring your own keys, BYOK, key management, key encryption, personal data, data deletion, data security
 
@@ -27,7 +27,7 @@ To securely manage your data with {{site.data.keyword.vpc_full}}, you need to un
 
 All Block Storage volumes are encrypted by default with IBM-managed encryption. {{site.data.keyword.IBM}}-managed keys are generated and securely stored in a Block Storage vault that is backed by Consul and maintained by {{site.data.keyword.cloud}} operations.
 
-For more security and control, you can protect your data with your own root keys (also called a customer root key or CRK). This feature is commonly called Bring Your Own Key, or BYOK. Root keys encrypt the keys that safeguard your data. You can import your root keys to {{site.data.keyword.keymanagementserviceshort}} or {{site.data.keyword.hscrypto}}, or have either key management service create one for you.
+For more security and control, you can protect your data with your own root keys (also called a customer root key or CRK). This feature is commonly called Bring Your Own Key, or BYOK. Root keys encrypt the keys that safeguard your data. You can import your root keys to {{site.data.keyword.keymanagementserviceshort}} or {{site.data.keyword.hscrypto}}, or have the key management service create one for you.
 
 {{site.data.keyword.keymanagementserviceshort}} offers two deployment options to meet different security and compliance requirements:
 - **Standard** (multi-tenant): A cost-effective solution with FIPS 140-2 Level 3 compliance and shared HSM infrastructure. IBM manages the HSM master keys.
