@@ -2,7 +2,7 @@
 
 copyright:
   years: 2024, 2026
-lastupdated: "2026-06-26"
+lastupdated: "2026-07-21"
 
 keywords: snapshots, File Storage, shares, restore share
 
@@ -21,50 +21,67 @@ File share snapshots create point-in-time copies for data protection and recover
 ## Snapshots concepts
 {: #fs-snapshots-concepts}
 
-### Single share snapshots
-{: #single-share-snapshots}
-
 A snapshot is a copy of your share that you take manually in the console, or from the CLI, or create programmatically with the API, or Terraform. You can take snapshots as often as you want. However, you can't take a snapshot of a share that's in a degraded state.
 
 The first time that you take a snapshot of a share, all the share's contents are copied. The snapshot has the same encryption as the share (customer-managed or provider-managed). Snapshots are stored in the same location as the file share.
 
-When you take a second snapshot, it captures only the changes that occurred since the last snapshot was taken. As such, the size of the snapshots can grow or shrink, depending on what changed in the meantime. The number of snapshots increases with each successive snapshot that you take. You can take up to 750 snapshots per share, and one snapshot per minute.
+When you take a second snapshot, it captures only the changes that occurred since the last snapshot was taken. As such, the size of the snapshots can grow or shrink, depending on what changed in the meantime. The number of snapshots increases with each successive snapshot that you take.
 
 When a snapshot is deleted, only the data blocks that are no longer needed by other snapshots are freed on the share.
 
-The lifecycle of snapshots is tied to the lifecycle of the shares that they belong to. When a file share is replicated, its snapshots are replicated as well. When the share is deleted, the snapshots are also deleted automatically.
+The lifecycle of snapshots is tied to the lifecycle of the shares that they belong to. When the share is deleted, the snapshots are also deleted automatically.
 
 The cost for snapshots is calculated based on GB capacity that is stored per month, unless the duration is less than one month. Because the snapshot is based on the capacity that was provisioned for the original share, the snapshot capacity does not vary.
 
 Before you take a snapshot, make sure that all cached data is present on disk. For example, on Linux operating systems, run the `sync` command to force an immediate write of all cached data to disk.
-{: note}
+{: attention}
 
-You can restore files to your share from a snapshot. To perform a single-file restoration, you can use native OS functions of your virtual server instance. Browse to the share's NFS mount target to open the `/.snapshot` directory and see the data that is contained within each snapshot of your share.
+You can restore files to your share from a snapshot. To perform a single-file restoration, you can use native OS functions of your compute host. Browse to the share's NFS mount target to open the snapshot directory and see the data that is contained within each snapshot of your share.
 
-Snapshots of regional file shares are stored in the `.snap` directory. If you can't find your new snapshot in that folder, follow the instruction in the troubleshooting topic: [Why is my snapshot not showing up in the `.snap` folder?](/docs/vpc?topic=vpc-fs-snapshots-delayed-regional-snapshot)
-{: note}
-
-You can use the snapshot to create a share as well. The share that you create by using a snapshot must have the same file share profile as the snapshot. However, you can increase the share's capacity beyond the size of the snapshot, and you can adjust the IOPS, too. For more information, see [Restoring a share from a snapshot](/docs/vpc?topic=vpc-fs-snapshots-restore).
+You can use the snapshot to create a share as well. The share that you create by using a snapshot must have the same file share profile as the snapshot. For more information, see [Restoring a share from a snapshot](/docs/vpc?topic=vpc-fs-snapshots-restore).
 
 Do you want to automatically create snapshots of your {{site.data.keyword.filestorage_vpc_short}} shares? With Backup for VPC, you can create backup policies to schedule regular share backups. For more information, see [About Backup for VPC](/docs/vpc?topic=vpc-backup-service-about).
 {: tip}
+
+### First-generation file share snapshots
+{: #single-share-snapshots}
+
+You can take up to 750 snapshots per share, and one snapshot per minute.
+
+When a file share is replicated, its snapshots are replicated as well. You can browse to the share's NFS mount target to open the `/.snapshot` directory to access snapshot data.
+
+When you create a share from a snapshot, you can increase the share's capacity beyond the size of the snapshot and adjust the IOPS.
+
+### Second-generation file share snapshots
+{: #rfs-snapshots}
+
+As a customer with special access, you can provision second-generation file shares with the `rfs` profile and create snapshots of these shares. Second-generation file shares can range in size from 1 GB to 32 TB.
+{: preview}
+
+You can take up to 30 snapshots per share in a region. If needed, this limit can be increased upon request.
+
+Snapshots of regional file shares are accessible in the `.snap` directory. If you can't find your new snapshot in that folder, follow the instruction in the troubleshooting topic: [Why is my snapshot not showing up in the `.snap` folder?](/docs/vpc?topic=vpc-fs-snapshots-delayed-regional-snapshot)
+
+You can use your snapshots to create other second-generation file shares in the same region.
 
 ## Limitations
 {: #fs-snapshots-limitations}
 
 The following limitations apply to this release:
 
-* File share snapshots cannot be copied to another zone or region. They are stored in the same location as the file share. If you want the snapshots to survive the loss of the availability zone, you need to configure replication for the file share. When a replica share is created, all snapshots that are present on the source volume are also copied to the replica.
+* File share snapshots cannot be copied to another zone or region. They are stored in the same location as the file share.
+   For zonal file shares, if you want the snapshots to survive the loss of the availability zone, you need to configure replication for the file share. When a replica share is created, all snapshots that are present on the source share are also copied to the replica.
 * Snapshots are not supported on shares with Access control mode "VPC".
 * Taking snapshots are also not supported on replica shares or Accessor shares. However, the `/.snapshot` and `.snap` directory is accessible both on replica and Accessor shares.
 
-## Snapshots for second-generation file shares
-{: #rfs-snapshots}
+The following limitations apply for the second-generation file storage snapshots:
 
-As a customer with special access, you can provision second-generation file shares with the `rfs` profile and create snapshots of these shares. During the [select availability]{: tag-green} phase, second-generation file share can range in size from 1 GB to 32 TB. You can create snapshots of the entire volume as needed. You can take up to 30 snapshots per share in a region. If needed, this limit can be increased upon request.
-{: preview}
+* You can take up to 30 snapshots per share in a region. This snapshot limit can be increased upon request.
+* You cannot use a second-generation snapshot to create a zonal file share.
 
-You can use your snapshots to create other second-generation file shares in the same region. You can't use your second-generation snapshot to create a zonal file share. Similarly, you can't use first-generation file share's snapshot to create a share with the `rfs` profile.
+The following limitations apply for the first-generation file storage snapshots:
+
+* You cannot use a first-generation file share snapshot to create a share with the `rfs` profile.
 
 ## Securing your data
 {: #fs-snapshot-data-security}
