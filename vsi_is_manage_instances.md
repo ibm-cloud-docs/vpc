@@ -2,7 +2,7 @@
 
 copyright:
   years: 2019, 2026
-lastupdated: "2026-07-12"
+lastupdated: "2026-07-22"
 
 keywords: view instance details, restart virtual server, stop, details, delete
 
@@ -978,7 +978,7 @@ This setting adds CSPM to an existing Workload Protection instance for your acco
 
 You can view the software attachments of a virtual server instance that was created from a catalog image by using the CLI.
 
-- To list all software attachments for an instance, use [`ibmcloud is instance-software-attachments`](/docs/vpc?topic=vpc-vpc-reference#instance-software-attachments). The `INSTANCE` variable is the ID or name of the instance.
+- To list all software attachments for an instance, use [`ibmcloud is instance-software-attachments`](/docs/vpc?topic=vpc-vpc-reference#instance-software-attachments-list. The `INSTANCE` variable is the ID or name of the instance.
 
    ```sh
    ibmcloud is instance-software-attachments INSTANCE [--output JSON] [-q, --quiet]
@@ -992,7 +992,7 @@ You can view the software attachments of a virtual server instance that was crea
    ```
    {: pre}
 
-- To view the details of a specific software attachment for an instance, use [`ibmcloud is instance-software-attachment`](/docs/vpc?topic=vpc-vpc-reference#instance-software-attachment). The `INSTANCE` variable is the ID or name of the instance. The `SWAC` variable is the instance software attachment ID or name.
+- To view the details of a specific software attachment for an instance, use [`ibmcloud is instance-software-attachment`](/docs/vpc?topic=vpc-vpc-reference#instance-software-attachment-view). The `INSTANCE` variable is the ID or name of the instance. The `SWAC` variable is the instance software attachment ID or name.
 
    ```sh
    ibmcloud is instance-software-attachment INSTANCE SWAC [--output JSON] [-q, --quiet]
