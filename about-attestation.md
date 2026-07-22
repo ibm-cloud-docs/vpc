@@ -2,7 +2,7 @@
 
 copyright:
   years: 2022, 2026
-lastupdated: "2026-07-17"
+lastupdated: "2026-07-22"
 
 keywords: confidential computing, enclave, secure execution, hpcr, hyper protect virtual server for vpc
 
@@ -53,13 +53,10 @@ From 25 March 2025, the certificate links are changed.
    |--------------|------------------|-------------|
    | `ibm-hyper-protect-container-runtime-1-0-s390x-29` | [Certificate](https://hpvsvpcubuntu.s3.us.cloud-object-storage.appdomain.cloud/s390x-29/ibm-hyper-protect-container-runtime-1-0-s390x-29-attestation.crt){: external} | 06 July 2027 |
    | `ibm-hyper-protect-container-runtime-1-0-s390x-28` | [Certificate](https://hpvsvpcubuntu.s3.us.cloud-object-storage.appdomain.cloud/s390x-28/ibm-hyper-protect-container-runtime-1-0-s390x-28-attestation.crt){: external} | 15 June 2027 |
-   | `ibm-hyper-protect-container-runtime-1-0-s390x-27` | [Certificate](https://hpvsvpcubuntu.s3.us.cloud-object-storage.appdomain.cloud/s390x-27/ibm-hyper-protect-container-runtime-1-0-s390x-27-attestation.crt){: external} | 18 May 2027 |
    | `ibm-hyper-protect-container-runtime-1-0-s390x-26` | [Certificate](https://hpvsvpcubuntu.s3.us.cloud-object-storage.appdomain.cloud/s390x-26/ibm-hyper-protect-container-runtime-1-0-s390x-26-attestation.crt){: external} | 24 February 2027 |
    | `ibm-hyper-protect-container-runtime-1-0-s390x-25` | [Certificate](https://hpvsvpcubuntu.s3.us.cloud-object-storage.appdomain.cloud/s390x-25/ibm-hyper-protect-container-runtime-1-0-s390x-25-attestation.crt){: external} | 26 November 2026 |
    {: caption="Attestation certificate expiry dates" caption-side="bottom"}
    
-   The `ibm-hyper-protect-container-runtime-1-0-s390x-27` image is no longer supported. Upgrade to `ibm-hyper-protect-container-runtime-1-0-s390x-28` to maintain security, stability, and continued support.
-   {: important}
 
 * Validate the attestation certificate by following the instructions [here](/docs/vpc?topic=vpc-cert_validate#validate_attest_cert).
 * Extract the attestation public key from the attestation certificate by using the following command:
@@ -211,12 +208,6 @@ The following is the shasum of the ibm-hyper-protect-container-runtime-1-0-s390x
 ```
 {: pre}
 
-The following is the shasum of the ibm-hyper-protect-container-runtime-1-0-s390x-27 `baseimage`:
-
-```sh
-335d2db7919aaa0ff49dc6e415e58e3fee1dee4a5644354f8e1f5db93d56b6a0 baseimage
-```
-{: pre}
 
 The following is the shasum of the ibm-hyper-protect-container-runtime-1-0-s390x-26 `baseimage`:
 
@@ -281,12 +272,6 @@ The following is the shasum of the ibm-hyper-protect-container-runtime-1-0-s390x
 ```
 {: pre}
 
-The following is the shasum of the ibm-hyper-protect-container-runtime-1-0-s390x-27 `root.tar.gz`.
-
-```sh
-50f93af14cc5af1585ec3d1a925fea67c25d4fc2c07a7bb0f030390ab76ff854 root.tar.gz
-```
-{: pre}
 
 The following is the shasum of the ibm-hyper-protect-container-runtime-1-0-s390x-26 `root.tar.gz`.
 
