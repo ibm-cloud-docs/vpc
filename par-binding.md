@@ -2,7 +2,7 @@
 
 copyright:
   years: 2026
-lastupdated: "2026-07-05"
+lastupdated: "2026-07-22"
 
 keywords: public address range, bind, unbind
 
@@ -97,7 +97,7 @@ To bind, unbind, or move a reserved IP address from the command line, follow the
 1. Run the following command:
 
    ```sh
-   ibmcloud is public-address-range-update PUBLIC_ADDRESS_RANGE [--name NAME] [--vpc VPC] [--zone ZONE] | --reset-target] [--output JSON] [-q, --quiet]
+   ibmcloud is public-address-range-update PUBLIC_ADDRESS_RANGE [--name NAME] ([--vpc VPC --zone ZONE] | [--reset-target]) [--output JSON] [-q, --quiet]
    ```
 
    Where:
@@ -143,10 +143,10 @@ ibmcloud is public-address-range-update r006-81222eee-b3e0-4dc3-b429-aee9e5c0abf
 ```
 {: pre}
 
-Move a public address range from one VPC (in any availability zone) to another:
+Move a public address range from one VPC to another:
 
 ```sh
-ibmcloud is public-address-range-update r006-81222eee-b3e0-4dc3-b429-aee9e5c0abf2 --name public-address-range-1 --vpc cli-test-vpc --zone us-south-1
+ibmcloud is public-address-range-update r006-81222eee-b3e0-4dc3-b429-aee9e5c0abf2 --vpc cli-test-vpc --zone us-south-2
 ```
 {: pre}
 
@@ -167,8 +167,9 @@ To bind, unbind, or move public address ranges with the API, follow these steps:
 
       ```sh
         curl -X PATCH \
-               "$vpc_api_endpoint/v1/public_address_ranges/$par-id?version=$version&generation=2" \
+               "$vpc_api_endpoint/v1/public_address_ranges/$par_id?version=$api_version&generation=2" \
                -H "Authorization: Bearer $iam_token" \
+               -H "Content-Type: application/json" \
                -d '{
                      "target": {
                         "vpc": {
@@ -179,7 +180,6 @@ To bind, unbind, or move public address ranges with the API, follow these steps:
                         }
                      }
                   }'
-
       ```
       {: pre}
 
@@ -187,8 +187,9 @@ To bind, unbind, or move public address ranges with the API, follow these steps:
 
       ```sh
          curl -X PATCH \
-               "$vpc_api_endpoint/v1/public_address_ranges/$par-id?version=$version&generation=2" \
+               "$vpc_api_endpoint/v1/public_address_ranges/$par_id?version=$api_version&generation=2" \
                -H "Authorization: Bearer $iam_token" \
+               -H "Content-Type: application/json" \
                -d '{
                      "target": null
                   }'
@@ -202,15 +203,16 @@ To bind, unbind, or move public address ranges with the API, follow these steps:
 
       ```sh
          curl -X PATCH \
-               "$vpc_api_endpoint/v1/public_address_ranges/$par-id?version=$version&generation=2" \
+               "$vpc_api_endpoint/v1/public_address_ranges/$par_id?version=$api_version&generation=2" \
                -H "Authorization: Bearer $iam_token" \
+               -H "Content-Type: application/json" \
                -d '{
                      "target": {
                         "vpc": {
-                           "id": "r006-4727d842-f94f-4a2d-824a-9bc9b02c523b"
+                           "id": "r006-9999aaaa-bbbb-cccc-dddd-1234567890ab"
                         },
                         "zone": {
-                           "name": "us-south-2"
+                           "name": "us-south-3"
                         }
                      }
                   }'

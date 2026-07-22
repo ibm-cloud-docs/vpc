@@ -1,8 +1,8 @@
 ---
 
 copyright:
-  years: 2025
-lastupdated: "2025-09-25"
+  years: 2026
+lastupdated: "2026-07-22"
 
 keywords: public address ranges, limitations
 
@@ -31,17 +31,17 @@ As the rollout of Public Address Ranges for VPC continues, a few known issues an
 
 * 500 Error from Cloudflare when creating public address ranges
 
-   Description: You might see a `500 Worker Threw Exception` error during the creation of a public address range. This error originates from Cloudflare’s edge layer before the request reaches IBM  servers. 
+   Description: You might see a `500 Worker Threw Exception` error during the creation of a public address range. This error originates from Cloudflare's edge layer before the request reaches IBM servers.
 
    Workaround: Retry the request. This issue is transient, and most retries are successful.
 
 * 502 Bad Gateway errors when creating or updating public address ranges
 
-   Description: A `502 Bad Gateway` error might occur when creating or updating a public address range. This happens when a connection to the backend is closed before the server finishes process the request, such as in scenarios involving client-side timeouts, transient network issues, or high system load.
+   Description: A `502 Bad Gateway` error might occur when creating or updating a public address range. This happens when a connection to the backend is closed before the server finishes processing the request, such as in scenarios involving client-side timeouts, transient network issues, or high system load.
 
    Workaround: Retry the operation. The backend is healthy, and most retries complete successfully.
 
 ## Related links
 {: #known-issues-par-related-link} 
 
-[About public address ranges](/docs/vpc?topic=vpc-about-par)
+- [About public address ranges](/docs/vpc?topic=vpc-about-par)

@@ -94,35 +94,33 @@ To create public address ranges from the command line, follow these steps:
 1. Run the following command:
 
    ```sh
-   ibmcloud is public-address-range-create (--ipv4-address-count IPV4_ADDRESS_COUNT | --cidr CIDR) [--zone ZONE] [--name NAME] [--resource-group-id RESOURCE_GROUP_ID | --resource-group-name RESOURCE_GROUP_NAME | --all-resource-groups] [--vpc VPC] [--output JSON] [-q, --quiet]
+   ibmcloud is public-address-range-create --ipv4-address-count IPV4_ADDRESS_COUNT [--name NAME] [--vpc VPC --zone ZONE] [--resource-group-id RESOURCE_GROUP_ID | --resource-group-name RESOURCE_GROUP_NAME] [--output JSON] [-q, --quiet]
    ```
+
+   
    
 
    Where:
 
    `--ipv4-address-count`
-   :   The total number of public IPv4 addresses required. Must be a power of 2. Mutually exclusive with `--cidr`.
+   :   The total number of public IPv4 addresses required. Must be a power of 2.
 
-   `--cidr`
-   :   The public IPv4 range for this public address range, expressed in CIDR format. Must be an unallocated block within a custom authorized CIDR in your account. Mutually exclusive with `--ipv4-address-count`.
-
-   `--zone`
-   :   The zone where this public address range will reside. When specifying the `--zone` option, `--vpc` is required.
+   
 
    `--name`
-   :   A name for the public address range, such as `public-address-range-1`.
-
-   `--resource-group-id`
-   :   ID of the resource group. This ID is mutually exclusive with `--resource-group-name`.
-
-   `--resource-group-name`
-   :   Name of the resource group. This name is mutually exclusive with `--resource-group-id`.
-
-   `--all-resource-groups`
-   :   Query all resource groups.
+   :   A name for the public address range. Names beginning with `ibm-` are reserved for provider-managed resources and are not allowed.
 
    `--vpc`
-   :   The VPC this public address range attaches to. When specifying `--vpc flag`, `--zone` is required.
+   :   The VPC to bind this public address range to. Requires `--zone`.
+
+   `--zone`
+   :   The zone where this public address range will reside. Requires `--vpc`.
+
+   `--resource-group-id`
+   :   ID of the resource group. Mutually exclusive with `--resource-group-name`.
+
+   `--resource-group-name`
+   :   Name of the resource group. Mutually exclusive with `--resource-group-id`.
 
    `--output`
    :   The output format, only JSON is supported. One of: JSON.
