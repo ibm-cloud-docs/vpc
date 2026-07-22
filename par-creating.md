@@ -2,7 +2,7 @@
 
 copyright:
   years: 2026
-lastupdated: "2026-07-04"
+lastupdated: "2026-07-22"
 
 keywords: public address range, create, bind
 
@@ -66,8 +66,6 @@ To create public address ranges in the {{site.data.keyword.cloud_notm}} console,
 1. Review the **Order summary**, then click **Create**. The public address range is requested for use.
 
 On the Public address ranges for VPC page, your address range now shows in the table. For IBM Cloud services, the status of your public address range changes from `Updating` to `Stable`.
-
-
 
 
 ## Creating public address ranges from the CLI
