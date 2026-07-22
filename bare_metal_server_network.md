@@ -2,7 +2,7 @@
 
 copyright:
   years: 2021, 2026
-lastupdated: "2026-06-26"
+lastupdated: "2026-07-22"
 
 keywords: bare metal server network, bare metal network, nics, pci, vlan, network overview
 
@@ -141,7 +141,7 @@ You can now migrate the VM by using vMotion.
 The VLAN interface that is used by the VM is migrated to the destination host.
 {: note}
 
-You can set up network topologies that are more complicated than the example, which is beyond the scope of this information. For more information, see the [VMware vSphere documentation](https://techdocs.broadcom.com/us/en/vmware-cis/vsphere.html).
+You can set up network topologies that are more complicated than the example, which is beyond the scope of this information. For more information, see the [VMware vSphere documentation](https://techdocs.broadcom.com/).
 
 ### Configuration tips for VMware vSphere network interfaces
 {: #nic-config-tips}

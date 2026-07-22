@@ -1,8 +1,8 @@
 ---
 
 copyright:
-  years: 2019, 2024
-lastupdated: "2024-12-11"
+  years: 2019, 2026
+lastupdated: "2026-07-22"
 
 keywords:
 
@@ -39,7 +39,7 @@ Safari treats cookies and local storage as the same thing. To check and adjust t
 ## Microsoft Edge
 {: #local-storage-edge}
 
-To enable cookies and local storage with Edge, see [Temporarily allowing cookies and site data in Microsoft Edge](https://support.microsoft.com/en-us/microsoft-edge/temporarily-allow-cookies-and-site-data-in-microsoft-edge-597f04f2-c0ce-f08c-7c2b-541086362bd2).
+To enable cookies and local storage with Edge, see [Temporarily allowing cookies and site data in Microsoft Edge](https://support.microsoft.com/en-US/edge/temporarily-allow-cookies-and-site-data-in-microsoft-edge).
 
 
 
