@@ -2,7 +2,7 @@
 
 copyright:
   years: 2020, 2026
-lastupdated: "2026-06-26"
+lastupdated: "2026-07-23"
 
 keywords: custom routes
 
@@ -130,6 +130,8 @@ ibmcloud is vpc-routing-table-create my-vpc --name my-vpc-routing-table --advert
 
 ```sh
 ibmcloud is vpc-routing-table-create 979b4bc6-f018-40a2-92f5-0b1cf777b55d --name test-vpc-cli-routing-tb1 --direct-link-ingress false --internet-ingress false   --transit-gateway-ingress false  --vpc-zone-ingress true
+```
+{: pre}
 
 
 ## Creating a routing table with the API
