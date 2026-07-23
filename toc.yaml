@@ -1074,6 +1074,7 @@ toc:
               topics:
               - bs_snapshots_ts_degraded_performance.md
               - bs_snapshots_ts_restore_from_snapshot_fails.md
+              - bs_snapshots_ts_source_volume_busy.md
               - bs_snapshots_ts_unusable_snapshot.md
           - topicgroup:
               id: tbs-file-storage
