@@ -1,7 +1,7 @@
 ---
 copyright:
   years: 2022, 2026
-lastupdated: "2026-06-25"
+lastupdated: "2026-07-22"
 
 keywords:
 
@@ -24,6 +24,8 @@ Only one public gateway per zone is allowed in a VPC, but that public gateway ca
 {: #pg-comparison}
 
 In addition to applying a public gateway to your VPC, you can assign floating IP addresses to any of your virtual server instances to enable them to be reachable from the internet, independent of whether its subnet is attached to a public gateway.
+
+
 
 A single public gateway can grant multiple virtual server instances external connectivity for the same cost as one floating IP address.
 {: note}

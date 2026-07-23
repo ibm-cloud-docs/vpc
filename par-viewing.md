@@ -2,7 +2,7 @@
 
 copyright:
   years: 2026
-lastupdated: "2026-07-05"
+lastupdated: "2026-07-22"
 
 keywords: viewing, deleting, public address range
 
@@ -100,6 +100,8 @@ ibmcloud is public-address-ranges
 {: pre}
 
 
+
+
 ## Viewing public address ranges with the API
 {: #par-view-api}
 {: api}
@@ -117,6 +119,8 @@ Select one of the following options:
             -H "Authorization: Bearer $iam_token"
    ```
    {: pre}
+
+* 
 
 * View a specific public address range:
 

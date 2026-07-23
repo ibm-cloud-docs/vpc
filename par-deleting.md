@@ -2,7 +2,7 @@
 
 copyright:
   years: 2026
-lastupdated: "2026-07-13"
+lastupdated: "2026-07-22"
 
 keywords: viewing, deleting, public address range
 
@@ -55,7 +55,7 @@ To delete public address ranges from the command line, follow these steps:
 1. Run the following command:
 
    ```sh
-   ibmcloud is public-address-range-delete [PUBLIC_ADDRESS_RANGE1…, PUBLIC_ADDRESS_RANGE2…] [-f, --force][--output JSON] [-q, --quiet]
+   ibmcloud is public-address-range-delete (PUBLIC_ADDRESS_RANGE1 PUBLIC_ADDRESS_RANGE2 ...) [-f, --force] [--output JSON] [-q, --quiet]
    ```
    
 
@@ -86,6 +86,8 @@ ibmcloud is public-address-range-delete $par-id
 
 
 
+
+
 ## Deleting public address ranges with the API
 {: #par-deleting-api}
 {: api}
@@ -105,7 +107,7 @@ To delete a public address range, follow these steps:
    ```
    {: pre}
 
-   
+
 
 ## Deleting public address ranges with Terraform
 {: #par-delete-terraform}

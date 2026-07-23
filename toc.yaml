@@ -643,7 +643,12 @@ toc:
               - vpn-monitoring-metrics.md
               - vpn-mtu.md
               - vpn-api-example.md
-              - vpn-hcr.md
+          - topicgroup:
+              id: vpn-hazardous-change-remediation
+              label: VPN site-to-site hazardous change remediation
+              topics:
+              - topic: vpn-hcr.md
+                navtitle: Prepare your automation for changes to VPN gateway IKE and IPsec policy API
           - topicgroup:
               id: client-to-site-servers
               label: Client-to-site-servers
@@ -1074,6 +1079,7 @@ toc:
               topics:
               - bs_snapshots_ts_degraded_performance.md
               - bs_snapshots_ts_restore_from_snapshot_fails.md
+              - bs_snapshots_ts_source_volume_busy.md
               - bs_snapshots_ts_unusable_snapshot.md
           - topicgroup:
               id: tbs-file-storage
