@@ -2,7 +2,7 @@
 
 copyright:
   years: 2022, 2026
-lastupdated: "2026-03-25"
+lastupdated: "2026-07-23"
 
 keywords: confidential computing, enclave, secure execution, hpcr, hyper protect virtual server for vpc
 
@@ -25,7 +25,7 @@ By using IBM Secure Execution for Linux, you can create encrypted Linux images t
 
 A new operating system that uses the IBM Secure Execution for Linux technology is now available as **IBM Hyper Protect**. The associated image that is used to create the instance is called the [IBM Hyper Protect Container Runtime (HPCR) image](/docs/vpc?topic=vpc-vsabout-images#hyper-protect-runtime). A virtual server instance that's provisioned by using this image is called an **{{site.data.keyword.cloud_notm}} {{site.data.keyword.hpvs}} for VPC** (Virtual Private Cloud) instance.
 
-For a technical deep dive into the IBM Hyper Protect Platform, see the white paper [The Second Generation of IBM Hyper Protect Platform](https://www.ibm.com/downloads/documents/us-en/107a02e95c48f700){: external}.
+For a technical deep dive into the IBM Hyper Protect Platform, see the white paper [The Second Generation of IBM Hyper Protect Platform](https://www-api.ibm.com/adobe/assets/urn:aaid:aem:b3b44507-bf48-47cb-bf42-fa8a716c6319/original/as/HyperProtect_Gen2_12-20.pdf){: external}.
 
 Check out the [tutorial](/docs/vpc?topic=vpc-financial-transaction-confidential-computing-on-hyper-protect-virtual-server-for-vpc) and the [video](https://mediacenter.ibm.com/media/Confidential+Computing+for+a+financial+transaction+using+Hyper+Protect+Virtual+Server+for+VPC/1_vv3j2oo6){: external} on Confidential Computing for a financial transaction by using Hyper Protect Virtual Server for VPC. You can learn about how to protect Personally Identifiable Information and credit card information that is entered into web forms by using Confidential Computing on Hyper Protect Virtual Server for VPC.
 
