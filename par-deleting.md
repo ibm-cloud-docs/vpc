@@ -2,7 +2,7 @@
 
 copyright:
   years: 2026
-lastupdated: "2026-07-22"
+lastupdated: "2026-07-24"
 
 keywords: viewing, deleting, public address range
 
@@ -27,6 +27,8 @@ To delete public address ranges in the IBM Cloud console, follow these steps:
 1. From the [{{site.data.keyword.cloud_notm}} console](/login){: external}, Select the **Navigation menu** ![Menu icon](../icons/icon_hamburger.svg), then click **Infrastructure** ![VPC icon](../../icons/vpc.svg) > **Network** > **Public address ranges**. The Public address ranges for VPC page appears.
 1. Highlight the row of the address range in the table, then click **Delete** from the **Actions** menu ![Actions icon](../icons/action-menu-icon.svg "Actions").
 1. Click **Delete** to confirm that you want to delete this address range from the VPC.
+
+
 
 ## Deleting public address ranges from the CLI
 {: #par-deleting-cli}

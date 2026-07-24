@@ -2,7 +2,7 @@
 
 copyright:
   years: 2024, 2026
-lastupdated: "2026-06-23"
+lastupdated: "2026-07-24"
 
 subcollection: vpc
 
@@ -17,6 +17,7 @@ content-type: faq
 
 The following questions are commonly asked about public address ranges. If you have additional questions you'd like to see addressed here, open an issue by using the **Open doc issue** or **Edit topic** links at the end of this page.
 {: shortdesc}
+
 
 ## Can I bring my own public IP address range?
 {: #assign-public-ips}
