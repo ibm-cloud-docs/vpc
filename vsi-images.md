@@ -2,7 +2,7 @@
 
 copyright:
   years: 2019, 2026
-lastupdated: "2026-06-26"
+lastupdated: "2026-07-24"
 
 subcollection: vpc
 
@@ -31,9 +31,9 @@ The following operating systems are available as stock images when you create a 
 | Fedora Core OS | x86-64 |
 | Red Hat Enterprise Linux 8.x, 9.x | x86-64 |
 | Red Hat Enterprise Linux for SAP 8.x, 9.x | x86-64 |
-| RHEL AI 1.x for Nvidia | x86-64 |
-| RHEL AI 1.x for AMD| x86-64 |
-| RHEL AI 1.x for Intel | x86-64 |
+| RHEL AI 3.x for Nvidia | x86-64 |
+| RHEL AI 3.x for AMD| x86-64 |
+| RHEL AI 3.x for Intel | x86-64 |
 | Rocky Linux 8.x, 9.x, 10.x | x86-64 |
 | SUSE Linux Enterprise Server 15.x, 16.x | x86-64 |
 | SUSE Linux Enterprise Server for SAP 15.x | x86-64 |
@@ -43,7 +43,7 @@ The following operating systems are available as stock images when you create a 
 
 For more information about {{site.data.keyword.cloud_notm}} VPC stock image support, see [FAQs for stock images](/docs/vpc?group=faq-stock-images).
 
-When you select an RHEL AI 1.x image, make sure that you are using the correct RHEL AI image for the instance profile you chose. For more information about the GPU profiles you can use with RHEL AI images, see [Accelerated instance profiles - Gen 3](/docs/vpc?topic=vpc-accelerated-profile-family). For information about RHEL AI, including information such as the supported use cases for RHEL AI, see [Red Hat Enterprise Linux AI](https://docs.redhat.com/en/documentation/red_hat_enterprise_linux_ai/1.5){: external}.
+When you select a RHEL AI image, make sure that you are using the correct RHEL AI image for the instance profile you chose. For more information about the GPU profiles you can use with RHEL AI images, see [Accelerated instance profiles - Gen 3](/docs/vpc?topic=vpc-accelerated-profile-family). For information about RHEL AI, including information such as the supported use cases for RHEL AI, see [Red Hat Enterprise Linux AI](https://docs.redhat.com/en/documentation/red_hat_enterprise_linux_ai/3.4){: external}.
 {: note}
 
 ### Supported x86_64 virtual server operating system bundle stock image
