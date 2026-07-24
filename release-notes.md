@@ -2,7 +2,7 @@
 
 copyright:
   years: 2019, 2026
-lastupdated: "2026-07-21"
+lastupdated: "2026-07-24"
 
 keywords:
 
@@ -27,6 +27,13 @@ For more information about changes to the {{site.data.keyword.vpc_short}} comman
 
 ## July 2026
 {: #vpc-jul26}
+
+### 24 July 2026
+{: #vpc-jul2426}
+{: release-note}
+
+RHEL AI 3.4 operating system image for GPUs now available
+:   The Red Hat Enterprise Linux&reg; AI 3.4 operating system image is now available for provisioning GPU servers. The RHEL AI 3.4 version supersedes RHEL AI 1.x as the current release. For more information about stock images, see [x86 virtual server images](/docs/vpc?topic=vpc-about-images). For more information about the GPU profiles you can use with RHEL AI images, see [Accelerated instance profiles - Gen 3](/docs/vpc?topic=vpc-accelerated-profile-family).
 
 ### 17 July 2026
 {: #vpc-jul1726}
