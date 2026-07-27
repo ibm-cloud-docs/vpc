@@ -2,7 +2,7 @@
 
 copyright:
   years: 2019, 2026
-lastupdated: "2026-07-22"
+lastupdated: "2026-07-27"
 
 keywords: view instance details, restart virtual server, stop, details, delete
 
@@ -39,6 +39,7 @@ To manage your instances, complete the following steps.
 | Open serial console | Open a serial console session for the instance. |
 | Resize | Vertically scale virtual server instances to any supported profile size. For more information, see [Resizing a virtual server instance](/docs/vpc?topic=vpc-resizing-an-instance). |
 | Create image | Create a custom image from the instance. |
+| Reload OS | You can reload the operating system (OS) on a device at any time to restore a device to its original working order. |
 | Delete | To delete an instance, the instance must have a powered off status. If the instance has a floating IP address, it must be unassociated or released before the instance is deleted. The delete action permanently removes an instance and its connected vNIC, and data from your account. If auto-delete is enabled, the associated boot volume is also deleted. |
 {: caption="Actions available for virtual server instances" caption-side="bottom"}
 
@@ -425,6 +426,111 @@ resource "ibm_is_instance" "example" {
 
 For more information, see the [`profile` argument](https://registry.terraform.io/providers/IBM-Cloud/ibm/latest/docs/resources/is_instance#argument-reference){: external} in the `ibm_is_instance` resource documentation.
 
+## Reloading the OS
+{: #reload-operating-system-instances}
+
+You can reload the operating system (OS) on a device at any time to restore a device to its original working order. Or, you can reconfigure a device with a different operating system or software. An OS reload removes all data from the device and applies a "like new" configuration, as specified during the configuration process of the OS reload setup. Because OS reloads clear all data from the device, if the data is not backed up before the reload, the data is permanently deleted.
+
+If you want to retain your data, back up all data before you start an OS reload.
+{: tip}
+
+### Before you begin
+{: #byb-reload-os-vpc}
+
+* Go to the console device menu.
+* Make sure that you have any necessary account permissions and device access. Only the account owner, or a user with the Manage users Classic infrastructure permission, can adjust the permissions.
+* The virtual server must be stopped.
+
+### Reloading the OS by using the UI
+{: #reloading-os-software-vpc-ui}
+{: ui}
+
+Use the following steps to reload the OS.
+
+1. From the Device list, click the virtual server that needs an OS reload to show the **Device details** page and make sure that the server is stopped.
+1. From the Actions menu, select **Reinitialize**.
+1. Determine whether you want to reload the existing configuration or reload the device with a new configuration.
+
+   | Reload type | Steps |
+   |-------------|-------|
+   | If you want to reload a new configuration... | Click **Change image** to select a new operating system. software from the **Select software** drop-down list. |
+   | If you want to reload by using the existing configuration... | Proceed to the next step. |
+   | If you want to change the operating system... | Click **Edit OS** > **Change version or manufacturer**. |
+   {: caption="OS and software reload options" caption-side="top"}
+
+1. Determine whether to apply one or more SSH keys to the device. RSA keys are required for Windows.
+1. Make the applicable selections for the options that you want to apply to the device during or after the OS reload. Options vary based on device. Not all options are available for every device.
+
+   | Options | Description |
+   | --- | --- |
+   | Postinstallation script | Adds an existing or new postinstallation script. |
+   | SSH key | Adds an SSH key to the device upon the reload action. An RSA key is required for Windows. |
+   | OS reload with disk preservation | This option configures your current primary disk as a secondary disk, and creates a new primary disk. The OS is installed on the new primary disk. |
+   {: caption="Post OS reload options" caption-side="top"}
+
+1. Click **Reload with configuration** to proceed to review. Or, you can click **Cancel** to cancel the changes to the device.
+1. Verify that all details in the _New configuration_ section are correct.
+1. Click **Confirm OS reload** to confirm and initiate the OS reload. Or, you can click **Cancel** to cancel the reload. The reload can't be stopped nor undone.
+
+When the reload is complete, a new admin password is provided, if applicable.
+
+When you confirm that OS reload, the public network for the server is disabled and all data that is on the primary disk is permanently deleted. IBM Cloud isn't responsible for any lost data.
+{: important}
+
+If you receive an error during the OS reload process, check whether the operating system is supported or obsolete. For more help, [open a support case](/docs/get-support?topic=get-support-using-avatar).
+
+## Reloading the OS by using the CLI
+{: #reloading-os-software-vpc-cli}
+{: cli}
+
+You can reload the OS by using the CLI. Use the following CLI command to reload the OS.
+
+If you want to retain your data, back up all data before you start an OS reload.
+{: tip}
+
+This example reinitializes the `INSTANCE` by using the `IMAGE` with the boot volume options contained in `BOOT_VOLUME_JSON`. It uses `KEY1` and `KEY2` as the keys, `DEFAULT_TRUSTED_PROFILE` as the default trusted profile, and `DATA` as the user data. The default trusted profile is auto linked because `--default-trusted-profile-auto-link` is set as `true`.
+
+```sh
+ibmcloud is instance-reinitialize INSTANCE --image IMAGE --boot-volume BOOT_VOLUME_JSON --keys KEY1,KEY2 --default-trusted-profile DEFAULT_TRUSTED_PROFILE --default-trusted-profile-auto-link true --user-data DATA
+```
+{: pre}
+
+## Reloading the OS by using the API
+{: #reloading-os-software-vpc-api}
+{: api}
+
+You can reload the OS by using the API. Use the follow API call to reload the OS.
+
+If you want to retain your data, back up all data before you start an OS reload.
+{: tip}
+
+This example reinitializes the instance `instance_id` by using the image `image_id` with the boot volume attachment options that are provided. It uses `key_id` as the key, `some_data` for the user data, and `profile_id` as the default trusted profile. The default trusted profile is linked because `auto_link` is set as `true`.
+
+```sh
+curl -X POST "https://us-south.iaas.cloud.ibm.com/v1/instances/instance_id/reinitialize?version=2026-07-01&generation=2" -H "Authorization: Bearer $iam_token" -d
+'{
+    "image": {
+         "id": "image_id"
+    },
+    "boot_volume_attachment": {
+      "volume":  {
+        "profile": {
+          "name": "general-purpose"
+          }
+        }
+      },"keys": [{
+        "id": "key_id"
+	}],
+	"user_data": "some_data",
+	"default_trusted_profile": {
+      "target": {
+	    "id": "profile_id"
+	   },
+	   "auto_link": true
+	}
+}'
+```
+{: pre}
 
 ## Deleting a virtual server instance in the console
 {: #delete-virtual-server-instances-ui}
