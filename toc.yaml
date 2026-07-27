@@ -1047,7 +1047,13 @@ toc:
               id: tbs-vpc
               label: Troubleshooting your VPC
               topics:
-              - troubleshooting.md
+              - troubleshooting-create-vpc.md
+              - troubleshooting-delete-vpc.md
+              - troubleshooting-debug-api.md
+              - troubleshooting-no-response-api.md
+              - troubleshooting-api-bearer-token.md
+              - troubleshooting-not-authorized.md
+              - troubleshooting-error-handling-api.md
           - topicgroup:
               id: tbs-bare-metal
               label: Troubleshooting bare metal servers
