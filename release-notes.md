@@ -2,7 +2,7 @@
 
 copyright:
   years: 2019, 2026
-lastupdated: "2026-07-24"
+lastupdated: "2026-07-27"
 
 keywords:
 
@@ -27,6 +27,13 @@ For more information about changes to the {{site.data.keyword.vpc_short}} comman
 
 ## July 2026
 {: #vpc-jul26}
+
+### 27 July 2026
+{: #vpc-jul2726}
+{: release-note}
+
+Operating system (OS) reload for virtual servers (GA)
+:   IBM Cloud VPC Virtual Servers now supports operating system reloads. You can reload the operating system on a device at any time to restore a device to its original working order. Or, you can reconfigure a device with a different operating system. An OS reload removes all data from the device and applies a "like new" configuration, as specified during the configuration process of the OS reload setup. For more information, see [Reloading the OS](/docs/vpc?topic=vpc-managing-virtual-server-instances&interface=ui#reload-operating-system-instances).
 
 ### 24 July 2026
 {: #vpc-jul2426}
