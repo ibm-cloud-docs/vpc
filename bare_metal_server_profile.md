@@ -2,7 +2,7 @@
 
 copyright:
   years: 2021, 2026
-lastupdated: "2026-07-21"
+lastupdated: "2026-07-27"
 
 keywords:
 
@@ -18,9 +18,6 @@ subcollection: vpc
 When you create a bare metal server, you can select from a profile family that best fits your needs. A profile provides a different combination of hardware configurations that include the number of vCPUs, amount of RAM, bandwidth speed, and local storage size. The attributes define the size and capabilities of the bare metal server that you provision.
 {: shortdesc}
 
-Sapphire Rapids (x3 and x3d) profiles are only available in Dallas (us-south) and Frankfurt (eu-de). 
-{: preview}
-
 ## About profile families
 {: #profile-familiy}
 
@@ -34,8 +31,7 @@ Profiles are grouped by the _vCPUs:Memory_ ratio across all the VPC compute offe
 | Very High Memory | 1:16 | Best for running small to medium in-memory databases and OLAP workloads, such as SAP BW/4 HANA. |
 {: caption="Profile families" caption-side="bottom"}
 
-Very High Memory profiles for Gen2 (x2) are available for customers with special approval. Contact your IBM Sales representative if you are interested in getting access.
-{: preview}
+
 
 ## Profile configurations
 {: #bare-metal-servers-profile-list}
