@@ -84,7 +84,7 @@ You can access the Actions menu by clicking ![Actions icon](../icons/action-menu
      | **Mount targets** | Number of mount targets associated with the file share. You can have one mount target per VPC per file share. You can create more mount targets for other VPCs. Click ![Actions icon](../icons/action-menu-icon.svg) to rename or delete the mount target, or to view the mount path. |
      | Name | Name of the mount target. |
      | Status | Status of the mount target on the VPC. |
-     | Virtual private cloud | This field is shown if the file share has the [Deprecated]{: tag-deprecated} VPC access mode. Click the name to go to the details page for that VPC, where you can see a [list of file shares](#fs-view-shares-vpc) that have a mount target in that VPC. |
+     | Virtual private cloud \n [Deprecated]{: tag-deprecated} | This field is shown if the file share has the deprecated VPC access mode. Click the name to go to the details page for that VPC, where you can see a [list of file shares](#fs-view-shares-vpc) that have a mount target in that VPC. |
      | Subnet | This field is shown when the file share has Security group access mode. Click the name of the subnet to see its details.|
      | Security group | This field is shown when the file share has Security group access mode. It's the number of security groups that the share is a member of. |
      | Reserved IP | This field is shown when the file share has Security group access mode. The IP address of the virtual network interface that is attached to the mount target |
