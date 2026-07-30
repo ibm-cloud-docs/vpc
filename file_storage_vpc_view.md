@@ -84,12 +84,12 @@ You can access the Actions menu by clicking ![Actions icon](../icons/action-menu
      | **Mount targets** | Number of mount targets associated with the file share. You can have one mount target per VPC per file share. You can create more mount targets for other VPCs. Click ![Actions icon](../icons/action-menu-icon.svg) to rename or delete the mount target, or to view the mount path. |
      | Name | Name of the mount target. |
      | Status | Status of the mount target on the VPC. |
-     | Virtual private cloud | This field is shown if the file share has the [Deprecated]{: tag-deprecated} VPC access mode. Click the name to go to the details page for that VPC, where you can see a [list of file shares](#fs-view-shares-vpc) that have a mount target in that VPC. |
+     | Virtual private cloud \n [Deprecated]{: tag-deprecated} | This field is shown if the file share has the deprecated VPC access mode. Click the name to go to the details page for that VPC, where you can see a [list of file shares](#fs-view-shares-vpc) that have a mount target in that VPC. |
      | Subnet | This field is shown when the file share has Security group access mode. Click the name of the subnet to see its details.|
      | Security group | This field is shown when the file share has Security group access mode. It's the number of security groups that the share is a member of. |
      | Reserved IP | This field is shown when the file share has Security group access mode. The IP address of the virtual network interface that is attached to the mount target |
      | Encryption in Transit |This field is shown when the file share has Security group access mode. Its value can be enabled or disabled. |
-     | **Accessor share bindings**| This section is shown if the share has accessor shares in other VPCs. |
+     | **Accessor share bindings**| The section is shown if the share has accessor shares in other VPCs. |
      | Binding ID | This field shows the ID of the binding that connects the origin share to the accessor share. |
      | Account ID | The ID of the account that has access to your share's data through the accessor share. |
      | Accessor ID | This field shows the account ID that created the accessor share in another VPC. |
@@ -108,7 +108,7 @@ You can access the Actions menu by clicking ![Actions icon](../icons/action-menu
      | Status   | It displays the lifecycle status of the file share. The [status](/docs/vpc?topic=vpc-fs-vpc-monitoring&interface=ui#file-share-statuses) `Stable` is expected.|
      {: caption="File shares details page" caption-side="bottom"}
 
-   -  **Snapshots**  - On the Snapshots tab you can find a summary that's related to all the snapshots and the list of the snapshots that were taken of the file share.
+   -  **Snapshots**  - On the Snapshots tab you can find a summary that is related to all the snapshots and the list of the snapshots that were taken of the file share.
       - The snapshot summary provides information such as the number of snapshots, the overall data volume captured in the snapshots, and the replication role.
       - The Snapshots list shows the snapshots that were taken of the file share. You can see the name, size of the file share when the snapshot was taken, and the status of the snapshot. You can click **Create** to capture a new snapshot. Click the **Actions** icon ![Actions icon](../icons/action-menu-icon.svg "Actions") to reveal the Actions menu. The Actions menu has 2 options: Restore, and Delete.
 
@@ -433,7 +433,7 @@ You must provide the `generation` parameter and specify `generation=2`. For more
 {: #share-states-api}
 
 - `lifecycle_state`
-   - This property provides the current state of a resource through the [Retrieve a file share](/docs/apis/vpc/latest#get-share) method. The values that `lifecycle_state` provides are generic and are meant to apply to various resources, not only file shares. `lifecycle_state` indicate whether the file share is stable, updating, deleting, suspended, and so on. `Stable` is expected. For more information, see [File share statuses](/docs/vpc?topic=vpc-fs-vpc-monitoring&interface=ui#file-share-statuses).
+   - This property provides the current state of a resource through the [Retrieve a file share](/docs/apis/vpc/latest#get-share) method. The values that `lifecycle_state` provides are generic and are meant to apply to various resources, not only file shares. `lifecycle_state` indicate whether the file share is stable, updating, deleting, or suspended. `Stable` is expected. For more information, see [File share statuses](/docs/vpc?topic=vpc-fs-vpc-monitoring&interface=ui#file-share-statuses).
 - `replication_status`
    - This property provides the current replication status of the file through the [Retrieve a file share](/docs/apis/vpc/latest#get-share) method. The values that `replication_status` returns are specific for file shares. For more information, see the [Virtual Private Cloud API](/docs/apis/vpc/latest) content.
 
@@ -1011,7 +1011,7 @@ data "ibm_is_share_mount_targets" "example" {
 ```
 {: codeblock}
 
-The attributes that are exported include the list of mount targets and their IDs, names, creation dates, mount paths, subnet information, and so on.
+The attributes that are exported include the list of mount targets and their IDs, names, creation dates, mount paths, and subnet information.
 
 For more information, see [ibm_is_share_mount_targets](https://registry.terraform.io/providers/IBM-Cloud/ibm/latest/docs/data-sources/is_share_mount_targets){: external}.
 
