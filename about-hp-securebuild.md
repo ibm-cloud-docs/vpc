@@ -2,7 +2,7 @@
 
 copyright:
   years: 2024, 2026
-lastupdated: "2026-06-26"
+lastupdated: "2026-07-30"
 
 keywords: confidential computing, enclave, secure execution, hpcr, hyper protect virtual server for vpc, Hyper Protect Secure Build, hpsb, sbs
 
@@ -33,9 +33,9 @@ Make sure that you use the latest Secure Build CLI code from [this repository](h
 1. Complete the following steps to set up the Hyper Protect Secure Build Server (HPSB) client environment:
     1. Install the Secure Build CLI first. For more information, see [Install the Secure Build CLI](https://github.com/ibm-hyper-protect/secure-build-cli/blob/master/HPSB-VPC.md#install-the-secure-build-cli).
     2. Prepare the `sbs-config.json` configuration file for the HPSB server. For more information, see [Prepare the configuration](https://github.com/ibm-hyper-protect/secure-build-cli/blob/master/HPSB-VPC.md#preparing-the-configuration).
-2. Complete the following steps to create the `user-data.yaml`file that is used as the contract.
+2. Complete the following steps to create the `user-data.yaml` file that is used as the contract.
 
-   1. Copy the following `workload` section of the contract that is generated through an automated process into the `user-data.yaml`file. This `workload` section contains the encrypted details of the Hyper Protect Secure Build image.
+   1. Copy the following `workload` section of the contract that is generated through an automated process into the `user-data.yaml` file. This `workload` section contains the encrypted details of the Hyper Protect Secure Build image.
 
    Use the following `workload` section of the contract for the IBM Hyper Protect Container Runtime image version `ibm-hyper-protect-container-runtime-1-0-s390x-28`:
 
@@ -44,6 +44,8 @@ Make sure that you use the latest Secure Build CLI code from [this repository](h
 
    ```
    {: codeblock}
+
+
 
    2. Create the `env` section of the contract. For more information about the `env` section of the contract, see [The env section](/docs/vpc?topic=vpc-about-contract_se#hpcr_contract_env) and [an example of the `env` section](https://github.com/ibm-hyper-protect/secure-build-cli/blob/master/HPSB-VPC.md#an-example-of-the-env-section-of-the-contract).
 

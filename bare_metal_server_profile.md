@@ -2,7 +2,7 @@
 
 copyright:
   years: 2021, 2026
-lastupdated: "2026-07-27"
+lastupdated: "2026-07-29"
 
 keywords:
 
@@ -153,12 +153,12 @@ Multiple profile generations are available with Intel Cascade Lake processors (x
 
 The following information describes the naming rule of the profiles.
 
-* _b_ represents _Balanced_ family profile - _c_ represents the _Compute_ family profile - _m_ represents the _Memory_ family profile - _v_ represents the _Very High Memory_ family profile.
+* _b_ represents the _Balanced_ family profile - _c_ represents the _Compute_ family profile - _m_ represents the _Memory_ family profile - _v_ represents the _Very High Memory_ family profile.
 * _x_ represents the _x86_64_ CPU architecture.
-* _2_ represents previous generation Intel Cascade Lake processors.
-* _3_ represents current generation Intel Sapphire Rapids processors.
-* _d_ represents support for additional local storage.
-* _e_ represents support for storage density.
+* _2_ represents the previous generation Intel Cascade Lake processors.
+* _3_ represents the current generation Intel Sapphire Rapids processors.
+* _d_ represents the support for additional local storage.
+* _e_ represents the support for storage density.
 * "metal" denotes that the profile is a bare metal server.
 * The last position that contains numbers shows the amount of vCPUs and the amount of memory (GB). For example, _96x384_ means that this profile has 96 vCPUs and 384 GiB of memory.
 

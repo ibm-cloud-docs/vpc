@@ -2,7 +2,7 @@
 
 copyright:
   years: 2019, 2026
-lastupdated: "2026-06-22"
+lastupdated: "2026-07-30"
 
 keywords: volume, capacity, Block Storage
 
@@ -35,6 +35,9 @@ Review the following checklist items and record your answers. Provide this infor
 - **Of the secondary volumes, how many secondary volumes do you need and of what capacity?**
     >*"75% of the secondary volumes are under 250 GB and 25% are up to 16,000 GB."*
 
+- **Which volume profiles are used: `general-purpose`, `5iops-tier`, `10iops-tier`, `custom`, or `sdp`?**
+    >*We request the capacity increase for `sdp` volumes.*    
+
 - **What is the performance level that you require for the new volumes? Provide the name of the volume profile or custom IOPS value.**
     >*"We plan to provision the smaller, 250-GB volumes with general-purpose (3 IOPS/GB) profile, and the large, 16-TB volumes with the custom profile and 48,000 IOPS."*
 
@@ -47,9 +50,6 @@ Review the following checklist items and record your answers. Provide this infor
 - **Provide a 90-day forecast of expected average capacity usage of these volumes.**
     >*"I expect 25% of the volumes to be used in 30 days, 50% to be used in 60 days and 75% to be used in 90 days".*
     >*"For secondary volumes, I expect to create 50% of the secondary volumes at less than 250 GB within 30 days and secondary volumes greater than 250 GB within 60 days."*
-
-- **Which volume profiles are used: `general-purpose`, `5iops-tier`, `10iops-tier`, `custom`, or `sdp`?**
-    >*We request the capacity increase for `sdp` volumes.*
 
 Respond promptly to all questions and statements in your request. They're necessary for processing and approval. If some things are unclear, the support team contacts you to clarify your answers.
 {: important}

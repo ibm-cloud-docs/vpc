@@ -2,7 +2,7 @@
 
 copyright:
   years: 2023, 2026
-lastupdated: "2026-06-26"
+lastupdated: "2026-07-30"
 
 keywords: share, capacity, Block Storage
 
@@ -32,6 +32,9 @@ Review the following checklist items and record your answers. Provide this infor
 - **What is the file share capacity that you require?**
     >*"75% of the file shares are under 250 GB and 25% are up to 32,000 GB."*
 
+- **Which share profiles are used: `dp2` or `rfs`?**
+    >*We request the capacity increase for `dp2` shares.*   
+
 - **What is the performance level that you require for the new shares?**
     >*"We plan to provision the smaller, 250-GB file shares with 5000 IOPS, and the large, 32-TB file shares with 48,000 IOPS."*
 
@@ -42,7 +45,7 @@ Review the following checklist items and record your answers. Provide this infor
     >*"I expect to create these shares within 90 days".*
 
 - **Provide a 90-day forecast of expected average capacity usage of these shares.**
-    >*"I expect 25% of the shares to be used in 30 days, 50 percent to be used in 60 days and 75% to be used in 90 days".*
+    >*"I expect 25% of the shares to be used in 30 days, 50% to be used in 60 days and 75% to be used in 90 days".*
     >*"I expect to create 50% of the shares at less than 250 GB within 30 days and file shares greater than 250 GB within 60 days."*
 
 Respond promptly to all questions and statements in your request. They're necessary for processing and approval. If some things are unclear, the support team contacts you to clarify your answers.

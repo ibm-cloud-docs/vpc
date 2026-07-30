@@ -2,7 +2,7 @@
 
 copyright:
   years: 2021, 2026
-lastupdated: "2026-05-08"
+lastupdated: "2026-07-29"
 
 keywords: image, virtual private cloud, boot volume, virtual server instance, instance, gpu, graphics processing unit, set up gpu
 
@@ -15,7 +15,7 @@ subcollection: vpc
 # Managing GPUs and accelerators for VPC
 {: #managing-gpus}
 
-The GPU-enabled family of profiles provides on demand, cost-effective access to GPUs and accelerators. GPUs and accelerators help to accelerate the processing time that is required for compute intensive workloads such as AI, machine learning, inferencing and more. To use the GPUs and accelerators, make sure that you install the appropriate driver and associated toolkit for your workloads.
+The GPU-enabled family of profiles provides on-demand, cost-effective access to GPUs and accelerators. GPUs and accelerators help to accelerate the processing time that is required for compute intensive workloads such as AI, machine learning, inferencing, and more. To use the GPUs and accelerators, make sure that you install the appropriate driver and associated toolkit for your workloads.
 {: shortdesc}
 
 
@@ -73,7 +73,7 @@ The GPU-enabled family of profiles provides on demand, cost-effective access to 
    {: class="simple-tab-table"}
    {: summary="GPUs and minimum NVIDIA drivers and CUDA versions"}
 
-3. Install associated toolkit for your workload. Visit NVIDIA's [CUDA toolkit downloads](https://developer.nvidia.com/cuda-downloads){: external} page.
+3. Install associated toolkit for your workload. See NVIDIA's [CUDA toolkit downloads](https://developer.nvidia.com/cuda-downloads){: external} page.
 
 For detailed instructions to complete Steps 2 and 3, other GPU tools, and examples, see [How to Use V100-Based GPUs on IBM Cloud VPC](https://www.ibm.com/products/tutorials/how-to-use-v100-based-gpus-on-ibm-cloud-vpc){: external}.
 
