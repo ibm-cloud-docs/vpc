@@ -208,6 +208,7 @@ toc:
             navtitle: Updating to the `2023-12-05` version (backup policies)
           - vpn-api-migration.md
           - 2022-03-29-migration.md
+      - terraform.md
       - topicgroup:
           id: managing-access
           label: Managing access
