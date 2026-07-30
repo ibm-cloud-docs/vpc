@@ -2,7 +2,7 @@
 
 copyright:
   years: 2021, 2026
-lastupdated: "2026-07-09"
+lastupdated: "2026-07-30"
 
 keywords: file share, file storage, virtual network interface, encryption in transit, profiles,
 
@@ -296,7 +296,9 @@ Access Protocol             nfs4
 ### Creating a mount target with VPC access mode
 {: #fs-create-mount-target-vpc-cli}
 
-The following example creates a mount target for a zonal file share that has the [Deprecated]{: tag-deprecated} vpc access mode.
+[Deprecated]{: tag-deprecated}
+
+The following example creates a mount target for a zonal file share that has the deprecated VPC access mode.
 
 The `vpc` access mode is set to reach End of Support on 06 May 2027. Follow the [migration guide](/docs/vpc?topic=vpc-fs-migrate-access-mode&interface=ui#fs-migrate-update-mode) to update your share's access control mode to `security-group`.
 {: deprecated}
@@ -648,10 +650,12 @@ The following example shows how to add a mount target to a regional file share. 
 ```
 {: codeblock}
 
-### Adding a mount target to an existing file share with the vpc access mode
+### Adding a mount target to an existing file share with the VPC access mode
 {: #fs-create-file-share-vpc-api}
 
-This request adds a mount target to an existing file share. In this example, the [Deprecated]{: tag-deprecated} `vpc` value is specified because the file share's access control mode is `vpc`. Data encryption in transit cannot be enabled.
+[Deprecated]{: tag-deprecated}
+
+This request adds a mount target to an existing file share. In this example, the `vpc` value is specified because the file share's access control mode is `vpc`. Data encryption in transit cannot be enabled.
 
 ```sh
 curl -X POST "$vpc_api_endpoint/v1/shares/$share_id/mount_targets?version=2023-08-08&generation=2"\
@@ -1114,6 +1118,8 @@ resource "ibm_is_share_mount_target" "regional-mount-target-with-vni" {
 }
 ```
 {: codeblock}
+
+[Deprecated]{: tag-deprecated}
 
 You can also create a mount target for a zonal file share with the VPC access mode by using the `is_share_mount_target` resource. The following example creates a mount target with the name `my-share-target` for the file share that is specified by its ID. When the mount target is created, all virtual server instances in the VPC can mount the share by using it. Encryption in transit is not supported.
 

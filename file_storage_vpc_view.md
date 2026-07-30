@@ -2,7 +2,7 @@
 
 copyright:
   years: 2022, 2026
-lastupdated: "2026-06-26"
+lastupdated: "2026-07-30"
 
 keywords: file storage, file share, view share details, mount targets, view targets, view share
 
@@ -70,12 +70,12 @@ You can access the Actions menu by clicking ![Actions icon](../icons/action-menu
      | Location | The location of the file share (for example, us-south-2). |
      | Replication role | Source file share or replica. |
      | Encryption | Specifies provider-managed or [customer-managed encryption](/docs/vpc?topic=vpc-file-storage-byok-encryption). When the file share is encrypted with customer-managed keys, the encryption instance, encryption key name, and encryption key CRN are also shown. |
-     | Mount target access mode | This field is displayed only when the file share has the [Deprecated]{: tag-deprecated} vpc access mode. Click the **Edit icon** ![Edit icon](../icons/edit-tagging.svg "Edit") to switch access mode. For more information, see the [migration guide](/docs/vpc?topic=vpc-fs-migrate-access-mode&interface=ui#fs-migrate-update-mode). |
+     | Mount target access mode \n [Deprecated]{: tag-deprecated} | This field is displayed only when the file share has the deprecated VPC access mode. Click the **Edit icon** ![Edit icon](../icons/edit-tagging.svg "Edit") to switch access mode. For more information, see the [migration guide](/docs/vpc?topic=vpc-fs-migrate-access-mode&interface=ui#fs-migrate-update-mode). |
      | CRN | The copiable Cloud Resource Name of the file share.|
-     | Allowed encryption in transit mode | This value shows whether encryption in transit is required when clients access the file share. Click the **Edit icon** ![Edit icon](../icons/edit-tagging.svg "Edit") to change the allowed values. The possible values are `User managed`, and `None`. This field is not applicable for file shares with [Deprecated]{: tag-deprecated} VPC access mode. \n [Select availability]{: tag-green} Customers with special access to preview the new regional file share offering can choose from IPsec, Stunnel, and None. |
-     | Cross-account role | The possible values are None, Origin, Accessor. This field is not applicable for file shares with [Deprecated]{: tag-deprecated} VPC access mode.|
-     | Snapshot count  | This value indicates the number of snapshots that were taken of the file share. This field is not applicable for file shares with [Deprecated]{: tag-deprecated} VPC access mode. |
-     | Size of changed data in all the snapshots  | It represents the billable volume of data across all the snapshots. This field is not applicable for file shares with [Deprecated]{: tag-deprecated} VPC access mode. |
+     | Allowed encryption in transit mode | This value shows whether encryption in transit is required when clients access the file share. Click the **Edit icon** ![Edit icon](../icons/edit-tagging.svg "Edit") to change the allowed values. The possible values are `User managed`, and `None`. This field is not applicable for file shares with the deprecated VPC access mode. \n [Select availability]{: tag-green} Customers with special access to preview the new regional file share offering can choose from IPsec, Stunnel, and None. |
+     | Cross-account role | The possible values are None, Origin, Accessor. This field is not applicable for file shares with the deprecated VPC access mode.|
+     | Snapshot count  | This value indicates the number of snapshots that were taken of the file share. This field is not applicable for file shares with the deprecated VPC access mode. |
+     | Size of changed data in all the snapshots  | It represents the billable volume of data across all the snapshots. This field is not applicable for file shares with the deprecated VPC access mode. |
      | **Profile details**| |
      | Profile | The name of the share [profile](/docs/vpc?topic=vpc-file-storage-profiles) that defines the file share performance. In most cases, the dp2 profile.|
      | Size | File share capacity in GB. |

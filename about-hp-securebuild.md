@@ -18,14 +18,14 @@ subcollection: vpc
 The {{site.data.keyword.cloud_notm}} {{site.data.keyword.hpvs}} for VPC is deprecated. As of 28 February 2026, you can't create new instances. Existing instances are supported until 20 February 2027. Any instances that still exist on that date will be deleted. You can redeploy your workloads by using [IBM Confidential Computing Container Runtime (formerly known as Hyper Protect Virtual Servers)](https://www.ibm.com/docs/en/ccrt) or [IBM Confidential Computing Container Runtime for Red Hat Virtualization Solutions (formerly known as Hyper Protect Container Runtime for Red Hat Virtualization Solutions)](https://www.ibm.com/docs/en/ccrv/1.1.x). For information about data migration, see the [Migration guide](/docs/vpc?topic=vpc-migration_guide). For more information, see the [Service deprecation announcement](/docs/vpc?topic=vpc-ichpcs_deprecated_anmt).
 {: deprecated}
 
-**Docker Content Trust (DCT)** is retired by Docker. With the Docker upgrade, customers using DCT-based image signing might start to encounter ​​​​​​limitations or compatibility considerations​​​​. Plan your transition to IBM Cloud Container Registry (ICR)​​​​ and use ​​​​​​Red Hat Signing Service (RHS)​​​​ for a supported OCI-compliant image signing approach. For more information, see ​​​​​[​Retiring Docker Content Trust​​​​](https://www.docker.com/blog/retiring-docker-content-trust/).
+**Docker Content Trust (DCT)** is retired by Docker. With the Docker upgrade, customers who use DCT-based image signing might start to encounter ​​​​​​limitations or compatibility considerations​​​​. Plan your transition to IBM Cloud Container Registry (ICR)​​​​ and use ​​​​​​Red Hat Signing Service (RHS)​​​​ for a supported OCI-compliant image signing approach. For more information, see ​​​​​[​Retiring Docker Content Trust​​​​](https://www.docker.com/blog/retiring-docker-content-trust/).
 {: important}
 
 By using Hyper Protect Secure Build, you can build a trusted container image within a secure enclave that is provided by {{site.data.keyword.cloud_notm}} {{site.data.keyword.hpvs}} for VPC. The enclave is highly isolated, where developers can access the container only by using a specific API and the cloud administrator cannot access the contents of the container. Therefore, the image that is built can be highly trusted. Specifically, the build server cryptographically signs the image, and a manifest (which is a collection of materials that are used during the build, for audits). Since the enclave protects the signing keys within the enclave, the signatures can be used to verify whether the image and manifest are from the build server, and not elsewhere.
 {: shortdesc}
 
 
-## Configuring and using Hyper Protect Secure Build in {{site.data.keyword.hpvs}} for VPC
+## Configuring and that use Hyper Protect Secure Build in {{site.data.keyword.hpvs}} for VPC
 {: #hpvs_hpsb}
 
 Make sure that you use the latest Secure Build CLI code from [this repository](https://github.com/ibm-hyper-protect/secure-build-cli).
