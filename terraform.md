@@ -29,61 +29,70 @@ Before you begin, make sure that you have the [required access](/docs/vpc?topic=
 1. Follow the [Terraform on {{site.data.keyword.cloud}} getting started tutorial](/docs/ibm-cloud-provider-for-terraform?topic=ibm-cloud-provider-for-terraform-getting-started) to install the Terraform CLI and configure the {{site.data.keyword.cloud}} Provider plug-in for Terraform. The plug-in abstracts the {{site.data.keyword.cloud}} APIs that are used to provision, update, or delete VPC service instances and resources.
 2. Create a Terraform configuration file that is named `main.tf`. In this file, you add the configuration to create a {{site.data.keyword.vpc_full}} and associated resources by using HashiCorp Configuration Language (HCL). For more information, see [Provisioning infrastructure with Terraform](/docs/solution-tutorials?topic=solution-tutorials-vpc-app-deploy#vpc-app-deploy-terraform) and [Terraform documentation](https://developer.hashicorp.com/terraform/language){: external}.
 
-   The following example creates a VPC named `myvpc`, a subnet in the `us-south-1` zone with a reserved IP, an SSH key, and a virtual server instance with boot volume encryption and two network interfaces. For other supported regions, see [Regions and endpoints](/docs/vpc?topic=vpc-service-endpoints-for-vpc).
+   The following example creates a VPC, a subnet in the `us-south-1` zone, an SSH key, a virtual network interface, and a virtual server instance with boot volume encryption and two network attachments. For other supported regions, see [Regions and endpoints](/docs/vpc?topic=vpc-service-endpoints-for-vpc).
 
    ```terraform
-   resource "ibm_is_vpc" "my_vpc" {
-     name = "myvpc"
+   resource "ibm_is_vpc" "example" {
+     name = "example-vpc"
    }
 
-   resource "ibm_is_subnet" "my_subnet" {
-     name                     = "mysubnet"
-     vpc                      = ibm_is_vpc.my_vpc.id
-     zone                     = "us-south-1"
-     total_ipv4_address_count = 256
+   resource "ibm_is_subnet" "example" {
+     name            = "example-subnet"
+     vpc             = ibm_is_vpc.example.id
+     zone            = "us-south-1"
+     ipv4_cidr_block = "10.240.0.0/24"
    }
 
-   resource "ibm_is_subnet_reserved_ip" "my_reserved_ip" {
-     subnet  = ibm_is_subnet.my_subnet.id
-     name    = "myreservedip1"
-     address = "${replace(ibm_is_subnet.my_subnet.ipv4_cidr_block, "0/24", "13")}"
+   resource "ibm_is_ssh_key" "example" {
+     name       = "example-ssh"
+     public_key = "ssh-rsa AAAAB3NzaC1yc2EAAAADAQABAAABAQCKVmnMOlHKcZK8tpt3MP1lqOLAcqcJzhsvJcjscgVERRN7/9484SOBJ3HSKxxNG5JN8owAjy5f9yYwcUg+JaUVuytn5Pv3aeYROHGGg+5G346xaq3DAwX6Y5ykr2fvjObgncQBnuU5KHWCECO/4h8uWuwh/kfniXPVjFToc+gnkqA+3RKpAecZhFXwfalQ9mMuYGFxn+fwn8cYEApsJbsEmb0iJwPiZ5hjFC8wREuiTlhPHDgkBLOiycd20op2nXzDbHfCHInquEe/gYxEitALONxm0swBOwJZwlTDOB7C6y2dzlrtxr1L59m7pCkWI4EtTRLvleehBoj3u7jB4usR"
    }
 
-   resource "ibm_is_ssh_key" "my_sshkey" {
-     name       = "myssh"
-     public_key = "<your_ssh_public_key>"
+   resource "ibm_is_virtual_network_interface" "example" {
+     name                      = "example-vni"
+     allow_ip_spoofing         = false
+     enable_infrastructure_nat = true
+     primary_ip {
+       auto_delete = false
+       address     = "10.240.0.8"
+     }
+     subnet = ibm_is_subnet.example.id
    }
 
-   resource "ibm_is_instance" "my_instance" {
-     name    = "myinstance"
-     image   = ibm_is_image.my_image.id
-     profile = "bc1-2x8"
+   resource "ibm_is_instance" "example" {
+     name                     = "example-instance"
+     image                    = ibm_is_image.example.id
+     profile                  = "bx2-2x8"
+     metadata_service_enabled = false
 
      boot_volume {
        encryption = "crn:v1:bluemix:public:kms:us-south:a/<account_id>:<kms_instance_id>:key:<key_id>"
      }
 
-     primary_network_interface {
-       name   = "eth0"
-       subnet = ibm_is_subnet.my_subnet.id
-       primary_ip {
-         reserved_ip = ibm_is_subnet_reserved_ip.my_reserved_ip.reserved_ip
+     primary_network_attachment {
+       name = "example-primary-att"
+       virtual_network_interface {
+         id = ibm_is_virtual_network_interface.example.id
        }
      }
 
-     network_interfaces {
-       name   = "eth1"
-       subnet = ibm_is_subnet.my_subnet.id
-       primary_ip {
-         name        = "myreservedip1"
-         auto_delete = true
-         address     = "${replace(ibm_is_subnet.my_subnet.ipv4_cidr_block, "0/24", "14")}"
+     network_attachments {
+       name = "example-network-att"
+       virtual_network_interface {
+         name                      = "example-net-vni"
+         auto_delete               = true
+         enable_infrastructure_nat = true
+         primary_ip {
+           auto_delete = true
+           address     = "10.240.0.6"
+         }
+         subnet = ibm_is_subnet.example.id
        }
      }
 
-     vpc  = ibm_is_vpc.my_vpc.id
-     zone = "us-south-1"
-     keys = [ibm_is_ssh_key.my_sshkey.id]
+     vpc  = ibm_is_vpc.example.id
+     zone = ibm_is_subnet.example.zone
+     keys = [ibm_is_ssh_key.example.id]
 
      //User can configure timeouts
      timeouts {
