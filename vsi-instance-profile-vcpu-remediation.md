@@ -18,7 +18,7 @@ subcollection: vpc
 ## What are we changing?
 {: #vcpu-what-changed}
 
-The VPC API version `2026-09-01` introduces changes to how instance profile vCPU counts are represented. Requests that use earlier API versions are not affected. For information about this upcoming change, see the [Upcoming changes](/docs/vpc?topic=vpc-api-change-log#upcoming-changes) section of the VPC API change log, and look for the InstanceProfile response change entry.
+The VPC API version `2026-09-01` introduces changes to how instance profile vCPU counts are represented. Requests that use earlier API versions are not affected. For information about this upcoming change, see the [Upcoming changes](/docs/vpc?topic=vpc-api-change-log#upcoming-changes) section of the VPC API change log, and look for the `InstanceProfile` response change entry.
 
 For API versions `2026-09-01` or later:
 
