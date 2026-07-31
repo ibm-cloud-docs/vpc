@@ -1,7 +1,7 @@
 ---
 
 copyright:
-  years: 2026, 2026
+  years: 2026
 lastupdated: "2026-07-31"
 
 keywords: instance profile migration, vcpu count, instance profiles, versioned change, migration
@@ -65,7 +65,7 @@ The following examples show the response before and after the `2026-09-01` API v
 {: #retrieve-instance-profile-api-version-2026-09-01}
 
 The following response is from a request that uses an API version earlier than `2026-09-01`. The `vcpu_count` property contains a fixed value, and `supported_vcpu_count` contains the supported values.
- 
+
 ```json
 {
   "name": "bx2-custom",
