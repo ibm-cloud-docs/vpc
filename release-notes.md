@@ -31,6 +31,9 @@ For more information about changes to the {{site.data.keyword.vpc_short}} comman
 {: #vpc-jul3125}
 {: release-note}
 
+AMD Instinct MI300X accelerated bare metal server profile now available (select availability)
+:   The AMD Instinct MI300X accelerated bare metal server profile is now available in Washington DC (us-east) region only. This profile supports single-node inferencing and doesn't include a cluster network. The profile runs on an [AMD Instinct™ MI300X Accelerator](https://www.amd.com/en/products/accelerators/instinct/mi300/mi300x.html){: external} that is tuned for AI workloads, including inferencing and fine-tuning. For more information about the `gx3d-metal-224x2048x8mi300x-sn` profile, see [x86-64 bare metal server profiles](/docs/vpc?topic=vpc-bare-metal-servers-profile&interface=ui). For information on configuring a bare metal server with the gx3d profile, see [Configuring a bare metal server with an AMD Instinct MI300X Accelerator](/docs/vpc?topic=vpc-managing-gpus#configure-bare-metal-server-with-amd-mi300x).
+
 Workload update for IBM Hyper Protect Secure Build
 :   The `workload` section of the IBM Hyper Protect Secure Build is updated based on the IBM Hyper Protect Container Runtime image `ibm-hyper-protect-container-runtime-1-0-s390x-29`. For more information, see [Configuring and using IBM Hyper Protect Secure Build in {{site.data.keyword.hpvs}} for VPC](/docs/vpc?topic=vpc-about-hpsb#hpvs_hpsb). Clone the latest Secure-Build-Cli to create a IBM Hyper Protect Secure Build server.
 
