@@ -58,4 +58,4 @@ If you or other users in your account retrieve or list instance profiles using A
 ## Migration guidance
 {: #vcpu-migration-guidance}
 
-Detailed migration guidance and examples are available in [Updating to the `2026-09-01` version (instance profile vCPU count change)](/docs/vpc?topic=vpc-2026-09-01-instance-profile-vcpu-count-change). Review that guidance before updating your clients to API version `2026-09-01`.
+Detailed migration guidance and examples are available in [Updating to the `2026-09-01` version (instance profile vCPU count change)](/docs/vpc?topic=vpc-2026-09-01-instance-profile-vcpu-count-change). Review this guidance before updating your clients to API version `2026-09-01`.
