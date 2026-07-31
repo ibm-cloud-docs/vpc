@@ -27,8 +27,8 @@ For more information about changes to the {{site.data.keyword.vpc_short}} comman
 ## July 2026
 {: #vpc-jul26}
 
-### 31 July 2025
-{: #vpc-jul3125}
+### 31 July 2026
+{: #vpc-jul3126}
 {: release-note}
 
 AMD Instinct MI300X accelerated bare metal server profile now available (select availability)
