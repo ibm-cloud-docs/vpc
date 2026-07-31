@@ -2,7 +2,7 @@
 
 copyright:
   years: 2021, 2026
-lastupdated: "2026-07-29"
+lastupdated: "2026-07-31"
 
 keywords:
 
@@ -31,7 +31,8 @@ Profiles are grouped by the _vCPUs:Memory_ ratio across all the VPC compute offe
 | Very High Memory | 1:16 | Best for running small to medium in-memory databases and OLAP workloads, such as SAP BW/4 HANA. |
 {: caption="Profile families" caption-side="bottom"}
 
-
+The AMD Instinct MI300X accelerated bare metal server profile is available for customers with special approval in the Washington DC (us-east) region only. Contact your IBM Sales representative if you are interested in getting access. For information on configuring a bare metal server with the gx3d profile, see [Configuring a bare metal server with an AMD Instinct MI300X Accelerator](/docs/vpc?topic=vpc-managing-gpus#configure-bare-metal-server-with-amd-mi300x).
+{: preview}
 
 ## Profile configurations
 {: #bare-metal-servers-profile-list}
@@ -109,6 +110,16 @@ Multiple profile generations are available with Intel Cascade Lake processors (x
 
 | Name | vCPU | Memory (GiB) | Local storage (GB) | Total network bandwidth (Gbps) |
 |---------|---------|---------|---------|---------|
+| gx3d-metal-224x2048x8mi300x-sn | 224 | 2048 | 8x3200 | 200 |
+{: caption="Profile families for x3 and x3d" caption-side='top"}
+{: #bare-metal-gpu-profiles-x3}
+{: tab-title="GPU profiles for x3d"}
+{: tab-group="profile-configurations-x3"}
+{: class="simple-tab-table"}
+{: summary="Use the buttons before the table to change the context of the table. The column headers identify the hardware class."}
+
+| Name | vCPU | Memory (GiB) | Local storage (GB) | Total network bandwidth (Gbps) |
+|---------|---------|---------|---------|---------|
 | mx3d-metal-16x128 | 16 | 128 | 2x480 SSDs in RAID1  \n 30.72 TB secondary storage (allocation of 4 x 7680) | 200 |
 | mx3-metal-48x512 | 48 | 512 | 2x480 SSDs in RAID1 | 200 |
 | mx3d-metal-48x512 | 48 | 512 | 2x480 SSDs in RAID1  \n 30.72 TB secondary storage (allocation of 4 x 7680) | 200 |
@@ -147,6 +158,8 @@ Multiple profile generations are available with Intel Cascade Lake processors (x
 {: tab-group="profile-configurations-x3"}
 {: class="simple-tab-table"}
 {: summary="Use the buttons before the table to change the context of the table. The column headers identify the hardware class."}
+
+If you are using GPU profiles, you need to install the required software and drivers onto your bare metal server. For more information, see [Managing GPUs and accelerators](/docs/vpc?topic=vpc-managing-gpus).
 
 ### Understanding the naming rule of the profiles
 {: #profile-naming-rule-bm-x86-64}
@@ -193,6 +206,36 @@ See the following table to see what Generation 3 (x3) bare metal profiles are av
 | mx3d-metal-96x1024  | ![Checkmark icon](../icons/checkmark-icon.svg) | ![Checkmark icon](../icons/checkmark-icon.svg) | ![Checkmark icon](../icons/checkmark-icon.svg) |
 | mx3d-metal-128x1024   | ![Checkmark icon](../icons/checkmark-icon.svg) | ![Checkmark icon](../icons/checkmark-icon.svg) | ![Checkmark icon](../icons/checkmark-icon.svg) |
 | bx3d-metal-192x1024   | ![Checkmark icon](../icons/checkmark-icon.svg) | ![Checkmark icon](../icons/checkmark-icon.svg) | ![Checkmark icon](../icons/checkmark-icon.svg) |
+{: caption="Bare metal profiles availability by region" caption-side='top"}
+{: #bare-metal-profiles-americas-gen3}
+{: tab-title="Americas"}
+{: tab-group="profile-regions-gen3"}
+{: class="simple-tab-table"}
+{: summary="Use the buttons before the table to change the context of the table. The column headers identify the hardware class."}
+
+| Profile |  us-south-dal10-a | us-south-dal12-a | us-south-dal13-a | us-east-wdc03-a |
+| ------- | ----------- | ---------- | ---------- | ---------- |
+| mx3d-metal-16x128   | ![Checkmark icon](../icons/checkmark-icon.svg) | ![Checkmark icon](../icons/checkmark-icon.svg) | ![Checkmark icon](../icons/checkmark-icon.svg) | - |
+| cx3d-metal-48x128   | ![Checkmark icon](../icons/checkmark-icon.svg) | ![Checkmark icon](../icons/checkmark-icon.svg) | ![Checkmark icon](../icons/checkmark-icon.svg) | - |
+| cx3d-metal-64x128   | ![Checkmark icon](../icons/checkmark-icon.svg) | ![Checkmark icon](../icons/checkmark-icon.svg) | ![Checkmark icon](../icons/checkmark-icon.svg) | - |
+| vx3-metal-16x256   | ![Checkmark icon](../icons/checkmark-icon.svg) | ![Checkmark icon](../icons/checkmark-icon.svg) | ![Checkmark icon](../icons/checkmark-icon.svg) | - |
+| bx3-metal-48x256   | ![Checkmark icon](../icons/checkmark-icon.svg) | ![Checkmark icon](../icons/checkmark-icon.svg) | ![Checkmark icon](../icons/checkmark-icon.svg) | - |
+| bx3-metal-64x256   | ![Checkmark icon](../icons/checkmark-icon.svg) | ![Checkmark icon](../icons/checkmark-icon.svg) | ![Checkmark icon](../icons/checkmark-icon.svg) | - |
+| vx3d-metal-16x256   | ![Checkmark icon](../icons/checkmark-icon.svg) | ![Checkmark icon](../icons/checkmark-icon.svg) | ![Checkmark icon](../icons/checkmark-icon.svg) | - |
+| bx3d-metal-48x256   | ![Checkmark icon](../icons/checkmark-icon.svg) | ![Checkmark icon](../icons/checkmark-icon.svg) | ![Checkmark icon](../icons/checkmark-icon.svg) | - |
+| ux3-metal-16x512   | ![Checkmark icon](../icons/checkmark-icon.svg) | ![Checkmark icon](../icons/checkmark-icon.svg) | ![Checkmark icon](../icons/checkmark-icon.svg) | - |
+| mx3-metal-48x512   | ![Checkmark icon](../icons/checkmark-icon.svg) | ![Checkmark icon](../icons/checkmark-icon.svg) | ![Checkmark icon](../icons/checkmark-icon.svg) | - |
+| mx3-metal-64x512   | ![Checkmark icon](../icons/checkmark-icon.svg) | ![Checkmark icon](../icons/checkmark-icon.svg) | ![Checkmark icon](../icons/checkmark-icon.svg) | - |
+| ux3d-metal-16x512   | ![Checkmark icon](../icons/checkmark-icon.svg) | ![Checkmark icon](../icons/checkmark-icon.svg) | ![Checkmark icon](../icons/checkmark-icon.svg) | - |
+| mx3d-metal-48x512   | ![Checkmark icon](../icons/checkmark-icon.svg) | ![Checkmark icon](../icons/checkmark-icon.svg) | ![Checkmark icon](../icons/checkmark-icon.svg) | - |
+| mx3d-metal-64x512   | ![Checkmark icon](../icons/checkmark-icon.svg) | ![Checkmark icon](../icons/checkmark-icon.svg) | ![Checkmark icon](../icons/checkmark-icon.svg) | - |
+| ux3de-metal-16x512   | ![Checkmark icon](../icons/checkmark-icon.svg) | ![Checkmark icon](../icons/checkmark-icon.svg) | ![Checkmark icon](../icons/checkmark-icon.svg) | - |
+| mx3de-metal-48x512   | ![Checkmark icon](../icons/checkmark-icon.svg) | ![Checkmark icon](../icons/checkmark-icon.svg) | ![Checkmark icon](../icons/checkmark-icon.svg) | - |
+| mx3de-metal-64x512   | ![Checkmark icon](../icons/checkmark-icon.svg) | ![Checkmark icon](../icons/checkmark-icon.svg) | ![Checkmark icon](../icons/checkmark-icon.svg) | - |
+| mx3d-metal-96x1024  | ![Checkmark icon](../icons/checkmark-icon.svg) | ![Checkmark icon](../icons/checkmark-icon.svg) | ![Checkmark icon](../icons/checkmark-icon.svg) | - |
+| mx3d-metal-128x1024   | ![Checkmark icon](../icons/checkmark-icon.svg) | ![Checkmark icon](../icons/checkmark-icon.svg) | ![Checkmark icon](../icons/checkmark-icon.svg) | - |
+| bx3d-metal-192x1024   | ![Checkmark icon](../icons/checkmark-icon.svg) | ![Checkmark icon](../icons/checkmark-icon.svg) | ![Checkmark icon](../icons/checkmark-icon.svg) | - |
+| gx3d-metal-224x2048x8mi300x-sn | - | - | - | ![Checkmark icon](../icons/checkmark-icon.svg) |
 {: caption="Bare metal profiles availability by region" caption-side='top"}
 {: #bare-metal-profiles-americas-gen3}
 {: tab-title="Americas"}

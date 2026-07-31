@@ -2,7 +2,7 @@
 
 copyright:
   years: 2021, 2026
-lastupdated: "2026-07-29"
+lastupdated: "2026-07-31"
 
 keywords: image, virtual private cloud, boot volume, virtual server instance, instance, gpu, graphics processing unit, set up gpu
 
@@ -141,6 +141,12 @@ To configure the guest OS for the B300 GPU:
 1. Provision a virtual server instance with a GPU and install the drivers.
 2. Create an image from the virtual server instance stock image boot volume. For more information, see [Creating an image from a volume](/docs/vpc?topic=vpc-create-ifv&interface=ui).
 3. Repeat the Image from volume process to deploy across multiple instances.
+
+## Configuring a bare metal server with an AMD Instinct MI300X Accelerator
+{: #configure-bare-metal-server-with-amd-mi300x}
+
+1. [Create a bare metal server](/docs/vpc?topic=vpc-creating-bare-metal-servers&interface=ui) by choosing the AMD Instinct™ MI300X Accelerator [bare metal server profile](/docs/vpc?topic=vpc-bare-metal-servers-profile&interface=ui) in the Profile field. Stock and custom operating system images are supported.
+2. Install the necessary drivers for your bare metal server. To download the drivers, see [Installing ROCm and machine learning frameworks](https://rocm.docs.amd.com/en/latest/){: external} page.
 
 ## Next steps
 {: #managing-gpus-next-steps}
