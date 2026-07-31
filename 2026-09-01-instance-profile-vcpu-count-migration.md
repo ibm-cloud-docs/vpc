@@ -28,7 +28,7 @@ When [retrieving](/apidocs/vpc/2026-08-31#get-instance-profile) or [listing](/ap
 
 | Changed property        | Change |
 |-------------------------|--------|
-| `vcpu_count`            | The fixed, single value will be removed and replaced with an array |
+| `vcpu_count`            | The fixed, single value will be removed and replaced with an array. |
 | `supported_vcpu_count`  | Will be removed from the response. |
 {: caption="Changed properties when retrieving or listing instance profiles." caption-side="bottom"}
 
