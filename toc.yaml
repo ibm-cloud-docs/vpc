@@ -658,6 +658,8 @@ toc:
               topics:
               - topic: vpn-hcr.md
                 navtitle: Prepare your automation for changes to VPN gateway IKE and IPsec policy API
+              - topic: vpn-gateway-subnet-hcr.md
+                navtitle: Prepare your automation for changes to VPN gateways in VPC API
           - topicgroup:
               id: client-to-site-servers
               label: Client-to-site-servers
