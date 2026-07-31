@@ -2,7 +2,7 @@
 
 copyright:
   years: 2018, 2026
-lastupdated: "2026-02-26"
+lastupdated: "2026-07-31"
 
 subcollection: vpc
 
@@ -190,3 +190,11 @@ nameserver 161.26.0.11
 {: codeblock}
 
 You can also check whether you have rules to allow UDP port 53 for DNS traffic in a security group.
+
+## Can I increase or change the instance storage capacity on my virtual server instance?
+{: #faq-vsi-27}
+{: faq}
+
+No. Instance storage is a set of one or more solid-state drives that are attached to your virtual server instance when it is provisioned. The capacity of instance storage is determined entirely by the virtual server instance profile that you select. You cannot resize, attach additional instance storage disks, or detach existing instance storage disks from a running instance. To change your instance storage capacity, you must provision a new virtual server instance with a profile that provides the capacity you need.
+
+Instance storage is not the same as block storage, file storage, or object storage, and it cannot be managed through those services or their associated CLI commands. For more information, see [About instance storage](/docs/vpc?topic=vpc-instance-storage).
