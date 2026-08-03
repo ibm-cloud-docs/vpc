@@ -39,7 +39,7 @@ Resource Management
 :   Public address ranges can simplify access control and security while enabling a single public ingress route to inspect traffic from multiple endpoints and secure enterprise applications on the VPC.
 
 Scalability
-:   When you need more public IPs, you can reserve a larger prefix without needing to manually manage individual addresses.
+:   When you need more public IPs, you can reserve a prefix that contains more IP addresses without the need to manually manage individual addresses.
 
 High Availability
 :   In regions with availability zones, you can create zone-redundant public IP ranges to distribute IP addresses for high availability. These public address ranges are regional and can be moved between VPCs in the same or different availability zones.
