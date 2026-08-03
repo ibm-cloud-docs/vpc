@@ -2,7 +2,7 @@
 
 copyright:
   years: 2022, 2026
-lastupdated: "2026-07-05"
+lastupdated: "2026-08-03"
 
 keywords: floating ip, reserving, bare metal, vnic, public gateways
 
@@ -16,6 +16,7 @@ subcollection: vpc
 {: #fip-working}
 
 You can reserve a floating IP address, then add it to a network interface to allow traffic from the internet to access your VPC public gateway, virtual server instance, or Bare Metal server.
+{: shortdesc}
 
 
 
@@ -36,7 +37,7 @@ To add a floating IP to a network interface to allow internet traffic to access 
 1. If you are adding a floating IP address to the virtual server instance for the first time, identify the primary network interface in the **Network interfaces** section of the Instance details page.
 
     By default, the first interface is named `eth0`. Initially associating the floating IP address with the primary network interface helps
-establish the data path. Later, you can associate the floating IP to a different network interface if you desire.
+establish the data path. Later, you can associate the floating IP to a different network interface if you want.
 
 1. Click the **Edit icon** ![Edit icon](../icons/edit-tagging.svg "Edit") to edit the primary network interface.
 1. On the **Edit network interface** page, locate the **Floating IP address** field.
@@ -44,7 +45,7 @@ establish the data path. Later, you can associate the floating IP to a different
    1. Select **Reserve a new floating IP**.
    1. Enter your geography, region, and zone information.
    1. Provide the details for the floating IP, including its name and resource group.
-   1. (Optional) Add any tags you want associated with the IP.
+   1. (Optional) Add any tags that you want associated with the IP.
    1. (Optional) Add access management tags to resources to help organize access control relationships. The only supported format for access management tags is `key:value`. For more information, see [Controlling access to resources by using tags](/docs/account?topic=account-access-tags-tutorial).
    1. Select **Reserve**.
 1. After making your selections, click **Save**.
@@ -64,10 +65,10 @@ To associate multiple floating IPs to a network interface, verify that both **Al
    1. Select **Reserve a new floating IP**.
    1. Enter your geography, region, and zone information.
    1. Provide the details for the floating IP, including its name and resource group.
-   1. Add any tags you want associated with the IP.
+   1. Add any tags that you want associated with the IP.
    1. Select **Reserve**.
 
-   Associating a floating IP to the secondary network interface only works when you configure a default gateway to the secondary network interface within the operating system.
+   Associating a floating IP to the secondary network interface works only when you configure a default gateway to the secondary network interface within the operating system.
     {: note}
 
 1. After making your selections, click **Save**.
@@ -75,11 +76,11 @@ To associate multiple floating IPs to a network interface, verify that both **Al
 ### Adding a floating IP address to a virtual network interface with the console
 {: #fip-create-vni-ui}
 
-1. In the {{site.data.keyword.cloud_notm}} console, go to **Navigation Menu** icon ![menu icon](../../icons/icon_hamburger.svg) **> Infrastructure** ![VPC icon](../../icons/vpc.svg) **> Compute > Virtual network interfaces**.
+1. In the {{site.data.keyword.cloud_notm}} console, go to the **Navigation Menu** icon ![menu icon](../../icons/icon_hamburger.svg) **> Infrastructure** ![VPC icon](../../icons/vpc.svg) **> Compute > Virtual network interfaces**.
 1. Click the name of the virtual network interface in the table to view its Details page.
 1. In the Floating IPs section, click **Attach**.
 
-   * If a floating IP is already attached, the virtual network interface will not be accepted as a file share mount target.
+   * If a floating IP is already attached, the virtual network interface isn't accepted as a file share mount target.
    * If infrastructure NAT is enabled, at most one floating IP can be attached.
 1. In the Attach floating IP side panel, choose one of the following options:
 
@@ -118,7 +119,7 @@ Next, create a floating IP that targets that instance and the NIC:
 
 Before you begin, [set up your CLI environment](/docs/vpc?topic=vpc-set-up-environment&interface=cli).
 
-First get the instance, in order to retrieve the NIC name:
+First, get the instance to retrieve the NIC name:
 
    ```sh
    ibmcloud is bare-metal-server my-instance

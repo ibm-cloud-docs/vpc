@@ -1,7 +1,7 @@
 ---
 copyright:
   years: 2022, 2026
-lastupdated: "2026-07-22"
+lastupdated: "2026-08-03"
 
 keywords:
 
@@ -30,22 +30,22 @@ In addition to applying a public gateway to your VPC, you can assign floating IP
 A single public gateway can grant multiple virtual server instances external connectivity for the same cost as one floating IP address.
 {: note}
 
-A public gateway only provides virtual server instances outbound connectivity, whereas a floating IP address provides virtual server instances outbound and inbound connectivity. A floating IP address exposes a service on the internet to inbound activity.
+A public gateway provides only outbound connectivity to virtual server instances, whereas a floating IP address provides virtual server instances outbound and inbound connectivity. A floating IP address exposes a service on the internet to inbound activity.
 
  Your public gateway assigns a floating IP that incurs a monthly charge. If you don't already have a paid account, you must upgrade to a paid account to create a public gateway.
  {: important}
 
-All of your public gateway traffic flows out of the floating IP address associated with your public gateway. For example, if you have external services, this floating IP address is used to allow external services access to resources connected to your public gateway. The source address of your public gateway is always going to be the associated IP address.
+All of your public gateway traffic flows out of the floating IP address that is associated with your public gateway. For example, if you have external services, this floating IP address is used to allow external services access to resources connected to your public gateway. The source address of your public gateway is always going to be the associated IP address.
 
 Floating IP addresses and public gateways are independent objects. If a virtual server instance is assigned both a public gateway and floating IP address, the floating IP address always takes precedence on a virtual server instance. If you remove the floating IP address from the instance, then the server uses an assigned public gateway for external connectivity. You can add and remove floating IP addresses and public gateways at any time from a virtual server instance.
 
 ## Getting started
 {: #pg-getting-started}
 
-To get started using {{site.data.keyword.cloud}} public gateways, follow these steps:
+To start using {{site.data.keyword.cloud}} public gateways, follow these steps:
 
 1. Complete any [prerequisites](/docs/vpc?topic=vpc-create-public-gateways&interface=ui#pg-before-you-begin) before creating or connecting to a public gateway.
-1. Decide if you need a public gateway and [Create your public gateway](/docs/vpc?topic=vpc-create-public-gateways&interface=ui#pg-creating-api).
+1. Decide whether you need a public gateway and [Create your public gateway](/docs/vpc?topic=vpc-create-public-gateways&interface=ui#pg-creating-api).
 1. Review the public gateway that you've created in the [{{site.data.keyword.cloud_notm}} console](/login){: external}.
 
 ## Public gateway use cases

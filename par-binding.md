@@ -2,7 +2,7 @@
 
 copyright:
   years: 2026
-lastupdated: "2026-07-22"
+lastupdated: "2026-08-03"
 
 keywords: public address range, bind, unbind
 
@@ -109,7 +109,7 @@ To bind, unbind, or move a reserved IP address from the command line, follow the
    :   A new identifier for the public address range, if you want to rename it.
 
    `--vpc`
-   :   The VPC you want to attach the public address range to. When specifying the  `--vpc` option, `--zone` is required.
+   :   The VPC you want to attach the public address range to. When specifying the `--vpc` option, `--zone` is required.
 
    `--zone`
    :   The zone where you want this public address range to reside. When specifying the `--zone` option, `--vpc` is required.
