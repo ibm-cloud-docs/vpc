@@ -2,7 +2,7 @@
 
 copyright:
   years: 2026
-lastupdated: "2026-07-22"
+lastupdated: "2026-08-03"
 
 keywords: public address range, create, bind
 
@@ -15,7 +15,7 @@ subcollection: vpc
 # Creating public address ranges
 {: #par-creating}
 
-You can create a public address range by defining its size and, optionally, specifying a VPC to associate with it in any availability zone within the account.
+You can create a public address range by defining its size and optionally, specifying a VPC to associate with it in any availability zone within the account.
 {: shortdesc}
 
 If the VPC is deleted while it is bound to a public address range, the address range continues to exist and can be bound later to a different VPC in any availability zone.
@@ -114,7 +114,7 @@ To create public address ranges from the command line, follow these steps:
    :   The VPC to bind this public address range to. Requires `--zone`.
 
    `--zone`
-   :   The zone where this public address range will reside. Requires `--vpc`.
+   :   The zone where this public address range resides. Requires `--vpc`.
 
    `--resource-group-id`
    :   ID of the resource group. Mutually exclusive with `--resource-group-name`.
@@ -140,7 +140,7 @@ ibmcloud is public-address-range-create --name public-address-range-1 --ipv4-add
 ```
 {: pre}
 
-Create a public address range named `public-address-range-2` with an address count of 4 and a resource group named `Default`:
+Create a public address range that is named `public-address-range-2` with an address count of 4 and a resource group named `Default`:
 
 ```sh
 ibmcloud is public-address-range-create --name public-address-range-2 --ipv4-address-count 4 --resource-group-name Default

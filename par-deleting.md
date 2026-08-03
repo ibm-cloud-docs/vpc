@@ -2,7 +2,7 @@
 
 copyright:
   years: 2026
-lastupdated: "2026-07-24"
+lastupdated: "2026-08-03"
 
 keywords: viewing, deleting, public address range
 
@@ -122,7 +122,7 @@ terraform destroy --target ibm_is_public_address_range.here
 ```
 {: pre}
 
-To delete all resources that are defined in your .tf file:
+To delete all resources that are defined in your `.tf` file:
 
 ```terraform
 terraform destroy -auto-approve
