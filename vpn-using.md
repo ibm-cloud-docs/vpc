@@ -2,7 +2,7 @@
 
 copyright:
   years: 2019, 2026
-lastupdated: "2026-07-16"
+lastupdated: "2026-08-03"
 
 keywords: VPN, VPN gateways, encryption, IKE, IPsec, gateway, auto-negotiation, Diffie-Hellman, dead peer detection, PFS
 
@@ -22,9 +22,6 @@ You can use the IBM Cloud VPN for VPC service to securely connect your Virtual P
 {: #vpn-features}
 
 The IBM Cloud site-to-site VPN for VPC service includes the following features:
-
-MD-5 and SHA-1 authentication algorithms, 2 and 5 DH groups, and the 3-DES encryption algorithm were deprecated on 20 September 2022 and are no longer supported in the console.
-{: deprecated}
 
 * **Authentication** - IBM Cloud VPN for VPC supports a pre-shared key for Phase 1 peer authentication. Supported authentication algorithms for both phases include `SHA-256`, `SHA-384`, and `SHA-512`.
 * **High availability** - IBM Cloud VPN for VPC is built on two VPN devices to provide appliance-level redundancy. A policy-based VPN operates in Active-Standby mode with a single VPN gateway IP shared between the members, whereas a route-based VPN offers both Active-Backup and Active-Active redundancy modes with two VPN gateway IPs.
