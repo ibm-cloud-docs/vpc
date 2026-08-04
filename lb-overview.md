@@ -242,8 +242,6 @@ To make sure that High Availability (HA) works with your ALB, attach three subne
 
 You can also do this with already existing ALBs. Go to the **Attached Resources** section on your load balancer details page. From the **Subnet** section, click **Edit subnets**. Then, attach more subnets. The ALB goes into the “Migrating” state. When the migration completes, you get a new IP for the appliance from the subnet that you just attached. You now have two IP addresses from different subnets in different zones. 
 
-[END]{: tag-red}
-
 ## Related links
 {: #permissions-related-links-alb}
 
