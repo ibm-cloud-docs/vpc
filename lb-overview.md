@@ -2,7 +2,7 @@
 
 copyright:
   years: 2018, 2026
-lastupdated: "2026-06-26"
+lastupdated: "2026-08-04"
 
 keywords: application, load balancer, application, public, private, listener, back-end, front-end, pool, round-robin, weighted, layer 7, datapath logging, http2, websocket
 
@@ -241,6 +241,8 @@ WebSocket provides full-duplex communication channels over a single TCP connecti
 To make sure that High Availability (HA) works with your ALB, attach three subnets from different zones to the ALB and deploy appliances across these zones. To do this, you first select your subnets during the ALB creation process. You can select two subnets in different zones (such as `us-south-1` and `us-south-2`). Doing so creates the ALB's IP addresses (such as the appliance IPs) in two different subnets.
 
 You can also do this with already existing ALBs. Go to the **Attached Resources** section on your load balancer details page. From the **Subnet** section, click **Edit subnets**. Then, attach more subnets. The ALB goes into the “Migrating” state. When the migration completes, you get a new IP for the appliance from the subnet that you just attached. You now have two IP addresses from different subnets in different zones. 
+
+[END]{: tag-red}
 
 ## Related links
 {: #permissions-related-links-alb}
