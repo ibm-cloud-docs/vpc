@@ -2,7 +2,7 @@
 
 copyright:
   years: 2026
-lastupdated: "2026-08-03"
+lastupdated: "2026-08-04"
 
 keywords: public address range, create, bind
 
@@ -36,21 +36,13 @@ To create public address ranges in the {{site.data.keyword.cloud_notm}} console,
 
 1. From the [{{site.data.keyword.cloud_notm}} console](/login){: external}, select the **Navigation menu** ![Menu icon](../icons/icon_hamburger.svg), then click **Infrastructure** ![VPC icon](../../icons/vpc.svg) > **Network** > **Public Address Ranges**. The Public Address Ranges for VPC page appears.
 1. Click **Create** to go to the provisioning page.
-1. In the Location section, edit the following fields, if necessary:
-   * **Geography**: Indicates the geography where you want the public address range created.
-   * **Region**: Indicates the region where you want the public address range created.
+1. In the Location section,  indicate the region where you want the public address range created.
 1. In the Details section, complete the following information:
-   * **Name**: Enter a name for the public address range, such as `my-public-address-range`.
-
-   * **Size**:
-
-      * For IBM-managed IPs, choose the size (number of IPs) of the address range. You can choose from 1, 2, 4, 8, or 16 IPs to include in the block.
+   * **Size**: Select the size (number of IPs) of the address range. You can choose from 1, 2, 4, 8, or 16 IPs to include in the block.
 
       After you create a public address range, you can't change its size.
       {: note}
-
-   
-
+   * **Name**: (Optional): Enter a name for the public address range, such as `my-public-address-range`.
    * **Resource group**: Select a resource group for the public address range.
 
       After you create a public address range, you can't change the resource group.
@@ -58,12 +50,12 @@ To create public address ranges in the {{site.data.keyword.cloud_notm}} console,
 
    * **Tags**: (Optional) Add tags to help you organize and find your resources. You can always add more tags later. For more information, see [Working with tags](/docs/account?topic=account-tag).
 
-1. (Optional) If you want to bind your public address range to an existing VPC, toggle the **Bind** switch to On. Then, select the VPC and availability zone that you want to bind to.
+1. (Optional) If you want to bind your public address range to an existing VPC, toggle the **Bind** switch to **On**. Then, select the VPC and availability zone that you want to bind to.
 
    You can bind a public address range to any VPC in a single availability zone that already exists in your account. You can also bind the address range to a VPC later. For more information, see [Binding a public address range](/docs/vpc?topic=vpc-par-unbinding-binding&interface=ui#bind-par-ui).
    {: tip}
 
-1. Review the **Order summary**, then click **Create**. The public address range is requested for use.
+1. Click **Create**. The public address range is requested for use.
 
 On the Public address ranges for VPC page, your address range now shows in the table. For IBM Cloud services, the status of your public address range changes from `Updating` to `Stable`.
 
