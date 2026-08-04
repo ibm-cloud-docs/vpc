@@ -2,7 +2,7 @@
 
 copyright:
   years: 2018, 2026
-lastupdated: "2026-06-26"
+lastupdated: "2026-08-04"
 
 keywords: application, load balancer, application, public, private, listener, back-end, front-end, pool, round-robin, weighted, layer 7, datapath logging, http2, websocket
 
