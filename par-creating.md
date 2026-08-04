@@ -36,7 +36,7 @@ To create public address ranges in the {{site.data.keyword.cloud_notm}} console,
 
 1. From the [{{site.data.keyword.cloud_notm}} console](/login){: external}, select the **Navigation menu** ![Menu icon](../icons/icon_hamburger.svg), then click **Infrastructure** ![VPC icon](../../icons/vpc.svg) > **Network** > **Public Address Ranges**. The Public Address Ranges for VPC page appears.
 1. Click **Create** to go to the provisioning page.
-1. In the Location section,  indicate the region where you want the public address range created.
+1. In the Location section, indicate the region where you want the public address range created.
 1. In the Details section, complete the following information:
    * **Size**: Select the size (number of IPs) of the address range. You can choose from 1, 2, 4, 8, or 16 IPs to include in the block.
 
