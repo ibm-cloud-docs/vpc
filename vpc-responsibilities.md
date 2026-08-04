@@ -2,7 +2,7 @@
 
 copyright:
   years: 2019, 2026
-lastupdated: "2026-08-03"
+lastupdated: "2026-08-04"
 
 keywords: responsibilities, ha, high availability, disaster recovery
 
@@ -63,8 +63,6 @@ Incident and operations management includes tasks such as monitoring, event mana
 | Flow logs | {{site.data.keyword.IBM_notm}} provides the ability to collect flow log data from various endpoints. | The Customer understands the IBM Cloud Flow Logs for VPC data retention process and ensures that their destination Cloud Object Storage bucket is properly secured and encrypted. |
 {: caption="Responsibilities for incidents and operations" caption-side="bottom"}
 
-[^byoip]: Public address ranges can be allocated from IBM-managed public IP pools or customer-owned custom authorized CIDRs.
-
 ### Change management
 {: #change-management}
 
@@ -96,7 +94,7 @@ Security and regulation compliance includes tasks such as security control imple
 | Security features | {{site.data.keyword.IBM_notm}} enables security features, such as encrypted disks. | The Customer uses the provided security features, such as restricting user access to the appropriate resources and resource groups. |
 | Vulnerabilities | {{site.data.keyword.IBM_notm}} continuously monitors stock images to detect vulnerability and security compliance issues. | The Customer is responsible for their education on possible vulnerabilities and security issues through security bulletins that describe actions to remediate any vulnerabilities. A Customer can use the [IBM Cloud status](/docs/support?topic=support-viewing-status) website to find announcements and security bulletin notifications about key events that affect the IBM Cloud platform, infrastructure, and major services. |
 | Audit records | {{site.data.keyword.IBM_notm}} provides audit records of the VPC resource lifecycle through {{site.data.keyword.atracker_full_notm}}. | The Customer uses {{site.data.keyword.atracker_full_notm}} tooling to monitor audit records. |
-| Security groups and ACLs | {{site.data.keyword.IBM_notm}} provides the ability to restrict access to virtual server instances by using security groups and networks ACLs. | The Customer uses security groups and network ACLs to secure their virtual server instances, such as restricting what IP addresses can SSH into the instance.  |
+| Security groups and ACLs | {{site.data.keyword.IBM_notm}} provides the ability to restrict access to virtual server instances by using security groups and networks ACLs. | The Customer uses security groups and network ACLs to secure their virtual server instances, such as restricting what IP addresses can SSH into the instance.|
 | Public Network Access | {{site.data.keyword.IBM_notm}} provides options to use a public gateway, or floating IP addresses, or public address ranges.  | The Customer chooses how to connect their workload to the public internet, if applicable, either through a public gateway, floating IP, or public address range. |
 | Access restriction | {{site.data.keyword.IBM_notm}} provides security measures for customers to restrict access to resources and resource groups. | The Customer restricts user access to the appropriate resources and resource groups.|
 | Activity tracking | {{site.data.keyword.IBM_notm}} provides logging and monitoring tools. | The Customer integrates {{site.data.keyword.atracker_full_notm}} and {{site.data.keyword.monitoringlong_notm}} data into their auditing and monitoring processes. |
