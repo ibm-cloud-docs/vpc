@@ -2,7 +2,7 @@
 
 copyright:
   years: 2019, 2026
-lastupdated: "2026-07-23"
+lastupdated: "2026-08-04"
 
 keywords: api, change log, new features, restrictions, migrations
 
@@ -55,6 +55,18 @@ At this time, all instances, and therefore all instance templates, continue to r
 
 The new response code will be rolled out gradually. Each phase of the rollout will be tied to a dated API version. These changes will be announced in future change log updates.
 {: note}
+
+## 4 August 2026
+{: #4-august-2026}
+
+### For all version dates
+{: #4-august-2026-all-version-dates}
+
+**Bare metal server available capacity.** You can now [list capacities for bare metal servers](/docs/apis/vpc/latest#list-bare-metal-server-capacities) to retrieve a collection of bare metal server profiles and the zones where capacity is available.
+
+**Bare metal server profiles zones.** When [retrieving](/docs/apis/vpc/latest#get-bare-metal-server-profile) or [listing](/docs/apis/vpc/latest#list-bare-metal-server-profiles) bare metal server profiles, a new `zones` collection is included in the response. This property indicates the zones in which the profile is available. A bare metal server [profile](/docs/vpc?topic=vpc-bare-metal-servers-profile) specifies the performance characteristics and pricing model for a bare metal server.
+
+For more information about bare metal server capacities and profiles, see [Viewing Bare Metal Server Capacity API](/docs/vpc?topic=vpc-managing-bare-metal-servers&interface=api#viewing-bare-metal-server-capacity-api).
 
 ## 21 July 2026
 {: #21-july-2026}
