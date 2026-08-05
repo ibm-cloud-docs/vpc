@@ -2,7 +2,7 @@
 
 copyright:
   years: 2019, 2026
-lastupdated: "2026-07-31"
+lastupdated: "2026-08-05"
 
 keywords:
 
@@ -23,6 +23,16 @@ Use the release notes to learn the latest updates to {{site.data.keyword.vpc_ful
 For more information about changes to the {{site.data.keyword.vpc_short}} API, see [{{site.data.keyword.vpc_short}} API change log](/docs/vpc?topic=vpc-api-change-log).
 
 For more information about changes to the {{site.data.keyword.vpc_short}} command-line interface (CLI), see [{{site.data.keyword.vpc_short}} CLI release notes](/docs/vpc?topic=vpc-vpc-cli-rn).
+
+## August 2026
+{: #vpc-aug26}
+
+### 04 August 2026
+{: #vpc-aug0426}
+{: release-note}
+
+Capacity information for Bare Metal Servers on VPC
+:   You can query the available capacity of a given bare metal profile in a specific region or zone using the UI, CLI, API, and Terraform. Profiles that don't have available inventory are disabled. You can query capacity by profile name, zone name, or both. The information returned with this command is informational only and does not allocate capacity. Capacity information is displayed and only includes available nodes. Nodes that are allocated elsewhere or are otherwise unavailable are not included in the capacity information. For more information, see [Managing Bare Metal Servers for VPC](/docs/vpc?topic=vpc-managing-bare-metal-servers&interface=ui)
 
 ## July 2026
 {: #vpc-jul26}

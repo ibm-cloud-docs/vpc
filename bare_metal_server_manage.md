@@ -2,7 +2,7 @@
 
 copyright:
   years: 2021, 2026
-lastupdated: "2026-06-26"
+lastupdated: "2026-08-05"
 
 keywords: bare metal servers, managing, operation, manage bare metal server, manage bare metal, manage server, restart bare metal, stop bare metal, delete bare metal, reboot bare metal, restart server, stop server, delete server
 
@@ -193,6 +193,36 @@ Billing continues after the bare metal server stops.
 
 For a full list of command options, see [ibmcloud is bare-metal-server-restart](/docs/vpc?topic=vpc-vpc-reference#bare-metal-server-restart).
 
+### Viewing bare metal server capacity by using the CLI
+{: #viewing-bare-metal-server-capacity-cli}
+{: cli}
+
+To view bare metal server capacity by using the CLI, use the `ibmcloud is bare-metal-server-capacities` command. The information that is returned with this command is informational only and does not allocate capacity. Capacity information is displayed and includes only the available nodes. Nodes that are allocated elsewhere or are otherwise unavailable aren't included in the capacity information.
+
+You can optionally filter the results by specifying a bare metal server profile with the `--profile` option, a zone with the `--zone` option, or both.
+
+```sh
+ibmcloud is bare-metal-server-capacities [--profile PROFILE] [--zone ZONE] [--output JSON] [-q, --quiet]
+```
+{: pre}
+
+You can complete the following options when you use the `ibmcloud is bare-metal-server-capacities` command.
+
+- `--profile` specifies the name of an existing bare metal profile.
+- `--zone` specifies the name of a zone, for example, `us-south-2`.
+- `--output` specifies the output format. Only `JSON` is supported.
+- `-q, --quiet` suppresses verbose output.
+
+Example output:
+
+```screen
+Profile Name  Availability Zones
+
+profile-1     us-south-1,us-south-3
+profile-2     us-south-2,us-south-3
+```
+{: pre}
+
 ### Updating a bare metal server by using the CLI
 {: #updating-bare-metal-servers-cli}
 
@@ -302,7 +332,39 @@ Specify a `GET /bare_metal_servers/{id}` request retrieve a specific bare metal 
    ```
    {: pre}
 
-For more information of the API requests, see [List all bare metal servers](/docs/apis/vpc/latest#list-bare-metal-servers) and [Retrieve a bare metal server](/docs/apis/vpc/latest#get-bare-metal-server).
+For more information of the API requests, see [List all bare metal servers](/docs/apis/vpc/latest#list-bare-metal-servers) and [Retrieve a bare metal server](/docs/apis/vpc/latest#get-bare-metal-server).<bmvpc-263-bm-availability-capacity>
+
+### Viewing bare metal server capacity by using the API
+{: #viewing-bare-metal-server-capacity-api}
+{: api}
+
+To view bare metal server capacity by using the API, use `GET /bare_metal_server/capacities`. The information that is returned with this command is informational only and does not allocate capacity. Capacity information is displayed and includes only the available nodes. Nodes that are allocated elsewhere or are otherwise unavailable aren't included in the capacity information.
+
+You can optionally filter the results by specifying a bare metal server profile with the `profile.name` property, a zone with the `zone.name` property, or both.
+
+```sh
+curl -X GET "$vpc_api_endpoint/v1/bare_metal_server/capacities?version=2026-05-05&generation=2" \
+-H "Authorization: Bearer $iam_token" \
+-d "zone.name=us-south-1" \
+-d "profile.name=myprofile"
+```
+{: pre}
+
+Specify the following properties values to use to filter the bare metal server capacities.
+- `profile.name`: Filters the collection to resources with a profile.name property that matches the specified profile name.
+- `zone.name`: Filters the collection to resources with a zone.name property that matches the exact specified name.
+
+Example output:
+
+```screen
+Profile Name  Availability Zones
+
+profile-1     us-south-1,us-south-3
+profile-2     us-south-2,us-south-3
+```
+{: pre}
+
+For more information of the API requests, see [List capacities for bare metal servers](/docs/apis/vpc/latest#/list-bare-metal-server-capacities)</bmvpc-263-bm-availability-capacity>
 
 ### Rebooting the bare metal server by using the API
 {: #reboot-bare-metal-servers-api}
