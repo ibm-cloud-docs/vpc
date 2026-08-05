@@ -332,7 +332,7 @@ Specify a `GET /bare_metal_servers/{id}` request retrieve a specific bare metal 
    ```
    {: pre}
 
-For more information of the API requests, see [List all bare metal servers](/docs/apis/vpc/latest#list-bare-metal-servers) and [Retrieve a bare metal server](/docs/apis/vpc/latest#get-bare-metal-server).<bmvpc-263-bm-availability-capacity>
+For more information of the API requests, see [List all bare metal servers](/docs/apis/vpc/latest#list-bare-metal-servers) and [Retrieve a bare metal server](/docs/apis/vpc/latest#get-bare-metal-server).
 
 ### Viewing bare metal server capacity by using the API
 {: #viewing-bare-metal-server-capacity-api}
@@ -364,7 +364,7 @@ profile-2     us-south-2,us-south-3
 ```
 {: pre}
 
-For more information of the API requests, see [List capacities for bare metal servers](/docs/apis/vpc/latest#/list-bare-metal-server-capacities)</bmvpc-263-bm-availability-capacity>
+For more information of the API requests, see [List capacities for bare metal servers](/docs/apis/vpc/latest#/list-bare-metal-server-capacities)
 
 ### Rebooting the bare metal server by using the API
 {: #reboot-bare-metal-servers-api}
