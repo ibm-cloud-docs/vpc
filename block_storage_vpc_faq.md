@@ -2,7 +2,7 @@
 
 copyright:
   years: 2019, 2026
-lastupdated: "2026-06-29"
+lastupdated: "2026-08-05"
 
 keywords: faqs, Block Storage for vpc, fast restore, multizone, instance, instance provisioning, volume management, volume deletion.
 
@@ -23,7 +23,7 @@ Get answers to common questions about {{site.data.keyword.block_storage_is_full}
 {: faq}
 {: #faq-sdp-release}
 
-You can provision storage with the `sdp` profile in the Dallas, Frankfurt, London, Madrid, Osaka, Sao Paulo, Sydney, Tokyo, Toronto, and Washington, DC regions. For more information, see [About {{site.data.keyword.block_storage_is_short}}](/docs/vpc?topic=vpc-block-storage-about).
+[Select availability]{: tag-green} You can provision storage with the `sdp` profile in the Dallas, Frankfurt, London, Madrid, Osaka, Sao Paulo, Sydney, Tokyo, Toronto, and Washington, DC regions. For more information, see [About {{site.data.keyword.block_storage_is_short}}](/docs/vpc?topic=vpc-block-storage-about#block-storage-sdp-intro).
 
 ## What functions are supported in this release of the `sdp` profile?
 {: faq}

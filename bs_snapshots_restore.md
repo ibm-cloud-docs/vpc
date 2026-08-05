@@ -2,7 +2,7 @@
 
 copyright:
   years: 2021, 2026
-lastupdated: "2026-06-26"
+lastupdated: "2026-08-05"
 
 keywords:
 
@@ -17,6 +17,8 @@ subcollection: vpc
 
 Restoring data from a snapshot creates a new, fully provisioned volume that you can use to start an instance or attach as auxiliary storage. You can restore boot and data volumes during instance creation or when you modify an existing instance. You can also create a stand-alone data volume from a snapshot. Volumes can be restored from snapshots that were created manually or by a backup policy. You can restore volumes from fast restore clones and cross-regional copies of snapshots, too. You can create volumes from snapshots in the console, from the CLI, with the API, or Terraform.
 {: shortdesc}
+
+
 
 ## About restoring a volume from a snapshot
 {: #snapshots-vpc-restore-concepts}

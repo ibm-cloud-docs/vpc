@@ -2,7 +2,7 @@
 
 copyright:
   years: 2022, 2026
-lastupdated: "2026-08-03"
+lastupdated: "2026-08-04"
 
 keywords: floating ip, reserving, bare metal, vnic, public gateways
 
@@ -107,6 +107,9 @@ First, get the instance to retrieve the network interface name:
 
 
 Next, create a floating IP that targets that instance and the NIC:
+
+
+
 
    ```sh
    ibmcloud is floating-ip-reserve my-ip --nic eth0 --in my-instance

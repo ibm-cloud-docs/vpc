@@ -2,7 +2,7 @@
 
 copyright:
   years: 2019, 2026
-lastupdated: "2026-06-29"
+lastupdated: "2026-08-05"
 
 keywords: Block Storage profiles, Block Storage for VPC, IOPS tiers, custom IOPS, storage performance
 
@@ -26,7 +26,7 @@ When you create a Block Storage volume, you can select from various profiles.
 - Select a profile from the _tiered_ profile family when you want to pick a profile where performance scales with capacity of the volume.
 - Select the profile from the _custom_ profile family if your performance requirements don't fall within any of the predefined IOPS tiers. When you select the custom profile, you can define your IOPS within a range that depends on the capacity that you specified.
 
-The `sdp` profile is available in the Dallas, Frankfurt, London, Madrid, Osaka, Sao Paulo, Sydney, Tokyo, Toronto, and Washington, DC regions. The _custom_ and _tiered_ profiles are available in every region for every customer.
+The `sdp` profile is available in the Dallas, Frankfurt, London, Madrid, Osaka, Sao Paulo, Sydney, Tokyo, Toronto, and Washington, DC regions. The _custom_ and _tiered_ profiles are available in every region for every customer. For more information, see [About {{site.data.keyword.block_storage_is_short}}](/docs/vpc?topic=vpc-block-storage-about#block-storage-sdp-intro).
 
 The following table shows the available storage profiles with their different properties.
 
@@ -69,6 +69,8 @@ To achieve more than 48,000 IOPS, the volume must be attached to a virtual serve
 {: note}
 
 Certain volume operations such as increasing capacity, adjusting IOPS, and adjusting throughput can be done on an `sdp` volume even if the volume is not attached to a running instance. For more information about the current release of second-generation volumes, such as billing, supported features, and limitations, see [About {{site.data.keyword.block_storage_is_short}}](/docs/vpc?topic=vpc-block-storage-about#block-storage-sdp-intro).
+
+
 
 Secure booting is not supported for boot volumes that use the `sdp` profile.
 {: note}

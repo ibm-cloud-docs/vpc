@@ -2,7 +2,7 @@
 
 copyright:
   years: 2019, 2026
-lastupdated: "2026-06-26"
+lastupdated: "2026-08-05"
 
 keywords: Block Storage, IBM Cloud, VPC, virtual private cloud, Key Protect, encryption, key management, Hyper Protect Crypto Services, HPCS, volume, data storage, virtual server instance, instance, customer-managed encryption, Block Storage for vpc, customer-managed encryption,
 
@@ -17,6 +17,8 @@ subcollection: vpc
 
 Create {{site.data.keyword.block_storage_is_short}} volumes with customer-managed encryption using your own root keys from {{site.data.keyword.keymanagementserviceshort}}. Control your data encryption and meet compliance requirements with bring-your-own-key (BYOK) encryption.
 {: shortdesc}
+
+
 
 ## Before you begin
 {: #custom-managed-vol-prereqs-block}

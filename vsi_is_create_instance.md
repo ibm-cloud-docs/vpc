@@ -2,7 +2,7 @@
 
 copyright:
   years: 2018, 2026
-lastupdated: "2026-07-09"
+lastupdated: "2026-08-05"
 
 keywords:
 
@@ -77,6 +77,8 @@ You can provision an instance from an `available`, `partially_available` (image 
    {: important}
 
 1. Complete SSH keys, storage, and networking details by specifying the information in Table 4.
+
+   
 
    | Field | Value |
    |-------|-------|

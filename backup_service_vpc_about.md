@@ -2,7 +2,7 @@
 
 copyright:
  years: 2022, 2026
-lastupdated: "2026-07-14"
+lastupdated: "2026-08-05"
 
 keywords: Backup, backup service, backup plan, backup policy, restore, restore volume, restore data
 
@@ -204,7 +204,7 @@ The more capacity that a volume has, the longer it takes to create the snapshot 
 
 When you create a remote copy of the backup snapshot for the first time, that remote copy contains all the data of the parent volume. Subsequent copies can be incremental or full copies. Whether the remote copy is incremental depends on the immediately preceding backup snapshot in the chain. If the immediately preceding snapshot exists in the destination region, the copy can be incremental. If the immediately preceding snapshot does not exist or is not stable, the new copy must be a full snapshot of the parent volume.
 
-If your backup plan calls for the creation of a remote copy before the previous backup copy becomes stable, the Backup service initiates a full copy, not an incremental one. For the 3-TB storage volume, this means that when your schedule specifies the creation of a snapshot with a remote copy every 12 hours, the system initiates a full copy because the previous copy is not complete and fully stable yet.
+If your backup plan calls for the creation of a remote copy before the previous backup copy becomes stable, the Backup service initiates a full copy, not an incremental one. For a 3-TB volume, copying a snapshot to a remote region can take more than 12 hours to complete. A snapshot scheduled every 12 hours therefore triggers a full copy because the previous remote copy is not yet complete and stable.
 
 The following table shows whether you can expect the remote copy to be incremental based on the volume capacity (snapshot size) and backup frequency.
 
@@ -275,7 +275,7 @@ Specific IAM user roles are required to grant service-to-service authorizations.
 
 When you configure service-to-service authorizations, make sure that the authorization scope covers all resources that need backup. If you use resource-specific IAM policies, verify that every virtual server instance whose volumes need to be backed up is included in the authorization scope. The backup policy creation process cannot detect authorization policies that are scoped too narrowly, which can result in silent backup failures for resources outside the authorized scope. Regularly monitor backup job status to discover authorization issues early. For more information, see [Viewing backup job status](/docs/vpc?topic=vpc-backup-view-policy-jobs).
 
-If you add more resources to be backed up later by applying tags to them, and you have a resource-specific authorization, review and adjust your authorization to include the new resources. New backups might fail if the scope of the resource-specific authorization does not cover the newly tagged resources.
+If you add more resources to be backed up later by applying tags to them, and you have a resource-specific authorization, review, and adjust your authorization to include the new resources. New backups might fail if the scope of the resource-specific authorization does not cover the newly tagged resources.
 {: note}
 
 ### Context-based restrictions

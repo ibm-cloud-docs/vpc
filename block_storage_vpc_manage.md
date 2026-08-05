@@ -2,7 +2,7 @@
 
 copyright:
   years: 2019, 2026
-lastupdated: "2026-07-16"
+lastupdated: "2026-08-05"
 
 keywords: Block storage for VPC, change IOPS, change autodelete, increase volume, change name, rename volume, delete volume, renaming volume, updating volume
 
@@ -21,6 +21,8 @@ Manage {{site.data.keyword.cloud_notm}} block storage volumes by detaching, tran
 ## Managing {{site.data.keyword.block_storage_is_short}} in the console
 {: #manage-block-storage-vol-UI}
 {: ui}
+
+
 
 Use the UI to manage your block storage volumes. In the console, you can complete the following actions:
 
@@ -153,6 +155,8 @@ You can also enable or disable the autodelete option on the volumes when you cre
 ## Managing {{site.data.keyword.block_storage_is_short}} from the CLI
 {: #managing-block-storage-cli}
 {: cli}
+
+
 
 Manage your block storage from the command-line interface (CLI). From the CLI, you can:
 
@@ -340,6 +344,8 @@ A boot volume cannot be detached from an instance while the instance exists. If 
 ## Managing {{site.data.keyword.block_storage_is_short}} with the API
 {: #managing-block-storage-api}
 {: api}
+
+
 
 Manage your block storage programmatically by making requests to the [VPC REST APIs](/docs/apis/vpc). With the API, you can:
 
@@ -570,6 +576,8 @@ Verify that the volume is detached from the instance by making a `GET /instances
 ## Managing {{site.data.keyword.block_storage_is_short}} with Terraform
 {: #managing-block-storage-terraform}
 {: terraform}
+
+
 
 Manage your block storage as a code with Terraform. With the Terraform, you can:
 

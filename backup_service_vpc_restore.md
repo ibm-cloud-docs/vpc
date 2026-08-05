@@ -2,7 +2,7 @@
 
 copyright:
   years: 2022, 2026
-lastupdated: "2026-07-09"
+lastupdated: "2026-08-05"
 
 keywords: Backup, backup service, backup plan, backup policy, restore, restore volume, restore data
 
@@ -17,6 +17,8 @@ subcollection: vpc
 
 Restore boot or data volumes from backup snapshots to create fully provisioned storage, during instance creation, by adding storage to existing instances, or across regions for disaster recovery.
 {: shortdesc}
+
+
 
 You can restore volumes from backup snapshots in the console, from the CLI, with the API, or Terraform.
 

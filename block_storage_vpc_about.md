@@ -2,7 +2,7 @@
 
 copyright:
   years: 2019, 2026
-lastupdated: "2026-06-29"
+lastupdated: "2026-08-05"
 
 keywords:
 
@@ -24,7 +24,7 @@ subcollection: vpc
 
 {{site.data.keyword.block_storage_is_short}} provides primary boot volumes and secondary data volumes. Boot volumes are automatically created and attached during instance provisioning. Data volumes can be created and attached during instance provisioning, or as stand-alone volumes that you can later attach to an instance. To protect your data, you can use your own encryption keys or choose IBM-managed encryption.
 
-You pay for only the capacity that you need. When you use the SSD Defined Performance (`sdp`) volume profile, you can specify the size of your data volumes between 1 GB up to 32,000 GB and your boot volumes from 10 to 32,000 GB. Remember that storage volume capacity can be increased later, but it can't be decreased. The maximum IOPS that a volume with the `sdp` profile can support is 64,000. You can also modify the throughput limit in the range of 125-1024 MBps (1000-8192 Mbps). Capacity, IOPS, and throughput values of volumes that are created with the `sdp` profile can be modified even when the volume is not attached to a virtual server instance.
+When you use the SSD Defined Performance (`sdp`) volume profile, you can specify the size of your data volumes between 1 GB up to 32,000 GB and your boot volumes from 10 to 32,000 GB. Remember that storage volume capacity can be increased later, but it can't be decreased. The maximum IOPS that a volume with the `sdp` profile can support is 64,000. You can also modify the throughput limit in the range of 125-1024 MBps (1000-8192 Mbps). Capacity, IOPS, and throughput values of volumes that are created with the `sdp` profile can be modified even when the volume is not attached to a virtual server instance.
 
 The capacity of volumes that are created with the [traditional profiles](#block-storage-profiles-intro) ranges from 10 GB up to 16,000 GB. For data volumes that are attached to a virtual server instance, you can [increase volume capacity](/docs/vpc?topic=vpc-expanding-block-storage-volumes#expanding-data-volumes) in GB increments, the maximum value depends on your volume profile. You can also [increase or decrease IOPS](/docs/vpc?topic=vpc-adjusting-volume-iops) for a volume that is attached to an instance.
 
@@ -81,6 +81,8 @@ Volume profiles define the capacity and performance characteristics of storage v
 {: #block-storage-sdp-intro}
 
 The SSD Defined Performance profile is available in the Dallas (`us-south`), Frankfurt (`eu-de`), London (`eu-gb`), Madrid (`eu-es`), Osaka (`jp-osa`), Sao Paulo (`br-sao`), Sydney (`au-syd`), Tokyo (`jp-tok`), Toronto (`ca-tor`), and Washington (`us-east`) regions. You can specify custom capacity, custom throughput limit, and custom IOPS for your second-generations volumes.
+
+
 
 The following limitations apply to this release:
 

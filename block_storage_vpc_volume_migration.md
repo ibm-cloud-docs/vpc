@@ -2,7 +2,7 @@
 
 copyright:
   years: 2025, 2026
-lastupdated: "2026-06-26"
+lastupdated: "2026-08-05"
 
 keywords: Block Storage, volume migration, volume jobs, storage generations, volume conversion
 
@@ -17,6 +17,8 @@ subcollection: vpc
 
 Migrate {{site.data.keyword.block_storage_is_short}} volumes from first-generation profiles ([tiered](/docs/vpc?topic=vpc-block-storage-profiles&interface=ui#tiers) or [custom](/docs/vpc?topic=vpc-block-storage-profiles&interface=ui#custom)) to the [second-generation `sdp` profile](/docs/vpc?topic=vpc-block-storage-profiles&interface=ui#defined-performance-profile). Customize IOPS and bandwidth during migration while maintaining data integrity and minimizing downtime.
 {: shortdesc}
+
+
 
 .
 When you create a migration job, you can customize the IOPS and bandwidth limits. If you don’t specify these values, the system applies the default values of the profile.

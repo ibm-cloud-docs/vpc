@@ -2,7 +2,7 @@
 
 copyright:
   years: 2019, 2026
-lastupdated: "2026-06-22"
+lastupdated: "2026-08-05"
 
 keywords:
 
@@ -17,6 +17,8 @@ subcollection: vpc
 
 Choose the optimal {{site.data.keyword.block_storage_is_short}} volume capacity and performance for your workload. Customize capacity, IOPS, and throughput with the `sdp` profile, or select from predefined IOPS tiers and custom profiles.
 {: shortdesc}
+
+
 
 ## Capacity
 {: #block-storage-vpc-capacity}
