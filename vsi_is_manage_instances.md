@@ -2,7 +2,7 @@
 
 copyright:
   years: 2019, 2026
-lastupdated: "2026-07-27"
+lastupdated: "2026-08-05"
 
 keywords: view instance details, restart virtual server, stop, details, delete
 
@@ -1190,6 +1190,88 @@ curl -X PATCH "https://us-south.iaas.cloud.ibm.com/v1/instances/$instance_id/sof
 
 For more information, see [Update an instance software attachment](/docs/apis/vpc/latest#update-instance-software-attachment) in the VPC API.
 
+## Managing a software attachment for a virtual server instance by using Terraform
+{: #manage-software-attachments-virtual-server-instances-terraform}
+{: terraform}
+
+You can't directly create a software attachment. The software attachment is automatically created when a virtual server instance is provision from a software licensed catalog image. For more information regarding software attachments and catalog images, see [Getting started with Catalog images on VPC](/docs/vpc?topic=vpc-getting-started-images-on-vpc-catalog).
+
+
+You use the `ibm_is_instance_software_attachment` resource to manage an existing attachment by adopting it and setting its name. The `instance_id` argument is the virtual server instance identifier. The `instance_software_attachment_id` argument is the identifier of the attachment that was created for the `instance_id`. you can reference it from the instance's software_attachments list. The name argument is the name to set on the instance software attachment.
+
+The following example sets the name of the software attachment.
+
+```terraform
+resource "ibm_is_instance" "example" {
+  name    = "my-instance"
+  profile = "cx2-2x4"
+  vpc     = ibm_is_vpc.example.id
+  zone    = "us-south-1"
+  keys    = [ibm_is_ssh_key.example.id]
+
+  image = "r006-90c63ab2-f216-4b50-aa9f-0cca03ab0ac2"
+
+  primary_network_interface {
+    virtual_network_interface {
+      subnet = ibm_is_subnet.example.id
+    }
+  }
+}
+
+resource "ibm_is_instance_software_attachment" "is_instance_software_attachment_instance" {
+  instance_id                         = ibm_is_instance.example.id
+  instance_software_attachment_id     = ibm_is_instance.example.software_attachments.0.id
+  name                                = "my-software-attachment"
+}
+```
+{: codeblock}
+
+After you define the resource, run `terraform apply` to adopt the attachment and apply the name.
+
+For more information, see [ibm_is_instance_software_attachment](https://registry.terraform.io/providers/IBM-Cloud/ibm/latest/docs/resources/is_instance_software_attachment){: external}.
+
+## Updating a software attachment for a virtual server instance by using Terraform
+{: #update-software-attachments-virtual-server-instances-terraform}
+{: terraform}
+
+You can update the name of a software attachment by using Terraform. You can only update `name` argument. When the `name` is updated, a new resource is created with that `instance_id` and `instance_software_attachment_id`. The `name` argument is the updated name for the instance software attachment.
+
+The following example updates the name of a software attachment:
+
+```terraform
+resource "ibm_is_instance_software_attachment" "is_instance_software_attachment_instance" {
+  instance_id                        = ibm_is_instance.example.id
+  instance_software_attachment_id = ibm_is_instance.example.software_attachments.0.id
+  name                               = "my-software-attachment-update"
+}
+```
+{: codeblock}
+
+After you update the resource configuration, run `terraform plan` to preview the changes, then run `terraform apply` to apply them.
+
+For more information, see [ibm_is_instance_software_attachment](https://registry.terraform.io/providers/IBM-Cloud/ibm/latest/docs/resources/is_instance_software_attachment){: external}.
+
+## Removing a software attachment for a virtual server instance by using Terraform
+{: #remove-software-attachments-virtual-server-instances-terraform}
+{: terraform}
+
+You can't delete a software attachment using API and Terraform. The lifecycle of a software attachment is linked to the instance it is attached to. Running `terraform destroy` on the `ibm_is_instance_software_attachment` resource only removes it from the Terraform state. The`ibm_is_instance_software_attachment` resource remaines linked to it's `instance_id`.
+
+The following example shows the resource that is removed from Terraform state when you destroy it.
+
+```terraform
+resource "ibm_is_instance_software_attachment" "is_instance_software_attachment_instance" {
+  instance_id                         = ibm_is_instance.example.id
+  instance_software_attachment_id     = ibm_is_instance.example.software_attachments.0.id
+  name                                = "my-software-attachment-update"
+}
+```
+{: codeblock}
+
+Run `terraform destroy` to stop managing the software attachment with Terraform. To remove the attachment, delete its virtual server instance.
+
+For more information, see [ibm_is_instance_software_attachment](https://registry.terraform.io/providers/IBM-Cloud/ibm/latest/docs/resources/is_instance_software_attachment){: external}.
+
 ## Editing Threads per core in the console
 {: #edit-threads-per-core-ui-vpc}
 {: ui}
@@ -1235,3 +1317,25 @@ You edit the `threads_per_core` property for the  virtual server instance in you
 curl -X PATCH "$vpc_api_endpoint/v1/instances/$instance_id?version=2024-10-17&generation=2" -H "Authorization: Bearer $iam_token" -d '{"threads_per_core": "1"}'
 ```
 {: pre}
+
+## Editing Threads per core using Terraform
+{: #edit-threads-per-core-terraform-vpc}
+{: terraform}
+
+Threads per core offers you the flexability to optimize your workload. While threads per core is displayed for all profiles, you can edit it only for the [High Frequency](/docs/vpc?topic=vpc-high-frequency-profile-family) profile family. For High Frequency profiles, the default value is to 2. You can adjust this to 1.
+
+Before you change the `threads_per_core` property, you must stop the virtual server instance.
+{: note}
+
+You can edit the `threads_per_core` property for a virtual server instance in your {{site.data.keyword.vpc_short}} by using the [`ibm_is_instance`](https://registry.terraform.io/providers/IBM-Cloud/ibm/latest/docs/resources/is_instance){: external} Terraform resource.
+
+```terraform
+resource "ibm_is_instance" "example" {
+  name             = "example-instance"
+  profile          = "hx4da-64x1408"
+  zone             = "us-south-1"
+  threads_per_core = 1
+  # ... other required arguments
+}
+```
+{: codeblock}
