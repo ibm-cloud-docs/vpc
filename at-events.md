@@ -2,7 +2,7 @@
 
 copyright:
   years: 2019, 2026
-lastupdated: "2026-06-26"
+lastupdated: "2026-08-05"
 
 keywords:
 
@@ -604,6 +604,7 @@ Some fields for Bare Metal Servers for VPC AT events change between the Beta and
 | Bare Metal Server | is.bare-metal-server.bare-metal-server-profile.read | One or more bare metal server profiles was retrieved |
 | Bare Metal Server | is.bare-metal-server.bare-metal-server-firmware.update | Bare metal server firmware update was completed. |
 | Bare Metal Server | is.bare-metal-server.initialization.update | Bare metal server was reinitialized. |
+| Bare Metal Server | is.bare-metal-server.bare-metal-server-capacity.read* | Bare metal server capacity was read. |
 | Bare Metal Server Metadata | is.metadata.identity-token.create | Bare metal server identity token was created. |
 | Bare Metal Server Metadata | is.metadata.certificate.create | Bare metal server identity token certificate was created. |
 |Bare Metal Server Metadata | is.metadata.computeresource-token.read | Bare metal server identity token was read. |
