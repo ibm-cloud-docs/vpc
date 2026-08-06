@@ -70,7 +70,7 @@ Provision a key management service (KMS), and authorize access between your VPC 
 
    For {{site.data.keyword.keymanagementserviceshort}}, choose your deployment option:
    - **Standard**: Multi-tenant service with FIPS 140-2 Level 3 compliance. Follow the [Creating a Standard Key Protect instance tutorial](/docs/key-protect?topic=key-protect-provision) to create an instance and manage root keys.
-   - **Dedicated**: Single-tenant service with FIPS 140-3 Level 4 compliance. It requires CLI-based initialization. Follow the [Dedicated initialization guide](/docs/key-protect?topic=key-protect-st-init-cli) to create an instance, generate admin credentials, and create your master key.
+   - **Dedicated**: Single-tenant service with FIPS 140-3 Level 4 compliance. Follow the [Creating a Dedicated Key Protect instance tutorial](/docs/key-protect?topic=key-protect-provision-ded-instance) to create an instance, generate admin credentials, and create your master key.
 
    For guidance on choosing between Standard and Dedicated, see [When to use Standard vs Dedicated {{site.data.keyword.keymanagementserviceshort}}](/docs/key-protect?topic=key-protect-about#comparison-when-standard).
 
