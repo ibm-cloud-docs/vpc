@@ -2,7 +2,7 @@
 
 copyright:
   years: 2019, 2026
-lastupdated: "2026-08-05"
+lastupdated: "2026-08-06"
 
 keywords:
 
@@ -26,6 +26,21 @@ For more information about changes to the {{site.data.keyword.vpc_short}} comman
 
 ## August 2026
 {: #vpc-aug26}
+
+### 6 August 2026
+{: #vpc-aug0626}
+{: release-note}
+
+HPCS to Key Protect key migration support for VPC services (GA)
+:   You can now migrate encryption keys for your VPC resources from {{site.data.keyword.hscrypto}} (HPCS) Customer Root Keys (CRKs) to {{site.data.keyword.keymanagementserviceshort}} Single Tenant CRKs. This migration capability is available for the following VPC services:
+
+   - {{site.data.keyword.block_storage_is_short}} volumes and snapshots
+   - {{site.data.keyword.filestorage_vpc_short}} shares
+   - VPC custom images
+
+   No customer data is re-encrypted during migration, and no service downtime is expected. Only the Wrapped Data Encryption Key (WDEK) is updated. Before you begin, ensure that you have service-to-service authorization policies in place between your VPC services and your Key Protect instance.
+
+   For more information about how to perform the migration, see [Migrating your VPC resources from HPCS to Key Protect](/docs/key-protect?topic=key-protect-migrate-st).
 
 ### 04 August 2026
 {: #vpc-aug0426}

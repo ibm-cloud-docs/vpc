@@ -2,7 +2,7 @@
 
 copyright:
   years: 2021, 2026
-lastupdated: "2026-07-16"
+lastupdated: "2026-08-06"
 
 keywords: view snapshots, view snapshot, viewing snapshots, see snapshots, Block Storage snapshots
 
@@ -482,7 +482,7 @@ ibmcloud is snapshot-consistency-groups --backup-policy-job BACKUP_POLICY_JOB_ID
 ```
 {: pre}
 
-Example output:
+See the following output example:
 
 ```sh
 Listing snapshot consistency groups in all resource groups and region us-south under account Test Account as user test.user@ibm.com...

@@ -2,7 +2,7 @@
 
 copyright:
   years: 2022, 2026
-lastupdated: "2026-06-26"
+lastupdated: "2026-08-06"
 
 keywords: Backup for VPC, backup service, backup plan, backup policy, restore, restore volume, restore data
 
@@ -25,7 +25,8 @@ In an authorization, the source service is the service that is granted access to
 
 To be able to create an encrypted volume with customer-managed CRKs, you need to establish service-to-service authorization between the Block service and the Key Management Service of your choice.
 
-[Deprecated]{: tag-deprecated} The {{site.data.keyword.hscrypto}} are deprecated. Customers can use existing instances until 20 March 2027. For more information, see [Deprecation of IBM Cloud Hyper Protect Crypto Services](/docs/hs-crypto?topic=hs-crypto-faqs-deprecation-of-ibm-cloud-hyper-protect-crypto-services). For continued protection, consider migrating your existing encryption keys to a Dedicated {{site.data.keyword.keymanagementserviceshort}} instance. For more information, see the [Migration guide](/docs/key-protect?topic=key-protect-migrate-st).
+The {{site.data.keyword.hscrypto}} are deprecated. Customers can use existing instances until 20 March 2027. For more information, see [Deprecation of IBM Cloud Hyper Protect Crypto Services](/docs/hs-crypto?topic=hs-crypto-faqs-deprecation-of-ibm-cloud-hyper-protect-crypto-services). For continued protection, consider migrating your existing encryption keys to a Dedicated {{site.data.keyword.keymanagementserviceshort}} instance. For more information, see the [Migration guide](/docs/key-protect?topic=key-protect-migrate-st).
+{: deprecated}
 
 If you want to create backup snapshots of your {{site.data.keyword.block_storage_is_short}} volumes, the Backup service needs to be authorized to work with {{site.data.keyword.block_storage_is_short}}, Snapshots for VPC, and Virtual Server for VPC services. For more information, see [Establishing service-to-service authorizations for the Backup service](/docs/vpc?topic=vpc-backup-s2s-auth).
 
@@ -84,7 +85,7 @@ The following steps authorize the Block Storage service of one account to use a 
 {: #block-s2s-auth-encryption-cli}
 {: cli}
 
-Run the `ibmcloud iam authorization-policy-create` command to create authorization policies for the Block service to interact with one or both Key Management Services ({{site.data.keyword.keymanagementserviceshort}} or {{site.data.keyword.hscrypto}}). The source service is `server-protect` and the target service is either `kms` or `hs-crypto`. The role that you need to assign is `Reader`. The following example creates an authorization policy between the Block service and {{site.data.keyword.keymanagementserviceshort}}.
+Run the `ibmcloud iam authorization-policy-create` command to create authorization policies for the Block service to interact with Key Management Services ({{site.data.keyword.keymanagementserviceshort}}). The source service is `server-protect` and the target service is `kms`. The role that you need to assign is `Reader`. The following example creates an authorization policy between the Block service and {{site.data.keyword.keymanagementserviceshort}}.
 
 ```sh
 ibmcloud iam authorization-policy-create server-protect kms Reader
@@ -113,14 +114,7 @@ Source service name:       server-protect
 Source service instance:   All instances
 Target service name:       kms
 Target service instance:   51042d7f-f0df-4915-bd39-6a49957c9175
-Roles:                     Reader 
-
-ID:                        605cb9b9-ba0d-456b-8c22-180abee66c47
-Source service name:       server-protect
-Source service instance:   All instances
-Target service name:       hs-crypto
-Target service instance:   All instances
-Roles:                     Reader 
+Roles:                     Reader
 ```
 {: screen}
 
@@ -130,7 +124,7 @@ For more information about all of the parameters that are available for this com
 {: #block-s2s-xaccount-encryption-cli}
 {: cli}
 
-When the authorization is needed for cross-account encryption, the authorization must be created in the target account that owns the encryption key. Run the `ibmcloud iam authorization-policy-create` command to create authorization policies for the Block service of the source account to interact with one or both Key Management Services ({{site.data.keyword.keymanagementserviceshort}} or {{site.data.keyword.hscrypto}}) of the target account. The source service is `server-protect` and the target service is either `kms` or `hs-crypto`. The role that you need to assign is `Reader`. The following example creates an authorization policy between the Block service and {{site.data.keyword.keymanagementserviceshort}}.
+When the authorization is needed for cross-account encryption, the authorization must be created in the target account that owns the encryption key. Run the `ibmcloud iam authorization-policy-create` command to create authorization policies for the Block service of the source account to interact with Key Management Services ({{site.data.keyword.keymanagementserviceshort}}) of the target account. The source service is `server-protect` and the target service is `kms`. The role that you need to assign is `Reader`. The following example creates an authorization policy between the Block service and {{site.data.keyword.keymanagementserviceshort}}.
 
 1. Create a JSON file with the following information for the authorization policies in your local Documents folder.
    ```json
@@ -193,7 +187,7 @@ WHen the authorization is needed for cross-account data restoration, the authori
 {: #block-s2s-auth-encryption-api}
 {: api}
 
-Make a request to the [IAM Policy Management API](/docs/apis/iam-policy-management#create-policy) to create the service-to-service authorization for the source volume's Block service to interact with a Key Management Service instance ({{site.data.keyword.keymanagementserviceshort}} or {{site.data.keyword.hscrypto}}).
+Make a request to the [IAM Policy Management API](/docs/apis/iam-policy-management#create-policy) to create the service-to-service authorization for the source volume's Block service to interact with a Key Management Service instance.
 
 * The following example shows how you can authorize the Block service `is.server-protect` (source) to interact with the {{site.data.keyword.keymanagementserviceshort}} service `kms` (target) with the _Reader_ role.
 
@@ -211,13 +205,11 @@ Make a request to the [IAM Policy Management API](/docs/apis/iam-policy-manageme
    ```
    {: pre}
 
-* To create an authorization policy for {{site.data.keyword.hscrypto}}, replace `kms` with `hs-crypto` in the previous example.
-
 ## Creating service-to-service authorization for cross-account encryption with the API
 {: #block-s2s-xaccount-encryption-api}
 {: api}
 
-Make a request to the [IAM Policy Management API](/docs/apis/iam-policy-management#create-policy) to create the service-to-service authorization for the source account's Block Storage service to interact with a Key Management Service instance ({{site.data.keyword.keymanagementserviceshort}} or {{site.data.keyword.hscrypto}}) of the target account. The request must be made from the account that owns the customer root key in their KMS.
+Make a request to the [IAM Policy Management API](/docs/apis/iam-policy-management#create-policy) to create the service-to-service authorization for the source account's Block Storage service to interact with a Key Management Service instance of the target account. The request must be made from the account that owns the customer root key in their KMS.
 
 * The following example shows how you can authorize the Block service `is.server-protect` of one account (source) to interact with the {{site.data.keyword.hscrypto}} service `hs-crypto` of another account (target) with the _Reader_ and _Authorization Delegator_ roles.
 
@@ -240,8 +232,6 @@ Make a request to the [IAM Policy Management API](/docs/apis/iam-policy-manageme
         }'
     ```
     {: codeblock}
-
-* To create an authorization policy for {{site.data.keyword.hscrypto}}, replace `kms` with `hs-crypto` in the previous example.
 
 The cross-account authorization is one-way and specific to key and service. When Account A authorizes their key to be used by Account B's file service, Account B can use Account A's CRK to encrypt Account B's shares. However, Account A cannot use Account B's root keys to encrypt Account A's shares.
 {: note}
@@ -287,16 +277,6 @@ resource "ibm_iam_authorization_policy" "mypolicy4keyprotect" {
 ```
 {: codeblock}
 
-The following example creates an authorization policy between the Block service and {{site.data.keyword.hscrypto}} when applied.
-```terraform
-resource "ibm_iam_authorization_policy" "mypolicy4HPCS" {
-  source_service_name  = "server-protect"
-  target_service_name  = "hs-crypto"
-  roles                = ["Reader"]
-}
-```
-{: codeblock}
-
 For more information about the arguments and attributes, see the [Terraform documentation for authorization resources](https://registry.terraform.io/providers/IBM-Cloud/ibm/latest/docs/resources/iam_authorization_policy){: external}.
 
 ## Creating service-to-service authorization for cross-account encryption with Terraform
@@ -332,7 +312,7 @@ For more information about the arguments and attributes, see the [Terraform docu
 
    For more information about the arguments and attributes, see [IBM Cloud provider](https://registry.terraform.io/providers/IBM-Cloud/ibm/latest/docs#example-usage-of-provider){: external}.
 
-1. To create the IAM authorization between the key management service from one account to the Block storage service in a different account, use the resource `ibm_iam_authorization_policy`. The following example creates an authorization between {{site.data.keyword.keymanagementserviceshort}} service and the file service of the two accounts. To create authorization to access {{site.data.keyword.hscrypto}}, specify `hs-crypto` as the value for `target_service_name`.
+1. To create the IAM authorization between the key management service from one account to the Block storage service in a different account, use the resource `ibm_iam_authorization_policy`. The following example creates an authorization between {{site.data.keyword.keymanagementserviceshort}} service and the file service of the two accounts.
 
    ```Terraform
    resource "ibm_iam_authorization_policy" "policy" {

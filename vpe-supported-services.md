@@ -2,7 +2,7 @@
 
 copyright:
   years: 2020, 2026
-lastupdated: "2026-06-26"
+lastupdated: "2026-08-06"
 
 keywords: virtual private endpoints, endpoint gateway, VPE services
 
@@ -56,7 +56,6 @@ The following IBM Cloud services are enabled for Virtual Private Endpoints (VPE)
 * Global Catalog ([Endpoint URLs](/docs/apis/resource-catalog/global-catalog#endpoint-url))
 * Global Search ([Endpoint URLs](/docs/apis/search#endpoint-url))
 * Global Tagging ([Endpoint URLs](/docs/apis/tagging#endpoint-url))
-* {{site.data.keyword.hscrypto}} ([Instructions](/docs/hs-crypto?topic=hs-crypto-virtual-private-endpoints-for-vpc))
 * IAM Access Groups ([Endpoint URLs](/docs/apis/iam-access-groups#endpoint-urls))
 * IAM Identity Services ([Endpoint URLs](/docs/apis/iam-identity-token-api#endpoints))
 * IAM Policy Management ([Endpoint URLs](/docs/apis/iam-policy-management#endpoint-urls))

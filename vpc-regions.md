@@ -2,7 +2,7 @@
 
 copyright:
   years: 2020, 2026
-lastupdated: "2026-06-11"
+lastupdated: "2026-08-06"
 
 keywords: region, zone, deploy, datacenter, data, center, federated, CLI, API, account, failover, disaster, recovery, DR, data center
 
@@ -90,7 +90,7 @@ ibmcloud login -a https://cloud.ibm.com -r us-south
 
 If you do not specify the `-r <region>` parameter, the CLI prompts you to choose a region.
 
-Example output:
+See the following output example:
 
 ```json
 API endpoint: cloud.ibm.com

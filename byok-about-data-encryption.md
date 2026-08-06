@@ -2,7 +2,7 @@
 
 copyright:
   years: 2019, 2026
-lastupdated: "2026-07-07"
+lastupdated: "2026-08-06"
 
 keywords:
 
@@ -43,7 +43,7 @@ For end-to-end encryption in the {{site.data.keyword.cloud_notm}}, you can use c
 
 With customer-managed encryption, you can bring your own customer root key (CRK) to the cloud or have a [key management service](#kms-for-byok) (KMS) generate a key for you. Root keys are used to encrypt volume, file share, and custom image passphrases with [envelope encryption](#vpc-envelope-encryption-byok), a process that wraps a key with another key.
 
-Supported key management services are {{site.data.keyword.keymanagementserviceshort}} Standard and Dedicated, and {{site.data.keyword.hscrypto}}.
+Supported key management services are {{site.data.keyword.keymanagementserviceshort}} Standard and Dedicated.
 
 {{site.data.keyword.keymanagementserviceshort}} is available in two deployment options to meet different security and compliance requirements:
 
@@ -53,7 +53,8 @@ Supported key management services are {{site.data.keyword.keymanagementservicesh
 
 For a detailed comparison, see [About Standard and Dedicated {{site.data.keyword.keymanagementserviceshort}}](/docs/key-protect?topic=key-protect-about).
 
-[Deprecated]{: tag-deprecated} The {{site.data.keyword.hscrypto}} are deprecated. Customers can use existing instances until 20 March 2027. For more information, see [Deprecation of IBM Cloud Hyper Protect Crypto Services](/docs/hs-crypto?topic=hs-crypto-faqs-deprecation-of-ibm-cloud-hyper-protect-crypto-services). For continued protection, consider migrating your existing encryption keys to a Dedicated {{site.data.keyword.keymanagementserviceshort}} instance. For more information, see the [Migration guide](/docs/key-protect?topic=key-protect-migrate-st).
+The {{site.data.keyword.hscrypto}} are deprecated. Customers can use existing instances until 20 March 2027. For more information, see [Deprecation of IBM Cloud Hyper Protect Crypto Services](/docs/hs-crypto?topic=hs-crypto-faqs-deprecation-of-ibm-cloud-hyper-protect-crypto-services). For continued protection, consider migrating your existing encryption keys to a Dedicated {{site.data.keyword.keymanagementserviceshort}} instance. For more information, see the [Migration guide](/docs/key-protect?topic=key-protect-migrate-st).
+{: deprecated}
 
 When you use customer-managed encryption, you can use root keys to encrypt resources across regions. You can encrypt resources with a key that is stored in your regional KMS instance, and you can use root keys from another region. For best performance and security, colocate your KMS instance, root keys, and your encrypted resources in the same region. For more information, see [Root key regional and cross-regional considerations](#byok-cross-region-keys).
 
@@ -103,11 +104,6 @@ Customer-managed encryption has several advantages over IBM-managed encryption.
 * With the VPC infrastructure, you can create and start 1,000 instances with customer-managed encrypted boot volumes within minutes.
 * Because the hypervisor manages the encryption and decryption, the guest OS does not have to modify the data. The guest OS has no knowledge that encryption is occurring.
 
-**Choice of key management service:**
-
-* You choose the [key management service (KMS)](#kms-for-byok) that you want to use. You can select {{site.data.keyword.keymanagementserviceshort}}, a public multi-tenant KMS that is FIPS 140-2 L3 compliant, or the more secure {{site.data.keyword.hscrypto}}, which is FIPS 140-2 L4 compliant.
-* The KMS instance that contains your root key can reside outside of the region where the encrypted volume exists. However, for best performance and security, use keys in the [same region as the {{site.data.keyword.block_storage_is_short}} volumes](#byok-cross-region-keys).
-
 **Key rotation and audit tracking:**
 
 * You can manually rotate your root keys with the API or from the CLI, or set up a rotation policy to automatically rotate your keys. Rotating keys replaces the root key's original cryptographic material and generates new material. For more information, see [Key rotation for VPC resources](/docs/vpc?topic=vpc-vpc-key-rotation).
@@ -135,23 +131,10 @@ In total, four keys protect your data:
 
 * A **LUKS passphrase** (also called a "key encryption key") encrypts and decrypts the DEK. This key is managed by the VPC generation 2 infrastructure and is encrypted by your root key. It is stored as metadata that is associated with the {{site.data.keyword.block_storage_is_short}} volume that contains the QCOW2 file.
 
-* A **customer root key** that encrypts volume, share, and custom image passphrases with envelope encryption, which creates a wrapped DEK or WDEK. Root keys are customer-managed from KMS instances ({{site.data.keyword.keymanagementserviceshort}} or {{site.data.keyword.hscrypto}}), and stored and managed securely within the KMS instance. The root key also unwraps (decrypts) the WDEK, providing access to your encrypted data.
+* A **customer root key** that encrypts volume, share, and custom image passphrases with envelope encryption, which creates a wrapped DEK or WDEK. Root keys are customer-managed from KMS instances, and stored and managed securely within the KMS instance. The root key also unwraps (decrypts) the WDEK, providing access to your encrypted data.
 
 ### Supported key management services
 {: #kms-for-byok}
-
-Two IBM key management services (KMS) are available for customer-managed encryption, {{site.data.keyword.keymanagementserviceshort}} and {{site.data.keyword.hscrypto}} (available in certain [regions](/docs/hs-crypto?topic=hs-crypto-regions#regions)). These services use a common key provider API to provide a consistent approach for managing your encryption keys.
-
-Table 1 describes these services:
-
-| Key Management Service | HSM Encryption Certification | Description |
-|-----|-----|-----|
-| [{{site.data.keyword.keymanagementserviceshort}}](/docs/key-protect?topic=key-protect-getting-started-tutorial) | FIPS 140-2 _Level 3_ compliance | With A multi-tenant KMS, you can import or create your root keys and securely manage them.  |
-| [{{site.data.keyword.hscrypto}}](/docs/hs-crypto?topic=hs-crypto-get-started) | FIPS 140-2 _Level 4_ compliance | The highest level of security. A single-tenant KMS and [hardware security module (HSM)](#x6704988){: term} that is controlled by you. Import or create your root keys and securely manage them. Create an HSM master key to encrypt the content of key storage, including root keys. Only you have access to your keys and data. |
-{: caption="Available key management service options" caption-side="bottom"}
-
-You might see {{site.data.keyword.keymanagementserviceshort}} being described as _BYOK_, "bring your own key" and {{site.data.keyword.hscrypto}} as _KYOK_, or "keep your own key". {{site.data.keyword.keymanagementserviceshort}} and {{site.data.keyword.hscrypto}} are similar services.
-{: note}
 
 {{site.data.keyword.keymanagementserviceshort}} is the preferred key management service for customer-managed encryption in VPC. It's available in two deployment options:
 
@@ -177,13 +160,13 @@ Root keys serve as key-wrapping keys and are an important part of envelope encry
 
 ![Figure showing envelope encryption.](/images/envelope-encryption.png "Contextual view of envelope encryption"){: caption="Contextual view of envelope encryption" caption-side="bottom"}
 
-Both {{site.data.keyword.keymanagementserviceshort}} and {{site.data.keyword.hscrypto}} provide envelope encryption. Root keys in {{site.data.keyword.hscrypto}} service instances are also protected by a hardware security module (HSM) master key. The KMS stores your key and makes it available during volume and custom image encryption. You also manage your keys in the KMS.
+The KMS stores your key and makes it available during volume and custom image encryption. You also manage your keys in the KMS.
 
 A unique master encryption key is assigned to block storage volumes and file shares. That unique key is generated by the instance's host hypervisor. This key is encrypted by a passphrase and wrapped (encrypted) by the root key, creating a wrapped DEK or WDEK. The WDEK is stored as metadata with the volume or image, and is not available on VPC interfaces.
 
 Custom images are encrypted by your own LUKS passphrase that you create by using QEMU. After the image is encrypted, you wrap the passphrase with your root key that is stored in the KMS.
 
-For more information about envelope encryption, see {{site.data.keyword.keymanagementserviceshort}} - [Protecting data with envelope encryption](/docs/key-protect?topic=key-protect-envelope-encryption). For {{site.data.keyword.hscrypto}}, see [Protecting your data with envelope encryption](/docs/hs-crypto?topic=hs-crypto-envelope-encryption).
+For more information about envelope encryption, see {{site.data.keyword.keymanagementserviceshort}} - [Protecting data with envelope encryption](/docs/key-protect?topic=key-protect-envelope-encryption).
 
 ### Root key regional and cross-regional considerations
 {: #byok-cross-region-keys}
@@ -194,7 +177,7 @@ Cross-regional keys offer more key availability with the tradeoff of slightly hi
 
 For optimal performance and security, use root keys in the same region as your encrypted resources. Regional service uses private endpoints to multiple availability zones. If a specific zone is unavailable, you can continue to access your root keys and encrypted resources from another zone.
 
-When you use root keys regionally or cross-regionally, all network traffic is directed to a private endpoint. In other words, your keys encrypt and decrypt resources over a private network that's inaccessible to the internet. For more information about private endpoints, see [Secure access to services by using service endpoints](/docs/account?topic=account-service-endpoints-overview). You can see a list of private endpoints in the console by going to the Resource List > Security and clicking a {{site.data.keyword.keymanagementserviceshort}} or {{site.data.keyword.hscrypto}} instance. In the left menu, select **Endpoints**.
+When you use root keys regionally or cross-regionally, all network traffic is directed to a private endpoint. In other words, your keys encrypt and decrypt resources over a private network that's inaccessible to the internet. For more information about private endpoints, see [Secure access to services by using service endpoints](/docs/account?topic=account-service-endpoints-overview). You can see a list of private endpoints in the console by going to the Resource List > Security and clicking a {{site.data.keyword.keymanagementserviceshort}} instance. In the left menu, select **Endpoints**.
 
 ### Setting up customer-managed encryption
 {: #byok-general-prodedure}
@@ -221,7 +204,7 @@ Figure 2 shows the procedure for creating a stand-alone volume and attaching it 
 
 You can create a QCOW2 custom image that meets the requirements for {{site.data.keyword.vpc_short}} infrastructure and [encrypt it](/docs/vpc?topic=vpc-create-encrypted-custom-image#manually-encrypt-image) by using your own LUKS passphrase and root key. After you encrypt the custom image with your own passphrase, you upload it to {{site.data.keyword.cos_full_notm}}.
 
-To import an encrypted custom image to {{site.data.keyword.vpc_short}}, begin by setting up a key management service (KMS) instance, either {{site.data.keyword.keymanagementserviceshort}} or {{site.data.keyword.hscrypto}}. In the KMS instance, create a root key for wrapping (encrypting) the passphrase. Wrapping the passphrase produces a wrapped DEK (WDEK). The WDEK protects the passphrase at import time, keeping your data secure. The passphrase is stored encrypted in the image service and unwrapped only when a virtual server that uses the encrypted image is started.
+To import an encrypted custom image to {{site.data.keyword.vpc_short}}, begin by setting up a key management service (KMS) instance. In the KMS instance, create a root key for wrapping (encrypting) the passphrase. Wrapping the passphrase produces a wrapped DEK (WDEK). The WDEK protects the passphrase at import time, keeping your data secure. The passphrase is stored encrypted in the image service and unwrapped only when a virtual server that uses the encrypted image is started.
 
 With the required IAM authorizations in place, you can import the encrypted image from {{site.data.keyword.cos_full_notm}}. You import the image to the VPC and specify the cloud resource name (CRN) for your root key that is stored in the KMS. You also specify the ciphertext for your WDEK, which is the passphrase that you use to encrypt your image, wrapped by the root key.
 

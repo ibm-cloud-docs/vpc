@@ -2,7 +2,7 @@
 
 copyright:
   years: 2021, 2026
-lastupdated: "2026-08-05"
+lastupdated: "2026-08-06"
 
 keywords: bare metal servers, managing, operation, manage bare metal server, manage bare metal, manage server, restart bare metal, stop bare metal, delete bare metal, reboot bare metal, restart server, stop server, delete server
 
@@ -213,7 +213,7 @@ You can complete the following options when you use the `ibmcloud is bare-metal-
 - `--output` specifies the output format. Only `JSON` is supported.
 - `-q, --quiet` suppresses verbose output.
 
-Example output:
+See the following output example:
 
 ```screen
 Profile Name  Availability Zones
@@ -354,7 +354,7 @@ Specify the following properties values to use to filter the bare metal server c
 - `profile.name`: Filters the collection to resources with a profile.name property that matches the specified profile name.
 - `zone.name`: Filters the collection to resources with a zone.name property that matches the exact specified name.
 
-Example output:
+See the following output example:
 
 ```screen
 Profile Name  Availability Zones

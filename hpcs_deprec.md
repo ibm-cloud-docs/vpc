@@ -2,7 +2,7 @@
 
 copyright:
   years: 2019, 2026
-lastupdated: "2026-03-20"
+lastupdated: "2026-08-06"
 
 keywords:
 
@@ -89,7 +89,7 @@ Create a virtual server instance by importing the snapshot. For more information
 
 1. Identify your volume in the output:
 
-   **Example output:**
+   **See the following output example:**
 
    ```text
    NAME    MAJ:MIN RM  SIZE RO TYPE MOUNTPOINTS

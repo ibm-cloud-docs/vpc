@@ -1,8 +1,8 @@
 ---
 
 copyright:
-  years: 2020, 2025
-lastupdated: "2025-09-04"
+  years: 2020, 2026
+lastupdated: "2026-08-06"
 
 keywords: public isolation for VPC, compute isolation for VPC, VPC architecture, workload isolation in VPC
 
@@ -72,7 +72,6 @@ The following table lists the main dependencies of the VPC service and the purpo
 | {{site.data.keyword.cos_full_notm}} | Provides interim storage of customer-provided VPC images, recent storage of log data, and backups of all VPC resource metadata. Also stores collected flow logs. |
 | Infrastructure Management Service (IMS) | Provisions, manages, and shows information about storage volumes that are provisioned by VPC, and handles the management of our infrastructure racks. |
 | {{site.data.keyword.keymanagementservicelong_notm}} | Hosts customer root keys that wrap the data encryption keys for encrypted storage. |
-| {{site.data.keyword.hscrypto}} (HPCS) | Also hosts customer root keys that wrap the data encryption keys for encrypted storage. |
 | Global Search and Tagging - Search (GhoST) | Provides a global view of an account's IBM cloud resources, which is used by VPC to retrieve information such as which IBM KMS hosts a customer root key. |
 | {{site.data.keyword.cis_full_notm}} | Serves as the initial ingress layer for all VPC API requests, providing DNS, global load balancing, firewalling, DDoS, and other security features. |
 | Hypersync and Hyperwarp | Enables VPC resource and lifecycle events to be published to GhoST and other subscribers. |
@@ -87,7 +86,7 @@ The following table lists the main dependencies of the VPC service and the purpo
 | IBM Cloud Secrets Manager | Stores and manages certificates that are used to securely deploy VPC components, and to secure communication between VPC components. |
 | Digicert | Issuer of cloud.ibm.com SSL certificates. |
 | DNS Services | Maps IBM Cloud services FQDN to IP addresses that provides access to those services within the customer's VPC. |
-| Pulsar | Notifies of encryption key changes at IBM {{site.data.keyword.keymanagementserviceshort}} or Hyper Protect Crypto Services that affect volumes, instances, or images in VPC. |
+| Pulsar | Notifies of encryption key changes at IBM {{site.data.keyword.keymanagementserviceshort}} that affect volumes, instances, or images in VPC. |
 | New Relic | Stores a set of metrics events that are used by IBM's internal infrastructure team. |
 | LaunchDarkly | Manages the rollout of new features in VPC Infrastructure Services. LaunchDarkly provides feature flags that are used to control the visibility and availability of a feature to a selected user base. |
 {: caption="VPC dependencies" caption-side="bottom"}

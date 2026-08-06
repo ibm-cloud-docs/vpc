@@ -2,7 +2,7 @@
 
 copyright:
   years: 2022, 2026
-lastupdated: "2026-07-14"
+lastupdated: "2026-08-06"
 
 keywords: Backup for VPC, backup service, backup plan, backup policy, restore, restore volume, restore data
 
@@ -29,9 +29,10 @@ For {{site.data.keyword.filestorage_vpc_short}}, you need to create service-to-s
 
 - Configuring customer-managed encryption:
 
-   To be able to create an encrypted file share with a Customer Root Key (CRK), you must first have an instance of a Key Management Service (KMS) to hold your CRK. You can choose between {{site.data.keyword.keymanagementserviceshort}} Single or Multi Tenant instances  or {{site.data.keyword.hscrypto}}. Then, you need to establish service-to-service authorization between the file service and the KMS instance. The authorization must be created in the account that owns and hosts the customer root key. The account that holds the CRK is the source, and the account where the file share is to be created is the target.
+   To be able to create an encrypted file share with a Customer Root Key (CRK), you must first have an instance of a Key Management Service (KMS) to hold your CRK. You can choose between {{site.data.keyword.keymanagementserviceshort}} Single or Multi Tenant instances. Then, you need to establish service-to-service authorization between the file service and the KMS instance. The authorization must be created in the account that owns and hosts the customer root key. The account that holds the CRK is the source, and the account where the file share is to be created is the target.
 
-   [Deprecated]{: tag-deprecated} The {{site.data.keyword.hscrypto}} are deprecated. Customers can use existing instances until 20 March 2027. For more information, see [Deprecation of IBM Cloud Hyper Protect Crypto Services](/docs/hs-crypto?topic=hs-crypto-faqs-deprecation-of-ibm-cloud-hyper-protect-crypto-services). For continued protection, consider migrating your existing encryption keys to a Dedicated {{site.data.keyword.keymanagementserviceshort}} instance. For more information, see the [Migration guide](/docs/key-protect?topic=key-protect-migrate-st).
+   The {{site.data.keyword.hscrypto}} are deprecated. Customers can use existing instances until 20 March 2027. For more information, see [Deprecation of IBM Cloud Hyper Protect Crypto Services](/docs/hs-crypto?topic=hs-crypto-faqs-deprecation-of-ibm-cloud-hyper-protect-crypto-services). For continued protection, consider migrating your existing encryption keys to a Dedicated {{site.data.keyword.keymanagementserviceshort}} instance. For more information, see the [Migration guide](/docs/key-protect?topic=key-protect-migrate-st).
+{: deprecated}
 
 - Setting up cross-regional asynchronous replication:
 
@@ -63,7 +64,7 @@ For more information about authorizations, see [Using authorizations to grant ac
    1. From the list, select **Resource type**.
    1. In the next field, select **File Storage for VPC**.
    1. Click **Next**.
-1. For the target service, select **Hyper Protect Crypto Services** or **KeyProtect** from the list. Click **Next**.
+1. For the target service, select **KeyProtect** from the list. Click **Next**.
 1. Select the role `Reader`.
 1. Check the box to enable authorization to be delegated by source and dependent services.
 1. Click **Review** and inspect your choices.
@@ -193,7 +194,7 @@ This authorization is for the creation of accessor shares and sharing data acros
 {: #file-s2s-auth-encryption-cli}
 {: cli}
 
-Log in to your account. Run the `ibmcloud iam authorization-policy-create` command to create authorization policies for the File Storage Service to interact with your instance of one or both Key Management Services ({{site.data.keyword.keymanagementserviceshort}} or {{site.data.keyword.hscrypto}}). The source service is `is` with the `--source-resource-type share` and the target service is either `kms` or `hs-crypto`. The role that you need to assign is `Reader`. The following example creates an authorization policy between the File Storage Service and {{site.data.keyword.keymanagementserviceshort}}.
+Log in to your account. Run the `ibmcloud iam authorization-policy-create` command to create authorization policies for the File Storage Service to interact with your instance of {{site.data.keyword.keymanagementserviceshort}}. The source service is `is` with the `--source-resource-type share` and the target service is `kms`. The role that you need to assign is `Reader`. The following example creates an authorization policy between the File Storage Service and {{site.data.keyword.keymanagementserviceshort}}.
 
 ```sh
 ibmcloud iam authorization-policy-create is kms Reader --source-resource-type share
@@ -206,7 +207,7 @@ OK
 ```
 {: screen}
 
-To list the service authorizations that are already in place for the account, run the `ibmcloud iam authorization-policies` command. The following example shows that the file shares can be encrypted with a CRK that is stored in {{site.data.keyword.keymanagementserviceshort}} or {{site.data.keyword.hscrypto}}.
+To list the service authorizations that are already in place for the account, run the `ibmcloud iam authorization-policies` command. The following example shows that the file shares can be encrypted with a CRK that is stored in {{site.data.keyword.keymanagementserviceshort}}.
 
 ```sh
 ibmcloud iam authorization-policies
@@ -216,14 +217,6 @@ ibmcloud iam authorization-policies
 ```sh
 Getting authorization policies under account a1234567 as test.user@ibm.com...
 OK
-
-ID:                        8a2ef8a5-2e4c-46ea-b2e7-d4b0d0a0e1a5
-Source service name:       is
-Source service instance:   All instances
-Source resource type:      share
-Target service name:       hs-crypto
-Target service instance:   All instances
-Roles:                     Reader
 
 ID:                        d2df60ea-5575-4bd1-9cd6-f35c52576577
 Source service name:       is
@@ -241,7 +234,7 @@ For more information about all of the parameters that are available for this com
 {: #file-s2s-xaccount-encryption-cli}
 {: cli}
 
-Log in to the account that holds the instance of a Key Management Service ({{site.data.keyword.keymanagementserviceshort}} or {{site.data.keyword.hscrypto}}). Run the `ibmcloud iam authorization-policy-create` command to create authorization policies for the File service to interact with the KMS. The source service is `is` with the `--source-resource-type share` and the target service is either `kms` or `hs-crypto`. The role that you need to assign is `Reader`. The following example creates an authorization policy between the File service of the `KeyUserAccount` and the {{site.data.keyword.keymanagementserviceshort}} instance of the `KeyOwnerAccount`.
+Log in to the account that holds the instance of {{site.data.keyword.keymanagementserviceshort}}. Run the `ibmcloud iam authorization-policy-create` command to create authorization policies for the File service to interact with the KMS. The source service is `is` with the `--source-resource-type share` and the target service is `kms`. The role that you need to assign is `Reader`. The following example creates an authorization policy between the File service of the `KeyUserAccount` and the {{site.data.keyword.keymanagementserviceshort}} instance of the `KeyOwnerAccount`.
 
 1. Create a JSON file with the following information for the authorization policies in your local Documents folder.
    ```json
@@ -415,7 +408,7 @@ As the share owner, create a JSON file and use it with the `ibmcloud iam authori
 {: #file-s2s-auth-encryption-api}
 {: api}
 
-To authorize the file service to access your Key Management Service instance ({{site.data.keyword.keymanagementserviceshort}} or {{site.data.keyword.hscrypto}}), make an API request to the [IAM Policy Management API](/docs/apis/iam-policy-management#create-policy) to create the service-to-service authorization.
+To authorize the file service to access your Key Management Service instance, make an API request to the [IAM Policy Management API](/docs/apis/iam-policy-management#create-policy) to create the service-to-service authorization.
 
 * The following example shows how you can authorize the File service `is.share` (source) to interact with the {{site.data.keyword.keymanagementserviceshort}} service `kms` (target) with the _Reader_ role.
 
@@ -445,7 +438,7 @@ To authorize the file service to access your Key Management Service instance ({{
 {: #file-s2s-xaccount-encryption-api}
 {: api}
 
-To authorize the file service of another account to access your Key Management Service instance ({{site.data.keyword.keymanagementserviceshort}} or {{site.data.keyword.hscrypto}}), make a request to the [IAM Policy Management API](/docs/apis/iam-policy-management#create-policy) to create the service-to-service authorization. The following example shows how to create an authorization for the {{site.data.keyword.filestorage_vpc_short}} service of the source account to access the key management service of your account (target) with Reader permission.
+To authorize the file service of another account to access your Key Management Service instance, make a request to the [IAM Policy Management API](/docs/apis/iam-policy-management#create-policy) to create the service-to-service authorization. The following example shows how to create an authorization for the {{site.data.keyword.filestorage_vpc_short}} service of the source account to access the key management service of your account (target) with Reader permission.
 
 ```sh
 curl -X POST "https://iam.cloud.ibm.com/v1/policies" \
@@ -551,18 +544,6 @@ resource "ibm_iam_authorization_policy" "mypolicy4keyprotect" {
 ```
 {: codeblock}
 
-The following example creates an authorization policy between the file service and {{site.data.keyword.hscrypto}} when applied.
-
-```terraform
-resource "ibm_iam_authorization_policy" "mypolicy4HPCS" {
-  source_service_name  = "is"
-  source_resource_type = "share"
-  target_service_name  = "hs-crypto"
-  roles                = ["Reader"]
-}
-```
-{: codeblock}
-
 For more information about the arguments and attributes, see the [Terraform documentation for authorization resources](https://registry.terraform.io/providers/IBM-Cloud/ibm/latest/docs/resources/iam_authorization_policy){: external}.
 
 ## Creating authorization for cross-account encryption with Terraform
@@ -598,37 +579,7 @@ For more information about the arguments and attributes, see the [Terraform docu
 
    For more information about the arguments and attributes, see [IBM Cloud provider](https://registry.terraform.io/providers/IBM-Cloud/ibm/latest/docs#example-usage-of-provider){: external}.
 
-1. To create the IAM authorization between the file share service from one account to the key management service in another account, use the resource `ibm_iam_authorization_policy`. The following example creates an authorization between the file service of one account and the {{site.data.keyword.hscrypto}} service of another account.
-
-   ```terraform
-   resource "ibm_iam_authorization_policy" "policy1" {
-    subject_attributes {
-      name  = "accountId"
-      value = data.ibm_iam_account_settings.iam.account_id
-    }
-    subject_attributes {
-      name  = "serviceName"
-      value = "is"
-    }
-    subject_attributes {
-      name  = "resourceType"
-      value = "share"
-    }
-    resource_attributes {
-      name  = "accountId"
-      value = data.ibm_iam_account_settings.iam.ibm.team_account_id
-    }
-    resource_attributes {
-      name  = "serviceName"
-      operator = "stringEquals"
-      value = "hs-crypto"
-    }
-    roles   = ["Reader"]
-    }
-   ```
-   {: codeblock}
-
-   The following example creates an authorization between the file service of one account and the {{site.data.keyword.keymanagementserviceshort}} service of another account.
+1. To create the IAM authorization between the file share service from one account to the key management service in another account, use the resource `ibm_iam_authorization_policy`. The following example creates an authorization between the file service of one account and the {{site.data.keyword.keymanagementserviceshort}} service of another account.
 
    ```Terraform
    resource "ibm_iam_authorization_policy" "policy" {

@@ -2,7 +2,7 @@
 
 copyright:
   years: 2022, 2026
-lastupdated: "2026-07-22"
+lastupdated: "2026-08-06"
 
 keywords: confidential computing, secure execution, hpcr, contract, customization, env, workload, encryption, attestation, validating
 
@@ -239,7 +239,7 @@ The certificates contain **Certificate Revocation List (CRL) Distribution Points
       ```
       {: pre}
 
-      Example output:
+      See the following output example:
 
       ```sh
       serial=C775927D9F86D27D369FAC42B05144AA
@@ -277,7 +277,7 @@ The certificates contain **Certificate Revocation List (CRL) Distribution Points
       ```
       {: pre}
 
-      Example output:
+      See the following output example:
 
       ```sh
       serial=B659E74BC091042416960F5AB9410D3F

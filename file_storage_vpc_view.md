@@ -2,7 +2,7 @@
 
 copyright:
   years: 2022, 2026
-lastupdated: "2026-07-30"
+lastupdated: "2026-08-06"
 
 keywords: file storage, file share, view share details, mount targets, view targets, view share
 
@@ -43,7 +43,7 @@ View {{site.data.keyword.filestorage_vpc_short}} shares, accessor share bindings
 | Cross-account role | The values in this column can be `None`, `Origin share`, or `Accessor share`. If the value is `None`, the share is not shared with another account or external service. If the value is `Origin share`, the share is shared with another account or external service and is bound to an accessor share in the other account. If the value is `Accessor share`, then this share is bound to an origin share with the purpose of accessing the origin share's data.|
 | Replication role | Relationship between the source and the replica file share. "Replica of" indicates that the file share a replica of the source share, which is linked. "Source of" indicates that the share the source of the replica, which is linked. "None" indicates that the file share does not replicate with another share. |
 | Replication status | This column is hidden by default. Click the ![Settings icon](../icons/settings.svg "Settings") to select which columns you want to see.  |
-| Encryption type | It shows the encryption type of the file share, either provider-managed or customer-managed. [Customer-managed encryption](/docs/vpc?topic=vpc-file-storage-byok-encryption) uses your own root keys to protect your data. The UI also identifies the key management service (KMS), either {{site.data.keyword.keymanagementserviceshort}} or {{site.data.keyword.hscrypto}}. |
+| Encryption type | It shows the encryption type of the file share, either provider-managed or customer-managed. [Customer-managed encryption](/docs/vpc?topic=vpc-file-storage-byok-encryption) uses your own root keys to protect your data. The UI also identifies the key management service (KMS). |
 {: caption="File shares list page." caption-side="bottom"}
 
 You can access the Actions menu by clicking ![Actions icon](../icons/action-menu-icon.svg "Actions"). The Actions menu has options for managing the file share, depending on its state.

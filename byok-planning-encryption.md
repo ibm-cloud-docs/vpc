@@ -46,9 +46,6 @@ Setting up customer-managed encryption for your VPC resources involves the follo
 
 1. **Generate or create your root key** - You can use your on-premises HSM to generate a root key, or create one by using an {{site.data.keyword.cloud_notm}} key management service.
 
-   {{site.data.keyword.cloud_notm}} data centers provide a dedicated HSM to create and protect your keys. By using {{site.data.keyword.hscrypto}}, you can take control of your cloud data encryption keys and cloud hardware security module.
-   {: tip}
-
 2. **Provision a key management service (KMS)** - Choose the KMS that best meets your needs and provision an instance.
 
 3. **Import your root key** - Use your KMS to securely import your root key to the cloud service. For added security, create an import token in your KMS to encrypt and import root keys to the service.
@@ -64,9 +61,10 @@ Setting up customer-managed encryption for your VPC resources involves the follo
 
 Provision a key management service (KMS), and authorize access between your VPC resource and KMS.
 
-[Deprecated]{: tag-deprecated} The {{site.data.keyword.hscrypto}} are deprecated. Customers can use existing instances until 20 March 2027. For more information, see [Deprecation of IBM Cloud Hyper Protect Crypto Services](/docs/hs-crypto?topic=hs-crypto-faqs-deprecation-of-ibm-cloud-hyper-protect-crypto-services). For continued protection, consider migrating your existing encryption keys to a Dedicated {{site.data.keyword.keymanagementserviceshort}} instance. For more information, see the [Migration guide](/docs/key-protect?topic=key-protect-migrate-st).
+The {{site.data.keyword.hscrypto}} are deprecated. Customers can use existing instances until 20 March 2027. For more information, see [Deprecation of IBM Cloud Hyper Protect Crypto Services](/docs/hs-crypto?topic=hs-crypto-faqs-deprecation-of-ibm-cloud-hyper-protect-crypto-services). For continued protection, consider migrating your existing encryption keys to a Dedicated {{site.data.keyword.keymanagementserviceshort}} instance. For more information, see the [Migration guide](/docs/key-protect?topic=key-protect-migrate-st).
+{: deprecated}
 
-1. When you provision a KMS, you can choose between [{{site.data.keyword.keymanagementserviceshort}}](/docs/key-protect?topic=key-protect-getting-started-tutorial) Single Tenant and Multi Tenant instances, and [{{site.data.keyword.hscrypto}}](/docs/hs-crypto?topic=hs-crypto-get-started). Follow the linked tutorials to provision a service instance, and create or import a customer root key.
+1. When you provision a KMS, you can choose between [{{site.data.keyword.keymanagementserviceshort}}](/docs/key-protect?topic=key-protect-getting-started-tutorial) Single Tenant and Multi Tenant instances. Follow the linked tutorials to provision a service instance, and create or import a customer root key.
 
    For {{site.data.keyword.keymanagementserviceshort}}, choose your deployment option:
    - **Standard**: Multi-tenant service with FIPS 140-2 Level 3 compliance. Follow the [Creating a Standard Key Protect instance tutorial](/docs/key-protect?topic=key-protect-provision) to create an instance and manage root keys.
@@ -75,7 +73,7 @@ Provision a key management service (KMS), and authorize access between your VPC 
    For guidance on choosing between Standard and Dedicated, see [When to use Standard vs Dedicated {{site.data.keyword.keymanagementserviceshort}}](/docs/key-protect?topic=key-protect-about#comparison-when-standard).
 
 
-1. From IBM {{site.data.keyword.iamshort}} (IAM), [authorize access](/docs/iam?topic=iam-serviceauth#serviceauth) between Cloud Block Storage or Cloud File Storage (source service) and the target KMS service ({{site.data.keyword.keymanagementserviceshort}} or {{site.data.keyword.hscrypto}}). For more information, see [Establish service-to-service authorizations for File Storage for VPC](/docs/vpc?topic=vpc-file-s2s-auth) and [Establishing service-to-service authorizations for {{site.data.keyword.block_storage_is_short}}](/docs/vpc?topic=vpc-block-s2s-auth).
+1. From IBM {{site.data.keyword.iamshort}} (IAM), [authorize access](/docs/iam?topic=iam-serviceauth#serviceauth) between Cloud Block Storage or Cloud File Storage (source service) and the target KMS service. For more information, see [Establish service-to-service authorizations for File Storage for VPC](/docs/vpc?topic=vpc-file-s2s-auth) and [Establishing service-to-service authorizations for {{site.data.keyword.block_storage_is_short}}](/docs/vpc?topic=vpc-block-s2s-auth).
 
     You might need to upgrade your account to a Pay-as-you-go account to complete this set. For more information, see [Upgrading to a Pay-As-You-Go account](/docs/account?topic=account-upgrading-account#upgrade-paygo).
     {: tip}

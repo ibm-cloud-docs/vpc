@@ -2,7 +2,7 @@
 
 copyright:
   years: 2019, 2026
-lastupdated: "2026-06-26"
+lastupdated: "2026-08-06"
 
 keywords: Block Storage, virtual private cloud, Key Protect, encryption, key management, Hyper Protect Crypto Services, HPCS, volume, data storage, virtual server instance, instance, customer-managed encryption, fihe share
 
@@ -18,7 +18,8 @@ subcollection: vpc
 Rotate customer root keys for storage volumes, file shares, and custom images to enhance security. Key rotation replaces cryptographic material while maintaining access.
 {: shortdesc}
 
-[Deprecated]{: tag-deprecated} The {{site.data.keyword.hscrypto}} are deprecated. Customers can use existing instances until 20 March 2027. For more information, see [Deprecation of IBM Cloud Hyper Protect Crypto Services](/docs/hs-crypto?topic=hs-crypto-faqs-deprecation-of-ibm-cloud-hyper-protect-crypto-services). For continued protection, consider migrating your existing encryption keys to a Dedicated {{site.data.keyword.keymanagementserviceshort}} instance. For more information, see the [Migration guide](/docs/key-protect?topic=key-protect-migrate-st).
+The {{site.data.keyword.hscrypto}} are deprecated. Customers can use existing instances until 20 March 2027. For more information, see [Deprecation of IBM Cloud Hyper Protect Crypto Services](/docs/hs-crypto?topic=hs-crypto-faqs-deprecation-of-ibm-cloud-hyper-protect-crypto-services). For continued protection, consider migrating your existing encryption keys to a Dedicated {{site.data.keyword.keymanagementserviceshort}} instance. For more information, see the [Migration guide](/docs/key-protect?topic=key-protect-migrate-st).
+{: deprecated}
 
 ## Key rotation overview
 {: #vpc-key-rotation-overview}
@@ -66,12 +67,9 @@ Rotating your root keys provides these security benefits:
 
 You can rotate your root keys in your KMS instance by setting a rotation policy or by manually rotating your keys. A rotation policy automatically rotates your keys based on a schedule; manual rotation rotates keys on demand.
 
-You can also manually rotate your imported or KMS-generated root keys at any time. {{site.data.keyword.keymanagementserviceshort}} and {{site.data.keyword.hscrypto}} allow one rotation per hour for each root key. The KMS replaces the key immediately upon your request. Use this option when you import a new root key to the KMS instance and want to rotate the key immediately.
+You can also manually rotate your imported or KMS-generated root keys at any time. {{site.data.keyword.keymanagementserviceshort}} allows one rotation per hour for each root key. The KMS replaces the key immediately upon your request. Use this option when you import a new root key to the KMS instance and want to rotate the key immediately.
 
-For more information about these options, see:
-
-* {{site.data.keyword.keymanagementserviceshort}} - [Managing rotation policies](/docs/key-protect?topic=key-protect-set-rotation-policy) and [Manually rotating keys](/docs/key-protect?topic=key-protect-rotate-keys).
-* {{site.data.keyword.hscrypto}} - [Setting a rotation policy for root key](/docs/hs-crypto?topic=hs-crypto-set-rotation-policy) and [Rotating root keys manually](/docs/hs-crypto?topic=hs-crypto-rotate-keys).
+For more information about these options, see [Managing rotation policies](/docs/key-protect?topic=key-protect-set-rotation-policy) and [Manually rotating keys](/docs/key-protect?topic=key-protect-rotate-keys).
 
 ### Root key metadata
 {: #vpc-key-rotation-metadata}

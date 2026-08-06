@@ -2,7 +2,7 @@
 
 copyright:
   years: 2019, 2026
-lastupdated: "2026-08-05"
+lastupdated: "2026-08-06"
 
 keywords: faqs, Block Storage for vpc, fast restore, multizone, instance, instance provisioning, volume management, volume deletion.
 
@@ -382,7 +382,7 @@ Volume health state defines whether a volume is performing as expected, accordin
 
 All {{site.data.keyword.block_storage_is_short}} volumes are encrypted at rest with IBM-managed encryption. IBM-managed keys are generated and securely stored in a {{site.data.keyword.block_storage_is_short}} vault that is backed by Consul and maintained by {{site.data.keyword.cloud}} operations. For more information about the industry standard protocols {{site.data.keyword.cloud}} follows for encryption, see [IBM-managed encryption](/docs/vpc?topic=vpc-vpc-encryption-about&interface=ui&q=IBM-managed+encryption&tags=vpc#vpc-provider-managed-encryption).
 
-For more security, you can protect your data by using your own customer root keys (CRKs). You can import your root keys to, or create them in, a supported key management service (KMS). Your root keys are safely managed by the supported KMS, either {{site.data.keyword.keymanagementserviceshort}} (FIPS 140-2 Level 3 compliance) or {{site.data.keyword.hscrypto}}. Both KMS solutions offer the highest level of security (FIPS 140-2 Level 4 compliance). Your key material is protected in transit and at rest.
+For more security, you can protect your data by using your own customer root keys (CRKs). You can import your root keys to, or create them in, a supported key management service (KMS). Your root keys are safely managed by the supported KMS. Your key material is protected in transit and at rest.
 
 For more information, see [Supported key management services for customer-managed encryption](/docs/vpc?topic=vpc-vpc-encryption-about#kms-for-byok). To learn how to configure customer-managed encryption, see
 [Creating {{site.data.keyword.block_storage_is_short}} volumes with customer-managed encryption](/docs/vpc?topic=vpc-block-storage-vpc-encryption).
@@ -449,13 +449,7 @@ When you rotate a root key, a new version of the key is created by generating or
 {: faq}
 {: #faq-block-storage-27}
 
-You are not charged extra for creating volumes with customer-managed encryption. However, setting up a {{site.data.keyword.keymanagementserviceshort}} or {{site.data.keyword.hscrypto}} instance to import, create, and manage your root keys is not without cost. Contact your IBM customer service representative for details.
-
-## What's the difference between using {{site.data.keyword.keymanagementserviceshort}} as my KMS compared to {{site.data.keyword.hscrypto}}? When would I use one over the other?
-{: faq}
-{: #faq-block-storage-28}
-
-Both key management systems provide you with complete control over your data, managed by your root keys. {{site.data.keyword.keymanagementserviceshort}} is a multi-tenant KMS where you can import or create your root keys and securely manage them. {{site.data.keyword.hscrypto}} is a single-tenant KMS and [hardware security module (HSM)](#x6704988){: term} that is controlled by you, which offers the highest level of security. For more information about these key management services, see [Supported key management services for customer-managed encryption](/docs/vpc?topic=vpc-vpc-encryption-about#kms-for-byok).
+You are not charged extra for creating volumes with customer-managed encryption. However, setting up a {{site.data.keyword.keymanagementserviceshort}} instance to import, create, and manage your root keys is not without cost. Contact your IBM customer service representative for details.
 
 
 ## Can I convert my volume from provider-managed encryption to customer-managed encryption?

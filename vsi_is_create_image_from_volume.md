@@ -2,7 +2,7 @@
 
 copyright:
   years: 2021, 2026
-lastupdated: "2026-06-26"
+lastupdated: "2026-08-06"
 
 keywords: image, virtual private cloud, boot volume, virtual server instance, instance
 
@@ -30,7 +30,8 @@ You can create an image from a volume in several ways.
 
 * Select an instance, create an image from that instance's boot volume, and specify a different encryption. For example, if the boot volume was encrypted with IBM-managed encryption, you can select customer-managed encryption for the new image.
 
-[Deprecated]{: tag-deprecated} The {{site.data.keyword.hscrypto}} are deprecated. Customers can use existing instances until 20 March 2027. For more information, see [Deprecation of IBM Cloud Hyper Protect Crypto Services](/docs/hs-crypto?topic=hs-crypto-faqs-deprecation-of-ibm-cloud-hyper-protect-crypto-services). For continued protection, consider migrating your existing encryption keys to a Dedicated {{site.data.keyword.keymanagementserviceshort}} instance. For more information, see the [Migration guide](/docs/key-protect?topic=key-protect-migrate-st).
+The {{site.data.keyword.hscrypto}} are deprecated. Customers can use existing instances until 20 March 2027. For more information, see [Deprecation of IBM Cloud Hyper Protect Crypto Services](/docs/hs-crypto?topic=hs-crypto-faqs-deprecation-of-ibm-cloud-hyper-protect-crypto-services). For continued protection, consider migrating your existing encryption keys to a Dedicated {{site.data.keyword.keymanagementserviceshort}} instance. For more information, see the [Migration guide](/docs/key-protect?topic=key-protect-migrate-st).
+{: deprecated}
 
 * Create an image from a boot volume from the list of Block Storage volumes. The volume must be a boot volume that is attached to a virtual server instance.
 
@@ -79,7 +80,7 @@ To create an image of the boot volume, the associated virtual server instance mu
 5. Select your encryption type, either IBM-managed encryption or customer-managed encryption.
 
    * The default selection is **Provider managed**. This encryption uses IBM-managed keys. You can't remove encryption later.
-   * If you want to create an image that uses your own keys for encryption select the key management service where your customer root key (CRK) that protects your passphrase is stored: either **Key Protect** or **Hyper Protect Crypto Services**. Then, you can specify your key in two ways.
+   * If you want to create an image that uses your own keys for encryption select the key management service where your customer root key (CRK) that protects your passphrase is stored. Then, you can specify your key in two ways.
       * **Locate by instance**
         1. Select your key management service instance from the list.
         1. Select your key. If you don't have a key available, click **Create** to make one.
@@ -311,7 +312,6 @@ Before you begin, make sure that you [set up your API environment](/docs/vpc?top
 1. As described in the previous section, locate the instance, and boot volume information. Stop the instance.
 1. Get your key management service instance ID and root key CRN.
    - [{{site.data.keyword.keymanagementserviceshort}} - Retrieving your instance ID and cloud resource name (CRN)](/docs/key-protect?topic=key-protect-retrieve-instance-ID&interface=api).
-   - [{{site.data.keyword.hscrypto}} - Retrieving your instance ID](/docs/hs-crypto?topic=hs-crypto-retrieve-instance-ID&interface=api).
 
 1. Make an API request to [create an image](/docs/apis/vpc/latest#create-image). Specify the volume ID and the CRN of the root key as shown in the following example.
    ```sh

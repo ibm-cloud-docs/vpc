@@ -2,7 +2,7 @@
 
 copyright:
   years: 2022, 2026
-lastupdated: "2026-07-14"
+lastupdated: "2026-08-06"
 
 keywords: Backup, backup snapshot, create backups, backup service, backup plan, backup policy, restore, restore volume, restore data, restore share
 
@@ -36,7 +36,8 @@ You're not required to create a backup plan when you create a backup policy, but
 Backup jobs do not start until the scheduled time, and may start for up to 90 minutes after the scheduled time. For example, if you schedule a backup to run at 7:00 PM UTC, the backup job starts sometime between 7:00 PM and 8:30 PM UTC.
 {: note}
 
-[Deprecated]{: tag-deprecated} The {{site.data.keyword.hscrypto}} are deprecated. Customers can use existing instances until 20 March 2027. For more information, see [Deprecation of IBM Cloud Hyper Protect Crypto Services](/docs/hs-crypto?topic=hs-crypto-faqs-deprecation-of-ibm-cloud-hyper-protect-crypto-services). For continued protection, consider migrating your existing encryption keys to a Dedicated {{site.data.keyword.keymanagementserviceshort}} instance. For more information, see the [Migration guide](/docs/key-protect?topic=key-protect-migrate-st).
+The {{site.data.keyword.hscrypto}} are deprecated. Customers can use existing instances until 20 March 2027. For more information, see [Deprecation of IBM Cloud Hyper Protect Crypto Services](/docs/hs-crypto?topic=hs-crypto-faqs-deprecation-of-ibm-cloud-hyper-protect-crypto-services). For continued protection, consider migrating your existing encryption keys to a Dedicated {{site.data.keyword.keymanagementserviceshort}} instance. For more information, see the [Migration guide](/docs/key-protect?topic=key-protect-migrate-st).
+{: deprecated}
 
 ## Creating a backup policy and plan in the console
 {: #backup-policy-create-ui}
@@ -120,7 +121,6 @@ You can schedule backups in your plan on a daily, weekly, or monthly basis by us
    1. Click the toggle to enable remote copy in the selected region.
    1. If the source snapshot is encrypted by using a customer-managed key, you must select the encryption service instance and provide the key name. If you prefer, you can create a service instance or encryption key by following the links.
       * {{site.data.keyword.keymanagementserviceshort}} - it can be used when the original volume is encrypted by using the {{site.data.keyword.keymanagementserviceshort}} service.
-      * {{site.data.keyword.hscrypto}} - it can be used when the original volume is encrypted by using the {{site.data.keyword.hscrypto}} service.
    1. Click **Apply changes** to save the new plan. The list of plans is updated in the policy details page.
 
 1. If you want to make any changes, click the **Edit icon** ![Edit icon](../icons/edit-tagging.svg "Edit") for that plan. If you want to delete the plan, click the delete icon.

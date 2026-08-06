@@ -2,7 +2,7 @@
 
 copyright:
   years: 2020, 2026
-lastupdated: "2026-07-21"
+lastupdated: "2026-08-06"
 
 keywords: data encryption, data storage, bring your own keys, BYOK, key management, key encryption, personal data, data deletion, data security
 
@@ -18,7 +18,8 @@ subcollection: vpc
 To securely manage your data with {{site.data.keyword.vpc_full}}, you need to understand what data is stored and encrypted. You must also know how to delete any personal data that is stored. Data encryption with your own root keys is available by using a supported key management service (KMS).
 {: shortdesc}
 
-[Deprecated]{: tag-deprecated} The {{site.data.keyword.hscrypto}} are deprecated. Customers can use existing instances until 20 March 2027. For more information, see [Deprecation of IBM Cloud Hyper Protect Crypto Services](/docs/hs-crypto?topic=hs-crypto-faqs-deprecation-of-ibm-cloud-hyper-protect-crypto-services). For continued protection, consider migrating your existing encryption keys to a Dedicated {{site.data.keyword.keymanagementserviceshort}} instance. For more information, see the [Migration guide](/docs/key-protect?topic=key-protect-migrate-st).
+The {{site.data.keyword.hscrypto}} are deprecated. Customers can use existing instances until 20 March 2027. For more information, see [Deprecation of IBM Cloud Hyper Protect Crypto Services](/docs/hs-crypto?topic=hs-crypto-faqs-deprecation-of-ibm-cloud-hyper-protect-crypto-services). For continued protection, consider migrating your existing encryption keys to a Dedicated {{site.data.keyword.keymanagementserviceshort}} instance. For more information, see the [Migration guide](/docs/key-protect?topic=key-protect-migrate-st).
+{: deprecated}
 
 {{site.data.keyword.vpn_vpc_short}} does not store any customer data other than what is required to configure VPN gateways, connections, and policies. Data that is transmitted through a VPN gateway is not encrypted by IBM. Data about your specific VPN and policy configurations are encrypted in transit and at rest. VPN configuration data is deleted upon your request through the API or in the console.
 
@@ -27,7 +28,7 @@ To securely manage your data with {{site.data.keyword.vpc_full}}, you need to un
 
 All Block Storage volumes are encrypted by default with IBM-managed encryption. {{site.data.keyword.IBM}}-managed keys are generated and securely stored in a Block Storage vault that is backed by Consul and maintained by {{site.data.keyword.cloud}} operations.
 
-For more security and control, you can protect your data with your own root keys (also called a customer root key or CRK). This feature is commonly called Bring Your Own Key, or BYOK. Root keys encrypt the keys that safeguard your data. You can import your root keys to {{site.data.keyword.keymanagementserviceshort}} or {{site.data.keyword.hscrypto}}, or have the key management service create one for you.
+For more security and control, you can protect your data with your own root keys (also called a customer root key or CRK). This feature is commonly called Bring Your Own Key, or BYOK. Root keys encrypt the keys that safeguard your data. You can import your root keys to {{site.data.keyword.keymanagementserviceshort}}, or have the key management service create one for you.
 
 {{site.data.keyword.keymanagementserviceshort}} offers two deployment options to meet different security and compliance requirements:
 - **Standard** (multi-tenant): A cost-effective solution with FIPS 140-2 Level 3 compliance and shared HSM infrastructure. IBM manages the HSM master keys.
@@ -35,7 +36,7 @@ For more security and control, you can protect your data with your own root keys
 
 For more information about choosing between Standard and Dedicated, see [About Standard and Dedicated {{site.data.keyword.keymanagementserviceshort}}](/docs/key-protect?topic=key-protect-about).
 
-The KMS stores your key and makes it available during volume and custom image encryption. {{site.data.keyword.keymanagementserviceshort}} provides FIPS 140-2 Level 3 compliance. Hyper Protect Crypto Services offers the highest level of security with FIPS 140-2 Level 4 compliance. Your key material is protected in transit (when it's transported) and at rest (when it is stored).
+The KMS stores your key and makes it available during volume and custom image encryption. {{site.data.keyword.keymanagementserviceshort}} provides FIPS 140-2 Level 3 compliance. Your key material is protected in transit (when it's transported) and at rest (when it is stored).
 
 Customer-managed encryption is available for custom images, boot volumes, and data volumes. When an instance is provisioned from an encrypted custom image, its boot volume is encrypted by using the image’s root key. You can also choose a different root key. Data volumes are encrypted by using root keys when you provision a virtual server instance or when you create a stand-alone volume.
 
@@ -57,7 +58,7 @@ Data is automatically encrypted on the physical media at the drive level. Howeve
 ## Protecting your sensitive data in VPC
 {: #data-encryption}
 
-{{site.data.keyword.keymanagementserviceshort}} or {{site.data.keyword.hscrypto}} provide a higher level of protection that is called [envelope encryption](/docs/vpc?topic=vpc-vpc-encryption-about#vpc-envelope-encryption-byok), which encrypts one encryption key with another encryption key. This multi-layered approach helps ensure that your data is protected by multiple keys, and only you control access to the root keys.
+{{site.data.keyword.keymanagementserviceshort}} provides a higher level of protection that is called [envelope encryption](/docs/vpc?topic=vpc-vpc-encryption-about#vpc-envelope-encryption-byok), which encrypts one encryption key with another encryption key. This multi-layered approach helps ensure that your data is protected by multiple keys, and only you control access to the root keys.
 
 You control access to your root keys stored in the KMS instances within {{site.data.keyword.cloud}} by using {{site.data.keyword.iamlong}} (IAM). You grant access to a service to use your keys. You can also revoke access at any time, for example, if you suspect your keys might be compromised. For more information about managing your encryption keys, see [Managing data encryption](/docs/vpc?topic=vpc-vpc-encryption-managing).
 
@@ -66,7 +67,7 @@ You control access to your root keys stored in the KMS instances within {{site.d
 ### About customer-managed keys
 {: #about-encryption}
 
-With {{site.data.keyword.keymanagementserviceshort}} or {{site.data.keyword.hscrypto}}, you can create, import, and manage your root keys. {{site.data.keyword.keymanagementserviceshort}} is available in two deployment options:
+With {{site.data.keyword.keymanagementserviceshort}}, you can create, import, and manage your root keys. {{site.data.keyword.keymanagementserviceshort}} is available in two deployment options:
 
 - **Standard**: A multi-tenant service with FIPS 140-2 Level 3 compliance, suitable for most workloads that require customer-managed encryption.
 - **Dedicated**: A single-tenant service with FIPS 140-3 Level 4 compliance (submitted for certification), providing complete control over encryption keys with no IBM administrator access.

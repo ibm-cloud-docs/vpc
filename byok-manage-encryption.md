@@ -2,7 +2,7 @@
 
 copyright:
   years: 2019, 2026
-lastupdated: "2026-06-26"
+lastupdated: "2026-08-06"
 
 keywords:
 
@@ -18,7 +18,8 @@ subcollection: vpc
 Manage customer-managed encryption for VPC resources by rotating, disabling, or deleting root keys. According to {{site.data.keyword.cloud}} encryption guidelines, regular key rotation and proper key lifecycle management reduce security risks by limiting exposure to compromised keys.
 {: shortdesc}
 
-[Deprecated]{: tag-deprecated} The {{site.data.keyword.hscrypto}} are deprecated. Customers can use existing instances until 20 March 2027. For more information, see [Deprecation of IBM Cloud Hyper Protect Crypto Services](/docs/hs-crypto?topic=hs-crypto-faqs-deprecation-of-ibm-cloud-hyper-protect-crypto-services). For continued protection, consider migrating your existing encryption keys to a Dedicated {{site.data.keyword.keymanagementserviceshort}} instance. For more information, see the [Migration guide](/docs/key-protect?topic=key-protect-migrate-st).
+The {{site.data.keyword.hscrypto}} are deprecated. Customers can use existing instances until 20 March 2027. For more information, see [Deprecation of IBM Cloud Hyper Protect Crypto Services](/docs/hs-crypto?topic=hs-crypto-faqs-deprecation-of-ibm-cloud-hyper-protect-crypto-services). For continued protection, consider migrating your existing encryption keys to a Dedicated {{site.data.keyword.keymanagementserviceshort}} instance. For more information, see the [Migration guide](/docs/key-protect?topic=key-protect-migrate-st).
+{: deprecated}
 
 Manage your root keys by taking the following actions:
 
@@ -32,34 +33,31 @@ Manage your root keys by taking the following actions:
 ## Viewing root key registrations
 {: #byok-root-key-registration}
 
-{{site.data.keyword.block_storage_is_short}} volumes, snapshots, {{site.data.keyword.filestorage_vpc_short}} shares, and custom images that are encrypted with your key are registered against the root key in the key management service ({{site.data.keyword.keymanagementserviceshort}} or {{site.data.keyword.hscrypto}}). By viewing the registration, you can map your resources to their associated encryption keys. You can quickly see which resources are protected by a root key. You can also assess the risk that is involved in disabling or deleting a key by viewing which keys are actively protecting data.
+{{site.data.keyword.block_storage_is_short}} volumes, snapshots, {{site.data.keyword.filestorage_vpc_short}} shares, and custom images that are encrypted with your key are registered against the root key in the key management service. By viewing the registration, you can map your resources to their associated encryption keys. You can quickly see which resources are protected by a root key. You can also assess the risk that is involved in disabling or deleting a key by viewing which keys are actively protecting data.
 
-For more information, see the following topics.
-
-* {{site.data.keyword.keymanagementserviceshort}} - [Viewing associations between root keys and encrypted IBM Cloud resources](/docs/key-protect?topic=key-protect-view-protected-resources)
-* {{site.data.keyword.hscrypto}} - [Viewing associations between root keys and encrypted IBM Cloud resources](/docs/hs-crypto?topic=hs-crypto-view-protected-resources).
+For more information, see [Viewing associations between root keys and encrypted IBM Cloud resources](/docs/key-protect?topic=key-protect-view-protected-resources).
 
 ## Managing root keys in the console
 {: #byok-ui-root-key}
 {: ui}
 
-You can use the UI to disable, enable, delete, restore, or rotate your root keys. The following table describes each action and links to detailed steps for {{site.data.keyword.keymanagementserviceshort}} and {{site.data.keyword.hscrypto}}.
+You can use the UI to disable, enable, delete, restore, or rotate your root keys. The following table describes each action and links to detailed steps for {{site.data.keyword.keymanagementserviceshort}}.
 
-| User action | {{site.data.keyword.keymanagementserviceshort}} UI procedure | {{site.data.keyword.hscrypto}} UI procedure |
-|-------------|--------------------------|-------------------|
-| Disable key | [Disabling a root key](/docs/key-protect?topic=key-protect-disable-keys&interface=ui#disable-ui). | [Disabling a root key](/docs/hs-crypto?topic=hs-crypto-disable-keys&interface=ui#disable-ui). |
-| Enable key | [Enabling a root key](/docs/key-protect?topic=key-protect-disable-keys&interface=ui#enable-ui). | [Enabling a root key](/docs/hs-crypto?topic=hs-crypto-disable-keys&interface=ui#enable-ui). |
-| Delete key | [Deleting keys in the console (single authorization)](/docs/key-protect?topic=key-protect-delete-keys&interface=ui). | [Deleting keys with the GUI (single authorization)](/docs/hs-crypto?topic=hs-crypto-delete-keys&interface=ui#delete-keys-gui). |
-| | [Deleting keys that have a dual auth policy](/docs/key-protect?topic=key-protect-manage-dual-auth&interface=ui#delete-dual-auth-keys). | [Authorize deletion for a key with the GUI (dual authorization)](/docs/hs-crypto?topic=hs-crypto-delete-dual-auth-keys&interface=ui#set-key-deletion-console). |
-| Restore key | [Restoring a deleted key with the console](/docs/key-protect?topic=key-protect-restore-keys&interface=ui#restore-ui). | [Restoring a deleted key with the GUI](/docs/hs-crypto?topic=hs-crypto-restore-keys&interface=ui#restore-keys-ui). |
-| Manually rotate a key | [Manually rotating keys](/docs/key-protect?topic=key-protect-rotate-keys&interface=ui) | [Rotating root keys manually](/docs/hs-crypto?topic=hs-crypto-rotate-keys) |
+| User action | {{site.data.keyword.keymanagementserviceshort}} UI procedure |
+|-------------|--------------------------|
+| Disable key | [Disabling a root key](/docs/key-protect?topic=key-protect-disable-keys&interface=ui#disable-ui). |
+| Enable key | [Enabling a root key](/docs/key-protect?topic=key-protect-disable-keys&interface=ui#enable-ui). |
+| Delete key | [Deleting keys in the console (single authorization)](/docs/key-protect?topic=key-protect-delete-keys&interface=ui). |
+| | [Deleting keys that have a dual auth policy](/docs/key-protect?topic=key-protect-manage-dual-auth&interface=ui#delete-dual-auth-keys). |
+| Restore key | [Restoring a deleted key with the console](/docs/key-protect?topic=key-protect-restore-keys&interface=ui#restore-ui). |
+| Manually rotate a key | [Manually rotating keys](/docs/key-protect?topic=key-protect-rotate-keys&interface=ui) |
 {: caption="UI procedures for managing root keys" caption-side="bottom"}
 
 ## Managing root keys with the API
 {: #byok-api-root-key}
 {: api}
 
-You can use the API to disable, enable, delete, restore, or rotate your root keys. The following table describes each action and links to detailed steps for the {{site.data.keyword.keymanagementserviceshort}} or {{site.data.keyword.hscrypto}} API.
+You can use the API to disable, enable, delete, restore, or rotate your root keys. The following table describes each action and links to detailed steps for the {{site.data.keyword.keymanagementserviceshort}} API.
 
 | User action | {{site.data.keyword.keymanagementserviceshort}} API procedure | {{site.data.keyword.hscrypto}} API procedure |
 |-------------|---------------------------|--------------------|
@@ -79,10 +77,7 @@ Because deleting a root key makes all resources that are protected by it unusabl
 
 Root keys move to various states as a result of the actions that you take, and different root key states impact resources differently. The following sections describe how user actions affect the root key state, and how the root key state changes the statuses of the resources that are encrypted with that key.
 
-For more information about root key states from a KMS perspective, see the following topics.
-
-   * {{site.data.keyword.keymanagementserviceshort}} - [Key states and transitions](/docs/key-protect?topic=key-protect-key-states#key-transitions).
-   * {{site.data.keyword.hscrypto}} - [Key states and transitions](/docs/hs-crypto?topic=hs-crypto-key-states#key-transitions).
+For more information about root key states from a KMS perspective, see [Key states and transitions](/docs/key-protect?topic=key-protect-key-states#key-transitions).
 
 ### Disabling root keys
 {: #byok-disable-root-keys}
@@ -105,10 +100,7 @@ When the CRK is suspended, it can't be used to encrypt new resources or unwrap (
 
 To see which root keys are disabled, look in the console list of resources. The status of volume and snapshot resources are _unusable_. File shares in a _stable_ state remain so. The UI tooltip displays "key suspended" for the resource. In the API response, you can see an _encryption_key_disabled_ reason code.
 
-For more information about disabling a root key, see the following topics.
-
-* {{site.data.keyword.keymanagementserviceshort}} - [Disabling a root key](/docs/key-protect?topic=key-protect-disable-keys&interface=ui#disable-ui).
-* {{site.data.keyword.hscrypto}} - [Disabling a root key](/docs/hs-crypto?topic=hs-crypto-disable-keys&interface=ui#disable-ui).
+For more information about disabling a root key, see [Disabling a root key](/docs/key-protect?topic=key-protect-disable-keys&interface=ui#disable-ui).
 
 ### Enabling root keys
 {: #byok-enable-root-keys}
@@ -127,10 +119,7 @@ The following table shows the statuses of the encrypted resources when the root 
 | Instance | _available_ | Instances can be restarted. |
 {: caption="Enabled root key" caption-side="bottom"}
 
-For more information about enabling a disabled root key, see the following topics.
-
-* {{site.data.keyword.keymanagementserviceshort}} - [Enabling a disabled root key](/docs/key-protect?topic=key-protect-disable-keys&interface=api#enable-api).
-* {{site.data.keyword.hscrypto}} - [Enabling a disabled root key](/docs/hs-crypto?topic=hs-crypto-disable-keys&interface=api#enable-api).
+For more information about enabling a disabled root key, see [Enabling a disabled root key](/docs/key-protect?topic=key-protect-disable-keys&interface=api#enable-api).
 
 ### Deleting root keys
 {: #byok-delete-root-keys}
@@ -158,8 +147,6 @@ By default, the KMS prevents you from deleting a root key that's actively protec
    * If the deleted root key is protecting file shares, the file share is suspended.
    * Deleting a root key purges usage of the key for all resources in the VPC.
 
-{{site.data.keyword.hscrypto}} requires that you delete all resources before you delete a root key that is protecting those resources. If you can't delete the key, see the [troubleshooting key management service](/docs/hs-crypto?topic=hs-crypto-troubleshoot-unable-to-delete-keys) topic.
-
 Deletion of the root key results in the following conditions.
 
    * All instances with an unusable boot volume do not restart.
@@ -172,10 +159,7 @@ Deletion of the root key results in the following conditions.
 Before you force delete a root key, it's best to review all resources that are associated with that root key. Consider [temporarily disabling the key](#byok-disable-root-keys) instead of deleting it to suspend the use of that root key. Root keys can be restored within 30 days, but only if they are imported root keys, not KMS generated.
 {: important}
 
-For more information about deleting root keys, see the following topics.
-
-* {{site.data.keyword.keymanagementserviceshort}} - [Deleting keys](/docs/key-protect?topic=key-protect-delete-keys).
-* {{site.data.keyword.hscrypto}} - [Deleting keys](/docs/hs-crypto?topic=hs-crypto-delete-keys).
+For more information about deleting root keys, see [Deleting keys](/docs/key-protect?topic=key-protect-delete-keys).
 
 ### Restoring deleted root keys
 {: #byok-restore-root-key}
@@ -185,10 +169,7 @@ Restoring an imported root key returns the key to an _active_ state, and reestab
 Root keys that were generated by the KMS can't be restored.
 {: important}
 
-For more information about restoring root keys, see the following topics.
-
-* {{site.data.keyword.keymanagementserviceshort}} - [Restoring keys](/docs/key-protect?topic=key-protect-restore-keys).
-* {{site.data.keyword.hscrypto}} - [Restoring keys](/docs/hs-crypto?topic=hs-crypto-restore-keys)
+For more information about restoring root keys, see [Restoring keys](/docs/key-protect?topic=key-protect-restore-keys).
 
 ### Rotating customer root keys
 {: #byok-rotate-root-key}
@@ -221,10 +202,7 @@ To make your data inaccessible, but retain it on the {{site.data.keyword.cloud_n
 
 For audit purposes, you can monitor the activity trail for a key by integrating your key management service with [{{site.data.keyword.logs_full_notm}}](/docs/cloud-logs){: external}. After both services are provisioned and running, events are generated and automatically collected in {{site.data.keyword.logs_full_notm}} when you perform actions on keys.
 
-For more information, see the following topics:
-
-* [{{site.data.keyword.keymanagementserviceshort}} - Monitoring the lifecycle of encryption keys](/docs/key-protect?topic=key-protect-key-states#monitor-lifecycle-changes).
-* [Auditing events for {{site.data.keyword.hscrypto}}](/docs/hs-crypto?topic=hs-crypto-at-events).
+For more information, see [{{site.data.keyword.keymanagementserviceshort}} - Monitoring the lifecycle of encryption keys](/docs/key-protect?topic=key-protect-key-states#monitor-lifecycle-changes).
 
 ## Next Steps
 {: #next-steps-byok-manage}
