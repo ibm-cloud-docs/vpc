@@ -2,7 +2,7 @@
 
 copyright:
   years: 2022, 2026
-lastupdated: "2026-07-15"
+lastupdated: "2026-08-06"
 
 keywords: Backup for VPC, backup service, backup plan, backup policy, restore, restore volume, restore data
 
@@ -68,7 +68,7 @@ To create a service-to-service authorization policy, follow this procedure:
 
    (Optional) To limit authorization scope to specific virtual server instances, click **Add a condition** and select **Instance ID** from the attribute list. Then, select a specific instance from the menu.
 
-   Limiting authorization scope to specific instances causes backup failures for volumes that are attached to other instances. If you add a condition for Virtual Server for VPC, you must create a separate authorization policy for each instance whose volumes require backup. For more information, see [troubleshooting authorization scope issues](/docs/vpc?topic=vpc-baas-troubleshoot-auth-scope).
+   Limiting authorization scope to specific instances causes backup failures for volumes that are attached to other instances. If you add a condition for Virtual Server for VPC, you must create a separate authorization policy for each instance whose volumes require backup. For more information, see [troubleshooting authorization scope issues](/docs/vpc?topic=vpc-baas-ts-authorization-scope).
    {: important}
 
 1. Click **Next**.
@@ -221,7 +221,7 @@ To use Backup for VPC in your account to create policies and plans, and to run b
 
 1. Create four JSON files with the following information for the authorization policies.
 
-Keep the wildcard values (`"*"`) in the examples. Replacing wildcards with specific resource IDs limits the authorization scope and causes backup failures. For more information, see [troubleshooting authorization scope issues](/docs/vpc?topic=vpc-baas-troubleshoot-auth-scope).
+Keep the wildcard values (`"*"`) in the examples. Replacing wildcards with specific resource IDs limits the authorization scope and causes backup failures. For more information, see [troubleshooting authorization scope issues](/docs/vpc?topic=vpc-baas-ts-authorization-scope).
 {: important}
 
    * Instance service:
@@ -533,7 +533,7 @@ To use Backup for VPC in your account to create policies and plans, and to run b
 
 Make the request to the [IAM Policy Management API](/docs/apis/iam-policy-management#create-v2-policy), similar to the following examples.
 
-Keep the wildcard values (`"*"`) in the examples. Replacing wildcards with specific resource IDs limits the authorization scope and causes backup failures. For more information, see [troubleshooting authorization scope issues](/docs/vpc?topic=vpc-baas-troubleshoot-auth-scope).
+Keep the wildcard values (`"*"`) in the examples. Replacing wildcards with specific resource IDs limits the authorization scope and causes backup failures. For more information, see [troubleshooting authorization scope issues](/docs/vpc?topic=vpc-baas-ts-authorization-scope).
 {: important}
 
 ```sh
@@ -1080,7 +1080,7 @@ curl -X POST 'https://iam.cloud.ibm.com/v2/policies' -H
 
 Create an authorization policy between services by using the `ibm_iam_authorization_policy` resource argument in your `main.tf` file.
 
-Keep `operator = "stringExists"` with `value = "true"` for resource attributes. Changing to `"stringEquals"` with specific resource IDs limits the authorization scope and causes backup failures. For more information, see [troubleshooting authorization scope issues](/docs/vpc?topic=vpc-baas-troubleshoot-auth-scope).
+Keep `operator = "stringExists"` with `value = "true"` for resource attributes. Changing to `"stringEquals"` with specific resource IDs limits the authorization scope and causes backup failures. For more information, see [troubleshooting authorization scope issues](/docs/vpc?topic=vpc-baas-ts-authorization-scope).
 {: important}
 
 ```terraform
