@@ -2,7 +2,7 @@
 
 copyright:
   years: 2021, 2026
-lastupdated: "2026-08-05"
+lastupdated: "2026-08-06"
 
 keywords: creating bare metal servers
 
@@ -12,10 +12,10 @@ subcollection: vpc
 
 {{site.data.keyword.attribute-definition-list}}
 
-# Creating Bare Metal Servers on VPC
+# Creating {{site.data.keyword.bm_is_short}}
 {: #creating-bare-metal-servers}
 
-Use the following information to create a bare metal server on your {{site.data.keyword.vpc_full}} (VPC) with the configuration of your choice.
+{{site.data.keyword.bm_is_full}} provides dedicated single-tenant compute resources in your VPC. Learn how to provision a bare metal server with the profile, image, network, and storage configuration of your choice.
 {: shortdesc}
 
 If you want to use an operating system image that is hosted on your own server or on a public server, review [Network booting your own operating system with Bare Metal Servers on VPC](/docs/vpc?topic=vpc-network-boot-bare-metal-servers) before you create a bare metal server.
