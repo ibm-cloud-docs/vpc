@@ -2,7 +2,7 @@
 
 copyright:
  years: 2022, 2026
-lastupdated: "2026-08-05"
+lastupdated: "2026-08-07"
 
 keywords: Backup, backup service, backup plan, backup policy, restore, restore volume, restore data
 
@@ -258,7 +258,7 @@ File share backups:
 ## Securing your data
 {: #backup-data-security}
 
-{{site.data.keyword.cloud}} offers security-specific tools and features to help you securely manage your data when you use {{site.data.keyword.vpc_full}}. The following section provides information about access control, data encryption, configuration management, and auditing options that are available for you when you use the Backup service.
+Security-specific tools and features are available to help you securely manage your data when you use {{site.data.keyword.vpc_full}}. The following topics cover access control, data encryption, configuration management, and auditing options that are available for you when you use the Backup service.
 
 ### IAM roles for backup policies
 {: #baas-vpc-iam}

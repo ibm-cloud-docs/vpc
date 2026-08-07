@@ -2,7 +2,7 @@
 
 copyright:
   years: 2021, 2026
-lastupdated: "2026-07-13"
+lastupdated: "2026-08-07"
 
 keywords: file share, mount target, virtual network interface, customer-managed encryption, encryption at rest, encryption in transit, file storage, share,
 
@@ -120,7 +120,7 @@ The storage platform uses shared IP range across multiple zones that allows your
 ## Securing your data
 {: #fs-data-security}
 
-{{site.data.keyword.cloud}} offers security-specific tools and features to help you securely manage your data when you use {{site.data.keyword.vpc_full}}. The following section provides information about access control, data encryption, configuration management, auditing and logging options that are available for your file shares.
+Security-specific tools and features are available to help you securely manage your data when you use {{site.data.keyword.vpc_full}}. The following topics cover access control, data encryption, configuration management, auditing and logging options that are available for your file shares.
 
 ### IAM roles for managing various file storage-related activities
 {: #fs-vpc-iam}

@@ -2,7 +2,7 @@
 
 copyright:
   years: 2022, 2026
-lastupdated: "2026-08-06"
+lastupdated: "2026-08-07"
 
 keywords: snapshots, Block Storage, volumes, cross-regional snapshot, restore volume, copy snapshot
 
@@ -154,7 +154,7 @@ The following limitations apply for the first-generation block storage snapshots
 ## Securing your data
 {: #bs-snapshot-data-security}
 
-{{site.data.keyword.cloud}} offers security-specific tools and features to help you securely manage your data when you use {{site.data.keyword.vpc_full}}. The following section provides information about access control, data encryption, configuration management, and auditing options that are available for your block storage snapshots.
+Security-specific tools and features are available to help you securely manage your data when you use {{site.data.keyword.vpc_full}}. The following topics cover access control, data encryption, configuration management, and auditing options that are available for your block storage snapshots.
 
 ### IAM roles for working with single and consistency group snapshots
 {: #snapshots-vpc-iam}

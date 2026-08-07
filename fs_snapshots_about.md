@@ -2,7 +2,7 @@
 
 copyright:
   years: 2024, 2026
-lastupdated: "2026-07-21"
+lastupdated: "2026-08-07"
 
 keywords: snapshots, File Storage, shares, restore share
 
@@ -86,7 +86,7 @@ The following limitations apply for the first-generation file storage snapshots:
 ## Securing your data
 {: #fs-snapshot-data-security}
 
-{{site.data.keyword.cloud}} offers security-specific tools and features to help you securely manage your data when you use {{site.data.keyword.vpc_full}}. The following section provides information about access control, data encryption, configuration management, and auditing options that are available for your file share snapshots.
+Security-specific tools and features are available to help you securely manage your data when you use {{site.data.keyword.vpc_full}}. The following topics cover access control, data encryption, configuration management, and auditing options that are available for your file share snapshots.
 
 ### Activity tracking and auditing
 {: #fs-snapshots-at-events}
