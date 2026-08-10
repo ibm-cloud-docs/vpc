@@ -20,7 +20,7 @@ If you experience an issue or have questions when using VPC infrastructure servi
 
 * Ask a question in the [AI assistant](/docs/overview?topic=overview-ask-ai-assistant) from the console or the {{site.data.keyword.cloud_notm}} CLI.
 * Review the [FAQs](/docs/vpc?topic=vpc-faqs-for-VPC) in the product documentation.
-* Review the [troubleshooting documentation](/docs/vpc?group=tbs-vpc) to troubleshoot and resolve common issues.
+* Review the [troubleshooting documentation](/docs/vpc?group=troubleshooting) to troubleshoot and resolve common issues.
 * Check the status of the {{site.data.keyword.Bluemix_notm}} platform and resources by going to the [Status page](https://cloud.ibm.com/status){: external}.
 * Review [Stack Overflow](https://stackoverflow.com/questions/tagged/ibm-cloud){: external} to see whether other users experienced the same problem. When you ask a question, tag the question with `ibm-cloud` and `vpc`, so that it's seen by the {{site.data.keyword.Bluemix_notm}} development teams.
 

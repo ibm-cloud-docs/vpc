@@ -2,7 +2,7 @@
 
 copyright:
   years: 2018, 2026
-lastupdated: "2026-06-26"
+lastupdated: "2026-08-10"
 
 keywords: vpc, setup, environment, prerequisites, api, cli, command line interface, plugin, creating a vpc, iam, permissions, access, ssh key
 
@@ -174,7 +174,7 @@ To verify that this variable was saved, run ``echo $api_version`` and make sure 
 ### Step 5: Verify that you have API access
 {: #verify-api-access}
 
-If you run into unexpected results, add the `--verbose` (debug) flag after the `curl` command to obtain detailed logging information. For more information about commonly encountered errors, see [Troubleshooting](/docs/vpc?topic=vpc-troubleshooting-vpc).
+If you run into unexpected results, add the `--verbose` (debug) flag after the `curl` command to obtain detailed logging information. For more information about commonly encountered errors, see [Troubleshooting](/docs/vpc?group=troubleshooting).
 {: tip}
 
 * Call the GET Regions API to see the regions available for VPC, in JSON format. At least one object should return.
