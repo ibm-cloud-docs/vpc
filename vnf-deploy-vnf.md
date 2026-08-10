@@ -1,8 +1,8 @@
 ---
 
 copyright:
-  years: 2022, 2025
-lastupdated: "2025-01-15"
+  years: 2022, 2026
+lastupdated: "2026-08-10"
 
 keywords:
 
@@ -48,7 +48,6 @@ Currently, the following IBM Cloud VNF catalog offerings are available:
 * [F5 Big-IP](/catalog/content/ibmcloud_schematics_bigip_multinic_declared-1.0-d33f1544-e938-478a-b0dd-d883370f08d0-global)
 * [IaaS Security Management - CloudGuard Network Security Management](/catalog/content/check-point-cloudguard-network-security-management-3eea6646-9edc-4602-ac31-87fb61c37d24-global)
 * [Juniper vSRX](/catalog/content/jnpr-nextgen-fw-vsrx-74b4b3ba-2a05-460d-afba-98e4d012f53a-global?catalog_query=aHR0cHM6Ly9jbG91ZC5pYm0uY29tL2NhdGFsb2c%2Fc2VhcmNoPXZTUlgjc2VhcmNoX3Jlc3VsdHM%3D)
-* [Palo Alto VM-Series](/catalog/content/ibmcloud-vmseries-1.9-6470816d-562d-4627-86a5-fe3ad4e94b30-global)
 
 ## Next step
 {: #next-step-create-nlb}
