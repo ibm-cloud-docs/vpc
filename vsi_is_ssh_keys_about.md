@@ -2,7 +2,7 @@
 
 copyright:
   years: 2018, 2026
-lastupdated: "2026-06-26"
+lastupdated: "2026-08-10"
 
 keywords: ssh public keys, OpenSSH, add ssh key, ssh key, manage ssh key, generate ssh key, locate ssh key
 
@@ -243,7 +243,7 @@ To import an SSH key by using the CLI, use the **ibmcloud is key-create** comman
 ibmcloud is key-create KEY_NAME (KEY | @KEY_FILE) [--resource-group-id RESOURCE_GROUP_ID | --resource-group-name RESOURCE_GROUP_NAME]
 ```
 {: pre}
- 
+
 ## Importing your SSH key by using the API
 {: #import-ssh-keys-api}
 {: api}
@@ -297,5 +297,5 @@ Bare metal servers
 
 Troubleshooting SSH keys
 
-* [How do I resolve an SSH key error?](/docs/vpc?topic=vpc-troubleshooting-your-virtual-servers-for-vpc#troubleshooting-ssh-keys-errors)
-* [Why do I receive an SSH key permission denied error?](/docs/vpc?topic=vpc-troubleshooting-your-virtual-servers-for-vpc#troubleshooting-ssh-key-permission-denied-error)
+* [Why can't I add my SSH key?](/docs/vpc?topic=vpc-troubleshooting-cant-add-ssh-key)
+* [Why do I receive an SSH key permission denied error?]/docs/vpc?topic=vpc-troubleshooting-ssh-key-permission-denied-error)
