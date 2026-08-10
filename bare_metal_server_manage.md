@@ -2,7 +2,7 @@
 
 copyright:
   years: 2021, 2026
-lastupdated: "2026-08-06"
+lastupdated: "2026-08-10"
 
 keywords: bare metal servers, managing, operation, manage bare metal server, manage bare metal, manage server, restart bare metal, stop bare metal, delete bare metal, reboot bare metal, restart server, stop server, delete server
 
@@ -364,7 +364,7 @@ profile-2     us-south-2,us-south-3
 ```
 {: pre}
 
-For more information of the API requests, see [List capacities for bare metal servers](/docs/apis/vpc/latest#/list-bare-metal-server-capacities)
+For more information of the API requests, see [List capacities for bare metal servers](/docs/apis/vpc/latest#list-bare-metal-server-capacities)
 
 ### Rebooting the bare metal server by using the API
 {: #reboot-bare-metal-servers-api}
