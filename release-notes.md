@@ -2,7 +2,7 @@
 
 copyright:
   years: 2019, 2026
-lastupdated: "2026-08-07"
+lastupdated: "2026-08-10"
 
 keywords:
 
@@ -1084,7 +1084,7 @@ Deploy a route-based VPN in active/active mode
 {: release-note}
 
 Linux SysRq key now available to troubleshoot Linux virtual server instance
-:   When a Linux virtual server instance becomes unresponsive, you can now use Linux SysRQ key to troubleshoot the virtual server from the serial console. For more information, see [How can I use Linux SysRq key to troubleshoot a Linux virtual server instance from the serial console?](/docs/vpc?topic=vpc-troubleshooting-your-virtual-servers-for-vpc&interface=cli#linux-vsi-serial-console).
+:   When a Linux virtual server instance becomes unresponsive, you can now use Linux SysRQ key to troubleshoot the virtual server from the serial console. For more information, see [How can I use Linux SysRq key to troubleshoot a Linux virtual server instance from the serial console?](/docs/vpc?topic=vpc-linux-vsi-serial-console).
 
 ### 08 October 2024
 {: #vpc-oct0824}
