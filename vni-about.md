@@ -2,7 +2,7 @@
 
 copyright:
   years: 2023, 2026
-lastupdated: "2026-06-26"
+lastupdated: "2026-08-10"
 
 keywords:
 
@@ -69,7 +69,7 @@ Review the following considerations before creating a VNI:
 ### Protocol state filtering mode
 {: #protocol-state-filtering}
 
-Protocol state filtering monitors each network connection flowing over a virtual network interface (VNI), and drops any packets that are invalid based on the current connection state and protocol. If you use two-way ECMP routes, such as routes configured for active/active HA configurations on dual Virtual Network Functions (VNFs), you can disable filtering to avoid packet loss. Disabling filtering permits packages that are allowed by security group rules and network ACLs, but does not force each of the TCP connections to align with the [RFC 793](https://www.ietf.org/rfc/rfc793.txt){: external} TCP protocol.
+Protocol state filtering monitors each network connection flowing over a virtual network interface (VNI), and drops any packets that are invalid based on the current connection state and protocol. If you use two-way ECMP routes, such as routes configured for active/active HA configurations on dual Virtual Network Functions (VNFs), you can disable filtering to avoid packet loss. Disabling filtering permits packages that are allowed by security group rules and network ACLs, but does not force each of the TCP connections to align with the [RFC 793](https://www.rfc-editor.org/rfc/rfc793.txt){: external} TCP protocol.
 
 You can choose a protocol state filtering mode (`auto`, `enable`, `disable`) when [creating](/docs/vpc?topic=vpc-vni-create&interface=ui) or [updating](/docs/vpc?topic=vpc-vni-updating&interface=ui) a VNI. The default (`auto`) enables or disables filtering based on your VNI's target resource type. If the target type is a bare metal server, filtering is disabled; for a virtual server instance or a file share mount, filtering is enabled.
 
