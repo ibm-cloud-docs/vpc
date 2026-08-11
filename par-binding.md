@@ -2,7 +2,7 @@
 
 copyright:
   years: 2026
-lastupdated: "2026-08-03"
+lastupdated: "2026-08-11"
 
 keywords: public address range, bind, unbind
 
@@ -25,7 +25,7 @@ Review the following requirements and considerations before binding, unbinding, 
 
 * Make sure to review [planning considerations](/docs/vpc?topic=vpc-about-par#par-planning) for public address ranges.
 * The binding of a public address range must include both a VPC and an availability zone.
-* 
+* When using a public address range, you must [configure ingress routing](/docs/vpc?topic=vpc-about-custom-routes) after binding to direct traffic to the appropriate resource. Binding the address range to a VPC does not automatically route traffic.
 
 ## Binding, unbinding and moving public address ranges in the console
 {: #bind-unbind-par-ui}
