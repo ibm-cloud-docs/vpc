@@ -2,7 +2,7 @@
 
 copyright:
   years: 2020, 2026
-lastupdated: "2026-07-17"
+lastupdated: "2026-08-12"
 
 keywords: network load balancer, public, private, listener, back-end, front-end, pool, round-robin, weighted, connections, layer 4, methods, policies, APIs, access, ports, zonal
 
@@ -32,7 +32,7 @@ As discussed in the [Load balancers for VPC overview](/docs/vpc?topic=vpc-nlb-vs
 * **Private** - A private load balancer is only accessible from within the VPC network, where the client is in the same VPC or has reachability (for example, through Direct Link, Transit Gateway, or both). For private load balancers, you must have a dedicated subnet with no custom routes configured for the subnet.
 * **Private with routing mode enabled** - Private NLBs with routing mode enabled support Virtual Network Function (VNF) devices as back-end targets. They perform direct routing without any NAT, enabling VNF devices to inspect packets as-is.
 
-    For more information, see [Creating a network load balancer with routing mode](/docs/vpc?topic=vpc-nlb-vnf&interface=ui).
+    
 
 * **Private Path** - Service providers use Private Path NLBs to securely connect {{site.data.keyword.cloud_notm}} with third-party, VPC-hosted services on the {{site.data.keyword.cloud_notm}} private network. Private Path NLBs are required when you use [Private Path services](/docs/vpc?topic=vpc-private-path-service-intro) to keep network traffic on a private path that never intersects with the internet. For more information, see the [Private Path solutions guide](/docs/private-path).
 
