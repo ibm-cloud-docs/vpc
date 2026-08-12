@@ -2,7 +2,7 @@
 
 copyright:
   years: 2020, 2026
-lastupdated: "2026-06-26"
+lastupdated: "2026-08-12"
 
 keywords:
 
@@ -63,7 +63,7 @@ The following table provides a comparison of the types of load balancers.
 | Feature | Application load balancer  \n (Public/Private)| Network load balancer  \n (Public/Private) | Network load balancer  \n (Private Path) |
 |------|-----|------|------|
 | [HA mode](/docs/vpc?topic=vpc-nlb-vs-elb#nlb-ha-mode) | Active-Active (with multiple virtual IPs (VIPs) assigned to a DNS name) | Active-Standby (with single VIP) | Active-Active (Regional HA) |
-| Instance group support | Yes (see [Integrating an ALB for VPC with instance groups](/docs/vpc?topic=vpc-lbaas-integration-with-instance-groups)) | No | No |
+| Instance group support | Yes (see [Integrating an ALB for VPC with instance groups](/docs/vpc?topic=vpc-lbaas-integration-with-instance-groups)) | Yes | No |
 | Monitoring metrics | Yes | Yes | No |
 | [Multi-zone support](/docs/vpc?topic=vpc-nlb-vs-elb#nlb-mz-support) | Yes | Limited [^footnote1] (see [Multi-zone support](/docs/vpc?topic=vpc-nlb-vs-elb#nlb-mz-support)) | Yes |
 | Security group support | Yes (see [Integrating an ALB for VPC with security groups](/docs/vpc?topic=vpc-alb-integration-with-security-groups)) | Yes (see [Integrating a network load balancer with security groups](/docs/vpc?topic=vpc-nlb-integration-with-security-groups)) | No. Access control is through a Private Path service |
@@ -74,7 +74,7 @@ The following table provides a comparison of the types of load balancers.
 | Virtual IP address (VIP)| Multiple | Single | N/A |
 | Routing mode for VNFs  | No | Yes (see [About virtual network functions over VPC](/docs/vpc?topic=vpc-about-vnf))| No |
 | Virtual servers on VPC | Yes | Yes | Yes |
-| Member type | virtual server instances, bare metal servers, Power System Virtual Servers | virtual server instances | virtual server instances, application load balancer, subnet reserved IPs (bare metal servers, virtual server instance secondary interfaces, virtual network interfaces) |
+| Member type | virtual server instances, bare metal servers, Power System Virtual Servers, FQDN | virtual server instances | virtual server instances, application load balancer, subnet reserved IPs (bare metal servers, virtual server instance secondary interfaces, virtual network interfaces) |
 | Power System Virtual Server instances connected over Direct Link | Yes (No support for instance groups) | No | No |
 | Port range | No | Public only [^footnote2] | Yes |
 | Scalable to many machines | Yes | No | Yes |
