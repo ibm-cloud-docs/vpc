@@ -2,7 +2,7 @@
 
 copyright:
   years: 2021, 2026
-lastupdated: "2026-08-10"
+lastupdated: "2026-08-13"
 
 keywords:
 
@@ -29,7 +29,7 @@ The following operating systems are available as images when you create a bare m
 | CentOS Stream 9.x | x86-64 |
 | [Custom image](#bare-metal-custom-images) | x86-64 |
 | Debian 11 | x86-64 |
-| Microsoft Windows 2016 Full standard, 2019 Full standard, 2022 Full standard | x86-64 |
+| Microsoft Windows 2016 Full standard, 2019 Full standard, 2022 Full standard, 2025 Datacenter | x86-64 |
 | [Red Hat Enterprise Linux](#bare-metal-images-rhel-considerations) 9.x, 8.x| x86-64 |
 | Red Hat Enterprise Linux for SAP 9.x, 8.8, 8.6, 8.4 | x86-64 |
 | SUSE Linux Enterprise Server 15.x, 12.x | x86-64 |
