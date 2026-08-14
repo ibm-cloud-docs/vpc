@@ -726,8 +726,12 @@ toc:
               - block_storage_vpc_byok_encryption.md
               - block_storage_vpc_manage_storage_limits.md
           - block_storage_vpc_attach.md
-          - block_storage_vpc_use_volume_lin.md
-          - block_storage_vpc_use_volume_win.md
+          - topicgroup:
+              id: configuring-block-storage
+              label: Configuring block storage for use
+              topics:
+              - block_storage_vpc_use_volume_lin.md
+              - block_storage_vpc_use_volume_win.md
           - topicgroup:
               id: managing-block-volumes
               label: Managing block storage volumes

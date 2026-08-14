@@ -1,8 +1,8 @@
 ---
 
 copyright:
-  years: 2021, 2023
-lastupdated: "2023-10-03"
+  years: 2021, 2026
+lastupdated: "2026-08-14"
 
 keywords:
 
@@ -26,4 +26,4 @@ Storage for {{site.data.keyword.bm_is_short}} is unmanaged. You are responsible 
 {{site.data.keyword.filestorage_vpc_short}} is a compatible network-attached storage solution for {{site.data.keyword.bm_is_short}} that are provisioned after 31 August 2023. For more information, see [About {{site.data.keyword.filestorage_vpc_short}}](/docs/vpc?topic=vpc-file-storage-vpc-about).
 
 The following network-attached storage is not supported:
-* {{site.data.keyword.block_storage_is_short}} 
+* {{site.data.keyword.block_storage_is_short}}

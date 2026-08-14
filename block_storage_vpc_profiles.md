@@ -2,7 +2,7 @@
 
 copyright:
   years: 2019, 2026
-lastupdated: "2026-08-05"
+lastupdated: "2026-08-14"
 
 keywords: Block Storage profiles, Block Storage for VPC, IOPS tiers, custom IOPS, storage performance
 
@@ -337,6 +337,6 @@ For more information about how to expand volume capacity, see [expanding Block S
 
 For more information about how to change the IOPS tier or Custom IOPS for an existing volume, see [Adjusting IOPS of a Block Storage for VPC volume](/docs/vpc?topic=vpc-adjusting-volume-iops).
 
-For more information about how to migrate your volume from a first-generation volume profile to a second-generation profile in the console, from the CLI, with the API, or Terraform, see [Migrating Block Storage Volume](/docs/vpc?topic=vpc-block-storage-vpc-volume-migration).
+For more information about how to migrate your volume from a first-generation volume profile to a second-generation profile in the console, from the CLI, with the API, or Terraform, see [Migrating Block Storage Volume](/docs/vpc?topic=vpc-block-storage-vpc-volume-migration).[Select availability]{: tag-green} For more information about how to migrate your volume from a first-generation volume profile to an allowlisted second-generation profile in the console, from the CLI, with the API, or Terraform, see [Migrating Block Storage Volume](/docs/vpc?topic=vpc-block-storage-vpc-volume-migration).
 
 For more information about Balanced, Compute, and Memory profiles for {{site.data.keyword.vsi_is_short}}, see [x86-64 instance profiles](/docs/vpc?topic=vpc-profiles).

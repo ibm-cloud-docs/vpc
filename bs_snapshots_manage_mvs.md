@@ -2,7 +2,7 @@
 
 copyright:
   years: 2022, 2026
-lastupdated: "2026-06-26"
+lastupdated: "2026-08-14"
 
 keywords: consistency group, snapshots, backups, instance snapshot, instance backup,
 
@@ -24,6 +24,9 @@ When you consider deleting the consistency group, you can choose to delete or ke
 
 Creating a consistency group with snapshots of different generations is not supported. Consider [migrating](/docs/vpc?topic=vpc-block-storage-vpc-volume-migration) your first-generation volumes to the `sdp` profile. The `sdp` profile provides better value and more flexibility than the first-generation profiles. For more information, see [{{site.data.keyword.block_storage_is_short}} profiles](/docs/vpc?topic=vpc-block-storage-profiles).
 {: tip}
+
+Consider [migrating](/docs/vpc?topic=vpc-block-storage-vpc-volume-migration) your first-generation volumes to the allowlisted `sdp` profile. The `sdp` profile provides better value and more flexibility than the first-generation profiles. For more information, see [{{site.data.keyword.block_storage_is_short}} profiles](/docs/vpc?topic=vpc-block-storage-profiles).
+{: preview}
 
 ## Updating a consistency group in the console
 {: #update-consistencygroup-ui}

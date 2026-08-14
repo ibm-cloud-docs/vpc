@@ -2,7 +2,7 @@
 
 copyright:
   years: 2019, 2026
-lastupdated: "2026-06-29"
+lastupdated: "2026-08-14"
 
 keywords: vpc, Block Storage, Block Storage for vpc, mounting storing, attaching Block Storage, vpc instance, data volumes
 
@@ -72,7 +72,7 @@ Attach a {{site.data.keyword.block_storage_is_short}} volume from the virtual se
 1. Select **Attach volume**.
 1. Select a volume from the list of available resources and click **Attach**. Messages display on the instance details page to indicate that the volume is being attached. When it completes, the **Storage volumes** list is updated to include the new volume.
 
-## Attaching a {{site.data.keyword.block_storage_is_short}} volume from the CLI
+## Attaching a {{site.data.keyword.block_storage_is_short}} volume to a virtual server instance from the CLI
 {: #attaching-block-storage-cli}
 {: cli}
 
@@ -242,18 +242,20 @@ The following example shows the content of a volume attachment JSON file that de
 ```
 {: codeblock}
 
-## Attaching a {{site.data.keyword.block_storage_is_short}} volume with the API
+
+
+## Attaching a {{site.data.keyword.block_storage_is_short}} volume to a virtual server instance with the API
 {: #attaching-block-storage-api}
 {: api}
 
-### Attaching a {{site.data.keyword.block_storage_is_short}} volume with the API
+### Attaching a {{site.data.keyword.block_storage_is_short}} volume to a virtual server instance with the API
 {: #attach-block-storage-api}
 {: help}
 {: support}
 
-Attach {{site.data.keyword.block_storage_is_short}} volumes to an instance by directly calling the [REST APIs](/docs/apis/vpc).
+Attach {{site.data.keyword.block_storage_is_short}} volumes to a virtual server instance by directly calling the [REST APIs](/apidocs/vpc).
 
-Create a volume attachment for an instance to attach a {{site.data.keyword.block_storage_is_short}} volume. Make a `POST /instances` call and specify `volume_attachments`.
+Create a volume attachment for an instance to attach a {{site.data.keyword.block_storage_is_short}} volume. Make a `POST /instances` request and specify `volume_attachments`.
 
 ```text
 POST/instances/{instance_id}/volume_attachments
@@ -293,6 +295,8 @@ A successful response indicates that the volume is attached.
 }
 ```
 {: screen}
+
+
 
 ## Next steps
 {: #next-step-attaching-block-storage}

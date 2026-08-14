@@ -2,7 +2,7 @@
 
 copyright:
   years: 2019, 2026
-lastupdated: "2026-08-13"
+lastupdated: "2026-08-14"
 
 keywords: faqs, Block Storage for vpc, fast restore, multizone, instance, instance provisioning, volume management, volume deletion.
 
@@ -281,9 +281,9 @@ The boot volume is created when you provision a virtual server instance. The boo
 
 You can delete a {{site.data.keyword.block_storage_is_short}} volume only when it isn't attached to a virtual server instance.
 
-You must [detach the data volume](/docs/vpc?topic=vpc-managing-block-storage#detach) before you can delete it. You can also enable the autodelete feature in the console, from the CLI, or with the API. When autodelete is enabled, the data volume is deleted along with the instance.
+You must [detach the data volume](/docs/vpc?topic=vpc-managing-block-storage#detach) before you can delete it. You can also enable the **Auto-delete** feature in the console, from the CLI, or with the API. When **Auto-delete** is enabled, the data volume is deleted along with the instance.
 
-By default, boot volumes are detached and deleted when the instance is deleted. If you want to retain your boot volume, disable the autodelete feature. For more information, see [Managing Block Storage for VPC volumes](/docs/vpc?topic=vpc-managing-block-storage).
+By default, boot volumes are detached and deleted when the instance is deleted. If you want to retain your boot volume, disable the **Auto-delete** feature. For more information, see [Managing Block Storage for VPC volumes](/docs/vpc?topic=vpc-managing-block-storage).
 
 ## What happens to my data when I delete a {{site.data.keyword.block_storage_is_short}} data volume?
 {: faq}

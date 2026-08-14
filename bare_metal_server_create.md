@@ -2,7 +2,7 @@
 
 copyright:
   years: 2021, 2026
-lastupdated: "2026-08-06"
+lastupdated: "2026-08-14"
 
 keywords: creating bare metal servers
 
@@ -18,7 +18,7 @@ subcollection: vpc
 {{site.data.keyword.bm_is_full}} provides dedicated single-tenant compute resources in your VPC. Learn how to provision a bare metal server with the profile, image, network, and storage configuration of your choice.
 {: shortdesc}
 
-If you want to use an operating system image that is hosted on your own server or on a public server, review [Network booting your own operating system with Bare Metal Servers on VPC](/docs/vpc?topic=vpc-network-boot-bare-metal-servers) before you create a bare metal server.
+If you want to use an operating system image that is hosted on your own server or on a public server, review [Network booting your own operating system with Bare Metal Servers for VPC](/docs/vpc?topic=vpc-network-boot-bare-metal-servers) before you create a bare metal server.
 
 ## Creating a bare metal server by using the UI
 {: #creating-bare-metal-ui}
@@ -98,10 +98,10 @@ Before you use the API to create bare metal server, see the following table for 
 
 You can provision a bare metal server from an `available`, `partially_available` (image is not yet available in all zones), or `deprecated` image. For more information on image lifecycles, see [Custom image lifecycle](/docs/vpc?topic=vpc-planning-custom-images#custom-image-lifecycle).
 
-### Creating a bare metal server
+### Creating a bare metal server with the API
 {: #api-request-create-bare-metal-server}
 
-After you have all the information, use the [Create bare metal server](/docs/apis/vpc/latest#create-bare-metal-server) API request to create a bare metal server.
+After you have all the information, make a [Create bare metal server](/docs/apis/vpc/latest#create-bare-metal-server) API request to create a bare metal server.
 
 * For x86 architecture, you can create a bare metal server with the following example configuration:
 
@@ -322,6 +322,8 @@ The status displays "Pending" until the server is created.
 {: tip}
 
 For more information about the API request, see [Create a bare metal server](/docs/apis/vpc/latest#create-bare-metal-server).
+
+
 
 ### Viewing your server
 {: #viewing-bms-api}

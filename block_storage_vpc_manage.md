@@ -2,7 +2,7 @@
 
 copyright:
   years: 2019, 2026
-lastupdated: "2026-08-05"
+lastupdated: "2026-08-14"
 
 keywords: Block storage for VPC, change IOPS, change autodelete, increase volume, change name, rename volume, delete volume, renaming volume, updating volume
 
@@ -18,6 +18,8 @@ subcollection: vpc
 Manage {{site.data.keyword.cloud_notm}} block storage volumes by detaching, transferring, renaming, expanding capacity, adjusting IOPS, or deleting volumes and monitoring metrics.
 {: shortdesc}
 
+
+
 ## Managing {{site.data.keyword.block_storage_is_short}} in the console
 {: #manage-block-storage-vol-UI}
 {: ui}
@@ -31,11 +33,11 @@ Use the UI to manage your block storage volumes. In the console, you can complet
 * Attach a previously attached block storage data volume.
 * Rename a block storage volume.
 * Add user tags to a block storage volume.
-* Update the autodelete setting of the volume.
+* Update the Auto-delete setting of the volume.
 * Adjust the IOPS of a data volume. For more information, see [Adjusting IOPS](/docs/vpc?topic=vpc-adjusting-volume-iops).
 * Increase the capacity of a volume. For more information, see [Expanding {{site.data.keyword.block_storage_is_short}} volume capacity](/docs/vpc?topic=vpc-expanding-block-storage-volumes).
 * For `sdp` volumes, adjust the throughput limit. For more information, see [Adjusting throughput limit](/docs/vpc?topic=vpc-adjusting-volume-throughput).
-* Migrate a first-generation volume to use a volume profile from the second generation. For more information, see [Migrating Block Storage Volume](/docs/vpc?topic=vpc-block-storage-vpc-volume-migration).
+* Migrate a first-generation volume to use a volume profile from the second generation. For more information, see [Migrating Block Storage Volume](/docs/vpc?topic=vpc-block-storage-vpc-volume-migration).* Migrate a first-generation volume to use a volume profile from the allowlisted second generation. For more information, see [Migrating Block Storage Volume](/docs/vpc?topic=vpc-block-storage-vpc-volume-migration). [Select Availability]{: tag-green}
 * Delete a block storage data volume.
 
 ### Detaching a {{site.data.keyword.block_storage_is_short}} volume from a virtual server instance
@@ -134,15 +136,15 @@ When you go to the [backup policy page](/docs/vpc?topic=vpc-backup-view-policies
 
 For more information about creating backups, see [Creating a backup policy](/docs/vpc?topic=vpc-backup-service-about). For more information about user tags, see [Working with tags](/docs/account?topic=account-tag).
 
-### Updating the autodelete setting of a {{site.data.keyword.block_storage_is_short}} volume
+### Updating the Auto-delete setting of a {{site.data.keyword.block_storage_is_short}} volume
 {: #auto-delete-ui}
 {: ui}
 
-By using the Auto Delete feature, you can specify that a block storage volume is to be deleted when you delete the instance to which it is attached. For data volumes, this option is disabled by default.
+By using the **Auto-delete** feature, you can specify that a block storage volume is deleted when you delete the instance to which it is attached. For data volumes, this option is disabled by default.
 
-When boot volumes are created during instance creation and automatic deletion is enabled for them. When you delete the instance, the boot volume is also deleted unless you disable this feature.
+When boot volumes are created during instance creation, automatic deletion is enabled by default. When you delete the instance, the boot volume is also deleted unless you disable this feature.
 
-To change the default setting of the autodelete option of an existing block storage volume, follow these steps:
+To change the default setting of the **Auto-delete** option for an existing block storage volume, follow these steps:
 
 1. Locate the virtual server instance to which the volume is attached. In the [{{site.data.keyword.cloud_notm}} console](/login){: external}, click the **Navigation menu** icon ![menu icon](../icons/icon_hamburger.svg) **> Infrastructure** ![VPC icon](../icons/vpc.svg) **> Compute > Virtual server instances**.
 1. Click the **Storage** tab to see all the volumes that are attached to the server.
@@ -150,7 +152,7 @@ To change the default setting of the autodelete option of an existing block stor
 
 Alternatively, select a volume from the list of block storage (**Storage > Block Storage volumes**). On the volume details page, under **Attached instances**, click the **Auto-delete** toggle to enable or disable automatic deletion.
 
-You can also enable or disable the autodelete option on the volumes when you create an instance. For more information, see [Create and attach a {{site.data.keyword.block_storage_is_short}} volume when you create an instance](/docs/vpc?topic=vpc-creating-block-storage#create-from-vsi).
+You can also enable or disable the **Auto-delete** option for volumes when you create an instance. For more information, see [Create and attach a {{site.data.keyword.block_storage_is_short}} volume when you create an instance](/docs/vpc?topic=vpc-creating-block-storage#create-from-vsi).
 
 ## Managing {{site.data.keyword.block_storage_is_short}} from the CLI
 {: #managing-block-storage-cli}
@@ -167,7 +169,7 @@ Manage your block storage from the command-line interface (CLI). From the CLI, y
 * Adjust the IOPS of a data volume. For more information, see [Adjusting IOPS](/docs/vpc?topic=vpc-adjusting-volume-iops).
 * Increase the capacity of a volume. For more information, see [Expanding {{site.data.keyword.block_storage_is_short}} volume capacity](/docs/vpc?topic=vpc-expanding-block-storage-volumes).
 * For `sdp` volumes, adjust the throughput limit. For more information, see [Adjusting throughput limit](/docs/vpc?topic=vpc-adjusting-volume-throughput).
-* Migrate a first-generation volume to use a volume profile from the second generation. For more information, see [Migrating Block Storage Volume](/docs/vpc?topic=vpc-block-storage-vpc-volume-migration).
+* Migrate a first-generation volume to use a volume profile from the second generation. For more information, see [Migrating Block Storage Volume](/docs/vpc?topic=vpc-block-storage-vpc-volume-migration).* Migrate a first-generation volume to use a volume profile from the allowlisted second generation. For more information, see [Migrating Block Storage Volume](/docs/vpc?topic=vpc-block-storage-vpc-volume-migration). [Select Availability]{: tag-green}
 * Delete a block storage data volume.
 
 Before you can use the CLI, you must install the IBM Cloud CLI and the VPC CLI plug-in. For more information, see the [CLI prerequisites](/docs/vpc?topic=vpc-set-up-environment#cli-prerequisites-setup).
@@ -356,7 +358,7 @@ Manage your block storage programmatically by making requests to the [VPC REST A
 * Adjust the IOPS of a data volume. For more information, see [Adjusting IOPS](/docs/vpc?topic=vpc-adjusting-volume-iops).
 * Increase the capacity of a volume. For more information, see [Expanding {{site.data.keyword.block_storage_is_short}} volume capacity](/docs/vpc?topic=vpc-expanding-block-storage-volumes).
 * For `sdp` volumes, adjust the throughput limit. For more information, see [Adjusting throughput limit](/docs/vpc?topic=vpc-adjusting-volume-throughput).
-* Migrate a first-generation volume to use a volume profile from the second generation. For more information, see [Migrating Block Storage Volume](/docs/vpc?topic=vpc-block-storage-vpc-volume-migration).
+* Migrate a first-generation volume to use a volume profile from the second generation. For more information, see [Migrating Block Storage Volume](/docs/vpc?topic=vpc-block-storage-vpc-volume-migration).* Migrate a first-generation volume to use a volume profile from the allowlisted second generation. For more information, see [Migrating Block Storage Volume](/docs/vpc?topic=vpc-block-storage-vpc-volume-migration). [Select Availability]{: tag-green}
 * Delete a block storage data volume.
 
 ### Updating the name of a volume with the API
@@ -586,7 +588,7 @@ Manage your block storage as a code with Terraform. With the Terraform, you can:
 * Adjust the IOPS of a data volume. For more information, see [Adjusting IOPS](/docs/vpc?topic=vpc-adjusting-volume-iops).
 * Increase the capacity of a volume. For more information, see [Expanding {{site.data.keyword.block_storage_is_short}} volume capacity](/docs/vpc?topic=vpc-expanding-block-storage-volumes).
 * For `sdp` volumes, adjust the throughput limit. For more information, see [Adjusting throughput limit](/docs/vpc?topic=vpc-adjusting-volume-throughput).
-* Migrate a first-generation volume to use a volume profile from the second generation. For more information, see [Migrating Block Storage Volume](/docs/vpc?topic=vpc-block-storage-vpc-volume-migration).
+* Migrate a first-generation volume to use a volume profile from the second generation. For more information, see [Migrating Block Storage Volume](/docs/vpc?topic=vpc-block-storage-vpc-volume-migration).* Migrate a first-generation volume to use a volume profile from the allowlisted second generation. For more information, see [Migrating Block Storage Volume](/docs/vpc?topic=vpc-block-storage-vpc-volume-migration). [Select Availability]{: tag-green}
 * Delete a block storage data volume.
 
 To use Terraform, download the Terraform CLI and configure the {{site.data.keyword.cloud_notm}} Provider plug-in. For more information, see [Getting started with Terraform](/docs/ibm-cloud-provider-for-terraform?topic=ibm-cloud-provider-for-terraform-getting-started).

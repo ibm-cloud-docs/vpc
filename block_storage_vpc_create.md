@@ -2,7 +2,7 @@
 
 copyright:
   years: 2019, 2026
-lastupdated: "2026-08-13"
+lastupdated: "2026-08-14"
 
 keywords: vpc Block Storage, provision Block Storage for vpc, bootable snapshots, create volume from snapshot, fast restore
 
@@ -42,7 +42,7 @@ Use the {{site.data.keyword.cloud_notm}} console to create a {{site.data.keyword
 1. To create a data volume and attach it to the instance, in the **Data volumes** section of the instance provisioning page, click **Create**. In the side panel, specify the volume details.
    1. You can create a blank data volume or create a volume with imported data from a snapshot. If you choose **Import existing snapshot**, then select an available snapshot from the list. If you choose **Import snapshot by CRN**, have the CRN of the snapshot ready to be entered.
    1. Specify a unique, meaningful name for your volume. For example, it can be a name that describes your compute or workload function. The volume name must begin with a lowercase letter. The name can be up to 63 lowercase alpha-numeric characters and include the hyphen (-). Volume names must be unique to your VPC. You can edit the name later if you want.
-   1. Autodelete feature is disabled by default. If you want the volume to be deleted when the attached virtual server instance is deleted, click the toggle to enable the feature.
+   1. The **Auto-delete** feature is disabled by default. If you want the volume to be deleted when the attached virtual server instance is deleted, click the toggle to enable the feature.
    1. Resource group and location are inherited from the instance. These values can't be changed.
    1. You can specify optional user tags to associate with this volume. For more information about organizing resources with user tags, see [Working with tags](/docs/account?topic=account-tag&interface=ui).
    1. In the **Encryption** section, provider-managed encryption is enabled by default. To use [your own encryption key](/docs/vpc?topic=vpc-block-storage-vpc-encryption), click the toggle to enable customer-managed encryption. If you already have a KMS instance and root key, the system autoselects it for you. You can click the **Edit icon** ![Edit icon](../icons/edit-tagging.svg "Edit") to change to another key or instance. To locate your encryption key, select one of the following options:
@@ -74,7 +74,7 @@ You can create a {{site.data.keyword.block_storage_is_short}} volume from an exi
 4. In the side panel, click the down arrow under **Block volumes** and select **Create a data volume**. The side panel expands with fields to define the volume.
    1. If you created volume snapshots previously, the option to import one becomes available. Click the toggle to **Import from snapshot**, and select a snapshot from the list or locate the snapshot by its CRN.
    1. Specify a unique, meaningful name for your volume. For example, it can be a name that describes your compute or workload function. The volume name must begin with a lowercase letter. The name can be up to 63 lowercase alpha-numeric characters and include the hyphen (-). Volume names must be unique to your VPC. You can edit the name later if you want.
-   1. The Autodelete feature is disabled by default. If you want the volume to be deleted when the attached virtual server instance is deleted, click the toggle to enable the feature.
+   1. The **Auto-delete** feature is disabled by default. If you want the volume to be deleted when the attached virtual server instance is deleted, click the toggle to enable the feature.
    1. Resource group and location are inherited from the instance. These values can't be changed.
    1. You can specify optional user tags to associate with this volume. For more information about organizing resources with user tags, see [Working with tags](/docs/account?topic=account-tag&interface=ui).
    1. In the **Encryption** section, provider-managed encryption is enabled by default. To use [your own encryption key](/docs/vpc?topic=vpc-block-storage-vpc-encryption), click the toggle to enable customer-managed encryption. If you already have a KMS instance and root key, the system autoselects it for you. You can click the **Edit icon** ![Edit icon](../icons/edit-tagging.svg "Edit") to change to another key or instance. To locate your encryption key, select one of the following options:
