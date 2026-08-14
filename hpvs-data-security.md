@@ -2,7 +2,7 @@
 
 copyright:
   years: 2023, 2026
-lastupdated: "2026-06-26"
+lastupdated: "2026-08-13"
 
 keywords: data security for {{site.data.keyword.hpvs}} for VPC, bring your own key, keep your own key, key management service, kms, {{site.data.keyword.hscrypto}}
 
@@ -44,7 +44,7 @@ The following table is a summary of the seeds. The third seed is the one provide
 |------|------|------|------|
 |seed1|Deployer persona|`env` - `volumes` section of the contract|Required|
 |seed2|Workload persona|`workload` - `volumes` section of the contract|Required|
-|seed3|{{site.data.keyword.hscrypto}}|{{site.data.keyword.hscrypto}} generates the third seed and wraps it with the CRK only if `kms` details are provided in the contract. The envelop encryption is done by calling a wrap API. The wrapped seed is stored in the metadata partition of the data volume.|Optional|
+|seed3|{{site.data.keyword.hscrypto}}|{{site.data.keyword.hscrypto}} generates the third seed and wraps it with the CRK only if `kms` details are provided in the contract. The envelope encryption is done by calling a wrap API. The wrapped seed is stored in the metadata partition of the data volume.|Optional|
 {: caption="Seeds that are used to generate the LUKS encryption passphrase" caption-side="top"}
 
 ![LUKS passphrase generation](images/hpvs-luks.svg "LUKS passphrase generation"){: caption="LUKS passphrase generation" caption-side="bottom"}

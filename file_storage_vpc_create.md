@@ -2,7 +2,7 @@
 
 copyright:
   years: 2021, 2026
-lastupdated: "2026-08-06"
+lastupdated: "2026-08-13"
 
 keywords: file share, file storage, virtual network interface, encryption in transit, profiles,
 
@@ -51,14 +51,13 @@ In the {{site.data.keyword.cloud_notm}} console, you can create a file share wit
    | Field | Value |
    |-------|-------|
    | **Availability** | - [Select availability]{: tag-green} If you're a customer with special access to preview the new regional file share offering, you can choose between Regional and Single zone data availability. You can't change this property after the share is created. \n - If your account is not allow-listed, this field does not appear. Select the location for your zonal file share.  |
-   | **Location** | - [Select availability]{: tag-green} If you chose Single zone availability, select the geography, region, and zone for the new file share, for example, North America, Dallas (us-south), us-south-2. \n - If you chose regional availability, select the region. For example, Dallas (us-south). |
+   | **Location** | - [Select availability]{: tag-green} If you chose Single zone availability, use the **Zone** menu to select a zone. The menu is grouped by geography (for example, NORTH AMERICA). Under each geography, metro locations are listed alphabetically. Click the arrow next to a metro name to expand its zones, then click a zone to select it. For example, expand Dallas (us-south) and select us-south-2. \n - If you chose regional availability, use the **Region** menu to select a region. The menu is grouped by geography. Under each geography, metro locations are listed alphabetically. Click the arrow next to a metro name to expand its regions, then click a region to select it. For example, expand Dallas and select us-south. |
    | **Details** | |
    | Name  | Specify a meaningful name for your file share. The file share name can be up to 63 lowercase alpha-numeric characters and include the hyphen (-), and must begin with a lowercase letter. You can later edit the name if you want.
    | Resource Group | Use the default resource group or specify a [Resource group](/docs/vpc?topic=vpc-iam-getting-started&interface=ui#iam-resource-groups). Resource groups help organize your account resources for access control and billing purposes. |
    | Tags (optional) | Enter any user tags to apply to this file share. As you type, existing tags appear that you can select. For more information about tags, see [Add user tags to a file share](/docs/vpc?topic=vpc-file-storage-managing&interface=ui#fs-add-user-tags). |
    | Access Management Tags (optional) | Enter access management tags that you created in IAM to apply them to this file share. For more information about access management tags, see [Access management tags for file shares](/docs/vpc?topic=vpc-file-storage-vpc-about&interface=ui#fs-about-mgt-tags). |
    | Profile | The profile is auto-populated based on your data availability selection. For more information, see [file Storage profiles](/docs/vpc?topic=vpc-file-storage-profiles). \n - If you chose Single zone availability, your file share uses the `dp2` profile. Select the size and IOPS for your file share. You can increase the capacity later, and you can also adjust the IOPS as needed. \n - [Select availability]{: tag-green} If you chose regional availability, your file share uses the `rfs` profile. Select the size and bandwidth for your file share. 800 Mbps is the default bandwidth allocation for all file shares at no extra cost. You can increase the capacity later, and you can also adjust the bandwidth as needed.|
-   | Allowed transit encryption modes | As the share owner, you can specify how you want clients within your account and authorized accounts to connect to your file share. You can select *none* if you do not want them to use encryption in transit. If you want them to use encryption in transit, select *IPsec* for a zonal share or [Select availability]{: tag-green} *stunnel* for a regional share. If you select both available options, then the transit encryption type of the first mount target decides the transit encryption types of all future mount targets within the account. |
    {: caption="Values for creating a file share" caption-side="bottom"}
 
 1. The creation of [mount targets](/docs/vpc?topic=vpc-file-storage-vpc-about#fs-share-mount-targets) is optional. You can skip this step if you do not want to create a mount target now. However, you need one to mount your file share on a compute host. A file share can have multiple mount targets so you can access it from multiple VPCs. You can create one mount target per VPC per file share. To create it, click **Create**.
@@ -73,15 +72,28 @@ In the {{site.data.keyword.cloud_notm}} console, you can create a file share wit
    6. Then, click **Next**.
    7. Review your selection, and either click **Back** to return and update your choices or click **Create**.
 
-1. Encryption at rest. By default, all file shares are encrypted by IBM-managed keys. You can also choose to create an envelop-encryption for your shares with your own keys. If you want to use your own keys, select one of the [key management services](/docs/vpc?topic=vpc-vpc-encryption-about#kms-for-byok).
+1. In the **Encryption at rest** section, all file shares are encrypted by IBM-managed keys by default. To use [your own encryption key](/docs/vpc?topic=vpc-file-storage-byok-encryption), click the toggle to enable customer-managed encryption. If you already have a KMS instance and root key, the system autoselects it for you. To change the key or instance, click the **Edit icon** ![Edit icon](../icons/edit-tagging.svg "Edit") to open the **Configure encryption** side panel. Select one of the following options to locate your encryption key:
+   - **Locate by Instance**: The panel has three steps:
+      1. **Select KMS instance**: The list shows the name, ID, type (Standard or Dedicated), and location of each available {{site.data.keyword.keymanagementserviceshort}} instance. Select an instance and click **Select**. If you don't have an instance yet, click **Create** to provision one.
+      1. **Associate key**: The list shows the name, ID, last updated date, aliases, and key ring of each available root key. Select a key and click **Select**. If you don't have a key yet, click **Create new key**.
+      1. **Review**: Confirm your selections, including the key management service, instance type, instance name, and key name. The **Service authorization** section shows whether the required authorization between {{site.data.keyword.filestorage_vpc_short}} and the KMS instance is already in place. If it is not, you can allow {{site.data.keyword.keymanagementserviceshort}} to create the authorization automatically, or create one manually. For more information, see [Establishing service-to-service authorizations for {{site.data.keyword.filestorage_vpc_short}}](/docs/vpc?topic=vpc-file-s2s-auth&interface=ui#file-s2s-auth-encryption-ui). Click **Confirm** to apply your selection and return to the file share provisioning page.
+   - **Locate by CRN**: Enter the CRN of the customer root key to be used for encrypting the share. Choose this option if you're using the CRK of another account. Click **Select** to proceed to the **Review** step described in the **Locate by Instance** option.
 
-   | Field | Value |
-   |------|------|
-   | Encryption | To use customer-managed encryption, select either {{site.data.keyword.keymanagementserviceshort}} or {{site.data.keyword.hscrypto}}. The key management service (KMS) instance includes the root key that is imported to or created in that KMS instance. |
-   | Encryption service instance | If you provisioned multiple KMS instances in your account, select the one that includes the root key that you want to use for customer-managed encryption. |
-   | Key name | Select the root key within the KMS instance that you want to use for encrypting the share. |
-   | Key ID | The field shows the key ID that is associated with the data encryption key that you selected. |
-   {: caption="Values for customer-managed encryption for file shares." caption-side="bottom"}
+1. If you chose single-zone availability, the **Disaster recovery** section appears after the Encryption card. This step is optional. Use it to configure same-region asynchronous replication at provisioning time. Cross-regional replication, must be set up separately after the share is provisioned and in a stable status. For more information, see [Adding replication to a file share](/docs/vpc?topic=vpc-file-storage-create-replication&interface=ui#fs-create-replica-ui).
+
+   To configure same-region replication, click the **Asynchronous replication** toggle. The replication fields expand inline. The replica inherits the source share's profile and encryption settings. Mount targets must be added separately.
+
+   Complete the following fields:
+   1. **Zone**: The geography and region are prepopulated based on the source share's location and cannot be changed. Select the zone for the replica from the dropdown. Only the zones that are valid for replication are shown.
+   1. **Replica name**: Enter a name for the replica share.
+   1. **Max IOPS**: Specify the maximum IOPS for the replica share.
+   1. **Frequency**: Select how often to synchronize changes from the source share to the replica, and configure the start time:
+      - **Every 15 minutes**: Enter the minutes value for the start time.
+      - **Hourly**: Enter the minutes value for the start time.
+      - **Daily**: Enter the start time in UTC in HH:MM format, between 00:00 and 23:59.
+      - **Weekly**: Select the day or days of the week on which replication runs, and enter the start time in UTC in HH:MM format, between 00:00 and 23:59.
+      - **Monthly**: Enter the day of the month on which replication runs (1 - 31), and enter the start time in UTC in HH:MM format, between 00:00 and 23:59.
+      - **Cron expression**: Enter a `cron-spec` expression in the format `minute hour day month weekday`. Replication must be scheduled no less than 15 minutes apart. For example, to replicate every day at 5:30 PM UTC, enter `30 17 * * *`.
 
 1. When all the required information is entered, click **Create file share**. You return to the {{site.data.keyword.filestorage_vpc_short}} page, where a message indicates that the file share is provisioning. When the transaction completes, the share status changes to **Active**.
 

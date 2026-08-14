@@ -2,7 +2,7 @@
 
 copyright:
   years: 2022, 2026
-lastupdated: "2026-08-06"
+lastupdated: "2026-08-13"
 
 keywords: file share, file storage, source volume, replica share,
 
@@ -44,7 +44,7 @@ You can create a replica of your file share from the list of all file shares or 
 On the File share replica create page, review the source file share details, and complete the replica details.
 
 1. Name - Provide a unique name for the replica share.
-1. Replica location - The geography is preselected and cannot be changed. Select the metro (region) and zone in which the replica share is to be created. The UI presents the available options in the menu.
+1. Replica location - The geography is preselected and cannot be changed. Use the **Zone** menu to select the zone for the replica. The menu is grouped by geography. Under each geography, metro locations are listed alphabetically. Click the arrow next to a metro name to expand its zones, then click a zone to select it.
 1. Resource group - Select the resource group from the list.
 1. Tags - Optionally, specify [user tags](/docs/vpc?topic=vpc-file-storage-managing&interface=ui#fs-add-user-tags). The tags that you apply to the replica can be the same as or different from the source share's tags.
 1. Profile - The `dp2` profile is preselected, even if the source file share is based on a profile from a previous release. Specify the maximum value for IOPS. It determines the performance that you get on the replica after you [perform a failover](/docs/vpc?topic=vpc-file-storage-failover).
@@ -70,25 +70,15 @@ On the File share replica create page, review the source file share details, and
    The VPC access mode is deprecated and reaches end of support on 06 May 2027. Follow the [migration guide](/docs/vpc?topic=vpc-fs-migrate-access-mode&interface=ui#fs-migrate-update-mode) to update the source share's access control mode to `security-group`.
    {: deprecated}
 
-1. Sync frequency - Specify how often you want to synchronize changes from the primary file share to the replica share. The Summary shows the selections that you made. For **Frequency**, the options are hourly, daily, weekly, monthly, or by `cron-spec` expression:
-   * For hourly replication, enter a value in the range 0 - 60 to specify exactly how many minutes past the hour, every hour, every day the replication is to start.
-   * For daily replication, specify the starting time in hours and minutes in Coordinated Universal Time. Enter a value between 00:00 and 23:59. For your convenience, the Coordinated Universal Time value is converted into your local time.
-   * For weekly replication, specify the days of the week you want replication to run and the start time in Coordinated Universal Time. Enter a value between 00:00 and 23:59.
-   * For monthly replication, choose a Day 1 - 28. For the start time, enter a value between 00:00 and 23:59.
-   * If you specify a `cron-spec` expression, replications must be scheduled not less than 15 minutes. Enter the replication frequency in `cron-spec` format: minute, hour, day, month, and weekday. For example, to replicate every day at 5:30 PM you need to enter `30 17 * * *`.
+1. Sync frequency - Specify how often you want to synchronize changes from the primary file share to the replica share. For **Frequency**, select one of the following options and configure the start time:
+   * **Every 15 minutes**: Enter the minutes value for the start time.
+   * **Hourly**: Enter the minutes value for the start time.
+   * **Daily**: Enter the start time in Coordinated Universal Time (UTC) in HH:MM format, between 00:00 and 23:59.
+   * **Weekly**: Select the day or days of the week on which replication runs, and enter the start time in UTC in HH:MM format, between 00:00 and 23:59.
+   * **Monthly**: Enter the day of the month on which replication runs (1 - 31), and enter the start time in UTC in HH:MM format, between 00:00 and 23:59.
+   * **Cron expression**: Enter a `cron-spec` expression in the format `minute hour day month weekday`. Replication must be scheduled no less than 15 minutes apart. For example, to replicate every day at 5:30 PM UTC, enter `30 17 * * *`.
 
-1. Encryption
-   * **Encryption in transit** is disabled by default. You can click the toggle to enable it. For more information about this feature, see [Encryption in transit - Securing mount connections between file share and host](/docs/vpc?topic=vpc-file-storage-vpc-eit). |
-   * When you replicate to another zone of the same region, the encryption is inherited from the primary share. If you selected customer-managed encryption, the key management system is shown along with the root key. You can't encrypt a replica share with a different key.
-   * When you replicate to another region, the encryption type (provider-managed vs customer-managed) of the replica must match the source share. However, it is not inherited from the source, and you must select a Customer Root Key for your replica if the source share is protected by customer-managed encryption.
-
-   | Field | Value |
-   |------|------|
-   | Encryption | Select either Single or Multi tenant {{site.data.keyword.keymanagementserviceshort}}. |
-   | Encryption service instance | If you provisioned multiple KMS instances in your account, select the one that includes the root key that you want to use for customer-managed encryption. Make sure that [service-to-service authorizations](/docs/vpc?topic=vpc-file-s2s-auth) between the file service and the target KMS are in place. |
-   | Key name | Select the root key within the KMS instance that you want to use for encrypting the share. |
-   | Key ID | The field shows the key ID that is associated with the data encryption key that you selected. |
-   {: caption="Values for customer-managed encryption for file shares." caption-side="bottom"}
+1. Encryption - The replica always inherits the encryption settings of the source share. The encryption type cannot be changed. If the source share uses provider-managed encryption, the provider-managed tile is shown but is not selectable. If the source share uses customer-managed encryption, the key details are shown as read-only, including the encryption type, key name, key management service instance, and key ID.
 
 1. In the side panel, review your estimated cost, and apply a discount code, if you have one.
 1. Click **Create file share**.

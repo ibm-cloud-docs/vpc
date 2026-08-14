@@ -2,7 +2,7 @@
 
 copyright:
   years: 2019, 2026
-lastupdated: "2026-08-06"
+lastupdated: "2026-08-13"
 
 keywords: Block Storage, IBM Cloud, VPC, virtual private cloud, Key Protect, encryption, key management, Hyper Protect Crypto Services, HPCS, volume, data storage, virtual server instance, instance, customer-managed encryption, Block Storage for vpc, customer-managed encryption,
 
@@ -58,11 +58,12 @@ This procedure explains how to specify customer-managed encryption when you crea
     - You can select the [`sdp` profile](/docs/vpc?topic=vpc-block-storage-profiles#defined-performance-profile). Then, specify the capacity of your volume and the required IOPS. Volume size can range from 1 - 32,000 GB. You can specify IOPS in the range of 100 - 64,000. You can also specify a custom throughput limit.
     - You can select one of the [_tiered_ profiles](/docs/vpc?topic=vpc-block-storage-profiles&interface=ui#tiers). After you select _general-purpose_, _5iops-tier_, or _10iops-tier_, the next step is to specify the volume capacity. Volume sizes can be 10 - 16,000 GB.
     - You can select the _custom_ profile if your application performance requirements don't fall within any of the IOPS tiers. Then, specify the size of your volume and the IOPS in the appropriate range for the volume capacity. Volume sizes can be 10 - 16,000 GB. As you type the IOPS value, the UI shows the acceptable range. You can also click the **storage size** link to see the size and IOPS ranges of the [custom volume profile](/docs/vpc?topic=vpc-block-storage-profiles#custom).
-1. In the **Encryption at rest** section, you can choose to keep the encryption with IBM-managed keys that is enabled by default on all volumes. Or you can choose to use [your own encryption key](/docs/vpc?topic=vpc-block-storage-vpc-encryption) by selecting your key management service: {{site.data.keyword.keymanagementserviceshort}} or {{site.data.keyword.hscrypto}}. To locate your encryption key, select one of the following options:
-    - **Locate by Instance**:
-       1. Select the data encryption instance from the list. If you don't have an instance yet, you can click the link to create one.
-       1. Select the data encryption key that is stored within the KMS instance to use for encrypting the volume.
-    - **Locate by CRN**: Enter the CRN of the customer root key to be used for encrypting the volume. Choose this option if you're using the CRK of another account.
+1. In the **Encryption at rest** section, you can choose to keep the encryption with IBM-managed keys that is enabled by default on all volumes. Or you can choose to use [your own encryption key](/docs/vpc?topic=vpc-block-storage-vpc-encryption). To change the key or instance, click the **Edit icon** ![Edit icon](../icons/edit-tagging.svg "Edit") to open the **Configure encryption** side panel. Select one of the following options to locate your encryption key:
+   - **Locate by Instance**: The panel has three steps:
+      1. **Select KMS instance**: The list shows the name, ID, type (Standard or Dedicated), and location of each available {{site.data.keyword.keymanagementserviceshort}} instance. Select an instance and click **Select**. If you don't have an instance yet, click **Create** to provision one.
+      1. **Associate key**: The list shows the name, ID, last updated date, aliases, and key ring of each available root key. Select a key and click **Select**. If you don't have a key yet, click **Create new key**.
+      1. **Review**: Confirm your selections, including the key management service, instance type, instance name, and key name. The **Service authorization** section shows whether the required authorization between {{site.data.keyword.block_storage_is_short}} and the KMS instance is already in place. If it is not, you can allow {{site.data.keyword.keymanagementserviceshort}} to create the authorization automatically, or create one manually. For more information, see [Establishing service-to-service authorizations for Block Storage for VPC](/docs/vpc?topic=vpc-block-s2s-auth&interface=ui). Click **Confirm** to apply your selection and return to the volume provisioning page.
+   - **Locate by CRN**: Enter the CRN of the customer root key to be used for encrypting the volume. Choose this option if you're using the CRK of another account. Click **Select** to proceed to the **Review** step described in the **Locate by Instance** option.
 
 1. When your changes are complete, click **Create block storage volume**.
 
@@ -241,19 +242,23 @@ When you provision a virtual server instance, you can specify customer-managed e
 Follow these steps to create an instance with a new Block Storage volume.
 
 1. In the [{{site.data.keyword.cloud_notm}} console](/login){: external}, click the **Navigation menu** icon ![menu icon](../icons/icon_hamburger.svg) **> Infrastructure** ![VPC icon](../icons/vpc.svg) **> Compute > Virtual server instances**.
-1. Click **New instance** and complete the required fields. For more information about these required fields, see _Table 1 - Instance provisioning selections_ in [Creating virtual server instances](/docs/vpc?topic=vpc-creating-virtual-servers).
-1. In the **Boot volume** section, the default mode of encryption is _Provider-managed_ encryption. To specify customer-managed encryption, click the **Edit icon** ![Edit icon](../icons/edit-tagging.svg "Edit") in the boot volume row.
-1. On the **Edit boot volume** page, update the fields in the **Encryption** section. Select your key management service: ({{site.data.keyword.keymanagementserviceshort}} or {{site.data.keyword.hscrypto}}). To locate your encryption key, select one of the following options:
-    - **Locate by Instance**:
-       1. Select the data encryption instance from the list. If you don't have an instance yet, you can click the link to create one.
-       1. Select the data encryption key that is stored within the {{site.data.keyword.keymanagementserviceshort}} instance to use for encrypting the volume.
-    - **Locate by CRN**: Enter the CRN of the customer root key to be used for encrypting the volume. Choose this option if you're using a CRK from another account.
+1. Click **New instance** and complete the required fields. For more information, see [Creating virtual server instances](/docs/vpc?topic=vpc-creating-virtual-servers).
+1. In the **Boot volume** section, four capacity tiles are shown. For most compute profiles, 100 GB is preselected. Click the **Edit icon** ![Edit icon](../icons/edit-tagging.svg "Edit") on the **Custom** tile to open the **Edit boot volume** side panel.
 
-    If you selected a second-generation snapshot to create the volume, your volume's encryption type must match the snapshot's encryption type. If the snapshot has provider-managed keys, do not specify a key from a key management service.
-    {: note}
+   If you selected a second-generation snapshot to create the volume, your volume's encryption type must match the snapshot's encryption type. If the snapshot has provider-managed keys, do not specify a key from a key management service.
+   {: note}
 
-1. When your changes are complete, click **Apply**.
-1. In the **Attached Block Storage volume** section, you can click **New Block Storage volume** to add a data volume and specify customer-managed encryption. On the **New Block Storage volume** page, update the fields in the **Encryption** section. See Table 1 for more information. When your changes are complete, click **Attach**.
+   1. In the **Edit boot volume** side panel, you can update the volume name and configure the following settings. The resource group and zone are shown for reference and cannot be changed.
+      - **Auto-delete**: Enabled by default. Toggle to disable if you want the volume to persist after the instance is deleted.
+      - **Tags**: Optionally add user tags to the volume.
+   1. In the **Encryption** card, provider-managed encryption is enabled by default. To use your own encryption key, click the toggle to enable customer-managed encryption. If you already have a KMS instance and root key, the system autoselects it for you, showing the key management service instance name and key name. To change the selection, click **Edit** ![Edit icon](../icons/edit-tagging.svg "Edit") to open the **Configure encryption** side panel. Select one of the following options to locate your encryption key:
+      - **Locate by Instance**: The panel has three steps:
+         1. **Select KMS instance**: The list shows the name, ID, type (Standard or Dedicated), and location of each available {{site.data.keyword.keymanagementserviceshort}} instance. Select an instance and click **Select**. If you don't have an instance yet, click **Create** to provision one.
+         1. **Associate key**: The list shows the name, ID, last updated date, aliases, and key ring of each available root key. Select a key and click **Select**. If you don't have a key yet, click **Create new key**.
+         1. **Review**: Confirm your selections, including the key management service, instance type, instance name, and key name. The **Service authorization** section shows whether the required authorization between {{site.data.keyword.block_storage_is_short}} and the KMS instance is already in place. If it is not, you can allow {{site.data.keyword.keymanagementserviceshort}} to create the authorization automatically, or create one manually. For more information, see [Establishing service-to-service authorizations for Block Storage for VPC](/docs/vpc?topic=vpc-block-s2s-auth&interface=ui). Click **Confirm** to apply your selection and return to the **Edit boot volume** side panel.
+      - **Locate by CRN**: Enter the CRN of the customer root key to be used for encrypting the volume. Choose this option if you're using the CRK of another account. Click **Select** to proceed to the **Review** step described in the **Locate by Instance** option.
+   1. When your changes are complete, click **Save** to return to the instance provisioning page.
+1. In the **Data volumes** section, you can click **Create** to add a data volume and specify customer-managed encryption. On the **Create data volume** page, update the required fields and click the toggle in the **Encryption** section. When your changes are complete, click **Attach**.
 
 ## Provisioning an instance with a boot volume that is encrypted with a customer-managed key from the CLI
 {: #provision-byok-cli}

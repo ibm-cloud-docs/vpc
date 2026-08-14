@@ -2,7 +2,7 @@
 
 copyright:
   years: 2019, 2026
-lastupdated: "2026-08-06"
+lastupdated: "2026-08-13"
 
 keywords: faqs, Block Storage for vpc, fast restore, multizone, instance, instance provisioning, volume management, volume deletion.
 
@@ -395,7 +395,7 @@ You can also revoke access at any time, for example, if you suspect your keys mi
 {: faq}
 {: #faq-block-storage-21}
 
-Customer-managed encryption creates an envelop encryption for your {{site.data.keyword.block_storage_is_short}} volumes with your own root keys. You have complete control over your data security, managing access to your keys, rotating and revoking keys as you want. For more information, see [Advantages of customer-managed encryption](/docs/vpc?topic=vpc-vpc-encryption-about#byok-advantages).
+Customer-managed encryption creates an envelope encryption for your {{site.data.keyword.block_storage_is_short}} volumes with your own root keys. You have complete control over your data security, managing access to your keys, rotating and revoking keys as you want. For more information, see [Advantages of customer-managed encryption](/docs/vpc?topic=vpc-vpc-encryption-about#byok-advantages).
 
 ## What encryption technology is used for customer-managed encryption?
 {: faq}
