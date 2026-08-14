@@ -1,8 +1,8 @@
 ---
 
 copyright:
-  years: 2020, 2025
-lastupdated: "2025-07-11"
+  years: 2020, 2026
+lastupdated: "2026-08-14"
 
 keywords: auto scale, autoscale, UI, console
 
@@ -20,14 +20,14 @@ After you create an instance group, you can duplicate it, delete it, or edit it 
 
 To manage your instance group from the Instance groups for VPC page, complete the following steps.
 
-1. In the [{{site.data.keyword.cloud_notm}} console](/login){: external}, go to **Navigation Menu** icon ![menu icon](../../icons/icon_hamburger.svg) **> Infrastructure** ![VPC icon](../../icons/vpc.svg) **> Compute > Instance groups**.
+1. In the [{{site.data.keyword.cloud_notm}} console](/login){: external}, go to **Navigation menu** icon ![menu icon](../../icons/icon_hamburger.svg) **> Infrastructure** ![VPC icon](../../icons/vpc.svg) **> Compute > Instance groups**.
 2. On the Instance groups for VPC page, click the Actions icon ![More Actions icon](../icons/action-menu-icon.svg) for the instance group that you want to manage and select from **Duplicate** or **Delete**.
 3. To edit or view the details of an instance group, click the instance group that you want to edit or view to access the **Instance group details** page.
 
 ## Duplicating an instance group
 {: #duplicating-instance-group}
 
-Duplicating an instance group makes a copy of the current settings and presents you with the new instance group page, with fields pre-populated. You can make any necessary changes and then create a new instance group that is based on of the instance group that you duplicated.
+Duplicating an instance group makes a copy of the current settings and presents you with the new instance group page, with fields pre-populated. You can make any necessary changes and then create a new instance group that is based on the instance group that you duplicated.
 
 ## Deleting an instance group
 {: #deleting-instance-group}

@@ -1,8 +1,8 @@
 ---
 
 copyright:
-  years: 2021, 2025
-lastupdated: "2024-06-06"
+  years: 2021, 2026
+lastupdated: "2026-08-14"
 
 keywords:
 
@@ -33,7 +33,7 @@ Use security best practices to limit access to any files that you expose on the 
 
 To network boot a bare metal server from the UI, use the following steps.
 
-1. In the [{{site.data.keyword.cloud_notm}} console](/login){: external}, go to **Navigation Menu** icon ![menu icon](../../icons/icon_hamburger.svg) **> Infrastructure** ![VPC icon](../../icons/vpc.svg) **> Compute > Bare metal servers**.
+1. In the [{{site.data.keyword.cloud_notm}} console](/login){: external}, go to **Navigation menu** icon ![menu icon](../../icons/icon_hamburger.svg) **> Infrastructure** ![VPC icon](../../icons/vpc.svg) **> Compute > Bare metal servers**.
 1. Click **Create**.
 1. In the **Image and profile** section, click the **Network boot** tab.
 1. Either copy and paste the **IPXE script** into the text box or you can import the IPXE script.

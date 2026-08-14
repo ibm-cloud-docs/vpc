@@ -2,7 +2,7 @@
 
 copyright:
   years: 2019, 2026
-lastupdated: "2026-08-05"
+lastupdated: "2026-08-14"
 
 keywords: view instance details, restart virtual server, stop, details, delete
 
@@ -896,7 +896,7 @@ For z/OS virtual server instances, you can SSH into the instance, and then run t
 
 To set the host failure auto restart for an existing instance, complete the following steps.
 
-   1. In [{{site.data.keyword.cloud_notm}} console](https://console.cloud.ibm.com){: external}, click **Navigation Menu** icon ![menu icon](../icons/icon_hamburger.svg) **> Infrastructure** ![VPC icon](../../icons/vpc.svg) **> Compute > Virtual server instances**.
+   1. In [{{site.data.keyword.cloud_notm}} console](https://console.cloud.ibm.com){: external}, click **Navigation menu** icon ![menu icon](../icons/icon_hamburger.svg) **> Infrastructure** ![VPC icon](../../icons/vpc.svg) **> Compute > Virtual server instances**.
    1. On the **Virtual server instances** page, click the Actions icon ![More Actions icon](../icons/action-menu-icon.svg) for the instance that you want to manage.
    1. From the instance details page, locate 'Host failure auto restart'. Click the **Edit icon** ![Edit icon](../icons/edit-tagging.svg "Edit") and choose Enabled or Disabled to toggle the status of the host recovery policy on or off.
 
@@ -1047,7 +1047,7 @@ For more information, see the [update an instance action](/docs/apis/vpc/latest#
 
 You can detach a virtual server from a reservation in the console.
 
-1. In the [{{site.data.keyword.cloud_notm}} console](/login){: external}, click **Navigation Menu** icon ![the menu icon](../icons/icon_hamburger.svg) **> Infrastructure** ![VPC icon](../../icons/vpc.svg) **> Reservations**.
+1. In the [{{site.data.keyword.cloud_notm}} console](/login){: external}, click **Navigation menu** icon ![the menu icon](../icons/icon_hamburger.svg) **> Infrastructure** ![VPC icon](../../icons/vpc.svg) **> Reservations**.
 1. From your virtual server list or in the Reservation details page, click the server that you want to detach and then click **Actions** > **Detach**.
 1. To confirm, click **Detach**.
 
@@ -1276,7 +1276,7 @@ For more information, see [ibm_is_instance_software_attachment](https://registry
 {: #edit-threads-per-core-ui-vpc}
 {: ui}
 
-Threads per core offers you the flexability to optimize your workload. While threads per core is displayed for all profiles, you can edit it only for the [High Frequency](/docs/vpc?topic=vpc-high-frequency-profile-family) profile family. For High Frequency profiles, the default value is to 2. You can adjust this to 1.
+Threads per core offers you the flexibility to optimize your workload. While threads per core is displayed for all profiles, you can edit it only for the [High Frequency](/docs/vpc?topic=vpc-high-frequency-profile-family) profile family. For High Frequency profiles, the default value is to 2. You can adjust this to 1.
 
 While threads per core is displayed for all profiles, you can edit it only for the [High Frequency](/docs/vpc?topic=vpc-high-frequency-profile-family) profile family. Before you change the `threads_per_core` property, you must stop the virtual server instance.
 {: note}
@@ -1290,7 +1290,7 @@ While threads per core is displayed for all profiles, you can edit it only for t
 {: #edit-threads-per-core-cli-vpc}
 {: cli}
 
-Threads per core offers you the flexability to optimize your workload. While threads per core is displayed for all profiles, you can edit it only for the [High Frequency](/docs/vpc?topic=vpc-high-frequency-profile-family) profile family. For High Frequency profiles, the default value is to 2. You can adjust this to 1.
+Threads per core offers you the flexibility to optimize your workload. While threads per core is displayed for all profiles, you can edit it only for the [High Frequency](/docs/vpc?topic=vpc-high-frequency-profile-family) profile family. For High Frequency profiles, the default value is to 2. You can adjust this to 1.
 
 Before you can change the `threads_per_core` property, you must stop the virtual server instance.
 {: note}
@@ -1306,7 +1306,7 @@ ibmcloud is instance-update INSTANCE --threads-per-core [1]
 {: #edit-threads-per-core-api-vpc}
 {: api}
 
-Threads per core offers you the flexability to optimize your workload. While threads per core is displayed for all profiles, you can edit it only for the [High Frequency](/docs/vpc?topic=vpc-high-frequency-profile-family) profile family. For High Frequency profiles, the default value is to 2. You can adjust this to 1.
+Threads per core offers you the flexibility to optimize your workload. While threads per core is displayed for all profiles, you can edit it only for the [High Frequency](/docs/vpc?topic=vpc-high-frequency-profile-family) profile family. For High Frequency profiles, the default value is to 2. You can adjust this to 1.
 
 Before you change the `threads_per_core` property, you must stop the virtual server instance.
 {: note}
@@ -1322,7 +1322,7 @@ curl -X PATCH "$vpc_api_endpoint/v1/instances/$instance_id?version=2024-10-17&ge
 {: #edit-threads-per-core-terraform-vpc}
 {: terraform}
 
-Threads per core offers you the flexability to optimize your workload. While threads per core is displayed for all profiles, you can edit it only for the [High Frequency](/docs/vpc?topic=vpc-high-frequency-profile-family) profile family. For High Frequency profiles, the default value is to 2. You can adjust this to 1.
+Threads per core offers you the flexibility to optimize your workload. While threads per core is displayed for all profiles, you can edit it only for the [High Frequency](/docs/vpc?topic=vpc-high-frequency-profile-family) profile family. For High Frequency profiles, the default value is to 2. You can adjust this to 1.
 
 Before you change the `threads_per_core` property, you must stop the virtual server instance.
 {: note}

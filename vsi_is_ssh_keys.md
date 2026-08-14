@@ -2,7 +2,7 @@
 
 copyright:
   years: 2018, 2026
-lastupdated: "2026-06-26"
+lastupdated: "2026-08-14"
 
 keywords:
 
@@ -39,7 +39,7 @@ To create a virtual server instance, you must create or upload an SSH key and ha
 
 When you provision a virtual server, you can create a new SSH key, select from an available list of existing SSH keys or upload a new one.
 
-1. In [{{site.data.keyword.cloud_notm}} console](/login){: external}, go to **Navigation Menu** icon![menu icon](../icons/icon_hamburger.svg) **> Infrastructure** ![VPC icon](../../icons/vpc.svg) **> Compute > SSH keys**. Any existing SSH keys are displayed.
+1. In [{{site.data.keyword.cloud_notm}} console](/login){: external}, go to **Navigation menu** icon![menu icon](../icons/icon_hamburger.svg) **> Infrastructure** ![VPC icon](../../icons/vpc.svg) **> Compute > SSH keys**. Any existing SSH keys are displayed.
 1. On the **SSH keys for VPC** tab, click the Actions icon ![More Actions icon](../icons/action-menu-icon.svg) for an SSH key and select from the available options.
    | Action            | Description            |
    | ----------------- | --------------------------- |
@@ -88,7 +88,7 @@ You can also manage your SSH keys by using Terraform. See [ibm_is_ssh_keys](http
 
 To list all your SSH keys, complete the following steps.
 
-1. In [{{site.data.keyword.cloud_notm}} console](/login){: external}, go to **Navigation Menu** icon![menu icon](../icons/icon_hamburger.svg) **> Infrastructure** ![VPC icon](../../icons/vpc.svg) **> Compute > SSH keys**.
+1. In [{{site.data.keyword.cloud_notm}} console](/login){: external}, go to **Navigation menu** icon![menu icon](../icons/icon_hamburger.svg) **> Infrastructure** ![VPC icon](../../icons/vpc.svg) **> Compute > SSH keys**.
 2. Any existing SSH keys are displayed.
 
 ## Listing all your SSH keys by using the CLI
@@ -141,7 +141,7 @@ You can view the following details of an SSH key.
 
 To view details for an SSH key, complete the following steps.
 
-1. In [{{site.data.keyword.cloud_notm}} console](/login){: external}, go to **Navigation Menu** icon![menu icon](../icons/icon_hamburger.svg) **> Infrastructure** ![VPC icon](../../icons/vpc.svg) **> Compute > SSH keys**.
+1. In [{{site.data.keyword.cloud_notm}} console](/login){: external}, go to **Navigation menu** icon![menu icon](../icons/icon_hamburger.svg) **> Infrastructure** ![VPC icon](../../icons/vpc.svg) **> Compute > SSH keys**.
 1. On the **SSH keys for VPC** page, a list of all existing SSH keys is displayed.
 1. From the **Actions** menu, you can **Rename** or **Delete** the SSH key.
 
@@ -190,7 +190,7 @@ data "ibm_is_ssh_key" "example" {
 
 Use the following steps to create a new SSH key. You can create only RSH SSH key types. To use an Ed25519 SSH key, that SSH key must be imported. For more information, see For more information, see [Importing an SSH key by using the UI](/docs/vpc?topic=vpc-managing-ssh-keys&interface=ui#importing-ssh-keys-ui).
 
-1. In [{{site.data.keyword.cloud_notm}} console](/login){: external}, go to **Navigation Menu** icon![menu icon](../icons/icon_hamburger.svg) **> Infrastructure** ![VPC icon](../../icons/vpc.svg) **> Compute > SSH keys**.
+1. In [{{site.data.keyword.cloud_notm}} console](/login){: external}, go to **Navigation menu** icon![menu icon](../icons/icon_hamburger.svg) **> Infrastructure** ![VPC icon](../../icons/vpc.svg) **> Compute > SSH keys**.
 1. Click **Create** and enter the information that is in Table 1.
    | Field | Value |
    | --- | --- |
@@ -216,7 +216,7 @@ You can import an SSH key in two ways. You can upload a public key from a local 
 
 Use the following steps to import an SSH key from a local file.
 
-1. In [{{site.data.keyword.cloud_notm}} console](/login){: external}, go to **Navigation Menu** icon![menu icon](../icons/icon_hamburger.svg) **> Infrastructure** ![VPC icon](../../icons/vpc.svg) **> Compute > SSH keys**.
+1. In [{{site.data.keyword.cloud_notm}} console](/login){: external}, go to **Navigation menu** icon![menu icon](../icons/icon_hamburger.svg) **> Infrastructure** ![VPC icon](../../icons/vpc.svg) **> Compute > SSH keys**.
 1. Click **Create** and enter the information that is in Table 1.
    | Field | Value |
    | --- | --- |

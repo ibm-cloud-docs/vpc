@@ -2,7 +2,7 @@
 
 copyright:
   years: 2022, 2026
-lastupdated: "2026-01-06"
+lastupdated: "2026-08-14"
 
 keywords: connecting, zos, s390x, zosmf, virtual server instance
 
@@ -171,7 +171,7 @@ To connect to the serial console, you need to be assigned `Operator` (or greater
 
 Follow these steps to connect to a console by using IBM Cloud UI.
 
-1. In the [{{site.data.keyword.cloud_notm}} console](https://cloud.ibm.com/infrastructure){: external}, go to **Navigation Menu** icon ![menu icon](../../icons/icon_hamburger.svg) **> Infrastructure** ![VPC icon](../../icons/vpc.svg) **> Compute > Virtual server instance**.
+1. In the [{{site.data.keyword.cloud_notm}} console](https://cloud.ibm.com/infrastructure){: external}, go to **Navigation menu** icon ![menu icon](../../icons/icon_hamburger.svg) **> Infrastructure** ![VPC icon](../../icons/vpc.svg) **> Compute > Virtual server instance**.
    
 2. In the **Virtual server instances for VPC** list, click the overflow button of the instance that you need to access, then click **Open Serial Console**. Alternatively, on the instance details page, click **Action** on the upper right then click **Open Serial Console**.
 

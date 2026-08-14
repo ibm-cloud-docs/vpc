@@ -2,7 +2,7 @@
 
 copyright:
   years: 2022, 2026
-lastupdated: "2026-06-23"
+lastupdated: "2026-08-14"
 
 keywords:
 
@@ -18,7 +18,7 @@ subcollection: vpc
 When you provision {{site.data.keyword.vsi_is_full}} on x86 architecture, you can select from the supported virtual server operating system stock images, the virtual server operating system bundle stock image, or a custom image, such as one that you have imported from {{site.data.keyword.cos_full_notm}}. The image that you select determines the operating system that is provisioned for your instance. If the image you select is a virtual server operating system bundle stock image, the software that is part of that bundle is also included in your instance.
 {: shortdesc}
 
-In [{{site.data.keyword.cloud_notm}} console](/login){: external}, go to **Navigation Menu** icon ![menu icon](../../icons/icon_hamburger.svg) **> Infrastructure** ![VPC icon](../../icons/vpc.svg) **> Compute > Images**.
+In [{{site.data.keyword.cloud_notm}} console](/login){: external}, go to **Navigation menu** icon ![menu icon](../../icons/icon_hamburger.svg) **> Infrastructure** ![VPC icon](../../icons/vpc.svg) **> Compute > Images**.
 
 There are 3 different types of images for VPC.
 * [Custom images](/docs/vpc?topic=vpc-planning-custom-images) (includes [Image from volume](/docs/vpc?topic=vpc-image-from-volume-vpc))
@@ -47,7 +47,7 @@ When multiple billing plans exist, you must choose the appropriate one for your 
 
 After you create your virtual server instance from a catalog image, you can either [View the software attachments of a virtual server instance using the CLI](/docs/vpc?topic=vpc-managing-virtual-server-instances&interface=cli#view-software-attachments-virtual-server-instances-cli) or [View the software attachments of a virtual server instance using the API](/docs/vpc?topic=vpc-managing-virtual-server-instances&interface=api#view-software-attachments-virtual-server-instances-api) in order to view the software attachment that represents the software instance created from the software billing plan and which is now a part of the virtual server instance. If a license is associated with the plan, information about the license is included in the software attachment.
 
-Any private catalog images available to your VPC can be found in **Navigation Menu** icon ![menu icon](../icons/icon_hamburger.svg) **> Infrastructure** ![VPC icon](../../icons/vpc.svg) **> Compute > Images > Catalog images**
+Any private catalog images available to your VPC can be found in **Navigation menu** icon ![menu icon](../icons/icon_hamburger.svg) **> Infrastructure** ![VPC icon](../../icons/vpc.svg) **> Compute > Images > Catalog images**
 
 To create a virtual server using a private catalog image, see one of the following:
 * [Creating a virtual server instance with the UI](/docs/vpc?topic=vpc-creating-virtual-servers&interface=ui#creating-virtual-servers-ui)

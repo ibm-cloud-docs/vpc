@@ -2,7 +2,7 @@
 
 copyright:
   years: 2018, 2026
-lastupdated: "2026-08-04"
+lastupdated: "2026-08-14"
 
 keywords: application, load balancer, application, public, private, listener, back-end, front-end, pool, round-robin, weighted, layer 7, datapath logging, http2, websocket
 
@@ -186,7 +186,7 @@ To obtain the CRN, you must have permission to access the Secrets Manager instan
 
 To find a certificate's CRN, follow these steps:
 
-1. In the [{{site.data.keyword.cloud_notm}} console](/login){: external}, go to **Navigation Menu icon ![Navigation menu icon](../icons/icon_hamburger.svg) > Resource list**.
+1. In the [{{site.data.keyword.cloud_notm}} console](/login){: external}, go to **Navigation menu icon ![Navigation menu icon](../icons/icon_hamburger.svg) > Resource list**.
 1. Click to expand **Security**, then select the Secrets Manager that you want to find the CRN for.
 1. Select anywhere in the table row of the certificate to open the Certificate details side panel. The CRN of the certificate is listed.
 

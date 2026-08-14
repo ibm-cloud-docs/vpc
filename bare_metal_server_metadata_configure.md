@@ -2,7 +2,7 @@
 
 copyright:
   years: 2025, 2026
-lastupdated: "2026-08-06"
+lastupdated: "2026-08-14"
 
 keywords:
 
@@ -178,7 +178,7 @@ From the {{site.data.keyword.cloud}} console, you can enable or disable the bare
 
 Use the UI to enable the metadata service on an existing bare metal server.
 
-1. Go to the list of bare metal servers. In the [{{site.data.keyword.cloud_notm}} console](/login){: external}, click the **Navigation Menu** icon ![menu icon](../icons/icon_hamburger.svg) **> Infrastructure** ![VPC icon](../../icons/vpc.svg) **> Compute > Bare metal servers**.
+1. Go to the list of bare metal servers. In the [{{site.data.keyword.cloud_notm}} console](/login){: external}, click the **Navigation menu** icon ![menu icon](../icons/icon_hamburger.svg) **> Infrastructure** ![VPC icon](../../icons/vpc.svg) **> Compute > Bare metal servers**.
 
 1. Click the name of a bare metal server to go to the details page.
 
@@ -191,7 +191,7 @@ Use the UI to enable the metadata service on an existing bare metal server.
 
 The following procedure shows how to enable the metadata service when you create a new bare metal server.
 
-1. In the [{{site.data.keyword.cloud_notm}} console](/login){: external}, click the **Navigation Menu** icon ![menu icon](../icons/icon_hamburger.svg) **> Infrastructure** ![VPC icon](../../icons/vpc.svg) **> Compute > Bare metal servers**.
+1. In the [{{site.data.keyword.cloud_notm}} console](/login){: external}, click the **Navigation menu** icon ![menu icon](../icons/icon_hamburger.svg) **> Infrastructure** ![VPC icon](../../icons/vpc.svg) **> Compute > Bare metal servers**.
 
 1. Click **Create**.
 
@@ -209,7 +209,7 @@ The following procedure shows how to enable the metadata service when you create
 
 This procedure shows how to disable the metadata service for a bare metal server on which it is enabled. By default, the metadata service is disabled when you create a new bare metal server.
 
-1. In the [{{site.data.keyword.cloud_notm}} console](/login){: external}, click the **Navigation Menu** icon ![menu icon](../icons/icon_hamburger.svg) **> Infrastructure** ![VPC icon](../../icons/vpc.svg) **> Compute > Bare metal servers**.
+1. In the [{{site.data.keyword.cloud_notm}} console](/login){: external}, click the **Navigation menu** icon ![menu icon](../icons/icon_hamburger.svg) **> Infrastructure** ![VPC icon](../../icons/vpc.svg) **> Compute > Bare metal servers**.
 
 2. Click a bare metal server from the list to go to its details page.
 
