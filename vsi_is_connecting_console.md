@@ -2,7 +2,7 @@
 
 copyright:
   years: 2020, 2026
-lastupdated: "2026-08-10"
+lastupdated: "2026-08-14"
 
 keywords: vnc console, serial console, virtual server instance
 
@@ -80,7 +80,7 @@ To enable the serial console service for custom Linux images, make sure that the
 
 Follow these steps to connect to a console by using IBM Cloud UI.
 
-1. In the [{{site.data.keyword.cloud_notm}} console](/login){: external}, go to **Navigation Menu** icon![menu icon](../icons/icon_hamburger.svg) **> Infrastructure** ![VPC icon](../../icons/vpc.svg) **> Compute > Virtual server instance**.
+1. In the [{{site.data.keyword.cloud_notm}} console](/login){: external}, go to **Navigation menu** icon![menu icon](../icons/icon_hamburger.svg) **> Infrastructure** ![VPC icon](../../icons/vpc.svg) **> Compute > Virtual server instance**.
 2. In the **Virtual server instances for VPC** list, click the overflow button of the instance that you need to access, then click **Open VNC Console** or **Open serial Console**. Alternatively, on the instance details page, click **Action** on the upper right then click **Open VNC Console** or **Open Serial Console**.
 3. (For serial console only) If the serial console is being used, you are prompted to confirm whether to force open a session. This action disconnects the other user's session.
 4. Enter the credentials and follow the prompts to log in to your instances.

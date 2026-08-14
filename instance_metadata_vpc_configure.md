@@ -2,7 +2,7 @@
 
 copyright:
   years: 2022, 2026
-lastupdated: "2026-06-26"
+lastupdated: "2026-08-14"
 
 keywords:
 
@@ -34,7 +34,7 @@ From the {{site.data.keyword.cloud}} console, you can enable or disable access t
 
 Use the UI to enable access to the metadata service on an existing instance.
 
-1. Go to the list of instances. In the [{{site.data.keyword.cloud_notm}} console](/login){: external}, click the **Navigation Menu** icon ![menu icon](../icons/icon_hamburger.svg) **> Infrastructure** ![VPC icon](../../icons/vpc.svg) **> Compute > Virtual server instances**.
+1. Go to the list of instances. In the [{{site.data.keyword.cloud_notm}} console](/login){: external}, click the **Navigation menu** icon ![menu icon](../icons/icon_hamburger.svg) **> Infrastructure** ![VPC icon](../../icons/vpc.svg) **> Compute > Virtual server instances**.
 
 2. Click the name of an instance to go to the details page.
 
@@ -47,7 +47,7 @@ Use the UI to enable access to the metadata service on an existing instance.
 
 The following procedure shows how to enable access to the metadata service when you create a virtual server instance.
 
-1. In the [{{site.data.keyword.cloud_notm}} console](/login){: external}, click the **Navigation Menu** icon ![menu icon](../icons/icon_hamburger.svg) **> Infrastructure** ![VPC icon](../../icons/vpc.svg) **> Compute > Virtual server instances**.
+1. In the [{{site.data.keyword.cloud_notm}} console](/login){: external}, click the **Navigation menu** icon ![menu icon](../icons/icon_hamburger.svg) **> Infrastructure** ![VPC icon](../../icons/vpc.svg) **> Compute > Virtual server instances**.
 
 2. Click **Create**.
 
@@ -63,7 +63,7 @@ The following procedure shows how to enable access to the metadata service when 
 
 This procedure shows how to disable access to the metadata service for an instance on which it is enabled. By default, access to the metadata service is disabled when you create a new instance.
 
-1. In the [{{site.data.keyword.cloud_notm}} console](/login){: external}, click the **Navigation Menu** icon ![menu icon](../icons/icon_hamburger.svg) **> Infrastructure** ![VPC icon](../../icons/vpc.svg) **> Compute > Virtual server instances**.
+1. In the [{{site.data.keyword.cloud_notm}} console](/login){: external}, click the **Navigation menu** icon ![menu icon](../icons/icon_hamburger.svg) **> Infrastructure** ![VPC icon](../../icons/vpc.svg) **> Compute > Virtual server instances**.
 
 2. Click an instance from the list to go to its details page.
 

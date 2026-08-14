@@ -1,8 +1,8 @@
 ---
 
 copyright:
-  years: 2020, 2025
-lastupdated: "2025-12-19"
+  years: 2020, 2026
+lastupdated: "2026-08-14"
 
 keywords: manage dedicated host, manage dedicated group, delete dedicated host, disable placement
 
@@ -25,7 +25,7 @@ When you have a dedicated host, you can create virtual server instances on the h
 
 To complete management tasks on your dedicated hosts, complete the following steps.
 
-1. In the [{{site.data.keyword.cloud_notm}} console](/login){: external}, go to **Navigation Menu** icon ![menu icon](../icons/icon_hamburger.svg) **> Infrastructure** ![VPC icon](../../icons/vpc.svg) **> Compute > Dedicated hosts**.
+1. In the [{{site.data.keyword.cloud_notm}} console](/login){: external}, go to **Navigation menu** icon ![menu icon](../icons/icon_hamburger.svg) **> Infrastructure** ![VPC icon](../../icons/vpc.svg) **> Compute > Dedicated hosts**.
 2. On the Dedicated hosts tab of the Dedicated hosts for VPC page, click the Actions icon ![More Actions icon](../icons/action-menu-icon.svg) for the dedicated host that you want to manage. You can select from the following actions:
 
 | Action | Description |
@@ -53,7 +53,7 @@ When you have a dedicated group, you can create dedicated hosts within the group
 
 To complete management tasks on your dedicated groups, complete the following steps.
 
-1. In the [{{site.data.keyword.cloud_notm}} console](/login){: external}, go to **Navigation Menu** icon ![menu icon](../icons/icon_hamburger.svg) **> Infrastructure** ![VPC icon](../../icons/vpc.svg) **> Compute > Dedicated hosts**.
+1. In the [{{site.data.keyword.cloud_notm}} console](/login){: external}, go to **Navigation menu** icon ![menu icon](../icons/icon_hamburger.svg) **> Infrastructure** ![VPC icon](../../icons/vpc.svg) **> Compute > Dedicated hosts**.
 2. Click the **Dedicated groups** tab on the Dedicated hosts for VPC page. Then, click the Actions icon ![More Actions icon](../icons/action-menu-icon.svg) for the dedicated host that you want to manage. You can select from the following actions:
 
 | Action | Description |

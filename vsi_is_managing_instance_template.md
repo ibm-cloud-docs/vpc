@@ -1,8 +1,8 @@
 ---
 
 copyright:
-  years: 2020, 2025
-lastupdated: "2024-03-05"
+  years: 2020, 2026
+lastupdated: "2026-08-14"
 
 keywords: manage instance template, auto scale, UI, console, edit instance template, duplicate instance template, delete instance template
 
@@ -20,7 +20,7 @@ After you create an instance template, you can view it to display its configurat
 
 To manage your instance template from the Instance templates for VPC page, complete the following steps.
 
-1. In the [{{site.data.keyword.cloud_notm}} console](/login){: external}, go to **Navigation Menu** icon ![menu icon](../../icons/icon_hamburger.svg) **> Infrastructure** ![VPC icon](../../icons/vpc.svg) **> Compute > Instance templates**.
+1. In the [{{site.data.keyword.cloud_notm}} console](/login){: external}, go to **Navigation menu** icon ![menu icon](../../icons/icon_hamburger.svg) **> Infrastructure** ![VPC icon](../../icons/vpc.svg) **> Compute > Instance templates**.
 2. On the **Instance templates for VPC** page, click the Actions icon ![More Actions icon](../icons/action-menu-icon.svg) for the instance template that you want to manage and select from the options, **Duplicate**, **Create virtual server**, or **Delete**. 
 3. To view the details of an instance template, click the name of the instance template to access the **Instance template details** page. 
 
