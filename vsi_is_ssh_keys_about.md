@@ -296,4 +296,4 @@ Bare metal servers
 Troubleshooting SSH keys
 
 * [Why can't I add my SSH key?](/docs/vpc?topic=vpc-troubleshooting-cant-add-ssh-key)
-* [Why do I receive an SSH key permission denied error?]/docs/vpc?topic=vpc-troubleshooting-ssh-key-permission-denied-error)
+* [Why do I receive an SSH key permission denied error?](/docs/vpc?topic=vpc-troubleshooting-ssh-key-permission-denied-error)
