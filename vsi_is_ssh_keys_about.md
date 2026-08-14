@@ -2,7 +2,7 @@
 
 copyright:
   years: 2018, 2026
-lastupdated: "2026-08-10"
+lastupdated: "2026-08-14"
 
 keywords: ssh public keys, OpenSSH, add ssh key, ssh key, manage ssh key, generate ssh key, locate ssh key
 
@@ -36,8 +36,6 @@ In the [{{site.data.keyword.cloud_notm}} console](/login){: external}, you can g
 
 You can generate RSA key pairs in the console. Pre-existing RSA and ED25519 SSH keys can be uploaded. ED25519 can be used only if the operating system supports this key type. ED25519 can't be used with Windows or VMware images.
 {: note}
-
-You can generate RSA key pairs in the console. Pre-existing RSA and ED25519 SSH keys can be uploaded.
 
 ## SSH key types: RSA and ED25519 in the CLI
 {: #ssh-key-types-cli}
@@ -298,4 +296,4 @@ Bare metal servers
 Troubleshooting SSH keys
 
 * [Why can't I add my SSH key?](/docs/vpc?topic=vpc-troubleshooting-cant-add-ssh-key)
-* [Why do I receive an SSH key permission denied error?]/docs/vpc?topic=vpc-troubleshooting-ssh-key-permission-denied-error)
+* [Why do I receive an SSH key permission denied error?](/docs/vpc?topic=vpc-troubleshooting-ssh-key-permission-denied-error)
