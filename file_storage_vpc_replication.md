@@ -2,7 +2,7 @@
 
 copyright:
   years: 2022, 2026
-lastupdated: "2026-07-13"
+lastupdated: "2026-08-17"
 
 keywords: file share, file storage, replication, replica,
 
@@ -31,7 +31,7 @@ When a replica share is created, the first replica contains the data of the enti
 
 You can create a replica share in another zone of the same region. You can also create a replica in another region in the same geography, if you have another VPC in the target region. Cross-geography replication is not supported.
 
-| Americas | Europe  | Asia  |
+| Americas | Europe  | Asia Pacific  |
 |----------|---------|-------|
 | - Dallas, TX / `us-south` \n - Montreal / `ca-mon` \n - Sao Paulo / `br-sao` \n - Toronto / `ca-tor` \n - Washington, DC / `us-east` |  - Frankfurt / `eu-de` \n - London / `eu-gb` \n - Madrid / `eu-es`| - Chennai / `in-che` \n - Mumbai / `in-mum` \n - Osaka/ `jp-osa` \n - Sydney / `au-syd`\n - Tokyo / `jp-tok` |
 {: caption="This table shows the metro regions that can replicate with each other in each geography. Every geography is a separate column." caption-side="bottom"}
