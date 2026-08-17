@@ -2,7 +2,7 @@
 
 copyright:
   years: 2023, 2026
-lastupdated: "2026-08-14"
+lastupdated: "2026-08-17"
 
 keywords: file share, file storage, encryption in transit, Mount Helper, IPsec, secure connection, mount share, stunnel
 
@@ -39,7 +39,7 @@ The utility uses strongSwan and [`swanctl`](https://docs.strongswan.org/docs/5.9
 
 The Mount Helper makes new certificate requests every 45 minutes, as the lifetime of the certificate is 1 hour. The new certificate is generated before the old certificate expires to ensure seamless connection. The certificates are generated with the shorter life span for security reasons.
 
-You can use the utility for encrypted or unencrypted connections. For encrypted connections, the Mount Helper uses the metadata service protocol option that is set to either `http` or `https`. For more information, see the API reference for `metadata_service` option of [instance provisioning](/docs/apis/vpc/latest#create-instance){: external} and [bare metal server provisioning](/docs/apis/vpc/latest#create-bare-metal-server){: external}.
+You can use Mount Helper to set up encrypted and non-encrypted connections. For encrypted connections, Mount Helper uses the metadata service protocol option that is set to either `http` or `https`. For more information, see the API reference for `metadata_service` option of [instance provisioning](/docs/apis/vpc/latest#create-instance){: external} and [bare metal server provisioning](/docs/apis/vpc/latest#create-bare-metal-server){: external}.
 
 ### Stunnel secure connection for regional shares
 {: #fs-eit-stunnel}
@@ -52,8 +52,8 @@ The Mount Helper utility installs stunnel on the compute host that's running a L
 Before you use Mount Helper, confirm that your environment meets the following requirements:
 
 * For setting up a secure connection with a **zonal** file share, the [Metadata service](/docs/vpc?topic=vpc-imd-about) must be enabled on the compute host.
-   * If the compute host is a virtual server instance, see [enabling metadata in the console](/docs/vpc?topic=vpc-imd-configure-service&interface=ui#imd-enable-service-ui){: ui}[enabling metadata from the CLI](/docs/vpc?topic=vpc-imd-configure-service&interface=cli#imd-metadata-service-enable-cli){: cli}[enabling metadata from the API](/docs/vpc?topic=vpc-imd-configure-service&interface=api#imd-metadata-service-enable-api){: api}.
-   * If the compute host is a bare metal server, see [enabling metadata in the console](/docs/vpc?topic=vpc-configure-metadata-service-bare-metal&interface=ui#metadata-enable-service-ui-bare-metal){: ui}[enabling metadata from the CLI](/docs/vpc?topic=vpc-configure-metadata-service-bare-metal&interface=cli#metadata-service-enable-cli-bare-metal){: cli}[enabling metadata from the API](/docs/vpc?topic=vpc-configure-metadata-service-bare-metal&interface=api#metadata-service-enable-api-bare-metal){: api}.
+   * If the compute host is a virtual server instance, see [enabling metadata in the console.](/docs/vpc?topic=vpc-imd-configure-service&interface=ui#imd-enable-service-ui){: ui} [enabling metadata from the CLI.](/docs/vpc?topic=vpc-imd-configure-service&interface=cli#imd-metadata-service-enable-cli){: cli} [enabling metadata from the API.](/docs/vpc?topic=vpc-imd-configure-service&interface=api#imd-metadata-service-enable-api){: api}
+   * If the compute host is a bare metal server, see [enabling metadata in the console.](/docs/vpc?topic=vpc-configure-metadata-service-bare-metal&interface=ui#metadata-enable-service-ui-bare-metal){: ui} [enabling metadata from the CLI.](/docs/vpc?topic=vpc-configure-metadata-service-bare-metal&interface=cli#metadata-service-enable-cli-bare-metal){: cli} [enabling metadata from the API.](/docs/vpc?topic=vpc-configure-metadata-service-bare-metal&interface=api#metadata-service-enable-api-bare-metal){: api}
 * The zonal or regional file share must have [security group access mode](/docs/vpc?topic=vpc-file-storage-vpc-about&interface=ui#fs-mount-access-mode), so the VPC's security access groups can be used to define which compute host can mount the share.
 * Data encryption in transit must be enabled for the mount target.
 * The compute host and the mount target must be members of the same [security group](/docs/vpc?topic=vpc-using-security-groups).
