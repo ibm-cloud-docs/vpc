@@ -2,7 +2,7 @@
 
 copyright:
   years: 2019, 2026
-lastupdated: "2026-08-06"
+lastupdated: "2026-08-18"
 
 keywords:
 
@@ -41,6 +41,9 @@ For more information about custom images, see [Getting started with custom image
 
 The {{site.data.keyword.hscrypto}} are deprecated. Customers can use existing instances until 20 March 2027. For more information, see [Deprecation of IBM Cloud Hyper Protect Crypto Services](/docs/hs-crypto?topic=hs-crypto-faqs-deprecation-of-ibm-cloud-hyper-protect-crypto-services). For continued protection, consider migrating your existing encryption keys to a Dedicated {{site.data.keyword.keymanagementserviceshort}} instance. For more information, see the [Migration guide](/docs/key-protect?topic=key-protect-migrate-st).
 {: deprecated}
+
+When you import a custom image from Cloud Object Storage, use lowercase file extensions such as `.vhd` and `.qcow2`. Image imports with uppercase file extensions such as `.VHD` or `.QCOW2` might fail validation and return an error.
+{: important}
 
 ## Importing a custom image by using the UI
 {: #import-custom-image-cloud-object-storage-ui}
