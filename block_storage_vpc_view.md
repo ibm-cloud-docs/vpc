@@ -2,7 +2,7 @@
 
 copyright:
   years: 2019, 2026
-lastupdated: "2026-08-06"
+lastupdated: "2026-08-18"
 
 keywords:
 
@@ -47,17 +47,16 @@ By default, {{site.data.keyword.block_storage_is_short}} volumes are displayed i
 | Actions | Click **Actions** ![Actions icon](../icons/action-menu-icon.svg "Actions") to display a menu of context-specific actions you can take.|
 {: caption="Details about all volumes" caption-side="bottom"}
 
-Actions menu selections change depending on whether the volume is a boot volume, an attached data volume, or an unattached data volume.
-- When the volume that you're viewing is a boot volume, the available actions are **Create image**, **Create snapshot**, and **Detach from instance**.
-- When the volume that you're viewing is an attached data volume, the available actions are **Create snapshot**, **Detach from instance**, and **Delete**.
-- When the volume that you're viewing is an unattached data volume, the available actions are **Attach to instance**, and **Delete**.
+From the **Actions** menu ![Actions icon](../icons/action-menu-icon.svg "Actions") on the volume list page, the following actions are available. Some actions are available only when the volume meets specific conditions, such as being attached or unattached.
 
-For more information about these actions, see the following topics:
-- [Creating an image from a volume in the console](/docs/vpc?topic=vpc-create-ifv&interface=ui#create-image-from-volume-vpc-ui)
-- [Creating a snapshot in the console](/docs/vpc?topic=vpc-snapshots-vpc-create&interface=ui#snapshots-vpc-create-ui)
-- [Detaching a volume from a virtual server instance](/docs/vpc?topic=vpc-managing-block-storage#detach)
-- [Attaching a volume to a virtual server instance](/docs/vpc?topic=vpc-attaching-block-storage)
-- [Deleting a volume in the console](/docs/vpc?topic=vpc-managing-block-storage#delete).
+- **Rename** - rename this volume.
+- **Attach to server** - attach an unattached volume to a virtual server instance. This action is available only when the volume is unattached. For more information, see [Attaching a volume to an instance](/docs/vpc?topic=vpc-attaching-block-storage).
+- **Detach from instance** - detach an attached volume from its virtual server instance. This action is available only when the volume is attached. For more information, see [Detaching a volume from a virtual server instance](/docs/vpc?topic=vpc-managing-block-storage#detach).
+- **Create snapshot** - create a snapshot of this volume. This action might be greyed out when unavailable. For more information, see [Creating a snapshot in the console](/docs/vpc?topic=vpc-snapshots-vpc-create&interface=ui#snapshots-vpc-create-ui).
+- **Create image** - create a custom image from a boot volume. This action might be greyed out when unavailable. For more information, see [Creating an image from a volume in the console](/docs/vpc?topic=vpc-create-ifv&interface=ui#create-image-from-volume-vpc-ui).
+- **Add tags** or **Edit tags** - add or edit user tags and access management tags on this volume. For more information, see [Working with tags](/docs/account?topic=account-tag).
+- **Delete** - delete this volume. This action is greyed out when the volume is attached to an instance. For more information, see [Deleting a data volume in the console](/docs/vpc?topic=vpc-managing-block-storage&interface=ui#delete).
+- **Migrate volume** - migrate this volume to a different profile or configuration. For more information, see [Migrating block storage volumes](/docs/vpc?topic=vpc-block-storage-vpc-volume-migration).
 
 ### Viewing details of a {{site.data.keyword.block_storage_is_short}} volume
 {: #view-vol-details-ui}
@@ -66,10 +65,10 @@ To view details about a {{site.data.keyword.block_storage_is_short}} volume, go 
 
 Next to the name of the volume is the [volume status](/docs/vpc?topic=vpc-block-storage-vpc-monitoring#block-storage-vpc-status) and tags that are associated with this volume. [User tags](/docs/vpc?topic=vpc-block-storage-about&interface=ui#storage-about-user-tags) identify the resource. When user tags are associated with a backup policy, they are used for creating [backup snapshots](/docs/vpc?topic=vpc-backup-service-about) of the volume. With [Access management tags](/docs/vpc?topic=vpc-block-storage-about&interface=ui#storage-about-mgt-tags), you can create flexible resource groupings for managing access. For more information about these tags, see [Working with tags](/docs/account?topic=account-tag).
 
-#### Volume-specific information.
+#### Volume-specific information
 {: #view-vol-details-overview}
 
-The page has 3 tabs. By default, the Overview tab is selected for volume details.
+The page has 4 tabs. By default, the Overview tab is selected for volume details.
 
 | Field | Description |
 |-------|-------------|
@@ -78,11 +77,11 @@ The page has 3 tabs. By default, the Overview tab is selected for volume details
 | Volume ID | System-generated volume ID. |
 | Health |  Health monitors the overall health of the volume, such as I/O performance and data consistency. Volume health statuses are `OK` or `degraded`. Volumes in a degraded state have less than OK performance and capacity, or they experience connection problems. Volumes that are being restored from a snapshot also show a degraded state. The service displays a possible reason for the degraded state so you can resolve it. For more information, see [{{site.data.keyword.block_storage_is_short}} volume health states](/docs/vpc?topic=vpc-block-storage-vpc-monitoring#block-storage-vpc-health-states). |
 | Resource group | Resource group defined when you set up your VPC. Resource groups manage access to resources but do not affect billing or monitoring.|
-| Attachment type | Data, for a secondary volume attached to an instance, boot when attached as a boot volume, or blank for an unattached volume.|
+| Attachment type | Data, for a secondary volume that is attached to an instance, boot when attached as a boot volume, or blank for an unattached volume.|
 | Created date | System-generated date when the volume was created.|
 | Location | Availability zone in your region.|
 | Size | Size of the volume you specified. When the volume is attached to a virtual server instance and the volume is not at maximum capacity for its range, you can click the icon to expand the volume. For more information, see [expanding {{site.data.keyword.block_storage_is_short}} volume capacity](/docs/vpc?topic=vpc-expanding-block-storage-volumes). |
-| Profile | This field shows the [volume profile](/docs/vpc?topic=vpc-block-storage-profiles): [sdp](/docs/vpc?topic=vpc-block-storage-profiles&interface=ui#defined-performance-profile), [custom IOPS](/docs/vpc?topic=vpc-block-storage-profiles#custom), or one of the [IOPS tier](/docs/vpc?topic=vpc-block-storage-profiles#tiers) profiles.|
+| Profile | This field shows the [volume profile](/docs/vpc?topic=vpc-block-storage-profiles): [`sdp`](/docs/vpc?topic=vpc-block-storage-profiles&interface=ui#defined-performance-profile), [custom IOPS](/docs/vpc?topic=vpc-block-storage-profiles#custom), or one of the [IOPS tier](/docs/vpc?topic=vpc-block-storage-profiles#tiers) profiles.|
 | Max IOPS | The maximum IOPS value for a predefined IOPS tier or the value you specified for custom IOPS. |
 | Throughput | The field shows the allocated bandwidth of the storage volume, which is measured in Gigabits per second (Gbps). Throughput is calculated as the result of the number of IOPS the volume is provisioned for times the throughput multiplier. Depending on the [volume profile](/docs/vpc?topic=vpc-block-storage-profiles), the throughput multiplier can be 16 KB or 256 KB. For volumes that are created with the `sdp` profile, the throughput value is customizable in the range of 1000-8192 Mbps.|
 | Encryption | Encryption with IBM-managed keys is enabled by default on all volumes. You can also use your own root keys to protect your data. The Encryption field shows the name of the key management service (KMS) you provisioned (for example, {{site.data.keyword.keymanagementserviceshort}}) and **customer-managed**. For more information, see [Creating {{site.data.keyword.block_storage_is_short}} volumes with customer-managed encryption](/docs/vpc?topic=vpc-block-storage-vpc-encryption).|
@@ -90,6 +89,7 @@ The page has 3 tabs. By default, the Overview tab is selected for volume details
 | Key | _Optional._ The name and copiable ID of the root key that is used to encrypt the passphrase, which secures a customer-managed encryption volume. |
 | Backup policies | The number of backup policies that are associated with the volume. Click the number link to go to the backup policies tab. |
 | Snapshots | The number of snapshots that were created of the volume. Click the number link to go to the Snapshots and Backups tab. |
+| Replication role | The role of this volume in a replication relationship: `source`, `replica`, or `none`. This field is present only for `sdp` profile volumes. |
 | **Attached virtual server** | Volumes attached to a virtual server instance are listed here. Click **Attach** to select an instance to attach this volume. For more information, see [Attaching a volume to an instance](/docs/vpc?topic=vpc-attaching-block-storage). |
 | Status | This field tracks the overall lifecycle state of the volume, which ranges from volume creation to volume deletion. Attachment status, for example, is _attached_ when the volume is attached to an instance and _attaching_ when in progress. |
 | Name | Click the name of the virtual server instance to see instance details. |
@@ -97,21 +97,24 @@ The page has 3 tabs. By default, the Overview tab is selected for volume details
 | **Backup policies** | Shows backup policies that are associated with this volume. To associate backup policies, you can add a backup policy's tags for target resources to this volume. Click **Apply** to select a backup policy, then apply its tags for the target resource to the volume. |
 {: caption="Volume details" caption-side="bottom"}
 
-The Actions menu selections change depending on whether the volume is a boot volume, an attached data volume, or an unattached data volume.
-- **Create a snapshot** - you can create a snapshot from an attached data volume or a boot volume. For more information, see [Create a snapshot in the console](/docs/vpc?topic=vpc-snapshots-vpc-create&interface=ui#snapshots-vpc-create-ui).
-- **Create image** - you can create an image from a boot volume. For more information, see [Creating an image from a volume in the console](/docs/vpc?topic=vpc-create-ifv&interface=ui#create-image-from-volume-vpc-ui).
-- **Expand volume** - you can increase the size of an attached volume in increments of 1 GB. For more information, see [Expanding block storage volume capacity](/docs/vpc?topic=vpc-expanding-block-storage-volumes).
-- **Edit IOPS profile** - you can change the performance characteristics of an attached data volume by increasing or decreasing IOPS by [editing the IOPS profile](/docs/vpc?topic=vpc-adjusting-volume-iops). |
-- **Delete** - you can delete an unattached volume. For more information, see [Deleting a data volume in the console](/docs/vpc?topic=vpc-managing-block-storage&interface=ui#delete).
+From the **Actions** menu ![Actions icon](../icons/action-menu-icon.svg "Actions") on the volume details page, the following actions are available:
+- **View activity tracking** - view the activity tracking log for this volume.
+- **Create snapshot** - create a snapshot from an attached data volume or a boot volume. For more information, see [Creating a snapshot in the console](/docs/vpc?topic=vpc-snapshots-vpc-create&interface=ui#snapshots-vpc-create-ui).
+- **Create image** - create a custom image from a boot volume. This action is greyed out when unavailable. For more information, see [Creating an image from a volume in the console](/docs/vpc?topic=vpc-create-ifv&interface=ui#create-image-from-volume-vpc-ui).
+- **Expand volume** - increase the size of an attached volume in increments of 1 GB. For more information, see [Expanding block storage volume capacity](/docs/vpc?topic=vpc-expanding-block-storage-volumes).
+- **Edit IOPS profile** - change the performance characteristics of an attached data volume by increasing or decreasing IOPS by [editing the IOPS profile](/docs/vpc?topic=vpc-adjusting-volume-iops).
+- **Apply backup policy** - apply a backup policy to this volume. For more information, see [Applying backup policies to resources](/docs/vpc?topic=vpc-backup-use-policies&interface=ui).
+- **Migrate volume** - migrate this volume to a different profile. For more information, see [Migrating block storage volumes](/docs/vpc?topic=vpc-block-storage-vpc-volume-migration).
+- **Delete** - delete an unattached volume. For more information, see [Deleting a data volume in the console](/docs/vpc?topic=vpc-managing-block-storage&interface=ui#delete).
 
-To view a list of snapshots of this volume that were created manually or by a backup policy, click the **Snapshots and Backups** tab.
+To view a list of snapshots of this volume that were created manually or by a backup policy, click the **Snapshots and backups** tab.
 
 #### Viewing all snapshots of the {{site.data.keyword.block_storage_is_short}} volume
 {: #view-snapshots-for-volume}
 
 If you created snapshots of a {{site.data.keyword.block_storage_is_short}} boot or data volume, you can see the snapshots on the second tab of the volume details page.
 
-Click the **Snapshots and Backups** tab to see the list of snapshots that includes information such as the name, status, size, encryption type, and the creation date of the snapshots. The list also shows whether the snapshot was created by the user or by a [backup policy](/docs/vpc?topic=vpc-backup-service-about&interface=ui#baas-comparison). The snapshots display in descending order, with the most recently created snapshot in first place.
+Click the **Snapshots and backups** tab to see the list of snapshots. The list includes the following columns: **Name**, **Status**, **Size**, **Source volume**, **Snapshot copies**, **Created date (Local)**, and **Consistency group**. The list also shows whether the snapshot was created by the user or by a [backup policy](/docs/vpc?topic=vpc-backup-service-about&interface=ui#baas-comparison). The snapshots display in descending order, with the most recently created snapshot in first place.
 
 You can see details for a snapshot, create a snapshot, and manage snapshots from the Volume details page. For example, from the Actions menu ![Actions icon](../icons/action-menu-icon.svg "Actions"), you can delete the most recent snapshot. For more information, see one of the following topics:
 
@@ -130,7 +133,7 @@ Click the **Backup policies** tab. All policies that have the user tag that is a
    |-------|-------------|
    | Policy name | Click the policy name to go to that backup policy. |
    | Status | [Status of the backup policy](/docs/vpc?topic=vpc-backup-vpc-monitoring&interface=ui). |
-   | Last run time | The last scheduled run of the backup policy that created a backup. |
+   | Last run time (Local) | The last scheduled run of the backup policy that created a backup, shown in local time. |
    {: caption="Backup policies associated with a {{site.data.keyword.block_storage_is_short}} volume." caption-side="bottom"}
 
 You can click **Attach** to apply a new backup policy to this volume. In the side panel, select a backup policy from the menu, and select the policy tags to apply to the volume. You can also view the plan details that can help you decide whether to use that policy. If satisfied, click **Apply policy and tags**.
@@ -138,6 +141,21 @@ You can click **Attach** to apply a new backup policy to this volume. In the sid
 When you want to add volumes to a policy, [add user tags to the volume](/docs/vpc?topic=vpc-managing-block-storage&interface=ui#add-user-tags-volumes-ui) that are in the backup policy's tags for target resources. When you remove tags from a volume that are in a backup policy, the volume is no longer backed up by that policy.
 
 For more information, see [Applying backup policies to resources](/docs/vpc?topic=vpc-backup-use-policies&interface=ui).
+
+#### Viewing volume jobs
+{: #view-volume-jobs-for-volume}
+
+The **Volume jobs** tab on the volume details page lists the migration jobs that are associated with this volume. Each row in the table provides the following information:
+
+   | Field | Description |
+   |-------|-------------|
+   | Job ID | The system-generated ID of the migration job. |
+   | Job status | The current status of the migration job. |
+   | Job started | The date and time when the migration job started. |
+   | Job completed | The date and time when the migration job completed. |
+   {: caption="Volume jobs associated with a {{site.data.keyword.block_storage_is_short}} volume." caption-side="bottom"}
+
+For more information about volume migration, see [Migrating block storage volumes](/docs/vpc?topic=vpc-block-storage-vpc-volume-migration).
 
 ### Viewing attached {{site.data.keyword.block_storage_is_short}} volume details in instance details
 {: #view-vol-details-instance-ui}
