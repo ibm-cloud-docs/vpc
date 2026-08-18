@@ -2,7 +2,7 @@
 
 copyright:
   years: 2019, 2026
-lastupdated: "2026-08-04"
+lastupdated: "2026-08-18"
 
 keywords: api, change log, new features, restrictions, migrations
 
@@ -55,6 +55,18 @@ At this time, all instances, and therefore all instance templates, continue to r
 
 The new response code will be rolled out gradually. Each phase of the rollout will be tied to a dated API version. These changes will be announced in future change log updates.
 {: note}
+
+## 18 August 2026
+{: #18-august-2026}
+
+### For all version dates
+{: #18-august-2026-all-version-dates}
+
+**Asymmetric routing for route mode network load balancers.** You can now specify `weighted_forwarding` as the pool `algorithm` for `network` family route mode load balancers that support asymmetric routing.
+
+When [creating a load balancer](/docs/apis/vpc/latest#create-load-balancer), or when [creating](/docs/apis/vpc/latest#create-load-balancer-pool) or [updating](/docs/apis/vpc/latest#update-load-balancer-pool) a load balancer pool, you can now specify `weighted_forwarding` to enable symmetric hashing for the same flow while allowing packets without prior connection state to be forwarded asymmetrically.
+
+A new `asymmetric_routing_supported` profile property indicates whether a load balancer profile supports this capability when you [list](/docs/apis/vpc/latest#list-load-balancer-profiles) or [retrieve](/docs/apis/vpc/latest#get-load-balancer-profile) load balancer profiles. For more information, see [Managing route mode network load balancers](/docs/vpc?topic=vpc-nlb-pools&interface=api).
 
 ## 4 August 2026
 {: #4-august-2026}
