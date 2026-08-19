@@ -73,7 +73,7 @@ Customer-managed encryption has several advantages over IBM-managed encryption.
 
 **You control your keys:**
 
-* Because you bring your own keys (BYOK) to the cloud, you control encryption of your {{site.data.keyword.block_storage_is_short}} volumes, file shares, and custom images.
+* Because you use customer-managed keys, you control encryption of your {{site.data.keyword.block_storage_is_short}} volumes, file shares, and custom images.
 * You grant the IBM VPC service access to use your root keys to encrypt your data. You can revoke access at any time for any reason.
 * Your data is protected while in transit from the storage system to the hypervisor and host within the VPC, and at rest in {{site.data.keyword.block_storage_is_short}} and {{site.data.keyword.filestorage_vpc_short}}.
 
