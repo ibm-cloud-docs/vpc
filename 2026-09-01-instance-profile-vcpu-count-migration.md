@@ -2,7 +2,7 @@
 
 copyright:
   years: 2026
-lastupdated: "2026-07-31"
+lastupdated: "2026-08-19"
 
 keywords: instance profile migration, vcpu count, instance profiles, versioned change, migration
 
@@ -54,7 +54,7 @@ Before you migrate a client to API version `2026-09-01` or later, review your co
 - `GET /instance/profiles/{name}`
 - `GET /instance/profiles`
 
-Review the changes that will be announced in the [API change log](/docs/vpc?topic=vpc-api-change-log#01-September-2026), and verify that your code adopts these changes in a manner that is appropriate for your programming language.
+Review the changes that will be announced in the API change log, and verify that your code adopts these changes in a manner that is appropriate for your programming language.
 
 ## Example
 {: #example-instance-profile-api-version-2026-09-01}
