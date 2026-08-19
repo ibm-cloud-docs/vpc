@@ -1253,6 +1253,10 @@ toc:
               id: tbs-site-to-site-vpn-gateways
               label: Troubleshooting site-to-site VPN gateways
               topics:
+              - vpn-ts-connection-establishment.md
+              - vpn-ts-traffic-flow.md
+              - vpn-ts-routing-reachability.md
+              - vpn-ts-quota-limit-issues.md
               - vpn-ts-unable-establish-connection.md
               - vpn-ts-traffic-not-getting-through.md
               - vpn-ts-multi-cidr-oneway-traffic.md
@@ -1276,6 +1280,8 @@ toc:
               id: tbs-client-to-site-vpn
               label: Troubleshooting client-to-site VPN servers
               topics:
+              - vpn-ts-c2s-connection-establishment.md
+              - vpn-ts-c2s-traffic-flow.md
               - vpn-ts-auth-error-connecting-to-server.md
               - vpn-ts-auth-failure-error.md
               - vpn-ts-c2s-auth-failure-error.md
