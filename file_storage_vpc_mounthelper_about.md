@@ -2,7 +2,7 @@
 
 copyright:
   years: 2023, 2026
-lastupdated: "2026-08-17"
+lastupdated: "2026-08-19"
 
 keywords: file share, file storage, encryption in transit, Mount Helper, IPsec, secure connection, mount share, stunnel
 
@@ -52,8 +52,8 @@ The Mount Helper utility installs stunnel on the compute host that's running a L
 Before you use Mount Helper, confirm that your environment meets the following requirements:
 
 * For setting up a secure connection with a **zonal** file share, the [Metadata service](/docs/vpc?topic=vpc-imd-about) must be enabled on the compute host.
-   * If the compute host is a virtual server instance, see [enabling metadata in the console.](/docs/vpc?topic=vpc-imd-configure-service&interface=ui#imd-enable-service-ui){: ui} [enabling metadata from the CLI.](/docs/vpc?topic=vpc-imd-configure-service&interface=cli#imd-metadata-service-enable-cli){: cli} [enabling metadata from the API.](/docs/vpc?topic=vpc-imd-configure-service&interface=api#imd-metadata-service-enable-api){: api}
-   * If the compute host is a bare metal server, see [enabling metadata in the console.](/docs/vpc?topic=vpc-configure-metadata-service-bare-metal&interface=ui#metadata-enable-service-ui-bare-metal){: ui} [enabling metadata from the CLI.](/docs/vpc?topic=vpc-configure-metadata-service-bare-metal&interface=cli#metadata-service-enable-cli-bare-metal){: cli} [enabling metadata from the API.](/docs/vpc?topic=vpc-configure-metadata-service-bare-metal&interface=api#metadata-service-enable-api-bare-metal){: api}
+   * If the compute host is a virtual server instance, see the following topic: [Enabling metadata in the console.](/docs/vpc?topic=vpc-imd-configure-service&interface=ui#imd-enable-service-ui){: ui} [Enabling metadata from the CLI.](/docs/vpc?topic=vpc-imd-configure-service&interface=cli#imd-metadata-service-enable-cli){: cli} [Enabling metadata from the API.](/docs/vpc?topic=vpc-imd-configure-service&interface=api#imd-metadata-service-enable-api){: api}
+   * If the compute host is a bare metal server, see see the following topic: [Enabling metadata in the console.](/docs/vpc?topic=vpc-configure-metadata-service-bare-metal&interface=ui#metadata-enable-service-ui-bare-metal){: ui} [Enabling metadata from the CLI.](/docs/vpc?topic=vpc-configure-metadata-service-bare-metal&interface=cli#metadata-service-enable-cli-bare-metal){: cli} [Enabling metadata from the API.](/docs/vpc?topic=vpc-configure-metadata-service-bare-metal&interface=api#metadata-service-enable-api-bare-metal){: api}
 * The zonal or regional file share must have [security group access mode](/docs/vpc?topic=vpc-file-storage-vpc-about&interface=ui#fs-mount-access-mode), so the VPC's security access groups can be used to define which compute host can mount the share.
 * Data encryption in transit must be enabled for the mount target.
 * The compute host and the mount target must be members of the same [security group](/docs/vpc?topic=vpc-using-security-groups).
