@@ -2,7 +2,7 @@
 
 copyright:
   years: 2022, 2026
-lastupdated: "2026-04-20"
+lastupdated: "2026-08-19"
 
 keywords:
 
@@ -51,6 +51,20 @@ Because this VNF is transparent, the client (source) makes a TCP request to the 
 An egress custom route was created to ensure client (`10.241.0.6`) data packets destined for the target (`10.241.66.5`) will hop through the NLB. Because the NLB is configured with routing mode enabled, TCP requests on all ports are forwarded automatically to their destination. Because the VNFs are in the NLB pool, they are the next hop after the NLB. In this Active/Active single region example, an egress route is also required to ensure that the return packet from the target will hop through the NLB on the return trip, then through the same VNF it was sent through, and finally back to the client. In this use case, the client is in a different zone than the target, but the target is in the same zone as the NLB and VNF.
 
 ![Active/Active HA transparent VNF topology](images/vnf-single-multi-zone.png){: caption="Active/Active HA transparent VNF topology" caption-side="bottom"}
+
+## Use Case 3: Multi-zone, high availability using asymmetric routing
+{: #multi-zone-ha-using-asymmetric-routing}
+
+The following configuration can be used only with a route-mode-enabled private NLB with a weighted forwarding pool algorithm.
+{: note}
+
+Figure 3 illustrates a private route-mode network load balancer (NLB) designed to provide multi-zone high availability through asymmetric routing. In this architecture, consumer traffic reaches the provider's hub VPC through a direct link, transit gateway, or the internet. The private route-mode NLB then forwards the traffic through a Transit Gateway to virtual server instances located in the spoke VPC. When weighted forwarding is enabled, traffic originating and terminating within the same zone follows a symmetric path. The design also supports asymmetric routing, allowing return traffic to take a different path from the original request without depending on an existing connection state.
+
+For example, a request packet might enter the service through an NLB in Zone 1 and be forwarded to a virtual server in VPC 1, while the response packet returns through the NLB in Zone 2. Because forwarding is independent of the original connection path, the response is accepted and forwarded correctly. Configured weights continue to influence how traffic is distributed at each NLB, allowing operators to direct more traffic to higher-capacity backends while maintaining multi-zone high availability.
+
+This architecture also provides regional high availability. Route advertisements are automatically withdrawn in the event of a zonal outage, the loss of all healthy firewall instances, or the unavailability of all healthy NLB appliances. This behavior helps prevent traffic from being directed to unavailable resources and ensures that traffic is routed only to healthy zones.
+
+![Multi-zone, high availability using asymmetric routing](images/lb_use_case_8.svg){: caption="Multi-zone, high availability using asymmetric routing" caption-side="bottom}
 
 ## Before you begin
 {: #vnf-before-you-begin}

@@ -2,7 +2,7 @@
 
 copyright:
   years: 2020, 2026
-lastupdated: "2026-08-12"
+lastupdated: "2026-08-19"
 
 keywords: network load balancer, public, private, listener, back-end, front-end, pool, round-robin, weighted, connections, layer 4, methods, policies, APIs, access, ports, zonal
 
@@ -32,7 +32,7 @@ As discussed in the [Load balancers for VPC overview](/docs/vpc?topic=vpc-nlb-vs
 * **Private** - A private load balancer is only accessible from within the VPC network, where the client is in the same VPC or has reachability (for example, through Direct Link, Transit Gateway, or both). For private load balancers, you must have a dedicated subnet with no custom routes configured for the subnet.
 * **Private with routing mode enabled** - Private NLBs with routing mode enabled support Virtual Network Function (VNF) devices as back-end targets. They perform direct routing without any NAT, enabling VNF devices to inspect packets as-is.
 
-    
+   Both symmetric and asymmetric traffic are supported where multiple private NLBs with routing mode in each zone can receive traffic asynchronously at any time using [weighted forwarding](/docs/vpc?topic=vpc-network-load-balancers#weighted-forwarding-method). For more information, see [Creating a network load balancer with routing mode](/docs/vpc?topic=vpc-nlb-vnf&interface=ui).
 
 * **Private Path** - Service providers use Private Path NLBs to securely connect {{site.data.keyword.cloud_notm}} with third-party, VPC-hosted services on the {{site.data.keyword.cloud_notm}} private network. Private Path NLBs are required when you use [Private Path services](/docs/vpc?topic=vpc-private-path-service-intro) to keep network traffic on a private path that never intersects with the internet. For more information, see the [Private Path solutions guide](/docs/private-path).
 
@@ -71,7 +71,21 @@ Private Path NLBs don't support the least-connection method.
 
 Round-robin is the default load-balancing method. With this method, the load balancer forwards incoming client connections in a round-robin fashion to the back-end servers. As a result, all back-end servers receive roughly an equal number of client connections.
 
+### Weighted forwarding
+{: #weighted-forwarding-method}
 
+Weighted forwarding is supported only on private NLBs that use routing mode.
+{: note}
+
+With weighted forwarding, the NLB uses a IP-hash algorithm to distribute packets across targets based on their assigned weights. Because weighted forwarding is stateless, the NLB does not maintain connection state. Instead, each packet is evaluated independently based on its headers and forwarded according to the current hash result and configured weights. As a result, traffic is accepted and forwarded even when no existing connection state is present.
+
+This behavior enables support for asymmetric routing scenarios, including deployments where same-zone traffic flows are not symmetric, such as when using a public address range IP. Another supported scenario is a multi-zone deployment where private NLBs configured with the `weighted_forwarding` pool algorithm can receive traffic asynchronously in any zone. For symmetric traffic flows, the NLB continues to provide deterministic hash-based forwarding similar to other pool algorithms, making weighted forwarding suitable for any route-mode NLB deployment.
+
+If a route-mode NLB becomes unhealthy due to an unhealthy zone or no healthy back-end members remain, the NLB automatically withdraws its associated VPC ingress routing advertisement. Traffic is then redirected to healthy route-mode NLBs in healthy zones.
+
+For example, consider a route-mode private NLB with two healthy back-end members, Server A with a weight of `8` and Server B with a weight of `2`. Out of 1,000 incoming packets, approximately 800 packets are forwarded to Server A and 200 packets are forwarded to Server B. But because weighted forwarding is stateless, the NLB does not maintain connection state. Each packet is evaluated independently using packet header information and forwarded according to the current hash result and configured weights. This means that packets that belong to the same flow can arrive and return through different route-mode NLBs and still be forwarded successfully, even when the observed distribution differs from the configured weight ratio.
+
+This behavior enables asymmetric routing scenarios. For more information, see [Use case 8: Multi-zone, high availability using asymmetric routing](/docs/vpc?topic=vpc-network-load-balancers#multi-zone-ha-using-asymmetric-routing).
 
 ### Weighted round-robin
 {: #weighted-round-robin-method}
@@ -157,6 +171,9 @@ Figure 4 illustrates how a private NLB with routing mode works. The Consumer que
 
 ![Private load balancer with routing mode enabled](images/lb_use_case_3.svg "Private load balancer with routing mode enabled"){: caption="Private load balancer with route mode enabled" caption-side="bottom"}
 
+Multiple private NLBs with routing mode enabled in each zone can receive traffic asynchronously at any time. If a route-mode NLB becomes unhealthy, it stops receiving traffic, and traffic automatically shifts to healthy route-mode NLBs in the zone. For more information, see [weighted forwarding](/docs/vpc?topic=vpc-network-load-balancers#weighted-forwarding-method).
+{: note}
+
 ## Use case 4: Multi-zone, high availability using a network load balancer
 {: #nlb-use-case-4}
 
@@ -187,6 +204,20 @@ You can only use Private Path NLBs with a Private Path service. For more informa
 Figure 6 illustrates how a Private Path NLB works to support a Private Path service. The Private Path NLB registers with the DNS server. The Consumer optionally queries the DNS server. The Consumer then sends a TCP request for data to the Private Path NLB through a VPE gateway, and the Private Path NLB forwards the request to the targets. In turn the targets generate a response, that response is sent by direct-server-return to the VPE, and then is sent to the Consumer.
 
 ![Private path network load balancer](images/lb_use_case_4.svg "Private path network balancer"){: caption="Public load balancer" caption-side="bottom"}
+
+## Use Case 8: Multi-zone, high availability using asymmetric routing
+{: #multi-zone-ha-using-asymmetric-routing}
+
+The following configuration can be used only with a private NLB that has routing mode enabled.
+{: note}
+
+Figure 9 illustrates how private route-mode NLBs can provide multi-zone high availability through asymmetric routing. First, a consumer sends a request to the provider's hub VPC through a private connectivity path, such as VPN, Direct Link, or Transit Gateway. The provider's private route-mode NLB sends the request through a transit gateway to virtual server instances in the spoke VPC. With weighted forwarding enabled, return traffic can follow a different path than the original request without relying on previously established connection state.
+
+For example, a request packet might enter through the NLB in Availability Zone 1 and be forwarded to a virtual server instance in the spoke VPC, while the response packet returns through the NLB in Availability Zone 2. Because forwarding is independent of the original connection path, the response is accepted and forwarded correctly. Configured weights continue to influence how traffic is distributed across backend virtual server instances while maintaining multi-zone high availability.
+
+Furthermore, if a zone becomes unavailable or a Route Mode Network Load Balancer (NLB) no longer has any active firewall instances associated with it, the corresponding route advertisement is automatically withdrawn. This dynamic route withdrawal mechanism prevents traffic from being directed to unhealthy service endpoints and enables regional high availability (HA) by ensuring traffic is routed only through operational VNF-based firewall devices.
+
+![Multi-zone, high availability using asymmetric routing](images/lb_use_case_8.svg){: caption="Multi-zone, high availability using asymmetric routing" caption-side="bottom}
 
 ## Related links
 {: #nlb-permissions-related-links}

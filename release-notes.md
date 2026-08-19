@@ -2,7 +2,7 @@
 
 copyright:
   years: 2019, 2026
-lastupdated: "2026-08-10"
+lastupdated: "2026-08-19"
 
 keywords:
 
@@ -26,6 +26,13 @@ For more information about changes to the {{site.data.keyword.vpc_short}} comman
 
 ## August 2026
 {: #vpc-aug26}
+
+### 18 August 2026
+{: #vpc-august1826}
+{: release-note}
+
+Multiple private network load balancers with routing mode per zone (GA)
+:   Now customers can enable multiple active private network load balancers with routing mode per zone, which allows scaled routing and ensures continuous availability in VPC. For more information, see [Weighted forwarding](/docs/vpc?topic=vpc-network-load-balancers#weighted-forwarding-method).
 
 ### 06 August 2026
 {: #vpc-aug0626}
