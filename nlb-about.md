@@ -205,7 +205,7 @@ Figure 6 illustrates how a Private Path NLB works to support a Private Path serv
 
 ![Private path network load balancer](images/lb_use_case_4.svg "Private path network balancer"){: caption="Public load balancer" caption-side="bottom"}
 
-## Use Case 8: Multi-zone, high availability using asymmetric routing
+## Use case 8: Multi-zone, high availability using asymmetric routing
 {: #multi-zone-ha-using-asymmetric-routing}
 
 The following configuration can be used only with a private NLB that has routing mode enabled.
