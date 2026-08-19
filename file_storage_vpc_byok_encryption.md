@@ -2,9 +2,9 @@
 
 copyright:
   years: 2022, 2026
-lastupdated: "2026-08-13"
+lastupdated: "2026-08-19"
 
-keywords: file share, customer-managed encryption, encryption, byok, KMS, Key Protect, Hyper Protect Crypto Services,
+keywords: file share, customer-managed encryption, encryption, KMS, Key Protect, Standard, Dedicated,
 
 subcollection: vpc
 
@@ -15,7 +15,7 @@ subcollection: vpc
 # Creating file shares with customer-managed encryption
 {: #file-storage-byok-encryption}
 
-Create {{site.data.keyword.filestorage_vpc_short}} shares with customer-managed encryption by using root keys stored in {{site.data.keyword.keymanagementserviceshort}} for BYOK data protection.
+Create {{site.data.keyword.filestorage_vpc_short}} shares with customer-managed encryption by using root keys from a {{site.data.keyword.keymanagementserviceshort}} Standard or Dedicated instance.
 {: shortdesc}
 
 You can't change the encryption type after the file share is created.

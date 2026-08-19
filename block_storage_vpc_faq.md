@@ -2,7 +2,7 @@
 
 copyright:
   years: 2019, 2026
-lastupdated: "2026-08-14"
+lastupdated: "2026-08-19"
 
 keywords: faqs, Block Storage for vpc, fast restore, multizone, instance, instance provisioning, volume management, volume deletion.
 
@@ -421,7 +421,7 @@ Deleting a root key has greater consequences. Deleting a root key purges usage o
 {: faq}
 {: #faq_block_storage_remove_iam}
 
-If you remove IAM authorization before you delete your BYOK volume (or image), the delete operation completes without unregistering the root keys in the KMS instance. In other words, the root key remains registered for a resource that doesn't exist. Always delete a BYOK resource before you remove IAM authorization. For more information about safely removing service authorization, see [Removing service authorization to a root key](/docs/vpc?topic=vpc-vpc-encryption-managing#instance-byok-inaccessible-data).
+If you remove IAM authorization before you delete your customer-managed volume (or image), the delete operation completes without unregistering the root keys in the KMS instance. In other words, the root key remains registered for a resource that doesn't exist. Always delete a customer-managed resource before you remove IAM authorization. For more information about safely removing service authorization, see [Removing service authorization to a root key](/docs/vpc?topic=vpc-vpc-encryption-managing#instance-byok-inaccessible-data).
 
 ## What can I do if my root key is compromised?
 {: faq}
