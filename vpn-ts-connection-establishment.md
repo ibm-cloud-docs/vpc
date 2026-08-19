@@ -19,7 +19,7 @@ content-type: troubleshoot
 {: troubleshoot}
 {: support}
 
-VPN connection issues can prevent tunnel establishment or cause established connections to become unstable. These issues commonly arise from configuration mismatches, protocol negotiation failures, network problems, or resource state issues
+VPN connection issues can prevent tunnel establishment or cause established connections to become unstable. These issues commonly arise from configuration mismatches, protocol negotiation failures, network problems, or resource state issues.
 {: shortdesc}
 
 You might experience one or more of the following issues with your VPN connection:
