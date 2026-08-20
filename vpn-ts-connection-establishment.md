@@ -173,7 +173,7 @@ To reduce the likelihood of traffic disruption, follow these steps:
 1. Ensure that the lifetime values are staggered so that rekey events occur at different times.
 
    For example:
- 
+
    Tunnel 1:
    - IKE SA lifetime: `24 hours`
    - IPsec SA lifetime: `8 hours`
