@@ -2,7 +2,7 @@
 
 copyright:
   years: 2018, 2026
-lastupdated: "2026-08-19"
+lastupdated: "2026-08-20"
 
 keywords: virtual private network, VPN, VPN gateway, troubleshooting, traffic, packets, ACL, security groups, flow
 
@@ -207,7 +207,7 @@ Correct routing is required on both the IBM Cloud and on-premises networks. Miss
    * Check that routes don't create loops or conflicts.
    * Ensure that the `distribute_traffic` property is set when the VPN uses dual tunnels. For more information, see [Distributing traffic for a route-based VPN](/docs/vpc?topic=vpc-using-vpn&interface=ui#use-case-4-vpn).
 
-   For more information on resolving routing and reachability issues, see [Why do routing and reachability issues exist with my VPN?](/docs/vpc?topic=vpc-troubleshoot-vpn-routing-reachability).
+   For more information on resolving routing and reachability issues, see [Why do routing and reachability issues exist with my site-to-site VPN?](/docs/vpc?topic=vpc-troubleshoot-vpn-routing-reachability).
 
 1. **Verify route avertisement to Transit Gateway**
 

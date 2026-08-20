@@ -2,7 +2,7 @@
 
 copyright:
   years: 2021, 2026
-lastupdated: "2026-08-19"
+lastupdated: "2026-08-20"
 
 keywords: virtual private network, VPN, VPN server, troubleshooting, client-to-site, traffic flow, cannot access, DNS, VPE, virtual server
 
@@ -14,12 +14,12 @@ content-type: troubleshoot
 
 {{site.data.keyword.attribute-definition-list}}
 
-# Why can't I access resources through my client-to-site VPN connection?
+# Why do routing and reachability issues exist with my client-to-site VPN connection?
 {: #troubleshoot-c2s-traffic-flow}
 {: troubleshoot}
 {: support}
 
-When your client-to-site VPN connection is established but you cannot access VPC or connected network resources, the issue is related to access controls, routing configuration, VPN routes, or route propagation. The following sections help you diagnose and resolve common traffic flow issues.
+When your client-to-site VPN connection is established but you cannot access VPC or connected network resources, the issue is related to routing configuration, access controls, VPN routes, or route propagation. The following sections help you diagnose and resolve common traffic flow issues.
 {: shortdesc}
 
 You might experience one or more of the following traffic flow issues:
@@ -241,6 +241,22 @@ A recursive routing issue occurs when the VPN client attempts to reach the VPN s
    * If routing inconsistencies persist, re-create the VPN server.
    * Consider deploying the VPN server in a dedicated subnet to simplify routing and avoid future conflicts.
 
+### Resolve routes stuck Pending or Deleting state
+{: #resolve-stuck-vpn-routes}
+
+VPN route creation or deletion can remain in a `Pending` or `Deleting` state when the VPN server is unable to successfully apply configuration updates.
+ 
+1. From the VPN server details page, review the VPN route status.
+ 
+1. Check whether any VPN routes remain in a `Pending` or `Deleting` state for an extended period.
+
+1. If routes are stuck, verify that the certificates associated with the VPN server exist in Secrets Manager and are valid. Additionaly, verify that these certificates are accessible to the VPN server are not expired.
+ 
+1. Renew or replace the expired certificates and retry the route operation.
+ 
+   If the VPN server certificates are expired, invalid, or inaccessible, route creation can remain in a `Pending` state and route deletion can remain in a `Deleting` state because the VPN server cannot successfully apply configuration updates.
+   {: note}
+
 ### Resolve incorrect VPN server service routes
 {: #resolve-service-route-issues}
 
@@ -450,4 +466,4 @@ If route consolidation isn't possible, request a quota increase through IBM Supp
 - [About IBM Cloud Transit Gateway](/docs/transit-gateway?topic=transit-gateway-about)
 - [Quotas and service limits](/docs/vpc?topic=vpc-quotas)
 - [Configuring route propagation for VPN servers](/docs/vpc?topic=vpc-vpn-client-to-site-route-propagation&interface=ui).
-- [Why can't I establish or maintain a VPN connection?](/docs/vpc?topic=vpc-troubleshoot-vpn-connection-establishment&interface=ui)
+- [Why can't I establish or maintain a connection to my VPN server?](/docs/vpc?topic=vpc-troubleshoot-c2s-connection-establishment)

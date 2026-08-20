@@ -2,7 +2,7 @@
 
 copyright:
   years: 2018, 2026
-lastupdated: "2026-08-19"
+lastupdated: "2026-08-20"
 
 keywords: virtual private network, VPN, VPN gateway, troubleshooting, routing, routes, reachability, advertise, propagation
 
@@ -14,7 +14,7 @@ content-type: troubleshoot
 
 {{site.data.keyword.attribute-definition-list}}
 
-# Why do routing and reachability issues exist with my VPN?
+# Why do routing and reachability issues exist with my site-to-site VPN?
 {: #troubleshoot-vpn-routing-reachability}
 {: troubleshoot}
 {: support}
