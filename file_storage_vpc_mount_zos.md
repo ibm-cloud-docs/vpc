@@ -2,7 +2,7 @@
 
 copyright:
   years: 2022, 2026
-lastupdated: "2026-06-26"
+lastupdated: "2026-08-20"
 
 keywords: file share, file storage, mount helper, mount target, mount path, secure connection
 
@@ -127,6 +127,6 @@ Mount NFS file shares on z/OS compute instances. Encryption in transit is not su
    ```
    {: pre}
 
-   For more information, see [Additional mount command examples](https://www.ibm.com/docs/en/zos/2.5.0?topic=examples-additional-mount-command){: external}.
+   For more information, see [Additional mount command examples](https://www.ibm.com/docs/en/zos/3.2.0?topic=examples-additional-mount-command){: external}.
 
 4. To verify that the file share is successfully mounted to z/OS, you can run command `df` to display the directory `/u/ibmuser/test`.

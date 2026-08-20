@@ -2,7 +2,7 @@
 
 copyright:
   years: 2018, 2026
-lastupdated: "2026-07-09"
+lastupdated: "2026-08-20"
 
 keywords: troubleshoot virtual server instance, RHEL, reregister, entitlement server, capsule server, RHEL registration, subscription manager
 
@@ -31,7 +31,7 @@ Your Red Hat Enterprise Linux virtual server instance was unregistered from the 
 Use the following steps:
 {: tsResolve}
 
-1. Create an empty file in `/tmp` folder of your server: `touch reregister-ng-rhel-vsi.sh`. Copy and Paste the code in the following section [Script to reregister an RHEL virtual server instance](#script-reregister-RHEL-VSI).
+1. Create an empty file in `/tmp` folder of your server: `touch reregister-ng-rhel-vsi.sh`. Copy and Paste the code in the following section: Script to reregister an RHEL virtual server instance.
 1. Edit the script and add to the file: `vi reregister-ng-rhel-vsi.sh`.
 1. Run the script: `chmod +x reregister-ng-rhel-vsi.sh` and `./reregister-ng-rhel-vsi.sh`.
 1. If the script fails, provide the following parameters to support:

@@ -2,7 +2,7 @@
 
 copyright:
   years: 2019, 2026
-lastupdated: "2026-08-14"
+lastupdated: "2026-08-20"
 
 keywords: view instance details, restart virtual server, stop, details, delete
 
@@ -477,7 +477,7 @@ When the reload is complete, a new admin password is provided, if applicable.
 When you confirm that OS reload, the public network for the server is disabled and all data that is on the primary disk is permanently deleted. IBM Cloud isn't responsible for any lost data.
 {: important}
 
-If you receive an error during the OS reload process, check whether the operating system is supported or obsolete. For more help, [open a support case](/docs/get-support?topic=get-support-using-avatar).
+If you receive an error during the OS reload process, check whether the operating system is supported or obsolete. For more help, [open a support case](/docs/support?topic=support-using-avatar).
 
 ## Reloading the OS by using the CLI
 {: #reloading-os-software-vpc-cli}
