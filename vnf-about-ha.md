@@ -52,7 +52,7 @@ An egress custom route was created to ensure client (`10.241.0.6`) data packets 
 
 ![Active/Active HA transparent VNF topology](images/vnf-single-multi-zone.png){: caption="Active/Active HA transparent VNF topology" caption-side="bottom"}
 
-## Use Case 3: Multi-zone, high availability using asymmetric routing
+## Use case 3: Multi-zone, high availability using asymmetric routing
 {: #multi-zone-ha-using-asymmetric-routing}
 
 The following configuration can be used only with a route-mode-enabled private NLB with a weighted forwarding pool algorithm.

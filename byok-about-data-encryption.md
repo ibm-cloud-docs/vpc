@@ -2,7 +2,7 @@
 
 copyright:
   years: 2019, 2026
-lastupdated: "2026-08-06"
+lastupdated: "2026-08-19"
 
 keywords:
 
@@ -16,7 +16,7 @@ subcollection: vpc
 # About data encryption for VPC
 {: #vpc-encryption-about}
 
-In {{site.data.keyword.block_storage_is_short}}, volumes, snapshots, and file shares use Advanced Encryption Standard (AES) 256-bit encryption at rest by default. Customer-managed encryption with FIPS 140-2 Level 3 keys provides enhanced control.
+VPC volumes, snapshots, and file shares use AES-256 encryption by default. You can use {{site.data.keyword.keymanagementserviceshort}} Standard or Dedicated instances for customer-managed encryption.
 {: shortdesc}
 
 ## IBM-managed encryption
@@ -73,7 +73,7 @@ Customer-managed encryption has several advantages over IBM-managed encryption.
 
 **You control your keys:**
 
-* Because you bring your own keys (BYOK) to the cloud, you control encryption of your {{site.data.keyword.block_storage_is_short}} volumes, file shares, and custom images.
+* Because you use customer-managed keys, you control encryption of your {{site.data.keyword.block_storage_is_short}} volumes, file shares, and custom images.
 * You grant the IBM VPC service access to use your root keys to encrypt your data. You can revoke access at any time for any reason.
 * Your data is protected while in transit from the storage system to the hypervisor and host within the VPC, and at rest in {{site.data.keyword.block_storage_is_short}} and {{site.data.keyword.filestorage_vpc_short}}.
 

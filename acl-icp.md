@@ -2,7 +2,7 @@
 
 copyright:
   years: 2019, 2026
-lastupdated: "2026-03-16"
+lastupdated: "2026-08-19"
 
 keywords:
 
@@ -20,7 +20,7 @@ Generally speaking, a _communication protocol_ is a system of rules that allow t
 * ICMP, Internet Control Message Protocol, part of the internet protocol suite defined in RFC 792.
 * TCP, Transmission Control Protocol
 * UDP, User Datagram Protocol
-* TCP-UDP-ICMP, all [IPv4 protocols listed in IANA](https://www.iana.org/assignments/protocol-numbers/protocol-numbers.xhtml){: external}
+* TCP-UDP-ICMP, all [IPv4 protocols listed in IANA](https://www.iana.org/assignments/protocol-numbers){: external}
 
 The protocols that are used for a particular implementation of, say, an API call, can influence the overall behavior of your network. So it is worthwhile to understand the basic differences between them. If you need more information, many good articles are available on the internet with detailed descriptions of the protocols.
 
@@ -45,4 +45,4 @@ Typically, UDP is used for real-time communication, where a little percentage of
 ## ANY
 {: #network-infrastructure-any-ipv4}
 
-You can now apply any [IPv4 protocol listed in IANA](https://www.iana.org/assignments/protocol-numbers/protocol-numbers.xhtml){: external} to NACL and Security Group rules. This allows you to bring custom topologies and use cases from on-prem, multi-cloud, and Classic infrastructure that leverage protocols outside of TCP, UDP, and ICMP.
+You can now apply any [IPv4 protocol listed in IANA](https://www.iana.org/assignments/protocol-numbers){: external} to NACL and Security Group rules. This allows you to bring custom topologies and use cases from on-prem, multi-cloud, and Classic infrastructure that leverage protocols outside of TCP, UDP, and ICMP.

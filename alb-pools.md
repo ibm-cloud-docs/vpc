@@ -2,7 +2,7 @@
 
 copyright:
   years: 2020, 2026
-lastupdated: "2026-06-17"
+lastupdated: "2026-08-19"
 
 keywords: application load balancer, public, private, listener, back-end, front-end, pool, round-robin, weighted, connections, methods, policies, APIs, access, ports, vpc
 
@@ -47,7 +47,7 @@ You can configure pools when [creating a application load balancer](/docs/vpc?to
        * **Weighted round robin:** Forward requests to each instance in proportion to its assigned weight. For example, you have instances A, B, and C, and their weights are set to `60`, `60` and `30`. Instances A and B receive an equal number of connections, and instance C receives half as many connections.
        * **Least connections:** Forward requests to the instance with the least number of connections at the current time.
    * **Session stickiness**: Select Whether all requests during a user's session are sent to the same instance.
-   * **Health check**: Configure how the load balancer checks the health of the instances. For information about configuring health checks, see [Working with health checks](/docs/vpc?topic=vpc-alb-health-checks#lb-health-checks).
+   * **Health check**: Configure how the load balancer checks the health of the instances. For information about configuring health checks, see [Working with health checks](/docs/vpc?topic=vpc-alb-health-checks#alb-health-checks).
 1. Select **Request settings (optional)** for your health checks. If you do not specify values, the default health check settings are used. The following options are available:
     * **Request Method**: Choose one of `GET` or `POST`. You can customize Request headers for both methods. You can optionally customize a Request body when you use the `POST` method.
     * **Request Body**: Specify the HTTP request body to use for health checks. If no value is specified, health check requests do not include a request body.

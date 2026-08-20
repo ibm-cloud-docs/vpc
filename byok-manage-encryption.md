@@ -2,7 +2,7 @@
 
 copyright:
   years: 2019, 2026
-lastupdated: "2026-08-06"
+lastupdated: "2026-08-19"
 
 keywords:
 
@@ -189,7 +189,7 @@ You can remove any authorization between services in your account when you have 
 
 Because the root keys are under your control, you don't need to contact IBM to remove authorization.
 
-Do not remove IAM authorization between Cloud Block Storage and the KMS instance, and then delete a Block Storage volume, snapshot, or image resource. Such action causes the root key in the KMS instance to remain registered with the deleted resource. You must delete all BYOK volumes, snapshots, or images before you remove the IAM authorization.
+Do not remove IAM authorization between Cloud Block Storage and the KMS instance, and then delete a Block Storage volume, snapshot, or image resource. Such action causes the root key in the KMS instance to remain registered with the deleted resource. You must delete all customer-managed volumes, snapshots, or images before you remove the IAM authorization.
 {: important}
 
 To make your data inaccessible, but retain it on the {{site.data.keyword.cloud_notm}}:

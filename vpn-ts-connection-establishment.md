@@ -2,7 +2,7 @@
 
 copyright:
   years: 2018, 2026
-lastupdated: "2026-08-19"
+lastupdated: "2026-08-20"
 
 keywords: virtual private network, VPN, VPN gateway, troubleshooting, connection, tunnel, negotiation, IKE, IPsec, BGP, suspended
 
@@ -77,7 +77,7 @@ Before you modify the VPN configuration, determine where the failure occurs.
    * Rekey failures or timeout messages
    * Traffic selector negotiation results
 
-   These messages often identify whether the issue occurs during Phase 1 negotiation, Phase 2 negotiation, or route establishment. For more information on how to check IPsec logs, see [How do I check IPsec logs?](/docs/vpc?topic=vpc-faqs-vpn&interface=ui#faq-vpn-19).
+   These messages often identify whether the issue occurs during Phase 1 negotiation, Phase 2 negotiation, or route establishment. For more information on how to check IPsec logs, see [How do I check IPsec logs?](/docs/vpc?topic=vpc-faqs-vpn&interface=ui#faq-vpn-19)
 
 1. Check for overlapping CIDRs to the same peer, conflicting routes, or mismatched IKE and IPsec policies. Rectify the configuration mismatches.
 
@@ -127,7 +127,7 @@ A traffic selector is the local and remote IP subnet (CIDR) pair that defines wh
 
 1. Ensure that each VPN connection has unique local and remote CIDR pairs. Do not configure multiple VPN connections with identical traffic selectors to the same peer IP.
 
-1. In case multiple CIDR pairs don't work, create separate VPN connections, one for each CIDR pair to match the peer behavior. Alternatively, use route-based VPN, which handles multiple CIDRs more effectively. For more information, see [Why isn't traffic flowing through my established VPN connection?](/docs/vpc?topic=vpc-troubleshoot-vpn-traffic-flow).
+1. In case multiple CIDR pairs don't work, create separate VPN connections, one for each CIDR pair to match the peer behavior. Alternatively, use route-based VPN, which handles multiple CIDRs more effectively. For more information, see [Why isn't traffic flowing through my established VPN connection?](/docs/vpc?topic=vpc-troubleshoot-vpn-traffic-flow)
 
 1. Verify that your peer device supports multiple CIDRs per tunnel.
 
@@ -150,8 +150,8 @@ When you add new connections to an existing VPN gateway, duplicate SA detection 
 
 Rekey behavior, and idle timeout configuration can cause network and timing‑related VPN issues.
 
-### Optimize rekey and negotiation behavior
-{: #optimize-rekey}
+### Optimize rekey and negotiation behavior between peers
+{: #optimize-rekey-peers}
 
 Simultaneous rekeying from both sides can cause connection instability.
 
@@ -161,6 +161,29 @@ Simultaneous rekeying from both sides can cause connection instability.
    {: tip}
 
 1. Monitor logs during rekey events to confirm successful negotiation without errors.
+
+### Optimize rekey settings for distributed traffic
+{: #optimize-rekey-distributed-traffic}
+ 
+When you use a route-based VPN with Distributed Traffic enabled, traffic can be distributed across multiple active tunnels. During IKE or IPsec rekey operations, a tunnel is briefly torn down and reestablished. If multiple tunnels rekey simultaneously, traffic can be temporarily interrupted while the tunnels are reestablished.
+ 
+To reduce the likelihood of traffic disruption, follow these steps:
+ 
+1. Configure different IKE SA (Phase 1) and IPsec SA (Phase 2) lifetime values for each tunnel.
+1. Ensure that the lifetime values are staggered so that rekey events occur at different times.
+
+   For example:
+ 
+   Tunnel 1:
+   - IKE SA lifetime: `24 hours`
+   - IPsec SA lifetime: `8 hours`
+
+   Tunnel 2:
+   - IKE SA lifetime: `16 hours`
+   - IPsec SA lifetime: `6 hours`
+
+   Using different lifetime values helps prevent multiple tunnels from rekeying simultaneously and reduces the possibility of temporary traffic loss during tunnel reestablishment.
+   {: tip}
 
 ### Handle idle timeouts
 {: #handle-idle-timeouts}
@@ -225,4 +248,5 @@ After you apply configuration changes, verify that the VPN connection operates c
 
 * [About VPN gateways](/docs/vpc?topic=vpc-using-vpn)
 * [Creating a VPN gateway](/docs/vpc?topic=vpc-vpn-create-gateway)
+* [Why do routing and reachability issues exist with my site-to-site VPN?](/docs/vpc?topic=vpc-troubleshoot-vpn-routing-reachability)
 * [Configuring ACLs and security groups for use with VPN](/docs/vpc?topic=vpc-configuring-acls-vpn&interface=ui)

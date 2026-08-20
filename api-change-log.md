@@ -2,7 +2,7 @@
 
 copyright:
   years: 2019, 2026
-lastupdated: "2026-08-18"
+lastupdated: "2026-08-19"
 
 keywords: api, change log, new features, restrictions, migrations
 
@@ -303,7 +303,7 @@ In a DNS sharing VPC topology, when [creating](/docs/apis/vpc/latest#create-endp
 
 Existing security group rules will have system assigned names. When creating a VPC, the [VPC default security group](/docs/apis/vpc/latest#get-vpc-default-security-group) includes inbound and outbound security group rules with system assigned names.
 
-**Any protocol in security group and network ACL rules.** For accounts that have special approval to preview and use this feature, security group and network ACL rules now support [any protocol](https://www.iana.org/assignments/protocol-numbers/protocol-numbers.xhtml){: external}. The `protocol` property for these rules can now have one of these values:
+**Any protocol in security group and network ACL rules.** For accounts that have special approval to preview and use this feature, security group and network ACL rules now support [any protocol](https://www.iana.org/assignments/protocol-numbers){: external}. The `protocol` property for these rules can now have one of these values:
 
 - `any` for traffic with any protocol (number 0 to 255)
 - `icmp_tcp_udp` for ICMP, TCP, and UDP traffic (for API version `2025-12-08` or earlier, the value `all` is used instead of `icmp_tcp_udp`)

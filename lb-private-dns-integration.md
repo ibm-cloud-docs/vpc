@@ -2,7 +2,7 @@
 
 copyright:
   years: 2022, 2026
-lastupdated: "2026-08-14"
+lastupdated: "2026-08-19"
 
 keywords:
 
@@ -412,7 +412,7 @@ You need the CRN of the DNS Services instance that you want to bind to your load
 
 To use the API to bind an existing load balancer to a private DNS zone:
 
-Specify the `dns` information in the `PATCH /load_balancers` call. For more information about this `PATCH` payload, see [Updating an application load balancer with the API](/docs/vpc?topic=vpc-alb-updating&interface=api#alb-updating-front-end-listener-port-api).
+Specify the `dns` information in the `PATCH /load_balancers` call. For more information about this `PATCH` payload, see [Updating an application load balancer with the API](/docs/vpc?topic=vpc-alb-updating&interface=api#alb-updating-frontend-listener-port-api).
 {: note}
 
 ```sh
@@ -513,7 +513,7 @@ Sample output:
 
 To use the API to unbind an existing load balancer to a private DNS zone:
 
-Specify null `dns` information in the `PATCH /load_balancers call`. For more information about this `PATCH` payload, see [Updating an application load balancer with the API](/docs/vpc?topic=vpc-alb-updating&interface=api#alb-updating-front-end-listener-port-api).
+Specify null `dns` information in the `PATCH /load_balancers call`. For more information about this `PATCH` payload, see [Updating an application load balancer with the API](/docs/vpc?topic=vpc-alb-updating&interface=api#alb-updating-frontend-listener-port-api).
 {: note}
 
 ```sh

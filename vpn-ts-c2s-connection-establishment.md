@@ -2,7 +2,7 @@
 
 copyright:
   years: 2021, 2026
-lastupdated: "2026-08-19"
+lastupdated: "2026-08-20"
 
 keywords: virtual private network, VPN, VPN server, troubleshooting, client-to-site, authentication, certificate, connection failure
 
@@ -387,6 +387,7 @@ After you update the client configuration, reconnect the VPN client and verify t
 ## Related links
 {: #c2s-connection-establishment-related}
 
+- [Why do routing and reachability issues exist with my client-to-site VPN connection?](/vpc?topic=vpc-troubleshoot-c2s-traffic-flow)
 - [Creating an IAM access group and granting the role to connect to the VPN server](/docs/vpc?topic=vpc-create-iam-access-group)
 - [Setting up client-to-site authentication](/docs/vpc?topic=vpc-client-to-site-authentication)
 - [Monitoring VPN servers](/docs/vpc?topic=vpc-vpn-client-to-site-monitoring&interface=ui)
