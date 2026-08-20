@@ -2,7 +2,7 @@
 
 copyright:
   years: 2024, 2026
-lastupdated: "2026-06-26"
+lastupdated: "2026-08-20"
 
 keywords: File Storage, snapshots, cross-regional copy, backup, restore share
 
@@ -98,7 +98,7 @@ To help ensure that snapshots are able to survive the loss of an availability zo
 
 All the snapshots that are present in the share are visible as subdirectories inside a hidden `/.snapshot` (zonal file share) or `/.snap` (regional file share) directory. The snapshot directories are named the same as the snapshot fingerprint ID that you see in the console, from the CLI, or with the API. These snapshots are the snapshots that you took manually or that were created automatically by the backup service.
 
-You can also see special "replication" snapshots that are named by using the word "replication" and the associated creation timestamp rather than the fingerprint of the snapshot. These snapshots are created by the system and are used to mirror data to the replica share. The replication snapshots are automatically released and deleted when they are no longer needed.
+For zonal file shares, you can also see special replication snapshots that are named by using the word "replication" and the associated creation timestamp rather than the fingerprint of the snapshot. These snapshots are created by the system and are used to mirror data to the replica share. The replication snapshots are automatically released and deleted when they are no longer needed.
 
 Snapshots of regional file shares are stored in the `.snap` directory. In this release of regional file shares, you cannot create cross-regional replicas. So no special replication snapshots appear in that directory.
 {: note}

@@ -2,7 +2,7 @@
 
 copyright:
   years: 2026
-lastupdated: "2026-04-17"
+lastupdated: "2026-08-20"
 
 keywords: HA for VPC, DR for VPC, VPC recovery time objective, VPC recovery point objective
 
@@ -107,7 +107,7 @@ Scalable workloads can handle increased demand by adding more servers that are r
 
 
 
-The strategy for disaster recovery is to provide scripting automation to restore a VPC workload in a recovery location. For example, when a region becomes unavailable it is the customer's responsibility to migrate the workload and associated data to an available region. IBM has support for the Terraform infrastructure as code system that can be used to define workloads with parameterized locations and performance. The VPC API, SDK, and CLI can be used by customers to create scripts to recover resources in an available location during a disaster. For more information, see [Planning for disaster recovery](/docs/resiliency?topic=resiliency-PlanningforDR).
+The strategy for disaster recovery is to provide scripting automation to restore a VPC workload in a recovery location. For example, when a region becomes unavailable it is the customer's responsibility to migrate the workload and associated data to an available region. IBM has support for the Terraform infrastructure as code system that can be used to define workloads with parameterized locations and performance. Customers can use the VPC API, SDK, and CLI to create scripts to recover resources in an available location during a disaster. For more information, see [Planning for disaster recovery](/docs/resiliency?topic=resiliency-PlanningforDR).
 
 You can learn more about using IBM Cloud Object Storage, IBM Cloud Schematics that provide Terraform-as-a-Service, and deployable architectures in [Using IBM Cloud services in your disaster recovery](/docs/resiliency?topic=resiliency-KeyServicesTitle).
 
@@ -212,7 +212,7 @@ If a single host fails unexpectedly, virtual servers on the failed host can be a
 
 
 Zone failures can result from natural disasters, infrastructure problems such as a power outage, accidental or malicious actions that delete information, or
-software updates that contain a bug or error. In the event of a zone failure, IBM works to recover facilities and data centers, physical network and devices,
+software updates that contain a bug or error. If a zone fails, IBM works to recover facilities and data centers, physical network and devices,
 physical storage, physical servers and memory, and hypervisors. For more information, see [Shared responsibilities for using IBM Cloud products](/docs/overview?topic=overview-shared-responsibilities).
 
 
@@ -221,7 +221,7 @@ physical storage, physical servers and memory, and hypervisors. For more informa
 
 
 
-In the event that an entire region experiences a failure, IBM again works to recover facilities and data centers, physical network and devices, physical storage,
+When an entire region experiences a failure, IBM again works to recover facilities and data centers, physical network and devices, physical storage,
 physical servers and memory, and hypervisors. For more information, see [Shared responsibilities for using IBM Cloud products](/docs/overview?topic=overview-shared-responsibilities)
 and [FAQs for disaster recovery](/docs/resiliency?topic=resiliency-dr-faq).
 

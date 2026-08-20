@@ -2,7 +2,7 @@
 
 copyright:
   years: 2019, 2026
-lastupdated: "2026-08-19"
+lastupdated: "2026-08-20"
 
 keywords:
 
@@ -33,6 +33,13 @@ For more information about changes to the {{site.data.keyword.vpc_short}} comman
 
 Multiple private network load balancers with routing mode per zone (GA)
 :   Now customers can enable multiple active private network load balancers with routing mode per zone, which allows scaled routing and ensures continuous availability in VPC. For more information, see [Weighted forwarding](/docs/vpc?topic=vpc-network-load-balancers#weighted-forwarding-method).
+
+### 13 August 2026
+{: #vpc-aug1326}
+{: release-note}
+
+New bare metal server image: Microsoft Windows Server 2025 Datacenter edition
+:   Microsoft Windows Server 2025 Datacenter edition is now available as an image when you create a bare metal server. For more information, see [Bare metal server images](/docs/vpc?topic=vpc-bare-metal-image).
 
 ### 06 August 2026
 {: #vpc-aug0626}
