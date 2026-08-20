@@ -165,7 +165,7 @@ Simultaneous rekeying from both sides can cause connection instability.
 ### Optimize rekey settings for distributed traffic
 {: #optimize-rekey-distributed-traffic}
  
-When you use a route-based VPN with Distributed Traffic enabled, traffic can be distributed across multiple active tunnels. During IKE or IPsec rekey operations, a tunnel is briefly torn down and reestablished. If multiple tunnels rekey simultaneously, traffic can be temporarily interrupted while the tunnels are reestablished.
+When you use a route-based VPN with Distributed Traffic enabled, traffic can be distributed across multiple active tunnels. During IKE or IPsec rekey operations, a tunnel is briefly torn down and reestablished. If multiple tunnels rekey simultaneously, traffic can be temporarily interrupted while the tunnels are reestablished
  
 To reduce the likelihood of traffic disruption, follow these steps:
  
@@ -173,7 +173,7 @@ To reduce the likelihood of traffic disruption, follow these steps:
 1. Ensure that the lifetime values are staggered so that rekey events occur at different times.
 
    For example:
- 
+
    Tunnel 1:
    - IKE SA lifetime: `24 hours`
    - IPsec SA lifetime: `8 hours`
