@@ -2,7 +2,7 @@
 
 copyright:
   years: 2026, 2026
-lastupdated: "2026-07-23"
+lastupdated: "2026-08-20"
 
 keywords: Block Storage, virtual private cloud, volume, data storage, troubleshooting, troubleshoot, snapshot, snapshots_source_volume_busy
 
@@ -15,7 +15,7 @@ content-type: troubleshoot
 {{site.data.keyword.attribute-definition-list}}
 
 # Why does my snapshot creation operation fail with a 'snapshots_source_volume_busy' message?
-{: #troubleshooting-block-storage}
+{: #snapshot_ts_volume_busy}
 {: troubleshoot}
 {: support}
 

@@ -166,7 +166,7 @@ Network ACLs are stateless and require explicit rules for both inbound and outbo
    {: tip}
 
 ### Check security groups configuration
-{: #configure-security-groups}
+{: #check-security-groups-config}
 
 Security groups are stateful but still require proper configuration for VPN traffic.
 
