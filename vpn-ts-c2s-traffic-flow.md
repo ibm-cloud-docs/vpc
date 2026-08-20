@@ -241,7 +241,7 @@ A recursive routing issue occurs when the VPN client attempts to reach the VPN s
    * If routing inconsistencies persist, re-create the VPN server.
    * Consider deploying the VPN server in a dedicated subnet to simplify routing and avoid future conflicts.
 
-### Resolve routes stuck Pending or Deleting state
+### Resolve routes stuck in pending or deleting state
 {: #resolve-stuck-vpn-routes}
 
 VPN route creation or deletion can remain in a `Pending` or `Deleting` state when the VPN server is unable to successfully apply configuration updates.
