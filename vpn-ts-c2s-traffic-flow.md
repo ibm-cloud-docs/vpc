@@ -250,10 +250,10 @@ VPN route creation or deletion can remain in a `Pending` or `Deleting` state whe
  
 1. Check whether any VPN routes remain in a `Pending` or `Deleting` state for an extended period.
 
-1. If routes are stuck, verify that the certificates associated with the VPN server exist in Secrets Manager and are valid. Additionaly, verify that these certificates are accessible to the VPN server are not expired.
+1. If routes are stuck, verify that the certificates that are associated with the VPN server exist in Secrets Manager and are valid. Additionally, verify that these certificates are accessible to the VPN server are not expired.
  
 1. Renew or replace the expired certificates and retry the route operation.
- 
+
    If the VPN server certificates are expired, invalid, or inaccessible, route creation can remain in a `Pending` state and route deletion can remain in a `Deleting` state because the VPN server cannot successfully apply configuration updates.
    {: note}
 
