@@ -2,7 +2,7 @@
 
 copyright:
   years: 2019, 2026
-lastupdated: "2026-08-14"
+lastupdated: "2026-08-21"
 
 keywords: Block Storage profiles, Block Storage for VPC, IOPS tiers, custom IOPS, storage performance
 
@@ -26,7 +26,7 @@ When you create a Block Storage volume, you can select from various profiles.
 - Select a profile from the _tiered_ profile family when you want to pick a profile where performance scales with capacity of the volume.
 - Select the profile from the _custom_ profile family if your performance requirements don't fall within any of the predefined IOPS tiers. When you select the custom profile, you can define your IOPS within a range that depends on the capacity that you specified.
 
-The `sdp` profile is available in the Dallas, Frankfurt, London, Madrid, Osaka, Sao Paulo, Sydney, Tokyo, Toronto, and Washington, DC regions. The _custom_ and _tiered_ profiles are available in every region for every customer. For more information, see [About {{site.data.keyword.block_storage_is_short}}](/docs/vpc?topic=vpc-block-storage-about#block-storage-sdp-intro).
+[Select availability]{: tag-green} The `sdp` profile is available to allowlisted accounts in the Dallas, Frankfurt, London, Madrid, Osaka, Sao Paulo, Sydney, Tokyo, Toronto, and Washington, DC regions. The _custom_ and _tiered_ profiles are available in every region for every customer. For more information, see [About {{site.data.keyword.block_storage_is_short}}](/docs/vpc?topic=vpc-block-storage-about#block-storage-sdp-intro).
 
 The following table shows the available storage profiles with their different properties.
 
@@ -70,7 +70,7 @@ To achieve more than 48,000 IOPS, the volume must be attached to a virtual serve
 
 Certain volume operations such as increasing capacity, adjusting IOPS, and adjusting throughput can be done on an `sdp` volume even if the volume is not attached to a running instance. For more information about the current release of second-generation volumes, such as billing, supported features, and limitations, see [About {{site.data.keyword.block_storage_is_short}}](/docs/vpc?topic=vpc-block-storage-about#block-storage-sdp-intro).
 
-
+[Select availability]{: tag-green} Access to the `sdp` profile is restricted to allowlisted accounts. Customers not on the allowlist cannot view or provision `sdp` volumes in the console, from the CLI, with the API, or Terraform. Existing `sdp` volumes are not impacted. To request access, contact your IBM account team or open a [support case](/unifiedsupport/cases/add){: external}.
 
 Secure booting is not supported for boot volumes that use the `sdp` profile.
 {: note}
@@ -115,7 +115,7 @@ If your application needs more IOPS and throughput, you can increase the volume 
 ## Profiles for boot volumes
 {: #vsi-profiles-boot}
 
-During instance provisioning, boot volumes are created with the `general-purpose` volume profile with 100 GB capacity by default when you use the CLI or the API. When you provision an instance in the console, the default profile selection is the second-generation `sdp` profile, unless you specify a first-generation snapshot to create your volume. Boot volume capacity must be the same or more than the minimum provisioned size of the image or snapshot that you plan to use. [Boot volume capacity](/docs/vpc?topic=vpc-expanding-block-storage-volumes#resize-boot-volumes) can be increased up to 250 GB when you're using first-generation volume profiles, and up to 32,000 GB when you're using the `sdp` profile. Boot volume IOPS and bandwidth are never reduced to be less than 3000 IOPS or 393 Mbps.
+During instance provisioning, boot volumes are created with the `general-purpose` volume profile with 100 GB capacity by default when you use the CLI or the API. When you provision an instance in the console, the default profile selection is also `general-purpose` unless your account is allowlisted for the `sdp` profile, in which case the console defaults to `sdp` unless you specify a first-generation snapshot to create your volume. Boot volume capacity must be the same or more than the minimum provisioned size of the image or snapshot that you plan to use. [Boot volume capacity](/docs/vpc?topic=vpc-expanding-block-storage-volumes#resize-boot-volumes) can be increased up to 250 GB when you're using first-generation volume profiles, and up to 32,000 GB when you're using the `sdp` profile. Boot volume IOPS and bandwidth are never reduced to be less than 3000 IOPS or 393 Mbps.
 
 ## How virtual server profiles relate to volume profiles
 {: #vsi-profiles-relate-to-storage}
@@ -151,7 +151,7 @@ You can view available volume profiles by using the {{site.data.keyword.cloud_no
 {: #using-console-iops-profile}
 {: ui}
 
-On the block storage provisioning page, you can see a list of all the available profiles in the Create block storage page, such as the `sdp` profile, the three `tiered`, and the `custom` profile. When you select one of the tiered profiles, you need to specify the capacity. When you select the custom profile, you need to specify the capacity and an IOPS value that's in the applicable range for your capacity ([Table 3](#custom)). When you select the `sdp` profile, you can specify the capacity and IOPS without any capacity-based range restriction. You can also specify the maximum throughput limit for your volume.
+On the block storage provisioning page, you can see a list of all the available profiles, including the three `tiered` and the `custom` profile. The `sdp` profile is visible only to allowlisted accounts. When you select one of the tiered profiles, you need to specify the capacity. When you select the custom profile, you need to specify the capacity and an IOPS value that's in the applicable range for your capacity ([Table 3](#custom)). When you select the `sdp` profile (allowlisted accounts only), you can specify the capacity and IOPS without any capacity-based range restriction, and set the maximum throughput limit for your volume.
 
 ### From the CLI
 {: #using-cli-iops-profiles}
@@ -337,6 +337,6 @@ For more information about how to expand volume capacity, see [expanding Block S
 
 For more information about how to change the IOPS tier or Custom IOPS for an existing volume, see [Adjusting IOPS of a Block Storage for VPC volume](/docs/vpc?topic=vpc-adjusting-volume-iops).
 
-For more information about how to migrate your volume from a first-generation volume profile to a second-generation profile in the console, from the CLI, with the API, or Terraform, see [Migrating Block Storage Volume](/docs/vpc?topic=vpc-block-storage-vpc-volume-migration).[Select availability]{: tag-green} For more information about how to migrate your volume from a first-generation volume profile to an allowlisted second-generation profile in the console, from the CLI, with the API, or Terraform, see [Migrating Block Storage Volume](/docs/vpc?topic=vpc-block-storage-vpc-volume-migration).
+[Select availability]{: tag-green} For more information about how to migrate your volume from a first-generation volume profile to an allowlisted second-generation profile in the console, from the CLI, with the API, or Terraform, see [Migrating Block Storage Volume](/docs/vpc?topic=vpc-block-storage-vpc-volume-migration).
 
 For more information about Balanced, Compute, and Memory profiles for {{site.data.keyword.vsi_is_short}}, see [x86-64 instance profiles](/docs/vpc?topic=vpc-profiles).

@@ -2,7 +2,7 @@
 
 copyright:
   years: 2022, 2026
-lastupdated: "2026-08-17"
+lastupdated: "2026-08-21"
 
 keywords: consistency groups, Block Storage snapshots, multi-volume snapshot, instance snapshot,
 
@@ -29,8 +29,7 @@ Before you start, gather the following information:
 - The resource group ID, which is optional. However, you can't change the resource group after the snapshot is created.
 - Any tags that you want to attach to the snapshots.
 
-Creating a consistency group with snapshots of different generations is not supported. Consider [migrating](/docs/vpc?topic=vpc-block-storage-vpc-volume-migration) your first-generation volumes to the `sdp` profile. The `sdp` profile provides better value and more flexibility than the first-generation profiles. For more information, see [{{site.data.keyword.block_storage_is_short}} profiles](/docs/vpc?topic=vpc-block-storage-profiles).
-{: tip}
+Creating a consistency group with snapshots of different generations is not supported.
 
 Consider [migrating](/docs/vpc?topic=vpc-block-storage-vpc-volume-migration) your first-generation volumes to the allowlisted `sdp` profile. The `sdp` profile provides better value and more flexibility than the first-generation profiles. For more information, see [{{site.data.keyword.block_storage_is_short}} profiles](/docs/vpc?topic=vpc-block-storage-profiles).
 {: preview}

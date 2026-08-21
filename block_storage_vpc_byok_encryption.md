@@ -2,7 +2,7 @@
 
 copyright:
   years: 2019, 2026
-lastupdated: "2026-08-19"
+lastupdated: "2026-08-21"
 
 keywords: Block Storage, IBM Cloud, VPC, virtual private cloud, Key Protect, encryption, key management, Hyper Protect Crypto Services, HPCS, volume, data storage, virtual server instance, instance, customer-managed encryption, Block Storage for vpc, customer-managed encryption,
 
@@ -18,7 +18,8 @@ subcollection: vpc
 Create {{site.data.keyword.block_storage_is_short}} volumes with customer-managed encryption by using root keys from a {{site.data.keyword.keymanagementserviceshort}} Standard or Dedicated instance.
 {: shortdesc}
 
-
+The `sdp` profile is available to select customers. To request access, contact your IBM account team or open a [support case](/unifiedsupport/cases/add){: external}.
+{: preview}
 
 ## Before you begin
 {: #custom-managed-vol-prereqs-block}
@@ -55,7 +56,7 @@ This procedure explains how to specify customer-managed encryption when you crea
     - Import from snapshot: select **Import existing snapshot** to see the list of available snapshots, or **Import snapshot by CRN** and provide the CRN of the snapshot that you want to use. You can create data volumes with Nonbootable snapshots, and boot volumes with Bootable snapshots. The new block storage volume inherits its storage generation value from the snapshot and only volume profiles of the same generation can be applied to it.
     - Apply backup policy: click **Apply** to see available policies and plans.
 1. In the **Profile** section, you can specify the performance profile of your volume, its IOPS, and capacity.
-    - You can select the [`sdp` profile](/docs/vpc?topic=vpc-block-storage-profiles#defined-performance-profile). Then, specify the capacity of your volume and the required IOPS. Volume size can range from 1 - 32,000 GB. You can specify IOPS in the range of 100 - 64,000. You can also specify a custom throughput limit.
+    - [Select availability]{: tag-green} You can select the [`sdp` profile](/docs/vpc?topic=vpc-block-storage-profiles#defined-performance-profile) if your account is allowlisted. Then, specify the capacity of your volume and the required IOPS. Volume size can range from 1 - 32,000 GB. You can specify IOPS in the range of 100 - 64,000. You can also specify a custom throughput limit. For more information, see [About {{site.data.keyword.block_storage_is_short}}](/docs/vpc?topic=vpc-block-storage-about#block-storage-sdp-intro).
     - You can select one of the [_tiered_ profiles](/docs/vpc?topic=vpc-block-storage-profiles&interface=ui#tiers). After you select _general-purpose_, _5iops-tier_, or _10iops-tier_, the next step is to specify the volume capacity. Volume sizes can be 10 - 16,000 GB.
     - You can select the _custom_ profile if your application performance requirements don't fall within any of the IOPS tiers. Then, specify the size of your volume and the IOPS in the appropriate range for the volume capacity. Volume sizes can be 10 - 16,000 GB. As you type the IOPS value, the UI shows the acceptable range. You can also click the **storage size** link to see the size and IOPS ranges of the [custom volume profile](/docs/vpc?topic=vpc-block-storage-profiles#custom).
 1. In the **Encryption at rest** section, you can choose to keep the encryption with IBM-managed keys that is enabled by default on all volumes. Or you can choose to use [your own encryption key](/docs/vpc?topic=vpc-block-storage-vpc-encryption). To change the key or instance, click the **Edit icon** ![Edit icon](../icons/edit-tagging.svg "Edit") to open the **Configure encryption** side panel. Select one of the following options to locate your encryption key:

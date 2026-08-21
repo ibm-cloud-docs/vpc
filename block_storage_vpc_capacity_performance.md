@@ -2,7 +2,7 @@
 
 copyright:
   years: 2019, 2026
-lastupdated: "2026-08-05"
+lastupdated: "2026-08-21"
 
 keywords:
 
@@ -18,6 +18,9 @@ subcollection: vpc
 Choose the optimal {{site.data.keyword.block_storage_is_short}} volume capacity and performance for your workload. Customize capacity, IOPS, and throughput with the `sdp` profile, or select from predefined IOPS tiers and custom profiles.
 {: shortdesc}
 
+
+The `sdp` profile is available to select customers. To request access, contact your IBM account team or open a [support case](/unifiedsupport/cases/add){: external}.
+{: preview}
 
 
 ## Capacity

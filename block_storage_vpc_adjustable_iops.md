@@ -2,7 +2,7 @@
 
 copyright:
   years: 2021, 2026
-lastupdated: "2026-08-05"
+lastupdated: "2026-08-21"
 
 keywords: Block Storage for VPC, boot volume, data volume, volume, data storage, virtual server instance, instance, adjustable volume, iops
 
@@ -22,7 +22,7 @@ You can increase or decrease the IOPS limit of second-generation boot and data v
 
 For second-generation volumes, the `sdp` profile offers flexible IOPS without capacity restrictions. For first-generation volumes, you can adjust IOPS by specifying a different profile from the `tiered` family or a different IOPS value within a `custom` IOPS band.
 
-
+[Select availability]{: tag-green} The `sdp` profile is available to allowlisted accounts only. For more information, see [About {{site.data.keyword.block_storage_is_short}}](/docs/vpc?topic=vpc-block-storage-about#block-storage-sdp-intro).
 
 You can adjust the volume's IOPS multiple times up to its maximum limit or reduce IOPS to its minimum limit. The IOPS adjustment causes no disruptions to the service.
 

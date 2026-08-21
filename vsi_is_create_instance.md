@@ -2,7 +2,7 @@
 
 copyright:
   years: 2018, 2026
-lastupdated: "2026-08-14"
+lastupdated: "2026-08-21"
 
 keywords:
 
@@ -78,7 +78,7 @@ You can provision an instance from an `available`, `partially_available` (image 
 
 1. Complete SSH keys, storage, and networking details by specifying the information in Table 4.
 
-   
+   [Select availability]{: tag-green} The `sdp` profile is available to allowlisted accounts only. Customers not on the allowlist cannot view or provision `sdp` volumes in the console. Existing `sdp` volumes are not impacted. For more information, see [About {{site.data.keyword.block_storage_is_short}}](/docs/vpc?topic=vpc-block-storage-about#block-storage-sdp-intro).
 
    | Field | Value |
    |-------|-------|

@@ -2,7 +2,7 @@
 
 copyright:
   years: 2019, 2026
-lastupdated: "2026-08-14"
+lastupdated: "2026-08-21"
 
 keywords: Block storage for VPC, change IOPS, change autodelete, increase volume, change name, rename volume, delete volume, renaming volume, updating volume
 
@@ -25,6 +25,9 @@ Manage {{site.data.keyword.cloud_notm}} block storage volumes by detaching, tran
 {: ui}
 
 
+The `sdp` profile is available to select customers. To request access, contact your IBM account team or open a [support case](/unifiedsupport/cases/add){: external}.
+{: preview}
+
 
 Use the UI to manage your block storage volumes. In the console, you can complete the following actions:
 
@@ -37,7 +40,7 @@ Use the UI to manage your block storage volumes. In the console, you can complet
 * Adjust the IOPS of a data volume. For more information, see [Adjusting IOPS](/docs/vpc?topic=vpc-adjusting-volume-iops).
 * Increase the capacity of a volume. For more information, see [Expanding {{site.data.keyword.block_storage_is_short}} volume capacity](/docs/vpc?topic=vpc-expanding-block-storage-volumes).
 * For `sdp` volumes, adjust the throughput limit. For more information, see [Adjusting throughput limit](/docs/vpc?topic=vpc-adjusting-volume-throughput).
-* Migrate a first-generation volume to use a volume profile from the second generation. For more information, see [Migrating Block Storage Volume](/docs/vpc?topic=vpc-block-storage-vpc-volume-migration).* Migrate a first-generation volume to use a volume profile from the allowlisted second generation. For more information, see [Migrating Block Storage Volume](/docs/vpc?topic=vpc-block-storage-vpc-volume-migration). [Select Availability]{: tag-green}
+* Migrate a first-generation volume to use a volume profile from the allowlisted second generation. For more information, see [Migrating Block Storage Volume](/docs/vpc?topic=vpc-block-storage-vpc-volume-migration). [Select Availability]{: tag-green}
 * Delete a block storage data volume.
 
 ### Detaching a {{site.data.keyword.block_storage_is_short}} volume from a virtual server instance
@@ -159,6 +162,9 @@ You can also enable or disable the **Auto-delete** option for volumes when you c
 {: cli}
 
 
+The `sdp` profile is available to select customers. To request access, contact your IBM account team or open a [support case](/unifiedsupport/cases/add){: external}.
+{: preview}
+
 
 Manage your block storage from the command-line interface (CLI). From the CLI, you can:
 
@@ -169,7 +175,7 @@ Manage your block storage from the command-line interface (CLI). From the CLI, y
 * Adjust the IOPS of a data volume. For more information, see [Adjusting IOPS](/docs/vpc?topic=vpc-adjusting-volume-iops).
 * Increase the capacity of a volume. For more information, see [Expanding {{site.data.keyword.block_storage_is_short}} volume capacity](/docs/vpc?topic=vpc-expanding-block-storage-volumes).
 * For `sdp` volumes, adjust the throughput limit. For more information, see [Adjusting throughput limit](/docs/vpc?topic=vpc-adjusting-volume-throughput).
-* Migrate a first-generation volume to use a volume profile from the second generation. For more information, see [Migrating Block Storage Volume](/docs/vpc?topic=vpc-block-storage-vpc-volume-migration).* Migrate a first-generation volume to use a volume profile from the allowlisted second generation. For more information, see [Migrating Block Storage Volume](/docs/vpc?topic=vpc-block-storage-vpc-volume-migration). [Select Availability]{: tag-green}
+* Migrate a first-generation volume to use a volume profile from the allowlisted second generation. For more information, see [Migrating Block Storage Volume](/docs/vpc?topic=vpc-block-storage-vpc-volume-migration). [Select Availability]{: tag-green}
 * Delete a block storage data volume.
 
 Before you can use the CLI, you must install the IBM Cloud CLI and the VPC CLI plug-in. For more information, see the [CLI prerequisites](/docs/vpc?topic=vpc-set-up-environment#cli-prerequisites-setup).
@@ -348,6 +354,9 @@ A boot volume cannot be detached from an instance while the instance exists. If 
 {: api}
 
 
+The `sdp` profile is available to select customers. To request access, contact your IBM account team or open a [support case](/unifiedsupport/cases/add){: external}.
+{: preview}
+
 
 Manage your block storage programmatically by making requests to the [VPC REST APIs](/docs/apis/vpc). With the API, you can:
 
@@ -358,7 +367,7 @@ Manage your block storage programmatically by making requests to the [VPC REST A
 * Adjust the IOPS of a data volume. For more information, see [Adjusting IOPS](/docs/vpc?topic=vpc-adjusting-volume-iops).
 * Increase the capacity of a volume. For more information, see [Expanding {{site.data.keyword.block_storage_is_short}} volume capacity](/docs/vpc?topic=vpc-expanding-block-storage-volumes).
 * For `sdp` volumes, adjust the throughput limit. For more information, see [Adjusting throughput limit](/docs/vpc?topic=vpc-adjusting-volume-throughput).
-* Migrate a first-generation volume to use a volume profile from the second generation. For more information, see [Migrating Block Storage Volume](/docs/vpc?topic=vpc-block-storage-vpc-volume-migration).* Migrate a first-generation volume to use a volume profile from the allowlisted second generation. For more information, see [Migrating Block Storage Volume](/docs/vpc?topic=vpc-block-storage-vpc-volume-migration). [Select Availability]{: tag-green}
+* Migrate a first-generation volume to use a volume profile from the allowlisted second generation. For more information, see [Migrating Block Storage Volume](/docs/vpc?topic=vpc-block-storage-vpc-volume-migration). [Select Availability]{: tag-green}
 * Delete a block storage data volume.
 
 ### Updating the name of a volume with the API
@@ -580,6 +589,9 @@ Verify that the volume is detached from the instance by making a `GET /instances
 {: terraform}
 
 
+The `sdp` profile is available to select customers. To request access, contact your IBM account team or open a [support case](/unifiedsupport/cases/add){: external}.
+{: preview}
+
 
 Manage your block storage as a code with Terraform. With the Terraform, you can:
 
@@ -588,7 +600,7 @@ Manage your block storage as a code with Terraform. With the Terraform, you can:
 * Adjust the IOPS of a data volume. For more information, see [Adjusting IOPS](/docs/vpc?topic=vpc-adjusting-volume-iops).
 * Increase the capacity of a volume. For more information, see [Expanding {{site.data.keyword.block_storage_is_short}} volume capacity](/docs/vpc?topic=vpc-expanding-block-storage-volumes).
 * For `sdp` volumes, adjust the throughput limit. For more information, see [Adjusting throughput limit](/docs/vpc?topic=vpc-adjusting-volume-throughput).
-* Migrate a first-generation volume to use a volume profile from the second generation. For more information, see [Migrating Block Storage Volume](/docs/vpc?topic=vpc-block-storage-vpc-volume-migration).* Migrate a first-generation volume to use a volume profile from the allowlisted second generation. For more information, see [Migrating Block Storage Volume](/docs/vpc?topic=vpc-block-storage-vpc-volume-migration). [Select Availability]{: tag-green}
+* Migrate a first-generation volume to use a volume profile from the allowlisted second generation. For more information, see [Migrating Block Storage Volume](/docs/vpc?topic=vpc-block-storage-vpc-volume-migration). [Select Availability]{: tag-green}
 * Delete a block storage data volume.
 
 To use Terraform, download the Terraform CLI and configure the {{site.data.keyword.cloud_notm}} Provider plug-in. For more information, see [Getting started with Terraform](/docs/ibm-cloud-provider-for-terraform?topic=ibm-cloud-provider-for-terraform-getting-started).

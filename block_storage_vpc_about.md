@@ -2,7 +2,7 @@
 
 copyright:
   years: 2019, 2026
-lastupdated: "2026-08-14"
+lastupdated: "2026-08-21"
 
 keywords: block storage, VPC, boot volume, data volume, IOPS, NVMe, encryption, SSD, sdp profile, volume profiles
 
@@ -50,11 +50,7 @@ For other limits, see [Volume attachment limits](/docs/vpc?topic=vpc-attaching-b
 
 When you create an instance, you can specify if the boot volume is to be populated with a stock or custom image, or a snapshot. The capacity of the boot volume is dependent on the minimum provisioned size of the image or the size of the snapshot. It must be the same or larger than the size of the image or snapshot. Most stock images require a 100 GB boot volume. Some Linux stock images can be installed on a boot volume with capacity of as little as 10 GB, while some Windows stock images require a minimum of 40 GB. If you are importing a custom image, its minimum provisioned size can be 10 - 250 GB. Images that are smaller than 10 GB are rounded up to 10 GB.
 
-When you create an instance with a stock image and don't specify the volume profile and capacity, a 100-GB boot volume with the `general-purpose` profile is created and attached to the instance by default.
-
-If you use the console to provision the instance, your default choice for boot volume is the `general-purpose` volume profile. When you provision a boot volume from the CLI, with the API, or Terraform, you can specify any of the profiles from the `tiered`, `custom`, or `defined performance` volume profile families. Allowlisted customers can also use the `sdp` profile to provision boot volumes.
-
-You can specify a boot volume capacity between 10 GB to 250 GB when you use one of the first-generation volume profiles. When you use the `sdp` profile, the maximum capacity of the boot volume is 32,000 GB. Make sure that the capacity of the boot volume matches or exceeds the size of the image or the bootable snapshot that you want to use.
+If you use the console to provision the instance, your default choice is the `general-purpose` volume profile. When you provision a boot volume from the CLI, with the API, or Terraform, you can specify any of the profiles from the `tiered`, `custom`, or `defined performance` volume profile families. Allowlisted customers can also use the `sdp` profile to provision boot volumes.
 
 Boot volumes can be expanded up to 250 GB when you're using one of the first-generation profiles. When you use a second-generation volume profile, such as `sdp`, you can increase the boot volume capacity up to 32,000 GB. After the boot volume capacity is increased, it can't be decreased.
 
@@ -90,12 +86,14 @@ Volume profiles define the capacity and performance characteristics of storage v
 ### SSD Defined Performance profile
 {: #block-storage-sdp-intro}
 
+The SSD Defined Performance profile is available in the Dallas (`us-south`), Frankfurt (`eu-de`), London (`eu-gb`), Madrid (`eu-es`), Osaka (`jp-osa`), Sao Paulo (`br-sao`), Sydney (`au-syd`), Tokyo (`jp-tok`), Toronto (`ca-tor`), and Washington (`us-east`) regions. You can specify custom capacity, custom throughput limit, and custom IOPS for your second-generation volumes.
+
 The `sdp` profile is available to select customers. To request access, contact your IBM account team or open a [support case](/unifiedsupport/cases/add){: external}.
 {: preview}
 
-The SSD Defined Performance profile is available in the Dallas (`us-south`), Chennai (`in-che`), Frankfurt (`eu-de`), London (`eu-gb`), Madrid (`eu-es`), Montreal (`ca-mon`), Mumbai (`in-mum`), Osaka (`jp-osa`), Sao Paulo (`br-sao`), Sydney (`au-syd`), Tokyo (`jp-tok`), Toronto (`ca-tor`), and Washington (`us-east`) regions. You can specify custom capacity, custom throughput limit, and custom IOPS for your second-generation volumes.
-
 The following limitations apply to this release:
+
+* [Select availability]{: tag-green} Access to the `sdp` profile is restricted to allowlisted accounts. Customers not on the allowlist cannot view or provision `sdp` volumes in the console, from the CLI, with the API, or Terraform. Existing `sdp` volumes are not impacted.
 * The `sdp` profile is available for use with 2nd and 3rd generation Compute resources only.
 * Secure boot from `sdp` boot volume is not supported. If you want to provision a virtual server instance with either [Intel Gen 3](/docs/vpc?topic=vpc-general-purpose-vsi-profiles-gen3-intel) or [Confidential Computing](/docs/vpc?topic=vpc-confidential-computing-vsi-profiles-gen3-x86) instance profiles, and an `sdp` boot volume, make sure that you do not enable secure boot.
 * No support for use as boot volume with [Accelerated instance profiles - Gen 3](/docs/vpc?topic=vpc-accelerated-profile-family).

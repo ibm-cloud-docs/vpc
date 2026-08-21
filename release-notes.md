@@ -2,7 +2,7 @@
 
 copyright:
   years: 2019, 2026
-lastupdated: "2026-08-20"
+lastupdated: "2026-08-21"
 
 keywords:
 
@@ -26,6 +26,13 @@ For more information about changes to the {{site.data.keyword.vpc_short}} comman
 
 ## August 2026
 {: #vpc-aug26}
+
+### 21 August 2026
+{: #vpc-aug1426}
+{: release-note}
+
+Allowlisting for `sdp` block volume profile re-enabled (select availability)
+:   The `sdp` profile for second-generation block storage volumes is now available only for allow-listed customers. For more information, see [The SSD defined performance profile](/docs/vpc?topic=vpc-block-storage-about#block-storage-sdp-intro).
 
 ### 18 August 2026
 {: #vpc-august1826}

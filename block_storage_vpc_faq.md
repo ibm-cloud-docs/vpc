@@ -2,7 +2,7 @@
 
 copyright:
   years: 2019, 2026
-lastupdated: "2026-08-19"
+lastupdated: "2026-08-21"
 
 keywords: faqs, Block Storage for vpc, fast restore, multizone, instance, instance provisioning, volume management, volume deletion.
 
@@ -23,7 +23,13 @@ Get answers to common questions about {{site.data.keyword.block_storage_is_full}
 {: faq}
 {: #faq-sdp-release}
 
-[Select availability]{: tag-green} You can provision storage with the `sdp` profile in the Dallas, Frankfurt, London, Madrid, Osaka, Sao Paulo, Sydney, Tokyo, Toronto, and Washington, DC regions. For more information, see [About {{site.data.keyword.block_storage_is_short}}](/docs/vpc?topic=vpc-block-storage-about#block-storage-sdp-intro).
+[Select availability]{: tag-green} You can provision storage with the `sdp` profile in the Dallas, Frankfurt, London, Madrid, Osaka, Sao Paulo, Sydney, Tokyo, Toronto, and Washington, DC regions. Access is restricted to allowlisted accounts. For more information, see [About {{site.data.keyword.block_storage_is_short}}](/docs/vpc?topic=vpc-block-storage-about#block-storage-sdp-intro).
+
+## Why can't I see the `sdp` profile when I create a volume?
+{: faq}
+{: #faq-sdp-allowlist}
+
+The `sdp` profile is available to allowlisted accounts only. Customers not on the allowlist cannot view or provision `sdp` volumes in the console, from the CLI, with the API, or Terraform. Existing `sdp` volumes are not impacted. To request access, contact your IBM account team or open a [support case](/unifiedsupport/cases/add){: external}.
 
 ## What functions are supported in this release of the `sdp` profile?
 {: faq}

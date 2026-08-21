@@ -2,7 +2,7 @@
 
 copyright:
   years: 2020, 2026
-lastupdated: "2026-08-05"
+lastupdated: "2026-08-21"
 
 keywords: Block Storage, boot volume, data volume, volume, data storage, virtual server instance, instance, expandable volume
 
@@ -23,7 +23,7 @@ Increase {{site.data.keyword.cloud_notm}} block storage boot and data volume cap
 
 You can increase the capacity of second-generation boot and data volumes at any time, regardless if they are attached to a virtual server or not. First-generation boot and data volumes must be attached to a running server when you attempt to increase the capacity.
 
-
+[Select availability]{: tag-green} The `sdp` profile is available to allowlisted accounts only. For more information, see [About {{site.data.keyword.block_storage_is_short}}](/docs/vpc?topic=vpc-block-storage-about#block-storage-sdp-intro).
 
 After you expand a volume, you can't reduce its capacity. However, if your requirements change, you can expand the same volume again up to the maximum capacity that's available for its profile.
 {: important}

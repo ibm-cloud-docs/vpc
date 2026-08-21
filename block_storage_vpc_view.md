@@ -2,7 +2,7 @@
 
 copyright:
   years: 2019, 2026
-lastupdated: "2026-08-18"
+lastupdated: "2026-08-21"
 
 keywords:
 
@@ -18,6 +18,9 @@ subcollection: vpc
 View {{site.data.keyword.cloud_notm}} block storage volume details including capacity, IOPS, encryption status, and attachment information. List all volumes or view individual volume properties.
 {: shortdesc}
 
+
+The `sdp` profile is available to select customers. To request access, contact your IBM account team or open a [support case](/unifiedsupport/cases/add){: external}.
+{: preview}
 
 
 ## Viewing information about {{site.data.keyword.block_storage_is_short}} volumes in the console

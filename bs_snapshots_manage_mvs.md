@@ -2,7 +2,7 @@
 
 copyright:
   years: 2022, 2026
-lastupdated: "2026-08-14"
+lastupdated: "2026-08-21"
 
 keywords: consistency group, snapshots, backups, instance snapshot, instance backup,
 
@@ -22,8 +22,7 @@ Manage snapshot consistency groups by renaming, deleting individual snapshots, o
 
 When you consider deleting the consistency group, you can choose to delete or keep the individual snapshots. If you update the backup consistency group to keep the individual snapshots after deletion of the group, and delete the group, an activity tracking event is created. However, a backup job is not created because the backup snapshots remain intact.
 
-Creating a consistency group with snapshots of different generations is not supported. Consider [migrating](/docs/vpc?topic=vpc-block-storage-vpc-volume-migration) your first-generation volumes to the `sdp` profile. The `sdp` profile provides better value and more flexibility than the first-generation profiles. For more information, see [{{site.data.keyword.block_storage_is_short}} profiles](/docs/vpc?topic=vpc-block-storage-profiles).
-{: tip}
+Creating a consistency group with snapshots of different generations is not supported.
 
 Consider [migrating](/docs/vpc?topic=vpc-block-storage-vpc-volume-migration) your first-generation volumes to the allowlisted `sdp` profile. The `sdp` profile provides better value and more flexibility than the first-generation profiles. For more information, see [{{site.data.keyword.block_storage_is_short}} profiles](/docs/vpc?topic=vpc-block-storage-profiles).
 {: preview}

@@ -2,7 +2,7 @@
 
 copyright:
   years: 2025, 2026
-lastupdated: "2026-08-14"
+lastupdated: "2026-08-21"
 
 keywords: Block Storage, volume migration, volume jobs, storage generations, volume conversion
 
@@ -18,9 +18,8 @@ subcollection: vpc
 Migrate {{site.data.keyword.block_storage_is_short}} volumes from first-generation profiles ([tiered](/docs/vpc?topic=vpc-block-storage-profiles&interface=ui#tiers) or [custom](/docs/vpc?topic=vpc-block-storage-profiles&interface=ui#custom)) to the [second-generation `sdp` profile](/docs/vpc?topic=vpc-block-storage-profiles&interface=ui#defined-performance-profile). Customize IOPS and bandwidth during migration while maintaining data integrity and minimizing downtime.
 {: shortdesc}
 
+[Select availability]{: tag-green} The `sdp` profile is available to allowlisted accounts only. Customers not on the allowlist cannot initiate a migration to `sdp` in the console, from the CLI, with the API, or Terraform. Existing `sdp` volumes are not impacted. For more information, see [About {{site.data.keyword.block_storage_is_short}}](/docs/vpc?topic=vpc-block-storage-about#block-storage-sdp-intro).
 
-
-.
 When you create a migration job, you can customize the IOPS and bandwidth limits. If you don’t specify these values, the system applies the default values of the profile.
 
 While the migration is in progress, the volume is in the `updating` state. All used areas of the volume are copied and the source and target volumes are kept in sync by mirroring writes. If the volume is attached to an instance, the VSI's volume attachment is seamlessly converted from source to target volume when the copy operation is complete. You can track the status and progress of your migration jobs in the UI, from the CLI, with API and Terraform.
