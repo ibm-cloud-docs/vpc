@@ -2,7 +2,7 @@
 
 copyright:
   years: 2022, 2026
-lastupdated: "2026-08-06"
+lastupdated: "2026-08-21"
 
 keywords: confidential computing, secure execution, hpcr, contract, customization, env, workload, encryption, attestation, validating
 
@@ -41,6 +41,7 @@ From 25 March 2025, the certificate links are changed.
 
 
 
+
 * Make sure that you use the certificates that corresponds to the hyper protect container runtime image for contract encryption and attestation.
 
 ## Validating the contract encryption certificate
@@ -69,6 +70,7 @@ Complete the following steps on an Ubuntu system to validate the encryption cert
    ```
    {: pre}
 
+
 3. Complete the following steps to verify the signature of the encryption certificate document:
 
    1. Extract the public signing key into a file. In the following example, the file is called `pubkey.pem`:
@@ -77,6 +79,7 @@ Complete the following steps on an Ubuntu system to validate the encryption cert
       openssl x509 -in ibm-hyper-protect-container-runtime-1-0-s390x-29-intermediate.crt -pubkey -noout >  pubkey.pem
       ```
       {: pre}
+
 
    2. Extract the encryption key signature from the encryption certificate document. To download the encryption certificate, visit [Downloading the encryption certificate and extracting the public key](/docs/vpc?topic=vpc-about-contract_se#encrypt_downloadcert).
       The following command returns the offset value of the signature:
@@ -93,12 +96,14 @@ Complete the following steps on an Ubuntu system to validate the encryption cert
       ```
       {: pre}
 
+
    3. Extract the body of the encryption certificate document into a file called body.
 
       ```sh
       openssl asn1parse -in ibm-hyper-protect-container-runtime-1-0-s390x-29-encrypt.crt -out body -strparse 4 -noout
       ```
       {: pre}
+
 
    4. Verify the signature by using the signature and body files:
       ```sh
@@ -114,12 +119,14 @@ Complete the following steps on an Ubuntu system to validate the encryption cert
    ```
    {: pre}
 
+
 5. Verify that the encryption certificate document is valid by checking the output of the following command:
 
    ```sh
    openssl x509 -in ibm-hyper-protect-container-runtime-1-0-s390x-29-encrypt.crt -dates -noout
    ```
    {: pre}
+
 
 ## Validating the attestation certificate
 {: #validate_attest_cert}
@@ -147,6 +154,7 @@ Complete the following steps on an Ubuntu system to validate the attestation cer
    ```
    {: pre}
 
+
 3. Complete the following steps to verify the signature of the attestation certificate document:
    1. Extract the public signing key into a file. In the following example, the file is called `pubkey.pem`:
 
@@ -154,6 +162,7 @@ Complete the following steps on an Ubuntu system to validate the attestation cer
       openssl x509 -in ibm-hyper-protect-container-runtime-1-0-s390x-29-intermediate.crt -pubkey -noout >  pubkey.pem
       ```
       {: pre}
+
 
    2. Extract the attestation key signature from the attestation certificate document. For downloading the attestation certificate, visit [Attestation](/docs/vpc?topic=vpc-about-attestation).
       The following command returns the offset value of the signature:
@@ -170,12 +179,14 @@ Complete the following steps on an Ubuntu system to validate the attestation cer
       ```
       {: pre}
 
+
    3. Extract the body of the attestation certificate document into a file called body.
 
       ```sh
       openssl asn1parse -in ibm-hyper-protect-container-runtime-1-0-s390x-29-attestation.crt -out body -strparse 4 -noout
        ```
       {: pre}
+
 
    4. Verify the signature by using the signature and body files:
       ```sh
@@ -191,12 +202,14 @@ Complete the following steps on an Ubuntu system to validate the attestation cer
    ```
    {: pre}
 
+
 5. Verify that the attestation certificate document is still valid by checking the output of the following command:
 
    ```sh
    openssl x509 -in ibm-hyper-protect-container-runtime-1-0-s390x-29-attestation.crt -dates -noout
    ```
    {: pre}
+
 
 ## Certificate revocation list
 {: #certificate-revocation-list}
@@ -211,6 +224,7 @@ The certificates contain **Certificate Revocation List (CRL) Distribution Points
    curl --location --silent "$crl_url" --output "ibm-hyper-protect-container-runtime.crl"
    ```
    {: pre}
+
 
 2. Verify that the CRL is valid (check valid dates and issuer):
 
@@ -230,6 +244,7 @@ The certificates contain **Certificate Revocation List (CRL) Distribution Points
    openssl sha512 -verify pubkey -signature signature body
    ```
    {: codeblock}
+
 
 4. Verify that the encryption certificate document is valid:
    1. Extract the serial from the encryption certificate:
@@ -252,6 +267,7 @@ The certificates contain **Certificate Revocation List (CRL) Distribution Points
       export serial=C775927D9F86D27D369FAC42B05144AA
       ```
       {: pre}
+
 
 
       You can verify if the value is set by running the following command:
@@ -290,6 +306,7 @@ The certificates contain **Certificate Revocation List (CRL) Distribution Points
       export serial=B659E74BC091042416960F5AB9410D3F
       ```
       {: pre}
+
 
 
       You can verify if the value is set by running the following command:
