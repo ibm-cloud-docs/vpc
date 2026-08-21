@@ -15,7 +15,7 @@ subcollection: vpc
 # Adjusting throughput limit of a {{site.data.keyword.block_storage_is_short}} volume
 {: #adjusting-volume-throughput}
 
-Adjust {{site.data.keyword.block_storage_is_short}} volume throughput limits for `sdp` profile volumes to optimize data transfer performance. Increase or decrease throughput between 125-1024 MBps (1000-8192 Mbps) without causing storage access interruptions or downtime.
+Adjust the throughput limit of an `sdp` profile {{site.data.keyword.block_storage_is_short}} volume to optimize data transfer performance without interruption or downtime.
 {: shortdesc}
 
 [Select availability]{: tag-green} The `sdp` profile is available to allowlisted accounts in the Dallas (`us-south`), Frankfurt (`eu-de`), London (`eu-gb`), Madrid (`eu-es`), Osaka (`jp-osa`), Sydney (`au-syd`), Tokyo (`jp-tok`), Toronto (`ca-tor`), and Washington (`us-east`) regions, and you can use it to specify custom capacity, custom throughput limit, and custom IOPS for your second-generation block storage volumes.
