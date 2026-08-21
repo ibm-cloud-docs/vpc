@@ -39,7 +39,7 @@ The following table provides a comparison between the different generations of b
 
 | Features            | First-generation volumes | Second-generation volumes |
 |---------------------|--------------------------|---------------------------|
-| Availability        | Generally available in all VPC regions for all customers. | [Select availability]{: tag-green} Available to allowlisted accounts in most MZRs, except Mumbai - Airtel and Montreal. Existing volumes are not impacted.|
+| Availability        | Generally available in all VPC regions for all customers. | [Select availability]{: tag-green} Available to allowlisted accounts in most MZRs, except Chennai - Airtel, Mumbai - Airtel and Montreal. Existing volumes are not impacted.|
 | Expandable capacity | Yes, up to 16,000 GB     | Yes, up to 32,000 GB |
 | Adjustable IOPS     | Yes, up to 48,000. IOPS depends on capacity range. | Yes, up to 64,000.|
 | Adjustable Bandwidth| No. Bandwidth can be increased by increasing capacity and IOPS. The maximum is 1024 MBps.| Yes, bandwidth can be adjusted to any value between 125 and 1024 MBps.|

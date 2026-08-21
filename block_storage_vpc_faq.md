@@ -23,7 +23,7 @@ Get answers to common questions about {{site.data.keyword.block_storage_is_full}
 {: faq}
 {: #faq-sdp-release}
 
-[Select availability]{: tag-green} You can provision storage with the `sdp` profile in the Dallas, Frankfurt, London, Madrid, Osaka, Sao Paulo, Sydney, Tokyo, Toronto, and Washington, DC regions. Access is restricted to allowlisted accounts. For more information, see [About {{site.data.keyword.block_storage_is_short}}](/docs/vpc?topic=vpc-block-storage-about#block-storage-sdp-intro).
+[Select availability]{: tag-green} You can provision storage with the `sdp` profile in the Dallas, Frankfurt, London, Madrid, Osaka, Sao Paulo, Sydney, Tokyo, Toronto, and Washington, DC regions. Access is restricted to allowlisted accounts. For more information, see [About {{site.data.keyword.block_storage_is_short}}](/docs/vpc?topic=vpc-block-storage-about).
 
 ## Why can't I see the `sdp` profile when I create a volume?
 {: faq}
