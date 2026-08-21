@@ -2,7 +2,7 @@
 
 copyright:
   years: 2019, 2026
-lastupdated: "2026-08-19"
+lastupdated: "2026-08-21"
 
 keywords: api, change log, new features, restrictions, migrations
 
@@ -126,15 +126,15 @@ Similar usage constraints are available for [volumes](/docs/apis/vpc/latest#crea
 
 For more information, see [Managing virtual server instances](/docs/vpc?topic=vpc-managing-virtual-server-instances&interface=api).
 
-**AMD high frequency Turin VSI profiles.** When [creating](/docs/apis/vpc/latest#create-instance) or [updating](/docs/apis/vpc/latest#update-instance) an instance, or when [creating](/docs/apis/vpc/latest#create-instance-template) or [updating](/docs/apis/vpc/latest#update-instance-template) an instance template, you can now specify the `threads_per_core` property. 
+**AMD high frequency Turin VSI profiles.** When [creating](/docs/apis/vpc/latest#create-instance) or [updating](/docs/apis/vpc/latest#update-instance) an instance, or when [creating](/docs/apis/vpc/latest#create-instance-template) or [updating](/docs/apis/vpc/latest#update-instance-template) an instance template, you can now specify the `threads_per_core` property.
 
 For instances using [High Frequency gen4 profiles](/docs/vpc?topic=vpc-high-frequency-profile-family) you may specify `1` or `2`. If not specified, the value defaults to `2` and is the only allowed value for instances using other profiles.
 
-When [retrieving](/docs/apis/vpc/latest#get-instance-profile) or [listing](/docs/apis/vpc/latest#list-instance-profiles) instance profiles, the response includes the following changes: 
-	
+When [retrieving](/docs/apis/vpc/latest#get-instance-profile) or [listing](/docs/apis/vpc/latest#list-instance-profiles) instance profiles, the response includes the following changes:
+
 - New `threads_per_core` property with values of `[1]`, `[2]`, or `[1, 2]`
 - New `supported_vcpu_count` property lists supported vCPU count values for the profile
-	
+
 For more information, see [High Frequency profiles](/docs/vpc?topic=vpc-high-frequency-profile-family).
 
 ## 16 June 2026
@@ -167,7 +167,7 @@ In addition, when [creating a load balancer listener policy rule](/docs/apis/vpc
 
 * **IKE policies:** Array-based properties `authentication_algorithms`, `dh_groups`, and `encryption_algorithms` are available. Existing singular properties (`authentication_algorithm`, `dh_group`, `encryption_algorithm`) are deprecated but remain supported. When [creating](/docs/apis/vpc/latest#create-ike-policy) or [updating](/docs/apis/vpc/latest#update-ike-policy) an IKE policy, you can specify either singular or array-based properties. PATCH operations allow mixing property types across categories. Responses for [retrieving](/docs/apis/vpc/latest#get-ike-policy) or [listing](/docs/apis/vpc/latest#list-ike-policies) include both property types using sentinel values (`"multiple"` for strings, `65535` for `dh_group`) if multiple algorithms are configured.
 
-   Multiple algorithms are not supported for IKEv1 policies. IKEv1 policies are limited to a single algorithm per category. Array-based properties must contain only a single element per category. 
+   Multiple algorithms are not supported for IKEv1 policies. IKEv1 policies are limited to a single algorithm per category. Array-based properties must contain only a single element per category.
    {: note}
 
 * **IPsec policies:** Array-based properties `authentication_algorithms`, `encryption_algorithms`, and `pfs_groups` are available. Existing singular properties (`authentication_algorithm`, `encryption_algorithm`, `pfs`) are deprecated but remain supported. When [creating](/docs/apis/vpc/latest#create-ipsec-policy) or [updating](/docs/apis/vpc/latest#update-ipsec-policy) an IPsec policy, you can specify either singular or array-based properties. PATCH operations allow mixing property types across categories. Responses for [retrieving](/docs/apis/vpc/latest#get-ipsec-policy) or [listing](/docs/apis/vpc/latest#list-ipsec-policies) IKE policies include both property types.
@@ -480,7 +480,7 @@ When [retrieving](/docs/apis/vpc/latest#get-share-profile) or [listing](/docs/ap
 
 **Allowed access protocols for file shares.** When [creating a file share](/docs/apis/vpc/latest#create-share), a set of [allowed access protocols](/docs/vpc?topic=vpc-file-storage-vpc-about&interface=api#fs-allowed-access-protocols) may now be specified to denote which access protocols to use when [creating mount targets for that file share](/docs/apis/vpc/latest#create-share-mount-target). The `allowed_access_protocols` properties are also included in the `Share` and `ShareProfile` response schemas.
 
-**Allowed transit encryption modes for files shares.** When [retrieving](/docs/apis/vpc/latest#get-share-profile) or [listing](/docs/apis/vpc/latest#list-share-profiles) file share profiles, the response now includes an `allowed_transit_encryption_modes` property. This property denotes the allowed [transit encryption modes](/docs/vpc?topic=vpc-file-storage-vpc-about&interface=ui#fs-eit) used when [creating file shares](/docs/apis/vpc/latest#create-share) using the specified profile, and subsequently when [creating mount targets](/docs/apis/vpc/latest#create-share-mount-target) for those file shares.
+**Allowed transit encryption modes for file share.** When [retrieving](/docs/apis/vpc/latest#get-share-profile) or [listing](/docs/apis/vpc/latest#list-share-profiles) file share profiles, the response now includes an `allowed_transit_encryption_modes` property. This property denotes the allowed [transit encryption modes](/docs/vpc?topic=vpc-file-storage-vpc-about&interface=ui#fs-eit) used when [creating file shares](/docs/apis/vpc/latest#create-share) using the specified profile, and subsequently when [creating mount targets](/docs/apis/vpc/latest#create-share-mount-target) for those file shares.
 
 **Bandwidth for file shares.** When [creating](/docs/apis/vpc/latest#create-share), [retrieving](/docs/apis/vpc/latest#get-share), or [listing](/docs/apis/vpc/latest#list-shares) file shares, and when [retrieving](/docs/apis/vpc/latest#get-share-profile) or [listing](/docs/apis/vpc/latest#list-share-profiles) file share profiles, the response now includes a `bandwidth` property that denotes the [available bandwidth](/docs/vpc?topic=vpc-file-storage-profiles&interface=api) that is provided when that profile is specified during file share [creation](/docs/apis/vpc/latest#create-share).
 

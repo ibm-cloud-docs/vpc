@@ -2,7 +2,7 @@
 
 copyright:
   years: 2021, 2026
-lastupdated: "2026-08-20"
+lastupdated: "2026-08-21"
 
 keywords: view snapshots, view snapshot, viewing snapshots, see snapshots, Block Storage snapshots
 
@@ -475,7 +475,7 @@ ibmcloud is snapshot-consistency-groups
 ```
 {: pre}
 
-[New]{: tag-new} Optionally, you can filter the results of the query by a backup job ID. Filtering by backup job ID can be useful when you want to restore an instance by restoring volumes from two consistency groups of backup snapshots that were created because your original instance had a mix of first- and second-generation volumes attached.
+Optionally, you can filter the results of the query by a backup job ID. Filtering by backup job ID can be useful when you want to restore an instance by restoring volumes from two consistency groups of backup snapshots that were created because your original instance had a mix of first- and second-generation volumes attached.
 
 ```sh
 ibmcloud is snapshot-consistency-groups --backup-policy-job BACKUP_POLICY_JOB_ID
@@ -506,7 +506,7 @@ ibmcloud is snapshot-consistency-group CONSISTENCY_GROUP_ID
 ```
 {: pre}
 
-[New]{: tag-new} Example output showing backup policy job and plan information:
+Example output showing backup policy job and plan information:
 
 ```sh
 Getting snapshot consistency group r006-7f5a3964-3528-4781-8bfe-df3dbb7d91cc under account Test Account as user test.user@ibm.com...
@@ -964,7 +964,7 @@ curl -X GET "$vpc_api_endpoint/v1/snapshot_consistency_groups?version=2023-12-05
 ```
 {: pre}
 
-[New]{: tag-new} Optionally, you can filter the results of the query by a backup job ID. Filtering by backup job ID can be useful when you want to restore an instance by restoring volumes from two consistency groups of backup snapshots that were created because your original instance had a mix of first- and second-generation volumes attached.
+Optionally, you can filter the results of the query by a backup job ID. Filtering by backup job ID can be useful when you want to restore an instance by restoring volumes from two consistency groups of backup snapshots that were created because your original instance had a mix of first- and second-generation volumes attached.
 
 ```sh
 curl -X GET "$vpc_api_endpoint/v1/snapshot_consistency_groups/006-e8707243-96b3-4c27-be1f-57eff0196207?version=2023-12-05&generation=2" \
@@ -1145,7 +1145,7 @@ data "ibm_is_snapshot_consistency_group" "example 2" {
 ```
 {: codeblock}
 
-[New]{: tag-new} You can also filter the collection to snapshot consistency groups with the `backup_policy_job.id` property. See the following example.
+You can also filter the collection to snapshot consistency groups with the `backup_policy_job.id` property. See the following example.
 
 ```terraform
 data "ibm_is_snapshot_consistency_groups" "example 3" {

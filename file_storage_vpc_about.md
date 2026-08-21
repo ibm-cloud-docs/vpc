@@ -2,7 +2,7 @@
 
 copyright:
   years: 2021, 2026
-lastupdated: "2026-08-07"
+lastupdated: "2026-08-21"
 
 keywords: file share, mount target, virtual network interface, customer-managed encryption, encryption at rest, encryption in transit, file storage, share,
 
@@ -343,7 +343,7 @@ The following limitations apply to this release of {{site.data.keyword.filestora
 * Only {{site.data.keyword.bm_is_short}} that are provisioned after 31 August 2023 support {{site.data.keyword.filestorage_vpc_short}}.
 * A file share cannot be split from its replica by using a `DELETE /shares/<id>/source` API request, if the `lifecycle_state` of the file share is `updating` or if replica operations are in progress.
 * For zonal file shares, cross-regional replication is supported only when both source and replica shares belong to the same account. Cross-geography replication is not supported.
-* Cross-regional replication is not supported for regional files shares in the [Select availability]{: tag-green} phase.
+* Cross-regional replication is not supported for regional file share in the [Select availability]{: tag-green} phase.
 * Regional file shares are not available in Montreal currently.
 
 ## Next steps

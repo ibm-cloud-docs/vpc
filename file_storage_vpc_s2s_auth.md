@@ -2,7 +2,7 @@
 
 copyright:
   years: 2022, 2026
-lastupdated: "2026-08-06"
+lastupdated: "2026-08-21"
 
 keywords: Backup for VPC, backup service, backup plan, backup policy, restore, restore volume, restore data
 
@@ -29,7 +29,7 @@ For {{site.data.keyword.filestorage_vpc_short}}, you need to create service-to-s
 
 - Configuring customer-managed encryption:
 
-   To be able to create an encrypted file share with a Customer Root Key (CRK), you must first have an instance of a Key Management Service (KMS) to hold your CRK. You can choose between {{site.data.keyword.keymanagementserviceshort}} Single or Multi Tenant instances. Then, you need to establish service-to-service authorization between the file service and the KMS instance. The authorization must be created in the account that owns and hosts the customer root key. The account that holds the CRK is the source, and the account where the file share is to be created is the target.
+   KMS) to hold your CRK. You can choose between {{site.data.keyword.keymanagementserviceshort}} Single or Multi Tenant instances. Then, you need to establish service-to-service authorization between the file service and the KMS instance. The authorization must be created in the account that owns and hosts the customer root key. The account that holds the CRK is the target, and the account where the file share exists is the source.
 
    The {{site.data.keyword.hscrypto}} are deprecated. Customers can use existing instances until 20 March 2027. For more information, see [Deprecation of IBM Cloud Hyper Protect Crypto Services](/docs/hs-crypto?topic=hs-crypto-faqs-deprecation-of-ibm-cloud-hyper-protect-crypto-services). For continued protection, consider migrating your existing encryption keys to a Dedicated {{site.data.keyword.keymanagementserviceshort}} instance. For more information, see the [Migration guide](/docs/key-protect?topic=key-protect-migrate-st).
 {: deprecated}

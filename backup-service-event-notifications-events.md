@@ -2,7 +2,7 @@
 
 copyright:
   years: 2022, 2026
-lastupdated: "2026-06-26"
+lastupdated: "2026-08-21"
 
 keywords: backup for VPC, backup service, backup plan, backup policy, restore, restore volume, restore data
 
@@ -65,7 +65,7 @@ Then, you can connect to {{site.data.keyword.en_short}} programmatically by call
 1. In the Connect to {{site.data.keyword.en_short}} side panel, review the source details for the connection, and provide a description.
 1. Select the resource group and the {{site.data.keyword.en_short}} service instance that you want to connect.
 
-   If an IAM authorization between IBM Cloud Backup for VPC and {{site.data.keyword.en_short}} doesn't exist in your account, follow the steps in [Enabling service-to-service authorization for {{site.data.keyword.en_short}}](/docs/vpc?topic=vpc-backup-s2s-auth&interface=ui#backup-s2s-auth-procedure-en-ui) to set it up. AIM Admin role is required to set up authorizations.
+   If an IAM authorization between IBM Cloud Backup for VPC and {{site.data.keyword.en_short}} doesn't exist in your account, follow the steps in [Enabling service-to-service authorization for {{site.data.keyword.en_short}}](/docs/vpc?topic=vpc-backup-s2s-auth&interface=ui#backup-s2s-auth-procedure-en-ui) to set it up. IAM Admin role is required to set up authorizations.
 
 1. To confirm the connection, click **Save**.
 

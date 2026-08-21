@@ -1,8 +1,8 @@
 ---
 
 copyright:
-  years: 2024, 2025
-lastupdated: "2025-04-01"
+  years: 2024, 2026
+lastupdated: "2026-08-21"
 
 keywords: virtual network interface, FAQs
 
@@ -25,7 +25,7 @@ You might encounter the following questions when you use {{site.data.keyword.clo
 {: faq}
 {: support}
 
-Starting on 20 February 2024, you can open a Support case to request deferral of the virtual network interface API feature enhancements. Deferral removes access to the feature and grants accounts within your organization time to remediate and test API changes to instances, bare metal servers, and files shares.
+Starting on 20 February 2024, you can open a Support case to request deferral of the virtual network interface API feature enhancements. Deferral removes access to the feature and grants accounts within your organization time to remediate and test API changes to instances, bare metal servers, and file share.
 
 For organizations with only one account for all users, the best practice is to create a second account where you can test and remediate before moving to production.
 
