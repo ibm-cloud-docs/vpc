@@ -2,7 +2,7 @@
 
 copyright:
   years: 2019, 2026
-lastupdated: "2026-08-20"
+lastupdated: "2026-08-22"
 
 keywords: view instance details, restart virtual server, stop, details, delete
 
@@ -1105,10 +1105,10 @@ You can view the software attachments of a virtual server instance that was crea
    ```
    {: pre}
 
-   The following example shows the details of the software attachment `my-software-attachment` for the instance `my-instance`.
+   The following example shows the details of the software attachment `my-instance-software-attachment` for the instance `my-instance`.
 
    ```sh
-   ibmcloud is instance-software-attachment my-instance my-software-attachment
+   ibmcloud is instance-software-attachment my-instance my-instance-software-attachment
    ```
    {: pre}
 
@@ -1125,10 +1125,10 @@ ibmcloud is instance-software-attachment-update INSTANCE SWAC --name NEW_NAME [-
 ```
 {: pre}
 
-The following example renames the software attachment `$software_attachment_id`to `my-renamed-software-attachment` for the instance `my-instance`.
+The following example renames the software attachment `my-instance-software-attachment` to `my-renamed-instance-software-attachment` for the instance `my-instance`.
 
 ```sh
-ibmcloud is instance-software-attachment-update my-instance my-software-attachment --name my-renamed-software-attachment
+ibmcloud is instance-software-attachment-update my-instance my-instance-software-attachment --name my-renamed-instance-software-attachment
 ```
 {: pre}
 
@@ -1154,7 +1154,7 @@ You can programmatically list all software attachments associated with a virtual
 The following example lists all software attachments for an instance with an instance ID of `$instance_id`.
 
 ```sh
-curl -X GET "https://us-south.iaas.cloud.ibm.com/v1/instances/$instance_id/software_attachments?version=2024-06-23&generation=2" -H "accept: application/json" -H "Authorization: Bearer $iam_token"
+curl -X GET "https://us-south.iaas.cloud.ibm.com/v1/instances/$instance_id/software_attachments?version=2026-06-23&generation=2" -H "accept: application/json" -H "Authorization: Bearer $iam_token"
 ```
 {: pre}
 
@@ -1169,7 +1169,7 @@ You can retrieve a single instance software attachment by making a `GET  /instan
 The following example retrieves a specific software attachment with an ID of `$software_attachment_id` for an instance with an instance ID of `$instance_id`.
 
 ```sh
-curl -X GET "https://us-south.iaas.cloud.ibm.com/v1/instances/$instance_id/software_attachments/$software_attachment_id?version=2024-06-23&generation=2" -H "accept: application/json" -H "Authorization: Bearer $iam_token"
+curl -X GET "https://us-south.iaas.cloud.ibm.com/v1/instances/$instance_id/software_attachments/$software_attachment_id?version=2026-06-23&generation=2" -H "accept: application/json" -H "Authorization: Bearer $iam_token"
 ```
 {: pre}
 
@@ -1184,7 +1184,7 @@ You can update an instance software attachment by making a `PATCH  /instances/{i
 The following example updates a software attachment with an ID of `$software_attachment_id` for an instance with an instance ID of `$instance_id`.
 
 ```sh
-curl -X PATCH "https://us-south.iaas.cloud.ibm.com/v1/instances/$instance_id/software_attachments/$software_attachment_id?version=2024-06-23&generation=2" -H "accept: application/json" -H "Authorization: Bearer $iam_token" -H "Content-Type: application/merge-patch+json" -d "{\"name\":\"my-software-attachment-patch\"}"
+curl -X PATCH "https://us-south.iaas.cloud.ibm.com/v1/instances/$instance_id/software_attachments/$software_attachment_id?version=2026-06-23&generation=2" -H "accept: application/json" -H "Authorization: Bearer $iam_token" -H "Content-Type: application/merge-patch+json" -d "{\"name\":\"my-renamed-instance-software-attachment\"}"
 ```
 {: pre}
 
@@ -1221,7 +1221,7 @@ resource "ibm_is_instance" "example" {
 resource "ibm_is_instance_software_attachment" "is_instance_software_attachment_instance" {
   instance_id                         = ibm_is_instance.example.id
   instance_software_attachment_id     = ibm_is_instance.example.software_attachments.0.id
-  name                                = "my-software-attachment"
+  name                                = "my-instance-software-attachment"
 }
 ```
 {: codeblock}
@@ -1242,7 +1242,7 @@ The following example updates the name of a software attachment:
 resource "ibm_is_instance_software_attachment" "is_instance_software_attachment_instance" {
   instance_id                        = ibm_is_instance.example.id
   instance_software_attachment_id = ibm_is_instance.example.software_attachments.0.id
-  name                               = "my-software-attachment-update"
+  name                               = "my-renamed-instance-software-attachment"
 }
 ```
 {: codeblock}
@@ -1263,7 +1263,7 @@ The following example shows the resource that is removed from Terraform state wh
 resource "ibm_is_instance_software_attachment" "is_instance_software_attachment_instance" {
   instance_id                         = ibm_is_instance.example.id
   instance_software_attachment_id     = ibm_is_instance.example.software_attachments.0.id
-  name                                = "my-software-attachment-update"
+  name                                = "my-renamed-instance-software-attachment"
 }
 ```
 {: codeblock}
