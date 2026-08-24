@@ -2,7 +2,7 @@
 
 copyright:
   years: 2022, 2026
-lastupdated: "2026-08-14"
+lastupdated: "2026-08-24"
 
 keywords: floating ip, reserving, bare metal, vnic, public gateways
 
@@ -18,6 +18,7 @@ subcollection: vpc
 You can reserve a floating IP address, then add it to a network interface to allow traffic from the internet to access your VPC public gateway, virtual server instance, or Bare Metal server.
 {: shortdesc}
 
+By default, IBM assigns a floating IP address from its managed pool. 
 
 
 ## Adding floating IP addresses to network interfaces with the console
