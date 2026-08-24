@@ -2,7 +2,7 @@
 
 copyright:
   years: 2019, 2026
-lastupdated: "2026-08-21"
+lastupdated: "2026-08-24"
 
 keywords: Block Storage profiles, Block Storage for VPC, IOPS tiers, custom IOPS, storage performance
 
@@ -22,11 +22,11 @@ Select {{site.data.keyword.cloud_notm}} block storage volume profiles to match y
 {: #block-storage-profile-overview}
 
 When you create a Block Storage volume, you can select from various profiles.
-- The defined performance family profile provides even more flexibility when it comes to specifying capacity and IOPS. Volume profiles in the defined performance family can scale volume performance independent of capacity. By using the `sdp` profile, you can create a volume with up to 32 TB capacity and an IOPS value in a range of 100 - 64,000.
-- Select a profile from the _tiered_ profile family when you want to pick a profile where performance scales with capacity of the volume.
-- Select the profile from the _custom_ profile family if your performance requirements don't fall within any of the predefined IOPS tiers. When you select the custom profile, you can define your IOPS within a range that depends on the capacity that you specified.
+- [Select availability]{: tag-green} The `defined performance family` profile provides even more flexibility when it comes to specifying capacity and IOPS. Volume profiles in the defined performance family can scale volume performance independent of capacity. By using the `sdp` profile, you can create a volume with up to 32 TB capacity and an IOPS value in a range of 100 - 64,000.
+- Select a profile from the `tiered` profile family when you want to pick a profile where performance scales with capacity of the volume.
+- Select the profile from the `custom` profile family if your performance requirements don't fall within any of the predefined IOPS tiers. When you select the custom profile, you can define your IOPS within a range that depends on the capacity that you specified.
 
-[Select availability]{: tag-green} The `sdp` profile is available to allowlisted accounts in the Dallas, Frankfurt, London, Madrid, Osaka, Sao Paulo, Sydney, Tokyo, Toronto, and Washington, DC regions. The `custom` and `tiered` profiles are available in every region for every customer.  For more information, see [About {{site.data.keyword.block_storage_is_short}}](/docs/vpc?topic=vpc-block-storage-about#block-storage-sdp-intro).
+The `sdp` profile is available to allowlisted accounts in the Dallas, Frankfurt, London, Madrid, Osaka, Sao Paulo, Sydney, Tokyo, Toronto, and Washington, DC regions. The `custom` and `tiered` profiles are available in every region for every customer. For more information, see [About {{site.data.keyword.block_storage_is_short}}](/docs/vpc?topic=vpc-block-storage-about#block-storage-sdp-intro).
 
 The following table shows the available storage profiles with their different properties.
 
@@ -70,7 +70,7 @@ To achieve more than 48,000 IOPS, the volume must be attached to a virtual serve
 
 Certain volume operations such as increasing capacity, adjusting IOPS, and adjusting throughput can be done on an `sdp` volume even if the volume is not attached to a running instance. For more information about the current release of second-generation volumes, such as billing, supported features, and limitations, see [About {{site.data.keyword.block_storage_is_short}}](/docs/vpc?topic=vpc-block-storage-about#block-storage-sdp-intro).
 
-[Select availability]{: tag-green} Access to the `sdp` profile is restricted to allowlisted accounts. Customers not on the allowlist cannot view or provision `sdp` volumes in the console, from the CLI, with the API, or Terraform. Existing `sdp` volumes are not impacted. To request access, contact your IBM account team or open a [support case](/unifiedsupport/cases/add){: external}.
+[Select availability]{: tag-green} Access to the `sdp` profile is restricted to allowlisted accounts. Customers not on the allowlist cannot view or provision `sdp` volumes in the console, from the CLI, with the API, or Terraform. Existing `sdp` volumes are not impacted. To request access, submit an [allowlisting request](https://forms.monday.com/forms/6f855ea28400d75ef31e540e39c1d31a?r=use1&SDSallowlist=)
 
 Secure booting is not supported for boot volumes that use the `sdp` profile.
 {: note}

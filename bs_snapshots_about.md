@@ -2,7 +2,7 @@
 
 copyright:
   years: 2022, 2026
-lastupdated: "2026-08-07"
+lastupdated: "2026-08-24"
 
 keywords: snapshots, Block Storage, volumes, cross-regional snapshot, restore volume, copy snapshot
 
@@ -19,6 +19,7 @@ Learn about block storage snapshots in {{site.data.keyword.vpc_short}}, which ar
 {: shortdesc}
 
 In the current release of second-generation block volumes, snapshots are available in Dallas (`us-south`), Frankfurt (`eu-de`), London (`eu-gb`), Madrid (`eu-es`), Osaka (`js-osa`), Sao Paulo (`br-sao`), Sydney (`au-syd`), Tokyo (`jp-tok`), Toronto (`ca-tor`), and Washington (`us-east`) regions.
+{: preview}
 
 ## Snapshots concepts
 {: #snapshots-vpc-concepts}

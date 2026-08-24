@@ -19,7 +19,7 @@ View {{site.data.keyword.cloud_notm}} block storage volume details including cap
 {: shortdesc}
 
 
-The `sdp` profile is available to select customers. To request access, contact your IBM account team or open a [support case](/unifiedsupport/cases/add){: external}.
+The `sdp` profile is available to select customers. To request access, submit an [allowlisting request](https://forms.monday.com/forms/6f855ea28400d75ef31e540e39c1d31a?r=use1&SDSallowlist=)
 {: preview}
 
 

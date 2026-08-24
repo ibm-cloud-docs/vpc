@@ -2,7 +2,7 @@
 
 copyright:
   years: 2019, 2026
-lastupdated: "2026-08-21"
+lastupdated: "2026-08-24"
 
 keywords: faqs, Block Storage for vpc, fast restore, multizone, instance, instance provisioning, volume management, volume deletion.
 
@@ -29,7 +29,7 @@ Get answers to common questions about {{site.data.keyword.block_storage_is_full}
 {: faq}
 {: #faq-sdp-allowlist}
 
-The `sdp` profile is available to allowlisted accounts only. Customers not on the allowlist cannot view or provision `sdp` volumes in the console, from the CLI, with the API, or Terraform. Existing `sdp` volumes are not impacted. To request access, contact your IBM account team or open a [support case](/unifiedsupport/cases/add){: external}.
+The `sdp` profile is available to allowlisted accounts only. Customers not on the allowlist cannot view or provision `sdp` volumes in the console, from the CLI, with the API, or Terraform. Existing `sdp` volumes are not impacted. To request access, submit an [allowlisting request](https://forms.monday.com/forms/6f855ea28400d75ef31e540e39c1d31a?r=use1&SDSallowlist=)
 
 ## What functions are supported in this release of the `sdp` profile?
 {: faq}

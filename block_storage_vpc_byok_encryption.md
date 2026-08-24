@@ -2,7 +2,7 @@
 
 copyright:
   years: 2019, 2026
-lastupdated: "2026-08-21"
+lastupdated: "2026-08-24"
 
 keywords: Block Storage, IBM Cloud, VPC, virtual private cloud, Key Protect, encryption, key management, Hyper Protect Crypto Services, HPCS, volume, data storage, virtual server instance, instance, customer-managed encryption, Block Storage for vpc, customer-managed encryption,
 
@@ -18,7 +18,7 @@ subcollection: vpc
 Create {{site.data.keyword.block_storage_is_short}} volumes with customer-managed encryption by using root keys from a {{site.data.keyword.keymanagementserviceshort}} Standard or Dedicated instance.
 {: shortdesc}
 
-The `sdp` profile is available to select customers. To request access, contact your IBM account team or open a [support case](/unifiedsupport/cases/add){: external}.
+The `sdp` profile is available to select customers. To request access, submit an [allowlisting request](https://forms.monday.com/forms/6f855ea28400d75ef31e540e39c1d31a?r=use1&SDSallowlist=)
 {: preview}
 
 ## Before you begin

@@ -2,7 +2,7 @@
 
 copyright:
   years: 2022, 2026
-lastupdated: "2026-08-21"
+lastupdated: "2026-08-24"
 
 keywords: Backup, backup service, backup plan, backup policy, restore, restore volume, restore data
 
@@ -18,7 +18,7 @@ subcollection: vpc
 Restore boot or data volumes from backup snapshots to create fully provisioned storage, during instance creation, by adding storage to existing instances, or across regions for disaster recovery.
 {: shortdesc}
 
-The `sdp` profile is available to select customers. To request access, contact your IBM account team or open a [support case](/unifiedsupport/cases/add){: external}.
+The `sdp` profile is available to select customers. To request access, submit an [allowlisting request](https://forms.monday.com/forms/6f855ea28400d75ef31e540e39c1d31a?r=use1&SDSallowlist=)
 {: preview}
 
 You can restore volumes from backup snapshots in the console, from the CLI, with the API, or Terraform.
