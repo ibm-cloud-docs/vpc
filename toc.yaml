@@ -759,8 +759,16 @@ toc:
               id: managing-volume-snapshots
               label: Managing snapshots and consistency groups
               topics:
-              - bs_snapshots_manage.md
-              - bs_snapshots_manage_mvs.md
+              - bs_snapshots_rename.md
+              - bs_snapshots_allowed_use.md
+              - bs_snapshots_share.md
+              - bs_snapshots_tags.md
+              - bs_snapshots_fast_restore.md
+              - bs_snapshots_remote_copy.md
+              - bs_snapshots_delete.md
+              - bs_snapshots_monitoring.md
+              - bs_snapshots_cg_update.md
+              - bs_snapshots_cg_delete.md
           - bs_snapshots_restore.md
       - topicgroup:
           id: backup-for-vpc
