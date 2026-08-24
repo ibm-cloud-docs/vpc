@@ -2,7 +2,7 @@
 
 copyright:
   years: 2025, 2026
-lastupdated: "2026-08-21"
+lastupdated: "2026-08-24"
 
 keywords: Block Storage, virtual private cloud, volume, data storage, troubleshooting, troubleshoot, sdp, defined performance, allowlist, boot volume profile, bad_field
 
@@ -47,4 +47,4 @@ Your account is not allowlisted for the `sdp` (Defined Performance) volume profi
 Remove the `sdp` profile reference from your request and replace it with a supported profile such as `general-purpose`, `5iops-tier`, `10iops-tier`, or `custom`. For more information about available profiles, see [{{site.data.keyword.block_storage_is_short}} profiles](/docs/vpc?topic=vpc-block-storage-profiles).
 {: tsResolve}
 
-If your workload requires the Defined Performance profile, contact your IBM representative to request allowlist access.
+If your workload requires the Defined Performance profile, contact your IBM representative or submit an [allowlisting request](https://forms.monday.com/forms/6f855ea28400d75ef31e540e39c1d31a?r=use1&SDSallowlist=){: external}.{: external}.

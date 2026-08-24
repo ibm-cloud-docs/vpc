@@ -19,7 +19,7 @@ Choose the optimal {{site.data.keyword.block_storage_is_short}} volume capacity 
 {: shortdesc}
 
 
-The `sdp` profile is available to select customers. To request access, submit an [allowlisting request](https://forms.monday.com/forms/6f855ea28400d75ef31e540e39c1d31a?r=use1&SDSallowlist=)
+The `sdp` profile is available to select customers. To request access, submit an [allowlisting request](https://forms.monday.com/forms/6f855ea28400d75ef31e540e39c1d31a?r=use1&SDSallowlist=){: external}.
 {: preview}
 
 

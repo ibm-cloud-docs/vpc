@@ -25,11 +25,13 @@ Get answers to common questions about {{site.data.keyword.block_storage_is_full}
 
 [Select availability]{: tag-green} You can provision storage with the `sdp` profile in the Dallas, Frankfurt, London, Madrid, Osaka, Sao Paulo, Sydney, Tokyo, Toronto, and Washington, DC regions. Access is restricted to allowlisted accounts. For more information, see [About {{site.data.keyword.block_storage_is_short}}](/docs/vpc?topic=vpc-block-storage-about#block-storage-sdp-intro).
 
+To request access, submit an [allowlisting request](https://forms.monday.com/forms/6f855ea28400d75ef31e540e39c1d31a?r=use1&SDSallowlist=){: external}.
+
 ## Why can't I see the `sdp` profile when I create a volume?
 {: faq}
 {: #faq-sdp-allowlist}
 
-The `sdp` profile is available to allowlisted accounts only. Customers not on the allowlist cannot view or provision `sdp` volumes in the console, from the CLI, with the API, or Terraform. Existing `sdp` volumes are not impacted. To request access, submit an [allowlisting request](https://forms.monday.com/forms/6f855ea28400d75ef31e540e39c1d31a?r=use1&SDSallowlist=)
+The `sdp` profile is available to allowlisted accounts only. Customers not on the allowlist cannot view or provision `sdp` volumes in the console, from the CLI, with the API, or Terraform. Existing `sdp` volumes are not impacted. To request access, submit an [allowlisting request](https://forms.monday.com/forms/6f855ea28400d75ef31e540e39c1d31a?r=use1&SDSallowlist=){: external}.
 
 ## What functions are supported in this release of the `sdp` profile?
 {: faq}

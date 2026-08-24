@@ -70,7 +70,7 @@ To achieve more than 48,000 IOPS, the volume must be attached to a virtual serve
 
 Certain volume operations such as increasing capacity, adjusting IOPS, and adjusting throughput can be done on an `sdp` volume even if the volume is not attached to a running instance. For more information about the current release of second-generation volumes, such as billing, supported features, and limitations, see [About {{site.data.keyword.block_storage_is_short}}](/docs/vpc?topic=vpc-block-storage-about#block-storage-sdp-intro).
 
-[Select availability]{: tag-green} Access to the `sdp` profile is restricted to allowlisted accounts. Customers not on the allowlist cannot view or provision `sdp` volumes in the console, from the CLI, with the API, or Terraform. Existing `sdp` volumes are not impacted. To request access, submit an [allowlisting request](https://forms.monday.com/forms/6f855ea28400d75ef31e540e39c1d31a?r=use1&SDSallowlist=)
+[Select availability]{: tag-green} Access to the `sdp` profile is restricted to allowlisted accounts. Customers not on the allowlist cannot view or provision `sdp` volumes in the console, from the CLI, with the API, or Terraform. Existing `sdp` volumes are not impacted. To request access, submit an [allowlisting request](https://forms.monday.com/forms/6f855ea28400d75ef31e540e39c1d31a?r=use1&SDSallowlist=){: external}.
 
 Secure booting is not supported for boot volumes that use the `sdp` profile.
 {: note}

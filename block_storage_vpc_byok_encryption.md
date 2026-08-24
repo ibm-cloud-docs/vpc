@@ -18,7 +18,7 @@ subcollection: vpc
 Create {{site.data.keyword.block_storage_is_short}} volumes with customer-managed encryption by using root keys from a {{site.data.keyword.keymanagementserviceshort}} Standard or Dedicated instance.
 {: shortdesc}
 
-The `sdp` profile is available to select customers. To request access, submit an [allowlisting request](https://forms.monday.com/forms/6f855ea28400d75ef31e540e39c1d31a?r=use1&SDSallowlist=)
+The `sdp` profile is available to select customers. To request access, submit an [allowlisting request](https://forms.monday.com/forms/6f855ea28400d75ef31e540e39c1d31a?r=use1&SDSallowlist=){: external}.
 {: preview}
 
 ## Before you begin
