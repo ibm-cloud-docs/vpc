@@ -52,7 +52,12 @@ The application I/O size directly impacts storage performance. If the applicatio
 ### SSD defined performance profile
 {: #defined-performance-profile}
 
-The SSD defined performance (`sdp`) profile is a second-generation volume profile that offers more flexibility than the previous custom profile when it comes to specifying capacity and performance. By using the `sdp` profile, you can specify the capacity, and the maximum throughput limit. Volume size can range from 1 - 32,000 GB. You can specify volume performance in the range of 3000 - 64,000 IOPS. In addition, you can also specify the maximum throughput value of your volume. The available throughput range is 125-1024 MBps (1000-8192 Mbps). The following table shows the minimum and maximum values of IOPS and Throughput in relation to the volume capacity.
+The SSD defined performance (`sdp`) profile is a second-generation volume profile that offers more flexibility than the previous custom profile when it comes to specifying capacity and performance. By using the `sdp` profile, you can specify the capacity, and the maximum throughput limit. Volume size can range from 1 - 32,000 GB. You can specify volume performance in the range of 3000 - 64,000 IOPS. In addition, you can also specify the maximum throughput value of your volume. The available throughput range is 125-1024 MBps (1000-8192 Mbps).
+
+Access to the `sdp` profile is restricted to allowlisted accounts. Customers not on the allowlist cannot view or provision `sdp` volumes in the console, from the CLI, with the API, or Terraform. Existing `sdp` volumes are not impacted. To request access, submit an [allowlisting request](https://forms.monday.com/forms/6f855ea28400d75ef31e540e39c1d31a?r=use1&SDSallowlist=){: external}.
+{: preview}
+
+The following table shows the minimum and maximum values of IOPS and Throughput in relation to the volume capacity.
 
 | Capacity range (GB) | Min IOPS  | Max IOPS  | Min Throughput (Mbps) | Max Throughput (Mbps)  |
 |---------------------|-----------|-----------|-----------------------|------------------------|
@@ -69,8 +74,6 @@ To achieve more than 48,000 IOPS, the volume must be attached to a virtual serve
 {: note}
 
 Certain volume operations such as increasing capacity, adjusting IOPS, and adjusting throughput can be done on an `sdp` volume even if the volume is not attached to a running instance. For more information about the current release of second-generation volumes, such as billing, supported features, and limitations, see [About {{site.data.keyword.block_storage_is_short}}](/docs/vpc?topic=vpc-block-storage-about#block-storage-sdp-intro).
-
-[Select availability]{: tag-green} Access to the `sdp` profile is restricted to allowlisted accounts. Customers not on the allowlist cannot view or provision `sdp` volumes in the console, from the CLI, with the API, or Terraform. Existing `sdp` volumes are not impacted. To request access, submit an [allowlisting request](https://forms.monday.com/forms/6f855ea28400d75ef31e540e39c1d31a?r=use1&SDSallowlist=){: external}.
 
 Secure booting is not supported for boot volumes that use the `sdp` profile.
 {: note}
