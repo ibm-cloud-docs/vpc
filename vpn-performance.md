@@ -91,6 +91,9 @@ VPN traffic is encrypted with IPsec, and the choice of encryption algorithm affe
 
 Use AES-GCM whenever supported by both VPN peers to maximize throughput without compromising security.
 
+### VPN for VPC throughput
+{: #vpn-throughput-table}
+
 The following table summarizes benchmark throughput values that are tested within IBM’s internal network. These figures represent observed performance under controlled test conditions. Actual throughput in your environment depends on peer device capacity, available ISP bandwidth, routing configuration, packet size, traffic patterns, compute capacity and other network conditions.
 
 |VPN mode                     | AES only         | AES-GCM          |
