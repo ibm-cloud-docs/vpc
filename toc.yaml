@@ -503,6 +503,8 @@ toc:
           label: Public address ranges
           topics:
           - par-about.md
+          - par-planning.md
+          - par-use-cases.md
           - par-creating.md
           - par-binding.md
           - par-viewing.md

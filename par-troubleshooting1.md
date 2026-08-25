@@ -2,7 +2,7 @@
 
 copyright:
   years: 2026
-lastupdated: "2026-04-16"
+lastupdated: "2026-08-25"
 
 keywords:
 
@@ -48,4 +48,6 @@ Follow these steps to troubleshoot this issue:
 ## Related links
 {: #ts-related-links-par}
 
-[About public address ranges](/docs/vpc?topic=vpc-about-par)
+- [Getting started with public address ranges](/docs/vpc?topic=vpc-about-par)
+- [Planning considerations for public address ranges](/docs/vpc?topic=vpc-par-planning)
+- [Use cases for public address ranges](/docs/vpc?topic=vpc-par-use-cases)

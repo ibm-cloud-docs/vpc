@@ -49,5 +49,6 @@ As the rollout of Public Address Ranges for VPC continues, a few known issues an
 ## Related links
 {: #known-issues-par-related-link}
 
-- [About public address ranges](/docs/vpc?topic=vpc-about-par)
+- [Getting started with public address ranges](/docs/vpc?topic=vpc-about-par)
+- [Planning considerations for public address ranges](/docs/vpc?topic=vpc-par-planning)
 - [About IPv6 public address ranges](/docs/vpc?topic=vpc-ipv6-par-about)

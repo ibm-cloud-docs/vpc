@@ -164,7 +164,8 @@ data "ibm_is_public_address_ranges" "public_address_range_instances_example_test
 ## Related links
 {: #after-view-par}
 
-- [About public address ranges](/docs/vpc?topic=vpc-about-par)
+- [Getting started with public address ranges](/docs/vpc?topic=vpc-about-par)
+- [Planning considerations for public address ranges](/docs/vpc?topic=vpc-par-planning)
 - [IAM roles and actions](/docs/iam?topic=iam-iam-service-roles-actions#is.public-address-range-roles)
 - [Quotas](/docs/vpc?topic=vpc-quotas#par-quotas) and [service limits](/docs/vpc?topic=vpc-quotas#service-limits-for-vpc-services)
 - [FAQ](/docs/vpc?topic=vpc-faq-public-address-ranges)

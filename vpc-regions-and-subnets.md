@@ -1,8 +1,8 @@
----
+﻿---
 
 copyright:
   years: 2019, 2026
-lastupdated: "2026-06-30"
+lastupdated: "2026-08-25"
 
 keywords: address prefixes, regions, subnets, zones, IP, ranges, CIDR
 

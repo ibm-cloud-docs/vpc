@@ -23,7 +23,7 @@ You can bind, unbind, and move public address ranges to a VPC in an availability
 
 Review the following requirements and considerations before binding, unbinding, or moving a public address range:
 
-* Make sure to review [planning considerations](/docs/vpc?topic=vpc-about-par#par-planning) for public address ranges.
+* Make sure to review [planning considerations](/docs/vpc?topic=vpc-par-planning) for public address ranges.
 * The binding of a public address range must include both a VPC and an availability zone.
 * When using a public address range, you must [configure ingress routing](/docs/vpc?topic=vpc-about-custom-routes) after binding the address range to direct traffic to the appropriate resource. Binding the address range to a VPC does not automatically route traffic to the resource.
 
@@ -257,7 +257,8 @@ resource "ibm_is_public_address_range" "public_address_range_instance" {
 ## Related links
 {: #after-binding-par}
 
-- [About public address ranges](/docs/vpc?topic=vpc-about-par)
+- [Getting started with public address ranges](/docs/vpc?topic=vpc-about-par)
+- [Planning considerations for public address ranges](/docs/vpc?topic=vpc-par-planning)
 - 
 - 
 - [IAM roles and actions](/docs/iam?topic=iam-iam-service-roles-actions#is.public-address-range-roles)

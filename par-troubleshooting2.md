@@ -2,7 +2,7 @@
 
 copyright:
   years: 2026
-lastupdated: "2026-04-16"
+lastupdated: "2026-08-25"
 
 keywords:
 
@@ -37,4 +37,4 @@ For more information, see [IAM roles and actions](/docs/iam?topic=iam-iam-servic
 ## Related links
 {: #troubleshooting-related-link-par}
 
-For more information, see [About public address ranges](/docs/vpc?topic=vpc-about-par).
+For more information, see [Getting started with public address ranges](/docs/vpc?topic=vpc-about-par) and [Planning considerations for public address ranges](/docs/vpc?topic=vpc-par-planning).
