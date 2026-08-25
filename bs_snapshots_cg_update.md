@@ -2,7 +2,7 @@
 
 copyright:
   years: 2022, 2026
-lastupdated: "2026-08-24"
+lastupdated: "2026-08-25"
 
 keywords: consistency group, snapshots, backups, instance snapshot, instance backup,
 
@@ -128,3 +128,9 @@ For more information about the arguments and attributes, see [ibm_is_snapshot_co
 {: #consistency-groups-at-events}
 
 All multi-volume snapshot operations generate events in {{site.data.keyword.atracker_full_notm}} regardless if the consistency group was created manually or by the Backup service. For more information, see [Consistency group events](/docs/vpc?topic=vpc-at_events&interface=ui#events-consistency-group).
+
+## Next steps
+{: #snapshots-vpc-manage-consistency-groups-next-steps}
+
+- [Delete a consistency group](/docs/vpc?topic=vpc-snapshots-vpc-delete-consistency-groups)
+- [Restore a volume from a snapshot](/docs/vpc?topic=vpc-snapshots-vpc-restore)

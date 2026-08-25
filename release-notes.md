@@ -53,7 +53,7 @@ New bare metal server image: Microsoft Windows Server 2025 Datacenter edition
 {: release-note}
 
 HPCS to Key Protect key migration support for VPC services (GA)
-:   You can now migrate encryption keys for your VPC resources from {{site.data.keyword.hscrypto}} (HPCS) Customer Root Keys (CRKs) to {{site.data.keyword.keymanagementserviceshort}} Single Tenant CRKs. This migration capability is available for the following VPC services:
+:   You can now migrate encryption keys for your VPC resources from {{site.data.keyword.hscrypto}} (HPCS) Customer Root Keys (CRKs) to {{site.data.keyword.keymanagementserviceshort}} Dedicated CRKs. This migration capability is available for the following VPC services:
 
    - {{site.data.keyword.block_storage_is_short}} volumes and snapshots
    - {{site.data.keyword.filestorage_vpc_short}} shares
@@ -1155,7 +1155,7 @@ IBM log analysis is deprecated
 {: release-note}
 
 Block Storage for VPC snapshots for cross-account restore
-:   You can now share a snapshot with another account and allow the other account to create volumes with the snapshot. To do so, you must set up [cross-account authorization](/docs/vpc?topic=vpc-block-s2s-auth) in {{site.data.keyword.iamshort}}, and share the CRN of the snapshot with the other account. The other account's authorized storage administrator can use the CRN to create a volume in the console, from the CLI, with the API, or Terraform. For more information, see [Sharing a snapshot with another account in the console](/docs/vpc?topic=vpc-snapshots-vpc-manage&interface=ui#snapshots-vpc-s2s-ui) and [Restoring a volume from a snapshot](/docs/vpc?topic=vpc-snapshots-vpc-restore).
+:   You can now share a snapshot with another account and allow the other account to create volumes with the snapshot. To do so, you must set up [cross-account authorization](/docs/vpc?topic=vpc-block-s2s-auth) in {{site.data.keyword.iamshort}}, and share the CRN of the snapshot with the other account. The other account's authorized storage administrator can use the CRN to create a volume in the console, from the CLI, with the API, or Terraform. For more information, see [Sharing a snapshot with another account in the console](/docs/vpc?topic=vpc-snapshots-vpc-share) and [Restoring a volume from a snapshot](/docs/vpc?topic=vpc-snapshots-vpc-restore).
 
 Defined performance profile for Block Storage for VPC
 :   select availability: Customers with special approval to preview the defined performance profile can now provision block storage volumes with the `sdp` profile in WDC and LON MZRs. For more information, see [The defined performance profile](/docs/vpc?topic=vpc-block-storage-about#block-storage-sdp-intro).

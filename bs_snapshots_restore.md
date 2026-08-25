@@ -2,7 +2,7 @@
 
 copyright:
   years: 2021, 2026
-lastupdated: "2026-08-24"
+lastupdated: "2026-08-25"
 
 keywords:
 
@@ -636,4 +636,4 @@ For more information about the arguments and attributes, see [ibm_is_volume](htt
 ## Next steps
 {: #bs_snapshots_restore_next_steps}
 
-You can [create](/docs/vpc?topic=vpc-snapshots-vpc-create) more snapshots or [manage](/docs/vpc?topic=vpc-snapshots-vpc-manage) existing snapshots.
+You can [create](/docs/vpc?topic=vpc-snapshots-vpc-create) more snapshots or [manage](/docs/vpc?topic=vpc-snapshots-vpc-rename) existing snapshots.

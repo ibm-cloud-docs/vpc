@@ -2,7 +2,7 @@
 
 copyright:
   years: 2019, 2026
-lastupdated: "2026-08-07"
+lastupdated: "2026-08-25"
 
 keywords:
 
@@ -64,7 +64,7 @@ Provision a key management service (KMS), and authorize access between your VPC 
 The {{site.data.keyword.hscrypto}} are deprecated. Customers can use existing instances until 20 March 2027. For more information, see [Deprecation of IBM Cloud Hyper Protect Crypto Services](/docs/hs-crypto?topic=hs-crypto-faqs-deprecation-of-ibm-cloud-hyper-protect-crypto-services). For continued protection, consider migrating your existing encryption keys to a Dedicated {{site.data.keyword.keymanagementserviceshort}} instance. For more information, see the [Migration guide](/docs/key-protect?topic=key-protect-migrate-st).
 {: deprecated}
 
-1. When you provision a KMS, you can choose between [{{site.data.keyword.keymanagementserviceshort}}](/docs/key-protect?topic=key-protect-getting-started-tutorial) Single Tenant and Multi Tenant instances. Follow the linked tutorials to provision a service instance, and create or import a customer root key.
+1. When you provision a KMS, you can choose between [{{site.data.keyword.keymanagementserviceshort}}](/docs/key-protect?topic=key-protect-getting-started-tutorial) Standard or Dedicated instances. Follow the linked tutorials to provision a service instance, and create or import a customer root key.
 
    For {{site.data.keyword.keymanagementserviceshort}}, choose your deployment option:
    - **Standard**: Multi-tenant service with FIPS 140-2 Level 3 compliance. Follow the [Creating a Standard Key Protect instance tutorial](/docs/key-protect?topic=key-protect-provision) to create an instance and manage root keys.

@@ -2,7 +2,7 @@
 
 copyright:
   years: 2021, 2026
-lastupdated: "2026-08-24"
+lastupdated: "2026-08-25"
 
 keywords: view snapshots, view snapshot, viewing snapshots, see snapshots, Block Storage snapshots
 
@@ -40,7 +40,7 @@ Table 1 describes the information for all snapshots that is shown on the list of
 | Field | Description |
 |-------|-------------|
 | Name  | The name that you provided when you created the snapshot. Click the name of the snapshot to see its [details](#snapshots-vpc-view-snapshot-ui). |
-| Status | Status of the snapshot, depending on whether it's usable (_active_ status), unusable, or being created. For more information, see [Snapshot statuses](/docs/vpc?topic=vpc-snapshots-vpc-manage#snapshots-vpc-status). |
+| Status | Status of the snapshot, depending on whether it's usable (_active_ status), unusable, or being created. For more information, see [Snapshot statuses](/docs/vpc?topic=vpc-snapshots-vpc-monitoring#snapshots-vpc-status). |
 | Size | Size of the snapshot in GBs. The size is inherited from the source volume. |
 | Source volume | It shows the boot or data volume from which the snapshot was created. Click the name of the volume to see its [details](/docs/vpc?topic=vpc-viewing-block-storage). |
 | Snapshot copies | Number of copies that a snapshot has in other regions. |
@@ -61,16 +61,16 @@ Click the settings icon ![Settings icon](../icons/settings.svg "Settings") to di
 {: caption="List of optional informational fields for all snapshots" caption-side="bottom"}
 
 By clicking the Actions icon ![Actions icon](../icons/action-menu-icon.svg "Actions"), you can display a menu of context-specific actions.
-   - [Rename](/docs/vpc?topic=vpc-snapshots-vpc-manage&interface=ui#snapshots-vpc-rename-ui)
+   - [Rename](/docs/vpc?topic=vpc-snapshots-vpc-rename&interface=ui#snapshots-vpc-rename-ui)
    - Copy UUID.
    - Copy CRN.
    - [Create volume](/docs/vpc?topic=vpc-snapshots-vpc-restore#snapshots-vpc-restore-ui).
    - [Create snapshot copy](/docs/vpc?topic=vpc-snapshots-vpc-create&interface=ui#crsnapshots-vpc-create-ui).
-   - [Share a snapshot](/docs/vpc?topic=vpc-snapshots-vpc-manage&interface=ui#snapshots-vpc-s2s-ui).
-   - [Manage share permissions](/docs/vpc?topic=vpc-snapshots-vpc-manage&interface=ui#snapshots-vpc-s2s-update-ui).
-   - [Edit fast restore](/docs/vpc?topic=vpc-snapshots-vpc-manage#snapshots-edit-fast-restore).
-   - [Delete](/docs/vpc?topic=vpc-snapshots-vpc-manage#snapshots-vpc-delete-snapshot-ui).
-   - [Delete all snapshots for a volume](/docs/vpc?topic=vpc-snapshots-vpc-manage#snapshots-vpc-delete-all-ui).
+   - [Share a snapshot](/docs/vpc?topic=vpc-snapshots-vpc-share&interface=ui#snapshots-vpc-s2s-ui).
+   - [Manage share permissions](/docs/vpc?topic=vpc-snapshots-vpc-share&interface=ui#snapshots-vpc-s2s-update-ui).
+   - [Edit fast restore](/docs/vpc?topic=vpc-snapshots-vpc-fast-restore#snapshots-edit-fast-restore).
+   - [Delete](/docs/vpc?topic=vpc-snapshots-vpc-delete#snapshots-vpc-delete-snapshot-ui).
+   - [Delete all snapshots for a volume](/docs/vpc?topic=vpc-snapshots-vpc-delete#snapshots-vpc-delete-all-ui).
 
 You can also list all snapshots that were created from a {{site.data.keyword.block_storage_is_short}} volume from the volume details page. For more information, see [View all snapshots that were created from the {{site.data.keyword.block_storage_is_short}} volume](/docs/vpc?topic=vpc-viewing-block-storage&interface=ui#view-snapshots-for-volume).
 {: tip}
@@ -84,7 +84,7 @@ The snapshot details panel shows the information that is described in the follow
 
 | Field | Description |
 |-------|-------------|
-| Name  | The name of the snapshot, which you can change by clicking the **Edit icon** ![Edit icon](../icons/edit-tagging.svg "Edit"). For more information, see [Naming snapshots](/docs/vpc?topic=vpc-snapshots-vpc-manage&interface=ui#snapshots-vpc-naming). |
+| Name  | The name of the snapshot, which you can change by clicking the **Edit icon** ![Edit icon](../icons/edit-tagging.svg "Edit"). For more information, see [Naming snapshots](/docs/vpc?topic=vpc-snapshots-vpc-planning#snapshots-vpc-naming). |
 | Snapshot ID | Copiable GUID of the snapshot. |
 | Bootable | Yes or No. |
 | CRN | Copiable CRN of the snapshot. |
@@ -97,13 +97,13 @@ The snapshot details panel shows the information that is described in the follow
 | Encryption | Provider-managed or customer-managed encryption. For customer-managed encryption, the KMS instance, root key name, and root key ID are shown. |
 | Generation  | This value is either Gen 1 or Gen 2 based on the volume profile of the source volume. |
 | Virtual server expression | The allowed-use expression defines and restricts which virtual server profiles the bootable snapshot is compatible with. When you provision a virtual server instance by using the snapshot, the expression is matched against the requested instance properties. For more information, see [Adding allowed-use expressions to custom images](/docs/vpc?topic=vpc-custom-image-allowed-use-expressions&interface=ui). |
-| Fast restore panel | Use [fast restore](/docs/vpc?topic=vpc-snapshots-vpc-about#snapshots_vpc_fast_restore) to create a volume from this snapshot that is fully provisioned. Click **Edit** to [enable or disable fast restore](/docs/vpc?topic=vpc-snapshots-vpc-manage&interface=ui#snapshots-edit-fast-restore) in a zone. |
+| Fast restore panel | Use [fast restore](/docs/vpc?topic=vpc-snapshots-vpc-about#snapshots_vpc_fast_restore) to create a volume from this snapshot that is fully provisioned. Click **Edit** to [enable or disable fast restore](/docs/vpc?topic=vpc-snapshots-vpc-fast-restore&interface=ui#snapshots-edit-fast-restore) in a zone. |
 | Consistency group panel | It displays information about the consistency group that the snapshot is a member of. Click **Create virtual server** to restore volumes from the consistency group. |
 {: caption="Snapshot details" caption-side="bottom"}
 
 By clicking the Actions icon ![Actions icon](../icons/action-menu-icon.svg "Actions"), you can display a menu of context-specific actions.
    - [Create a volume from the snapshot](/docs/vpc?topic=vpc-snapshots-vpc-restore&interface=ui)
-   - [Edit fast restore](/docs/vpc?topic=vpc-snapshots-vpc-manage#snapshots-edit-fast-restore), or delete a snapshot.
+   - [Edit fast restore](/docs/vpc?topic=vpc-snapshots-vpc-fast-restore#snapshots-edit-fast-restore), or delete a snapshot.
 
 ### Listing all consistency groups of snapshots in the console
 {: #consistency-group-vpc-view-list-ui}
@@ -1161,5 +1161,5 @@ For more information, see [ibm_is_consistency_group](https://registry.terraform.
 
 You can modify or delete snapshots and restore a volume from a snapshot.
 
-* [Modify or delete snapshots](/docs/vpc?topic=vpc-snapshots-vpc-manage).
+* [Modify or delete snapshots](/docs/vpc?topic=vpc-snapshots-vpc-rename).
 * [Restore a volume from a snapshot](/docs/vpc?topic=vpc-snapshots-vpc-restore).

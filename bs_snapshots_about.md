@@ -2,7 +2,7 @@
 
 copyright:
   years: 2022, 2026
-lastupdated: "2026-08-24"
+lastupdated: "2026-08-25"
 
 keywords: snapshots, Block Storage, volumes, cross-regional snapshot, restore volume, copy snapshot
 
@@ -291,12 +291,12 @@ You can apply [user tags](#snapshots-about-user-tags) and [access management tag
 
 User tags are uniquely identified by a Cloud Resource Name (CRN) identifier. When you create a user tag, you provide a unique name within your billing account. You can define user tags in label or key-value format. You can create user tags or add existing tags to snapshots.
 
-You can create, view, and manage user tags with the [UI](/docs/vpc?topic=vpc-snapshots-vpc-manage&interface=ui#snapshots-vpc-add-tags-ui){: ui}[CLI](/docs/vpc?topic=vpc-snapshots-vpc-manage&interface=cli#snapshots-vpc-add-tags-cli){: cli}[API](/docs/vpc?topic=vpc-snapshots-vpc-manage&interface=api#snapshots-vpc-add-tags-api){: api}[Terraform](/docs/vpc?topic=vpc-snapshots-vpc-manage&interface=terraform#snapshots-vpc-rename-terraform){: terraform}, and remove them at any time.
+You can create, view, and manage user tags with the [UI](/docs/vpc?topic=vpc-snapshots-vpc-tags&interface=ui#snapshots-vpc-add-tags-ui){: ui}[CLI](/docs/vpc?topic=vpc-snapshots-vpc-tags&interface=cli#snapshots-vpc-add-tags-cli){: cli}[API](/docs/vpc?topic=vpc-snapshots-vpc-tags&interface=api#snapshots-vpc-add-tags-api){: api}[Terraform](/docs/vpc?topic=vpc-snapshots-vpc-tags&interface=terraform#snapshots-vpc-add-tags-terraform){: terraform}, and remove them at any time.
 
 ### Access management tags for {{site.data.keyword.block_storage_is_short}} snapshots
 {: #snapshots-about-mgt-tags}
 
-You can use access management tags to organize access control by creating flexible resource groupings, enabling your storage resources to grow without requiring updates to {{site.data.keyword.iamshort}} (IAM) policies. You can create access management tags in IAM or with the Global Search and Tagging API, and then [add them to new or existing snapshots](/docs/vpc?topic=vpc-snapshots-vpc-manage&interface=ui#snapshots-vpc-add-tags-ui).
+You can use access management tags to organize access control by creating flexible resource groupings, enabling your storage resources to grow without requiring updates to {{site.data.keyword.iamshort}} (IAM) policies. You can create access management tags in IAM or with the Global Search and Tagging API, and then [add them to new or existing snapshots](/docs/vpc?topic=vpc-snapshots-vpc-tags&interface=ui#snapshots-vpc-add-tags-ui).
 
 For more information about managing tags for your account, see [Working with tags](/docs/account?topic=account-tag&interface=ui).
 
@@ -313,7 +313,7 @@ You can create and manage your snapshots by using the UI, CLI, API, and Terrafor
 
 For more information about creating and managing snapshots, and restoring a volume from a snapshot, see the following topics.
 * [Create](/docs/vpc?topic=vpc-snapshots-vpc-create#snapshots-vpc-create) your snapshots.
-* [View](/docs/vpc?topic=vpc-snapshots-vpc-view#snapshots-vpc-view) and [manage](/docs/vpc?topic=vpc-snapshots-vpc-manage#snapshots-vpc-manage) your snapshots.
+* [View](/docs/vpc?topic=vpc-snapshots-vpc-view#snapshots-vpc-view) and [manage](/docs/vpc?topic=vpc-snapshots-vpc-rename#snapshots-vpc-rename) your snapshots.
 * [Restore](/docs/vpc?topic=vpc-snapshots-vpc-restore#snapshots-vpc-restore) a volume from a snapshot.
 
 For more information about creating and managing consistency groups, see the following topics.

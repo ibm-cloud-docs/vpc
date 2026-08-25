@@ -2,7 +2,7 @@
 
 copyright:
   years: 2019, 2026
-lastupdated: "2026-08-24"
+lastupdated: "2026-08-25"
 
 keywords:
 
@@ -121,7 +121,7 @@ You can see details for a snapshot, create a snapshot, and manage snapshots from
 
 * [View details of a snapshot](/docs/vpc?topic=vpc-snapshots-vpc-view#snapshots-vpc-view-snapshot-ui).
 * [Create a snapshot](/docs/vpc?topic=vpc-snapshots-vpc-view#snapshots-vpc-view-snapshot-ui).
-* [Delete all snapshots](/docs/vpc?topic=vpc-snapshots-vpc-manage#snapshots-vpc-delete-all-ui).
+* [Delete all snapshots](/docs/vpc?topic=vpc-snapshots-vpc-delete#snapshots-vpc-delete-all-ui).
 
 #### Viewing all backup policies associated with a volume
 {: #view-backup-policies-for-volume}

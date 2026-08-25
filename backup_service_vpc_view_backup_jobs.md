@@ -2,7 +2,7 @@
 
 copyright:
   years: 2022, 2026
-lastupdated: "2026-06-26"
+lastupdated: "2026-08-25"
 
 keywords: Backup for VPC, backup service, backup plan, backup policy, restore, restore volume, restore data, view backup lists,
 
@@ -53,7 +53,7 @@ From the list of backup jobs, click the Actions icon ![Actions icon](../icons/ac
 | Field    | Description |
 |----------|-------------|
 | Name     | The name of the backup policy that created the snapshot. You can change the backup policy settings by clicking the **Edit icon** ![Edit icon](../icons/edit-tagging.svg "Edit"). For more information, see [Managing backup policies](/docs/vpc?topic=vpc-backup-service-manage). |
-| Status   | The status of the snapshot, such as _Stable_. For a list of snapshot statuses, see [Snapshot statuses](/docs/vpc?topic=vpc-snapshots-vpc-manage&interface=ui#snapshots-vpc-status). |
+| Status   | The status of the snapshot, such as _Stable_. For a list of snapshot statuses, see [Snapshot statuses](/docs/vpc?topic=vpc-snapshots-vpc-monitoring&interface=ui#snapshots-vpc-status). |
 | Size     | Size in GBs of the snapshot, it is inherited from the source volume. |
 | Source   | This field shows the source volume or share from which the snapshot was taken. If the source volume was deleted, the name appears without a link. |
 | Bootable | It indicates whether the snapshot was created from a boot volume. |
@@ -449,7 +449,7 @@ When you view details of a backup job from the CLI or by making a [`GET /backup_
 
 * `internal_error` - The code indicates an internal error. Contact IBM support if you see this code.
 * `snapshot_encryption_key_invalid` - The code indicates that the system cannot create a snapshot because the encryption key could not be validated. The reason for this error can be that either the key information you provided is incorrect or the service-to-service authorization was revoked.
-* `snapshot_pending` - The code indicates that a backup snapshot could not be deleted because that is in the `pending` [snapshot lifecycle state](/docs/vpc?topic=vpc-snapshots-vpc-manage&interface=ui#snapshots-vpc-status).
+* `snapshot_pending` - The code indicates that a backup snapshot could not be deleted because that is in the `pending` [snapshot lifecycle state](/docs/vpc?topic=vpc-snapshots-vpc-monitoring&interface=ui#snapshots-vpc-status).
 * `snapshot_volume_limit` - The code indicates that a backup snapshot could not be created because the [snapshot limit](/docs/vpc?topic=vpc-snapshots-vpc-faqs&interface=ui#faq-snapshot-3) for the source volume is reached.
 * `snapshot_share_limit`: The maximum number of snapshots on this file share is reached.
 * `snapshot_source_unsupported`: The source file share's access control mode does not support backups and snapshots.

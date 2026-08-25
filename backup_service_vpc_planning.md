@@ -2,7 +2,7 @@
 
 copyright:
   years: 2022, 2026
-lastupdated: "2026-05-13"
+lastupdated: "2026-08-25"
 
 keywords: backup planning, restore volume, restore data
 
@@ -33,7 +33,7 @@ Consider the following prerequisites before you set up the VPC Backup Service.
 | Backup schedule | Determine a backup schedule based on the type of resources that you're backing up. For example, you might want to back up critical data that changes frequently more often than static data. |
 | Retention | Determine a retention policy for backups in the backup plan. As subsequent backups are created, you incur costs for each backup that you retain. Deleting older backups keeps costs down. \n The interval for creating a backup and its retention period can be the same or they can be different. The default retention period is 30 days. The maximum retention period is 1000 days. You can also set the total number of backups to retain up to 750 per volume or share. When that number is exceeded, the oldest backups are deleted. If you specify both the age and the number of backups, age takes priority in determining when to delete a snapshot. The count applies only if the oldest snapshot is within the age range. For more information, see [Backup policies and backup plans](/docs/vpc?topic=vpc-backup-service-about&interface=ui#backup-service-policies).|
 | Backup plans | Decide on the number of backup plans that you need for a policy. For example, you can have separate plans for daily backups, weekly, and monthly. |
-| Naming | Make sure that you have a unique name for your backup policy. For example, if you have a method for naming volumes, you might name a backup policy by using a similar convention. Naming conventions for backups that are created by the plan are the same as snapshots. For more information, see [Naming snapshots](/docs/vpc?topic=vpc-snapshots-vpc-manage#snapshots-vpc-naming). |
+| Naming | Make sure that you have a unique name for your backup policy. For example, if you have a method for naming volumes, you might name a backup policy by using a similar convention. Naming conventions for backups that are created by the plan are the same as snapshots. For more information, see [Naming snapshots](/docs/vpc?topic=vpc-snapshots-vpc-planning#snapshots-vpc-naming). |
 | Interface | Choose the UI, CLI, API, or Terraform for creating and managing your backups. |
 | Volume or share restore | Evaluate when you might want to restore a volume or a share from a backup. Keep in mind that restoring from a backup is a manual operation and not immediate such as a disaster recovery solution. |
 | Fast-restore | You can create and cache a copy of the backup snapshot in one or more zones of the region where your volume is. Fast-restore can be used in disaster recovery scenarios when you need to restore volumes in a different zone of the same region. The fast restore feature can achieve a [recovery time objective](#x3167918){: term} (RTO) quicker than restoring from a regular snapshot. |

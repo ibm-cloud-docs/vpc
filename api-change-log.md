@@ -2,7 +2,7 @@
 
 copyright:
   years: 2019, 2026
-lastupdated: "2026-08-21"
+lastupdated: "2026-08-25"
 
 keywords: api, change log, new features, restrictions, migrations
 
@@ -799,7 +799,7 @@ Now that all VPC routing tables have a CRN, you can [tag](/docs/account?topic=ac
 
 **Sharing snapshots across accounts.** You can now use [cross-account authorization](/docs/vpc?topic=vpc-block-s2s-auth&interface=api#block-s2s-xaccount-encryption-api) in Identity and Access Management ([IAM](/docs/iam?topic=iam-iamoverview)) to share a snapshot CRN with a target IBM account. Sharing allows that account to create a block storage volume from the shared snapshot. When [creating a volume](/docs/apis/vpc/latest#create-volume), users who have been authorized within the target account can specify the `source_snapshot.crn` property with the CRN of the snapshot. When [retrieving](/docs/apis/vpc/latest#get-volume) or [listing](/docs/apis/vpc/latest#list-volumes) volumes, the response includes `source_snapshot.remote.account` if the snapshot is from a different account.
 
-For more information, see [Sharing a snapshot with another account](/docs/vpc?topic=vpc-snapshots-vpc-manage&interface=api#snapshots-vpc-s2s-api) and [Restoring a volume from a snapshot](/docs/vpc?topic=vpc-snapshots-vpc-restore&interface=api#snapshots-vpc-restore-API).
+For more information, see [Sharing a snapshot with another account](/docs/vpc?topic=vpc-snapshots-vpc-share&interface=api#snapshots-vpc-s2s-api) and [Restoring a volume from a snapshot](/docs/vpc?topic=vpc-snapshots-vpc-restore&interface=api#snapshots-vpc-restore-API).
 
 **Block storage `defined_performance` family.** For accounts that have special approval to preview this feature, a new `defined_performance` family is introduced for data and boot [volumes](/docs/apis/vpc/latest#create-volume). This family initially contains the new [`sdp`](/docs/vpc?topic=vpc-block-storage-about#block-storage-sdp-intro) profile, which provides similar functionality to the existing `custom` volume profile. The `sdp` profile introduces the ability to increase capacity and change IOPS to volumes, even when those volumes are not attached to a virtual server instance. To use these capabilities in your automation, refer to **Block storage schema enhancements for adjustable capacity and IOPS.**
 
