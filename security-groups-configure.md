@@ -2,7 +2,7 @@
 
 copyright:
   years: 2018, 2026
-lastupdated: "2026-06-26"
+lastupdated: "2026-08-25"
 
 keywords:
 
@@ -53,6 +53,8 @@ To configure your security group by using the UI, follow these steps:
    * Rules are stateful, which means that return traffic in response to allowed traffic is automatically permitted. For example, you created a rule that allows inbound TCP traffic on port 80. That rule also allows replying outbound TCP traffic on port 80 back to the originating host, without the need for another rule.
    * For Windows images, make sure that the security group that is associated with the instance allows inbound and outbound Remote Desktop Protocol traffic (TCP port 3389).
 1. _Optional:_ Attach interfaces, bare metal interfaces, load balancers, virtual private endpoint gateways, and VPN servers in the remaining sections if these targets are available to attach.
+
+
 
 ## Setting up the security groups for your resource from the CLI
 {: #sg-using-cli}
@@ -137,7 +139,11 @@ ibmcloud is security-group-rule-add $sg inbound icmp --icmp-type 8 --icmp-code 0
 ```
 {: pre}
 
+
+
 For more information about setting up security groups by using the CLI, see [Setting up your API and CLI environment](/docs/vpc?topic=vpc-set-up-environment).
+
+
 
 ## Setting up the security groups for your resource with the API
 {: #sg-using-api}

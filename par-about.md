@@ -2,7 +2,7 @@
 
 copyright:
   years: 2026
-lastupdated: "2026-08-04"
+lastupdated: "2026-08-25"
 
 keywords: vpc, public address ranges, about
 
@@ -96,10 +96,14 @@ Review the following considerations before creating a public address range.
 
 
 
+
+
 ## Getting started with public address ranges
 {: #par-getting-started}
 
 To get started with using public address ranges, follow these steps:
+
+**IPv4**
 
 1. Ensure that you have [created a VPC](/docs/vpc?topic=vpc-getting-started&interface=ui#create-and-configure-vpc) and all the needed resources (if not already present).
 1. [Create your public address range](/docs/vpc?topic=vpc-par-creating&interface=ui).
@@ -108,6 +112,8 @@ To get started with using public address ranges, follow these steps:
 
    The next-hop IP must be an IP address that is bound to a network interface on a subnet in the route's zone for ingress routing.
    {: note}
+
+
 
 ## Common use cases
 {: #par-use-cases}
@@ -139,6 +145,7 @@ The public address range is attached to the zone with the Active Firewall, `us-s
 ## Related links
 {: #par-related-links}
 
+- 
 - 
 - [IAM roles and actions](/docs/iam?topic=iam-iam-service-roles-actions#is.public-address-range-roles)
 - [Quotas](/docs/vpc?topic=vpc-quotas#par-quotas) and [service limits](/docs/vpc?topic=vpc-quotas#service-limits-for-vpc-services)

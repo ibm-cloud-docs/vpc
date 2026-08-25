@@ -2,7 +2,7 @@
 
 copyright:
   years: 2023, 2026
-lastupdated: "2026-08-10"
+lastupdated: "2026-08-25"
 
 keywords:
 
@@ -87,6 +87,8 @@ To create a virtual network interface in the console, follow these steps:
 
     If a floating IP is attached, the virtual network interface will not be accepted as file share mount target. If infrastructure NAT is enabled, at most one floating IP can be attached.
     {: note}
+
+
 
 1. In the Secondary IP section (optional), click **Attach**. Select a reserving method, and specify whether auto release is enabled.
 
@@ -233,6 +235,8 @@ To create a virtual network interface with the API, follow these steps:
       }'
     ```
     {: codeblock}
+
+
 
 ## Creating a virtual network interface with Terraform
 {: #vni-terraform-create}

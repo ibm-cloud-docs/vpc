@@ -2,7 +2,7 @@
 
 copyright:
   years: 2018, 2026
-lastupdated: "2026-07-05"
+lastupdated: "2026-08-25"
 
 keywords:
 
@@ -137,6 +137,10 @@ The combined total of the address prefixes quota and the [advertised routes quot
 | ------ | --- |
 | Maximum number of IPv4 public address ranges per account per region | 5 |
 | Prefix size | `/32` to `/28` |
+|  |  |
+|  |  |
+|  |  |
+|  |  |
 |  |  |
 {: caption="Quotas for public address ranges" caption-side="bottom"}
 

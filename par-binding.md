@@ -2,7 +2,7 @@
 
 copyright:
   years: 2026
-lastupdated: "2026-08-11"
+lastupdated: "2026-08-25"
 
 keywords: public address range, bind, unbind
 
@@ -100,6 +100,8 @@ To bind, unbind, or move a reserved IP address from the command line, follow the
    ibmcloud is public-address-range-update PUBLIC_ADDRESS_RANGE [--name NAME] ([--vpc VPC --zone ZONE] | [--reset-target]) [--output JSON] [-q, --quiet]
    ```
 
+   
+
    Where:
 
    `PUBLIC_ADDRESS_RANGE`
@@ -113,6 +115,8 @@ To bind, unbind, or move a reserved IP address from the command line, follow the
 
    `--zone`
    :   The zone where you want this public address range to reside. When specifying the `--zone` option, `--vpc` is required.
+
+   
 
    `--reset-target`
    :   Unbind a public address range.
@@ -150,6 +154,8 @@ ibmcloud is public-address-range-update r006-81222eee-b3e0-4dc3-b429-aee9e5c0abf
 ```
 {: pre}
 
+
+
 ## Binding, unbinding, and moving public address ranges with the API
 {: #par-bind-unbind-api}
 {: api}
@@ -182,6 +188,8 @@ To bind, unbind, or move public address ranges with the API, follow these steps:
                   }'
       ```
       {: pre}
+
+   * 
 
    * Unbind a public address range from a specific VPC:
 
@@ -244,10 +252,14 @@ resource "ibm_is_public_address_range" "public_address_range_instance" {
 ```
 {: codeblock}
 
+
+
 ## Related links
 {: #after-binding-par}
 
 - [About public address ranges](/docs/vpc?topic=vpc-about-par)
+- 
+- 
 - [IAM roles and actions](/docs/iam?topic=iam-iam-service-roles-actions#is.public-address-range-roles)
 - [Quotas](/docs/vpc?topic=vpc-quotas#par-quotas) and [service limits](/docs/vpc?topic=vpc-quotas#service-limits-for-vpc-services)
 - [FAQ](/docs/vpc?topic=vpc-faq-public-address-ranges)

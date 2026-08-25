@@ -2,7 +2,7 @@
 
 copyright:
   years: 2026
-lastupdated: "2026-07-22"
+lastupdated: "2026-08-25"
 
 keywords: public address ranges, limitations
 
@@ -16,6 +16,11 @@ subcollection: vpc
 {: #par-known-issues}  
 
 As the rollout of Public Address Ranges for VPC continues, a few known issues and limitations have been identified. These are temporary and are scheduled to be addressed in upcoming updates.
+
+
+
+## IPv4 public address range known issues
+{: #par-known-issues-ipv4}
 
 * Intermittent 500 error when listing or deleting public address ranges
 
@@ -42,6 +47,7 @@ As the rollout of Public Address Ranges for VPC continues, a few known issues an
    Workaround: Retry the operation. The backend is healthy, and most retries complete successfully.
 
 ## Related links
-{: #known-issues-par-related-link} 
+{: #known-issues-par-related-link}
 
 - [About public address ranges](/docs/vpc?topic=vpc-about-par)
+- [About IPv6 public address ranges](/docs/vpc?topic=vpc-ipv6-par-about)
