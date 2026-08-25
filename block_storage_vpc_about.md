@@ -48,7 +48,7 @@ For other limits, see [Volume attachment limits](/docs/vpc?topic=vpc-attaching-b
 ### Boot volumes
 {: #block-storage-vpc-boot-volumes}
 
-When you create an instance, you can specify if the boot volume is to be populated with a stock or custom image, or a snapshot. The capacity of the boot volume is dependent on the minimum provisioned size of the image or the size of the snapshot. It must be the same or larger than the size of the image or snapshot. Most stock images require a 100 GB boot volume. Some Linux stock images can be installed on a boot volume with capacity of as little as 10 GB, while some Windows stock images require a minimum of 40 GB. If you are importing a custom image, its minimum provisioned size can be 10 - 250 GB. Images that are smaller than 10 GB are rounded up to 10 GB.
+When you create an instance, you can specify if the boot volume is to be populated with a stock or custom image, or a snapshot. The capacity of the boot volume depends on the minimum provisioned size of the image or the size of the snapshot. It must be the same or larger than the size of the image or snapshot. Most stock images require a 100 GB boot volume. Some Linux stock images can be installed on a boot volume with capacity of as little as 10 GB, while some Windows stock images require a minimum of 40 GB. If you are importing a custom image, its minimum provisioned size can be 10 - 250 GB. Images that are smaller than 10 GB are rounded up to 10 GB.
 
 If you use the console to provision the instance, your default choice is the `general-purpose` volume profile. When you provision a boot volume from the CLI, with the API, or Terraform, you can specify any of the profiles from the `tiered`, `custom`, or `defined performance` volume profile families. Allowlisted customers can also use the `sdp` profile to provision boot volumes.
 
@@ -86,7 +86,7 @@ Volume profiles define the capacity and performance characteristics of storage v
 ### SSD Defined Performance profile
 {: #block-storage-sdp-intro}
 
-The SSD Defined Performance (`sdp`) profile is available to select customers in the Dallas (`us-south`), Frankfurt (`eu-de`), London (`eu-gb`), Madrid (`eu-es`), Osaka (`jp-osa`), Sao Paulo (`br-sao`), Sydney (`au-syd`), Tokyo (`jp-tok`), Toronto (`ca-tor`), and Washington (`us-east`) regions. You can specify custom capacity, custom throughput limit, and custom IOPS for your second-generation volumes. To request access, submit an [allowlisting request](https://forms.monday.com/forms/6f855ea28400d75ef31e540e39c1d31a?r=use1&SDSallowlist=)
+The SSD Defined Performance (`sdp`) profile is available to select customers in the Dallas (`us-south`), Frankfurt (`eu-de`), London (`eu-gb`), Madrid (`eu-es`), Osaka (`jp-osa`), Sao Paulo (`br-sao`), Sydney (`au-syd`), Tokyo (`jp-tok`), Toronto (`ca-tor`), and Washington (`us-east`) regions. You can specify custom capacity, custom throughput limit, and custom IOPS for your second-generation volumes. To request access, submit an [allowlisting request](https://forms.monday.com/forms/6f855ea28400d75ef31e540e39c1d31a?r=use1&SDSallowlist=){: external}.
 {: preview}
 
 The following limitations apply to this release:

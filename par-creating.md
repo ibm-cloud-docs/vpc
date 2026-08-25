@@ -2,7 +2,7 @@
 
 copyright:
   years: 2026
-lastupdated: "2026-08-04"
+lastupdated: "2026-08-25"
 
 keywords: public address range, create, bind
 
@@ -91,11 +91,14 @@ To create public address ranges from the command line, follow these steps:
 
    
    
+   
 
    Where:
 
    `--ipv4-address-count`
    :   The total number of public IPv4 addresses required. Must be a power of 2.
+
+   
 
    
 
@@ -107,6 +110,8 @@ To create public address ranges from the command line, follow these steps:
 
    `--zone`
    :   The zone where this public address range resides. Requires `--vpc`.
+
+   
 
    `--resource-group-id`
    :   ID of the resource group. Mutually exclusive with `--resource-group-name`.
@@ -145,6 +150,8 @@ Create a public address range named `public-address-range-3` with an address cou
 ibmcloud is public-address-range-create --name public-address-range-3 --ipv4-address-count 8 --vpc cli-test-vpc --zone us-south-1 --resource-group-id 72b27b5c-f4b0-48bb-b954-5becc7c1dcb3
 ```
 {: pre}
+
+
 
 
 
@@ -195,6 +202,8 @@ Select one of the following options:
 
 * 
 
+* 
+
 If you need to change the size of the address range or the resource group, you must delete and recreate the address range.
 {: important}
 
@@ -225,10 +234,14 @@ resource "ibm_is_public_address_range" "example" {
 
 
 
+
+
 ## Related links
 {: #after-create-par}
 
 - [About public address ranges](/docs/vpc?topic=vpc-about-par)
+- 
+- 
 - 
 - [IAM roles and actions](/docs/iam?topic=iam-iam-service-roles-actions#is.public-address-range-roles)
 - [Quotas](/docs/vpc?topic=vpc-quotas#par-quotas) and [service limits](/docs/vpc?topic=vpc-quotas#service-limits-for-vpc-services)

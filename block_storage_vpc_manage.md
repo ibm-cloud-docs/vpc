@@ -24,12 +24,10 @@ Manage {{site.data.keyword.cloud_notm}} block storage volumes by detaching, tran
 {: #manage-block-storage-vol-UI}
 {: ui}
 
-
-The `sdp` profile is available to select customers. To request access, submit an [allowlisting request](https://forms.monday.com/forms/6f855ea28400d75ef31e540e39c1d31a?r=use1&SDSallowlist=)
+The `sdp` profile is available to select customers. To request access, submit an [allowlisting request](https://forms.monday.com/forms/6f855ea28400d75ef31e540e39c1d31a?r=use1&SDSallowlist=){: external}.
 {: preview}
 
-
-Use the UI to manage your block storage volumes. In the console, you can complete the following actions:
+Use the console to manage your block storage volumes. In the console, you can complete the following actions:
 
 * Detach a volume from a virtual server instance.
 * Transfer a volume from one instance to another.
@@ -161,10 +159,8 @@ You can also enable or disable the **Auto-delete** option for volumes when you c
 {: #managing-block-storage-cli}
 {: cli}
 
-
-The `sdp` profile is available to select customers. To request access, submit an [allowlisting request](https://forms.monday.com/forms/6f855ea28400d75ef31e540e39c1d31a?r=use1&SDSallowlist=)
+The `sdp` profile is available to select customers. To request access, submit an [allowlisting request](https://forms.monday.com/forms/6f855ea28400d75ef31e540e39c1d31a?r=use1&SDSallowlist=){: external}.
 {: preview}
-
 
 Manage your block storage from the command-line interface (CLI). From the CLI, you can:
 
@@ -353,10 +349,8 @@ A boot volume cannot be detached from an instance while the instance exists. If 
 {: #managing-block-storage-api}
 {: api}
 
-
-The `sdp` profile is available to select customers. To request access, submit an [allowlisting request](https://forms.monday.com/forms/6f855ea28400d75ef31e540e39c1d31a?r=use1&SDSallowlist=)
+The `sdp` profile is available to select customers. To request access, submit an [allowlisting request](https://forms.monday.com/forms/6f855ea28400d75ef31e540e39c1d31a?r=use1&SDSallowlist=){: external}.
 {: preview}
-
 
 Manage your block storage programmatically by making requests to the [VPC REST APIs](/docs/apis/vpc). With the API, you can:
 
@@ -588,10 +582,8 @@ Verify that the volume is detached from the instance by making a `GET /instances
 {: #managing-block-storage-terraform}
 {: terraform}
 
-
-The `sdp` profile is available to select customers. To request access, submit an [allowlisting request](https://forms.monday.com/forms/6f855ea28400d75ef31e540e39c1d31a?r=use1&SDSallowlist=)
+The `sdp` profile is available to select customers. To request access, submit an [allowlisting request](https://forms.monday.com/forms/6f855ea28400d75ef31e540e39c1d31a?r=use1&SDSallowlist=){: external}.
 {: preview}
-
 
 Manage your block storage as a code with Terraform. With the Terraform, you can:
 

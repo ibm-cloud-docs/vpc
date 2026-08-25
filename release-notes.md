@@ -2,7 +2,7 @@
 
 copyright:
   years: 2019, 2026
-lastupdated: "2026-08-21"
+lastupdated: "2026-08-25"
 
 keywords:
 
@@ -219,7 +219,7 @@ Multiple IKE and IPsec policy support for VPN gateways
 :   You can now configure multiple ciphers in IKE and IPsec policies for site‑to‑site VPN gateways and order them by priority. The VPN gateway negotiates mutually supported encryption and hashing algorithms with your on‑premises peer based on the priority. This feature improves interoperability, strengthens security, and consistent VPN policy management. For more information, see [Creating an IKE policy](/docs/vpc?topic=vpc-creating-ike-policy) and [Creating an IPsec policy](/docs/vpc?topic=vpc-creating-ipsec-policy).
 
 ### 22 May 2026
-{: #vpc-may2926}
+{: #vpc-may2226}
 {: release-note}
 
 Security and stability improvements for IBM Hyper Protect Virtual Servers

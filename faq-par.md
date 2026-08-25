@@ -2,7 +2,7 @@
 
 copyright:
   years: 2024, 2026
-lastupdated: "2026-07-24"
+lastupdated: "2026-08-25"
 
 subcollection: vpc
 
@@ -41,12 +41,14 @@ You can reserve ranges with the following prefix sizes:
 * `/31` = 2 IPs
 * `/32` = 1 IP
 
-After reserving a range, you can't change its size. Make sure to reserve a range that’s large enough to meet your current and future needs.
+After reserving a range, you can't change its size. Make sure to reserve a range that's large enough to meet your current and future needs.
 
 If you require a prefix size larger than `/28`, [contact support](/unifiedsupport/cases/form){: external} to request a quota increase.
 
 IPs in different public address ranges aren't guaranteed to be contiguous.
 {: note}
+
+
 
 ## Can I divide a public address range across multiple VPCs or zones?
 {: #divide-par}
@@ -69,12 +71,14 @@ Yes. You can reserve and bind multiple public address ranges to a single VPC to 
 
 Not by default. However, you can create separate public address ranges in different zones and configure routing to ensure high availability across zones.
 
-## Related link
+
+
+## Related links
 {: #faq-related-links-par}
 
 - [About public address ranges](/docs/vpc?topic=vpc-about-par)
+- 
 - [IAM roles and actions](/docs/iam?topic=iam-iam-service-roles-actions#is.public-address-range-roles)
 - [Quotas](/docs/vpc?topic=vpc-quotas#par-quotas) and [service limits](/docs/vpc?topic=vpc-quotas#service-limits-for-vpc-services)
-- [FAQ](/docs/vpc?topic=vpc-faq-public-address-ranges)
 - [Known issues](/docs/vpc?topic=vpc-par-known-issues)
 - [Troubleshooting](/docs/vpc?group=tbs-par)
