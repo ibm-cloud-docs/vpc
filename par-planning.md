@@ -22,7 +22,6 @@ Review the following considerations before creating a public address range.
 
 * Make sure that you have the appropriate [IAM permissions](/docs/iam?topic=iam-iam-service-roles-actions#is.public-address-range-roles).
 * You can bind multiple public address ranges to a VPC.
-* You can't divide public address ranges into subranges and bind it to multiple VPCs or zones.
 * You can't change the size of the address range after it is reserved. Make sure to reserve a public address range size large enough to meet your needs.
 
    IPs in different public address ranges aren't guaranteed to be contiguous.
