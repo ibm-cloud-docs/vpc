@@ -1,8 +1,8 @@
----
+﻿---
 
 copyright:
   years: 2022, 2026
-lastupdated: "2026-08-06"
+lastupdated: "2026-08-25"
 
 keywords: floating ip, about, public gateway
 

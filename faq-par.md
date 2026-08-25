@@ -76,7 +76,8 @@ Not by default. However, you can create separate public address ranges in differ
 ## Related links
 {: #faq-related-links-par}
 
-- [About public address ranges](/docs/vpc?topic=vpc-about-par)
+- [Getting started with public address ranges](/docs/vpc?topic=vpc-about-par)
+- [Planning considerations for public address ranges](/docs/vpc?topic=vpc-par-planning)
 - 
 - [IAM roles and actions](/docs/iam?topic=iam-iam-service-roles-actions#is.public-address-range-roles)
 - [Quotas](/docs/vpc?topic=vpc-quotas#par-quotas) and [service limits](/docs/vpc?topic=vpc-quotas#service-limits-for-vpc-services)

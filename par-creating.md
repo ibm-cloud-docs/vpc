@@ -26,7 +26,7 @@ You can create public address ranges with the console, CLI, API, and Terraform.
 ## Before you begin
 {: #par-before-you-begin}
 
-Make sure to review [planning considerations](/docs/vpc?topic=vpc-about-par#par-planning) for public address ranges.
+Make sure to review [planning considerations](/docs/vpc?topic=vpc-par-planning) for public address ranges.
 
 ## Creating public address ranges in the console
 {: #par-creating-ui}
@@ -239,7 +239,8 @@ resource "ibm_is_public_address_range" "example" {
 ## Related links
 {: #after-create-par}
 
-- [About public address ranges](/docs/vpc?topic=vpc-about-par)
+- [Getting started with public address ranges](/docs/vpc?topic=vpc-about-par)
+- [Planning considerations for public address ranges](/docs/vpc?topic=vpc-par-planning)
 - 
 - 
 - 

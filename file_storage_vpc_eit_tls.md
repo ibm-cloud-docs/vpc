@@ -1,8 +1,8 @@
----
+﻿---
 
 copyright:
   years: 2025, 2026
-lastupdated: "2026-07-15"
+lastupdated: "2026-08-25"
 
 keywords: file share, file storage, encryption in transit, Mount Helper, TLS, NFS over TLS, secure connection, mount share
 

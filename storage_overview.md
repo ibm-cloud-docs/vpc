@@ -1,8 +1,8 @@
----
+﻿---
 
 copyright:
   years: 2022, 2026
-lastupdated: "2026-08-21"
+lastupdated: "2026-08-25"
 
 keywords: block storage for VPC, File Storage for VPC, Snapshots for VPC, Backup for VPC, block storage, file storage, snapshots, backup,
 

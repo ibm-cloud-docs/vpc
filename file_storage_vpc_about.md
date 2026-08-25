@@ -1,8 +1,8 @@
----
+﻿---
 
 copyright:
   years: 2021, 2026
-lastupdated: "2026-08-21"
+lastupdated: "2026-08-25"
 
 keywords: file share, mount target, virtual network interface, customer-managed encryption, encryption at rest, encryption in transit, file storage, share,
 
