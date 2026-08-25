@@ -2,7 +2,7 @@
 
 copyright:
   years: 2025, 2026
-lastupdated: "2026-08-20"
+lastupdated: "2026-08-25"
 
 keywords: VPN, vpn gateways, performance, best practices
 
@@ -91,7 +91,7 @@ VPN traffic is encrypted with IPsec, and the choice of encryption algorithm affe
 
 Use AES-GCM whenever supported by both VPN peers to maximize throughput without compromising security.
 
-The following table summarizes minimum example benchmark throughput values that are tested within IBM’s internal network. These figures represent what was observed under controlled test conditions and are "not" a guarantee of actual performance in your environment. Actual throughput depends on peer device capacity, available ISP bandwidth, routing configuration, packet size, traffic patterns, compute capacity, and other network conditions.
+The following table summarizes benchmark throughput values that are tested within IBM’s internal network. These figures represent observed performance under controlled test conditions. Actual throughput in your environment depends on peer device capacity, available ISP bandwidth, routing configuration, packet size, traffic patterns, compute capacity and other network conditions.
 
 |VPN mode                     | AES only         | AES-GCM          |
 |-----------------------------|------------------|------------------|
