@@ -20,7 +20,7 @@ A public address range is a contiguous set of public IPs that you can reserve an
 
 You can create public address ranges by using IBM-managed public IP address pools.
 
-You can route the IPs in the range to a target resource in the VPC, such as a virtual server instance, VNF appliance, or other compute resource.
+You can route traffic destined for addresses in the range to a target resource in the VPC, such as a virtual server instance, virtual network function (VNF), or other compute resource.
 
 For example, you can configure public ingress routing to send the destination IP range to a VNF appliance next-hop. Response traffic from the target retains the original source IP as it exits the VPC, ensuring that return traffic isn't dropped.
 
@@ -30,7 +30,7 @@ For more information about configuring ingress routing, see [About routing table
 ## Key capabilities and benefits
 {: #par-feature-capabilities}
 
-The following key benefits highlight how the Public Address Ranges for VPC service supports scalable, secure, and highly available networks.
+Public address ranges help support scalable, secure, and highly available network architectures.
 
 Contiguous IP Range
 :   A public address range provides a continuous set of IBM-provided public IPs for scalable and manageable routing and security policies.
@@ -39,10 +39,10 @@ Resource Management
 :   Public address ranges can simplify access control and security while enabling a single public ingress route to inspect traffic from multiple endpoints and secure enterprise applications on the VPC.
 
 Scalability
-:   When you need more public IPs, you can reserve a larger prefix without the need to manually manage individual addresses.
+:   When additional public IP addresses are required, you can reserve a larger prefix instead of managing individual addresses.
 
 High Availability
-:   In regions with availability zones, you can create zone-redundant public IP ranges to distribute IP addresses for high availability. These public address ranges are regional and can be moved between VPCs in the same or different availability zones.
+:   Public address ranges are regional resources that can be moved between VPCs and availability zones to support high availability and disaster recovery designs.
 
 ## Getting started
 {: #par-getting-started}
