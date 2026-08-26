@@ -2,7 +2,7 @@
 
 copyright:
   years: 2022, 2026
-lastupdated: "2026-08-21"
+lastupdated: "2026-08-26"
 
 keywords: Block Storage, snapshots, cross-regional copy, fast restore, backup, restore volume
 
@@ -126,6 +126,8 @@ Yes, you can use Backup for VPC to create a backup policy and plan. In the plan,
 {: #faq-snapshot-9}
 
 Snapshots have their own lifecycle, independent of the {{site.data.keyword.block_storage_is_short}} volume. You can separately manage the source volume. However, when you take a snapshot, you must wait for the snapshot creation process to complete before you detach or delete the volume.
+
+
 
 ## How am I charged for usage?
 {: faq}
