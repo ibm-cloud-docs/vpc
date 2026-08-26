@@ -1,8 +1,8 @@
-﻿---
+---
 
 copyright:
   years: 2026
-lastupdated: "2026-08-25"
+lastupdated: "2026-08-26"
 
 keywords: HA for VPC, DR for VPC, VPC recovery time objective, VPC recovery point objective
 
