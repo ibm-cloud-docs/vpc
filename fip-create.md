@@ -1,8 +1,8 @@
-﻿---
+---
 
 copyright:
   years: 2022, 2026
-lastupdated: "2026-08-25"
+lastupdated: "2026-08-26"
 
 keywords: floating ip, reserving, bare metal, vnic, public gateways
 

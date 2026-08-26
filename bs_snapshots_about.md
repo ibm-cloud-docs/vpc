@@ -2,7 +2,7 @@
 
 copyright:
   years: 2022, 2026
-lastupdated: "2026-08-25"
+lastupdated: "2026-08-26"
 
 keywords: snapshots, Block Storage, volumes, cross-regional snapshot, restore volume, copy snapshot
 
@@ -119,6 +119,8 @@ Consistency groups can't include snapshots from mixed generations.
 
 When you take a snapshot, read and write operations from your virtual server instance to the volume continue uninterrupted. After volume data is retrieved, the snapshot enters a `pending` state until the snapshot is created. When the snapshot is successfully created and in a `stable` state, you can resume volume management activities, such as deleting, resizing, or detaching a volume. You can also take more snapshots.
 
+
+
 Volume data that is captured for the requested snapshot is encrypted while in transit from the hypervisor to the regional storage repository. The initial snapshot is the entire copy of your {{site.data.keyword.block_storage_is_short}} volume. Subsequent snapshots copy only what was changed since the last snapshot.
 
 You can [restore](/docs/vpc?topic=vpc-snapshots-vpc-restore) a boot or data volume from a running virtual server instance in the console, CLI, API, or Terraform. Restoring a data from a snapshot creates a new, fully provisioned volume. It does not overwrite data in the snapshot's parent volume.
@@ -140,6 +142,7 @@ The following limitations apply for the second-generation block storage snapshot
 * You can delete any snapshot that you take. However, snapshots must be in a `stable` or `pending` state and not actively restoring a volume.
 * You can delete a {{site.data.keyword.block_storage_is_short}} volume and all its snapshots. All snapshots must be in a `stable` or `pending` state. No snapshot can be actively restoring a volume.
 
+
 The following limitations apply for the first-generation block storage snapshots:
 
 * When you use the first-generation block storage, you can take up to 750 snapshots per volume in a region.
@@ -151,6 +154,7 @@ The following limitations apply for the first-generation block storage snapshots
 * You can delete any snapshot that you take. However, snapshots must be in a `stable` or `pending` state and not actively restoring a volume.
 * You can delete a {{site.data.keyword.block_storage_is_short}} volume and all its snapshots. All snapshots must be in a `stable` or `pending` state. No snapshot can be actively restoring a volume.
 * Restoring an instance directly from snapshot consistency group identifier is not supported.
+
 
 ## Securing your data
 {: #bs-snapshot-data-security}

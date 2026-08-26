@@ -22,10 +22,7 @@ You can create public address ranges by using IBM-managed public IP address pool
 
 You can route traffic destined for addresses in the range to a target resource in the VPC, such as a virtual server instance, virtual network function (VNF), or other compute resource.
 
-For example, you can configure public ingress routing to send the destination IP range to a VNF appliance next-hop. Response traffic from the target retains the original source IP as it exits the VPC, ensuring that return traffic isn't dropped.
-
-For more information about configuring ingress routing, see [About routing tables and routes](/docs/vpc?topic=vpc-about-custom-routes&interface=api).
-{: note}
+For example, you can configure public ingress routing to send the destination IP range to a VNF appliance next-hop. Response traffic from the target retains the original source IP as it exits the VPC, ensuring that return traffic isn't dropped. For more information about configuring ingress routing, see [About routing tables and routes](/docs/vpc?topic=vpc-about-custom-routes&interface=api).
 
 ## Key capabilities and benefits
 {: #par-feature-capabilities}
@@ -33,7 +30,7 @@ For more information about configuring ingress routing, see [About routing table
 Public address ranges help support scalable, secure, and highly available network architectures.
 
 Contiguous IP Range
-:   A public address range provides a continuous set of IBM-provided public IPs for scalable and manageable routing and security policies.
+:   A public address range provides a continuous set of public IPs for scalable and manageable routing and security policies.
 
 Resource Management
 :   Public address ranges can simplify access control and security while enabling a single public ingress route to inspect traffic from multiple endpoints and secure enterprise applications on the VPC.

@@ -1,8 +1,8 @@
-﻿---
+---
 
 copyright:
   years: 2019, 2026
-lastupdated: "2026-08-25"
+lastupdated: "2026-08-26"
 
 keywords:
 
@@ -81,7 +81,7 @@ AMD Instinct MI300X accelerated bare metal server profile now available (select 
 :   The AMD Instinct MI300X accelerated bare metal server profile is now available in Washington DC (us-east) region only. This profile supports single-node inferencing and doesn't include a cluster network. The profile runs on an [AMD Instinct™ MI300X Accelerator](https://www.amd.com/en/products/accelerators/instinct/mi300/mi300x.html){: external} that is tuned for AI workloads, including inferencing and fine-tuning. For more information about the `gx3d-metal-224x2048x8mi300x-sn` profile, see [x86-64 bare metal server profiles](/docs/vpc?topic=vpc-bare-metal-servers-profile&interface=ui). For information on configuring a bare metal server with the gx3d profile, see [Configuring a bare metal server with an AMD Instinct MI300X Accelerator](/docs/vpc?topic=vpc-managing-gpus#configure-bare-metal-server-with-amd-mi300x).
 
 Workload update for IBM Hyper Protect Secure Build
-:   The `workload` section of the IBM Hyper Protect Secure Build is updated based on the IBM Hyper Protect Container Runtime image `ibm-hyper-protect-container-runtime-1-0-s390x-29`. For more information, see [Configuring and using IBM Hyper Protect Secure Build in {{site.data.keyword.hpvs}} for VPC](/docs/vpc?topic=vpc-about-hpsb#hpvs_hpsb). Clone the latest Secure-Build-Cli to create a IBM Hyper Protect Secure Build server.
+:   The `workload` section of the IBM Hyper Protect Secure Build is updated based on the IBM Hyper Protect Container Runtime image `ibm-hyper-protect-container-runtime-1-0-s390x-29`. For more information, see [Configuring and using IBM Hyper Protect Secure Build in {{site.data.keyword.hpvs}} for VPC](/docs/vpc?topic=vpc-about-hpsb#hpvs_hpsb). Clone the latest Secure-Build-Cli to create an IBM Hyper Protect Secure Build server.
 
 ### 27 July 2026
 {: #vpc-jul2726}
@@ -132,7 +132,7 @@ Cross-regional copy of block storage snapshots now supported in Chennai - Airtel
 {: release-note}
 
 Workload update for IBM Hyper Protect Secure Build
-:   The `workload` section of the IBM Hyper Protect Secure Build is updated based on the IBM Hyper Protect Container Runtime image `ibm-hyper-protect-container-runtime-1-0-s390x-28`. For more information, see [Configuring and using IBM Hyper Protect Secure Build in {{site.data.keyword.hpvs}} for VPC](/docs/vpc?topic=vpc-about-hpsb#hpvs_hpsb). Clone the latest Secure-Build-Cli to create a IBM Hyper Protect Secure Build server.
+:   The `workload` section of the IBM Hyper Protect Secure Build is updated based on the IBM Hyper Protect Container Runtime image `ibm-hyper-protect-container-runtime-1-0-s390x-28`. For more information, see [Configuring and using IBM Hyper Protect Secure Build in {{site.data.keyword.hpvs}} for VPC](/docs/vpc?topic=vpc-about-hpsb#hpvs_hpsb). Clone the latest Secure-Build-Cli to create an IBM Hyper Protect Secure Build server.
 
 Chennai - Airtel region now available for Hopper 1 cluster network
 :   The Chennai - Airtel region is now available for provisioning Hopper 1 cluster networks with NVIDIA H200 instance profile.  You can create cluster networks with NVIDIA H200 instance profile in this region to run workloads, such as AI training and large-scale simulations. For more information, see [Cluster network supported regions and zones](/docs/vpc?topic=vpc-planning-cluster-network).
@@ -312,7 +312,7 @@ Storage dense x2de and x3de profiles for Bare Metal on VPC (select availability)
 {: release-note}
 
 Workload update for IBM Hyper Protect Secure Build
-:   The `workload` section of the IBM Hyper Protect Secure Build is updated based on the IBM Hyper Protect Container Runtime image `ibm-hyper-protect-container-runtime-1-0-s390x-26`. For more information, see [Configuring and using IBM Hyper Protect Secure Build in {{site.data.keyword.hpvs}} for VPC](/docs/vpc?topic=vpc-about-hpsb#hpvs_hpsb). Clone the latest Secure-Build-Cli to create a IBM Hyper Protect Secure Build server.
+:   The `workload` section of the IBM Hyper Protect Secure Build is updated based on the IBM Hyper Protect Container Runtime image `ibm-hyper-protect-container-runtime-1-0-s390x-26`. For more information, see [Configuring and using IBM Hyper Protect Secure Build in {{site.data.keyword.hpvs}} for VPC](/docs/vpc?topic=vpc-about-hpsb#hpvs_hpsb). Clone the latest Secure-Build-Cli to create an IBM Hyper Protect Secure Build server.
 
 ### 24 March 2026
 {: #vpc-mar2426}
@@ -379,7 +379,7 @@ Mumbai - Airtel region now available
 :   The Mumbai - Airtel (`in-mum`) region is now available for provisioning the 3rd generation of [virtual servers](/docs/vpc?topic=vpc-profiles), [dedicated hosts](/docs/vpc?topic=vpc-dh-profiles), and [bare metal servers](/docs/vpc?topic=vpc-bare-metal-servers-profile).
    - You can provision virtual servers in the Mumbai - Airtel region from the Balanced, Compute, Memory, Very High Memory, and Flex profile families. For more information, see [General purpose - Gen 3 profile details](/docs/vpc?topic=vpc-general-purpose-vsi-profiles-gen3-intel) and [General purpose - Flex profile details](/docs/vpc?topic=vpc-flexible-profiles-virtual-servers).
    - You can provision select bare metal server profiles in the Mumbai - Airtel region. For more information, see [Generation 3 (x3) bare metal profiles availability by region](/docs/vpc?topic=vpc-bare-metal-servers-profile&interface=ui#bare-metal-profile-availability-by-region-gen3).
-   - First-generation storage services are also available, except for the cross-regional replication feature for file shares and cross-regional copy feature for block volume snapshots. Block volume snapshots that are taken in the Mumbai - Airtel region are encrypted by using a {{site.data.keyword.keymanagementserviceshort}} instance from the London (`eu-gb`) region temporarily. For more information, see [Known issues](/docs/vpc?topic=vpc-storage-known-issues#snapshot-COS-upload-IN-CHE-EU-GB).
+   - First-generation storage services are also available, except for the cross-regional replication feature for file shares and cross-regional copy feature for block volume snapshots. Block volume snapshots that are taken in the Mumbai - Airtel region are encrypted by using an {{site.data.keyword.keymanagementserviceshort}} instance from the London (`eu-gb`) region temporarily. For more information, see [Known issues](/docs/vpc?topic=vpc-storage-known-issues#snapshot-COS-upload-IN-CHE-EU-GB).
    - For more information about the Mumbai - Airtel region and zones, see [IBM Cloud region and data center locations for resource deployment](/docs/overview?topic=overview-locations).
 
 ### 20 February 2026
@@ -533,7 +533,7 @@ Chennai region now available
 :   The Chennai region is now available for provisioning the 3rd generation of [virtual servers](/docs/vpc?topic=vpc-profiles), [dedicated hosts](/docs/vpc?topic=vpc-dh-profiles), and [bare metal servers](/docs/vpc?topic=vpc-bare-metal-servers-profile).
    - You can provision virtual servers in the Chennai region from the Balanced, Compute, Memory, Very High Memory, and Flex profile families. For more information, see [General purpose - Gen 3 profile details](/docs/vpc?topic=vpc-general-purpose-vsi-profiles-gen3-intel) and [General purpose - Flex profile details](/docs/vpc?topic=vpc-flexible-profiles-virtual-servers).
    - You can provision select bare metal server profiles in the Chennai region. For more information, see [Generation 3 (x3) bare metal profiles availability by region](/docs/vpc?topic=vpc-bare-metal-servers-profile&interface=ui#bare-metal-profile-availability-by-region-gen3).
-   - First-generation storage services are also available, except for the cross-regional replication feature for file shares and cross-regional copy feature for block volume snapshots. Block volume snapshots that are taken in the Chennai region are encrypted by using a {{site.data.keyword.keymanagementserviceshort}} instance from the London (`eu-gb`) region temporarily. For more information, see [Known issues](/docs/vpc?topic=vpc-storage-known-issues#snapshot-COS-upload-IN-CHE-EU-GB).
+   - First-generation storage services are also available, except for the cross-regional replication feature for file shares and cross-regional copy feature for block volume snapshots. Block volume snapshots that are taken in the Chennai region are encrypted by using an {{site.data.keyword.keymanagementserviceshort}} instance from the London (`eu-gb`) region temporarily. For more information, see [Known issues](/docs/vpc?topic=vpc-storage-known-issues#snapshot-COS-upload-IN-CHE-EU-GB).
    - For more information about the Chennai region and zones, see [IBM Cloud region and data center locations for resource deployment](/docs/overview?topic=overview-locations).
 
 ### 23 October 2025
@@ -1570,7 +1570,7 @@ GPU l40S profiles now available in Canada and United Kingdom regions
 {: release-note}
 
 UI update for Block storage
-:    When you create a {{site.data.keyword.block_storage_is_short}} volume from the Block storage volumes for VPC list, you can now choose to import data from a snapshot and to apply a backup policy as part of the new **Optional configurations** section.
+:    When you create an {{site.data.keyword.block_storage_is_short}} volume from the Block storage volumes for VPC list, you can now choose to import data from a snapshot and to apply a backup policy as part of the new **Optional configurations** section.
 
 ### 06 March 2024
 {: #vpc-mar0624}

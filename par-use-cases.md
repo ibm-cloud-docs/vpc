@@ -15,7 +15,7 @@ subcollection: vpc
 # Use cases for public address ranges
 {: #par-use-cases}
 
-Public address ranges help customers simplify the integration of network and security appliances into their network topology to run their workloads on a VPC. This feature provides more control over routing, security, and traffic management, enabling solutions that enhance network performance and security.
+Public address ranges simplify the integration of network and security appliances into VPC environments by providing greater control over routing, security, and traffic management.
 
 ## Securing your workloads in VPC
 {: #secure-workloads-vpc}
@@ -33,9 +33,11 @@ To ensure workload resilience, you can use public address ranges to maintain con
 
 The following diagram illustrates how routes and firewalls can be configured using public address ranges to enable cross-zone failover and support highly available, resilient workloads in your VPC. Set up two routes: Route 1 for the internet traffic reaching the Active Firewall in Zone 1 (`us-south-1`), and Route 2 for the Passive Firewall in Zone 2 (`us-south-2`). The routes use the public address range as the destination, with the next hop set to the firewall in each zone.
 
-The public address range is attached to the zone with the Active Firewall, `us-south-1`. Internet traffic incoming through the public address range is routed to the Active Firewall per Route 1 in `us-south-1` for inspection and filtering. When the Active Firewall is down, the customer must manually (or through automation) update the zone attachment of the public address range to `us-south-2`, so that incoming traffic is routed through Route 2 to the Passive Firewall. This setup makes the firewall highly available for internet traffic inspection, securing workloads in the VPC even during zonal failures.
+The public address range is attached to the zone with the Active Firewall, `us-south-1`. Internet traffic incoming through the public address range is routed to the Active Firewall per Route 1 in `us-south-1` for inspection and filtering. When the Active Firewall is down, you must manually (or through automation) update the zone attachment of the public address range to `us-south-2`, so that incoming traffic is routed through Route 2 to the Passive Firewall. This setup makes the firewall highly available for internet traffic inspection, securing workloads in the VPC even during zonal failures.
 
 ![Deploying highly-available and resilient workloads in VPC](images/par_use_case_2.svg "Deploy highly-available and resilient workloads in VPC"){: caption="Deploy highly-available and resilient workloads in VPC" caption-side="bottom"}
+
+
 
 
 
