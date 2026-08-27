@@ -2,7 +2,7 @@
 
 copyright:
   years: 2022, 2026
-lastupdated: "2026-08-26"
+lastupdated: "2026-08-27"
 
 keywords: Block Storage, snapshots, cross-regional copy, fast restore, backup, restore volume
 
@@ -127,7 +127,13 @@ Yes, you can use Backup for VPC to create a backup policy and plan. In the plan,
 
 Snapshots have their own lifecycle, independent of the {{site.data.keyword.block_storage_is_short}} volume. You can separately manage the source volume. However, when you take a snapshot, you must wait for the snapshot creation process to complete before you detach or delete the volume.
 
+## Are snapshots created in the order in which I submit the requests?
+{: faq}
+{: #faq-snapshot-request-order}
 
+No. A {{site.data.keyword.block_storage_is_short}} volume can process only one snapshot creation operation at a time. When you submit multiple snapshot requests for the same volume, additional requests are queued until the in-progress operation completes. The order in which queued requests are processed is not guaranteed, and you cannot control or enforce the processing order.
+
+If you require consistent snapshots across multiple volumes at the same point in time, use a [snapshot consistency group](/docs/vpc?topic=vpc-snapshots-vpc-about#multi-volume-snapshots). A consistency group captures all attached volumes simultaneously, which avoids any ordering dependency between requests.
 
 ## How am I charged for usage?
 {: faq}

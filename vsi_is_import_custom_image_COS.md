@@ -1,8 +1,8 @@
 ---
 
 copyright:
-  years: 2022, 2025
-lastupdated: "2025-01-07"
+  years: 2022, 2026
+lastupdated: "2026-08-27"
 
 keywords:
 

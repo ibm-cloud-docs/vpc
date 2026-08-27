@@ -2,7 +2,7 @@
 
 copyright:
   years: 2022, 2026
-lastupdated: "2026-08-26"
+lastupdated: "2026-08-27"
 
 keywords: snapshots, Block Storage, volumes, cross-regional snapshot, restore volume, copy snapshot
 
@@ -119,7 +119,9 @@ Consistency groups can't include snapshots from mixed generations.
 
 When you take a snapshot, read and write operations from your virtual server instance to the volume continue uninterrupted. After volume data is retrieved, the snapshot enters a `pending` state until the snapshot is created. When the snapshot is successfully created and in a `stable` state, you can resume volume management activities, such as deleting, resizing, or detaching a volume. You can also take more snapshots.
 
+A {{site.data.keyword.block_storage_is_short}} volume can process only one snapshot creation operation at a time. If you submit multiple requests for the same volume while one is in progress, the other requests receive a temporary `Volume busy` error. This condition usually resolves within a few seconds, after which the requests are accepted. This behavior applies to both first-generation and second-generation volumes.
 
+Snapshot requests for different volumes attached to the same virtual server instance are accepted independently. For first-generation volumes, these operations are queued on the hypervisor and executed one at a time, so the capture times across volumes may vary. Second-generation volumes do not have this queuing limitation, though creation times can still vary with system load. If you need point-in-time consistency across multiple volumes, consider creating a [snapshot consistency group](/docs/vpc?topic=vpc-snapshots-vpc-about#multi-volume-snapshots).
 
 Volume data that is captured for the requested snapshot is encrypted while in transit from the hypervisor to the regional storage repository. The initial snapshot is the entire copy of your {{site.data.keyword.block_storage_is_short}} volume. Subsequent snapshots copy only what was changed since the last snapshot.
 
@@ -141,7 +143,7 @@ The following limitations apply for the second-generation block storage snapshot
 * You can't create a copy of a snapshot in the source (local) region.
 * You can delete any snapshot that you take. However, snapshots must be in a `stable` or `pending` state and not actively restoring a volume.
 * You can delete a {{site.data.keyword.block_storage_is_short}} volume and all its snapshots. All snapshots must be in a `stable` or `pending` state. No snapshot can be actively restoring a volume.
-
+* Only one snapshot creation operation can run at a time per volume. Additional requests for the same volume receive a temporary `Volume busy` error before being accepted. Snapshot requests for different volumes are accepted independently but can be queued for execution on the hypervisor one at a time, so creation and capture times may vary across volumes.
 
 The following limitations apply for the first-generation block storage snapshots:
 
@@ -154,7 +156,7 @@ The following limitations apply for the first-generation block storage snapshots
 * You can delete any snapshot that you take. However, snapshots must be in a `stable` or `pending` state and not actively restoring a volume.
 * You can delete a {{site.data.keyword.block_storage_is_short}} volume and all its snapshots. All snapshots must be in a `stable` or `pending` state. No snapshot can be actively restoring a volume.
 * Restoring an instance directly from snapshot consistency group identifier is not supported.
-
+* Only one snapshot creation operation can run at a time per volume. Additional requests for the same volume may receive a temporary `Volume busy` error before being accepted. Snapshot requests for different volumes are accepted independently but are queued for execution on the hypervisor one at a time, so creation and capture times may vary across volumes.
 
 ## Securing your data
 {: #bs-snapshot-data-security}

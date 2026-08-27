@@ -2,7 +2,7 @@
 
 copyright:
   years: 2019, 2026
-lastupdated: "2026-08-06"
+lastupdated: "2026-08-27"
 
 keywords: creating an encrypted custom image, qcow2
 
@@ -41,9 +41,9 @@ The following steps summarize the high-level process that you need to complete t
 
 1. Create an encrypted image by using QEMU and a passphrase of your choice to encrypt a qcow2 file with LUKS encryption.
 2. Upload the encrypted image file to {{site.data.keyword.cos_full_notm}}.
-3. Provision a key management service, create a customer root key (CRK), and then wrap your passphrase with the CRK to generate a wrapped data encryption key (WDEK).
+3. Provision {{site.data.keyword.keymanagementserviceshort}}, create a customer root key (CRK), and then wrap your passphrase with the CRK to generate a wrapped data encryption key (WDEK).
 4. Make sure that you have the required IBM {{site.data.keyword.iamshort}} authorizations so that you can import the image from {{site.data.keyword.cos_full_notm}} and so that your WDEK can be used for data encryption.
-5. Import the image to {{site.data.keyword.vpc_short}}. You must specify {{site.data.keyword.cos_full_notm}} location, the CRK that is stored in your KMS, and your WDEK ciphertext.
+5. Import the image to {{site.data.keyword.vpc_short}}. You must specify {{site.data.keyword.cos_full_notm}} location, the CRK that is stored in {{site.data.keyword.keymanagementserviceshort}}, and your WDEK ciphertext.
 
 ## Encrypting the image
 {: #manually-encrypt-image}
@@ -159,14 +159,14 @@ When your image file is encrypted with LUKS encryption and your unique passphras
 ## Setting up your key management service and keys
 {: #kms-prereqs}
 
-To import an encrypted custom image to {{site.data.keyword.vpc_short}}, you need a key management service. You also need a customer root key (CRK) and a wrapped data encryption key (WDEK). The WDEK is the passphrase that you used to encrypt your image wrapped with your CRK, so that your passphrase remains known only to you. The WDEK is used to access the encrypted image when a virtual server instance that uses the encrypted image is started.
-
-The {{site.data.keyword.hscrypto}} are deprecated. Customers can use existing instances until 20 March 2027. For more information, see [Deprecation of IBM Cloud Hyper Protect Crypto Services](/docs/hs-crypto?topic=hs-crypto-faqs-deprecation-of-ibm-cloud-hyper-protect-crypto-services). For continued protection, consider migrating your existing encryption keys to a Dedicated {{site.data.keyword.keymanagementserviceshort}} instance. For more information, see the [Migration guide](/docs/key-protect?topic=key-protect-migrate-st).
+IBM Cloud {{site.data.keyword.hscrypto}} are deprecated. Customers can use existing instances until 20 March 2027. For more information, see [Deprecation of IBM Cloud Hyper Protect Crypto Services](/docs/hs-crypto?topic=hs-crypto-faqs-deprecation-of-ibm-cloud-hyper-protect-crypto-services). For continued protection, consider migrating your existing encryption keys to a Dedicated {{site.data.keyword.keymanagementserviceshort}} instance. For more information, see the [Migration guide](/docs/key-protect?topic=key-protect-migrate-st).
 {: deprecated}
 
+To import an encrypted custom image to {{site.data.keyword.vpc_short}}, you need {{site.data.keyword.keymanagementserviceshort}}. You also need a customer root key (CRK) and a wrapped data encryption key (WDEK). The WDEK is the passphrase that you used to encrypt your image wrapped with your CRK, so that your passphrase remains known only to you. The WDEK is used to access the encrypted image when a virtual server instance that uses the encrypted image is started.
+
 The following list is a summary of the key management prerequisites:
-* Provision a supported key management service, [{{site.data.keyword.keymanagementserviceshort}}](/docs/key-protect?topic=key-protect-getting-started-tutorial).
-* Import a customer root key (CRK) to the key management service or create one in the key management service.
+* Provision [{{site.data.keyword.keymanagementserviceshort}}](/docs/key-protect?topic=key-protect-getting-started-tutorial).
+* Import a customer root key (CRK) to {{site.data.keyword.keymanagementserviceshort}} or create one in {{site.data.keyword.keymanagementserviceshort}}.
 * Wrap (protect) the passphrase that you used to encrypt your image with your customer root key to create a wrapped data encryption key (WDEK).
 
 1. Provision the [{{site.data.keyword.keymanagementserviceshort}}](/docs/key-protect?topic=key-protect-provision) service.
@@ -178,6 +178,9 @@ The following list is a summary of the key management prerequisites:
 
    Plan ahead for importing keys by [reviewing your options for creating and encrypting key material](/docs/key-protect?topic=key-protect-importing-keys#plan-ahead). For added security, you can enable the secure import of the key material by using an [import token](/docs/key-protect?topic=key-protect-importing-keys#using-import-tokens) to encrypt your key material before you bring it to the cloud.
    {: tip}
+
+   The state of the customer root key (CRK) directly affects the availability of your encrypted image. If the CRK is suspended, deactivated, or destroyed, the wrapped data encryption key (WDEK) cannot be unwrapped, and any virtual server instance that uses the encrypted image cannot start. For more information, see [Key states and transitions](/docs/key-protect?topic=key-protect-key-states).
+   {: important}
 
 3. Use your customer root key (CRK) to wrap, or protect, the unique passphrase that you used to encrypt your image with LUKS encryption. In the image encryption example, we used the passphrase `abc123`.
 
@@ -231,6 +234,6 @@ Make sure that you created the required authorizations in IBM {{site.data.keywor
 ## Next steps
 {: #encrypt-next-steps}
 
-When your image is successfully encrypted, your KMS is set up, and you created the required keys, you can [import](/docs/vpc?topic=vpc-importing-custom-images-vpc) the image to {{site.data.keyword.vpc_short}}. When the image is available in {{site.data.keyword.vpc_short}}, you can use it to provision instances. Make sure that you have [Granted access to {{site.data.keyword.cos_full_notm}} to import images](/docs/vpc?topic=vpc-object-storage-prereq).
+When your image is successfully encrypted, {{site.data.keyword.keymanagementserviceshort}} is set up, and you created the required keys, you can [import](/docs/vpc?topic=vpc-importing-custom-images-vpc) the image to {{site.data.keyword.vpc_short}}. When the image is available in {{site.data.keyword.vpc_short}}, you can use it to provision instances. Make sure that you have [Granted access to {{site.data.keyword.cos_full_notm}} to import images](/docs/vpc?topic=vpc-object-storage-prereq).
 
 When you are ready to provision a new virtual server instance with the encrypted image, no encryption information is needed. The wrapped data encryption key (WDEK) and the CRN of the customer root key (CRK) are stored as metadata with the image.
