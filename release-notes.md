@@ -2,7 +2,7 @@
 
 copyright:
   years: 2019, 2026
-lastupdated: "2026-08-26"
+lastupdated: "2026-08-27"
 
 keywords:
 
@@ -28,7 +28,7 @@ For more information about changes to the {{site.data.keyword.vpc_short}} comman
 {: #vpc-aug26}
 
 ### 21 August 2026
-{: #vpc-aug1426}
+{: #vpc-aug2126}
 {: release-note}
 
 Allowlisting for `sdp` block volume profile re-enabled (select availability)
