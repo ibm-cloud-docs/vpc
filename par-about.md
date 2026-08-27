@@ -2,7 +2,7 @@
 
 copyright:
   years: 2026
-lastupdated: "2026-08-25"
+lastupdated: "2026-08-27"
 
 keywords: vpc, public address ranges, getting started
 
@@ -46,7 +46,10 @@ High Availability
 
 Before you begin, review [Planning considerations for public address ranges](/docs/vpc?topic=vpc-par-planning).
 
-**IPv4**
+### IPv4
+{: #par-getting-started-ipv4}
+
+Follow these steps to get started with IPv4 public address ranges.
 
 1. Ensure that you have [created a VPC](/docs/vpc?topic=vpc-getting-started&interface=ui#create-and-configure-vpc) and all the needed resources (if not already present).
 1. [Create your public address range](/docs/vpc?topic=vpc-par-creating&interface=ui).
