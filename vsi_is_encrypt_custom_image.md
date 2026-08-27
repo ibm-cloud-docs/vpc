@@ -159,8 +159,7 @@ When your image file is encrypted with LUKS encryption and your unique passphras
 ## Setting up your key management service and keys
 {: #kms-prereqs}
 
-{{site.data.keyword.hscrypto_short}} is deprecated. Customers can use existing instances until 20 March 2027. For continued protection, migrate your encryption keys to a Dedicated {{site.data.keyword.keymanagementserviceshort}} instance. For more information, see the [Migration guide](/docs/key-protect?topic=key-protect-migrate-st) and [Deprecation of IBM Cloud Hyper Protect Crypto Services](/docs/hs-crypto?topic=hs-crypto-faqs-deprecation-of-ibm-cloud-hyper-protect-crypto-services).
-{: deprecated}
+IBM Cloud {{site.data.keyword.hscrypto}} are deprecated. Customers can use existing instances until 20 March 2027. For more information, see [Deprecation of IBM Cloud Hyper Protect Crypto Services](/docs/hs-crypto?topic=hs-crypto-faqs-deprecation-of-ibm-cloud-hyper-protect-crypto-services). For continued protection, consider migrating your existing encryption keys to a Dedicated {{site.data.keyword.keymanagementserviceshort}} instance. For more information, see the [Migration guide](/docs/key-protect?topic=key-protect-migrate-st).
 
 To import an encrypted custom image to {{site.data.keyword.vpc_short}}, you need {{site.data.keyword.keymanagementserviceshort}}. You also need a customer root key (CRK) and a wrapped data encryption key (WDEK). The WDEK is the passphrase that you used to encrypt your image wrapped with your CRK, so that your passphrase remains known only to you. The WDEK is used to access the encrypted image when a virtual server instance that uses the encrypted image is started.
 
@@ -179,7 +178,8 @@ The following list is a summary of the key management prerequisites:
    Plan ahead for importing keys by [reviewing your options for creating and encrypting key material](/docs/key-protect?topic=key-protect-importing-keys#plan-ahead). For added security, you can enable the secure import of the key material by using an [import token](/docs/key-protect?topic=key-protect-importing-keys#using-import-tokens) to encrypt your key material before you bring it to the cloud.
    {: tip}
 
-   
+   The state of the customer root key (CRK) directly affects the availability of your encrypted image. If the CRK is suspended, deactivated, or destroyed, the wrapped data encryption key (WDEK) cannot be unwrapped, and any virtual server instance that uses the encrypted image cannot start. For more information, see [Key states and transitions](/docs/key-protect?topic=key-protect-key-states).
+   {: important}
 
 3. Use your customer root key (CRK) to wrap, or protect, the unique passphrase that you used to encrypt your image with LUKS encryption. In the image encryption example, we used the passphrase `abc123`.
 
